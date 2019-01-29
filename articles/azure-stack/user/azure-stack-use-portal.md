@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 4ec9affa78d1f244208a24bcf8a6603e867d4c08
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0bf725a20a7c030b0a835439c0f97f23b3cbef71
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086508"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097891"
 ---
 # <a name="use-the-azure-stack-portal"></a>Azure Stack 포털 사용
 

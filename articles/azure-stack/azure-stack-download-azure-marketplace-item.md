@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 12/10/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 0fcdb2324868528e62e69fa0ce24ab2334052ced
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 186e5ed062be8210f4efa0bdaf134f3af51d268b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245416"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094141"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure에서 Azure Stack marketplace 항목 다운로드
 
@@ -181,7 +181,7 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
    1. Azure Stack 관리 포털에서로 이동 **모든 서비스** 한 다음는 **데이터 + 저장소** 범주를 선택한 **저장소 계정**합니다.  
    
    2. 선택한 저장소 계정 구독에서 다음 아래 **BLOB SERVICE**를 선택 **컨테이너**합니다.  
-      [ ![Blob 서비스](media/azure-stack-download-azure-marketplace-item/blob-service.png "Blob service") ](media/azure-stack-download-azure-marketplace-item/blob-service.png#lightbox)  
+      [ ![Blob service](media/azure-stack-download-azure-marketplace-item/blob-service.png "Blob service") ](media/azure-stack-download-azure-marketplace-item/blob-service.png#lightbox)  
    
    3. 사용 하 여 선택한 컨테이너를 선택 **업로드** 열려는 합니다 **blob 업로드** 창입니다.  
       [ ![컨테이너](media/azure-stack-download-azure-marketplace-item/container.png "컨테이너") ](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
@@ -209,7 +209,7 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
     -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
 
-   **솔루션 템플릿에 대 한:** 일부 템플릿에서 작은 3MB를 포함할 수 있습니다. VHD 파일 이름의 **fixed3.vhd**합니다. Azure Stack에 해당 파일을 가져올 필요가 없습니다. Fixed3.vhd 합니다.  이 파일은 Azure Marketplace에 대 한 게시 요구 사항에 맞게 일부 솔루션 템플릿을 사용 하 여 포함 합니다.
+   **솔루션 템플릿에 대 한:** 일부 템플릿에서 작은 3MB를 포함할 수 있습니다. VHD 파일 이름의 **fixed3.vhd**합니다. Azure Stack에 해당 파일을 가져올 필요가 없습니다. Fixed3.vhd.  이 파일은 Azure Marketplace에 대 한 게시 요구 사항에 맞게 일부 솔루션 템플릿을 사용 하 여 포함 합니다.
 
    템플릿 설명을 검토 하 고 다운로드 가져와서 솔루션 템플릿을 사용 하 여 작동 하는 데 필요한 Vhd와 같은 추가 요구 사항입니다.  
    
@@ -232,9 +232,9 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
 
 Azure Stack PowerShell 1.3.0의 릴리스를 사용 하 여 이제 가상 머신 확장을 추가할 수 있습니다. 예: 
 
-````PowerShell
+```PowerShell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
-````
+```
 
 ## <a name="next-steps"></a>다음 단계
 

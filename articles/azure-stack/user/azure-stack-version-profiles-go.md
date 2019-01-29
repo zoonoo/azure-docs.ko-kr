@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 36496dd80111689b510bbbd27edc35a454d230a3
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: f865d08f742ebd1072b80a95960609e6ae5f4a82
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448295"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098411"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Azure Stack에서 Go를 사용한 API 버전 프로필 사용
 
@@ -33,9 +33,9 @@ ms.locfileid: "54448295"
 
 프로필은 프로필 경로에서 해당 버전에서 사용할 수 있는 Go sdk에서를 **YYYY-월-일** 형식입니다. 최신 Azure Stack API 프로필 버전은, 지금은 **2017-03-09**합니다. 프로필에서 지정된 된 서비스를 가져오려면 프로필에서 해당 해당 모듈을 가져옵니다. 예를 들어, 가져오는 **계산** 서비스 **2017-03-09** 프로 파일링, 다음 코드를 사용 합니다.
 
-````go
+```go
 import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute"
-````
+```
 
 ## <a name="install-azure-sdk-for-go"></a>Azure SDK for Go 설치
 

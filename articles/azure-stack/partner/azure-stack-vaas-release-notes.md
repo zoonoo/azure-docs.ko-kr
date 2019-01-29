@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: ce16ab3b723b9a6c87c7b980e3cc76c389609da6
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 4fcc38d34dd645ddb62acce4577fa145c517684b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847912"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097887"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>서비스 유효성 검사에 대 한 릴리스 정보
 

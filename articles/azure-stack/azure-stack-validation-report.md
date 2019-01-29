@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/23/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 0eed7943d782bda134c2df2de6cf9eeeb58bfa3b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 44530a1c4eec0f2efca7357438366dd7b6abe42a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243868"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093345"
 ---
 # <a name="azure-stack-validation-report"></a>Azure Stack 유효성 검사 보고서
 Azure Stack 준비 검사 도구를 사용 하 여 배포 및 Azure Stack 환경 서비스를 지 원하는 유효성 검사를 실행 합니다. .Json 보고서 파일에 결과 기록 하는 도구입니다. 보고서에는 Azure Stack의 배포를 위한 필수 구성 요소의 상태에 대 한 자세 하 고 요약 된 데이터가 표시 됩니다. 또한 보고서에는 기존 Azure Stack 배포에 대 한 비밀 회전 하는 방법에 대 한 정보가 표시 됩니다.  
@@ -44,7 +44,7 @@ PowerShell에서 보고서를 보려는 보고서에 대 한 경로 대 한 값�
 
 출력은 다음과 유사합니다.
 
-````PowerShell
+```PowerShell
 Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
 
 ############### Certificate Validation Summary ###############
@@ -84,7 +84,7 @@ StartTime         : 2018/10/22 14:24:16
 EndTime           : 2018/10/22 14:24:19
 Duration          : 3
 PSBoundParameters : 
-````
+```
 
 ## <a name="view-the-report-summary"></a>요약 보고서를 보려면
 보고서의 요약을 확인 하려면 추가 합니다 **-요약** PowerShell 명령줄의 끝으로 전환 합니다. 예:  
@@ -92,7 +92,7 @@ PSBoundParameters :
 
 요약 결과 되지 않은 유효성 검사 나타나며 전달 하거나 완료 되는 유효성 검사 실패를 나타냅니다. 출력은 다음과 유사합니다.
 
-````PowerShell
+```PowerShell
 Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
 
 ############### Certificate Validation Summary ###############
@@ -114,7 +114,7 @@ Azure Stack Graph Validation results not available.
 ############### Azure Stack ADFS Validation Summary ###############
 
 Azure Stack ADFS Validation results not available.
-````
+```
 
 
 ## <a name="view-a-filtered-report"></a>필터링 된 보고서를 보려면

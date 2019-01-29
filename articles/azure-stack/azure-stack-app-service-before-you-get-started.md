@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: anwestg
-ms.openlocfilehash: 31fe0ede202b72a3e71c8028543ef0677a44a335
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: ec34b99f48fbe7b634d7d143e8e108e8f2868f67
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413025"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182730"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure Stack에서 App Service를 사용 하 여 시작 하기 전에
 
@@ -331,7 +331,7 @@ Azure App Service on Azure Stack에 대 한 SQL Server 인스턴스를 모든 Ap
 3. [Azure Stack 용 PowerShell 설치](azure-stack-powershell-install.md)합니다.
 4. 실행 합니다 **AADIdentityApp.ps1 만들기** 스크립트입니다. 메시지가 나타나면 Azure Stack 배포에 사용 하는 Azure AD 테 넌 트 ID를 입력 합니다. 예를 들어 입력 **myazurestack.onmicrosoft.com**합니다.
 5. 에 **자격 증명** 창에서 Azure AD 서비스 관리자 계정 및 암호를 입력 합니다. **확인**을 선택합니다.
-6. 인증서 파일 경로 및 인증서 암호를 입력 합니다 [앞에서 만든 인증서](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack)합니다. 기본적으로이 단계에 만든 인증서 **sso.appservice.local.azurestack.external.pfx**합니다.
+6. 인증서 파일 경로 및 인증서 암호를 입력 합니다 [앞에서 만든 인증서](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started)합니다. 기본적으로이 단계에 만든 인증서 **sso.appservice.local.azurestack.external.pfx**합니다.
 7. 스크립트는 테 넌 트 Azure AD 인스턴스에 새 응용 프로그램을 만듭니다. PowerShell 출력에 반환 되는 응용 프로그램 ID를 기록해 둡니다. 설치 하는 동안이 정보가 필요합니다.
 8. 새 브라우저 창을 열고 로그인 합니다 [Azure portal](https://portal.azure.com) 에 Azure Active Directory 서비스 관리자로
 9. Azure AD 리소스 공급자를 엽니다.
@@ -375,7 +375,7 @@ AD FS에서 보안이 유지 되는 Azure Stack 환경에서는 다음 작업을
 3. [Azure Stack 용 PowerShell 설치](azure-stack-powershell-install.md)합니다.
 4. 실행 합니다 **ADFSIdentityApp.ps1 만들기** 스크립트입니다.
 5. 에 **자격 증명** 창 AD FS 클라우드 관리자 계정 및 암호를 입력 합니다. **확인**을 선택합니다.
-6. 인증서 암호를 확인 하 고 인증서 파일 경로 제공 합니다 [앞에서 만든 인증서](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack)합니다. 기본적으로이 단계에 만든 인증서 **sso.appservice.local.azurestack.external.pfx**합니다.
+6. 인증서 암호를 확인 하 고 인증서 파일 경로 제공 합니다 [앞에서 만든 인증서](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started)합니다. 기본적으로이 단계에 만든 인증서 **sso.appservice.local.azurestack.external.pfx**합니다.
 
 ```PowerShell
     Create-ADFSIdentityApp.ps1

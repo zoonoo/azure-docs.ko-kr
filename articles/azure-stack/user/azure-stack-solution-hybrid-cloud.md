@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/18/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 1629c4b62fb04e057c38261a33fd3bc759b279c1
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: cedc1ec84c049d779f09c31be1aa1a3af63dfe5b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267405"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094158"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 하이브리드 클라우드 솔루션 배포
 

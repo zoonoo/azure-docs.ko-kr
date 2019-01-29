@@ -6,25 +6,25 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 keywords: ''
-ms.openlocfilehash: d81478e6bdaf4a1844d01278b961350c81b2edd6
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 5826ab8ac50a5d27f5a74cff4bebba4b2809d5f0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087732"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096622"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Azure Stack 데이터 센터 통합-syslog 전달
 
-이 문서에서는 syslog를 사용 하 여 데이터 센터에 이미 배포 된 외부 보안 솔루션을 사용 하 여 Azure Stack 인프라를 통합 하는 방법을 보여 줍니다. 예를 들어, 보안 정보 이벤트 관리 (SIEM) 시스템입니다. Syslog 채널 감사, 경고 및 Azure Stack 인프라의 모든 구성 요소에서 보안 로그를 표시합니다. Syslog 전달을 사용 하 여 통합 보안 솔루션 모니터링을 사용 하 여 및/또는 모든 감사, 경고 및 보안을 검색할 로그 보존을 위해 저장 
+이 문서에서는 syslog를 사용 하 여 데이터 센터에 이미 배포 된 외부 보안 솔루션을 사용 하 여 Azure Stack 인프라를 통합 하는 방법을 보여 줍니다. 예를 들어, 보안 정보 이벤트 관리 (SIEM) 시스템입니다. Syslog 채널 감사, 경고 및 Azure Stack 인프라의 모든 구성 요소에서 보안 로그를 표시합니다. Syslog 전달을 사용 하 여 통합 보안 솔루션 모니터링을 사용 하 여 및/또는 모든 감사, 경고 및 보안을 검색할 로그 보존을 위해 저장
 
 1809 업데이트부터, Azure Stack에는 통합된 syslog 클라이언트를 한 번 구성 하면 일반적인 이벤트 형식 (CEF)에서 페이로드를 사용 하 여 syslog 메시지를 내보냅니다.
 
 다음 다이어그램에서는 Azure Stack을 외부 SIEM과 통합 합니다. 두 가지 통합 패턴으로 간주 해야 하는:는 먼저 (한 파란색에서) 하나는 인프라 가상 컴퓨터 및 Hyper-v 노드를 포함 하는 Azure Stack 인프라입니다. 모든 감사, 보안 로그 및 해당 구성 요소에서 경고는 중앙에서 수집 하 고 CEF 페이로드를 사용 하 여 syslog를 통해 노출 합니다. 이 통합 패턴은이 문서 페이지에 설명 되어 있습니다.
-두 번째 통합 패턴 주황색으로 표시 된 것 이며 베이스 보드 관리 컨트롤러 (Bmc), 하드웨어 수명 주기 호스트 (HLH), 가상 컴퓨터 및/또는 모니터링 하드웨어 파트너를 실행 하는 가상 어플라이언스 및 관리 소프트웨어 및 tor () 스위치의 맨 위에 있습니다. 이러한 구성 요소 하드웨어 파트너는 구체적으로 외부 SIEM과 통합 하는 방법에 대 한 설명서에 대 한 하드웨어 파트너에 게 문의 하세요.
+두 번째 통합 패턴 주황색으로 표시 된 것 이며 베이스 보드 관리 컨트롤러 (Bmc), 하드웨어 수명 주기 호스트 (HLH), 가상 컴퓨터 및/또는 모니터링 하드웨어 파트너를 실행 하는 가상 어플라이언스 및 관리 소프트웨어 및 tor () 스위치의 맨 위에 있습니다. 이러한 구성 요소는 하드웨어 파트너에서 특정 연락처는 외부 SIEM과 통합 하는 방법에 대 한 설명서에 대 한 하드웨어 파트너입니다.
 
 ![Syslog 전달 다이어그램](media/azure-stack-integrate-security/syslog-forwarding.png)
 
@@ -32,13 +32,13 @@ ms.locfileid: "50087732"
 
 Azure Stack에서 syslog 클라이언트에는 다음 구성을 지원합니다.
 
-1. **상호 인증 (클라이언트 및 서버) 및 TLS 1.2 암호화를 사용 하 여 TCP 통해 Syslog:** 이 구성에서는 syslog 서버 및 syslog 클라이언트 수의 id를 확인할 서로 다른 인증서를 통해. TLS 1.2 암호화 된 채널을 통해 전송 됩니다.
+1. **상호 인증 (클라이언트 및 서버) 및 TLS 1.2 암호화를 사용 하 여 TCP 통해 Syslog의 경우:** 이 구성에서는 syslog 서버 및 syslog 클라이언트 인증서를 통해 서로 id를 확인할 수 있습니다. TLS 1.2 암호화 된 채널을 통해 전송 됩니다.
 
-2. **Syslog 서버 인증 및 TLS 1.2 암호화를 사용 하 여 TCP 통한:** 이 구성에서는 syslog 클라이언트 인증서를 통해 syslog 서버 id를 확인할 수 있습니다. TLS 1.2 암호화 된 채널을 통해 전송 됩니다.
+2. **서버 인증 및 TLS 1.2 암호화를 사용 하 여 TCP 통해 Syslog의 경우:** 이 구성에서는 syslog 클라이언트 인증서를 통해 syslog 서버 id를 확인할 수 있습니다. TLS 1.2 암호화 된 채널을 통해 전송 됩니다.
 
-3. **이 지 않은 암호화를 사용 하 여 TCP 통해 Syslog:** 이 구성에서는 syslog 클라이언트도 syslog 서버 id를 서로 확인 됩니다. 합니다. 메시지는 TCP를 통해 일반 텍스트로 전송 됩니다.
+3. **이 지 않은 암호화를 사용 하 여 TCP 통해 Syslog의 경우:** 이 구성에서는 syslog 클라이언트 및 syslog 서버 id 확인 되지 않습니다. 메시지는 TCP를 통해 일반 텍스트로 전송 됩니다.
 
-4. **암호화 하지 않고 UDP 통해 Syslog:** 이 구성에서는 syslog 클라이언트도 syslog 서버 id를 서로 확인 됩니다. 합니다. 메시지는 UDP를 통해 일반 텍스트로 전송 됩니다.
+4. **암호화 하지 않고 UDP 통해 Syslog의 경우:** 이 구성에서는 syslog 클라이언트 및 syslog 서버 id 확인 되지 않습니다. 메시지는 UDP를 통해 일반 텍스트로 전송 됩니다.
 
 > [!IMPORTANT]
 > Microsoft 인증 및 암호화를 사용 하 여 TCP를 사용 하도록 적극 권장 (구성 #1 또는 매우 최소 2) 중간자 개입 공격 및 메시지 도청 으로부터 보호 하기 위해 프로덕션 환경에 대 한 합니다.
@@ -62,7 +62,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 | 매개 변수 | 설명 | type | 필수 |
 |---------|---------|---------|---------|
-|*서버 이름* | Syslog 서버의 FQDN 또는 IP 주소 | 문자열 | 예|
+|*데이터 열이 추적에서 캡처되고 서버를 사용할 수 있으면* | Syslog 서버의 FQDN 또는 IP 주소 | 문자열 | 예|
 |*ServerPort* | Syslog 서버 포트 번호에서 수신 대기 | 문자열 | 예|
 |*NoEncryption*| 일반 텍스트로 syslog 메시지를 보내는 클라이언트 강제 | 플래그 | no|
 |*SkipCertificateCheck*| 초기 TLS 핸드셰이크 중 syslog 서버에서 제공 하는 인증서의 유효성 검사 건너뛰기 | 플래그 | no|
@@ -129,7 +129,7 @@ Invoke-Command @params -ScriptBlock {
 
 ### <a name="configuring-syslog-forwarding-with-tcp-server-authentication-and-tls-12-encryption"></a>Syslog 전달을 TCP를 사용 하 여 구성 서버 인증 및 TLS 1.2 암호화
 
-이 구성에서는 Azure Stack에서 syslog 클라이언트 TLS 1.2 암호화를 사용 하 여 TCP를 통해 syslog 서버에 메시지를 전달합니다. 초기 핸드셰이크 중 클라이언트 서버 유효 하 고 신뢰할 수 있는 인증서는 또한 확인 합니다. 이렇게 하면 신뢰할 수 없는 대상에 메시지를 보내는 클라이언트가 됩니다.
+이 구성에서는 Azure Stack에서 syslog 클라이언트 TLS 1.2 암호화를 사용 하 여 TCP를 통해 syslog 서버에 메시지를 전달합니다. 초기 핸드셰이크 중 클라이언트 서버 유효 하 고 신뢰할 수 있는 인증서는 또한 확인 합니다. 이 구성은 신뢰할 수 없는 대상에 메시지를 보내는 클라이언트를 방지 합니다.
 인증 및 암호화를 사용 하 여 TCP 기본 구성 이며 최소 Microsoft 프로덕션 환경에 대 한 권장 하는 보안 수준을 나타냅니다. 
 
 ```powershell
@@ -260,10 +260,10 @@ PEP 심각도 표:
 |----------|-------| ----------------|
 |0|Undefined|값: 0. 모든 수준에서 로그를 나타냅니다.|
 |10|중요|값: 1. 중요 한 경고에 대 한 로그를 나타냅니다.|
-|8|오류| 값: 2입니다. 오류의 로그를 나타냅니다.|
+|8|오류| 값: 2. 오류의 로그를 나타냅니다.|
 |5|Warning|값: 3. 경고의 로그를 나타냅니다.|
-|2|정보|값: 4입니다. 정보 메시지에 대 한 로그를 나타냅니다.|
-|0|자세한 정보 표시|값: 5입니다. 모든 수준에서 로그를 나타냅니다.|
+|2|정보|값: 4. 정보 메시지에 대 한 로그를 나타냅니다.|
+|0|자세한 정보 표시|값: 5. 모든 수준에서 로그를 나타냅니다.|
 
 ### <a name="cef-mapping-for-recovery-endpoint-events"></a>복구 끝점 이벤트에 대 한 CEF 매핑
 
@@ -290,10 +290,10 @@ REP 심각도 표:
 |----------|-------| ----------------|
 |0|Undefined|값: 0. 모든 수준에서 로그를 나타냅니다.|
 |10|중요|값: 1. 중요 한 경고에 대 한 로그를 나타냅니다.|
-|8|오류| 값: 2입니다. 오류의 로그를 나타냅니다.|
+|8|오류| 값: 2. 오류의 로그를 나타냅니다.|
 |5|Warning|값: 3. 경고의 로그를 나타냅니다.|
-|2|정보|값: 4입니다. 정보 메시지에 대 한 로그를 나타냅니다.|
-|0|자세한 정보 표시|값: 5입니다. 모든 수준에서 로그를 나타냅니다.|
+|2|정보|값: 4. 정보 메시지에 대 한 로그를 나타냅니다.|
+|0|자세한 정보 표시|값: 5. 모든 수준에서 로그를 나타냅니다.|
 
 ### <a name="cef-mapping-for-windows-events"></a>Windows 이벤트에 대 한 CEF 매핑
 
@@ -309,10 +309,10 @@ Windows 이벤트에 대 한 심각도 표:
 |--------------------|---------------------| ----------------|
 |0|Undefined|값: 0. 모든 수준에서 로그를 나타냅니다.|
 |10|중요|값: 1. 중요 한 경고에 대 한 로그를 나타냅니다.|
-|8|오류| 값: 2입니다. 오류의 로그를 나타냅니다.|
+|8|오류| 값: 2. 오류의 로그를 나타냅니다.|
 |5|Warning|값: 3. 경고의 로그를 나타냅니다.|
-|2|정보|값: 4입니다. 정보 메시지에 대 한 로그를 나타냅니다.|
-|0|자세한 정보 표시|값: 5입니다. 모든 수준에서 로그를 나타냅니다.|
+|2|정보|값: 4. 정보 메시지에 대 한 로그를 나타냅니다.|
+|0|자세한 정보 표시|값: 5. 모든 수준에서 로그를 나타냅니다.|
 
 Azure Stack에 Windows 이벤트에 대 한 사용자 지정 확장 테이블:
 | 사용자 지정 확장 이름 | Windows 이벤트 예제 | 
@@ -321,7 +321,7 @@ Azure Stack에 Windows 이벤트에 대 한 사용자 지정 확장 테이블:
 |MasComputer | test.azurestack.contoso.com|
 |MasCorrelationActivityID| C8F40D7C-3764-423B-A4FA-C994442238AF|
 |MasCorrelationRelatedActivityID| C8F40D7C-3764-423B-A4FA-C994442238AF|
-|MasEventData| svchost!! 4132, G, 0!!! EseDiskFlushConsistency!! ESENT!! 0x800000|
+|MasEventData| svchost!!4132,G,0!!!!EseDiskFlushConsistency!!ESENT!!0x800000|
 |MasEventDescription| 사용자에 대 한 그룹 정책 설정은 성공적으로 처리 되었습니다. 마지막으로 성공적으로 처리 하는 그룹 정책 이후 검색 한 변경 내용은 없습니다.|
 |MasEventID|1501|
 |MasEventRecordID|26637|
@@ -334,7 +334,7 @@ Azure Stack에 Windows 이벤트에 대 한 사용자 지정 확장 테이블:
 |MasOpcodeName |info|
 |MasProviderEventSourceName ||
 |MasProviderGuid |AEA1B4FA-97D1-45F2-A64C-4D69FFFD92C9|
-|MasProviderName |Microsoft-Windows-그룹|
+|MasProviderName |Microsoft-Windows-GroupPolicy|
 |MasSecurityUserId |\<Windows SID\> |
 |MasTask |0|
 |MasTaskCategory| 프로세스 만들기|
@@ -360,7 +360,7 @@ Azure Stack에 Windows 이벤트에 대 한 사용자 지정 확장 테이블:
 Azure Stack에서 생성 된 경고에 대 한 사용자 지정 확장 테이블:
 | 사용자 지정 확장 이름 | 예 | 
 |-----------------------|---------|
-|MasEventDescription|설명: 사용자 계정 \<TestUser\> 에 대해 만들어진 \<TestDomain\>합니다. 이 잠재적인 보안 위험이 초래 됩니다. -업데이트 관리: 지원에 문의 합니다. 이 문제를 해결 하려면 고객 지원에 필요 합니다. 해당의 도움 없이이 문제를 해결 하려고 하지 않습니다. 지원 요청을 열기 전에의 지침을 사용 하 여 로그 파일 수집 프로세스 시작 https://aka.ms/azurestacklogfiles |
+|MasEventDescription|설명: 사용자 계정을 \<TestUser\> 에 대해 만들어진 \<TestDomain\>합니다. 이 잠재적인 보안 위험이 초래 됩니다. -업데이트 관리: 지원에 문의 이 문제를 해결 하려면 고객 지원에 필요 합니다. 해당의 도움 없이이 문제를 해결 하려고 하지 않습니다. 지원 요청을 열기 전에의 지침을 사용 하 여 로그 파일 수집 프로세스 시작 https://aka.ms/azurestacklogfiles |
 
 ### <a name="cef-mapping-for-alerts-closed"></a>닫힌 경고에 대 한 CEF 매핑
 

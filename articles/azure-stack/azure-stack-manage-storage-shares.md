@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 6d4a40b07ef70d8dd43eb410ba396057551cd483
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 4267984ba2a08b4cc7c32a7b7d8442f19d5842d0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304401"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095530"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Azure Stack에 대 한 저장소 용량 관리 
 
@@ -141,60 +141,60 @@ VM 디스크는 테 넌 트에서 컨테이너에 추가 됩니다 및 운영 �
 1. 했는지 확인 [Azure PowerShell 설치 및 구성](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)합니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](https://go.microsoft.com/fwlink/?LinkId=394767)을 참조하세요.
 2.  마이그레이션하려는 공유에 데이터를 이해 하려면 컨테이너를 검사 합니다. 볼륨의 마이그레이션에 대 한 최상의 후보 컨테이너를 식별 하려면 사용 합니다 **Get AzsStorageContainer** cmdlet:
 
-    ````PowerShell  
+    ```PowerShell  
     $farm_name = (Get-AzsStorageFarm)[0].name
     $shares = Get-AzsStorageShare -FarmName $farm_name
     $containers = Get-AzsStorageContainer -ShareName $shares[0].ShareName -FarmName $farm_name
-    ````
+    ```
     $Containers를 검사 합니다.
 
-    ````PowerShell
+    ```PowerShell
     $containers
-    ````
+    ```
 
     ![예: $Containers](media/azure-stack-manage-storage-shares/containers.png)
 
 3.  마이그레이션한 컨테이너를 보유할 최상의 대상 공유를 확인 합니다.
 
-    ````PowerShell
+    ```PowerShell
     $destinationshares = Get-AzsStorageShare -SourceShareName
     $shares[0].ShareName -Intent ContainerMigration
-    ````
+    ```
 
     $Destinationshares를 검사 합니다.
 
-    ````PowerShell 
+    ```PowerShell 
     $destinationshares
-    ````
+    ```
 
     ![예: $destination 공유](media/azure-stack-manage-storage-shares/examine-destinationshares.png)
 
 4. 컨테이너에 대 한 마이그레이션을 시작 합니다. 마이그레이션은 비동기입니다. 첫 번째 마이그레이션 완료 되기 전에 마이그레이션의 추가 컨테이너를 시작 하는 경우 각각의 상태를 추적 하려면 작업 id를 사용 합니다.
 
-  ````PowerShell
+  ```PowerShell
   $job_id = Start-AzsStorageContainerMigration -StorageAccountName $containers[0].Accountname -ContainerName $containers[0].Containername -ShareName $containers[0].Sharename -DestinationShareUncPath $destinationshares[0].UncPath -FarmName $farm_name
-  ````
+  ```
 
   그런 다음 $jobId를 검사 합니다. 다음 예제에서는 바꿉니다 *d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0* 확인 하려면 작업 id를 사용 하 여:
 
-  ````PowerShell
+  ```PowerShell
   $jobId
   d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0
-  ````
+  ```
 
 5. 작업 id를 사용 하 여 마이그레이션 작업의 상태를 확인 합니다. 컨테이너 마이그레이션이 완료 되 면 **MigrationStatus** 로 설정 된 **완료**합니다.
 
-  ````PowerShell 
+  ```PowerShell 
   Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
-  ````
+  ```
 
   ![예제: 마이그레이션 상태](media/azure-stack-manage-storage-shares/migration-status1.png)
 
 6.  진행 중인 마이그레이션 작업을 취소할 수 있습니다. 마이그레이션 작업은 비동기적으로 처리를 취소 합니다. $Jobid를 사용 하 여 취소를 추적할 수 있습니다.
 
-  ````PowerShell
+  ```PowerShell
   Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
-  ````
+  ```
 
   ![예제: 롤백 상태](media/azure-stack-manage-storage-shares/rollback.png)
 

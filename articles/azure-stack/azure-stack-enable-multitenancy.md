@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/6/2018
 ms.author: patricka
 ms.reviewer: bryanr
-ms.openlocfilehash: 2861b0d1b7ac24a8e881ff052b865ca0384a55d6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 91d5f24eacff83f8c6263a20aaa08665871bfd04
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464811"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094022"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Azure Stack의 다중 테 넌 트
 
@@ -41,10 +41,10 @@ Azure Stack에서 서비스를 사용 하도록 여러 Azure Active Directory (A
  - 했는지 [설치](azure-stack-powershell-install.md) 하 고 [구성](azure-stack-powershell-configure-admin.md) Azure Stack 용 PowerShell.
  - [Azure Stack Tools를 다운로드할](azure-stack-powershell-download.md), 연결 및 Id 모듈을 가져옵니다.
 
-    ````PowerShell  
+    ```PowerShell  
     Import-Module .\Connect\AzureStack.Connect.psm1
     Import-Module .\Identity\AzureStack.Identity.psm1
-    ````
+    ```
 
 ### <a name="configure-azure-stack-directory"></a>Azure Stack 디렉터리 구성
 
@@ -54,7 +54,7 @@ Azure Stack에서 서비스를 사용 하도록 여러 Azure Active Directory (A
 
 Contoso.onmicrosoft.com의 서비스 관리자는 다음 명령을 실행합니다.
 
-````PowerShell  
+```PowerShell  
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
@@ -75,7 +75,7 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
  -GuestDirectoryTenantName $guestDirectoryTenantToBeOnboarded `
  -Location $location `
  -ResourceGroupName $ResourceGroupName
-````
+```
 
 ### <a name="configure-guest-directory"></a>게스트 디렉터리를 구성 합니다.
 
@@ -85,7 +85,7 @@ Azure Stack 관리자가 한 번 / 연산자가 Azure Stack과 함께 사용할 
 
 Mary는 디렉터리 관리자에 게 Fabrikam의 게스트 디렉터리 fabrikam.onmicrosoft.com에서 다음 명령을 실행 합니다.
 
-````PowerShell
+```PowerShell
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $tenantARMEndpoint = "https://management.local.azurestack.external"
     
@@ -96,7 +96,7 @@ Register-AzSWithMyDirectoryTenant `
  -TenantResourceManagerEndpoint $tenantARMEndpoint `
  -DirectoryTenantName $guestDirectoryTenantName `
  -Verbose 
-````
+```
 
 > [!IMPORTANT]
 > Azure Stack 관리자에 게 나중에 새 서비스 또는 업데이트 설치를 하는 경우이 스크립트를 다시 실행 해야 합니다.

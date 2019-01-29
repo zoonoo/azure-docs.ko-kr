@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: 151f6fa7880db03909c522147d9c1f74508f51a1
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 6f67945bcd84eef5c332b92440afa3199429d365
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351852"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092114"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Azure Stack에서 Service Fabric 클러스터 배포
 
@@ -27,7 +27,7 @@ ms.locfileid: "54351852"
 
 Service Fabric을 사용 하 여 작업에 대 한 자세한 내용은 참조 하세요. [Azure Service Fabric의 개요](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) 하 고 [Service Fabric 클러스터 보안 시나리오](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security), Azure 설명서에서.
 
-Azure Stack에서 Service Fabric 클러스터는 Microsoft.ServiceFabric 리소스 공급자를 사용 하지 않습니다. 대신, Azure Stack에서 Service Fabric 클러스터는 Desired State Configuration (DSC)를 사용 하 여 설정 하는 사전 설치 된 소프트웨어를 사용 하 여 설정 하는 가상 머신 확장 합니다.
+Azure Stack에서 Service Fabric 클러스터는 Microsoft.ServiceFabric 리소스 공급자를 사용 하지 않습니다. 대신, Azure Stack에서 Service Fabric 클러스터는 Desired State Configuration (DSC)를 사용 하 여 사전 설치 된 소프트웨어 집합을 사용 하 여 설정 하는 가상 머신 확장 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -210,7 +210,7 @@ Service Fabric Explorer 또는 Service Fabric PowerShell을 사용 하 여 Servi
 
 1. 환경 변수의 순서를 변경한 후 PowerShell을 다시 시작 하 고 Service Fabric 클러스터에 액세스 하려면 다음 PowerShell 스크립트를 실행 하십시오.
 
-   ````PowerShell  
+   ```PowerShell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric
     CLUSTER FQDN\]:19000" \`
 
@@ -221,8 +221,11 @@ Service Fabric Explorer 또는 Service Fabric PowerShell을 사용 하 여 Servi
     0272251171BA32CEC7938A65B8A6A553AA2D3283 \`
 
     -StoreLocation CurrentUser -StoreName My -Verbose
-   ````
+   ```
    
    > [!NOTE]  
    > 방법이 없는 *https://* 스크립트에서 클러스터의 이름 앞입니다. 19000 포트가 필요 합니다.
- 
+
+## <a name="next-steps"></a>다음 단계
+
+[Azure Stack에 Kubernetes 배포](azure-stack-solution-template-kubernetes-deploy.md)

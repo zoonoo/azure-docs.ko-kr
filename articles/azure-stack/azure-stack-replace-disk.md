@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
-ms.openlocfilehash: d0b455261649fad95a92f7ad75f7af26d633cf5a
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b1fb1166e05eba209eddf72d97d20011c9ee4b78
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476889"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103006"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Azure Stack에서 실제 디스크 교체
 
@@ -54,27 +54,27 @@ ms.locfileid: "54476889"
  디스크를 교체한 후에 가상 디스크 상태를 모니터링 하 고 권한 있는 끝점을 사용 하 여 작업 진행 상태를 복구 수 있습니다. 권한 있는 끝점에 대 한 네트워크 연결 된 모든 컴퓨터에서 다음이 단계를 수행 합니다.
 
 1. Windows PowerShell 세션을 열고 권한 있는 끝점에 연결 합니다.
-    ````PowerShell
+    ```PowerShell
         $cred = Get-Credential
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-    ```` 
+    ``` 
   
 2. 가상 디스크 상태를 보려면 다음 명령을 실행 합니다.
-    ````PowerShell
+    ```PowerShell
         Get-VirtualDisk -CimSession s-cluster
-    ````
+    ```
    ![Powershell 명령의 출력은 Get-virtualdisk](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
 3. 현재 저장소 작업 상태를 보려면 다음 명령을 실행 합니다.
     ```PowerShell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
-    ````
+    ```
       ![Get-storagejob 명령의 Powershell 출력](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
 ## <a name="troubleshoot-virtual-disk-repair"></a>가상 디스크 복구 문제 해결
 
 가상 디스크를 복구 하는 경우 작업 작업을 다시 시작 하려면 다음 명령을 실행 중단을 나타납니다.
-  ````PowerShell
+  ```PowerShell
         Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
-  ```` 
+  ``` 
