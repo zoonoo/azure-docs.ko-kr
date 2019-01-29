@@ -41,13 +41,13 @@ Microsoft Translator 팀은 Translator Text API의 버전 3(V3)을 릴리스했�
 
 | V2 API 메서드   | V3 API 호환성 |
 |:----------- |:-------------|
-| 번역     | [번역](reference/v3-0-translate.md)          |
+| Translate     | [번역](reference/v3-0-translate.md)          |
 | TranslateArray      | [번역](reference/v3-0-translate.md)        |
 | GetLanguageNames      | [언어](reference/v3-0-languages.md)         |
 | GetLanguagesForTranslate     | [언어](reference/v3-0-languages.md)       |
 | GetLanguagesForSpeak      | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| 음성     | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| 감지     | [검색](reference/v3-0-detect.md)         |
+| Speak     | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| Detect     | [검색](reference/v3-0-detect.md)         |
 | DetectArray     | [검색](reference/v3-0-detect.md)         |
 | AddTranslation     | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
 | AddTranslationArray    | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
@@ -75,12 +75,12 @@ Microsoft Translator V3는 V2와 동일한 방식으로 공백을 포함한 문�
 
 | V3 메서드   | 청구에 계산되는 문자 |
 |:----------- |:-------------|
-| 언어     | 문자가 제출되지 않았습니다. 계산되지 않았습니다. 비용이 청구되지 않습니다.          |
-| 번역     | 수는 번역에 제출되는 문자 수 및 번역되는 언어 및 문자 수에 따라 다릅니다. 제출된 50개 문자 및 요청된 5개 언어는 50x5입니다.           |
-| 음역     | 음역에 제출된 문자 수가 계산됩니다.         |
-| 사전 조회 및 예제     | 사전 조회 및 예제에 제출된 문자 수가 계산됩니다.         |
+| Languages     | 문자가 제출되지 않았습니다. 계산되지 않았습니다. 비용이 청구되지 않습니다.          |
+| Translate     | 수는 번역에 제출되는 문자 수 및 번역되는 언어 및 문자 수에 따라 다릅니다. 제출된 50개 문자 및 요청된 5개 언어는 50x5입니다.           |
+| Transliterate     | 음역에 제출된 문자 수가 계산됩니다.         |
+| Dictionary lookup & example     | 사전 조회 및 예제에 제출된 문자 수가 계산됩니다.         |
 | BreakSentence     | 무료입니다.       |
-| 감지     | 무료입니다.      |
+| Detect     | 무료입니다.      |
 
 ## <a name="v3-end-points"></a>V3 엔드포인트
 
