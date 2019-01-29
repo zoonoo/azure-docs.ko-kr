@@ -12,20 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 01/18/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: c7540ed2715d13921f005ed9b217f7bfb9cd0a0a
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5b8277c0688d0fd08dfa81cb7d5f7155840843c0
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092086"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413586"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
-
-> [!IMPORTANT]
-> 이 기능은 **Akamai의 Azure CDN 표준** 제품에서 사용할 수 없습니다. Azure CDN(Content Delivery Network) 기능의 비교는 [Azure CDN 제품 기능 비교](cdn-features.md)를 참조하세요.
 
 이 자습서에서는 Azure CDN 엔드포인트에 연결된 사용자 지정 도메인에 HTTPS 프로토콜을 사용하도록 설정하는 방법을 보여줍니다. 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하면(예: https:\//www.contoso.com) 인터넷을 통해 중요한 데이터를 보낼 때 TLS/SSL 암호화를 통해 안전하게 보호됩니다. 웹 브라우저가 HTTPS를 통해 웹 사이트에 연결되면 웹 사이트 보안 인증서의 유효성을 검사하고 합법적인 인증 기관에서 발급되었는지를 확인합니다. 이 프로세스는 보안을 제공하며 공격으로부터 웹 애플리케이션을 보호합니다.
 
@@ -37,7 +34,7 @@ Azure CDN은 기본적으로 CDN 엔드포인트에서 HTTPS를 지원합니다.
 
 - 간단한 사용: [Azure Portal](https://portal.azure.com)에서 한 번 클릭으로 프로비전을 사용할 수 있습니다. REST API 또는 기타 개발자 도구를 사용하여 기능을 활성화할 수도 있습니다.
 
-- 완전한 인증서 관리 사용 가능: 사용자를 위해 모든 인증서 조달 및 관리가 처리됩니다. 만료되기 전에 인증서가 자동으로 프로비전되고 갱신되므로 인증서 만료로 인해 서비스가 중단될 위험이 없습니다.
+- 완전한 인증서 관리: 사용자를 위해 모든 인증서 조달 및 관리가 처리됩니다. 만료되기 전에 인증서가 자동으로 프로비전되고 갱신되므로 인증서 만료로 인해 서비스가 중단될 위험이 없습니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -51,7 +48,7 @@ Azure CDN은 기본적으로 CDN 엔드포인트에서 HTTPS를 지원합니다.
 
 이 자습서에서 단계를 완료하기 전에 먼저 CDN 프로필 및 하나 이상의 CDN 엔드포인트를 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기](cdn-create-new-endpoint.md)를 참조하세요.
 
-또한 CDN 엔드포인트에서 Azure CDN 사용자 지정 도메인을 연결해야 합니다. 자세한 내용은 [자습서: Azure CDN 엔드포인트에 사용자 지정 도메인 추가](cdn-map-content-to-custom-domain.md)를 참조하세요.
+또한 CDN 엔드포인트에서 Azure CDN 사용자 지정 도메인을 연결해야 합니다. 자세한 내용은 [자습서: Azure CDN 엔드포인트에 사용자 지정 도메인 추가](cdn-map-content-to-custom-domain.md)
 
 ---
 
@@ -65,7 +62,7 @@ CDN 관리되는 인증서를 사용하면 단 몇 번의 클릭으로 HTTPS 기
 
 사용자 지정 도메인에서 HTTPS를 활성화하려면 다음 단계를 따르세요.
 
-1. [Azure Portal](https://portal.azure.com)에서 **Microsoft의 Azure CDN 표준**, **Verizon의 Azure CDN 표준** 또는 **Verizon의 Azure CDN 프리미엄** 프로필로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Microsoft의 Azure CDN 표준**, **Akamai의 Azure CDN 표준**, **Verizon의 Azure CDN 표준** 또는 **Verizon의 Azure CDN 프리미엄** 프로필로 이동합니다.
 
 2. CDN 엔드포인트 목록에서 사용자 지정 도메인을 포함하고 있는 엔드포인트를 선택합니다.
 
@@ -188,6 +185,9 @@ CNAME 레코드가 올바른 형식이면 DigiCert는 사용자 지정 도메인
 
 엔드포인트에 대한 CNAME 레코드 항목이 더 이상 없거나 cdnverify 하위 도메인을 포함하는 경우 이 단계의 나머지 지침을 따르세요.
 
+>[!NOTE]
+>현재 사용자 지정 도메인 소유권에 대한 이메일 유효성 검사는 **Akamai의 Azure CDN** 프로필에 사용할 수 없습니다. 이 기능은 현재 백로그로 제공됩니다. 
+
 사용자 지정 도메인에서 HTTPS를 활성화한 후에 DigiCert CA에서 도메인의 [WHOIS](http://whois.domaintools.com/) 등록자 정보에 따라 등록자에게 연락하여 도메인 소유권에 대한 유효성을 검사합니다. 기본적으로 WHOIS에 등록된 전자 메일 주소 또는 전화 번호를 통해 연락합니다. 사용자 지정 도메인에서 HTTPS를 활성화하기 전에 도메인 유효성 검사를 완료해야 합니다. 업무일 기준 6일 이내 도메인이 승인되어야 합니다. 6 영업일 이내에 승인되지 않은 요청은 자동으로 취소됩니다. 
 
 ![WHOIS 레코드](./media/cdn-custom-ssl/whois-record.png)
@@ -302,15 +302,11 @@ We encountered an unexpected error while processing your HTTPS request. Please t
     
     SAN 인증서는 전용 인증서와 동일한 암호화 및 보안 표준을 따릅니다. 발급된 모든 SSL 인증서는 향상된 서버 보안을 위해 SHA-256을 사용합니다.
 
-5. *Akamai의 Azure CDN에서 사용자 지정 도메인 HTTPS를 사용할 수 있나요?*
-
-    현재 이 기능은 **Akamai의 Azure CDN 표준** 프로필에서 사용할 수 없습니다. Microsoft는 앞으로 몇 달 안에 이 기능을 지원하기 위해 노력하고 있습니다.
-
-6. *내 DNS 공급자에게 CAA(Certificate Authority Authorization) 레코드가 필요합니까?*
+5. *내 DNS 공급자에게 CAA(Certificate Authority Authorization) 레코드가 필요합니까?*
 
     아니요, CAA 레코드는 현재 필요하지 않습니다. 그러나 이 레코드가 있으면 DigiCert가 유효한 CA로 포함되어야 합니다.
 
-7. *기본적으로 2018년 6월 20일에 SNI TLS/SSL에서 전용 인증서를 사용하여 Verizon의 Azure CDN을 시작했습니다. SAN(주체 대체 이름) 인증서와 IP 기반 TLS/SSL을 사용하는 기존 사용자 지정 도메인은 어떻게 되나요?*
+6. *기본적으로 2018년 6월 20일에 SNI TLS/SSL에서 전용 인증서를 사용하여 Verizon의 Azure CDN을 시작했습니다. SAN(주체 대체 이름) 인증서와 IP 기반 TLS/SSL을 사용하는 기존 사용자 지정 도메인은 어떻게 되나요?*
 
     Microsoft가 애플리케이션에 대한 SNI 클라이언트 요청이 있는지 분석하는 경우 기존 도메인은 향후 몇 달 안에 단일 인증서로 점진적으로 마이그레이션됩니다. Microsoft가 애플리케이션에 대한 일부 비 SNI 클라이언트 요청을 검색하는 경우 도메인은 IP 기반 TLS/SSL을 사용하여 SAN 인증서에 유지됩니다. 어떤 경우든 해당 요청이 SNI인지 비 SNI인지에 관계 없이 서비스에 대한 중단 또는 클라이언트 요청에 대한 지원이 없습니다.
 

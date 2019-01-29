@@ -4,17 +4,17 @@ description: Azure CLI를 사용하여 규정 비준수 리소스를 식별하�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 99e8b782f3f52ed89b5188de19d70cb276a0eb84
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 3b4f71e420c0d80594193f27739fd120881247d4
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315845"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856233"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Azure CLI를 사용하여 비준수 리소스를 식별하는 정책 할당 만들기
 
@@ -65,11 +65,11 @@ az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit
 이 새 할당에서 준수되지 않는 리소스를 보려면 다음 명령을 실행하여 정책 할당 ID를 가져옵니다.
 
 ```azurepowershell-interactive
-$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
+$policyAssignment = Get-AzPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
 $policyAssignment.PolicyAssignmentId
 ```
 
-정책 할당 ID에 대한 자세한 내용은 [Get-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/get-azurermpolicyassignment)를 참조합니다.
+정책 할당 ID에 대한 자세한 내용은 [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment)를 참조하세요.
 
 다음으로 JSON 파일로 출력되는 비준수 리소스의 리소스 ID를 가져오려면 다음 명령을 실행합니다.
 

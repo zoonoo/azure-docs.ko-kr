@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5bd6649b063521853864d4da423372ae181cf977
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 97910241cb4f903deeeb9ff6971839530903efe2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580521"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823018"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>자습서: 자동화된 기계 학습을 사용하여 모델 빌드
 
@@ -44,11 +44,11 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 ## <a name="prerequisites"></a>필수 조건
 
 > * [데이터 준비 자습서를 실행합니다](tutorial-data-prep.md).
-> * 자동화된 Machine Learning이 구성된 환경. Azure Notebooks, 로컬 Python 환경 또는 Data Science Virtual Machine을 예로 들 수 있습니다. [자동화된 Machine Learning을 설정합니다](samples-notebooks.md).
+> * 자동화된 Machine Learning이 구성된 환경. [Azure Notebooks](https://notebooks.azure.com/), 로컬 Python 환경 또는 Data Science Virtual Machine을 예로 들 수 있습니다. [자동화된 Machine Learning을 설정합니다](samples-notebooks.md).
 
 ## <a name="get-the-notebook"></a>Notebook 가져오기
 
-사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb)으로 제공됩니다. Azure Notebooks 또는 사용자 고유의 Jupyter Notebook 서버에서 `regression-part2-automated-ml.ipynb` 노트북을 실행합니다.
+사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb)으로 제공됩니다. [Azure Notebooks](https://notebooks.azure.com/) 또는 사용자 고유의 Jupyter Notebook 서버에서 `regression-part2-automated-ml.ipynb` Notebook을 실행합니다.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -66,9 +66,15 @@ import logging
 import os
 ```
 
+사용자 고유의 Python 환경에서 자습서를 수행하는 경우 필요한 패키지를 설치하려면 다음을 사용합니다.
+
+```shell
+pip install azureml-sdk[automl,notebooks] azureml-dataprep pandas scikit-learn matplotlib
+```
+
 ## <a name="configure-workspace"></a>작업 영역 구성
 
-기존 작업 영역에서 작업 영역 개체를 만듭니다. `Workspace`는 Azure 구독 및 리소스 정보를 허용하는 클래스입니다. 또한 클라우드 리소스를 만들어서 모델 실행을 모니터링하고 추적합니다. 
+기존 작업 영역에서 작업 영역 개체를 만듭니다. `Workspace`는 Azure 구독 및 리소스 정보를 허용하는 클래스입니다. 또한 클라우드 리소스를 만들어서 모델 실행을 모니터링하고 추적합니다.
 
 `Workspace.from_config()`는 **aml_config/config.json** 파일을 읽고, 세부 정보를 `ws`라는 개체에 로드합니다.  `ws`는 이 자습서에서 나머지 코드에 사용됩니다.
 
@@ -95,7 +101,7 @@ pd.DataFrame(data=output, index=['']).T
 
 ## <a name="explore-data"></a>데이터 탐색
 
-이전 자습서에서 만든 데이터 흐름 개체를 사용합니다. 데이터 흐름을 열어 실행하고 결과를 검토합니다.
+이전 자습서에서 만든 데이터 흐름 개체를 사용합니다. 요약하자면 이 자습서의 1부는 NYC Taxi 데이터를 정리했으므로 기계 학습 모델에서 사용할 수 있습니다. 이제 데이터 세트에서 다양한 기능을 사용하고 자동화된 모델에서 기능과 택시 여정 간의 관계를 빌드하도록 허용합니다. 데이터 흐름을 열어 실행하고 결과를 검토합니다.
 
 
 ```python
@@ -605,27 +611,27 @@ x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, r
 y_train.values.flatten()
 ```
 
-이제 모델을 위한 자동 학습에 필요한 패키지 및 데이터가 준비되었습니다.
+이 단계의 목적은 데이터 요소에서 실제 정확도를 측정하기 위해 모델 학습에 사용되지 않은 완료된 모델을 테스트하는 것입니다. 즉, 잘 학습된 모델은 아직 확인되지 않은 데이터에서 정확한 예측을 수행할 수 있어야 합니다. 이제 모델을 위한 자동 학습에 필요한 패키지 및 데이터가 준비되었습니다.
 
 ## <a name="automatically-train-a-model"></a>자동으로 모델 학습
 
 자동으로 모델을 학습하려면 다음 단계를 수행합니다.
-1. 실험 실행을 위한 설정 정의
-1. 모델 튜닝을 위한 실험 제출
+1. 실험 실행을 위한 설정 정의 학습 데이터를 구성에 연결하고, 학습 프로세스를 제어하는 설정을 수정합니다.
+1. 모델 튜닝을 위한 실험 제출 실험을 제출한 후 프로세스는 다른 기계 학습 알고리즘 및 하이퍼 매개 변수 설정을 반복하여 정의된 제약 조건을 준수합니다. 정확도 메트릭을 최적화하여 가장 적합한 모델을 선택합니다.
 
 ### <a name="define-settings-for-autogeneration-and-tuning"></a>자동 생성 및 튜닝을 위한 설정 정의
 
-자동 생성 및 튜닝을 위해 실험 매개 변수 및 모델 설정을 정의합니다. [설정](how-to-configure-auto-train.md)의 전체 목록을 확인합니다.
+자동 생성 및 튜닝을 위해 실험 매개 변수 및 모델 설정을 정의합니다. [설정](how-to-configure-auto-train.md)의 전체 목록을 확인합니다. 이러한 기본 설정을 사용하여 실험을 제출하는 데 약 10-15분이 걸리지만 짧은 실행 시간을 원하는 경우 `iterations` 또는 `iteration_timeout_minutes` 중 하나를 줄입니다.
 
 
 |자산| 이 자습서의 값 |설명|
 |----|----|---|
-|**iteration_timeout_minutes**|10|각 반복에 대한 분 단위 시간 제한|
-|**iterations**|30|반복 횟수입니다. 각 반복에서 모델은 특정 파이프라인을 통해 데이터를 학습합니다.|
-|**primary_metric**| spearman_correlation | 최적화하려는 메트릭입니다.|
-|**preprocess**| True | **True**를 사용하여 실험은 입력을 전처리할 수 있습니다.|
+|**iteration_timeout_minutes**|10|각 반복에 대한 분 단위 시간 제한 총 런타임을 줄이기 위해 이 값을 줄입니다.|
+|**iterations**|30|반복 횟수입니다. 각 반복에서 데이터를 사용하여 새 기계 학습 모델을 학습합니다. 총 실행 시간에 영향을 주는 기본 값입니다.|
+|**primary_metric**| spearman_correlation | 최적화하려는 메트릭입니다. 이 메트릭에 따라 최적화된 모델이 선택됩니다.|
+|**preprocess**| True | **True**를 사용하여 실험은 입력 데이터를 전처리할 수 있습니다(누락 데이터 처리, 텍스트를 숫자로 변환 등).|
 |**verbosity**| logging.INFO | 로깅 수준을 제어합니다.|
-|**n_cross_validationss**|5|교차 유효성 검사 분할의 수입니다.|
+|**n_cross_validations**|5|유효성 검사 데이터가 지정되지 않은 경우 수행할 교차 유효성 검사 분할 수입니다.|
 
 
 
@@ -640,6 +646,7 @@ automl_settings = {
 }
 ```
 
+`AutoMLConfig` 개체에 대한 매개 변수로 정의된 학습 설정을 사용합니다. 또한 학습 데이터 및 모델의 유형을 지정합니다. 이 경우 `regression`입니다.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -664,6 +671,8 @@ experiment=Experiment(ws, experiment_name)
 local_run = experiment.submit(automated_ml_config, show_output=True)
 ```
 
+표시되는 출력은 실험이 실행됨에 따라 실시간으로 업데이트됩니다. 각 반복의 경우 모델 유형, 실행 지속 및 학습 정확도가 표시됩니다. 필드 `BEST`는 메트릭 유형에 따라 최적의 실행 학습 점수를 추적합니다.
+
     Parent Run ID: AutoML_02778de3-3696-46e9-a71b-521c8fca0651
     *******************************************************************************************
     ITERATION: The iteration being evaluated.
@@ -672,7 +681,7 @@ local_run = experiment.submit(automated_ml_config, show_output=True)
     METRIC: The result of computing score on the fitted pipeline.
     BEST: The best observed score thus far.
     *******************************************************************************************
-    
+
      ITERATION   PIPELINE                                       DURATION      METRIC      BEST
              0   MaxAbsScaler ExtremeRandomTrees                0:00:08       0.9447    0.9447
              1   StandardScalerWrapper GradientBoosting         0:00:09       0.9536    0.9536
@@ -724,7 +733,7 @@ RunDetails(local_run).show()
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>옵션 2: Python에서 모든 실행 반복 가져오기 및 검사
 
-또는 각 실험의 기록을 검색하고 각 반복 실행에 대한 개별 메트릭을 살펴볼 수 있습니다.
+또는 각 실험의 기록을 검색하고 각 반복 실행에 대한 개별 메트릭을 살펴볼 수 있습니다. 각 개별 모델 실행에 대해 RMSE(root_mean_squared_error)를 검사하여 대부분의 반복이 적절한 여백($3~4) 내에서 택시 요금을 예측하는 것을 알 수 있습니다.
 
 ```python
 children = list(local_run.get_children())
@@ -1081,28 +1090,16 @@ print(best_run)
 print(fitted_model)
 ```
 
-## <a name="register-the-model"></a>모델 등록
-
-Azure Machine Learning Service 작업 영역에 모델을 등록합니다.
-
-
-```python
-description = 'Automated Machine Learning Model'
-tags = None
-local_run.register_model(description=description, tags=tags)
-local_run.model_id # Use this id to deploy the model as a web service in Azure
-```
-
 ## <a name="test-the-best-model-accuracy"></a>최적 모델 정확도 테스트
 
-최적 모델을 사용하여 테스트 데이터 세트에서 예측을 실행합니다. `predict` 함수는 최적 모델을 사용하고 `x_test` 데이터 세트에서 y(**출장 비용**) 값을 예측합니다. `y_predict`에서 첫 10개의 예측 비용 값을 인쇄합니다.
+최적 모델을 사용하여 테스트 데이터 세트에서 예측을 실행하여 택시 요금을 예측합니다. `predict` 함수는 최적 모델을 사용하고 `x_test` 데이터 세트에서 y(**출장 비용**) 값을 예측합니다. `y_predict`에서 첫 10개의 예측 비용 값을 인쇄합니다.
 
 ```python
 y_predict = fitted_model.predict(x_test.values)
 print(y_predict[:10])
 ```
 
-실제 비용 값과 비교하여 예측 비용 값을 시각화하는 산점도를 만듭니다. 다음 코드에서는 `distance` 기능을 x-축으로, 여행 `cost`를 y-축으로 사용합니다. 각 여행 거리 값에서 예측 비용의 차이를 비교하기 위해 처음 100개의 예측 및 실제 비용 값이 별도의 시리즈로 만들어집니다. 도표 검사로 거리/비용 관계가 선형에 가까움을 알 수 있습니다. 또한 예측된 비용 값은 대부분의 경우 동일한 여행 거리에 대해 실제 비용 값에 매우 근접합니다.
+실제 비용 값과 비교하여 예측 비용 값을 시각화하는 산점도를 만듭니다. 다음 코드에서는 `distance` 기능을 x-축으로, 여행 `cost`를 y-축으로 사용합니다. 각 여행 거리 값에서 예측 비용의 차이를 비교하기 위해 처음 100개의 예측 및 실제 비용 값이 별도의 시리즈로 만들어집니다. 도표를 살펴보면 거리/비용 관계가 거의 선형이고, 대부분의 경우 예측 비용 값이 동일한 여행 거리에 대한 실제 비용 값에 매우 가깝다는 것을 알 수 있습니다.
 
 ```python
 import matplotlib.pyplot as plt
@@ -1127,7 +1124,7 @@ plt.show()
 
 ![예측 산점도](./media/tutorial-auto-train-models/automl-scatter-plot.png)
 
-결과의 `root mean squared error`를 계산합니다. `y_test` 데이터 프레임을 사용합니다. 이를 목록으로 변환하여 예측 값과 비교합니다. `mean_squared_error` 함수는 두 개의 값 배열을 사용하고 두 배열 간의 평균 제곱 오차를 계산합니다. 결과의 제곱근을 구하면 y 변수(**비용**)와 동일한 단위에서 오류가 나타납니다. 이는 대략적으로 실제 값과 예측 간 차이를 나타냅니다.
+결과의 `root mean squared error`를 계산합니다. `y_test` 데이터 프레임을 사용합니다. 이를 목록으로 변환하여 예측 값과 비교합니다. `mean_squared_error` 함수는 두 개의 값 배열을 사용하고 두 배열 간의 평균 제곱 오차를 계산합니다. 결과의 제곱근을 구하면 y 변수(**비용**)와 동일한 단위에서 오류가 나타납니다. 이는 대략적으로 실제 요금과 택시 요금 예측 간 차이를 나타냅니다.
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -1165,6 +1162,8 @@ print(1 - mean_abs_percent_error)
 
     Model Accuracy:
     0.8945484613043041
+
+최종 예측 정확도 메트릭에서 모델은 데이터 세트의 기능에서 택시 요금을 예측하는 데 적합하다는 것을 알 수 있습니다(일반적으로 +- $3.00 내). 기존의 Machine Learning 모델 개발 프로세스는 리소스가 상당히 많이 필요하며, 수십 가지 모델을 실행하고 결과를 비교하는 데 많은 도메인 지식과 시간이 필요합니다. 자동화된 기계 학습을 사용하는 것은 시나리오에 대한 다른 여러 모델을 신속하게 테스트하는 좋은 방법입니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

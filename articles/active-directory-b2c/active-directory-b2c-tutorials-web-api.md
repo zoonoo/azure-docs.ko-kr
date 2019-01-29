@@ -3,19 +3,19 @@ title: 자습서 - Azure Active Directory B2C를 사용하여 웹앱에서 ASP.N
 description: Active Directory B2C를 사용하여 ASP.NET 웹 API를 보호하고 ASP.NET 웹앱에서 호출하는 방법에 대한 자습서입니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
 ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: bd900071bbcd894d4fe71e0f8a265d98348eb262
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4051c0438cfb7c33f36cf49542e422e54e723cfc
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726409"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856063"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 웹앱에서 ASP.NET Web API로의 액세스 권한 부여
 
@@ -38,7 +38,7 @@ ms.locfileid: "52726409"
 
 ## <a name="register-web-api"></a>웹 API 등록
 
-Azure Active Directory에서 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)을 제공하는 [클라이언트 애플리케이션](../active-directory/develop/developer-glossary.md#client-application)을 통해 [보호된 리소스 요청](../active-directory/develop/developer-glossary.md#resource-server)을 수락하고 이에 응답하려면, 먼저 웹 API 리소스를 테넌트에 등록해야 합니다. 등록하면 [애플리케이션 및 서비스 사용자 개체](../active-directory/develop/developer-glossary.md#application-object)가 테넌트에 설정됩니다. 
+Azure Active Directory에서 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)을 제공하는 [클라이언트 애플리케이션](../active-directory/develop/developer-glossary.md#client-application)을 통해 [보호된 리소스 요청](../active-directory/develop/developer-glossary.md#resource-server)을 수락하고 이에 응답하려면, 먼저 웹 API 리소스를 테넌트에 등록해야 합니다. 등록하면 [응용 프로그램 및 서비스 사용자 개체](../active-directory/develop/developer-glossary.md#application-object)가 테넌트에 설정됩니다. 
 
 Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -63,7 +63,7 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
     
 3. **만들기**를 클릭하여 API를 등록합니다.
 
-등록된 API는 Azure AD B2C 테넌트에 대한 애플리케이션 목록에 표시됩니다. 목록에서 웹 API를 선택합니다. 웹 API의 속성 창이 표시됩니다.
+등록된 API는 Azure AD B2C 테넌트에 대한 응용 프로그램 목록에 표시됩니다. 목록에서 웹 API를 선택합니다. 웹 API의 속성 창이 표시됩니다.
 
 ![웹 API 속성](./media/active-directory-b2c-tutorials-web-api/b2c-web-api-properties.png)
 
@@ -77,7 +77,7 @@ Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정�
 
 ### <a name="define-scopes-for-the-web-api"></a>웹 API에 대한 범위 정의
 
-등록된 API는 Azure AD B2C 테넌트에 대한 애플리케이션 목록에 표시됩니다. 목록에서 웹 API를 선택합니다. 웹 API의 속성 창이 표시됩니다.
+등록된 API는 Azure AD B2C 테넌트에 대한 응용 프로그램 목록에 표시됩니다. 목록에서 웹 API를 선택합니다. 웹 API의 속성 창이 표시됩니다.
 
 **게시된 범위(미리 보기)** 를 클릭합니다.
 
@@ -98,7 +98,7 @@ Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정�
 
 앱에서 보호된 웹 API를 호출하려면 앱 사용 권한을 API에 부여해야 합니다. 이 자습서에서는 [ASP.NET 웹앱 자습서에서 Azure Active Directory B2C를 사용하여 사용자 인증](active-directory-b2c-tutorials-web-app.md)에서 만든 웹앱을 사용합니다. 
 
-1. Azure Portal의 서비스 목록에서 **Azure AD B2C**를 선택하고, **애플리케이션**을 클릭하여 등록된 앱 목록을 봅니다.
+1. Azure Portal의 서비스 목록에서 **Azure AD B2C**를 선택하고, **응용 프로그램**을 클릭하여 등록된 앱 목록을 봅니다.
 
 2. 앱 목록에서 **내 샘플 웹앱**을 선택하고, **API 액세스(미리 보기)**, **추가**를 차례로 클릭합니다.
 
@@ -116,13 +116,13 @@ Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정�
 
 이제 웹 API가 등록되었고 범위가 정의되었으므로 웹 API 코드에서 Azure AD B2C 테넌트를 사용하도록 구성해야 합니다. 이 자습서에서는 샘플 웹 API를 구성합니다. 
 
-샘플 웹 API는 필수 구성 요소 자습서([ASP.NET 웹앱 자습서에서 Azure Active Directory B2C를 사용하여 사용자 인증](active-directory-b2c-tutorials-web-app.md))에서 다운로드한 프로젝트에 포함되어 있습니다. 이 필수 구성 요소 자습서를 완료하지 않은 경우 먼저 이를 완료한 후에 계속합니다.
+샘플 웹 API는 필수 구성 요소 자습서에서 다운로드한 프로젝트에 포함됩니다. [ASP.NET 웹앱 자습서에서 Azure Active Directory B2C를 사용하여 사용자 인증](active-directory-b2c-tutorials-web-app.md) 이 필수 구성 요소 자습서를 완료하지 않은 경우 먼저 이를 완료한 후에 계속합니다.
 
 샘플 솔루션에는 두 개의 프로젝트가 있습니다.
 
-**웹앱 샘플 앱(TaskWebApp):** 작업 목록을 만들고 편집하는 웹앱입니다. 웹앱에서 **가입 또는 로그인** 사용자 흐름을 사용하여 이메일 주소로 사용자를 가입 또는 로그인시킵니다.
+**웹앱 샘플 앱(TaskWebApp):** 작업 목록을 만들고 편집할 웹앱입니다. 웹앱에서 **가입 또는 로그인** 사용자 흐름을 사용하여 이메일 주소로 사용자를 가입 또는 로그인시킵니다.
 
-**웹 API 샘플 앱(TaskService):** 작업 목록 만들기, 읽기, 업데이트 및 삭제 기능을 지원하는 웹 API입니다. 웹 API는 Azure AD B2C를 통해 보호되고 웹앱에서 호출됩니다.
+**Web API 샘플 앱(TaskService):** 작업 목록 만들기, 읽기, 업데이트 및 삭제 기능을 지원하는 Web API입니다. 웹 API는 Azure AD B2C를 통해 보호되고 웹앱에서 호출됩니다.
 
 샘플 웹앱 및 웹 API는 각 프로젝트의 Web.config 파일에서 구성 값을 앱 설정으로 정의합니다.
 
@@ -156,7 +156,7 @@ Visual Studio에서 **B2C-WebAPI-DotNet** 솔루션을 엽니다.
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
     ```
 
-3. 클라이언트 ID를 API에 대해 등록된 애플리케이션 ID로 설정합니다.
+3. 클라이언트 ID를 API에 대해 등록된 응용 프로그램 ID로 설정합니다.
 
     ```C#
     <add key="ida:ClientId" value="<The Application ID for your web API obtained from the Azure portal>"/>
@@ -186,7 +186,7 @@ Visual Studio에서 **B2C-WebAPI-DotNet** 솔루션을 엽니다.
 5. **F5** 키를 눌러 두 응용 프로그램을 모두 실행합니다. 각 애플리케이션은 자체 브라우저 탭에서 열립니다. `https://localhost:44316/`은 웹앱이고,
     `https://localhost:44332/`는 웹 API입니다.
 
-6. 웹앱의 메뉴 배너에서 등록/로그인 링크를 클릭하여 웹 애플리케이션에 등록합니다. [웹앱 프로그램 자습서](active-directory-b2c-tutorials-web-app.md)에서 만든 계정을 사용합니다. 
+6. 웹앱의 메뉴 배너에서 등록/로그인 링크를 클릭하여 웹 응용 프로그램에 등록합니다. [웹앱 프로그램 자습서](active-directory-b2c-tutorials-web-app.md)에서 만든 계정을 사용합니다. 
 7. 로그인한 후 **할 일 목록** 링크를 클릭하고 할 일 목록 항목을 만듭니다.
 
 할 일 목록 항목을 만들면 웹앱에서 할 일 목록 항목을 생성하는 웹 API를 요청합니다. 보호된 웹앱은 Azure AD B2C 테넌트에서 보호된 웹 API를 호출합니다.

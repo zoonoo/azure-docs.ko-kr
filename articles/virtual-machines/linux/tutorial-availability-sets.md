@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: f7bf5e233307703dca522974d52a86bc193186b8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 9391db9bf270511f734a31a621985f5b6ad31ec0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465834"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848736"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 고가용성 가상 머신 만들기 및 배포
 
@@ -70,7 +70,7 @@ az vm availability-set create \
 
 하드웨어 전체에 올바르게 배포되도록 하려면 VM을 가용성 집합 내에 만들어야 합니다. VM을 만든 후에는 가용성 집합에 기존 VM을 추가할 수 없습니다.
 
-[az vm create](/cli/azure/vm#az_vm_create)를 사용하여 VM을 만들 때 `--availability-set` 매개 변수를 사용하여 가용성 집합의 이름을 지정합니다.
+[az vm create](/cli/azure/vm)를 사용하여 VM을 만들 때 `--availability-set` 매개 변수를 사용하여 가용성 집합의 이름을 지정합니다.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do

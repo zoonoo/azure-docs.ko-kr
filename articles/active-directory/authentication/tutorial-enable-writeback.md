@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: e91ca2ff438e3ae9e9b3f46e5a8db89f17fb1c8e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6cbc4fa071a45e670dae3cc6be66272bc67767f7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295124"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437184"
 ---
-# <a name="tutorial-enabling-password-writeback"></a>자습서: 비밀번호 쓰기 저장 사용
+# <a name="tutorial-enabling-password-writeback"></a>자습서: 암호 쓰기 저장을 사용하도록 설정
 
 이 자습서에서는 하이브리드 환경에 비밀번호 쓰기 저장을 사용하도록 설정할 것입니다. 비밀번호 쓰기 저장은 Azure AD(Azure Active Directory)의 암호 변경 내용을 온-프레미스 AD DS(Active Directory Domain Services) 환경에 다시 동기화하는 데 사용됩니다. 암호 변경 내용을 Azure AD의 기존 온-프레미스 디렉터리로 다시 전송하는 안전한 메커니즘을 제공하기 위해 Azure AD Connect의 일부로 비밀번호 쓰기 저장이 설정됩니다. 비밀번호 쓰기 저장의 내부 작업에 대한 자세한 내용은 [비밀번호 쓰기 저장이란](concept-sspr-writeback.md) 문서에서 찾을 수 있습니다.
 

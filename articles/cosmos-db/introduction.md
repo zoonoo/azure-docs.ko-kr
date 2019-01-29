@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: overview
 ms.date: 12/18/2018
 ms.author: sngun
-ms.openlocfilehash: b384bc51ac371ef75f5128c92f7e4b8d7f45ecc6
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 68ed21489cb97ff23a252ecc5287ad79aeeb210e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034950"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429545"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 
 오늘날의 애플리케이션은 응답성이 뛰어나며 항상 온라인을 유지해야 합니다. 짧은 대기 시간 및 고가용성을 이루려면 이러한 애플리케이션의 인스턴스를 해당 사용자에서 가까운 데이터 센터에 배포해야 합니다. 애플리케이션은 최고 사용 시간의 큰 변화에 실시간으로 응답하고, 계속 증가하는 데이터 볼륨을 저장하며, 사용자가 이 데이터를 밀리초 단위로 사용할 수 있도록 해야 합니다.
 
-Azure Cosmos DB는 전 세계에 배포되는 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB에서는 단추를 클릭하는 간단한 방식으로 Azure의 지리적 위치 수에 관계없이 처리량 및 저장소를 탄력적 및 독립적으로 확장할 수 있습니다. SQL, MongoDB, Cassandra, Table 또는 Gremlin 중에서 선호하는 API를 사용하여 처리량과 스토리지의 크기를 탄력적으로 조정하고, 한 자리 숫자의 밀리초 단위로 빠르게 데이터에 액세스할 수 이점을 활용합니다. Cosmos DB는 처리량, 대기 시간, 가용성 및 일관성 보장에 대한 포괄적인 [SLA(서비스 수준 계약)](https://aka.ms/acdbsla)를 제공하며, 다른 데이터베이스 서비스에서는 제공할 수 없습니다.
+Azure Cosmos DB는 전 세계에 배포되는 Microsoft의 다중 모델 데이터베이스 서비스입니다. Cosmos DB에서는 단추를 클릭하는 간단한 방식으로 Azure의 지리적 위치 수에 관계 없이 처리량 및 스토리지를 탄력적 및 독립적으로 확장할 수 있습니다. SQL, MongoDB, Cassandra, Table 또는 Gremlin 중에서 선호하는 API를 사용하여 처리량과 스토리지의 크기를 탄력적으로 조정하고, 한 자리 숫자의 밀리초 단위로 빠르게 데이터에 액세스할 수 이점을 활용합니다. Cosmos DB는 처리량, 대기 시간, 가용성 및 일관성 보장에 대한 포괄적인 [SLA(서비스 수준 계약)](https://aka.ms/acdbsla)를 제공하며, 다른 데이터베이스 서비스에서는 제공할 수 없습니다.
 
 Azure 구독, 요금 및 약정 없이 [무료로 Azure Cosmos DB를 사용해 볼 수 있습니다](https://azure.microsoft.com/try/cosmosdb/).
 
@@ -32,11 +32,9 @@ Azure 구독, 요금 및 약정 없이 [무료로 Azure Cosmos DB를 사용해 �
 
 Cosmos DB를 사용하면 전 세계적에서 응답성과 가용성이 높은 애플리케이션을 구축할 수 있습니다. Cosmos DB는 사용자가 있는 모든 위치에서 데이터를 투명하게 복제하므로 사용자는 가장 가까운 데이터의 복제본과 상호 작용할 수 있습니다.
 
-Cosmos DB를 사용하면 언제든지 단추를 클릭하여 Cosmos 계정에서 Azure 지역을 추가하거나 제거할 수 있습니다. Cosmos DB는 Cosmos 계정과 연결된 모든 지역에 데이터를 원활하게 복제하는 한편, 서비스의 멀티 호밍 기능으로 인해 애플리케이션의 고가용성을 계속 유지합니다.
+Cosmos DB를 사용하면 언제든지 단추를 클릭하여 Cosmos 계정에서 Azure 지역을 추가하거나 제거할 수 있습니다. Cosmos DB는 Cosmos 계정과 연결된 모든 지역에 데이터를 원활하게 복제하는 한편, 서비스의 멀티 호밍 기능으로 인해 애플리케이션의 고가용성을 계속 유지합니다. 자세한 내용은 [글로벌 배포](distribute-data-globally.md) 문서를 참조하세요.
 
-자세한 내용은 [글로벌 배포](distribute-data-globally.md) 문서를 참조하세요.
-
-### <a name="always-on"></a>항상 "사용 가능"
+### <a name="always-on"></a>Always On
 
 Azure 인프라 및 [투명 다중 마스터 복제](global-dist-under-the-hood.md)와 긴밀하게 되므로 Cosmos DB는 읽기 및 쓰기 모두에 99.999%의 [고가용성](high-availability.md)을 제공합니다. 또한 Cosmos DB는 프로그래밍 방식으로(또는 포털을 통해) Cosmos 계정의 지역별 장애 조치를 호출할 수 있는 기능을 제공합니다. 이 기능을 사용하면 지역 재해가 발생하는 경우 Cosmos 데이터베이스에서 자동으로 장애 조치할 수 있지만, 나머지 애플리케이션도 장애 조치하도록 설계되어 있습니다.
 
@@ -50,11 +48,11 @@ Cosmos DB를 사용하면 응답성이 뛰어나고 세계적 규모의 애플�
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>정확하게 정의된 다중 일관성 선택 항목
 
-더 이상 [일관성, 가용성, 대기 시간, 프로그래밍 기능을 극단적으로 절충](consistency-levels-tradeoffs.md)할 필요가 없습니다. Cosmos DB의 다중 마스터 복제 프로토콜은 전 세계에 배포된 애플리케이션에 짧은 대기 시간과 높은 가용성을 제공하는 직관적인 프로그래밍 모델을 위해 [잘 정의된 5가지 일관성 선택 항목](consistency-levels.md)(강력하게 제한되는 부실, 일관된 접두사, 세션 및 최종 일관성)을 제공합니다.
+더 이상 [일관성, 가용성, 대기 시간, 처리량을 극단적으로 절충](consistency-levels-tradeoffs.md)할 필요가 없습니다. Cosmos DB의 다중 마스터 복제 프로토콜은 전역적으로 배포된 애플리케이션에 짧은 대기 시간과 높은 가용성을 제공하는 직관적인 프로그래밍 모델을 위해 [잘 정의된 5가지 일관성 선택 항목](consistency-levels.md)(강력하게 제한되는 부실, 세션, 일관된 접두사 및 최종 일관성)을 제공합니다.
 
 ### <a name="no-schema-or-index-management"></a>스키마 또는 인덱스 관리 없음
 
-데이터베이스 스키마와 인덱스를 애플리케이션 스키마와 동기화하여 유지하는 것은 전 세계적으로 배포된 애플리케이션에 특히 어려운 과제입니다. 그러나 Cosmos DB에서는 스키마와 인덱스를 처리할 필요가 없습니다. 데이터베이스 엔진은 스키마와 완전히 관련이 없습니다.  스키마와 인덱스를 관리할 필요가 없으므로 스키마를 마이그레이션하는 동안 애플리케이션 가동 중지에 대해 걱정할 필요가 없습니다. Cosmos DB는 [모든 데이터를 자동으로 인덱싱](index-policy.md)하며, 이에 따라 스키마 또는 인덱스가 필요하지 않으므로 쿼리를 빠르게 처리합니다.
+데이터베이스 스키마와 인덱스를 애플리케이션 스키마와 동기화하여 유지하는 것은 전 세계적으로 배포된 애플리케이션에 특히 어려운 과제입니다. 그러나 Cosmos DB에서는 스키마 또는 인덱스 관리를 처리할 필요가 없습니다. 데이터베이스 엔진은 스키마와 완전히 관련이 없습니다.  스키마와 인덱스를 관리할 필요가 없으므로 스키마를 마이그레이션하는 동안 애플리케이션 가동 중지에 대해 걱정할 필요가 없습니다. Cosmos DB는 [모든 데이터를 자동으로 인덱싱](index-policy.md)하며, 쿼리를 빠르게 처리합니다.
 
 ### <a name="battle-tested-database-service"></a>엄격하게 테스트된(battle-tested) 데이터베이스 서비스
 
@@ -93,11 +91,11 @@ Cosmos DB는 Cosmos 데이터베이스에 저장된 데이터를 업데이트하
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Azure Cosmos DB를 활용하는 솔루션
 
-다양한 데이터에 대한 실시간에 준하는 응답 시간을 통해 [전역적으로](distribute-data-globally.md) 대량의 데이터, 읽기 및 쓰기를 처리해야 하는 모든 [웹, 모바일, 게임 및 IoT 응용 프로그램](use-cases.md)은 Azure Cosmos DB에서 [보장](https://azure.microsoft.com/support/legal/sla/cosmos-db/)하는 고가용성, 높은 처리량, 짧은 대기 시간 및 조정 가능한 일관성의 이점을 누릴 수 있습니다. Azure Cosmos DB를 [IoT 및 전자 통신 정보](use-cases.md#iot-and-telematics), [소매 및 마케팅](use-cases.md#retail-and-marketing), [게임](use-cases.md#gaming) 및 [웹 및 모바일 응용 프로그램](use-cases.md#web-and-mobile-applications)에 적용하는 방법에 대해 알아보세요.
+다양한 데이터에 대한 실시간에 준하는 응답 시간을 통해 [전역적으로](distribute-data-globally.md) 대량의 데이터, 읽기 및 쓰기를 처리해야 하는 모든 [웹, 모바일, 게임 및 IoT 애플리케이션](use-cases.md)은 Cosmos DB에서 [보장](https://azure.microsoft.com/support/legal/sla/cosmos-db/)하는 고가용성, 높은 처리량, 짧은 대기 시간 및 조정 가능한 일관성의 이점을 누릴 수 있습니다. Azure Cosmos DB를 [IoT 및 전자 통신 정보](use-cases.md#iot-and-telematics), [소매 및 마케팅](use-cases.md#retail-and-marketing), [게임](use-cases.md#gaming), [웹 및 모바일 애플리케이션](use-cases.md#web-and-mobile-applications)에 적용하는 방법에 대해 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Cosmos DB의 [글로벌 배포](distribute-data-globally.md) 및 [분할](partitioning-overview.md) 기능에 대해 자세히 알아봅니다.
+Cosmos DB의 [턴키 글로벌 배포](distribute-data-globally.md) 및 [분할](partitioning-overview.md) 기능에 대해 자세히 알아봅니다.
 
 다음 요약 설명서를 통해 Azure Cosmos DB를 시작해 보세요.
 

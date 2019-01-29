@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 12/28/2018
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: 858c062c2b3d61b38247e323bf70d2768d33b257
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c51a36f4380199de1ac62ef3f0c32bd0a8f06c01
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969338"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811216"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>자습서: API를 사용하여 Media Services v3으로 라이브 스트리밍
 
@@ -89,7 +89,7 @@ ms.locfileid: "53969338"
 
 ### <a name="create-a-live-event"></a>라이브 이벤트 만들기
 
-이 섹션에서는 **통과** 형식의 LiveEvent를 만드는 방법을 보여줍니다(None으로 설정된 LiveEventEncodingType). 라이브 인코딩이 가능한 LiveEvent를 만들려면 LiveEventEncodingType을 Standard로 설정합니다. 
+이 섹션에서는 **통과** 형식의 LiveEvent를 만드는 방법을 보여줍니다(None으로 설정된 LiveEventEncodingType). 라이브 인코딩이 가능한 LiveEvent를 만들려면 LiveEventEncodingType을 **Standard**로 설정합니다. 
 
 라이브 이벤트를 만들 때 지정할 수 있는 몇 가지 다른 점은 다음과 같습니다.
 
@@ -100,8 +100,12 @@ ms.locfileid: "53969338"
 * 수집 및 미리 보기에서 IP 제한입니다. 이 LiveEvent에 비디오를 수집하도록 허용된 IP 주소를 정의할 수 있습니다. 허용된 IP 주소는 단일 IP 주소(예: '10.0.0.1'), IP 주소 및 CIDR 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1/22') 또는 IP 주소와 점으로 구분된 십진수 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1(255.255.252.0)')로 지정할 수 있습니다.
     
     지정된 IP 주소가 없고 정의된 규칙이 없는 경우, IP 주소가 허용되지 않습니다. 모든 IP 주소를 허용하려면 규칙을 만들고 0.0.0.0/0으로 설정합니다.
+    
+    IP 주소가 다음 형식 중 하나에 있어야 합니다. 4개의 숫자를 사용하는 IpV4 주소, CIDR 주소 범위.
 
-이벤트를 만들 때 자동 시작을 지정할 수 있습니다. 
+* 이벤트를 만들 때 자동 시작을 지정할 수 있습니다. 
+
+    Autostart가 true로 설정되어 있는 경우 Live Event가 생성 후 시작됩니다. 즉, Live Event를 실행하는 즉시 청구가 시작됩니다. 추가 청구를 중지하려면 LiveEvent 리소스에 대해 명시적으로 Stop을 호출해야 합니다. 자세한 내용은 [LiveEvent 상태 및 청구](live-event-states-billing.md)를 참조하세요.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 5ce8217629cff702ecd3ec274d77918e54efacc6
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 43dc9edf715e20c84515d6acf4884e97c3b28184
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359122"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451887"
 ---
 # <a name="tutorial-order-azure-data-box"></a>자습서: Azure Data Box 주문
 
@@ -79,7 +79,7 @@ Azure Data Box는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레�
     |이름     |  주문을 추적하는 데 친숙한 이름을 입력합니다. <br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.      |
     |리소스 그룹     |   기존 그룹을 사용하거나 새 그룹을 만듭니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다.         |
     |대상 Azure 지역     | 저장소 계정에 대한 지역을 선택합니다. <br> 자세한 내용은 [지역 가용성](data-box-overview.md#region-availability)을 참조하세요.        |
-    |저장소 계정     | 지정된 Azure 지역에 따라 필터링된 기존 저장소 계정 목록에서 하나 이상의 저장소 계정을 선택합니다. Data Box는 최대 10개의 저장소 계정과 연결할 수 있습니다. <br> 새 **범용 v1**, **범용 v2** 또는 **Blob Storage 계정**도 만들 수 있습니다. 규칙이 구성된 스토리지 계정은 사용할 수 없습니다. 스토리지 계정은 fireworks 및 가상 네트워크 섹션의 **모든 네트워크에서 액세스**할 수 있어야 합니다.|
+    |저장소 계정     | 지정된 Azure 지역에 따라 필터링된 기존 저장소 계정 목록에서 하나 이상의 저장소 계정을 선택합니다. Data Box는 최대 10개의 저장소 계정과 연결할 수 있습니다. <br> 새 **범용 v1**, **범용 v2** 또는 **Blob Storage 계정**도 만들 수 있습니다. 규칙이 구성된 스토리지 계정은 사용할 수 없습니다. 스토리지 계정은 방화벽 및 가상 네트워크 섹션의 **모든 네트워크에서 액세스할 수 있어야** 합니다.|
     
 7. **배송 주소**에 사용자의 성과 이름, 회사의 이름과 우편 주소 및 유효한 전화 번호를 입력합니다. **주소 확인**을 클릭합니다. 서비스에서 서비스 가용성을 위해 배송 주소의 유효성을 검사합니다. 지정한 배송 주소에 대해 서비스를 사용할 수 있으면 해당 알림을 받게 됩니다. **다음**을 클릭합니다.
 

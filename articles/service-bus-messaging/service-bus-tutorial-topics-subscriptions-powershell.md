@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: fdf97234e840de5fdd2811f3cdae8dd4cdc76a22
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 135f5e2500ab86d418085a5061f517176b9a4dad
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229155"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430010"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>자습서: PowerShell 및 토픽/구독을 사용하여 재고 업데이트
 
@@ -286,4 +286,4 @@ Service Bus의 게시/구독 기능을 사용하는 방법에 대해 자세히 �
 > [PowerShell 및 토픽/구독을 사용하여 재고 업데이트](service-bus-tutorial-topics-subscriptions-cli.md)
 
 [무료 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Azure PowerShell 설치 및 구성]: /powershell/azure/install-azurerm-ps
+[Azure PowerShell 설치 및 구성]: /powershell/azure/azurerm/install-azurerm-ps

@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 715a8e5bab9e5d16b8c0e54298101df856d51a9a
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: e83d6e2f14f8665f8eb0c58a4dc41c7c2ecc792d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309862"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464258"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>자습서: Azure CLI를 사용한 Linux 가상 머신 제어에 대해 알아보기
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>자습서: Azure CLI를 사용한 Linux 가상 머신 거버넌스에 대해 알아보기
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
@@ -177,7 +177,7 @@ Azure 리소스에 [태그](../../azure-resource-manager/resource-group-using-ta
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
-가상 머신에 태그를 적용하려면 [az resource tag](/cli/azure/resource#az_resource_tag) 명령을 사용합니다. 리소스의 기존 태그는 유지되지 않습니다.
+가상 머신에 태그를 적용하려면 [az resource tag](/cli/azure/resource) 명령을 사용합니다. 리소스의 기존 태그는 유지되지 않습니다.
 
 ```azurecli-interactive
 az resource tag -n myVM \
@@ -188,7 +188,7 @@ az resource tag -n myVM \
 
 ### <a name="find-resources-by-tag"></a>태그로 리소스 찾기
 
-태그 이름 및 값을 사용하여 리소스를 찾으려면 [az resource list](/cli/azure/resource#az_resource_list) 명령을 사용합니다.
+태그 이름 및 값을 사용하여 리소스를 찾으려면 [az resource list](/cli/azure/resource) 명령을 사용합니다.
 
 ```azurecli-interactive
 az resource list --tag Environment=Test --query [].name

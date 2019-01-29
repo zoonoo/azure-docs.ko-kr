@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/04/2019
+ms.date: 01/18/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 426e4fe05890f1669859545db3d731943a12428a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 2b99207f35bd83c9e02ad636a070ae538ae3472c
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260178"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412226"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>자습서: SQL Server 데이터베이스로 에지에 데이터 저장
 
@@ -36,7 +36,10 @@ Azure IoT Edge 및 SQL Server를 사용하여 에지에 데이터를 저장하�
 
 Azure IoT Edge 장치:
 
-* [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다. 
+* [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다.
+
+  > [!NOTE]
+  > SQL Server는 Linux 컨테이너만 지원합니다. Windows 디바이스를 Edge 디바이스로 사용하여 이 자습서를 테스트하려면 Linux 컨테이너를 사용하도록 구성해야 합니다. Windows에서 Linux 컨테이너에 대한 IoT Edge 런타임을 구성하는 필수 구성 요소와 설치 단계는 [Windows에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-windows-with-linux.md)를 참조하세요.
 
 클라우드 리소스:
 
@@ -227,15 +230,9 @@ Azure IoT Edge 장치:
 
 1. Visual Studio Code 탐색기에서 **deployment.template.json** 파일을 엽니다. 
 
-2. **모듈** 섹션을 찾습니다. 시뮬레이션된 데이터를 생성하는 **tempSensor** 및 **sqlFunction** 모듈 등 두 개의 모듈이 나열되어야 합니다.
+1. **모듈** 섹션을 찾습니다. 시뮬레이션된 데이터를 생성하는 **tempSensor** 및 **sqlFunction** 모듈 등 두 개의 모듈이 나열되어야 합니다.
 
-3. Windows 컨테이너를 사용하는 경우 **sqlFunction.settings.image** 섹션을 수정합니다.
-
-   ```json
-   "image": "${MODULES.sqlFunction.windows-amd64}"
-   ```
-
-4. 다음 코드를 추가하여 세 번째 모듈을 선언합니다. sqlFunction 섹션 뒤에 쉼표를 추가하고 다음을 삽입합니다.
+1. 다음 코드를 추가하여 세 번째 모듈을 선언합니다. sqlFunction 섹션 뒤에 쉼표를 추가하고 다음을 삽입합니다.
 
    ```json
    "sql": {
@@ -253,29 +250,7 @@ Azure IoT Edge 장치:
 
    ![매니페스트에 SQL 서버 모듈 추가](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
-5. IoT Edge 디바이스의 Docker 컨테이너 유형에 따라 **sql** 모듈 매개 변수를 다음 코드로 업데이트합니다.
-   * Windows 컨테이너:
-
-      ```json
-      "env": {
-        "ACCEPT_EULA": {"value": "Y"},
-        "SA_PASSWORD": {"value": "Strong!Passw0rd"}
-      },
-      "settings": {
-        "image": "microsoft/mssql-server-windows-developer",
-        "createOptions": {
-          "HostConfig": {
-            "Mounts": [{"Target": "C:\\mssql","Source": "sqlVolume","Type": "volume"}],
-            "PortBindings": {
-              "1433/tcp": [{"HostPort": "1401"}]
-            }
-          }
-        }
-      }
-      ```
-
-   * Linux 컨테이너:
-
+1. 다음 코드를 사용하여 **sql** 모듈 매개 변수를 업데이트합니다.
       ```json
       "env": {
         "ACCEPT_EULA": {"value": "Y"},
@@ -295,9 +270,9 @@ Azure IoT Edge 장치:
       ```
 
    >[!Tip]
-   >프로덕션 환경에서 SQL Server 컨테이너를 만들 때마다 [기본 시스템 관리자 암호를 변경](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password)해야 합니다.
+   >프로덕션 환경에서 SQL Server 컨테이너를 만들 때마다 [기본 시스템 관리자 암호를 변경](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker)해야 합니다.
 
-6. **deployment.template.json** 파일을 저장합니다.
+1. **deployment.template.json** 파일을 저장합니다.
 
 ## <a name="build-your-iot-edge-solution"></a>IoT Edge 솔루션 빌드
 
@@ -353,42 +328,16 @@ VS Code의 Azure IoT Hub Devices 섹션에서 디바이스의 상태를 새로 �
 IoT Edge 디바이스에서 다음 명령을 실행합니다. 이러한 명령은 디바이스에서 실행 중인 **sql** 모듈에 연결하고, 해당 모듈에 전송되는 온도 데이터를 보관할 데이터베이스와 테이블을 만듭니다. 
 
 1. IoT Edge 디바이스의 명령줄 도구에서 데이터베이스에 연결합니다. 
-   * Windows 컨테이너:
-   
-      ```cmd
-      docker exec -it sql cmd
-      ```
-    
-   * Linux 컨테이너: 
-
       ```bash
       sudo docker exec -it sql bash
       ```
 
 2. SQL 명령 도구를 엽니다.
-   * Windows 컨테이너:
-
-      ```cmd
-      sqlcmd -S localhost -U SA -P "Strong!Passw0rd"
-      ```
-
-   * Linux 컨테이너: 
-
       ```bash
       /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
       ```
 
 3. 데이터베이스를 만듭니다. 
-
-   * Windows 컨테이너
-      ```sql
-      CREATE DATABASE MeasurementsDB
-      ON
-      (NAME = MeasurementsDB, FILENAME = 'C:\mssql\measurementsdb.mdf')
-      GO
-      ```
-
-   * Linux 컨테이너
       ```sql
       CREATE DATABASE MeasurementsDB
       ON

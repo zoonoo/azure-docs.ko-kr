@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 01/22/2018
+ms.date: 01/25/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: daf524e6802fbb0548ff2d30d32dc6fbd4bc68cb
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c8e78ead58c34a62851fddc5a12504bc5747a27b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476396"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092325"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Azure Stack에 대 한 확장 호스트 준비
 
@@ -127,7 +127,7 @@ Azure Stack 준비 검사 도구를 두 개의 새, 필요한 SSL 인증서에 �
 > DNS 통합에 대 한 Dns 위임을 사용 하는 경우에이 단계가 필요 하지 않습니다.
 Azure Stack 끝점을 게시 하려면 개별 호스트 A 레코드를 구성한 경우에 두 개의 추가 호스트 A 레코드를 만들 해야 합니다.
 
-| IP | 호스트 이름 | type |
+| IP | 호스트 이름 | Type |
 |----|------------------------------|------|
 | \<IP> | *.Adminhosting.\<Region>.\<FQDN> | A |
 | \<IP> | *.Hosting.\<Region>.\<FQDN> | A |

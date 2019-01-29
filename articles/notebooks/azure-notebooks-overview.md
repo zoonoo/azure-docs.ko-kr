@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: ba06e568b3d7b0125d5868c1ad4a85e5e42f7e18
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: ffceeeeb5a55b0fab1dd1cf91aebfcd4cfd852ef
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246214"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848600"
 ---
 # <a name="overview-of-azure-notebooks"></a>Azure Notebooks 개요
 
 Azure Notebooks는 무료 호스티드 서비스이며 설치 없이 클라우드에서 Jupyter Notebook을 개발하고 실행합니다. [Jupyter](https://jupyter.org/)(이전의 IPython)는 오픈 소스 프로젝트이며 이를 통해 Markdown 텍스트, 실행 코드, 영구 데이터, 그래픽 및 시각화를 공유 가능한 단일 캔버스인 *Notebook*(jupyter.org의 이미지 허가)으로 손쉽게 결합할 수 있습니다.
 
-[![](https://jupyter.org/assets/jupyterpreview.png "Jupyter Notebook")](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Jupyter Notebook의 예제](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 이 강력한 코드, 그래픽 및 설명 텍스트의 조합으로 인해 Jupyter는 데이터 과학 교육, 데이터 정리 및 변환, 숫자 시뮬레이션, 통계 모델링 및 기계 학습 모델의 개발을 비롯한 다양한 용도에 대중화되었습니다.
 
@@ -57,7 +57,7 @@ Azure Notebooks는 일반적인 코드 작성, 실행 및 공유 플랫폼이므
 
 Azure Notebooks는 무료 서비스이지만 각 프로젝트는 남용을 방지하기 위해 4GB 메모리 및 1GB 데이터로 제한됩니다. 이러한 한도를 초과하는 합법적인 사용자는 Captcha 챌린지를 참조하여 Notebook 실행을 계속하세요.
 
-모든 한도를 해제하려면 Azure Active Directory를 사용하는 계정(예: 회사 계정)으로 Azure Notebooks에 로그인합니다. 해당 계정이 Azure 구독과 연결된 경우 Azure Data Science Virtual Machine 컴퓨팅 계층을 사용할 수 있습니다.
+모든 한도를 해제하려면 Azure Active Directory를 사용하는 계정(예: 회사 계정)으로 Azure Notebooks에 로그인합니다. 해당 계정이 Azure 구독과 연결된 경우 해당 구독 내의 모든 Azure Data Science Virtual Machine 인스턴스에 연결할 수 있습니다. 자세한 내용은 [프로젝트 관리 및 구성 - 컴퓨팅 계층](configure-manage-azure-notebooks-projects.md#compute-tier)을 참조하세요.
 
 ## <a name="available-kernels-and-environments"></a>사용할 수 있는 커널 및 환경
 

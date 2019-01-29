@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: b8aac8a6a666bf3f360ef2867ff15933ad72dbd7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6db713984b62ce3db48b2e72a4b117696bdd6add
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166987"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452975"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>자습서: Azure Data Box Gateway 배포 준비(미리 보기)
 
@@ -147,7 +147,7 @@ Data Box Gateway 리소스가 가동하여 실행되면 활성화 키를 얻어�
 
 > [!IMPORTANT]
 > - 활성화 키는 생성되고 3일 후에 만료됩니다. 
-> - 키가 만료되면 새 키를 생성하세요. 이전 키는 유효하지 않습니다.
+> - 키가 만료된 경우 새 키를 만듭니다. 이전 키는 유효하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

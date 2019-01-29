@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/14/2017
+ms.date: 01/17/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: a130351131f59511ef4f60b579197da96f9334e6
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 27a114378cf72e766e894dc0dd6886197f56a841
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720734"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390267"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>자습서: Application Insights를 사용하여 Service Fabric에서 ASP.NET Core 애플리케이션 모니터링 및 진단
 
@@ -59,7 +59,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="set-up-an-application-insights-resource"></a>Application Insights 리소스 설정
 
-Application Insights는 Azure의 애플리케이션 성능 관리 플랫폼이자, 애플리케이션 모니터링 및 진단에 권장되는 Service Fabric 플랫폼입니다. Application Insights 리소스를 만들려면 [Azure Portal](https://portal.azure.com)로 이동합니다. 왼쪽 탐색 메뉴에서 **리소스 만들기**를 클릭하여 Azure Marketplace를 엽니다. **모니터링 + 관리**, **Application Insights**를 차례로 클릭합니다.
+Application Insights는 Azure의 애플리케이션 성능 관리 플랫폼이자, 애플리케이션 모니터링 및 진단에 권장되는 Service Fabric 플랫폼입니다. Application Insights 리소스를 만들려면 [Azure Portal](https://portal.azure.com)로 이동합니다. 왼쪽 탐색 메뉴에서 **리소스 만들기**를 클릭하여 Azure Marketplace를 엽니다. **Application Insights**를 클릭합니다.
 
 ![새 AI 리소스 만들기](./media/service-fabric-tutorial-monitoring-aspnet/new-ai-resource.png)
 
@@ -76,13 +76,8 @@ Application Insights는 Azure의 애플리케이션 성능 관리 플랫폼이�
 
 VotingWeb 및 VotingData 서비스 둘 다에 대해 Application Insights를 구성하려면 다음 단계를 따르세요.
 
-1. 서비스 이름을 마우스 오른쪽 단추로 클릭하고 **Application Insights 구성...** 을 클릭합니다.
-
-    ![AI 구성](./media/service-fabric-tutorial-monitoring-aspnet/configure-ai.png)
->[!NOTE]
->프로젝트 형식에 따라 서비스 이름을 마우스 오른쪽 단추로 클릭할 때 추가-> Application Insights 원격 분석...을 클릭해야 합니다.
-
-2. **체험하기**를 클릭합니다.
+1. 서비스 이름을 마우스 오른쪽 단추로 클릭하고 **추가 -> Application Insights 원격 분석 ...** 을 선택합니다.    
+2. **시작**을 클릭합니다.
 3. Azure 구독 설정에 사용한 계정에 로그인하고 Application Insights 리소스를 만든 구독을 선택합니다. “리소스” 드롭다운의 *기존 Application Insights 리소스*에서 리소스를 찾습니다. **등록**을 클릭하여 Application Insights를 서비스에 추가합니다.
 
     ![AI 등록](./media/service-fabric-tutorial-monitoring-aspnet/register-ai.png)
@@ -101,8 +96,8 @@ NuGet을 설정하는 단계는 다음과 같습니다.
 2. “NuGet - 솔루션” 창의 맨 위 탐색 메뉴에서 **찾아보기**를 클릭하고 검색 표시줄 옆에 있는 **시험판 포함** 상자를 선택합니다.
 3. `Microsoft.ApplicationInsights.ServiceFabric.Native`를 검색하고 적절한 NuGet 패키지를 클릭합니다.
 
->[!NOTE]
->Application Insights 패키지를 설치하기 전에 사전 설치되지 않은 경우 유사한 방식으로 Microsoft.ServiceFabric.Diagnostics.Internal 패키지를 설치해야 할 수도 있습니다.
+    >[!NOTE]
+    >Application Insights 패키지를 설치하기 전에 사전 설치되지 않은 경우 유사한 방식으로 Microsoft.ServiceFabric.Diagnostics.Internal 패키지를 설치해야 할 수도 있습니다.
 
 4. 오른쪽에서 애플리케이션의 두 서비스, **VotingWeb** 및 **VotingData** 옆에 있는 두 확인란을 클릭하고 **설치**를 클릭합니다.
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)

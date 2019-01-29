@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 1/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: bac0b2933d4b6d4a88ebbb0402bba0ffd508b395
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 54f7b596eebf2cc5ad7a9bf1b795fab087b6fac0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474373"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102484"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>가상 머신 이미지를 Azure Stack에서 사용할 수 있도록
 
@@ -82,14 +82,14 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
 
 3. 상승된 된 프롬프트를 사용 하 여 PowerShell을 열고 실행 합니다.
 
-  ````PowerShell  
+  ```PowerShell  
     Add-AzsPlatformimage -publisher "<publisher>" `
       -offer "<offer>" `
       -sku "<sku>" `
       -version "<#.#.#>” `
       -OSType "<ostype>" `
       -OSUri "<osuri>"
-  ````
+  ```
 
   합니다 **추가 AzsPlatformimage** cmdlet이 VM 이미지를 참조 하는 Azure Resource Manager 템플릿에서 사용 되는 값을 지정 합니다. 값은 다음과 같습니다.
   - **publisher**  
@@ -157,24 +157,24 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
 
 5. Windows 또는 Linux 운영 체제 이미지를 VHD 형식 (VHDX 아님)를 준비, 저장소 계정에 이미지를 업로드 및 VM 이미지 PowerShell에서 검색할 수 있는 URI를 가져옵니다.  
 
-  ````PowerShell  
+  ```PowerShell  
     Add-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
       -TenantId $TenantID
-  ````
+  ```
 
 6. (선택 사항) VM 이미지의 일부로 배열 데이터 디스크를 업로드할 수 있습니다. 새로 만들기-DataDiskObject cmdlet을 사용 하 여 데이터 디스크를 만듭니다. 관리자 권한 프롬프트에서 PowerShell을 열고 실행 합니다.
 
-  ````PowerShell  
+  ```PowerShell  
     New-DataDiskObject -Lun 2 `
     -Uri "https://storageaccount.blob.core.windows.net/vhds/Datadisk.vhd"
-  ````
+  ```
 
 7. 상승된 된 프롬프트를 사용 하 여 PowerShell을 열고 실행 합니다.
 
-  ````PowerShell  
+  ```PowerShell  
     Add-AzsPlatformimage -publisher "<publisher>" -offer "<offer>" -sku "<sku>" -version "<#.#.#>” -OSType "<ostype>" -OSUri "<osuri>"
-  ````
+  ```
 
     추가 AzsPlatformimage cmdlet 및 새 DataDiskObject cmdlet에 대 한 자세한 내용은 참조는 Microsoft PowerShell [모듈 설명서 Azure Stack 운영자](https://docs.microsoft.com/powershell/module/)합니다.
 
@@ -188,13 +188,13 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
 
 3. 상승된 된 프롬프트를 사용 하 여 PowerShell을 열고 실행 합니다.
 
-  ````PowerShell  
+  ```PowerShell  
   Remove-AzsPlatformImage `
     -publisher "<publisher>" `
     -offer "<offer>" `
     -sku "<sku>" `
     -version "<version>" `
-  ````
+  ```
   합니다 **제거 AzsPlatformImage** cmdlet이 VM 이미지를 참조 하는 Azure Resource Manager 템플릿에서 사용 되는 값을 지정 합니다. 값은 다음과 같습니다.
   - **publisher**  
     예: `Canonical`  

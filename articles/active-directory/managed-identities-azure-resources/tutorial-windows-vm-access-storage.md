@@ -4,7 +4,7 @@ description: Windows VM 시스템 할당 관리 ID를 사용하여 Azure Storage
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: daveba
 ms.service: active-directory
 ms.component: msi
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 776aa384808e8c802001aefd5cc4acd383aca8ae
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 3c253fbebff534b1dcaae8d75322fe524e82a368
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52719694"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421951"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 액세스 키를 통해 Azure Storage에 액세스
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-이 자습서에서는 Windows VM(가상 머신)에 대한 시스템 할당 관리 ID를 사용하여 저장소 계정 액세스 키를 검색하는 방법을 보여줍니다. Storage SDK를 사용하는 등의 스토리지 작업을 수행할 때 일반적인 방식으로 스토리지 액세스 키를 사용할 수 있습니다. 이 자습서의 경우 Azure Storage PowerShell을 사용하여 Blob을 업로드하고 다운로드합니다. 다음 방법을 알게 됩니다.
+이 자습서에서는 Windows VM(가상 머신)에 대한 시스템 할당 관리 ID를 사용하여 저장소 계정 액세스 키를 검색하는 방법을 보여줍니다. Storage SDK를 사용하는 등의 저장소 작업을 수행할 때 일반적인 방식으로 저장소 액세스 키를 사용할 수 있습니다. 이 자습서의 경우 Azure Storage PowerShell을 사용하여 Blob을 업로드하고 다운로드합니다. 다음 방법을 알게 됩니다.
 
 
 > [!div class="checklist"]

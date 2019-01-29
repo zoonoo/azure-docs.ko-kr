@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: overview
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 0fe4a9f05e0f6d1abed7b906cc5cd89854885ae5
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 42477a69616024ae9564d3665a47ff00161ea792
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53992858"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451055"
 ---
 # <a name="what-is-text-analytics"></a>Text Analytics란?
 
@@ -68,7 +68,7 @@ ms.locfileid: "53992858"
 
 | 제한 | 값 |
 |------------------------|---------------|
-| 단일 문서의 최대 크기 | `String.Length`로 측정해서 5,000자입니다. |
+| 단일 문서의 최대 크기 | [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements)로 측정해서 5,000자입니다. |
 | 전체 요청의 최대 크기 | 1MB |
 | 요청의 최대 문서 수 | 1,000개 문서 |
 

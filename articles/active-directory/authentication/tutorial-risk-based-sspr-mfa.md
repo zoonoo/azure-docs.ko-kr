@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: fb9ec69476253eaa559fe763dcc2c92994505602
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: fea87a711bf43ea73d3e09efeb42f5133d8f4e9f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163314"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434923"
 ---
 # <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>자습서: 위험 이벤트를 사용하여 Multi-Factor Authentication 및 암호 변경 트리거
 

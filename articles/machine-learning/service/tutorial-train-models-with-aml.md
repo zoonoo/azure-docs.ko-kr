@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5008aebfea8fc284b1b85797f0523bc4fb11c7bd
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: a9fc0655a3666f09fed342af5b4f14e2097290ab
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075943"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828259"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>자습서: Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습
 
@@ -42,7 +42,7 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
 ## <a name="get-the-notebook"></a>Notebook 가져오기
 
-사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)으로 제공됩니다. Azure Notebooks 또는 자체 Jupyter 노트북 서버에서 `tutorials/img-classification-part1-training.ipynb` 노트북을 실행할 수 있습니다.
+사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)으로 제공됩니다. [Azure Notebooks](https://notebooks.azure.com/) 또는 사용자 고유의 Jupyter Notebook 서버에서 `tutorials/img-classification-part1-training.ipynb` Notebook을 실행합니다.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 

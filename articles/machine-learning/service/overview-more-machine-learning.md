@@ -9,32 +9,54 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 12/04/2018
-ms.openlocfilehash: b2d7888234a05c82f1245bd58b98f505989d7f2d
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 1/17/2019
+ms.openlocfilehash: d5660d1a4d5d2a26af57e2a2411552e3f6267379
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557889"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389139"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Microsoft의 기계 학습 제품이란?
 
 Microsoft에서는 다양한 제품 옵션을 제공하여 기계 학습 모델을 빌드, 배포 및 관리합니다. 이러한 제품을 비교하고 기계 학습 솔루션을 가장 효과적으로 개발해야 하는 항목을 선택합니다.
 
-| 기계 학습 제품 | 정의 | 수행할 수 있는 작업 |
+
+**클라우드 기반 옵션**
+
+다음 옵션은 Azure 클라우드에서 기계 학습에 사용할 수 있습니다.
+
+| 클라우드&nbsp;옵션 | 정의 | 수행할 수 있는 작업 |
 |-|-|-|
-| ***클라우드*** | | |
 | [Azure Machine Learning 서비스](#azure-machine-learning-services) | ML(Machine Learning)에 대해 관리되는 클라우드 서비스  | Python 및 CLI를 사용하여 Azure에서 모델을 학습, 배포 및 관리 |
-| [Azure Machine Learning Studio](#azure-machine-learning-studio) | ML에 대한 끌어&ndash;서&ndash; 놓기 시각적 인터페이스 | 미리 구성된 알고리즘을 사용하여 모델을 빌드, 실험 및 배포 |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio) | ML에 대한 끌어&ndash;서&ndash; 놓기 시각적 인터페이스 | 미리 구성된 알고리즘을 사용하여 모델을 빌드, 실험 및 배포(Python 및 R)|
 | [Azure Databricks](#azure-databricks) | Spark 기반 분석 플랫폼 | 모델 및 데이터 워크플로를 빌드 및 배포 |
 | [Azure Cognitive Services](#azure-cognitive-services) | 미리 빌드된 AI 및 ML 모델을 사용한 Azure 서비스 | 앱에 지능형 기능을 쉽게 추가 |
 | [Azure Data Science Virtual Machine](#azure-data-science-virtual-machine) | 미리 설치된 데이터 과학 도구를 사용한 가상 머신 | 미리 구성된 환경에서 ML 솔루션을 개발 |
-| ***온-프레미스***<br>*(온-프레미스 서버도 클라우드의 가상 머신에서 실행할 수 있습니다)* | | |
+
+**온-프레미스 옵션**
+
+다음 옵션은 기계 학습 온-프레미스에 사용할 수 있습니다. 온-프레미스 서버도 클라우드의 가상 머신에서 실행할 수 있습니다.
+
+| 온-프레미스&nbsp;옵션 | 정의 | 수행할 수 있는 작업 |
+|-|-|-|
 | [SQL Server Machine Learning 서비스](#sql-server-machine-learning-services) | SQL에 포함된 Analytics 엔진 | SQL Server 내에 모델을 빌드 및 배포 |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | 예측 분석에 대한 독립 실행형 엔터프라이즈 서버 | R 및 Python을 사용하여 모델을 빌드 및 배포 |
-| ***개발자 도구*** | | |
+
+**개발 도구**
+
+다음 개발 도구는 기계 학습에 사용할 수 있습니다.
+
+| 개발&nbsp;도구 | 정의 | 수행할 수 있는 작업 |
+|-|-|-|
 | [ML.NET](#mlnet) | 오픈 소스, 플랫폼 간 ML SDK | .NET 애플리케이션에 대한 ML 솔루션 개발 |
 | [Windows ML](#windows-ml) | Windows 10 ML 플랫폼 | Windows 10 장치에서 학습된 모델을 평가 |
+
+
+
+
+
+
 
 ## <a name="azure-machine-learning-service"></a>Azure Machine Learning 서비스
 

@@ -4,7 +4,7 @@ description: Azure Active Directory 및 Talent Palette 간에 Single Sign-On을 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 839dbf54-b636-477b-9cf8-157374c78e7a
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/30/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 7362b3279afc365db2a303de1b450c4e35e48874
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7438480d046be6242829060ce8ee936dd1cfb588
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883971"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818849"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talent-palette"></a>자습서: Talent Palette와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ Talent Palette를 Azure AD와 통합하면 다음과 같은 이점이 있습니�
 * 사용자가 해당 Azure AD 계정으로 Talent Palette에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -63,7 +63,7 @@ Talent Palette의 Azure AD 통합을 구성하려면 갤러리의 Talent Palette
 
 3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![새 애플리케이션 단추](common/add_new_app.png)
+    ![새 응용 프로그램 단추](common/add_new_app.png)
 
 4. 검색 상자에 **Talent Palette**를 입력하고 결과 패널에서 **Talent Palette**를 선택한 후, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
@@ -79,8 +79,8 @@ Talent Palette에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Talent Palette Single Sign-On 구성](#configure-talent-palette-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-on 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Talent Palette 테스트 사용자 만들기](#create-talent-palette-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Talent Palette에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Talent Palette 테스트 사용자 만들기](#create-talent-palette-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Talent Palette에 만듭니다.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
@@ -107,11 +107,11 @@ Talent Palette에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
     **회신 URL** 텍스트 상자에 `https://talent-p.net/saml/acs/<tenantID>` 패턴을 사용하여 URL을 입력합니다.
 
-5. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
     ![Talent Palette 도메인 및 URL Single Sign-On 정보](common/both_signonurl.png)
-   
-    **로그온 URL** 텍스트 상자에 `https://talent-p.net/saml/sso/<tenantID>` 패턴을 사용하여 URL을 입력합니다.
+
+    **로그인 URL** 텍스트 상자에서 `https://talent-p.net/saml/sso/<tenantID>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Talent Palette 클라이언트 지원 팀](mailto:talent-support@pa-consul.co.jp)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -165,7 +165,7 @@ Talent Palette에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
 1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택하고 **Talent Palette**를 선택합니다.
 
-    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise_applications.png)
+    ![엔터프라이즈 응용 프로그램 블레이드](common/enterprise_applications.png)
 
 2. 애플리케이션 목록에 **Talent Palette**를 입력하고 선택합니다.
 

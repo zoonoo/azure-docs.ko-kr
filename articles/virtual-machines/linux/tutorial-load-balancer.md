@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: b37f8c53e9528919da3aaf0acf66376876bd64b1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 47e3f449ef3ef0b732dfcef2af595ce5ccd24f16
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470883"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856420"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>자습서: Azure CLI로 Azure의 Linux 가상 머신 부하를 분산하여 고가용성 애플리케이션 만들기
 
@@ -53,7 +53,7 @@ Azure Load Balancer는 들어오는 트래픽을 정상 VM 간에 분산하여 �
 
 
 ## <a name="create-azure-load-balancer"></a>Azure Load Balancer 만들기
-이 섹션에서는 부하 분산 장치의 각 구성 요소를 만들고 구성하는 방법을 자세히 설명합니다. 부하 분산 장치를 만들려면 먼저 [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupLoadBalancer*라는 리소스 그룹을 만듭니다.
+이 섹션에서는 부하 분산 장치의 각 구성 요소를 만들고 구성하는 방법을 자세히 설명합니다. 부하 분산 장치를 만들려면 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupLoadBalancer*라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupLoadBalancer --location eastus
@@ -226,7 +226,7 @@ az vm availability-set create \
     --name myAvailabilitySet
 ```
 
-이제 [az vm create](/cli/azure/vm#az_vm_create)로 VM을 만들 수 있습니다. 다음 예제에서는 3개의 VM을 만들고 SSH 키가 아직 없으면 생성합니다.
+이제 [az vm create](/cli/azure/vm)로 VM을 만들 수 있습니다. 다음 예제에서는 3개의 VM을 만들고 SSH 키가 아직 없으면 생성합니다.
 
 ```bash
 for i in `seq 1 3`; do

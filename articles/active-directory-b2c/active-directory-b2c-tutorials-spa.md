@@ -3,19 +3,19 @@ title: 자습서 - Azure Active Directory B2C를 사용하여 단일 페이지 �
 description: Azure Active Directory B2C를 사용하여 단일 페이지 애플리케이션(JavaScript)에 대한 사용자 로그인을 제공하는 방법에 대한 자습서입니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
 ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: cce76a0e97e039ec6e6c3a976d1fc7caca7fde73
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 08372700e9740ca69ba73dfba49f9d120dfabc6d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834437"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850334"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 단일 페이지 앱으로 계정을 인증하도록 설정
 
@@ -24,9 +24,9 @@ ms.locfileid: "52834437"
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 샘플 단일 페이지 애플리케이션을 Azure AD B2C 디렉터리에 등록합니다.
+> * 샘플 단일 페이지 응용 프로그램을 Azure AD B2C 디렉터리에 등록합니다.
 > * 사용자 가입, 로그인, 프로필 편집 및 암호 재설정에 대한 사용자 흐름을 만듭니다.
-> * Azure AD B2C 디렉터리를 사용하도록 애플리케이션 예제를 구성합니다.
+> * Azure AD B2C 디렉터리를 사용하도록 응용 프로그램 예제를 구성합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,7 +39,7 @@ ms.locfileid: "52834437"
 
 ## <a name="register-single-page-app"></a>단일 페이지 앱 등록
 
-Azure Active Directory에서 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)을 받으려면 먼저 애플리케이션을 디렉터리에 [등록](../active-directory/develop/developer-glossary.md#application-registration)해야 합니다. 앱을 등록하면 디렉터리에서 앱에 대한 [애플리케이션 ID](../active-directory/develop/developer-glossary.md#application-id-client-id)가 만들어집니다. 
+Azure Active Directory에서 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)을 받으려면 먼저 응용 프로그램을 디렉터리에 [등록](../active-directory/develop/developer-glossary.md#application-registration)해야 합니다. 앱을 등록하면 디렉터리에서 앱에 대한 [응용 프로그램 ID](../active-directory/develop/developer-glossary.md#application-id-client-id)가 만들어집니다. 
 
 Azure AD B2C 디렉터리의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -47,7 +47,7 @@ Azure AD B2C 디렉터리의 전역 관리자로 [Azure Portal](https://portal.a
 
 1. Azure Portal의 서비스 목록에서 **Azure AD B2C**를 선택합니다. 
 
-2. B2C 설정에서 **애플리케이션**, **추가**를 차례로 클릭합니다. 
+2. B2C 설정에서 **응용 프로그램**, **추가**를 차례로 클릭합니다. 
 
     샘플 웹앱을 디렉터리에 등록하려면 다음 설정을 사용합니다.
     
@@ -63,7 +63,7 @@ Azure AD B2C 디렉터리의 전역 관리자로 [Azure Portal](https://portal.a
     
 3. **만들기** 를 클릭하여 앱을 등록합니다.
 
-등록된 앱은 Azure AD B2C 디렉터리에 대한 애플리케이션 목록에 표시됩니다. 목록에서 해당하는 단일 페이지 앱을 선택합니다. 등록된 단일 페이지 앱의 속성 창이 표시됩니다.
+등록된 앱은 Azure AD B2C 디렉터리에 대한 응용 프로그램 목록에 표시됩니다. 목록에서 해당하는 단일 페이지 앱을 선택합니다. 등록된 단일 페이지 앱의 속성 창이 표시됩니다.
 
 ![단일 페이지 앱 속성](./media/active-directory-b2c-tutorials-spa/b2c-spa-properties.png)
 

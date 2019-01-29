@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/22/2016
+ms.date: 01/16/2018
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: de68c59987a7ec1198c344cc22978ebed09c75e8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6463759dbd217cd054f838c09c7cfcf99a06aa2c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271361"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390827"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>App Service Environment에 대한 사용자 지정 구성 설정
 ## <a name="overview"></a>개요
-App Service Environment는 단일 고객에게 격리되므로 App Service Environment에만 적용할 수 있는 특정 구성 설정이 있습니다. 이 문서에서는 App Service Environment에 사용 가능한 다양한 App Service Environment 관련 사용자 지정 항목을 설명합니다.
+ASE(App Service Environment)는 단일 고객에게 격리되므로 App Service Environment에만 적용할 수 있는 특정 구성 설정이 있습니다. 이 문서에서는 App Service Environment에 사용 가능한 다양한 App Service Environment 관련 사용자 지정 항목을 설명합니다.
 
 App Service Environment가 없는 경우 [App Service Environment를 만드는 방법](app-service-web-how-to-create-an-app-service-environment.md)을 참조하세요.
 
@@ -65,10 +65,11 @@ App Service Environment가 없는 경우 [App Service Environment를 만드는 �
 변경 내용을 제출한 후 변경 내용이 적용되려면 App Service Environment의 프런트 엔드 수에 약 30 분을 곱한 만큼의 시간이 필요합니다.
 예를 들어 App Service Environment에 4개의 프런트 엔드가 있는 경우 구성 업데이트를 완료하는 데 약 2시간이 걸립니다. 구성 변경이 롤아웃되는 동안 App Service Environment에서 다른 크기 조정 작업 또는 구성 변경 작업을 수행할 수 없습니다.
 
-## <a name="disable-tls-10"></a>TLS 1.0 사용 안 함
-고객, 특히 PCI 규정 준수 감사를 다루는 고객으로부터의 되풀이되는 질문은 자신의 앱에 TLS 1.0을 명시적으로 사용하지 않도록 설정하는 방법입니다.
+## <a name="disable-tls-10-and-tls-11"></a>TLS 1.0 및 TLS 1.1 사용 안 함
 
-다음 **clusterSettings** 항목을 통해 TLS 1.0을 사용하지 않도록 설정할 수 있습니다.
+앱 단위로 TLS 설정을 관리하려는 경우 [TLS 설정 적용](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl#enforce-tls-versions) 설명서와 함께 제공되는 지침을 사용할 수 있습니다. 
+
+ASE의 모든 앱에 대해 인바운드 TLS 1.0 및 TLS 1.1 트래픽을 모두 사용 안 함으로 설정하려면 다음 **clusterSettings** 항목을 설정할 수 있습니다.
 
         "clusterSettings": [
             {
@@ -76,6 +77,8 @@ App Service Environment가 없는 경우 [App Service Environment를 만드는 �
                 "value": "1"
             }
         ],
+
+설정 이름에는 1.0이 표시되지만 구성되면 TLS 1.0 및 TLS 1.1이 모두 사용되지 않습니다.
 
 ## <a name="change-tls-cipher-suite-order"></a>TLS 암호화 그룹 순서 변경
 고객의 또 다른 질문은 고객이 자신의 서버와 협의한 암호화 목록을 수정할 수 있는지에 대한 것으로 아래 표시된 것처럼 **clusterSettings** 를 수정하여 이 작업을 수행할 수 있습니다. 사용 가능한 암호화 그룹 목록은 [이 MSDN 문서](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx)에서 검색할 수 있습니다.

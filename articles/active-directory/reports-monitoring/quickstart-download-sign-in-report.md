@@ -4,7 +4,7 @@ description: Azure Portal을 사용하여 로그인 보고서를 다운로드하
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 9131f208-1f90-4cc1-9c29-085cacd69317
 ms.service: active-directory
@@ -16,16 +16,16 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ce242066df427163048a2ef51e79ffd98eadbc7d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 7b16fb718e689eec8ea016b513d866390b2328e0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214915"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815563"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 로그인 보고서 다운로드
 
-이 빠른 시작에서는 지난 24시간 동안 테넌트에 대한 로그인 데이터를 다운로드하는 방법을 알아봅니다.
+이 빠른 시작에서는 지난 24시간 동안 테넌트에 대한 로그인 데이터를 다운로드하는 방법을 알아봅니다. Azure Portal에서 최대 5,000개의 레코드를 다운로드할 수 있습니다. 레코드는 가장 최근 순으로 정렬되므로 기본적으로 가장 최근의 5,000개 레코드를 가져옵니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 

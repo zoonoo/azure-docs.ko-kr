@@ -3,19 +3,19 @@ title: 자습서 - Azure Active Directory B2C를 사용하여 웹 애플리케�
 description: Azure Active Directory B2C를 사용하여 ASP.NET 웹 애플리케이션에 대한 사용자 로그인을 제공하는 방법에 대한 자습서입니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
 ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 8b482391dfafdda0e54b3f9e2b8a3a7de2f2d5cd
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 30a94cb5de2d618938f17c4e5733821ac7247785
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834726"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851524"
 ---
 # <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 웹 애플리케이션이 계정을 인증하도록 설정
 
@@ -37,7 +37,7 @@ ms.locfileid: "52834726"
 
 ## <a name="register-web-app"></a>웹앱 등록
 
-Azure Active Directory에서 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)을 받으려면 먼저 애플리케이션을 테넌트에 [등록](../active-directory/develop/developer-glossary.md#application-registration)해야 합니다. 앱을 등록하면 테넌트에서 앱에 대한 [애플리케이션 ID](../active-directory/develop/developer-glossary.md#application-id-client-id)가 만들어집니다. 
+Azure Active Directory에서 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)을 받으려면 먼저 애플리케이션을 테넌트에 [등록](../active-directory/develop/developer-glossary.md#application-registration)해야 합니다. 앱을 등록하면 테넌트에서 앱에 대한 [응용 프로그램 ID](../active-directory/develop/developer-glossary.md#application-id-client-id)가 만들어집니다. 
 
 Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -45,7 +45,7 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
 
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다. 이전 자습서에서 만든 테넌트를 사용해야 합니다. 
 
-2. B2C 설정에서 **애플리케이션**, **추가**를 차례로 클릭합니다. 
+2. B2C 설정에서 **응용 프로그램**, **추가**를 차례로 클릭합니다. 
 
     샘플 웹앱을 테넌트에 등록하려면 다음 설정을 사용합니다.
 
@@ -61,7 +61,7 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
     
 3. **만들기** 를 클릭하여 앱을 등록합니다.
 
-등록된 앱은 Azure AD B2C 테넌트에 대한 애플리케이션 목록에 표시됩니다. 목록에서 웹앱을 선택합니다. 웹앱의 속성 창이 표시됩니다.
+등록된 앱은 Azure AD B2C 테넌트에 대한 응용 프로그램 목록에 표시됩니다. 목록에서 웹앱을 선택합니다. 웹앱의 속성 창이 표시됩니다.
 
 ![웹앱 속성](./media/active-directory-b2c-tutorials-web-app/b2c-web-app-properties.png)
 
@@ -69,7 +69,7 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
 
 ### <a name="create-a-client-password"></a>클라이언트 암호 만들기
 
-Azure AD B2C는 [클라이언트 애플리케이션](../active-directory/develop/developer-glossary.md#client-application)에 OAuth2 인증을 사용합니다. 웹앱은 [기밀 클라이언트](../active-directory/develop/developer-glossary.md#web-client)이며 클라이언트 ID 또는 애플리케이션 ID와 클라이언트 비밀, 클라이언트 암호 또는 애플리케이션 키가 필요합니다.
+Azure AD B2C는 [클라이언트 응용 프로그램](../active-directory/develop/developer-glossary.md#client-application)에 OAuth2 인증을 사용합니다. 웹앱은 [기밀 클라이언트](../active-directory/develop/developer-glossary.md#web-client)이며 클라이언트 ID 또는 응용 프로그램 ID와 클라이언트 비밀, 클라이언트 암호 또는 응용 프로그램 키가 필요합니다.
 
 1. 등록된 웹앱에 대한 [키] 페이지를 선택하고 **키 생성**을 클릭합니다.
 
@@ -171,7 +171,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 샘플 솔루션에는 두 개의 프로젝트가 있습니다.
 
-**웹앱 샘플 앱(TaskWebApp):** 작업 목록을 만들고 편집하는 웹앱입니다. 웹앱에서 **가입 또는 로그인** 사용자 흐름을 사용하여 사용자를 가입 또는 로그인시킵니다.
+**웹앱 샘플 앱(TaskWebApp):** 작업 목록을 만들고 편집할 웹앱입니다. 웹앱에서 **가입 또는 로그인** 사용자 흐름을 사용하여 사용자를 가입 또는 로그인시킵니다.
 
 **Web API 샘플 앱(TaskService):** 작업 목록 만들기, 읽기, 업데이트 및 삭제 기능을 지원하는 Web API입니다. 웹 API는 Azure AD B2C를 통해 보호되고 웹앱에서 호출됩니다.
 

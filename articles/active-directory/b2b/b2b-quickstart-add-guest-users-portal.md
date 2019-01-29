@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 07/02/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: ed49eed6dbfce9a71f13770e3ddcaec6557cf875
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 5e62d8679a76c024b0dcada5cfaad50659fcd4c8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986548"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431693"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 디렉터리에 게스트 사용자 추가
 
@@ -55,7 +55,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 테스트 테넌트에 Salesforce 앱을 추가하고 테스트 게스트 사용자를 앱에 할당합니다.
 1.  Azure AD 관리자로 Azure Portal에 로그인합니다.
 2.  왼쪽 창에서 **엔터프라이즈 애플리케이션**을 선택합니다.
-3.  **새 응용 프로그램**을 선택합니다.
+3.  **새 애플리케이션**을 선택합니다.
 4. **갤러리에서 추가** 아래에서 **Salesforce**를 검색한 후 선택합니다.
 
     ![Azure Active Directory 선택](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)

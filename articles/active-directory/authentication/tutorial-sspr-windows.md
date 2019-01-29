@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 5c40e6c681a4f37c61519040eb32531d3c8f071c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 640f03cd35ac74df9c7b25352ab294c35c4ec0ea
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437149"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430675"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>자습서: 로그인 화면에서 Azure AD 암호 재설정
 
@@ -32,6 +32,7 @@ ms.locfileid: "53437149"
    * [Azure AD 조인 머신](../device-management-azure-portal.md) 또는
    * [하이브리드 Azure AD 조인 머신](../device-management-hybrid-azuread-joined-devices-setup.md)(도메인 컨트롤러에 네트워크가 연결됨)
 * Azure AD 셀프 서비스 암호 재설정을 사용하도록 설정.
+* Windows 10 머신이 프록시 서버 또는 방화벽 뒤에 있는 경우 `passwordreset.microsoftonline.com` 및 `ajax.aspnetcdn.com`에 대한 HTTPS 트래픽(443)을 허용해야 합니다.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Intune을 사용하여 암호 재설정 링크 구성
 
@@ -126,8 +127,6 @@ Hyper-V를 사용하여 이 기능을 테스트할 때에는 "암호 재설정" 
    * Explorer.exe는 사용자 지정 셸로 바뀜
 
 이 기능은 802.1x 네트워크 인증이 배포된 네트워크에 및 “사용자가 로그온하기 직전에 수행” 옵션에는 작동하지 않습니다. 802.1x 네트워크 인증이 배포된 네트워크의 경우 머신 인증을 사용하여 이 기능을 사용하는 것이 좋습니다.
-
-Windows 10 머신이 프록시 서버 또는 방화벽 뒤에 있는 경우 passwordreset.microsoftonline.com 및 ajax.aspnetcdn.com에 대한 HTTPS 트래픽(443)을 허용해야 합니다.
 
 하이브리드 도메인 조인 시나리오의 경우, Active Directory 도메인 컨트롤러 없이도 SSPR 워크플로가 완료되는 시나리오가 있습니다. 새 암호를 처음 사용하려면 도메인 컨트롤러와 연결해야 합니다.
 

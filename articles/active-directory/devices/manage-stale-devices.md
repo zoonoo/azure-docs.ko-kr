@@ -4,7 +4,7 @@ description: 사용자 환경의 리소스에 액세스하는 디바이스를 �
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 10/03/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 1b8a6e6a6b5f482a4e3575c4da18a02a958c4081
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 53474d2d364b26f4d54e1917e4aa50bc6f0e5280
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249369"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449591"
 ---
 # <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>방법: Azure AD에서 부실 디바이스 관리
 
@@ -53,7 +53,7 @@ Azure AD의 부실 디바이스는 조직의 디바이스에 대한 일반적인
 
 활동 타임스탬프의 평가는 디바이스의 인증 시도를 통해 트리거됩니다. Azure AD에서 평가하는 활동 타임스탬프는 다음과 같습니다.
 
-- [관리 장치](../conditional-access/require-managed-devices.md) 또는 [승인된 클라이언트 앱](../conditional-access/app-based-conditional-access.md)을 요구하는 조건부 액세스 정책이 트리거되었습니다.
+- [관리 디바이스](../conditional-access/require-managed-devices.md) 또는 [승인된 클라이언트 앱](../conditional-access/app-based-conditional-access.md)을 요구하는 조건부 액세스 정책이 트리거되었습니다.
 
 - Azure AD 또는 하이브리드 Azure AD에 조인된 Windows 10 디바이스가 네트워크에서 활성 상태로 있습니다. 
 
@@ -120,9 +120,9 @@ Azure AD에서 디바이스를 업데이트하려면 다음 역할 중 하나가
 
 Azure AD를 정리하려면 다음을 수행합니다.
 
-- **Windows 10 장치** - 온-프레미스 AD에서 Windows 10 장치를 사용하지 않도록 설정하거나 삭제하고, Azure AD Connect에서 변경된 장치 상태를 Azure AD에 동기화하도록 합니다.
+- **Windows 10 디바이스** - 온-프레미스 AD에서 Windows 10 디바이스를 사용하지 않도록 설정하거나 삭제하고, Azure AD Connect에서 변경된 디바이스 상태를 Azure AD에 동기화하도록 합니다.
 
-- **Windows 7/8** - Azure AD에서 Windows 10 장치를 사용하지 않도록 설정하거나 삭제합니다. Azure AD Connect는 Azure AD에서 Windows 7/8 디바이스를 사용하지 않도록 설정하거나 삭제하는 데 사용할 수 없습니다.
+- **Windows 7/8** - Azure AD에서 Windows 10 디바이스를 사용하지 않도록 설정하거나 삭제합니다. Azure AD Connect는 Azure AD에서 Windows 7/8 디바이스를 사용하지 않도록 설정하거나 삭제하는 데 사용할 수 없습니다.
 
 
 
@@ -148,11 +148,11 @@ Azure AD에서 Azure AD 등록 디바이스를 사용하지 않도록 설정하�
 
 2. 디바이스 목록을 가져옵니다.
 
-3. [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0) cmdlet을 사용하여 장치를 사용하지 않도록 설정합니다. 
+3. [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0) cmdlet을 사용하여 디바이스를 사용하지 않도록 설정합니다. 
 
 4. 디바이스를 삭제하기 전에 선택한 며칠 동안의 유예 기간 동안 기다립니다.
 
-5. [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0) cmdlet을 사용하여 장치를 제거합니다.
+5. [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0) cmdlet을 사용하여 디바이스를 제거합니다.
 
 ### <a name="get-the-list-of-devices"></a>디바이스 목록을 가져옵니다.
 
@@ -189,11 +189,11 @@ Get-MsolDevice -all -LogonTimeBefore $dt | select-object -Property Enabled, Devi
 
 디바이스에서 Azure AD를 인증하는 데 사용되는 모든 인증이 거부됩니다. 일반적인 예제는 다음과 같습니다.
 
-- **하이브리드 Azure AD 조인 장치** - 사용자는 이 장치를 사용하여 해당 온-프레미스 도메인에 로그인할 수 있습니다. 그러나 Office 365와 같은 Azure AD 리소스에는 액세스할 수 없습니다.
+- **하이브리드 Azure AD 조인 디바이스** - 사용자는 이 디바이스를 사용하여 해당 온-프레미스 도메인에 로그인할 수 있습니다. 그러나 Office 365와 같은 Azure AD 리소스에는 액세스할 수 없습니다.
 
-- **Azure AD 조인 장치** - 사용자는 이 장치를 사용하여 로그인할 수 없습니다. 
+- **Azure AD 조인 디바이스** - 사용자는 이 디바이스를 사용하여 로그인할 수 없습니다. 
 
-- **모바일 장치** - 사용자는 Office 365와 같은 Azure AD 리소스에 액세스할 수 없습니다. 
+- **모바일 디바이스** - 사용자는 Office 365와 같은 Azure AD 리소스에 액세스할 수 없습니다. 
 
 
 
