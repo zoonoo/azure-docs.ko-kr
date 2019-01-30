@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: annaba
-ms.openlocfilehash: 3172ba12fbbd0135d1a5a3684145787c83aad040
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7d8c0a837f5618580c5e76e5ca97e19844b95698
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242418"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427171"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Azure Active Directory에서 인증서 기반 인증 시작
 
-인증서 기반 인증을 사용하면 Exchange Online 계정을 다음에 연결할 때 Windows, Android 또는 iOS 디바이스의 클라이언트 인증서를 사용하여 Azure Active Directory에서 인증을 받을 수 있습니다.
+인증서 기반 인증을 사용하면 Exchange Online 계정을 다음에 연결할 때 Windows, Android 또는 iOS 장치의 클라이언트 인증서를 사용하여 Azure Active Directory에서 인증을 받을 수 있습니다.
 
 - Microsoft Outlook 및 Microsoft Word와 같은 Microsoft 모바일 애플리케이션
 - EAS(Exchange ActiveSync) 클라이언트
 
-이 기능을 구성하면 모바일 디바이스의 특정 메일 및 Microsoft Office 응용 프로그램에 사용자 이름 및 암호 조합을 입력해야 합니다.
+이 기능을 구성하면 모바일 장치의 특정 메일 및 Microsoft Office 애플리케이션에 사용자 이름 및 암호 조합을 입력해야 합니다.
 
 항목 내용:
 
@@ -174,9 +174,9 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 ### <a name="testing-office-mobile-applications"></a>Office 모바일 애플리케이션 테스트
 
-**모바일 Office 응용 프로그램에서 인증서 인증을 테스트하려면**
+**모바일 Office 애플리케이션에서 인증서 인증을 테스트하려면**
 
-1. 테스트 디바이스에서 Office 모바일 응용 프로그램(예: OneDrive)을 설치합니다.
+1. 테스트 장치에서 Office 모바일 응용 프로그램(예: OneDrive)을 설치합니다.
 3. 애플리케이션을 시작합니다.
 4. 사용자 이름을 입력하고 사용하려는 사용자 인증서를 선택합니다.
 
@@ -198,11 +198,11 @@ Intune과 같은 MDM(모바일 디바이스 관리)을 활용하거나 디바이
 
 **인증서 인증을 테스트하려면**
 
-1. 이전 섹션의 요구 사항을 충족하는 EAS 프로필을 애플리케이션에서 구성합니다.
+1. 이전 섹션의 요구 사항을 충족하는 EAS 프로필을 응용 프로그램에서 구성합니다.
 2. 애플리케이션을 열고 메일이 동기화되는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Android 장치의 인증서 기반 인증에 대한 추가 정보를 확인합니다.](active-directory-certificate-based-authentication-android.md)
+[Android 디바이스의 인증서 기반 인증에 대한 추가 정보를 확인합니다.](active-directory-certificate-based-authentication-android.md)
 
-[iOS 장치의 인증서 기반 인증에 대한 추가 정보를 확인합니다.](active-directory-certificate-based-authentication-ios.md)
+[iOS 디바이스의 인증서 기반 인증에 대한 추가 정보를 확인합니다.](active-directory-certificate-based-authentication-ios.md)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 151d945bbeda9f7dd496f8469f8f858e8369da8f
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 8961a863f1b268a034310554230096cc0f9d5260
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164418"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844061"
 ---
 # <a name="create-and-clone-projects"></a>프로젝트 만들기 및 복제
 
@@ -30,7 +30,7 @@ Azure Notebooks는 Jupyter Notebook 및 관련 파일을 *프로젝트*라고 �
 
 `https://notebooks.azure.com/<userID>/projects`의 **내 프로젝트** 대시보드에서 프로젝트를 보고, 관리하고, 만들 수 있습니다.
 
-[![](media/my-projects-dashboard.png "Azure Notebooks의 내 프로젝트 대시보드")](media/my-projects-dashboard.png#lightbox)
+[![Azure Notebooks의 내 프로젝트 대시보드](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 사용자 ID를 소유한 계정으로 로그인하는지 여부에 따라 대시보드에서 할 수 있는 일이 달라집니다.
 

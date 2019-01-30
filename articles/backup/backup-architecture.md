@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: raynew
-ms.openlocfilehash: d3e6a17ba9d0712d921d8e0a1d0bcbcd68ce5cfb
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 84890c0658970aa9f61a06764cf902a5e5ee4379
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360555"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812568"
 ---
 # <a name="azure-backup-architecture"></a>Azure Backup 아키텍처
 
@@ -163,7 +163,7 @@ DPM/MABS 디스크에 백업한 후 Azure에 백업 | | | ![예][green]
 - Azure VM은 디스크를 사용하여 운영 체제, 앱 및 데이터를 저장합니다.
 - Azure VM에는 두 개 이상의 디스크가 있습니다. 운영 체제용 디스크와 임시 디스크입니다. 앱 데이터에 사용되는 데이터 디스크도 포함할 수 있습니다. 디스크는 VHD로 저장됩니다.
 - VHD는 Azure의 Standard 또는 Premium Storage 계정에 페이지 Blob으로 저장됩니다.
-    - Standard Storage: 대기 시간이 중요하지 않은 워크로드를 실행하는 VM에 대한 신뢰할 수 있는 저비용 디스크 지원입니다. Standard Storage는 표준 SSD 디스크를 사용할 수 있습니다.
+    - Standard Storage: 대기 시간이 중요하지 않은 워크로드를 실행하는 VM에 대한 신뢰할 수 있는 저비용 디스크 지원입니다. Standard Storage는 표준 SSD 디스크나 표준 HDD 디스크를 사용할 수 있습니다.
     - Premium Storage: 고성능 디스크 지원입니다. 프리미엄 SSD 디스크를 사용합니다.
 - 디스크에는 다음과 같은 여러 성능 계층이 있습니다.
     - 표준 HDD 디스크: HDD를 통해 지원되며 경제적인 스토리지에 사용됩니다.

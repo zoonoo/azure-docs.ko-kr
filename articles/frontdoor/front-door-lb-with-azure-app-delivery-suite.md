@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door Service - Azure 응용 프로그램 배달 제품군을 통해 부하 분산 | Microsoft Docs
+title: Azure Front Door Service - Azure 애플리케이션 전송 제품군을 통해 부하 분산 | Microsoft Docs
 description: 이 문서에서는 Azure에서 애플리케이션 배달 제품군을 사용하여 부하 분산을 권장하는 방법을 알아봅니다.
 services: frontdoor
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 4c9f92481af1e69a111869cb6fc1305923bb0484
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 5403b5506a3758ede5ad06640335b873b6b9aa96
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026010"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820832"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Azure 애플리케이션 배달 제품군을 통해 부하 분산
 
 ## <a name="introduction"></a>소개
-Microsoft Azure는 Traffic Manager, Front Door Service, Application Gateway 및 Load Balancer와 같이 네트워크 트래픽을 배포하고 부하를 분산하는 방법을 관리하는 여러 가지 글로벌 및 지역 서비스를 제공합니다.  Azure의 많은 지역 및 영역 아키텍처와 함께 이러한 서비스를 모두 사용하면 강력하고 확장 가능한 고성능 애플리케이션을 구축할 수 있습니다.
+Microsoft Azure는 네트워크 트래픽을 분산하고 부하를 분산하는 방법을 관리하는 다음과 같은 다양한 전역 및 지역 서비스를 제공합니다. Traffic Manager, Front Door Service, Application Gateway 및 Load Balancer.  Azure의 많은 지역 및 영역 아키텍처와 함께 이러한 서비스를 모두 사용하면 강력하고 확장 가능한 고성능 애플리케이션을 구축할 수 있습니다.
 
 ![애플리케이션 배달 제품군 ][1]
  
@@ -51,16 +51,16 @@ Load Balancer는 Azure SDN 스택의 필수적인 부분으로, 모든 UDP 및 T
 
 ## <a name="choosing-a-global-load-balancer"></a>글로벌 부하 분산 장치 선택
 글로벌 부하 분산을 위해 Traffic Manager와 Azure Front Door 사이에 글로벌 부하 분산 장치를 선택하는 경우 두 서비스의 유사점과 차이점을 고려해야 합니다.   두 서비스 모두에서 제공하는 기능은 다음과 같습니다.
-- **다중 지역 중복**: 한 지역이 가동 중단되면 응용 프로그램 소유자의 개입 없이 트래픽이 가장 가까운 지역으로 원활하게 라우팅됩니다.
+- **다중 지역 중복:** 한 지역이 가동 중단되면 애플리케이션 소유자의 개입 없이 트래픽이 가장 가까운 지역으로 원활하게 라우팅됩니다.
 - **가장 가까운 지역 라우팅:** 트래픽이 가장 가까운 지역으로 자동으로 라우팅됩니다.
 
 </br>다음 표에서는 Traffic Manager와 Azure Front Door Service의 차이점을 설명합니다.</br>
 
 | Traffic Manager | Azure Front Door Service |
 | --------------- | ------------------------ |
-|**모든 프로토콜:** Traffic Manager는 DNS 계층에서 작동하므로 모든 유형의 네트워크 트래픽(HTTP, TCP, UDP 등)을 라우팅할 수 있습니다. | **HTTP 가속:** Front Door 트래픽이 Microsoft Edge 네트워크에서 프록시됩니다.  이로 인해 HTTP(S) 요청의 대기 시간과 처리량이 향상되어 SSL 협상의 대기 시간을 줄이고 AFD에서 애플리케이션으로의 핫 연결을 사용할 수 있습니다.|
-|**온-프레미스 라우팅:** DNS 계층에서 라우팅을 사용하여 트래픽이 항상 지점 간에 이동합니다.  지점에서 온-프레미스 데이터 센터로 라우팅하면 직접 경로를 사용할 수 있으며, 심지어 Traffic Manager를 사용하여 사용자 고유의 네트워크에서도 사용할 수 있습니다. | **독립적인 확장성:** Front Door가 HTTP 요청과 함께 작동하므로 각 응용 프로그램 마이크로 서비스의 규칙 및 상태에 따라 서로 다른 URL 경로에 대한 요청을 다른 백 엔드/지역 서비스 풀(마이크로 서비스)로 라우팅할 수 있습니다.|
-|**청구 형식:** DNS 기반 청구는 사용자에 따라 확장되고 서비스의 경우 더 많은 사용자로 확장되어 사용량이 늘어나지만 비용을 줄일 수 있습니다. |**인라인 보안:** Front Door는 속도 제한 및 IP ACL과 같은 규칙을 사용하여 트래픽이 응용 프로그램에 도달하기 전에 백 엔드를 보호할 수 있습니다. 
+|**모든 프로토콜:** Traffic Manager는 DNS 계층에서 작동하므로 모든 유형의 네트워크 트래픽(HTTP, TCP, UDP 등)을 라우팅할 수 있습니다. | **HTTP 가속:**: Front Door 트래픽이 Microsoft Edge 네트워크에서 프록시됩니다.  이로 인해 HTTP(S) 요청의 대기 시간과 처리량이 향상되어 SSL 협상의 대기 시간을 줄이고 AFD에서 애플리케이션으로의 핫 연결을 사용할 수 있습니다.|
+|**온-프레미스 라우팅:** DNS 계층에서 라우팅을 사용하여 트래픽이 항상 지점 간에 이동합니다.  지점에서 온-프레미스 데이터 센터로 라우팅하면 직접 경로를 사용할 수 있으며, 심지어 Traffic Manager를 사용하여 사용자 고유의 네트워크에서도 사용할 수 있습니다. | **독립적인 확장성:** Front Door가 HTTP 요청과 함께 작동하므로 각 애플리케이션 마이크로 서비스의 규칙 및 상태에 따라 서로 다른 URL 경로에 대한 요청을 다른 백 엔드/지역 서비스 풀(마이크로 서비스)로 라우팅할 수 있습니다.|
+|**청구 형식:** DNS 기반 청구는 사용자에 따라 확장되고 서비스의 경우 더 많은 사용자로 확장되어 사용량이 늘어나지만 비용을 줄일 수 있습니다. |**인라인 보안:** Front Door는 속도 제한 및 IP ACL과 같은 규칙을 사용하여 트래픽이 애플리케이션에 도달하기 전에 백 엔드를 보호할 수 있습니다. 
 
 </br>Front Door의 HTTP 워크로드에 대한 성능, 작동 가능성 및 보안상의 이점으로 인해 고객은 HTTP 워크로드에 Front Door를 사용하는 것이 좋습니다.    Traffic Manager와 Front Door를 병렬로 사용하여 애플리케이션의 모든 트래픽을 처리할 수 있습니다. 
 

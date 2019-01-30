@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 01/21/2019
 ms.author: celested
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.openlocfilehash: 0f0de122dc3dbd770e91a8412430423bee222b30
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 085923dd124a4f973a709f0e59a07ad4137c6901
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577965"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438500"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>방법: 비활성화된 Access Control Service 네임스페이스 다시 활성화
 
@@ -32,7 +32,7 @@ ms.locfileid: "51577965"
 
 ## <a name="why-your-namespace-is-disabled"></a>네임스페이스를 사용할 수 없는 이유
 
-연장을 신청하지 않은 경우 2018년 11월 7일에 ACS 네임스페이스를 사용하지 않도록 설정하기 시작했습니다. 커뮤니케이션을 받지 못했고 2019년 2월 4일까지 연장하고자 한다면 다음 섹션의 지침에 따르세요.
+연장을 신청하지 않은 경우 2018년 11월 7일에 ACS 네임스페이스를 사용하지 않도록 설정하기 시작했습니다. 2019년 2월 4일로 연장을 요청했어야 합니다. 그렇지 않으면 PowerShell을 통해 네임스페이스를 활성화할 수 없습니다.
 
 > [!NOTE]
 > PowerShell 명령을 실행하고 연장을 요청하려면 구독의 서비스 관리자 또는 공동 관리자여야 합니다.
@@ -57,7 +57,7 @@ ACS 네임스페이스를 사용하여 모든 ACS 네임스페이스를 나열�
 
         특정 명령에 대한 도움말을 보려면 다음을 실행합니다.
 
-        ```
+        ```powershell
         Get-Help [Command-Name] -Full
         ```
     
@@ -79,18 +79,45 @@ ACS 네임스페이스를 사용하여 모든 ACS 네임스페이스를 나열�
 
 ## <a name="request-an-extension"></a>연장 요청
 
-1. `https://{your-namespace}.accesscontrol.windows.net`으로 이동하여 ACS 네임스페이스의 관리 포털로 이동합니다.
-1. **사용 약관 읽기** 단추를 선택하여 [사용 약관 업데이트](https://azure.microsoft.com/support/legal/access-control/)를 읽습니다. 업데이트된 사용 약관이 있는 페이지로 이동하게 됩니다.
+2019년 1월 21일에 시작하는 새 연장 요청을 진행하고 있습니다.
 
-    [![사용 약관 읽기 단추 선택](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png#lightbox)
+2019년 2월 4일로 연장을 요청한 고객에 대한 네임스페이스 비활성화를 시작합니다. PowerShell을 통해 여전히 네임스페이스 다시 활성화할 수 있지만 네임스페이스는 48시간 후 다시 비활성화됩니다.
 
-1. 페이지 상단의 **연장 요청**을 선택합니다. [사용 약관 업데이트](https://azure.microsoft.com/support/legal/access-control/)를 읽어야만 단추를 사용할 수 있습니다.
+2019년 3월 4일 이후 고객은 더 이상 PowerShell을 통해 모든 네임스페이스를 다시 활성화할 수 없습니다.
 
-    [![연장 요청 단추 선택](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png#lightbox)
+추가 연장은 더 이상 자동으로 승인되지 않습니다. 마이그레이션할 추가 시간이 필요할 경우 [Azure 지원](https://portal.azure.com/#create/Microsoft.Support)에 문의하여 자세한 마이그레이션 타임라인을 제공하세요.
 
-1. 연장 요청이 등록되면 페이지가 새로 고쳐지고 페이지 맨 위에 새 배너가 표시됩니다.
+### <a name="to-request-an-extension"></a>연장을 요청하려면
 
-    [![새로 고친 배너로 페이지 업데이트](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png#lightbox)
+1. Azure Portal에 로그인하고 [새 지원 요청](https://portal.azure.com/#create/Microsoft.Support)을 만듭니다.
+1. 다음 예제와 같이 새 지원 요청 양식을 입력합니다.
+
+    | 지원 요청 필드 | 값 |
+    |-----------------------|--------------------|
+    | **문제 유형** | `Technical` |
+    | **구독** | 구독에 대한 설정 |
+    | **서비스** | `All services` |
+    | **리소스** | `General question/Resource not available` |
+    | **문제 유형** | `ACS to SAS Migration` |
+    | **제목** | 문제 설명 |
+
+  ![새 기술 지원 요청](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+
+<!--
+
+1. Navigate to your ACS namespace's management portal by going to `https://{your-namespace}.accesscontrol.windows.net`.
+1. Select the **Read Terms** button to read the [updated Terms of Use](https://azure.microsoft.com/support/legal/access-control/), which will direct you to a page with the updated Terms of Use.
+
+    [![Select the Read Terms button](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png#lightbox)
+
+1. Select **Request Extension** on the banner at the top of the page. The button will only be enabled after you read the [updated Terms of Use](https://azure.microsoft.com/support/legal/access-control/).
+
+    [![Select the Request Extension button](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png#lightbox)
+
+1. After the extension request is registered, the page will refresh with a new banner at the top of the page.
+
+    [![Updated page with refreshed banner](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png#lightbox)
+-->
 
 ## <a name="help-and-support"></a>도움말 및 지원
 

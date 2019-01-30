@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 12/12/2018
-ms.openlocfilehash: fef0cfd05fe0d44966cbb9f15ba1148f8473207d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.date: 01/18/2019
+ms.openlocfilehash: e397540d33df8a509e10f52fde41fc178cdba67e
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789910"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411750"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility Service 푸시 설치 문제 해결
 
@@ -141,6 +141,14 @@ Azure Site Recovery에서 어떤 운영 체제 및 커널 버전이 지원되는
 ## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>부트 및 시스템 파티션/볼륨이 동일한 디스크가 아님(ErrorID: 95309)
 
 9.20 이전 버전에서는 서로 다른 디스크의 부트 및 시스템 파티션/볼륨이 지원되지 않는 구성이었습니다. [9.20 버전](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)부터 이 구성이 지원됩니다. 이 지원을 활용하려면 최신 버전을 사용합니다.
+
+## <a name="boot-disk-not-found-errorid-95310"></a>부트 디스크를 찾을 수 없음(ErrorID: 95310)
+
+부트 디스크가 없는 가상 머신은 보호할 수 없습니다. 이는 장애 조치 작업 중에 가상 머신의 원활한 복구를 보장하기 위한 것입니다. 부트 디스크가 없으면 장애 조치 후 머신을 부팅하지 못합니다. 가상 머신에 부트 디스크가 있는지 확인하고 작업을 다시 시도하세요. 또한 동일한 머신에 부트 디스크가 여러 개 있는 것도 지원되지 않습니다.
+
+## <a name="multiple-boot-disks-found-errorid-95311"></a>부트 디스크가 여러 개임(ErrorID: 95311)
+
+부트 디스크가 여러 개인 가상 머신은 [지원되는 구성](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage)이 아닙니다.
 
 ## <a name="system-partition-on-multiple-disks-errorid-95313"></a>여러 디스크에 있는 시스템 파티션(ErrorID: 95313)
 

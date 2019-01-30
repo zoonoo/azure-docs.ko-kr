@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: reference
-ms.openlocfilehash: 38ebde9179d79c091edb269c1be4c9c956f34006
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 415866bc4ef396a1b9397c4996d65cf10d78400b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627956"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854788"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -46,7 +46,7 @@ ms.locfileid: "51627956"
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>내 데이터가 이미 정렬된 문장인 경우 정렬 및 문장 분리를 건너뛰려면 어떻게 해야 하나요?
 
-Custom Translator는 `.align` 확장을 사용한 TMX 파일 및 텍스트 파일에서 문장 정렬 및 문장 분리를 건너뜁니다. `.align` 파일은 사용자에게 완벽하게 정렬되어 있고 더 이상 처리할 필요가 없는 파일에 대해 Custom Translator의 문장 분리 및 정렬 프로세스에 대한 옵션을 제공합니다. 완벽하게 정렬된 파일에 대해서만 `.align` 확장을 사용하는 것이 좋습니다.
+Custom Translator는 `.align` 확장을 사용한 TMX 파일 및 텍스트 파일에서 문장 정렬 및 문장 분리를 건너뜁니다. `.align` 파일은 사용자에게 완벽하게 정렬되어 있고 더 이상 처리할 필요가 없는 파일에 대해 Custom Translator의 문장 분리 및 정렬 프로세스를 건너뛰는 옵션을 제공합니다. 완벽하게 정렬된 파일에 대해서만 `.align` 확장을 사용하는 것이 좋습니다.
 
 추출된 문장의 수가 동일한 기본 이름을 가진 두 파일과 일치하지 않는 경우 Custom Translator는 `.align` 파일에서 문장 정렬기를 계속 실행합니다.
 

@@ -8,19 +8,19 @@ manager: jeconnoc
 editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
-ms.service: virtual-machines-linux
+ms.service: azure-monitor
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 0039536caf917a051f0ddabd6be7cf2b1be90ba2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 198d6e596faf47528c508a9323ab22de563dfc62
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404905"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819036"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Cloud Foundry 시스템 모니터링용 Azure Log Analytics Nozzle 배포
 
@@ -67,7 +67,7 @@ UAA 명령줄 클라이언트를 설치하기 전에 Rubygems가 설치되어 �
    * **구독**: 구독이 여러 개인 경우 CF 배포와 동일한 구독을 선택합니다.
    * **리소스 그룹**: 새 리소스 그룹을 만들거나 CF 배포가 포함된 그룹과 같은 그룹을 사용할 수 있습니다.
    * **위치**: 위치를 입력합니다.
-   * **가격 책정 계층**: **확인**을 클릭하여 완료합니다.
+   * **가격 책정 계층**: **확인**을 선택하여 완료합니다.
 
 자세한 내용은 [Log Analytics 시작](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)을 참조하세요.
 
@@ -82,9 +82,9 @@ UAA 명령줄 클라이언트를 설치하기 전에 Rubygems가 설치되어 �
     * **리소스 그룹**: Log Analytics 작업 영역에 대해 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.
     * **리소스 그룹 위치**: 리소스 그룹의 위치를 선택합니다.
     * **OMS_Workspace_Name**: 작업 영역 이름을 입력합니다. 작업 영역이 없는 경우 템플릿에서 새로 만듭니다.
-    * **OMS_Workspace_Region**: 작업 영역에 대한 위치를 선택합니다.
+    * **OMS_Workspace_Region**: 작업 영역의 위치를 선택합니다.
     * **OMS_Workspace_Pricing_Tier**: Log Analytics 작업 영역 SKU를 선택합니다. 참조는 [가격 책정 지침](https://azure.microsoft.com/pricing/details/log-analytics/)에서 확인하세요.
-    * **약관**: 약관을 클릭한 다음, "만들기"를 클릭하여 약관에 동의합니다.
+    * **약관**: 약관을 클릭한 다음, “만들기”를 클릭하여 약관에 동의합니다.
 - 모든 매개 변수를 지정한 후 "만들기"를 클릭하여 템플릿을 배포합니다. 배포가 완료되면 상태가 알림 탭에 표시됩니다.
 
 
@@ -179,7 +179,7 @@ OMS Nozzle 애플리케이션이 실행되고 있는지 확인합니다.
 
 ## <a name="view-the-data-in-the-azure-portal"></a>Azure Portal에서 데이터 보기
 
-마켓플레이스를 통해 모니터링 솔루션을 배포한 경우 Azure Portal로 이동하고 솔루션을 찾습니다. 이 솔루션은 템플릿에서 지정한 리소스 그룹에 있습니다. 솔루션을 클릭하고 “Log Analytics 콘솔”로 이동하면 주요 Cloud Foundry 시스템 KPI, 애플리케이션 데이터, 경고 및 VM 상태 메트릭으로 미리 구성된 뷰가 나열됩니다. 
+마켓플레이스를 통해 모니터링 솔루션을 배포한 경우 Azure Portal로 이동하고 솔루션을 찾습니다. 이 솔루션은 템플릿에서 지정한 리소스 그룹에 있습니다. 솔루션을 클릭하고 “Log Analytics 콘솔”로 이동하면 주요 Cloud Foundry 시스템 KPI, 응용 프로그램 데이터, 경고 및 VM 상태 메트릭으로 미리 구성된 뷰가 나열됩니다. 
 
 Log Analytics 작업 영역을 수동으로 만든 경우 다음 단계에 따라 뷰와 경고를 만듭니다.
 

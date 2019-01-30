@@ -3,18 +3,18 @@ title: Azure Automation 상태 구성에서 구성 컴파일
 description: 이 문서에서는 Azure Automation에 대한 DSC(필요한 상태 구성) 구성을 컴파일하는 방법을 설명합니다.
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ca3c29101e17a7970ba782b5c49267bf9f18482e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d49ab32ace1ad0900c4867a41aba56900ef2bcaa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257159"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423411"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Azure Automation 상태 구성에서 DSC 구성 컴파일
 
@@ -130,7 +130,7 @@ PSCredentials을 매개 변수로 전달하는 방법에 대한 정보는 아래
 
 ## <a name="composite-resources"></a>복합 리소스
 
-**복합 리소스**를 사용하면 구성 내에서 중첩된 리소스로 DSC 구성을 사용할 수 있습니다. 이렇게 하면 단일 리소스에 여러 구성을 적용할 수 있습니다. **복합 리소스**에 대해 자세히 알아보려면 [복합 리소스: DSC 구성을 리소스로 사용](/powershell/dsc/authoringresourcecomposite)을 참조하세요.
+**복합 리소스**를 사용하면 구성 내에서 중첩된 리소스로 DSC 구성을 사용할 수 있습니다. 이렇게 하면 단일 리소스에 여러 구성을 적용할 수 있습니다. [복합 리소스: DSC 구성을 리소스로 사용](/powershell/dsc/authoringresourcecomposite)에서 **복합 리소스**에 대해 자세히 알아보세요.
 
 > [!NOTE]
 > **복합 리소스**가 올바르게 컴파일되도록 하려면 먼저 복합 리소스가 의존하는 DSC 리소스가 Azure Automation 계정 모듈 리포지토리에 처음 설치되었거나 제대로 가져 오지 않았는지 확인해야 합니다.
@@ -197,7 +197,7 @@ Configuration ConfigurationDataSample
 }
 ```
 
-PowerShell로 이전 DSC 구성을 컴파일할 수 있습니다. 다음 PowerShell은 Azure Automation 상태 구성 끌어오기 서버에 **ConfigurationDataSample.MyVM1** 및 **ConfigurationDataSample.MyVM3**이라는 두 개의 노드 구성을 추가합니다.
+PowerShell로 이전 DSC 구성을 컴파일할 수 있습니다. 다음 PowerShell은 Azure Automation 상태 구성 끌어오기 서버에 다음 두 개의 노드 구성을 추가합니다. **ConfigurationDataSample.MyVM1** 및 **ConfigurationDataSample.MyVM3**.
 
 ```powershell
 $ConfigData = @{
@@ -261,7 +261,7 @@ Configuration CredentialSample
 }
 ```
 
-PowerShell로 이전 DSC 구성을 컴파일할 수 있습니다. 다음 PowerShell은 Azure Automation 상태 구성 끌어오기 서버에 **CredentialSample.MyVM1** 및 **CredentialSample.MyVM2**라는 두 개의 노드 구성을 추가합니다.
+PowerShell로 이전 DSC 구성을 컴파일할 수 있습니다. 다음 PowerShell은 Azure Automation 상태 구성 끌어오기 서버에 다음 두 개의 노드 구성을 추가합니다. **CredentialSample.MyVM1** 및 **CredentialSample.MyVM2**.
 
 ```powershell
 $ConfigData = @{
@@ -283,7 +283,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 ```
 
 > [!NOTE]
-> 컴파일이 완료되면 오류 메시지 **'Microsoft.PowerShell.Management' 스냅인을 이미 가져왔으므로 'Microsoft.PowerShell.Management' 모듈을 가져오지 못했습니다.** 가 표시될 수 있습니다. 이 경고는 무시해도 됩니다.
+> 컴파일이 완료되면 다음과 같은 오류 메시지가 나타날 수 있습니다. **'Microsoft.PowerShell.Management' 스냅인을 이미 가져왔으므로 'Microsoft.PowerShell.Management' 모듈을 가져오지 못했습니다.** 이 경고는 무시해도 됩니다.
 
 ## <a name="importing-node-configurations"></a>노드 구성 가져오기
 
@@ -322,4 +322,4 @@ Import-AzureRmAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomatio
 - DSC 구성을 대상 노드에 할당할 수 있도록 DSC 구성을 컴파일하는 방법에 대해 알아보려면 [Azure Automation 상태 구성에서 구성 컴파일](automation-dsc-compile.md)을 참조하세요.
 - PowerShell cmdlet 참조는 [Azure Automation 상태 구성 cmdlet](/powershell/module/azurerm.automation/#automation)을 참조하세요.
 - 가격 책정 정보는 [Azure Automation 상태 구성 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
-- 지속적인 배포 파이프라인에서 Azure Automation 상태 구성을 사용하는 예제는 [Azure Automation 상태 구성 및 Chocolatey를 사용하여 지속적인 배포](automation-dsc-cd-chocolatey.md)를 참조하세요.
+- 지속적인 배포 파이프라인에서 Azure Automation 상태 구성을 사용하는 예제는 [Azure Automation 상태 구성 및 Chocolatey를 사용한 지속적인 배포](automation-dsc-cd-chocolatey.md)를 참조하세요.

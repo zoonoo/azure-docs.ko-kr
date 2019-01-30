@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 76ebbc8cc8dbea4b7f8f8226cf1d8570a421e8cf
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4d2994ea6ab6d6472ec56f0f2e378062590c8920
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034338"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807000"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>일관성 수준 및 Azure Cosmos DB API
 
@@ -24,15 +24,48 @@ Azure Cosmos DB는 인기 있는 데이터베이스에 대한 와이어 프로�
 
 ## <a id="cassandra-mapping"></a>Apache Cassandra 및 Azure Cosmos DB 일관성 수준 간 매핑
 
-이 테이블에서는 Apache Cassandra 4.x 클라이언트와 Azure Cosmos DB의 기본 일관성 수준 간의 “읽기 일관성” 매핑을 보여 줍니다. 또한 다중 지역 및 단일 지역 배포도 보여 줍니다.
+이 표는 Apache Cassandra와 Azure Cosmos DB의 일관성 수준 간의 일관성 매핑을 보여줍니다. 각 Cassandra 읽기 및 쓰기 일관성 수준에 해당하는 Cosmos DB 일관성 수준에서는 더욱 강력한, 즉, 더욱 엄격한 보증을 제공합니다.
 
-| **Apache Cassandra 4.x** | **Azure Cosmos DB(다중 영역)** | **Azure Cosmos DB(단일 영역)** |
+다음 표는 Azure Cosmos DB와 Cassandra 사이의 **쓰기 일관성 매핑**을 보여줍니다.
+
+| Cassandra | Azure Cosmos DB | 보증 |
 | - | - | - |
-| ONE, TWO, THREE | 일관적인 접두사 | 일관적인 접두사 |
-| LOCAL_ONE | 일관적인 접두사 | 일관적인 접두사 |
-| QUORUM, ALL, SERIAL | 제한된 부실은 기본값입니다. 강력은 현재 비공개 미리 보기입니다. | 강력 |
-| LOCAL_QUORUM | 제한된 부실 | 강력 |
-| LOCAL_SERIAL | 제한된 부실 | 강력 |
+|ALL|강력  | 선형화 가능성 |
+| EACH_QUORUM   | 강력    | 선형화 가능성 | 
+| QUORUM, SERIAL |  강력 |    선형화 가능성 |
+| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | 일관적인 접두사 |전역적으로 일관적인 접두사 |
+| EACH_QUORUM   | 강력    | 선형화 가능성 |
+| QUORUM, SERIAL |  강력 |    선형화 가능성 |
+| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | 일관적인 접두사 | 전역적으로 일관적인 접두사 |
+| QUORUM, SERIAL | 강력   | 선형화 가능성 |
+| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | 일관적인 접두사 | 전역적으로 일관적인 접두사 |
+| LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE    | 제한된 부실 | <ul><li>제한된 부실입니다.</li><li>최대 K 버전 또는 t 시간만큼 뒤쳐져 있습니다.</li><li>해당 지역에서 최근에 커밋된 값을 읽습니다.</li></ul> |
+| ONE, LOCAL_ONE, ANY   | 일관적인 접두사 | 하위 지역 일관적인 접두사 |
+
+다음 표는 Azure Cosmos DB와 Cassandra 사이의 **읽기 일관성 매핑**을 보여줍니다.
+
+| Cassandra | Azure Cosmos DB | 보증 |
+| - | - | - |
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO, ONE, LOCAL_ONE | 강력  | 선형화 가능성|
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO   |강력 |   선형화 가능성 |
+|LOCAL_ONE, ONE | 일관적인 접두사 | 전역적으로 일관적인 접두사 |
+| ALL, QUORUM, SERIAL   | 강력    | 선형화 가능성 |
+| LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |  일관적인 접두사   | 전역적으로 일관적인 접두사 |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM |    일관적인 접두사   | 전역적으로 일관적인 접두사 |
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO   |강력 |   선형화 가능성 |
+| LOCAL_ONE, ONE    | 일관적인 접두사 | 전역적으로 일관적인 접두사|
+| ALL, QUORUM, SERIAL   Strong  Linearizability
+LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE  |일관적인 접두사  | 전역적으로 일관적인 접두사 |
+|ALL    |강력 |선형화 가능성 |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  |일관적인 접두사  |전역적으로 일관적인 접두사|
+|ALL, QUORUM, SERIAL Strong Linearizability
+LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE  |일관적인 접두사  |전역적으로 일관적인 접두사 |
+|ALL    |강력 | 선형화 가능성 |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  | 일관적인 접두사 | 전역적으로 일관적인 접두사 |
+| QUORUM, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |  제한된 부실   | <ul><li>제한된 부실입니다.</li><li>최대 K 버전 또는 t 시간만큼 뒤쳐져 있습니다. </li><li>해당 지역에서 최근에 커밋된 값을 읽습니다.</li></ul>
+| LOCAL_ONE, ONE |일관적인 접두사 | 하위 지역 일관적인 접두사 |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  | 일관적인 접두사 | 하위 지역 일관적인 접두사 |
+
 
 ## <a id="mongo-mapping"></a>MongoDB 3.4 및 Azure Cosmos DB 일관성 수준 간의 매핑
 

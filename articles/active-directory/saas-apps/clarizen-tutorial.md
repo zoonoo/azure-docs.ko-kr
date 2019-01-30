@@ -4,7 +4,7 @@ description: Azure Active Directory 및 Clarizen 간에 Single Sign-On을 구성
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 855f147b0622ecc0831f2bc464e83d245af9e574
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 8c66d8eec6d3967026c17db9ce8d616b97d25931
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158674"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807731"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>자습서: Clarizen과 Azure Active Directory 통합
 
@@ -54,7 +54,7 @@ Clarizen의 Azure AD 통합을 구성하려면 갤러리의 Clarizen을 관리�
 
     ![Azure Active Directory 아이콘][1]
 
-1. **엔터프라이즈 응용 프로그램**을 클릭합니다. 그런 후 **모든 애플리케이션**을 클릭합니다.
+1. **엔터프라이즈 애플리케이션**을 클릭합니다. 그런 후 **모든 애플리케이션**을 클릭합니다.
 
     ![“엔터프라이즈 애플리케이션” 및 “모든 애플리케이션” 클릭][2]
 
@@ -98,7 +98,7 @@ Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Clari
 
     ![식별자 및 회신 URL 상자](./media/clarizen-tutorial/tutorial_clarizen_02.png)
 
-    a. **식별자** 상자에 해당 값으로 **Clarizen**을 입력합니다.
+    a. **식별자** 상자에 다음 형식으로 값을 입력합니다. **Clarizen**
 
     b. **회신 URL** 상자에 **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx** 패턴을 사용하여 URL을 입력합니다.
 
@@ -149,9 +149,9 @@ Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Clari
 
     b. 다운로드한 인증서를 업로드하려면 **업로드** 를 클릭합니다.
 
-    다. **로그인 URL** 상자에 Azure AD 응용 프로그램 구성 창의 **SAML Single Sign-on 서비스 URL** 값을 입력합니다.
+    다. **로그인 URL** 상자에 Azure AD 애플리케이션 구성 창의 **SAML Single Sign-On 서비스 URL** 값을 입력합니다.
 
-    d. **로그아웃 URL** 상자에 Azure AD 응용 프로그램 구성 창의 **로그아웃 URL** 값을 입력합니다.
+    d. **로그아웃 URL** 상자에 Azure AD 애플리케이션 구성 창의 **로그아웃 URL** 값을 입력합니다.
 
     e. **POST 사용**을 선택합니다.
 
@@ -249,8 +249,8 @@ Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Clarizen에 �
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory를 사용하여 SaaS 앱을 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

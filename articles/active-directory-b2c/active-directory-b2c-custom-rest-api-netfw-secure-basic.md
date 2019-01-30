@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 HTTP 기본 인증을 사용하여 RESTf
 description: HTTP 기본 인증을 사용하여 Azure AD B2C에서 사용자 지정 REST API 클레임 교환 보호
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e6cff4e2daf86b63bc0db0d4f2d537322d2841df
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: dcabcbbce78b83c0d4328e0f5b1088c172bcfedb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409306"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850687"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>HTTP 기본 인증을 사용하여 RESTful 서비스 보호
 
@@ -219,7 +219,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 ## <a name="step-2-publish-to-azure"></a>2단계: Azure에 게시
 프로젝트를 게시하려면 솔루션 탐색기에서 **Contoso.AADB2C.API** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>3단계: Azure AD B2C에 RESTful 서비스 앱 ID 및 앱 암호 추가
+## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>3단계: Azure AD B2C에 RESTful 서비스 앱 ID 및 앱 비밀 추가
 클라이언트 ID(사용자 이름) 및 암호로 RESTful 서비스를 보호한 후에 Azure AD B2C 테넌트에서 자격 증명을 저장해야 합니다. 사용자 지정 정책은 RESTful 서비스를 호출할 때 자격 증명을 제공합니다. 
 
 ### <a name="step-31-add-a-restful-services-client-id"></a>3.1단계: RESTful 서비스 클라이언트 ID 추가
@@ -243,7 +243,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 
 9. `B2C_1A_B2cRestClientId` 키를 만들었는지 확인합니다.
 
-### <a name="step-32-add-a-restful-services-client-secret"></a>3.2단계: RESTful 서비스 클라이언트 암호 추가
+### <a name="step-32-add-a-restful-services-client-secret"></a>3.2단계: RESTful 서비스 클라이언트 비밀 추가
 1. Azure AD B2C 테넌트에서 **B2C 설정** > **ID 경험 프레임워크**를 차례로 선택합니다.
 
 2. **정책 키**를 선택하여 테넌트에 사용 가능한 키를 봅니다.

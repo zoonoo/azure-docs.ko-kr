@@ -10,14 +10,14 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 01/14/2018
+ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ef62157644e55ed291562f581389228b5776f51
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0f53b3cec843ca8016c61a360025b5e731b96f55
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353229"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815874"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -55,7 +55,7 @@ ms.locfileid: "54353229"
 
 - Windows에서는 명령 프롬프트 또는 Anaconda 프롬프트(Anaconda 및 Miniconda를 통해 설치한)가 필요합니다.
 
-## <a id="anotebooks"></a>Azure Notebooks
+## <a id="aznotebooks"></a>Azure Notebooks
 
 [Azure Notebooks](https://notebooks.azure.com)(미리 보기)는 Azure 클라우드의 대화형 개발 환경입니다. Azure Machine Learning 개발을 시작하는 가장 쉬운 방법입니다.
 
@@ -64,17 +64,21 @@ ms.locfileid: "54353229"
 
 Azure Notebooks로 개발을 시작하려면 [Azure Machine Learning Service 시작](quickstart-get-started.md)을 참조하세요.
 
+기본적으로 Azure Notebooks는 메모리 4GB, 데이터 1GB로 제한되는 무료 서비스 계층을 사용합니다. 하지만 Data Science Virtual Machine 인스턴스를 Azure Notebooks 프로젝트에 연결하여 이 제한을 제거할 수 있습니다. 자세한 내용은 [Azure Notebooks 프로젝트 관리 및 구성 - 컴퓨팅 계층](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)을 참조하세요.
+
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
 DSVM는 사용자 지정된 VM(가상 머신) 이미지입니다. 데이터 과학 작업을 위해 설계되었으며 다음 요소가 미리 구성되어 있습니다.
 
-  - TensorFlow, PyTorch, Scikit-learn, XGBoost 및 Azure Machine Learning SDK 같은 패키지.
-  - Spark Standalone 및 Drill 같은 인기 있는 데이터 과학 도구.
-  - Azure CLI, AzCopy 및 Storage 탐색기 같은 Azure 도구.
-  - Visual Studio Code, PyCharm 및 RStudio 같은 IDE(통합 개발 환경).
-  - Jupyter Notebook 서버. 
+  - TensorFlow, PyTorch, Scikit-learn, XGBoost 및 Azure Machine Learning SDK 같은 패키지
+  - Spark Standalone 및 Drill 같은 인기 있는 데이터 과학 도구
+  - Azure CLI, AzCopy 및 Storage 탐색기 같은 Azure 도구
+  - Visual Studio Code 및 PyCharm 같은 IDE(통합 개발 환경)
+  - Jupyter Notebook 서버
 
-Azure Machine Learning SDK는 DSVM의 Ubuntu 또는 Windows 버전에서 작동합니다. 개별 환경으로 DSVM을 사용하려면 다음 단계를 수행합니다.
+Azure Machine Learning SDK는 DSVM의 Ubuntu 또는 Windows 버전에서 작동합니다. 하지만 컴퓨팅 대상으로 DSVM도 사용할 계획인 경우 Ubuntu만 지원됩니다.
+
+개별 환경으로 DSVM을 사용하려면 다음 단계를 수행합니다.
 
 1. 다음 환경 중 하나에서 DSVM을 만듭니다.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 76bec0f0e924fe193519f47effb8dd45f6262697
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 750ab99df1d241cf4252c49a5a9ced08a82b1c92
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630328"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809194"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -26,7 +26,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 Azure 파일 동기화 배포 계획을 세부적으로 알아보기 전에 용어를 이해하는 것이 중요합니다.
 
 ### <a name="storage-sync-service"></a>저장소 동기화 서비스
-저장소 동기화 서비스는 Azure 파일 동기화의 최상위 Azure 리소스입니다. Storage 동기화 서비스 리소스는 저장소 계정 리소스의 피어로, Azure 리소스 그룹에 쉽게 배포할 수 있습니다. Storage 동기화 서비스는 여러 동기화 그룹을 통해 여러 저장소 계정과 동기화 관계를 만들 수 있기 때문에 저장소 계정 리소스와는 별개의 최상위 수준 리소스가 필요합니다. 하나의 구독으로 여러 저장소 동기화 서비스 리소스가 배포될 수 있습니다.
+저장소 동기화 서비스는 Azure 파일 동기화의 최상위 Azure 리소스입니다. Storage 동기화 서비스 리소스는 스토리지 계정 리소스의 피어로, Azure 리소스 그룹에 쉽게 배포할 수 있습니다. Storage 동기화 서비스는 여러 동기화 그룹을 통해 여러 스토리지 계정과 동기화 관계를 만들 수 있기 때문에 스토리지 계정 리소스와는 별개의 최상위 수준 리소스가 필요합니다. 하나의 구독으로 여러 저장소 동기화 서비스 리소스가 배포될 수 있습니다.
 
 ### <a name="sync-group"></a>동기화 그룹
 동기화 그룹은 파일 집합에 대한 동기화 토폴로지를 정의합니다. 동기화 그룹 내 엔드포인트는 서로 동기화된 상태를 유지합니다. 예를 들어 Azure 파일 동기화를 사용하여 관리하려는 2개의 고유한 파일 집합이 있는 경우 2개의 동기화 그룹을 만들고 각 동기화 그룹에 다른 엔드포인트를 추가합니다. 저장소 동기화 서비스는 필요한 만큼의 동기화 그룹을 호스트할 수 있습니다.  
@@ -205,6 +205,9 @@ Microsoft의 사내 바이러스 백신 솔루션, Windows Defender 및 SCEP(Sys
 
 > [!Note]  
 > BMR(완전 복구) 복원은 예기치 않은 결과가 발생할 수 있으며 현재 지원되지 않습니다.
+
+> [!Note]  
+> VSS 스냅숏([이전 버전] 탭 포함)은 현재 클라우드 계층화를 사용할 수 있는 볼륨에서 지원되지 않습니다. 클라우드 계층화가 사용하도록 설정된 경우 Azure 파일 공유 스냅숏을 사용하여 백업에서 파일을 복원할 수 있습니다.
 
 ### <a name="encryption-solutions"></a>암호화 솔루션
 암호화 솔루션에 대한 지원은 구현되는 방식에 따라 달라집니다. Azure 파일 동기화와 함께 작동하는 기능

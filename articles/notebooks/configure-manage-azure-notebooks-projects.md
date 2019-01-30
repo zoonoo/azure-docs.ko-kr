@@ -11,28 +11,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.author: kraigb
-ms.openlocfilehash: d948be88fd75202dea010520d3531f151d6934b0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 31cbe2e62582ae810d165ddef5db6a20c52ff050
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104087"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847546"
 ---
 # <a name="manage-and-configure-projects"></a>프로젝트 관리 및 구성
 
 Azure Notebooks의 프로젝트는 기본적으로 파일 폴더 및 설명이 포함된 메타데이터와 함께 Jupyter Notebook이 실행되는 기본 Linux 가상 머신의 구성입니다. Azure Notebooks의 프로젝트 대시보드를 통해 파일을 관리하거나 프로젝트의 특성을 구성할 수 있습니다.
 
-- 프로젝트 메타데이터에는 이름, 설명, 프로젝트를 공유할 때 사용되는 식별자, 프로젝트가 공용인지 아니면 비공개인지 여부가 포함됩니다.
-- 사용자는 다른 파일 시스템과 마찬가지로 프로젝트의 Notebook, 데이터 및 기타 파일을 관리합니다.
-- 사용자는 시작 스크립트를 통해 또는 터미널을 통해 직접 프로젝트의 환경을 구성할 수 있습니다.
-- 터미널을 통해 로그에 액세스할 수 있습니다.
+- 프로젝트가 실행되는 컴퓨팅 계층. 무료 계층이거나 Azure 가상 머신일 수 있습니다.
+- 프로젝트 메타데이터. 이름, 설명, 프로젝트를 공유할 때 사용되는 식별자, 프로젝트가 공개인지 아니면 비공개인지 여부를 포함합니다.
+- 프로젝트의 Notebook, 데이터 및 기타 파일. 다른 파일 시스템처럼 관리할 수 있습니다.
+- 프로젝트 환경. 시작 스크립트를 통해 또는 터미널을 통해 직접 관리할 수 있습니다.
+- 로그. 터미널을 통해 액세스할 수 있습니다.
 
 > [!Note]
-> 프로젝트 소유자가 사용자를 공동 작업자로 만들지 않는 이상, 사용자는 본인 소유가 아닌 프로젝트를 관리할 수 없습니다. 그렇지 않은 경우 여기에 설명된 관리 및 구성 기능을 사용할 수 없습니다.
+> 여기에 설명된 관리 및 구성 기능은 처음에 프로젝트를 만든 프로젝트 소유자만 사용할 수 있습니다. 그러나, 프로젝트를 자신의 계정으로 복제할 수 있으며, 이 경우 소유자가 되어 원하는 대로 프로젝트를 구성할 수 있습니다.
 
 Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마다 기본 가상 머신을 시작합니다. 서버는 자동으로 파일을 저장하며 60분 동안 작업이 수행되지 않으면 종료됩니다. 또한 언제든지 **종료** 명령(바로 가기 키: h)을 사용하여 서버를 중지할 수 있습니다.
+
+## <a name="compute-tier"></a>컴퓨팅 계층
+
+프로젝트 대시보드의 **실행** 드롭다운 목록에서 프로젝트가 실행되는 컴퓨팅 계층을 선택할 수 있습니다. 기본적으로 프로젝트는 남용을 방지하기 위해 4GB 메모리와 1GB 데이터로 제한되는 **무료 컴퓨팅** 계층에서 실행됩니다.
+
+![프로젝트 대시보드의 컴퓨팅 계층 드롭다운 목록](media/project-compute-tier-list.png)
+
+Azure 구독에서 프로비전한 다른 가상 머신을 사용하여 이러한 제한 사항을 무시할 수 있습니다. 또한 해당 가상 머신에 Jupyter를 설치해야 합니다. 기본적으로 Jupyter를 포함하는 Data Science Virtual Machine 이미지를 선택하는 것이 좋습니다.
+
+드롭다운 목록의 **직접 컴퓨팅** 옵션을 사용하여 적절하게 구성된 Azure 가상 머신에 연결할 수 있습니다. 이 옵션을 선택하면 목록에 표시할 이름, VM의 IP 주소 및 포트(일반적으로 JupyterHub가 수신 대기하는 기본 포트인 8000), VM 자격 증명을 묻는 메시지가 표시됩니다.
+
+![직접 컴퓨팅 옵션에 대한 서버 정보 수집 프롬프트](media/project-compute-tier-direct.png)
+
+다음 조건이 true이면 드롭다운 목록에 [DSVM(Data Science Virtual Machine)](/azure/machine-learning/data-science-virtual-machine) 인스턴스도 표시됩니다. 이러한 조건이 충족되지 않더라도 직접 컴퓨팅 옵션을 사용하고 Azure Portal에서 얻은 값을 입력하여 DSVM에 연결할 수 있습니다.
+
+- 회사 계정 등의 AAD(Azure Active Directory)를 사용하는 계정으로 Azure Notebooks에 로그인했습니다.
+- 계정이 Azure 구독에 연결되어 있습니다.
+- Linux용 Data Science Virtual Machine(Ubuntu) 이미지를 사용하는 가상 머신이 읽기 권한자 이상의 액세스 권한으로 해당 구독에 하나 이상 있습니다.
+
+![프로젝트 대시보드의 드롭다운 목록에 있는 Data Science Virtual Machine 인스턴스](media/project-compute-tier-dsvm.png)
+
+DSVM 인스턴스를 선택하는 경우 Azure Notebooks에서 VM을 만들 때 사용한 특정 머신 자격 증명을 묻는 메시지가 표시될 수도 있습니다.
+
+새 DSVM 인스턴스를 만들려면 [Ubuntu Data Science VM 만들기](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)의 지침을 따르세요. **Linux용 Data Science Virtual Machine(Ubuntu)** 이미지를 ‘사용해야 합니다’. Windows 또는 CentOS 이미지를 사용하는 DSVM은 Azure Notebooks에 표시되지 않기 때문입니다.
 
 ## <a name="edit-project-metadata"></a>프로젝트 메타데이터 편집
 

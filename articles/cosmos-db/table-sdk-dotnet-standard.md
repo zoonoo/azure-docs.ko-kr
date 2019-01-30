@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/18/2018
-ms.openlocfilehash: 5e0282c766527f8210e36f6e916518a252200041
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 7ccc9793bd1c4a345098892e66be15228efcc265
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038894"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844571"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB 테이블 .NET Standard API: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -31,17 +31,24 @@ ms.locfileid: "54038894"
 
 ## <a name="release-notes"></a>릴리스 정보
 
+### <a name="a-name0101-preview0101-preview"></a><a name="0.10.1-preview"/>0.10.1-preview
+* Azure Storage Table 엔드포인트에 대한 TablePermissions, ServiceProperties 및 ServiceStats 작업, SAS 토큰 지원을 추가합니다. 
+   > [!NOTE] 클라이언트 쪽 암호화와 같은 이전 Azure Storage Table SDK의 일부 기능은 아직 지원되지 않습니다.
+
 ### <a name="a-name0100-preview0100-preview"></a><a name="0.10.0-preview"/>0.10.0-preview
-* Azure Storage Table 엔드포인트에 대한 핵심 CRUD, 일괄 처리 및 쿼리 작업에 대한 지원을 추가합니다. [!NOTE] 클라이언트 쪽 암호화와 같은 이전 Azure Storage Table SDK의 일부 기능은 아직 지원되지 않습니다.
+* Azure Storage Table 엔드포인트에 대한 핵심 CRUD, 배치 및 쿼리 작업 지원을 추가합니다. 
+   > [!NOTE] 클라이언트 쪽 암호화와 같은 이전 Azure Storage Table SDK의 일부 기능은 아직 지원되지 않습니다.
 
 ### <a name="a-name091-preview091-preview"></a><a name="0.9.1-preview"/>0.9.1-preview
-* Azure Cosmos DB Table.NET Standard SDK는 Cosmos DB의 테이블 데이터 모델에 효율적으로 액세스할 수 있는 플랫폼 간 .NET 라이브러리입니다. 이 초기 릴리스는 [Cosmos DB Table SDK For .NET Framework](table-sdk-dotnet.md)와 비슷한 API를 사용하여 테이블 및 엔터티 CRUD + 쿼리 기능 전체 집합을 지원합니다. [!NOTE] Azure Storage Table 엔드포인트는 아직 0.9.1-preview 버전에서 지원되지 않습니다.
+* Azure Cosmos DB Table.NET Standard SDK는 Cosmos DB의 테이블 데이터 모델에 효율적으로 액세스할 수 있는 플랫폼 간 .NET 라이브러리입니다. 이 초기 릴리스는 [Cosmos DB Table SDK For .NET Framework](table-sdk-dotnet.md)와 비슷한 API를 사용하여 테이블 및 엔터티 CRUD + 쿼리 기능 전체 집합을 지원합니다. 
+   > [!NOTE] Azure Storage Table 엔드포인트는 아직 0.9.1-preview 버전에서 지원되지 않습니다.
 
 ## <a name="release-and-retirement-dates"></a>릴리스 및 사용 중지 날짜
 Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK 사용 중지 최소 **12개월** 전에 알림을 제공합니다.
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [0.10.1-preview](#0.10.1-preview) |2019년 1월 22일 |--- |
 | [0.10.0-preview](#0.10.0-preview) |2018년 12월 18일 |--- |
 | [0.9.1-preview](#0.9.1-preview) |2018년 10월 18일 |--- |
 

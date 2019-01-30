@@ -4,7 +4,7 @@ description: Azure Active Directory 및 IBM Kenexa Survey Enterprise 간에 Sing
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c7aac6da-f4bf-419e-9e1a-16b460641a52
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 6828617e0ae61a3784e4db3d1c2ecf4ce9862ce2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d8027aca628185b1e3d2e80323c9f83e6832a913
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449500"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823932"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>자습서: IBM Kenexa Survey Enterprise와 Azure Active Directory 통합
 
@@ -63,7 +63,7 @@ Azure AD에 IBM Kenexa Survey Enterprise의 통합을 구성하려면 갤러리�
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택합니다.
+1. **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -106,7 +106,7 @@ IBM Kenexa Survey Enterprise에서 Azure AD SSO를 구성하고 테스트하려�
 
     a. **식별자** 텍스트 상자에서 `https://surveys.kenexa.com/<companycode>` 패턴으로 URL을 입력합니다.
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
 
     > [!NOTE] 
     > 위의 값은 실제가 아닙니다. 실제 식별자 및 회신 URL로 해당 항목을 업데이트합니다. 실제 값을 가져오려면 [IBM Kenexa Survey Enterprise 지원팀](https://www.ibm.com/support/home/?lnk=fcw)에 문의하세요.
@@ -136,7 +136,7 @@ IBM Kenexa Survey Enterprise에서 Azure AD SSO를 구성하고 테스트하려�
 1. **IBM Kenexa Survey Enterprise** 쪽에서 SSO를 구성하려면 다운로드한 **인증서(Base64)**, **로그아웃 URL**, **SAML 엔터티 ID** 및 **SAML Single Sign-On 서비스 URL** 값을 [IBM Kenexa Survey Enterprise 지원팀](https://www.ibm.com/support/home/?lnk=fcw)에 보내야 합니다.
 
 > [!TIP]
-> 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com)에서 이러한 지침의 간결한 버전을 참조할 수 있습니다. **Active Directory** > **엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서](https://go.microsoft.com/fwlink/?linkid=845985)를 참조하세요.
+> 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com)에서 이러한 지침의 간결한 버전을 참조할 수 있습니다. **Active Directory** > **엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에 **Single Sign-On** 탭을 클릭한 다음, 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서](https://go.microsoft.com/fwlink/?linkid=845985)를 참조하세요.
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -186,7 +186,7 @@ IBM Kenexa Survey Enterprise에 사용자인 Britta Simon을 할당하려면 다
 
     !["엔터프라이즈 애플리케이션" 및 "모든 애플리케이션" 링크][201] 
 
-1. **응용 프로그램** 목록에서 **IBM Kenexa Survey Enterprise**를 선택합니다.
+1. **애플리케이션** 목록에서 **IBM Kenexa Survey Enterprise**를 선택합니다.
 
     ![애플리케이션 목록의 IBM Kenexa Survey Enterprise 링크](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_app.png) 
 
@@ -212,8 +212,8 @@ IBM Kenexa Survey Enterprise에 사용자인 Britta Simon을 할당하려면 다
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory를 사용하여 SaaS 앱을 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

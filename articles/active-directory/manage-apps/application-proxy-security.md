@@ -4,7 +4,7 @@ description: Azure AD 애플리케이션 프록시를 사용하는 경우 보안
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 985ea1f16cff010041d61d808280cb47f2b77aa9
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 23ea1806c1670b73883384a0e4981f362bad90f0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618362"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472725"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 앱에 원격으로 액세스하는 경우 보안 고려 사항
 
@@ -46,9 +46,9 @@ Azure AD 애플리케이션 프록시는 모든 인증에 Azure AD STS(보안 �
 
 네트워크 연결이 설정되기 전에 다양한 정책 제어를 적용합니다.
 
-[조건부 액세스](../conditional-access/overview.md)를 사용하면 백 엔드 응용 프로그램에 액세스할 수 있는 트래픽에 대한 제한을 정의할 수 있습니다. 위치, 인증 강도 및 사용자 위험 프로필에 따라 로그인을 제한하는 정책을 사항을 만들 수 있습니다.
+[조건부 액세스](../conditional-access/overview.md)를 사용하면 백 엔드 애플리케이션에 액세스할 수 있는 트래픽에 대한 제한을 정의할 수 있습니다. 위치, 인증 강도 및 사용자 위험 프로필에 따라 로그인을 제한하는 정책을 사항을 만들 수 있습니다.
 
-또한 조건부 액세스를 사용하여 Multi-Factor Authentication 정책을 구성하고 사용자 인증에 또 다른 보안 계층을 추가할 수 있습니다. 
+또한 조건부 액세스를 사용하여 Multi-Factor Authentication 정책을 구성하고 사용자 인증에 또 다른 보안 계층을 추가할 수 있습니다. 또한 [액세스](https://docs.microsoft.com/en-us/cloud-app-security/access-policy-aad) 및 [세션](https://docs.microsoft.com/en-us/cloud-app-security/session-policy-aad) 정책을 사용하여 Azure AD 조건부 액세스를 통해 애플리케이션을 Microsoft Cloud App Security로 라우팅하면 실시간 모니터링 및 제어를 제공할 수 있습니다.
 
 ### <a name="traffic-termination"></a>트래픽 종료
 
@@ -84,7 +84,7 @@ Azure AD 애플리케이션 프록시에 의해 게시된 애플리케이션의 
 
 애플리케이션 프록시를 ㅌ오해 게시된 애플리케이션은 서비스 분산 거부(DDOS) 공격으로부터 보호됩니다.
 
-애플리케이션 프록시 서비스는 애플리케이션 및 네트워크에 도달하려 시도한 트래픽의 크기를 모니터링합니다. 응용 프로그램 원격 액세스를 요청하는 디바이스 수가 급증하면 Microsoft가 네트워크에 대한 액세스를 제한합니다. 
+애플리케이션 프록시 서비스는 애플리케이션 및 네트워크에 도달하려 시도한 트래픽의 크기를 모니터링합니다. 애플리케이션 원격 액세스를 요청하는 디바이스 수가 급증하면 Microsoft가 네트워크에 대한 액세스를 제한합니다. 
 
 Microsoft는 개별 애플리케이션과 구독에 대한 트래픽 패턴을 모두 감시합니다. 한 애플리케이션이 일반 요청보다 많은 요청을 받으면 해당 애플리케이션에 대한 액세스 요청이 잠시 거부됩니다. 전체 구독에서 일반 요청보다 많은 요청을 받으면 모든 앱에 대한 요청이 거부됩니다. 이 예방 조치는 원격 액세스 요청에 의한 애플리케이션 서비스 과부하를 방지하므로 온-프레미스 사용자가 앱 액세스를 유지할 수 있습니다. 
 
@@ -92,8 +92,8 @@ Microsoft는 개별 애플리케이션과 구독에 대한 트래픽 패턴을 �
 
 Azure AD 애플리케이션 프록시는 두 부분으로 구성됩니다.
 
-* 클라우드 기반 서비스: Azure에서 실행되며, 외부 클라이언트/사용자를 연결하는 서비스입니다.
-* [온-프레미스 커넥터](application-proxy-connectors.md): 온-프레미스 구성 요소인 커넥터는 Azure AD 응용 프로그램 프록시 서비스에서 요청을 수신하고 내부 응용 프로그램에 대한 연결을 처리합니다. 
+* 클라우드 기반 서비스: 이 서비스는 Azure에서 실행되며, 외부 클라이언트/사용자를 연결합니다.
+* [온-프레미스 커넥터](application-proxy-connectors.md): 온-프레미스 구성 요소인 커넥터는 Azure AD 애플리케이션 프록시 서비스에서 요청을 수신하고 내부 애플리케이션에 대한 연결을 처리합니다. 
 
 커넥터와 애플리케이션 프록시 서비스 간 흐름은 다음과 같은 경우 설정됩니다.
 
@@ -110,8 +110,8 @@ Azure AD 애플리케이션 프록시는 두 부분으로 구성됩니다.
 
 커넥터를 처음 설정할 때 다음과 같은 흐름 이벤트가 발생합니다.
 
-1. 커넥터 설치 과정의 일부로 서비스에 커넥터 등록이 발생합니다. 사용자에게 Azure AD 관리자 자격 증명을 입력하라는 메시지가 표시됩니다. 이 인증에서 얻은 토큰이 Azure AD 애플리케이션 프록시 서비스에 제공됩니다.
-2. 애플리케이션 프록시 서비스에서 토큰을 평가합니다. 사용자가 테넌트의 회사 관리자인지 확인합니다. 관리자가 아닌 사용자인 경우 프로세스가 종료됩니다.
+1. 커넥터 설치 과정의 일부로 서비스에 커넥터 등록이 발생합니다. 사용자에게 Azure AD 관리자 자격 증명을 입력하라는 메시지가 표시됩니다. 이 인증에서 얻은 토큰이 Azure AD 애플리케이션 프록시 서비스에 제공됩니다.
+2. 애플리케이션 프록시 서비스에서 토큰을 평가합니다. 사용자가 테넌트의 회사 관리자인지 확인합니다. 관리자가 아닌 사용자인 경우 프로세스가 종료됩니다.
 3. 커넥터에서 클라이언트 인증서 요청을 생성하고, 토큰과 함께 이 요청을 애플리케이션 프록시 서비스에 전달합니다. 서비스에서 차례로 토큰을 확인하고 클라이언트 인증서 요청에 서명합니다.
 4. 커넥터는 나중에 애플리케이션 프록시 서비스와 통신하는 데 이 클라이언트 인증서를 사용합니다.
 5. 커넥터는 해당 클라이언트 인증서를 사용하여 처음으로 서비스로부터 시스템 구성 데이터 끌어오기를 수행하고 이제 요청을 받을 준비가 됩니다.
@@ -120,7 +120,7 @@ Azure AD 애플리케이션 프록시는 두 부분으로 구성됩니다.
 
 애플리케이션 프록시 서비스가 구성 설정을 업데이트할 때마다 다음과 같은 흐름 이벤트가 발생합니다.
 
-1. 커넥터는 해당 클라이언트 인증서를 사용하여 응용 프로그램 프록시 서비스 내의 구성 끝점에 연결됩니다.
+1. 커넥터는 해당 클라이언트 인증서를 사용하여 애플리케이션 프록시 서비스 내의 구성 엔드포인트에 연결됩니다.
 2. 클라이언트 인증서의 유효성을 검사한 후에 애플리케이션 프록시 서비스가 구성 데이터를 커넥터에 반환합니다. 예를 들어 커넥터가 속하게 될 커넥터 그룹입니다.
 3. 현재 인증서가 180일 이상 지난 경우 커넥터에서 180일마다 클라이언트 인증서를 효과적으로 업데이트하는 새 인증서 요청을 생성합니다.
 
@@ -176,13 +176,13 @@ Azure AD를 사용하여 사전 인증하도록 앱을 구성한 경우 사용�
 
 응답이 수신된 후에 커넥터가 애플리케이션 프록시 서비스로 아웃바운드 연결을 만들어 헤더 세부 정보를 반환하고 반환 데이터의 스트리밍을 시작합니다.
 
-#### <a name="5-the-service-streams-data-to-the-user"></a>5. 서비스에서 사용자에게 데이터 스트리밍 
+#### <a name="5-the-service-streams-data-to-the-user"></a>5. 서비스에서 사용자에게 데이터 스트리밍 
 
 애플리케이션의 처리 일부가 여기서 발생할 수 있습니다. 애플리케이션에서 헤더 또는 URL을 변환하도록 애플리케이션 프록시를 구성한 경우 이 단계에서 필요에 따라 해당 처리가 수행됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure AD 응용 프로그램 프록시를 사용할 때 네트워크 토폴로지 고려 사항](application-proxy-network-topology.md)
+[Azure AD 애플리케이션 프록시를 사용할 때 네트워크 토폴로지 고려 사항](application-proxy-network-topology.md)
 
-[Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-connectors.md)
+[Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)

@@ -1,10 +1,10 @@
 ---
-title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Concur 구성 | Microsoft Docs'
+title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 Concur 구성 | Microsoft Docs'
 description: Azure Active Directory와 Concur 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: df47f55f-a894-4e01-a82e-0dbf55fc8af1
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 5832444cd30d60f7b5fe7fe6108acd5604389474
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e6e6d0d51174250954f886790dccc650064a6f45
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210108"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821892"
 ---
-# <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Concur 구성
+# <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Concur 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 Concur로 자동으로 프로비전 및 프로비전 해제하도록 Concur 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
@@ -82,9 +82,9 @@ Concur 컨설턴트 또는 클라이언트 관리자는 고유한 웹 서비스 
 
 3. 왼쪽의 **웹 서비스** 창에서 **파트너 애플리케이션 사용**을 선택합니다.
    
-    ![파트너 응용 프로그램 사용](./media/concur-provisioning-tutorial/ic721730.png "파트너 응용 프로그램 사용")
+    ![파트너 애플리케이션 사용](./media/concur-provisioning-tutorial/ic721730.png "파트너 애플리케이션 사용")
 
-4. **응용 프로그램 사용** 목록에서 **Azure Active Directory**를 선택하고 **사용**을 클릭합니다.
+4. **애플리케이션 사용** 목록에서 **Azure Active Directory**를 선택하고 **사용**을 클릭합니다.
    
     ![Microsoft Azure Active Directory](./media/concur-provisioning-tutorial/ic721731.png "Microsoft Azure Active Directory")
 
@@ -92,7 +92,7 @@ Concur 컨설턴트 또는 클라이언트 관리자는 고유한 웹 서비스 
    
     ![동작 확인](./media/concur-provisioning-tutorial/ic721732.png "동작 확인")
 
-6. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory > 엔터프라이즈 앱 > 모든 응용 프로그램** 섹션으로 이동합니다.
+6. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; 모든 애플리케이션** 섹션으로 이동합니다.
 
 7. Single Sign-On에 대한 Concur를 이미 구성한 경우 검색 필드를 사용하여 Concur의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 애플리케이션 갤러리에서 **Concur**를 검색합니다. 검색 결과에서 Concur를 선택하고 애플리케이션의 목록에 추가합니다.
 
@@ -123,6 +123,6 @@ Concur 컨설턴트 또는 클라이언트 관리자는 고유한 웹 서비스 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 * [Single Sign-On 구성](concur-tutorial.md)
 

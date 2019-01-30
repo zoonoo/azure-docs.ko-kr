@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2018
+ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: b66373b6847b96a4fcbc1a0c9da42d285d089a9d
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4a23d8c1e72ec453724514e4d1638c5a223d1644
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727888"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389217"
 ---
 # <a name="eventstore-service-overview"></a>EventStore 서비스 개요
 
@@ -34,6 +34,7 @@ ms.locfileid: "52727888"
 * 클러스터에 대해 수행하는 관리 작업이 제대로 처리되고 있는지 확인
 * Service Fabric이 특정 엔터티와 상호 작용하는 방법의 “스냅숏” 가져오기
 
+![EventStore](media/service-fabric-diagnostics-eventstore/eventstore.png)
 
 EventStore에서 사용할 수 있는 전체 이벤트 목록은 [Service Fabric 이벤트](service-fabric-diagnostics-event-generation-operational.md)를 참조하세요.
 
@@ -44,7 +45,7 @@ EventStore에서 사용할 수 있는 전체 이벤트 목록은 [Service Fabric
 * 클러스터: 클러스터 자체에 한정된 이벤트(예: 클러스터 업그레이드)
 * 노드: 모든 노드 수준 이벤트
 * 노드: `nodeName`으로 식별되는 한 노드에 한정된 이벤트
-* 응용 프로그램: 모든 응용 프로그램 수준 이벤트
+* 애플리케이션: 모든 애플리케이션 수준 이벤트
 * 애플리케이션: `applicationId`로 식별되는 한 애플리케이션에 한정된 이벤트
 * 서비스: 클러스터에 있는 모든 서비스의 이벤트
 * 서비스: `serviceId`로 식별되는 특정 서비스의 이벤트
@@ -53,7 +54,7 @@ EventStore에서 사용할 수 있는 전체 이벤트 목록은 [Service Fabric
 * 파티션 복제본: `partitionId`로 식별되는 특정 파티션 내 복제본/인스턴스의 이벤트
 * 파티션 복제본: `replicaId` 및 `partitionId`로 식별되는 특정 복제본/인스턴스의 이벤트
 
-API에 대해 자세히 알아보려면 [EventStore API 참조](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore))를 확인하세요.
+API에 대해 자세히 알아보려면 [EventStore API 참조](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore)를 확인하세요.
 
 EventStore 서비스에는 클러스터의 이벤트 간에 상관 관계를 지정하는 기능도 있습니다. EventStore 서비스는 서로 영향을 미칠 수 있는 서로 다른 엔터티에서 동시에 기록된 이벤트를 살펴보고 이러한 이벤트를 연결하여 클러스터의 작업에 대한 원인을 식별하는 데 도움을 줍니다. 예를 들어 아무런 변경 작업 없이 애플리케이션 중 하나가 비정상 상태가 되면 EventStore는 플랫폼에서 노출되는 다른 이벤트를 살펴보고 `Error` 또는 `Warning` 이벤트로 상관 관계를 지정합니다. 이렇게 하면 더 빠르게 오류를 감지하고 근본 원인을 분석할 수 있습니다.
 

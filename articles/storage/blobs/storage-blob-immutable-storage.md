@@ -1,19 +1,19 @@
 ---
-title: Azure Storage Blob에 대한 변경 불가능한 저장소 | Microsoft Docs
+title: Azure Storage Blob에 대한 변경 불가능한 스토리지 | Microsoft Docs
 description: Azure Storage는 사용자가 지정한 간격 동안 지울 수 없고 수정할 수 없는 상태로 데이터를 저장할 수 있게 하는 Blob(개체) 스토리지에 대한 WORM(Write Once, Read Many) 지원을 제공합니다.
 services: storage
 author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 01/21/2019
 ms.author: hux
 ms.component: blobs
-ms.openlocfilehash: 53c719fbeb31d605bd9dff170a798b262d44698a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f3a67c2eddba2b7bd734237466243da8f43a862a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634272"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848651"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Azure Blob Storage에 중요 비즈니스용 데이터 저장
 
@@ -21,7 +21,7 @@ ms.locfileid: "53634272"
 
 ## <a name="overview"></a>개요
 
-변경 불가능한 저장소는 금융 기관 및 관련 업계, 특히 증권 중개인 조직에서 데이터를 안전하게 저장하는 데 도움이 됩니다. 모든 시나리오에서 중요한 데이터가 삭제되지 않도록 보호하는 데 활용할 수도 있습니다.  
+변경 불가능한 스토리지는 금융 기관 및 관련 업계, 특히 증권 중개인 조직에서 데이터를 안전하게 저장하는 데 도움이 됩니다. 모든 시나리오에서 중요한 데이터가 삭제되지 않도록 보호하는 데 활용할 수도 있습니다.  
 
 일반적인 적용 분야는 다음과 같습니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "53634272"
 
 - **법적 보존**: Azure Blob Storage에 변경 불가능한 스토리지를 사용하면 사용자가 소송 또는 범죄 수사에 중요한 정보를 원하는 기간 동안 변조 방지 상태로 저장할 수 있습니다.
 
-변경 불가능한 저장소에서 사용하도록 설정할 수 있는 지원은 다음과 같습니다.
+변경 불가능한 스토리지에서 사용하도록 설정할 수 있는 지원은 다음과 같습니다.
 
 - **시간 기준 보존 정책 지원**: 사용자가 지정한 간격 동안 데이터를 저장하는 정책을 설정합니다.
 
@@ -43,11 +43,11 @@ ms.locfileid: "53634272"
 
 - **감사 로깅 지원**: 각 컨테이너에 감사 로그가 포함됩니다. 최대 3개의 보존 간격 연장 로그를 사용하여 잠긴 시간 기준 보존 정책에 대해 시간 기준 보존 명령을 최대 5개까지 표시합니다. 시간 기준 보존의 경우 로그에는 사용자 ID, 명령 유형, 타임스탬프 및 보존 간격이 포함됩니다. 법적 보존의 경우 로그에는 사용자 ID, 명령 유형, 타임스탬프 및 법적 보존 태그가 포함됩니다. 이 로그는 SEC 17a-4(f) 규정 지침에 따라 컨테이너 수명 동안 유지됩니다. [Azure 활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 모든 제어 평면 활동에 대한 더 포괄적인 로그를 보여 줍니다. 이러한 로그는 규정 또는 다른 목적으로 필요할 수 있으므로 사용자가 이러한 로그를 영구적으로 저장할 책임이 있습니다.
 
-변경 불가능한 저장소는 모든 Azure 공용 지역에서 사용할 수 있습니다.
+변경 불가능한 스토리지는 모든 Azure 공용 지역에서 사용할 수 있습니다.
 
 ## <a name="how-it-works"></a>작동 방법
 
-Azure Blob 저장소에 대한 변경 불가능한 저장소는 두 가지 유형의 WORM 또는 변경 불가능한 정책, 즉, 시간 기준 보존 정책과 법적 보존 정책을 지원합니다. 이러한 변경 불가능한 정책을 만드는 방법에 대한 자세한 내용은 [시작](#getting-started) 섹션을 참조하세요.
+Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유형의 WORM 또는 변경 불가능한 정책, 즉, 시간 기준 보존 정책과 법적 보존 정책을 지원합니다. 이러한 변경 불가능한 정책을 만드는 방법에 대한 자세한 내용은 [시작](#getting-started) 섹션을 참조하세요.
 
 컨테이너에 시간 기준 보존 정책 또는 법적 보존을 적용하면 모든 기존 Blob이 변경 불가능한 상태(쓰기 및 삭제 금지)로 전환됩니다. 컨테이너에 업로드된 모든 새 Blob도 변경 불가능한 상태로 전환됩니다.
 
@@ -56,7 +56,7 @@ Azure Blob 저장소에 대한 변경 불가능한 저장소는 두 가지 유�
 
 컨테이너에 시간 기준 보존 정책을 적용하면 컨테이너의 모든 Blob이 *유효* 보존 기간 동안 변경 불가능한 상태로 유지됩니다. 기존 BLOB의 유효 보존 기간은 BLOB 생성 시간과 사용자가 지정한 보존 기간의 차와 같습니다.
 
-새 BLOB의 경우 유효 보존 기간은 사용자가 지정한 보존 기간과 같습니다. 사용자가 보존 간격을 연장할 수 있으므로 변경 불가능한 저장소는 사용자 지정 보존 간격의 최신 값을 사용하여 유효 보존 기간을 계산합니다.
+새 BLOB의 경우 유효 보존 기간은 사용자가 지정한 보존 기간과 같습니다. 사용자가 보존 간격을 연장할 수 있으므로 변경 불가능한 스토리지는 사용자 지정 보존 간격의 최신 값을 사용하여 유효 보존 기간을 계산합니다.
 
 > [!TIP]
 > 예제:
@@ -86,7 +86,7 @@ Azure Blob 저장소에 대한 변경 불가능한 저장소는 두 가지 유�
 
 > [!NOTE]
 >
-> 변경 불가능한 저장소는 범용 v2 및 Blob Storage 계정에서만 사용할 수 있습니다. 계정은 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 통해 만들어야 합니다.
+> 변경 불가능한 스토리지는 범용 v2 및 Blob Storage 계정에서만 사용할 수 있습니다. 계정은 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 통해 만들어야 합니다.
 
 ## <a name="pricing"></a>가격
 
@@ -95,13 +95,13 @@ Azure Blob 저장소에 대한 변경 불가능한 저장소는 두 가지 유�
 
 ## <a name="getting-started"></a>시작
 
-최신 릴리스의 [Azure Portal](http://portal.azure.com) 및 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)는 물론 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)의 미리 보기 버전은 Azure Blob 저장소에 대한 변경 불가능한 저장소를 지원합니다.
+최신 릴리스의 [Azure Portal](http://portal.azure.com) 및 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)는 물론 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)의 미리 보기 버전은 Azure Blob Storage에 대한 변경 불가능한 스토리지를 지원합니다.
 
 ### <a name="azure-portal"></a>Azure portal
 
 1. 변경할 수 없는 상태로 유지해야 하는 BLOB을 저장할 새 컨테이너를 만들거나 기존 컨테이너를 선택합니다.
- 컨테이너는 GPv2 또는 Blob 저장소 계정에 있어야 합니다.
-2. 컨테이너 설정에서 **액세스 정책**을 선택합니다. 그런 다음, **변경 불가능한 Blob 저장소** 아래에서 **+ 정책 추가**를 선택합니다.
+ 컨테이너는 GPv2 또는 Blob Storage 계정에 있어야 합니다.
+2. 컨테이너 설정에서 **액세스 정책**을 선택합니다. 그런 다음, **변경 불가능한 Blob Storage** 아래에서 **+ 정책 추가**를 선택합니다.
 
     ![포털의 컨테이너 설정](media/storage-blob-immutable-storage/portal-image-1.png)
 
@@ -148,7 +148,7 @@ Az.Storage 미리 보기 모듈은 변경 불가능한 스토리지를 지원합
 
 ## <a name="client-libraries"></a>클라이언트 라이브러리
 
-Azure Blob 저장소에 대한 변경 불가능한 저장소를 지원하는 클라이언트 라이브러리는 다음과 같습니다.
+Azure Blob Storage에 대한 변경 불가능한 스토리지를 지원하는 클라이언트 라이브러리는 다음과 같습니다.
 
 - [.NET 클라이언트 라이브러리 버전 7.2.0-preview 이상](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview)
 - [Node.js 클라이언트 라이브러리 버전 4.0.0 이상](https://www.npmjs.com/package/azure-arm-storage)
@@ -169,11 +169,11 @@ Azure Blob 저장소에 대한 변경 불가능한 저장소를 지원하는 클
 
 **이 기능은 블록 Blob에만 적용되나요, 아니면 페이지 및 추가 Blob에도 적용되나요?**
 
-변경이 불가능한 저장소를 모든 Blob 유형과 함께 사용할 수 있지만 블록 Blob에 주로 사용하는 것이 좋습니다. 블록 Blob과는 달리, 페이지 Blob과 추가 Blob은 WORM 컨테이너 외부에서 만든 후에 복사해야 합니다. 이러한 Blob이 WORM 컨테이너에 복사되면 더 이상 추가 Blob에 *추가*하거나 페이지 Blob을 변경할 수 없습니다.
+변경이 불가능한 스토리지를 모든 Blob 유형과 함께 사용할 수 있지만 블록 Blob에 주로 사용하는 것이 좋습니다. 블록 Blob과는 달리, 페이지 Blob과 추가 Blob은 WORM 컨테이너 외부에서 만든 후에 복사해야 합니다. 이러한 Blob이 WORM 컨테이너에 복사되면 더 이상 추가 Blob에 *추가*하거나 페이지 Blob을 변경할 수 없습니다.
 
 **이 기능을 사용하려면 항상 새 저장소 계정을 만들어야 하나요?**
 
-변경이 불가능한 저장소를 기존 또는 새로 만든 범용 V2나 Blob Storage 계정과 함께 사용할 수 있습니다. 이 기능은 Blob 저장소에서만 사용할 수 있습니다.
+변경이 불가능한 스토리지를 기존 또는 새로 만든 범용 V2나 Blob Storage 계정과 함께 사용할 수 있습니다. 이 기능은 Blob Storage에서만 사용할 수 있습니다.
 
 ***잠긴* 시간 기반 보존 정책 또는 법적 보존이 있는 컨테이너를 삭제하려고 시도하면 어떻게 되나요?**
 
@@ -185,7 +185,7 @@ Azure Blob 저장소에 대한 변경 불가능한 저장소를 지원하는 클
 
 **BLOB이 변경할 수 없는 상태인 경우 BLOB 계층(핫, 쿨, 콜드) 간에 데이터를 이동할 수 있나요?**
 
-예, Blob 계층 설정 명령을 사용하면 데이터를 변경할 수 없는 상태로 유지하면서 BLOB 계층 간에 데이터를 이동할 수 있습니다. 변경 불가능한 저장소는 핫, 쿨 및 아카이브 Blob 계층에서 지원됩니다.
+예, Blob 계층 설정 명령을 사용하면 데이터를 변경할 수 없는 상태로 유지하면서 BLOB 계층 간에 데이터를 이동할 수 있습니다. 변경 불가능한 스토리지는 핫, 쿨 및 아카이브 Blob 계층에서 지원됩니다.
 
 **보존 기간이 만료되지는 않았지만 요금을 지불하지 않은 경우 어떻게 되나요?**
 
@@ -197,7 +197,7 @@ Azure Blob 저장소에 대한 변경 불가능한 저장소를 지원하는 클
 
 **국가 및 정부 클라우드에서 이 기능을 사용할 수 있나요?**
 
-변경 불가능한 저장소는 현재 Azure 공용 지역에서만 사용할 수 있습니다. 특정 국가별 클라우드에 관심이 있으면 azurestoragefeedback@microsoft.com으로 이메일을 보내주세요.
+변경이 불가능한 스토리지는 Azure 공용, 중국 및 Government 지역에서 사용할 수 있습니다. 해당 지역에서 변경이 불가능한 스토리지를 사용할 수 없는 경우 azurestoragefeedback@microsoft.com으로 메일을 보내 주세요.
 
 ## <a name="sample-powershell-code"></a>PowerShell 코드 샘플
 

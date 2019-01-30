@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: juliako
-ms.openlocfilehash: 9af5ebe9f37127656c7f61357240d4e69a28812b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1ea4639d547616f2cfdf1d5e2b78c1388ef09dc4
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243132"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826125"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Azure Media Packager를 사용하여 정적 패키징 작업 수행
 > [!NOTE]
@@ -41,7 +41,7 @@ Media Services는 동적 및 정적 패키징을 지원합니다. 정적 패키�
 
 * 외부 인코더로 인코드된 적응 비트 전송률 MP4 유효성 검사(예: 타사 인코더 사용)
 
-동적 암호화 사용이 권장되는 다음 작업을 수행하는 데도 정적 패키징을 사용할 수 있습니다.
+정적 패키징을 사용하여 다음 작업을 수행할 수도 있습니다. 그러나 동적 암호화를 사용하는 것이 좋습니다.
 
 * 정적 암호화를 사용하여 PlayReady로 부드러운 스트리밍 및 MPEG DASH 보호
 * 정적 암호화를 사용하여 AES-128로 HLSv3 보호
@@ -108,7 +108,7 @@ Media Services Packager를 사용하여 MP4 파일의 유효성을 검사하려�
             private static readonly string _multibitrateMP4s =
                 Path.Combine(_mediaFiles, @"MultibitrateMP4Files");
 
-            // XML Configruation files path.
+            // XML Configuration files path.
             private static readonly string _configurationXMLFiles = @"../..\Configurations";
 
             private static MediaServicesCredentials _cachedCredentials = null;
@@ -168,7 +168,7 @@ Media Services Packager를 사용하여 MP4 파일의 유효성을 검사하려�
                 SetISMFileAsPrimary(multibitrateMP4sAsset);
 
                 // Create a new job.
-                IJob job = _context.Jobs.Create("MP4 validation and converstion to Smooth Stream job.");
+                IJob job = _context.Jobs.Create("MP4 validation and conversion to Smooth Stream job.");
 
                 // Read the task configuration data into a string. 
                 string configMp4Validation = File.ReadAllText(Path.Combine(
@@ -293,7 +293,7 @@ Media Services는 현재 Microsoft PlayReady 라이선스를 배달하는 서비
             private static readonly string _singleMP4File =
                 Path.Combine(_mediaFiles, @"BigBuckBunny.mp4");
 
-            // XML Configruation files path.
+            // XML Configuration files path.
             private static readonly string _configurationXMLFiles = @"../..\Configurations\";
 
 
@@ -537,18 +537,18 @@ Media Services는 현재 Microsoft PlayReady 라이선스를 배달하는 서비
                 IMediaProcessor encoder = _context.MediaProcessors.GetLatestMediaProcessorByName(
                     MediaProcessorNames.MediaEncoderStandard);
 
-                ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
+                ITask adaptiveBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
                    encoder,
                    "Adaptive Streaming",
                    TaskOptions.None);
 
                 // Specify the input Asset
-                adpativeBitrateTask.InputAssets.Add(asset);
+                adaptiveBitrateTask.InputAssets.Add(asset);
 
                 // Add an output asset to contain the results of the job. 
                 // This output is specified as AssetCreationOptions.None, which 
                 // means the output asset is in the clear (unencrypted).
-                IAsset abrAsset = adpativeBitrateTask.OutputAssets.AddNew("Multibitrate MP4s",
+                IAsset abrAsset = adaptiveBitrateTask.OutputAssets.AddNew("Multibitrate MP4s",
                                         AssetCreationOptions.None);
 
                 return abrAsset;
@@ -740,7 +740,7 @@ AES-128을 사용하여 HLS를 암호화하려는 경우 동적 암호화(권장
             private static readonly string _singleMP4File =
                 Path.Combine(_mediaFiles, @"SingleMP4\BigBuckBunny.mp4");
 
-            // XML Configruation files path.
+            // XML Configuration files path.
             private static readonly string _configurationXMLFiles = @"../..\Configurations\";
 
             private static MediaServicesCredentials _cachedCredentials = null;
@@ -888,18 +888,18 @@ AES-128을 사용하여 HLS를 암호화하려는 경우 동적 암호화(권장
                 IMediaProcessor encoder = _context.MediaProcessors.GetLatestMediaProcessorByName(
                     MediaProcessorNames.MediaEncoderStandard);
 
-                ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
+                ITask adaptiveBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
                    encoder,
                    "Adaptive Streaming",
                    TaskOptions.None);
 
                 // Specify the input Asset
-                adpativeBitrateTask.InputAssets.Add(asset);
+                adaptiveBitrateTask.InputAssets.Add(asset);
 
                 // Add an output asset to contain the results of the job. 
                 // This output is specified as AssetCreationOptions.None, which 
                 // means the output asset is in the clear (unencrypted).
-                IAsset abrAsset = adpativeBitrateTask.OutputAssets.AddNew("Multibitrate MP4s", 
+                IAsset abrAsset = adaptiveBitrateTask.OutputAssets.AddNew("Multibitrate MP4s", 
                                         AssetCreationOptions.None);
 
                 return abrAsset;
@@ -1027,7 +1027,7 @@ Media Services는 현재 Microsoft PlayReady 라이선스를 배달하는 서비
             private static readonly string _singleMP4File =
                 Path.Combine(_mediaFiles, @"SingleMP4\BigBuckBunny.mp4");
 
-            // XML Configruation files path.
+            // XML Configuration files path.
             private static readonly string _configurationXMLFiles = @"../..\Configurations\";
 
 
@@ -1046,7 +1046,7 @@ Media Services는 현재 Microsoft PlayReady 라이선스를 배달하는 서비
                 _cachedCredentials = new MediaServicesCredentials(
                                 _mediaServicesAccountName,
                                 _mediaServicesAccountKey);
-                // Used the chached credentials to create CloudMediaContext.
+                // Used the cached credentials to create CloudMediaContext.
                 _context = new CloudMediaContext(_cachedCredentials);
 
                 // Load an MP4 file.
@@ -1263,18 +1263,18 @@ Media Services는 현재 Microsoft PlayReady 라이선스를 배달하는 서비
                 IMediaProcessor encoder = _context.MediaProcessors.GetLatestMediaProcessorByName(
                     MediaProcessorNames.MediaEncoderStandard);
 
-                ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
+                ITask adaptiveBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
                    encoder,
                    "Adaptive Streaming",
                    TaskOptions.None);
 
                 // Specify the input Asset
-                adpativeBitrateTask.InputAssets.Add(asset);
+                adaptiveBitrateTask.InputAssets.Add(asset);
 
                 // Add an output asset to contain the results of the job. 
                 // This output is specified as AssetCreationOptions.None, which 
                 // means the output asset is in the clear (unencrypted).
-                IAsset abrAsset = adpativeBitrateTask.OutputAssets.AddNew("Multibitrate MP4s",
+                IAsset abrAsset = adaptiveBitrateTask.OutputAssets.AddNew("Multibitrate MP4s",
                                         AssetCreationOptions.None);
 
                 return abrAsset;

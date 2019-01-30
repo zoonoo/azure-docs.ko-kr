@@ -4,7 +4,7 @@ description: 애플리케이션에 대한 동의 프로세스 도중 발생할 �
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 70413d3467b2f9d5591e6138ed1a7347db58264b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 362671e255f8dc36f9474fd2d4e3117e4cc0c1e4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355587"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477722"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>애플리케이션에 대한 동의를 수행할 때 예기치 않은 오류
 
@@ -56,7 +56,7 @@ Azure Active Directory와 통합되는 많은 애플리케이션을 작동시키
 이 리소스를 사용할 수 있도록 하거나 &lt;tenantDisplayName&gt;의 관리자에게 문의합니다.
 
 ## <a name="permissions-mismatch-error"></a>권한 불일치 오류
-* **AADSTS65005:** 앱이 &lt;resourceAppDisplayName&gt; 리소스에 액세스하기 위한 동의를 요청했습니다. 앱 등록 중에 앱이 미리 구성된 방법과 일치하지 않기 때문에 이 요청에 실패했습니다. 앱 공급업체에게 문의하세요.**
+* **AADSTS65005:** 앱이 &lt;resourceAppDisplayName&gt; 리소스에 액세스하기 위해 동의를 요청했습니다. 앱 등록 중에 앱이 미리 구성된 방법과 일치하지 않기 때문에 이 요청에 실패했습니다. 앱 공급업체에게 문의하세요.**
 
 사용자가 동의하려는 애플리케이션이 조직의 디렉터리(테넌트)에서 찾을 수 없는 리소스 애플리케이션에 액세스하는 사용 권한을 요청하는 경우에 이러한 오류가 발생합니다. 이 상황이 발생할 수 있는 몇 가지 이유는 다음과 같습니다.
 

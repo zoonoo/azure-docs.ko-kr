@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 281c426170985d43401a13988218126ea3951634
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 17a2d1ac747b46ed9a55ceffeea3ba9f4b2f0bc7
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405617"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412051"
 ---
 # <a name="custom-roles-in-azure"></a>Azure의 사용자 지정 역할
 
@@ -92,15 +92,15 @@ ms.locfileid: "47405617"
 
 | 자산 | 필수 | 형식 | 설명 |
 | --- | --- | --- | --- |
-| `Name` | yes | 문자열 | 사용자 지정 역할의 표시 이름입니다. 역할 정의는 구독 수준 리소스이지만 역할 정의는 동일한 Azure AD 디렉터리를 공유하는 여러 구독에서 사용할 수 있습니다. 표시 이름은 Azure AD 디렉터리의 범위에서 고유해야 합니다. 문자, 숫자, 공백 및 특수 문자를 포함할 수 있습니다. 최대 문자 수는 128자입니다. |
-| `Id` | yes | 문자열 | 사용자 지정 역할의 고유 ID입니다. Azure PowerShell 및 Azure CLI의 경우 이 ID는 새 역할을 만들 때 자동으로 생성됩니다. |
-| `IsCustom` | yes | 문자열 | 사용자 지정 역할인지 여부를 나타냅니다. 사용자 지정 역할인 경우 `true`로 설정합니다. |
-| `Description` | yes | 문자열 | 사용자 지정 역할에 대한 설명입니다. 문자, 숫자, 공백 및 특수 문자를 포함할 수 있습니다. 최대 문자 수는 1,024자입니다. |
-| `Actions` | yes | 문자열[] | 역할에서 수행할 수 있는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [Actions](role-definitions.md#actions)를 참조하세요. |
+| `Name` | 예 | 문자열 | 사용자 지정 역할의 표시 이름입니다. 역할 정의는 구독 수준 리소스이지만 역할 정의는 동일한 Azure AD 디렉터리를 공유하는 여러 구독에서 사용할 수 있습니다. 표시 이름은 Azure AD 디렉터리의 범위에서 고유해야 합니다. 문자, 숫자, 공백 및 특수 문자를 포함할 수 있습니다. 최대 문자 수는 128자입니다. |
+| `Id` | 예 | 문자열 | 사용자 지정 역할의 고유 ID입니다. Azure PowerShell 및 Azure CLI의 경우 이 ID는 새 역할을 만들 때 자동으로 생성됩니다. |
+| `IsCustom` | 예 | 문자열 | 사용자 지정 역할인지 여부를 나타냅니다. 사용자 지정 역할인 경우 `true`로 설정합니다. |
+| `Description` | 예 | 문자열 | 사용자 지정 역할에 대한 설명입니다. 문자, 숫자, 공백 및 특수 문자를 포함할 수 있습니다. 최대 문자 수는 1,024자입니다. |
+| `Actions` | 예 | 문자열[] | 역할에서 수행할 수 있는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [Actions](role-definitions.md#actions)를 참조하세요. |
 | `NotActions` | 아니요 | 문자열[] | 허용된 `Actions`에서 제외되는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [NotActions](role-definitions.md#notactions)를 참조하세요. |
 | `DataActions` | 아니요 | 문자열[] | 역할에서 해당 개체 내의 데이터에 대해 수행할 수 있는 데이터 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [DataActions(미리 보기)](role-definitions.md#dataactions-preview)를 참조하세요. |
 | `NotDataActions` | 아니요 | 문자열[] | 허용된 `DataActions`에서 제외되는 데이터 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [NotDataActions(미리 보기)](role-definitions.md#notdataactions-preview)를 참조하세요. |
-| `AssignableScopes` | yes | 문자열[] | 할당에 사용할 수 있는 사용자 지정 역할에 대한 범위를 지정하는 문자열 배열입니다. 현재 루트 범위(`"/"`) 또는 관리 그룹 범위로 설정할 수 없습니다. 자세한 내용은 [AssignableScopes](role-definitions.md#assignablescopes) 및 [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment)을 참조하세요. |
+| `AssignableScopes` | 예 | 문자열[] | 할당에 사용할 수 있는 사용자 지정 역할에 대한 범위를 지정하는 문자열 배열입니다. 현재 루트 범위(`"/"`) 또는 관리 그룹 범위로 설정할 수 없습니다. 자세한 내용은 [AssignableScopes](role-definitions.md#assignablescopes) 및 [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment)을 참조하세요. |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>사용자 지정 역할을 생성, 삭제, 업데이트 또는 볼 수 있는 사용자
 
@@ -116,3 +116,4 @@ ms.locfileid: "47405617"
 - [Azure PowerShell을 사용하여 사용자 지정 역할 만들기](custom-roles-powershell.md)
 - [Azure CLI를 사용하여 사용자 지정 역할 만들기](custom-roles-cli.md)
 - [역할 정의 이해](role-definitions.md)
+- [Azure의 RBAC 문제 해결](troubleshooting.md)

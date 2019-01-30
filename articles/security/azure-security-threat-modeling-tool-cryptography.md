@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 79803a749b6d08c94bcbf5f3ca66aac8b7294fa3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: be702571d178fc67eeb92de4e52a48d5bef72b18
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844654"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824629"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>보안 프레임: 암호화 | 완화 
 | 제품/서비스 | 문서 |
 | --------------- | ------- |
-| **웹 응용 프로그램** | <ul><li>[승인된 대칭 블록 암호화 및 키 길이만 사용](#cipher-length)</li><li>[대칭 암호화에 승인된 블록 암호화 모드 및 초기화 벡터 사용](#vector-ciphers)</li><li>[승인된 비대칭 알고리즘, 키 길이 및 패딩 사용](#padding)</li><li>[승인된 난수 생성기 사용](#numgen)</li><li>[대칭 스트림 암호화 사용 금지](#stream-ciphers)</li><li>[승인된 MAC/HMAC/키 해시 알고리즘 사용](#mac-hash)</li><li>[승인된 암호화 해시 함수만 사용](#hash-functions)</li></ul> |
+| **웹 애플리케이션** | <ul><li>[승인된 대칭 블록 암호화 및 키 길이만 사용](#cipher-length)</li><li>[대칭 암호화에 승인된 블록 암호화 모드 및 초기화 벡터 사용](#vector-ciphers)</li><li>[승인된 비대칭 알고리즘, 키 길이 및 패딩 사용](#padding)</li><li>[승인된 난수 생성기 사용](#numgen)</li><li>[대칭 스트림 암호화 사용 금지](#stream-ciphers)</li><li>[승인된 MAC/HMAC/키 해시 알고리즘 사용](#mac-hash)</li><li>[승인된 암호화 해시 함수만 사용](#hash-functions)</li></ul> |
 | **데이터베이스** | <ul><li>[강력한 암호화 알고리즘을 사용하여 데이터베이스 데이터 암호화](#strong-db)</li><li>[암호화되고 디지털 서명되어야 하는 SSIS 패키지](#ssis-signed)</li><li>[중요한 데이터베이스 보안 개체에 디지털 서명 추가](#securables-db)</li><li>[SQL 서버 EKM을 사용하여 암호화 키 보호](#ekm-keys)</li><li>[데이터베이스 엔진에 암호화 키를 공개하지 않아야 하는 경우 AlwaysEncrypted 기능 사용](#keys-engine)</li></ul> |
 | **IoT 디바이스** | <ul><li>[IoT 디바이스에 안전하게 암호화 키 저장](#keys-iot)</li></ul> | 
 | **IoT 클라우드 게이트웨이** | <ul><li>[IoT Hub 인증에 충분한 길이의 임의 대칭 키 생성](#random-hub)</li></ul> | 
 | **Dynamics CRM 모바일 클라이언트** | <ul><li>[PIN 사용이 필요하고 원격 지우기를 허용하는 디바이스 관리 정책이 있는지 확인](#pin-remote)</li></ul> | 
-| **Dynamics CRM Outlook 클라이언트** | <ul><li>[PIN/암호/자동 잠금이 필요하고 모든 데이터를 암호화(예: Bitlocker)하는 디바이스 관리 정책이 있는지 확인](#bitlocker)</li></ul> | 
+| **Dynamics CRM Outlook 클라이언트** | <ul><li>[PIN/암호/자동 잠금이 필요하고 모든 데이터를 암호화(예: BitLocker)하는 디바이스 관리 정책이 있는지 확인합니다.](#bitlocker)</li></ul> | 
 | **Identity Server** | <ul><li>[Identity Server를 사용할 때 서명 키가 롤오버되는지 확인](#rolled-server)</li><li>[Identity Server에서 암호화된 강력한 클라이언트 ID와 클라이언트 비밀이 사용되는지 확인](#client-server)</li></ul> | 
 
 ## <a id="cipher-length"></a>승인된 대칭 블록 암호화 및 키 길이만 사용
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | 웹 응용 프로그램 | 
+| **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
@@ -47,7 +47,7 @@ ms.locfileid: "52844654"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | 웹 응용 프로그램 | 
+| **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
@@ -58,7 +58,7 @@ ms.locfileid: "52844654"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | 웹 응용 프로그램 | 
+| **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
@@ -69,18 +69,18 @@ ms.locfileid: "52844654"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | 웹 응용 프로그램 | 
+| **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
-| **단계** | <p>제품에서는 승인된 난수 발생기를 사용해야 합니다. 따라서 의사 난수 함수(예: rand C 런타임 함수, System.Random .NET Framework 클래스 또는 GetTickCount 시스템 함수)는 이러한 코드에 절대로 사용할 수 없습니다. 이중 타원 곡선 난수 생성기(DUAL_EC_DRBG) 알고리즘의 사용은 금지됩니다.</p><ul><li>**CNG -** BCryptGenRandom(호출자가 0보다 큰 IRQL[즉 PASSIVE_LEVEL]에서 실행되지 않는 한 BCRYPT_USE_SYSTEM_PREFERRED_RNG 플래그를 사용하는 것이 좋음)</li><li>**CAPI -** cryptGenRandom</li><li>**Win32/64 -** RtlGenRandom(새 구현에서는 BCryptGenRandom 또는 CryptGenRandom을 사용해야 함) * rand_s * SystemPrng(커널 모드의 경우)</li><li>**.NET -** RNGCryptoServiceProvider 또는 RNGCng</li><li>**Windows 스토어 앱-** Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom 또는 .GenerateRandomNumber</li><li>**Apple OS X(10.7+)/iOS(2.0+)-** int SecRandomCopyBytes(SecRandomRef random, size_t count, uint8_t \*bytes )</li><li>**Apple OS X(<10.7)-** /dev/random을 사용하여 난수를 검색합니다.</li><li>**Java(Google Android Java 코드 포함) -** java.security.SecureRandom 클래스입니다. Android 4.3(Jelly Bean)의 경우 개발자는 Android 권장 해결 방법을 수행하고 /dev/urandom 또는/dev/random에서 엔트로피를 사용하여 명시적으로 PRNG를 초기화하도록 응용 프로그램을 업데이트해야 합니다.</li></ul>|
+| **단계** | <p>제품에서는 승인된 난수 발생기를 사용해야 합니다. 따라서 의사 난수 함수(예: rand C 런타임 함수, System.Random .NET Framework 클래스 또는 GetTickCount 시스템 함수)는 이러한 코드에 절대로 사용할 수 없습니다. 이중 타원 곡선 난수 생성기(DUAL_EC_DRBG) 알고리즘의 사용은 금지됩니다.</p><ul><li>**CNG -** BCryptGenRandom(호출자가 0보다 큰 IRQL[즉 PASSIVE_LEVEL]에서 실행되지 않는 한 BCRYPT_USE_SYSTEM_PREFERRED_RNG 플래그를 사용하는 것이 좋음)</li><li>**CAPI -** cryptGenRandom</li><li>**Win32/64 -** RtlGenRandom(새 구현에서는 BCryptGenRandom 또는 CryptGenRandom을 사용해야 함) * rand_s * SystemPrng(커널 모드의 경우)</li><li>**.NET -** RNGCryptoServiceProvider 또는 RNGCng</li><li>**Windows 스토어 앱-** Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom 또는 .GenerateRandomNumber</li><li>**Apple OS X(10.7+)/iOS(2.0+)-** int SecRandomCopyBytes(SecRandomRef random, size_t count, uint8_t \*bytes )</li><li>**Apple OS X(<10.7)-** /dev/random을 사용하여 난수를 검색합니다.</li><li>**Java(Google Android Java 코드 포함) -** java.security.SecureRandom 클래스입니다. Android 4.3(Jelly Bean)의 경우 개발자는 Android 권장 해결 방법을 수행하고 /dev/urandom 또는/dev/random에서 엔트로피를 사용하여 명시적으로 PRNG를 초기화하도록 애플리케이션을 업데이트해야 합니다.</li></ul>|
 
 ## <a id="stream-ciphers"></a>대칭 스트림 암호화 사용 금지
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | 웹 응용 프로그램 | 
+| **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
@@ -91,7 +91,7 @@ ms.locfileid: "52844654"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | 웹 응용 프로그램 | 
+| **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
@@ -102,7 +102,7 @@ ms.locfileid: "52844654"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | 웹 응용 프로그램 | 
+| **구성 요소**               | 웹 애플리케이션 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
@@ -209,7 +209,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 | **참조**              | 해당 없음  |
 | **단계** | PIN 사용이 필요하고 원격 지우기를 허용하는 디바이스 관리 정책이 있는지 확인합니다. |
 
-## <a id="bitlocker"></a>PIN/암호/자동 잠금이 필요하고 모든 데이터를 암호화(예: Bitlocker)하는 디바이스 관리 정책이 있는지 확인
+## <a id="bitlocker"></a>PIN/암호/자동 잠금이 필요하고 모든 데이터를 암호화(예: BitLocker)하는 디바이스 관리 정책이 있는지 확인합니다.
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -218,7 +218,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
-| **단계** | PIN/암호/자동 잠금이 필요하고 모든 데이터를 암호화(예: Bitlocker)하는 디바이스 관리 정책이 있는지 확인합니다. |
+| **단계** | PIN/암호/자동 잠금이 필요하고 모든 데이터를 암호화(예: BitLocker)하는 디바이스 관리 정책이 있는지 확인합니다. |
 
 ## <a id="rolled-server"></a>Identity Server를 사용할 때 서명 키가 롤오버되는지 확인
 
@@ -229,7 +229,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [Identity Server - 키, 서명 및 암호화](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html)(영문) |
-| **단계** | Identity Server를 사용할 때 서명 키가 롤오버되는지 확인합니다. 참조 섹션의 링크에서는 Identity Server를 사용하는 응용 프로그램을 중단하지 않고도 서명 키를 롤오버하도록 계획하는 방법을 설명합니다. |
+| **단계** | Identity Server를 사용할 때 서명 키가 롤오버되는지 확인합니다. 참조 섹션의 링크에서는 Identity Server를 사용하는 애플리케이션을 중단하지 않고도 서명 키를 롤오버하도록 계획하는 방법을 설명합니다. |
 
 ## <a id="client-server"></a>Identity Server에서 암호화된 강력한 클라이언트 ID와 클라이언트 비밀이 사용되는지 확인
 

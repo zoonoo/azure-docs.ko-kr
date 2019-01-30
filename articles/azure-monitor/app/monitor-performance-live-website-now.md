@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 463b2e8c7e349fa46737a9d630bd027fb28e7780
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2c8c8233e8d471b0f1934df9ff7e0f2b4b3e3860
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199388"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819138"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Application Insights 상태 모니터를 사용한 런타임 시 웹앱 계측
 
@@ -32,11 +32,13 @@ ms.locfileid: "54199388"
 
 ![실패한 요청, 서버 응답 시간 및 서버 요청에 대한 정보를 포함하는 App Insights 개요 그래프 스크린샷](./media/monitor-performance-live-website-now/overview-graphs.png)
 
-Application Insights를 .NET 웹 애플리케이션에 적용하는 세 가지 경로가 있습니다.
+Application Insights를 .NET 웹 애플리케이션에 적용하는 두 가지 경로가 있습니다.
 
 * **빌드 시간:** 웹앱 코드에 [Application Insights SDK를 추가][greenbrown]합니다.
 * **실행 시간:** 코드를 다시 빌드하거나 다시 작성하지 않고 아래 설명된 대로 서버에서 웹앱을 계측합니다.
-* **모두:** 웹앱 코드에 SDK를 빌드하고 런타임 확장도 적용합니다. 두 옵션의 좋은 점을 선택합니다.
+
+> [!NOTE]
+> 빌드 시간 계측을 사용하는 경우 해당 계측이 켜져 있어도 런타임 계측이 작동하지 않습니다.
 
 다음은 각 루트의 장점을 요약한 것입니다.
 

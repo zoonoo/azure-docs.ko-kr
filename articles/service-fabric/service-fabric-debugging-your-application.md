@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: f16bf06d03511223b54542ad7a389f78d37f3ea9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 06db540600be323b3129d64d18739582f6d9f2d0
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235074"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412656"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Visual Studio를 사용하여 Service Fabric 애플리케이션 디버그
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "51235074"
 
 
 ## <a name="debug-a-local-service-fabric-application"></a>로컬 Service Fabric 애플리케이션 디버깅
-로컬 컴퓨터 개발 클러스터에서 Azure Service Fabric 애플리케이션을 배포하고 디버그하여 시간과 비용을 절약할 수 있습니다. Visual Studio 2017 또는 Visual Studio 2015는 로컬 클러스터에 애플리케이션을 배포하고 애플리케이션의 모든 인스턴스에 디버거를 자동으로 연결할 수 있습니다.
+로컬 컴퓨터 개발 클러스터에서 Azure Service Fabric 애플리케이션을 배포하고 디버그하여 시간과 비용을 절약할 수 있습니다. Visual Studio 2017 또는 Visual Studio 2015는 로컬 클러스터에 애플리케이션을 배포하고 애플리케이션의 모든 인스턴스에 디버거를 자동으로 연결할 수 있습니다. Visual Studio를 디버거에 연결하려면 관리자로 실행해야 합니다.
 
 1. [서비스 패브릭 개발 환경 설정](service-fabric-get-started.md)의 단계를 따라 로컬 개발 클러스터를 시작합니다.
 2. **F5** 키를 누르거나 **디버그** > **디버깅 시작**을 클릭합니다.
@@ -58,7 +58,7 @@ ms.locfileid: "51235074"
 7. **진단 이벤트** 창은 필터링, 일시 중지 및 실시간 이벤트 검사를 지원합니다.  필터는 해당 콘텐츠를 포함하는 이벤트 메시지의 단순 문자열 검색입니다.
    
     ![실시간으로 이벤트를 필터링, 일시 중지, 다시 시작 또는 검사합니다.][diagnosticeventsactions]
-8. 서비스 디버깅은 다른 모든 응용 프로그램의 디버깅과 같습니다. 손쉬운 디버깅을 위해 일반적으로 Visual Studio를 통해 중단점을 설정할 수 있습니다. 신뢰할 수 있는 컬렉션은 여러 노드에 걸쳐 복제하더라도 여전히 IEnumerable을 구현합니다. 따라서 디버그하는 동안 Visual Studio에서 결과 뷰를 사용하여 내부에 저장한 내용을 볼 수 있습니다. 코드의 아무 곳에나 중단점을 설정하기만 하면 됩니다.
+8. 서비스 디버깅은 다른 모든 애플리케이션의 디버깅과 같습니다. 손쉬운 디버깅을 위해 일반적으로 Visual Studio를 통해 중단점을 설정할 수 있습니다. 신뢰할 수 있는 컬렉션은 여러 노드에 걸쳐 복제하더라도 여전히 IEnumerable을 구현합니다. 따라서 디버그하는 동안 Visual Studio에서 결과 뷰를 사용하여 내부에 저장한 내용을 볼 수 있습니다. 코드의 아무 곳에나 중단점을 설정하기만 하면 됩니다.
    
     ![애플리케이션 디버깅 시작][breakpoint]
 
@@ -144,7 +144,7 @@ Azure의 서비스 패브릭 클러스터에서 Service Fabric 애플리케이�
 
 ## <a name="next-steps"></a>다음 단계
 * [서비스 패브릭 서비스 테스트](service-fabric-testability-overview.md)
-* [Visual Studio에서 서비스 패브릭 응용 프로그램 관리](service-fabric-manage-application-in-visual-studio.md)
+* [Visual Studio에서 서비스 패브릭 애플리케이션 관리](service-fabric-manage-application-in-visual-studio.md)
 
 <!--Image references-->
 [startdebugging]: ./media/service-fabric-debugging-your-application/startdebugging.png

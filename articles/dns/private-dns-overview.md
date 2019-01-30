@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/10/2019
+ms.date: 1/23/2019
 ms.author: victorh
-ms.openlocfilehash: e426e38ce5366f7c0d8b8bc20a639d827ea9e261
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 4b5b98b5695901ca6d136682e454f059f157b743
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200524"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826482"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>사설 도메인에 Azure DNS 사용
 
@@ -64,9 +64,9 @@ Azure DNS는 다음과 같은 기능을 제공합니다.
 Azure DNS의 제한 사항은 다음과 같습니다.
 
 * 사설 영역당 하나의 등록 가상 네트워크만 허용됩니다.
-* 사설 영역당 최대 10개의 확인 가상 네트워크가 허용됩니다.
+* 사설 영역당 최대 10개의 확인 가상 네트워크가 허용됩니다. 이 한도는 이 기능이 일반 공급될 때 제거됩니다.
 * 특정 가상 네트워크가 1개의 사설 영역에만 등록 가상 네트워크로 연결될 수 있습니다.
-* 특정 가상 네트워크가 최대 10개의 사설 영역에 확인 가상 네트워크로 연결될 수 있습니다.
+* 특정 가상 네트워크가 최대 10개의 사설 영역에 확인 가상 네트워크로 연결될 수 있습니다. 이 한도는 이 기능이 일반 공급될 때 제거됩니다.
 * 등록 가상 네트워크를 지정하는 경우, 사설 영역에 등록된 해당 가상 네트워크의 VM에 대한 DNS 레코드는 Azure Powershell 및 Azure CLI API에서 보거나 검색할 수 없습니다. VM 레코드는 실제로 등록되어 성공적으로 확인됩니다.
 * 역방향 DNS는 등록 가상 네트워크의 개인 IP 공간에 대해서만 작동합니다.
 * 사설 영역에 등록되지 않은 사설 IP(예: 확인 가상 네트워크로 사설 영역에 연결된 가상 네트워크에 있는 가상 머신의 사설 IP)에 대한 역방향 DNS는 DNS 접미사로 *internal.cloudapp.net*을 반환합니다. 그러나 이 접미사를 확인할 수 없습니다.

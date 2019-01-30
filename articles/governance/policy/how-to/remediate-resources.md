@@ -4,21 +4,23 @@ description: 이 방법 문서에서는 Azure Policy에서 정책을 준수하�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 093b49bea167efb12b941f8f0baff6fbdae5be25
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 054ce3d3483c3515e89c36eafc5d9a771e8e608d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312649"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844146"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure Policy를 사용하여 비준수 리소스 수정
 
 **deployIfNotExists** 정책을 준수하지 않는 리소스는 **수정**을 통해 정책을 준수하는 상태로 설정할 수 있습니다. 기존 리소스에 할당된 정책의 **deployIfNotExists** 효과를 실행하도록 Policy에 명령하는 방식으로 수정을 수행할 수 있습니다. 이 문서에서는 Policy를 통한 수정을 이해하고 수행하는 데 필요한 단계를 보여 줍니다.
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="how-remediation-security-works"></a>수정 보안의 작동 방식
 
@@ -51,7 +53,7 @@ az role definition list --name 'Contributor'
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmRoleDefinition -Name 'Contributor'
+Get-AzRoleDefinition -Name 'Contributor'
 ```
 
 ## <a name="manually-configure-the-managed-identity"></a>관리 ID 수동 구성
@@ -70,23 +72,23 @@ Get-AzureRmRoleDefinition -Name 'Contributor'
 정책 할당 중에 관리 ID를 만들려면 **Location**을 정의하고 **AssignIdentity**를 사용해야 합니다. 다음 예제에서는 기본 제공 정책 **SQL DB 투명 데이터 암호화 배포**의 정의를 가져오고 대상 리소스 그룹을 설정한 다음 할당을 만듭니다.
 
 ```azurepowershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+# Login first with Connect-Azccount if not using Cloud Shell
 
 # Get the built-in "Deploy SQL DB transparent data encryption" policy definition
-$policyDef = Get-AzureRmPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
+$policyDef = Get-AzPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
 
 # Get the reference to the resource group
-$resourceGroup = Get-AzureRmResourceGroup -Name 'MyResourceGroup'
+$resourceGroup = Get-AzResourceGroup -Name 'MyResourceGroup'
 
 # Create the assignment using the -Location and -AssignIdentity properties
-$assignment = New-AzureRmPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -AssignIdentity
+$assignment = New-AzPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -AssignIdentity
 ```
 
 이제 `$assignment` 변수에는 관리 ID의 보안 주체 ID와 정책 할당 생성 시에 반환된 표준 값이 포함되어 있습니다. `$assignment.Identity.PrincipalId`를 통해 이 변수에 액세스할 수 있습니다.
 
 ### <a name="grant-defined-roles-with-powershell"></a>PowerShell을 사용하여 정의된 역할 부여
 
-Azure Active Directory를 통해 새 관리 ID 복제를 완료해야 필요한 역할을 해당 ID에 부여할 수 있습니다. 다음 예제에서는 복제가 완료된 후 **roleDefinitionIds**에 대해 `$policyDef`에서 정책 정의를 반복하며, [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment)를 사용하여 새 관리 ID에 역할을 부여합니다.
+Azure Active Directory를 통해 새 관리 ID 복제를 완료해야 필요한 역할을 해당 ID에 부여할 수 있습니다. 다음 예제에서는 복제가 완료된 후 **roleDefinitionIds**에 대해 `$policyDef`에서 정책 정의를 반복하며, [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)를 사용하여 새 관리 ID에 역할을 부여합니다.
 
 ```azurepowershell-interactive
 # Use the $policyDef to get to the roleDefinitionIds array
@@ -96,7 +98,7 @@ if ($roleDefinitionIds.Count -gt 0)
 {
     $roleDefinitionIds | ForEach-Object {
         $roleDefId = $_.Split("/") | Select-Object -Last 1
-        New-AzureRmRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $assignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
+        New-AzRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $assignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
     }
 }
 ```
@@ -125,7 +127,7 @@ if ($roleDefinitionIds.Count -gt 0)
 
 1. 리소스 페이지에서 **액세스 제어(IAM)** 링크를 클릭한 다음 액세스 제어 페이지 위쪽의 **+ 역할 할당 추가**를 클릭합니다.
 
-1. 정책 정의에서 **roleDefinitionIds**와 일치하는 적절한 역할을 선택합니다. **다음에 대한 액세스 할당:** 은 기본값인 ‘Azure AD 사용자, 그룹 또는 응용 프로그램’으로 설정해 둡니다. **선택** 상자에 앞에서 찾은 할당 리소스 ID 부분을 붙여넣거나 입력합니다. 검색이 완료되면 이름이 같은 개체를 클릭하여 ID를 선택하고 **저장**을 클릭합니다.
+1. 정책 정의에서 **roleDefinitionIds**와 일치하는 적절한 역할을 선택합니다. **다음에 대한 액세스 할당:** 은 기본값인 ‘Azure AD 사용자, 그룹 또는 애플리케이션’으로 설정해 둡니다. **선택** 상자에 앞에서 찾은 할당 리소스 ID 부분을 붙여넣거나 입력합니다. 검색이 완료되면 이름이 같은 개체를 클릭하여 ID를 선택하고 **저장**을 클릭합니다.
 
 ## <a name="create-a-remediation-task"></a>수정 작업 만들기
 

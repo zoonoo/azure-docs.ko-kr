@@ -3,7 +3,7 @@ title: Azure Security Center에서 적응형 애플리케이션 제어 | Microso
 description: 이 문서에서는 Azure Security Center에서 적응형 애플리케이션 제어를 사용하여 Azure VM에서 실행되는 애플리케이션의 허용 목록을 나열하는 방법이 설명되어 있습니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: mbaldwin
 editor: ''
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2018
-ms.author: rkarlin
-ms.openlocfilehash: e4538127b39e01f2e30f8b219c2ccee56cb4d2bc
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.date: 01/21/2019
+ms.author: monhaber
+ms.openlocfilehash: b7a27dea9f521f14bfb4278eada636cb7e30c581
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262900"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427137"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Azure Security Center의 적응형 애플리케이션 제어
 이 연습을 통해 Azure Security Center에서 애플리케이션 컨트롤을 구성하는 방법에 대해 알아봅니다.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>Security Center의 적응형 애플리케이션 제어란 무엇입니까?
-적응형 애플리케이션 제어는 Azure Security Center의 지능적이고 자동화된 종단 간 애플리케이션 허용 목록 솔루션입니다. Azure의 VM에서 실행할 수 있는 애플리케이션을 제어할 수 있으며, 여러 장점 가운데 이를 통해 맬웨어에 대해 VM을 강화할 수 있습니다. Security Center는 Machine Learning을 사용하여 VM에서 실행되는 애플리케이션을 분석하며, 이 인텔리전스를 사용하여 특정 허용 목록 규칙을 적용하는 데 도움을 줍니다. 이 기능은 애플리케이션 허용 목록 정책의 구성 및 유지 관리 프로세스를 상당히 단순화하며, 다음을 수행할 수 있도록 합니다.
+적응형 애플리케이션 제어는 Azure Security Center의 지능적이고 자동화된 엔드투엔드 애플리케이션 허용 목록 솔루션입니다. Azure의 VM에서 실행할 수 있는 애플리케이션을 제어할 수 있으며, 여러 장점 가운데 이를 통해 맬웨어에 대해 VM을 강화할 수 있습니다. Security Center는 Machine Learning을 사용하여 VM에서 실행되는 애플리케이션을 분석하며, 이 인텔리전스를 사용하여 특정 허용 목록 규칙을 적용하는 데 도움을 줍니다. 이 기능은 애플리케이션 허용 목록 정책의 구성 및 유지 관리 프로세스를 상당히 단순화하며, 다음을 수행할 수 있도록 합니다.
 
 - 맬웨어 방지 솔루션에서 누락될 수 있는 것들을 포함하여 악성 애플리케이션 실행 시도를 차단하거나 경고합니다.
 - 사용이 허가된 소프트웨어만 사용하도록 규정된 조직의 보안 정책을 준수합니다.
@@ -88,7 +88,6 @@ ms.locfileid: "54262900"
 5. 선택이 완료되면 **만들기**를 선택합니다. <br>
 만들기를 선택한 후, Azure Security Center는 Windows 서버(AppLocker)에서 사용할 수 있는 기본 제공 애플리케이션 허용 목록 솔루션 상단에서 적절한 규칙을 자동으로 만듭니다.
 
-
 > [!NOTE]
 > - Security Center는 기준을 만들고 VM의 그룹별로 고유한 권장 사항을 채우기 위해 최소 2주의 데이터를 필요로 합니다. Security Center 표준 계층의 새 고객은 먼저 VM의 그룹이 *권장 사항 없음* 탭 아래에 나타나는 동작을 예상해야 합니다.
 > - Security Center의 적응형 애플리케이션 제어는 이미 GPO 또는 로컬 보안 정책을 통해 AppLocker 정책이 설정된 VM을 지원하지 않습니다.
@@ -122,7 +121,7 @@ ms.locfileid: "54262900"
    > - 앞서 언급한 것처럼 기본적으로 새 애플리케이션 컨트롤 정책은 항상 *감사* 모드에서 구성됩니다. 
    >
 
-4. **정책 확장**에서 허용할 애플리케이션 경로를 추가할 수 있습니다. 이러한 경로를 추가한 후 Security Center는 선택된 VM 그룹 내 VM에서 애플리케이션 허용 목록 정책을 업데이트하고, 이미 존재하는 규칙 외에도 이러한 애플리케이션에 대한 적절한 규칙을 만듭니다.
+4. **정책 확장**에서 허용할 애플리케이션 경로를 추가합니다. 이러한 경로를 추가한 후 Security Center는 선택된 VM 그룹 내 VM에서 애플리케이션 허용 목록 정책을 업데이트하고, 이미 존재하는 규칙 외에도 이러한 애플리케이션에 대한 적절한 규칙을 만듭니다.
 
 5. **최근 경고** 섹션에 나열된 현재 위반을 검토합니다. Azure Security Center 내 **경고**로 리디렉션할 각 줄을 클릭하고, 연결된 VM에서 Azure Security Center에 의해 검색된 모든 경고를 봅니다.
   - **경고**: 기록된 위반.

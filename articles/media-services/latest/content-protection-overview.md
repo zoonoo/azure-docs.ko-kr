@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 01/22/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2a5383952f64edb08717b1a100c74352c9b4246f
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 848d6ffbccc809df1ab5c012c38174e13eacc391
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187980"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828264"
 ---
 # <a name="content-protection-overview"></a>콘텐츠 보호 개요
 
@@ -39,9 +39,9 @@ Azure Media Services를 사용하여 컴퓨터를 떠날 때부터 저장, 처�
 
 1. Azure Media Services 코드
   
-  * PlayReady, Widevine 및/또는 FairPlay에 대한 라이선스 템플릿. 이 템플릿을 사용하면 각 사용된 DRM에 대한 권한을 구성할 수 있음
-  * JWT의 클레임에 따라 권한 부여 확인의 논리를 지정하면서 라이선스 배달 권한 부여
-  * DRM 암호화를 정의하면서 적용된 해당 DRM, 스트리밍 프로토콜 및 콘텐츠 키
+  * PlayReady, Widevine 및/또는 FairPlay에 대한 라이선스 템플릿을 구성합니다. 이 템플릿을 사용하여 각 사용된 DRM에 대한 권한을 구성할 수 있습니다.
+  * JWT의 클레임에 따라 권한 부여 확인 논리를 지정하여 라이선스 전송 권한 부여를 정의합니다.
+  * 사용해야 하는 콘텐츠 키와 스트리밍 프로토콜을 지정하여 DRM 암호화를 구성합니다.
 
   > [!NOTE]
   > 여러 암호화 유형(AES-128, PlayReady, Widevine, FairPlay)을 사용하여 각 자산을 암호화할 수 있습니다. 결합에 적합한 것을 확인하려면 [스트리밍 프로토콜 및 암호화 유형](#streaming-protocols-and-encryption-types)을 참조합니다.

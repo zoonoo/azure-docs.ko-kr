@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 3a74450ca8025f07b00dc18c9b81b147afa7439c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 64aa936dc1dbb1d2a700a31253cf7a3caee6b66f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975301"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436777"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Azure 네트워크 인터페이스용 IP 주소 추가, 변경 또는 제거
 
@@ -34,7 +34,7 @@ ms.locfileid: "46975301"
 
 - 아직 Azure 계정이 없으면 [평가판 계정](https://azure.microsoft.com/free)에 등록합니다.
 - 포털을 사용하는 경우 https://portal.azure.com을 열고 Azure 계정으로 로그인합니다.
-- 이 문서의 작업을 완료하기 위해 PowerShell 명령을 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 이 자습서에는 Azure PowerShell 모듈 버전 5.7.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+- 이 문서의 작업을 완료하기 위해 PowerShell 명령을 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 이 자습서에는 Azure PowerShell 모듈 버전 5.7.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 - 이 문서의 작업을 완료하기 위해 Azure CLI(명령줄 인터페이스)를 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행하거나 컴퓨터에서 CLI를 실행합니다. 이 자습서에는 Azure CLI 버전 2.0.31 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 또한 Azure CLI를 로컬로 실행하는 경우 `az login`를 실행하여 Azure와 연결해야 합니다.
 
 Azure에 로그인하거나 연결할 때 사용하는 계정이 [네트워크 인터페이스 권한](virtual-network-network-interface.md#permissions)에 나열된 적절한 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이나 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 할당되어야 합니다.
@@ -51,9 +51,9 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [네트워크 �
 
     |설정|Required?|세부 정보|
     |---|---|---|
-    |이름|yes|네트워크 인터페이스에 대해 고유해야 합니다.|
-    |type|yes|기존 네트워크 인터페이스에 IP 구성을 추가할 것이며, 각 NIC에는 [기본](#primary) IP 구성이 있어야 하므로 **보조** 옵션만 선택 가능합니다.|
-    |개인 IP 주소 할당 방법|yes|[**동적**](#dynamic): Azure는 네트워크 인터페이스가 배포된 서브넷 주소 범위에 대해 사용 가능한 다음 주소를 할당합니다. [**정적**](#static): 네트워크 인터페이스가 배포된 서브넷 주소 범위에 대해 사용되지 않는 주소를 할당합니다.|
+    |이름|예|네트워크 인터페이스에 대해 고유해야 합니다.|
+    |type|예|기존 네트워크 인터페이스에 IP 구성을 추가할 것이며, 각 NIC에는 [기본](#primary) IP 구성이 있어야 하므로 **보조** 옵션만 선택 가능합니다.|
+    |개인 IP 주소 할당 방법|예|[**동적**](#dynamic): Azure는 네트워크 인터페이스가 배포된 서브넷 주소 범위에 대해 사용 가능한 다음 주소를 할당합니다. [**정적**](#static): 네트워크 인터페이스가 배포된 서브넷 주소 범위에 대해 사용되지 않는 주소를 할당합니다.|
     |공용 IP 주소|아니요|**사용 안 함:** 현재 공용 IP 주소 리소스는 IP 구성과 연결되지 않습니다. **사용:** 기존 IPv4 공용 IP 주소를 선택하거나 새 공용 IP 주소를 만듭니다. 공용 IP 주소를 만드는 방법에 대한 자세한 내용은 [공용 IP 주소](virtual-network-public-ip-address.md#create-a-public-ip-address) 문서를 참조하세요.|
 6. [가상 머신 운영 체제에 여러 IP 주소 할당](virtual-network-multiple-ip-addresses-portal.md#os-config) 문서의 지침을 수행하여 가상 머신 운영 체제에 보조 개인 IP 주소를 수동으로 추가합니다. 가상 머신 운영 체제에 IP 주소를 수동으로 추가하기 전에 고려해야 하는 특수한 사항은 [개인](#private) IP 주소를 참조하세요. 가상 머신 운영 체제에는 공용 IP 주소를 추가하지 마세요.
 
@@ -173,7 +173,7 @@ IPv4 주소의 할당 방법을 변경하거나, 고정 IPv4 주소를 변경하
 필요에 따라 공용 또는 개인 고정 IPv4 주소를 IP 구성에 할당할 수 있습니다. 고정 공용 또는 개인 IPv6 주소는 IP 구성에 할당할 수 없습니다. Azure에서 고정 공용 IPv4 주소를 할당하는 방법에 대해 자세히 알아보려면 [공용 IP 주소](virtual-network-public-ip-address.md)를 참조하세요.
 
 - **공용에만 해당**: Azure는 각 Azure 지역에 고유한 범위에서 주소를 할당합니다. Azure [공용](https://www.microsoft.com/download/details.aspx?id=56519), [US 정부](https://www.microsoft.com/download/details.aspx?id=57063), [중국](https://www.microsoft.com/download/details.aspx?id=57062) 및 [독일](https://www.microsoft.com/download/details.aspx?id=57064) 클라우드의 범위(접두사) 목록을 다운로드할 수 있습니다. 할당된 공용 IP 주소 리소스가 삭제되거나 할당 메서드가 동적으로 변경될 때까지 주소는 변경되지 않습니다. 공용 IP 주소 리소스가 IP 구성에 연결된 경우 해당 할당 메서드를 변경하기 전에 IP 구성에서 분리해야 합니다.
-- **개인에만 해당**: 서브넷의 주소 범위에서 주소를 선택하고 할당합니다. 할당하는 주소는 서브넷의 주소 범위에서 처음 4개 주소 중 하나가 아니고 현재 서브넷의 다른 리소스에 할당되지 않은 서브넷 주소 범위 내의 모든 주소일 수 있습니다. 고정 주소는 네트워크 인터페이스가 삭제되는 경우에만 해제됩니다. 할당 메서드를 고정으로 변경하는 경우 Azure는 주소가 서브넷 주소 범위의 사용 가능한 다음 주소가 아닌 경우에도 이전에 할당한 고정 IP 주소를 동적 주소로 할당합니다. 네트워크 인터페이스가 동일한 가상 네트워크 내의 다른 서브넷에 할당되는 경우에도 주소가 변경됩니다. 하지만 네트워크 인터페이스를 다른 서브넷에 할당하려면 먼저 할당 메서드를 고정에서 동적으로 변경해야 합니다. 네트워크 인터페이스를 다른 서브넷에 할당하면 할당 메서드를 다시 고정으로 변경하고 새로운 서브넷의 주소 범위에서 IP 주소를 할당할 수 있습니다.
+- **개인에만 해당**: 서브넷의 주소 범위에서 주소를 선택하고 할당합니다. 할당한 주소는 서브넷의 주소 범위에서 처음 4개 주소 중 하나가 아니고 현재 서브넷의 다른 리소스에 할당되지 않은 서브넷 주소 범위 내의 모든 주소일 수 있습니다. 고정 주소는 네트워크 인터페이스가 삭제되는 경우에만 해제됩니다. 할당 메서드를 고정으로 변경하는 경우 Azure는 주소가 서브넷 주소 범위의 사용 가능한 다음 주소가 아닌 경우에도 이전에 할당한 고정 IP 주소를 동적 주소로 할당합니다. 네트워크 인터페이스가 동일한 가상 네트워크 내의 다른 서브넷에 할당되는 경우에도 주소가 변경됩니다. 하지만 네트워크 인터페이스를 다른 서브넷에 할당하려면 먼저 할당 메서드를 고정에서 동적으로 변경해야 합니다. 네트워크 인터페이스를 다른 서브넷에 할당하면 할당 메서드를 다시 고정으로 변경하고 새로운 서브넷의 주소 범위에서 IP 주소를 할당할 수 있습니다.
 
 ## <a name="ip-address-versions"></a>IP 주소 버전
 

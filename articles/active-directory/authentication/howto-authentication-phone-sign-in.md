@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: librown
-ms.openlocfilehash: b09bb65cdb571c9df95d1922f4132abe5b77907c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0179f87787c91a90edb54a1956a6f10d1dffc4b1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963950"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434192"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Microsoft Authenticator 앱(공개 미리 보기)에서 암호 없이 휴대폰에 로그인
 
@@ -37,16 +37,21 @@ Microsoft Authenticator 앱에서 휴대폰 로그인을 사용하도록 설정�
 
 ### <a name="steps-to-enable"></a>사용하도록 설정하는 단계
 
-Azure Active Directory V2 PowerShell 모듈 공개 미리 보기 릴리스의 최신 버전이 있어야 합니다. 이를 확실히 하기 위해 다음 명령을 실행하여 설치를 제거한 후 다시 설치할 수도 있습니다.
+1. Azure Active Directory V2 PowerShell 모듈 공개 미리 보기 릴리스의 최신 버전이 있어야 합니다. 이를 확실히 하기 위해 다음 명령을 실행하여 설치를 제거한 후 다시 설치할 수도 있습니다.
+    ```powershell
+    Uninstall-Module -Name AzureADPreview
+    Install-Module -Name AzureADPreview
+    ```
 
-1. `Uninstall-Module -Name AzureADPreview`
-2. `Install-Module -Name AzureADPreview`
+2. Azure AD V2 PowerShell 모듈을 사용하도록 Azure AD 테넌트에 대해 인증합니다. 사용된 계정은 보안 관리자나 글로벌 관리자여야 합니다.
+    ```powershell
+    Connect-AzureAD
+    ```
 
-다음 PowerShell 명령을 사용하여 암호 없는 휴대폰 로그인 미리 보기를 사용하도록 설정할 수 있습니다.
-
-1. `Connect-AzureAD`
-   1. 인증 대화 상자에서 테넌트의 계정으로 로그인합니다. 계정은 보안 관리자나 글로벌 관리자여야 합니다.
-1. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
+3. 인증자 로그인 정책 만들기:
+    ```powershell
+    New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
+    ```
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>최종 사용자가 휴대폰 로그인을 사용할 수 있도록 하려면 어떻게 하나요?
 

@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 48d3bc7ecdd66565372be8347897202cae3ec158
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 97de65acf724d12afd131ede25713e8f29d30bad
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579790"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477637"
 ---
 # <a name="configure-recognize-text-containers"></a>텍스트 인식 컨테이너 구성
 
@@ -32,6 +32,7 @@ Computer Vision 컨테이너의 구성 설정은 계층적이고, 모든 컨테�
 * [결제](#billing-configuration-setting)
 * [Eula](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
+* [Http 프록시 자격 증명 설정](#http-proxy-credentials-settings)
 * [로깅](#logging-configuration-settings)
 * [탑재](#mounts-configuration-settings)
 
@@ -116,6 +117,11 @@ Cognitive Services 컨테이너는 Azure 사용에 관한 [계약](https://go.mi
 | `TlsConnectionEstablishmentTimeoutMs` | 정수  | Fluentd 서버와 SSL/TLS 연결을 설정하기 위한 시간 제한(밀리초)입니다. 기본값은 10000밀리초(10초)입니다.<br/> `UseTLS`가 false로 설정되어 있는 경우 이 값은 무시됩니다. |
 | `UseTLS` | BOOLEAN | 컨테이너가 Fluentd 서버와 통신하기 위해 SSL/TLS를 사용해야 하는지 여부를 나타냅니다. 기본값은 False입니다. |
 
+
+## <a name="http-proxy-credentials-settings"></a>Http 프록시 자격 증명 설정
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+
 ## <a name="logging-configuration-settings"></a>로깅 구성 설정
 
 `Logging` 구성 설정은 컨테이너에 대한 ASP.NET Core 로깅 지원을 관리합니다. ASP.NET Core 애플리케이션에 사용할 수 있는 컨테이너에 동일한 구성 설정 및 값을 사용할 수 있습니다. Computer Vision 컨테이너에서 지원되는 로깅 공급자는 다음과 같습니다.
@@ -164,3 +170,7 @@ Computer Vision에서 제공하는 Docker 컨테이너는 상태를 저장하지
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789 Logging:Disk:Format=json
   ```
+
+## <a name="next-steps"></a>다음 단계
+
+* 추가적인 [Cognitive Services 컨테이너](../cognitive-services-container-support.md) 사용

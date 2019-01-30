@@ -3,22 +3,22 @@ title: Azure Service Bus 메시지, 페이로드 및 serialization | Microsoft D
 description: Service Bus 메시지 페이로드 개요
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
-ms.author: spelluru
-ms.openlocfilehash: 00c7605b09c32328a8324b13b8151a258a39dc22
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.author: aschhab
+ms.openlocfilehash: 6b03b1eb773c40a81c9efd76ac26b40936dca2cc
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857604"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849365"
 ---
 # <a name="messages-payloads-and-serialization"></a>메시지, 페이로드 및 serialization
 
@@ -26,7 +26,7 @@ Microsoft Azure Service Bus는 메시지를 처리합니다. 메시지는 키-�
 
 .NET 및 Java에 대한 공식 Service Bus 클라이언트의 개체 모델은 Service Bus가 지원하는 와이어 프로토콜과 매핑되는 추상 Service Bus 메시지 구조를 반영합니다.
  
-Service Bus 메시지는 Service Bus가 서비스 쪽에서 어떤 형식으로든 절대 처리하지 못하는 이진 페이로드 섹션과 2개의 속성 집합으로 이루어져 있습니다. *브로커 속성*은 시스템에서 미리 정의됩니다. 이러한 미리 정의된 속성은 브로커 내의 메시지 수준 기능을 제어하거나 일반적이고 표준화된 메타데이터 항목에 매핑됩니다. *사용자 속성*은 응용 프로그램에 의해 정의되고 설정될 수 있는 키-값 쌍의 컬렉션입니다.
+Service Bus 메시지는 Service Bus가 서비스 쪽에서 어떤 형식으로든 절대 처리하지 못하는 이진 페이로드 섹션과 2개의 속성 집합으로 이루어져 있습니다. *브로커 속성*은 시스템에서 미리 정의됩니다. 이러한 미리 정의된 속성은 브로커 내의 메시지 수준 기능을 제어하거나 일반적이고 표준화된 메타데이터 항목에 매핑됩니다. *사용자 속성*은 애플리케이션에 의해 정의되고 설정될 수 있는 키-값 쌍의 컬렉션입니다.
  
 미리 정의된 브로커 속성은 다음 표에 나와 있습니다. 이름은 모든 공식 클라이언트 API에서 사용되며 HTTP 프로토콜 매핑의 [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Properties_) JSON 개체에도 있습니다.
  
@@ -65,15 +65,15 @@ AMQP 프로토콜 수준에서 사용되는 해당 이름은 괄호로 묶어 �
 앞서 설명된 브로커 속성의 하위 집합인 [To](/dotnet/api/microsoft.azure.servicebus.message.to), [ReplyTo](/dotnet/api/microsoft.azure.servicebus.message.replyto), [ReplyToSessionId](/dotnet/api/microsoft.azure.servicebus.message.replytosessionid), [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid), [CorrelationId](/dotnet/api/microsoft.azure.servicebus.message.correlationid) 및 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid)는 애플리케이션이 특정 대상으로 메시지를 라우팅하도록 지원하는 데 사용됩니다. 이를 이해하기 위해 다음과 같은 몇 가지 패턴을 고려해보세요.
 
 - **간단한 요청/회신**: 게시자가 큐에 메시지를 보내고 메시지 소비자의 회신을 기대합니다. 회신을 받기 위해 게시자는 회신이 배달될 큐를 소유합니다. 해당 큐의 주소는 아웃바운드 메시지의 **ReplyTo** 속성에 표시됩니다. 소비자는 응답할 때 처리된 메시지의 **MessageId**를 회신 메시지의 **CorrelationId** 속성으로 복사하고 해당 메시지를 **ReplyTo** 속성이 나타내는 대상으로 전달합니다. 애플리케이션 컨텍스트에 따라 하나의 메시지가 여러 회신을 발생할 수 있습니다.
-- **멀티캐스트 요청/회신**: 이전 패턴의 변형으로, 게시자는 메시지를 토픽으로 송신하며 여러 구독자가 메시지를 소비할 자격을 얻게 됩니다. 각 구독자는 앞에서 설명한 방식으로 응답할 수 있습니다. 이 패턴은 검색 또는 롤콜(roll call) 시나리오에 사용되며 응답자는 일반적으로 사용자 속성을 사용하여 또는 페이로드 내에서 자신을 식별합니다. **ReplyTo**가 토픽을 가리킬 경우 이러한 검색 응답 집합이 대상 그룹에 배포될 수 있습니다.
-- **멀티플렉싱**: 이 세션 기능은 수신자가 세션을 잠금 상태로 보류하는 동안 일치하는 **SessionId** 값으로 식별되는 관련 메시지의 각 세션(또는 그룹)이 특정 수신자에게 라우팅되도록 단일 큐 또는 구독을 통해 관련 메시지의 스트림을 멀티플렉싱할 수 있도록 합니다. [여기](message-sessions.md)에서 세션 세부 정보에 대해 자세히 읽어보세요.
+- **멀티캐스트 요청/회신**: 이전 패턴의 변형으로, 게시자가 메시지를 토픽으로 보내고 여러 구독자가 메시지를 소비할 자격을 얻게 됩니다. 각 구독자는 앞에서 설명한 방식으로 응답할 수 있습니다. 이 패턴은 검색 또는 롤콜(roll call) 시나리오에 사용되며 응답자는 일반적으로 사용자 속성을 사용하여 또는 페이로드 내에서 자신을 식별합니다. **ReplyTo**가 토픽을 가리킬 경우 이러한 검색 응답 집합이 대상 그룹에 배포될 수 있습니다.
+- **멀티플렉싱**: 이 세션 기능은 수신자가 세션을 잠금 상태로 보류하는 동안 일치하는 **SessionId** 값으로 식별된 관련 메시지의 각 세션(또는 그룹)이 특정 수신자에게 라우팅되도록 단일 큐 또는 구독을 통해 관련 메시지의 스트림을 멀티플렉싱할 수 있도록 합니다. [여기](message-sessions.md)에서 세션 세부 정보에 대해 자세히 읽어보세요.
 - **멀티플렉싱된 요청/회신**: 이 세션 기능은 멀티플렉싱된 회신을 지원하며 여러 게시자가 회신 큐를 공유하도록 허용합니다. **ReplyToSessionId**를 설정하여 게시자는 소비자에게 해당 값을 회신 메시지의 **SessionId**에 복사하도록 지시할 수 있습니다. 게시 큐 또는 토픽은 세션을 인식할 필요가 없습니다. 메시지가 전송될 때 게시자는 세션 수신자를 조건부로 승인하여 지정된 **SessionId**를 갖는 세션이 큐에서 구체화될 때까지 명확히 기다릴 수 있습니다. 
 
 Service Bus 네임스페이스 내의 라우팅은 자동 전달 체인 및 토픽 구독 규칙을 사용하여 실현될 수 있습니다. 네임스페이스 간의 라우팅은 [Azure Logic Apps를 사용하여](https://azure.microsoft.com/services/logic-apps/) 실현될 수 있습니다. 위 목록에 표시된 대로 **To** 속성은 나중에 사용하기 위해 예약되고 결과적으로는 브로커에 의해 특별하게 사용 가능한 기능으로 해석될 수 있습니다. 라우팅을 구현하려는 애플리케이션은 사용자 속성을 기준으로 구현해야 하며 **To** 속성에 의존하면 안 됩니다. 그렇지만 이렇게 해도 호환성 문제가 야기되지는 않습니다.
 
 ## <a name="payload-serialization"></a>페이로드 serialization
 
-전송 중이거나 Service Bus 내에 저장되어 있을 때 페이로드는 항상 불투명한 이진 블록입니다. [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype) 속성을 사용하면 응용 프로그램은 속성 값에 대해 제안되는 형식을 IETF RFC2045에 따라 MIME 콘텐츠 형식 설명으로 지정하여(예: `application/json;charset=utf-8`) 페이로드를 설명할 수 있습니다.
+전송 중이거나 Service Bus 내에 저장되어 있을 때 페이로드는 항상 불투명한 이진 블록입니다. [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype) 속성을 사용하면 애플리케이션은 속성 값에 대해 제안되는 형식을 IETF RFC2045에 따라 MIME 콘텐츠 형식 설명으로 지정하여(예: `application/json;charset=utf-8`) 페이로드를 설명할 수 있습니다.
 
 Java 또는 .NET Standard 변형과 달리, Service Bus API의 .NET Framework 버전에서는 임의의 .NET 개체를 생성자에 전달하여 **BrokeredMessage** 인스턴스를 만들도록 지원합니다. 
 

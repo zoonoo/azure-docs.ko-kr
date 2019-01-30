@@ -3,22 +3,22 @@ title: Azure Service Bus 메시징 엔터티 일시 중단 | Microsoft Docs
 description: Azure Service Bus 메시지 엔터티를 일시 중단한 후 다시 활성화합니다.
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
-ms.author: spelluru
-ms.openlocfilehash: b7ea8c14bfc3f2ba3720ad919d6c36ec50c3823e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 8feee92e9105259bddf45114ac48a54347266cd7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854482"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846002"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>메시징 엔터티 일시 중단 및 다시 활성화(사용 안 함)
 
@@ -38,8 +38,8 @@ ms.locfileid: "48854482"
 
 큐에 대해 설정할 수 있는 상태는 다음과 같습니다.
 
--   **Active**: 큐가 활성 상태입니다.
--   **Disabled**: 큐가 일시 중단되었습니다.
+-   **활성**: 큐가 활성 상태입니다.
+-   **사용 안 함**: 큐가 일시 중단되었습니다.
 -   **SendDisabled**: 큐가 부분적으로 일시 중단되었으며 수신이 허용됩니다.
 -   **ReceiveDisabled**: 큐가 부분적으로 일시 중단되었으며 송신이 허용됩니다.
 

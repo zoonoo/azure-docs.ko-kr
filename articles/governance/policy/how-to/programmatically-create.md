@@ -4,17 +4,17 @@ description: 이 문서는 Azure Policy에 대해 프로그래밍 방식으로 �
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 3c8fd185feff9a580e2d23926dcf60cb33121122
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: adeb963333ffc2b587d7468eb357fab8dc4d6bbe
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312479"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847053"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>프로그래밍 방식으로 정책 및 보기 규정 준수 데이터 만들기
 
@@ -22,18 +22,20 @@ ms.locfileid: "53312479"
 
 규정 준수에 대한 내용은 [준수 데이터 가져오기](getting-compliance-data.md)를 참조하세요.
 
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음 필수 조건을 충족시키는지 확인합니다.
 
 1. [ARMClient](https://github.com/projectkudu/ARMClient)를 아직 설치하지 않은 경우 설치합니다. Azure Resource Manager 기반 API에 HTTP 요청을 전송하는 도구입니다.
 
-1. AzureRM PowerShell 모듈을 최신 버전으로 업데이트합니다. 최신 버전에 대한 자세한 내용은 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)을 참조하세요.
+1. Azure PowerShell 모듈을 최신 버전으로 업데이트합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 최신 버전에 대한 자세한 내용은 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)을 참조하세요.
 
 1. 구독이 리소스 공급자와 함께 작동하도록 Azure PowerShell을 사용하여 Policy Insights 리소스 공급자를 등록합니다. 리소스 공급자를 등록하려면 리소스 공급자에 대해 등록 작업을 실행할 수 있는 권한이 있어야 합니다. 이 작업은 참가자 및 소유자 역할에 포함되어 있습니다. 리소스 공급자를 등록하는 다음 명령을 실행합니다.
 
    ```azurepowershell-interactive
-   Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
+   Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
    ```
 
    리소스 공급자를 등록하고 살펴보는 방법에 대한 내용은 [리소스 공급자 및 종류](../../../azure-resource-manager/resource-manager-supported-services.md)를 참조하세요.
@@ -72,13 +74,13 @@ ms.locfileid: "53312479"
 1. AuditStorageAccounts.json 파일을 사용하여 정책 정의를 만들려면 다음 명령을 실행합니다.
 
    ```azurepowershell-interactive
-   New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
+   New-AzPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
    ```
 
    이 명령은 _공용 네트워크에 대해 열린 저장소 계정 감사_라는 정책 정의를 작성합니다.
-   사용할 수 있는 다른 매개 변수에 대한 자세한 내용은 [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition)을 참조하세요.
+   사용할 수 있는 다른 매개 변수에 대한 자세한 내용은 [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition)을 참조하세요.
 
-   위치 매개 변수 없이 호출할 경우 `New-AzureRmPolicyDefinition`은 기본적으로 선택한 세션 컨텍스트 구독에 정책 정의를 저장하도록 지정됩니다. 정의를 다른 위치에 저장하려면 다음 매개 변수를 사용합니다.
+   위치 매개 변수 없이 호출할 경우 `New-AzPolicyDefinition`은 기본적으로 선택한 세션 컨텍스트 구독에 정책 정의를 저장하도록 지정됩니다. 정의를 다른 위치에 저장하려면 다음 매개 변수를 사용합니다.
 
    - **SubscriptionId** - 다른 구독에 저장합니다. _GUID_ 값이 필요합니다.
    - **ManagementGroupName** - 관리 그룹에 저장합니다. _문자열_ 값이 필요합니다.
@@ -86,21 +88,21 @@ ms.locfileid: "53312479"
 1. 정책 정의를 만든 후 다음 명령을 실행하여 정책 할당을 만들 수 있습니다.
 
    ```azurepowershell-interactive
-   $rg = Get-AzureRmResourceGroup -Name 'ContosoRG'
-   $Policy = Get-AzureRmPolicyDefinition -Name 'AuditStorageAccounts'
-   New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId
+   $rg = Get-AzResourceGroup -Name 'ContosoRG'
+   $Policy = Get-AzPolicyDefinition -Name 'AuditStorageAccounts'
+   New-AzPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId
    ```
 
    _ContosoRG_를 원하는 리소스 그룹의 이름으로 바꿉니다.
 
-   `New-AzureRmPolicyAssignment`의 **Scope** 매개 변수는 구독 및 관리 그룹에서도 작동합니다. 이 매개 변수는 `Get-AzureRmResourceGroup`의 **ResourceId** 속성이 반환하는 전체 리소스 경로를 사용합니다. 각 컨테이너에 대한 **Scope** 패턴은 다음과 같습니다.
+   `New-AzPolicyAssignment`의 **Scope** 매개 변수는 구독 및 관리 그룹에서도 작동합니다. 이 매개 변수는 `Get-AzResourceGroup`의 **ResourceId** 속성이 반환하는 전체 리소스 경로를 사용합니다. 각 컨테이너에 대한 **Scope** 패턴은 다음과 같습니다.
    `{rgName}`, `{subId}` 및 `{mgName}`을 각각 리소스 그룹 이름, 구독 ID 및 관리 그룹 이름으로 바꿉니다.
 
    - 리소스 그룹 - `/subscriptions/{subId}/resourceGroups/{rgName}`
    - 구독 - `/subscriptions/{subId}/`
    - 관리 그룹 - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Azure Resource Manager PowerShell 모듈을 사용하여 리소스 정책 관리에 대한 자세한 내용은 [AzureRM.Resources](/powershell/module/azurerm.resources/#policies)를 참조하세요.
+Azure Resource Manager PowerShell 모듈을 사용하여 리소스 정책을 관리하는 방법에 대한 자세한 내용은 [Az.Resources](/powershell/module/az.resources/#policies)를 참조하세요.
 
 ### <a name="create-and-assign-a-policy-definition-using-armclient"></a>ARMClient를 사용하여 정책 정의 만들기 및 할당
 
@@ -230,7 +232,7 @@ Azure CLI를 사용하여 리소스 정책을 관리하는 방법에 대한 자�
 이 문서에서 제시된 명령 및 쿼리에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure REST API 리소스](/rest/api/resources/)
-- [Azure RM PowerShell 모듈](/powershell/module/azurerm.resources/#policies)
+- [Azure PowerShell 모듈](/powershell/module/az.resources/#policies)
 - [Azure CLI 정책 명령](/cli/azure/policy?view=azure-cli-latest)
 - [Policy Insights 리소스 공급자 REST API 참조](/rest/api/policy-insights)
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)

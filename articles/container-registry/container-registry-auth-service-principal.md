@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 70ca1b88c653601e077c55a847c13f67efc3e300
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 3aa986efd4986eb1d96c0f013d997486e6e8ae2c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754206"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390916"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>서비스 주체로 Azure Container Registry 인증
 
@@ -47,9 +47,7 @@ GitHub에서 Azure CLI에 대한 이전 샘플 스크립트 및 Azure PowerShell
 
 ## <a name="next-steps"></a>다음 단계
 
-컨테이너 레지스트리에 대한 액세스 권한을 부여한 서비스 주체가 있는 경우, 레지스트리 상호 작용을 위해 애플리케이션 및 서비스에서 해당 자격 증명을 사용할 수 있습니다.
-
-서비스 주체 자격 증명을 사용하도록 개별 애플리케이션을 구성하는 내용은 이 문서의 범위 밖이지만, 다음 항목에서 특정 서비스 및 플랫폼에 대한 지침을 찾을 수 있습니다.
+컨테이너 레지스트리에 대한 액세스 권한을 부여한 서비스 주체가 있는 경우, 헤드리스 레지스트리 상호 작용을 위해 애플리케이션 및 서비스에서 해당 자격 증명을 사용할 수 있습니다. Azure 컨테이너 레지스트리로 인증할 수 있는 모든 Azure 서비스의 서비스 주체 자격 증명을 사용할 수 있습니다. 다음은 이러한 템플릿의 예입니다.
 
 * [AKS(Azure Kubernetes Service)의 Azure Container Registry를 사용하여 인증](container-registry-auth-aks.md)
 * [Azure Container Instances의 Azure Container Registry를 사용하여 인증(ACI)](container-registry-auth-aci.md)

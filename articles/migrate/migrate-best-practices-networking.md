@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
-ms.openlocfilehash: 6d679cc3d24e2f0f2cb79eb2c9f02422d0818c80
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 5cbe0c5e86a1dfd8cc3cb374f0ae7e1c67ae9d77
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215272"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828301"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>Azure로 마이그레이션된 워크로드에 대한 네트워킹 설정 모범 사례
 
@@ -164,7 +164,7 @@ VNet을 배포하는 경우 Azure에서 기본적으로 DNS 서버를 추가합�
 - 각 VNet에는 하나의 VPN 게이트웨이만 있을 수 있습니다.
 - 동일한 VPN 게이트웨이에 대해 여러 개의 연결을 만들 수 있습니다. 여러 개의 연결을 만들면 모든 VPN 터널에서 사용 가능한 게이트웨이 대역폭을 공유합니다.
 - 모든 Azure VPN Gateway는 활성-대기 구성 상태에 있는 두 인스턴스로 구성됩니다.
-    - 계획된 유지 관리 또는 활성 인스턴스에 대한 계획되지 않은 중단에서는 장애 조치가 발생하고, 대기 인스턴스가 자동으로 인계되며, 사이트 간 또는 VNet 간 연결을 다시 시작합니다. 
+    - 계획된 유지 관리 또는 활성 인스턴스에 대한 계획되지 않은 중단에서는 장애 조치(failover)가 발생하고, 대기 인스턴스가 자동으로 인계되며, 사이트 간 또는 VNet 간 연결을 다시 시작합니다. 
     - 전환으로 인해 짧은 중단이 발생합니다.
     - 계획된 유지 관리를 위해 연결은 10-15초 내에 복원해야 합니다.
     - 계획되지 않은 문제의 경우 연결을 복구하는 데 더 오래 걸리며, 최악의 경우 1-1.5분 정도 걸립니다.

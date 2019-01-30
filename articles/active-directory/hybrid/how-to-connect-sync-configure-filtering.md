@@ -4,7 +4,7 @@ description: Azure AD Connect 동기화에서 필터링을 구성하는 방법�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9ec136b418e78f82486d9d38f361e411c3d00c31
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 886ac908d2e294f4627f95b35d93ea49a9e1607a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306362"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472333"
 ---
-# <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 동기화 구성 필터링
+# <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 동기화: 필터링 구성
 필터링을 사용하여 온-프레미스 디렉터리에서 Azure Active Directory(Azure AD)에 표시할 개체를 제어할 수 있습니다. 기본 구성은 모든 도메인에 구성된 포리스트의 모든 개체를 사용합니다. 일반적으로 권장되는 구성입니다. Exchange Online 및 비즈니스용 Skype 등의 Office 365 워크로드를 사용하면 완전한 전체 주소 목록이 도움이 되므로 모든 사람에게 메일을 보내거나 호출할 수 있습니다. 기본 구성을 사용하여 Exchange 또는 Lync의 온-프레미스 구현과 같은 환경을 가져올 수 있습니다.
 
 경우에 따라 기본 구성에 일부 변경을 수행해야 합니다. 예를 들어 다음과 같은 노래를 선택할 수 있다.
@@ -79,7 +79,7 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 
 * [**그룹 기반**](#group-based-filtering): 단일 그룹 기반의 필터링은 설치 마법사를 사용하여 초기 설치 시에만 구성할 수 있습니다.
 * [**도메인 기반**](#domain-based-filtering): 이 옵션을 사용하면 Azure AD로 동기화할 도메인을 선택할 수 있습니다. 또한 Azure AD Connect 동기화를 설치한 후 온-프레미스 인프라를 변경하는 경우 동기화 엔진 구성에서 도메인을 추가하고 제거할 수 있습니다.
-* [**조직 구성 단위(OU) 기반**](#organizational-unitbased-filtering): 이 옵션을 사용하면 Azure AD로 동기화하는 OU를 선택할 수 있습니다. 이 옵션은 선택된 OU의 모든 개체 형식에 대해 설정됩니다.
+* [**OU(조직 구성 단위) 기반**](#organizational-unitbased-filtering): 이 옵션을 사용하면 Azure AD로 동기화할 OU를 선택할 수 있습니다. 이 옵션은 선택된 OU의 모든 개체 형식에 대해 설정됩니다.
 * [**특성 기반**](#attribute-based-filtering): 이 옵션을 사용하면 개체의 특성 값을 기반으로 개체를 필터링할 수 있습니다. 또한 다른 개체 형식별로 다르게 필터링할 수 있습니다.
 
 동시에 여러 필터링 옵션을 사용할 수 있습니다. 예를 들어 OU 기반 필터링을 사용하여 하나의 OU에 개체만 포함시킬 수 있습니다. 동시에 특성 기반 필터링을 사용하여 추가로 개체를 필터링할 수 있습니다. 여러 필터링 메서드를 사용하면 필터는 필터 간 논리적 “AND”를 사용합니다.
@@ -185,6 +185,9 @@ Azure AD Connect 설치 마법사는 항상 이 구성을 만듭니다.
 
 ## <a name="attribute-based-filtering"></a>특성 기반 필터링
 다음 단계 작업을 위해 2015년 11월 ([1.0.9125](reference-connect-version-history.md#1091250)) 이상 빌드를 사용하고 있는지 확인합니다.
+
+> [!IMPORTANT]
+>**Azure AD Connect**에서 만든 기본 규칙을 수정하지 않는 것이 좋습니다. 규칙을 수정하려면 규칙을 복제한 다음, 원래 규칙을 사용하지 않도록 설정합니다. 복제된 규칙을 변경합니다. 이렇게 하면(원래 규칙을 사용하지 않도록 설정) 해당 규칙을 통해 제공되는 버그 수정 또는 기능을 놓칠 수 있습니다.
 
 특성 기반 필터링은 개체를 필터링하는 가장 유연한 방법입니다. [선언적 프로비전](concept-azure-ad-connect-sync-declarative-provisioning.md) 기능을 사용하여 개체를 Azure AD에 동기화하는 경우의 거의 모든 측면을 제어할 수 있습니다.
 

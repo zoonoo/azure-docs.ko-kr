@@ -1,7 +1,7 @@
 ---
-title: Virtual Network 내에서 실험 및 추론 실행
+title: 가상 네트워크에서 실험 및 유추 실행
 titleSuffix: Azure Machine Learning service
-description: Azure Virtual Network 내에서 기계 학습 실험 및 추론을 안전하게 실행하는 방법을 알아봅니다. 이 문서에서는 Azure Virtual Network 내에서 모델을 학습하고 추론을 수행하는 데 사용되는 컴퓨팅 대상을 만드는 방법을 설명합니다. 인바운드 및 아웃바운드 포트 요구와 같은 보안 가상 네트워크에 대한 요구 사항도 다룹니다.
+description: Azure Virtual Network 내에서 안전하게 기계 학습 실험 및 추론을 실행합니다. 모델 학습에 대한 컴퓨팅 대상을 만드는 방법과 Azure Virtual Network 내에서 유추하는 방법을 알아봅니다. 인바운드 및 아웃바운드 포트 요구와 같은 보안 가상 네트워크에 대한 요구 사항도 다룹니다.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 1890f830f9b2a4b108328de056636335fd3746e3
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 21c4a9042a64a58f67f1f94c300b6438895eea5d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248605"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856284"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Azure Virtual Network 내에서 안전하게 실험 및 추론 실행
 

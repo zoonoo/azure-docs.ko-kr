@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 8488b968fe2ab823479d70a98ba86be97b28f67d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 12af87ab0a8b15528acbd9ce8a1bc92f478aba28
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783622"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820974"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Azure 미디어 검색으로 동작 검색
 ## <a name="overview"></a>개요
@@ -31,7 +31,7 @@ ms.locfileid: "33783622"
 이 문서에서는 **Azure Media Motion Detector**에 대한 세부 정보를 제공하고 .NET용 Media Services SDK와 함께 사용하는 방법을 보여 줍니다.
 
 ## <a name="motion-detector-input-files"></a>동작 검색기 입력 파일
-동영상 파일입니다. 현재 MP4, MOV 및 WMV 형식이 지원됩니다.
+동영상 파일입니다. 현재 다음 형식이 지원됩니다. MP4, MOV 및 WMV.
 
 ## <a name="task-configuration-preset"></a>작업 구성(기본 설정)
 **Azure 미디어 동작 탐지기**로 작업을 만들 때에는 구성 기본 설정을 지정해야 합니다. 
@@ -39,12 +39,12 @@ ms.locfileid: "33783622"
 ### <a name="parameters"></a>매개 변수
 다음 매개 변수를 사용할 수 있습니다.
 
-| Name | 옵션 | 설명 | 기본값 |
+| 이름 | 옵션 | 설명 | 기본값 |
 | --- | --- | --- | --- |
 | sensitivityLevel |문자열:'low', 'medium', 'high' |동작이 보고되는 민감도 수준을 설정합니다. 가양성 수를 조정하려면 이 값을 조정합니다. |'medium' |
 | frameSamplingValue |양의 정수 |알고리즘이 실행되는 빈도를 설정합니다. 1은 프레임마다, 2는 두 개의 프레임마다 등을 의미합니다. |1 |
 | detectLightChange |부울:'true', 'false' |결과에 간단한 변경 내용이 보고되는지 여부를 설정합니다. |'False' |
-| mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>예: 00:00:03 |2개의 이벤트가 결합되어 1로 보고되는 동작 이벤트 간의 기간을 지정합니다. |00:00:00 |
+| mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>예제: 00:00:03 |2개의 이벤트가 결합되어 1로 보고되는 동작 이벤트 간의 기간을 지정합니다. |00:00:00 |
 | detectionZones |검색 영역 배열:<br/>- 검색 영역은 3개 이상의 지점 배열<br/>- 지점은 0부터 1까지의 x 및 y 좌표입니다. |사용할 다각형의 검색 영역 목록을 설명합니다.<br/>결과는 영역과 함께 ID로 보고되며 첫 번째 항목은 ‘id’:0입니다. |전체 프레임에 걸쳐 있는 단일 영역입니다. |
 
 ### <a name="json-example"></a>JSON 예제
@@ -280,7 +280,7 @@ namespace VideoMotionDetection
             task.InputAssets.Add(asset);
 
             // Add an output asset to contain the results of the job.
-            task.OutputAssets.AddNew("My Video Motion Detectoion Output Asset", AssetCreationOptions.None);
+            task.OutputAssets.AddNew("My Video Motion Detection Output Asset", AssetCreationOptions.None);
 
             // Use the following event handler to check job progress.  
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);

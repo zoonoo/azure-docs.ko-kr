@@ -4,17 +4,17 @@ description: Azure Policy 평가 및 효과는 준수를 결정합니다. 준수
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 3bbd9bc7f213f117b2389f0a2526a75fef6f0234
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: cc5d59d523f87cac6ec8533d6af1342c58ba45f7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318423"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853632"
 ---
 # <a name="getting-compliance-data"></a>준수 데이터 가져오기
 
@@ -29,6 +29,8 @@ Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 
 
 > [!WARNING]
 > 준수 상태가 **‘등록되지 않음’** 으로 보고된 경우 [여기](../overview.md#rbac-permissions-in-azure-policy)에 설명된 대로 **Microsoft.PolicyInsights** 리소스 공급자가 등록되어 있고 사용자에게 적절한 RBAC(역할 기반 액세스 제어) 권한이 있는지 확인합니다.
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="evaluation-triggers"></a>평가 트리거
 
@@ -145,9 +147,9 @@ Azure Portal에서는 환경에서 준수 상태를 시각화하고 이해하는
 Azure PowerShell에서 다음 예제를 사용하려면 이 예제 코드를 사용하여 인증 토큰을 생성합니다. 그런 다음, 구문 분석할 수 있는 JSON 개체를 검색하는 예제에서 문자열로 $restUri를 바꿉니다.
 
 ```azurepowershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+# Login first with Connect-AzAccount if not using Cloud Shell
 
-$azContext = Get-AzureRmContext
+$azContext = Get-AzContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
 $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
@@ -283,29 +285,33 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Policy용 Azure PowerShell 모듈은 PowerShell 갤러리에서 [AzureRM.PolicyInsights](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights)로 사용할 수 있습니다. PowerShellGet을 사용하면 `Install-Module -Name AzureRM.PolicyInsights`(최신 [Azure PowerShell](/powershell/azure/install-azurerm-ps)이 설치되어 있어야 함)를 사용하여 모듈을 설치할 수 있습니다.
+Policy용 Azure PowerShell 모듈은 PowerShell 갤러리에서 [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights)로 사용할 수 있습니다. PowerShellGet을 사용하면 `Install-Module -Name Az.PolicyInsights`(최신 [Azure PowerShell](/powershell/azure/install-az-ps)이 설치되어 있어야 함)를 사용하여 모듈을 설치할 수 있습니다.
 
 ```azurepowershell-interactive
 # Install from PowerShell Gallery via PowerShellGet
-Install-Module -Name AzureRM.PolicyInsights
+Install-Module -Name Az.PolicyInsights
 
 # Import the downloaded module
-Import-Module AzureRM.PolicyInsights
+Import-Module Az.PolicyInsights
 
-# Login with Connect-AzureRmAccount if not using Cloud Shell
-Connect-AzureRmAccount
+# Login with Connect-AzAccount if not using Cloud Shell
+Connect-AzAccount
 ```
 
-모듈에는 세 개의 cmdlet이 있습니다.
+모듈에는 다음 cmdlet이 있습니다.
 
-- `Get-AzureRmPolicyStateSummary`
-- `Get-AzureRmPolicyState`
-- `Get-AzureRmPolicyEvent`
+- `Get-AzPolicyStateSummary`
+- `Get-AzPolicyState`
+- `Get-AzPolicyEvent`
+- `Get-AzPolicyRemediation`
+- `Remove-AzPolicyRemediation`
+- `Start-AzPolicyRemediation`
+- `Stop-AzPolicyRemediation`
 
 예제: 가장 많은 수의 호환되지 않는 리소스를 포함하는 가장 많이 할당된 정책에 대한 상태 요약 가져오기
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyStateSummary -Top 1
+PS> Get-AzPolicyStateSummary -Top 1
 
 NonCompliantResources : 15
 NonCompliantPolicies  : 1
@@ -316,7 +322,7 @@ PolicyAssignments     : {/subscriptions/{subscriptionId}/resourcegroups/RG-Tags/
 예제: 가장 최근에 평가된 리소스에 대한 상태 레코드 가져오기(기본값은 내림차순 타임스탬프 기준).
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyState -Top 1
+PS> Get-AzPolicyState -Top 1
 
 Timestamp                  : 5/22/2018 3:47:34 PM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -342,7 +348,7 @@ PolicyDefinitionCategory   : tbd
 예제: 호환되지 않는 모든 가상 네트워크 리소스에 대한 세부 정보 가져오기
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyState -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'"
+PS> Get-AzPolicyState -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'"
 
 Timestamp                  : 5/22/2018 4:02:20 PM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -368,7 +374,7 @@ PolicyDefinitionCategory   : tbd
 예제: 특정 날짜 후에 발생한 호환되지 않는 가상 네트워크 리소스와 관련된 이벤트 가져오기
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
+PS> Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
 
 Timestamp                  : 5/19/2018 5:18:53 AM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -393,16 +399,16 @@ TenantId                   : {tenantId}
 PrincipalOid               : {principalOid}
 ```
 
-**PrincipalOid** 필드는 Azure PowerShell cmdlet `Get-AzureRmADUser`를 통해 특정 사용자를 가져오는 데 사용할 수 있습니다. **{principalOid}** 를 앞의 예제에서 가져온 응답으로 바꿉니다.
+**PrincipalOid** 필드는 Azure PowerShell cmdlet `Get-AzADUser`를 통해 특정 사용자를 가져오는 데 사용할 수 있습니다. **{principalOid}** 를 앞의 예제에서 가져온 응답으로 바꿉니다.
 
 ```azurepowershell-interactive
-PS> (Get-AzureRmADUser -ObjectId {principalOid}).DisplayName
+PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
 Trent Baker
 ```
 
 ## <a name="log-analytics"></a>Log Analytics
 
-`AzureActivity` 솔루션이 구독에 연결된 [Log Analytics](../../../log-analytics/log-analytics-overview.md) 작업 영역이 있는 경우 간단한 Kusto 쿼리 및 `AzureActivity` 테이블을 사용하여 평가 주기에서 호환되지 않는 결과를 볼 수도 있습니다. Log Analytics의 세부 정보를 사용하여 비준수 여부를 감시하도록 경고를 구성할 수 있습니다.
+`AzureActivity` 솔루션이 구독에 연결된 [Log Analytics](../../../log-analytics/log-analytics-overview.md) 작업 영역이 있는 경우 간단한 Azure Data Explorer 쿼리 및 `AzureActivity` 테이블을 사용하여 평가 주기에서 규정을 준수하지 않는 결과를 볼 수도 있습니다. Log Analytics의 세부 정보를 사용하여 비준수 여부를 감시하도록 경고를 구성할 수 있습니다.
 
 ![Log Analytics를 사용하여 정책 준수](../media/getting-compliance-data/compliance-loganalytics.png)
 

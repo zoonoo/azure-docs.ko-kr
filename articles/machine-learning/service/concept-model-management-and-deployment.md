@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 467af0f04708c9c6758531fb1cd71d79e9ddd6d7
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 44f61d7b90018b76b1903a04d219dcf0226f95e0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302972"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852323"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Azure Machine Learning Service를 사용하여 모델 관리, 배포 및 모니터링
 
@@ -39,7 +39,7 @@ ms.locfileid: "54302972"
 
 모델을 등록하면 작업 영역에서 Azure 클라우드의 모델을 저장하고 버전을 지정할 수 있습니다. 모델 레지스트리에서는 학습된 모델을 쉽게 구성하고 추적할 수 있습니다.
  
-등록된 모델은 이름 및 버전으로 식별됩니다. 모델을 기존 이름과 동일한 이름으로 등록할 때마다 레지스트리에서 버전을 증가시킵니다. 또한 모델을 검색할 때 사용할 수 있는 추가 메타데이터 태그를 등록 중에 제공할 수도 있습니다. Azure Machine Learning 서비스는 Python 3을 통해 로드할 수 있는 모든 모델을 사용하여 저장된 모델을 지원합니다. 
+등록된 모델은 이름 및 버전으로 식별됩니다. 모델을 기존 이름과 동일한 이름으로 등록할 때마다 레지스트리에서 버전을 증가시킵니다. 또한 모델을 검색할 때 사용할 수 있는 추가 메타데이터 태그를 등록 중에 제공할 수도 있습니다. Azure Machine Learning 서비스는 Python 3을 사용하여 로드할 수 있는 모든 모델을 지원합니다. 
 
 이미지에서 사용되는 모델은 삭제할 수 없습니다.
 
@@ -63,7 +63,7 @@ ONNX 모델을 사용하는 방법에 대한 자세한 내용은 [ONNX 및 Azure
 Azure Machine Learning은 가장 인기 있는 프레임워크를 지원하지만, 일반적으로 PIP 설치가 가능한 모든 프레임워크에서 작동할 수 있습니다.
 
 작업 영역이 만들어지면 해당 작업 영역에서 사용하는 몇 가지 다른 Azure 리소스도 만들어집니다.
-이미지를 만드는 데 사용된 모든 개체는 작업 영역의 Azure 저장소 계정에 저장됩니다. 이미지가 만들어져 Azure Container Registry에 저장됩니다. 이미지를 만들 때 이미지 레지스트리에서 저장하고 이미지를 찾기 위해 쿼리할 수 있는 추가 메타데이터 태그를 제공할 수 있습니다.
+이미지를 만드는 데 사용된 모든 개체는 작업 영역의 Azure 저장소 계정에 저장됩니다. 이미지를 만들 때 추가 메타데이터 태그를 제공할 수 있습니다. 메타데이터 태그 역시 이미지 레지스트리에 저장되며, 쿼리하여 이미지를 찾을 수 있습니다.
 
 자세한 내용은 [모델 배포](how-to-deploy-and-where.md#configureimage)의 이미지 구성 및 등록 섹션을 참조하세요.
 

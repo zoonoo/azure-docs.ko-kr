@@ -3,23 +3,23 @@ title: Service Bus 비동기 메시징 | Microsoft Docs
 description: Azure Service Bus 비동기 메시지에 대한 설명입니다.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: f1435549-e1f2-40cb-a280-64ea07b39fc7
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: spelluru
-ms.openlocfilehash: 9bacce96e65a7aef611bec3ddae8b1872d5f9fae
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 0ecc277e1b9bd94558c54b1c808fdc24f47c402e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391466"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845081"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>비동기 메시징 패턴 및 고가용성
 
@@ -75,9 +75,9 @@ Azure 데이터 센터에 장애에 대한 가장 가능성이 높은 원인은 
 ## <a name="paired-namespaces"></a>쌍을 이루는 네임스페이스
 [쌍을 이루는 네임스페이스][paired namespaces] 기능은 데이터 센터 내의 Service Bus 엔터티 또는 배포가 사용할 수 없게 된 시나리오를 지원합니다. 이 이벤트가 드물게 발생하는 반면 분산된 시스템은 여전히 최악의 시나리오를 처리하기 위해 준비되어야 합니다. 일반적으로 이 이벤트는 Service Bus가 의존 하는 일부 요소가 수명이 짧기 때문에 발생합니다. 정전 중 애플리케이션 가용성을 유지 관리하려면 Service Bus 사용자가 가급적이면 별도 데이터 센터에서 두 개의 별도 네임스페이스를 사용하여 메시징 엔터티를 호스팅할 수 있습니다. 이 섹션의 나머지 부분에서는 다음과 같은 용어를 사용합니다.
 
-* 기본 네임스페이스: 애플리케이션이 상호 작용하는 네임스페이스가 작업을 보내고 받습니다.
-* 보조 네임스페이스: 기본 네임스페이스에 대한 백업의 역할을 하는 네임스페이스입니다. 애플리케이션 논리는 이 네임스페이스 상호작용하지 않습니다.
-* 장애 조치(failover) 간격: 애플리케이션이 기본 네임 스페이스에서 보조 네임스페이스로 전환하기 전에 일반적인 오류를 수락하는 시간의 양입니다.
+* 기본 네임스페이스: 보내기 및 받기 작업을 위해 애플리케이션이 상호 작용하는 네임스페이스입니다.
+* 보조 네임스페이스: 기본 네임스페이스에 대한 백업 역할을 하는 네임스페이스입니다. 애플리케이션 논리는 이 네임스페이스 상호작용하지 않습니다.
+* 장애 조치(failover) 간격: 애플리케이션이 기본 네임 스페이스에서 보조 네임스페이스로 전환하기 전에 일반적인 오류를 수락하는 기간입니다.
 
 쌍을 이루는 네임스페이스는 *가용성 보내기*를 지원합니다. 보내기 가용성은 메시지를 보내는 기능을 보존합니다. 보내기 가용성을 사용하려면 애플리케이션이 다음 요구 사항을 충족해야 합니다.
 
@@ -109,11 +109,11 @@ public SendAvailabilityPairedNamespaceOptions(
 
 이러한 매개 변수는 다음과 같은 의미가 있습니다.
 
-* *secondaryNamespaceManager*: [PairNamespaceAsync][PairNamespaceAsync] 메서드가 보조 네임스페이스를 설정하는 데 사용할 수 있는 보조 네임 스페이스에 대해 초기화된 [NamespaceManager][NamespaceManager] 인스턴스입니다. 네임스페이스 관리자는 네임스페이스에서 큐 목록을 가져오고 필요한 백로그 큐가 존재하는지 확인하는 데 사용됩니다. 이러한 큐가 존재하지 않는 경우 만들어집니다. [NamespaceManager][NamespaceManager]는 **관리** 클레임으로 토큰을 만드는 기능을 필요로 합니다.
+* *secondaryNamespaceManager*: [PairNamespaceAsync][PairNamespaceAsync] 메서드가 보조 네임스페이스를 설정하는 데 사용할 수 있는 보조 네임 스페이스에 대한 초기화된 [NamespaceManager][NamespaceManager] 인스턴스입니다. 네임스페이스 관리자는 네임스페이스에서 큐 목록을 가져오고 필요한 백로그 큐가 존재하는지 확인하는 데 사용됩니다. 이러한 큐가 존재하지 않는 경우 만들어집니다. [NamespaceManager][NamespaceManager]는 **관리** 클레임으로 토큰을 만드는 기능을 필요로 합니다.
 * *messagingFactory*: 보조 네임스페이스에 대한 [MessagingFactory][MessagingFactory] 인스턴스입니다. [EnableSyphon][EnableSyphon] 속성이 **true**로 설정된 경우 [MessagingFactory][MessagingFactory] 개체는 백로그 큐에서 메시지를 보내고 받는 데 사용됩니다.
-* *backlogQueueCount*: 만들려는 백로그 큐의 수입니다. 이 값은 적어도 1이어야 합니다. 백로그에 메시지를 보낼 때 이러한 큐 중 하나가 무작위로 선택됩니다. 값을 1로 설정한 경우 하나의 큐만 사용될 수 있습니다. 이 문제가 발생하고 백로그 큐 하나에서 오류를 생성하면 클라이언트는 다른 백로그 큐를 시도할 수 없고 메시지를 전송하는 데 실패할 수도 있습니다. 이 값을 큰 값으로, 기본값을 10으로 설정하는 것이 좋습니다. 이 애플리케이션에서 하루에 보내는 데이터의 크기에 따라 더 높거나 낮은 값으로 변경할 수 있습니다. 각 백로그 큐는 최대 5GB의 메시지를 보관할 수 있습니다.
-* *failoverInterval*: 모든 단일 엔터티를 보조 네임스페이스로 전환하기 전에 기본 네임스페이스에 발생한 오류를 수락하는 데 걸리는 시간입니다. 장애 조치는 엔터티 단위로 발생합니다. 단일 네임스페이스의 엔터티는 주로 Service Bus 내의 다른 노드에 있습니다. 한 엔터티의 오류가 다른 오류를 의미하지는 않습니다. 이 값을 [System.TimeSpan.Zero][System.TimeSpan.Zero]로 설정하여 먼저 일시적이지 않은 오류가 발생한 후에 즉시 보조에 대한 장애 조치를 할 수 있습니다. 장애 조치 타이머를 트리거하는 오류는 [IsTransient][IsTransient] 속성이 false 또는 [System.TimeoutException][System.TimeoutException]인 [MessagingException][MessagingException]입니다. [UnauthorizedAccessException][UnauthorizedAccessException]과 같은 다른 예외는 클라이언트가 잘못 구성되어 있다고 나타내기 때문에 장애 조치를 발생하지 않습니다. [ServerBusyException][ServerBusyException]은 올바른 패턴이 10초를 기다리고 다음 메시지를 다시 보내기 때문에 장애 조치를 발생하지 않습니다.
-* *enableSyphon*: 또한 이러한 특정 쌍은 보조 네임스페이스에서 기본 네임스페이스에 다시 사이펀 메시지를 나타냅니다. 일반적으로 메시지를 보내는 애플리케이션이 이 값을 **false**로 설정합니다. 메시지를 수신하는 애플리케이션이 값을 **true**로 설정해야 합니다. 이러한 경우가 자주 있다는 이유로 메시지 발신자 보다 적은 메시지 수신자가 더 적습니다. 수신자의 수에 따라 단일 애플리케이션 인스턴스가 사이펀 의무를 처리하도록 선택할 수 있습니다. 여러 수신자를 사용하면 각 백로그 큐에 비용 청구의 영향을 미칩니다.
+* *backlogQueueCount*: 만들려는 백로그 큐 수입니다. 이 값은 적어도 1이어야 합니다. 백로그에 메시지를 보낼 때 이러한 큐 중 하나가 무작위로 선택됩니다. 값을 1로 설정한 경우 하나의 큐만 사용될 수 있습니다. 이 문제가 발생하고 백로그 큐 하나에서 오류를 생성하면 클라이언트는 다른 백로그 큐를 시도할 수 없고 메시지를 전송하는 데 실패할 수도 있습니다. 이 값을 큰 값으로, 기본값을 10으로 설정하는 것이 좋습니다. 이 애플리케이션에서 하루에 보내는 데이터의 크기에 따라 더 높거나 낮은 값으로 변경할 수 있습니다. 각 백로그 큐는 최대 5GB의 메시지를 보관할 수 있습니다.
+* *failoverInterval*: 모든 단일 엔터티를 보조 네임스페이스로 전환하기 전에 기본 네임스페이스에서 오류를 수락하는 기간입니다. 장애 조치는 엔터티 단위로 발생합니다. 단일 네임스페이스의 엔터티는 주로 Service Bus 내의 다른 노드에 있습니다. 한 엔터티의 오류가 다른 오류를 의미하지는 않습니다. 이 값을 [System.TimeSpan.Zero][System.TimeSpan.Zero]로 설정하여 먼저 일시적이지 않은 오류가 발생한 후에 즉시 보조에 대한 장애 조치를 할 수 있습니다. 장애 조치 타이머를 트리거하는 오류는 [IsTransient][IsTransient] 속성이 false 또는 [System.TimeoutException][System.TimeoutException]인 [MessagingException][MessagingException]입니다. [UnauthorizedAccessException][UnauthorizedAccessException]과 같은 다른 예외는 클라이언트가 잘못 구성되어 있다고 나타내기 때문에 장애 조치를 발생하지 않습니다. [ServerBusyException][ServerBusyException]은 올바른 패턴이 10초를 기다리고 다음 메시지를 다시 보내기 때문에 장애 조치를 발생하지 않습니다.
+* *enableSyphon*: 이 특정 쌍이 메시지를 보조 네임스페이스에서 기본 네임스페이스로 다시 사이펀해야 함을 나타냅니다. 일반적으로 메시지를 보내는 애플리케이션이 이 값을 **false**로 설정합니다. 메시지를 수신하는 애플리케이션이 값을 **true**로 설정해야 합니다. 이러한 경우가 자주 있다는 이유로 메시지 발신자 보다 적은 메시지 수신자가 더 적습니다. 수신자의 수에 따라 단일 애플리케이션 인스턴스가 사이펀 의무를 처리하도록 선택할 수 있습니다. 여러 수신자를 사용하면 각 백로그 큐에 비용 청구의 영향을 미칩니다.
 
 코드를 사용하려면 기본 [MessagingFactory][MessagingFactory] 인스턴스, 보조 [MessagingFactory][MessagingFactory] 인스턴스, 보조 [NamespaceManager][NamespaceManager] 인스턴스 및 [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] 인스턴스를 만듭니다. 호출은 다음과 같이 간단할 수 있습니다.
 

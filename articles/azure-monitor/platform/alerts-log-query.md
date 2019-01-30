@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.component: alerts
-ms.openlocfilehash: 9cd745cedd6d870262e412709e4e104c1406558e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.subservice: alerts
+ms.openlocfilehash: 36be305e60806ba2cdea260fc46bc329c43284cb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54234072"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429789"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Azure Monitor의 로그 경고 쿼리
 [Azure Monitor 로그를 기반으로 하는 경고 규칙](alerts-unified-log.md)은 일정한 간격으로 실행되므로 오버헤드와 대기 시간을 최소화할 수 있도록 규칙을 작성해야 합니다. 이 문서에서는 로그 경고용으로 효율적인 쿼리를 작성하는 방법과 관련된 권장 사항과 기존 쿼리를 변환하는 프로세스를 제공합니다. 
@@ -222,3 +222,4 @@ on Hour
 ## <a name="next-steps"></a>다음 단계
 - Azure Monitor의 [로그 경고](alerts-log.md)에 대해 알아봅니다.
 - [로그 쿼리](../log-query/log-query-overview.md)에 대해 알아봅니다.
+

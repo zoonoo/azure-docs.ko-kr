@@ -8,19 +8,19 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/28/2018
 ms.topic: conceptual
-ms.openlocfilehash: 06909c06087219cdfa6edccbfed70ea1694e5a03
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7a7a32cf1d67e9a4bbe49996b258164eb25c3763
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633730"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446768"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>시뮬레이트된 새 디바이스 만들기 및 테스트
 
 원격 모니터링 솔루션 가속기를 사용하여 시뮬레이트된 자체 디바이스를 정의할 수 있습니다. 이 문서에서는 시뮬레이트된 새 전구 디바이스를 정의한 후 로컬로 테스트하는 방법을 보여 줍니다. 솔루션 가속기에는 냉각기 및 트럭과 같은 시뮬레이트된 디바이스가 포함됩니다. 그러나 실제 디바이스를 배포하기 전에 IoT 솔루션을 테스트하기 위해 시뮬레이트된 자체 디바이스를 정의할 수 있습니다.
 
 > [!NOTE]
-> 이 문서에서는 디바이스 시뮬레이션 서비스에서 호스팅되는 시뮬레이션된 디바이스를 사용하는 방법을 설명합니다. 물리적 디바이스를 만들려는 경우 [원격 모니터링 솔루션 가속기에 디바이스 연결](iot-accelerators-connecting-devices.md)을 참조하세요.
+> 이 문서에서는 디바이스 시뮬레이션 서비스에서 호스팅되는 시뮬레이션된 디바이스를 사용하는 방법을 설명합니다. 실제 디바이스를 만들려는 경우 [원격 모니터링 솔루션 가속기에 디바이스 연결](iot-accelerators-connecting-devices.md)을 참조하세요.
 
 이 방법 가이드에서는 디바이스 시뮬레이션 마이크로 서비스를 사용자 지정하는 방법을 보여 줍니다. 이 마이크로 서비스는 원격 모니터링 솔루션 가속기의 일부입니다. 장치 시뮬레이션 기능을 표시하기 위해 이 방법 가이드에서는 Contoso IoT 애플리케이션에서 두 가지 시나리오를 사용합니다.
 

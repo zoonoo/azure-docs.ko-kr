@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: eb046ceebf9c6233fa5178d18603add2f0c26a29
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 94ed136b48c53bd582a8b3ad210d421764b9f0f6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608020"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808462"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Contoso 마이그레이션: Azure Web App 및 Azure SQL Database로 온-프레미스 앱 리팩터링
 
@@ -347,7 +347,7 @@ Contoso 관리자는 이제 빌드 및 릴리스 프로세스를 수행하도록
 
     ![앱 서비스 배포](./media/contoso-migration-refactor-web-app-sql/pipeline15.png)
 
-18. **파일 또는 폴더 선택**에서 빌드 중 생성된 **SmartHotel.Registration.Wcf.zip** 파일을 찾고 **저장**을 클릭합니다.-sql
+18. **파일 또는 폴더 선택**에서 빌드 중 생성된 **SmartHotel.Registration.Wcf.zip** 파일을 찾고 **저장**을 클릭합니다.
 
     ![WCF 저장](./media/contoso-migration-refactor-web-app-sql/pipeline16.png)
 

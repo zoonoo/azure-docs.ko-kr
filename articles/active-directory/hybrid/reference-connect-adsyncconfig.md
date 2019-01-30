@@ -2,20 +2,20 @@
 title: 'Azure AD Connect: ADSyncConfig PowerShell 참조 | Microsoft Docs'
 description: 이 문서에서는 ADSyncConfig.psm1 PowerShell 모듈에 대한 참조 정보를 제공합니다.
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 84be07eeb112711de35853162b798b5f6ed0b2aa
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 1d2d921e02b56e951b4239c15471995eaf3cd0d1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422765"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813583"
 ---
-# <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect: ADSyncConfig PowerShell 참조
+# <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect:  ADSyncConfig PowerShell 참조
 이 설명서에서는 Azure AD Connect에 포함된 ADSyncConfig.psm1 PowerShell 모듈에 대해 다음과 같은 참조 정보를 제공합니다.
 
 
@@ -1129,7 +1129,7 @@ Accept wildcard characters: False
 
 #### <a name="-credential"></a>-Credential
 ADConnectorAccountDN 계정에 대한 권한을 제한하는 데 필요한 권한이 있는 관리자 자격 증명입니다. 일반적으로 엔터프라이즈 또는 도메인 관리자입니다. 계정 조회 오류를 방지하려면 관리자 계정의 정규화된 도메인 이름을 사용합니다.
-예: CONTOSO\admin
+예제: CONTOSO\admin
 
 ```yaml
 Type: PSCredential

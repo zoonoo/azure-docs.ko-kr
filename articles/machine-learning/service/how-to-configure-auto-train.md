@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3dedf5de1ac2c88a9a00fd5f62e0663b840c0fd9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 865d00d4a6608e422fdfca1297962913ee205827
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438526"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823439"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>자동화된 Machine Learning 실험 구성
 
@@ -219,7 +219,8 @@ get_data()를 통하거나 `AutoMLConfig` 메서드에서 직접 별도의 학�
 `iteration_timeout_minutes` |   특정 반복에 걸리는 시간(분)을 제한합니다. 반복에서 지정된 시간을 초과하면 해당 반복이 취소됩니다. 설정되지 않으면 반복이 완료될 때까지 계속 실행됩니다. |   없음
 `n_cross_validations`   |교차 유효성 검사 분할의 수입니다.| 없음
 `validation_size`   |유효성 검사의 크기는 모든 학습 샘플에 대한 백분율로 설정됩니다.|  없음
-`preprocess` | True/False <br/>True를 사용하면 실험에서 입력에 대한 전처리를 수행할 수 있습니다. 전처리의 하위 집합은 다음과 같습니다.<li>누락된 데이터: 누락된 데이터 귀속 - 평균이 있는 숫자, 가장 많이 발생하는 텍스트 </li><li>범주별 값: 데이터 형식이 숫자이고 고유 값 수가 5% 미만인 경우 단일 핫 인코딩으로 변환합니다. </li><li>기타: 전체 목록은 [GitHub 리포지토리](https://aka.ms/aml-notebooks)를 확인하세요.</li><br/>참고: 데이터가 매우 적으면 preprocess = true를 사용할 수 없습니다. |  False | 
+`preprocess` | True/False <br/>True를 사용하면 실험에서 입력에 대한 전처리를 수행할 수 있습니다. 전처리의 하위 집합은 다음과 같습니다.<li>누락된 데이터: 누락된 데이터 귀속 - 평균이 있는 숫자, 가장 많이 발생하는 텍스트 </li><li>범주별 값: 데이터 형식이 숫자이고 고유 값 수가 5% 미만인 경우 단일 핫 인코딩으로 변환합니다. </li><li>기타: 전체 목록은 [GitHub 리포지토리](https://aka.ms/aml-notebooks)를 확인하세요.</li><br/>참고: 데이터가 매우 적으면 preprocess = true를 사용할 수 없습니다. |  False |
+`enable_cache`  | True/False <br/>True로 설정하면 전처리를 한 번 수행한 후 전처리된 동일한 데이터를 모든 반복에 다시 사용할 수 있습니다. | True |
 `blacklist_models`  | 자동화된 Machine Learning 실험에는 사용해 볼 수 있는 다양한 알고리즘이 있습니다. 실험에서 특정 알고리즘을 제외하도록 구성합니다. 데이터 세트에서 제대로 작동하지 않는 알고리즘을 알고 있으면 유용합니다. 알고리즘을 제외하면 계산 리소스와 학습 시간을 절약할 수 있습니다.<br/>분류에 허용되는 값은 다음과 같습니다.<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>회귀에 허용되는 값은 다음과 같습니다.<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>예측에 허용되는 값<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   없음
 `whitelist_models`  | 자동화된 Machine Learning 실험에는 사용해 볼 수 있는 다양한 알고리즘이 있습니다. 실험에 특정 알고리즘을 포함하도록 구성합니다. 데이터 세트에서 잘 작동하는 알고리즘을 알고 있으면 유용합니다. <br/>분류에 허용되는 값은 다음과 같습니다.<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>회귀에 허용되는 값은 다음과 같습니다.<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>예측에 허용되는 값<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  없음
 `verbosity` |가장 자세한 정보의 경우 INFO, 가장 적은 정보의 경우 CRITICAL인 로깅 수준을 제어합니다. 세부 정보 표시 수준은 Python 로깅 패키지에 정의된 것과 동일한 값을 사용합니다. 허용되는 값은 다음과 같습니다.<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>  | logging.INFO</li> 
@@ -272,9 +273,9 @@ run = experiment.submit(automl_config, show_output=True)
 다음 메트릭은 분류 작업에 대한 각 반복에 저장됩니다.
 
 |기본 메트릭|설명|계산|추가 매개 변수
---|--|--|--|--|
+--|--|--|--|
 AUC_Macro| AUC는 Receiver Operating Characteristic Curve 아래의 영역입니다. Macro(매크로)는 각 클래스에 대한 AUC의 산술 평균입니다.  | [계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
-AUC_Micro| AUC는 Receiver Operating Characteristic Curve 아래의 영역입니다. Micro(마이크로)는 각 클래스의 참 긍정과 거짓 긍정을 결합하여 전역적으로 계산됩니다.| [계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
+AUC_Micro| AUC는 Receiver Operating Characteristic Curve 아래의 영역입니다. Micro(마이크로)는 각 클래스의 참 긍정과 거짓 긍정을 결합하여 전역적으로 컴퓨팅됩니다.| [계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
 AUC_Weighted  | AUC는 Receiver Operating Characteristic Curve 아래의 영역입니다. Weighted(가중치)는 각 클래스의 true 인스턴스 수를 가중치로 적용하여 계산한 각 클래스 점수의 산술 평균입니다.| [계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|average="weighted"
 accuracy|Accuracy(정확도)는 true 레이블과 정확히 일치하는 예측된 레이블의 백분율입니다. |[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |없음|
 average_precision_score_macro|Average precision(평균 정밀도)은 정밀도-재현율 곡선을 이전 임계값에서의 재현율 증가를 가중치로 사용하여 계산한 각 임계값에서 도달된 정밀도의 가중 평균으로 요약합니다. Macro는 각 클래스 평균 정밀도 점수의 산술 평균입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|average="macro"|
@@ -298,7 +299,7 @@ weighted_accuracy|Weighted accuracy(가중 정확도)는 각 예제에 제공된
 다음 메트릭은 회귀 또는 예측 작업에 대한 각 반복에 저장됩니다.
 
 |기본 메트릭|설명|계산|추가 매개 변수
---|--|--|--|--|
+--|--|--|--|
 explained_variance|Explained variance(설명된 분산)는 수학 모델에서 지정된 데이터 세트의 편차가 고려되는 비율입니다. 오차 분산에 대한 원래 데이터의 분산 감소율입니다. 오차의 평균이 0이면 explained variance와 같습니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|없음|
 r2_score|R2는 평균을 출력하는 기준선 모델과 비교한 제곱 오차의 결정 계수 또는 환원율입니다. 오차의 평균이 0이면 explained variance와 같습니다.|[계산](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|없음|
 spearman_correlation|Spearman correlation(Spearman 상관 관계)은 두 데이터 세트 간 관계의 비모수 단조성 측정입니다. Pearson 상관 관계와 달리 Spearman 상관 관계는 두 데이터 세트가 모두 정규적으로 분포된다고 가정하지 않습니다. 다른 상관 계수처럼, 이 방식은 -1과 +1 사이에서 달라지며 0은 상관 관계가 없음을 의미합니다. - 1 또는 +1의 상관 관계는 정확히 단조성 관계를 의미합니다. 양의 상관 관계는 x가 증가할 때 y도 증가함을 의미합니다. 음의 상관 관계는 x가 증가할 때 y는 감소함을 의미합니다.|[계산](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|없음|
@@ -321,7 +322,7 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error(�
 
 *   실험이 완료되면 모든 반복에 대해 `explain_model` 메서드를 사용할 수 있습니다.
 
-    ```
+    ```python
     from azureml.train.automl.automlexplainer import explain_model
     
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
@@ -338,7 +339,7 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error(�
 
 *   모든 반복의 기능 중요도를 보려면 AutoMLConfig에서 `model_explainability` 플래그를 `True`로 설정하세요.  
 
-    ```
+    ```python
     automl_config = AutoMLConfig(task = 'classification',
                                  debug_log = 'automl_errors.log',
                                  primary_metric = 'AUC_weighted',
@@ -355,7 +356,7 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error(�
 
     완료되면 retrieve_model_explanation 메서드를 사용하여 특정 반복의 기능 중요도를 검색할 수 있습니다.
 
-    ```
+    ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation
     
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \

@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7fc40945588c272ae0ae80ba17b7b3752cab4306
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 4d62885743a4e50ece1c032c7b3405d8766d95cd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353314"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850589"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -245,7 +245,7 @@ Azure Container Instances에 배포하려면 다음 단계를 사용합니다.
     **예상 시간**: 약 3분입니다.
 
     > [!TIP]
-    > 배포하는 동안 오류가 있으면 `service.get_logs()`를 사용하여 AKS 서비스 로그를 확인합니다. 로깅된 정보에 오류 원인이 나타날 수 있습니다.
+    > 배포하는 동안 오류가 있으면 `service.get_logs()`를 사용하여 서비스 로그를 확인합니다. 로깅된 정보에 오류 원인이 나타날 수 있습니다.
 
 자세한 내용은 [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) 및 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) 클래스에 대한 참조 설명서를 참조하세요.
 
@@ -300,7 +300,7 @@ from azureml.core.compute import AksCompute, ComputeTarget
 resource_group = 'myresourcegroup'
 cluster_name = 'mycluster'
 
-# Attatch the cluster to your workgroup
+# Attach the cluster to your workgroup
 attach_config = AksCompute.attach_configuration(resource_group = resource_group,
                                          cluster_name = cluster_name)
 aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
@@ -335,7 +335,7 @@ print(service.state)
 **예상 시간**: 약 3분입니다.
 
 > [!TIP]
-> 배포하는 동안 오류가 있으면 `service.get_logs()`를 사용하여 AKS 서비스 로그를 확인합니다. 로깅된 정보에 오류 원인이 나타날 수 있습니다.
+> 배포하는 동안 오류가 있으면 `service.get_logs()`를 사용하여 서비스 로그를 확인합니다. 로깅된 정보에 오류 원인이 나타날 수 있습니다.
 
 자세한 내용은 [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) 및 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) 클래스에 대한 참조 설명서를 참조하세요.
 

@@ -4,7 +4,7 @@ description: Azure Active Directory 및 SAP Cloud Platform Identity Authenticati
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 1c1320d1-7ba4-4b5f-926f-4996b44d9b5e
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 266c9523f45294899e3cddbe782cbc54846eb119
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ecd9df8efdcd6d7fd7da26ff5cf569ef7e63573f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422310"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822062"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>자습서: SAP Cloud Platform Identity Authentication과 Azure Active Directory 통합
 
@@ -84,7 +84,7 @@ SAP Cloud Platform Identity Authentication을 Azure AD에 통합하려면 갤러
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -134,19 +134,19 @@ SAP Cloud Platform Identity Authentication에서 Azure AD Single Sign-On을 구�
 
     a. **식별자** 상자에 다음과 같은 패턴을 사용하여 URL을 입력합니다. `<IAS-tenant-id>.accounts.ondemand.com`
 
-    나. **회신 URL** 상자에 다음 패턴으로 URL을 입력합니다. `https://<IAS-tenant-id>.accounts.ondemand.com/saml2/idp/acs/<IAS-tenant-id>.accounts.ondemand.com`
+    b. **회신 URL** 상자에 다음 패턴으로 URL을 입력합니다. `https://<IAS-tenant-id>.accounts.ondemand.com/saml2/idp/acs/<IAS-tenant-id>.accounts.ondemand.com`
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이 값을 얻으려면 [SAP Cloud Platform Identity Authentication 클라이언트 지원 팀](https://cloudplatform.sap.com/capabilities/security/trustcenter.html)에 문의하세요. 식별자 값을 모르는 경우 SAP Cloud Platform Identity Authentication 설명서의 [Tenant SAML 2.0 구성](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html) 관련 내용을 참조하세요.
 
-1. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 선택합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 선택합니다.
 
     ![SAP Cloud Platform Identity Authentication 도메인 및 URL Single Sign-On이 설정된 구독](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_url1.png)
 
     **로그온 URL** 상자에 다음과 같은 패턴을 갖는 URL을 입력합니다. `{YOUR BUSINESS APPLICATION URL}`
 
     > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트하세요. 해당 비즈니스 애플리케이션 로그온 URL을 사용하세요. 궁금한 점은 [SAP Cloud Platform Identity Authentication 클라이언트 지원 팀](https://cloudplatform.sap.com/capabilities/security/trustcenter.html)에 문의하세요.
+    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트하세요. 해당 비즈니스 응용 프로그램 로그온 URL을 사용하세요. 궁금한 점은 [SAP Cloud Platform Identity Authentication 클라이언트 지원 팀](https://cloudplatform.sap.com/capabilities/security/trustcenter.html)에 문의하세요.
 
 1. **SAML 서명 인증서** 섹션 아래에서 **메타데이터 XML**을 선택합니다. 그런 다음 메타데이터 파일을 컴퓨터에 저장합니다.
 
@@ -164,7 +164,7 @@ SAP Cloud Platform Identity Authentication에서 Azure AD Single Sign-On을 구�
     
     ![Single Sign-On 구성](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_attribute_05.png)
     
-    나. **이름** 텍스트 상자에 특성 이름 **firstName**을 입력합니다.
+    b. **이름** 텍스트 상자에 특성 이름 **firstName**을 입력합니다.
     
     다. **값** 목록에서 특성 값 **user.givenname**을 선택합니다.
     
@@ -194,7 +194,7 @@ SAP Cloud Platform Identity Authentication에서 Azure AD Single Sign-On을 구�
 >새 애플리케이션은 이전 SAP 애플리케이션의 Single Sign-On 구성을 사용합니다. SAP Cloud Platform Identity Authentication 관리 콘솔에서 동일한 회사 ID 공급자를 사용했는지 확인합니다.
 
 > [!TIP]
-> 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com)에서 간결한 지침을 읽어 보세요.  **Active Directory** > **엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 다음에 **Single Sign-On** 탭을 선택하고 맨 아래에 있는 **구성** 섹션에서 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com)에서 간결한 지침을 읽어 보세요.  **Active Directory** > **엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 다음에 **Single Sign-On** 탭을 선택하고 맨 아래에 있는 **구성** 섹션에서 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -247,7 +247,7 @@ SAP Cloud Platform Identity Authentication에서 ID 페더레이션을 사용 �
 
 **SAP Cloud Platform Identity Authentication에 Britta Simon을 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 애플리케이션 보기를 연 다음, 디렉터리 보기로 이동합니다. **엔터프라이즈 응용 프로그램**으로 이동한 다음 **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음, 디렉터리 보기로 이동합니다. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
 
     ![사용자 할당][201] 
 
@@ -280,7 +280,7 @@ SAP Cloud Platform Identity Authentication에서 ID 페더레이션을 사용 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

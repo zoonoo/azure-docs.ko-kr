@@ -5,15 +5,15 @@ author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 01/22/2019
 ms.author: vitalyg
-ms.component: metrics
-ms.openlocfilehash: 457c7e8904797955854c4c3e16a631cf6537e2b8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.subservice: metrics
+ms.openlocfilehash: 2b6d982f514f347dc2a59f9ca8f3c33b8c24849b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330078"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827451"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor 메트릭 탐색기
 
@@ -139,6 +139,17 @@ Y축 범위를 제어하려면 “...” 차트 메뉴를 사용하고 **차트 
 
 ![메트릭 이미지](./media/metrics-charts/00013.png)
 
+## <a name="troubleshooting"></a>문제 해결
+
+*차트에 데이터가 표시되지 않습니다.*
+
+* 필터는 창의 모든 차트에 적용됩니다. 하나의 필터에 포커스를 둔 동안 다른 차트에서 모든 데이터를 제외하는 필터를 설정하지 않았는지 확인하세요.
+
+* 여러 차트에서 서로 다른 필터를 설정하려면 해당 차트를 서로 다른 블레이드를 만들어 별도의 즐겨찾기로 저장합니다. 필요한 경우 대시보드에 고정하여 서로 나란히 볼 수 있습니다.
+
+* 메트릭에 정의되지 않은 속성으로 차트를 분할하는 경우 차트에 아무것도 표시되지 않습니다. 분할(분리)한 속성을 지워 보거나 다른 속성을 선택합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
   메트릭을 사용하여 조치 가능한 대시보드를 만드는 모범 사례에 대한 자세한 내용은 [사용자 지정 KPI 대시보드 만들기](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards)를 참고하세요.
+

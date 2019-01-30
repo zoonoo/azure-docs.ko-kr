@@ -5,7 +5,7 @@ services: active-directory
 keywords: Identity Protection, 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: identity-protection
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 09528aab5f694aa017f9f16e2675d3c36c1bead3
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7cf427ed7be91db2b243c28bb66513b25045ffc0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822147"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468491"
 ---
-# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>빠른 시작 - Azure Active Directory Identity Protection을 사용하여 세션 위험 검색 시 액세스 차단  
+# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>빠른 시작: Azure Active Directory Identity Protection을 사용하여 세션 위험 검색 시 액세스 차단  
 
 환경을 보호하려는 경우 의심스러운 사용자의 로그인을 차단할 수 있습니다. Azure AD(Azure Active Directory) Identity Protection은 각 로그인을 분석하고 사용자 계정의 합법적인 소유자가 수행하지 않은 로그인 시도 가능성을 계산합니다. 가능성(낮음, 중간, 높음)은 로그인 위험 수준이라는 계산된 값 형식으로 표시됩니다. 로그인 위험 조건을 설정하면 특정 로그인 위험 수준에 응답하도록 로그인 위험 조건부 액세스 정책을 구성할 수 있습니다. 
 

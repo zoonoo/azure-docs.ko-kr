@@ -4,7 +4,7 @@ description: Azure Active Directory에 대한 Log Analytics 보기를 설치하�
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2290de3c-2858-4da0-b4ca-a00107702e26
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7f3db8b16e275ff130cc3d8cb162780d595a7f32
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fbe5515f05c66fb0763943c20ed8aaa4374e3d87
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624644"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825207"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Azure Active Directory에 대한 Log Analytics 보기 설치 및 사용
 
@@ -51,7 +51,7 @@ Log Analytics 보기를 사용하려면 다음이 필요합니다.
 2. 작업 영역에 있으면 **작업 영역 요약**을 선택합니다. 다음 세 가지 보기가 표시됩니다.
 
     * **Azure AD 계정 프로비전 이벤트**: 프로비전 활동 감사(예: 새로 프로비전된 사용자 수 및 프로비전 실패 횟수, 업데이트된 사용자 수 및 업데이트 실패 횟수, 프로비전 해제된 사용자 수 및 해당 실패 횟수)와 관련된 보고서가 표시됩니다.    
-    * **로그인 이벤트**: 로그인 활동 모니터링(예: 응용 프로그램, 사용자, 장치별 로그인)과 관련된 가장 적절한 보고서와 시간 경과에 따른 로그인 수를 추적하는 요약 보기가 표시됩니다.
+    * **로그인 이벤트**: 로그인 활동 모니터링(예: 애플리케이션, 사용자, 디바이스별 로그인)과 관련된 가장 적절한 보고서와 시간 경과에 따른 로그인 수를 추적하는 요약 보기가 표시됩니다.
 
 3. 이러한 보기 중 하나를 선택하여 개별 보고서로 이동합니다. 모든 보고서 매개 변수에 대해 경고를 설정할 수도 있습니다. 예를 들어 로그인 오류가 발생할 때마다 알려주는 경고를 설정해 보겠습니다. 이렇게 하려면 먼저 **로그인 이벤트** 보기를 선택하고, **시간 경과별 로그인 오류** 보고서를 선택한 다음, **분석**을 선택하여 보고서를 지지하는 실제 쿼리가 포함된 세부 정보 페이지를 엽니다. 
 

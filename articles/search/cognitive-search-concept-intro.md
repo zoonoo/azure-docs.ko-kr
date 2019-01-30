@@ -7,42 +7,42 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 01/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2bb32ccaeb5960fa69dcdc356523abc199fd5f4f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: eb344d6da15a8faf8f05720ae9b1fd49bd42db2f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633796"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808207"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Azure Search에서 "Cognitive Search"란?
 
-Cognitive Search는 인덱싱 파이프라인에 AI 알고리즘을 연결하여 검색할 수 없는 콘텐츠에 대한 검색 가능한 정보를 만듭니다. AI 통합은 검색 인덱스로 이어지는 원본 문서를 보강하는 *인식 기술*을 통해 이루어집니다. 
+Cognitive Search는 이미지, Blob 및 기타 비정형 데이터 원본에서 텍스트를 추출하는 데 사용되는 Azure Search의 AI 기능으로서, Azure Search 인덱스에서 더 쉽게 검색할 수 있도록 콘텐츠를 보강합니다. 추출 및 보강은 인덱싱 파이프라인에 연결된 ‘인식 기술’을 통해 구현됩니다. AI 보강은 다음과 같은 방법으로 지원됩니다. 
 
-**자연어 처리** 기술에는 [엔터티 인식](cognitive-search-skill-named-entity-recognition.md), 언어 감지, [핵심 구 추출](cognitive-search-skill-keyphrases.md), 텍스트 조작 및 감정 감지가 포함됩니다. 이러한 기술을 사용하여 구조화되지 않은 텍스트가 구조화되고 인덱스에서 검색 및 필터링 가능한 필드에 매핑됩니다.
++ **자연어 처리** 기술에는 [엔터티 인식](cognitive-search-skill-entity-recognition.md), [언어 감지](cognitive-search-skill-language-detection.md), [핵심 구 추출](cognitive-search-skill-keyphrases.md), 텍스트 조작 및 [감성 인식](cognitive-search-skill-sentiment.md)이 포함됩니다. 해당 기술을 사용하면 비정형 텍스트가 인덱스에서 검색 및 필터링 가능한 필드로 매핑되는 새 양식을 가정할 수 있습니다.
 
-**이미지 처리**에는 [OCR](cognitive-search-skill-ocr.md) 및 얼굴 감지와 같은 [시각적 기능](cognitive-search-skill-image-analysis.md), 이미지 해석, 이미지 인식(유명한 사람 및 랜드마크) 또는 색상이나 이미지 방향과 같은 특성이 포함됩니다. Azure Search의 모든 쿼리 기능을 사용하여 검색 가능한 이미지 콘텐츠의 텍스트 표현을 만들 수 있습니다.
++ **이미지 처리** 기술에는 [OCR(광학 인식)](cognitive-search-skill-ocr.md)을 비롯하여 얼굴 감지, 이미지 해석, 이미지 인식(유명한 사람 및 랜드마크) 또는 색상이나 이미지 방향과 같은 특성 등의 [시각적 특징](cognitive-search-skill-image-analysis.md) 식별이 포함됩니다. Azure Search의 모든 쿼리 기능을 사용하여 검색 가능한 이미지 콘텐츠의 텍스트 표현을 만들 수 있습니다.
 
 ![Cognitive Search 파이프라인 다이어그램](./media/cognitive-search-intro/cogsearch-architecture.png "Cognitive Search 파이프라인 개요")
 
-Azure Search의 인식 기술은 Cognitive Services API에서 사용되는 동일한 AI 알고리즘을 기준으로 합니다. [Named Entity Recognition API](cognitive-search-skill-named-entity-recognition.md), [Key Phrase Extraction API](cognitive-search-skill-keyphrases.md) 및 [OCR API](cognitive-search-skill-ocr.md)는 일부에 불과합니다. 
+Azure Search의 인식 기술은 [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) 및 [Text Analysis](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)와 같은 Cognitive Services API의 기계 학습 모델을 기반으로 합니다. 
 
 자연어 및 이미지 처리는 Azure Search에서 검색 가능한 인덱스에 문서의 컴퍼지션의 일부가 되는 결과를 사용하여 데이터 수집 단계 동안 적용됩니다. 데이터는 Azure 데이터 집합으로 소싱된 다음, 필요한 [기본 제공 기술](cognitive-search-predefined-skills.md)을 사용하여 인덱싱 파이프라인을 통해 푸시됩니다. 아키텍처는 확장이 가능하므로 기본 제공 기술이 충분하지 않은 경우 사용자 지정 처리를 통합하도록 [사용자 지정 기술](cognitive-search-create-custom-skill-example.md)을 만들고 연결할 수 있습니다. 예에는 금융, 과학 출판물 또는 의약품과 같은 특정 도메인을 대상으로 하는 사용자 지정 엔터티 모듈 또는 문서 분류자가 있습니다.
 
 > [!NOTE]
-> 2018년 12월 21일부터 Cognitive Services 리소스를 Azure Search 기술과 연결할 수 있습니다. 이를 통해 Microsoft는 기술 실행 요금을 부과할 수 있습니다. 또한 문서 해독 단계의 일부로 이미지 추출에 대한 요금 청구가 이 날짜에서 시작됩니다. 문서에서의 텍스트 추출은 추가 비용 없이 계속 제공됩니다.
+> 2018년 12월 21일부터 Azure Search 기술과 [Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)할 수 있습니다. 이를 통해 Microsoft는 기술 실행 요금을 부과할 수 있습니다. 또한 문서 해독 단계의 일부인 이미지 추출에 대한 요금 청구가 이 날짜에서 시작됩니다. 문서의 텍스트 추출은 추가 비용 없이 계속 제공됩니다.
 >
-> 기본 제공 기술의 실행에 대한 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격은 미리 보기 가격으로 책정되며 [Azure Search 가격 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다. [자세히](cognitive-search-attach-cognitive-services.md) 알아봅니다.
+> 기본 제공 기술의 실행 요금은 기존 [종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구되는 Cognitive Services 요금입니다. 이미지 추출 가격은 [Azure Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명된 대로 현재 미리 보기 가격으로 청구되는 Azure Search 요금입니다.
 
 ## <a name="components-of-cognitive-search"></a>Cognitive Search의 구성 요소
 
-Cognitive Search는 [Azure Search](search-what-is-azure-search.md)의 미리 보기 기능이며 미국 중남부와 유럽 서부의 모든 계층에서 사용할 수 있습니다. 
+Cognitive Search는 [해당 지역](#where-do-i-start)에서 지원되는 [Azure Search](search-what-is-azure-search.md)의 미리 보기 기능입니다. 
 
 Cognitive Search 파이프라인은 데이터 원본을 탐색하고 종단간 인덱스 프로세싱을 제공하는 [Azure Search *인덱서*](search-indexer-overview.md)를 기반으로 합니다. 기술이 인덱서에 연결되어 문서를 가로채서 사용자가 정의한 기술에 따라 문서를 보강합니다. 인덱스가 완료되면 [Azure Search에서 지원하는 모든 쿼리 유형](search-query-overview.md)에서 검색 요청을 통해 콘텐츠에 액세스할 수 있습니다.  인덱서를 처음 접하는 경우, 이 섹션의 단계별 안내를 참조하세요.
 
-### <a name="source-data-and-document-cracking-phase"></a>원본 데이터 및 문서 크래킹 단계
+### <a name="step-1-connection-and-document-cracking-phase"></a>1단계: 연결 및 문서 크래킹 단계
 
 파이프라인의 시작 부분에는 구조화되지 않은 텍스트 또는 텍스트가 아닌 콘텐츠(예: 이미지 및 스캔한 문서 JPEG 파일)가 있습니다. 데이터는 인덱서가 액세스할 수 있는 Azure 데이터 저장소 서비스에 있어야 합니다. 인덱서는 원본 문서에서 텍스트를 추출하기 위해 원본 문서를 "크래킹"할 수 있습니다.
 
@@ -50,7 +50,7 @@ Cognitive Search 파이프라인은 데이터 원본을 탐색하고 종단간 �
 
  지원되는 원본에는 Azure Blob Storage, Azure Table Storage, Azure SQL Database 및 Azure Cosmos DB가 포함됩니다. 텍스트 기반 콘텐츠는 PDF, Word, PowerPoint, CSV 파일 형식에서 추출할 수 있습니다. 전체 목록은 [지원되는 형식](search-howto-indexing-azure-blob-storage.md#supported-document-formats)을 참조하세요.
 
-### <a name="cognitive-skills-and-enrichment-phase"></a>인지 기술 및 보강 단계
+### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>2단계: 인지 기술 및 보강 단계
 
 보강은 원자성 작업을 수행하는 인지 기술(*cognitive skills*)을 거칩니다. 예를 들어 PDF에서 텍스트 콘텐츠를 확보하면 엔터티 인식 언어 감지 또는 핵심 구 추출을 적용하여 원본에서 기본적으로 사용할 수 없는 새 필드를 인덱스에 생성합니다. 전체적으로 파이프라인에 사용된 기술 컬렉션을 기술 집합(*skillset*)이라고 합니다.  
 
@@ -60,7 +60,7 @@ Cognitive Search 파이프라인은 데이터 원본을 탐색하고 종단간 �
 
 내부적으로 파이프라인은 보강된 문서 컬렉션을 생성합니다. 보강된 문서의 어느 부분을 검색 인덱스의 인덱싱 가능 필드에 매핑할지 결정할 수 있습니다. 예를 들어 핵심 구 추출과 엔터티 인식 기술을 적용한 경우 새 필드는 보강된 문서의 일부가 되며 인덱스의 필드에 매핑될 수 있습니다. 입/출력에 대한 자세한 내용은 [주석](cognitive-search-concept-annotations-syntax.md)을 참조하세요.
 
-### <a name="search-index-and-query-based-access"></a>검색 인덱스 및 쿼리 기반 액세스
+### <a name="step-3-search-index-and-query-based-access"></a>3단계: 검색 인덱스 및 쿼리 기반 액세스
 
 처리가 완료되면 Azure Search에서 텍스트 검색이 가능한 보강된 문서로 구성된 검색 모음이 생성됩니다. [인덱스 쿼리](search-query-overview.md)는 개발자와 사용자가 파이프라인에서 생성된 보강된 콘텐츠에 액세스하는 방법입니다. 
 
@@ -88,21 +88,24 @@ Cognitive Search 파이프라인은 데이터 원본을 탐색하고 종단간 �
 | 데이터 원본  | Azure에서 지원되는 유형의 외부 데이터 소스에 연결할 때 인덱서에 사용되는 개체입니다. | [인덱서](search-indexer-overview.md)를 참조하세요. |
 | 인덱스 | 필드 구조와 사용법을 정의하는 인덱스 스키마로 작성된 Azure Search의 지속형 검색 모음입니다. | [Azure Search의 인덱스](search-what-is-an-index.md) | 
 
+<a name="where-do-i-start"></a>
 
 ## <a name="where-do-i-start"></a>시작 단계
 
-**1단계: API가 제공되는 지역에 검색 서비스 만들기** 
+**1단계: API를 제공하는 지역에서 [Azure Search 리소스 만들기](search-create-service-portal.md)** 
 
 + 미국 중서부
 + 미국 중남부
 + 미국 동부
 + 미국 동부 2
++ 미국 서부
 + 미국 서부 2
 + 캐나다 중부
 + 서유럽
 + 영국 남부
 + 북유럽
 + 브라질 남부
++ 동아시아
 + 동남아시아
 + 인도 중부
 + 오스트레일리아 동부

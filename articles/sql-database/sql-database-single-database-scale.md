@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/19/2018
-ms.openlocfilehash: 706a2f8c7389daa6dcfaa95fe5118f509ee0d1f2
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: a3a4e2c109541effdac01e0c9c03ee91cfdb30bf
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600593"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812253"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스 리소스 크기 조정
 
@@ -37,7 +37,7 @@ ms.locfileid: "53600593"
 
 vCore 수를 처음 선택한 후에는 [Azure Portal](sql-database-single-databases-manage.md#manage-an-existing-sql-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update) 또는 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update)를 사용하여 실제 환경에 따라 단일 데이터베이스를 동적으로 늘리거나 줄일 수 있습니다.
 
-서비스 계층 및/또는 데이터베이스의 계산 크기를 변경하게 되면 새 계산 크기에서 원본 데이터베이스의 복제본을 만든 다음, 복제본에 대한 연결을 전환합니다. 이 프로세스 중에 데이터가 손실되지는 않지만 복제본으로 전환할 경우 잠깐 동안 데이터베이스에 대한 연결이 비활성화되므로 비행의 일부 트랜잭션이 롤백될 수 있습니다. 전환 시간은 다양하지만, 일반적으로 30초보다 작은 4초 미만이 해당 시간의 99%를 차지하고 있습니다. 연결을 사용할 수 없는 짧은 시간에 많은 수의 항공편 트랜잭션이 있으면 전환 시간이 더 길어질 수 있습니다.
+서비스 계층 및/또는 데이터베이스의 계산 크기를 변경하게 되면 새 계산 크기에서 원본 데이터베이스의 복제본을 만든 다음, 복제본에 대한 연결을 전환합니다. 이 프로세스 중에 데이터가 손실되지는 않지만 복제본으로 전환할 경우 잠깐 동안 데이터베이스에 대한 연결이 비활성화되므로 비행의 일부 트랜잭션이 롤백될 수 있습니다. 전환 시간은 다양하지만, 일반적으로 99%는 30초 미만입니다. 연결을 사용할 수 없는 짧은 시간에 많은 수의 항공편 트랜잭션이 있으면 전환 시간이 더 길어질 수 있습니다.
 
 전체 확장 프로세스 기간은 변경 전후 데이터베이스의 크기 및 서비스 계층에 따라 달라집니다. 예를 들어 범용 서비스 계층으로, 이 계층에서 또는 이 계층 내에서 변경되는 250GB 데이터베이스는 6시간 내에 완료되어야 합니다. 중요 비즈니스 계층 내에서 계산 크기를 변경하는 동일한 크기의 데이터베이스에 대한 강화는 3시간 내에 완료되어야 합니다.
 

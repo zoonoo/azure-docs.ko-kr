@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: juliako
-ms.openlocfilehash: 8543f00ccaecd8fd3f46132b05c2af925e6de10a
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 3646c6167f901fe43080d39df42fdb127b1c7fc2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352362"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828148"
 ---
 # <a name="using-a-cloud-dvr"></a>클라우드 DVR 사용
 
@@ -37,8 +37,7 @@ ms.locfileid: "54352362"
 > [!NOTE]
 > **LiveOutput**은 생성 시 시작하고 삭제되면 중지합니다. **LiveOutput**을 삭제해도 기본 **자산**과 자산의 콘텐츠는 삭제되지 않습니다. 
 >
-> **LiveOutput**용으로 자산에 **스트리밍 로케이터**를 게시한 경우 **스트리밍 로케이터**의 종료 시간이나 또는 로케이터를 삭제하는 시점까지(둘 중 먼저 도래하는 시간) DVR 기간 동안 발생한 이벤트를 계속 확인할 수 있습니다.   
-  
+> **StreamingLocator**를 사용하여 **LiveOutput** 자산을 게시한 경우 **StreamingLocator**가 만료 또는 삭제되는 시점 중 더 이른 시점까지 **LiveEvent**(DVR 기간 길이까지)를 계속 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,7 +4,7 @@ description: Azure AD 도메인 서비스에 대한 문제 해결 가이드
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: ergreenl
-ms.openlocfilehash: e2b7eb4f5be5e73e70f883f9510e7fc6a13d6bea
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 8b752585fc72b7f4be8e7b9320290f8ad56f53c2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156089"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844656"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services - 문제 해결 가이드
 이 문서는 Azure AD(Active Directory) 도메인 서비스를 설치하거나 관리할 때 발생할 수 있는 문제에 대한 문제 해결 힌트를 제공합니다.
@@ -33,9 +33,9 @@ ms.locfileid: "50156089"
 | **오류 메시지** | **해결 방법** |
 | --- |:--- |
 | *contoso100.com 이름은 이 네트워크에서 이미 사용 중입니다. 사용하지 않는 이름을 지정하십시오.* |[가상 네트워크에서 도메인 이름 충돌](active-directory-ds-troubleshooting.md#domain-name-conflict) |
-| *이 Azure AD 테넌트에서는 Domain Services를 사용할 수 없습니다. 이 서비스에는 'Azure AD Domain Services Sync'라는 애플리케이션에 대한 적절한 권한이 없습니다. 'Azure AD Domain Services Sync'라는 애플리케이션을 삭제한 다음, Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정하세요.* |[Domain Services에 Azure AD Domain Services Sync 응용 프로그램에 대한 적절한 권한이 없음](active-directory-ds-troubleshooting.md#inadequate-permissions) |
-| *이 Azure AD 테넌트에서는 Domain Services를 사용할 수 없습니다. Azure AD 테넌트의 Domain Services 애플리케이션에는 Domain Services를 사용하는 데 필요한 권한이 없습니다. d87dcbc6-a371-462e-88e3-28ad15ec4e64 애플리케이션 식별자를 사용하여 애플리케이션을 삭제한 다음, Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정하세요.* |[테넌트에서 Domain Services 응용 프로그램을 제대로 구성하지 않음](active-directory-ds-troubleshooting.md#invalid-configuration) |
-| *이 Azure AD 테넌트에서는 Domain Services를 사용할 수 없습니다. Azure AD 테넌트에서 Microsoft Azure AD 애플리케이션을 사용할 수 없습니다. 00000002-0000-0000-c000-000000000000 애플리케이션 식별자를 사용하여 애플리케이션을 사용하도록 설정한 다음 Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정하십시오.* |[Azure AD 테넌트에서 Microsoft Graph 응용 프로그램을 사용할 수 없음](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
+| *이 Azure AD 테넌트에서는 Domain Services를 사용할 수 없습니다. 이 서비스에는 'Azure AD Domain Services Sync'라는 애플리케이션에 대한 적절한 권한이 없습니다. 'Azure AD Domain Services Sync'라는 애플리케이션을 삭제한 다음 Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정하십시오.* |[Domain Services에 Azure AD Domain Services Sync 애플리케이션에 대한 적절한 권한이 없음](active-directory-ds-troubleshooting.md#inadequate-permissions) |
+| *이 Azure AD 테넌트에서는 Domain Services를 사용할 수 없습니다. Azure AD 테넌트의 Domain Services 애플리케이션에는 Domain Services를 사용하는 데 필요한 권한이 없습니다. d87dcbc6-a371-462e-88e3-28ad15ec4e64 애플리케이션 식별자를 사용하여 애플리케이션을 삭제한 다음 Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정하십시오.* |[테넌트에서 Domain Services 애플리케이션을 제대로 구성하지 않음](active-directory-ds-troubleshooting.md#invalid-configuration) |
+| *이 Azure AD 테넌트에서는 Domain Services를 사용할 수 없습니다. Azure AD 테넌트에서 Microsoft Azure AD 애플리케이션을 사용할 수 없습니다. 00000002-0000-0000-c000-000000000000 애플리케이션 식별자를 사용하여 애플리케이션을 사용하도록 설정한 다음 Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정하십시오.* |[Azure AD 테넌트에서 Microsoft Graph 애플리케이션을 사용할 수 없음](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
 
 ### <a name="domain-name-conflict"></a>도메인 이름 충돌
 **오류 메시지:**
@@ -51,7 +51,7 @@ ms.locfileid: "50156089"
 ### <a name="inadequate-permissions"></a>부적절한 권한
 **오류 메시지:**
 
-*이 Azure AD 테넌트에서는 Domain Services를 사용할 수 없습니다. 이 서비스에는 'Azure AD Domain Services Sync'라는 애플리케이션에 대한 적절한 권한이 없습니다. 'Azure AD Domain Services Sync'라는 애플리케이션을 삭제한 다음, Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정하세요.*
+*이 Azure AD 테넌트에서는 Domain Services를 사용할 수 없습니다. 이 서비스에는 'Azure AD Domain Services Sync'라는 애플리케이션에 대한 적절한 권한이 없습니다. 'Azure AD Domain Services Sync'라는 애플리케이션을 삭제한 다음 Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정하십시오.*
 
 **재구성:**
 
@@ -59,15 +59,15 @@ Azure AD 디렉터리에 'Azure AD Domain Services Sync'라는 이름의 애플�
 
 다음 단계를 수행하여 애플리케이션이 있는지 확인하고 있는 경우 삭제합니다.
 
-1. [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)의 Azure AD 디렉터리에 있는 **응용 프로그램** 섹션으로 이동합니다.
-2. **표시** 드롭다운에서 **모든 응용 프로그램**을 선택합니다. **응용 프로그램 상태** 드롭다운에서 **모두**를 선택합니다. **응용 프로그램 표시** 드롭다운에서 **모두**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)의 Azure AD 디렉터리에 있는 **애플리케이션** 섹션으로 이동합니다.
+2. **표시** 드롭다운에서 **모든 애플리케이션**을 선택합니다. **애플리케이션 상태** 드롭다운에서 **모두**를 선택합니다. **애플리케이션 표시** 드롭다운에서 **모두**를 선택합니다.
 3. 검색 상자에 **Azure AD Domain Services 동기화**를 입력합니다. 애플리케이션이 있는 경우 클릭한 다음, 도구 모음에서 **삭제** 단추를 클릭하여 삭제합니다.
 4. 애플리케이션을 삭제한 후에는 Azure AD 도메인 서비스를 다시 사용하도록 설정합니다.
 
 ### <a name="invalid-configuration"></a>유효하지 않은 구성
 **오류 메시지:**
 
-*이 Azure AD 테넌트에서는 Domain Services를 사용할 수 없습니다. Azure AD 테넌트의 Domain Services 애플리케이션에는 Domain Services를 사용하는 데 필요한 권한이 없습니다. d87dcbc6-a371-462e-88e3-28ad15ec4e64 애플리케이션 식별자를 사용하여 애플리케이션을 삭제한 다음, Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정하세요.*
+*이 Azure AD 테넌트에서는 Domain Services를 사용할 수 없습니다. Azure AD 테넌트의 Domain Services 애플리케이션에는 Domain Services를 사용하는 데 필요한 권한이 없습니다. d87dcbc6-a371-462e-88e3-28ad15ec4e64 애플리케이션 식별자를 사용하여 애플리케이션을 삭제한 다음 Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정하십시오.*
 
 **재구성:**
 
@@ -128,7 +128,7 @@ if ($sp -ne $null)
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>사용자는 Azure AD 도메인 서비스 관리된 도메인에 로그인할 수 없습니다.
 Azure AD 테넌트에서 하나 이상의 사용자가 새로 만든 관리되는 도메인에 로그인할 수 없는 경우 다음 문제 해결 단계를 수행합니다.
 
-* **UPN 형식을 사용한 로그인:** SAMAccountName 형식('CONTOSO \ joeuser') 대신 UPN 형식(예: 'joeuser@contoso.com')을 사용하여 로그인합니다. UPN 접두사가 너무 길거나 관리되는 도메인의 다른 사용자와 동일한 사용자에 대해 SAMAccountName이 자동으로 생성될 수 있습니다. UPN 형식은 Azure AD 테넌트 내에서 고유하도록 보장됩니다.
+* **UPN 형식을 사용하여 로그인:** SAMAccountName 형식('CONTOSO\joeuser') 대신 UPN 형식(예: 'joeuser@contoso.com')을 사용하여 로그인하려고 합니다. UPN 접두사가 너무 길거나 관리되는 도메인의 다른 사용자와 동일한 사용자에 대해 SAMAccountName이 자동으로 생성될 수 있습니다. UPN 형식은 Azure AD 테넌트 내에서 고유하도록 보장됩니다.
 
 > [!NOTE]
 > Azure AD Domain Services 관리되는 도메인에 로그인하는 데 UPN 형식을 사용하는 것이 좋습니다.
@@ -146,7 +146,7 @@ Azure AD 테넌트에서 하나 이상의 사용자가 새로 만든 관리되�
 
     1. net stop 'Microsoft Azure AD Sync'
     2. net start 'Microsoft Azure AD Sync'
-* **클라우드 전용 계정**: 영향을 받는 사용자 계정이 클라우드 전용 사용자 계정인 경우 사용자는 Azure AD 도메인 서비스를 사용하도록 설정한 후에 자신의 암호를 변경하도록 합니다. 이 단계를 수행하면 Azure AD 도메인 서비스가 생성되는 데 필요한 자격 증명 해시가 발생합니다.
+* **클라우드 전용 계정**: 영향을 받는 사용자 계정이 클라우드 전용 사용자 계정인 경우 Azure AD Domain Services를 사용하도록 설정한 후에 사용자가 암호를 변경했는지 확인합니다. 이 단계를 수행하면 Azure AD 도메인 서비스가 생성되는 데 필요한 자격 증명 해시가 발생합니다.
 
 ## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>관리되는 도메인에서 하나 이상의 경고 발생
 

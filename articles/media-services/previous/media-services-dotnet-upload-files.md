@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: juliako
-ms.openlocfilehash: 9edfa8ea0c9e469d09cef7ddbd1c7edda4484b47
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 43da365a6424fa9d489db1f5cd74ff6aeb8f0d7c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444632"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819886"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>.NET을 사용하여 Media Services 계정에 파일 업로드
 > [!div class="op_single_selector"]
@@ -54,9 +54,9 @@ Media Services에서 자산에 디지털 파일을 업로드(수집)합니다. *
   
     자산이 암호화된 저장소인 경우 자산 배달 정책을 구성해야 합니다. 자세한 내용은 [자산 배달 정책 구성](media-services-dotnet-configure-asset-delivery-policy.md)을 참조하세요.
 
-**CommonEncrypted** 옵션 또는 **EnvelopeEncypted** 옵션으로 암호화할 자산을 지정하는 경우 **ContentKey**로 해당 자산을 연결해야 합니다. 자세한 내용은 [ContentKey를 만드는 방법](media-services-dotnet-create-contentkey.md)을 참조하세요 
+**CommonEncrypted** 옵션 또는 **EnvelopeEncrypted** 옵션으로 암호화할 자산을 지정하는 경우 **ContentKey**로 해당 자산을 연결해야 합니다. 자세한 내용은 [ContentKey를 만드는 방법](media-services-dotnet-create-contentkey.md)을 참조하세요 
 
-**StorageEncrypted** 옵션으로 암호화할 자산을 지정하는 경우 .NET용 Media Services SDK에서 자산에 대한 **StorateEncrypted** **ContentKey**를 만듭니다.
+**StorageEncrypted** 옵션으로 암호화할 자산을 지정하는 경우 .NET용 Media Services SDK에서 자산에 대한 **StorageEncrypted** **ContentKey**를 만듭니다.
 
 이 아티클에서는 Media Services .NET SDK와 Media Services .NET SDK 확장을 사용하여 Media Services 자산으로 파일을 업로드하는 방법을 설명합니다.
 
@@ -199,7 +199,7 @@ IngestManifestAsset는 대량 수집을 위한 대량 IngestManifest와 자산�
     IIngestManifestAsset bulkAsset2 =  manifest.IngestManifestAssets.Create(destAsset2, new[] { filename2, filename3 });
 ```
 
-IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성에서 제공하는 Blob 스토리지 컨테이너 URI에 자산 파일을 업로드할 수 있는 고속 클라이언트 애플리케이션을 사용할 수 있습니다. 
+IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성에서 제공하는 Blob 스토리지 컨테이너 URI에 자산 파일을 업로드할 수 있는 고속 클라이언트 응용 프로그램을 사용할 수 있습니다. 
 
 다음 코드에서는 .NET SDK를 사용하여 자산 파일을 업로드하는 방법을 보여 줍니다.
 

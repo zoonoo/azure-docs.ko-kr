@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 27686cf036f69a9a4597c499e9b8b7d66d77e1e9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d607c75bc451774e6bf269eb658236d93a85021f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019676"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854380"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Azure Logic Apps에서 Liquid 템플릿을 사용하여 고급 JSON 변환 수행
 
@@ -30,6 +30,8 @@ ms.locfileid: "54019676"
 * [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
 * 기본 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
+
+* [Liquid 템플릿 언어](https://shopify.github.io/liquid/)에 대한 기본 지식입니다.
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>통합 계정에 대한 Liquid 템플릿 또는 맵 만들기
 

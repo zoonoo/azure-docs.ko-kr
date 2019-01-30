@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 사용량 보고 API 샘플 및 정의 |
 description: Azure AD B2C 테넌트 사용자, 인증 및 다단계 인증에 대한 보고서를 얻는 방법에 대한 가이드 및 샘플입니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 544b0618f9135b684846c42bb7edeb37cf599883
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: cce6d71864d1c3e957937e374e90ee95a99e9f3c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445537"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844360"
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>보고 API를 통해 Azure AD B2C에서 사용량 보고서에 액세스
 
@@ -97,18 +97,18 @@ if ($oauth.access_token -ne $null) {
 
 
 ## <a name="usage-report-definitions"></a>사용량 보고서 정의
-* **tenantUserCount** - 지난 30일 이내 ID 공급자 유형별 일일 테넌트 사용자 수입니다. (선택 사항: `TimeStamp` 필터는 지정된 날짜부터 현재 날짜까지의 사용자 수를 제공합니다.) 보고서에서 다음을 제공합니다.
-  * **TotalUserCount**: 모든 사용자 개체의 수
-  * **OtherUserCount**: Azure Active Directory 사용자(Azure AD B2C 사용자가 아님)의 수
-  * **LocalUserCount**: Azure AD B2C 테넌트에 대한 로컬 자격 증명으로 만든 Azure AD B2C 사용자 계정의 수
+* **tenantUserCount**: 지난 30일간 ID 공급자 유형별 일일 테넌트 사용자 수입니다. (선택 사항: `TimeStamp` 필터는 지정된 날짜부터 현재 날짜까지의 사용자 수를 제공합니다.) 보고서에서 다음을 제공합니다.
+  * **TotalUserCount**: 모든 사용자 개체 수
+  * **OtherUserCount**: Azure Active Directory 사용자(Azure AD B2C 사용자 아님) 수
+  * **LocalUserCount**: Azure AD B2C 테넌트에 대한 로컬 자격 증명으로 만든 Azure AD B2C 사용자 계정 수
 
-* **AlternateIdUserCount** - 외부 ID 공급자(예: Facebook, Microsoft 계정 또는 다른 Azure Active Directory 테넌트, `OrgId`라고도 함)에 등록된 Azure AD B2C 사용자 수입니다.
+* **AlternateIdUserCount**: 외부 ID 공급자(예: Facebook, Microsoft 계정 또는 다른 Azure Active Directory 테넌트, `OrgId`라고도 함)에 등록된 Azure AD B2C 사용자 수
 
-* **b2cAuthenticationCountSummary** - 지난 30일 동안 일별 및 인증 흐름 유형별 청구 가능한 일일 인증 수의 요약입니다.
+* **b2cAuthenticationCountSummary**: 지난 30일간 일별 및 인증 흐름 유형별 청구 가능한 일일 인증 수의 요약
 
-* **b2cAuthenticationCount** - 한 기간 내 인증 수입니다. 기본값은 지난 30일입니다.  (선택 사항: 시작 및 종료 `TimeStamp` 매개 변수의 시작과 끝은 특정 기간을 정의합니다.) 출력에는 `StartTimeStamp`(이 테넌트에 대한 활동의 가장 빠른 날짜)와 `EndTimeStamp`(최신 업데이트)가 포함됩니다.
+* **b2cAuthenticationCount**: 한 기간 내 인증 수. 기본값은 지난 30일입니다.  (선택 사항: 시작 및 종료 `TimeStamp` 매개 변수는 특정 기간을 정의합니다.) 출력에는 `StartTimeStamp`(이 테넌트에 대한 활동의 가장 빠른 날짜)와 `EndTimeStamp`(최신 업데이트)가 포함됩니다.
 
-* **b2cMfaRequestCountSummary** - 일별 및 유형별(SMS 또는 음성) 일일 다단계 인증 수의 요약입니다.
+* **b2cMfaRequestCountSummary**: 일별 및 유형별(SMS 또는 음성) 일일 다단계 인증 수의 요약
 
 
 ## <a name="limitations"></a>제한 사항

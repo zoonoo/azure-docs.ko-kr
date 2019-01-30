@@ -4,18 +4,18 @@ description: Azure HDInsight Tools for Visual Studio Code를 사용하여 쿼리
 Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
 documentationcenter: ''
-author: jejiang
-ms.author: jejiang
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/27/2017
-ms.openlocfilehash: c86fd2affa08999ae574f55315c6a0b32fa58fca
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.date: 12/15/2018
+ms.openlocfilehash: cd7c4014752fb5fa014fd8b5204206cd4efbfdce
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076793"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818526"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Azure HDInsight Tools for Visual Studio Code 사용
 
@@ -50,11 +50,11 @@ Azure HDInsight Tools는 Windows, Linux 및 macOS를 포함하여 VS Code에서 
 
    ![HDInsight for Visual Studio Code Python 설치](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
 
-## <a name="open-hdinsight-workspace"></a>HDInsight 작업 영역 열기
+## <a name="open-hdinsight-work-folder"></a>HDInsight 작업 폴더 열기
 
-Azure에 연결하려면 먼저 VS Code에서 작업 영역을 만듭니다.
+Azure에 연결하려면 먼저 VS Code에서 작업 폴더를 만듭니다.
 
-### <a name="to-open-a-workspace"></a>작업 영역을 열려면
+### <a name="to-open-a-work-folder"></a>작업 폴더를 열려면
 
 1. **파일** 메뉴에서 **폴더 열기**를 선택합니다. 그런 다음 기존 폴더를 작업 폴더로 지정하거나 새 작업 폴더를 만듭니다. 해당 폴더가 왼쪽 창에 나타납니다.
 
@@ -77,7 +77,7 @@ VS Code에서 HDInsight 클러스터에 스크립트를 제출하려면 먼저 A
     ![HDInsight Tools for Visual Studio Code 로그인](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
 3. 로그인하려면 **출력** 창의 로그인 지침을 따릅니다.
-    + 전역 환경의 경우 HDInsight 로그인은 Azure 로그인 프로세스를 트리거합니다.
+    + Azure 전역 환경의 경우 **HDInsight: 로그인** 명령은 HDInsight 탐색기에서 **Azure에 로그인** 작업을 트리거하고 반대의 경우도 마찬가지입니다.
 
         ![Azure에 대한 로그인 지침](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin.png)
 
@@ -140,16 +140,16 @@ VS Code에서 HDInsight 클러스터에 스크립트를 제출하려면 먼저 A
 연결을 테스트하기 위해 HDInsight 클러스터를 나열할 수 있습니다.
 
 ### <a name="to-list-hdinsight-clusters-under-your-azure-subscription"></a>Azure 구독의 HDInsight 클러스터를 나열하려면
-1. 작업 영역을 열고 Azure에 연결합니다. 자세한 내용은 [HDInsight 작업 영역 열기](#open-hdinsight-workspace) 및 [Azure에 연결](#connect-to-hdinsight-cluster)을 참조하세요.
+1. 작업 폴더를 열고 Azure에 연결합니다. 자세한 내용은 [HDInsight 작업 폴더 열기](#open-hdinsight-work-folder) 및 [Azure에 연결](#connect-to-hdinsight-cluster)을 참조하세요.
 
-2. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음, 상황에 맞는 메뉴에서 **HDInsight: List Cluster**를 선택합니다. 
+2. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음, **HDInsight: List Cluster**를 선택합니다. 
 
 3. **출력** 창에 HDInsight 클러스터가 표시됩니다.
 
     ![기본 클러스터 구성 설정](./media/hdinsight-for-vscode/list-cluster-result.png)
 
 ## <a name="set-a-default-cluster"></a>기본 클러스터 설정
-1. 작업 영역을 열고 Azure에 연결합니다. [HDInsight 작업 영역 열기](#open-hdinsight-workspace) 및 [Azure에 연결](#connect-to-hdinsight-cluster)을 참조하세요.
+1. 작업 폴더를 열고 Azure에 연결합니다. [HDInsight 작업 폴더 열기](#open-hdinsight-work-folder) 및 [Azure에 연결](#connect-to-hdinsight-cluster)을 참조하세요.
 
 2. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음, **HDInsight: Set Default Cluster**를 선택합니다. 
 
@@ -195,7 +195,12 @@ HDInsight Tools for VS Code를 사용하면 대화형 HDInsight 쿼리, Hive 배
 
 ### <a name="to-submit-interactive-pyspark-queries-to-hdinsight-spark-clusters"></a>대화형 PySpark 쿼리를 HDInsight Spark 클러스터에 제출하려면 다음을 수행합니다.
 
-1. 새 작업 폴더 및 확장명이 .py인 새 스크립트 파일을 만듭니다(아직 없는 경우).
+1. 새 작업 폴더 및 새 .py 파일을 만듭니다(없는 경우).
+
+    > [!NOTE]
+    > VSCode는 .py 파일의 Python 확장을 설치하도록 권장합니다. 확장을 설치하거나 대화 상자를 닫을 수 있습니다.
+    > 
+    >![HDInsight for Visual Studio Code Python 설치](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
 
 2. Azure 계정에 아직 연결하지 않은 경우 연결합니다.
 
@@ -213,36 +218,19 @@ HDInsight Tools for VS Code를 사용하면 대화형 HDInsight 쿼리, Hive 배
    for i in range(0, 5):
         print(sortedCollection[i])
    ```
-4. 이 스크립트를 강조 표시합니다. 그런 다음, 스크립트 편집기를 마우스 오른쪽 단추로 클릭하고 **HDInsight: PySpark Interactive**를 선택하거나 바로 가기 **Ctrl + Alt + I**를 사용합니다.
+4. 아직 설치하지 않은 경우 Python 환경을 설치합니다. [Visual Studio Code용 PySpark 대화형 환경 설정](set-up-pyspark-interactive-environment.md)을 참조하세요.
 
-5. VS Code에서 **Python** 확장을 아직 설치하지 않은 경우 다음 그림과 같이 **설치** 단추를 선택합니다.
+5. 이 스크립트를 강조 표시합니다. 그런 다음, 스크립트 편집기를 마우스 오른쪽 단추로 클릭하고 **HDInsight: PySpark Interactive**를 선택하거나 바로 가기 **Ctrl + Alt + I**를 사용합니다.
 
-    ![HDInsight for Visual Studio Code Python 설치](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
-
-6. 시스템에 Python 환경을 아직 설치하지 않은 경우 설치합니다. 
-   - Windows에서 [Python](https://www.python.org/downloads/)을 다운로드하고 설치합니다. 그런 다음 시스템 경로에 `Python` 및 `pip`가 있는지 확인합니다.
-
-   - macOS 및 Linux용 지침은 [Visual Studio Code용 PySpark 대화형 환경 설정](set-up-pyspark-interactive-environment.md)을 참조하세요.
-
-7. PySpark 쿼리를 제출할 클러스터를 선택합니다. 잠시 후 다음과 같이 오른쪽의 새 탭에 쿼리 결과가 표시됩니다.
+6. PySpark 쿼리를 제출할 클러스터를 선택합니다. 잠시 후 다음과 같이 오른쪽의 새 탭에 쿼리 결과가 표시됩니다.
 
    ![Python 작업 결과 제출](./media/hdinsight-for-vscode/pyspark-interactive-result.png) 
-8. 이 도구는 **SQL 절** 쿼리도 지원합니다.
+7. 이 도구는 **SQL 절** 쿼리도 지원합니다.
 
    ![Python 결과 작업 제출](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) 쿼리를 실행할 때 제출 상태가 아래쪽 상태 표시줄의 왼쪽에 표시됩니다. 상태가 **PySpark 커널(작업 중)** 이면 다른 쿼리를 제출하지 마세요. 
 
 >[!NOTE]  
 >클러스터는 세션 정보를 유지할 수 있습니다. 정의된 변수, 함수 및 해당 값은 세션에 유지되므로 동일한 클러스터에 대한 여러 서비스 호출에서 참조될 수 있습니다. 
-
-### <a name="to-disable-environment-check"></a>환경 검사를 사용하지 않으려면
-
-기본적으로 HDInsight 도구는 대화형 PySpark 쿼리를 제출할 때 환경을 검사하고 종속 패키지를 설치합니다. 환경 검사를 사용하지 않으려면 **사용자 설정**에서 **hdinsight.disablePysparkEnvironmentValidation**을 **예**로 설정합니다.
-
-   ![설정에서 환경 검사 설정](./media/hdinsight-for-vscode/hdi-azure-hdinsight-environment-check.png)
-
-또는 대화 상자가 표시되면 **유효성 검사 사용 안 함** 단추를 클릭합니다.
-
-   ![대화 상자에서 환경 검사 설정](./media/hdinsight-for-vscode/hdi-azure-hdinsight-environment-check-dialog.png)
 
 ### <a name="pyspark3-is-not-supported-with-spark2223"></a>PySpark3은 Spark2.2/2.3에서 지원되지 않습니다.
 

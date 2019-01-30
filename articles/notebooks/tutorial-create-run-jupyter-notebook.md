@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 110ba7f13b2a0d44277c881d67f0c794c8658cd1
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: dcee7df0b5da53bd7014a26f1f09695fe874833d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244587"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849663"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>자습서: Python을 사용하여 Jupyter Notebook을 만들고 실행
 
@@ -128,7 +128,7 @@ Notebook 내에서, 항상 코드 셀에서 `!pip install` 같은 명령을 사�
 1. 환경 설정에 *requirements.txt* 파일이 있기 때문에 "컨테이너가 준비될 때까지 기다리십시오"라는 메시지가 표시됩니다. **확인**을 선택하여 메시지를 닫고 Notebook에서 계속 작업을 진행할 수 있지만, 환경이 완전히 설정되기 전에는 코드 셀을 실행할 수 없습니다.
 1. Jupyter 인터페이스에서 Notebook이 열리고 기본적으로 코드 셀 하나가 비어 있습니다.
 
-    [![](media/tutorial/tutorial-new-notebook.png "Azure Notebooks의 새 Notebook 초기 보기")](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Azure Notebooks의 새 Notebook 초기 보기](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>Notebook 인터페이스 둘러보기
 
@@ -144,7 +144,7 @@ Notebook이 실행 중이면 코드 및 Markdown 셀을 추가하고, 해당 셀
 (F) Notebook을 신뢰할 수 있는지 여부를 나타내는 표시기(기본값은 **신뢰할 수 없음**).
 (G) 작업 표시기와 함께 Notebook을 실행하는 데 사용되는 커널.
 
-[![](media/tutorial/tutorial-notebook-ui.png "Jupyter 인터페이스의 주 UI 영역")](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![Jupyter 인터페이스의 주 UI 영역](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter는 주 UI 요소를 둘러보는 기능을 기본적으로 제공합니다. 둘러보기를 시작하려면 **도움말** > **사용자 인터페이스 둘러보기** 명령을 선택하고 팝업을 클릭합니다.
 

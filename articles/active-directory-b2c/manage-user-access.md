@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 사용자 액세스 관리 | Microsoft D
 description: Azure AD B2C를 사용하여 미성년자를 식별하고, 생년월일 및 국가 데이터를 수집하고, 애플리케이션의 사용 약관에 동의하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6709fb8ae328f749b367c58f95b8a9ef8da9bc65
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 982587fa7da41ea1de5fd11bb054f87039596da1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42144469"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852034"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 액세스 관리
 
@@ -34,9 +34,9 @@ ms.locfileid: "42144469"
 
 사용자가 미성년자로 식별되면 Azure AD B2C에서 사용자 흐름을 다음 세 가지 옵션 중 하나로 설정할 수 있습니다.
 
-- **응용 프로그램에 서명된 JWT id_token 보내기**: 사용자가 디렉터리에 등록되고, 토큰이 응용 프로그램으로 반환됩니다. 그런 다음, 애플리케이션에서 비즈니스 규칙을 적용하여 진행됩니다. 예를 들어, 애플리케이션이 보호자의 동의 프로세스를 진행할 수 있습니다. 이 방법을 사용하려면 프로그램으로부터 **ageGroup** 및 **consentProvidedForMinor** 클레임을 받도록 선택합니다.
+- **서명된 JWT id_token을 다시 애플리케이션으로 보내기**: 사용자는 디렉터리에 등록되고, 토큰은 애플리케이션으로 반환됩니다. 그런 다음, 애플리케이션에서 비즈니스 규칙을 적용하여 진행됩니다. 예를 들어, 애플리케이션이 보호자의 동의 프로세스를 진행할 수 있습니다. 이 방법을 사용하려면 프로그램으로부터 **ageGroup** 및 **consentProvidedForMinor** 클레임을 받도록 선택합니다.
 
-- **응용 프로그램에 서명되지 않은 JSON 토큰 보내기**: Azure AD B2C에서 사용자가 미성년자임을 응용 프로그램에 알리고 사용자의 보호자 동의 상태를 제공합니다. 그런 다음, 애플리케이션에서 비즈니스 규칙을 적용하여 진행됩니다. JSON 토큰이 애플리케이션 인증을 성공적으로 완료하지 못합니다. 애플리케이션은 JSON 토큰에 포함된 클레임에 따라 인증되지 않은 사용자를 처리해야 합니다. 여기에는 **name**, **email**, **ageGroup** 및 **consentProvidedForMinor**가 포함될 수 있습니다.
+- **서명되지 않은 JSON 토큰을 애플리케이션으로 보내기**: Azure AD B2C는 사용자가 미성년자라는 사실을 애플리케이션에 알리고 사용자의 보호자 동의 상태를 제공합니다. 그런 다음, 애플리케이션에서 비즈니스 규칙을 적용하여 진행됩니다. JSON 토큰이 애플리케이션 인증을 성공적으로 완료하지 못합니다. 애플리케이션은 JSON 토큰에 포함된 클레임에 따라 인증되지 않은 사용자를 처리해야 합니다. 여기에는 **name**, **email**, **ageGroup** 및 **consentProvidedForMinor**가 포함될 수 있습니다.
 
 - **사용자 차단**: 사용자가 미성년자이고 보호자의 동의가 제공되지 않은 경우 Azure AD B2C에서 사용자에게 차단되었음을 알릴 수 있습니다. 토큰이 발급되지 않고 액세스가 차단되고 등록 과정에서 사용자 계정이 만들어지지 않습니다. 이 알림을 구현하려면 적합한 HTML/CSS 콘텐츠 페이지를 제공하여 사용자에게 알리고 적절한 옵션을 제시합니다. 애플리케이션에서 신규 등록을 위한 추가 작업이 필요하지 않습니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "42144469"
 
 다음은 보호자 동의를 수집하는 사용자 흐름의 예입니다.
 
-1. [Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog) 작업이 사용자를 미성년자로 식별하고 서명되지 않은 JSON 토큰의 형태로 사용자 데이터를 응용 프로그램에 반환합니다.
+1. [Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog) 작업이 사용자를 미성년자로 식별하고 서명되지 않은 JSON 토큰의 형태로 사용자 데이터를 애플리케이션에 반환합니다.
 
 2. 애플리케이션에서 JSON 토큰을 처리하고, 보호자의 동의가 필요하다고 알리고 온라인으로 보호자의 동의를 요청하는 화면을 미성년자에게 표시합니다. 
 
@@ -56,7 +56,7 @@ ms.locfileid: "42144469"
 
 5. 미성년자 또는 성인이 동의를 철회하면 Azure AD Graph API를 사용하여 **consentProvidedForMinor**를 **denied**로 변경할 수 있습니다. 또는 애플리케이션이 동의가 철회된 미성년자를 삭제하도록 선택할 수도 있습니다. 필요에 따라 인증된 미성년자(또는 미성년자의 계정을 사용하는 보호자)가 동의를 철회할 수 있도록 사용자 흐름을 사용자 지정할 수도 있습니다. Azure AD B2C가 **consentProvidedForMinor**를 **denied**로 기록합니다.
 
-**legalAgeGroupClassification**, **consentProvidedForMinor** 및 **ageGroup**에 대한 자세한 내용은 [사용자 리소스 종류](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user)를 참조하세요. 사용자 지정 특성에 대한 자세한 내용은 [사용자 지정 특성을 사용하여 소비자에 대한 정보를 수집합니다.](active-directory-b2c-reference-custom-attr.md)를 참조하세요. Azure AD Graph API를 사용하여 확장된 특성을 처리하는 경우 긴 버전의 특성(예: *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*)을 사용해야 합니다.
+**legalAgeGroupClassification**, **consentProvidedForMinor** 및 **ageGroup**에 대한 자세한 내용은 [사용자 리소스 종류](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user)를 참조하세요. 사용자 지정 특성에 대한 자세한 내용은 [사용자 지정 특성을 사용하여 소비자에 대한 정보를 수집합니다.](active-directory-b2c-reference-custom-attr.md)를 참조하세요. Azure AD Graph API를 사용하여 확장된 특성을 처리하는 경우 *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*처럼 긴 버전의 특성을 사용해야 합니다.
 
 ## <a name="gather-date-of-birth-and-country-data"></a>생년월일 및 국가 데이터 수집
 

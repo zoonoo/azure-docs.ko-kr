@@ -4,7 +4,7 @@ description: 이 항목에서는 사용되고 만든 계정 및 필요한 권한
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ef8b621b41bb43c46ef728e28d3b312ac49f1da3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 403fd0679e0850d758dd0e2f65cec3fe2ff79965
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308786"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478606"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: 계정 및 사용 권한
 
@@ -135,7 +135,7 @@ DirSync에서 업그레이드하는 경우 AD DS Enterprise 관리자 자격 증
 | Exchange 하이브리드 배포 |사용자, 그룹 및 연락처에 대한 [Exchange 하이브리드 쓰기 저장](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback)에 설명된 특성에 사용 권한을 작성합니다. |
 | Exchange 메일 공용 폴더 |공용 폴더의 [Exchange Mail 공용 폴더](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder)에서 설명하는 특성에 대한 읽기 권한 | 
 | 비밀번호 쓰기 저장 |사용자에 대한 [암호 관리 시작](../authentication/howto-sspr-writeback.md)에 설명된 특성에 사용 권한을 작성합니다. |
-| 디바이스 쓰기 저장 |[장치 쓰기 저장](how-to-connect-device-writeback.md)에 설명한 대로 PowerShell 스크립트에 부여된 사용 권한입니다. |
+| 디바이스 쓰기 저장 |[디바이스 쓰기 저장](how-to-connect-device-writeback.md)에 설명한 대로 PowerShell 스크립트에 부여된 사용 권한입니다. |
 | 그룹 쓰기 저장 |동기화된 **Office 365 그룹**에 대해 그룹 개체를 읽기, 만들기, 업데이트 및 삭제합니다.  자세한 내용은 [그룹 쓰기 저장](how-to-connect-preview.md#group-writeback)을 참조하세요.|
 
 ## <a name="upgrade"></a>업그레이드
@@ -149,7 +149,7 @@ Azure AD Connect의 한 버전에서 새 릴리스로 업그레이드하는 경�
 | --- | --- | --- |
 | 설치 마법사를 실행하는 사용자 |로컬 서버의 관리자 |이진을 업데이트합니다. |
 | 설치 마법사를 실행하는 사용자 |ADSyncAdmins의 구성원 |동기화 규칙 및 기타 구성을 변경합니다. |
-| 설치 마법사를 실행하는 사용자 |전체 SQL Server를 사용하는 경우, 동기화 엔진 데이터베이스의 DBO(또는 유사한 권한) |새 열을 사용한 테이블 업데이트와 같이 데이터베이스 수준을 변경합니다. |
+| 설치 마법사를 실행하는 사용자 |전체 SQL 서버를 사용하는 경우: 동기화 엔진 데이터베이스의 DBO(또는 이와 유사한) |새 열을 사용한 테이블 업데이트와 같이 데이터베이스 수준을 변경합니다. |
 
 ## <a name="more-about-the-created-accounts"></a>만든 계정에 대한 자세한 내용
 ### <a name="ad-ds-connector-account"></a>AD DS Connect 계정

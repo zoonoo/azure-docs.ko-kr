@@ -4,7 +4,7 @@ description: 이 문서에서는 위험 이벤트의 자세한 개요를 제공�
 services: active-directory
 keywords: Azure Active Directory ID 보호, 보안, 위험, 위험 이벤트, 취약점, 보안 정책
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4bca7ed2f10ce6b0231a260a9cf5b7468476343f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 7c352b92edede8bb986a00d5db846bda7b299df2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652152"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808088"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 위험 이벤트
 
@@ -44,6 +44,9 @@ ms.locfileid: "53652152"
 - [알 수 없는 위치에서 로그인](#sign-in-from-unfamiliar-locations) 
 
 ![위험 이벤트](./media/concept-risk-events/91.png)
+
+> [!IMPORTANT]
+> [로그인 보고서](concept-sign-ins.md)에서 해당 로그인 항목이 없는 위험 이벤트가 발견되는 경우도 있습니다. entity Protection은 **대화형** 및 **비 대화형** 로그인의 위험을 모두 평가하는 반면, 로그인 보고서는 대화형 로그인만 보여주기 때문입니다.
 
 감지된 위험 이벤트에 대해 얻은 정보는 Azure AD 구독에 연결됩니다. 
 

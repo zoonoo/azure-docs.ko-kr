@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: pbutlerm
-ms.openlocfilehash: deab8298d09972a4e60be5c72d6d7e43dc2683e6
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ad62b306849b2291c81399cedc1634057e2eec9d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329993"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828097"
 ---
 # <a name="publish-azure-application-offer"></a>Azure 애플리케이션 제품 게시
 
@@ -36,7 +36,7 @@ ms.locfileid: "54329993"
 |  **게시 단계**           | **Time**    | **설명**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | 필수 구성 요소 유효성 검사         | 15분 미만    | 제안 정보 및 제안 설정의 유효성이 검사됩니다.                        |
-| 영향을 받는 매출 설정의 유효성 검사 | 15분 미만  |      |
+| 영향을 받는 매출 설정의 유효성 검사 | 15분 미만  | 제안의 Azure 리소스 사용량 특성이 확인됩니다.             |
 | 인증                  | 1일 미만     | Azure 인증 팀에서 제안을 분석합니다. 이 제품은 바이러스, 맬웨어, 안전 규정 준수 및 보안 문제에 대해 검사됩니다. 모든 자격 조건을 충족하는지 제품을 확인합니다. 자세한 내용은 [필수 구성 요소](./cpp-prerequisites.md)를 참조하세요. 문제가 발견되면 피드백이 제공됩니다. |
 | 시험 사용 유효성 검사          | 2시간 미만   | (선택 사항) 시험 사용이 있는 경우, Microsoft는 시험 사용을 배포하고 복제할 수 있는지 확인합니다.  |
 | 패키징 및 잠재 고객 생성 등록 | 1시간 미만  | 제품의 기술 자산이 고객의 사용에 맞게 패키지되고, 잠재 고객 시스템이 구성 및 배포됩니다. |

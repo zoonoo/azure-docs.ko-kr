@@ -4,7 +4,7 @@ description: Azure Active Directory 및 vxMaintain 간에 Single Sign-On을 구�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 841a1066-593c-4603-9abe-f48496d73d10
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 7e444692dfeab5ca14fbd896043cc28e2cbd8717
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 590c7961444a36c8958fd82aaf67b05ee2213e74
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433997"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819903"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>자습서: Azure Active Directory와 vxMaintain 통합
 
@@ -65,7 +65,7 @@ vxMaintain의 Azure AD 통합을 구성하려면 갤러리의 vxMaintain을 관�
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**을 선택합니다.
+1. **엔터프라이즈 애플리케이션** > **모든 애플리케이션**을 선택합니다.
 
     !["엔터프라이즈 애플리케이션" 창][2]
     
@@ -108,7 +108,7 @@ vxMaintain을 사용하여 Azure AD SSO를 구성하고 테스트하려면 다�
 
     a. **식별자** 상자에 다음 `https://<company name>.verisae.com` 구문이 있는 URL을 입력합니다.
 
-    나. **회신 URL** 상자에 다음 `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true` 구문이 있는 URL을 입력합니다.
+    b. **회신 URL** 상자에 다음 `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true` 구문이 있는 URL을 입력합니다.
 
     > [!NOTE] 
     > 위의 값은 실제가 아닙니다. 실제 식별자 및 회신 URL로 해당 항목을 업데이트합니다. 값을 가져오려면 [vxMaintain 지원 팀](https://www.hubspot.com/company/contact)에 문의하세요.
@@ -124,7 +124,7 @@ vxMaintain을 사용하여 Azure AD SSO를 구성하고 테스트하려면 다�
 1. **vxMaintain** SSO를 구성하려면 다운로드한 **메타데이터 XML** 파일을 [vxMaintain 지원 팀](https://www.hubspot.com/company/contact)에 보냅니다.
 
 > [!TIP]
-> 앱을 설정할 때 [Azure Portal](https://portal.azure.com)에서 이전 지침의 간결한 버전을 읽을 수 있습니다. **Active Directory** > **엔터프라이즈 응용 프로그램** 섹션에서 앱을 추가한 후 **Single Sign-On** 탭을 선택한 다음 **구성** 섹션에서 포함된 설명서에 액세스합니다. 
+> 앱을 설정할 때 [Azure Portal](https://portal.azure.com)에서 이전 지침의 간결한 버전을 읽을 수 있습니다. **Active Directory** > **엔터프라이즈 애플리케이션** 섹션에서 앱을 추가한 후 **Single Sign-On** 탭을 선택한 다음 **구성** 섹션에서 포함된 설명서에 액세스합니다. 
 >
 >포함된 설명서 기능에 대한 자세한 내용은 [엔터프라이즈 앱에 대한 Single Sign-On 관리](https://go.microsoft.com/fwlink/?linkid=845985)를 참조하세요.
 > 
@@ -153,7 +153,7 @@ vxMaintain을 사용하여 Azure AD SSO를 구성하고 테스트하려면 다�
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 상자에 테스트 사용자인 Britta Simon의 이메일 주소를 입력합니다.
+    b. **사용자 이름** 상자에 테스트 사용자인 Britta Simon의 이메일 주소를 입력합니다.
 
     다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에서 생성된 값을 적어둡니다.
 
@@ -161,7 +161,7 @@ vxMaintain을 사용하여 Azure AD SSO를 구성하고 테스트하려면 다�
  
 ### <a name="create-a-vxmaintain-test-user"></a>vxMaintain 테스트 사용자 만들기
 
-이 섹션에서는 vxMaintain에서 테스트 사용자인 Britta Simon을 만듭니다. vxMaintain 플랫폼에 사용자를 추가하려면 [vxMaintain 지원 팀](https://www.hubspot.com/company/contact)에 문의하세요. SSO를 사용하기 전에 사용자를 만들고 활성화합니다.
+이 섹션에서는 vxMaintain에서 테스트 사용자인 Britta Simon을 만듭니다. vxMaintain 플랫폼에 사용자를 추가하려면  [vxMaintain 지원 팀](https://www.hubspot.com/company/contact)에 문의하세요. SSO를 사용하기 전에 사용자를 만들고 활성화합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -169,11 +169,11 @@ vxMaintain을 사용하여 Azure AD SSO를 구성하고 테스트하려면 다�
 
 ![표시 이름 목록의 테스트 사용자][200] 
 
-1. Azure Portal **응용 프로그램** 보기에서 **디렉터리** 보기 > **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**으로 이동합니다.
+1. Azure Portal **애플리케이션** 보기에서 **디렉터리** 보기 &gt; **엔터프라이즈 애플리케이션** > **모든 애플리케이션**으로 이동합니다.
 
     !["모든 애플리케이션" 링크][201] 
 
-1. **응용 프로그램** 목록에서 **vxMaintain**을 선택합니다.
+1. **애플리케이션** 목록에서 **vxMaintain**을 선택합니다.
 
     ![vxMaintain 링크](./media/vxmaintain-tutorial/tutorial_vxmaintain_app.png) 
 
@@ -200,7 +200,7 @@ vxMaintain을 사용하여 Azure AD SSO를 구성하고 테스트하려면 다�
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Active Directory와 SaaS 앱 통합에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

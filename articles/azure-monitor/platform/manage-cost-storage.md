@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 262c81dbf2c094b6a823a8320a0657f2767bc20c
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.subservice: ''
+ms.openlocfilehash: 418d334133e1c223f2349ce79a51b229072c31e9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332322"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475325"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Log Analytics의 사용량 및 비용 관리
 
@@ -168,7 +168,7 @@ Log Analytics 작업 영역에 레거시 가격 책정 계층에 대한 액세�
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
 
-다른 데이터 형식의 데이터 간을 검색할 경우 비용이 많이 들기 때문에 이러한`union withsource = tt *` 쿼리는 자주 사용하지 않도록 합니다. 
+여러 데이터 형식을 검색할 경우 비용이 많이 들기 때문에 이러한 `union withsource = tt *` 쿼리는 자주 사용하지 않도록 합니다. 
 
 비용이 청구되는 데이터 형식을 전송하는 컴퓨터의 시간당 수를 반환하도록 이 쿼리를 다음과 같이 확장할 수 있습니다.
 
@@ -335,4 +335,5 @@ Log Analytics 작업 영역에 레거시 가격 책정 계층에 대한 액세�
 * [성능 카운터 구성](data-sources-performance-counters.md)을 변경합니다.
 * 이벤트 컬렉션 설정을 수정하려면 [이벤트 로그 구성](data-sources-windows-events.md)을 검토합니다.
 * syslog 컬렉션 설정을 수정하려면 [syslog 구성](data-sources-syslog.md)을 검토합니다.
+
 

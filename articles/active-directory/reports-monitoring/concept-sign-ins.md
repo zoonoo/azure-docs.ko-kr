@@ -4,7 +4,7 @@ description: Azure Active Directory 포털의 로그인 작업 보고서 소개
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e1b1102594e7e4470c08cb0f18068dd368c0fe7a
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 73f90d1df2c1a6a0655a61026112cc2a7a73cb1e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245092"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808632"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
 
@@ -161,7 +161,7 @@ Azure Portal 외부에서 작업하려는 경우 [로그인 데이터를 다운�
 
 스크립트를 **Windows 10** 컴퓨터에서 실행하려면 먼저 몇 가지 추가적인 단계를 수행해야 합니다. 
 
-1. [AzureRM 모듈](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0l)을 설치합니다.
+1. [AzureRM 모듈](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.4.0l)을 설치합니다.
 2. PowerShell 프롬프트를 열고 **Import-Module AzureRM** 명령을 실행하여 모듈을 가져옵니다.
 3. **Set-ExecutionPolicy unrestricted**를 실행하고 **모두 예**를 선택합니다. 
 4. 관리자 모드에서 다운로드한 PowerShell 스크립트를 실행하여 CSV 파일을 생성합니다.
@@ -203,7 +203,10 @@ Azure AD 외에도 Azure Portal에서는 로그인 데이터에 대한 추가 �
 - Date
 - 필요한 MFA
 - 로그인 상태
- 
+
+> [!NOTE]
+> IP 주소는 IP 주소와 해당 주소가 실제로 연결된 컴퓨터 간에 확실한 연결이 없는 경우와 같은 방법으로 발급됩니다. IP 주소 매핑은 클라이언트 디바이스가 실제로 사용되는 위치에서 종종 매우 먼 중앙 풀에서 모바일 공급자 또는 VPN이 IP 주소를 발급한다는 사실로 인해 복잡해집니다. 현재로서는 Azure AD 보고서에서 IP 주소를 실제 위치로 변환하는 것은 추적, 레지스트리 데이터, 역방향 조회 및 기타 정보를 바탕으로 하는 최상의 노력입니다.
+
 **사용자** 페이지에서 **활동** 섹션의 **로그인**을 클릭하면 모든 사용자 로그인에 대한 전체 개요가 표시됩니다.
 
 ![로그인 활동](./media/concept-sign-ins/08.png "로그인 활동")

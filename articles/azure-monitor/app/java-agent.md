@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: dbca662f38f13833a4b9e642a4d8f690017d999a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: b7710b081668bf07d40718baf1d84314246861f5
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262135"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412406"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>종속성, 예외 포착 및 Java 웹앱에서의 메서드 실행 시간 모니터링
 
@@ -96,6 +96,23 @@ xml 파일의 내용을 설정합니다. 다음 예제를 편집하여 원하는
 
 > [!NOTE]
 > AI-Agent.xml 및 에이전트 jar 파일은 동일한 폴더에 있어야 합니다. 종종 프로젝트의 `/resources` 폴더에 함께 배치됩니다. 
+
+### <a name="spring-rest-template"></a>Spring Rest 템플릿
+
+Application Insights가 Spring의 Rest 템플릿으로 HTTP 호출을 성공적으로 처리하도록 하려면 Apache HTTP 클라이언트를 사용해야 합니다. 기본적으로 Spring의 Rest 템플릿은 Apache HTTP 클라이언트를 사용하도록 구성되지 않습니다. Spring Rest 템플릿의 생성자에서 [HttpComponentsClientHttpRequestfactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/client/HttpComponentsClientHttpRequestFactory.html)를 지정하면 Apache HTTP를 사용합니다.
+
+Spring Beans로 이 작업을 수행하는 방법의 예는 다음과 같습니다. 팩터리 클래스의 기본 설정을 사용하는 매우 간단한 예제입니다.
+
+```java
+@bean
+public ClientHttpRequestFactory httpRequestFactory() {
+return new HttpComponentsClientHttpRequestFactory()
+}
+@Bean(name = 'myRestTemplate')
+public RestTemplate dcrAccessRestTemplate() {
+    return new RestTemplate(httpRequestFactory())
+}
+```
 
 #### <a name="enable-w3c-distributed-tracing"></a>W3C 분산 추적 사용
 

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: b1010b5376a26a4d33c026be27ce363959954ca2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 18b698861a791174f2e254543d5d3b7a54052574
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078874"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854176"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Azure Notebooks에 대한 프로필 및 사용자 ID
 
 Azure Notebooks의 강력하고 공동 작업 공간 내, 사용자 프로필에서는 공용 이미지를 다른 사용자에게 보여줍니다.
 
-[![](media/accounts/profile-page.png "Azure Notebooks 프로필 페이지")](media/accounts/profile-page.png#lightbox)
+[![Azure Notebooks 프로필 페이지](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
 
 사용자 ID는 프로젝트와 Notebook을 공유하는 데 사용하는 URL의 일부입니다. 다음 목록에서는 다른 URL 패턴을 설명합니다.
 
@@ -69,4 +69,4 @@ Azure Notebooks의 강력하고 공동 작업 공간 내, 사용자 프로필에
 ## <a name="next-steps"></a>다음 단계  
 
 > [!div class="nextstepaction"]
-> [자습서: 선형 회귀를 수행하기 위해 Jupyter Notebook 실행 만들기](tutorial-create-run-jupyter-notebook.md)
+> [자습서: 선형 회귀를 위해 Jupyter 노트 실행 만들기](tutorial-create-run-jupyter-notebook.md)

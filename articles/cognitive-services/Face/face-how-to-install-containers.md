@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: ac273ac7d4c6c371670e6b8a8170274602a5318b
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 310311c22be25960b15f20d573624f50b0f618b1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536545"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474815"
 ---
 # <a name="install-and-run-containers"></a>컨테이너 설치 및 실행
 
@@ -178,3 +178,4 @@ Face 컨테이너는 Azure 계정의 해당 Face 리소스를 사용하여 청�
 * [Face 개요](Overview.md)를 검토하여 얼굴을 감지하고 식별하는 방법을 자세히 알아봅니다.  
 * [Face API](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)를 참조하여 컨테이너에서 지원하는 방법을 자세히 알아봅니다.
 * [FAQ(질문과 대답)](FAQ.md)를 참조하여 Face 기능과 관련된 문제를 해결합니다.
+* 추가적인 [Cognitive Services 컨테이너](../cognitive-services-container-support.md) 사용

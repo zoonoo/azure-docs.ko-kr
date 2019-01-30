@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c0109839144775e9064db4f8396f19688fcc13e8
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ee6c18d1d0dda691f8b108cbe70e05eedae606e5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308637"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446330"
 ---
 # <a name="lcs-subscription"></a>LCS 구독
 
@@ -37,7 +37,7 @@ ms.locfileid: "53308637"
 
 **구독** - 구독에서는 온라인 환경이 제공됩니다. 이 환경에서는 클라우드의 Dynamics 365 for Operations를 사용해 볼 수 있으며, 직접 개발한 사용자 지정 기능을 클라우드에 배포하는 방법도 파악할 수 있습니다.
 
-**Microsoft Azure Active Directory** - 클라우드 환경에 포함된 Azure AD(Active Directory)에서는 온-프레미스 환경에서와 비슷한 방식으로 온라인 응용 프로그램의 사용자/그룹/보안 역할/라이선스를 관리할 수 있습니다.
+**Microsoft Azure Active Directory** - 클라우드 환경에 포함된 Azure AD(Active Directory)에서는 온-프레미스 환경에서와 비슷한 방식으로 온라인 애플리케이션의 사용자/그룹/보안 역할/라이선스를 관리할 수 있습니다.
 
 **사용자** - 조직에서 구독한 서비스의 관리자는 Azure AD에서 관리됩니다. 테넌트의 모든 사용자를 추가하고 보안 역할에 할당할 수 있습니다.
 

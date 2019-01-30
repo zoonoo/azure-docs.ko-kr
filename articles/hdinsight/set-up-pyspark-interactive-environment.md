@@ -8,84 +8,51 @@ author: jejiang
 ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 10/27/2017
-ms.openlocfilehash: bf47915ba93a4a3a7dec338395cfe0ce6aa3cdf6
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 1/17/2019
+ms.openlocfilehash: ef33d8962848636ee53ac6fd3f084b9c2a59e29d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993844"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820582"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Visual Studio Code용 PySpark 대화형 환경 설정
 
-다음 단계에서는 **HDInsight: PySpark 대화형**을 실행하여 Python 패키지를 설치하는 방법을 보여줍니다.
+다음 단계에서는 VS Code에서 PySpark 대화형 환경을 설정하는 방법을 보여 줍니다.
 
-## <a name="set-up-the-pyspark-interactive-environment-on-macos-and-linux"></a>macOS 및 Linux에서 PySpark 대화형 환경 설정
-**python 3.x**를 사용하는 경우 다음 단계에 **pip3** 명령을 사용해야 합니다.
+**python/pip** 명령을 사용하여 홈 경로에서 가상 환경을 빌드합니다. 다른 버전을 사용하려면 **python/pip** 명령의 기본 버전을 수동으로 변경해야 합니다. 자세한 내용은 [update-alternatives](https://linux.die.net/man/8/update-alternatives)를 참조하세요.
 
-1. **Python** 및 **pip**가 설치되어 있는지 확인합니다.
+1. [Python](https://www.python.org/) 및 [pip](https://pip.pypa.io/en/stable/installing/)를 설치합니다.
+   
+   + [https://pip.pypa.io/en/stable/installing](https://www.python.org/)에서 Python을 설치합니다.
+   + [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/)에서 pip를 설치합니다. (Python 설치에서 설치되지 않은 경우)
+   + 다음 명령을 사용하여 Python 및 pip가 제대로 설치되었는지 유효성을 검사합니다. (선택 사항)
  
-    ![Python pip 버전](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
+        ![Python pip 버전](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
-2.  Jupyter를 설치합니다.
-    ```
-    sudo pip install jupyter
-    ```
-   Linux 및 macOS에서 다음과 같은 오류 메시지가 표시될 수 있습니다.
+    > [!NOTE]
+    > MacOS 기본 버전을 사용하는 대신 Python을 수동으로 설치하는 것이 좋습니다.
 
-   ![오류 1](./media/set-up-pyspark-interactive-environment/error1.png)
 
-   ```Resolve:
-    sudo pip uninstall asyncio
-    sudo pip install trollies
-    ```
+2. 아래 명령을 실행하여 **virtualenv**를 설치합니다.
+   
+   ```
+   pip install virtualenv
+   ```
 
-3. **libkrb5-dev**를 설치합니다(Linux에만 해당). 다음 오류 메시지가 표시될 수 있습니다.
-
-   ![오류 2](./media/set-up-pyspark-interactive-environment/error2.png)
+3. Linux의 경우에만 오류 메시지가 표시될 경우 아래 명령을 실행하여 필수 패키지를 설치합니다.
+   
+    ![Python pip 버전](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
        
-   ```Resolve:
+   ```
    sudo apt-get install libkrb5-dev 
    ```
 
-3. **sparkmagic**을 설치합니다.
    ```
-   sudo pip install sparkmagic
-   ```
-
-4. 다음을 실행하여 **ipywidgets**가 제대로 설치되었는지 확인합니다.
-   ```
-   sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
-   ```
-   ![래퍼 커널 설치](./media/set-up-pyspark-interactive-environment/ipywidget-enable.png)
- 
-
-5. 래퍼 커널을 설치합니다. **pip show sparkmagic**을 실행합니다. 출력은 **sparkmagic** 설치에 대한 경로를 보여줍니다. 
-
-    ![sparkmagic 위치](./media/set-up-pyspark-interactive-environment/sparkmagic-location.png)
-   
-6. 위치로 이동한 후 다음을 실행합니다.
-
-   ```Python2
-   sudo jupyter-kernelspec install sparkmagic/kernels/pysparkkernel   
-   ```
-   ```Python3
-   sudo jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel
+   sudo apt-get install python-dev
    ```
 
-   ![jupyter kernelspec install](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-install.png)
-7. 설치 상태를 확인합니다.
-
-    ```
-    jupyter-kernelspec list
-    ```
-    ![jupyter kernelspec list](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-list.png)
-
-    사용할 수 있는 커널: 
-    - **python2** 및 **pysparkkernel**은 **python 2.x**에 해당합니다. 
-    - **python3** 및 **pyspark3kernel**은 **python 3.x**에 해당합니다. 
-
-8. VS Code를 다시 시작하고 **HDInsight: PySpark 대화형**을 실행하는 스크립트 편집기로 돌아옵니다.
+4. VS Code를 다시 시작하고 **HDInsight: PySpark 대화형**을 실행하는 스크립트 편집기로 돌아옵니다.
 
 ## <a name="next-steps"></a>다음 단계
 

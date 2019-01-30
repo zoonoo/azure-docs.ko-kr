@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: 관리되는 도메인에 CoreOS Linux VM 가입 | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: CoreOS Linux VM을 관리되는 도메인에 연결 | Microsoft Docs'
 description: CoreOS Linux 가상 머신을 Azure AD Domain Services에 가입
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 5db65f30-bf69-4ea3-9ea5-add1db83fdb8
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 0552085eb5ee5e5b3d1379482e9463a7ae802388
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: a2b8c3c0c38349b4c68f85a32bddb2c9b3e60c6f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158451"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850695"
 ---
 # <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>CoreOS Linux 가상 머신을 관리되는 도메인에 가입
 이 문서에서는 Azure에서 CoreOS Linux 가상 머신을 Azure AD Domain Services 관리되는 도메인에 가입하는 방법을 보여 줍니다.

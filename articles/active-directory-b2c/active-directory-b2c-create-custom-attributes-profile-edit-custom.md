@@ -3,21 +3,21 @@ title: Azure Active Directory B2C에서 사용자 지정 정책에 고유한 특
 description: 확장 속성, 사용자 지정 특성을 사용하고 사용자 인터페이스에 포함하는 방법에 대한 연습입니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5513e0ff434862ea7eee42cb94ff2a0f67f6d390
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7ebce84e6d8d3e7b1b8d3852951127ce954f9019
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338747"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854057"
 ---
-# <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: 사용자 지정 프로필 편집 정책에서 특성 사용
+# <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: 사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -51,28 +51,28 @@ Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니�
 
 1. 브라우저 세션을 열고 [Azure Portal](https://portal.azure.com)로 이동합니다. 구성하려는 B2C 디렉터리의 관리자 자격 증명으로 로그인합니다.
 2. 왼쪽 탐색 메뉴에서 **Azure Active Directory**를 선택합니다. **추가 서비스**를 선택하여 서비스를 찾아야 합니다.
-3. **앱 등록**을 선택합니다. **새 응용 프로그램 등록**을 선택합니다.
+3. **앱 등록**을 선택합니다. **새 애플리케이션 등록**을 선택합니다.
 4. 다음 항목을 제공합니다.
-    * 웹 애플리케이션 이름: **WebApp-GraphAPI-DirectoryExtensions**
-    * 애플리케이션 유형: **웹앱/API**
+    * 웹 애플리케이션의 이름: **WebApp-GraphAPI-DirectoryExtensions**.
+    * 애플리케이션 유형: **웹앱/API**.
     * 로그온 URL: **https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions**.
 5. **만들기**를 선택합니다.
 6. 새로 만든 웹 애플리케이션을 선택합니다.
 7. **설정** > **필수 사용 권한**을 선택합니다.
 8. **Microsoft Azure Active Directory** API를 선택합니다.
-9. **디렉터리 데이터 읽기 및 쓰기** 응용 프로그램 권한에 확인 표시를 입력합니다. 그런 다음 **저장**을 선택합니다.
+9. 애플리케이션 권한에 확인 표시 입력: **디렉터리 데이터 읽기 및 쓰기**. 그런 다음 **저장**을 선택합니다.
 10. **사용 권한 부여**를 선택하고 **예**를 확인합니다.
 11. 다음 식별자를 클립보드에 복사하고 저장합니다.
-    * **응용 프로그램 ID**. 예: `103ee0e6-f92d-4183-b576-8c3739027780`.
+    * **애플리케이션 ID**. 예: `103ee0e6-f92d-4183-b576-8c3739027780`.
     * **개체 ID** - 예: `80d8296a-da0a-49ee-b6ab-fd232aa45201`.
 
 
 
 ## <a name="modify-your-custom-policy-to-add-the-applicationobjectid"></a>사용자 지정 정책을 수정하여 **ApplicationObjectId** 추가
 
-[Azure Active Directory B2C: 사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)의 단계를 수행했을 때 **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml** 및 **PasswordReset.xml**이라는 [샘플 파일](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip)을 다운로드하고 수정했습니다. 이 단계에서는 해당 파일을 추가로 수정합니다.
+[Azure Active Directory B2C: 사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)의 단계를 수행할 때 **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml** 및 **PasswordReset.xml**이라는 [샘플 파일](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip)을 다운로드하고 수정했습니다. 이 단계에서는 해당 파일을 추가로 수정합니다.
 
-* **TrustFrameworkBase.xml** 파일을 열고 다음 예제에서 표시된 대로 `Metadata` 섹션을 추가합니다. `ApplicationObjectId` 값에 이전에 기록한 개체 ID 및 `ClientId` 값에 기록한 응용 프로그램 ID를 삽입합니다. 
+* **TrustFrameworkBase.xml** 파일을 열고 다음 예제에서 표시된 대로 `Metadata` 섹션을 추가합니다. `ApplicationObjectId` 값에 이전에 기록한 개체 ID 및 `ClientId` 값에 기록한 애플리케이션 ID를 삽입합니다. 
 
     ```xml
     <ClaimsProviders>
@@ -105,7 +105,7 @@ Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니�
 ## <a name="use-the-new-extension-property-or-custom-attribute-in-a-user-journey"></a>사용자 경험에서 새 확장 속성 또는 사용자 지정 특성 사용
 
 1. **ProfileEdit.xml** 파일을 엽니다.
-2. 사용자 지정 클레임 `loyaltyId`를 추가합니다. `<RelyingParty>` 요소에서 사용자 지정 클레임을 포함하여 응용 프로그램에 대한 토큰에 포함됩니다.
+2. 사용자 지정 클레임 `loyaltyId`를 추가합니다. `<RelyingParty>` 요소에서 사용자 지정 클레임을 포함하여 애플리케이션에 대한 토큰에 포함됩니다.
     
     ```xml
     <RelyingParty>
@@ -273,7 +273,7 @@ Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니�
 
   a. portal.azure.com의 B2C 테넌트 내에서 **Azure Active Directory**로 이동하고 **앱 등록**을 선택합니다.  
   b. **b2c-extensions-app**을 찾고 선택합니다.  
-  다. **Essentials** 아래에서 **응용 프로그램 ID** 및 **개체 ID**를 입력합니다.  
+  다. **Essentials** 아래에서 **애플리케이션 ID** 및 **개체 ID**를 입력합니다.  
   d. **AAD-Common** TechnicalProfile 메타데이터에 포함합니다.  
 
   ```xml

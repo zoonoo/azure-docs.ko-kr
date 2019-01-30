@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3afe60e7a00cb4fc4aca5046da8e26aaf3c77a29
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 1db379a48d4dafdaa2494d081658296a7145bcd9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198816"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815237"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM용 Azure Disk Encryption FAQ
 
@@ -137,7 +137,7 @@ Windows용 "Bek volume" 또는 Linux용 "/mnt/azure_bek_disk"는 암호화된 Az
 
 ## <a name="what-encryption-method-does-azure-disk-encryption-use"></a>Azure Disk Encryption에는 어떤 암호화 방법이 사용되나요?
 
-Windows의 경우 ADE에 Bitlocker AES256 암호화 방법(Windows Server 2012 이전 버전의 경우 AES256WithDiffuser)이 사용됩니다. Linux의 경우 ADE에 256비트 볼륨 마스터 키와 함께 aes-xts-plain64의 dmcrypt 기본값이 사용됩니다.
+Windows의 경우 ADE에 BitLocker AES256 암호화 방법(Windows Server 2012 이전 버전의 경우 AES256WithDiffuser)이 사용됩니다. Linux의 경우 ADE에 256비트 볼륨 마스터 키와 함께 aes-xts-plain64의 dmcrypt 기본값이 사용됩니다.
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>EncryptFormatAll을 사용하고 모든 볼륨 유형을 지정하면 이미 암호화한 데이터 드라이브에서 데이터가 지워지나요?
 아니요. Azure Disk Encryption을 사용하여 이미 암호화된 데이터 드라이브에서는 데이터가 지워지지 않습니다. EncryptFormatAll은 OS 드라이브를 다시 암호화하지 않은 것과 유사하게 이미 암호화된 데이터 드라이브를 다시 암호화하지 않습니다. 자세한 내용은 [EncryptFormatAll 기준](azure-security-disk-encryption-linux.md#bkmk_EFACriteria)을 참조하세요.        

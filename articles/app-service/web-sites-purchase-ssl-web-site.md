@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 78b7668dee892841ced1a06626ff09a534a88b69
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 784cb5248dab2b9554c67347e1b9b848e1a9e985
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714303"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820787"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Azure App Service에 대한 SSL 인증서 구입 및 구성
 
@@ -50,7 +50,7 @@ ms.locfileid: "53714303"
 | 설정 | 설명 |
 |-|-|
 | 이름 | App Service Certificate에 대한 식별 이름입니다. |
-| Naked 도메인 호스트 이름 | 이 단계는 구매 프로세스의 가장 중요한 부분 중 하나입니다. 앱에 매핑한 루트 도메인 이름을 사용합니다. 도메인 이름 앞에 `www`를 붙이지 마십시오. |
+| Naked 도메인 호스트 이름 | 여기에 루트 도메인을 지정하면 루트 도메인 및 `www` 하위 도메인을 ‘둘 다’ 보호하는 인증서를 얻게 됩니다. 하위 도메인만 보호하려면 여기에 하위 도메인의 정규화된 도메인 이름을 지정합니다(예: `mysubdomain.contoso.com`). |
 | 구독 | 웹앱이 호스팅된 데이터 센터입니다. |
 | 리소스 그룹 | 인증서를 포함하는 리소스 그룹입니다. 예를 들어, 새로운 리소스 그룹을 사용하거나 App Service 앱과 동일한 리소스 그룹을 선택할 수 있습니다. |
 | 인증서 SKU | 표준 인증서 또는 [와일드 카드 인증서](https://wikipedia.org/wiki/Wildcard_certificate) 여부에 관계없이 만들려는 인증서 유형을 결정합니다. |
@@ -115,7 +115,7 @@ ms.locfileid: "53714303"
 |-|-|
 | 호스트 이름 | SSL 바인딩을 추가할 도메인 이름입니다. |
 | 개인 인증서 지문 | 바인딩할 인증서입니다. |
-| SSL 형식 | <ul><li>**SNI SSL** - 여러 개의 SNI 기반 SSL 바인딩을 추가할 수 있습니다. 이 옵션을 사용하면 여러 SSL 인증서로 같은 IP 주소의 여러 도메인을 보호할 수 있습니다. 대부분의 최신 브라우저(Internet Explorer, Chrome, Firefox 및 Opera 포함)는 SNI를 지원합니다. [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)(서버 이름 표시)에서 더 포괄적인 브라우저 지원 정보를 찾을 수 있습니다.</li><li>**IP 기반 SSL** - IP 기반 SSL 바인딩 하나만 추가할 수 있습니다. 이 옵션을 사용하면 전용 공용 IP 주소를 보호하는 데 하나의 SSL 인증서만 사용할 수 있습니다. 바인딩을 구성한 후에, [IP SSL에 대한 A 레코드 다시 매핑](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl)의 단계를 따릅니다. </li></ul> |
+| SSL 형식 | <ul><li>**SNI SSL** - 여러 개의 SNI 기반 SSL 바인딩을 추가할 수 있습니다. 이 옵션을 사용하면 여러 SSL 인증서로 같은 IP 주소의 여러 도메인을 보호할 수 있습니다. 대부분의 최신 브라우저(Internet Explorer, Chrome, Firefox 및 Opera 포함)는 SNI를 지원합니다. [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)(서버 이름 표시)에서 더 포괄적인 브라우저 지원 정보를 찾을 수 있습니다.</li><li>**IP 기반 SSL** - IP 기반 SSL 바인딩 하나만 추가할 수 있습니다. 이 옵션을 사용하면 전용 공용 IP 주소를 보호하는 데 하나의 SSL 인증서만 사용할 수 있습니다. 바인딩을 구성한 후에 [IP SSL에 대한 A 레코드 다시 매핑](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl)의 단계를 따릅니다. </li></ul> |
 
 ## <a name="verify-https-access"></a>HTTPS 액세스 확인
 
@@ -125,7 +125,7 @@ ms.locfileid: "53714303"
 
 인증서 키를 다시 생성해야 하는 경우에는 [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지에서 인증서를 선택한 다음, 왼쪽 탐색 영역에서 **키 다시 생성 및 동기화**를 선택합니다.
 
-프로세스를 시작하려면 **키 다시 생성** 단추를 클릭합니다. 이 프로세스는 완료하는 데 1-10분 정도 걸릴 수 있습니다.
+**키 다시 생성** 단추를 클릭하여 프로세스를 시작합니다. 이 프로세스는 완료하는 데 1-10분 정도 걸릴 수 있습니다.
 
 ![SSL 키 다시 생성 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 
@@ -133,7 +133,7 @@ ms.locfileid: "53714303"
 
 ## <a name="renew-certificate"></a>인증서 갱신
 
-언제든 인증서 자동 갱신을 켜려면 [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지에서 인증서를 선택한 다음, 왼쪽 탐색 영역에서 **자동 갱신 설정**을 클릭합니다. 
+언제든 인증서 자동 갱신을 켜려면 [App Service Certificate](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지에서 인증서를 선택한 다음, 왼쪽 탐색 영역에서 **자동 갱신 설정**을 클릭합니다. 
 
 **켜기**를 선택하고 **저장**을 클릭합니다. 자동 갱신을 켜 놓으면 인증서가 만료 60일 전에 자동으로 갱신됩니다.
 

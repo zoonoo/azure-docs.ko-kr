@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: juliako
-ms.openlocfilehash: 618316b6b5979c65bc8906ea7d07c4f4fdf0930d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 1477242e10918a9836ceea15d418fb462e193b1b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124613"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811743"
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>Azure Media Services를 사용하여 장애 조치 스트리밍 구현
 
@@ -62,7 +62,7 @@ ms.locfileid: "46124613"
 1. Visual Studio를 사용하여 C# 콘솔 애플리케이션 프로젝트가 포함된 새 솔루션을 만듭니다. 이름에 **HandleRedundancyForOnDemandStreaming**을 입력하고 **확인**을 클릭합니다.
 2. **HandleRedundancyForOnDemandStreaming.csproj** 프로젝트 파일과 동일한 수준에 **SupportFiles** 폴더를 만듭니다. **SupportFiles** 폴더에서 **OutputFiles** 및 **MP4Files** 폴더를 만듭니다. .mp4 파일을 **MP4Files** 폴더에 복사합니다. (이 예제에서는 **BigBuckBunny.mp4** 파일을 사용합니다.) 
 3. **Nuget**을 사용하여 Media Services와 관련된 DLL에 참조를 추가합니다. **Visual Studio 주 메뉴**에서 **도구** > **라이브러리 패키지 관리자** > **패키지 관리자 콘솔**을 선택합니다. 콘솔 창에 **Install-Package windowsazure.mediaservices**를 입력하고 Enter를 누릅니다.
-4. System.Configuration, System.Runtime.Serialization 및 System.Web와 같이 이 프로젝트에 필요한 다른 참조를 추가합니다.
+4. 이 프로젝트에 필요한 다음과 같은 다른 참조를 추가합니다. System.Configuration, System.Runtime.Serialization 및 System.Web.
 5. 기본적으로 **Programs.cs** 파일에 추가한 **using** 문을 다음 중 하나로 바꿉니다.
    
         using System;
@@ -178,7 +178,7 @@ ms.locfileid: "46124613"
                 CreateFileInfosForAssetWithRest(_contextTarget, targetAsset, MediaServicesAccountNameTarget, MediaServicesAccountKeyTarget);
         
                 // Check if the AssetFiles are now  associated with the asset.
-                Console.WriteLine("Asset files assocated with the {0} asset:", targetAsset.Name);
+                Console.WriteLine("Asset files associated with the {0} asset:", targetAsset.Name);
                 foreach (var af in targetAsset.AssetFiles)
                 {
                     Console.WriteLine(af.Name);

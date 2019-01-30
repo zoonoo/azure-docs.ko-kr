@@ -1,10 +1,10 @@
 ---
-title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 Netsuite OneWorld 구성 | Microsoft Docs'
+title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Netsuite OneWorld 구성 | Microsoft Docs'
 description: Azure Active Directory와 Netsuite OneWorld 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 8a6d3994-ee33-4a6f-b0a2-9d0389467f16
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 81e590297283a8fe88d9257e201259056a3e3744
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ef0c2f12e36150b044047214c43e88090bd61f68
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823857"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826584"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Netsuite 구성
 
@@ -58,7 +58,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 이 섹션에서는 Netsuite에 Active Directory 사용자 계정을 프로비전할 수 있도록 설정하는 방법을 간략하게 설명합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory > 엔터프라이즈 앱 > 모든 응용 프로그램** 섹션으로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; 모든 애플리케이션** 섹션으로 이동합니다.
 
 1. 이미 Netsuite에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 Netsuite의 인스턴스를 검색합니다. 그러지 않은 경우 **추가**를 선택하고 애플리케이션 갤러리에서 **Netsuite**를 검색합니다. 검색 결과에서 Netsuite를 선택하고 애플리케이션 목록에 추가합니다.
 
@@ -95,5 +95,5 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 * [Single Sign-On 구성](netsuite-tutorial.md)

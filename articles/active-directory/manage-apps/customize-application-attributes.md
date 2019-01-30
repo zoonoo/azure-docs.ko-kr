@@ -4,7 +4,7 @@ description: Azure Active Directory의 Saas 앱에 대한 어떤 특성 매핑�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c54df9c4a01dbdb7713d03ff81108f28a60ec727
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: ead99afaf0399c060424d310d8f4011b2a50aad2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356221"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473727"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비전 특성 매핑 사용자 지정
 Microsoft Azure AD는 Salesforce, Google Apps 등과 같은 타사 SaaS 애플리케이션에 프로비전을 하는 사용자에 대한 지원을 제공합니다. 타사 SaaS 애플리케이션을 프로비전하는 사용자가 있을 경우 Azure Portal은 해당 특성 값을 특성 매핑이라는 형식으로 제어합니다.
@@ -64,8 +64,8 @@ Azure AD 포털에서 **엔터프라이즈 애플리케이션**의 **관리** �
 이전 섹션에서 특성 매핑 유형 속성에 대해 이미 소개한 바 있습니다.
 이 속성 외에도, 특성 매핑은 다음 특성도 지원합니다.
 
-- **원본 특성** - 원본 시스템의 사용자 특성(예: Azure Active Directory).
-- **대상 특성** – 대상 시스템의 사용자 특성(예: ServiceNow).
+- **원본 특성** - 원본 시스템의 사용자 특성입니다(예: Azure Active Directory).
+- **대상 특성** – 대상 시스템의 사용자 특성입니다(예: ServiceNow).
 - **이 특성을 사용하여 개체 일치** – 원본 및 대상 시스템 간에 사용자를 고유하게 식별하는 데 이 매핑을 사용할지 여부를 나타냅니다. 일반적으로 대상 애플리케이션에서 username 필드에 매핑되는 Azure AD의 userPrincipalName 또는 메일 특성에서 설정됩니다.
 - **일치 우선 순위** – 여러 일치 특성을 설정할 수 있습니다. 일치 특성이 여러 개 있으면 이 필드에 정의된 순서대로 평가됩니다. 일치 항목이 발견되는 즉시 더 이상 일치 특성을 평가하지 않습니다.
 - **이 매핑 적용**
@@ -114,14 +114,14 @@ ServiceNow, Box 및 Google Apps와 같은 일부 애플리케이션에서는 사
    * *부울* - 특성에 True 또는 False 값이 포함됩니다.
    * *날짜/시간* - 특성에 날짜 문자열이 포함됩니다.
    * *정수* - 특성에 정수가 포함됩니다.
-   * *참조* - 특성에 대상 응용 프로그램의 다른 테이블에 저장된 값을 참조하는 ID가 포함됩니다.
+   * *참조* - 특성에 대상 애플리케이션의 다른 테이블에 저장된 값을 참조하는 ID가 포함됩니다.
    * *문자열* - 특성에 텍스트 문자열이 포함됩니다. 
 * **기본 키 여부** - 대상 개체의 스키마에 특성이 기본 키 필드로 정의되어 있는지 여부입니다.
 * **필수 여부** - 대상 애플리케이션 또는 시스템에서 특성을 채워야 하는지 여부입니다.
 * **다중 값 여부** - 특성이 다중 값을 지원하는지 여부입니다.
 * **대소문자 구분 여부** - 특성이 대/소문자 구분 방식으로 평가되는지 여부입니다.
 * **API 식** - 특정 프로비전 커넥터(예: Workday)에 대한 설명서에 달리 지정된 경우 외에는 사용하지 마세요.
-* **참조된 개체 특성** - 참조 형식 특성일 경우 이 메뉴를 사용하여 이 특성과 연결된 값이 포함된 대상 응용 프로그램의 테이블과 특성을 선택할 수 있습니다. 예를 들어 "Department"라는 특성의 저장된 값이 별도의 "Departments" 테이블에 있는 개체를 참조하는 경우 "Departments.Name"을 선택합니다. 지정된 애플리케이션에 대해 지원되는 참조 테이블 및 기본 ID 필드는 미리 구성되며, 현재 Azure Portal을 사용하여 편집할 수는 없지만 [Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes)를 사용하여 편집할 수는 있습니다.
+* **참조된 개체 특성** - 참조 형식 특성일 경우 이 메뉴를 사용하여 이 특성과 연결된 값이 포함된 대상 애플리케이션의 테이블과 특성을 선택할 수 있습니다. 예를 들어 "Department"라는 특성의 저장된 값이 별도의 "Departments" 테이블에 있는 개체를 참조하는 경우 "Departments.Name"을 선택합니다. 지정된 애플리케이션에 대해 지원되는 참조 테이블 및 기본 ID 필드는 미리 구성되며, 현재 Azure Portal을 사용하여 편집할 수는 없지만 [Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes)를 사용하여 편집할 수는 있습니다.
 
 새 특성을 추가하려면 지원되는 특성 목록의 끝 부분으로 스크롤하고, 제공된 입력을 사용하여 위의 필드를 채우고, **특성 추가**를 선택합니다. 특성을 다 추가했으면 **저장**을 선택합니다. 그런 다음, **프로비전** 탭을 다시 로드해야 특성 매핑 편집기에서 새 특성을 볼 수 있습니다.
 
@@ -149,7 +149,7 @@ ServiceNow, Box 및 Google Apps와 같은 일부 애플리케이션에서는 사
 * [SaaS 앱에 자동화된 사용자 프로비전/프로비전 해제](user-provisioning.md)
 * [특성 매핑에 대한 식 작성](functions-for-customizing-application-data.md)
 * [사용자 프로 비전에 대 한 필터 범위 지정](define-conditional-rules-for-provisioning-user-accounts.md)
-* [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](use-scim-to-provision-users-and-groups.md)
+* [SCIM를 사용하여 Azure Active Directory으로부터 애플리케이션에 사용자 및 그룹의 자동 프로비전 사용](use-scim-to-provision-users-and-groups.md)
 * [SaaS App을 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
 
 

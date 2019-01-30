@@ -8,15 +8,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 30ad0c5ee069df4cd58cb76b779f611d0272d571
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0f8d6290e779872d73b0cf7a9d0d820d2ea5e007
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53741592"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848158"
 ---
 # <a name="os-patching-for-hdinsight"></a>HDInsight의 OS 패치 
-관리되는 Apache Hadoop 서비스인 HDInsight는 HDInsight 클러스터에서 사용하는 기본 VM의 OS를 패치하는 작업을 담당합니다. 2016년 8월 1일을 기준으로 Linux 기반 HDInsight 클러스터에 대한 게스트 OS 패치 정책을 변경했습니다(버전 3.4 이상). 새 정책의 목표는 패치로 인해 부팅 횟수를 크게 줄이는 것입니다. 새 정책은 월요일 또는 목요일 오전 12시(UTC)마다 시차를 두고 모든 지정된 클러스터의 노드에 있는 Linux 클러스터에서 계속 VM(가상 머신)을 패치합니다. 그러나 지정된 VM은 게스트 OS 패치로 인해 최대 30일마다 다시 부팅됩니다. 또한 새로 만든 클러스터는 생성된 날짜로부터 30일보다 이전에 첫 번째로 다시 부팅되지 않습니다. VM이 다시 부팅되면 패치가 적용됩니다.
+
+> [!IMPORTANT]
+> Ubuntu 이미지는 게시된 날부터 3개월 이내에 새 HDInsight 클러스터를 만드는 데 사용할 수 있게 됩니다. 2019년 1월부터 실행 중인 클러스터는 자동 패치되지 **않습니다**. 고객이 스크립트 동작이나 기타 메커니즘을 사용하여 실행 중인 클러스터를 패치해야 합니다.
 
 ## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Linux 기반 HDInsight 클러스터의 OS 패치 일정을 구성하는 방법
 중요한 보안 패치를 설치할 수 있도록 간혹 HDInsight 클러스터에서 가상 머신을 다시 부팅해야 합니다. 새 Linux 기반 HDInsight 클러스터(버전 3.4 이상)는 2016년 8월 1일을 기준으로 다음 일정을 사용하여 다시 부팅됩니다.

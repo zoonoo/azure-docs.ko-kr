@@ -7,12 +7,12 @@ author: viv-liu
 ms.author: viviali
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6f8bed8aba43d77cdfad49f4fe62a4c7aa2c5ce3
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: a37eb68d135d156c25c58bf91489d5b50ac2c170
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368072"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423123"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Power BI 대시보드에서 Azure IoT Central 데이터 시각화 및 분석
 
@@ -29,7 +29,7 @@ Azure IoT Central Analytics Power BI 솔루션 템플릿을 사용하여 IoT 디
 
 이 솔루션 템플릿은 [연속 데이터 내보내기](howto-export-data.md)에서 Azure Blob 저장소 계정으로 데이터를 가져오는 파이프라인을 설정합니다. 이 데이터는 Azure Functions, Azure Data Factory 및 Azure SQL Database를 거치며 처리 및 변환됩니다. PBIX 파일로 다운로드할 수 있는 Power BI 보고서에서 출력을 시각화하고 분석할 수 있습니다. 이러한 모든 리소스는 필요에 따라 각 구성 요소를 사용자 지정할 수 있도록 Azure 구독에서 생성됩니다. 이 솔루션 템플릿은 완전한 오픈 소스이므로 [Github 리포지토리](https://aka.ms/iotcentralgithubpowerbisolutiontemplate)를 방문하여 아키텍처에 대해 자세히 알아보고 솔루션을 확장할 수 있습니다.
 
-## <a name="get-the-azure-iot-central-analytics-solution-templatehttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>Microsoft AppSource에서 [Azure IoT Central Analytics 솔루션 템플릿](https://aka.ms/iotcentralpowerbisolutiontemplate) 받기
+## <a name="get-the-azure-iot-central-analytics-solution-templatehttpsbpsolutiontemplatescomnamemicrosoft-iotcontinuousdataexporttemplate-from-microsoft-appsource"></a>Microsoft AppSource에서 [Azure IoT Central Analytics 솔루션 템플릿](https://bpsolutiontemplates.com/?name=Microsoft-IoTContinuousDataExportTemplate) 받기
 
 ## <a name="prerequisites"></a>필수 조건
 템플릿을 설정하려면 다음이 필요합니다.
@@ -52,7 +52,7 @@ Azure IoT Central Analytics Power BI 솔루션 템플릿을 사용하여 IoT 디
 
 ## <a name="resources"></a>리소스
 
-[Azure IoT Central Analytics 솔루션 템플릿](https://aka.ms/iotcentralpowerbisolutiontemplate)을 가져오려면 AppSource를 방문합니다.
+[Azure IoT Central Analytics 솔루션 템플릿](https://bpsolutiontemplates.com/?name=Microsoft-IoTContinuousDataExportTemplate)을 가져오려면 AppSource를 방문합니다.
 
 아키텍처에 대한 자세히 알아보고 솔루션을 확장하려면 [Github 리포지토리](https://aka.ms/iotcentralgithubpowerbisolutiontemplate)를 방문합니다.
 
@@ -61,4 +61,4 @@ Azure IoT Central Analytics Power BI 솔루션 템플릿을 사용하여 IoT 디
 이제 Power BI에서 데이터를 시각화하는 방법을 파악했으므로 다음과 같이 다음 단계를 제안합니다.
 
 > [!div class="nextstepaction"]
-> [장치를 관리하는 방법](howto-manage-devices.md)
+> [디바이스를 관리하는 방법](howto-manage-devices.md)

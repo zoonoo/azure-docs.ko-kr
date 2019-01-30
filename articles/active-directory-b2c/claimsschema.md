@@ -3,19 +3,19 @@ title: ClaimsSchema  - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책의 ClaimsSchema 요소를 지정하는 방법을 설명합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2d11283ccf58fdc356742d6f4042afd15bf6faab
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: a49553941b83e323f23f20b794a464f47ef31981
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568645"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849093"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -44,7 +44,7 @@ ms.locfileid: "51568645"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| Id | yes | 클레임 형식에 사용되는 식별자입니다. 다른 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
+| Id | 예 | 클레임 형식에 사용되는 식별자입니다. 다른 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
 
 **ClaimType** 요소에는 다음과 같은 요소가 포함됩니다.
 
@@ -71,8 +71,8 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 이름 | yes | Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed 또는 WsTrust입니다. |
-| PartnerClaimType | yes | 사용할 클레임 형식 이름입니다. |
+| 이름 | 예 | Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 다음과 같습니다.  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed 또는 WsTrust. |
+| PartnerClaimType | 예 | 사용할 클레임 형식 이름입니다. |
 
 다음 예제에서는 ID 경험 프레임워크가 SAML2 ID 공급자 또는 신뢰 당사자 애플리케이션과 상호 작용할 때 **surname** 클레임이 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`에 매핑되며 OpenIdConnect 및 OAuth2와 상호 작용할 때는 `family_name`에 매핑됩니다.
 
@@ -106,7 +106,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| type | yes | 클레임 마스크의 형식입니다. 가능한 값은 `Simple` 또는 `Regex`입니다. `Simple` 값은 문자열 클레임의 앞부분에 단순 텍스트 마스크가 적용됨을 나타냅니다. `Regex` 값은 문자열 클레임 전체에 정규식이 적용됨을 나타냅니다.  `Regex` 값을 지정하는 경우에는 사용할 정규식과 함께 선택적 특성도 정의해야 합니다. |
+| type | 예 | 클레임 마스크의 형식입니다. 가능한 값은 `Simple` 또는 `Regex`입니다. `Simple` 값은 문자열 클레임의 앞부분에 단순 텍스트 마스크가 적용됨을 나타냅니다. `Regex` 값은 문자열 클레임 전체에 정규식이 적용됨을 나타냅니다.  `Regex` 값을 지정하는 경우에는 사용할 정규식과 함께 선택적 특성도 정의해야 합니다. |
 | Regex | 아니요 | **Type**을 `Regex`로 설정하는 경우 사용할 정규식을 지정합니다.
 
 다음 예제에서는 `Simple` 마스크를 사용하여 **PhoneNumber** 클레임을 구성합니다.
@@ -161,9 +161,9 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 텍스트 | yes | 이 옵션에 대해 사용자 인터페이스에서 사용자에게 표시되는 표시 문자열입니다. |
-|값 | yes | 이 옵션 선택과 연결된 클레임 값입니다. |
-| SelectByDefault | 아니요 | UI에서 이 옵션을 기본적으로 선택해야 하는지 여부를 나타냅니다. 가능한 값은 True 또는 False입니다. |
+| 텍스트 | 예 | 이 옵션에 대해 사용자 인터페이스에서 사용자에게 표시되는 표시 문자열입니다. |
+|값 | 예 | 이 옵션 선택과 연결된 클레임 값입니다. |
+| SelectByDefault | 아니요 | UI에서 이 옵션을 기본적으로 선택해야 하는지 여부를 나타냅니다. 가능한 값은 다음과 같습니다. True 또는 False입니다. |
 
 다음 예제에서는 기본값을 `New York`으로 설정하여 **city** 드롭다운 목록 클레임을 구성합니다.
 
@@ -190,7 +190,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| RegularExpression | yes | 이 형식의 클레임이 유효하려면 일치해야 하는 정규식입니다. |
+| RegularExpression | 예 | 이 형식의 클레임이 유효하려면 일치해야 하는 정규식입니다. |
 | HelpText | 아니요 | 이 클레임의 패턴 또는 정규식입니다. |
 
 다음 예제에서는 정규식 입력 유효성 검사 및 도움말 텍스트를 사용하여 **email** 클레임을 구성합니다.

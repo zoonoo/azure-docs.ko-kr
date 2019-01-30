@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: c779344f4cb0544009952423b6771b75482c3061
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 1ee45699040f58a1317009ab44bb5ac863323869
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353965"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816758"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -113,6 +113,26 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 **오류 메시지**: 현재 Azure Backup은 표준 SSD 디스크를 지원하지 않습니다. <br>
 
 현재 Azure Backup은 [즉시 복원](backup-instant-restore-capability.md)으로 업그레이드된 자격 증명 모음에만 표준 SSD 디스크를 지원합니다.
+
+## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - 다른 백업 작업이 현재 진행 중이어서 백업을 시작할 수 없습니다.
+
+**오류 코드**: UserErrorBackupOperationInProgress <br>
+**오류 메시지**: 다른 백업 작업이 현재 진행 중이어서 백업을 시작할 수 없습니다.<br>
+
+기존 백업 작업이 진행 중이어서 최근 백업 작업이 실패했습니다. 현재 작업이 완료될 때까지 새 백업 작업을 시작할 수 없습니다. 현재 진행 중인 백업 작업이 완료된 후 다른 백업 작업을 트리거 또는 예약해야 합니다. 백업 작업 상태를 확인하려면 아래 단계를 수행합니다.
+
+1. Azure Portal에 로그인하고, **모든 서비스**를 클릭합니다. Recovery Services를 입력하고 **Recovery Services 자격 증명 모음**을 클릭합니다. 복구 서비스 자격 증명 모음의 목록이 표시됩니다.
+2. 복구 서비스 자격 증명 모음 목록에서 백업이 구성된 자격 증명 모음을 선택합니다.
+3. 자격 증명 모음 대시보드 메뉴에서 **백업 작업**을 클릭하여 모든 백업 작업을 표시합니다.
+
+    * 백업 작업이 진행 중이면 백업 작업이 완료될 때까지 기다리거나 취소합니다.
+        * 백업 작업을 취소하려면 백업 작업을 마우스 오른쪽 단추로 클릭하고 **취소**를 클릭하거나 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0)을 사용합니다.
+    * 다른 자격 증명 모음에서 백업을 다시 구성한 경우 이전 자격 증명 모음에서 실행 중인 백업이 없는지 확인합니다. 있는 경우 백업 작업을 취소합니다.
+        * 백업 작업을 취소하려면 백업 작업을 마우스 오른쪽 단추로 클릭하고 **취소**를 클릭하거나 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0)을 사용합니다.
+4. 백업 작업을 다시 시도합니다.
+
+예약된 백업 작업이 다음 백업 구성과 충돌하여 오래 걸리는 경우 [모범 사례](backup-azure-vms-introduction.md#best-practices), [백업 성능](backup-azure-vms-introduction.md#backup-performance) 및 [복원 고려 사항](backup-azure-vms-introduction.md#restore-considerations)을 검토하세요.
+
 
 
 ## <a name="causes-and-solutions"></a>원인 및 해결 방법

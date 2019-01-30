@@ -2,18 +2,19 @@
 title: 가동 중단 및 재해로부터 Azure Service Bus 애플리케이션 보호 | Microsoft Docs
 description: 잠재적 Service Bus 가동 중단으로부터 애플리케이션을 보호하는 기술.
 services: service-bus-messaging
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: 85481deceeadaf4154659d35fccf777f489bd782
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: e9fb1795ecb26fc87fd8f3ff000d125d71e9d594
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393710"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846713"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Service Bus 가동 중단 및 재해로부터 애플리케이션을 보호하기 위한 모범 사례
 
@@ -69,8 +70,8 @@ Service Bus는 여러 메시징 저장소를 사용하여 큐 또는 항목에 �
 
 수동 복제를 사용하는 경우 다음과 같은 경우에 메시지가 유실되거나 중복되어 수신될 수 있습니다.
 
-* **메시지 지연 또는 손실**: 발신자가 메시지 m1을 기본 큐로 보내고, 수신자가 m1을 받기 전에 큐가 사용할 수 없는 상태가 되었다고 가정해 보겠습니다. 발신자는 후속 메시지 m2를 보조 큐로 보냅니다. 기본 큐가 일시적으로 사용할 수 없는 상태였다면 수신자는 큐가 다시 사용 가능하게 된 후에 m1을 받게 됩니다. 재해가 발생한 경우라면 수신자가 m1을 아예 받지 못할 수도 있습니다.
-* **중복 수신**: 발신자가 메시지 m을 기본 큐로 보냈다고 가정해 보겠습니다. Service Bus에서 성공적으로 m을 처리했지만 응답을 보내는 데는 실패합니다. 보내기 작업 시간이 초과된 후, 발신자는 m의 동일한 복사본을 보조 큐에 보냅니다. 기본 큐가 사용할 수 없는 상태가 되기 전에 수신자가 m의 첫 번째 복사본을 받을 수 있었다면, 수신자는 거의 동일한 시기에 두 복사본을 받게 됩니다. 기본 큐가 사용할 수 없는 상태가 되기 전에 수신자가 m의 첫 번째 복사본을 받을 수 없었다면, 수신자는 먼저 m의 두 번째 복사본만 받게 되고, 기본 큐가 다시 사용할 수 있게 되면 첫 번째 복사본도 받게 됩니다.
+* **메시지 지연 또는 손실**: 발신자가 메시지 m1을 기본 큐로 보낸 다음, 수신자가 m1을 받기 전에 큐가 사용할 수 없는 상태가 되었다고 가정해 보겠습니다. 발신자는 후속 메시지 m2를 보조 큐로 보냅니다. 기본 큐가 일시적으로 사용할 수 없는 상태였다면 수신자는 큐가 다시 사용 가능하게 된 후에 m1을 받게 됩니다. 재해가 발생한 경우라면 수신자가 m1을 아예 받지 못할 수도 있습니다.
+* **중복 수신**: 발신자가 메시지 m을 기본 큐로 보낸다고 가정해 보겠습니다. Service Bus에서 성공적으로 m을 처리했지만 응답을 보내는 데는 실패합니다. 보내기 작업 시간이 초과된 후, 발신자는 m의 동일한 복사본을 보조 큐에 보냅니다. 기본 큐가 사용할 수 없는 상태가 되기 전에 수신자가 m의 첫 번째 복사본을 받을 수 있었다면, 수신자는 거의 동일한 시기에 두 복사본을 받게 됩니다. 기본 큐가 사용할 수 없는 상태가 되기 전에 수신자가 m의 첫 번째 복사본을 받을 수 없었다면, 수신자는 먼저 m의 두 번째 복사본만 받게 되고, 기본 큐가 다시 사용할 수 있게 되면 첫 번째 복사본도 받게 됩니다.
 
 [Service Bus 조정된 메시지를 사용한 지역 복제][Geo-replication with Service Bus Brokered Messages] 샘플을 통해 메시지 엔터티를 수동 복제하는 방법을 볼 수 있습니다.
 
@@ -94,7 +95,7 @@ Azure Portal을 사용하여 새로운 네임스페이스에서만 가용성 영
 
 * [Azure Service Bus 지역 재해 복구](service-bus-geo-dr.md)
 * [Azure SQL Database 비즈니스 연속성][Azure SQL Database Business Continuity]
-* [Azure용 복원 응용 프로그램 디자인][Azure resiliency technical guidance]
+* [Azure용 복원 애플리케이션 디자인][Azure resiliency technical guidance]
 
 [Service Bus Authentication]: service-bus-authentication-and-authorization.md
 [Partitioned messaging entities]: service-bus-partitioning.md

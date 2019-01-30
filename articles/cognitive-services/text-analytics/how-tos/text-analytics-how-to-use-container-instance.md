@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 513067f09d8cac64ca747ff217c84667c5469d82
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 19ac1819c3b098597819ec75adcedeca929e802d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248256"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464547"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Azure Kubernetes Service에 언어 감지 컨테이너 배포
 
@@ -38,7 +38,7 @@ ms.locfileid: "54248256"
 
 이 절차에서는 언어 감지를 위해 Cognitive Services 컨테이너 샘플을 로드하고 실행합니다. 샘플은 클라이언트 애플리케이션용 1개, Cognitive Services 컨테이너용 1개, 모두 2개의 컨테이너를 포함합니다. 이러한 두 이미지를 고유한 Azure Container Registry에 푸시해야 합니다. 이미지가 사용자 고유의 레지스트리에 추가되면 Azure Kubernetes Service를 만들어 이러한 이미지에 액세스하고 컨테이너를 실행합니다. 컨테이너가 실행되는 동안 **kubectl** CLI를 사용하여 컨테이너 성능을 감시합니다. HTTP 요청을 사용하여 클라이언트 애플리케이션에 액세스하고 결과를 봅니다. 
 
-
+![샘플 컨테이너 실행에 대한 개념적 아이디어](../media/how-tos/container-instance-sample/containers.png)
 
 ## <a name="the-sample-containers"></a>샘플 컨테이너
 
@@ -407,8 +407,8 @@ az group delete --name cogserv-container-rg
 
 ## <a name="next-steps"></a>다음 단계 
 
-> [!div class="nextstepaction"]
-> [Text Analytics 연결된 서비스 사용](../vs-text-connected-service.md)
+* 추가적인 [Cognitive Services 컨테이너](../../cognitive-services-container-support.md) 사용
+* Text Analytics 연결된 서비스 사용(../vs-text-connected-service.md)
 
 
 <!--

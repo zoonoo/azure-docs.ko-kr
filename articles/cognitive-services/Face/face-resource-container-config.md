@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: eabbe8d771520d5b1d5360a3d86b96d27ea08277
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: a75f5ec11644bbd64a6bafeb8585371437eedc3b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359445"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476923"
 ---
 # <a name="configure-containers"></a>컨테이너 구성
 
@@ -33,6 +33,7 @@ Face 컨테이너의 구성 설정은 계층적이며, 모든 컨테이너는 �
 * [CloudAI](#cloudai-configuration-settings)
 * [Eula](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
+* [Http 프록시 자격 증명 설정](#http-proxy-credentials-settings)
 * [로깅](#logging-configuration-settings)
 * [탑재](#mounts-configuration-settings)
 
@@ -162,6 +163,11 @@ Cognitive Services 컨테이너는 Azure 사용에 관한 [계약](https://go.mi
 | `TlsConnectionEstablishmentTimeoutMs` | 정수  | Fluentd 서버와 SSL/TLS 연결을 설정하기 위한 시간 제한(밀리초)입니다. 기본값은 10000밀리초(10초)입니다.<br/> `UseTLS`가 false로 설정되어 있는 경우 이 값은 무시됩니다. |
 | `UseTLS` | BOOLEAN | 컨테이너가 Fluentd 서버와 통신하기 위해 SSL/TLS를 사용해야 하는지 여부를 나타냅니다. 기본값은 False입니다. |
 
+
+## <a name="http-proxy-credentials-settings"></a>Http 프록시 자격 증명 설정
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+
 ## <a name="logging-configuration-settings"></a>로깅 구성 설정
 
 `Logging` 구성 설정은 컨테이너에 대한 ASP.NET Core 로깅 지원을 관리합니다. ASP.NET Core 애플리케이션에 사용할 수 있는 컨테이너에 대해 동일한 구성 설정 및 값을 사용할 수 있습니다. Face 컨테이너에서 지원되는 로깅 공급자는 다음과 같습니다.
@@ -212,3 +218,7 @@ Face 컨테이너는 필요에 따라 출력 탑재를 지원하며 입력 탑�
   ```
 
 Face 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 데이터베이스 데이터를 저장하지 않습니다. 대신, Face 컨테이너에서 스토리지 시나리오를 제공하여 학습 및 데이터베이스 데이터를 관리합니다. 스토리지 시나리오를 사용하는 방법에 대한 자세한 내용은 [스토리지 시나리오 설정](#storage-scenario-settings)을 참조하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+* 추가적인 [Cognitive Services 컨테이너](../cognitive-services-container-support.md) 사용

@@ -11,17 +11,68 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/7/2019
+ms.date: 1/22/2019
 ms.author: raiye
-ms.openlocfilehash: 154b925cc173a1a8fac697e347759764807a3052
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0a9b811f3781cd181c17b9ed92b9ca653ee91af0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107908"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828454"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
+
+>[!NOTE]
+>1월 게스트 OS는 현재 자동 업데이트에 구성된 클라우드 서비스 VM에 배포되고 있습니다. 롤아웃이 완료되면 이 버전은 Azure Portal 및 구성 파일을 통해 수동으로 업데이트할 수 있습니다. 다음과 같은 패치가 1월 게스트 OS에 포함됩니다. 이 목록은 변경될 수 있습니다.
+
+## <a name="january-2019-guest-os"></a>2019년 1월 게스트 OS
+
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| Rel 19-01 | [4480961] | Windows 10 보안 | 5.27 | 2019년 1월 8일 |
+| Rel 19-01 | [4480964] | Windows 보안 | 4.62 | 2019년 1월 8일 |
+| Rel 19-01 | [4480972] | Windows 보안 | 3.69 | 2019년 1월 8일 |
+| Rel 19-01 | [4480960] | Windows 보안 | 2.82 | 2019년 1월 8일 |
+| Rel 19-01 | [4480074] | .NET 4.x 보안 | 4.62 | 2019년 1월 8일 |
+| Rel 19-01 | [4480075] | .NET 4.x 보안 | 3.69 | 2019년 1월 8일 |
+| Rel 19-01 | [4480076] | .NET 4.x 보안 | 2.82 | 2019년 1월 8일 |
+| Rel 19-01 | [4480086] | .NET 3.x 보안 | 4.62 | 2019년 1월 8일 |
+| Rel 19-01 | [4480083] | .NET 3.x 보안 | 3.69 | 2019년 1월 8일 |
+| Rel 19-01 | [4480085] | .NET 3.x 보안 | 2.82 | 2019년 1월 8일 |
+| Rel 19-01 | [4480979] | 깜박임 | 3.69, 4.62, 5.27 | 2019년 1월 8일 |
+| Rel 19-01 | [4480965] | Internet Explorer | 2.82, 3.69, 4.62 | 2019년 1월 8일 |
+| 해당 없음 | [4471318] | 12월 비보안 롤업 | 2.82 | 2018년 12월 11일 |
+| 해당 없음 | [4470641] | 12월 비보안 롤업 .NET 3.x | 2.82 | 2018년 12월 11일 |
+| 해당 없음 | [4470637] | 12월 비보안 롤업 .NET 4.x | 2.82 | 2018년 12월 11일 |
+| 해당 없음 | [4471330] | 12월 비보안 롤업 | 3.69 | 2018년 12월 11일 |
+| 해당 없음 | [4470629] | 12월 비보안 롤업 .NET 3.x | 3.69 | 2018년 12월 11일 |
+| 해당 없음 | [4470623] | 12월 비보안 롤업 .NET 4.x | 3.69 | 2018년 12월 11일 |
+| 해당 없음 | [4471320] | 12월 비보안 롤업 | 4.62 | 2018년 12월 11일 |
+| 해당 없음 | [4470630] | 12월 비보안 롤업 .NET 3.x | 4.62 | 2018년 12월 11일 |
+| 해당 없음 | [4470622] | 12월 비보안 롤업 .NET 4.x | 4.62 | 2018년 12월 11일 |
+
+[4480961]: http://support.microsoft.com/kb/4480961
+[4480964]: http://support.microsoft.com/kb/4480964
+[4480972]: http://support.microsoft.com/kb/4480972
+[4480960]: http://support.microsoft.com/kb/4480960
+[4480074]: http://support.microsoft.com/kb/4480074
+[4480075]: http://support.microsoft.com/kb/4480075
+[4480076]: http://support.microsoft.com/kb/4480076
+[4480086]: http://support.microsoft.com/kb/4480086
+[4480083]: http://support.microsoft.com/kb/4480083
+[4480085]: http://support.microsoft.com/kb/4480085
+[4480979]: http://support.microsoft.com/kb/4480979
+[4480965]: http://support.microsoft.com/kb/4480965
+[4471318]: http://support.microsoft.com/kb/4471318
+[4470641]: http://support.microsoft.com/kb/4470641
+[4470637]: http://support.microsoft.com/kb/4470637
+[4471330]: http://support.microsoft.com/kb/4471330
+[4470629]: http://support.microsoft.com/kb/4470629
+[4470623]: http://support.microsoft.com/kb/4470623
+[4471320]: http://support.microsoft.com/kb/4471320
+[4470630]: http://support.microsoft.com/kb/4470630
+[4470622]: http://support.microsoft.com/kb/4470622
 
 ## <a name="december-2018-guest-os"></a>2018년 12월 게스트 OS
 

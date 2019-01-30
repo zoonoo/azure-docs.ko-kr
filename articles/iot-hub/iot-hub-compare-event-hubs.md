@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.openlocfilehash: 830052341c4f0e3488c8e63da59cbef1f72e158a
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 20bb0cb6982bcbea6b18989099322cfd3389b0b0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42141541"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819648"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>IoT 디바이스를 Azure에 연결: IoT Hub 및 Event Hubs
 
@@ -30,13 +30,14 @@ Azure IoT Hub는 IoT 디바이스를 연결하여 비즈니스 인사이트 및 
 | IoT 기능 | IoT Hub 표준 계층 | IoT Hub 기본 계층 | Event Hubs |
 | --- | --- | --- | --- |
 | 디바이스-클라우드 메시징 | ![확인][checkmark] | ![확인][checkmark] | ![확인][checkmark] |
-| 프로토콜: webSocket을 통한 HTTPS, AMQP, AMQP | ![확인][checkmark] | ![확인][checkmark] | ![확인][checkmark] |
-| 프로토콜: webSocket을 통한 MQTT, MQTT | ![확인][checkmark] | ![확인][checkmark] |  |
+| Protocols: webSocket을 통한 HTTPS, AMQP, AMQP | ![확인][checkmark] | ![확인][checkmark] | ![확인][checkmark] |
+| Protocols: MQTT, webSocket을 통한 MQTT | ![확인][checkmark] | ![확인][checkmark] |  |
 | 장치 단위 ID | ![확인][checkmark] | ![확인][checkmark] |  |
 | 디바이스에서 파일 업로드 | ![확인][checkmark] | ![확인][checkmark] |  |
 | Device Provisioning Service | ![확인][checkmark] | ![확인][checkmark] |  |
 | 클라우드-장치 메시징 | ![확인][checkmark] |  |  |
 | 디바이스 쌍 및 디바이스 관리 | ![확인][checkmark] |  |  |
+| 디바이스 스트림(미리 보기) | ![확인][checkmark] |  |  |
 | IoT Edge | ![확인][checkmark] |  |  |
 
 유일한 사용 사례가 디바이스-클라우드 데이터 수집인 경우에도 IoT 디바이스 연결을 위해 설계된 서비스를 제공하는 IoT Hub를 사용하실 것을 강력하게 권장합니다. 

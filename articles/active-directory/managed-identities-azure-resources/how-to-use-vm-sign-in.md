@@ -4,7 +4,7 @@ description: 스크립트 클라이언트 로그인 및 리소스 액세스를 �
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: bf363e4b03fb604e1b9af0d30b6e4ac471a41821
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ce25c05d2b3de3fcf6b7318b90590b84f3ee9c52
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980290"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423190"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>로그인을 위해 Azure VM에서 Azure 리소스에 대한 관리 ID를 사용하는 방법 
 
@@ -83,7 +83,7 @@ Azure AD를 지원하고 Azure 리소스의 관리 ID 및 해당하는 리소스
 
 다음과 같은 응답은 Azure 리소스의 VM 관리 ID가 올바르게 구성되지 않았음을 나타낼 수 있습니다.
 
-- PowerShell: *Invoke-WebRequest: 원격 서버에 연결할 수 없습니다.*
+- PowerShell: *Invoke-WebRequest : 원격 서버에 연결할 수 없습니다.*
 - CLI: *MSI: 'HTTPConnectionPool(host='localhost', port=50342) 오류를 표시하여 'http://localhost:50342/oauth2/token'에서 토큰을 검색하지 못했습니다.* 
 
 이러한 오류 중 하나를 수신하면 [Azure Portal](https://portal.azure.com)에서 Azure VM에 반환됩니다.

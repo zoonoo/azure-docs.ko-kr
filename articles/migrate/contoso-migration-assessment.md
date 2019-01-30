@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: c2afd1c5a85ec393acfb0f754dd4ca9d77162061
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 18e8b7699a388dabbf0e4f5cff7d4fb927e549c2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065497"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853819"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso 마이그레이션: Azure로의 마이그레이션을 위한 온-프레미스 워크로드 평가
 
@@ -206,7 +206,7 @@ Contoso에서 평가를 수행하는 방법은 다음과 같습니다.
 > [!NOTE]
 > 대규모 평가의 경우:
 > - 여러 평가를 동시에 실행하고, **모든 평가** 페이지에서 평가 상태를 확인합니다.
-> - 평가를 [SQL Server 데이터베이스](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=ssdt-18vs2017#import-assessment-results-into-a-sql-server-database)에 통합합니다.
+> - 평가를 [SQL Server 데이터베이스](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=ssdt-18vs2017)에 통합합니다.
 > - 평가를 [Power BI 보고서](https://docs.microsoft.com/sql/dma/dma-powerbiassesreport?view=ssdt-18vs2017)에 통합합니다.
 
 ## <a name="step-3-prepare-for-vm-assessment-by-using-azure-migrate"></a>3단계: Azure Migrate를 사용하여 VM 평가 준비

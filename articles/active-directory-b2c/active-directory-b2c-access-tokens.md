@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 액세스 토큰 요청 | Microsoft Docs
 description: 이 문서에서는 클라이언트 애플리케이션을 설정하고 액세스 토큰을 획득하는 방법을 보여 줍니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2043e0fc9fa63903073311856e7e8d31fb34c506
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f3db56c7ce61960fca0e5347b2385bcc65a88354
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015352"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845149"
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: 액세스 토큰 요청
 
@@ -38,12 +38,12 @@ ms.locfileid: "51015352"
 
 1. Azure Portal의 Azure AD B2C 기능 메뉴에서 **애플리케이션**을 클릭합니다.
 2. 메뉴의 위쪽에서 **+추가**를 클릭합니다.
-3. 소비자에게 애플리케이션을 설명하는 애플리케이션의 **이름** 을 입력합니다. 예를 들어 "Contoso API"를 입력할 수 있습니다.
+3. 소비자에게 애플리케이션을 설명하는 애플리케이션의 **이름**을 입력합니다. 예를 들어 "Contoso API"를 입력할 수 있습니다.
 4. **웹앱/ 웹 API 포함** 스위치를 **예**로 설정합니다.
 5. **회신 URL**에 대한 임의 값을 입력합니다. 예를 들어 `https://localhost:44316/`을 입력합니다. API가 Azure AD B2C에서 직접 토큰을 받지 않아야 하므로 값은 중요하지 않습니다.
 6. **앱 ID URI**를 입력합니다. Web API에 사용되는 식별자입니다. 예를 들어 상자에 '참고'를 입력합니다. **앱 ID URI**는 `https://{tenantName}.onmicrosoft.com/notes`가 됩니다.
-7. **만들기** 를 클릭하여 응용 프로그램을 등록합니다.
-8. 방금 만든 애플리케이션을 클릭하고, 나중에 코드에서 사용할 전역적으로 고유한 **애플리케이션 클라이언트 ID** 를 적어둡니다.
+7. **만들기**를 클릭하여 애플리케이션을 등록합니다.
+8. 방금 만든 애플리케이션을 클릭하고, 나중에 코드에서 사용할 전역적으로 고유한 **애플리케이션 클라이언트 ID**를 적어둡니다.
 
 ### <a name="publishing-permissions"></a>권한 게시
 
@@ -105,7 +105,7 @@ scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread%20openid%20offline_ac
 
 OpenID Connect 표준은 몇 가지 특별한 "범위" 값을 지정합니다. 다음과 같은 특별한 범위는 "사용자의 프로필에 액세스"에 대한 권한을 나타냅니다.
 
-* **openid**: ID 토큰 요청
+* **openid**: ID 토큰을 요청합니다.
 * **오프라인\_액세스**: 새로 고침 토큰을 요청합니다([인증 코드 흐름](active-directory-b2c-reference-oauth-code.md) 사용).
 
 `/authorize` 요청의 `response_type` 매개 변수가 `token`을 포함하는 경우 `scope` 매개 변수는 권한이 부여될 하나 이상의 리소스 범위(`openid` 및 `offline_access` 이외)를 포함해야 합니다. 그렇지 않은 경우 `/authorize` 요청은 실패와 함께 종료됩니다.

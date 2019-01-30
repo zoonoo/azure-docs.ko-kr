@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 0a20f7629fbc102ae05c51c7388bbfd6915d6204
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 15393f8e10fcda99820d0279d46edf88c7781ff8
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257387"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811974"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>고급 미디어 인코더 Premium 워크플로 자습서
 ## <a name="overview"></a>개요
@@ -293,7 +293,7 @@ Azure Media Services 동적 패키징과 호환성을 위해 멀티플렉서의 
 *파일 출력을 생성하는 오디오 Muxer*
 
 ### <a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>.ISM SMIL 파일 추가
-또한 Media Services 자산에서 MP4 파일 모두(및 오디오 전용 MP4)와 함께 작업하는 동적 패키징의 경우 매니페스트 파일이 필요합니다(또는 "SMIL"(동기화 멀티미디어 통합 언어) 파일이라고도 함). 이 파일은 동적 패키징에 사용 가능하고 오디오 스트리밍에 고려하는 MP4 파일을 Azure Media Services에 나타냅니다. 단일 오디오 스트림이 있는 MP4의 집합에 대한 일반적인 매니페스트 파일은 다음과 같습니다.
+또한 Media Services 자산에서 MP4 파일 모두(및 오디오 전용 MP4)와 함께 작업하는 동적 패키징의 경우 매니페스트 파일(“SMIL”(Synchronized Multimedia Integration Language) 파일이라고도 함)이 필요합니다. 이 파일은 동적 패키징에 사용 가능하고 오디오 스트리밍에 고려하는 MP4 파일을 Azure Media Services에 나타냅니다. 단일 오디오 스트림이 있는 MP4의 집합에 대한 일반적인 매니페스트 파일은 다음과 같습니다.
 
 ```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -692,8 +692,8 @@ xml을 더 자세히 알아보려면 다음과 같습니다.
 
 먼저 어떤 지점에서 어떤 지점까지 비디오를 트리밍하려는지 결정하는 방법이 필요합니다. 워크플로에 덜 숙련된 사용자에게 편리하도록 두 개의 속성을 그래프의 루트에 게시합니다. 이렇게 하려면 디자이너 화면을 마우스 오른쪽 단추로 클릭하고 "속성 추가"를 선택합니다.
 
-* 첫 번째 속성: 형식의 "ClippingTimeStart": "시간 코드"
-* 두 번째 속성: 형식의 "ClippingTimeEnd": "시간 코드"
+* 첫 번째 속성: 다음 형식의 “ClippingTimeStart”: “TIMECODE”
+* 두 번째 속성: 다음 형식의 “ClippingTimeEnd”: “TIMECODE”
 
 ![클리핑 시작 시간에 속성 대화 상자 추가](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-clip-start-time.png)
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a68e4f70dac7aace9d49a41ecf282525ce6b1fd6
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 665ceabe062fce454db377a384b1d12ba6868c40
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752880"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851728"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>개인 Docker 컨테이너 레지스트리로 인증
 
@@ -33,6 +33,8 @@ az acr login --name <acrName>
 ```
 
 `az acr login`을 사용하여 로그인하는 경우 CLI는 [az login](/cli/azure/reference-index#az-login)을 실행할 때 만든 토큰을 사용하여 원활하게 레지스트리로 세션을 인증합니다. 이러한 방식으로 로그인하고 나면 자격 증명이 캐시되고 후속 `docker` 명령에 사용자 이름 또는 암호가 필요하지 않습니다. 토큰이 만료될 경우 다시 `az acr login` 명령을 사용하여 토큰을 새로 고친 후 다시 인증합니다. Azure ID와 함께 `az acr login`을 사용하면 [역할 기반 액세스](../role-based-access-control/role-assignments-portal.md)를 제공합니다.
+
+Azure AD에서 개인 ID로 레지스트리에 로그인하려는 시나리오가 있을 수 있습니다. 교차 서비스 시나리오 또는 개별 액세스를 관리하지 않으려는 작업 그룹의 요구 사항을 처리해야 하는 시나리오에서는 [Azure 리소스에 대한 관리 ID](container-registry-authentication-managed-identity.md)로 로그인할 수도 있습니다.
 
 ## <a name="service-principal"></a>서비스 주체
 

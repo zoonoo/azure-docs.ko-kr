@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: 099bdc25c27e264c3c7732243068307856840409
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 655159185a6011d79b927fd16d2957e2a59c8376
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44030883"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437795"
 ---
 # <a name="test-your-app-in-azure"></a>Azure에서 앱 테스트 
 이 문서에서는 DevTest Lab을 사용하여 Azure에서 애플리케이션을 테스트하는 방법에 대한 단계를 제공합니다. 먼저 랩 내에서 파일 공유를 설정하고 로컬 개발 컴퓨터의 드라이브 및 랩 내의 VM으로 탑재합니다. 그러면 Visual Studio 2017을 사용하여 앱을 파일 공유에 배포하므로 랩의 VM에서 앱을 실행할 수 있습니다.  
@@ -25,12 +25,12 @@ ms.locfileid: "44030883"
 ## <a name="prerequisites"></a>필수 조건 
 1. Azure 구독이 아직 없는 경우에는 [Azure 구독을 만들고](https://azure.microsoft.com/free/) [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. [이 문서](devtest-lab-create-lab.md)의 지침에 따라 Azure DevTest Labs를 사용하여 랩을 만듭니다. 나중에 로그인할 때 쉽게 찾을 수 있도록 랩을 대시보드에 고정합니다. Azure DevTest Labs를 사용하면 폐기물을 최소화하고 비용을 제어하여 Azure 내에서 리소스를 빠르게 만들 수 있습니다. DevTest Labs에 대한 자세한 내용은 [개요](devtest-lab-overview.md)를 참조하세요. 
-3. [저장소 계정 만들기](../storage/common/storage-create-storage-account.md) 문서의 지침에 따라 랩의 리소스 그룹에 Azure Storage 계정을 만듭니다. **저장소 계정 만들기** 페이지에서 **리소스 그룹**에 **기존 사용**을 선택하고 **랩 리소스 그룹**을 선택합니다. 
+3. [스토리지 계정 만들기](../storage/common/storage-create-storage-account.md) 문서의 지침에 따라 랩의 리소스 그룹에 Azure Storage 계정을 만듭니다. **저장소 계정 만들기** 페이지에서 **리소스 그룹**에 **기존 사용**을 선택하고 **랩 리소스 그룹**을 선택합니다. 
 4. [Azure 파일에 파일 공유 만들기](../storage/files/storage-how-to-create-file-share.md) 문서에 있는 지침에 따라 Azure Storage에서 파일 공유를 만듭니다. 
 
 ## <a name="mount-the-file-share-on-your-local-machine"></a>로컬 컴퓨터에 파일 공유 탑재
 1. 로컬 컴퓨터에서는 [Windows와 함께 Azure 파일 공유 사용](../storage/files/storage-how-to-use-files-windows.md) 문서의 [Windows에 Azure 파일 공유 자격 증명 유지](../storage/files/storage-how-to-use-files-windows.md#persisting-azure-file-share-credentials-in-windows) 섹션에 있는 스크립트를 사용합니다. 
-2. 그런 다음, `net use` 명령을 사용하여 파일 공유를 컴퓨터에 탑재합니다. 다음은 샘플 명령입니다. 명령을 실행하기 전에 Azure Storage 이름 및 파일 공유 이름을 지정하세요. 
+2. 그런 다음, `net use` 명령을 사용하여 파일 공유를 컴퓨터에 탑재합니다. 샘플 명령은 다음과 같습니다. 명령을 실행하기 전에 Azure 스토리지 이름 및 파일 공유 이름을 지정하세요. 
 
     `net use Z: \\<YOUR AZURE STORAGE NAME>.file.core.windows.net\<YOUR FILE SHARE NAME> /persistent:yes`
 
@@ -56,7 +56,7 @@ ms.locfileid: "44030883"
 
     ![랩 VM 선택](media/test-app-in-azure/select-lab-vm.png)
 2. 도구 모음에서 **연결**을 선택하여 VM에 연결합니다. 
-3. **명령줄 도구** 섹션의 **Windows 설치** 링크를 사용하여 [Azure PowerShell을 설치](https://azure.microsoft.com/downloads/)합니다. Azure PowerShell을 설치하는 다른 방법은 [이 문서](/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1)를 참조하세요.
+3. **명령줄 도구** 섹션의 **Windows 설치** 링크를 사용하여 [Azure PowerShell을 설치](https://azure.microsoft.com/downloads/)합니다. Azure PowerShell을 설치하는 다른 방법은 [이 문서](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1)를 참조하세요.
 4. [파일 공유 탑재](#mount-the-file-share) 섹션에 있는 지침을 따릅니다. 
 
 ## <a name="publish-your-app-from-visual-studio"></a>Visual Studio에서 앱 게시

@@ -3,7 +3,7 @@ title: Azure AD Connect의 성능에 영향을 주는 요인
 description: 이 문서에서는 다양한 요인이 Azure AD Connect 프로비저닝 엔진에 어떻게 영향을 미치는지에 대해 설명합니다. 이러한 요소는 동기화 요구 사항을 충족하도록 조직에서 Azure AD Connect 배포를 계획하는 데 도움이 됩니다.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
-ms.openlocfilehash: cdca1b31f9b6cf10113dc0dba70b8f8991bafa2b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 801082164a0110178034c5fbe050ebe8e02b2772
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093972"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474135"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Azure AD Connect의 성능에 영향을 주는 요인
 
@@ -41,7 +41,7 @@ Azure AD Connect는 Active Directory를 Azure AD에 동기화합니다. 이 서�
 
 ![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
-프로비전 엔진은 각 Active Directory 포리스트와 Azure AD에 연결되어 있습니다. 각 디렉터리에서 정보를 읽는 프로세스를 가져오기라고 합니다. 내보내기는 프로비전 엔진에서 디렉터리를 업데이트하는 것을 가리킵니다. 동기화는 프로비전 엔진 내에서 개체가 흐르는 방식의 규칙을 평가합니다. 더 자세한 내용은 [Azure AD Connect 동기화: 아키텍처 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture)를 참조하세요.
+프로비전 엔진은 각 Active Directory 포리스트와 Azure AD에 연결되어 있습니다. 각 디렉터리에서 정보를 읽는 프로세스를 가져오기라고 합니다. 내보내기는 프로비전 엔진에서 디렉터리를 업데이트하는 것을 가리킵니다. 동기화는 프로비전 엔진 내에서 개체가 흐르는 방식의 규칙을 평가합니다. 자세한 내용은 [Azure AD Connect 동기화: 아키텍처 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture)를 참조하세요.
 
 Azure AD Connect는 Active Directory를 Azure AD에 동기화할 수 있도록 다음 준비 영역, 규칙 및 프로세스를 사용합니다.
 

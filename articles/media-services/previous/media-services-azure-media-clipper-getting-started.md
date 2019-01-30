@@ -9,12 +9,12 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: ac64d97aeeef6147aa62658c9ee440bf058f4db1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 27a330fa4d4f242a58d15ab3f08b70cef8b66d11
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783292"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810740"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Azure Media Clipper를 사용하여 클립 만들기
 이 섹션에서는 Azure Media Clipper를 시작하는 기본 단계를 보여 줍니다. 이후 섹션에서는 Azure Media Clipper 구성 방법에 대한 세부 정보를 제공합니다.
@@ -91,7 +91,7 @@ var subclipper = new subclipper({
 - `selector` {REQUIRED, string}: 위젯을 렌더링해야 하는 일치하는 HTML 요소의 CSS 선택기입니다.
 - `restVersion` {REQUIRED, string}: 대상으로 지정할 Azure Media Services REST API 버전입니다. REST 버전은 위젯에서 생성된 출력 형식을 정의합니다. 현재는 2.0만 지원됩니다.
 - `submitSubclipCallback` {REQUIRED, promise}: 위젯의 “제출” 단추를 클릭할 때 호출되는 콜백 함수입니다. 콜백 함수에는 위젯(렌더링 작업 구성 또는 필터 정의)에서 생성된 출력이 필요합니다. 자세한 내용은 서브클립 콜백 제출을 참조하세요.
-- `logLevel` {OPTIONAL, {'info', 'warn', 'error'}}: 브라우저 콘솔에 표시되는 로깅 수준입니다. 기본값: error
+- `logLevel` {OPTIONAL, {'info', 'warn', 'error'}}: 브라우저 콘솔에 표시할 로깅 수준을 설정합니다. 기본값: error
 - `minimumMarkerGap` {OPTIONAL, int}: 서브클립의 최소 값입니다(초). 참고: 값은 기본값인 6보다 크거나 같아야 합니다.
 - `singleBitrateMp4Profile` {OPTIONAL, JSON object}: 위젯에서 생성된 렌더링 작업 구성에 사용할 단일 비트 전송률 mp4 프로필입니다. 제공하지 않으면 [기본 단일 비트 전송률 MP4 프로필](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-single-bitrate-1080p)이 사용됩니다.
 - `multiBitrateMp4Profile` {OPTIONAL, JSON object}: 위젯에서 생성된 렌더링 작업 구성에 사용할 다중 비트 전송률 mp4 프로필입니다. 제공하지 않으면 [기본 다중 비트 전송률 MP4 프로필](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-multiple-bitrate-1080p)이 사용됩니다.
@@ -105,7 +105,7 @@ var subclipper = new subclipper({
 - `autoplayVideo` (OPTIONAL, bool): autoplayVideo를 사용하여 Clipper가 로드 시 비디오를 자동으로 재생할 수 있습니다. 기본값은 true입니다.
 - `language` {OPTIONAL, string}: language는 위젯의 언어를 설정합니다. 지정하지 않으면 위젯은 브라우저 언어를 기반으로 메시지를 지역화하려고 합니다. 브라우저에서 언어가 발견되지 않으면 위젯은 기본적으로 영어로 설정됩니다. 자세한 내용은 [지역화 구성](media-services-azure-media-clipper-localization.md) 섹션을 참조하세요.
 - `languages` {OPTIONAL, JSON}: languages 매개 변수는 언어의 기본 사전을 사용자가 정의한 사용자 지정 사전으로 바꿉니다. 자세한 내용은 [지역화 구성](media-services-azure-media-clipper-localization.md) 섹션을 참조하세요.
-- `extraLanguages` (OPTIONAL, JSON): extraLanaguages 매개 변수는 기본 사전에 새 언어를 추가합니다. 자세한 내용은 [지역화 구성](media-services-azure-media-clipper-localization.md) 섹션을 참조하세요.
+- `extraLanguages` (OPTIONAL, JSON): extraLanguages 매개 변수는 기본 사전에 새 언어를 추가합니다. 자세한 내용은 [지역화 구성](media-services-azure-media-clipper-localization.md) 섹션을 참조하세요.
 
 ## <a name="typescript-definition"></a>TypeScript 정의
 Clipper에 대한 [TypeScript](https://www.typescriptlang.org/) 정의 파일은 [여기](http://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts)에서 찾을 수 있습니다.

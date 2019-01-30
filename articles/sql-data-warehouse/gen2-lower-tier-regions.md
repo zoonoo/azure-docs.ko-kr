@@ -9,12 +9,12 @@ ms.component: design
 ms.date: 12/03/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: d3c42c13e58156013167b8570a8845ce9de08b3b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2aa513617f24201dfb341f9ab72ab9e3a221450d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52885456"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819359"
 ---
 # <a name="azure-sql-data-warehouse-gen2-support-for-lower-compute-tiers"></a>하위 컴퓨팅 계층에 대한 Azure SQL Data Warehouse Gen2 지원
 
@@ -29,7 +29,7 @@ Microsof는 차세대 데이터 웨어하우징에 대한 진입점을 낮춰 �
 고객은 새 Gen2 인스턴스를 배포하거나 기존 Gen1 데이터 웨어하우스 인스턴스를 업그레이드하여 차세대 데이터 웨어하우징의 유연성과 성능을 경험할 수 있습니다. 
 
 [Azure SQL Data Warehouse Compute Optimized Gen2 계층](https://azure.microsoft.com/services/sql-data-warehouse/?v=17.44)을 사용해 보세요.
-[Azure SQL Warehouse Compute Optimized Gen1에서 Gen2](https://docs.microsoft.com/azure/sql-data-warehouse/upgrade-to-latest-generation)로 업그레이드 이 [Microsoft Mechanics 비디오](https://www.youtube.com/watch?v=Ap8I3UZonzI&feature=youtu.be)에서 Azure SQL Data Warehouse Gen2 작동 방식을 확인하세요.
+[Azure SQL Data Warehouse Compute Optimized Gen1에서 Gen2로 업그레이드](https://docs.microsoft.com/azure/sql-data-warehouse/upgrade-to-latest-generation) 이 [Microsoft Mechanics 비디오](https://www.youtube.com/watch?v=Ap8I3UZonzI&feature=youtu.be)에서 Azure SQL Data Warehouse Gen2 작동 방식을 확인하세요.
 
 
 ## <a name="supported-regions-for-lower-compute-tiers"></a>하위 컴퓨팅 계층 지원 지역
@@ -52,4 +52,4 @@ Microsof는 차세대 데이터 웨어하우징에 대한 진입점을 낮춰 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- SQL Data Warehouse를 업그레이드하여 성능 최적화에 대해 [자세히 알아보세요](upgrade-to-latest-generation.md). 
+- SQL Data Warehouse를 업그레이드하여 컴퓨팅 성능 최적화에 대해 [자세히 알아보세요](upgrade-to-latest-generation.md). 

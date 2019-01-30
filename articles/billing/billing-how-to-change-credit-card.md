@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 69c24e08ce2434c39b8bb67cb53173f9ceaee51b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 7c856a076a3958cdd3aef4134c703128194fcc5d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581445"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849790"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Azure에 대한 신용 카드 또는 직불 카드 추가, 업데이트 또는 제거
 
@@ -32,7 +32,7 @@ ms.locfileid: "52581445"
 
 ## <a name="add-a-new-credit-or-debit-card"></a>새 신용 카드 또는 직불 카드 추가
 
-1. [계정 센터](https://account.windowsazure.com/Subscriptions)에 계정 관리자로 로그인합니다.
+1. [계정 센터](https://account.windowsazure.com/Subscriptions)에 [계정 관리자](billing-subscription-transfer.md#whoisaa)로 로그인합니다.
 1. 구독을 선택합니다.
 1. 페이지의 오른쪽에서 **결제 방법 관리**를 선택합니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "52581445"
 
 신용 카드가 갱신되고 번호가 동일하게 유지되면 만료 날짜처럼 기존 신용 카드 세부 정보를 업데이트합니다. 카드 분실, 도난 또는 만료로 인해 카드 번호가 변경되는 경우 [결제 방법으로 신용 카드 추가](#addcard) 섹션의 단계를 따릅니다. CVV를 업데이트할 필요가 없습니다.
 
-1. [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에 계정 관리자로 로그인합니다.
+1. [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에 [계정 관리자](billing-subscription-transfer.md#whoisaa)로 로그인합니다.
 1. 카드에 연결된 구독을 선택합니다.
 1. **결제 방법 관리**를 선택합니다.
 1. 업데이트하려는 카드 옆의 **편집**을 선택합니다.
@@ -58,14 +58,14 @@ ms.locfileid: "52581445"
 
 ## <a name="use-a-different-credit-card-for-the-azure-subscription"></a>Azure 구독에 다른 신용 카드 사용
 
-1. [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에 계정 관리자로 로그인합니다.
+1. [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에 [계정 관리자](billing-subscription-transfer.md#whoisaa)로 로그인합니다.
 1. 카드에 연결된 구독을 선택합니다.
 1. 페이지의 오른쪽에서 **결제 방법 관리**를 선택합니다.
 1. 사용하려는 카드 옆의 **대신 사용**을 클릭합니다. 현재 이 카드와 연결된 다른 구독도 업데이트합니다. 
 
 ## <a name="remove-a-credit-or-debit-card-from-the-account"></a>계정에서 신용 카드 또는 직불 카드 제거
 
-1. [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에 계정 관리자로 로그인합니다.
+1. [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에 [계정 관리자](billing-subscription-transfer.md#whoisaa)로 로그인합니다.
 1. 카드에 연결된 구독을 선택합니다.
 3. 페이지의 오른쪽에서 **결제 방법 관리**를 선택합니다.
 4. 삭제하려는 신용 카드에 대해 **삭제**를 클릭합니다.
@@ -102,6 +102,6 @@ ms.locfileid: "52581445"
 
 세금 ID를 추가 또는 업데이트하려면 [Azure 계정 센터에서 **프로필**로 이동](https://account.azure.com/Profile)한 다음 **세금 레코드**를 선택합니다. 이 세금 ID는 면세 계산에 사용되며 청구서에 표시됩니다.
 
-## <a name="need-help-contact-us"></a>도움 필요 시 문의처
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

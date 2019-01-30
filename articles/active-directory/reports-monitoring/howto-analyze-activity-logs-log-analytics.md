@@ -4,7 +4,7 @@ description: Log Analytics(미리 보기)를 사용하여 Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4535ae65-8591-41ba-9a7d-b7f00c574426
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2f0f5341ba6818f375d463638979c68689519227
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 759a0da93544e2a17b71d762924981f05c3ea322
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624202"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810784"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-log-analytics-preview"></a>Log Analytics(미리 보기)를 사용하여 Azure AD 활동 로그 분석
 
@@ -94,8 +94,8 @@ AuditLogs
 Azure AD 활동 로그의 미리 빌드한 Log Analytics 보기를 다운로드할 수도 있습니다. 이 보기는 감사 및 로그인 이벤트와 관련된 일반적인 시나리오에 대한 몇 가지 보고서를 제공합니다. 이전 섹션에서 설명한 단계를 사용하여 보고서에 제공된 데이터에 대해 경고를 발생할 수도 있습니다.
 
 * **Azure AD 계정 프로비전 이벤트**: 프로비전 활동 감사(예: 새로 프로비전된 사용자 수 및 프로비전 실패 횟수, 업데이트된 사용자 수 및 업데이트 실패 횟수, 프로비전 해제된 사용자 수 및 해당 실패 횟수)와 관련된 보고서가 표시됩니다.    
-* **로그인 이벤트**: 로그인 활동 모니터링(예: 응용 프로그램, 사용자, 장치별 로그인)과 관련된 가장 적절한 보고서와 시간 경과에 따른 로그인 수를 추적하는 요약 보기가 표시됩니다.
-* **사용자 동의 수행**: 사용자 동의(예: 사용자에 의한 동의 허용, 동의한 사용자의 로그인 및 모든 동의 기반 응용 프로그램에 대한 응용 프로그램의 로그인)와 관련된 보고서가 표시됩니다. 
+* **로그인 이벤트**: 로그인 활동 모니터링(예: 애플리케이션, 사용자, 디바이스별 로그인)과 관련된 가장 적절한 보고서와 시간 경과에 따른 로그인 수를 추적하는 요약 보기가 표시됩니다.
+* **사용자 동의 수행**: 사용자 동의(예: 사용자에 의한 동의 허용, 동의한 사용자의 로그인 및 모든 동의 기반 애플리케이션에 대한 애플리케이션의 로그인)와 관련된 보고서가 표시됩니다. 
 
 [Azure AD 활동 로그용 Log Analytics 보기를 설치하는 방법](howto-install-use-log-analytics-views.md)을 알아보세요. 
 

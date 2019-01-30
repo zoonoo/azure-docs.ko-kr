@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/07/2018
+ms.date: 01/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 69aa2cbcaa6861b1d5c5c71769be2fb8046d9ea5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0733b4179793e88759ca1c3330880546650fbe09
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188514"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856386"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)란?
 
@@ -50,7 +50,7 @@ Log Analytics와 통합하면 강력한 집계, 필터링을 제공하고, 시�
 
 ![Azure Portal의 가상 머신 인사이트 큐브 뷰](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
 
-Azure DevOps는 중요한 애플리케이션의 예측 가능한 성능 및 가용성을 제공할 수 있습니다. 중요한 운영 체제 이벤트, 성능 병목 상태 및 네트워크 문제를 식별합니다. 또한 Azure DevOps는 문제가 다른 종속성과 관련이 있는지 여부를 이해하는 데도 도움이 됩니다.  
+VM용 Azure Monitor는 중요한 애플리케이션의 예측 가능한 성능 및 가용성을 제공할 수 있습니다. 중요한 운영 체제 이벤트, 성능 병목 상태 및 네트워크 문제를 식별합니다. 또한 VM용 Azure Monitor는 문제가 다른 종속성과 관련이 있는지 여부를 이해하는 데도 도움이 됩니다.  
 
 ## <a name="data-usage"></a>데이터 사용량 
 

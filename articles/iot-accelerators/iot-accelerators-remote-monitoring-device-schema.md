@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 12/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 54e21e0b5f522b226ec1abb71a1c5ab5b245df05
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 3c2bca45a7927689992cf44fb70199e246641760
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635530"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445425"
 ---
 # <a name="understand-the-device-model-schema"></a>디바이스 모델 스키마 이해
 
@@ -22,7 +22,7 @@ ms.locfileid: "53635530"
 이 문서에서는 시뮬레이션된 디바이스의 기능 및 동작을 지정하는 디바이스 모델 스키마에 대해 설명합니다. 디바이스 모델은 JSON 파일에 저장됩니다.
 
 > [!NOTE]
-> 이 디바이스 모델 스키마는 디바이스 시뮬레이션 서비스에 호스트된 시뮬레이션된 디바이스에만 해당합니다. 물리적 디바이스를 만들려는 경우 [원격 모니터링 솔루션 가속기에 디바이스 연결](iot-accelerators-connecting-devices.md)을 참조하세요.
+> 이 디바이스 모델 스키마는 디바이스 시뮬레이션 서비스에 호스트된 시뮬레이션된 디바이스에만 해당합니다. 실제 디바이스를 만들려는 경우 [원격 모니터링 솔루션 가속기에 디바이스 연결](iot-accelerators-connecting-devices.md)을 참조하세요.
 
 다음 문서는 현재 문서와 관련이 있습니다.
 

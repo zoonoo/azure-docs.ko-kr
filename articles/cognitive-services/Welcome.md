@@ -7,14 +7,14 @@ manager: cgronlund
 ms.service: cognitive-services
 ms.component: ''
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/17/2018
 ms.author: nitinme
-ms.openlocfilehash: f7a68aab4959c3793c7688504d73d2b539a26f83
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 60bf74135e760e837de7e5548bcb60f6c7b8dd0c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025398"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475240"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure Cognitive Services란?
 
@@ -89,6 +89,14 @@ Microsoft 계정으로 로그인하면 [내 구독](https://www.microsoft.com/co
 Cognitive Services에서 API는 증가하는 Microsoft 운영 데이터 센터의 네트워크에서 호스팅됩니다. [Azure 지역 목록](https://azure.microsoft.com/regions)에서 각 API에 대한 지역별 가용성을 확인할 수 있습니다.
 
 아직 지원하지 않는 지역을 찾습니까? [UserVoice 포럼](https://cognitive.uservoice.com/)에서 기능 요청을 제출하여 Microsoft에 알려주세요.
+
+## <a name="supported-cultural-languages"></a>지원되는 문화 언어
+
+ Cognitive Services는 서비스 수준에서 광범위한 문화 언어를 지원합니다. [지원되는 언어 목록](language-support.md)에서 각 API에서 사용할 수 있는 언어를 찾을 수 있습니다.
+
+ ## <a name="container-support"></a>컨테이너 지원
+
+ Cognitive Services는 Azure 클라우드 또는 온-프레미스에 배포하는 데 사용할 컨테이너를 제공합니다. [Cognitive Services 컨테이너](cognitive-services-container-support.md)에 대해 자세히 알아봅니다.
 
 ## <a name="support"></a>지원
 

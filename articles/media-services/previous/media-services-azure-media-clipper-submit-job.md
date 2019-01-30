@@ -9,17 +9,17 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 8372c405087c0dc7a000a65265bb99c395c3a8d6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0894c3677b87fe48c130d648253dadd0d43429f4
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783182"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821450"
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Azure Media Clipper에서 클리핑 작업 제출
 Azure Media Clipper에서 클리핑 작업 제출을 처리하려면 **submitSubclipCallback** 메서드가 구현되어야 합니다. 이 함수는 웹 서비스에 대한 Clipper 출력의 HTTP POST를 구현하는 데 사용됩니다. 이 웹 서비스에서 인코딩 작업을 제출할 수 있습니다. Clipper의 출력은 렌더링된 작업의 Media Encoder Standard 인코딩 사전 설정이거나 동적 매니페스트 필터 호출에 대한 REST API 페이로드입니다. 이 통과 모델은 미디어 서비스 계정 자격 증명이 클라이언트 브라우저에서 보호되지 않으므로 필요합니다.
 
-![Azure Media Clipper 시퀀스 다이어그램](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG) 순서도에서는 브라우저 클라이언트, 웹 서비스 및 Azure Media Services 간의 워크플로를 설명합니다. 
+다음 시퀀스 다이어그램에서는 브라우저 클라이언트, 웹 서비스 및 Azure Media Services 간의 워크플로를 설명합니다. ![Azure Media Clipper 시퀀스 다이어그램](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG)
 
 앞의 순서도에는 사용자 브라우저, 웹 서비스, Clipper 리소스를 호스팅하는 CDN 엔드포인트, Azure Media Services 등의 4개 개체가 있습니다. 최종 사용자가 웹 페이지를 탐색하면 페이지가 호스팅 CDN 엔드포인트에서 Clipper JavaScript와 CSS 리소스를 가져옵니다. 최종 사용자는 자신의 브라우저에서 클리핑 작업이나 동적 매니페스트 필터 만들기 호출을 구성합니다. 최종 사용자가 작업 또는 필터 만들기 호출을 제출하면 브라우저가 작업 페이로드를 사용자가 배포해야 하는 웹 서비스에 넣습니다. 이 웹 서비스는 결과적으로 미디어 서비스 계정 자격 증명을 사용하여 클리핑 작업이나 필터 만들기 호출을 Azure Media Services에 제출하게 됩니다.
 
@@ -31,7 +31,7 @@ Azure Media Clipper에서 클리핑 작업 제출을 처리하려면 **submitSub
 // Parameter:
 // - subclip: object that represents the subclip (output contract).
 //
-// Returns: a Promise object that, when resolved, retuns true if the operation was accept in the back-end; otherwise, returns false.
+// Returns: a Promise object that, when resolved, returns true if the operation was accept in the back-end; otherwise, returns false.
 var onSubmitSubclip = function (subclip) {
     var promise = new Promise(function (resolve, reject) {
         // TODO: perform the back-end AJAX request to submit the subclip job.
@@ -99,7 +99,7 @@ var subclipper = new subclipper({
     "type": "job",
 
     /* Required if "type" === "job" */
-    /* NOTE: This is the preset for the Media Encoder Standard (MES) processor that can be used in the back-end to sumit the subclip job.
+    /* NOTE: This is the preset for the Media Encoder Standard (MES) processor that can be used in the back-end to submit the subclip job.
     The encoding profile ("Codecs" property) depends on the "singleBitrateMp4Profile" and "multiBitrateMp4Profile" option parameters
     specified when creating the widget instance. */
     /* REFERENCE: https://docs.microsoft.com/azure/media-services/media-services-advanced-encoding-with-mes */

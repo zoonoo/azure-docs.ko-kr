@@ -3,18 +3,18 @@ title: Azure Automation에서 그래픽 작성
 description: 그래픽 작성을 통해 코드 작업 없이 Azure Automation에 대한 Runbook을 만들 수 있습니다. 이 문서에서는 그래픽 작성을 소개하고 그래픽 Runbook 만들기를 시작하는 데 필요한 모든 세부 정보를 제공합니다.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a4cd2cec56a15660a03ac111b1b8962d531479ad
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6d637436721ff464f58e41069bb00746fcd82410
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233680"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427239"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure Automation에서 그래픽 작성
 
@@ -111,7 +111,7 @@ Azure Automation의 각 Runbook에는 초안 버전과 게시된 버전이 있�
 
 | 데이터 원본 | 설명 |
 |:--- |:--- |
-| 상수 값 |매개 변수 값을 입력합니다. 이는 Int32, Int64, String, Boolean, DateTime, Switch 데이터 형식에만 사용할 수 있습니다. |
+| 상수 값 |매개 변수 값을 입력합니다. 다음 데이터 형식에만 사용할 수 있습니다. Int32, Int64, String, Boolean, DateTime, Switch |
 | 활동 출력 |워크플로에서 현재 활동 앞에 오는 활동의 출력입니다. 유효한 모든 활동이 나열됩니다. 매개 변수 값에 해당 출력을 사용할 활동만 선택하세요. 활동에서 여러 속성을 가진 개체를 출력하는 경우에는 활동을 선택한 후 속성 이름을 입력할 수 있습니다. |
 | Runbook 입력 |작업 매개 변수에 대한 입력으로 runbook의 입력 매개 변수를 선택합니다. |
 | 변수 자산 |입력으로 Automation 변수를 선택합니다. |

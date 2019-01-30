@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: e36673c7baa03e1bcf36c149851e6455cea798fe
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 6e829d617aa978f94b99cc9d018b5ca863eaaef0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945572"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807323"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Azure AD 인증을 사용하여 .NET으로 Azure Media Services API 액세스
 
@@ -80,7 +80,7 @@ Azure Media Service .NET SDK를 사용하지 않는 경우 [Azure AD 인증 라�
 
 이러한 매개 변수 값은 **AzureEnvironments.AzureCloudEnvironment**에서 확인할 수 있습니다. **AzureEnvironments.AzureCloudEnvironment** 상수는 공용 Azure 데이터 센터에 대해 적절한 환경 변수 설정을 가져오는 .NET SDK의 도우미입니다. 
 
-공용 데이터 센터 전용의 Media Services에 액세스하기 위한 미리 정의된 환경 설정이 포함되어 있습니다. 독립 또는 정부 클라우드 지역의 경우 **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvrionment** 또는 **AzureGermanCloudEnvironment**를 각각 사용할 수 있습니다.
+공용 데이터 센터 전용의 Media Services에 액세스하기 위한 미리 정의된 환경 설정이 포함되어 있습니다. 독립 또는 정부 클라우드 지역의 경우 **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvironment** 또는 **AzureGermanCloudEnvironment**를 각각 사용할 수 있습니다.
 
 다음 코드 예제에서는 토큰을 만듭니다.
     
@@ -122,7 +122,7 @@ Azure Media Service .NET SDK를 사용하지 않는 경우 [Azure AD 인증 라�
     }
 
 >[!NOTE]
->“원격 서버에서 (401) 권한 없음 오류를 반환했습니다.”라는 예외가 발생하면 Azure AD 인증으로 Azure Media Services API 액세스 개요의 [액세스 제어](media-services-use-aad-auth-to-access-ams-api.md#access-control) 섹션을 참조하세요.
+>"원격 서버에서 (401) 권한 없음 오류를 반환했습니다"라는 예외가 표시되면 Azure AD 인증을 사용하여 Azure Media Services API 액세스 개요의 [액세스 제어](media-services-use-aad-auth-to-access-ams-api.md#access-control) 섹션을 참조하세요.
 
 ## <a name="use-service-principal-authentication"></a>서비스 주체 인증 사용
     

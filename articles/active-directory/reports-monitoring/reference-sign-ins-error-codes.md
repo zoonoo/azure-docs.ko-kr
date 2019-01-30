@@ -4,7 +4,7 @@ description: 로그인 활동 보고서 오류 코드에 대한 참조입니다.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6f8d3c3017a914f261c7e4f8bbe0e42d1edf8a9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0de3ced9974941399875ca98991430f10d4f8525
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622434"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820158"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>로그인 활동 보고서 오류 코드 
 
@@ -43,7 +43,7 @@ ms.locfileid: "51622434"
 
 ![로그인 활동](./media/reference-sign-ins-error-codes/06.png "로그인 활동")
 
-필터링된 목록에서 항목을 선택하면 **활동 세부 정보: 로그인**  블레이드가 열립니다. 이 보기는 **로그인 오류 코드** 및 **실패 이유**를 포함하여 실패한 로그인 이벤트에 대한 추가 정보를 제공합니다.
+필터링된 목록에서 항목을 선택하면 **활동 세부 정보: 로그인** 블레이드가 열립니다. 이 보기는 **로그인 오류 코드** 및 **실패 이유**를 포함하여 실패한 로그인 이벤트에 대한 추가 정보를 제공합니다.
 
 ![로그인 활동](./media/reference-sign-ins-error-codes/05.png "로그인 활동")
 
@@ -135,7 +135,7 @@ ms.locfileid: "51622434"
 |53002|사용된 애플리케이션이 조건부 액세스에 대해 승인된 애플리케이션이 아닙니다. 사용자가 액세스 권한을 부여받으려면 사용하도록 승인된 애플리케이션 목록에 있는 애플리케이션 중 하나를 사용해야 합니다.|
 |53003|조건부 액세스 정책으로 인해 액세스가 차단되었습니다.|
 |53004|사용자는 이 콘텐츠에 액세스하기 전에 다단계 인증 등록 프로세스를 완료해야 합니다. 사용자가 다단계 인증을 등록해야 합니다.|
-|65001|Y 애플리케이션에 대한 액세스 권한이 X 애플리케이션에 없거나 권한이 취소되었습니다. 또는 사용자 또는 관리자가 X ID로 애플리케이션을 사용하는 데 동의하지 않았습니다. 이 사용자 및 리소스에 대한 대화형 권한 부여 요청을 보내세요. 또는 사용자 또는 관리자가 X ID로 애플리케이션을 사용하는 데 동의하지 않았습니다. Z 리소스에 대한 Y 앱을 대신하여 테넌트 관리자에게 권한 부여 요청을 보내세요.|
+|65001|Y 애플리케이션에 대한 액세스 권한이 X 애플리케이션에 없거나 권한이 취소되었습니다. 또는 사용자 또는 관리자가 X ID로 애플리케이션을 사용하는 데 동의하지 않았습니다. 이 사용자 및 리소스에 대한 대화형 권한 부여 요청을 보내세요. 또는 사용자 또는 관리자가 ID X로 애플리케이션을 사용하는 데 동의하지 않았습니다. 앱: Y, 리소스: Z를 대신하여 테넌트 관리자에게 권한 부여 요청을 보내세요.|
 |65004|사용자가 응용 프로그램에 액세스하는 데 동의하지 않았습니다. 사용자가 로그인을 다시 시도하고 응용 프로그램에 동의해야 합니다.|
 |65005|애플리케이션에 필요한 리소스 액세스 목록에 리소스에서 검색 가능한 애플리케이션이 없거나, 클라이언트 애플리케이션에서 필요한 리소스 액세스 목록에 지정되지 않은 리소스에 대한 액세스를 요청했거나, Graph 서비스에서 잘못된 요청 또는 찾을 수 없는 리소스를 반환했습니다. 애플리케이션에서 SAML을 지원하는 경우 잘못된 식별자(엔터티)로 애플리케이션을 구성했을 수 있습니다. 아래 링크를 사용하여 SAML에 대한 해결 방법을 시도해 보세요. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list)|
 |70000|다음과 같은 이유로 권한 부여가 잘못되었습니다.<ul><li>요청된 SAML 2.0 어설션에 잘못된 주체 확인 메서드가 있습니다.</li><li>응용 프로그램 OnBehalfOf 흐름은 V2에서 지원하지 않습니다.</li><li>기본 새로 고침 토큰이 세션 키로 서명되지 않았습니다.</li><li>외부 새로 고침 토큰이 잘못되었습니다.</li><li>다른 테넌트에 대한 액세스 권한이 부여되었습니다.</li></ul>|

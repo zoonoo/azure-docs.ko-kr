@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 62be7412c93b846980ffab00b9964585e3644140
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 5d0fe5d010fc53db3ca280620d224d405d0ccf42
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319203"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478198"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -286,7 +286,7 @@ pipeline1 = Pipeline(workspace=ws, steps=steps)
 ```python
 # Submit the pipeline to be run
 pipeline_run1 = Experiment(ws, 'Compare_Models_Exp').submit(pipeline1)
-pipeline_run.wait_for_completion()
+pipeline_run1.wait_for_completion()
 ```
 
 파이프라인을 처음 실행하는 경우 Azure Machine Learning은 다음을 수행합니다.

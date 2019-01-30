@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: f91f6386df01050cc67968d05a1e1562e0f9ed01
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0c7d0980c928ecefebeabff555378230453c742f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261233"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827944"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
@@ -286,7 +286,7 @@ Windows용 이벤트 추적을 수집하려면 다음 단계를 수행합니다.
 | 751       | UnableToConnectToServer        | 오류로 인해 vCenter Server ‘%Name;’에 연결할 수 없습니다. %ErrorMessage;     | 자세한 내용은 오류 메시지를 확인하세요.                                                             | 문제를 해결하고 다시 시도하세요.                                                                                                           |
 | 752       | InvalidvCenterEndpoint         | 서버 ‘%Name;’이(가) vCenter Server가 아닙니다.                                  | vCenter Server 세부 정보를 제공하세요.                                                                       | 올바른 vCenter Server 세부 정보를 사용하여 작업을 다시 시도하세요.                                                                                   |
 | 753       | InvalidLoginCredentials        | 오류로 인해 vCenter Server ‘%Name;’에 연결할 수 없습니다. %ErrorMessage; | 잘못된 로그인 자격 증명으로 인해 vCenter Server에 연결하지 못했습니다.                             | 제공된 로그인 자격 증명 정보가 올바른지 확인하세요.                                                                                    |
-| 754       | NoPerfDataAvaialable           | 성능 데이터를 사용할 수 없습니다.                                               | vCenter Server에서 통계 수준을 확인하세요. 성능 데이터를 사용하려면 3으로 설정해야 합니다. | 통계 수준을 3(5분, 30분, 2시간 동안)으로 변경하고 하루 이상 기다린 후 시도하세요.                   |
+| 754       | NoPerfDataAvailable           | 성능 데이터를 사용할 수 없습니다.                                               | vCenter Server에서 통계 수준을 확인하세요. 성능 데이터를 사용하려면 3으로 설정해야 합니다. | 통계 수준을 3(5분, 30분, 2시간 동안)으로 변경하고 하루 이상 기다린 후 시도하세요.                   |
 | 756       | NullInstanceUUID               | null InstanceUUID가 있는 컴퓨터를 발견했습니다.                                  | vCenter Server에 부적절한 개체가 있을 수 있습니다.                                                      | 문제를 해결하고 다시 시도하세요.                                                                                                           |
 | 757       | VMNotFound                     | 가상 머신이 없습니다.                                                  | 가상 머신이 삭제되었을 수 있습니다. %VMID;                                                                | vCenter 인벤토리의 범위를 지정하는 동안 선택한 가상 머신이 검색 중에 있는지 확인하세요.                                      |
 | 758       | GetPerfDataTimeout             | VCenter 요청 시간이 초과되었습니다. 메시지 %Message;                                  | vCenter Server 자격 증명이 잘못되었습니다.                                                              | vCenter Server 자격 증명을 검사하고 vCenter Server에 연결할 수 있는지 확인하세요. 작업을 다시 시도하세요. 문제가 지속되면 고객 지원 팀에 문의하세요. |

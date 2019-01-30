@@ -31,7 +31,7 @@ author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yaha
 ### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>PATCH URL이 정확한지 확인합니다.
 사용 중인 PATCH URL은 점수 매기기 웹 서비스에 추가한 새 점수 매기기 엔드포인트와 연결된 것이어야 합니다. PATCH URL을 얻는 데는 여러 가지 방법이 있습니다.
 
-**옵션 1: 프로그래밍 방식으로**
+**옵션 1: 프로그래밍 방식**
 
 올바른 PATCH URL을 가지려면:
 

@@ -3,9 +3,9 @@ title: 공유 액세스 서명을 사용한 Azure Service Bus 액세스 제어 |
 description: 공유 액세스 서명을 사용한 Azure Service Bus 액세스 제어 개요, Azure Service Bus를 사용한 SAS 권한 부여 상세 정보
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: daefb07761217ff4bb0800dfd9f1f05b6e22c1e1
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.author: aschhab
+ms.openlocfilehash: 3e2fa51bcf6040eb94a9d270a7f5f375f726e62a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284917"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846339"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 액세스 제어
 
@@ -96,13 +96,13 @@ SAS 토큰은 `signature-string`에서 사용된 `<resourceURI>`를 접두사로
 
 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 개체에서 정기적으로 사용되는 키를 다시 생성하는 것이 좋습니다. 기본 및 보조 키 슬롯은 키를 점진적으로 회전할 수 있도록 존재합니다. 애플리케이션에서 일반적으로 기본 키를 사용하는 경우 기본 키를 보조 키 슬롯에 복사한 다음, 기본 키를 다시 생성할 수 있습니다. 그런 다음, 보조 슬롯의 이전 기본 키를 사용하여 계속해서 액세스하는 클라이언트 애플리케이션으로 새 기본 키 값을 구성할 수 있습니다. 모든 클라이언트를 업데이트한 후에 보조 키를 다시 생성하여 마지막으로 이전 기본 키를 사용 중지할 수 있습니다.
 
-키가 손상되었고 키를 해제해야 한다는 것을 알거나 의심이 가는 경우 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)의 [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) 및 [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) 모두를 새 키로 바꿔 다시 생성할 수 있습니다. 이 절차는 이전 키로 서명된 모든 토큰을 무효화합니다.
+키가 손상되었고 키를 해제해야 한다는 것을 알거나 의심이 가는 경우 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)의 [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) 및 [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 모두를 새 키로 바꿔 다시 생성할 수 있습니다. 이 절차는 이전 키로 서명된 모든 토큰을 무효화합니다.
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>Service Bus를 사용한 공유 액세스 서명 인증
 
 다음과 같이 설명된 시나리오는 권한 부여 규칙의 구성, SAS 토큰의 생성 및 클라이언트 권한 부여를 포함합니다.
 
-구성을 설명하고 SAS 권한 부여를 사용하는 Service Bus 애플리케이션의 작업 샘플 전체는 [Service Bus를 사용하여 공유 액세스 서명 인증](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8)을 참조하세요. Service Bus 구독을 보호하기 위해 네임스페이스 또는 항목에 구성된 SAS 권한 부여 규칙의 사용 방법을 설명하는 관련된 샘플은 [Service Bus 구독으로 공유 액세스 서명(SAS) 사용](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c)에서 사용 가능합니다.
+구성을 설명하고 SAS 권한 부여를 사용하는 Service Bus 애플리케이션의 작업 샘플 전체는 [Service Bus를 사용하여 공유 액세스 서명 인증](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8)을 참조하세요. 네임스페이스 또는 토픽에 구성된 SAS 권한 부여 규칙을 사용하여 Service Bus 구독을 보호하는 방법을 설명하는 관련 샘플은 [Service Bus 구독으로 SAS(공유 액세스 서명) 인증 사용](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c)에서 확인할 수 있습니다.
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>엔터티에 대한 공유 액세스 권한 부여 규칙 액세스
 

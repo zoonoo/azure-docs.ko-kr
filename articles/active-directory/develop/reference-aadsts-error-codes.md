@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 11/30/2018
+ms.date: 01/23/2019
 ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 97f884a45a0a07e2b4c48f39483c70248e7a492e
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: e550eeba9b154e271cdad9df5cdfe9a308efbbe9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620396"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820311"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>인증 및 권한 부여 오류 코드
 
@@ -79,7 +79,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50058 | UserInformationNotProvided - 사용자가 로그인되지 않았습니다. 이는 사용자가 인증되지 않았고 아직 로그인하지 않은 경우에 발생하는 일반적인 오류입니다.</br>사용자가 이전에 로그인한 SSO 컨텍스트에서 이 오류가 발생하는 경우 SSO 세션을 찾을 수 없거나 SSO 세션이 잘못되었음을 의미합니다.</br>이 오류는 prompt=none이 지정된 경우 애플리케이션에 반환될 수 있습니다. |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided - 테넌트를 식별하는 정보가 요청에 없거나 제공된 자격 증명으로 암시되지 않습니다. 사용자는 문제를 해결하기 위해 테넌트 관리자에게 문의할 수 있습니다. |
 | AADSTS50061 | SignoutInvalidRequest - 로그아웃 요청이 잘못되었습니다. |
-| AADSTS50064 | CredentialAuthenticationError - 자격 증명 유효성 검사에 실패했습니다. |
+| AADSTS50064 | CredentialAuthenticationError - 사용자 이름 또는 암호에 대한 자격 증명 유효성 검사에 실패했습니다. |
 | AADSTS50068 | SignoutInitiatorNotParticipant - 로그아웃에 실패했습니다. 로그아웃을 시작한 앱이 현재 세션의 참가자가 아닙니다. |
 | AADSTS50070 | SignoutUnknownSessionIdentifier - 로그아웃에 실패했습니다. 로그아웃 요청에서 기존 세션과 일치하지 않는 이름 식별자를 지정했습니다. |
 | AADSTS50071 | SignoutMessageExpired - 로그아웃 요청이 만료되었습니다. |
@@ -254,6 +254,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource - 디바이스 전용 토큰을 수락하도록 리소스가 구성되어 있지 않습니다. |
 | AADSTS240001 | BulkAADJTokenUnauthorized - 사용자에게 Azure AD에 디바이스를 등록할 수 있는 권한이 없습니다. |
 | AADSTS240002 | RequiredClaimIsMissing - id_token을 `urn:ietf:params:oauth:grant-type:jwt-bearer` 권한 부여로 사용할 수 없습니다.|
+| AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest - 디렉터리/테넌트에서 애플리케이션을 찾지 못했습니다. 이 오류는 테넌트의 관리자가 애플리케이션을 설치하지 않았거나 테넌트의 사용자가 동의하지 않은 경우에 발생할 수 있습니다. 애플리케이션에 대한 식별자 값을 잘못 구성했거나 잘못된 테넌트에 인증 요청을 보낸 것일 수 있습니다. |
 | AADSTS700020 | InteractionRequired - 액세스 권한 부여에는 상호 작용이 필요합니다. |
 | AADSTS700022 | InvalidMultipleResourcesScope - 입력 매개 변수 범위에 대해 제공한 값이 둘 이상의 리소스를 포함하므로 잘못되었습니다. |
 | AADSTS700023 | InvalidResourcelessScope - 액세스 토큰을 요청할 때 입력 매개 변수 범위에 대해 제공한 값이 잘못되었습니다. |

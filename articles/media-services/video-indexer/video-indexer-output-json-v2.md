@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: juliako
-ms.openlocfilehash: 666be9c2ebba9dc9607e4188b2390fff49fd59b9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: e83b634c11d0349f4917c063cde54e03fa1cac40
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554659"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810706"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>v2 API에서 생성된 Video Indexer 출력 검사
 
@@ -166,7 +166,7 @@ ms.locfileid: "53554659"
 |audioEffects|[audioEffects](#audioEffects) 차원입니다.|
 |감정|[sentiments](#sentiments) 차원입니다.|
 |visualContentModeration|[visualContentModeration](#visualcontentmoderation) 차원입니다.|
-|textualConentModeration|[textualConentModeration](#textualconentmoderation) 차원입니다.|
+|textualContentModeration|[textualContentModeration](#textualcontentmoderation) 차원입니다.|
 |emotions| [emotions](#emotions) 차원입니다.|
 |topics|[topics](#topics) 차원입니다.|
 
@@ -187,7 +187,7 @@ ms.locfileid: "53554659"
   "audioEffects": ...,
   "sentiments": ...,
   "visualContentModeration": ...,
-  "textualConentModeration": ...
+  "textualContentModeration": ...
 }
 ```
 
@@ -334,7 +334,7 @@ id|블록의 ID입니다.|
 |이름|얼굴의 이름입니다. 'Unknown #0, 즉 식별된 유명인 또는 고객이 학습한 사람일 수 있습니다.|
 |신뢰도|얼굴 인식 신뢰도입니다.|
 |description|유명인에 대한 설명입니다. |
-|thumbnalId|얼굴 썸네일의 ID입니다.|
+|thumbnailId|얼굴 썸네일의 ID입니다.|
 |knownPersonId|알려진 사람인 경우 내부 ID입니다.|
 |referenceId|Bing 유명인인 경우 Bing ID입니다.|
 |referenceType|현재 Bing만 지원됩니다.|
@@ -662,7 +662,7 @@ visualContentModeration 블록에는 Video Indexer에서 잠재적 성인 콘텐
 ] 
 ```
 
-#### <a name="textualconentmoderation"></a>textualConentModeration 
+#### <a name="textualcontentmoderation"></a>textualContentModeration 
 
 |이름|설명|
 |---|---|
