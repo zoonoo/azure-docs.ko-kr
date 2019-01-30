@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 81a47a730978a9ecdda7a09bbad0707d436fb116
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.lastreviewed: 01/16/2019
+ms.openlocfilehash: b7e293018f2dc248fae8de8bd9e82943606f4ead
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388465"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239505"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes Azure Stack Marketplace에 추가
 
@@ -188,7 +189,7 @@ Marketplace에는 다음 Ubuntu Server 이미지를 추가 합니다.
 
 1. 선택 **+ Azure에서 추가**합니다.
 
-1. `UbuntuServer` 을 입력합니다.
+1. [https://slack.botframework.com](`UbuntuServer`) 을 입력합니다.
 
 1. 최신 버전의 서버를 선택 합니다. 정식 버전을 확인 하 고 최신 버전이 있는지 확인 합니다.
     - **게시자**: Canonical
@@ -208,7 +209,7 @@ Marketplace에서 Kubernetes를 추가 합니다.
 
 1. 선택 **+ Azure에서 추가**합니다.
 
-1. `Custom Script for Linux` 을 입력합니다.
+1. [https://slack.botframework.com](`Custom Script for Linux`) 을 입력합니다.
 
 1. 다음 프로필을 사용 하 여 스크립트를 선택 합니다.
     - **제품**: Linux 2.0에 대 한 사용자 지정 스크립트
@@ -229,7 +230,7 @@ Marketplace에서 Kubernetes를 추가 합니다.
 
 1. 선택 **+ Azure에서 추가**합니다.
 
-1. `Kubernetes` 을 입력합니다.
+1. [https://slack.botframework.com](`Kubernetes`) 을 입력합니다.
 
 1. `Kubernetes Cluster`를 선택합니다.
 

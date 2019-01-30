@@ -11,15 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 09c719dd03f375127448851d0af9dada9238d1f1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.lastreviewed: 12/03/2018
+ms.openlocfilehash: fd7dd06692e20eb0e7cc02af8d2f36c4dad8b597
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377507"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251931"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>빠른 시작: Azure Stack에서 PowerShell을 사용 하 여 Linux 서버 가상 머신 만들기
 
@@ -47,7 +48,7 @@ Azure Stack PowerShell을 사용 하 여 Ubuntu Server 16.04 LTS 가상 컴퓨�
 
 리소스 그룹은 배포 하 고 Azure Stack 리소스를 관리할 수 있는 논리적 컨테이너입니다. Azure Stack 통합 시스템, 개발 키트에서 리소스 그룹을 만들려면 다음 코드 블록을 실행 합니다. 이 문서에서 모든 변수에 대해 할당 된 값, 이러한 값을 사용 하거나 새 값을 할당할 수 있습니다.
 
-```powershell
+```powershell  
 # Create variables to store the location and resource group names.
 $location = "local"
 $ResourceGroupName = "myResourceGroup"
@@ -61,7 +62,7 @@ New-AzureRmResourceGroup `
 
 저장소 계정을 만들고 Ubuntu Server 16.04 LTS 이미지에 대 한 저장소 컨테이너를 만듭니다.
 
-```powershell
+```powershell  
 # Create variables to store the storage account name and the storage account SKU information
 $StorageAccountName = "mystorageaccount"
 $SkuName = "Standard_LRS"
@@ -395,7 +396,7 @@ Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ssh <Public IP Address>
 ```
 
-메시지가 표시 되 면 로그인 한 사용자로 azureuser를 입력 합니다. SSH 키를 만들 때 암호를 사용한 경우 암호를 제공 해야 합니다.
+로 로그인 대화 상자가 나타나면 **azureuser**합니다. SSH 키를 만들 때 암호를 사용한 경우 암호를 제공 해야 합니다.
 
 ## <a name="install-the-nginx-web-server"></a>NGINX 웹 서버 설치
 

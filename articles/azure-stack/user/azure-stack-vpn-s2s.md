@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
-ms.openlocfilehash: cfd46f8178f36213ecc16db0e092e81ac2d0eff1
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.lastreviewed: 01/19/2019
+ms.openlocfilehash: e9e24bd19243f13b89d54f0105195b5c17505925
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54414915"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251515"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-or-vnet-to-vnet-connections"></a>사이트 간 VPN 또는 VNet 대 VNet 연결에 대 한 IPsec/IKE 정책 구성
 
@@ -102,10 +103,10 @@ IPsec 및 IKE 프로토콜 표준은 다양 한 조합에 다양 한 암호화 �
 |----------------------|-----------|---------------|---------------|
 | 1                    | DHGroup1  | PFS1          | 768비트 MODP  |
 | 2                    | DHGroup2  | PFS2          | 1024비트 MODP |
-| 14                   | DHGroup14 |               |               |
-| DHGroup2048          | PFS2048   | 2048비트 MODP |               |
+| 14                   | DHGroup14<br/>DHGroup2048 | PFS2048       | 2048비트 MODP |
 | 19                   | ECP256    | ECP256        | 256비트 ECP   |
-| 20                   | ECP384    | ECP284        | 384비트 ECP   |
+| 20                   | ECP384    | ECP384        | 384비트 ECP   |
+| 24                   | DHGroup24 | PFS24         | 2048비트 MODP |
 
 자세한 내용은 [RFC3526](https://tools.ietf.org/html/rfc3526) 하 고 [RFC5114](https://tools.ietf.org/html/rfc5114)합니다.
 

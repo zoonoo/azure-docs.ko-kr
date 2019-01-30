@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: ad76e19e324c29c277e72f1e93d2b505984b50ba
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.lastreviewed: 09/18/2018
+ms.openlocfilehash: 10a333e8521c781a223c767660ae6acaa1286929
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46369175"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251829"
 ---
 # <a name="azure-stack-capacity-planning"></a>Azure Stack 용량 계획
 Azure Stack 솔루션을 평가할 때 Azure Stack 클라우드에의 한 전체 용량에 직접 영향을 주는 하드웨어 구성을 선택할 수 있습니다. 이 CPU, 메모리 밀도, 저장소 구성 및 전반적인 솔루션 확장 또는 서버 수가 클래식 선택 항목입니다. 기존의 가상화 솔루션과 달리 이러한 구성 요소가 사용 가능한 용량을 확인할 수의 간단한 산술 연산을 적용 되지 않습니다. 첫 번째 이유는 Azure Stack 솔루션 자체 내에서 인프라 또는 관리 구성 요소를 호스트 하도록 설계 되는 경우 복원 력; 지원 하기 위해 예약 되어 솔루션의 용량 중 두 번째 이유는 테 넌 트 워크 로드의 중단을 최소화 하는 방법에 대 한 솔루션의 소프트웨어 업데이트 합니다.

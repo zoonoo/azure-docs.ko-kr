@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: e4131bc8f038957e52b914937b2d45e670be8f5f
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.lastreviewed: 12/18/2018
+ms.openlocfilehash: 09988009712f9312eb97d5c32dc8991ec5b2f1f9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157278"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251353"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure Stack에서 암호를 회전 합니다.
 
@@ -135,9 +136,9 @@ Azure Stack 다음 경우에 새 인증 기관 (CA)에서 외부 인증서를 �
 > 파일 공유 탑재 같습니다 **\\ \\ \<IPAddress >\\\<ShareName >\\** 폴더를 포함 해야 하 고  **Certificates\AAD** 나 **Certificates\ADFS** 내에서.
 >
 > 예: 
-> - Fileshare =  **\\ \\ \<IPAddress >\\\<공유 이름 >\\**
+> - Fileshare = **\\\\\<IPAddress>\\\<ShareName>\\**
 > - CertFolder = **Certificates\AAD**
-> - FullPath =  **\\ \\ \<IPAddress >\\\<ShareName > \Certificates\AAD**
+> - FullPath = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
 
 ## <a name="rotating-external-secrets"></a>외부 암호를 회전합니다.
 
@@ -297,13 +298,13 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | type | 필수 | Position | 기본값 | 설명 |
+| 매개 변수 | Type | 필수 | Position | 기본값 | 설명 |
 | -- | -- | -- | -- | -- | -- |
 | PfxFilesPath | 문자열  | False  | named  | 없음  | 파일 공유 경로 **\Certificates** 디렉터리 포함 된 모든 외부 네트워크 끝점 인증서입니다. 외부 암호를 회전 하는 경우에 필요 합니다. 최종 디렉터리 여야 합니다 **\Certificates**합니다. |
 | CertificatePassword | SecureString | False  | named  | 없음  | -PfXFilesPath에서 제공 하는 모든 인증서에 대 한 암호입니다. 외부 암호 회전 하는 경우 PfxFilesPath가 제공 하는 경우 필수 값입니다. |
 | 내부 | 문자열 | False | named | 없음 | Azure Stack 운영자가 내부 인프라 암호를 회전 하려면 언제 든 지 내부 플래그를 사용 해야 합니다. |
 | PathAccessCredential | PSCredential | False  | named  | 없음  | 파일 공유에 대 한 PowerShell 자격 증명을 **\Certificates** 디렉터리 포함 된 모든 외부 네트워크 끝점 인증서입니다. 외부 암호를 회전 하는 경우에 필요 합니다.  |
-| 다시 실행 | SwitchParameter | False  | named  | 없음  | 비밀 회전 시도 실패 후 다시 시도 언제 든 지 다시 실행을 사용 해야 합니다. |
+| ReRun | SwitchParameter | False  | named  | 없음  | 비밀 회전 시도 실패 후 다시 시도 언제 든 지 다시 실행을 사용 해야 합니다. |
 
 ### <a name="examples"></a>예
 
