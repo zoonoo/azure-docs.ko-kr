@@ -3,18 +3,18 @@ title: Azure Automation 통합 모듈 만들기
 description: Azure Automation의 통합 모듈을 만들고 테스트하며 예제를 사용하는 과정을 안내하는 자습서입니다.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7b7bd66d90ad01479965c928eb69bfb1dfccce5b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 609a841ed410832739041bbbbf7d33d3a01a4bfc
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000224"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436487"
 ---
 # <a name="azure-automation-integration-modules"></a>Azure Automation 통합 모듈
 PowerShell은 Azure Automation의 기본 기술입니다. Azure Automation은 PowerShell을 기반으로 하기 때문에 PowerShell 모듈은 Azure Automation의 확장성에 대한 키입니다. 이 문서에서는 "통합 모듈"이라고 하는 PowerShell 모듈에서 Azure Automation을 만드는 세부 정보 및 Azure Automation 내에서 통합 모듈로 작동하도록 고유한 PowerShell 모듈을 만드는 모범 사례를 안내합니다. 
@@ -207,4 +207,5 @@ Azure 관리를 즉시 자동화하기 시작할 수 있도록 Azure Automation�
 
 * PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)
 * PowerShell 모듈을 만드는 자세한 내용은 [Windows PowerShell 모듈 작성](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)
+
 
