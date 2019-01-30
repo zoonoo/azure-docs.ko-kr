@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager 시험 사용 | Microsoft Docs
-description: Azure Resource Manager를 사용하여 마켓플레이스 시험 사용 빌드
+description: Azure Resource Manager를 사용하여 Marketplace 시험 사용 빌드
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: pbutlerm
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 87e57a1ee417a4cc69308e8af80dd9b781d60aaf
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b7cbd69a4551605b71930a23f837b467177e3cc3
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139268"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451360"
 ---
 <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager 시험 사용
 =================================
@@ -365,7 +365,7 @@ ID가 없으면 Azure Active Directory에서 새 테넌트를 만듭니다.
 
 ![선택 항목을 확인합니다.](./media/azure-resource-manager-test-drive/subdetails6.png)
 
-**Azure AD 앱 ID -** ‘필수’ 다음 단계에서는 새 응용 프로그램을 만들고 등록합니다. 이 애플리케이션을 사용하여 시험 사용 인스턴스에 대한 작업을 수행합니다.
+**Azure AD 앱 ID -** ‘필수’ 다음 단계에서는 새 애플리케이션을 만들고 등록합니다. 이 애플리케이션을 사용하여 시험 사용 인스턴스에 대한 작업을 수행합니다.
 
 1. 새로 만든 디렉터리 또는 이미 있는 디렉터리로 이동하여 필터 창에서 Azure Active Directory를 선택합니다.
 2. “앱 등록”을 검색한 다음, “추가”를 클릭합니다.

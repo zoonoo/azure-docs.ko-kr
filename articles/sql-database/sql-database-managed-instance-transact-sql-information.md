@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 489eccf1b73e7f5df76a3ce681b4479893a9e0ac
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 95a9f3d553bb3d8ca07ed90578861f6267058532
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843209"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463748"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance 및 SQL Server 간의 T-SQL 차이점
 
@@ -51,9 +51,9 @@ Managed Instance, Azure SQL Database 및 SQL Server 온-프레미스의 SQL Audi
   
 Managed Instance의 XEvent 감사는 Azure Blob Storage 대상을 지원합니다. 파일 및 Windows 로그는 지원되지 않습니다.
 
-Azure Blob 저장소에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이점은 다음과 같습니다.
+Azure Blob Storage에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이점은 다음과 같습니다.
 
-- 새 `TO URL` 구문이 제공되고 `.xel` 파일이 배치될 Azure Blob 저장소 컨테이너의 URL을 지정할 수 있습니다
+- 새 `TO URL` 구문이 제공되고 `.xel` 파일이 배치될 Azure Blob Storage 컨테이너의 URL을 지정할 수 있습니다
 - Managed Instance에서 Windows 파일 공유에 액세스할 수 없으므로 `TO FILE` 구문은 지원되지 않습니다.
 
 자세한 내용은 다음을 참조하세요.  
@@ -94,8 +94,8 @@ T-SQL을 사용하는 백업에 대한 자세한 내용은 [BACKUP](https://docs
 
 Managed Instance는 파일 공유 및 Windows 폴더에 액세스할 수 없으므로 Azure Blob Storage에서 파일을 가져와야 합니다.
 
-- Azure Blob 저장소에서 파일을 가져오는 동안 `BULK INSERT` 명령에 `DATASOURCE`가 필요합니다. [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql)를 참조하세요.
-- Azure Blob 저장소에서 파일의 내용을 읽을 때 `OPENROWSET` 함수에 `DATASOURCE`가 필요합니다. [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql)를 참조하세요.
+- Azure Blob Storage에서 파일을 가져오는 동안 `BULK INSERT` 명령에 `DATASOURCE`가 필요합니다. [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql)를 참조하세요.
+- Azure Blob Storage에서 파일의 내용을 읽을 때 `OPENROWSET` 함수에 `DATASOURCE`가 필요합니다. [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql)를 참조하세요.
 
 ### <a name="certificates"></a>인증서
 
@@ -234,8 +234,8 @@ MSDTC도 [탄력적 트랜잭션](https://docs.microsoft.com/azure/sql-database/
 
 XEvent에 대한 일부 Windows 관련 대상은 지원되지 않습니다.
 
-- `etw_classic_sync target`은 지원되지 않습니다. Azure Blob 저장소에 `.xel` 파일을 저장합니다. [etw_classic_sync 대상](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target)을 참조하세요.
-- `event_file target`은 지원되지 않습니다. Azure Blob 저장소에 `.xel` 파일을 저장합니다. [event_file 대상](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#eventfile-target)을 참조하세요.
+- `etw_classic_sync target`은 지원되지 않습니다. Azure Blob Storage에 `.xel` 파일을 저장합니다. [etw_classic_sync 대상](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target)을 참조하세요.
+- `event_file target`은 지원되지 않습니다. Azure Blob Storage에 `.xel` 파일을 저장합니다. [event_file 대상](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target)을 참조하세요.
 
 ### <a name="external-libraries"></a>외부 라이브러리
 
@@ -284,7 +284,7 @@ Managed Instance의 연결된 서버는 제한된 수의 대상을 지원합니�
 
 ### <a name="polybase"></a>Polybase
 
-HDFS 또는 Azure Blob 저장소의 파일을 참조하는 외부 테이블은 지원되지 않습니다. Polybase에 대한 자세한 내용은 [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)를 참조하세요.
+HDFS 또는 Azure Blob Storage의 파일을 참조하는 외부 테이블은 지원되지 않습니다. Polybase에 대한 자세한 내용은 [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)를 참조하세요.
 
 ### <a name="replication"></a>복제
 
@@ -302,7 +302,7 @@ HDFS 또는 Azure Blob 저장소의 파일을 참조하는 외부 테이블은 �
   - `RESTORE LOG ONLY`
   - `RESTORE REWINDONLY ONLY`
 - 원본  
-  - `FROM URL`(Azure Blob 저장소)만 지원되는 옵션입니다.
+  - `FROM URL`(Azure Blob Storage)만 지원되는 옵션입니다.
   - `FROM DISK`/`TAPE`/백업 디바이스는 지원되지 않습니다.
   - 백업 세트는 지원되지 않습니다.
 - `WITH` 옵션은 지원되지 않습니다(`DIFFERENTIAL`, `STATS` 등이 없음)
@@ -503,6 +503,12 @@ using (var scope = new TransactionScope())
 현재 인스턴스를 참조하는 Managed Instance 및 연결된 서버/분산 쿼리에 배치된 CLR 모듈에서 로컬 인스턴스의 IP를 확인할 수 없는 경우가 있습니다. 이 오류는 일시적인 문제입니다.
 
 **해결 방법**: 가능한 경우 CLR 모듈에서 컨텍스트 연결을 사용합니다.
+
+### <a name="tde-encrypted-databases-dont-support-user-initiated-backups"></a>TDE 암호화 데이터베이스에서 사용자가 시작한 백업을 지원하지 않음
+
+TDE(투명한 데이터 암호화)로 암호화된 데이터베이스에서 `BACKUP DATABASE ... WITH COPY_ONLY`를 실행할 수 없습니다. TDE는 내부 TDE 키를 사용하여 백업을 강제로 암호화하고, 키는 내보낼 수 없으므로 백업을 복원할 수 없습니다.
+
+**해결 방법**: 자동 백업 및 특정 시점 복원을 사용하거나 데이터베이스에서 암호화를 사용하지 않도록 설정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

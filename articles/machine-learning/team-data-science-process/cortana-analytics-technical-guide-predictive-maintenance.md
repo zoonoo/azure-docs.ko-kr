@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: d7acb24a6fef0435d59e5a07f5312f1e6368fe52
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ca29526ab8abbfffcf5e58939acbd1c9b4798a51
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140186"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451734"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>항공 우주에서 예측 유지 관리를 위한 Cortana Intelligence 솔루션 템플릿에 대한 기술 가이드
 
@@ -148,7 +148,7 @@ Azure Machine Learning 실험 생성 방법에 대한 정보는 [예측 유지 �
 ## <a name="monitor-progress"></a>진행률 모니터링
 데이터 생성기가 시작되면 파이프라인이 하이드레이션하기 시작하고 솔루션의 다양한 구성 요소가 데이터 팩터리에서 발급한 명령을 실행하는 작업을 시작합니다. 두 가지 방법으로 파이프라인을 모니터링할 수 있습니다.
 
-1. Stream Analytics 작업 중 하나는 Blob Storage에 들어오는 원시 데이터를 씁니다. 솔루션을 성공적으로 배포한 화면에서 솔루션의 Blob Storage 구성 요소를 클릭하고 오른쪽 패널에서 열기를 클릭하면 [Azure Portal](https://portal.azure.com/)로 이동합니다. Blob을 클릭합니다. 다음 패널에서 컨테이너 목록이 표시됩니다. **maintenancesadata**를 클릭합니다. 다음 패널에 **rawdata** 폴더가 표시됩니다. rawdata 폴더 안에 hour=17, hour=18 등과 같은 이름을 가진 폴더가 표시됩니다. 이러한 폴더가 표시되는 경우 원시 데이터가 컴퓨터에 생성되고 Blob 저장소에 저장되고 있음을 나타냅니다. 해당 폴더에 한정된 크기(MB)로 있어야 하는 csv 파일이 표시됩니다.
+1. Stream Analytics 작업 중 하나는 Blob Storage에 들어오는 원시 데이터를 씁니다. 솔루션을 성공적으로 배포한 화면에서 솔루션의 Blob Storage 구성 요소를 클릭하고 오른쪽 패널에서 열기를 클릭하면 [Azure Portal](https://portal.azure.com/)로 이동합니다. Blob을 클릭합니다. 다음 패널에서 컨테이너 목록이 표시됩니다. **maintenancesadata**를 클릭합니다. 다음 패널에 **rawdata** 폴더가 표시됩니다. rawdata 폴더 안에 hour=17, hour=18 등과 같은 이름을 가진 폴더가 표시됩니다. 이러한 폴더가 표시되는 경우 원시 데이터가 컴퓨터에 생성되고 Blob Storage에 저장되고 있음을 나타냅니다. 해당 폴더에 한정된 크기(MB)로 있어야 하는 csv 파일이 표시됩니다.
 2. 파이프라인의 마지막 단계는 SQL Database에 데이터(예: Machine Learning에서 예측)를 쓰는 것입니다. 데이터를 SQL Database에 표시하려면 최대 3시간을 기다려야 할 수도 있습니다. 얼마나 많은 데이터를 SQL Database에서 사용할 수 있는지를 모니터링하는 한 가지 방법은 [Azure Portal](https://portal.azure.com/)을 통한 방법입니다. 왼쪽 패널에서 SQL Database ![SQL 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png)을 찾아 클릭합니다. 그런 다음 데이터베이스 **pmaintenancedb**를 찾고 클릭합니다. 맨 아래의 다음 페이지에서 관리를 클릭합니다.
    
     ![관리 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png)
@@ -174,7 +174,7 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
    * 솔루션 템플릿 다이어그램의 **"Azure SQL Database"** 가 녹색으로 바뀌면 클릭한 다음 **"열기"** 를 클릭합니다.
    * Azure 포털 페이지를 표시하는 새로운 브라우저 탭/창이 표시됩니다. 왼쪽 패널에서 **'리소스 그룹'** 을 클릭합니다.
    * 솔루션 배포에 사용 중인 구독을 선택한 다음 **'YourSolutionName\_ResourceGroup'** 을 선택합니다.
-   * 새 팝업 패널에서 ![SQL 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) 아이콘을 클릭하여 데이터베이스에 액세스합니다. 데이터베이스 이름은 이 아이콘 옆에 있으며(예: **'pmaintenancedb'**) **데이터베이스 서버 이름**은 서버 이름 속성 아래에 나열되고 **YourSoutionName.database.windows.net**과 유사하게 보입니다.
+   * 새 팝업 패널에서 ![SQL 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) 아이콘을 클릭하여 데이터베이스에 액세스합니다. 데이터베이스 이름(예: **'pmaintenancedb'**)은 이 아이콘 옆에 있으며, **데이터베이스 서버 이름**은 서버 이름 속성 아래에 나열되고 **YourSolutionName.database.windows.net**과 비슷합니다.
    * 데이터베이스 **사용자 이름** 및 **암호**는 솔루션 배포 중 이전에 기록된 사용자 이름 및 암호와 동일합니다.
 2. Power BI 데스크톱을 사용하여 콜드 경로 보고서 파일의 데이터 원본을 업데이트합니다.
    
@@ -182,7 +182,7 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
      
      ![쿼리 편집](./media/cortana-analytics-technical-guide-predictive-maintenance/edit-queries.png)
    * 두 개의 테이블, **RemainingUsefulLife** 및 **PMResult**가 표시됩니다. 첫 번째 테이블을 선택하고 오른쪽 **'쿼리 설정'** 패널의 **'적용된 단계'** 아래에서 **'원본'** 옆의 ![쿼리 설정 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-query-settings.png)을 클릭합니다. 표시되는 경고 메시지를 무시합니다.
-   * 팝 아웃 창에서 **"서버"** 및 **"데이터베이스"** 를 사용자 고유 서버 및 데이터베이스 이름으로 바꾼 다음 **"확인"** 을 클릭합니다. 서버 이름의 경우 포트 1433을 지정했는지 확인합니다(**YourSoutionName.database.windows.net, 1433**). 데이터베이스 필드를 **pmaintenancedb**로 남겨 둡니다. 화면에 나타나는 경고 메시지를 무시합니다.
+   * 팝 아웃 창에서 **"서버"** 및 **"데이터베이스"** 를 사용자 고유 서버 및 데이터베이스 이름으로 바꾼 다음 **"확인"** 을 클릭합니다. 서버 이름의 경우 포트 1433을 지정했는지 확인합니다(**YourSolutionName.database.windows.net, 1433**). 데이터베이스 필드를 **pmaintenancedb**로 남겨 둡니다. 화면에 나타나는 경고 메시지를 무시합니다.
    * 다음 팝 아웃 창에서 왼쪽 창에 두 가지 옵션이 표시됩니다(**Windows** 및 **데이터베이스**). **‘데이터베이스’** 를 클릭하고 **‘사용자 이름’** 및 **암호’** 를 입력합니다(처음으로 솔루션을 배포하고 Azure SQL 데이터베이스를 만들 때 입력한 사용자 이름 및 암호). ***이러한 설정을 적용할 수준 선택***에서 데이터베이스 수준 옵션을 선택합니다. 그런 다음 **'연결'** 을 클릭합니다.
    * 두 번째 테이블 **PMResult**를 클릭하고 오른쪽 **'쿼리 설정'** 패널의 **'적용된 단계'** 아래 **'원본'** 옆에 있는 ![탐색 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png)을 클릭한 다음 위 단계와 마찬가지로 서버 및 데이터베이스 이름을 업데이트하고 확인을 클릭합니다.
    * 이전 페이지로 안내된 후 창을 닫습니다. 메시지가 표시되면 **적용**을 클릭합니다. 마지막으로 **저장** 단추를 클릭하여 변경 내용을 저장합니다. Power BI 파일은 이제 서버에 대한 연결을 설정합니다. 시각화가 비어 있는 경우 범례의 오른쪽 위 모퉁이의 지우개 아이콘을 클릭하여 모든 데이터를 시각화하도록 시각화의 선택 항목을 해제해야 합니다. 새로 고침 단추를 사용하여 시각화에 새 데이터를 반영합니다. 처음에 데이터 팩터리는 3시간마다 새로 고치도록 예약되어 있으므로 시각화에는 시드 데이터만 나타납니다. 3시간 후 데이터를 새로 고치면 시각화에 적용된 새 예측이 표시됩니다.

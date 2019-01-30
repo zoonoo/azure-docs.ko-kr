@@ -4,7 +4,7 @@ description: 이 문서에서는 Office 365 사용자가 인증서 갱신에 대
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 543b7dc1-ccc9-407f-85a1-a9944c0ba1be
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 311c16ba0c6b3378fd743b77e263a5d91f8b6a37
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6512efb45ee5c56cd0a10286d4156ae2d81f2f99
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237098"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464955"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Office 365 및 Azure Active Directory에 대한 페더레이션 인증서 갱신
 ## <a name="overview"></a>개요
@@ -92,13 +92,13 @@ AD FS에서 구성된 인증서 및 지정된 도메인에 대한 Azure AD 트�
 
 두 출력의 지문이 일치하는 경우 인증서는 Azure AD와 동기화됩니다.
 
-### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>3단계: 인증서가 만료되려고 하는지 확인
+### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>3단계: 인증서가 곧 만료되는지 확인
 Get-MsolFederationProperty 또는 Get-AdfsCertificate 중 하나의 출력에서 "이후가 아님" 아래에 있는 날짜를 확인합니다. 날짜가 30일 이내인 경우 조치를 취해야 합니다.
 
 | AutoCertificateRollover | Azure AD와 동기화된 인증서 | 페더레이션 메타데이터는 공개적으로 액세스할 수 있습니다. | 유효성 검사 | 조치 |
 |:---:|:---:|:---:|:---:|:---:|
-| yes |예 |yes |- |어떤 조치도 필요하지 않습니다. [자동으로 토큰 서명 인증서 갱신](#autorenew)을 참조하세요. |
-| yes |아니요 |- |15일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
+| 예 |예 |예 |- |어떤 조치도 필요하지 않습니다. [자동으로 토큰 서명 인증서 갱신](#autorenew)을 참조하세요. |
+| 예 |아니요 |- |15일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
 | 아니요 |- |- |30일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
 
 \[-] 중요하지 않습니다.
@@ -149,7 +149,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 3. 나열된 모든 인증서에서 명령 출력을 살펴봅니다. AD FS에서 새 인증서를 생성했으면 두 인증서가 출력에 표시됩니다. 하나는 **IsPrimary** 값이 **True**이고 **NotAfter** 날짜는 5일 이내이며 다른 하나는 **IsPrimary**가 **False**이고 **NotAfter**는 향후 1년 정도입니다.
 4. 인증서가 하나만 표시되는 경우 **NotAfter** 날짜가 5일 이내이면 새 인증서를 생성해야 합니다.
 5. 새 인증서를 생성하려면 PowerShell 명령 프롬프트에서 다음 명령을 실행합니다: `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
-6. PS C:\>Get-ADFSCertificate –CertificateType token-signing 명령을 다시 실행하여 업데이트를 확인합니다.
+6. 다음 명령을 다시 실행하여 업데이트를 확인합니다. PS C:\>Get-ADFSCertificate –CertificateType token-signing
 
 이제 두 인증서 나열되어야 하며 둘 중 하나의 **NotAfter** 날짜가 향후 약 1년 정도이고 **IsPrimary** 값은 **False**입니다.
 

@@ -4,7 +4,7 @@ description: Azure AD Connect 동기화 서비스의 서비스 쪽 기능을 설
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
 ms.service: active-directory
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8d351e41eac3c820b9295b3b5cf314428bebc746
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f5a251c3e867035ecc00d449c4fbc1cf980a4f1f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242996"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461215"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect 동기화 서비스 기능
 Azure AD Connect의 동기화 기능에는 두 가지 구성 요소가 있습니다.
 
 * **Azure AD Connect 동기화**라고 하는 온-프레미스 구성 요소(**동기화 엔진**이라고도 함)
-* **Azure AD Connect 동기화 서비스**
+*  **Azure AD Connect 동기화 서비스**
 
 이 항목에서는 다음 **Azure AD Connect 동기화 서비스** 기능 작동 방법 및 Windows PowerShell을 사용하여 구성할 수 있는 방법에 대해 설명합니다.
 
@@ -55,7 +55,7 @@ Azure AD 디렉터리의 구성을 보려면 `Get-MsolDirSyncFeatures`를 실행
 
 | DirSyncFeature | 주석 |
 | --- | --- |
-| DeviceWriteback |[Azure AD Connect: 장치 쓰기 저장 사용](how-to-connect-device-writeback.md) |
+| DeviceWriteback |[Azure AD Connect: 디바이스 쓰기 저장 사용](how-to-connect-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect 동기화: 디렉터리 확장](how-to-connect-sync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |내보내는 동안 전체 개체가 실패한 것이 아니라 또 다른 개체의 복제본인 경우 특성을 격리시킬 수 있습니다. |
 | 암호 해시 동기화 |[Azure AD Connect 동기화로 암호 해시 동기화 구현](how-to-connect-password-hash-synchronization.md) |
