@@ -1,46 +1,37 @@
 ---
-title: '자습서: 단일 페이지 웹앱 빌드 - Bing Visual Search'
+title: " 단일 페이지 웹앱 빌드 - Bing Visual Search"
 titleSuffix: Azure Cognitive Services
-description: 단일 페이지 웹 응용 프로그램에서 Bing Visual Search API를 사용하는 방법을 보여줍니다.
+description: Bing Visual Search API를 단일 페이지 웹 애플리케이션에 통합하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
-ms.topic: tutorial
+ms.topic: article
 ms.date: 10/04/2017
 ms.author: aahi
-ms.openlocfilehash: fe7159e88bd70ba8af23909559264fa5f210ef10
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 8ff5e36e6189c522e00c7cdd126c26b1cef92912
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443900"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745145"
 ---
-# <a name="tutorial-visual-search-single-page-web-app"></a>자습서: Visual Search 단일 페이지 웹앱
+# <a name="create-a-visual-search-single-page-web-app"></a>Visual Search 단일 페이지 웹앱 만들기 
 
-Bing Visual Search API에서는 Bing.com/images에 표시된 이미지 세부 정보와 비슷한 환경을 제공합니다. Visual Search를 사용하면 이미지를 지정하고 시각적으로 유사한 이미지, 쇼핑 원본, 해당 이미지를 포함한 웹 페이지 등의 이미지에 대한 인사이트를 얻을 수 있습니다. 
+Bing Visual Search API는 Bing.com/images에 표시된 이미지 정보와 유사한 환경을 제공합니다. Visual Search를 사용하면 이미지를 지정하고 시각적으로 유사한 이미지, 쇼핑 원본, 해당 이미지를 포함한 웹 페이지 등의 이미지에 대한 인사이트를 얻을 수 있습니다. 
 
-이 자습서의 경우 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/)에 표시된 대로 S9 가격 계층에서 구독을 시작해야 합니다. 
+이 문서에서는 Bing Image Search API용 단일 페이지 웹앱을 확장하는 방법에 대해 설명합니다. 해당 자습서를 보거나 여기에 사용되는 소스 코드를 가져오려면 [자습서: Bing Image Search API용 단일 페이지 앱 만들기](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)를 참조하세요. 
 
-Azure Portal에서 구독을 시작하려면
-1. `Search resources, services, and docs`라고 표시되는 Azure Portal의 맨 위에 있는 텍스트 상자에 'BingSearchV7'을 입력합니다.  
-2. 드롭다운 목록의 Marketplace 아래에서 `Bing Search v7`을 선택합니다.
-3. 새 리소스에 대해 `Name`을 입력합니다.
-4. `Pay-As-You-Go` 구독을 선택합니다.
-5. `S9` 가격 책정 계층을 선택합니다.
-6. `Enable`을 클릭하여 구독을 시작합니다.
+이 애플리케이션에 대한 전체 소스 코드(Bing Visual Search API를 사용하도록 확장한 후)는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchApp.html)에서 사용할 수 있습니다.
 
-이 자습서에서는 Bing Image Search 자습서에서 단일 페이지 웹앱을 확장합니다([단일 페이지 웹앱](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md) 참조). 이 자습서를 시작하는 전체 소스 코드는 [단일 페이지 웹앱(소스 코드)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md)을 참조하세요. 이 자습서의 최종 소스 코드는 [Visual Search 단일 페이지 웹앱](tutorial-bing-visual-search-single-page-app-source.md)을 참조하세요.
+## <a name="prerequisites"></a>필수 조건
 
-설명하는 작업은 다음과 같습니다.
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-> [!div class="checklist"]
-> * 이미지 인사이트 토큰으로 Bing Visual Search API 호출
-> * 유사한 이미지 표시
+## <a name="call-the-bing-visual-search-api-and-handle-the-response"></a>Bing Visual Search API 호출 및 응답 처리
 
-## <a name="call-bing-visual-search"></a>Bing Visual Search 호출
-Bing Visual Search 자습서를 편집하고 409 줄의 스크립트 요소 끝에 다음 코드를 추가합니다. 이 코드는 Bing Visual Search API를 호출하고 결과를 표시합니다.
+Bing Image Search 자습서를 편집하고 `<script>` 요소의 끝(및 닫는 `</script>` 태그의 앞)에 다음 코드를 추가합니다. 다음 코드는 API의 시각적 검색 응답을 처리하고 결과를 반복하여 표시합니다.
 
 ``` javascript
 function handleVisualSearchResponse(){
@@ -70,7 +61,12 @@ function handleVisualSearchResponse(){
         }
     }
 }
+```
 
+다음 코드는 `handleVisualSearchResponse()`를 호출하는 이벤트 수신기를 사용하여 검색 요청을 API에 보냅니다.
+
+
+```javascript
 function bingVisualSearch(insightsToken){
     let visualSearchBaseURL = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch',
         boundary = 'boundary_ABC123DEF456',
@@ -105,13 +101,15 @@ function bingVisualSearch(insightsToken){
 ```
 
 ## <a name="capture-insights-token"></a>인사이트 토큰 캡처
-다음 코드를 151줄의 `searchItemsRenderer` 개체에 추가합니다. 이 코드는 클릭할 때 `bingVisualSearch` 함수를 호출하는 **유사 항목 찾기** 링크를 추가합니다. 함수는 인수로 imageInsightsToken을 받습니다.
+
+다음 코드를 `searchItemsRenderer` 개체에 추가합니다. 이 코드는 클릭할 때 `bingVisualSearch` 함수를 호출하는 **유사 항목 찾기** 링크를 추가합니다. 함수는 인수로 imageInsightsToken을 받습니다.
 
 ``` javascript
 html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + "\");'>find similar</a><br>");
 ```
 
 ## <a name="display-similar-images"></a>유사한 이미지 표시
+
 다음 HTML 코드를 601줄에 추가합니다. 이 태그 코드는 Bing Visual Search API 호출의 결과를 표시하는 데 사용되는 요소를 추가합니다.
 
 ``` html
@@ -126,5 +124,4 @@ html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Visual Search 단일 페이지 웹앱 원본](tutorial-bing-visual-search-single-page-app-source.md)
-> [Bing Visual Search API 참조](https://aka.ms/bingvisualsearchreferencedoc)
+> [이미지 자르기 및 업로드](tutorial-visual-search-crop-area-results.md)

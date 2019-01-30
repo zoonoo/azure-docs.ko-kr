@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 53361ed460917fff42008283429967eff2e80ab2
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 0609a653327640c542457822e41143b9b39dd6d4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345099"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462202"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기 사용자 지정
 
@@ -77,7 +77,7 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
 
 ## <a name="customize-the-layout"></a>레이아웃 사용자 지정
 
-원격 모니터링 솔루션의 각 페이지는 소스 코드에서 *패널*이라고 하는 컨트롤의 집합으로 구성됩니다. **대시보드** 페이지는 개요, 지도, 경보, 원격 분석 및 분석의 5개 패널로 구성됩니다. [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub 리포지토리에서 각 페이지 및 해당 패널을 정의하는 소스 코드를 찾을 수 있습니다. 예를 들어 **대시보드** 페이지, 해당 레이아웃 및 페이지의 패널을 정의하는 코드는 [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) 폴더에 있습니다.
+원격 모니터링 솔루션의 각 페이지는 소스 코드에서 *패널*이라고 하는 컨트롤의 집합으로 구성됩니다. **대시보드** 페이지는 개요, 지도, 경고, 원격 분석 및 분석의 5개 패널로 구성됩니다. [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub 리포지토리에서 각 페이지 및 해당 패널을 정의하는 소스 코드를 찾을 수 있습니다. 예를 들어 **대시보드** 페이지, 해당 레이아웃 및 페이지의 패널을 정의하는 코드는 [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) 폴더에 있습니다.
 
 패널은 고유의 레이아웃 및 크기 조정을 관리하기 때문에 페이지의 레이아웃을 쉽게 수정할 수 있습니다. `src/components/pages/dashboard/dashboard.js` 파일에서 **PageContent** 요소를 다음과 같이 변경합니다.
 
@@ -335,7 +335,7 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
 
 ## <a name="add-a-new-kpi"></a>새 KPI 추가
 
-**대시보드** 페이지는 **분석** 패널에 KPI를 표시합니다. 이러한 KPI는 `src/components/pages/dashboard/dashboard.js` 파일에서 계산됩니다. KPI는 `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` 파일로 렌더링됩니다. 다음 단계는 **대시보드** 페이지에서 새 KPI 값을 계산하고 렌더링하는 방법을 설명합니다. 표시된 예제는 경고 경보 KPI에서 새 백분율 변경 내용을 추가하는 것입니다.
+**대시보드** 페이지는 **분석** 패널에 KPI를 표시합니다. 이러한 KPI는 `src/components/pages/dashboard/dashboard.js` 파일에서 계산됩니다. KPI는 `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` 파일로 렌더링됩니다. 다음 단계는 **대시보드** 페이지에서 새 KPI 값을 계산하고 렌더링하는 방법을 설명합니다. 표시된 예제는 경고 KPI에서 새 백분율 변경 내용을 추가하는 것입니다.
 
 1. `src/components/pages/dashboard/dashboard.js` 파일을 엽니다. 다음과 같이 **warningAlertsChange** 속성을 포함하도록 **initialState** 개체를 수정합니다.
 
@@ -365,7 +365,7 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
       openCriticalCount: (acc.openCriticalCount || 0) + (isCritical && isOpen ? 1 : 0),
       totalWarningCount: (acc.totalWarningCount || 0) + (isWarning ? 1 : 0),
       totalCriticalCount: (acc.totalCriticalCount || 0) + (isCritical ? 1 : 0),
-      alarmsPerDeviceId: updatedAlarmsPerDeviceId
+      alertsPerDeviceId: updatedAlertsPerDeviceId
     };
     ```
 

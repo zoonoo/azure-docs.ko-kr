@@ -1,6 +1,6 @@
 ---
 title: SQL Database 다중 테넌트 앱 예제에 대한 지침 - Wingtip SaaS | Microsoft Docs
-description: Azure SQL Database를 사용하는 샘플 다중 테넌트 응용 프로그램인 Wingtip Tickets SaaS 예제를 설치 및 실행하기 위한 단계와 지침을 제공합니다.
+description: Azure SQL Database를 사용하는 샘플 다중 테넌트 애플리케이션인 Wingtip Tickets SaaS 예제를 설치 및 실행하기 위한 단계와 지침을 제공합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: da8814cfd8fca8da061c27d9c5b69af15bff5007
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 42fd1c19a9cda0aa3d5d62bd265467327250a784
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054407"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606030"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Wingtip Tickets 샘플 SaaS 앱을 사용하기 위한 일반적인 지침
 
-이 문서에는 Azure SQL Database를 사용하는 Wingtip Tickets 샘플 SaaS 응용 프로그램을 실행하기 위한 일반적인 지침이 포함되어 있습니다. 
+이 문서에는 Azure SQL Database를 사용하는 Wingtip Tickets 샘플 SaaS 애플리케이션을 실행하기 위한 일반적인 지침이 포함되어 있습니다. 
 
 ## <a name="download-and-unblock-the-wingtip-tickets-saas-scripts"></a>Wingtip Tickets SaaS 스크립트 다운로드 및 차단 해제
 
@@ -57,7 +57,7 @@ zip 파일이 외부 원본에서 다운로드되고 추출될 때 Windows에서
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>F5 키를 눌러 스크립트 실행
 
-여러 스크립트에서 *$PSScriptRoot*를 사용하여 폴더를 탐색할 수 있으며 *$PSScriptRoot*는 **F5** 키를 눌러 스크립트를 실행할 때만 평가됩니다.  선택 내용을 강조 표시하고 실행(**F8**)하면 오류가 발생할 수 있으므로 스크립트를 실행할 때는 **F5** 키를 누르세요.
+여러 스크립트에서 *$PSScriptRoot*를 사용하여 폴더를 탐색할 수 있으며 *$PSScriptRoot*는 **F5** 키를 눌러 스크립트를 실행할 때만 평가됩니다.  선택 내용을 강조 표시하고 실행(**F8**)하면 오류가 발생할 수 있으므로 스크립트를 실행할 때는 **F5** 키를 누르세요.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>스크립트를 단계별로 실행하여 구현 검사
 
@@ -75,11 +75,11 @@ PowerShell 스크립트 탐색 및 단계별 실행에 대한 팁
 
 ## <a name="explore-database-schema-and-execute-sql-queries-using-ssms"></a>데이터베이스 스키마를 탐색하고 SSMS를 사용하여 SQL 쿼리를 실행합니다.
 
-[SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)를 사용하여 응용 프로그램 서버 및 데이터베이스에 연결하고 탐색합니다.
+[SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)를 사용하여 애플리케이션 서버 및 데이터베이스에 연결하고 탐색합니다.
 
 처음에 배포에는 연결할 테넌트 및 카탈로그 SQL Database 서버가 있습니다. 서버 이름 지정은 데이터베이스 테넌트 패턴에 따라 다릅니다(구체적인 내용은 아래 참조). 
 
-   - **독립 실행형 응용 프로그램:** 각 테넌트에 대한 서버(예: *contosoconcerthall-&lt;User&gt;* 서버) 및 *catalog-sa-&lt;User&gt;*
+   - **독립 실행형 애플리케이션:** 각 테넌트에 대한 서버(예: *contosoconcerthall-&lt;User&gt;* 서버) 및 *catalog-sa-&lt;User&gt;*
    - **테넌트당 데이터베이스:** *tenants1-dpt-&lt;User&gt;* 및 *catalog-dpt-&lt;User&gt;* 서버
    - **다중 테넌트 데이터베이스:** *tenants1-mt-&lt;User&gt;* 및 *catalog-mt-&lt;User&gt;* 서버
 
@@ -87,14 +87,14 @@ PowerShell 스크립트 탐색 및 단계별 실행에 대한 팁
 
 
 1. *SSMS*를 열고 테넌트에 연결합니다. 서버 이름은 선택한 데이터베이스 테넌트 패턴에 따라 다릅니다(구체적인 내용은 아래 참조).
-    - **독립 실행형 응용 프로그램:** 개별 테넌트의 서버(예: *contosoconcerthall-&lt;User&gt;.database.windows.net*) 
+    - **독립 실행형 애플리케이션:** 개별 테넌트의 서버(예: *contosoconcerthall-&lt;User&gt;.database.windows.net*) 
     - **테넌트당 데이터베이스:** *tenants1-dpt-&lt;User&gt;.database.windows.net*
     - **다중 테넌트 데이터베이스:** *tenants1-mt-&lt;User&gt;.database.windows.net* 
 2. **연결** > **데이터베이스 엔진...** 을 클릭합니다.
 
    ![카탈로그 서버](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. 데모 자격 증명: 로그인 = *developer*, 암호 =*P@ssword1*
+3. 데모 자격 증명은 로그인 = *developer*, 암호 = *P@ssword1*입니다.
 
     아래 이미지는 *테넌트당 데이터베이스* 패턴의 로그인을 보여줍니다. 
     ![연결](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
@@ -102,7 +102,7 @@ PowerShell 스크립트 탐색 및 단계별 실행에 대한 팁
    
 
 4. 2-3단계를 반복하고 카탈로그 서버에 연결(선택한 데이터베이스 테넌트 패턴에 따른 특정 서버 이름에 대해서는 아래 참조)
-    - **독립 실행형 응용 프로그램:** *catalog-sa-&lt;User&gt;.database.windows.net*
+    - **독립 실행형 애플리케이션:***catalog-sa-&lt;User&gt;.database.windows.net*
     - **테넌트당 데이터베이스:** *catalog-dpt-&lt;User&gt;.database.windows.net*
     - **다중 테넌트 데이터베이스:** *catalog-mt-&lt;User&gt;.database.windows.net*
 
@@ -116,7 +116,7 @@ PowerShell 스크립트 탐색 및 단계별 실행에 대한 팁
 
 
 ## <a name="next-steps"></a>다음 단계
-- [Wingtip 티켓 SaaS 독립형 응용 프로그램 배포](saas-standaloneapp-get-started-deploy.md)
-- [Wingtip Tickets SaaS 테넌트당 데이터베이스 응용 프로그램 배포](saas-dbpertenant-get-started-deploy.md)
-- [Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램 배포](saas-multitenantdb-get-started-deploy.md)
+- [Wingtip 티켓 SaaS 독립형 애플리케이션 배포](saas-standaloneapp-get-started-deploy.md)
+- [Wingtip Tickets SaaS 테넌트당 데이터베이스 애플리케이션 배포](saas-dbpertenant-get-started-deploy.md)
+- [Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 배포](saas-multitenantdb-get-started-deploy.md)
 

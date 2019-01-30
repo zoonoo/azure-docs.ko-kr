@@ -28,7 +28,7 @@ ms.locfileid: "42145626"
 
 * Azure IoT Hub - IoT Hub가 없는 경우 [`az iot hub create` 명령](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-create)을 사용하여 하나 만들거나 [포털을 사용하여 IoT Hub를 만들 수 있습니다](iot-hub-create-through-portal.md).
 
-* Azure Storage 계정. Azure Storage 계정이 없는 경우 [Azure CLI - 저장소 계정 관리](../storage/common/storage-azure-cli.md#manage-storage-accounts)를 사용하여 저장소 계정을 만들거나, 포털을 사용하여 [저장소 계정을 만들](../storage/common/storage-create-storage-account.md) 수 있습니다.
+* Azure Storage 계정. Azure Storage 계정이 없는 경우 [Azure CLI - 스토리지 계정 관리](../storage/common/storage-azure-cli.md#manage-storage-accounts)를 사용하여 스토리지 계정을 만들거나, 포털을 사용하여 [스토리지 계정을 만들](../storage/common/storage-create-storage-account.md) 수 있습니다.
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Azure 계정 로그인 및 설정
 

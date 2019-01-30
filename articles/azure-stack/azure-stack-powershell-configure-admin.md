@@ -11,15 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 1f9d5325522f8ec40af99059651a00f6cdc0e8e0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.lastreviewed: 01/24/2019
+ms.openlocfilehash: cf7fe050d2c0521a84bd7f108b2a6d67bfbe09da
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089626"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241630"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Operator 자격으로 PowerShell 사용 하 여 Azure Stack에 연결
 
@@ -36,9 +37,12 @@ Azure Stack PowerShell을 사용 하 여 제안, 계획, 할당량 및 경고 �
 
 ## <a name="connect-with-azure-ad"></a>Azure AD를 사용 하 여 연결
 
-PowerShell을 사용 하 여 Azure Stack 운영자 환경을 구성 합니다. 다음 스크립트 중 하나를 실행 합니다: 고유한 환경 구성을 사용 하 여 Azure Active Directory (Azure AD) tenantName 및 Azure Resource Manager 끝점 값을 바꿉니다. <!-- GraphAudience endpoint -->
+PowerShell을 사용 하 여 Azure Stack 운영자 환경을 구성 합니다. 다음 스크립트 중 하나를 실행 합니다. 사용자 고유의 환경 구성을 사용 하 여 Azure Active Directory (Azure AD) tenantName 및 Azure Resource Manager 끝점 값을 바꿉니다. <!-- GraphAudience endpoint -->
 
 ```PowerShell  
+    # Register an Azure Resource Manager environment that targets your Azure Stack instance. Get your Azure Resource Manager endpoint value from your service provider.
+Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external"
+
     # Set your tenant name
     $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackAdmin").ActiveDirectoryAuthority.TrimEnd('/')
     $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"
@@ -59,20 +63,17 @@ Azure Active Directory Federated Services (Azure AD FS)를 사용 하 여 PowerS
   # Register an Azure Resource Manager environment that targets your Azure Stack instance. Get your Azure Resource Manager endpoint value from your service provider.
   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external"
 
-  $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackAdmin").ActiveDirectoryAuthority.TrimEnd('/')
-  $tenantId = (invoke-restmethod "$($AuthEndpoint)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
-
   # Sign in to your environment
 
   $cred = get-credential
 
   Login-AzureRmAccount `
     -EnvironmentName "AzureStackAdmin" `
-    -TenantId $tenantId `
     -Credential $cred
   ```
 
-
+> [!Note]  
+> AD FS 사용자 id 사용 하 여 대화형 인증만을 지원 합니다. 자격 증명 개체를 필요한 경우 서비스 주체 (SPN)을 사용 해야 합니다. Azure Stack 및 AS FS를 사용 하 여 서비스 주체에 id 관리 서비스 설정에 대 한 자세한 내용은 참조 하세요. [AD FS에 대 한 관리 서비스 주체](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs)합니다.
 
 ## <a name="test-the-connectivity"></a>연결 테스트
 

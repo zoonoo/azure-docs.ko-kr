@@ -1,6 +1,6 @@
 ---
 title: Azure 모바일 앱에 대해 오프라인 동기화 사용(Cordova) | Microsoft Docs
-description: App Service 모바일 앱을 사용하여 Cordova 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다.
+description: App Service 모바일 앱을 사용하여 Cordova 애플리케이션에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다.
 documentationcenter: cordova
 author: conceptdev
 manager: crdun
@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: c12328a441a8cc438fa3e974863cc8adf8651b50
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 44c54b570a38eb1a3b9ca773893599d1d497dfa2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27593717"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972153"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Cordova 모바일 앱에 대해 오프라인 동기화 사용
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -70,7 +70,7 @@ ms.locfileid: "27593717"
 
     **getSyncContext**를 호출하여 동기화 컨텍스트에 대한 참조를 가져옵니다. 동기화 컨텍스트를 사용하면 모든 테이블의 변경 내용을 추적하고 밀어넣어서 테이블 관계를 보존할 수 있습니다. `.push()`를 호출하는 경우 클라이언트 앱을 수정합니다.
 
-3. 응용 프로그램 URL을 모바일 앱 응용 프로그램 URL로 업데이트합니다.
+3. 애플리케이션 URL을 모바일 앱 애플리케이션 URL로 업데이트합니다.
 
 4. 다음으로 이 코드를
 
@@ -112,7 +112,7 @@ ms.locfileid: "27593717"
 
     이 코드는 모든 만들기, 읽기, 업데이트 및 삭제(CRUD) 테이블 작업에 대해 로컬 저장소 데이터베이스를 사용합니다.
 
-    이 샘플에서는 동기화 충돌의 간단한 오류를 처리합니다. 실제 응용 프로그램에서는 네트워크 상태, 서버 충돌 및 기타와 같은 다양한 오류를 처리합니다. 코드 예제는 [오프라인 동기화 샘플]을 참조하세요.
+    이 샘플에서는 동기화 충돌의 간단한 오류를 처리합니다. 실제 애플리케이션에서는 네트워크 상태, 서버 충돌 및 기타와 같은 다양한 오류를 처리합니다. 코드 예제는 [오프라인 동기화 샘플]을 참조하세요.
 
 5. 다음으로, 이 함수를 추가하여 실제 동기화를 수행합니다.
 
@@ -132,7 +132,7 @@ ms.locfileid: "27593717"
 
 ## <a name="offline-sync-considerations"></a>오프라인 동기화 고려 사항
 
-이 샘플에서 **syncContext**의 **푸시** 메서드는 로그인의 콜백 함수에서 앱 시작 시에만 호출됩니다.  실제 응용 프로그램에서는 네트워크 상태가 변경될 때 수동으로 트리거되는 이 동기화 기능을 만들 수도 있습니다.
+이 샘플에서 **syncContext**의 **푸시** 메서드는 로그인의 콜백 함수에서 앱 시작 시에만 호출됩니다.  실제 애플리케이션에서는 네트워크 상태가 변경될 때 수동으로 트리거되는 이 동기화 기능을 만들 수도 있습니다.
 
 끌어오기가 컨텍스트에 의해 추적되는 로컬 업데이트를 보류 중인 테이블에 대해 실행되는 경우 끌어오기 작업은 자동으로 푸시를 트리거합니다. 이 샘플에서 항목을 새로 고침, 추가 및 완료하는 경우 명시적인 **push** 호출이 중복될 수 있으므로 생략할 수 있습니다.
 
@@ -154,12 +154,12 @@ ms.locfileid: "27593717"
 이제 앱을 실행하면 Azure 백 엔드와 동기화합니다.
 
 ## <a name="run-the-client-app"></a>클라이언트 앱을 실행합니다.
-오프라인 동기화를 사용하도록 설정하면 각 플랫폼에서 클라이언트 응용 프로그램을 한 번 이상 실행하여 로컬 저장소 데이터베이스를 채울 수 있습니다. 나중에 앱이 오프라인인 동안 오프라인 시나리오를 시뮬레이션하고 로컬 저장소에 있는 데이터를 수정합니다.
+오프라인 동기화를 사용하도록 설정하면 각 플랫폼에서 클라이언트 애플리케이션을 한 번 이상 실행하여 로컬 저장소 데이터베이스를 채울 수 있습니다. 나중에 앱이 오프라인인 동안 오프라인 시나리오를 시뮬레이션하고 로컬 저장소에 있는 데이터를 수정합니다.
 
 ## <a name="optional-test-the-sync-behavior"></a>(선택 사항)동기화 동작 테스트
-이 섹션에서 백 엔드에 잘못된 응용 프로그램 URL을 사용하여 오프라인 시나리오를 시뮬레이트하도록 클라이언트 프로젝트를 수정합니다. 데이터 항목을 추가하거나 변경하는 경우 이러한 변경 내용은 로컬 저장소에 보관되지만 연결이 다시 설정될 때까지 백 엔드 데이터 저장소에 동기화되지 않습니다.
+이 섹션에서 백 엔드에 잘못된 애플리케이션 URL을 사용하여 오프라인 시나리오를 시뮬레이트하도록 클라이언트 프로젝트를 수정합니다. 데이터 항목을 추가하거나 변경하는 경우 이러한 변경 내용은 로컬 저장소에 보관되지만 연결이 다시 설정될 때까지 백 엔드 데이터 저장소에 동기화되지 않습니다.
 
-1. 솔루션 탐색기에서 index.js 프로젝트 파일을 열고 다음 코드와 같은 잘못된 URL을 가리키는 응용 프로그램 URL을 변경합니다.
+1. 솔루션 탐색기에서 index.js 프로젝트 파일을 열고 다음 코드와 같은 잘못된 URL을 가리키는 애플리케이션 URL을 변경합니다.
 
         client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.net-fail');
 
@@ -179,8 +179,8 @@ ms.locfileid: "27593717"
 
 이 섹션에서는 앱을 모바일 백 엔드에 다시 연결하여 다시 온라인 상태로 전환되는 앱을 시뮬레이트합니다. 로그인할 때 데이터가 모바일 백 엔드에 동기화됩니다.
 
-1. index.js를 다시 열고 응용 프로그램 URL을 복원합니다.
-2. index.html을 다시 열고 CSP `<meta>` 요소에서 응용 프로그램 URL을 수정합니다.
+1. index.js를 다시 열고 애플리케이션 URL을 복원합니다.
+2. index.html을 다시 열고 CSP `<meta>` 요소에서 애플리케이션 URL을 수정합니다.
 3. 클라이언트 앱을 다시 빌드하고 실행합니다. 로그인한 후에 앱이 모바일 앱 백 엔드와 동기화하려고 합니다. 디버그 콘솔에 기록된 예외가 없는지 확인합니다.
 4. (선택 사항) SQL Server 개체 탐색기 또는 Fiddler와 같은 REST 도구를 사용하여 업데이트된 데이터를 봅니다. 백 엔드 데이터베이스와 로컬 저장소의 데이터가 동기화된 것을 확인합니다.
 
@@ -202,11 +202,11 @@ ms.locfileid: "27593717"
 [Apache Cordova 빠른 시작]: app-service-mobile-cordova-get-started.md
 [오프라인 동기화 샘플]: https://github.com/Azure-Samples/app-service-mobile-cordova-client-conflict-handling
 [Azure Mobile Apps에서 오프라인 데이터 동기화]: app-service-mobile-offline-data-sync.md
-[Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cloud Cover: Offline Sync in Azure Mobile Services]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Adding Authentication]: app-service-mobile-cordova-get-started-users.md
 [authentication]: app-service-mobile-cordova-get-started-users.md
 [Work with the .NET backend server SDK for Azure Mobile Apps]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Visual Studio Community 2015]: http://www.visualstudio.com/
+[Visual Studio Community 2015]: https://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

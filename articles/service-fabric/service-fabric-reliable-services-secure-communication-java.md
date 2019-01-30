@@ -27,7 +27,7 @@ ms.locfileid: "37020816"
 >
 >
 
-통신의 가장 중요한 측면 중 하나는 보안입니다. Reliable Services 응용 프로그램 프레임워크는 보안을 향상시키는 데 사용할 수 있는 미리 빌드된 통신 스택 및 도구 몇 가지를 제공합니다. 이 문서에서는 Java 서비스에서 서비스 원격을 사용하는 경우 보안을 향상시키는 방법에 대해 설명합니다. Java로 작성된 Reliable Services에 대한 원격 기능을 설정하는 방법에 대해 설명하는 기존 [예제](service-fabric-reliable-services-communication-remoting-java.md)를 기반으로 빌드됩니다. 
+통신의 가장 중요한 측면 중 하나는 보안입니다. Reliable Services 애플리케이션 프레임워크는 보안을 향상시키는 데 사용할 수 있는 미리 빌드된 통신 스택 및 도구 몇 가지를 제공합니다. 이 문서에서는 Java 서비스에서 서비스 원격을 사용하는 경우 보안을 향상시키는 방법에 대해 설명합니다. Java로 작성된 Reliable Services에 대한 원격 기능을 설정하는 방법에 대해 설명하는 기존 [예제](service-fabric-reliable-services-communication-remoting-java.md)를 기반으로 빌드됩니다. 
 
 Java 서비스에서 서비스 원격 기능을 사용하는 경우 서비스를 보호하려면 다음 단계를 따르세요.
 

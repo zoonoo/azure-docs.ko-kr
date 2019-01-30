@@ -1,13 +1,10 @@
 ---
-title: 서비스 엔드포인트 정책 만들기 및 연결 - Azure Portal | Microsoft Docs
+title: 서비스 엔드포인트 정책 만들기 및 연결 - Azure Portal
+titlesuffix: Azure Virtual Network
 description: 이 문서에서는 Azure Portal을 사용하여 서비스 엔드포인트 정책을 설정 및 연결하는 방법에 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: anithaa
-manager: narayan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: anithaa
-ms.openlocfilehash: 6bd318da5b3cd667d0a39b9c963e8d3ffd472f41
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 06c034968b2577d6321ffe6f55f969547a35931f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633013"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054438"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Azure Portal을 사용하여 서비스 엔드포인트를 만들기, 변경 또는 삭제
 
@@ -38,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인 
 
-http://portal.azure.com에서 Azure Portal에 로그인합니다.
+http://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-service-endpoint-policy"></a>서비스 엔드포인트 정책 만들기
 
@@ -46,7 +43,7 @@ http://portal.azure.com에서 Azure Portal에 로그인합니다.
 2. 검색 창에 "서비스 엔드포인트 정책"을 입력하고 **서비스 엔드포인트 정책(미리 보기)** 를 선택한 다음, **만들기**를 선택합니다.
 3. **기본**에 다음 정보를 입력하거나 선택 
 
-   - 구독: 사용자의 구독을 선택합니다.    
+   - 구독: 정책에 대한 사용자의 구독을 선택합니다.    
    - 리소스 그룹: **새로 만들기**를 선택하고 *myResourceGroup*을 입력합니다.     
    - 이름: myEndpointPolicy
    - 위치: 미국 중서부     
@@ -56,18 +53,18 @@ http://portal.azure.com에서 Azure Portal에 로그인합니다.
 4. **정책 정의**에 다음 정보를 입력하거나 선택
 
    - **+ 리소스 추가**를 클릭하고 다음 정보를 입력하거나 선택하고, 나머지 설정에 대해 기본값을 적용하고 **추가**를 클릭합니다.  
-   - 범위: **단일 계정** 또는 **구독의 모든 계정** 또는 **리소스 그룹의 모든 계정**을 선택합니다.    
-   - 구독: 저장소 계정에 대한 구독을 선택합니다. 정책 및 저장소 계정은 다른 구독에 있을 수 있습니다.   
+   - 범위: **단일 계정**, **구독의 모든 계정** 또는 **리소스 그룹의 모든 계정**을 선택합니다.    
+   - 구독: 스토리지 계정에 대한 구독을 선택합니다. 정책 및 저장소 계정은 다른 구독에 있을 수 있습니다.   
    - 리소스 그룹: 리소스 그룹을 선택합니다. 범위가 "리소스 그룹의 모든 계정" 또는 "단일 계정"으로 설정된 경우 필요합니다.  
    - 리소스: mystorageaccountportal    
    - **+ 리소스 추가**를 클릭하여 계속 더 많은 리소스를 추가합니다.
    
    ![서비스 엔드포인트 정책 정의 만들기](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-policydefinitionspane.PNG)
    
-5. 선택 사항: **태그**에 다음 정보를 입력하거나 선택합니다.
+5. 선택 사항: **태그**에 다음 정보를 입력하거나 선택:
    
    - 키: 정책에 대한 키를 선택합니다. 예: 부서     
-   - 값: 키에 대한 값 쌍을 입력합니다. 예: 금융
+   - 값: 키에 대한 값 쌍을 입력합니다. 예: 재무
 
 6. **검토 + 만들기**를 선택합니다. 정보의 유효성을 검사하고 **만들기**를 클릭합니다. 추가로 편집하려면 **이전**을 클릭합니다. 
 
@@ -101,8 +98,8 @@ http://portal.azure.com에서 Azure Portal에 로그인합니다.
 3. **가상 네트워크 만들기**에서 다음 정보를 입력하거나 선택하고, 나머지 설정에 대한 기본값을 그대로 적용한 다음, **만들기**를 선택합니다.
    - Name: myVirtualNetwork      
    - 주소 공간: 10.0.0.0/16      
-   - 구독: 사용자의 구독을 선택합니다. 정책은 VNet과 동일한 구독에 있어야 합니다.     
-   - 리소스 그룹: **기존 항목 사용**을 선택한 다음, *myResourceGroup*을 선택     
+   - 구독: 구독을 선택합니다. 정책은 VNet과 동일한 구독에 있어야 합니다.     
+   - 리소스 그룹: **기존 항목 사용**을 선택한 다음, *myResourceGroup*을 선택합니다.     
    - 위치: 미국 중서부     
    - 서브넷 이름: 개인     
    - 주소 범위: 10.0.0.0/24

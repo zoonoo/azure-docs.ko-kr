@@ -1,5 +1,5 @@
 ---
-title: Computer Vision API에 대한 FAQ
+title: 질문과 대답 - Computer Vision
 titlesuffix: Azure Cognitive Services
 description: Azure Cognitive Services의 Computer Vision API에 대한 질문과 대답의 대답을 가져옵니다.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: kefre
-ms.openlocfilehash: 55b474d0edbb8dc01b9f35d4f8799e53e37862df
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec18
+ms.openlocfilehash: 3146650280af80923a4ed9cbb78a5ce6d43e5bce
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166375"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584278"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Computer Vision API 질문과 대답
 
@@ -23,7 +24,7 @@ ms.locfileid: "49166375"
 
 -----
 
-**질문**: *사용자 지정 태그를 사용하도록 Computer Vision API를 교육할 수 있나요?  예를 들어 고양이 품종 사진을 주고 AI를 '교육'한 다음, AI 요청에서 품종 값을 받고 싶습니다.*
+**질문**: *사용자 지정 태그를 사용하도록 Computer Vision API를 학습할 수 있나요?  예를 들어 고양이 품종 사진을 주고 AI를 '교육'한 다음, AI 요청에서 품종 값을 받고 싶습니다.*
 
 **대답**: 이 기능은 현재 이용할 수 없습니다. 하지만 Computer Vision에 이 기능을 도입하기 위해 엔지니어들이 열심히 작업 중입니다.
 
@@ -37,7 +38,7 @@ ms.locfileid: "49166375"
 
 **질문**: *Computer Vision에서 어떤 언어가 지원되나요?*
 
-**대답**: 다음 언어가 지원됩니다.
+**대답**: 지원되는 언어는 다음과 같습니다.
 
 | | | 지원되는 언어 | | |
 |---------------- |------------------ |------------------ |--------------------------- |--------------------
@@ -60,7 +61,7 @@ ms.locfileid: "49166375"
 
 -----
 
-**질문:** *필기 인식에 지원되는 쓰기 표면은 무엇인가요?*
+**질문**: *필기 인식에 지원되는 쓰기 표면은 무엇인가요?*
 
 **대답**: 이 기술은 화이트보드, 백서, 노란색 스티커 메모를 포함하여 다양한 표면에서 작동합니다.
 

@@ -22,7 +22,7 @@ ms.locfileid: "39425591"
 
 ## <a name="view-logs"></a>로그 보기
 
-컨테이너 내에서 응용 프로그램 코드에서 로그를 보려면 [az container logs][az-container-logs] 명령을 사용할 수 있습니다.
+컨테이너 내에서 애플리케이션 코드에서 로그를 보려면 [az container logs][az-container-logs] 명령을 사용할 수 있습니다.
 
 처리할 잘못된 URL을 입력한 후에 [ACI에서 컨테이너화된 작업 실행](container-instances-restart-policy.md)에서 예제 작업 기반 컨테이너의 로그 출력은 다음과 같습니다.
 

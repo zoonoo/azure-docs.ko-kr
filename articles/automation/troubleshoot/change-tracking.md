@@ -3,18 +3,18 @@ title: Azure 변경 내용 추적을 사용하여 문제 해결
 description: 이 문서에서는 변경 내용 추적 문제 해결에 대한 정보를 제공합니다.
 services: automation
 ms.service: automation
-ms.component: change-tracking
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/24/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2f2e66a1fab31ce6099ab426d6e8ce144e155efb
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 63dc7148904089a31ff95764898a8dac72c37049
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50088316"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421339"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 문제 해결
 

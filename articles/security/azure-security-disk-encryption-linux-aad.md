@@ -1,33 +1,33 @@
 ---
-title: Linux IaaS VM용 Azure AD 앱을 사용한 Azure Disk Encryption(이전 릴리스) | Microsoft Docs
+title: Linux IaaS VM용 Azure AD 앱을 사용한 Azure Disk Encryption(이전 릴리스)
 description: 이 문서에서는 Linux IaaS VM용 Microsoft Azure Disk Encryption을 사용하도록 설정하는 방법에 대한 지침을 제공합니다.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/19/2018
-ms.openlocfilehash: ffabd1169076ac5f887375c585c8880b587c86a8
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.date: 12/17/2018
+ms.custom: seodec18
+ms.openlocfilehash: ebc948e6f875fa39b09766342b7034d7b467fdeb
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51637005"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549465"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms-previous-release"></a>Linux IaaS VM용 Azure Disk Encryption 사용(이전 릴리스)
 
-**Azure Disk Encryption의 새 릴리스는 Azure AD 응용 프로그램 매개 변수 제공에 대한 요구 사항을 제거하여 VM 디스크 암호화를 사용하도록 설정합니다. 새 릴리스를 사용하면 암호화 단계를 사용하는 동안 더 이상 Azure AD 자격 증명을 제공할 필요가 없습니다. 모든 새 VM은 새 릴리스를 사용하는 Azure AD 응용 프로그램 매개 변수를 사용하지 않고 암호화되어야 합니다. 새 릴리스를 사용한 VM 디스크 암호화 사용에 관한 지침을 보려면 [Linux VM용 Azure Disk Encryption](azure-security-disk-encryption-linux.md)을 참조하세요. Azure AD 응용 프로그램 매개 변수를 사용하여 이미 암호화된 VM도 여전히 지원되며 AAD 구문을 사용하여 계속 유지 관리되어야 합니다.**
+**Azure Disk Encryption의 새 릴리스는 Azure AD 애플리케이션 매개 변수 제공에 대한 요구 사항을 제거하여 VM 디스크 암호화를 사용하도록 설정합니다. 새 릴리스를 사용하면 암호화 단계를 사용하는 동안 더 이상 Azure AD 자격 증명을 제공할 필요가 없습니다. 모든 새 VM은 새 릴리스를 사용하는 Azure AD 애플리케이션 매개 변수를 사용하지 않고 암호화되어야 합니다. 새 릴리스를 사용한 VM 디스크 암호화 사용에 관한 지침을 보려면 [Linux VM용 Azure Disk Encryption](azure-security-disk-encryption-linux.md)을 참조하세요. Azure AD 애플리케이션 매개 변수를 사용하여 이미 암호화된 VM도 여전히 지원되며 AAD 구문을 사용하여 계속 유지 관리되어야 합니다.**
 
 수많은 디스크 암호화 시나리오를 사용할 수 있으며 단계는 시나리오에 따라 다를 수 있습니다. 다음 섹션에서는 Linux IaaS VM에 대한 시나리오를 자세히 설명합니다. 디스크 암호화를 사용하려면 먼저 [Azure Disk Encryption 필수 구성 요소](azure-security-disk-encryption-prerequisites-aad.md)를 완료해야 하며 [Linux IaaS VM 추가 필수 구성 요소](azure-security-disk-encryption-prerequisites-aad.md#bkmk_LinuxPrereq) 섹션을 검토해야 합니다.
 
 디스크가 암호화되기 전에 먼저 [스냅숏](../virtual-machines/windows/snapshot-copy-managed-disk.md) 및/또는 백업을 수행하세요. 백업은 암호화 도중에 예기치 않은 오류가 발생할 경우 복구 옵션을 사용할 수 있습니다. 암호화가 수행되기 전에 관리 디스크가 있는 VM은 백업해야 합니다. 백업이 완료되면 Set-AzureRmVMDiskEncryptionExtension cmdlet을 사용하여 -skipVmBackup 매개 변수를 지정함으로써 관리 디스크를 암호화할 수 있습니다. 암호화된 VM을 백업하고 복원하는 방법에 대한 자세한 내용은 [Azure Backup](../backup/backup-azure-vms-encryption.md) 문서를 참조하세요. 
 
 >[!WARNING]
- >암호화 비밀이 지역 경계를 넘지 않도록 하려면 Azure Disk Encryption에서 Key Vault와 VM을 동일한 지역에 공동 배치해야 합니다. 암호화할 VM과 동일한 지역에 있는 Key Vault를 만들고 사용합니다.</br></br>
-
-> Linux OS 볼륨을 암호화하는 경우 몇 시간이 걸릴 수 있습니다. 일반적으로 데이터 볼륨보다 Linux OS 볼륨을 암호화하는 데 시간이 더 오래 걸립니다. 
-
->Linux VM에서 암호화 사용 안 함은 데이터 볼륨에 대해서만 지원됩니다. OS 볼륨이 암호화된 경우 이 설정은 데이터 또는 OS 볼륨에서 지원되지 않습니다.  
+ > - 이전에 [Azure AD 앱에서 Azure Disk Encryption](azure-security-disk-encryption-prerequisites-aad.md)를 사용하여 이 VM을 암호화한 경우에는 VM을 암호화하는 데 이 옵션을 계속 사용해야 합니다. 이는 지원되는 시나리오가 아니므로 이 암호화된 VM에서는 [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md)을 사용할 수 없습니다. 즉, 이 암호화된 VM을 위해 AAD 애플리케이션에서 전환하는 기능은 아직 지원되지 않습니다.
+ > - 암호화 비밀이 지역 경계를 넘지 않도록 하려면 Azure Disk Encryption에서 Key Vault와 VM을 동일한 지역에 공동 배치해야 합니다. 암호화할 VM과 동일한 지역에 있는 Key Vault를 만들고 사용합니다.
+ > - Linux OS 볼륨을 암호화하는 경우 몇 시간이 걸릴 수 있습니다. 일반적으로 데이터 볼륨보다 Linux OS 볼륨을 암호화하는 데 시간이 더 오래 걸립니다. 
+ > - Linux VM에서 암호화 사용 안 함은 데이터 볼륨에 대해서만 지원됩니다. OS 볼륨이 암호화된 경우 이 설정은 데이터 또는 OS 볼륨에서 지원되지 않습니다.  
 
 
 ## <a name="bkmk_NewLinux"></a> 디스크 암호화를 사용하도록 설정된 새 Linux IaaS VM 배포 
@@ -55,8 +55,8 @@ ms.locfileid: "51637005"
 
 | 매개 변수 | 설명 |
 | --- | --- |
-| AAD 클라이언트 ID | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 응용 프로그램의 클라이언트 ID |
-| AAD 클라이언트 비밀 | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 응용 프로그램의 클라이언트 ID |
+| AAD 클라이언트 ID | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 ID |
+| AAD 클라이언트 비밀 | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 ID |
 | Key Vault 이름 | 키가 배치되어야 하는 키 자격 증명 모음의 이름 |
 | Key Vault 리소스 그룹 | Key Vault의 리소스 그룹 |
 
@@ -148,7 +148,7 @@ key-encryption-key 매개변수의 값 구문은 KEK의 전체 URI, 즉 https://
      Get-AzureRmVmDiskEncryptionStatus -ResourceGroupName MySecureRg -VMName MySecureVM
      ```
     
-- **디스크 암호화 사용 안 함:**  암호화를 사용하지 않도록 설정하려면 [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet을 사용합니다. 암호화 사용 안 함은 Linux VM용 데이터 볼륨에서만 허용됩니다.
+- **디스크 암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet을 사용합니다. 암호화 사용 안 함은 Linux VM용 데이터 볼륨에서만 허용됩니다.
      
      ```azurepowershell-interactive 
      Disable-AzureRmVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM'
@@ -167,8 +167,8 @@ key-encryption-key 매개변수의 값 구문은 KEK의 전체 URI, 즉 https://
 
 | 매개 변수 | 설명 |
 | --- | --- |
-| AADClientID | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 응용 프로그램의 클라이언트 ID |
-| AADClientSecret | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 응용 프로그램의 클라이언트 ID |
+| AADClientID | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 ID |
+| AADClientSecret | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 ID |
 | keyVaultName | 키가 업로드되어야 하는 Key Vault의 이름. `az keyvault show --name "MySecureVault" --query resourceGroup` Azure CLI cmdlet을 사용하여 가져올 수 있습니다. |
 |  keyEncryptionKeyURL | 생성된 키를 암호화하는 데 사용되는 키 암호화 키의 URL. UseExistingKek 드롭다운 목록에서 **nokek**를 선택하면 이 매개 변수가 선택 사항입니다. UseExistingKek 드롭다운 목록에서 **kek**를 선택하면 _keyEncryptionKeyURL_ 값을 반드시 입력해야 합니다. |
 | volumeType | 암호화 작업을 수행할 볼륨의 유형. 지원되는 유효한 값은 _OS_ 또는 _All_입니다. 위의 필수 구성 요소 섹션에서 지원되는 Linux 배포판과 해당 OS 버전을 확인하세요. |
@@ -210,7 +210,7 @@ EncryptFormatAll 옵션을 사용하려면 Linux VM을 암호화하고 AzureDisk
 ### <a name="bkmk_EFAPSH"> </a> PowerShell cmdlet에서 EncryptFormatAll 매개변수 사용
 [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) cmdlet을 [EncryptFormatAll 매개 변수](https://www.powershellgallery.com/packages/AzureRM/5.0.0)와 함께 사용합니다. 
 
-**클라이언트 비밀과 EncryptFormatAll을 사용하여 실행 중인 VM 암호화:** 예를 들어 아래 스크립트는 변수를 초기화하고 EncryptFormatAll 매개 변수를 사용하여 Set-AzureRmVMDiskEncryptionExtension cmdlet을 실행합니다. 리소스 그룹, VM, 키 자격 증명 모음, AAD 응용 프로그램 및 클라이언트 비밀은 필수 구성 요소로 이미 만들어져 있어야 합니다. MySecureRg, MySecureVM, MySecureVault, My-AAD-client-ID 및 My-AAD-client-secret를 사용자 고유의 값으로 바꿉니다.
+**클라이언트 비밀 및 EncryptFormatAll을 사용하여 실행 중인 VM 암호화:** 예를 들어, 아래 스크립트는 변수를 초기화하고 EncryptFormatAll 매개 변수를 사용하여 Set-AzureRmVMDiskEncryptionExtension cmdlet을 실행합니다. 리소스 그룹, VM, 키 자격 증명 모음, AAD 응용 프로그램 및 클라이언트 비밀은 필수 구성 요소로 이미 만들어져 있어야 합니다. MySecureRg, MySecureVM, MySecureVault, My-AAD-client-ID 및 My-AAD-client-secret를 사용자 고유의 값으로 바꿉니다.
   
    ```azurepowershell-interactive
      $rgName = 'MySecureRg';
@@ -320,7 +320,7 @@ Powershell 구문과 달리 CLI에서는 사용자가 암호화를 사용하도�
      ```
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-powershell"></a>Azure PowerShell을 사용하여 새로 추가된 디스크에서 암호화 사용
- Powershell을 사용하여 Linux용 새 디스크를 암호화하는 경우 새 순서 버전을 지정해야 합니다. 순서 버전은 고유해야 합니다. 아래 스크립트는 순서 버전에 대한 GUID를 생성합니다. 
+ Powershell을 사용하여 Linux용 새 디스크를 암호화하는 경우 새 순서 버전을 지정해야 합니다. 순서 버전은 고유해야 합니다. 아래 스크립트는 시퀀스 버전에 대한 GUID를 생성합니다. 
  
 
 -  **클라이언트 비밀을 사용하여 실행 중인 VM 암호화:** 아래 스크립트는 변수를 초기화하고 Set-AzureRmVMDiskEncryptionExtension cmdlet을 실행합니다. 리소스 그룹, VM, 키 자격 증명 모음, AAD 응용 프로그램 및 클라이언트 비밀은 필수 구성 요소로 이미 만들어져 있어야 합니다. MySecureRg, MySecureVM, MySecureVault, My-AAD-client-ID 및 My-AAD-client-secret를 사용자 고유의 값으로 바꿉니다. -VolumeType 매개 변수는 OS 디스크가 아닌 데이터 디스크로 설정됩니다. VM이 이전에 "OS" 또는 "All" 볼륨 유형으로 암호화된 경우에는 OS와 새 데이터 디스크가 모두 포함되도록 -VolumeType 매개 변수를 All로 변경해야 합니다.
@@ -366,16 +366,16 @@ Azure PowerShell, Azure CLI 또는 Resource Manager 템플릿을 사용하여 �
 >[!IMPORTANT]
 >Linux VM에서 Azure Disk Encryption을 통한 암호화 사용 안 함은 데이터 볼륨에 대해서만 지원됩니다. OS 볼륨이 암호화된 경우 이 설정은 데이터 또는 OS 볼륨에서 지원되지 않습니다.  
 
-- **Azure PowerShell을 통한 디스크 암호화 사용 안 함:**  암호화를 사용하지 않도록 설정하려면 [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet을 사용합니다. 
+- **Azure PowerShell을 사용하여 디스크 암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet을 사용합니다. 
      ```azurepowershell-interactive
      Disable-AzureRmVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM' [--volume-type {ALL, DATA, OS}]
      ```
 
-- **Azure CLI를 통한 암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable) 명령을 사용합니다. 
+- **Azure CLI를 사용하여 암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable) 명령을 사용합니다. 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type [ALL, DATA, OS]
      ```
-- **Resource Manager 템플릿을 통한 디스크 암호화 사용 안 함:** [실행 중인 Linux VM에서 암호화 사용 안 함](https://aka.ms/decrypt-linuxvm) 템플릿을 사용하여 암호화를 사용하지 않도록 설정합니다.
+- **Resource Manager 템플릿으로 암호화를 사용하지 않도록 설정:** [실행 중인 Linux VM에서 암호화 사용 안 함](https://aka.ms/decrypt-linuxvm) 템플릿을 사용하여 암호화를 사용하지 않도록 설정할 수 있습니다.
      1. **Deploy to Azure**를 클릭합니다.
      2. 구독, 리소스 그룹, 위치, VM, 약관 및 규약을 선택합니다.
      3.  **구매**를 클릭하여 실행 중인 Windows VM에서 디스크 암호화를 사용하지 않도록 설정합니다. 

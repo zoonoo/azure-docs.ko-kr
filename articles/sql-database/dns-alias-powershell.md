@@ -9,15 +9,15 @@ ms.devlang: PowerShell
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: genemi,amagarwa,maboja
+ms.reviewer: genemi,amagarwa,maboja, jrasnick
 manager: craigg
-ms.date: 02/05/2018
-ms.openlocfilehash: 095e6c6d59bf73bb74e2d8fbe3d1506601ab533e
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 01/17/2019
+ms.openlocfilehash: 115c4a290bc6dfba049e0ce49498877c1a2466b6
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471121"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388799"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>Azure SQL Database의 DNS 별칭에 대한 PowerShell
 
@@ -160,6 +160,6 @@ SQL Database에 대한 DNS 별칭 기능의 전체 설명을 보려면 [Azure SQ
 
 [https://azure.microsoft.com/free/]: https://azure.microsoft.com/free/
 
-[install-azurerm-ps-84p]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[install-azurerm-ps-84p]: https://docs.microsoft.com/powershell/azure/install-az-ps
 
 [dns-alias-overview-37v]: dns-alias-overview.md

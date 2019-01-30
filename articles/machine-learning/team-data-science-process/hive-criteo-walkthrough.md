@@ -1,5 +1,5 @@
 ---
-title: 실행 중인 팀 데이터 과학 프로세스 - 1TB 데이터 세트에서 Azure HDInsight Hadoop 클러스터 사용 | Microsoft Docs
+title: 1TB 데이터 세트에서 Azure HDInsight Hadoop 클러스터 사용 - 팀 데이터 과학 프로세스
 description: HDInsight Hadoop 클러스터를 사용하는 종단 간 시나리오에 팀 데이터 과학 프로세스를 사용하여 공개적으로 사용 가능한 1TB 데이터 세트로 모델을 빌드 및 배포합니다.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 3aef1b85a462eea74fbe977e9a48054f11acf47a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 777d976133f5b9bb1c97ea678e058f2dc398922d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447047"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135817"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>실행 중인 팀 데이터 과학 프로세스 - 1TB 데이터 세트에서 Azure HDInsight Hadoop 클러스터 사용
 
@@ -24,7 +24,7 @@ ms.locfileid: "52447047"
 
 이 연습에서 IPython 노트북을 사용하여 작업을 수행할 수도 있습니다. 이 방법을 사용하려면 [Hive ODBC 연결을 사용하여 Criteo 연습](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) 항목을 참조해야 합니다.
 
-## <a name="dataset"></a>데이터 집합 설명
+## <a name="dataset"></a>데이터 세트 설명
 Criteo 데이터는 클릭 예측 데이터 세트로, 43억 개가 넘는 레코드로 구성된 약 370GB의 gzip 압축된 TSV 파일(압축 해제 시 약 1.3TB)입니다. [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/)에서 사용할 수 있는 24일간의 클릭 데이터를 가져옵니다. 데이터 과학자의 편의를 위해 실험에 사용할 수 있는 데이터의 압축을 해제해 두었습니다.
 
 이 데이터 세트의 각 레코드에는 40개의 열이 있습니다.
@@ -33,7 +33,7 @@ Criteo 데이터는 클릭 예측 데이터 세트로, 43억 개가 넘는 레�
 * 다음 13개의 열은 숫자입니다.
 * 마지막 26개는 범주 열입니다.
 
-열은 익명으로 처리되고 일련의 열거된 이름, 즉 "Col1"(레이블 열)부터 'Col40"(마지막 범주 열)까지를 사용합니다.            
+열은 익명 처리되며 “Col1”(레이블 열)~“Col40”(마지막 범주 열) 같은 일련의 열거형 이름을 사용합니다.            
 
 다음은 이 데이터 세트에서 발췌한 두 관찰(행)의 처음 20개 열입니다.
 
@@ -44,35 +44,35 @@ Criteo 데이터는 클릭 예측 데이터 세트로, 43억 개가 넘는 레�
 
 이 데이터 세트의 숫자 열과 범주 열 모두에 누락된 값이 있습니다. 누락된 값을 처리하는 간단한 방법을 설명합니다. 데이터에 대한 추가 정보는 Hive 테이블에 저장할 때 살펴봅니다.
 
-**정의:** *CTR(클릭률):* 데이터를 클릭한 백분율입니다. 이 Criteo 데이터 세트의 CTR은 약 3.3% 또는 0.033입니다.
+**정의**: CTR(클릭 광고 비율): 데이터의 클릭 비율입니다. 이 Criteo 데이터 세트의 CTR은 약 3.3% 또는 0.033입니다.
 
 ## <a name="mltasks"></a>예측 작업의 예제
 이 연습에서는 두 가지 샘플 예측 문제를 처리합니다.
 
 1. **이진 분류**: 사용자가 광고를 클릭했는지 여부를 예측합니다.
    
-   * 클래스 0: 클릭 안 함
-   * 클래스 1: 클릭
+   * 클래스 0: 클릭 없음
+   * 클래스 1: 그런 다음
 2. **회귀**: 사용자 기능에서 광고 클릭 확률을 예측합니다.
 
 ## <a name="setup"></a>데이터 과학용 HDInsight Hadoop 클러스터 설정
-**참고:** 일반적으로 **관리** 태스크입니다.
+**참고:** 이는 일반적으로 **관리자** 작업입니다.
 
 다음 3단계에 따라 HDInsight 클러스터를 사용하여 예측 분석 솔루션을 빌드하기 위한 Azure 데이터 과학 환경을 설정합니다.
 
-1. [Storage 계정 만들기](../../storage/common/storage-quickstart-create-account.md):이 Storage 계정은 Azure Blob Storage에 데이터를 저장하는 데 사용됩니다. HDInsight 클러스터에 사용되는 데이터는 여기에 저장됩니다.
-2. [데이터 과학용 Azure HDInsight Hadoop 클러스터 사용자 지정](customize-hadoop-cluster.md):이 단계에서는 모든 노드에 설치된 64비트 Anaconda Python 2.7을 사용하여 Azure HDInsight Hadoop 클러스터를 만듭니다. HDInsight 클러스터를 사용자 지정할 때 두 가지 중요한 단계(이 항목에 설명)를 완료해야 합니다.
+1. [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md) 이 스토리지 계정은 Azure Blob Storage에 데이터를 저장하는 데 사용됩니다. HDInsight 클러스터에 사용되는 데이터는 여기에 저장됩니다.
+2. [데이터 과학에 대한 Azure HDInsight Hadoop 클러스터 사용자 지정](customize-hadoop-cluster.md): 이 단계에서는 모든 노드에 64비트 Anaconda Python 2.7이 설치된 Azure HDInsight Hadoop 클러스터를 만듭니다. HDInsight 클러스터를 사용자 지정할 때 두 가지 중요한 단계(이 항목에 설명)를 완료해야 합니다.
    
    * 1단계에서 만든 저장소 계정을 HDInsight 클러스터와 연결해야 합니다. 이 저장소 계정은 클러스터 내에서 처리할 수 있는 데이터에 액세스하는 데 사용됩니다.
    * 클러스터의 헤드 노드에 대한 원격 액세스를 활성화해야 합니다. 여기에서 지정한 원격 액세스 자격 증명(클러스터에 대해 지정한 자격 증명과 다름)을 기억해야 합니다. 다음 절차를 완료하는 데 필요합니다.
-3. [Azure ML 작업 영역 만들기](../studio/create-workspace.md): 이 Azure Machine Learning 작업 영역은 초기 데이터를 탐색하고 HDInsight 클러스터에 샘플링을 다운로드한 후 기계 학습 모델을 작성하는 데 사용됩니다.
+3. [Azure ML 작업 영역 만들기](../studio/create-workspace.md): 이 Azure Machine Learning 작업 영역은 초기 데이터를 살펴보고 HDInsight 클러스터에 샘플링을 다운로드한 후 기계 학습 모델을 빌드하는 데 사용됩니다.
 
 ## <a name="getdata"></a>공용 원본에서 데이터 가져오기 및 사용
 링크를 클릭하고 사용 약관에 동의한 후 이름을 제공하여 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 데이터 세트에 액세스할 수 있습니다. 다음과 같은 스냅숏이 나타납니다.
 
 ![Criteo 조건 동의](./media/hive-criteo-walkthrough/hLxfI2E.png)
 
-**다운로드 계속하기** 를 클릭하여 데이터 집합 및 사용성을 읽어봅니다.
+**다운로드 계속하기** 를 클릭하여 데이터 세트 및 사용성을 읽어봅니다.
 
 데이터는 공용 [Azure Blob 저장소](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) 위치인 wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/에 있습니다. "wasb"는 Azure Blob Storage 위치를 나타냅니다. 
 
@@ -117,8 +117,8 @@ Criteo 데이터 세트에 대한 Hive 테이블을 만들려면 헤드 노드�
 다음 코드는 "criteo" 데이터베이스를 만들고 4개의 테이블을 생성합니다.
 
 * *개수 생성을 위한 테이블* 한 개(day\_00~day\_20의 날짜를 기반으로 작성)
-* *학습 데이터 집합으로 사용하기 위한 테이블* 한 개(day\_21의 날짜를 기반으로 작성)
-* *테스트 데이터 집합으로 사용하기 위한 테이블* 두 개(각각 day\_22와 day\_23의 날짜를 기반으로 작성)
+* *학습 데이터 세트로 사용하기 위한 테이블* 한 개(day\_21의 날짜를 기반으로 작성)
+* *테스트 데이터 세트로 사용하기 위한 테이블* 두 개(각각 day\_22와 day\_23의 날짜를 기반으로 작성)
 
 날짜 중 하나가 휴일이기 때문에 두 개의 다른 테이블로 테스트 데이터 세트를 분할합니다. 목표는 모델이 클릭 속도에서 공휴일과 평일 간의 차이점을 감지할 수 있는지를 확인하는 것입니다.
 
@@ -157,7 +157,7 @@ Criteo 데이터 세트에 대한 Hive 테이블을 만들려면 헤드 노드�
 
 **모든 Hive 쿼리를 실행할 수 있는 두 가지 방법이 있습니다.**
 
-1. **Hive REPL 명령줄 사용**: 첫 번째는 "hive" 명령을 실행하고 Hive REPL 명령줄에 쿼리를 복사하여 붙여넣는 것입니다. 이렇게 하려면 다음을 수행합니다.
+1. **Hive REPL 명령줄 사용**: 첫 번째는 “hive” 명령을 실행하고 Hive REPL 명령줄에 쿼리를 복사하여 붙여넣는 것입니다. 이렇게 하려면 다음을 수행합니다.
    
         cd %hive_home%\bin
         hive
@@ -346,10 +346,10 @@ Col20을 제외하고 다른 모든 열에도 많은 고유 값이 있습니다.
         265366bf        6f5c7c41        782142
         Time taken: 560.22 seconds, Fetched: 15 row(s)
 
-## <a name="downsample"></a> Azure 기계 학습에 대한 데이터 집합 다운 샘플링
+## <a name="downsample"></a> Azure 기계 학습에 대한 데이터 세트 다운 샘플링
 데이터 세트를 탐색하고 모든 변수(조합 포함)에 대해 이 형식의 탐색을 수행하는 방법을 살펴보았으므로 이제 Azure Machine Learning에서 모델을 빌드할 수 있도록 데이터 세트를 다운 샘플링합니다. 문제의 중점은 지정된 예제 특성 집합(Col2~Col40의 기능 값)에 대해 Col1이 0(클릭 안 함)인지 1(클릭)인지 예측하는 것입니다.
 
-학습 및 테스트 데이터 세트를 원래 크기의 1%로 다운 샘플링하려면 Hive의 네이티브 RAND() 함수를 사용합니다. [sample&#95;hive&#95;criteo&#95;downsample&#95;train&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) 스크립트는 학습 데이터 집합에 대해 이 작업을 수행합니다.
+학습 및 테스트 데이터 세트를 원래 크기의 1%로 다운 샘플링하려면 Hive의 네이티브 RAND() 함수를 사용합니다. [sample&amp;#95;hive&amp;#95;criteo&amp;#95;downsample&amp;#95;train&amp;#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) 스크립트는 학습 데이터 세트에 대해 이 작업을 수행합니다.
 
         CREATE TABLE criteo.criteo_train_downsample_1perc (
         col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 string)
@@ -424,7 +424,7 @@ Azure Machine Learning의 모델 빌드 프로세스는 다음 단계를 따릅�
 
 이제 Azure Machine Learning Studio에서 모델을 빌드할 준비가 완료되었습니다. 다운 샘플링한 데이터는 클러스터에 Hive 테이블로 저장됩니다. Azure Machine Learning **데이터 가져오기** 모듈을 사용하여 이 데이터를 읽습니다. 이 클러스터의 저장소 계정에 액세스하는 데 사용되는 자격 증명은 뒤에 제공됩니다.
 
-### <a name="step1"></a> 1단계: Import Data 모듈을 사용하여 Hive 테이블에서 Azure Machine Learning으로 데이터를 가져와 기계 학습 실험용으로 선택
+### <a name="step1"></a> 1단계: 데이터 가져오기 모듈을 사용하여 Hive 테이블에서 Azure Machine Learning으로 데이터를 가져와 기계 학습 실험용으로 선택
 **+새로 만들기** -> **실험** -> **빈 실험**을 선택하여 시작합니다. 그런 다음 왼쪽 맨 위의 **검색** 상자에서 "Import Data"를 검색합니다. 실험 캔버스(화면 중간 부분)에 **Import Data** 모듈을 끌어다 놓고 데이터에 액세스하기 위해 모듈을 사용합니다.
 
 Hive 테이블에서 데이터를 가져오는 동안의 **Import Data** 모양은 다음과 같습니다.
@@ -435,30 +435,30 @@ Hive 테이블에서 데이터를 가져오는 동안의 **Import Data** 모양�
 
 1. **데이터 원본**
 2. **Hive 데이터베이스 쿼리** 상자에 SELECT * FROM <your\_database\_name.your\_table\_name> 정도만 입력합니다.
-3. **Hcatalog 서버 URI**: 클러스터가 "abc"인 경우 간단하게 https://abc.azurehdinsight.net입니다.
-4. **Hadoop user account name**(Hadoop 사용자 계정 이름): 클러스터를 지정할 때 선택한 사용자 이름입니다. (원격 액세스 사용자 이름이 아님).
-5. **Hadoop user account password**(Hadoop 사용자 계정 암호): 클러스터를 지정할 때 선택한 사용자 이름에 대한 암호입니다. (원격 액세스 암호가 아님).
-6. **Location of output data**(출력 데이터 위치): "Azure"를 선택합니다.
-7. **Azure storage account name**(Azure 저장소 계정 이름): 클러스터와 연결된 저장소 계정입니다.
-8. **Azure storage account key**(Azure 저장소 계정 키): 클러스터와 연결된 저장소 계정의 키입니다.
-9. **Azure container name**(Azure 컨테이너 이름): 클러스터 이름 "abc"의 경우 일반적으로 단순히 "abc"입니다.
+3. **Hcatalog 서버 URI**: 클러스터가 “abc”인 경우 간단하게 https://abc.azurehdinsight.net입니다.
+4. **Hadoop 사용자 계정 이름**: 클러스터를 지정할 때 선택한 사용자 이름입니다. (원격 액세스 사용자 이름이 아님).
+5. **Hadoop 사용자 계정 암호**: 클러스터를 지정할 때 선택한 사용자 이름에 대한 암호입니다. (원격 액세스 암호가 아님).
+6. **출력 데이터 위치**: “Azure”를 선택합니다.
+7. **Azure 스토리지 계정 이름**: 클러스터와 연결된 스토리지 계정입니다.
+8. **Azure 스토리지 계정 키**: 클러스터와 연결된 스토리지 계정의 키입니다.
+9. **Azure 컨테이너 이름**: 클러스터 이름이 “abc”인 경우 일반적으로 단순히 “abc”입니다.
 
-**Import Data** 에서 데이터 가져오기를 완료하면(모듈에 녹색 틱이 표시됨) 이 데이터를 데이터 집합(선택한 이름 사용)으로 저장합니다. 다음과 같이 표시됩니다.
+**Import Data** 에서 데이터 가져오기를 완료하면(모듈에 녹색 틱이 표시됨) 이 데이터를 데이터 세트(선택한 이름 사용)로 저장합니다. 다음과 같이 표시됩니다.
 
 ![데이터 가져오기로 데이터 저장](./media/hive-criteo-walkthrough/oxM73Np.png)
 
-**Import Data** 모듈의 출력 포트를 마우스 오른쪽 단추로 클릭합니다. **데이터 집합으로 저장** 옵션 및 **시각화** 옵션이 표시됩니다. **Visualize** 옵션을 클릭하면 몇 가지 요약 통계에 유용한 오른쪽 패널과 함께 100개의 데이터 행이 표시됩니다. 데이터를 저장하려면 **Save as dataset** 을 클릭하고 지침을 따릅니다.
+**Import Data** 모듈의 출력 포트를 마우스 오른쪽 단추로 클릭합니다. **데이터 세트로 저장** 옵션 및 **시각화** 옵션이 표시됩니다. **Visualize** 옵션을 클릭하면 몇 가지 요약 통계에 유용한 오른쪽 패널과 함께 100개의 데이터 행이 표시됩니다. 데이터를 저장하려면 **Save as dataset** 을 클릭하고 지침을 따릅니다.
 
 기계 학습 실험에서 사용하기 위해 저장된 데이터 세트를 선택하려면 다음 그림에 표시된 **검색** 상자를 사용하여 데이터 세트를 찾습니다. 그런 다음, 데이터 세트의 이름을 부분적으로 입력하여 데이터 세트에 액세스하고 주 패널로 끌어옵니다. 주 패널에 끌어다 놓으면 기계 학습 모델링에 사용하도록 선택됩니다.
 
 ![주 패널로 데이터 세트 끌기](./media/hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
-> 학습 및 테스트 데이터 세트 모두에 대해 이를 수행합니다. 또한 데이터베이스 이름 및 이 목적으로 지정한 테이블 이름을 사용해야 합니다. 그림에서 사용한 값은 오직 예제용입니다.**
+> 학습 및 테스트 데이터 세트 모두에 대해 이를 수행합니다. 또한 데이터베이스 이름 및 이 목적으로 지정한 테이블 이름을 사용해야 합니다. 그림에서 사용한 값은 오직 예제용입니다.\*\*
 > 
 > 
 
-### <a name="step2"></a> 2단계: Azure 기계 학습에서 클릭/클릭 안 함을 예측하기 위한 간단한 실험 만들기
+### <a name="step2"></a> 2단계: Azure Machine Learning에서 클릭/클릭 안 함을 예측하기 위한 간단한 실험 만들기
 Azure ML 실험은 다음과 같이 표시됩니다.
 
 ![기계 학습 실험](./media/hive-criteo-walkthrough/xRpVfrY.png)
@@ -478,8 +478,8 @@ Azure ML 실험은 다음과 같이 표시됩니다.
 ##### <a name="building-counting-transforms"></a>개수 변환 작성
 통계 기능을 작성하기 위해 Azure Machine Learning에서 사용할 수 있는 **통계 변환 작성** 모듈을 사용합니다. 이 모듈은 다음과 같습니다.
 
-![개수 변환 모듈 빌드](./media/hive-criteo-walkthrough/e0eqKtZ.png)
-![개수 변환 모듈 작성](./media/hive-criteo-walkthrough/OdDN0vw.png)
+![개수 변환 모듈 속성 빌드](./media/hive-criteo-walkthrough/e0eqKtZ.png)
+![개수 변환 모듈 빌드](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
 > [!IMPORTANT] 
 > **통계 열** 상자에서 통계를 수행하려는 해당 열을 입력합니다. 이미 설명한 대로 이러한 열은 일반적으로 고차원 범주의 열입니다. Criteo 데이터 세트에 Col15에서 Col40까지 26개의 범주 열이 있습니다. 여기서 이 모든 범주 열의 개수를 세고 인덱스를 지정합니다(아래 나온 것 같이 15부터 40까지 쉼표로 구분).
@@ -596,7 +596,7 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 세트에 적합)
 
 ![데이터 세트의 열 선택](./media/hive-criteo-walkthrough/kRHrIbe.png)
 
-**데이터 집합의 열 선택** 모듈은 데이터 집합에서 데이터를 ‘필터링'할 때 사용할 수 있습니다. 콘텐츠는 다음과 같습니다.
+**데이터 세트의 열 선택** 모듈은 데이터 세트에서 데이터를 ‘필터링’할 때 사용할 수 있습니다. 콘텐츠는 다음과 같습니다.
 
 ![데이터 세트의 열 선택 모듈로 필터링](./media/hive-criteo-walkthrough/oVUJC9K.png)
 

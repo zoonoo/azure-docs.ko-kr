@@ -1,6 +1,6 @@
 ---
 title: C를 사용하여 원격 모니터링으로 Raspberry Pi 프로비전 - Azure | Microsoft Docs
-description: C에 작성된 응용 프로그램을 사용하여 원격 모니터링 솔루션 가속기에 Raspberry Pi 디바이스를 연결하는 방법을 설명합니다.
+description: C에 작성된 애플리케이션을 사용하여 원격 모니터링 솔루션 가속기에 Raspberry Pi 장치를 연결하는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,18 +8,20 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: c20b1d5f3a84e950e37a3236272256db620a5985
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 838a33fd390b28fec609c42487dca225ddc6eaa8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831103"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628207"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>원격 모니터링 솔루션 가속기에 Raspberry Pi 디바이스 연결(C)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-이 자습서에서는 원격 모니터링 솔루션 가속기에 물리적 디바이스를 연결하는 방법을 보여줍니다. 제한된 디바이스에서 실행되는 포함된 응용 프로그램과 마찬가지로 Raspberry Pi 디바이스 응용 프로그램에 대한 클라이언트 코드는 C에서 작성되었습니다. 이 자습서에서는 Raspbian OS를 실행 중인 Raspberry Pi에서 응용 프로그램을 빌드합니다.
+이 자습서는 원격 모니터링 솔루션 가속기에 실제 디바이스를 연결하는 방법을 보여 줍니다. 제한된 장치에서 실행되는 포함된 애플리케이션과 마찬가지로 Raspberry Pi 장치 애플리케이션에 대한 클라이언트 코드는 C에서 작성되었습니다. 이 자습서에서는 Raspbian OS를 실행 중인 Raspberry Pi에서 애플리케이션을 빌드합니다.
+
+디바이스를 시뮬레이션하려면 [새 시뮬레이션된 디바이스 만들기 및 테스트](iot-accelerators-remote-monitoring-create-simulated-device.md)를 참조하세요.
 
 ### <a name="required-hardware"></a>필수 하드웨어
 
@@ -36,14 +38,14 @@ Raspberry Pi의 명령줄에 원격으로 연결할 수 있는 데스크톱 컴�
 
 Raspberry Pi의 명령줄에 원격으로 액세스할 수 있도록 데스크톱 컴퓨터에 SSH 클라이언트가 필요합니다.
 
-- Windows에서는 SSH 클라이언트를 포함하지 않습니다. [PuTTY](http://www.putty.org/)를 사용하는 것이 좋습니다.
+- Windows에서는 SSH 클라이언트를 포함하지 않습니다. [PuTTY](https://www.putty.org/)를 사용하는 것이 좋습니다.
 - 대부분의 Linux 배포판 및 Mac OS는 명령줄 SSH 유틸리티를 포함합니다. 자세한 내용은 [Linux 또는 Mac OS를 사용하는 SSH](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md)를 참조하세요.
 
 ### <a name="required-raspberry-pi-software"></a>필수 Raspberry Pi 소프트웨어
 
 이 문서에서는 [Raspberry Pi에 Raspbian OS](https://www.raspberrypi.org/learning/software-guide/quickstart/)의 최신 버전을 설치했다고 가정합니다.
 
-다음 단계는 솔루션 가속기에 연결하는 C 응용 프로그램을 빌드하기 위해 Raspberry Pi를 준비하는 방법을 보여줍니다.
+다음 단계는 솔루션 가속기에 연결하는 C 애플리케이션을 빌드하기 위해 Raspberry Pi를 준비하는 방법을 보여줍니다.
 
 1. **ssh**를 사용하여 Raspberry Pi에 연결합니다. 자세한 내용은 [Raspberry Pi 웹 사이트](https://www.raspberrypi.org/)에서 [SSH(Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md)를 참조하세요.
 
@@ -69,11 +71,11 @@ Raspberry Pi의 명령줄에 원격으로 액세스할 수 있도록 데스크�
 
 [!INCLUDE [iot-accelerators-connecting-code](../../includes/iot-accelerators-connecting-code.md)]
 
-## <a name="build-and-run-the-application"></a>응용 프로그램 빌드 및 실행
+## <a name="build-and-run-the-application"></a>애플리케이션 빌드 및 실행
 
-다음 단계에서는 *CMake*를 사용하여 클라이언트 응용 프로그램을 빌드하는 방법을 설명합니다. 원격 모니터링 클라이언트 응용 프로그램은 SDK 빌드 프로세스의 일부로 빌드됩니다.
+다음 단계에서는 *CMake*를 사용하여 클라이언트 응용 프로그램을 빌드하는 방법을 설명합니다. 원격 모니터링 클라이언트 애플리케이션은 SDK 빌드 프로세스의 일부로 빌드됩니다.
 
-1. **remote_monitoring.c** 파일을 편집하여 `<connectionstring>`을 이 방법 가이드 시작 부분에서 솔루션 가속기에 장치를 추가할 때 적어 둔 장치 연결 문자열로 바꿉니다.
+1. **remote_monitoring.c** 파일을 편집하여 `<connectionstring>`을 이 방법 가이드 시작 부분에서 솔루션 가속기에 디바이스를 추가할 때 적어 둔 디바이스 연결 문자열로 바꿉니다.
 
 1. [Azure IoT C SDK 리포지토리](https://github.com/Azure/azure-iot-sdk-c)의 복제된 복사본 루트로 이동한 후에 다음 명령을 실행하여 클라이언트 응용 프로그램을 빌드합니다.
 
@@ -84,7 +86,7 @@ Raspberry Pi의 명령줄에 원격으로 액세스할 수 있도록 데스크�
     make
     ```
 
-1. 클라이언트 응용 프로그램을 실행하고 IoT Hub에 원격 분석을 전송합니다.
+1. 클라이언트 애플리케이션을 실행하고 IoT Hub에 원격 분석을 전송합니다.
 
     ```sh
     ./samples/solutions/remote_monitoring_client/remote_monitoring_client
@@ -92,7 +94,7 @@ Raspberry Pi의 명령줄에 원격으로 액세스할 수 있도록 데스크�
 
     다음과 같은 경우 콘솔에 메시지가 표시됩니다.
 
-    - 응용 프로그램이 샘플 원격 분석 데이터를 솔루션 가속기에 보낼 때.
+    - 애플리케이션이 샘플 원격 분석 데이터를 솔루션 가속기에 보낼 때.
     - 솔루션 대시보드에서 호출된 메서드에 응답할 때.
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]

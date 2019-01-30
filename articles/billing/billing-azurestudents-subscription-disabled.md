@@ -15,20 +15,20 @@ ms.workload: na
 ms.date: 03/01/2018
 ms.author: cwatson
 ROBOTS: NOINDEX
-ms.openlocfilehash: c8d78d51425ea5a5fc2f3b326710b3c2ad5a6a06
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 0e4c7ca6776e2016bf0d34d856c4c2332a0bece0
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581853"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250453"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>학생용 Azure 구독이 비활성화되는 이유와 다시 활성화하는 방법은 무엇인가요?
 
-학생용 Azure 구독은 크레딧을 모두 사용했거나 크레딧이 만료되었거나 구독을 실수로 취소한 경우에 비활성화될 수 있습니다. 어떤 문제에 해당하는지 확인하고 구독을 다시 활성화하는 방법을 알아보세요.
+Azure for Students 구독은 크레딧을 모두 사용했거나 크레딧이 만료되었거나 구독을 실수로 취소한 경우에 비활성화될 수 있습니다. 어떤 문제에 해당하는지 확인하고 구독을 다시 활성화하는 방법을 알아보세요.
 
-## <a name="you-have-used-all-of-your-credit"></a>크레딧을 모두 사용한 경우
+## <a name="youve-used-all-of-your-credit"></a>크레딧을 모두 사용한 경우
 
-학생용 Azure 계정에는 12개월 동안 제한된 수의 무료 서비스와 100달러의 크레딧이 제공됩니다. 무료 서비스 및 수량 이외의 사용은 크레딧에서 차감됩니다. 크레딧이 소진되면 Azure에서 서비스와 구독을 사용할 수 없게 됩니다. Azure 서비스를 계속 사용하려면 [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 연락하여 신용 카드 정보를 제공하고 구독을 종량제 구독으로 업그레이드해야 합니다. 구독을 업그레이드 후에도 등록 날짜로부터 12개월 동안 체험 서비스에 계속 액세스할 수 있습니다. 체험 서비스 및 수량을 초과한 사용량에 대해서만 요금이 청구됩니다.
+학생용 Azure 계정에는 12개월 동안 제한된 수의 무료 서비스와 100달러의 크레딧이 제공됩니다. 무료 서비스 및 수량 이외의 사용은 크레딧에서 차감됩니다. 크레딧이 소진되면 Azure에서 서비스와 구독을 사용할 수 없게 됩니다. Azure 서비스를 계속 사용하려면 [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 연락하여 구독을 종량제 구독으로 업그레이드해야 합니다. 구독을 업그레이드 후에도 등록 날짜로부터 12개월 동안 체험 서비스에 계속 액세스할 수 있습니다. 체험 서비스 및 수량을 초과한 사용량에 대해서만 요금이 청구됩니다.
 
 남은 크레딧은 [Microsoft Azure 스폰서쉽 포털](https://www.microsoftazuresponsorships.com/balance)에서 확인할 수 있습니다.
 
@@ -47,15 +47,13 @@ ms.locfileid: "52581853"
 * **서비스 리소스:** 소비되는 서비스에 대한 측정 단위입니다.
 * **지출:** 서비스에 지출한 USD($) 단위의 크레딧 금액입니다.
 
-
 ## <a name="your-credit-has-expired"></a>크레딧이 만료된 경우
 
-학생용 Azure 크레딧은 12개월 후에 만료됩니다. 크레딧이 만료되면 Azure에서 구독이 비활성화됩니다. Azure 서비스를 계속 사용하려면 [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 연락하여 신용 카드 정보를 제공하고 구독을 종량제 구독으로 업그레이드해야 합니다. 업그레이드가 완료되면 사용 중인 모든 서비스에 대해 Azure에서 종량제 요금이 청구됩니다.
+학생용 Azure 크레딧은 12개월 후에 만료됩니다. 크레딧이 만료되면 Azure에서 구독이 비활성화됩니다. Azure 서비스를 계속 사용하려면 [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 연락하여 구독을 종량제 구독으로 업그레이드해야 합니다. 업그레이드가 완료되면 사용 중인 모든 서비스에 대해 Azure에서 종량제 요금이 청구됩니다.
 
+## <a name="youve-accidentally-canceled-your-subscription"></a>실수로 구독을 취소한 경우
 
-## <a name="you-have-accidentally-canceled-your-subscription"></a>실수로 구독을 취소한 경우
-
-학생용 Azure 구독을 실수로 취소한 경우 [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 연락하여 다시 활성화할 수 있습니다. 다시 활성화되면 등록 날짜로부터 12개월 동안 남은 무료 서비스와 크레딧에 계속 액세스할 수 있습니다.
+Azure for Students 구독을 실수로 취소한 경우 [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 연락하여 다시 활성화할 수 있습니다. 다시 활성화되면 등록 날짜로부터 12개월 동안 남은 무료 서비스와 크레딧에 계속 액세스할 수 있습니다.
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 

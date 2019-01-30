@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: bd5082d9f66e65bb487c9216131b7e13f825340e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8b43ef81385f1d185fdd63d2a33453c75684fd21
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246653"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969927"
 ---
 # <a name="api-management-cross-domain-policies"></a>도메인 정책 간 API Management
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](https://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
@@ -38,7 +38,7 @@ ms.locfileid: "51246653"
 ```xml  
 <cross-domain>  
    <!-Policy configuration is in the Adobe cross-domain policy file format,   
-      see http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html-->  
+      see https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html-->  
 </cross-domain>  
 ```  
   
@@ -56,7 +56,7 @@ ms.locfileid: "51246653"
   
 |이름|설명|필수|  
 |----------|-----------------|--------------|  
-|cross-domain|루트 요소입니다. 자식 요소는 [Adobe 도메인 간 정책 파일 사양](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)을 준수해야 합니다.|yes|  
+|cross-domain|루트 요소입니다. 자식 요소는 [Adobe 도메인 간 정책 파일 사양](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)을 준수해야 합니다.|yes|  
   
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
@@ -145,7 +145,7 @@ ms.locfileid: "51246653"
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** inbound  
--   **정책 범위:** API, operation  
+-   **정책 범위:** API, 작업  
   
 ##  <a name="JSONP"></a> JSONP  
  `jsonp` 정책은 패딩이 있는 JSON(JSONP) 지원을 작업 또는 API에 추가하여 JavaScript 브라우저 기반 클라이언트의 도메인 간 호출을 허용합니다. JSONP는 JavaScript 프로그램에서 다른 도메인의 서버로부터 데이터를 요청하는 데 사용하는 메서드입니다. JSONP는 웹 페이지에 대한 액세스 권한이 동일한 도메인 내에 있어야 하는 경우 대부분의 웹 브라우저에서 적용하는 제한을 무시합니다.  

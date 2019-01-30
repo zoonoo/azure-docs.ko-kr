@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 48eb76e7e076b8496b32878b2292447b1ccbf7f6
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 738bdd303d6e8e41df179021ebca521100ace325
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977126"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828080"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>Windows VM에서 가상 디스크 암호화
 VM(가상 머신)의 보안과 규정 준수 상태를 향상시키기 위해 Azure에서 가상 디스크를 암호화할 수 있습니다. 디스크는 Azure Key Vault에 안전하게 보관되는 암호화 키를 사용하여 암호화됩니다. 이러한 암호화 키를 제어하고 용도를 감사할 수 있습니다. 이 문서에서는 Azure PowerShell을 사용하여 Windows VM에서 가상 디스크를 암호화하는 방법을 설명합니다. [Azure CLI를 사용하여 Linux VM을 암호화](../linux/encrypt-disks.md)할 수도 있습니다.
 
 ## <a name="overview-of-disk-encryption"></a>디스크 암호화 개요
-Windows VM의 가상 디스크는 미사용 시 Bitlocker를 사용하여 암호화됩니다. Azure에서 가상 디스크 암호화는 무료입니다. 암호화 키는 소프트웨어 보호를 사용하여 Azure Key Vault에 저장되거나 FIPS 140-2 레벨 2 표준 인증 HSM(하드웨어 보안 모듈)에서 키를 가져오거나 생성할 수 있습니다. 암호화 키는 VM에 연결된 가상 디스크를 암호화하고 암호를 해독하는 데 사용됩니다. 이러한 암호화 키에 대한 제어를 유지하고 그 사용을 감사할 수 있습니다. 
+Windows VM의 가상 디스크는 미사용 시 BitLocker를 사용하여 암호화됩니다. Azure에서 가상 디스크 암호화는 무료입니다. 암호화 키는 소프트웨어 보호를 사용하여 Azure Key Vault에 저장되거나 FIPS 140-2 레벨 2 표준 인증 HSM(하드웨어 보안 모듈)에서 키를 가져오거나 생성할 수 있습니다. 암호화 키는 VM에 연결된 가상 디스크를 암호화하고 암호를 해독하는 데 사용됩니다. 이러한 암호화 키에 대한 제어를 유지하고 그 사용을 감사할 수 있습니다. 
 
 VM을 암호화하는 프로세스는 다음과 같습니다.
 

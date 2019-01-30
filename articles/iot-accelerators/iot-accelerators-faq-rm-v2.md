@@ -1,5 +1,5 @@
 ---
-title: 원격 모니터링 솔루션 가속기 FAQ | Microsoft Docs
+title: 원격 모니터링 솔루션 가속기 FAQ - Azure | Microsoft Docs
 description: 원격 모니터링 솔루션 가속기에 대한 질문과 대답
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 59b52163ba7f5abd53c60264f10f5352e3e4f6cd
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 746d21c7ff4d5b939eea7690193ac07425b4001c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067791"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602633"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에 대한 질문과 대답
 
@@ -32,7 +32,7 @@ ms.locfileid: "49067791"
 
 ### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>기본 배포와 표준 배포의 차이가 무엇인가요? 두 가지 배포 옵션 중 적합한 옵션을 어떻게 결정하나요?
 
-각 배포 옵션은 서로 다른 요구에 대응합니다. 기본 배포는 PoC 및 소규모 파일럿을 시작하고 개발하도록 설계되었습니다. 최소한의 필요한 리소스와 보다 저렴한 비용으로 간소화된 아키텍처를 제공합니다. 표준 배포는 프로덕션이 준비된 솔루션을 빌드하고 사용자 지정하도록 설계되었으며 이를 실현하는 데 필요한 요소가 포함된 배포를 제공합니다. 안정성과 확장성을 위해 응용 프로그램 마이크로 서비스는 Docker 컨테이너로 빌드되고 오케스트레이터(기본적으로 Kubernetes)를 사용하여 배포됩니다. 오케스트레이터는 응용 프로그램의 배포, 확장 및 관리를 담당합니다. 현재 필요에 따라 옵션을 선택해야 합니다. 프로젝트 단계에 따라 둘 중 하나를 사용할 수도 있고, 둘 다를 조합하여 사용할 수도 있습니다.
+각 배포 옵션은 서로 다른 요구에 대응합니다. 기본 배포는 PoC 및 소규모 파일럿을 시작하고 개발하도록 설계되었습니다. 최소한의 필요한 리소스와 보다 저렴한 비용으로 간소화된 아키텍처를 제공합니다. 표준 배포는 프로덕션이 준비된 솔루션을 빌드하고 사용자 지정하도록 설계되었으며 이를 실현하는 데 필요한 요소가 포함된 배포를 제공합니다. 안정성과 확장성을 위해 애플리케이션 마이크로 서비스는 Docker 컨테이너로 빌드되고 오케스트레이터(기본적으로 Kubernetes)를 사용하여 배포됩니다. 오케스트레이터는 애플리케이션의 배포, 확장 및 관리를 담당합니다. 현재 필요에 따라 옵션을 선택해야 합니다. 프로젝트 단계에 따라 둘 중 하나를 사용할 수도 있고, 둘 다를 조합하여 사용할 수도 있습니다.
 
 ### <a name="how-do-i-configure-a-dynamic-map-on-the-dashboard"></a>대시보드에서 동적 맵을 구성하려면 어떻게 해야 할까요?
 

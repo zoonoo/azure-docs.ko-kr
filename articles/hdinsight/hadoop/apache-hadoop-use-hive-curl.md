@@ -9,39 +9,39 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: cff24991263ece54c143e5da8a3eb2a9e5b4af18
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: c5bf69a2ac6a70410339a5696da53169ca87170f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634501"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407221"
 ---
-# <a name="run-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Apache Hadoop과 함께 Hive 쿼리 실행
+# <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Apache Hadoop과 함께 Apache Hive 쿼리 실행
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Apache Hadoop과 함께 Hive 쿼리를 실행하는 방법에 대해 알아봅니다.
+WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Apache Hadoop과 함께 Apache Hive 쿼리를 실행하는 방법에 대해 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 * HDInsight 클러스터 버전 3.4 이상의 Linux 기반 Hadoop
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
-* REST 클라이언트 이 문서에서는 Windows PowerShell 및 [Curl](http://curl.haxx.se/) 예제를 사용합니다.
+* REST 클라이언트 이 문서에서는 Windows PowerShell 및 [Curl](https://curl.haxx.se/) 예제를 사용합니다.
 
-    > [!NOTE]
-    > Azure PowerShell은 HDInsight의 Hive 사용에 대한 전용 cmdlet을 제공합니다. 자세한 내용은 [Azure PowerShell과 함께 Hive 사용](apache-hadoop-use-hive-powershell.md) 문서를 참조하세요.
+    > [!NOTE]  
+    > Azure PowerShell은 HDInsight의 Hive 사용에 대한 전용 cmdlet을 제공합니다. 자세한 내용은 [Azure PowerShell과 함께 Apache Hive 사용](apache-hadoop-use-hive-powershell.md) 문서를 참조하세요.
 
-이 문서에서는 Windows PowerShell 및 [Jq](http://stedolan.github.io/jq/)를 사용하여 REST 요청에서 반환된 JSON 데이터를 처리합니다.
+이 문서에서는 Windows PowerShell 및 [Jq](https://stedolan.github.io/jq/)를 사용하여 REST 요청에서 반환된 JSON 데이터를 처리합니다.
 
 ## <a id="curl"></a>Hive 쿼리 실행
 
-> [!NOTE]
+> [!NOTE]  
 > WebHCat에서 cURL 또는 다른 모든 REST 통신을 사용하는 경우 HDInsight 클러스터 관리자의 사용자 이름 및 암호를 제공하여 요청을 인증해야 합니다.
 >
-> REST API는 [기본 인증](http://en.wikipedia.org/wiki/Basic_access_authentication)을 통해 보안됩니다. 자격 증명이 안전하게 서버에 전송되도록 하려면 항상 Secure HTTP(HTTPS)를 사용하여 요청하십시오.
+> REST API는 [기본 인증](https://en.wikipedia.org/wiki/Basic_access_authentication)을 통해 보안됩니다. 자격 증명이 안전하게 서버에 전송되도록 하려면 항상 Secure HTTP(HTTPS)를 사용하여 요청하십시오.
 
 1. 이 문서의 스크립트에서 사용되는 클러스터 로그인을 설정하려면 다음 명령 중 하나를 사용합니다.
 
@@ -135,7 +135,7 @@ WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Apache Hadoo
    * `DROP TABLE` - 이미 테이블이 있으면 삭제됩니다.
    * `CREATE EXTERNAL TABLE` - Hive에서 새 "외부" 테이블을 만듭니다. 외부 테이블은 테이블 정의만 Hive에 저장합니다. 데이터는 원래 위치에 그대로 유지됩니다.
 
-     > [!NOTE]
+     > [!NOTE]  
      > 외부 원본에서 기본 데이터를 업데이트하길 원하는 경우에는 외부 테이블을 사용해야 합니다. 예를 들어 자동화된 데이터 업로드 프로세스 또는 다른 MapReduce 작업이 있습니다.
      >
      > 외부 테이블을 삭제하면 데이터는 삭제되지 **않고** 테이블 정의만 삭제됩니다.
@@ -144,7 +144,7 @@ WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Apache Hadoo
    * `STORED AS TEXTFILE LOCATION` - 데이터가 저장된 위치(example/data 디렉터리)이며 텍스트로 저장됩니다.
    * `SELECT` - 열 **t4**에 값 **[ERROR]** 가 포함된 모든 행의 수를 선택합니다. 이 값이 포함된 행이 3개이므로 이 문은 **3** 값을 반환합니다.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Curl과 함께 사용할 경우 HiveQL 문 사이의 공백이 `+` 문자로 바뀝니다. 구분 기호와 같이 공백을 포함하는 따옴표로 묶인 값은 `+`로 바뀌지 않아야 합니다.
 
       이 명령은 작업 상태를 확인하는 데 사용할 수 있는 작업 ID를 반환합니다.
@@ -177,28 +177,28 @@ WebHCat REST API를 사용하여 Azure HDInsight 클러스터에서 Apache Hadoo
 
 HDInsight Hive에 대한 일반적인 내용입니다.
 
-* [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Hive 사용](hdinsight-use-hive.md)
 
 HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
-* [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
-* [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 Apache Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
 Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문서를 참조하세요.
 
-* [Linux 기반 HDInsight에서 Ambari Tez 보기 사용](../hdinsight-debug-ambari-tez-view.md)
+* [Linux 기반 HDInsight에서 Apache Ambari Tez 보기 사용](../hdinsight-debug-ambari-tez-view.md)
 
 이 문서에 사용된 REST API에 대한 자세한 내용은 [WebHCat 참조](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) 문서를 참조하세요.
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[apache-tez]: http://tez.apache.org
-[apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[apache-tez]: https://tez.apache.org
+[apache-hive]: https://hive.apache.org/
+[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -211,6 +211,6 @@ Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문�
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
 
 

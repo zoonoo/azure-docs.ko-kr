@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 08728a3c0b4d4578939004e2d1b1ee2d30a682ab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f6c629182fdcce83c566869860480d9c70488797
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359291"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53712749"
 ---
 # <a name="variables-section-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 변수 섹션
 변수 섹션에서 템플릿을 통해 사용할 수 있는 값을 생성합니다. 변수를 정의할 필요는 없지만 종종 변수를 통해 복잡한 식을 줄이면 템플릿이 단순화됩니다.
@@ -269,13 +269,6 @@ ms.locfileid: "34359291"
 }
 ```
 
-## <a name="recommendations"></a>권장 사항
-다음 정보는 변수로 작업하는 경우 도움이 될 수 있습니다.
-
-* 두 번 이상 사용해야 하는 값의 경우 템플릿에서 변수를 사용합니다. 값을 한 번만 사용할 경우에는 하드 코드된 값을 사용해야 템플릿을 더 쉽게 읽을 수 있습니다.
-* 템플릿의 **변수** 섹션에는 [reference](resource-group-template-functions-resource.md#reference) 함수를 사용할 수 없습니다. **reference** 함수는 리소스의 런타임 상태에서 해당 값을 파생합니다. 하지만 템플릿의 초기 구문 분석 중에 변수가 확인됩니다. 템플릿의 **resources** 또는 **outputs** 섹션에서 직접 **reference** 함수에 필요한 값을 생성합니다.
-* 고유해야 하는 리소스 이름에 대한 변수를 포함합니다.
-
 ## <a name="example-templates"></a>예제 템플릿
 
 이러한 예제 템플릿은 변수 사용에 대한 일부 시나리오를 보여 줍니다. 변수가 다른 시나리오에서 처리되는 방식을 테스트하려면 변수를 배포하세요. 
@@ -290,5 +283,5 @@ ms.locfileid: "34359291"
 ## <a name="next-steps"></a>다음 단계
 * 다양한 유형의 솔루션에 대한 전체 템플릿을 보려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 참조하세요.
 * 템플릿 내에서 사용할 수 있는 함수에 대한 자세한 내용은 [Azure Resource Manager 템플릿 함수](resource-group-template-functions.md)를 참조하세요.
-* 배포 중 여러 템플릿을 결합하려면 [Azure Resource Manager에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.
-* 다른 리소스 그룹 내에 있는 리소스를 사용해야 할 수도 있습니다. 이 시나리오에서는 일반적으로 여러 리소스 그룹에서 공유하는 저장소 계정 또는 가상 네트워크에서 작업합니다. 자세한 내용은 [resourceId 함수](resource-group-template-functions-resource.md#resourceid)를 참조하세요.
+* 템플릿을 만드는 방법에 대한 권장 사항은 [Azure Resource Manager 템플릿 모범 사례](template-best-practices.md)를 참조하세요.
+* 다른 리소스 그룹 내에 있는 리소스를 사용해야 할 수도 있습니다. 이 시나리오는 여러 리소스 그룹에서 공유하는 스토리지 계정 또는 가상 네트워크로 작업할 때 일반적입니다. 자세한 내용은 [resourceId 함수](resource-group-template-functions-resource.md#resourceid)를 참조하세요.

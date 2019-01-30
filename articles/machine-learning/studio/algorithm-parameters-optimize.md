@@ -1,40 +1,34 @@
 ---
-title: Azure Machine Learning Studio에 사용할 알고리즘 최적화 | Microsoft Docs
+title: 알고리즘 최적화
+titleSuffix: Azure Machine Learning Studio
 description: Azure Machine Learning Studio에서 알고리즘에 대한 최적 매개 변수 집합을 선택하는 방법에 대해 설명합니다.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
-editor: cgronlun
-ms.assetid: 6717e30e-b8d8-4cc1-ad0b-1d4727928d32
 ms.service: machine-learning
 ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: f4b7ba04f643fc823ca627e279faea31dee9d2a4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 757819338433dc1ea8eedd34d8356166b68dd3fc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314715"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265560"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 알고리즘을 최적화하는 매개 변수 선택
 
 이 토픽에서는 Azure Machine Learning에서 알고리즘에 대한 올바른 하이퍼 매개 변수 집합을 선택하는 방법에 대해 설명합니다. 대부분의 기계 학습 알고리즘은 설정할 매개 변수를 포함하고 있습니다. 모델을 학습할 때 이러한 매개 변수의 값을 제공해야 합니다. 학습된 모델의 효율성은 선택한 모델 매개 변수에 따라 달라집니다. 최적의 매개 변수 집합을 찾는 프로세스를 *모델 선택*이라고 합니다.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 모델 선택 영역을 수행하는 방법은 여러 가지가 있습니다. Machine Learning에서는 교차 유효성 검사가 모델 선택에 가장 널리 사용되는 방법 중 하나이며, Azure Machine Learning의 기본 모델 선택 메커니즘입니다. Azure Machine Learning에서는 R과 Python을 둘 다 지원하므로 언제든지 R 또는 Python을 사용하여 고유한 모델 선택 메커니즘을 구현할 수 있습니다.
 
 최상의 매개 변수 집합을 찾는 프로세스는 4단계로 구성됩니다.
 
-1. **매개 변수 공간 정의**: 먼저 알고리즘에 대해 고려할 정확한 매개 변수 값을 결정합니다.
-2. **교차 유효성 검사 설정 정의**: 데이터 집합에 대해 교차 유효성 검사 접기를 선택하는 방법을 결정합니다.
+1. **매개 변수 공간 정의**: 알고리즘의 경우 먼저 고려할 정확한 매개 변수 값을 결정합니다.
+2. **교차 유효성 검사 설정 정의**: 데이터 세트에 대해 교차 유효성 검사 접기를 선택하는 방법을 결정합니다.
 3. **메트릭 정의**: 최상의 매개 변수 집합(예: 정확도, 평균 제곱근 오차, 정밀도, 재현율 또는 f-score)을 결정하는 데 사용할 메트릭을 결정합니다.
 4. **학습, 평가 및 비교**: 매개 변수 값의 각 고유한 조합에 대해 정의한 오류 메트릭을 기반으로 교차 유효성 검사를 수행합니다. 평가 및 비교 후에 최고 성능 모델을 선택할 수 있습니다.
 
@@ -43,7 +37,7 @@ ms.locfileid: "52314715"
 ![최상의 매개 변수 집합 찾기](./media/algorithm-parameters-optimize/fig1.png)
 
 ## <a name="define-the-parameter-space"></a>매개 변수 공간 정의
-모델 초기화 단계에서 매개 변수 집합을 정의할 수 있습니다. 모든 Machine Learning 알고리즘의 매개 변수 창에는 두 가지 강사 모드(*단일 매개 변수* 및 *매개 변수 범위*)가 있습니다. 매개 변수 범위 모드를 선택합니다. 매개 변수 범위 모드에서는 각 매개 변수에 대한 여러 값을 입력할 수 있습니다. 텍스트 상자에서 쉼표로 구분된 값을 입력할 수 있습니다.
+모델 초기화 단계에서 매개 변수 집합을 정의할 수 있습니다. 모든 기계 학습 알고리즘의 매개 변수 창에는 두 가지 강사 모드(*단일 매개 변수* 및 *매개 변수 범위*)가 있습니다. 매개 변수 범위 모드를 선택합니다. 매개 변수 범위 모드에서는 각 매개 변수에 대한 여러 값을 입력할 수 있습니다. 텍스트 상자에서 쉼표로 구분된 값을 입력할 수 있습니다.
 
 ![2클래스 향상된 의사 결정 트리, 단일 매개 변수](./media/algorithm-parameters-optimize/fig2.png)
 
@@ -57,7 +51,7 @@ ms.locfileid: "52314715"
 ![파티션 및 샘플](./media/algorithm-parameters-optimize/fig4.png)
 
 ## <a name="define-the-metric"></a>메트릭 정의
-[모델 조정 하이퍼 매개 변수][tune-model-hyperparameters] 모듈에서는 주어진 알고리즘 및 데이터 집합에 대한 최상의 매개 변수 집합을 경험적으로 선택할 수 있습니다. 이 모듈의 **속성** 창에는 모델 학습에 관련된 기타 정보 외에 최상의 매개 변수 집합을 결정하는 데 사용할 메트릭이 포함됩니다. 분류 및 회귀 알고리즘 각각에 대한 두 개의 드롭다운 목록 상자가 있습니다. 고려 중인 알고리즘은 분류 알고리즘인 경우에는 회귀 메트릭이 무시되고 그 반대의 경우도 마찬가지입니다. 이 특정 예제에서는 메트릭은 **정확도**입니다.   
+[모델 조정 하이퍼 매개 변수][tune-model-hyperparameters] 모듈에서는 주어진 알고리즘 및 데이터 세트에 대한 최상의 매개 변수 집합을 경험적으로 선택할 수 있습니다. 이 모듈의 **속성** 창에는 모델 학습에 관련된 기타 정보 외에 최상의 매개 변수 집합을 결정하는 데 사용할 메트릭이 포함됩니다. 분류 및 회귀 알고리즘 각각에 대한 두 개의 드롭다운 목록 상자가 있습니다. 고려 중인 알고리즘은 분류 알고리즘인 경우에는 회귀 메트릭이 무시되고 그 반대의 경우도 마찬가지입니다. 이 특정 예제에서는 메트릭은 **정확도**입니다.   
 
 ![매개 변수 비우기](./media/algorithm-parameters-optimize/fig5.png)
 

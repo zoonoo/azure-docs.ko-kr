@@ -4,7 +4,7 @@ description: Azure Active Directory에서 사용자 지정 엔터프라이즈 �
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -16,24 +16,24 @@ ms.date: 08/28/2017
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 47a53adb583ede0618321d9146362e4f663b0066
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 293cc161245ed1e674caa1fa37567a3b6f344d37
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368761"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474603"
 ---
 # <a name="change-the-name-or-logo-of-an-enterprise-app-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱의 이름 또는 로고 변경
-Azure AD(Azure Active Directory)에서 사용자 정의 엔터프라이즈 응용 프로그램에 대한 이름 또는 로고를 변경하는 것은 쉽습니다. 이러한 변경을 수행하려면 적절한 권한이 있고 사용자 지정 앱에 대한 작성자여야 합니다.
+Azure AD(Azure Active Directory)에서 사용자 정의 엔터프라이즈 애플리케이션에 대한 이름 또는 로고를 변경하는 것은 쉽습니다. 이러한 변경을 수행하려면 적절한 권한이 있고 사용자 지정 앱에 대한 작성자여야 합니다.
 
 ## <a name="how-do-i-change-an-enterprise-apps-name-or-logo"></a>엔터프라이즈 앱의 이름 또는 로고를 변경하려면 어떻게 해야 합니까?
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **모든 서비스**를 선택하고 텍스트 상자에 **Azure Active Directory**를 입력한 다음, **입력**을 선택합니다.
-3. **Azure Active Directory - *directoryname*** 창, 즉 관리 중인 디렉터리에 대한 Azure AD 창에서 **엔터프라이즈 응용 프로그램**을 선택합니다.
+3. **Azure Active Directory - *directoryname*** 창, 즉 관리 중인 디렉터리에 대한 Azure AD 창에서 **엔터프라이즈 애플리케이션**을 선택합니다.
 
     ![엔터프라이즈 앱 열기](./media/change-name-or-logo-portal/open-enterprise-apps.png)
-4. **엔터프라이즈 응용 프로그램** 창에서 **모든 응용 프로그램**을 선택합니다. 관리할 수 있는 앱의 목록이 표시됩니다.
-5. **엔터프라이즈 응용 프로그램 - 모든 응용 프로그램** 창에서 앱을 선택합니다.
+4. **엔터프라이즈 애플리케이션** 창에서 **모든 애플리케이션**을 선택합니다. 관리할 수 있는 앱의 목록이 표시됩니다.
+5. **엔터프라이즈 애플리케이션 - 모든 애플리케이션** 창에서 앱을 선택합니다.
 6. ***appname*** 창, 즉 제목에서 선택된 앱의 이름을 사용한 창에서 **속성**을 선택합니다.
 
     ![속성 명령 선택](./media/change-name-or-logo-portal/select-app.png)

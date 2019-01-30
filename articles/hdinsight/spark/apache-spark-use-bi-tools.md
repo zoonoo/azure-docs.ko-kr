@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: e862000df1edc5101c0768f1f96c11953f1485c7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: c058cfa3bc9fa976726731cedeb80eb76a1f0810
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583281"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999274"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>자습서: HDInsight에서 Power BI를 사용하여 Apache Spark 데이터 분석 
 
@@ -28,8 +28,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **문서 [자습서: Azure HDInsight의 Apache Spark 클러스터에서 데이터 로드 및 쿼리 실행](./apache-spark-load-data-run-query.md)을 완료합니다**.
-* **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) 및 [Power BI 평가판 구독](https://app.powerbi.com/signupredirect?pbi_source=web)(선택 사항)
+* **문서 [자습서: Azure HDInsight의 Apache Spark 클러스터에서 데이터 로드 및 쿼리 실행](./apache-spark-load-data-run-query.md)** 을 완료합니다.
+* **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) 및 [Power BI 평가판 구독](https://app.powerbi.com/signupredirect?pbi_source=web)(선택 사항)입니다.
 
 
 ## <a name="verify-the-data"></a>데이터 확인
@@ -69,7 +69,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ### <a name="create-a-report-in-power-bi-desktop"></a>Power BI Desktop에서 보고서 만들기
 Spark를 사용하는 첫 번째 단계는 Power BI Desktop에서 클러스터에 연결하고, 클러스터에서 데이터를 로드하고, 해당 데이터를 기반으로 기본 시각화를 만드는 것입니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 이 문서에서 설명하는 커넥터는 현재 미리 보기 상태입니다. [Power BI 커뮤니티](https://community.powerbi.com/) 사이트 또는 [Power BI Ideas](https://ideas.powerbi.com/forums/265200-power-bi-ideas)를 통해 피드백을 제공하세요.
 
 1. [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/)을 엽니다.
@@ -103,7 +103,7 @@ Spark를 사용하는 첫 번째 단계는 Power BI Desktop에서 클러스터�
 
         다이어그램은 다음과 같이 표시됩니다.
 
-        ![Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기")
+        ![Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기")
 
         기본적으로 시각화에서는 **ActualTemp** 및 **TargetTemp**의 합계를 보여 줍니다. 시각화 창에서 **ActualTemp** 및 **TragetTemp** 옆에 있는 아래쪽 화살표를 클릭하면 **Sum**이 선택된 것을 볼 수 있습니다.
 
@@ -113,7 +113,7 @@ Spark를 사용하는 첫 번째 단계는 Power BI Desktop에서 클러스터�
 
         데이터 시각화는 스크린샷의 데이터 시각화와 비슷해야 합니다. 커서를 시각화 위로 이동하면 관련 데이터와 함께 도구 설명이 나타납니다.
 
-        ![Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기")
+        ![Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Apache Spark BI를 사용하여 Spark 데이터 시각화 만들기")
 
 7. **파일**, **저장**을 차례로 클릭하고, 파일에 대한 이름 `BuildingTemperature.pbix`를 입력합니다. 
 
@@ -128,7 +128,7 @@ Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보�
 
 2. 데이터 세트 및 보고서를 게시하려는 작업 영역을 선택한 다음, **선택**을 클릭합니다. 다음 이미지에서 기본 **내 작업 영역**이 선택됩니다.
 
-    ![데이터 집합 및 보고서를 게시하려는 작업 영역 선택](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "데이터 집합 및 보고서를 게시하려는 작업 영역 선택") 
+    ![데이터 세트 및 보고서를 게시하려는 작업 영역 선택](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "데이터 세트 및 보고서를 게시하려는 작업 영역 선택") 
 
 3. 게시에 성공한 후 **Power BI에서 'BuildingTemperature.pbix' 열기**를 클릭합니다.
 
@@ -174,7 +174,7 @@ Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보�
 >
 >
 
-1. Install [Tableau Desktop](http://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
+1. Install [Tableau Desktop](https://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
 
 2. Make sure that computer also has Microsoft Spark ODBC driver installed. You can install the driver from [here](https://go.microsoft.com/fwlink/?LinkId=616229).
 

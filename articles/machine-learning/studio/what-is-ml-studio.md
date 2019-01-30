@@ -1,12 +1,13 @@
 ---
-title: Azure Machine Learning Studio란? | Microsoft Docs
-description: Azure ML Studio의 개요로, 알고리즘 및 모듈의 사용할 준비가 되어 있는 라이브러리에서 신속하게 모델을 빌드하기 위한 끌어서 놓기 도구입니다.
+title: 정의
+titleSuffix: Azure Machine Learning Studio
+description: Azure Machine Learning Studio는 알고리즘 및 모듈의 사용할 준비가 되어 있는 라이브러리에서 신속하게 모델을 빌드하기 위한 끌어서 놓기 도구입니다.
 keywords: azure 기계 학습, azure ml, 기계 학습 스튜디오
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
 ms.component: studio
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: d893a0817be6ae8a271d403ed0477fa04238954b
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 04c9803909fb5dfd1072840a0c1d7e33814ad1a3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264406"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264363"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio란?
 Microsoft Azure Machine Learning Studio는 데이터에 대한 예측 분석 솔루션을 빌드, 테스트, 배포할 수 있는 공동 끌어서 놓기 도구입니다. Machine Learning Studio는 Excel과 같은 BI 도구 또는 사용자 지정 앱에서 쉽게 사용할 수 있는 웹 서비스로 모델을 게시합니다.
@@ -32,7 +33,7 @@ Machine Learning Studio는 데이터 과학, 예측 분석, 클라우드 리소�
 ## <a name="the-machine-learning-studio-interactive-workspace"></a>Machine Learning Studio 대화형 작업 영역
 예측 분석 모델을 개발하려면 일반적으로 원본 하나 이상의 데이터를 사용하고, 다양한 데이터 조작과 통계 함수를 통해 해당 데이터를 변환 및 분석하고, 결과 집합을 생성합니다. 이와 같은 모델을 개발하는 과정은 반복 프로세스이며, 다양한 함수와 해당 매개 변수를 수정할 때 학습된 효과적인 모델을 마련했다고 만족할 때까지 결과가 수렴됩니다.
 
-**Azure Machine Learning Studio**에서는 예측 분석 모델을 간편하게 빌드, 테스트, 반복할 수 있는 대화형 시각적 작업 영역을 제공합니다. ***데이터 집합***과 분석 ***모듈***을 대화형 캔버스로 끌어서 놓고 함께 연결하여 ***실험***을 생성하고 Machine Learning 스튜디오에서 실행합니다. 모델 디자인을 반복하려면 실험을 편집하고 필요에 따라 복사본을 저장하고 실험을 다시 실행합니다. 준비가 되면 ***학습 실험***을 ***예측 실험***으로 변환한 다음 다른 사용자가 모델에 액세스할 수 있도록 ***웹 서비스***로 게시할 수 있습니다.
+**Azure Machine Learning Studio**에서는 예측 분석 모델을 간편하게 빌드, 테스트, 반복할 수 있는 대화형 시각적 작업 영역을 제공합니다. ***데이터 세트***와 분석 ***모듈***을 대화형 캔버스로 끌어서 놓고 함께 연결하여 ***실험***을 생성하고 Machine Learning 스튜디오에서 실행합니다. 모델 디자인을 반복하려면 실험을 편집하고 필요에 따라 복사본을 저장하고 실험을 다시 실행합니다. 준비가 되면 ***학습 실험***을 ***예측 실험***으로 변환한 다음 다른 사용자가 모델에 액세스할 수 있도록 ***웹 서비스***로 게시할 수 있습니다.
 
 프로그래밍이 필요하지 않고 데이터 세트와 모듈을 시각적으로 연결하면 예측 분석 모델을 구성할 수 있습니다.
 
@@ -56,11 +57,11 @@ Machine Learning Studio는 데이터 과학, 예측 분석, 클라우드 리소�
 
 **Studio**를 클릭하여 **Azure Machine Learning Studio**로 이동합니다. 먼저 Microsoft 계정이나 회사 또는 학교 계정을 사용하여 로그인하라는 메시지가 표시됩니다. 로그인하면 왼쪽에 다음과 같은 탭이 표시됩니다.
 
-* **프로젝트** - 단일 프로젝트를 나타내는 실험, 데이터 집합, notebooks 및 기타 리소스의 컬렉션입니다.
+* **프로젝트** - 단일 프로젝트를 나타내는 실험, 데이터 세트, notebooks 및 기타 리소스의 컬렉션입니다.
 * **실험** - 만들고 실행하거나 초안으로 저장한 실험입니다.
 * **웹 서비스** - 실험에서 배포한 웹 서비스입니다.
 * **노트북** - 사용자가 만든 Jupyter 노트북입니다.
-* **데이터 집합** - 스튜디오로 업로드한 데이터 집합입니다.
+* **데이터 세트** - 스튜디오로 업로드한 데이터 세트입니다.
 * **학습된 모델** - 실험에서 학습하고 스튜디오에 저장한 모델입니다.
 * **설정** - 계정과 리소스를 구성하는 데 사용할 수 있는 설정 모음입니다.
 
@@ -98,7 +99,7 @@ Machine Learning Studio에 포함된 샘플 데이터 세트의 목록은 [Azure
 ### <a name="modules"></a>모듈
 모듈은 데이터에 대해 수행할 수 있는 알고리즘입니다. Machine Learning Studio에는 데이터 가져오기 함수부터 학습, 점수 매기기 및 유효성 검사 프로세스에 이르는 다양한 모듈이 있습니다. 포함된 모듈의 몇 가지 예제는 다음과 같습니다.
 
-* [ARFF로 변환][convert-to-arff] - .NET 직렬화된 데이터 집합을 ARFF(Attribute-Relation File Format) 형식으로 변환합니다.
+* [ARFF로 변환][convert-to-arff] - .NET 직렬화된 데이터 세트를 ARFF(Attribute-Relation File Format) 형식으로 변환합니다.
 * [기본 통계 계산][elementary-statistics] - 평균, 표준 편차 등의 기본 통계를 계산합니다.
 * [선형 회귀][linear-regression] - 온라인 기울기 하강 기반 선형 회귀 모델을 만듭니다.
 * [모델 점수 매기기][score-model] - 학습된 분류 또는 회귀 모델의 점수를 매깁니다.
@@ -146,19 +147,19 @@ Machine Learning Studio에 포함된 샘플 데이터 세트의 목록은 [Azure
 학습된 모델이 있는 경우 나머지 테스트 데이터를 사용하여 모델을 평가합니다. 결과를 이미 알고 있는 데이터를 사용하여 모델이 정확하게 예측하는지 여부를 알 수 있습니다.
 
 ## <a name="other-common-machine-learning-terms"></a>기타 일반적인 기계 학습 용어
-* **알고리즘**: 데이터 처리, 계산 및 자동 추론을 통해 문제를 해결하는 데 사용되는 완전한 규칙 집합입니다.
-* **이상 감지**: 비정상적인 이벤트 또는 값에 플래그를 지정하고 문제를 검색하도록 해주는 모델입니다. 예를 들어, 신용 카드 부정 행위 감지의 경우 비정상적인 구매를 찾습니다.
+* **알고리즘**: 데이터 처리, 계산 및 자동 추론을 통해 문제를 해결하는 데 사용되는 완전한 규칙 세트입니다.
+* **변칙 검색**: 비정상적인 이벤트 또는 값에 플래그를 지정하고 문제를 검색하도록 해주는 모델입니다. 예를 들어, 신용 카드 부정 행위 감지의 경우 비정상적인 구매를 찾습니다.
 * **범주 데이터**: 범주별로 구성되고 그룹으로 나눌 수 있는 데이터입니다. 예를 들어 자동차에 대한 범주 데이터 집합은 연식, 제조업체, 모델 및 가격을 지정할 수 있습니다.
-* **분류**: 범주 그룹화가 이미 알려진 데이터 집합을 기반으로 데이터 요소를 범주로 구성하는 모델입니다.
-* **기능 엔지니어링**: 데이터 집합을 향상시키고 결과를 개선하기 위해 데이터 집합과 관련된 기능을 추출하거나 선택하는 프로세스입니다. 예를 들어 항공 요금 데이터를 요일 및 휴일에 따라 늘릴 수 있습니다. [Azure Machine Learning의 기능 선택 및 엔지니어링](../team-data-science-process/create-features.md)을 참조하세요.
-* **모듈**: 소규모 데이터 집합을 입력 및 편집할 수 있도록 하는 데이터 입력 모듈과 같은 Machine Learning Studio 모델의 기능 부분입니다. 알고리즘 또한 Machine Learning Studio의 모듈 유형에 해당합니다.
+* **분류**: 범주 그룹화가 이미 알려진 데이터 세트를 기반으로 데이터 요소를 범주로 구성하는 모델입니다.
+* **기능 엔지니어링**: 데이터 세트를 향상하고 결과를 개선하기 위해 데이터 세트와 관련된 기능을 추출하거나 선택하는 프로세스입니다. 예를 들어 항공 요금 데이터를 요일 및 휴일에 따라 늘릴 수 있습니다. [Azure Machine Learning의 기능 선택 및 엔지니어링](../team-data-science-process/create-features.md)을 참조하세요.
+* **모듈**: 소규모 데이터 세트를 입력 및 편집할 수 있도록 하는 데이터 입력 모듈과 같은 Machine Learning Studio 모델의 기능 부분입니다. 알고리즘 또한 Machine Learning Studio의 모듈 유형에 해당합니다.
 * **모델**: 감독 학습의 경우, 모델은 학습 데이터, 알고리즘 모듈 및 기능 모듈(예: 모델 점수 매기기 모듈)로 구성된 기계 학습 실험 제품입니다.
-* **숫자 데이터**: 측정(연속 데이터) 또는 개수(불연속 데이터)의 의미를 갖는 데이터입니다. *양적 데이터*라고도 합니다.
+* **숫자 데이터**: 측정(연속 데이터) 또는 개수(불연속 데이터)의 의미가 있는 데이터입니다. *양적 데이터*라고도 합니다.
 * **파티션**: 데이터를 샘플로 구분하는 방법입니다. 자세한 내용은 [파티션 및 샘플](https://msdn.microsoft.com/library/azure/dn905960.aspx) 을 참조하세요.
 * **예측**: 예측은 기계 학습 모델에서 값을 예측하는 것입니다. "예측된 점수" 용어도 볼 수 있습니다. 그러나 예측된 점수는 모델의 최종 출력이 아닙니다. 모델에 대한 평가 점수는 다음과 같습니다.
 * **회귀**: 연식 및 제조업체에 따라 자동차 가격을 예측하는 것처럼 독립 변수를 기반으로 값을 예측하는 모델입니다.
-* **점수**: Machine Learning Studio의 [모델 점수 매기기 모듈](https://msdn.microsoft.com/library/azure/dn905995.aspx) 을 사용하여 학습된 분류 또는 회귀 모델에서 생성하는 예측된 값입니다. 또한 분류 모델은 예측된 값의 확률 점수도 반환합니다. 모델에서 점수를 생성한 후 [모델 평가 모듈](https://msdn.microsoft.com/library/azure/dn905915.aspx)을 사용하여 모델의 정확도를 평가할 수 있습니다.
-* **샘플**: 전체를 대표하는 데이터 집합의 부분입니다. 샘플을 임의로 선택하거나 데이터 집합의 특정 기능에 따라 선택할 수 있습니다.
+* **점수**: Machine Learning Studio의 [모델 점수 매기기 모듈](https://msdn.microsoft.com/library/azure/dn905995.aspx)을 사용하여 학습된 분류 또는 회귀 모델에서 생성하는 예측된 값입니다. 또한 분류 모델은 예측된 값의 확률 점수도 반환합니다. 모델에서 점수를 생성한 후 [모델 평가 모듈](https://msdn.microsoft.com/library/azure/dn905915.aspx)을 사용하여 모델의 정확도를 평가할 수 있습니다.
+* **샘플**: 전체를 대표하는 데이터 세트의 부분입니다. 샘플을 임의로 선택하거나 데이터 집합의 특정 기능에 따라 선택할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [단계별 자습서](create-experiment.md)를 사용하거나 [샘플을 기반으로 작업](sample-experiments.md)하여 예측 분석 및 기계 학습의 기본 사항을 알아볼 수 있습니다.  

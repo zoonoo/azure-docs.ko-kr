@@ -1,5 +1,5 @@
 ---
-title: HDInsight에서 Apache Pig 사용
+title: Apache Pig 사용 - Azure HDInsight
 description: HDInsight에서 Apache Hadoop과 함께 Pig를 사용하는 방법을 알아봅니다.
 services: hdinsight
 author: hrasheed-msft
@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 6a1247048907d81b3c9db644bcdb7b5e5eee5fba
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 3f4f99a37718fac3ae4baa14553290d63c7bce63
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633634"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653971"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용
 
-HDInsight에서 [Apache Pig](http://pig.apache.org/)를 사용하는 방법을 알아봅니다.
+HDInsight에서 [Apache Pig](https://pig.apache.org/)를 사용하는 방법을 알아봅니다.
 
 Apache Pig는 *Pig Latin*이라는 절차형 언어를 사용하여 Apache Hadoop용 프로그램을 만드는 플랫폼입니다. Pig는 *MapReduce* 을 만드는 Java를 대체하는 솔루션이며 Azure HDInsight와 함께 포함됩니다. 다음 표를 사용하여 HDInsight에서 Pig를 사용하는 다양한 방법을 검색하세요.
 
@@ -29,10 +29,10 @@ Apache Pig는 *Pig Latin*이라는 절차형 언어를 사용하여 Apache Hadoo
 | [Hadoop용 .NET SDK](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux 또는or Windows |Windows(당분간) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux 또는or Windows | Windows |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
-## <a id="why"></a>Pig를 사용하는 이유
+## <a id="why"></a>Apache Pig를 사용하는 이유
 
 Hadoop의 MapReduce를 사용하여 데이터를 처리할 때 문제는 지도 및 reduce 함수만을 사용하여 처리 논리를 구현하는 것입니다. 복잡한 처리를 위해 종종 처리를 같이 연결된 여러 MapReduce 작업으로 나누어야 원하는 결과를 얻을 수 있습니다.
 
@@ -40,23 +40,23 @@ Pig를 사용하면 원하는 출력을 생산하기 위해 데이터가 통과�
 
 원하는 출력을 생산하기 위해 Pig Litin 언어를 사용하여 하나 이상의 변환을 거쳐 원시 입력을 데이터 플로로 설명할 수 있습니다. Pig Latin 프로그램이 일반적인 패턴을 따릅니다:
 
-* **부하**: 파일 시스템에서 조작할 데이터 읽기
+* **부하**: 파일 시스템에서 조작할 데이터를 읽습니다.
 
-* **변환**: 데이터 조작
+* **변환**: 데이터를 조작합니다.
 
-* **덤프 또는 저장**: 데이터를 화면에 출력하거나 처리를 위해 저장
+* **덤프 또는 저장**: 데이터를 화면에 출력하거나 처리를 위해 저장합니다.
 
 ### <a name="user-defined-functions"></a>사용자 정의 함수
 
 또한 Pig Latin는 사용자가 Pig Latin의 모델에 어려운 논리를 구현하는 외부 구성 요소를 적용할 수 있도록 사용자 정의 함수(UDF)를 지원합니다.
 
-Pig Latin에 대한 자세한 내용은 [Pig Latin 참조 설명서 1](http://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) 및 [Pig Latin 참조 설명서 2](http://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html)를 참조하십시오.
+Pig Latin에 대한 자세한 내용은 [Pig Latin 참조 설명서 1](https://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) 및 [Pig Latin 참조 설명서 2](https://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html)를 참조하십시오.
 
 Pig와 UDF를 사용하는 예로, 다음 문서를 참조하십시오:
 
-* [HDInsight에서 HDInsight와 함께 Pig 사용](apache-hadoop-use-pig-datafu-udf.md) - DataFu는 Apache에서 유지 관리하는 유용한 UDF의 컬렉션입니다.
-* [HDInsight에서 Pig 및 Hive와 함께 Python 사용](python-udf-hdinsight.md)
-* [HDInsight에서 Hive 및 Pig와 함께 C# 사용](apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [HDInsight에서 Apache DataFu와 함께 Apache Pig 사용](apache-hadoop-use-pig-datafu-udf.md) - DataFu는 Apache에서 유지 관리하는 유용한 UDF 컬렉션입니다.
+* [HDInsight에서 Apache Pig 및 Apache Hive와 함께 Python 사용](python-udf-hdinsight.md)
+* [HDInsight에서 Apache Hive 및 Apache Pig와 함께 C# 사용](apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 ## <a id="data"></a>예제 데이터
 
@@ -68,8 +68,8 @@ HDInsight에서는 `/example/data` 및 `/HdiSamples` 디렉터리에 저장되�
 
 이전 예에서 로그 수준은 ERROR입니다.
 
-> [!NOTE]
-> [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) 도구 로깅하여 log4j 파일을 생성하고 해당 파일을 사용자의 blob에 업로드할 수도 있습니다. 해당 지침은 [HDInsight에 데이터 업로드](../hdinsight-upload-data.md) 를 참조하세요. HDInsight와 함께 Azure Blob Storage를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Azure Blob Storage 사용](../hdinsight-hadoop-use-blob-storage.md)을 참조하세요.
+> [!NOTE]  
+> [Apache Log4j](https://en.wikipedia.org/wiki/Log4j) 도구 로깅하여 log4j 파일을 생성하고 해당 파일을 사용자의 blob에 업로드할 수도 있습니다. 해당 지침은 [HDInsight에 데이터 업로드](../hdinsight-upload-data.md) 를 참조하세요. HDInsight와 함께 Azure Blob Storage를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Azure Blob Storage 사용](../hdinsight-hadoop-use-blob-storage.md)을 참조하세요.
 
 ## <a id="job"></a>예제 작업
 
@@ -98,7 +98,7 @@ HDInsight는 다양한 메서드를 사용하여 Pig Latin 작업을 실행할 �
 | [Hadoop용 .NET SDK](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux 또는or Windows |Windows(당분간) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux 또는or Windows | Windows |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ## <a name="pig-and-sql-server-integration-services"></a>Pig 및 SQL Server Integration Services
@@ -115,17 +115,17 @@ SSIS(SQL Server Integration Services)를 사용하여 Pig 작업을 실행할 �
 Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살펴보았으므로 이제 다음 링크를 사용하여 Azure HDInsight로 작업하는 다른 방법을 알아봅니다.
 
 * [HDInsight에 데이터 업로드](../hdinsight-upload-data.md)
-* [HDInsight에서 Hive 사용][hdinsight-use-hive]
-* [HDInsight에서 Sqoop 사용](hdinsight-use-sqoop.md)
-* [HDInsight에서 Oozie 사용](../hdinsight-use-oozie.md)
+* [HDInsight에서 Apache Hive 사용][hdinsight-use-hive]
+* [HDInsight에서 Apache Sqoop 사용](hdinsight-use-sqoop.md)
+* [HDInsight에서 Apache Oozie 사용](../hdinsight-use-oozie.md)
 * [HDInsight에서 MapReduce 작업 사용][hdinsight-use-mapreduce]
 
-[apachepig-home]: http://pig.apache.org/
-[putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
-[curl]: http://curl.haxx.se/
-[pigtask]: http://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
+[apachepig-home]: https://pig.apache.org/
+[putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+[curl]: https://curl.haxx.se/
+[pigtask]: https://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
+[connectionmanager]: https://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
+[ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
 [hdinsight-use-hive]:../hdinsight-use-hive.md
@@ -136,7 +136,7 @@ Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살�
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 
 
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif

@@ -1,27 +1,31 @@
 ---
-title: 미디어 인코더 표준 형식 및 코덱
+title: Media Encoder Standard 형식 및 코덱 - Azure
 description: 이 항목에서는 미디어 인코더 표준 형식 및 코덱에 대한 개요를 제공합니다.
 services: media-services
 documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/12/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 9c6e26b082fb52f7d23bb1a827af30483f7fbd4f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fe1d681fa5f9ab49fec9112398ed03c87c975176
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255713"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384737"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>미디어 인코더 표준 형식 및 코덱
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [버전 2](media-services-media-encoder-standard-formats.md)
+> * [버전 3](../latest/media-encoder-standard-formats.md)
+
 이 문서에는 미디어 인코더 표준에서 사용할 수 있는 가장 일반적인 가져오기 및 내보내기 파일 형식 목록이 포함되어 있습니다.
 
 ## <a name="input-containerfile-formats"></a>입력 컨테이너/파일 형식
@@ -52,8 +56,6 @@ ms.locfileid: "51255713"
 또는
 
 * 별도의 PCM 트랙으로 오디오가 전달되지만 파일 메타데이터에서 스테레오 또는 5.1에 대한 채널 매핑을 추론할 수 MXF, GXF 및 QuickTime 파일
-
-조만간 명시적/사용자 제공 채널 매핑도 지원될 예정입니다.
 
 ## <a name="input-video-codecs"></a>입력 비디오 코덱
 | 입력 비디오 코덱 | 지원됨 |

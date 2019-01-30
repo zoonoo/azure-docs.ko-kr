@@ -1,22 +1,23 @@
 ---
-title: Content Moderator에서 컴퓨터 지원 콘텐츠 조정 및 사용자 검토 | Microsoft Docs
+title: 콘텐츠 조정에 사용자 검토 통합 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: 컴퓨터와 사람이 힘을 합쳐 최상의 콘텐츠 조정 결과를 제공하는 원리를 설명합니다.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-ms.date: 03/16/2018
+ms.date: 01/10/2019
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
 ms.author: sajagtap
-ms.openlocfilehash: f1a3a401363866bdd803093e894615d90536f408
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 7d2e87ac5353f103e654f4dcb6656916e4b271ae
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854223"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264736"
 ---
-# <a name="review-tool-overview"></a>검토 도구 개요
+# <a name="learn-about-the-review-tool"></a>검토 도구에 대해 알아보기
 
 사용자와 컴퓨터가 함께 콘텐츠를 조정할 때 최상의 결과를 얻을 수 있습니다. 컴퓨터는 실제 세상에서 예측 정확도를 보완하거나 변조해야 하는 사용자 검토를 효율적으로 강화합니다. 그 결과, 사용자 또는 컴퓨터가 단독으로 작업할 때보다 효율적인 하이브리드 콘텐츠 수정 프로세스를 얻게 됩니다.
 

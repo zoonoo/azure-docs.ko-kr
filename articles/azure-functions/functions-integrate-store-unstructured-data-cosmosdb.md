@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: bad732132a92c82787309e43b8e56c4a2d2c41e8
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 172ac44855274682953f0fcd59a685eb5a994ba4
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282841"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752591"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Azure Functions 및 Azure Cosmos DB를 사용하여 구조화되지 않은 데이터 저장
 
@@ -65,7 +65,7 @@ Azure Functions에서 입력 및 출력 바인딩은 함수에서 외부 서비�
     | **데이터베이스 이름** | taskDatabase | 문서를 저장할 데이터베이스의 이름. |
     | **컬렉션 이름** | TaskCollection | 데이터베이스 컬렉션 이름. |
     | **true이면 Cosmos DB 데이터베이스 및 컬렉션을 만듭니다.** | 선택 | 아직 컬렉션이 없으므로 지금 만듭니다. |
-    | **Azure Cosmos DB 계정 연결** | 새 설정 | **새로 만들기**를 선택한 다음, **구독**, 이전에 만든 **데이터베이스 계정**, **선택**을 차례로 선택합니다. 계정 연결에 대한 응용 프로그램 설정이 만들어집니다. 이 설정은 데이터베이스에 연결하는 바인딩에서 사용됩니다. |
+    | **Azure Cosmos DB 계정 연결** | 새 설정 | **새로 만들기**를 선택한 다음, **구독**, 이전에 만든 **데이터베이스 계정**, **선택**을 차례로 선택합니다. 계정 연결에 대한 애플리케이션 설정이 만들어집니다. 이 설정은 데이터베이스에 연결하는 바인딩에서 사용됩니다. |
     | **컬렉션 처리량** |400RU| 대기 시간을 줄이면 나중에 처리량을 늘릴 수 있습니다. |
 
 1. **저장**을 선택하여 바인딩을 만듭니다.
@@ -74,7 +74,7 @@ Azure Functions에서 입력 및 출력 바인딩은 함수에서 외부 서비�
 
 선택한 언어로 기존 함수 코드를 다음 코드로 바꿉니다.
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 기존 C# 함수를 다음 코드로 바꿉니다.
 
@@ -111,7 +111,7 @@ public static IActionResult Run(HttpRequest req, out object taskDocument, ILogge
 }
 ```
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 기존 JavaScript 함수를 다음 코드로 바꿉니다.
 

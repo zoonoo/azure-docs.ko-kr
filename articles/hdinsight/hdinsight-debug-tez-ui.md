@@ -9,26 +9,25 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: c96e195d425cff640a4961e34305c1af447f6f28
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 65e0fed29909ad5714b35659a7dd453e095a3eeb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499435"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713727"
 ---
 # <a name="use-the-apache-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Windows 기반 HDInsight에서 Apache Tez UI를 사용하여 Tez 작업 디버깅
 [Apache TEZ](https://tez.apache.org/) UI는 Tez를 실행 엔진으로 사용하는 [Apache Hive](https://hive.apache.org/) 작업을 디버그하는 데 사용할 수 있습니다. Tez UI를 사용하면 연결된 항목의 그래프로 작업을 시각화하고 각 항목을 자세히 알아보며 통계 및 로깅 정보를 검색할 수 있습니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이 문서의 단계에는 Windows를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 * Windows 기반 HDInsight 클러스터입니다. 새 클러스터를 만드는 단계는 [Windows 기반 HDInsight 사용 시작](hdinsight-hadoop-tutorial-get-started-windows.md)을 참조하세요.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Apache Tez UI는 2016년 2월 8일 이후에 만들어진 Windows 기반 HDInsight 클러스터에서만 사용할 수 있습니다.
-  >
-  >
+
 * Windows 기반 원격 데스크톱 클라이언트입니다.
 
 ## <a name="understanding-apache-tez"></a>Apache Tez 이해
@@ -65,10 +64,8 @@ Tez를 사용하는 Hive 쿼리를 실행하려면 다음 단계를 사용합니
         en-GB   Nairobi Area    Kenya
 
 ## <a name="use-the-tez-ui"></a>Tez UI 사용
-> [!NOTE]
+> [!NOTE]  
 > Tez UI는 클러스터 헤드 노드의 바탕 화면에서만 사용할 수 있으므로 원격 데스크톱을 사용하여 헤드 노드에 연결해야 합니다.
->
->
 
 1. [Azure 포털](https://portal.azure.com)에서 HDInsight 클러스터를 선택합니다. HDInsight 블레이드 위쪽에서 **원격 데스크톱** 아이콘을 선택합니다. 이 링크는 원격 데스크톱 블레이드를 표시합니다.
 
@@ -77,17 +74,16 @@ Tez를 사용하는 Hive 쿼리를 실행하려면 다음 단계를 사용합니
 
     ![원격 데스크톱 연결 아이콘](./media/hdinsight-debug-tez-ui/remotedesktopconnect.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > 원격 데스크톱 연결을 설정하지 않은 경우 사용자 이름, 암호 및 만료 날짜를 제공한 다음 **사용**을 선택하여 원격 데스크톱을 사용하도록 설정합니다. 활성화되면 이전 단계를 사용하여 연결합니다.
-   >
-   >
+
 3. 연결되면 원격 데스크톱에서 Internet Explorer를 열고 브라우저의 오른쪽 위에 있는 기어 아이콘을 선택한 다음 **호환성 보기 설정**을 선택합니다.
 4. **호환성 보기 설정**의 아래쪽에서**호환성 보기에 인트라넷 사이트 표시** 및 **Microsoft 호환성 목록** 확인란의 선택을 취소한 다음 **닫기**를 선택합니다.
 5. Internet Explorer에서 http://headnodehost:8188/tezui/#/으로 이동합니다. 그러면 Tez UI가 표시됩니다.
 
     ![Tez UI](./media/hdinsight-debug-tez-ui/tezui.png)
 
-    Tez UI가 로드되면 클러스터에서 현재 실행 중이거나 실행된 DAG의 목록이 표시됩니다. 기본 보기는 DAG 이름, ID, 제출자, 상태, 시작 시간, 종료 시간, 기간, 응용 프로그램 ID 및 큐를 포함합니다. 페이지의 오른쪽에 있는 기어 아이콘을 사용하여 많은 열을 추가할 수 있습니다.
+    Tez UI가 로드되면 클러스터에서 현재 실행 중이거나 실행된 DAG의 목록이 표시됩니다. 기본 보기는 DAG 이름, ID, 제출자, 상태, 시작 시간, 종료 시간, 기간, 애플리케이션 ID 및 큐를 포함합니다. 페이지의 오른쪽에 있는 기어 아이콘을 사용하여 많은 열을 추가할 수 있습니다.
 
     항목이 하나만 있는 경우 이전 섹션에서 실행한 쿼리에 대한 것입니다. 여러 항목이 있는 경우 DAG 위에 있는 필드에 검색 조건을 입력하여 검색한 다음 **Enter** 키를 누릅니다.
 6. 가장 최근의 DAG 항목에 대한 **DAG 이름**을 선택합니다. 이 링크는 DAG에 대한 정보 뿐만 아니라 DAG에 대한 정보가 포함된 JSON 파일의 zip을 다운로드할 수 있는 옵션을 표시합니다.
@@ -101,10 +97,8 @@ Tez를 사용하는 Hive 쿼리를 실행하려면 다음 단계를 사용합니
    * **모든 태스크**는 해당 DAG의 꼭짓점에 대한 태스크 목록을 표시합니다.
    * **모든 태스크 시도**는 해당 DAG의 태스크를 실행하려는 시도에 대한 정보를 표시합니다.
 
-     > [!NOTE]
+     > [!NOTE]  
      > 꼭짓점, 태스크 및 TaskAttempts에 대한 열 표시를 스크롤하는 경우 각 행에 대한 **카운터** 및 **로그 보기 또는 다운로드** 링크를 볼 수 있습니다.
-     >
-     >
 
      작업에 오류가 발생한 경우 DAG 세부 정보는 실패한 태스크에 대한 정보의 링크와 함께 실패 상태가 표시됩니다. 진단 정보는 DAG 세부 정보 아래에 표시됩니다.
 8. **그래픽 보기**를 선택합니다. 이 DAG의 그래픽 표시를 나타냅니다. 보기에서 각 꼭짓점 위로 마우스를 두어 그에 대한 정보를 표시할 수 있습니다.
@@ -115,20 +109,17 @@ Tez를 사용하는 Hive 쿼리를 실행하려면 다음 단계를 사용합니
     ![꼭짓점 세부 정보](./media/hdinsight-debug-tez-ui/vertexdetails.png)
 10. 이제 꼭짓점 및 태스크에 관련된 페이지의 위쪽에 링크가 있습니다.
 
-    > [!NOTE]
+    > [!NOTE]  
     > 또한 **DAG 세부 정보**로 다시 이동하고 **꼭짓점 세부 정보**를 선택한 다음 **맵 1** 꼭짓점을 선택하면 이 페이지로 이동할 수 있습니다.
-    >
-    >
 
     * **꼭짓점 카운터**는 이 꼭짓점에 대한 카운터 정보를 표시합니다.
     * **태스크**는 이 꼭짓점에 대한 태스크를 표시합니다.
     * **태스크 시도**는 이 꼭짓점의 태스크를 실행하려는 시도에 대한 정보를 표시합니다.
     * **원본 및 싱크**는 이 꼭짓점에 대한 데이터 원본 및 싱크를 표시합니다.
 
-      > [!NOTE]
+      > [!NOTE]  
       > 이전 메뉴 작업으로 태스크, 태스크 시도, 원본 및 싱크__에 대한 열 표시를 스크롤하여 각 항목에 대한 자세한 정보의 링크를 표시할 수 있습니다.
-      >
-      >
+
 11. **태스크**를 선택한 다음 **00_000000**이라는 항목을 선택합니다. 이 링크는 이 태스크에 대한 **태스크 세부 정보**를 표시합니다. 이 화면에서 **태스크 카운터** 및 **태스크 시도**를 볼 수 있습니다.
 
     ![태스크 세부 정보](./media/hdinsight-debug-tez-ui/taskdetails.png)
@@ -136,4 +127,4 @@ Tez를 사용하는 Hive 쿼리를 실행하려면 다음 단계를 사용합니
 ## <a name="next-steps"></a>다음 단계
 [Apache TEZ](https://tez.apache.org/) 보기를 사용하는 방법을 알아보았으면 [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)에 대해 자세히 알아세요.
 
-Tez에 대한 자세한 기술 정보는 [Hortonworks의 Apache Tez 페이지](http://hortonworks.com/hadoop/tez/)를 참조하세요.
+Tez에 대한 자세한 기술 정보는 [Hortonworks의 Apache Tez 페이지](https://hortonworks.com/hadoop/tez/)를 참조하세요.

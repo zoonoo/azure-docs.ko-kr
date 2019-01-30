@@ -1,23 +1,24 @@
 ---
-title: LUIS 앱 공동 작업 - Language Understanding
-titleSuffix: Azure Cognitive Services
-description: LUIS 앱에는 단일 소유자 및 선택적 협력자가 필요합니다.
+title: 공동 작업
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: LUIS 앱에는 단일 앱을 여러 사람이 작성하도록 허용하는 단일 소유자 및 선택적 협력자가 필요합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 01/09/2018
 ms.author: diberry
-ms.openlocfilehash: 9acc0b04cbfa074f888d785930f357eaf94f310b
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 38989c7c2d36c761327d79c345648728d12a5495
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637326"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264515"
 ---
-# <a name="collaborating"></a>공동 작업
+# <a name="collaborating-with-other-authors"></a>다른 작성자와 공동 작업
 
 LUIS는 사용자 그룹이 앱을 작성할 수 있는 공동 작업을 제공합니다.
 

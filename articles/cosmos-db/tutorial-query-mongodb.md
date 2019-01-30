@@ -1,29 +1,28 @@
 ---
-title: 'Azure Cosmos DB: MongoDB API를 사용하여 쿼리하는 방법'
-description: Azure Cosmos DB의 MongoDB API를 사용하여 쿼리하는 방법을 알아봅니다.
-services: cosmos-db
-author: SnehaGunda
-ms.author: sngun
+title: Azure Cosmos DB의 API for MongoDB를 사용하여 데이터 쿼리
+description: Azure Cosmos DB의 API for MongoDB를 사용하여 데이터를 쿼리하는 방법을 알아봅니다.
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 03/29/2018
-ms.openlocfilehash: 8c865ab7fa997b169e481612ce791d960688da56
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/26/2018
+ms.reviewer: sngun
+ms.openlocfilehash: 8bdd88652019ceb48cfd9f05d1009271f5b7a8c7
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841509"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042991"
 ---
-# <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>자습서: MongoDB API를 사용하여 Azure Cosmos DB 쿼리
+# <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 데이터 쿼리
 
-Azure Cosmos DB [MongoDB API](mongodb-introduction.md)는 [MongoDB 셸 쿼리](https://docs.mongodb.com/manual/tutorial/query-documents/)를 지원합니다. 
+[Azure Cosmos DB의 API for MongoDB](mongodb-introduction.md)는 [MongoDB 쿼리](https://docs.mongodb.com/manual/tutorial/query-documents/)를 지원합니다. 
 
 이 문서에서 다루는 작업은 다음과 같습니다. 
 
 > [!div class="checklist"]
-> * MongoDB를 사용한 데이터 쿼리
+> * MongoDB 셸을 사용하여 Cosmos 데이터베이스에 저장된 데이터 쿼리
 
 이 문서의 예제를 사용하여 시작하고 [MongoDB 셸을 사용하여 Azure Cosmos DB 쿼리](https://azure.microsoft.com/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/) 비디오를 시청할 수 있습니다.
 
@@ -303,7 +302,7 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md)는 [MongoDB 셸 쿼리](h
 이 자습서에서는 다음을 수행했습니다.
 
 > [!div class="checklist"]
-> * MongoDB를 사용하여 쿼리하는 방법 
+> * Cosmos DB의 API for MongoDB를 사용하여 쿼리하는 방법을 알아보았습니다.
 
 이제 전 세계로 데이터를 배포하는 방법을 알아보려면 다음 자습서로 진행할 수 있습니다.
 

@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: df1f8d805c950bdfbe2c18f365a450a6d630891b
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: ff7513f197b3035b88748e2e73c38789d9010d9c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300441"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251319"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Azure Stack에서 권한 있는 끝점을 사용 하 여
 
@@ -52,55 +53,55 @@ PEP를 호스팅하는 가상 컴퓨터에서 원격 PowerShell 세션을 통해
 
     - 통합된 시스템을의 PEP 하드웨어 수명 주기 호스트 또는 권한 있는 액세스 워크스테이션에서 실행 하는 확정 된 가상 컴퓨터의 신뢰할 수 있는 호스트를 추가 하려면 관리자 권한 Windows PowerShell 세션에서 다음 명령을 실행 합니다.
 
-      ````PowerShell
+      ```PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
-      ````
+      ```
     - ASDK를 실행 하는 경우 개발 키트 호스트에 로그인 합니다.
 
 2. 하드웨어 수명 주기 호스트 또는 권한 있는 액세스 워크스테이션에서 실행 되는 확정 된 가상 컴퓨터에서 Windows PowerShell 세션을 엽니다. PEP를 호스팅하는 가상 컴퓨터에서 원격 세션을 설정 하려면 다음 명령을 실행 합니다.
  
     - 통합 시스템:
-      ````PowerShell
+      ```PowerShell
         $cred = Get-Credential
 
         Enter-PSSession -ComputerName <IP_address_of_ERCS> `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ````
+      ```
       `ComputerName` 매개 변수는 PEP를 호스팅하는 가상 컴퓨터 중 하나의 DNS 이름 또는 IP 주소 수 있습니다. 
     - ASDK 실행 하는 경우:
      
-      ````PowerShell
+      ```PowerShell
         $cred = Get-Credential
 
         Enter-PSSession -ComputerName azs-ercs01 `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ```` 
+      ``` 
    메시지가 표시 되 면 다음 자격 증명을 사용 합니다.
 
-      - **사용자 이름**: CloudAdmin 계정 형식으로 지정  **&lt; *Azure Stack 도메인*&gt;\cloudadmin**합니다. (ASDK, 사용자 이름은 **azurestack\cloudadmin**.)
+      - **사용자 이름**: 형식으로 CloudAdmin 계정 지정  **&lt; *Azure Stack 도메인*&gt;\cloudadmin**합니다. (ASDK, 사용자 이름은 **azurestack\cloudadmin**.)
       - **암호**: AzureStackAdmin 도메인 관리자 계정에 설치 하는 동안 제공한 동일한 암호를 입력 합니다.
 
     > [!NOTE]
     > ERCS 끝점에 연결할 수 없는 경우 두 단계를 이미 않았다면 연결할 ERCS VM의 IP 주소를 사용 하 여 다시 시도 하세요.
 
-3.  프롬프트 바뀌어에 연결한 후 **[*IP 주소 또는 ERCS VM 이름*]: PS >** 또는 **[azs ercs01]: PS >** 환경에 따라 합니다. 여기에서 실행 `Get-Command` 사용 가능한 cmdlet 목록을 볼 수 있습니다.
+3.  에 연결한 후 프롬프트에 바뀝니다 **[*IP 주소 또는 ERCS VM 이름을*]: PS >** 또는 **[azs ercs01]: PS >** 환경에 따라 합니다. 여기에서 실행 `Get-Command` 사용 가능한 cmdlet 목록을 볼 수 있습니다.
 
     통합된 시스템 환경 (예: 데이터 센터 통합과 관련 된 cmdlet)에 대해서만 이러한 cmdlet 중 많은 수는 있습니다. ASDK에서 다음 cmdlet 유효성이 검증 되었습니다.
 
     - Clear-host
     - Close-PrivilegedEndpoint
-    - Exit-pssession
+    - Exit-PSSession
     - Get-AzureStackLog
     - Get-AzureStackStampInformation
     - Get-Command
     - Get-FormatData
     - Get-Help
     - Get-ThirdPartyNotices
-    - 측정값 개체
+    - Measure-Object
     - New-CloudAdminUser
     - Out-default
     - Remove-CloudAdminUser
-    - 개체 선택
+    - Select-Object
     - Set-CloudAdminUserPassword
     - Test-AzureStack
     - Stop-AzureStack
@@ -124,38 +125,38 @@ PEP는 위에서 설명한 대로 [PowerShell JEA](https://docs.microsoft.com/po
 
     통합된 시스템에서의 PEP 하드웨어 수명 주기 호스트 또는 권한 있는 액세스 워크스테이션에서 실행 하는 확정 된 가상 컴퓨터의 신뢰할 수 있는 호스트를 추가 하려면 관리자 권한 Windows PowerShell 세션에서 다음 명령을 실행 합니다.
 
-      ````PowerShell
+      ```PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
-      ````
+      ```
     - ASDK를 실행 하는 경우 개발 키트 호스트에 로그인 합니다.
 
 2. 하드웨어 수명 주기 호스트 또는 권한 있는 액세스 워크스테이션에서 실행 되는 확정 된 가상 컴퓨터에서 Windows PowerShell 세션을 엽니다. PEP를 호스팅하는 가상 컴퓨터에서 원격 세션을 설정 하려면 다음 명령을 실행 합니다.
  
     - 통합 시스템:
-      ````PowerShell
+      ```PowerShell
         $cred = Get-Credential
 
         $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ````
+      ```
       `ComputerName` 매개 변수는 PEP를 호스팅하는 가상 컴퓨터 중 하나의 DNS 이름 또는 IP 주소 수 있습니다. 
     - ASDK 실행 하는 경우:
      
-      ````PowerShell
+      ```PowerShell
        $cred = Get-Credential
 
        $session = New-PSSession -ComputerName azs-ercs01 `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ```` 
+      ``` 
    메시지가 표시 되 면 다음 자격 증명을 사용 합니다.
 
-      - **사용자 이름**: CloudAdmin 계정 형식으로 지정  **&lt; *Azure Stack 도메인*&gt;\cloudadmin**합니다. (ASDK, 사용자 이름은 **azurestack\cloudadmin**.)
+      - **사용자 이름**: 형식으로 CloudAdmin 계정 지정  **&lt; *Azure Stack 도메인*&gt;\cloudadmin**합니다. (ASDK, 사용자 이름은 **azurestack\cloudadmin**.)
       - **암호**: AzureStackAdmin 도메인 관리자 계정에 설치 하는 동안 제공한 동일한 암호를 입력 합니다.
 
 3. 로컬 컴퓨터에 PEP 세션 가져오기
-    ````PowerShell 
+    ```PowerShell 
         Import-PSSession $session
-    ````
+    ```
 4. 이제 탭 완성 기능을 사용할 수 있으며 Azure Stack의 보안 태세를 낮추던 모든 함수 및 PEP의 cmdlet을 사용 하 여 로컬 PowerShell 세션에서 일반적으로 스크립팅을 수행. 마음껏 즐기세요!
 
 
@@ -178,4 +179,5 @@ PEP는 위에서 설명한 대로 [PowerShell JEA](https://docs.microsoft.com/po
 
 
 ## <a name="next-steps"></a>다음 단계
+
 [Azure Stack의 진단 도구](azure-stack-diagnostics.md)

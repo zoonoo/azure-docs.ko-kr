@@ -1,27 +1,21 @@
 ---
-title: Azure Functions와 Azure SignalR을 사용하여 실시간 앱 빌드 | Microsoft Docs
-description: Azure SignalR Service를 서버를 사용하지 않는 응용 프로그램에서 사용하는 방법에 대한 개요입니다.
-services: signalr
-documentationcenter: ''
+title: Azure Functions와 Azure SignalR을 사용하여 실시간 앱 빌드
+description: Azure SignalR Service를 서버를 사용하지 않는 애플리케이션에서 사용하는 방법에 대한 개요입니다.
 author: sffamily
-manager: cfowler
-editor: ''
 ms.service: signalr
-ms.devlang: na
 ms.topic: overview
-ms.workload: tbd
 ms.date: 09/18/2018
 ms.author: zhshang
-ms.openlocfilehash: 587752b25e3c98bbabbd42bd4d838fd19ae9fd45
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 9380c6434902c6882f84312a3d6999791bf15115
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318710"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256012"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Azure Functions와 Azure SignalR Service를 사용하여 실시간 앱 빌드
 
-Azure SignalR Service와 Azure Functions는 둘 다 완전히 관리되는 서비스라서 인프라를 관리하는 대신 응용 프로그램 빌드에 집중이 가능한 확장성이 높은 서비스이기 때문에, [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 환경에서 두 가지 서비스를 함께 사용하여 실시간 통신을 제공하는 것이 일반적입니다.
+Azure SignalR Service와 Azure Functions는 둘 다 완전히 관리되는 서비스라서 인프라를 관리하는 대신 애플리케이션 빌드에 집중이 가능한 확장성이 높은 서비스이기 때문에, [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 환경에서 두 가지 서비스를 함께 사용하여 실시간 통신을 제공하는 것이 일반적입니다.
 
 ## <a name="integrate-real-time-communications-with-azure-services"></a>Azure 서비스를 통해 실시간 통신 통합
 
@@ -42,7 +36,7 @@ Azure Functions를 사용하여 이러한 이벤트를 Azure SignalR Service와 
 Azure Functions 및 SignalR Service로 구현할 수 있는 실시간 서버리스 메시징의 일반적인 시나리오는 다음과 같습니다.
 
 * 실시간 대시보드 또는 지도에 IoT 디바이스 원격 분석 데이터 시각화
-* Cosmos DB에서 문서가 업데이트되면 응용 프로그램의 데이터 업데이트
+* Cosmos DB에서 문서가 업데이트되면 애플리케이션의 데이터 업데이트
 * Salesforce에서 새 주문이 생성되면 앱 내 알림 보내기
 
 ## <a name="signalr-service-bindings-for-azure-functions"></a>Azure Functions의 SignalR Service 바인딩
@@ -71,4 +65,3 @@ SignalR Service를 사용하면 모든 클라이언트 또는 클라이언트의
 
 * [Azure SignalR Service Serverless 빠른 시작 - C#](signalr-quickstart-azure-functions-csharp.md)
 * [Azure SignalR Service Serverless 빠른 시작 - JavaScript](signalr-quickstart-azure-functions-javascript.md)
-

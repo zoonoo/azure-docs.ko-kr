@@ -1,6 +1,6 @@
 ---
 title: 데이터 팩터리 개요, 데이터 통합 서비스 | Microsoft Docs
-description: Azure Data Factory가 무엇인지 알아봅니다. 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 데이터 통합 서비스입니다.
+description: 데이터의 이동과 변환을 오케스트레이션하고 자동화하는 클라우드 데이터 통합 서비스인 Azure Data Factory에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -9,17 +9,16 @@ ms.assetid: cec68cb5-ca0d-473b-8ae8-35de949a009e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0cdf10f4898ba103f9b6f65179300a10c9e33cdf
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 9bf8c51fda6985f88ecffa60b32c1c62e364a511
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087174"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014933"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 소개 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +38,7 @@ ms.locfileid: "43087174"
 
 그런 다음 클라우드(Azure HDInsight)에서 Hadoop을 사용하여 데이터를 처리하려고 합니다. Azure SQL Data Warehouse와 같은 클라우드 데이터 웨어하우스 또는 SQL Server와 같은 온-프레미스 데이터 저장소에 결과 데이터를 게시하려고 합니다. 회사는 이 워크플로를 일주일에 한 번 실행하려고 합니다. 
 
-회사는 온-프레미스와 클라우드 데이터 저장소 모두에서 데이터를 수집할 수 있는 워크플로를 만들 수 있는 플랫폼이 필요합니다. 또한 회사는 Hadoop과 같은 기존 계산 서비스를 사용하여 데이터를 변환 또는 처리하고 결과를 사용할 BI 응용 프로그램용 온-프레미스 또는 클라우드 데이터 저장소에 게시할 수 있어야 합니다. 
+회사는 온-프레미스와 클라우드 데이터 저장소 모두에서 데이터를 수집할 수 있는 워크플로를 만들 수 있는 플랫폼이 필요합니다. 또한 회사는 Hadoop과 같은 기존 계산 서비스를 사용하여 데이터를 변환 또는 처리하고 결과를 사용할 BI 애플리케이션용 온-프레미스 또는 클라우드 데이터 저장소에 게시할 수 있어야 합니다. 
 
 ![데이터 팩터리 개요](media/data-factory-introduction/what-is-azure-data-factory.png) 
 
@@ -49,7 +48,7 @@ Azure Data Factory는 이러한 종류의 시나리오에 대한 플랫폼입니
 
 - Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics 및 Azure Machine Learning과 같은 계산 서비스를 사용하여 데이터를 처리하고 변환합니다.
 
--  사용할 BI(비즈니스 인텔리전스) 응용 프로그램용 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시합니다.  
+-  사용할 BI(비즈니스 인텔리전스) 애플리케이션용 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시합니다.  
 
 기존의 ETL(추출 및 변환 및 로드) 플랫폼이 아닌 EL(추출 및 로드) 및 TL(변환 및 로드) 플랫폼이 지지를 얻고 있습니다. 변환은 파생된 열을 추가하고, 행의 수를 계산하고, 데이터를 정렬하는 등 대신 계산 서비스를 사용하여 데이터를 처리합니다. 
 
@@ -74,7 +73,7 @@ Data Factory가 있으면 향후 분석에 사용할 수 있도록 데이터 파
 데이터가 클라우드에서 중앙 집중화된 데이터 저장소에 표시되면 HDInsight Hadoop, Spark, Data Lake Analytics 또는 Machine Learning과 같은 계산 서비스를 사용하여 이를 처리하거나 변환합니다. 이제 유지 관리할 수 있고 제어된 일정에 따라 변환된 데이터를 안정적으로 생성하여 프로덕션 환경에 신뢰할 수 있는 데이터를 공급하려고 합니다. 
 
 ### <a name="publish"></a>게시 
-클라우드에서 SQL Server와 같은 온-프레미스 원본에 변환된 데이터를 제공합니다. 또는 이를 BI, 분석 도구 및 기타 응용 프로그램에 의한 소비를 위해 클라우드 저장소 원본에 유지합니다.
+클라우드에서 SQL Server와 같은 온-프레미스 원본에 변환된 데이터를 제공합니다. 또는 이를 BI, 분석 도구 및 기타 애플리케이션에 의한 소비를 위해 클라우드 스토리지 원본에 유지합니다.
 
 ## <a name="key-components"></a>핵심 구성 요소
 Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data Factory)가 있을 수 있습니다. Azure Data Factory는 네 가지 핵심 구성 요소로 구성됩니다. 이러한 구성 요소는 함께 작동하여 데이터를 이동하고 변환하는 단계를 사용하여 데이터 기반 워크플로를 작성할 수 있는 플랫폼을 제공합니다. 
@@ -120,7 +119,7 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data 
 
 ### <a name="relationship-between-data-factory-entities"></a>Data Factory 엔터티 간의 관계
 
-![다이어그램: 데이터 팩터리, 클라우드 데이터 통합 서비스 - 주요 개념](./media/data-factory-introduction/data-integration-service-key-concepts.png)
+![다이어그램: Data Factory, 클라우드 데이터 통합 서비스 - 주요 개념](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 ## <a name="supported-regions"></a>지원되는 지역
 현재 미국 서부, 미국 동부 및 북유럽 지역에서 데이터 팩터리를 만들 수 있습니다. 그러나 데이터 팩터리는 계산 서비스를 사용하여 데이터 저장소 간에 데이터를 이동하고 데이터를 처리하도록 다른 Azure 지역에서 데이터 저장소 및 계산 서비스에 액세스할 수 있습니다.

@@ -23,15 +23,15 @@ ms.locfileid: "51711245"
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-## <a name="download-the-sample-application"></a>샘플 응용 프로그램 다운로드
+## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
 
-이 빠른 시작의 [샘플 응용 프로그램](https://github.com/Azure-Samples/azure-storage-js-v10-quickstart.git)은 간단한 Node.js 콘솔 응용 프로그램입니다. 시작하려면 다음 명령을 사용하여 리포지토리를 컴퓨터에 복제합니다.
+이 빠른 시작의 [샘플 애플리케이션](https://github.com/Azure-Samples/azure-storage-js-v10-quickstart.git)은 간단한 Node.js 콘솔 애플리케이션입니다. 시작하려면 다음 명령을 사용하여 리포지토리를 컴퓨터에 복제합니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-storage-js-v10-quickstart.git
 ```
 
-다음으로, 응용 프로그램에 대한 폴더를 변경합니다.
+다음으로, 애플리케이션에 대한 폴더를 변경합니다.
 
 ```bash
 cd azure-storage-js-v10-quickstart
@@ -41,11 +41,11 @@ cd azure-storage-js-v10-quickstart
 
 ## <a name="configure-your-storage-credentials"></a>저장소 자격 증명 구성
 
-응용 프로그램을 실행하기 전에 저장소 계정에 대한 보안 자격 증명을 제공해야 합니다. 샘플 리포지토리에는 *.env.example*이라는 파일이 포함되어 있습니다. *.example* 확장명을 제거하여 *.env*라는 파일이 되도록 이 파일의 이름을 바꿉니다. *.env* 파일에서 *AZURE_STORAGE_ACCOUNT_NAME* 및 *AZURE_STORAGE_ACCOUNT_ACCESS_KEY* 키 뒤에 사용자 계정 이름과 액세스 키 값을 추가합니다.
+애플리케이션을 실행하기 전에 저장소 계정에 대한 보안 자격 증명을 제공해야 합니다. 샘플 리포지토리에는 *.env.example*이라는 파일이 포함되어 있습니다. *.example* 확장명을 제거하여 *.env*라는 파일이 되도록 이 파일의 이름을 바꿉니다. *.env* 파일에서 *AZURE_STORAGE_ACCOUNT_NAME* 및 *AZURE_STORAGE_ACCOUNT_ACCESS_KEY* 키 뒤에 사용자 계정 이름과 액세스 키 값을 추가합니다.
 
 ## <a name="install-required-packages"></a>필요한 패키지를 설치합니다.
 
-응용 프로그램 디렉터리에서 *npm install*을 실행하여 응용 프로그램에 필요한 패키지를 설치합니다.
+애플리케이션 디렉터리에서 *npm install*을 실행하여 애플리케이션에 필요한 패키지를 설치합니다.
 
 ```bash
 npm install

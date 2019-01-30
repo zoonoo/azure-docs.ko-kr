@@ -12,22 +12,22 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c5889d89ec8c913d9300fa85318a16b4eb452d3b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d265c391b12a46f509c8663c64892372c8d806ba
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633761"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104525"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Visual Studio Code를 사용하여 첫 번째 함수 만들기
 
-Azure Functions를 사용하면 먼저 VM을 만들거나 웹 응용 프로그램을 게시하지 않고도 [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 환경에서 코드를 실행할 수 있습니다.
+Azure Functions를 사용하면 먼저 VM을 만들거나 웹 애플리케이션을 게시하지 않고도 [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 환경에서 코드를 실행할 수 있습니다.
 
 이 문서에서는 [Visual Studio Code용 Azure Functions 확장]을 사용하여 Microsoft Visual Studio Code를 통해 로컬 컴퓨터에 “hello world” 함수를 만들고 테스트하는 방법을 알아봅니다. 그런 다음, Visual Studio Code에서 함수 코드를 Azure에 게시합니다.
 
 ![Visual Studio 프로젝트의 Azure Functions 코드](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-확장은 현재 C#, JavaScript 및 Java 함수를 지원합니다. 이 문서의 단계는 Azure Functions 프로젝트에 대해 선택하는 언어에 따라 달라질 수 있습니다. 확장은 현재 미리 보기로 제공되고 있습니다. 자세한 내용은 [Visual Studio Code용 Azure Functions 확장] 확장 페이지를 참조하세요.
+이 확장은 현재 C#, JavaScript 및 Java 함수를 완벽하게 지원하며, Python 지원은 현재 미리 보기로 제공됩니다. 이 문서의 단계는 Azure Functions 프로젝트에 대해 선택하는 언어에 따라 달라질 수 있습니다. 확장은 현재 미리 보기로 제공되고 있습니다. 자세한 내용은 [Visual Studio Code용 Azure Functions 확장] 확장 페이지를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -93,7 +93,7 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
 
     ![브라우저의 localhost 함수 응답](./media/functions-create-first-function-vs-code/functions-test-local-browser.png)
 
-1. 디버깅을 중지하려면 Shift+F1을 누릅니다.
+1. 디버깅을 중지하려면 Shift+F5를 누릅니다.
 
 함수가 로컬 컴퓨터에서 제대로 실행되는지 확인한 후에 해당 프로젝트를 Azure에 게시해야 합니다.
 

@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/22/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 46f5f73293875cd89036eb615e7bd81188bc4c67
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d4be7b9c7774163aed8c0efb3414dbd6a794cf7f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210264"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847799"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>SQL Server에 대한 재해 복구 설정 
 
@@ -26,9 +26,9 @@ ms.locfileid: "50210264"
 
 다양한 작업은 SQL Server를 기반으로 사용하고 데이터 서비스를 구현하도록 SharePoint, Dynamics 및 SAP와 같은 앱으로 통합될 수 있습니다.  SQL Server는 다양한 방법으로 배포될 수 있습니다.
 
-* **독립 실행형 SQL Server**: SQL Server 및 모든 데이터베이스는 단일 컴퓨터(물리적 또는 가상)에서 호스트됩니다. 가상화된 경우 호스트 클러스터링은 고가용성을 위해 사용됩니다. 게스트 수준의 고가용성은 구현되지 않습니다.
-* **SQL Server 장애 조치(Failover) 클러스터링 인스턴스(Always On FCI)**: 공유된 디스크와 함께 인스턴스화된 SQL Server를 실행하는 노드가 2개 이상 Windows 장애 조치 클러스터에 구성됩니다. 노드가 다운되는 경우 클러스터는 다른 인스턴스로 SQL Server를 장애 조치할 수 있습니다. 이 설치 프로그램은 기본 사이트에 고가용성을 구현하는 데 일반적으로 사용됩니다. 이 배포는 공유 저장소 계층에서 정전이나 오류에 대해서는 보호하지 않습니다. 공유 디스크는 iSCSI, 파이버 채널 또는 공유 vhdx를 사용하여 구현할 수 있습니다.
-* **SQL Always ON 가용성 그룹**: 동기 복제 및 자동 장애 조치(failover)를 사용하여 가용성 그룹에서 구성된 SQL Server 데이터베이스로 공유되지 않은 클러스터에서 2개 이상의 노드를 설정합니다.
+* **독립 실행형 SQL Server**: SQL Server 및 모든 데이터베이스는 단일 머신(실제 또는 가상)에서 호스트됩니다. 가상화된 경우 호스트 클러스터링은 고가용성을 위해 사용됩니다. 게스트 수준의 고가용성은 구현되지 않습니다.
+* **SQL Server 장애 조치(failover) 클러스터링 인스턴스(Always On FCI)**: 공유 디스크로 인스턴스화된 SQL Server를 실행하는 둘 이상의 노드가 Windows 장애 조치(failover) 클러스터에 구성됩니다. 노드가 다운되는 경우 클러스터는 다른 인스턴스로 SQL Server를 장애 조치할 수 있습니다. 이 설치 프로그램은 기본 사이트에 고가용성을 구현하는 데 일반적으로 사용됩니다. 이 배포는 공유 저장소 계층에서 정전이나 오류에 대해서는 보호하지 않습니다. 공유 디스크는 iSCSI, 파이버 채널 또는 공유 vhdx를 사용하여 구현할 수 있습니다.
+* **SQL Always On 가용성 그룹**: 동기 복제 및 자동 장애 조치(failover)를 사용하여 가용성 그룹에서 구성된 SQL Server 데이터베이스가 있는 공유되지 않은 클러스터에서 둘 이상의 노드가 설정됩니다.
 
  이 문서에서는 원격 사이트에 대한 데이터베이스 복구에 다음과 같은 네이티브 SQL 재해 복구 기술을 활용합니다.
 

@@ -7,18 +7,18 @@ author: Juliako
 manager: femila
 editor: ''
 ms.service: media-services
-ms.workload: ''
+ms.workload: na
 ms.topic: article
-ms.date: 11/21/2018
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: 598587a0fe726ccf65f062833f84b352ca03c077
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a1d52e0c6f87b9075d73508c97bd270d67d3ecf5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315531"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817625"
 ---
-# <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보 
+# <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
 최신 개발 정보를 확인할 수 있도록 이 문서에서는 다음과 같은 정보를 제공합니다.
 
@@ -26,7 +26,6 @@ ms.locfileid: "52315531"
 * 알려진 문제
 * 버그 수정
 * 사용되지 않는 기능
-* 변경 계획
 
 ## <a name="known-issues"></a>알려진 문제
 
@@ -34,6 +33,23 @@ ms.locfileid: "52315531"
 > 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-sdk), CLI 또는 지원되는 SDK 중 하나를 사용하세요.
 
 자세한 내용은 [Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침](migrate-from-v2-to-v3.md#known-issues)을 참조하세요.
+
+## <a name="january-2019"></a>2019년 1월
+
+### <a name="media-encoder-standard-and-mpi-files"></a>Media Encoder Standard 및 MPI 파일 
+
+Media Encoder Standard로 인코딩하여 MP4 파일을 생성하는 경우 새 .mpi 파일이 생성되고 출력 자산에 추가됩니다. 이 MPI 파일은 동적 패키징 및 스트리밍 시나리오의 성능을 향상하기 위해 사용합니다.
+
+MPI 파일을 수정 또는 제거하거나 해당 파일의 존재 여부에 따른 종속성을 서비스에서 사용하지 않아야 합니다.
+
+## <a name="december-2018"></a>2018년 12월
+
+V3 API의 GA 릴리스업데이트에는 다음이 포함됩니다.
+       
+* **PresentationTimeRange** 속성은 **Assetfilter** 및 **AccountFilters**에 대해 더 이상 '필수'가 아닙니다. 
+* **작업** 및 **변환**의 $top 및 $skip 쿼리 옵션이 제거되었으며 $orderby가 추가되었습니다. 새 순서 지정 기능을 추가되면서, $top 및 $skip 옵션을 이전에 구현하지 않았어도 실수로 노출되는 것으로 확인되었습니다.
+* 열거형 확장성을 다시 사용하도록 설정했습니다. 이 기능은 미리 보기 버전의 SDK에서 사용하도록 설정되며 GA 버전에서는 실수로 사용하지 않도록 설정되었습니다.
+* 두 개의 미리 정의된 스트리밍 정책 이름이 바뀌었습니다. **SecureStreaming**은 이제 **MultiDrmCencStreaming**입니다. **SecureStreamingWithFairPlay**는 이제 **Predefined_MultiDrmStreaming**입니다.
 
 ## <a name="november-2018"></a>2018년 11월
 
@@ -163,7 +179,7 @@ Media Services v3 CLI 또는 API를 통해 9월 28일에서 10월 12일 사이�
 .Net SDK에는 다음과 같은 기능이 있습니다.
 
 * 미디어 콘텐츠를 인코딩하거나 분석할 수 있는 **Transform** 및 **Job**. 예를 들어 [스트림 파일](stream-files-tutorial-with-api.md) 및 [분석](analyze-videos-tutorial-with-api.md)을 참조하세요.
-* 최종 사용자 장치에 콘텐츠를 게시하고 스트리밍하는 **StreamingLocator**.
+* 최종 사용자 디바이스에 콘텐츠를 게시하고 스트리밍하는 **StreamingLocator**.
 * 콘텐츠 전송 시 키 배달 및 콘텐츠 보호(DRM)를 구성하는 **StreamingPolicy** 및 **ContentKeyPolicy**.
 * 라이브 스트리밍 콘텐츠의 수집 및 보관을 구성하는 **LiveEvent** 및**LiveOutput**.
 * Azure Storage에 미디어 콘텐츠를 저장하고 게시하는 **Asset**. 

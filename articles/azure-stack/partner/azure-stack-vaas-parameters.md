@@ -13,12 +13,14 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: ddc6942b56e3ad4d1f5b16c86dde87f408c1a2c1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.lastreviewed: 11/19/2018
+ROBOTS: NOINDEX
+ms.openlocfilehash: 59adaed427eb0d791e18438826aff4f6477e831a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263012"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247275"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>서비스로 Azure Stack 유효성 검사에 대 한 워크플로 일반 매개 변수
 

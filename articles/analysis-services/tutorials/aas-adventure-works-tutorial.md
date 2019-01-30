@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 146467ef50c605f730fe6f65c349fc8a3a1fd045
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 92bab3e6dcea0b6b234d361a346698be15088fc0
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426246"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191516"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works 자습서
 
@@ -30,7 +30,7 @@ Analysis Services 및 테이블 형식 모델링을 처음 사용하는 경우 �
   
 -   계산된 열, 측정값 및 사용자가 중요한 비즈니스 메트릭을 분석하는 데 도움이 되는 핵심 성과 지표를 만드는 방법  
   
--   비즈니스 및 응용 프로그램별 관점을 제공하여 사용자가 모델 데이터를 보다 쉽게 찾아볼 수 있도록 큐브 뷰 및 계층 구조를 만들고 관리하는 방법  
+-   비즈니스 및 애플리케이션별 관점을 제공하여 사용자가 모델 데이터를 보다 쉽게 찾아볼 수 있도록 큐브 뷰 및 계층 구조를 만들고 관리하는 방법  
   
 -   다른 파티션과 독립적으로 처리할 수 있는 더 작은 논리 부분으로 테이블 데이터를 분할하는 파티션을 만드는 방법  
   
@@ -51,7 +51,7 @@ Analysis Services 및 테이블 형식 모델링을 처음 사용하는 경우 �
 
 -   최신 버전의 [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).    
 
--   [Power BI Desktop](https://powerbi.microsoft.com/desktop/) 또는 Excel과 같은 클라이언트 응용 프로그램. 
+-   [Power BI Desktop](https://powerbi.microsoft.com/desktop/) 또는 Excel과 같은 클라이언트 애플리케이션. 
 
 ## <a name="scenario"></a>시나리오  
 이 자습서는 가상의 회사인 Adventure Works Cycles를 기반으로 합니다. Adventure Works는 자전거, 부품 및 액세서리를 생산하여 북아메리카, 유럽 및 아시아의 상업 시장에 유통하는 대규모 다국적 제조 회사입니다. 회사는 500명의 작업자를 고용합니다. 또한 Adventure Works는 시장 기반 전체에 대한 여러 지역별 영업 팀을 고용하고 있습니다. 프로젝트는 AdventureWorksDW 데이터베이스에서 영업 및 마케팅 사용자가 인터넷 판매 데이터를 분석하기 위한 테이블 형식의 모델을 작성하는 것입니다.  
@@ -60,7 +60,7 @@ Analysis Services 및 테이블 형식 모델링을 처음 사용하는 경우 �
   
 이 단원의 목적은 SSDT에 포함된 다양한 기능을 사용하여 기본 테이블 형식 모델을 작성하는 과정을 안내하는 것입니다. 각 단원은 이전 단원을 토대로 작성되므로 단원을 순서대로 완료해야 합니다.
   
-이 자습서는 SSMS를 사용하여 서버 또는 데이터베이스를 관리하거나 클라이언트 응용 프로그램을 사용하여 모델 데이터를 검색하는 Azure Portal의 서버를 관리하는 방법에 대한 단원을 제공하지 않습니다. 
+이 자습서는 SSMS를 사용하여 서버 또는 데이터베이스를 관리하거나 클라이언트 애플리케이션을 사용하여 모델 데이터를 검색하는 Azure Portal의 서버를 관리하는 방법에 대한 단원을 제공하지 않습니다. 
 
 
 ## <a name="lessons"></a>단원  

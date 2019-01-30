@@ -10,16 +10,15 @@ ms.assetid: a788b958-3acb-4bb6-9c94-4776852aeea1
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: d4d2ce4dcda9ea72d4a33ee363efd3519c2118aa
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 1441e16e141bd33acfdfe4087f74afbc7b47bc77
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635835"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118288"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 인증서 시작
 다음과 같은 시나리오는 키 자격 증명 모음에서 첫 번째 인증서를 만드는 데 필요한 추가 단계를 포함하여 몇 가지 Key Vault의 인증서 관리 서비스의 기본 사용을 간략하게 설명합니다.
@@ -67,9 +66,9 @@ ms.locfileid: "52635835"
 ![Key Vault 파트너 인증 기관을 통해 인증서 만들기](media/certificate-authority-2.png)
 
 **4단계** - 다음 설명은 위의 다이어그램에서 녹색 숫자로 된 단계에 해당합니다.  
-  (1) - 위의 다이어그램에서 응용 프로그램은 내부적으로 키 자격 증명 모음에서 키를 만드는 작업으로 시작하는 인증서를 만듭니다.  
+  (1) - 위의 다이어그램에서 애플리케이션은 내부적으로 키 자격 증명 모음에서 키를 만드는 작업으로 시작하는 인증서를 만듭니다.  
   (2) - Key Vault에서 SSL 인증서 요청을 CA에 보냅니다.  
-  (3) - 응용 프로그램이 인증서 완료를 위해 Key Vault에 대해 반복 및 대기 프로세스에서 폴링합니다. Key Vault가 x509 인증서를 통해 CA의 응답을 수신하는 경우 인증서 만들기가 완료됩니다.  
+  (3) - 애플리케이션이 인증서 완료를 위해 Key Vault에 대해 반복 및 대기 프로세스에서 폴링합니다. Key Vault가 x509 인증서를 통해 CA의 응답을 수신하는 경우 인증서 만들기가 완료됩니다.  
   (4) - CA가 X509 SSL 인증서를 사용하여 Key Vault의 SSL 인증서 요청에 응답합니다.  
   (5) - 새 인증서 만들기는 CA에 대한 X509 인증서를 병합하여 완료합니다.  
 
@@ -110,15 +109,15 @@ ms.locfileid: "52635835"
 
  다음 단계는 위의 다이어그램에서 녹색 글자로 된 단계에 해당합니다.  
 
-  (1) - 위의 다이어그램에서 응용 프로그램은 내부적으로 키 자격 증명 모음에서 키를 만드는 작업으로 시작하는 인증서를 만듭니다.  
+  (1) - 위의 다이어그램에서 애플리케이션은 내부적으로 키 자격 증명 모음에서 키를 만드는 작업으로 시작하는 인증서를 만듭니다.  
 
-  (2) - Key Vault는 응용 프로그램에 CSR(Certificate Signing Request)을 반환합니다.  
+  (2) - Key Vault는 애플리케이션에 CSR(Certificate Signing Request)을 반환합니다.  
 
-  (3) - 응용 프로그램에서 CSR을 선택한 CA에 전달합니다.  
+  (3) - 애플리케이션에서 CSR을 선택한 CA에 전달합니다.  
 
   (4) - 선택한 CA가 X509 인증서로 응답합니다.  
 
-  (5) - 응용 프로그램이 CA에서 X509 인증서를 병합해 새로운 인증서 만들기를 완료합니다.
+  (5) - 애플리케이션이 CA에서 X509 인증서를 병합해 새로운 인증서 만들기를 완료합니다.
 
 ## <a name="see-also"></a>참고 항목
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/18/2018
+ms.date: 12/12/2018
 ms.author: rkarlin
-ms.openlocfilehash: 626b9199f3de6fe9aba03ba537aa6e6b6e28ba5c
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b77e814f9f339dff4539a04ab8b492e9777abe0d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310926"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537650"
 ---
 # <a name="understand-azure-security-center-resource-recommendations"></a>Azure Security Center 리소스 권장 사항 이해하기
 
@@ -41,26 +41,26 @@ ms.locfileid: "52310926"
 | [디스크 암호화 적용](security-center-apply-disk-encryption.md) |Azure 디스크 암호화(Windows 및 Linux VM)를 사용하여 VM 디스크를 암호화하는 것이 좋습니다. VM에서 OS 및 데이터 볼륨에 암호화를 사용하는 것이 좋습니다. |
 | [OS 버전 업데이트](security-center-update-os-version.md) |클라우드 서비스의 OS(운영 체제) 버전을 OS 제품군에 대해 사용할 수 있는 가장 최신 버전으로 업데이트하는 것이 좋습니다.  Cloud Services에 대한 자세한 내용은 [Cloud Services 개요](../cloud-services/cloud-services-choose-me.md)를 참조하세요. |
 | [취약점 평가 설치되지 않음](security-center-vulnerability-assessment-recommendations.md) |VM에 취약점 평가 솔루션을 설치하는 것이 좋습니다. |
-| [취약점 해결](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |VM에 설치된 취약점 평가 솔루션에 감지되는 시스템 및 응용 프로그램 취약점을 볼 수 있습니다. |
+| [취약점 해결](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |VM에 설치된 취약점 평가 솔루션에 감지되는 시스템 및 애플리케이션 취약점을 볼 수 있습니다. |
 
 ### <a name="app-services"></a>App Services
 | 권장 사항 | 설명 |
 | --- | --- |
 | App Service에 HTTPS를 통해서만 액세스 가능 | HTTPS만을 통해 App Service의 액세스를 제한하는 것이 좋습니다. |
-| 웹 응용 프로그램에 대해 웹 소켓이 사용되지 않도록 설정됨| 웹 응용 프로그램 내에서 웹 소켓 사용을 주의 깊게 검토하는 것이 좋습니다.  웹 소켓 프로토콜은 다양한 유형의 보안 위협에 취약합니다. |
-| 웹 응용 프로그램에 대한 사용자 지정 도메인 사용 | 사용자 지정 도메인을 사용하여 피싱 및 기타 DNS 관련 공격 같은 일반적인 공격에서 웹 응용 프로그램을 보호하는 것이 좋습니다. |
-| 웹 응용 프로그램에 대한 IP 제한 구성 | 응용 프로그램에 액세스할 수 있는 IP 주소 목록을 정의하는 것이 좋습니다.  IP 제한 사항을 사용하여 일반적인 공격으로부터 웹 응용 프로그램을 보호합니다. |
-| 응용 프로그램에 액세스하는 모든('*') 리소스를 허용하지 마십시오. | WEBSITE_LOAD_CERTIFICATES 매개 변수를 ‘*’로 설정하지 않는 것이 좋습니다. 매개 변수를 '*'로 설정하는 것은 모든 인증서가 웹 응용 프로그램 개인 인증서 저장소로 로드되는 것을 의미합니다.  사이트는 런타임 시 모든 인증서에 대한 액세스가 필요하지 않으므로 최소 권한의 원칙이 악용될 수 있습니다. |
-| CORS에서 모든 리소스가 응용 프로그램에 액세스하도록 허용하지 않아야 함 | 필요한 도메인만 웹 응용 프로그램과 상호 작용할 수 있도록 하는 것이 좋습니다. CORS(교차 원본 리소스 공유)는 웹 응용 프로그램에 액세스하는 모든 도메인을 허용하지 않아야 합니다. |
-| 웹 응용 프로그램에 대해 지원되는 최신 .NET Framework 사용 | 최신 보안 클래스에 대해 최신 .NET Framework 버전을 사용하는 것이 좋습니다. 오래된 클래스 및 형식을 사용하면 응용 프로그램이 취약해질 수 있습니다. |
-| 웹 응용 프로그램에 대해 지원되는 최신 Java 버전 사용 | 최신 보안 클래스에 대해 최신 Java 버전을 사용하는 것이 좋습니다. 오래된 클래스 및 형식을 사용하면 응용 프로그램이 취약해질 수 있습니다. |
-| 웹 응용 프로그램에 대해 지원되는 최신 PHP 버전 사용 | 최신 보안 클래스에 대해 최신 PHP 버전을 사용하는 것이 좋습니다. 오래된 클래스 및 형식을 사용하면 응용 프로그램이 취약해질 수 있습니다. |
-| [웹 응용 프로그램 방화벽 추가](security-center-add-web-application-firewall.md) |웹 엔드포인트에 WAF(웹 응용 프로그램 방화벽)를 배포하는 것이 좋습니다. 공개 인바운드 웹 포트(80,443)으로 연결된 네트워크 보안 그룹에 있는 모든 공용 연결 IP(인스턴스 수준 IP 또는 부하 분산된 IP)에 대해 WAF 권장 사항이 표시됩니다.</br></br>Security Center에서는 가상 머신과 App Service 환경에 있는 웹 응용 프로그램을 대상으로 한 공격을 방어할 수 있도록 WAF를 프로비전할 것을 권장합니다. ASE(App Service 환경)는 Azure App Service의 [프리미엄](https://azure.microsoft.com/pricing/details/app-service/) 서비스 계획 옵션으로, Azure App Service 앱의 안전한 실행을 위해 완전히 격리된 전용 환경을 제공합니다. ASE에 대한 자세한 내용을 보려면 [App Service Environment 설명서](../app-service/environment/intro.md)를 참조하세요.</br></br>기존 WAF 배포에 이러한 응용 프로그램을 추가하여 보안 센터에서 여러 웹 응용 프로그램을 보호할 수 있습니다. |
-| [응용 프로그램 보호 완료](security-center-add-web-application-firewall.md#finalize-application-protection) |WAF 구성을 완료하려면 트래픽 경로가 WAF 어플라이언스로 전환되어야 합니다. 이 권장 사항을 따르면 필요한 설정 변경이 완료됩니다. |
-| 웹 응용 프로그램에 대해 지원되는 최신 Node.js 버전 사용 | 최신 보안 클래스에 대해 최신 Node.js 버전을 사용하는 것이 좋습니다. 오래된 클래스 및 형식을 사용하면 응용 프로그램이 취약해질 수 있습니다. |
-| CORS에서 모든 리소스가 함수 앱에 액세스하도록 허용하지 않아야 함 | 필요한 도메인만 웹 응용 프로그램과 상호 작용할 수 있도록 하는 것이 좋습니다. CORS(교차 원본 리소스 공유)는 함수 응용 프로그램에 액세스하는 모든 도메인을 허용하지 않아야 합니다. |
+| 웹 애플리케이션에 대해 웹 소켓이 사용되지 않도록 설정됨| 웹 애플리케이션 내에서 웹 소켓 사용을 주의 깊게 검토하는 것이 좋습니다.  웹 소켓 프로토콜은 다양한 유형의 보안 위협에 취약합니다. |
+| 웹 애플리케이션에 대한 사용자 지정 도메인 사용 | 사용자 지정 도메인을 사용하여 피싱 및 기타 DNS 관련 공격 같은 일반적인 공격에서 웹 애플리케이션을 보호하는 것이 좋습니다. |
+| 웹 애플리케이션에 대한 IP 제한 구성 | 애플리케이션에 액세스할 수 있는 IP 주소 목록을 정의하는 것이 좋습니다.  IP 제한 사항을 사용하여 일반적인 공격으로부터 웹 애플리케이션을 보호합니다. |
+| 애플리케이션에 액세스하는 모든('*') 리소스를 허용하지 마십시오. | WEBSITE_LOAD_CERTIFICATES 매개 변수를 ‘*’로 설정하지 않는 것이 좋습니다. 매개 변수를 '*'로 설정하는 것은 모든 인증서가 웹 애플리케이션 개인 인증서 저장소로 로드되는 것을 의미합니다.  사이트는 런타임 시 모든 인증서에 대한 액세스가 필요하지 않으므로 최소 권한의 원칙이 악용될 수 있습니다. |
+| CORS에서 모든 리소스가 애플리케이션에 액세스하도록 허용하지 않아야 함 | 필요한 도메인만 웹 애플리케이션과 상호 작용할 수 있도록 하는 것이 좋습니다. CORS(교차 원본 리소스 공유)는 웹 애플리케이션에 액세스하는 모든 도메인을 허용하지 않아야 합니다. |
+| 웹 애플리케이션에 대해 지원되는 최신 .NET Framework 사용 | 최신 보안 클래스에 대해 최신 .NET Framework 버전을 사용하는 것이 좋습니다. 오래된 클래스 및 형식을 사용하면 애플리케이션이 취약해질 수 있습니다. |
+| 웹 애플리케이션에 대해 지원되는 최신 Java 버전 사용 | 최신 보안 클래스에 대해 최신 Java 버전을 사용하는 것이 좋습니다. 오래된 클래스 및 형식을 사용하면 애플리케이션이 취약해질 수 있습니다. |
+| 웹 애플리케이션에 대해 지원되는 최신 PHP 버전 사용 | 최신 보안 클래스에 대해 최신 PHP 버전을 사용하는 것이 좋습니다. 오래된 클래스 및 형식을 사용하면 애플리케이션이 취약해질 수 있습니다. |
+| [웹 애플리케이션 방화벽 추가](security-center-add-web-application-firewall.md) |웹 엔드포인트에 WAF(웹 애플리케이션 방화벽)를 배포하는 것이 좋습니다. 공개 인바운드 웹 포트(80,443)으로 연결된 네트워크 보안 그룹에 있는 모든 공용 연결 IP(인스턴스 수준 IP 또는 부하 분산된 IP)에 대해 WAF 권장 사항이 표시됩니다.</br></br>Security Center에서는 가상 머신과 App Service 환경에 있는 웹 애플리케이션을 대상으로 한 공격을 방어할 수 있도록 WAF를 프로비전할 것을 권장합니다. ASE(App Service 환경)는 Azure App Service의 [프리미엄](https://azure.microsoft.com/pricing/details/app-service/) 서비스 계획 옵션으로, Azure App Service 앱의 안전한 실행을 위해 완전히 격리된 전용 환경을 제공합니다. ASE에 대한 자세한 내용을 보려면 [App Service Environment 설명서](../app-service/environment/intro.md)를 참조하세요.</br></br>기존 WAF 배포에 이러한 애플리케이션을 추가하여 보안 센터에서 여러 웹 애플리케이션을 보호할 수 있습니다. |
+| [애플리케이션 보호 완료](security-center-add-web-application-firewall.md#finalize-application-protection) |WAF 구성을 완료하려면 트래픽 경로가 WAF 어플라이언스로 전환되어야 합니다. 이 권장 사항을 따르면 필요한 설정 변경이 완료됩니다. |
+| 웹 애플리케이션에 대해 지원되는 최신 Node.js 버전 사용 | 최신 보안 클래스에 대해 최신 Node.js 버전을 사용하는 것이 좋습니다. 오래된 클래스 및 형식을 사용하면 애플리케이션이 취약해질 수 있습니다. |
+| CORS에서 모든 리소스가 함수 앱에 액세스하도록 허용하지 않아야 함 | 필요한 도메인만 웹 애플리케이션과 상호 작용할 수 있도록 하는 것이 좋습니다. CORS(교차 원본 리소스 공유)는 함수 애플리케이션에 액세스하는 모든 도메인을 허용하지 않아야 합니다. |
 | 함수 앱에 대해 사용자 지정 도메인 사용 | 사용자 지정 도메인을 사용하여 피싱 및 기타 DNS 관련 공격 같은 일반적인 공격에서 함수 앱을 보호하는 것이 좋습니다. |
-| 함수 앱에 대한 IP 제한 구성 | 응용 프로그램에 액세스할 수 있는 IP 주소 목록을 정의하는 것이 좋습니다. IP 제한 사항을 사용하여 일반적인 공격으로부터 함수 앱을 보호합니다. |
+| 함수 앱에 대한 IP 제한 구성 | 애플리케이션에 액세스할 수 있는 IP 주소 목록을 정의하는 것이 좋습니다. IP 제한 사항을 사용하여 일반적인 공격으로부터 함수 앱을 보호합니다. |
 | 함수 앱에 HTTPS를 통해서만 액세스 가능 | HTTPS만을 통해 함수 앱의 액세스를 제한하는 것이 좋습니다. |
 | 함수 앱에 대해 원격 디버깅을 해제해야 함 | 더 이상 사용할 필요가 없는 경우 함수 앱에 대한 디버깅을 해제하는 것이 좋습니다. 원격 디버깅에 함수 앱에서 열리는 인바운드 포트가 필요합니다. |
 | 함수 앱에 대해 웹 소켓이 사용되지 않도록 설정됨 | 함수 앱 내에서 웹 소켓 사용을 주의 깊게 검토하는 것이 좋습니다. 웹 소켓 프로토콜은 다양한 유형의 보안 위협에 취약합니다. |
@@ -75,8 +75,8 @@ ms.locfileid: "52310926"
 
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure Security Center에서 머신 및 응용 프로그램 보호](security-center-virtual-machine-protection.md)
-* [Azure Security Center에서 보안 정책 설정](security-center-azure-policy.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
+* [Azure Security Center에서 머신 및 애플리케이션 보호](security-center-virtual-machine-protection.md)
+* [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
 

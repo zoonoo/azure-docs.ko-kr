@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 2f97a2e8ad38bb3c78333cc2c8eedad8f520e68a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: bf39e22c0edc23d2e452d96103c8933e0a47af9e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036805"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304413"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure 진단 로깅 및 Windows 이벤트 전달과의 Azure Log Integration
 
 
 >[!IMPORTANT]
-> Azure Log Integration 기능은 2019년 6월 1일에 사용 중지될 예정입니다. AzLog 다운로드는 2018년 6월 27일에 비활성화됩니다. 향후 작업 진행 방향에 대한 지침은 게시물 [Azure Monitor를 사용하여 SIEM 도구와 통합](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)을 검토하세요. 
+> Azure Log Integration 기능은 2019년 6월 1일에 사용 중지될 예정입니다. AzLog 다운로드는 2018년 6월 27일부로 사용할 수 없습니다. 향후 작업 진행 방향에 대한 지침은 게시물 [Azure Monitor를 사용하여 SIEM 도구와 통합](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)을 검토하세요. 
 
 SIEM(Security Incident and Event Management) 공급업체에서 [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) 커넥터를 사용할 수 없는 경우에만 Azure Log Integration을 사용해야 합니다.
 
@@ -85,7 +85,7 @@ Azure Log Integration 서비스의 인스턴스를 여러 개 실행할 수 있�
 
 ## <a name="install-azure-log-integration"></a>Azure Log Integration 설치
 
-Azure Log Integration을 설치하려면 [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) 설치 파일을 다운로드합니다. 설치 프로세스를 완료합니다. Microsoft로 원격 분석 정보를 제공할지 여부를 선택합니다.
+설치 루틴을 실행합니다. Microsoft로 원격 분석 정보를 제공할지 여부를 선택합니다.
 
 Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격 분석 데이터를 수집합니다.  
 
@@ -151,9 +151,9 @@ Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격
 이 단계에서는 로그 파일이 포함된 저장소 계정에 연결하도록 Azure Log Integration 서비스를 실행하는 컴퓨터를 구성합니다.
 
 이 단계를 완료하려면 다음과 같은 몇 가지 항목이 필요합니다.  
-* **FriendlyNameForSource**: Azure 진단의 정보를 저장하도록 가상 머신을 구성한 저장소 계정에 적용할 수 있는 친숙한 이름입니다.
-* **StorageAccountName**: Azure 진단을 구성할 때 지정한 저장소 계정의 이름입니다.  
-* **StorageKey**: Azure 진단 정보가 이 가상 머신에 저장되는 저장소 계정의 저장소 키입니다.  
+* **FriendlyNameForSource**: Azure 진단의 정보를 저장하도록 가상 머신을 구성한 스토리지 계정에 적용할 수 있는 친숙한 이름입니다.
+* **StorageAccountName**: Azure 진단을 구성할 때 지정한 스토리지 계정의 이름입니다.  
+* **StorageKey**: Azure 진단 정보가 이 가상 머신에 저장되는 스토리지 계정의 스토리지 키입니다.  
 
 저장소 키를 가져오려면 다음 단계를 수행합니다.
 1. [Azure 포털](http://portal.azure.com)로 이동합니다.
@@ -198,7 +198,7 @@ Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격
 ## <a name="if-data-isnt-showing-up-in-the-forwarded-events-folder"></a>전달된 이벤트 폴더에 데이터가 나타나지 않는 경우
 1시간이 지난 후에도 전달된 이벤트 폴더에 데이터가 나타나지 않으면 다음 단계를 완료합니다.
 
-1. Azure Log Integration 서비스를 실행하는 컴퓨터를 확인합니다. Azure에 액세스할 수 있는지 확인합니다. 연결을 테스트하려면 브라우저에서 [Azure Portal](http://portal.azure.com)로 이동합니다.
+1. Azure Log Integration 서비스를 실행하는 컴퓨터를 확인합니다. Azure에 액세스할 수 있는지 확인합니다. 연결을 테스트하려면 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. 사용자 계정 AzLog에 users\Azlog 폴더에 대한 쓰기 권한이 있는지 확인합니다.
   1. 파일 탐색기를 엽니다.
   2. C:\users로 이동합니다.
@@ -245,7 +245,6 @@ Azure Activity Log는 Azure에서 발생하는 구독 수준 이벤트에 대한
 
 Azure Log Integration에 대한 자세한 내용은 다음 문서를 참조하세요. 이 문서의 단계를 시도하기 전에 먼저 시작하기 문서를 검토하고 해당 단계를 완료해야 합니다.
 
-* [Azure 로그에 대한 Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) 이 다운로드 센터에는 Azure Log Integration에 대한 세부 정보, 시스템 요구 사항 및 설치 지침이 포함되어 있습니다.
 * [Azure Log Integration 소개](security-azure-log-integration-overview.md) 이 문서에서는 Azure Log Integration, 주요 기능 및 작동 원리를 소개합니다.
 * [파트너 구성 단계](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) 이 블로그 게시물에서는 Splunk, HP ArcSight, IBM QRadar 등의 파트너 솔루션과 함께 작동하도록 Azure Log Integration을 구성하는 방법을 보여 줍니다. SIEM 구성 요소를 구성하는 방법에 대한 최신 지침을 제공합니다. 자세한 내용은 SIEM 공급업체에 문의하세요.
 * [Azure Log Integration FAQ(질문과 대답)](security-azure-log-integration-faq.md). 이 FAQ는 Azure Log Integration에 대해 자주 묻는 질문과 대답입니다.

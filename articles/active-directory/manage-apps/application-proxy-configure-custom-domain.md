@@ -1,10 +1,10 @@
 ---
-title: Azure AD 응용 프로그램 프록시의 사용자 지정 도메인 | Microsoft Docs
-description: 앱의 URL이 사용자가 액세스하는 위치에 관계 없이 동일하도록 Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인을 관리합니다.
+title: Azure AD 애플리케이션 프록시의 사용자 지정 도메인 | Microsoft Docs
+description: 앱의 URL이 사용자가 액세스하는 위치에 관계 없이 동일하도록 Azure AD 애플리케이션 프록시에서 사용자 지정 도메인을 관리합니다.
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,21 +15,21 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 090df19861e00a99f0bb63bf20eb2f26dc6761fd
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 3d058ac4ce62718cebc20c349d52ebde57c92904
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368481"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476788"
 ---
-# <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업
+# <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 작업
 
-Azure Active Directory 응용 프로그램 프록시를 통해 응용 프로그램을 게시할 때 사용자가 원격으로 작업 중일 때 이동하도록 외부 URL을 만듭니다. 이 URL은 기본 도메인 *yourtenant.msappproxy.net*을 가져옵니다. 예를 들어 Expenses라는 앱을 게시하고 Contoso라는 테넌트를 지정하는 경우 외부 URL은 https://expenses-contoso.msappproxy.net이 됩니다. 자신의 도메인 이름을 사용하려는 경우 응용 프로그램에 대한 사용자 지정 도메인을 구성합니다. 
+Azure Active Directory 애플리케이션 프록시를 통해 애플리케이션을 게시할 때 사용자가 원격으로 작업 중일 때 이동하도록 외부 URL을 만듭니다. 이 URL은 기본 도메인 *yourtenant.msappproxy.net*을 가져옵니다. 예를 들어 Expenses라는 앱을 게시하고 Contoso라는 테넌트를 지정하는 경우 외부 URL은 https://expenses-contoso.msappproxy.net이 됩니다. 자신의 도메인 이름을 사용하려는 경우 애플리케이션에 대한 사용자 지정 도메인을 구성합니다. 
 
-언제나 가능한 응용 프로그램에 대한 사용자 지정 도메인을 설정하는 것이 좋습니다. 사용자 지정 도메인의 이점 중 일부는 다음과 같습니다.
+언제나 가능한 애플리케이션에 대한 사용자 지정 도메인을 설정하는 것이 좋습니다. 사용자 지정 도메인의 이점 중 일부는 다음과 같습니다.
 
-- 사용자가 네트워크 내부 또는 외부에서 근무하든지 동일한 URL을 사용하여 응용 프로그램에 접근할 수 있습니다.
-- 모든 응용 프로그램이 동일한 내부 및 외부 URL을 갖는 경우 다른 응용 프로그램을 가리키는 하나의 응용 프로그램의 링크는 회사 네트워크 외부에서도 계속해서 작동합니다. 
+- 사용자가 네트워크 내부 또는 외부에서 근무하든지 동일한 URL을 사용하여 애플리케이션에 접근할 수 있습니다.
+- 모든 애플리케이션이 동일한 내부 및 외부 URL을 갖는 경우 다른 애플리케이션을 가리키는 하나의 애플리케이션의 링크는 회사 네트워크 외부에서도 계속해서 작동합니다. 
 - 브랜딩을 제어하고 원하는 URL을 만듭니다. 
 
 
@@ -40,15 +40,15 @@ Azure Active Directory 응용 프로그램 프록시를 통해 응용 프로그�
 사용자 지정 도메인을 구성하기 전에 다음 요구 사항이 준비되어 있는지 확인합니다. 
 - [Azure Active Directory에 추가된 확인된 도메인](../fundamentals/add-custom-domain.md).
 - PFX 파일 형태의 도메인에 대한 사용자 지정 인증서. 
-- [응용 프로그램 프록시를 통해 게시된](application-proxy-publish-azure-portal.md) 온-프레미스 앱.
+- [애플리케이션 프록시를 통해 게시된](application-proxy-add-on-premises-application.md) 온-프레미스 앱.
 
 ### <a name="configure-your-custom-domain"></a>사용자 지정 도메인 구성
 
 이러한 세 가지 요구 사항을 준비한 경우 다음 단계를 따라 사용자 지정 도메인을 설정합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **Azure Active Directory** > **Enterprise 응용 프로그램** > **모든 응용 프로그램**으로 이동하고 관리하려는 앱을 선택합니다.
-3. **응용 프로그램 프록시**를 선택합니다. 
+2. **Azure Active Directory** > **Enterprise 애플리케이션** > **모든 애플리케이션**으로 이동하고 관리하려는 앱을 선택합니다.
+3. **애플리케이션 프록시**를 선택합니다. 
 4. 외부 URL 필드에서 드롭다운 목록을 사용하여 사용자 지정 도메인을 선택합니다. 목록에서 도메인이 보이지 않는 경우 아직 확인되지 않은 것입니다. 
 5. **저장**을 선택합니다.
 5. 비활성화되었던 **인증서** 필드가 활성화됩니다. 이 필드를 선택합니다. 
@@ -72,14 +72,14 @@ Azure Active Directory 응용 프로그램 프록시를 통해 응용 프로그�
 와일드카드가 원하는 외부 URL과 일치하는 한 와일드카드 인증서를 사용할 수 있습니다. 
 
 ### <a name="changing-the-domain"></a>도메인 변경
-모든 확인된 도메인은 응용 프로그램에 대한 외부 URL 드롭다운 목록에 나타납니다. 도메인을 변경하려면 응용 프로그램에 대한 해당 필드를 업데이트합니다. 원하는 도메인이 목록에 없는 경우 [확인된 도메인으로 추가](../fundamentals/add-custom-domain.md)합니다. 연결된 인증서가 없는 도메인을 선택하는 경우 5-7단계를 수행하여 인증서를 추가합니다. 그런 다음 새 외부 URL에서 리디렉션할 DNS 레코드를 업데이트해야 합니다. 
+모든 확인된 도메인은 애플리케이션에 대한 외부 URL 드롭다운 목록에 나타납니다. 도메인을 변경하려면 애플리케이션에 대한 해당 필드를 업데이트합니다. 원하는 도메인이 목록에 없는 경우 [확인된 도메인으로 추가](../fundamentals/add-custom-domain.md)합니다. 연결된 인증서가 없는 도메인을 선택하는 경우 5-7단계를 수행하여 인증서를 추가합니다. 그런 다음 새 외부 URL에서 리디렉션할 DNS 레코드를 업데이트해야 합니다. 
 
 ### <a name="certificate-management"></a>인증서 관리
-응용 프로그램이 외부 호스트를 공유하지 않는 한 여러 응용 프로그램에 대해 동일한 인증서를 사용할 수 있습니다. 
+애플리케이션이 외부 호스트를 공유하지 않는 한 여러 애플리케이션에 대해 동일한 인증서를 사용할 수 있습니다. 
 
-인증서가 만료되면 포털을 통해 다른 인증서를 업로드하라는 경고를 받습니다. 인증서가 해지되면 응용 프로그램에 액세스할 때 보안 경고를 볼 수 있습니다. 인증서에 대한 해지 검사를 수행하지 않습니다.  지정된 응용 프로그램에 대한 인증서를 업데이트하려면 응용 프로그램으로 이동하고 게시된 응용 프로그램에 사용자 지정 도메인 구성에 대한 5-7단계를 수행하여 새 인증서를 업로드합니다. 이전 인증서가 다른 응용 프로그램에서 사용되고 있지 않으면 자동으로 삭제됩니다. 
+인증서가 만료되면 포털을 통해 다른 인증서를 업로드하라는 경고를 받습니다. 인증서가 해지되면 애플리케이션에 액세스할 때 보안 경고를 볼 수 있습니다. 인증서에 대한 해지 검사를 수행하지 않습니다.  지정된 애플리케이션에 대한 인증서를 업데이트하려면 애플리케이션으로 이동하고 게시된 애플리케이션에 사용자 지정 도메인 구성에 대한 5-7단계를 수행하여 새 인증서를 업로드합니다. 이전 인증서가 다른 애플리케이션에서 사용되고 있지 않으면 자동으로 삭제됩니다. 
 
-현재 모든 인증서 관리는 개별 응용 프로그램 페이지를 통하므로 관련 응용 프로그램의 컨텍스트에서 인증서를 관리해야 합니다. 
+현재 모든 인증서 관리는 개별 애플리케이션 페이지를 통하므로 관련 애플리케이션의 컨텍스트에서 인증서를 관리해야 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 * Azure AD 인증을 사용하여 게시된 앱에 대해 [Single Sign-On 사용](application-proxy-configure-single-sign-on-with-kcd.md)

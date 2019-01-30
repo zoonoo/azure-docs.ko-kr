@@ -1,5 +1,5 @@
 ---
-title: Fiddler 또는 Postman에서 REST API 탐색(Azure Search REST) | Microsoft Docs
+title: Fiddler 또는 Postman 웹 HTTP 테스트 도구에서 REST API 탐색 - Azure Search
 description: Fiddler 또는 Postman을 사용하여 Azure Search에 HTTP 요청 및 REST API 호출을 발행하는 방법.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: eba41086da645c2ff5cee65f9395267227cb1c11
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: seodec2018
+ms.openlocfilehash: 5946ff5e75e7c3fedf42c23200f61e821c0d9d61
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190188"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631399"
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Fiddler 또는 Postman을 사용하여 Azure Search REST API 탐
 
@@ -22,7 +23,7 @@ ms.locfileid: "32190188"
 
 > [!div class="checklist"]
 > * 웹 API 테스트 도구 다운로드
-> * 검색 서비스의 API 키와 끝점을 가져옵니다.
+> * 검색 서비스의 API 키와 엔드포인트를 가져옵니다.
 > * 요청 헤더 구성
 > * 인덱스 만들기
 > * 인덱스 로드
@@ -35,19 +36,19 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 다음 도구는 웹 개발에 널리 사용되지만 다른 도구에 익숙하더라도 이 문서의 지침이 계속 적용됩니다.
 
 + [Postman 데스크톱 앱](https://www.getpostman.com/)
-+ [Telerik Fiddler](http://www.telerik.com/fiddler)
++ [Telerik Fiddler](https://www.telerik.com/fiddler)
 
-## <a name="get-the-api-key-and-endpoint"></a>API 키와 끝점 확보하기
+## <a name="get-the-api-key-and-endpoint"></a>API 키와 엔드포인트 확보하기
 
 REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL이 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 확보하십시오.
 
 1. Azure Portal의 대시보드에서 검색 서비스 페이지를 열거나 서비스 목록에서 [서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
-2. **개요** > **기본 정보** > **Url**에서 끝점을 가져옵니다. 끝점의 예는 다음과 같습니다. `https://my-service-name.search.windows.net`
+2. **개요** > **기본 정보** > **Url**에서 엔드포인트를 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://my-service-name.search.windows.net`
 3. **설정** > **키**에서 API 키를 가져옵니다. 키를 롤오버하려는 경우 중복성을 위한 두 개의 관리자 키가 있습니다. 관리자 키는 인덱스 생성 및 로드에 필요한 서비스에 대한 쓰기 권한을 부여합니다. 쓰기 작업에는 기본 또는 보조 키를 사용할 수 있습니다.
 
 ## <a name="configure-request-headers"></a>요청 헤더 구성
 
-각 도구는 세션에 대한 요청 헤더 정보를 유지하므로 URL 끝점, api-version, api-key 및 content-type을 한 번만 입력하면 됩니다.
+각 도구는 세션에 대한 요청 헤더 정보를 유지하므로 URL 엔드포인트, api-version, api-key 및 content-type을 한 번만 입력하면 됩니다.
 
 전체 URL은 다음 예제와 유사하게 표시되어야 하며 **`my-app`** 자리 표시자 이름을 유효하게 대체해야 합니다. `https://my-app.search.windows.net/indexes/hotels?api-version=2017-11-11`
 
@@ -65,7 +66,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 ### <a name="fiddler"></a>Fiddler
 
-다음 스크린샷과 같은 요청을 공식으로 작성합니다. **PUT**을 동사로 선택합니다. Fiddler가 `User-Agent=Fiddler`를 추가합니다. 두 개의 추가 요청 헤더를 그 아래 새 줄에 붙여넣을 수 있습니다. 서비스에 대한 관리자 액세스 키를 사용하여 서비스의 content-type 및 api-key를 포함시킵니다.
+다음 스크린샷과 같은 요청을 작성합니다. **PUT**을 동사로 선택합니다. Fiddler가 `User-Agent=Fiddler`를 추가합니다. 두 개의 추가 요청 헤더를 그 아래 새 줄에 붙여넣을 수 있습니다. 서비스에 대한 관리자 액세스 키를 사용하여 서비스의 content-type 및 api-key를 포함시킵니다.
 
 ![Fiddler 요청 헤더][1]
 
@@ -74,7 +75,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 ### <a name="postman"></a>postman
 
-다음 스크린샷과 같은 요청을 공식으로 작성합니다. **PUT**을 동사로 선택합니다. 
+다음 스크린샷과 같은 요청을 작성합니다. **PUT**을 동사로 선택합니다. 
 
 ![Postman 요청 헤더][6]
 
@@ -110,13 +111,13 @@ HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HT
 
 ### <a name="fiddler"></a>Fiddler
 
-다음 스크린샷과 유사하게 인덱스 정의를 요청 본문에 복사한 다음 오른쪽 상단의 **실행**을 클릭하여 완료된 요청을 보냅니다.
+다음 스크린샷과 같이 인덱스 정의를 요청 본문에 복사한 이후에 오른쪽 맨 위의 **실행**을 클릭하여 완성된 요청을 보냅니다.
 
 ![Fiddler 요청 본문][7]
 
 ### <a name="postman"></a>postman
 
-다음 스크린샷과 유사하게 인덱스 정의를 요청 본문에 복사한 다음 오른쪽 상단의 **보내기**를 클릭하여 완료된 요청을 보냅니다.
+다음 스크린샷과 같이 인덱스 정의를 요청 본문에 복사한 이후에 오른쪽 맨 위의 **보내기**를 클릭하여 완성된 요청을 보냅니다.
 
 ![Postman 요청 본문][8]
 
@@ -125,7 +126,7 @@ HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HT
 인덱스 생성과 인덱스 채우기는 별도의 단계입니다. Azure Search 검색에서 인덱스에는 JSON 문서로 제공할 수 있는 검색 가능한 모든 데이터가 포함됩니다. 이 작업에 대한 API를 검토하려면 [문서 추가, 업데이트 또는 삭제(REST)](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)를 참조하세요.
 
 + 이 단계에서 동사를 **POST**로 변경합니다.
-+ `/docs/index`를 포함하도록 끝점을 변경합니다. 전체 URL은 다음과 같습니다. `https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
++ `/docs/index`를 포함하도록 엔드포인트를 변경합니다. 전체 URL은 다음과 같습니다. `https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
 + 요청 헤더를 그대로 유지합니다. 
 
 요청 본문에 호텔 인덱스에 추가될 문서 4개가 포함됩니다.
@@ -193,20 +194,20 @@ HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HT
 
 몇 초 후에 HTTP 200 응답이 검색 목록에 표시됩니다. 이는 문서가 성공적으로 만들어졌음을 나타냅니다. 
 
-207이 표시될 경우 하나 이상의 문서를 업로드하지 못했습니다. 404가 표시될 경우 요청의 헤더 또는 본문에 구문 오류가 있습니다. `/docs/index`를 포함하도록 끝점을 변경했는지 확인하십시오.
+207이 표시될 경우 하나 이상의 문서를 업로드하지 못했습니다. 404가 표시될 경우 요청의 헤더 또는 본문에 구문 오류가 있습니다. `/docs/index`를 포함하도록 엔드포인트를 변경했는지 확인하십시오.
 
 > [!Tip]
 > 선택한 데이터 원본의 경우 인덱싱에 필요한 코드의 양을 줄이고 단순화할 수 있는 대체 *인덱서* 방식을 선택할 수 있습니다. 자세한 내용은 [인덱서 작업](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)을 참조하세요.
 
 ### <a name="fiddler"></a>Fiddler
 
-동사를 **POST**로 변경합니다. `/docs/index`를 포함하도록 URL을 변경합니다. 다음 스크린샷과 유사하게 문서를 요청 본문에 복사한 다음 요청을 실행합니다.
+동사를 **POST**로 변경합니다. `/docs/index`를 포함하도록 URL을 변경합니다. 다음 스크린샷과 같이 문서를 요청 본문에 복사한 이후에 요청을 실행합니다.
 
 ![Fiddler 요청 페이로드][9]
 
 ### <a name="postman"></a>postman
 
-동사를 **POST**로 변경합니다. `/docs/index`를 포함하도록 URL을 변경합니다. 다음 스크린샷과 유사하게 문서를 요청 본문에 복사한 다음 요청을 실행합니다.
+동사를 **POST**로 변경합니다. `/docs/index`를 포함하도록 URL을 변경합니다. 다음 스크린샷과 같이 문서를 요청 본문에 복사한 이후에 요청을 실행합니다.
 
 ![Postman 요청 페이로드][10]
 
@@ -214,10 +215,10 @@ HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HT
 이제 인덱스와 문서가 로드되었으므로 쿼리를 실행할 수 있습니다. 이 API에 대한 자세한 내용은 [문서 검색(REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents)을 참조하세요.  
 
 + 이 단계에서 동사를 **GET**로 변경합니다.
-+ 검색 문자열을 포함하여 쿼리 매개 변수를 포함하도록 끝점을 변경합니다. 쿼리 URL은 다음과 같습니다. `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
++ 검색 문자열을 포함하여 쿼리 매개 변수를 포함하도록 엔드포인트를 변경합니다. 쿼리 URL은 다음과 같습니다. `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
 + 요청 헤더를 그대로 유지합니다.
 
-이 쿼리는 "motel"이라는 용어를 검색하고 검색 결과에 문서의 수를 반환합니다. 요청 및 응답은 **보내기**를 클릭한 후 Postman의 다음 스크린샷과 유사합니다. 상태 코드는 200이어야 합니다.
+이 쿼리는 "motel"이라는 용어를 검색하고 검색 결과에 문서의 수를 반환합니다. **보내기**를 클릭한 후 요청 및 응답은 Postman의 다음 스크린샷과 유사합니다. 상태 코드는 200이어야 합니다.
 
  ![Postman 쿼리 응답][11]
 

@@ -24,9 +24,9 @@ ms.locfileid: "49406129"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>PowerShell을 사용하여 특수 디스크에서 Windows VM 만들기
 
-특수 관리 디스크를 OS 디스크로 연결하여 새 VM을 만듭니다. 특수한 디스크는 기존 VM의 VHD(가상 하드 디스크) 복사본으로, 사용자 계정, 응용 프로그램 및 원본 VM의 기타 상태 데이터를 포함합니다. 
+특수 관리 디스크를 OS 디스크로 연결하여 새 VM을 만듭니다. 특수한 디스크는 기존 VM의 VHD(가상 하드 디스크) 복사본으로, 사용자 계정, 애플리케이션 및 원본 VM의 기타 상태 데이터를 포함합니다. 
 
-특수한 VHD를 사용하여 새 VM을 만드는 경우 새 VM은 원본 VM의 컴퓨터 이름을 그대로 유지합니다. 다른 컴퓨터 관련 정보도 유지되며, 경우에 따라 이 중복된 정보로 인해 문제가 발생할 수 있습니다. VM을 복사할 때 응용 프로그램이 어떤 유형의 컴퓨터 관련 정보에 의존하는지 알아야 합니다.
+특수한 VHD를 사용하여 새 VM을 만드는 경우 새 VM은 원본 VM의 컴퓨터 이름을 그대로 유지합니다. 다른 컴퓨터 관련 정보도 유지되며, 경우에 따라 이 중복된 정보로 인해 문제가 발생할 수 있습니다. VM을 복사할 때 애플리케이션이 어떤 유형의 컴퓨터 관련 정보에 의존하는지 알아야 합니다.
 
 여러 옵션이 있습니다.
 * [기존 관리 디스크 사용](#option-1-use-an-existing-disk). 이 옵션은 올바르게 작동하지 않는 VM이 있는 경우에 유용합니다. VM을 삭제한 다음, 관리 디스크를 다시 사용하여 새 VM을 만들 수 있습니다. 
@@ -109,7 +109,7 @@ Get-AzureRmStorageAccount
     ```
 
 ### <a name="upload-the-vhd-to-your-storage-account"></a>저장소 계정에 VHD 업로드 
-[Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) cmdlet을 사용하여 저장소 계정의 컨테이너에 VHD를 업로드합니다. 이 예제에서는 “C:\Users\Public\Documents\Virtual hard disks\"의 *myVHD.vhd* 파일을 *myResourceGroup* 리소스 그룹의 *mystorageaccount*라는 저장소 계정에 업로드합니다. 파일은 *mycontainer*라는 컨테이너에 저장되고 새 파일 이름은 *myUploadedVHD.vhd*가 됩니다.
+[Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) cmdlet을 사용하여 저장소 계정의 컨테이너에 VHD를 업로드합니다. 이 예제에서는 “C:\Users\Public\Documents\Virtual hard disks\"의 *myVHD.vhd* 파일을 *myResourceGroup* 리소스 그룹의 *mystorageaccount*라는 스토리지 계정에 업로드합니다. 파일은 *mycontainer*라는 컨테이너에 저장되고 새 파일 이름은 *myUploadedVHD.vhd*가 됩니다.
 
 ```powershell
 $resourceGroupName = "myResourceGroup"

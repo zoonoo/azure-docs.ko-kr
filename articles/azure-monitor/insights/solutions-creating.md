@@ -8,19 +8,18 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4fd36d58574b60e3e6351cba03c68b9217bc703d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 44335137eedb67d7ceca420a061880767b895cad
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632469"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339283"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Azure에서 관리 솔루션 디자인 및 빌드(Preview)
 > [!NOTE]
@@ -46,19 +45,19 @@ ms.locfileid: "52632469"
 
 [Log Analytics의 데이터 원본](../../azure-monitor/platform/agent-data-sources.md)에서 설명한 대로 데이터 원본은 Log Analytics 리포지토리에서 다양한 방법으로 수집할 수 있습니다.  여기에는 Windows 및 Linux 클라이언트의 성능 카운터 외에도 Windows 이벤트 로그의 이벤트 또는 Syslog로 생성된 이벤트가 포함됩니다.  또한 Azure Monitor에서 수집한 Azure 리소스에서도 데이터를 수집할 수 있습니다.  
 
-사용 가능한 데이터 원본 중 하나를 통해 액세스할 수 없는 데이터가 필요한 경우, REST API를 호출할 수 있는 모든 클라이언트에서 Log Analytics 리포지토리에 데이터를 쓸 수 있는 [HTTP 데이터 수집기 API](../../log-analytics/log-analytics-data-collector-api.md)를 사용할 수 있습니다 .  관리 솔루션의 가장 일반적인 사용자 지정 데이터 수집 방법은 Azure 또는 외부 리소스에서 필요한 데이터를 수집하고 데이터 수집기 API를 사용하여 리포지토리에 쓰는 [Azure Automation Runbook](../../automation/automation-runbook-types.md)을 만드는 것입니다.  
+사용 가능한 데이터 원본 중 하나를 통해 액세스할 수 없는 데이터가 필요한 경우, REST API를 호출할 수 있는 모든 클라이언트에서 Log Analytics 리포지토리에 데이터를 쓸 수 있는 [HTTP 데이터 수집기 API](../../azure-monitor/platform/data-collector-api.md)를 사용할 수 있습니다 .  관리 솔루션의 가장 일반적인 사용자 지정 데이터 수집 방법은 Azure 또는 외부 리소스에서 필요한 데이터를 수집하고 데이터 수집기 API를 사용하여 리포지토리에 쓰는 [Azure Automation Runbook](../../automation/automation-runbook-types.md)을 만드는 것입니다.  
 
 ### <a name="log-searches"></a>로그 검색
-[로그 검색](../../log-analytics/log-analytics-queries.md)은 Log Analytics 리포지토리에서 데이터를 추출하고 분석하는 데 사용됩니다.  사용자가 리포지토리에서 데이터의 임시 분석을 수행할 수 있는 것 외에도 보기 및 경고에서 사용합니다.  
+[로그 검색](../../azure-monitor/log-query/log-query-overview.md)은 Log Analytics 리포지토리에서 데이터를 추출하고 분석하는 데 사용됩니다.  사용자가 리포지토리에서 데이터의 임시 분석을 수행할 수 있는 것 외에도 보기 및 경고에서 사용합니다.  
 
 모든 보기 또는 경고에서 사용하지 않더라도 사용자에게 도움이 되는 것으로 판단되는 쿼리를 정의해야 합니다.  이러한 쿼리는 포털에서 저장된 검색으로 사용할 수 있으며, 사용자 지정 보기의 [쿼리 목록 시각화 요소](../../azure-monitor/platform/view-designer-parts.md#list-of-queries-part)에도 포함할 수 있습니다.
 
 ### <a name="alerts"></a>경고
-[Log Analytics의 경고](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)는 리포지토리의 데이터에 대한 [로그 검색](#log-searches)을 통해 로그를 통해 문제를 식별합니다.  사용자에게 알리거나 응답에서 작업을 자동으로 실행합니다. 응용 프로그램에 대한 다양한 경고 조건을 식별하고, 해당 경고 규칙을 솔루션 파일에 포함해야 합니다.
+[Log Analytics의 경고](../../azure-monitor/platform/alerts-overview.md)는 리포지토리의 데이터에 대한 [로그 검색](#log-searches)을 통해 로그를 통해 문제를 식별합니다.  사용자에게 알리거나 응답에서 작업을 자동으로 실행합니다. 애플리케이션에 대한 다양한 경고 조건을 식별하고, 해당 경고 규칙을 솔루션 파일에 포함해야 합니다.
 
 잠재적으로 자동화된 프로세스로 문제를 해결할 수 있는 경우 일반적으로 Azure Automation에서 Runbook을 만들어 이 수정 작업을 수행합니다.  대부분의 Azure 서비스는 Runbook에서 이러한 기능을 수행하는 데 활용하는 [cmdlet](/powershell/azure/overview)으로 관리될 수 있습니다.
 
-경고에 대한 응답으로 외부 기능이 솔루션에 필요한 경우 [웹후크 응답](../../monitoring-and-diagnostics/alert-metric.md)을 사용할 수 있습니다.  이렇게 하면 경고에서 정보를 보내는 외부 웹 서비스를 호출할 수 있습니다.
+경고에 대한 응답으로 외부 기능이 솔루션에 필요한 경우 [웹후크 응답](../../azure-monitor/platform/alerts-metric.md)을 사용할 수 있습니다.  이렇게 하면 경고에서 정보를 보내는 외부 웹 서비스를 호출할 수 있습니다.
 
 ### <a name="views"></a>뷰
 Log Analytics의 보기는 Log Analytics 리포지토리의 데이터를 시각화하는 데 사용됩니다.  각 솔루션에는 일반적으로 사용자의 주 대시보드에 표시되는 [타일](../../azure-monitor/platform/view-designer-tiles.md)이 있는 단일 보기가 포함됩니다.  보기에는 사용자에게 수집된 데이터의 다양한 시각화를 제공하기 위해 많은 [시각화 요소](../../azure-monitor/platform/view-designer-parts.md)가 포함될 수 있습니다.

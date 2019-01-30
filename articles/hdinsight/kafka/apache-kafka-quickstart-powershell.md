@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: 8ac288a3b62b305ca45ba8ef2dcc6cdaf6aaf6bd
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6883ebe1e103f9ed1f06aa4ee0e6281667fc46b8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309644"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424934"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>빠른 시작: HDInsight 클러스터에서 Apache Kafka 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "52309644"
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Kafka API는 동일한 가상 네트워크 내에서만 리소스에서 액세스할 수 있습니다. 이 빠른 시작에서는 직접 SSH를 사용하여 클러스터에 액세스합니다. 다른 서비스, 네트워크 또는 가상 머신을 Kafka에 연결하려면 먼저 가상 네트워크를 만든 다음, 네트워크 내에 리소스를 만듭니다.
 >
 > 자세한 내용은 [가상 네트워크를 사용하여 Apache Kafka에 연결](apache-kafka-connect-vpn-gateway.md) 문서를 참조하세요.
@@ -33,7 +33,7 @@ ms.locfileid: "52309644"
 
 * Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-* Azure PowerShell. 자세한 내용은 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) 문서를 참조하세요.
+* Azure PowerShell. 자세한 내용은 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 문서를 참조하세요.
 
 * SSH 클라이언트. 이 문서의 단계는 SSH를 사용하여 클러스터에 연결합니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "52309644"
 
     * [Linux용 Windows 하위 시스템을 설치](https://docs.microsoft.com/windows/wsl/install-win10)합니다. Microsoft Store를 통해 사용할 수 있는 Linux 배포판은 `ssh` 명령을 제공합니다.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 이 문서의 단계는 사용자가 위에서 언급한 SSH 클라이언트 중 하나를 사용한다고 가정합니다. 다른 SSH 클라이언트를 사용하는 중에 문제가 발생하는 경우에는 SSH 클라이언트에 대한 설명서를 참조하세요.
     >
     > 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md) 문서를 참조하세요.
@@ -69,7 +69,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-HDInsight의 Kafka는 Azure Managed 디스크를 사용하여 Kafka 데이터를 저장하는 한편 클러스터는 Azure Storage를 사용하여 로그와 같은 정보를 저장합니다. [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) 를 사용하여 새 저장소 계정을 만듭니다.
+HDInsight의 Kafka는 Azure Managed 디스크를 사용하여 Kafka 데이터를 저장하는 한편 클러스터는 Azure Storage를 사용하여 로그와 같은 정보를 저장합니다. [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) 를 사용하여 새 스토리지 계정을 만듭니다.
 
 ```powershell
 $storageName = Read-Host -Prompt "Enter the storage account name"
@@ -132,16 +132,16 @@ New-AzureRmHDInsightCluster `
         -DisksPerWorkerNode $disksPerNode
 ```
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight 클러스터를 만드는 데 최대 20분이 걸릴 수 있습니다.
 
-> [!TIP]
+> [!TIP]  
 > `-DisksPerWorkerNode` 매개 변수는 HDInsight의 Kafka 확장성을 구성합니다. HDInsight의 Kafka는 클러스터에서 가상 머신의 로컬 디스크를 사용하여 데이터를 저장합니다. Kafka는 입출력이 많으므로 높은 처리량과 노드당 더 많은 저장소를 제공하기 위해 [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md)를 사용합니다. 
 >
 > 관리 디스크 유형은 __표준__(HDD) 또는 __프리미엄__(SSD)일 수 있습니다. 디스크 유형은 작업자 노드(Kafka broker)에서 사용하는 VM 크기에 따라 달라집니다. 프리미엄 디스크는 DS 및 GS 시리즈 VM에 자동으로 사용됩니다. 다른 모든 VM 유형은 표준을 사용합니다. `-WorkerNodeSize` 매개 변수를 사용하여 VM 유형을 설정할 수 있습니다. 매개 변수에 대한 자세한 내용은 [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster) 설명서를 참조하세요.
 
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 클러스터를 생성할 때 또는 생성 후 클러스터를 확장할 때 32개 이상의 작업자 노드를 사용하려는 경우 최소한 8개의 노드와 14GB RAM으로 VM 크기를 지정하기 위해 `-HeadNodeSize` 매개 변수를 사용해야 합니다.
 >
 > 노드 크기 및 관련된 비용에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
@@ -169,7 +169,7 @@ Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
  * Support:        https://ubuntu.com/advantage
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
-    http://www.ubuntu.com/business/services/cloud
+    https://www.ubuntu.com/business/services/cloud
 
 83 packages can be updated.
 37 updates are security updates.
@@ -210,7 +210,7 @@ Kafka를 사용할 때는 *Apache Zookeeper* 및 *Broker* 호스트를 알고 �
 
     메시지가 표시되면 클러스터 로그인 계정(SSH 계정 아님)에 대한 암호를 입력합니다.
 
-    > [!NOTE]
+    > [!NOTE]  
     > 이 명령은 모든 Zookeeper 호스트를 검색한 다음, 처음 두 개의 항목만 반환합니다. 하나의 호스트에 연결할 수 없는 경우 일부 중복이 필요하기 때문입니다.
 
 4. 환경 변수가 올바르게 설정되었는지 확인하려면 다음 명령을 사용합니다.
@@ -257,14 +257,14 @@ Kafka는 *토픽*에 데이터 스트림을 저장합니다. 토픽을 관리하
 
     * 각 파티션은 클러스터에서 세 개의 작업자 노드에 복제됩니다.
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > 세 개의 장애 도메인을 제공하는 Azure 지역에서 클러스터를 만든 경우 3의 복제 인수를 사용합니다. 그렇지 않으면 4의 복제 요소를 사용합니다.
         
         세 개의 장애 도메인 지역에서는 3의 복제 인수를 사용하면 복제본을 오류 도메인에 분산할 수 있습니다. 두 개의 장애 도메인 지역에서는 4의 복제 인수로 복제본을 도메인에 동일하게 분산할 수 있습니다.
         
         영역에서 장애 도메인의 수에 대한 자세한 내용은 [Linux 가상 머신의 가용성](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 문서를 참조하세요.
 
-        > [!IMPORTANT] 
+        > [!IMPORTANT]   
         > Kafka는 Azure 장애 도메인을 인식하지 않습니다. 항목에 대한 파티션 복제본을 만들 때 고가용성에 대해 복제본을 제대로 배포하지 않을 수 있습니다.
 
         고가용성을 보장하려면 [Apache Kafka 파티션 재조정 도구](https://github.com/hdinsight/hdinsight-kafka-tools)를 사용합니다. 이 도구는 Kafka 클러스터의 헤드 노드에 대한 SSH 연결에서 실행되어야 합니다.
@@ -291,7 +291,7 @@ Kafka는 *토픽*에 데이터 스트림을 저장합니다. 토픽을 관리하
 
     이 명령은 `topicname`이라고 명명된 토픽을 삭제합니다.
 
-    > [!WARNING]
+    > [!WARNING]  
     > 이전에 만든 `test` 토픽을 삭제하는 경우에는 다시 만들어야 합니다. 이는 이 문서의 뒷부분에서 사용됩니다.
 
 `kafka-topics.sh` 유틸리티에서 사용할 수 있는 명령에 대한 자세한 정보는 다음 명령을 사용합니다.
@@ -324,7 +324,7 @@ Kafka는 토픽에 *레코드*를 저장합니다. *생산자*에서 레코드�
    
     이 명령은 토픽에서 레코드를 검색하여 표시합니다. `--from-beginning`을 사용하면 스트림 시작 부분부터 시작하도록 소비자에 지시하여 모든 레코드를 검색합니다.
 
-    > [!NOTE]
+    > [!NOTE]  
     > 이전 버전의 Kafka를 사용하는 경우 `--bootstrap-server $KAFKABROKERS`를 `--zookeeper $KAFKAZKHOSTS`로 바꿉니다.
 
 4. __Ctrl+C__를 사용하여 소비자를 중지합니다.
@@ -339,7 +339,7 @@ Kafka는 토픽에 *레코드*를 저장합니다. *생산자*에서 레코드�
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-> [!WARNING]
+> [!WARNING]  
 > 클러스터가 만들어지면 HDInsight 클러스터 청구가 시작되고 클러스터가 삭제되면 중지됩니다. 분 단위로 청구되므로 더 이상 사용하지 않으면 항상 클러스터를 삭제해야 합니다.
 > 
 > HDInsight 클러스터의 Kafka를 삭제하면 Kafka에 저장된 데이터가 모두 삭제됩니다.

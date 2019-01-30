@@ -1,5 +1,5 @@
 ---
-title: Azure Search의 인덱서 | Microsoft Docs
+title: 인덱싱 중에 데이터 원본을 탐색하기 위한 인덱서 - Azure Search
 description: 검색 가능한 데이터를 추출하여 Azure Search 인덱스에 입력하기 위해 Azure SQL Database, Azure Cosmos DB 또는 Azure Storage를 탐색합니다.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: heidist
-ms.openlocfilehash: 2164e0b7cc973969e39f5708bb6509c1ed5f636a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.custom: seodec2018
+ms.openlocfilehash: 8dae593dea36944f8db037803c0dfac68cbac7c8
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34641138"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384907"
 ---
 # <a name="indexers-in-azure-search"></a>Azure Search의 인덱서
 
@@ -46,7 +47,8 @@ Azure Search의 *인덱서*는 외부 Azure 데이터 원본에서 검색 가능
 * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
-* [Azure Table Storage](search-howto-indexing-azure-tables.md)
+* [Azure Table Storage](search-howto-indexing-azure-tables.md) 
+    * Azure Table Storage는 [인식 검색](cognitive-search-concept-intro.md)을 지원하지 않습니다.
 
 
 ## <a name="basic-configuration-steps"></a>기본 구성 단계

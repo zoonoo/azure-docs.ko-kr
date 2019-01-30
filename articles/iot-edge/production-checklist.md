@@ -1,19 +1,20 @@
 ---
-title: 프로덕션 Azure IoT Edge 솔루션 준비 | Microsoft Docs
+title: 프로덕션용 디바이스 및 배포 준비 - Azure IoT Edge | Microsoft Docs
 description: 적절한 인증서를 사용하여 디바이스 설정, 향후 코드 업데이트를 위한 배포 계획 수립 등 Azure IoT Edge 솔루션을 개발에서 프로덕션으로 전환하는 방법을 알아봅니다.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 48fd774d6d887a12ed1c1ad9689ca34f5d866367
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 86b33bfa0f5383ac68080e2f8f7f9a004a1364a0
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585454"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652623"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>프로덕션에 IoT Edge 솔루션 배포 준비
 
@@ -161,6 +162,17 @@ Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구�
 세 가지 경우 모두, DNS 이름이 \*.azure-devices.net 패턴과 일치합니다. 
 
 또한 **컨테이너 엔진**은 HTTPS를 통해 컨테이너 레지스트리를 호출합니다. IoT Edge 런타임 컨테이너 이미지를 검색하려면 DNS 이름이 mcr.microsoft.com입니다. 컨테이너 엔진은 배포에 구성된 대로 다른 레지스트리에 연결합니다. 
+
+다음 검사 목록은 방화벽 규칙의 시작점입니다.
+
+   | URL(\* = 와일드카드) | 아웃바운드 TCP 포트 | 사용 현황 |
+   | ----- | ----- | ----- |
+   | mcr.microsoft.com  | 443 | Microsoft 컨테이너 레지스트리 |
+   | global.azure-devices-provisioning.net  | 443 | DPS 액세스(선택 사항) |
+   | \*.azurecr.io | 443 | 개인 및 타사 컨테이너 레지스트리 |
+   | \*.blob.core.windows.net | 443 | 이미지 델타 다운로드 | 
+   | \*.azure-devices.net | 5671, 8883, 443 | IoT Hub 액세스 |
+   | \*.docker.io  | 443 | Docker 액세스(선택 사항) |
 
 ### <a name="configure-communication-through-a-proxy"></a>프록시를 통한 통신 구성
 

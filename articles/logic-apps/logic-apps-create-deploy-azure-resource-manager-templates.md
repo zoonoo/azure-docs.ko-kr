@@ -10,16 +10,16 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 274fa3153f6a354b121b7fd8338d8e0d2d94f4f4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 52aea4e47473d4dd27519ae53322b0e72d93f20e
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230815"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062896"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 논리 앱 만들기 및 배포
 
-Azure Logic Apps는 사용할 수 있는 Azure Resource Manager 템플릿을 제공하여 워크플로를 자동화하기 위한 논리 앱을 만들 뿐만 아니라 배포에 사용되는 리소스 및 매개 변수를 정의합니다. 이 템플릿을 자체 비즈니스 시나리오에 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다. [논리 앱의 Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) 및 [Azure Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/resource-group-authoring-templates.md)에 대해 자세히 알아봅니다.
+Azure Logic Apps는 사용할 수 있는 Azure Resource Manager 템플릿을 제공하여 워크플로를 자동화하기 위한 논리 앱을 만들 뿐만 아니라 배포에 사용되는 리소스 및 매개 변수를 정의합니다. 이 템플릿을 자체 비즈니스 시나리오에 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다. [논리 앱의 Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) 및 [Azure Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/resource-group-authoring-templates.md)에 대해 자세히 알아봅니다. JSON 구문 및 속성의 경우 [Microsoft.Logic 리소스 종류](/azure/templates/microsoft.logic/allversions)를 참조하세요.
 
 ## <a name="define-the-logic-app"></a>논리 앱 정의
 

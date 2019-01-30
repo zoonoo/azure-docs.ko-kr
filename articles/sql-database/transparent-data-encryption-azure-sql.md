@@ -11,42 +11,42 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 0d5b7e484024294eb5c95b632dbef85c377b717e
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 01/22/2019
+ms.openlocfilehash: b0b4a89aaf9b00b30e6b4759c8aa168f06d0d008
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469030"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462473"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>SQL Database 및 Data Warehouse에 대한 투명한 데이터 암호화
 
-TDE(투명한 데이터 암호화)는 악의적인 활동의 위협으로부터 Azure SQL Database 및 Azure Data Warehouse를 보호하는 데 도움이 됩니다. 응용 프로그램에 대한 변경 없이 미사용 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행합니다. 기본적으로 TDE는 새로 배포된 모든 Azure SQL 데이터베이스에 대해 활성화됩니다. TDE는 SQL Database의 논리 **master** 데이터베이스를 암호화하는 데 사용할 수 없습니다.  **master** 데이터베이스에는 사용자 데이터베이스에서 TDE 작업을 수행하는 데 필요한 개체가 포함되어 있습니다.
+TDE(투명한 데이터 암호화)는 악의적인 활동의 위협으로부터 Azure SQL Database, Azure SQL Managed Instance 및 Azure Data Warehouse를 보호하는 데 도움이 됩니다. 애플리케이션에 대한 변경 없이 미사용 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행합니다. 기본적으로 TDE는 새로 배포된 모든 Azure SQL 데이터베이스에 대해 활성화됩니다. TDE는 SQL Database의 논리 **master** 데이터베이스를 암호화하는 데 사용할 수 없습니다.  **master** 데이터베이스에는 사용자 데이터베이스에서 TDE 작업을 수행하는 데 필요한 개체가 포함되어 있습니다.
 
-이전 데이터베이스 또는 Azure SQL Data Warehouse에 대해서는 TDE를 수동으로 활성화해야 합니다.  
+Azure SQL Managed Instance, Azure SQL Database의 이전 데이터베이스 또는 Azure SQL Data Warehouse에 대해 TDE를 수동으로 활성화해야 합니다.  
 
-투명한 데이터 암호화는 데이터베이스 암호화 키라는 대칭 키를 사용하여 전체 데이터베이스의 저장소를 암호화합니다. 이 데이터베이스 암호화 키는 투명한 데이터 암호화 보호기에서 보호됩니다. 보호기는 서비스 관리 인증서(서비스 관리 투명한 데이터 암호화) 또는 Azure Key Vault에 저장된 비대칭 키(Bring Your Own Key)입니다. 투명한 데이터 암호화 보호기는 서버 수준에서 설정합니다.
+투명한 데이터 암호화는 데이터베이스 암호화 키라는 대칭 키를 사용하여 전체 데이터베이스의 저장소를 암호화합니다. 이 데이터베이스 암호화 키는 투명한 데이터 암호화 보호기에서 보호됩니다. 보호기는 서비스 관리 인증서(서비스 관리 투명한 데이터 암호화) 또는 Azure Key Vault에 저장된 비대칭 키(Bring Your Own Key)입니다. Azure SQL Database 및 Data Warehouse의 경우 서버 수준에서, Azure SQL Managed Instance의 경우 인스턴스 수준에서 투명한 데이터 암호화 보호기를 설정합니다. *서버*라는 용어는 달리 언급하지 않는 한, 이 문서 전체에서 서버와 인스턴스를 모두 나타냅니다.
 
 데이터베이스를 시작하면 암호화된 데이터베이스 암호화 키가 해독된 다음, SQL Server 데이터베이스 엔진 프로세스에서 데이터베이스 파일의 암호 해독 및 다시 암호화에 사용됩니다. 투명한 데이터 암호화는 페이지 수준에서 데이터의 실시간 I/O 암호화 및 해독을 수행합니다. 각 페이지는 메모리로 읽을 때 해독된 다음, 디스크에 쓰기 전에 암호화됩니다. 투명한 데이터 암호화에 대한 일반적인 설명은 [투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)를 참조하세요.
 
-Azure 가상 머신에서 실행되는 SQL Server는 Key Vault의 비대칭 키를 사용할 수도 있습니다. 구성 단계는 SQL Database에서 비대칭 키를 사용하는 것과 다릅니다. 자세한 내용은 [Azure Key Vault(SQL Server)를 사용한 확장 가능 키 관리](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server)를 참조하세요.
+Azure 가상 머신에서 실행되는 SQL Server는 Key Vault의 비대칭 키를 사용할 수도 있습니다. 구성 단계는 SQL Database 및 SQL Managed Instance에서 비대칭 키를 사용하는 것과 다릅니다. 자세한 내용은 [Azure Key Vault(SQL Server)를 사용한 확장 가능 키 관리](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server)를 참조하세요.
 
 ## <a name="service-managed-transparent-data-encryption"></a>서비스 관리 투명한 데이터 암호화
 
-Azure에서 투명한 데이터 암호화의 기본 설정은 기본 제공 서버 인증서에서 데이터베이스 암호화 키를 보호한다는 것입니다. 기본 제공 서버 인증서는 각 서버마다 고유합니다. 데이터베이스가 지역 복제 관계에 있는 경우 주 데이터베이스와 지역 보조 데이터베이스는 모두 주 데이터베이스의 부모 서버 키로 보호됩니다. 두 개의 데이터베이스가 동일한 서버에 연결되어 있으면 동일한 기본 제공 인증서를 공유합니다. Microsoft는 적어도 90일마다 이러한 인증서를 자동으로 회전합니다.
+Azure에서 투명한 데이터 암호화의 기본 설정은 기본 제공 서버 인증서에서 데이터베이스 암호화 키를 보호한다는 것입니다. 기본 제공 서버 인증서는 각 서버마다 고유합니다. 데이터베이스가 지역 복제 관계에 있는 경우 주 데이터베이스와 지역 보조 데이터베이스는 모두 주 데이터베이스의 부모 서버 키로 보호됩니다. 두 개의 데이터베이스가 동일한 서버에 연결되어 있으면 동일한 기본 제공 인증서도 공유합니다. Microsoft는 적어도 90일마다 이러한 인증서를 자동으로 회전합니다.
 
 또한 Microsoft는 지역 복제 및 복원에 필요한 대로 키를 원활하게 이동하고 관리합니다.
 
 > [!IMPORTANT]
-> 새로 만든 모든 SQL 데이터베이스는 기본적으로 서비스 관리 투명한 데이터 암호화를 사용하여 암호화됩니다. 2017년 5월 이전의 기존 데이터베이스와 복원, 지역 복제 및 데이터베이스 복사를 통해 만들어진 데이터베이스는 기본적으로 암호화되지 않습니다.
+> 새로 만든 모든 SQL 데이터베이스는 기본적으로 서비스 관리 투명한 데이터 암호화를 사용하여 암호화됩니다. Azure SQL Managed Instance 데이터베이스, 2017년 5월 이전에 생성된 기존 SQL 데이터베이스 및 복원, 지역 복제 및 데이터베이스 복사를 통해 생성된 SQL 데이터베이스는 기본적으로 암호화되지 않습니다.
 
 ## <a name="bring-your-own-key"></a>Bring Your Own Key
 
-Bring Your Own Key 지원을 사용하면 투명한 데이터 암호화 키뿐만 아니라 액세스할 수 있는 사용자와 시기도 제어할 수 있습니다. Azure 클라우드 기반의 외부 키 관리 시스템인 Key Vault는 투명한 데이터 암호화가 Bring Your Own Key 지원과 통합된 최초의 키 관리 서비스입니다. 데이터베이스 암호화 키는 Bring Your Own Key 지원을 통해 Key Vault에 저장된 비대칭 키로 보호됩니다. 비대칭 키는 Key Vault를 벗어나지 않습니다. 키 자격 증명 모음에 대한 권한이 서버에 있으면 해당 서버에서 Key Vault를 통해 기본 키 작업 요청을 보냅니다. 비대칭 키는 서버 수준에서 설정합니다. 그러면 해당 서버 아래의 모든 데이터베이스에서 이 키를 상속합니다.
+Bring Your Own Key 지원을 사용하면 투명한 데이터 암호화 키뿐만 아니라 액세스할 수 있는 사용자와 시기도 제어할 수 있습니다. Azure 클라우드 기반의 외부 키 관리 시스템인 Key Vault는 투명한 데이터 암호화가 Bring Your Own Key 지원과 통합된 최초의 키 관리 서비스입니다. 데이터베이스 암호화 키는 Bring Your Own Key 지원을 통해 Key Vault에 저장된 비대칭 키로 보호됩니다. 비대칭 키는 Key Vault를 벗어나지 않습니다. Key Vault에 대한 권한이 서버에 있으면 해당 서버에서 Key Vault를 통해 기본 키 작업 요청을 보냅니다. 비대칭 키는 서버 수준에서 설정합니다. 그러면 해당 서버 아래의 모든 *암호화된* 데이터베이스에서 이 키를 상속합니다.
 
-이제는 Bring Your Own Key 지원을 사용하여 키 회전 및 키 자격 증명 모음 권한과 같은 키 관리 작업을 제어할 수 있습니다. 또한 키를 삭제할 수 있고, 모든 암호화 키에 대한 감사/보고를 사용하도록 설정할 수도 있습니다. Key Vault는 중앙 키 관리를 제공하며, 긴밀하게 모니터링되는 하드웨어 보안 모듈을 사용합니다. Key Vault는 키와 데이터 관리의 분리를 촉진하여 규정을 준수할 수 있도록 합니다. Key Vault에 대한 자세한 내용은 [Key Vault 설명서 페이지](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)를 참조하세요.
+Bring Your Own Key 지원을 사용하여 키 회전 및 키 자격 증명 모음 권한과 같은 키 관리 작업을 제어할 수 있습니다. 또한 키를 삭제할 수 있고, 모든 암호화 키에 대한 감사/보고를 사용하도록 설정할 수도 있습니다. Key Vault는 중앙 키 관리를 제공하며, 긴밀하게 모니터링되는 하드웨어 보안 모듈을 사용합니다. Key Vault는 키와 데이터 관리의 분리를 촉진하여 규정을 준수할 수 있도록 합니다. Key Vault에 대한 자세한 내용은 [Key Vault 설명서 페이지](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)를 참조하세요.
 
-SQL Database 및 Data Warehouse에 Bring Your Own Key 지원을 사용하는 투명한 데이터 암호화에 대한 자세한 내용은 [Bring Your Own Key 지원을 통한 투명한 데이터 암호화](transparent-data-encryption-byok-azure-sql.md)를 참조하세요.
+Azure SQL Database, SQL Managed Instance 및 Data Warehouse에 Bring Your Own Key 지원을 사용하는 투명한 데이터 암호화에 대한 자세한 내용은 [Bring Your Own Key 지원을 통한 투명한 데이터 암호화](transparent-data-encryption-byok-azure-sql.md)를 참조하세요.
 
 Bring Your Own Key 지원을 통해 투명한 데이터 암호화의 사용을 시작하려면 [PowerShell을 통해 Key Vault에서 사용자 고유 키를 사용하여 투명한 데이터 암호화를 설정하는 방법](transparent-data-encryption-byok-azure-sql-configure.md) 가이드를 참조하세요.
 
@@ -59,6 +59,10 @@ Azure 내에서 작업용 데이터베이스를 해독할 필요가 없습니다
 - 삭제된 데이터베이스 복원
 - 활성 지역 복제
 - 데이터베이스 복사본 만들기
+- Azure SQL Managed Instance에 백업 파일 복원
+
+> [!IMPORTANT]
+> 암호화에 사용되는 인증서에 액세스할 수 없으므로 Azure SQL Managed Instance에서는 서비스 관리 TDE로 암호화된 데이터베이스에 대한 COPY-ONLY(복사 전용) 백업을 수동으로 수행할 수 없습니다. 특정 시점 복원 기능을 사용하여 이 유형의 데이터베이스를 다른 Managed Instance로 이동합니다.
 
 투명한 데이터 암호화로 보호된 데이터베이스를 내보내는 경우 내보내는 데이터베이스의 콘텐츠는 암호화되지 않습니다. 이 내보낸 콘텐츠는 암호화되지 않은 BACPAC 파일에 저장됩니다. BACPAC 파일을 적절히 보호하고, 새 데이터베이스 가져오기가 완료되면 투명한 데이터 암호화를 사용하도록 설정합니다.
 
@@ -70,11 +74,11 @@ Azure 내에서 작업용 데이터베이스를 해독할 필요가 없습니다
 
 Azure Portal을 통해 투명한 데이터 암호화를 구성하려면 사용자가 Azure 소유자, 기여자 또는 SQL 보안 관리자 권한으로 연결되어야 합니다.
 
-투명한 데이터 암호화는 데이터베이스 수준에서 설정합니다. 데이터베이스에서 투명한 데이터 암호화를 사용하도록 설정하려면 [Azure Portal](https://portal.azure.com)로 이동하여 Azure 관리자 또는 기여자 계정으로 로그인합니다. 사용자 데이터베이스 아래에서 투명한 데이터 암호화 설정을 찾습니다. 기본적으로 서비스 관리 투명한 데이터 암호화를 사용하도록 설정되어 있습니다. 투명한 데이터 암호화 인증서는 데이터베이스가 포함된 서버에 대해 자동으로 생성됩니다.
+데이터베이스 수준에서 투명한 데이터 암호화를 설정 및 해제합니다. 데이터베이스에서 투명한 데이터 암호화를 사용하도록 설정하려면 [Azure Portal](https://portal.azure.com)로 이동하여 Azure 관리자 또는 기여자 계정으로 로그인합니다. 사용자 데이터베이스 아래에서 투명한 데이터 암호화 설정을 찾습니다. 기본적으로 서비스 관리 투명한 데이터 암호화를 사용하도록 설정되어 있습니다. 투명한 데이터 암호화 인증서는 데이터베이스가 포함된 서버에 대해 자동으로 생성됩니다. Azure SQL Managed Instance의 경우 T-SQL을 사용하여 데이터베이스에서 투명한 데이터 암호화를 설정 및 해제합니다.
 
-![서비스 관리 투명한 데이터 암호화](./media/transparent-data-encryption-azure-sql/service-managed-tde.png)  
+![서비스 관리 투명한 데이터 암호화](./media/transparent-data-encryption-azure-sql/service-managed-tde.png)  
 
-투명한 데이터 암호화 보호기라고도 하는 투명한 데이터 암호화 마스터 키는 서버 수준에서 설정합니다. Bring Your Own Key 지원을 통해 투명한 데이터 암호화를 사용하고 Key Vault의 키를 사용하여 데이터베이스를 보호하려면 서버에 속한 투명한 데이터 암호화 설정을 참조하세요.
+투명한 데이터 암호화 보호기라고도 하는 투명한 데이터 암호화 마스터 키는 서버 수준에서 설정합니다. Bring Your Own Key 지원을 통해 투명한 데이터 암호화를 사용하고 Key Vault의 키를 사용하여 데이터베이스를 보호하려면 서버에 속한 투명한 데이터 암호화 설정을 여세요.
 
 ![Bring Your Own Key 지원을 통한 투명한 데이터 암호화](./media/transparent-data-encryption-azure-sql/tde-byok-support.png)
 
@@ -82,17 +86,24 @@ Azure Portal을 통해 투명한 데이터 암호화를 구성하려면 사용�
 
 PowerShell을 통해 투명한 데이터 암호화를 구성하려면 사용자가 Azure 소유자, 기여자 또는 SQL 보안 관리자 권한으로 연결되어야 합니다.
 
+### <a name="cmdlets-for-azure-sql-database-and-data-warehouse"></a>Azure SQL Data Warehouse 및 Data Warehouse용 cmdlet
+
+Azure SQL Data Warehouse 및 Data Warehouse에 대해 다음 cmdlet을 사용합니다.
+
 | Cmdlet | 설명 |
 | --- | --- |
-| [Set-AzureRmSqlDatabaseTransparentDataEncryption](/powershell/module/azurerm.sql/set-azurermsqldatabasetransparentdataencryption) |데이터베이스에 대한 투명한 데이터 암호화를 사용하거나 사용하지 않도록 설정합니다.|
-| [Get-Azure-Rm-Sql-Database-Transparent-Data-Encryption](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption) |데이터베이스에 대한 투명한 데이터 암호화 상태를 가져옵니다. |
-| [Get-Azure-Rm-Sql-Database-Transparent-Data-Encryption-Activity](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryptionactivity) |데이터베이스에 대한 암호화 진행률을 확인합니다. |
-| [Add-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) |SQL Server 인스턴스에 Key Vault 키를 추가합니다. |
-| [Get-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/get-azurermsqlserverkeyvaultkey) |SQL Server 인스턴스에 대한 Key Vault 키를 가져옵니다.  |
-| [Set-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) |SQL Server 인스턴스에 대한 투명한 데이터 암호화 보호기를 설정합니다. |
-| [Get-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/get-azurermsqlservertransparentdataencryptionprotector) |투명한 데이터 암호화 보호기를 가져옵니다. |
-| [Remove-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/remove-azurermsqlserverkeyvaultkey) |SQL Server 인스턴스에서 Key Vault 키를 제거합니다. |
+| [Set-AzureRmSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasetransparentdataencryption) |데이터베이스에 대한 투명한 데이터 암호화를 사용하거나 사용하지 않도록 설정합니다.|
+| [Get-AzureRmSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption) |데이터베이스에 대한 투명한 데이터 암호화 상태를 가져옵니다. |
+| [Get-AzureRmSqlDatabaseTransparentDataEncryptionActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryptionactivity) |데이터베이스에 대한 암호화 진행률을 확인합니다. |
+| [Add-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) |SQL Server 인스턴스에 Key Vault 키를 추가합니다. |
+| [Get-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlserverkeyvaultkey) |Azure SQL 데이터베이스 서버에 대한 Key Vault 키를 가져옵니다.  |
+| [Set-AzureRmSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) |SQL Server 인스턴스에 대한 투명한 데이터 암호화 보호기를 설정합니다. |
+| [Get-AzureRmSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlservertransparentdataencryptionprotector) |투명한 데이터 암호화 보호기를 가져옵니다. |
+| [Remove-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlserverkeyvaultkey) |SQL Server 인스턴스에서 Key Vault 키를 제거합니다. |
 |  | |
+
+> [!IMPORTANT]
+> Azure SQL Managed Instance의 경우 T-SQL [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) 명령을 사용하여 데이터베이스 수준에서 투명한 데이터 암호화를 설정 및 해제하고 [샘플 PowerShell 스크립트](transparent-data-encryption-byok-azure-sql-configure.md)를 확인하여 인스턴스 수준에서 투명한 데이터 암호화를 관리합니다.
 
 ## <a name="manage-transparent-data-encryption-by-using-transact-sql"></a>Transact-SQL을 통한 투명한 데이터 암호화 관리
 
@@ -100,9 +111,9 @@ master 데이터베이스에서 **dbmanager** 역할의 관리자 또는 구성�
 
 | 명령 | 설명 |
 | --- | --- |
-| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) | SET ENCRYPTION ON/OFF는 데이터베이스를 암호화하거나 해독합니다. |
-| [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |데이터베이스 및 연결된 해당 데이터베이스 암호화 키의 암호화 상태에 대한 정보를 반환합니다. |
-| [sys.dm_pdw_nodes_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql) |각 데이터 웨어하우스 노드 및 연결된 해당 데이터베이스 암호화 키의 암호화 상태에 대한 정보를 반환합니다. |
+| [ALTER DATABASE (Azure SQL Database)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) | SET ENCRYPTION ON/OFF는 데이터베이스를 암호화하거나 해독합니다. |
+| [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |데이터베이스 및 연결된 해당 데이터베이스 암호화 키의 암호화 상태에 대한 정보를 반환합니다. |
+| [sys.dm_pdw_nodes_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-nodes-database-encryption-keys-transact-sql) |각 데이터 웨어하우스 노드 및 연결된 해당 데이터베이스 암호화 키의 암호화 상태에 대한 정보를 반환합니다. |
 |  | |
 
 투명한 데이터 암호화 보호기는 Transact-SQL을 사용하여 Key Vault의 키로 전환할 수 없습니다. 대신 PowerShell 또는 Azure Portal을 사용합니다.
@@ -110,6 +121,7 @@ master 데이터베이스에서 **dbmanager** 역할의 관리자 또는 구성�
 ## <a name="manage-transparent-data-encryption-by-using-the-rest-api"></a>REST API를 통한 투명한 데이터 암호화 관리
 
 REST API를 통해 투명한 데이터 암호화를 구성하려면 사용자가 Azure 소유자, 기여자 또는 SQL 보안 관리자 권한으로 연결되어야 합니다.
+Azure SQL Data Warehouse 및 Data Warehouse에 대해 다음 명령 세트를 사용합니다.
 
 | 명령 | 설명 |
 | --- | --- |
@@ -128,6 +140,6 @@ REST API를 통해 투명한 데이터 암호화를 구성하려면 사용자가
 ## <a name="next-steps"></a>다음 단계
 
 - 투명한 데이터 암호화에 대한 일반적인 설명은 [투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)를 참조하세요.
-- SQL Database 및 Data Warehouse에 Bring Your Own Key 지원을 사용하는 투명한 데이터 암호화에 대한 자세한 내용은 [Bring Your Own Key 지원을 통한 투명한 데이터 암호화](transparent-data-encryption-byok-azure-sql.md)를 참조하세요.
+- Azure SQL Database, Azure SQL Managed Instance 및 Data Warehouse에 Bring Your Own Key 지원을 사용하는 투명한 데이터 암호화에 대한 자세한 내용은 [Bring Your Own Key 지원을 통한 투명한 데이터 암호화](transparent-data-encryption-byok-azure-sql.md)를 참조하세요.
 - Bring Your Own Key 지원을 통해 투명한 데이터 암호화의 사용을 시작하려면 [PowerShell을 통해 Key Vault에서 사용자 고유 키를 사용하여 투명한 데이터 암호화를 설정하는 방법](transparent-data-encryption-byok-azure-sql-configure.md) 가이드를 참조하세요.
 - Key Vault에 대한 자세한 내용은 [Key Vault 설명서 페이지](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)를 참조하세요.

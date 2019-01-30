@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: saudas
-ms.openlocfilehash: a17e2fa4bef6890d59f7e66c6ede349f8dee3b8a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 3e8342a719bf9ae7174195f88b97972d7f13193c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280456"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465788"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 지원되는 Kubernetes 버전
 
 Kubernetes 커뮤니티에서는 대략 3개월마다 부 버전을 릴리스합니다. 이러한 릴리스에는 새로운 기능과 향상된 기능이 포함됩니다. 패치는 더 자주 릴리스되며(매주 릴리스되기도 함), 부 버전의 중요한 버그 수정용으로만 제공됩니다. 이러한 패치 릴리스에는 Kubernetes 기반 프로덕션 환경에서 실행되는 제품 및 다수의 고객에게 영향을 주는 중요한 버그나 보안 취약성용 수정이 포함됩니다.
 
-새 Kubernetes 부 버전은 릴리스 당일에 [acs-engine][acs-engine]에서 제공됩니다. AKS SLO(서비스 수준 목표)에 따른 AKS 클러스터 부 버전 릴리스 목표 기간은 30일 이내입니다(릴리스 안정성에 따라 달라질 수 있음).
+새 Kubernetes 부 버전은 릴리스 당일에 [aks-engine][aks-engine]에서 제공됩니다. AKS SLO(서비스 수준 목표)에 따른 AKS 클러스터 부 버전 릴리스 목표 기간은 30일 이내입니다(릴리스 안정성에 따라 달라질 수 있음).
 
 ## <a name="kubernetes-version-support-policy"></a>Kubernetes 버전 지원 정책
 
@@ -41,19 +41,20 @@ AKS에서 지원하는 Kubernetes의 4개 부 버전은 다음과 같습니다.
 az aks get-versions --location eastus --output table
 ```
 
-출력은 다음 예제와 비슷합니다. 예제의 경우 Kubernetes 버전 *1.11.3*이 사용할 수 있는 최신 버전입니다.
+출력은 다음 예제와 비슷하며, Kubernetes 버전 *1.12.4*가 사용할 수 있는 최신 버전임을 보여 줍니다.
 
 ```
 KubernetesVersion    Upgrades
--------------------  ----------------------
-1.11.3               None available
-1.11.2               1.11.3
-1.10.8               1.11.2, 1.11.3
-1.10.7               1.10.8, 1.11.2, 1.11.3
-1.9.10               1.10.7, 1.10.8
-1.9.9                1.9.10, 1.10.7, 1.10.8
-1.8.15               1.9.9, 1.9.10
-1.8.14               1.8.15, 1.9.9, 1.9.10
+-------------------  -----------------------
+1.12.4               None available
+1.11.6               1.12.4
+1.11.5               1.11.6, 1.12.4
+1.10.12              1.11.5, 1.11.6
+1.10.9               1.10.12, 1.11.5, 1.11.6
+1.9.11               1.10.9, 1.10.12
+1.9.10               1.9.11, 1.10.9, 1.10.12
+1.8.15               1.9.10, 1.9.11
+1.8.14               1.8.15, 1.9.10, 1.9.11
 ```
 
 ## <a name="faq"></a>FAQ
@@ -84,7 +85,7 @@ AKS에서 지원되지 않는 부 버전에서도 규모 감축이나 확장은 
 클러스터를 업그레이드하는 방법에 대한 자세한 내용은 [AKS(Azure Kubernetes Service) 클러스터 업그레이드][aks-upgrade]를 참조하세요.
 
 <!-- LINKS - External -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [azure-update-channel]: https://azure.microsoft.com/updates/?product=kubernetes-service
 
 <!-- LINKS - Internal -->

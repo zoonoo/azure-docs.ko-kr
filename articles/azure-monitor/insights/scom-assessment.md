@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 1b6f157ce8a184885fcd1cd6bbde912516916db9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: fc625192464dce174b4c2a6d8a2a98343519699f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52429728"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186126"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>System Center Operations Manager Health Check(미리 보기) 솔루션을 사용하여 환경 최적화
 
@@ -161,8 +159,8 @@ System Center Operations Manager Health Check 솔루션의 관리 팩에는 *Mic
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>특정 관리 서버에 대한 규칙을 사용하도록 설정
 
 1. Operations Manager Operations 콘솔의 **제작** 작업 영역에서 **규칙** 창의 *Microsoft System Center Advisor SCOM 평가 실행 평가 규칙*이라는 규칙을 검색합니다.
-2. 검색 결과에서 *유형: 관리 서버*라는 텍스트를 포함하는 항목을 선택합니다.
-3. 규칙을 오른쪽 클릭한 다음 **재정의** > **다음 클래스의 특정 개체: 관리 서버**를 클릭합니다.
+2. 검색 결과에서 *유형: 관리 서버*라는 텍스트가 포함된 항목을 선택합니다.
+3. 마우스 오른쪽 단추로 규칙을 클릭한 다음, **재정의** > **다음 클래스의 특정 개체: 관리 서버**를 클릭합니다.
 4.  사용 가능한 관리 서버 목록에서 규칙을 실행할 관리 서버를 선택합니다.  앞에서 실행 계정에 연결하도록 구성한 것과 같은 관리 서버여야 합니다.
 5.  **사용** 매개 변수 값에 대한 재정의 값을 **참**으로 변경해야 합니다.<br><br> ![재정의 매개 변수](./media/scom-assessment/rule.png)
 
@@ -173,7 +171,7 @@ System Center Operations Manager Health Check 솔루션의 관리 팩에는 *Mic
 평가는 기본적으로 10,080분(또는 7일) 주기로 실행되도록 구성됩니다. 값을 최소값인 1440분(또는 1일)으로 재정의할 수 있습니다. 이 값은 연속적인 평가 실행 사이에 필요한 최소 시간 간격을 나타냅니다. 간격을 재정의하려면 아래 단계를 사용합니다.
 
 1. Operations Manager 콘솔의 **제작** 작업 영역에서 **규칙** 섹션의 *Microsoft System Center Advisor SCOM 평가 실행 평가 규칙*이라는 규칙을 검색합니다.
-2. 검색 결과에서 *유형: 관리 서버*라는 텍스트를 포함하는 항목을 선택합니다.
+2. 검색 결과에서 *유형: 관리 서버*라는 텍스트가 포함된 항목을 선택합니다.
 3. 규칙을 오른쪽 클릭한 다음 **Override the Rule**(규칙 재정의) > **다음 클래스의 모든 개체: 관리 서버**를 클릭합니다.
 4. **간격** 매개 변수 값을 원하는 간격 값으로 변경합니다. 아래 예의 경우 값이 1440분(1일)으로 설정되어 있습니다.<br><br> ![간격 매개 변수](./media/scom-assessment/interval.png)<br>  
 
@@ -238,7 +236,7 @@ Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션�
     ```
 
     >[!NOTE]
-    > 작업 영역을 [새 Log Analytics 쿼리 언어](../../log-analytics/log-analytics-queries.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
+    > 작업 영역을 [새 Log Analytics 쿼리 언어](../../azure-monitor/log-query/log-query-overview.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -263,7 +261,7 @@ Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션�
     ```
 
     >[!NOTE]
-    > 작업 영역을 [새 Log Analytics 쿼리 언어](../../log-analytics/log-analytics-queries.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
+    > 작업 영역을 [새 Log Analytics 쿼리 언어](../../azure-monitor/log-query/log-query-overview.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -304,4 +302,4 @@ Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [로그를 검색하여](../../log-analytics/log-analytics-queries.md) 상세 System Center Operations Manager Health Check 데이터 및 권장 사항의 분석 방법을 알아봅니다.
+- [로그를 검색하여](../../azure-monitor/log-query/log-query-overview.md) 상세 System Center Operations Manager Health Check 데이터 및 권장 사항의 분석 방법을 알아봅니다.

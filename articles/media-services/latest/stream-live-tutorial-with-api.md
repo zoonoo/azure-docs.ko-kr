@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/08/2018
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: 7863f007093b5a86fb5095ee8bf1e14fc01d0348
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: c51a36f4380199de1ac62ef3f0c32bd0a8f06c01
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613395"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811216"
 ---
-# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>자습서: API를 사용하여 Azure Media Services v3에서 라이브 스트림
+# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>자습서: API를 사용하여 Media Services v3으로 라이브 스트리밍
 
 [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents)는 Azure Media Services에서 라이브 스트리밍 콘텐츠를 처리하는 작업을 담당합니다. LiveEvent는 라이브 인코더에 제공할 입력 엔드포인트(수집 URL)를 제공합니다. LiveEvent는 라이브 인코더에서 라이브 입력 스트림을 수신하여 하나 이상의 [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints)를 통해 스트리밍하는 데 사용할 수 있도록 합니다. 또한 LiveEvents는 스트림을 추가로 처리하고 배달하기 전에 미리 보고 유효성을 검색하는 데 사용되는 미리 보기 엔드포인트(미리 보기 URL)을 제공합니다. 이 자습서에는 .NET Core를 사용하여 **통과** 형식의 라이브 이벤트를 만드는 방법을 보여줍니다. 
 
@@ -46,7 +46,7 @@ ms.locfileid: "51613395"
 - Visual Studio Code 또는 Visual Studio 설치
 - CLI를 로컬로 설치하여 사용하기 위해 이 문서에는 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
-    현재 일부 [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) 명령만 Azure Cloud Shell에서 작동합니다. CLI를 로컬로 사용하는 것이 좋습니다.
+    현재 일부 [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) 명령은 Azure Cloud Shell에서 작동하지 않습니다. CLI를 로컬로 사용하는 것이 좋습니다.
 
 - [Media Services 계정 만들기](create-account-cli-how-to.md)
 
@@ -89,7 +89,7 @@ ms.locfileid: "51613395"
 
 ### <a name="create-a-live-event"></a>라이브 이벤트 만들기
 
-이 섹션에서는 **통과** 형식의 LiveEvent를 만드는 방법을 보여줍니다(None으로 설정된 LiveEventEncodingType). 라이브 인코딩에 사용된 LiveEvent를 만들려는 경우 LiveEventEncodingType를 기본으로 설정합니다. 
+이 섹션에서는 **통과** 형식의 LiveEvent를 만드는 방법을 보여줍니다(None으로 설정된 LiveEventEncodingType). 라이브 인코딩이 가능한 LiveEvent를 만들려면 LiveEventEncodingType을 **Standard**로 설정합니다. 
 
 라이브 이벤트를 만들 때 지정할 수 있는 몇 가지 다른 점은 다음과 같습니다.
 
@@ -100,14 +100,18 @@ ms.locfileid: "51613395"
 * 수집 및 미리 보기에서 IP 제한입니다. 이 LiveEvent에 비디오를 수집하도록 허용된 IP 주소를 정의할 수 있습니다. 허용된 IP 주소는 단일 IP 주소(예: '10.0.0.1'), IP 주소 및 CIDR 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1/22') 또는 IP 주소와 점으로 구분된 십진수 서브넷 마스크를 사용하는 IP 범위(예: '10.0.0.1(255.255.252.0)')로 지정할 수 있습니다.
     
     지정된 IP 주소가 없고 정의된 규칙이 없는 경우, IP 주소가 허용되지 않습니다. 모든 IP 주소를 허용하려면 규칙을 만들고 0.0.0.0/0으로 설정합니다.
+    
+    IP 주소가 다음 형식 중 하나에 있어야 합니다. 4개의 숫자를 사용하는 IpV4 주소, CIDR 주소 범위.
 
-이벤트를 만들 때 자동 시작을 지정할 수 있습니다. 
+* 이벤트를 만들 때 자동 시작을 지정할 수 있습니다. 
+
+    Autostart가 true로 설정되어 있는 경우 Live Event가 생성 후 시작됩니다. 즉, Live Event를 실행하는 즉시 청구가 시작됩니다. 추가 청구를 중지하려면 LiveEvent 리소스에 대해 명시적으로 Stop을 호출해야 합니다. 자세한 내용은 [LiveEvent 상태 및 청구](live-event-states-billing.md)를 참조하세요.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 
 ### <a name="get-ingest-urls"></a>수집 URL 가져오기
 
-채널을 만든 후 라이브 인코더에 제공할 수집 URL을 가져올 수 있습니다. 인코더는 이러한 URL을 사용하여 라이브 스트림을 입력합니다.
+LiveEvent가 생성되면 라이브 인코더에 제공할 수집 URL을 구할 수 있습니다. 인코더는 이러한 URL을 사용하여 라이브 스트림을 입력합니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetIngestURL)]
 

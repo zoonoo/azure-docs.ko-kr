@@ -15,16 +15,16 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 629189b9dbe2327763d364abc95f49539a312c53
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: b98b42be170c37710435d1aad61707a4ed01851f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
-ms.locfileid: "25983901"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214423"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>컨테이너 이름 접두사를 기준으로 컨테이너 삭제
 
-이 스크립트는 컨테이너 이름에 접두사에 따라 Azure Blob 저장소의 컨테이너를 삭제합니다.
+이 스크립트는 컨테이너 이름에 접두사에 따라 Azure Blob Storage의 컨테이너를 삭제합니다.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -39,21 +39,21 @@ ms.locfileid: "25983901"
 다음 명령을 실행하여 리소스 그룹, 나머지 컨테이너 및 모든 관련된 리소스를 제거합니다.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name containerdeletetestrg
+Remove-AzResourceGroup -Name containerdeletetestrg
 ```
 
 ## <a name="script-explanation"></a>스크립트 설명
 
 이 스크립트는 다음 명령을 사용하여 컨테이너 이름 접두사를 기준으로 컨테이너를 삭제합니다. 표에 있는 각 항목은 명령 관련 설명서에 연결됩니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
-| [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/get-azurermstorageaccount) | 리소스 그룹 또는 구독의 지정된 저장소 계정 또는 모든 저장소 계정을 가져옵니다. |
-| [Get-AzureStorageContainer](/powershell/module/azure.storage/get-azurestoragecontainer) | 저장소 계정에 연결된 저장소 컨테이너를 나열합니다. |
-| [Remove-AzureStorageContainer](/powershell/module/azure.storage/remove-azurestoragecontainer) | 지정된 저장소 컨테이너를 제합니다. |
+| [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | 리소스 그룹 또는 구독의 지정된 저장소 계정 또는 모든 저장소 계정을 가져옵니다. |
+| [Get-AzStorageContainer](/powershell/module/az.storage/Get-AzStorageContainer) | 저장소 계정에 연결된 저장소 컨테이너를 나열합니다. |
+| [Remove-AzStorageContainer](/powershell/module/az.storage/Remove-AzStorageContainer) | 지정된 저장소 컨테이너를 제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
 
-추가 저장소 PowerShell 스크립트 샘플은 [Azure Blob Storage에 대한 PowerShell 샘플](../blobs/storage-samples-blobs-powershell.md)에서 찾을 수 있습니다.
+추가 스토리지 PowerShell 스크립트 샘플은 [Azure Blob Storage에 대한 PowerShell 샘플](../blobs/storage-samples-blobs-powershell.md)에서 찾을 수 있습니다.

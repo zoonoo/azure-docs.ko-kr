@@ -21,9 +21,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/26/2018
 ms.locfileid: "52331245"
 ---
-## <a name="add-the-applications-registration-information-to-your-app"></a>앱에 응용 프로그램의 등록 정보 추가
+## <a name="add-the-applications-registration-information-to-your-app"></a>앱에 애플리케이션의 등록 정보 추가
 
-이 단계에서는 응용 프로그램 등록 정보의 리디렉션 URL을 구성하고 JavaScript SPA 응용 프로그램에 응용 프로그램 ID를 추가해야 합니다.
+이 단계에서는 애플리케이션 등록 정보의 리디렉션 URL을 구성하고 JavaScript SPA 애플리케이션에 애플리케이션 ID를 추가해야 합니다.
 
 ### <a name="configure-redirect-url"></a>리디렉션 URL 구성
 
@@ -38,12 +38,12 @@ ms.locfileid: "52331245"
 <p/>
 
 > #### <a name="setting-redirect-url-for-node"></a>Node에 대한 리디렉션 URL 설정
-> Node.js의 경우 *server.js* 파일에서 웹 서버 포트를 설정할 수 있습니다. 이 자습서는 참조를 위해 포트 30662를 사용하지만 사용 가능한 다른 포트도 사용할 수 있습니다. 아래 지침에 따라 응용 프로그램 등록 정보에 리디렉션 URL을 설정합니다.<br/>
+> Node.js의 경우 *server.js* 파일에서 웹 서버 포트를 설정할 수 있습니다. 이 자습서는 참조를 위해 포트 30662를 사용하지만 사용 가능한 다른 포트도 사용할 수 있습니다. 아래 지침에 따라 애플리케이션 등록 정보에 리디렉션 URL을 설정합니다.<br/>
 > 이 페이지 맨 위에서 `http://localhost:30662/`를 **리디렉션 URL**로 설정하거나 사용자 지정 TCP 포트를 사용하는 경우 `http://localhost:[port]/`를 사용하고(여기서 *[port]* 는 사용자 지정 TCP 포트 번호임) **업데이트**를 클릭합니다.
 
-### <a name="configure-your-javascript-spa-application"></a>JavaScript SPA 응용 프로그램 구성
+### <a name="configure-your-javascript-spa-application"></a>JavaScript SPA 애플리케이션 구성
 
-1. 프로젝트 설정 중에 생성된 `index.html` 파일에서 응용 프로그램 등록 정보를 추가합니다. 맨 위에 있는 다음 코드를 `index.html` 파일 본문의 `<script></script>` 태그 내에 추가합니다.
+1. 프로젝트 설정 중에 생성된 `index.html` 파일에서 애플리케이션 등록 정보를 추가합니다. 맨 위에 있는 다음 코드를 `index.html` 파일 본문의 `<script></script>` 태그 내에 추가합니다.
 
 ```javascript
 var applicationConfig = {

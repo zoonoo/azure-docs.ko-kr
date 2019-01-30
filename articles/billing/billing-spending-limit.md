@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
-ms.openlocfilehash: a564e72cc695830edfa5092eddc1f4f9b80ba519
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b4f38d80bfddc342d83a3552efe5d4a60cf6350f
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583537"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680126"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Azure 지출 한도의 작동 방식 및 제거 방법 이해
 
@@ -29,7 +29,7 @@ Azure에서 지출 한도는 크레딧 액수를 초과하여 지출하는 것�
 
 구독에 포함된 월별 할당량을 모두 사용할 경우 해당 청구 기간의 나머지 기간 동안 배포한 서비스가 비활성화됩니다. 
 
-예를 들어 구독에 포함된 모든 크레딧을 소비하는 경우 배포한 Cloud Services가 프로덕션에서 제거되고 Azure 가상 머신이 중지되고 할당이 취소됩니다. 저장소 계정 및 데이터베이스의 데이터는 읽기 전용으로 사용할 수 있습니다.
+예를 들어 구독에 포함된 모든 크레딧을 소비하는 경우 배포한 Cloud Services가 프로덕션에서 제거되고 Azure 가상 머신이 중지되고 할당이 취소됩니다. 스토리지 계정의 데이터는 읽기 전용으로 사용할 수 있습니다.
 
 다음 청구 기간이 시작될 때 구독에 여러 달에 대한 크레딧이 포함될 경우 구독이 다시 사용되도록 자동으로 설정됩니다. 그런 다음 Cloud Services를 다시 배포하고 저장소 계정 및 데이터베이스에 대한 모든 권한을 가질 수 있습니다.
 
@@ -46,7 +46,7 @@ Azure에서 지출 한도는 크레딧 액수를 초과하여 지출하는 것�
 지출 한도를 제거하려면 다음 단계를 수행합니다.
 
 1. [계정 센터](https://account.windowsazure.com/Subscriptions)에 로그인합니다.
-1. 구독을 선택합니다. 지출 한도에 도달하여 구독이 비활성화된 경우 "구독이 지출 한도에 도달하여 요금이 부과되지 않도록 비활성화되었습니다."라는 알림을 클릭합니다. 그렇지 않으면 **구독 상태** 영역에서 **지출 한도 제거**를 클릭합니다.
+1. 구독을 선택합니다. 지출 한도에 도달하여 구독이 비활성화된 경우 "구독이 지출 한도에 도달하여 요금이 부과되지 않도록 비활성화되었습니다." 알림을 클릭합니다. 그렇지 않으면 **구독 상태** 영역에서 **지출 한도 제거**를 클릭합니다.
 1. 적절한 옵션을 선택합니다.
 
 ![지출 한도 제거를 위한 옵션 선택](./media/billing-spending-limit/remove-spending-limit.PNG)
@@ -84,6 +84,6 @@ Azure에서 지출 한도는 크레딧 액수를 초과하여 지출하는 것�
 
 ![Marketplace 구매 경고](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
 
-## <a name="need-help-contact-us"></a>도움 필요 시 문의처
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

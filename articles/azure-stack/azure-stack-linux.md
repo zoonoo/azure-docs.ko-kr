@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 3154c3a5a677f208973d442ff3875bb5ee8df6a1
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.reviewer: unknown
+ms.lastreviewed: 11/16/2018
+ms.openlocfilehash: be537d9598eeda902254e56a9202415f4f498d93
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160633"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245136"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Azure Stack에 Linux 이미지를 추가 합니다.
 

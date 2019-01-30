@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: b16a476f1960c79c378cd3aa18eae789c289eb54
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 44d39dcfd8c271cc97a88da7d1f0bec84bd866df
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244035"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828369"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>가져오기 작업을 위한 하드 드라이브 준비
 
@@ -81,7 +81,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 | BasePath | **[필수]**<br/>이 매개 변수 값은 데이터를 가져올 수 있는 원본의 위치를 나타냅니다. 도구는 이 경로 아래에 있는 모든 데이터를 재귀적으로 복사합니다.<br><br/>**허용되는 값**: 로컬 컴퓨터 또는 유효한 공유 경로의 유효한 경로여야 하며 사용자가 액세스할 수 있어야 합니다. 디렉터리 경로는 절대 경로(상대 경로 아님)이어야 합니다. 경로가 "\\"로 끝나는 경우 디렉터리를 나타내고 "\\"로 끝나지 않는 경로는 파일을 나타냅니다.<br/>이 필드에는 정규식을 사용할 수 없습니다. 경로에 공백이 있으면 "" 안에 경로를 넣습니다.<br><br/>**예제**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
 | DstBlobPathOrPrefix | **[필수]**<br/> Microsoft Azure 저장소 계정의 대상 가상 디렉터리에 대한 경로입니다. 가상 디렉터리가 이미 있거나 없을 수도 있습니다. 없는 경우 Import/Export 서비스에서 하나의 가상 디렉터리를 만듭니다.<br/><br/>대상 가상 디렉터리 또는 BLOB를 지정할 때는 유효한 컨테이너 이름을 사용해야 합니다. 컨테이너 이름은 소문자여야 합니다. 컨테이너 명명 규칙에 대해서는 [컨테이너, Blob, 메타데이터의 명명 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)(영문)를 참조하세요. 루트를 지정하는 경우에만 소스의 디렉터리 구조가 대상 Blob 컨테이너에 복제됩니다. 소스의 디렉터리 구조가 아닌 다른 디렉터리 구조를 사용하는 경우 CSV에서 여러 행을 매핑합니다.<br/><br/>music/70s/와 같이 컨테이너 또는 Blob 접두사를 지정할 수 있습니다. 대상 디렉터리는 컨테이너 이름과 "/"(슬래시)로 시작해야 하며 선택적으로 "/"로 끝나는 가상 Blob 디렉터리를 포함할 수도 있습니다.<br/><br/>대상 컨테이너가 루트 컨테이너인 경우 슬래시를 포함하여 $root/로 루트 컨테이너를 명시적으로 지정해야 합니다. 루트 컨테이너 아래의 Blob에는 이름에 "/"를 포함할 수 없으므로 대상 디렉터리가 루트 컨테이너인 경우 원본 디렉터리의 모든 하위 디렉터리는 복사되지 않습니다.<br/><br/>**예제**<br/>대상 Blob 경로가 https://mystorageaccount.blob.core.windows.net/video이면 이 필드의 값은 video/일 수 있습니다.  |
 | BlobType | **[선택]** block &#124; page<br/>현재 Import/Export 서비스는 두 가지 종류의 Blob을 지원합니다. 페이지 Blob과 블록 Blob은 기본적으로 모든 파일을 블록 Blob으로 가져옵니다. 그리고 \*.vhd\* 및 .vhdx는 페이지 Blob으로 가져오게 됩니다. 블록 Blob 및 페이지 Blob에 허용되는 크기는 제한됩니다. 자세한 내용은 [저장소 확장성 목표](storage-scalability-targets.md)를 참조하세요.  |
-| Disposition | **[선택]** rename &#124; no-overwrite &#124; overwrite <br/> 이 필드는 가져오기 중, 즉 디스크에서 저장소 계정으로 데이터를 업로드할 때의 복사 동작을 지정합니다. 디스크에서 저장소 계정으로 데이터를 업로드할 때 사용 가능한 옵션은 이름 바꾸기, 덮어쓰기, 덮어쓰지 않기입니다. 아무 것도 지정하지 않는 경우 기본값으로 "이름 바꾸기"를 사용합니다. <br/><br/>**이름 바꾸기**: 이름이 같은 개체가 있으면 대상에 복사본을 만듭니다.<br/>overwrite: 파일을 새 파일로 덮어씁니다. 마지막으로 수정된 파일이 우선합니다.<br/>**no-overwrite**: 이미 파일이 있는 경우 파일 쓰기를 건너뜁니다.|
+| Disposition | **[선택]** rename &#124; no-overwrite &#124; overwrite <br/> 이 필드는 가져오기 중, 즉 디스크에서 저장소 계정으로 데이터를 업로드할 때의 복사 동작을 지정합니다. 디스크에서 저장소 계정으로 데이터를 업로드할 때 사용 가능한 옵션은 이름 바꾸기, 덮어쓰기, 덮어쓰지 않기입니다. 아무것도 지정하지 않는 경우 기본값으로 "이름 바꾸기"를 사용합니다. <br/><br/>**Rename**: 이름이 같은 개체가 있으면 대상에 복사본을 만듭니다.<br/>overwrite: 파일을 새 파일로 덮어씁니다. 마지막으로 수정된 파일이 우선합니다.<br/>**No-overwrite**: 이미 파일이 있는 경우 파일 쓰기를 건너뜁니다.|
 | MetadataFile | **[선택]** <br/>이 필드의 값은 개체의 메타데이터를 보존해야 하거나 사용자 지정 메타데이터를 제공해야 하는 경우 제공할 수 있는 메타데이터 파일입니다. 대상 Blob에 대한 메타데이터 파일의 경로입니다. 자세한 내용은 [Import/Export 서비스의 메타데이터 및 속성 파일 형식](../storage-import-export-file-format-metadata-and-properties.md)을 참조하세요. |
 | PropertiesFile | **[선택]** <br/>대상 Blob에 대한 속성 파일의 경로입니다. 자세한 내용은 [Import/Export 서비스의 메타데이터 및 속성 파일 형식](../storage-import-export-file-format-metadata-and-properties.md)을 참조하세요. |
 
@@ -110,10 +110,10 @@ H,Format,SilentMode,Encrypt,
 | 필드 | 값 |
 | --- | --- |
 | DriveLetter | **[필수]**<br/> 대상으로 도구에 제공되는 각 드라이브에는 NTFS 단순 볼륨과 여기에 할당된 드라이브 문자가 있어야 합니다.<br/> <br/>**예제**: R 또는 r |
-| FormatOption | **[필수]** Format &#124; AlreadyFormatted<br/><br/> **Format**: 이 값을 지정하면 디스크의 모든 데이터가 포맷됩니다. <br/>**AlreadyFormatted**: 이 값을 지정하면 포맷을 건너뜁니다. |
-| SilentOrPromptOnFormat | **[필수]** SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**: 이 값을 제공하면 사용자가 자동 모드에서 도구를 실행할 수 있습니다. <br/>**PromptOnFormat**: 도구에서 해당 작업이 실제로 모든 형식을 대상으로 하는지 여부를 확인하도록 요구하는 메시지를 사용자에게 표시합니다.<br/><br/>설정하지 않으면 명령이 중단되고 "잘못된 SilentOrPromptOnFormat 값: 없음"이라는 오류 메시지를 표시합니다. |
-| 암호화 | **[필수]** Encrypt &#124; AlreadyEncrypted<br/> 이 필드의 값은 암호화할 디스크와 암호화하지 않을 디스크를 결정합니다. <br/><br/>**암호화**: 도구에서 드라이브를 포맷합니다. "FormatOption" 필드의 값이 "Format"인 경우 이 값은 "Encrypt"여야 합니다. 이 경우 "AlreadyEncrypted"를 지정하면 "Format이 지정되면 Encrypt도 지정해야 합니다,"라는 오류가 발생합니다.<br/>**AlreadyEncrypted**: 도구에서 "ExistingBitLockerKey" 필드에 제공된 BitLockerKey를 사용하여 드라이브 암호화를 해제합니다. "FormatOption" 필드의 값이 "AlreadyFormatted"인 경우 이 값은 "Encrypt" 또는 "AlreadyEncrypted"입니다. |
-| ExistingBitLockerKey | **[필수]** "Encryption" 필드의 값이 "AlreadyEncrypted"인 경우<br/> 이 필드의 값은 특정 디스크와 연결되는 BitLocker 키입니다. <br/><br/>"Encryption" 필드의 값이 "Encrypt"인 경우 이 필드는 비워 두어야 합니다.  이 경우 BitLocker 키가 지정되면 "BitLocker 키는 지정할 수 없습니다."라는 오류가 발생합니다.<br/>  **예제**: 060456-014509-132033-080300-252615-584177-672089-411631|
+| FormatOption | **[필수]** Format &#124; AlreadyFormatted<br/><br/> **Format**: 이 값을 지정하면 디스크의 모든 데이터가 포맷됩니다. <br/>**AlreadyFormatted**: 이 값을 지정하면 도구에서 포맷을 건너뜁니다. |
+| SilentOrPromptOnFormat | **[필수]** SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**: 이 값을 제공하면 사용자가 자동 모드에서 도구를 실행할 수 있습니다. <br/>**PromptOnFormat**: 도구에서 해당 작업이 실제로 모든 형식을 대상으로 하는지 여부를 확인하라는 메시지를 사용자에게 표시합니다.<br/><br/>설정되지 않은 경우 명령이 중단되고 오류 메시지가 표시됩니다. “SilentOrPromptOnFormat에 대한 잘못된 값: none” |
+| 암호화 | **[필수]** Encrypt &#124; AlreadyEncrypted<br/> 이 필드의 값은 암호화할 디스크와 암호화하지 않을 디스크를 결정합니다. <br/><br/>**Encrypt**: 도구에서 드라이브를 포맷합니다. "FormatOption" 필드의 값이 "Format"인 경우 이 값은 "Encrypt"여야 합니다. 이 경우 "AlreadyEncrypted"를 지정하면 "Format이 지정되면 Encrypt도 지정해야 합니다,"라는 오류가 발생합니다.<br/>**AlreadyEncrypted**: 도구에서 “ExistingBitLockerKey” 필드에 제공된 BitLockerKey를 사용하여 드라이브 암호를 해독합니다. "FormatOption" 필드의 값이 "AlreadyFormatted"인 경우 이 값은 "Encrypt" 또는 "AlreadyEncrypted"입니다. |
+| ExistingBitLockerKey | **[필수]** "Encryption" 필드의 값이 "AlreadyEncrypted"인 경우<br/> 이 필드의 값은 특정 디스크와 연결되는 BitLocker 키입니다. <br/><br/>"Encryption" 필드의 값이 "Encrypt"인 경우 이 필드는 비워 두어야 합니다.  이 경우 BitLocker 키가 지정되면 “BitLocker 키는 지정할 수 없습니다.”라는 오류가 발생합니다.<br/>  **예제**: 060456-014509-132033-080300-252615-584177-672089-411631|
 
 ##  <a name="preparing-disk-for-import-job"></a>가져오기 작업을 위한 디스크 준비
 
@@ -341,7 +341,7 @@ Azure Import/Export 도구를 사용하여 준비하는 각 하드 드라이브�
 
 #### <a name="how-can-i-enable-bitlocker-on-my-machine"></a>내 컴퓨터에서 BitLocker를 사용하도록 설정하려면 어떻게 합니까?
 
-시스템 드라이브를 마우스 오른쪽 단추로 클릭만 하면 간단히 확인할 수 있습니다. 이 기능이 설정되어 있으면 Bitlocker에 대한 옵션이 표시되지만, 해제되어 있으면 해당 옵션이 표시되지 않습니다.
+시스템 드라이브를 마우스 오른쪽 단추로 클릭만 하면 간단히 확인할 수 있습니다. 이 기능이 설정되어 있으면 BitLocker에 대한 옵션이 표시되지만, 해제되어 있으면 해당 옵션이 표시되지 않습니다.
 
 ![BitLocker 확인](./media/storage-import-export-tool-preparing-hard-drives-import/BitLocker.png)
 

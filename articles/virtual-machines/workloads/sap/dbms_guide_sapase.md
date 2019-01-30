@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/1/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 243aecbe3627a6cc72de1bc98c301e8fa632ec36
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 31008c61856801785f1277c7baee955ee3f5be60
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075770"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424730"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드에 대한 SAP ASE Azure Virtual Machines DBMS 배포
 
@@ -235,7 +235,7 @@ ms.locfileid: "39075770"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -343,7 +343,7 @@ SAP ASE 실행 파일을 VM의 OS 디스크에 있는 시스템 드라이브(드
 * SAP 설치 루틴에 의해 만들어지는 SAP ASE 및 추가 saptempdb를 설치하여 만들어지는 SAP ASE tempdb
 * ERP/BW 특정 tempdb 요구 사항에 맞게 SAP ASE 및 수동으로 만든 추가 tempdb를 설치하여 만들어지는 SAP ASE tempdb(예: SAP Note [1752266])
 
-특정 ERP 또는 모든 BW 워크로드의 성능상 이유로 추가로 생성된 tempdb 디바이스를 C:\가 아닌 다른 드라이브에 저장하는 것이 좋습니다. 추가 tempdb가 없는 경우 새로 만드는 것이 좋습니다(SAP Note [1752266]).
+특정 ERP 또는 모든 BW 워크로드의 성능상 이유로 추가로 생성된 tempdb 장치를 C:\가 아닌 다른 드라이브에 저장하는 것이 좋습니다. 추가 tempdb가 없는 경우 새로 만드는 것이 좋습니다(SAP Note [1752266]).
 
 이러한 시스템의 경우, 추가로 생성된 tempdb에 대해 다음 단계를 실행해야 합니다.
 
@@ -463,7 +463,7 @@ SRS 설치 및 작동은 Azure Virtual Machine 서비스에서 호스트되는 V
 SAP ASE HADR은 Azure Internal Load Balancer가 필요하지 않으며 OS 수준 클러스터링을 사용하지 않습니다. Azure Windows 및 Linux VM에서 작동합니다. SAP ASE HADR에 대한 자세한 내용은 [SAP ASE HADR 사용자 가이드](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.3/en-US/a6645e28bc2b1014b54b8815a64b87ba.html)를 참조하세요.
 
 ## <a name="specifics-to-sap-ase-on-linux"></a>Linux의 SAP ASE에 대한 고유 정보
-Microsoft Azure부터 기존 SAP ASE 응용 프로그램을 쉽게 Azure Virtual Machines로 마이그레이션할 수 있습니다. Virtual Machine에서 SAP ASE를 사용하면 이러한 응용 프로그램을 Microsoft Azure로 쉽게 마이그레이션하여 엔터프라이즈 수준의 응용 프로그램에 대한 배포, 관리 및 유지 관리의 총 소유 비용을 줄일 수 있습니다. Azure Virtual Machine에서 SAP ASE를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
+Microsoft Azure부터 기존 SAP ASE 애플리케이션을 쉽게 Azure Virtual Machines로 마이그레이션할 수 있습니다. Virtual Machine에서 SAP ASE를 사용하면 이러한 애플리케이션을 Microsoft Azure로 쉽게 마이그레이션하여 엔터프라이즈 수준의 애플리케이션에 대한 배포, 관리 및 유지 관리의 총 소유 비용을 줄일 수 있습니다. Azure Virtual Machine에서 SAP ASE를 사용하면 관리자와 개발자가 온-프레미스와 동일한 개발 및 관리 도구를 사용할 수 있습니다.
 
 Azure VM을 배포하는 경우 <https://azure.microsoft.com/support/legal/sla>에 있는 공식 SLA에 대해 알고 있어야 합니다.
 
@@ -498,7 +498,7 @@ SAP ASE 실행 파일을 VM의 루트 파일 시스템(/sybase)에 배치 또는
 * SAP 설치 루틴에 의해 만들어지는 SAP ASE 및 추가 saptempdb를 설치하여 만들어지는 SAP ASE tempdb
 * ERP/BW 특정 tempdb 요구 사항에 맞게 SAP ASE 및 수동으로 만든 추가 tempdb를 설치하여 만들어지는 SAP ASE tempdb(예: SAP Note [1752266])
 
-특정 ERP 또는 모든 BW 워크로드의 성능상 이유로 추가로 생성된 tempdb 디바이스(SWPM을 통해 또는 수동으로)를 단일 Azure 데이터 디스크 또는 여러 Azure 데이터 디스크에 걸친 Linux RAID로 표현될 수 있는 별도의 파일 시스템에 저장하는 것이 좋습니다. 추가 tempdb가 없는 경우 새로 만드는 것이 좋습니다(SAP Note [1752266]).
+특정 ERP 또는 모든 BW 워크로드의 성능상 이유로 추가로 생성된 tempdb 장치(SWPM을 통해 또는 수동으로)를 단일 Azure 데이터 디스크 또는 여러 Azure 데이터 디스크에 걸친 Linux RAID로 표현될 수 있는 별도의 파일 시스템에 저장하는 것이 좋습니다. 추가 tempdb가 없는 경우 새로 만드는 것이 좋습니다(SAP Note [1752266]).
 
 이러한 시스템의 경우 추가로 생성된 tempdb에 대해 다음 단계를 수행해야 합니다.
 

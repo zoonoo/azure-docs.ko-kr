@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 0c44e57f99ea8fea91fd8178400c648e8dcd982b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a4e5087e53d4505d54b5ff4b8d17ad6166c6174b
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309813"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002504"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Contoso 마이그레이션: Azure에 온-프레미스 앱 다시 빌드
 
@@ -25,29 +25,29 @@ ms.locfileid: "52309813"
 **문서** | **세부 정보** | **상태**
 --- | --- | ---
 [문서 1: 개요](contoso-migration-overview.md) | Contoso 마이그레이션 전략, 문서 시리즈 및 사용할 샘플 앱에 대해 간략히 설명합니다. | 사용 가능
-[문서 2: Azure 인프라 배포](contoso-migration-infrastructure.md) | Contoso가 마이그레이션을 위해 온-프레미스 및 Azure 인프라를 준비하는 방법을 설명합니다. 모든 마이그레이션 문서에 동일한 인프라가 사용됩니다. | 사용 가능
+[문서 2: Azure 인프라 배포](contoso-migration-infrastructure.md) | Contoso에서 마이그레이션을 위해 온-프레미스 및 Azure 인프라를 준비하는 방법에 대해 설명합니다. 모든 마이그레이션 문서에 동일한 인프라가 사용됩니다. | 사용 가능
 [문서 3: 온-프레미스 리소스 평가](contoso-migration-assessment.md)  | Contoso가 VMware에서 실행되는 온-프레미스 2계층 SmartHotel360 앱 평가를 실행하는 방법을 보여 줍니다. Contoso가 [Azure Migrate](migrate-overview.md) 서비스로 앱 VM을 평가하고 [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)로 앱 SQL Server 데이터베이스를 평가합니다. | 사용 가능
 [문서 4: 앱을 Azure VM 및 SQL Managed Instance에 다시 호스트](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso가 SmartHotel360 앱에 대해 Azure로의 리프트 앤 시프트 마이그레이션을 실행하는 방법을 보여 줍니다. Contoso는 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 앱 프런트 엔드 VM을 마이그레이션하고 [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)를 사용하여 앱 데이터베이스를 SQL Managed Instance로 마이그레이션합니다. | 사용 가능
-[문서 5: 앱을 Azure VM에 다시 호스트](contoso-migration-rehost-vm.md) | Contoso가 Site Recovery만 사용하여 SmartHotel360 앱 VM을 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
+[문서 5: Azure VM에서 앱 다시 호스트](contoso-migration-rehost-vm.md) | Contoso가 Site Recovery만 사용하여 SmartHotel360 앱 VM을 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
 [문서 6: 앱을 Azure VM 및 SQL Server Always On 가용성 그룹에 다시 호스트](contoso-migration-rehost-vm-sql-ag.md) | Contoso에서 SmartHotel360 앱을 마이그레이션하는 방법을 보여 줍니다. Contoso가 Site Recovery를 사용하여 앱 VM을 마이그레이션하고 Database Migration Service를 사용하여 앱 데이터베이스를 AlwaysOn 가용성 그룹에서 보호하는 SQL Server 클러스터로 마이그레이션합니다. | 사용 가능
 [문서 7: Azure VM에서 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm.md) | Contoso가 Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 리프트 앤 시프트 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
 [문서 8: Azure VM 및 Azure MySQL 서버에 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm-mysql.md) | Contoso가 Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 마이그레이션하고 MySQL Workbench를 사용하여 앱 데이터베이스를 Azure MySQL 서버 인스턴스로 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
-[문서 9: Azure Web Apps 및 Azure SQL 데이터베이스에서 앱 리팩터링](contoso-migration-refactor-web-app-sql.md) | Contoso가 SmartHotel360 앱을 Azure 웹앱으로 마이그레이션하고, 앱 데이터베이스를 Azure SQL Server 인스턴스로 마이그레이션하는 방법 시연 | 사용 가능
+[문서 9: Azure Web Apps 및 Azure SQL Database에서 앱 리팩터링](contoso-migration-refactor-web-app-sql.md) | Contoso가 SmartHotel360 앱을 Azure 웹앱으로 마이그레이션하고, 앱 데이터베이스를 Azure SQL Server 인스턴스로 마이그레이션하는 방법 시연 | 사용 가능
 [문서 10: Azure Web Apps 및 Azure MySQL에 Linux 앱 리팩터링](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso가 지속적인 업데이트를 위해 GitHub와 통합된, 여러 사이트의 Azure Web Apps로 Linux osTicket 앱을 마이그레이션하는 방법을 보여줍니다. Azure MySQL 인스턴스로 앱 데이터베이스를 마이그레이션합니다. | 사용 가능
 [문서 11: Azure DevOps Services에서 TFS 리팩터링](contoso-migration-tfs-vsts.md) | Contoso가 온-프레미스 TFS(Team Foundation Server) 배포를 Azure의 Azure DevOps Services로 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
 [문서 12: Azure 컨테이너 및 SQL Database에서 앱 아키텍처 변경](contoso-migration-rearchitect-container-sql.md) | Contoso가 SmartHotel 앱을 Azure로 마이그레이션하고 아키텍처를 변경하는 방법을 보여줍니다. 앱 웹 계층의 아키텍처를 Windows 컨테이너 및 Azure SQL Database의 앱 데이터베이스로 변경합니다. | 사용 가능
 문서 13: Azure에 앱 다시 빌드 | Contoso가 App Services, Azure Kubernetes, Azure Functions, Cognitive services 및 Cosmos DB를 포함한 다양한 Azure 기능 및 서비스를 사용하여 자체 SmartHotel 앱을 다시 빌드하는 방법을 보여줍니다. | 이 문서의 내용
 [문서 14: Azure로의 마이그레이션 확장](contoso-migration-scale.md) | 마이그레이션 조합을 시도한 후 Contoso는 Azure로 전체 마이그레이션을 확장할 준비를 합니다. | 사용 가능
 
-이 문서에서 Contoso는 2계층 Windows를 마이그레이션합니다. VMware VM에서 실행되는 NET SmartHotel360 앱을 Azure로. 이 앱을 사용하려는 경우 오픈 소스로 제공되므로 [GitHub](https://github.com/Microsoft/SmartHotel360)에서 다운로드할 수 있습니다.
+이 문서에서 Contoso는 2계층 Windows를 마이그레이션합니다. VMware VM에서 실행되는 NET SmartHotel360 앱을 Azure로 마이그레이션합니다. 이 앱을 사용하려는 경우 오픈 소스로 제공되므로 [GitHub](https://github.com/Microsoft/SmartHotel360-Backend)에서 다운로드할 수 있습니다.
 
 ## <a name="business-drivers"></a>비즈니스 영향 요소
 
 IT 리더십 팀은 비즈니스 파트너와의 긴밀한 협력을 통해 다음과 같이 기업이 이러한 마이그레이션으로 달성하고자 하는 바를 잘 이해하고 있습니다.
 
-- **사업 확장 추진**: Contoso는 사업 확장을 추진하고 있으며 Contoso 웹 사이트에서 고객에게 차별화된 환경을 제공하고자 합니다.
-- **민첩성**: Contoso는 글로벌 경제에서 성공할 수 있으려면 시장의 변화에 더 빠르게 대응할 수 있어야 합니다. 
-- **크기 조정**: 사업이 정상적으로 확장되면 Contoso IT 팀은 그와 동일한 속도로 확장 가능한 시스템을 제공해야 합니다.
+- **비즈니스 성장 해결**: Contoso는 성장하고 있으며 Contoso 웹 사이트에서 고객에게 차별화된 환경을 제공하고자 합니다.
+- **민첩성**: Contoso가 글로벌 경제에서 성공할 수 있으려면 시장의 변화에 더 빠르게 대응할 수 있어야 합니다. 
+- **크기 조정**: 비즈니스가 성공적으로 성장하면 Contoso IT 팀은 그와 동일한 속도로 확장 가능한 시스템을 제공해야 합니다.
 - **비용**: Contoso는 라이선스 비용을 최소화하려고 합니다.
 
 ## <a name="migration-goals"></a>마이그레이션 목표
@@ -138,10 +138,10 @@ Contoso가 마이그레이션을 실행하는 방법은 다음과 같습니다.
 > [!div class="checklist"]
 > * **1단계: AKS 및 ACR 프로비전**: Contoso는 PowerShell을 사용하여 관리되는 AKS 클러스터 및 Azure 컨테이너 레지스트리를 프로비전합니다.
 > * **2단계: Docker 컨테이너 빌드**: Azure DevOps를 사용하여 Docker 컨테이너용 CI를 설정하고 ACR에 컨테이너를 푸시합니다.
-> * **3단계: 백 엔드 마이크로 서비스 배포**: 백 엔드 마이크로 서비스에서 활용할 나머지 인프라를 배포합니다.
-> * **4단계: 프런트 엔드 인프라 배포**: 애완 동물 휴대폰, Cosmos DB 및 Vision API에 대한 BLOB 저장소를 포함하여 프런트 엔드 인프라를 배포합니다.
-> * **5 단계: 백 엔드 마이그레이션**: AKS에 마이크로 서비스를 배포 및 실행하고, 백 엔드를 마이그레이션합니다.
-> * **6단계: 프런트 엔드 게시**: SmartHotel360 앱을 Azure App Service 및 애완 동물 서비스에 의해 호출되는 함수 앱에 게시합니다.
+> * **3단계: 백 엔드 마이크로서비스 배포**: 백 엔드 마이크로서비스에서 활용할 나머지 인프라를 배포합니다.
+> * **4단계: 프런트 엔드 인프라 배포**: 애완 동물 휴대폰, Cosmos DB 및 Vision API에 대한 Blob 스토리지를 포함하여 프런트 엔드 인프라를 배포합니다.
+> * **5단계: 백 엔드 마이그레이션**: AKS에 마이크로서비스를 배포하며 실행하고, 백 엔드를 마이그레이션합니다.
+> * **6단계: 프런트 엔드 게시**: Azure App Service에 SmartHotel360 앱 및 애완 동물 서비스에 의해 호출되는 함수 앱을 게시합니다.
 
 
 
@@ -226,7 +226,7 @@ Contoso는 Azure DevOps 프로젝트를 만들고, 컨테이너를 만들어서 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts1.png) 
 
 
-3. [GitHub 리포지토리](https://github.com/Microsoft/SmartHotel360-Azure-backend.git)를 가져옵니다.
+3. [GitHub 리포지토리](https://github.com/Microsoft/SmartHotel360-Backend)를 가져옵니다.
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts2.png)
     

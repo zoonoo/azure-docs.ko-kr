@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6a0c4158b85a6bc6c9276eff19466fb742c6f442
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1908d655064a4a320191695c048271246951c29c
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235927"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187487"
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>추가 단원 - 동적 보안
 
@@ -21,7 +21,7 @@ ms.locfileid: "51235927"
   
 동적 보안을 구현하려면 모델에 연결하여 모델 개체 및 데이터를 찾아볼 수 있는 사용자의 사용자 이름이 들어있는 모델에 테이블을 추가합니다. 이 자습서를 사용하여 만드는 모델은 Adventure Works의 컨텍스트에 있지만 이 단원을 완료하려면 사용자 고유의 도메인에서 사용자가 포함된 테이블을 추가해야 합니다. 추가된 사용자 이름에 대한 암호는 필요하지 않습니다. 사용자 고유 도메인의 작은 사용자 샘플과 함께 EmployeeSecurity 테이블을 만들려면 붙여넣기 기능을 사용하여 Excel 스프레드시트에서 직원 데이터를 붙여넣습니다. 실제 시나리오에서는 사용자 이름이 들어있는 테이블이 일반적으로 데이터 원본으로 사용되는 실제 데이터베이스의 테이블입니다(예: 실제 DimEmployee 테이블).  
   
-동적 보안을 구현하려면 두 개의 DAX 함수 즉, [USERNAME 함수(DAX)](https://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) 및 [LOOKUPVALUE 함수(DAX)](https://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab)를 사용합니다. 행 필터 수식에 적용된 이러한 함수는 새 역할에 정의됩니다. LOOKUPVALUE 함수를 사용하여 수식은 EmployeeSecurity 테이블에서 값을 지정합니다. 그런 다음 수식은 이 역할에 속해 있는 로그온한 사용자의 사용자 이름을 지정하는 USERNAME 함수에 해당 값을 전달합니다. 그러면 사용자는 역할의 행 필터에 지정된 데이터만 찾을 수 있습니다. 이 시나리오에서는 영업 직원이 자신이 속한 판매 지역의 인터넷 판매 데이터만 찾아볼 수 있도록 지정합니다.  
+동적 보안을 구현하려면 두 개의 DAX 함수 [USERNAME Function(DAX)](https://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) 및 [LOOKUPVALUE Function(DAX)](https://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab)을 사용합니다. 행 필터 수식에 적용된 이러한 함수는 새 역할에 정의됩니다. LOOKUPVALUE 함수를 사용하여 수식은 EmployeeSecurity 테이블에서 값을 지정합니다. 그런 다음 수식은 이 역할에 속해 있는 로그온한 사용자의 사용자 이름을 지정하는 USERNAME 함수에 해당 값을 전달합니다. 그러면 사용자는 역할의 행 필터에 지정된 데이터만 찾을 수 있습니다. 이 시나리오에서는 영업 직원이 자신이 속한 판매 지역의 인터넷 판매 데이터만 찾아볼 수 있도록 지정합니다.  
   
 이러한 작업은 이 Adventure Works 테이블 형식 모델 시나리오에는 고유하지만 실제 시나리오에 반드시 적용되는 것은 아닙니다. 각 작업에는 작업의 목적을 설명하는 추가 정보가 포함됩니다.  
   
@@ -37,7 +37,7 @@ ms.locfileid: "51235927"
   
 1.  테이블 형식 모델 탐색기의 > **데이터 원본**에서 해당 연결을 마우스 오른쪽 단추로 클릭한 다음 **새 테이블 가져오기**를 클릭합니다.  
 
-    [가장 자격 증명] 대화 상자가 나타나면 2단원: 데이터 추가에 사용된 가장 자격 증명을 입력합니다.
+    가장 자격 증명 대화 상자가 나타나면 2단원: 데이터 추가에 사용된 가장 자격 증명을 입력합니다.
   
 2.  탐색기에서 **DimSalesTerritory** 테이블을 선택한 후 **확인**을 클릭합니다.    
   
@@ -96,10 +96,10 @@ FactInternetSales, DimGeography 및 DimSalesTerritory 테이블은 모두 SalesT
   
     이 관계의 활성 속성은 False이며 비활성을 의미합니다. FactInternetSales 테이블에는 이미 다른 활성 관계가 있습니다.  
   
-## <a name="hide-the-employeesecurity-table-from-client-applications"></a>클라이언트 응용 프로그램에서 EmployeeSecurity 테이블 숨기기  
-이 작업에서는 EmployeeSecurity 테이블을 숨겨서 클라이언트 응용 프로그램의 필드 목록에 나타나지 않도록 합니다. 테이블을 숨긴다고 해서 안전한 것은 아닙니다. 사용자는 EmployeeSecurity 테이블 데이터를 계속 쿼리할 수 있습니다(알고 있는 경우). 사용자가 어떤 데이터도 쿼리하지 못하도록 하고 EmployeeSecurity 테이블 데이터의 보안을 유지하려면 나중 작업에 필터를 적용합니다.  
+## <a name="hide-the-employeesecurity-table-from-client-applications"></a>클라이언트 애플리케이션에서 EmployeeSecurity 테이블 숨기기  
+이 작업에서는 EmployeeSecurity 테이블을 숨겨서 클라이언트 애플리케이션의 필드 목록에 나타나지 않도록 합니다. 테이블을 숨긴다고 해서 안전한 것은 아닙니다. 사용자는 EmployeeSecurity 테이블 데이터를 계속 쿼리할 수 있습니다(알고 있는 경우). 사용자가 어떤 데이터도 쿼리하지 못하도록 하고 EmployeeSecurity 테이블 데이터의 보안을 유지하려면 나중 작업에 필터를 적용합니다.  
   
-#### <a name="to-hide-the-employeesecurity-table-from-client-applications"></a>클라이언트 응용 프로그램에서 EmployeeSecurity 테이블을 숨기려면  
+#### <a name="to-hide-the-employeesecurity-table-from-client-applications"></a>클라이언트 애플리케이션에서 EmployeeSecurity 테이블을 숨기려면  
   
 -   모델 디자이너의 다이어그램 뷰에서 **Employee** 테이블 머리글을 마우스 오른쪽 단추로 클릭한 후 **클라이언트 도구에서 숨기기**를 클릭합니다.  
   

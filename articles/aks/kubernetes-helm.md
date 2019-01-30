@@ -7,14 +7,14 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: iainfou
-ms.openlocfilehash: fa0fcde29b94fc4107fc91d798fdba8cc8f9b790
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: f9f4c1cccac7e40c7d2fd8f76221bc1870ade45f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231154"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993250"
 ---
-# <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Helm을 사용하여 응용 프로그램 설치
+# <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Helm을 사용하여 애플리케이션 설치
 
 [Helm][helm]은 Kubernetes 응용 프로그램을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. *APT*, *Yum* 등의 Linux 패키지 관리자와 마찬가지로 Helm은 사전 구성된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리하는 데 사용합니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "50231154"
 
 이 문서에 설명된 단계에서는 AKS 클러스터를 만들고 클러스터와 `kubectl` 연결을 설정했다고 가정합니다. 이러한 항목이 필요한 경우 [AKS 빠른 시작][aks-quickstart]을 참조하세요.
 
-Helm CLI도 설치되어 있어야 합니다. 이것은 개발 시스템에서 실행되는 클라이언트로, Helm으로 응용 프로그램을 시작, 중지 및 관리할 수 있습니다. Azure Cloud Shell을 사용하는 경우 Helm CLI가 이미 설치되어 있습니다. 로컬 플랫폼에 대한 설치 지침은 [Helm 설치][helm-install]를 참조하세요.
+Helm CLI도 설치되어 있어야 합니다. 이것은 개발 시스템에서 실행되는 클라이언트로, Helm으로 애플리케이션을 시작, 중지 및 관리할 수 있습니다. Azure Cloud Shell을 사용하는 경우 Helm CLI가 이미 설치되어 있습니다. 로컬 플랫폼에 대한 설치 지침은 [Helm 설치][helm-install]를 참조하세요.
 
 ## <a name="create-a-service-account"></a>서비스 계정 만들기
 
@@ -87,7 +87,7 @@ helm init \
 
 ## <a name="find-helm-charts"></a>Helm 차트 찾기
 
-Helm 차트는 Kubernetes 클러스터에 응용 프로그램을 배포하는 데 사용됩니다. 미리 만들어진 Helm 차트를 검색하려면 [helm search][helm-search] 명령을 사용합니다.
+Helm 차트는 Kubernetes 클러스터에 애플리케이션을 배포하는 데 사용됩니다. 미리 만들어진 Helm 차트를 검색하려면 [helm search][helm-search] 명령을 사용합니다.
 
 ```console
 helm search
@@ -99,7 +99,7 @@ helm search
 $ helm search
 
 NAME                           CHART VERSION    APP VERSION  DESCRIPTION
-stable/acs-engine-autoscaler   2.2.0            2.1.1        Scales worker nodes within agent pools
+stable/aks-engine-autoscaler   2.2.0            2.1.1        Scales worker nodes within agent pools
 stable/aerospike               0.1.7            v3.14.1.2    A Helm chart for Aerospike in Kubernetes
 stable/anchore-engine          0.1.7            0.1.10       Anchore container analysis and policy evaluatio...
 stable/apm-server              0.1.0            6.2.4        The server receives data from the Elastic APM a...
@@ -218,7 +218,7 @@ release "wishful-mastiff" deleted
 
 ## <a name="next-steps"></a>다음 단계
 
-Helm을 사용하여 Kubernetes 응용 프로그램 배포를 관리하는 방법에 대한 자세한 내용은 Helm 설명서를 참조하세요.
+Helm을 사용하여 Kubernetes 애플리케이션 배포를 관리하는 방법에 대한 자세한 내용은 Helm 설명서를 참조하세요.
 
 > [!div class="nextstepaction"]
 > [Helm 설명서][helm-documentation]

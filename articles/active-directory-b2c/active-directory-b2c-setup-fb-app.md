@@ -1,27 +1,27 @@
 ---
 title: Azure Active Directory B2C를 사용하여 Facebook 계정으로 등록 설정 및 로그인 | Microsoft Docs
-description: 고객에게 Azure Active Directory B2C를 사용하여 응용 프로그램에서 Facebook 계정으로 등록 및 로그인을 제공합니다.
+description: 고객에게 Azure Active Directory B2C를 사용하여 애플리케이션에서 Facebook 계정으로 등록 및 로그인을 제공합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b1fbf77bfb771bd94ed9acdecb3c54e4c6894687
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 855b43c39ac8bc3a1b6bb818a9770897e983c2ea
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182113"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843602"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Facebook 계정으로 등록 설정 및 로그인
 
-## <a name="create-a-facebook-application"></a>Facebook 응용 프로그램 만들기
+## <a name="create-a-facebook-application"></a>Facebook 애플리케이션 만들기
 
-Azure AD(Azure Active Directory) B2C에서 Facebook 계정을 ID 공급자로 사용하려면 테넌트에 해당 계정을 나타내는 응용 프로그램을 만들어야 합니다. Facebook 계정이 없는 경우 [https://www.facebook.com/](https://www.facebook.com/)에서 얻을 수 있습니다.
+Azure AD(Azure Active Directory) B2C에서 Facebook 계정을 ID 공급자로 사용하려면 테넌트에 해당 계정을 나타내는 애플리케이션을 만들어야 합니다. Facebook 계정이 없는 경우 [https://www.facebook.com/](https://www.facebook.com/)에서 얻을 수 있습니다.
 
 1. Facebook 계정 자격 증명으로 [개발자용 Facebook](https://developers.facebook.com/)에 로그인합니다.
 2. 아직 등록하지 않은 경우 Facebook 개발자로 등록해야 합니다. 등록하려면 페이지의 오른쪽 위에서 **등록**을 선택하고 Facebook의 정책에 동의하고 등록 단계를 완료합니다.
@@ -38,7 +38,7 @@ Azure AD(Azure Active Directory) B2C에서 Facebook 계정을 ID 공급자로 �
 13. **제품**을 선택한 후 **Facebook 로그인** 아래에서 **설정**을 선택합니다.
 14. **Facebook 로그인** 아래에서 **설정**을 선택합니다.
 15. **유효한 OAuth 리디렉션 URI**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. `your-tenant-name`을 테넌트 이름으로 바꿉니다. 페이지 아래쪽에 있는 **변경 내용 저장** 을 클릭합니다.
-16. Azure AD B2C에서 Facebook 응용 프로그램을 사용할 수 있도록 하려면 **앱 검토**를 선택하고 **Make My Application public?** 를 **예**로 설정한 다음 **확인**을 클릭합니다.
+16. Azure AD B2C에서 Facebook 애플리케이션을 사용할 수 있도록 하려면 페이지 오른쪽 위에 있는 상태 선택기를 클릭한 후 **설정**하여 공용 애플리케이션으로 만들고 **확인**을 클릭합니다.  이때 상태가 **개발**에서 **라이브**로 변경됩니다.
 
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Facebook 계정을 ID 공급자로 구성
 

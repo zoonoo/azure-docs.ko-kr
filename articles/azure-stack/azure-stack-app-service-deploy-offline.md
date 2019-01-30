@@ -12,14 +12,15 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 01/11/2019
 ms.author: anwestg
-ms.openlocfilehash: 79d78faa53962ea72178281d75cef3c2f61320b1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 01/11/2019
+ms.openlocfilehash: 267c3c2d8430d769b5d42de33796da8b57504516
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971507"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238791"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>AD FS에서 보안이 유지 되는 연결이 끊긴된 Azure Stack 환경에는 App Service 리소스 공급자 추가
 
@@ -27,14 +28,15 @@ ms.locfileid: "52971507"
 
 > [!IMPORTANT]
 > Azure Stack 통합 시스템 1809 업데이트를 적용 하거나 Azure 앱 서비스 1.4를 배포 하기 전에 최신 Azure Stack 개발 키트를 배포 합니다.
->
->
 
 이 문서의 지침에 따라 설치할 수 있습니다 합니다 [App Service 리소스 공급자](azure-stack-app-service-overview.md) 는 Azure Stack 환경:
 
 - 인터넷에 연결 되어 있지
 - Active Directory Federation Services (AD FS)로 보호 됩니다.
 
+ > [!IMPORTANT]
+ > 리소스 공급자를 배포 하기 전에 새로운 기능, 수정 및 배포에 영향을 줄 수 있는 알려진된 문제에 대 한 자세한 릴리스 정보를 검토 합니다.
+ 
 App Service 리소스 공급자에 오프 라인 Azure Stack 배포를 추가 하려면 이러한 최상위 작업을 완료 해야 합니다.
 
 1. 완료 합니다 [필수 조건 단계](azure-stack-app-service-before-you-get-started.md) (같은 인증서를 구입 하는 소요 될 수 수신 하는 데 며칠이).
@@ -160,11 +162,11 @@ App Service 리소스 공급자에 오프 라인 Azure Stack 배포를 추가 �
 
     | 역할 | 최소 인스턴스 | 최소 SKU | 메모 |
     | --- | --- | --- | --- |
-    | Controller | 1 | Standard_A2-(2 vCPU, 3584MB) | 관리 하 고 App Service 클라우드 상태를 유지 합니다. |
+    | Controller | 1 | Standard_A2 - (2 vCPU, 3584 MB) | 관리 하 고 App Service 클라우드 상태를 유지 합니다. |
     | 관리 | 1 | Standard_A2-(2 개 Vcpu, 3584MB) | App Service Azure Resource Manager 및 API 끝점, 포털 확장 (관리자, 테 넌 트, Functions 포털) 및 데이터 서비스를 관리합니다. 장애 조치를 지원 하기 위해 권장 되는 인스턴스 2로 증가 합니다. |
-    | 게시자 | 1 | Standard_A1-(1 개 vCPU, 1,792MB) | FTP 및 웹 배포를 통해 콘텐츠를 게시합니다. |
-    | FrontEnd | 1 | Standard_A1-(1 개 vCPU, 1,792MB) | App Service 응용 프로그램에 요청을 라우팅합니다. |
-    | 공유 작업자 | 1 | Standard_A1-(1 개 vCPU, 1,792MB) | 호스트 웹 또는 API 응용 프로그램 및 Azure Functions 앱. 더 많은 인스턴스를 추가할 수 있습니다. 운영자로 귀하의 제품을 정의 하 고 모든 SKU 계층을 선택할 수 있습니다. 계층에는 하나의 vCPU 개가 있어야 합니다. |
+    | 게시자 | 1 | Standard_A1 - (1 vCPU, 1792 MB) | FTP 및 웹 배포를 통해 콘텐츠를 게시합니다. |
+    | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | App Service 응용 프로그램에 요청을 라우팅합니다. |
+    | 공유 작업자 | 1 | Standard_A1 - (1 vCPU, 1792 MB) | 호스트 웹 또는 API 응용 프로그램 및 Azure Functions 앱. 더 많은 인스턴스를 추가할 수 있습니다. 운영자로 귀하의 제품을 정의 하 고 모든 SKU 계층을 선택할 수 있습니다. 계층에는 하나의 vCPU 개가 있어야 합니다. |
 
     ![App Service 설치 관리자][14]
 
@@ -203,7 +205,7 @@ App Service 리소스 공급자에 오프 라인 Azure Stack 배포를 추가 �
 
 > [!NOTE]
 > 기존 가상 네트워크에 파일 서버에 연결 하는 내부 IP 주소를 배포 하려는 경우 아웃 바운드 보안 규칙을 추가 하 있습니다 작업자 서브넷과 파일 서버 간에 SMB 트래픽을 사용 하도록 설정 해야 합니다.  이렇게 하려면 관리 포털에서 WorkersNsg 이동한 다음 속성을 사용 하 여 아웃 바운드 보안 규칙을 추가 합니다.
-> * 원본: 모든
+> * 원본: 모두
 > * 원본 포트 범위: *
 > * 대상: IP 주소
 > * 대상 IP 주소 범위: Ip 범위에 파일 서버에 대 한
@@ -257,9 +259,9 @@ App Service 리소스 공급자에 오프 라인 Azure Stack 배포를 추가 �
 - [MySQL 리소스 공급자](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
-[Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531
-[App_Service_Deployment]: http://go.microsoft.com/fwlink/?LinkId=723982
-[AppServiceHelperScripts]: http://go.microsoft.com/fwlink/?LinkId=733525
+[Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531
+[App_Service_Deployment]: https://go.microsoft.com/fwlink/?LinkId=723982
+[AppServiceHelperScripts]: https://go.microsoft.com/fwlink/?LinkId=733525
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-advanced-create-package.png

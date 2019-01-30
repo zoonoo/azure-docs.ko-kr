@@ -3,18 +3,18 @@ title: Azure Automation DSC(Desired State Configuration)에 관한 문제 해결
 description: 이 문서에는 DSC(Desired State Configuration) 문제 해결에 대한 정보가 제공됩니다.
 services: automation
 ms.service: automation
-ms.component: ''
+ms.subservice: ''
 author: georgewallace
 ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5d2eae67fcff74a7016f7f6125e31a9c8c2bda97
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 997f332e14fd1accf32d8cc3f51557fe005acab5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064632"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421648"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>DSC(필요한 상태 구성) 문제 해결
 

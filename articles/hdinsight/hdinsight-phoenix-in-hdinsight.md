@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: d86600dd000d3e9c71a38b632aa75e82239401dd
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 833f240572b10e9d07da0ded27f5848822a70f46
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104582"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744342"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>HDInsight의 Apache Phoenix
 
-[Apache Phoenix](http://phoenix.apache.org/)는 [HBase](hbase/apache-hbase-overview.md)에서 구축되는 오픈 소스 대규모 병렬 관계형 데이터베이스 계층입니다. Phoenix를 사용하면 HBase를 통해 SQL 유사 쿼리를 사용할 수 있습니다. Phoenix는 아래의 JDBC 드라이버를 사용하여 사용자가 개별적으로 및 대량으로 SQL 테이블, 인덱스, 뷰 및 시퀀스를 생성, 삭제, 변경하고, 행을 Upsert할 수 있도록 합니다. Phoenix는 MapReduce를 사용하여 쿼리를 컴파일하는 대신, noSQL 네이티브 컴파일을 사용하여 HBase 위에 대기 시간이 짧은 응용 프로그램을 만들 수 있도록 합니다. Phoenix는 서버의 주소 공간에서 클라이언트 제공 코드를 실행하도록 지원하는 보조 프로세서를 추가하고, 데이터와 함께 있는 코드를 실행합니다. 이 접근 방법은 클라이언트/서버 데이터 전송을 최소화합니다.
+[Apache Phoenix](https://phoenix.apache.org/)는 [Apache HBase](hbase/apache-hbase-overview.md)에서 구축되는 오픈 소스 대규모 병렬 관계형 데이터베이스 계층입니다. Phoenix를 사용하면 HBase를 통해 SQL 유사 쿼리를 사용할 수 있습니다. Phoenix는 아래의 JDBC 드라이버를 사용하여 사용자가 개별적으로 및 대량으로 SQL 테이블, 인덱스, 뷰 및 시퀀스를 생성, 삭제, 변경하고, 행을 Upsert할 수 있도록 합니다. Phoenix는 MapReduce를 사용하여 쿼리를 컴파일하는 대신, noSQL 네이티브 컴파일을 사용하여 HBase 위에 대기 시간이 짧은 애플리케이션을 만들 수 있도록 합니다. Phoenix는 서버의 주소 공간에서 클라이언트 제공 코드를 실행하도록 지원하는 보조 프로세서를 추가하고, 데이터와 함께 있는 코드를 실행합니다. 이 접근 방법은 클라이언트/서버 데이터 전송을 최소화합니다.
 
-Apache Phoenix는 프로그래밍이 아닌, SQL 유사 구문을 사용할 수 있는 개발자가 아닌 사용자에게 빅 데이터 쿼리를 제공합니다. Phoenix는 [Hive](hadoop/hdinsight-use-hive.md) 및 Spark SQL 등의 다른 도구와 달리, HBase용으로 고도로 최적화되어 있습니다. 개발자는 훨씬 적은 코드로 고성능 쿼리를 작성할 수 있다는 이점이 있습니다.
+Apache Phoenix는 프로그래밍이 아닌, SQL 유사 구문을 사용할 수 있는 개발자가 아닌 사용자에게 빅 데이터 쿼리를 제공합니다. Phoenix는 [Apache Hive](hadoop/hdinsight-use-hive.md) 및 Apache Spark SQL 등의 다른 도구와 달리, HBase용으로 고도로 최적화되어 있습니다. 개발자는 훨씬 적은 코드로 고성능 쿼리를 작성할 수 있다는 이점이 있습니다.
 <!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
-SQL 쿼리를 제출하면 Phoenix는 최적화를 위해 쿼리를 HBase 네이티브 호출로 컴파일하는 작업과 검색(또는 계획) 실행 작업을 동시에 진행합니다. 이 추상 계층은 개발자가 MapReduce 작업을 작성하지 않아도 되도록 함으로써, Phoenix의 빅 데이터 저장소를 중심으로 하는 비즈니스 논리 및 응용 프로그램 워크플로에 집중할 수 있도록 합니다.
+SQL 쿼리를 제출하면 Phoenix는 최적화를 위해 쿼리를 HBase 네이티브 호출로 컴파일하는 작업과 검색(또는 계획) 실행 작업을 동시에 진행합니다. 이 추상 계층은 개발자가 MapReduce 작업을 작성하지 않아도 되도록 함으로써, Phoenix의 빅 데이터 스토리지를 중심으로 하는 비즈니스 논리 및 애플리케이션 워크플로에 집중할 수 있도록 합니다.
 
 ## <a name="query-performance-optimization-and-other-features"></a>쿼리 성능 최적화 및 기타 기능
 
@@ -70,17 +70,17 @@ WHERE metric_type = 'm';
 
 ### <a name="skip-scan"></a>검색 건너뛰기
 
-검색 건너뛰기는 복합 인덱스의 열 하나 이상을 사용하여 고유 값을 찾습니다. 범위 검색과 달리, 검색 건너뛰기는 행 내 검색을 구현하여 [향상된 성능](http://phoenix.apache.org/performance.html#Skip-Scan)을 제공합니다. 검색하는 동안, 일치하는 첫 번째 값은 다음 값을 찾을 때까지 인덱스와 함께 건너뛰어집니다.
+검색 건너뛰기는 복합 인덱스의 열 하나 이상을 사용하여 고유 값을 찾습니다. 범위 검색과 달리, 검색 건너뛰기는 행 내 검색을 구현하여 [향상된 성능](https://phoenix.apache.org/performance.html#Skip-Scan)을 제공합니다. 검색하는 동안, 일치하는 첫 번째 값은 다음 값을 찾을 때까지 인덱스와 함께 건너뛰어집니다.
 
 검색 건너뛰기는 HBase 필터의 `SEEK_NEXT_USING_HINT` 열거형을 사용합니다. `SEEK_NEXT_USING_HINT`를 사용할 경우 검색 건너뛰기는 각 열에 대해 검색되는 키 집합 또는 키 범위를 추적합니다. 검색 건너뛰기는 필터 평가 중에 전달된 키를 받고, 이러한 키가 키 조합 중 하나인지를 확인합니다. 그렇지 않으면, 검색 건너뛰기는 건너뛸 다음으로 가장 높은 키를 평가합니다.
 
 ### <a name="transactions"></a>트랜잭션
 
-HBase는 행 수준 트랜잭션을 제공하지만, Phoenix는 [Tephra](http://tephra.io/)와 통합되어 전체 [ACID](https://en.wikipedia.org/wiki/ACID) 의미 체계에 대한 행 간 및 테이블 간 트랜잭션 지원을 추가합니다.
+HBase는 행 수준 트랜잭션을 제공하지만, Phoenix는 [Tephra](https://tephra.io/)와 통합되어 전체 [ACID](https://en.wikipedia.org/wiki/ACID) 의미 체계에 대한 행 간 및 테이블 간 트랜잭션 지원을 추가합니다.
 
 전형적인 SQL 트랜잭션과 마찬가지로, Phoenix 트랜잭션 관리자를 통해 제공되는 트랜잭션은 데이터의 원자 단위가 성공적으로 upsert되었는지 확인할 수 있도록 하며, 트랜잭션 지원 테이블에서 upsert 작업이 실패할 경우 트랜잭션을 롤백합니다.
 
-Phoenix 트랜잭션을 사용하도록 설정하려면 [Apache Phoenix 트랜잭션 설명서](http://phoenix.apache.org/transactions.html)를 참조하세요.
+Phoenix 트랜잭션을 사용하도록 설정하려면 [Apache Phoenix 트랜잭션 설명서](https://phoenix.apache.org/transactions.html)를 참조하세요.
 
 트랜잭션이 사용하도록 설정된 새 테이블을 만들려면 `CREATE` 문에서 `TRANSACTIONAL` 속성을 `true`로 설정합니다.
 
@@ -94,7 +94,7 @@ CREATE TABLE my_table (k BIGINT PRIMARY KEY, v VARCHAR) TRANSACTIONAL=true;
 ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 트랜잭션 테이블을 비트랜잭션 방식으로 다시 전환할 수 없습니다.
 
 ### <a name="salted-tables"></a>솔트된 테이블
@@ -122,7 +122,7 @@ CREATE TABLE Saltedweblogs (
     shippingamount DOUBLE NULL) SALT_BUCKETS=4;
 ```
 
-## <a name="enable-and-tune-phoenix-with-ambari"></a>Ambari에서 Phoenix 사용 및 조정
+## <a name="enable-and-tune-phoenix-with-apache-ambari"></a>Apache Ambari에서 Phoenix 사용 및 조정
 
 HDInsight HBase 클러스터에는 구성을 변경하기 위한 [Ambari UI](hdinsight-hadoop-manage-ambari.md)가 포함되어 있습니다.
 

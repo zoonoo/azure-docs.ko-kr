@@ -10,18 +10,18 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: a9f74f4032a78ee51ea2a8f020cd1418bb3330ca
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 5cbdad82e25baa95c0342eb514f39c7026f1618b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345359"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753081"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>빠른 시작: Bing Speech Recognition REST API 사용
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-클라우드 기반 Bing Speech Service를 사용하여 REST API를 통해 음성 오디오를 텍스트로 변환함으로써 응용 프로그램을 개발할 수 있습니다.
+클라우드 기반 Bing Speech Service를 사용하여 REST API를 통해 음성 오디오를 텍스트로 변환함으로써 애플리케이션을 개발할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -66,11 +66,11 @@ https://speech.platform.bing.com/speech/recognition/<RECOGNITION_MODE>/cognitive
 | 인식 모드  | 언어 | 출력 형식 | 서비스 URI |
 |---|---|---|---|
 | `interactive` | pt-BR | 기본값 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| `conversation` | ko-KR | Detailed |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
+| `conversation` | en-US | Detailed |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
 | `dictation` | fr-FR | 간단한 | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]
-> 서비스 URI는 응용 프로그램에서 REST API를 사용하여 음성 인식 서비스를 호출하는 경우에만 필요합니다. [클라이언트 라이브러리](GetStartedClientLibraries.md) 중 하나를 사용하는 경우 일반적으로 사용되는 URI에 대해 알고 있을 필요가 없습니다. 클라이언트 라이브러리에서 특정 클라이언트 라이브러리에만 적용할 수 있는 별도의 서비스 URI를 사용할 수 있습니다. 자세한 내용은 선택한 클라이언트 라이브러리를 참조하세요.
+> 서비스 URI는 애플리케이션에서 REST API를 사용하여 음성 인식 서비스를 호출하는 경우에만 필요합니다. [클라이언트 라이브러리](GetStartedClientLibraries.md) 중 하나를 사용하는 경우 일반적으로 사용되는 URI에 대해 알고 있을 필요가 없습니다. 클라이언트 라이브러리에서 특정 클라이언트 라이브러리에만 적용할 수 있는 별도의 서비스 URI를 사용할 수 있습니다. 자세한 내용은 선택한 클라이언트 라이브러리를 참조하세요.
 
 ### <a name="request-headers"></a>헤더 요청
 
@@ -100,7 +100,7 @@ Expect: 100-continue
 > [!NOTE]
 > `YOUR_AUDIO_FILE`을 미리 녹음된 오디오 파일의 경로로 바꾸고, `YOUR_SUBSCRIPTION_KEY`를 사용자 고유의 구독 키로 바꾸세요.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 
@@ -135,7 +135,7 @@ $RecoResponse
 curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/CSharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
 HttpWebRequest request = null;
@@ -184,7 +184,7 @@ using (FileStream fs = new FileStream(YOUR_AUDIO_FILE, FileMode.Open, FileAccess
 
 다음 코드 조각에서는 스트림에서 응답을 읽는 방법에 대한 예를 보여 줍니다.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 # show the response in JSON format
@@ -199,7 +199,7 @@ ConvertTo-Json $RecoResponse
 curl -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE | jq
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/CSharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
 /*
@@ -251,7 +251,7 @@ REST API에는 몇 가지 제한 사항이 있습니다.
 
 ## <a name="whats-next"></a>다음 단계
 
-- C#, Java 등에서 REST API를 사용하는 방법을 알아보려면 이러한 [샘플 응용 프로그램](../samples.md)을 참조하세요.
+- C#, Java 등에서 REST API를 사용하는 방법을 알아보려면 이러한 [샘플 애플리케이션](../samples.md)을 참조하세요.
 - 오류를 찾고 수정하려면 [문제 해결](../troubleshooting.md)을 참조하세요.
 - 고급 기능을 사용하려면 Speech [클라이언트 라이브러리](GetStartedClientLibraries.md)를 사용하여 시작하는 방법을 참조하세요.
 

@@ -35,7 +35,7 @@ SQL Server Load Balancer는 높은 성능을 유지하기 위해 SQL 트래픽�
 
 또한 이 데이터 웨어하우스 참조 아키텍처에는 아키텍처 내의 리소스를 관리하는 Active Directory 계층도 포함됩니다. Active Directory 서브넷은 대형 Active Directory 포리스트 구조에서도 쉽게 채택할 수 있습니다. 그러므로 대규모 포리스트에 액세스할 수 없을 때도 환경을 지속적으로 운영할 수 있습니다. 모든 VM은 Active Directory 계층으로 도메인 조인되며, Active Directory 그룹 정책을 사용하여 운영 체제 수준에서 보안 및 규정 준수 구성을 적용합니다.
 
-솔루션은 고객이 미사용 데이터의 기밀성을 유지하려면 저장소 서비스 암호화를 사용하도록 구성할 수 있는 Azure Storage 계정을 사용합니다. Azure는 데이터 복원력을 위해 고객이 선택한 데이터 센터 내에 데이터 복사본 3부를 저장합니다. 이처럼 지역 중복 저장소가 사용되므로 데이터가 매우 멀리 떨어진 보조 데이터 센터에 복제되며, 해당 데이터 센터 내에도 복사본 3부로 다시 저장됩니다. 이러한 방식이 사용되므로 고객의 기본 데이터 센터에서 사고가 발생하더라도 데이터가 손실되지 않습니다.
+솔루션은 고객이 미사용 데이터의 기밀성을 유지하려면 스토리지 서비스 암호화를 사용하도록 구성할 수 있는 Azure Storage 계정을 사용합니다. Azure는 데이터 복원력을 위해 고객이 선택한 데이터 센터 내에 데이터 복사본 3부를 저장합니다. 이처럼 지역 중복 저장소가 사용되므로 데이터가 매우 멀리 떨어진 보조 데이터 센터에 복제되며, 해당 데이터 센터 내에도 복사본 3부로 다시 저장됩니다. 이러한 방식이 사용되므로 고객의 기본 데이터 센터에서 사고가 발생하더라도 데이터가 손실되지 않습니다.
 
 보안 향상을 위해 이 솔루션의 모든 리소스는 Azure Resource Manager를 통해 리소스 그룹으로 관리됩니다. 그리고 Azure AD(Active Directory) RBAC(역할 기반 액세스 제어)를 사용하여 배포된 리소스 액세스를 제어합니다. 이러한 리소스는 Azure Key Vault의 고객 키를 포함합니다. 시스템 상태는 Azure Security Center 및 Azure Monitor를 통해 모니터링됩니다. 고객은 로그를 캡처하도록 두 모니터링 서비스를 구성합니다. 시스템 상태는 쉽게 사용할 수 있는 단일 대시보드에 표시됩니다.
 
@@ -115,21 +115,21 @@ VM이 관리 배스천 호스트로 사용되며 관리자가 배포된 리소�
 -   SQL Database는 [투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 사용하도록 구성됩니다. 투명한 데이터 암호화는 데이터베이스, 관련 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행하여 미사용 정보를 보호합니다. 투명한 데이터 암호화를 사용하는 경우 저장된 데이터에 무단으로 액세스할 수 없습니다.
 -   [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)은 적절한 권한이 부여될 때까지 데이터베이스 서버에 대한 모든 액세스를 차단합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다.
 -   [SQL 위협 검색](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started)을 사용하면 잠재적 위협 발생 시 검색하여 대응을 할 수 있습니다. SQL 위협 검색에서는 의심스러운 데이터베이스 활동, 잠재적 취약성, SQL 삽입 공격 및 비정상적인 데이터베이스 액세스 패턴에 대한 보안 경고를 제공합니다.
--   [암호화된 열](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)을 사용하면 중요한 데이터가 데이터베이스 시스템 내에서 일반 텍스트로 표시되지 않습니다. 데이터 암호화를 사용하도록 설정하면 키에 액세스할 수 있는 클라이언트 응용 프로그램 또는 앱 서버만 일반 텍스트 데이터에 액세스할 수 있습니다.
-- [확장 속성](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addextendedproperty-transact-sql)을 사용하면 데이터 주체 처리를 중단할 수 있습니다. 사용자는 데이터베이스 개체에 사용자 지정 속성을 추가할 수 있습니다. 또한 응용 프로그램 논리를 지원하기 위해 데이터에 “중단됨” 태그를 지정하여 연결된 금융 데이터 처리를 방지할 수 있습니다.
+-   [암호화된 열](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)을 사용하면 중요한 데이터가 데이터베이스 시스템 내에서 일반 텍스트로 표시되지 않습니다. 데이터 암호화를 사용하도록 설정하면 키에 액세스할 수 있는 클라이언트 애플리케이션 또는 앱 서버만 일반 텍스트 데이터에 액세스할 수 있습니다.
+- [확장 속성](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addextendedproperty-transact-sql)을 사용하면 데이터 주체 처리를 중단할 수 있습니다. 사용자는 데이터베이스 개체에 사용자 지정 속성을 추가할 수 있습니다. 또한 애플리케이션 논리를 지원하기 위해 데이터에 “중단됨” 태그를 지정하여 연결된 금융 데이터 처리를 방지할 수 있습니다.
 - [행 수준 보안](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)을 사용하면 사용자가 데이터 액세스를 제한하여 처리를 중단하는 정책을 정의할 수 있습니다.
 - [SQL Database 동적 데이터 마스킹](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started)은 권한이 없는 사용자 또는 응용 프로그램에 데이터를 마스킹하여 중요한 데이터의 노출을 제한합니다. 이 기능은 중요할 가능성이 있는 데이터를 자동으로 검색하고 적용할 적절한 마스크를 제안할 수 있습니다. 동적 데이터 마스킹을 사용하면 무단 액세스로 인해 중요한 데이터가 데이터베이스 외부로 유출되지 않도록 액세스 횟수를 줄일 수 있습니다. *고객은 데이터베이스 스키마를 준수하도록 설정을 조정할 책임이 있습니다.*
 
 ### <a name="identity-management"></a>ID 관리
 Azure 환경에서 데이터에 대한 액세스를 관리하는 기능을 제공하는 기술은 다음과 같습니다.
 -   [Azure AD](https://azure.microsoft.com/services/active-directory/)는 Microsoft 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. 이 솔루션의 모든 사용자(SQL 데이터베이스에 액세스하는 사용자 포함)는 Azure AD에서 생성됩니다.
--   Azure AD를 사용하여 응용 프로그램에 대한 인증을 수행합니다. 자세한 내용은 [Azure AD와 응용 프로그램을 통합하는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요. 데이터베이스 열 암호화에서는 SQL Database에 응용 프로그램을 인증할 때도 Azure AD를 사용합니다. 자세한 내용은 [SQL Database의 중요 데이터 보호](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)를 참조하세요.
+-   Azure AD를 사용하여 애플리케이션에 대한 인증을 수행합니다. 자세한 내용은 [Azure AD와 애플리케이션을 통합하는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요. 데이터베이스 열 암호화에서는 SQL Database에 애플리케이션을 인증할 때도 Azure AD를 사용합니다. 자세한 내용은 [SQL Database의 중요 데이터 보호](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)를 참조하세요.
 -   관리자는 [Azure RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)를 사용하여 세분화된 액세스 권한을 정의할 수 있습니다. RBAC를 사용하면 사용자가 작업을 수행하는 데 필요한 액세스 권한만 부여할 수 있습니다. 관리자는 모든 사용자에게 Azure 리소스에 대한 무제한 액세스를 부여하는 대신, 리소스와 데이터에 액세스하기 위한 특정 작업만 허용할 수 있습니다. 구독 액세스는 구독 관리자로 제한됩니다.
 - 고객은 [Azure Active Directory Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started)를 사용하여 데이터 등의 특정 정보에 액세스할 수 있는 사용자 수를 최소화할 수 있습니다. 관리자는 Azure AD Privileged Identity Management를 사용하여 권한 있는 ID와 이러한 ID의 리소스 액세스 권한을 검색, 제한 및 모니터링할 수 있습니다. 필요한 경우 이 기능을 사용하여 요청 시 JIT(Just-In-Time) 관리 액세스를 적용할 수도 있습니다.
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)은 조직 ID에 영향을 주는 잠재적 취약성을 검색하며, 조직 ID와 관련하여 검색된 의심스러운 작업에 대한 자동화된 응답을 구성합니다. 또한 의심스러운 인시던트를 조사하며 해결을 위해 적절한 작업을 수행합니다.
 
 ### <a name="security"></a>보안
-**비밀 관리**: 이 솔루션은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용하여 키와 비밀을 관리합니다. Key Vault를 사용하면 클라우드 응용 프로그램 및 서비스에서 사용되는 암호화 키 및 비밀을 보호할 수 있습니다. 고객은 다음 Key Vault 기능을 통해 데이터를 보호할 수 있습니다.
+**비밀 관리**: 이 솔루션은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용하여 키와 비밀을 관리합니다. Key Vault를 사용하면 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호할 수 있습니다. 고객은 다음 Key Vault 기능을 통해 데이터를 보호할 수 있습니다.
 - 필요에 따라 고급 액세스 정책이 구성됩니다.
 - Key Vault 액세스 정책은 키와 비밀에 대한 최소 필수 권한으로 정의됩니다.
 - Key Vault의 모든 키와 비밀에는 만료 날짜가 있습니다.

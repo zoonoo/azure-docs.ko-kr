@@ -10,17 +10,15 @@ ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: abshamsft
-ms.component: ''
-ms.openlocfilehash: 69088f7d07312d4110eafea369ea999f0597868b
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 50819e1378187dda126f25298d8a2ac0a1b815c5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441998"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188778"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute 모니터
 
@@ -160,4 +158,4 @@ NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../../virtual-
  
 
 ## <a name="next-steps"></a>다음 단계
-자세한 네트워크 성능 데이터 레코드를 보려면 [로그 검색](../../log-analytics/log-analytics-queries.md)을 수행합니다.
+자세한 네트워크 성능 데이터 레코드를 보려면 [로그 검색](../../azure-monitor/log-query/log-query-overview.md)을 수행합니다.

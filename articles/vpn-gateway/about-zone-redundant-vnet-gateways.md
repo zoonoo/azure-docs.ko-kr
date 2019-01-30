@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: 27bac5265a5e884b808c4ccb58fda0b2fffeb774
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d3dda3bb5fd39b844f50044c1262008e3610e301
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975661"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871407"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Azure 가용성 영역의 영역 중복 가상 네트워크 게이트웨이 정보
 
@@ -86,7 +86,7 @@ ms.locfileid: "46975661"
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>새 SKU를 사용할 수 있는 지역은 어디인가요?
 
-Azure 가용성 영역이 있는 Azure 지역(미국 중부, 프랑스 중부 및 유럽 서부 지역)에서 새 SKU를 사용할 수 있습니다. 앞으로 영역 중복 게이트웨이를 다른 Azure 공용 지역에서 사용할 수 있도록 제공할 예정입니다.
+Azure 가용성 영역이 있는 Azure 지역(미국 중부, 프랑스 중부, 유럽 북부, 유럽 서부 및 미국 서부 2 지역)에서 새 SKU를 사용할 수 있습니다. 앞으로 다른 Azure 공용 지역에서도 영역 중복 게이트웨이를 사용할 수 있도록 제공할 예정입니다.
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>내 기존 가상 네트워크 게이트웨이를 영역 중복 또는 영역 게이트웨이로 변경/마이그레이션/업그레이드할 수 있나요?
 

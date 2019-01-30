@@ -4,15 +4,15 @@ ms.service: redis-cache
 ms.topic: include
 ms.date: 11/21/2018
 ms.author: wesmc
-ms.openlocfilehash: 1ddb81de479317a098f9de8aa5756cbaae59cb72
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dd9700c9472e07daf294eca12b766e3dc4832955
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331257"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111636"
 ---
 ### <a name="cacheskuname"></a>cacheSKUName
-새 Azure Redis Cache의 가격 책정 계층입니다.
+새 Azure Cache for Redis의 가격 책정 계층입니다.
 
     "cacheSKUName": {
       "type": "string",
@@ -22,7 +22,7 @@ ms.locfileid: "52331257"
       ],
       "defaultValue": "Basic",
       "metadata": {
-        "description": "The pricing tier of the new Azure Redis Cache."
+        "description": "The pricing tier of the new Azure Cache for Redis."
       }
     },
 
@@ -45,7 +45,7 @@ SKU 제품군입니다.
 
 
 ### <a name="cacheskucapacity"></a>cacheSKUCapacity
-새 Azure Redis Cache 인스턴스의 크기입니다. 
+새 Azure Cache for Redis 인스턴스의 크기입니다. 
 
     "cacheSKUCapacity": {
       "type": "int",
@@ -60,7 +60,7 @@ SKU 제품군입니다.
       ],
       "defaultValue": 0,
       "metadata": {
-        "description": "The size of the new Azure Redis Cache instance. "
+        "description": "The size of the new Azure Cache for Redis instance. "
       }
     }
 

@@ -1,27 +1,26 @@
 ---
-title: Azure에 대한 MongoDB, Angular 및 노드 자습서 - 3부 | Microsoft Docs
+title: Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Angular를 사용하여 UI 빌드
+titleSuffix: Azure Cosmos DB
 description: MongoDB에 사용하는 것과 정확히 동일한 API를 사용한 Azure Cosmos DB의 Angular 및 노드를 사용하여 MongoDB 앱을 만드는 방법에 대한 자습서 시리즈의 3부
-services: cosmos-db
 author: johnpapa
-manager: kfile
-editor: ''
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 09/05/2017
+ms.date: 12/26/2018
 ms.author: jopapa
-ms.custom: mvc
-ms.openlocfilehash: c71e0d221e4605d95dc754127ec44c62a64472f1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.custom: seodec18
+ms.reviewer: sngun
+ms.openlocfilehash: 286ccfe84f511ffccdc8919b2e717cd21f124c2b
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702285"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158706"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>Angular 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기 - 3부: Angular에서 UI 빌드
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Angular를 사용하여 UI 빌드
 
-이 다중 파트 자습서에서는 Express 및 Angular와 Node.js로 작성된 새 [MongoDB API](mongodb-introduction.md) 앱을 만들고 Azure Cosmos DB 데이터베이스에 연결하는 방법을 보여줍니다.
+여러 파트로 구성된 이 자습서에서는 Express 및 Angular를 사용하여 Node.js로 작성된 새 앱을 만든 다음, [Cosmos DB의 API for MongoDB를 사용하여 구성된 Cosmos 계정](mongodb-introduction.md)에 연결하는 방법을 보여줍니다.
 
 자습서의 3부는 [2부](tutorial-develop-mongodb-nodejs-part2.md)를 기반으로 하고 다음과 같은 작업을 다룹니다.
 
@@ -39,7 +38,7 @@ ms.locfileid: "43702285"
 자습서의 이 부분을 시작하기 전에 자습서 [2부](tutorial-develop-mongodb-nodejs-part2.md)의 단계를 완료했는지 확인합니다.
 
 > [!TIP]
-> 이 자습서에서는 응용 프로그램을 구축하는 단계를 단계별로 설명합니다. 완료된 프로젝트를 다운로드하려는 경우 GitHub의 [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb)에서 완성된 응용 프로그램을 가져올 수 있습니다.
+> 이 자습서에서는 애플리케이션을 구축하는 단계를 단계별로 설명합니다. 완료된 프로젝트를 다운로드하려는 경우 GitHub의 [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb)에서 완성된 응용 프로그램을 가져올 수 있습니다.
 
 ## <a name="build-the-ui"></a>UI 빌드
 
@@ -418,7 +417,7 @@ ms.locfileid: "43702285"
 
 2. Visual Studio Code에서 **heroes.components.ts**로 돌아갑니다. `constructor(private heroService: HeroService) {}`줄(13줄)에서 `HeroService`의 아래에는 빨간색 선이 있습니다. `HeroService`를 클릭하면 코드 블록의 왼쪽에 전구 모양 아이콘이 생성됩니다. 전구 모양 아이콘을 클릭한 다음 **"./hero.service "에서 HeroService 가져오기**를 클릭합니다. 또는 **"/app/hero.service"에서 HeroService 가져오기**를 클릭합니다.
 
-    전구 모양 이아콘을 클릭하면 2줄에 새 코드 줄을 삽입합니다. 2줄이 /app/hero.service 폴더를 참조하는 경우 로컬 폴더에서 Hero 파일을 참조하도록 수정합니다(./hero.serivce). 2줄은 다음과 같이 표시되어야 합니다.
+    전구 모양 이아콘을 클릭하면 2줄에 새 코드 줄을 삽입합니다. 2줄이 /app/hero.service 폴더를 참조하는 경우 로컬 폴더에서 Hero 파일을 참조하도록 수정합니다(./hero.service). 2줄은 다음과 같이 표시되어야 합니다.
     
     ```javascript
     import { HeroService } from "./hero.service"
@@ -478,7 +477,7 @@ ms.locfileid: "43702285"
 
 ## <a name="build-the-app"></a>앱 빌드
 
-1. 명령 프롬프트에서 Angular 응용 프로그램을 빌드하는 다음 명령을 입력합니다. 
+1. 명령 프롬프트에서 Angular 애플리케이션을 빌드하는 다음 명령을 입력합니다. 
 
     ```bash
     ng b

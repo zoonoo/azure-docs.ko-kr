@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2.0 암시적 흐름을 사용하여 단일 페이지 응용 프로그램 보호 | Microsoft Docs
-description: 단일 페이지 앱에 대해 Azure AD의 v2.0 암시적 흐름 구현을 사용하여 웹 응용 프로그램을 빌드합니다.
+title: Azure AD v2.0 암시적 흐름을 사용하여 단일 페이지 애플리케이션 보호 | Microsoft Docs
+description: 단일 페이지 앱에 대해 Azure AD의 v2.0 암시적 흐름 구현을 사용하여 웹 애플리케이션을 빌드합니다.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 878c2596a1d884e26a4b4a4ed4764cfd9ce6b39b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: ce54ad77893557b595f9777dfc82939aacf41608
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424103"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321520"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 프로토콜 - 암시적 흐름을 사용하는 SPA
 
@@ -30,13 +30,13 @@ ms.locfileid: "52424103"
 
 v2.0 엔드포인트를 사용하는 경우 사용자가 Microsoft 개인 계정 및 회사 또는 학교 계정을 사용하여 단일 페이지 앱에 로그인할 수 있습니다. 주로 브라우저에서 실행되는 단일 페이지 앱 및 기타 JavaScript 앱에는 인증과 관련하여 해결해야 하는 몇 가지 문제가 있습니다.
 
-* 이러한 앱의 보안 특성은 기존의 서버 기반 웹 응용 프로그램과 상당히 다릅니다.
+* 이러한 앱의 보안 특성은 기존의 서버 기반 웹 애플리케이션과 상당히 다릅니다.
 * 대다수 권한 부여 서버 및 ID 공급자는 CORS 요청을 지원하지 않습니다.
 * 앱에서 멀어지는 전체 페이지 브라우저 리디렉션은 사용자 환경에 특히 방해가 됩니다.
 
-이러한 응용 프로그램(AngularJS, Ember.js, React.js 등)에 대해 Azure AD(Active Directory)는 OAuth 2.0 암시적 허용 흐름을 지원합니다. 암시적 흐름은 [OAuth 2.0 사양(영문)](https://tools.ietf.org/html/rfc6749#section-4.2)에 설명되어 있습니다. 이것의 주요 이점은 앱이 백 엔드 서버 자격 증명 교환을 수행하지 않고 Azure AD에서 토큰을 가져오도록 허용한다는 것입니다. 따라서 앱은 사용자 로그인, 세션 유지 관리, 다른 웹 API에 대한 토큰 가져오기를 모두 클라이언트 JavaScript 코드 내에서 수행할 수 있습니다. 암시적 흐름을 사용하는 경우 보안과 관련된 몇 가지 중요 사항(특히 [클라이언트](https://tools.ietf.org/html/rfc6749#section-10.3) 및 [사용자 가장](https://tools.ietf.org/html/rfc6749#section-10.3) 관련 사항)을 고려해야 합니다.
+이러한 애플리케이션(AngularJS, Ember.js, React.js 등)에 대해 Azure AD(Active Directory)는 OAuth 2.0 암시적 허용 흐름을 지원합니다. 암시적 흐름은 [OAuth 2.0 사양(영문)](https://tools.ietf.org/html/rfc6749#section-4.2)에 설명되어 있습니다. 이것의 주요 이점은 앱이 백 엔드 서버 자격 증명 교환을 수행하지 않고 Azure AD에서 토큰을 가져오도록 허용한다는 것입니다. 따라서 앱은 사용자 로그인, 세션 유지 관리, 다른 웹 API에 대한 토큰 가져오기를 모두 클라이언트 JavaScript 코드 내에서 수행할 수 있습니다. 암시적 흐름을 사용하는 경우 보안과 관련된 몇 가지 중요 사항(특히 [클라이언트](https://tools.ietf.org/html/rfc6749#section-10.3) 및 [사용자 가장](https://tools.ietf.org/html/rfc6749#section-10.3) 관련 사항)을 고려해야 합니다.
 
-암시적 흐름과 Azure AD를 사용하여 JavaScript 앱에 인증 기능을 추가하려는 경우에는 오픈 소스 JavaScript 라이브러리인 [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)를 사용하는 것이 좋습니다. 
+암시적 흐름과 Azure AD를 사용하여 JavaScript 앱에 인증 기능을 추가하려는 경우에는 오픈 소스 JavaScript 라이브러리인 [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)를 사용하는 것이 좋습니다.
 
 하지만 단일 페이지 앱에서 라이브러리를 사용하지 않고 직접 프로토콜 메시지를 보내려는 경우에는 아래의 일반적인 단계를 따릅니다.
 
@@ -54,7 +54,7 @@ v2.0 엔드포인트를 사용하는 경우 사용자가 Microsoft 개인 계정
 사용자가 앱에 처음으로 로그인하도록 하려는 경우 [OpenID Connect](v2-protocols-oidc.md) 권한 부여 요청을 보내고 v2.0 엔드포인트에서 `id_token`을 가져올 수 있습니다.
 
 > [!IMPORTANT]
-> ID 토큰을 올바르게 요청하려면 [등록 포털](https://apps.dev.microsoft.com)의 앱 등록에서 웹 클라이언트에 대한 **암시적 흐름 허용**이 사용하도록 설정되어 있어야 합니다. 암시적 흐름 허용이 사용하도록 설정되어 있지 않으면 `unsupported_response` 오류가 반환됩니다. 이 오류의 구체적인 메시지는 **입력 매개 변수 'response_type'에 대해 제공된 값은 이 클라이언트에 대해 허용되지 않습니다. 필요한 값은 'code'입니다.** 입니다.
+> ID 토큰을 올바르게 요청하려면 [등록 포털](https://apps.dev.microsoft.com)의 앱 등록에서 웹 클라이언트에 대한 **암시적 흐름 허용**이 사용하도록 설정되어 있어야 합니다. 사용하도록 설정되어 있지 않으면 `unsupported_response` 오류가 반환됩니다. **입력 매개 변수 'response_type'에 대해 제공된 값은 이 클라이언트에 대해 허용되지 않습니다. 필요한 값은 'code'입니다.** 입니다.
 
 ```
 // Line breaks for legibility only
@@ -71,12 +71,12 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > 암시적 흐름을 사용하여 로그인을 테스트하려면 <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize..를 클릭합니다.</a> 로그인하면 브라우저가 주소 표시줄에서 `id_token`과 함께 `https://localhost/myapp/`으로 리디렉션됩니다.
-> 
+>
 
 | 매개 변수 |  | 설명 |
 | --- | --- | --- |
-| `tenant` | 필수 |요청의 경로에 있는 `{tenant}` 값을 사용하여 응용 프로그램에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
-| `client_id` | 필수 |등록 포털([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList))에서 앱에 할당한 응용 프로그램 ID입니다. |
+| `tenant` | 필수 |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
+| `client_id` | 필수 |등록 포털([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList))에서 앱에 할당한 애플리케이션 ID입니다. |
 | `response_type` | 필수 |OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다. response_type `token`을 포함할 수도 있습니다. `token` 을 여기서 사용하면 앱은 권한 부여 엔드포인트에 두 번째 요청을 수행하지 않고 권한 부여 엔드포인트에서 즉시 액세스 토큰을 받을 수 있습니다. `token` response_type을 사용하는 경우 `scope` 매개 변수는 토큰을 발행할 리소스를 나타내는 범위를 포함해야 합니다. |
 | `redirect_uri` | 권장 |앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect_uri 중 하나와 정확히 일치해야 합니다. |
 | `scope` | 필수 |공백으로 구분된 범위 목록입니다. OpenID Connect의 경우 동의 UI에서 "로그인" 권한으로 해석되는 `openid`범위가 포함되어야 합니다. 필요에 따라 추가 사용자 데이터에 액세스하기 위해 `email` 또는 `profile` [범위](v2-permissions-and-consent.md)를 포함할 수도 있습니다. 다양한 리소스에 대한 동의를 요청하기 위해 이 요청에 다른 범위를 포함할 수도 있습니다. |
@@ -171,7 +171,7 @@ URL의 쿼리 매개 변수에 대한 자세한 내용은 [로그인 요청 보�
 >`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&domain_hint=consumers-or-organizations&login_hint=your-username`
 >
 
-`prompt=none` 매개 변수로 인해, 이 요청은 즉시 성공하거나 실패하고 응용 프로그램에 반환됩니다. 성공적인 응답은 `response_mode` 매개 변수에 지정된 메서드를 사용하여 지정된 `redirect_uri`의 앱으로 전송됩니다.
+`prompt=none` 매개 변수로 인해, 이 요청은 즉시 성공하거나 실패하고 애플리케이션에 반환됩니다. 성공적인 응답은 `response_mode` 매개 변수에 지정된 메서드를 사용하여 지정된 `redirect_uri`의 앱으로 전송됩니다.
 
 #### <a name="successful-response"></a>성공적인 응답
 
@@ -211,7 +211,7 @@ error=user_authentication_required
 | `error` |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
 
-iFrame 요청에 이러한 오류를 수신하면, 사용자는 새 토큰을 얻기 위해 대화형으로 다시 로그인해야 합니다. 어떠한 방식이든 응용 프로그램에 적합한 방식으로 이러한 경우를 처리하도록 선택할 수 있습니다.
+iFrame 요청에 이러한 오류를 수신하면, 사용자는 새 토큰을 얻기 위해 대화형으로 다시 로그인해야 합니다. 어떠한 방식이든 애플리케이션에 적합한 방식으로 이러한 경우를 처리하도록 선택할 수 있습니다.
 
 ## <a name="validating-access-tokens"></a>액세스 토큰의 유효성 검사
 
@@ -229,7 +229,7 @@ access_token를 받으면 다음 클레임뿐 아니라 토큰 서명의 유효�
 
 ## <a name="send-a-sign-out-request"></a>로그아웃 요청 보내기
 
-OpenIdConnect `end_session_endpoint`에서는 앱이 v2.0 엔드포인트에 요청을 보내 사용자 세션을 종료하고 v2.0 엔드포인트에서 설정한 쿠키를 지울 수 있습니다. 앱은 웹 응용 프로그램에서 특정 사용자를 완전히 로그아웃시키기 위해 일반적으로 토큰 캐시를 지우거나 쿠키를 삭제하여 고유한 사용자 세션을 종료한 다음 브라우저를 아래 주소로 리디렉션합니다.
+OpenIdConnect `end_session_endpoint`에서는 앱이 v2.0 엔드포인트에 요청을 보내 사용자 세션을 종료하고 v2.0 엔드포인트에서 설정한 쿠키를 지울 수 있습니다. 앱은 웹 애플리케이션에서 특정 사용자를 완전히 로그아웃시키기 위해 일반적으로 토큰 캐시를 지우거나 쿠키를 삭제하여 고유한 사용자 세션을 종료한 다음, 브라우저를 아래 주소로 리디렉션합니다.
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
@@ -237,8 +237,8 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 
 | 매개 변수 |  | 설명 |
 | --- | --- | --- |
-| `tenant` |필수 |요청의 경로에 있는 `{tenant}` 값을 사용하여 응용 프로그램에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
-| `post_logout_redirect_uri` | 권장 | 로그아웃이 완료된 후 사용자가 반환되어야 하는 URL입니다. 이 값은 응용 프로그램에 대해 등록된 리디렉션 URI 중 하나와 일치해야 합니다. 포함되지 않은 경우 v2.0 엔드포인트에서 사용자에게 일반 메시지를 표시합니다. |
+| `tenant` |필수 |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
+| `post_logout_redirect_uri` | 권장 | 로그아웃이 완료된 후 사용자가 반환되어야 하는 URL입니다. 이 값은 애플리케이션에 대해 등록된 리디렉션 URI 중 하나와 일치해야 합니다. 포함되지 않은 경우 v2.0 엔드포인트에서 사용자에게 일반 메시지를 표시합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

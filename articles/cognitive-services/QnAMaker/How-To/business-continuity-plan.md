@@ -1,25 +1,25 @@
 ---
 title: 비즈니스 연속성 플랜 - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 비즈니스 연속성 계획의 주요 목표는 Bot 또는 이를 사용하는 응용 프로그램에 대한 작동 중지 시간이 없도록 보장하는 복원력 있는 기술 자료 엔드포인트를 만드는 것입니다.
+description: 비즈니스 연속성 계획의 주요 목표는 Bot 또는 이를 사용하는 애플리케이션에 대한 작동 중지 시간이 없도록 보장하는 복원력 있는 기술 자료 엔드포인트를 만드는 것입니다.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/14/2018
 ms.author: tulasim
-ms.openlocfilehash: 41e7425a2e2e6dd8dc8416538cf77e5b8f273284
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 28d2e9ce16106a1995702bd908825d9aa75f06bd
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041941"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263869"
 ---
 # <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>QnA Maker 서비스를 위한 비즈니스 연속성 계획 만들기
 
-비즈니스 연속성 계획의 주요 목표는 Bot 또는 이를 사용하는 응용 프로그램에 대한 작동 중지 시간이 없도록 보장하는 복원력 있는 기술 자료 엔드포인트를 만드는 것입니다.
+비즈니스 연속성 계획의 주요 목표는 Bot 또는 이를 사용하는 애플리케이션에 대한 작동 중지 시간이 없도록 보장하는 복원력 있는 기술 자료 엔드포인트를 만드는 것입니다.
 
 ![QnA Maker bcp 계획](../media/qnamaker-how-to-bcp-plan/qnamaker-bcp-plan.png)
 
@@ -27,7 +27,7 @@ ms.locfileid: "47041941"
 
 1. [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)에서 두 개의 병렬 [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)를 설정합니다.
 
-2. 기본 및 보조 Azure 검색 인덱스를 동기로 유지합니다. [여기](https://github.com/pchoudhari/QnAMakerBackupRestore)에서 Github 샘플을 사용하여 Azure 인덱스 백업 복원 방법을 참조합니다.
+2. 기본 및 보조 Azure 검색 인덱스를 동기로 유지합니다. [여기](https://github.com/pchoudhari/QnAMakerBackupRestore)에서 GitHub 샘플을 사용하여 Azure 인덱스를 백업 복원하는 방법을 참조합니다.
 
 3. [연속 내보내기](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)를 사용하여 Application Insights를 백업합니다.
 

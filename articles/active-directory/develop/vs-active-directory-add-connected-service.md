@@ -22,11 +22,11 @@ ms.locfileid: "51251039"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Visual Studio에서 연결된 서비스를 사용하여 Azure Active Directory 추가
 
-Azure Active Directory(Azure AD)를 사용하여 ASP.NET MVC 웹 응용 프로그램 또는 웹 API 서비스에서 Active Directory 인증을 위한 SSO(Single Sign-on)을 지원할 수 있습니다. Azure AD 인증을 사용하면 사용자가 Azure Active Directory의 자신의 계정을 사용하여 웹 응용 프로그램에 연결할 수 있습니다. Azure AD 인증의 장점으로 웹 응용 프로그램에서 API를 표시하는 경우 향상된 데이터 보안을 들 수 있습니다. Azure AD를 사용하면, 자체 계정 및 사용자 관리를 사용하는 별도 인증 시스템을 관리할 필요가 없습니다.
+Azure AD(Azure Active Directory)를 사용하여 ASP.NET MVC 웹 애플리케이션 또는 웹 API 서비스에서 Active Directory 인증을 위한 SSO(Single Sign-on)을 지원할 수 있습니다. Azure AD 인증을 사용하면 사용자가 Azure Active Directory의 자신의 계정을 사용하여 웹 애플리케이션에 연결할 수 있습니다. Azure AD 인증의 장점으로 웹 애플리케이션에서 API를 표시하는 경우 향상된 데이터 보안을 들 수 있습니다. Azure AD를 사용하면, 자체 계정 및 사용자 관리를 사용하는 별도 인증 시스템을 관리할 필요가 없습니다.
 
 이 문서 및 함께 제공되는 문서에서는 Active Directory용 Visual Studio 연결된 서비스 기능 사용에 대한 세부 정보를 제공합니다. 이 기능은 Visual Studio 2017 및 Visual Studio 2015에서 사용할 수 있습니다.
 
-현재 Active Directory 연결된 서비스는 ASP.NET Core 응용 프로그램을 지원하지 않습니다.
+현재 Active Directory 연결된 서비스는 ASP.NET Core 애플리케이션을 지원하지 않습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -35,7 +35,7 @@ Azure Active Directory(Azure AD)를 사용하여 ASP.NET MVC 웹 응용 프로�
 
 ### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>연결된 서비스 대화 상자를 사용하여 Azure Active Directory에 연결
 
-1. Visual Studio에서 ASP.NET MVC 프로젝트 또는 ASP.NET Web API 프로젝트를 만들거나 엽니다. MVC, Web API, 단일 페이지 응용 프로그램, Azure API 앱, Azure 모바일 앱 및 Azure 모바일 서비스 템플릿을 사용할 수 있습니다.
+1. Visual Studio에서 ASP.NET MVC 프로젝트 또는 ASP.NET Web API 프로젝트를 만들거나 엽니다. MVC, Web API, 단일 페이지 애플리케이션, Azure API 앱, Azure 모바일 앱 및 Azure 모바일 서비스 템플릿을 사용할 수 있습니다.
 
 1. **프로젝트 > 연결된 서비스 추가...**  메뉴 명령을 선택하거나 솔루션 탐색기의 프로젝트 아래에서 **연결된 서비스** 노드를 두 번 클릭합니다.
 

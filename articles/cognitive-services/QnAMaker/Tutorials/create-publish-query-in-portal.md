@@ -1,21 +1,22 @@
 ---
-title: '자습서: QnA Maker 포털에서 기술 자료 생성, 게시 및 질문에 답변하기'
+title: QnA Maker에서 만들기, 게시, 답변
 titleSuffix: Azure Cognitive Services
 description: 이 포털 기반 자습서에서는 프로그래매틱 방식으로 기술 자료를 생성 및 게시한 후 기술 자료의 질문에 답변하는 방법을 안내합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
-ms.date: 10/29/2018
+ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: 08f708f740b90f27af5443b46c5d03bef688bd45
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 581c47d84466f37d7c7c3ad3e98ae1749f8d9524
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221737"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608650"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>자습서: 기술 자료를 만든 후 QnA Maker 포털을 통해 질문의 답변 만들기
 
@@ -30,7 +31,7 @@ ms.locfileid: "50221737"
 * Curl을 사용하여 기술 자료 쿼리
 
 > [!NOTE] 
-> 이 자습서의 프로그래매틱 버전은 [**Azure-Samples/cognitive-services-qnamaker-csharp** Github 리포지토리](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base)에서 완전한 솔루션으로 제공됩니다.
+> 이 자습서의 프로그래밍 방식 버전은 [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub 리포지토리](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base)에서 완전한 솔루션으로 제공됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -82,9 +83,9 @@ ms.locfileid: "50221737"
 
 1. 표 하단에서 질문 및 답변의 마지막 페이지를 선택합니다. 이 페이지는 잡담 개성의 질문 및 답변을 보여줍니다. 
 
-1. 질문 및 답변 목록 위의 도구 모음에서 기어를 선택합니다. 이는 각 질문 및 답변의 필터를 보여줍니다. 잡담 질문에는 **editorial: chit-chat** 필터가 이미 설정되어 있습니다. 이 필터는 선택된 답변과 함께 클라이언트 응용 프로그램으로 반환됩니다. 챗봇과 같은 클라이언트 응용 프로그램은 이 필터를 사용하여 추가 처리 또는 사용자와의 상호 작용을 결정할 수 있습니다.
+1. 질문 및 답변 목록 위의 도구 모음에서 메타데이터 아이콘을 선택합니다. 그러면 각 질문 및 답변에 대한 메타데이터 태그가 표시됩니다. 잡담 질문에는 **editorial: chit-chat** 메타데이터가 이미 설정되어 있습니다. 이 메타데이터는 선택된 답변과 함께 클라이언트 애플리케이션으로 반환됩니다. 챗봇과 같은 클라이언트 애플리케이션은 이 필터링된 메타데이터를 사용하여 추가 처리 또는 사용자와의 상호 작용을 결정할 수 있습니다.
 
-    ![필터 보기](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![메타데이터 태그 보기](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
 
 1. 상단 메뉴 모음에서 **저장 및 학습**을 선택합니다.
 
@@ -96,7 +97,7 @@ ms.locfileid: "50221737"
 
 KB가 게시되면 엔드포인트가 표시됩니다.
 
-![게시](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
+![페이지의 엔드포인트 설정 게시](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
 
 ## <a name="use-curl-to-query-for-an-faq-answer"></a>curl을 사용하여 FAQ 답변 쿼리
 
@@ -170,7 +171,7 @@ KB가 게시되면 엔드포인트가 표시됩니다.
    
     ```
 
-    `Thank you`의 질문은 잡담 질문과 정확히 일치하므로 QnA Maker는 신뢰도 점수 100으로, 완전히 신뢰할 수 있습니다. QnA Maker는 또한 모든 관련 질문과 잡담 필터 정보를 포함한 메타데이터 속성도 반환했습니다.  
+    `Thank you`의 질문은 잡담 질문과 정확히 일치하므로 QnA Maker는 신뢰도 점수 100으로, 완전히 신뢰할 수 있습니다. QnA Maker는 또한 모든 관련 질문과 잡담 메타데이터 태그 정보를 포함한 메타데이터 속성도 반환했습니다.  
 
 ## <a name="use-curl-to-query-for-the-default-answer"></a>curl을 사용하여 기본 답변 쿼리
 

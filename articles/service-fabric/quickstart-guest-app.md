@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric 클러스터에 기존 앱을 신속하게 배포
-description: Azure Service Fabric 클러스터를 사용하여 Visual Studio에서 기존 Node.js 응용 프로그램을 호스트합니다.
+description: Azure Service Fabric 클러스터를 사용하여 Visual Studio에서 기존 Node.js 애플리케이션을 호스트합니다.
 services: service-fabric
 documentationcenter: nodejs
 author: rwike77
@@ -21,15 +21,15 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/13/2018
 ms.locfileid: "39005297"
 ---
-# <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Azure Service Fabric에서 Node.js 응용 프로그램 호스트
+# <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Azure Service Fabric에서 Node.js 애플리케이션 호스트
 
-이 빠른 시작을 통해 Azure에서 실행되는 Service Fabric 클러스터에 기존 응용 프로그램(이 예제에서는 Node.js)을 배포할 수 있습니다.
+이 빠른 시작을 통해 Azure에서 실행되는 Service Fabric 클러스터에 기존 애플리케이션(이 예제에서는 Node.js)을 배포할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 [개발 환경을 설정](service-fabric-get-started.md)하도록 합니다. Service Fabric SDK 및 Visual Studio 2017 또는 2015 설치를 포함합니다.
 
-또한 배포하기 위해 기존 Node.js 응용 프로그램이 필요합니다. 이 빠른 시작은 [여기][download-sample]에서 다운로드할 수 있는 간단한 Node.js 웹 사이트를 사용합니다. 다음 단계에서 프로젝트를 만든 후 `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` 폴더에 이 파일을 추출합니다.
+또한 배포하기 위해 기존 Node.js 애플리케이션이 필요합니다. 이 빠른 시작은 [여기][download-sample]에서 다운로드할 수 있는 간단한 Node.js 웹 사이트를 사용합니다. 다음 단계에서 프로젝트를 만든 후 `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` 폴더에 이 파일을 추출합니다.
 
 Azure 구독이 아직 없는 경우 [체험 계정][create-account]을 만듭니다.
 
@@ -41,7 +41,7 @@ Azure 구독이 아직 없는 경우 [체험 계정][create-account]을 만듭�
 
 **새 프로젝트** 대화 상자에서 **클라우드 > Service Fabric 응용 프로그램**을 선택합니다.
 
-응용 프로그램의 이름을 **MyGuestApp**으로 지정하고 **확인**을 누릅니다.
+애플리케이션의 이름을 **MyGuestApp**으로 지정하고 **확인**을 누릅니다.
 
 >[!IMPORTANT]
 >Node.js는 Windows에 있는 경로에 대한 260자 제한을 쉽게 초과할 수 있습니다. **c:\code\svc1**과 같은 프로젝트 자체에 짧은 경로를 사용합니다. 경우에 따라 **[이러한 지침](https://stackoverflow.com/a/41687101/1664231)** 을 따라 Windows 10에서 긴 파일 경로를 활성화할 수 있습니다.
@@ -64,18 +64,18 @@ Azure 구독이 아직 없는 경우 [체험 계정][create-account]을 만듭�
 
 ![Visual Studio의 새 서비스 대화 상자][new-service]
 
-Visual Studio는 응용 프로그램 프로젝트 및 작업자 서비스 프로젝트를 만들고 솔루션 탐색기에 표시합니다.
+Visual Studio는 애플리케이션 프로젝트 및 작업자 서비스 프로젝트를 만들고 솔루션 탐색기에 표시합니다.
 
-응용 프로그램 프로젝트(**MyGuestApp**)는 코드를 직접 포함하지 않습니다. 대신 서비스 프로젝트의 집합을 참조합니다. 추가로 3가지 다른 형식을 포함합니다.
+애플리케이션 프로젝트(**MyGuestApp**)는 코드를 직접 포함하지 않습니다. 대신 서비스 프로젝트의 집합을 참조합니다. 추가로 3가지 다른 형식을 포함합니다.
 
 * **게시 프로필**  
 다양한 환경에 대한 도구 기본 설정입니다.
 
 * **스크립트**  
-응용 프로그램을 배포/업그레이드하기 위한 PowerShell 스크립트입니다.
+애플리케이션을 배포/업그레이드하기 위한 PowerShell 스크립트입니다.
 
 * **응용 프로그램 정의**  
-*ApplicationPackageRoot*에서 응용 프로그램 매니페스트를 포함합니다. 관련된 응용 프로그램 매개 변수 파일은 *ApplicationParameters*에 있으며 응용 프로그램을 정의하고 지정된 환경에 대해 해당 응용 프로그램을 구체적으로 구성할 수 있습니다.
+*ApplicationPackageRoot*에서 응용 프로그램 매니페스트를 포함합니다. 관련된 애플리케이션 매개 변수 파일은 *ApplicationParameters*에 있으며 애플리케이션을 정의하고 지정된 환경에 대해 해당 애플리케이션을 구체적으로 구성할 수 있습니다.
     
 서비스 프로젝트의 내용에 대한 개요는 [Reliable Services 시작](service-fabric-reliable-services-quick-start.md)을 참조하세요.
 
@@ -118,7 +118,7 @@ Service Fabric 클러스터를 만들 때 **사용자 지정 끝점** 설정을 
 
 **게시**를 눌러서 배포가 끝나기를 기다립니다.
 
-몇 분이 걸릴 수 있습니다. 배포가 완료된 후에 완벽하게 응용 프로그램을 사용할 수 있는 데 몇 분이 걸릴 수 있습니다.
+몇 분이 걸릴 수 있습니다. 배포가 완료된 후에 완벽하게 애플리케이션을 사용할 수 있는 데 몇 분이 걸릴 수 있습니다.
 
 ## <a name="test-the-website"></a>웹 사이트 테스트
 

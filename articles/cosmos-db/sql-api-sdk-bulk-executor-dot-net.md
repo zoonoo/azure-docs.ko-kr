@@ -1,21 +1,21 @@
 ---
-title: 'Azure Cosmos DB: Bulk Executor .NET API, SDK 및 리소스 | Microsoft Docs'
+title: Azure Cosmos DB는 Bulk Executor .NET API, SDK 및 리소스
 description: 릴리스 날짜, 사용 중지 날짜 및 Azure Cosmos DB Bulk Executor .NET SDK의 각 버전 간 변경 내용을 포함하여 Bulk Executor .NET API 및 SDK에 대한 모든 것을 알아봅니다.
 author: tknandu
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: ae9560296e37ff5492c07e69e6ba0eb5539915c8
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8675c5ff90f7be2dc0b3ac80eb593adb613ba860
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308498"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039761"
 ---
-# <a name="net-bulk-executor-library-download-information"></a>.NET Bulk Executor 라이브러리: 다운로드 정보 
+# <a name="net-bulk-executor-library-download-information"></a>.NET Bulk Executor 라이브러리: 정보 다운로드 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
@@ -27,7 +27,7 @@ ms.locfileid: "52308498"
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [Bulk Executor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk Executor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -77,7 +77,7 @@ ms.locfileid: "52308498"
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
 * Azure Cosmos DB SQL API 계정용 BulkDelete 작업에 대한 지원이 추가되었습니다.
-* Azure Cosmos DB MongoDB API 계정용 BulkImport 작업에 대한 지원이 추가되었습니다.
+* Azure Cosmos DB의 MongoDB API 계정용 BulkImport 작업에 대한 지원이 추가되었습니다.
 * DocumentDB.NET SDK 종속성이 버전 2.0.0으로 향상되었습니다. 
 
 ### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2

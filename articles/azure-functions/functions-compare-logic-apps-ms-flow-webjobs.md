@@ -1,6 +1,6 @@
 ---
 title: Flow, Logic Apps, Functions 및 WebJobs 비교 - Azure
-description: '통합 작업: Flow, Logic Apps, Functions 및 WebJobs에 최적화된 Microsoft 클라우드 서비스를 비교합니다.'
+description: 다음 통합 작업에 최적화된 Microsoft 클라우드 서비스를 비교합니다.  Flow, Logic Apps, Functions 및 WebJobs
 services: functions, logic-apps
 documentationcenter: na
 author: ggailey777
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: c22d75b4eb058942da5a3b0699cbb4a23eec42f3
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4227db0f2767f559bb51afab6cb75f3ac34707c4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634934"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117591"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, Functions 및 WebJobs 비교
 
@@ -26,13 +26,13 @@ ms.locfileid: "52634934"
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure 기능](https://azure.microsoft.com/services/functions/)
-* [Azure App Service WebJobs](../app-service/web-sites-create-web-jobs.md)
+* [Azure App Service WebJobs](../app-service/webjobs-create.md)
 
 이 모든 서비스는 통합 문제를 해결하고 비즈니스 프로세스를 자동화할 수 있습니다. 입력, 동작, 조건 및 출력을 모두 정의할 수 있습니다. 각 서비스를 일정이나 트리거에 따라 실행할 수 있습니다. 그러나 서비스마다 고유의 장점이 있으며, 이 문서에서는 차이점을 설명합니다.
 
 ## <a name="compare-microsoft-flow-and-azure-logic-apps"></a>Microsoft Flow 및 Azure Logic Apps 비교
 
-Flow 및 Logic Apps는 모두 워크플로를 만들 수 있는 *디자이너 중심* 통합 서비스입니다. 두 서비스는 다양한 SaaS 및 엔터프라이즈 응용 프로그램과 통합합니다. 
+Flow 및 Logic Apps는 모두 워크플로를 만들 수 있는 *디자이너 중심* 통합 서비스입니다. 두 서비스는 다양한 SaaS 및 엔터프라이즈 애플리케이션과 통합합니다. 
 
 Flow는 Logic Apps를 기반으로 빌드됩니다. 동일한 워크플로 디자이너 및 동일한 [커넥터](../connectors/apis-list.md)를 공유합니다. 
 
@@ -53,7 +53,7 @@ Flow는 개발자나 IT를 통하지 않고 사무실 작업자가 간단히 통
 
 Functions 및 Logic Apps는 서버가 없는 워크로드를 활성화하는 Azure 서비스입니다. Azure Functions는 서버가 없는 계산 서비스인 반면 Azure Logic Apps는 서버가 없는 워크플로를 제공합니다. 복잡한 *오케스트레이션*을 둘 다로 만들 수 있습니다. 오케스트레이션은 Logic Apps에서 *작업*이라는 함수 또는 단계의 집합이며 복잡한 작업을 수행하기 위해 실행됩니다. 예를 들어 주문의 일괄 처리를 처리하기 위해 많은 함수의 인스턴스를 동시에 실행하고, 모든 인스턴스가 완료되기를 기다린 다음, 집계에 대한 결과를 계산하는 함수를 실행할 수 있습니다.
 
-Azure Functions의 경우 코드를 작성하고 [지속성 함수 확장](durable/durable-functions-overview.md)을 사용하여 오케스트레이션을 개발합니다. Logic Apps의 경우 GUI를 사용하거나 구성 파일을 편집하여 오케스트레이션을 만듭니다.
+Azure Functions의 경우 코드를 작성하고 [지속성 함수 확장](durable/durable-functions-concepts.md)을 사용하여 오케스트레이션을 개발합니다. Logic Apps의 경우 GUI를 사용하거나 구성 파일을 편집하여 오케스트레이션을 만듭니다.
 
 오케스트레이션을 빌드할 때 논리 앱에서 함수를 호출하고 함수에서 논리 앱을 호출하여 서비스를 짜 맞출 수 있습니다. 서비스의 기능 또는 개인 기본 설정에 따라 각 오케스트레이션을 빌드하는 방법을 선택합니다. 다음 표는 이러한 서비스 간의 주요 차이점 중 일부를 나열합니다.
  
@@ -62,7 +62,7 @@ Azure Functions의 경우 코드를 작성하고 [지속성 함수 확장](durab
 | 개발 | 코드 중심(명령적) | 디자이너 중심(선언적) |
 | 연결 | [12가지의 기본 제공 바인딩 형식 정보](functions-triggers-bindings.md#supported-bindings), 사용자 지정 바인딩에 대한 코드 작성 | [대규모의 커넥터 컬렉션](../connectors/apis-list.md), [B2B 시나리오용 엔터프라이즈 통합 팩](../logic-apps/logic-apps-enterprise-integration-overview.md), [사용자 지정 커넥터 빌드](../logic-apps/custom-connector-overview.md) |
 | 작업 | 각 작업은 Azure 함수입니다. 작업 함수에 대한 코드 작성 |[즉시 사용 가능한 작업의 대규모 컬렉션](../logic-apps/logic-apps-workflow-actions-triggers.md)|
-| 모니터링 | [Azure Application Insights](../application-insights/app-insights-overview.md) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
+| 모니터링 | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
 | 관리 | [REST API](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/?view=azurermps-5.6.0), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
 | 실행 컨텍스트 | [로컬로](functions-runtime-overview.md) 또는 클라우드에서 실행할 수 있습니다. | 클라우드에서만 실행합니다.|
 
@@ -70,13 +70,13 @@ Azure Functions의 경우 코드를 작성하고 [지속성 함수 확장](durab
 
 ## <a name="compare-functions-and-webjobs"></a>Functions 및 WebJobs 비교
 
-Azure Functions와 마찬가지로, Azure App Service WebJobs with the WebJobs SDK는 개발자를 위해 설계된 *코드 중심* 통합 서비스입니다. 둘 다 [Azure App Service](../app-service/app-service-web-overview.md)를 기반으로 빌드되며 [소스 제어 통합](../app-service/app-service-continuous-deployment.md), [인증](../app-service/app-service-authentication-overview.md), [Application Insights를 사용한 모니터링](functions-monitoring.md) 등의 기능을 지원합니다.
+Azure Functions와 마찬가지로, Azure App Service WebJobs with the WebJobs SDK는 개발자를 위해 설계된 *코드 중심* 통합 서비스입니다. 둘 다 [Azure App Service](../app-service/overview.md)를 기반으로 빌드되며 [소스 제어 통합](../app-service/deploy-continuous-deployment.md), [인증](../app-service/overview-authentication-authorization.md), [Application Insights를 사용한 모니터링](functions-monitoring.md) 등의 기능을 지원합니다.
 
 ### <a name="webjobs-and-the-webjobs-sdk"></a>WebJobs 및 WebJobs SDK
 
-App Service의 *WebJobs* 기능을 사용하면 App Service 웹앱의 컨텍스트에서 스크립트 또는 코드를 실행할 수 있습니다. *WebJobs SDK*는 WebJobs를 위해 설계된 프레임워크로, 개발자가 Azure 서비스의 이벤트에 응답하기 위해 작성하는 코드를 간소화합니다. 예를 들어 썸네일 이미지를 만들어서 Azure Storage에 이미지 BLOB 만들기에 대응할 수 있습니다. WebJobs SDK는 WebJob을 배포할 수 있는 .NET 콘솔 응용 프로그램으로 실행됩니다. 
+App Service의 *WebJobs* 기능을 사용하면 App Service 웹앱의 컨텍스트에서 스크립트 또는 코드를 실행할 수 있습니다. *WebJobs SDK*는 WebJobs를 위해 설계된 프레임워크로, 개발자가 Azure 서비스의 이벤트에 응답하기 위해 작성하는 코드를 간소화합니다. 예를 들어 썸네일 이미지를 만들어서 Azure Storage에 이미지 BLOB 만들기에 대응할 수 있습니다. WebJobs SDK는 WebJob을 배포할 수 있는 .NET 콘솔 애플리케이션으로 실행됩니다. 
 
-WebJobs와 WebJobs SDK는 최고의 호환성을 자랑하지만, WebJobs SDK 없이 WebJobs만 또는 그 반대로 사용할 수도 있습니다. WebJob은 App Service 샌드박스에서 실행되는 모든 프로그램 또는 스크립트를 실행할 수 있습니다. WebJobs SDK 콘솔 응용 프로그램은 온-프레미스 서버처럼 콘솔 응용 프로그램을 실행하는 모든 위치에서 실행 가능합니다.
+WebJobs와 WebJobs SDK는 최고의 호환성을 자랑하지만, WebJobs SDK 없이 WebJobs만 또는 그 반대로 사용할 수도 있습니다. WebJob은 App Service 샌드박스에서 실행되는 모든 프로그램 또는 스크립트를 실행할 수 있습니다. WebJobs SDK 콘솔 애플리케이션은 온-프레미스 서버처럼 콘솔 애플리케이션을 실행하는 모든 위치에서 실행 가능합니다.
 
 ### <a name="comparison-table"></a>비교 표
 

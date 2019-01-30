@@ -56,12 +56,12 @@ BizTalk 서비스 상태에 따라 완료할 수 없는 작업도 일부 있습�
 
 Visual Studio에서 BizTalk 서비스를 배포할 때 이 Access Control 네임스페이스를 입력합니다. BizTalk 서비스에 대해 Access Control 네임스페이스가 자동으로 만들어집니다.
 
-Access Control 값은 모든 응용 프로그램에서 사용할 수 있습니다. Azure BizTalk Services가 만들어지면 이 Access Control 네임스페이스는 BizTalk 서비스 배포 인증을 제어합니다. 구독을 변경하거나 네임스페이스를 관리하려면 왼쪽 탐색 창에서 **ACTIVE DIRECTORY** 를 선택한 다음 해당 네임스페이스를 선택합니다. 작업 표시줄에 옵션이 나열됩니다.
+Access Control 값은 모든 애플리케이션에서 사용할 수 있습니다. Azure BizTalk Services가 만들어지면 이 Access Control 네임스페이스는 BizTalk 서비스 배포 인증을 제어합니다. 구독을 변경하거나 네임스페이스를 관리하려면 왼쪽 탐색 창에서 **ACTIVE DIRECTORY** 를 선택한 다음 해당 네임스페이스를 선택합니다. 작업 표시줄에 옵션이 나열됩니다.
 
 **관리** 를 클릭하면 Access Control 관리 포털이 열립니다. Access Control 관리 포털에서 BizTalk 서비스는 **서비스 ID**를 사용합니다.  
 ![Access Control 관리 포털의 ACS 서비스 ID][ACSServiceIdentities]
 
-Access Control Service ID는 응용 프로그램이나 클라이언트가 Access Control을 직접 인증하고 토큰을 받을 수 있도록 하는 자격 증명 집합입니다.
+Access Control Service ID는 애플리케이션이나 클라이언트가 Access Control을 직접 인증하고 토큰을 받을 수 있도록 하는 자격 증명 집합입니다.
 
 > [!IMPORTANT]
 > BizTalk 서비스는 **암호** 값 및 기본 서비스 ID의 **소유자**를 사용합니다. 암호 값 대신 대칭 키 값을 사용하면 다음 오류가 발생할 수 있습니다<br/><br/>*지정한 자격 증명으로 Access Control 관리 서비스 계정에 연결할 수 없습니다*
@@ -165,7 +165,7 @@ Azure BizTalk 서비스를 만들면 **하이브리드 연결** 탭을 사용할
  하이브리드 연결을 만들고 관리하는 방법을 비롯한 자세한 내용은 [하이브리드 연결](integration-hybrid-connection-overview.md) 을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-BizTalk 서비스를 만들었으므로 이제 다른 [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](biztalk-dashboard-monitor-scale-tabs.md)도 익숙해질 수 있습니다. 응용 프로그램에 BizTalk 서비스를 사용할 준비가 되었습니다. 응용 프로그램을 만들려면 [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동하십시오.
+BizTalk 서비스를 만들었으므로 이제 다른 [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](biztalk-dashboard-monitor-scale-tabs.md)도 익숙해질 수 있습니다. 애플리케이션에 BizTalk 서비스를 사용할 준비가 되었습니다. 애플리케이션을 만들려면 [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동합니다.
 
 ## <a name="see-also"></a>참고 항목
 * [BizTalk Services: Editions 차트](biztalk-editions-feature-chart.md)<br/>

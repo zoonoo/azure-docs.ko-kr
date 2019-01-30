@@ -1,5 +1,5 @@
 ---
-title: 'Azure Data Factory: 질문과 대답 | Microsoft Docs'
+title: 'Azure Data Factory: 질문과 대답 | Microsoft 문서'
 description: Azure Data Factory에 대한 질문과 대답입니다.
 services: data-factory
 documentationcenter: ''
@@ -9,16 +9,15 @@ ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: d900c9c438ed40841639d556643a231075f4f194
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: be0cdeed81c66e1a848b44d2429c1c67bce9b4f3
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249590"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024096"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ
 이 아티클에서는 Azure Data Factory에 대한 질문과 대답을 제공합니다.  
@@ -92,9 +91,9 @@ SSIS 워크로드를 이동하려는 경우 Data Factory를 만들고 Azure-SSIS
 ## <a name="what-is-integration-runtime"></a>Integration Runtime이란?
 Integration Runtime은 서로 다른 네트워크 환경 간에 다음과 같은 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다.
 
-- **데이터 이동**: 데이터 이동을 위해 Integration Runtime은 데이터를 소스와 대상 데이터 저장소 간에 데이터를 이동하면서 기본 제공 커넥터, 형식 변환, 열 매핑, 성능과 확장성이 뛰어난 데이터 전송에 대한 지원을 제공합니다.
-- **Dispatch activities**: 변환을 위해 Integration Runtime은 SSIS 패키지를 고유하게 실행하는 기능을 제공합니다.
-- **SSIS 패키지 실행**: SSIS 패키지를 관리되는 Azure 계산 환경에서 고유하게 실행합니다. 또한 Integration Runtime은 Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server 등 다양한 계산 서비스에서 실행하는 변환 활동에 대한 발송 및 모니터링을 지원합니다.
+- **데이터 이동**: 데이터 이동을 위해, 통합 런타임은 데이터를 소스와 대상 데이터 저장소 간에 데이터를 이동하면서 기본 제공 커넥터, 형식 변환, 열 매핑, 성능과 확장성이 뛰어난 데이터 전송에 대한 지원을 제공합니다.
+- **Dispatch 활동**: 변환을 위해, 통합 런타임은 SSIS 패키지를 고유하게 실행하는 기능을 제공합니다.
+- **SSIS 패키지 실행**: SSIS 패키지를 관리되는 Azure 컴퓨팅 환경에서 고유하게 실행합니다. 또한 Integration Runtime은 Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server 등 다양한 계산 서비스에서 실행하는 변환 활동에 대한 발송 및 모니터링을 지원합니다.
 
 데이터를 이동 및 변환하는 데 필요한 만큼 하나 이상의 Integration Runtime 인스턴스를 배포할 수 있습니다. Integration Runtime은 Azure 공용 네트워크 또는 개인 네트워크(온-프레미스, Azure Virtual Network 또는 Amazon Web Services VPC(가상 사설 클라우드))에서 실행할 수 있습니다. 
 
@@ -179,5 +178,5 @@ Azure Data Factory에 대한 최신 정보를 얻으려면 다음 사이트로 �
 ## <a name="next-steps"></a>다음 단계
 데이터 팩터리를 만드는 단계별 지침은 다음 자습서를 참조하세요.
 
-- [빠른 시작: Data Factory 만들기](quickstart-create-data-factory-dot-net.md)
-- [자습서: 클라우드에서 데이터 복사](tutorial-copy-data-dot-net.md)
+- [빠른 시작: 데이터 팩터리 만들기](quickstart-create-data-factory-dot-net.md)
+- [자습서: 클라우드에 데이터 복사](tutorial-copy-data-dot-net.md)

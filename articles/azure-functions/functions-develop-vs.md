@@ -189,17 +189,17 @@ Azure Functions 핵심 도구 사용에 대한 자세한 내용은 [Azure Functi
 
 local.settings.json에서 추가한 모든 설정을 Azure의 함수 앱에도 추가해야 합니다. 이러한 설정은 프로젝트를 게시할 때 자동으로 업로드되지 않습니다.
 
-Azure에서 함수 앱에 필요한 설정을 업로드하는 가장 쉬운 방법은 프로젝트를 성공적으로 게시한 후에 표시되는 **응용 프로그램 설정 관리...** 링크를 사용하는 것입니다.
+Azure에서 함수 앱에 필요한 설정을 업로드하는 가장 쉬운 방법은 프로젝트를 성공적으로 게시한 후에 표시되는 **애플리케이션 설정 관리...** 링크를 사용하는 것입니다.
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings.png)
 
-그러면 새로운 응용 프로그램 설정을 추가하거나 기존 응용 프로그램 설정을 수정할 수 있는 함수 앱에 대한 **응용 프로그램 설정** 대화 상자가 표시됩니다.
+그러면 새로운 애플리케이션 설정을 추가하거나 기존 애플리케이션 설정을 수정할 수 있는 함수 앱에 대한 **애플리케이션 설정** 대화 상자가 표시됩니다.
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
 **로컬**은 local.settings.json 파일의 설정 값을 나타내며 **원격**은 Azure에서 함수 앱의 현재 설정입니다.  **설정 추가**를 선택하여 새로운 앱 설정을 만듭니다. **로컬 값 삽입** 링크를 사용하여 **원격** 필드에 설정 값을 복사합니다. **확인**을 선택하면 보류 중인 변경 내용이 로컬 설정 파일 및 함수 앱에 기록됩니다.
 
-또한 다음 다른 방법 중 하나로 응용 프로그램 설정을 관리할 수도 있습니다.
+또한 다음 다른 방법 중 하나로 애플리케이션 설정을 관리할 수도 있습니다.
 
 * [Azure Portal 사용](functions-how-to-use-azure-function-app-settings.md#settings)
 * [`--publish-local-settings` Azure Functions 핵심 도구의 게시 옵션](functions-run-local.md#publish) 사용

@@ -1,9 +1,9 @@
 ---
-title: 개인 데이터 제거 - Azure Active Directory 응용 프로그램 프록시 | Microsoft Docs
-description: Azure Active Directory 응용 프로그램 프록시에 대해 설치된 커넥터에서 개인 데이터를 제거합니다.
+title: 개인 데이터 제거 - Azure Active Directory 애플리케이션 프록시 | Microsoft Docs
+description: Azure Active Directory 애플리케이션 프록시에 대해 설치된 커넥터에서 개인 데이터를 제거합니다.
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -14,20 +14,20 @@ ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: bccda196be82808e7dc369de3f517490f410e26e
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: cbbe1fb4f145da0b5f5a360d33933655855fb042
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366045"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468253"
 ---
-# <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Azure Active Directory 응용 프로그램 프록시에 대한 개인 데이터 제거  
+# <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시에 대한 개인 데이터 제거  
 
-Azure Active Directory 응용 프로그램 프록시에서는 디바이스에 커넥터를 설치해야 합니다. 즉 디바이스에 개인 데이터가 있을 수 있습니다. 이 문서에서는 개인 정보 보호 수준을 높이기 위해 이러한 개인 데이터를 삭제하는 단계를 제공합니다. 
+Azure Active Directory 애플리케이션 프록시에서는 장치에 커넥터를 설치해야 합니다. 즉 장치에 개인 데이터가 있을 수 있습니다. 이 문서에서는 개인 정보 보호 수준을 높이기 위해 이러한 개인 데이터를 삭제하는 단계를 제공합니다. 
 
 
 ## <a name="where-is-the-personal-data"></a>개인 데이터의 위치
-응용 프로그램 프록시는 다음 로그 유형에 개인 데이터를 쓸 수 있습니다.
+애플리케이션 프록시는 다음 로그 유형에 개인 데이터를 쓸 수 있습니다.
 
 - 커넥터 이벤트 로그
 - Windows 이벤트 로그
@@ -40,7 +40,7 @@ Windows 이벤트 로그에 대한 데이터 보존을 구성하는 방법은 [�
 
 ## <a name="remove-personal-data-from-connector-event-logs"></a>커넥터 이벤트 로그에서 개인 데이터 제거
 
-응용 프로그램 프록시 로그에 개인 데이터가 없게 하기 위해 다음을 수행할 수 있습니다.
+애플리케이션 프록시 로그에 개인 데이터가 없게 하기 위해 다음을 수행할 수 있습니다.
 
 - 필요한 경우 데이터를 삭제하거나 확인, 또는
 - 로깅 해제
@@ -57,7 +57,7 @@ Windows 이벤트 로그에 대한 데이터 보존을 구성하는 방법은 [�
 
 개인 데이터를 찾으려면 UserID에 대 한 로그 파일을 검색합니다. 
 
-Kerberos 제한 위임을 사용하는 응용 프로그램이 기록한 개인 데이터를 찾으려면 다음 사용자 이름 형식의 구성 요소를 검색합니다.
+Kerberos 제한 위임을 사용하는 애플리케이션이 기록한 개인 데이터를 찾으려면 다음 사용자 이름 형식의 구성 요소를 검색합니다.
 
 - 온-프레미스 사용자 계정 이름
 - UPN(사용자 계정 이름)의 사용자 이름 부분
@@ -69,7 +69,7 @@ Kerberos 제한 위임을 사용하는 응용 프로그램이 기록한 개인 �
 
 특정 데이터를 삭제하려면 
 
-1. Microsoft Azure AD 응용 프로그램 프록시 커넥터 서비스를 다시 시작하여 새 로그 파일을 생성합니다. 새 로그 파일이 있으면 기존 로그 파일을 삭제하거나 수정할 수 있습니다. 
+1. Microsoft Azure AD 애플리케이션 프록시 커넥터 서비스를 다시 시작하여 새 로그 파일을 생성합니다. 새 로그 파일이 있으면 기존 로그 파일을 삭제하거나 수정할 수 있습니다. 
 2. 앞서 설명한 [특정 데이터 보기 또는 내보내기](#view-or-export-specific-data) 프로세스에 따라 삭제해야 하는 정보를 찾습니다. 모든 커넥터 로그를 검색합니다.
 3. 관련 로그 파일을 삭제하거나, 개인 데이터가 포함된 필드를 선별적으로 삭제합니다. 이전 로그 파일이 더 이상 필요하지 않으면 모두 삭제할 수도 있습니다.
 
@@ -82,5 +82,5 @@ Kerberos 제한 위임을 사용하는 응용 프로그램이 기록한 개인 �
 
 ## <a name="next-steps"></a>다음 단계
 
-응용 프로그램 프록시에 대한 개요는 [온-프레미스 응용 프로그램에 보안 원격 액세스를 제공하는 방법](application-proxy.md)을 참조하세요.
+애플리케이션 프록시에 대한 개요는 [온-프레미스 애플리케이션에 보안 원격 액세스를 제공하는 방법](application-proxy.md)을 참조하세요.
 

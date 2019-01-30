@@ -3,18 +3,18 @@ title: 독립 실행형 Azure Automation 계정 만들기
 description: 이 문서는 Azure Automation에서 예제 보안 주체 인증을 만들고 테스트하며 사용하는 과정을 설명합니다.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc369f5bc3d80a476e45d46cfe25541216484b1c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 1590a02503a12be870dab14a1ccffdd3cf64a282
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958808"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426610"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>독립 실행형 Azure Automation 계정 만들기
 
@@ -37,9 +37,9 @@ Azure Portal에서 Automation 계정을 만드는 경우 이러한 계정이 자
 Automation 계정을 만들거나 업데이트하고 이 문서에서 설명한 작업을 완료하려면 다음과 같은 권한이 있어야 합니다.
 
 * Automation 계정을 만들려면 Azure AD 사용자 계정을 **Microsoft. Automation** 리소스에 대한 소유자 역할과 동일한 권한이 있는 역할에 추가해야 합니다. 자세한 내용은 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
-* Azure Portal의 **Azure Active Directory** > **관리** > **앱 등록**에서 **앱 등록**이 **예**로 설정된 경우, Azure AD 테넌트에서 관리자가 아닌 사용자는 [Active Directory 응용 프로그램을 등록](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions)할 수 있습니다. **앱 등록 설정**이 **아니요**로 설정된 경우, 이 작업을 수행하는 사용자는 Azure AD의 전역 관리자여야 합니다.
+* Azure Portal의 **Azure Active Directory** > **관리** > **앱 등록**에서 **앱 등록**이 **예**로 설정된 경우, Azure AD 테넌트에서 관리자가 아닌 사용자는 [Active Directory 애플리케이션을 등록](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions)할 수 있습니다. **앱 등록 설정**이 **아니요**로 설정된 경우, 이 작업을 수행하는 사용자는 Azure AD의 전역 관리자여야 합니다.
 
-사용자는 구독의 전역 관리자/공동 관리자 역할에 추가되기 전에 해당 구독의 Active Directory 인스턴스에 속한 멤버가 아닌 경우 Active Directory에 게스트로 추가됩니다. 이 시나리오에서는 **Automation 계정 추가** 페이지에 "만들 수 있는 권한이 없습니다."라는 메시지가 표시됩니다.
+사용자는 구독의 전역 관리자/공동 관리자 역할에 추가되기 전에 해당 구독의 Active Directory 인스턴스에 속한 멤버가 아닌 경우 Active Directory에 게스트로 추가됩니다. 이 시나리오에서는 **Automation 계정 추가** 페이지에 “만들 수 있는 권한이 없습니다.”라는 메시지가 표시됩니다.
 
 사용자가 글로벌 관리자/공동 관리자 역할에 먼저 추가된 경우, 구독의 Active Directory 인스턴스에서 제거한 다음, Active Directory의 전체 사용자 역할에 다시 추가할 수 있습니다.
 
@@ -69,7 +69,7 @@ Azure Portal에서 Azure Automation 계정을 만들려면 다음 단계를 완�
   >
   > ![Automation 계정 경고 추가](media/automation-create-standalone-account/create-account-without-perms.png)
 
-1. **Automation 계정 추가** 창의 **이름** 상자에 새 Automation 계정의 이름을 입력합니다. 이 이름은 선택 후 변경할 수 없습니다. *Automation 계정 이름은 하위 지역 및 리소스 그룹별로 고유합니다.*
+1. **Automation 계정 추가** 창의 **이름** 상자에 새 Automation 계정의 이름을 입력합니다. 이 이름은 선택 후 변경할 수 없습니다. *Automation 계정 이름은 하위 지역 및 리소스 그룹별로 고유합니다. 삭제된 Automation 계정에 대한 이름을 즉시 사용할 수 있습니다.*
 1. 구독이 하나 이상인 경우는 **구독** 상자에서 새 계정에 사용하려는 구독을 지정합니다.
 1. **리소스 그룹**에서 기존 또는 새 리소스 그룹을 입력하거나 선택합니다.
 1. **위치**에서 Azure 데이터 센터 위치를 선택합니다.
@@ -112,3 +112,4 @@ Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자
 * PowerShell Runbook을 시작하려면 [내 첫 번째 PowerShell Runbook](automation-first-runbook-textual-powershell.md)을 참조하세요.
 * PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)을 참조하세요.
 * Python2 Runbook을 시작하려면 [내 첫 번째 Python2 Runbook](automation-first-runbook-textual-python2.md)을 참조하세요.
+

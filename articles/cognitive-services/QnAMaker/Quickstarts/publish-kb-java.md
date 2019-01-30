@@ -1,25 +1,26 @@
 ---
-title: '빠른 시작: 기술 자료 게시 - REST, Java - QnA Maker'
-titleSuffix: Azure Cognitive Services
-description: 이 REST 기반 빠른 시작에서는 테스트된 최신 버전의 기술 자료를 게시된 기술 자료를 나타내는 Azure Search 인덱스에 푸시하는 방법(KB 게시)을 안내합니다. 또한 응용 프로그램 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
+title: 기술 자료 게시, REST, Java
+titleSuffix: QnA Maker - Azure Cognitive Services
+description: 이 Java REST 기반 빠른 시작에서는 테스트된 최신 버전의 기술 자료를 게시된 기술 자료를 나타내는 Azure Search 인덱스에 푸시하는 방법(KB 게시)을 안내합니다. 또한 애플리케이션 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 58d34aa84d57c8c69a146666f23ce9f769554f88
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: a115c5180044da1fe66349fefd9c28824fdd2e51
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165597"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163959"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-java"></a>빠른 시작: Java를 사용하여 QnA Maker 기술 자료 게시
 
-이 REST 기반 빠른 시작에서는 KB(기술 자료)를 프로그래밍 방식으로 게시하는 방법을 안내합니다. 게시는 최신 버전의 기술 자료를 전용 Azure Search 인덱스에 푸시하고, 응용 프로그램 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
+이 REST 기반 빠른 시작에서는 KB(기술 자료)를 프로그래밍 방식으로 게시하는 방법을 안내합니다. 게시는 최신 버전의 기술 자료를 전용 Azure Search 인덱스에 푸시하고, 애플리케이션 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
 
 이 빠른 시작에서 호출하는 QnA Maker API는 다음과 같습니다.
 * [게시](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) - 이 API는 요청 본문에 어떤 정보도 요구하지 않습니다.
@@ -40,7 +41,7 @@ ms.locfileid: "52165597"
     아직 기술 자료가 없는 경우 샘플을 만들어서 빠른 시작: [새 기술 자료 만들기](create-new-kb-csharp.md)에서 사용하면 됩니다.
 
 > [!NOTE] 
-> 전체 솔루션 파일은 [**Azure-Samples/cognitive-services-qnamaker-java** Github 리포지토리](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/tree/master/documentation-samples/quickstarts/publish-knowledge-base)에서 지원됩니다.
+> 전체 솔루션 파일은 [**Azure-Samples/cognitive-services-qnamaker-java** GitHub 리포지토리](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/tree/master/documentation-samples/quickstarts/publish-knowledge-base)에서 사용할 수 있습니다.
 
 ## <a name="create-a-java-file"></a>Java 파일 만들기
 

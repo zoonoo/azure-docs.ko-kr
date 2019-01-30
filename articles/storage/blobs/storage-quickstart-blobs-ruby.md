@@ -1,6 +1,6 @@
 ---
 title: Azure 빠른 시작 - Ruby를 사용하여 개체 저장소에 Blob 만들기 | Microsoft Docs
-description: 이 빠른 시작에서는 개체(Blob) 저장소에서 저장소 계정 및 컨테이너를 만듭니다. 그런 다음, Ruby용 저장소 클라이언트 라이브러리를 사용하여 Blob을 Azure Storage에 업로드하고, Blob을 다운로드하고, Blob을 컨테이너에 나열합니다.
+description: 이 빠른 시작에서는 개체(Blob) 저장소에서 저장소 계정 및 컨테이너를 만듭니다. 그런 다음, Ruby용 스토리지 클라이언트 라이브러리를 사용하여 Blob을 Azure Storage에 업로드하고, Blob을 다운로드하고, Blob을 컨테이너에 나열합니다.
 services: storage
 author: tamram
 ms.custom: mvc
@@ -32,8 +32,8 @@ ms.locfileid: "51711228"
     gem install azure-storage-blob
     ```
     
-## <a name="download-the-sample-application"></a>샘플 응용 프로그램 다운로드
-이 빠른 시작 가이드에서 사용되는 [샘플 응용 프로그램](https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git)은 기본 Ruby 응용 프로그램입니다.  
+## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
+이 빠른 시작 가이드에서 사용되는 [샘플 애플리케이션](https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git)은 기본 Ruby 애플리케이션입니다.  
 
 [git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드합니다. 
 
@@ -41,12 +41,12 @@ ms.locfileid: "51711228"
 git clone https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git 
 ```
 
-이 명령은 로컬 git 폴더에 해당 리포지토리를 복제합니다. Ruby 샘플 응용 프로그램을 열려면 storage-blobs-ruby-quickstart 폴더를 찾아 example.rb 파일을 엽니다.  
+이 명령은 로컬 git 폴더에 해당 리포지토리를 복제합니다. Ruby 샘플 애플리케이션을 열려면 storage-blobs-ruby-quickstart 폴더를 찾아 example.rb 파일을 엽니다.  
 
 [!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
-응용 프로그램에서 응용 프로그램용 `BlobService` 인스턴스를 만들려면 저장소 계정 이름과 계정 키를 제공해야 합니다. IDE의 솔루션 탐색기에서 `example.rb` 파일을 엽니다. **accountname** 및 **accountkey** 값을 해당하는 계정 이름과 키로 바꿉니다. 
+애플리케이션에서 애플리케이션용 `BlobService` 인스턴스를 만들려면 스토리지 계정 이름과 계정 키를 제공해야 합니다. IDE의 솔루션 탐색기에서 `example.rb` 파일을 엽니다. **accountname** 및 **accountkey** 값을 해당하는 계정 이름과 키로 바꿉니다. 
 
 ```ruby 
 blob_client = Azure::Storage::Blob::BlobService.create(
@@ -58,7 +58,7 @@ blob_client = Azure::Storage::Blob::BlobService.create(
 ## <a name="run-the-sample"></a>샘플 실행
 이 샘플에서는 'Documents' 폴더에 테스트 파일을 만듭니다. 샘플 프로그램은 Blob 저장소에 테스트 파일을 업로드하고, 컨테이너에 Blob를 나열하며, 새 이름으로 파일을 다운로드합니다. 
 
-샘플을 실행합니다. 다음 출력은 응용 프로그램 실행 시 반환되는 출력의 예제입니다.
+샘플을 실행합니다. 다음 출력은 애플리케이션 실행 시 반환되는 출력의 예제입니다.
   
 ```
 Creating a container: quickstartblobs7b278be3-a0dd-438b-b9cc-473401f0c0e8
@@ -74,7 +74,7 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-9
 ```
 아무 키나 눌러 계속하면 샘플 프로그램이 저장소 컨테이너 및 파일을 삭제합니다. 계속하기 전에 'Documents' 폴더에서 두 파일을 확인합니다. 이 파일을 열어 동일한지 확인할 수 있습니다.
 
-[Azure Storage 탐색기](http://storageexplorer.com)와 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage 탐색기는 저장소 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다. 
+[Azure Storage 탐색기](http://storageexplorer.com)와 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage 탐색기는 스토리지 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다. 
 
 파일을 확인한 후에 아무 키나 눌러 데모를 완료하고 테스트 파일을 삭제합니다. 이 샘플의 용도 파악했으므로 example.rb 파일을 열고 코드를 확인합니다. 
 
@@ -178,7 +178,7 @@ blob_client.delete_container(container_name)
 File.delete(full_path_to_file)
 File.delete(full_path_to_file2)    
 ```
-## <a name="resources-for-developing-ruby-applications-with-blobs"></a>Blob을 사용하여 Ruby 응용 프로그램을 개발하기 위한 리소스
+## <a name="resources-for-developing-ruby-applications-with-blobs"></a>BLOB을 사용하여 Ruby 애플리케이션을 개발하기 위한 리소스
 
 Blob 저장소를 사용하여 Ruby 응용 프로그램을 개발하기 위한 추가 리소스는 다음과 같습니다.
 

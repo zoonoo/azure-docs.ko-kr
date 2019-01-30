@@ -3,7 +3,7 @@ title: 탄력적 풀 리소스 크기 조정 - Azure SQL Database | Microsoft Do
 description: 이 페이지에서는 Azure SQL Database에서 탄력적 풀의 리소스 크기를 조정하는 방법을 설명합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pool
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,18 +12,18 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: cd9886f11685397cbfb82f88bb0b37c8ccc41b67
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 04fcb84b22e84060652b4a3743cb73e4543ee573
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240174"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868449"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Azure SQL Database에서 탄력적 풀 리소스 크기 조정
 
 이 아티클에서는 Azure SQL Database에서 탄력적 풀 및 풀링된 데이터베이스에 사용할 수 있는 계산 및 저장소 리소스의 크기를 조정하는 방법을 설명합니다.
 
-## <a name="vcore-based-purchasing-model-change-elastic-pool-storage-size"></a>vCore 기반 구매 모델: 탄력적 풀 저장소 크기 변경
+## <a name="vcore-based-purchasing-model-change-elastic-pool-storage-size"></a>vCore 기반 구매 모델: 탄력적 풀 스토리지 크기 변경
 
 - 저장소는 최대 크기 제한까지 프로비전할 수 있습니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "50240174"
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
 
-## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>vCore 기반 구매 모델: 탄력적 풀 계산 리소스 변경(vCores)
+## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>vCore 기반 구매 모델: 탄력적 풀 컴퓨팅 리소스 변경(vCore)
 
 [Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) 또는 [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update)를 사용하여 리소스 요구에 따라 탄력적 풀에 대한 계산 크기를 늘리거나 줄일 수 있습니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "50240174"
 - 일반적으로 데이터베이스당 최소 vCore 수 또는 데이터베이스당 최대 vCore 수를 변경하는 기간은 5분 이내입니다.
 - 풀 vCore 수를 줄이는 경우 풀 사용 공간은 대상 서비스 계층 및 풀 vCore 수에 허용되는 최대 크기보다 작아야 합니다.
 
-## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>DTU 기반 구매 모델: 탄력적 풀 저장소 크기 변경
+## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>DTU 기반 구매 모델: 탄력적 풀 스토리지 크기 변경
 
 - 탄력적 풀에 대한 eDTU 가격에는 특정 크기의 저장소가 추가 비용 없이 포함됩니다. 포함된 용량 외 추가 저장소는 최대 250GB씩 총 1TB이 최대 크기 제한까지 추가 비용을 내고 프로비전할 수 있고 1TB 이상일 경우 256GB씩 프로비전할 수 있습니다. 포함된 저장소 크기 및 최대 크기 제한에 대한 자세한 내용은 [탄력적 풀: 저장소 크기 및 계산 크기](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes)를 참조하세요.
 - 탄력적 풀에 대한 추가 저장소는 [Azure portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) 또는 [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update)를 통해 해당 최대 크기를 늘려 프로비전할 수 있습니다.
@@ -53,7 +53,7 @@ ms.locfileid: "50240174"
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
 
-## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>DTU 기반 구매 모델: 탄력적 풀 계산 리소스 변경(DTU)
+## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>DTU 기반 구매 모델: 탄력적 풀 컴퓨팅 리소스 변경(eDTU)
 
 [Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) 또는 [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update)를 사용하여 리소스 필요량에 따라 탄력적 풀에 사용할 수 있는 리소스를 늘리거나 줄일 수 있습니다.
 

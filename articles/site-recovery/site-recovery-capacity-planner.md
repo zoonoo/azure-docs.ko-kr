@@ -3,16 +3,17 @@ title: Azure Site Recovery를 사용하여 Hyper-V 재해 복구에 대한 용�
 description: Azure Site Recovery 서비스를 사용하여 재해 복구를 설정하는 경우 이 문서를 사용하여 용량을 추정합니다.
 author: rayne-wiselman
 manager: carmonm
+services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: d53e8fe6588b7e1b068431a4cd530d0a80a603e6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: eeadfd6a57ff8a26f3f124e2a807fcd66e77b85f
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261879"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976718"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Hyper-V VM에 재해 복구에 대한 용량 계획 
 
@@ -33,7 +34,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
 두 가지 모드로 도구를 실행할 수 있습니다.
 
-* **빠른 계획**: VM, 디스크, 저장소 및 변경 속도의 평균 수치를 기반으로 네트워크 및 서버 프로젝션을 제공합니다.
+* **빠른 계획**: VM, 디스크, 스토리지 및 변경률의 평균 수치를 기반으로 네트워크 및 서버 프로젝션을 제공합니다.
 * **자세한 계획**: VM 수준에서 각 워크로드의 세부 정보를 제공합니다. VM 호환성을 분석하고 네트워크 및 서버를 예상합니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
@@ -65,17 +66,17 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
 4. 원본 환경에 대한 값을 입력하면 표시된 출력에는 다음이 포함됩니다.
 
-   * **델타 복제에 필요한 대역폭(Mbps)**: 델타 복제의 네트워크 대역폭은 평균 일일 데이터 변경률에서 계산됩니다.
-   * **초기 복제에 필요한 대역폭(Mbps)**: 초기 복제의 네트워크 대역폭은 입력한 초기 복제 값에서 계산됩니다.
-   * **필요한 저장소(GB)**: 필요한 총 Azure Storage입니다.
-   * **Standard Storage에 대한 총 IOPS**: 이 수치는 총 Standard Storage 계정에서 8K IOPS 단위 크기를 기준으로 계산됩니다. Quick Planner의 경우 이 수치는 모든 원본 VM 디스크 및 일일 데이터 변경률을 기반으로 계산됩니다. Detailed Planner의 경우 이 수치는 표준 Azure VM에 매핑되는 총 VM 수 및 해당 VM의 데이터 변경률을 기반으로 계산됩니다.
-   * **필요한 Standard Storage 계정 수**: VM을 보호하는 데 필요한 총 표준 저장소 계정 수입니다. 표준 저장소 계정은 표준 저장소의 모든 VM에서 최대 20000 IOPS를 보유할 수 있습니다. 디스크당 최대 500 IOPS가 지원됩니다.
-   * **필요한 BLOB 디스크 수**: Azure Storage에 생성될 디스크 수입니다.
-   * **필요한 Premium Storage 계정 수**: VM을 보호하는 데 필요한 총 Premium Storage 계정 수입니다. 높은 IOPS(20000 이상)를 포함한 원본 VM에는 Premium Storage 계정이 필요합니다. Premium Storage 계정은 최대 80000 IOPS를 보유할 수 있습니다.
-   * **Premium Storage에 대한 총 IOPS**: 이 수치는 총 Premium Storage 계정에서 256K IOPS 단위 크기를 기준으로 계산됩니다. Quick Planner의 경우 이 수치는 모든 원본 VM 디스크 및 일일 데이터 변경률을 기반으로 계산됩니다. Detailed Planner의 경우 이 수치는 프리미엄 Azure VM(DS 및 GS 시리즈)에 매핑되는 총 VM 수 및 해당 VM의 데이터 변경률을 기반으로 계산됩니다.
-   * **필요한 구성 서버 수**: 배포에 필요한 구성 서버 수를 보여 줍니다.
-   * **필요한 추가 프로세스 서버 수**: 기본적으로 구성 서버에서 실행되는 프로세스 서버 외에 추가 프로세스 서버가 필요한지 보여 줍니다.
-   * **원본의 100% 추가 저장소**: 원본 위치에 추가 저장소가 필요한지 보여 줍니다.
+   * **델타 복제에 필요한 대역폭(메가비트/초)**: 델타 복제의 네트워크 대역폭은 평균 일일 데이터 변경률에서 계산됩니다.
+   * **초기 복제에 필요한 대역폭(메가비트/초)**: 초기 복제의 네트워크 대역폭은 입력한 초기 복제 값에 대해 계산됩니다.
+   * **필요한 스토리지(GB)**: 필요한 총 Azure 스토리지입니다.
+   * **Standard Storage의 총 IOPS**: 이 수치는 총 Standard Storage 계정의 8K IOPS 단위 크기를 기반으로 계산됩니다. Quick Planner의 경우 이 수치는 모든 원본 VM 디스크 및 일일 데이터 변경률을 기반으로 계산됩니다. Detailed Planner의 경우 이 수치는 표준 Azure VM에 매핑되는 총 VM 수 및 해당 VM의 데이터 변경률을 기반으로 계산됩니다.
+   * **필요한 Standard Storage 계정 수**: VM을 보호하는 데 필요한 총 Standard Storage 계정 수입니다. 표준 저장소 계정은 표준 저장소의 모든 VM에서 최대 20000 IOPS를 보유할 수 있습니다. 디스크당 최대 500 IOPS가 지원됩니다.
+   * **필요한 Blob 디스크 수**: Azure Storage에서 생성된 디스크 수입니다.
+   * **필요한 Premium 계정 수**: VM을 보호하는 데 필요한 총 Premium Storage 계정 수입니다. 높은 IOPS(20000 이상)를 포함한 원본 VM에는 Premium Storage 계정이 필요합니다. Premium Storage 계정은 최대 80000 IOPS를 보유할 수 있습니다.
+   * **Premium Storage에 대한 총 IOPS**: 이 수치는 총 Premium Storage 계정에서 256K IOPS 단위 크기를 기반으로 계산됩니다. Quick Planner의 경우 이 수치는 모든 원본 VM 디스크 및 일일 데이터 변경률을 기반으로 계산됩니다. Detailed Planner의 경우 이 수치는 프리미엄 Azure VM(DS 및 GS 시리즈)에 매핑되는 총 VM 수 및 해당 VM의 데이터 변경률을 기반으로 계산됩니다.
+   * **필요한 구성 서버의 수**: 배포에 필요한 구성 서버 수를 보여줍니다.
+   * **필요한 추가 프로세스 서버의 수**: 기본적으로 구성 서버에서 실행되는 프로세스 서버 외에 추가 프로세스 서버가 필요한지 보여 줍니다.
+   * **원본의 100% 추가 스토리지**: 원본 위치에 추가 저장소가 필요한지 보여 줍니다.
 
       ![출력](./media/site-recovery-capacity-planner/output.png)
 
@@ -112,7 +113,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
    * 필수 입력의 유효성을 검사합니다.
    * IOPS를 계산하고 Azure로 복제할 수 있는 각 VM에 최적으로 일치하는 Azure VM 크기를 제안합니다. Azure VM에 적합한 크기를 감지할 수 없는 경우 오류가 발생합니다. 예를 들어 연결된 디스크 수가 65인 경우 가장 높은 Azure VM 크기가 64이므로 오류가 표시됩니다.
    * Azure VM에 대해 사용할 수 있는 저장소 계정을 제안합니다.
-   * 워크로드에 필요한 표준 저장소 계정 및 프리미엄 저장소 계정의 총 수를 계산합니다. 아래로 스크롤하면 원본 서버에 사용할 수 있는 Azure Storage 유형 및 저장소 계정을 볼 수 있습니다.
+   * 워크로드에 필요한 표준 저장소 계정 및 프리미엄 저장소 계정의 총 수를 계산합니다. 아래로 스크롤하면 원본 서버에 사용할 수 있는 Azure Storage 유형 및 스토리지 계정을 볼 수 있습니다.
    * VM에 할당된 필요한 저장소 유형(Standard 또는 Premium) 및 연결된 디스크 수를 기반으로 테이블의 나머지 부분을 완료하고 정렬합니다. Azure에 대한 요구 사항을 충족하는 모든 VM의 경우 **VM 적합 여부**가 **예**로 표시됩니다. VM을 Azure로 백업할 수 없는 경우 오류가 표시됩니다.
 
 각 VM에 대한 정보를 제공하는 AA~AE 열이 출력됩니다.

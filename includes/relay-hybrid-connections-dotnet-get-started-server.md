@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/16/2018
 ms.locfileid: "40182518"
 ---
-### <a name="create-a-console-application"></a>콘솔 응용 프로그램 만들기
+### <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
 
 Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만듭니다.
 

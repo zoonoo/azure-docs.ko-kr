@@ -8,17 +8,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/01/2018
-ms.openlocfilehash: 603aa8d85d42167accd2a5e71c4ab3e5245f5d07
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.date: 12/15/2018
+ms.openlocfilehash: 2b818350c19d1d9ff34bcdac0e438def0f859e40
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499271"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381895"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>HDInsight Spark 클러스터를 사용하여 Azure SQL Database에서 데이터 읽기 및 쓰기
 
-Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 다음 SQL Database에서 데이터를 읽고 쓰고 스트리밍하는 방법을 알아봅니다. 이 문서의 지침은 [Jupyter Notebook](https://jupyter.org/)을 사용하여 Scala 코드 조각을 실행합니다. 그러나 Scala 또는 Python에 독립 실행형 응용 프로그램을 만들고 동일한 작업을 수행할 수 있습니다. 
+Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 다음 SQL Database에서 데이터를 읽고 쓰고 스트리밍하는 방법을 알아봅니다. 이 문서의 지침은 [Jupyter Notebook](https://jupyter.org/)을 사용하여 Scala 코드 조각을 실행합니다. 그러나 Scala 또는 Python에 독립 실행형 애플리케이션을 만들고 동일한 작업을 수행할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -26,9 +26,9 @@ Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 
 
 * **Azure SQL Database**. [Azure SQL Database 만들기](../../sql-database/sql-database-get-started-portal.md)의 지침을 따르세요. 샘플 **AdventureWorksLT** 스키마와 데이터를 사용해서 데이터베이스를 만들어야 합니다. 또한 클라이언트의 IP 주소로 서버의 SQL Database에 액세스하도록 허용하기 위한 서버 수준 방화벽 규칙을 만들어야 합니다. 방화벽 규칙을 추가하는 지침은 같은 문서에 제공됩니다. Azure SQL Database를 만든 후에는 다음 값을 준비해 둡니다. Spark 클러스터에서 데이터베이스에 연결할 때 필요합니다.
 
-    * Azure SQL Database를 호스트하는 서버 이름
-    * Azure SQL 데이터베이스 이름
-    * Azure SQL Database 관리자 사용자 이름/암호
+    * Azure SQL Database를 호스트하는 서버 이름.
+    * Azure SQL Database 이름.
+    * Azure SQL Database 관리 사용자 이름/암호.
 
 * **SQL Server Management Studio**. [SSMS를 사용하여 데이터 연결 및 쿼리](../../sql-database/sql-database-connect-query-ssms.md)의 지침을 따릅니다.
 
@@ -41,28 +41,25 @@ Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 
 
     ![Spark의 Jupyter 노트북](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Spark의 Jupyter 노트북")
    
-   > [!NOTE]
+   > [!NOTE]  
    > 또한 브라우저에서 다음 URL을 열어 Spark 클러스터의 Jupyter 노트에 액세스할 수도 있습니다. **CLUSTERNAME** 을 클러스터의 이름으로 바꿉니다.
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   > 
-   > 
 
-1. Jupyter 노트의 오른쪽 위 모서리에서 **새로 만들기**를 클릭하고 **Spark**를 클릭하여 Scala 노트를만 듭니다. HDInsight Spark 클러스터의 Jupyter 노트는 Python2 응용 프로그램에 대한 **PySpark** 커널과 Python3 응용 프로그램에 대한 **PySpark3** 커널도 제공합니다. 이 문서에서는 Scala 노트를 만듭니다.
+1. Jupyter 노트의 오른쪽 위 모서리에서 **새로 만들기**를 클릭하고 **Spark**를 클릭하여 Scala 노트를만 듭니다. HDInsight Spark 클러스터의 Jupyter 노트는 Python2 애플리케이션에 대한 **PySpark** 커널과 Python3 애플리케이션에 대한 **PySpark3** 커널도 제공합니다. 이 문서에서는 Scala 노트를 만듭니다.
    
     ![Spark의 Jupyter 노트북에 대한 커널](./media/apache-spark-connect-to-sql-database/kernel-jupyter-notebook-on-spark.png "Spark의 Jupyter 노트북에 대한 커널")
 
     커널에 대한 자세한 내용은 [HDInsight에서 Apache Spark 클러스터와 함께 Jupyter Notebook 커널 사용](apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
 
-   > [!NOTE]
+   > [!NOTE]  
    > 이 문서에서는 Spark에서 SQL Database로의 데이터 스트리밍이 현재 Scala 및 Java에서만 지원되므로 Spark(Scala) 커널을 사용합니다. SQL에서 읽고 쓰는 작업은 Python을 사용해서 수행할 수 있지만, 이 문서에서는 일관성을 위해 3가지 작업 모두에 Scala를 사용합니다.
-   >
 
 1. 이렇게 하면 기본 이름이 **제목 없음**인 새 노트가 열립니다. 노트 이름을 클릭하고 원하는 이름을 입력합니다.
 
     ![노트북 이름 제공](./media/apache-spark-connect-to-sql-database/hdinsight-spark-jupyter-notebook-name.png "노트북 이름 제공")
 
-이제 응용 프로그램 만들기를 시작할 수 있습니다.
+이제 애플리케이션 만들기를 시작할 수 있습니다.
     
 ## <a name="read-data-from-azure-sql-database"></a>Azure SQL Database에서 데이터 읽기
 
@@ -235,6 +232,6 @@ Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [HDInsight Spark 클러스터를 사용하여 Data Lake Store의 데이터 분석](apache-spark-use-with-data-lake-store.md)
+* [HDInsight Spark 클러스터를 사용하여 Data Lake Storage의 데이터 분석](apache-spark-use-with-data-lake-store.md)
 * [EventHub를 사용하여 구조적 스트리밍 이벤트 처리](apache-spark-eventhub-structured-streaming.md)
 * [HDInsight에서 Apache Kafka의 Apache Spark 정형 스트림 사용](../hdinsight-apache-kafka-spark-structured-streaming.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: b84992f5deea1135692c368900f63773b51453bb
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4c783c70217a84bbe5ccf15accc4a2bec0b7cca8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669370"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959685"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>이벤트 ID로 Azure VM RDP 연결 문제 해결 
 
@@ -37,7 +37,7 @@ RDP(원격 데스크톱 프로토콜) 세션을 사용하여 Azure VM에 연결�
 
 ### <a name="create-a-backup-snapshot"></a>백업 스냅숏 만들기
 
-백업 스냅숏을 만들려면 [디스크 스냅숏](..\windows\snapshot-copy-managed-disk.md)의 단계를 수행합니다.
+백업 스냅숏을 만들려면 [디스크 스냅숏](../windows/snapshot-copy-managed-disk.md)의 단계를 수행합니다.
 
 ### <a name="connect-to-the-vm-remotely"></a>원격으로 VM에 연결
 
@@ -54,36 +54,36 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windows-TerminalServices-RemoteConnectionManager'] and EventID=1057 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**로그 이름:** System <br />
-**원본:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**로그 이름:**      시스템 <br />
+**원본:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
 **날짜:** *time* <br />
-**이벤트 ID:** 1058 <br />
+**이벤트 ID:**      1058 <br />
 **작업 범주:** 없음 <br />
-**수준:** 오류 <br />
-**키워드:** 클래식 <br />
-**사용자:** 해당 없음 <br />
-**컴퓨터:** *computer* <br />
-**설명:** RD 세션 호스트 서버가 SSL 연결에서 RD 세션 호스트 서버 인증에 사용할 만료된 자체 서명된 인증서를 바꾸지 못했습니다. 관련 상태 코드는 '액세스가 거부되었습니다.'입니다.
-
-**로그 이름:** System <br />
-**원본:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**날짜:** *time* <br />
-**이벤트 ID:** 1058 <br />
-**작업 범주:** 없음 <br />
-**수준:** 오류 <br />
-**키워드:** 클래식 <br />
-**사용자:** 해당 없음 <br />
+**수준:**         오류 <br />
+**키워드:**      클래식 <br />
+**사용자:**          해당 없음 <br />
 **컴퓨터:** *컴퓨터* <br />
-**설명:** RD 세션 호스트 서버가 SSL 연결에서 RD 세션 호스트 서버 인증에 사용할 새 자체 서명된 인증서를 만들지 못했습니다. 관련 상태 코드는 '개체가 이미 있습니다.'입니다.
+**설명:** RD 세션 호스트 서버가 SSL 연결에서 RD 세션 호스트 서버 인증에 사용할 자체 서명된 만료 인증서를 바꾸지 못했습니다. 관련 상태 코드는 '액세스가 거부되었습니다.'입니다.
 
-**로그 이름:** System <br />
-**원본:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**로그 이름:**      시스템 <br />
+**원본:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
 **날짜:** *time* <br />
-**이벤트 ID:** 1057 <br />
+**이벤트 ID:**      1058 <br />
 **작업 범주:** 없음 <br />
-**수준:** 오류 <br />
-**키워드:** 클래식 <br />
-**사용자:** 해당 없음 <br />
+**수준:**         오류 <br />
+**키워드:**      클래식 <br />
+**사용자:**          해당 없음 <br />
+**컴퓨터:** *컴퓨터* <br />
+**설명:** RD 세션 호스트 서버가 SSL 연결에서 RD 세션 호스트 서버 인증에 사용할 새 자체 서명된 인증서를 만들지 못했습니다. 관련 상태 코드는 ‘개체가 이미 있습니다’였습니다.
+
+**로그 이름:**      시스템 <br />
+**원본:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**날짜:** *time* <br />
+**이벤트 ID:**      1057 <br />
+**작업 범주:** 없음 <br />
+**수준:**         오류 <br />
+**키워드:**      클래식 <br />
+**사용자:**          해당 없음 <br />
 **컴퓨터:** *컴퓨터* <br />
 **설명:** RD 세션 호스트 서버가 SSL 연결에서 RD 세션 호스트 서버 인증에 사용할 새 자체 서명된 인증서를 만들지 못했습니다. 관련 상태 코드는 '키 집합이 없습니다.'입니다.
 
@@ -94,16 +94,16 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36872 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**로그 이름:** System <br />
-**원본:** Schannel <br />
+**로그 이름:**      시스템 <br />
+**원본:**        SChannel <br />
 **날짜:** — <br />
-**이벤트 ID:** 36870 <br />
+**이벤트 ID:**      36870 <br />
 **작업 범주:** 없음 <br />
-**수준:** 오류 <br />
+**수준:**         오류 <br />
 **키워드:**       <br />
-**사용자:** SYSTEM <br />
+**사용자:**          SYSTEM <br />
 **컴퓨터:** *컴퓨터* <br />
-**설명:** SSL 서버 자격 증명 개인 키에 액세스하려고 시도하는 동안 심각한 오류가 발생했습니다. 암호화 모듈에서 반환된 오류 코드는 0x8009030D입니다.  <br />
+**설명:** SSL 서버 자격 증명 개인 키에 액세스하려 할 때 심각한 오류가 발생했습니다. 암호화 모듈에서 반환된 오류 코드는 0x8009030D입니다.  <br />
 내부 오류 상태는 10001입니다.
 
 ### <a name="cause"></a>원인
@@ -216,14 +216,14 @@ CMD 인스턴스에서 다음 명령을 실행하여 36871 SCHANNEL 오류 이�
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36871 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**로그 이름:** System <br />
-**원본:** Schannel <br />
+**로그 이름:**      시스템 <br />
+**원본:**        SChannel <br />
 **날짜:** — <br />
-**이벤트 ID:** 36871 <br />
+**이벤트 ID:**      36871 <br />
 **작업 범주:** 없음 <br />
-**수준:** 오류 <br />
+**수준:**         오류 <br />
 **키워드:**       <br />
-**사용자:** SYSTEM <br />
+**사용자:**          SYSTEM <br />
 **컴퓨터:** *컴퓨터* <br />
 **설명:** TLS 서버 자격 증명을 만드는 동안 심각한 오류가 발생했습니다. 내부 오류 상태는 10013입니다.
  
@@ -246,14 +246,14 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Windows-TerminalServices-SessionBroker-Client '] and EventID=1296 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**로그 이름:** Microsoft-Windows-TerminalServices-SessionBroker/Operational <br />
-**원본:** Microsoft-Windows-TerminalServices-SessionBroker <br />
+**로그 이름:**      Microsoft-Windows-TerminalServices-SessionBroker/Operational <br />
+**원본:**        Microsoft-Windows-TerminalServices-SessionBroker <br />
 **날짜:** *time* <br />
-**이벤트 ID:** 2056 <br />
+**이벤트 ID:**      2056 <br />
 **작업 범주:** (109) <br />
-**수준:** 오류 <br />
+**수준:**         오류 <br />
 **키워드:**       <br />
-**사용자:** NETWORK SERVICE <br />
+**사용자:**          NETWORK SERVICE <br />
 **컴퓨터:** *computer fqdn* <br />
 **설명:** Microsoft-Windows-TerminalServices-SessionBroker 원본에서 2056 이벤트 ID에 대한 설명을 찾을 수 없습니다. 이 이벤트가 발생되는 구성 요소가 로컬 컴퓨터에 설치되지 않았거나 설치가 손상되었습니다. 로컬 컴퓨터에 구성 요소를 설치하거나 복구할 수 있습니다. <br />
 이벤트가 다른 컴퓨터에서 시작된 경우 표시 정보는 이벤트와 함께 저장되었어야 합니다. <br />
@@ -262,14 +262,14 @@ NULL <br />
 NULL <br />
 데이터베이스에 로그온하지 못했습니다.
 
-**로그 이름:** Microsoft-Windows-TerminalServices-SessionBroker-Client/Operational <br />
-**원본:** Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
+**로그 이름:**      Microsoft-Windows-TerminalServices-SessionBroker-Client/Operational <br />
+**원본:**        Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
 **날짜:** *time* <br />
-**이벤트 ID:** 1296 <br />
+**이벤트 ID:**      1296 <br />
 **작업 범주:** (104) <br />
-**수준:** 오류 <br />
+**수준:**         오류 <br />
 **키워드:**       <br />
-**사용자:** NETWORK SERVICE <br />
+**사용자:**          NETWORK SERVICE <br />
 **컴퓨터:** *computer fqdn* <br />
 **설명:** Microsoft-Windows-TerminalServices-SessionBroker-Client 원본에서 1296 이벤트 ID에 대한 설명을 찾을 수 없습니다. 이 이벤트가 발생되는 구성 요소가 로컬 컴퓨터에 설치되지 않았거나 설치가 손상되었습니다. 로컬 컴퓨터에 구성 요소를 설치하거나 복구할 수 있습니다.
 이벤트가 다른 컴퓨터에서 시작된 경우 표시 정보는 이벤트와 함께 저장되었어야 합니다.

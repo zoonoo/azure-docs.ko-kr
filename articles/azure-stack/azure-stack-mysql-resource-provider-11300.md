@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeffgilb
-ms.reviewer: georgel
-ms.openlocfilehash: 2f300e496873c0b048ccc1acc078bf1650e6bd9c
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.reviewer: jiahan
+ms.lastreviewed: 12/10/2018
+ms.openlocfilehash: 1bfdaef4523a714aed0f1b7bbdb5a600f7775ffb
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166288"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244813"
 ---
 # <a name="mysql-resource-provider-11300--release-notes"></a>MySQL 리소스 공급자 1.1.30.0 릴리스 정보
 

@@ -3,21 +3,21 @@ title: 확장된 클라우드 데이터베이스에서 보고(수평 분할) | M
 description: 복수 데이터베이스에 대해 보고하려면 교차 데이터베이스 쿼리를 사용합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 33b8980f4e3ee7c320d13b95cf86d51a9bfc0e8a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: da876152b55ee626025b6192a5004648a29545dc
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239851"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604187"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>확장된 클라우드 데이터베이스에서 보고(미리 보기)
 [탄력적 쿼리](sql-database-elastic-query-overview.md)를 사용하여 단일 연결 지점의 여러 Azure SQL 데이터베이스에서 보고서를 만들 수 있습니다. 데이터베이스를 가로로 분할해야 합니다("분할됨"이라고도 함).
@@ -32,7 +32,7 @@ ms.locfileid: "50239851"
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>샘플 응용 프로그램을 사용하여 분할된 데이터베이스 맵 관리자 만들기
 분할된 데이터베이스 안의 삽입된 데이터에 따라 여느 분할된 데이터 베이스와 마찬가지로 분할된 데이터 베이스 관리자를 만들수 있습니다. 이미 분할된 데이터가 설치되어 있는 분할된 데이터베이스가 있다면, 다음 단계들을 건너뛰고 다음 섹션으로 이동합니다.
 
-1. **Elastic Database 도구 응용 프로그램** 을 빌드하고 실행하세요. [샘플 앱 다운로드 및 실행](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app)섹션에서 7단계까지 수행합니다. 7단계를 끝내면 다음 명령 프롬프트를 볼 수 있습니다.
+1. **Elastic Database 도구 애플리케이션**을 빌드하고 실행하세요. [샘플 앱 다운로드 및 실행](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app)섹션에서 7단계까지 수행합니다. 7단계를 끝내면 다음 명령 프롬프트를 볼 수 있습니다.
 
     ![명령 프롬프트][1]
 2. 명령 창에 "1"을 입력하고 **Enter**키를 누릅니다. 이 명령은 분할된 데이터베이스 관리자를 생성 및 두 분할된 데이터베이스를 추가합니다. 그런 다음 "3"을 입력하고 **Enter**키를 누릅니다: 작업을 4번 반복합니다. 이 명령은 분할된 데이터베이스에 샘플 데이터행을 삽입합니다.
@@ -80,7 +80,7 @@ ms.locfileid: "50239851"
        SHARD_MAP_NAME = 'CustomerIDShardMap'
     ) ;
 
- 탄력적 데이터베이스 도구 샘플로  분할된 데이터베이스와 관리자를 만든 경우, "CustomerIDShardMap"가 분할된 데이터베이스 맵의 이름이 됩니다. 그러나, 이 샘플에서 사용자 설치를 사용했다면, 응용 프로그램 내에서 분할된 데이터베이스 이름을 정해야 합니다.
+ 탄력적 데이터베이스 도구 샘플로  분할된 데이터베이스와 관리자를 만든 경우, "CustomerIDShardMap"가 분할된 데이터베이스 맵의 이름이 됩니다. 그러나, 이 샘플에서 사용자 설치를 사용했다면, 애플리케이션 내에서 분할된 데이터베이스 이름을 정해야 합니다.
 
 ### <a name="external-tables"></a>외부 테이블
 ElasticDBQuery database의 명령을 실행하여 분할된 데이터베이스의 사용자 테이블과 일치하는 외부테이블을 만들수 있습니다.

@@ -1,14 +1,8 @@
----
+--- 
 layout: HubPage
 hide_bc: true
 title: Microsoft Azure 설명서
-description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다.
-ms.openlocfilehash: f60d41e2e6333c9d6331f18d4639ababaf748d89
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426337"
+description: 'Microsoft Azure 클라우드 서비스를 사용하여 강력한 애플리케이션을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다.'
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -43,7 +37,7 @@ ms.locfileid: "52426337"
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Azure 응용 프로그램 아키텍처 가이드</span>
+                                    <span class="likeAnH3">Azure 애플리케이션 아키텍처 가이드</span>
                                 </div>
                             </div>
                         </div>
@@ -321,9 +315,9 @@ ms.locfileid: "52426337"
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/redis-cache/">
+                                            <a href="/azure/azure-cache-for-redis/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
-                                                <p>Redis Cache</p>
+                                                <p>Azure Cache for Redis</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1196,7 +1190,7 @@ ms.locfileid: "52426337"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cloud Services</h3>
-                                                    <p>가용성과 확장성이 뛰어난 클라우드 응용 프로그램 및 API 만들기</p>
+                                                    <p>가용성과 확장성이 뛰어난 클라우드 애플리케이션 및 API 만들기</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1257,7 +1251,7 @@ ms.locfileid: "52426337"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Load Balancer</h3>
-                                                    <p>응용 프로그램에 고가용성 및 네트워크 성능 제공</p>
+                                                    <p>애플리케이션에 고가용성 및 네트워크 성능 제공</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1874,7 +1868,7 @@ ms.locfileid: "52426337"
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/redis-cache/">
+                                <a href="/azure/azure-cache-for-redis/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1884,8 +1878,8 @@ ms.locfileid: "52426337"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Redis Cache</h3>
-                                                    <p>높은 처리량과 대기 시간이 짧은 데이터 액세스로 빠르고 확장 가능한 응용 프로그램 빌드</p>
+                                                    <h3>Azure Cache for Redis</h3>
+                                                    <p>높은 처리량과 대기 시간이 짧은 데이터 액세스로 빠르고 확장 가능한 애플리케이션 빌드</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2218,7 +2212,7 @@ ms.locfileid: "52426337"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Power BI Embedded</h3>
-                                                    <p>응용 프로그램에 완벽하고 뛰어난 대화형 데이터 시각화를 포함</p>
+                                                    <p>애플리케이션에 완벽하고 뛰어난 대화형 데이터 시각화를 포함</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3027,7 +3021,7 @@ ms.locfileid: "52426337"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure US Government</h3>
-                                                    <p>Azure의 전용 인스턴스에서 미국 정부 기관 임무를 위한 응용 프로그램 빌드 및 호스팅</p>
+                                                    <p>Azure의 전용 인스턴스에서 미국 정부 기관 임무를 위한 애플리케이션 빌드 및 호스팅</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3046,7 +3040,7 @@ ms.locfileid: "52426337"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure Germany</h3>
-                                                    <p>데이터 트러스티의 추가 제어와 함께 주요 국제 표준 및 독일 규정에 따라 응용 프로그램 빌드 및 호스팅</p>
+                                                    <p>데이터 트러스티의 추가 제어와 함께 주요 국제 표준 및 독일 규정에 따라 애플리케이션 빌드 및 호스팅</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3318,7 +3312,7 @@ ms.locfileid: "52426337"
                                                     <a href="/powershell/azure/get-started-azureps">시작</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/powershell/azure/install-azurerm-ps">Powershell 다운로드</a>
+                                                    <a href="/powershell/azure/azurerm/install-azurerm-ps">Powershell 다운로드</a>
                                                 </p>
                                                 <p>
                                                     <a href="/powershell/azure/overview">참조</a>
@@ -3502,7 +3496,7 @@ ms.locfileid: "52426337"
                         <ul id="architecture1" class="cardsC">
                             <li>
                                 <div class="container intro">
-                                    <p>클라우드 응용 프로그램에 대한 권장되는 아키텍처의 집합입니다. 각 아키텍처는 권장되는 사례, 조치 단계 및 권장 사항을 구현하는 실행 가능한 구성 요소를 포함합니다.</p>
+                                    <p>클라우드 애플리케이션에 대한 권장되는 아키텍처의 집합입니다. 각 아키텍처는 권장되는 사례, 조치 단계 및 권장 사항을 구현하는 실행 가능한 구성 요소를 포함합니다.</p>
                                 </div>
                             </li>
                             <li>
@@ -3573,8 +3567,8 @@ ms.locfileid: "52426337"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>클라우드 응용 프로그램에 대한 모범 사례</h3>
-                                                    <p>자동 크기 조정, 캐싱, 데이터 분할, API 디자인 및 모니터링과 같은 측면을 다루는 클라우드 응용 프로그램에 대한 모범 사례 집합입니다.</p>
+                                                    <h3>클라우드 애플리케이션에 대한 모범 사례</h3>
+                                                    <p>자동 크기 조정, 캐싱, 데이터 분할, API 디자인 및 모니터링과 같은 측면을 다루는 클라우드 애플리케이션에 대한 모범 사례 집합입니다.</p>
                                                 </div>
                                             </div>
                                         </div>

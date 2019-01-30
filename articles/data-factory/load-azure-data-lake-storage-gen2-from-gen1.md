@@ -9,18 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 953585ffcc5a40d9ae48055f68a1c1fa84db25cc
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 40cf8dcf6729d577c4fff694b0380833fccb142d
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249335"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679361"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-preview-with-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에서 Gen2(미리 보기)로 데이터 복사
 
-[Azure Data Lake Storage Gen2(미리 보기)](../storage/data-lake-storage/introduction.md)에서는 계층적 파일 시스템 네임스페이스 및 보안 기능을 포함한 프로토콜을 Azure Blob Storage에 추가하여 분석 프레임워크를 지속성 저장소 레이어에 쉽게 연결할 수 있습니다. Data Lake Storage Gen2(미리 보기)에서 파일 시스템 인터페이스의 이점이 추가되는 동안 개체 저장소의 모든 특성이 유지됩니다.
+Azure Data Lake Storage Gen2 미리 보기는 [Azure Blob 스토리지](../storage/blobs/storage-blobs-introduction.md)에 구축된 빅 데이터 분석 전용의 기능 세트입니다. 이를 사용하면 파일 시스템 및 개체 저장소 패러다임을 모두 사용하여 데이터를 조작할 수 있습니다.
 
 현재 Azure Data Lake Storage Gen1을 사용 중인 경우 Azure Data Factory를 사용하여 Data Lake Storage Gen1에서 Gen2로 데이터를 복사하여 Gen2의 새로운 기능을 평가할 수 있습니다.
 
@@ -32,9 +32,9 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * 데이터가 있는 Azure Data Lake Storage Gen1 계정
-* Data Lake Storage Gen2를 사용하는 Azure Storage 계정: Storage 계정이 없는 경우 [여기](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)를 클릭하여 만듭니다.
+* Data Lake Storage Gen2가 사용하도록 설정된 Azure Storage 계정: Storage 계정이 없으면 [여기](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)를 클릭하여 하나 만듭니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
@@ -45,7 +45,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
       
    ![새 데이터 팩터리 페이지](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)
  
-    * **이름**: Azure 데이터 팩터리의 전역 고유 이름을 입력합니다. "데이터 팩터리 이름 \"LoadADLSDemo\"를 사용할 수 없습니다" 오류가 발생하면 데이터 팩터리의 다른 이름을 입력합니다. 예를 들어 _**yourname**_**ADFTutorialDataFactory**라는 이름을 사용할 수 있습니다. 데이터 팩터리를 다시 만들어 봅니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
+    * **이름**: Azure Data Factory의 전역 고유 이름을 입력합니다. "데이터 팩터리 이름 \"LoadADLSDemo\"를 사용할 수 없습니다" 오류가 발생하면 데이터 팩터리의 다른 이름을 입력합니다. 예를 들어 _**yourname**_**ADFTutorialDataFactory**라는 이름을 사용할 수 있습니다. 데이터 팩터리를 다시 만들어 봅니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
     * **구독**: 데이터 팩터리를 만들 Azure 구독을 선택합니다. 
     * **리소스 그룹**: 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 옵션을 선택하고 리소스 그룹의 이름을 입력합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
     * **버전**: **V2**를 선택합니다.
@@ -75,17 +75,15 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
     ![원본 데이터 저장소 Azure Data Lake Storage Gen1 페이지](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png)
     
 4. **Azure Data Lake Storage Gen1 연결 지정** 페이지에서 다음 단계를 수행합니다.
-   1. 계정 이름에 대해 Data Lake Storage Gen1을 선택합니다.
-   2. **테넌트**를 지정하거나 유효성을 검사하고, 마침을 선택합니다.
-   3. **다음**을 선택합니다.
+   1. 계정 이름으로 Data Lake Storage Gen1을 선택하고 **Tenant**를 지정하거나 유효한지 검사합니다.
+   2. **연결 테스트**를 클릭하여 설정의 유효성을 검사한 다음, **마침**을 선택합니다.
+   3. 새 연결이 생성되었다고 표시됩니다. **다음**을 선택합니다.
    
    > [!IMPORTANT]
    > 이 연습에서는 Azure 리소스용 관리 ID를 사용하여 Data Lake Storage Gen1을 인증합니다. [다음 지침](connector-azure-data-lake-store.md#managed-identity)에 따라 Azure Data Lake Storage Gen1에서 MSI에 적절한 권한을 부여합니다.
    
    ![Azure Data Lake Storage Gen1 계정 지정](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
-   
-   4. 새 연결이 생성되었다고 표시됩니다. **다음**을 선택합니다.
-   
+      
 5. **입력 파일 또는 폴더 선택** 페이지에서, 복사하려는 폴더 및 파일로 이동합니다. 폴더/파일을 선택하고 **선택**을 선택합니다.
 
     ![입력 파일 또는 폴더 선택](./media/load-azure-data-lake-storage-gen2-from-gen1/choose-input-folder.png)
@@ -100,8 +98,8 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
 8. **Azure Data Lake Storage Gen2 연결 지정** 페이지에서 다음 단계를 수행합니다.
 
-   1. "저장소 계정 이름" 드롭다운 목록에서 Data Lake Storage Gen2 계정을 선택합니다.
-   2. **다음**을 선택합니다.
+   1. "스토리지 계정 이름" 드롭다운 목록에서 Data Lake Storage Gen2 계정을 선택합니다.
+   2. **마침**을 선택하여 연결을 만듭니다. 그런 후 **다음**을 선택합니다.
    
    ![Azure Data Lake Storage Gen2 계정 지정](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 

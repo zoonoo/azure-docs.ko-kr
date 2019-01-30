@@ -1,20 +1,21 @@
 ---
-title: Azure CLI 스크립트 - Azure Cosmos DB Cassandra API 계정, 데이터베이스 및 테이블 만들기 | Microsoft Docs
+title: Azure CLI 스크립트 - Azure Cosmos DB Cassandra API 계정, 데이터베이스 및 테이블 만들기
 description: Azure CLI 스크립트 샘플 - Azure Cosmos DB Cassandra API 계정, 데이터베이스 및 테이블 만들기
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
+ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: 72eb26599ce2f57e7178d5741851b6e442a62e23
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.reviewer: sngun
+ms.openlocfilehash: 89d43d8fc956d747de885f69017ed79f49670858
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019599"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54032638"
 ---
-# <a name="azure-cosmos-db-create-a-cassandra-api-account-using-azure-cli"></a>Azure Cosmos DB: Azure CLI를 사용하여 Cassandra API 계정 만들기
+# <a name="azure-cosmos-db-create-a-cassandra-api-account-using-azure-cli"></a>Azure Cosmos DB는 Azure CLI를 사용하여 Cassandra API 계정 만들기
 
 이 샘플 CLI 스크립트는 Azure Cosmos DB Cassandra API 계정, 데이터베이스 및 테이블을 만듭니다.
 

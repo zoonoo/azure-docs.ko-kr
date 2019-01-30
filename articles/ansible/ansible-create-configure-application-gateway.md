@@ -1,32 +1,32 @@
 ---
-title: Ansible을 사용하여 Azure Application Gateway로 웹 트래픽 관리(미리 보기)
+title: Ansible을 사용하여 Azure Application Gateway를 통해 웹 트래픽 관리
 description: Ansible을 사용하여 웹 트래픽을 관리하도록 Azure Application Gateway를 만들고 구성하는 방법 알아보기
 ms.service: ansible
-keywords: ansible, azure, devops, bash, 플레이북, azure 응용 프로그램 게이트웨이, 부하 분산 장치, 웹 트래픽
-author: tomarcher
+keywords: Ansible, Azure, DevOps, Bash, 플레이북, 애플리케이션 게이트웨이, 부하 분산 장치, 웹 트래픽
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/20/2018
-ms.openlocfilehash: e3c165c87d6c179141f2ddd44f00f0f62a84b285
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 43e8681e5266f113d466a138abeeda77aff1c18b
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912869"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052260"
 ---
-# <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible-preview"></a>Ansible을 사용하여 Azure Application Gateway로 웹 트래픽 관리(미리 보기)
+# <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible"></a>Ansible을 사용하여 Azure Application Gateway를 통해 웹 트래픽 관리
 
-[Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/)는 웹 응용 프로그램에 대한 트래픽을 관리할 수 있도록 하는 웹 트래픽 부하 분산 장치입니다.
+[Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/)는 웹 애플리케이션에 대한 트래픽을 관리할 수 있도록 하는 웹 트래픽 부하 분산 장치입니다.
 
-Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. 이 문서는 Ansible을 사용하여 응용 프로그램 게이트웨이를 만드는 방법을 보여줍니다. 또한 게이트웨이를 사용하여 Azure 컨테이너 인스턴스에서 실행되는 두 개의 웹 서버에 대한 트래픽을 관리하는 방법을 설명합니다.
+Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. 이 문서는 Ansible을 사용하여 애플리케이션 게이트웨이를 만드는 방법을 보여줍니다. 또한 게이트웨이를 사용하여 Azure 컨테이너 인스턴스에서 실행되는 두 개의 웹 서버에 대한 트래픽을 관리하는 방법을 설명합니다.
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
 > [!div class="checklist"]
 > * 네트워크 설정
 > * HTTPD 이미지를 사용하여 두 개의 Azure 컨테이너 인스턴스 만들기
-> * 서버 풀에서 Azure 컨테이너 인스턴스를 사용하여 응용 프로그램 게이트웨이 만들기
+> * 서버 풀에서 Azure 컨테이너 인스턴스를 사용하여 애플리케이션 게이트웨이 만들기
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -34,7 +34,7 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Ansible 2.7은 이 자습서에서 다음의 샘플 플레이북을 실행해야 합니다. `sudo pip install ansible[azure]==2.7.0rc2`를 실행하여 Ansible 2.7 RC를 설치할 수 있습니다. Ansible 2.7이 릴리스된 후에 버전을 지정할 필요가 없습니다.
+> Ansible 2.7은 이 자습서에서 다음의 샘플 플레이북을 실행해야 합니다. 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -62,7 +62,7 @@ ansible-playbook rg.yml
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
 
-먼저 응용 프로그램 게이트웨이가 다른 리소스와 통신할 수 있도록 가상 네트워크를 만듭니다.
+먼저 애플리케이션 게이트웨이가 다른 리소스와 통신할 수 있도록 가상 네트워크를 만듭니다.
 
 다음 예제에서는 **myVNet**이라는 가상 네트워크, **myAGSubnet**이라는 서브넷 및 **mydomain**이라는 도메인으로 **myAGPublicIPAddress**라는 공용 IP 주소를 만듭니다.
 
@@ -110,7 +110,7 @@ ansible-playbook vnet_create.yml
 
 ## <a name="create-servers"></a>서버 만들기
 
-다음 예제에서는 응용 프로그램 게이트웨이에 대한 웹 서버로 사용될 HTTPD 이미지가 있는 두 개의 Azure 컨테이너 인스턴스를 만드는 방법을 보여줍니다.  
+다음 예제에서는 애플리케이션 게이트웨이에 대한 웹 서버로 사용될 HTTPD 이미지가 있는 두 개의 Azure 컨테이너 인스턴스를 만드는 방법을 보여줍니다.  
 
 ```yml
 - hosts: localhost
@@ -161,10 +161,10 @@ ansible-playbook aci_create.yml
 
 ## <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
-다음 예제에서는 백 엔드, 프런트 엔드 및 HTTP에 대한 구성으로 **myAppGateway**라는 응용 프로그램 게이트웨이를 만듭니다.  
+다음 예제에서는 백 엔드, 프런트 엔드 및 HTTP에 대한 구성으로 **myAppGateway**라는 애플리케이션 게이트웨이를 만듭니다.  
 
 * **appGatewayIP**는 **gateway_ip_configurations** 블록에서 정의됩니다. 서브넷 참조는 게이트웨이의 IP 구성에 필요합니다.
-* **appGatewayBackendPool**은 **backend_address_pools** 블록에서 정의됩니다. 응용 프로그램 게이트웨이에 백 엔드 주소 풀이 하나 이상 있어야 합니다.
+* **appGatewayBackendPool**은 **backend_address_pools** 블록에서 정의됩니다. 애플리케이션 게이트웨이에 백 엔드 주소 풀이 하나 이상 있어야 합니다.
 * **appGatewayBackendHttpSettings**는 **backend_http_settings_collection** 블록에서 정의됩니다. 포트 80 및 HTTP 프로토콜을 통신에 사용하도록 지정합니다.
 * **appGatewayHttpListener**는 **backend_http_settings_collection** 블록에서 정의됩니다. appGatewayBackendPool에 연결되는 기본 수신기입니다.
 * **appGatewayFrontendIP**는 **frontend_ip_configurations** 블록에서 정의됩니다. myAGPublicIPAddress를 appGatewayHttpListener에 할당합니다.
@@ -258,13 +258,13 @@ ansible-playbook aci_create.yml
 ansible-playbook appgw_create.yml
 ```
 
-응용 프로그램 게이트웨이가 생성될 때까지 몇 분 정도 걸릴 수 있습니다.
+애플리케이션 게이트웨이가 생성될 때까지 몇 분 정도 걸릴 수 있습니다.
 
-## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
+## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-네트워크 리소스에 대한 샘플 플레이북에서 **미국 동부**에 도메인 **mydomain**을 만들었습니다. 브라우저에서 `http://mydomain.eastus.cloudapp.azure.com`으로 이동합니다. 다음 페이지가 표시되면 응용 프로그램 게이트웨이가 예상대로 작동합니다.
+네트워크 리소스에 대한 샘플 플레이북에서 **미국 동부**에 도메인 **mydomain**을 만들었습니다. 브라우저에서 `http://mydomain.eastus.cloudapp.azure.com`으로 이동합니다. 다음 페이지가 표시되면 애플리케이션 게이트웨이가 예상대로 작동합니다.
 
-![작업 응용 프로그램 게이트웨이의 성공적인 테스트](media/ansible-create-configure-application-gateway/applicationgateway.PNG)
+![작업 애플리케이션 게이트웨이의 성공적인 테스트](media/ansible-create-configure-application-gateway/applicationgateway.PNG)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

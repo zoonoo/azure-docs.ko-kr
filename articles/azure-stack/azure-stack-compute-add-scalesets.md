@@ -10,12 +10,13 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: 2c615dd781b40c3ebb78ae291453c5b4b2d2ef4d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/22/2018
+ms.openlocfilehash: 3f1c84961f2ad6bd15612917d33982ec96824257
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971830"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252271"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Azure Stack에서 Virtual Machine Scale Sets 사용 가능
 
@@ -33,7 +34,7 @@ Azure Stack에 가상 머신 확장 집합 자동 크기 조정을 지원 하지
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **Marketplace:** 전역 Azure Marketplace에서 항목의 가용성을 사용 하 여 Azure Stack 등록 합니다. 지침을 따릅니다 [Azure 사용 하 여 Azure Stack 등록](azure-stack-registration.md)합니다.
+- **Marketplace.** Marketplace에서 항목의 가용성을 사용 하도록 설정 하려면 전역 Azure를 사용 하 여 Azure Stack을 등록 합니다. 지침을 따릅니다 [Azure 사용 하 여 Azure Stack 등록](azure-stack-registration.md)합니다.
 - **운영 체제 이미지:** 가상 머신 확장 집합 (VMSS)을 만들 수 있습니다, 전에에서 VMSS에서 사용할 VM 이미지를 다운로드 해야 합니다 [Azure Stack Marketplace](azure-stack-download-azure-marketplace-item.md)합니다. 이미지를 이미 있어야 사용자는 새 VMSS를 만들 수 있습니다. 
 
 ## <a name="use-the-azure-stack-portal"></a>Azure Stack 포털 사용 

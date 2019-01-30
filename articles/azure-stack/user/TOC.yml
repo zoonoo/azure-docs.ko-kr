@@ -98,6 +98,16 @@ items:
         href: azure-stack-network-overview.md
       - name: 네트워킹 고려 사항
         href: azure-stack-network-differences.md
+      - name: VPN 게이트웨이
+        items:
+        - name: VPN을 사용하여 연결
+          href: azure-stack-connect-vpn.md
+        - name: VPN gateway 정보
+          href: azure-stack-vpn-gateway-about-vpn-gateways.md
+        - name: IPSec/IKE 연결 정책 구성
+          href: azure-stack-vpn-s2s.md
+        - name: VPN gateway 설정
+          href: azure-stack-vpn-gateway-settings.md
       - name: Azure Stack용 iDNS
         href: azure-stack-understanding-dns.md
       - name: Azure Stack의 DNS
@@ -105,17 +115,19 @@ items:
     - name: Key Vault
       items:
       - name: 개요
-        href: azure-stack-kv-intro.md
+        href: azure-stack-key-vault-intro.md
       - name: 포털로 관리
-        href: azure-stack-kv-manage-portal.md
+        href: azure-stack-key-vault-manage-portal.md
       - name: Powershell로 관리
-        href: azure-stack-kv-manage-powershell.md
+        href: azure-stack-key-vault-manage-powershell.md
       - name: 암호가 있는 VM 만들기
-        href: azure-stack-kv-deploy-vm-with-secret.md
+        href: azure-stack-key-vault-deploy-vm-with-secret.md
       - name: 인증서가 있는 VM 만들기
-        href: azure-stack-kv-push-secret-into-vm.md
+        href: azure-stack-key-vault-push-secret-into-vm.md
+      - name: Key Vault에 자격 증명 저장
+        href: azure-stack-key-vault-store-credentials.md
       - name: Key Vault 샘플 앱
-        href: azure-stack-kv-sample-app.md
+        href: azure-stack-key-vault-sample-app.md
     - name: Azure Monitor
       href: azure-stack-metrics-azure-data.md
       items:
@@ -129,13 +141,16 @@ items:
         href: azure-stack-ethereum.md
       - name: Service Fabric 클러스터 배포
         href: azure-stack-solution-template-service-fabric-cluster.md
-      - name: Kubernetes 클러스터를 추가 합니다.
+      - name: Kubernetes 클러스터 배포
+        href: azure-stack-solution-template-kubernetes-deploy.md
         items:
-        - name: Kubernetes 클러스터 배포
-          href: azure-stack-solution-template-kubernetes-deploy.md
+        - name: Azure AD를 사용 하 여 Kubernetes 배포
+          href: azure-stack-solution-template-kubernetes-azuread.md
+        - name: AD FS를 사용 하 여 Kubernetes 배포
+          href: azure-stack-solution-template-kubernetes-adfs.md
         - name: Kubernetes 클러스터 문제 해결
           href: azure-stack-solution-template-kubernetes-trouble.md
-      - name: Cognitive Services 배포
+      - name: Deploy Cognitive Services
         href: azure-stack-solution-template-cognitive-services.md
   - name: 앱 빌드
     items:
@@ -164,7 +179,7 @@ items:
           href: azure-stack-version-profiles-powershell.md
         - name: Azure CLI
           href: azure-stack-version-profiles-azurecli2.md
-        - name: 이동
+        - name: Go
           href: azure-stack-version-profiles-go.md
         - name: Ruby
           href: azure-stack-version-profiles-ruby.md
@@ -218,9 +233,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: 교육 및 인증
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 10f68a38f9844689c857bebc39dddfe4c97c73d7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c9c4e0109df5880100956e167d17c61dfd001743
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343754"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450680"

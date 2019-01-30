@@ -10,19 +10,19 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 12fab05ef7c459419c8aaf319098fddaae1416e6
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 47f9dfea24dc3134e6a2f476affaaff7e60efe8c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242125"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260383"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum 인증 증명 컨소시엄
 
 ## <a name="overview"></a>개요
 [이 솔루션](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium)은 최소한의 Azure 및 Ethereum 지식으로 다중 멤버 컨소시엄 인증 증명 Ethereum 네트워크를 더 쉽게 배포, 구성 및 관리할 수 있도록 설계되었습니다.
 
-Azure Portal을 통해 약간의 사용자 입력과 한 번의 클릭으로 배포하면 각 멤버가 전 세계의 Microsoft Azure Compute, 네트워킹 및 저장소 서비스를 사용하여 네트워크 공간을 프로비전할 수 있습니다. 각 멤버의 네트워크 공간은 응용 프로그램 또는 사용자가 Ethereum 트랜잭션을 제출하기 위해 상호 작용할 수 있는 일단의 부하 분산된 유효성 검사기 노드로 구성됩니다.
+Azure Portal을 통해 약간의 사용자 입력과 한 번의 클릭으로 배포하면 각 멤버가 전 세계의 Microsoft Azure Compute, 네트워킹 및 저장소 서비스를 사용하여 네트워크 공간을 프로비전할 수 있습니다. 각 멤버의 네트워크 공간은 애플리케이션 또는 사용자가 Ethereum 트랜잭션을 제출하기 위해 상호 작용할 수 있는 일단의 부하 분산된 유효성 검사기 노드로 구성됩니다.
 
 ## <a name="concepts"></a>개념
 
@@ -77,13 +77,13 @@ Azure Portal을 통해 약간의 사용자 입력과 한 번의 클릭으로 배
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
-이 솔루션은 노드 및 네트워크 통계를 추적하기 위해 Azure Monitor도 제공합니다. 응용 프로그램 개발자를 위해 기본 블록체인에 대한 가시성을 제공하여 블록 생성 통계를 추적합니다. 네트워크 운영자는 Azure Monitor를 사용하여 인프라 통계 및 쿼리 가능한 로그를 통해 네트워크 중단을 빠르게 감지하고 방지할 수 있습니다. 자세한 내용은 [서비스 모니터링](#service-monitoring)을 참조하세요.
+이 솔루션은 노드 및 네트워크 통계를 추적하기 위해 Azure Monitor도 제공합니다. 애플리케이션 개발자를 위해 기본 블록체인에 대한 가시성을 제공하여 블록 생성 통계를 추적합니다. 네트워크 운영자는 Azure Monitor를 사용하여 인프라 통계 및 쿼리 가능한 로그를 통해 네트워크 중단을 빠르게 감지하고 방지할 수 있습니다. 자세한 내용은 [서비스 모니터링](#service-monitoring)을 참조하세요.
 
 ### <a name="deployment-architecture"></a>배포 아키텍처
 
 #### <a name="description"></a>설명
 
-이 솔루션은 단일 또는 다중 지역 기반 다중 멤버 Ethereum 컨소시엄 네트워크를 배포할 수 있습니다. 기본적으로 RPC 및 피어링 엔드포인트는 공용 IP를 통해 액세스할 수 있으므로 구독 및 클라우드 간 연결을 간소화할 수 있습니다. 응용 프로그램 수준 액세스 제어에 [Parity의 권한 부여 계약](https://wiki.parity.io/Permissioning)을 활용하는 것이 좋습니다. 또한 구독 간 연결에 VNet 게이트웨이를 활용하는 VPN 뒤에 배포되는 네트워크도 지원합니다. 이러한 배포는 더 복잡하므로 먼저 공용 IP 모델부터 시작하는 것이 좋습니다.
+이 솔루션은 단일 또는 다중 지역 기반 다중 멤버 Ethereum 컨소시엄 네트워크를 배포할 수 있습니다. 기본적으로 RPC 및 피어링 엔드포인트는 공용 IP를 통해 액세스할 수 있으므로 구독 및 클라우드 간 연결을 간소화할 수 있습니다. 애플리케이션 수준 액세스 제어에 [Parity의 권한 부여 계약](https://wiki.parity.io/Permissioning)을 활용하는 것이 좋습니다. 또한 구독 간 연결에 VNet 게이트웨이를 활용하는 VPN 뒤에 배포되는 네트워크도 지원합니다. 이러한 배포는 더 복잡하므로 먼저 공용 IP 모델부터 시작하는 것이 좋습니다.
 
 #### <a name="consortium-member-overview"></a>컨소시엄 멤버 개요
 
@@ -130,7 +130,7 @@ Azure Portal을 통해 약간의 사용자 입력과 한 번의 클릭으로 배
 ## <a name="how-to-guides"></a>방법 가이드
 ### <a name="governance-dapp"></a>거버넌스 DApp
 
-인증 증명의 중심에는 분산 거버넌스가 있습니다. 거버넌스 DApp는 네트워크에서 기관을 관리하는 데 사용되는 미리 배포된 [스마트 계약](https://github.com/Azure-Samples/blockchain/tree/master/ethereum-on-azure/) 집합 및 웹 응용 프로그램입니다.
+인증 증명의 중심에는 분산 거버넌스가 있습니다. 거버넌스 DApp는 네트워크에서 기관을 관리하는 데 사용되는 미리 배포된 [스마트 계약](https://github.com/Azure-Samples/blockchain/tree/master/ethereum-on-azure/) 집합 및 웹 애플리케이션입니다.
 기관은 관리자 ID 및 유효성 검사기 노드로 분할됩니다.
 관리자는 일단의 검사기 노드에 합의 참여를 위임할 수 있습니다. 관리자는 네트워크 내부 또는 외부에서 다른 관리자에게 투표할 수도 있습니다.
 
@@ -198,7 +198,7 @@ __후보__ 탭을 선택하면 현재 관리자 후보 집합이 표시됩니다
 
 구독이 보호된 후 Azure Portal로 이동합니다. '+', Marketplace('모두 보기')를 선택하고 Ethereum PoA 컨소시엄을 검색합니다.
 
-다음 섹션에서는 네트워크에서 첫 번째 멤버의 공간을 구성하는 과정을 안내합니다. 배포 흐름은 기본 사항, 배포 지역, 네트워크 크기 및 성능, Ethereum 설정, Azure Monitor의 5단계로 구분됩니다.
+다음 섹션에서는 네트워크에서 첫 번째 멤버의 공간을 구성하는 과정을 안내합니다. 배포 흐름은 다음 5단계로 구분됩니다. 기본 사항, 배포 지역, 네트워크 크기 및 성능, Ethereum 설정, Azure Monitor.
 
 #### <a name="basics"></a>기본 사항
 
@@ -211,11 +211,11 @@ __후보__ 탭을 선택하면 현재 관리자 후보 집합이 표시됩니다
 새 네트워크를 만드시겠습니까, 아니면 기존 네트워크를 조인하시겠습니까?|새 네트워크를 만들거나 기존 컨소시엄 네트워크를 조인합니다.|새로 만들기 기존 조인|새로 만들기
 이메일 주소(선택 사항)|배포에 대한 정보를 사용하여 배포가 완료되면 이메일 알림을 받게 됩니다.|유효한 이메일 주소|해당 없음
 VM 사용자 이름|각 배포된 VM의 관리자 사용자 이름(영숫자 문자만)|1-64자|해당 없음
-인증 유형|가상 머신을 인증하는 방법.|암호 또는 SSH 공개 키|암호
-암호(인증 형식 = 암호)|배포된 각 가상 머신의 관리자 계정 암호.  암호에는 대문자 1자, 소문자 1자, 숫자 1개 및 특수 문자 1자 중 3가지가 포함되어야 합니다. 처음에는 모든 VM의 암호가 동일하지만, 프로비전 후 암호를 변경할 수 있습니다.|12-72자|해당 없음
+인증 유형|가상 머신에 인증하는 메서드입니다.|암호 또는 SSH 공개 키|암호
+암호(인증 형식 = 암호)|배포된 각 가상 머신의 관리자 계정 암호.  암호에는 다음 중 3가지가 반드시 포함되어야 합니다. 대문자 1개, 소문자 1개, 숫자 1개, 특수 문자 1개. 처음에는 모든 VM의 암호가 동일하지만, 프로비전 후 암호를 변경할 수 있습니다.|12-72자|해당 없음
 SSH 키(인증 유형 = 공개 키)|원격 로그인에 사용하는 보안 셸 키.||해당 없음
 구독|컨소시엄 네트워크를 배포하는 구독||해당 없음
-리소스 그룹|컨소시엄 네트워크를 배포하는 리소스 그룹.||해당 없음
+리소스 그룹|컨소시엄 네트워크를 배포하는 리소스 그룹입니다.||해당 없음
 위치|리소스 그룹에 대한 Azure 지역입니다.||해당 없음
 
 샘플 배포는 다음과 같습니다. ![기본 사항 블레이드](./media/ethereum-poa-deployment/basic-blade.png)
@@ -744,7 +744,7 @@ $ truffle migrate --network poa
 
 ### <a name="debug-smart-contract-with-truffle"></a>Truffle을 사용하여 스마트 계약 디버그
 
-Truffle은 스마트 계약을 디버그하는 데 사용할 수 있는 로컬 개발 네트워크를 보유하고 있습니다. 전체 자습서는 [여기서](http://truffleframework.com/tutorials/debugging-a-smart-contract) 찾을 수 있습니다.
+Truffle은 스마트 계약을 디버그하는 데 사용할 수 있는 로컬 개발 네트워크를 보유하고 있습니다. 전체 자습서는 [여기서](https://truffleframework.com/tutorials/debugging-a-smart-contract) 찾을 수 있습니다.
 
 ### <a name="webassembly-wasm-support"></a>WebAssembly(WASM) 지원
 

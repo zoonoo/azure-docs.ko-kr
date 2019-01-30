@@ -12,18 +12,21 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: c08a76711a74f5b0fd119e579c6db54fc13ecfbb
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 87f3b9de2ff86016f11a0996cbe448651ee6844f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685823"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723895"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>SQL 데이터 동기화 문제 해결
 
 이 문서에서는 Azure SQL 데이터 동기화의 알려진 문제를 해결하는 방법을 설명합니다. 문제에 대한 해결 방법이 있으면 여기에 제공됩니다.
 
 SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-database-sync-data.md)를 참조하세요.
+
+> [!IMPORTANT]
+> 현재 Azure SQL Data Sync는 Azure SQL Database Managed Instance를 지원하지 **않습니다**.
 
 ## <a name="sync-issues"></a>동기화 문제
 
@@ -37,7 +40,7 @@ SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화를 �
 
 - [성능이 크게 저하됨](#sync-perf)
 
-- [“열에 NULL 값을 삽입할 수 없습니다<column>. 열에는 Null을 사용할 수 없습니다."라는 오류 메시지를 받았습니다. 이 오류는 어떤 의미이며 오류를 수정할 수 있는 방법은 무엇인가요?](#sync-nulls)
+- [ "열에 NULL 값을 삽입할 수 없습니다<column>. 열에는 Null을 사용할 수 없습니다."라는 오류 메시지를 받았습니다. 이 오류는 어떤 의미이며 오류를 수정할 수 있는 방법은 무엇인가요?](#sync-nulls)
 
 - [데이터 동기화에서는 어떻게 순환 참조가 처리되나요? 즉, 여러 동기화 그룹에서 동일한 데이터가 동기화되어 결과적으로 계속 변경되는 경우, 어떻게 처리되나요?](#sync-circ)
 
@@ -102,7 +105,7 @@ SQL 데이터 동기화의 동기화 그룹이 오랫동안 처리 중 상태입
 
 - **해결 방법**. 최선의 해결책은 예방입니다. 동기화 그룹에 순환 참조가 포함되지 않은지 확인합니다. 하나의 동기화 그룹에 의해 동기화되는 행은 다른 동기화 그룹에서 동기화할 수 없습니다.
 
-### <a name="sync-nulls"></a> “열에 NULL 값을 삽입할 수 없습니다<column>. 열에는 Null을 사용할 수 없습니다."라는 오류 메시지를 받았습니다. 이 오류는 어떤 의미이며 오류를 수정할 수 있는 방법은 무엇인가요? 
+### <a name="sync-nulls"></a> "열에 NULL 값을 삽입할 수 없습니다<column>. 열에는 Null을 사용할 수 없습니다."라는 오류 메시지를 받았습니다. 이 오류는 어떤 의미이며 오류를 수정할 수 있는 방법은 무엇인가요? 
 이 오류 메시지는 다음 두 가지 문제 중 하나가 발생했음을 나타냅니다.
 -  테이블에 기본 키가 없습니다. 이 문제를 해결하려면 동기화하는 모든 테이블에 기본 키를 추가합니다.
 -  CREATE INDEX 문에 WHERE 절이 있습니다. 데이터 동기화는 이러한 상황을 처리하지 않습니다. 이 문제를 해결하려면 WHERE 절을 제거하거나 수동으로 모든 데이터베이스를 변경합니다. 

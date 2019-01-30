@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: df7d8815eeb588e4e99041844642b6721e25dad7
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a1200494eac2d60083a6608d1af91379d8298070
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52585767"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201502"
 ---
 ## <a name="supported-distributions-and-drivers"></a>지원되는 배포판 및 버전
 
@@ -26,15 +26,15 @@ NC, NCv2, NCv3, ND 및 NDv2 시리즈 VM(NV 시리즈의 경우 선택적임)용
 
 | 배포 | 드라이버 |
 | --- | -- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 또는 7.4<br/><br/> CentOS 기반 7.3 또는 7.4, CentOS 기반 7.4 HPC | NVIDIA CUDA 10.0, 드라이버 분기 R410 |
+| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/> CentOS 기반 7.3, 7.4, 7.5, 7.6, CentOS 기반 7.4 HPC | NVIDIA CUDA 10.0, 드라이버 분기 R410 |
 
 ### <a name="nvidia-grid-drivers"></a>NVIDIA GRID 드라이버
 
-Microsoft는 가상 워크스테이션으로 사용되는 NV 및 NVv2 시리즈 VM 또는 가상 응용 프로그램에 대해 NVIDIA GRID 드라이버 설치 관리자를 재배포합니다. Azure NV VM에서 다음 표에 나열된 운영 체제에만 이러한 GRID 드라이버를 설치합니다. 이 드라이버에는 Azure의 GRID 가상 GPU 소프트웨어에 대한 라이선스가 포함됩니다. NVIDIA vGPU 소프트웨어 라이선스 서버를 설정할 필요는 없습니다.
+Microsoft는 가상 워크스테이션으로 사용되는 NV 및 NVv2 시리즈 VM 또는 가상 애플리케이션에 대해 NVIDIA GRID 드라이버 설치 관리자를 재배포합니다. Azure NV VM에서 다음 표에 나열된 운영 체제에만 이러한 GRID 드라이버를 설치합니다. 이 드라이버에는 Azure의 GRID 가상 GPU 소프트웨어에 대한 라이선스가 포함됩니다. NVIDIA vGPU 소프트웨어 라이선스 서버를 설정할 필요는 없습니다.
 
 | 배포 | 드라이버 |
 | --- | -- |
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 또는 7.4<br/><br/>CentOS 기반 7.3 또는 7.4 | NVIDIA GRID 7, 드라이버 분기 R410|
+| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/>CentOS 기반 7.3, 7.4, 7.5, 7.6 | NVIDIA GRID 7, 드라이버 분기 R410|
 
 > [!WARNING] 
 > Red Hat 제품에 대한 타사 소프트웨어 설치는 Red Hat 지원 조건에 영향을 줄 수 있습니다. [Red Hat 기술 자료 문서](https://access.redhat.com/articles/1067)를 참조하세요.

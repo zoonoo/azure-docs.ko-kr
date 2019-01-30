@@ -2,10 +2,10 @@
 title: Azure Active Directory ID 보호 | Microsoft Docs
 description: Azure AD ID 보호를 사용하여 손상된 ID 및 디바이스를 악용하는 공격자의 능력을 제한하고 이전에 손상이 우려되거나 손상된 ID 또는 디바이스를 보호할 수 있는 방법을 알아봅니다.
 services: active-directory
-keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
+keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 애플리케이션 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.component: identity-protection
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 75d8503e6179b8ef3578a4a8c62ef1b288657a7b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 73b76561829e6d50918881427894ea310920fce6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576819"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465206"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection이란?
 
@@ -134,7 +134,7 @@ Azure Active Directory Identity Protection은 자동 응답을 구현하기 위�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Channel 9: Azure AD 및 ID 표시: ID 보호 미리 보기](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+- [Channel 9: Azure AD 및 ID 쇼: ID 보호 미리 보기](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 - [Azure Active Directory ID 보호 활성화](enable.md)
 

@@ -1,17 +1,17 @@
 ---
-title: Azure Cosmos DB 인덱싱 정책 | Microsoft Docs
+title: Azure Cosmos DB 인덱싱 정책
 description: Azure Cosmos DB에서 인덱싱의 작동 방식을 파악하고 자동 인덱싱 및 성능 향상을 위해 인덱싱 정책을 구성 및 변경하는 방법에 대해 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: ffb70ce8c26b7774e90801271c55cd8a80906c90
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0fb2c3daf19ce07d9641cbc5504cb3b598ad5b0d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628853"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034458"
 ---
 # <a name="indexing-policy-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 

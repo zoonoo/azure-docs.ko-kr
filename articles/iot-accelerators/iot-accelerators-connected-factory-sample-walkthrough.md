@@ -21,7 +21,7 @@ ms.locfileid: "50140403"
 
 * 시뮬레이션된 공장 생산 라인에서 OPC UA 서버를 실행하는 시뮬레이션된 산업 디바이스 및 실제 OPC UA 서버 디바이스에 연결합니다. OPC UA에 대한 자세한 내용은 [연결된 팩터리 FAQ](iot-accelerators-faq-cf.md)를 참조하세요.
 * 이러한 디바이스 및 생산 라인의 운영 KPI 및 OEE를 보여 줍니다.
-* OPC UA 서버 시스템과 상호 작용하는 데 클라우드 기반 응용 프로그램을 사용하는 방법을 보여 줍니다.
+* OPC UA 서버 시스템과 상호 작용하는 데 클라우드 기반 애플리케이션을 사용하는 방법을 보여 줍니다.
 * 고유한 OPC UA 서버 디바이스를 연결할 수 있습니다.
 * OPC UA 서버 데이터를 검색하고 수정할 수 있습니다.
 * Azure TSI(Time Series Insights) 서비스와 통합하여 OPC UA 서버에서 데이터의 사용자 지정된 보기를 제공합니다.
@@ -46,7 +46,7 @@ OPC UA에 대한 자세한 내용은 [연결된 팩터리 FAQ](iot-accelerators-
 
 이 솔루션은 [OPC UA Pub/Sub 사양](https://opcfoundation.org/news/opc-foundation-news/opc-foundation-announces-support-of-publish-subscribe-for-opc-ua/)을 사용하여 OPC UA 원격 분석 데이터를 IoT Hub에 JSON 형식으로 보냅니다. 이 솔루션은 이 목표를 달성하기 위해 [OPC 게시자](https://github.com/Azure/iot-edge-opc-publisher) IoT Edge 모듈을 사용합니다.
 
-또한 이 솔루션은 온-프레미스 OPC UA 서버와의 연결을 설정할 수 있는 OPC UA 클라이언트가 웹 응용 프로그램과 통합되었습니다. 이 클라이언트는 [역방향 프록시](https://wikipedia.org/wiki/Reverse_proxy)를 사용하며 IoT Hub의 도움을 받아 온-프레미스 방화벽에서 포트를 열지 않고도 연결을 만들 수 있습니다. 이 통신 패턴을 [서비스 지원 통신](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/)이라고 합니다. 이 솔루션은 이 목표를 달성하기 위해 [OPC 프록시](https://github.com/Azure/iot-edge-opc-proxy/) IoT Edge 모듈을 사용합니다.
+또한 이 솔루션은 온-프레미스 OPC UA 서버와의 연결을 설정할 수 있는 OPC UA 클라이언트가 웹 애플리케이션과 통합되었습니다. 이 클라이언트는 [역방향 프록시](https://wikipedia.org/wiki/Reverse_proxy)를 사용하며 IoT Hub의 도움을 받아 온-프레미스 방화벽에서 포트를 열지 않고도 연결을 만들 수 있습니다. 이 통신 패턴을 [서비스 지원 통신](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/)이라고 합니다. 이 솔루션은 이 목표를 달성하기 위해 [OPC 프록시](https://github.com/Azure/iot-edge-opc-proxy/) IoT Edge 모듈을 사용합니다.
 
 
 ## <a name="simulation"></a>시뮬레이션

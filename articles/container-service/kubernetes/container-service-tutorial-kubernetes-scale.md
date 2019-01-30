@@ -1,6 +1,6 @@
 ---
-title: Azure Container Service 자습서 - 응용 프로그램 크기 조정
-description: Azure Container Service 자습서 - 응용 프로그램 크기 조정
+title: (사용되지 않음) Azure Container Service 자습서 - 애플리케이션 크기 조정
+description: Azure Container Service 자습서 - 애플리케이션 크기 조정
 services: container-service
 author: dlepow
 manager: jeconnoc
@@ -9,16 +9,19 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 792d9b1409b9571474f47da4940724df7a764d82
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b16682535e7311648e832286e1e876ee0e694712
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429885"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993083"
 ---
-# <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Kubernetes Pod 및 Kubernetes 인프라 크기 조정
+# <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(사용되지 않음) Kubernetes Pod 및 Kubernetes 인프라 크기 조정
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Azure Kubernetes Service를 사용하는 이 자습서의 업데이트된 버전은 [자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 크기 조정](../../aks/tutorial-kubernetes-scale.md)을 참조하세요.
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 자습서를 수행하고 있다면 Azure Container Service에서 작동하는 Kubernetes 클러스터가 있으며 Azure Voting 앱을 배포한 상태입니다. 
 
@@ -29,11 +32,11 @@ ms.locfileid: "39429885"
 > * 앱 프런트 엔드를 실행하는 Pod 자동 크기 조정 구성
 > * Kubernetes Azure 에이전트 노드 크기 조정
 
-후속 자습서에서는 Azure Vote 응용 프로그램을 업데이트하고, Kubernetes 클러스터를 모니터링하도록 Log Analytics를 구성합니다.
+후속 자습서에서는 Azure Vote 애플리케이션을 업데이트하고, Kubernetes 클러스터를 모니터링하도록 Log Analytics를 구성합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이전 자습서에서는 응용 프로그램을 컨테이너 이미지에 패키지하고, 이 이미지를 Azure Container Registry에 업로드하고, Kubernetes 클러스터를 만들었습니다. 그런 다음 Kubernetes 클러스터에서 응용 프로그램을 실행했습니다. 
+이전 자습서에서는 애플리케이션을 컨테이너 이미지에 패키지하고, 이 이미지를 Azure Container Registry에 업로드하고, Kubernetes 클러스터를 만들었습니다. 그런 다음, Kubernetes 클러스터에서 애플리케이션을 실행했습니다. 
 
 이러한 단계를 수행하지 않은 경우 수행하려면 [자습서 1 - 컨테이너 이미지 만들기](./container-service-tutorial-kubernetes-prepare-app.md)로 돌아갑니다. 
 
@@ -149,7 +152,7 @@ az acs scale --resource-group=myResourceGroup --name=myK8SCluster --new-agent-co
 > * 앱 프런트 엔드를 실행하는 Pod 자동 크기 조정 구성
 > * Kubernetes Azure 에이전트 노드 크기 조정
 
-다음 자습서로 이동하여 Kubernetes에서 응용 프로그램 업데이트에 대해 알아봅니다.
+다음 자습서로 이동하여 Kubernetes에서 애플리케이션 업데이트에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [Kubernetes에서 응용 프로그램 업데이트](./container-service-tutorial-kubernetes-app-update.md)

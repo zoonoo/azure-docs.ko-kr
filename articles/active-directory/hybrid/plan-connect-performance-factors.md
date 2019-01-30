@@ -3,7 +3,7 @@ title: Azure AD Connect의 성능에 영향을 주는 요인
 description: 이 문서에서는 다양한 요인이 Azure AD Connect 프로비저닝 엔진에 어떻게 영향을 미치는지에 대해 설명합니다. 이러한 요소는 동기화 요구 사항을 충족하도록 조직에서 Azure AD Connect 배포를 계획하는 데 도움이 됩니다.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
-ms.openlocfilehash: cdca1b31f9b6cf10113dc0dba70b8f8991bafa2b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 801082164a0110178034c5fbe050ebe8e02b2772
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093972"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474135"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Azure AD Connect의 성능에 영향을 주는 요인
 
@@ -41,7 +41,7 @@ Azure AD Connect는 Active Directory를 Azure AD에 동기화합니다. 이 서�
 
 ![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
-프로비전 엔진은 각 Active Directory 포리스트와 Azure AD에 연결되어 있습니다. 각 디렉터리에서 정보를 읽는 프로세스를 가져오기라고 합니다. 내보내기는 프로비전 엔진에서 디렉터리를 업데이트하는 것을 가리킵니다. 동기화는 프로비전 엔진 내에서 개체가 흐르는 방식의 규칙을 평가합니다. 더 자세한 내용은 [Azure AD Connect 동기화: 아키텍처 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture)를 참조하세요.
+프로비전 엔진은 각 Active Directory 포리스트와 Azure AD에 연결되어 있습니다. 각 디렉터리에서 정보를 읽는 프로세스를 가져오기라고 합니다. 내보내기는 프로비전 엔진에서 디렉터리를 업데이트하는 것을 가리킵니다. 동기화는 프로비전 엔진 내에서 개체가 흐르는 방식의 규칙을 평가합니다. 자세한 내용은 [Azure AD Connect 동기화: 아키텍처 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture)를 참조하세요.
 
 Azure AD Connect는 Active Directory를 Azure AD에 동기화할 수 있도록 다음 준비 영역, 규칙 및 프로세스를 사용합니다.
 
@@ -124,7 +124,7 @@ Active Directory CS의 여러 영구적인 [디스커넥터 개체](concept-azur
 - 개체를 MV에 프로젝트/조인하고 [cloudFiltered](how-to-connect-sync-configure-filtering.md#negative-filtering-do-not-sync-these) 특성을 True와 동일하게 설정하여 Azure AD CS에서 이러한 개체의 프로비전을 방지합니다.
 
 > [!NOTE]
-> 너무 많은 개체가 필터링되는 경우 사용자가 혼동하거나 응용 프로그램 사용 권한 문제가 발생할 수 있습니다. 예를 들어 하이브리드 Exchange Online 구현에서 온-프레미스 사서함이 있는 사용자는 Exchange Online에 사서함이 있는 사용자보다 더 많은 사용자가 전체 주소 목록에 표시됩니다. 다른 경우에 사용자는 개체의 필터링된 집합의 범위가 아닌 다른 사용자에게 클라우드 앱에 대한 액세스 권한을 부여할 수도 있습니다.
+> 너무 많은 개체가 필터링되는 경우 사용자가 혼동하거나 애플리케이션 사용 권한 문제가 발생할 수 있습니다. 예를 들어 하이브리드 Exchange Online 구현에서 온-프레미스 사서함이 있는 사용자는 Exchange Online에 사서함이 있는 사용자보다 더 많은 사용자가 전체 주소 목록에 표시됩니다. 다른 경우에 사용자는 개체의 필터링된 집합의 범위가 아닌 다른 사용자에게 클라우드 앱에 대한 액세스 권한을 부여할 수도 있습니다.
 
 ### <a name="attribute-flows"></a>특성 흐름
 
@@ -156,7 +156,7 @@ Azure AD는 DoS(서비스 거부) 공격으로부터 클라우드 서비스를 �
 
 
 - Azure AD에 내보내는 Azure AD Connect.
-- 동적 그룹 멤버 자격과 같이 백그라운드에서도 Azure AD에 직접 업데이트하는 PowerShell 스크립트 또는 응용 프로그램.
+- 동적 그룹 멤버 자격과 같이 백그라운드에서도 Azure AD에 직접 업데이트하는 PowerShell 스크립트 또는 애플리케이션.
 - MFA 또는 SSPR(셀프 서비스 암호 재설정)에 대한 등록과 같이 고유한 ID 레코드를 업데이트하는 사용자.
 - 그래픽 사용자 인터페이스 내 작업.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
-ms.openlocfilehash: 531b90b905df8549846c6027fe547521d16cf082
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 0c16369cca4fae89733ad281aa3332c393be2aff
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868503"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828420"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>동적 암호화: 콘텐츠 키 인증 정책 구성
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -43,14 +43,14 @@ Media Services는 STS를 제공하지 않습니다. 사용자 지정 STS를 만�
 - [Azure Active Directory와 Azure Media Services OWIN MVC 기반 앱을 Azure Active Directory와 통합하고 JWT 클레임을 기반으로 하는 콘텐츠 키 배달을 제한합니다](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 ### <a name="some-considerations-apply"></a>다음과 같은 몇 가지 고려 사항이 적용됩니다.
-* Azure Media Services 계정이 만들어지면, 기본 스트리밍 끝점이 "중지됨" 상태의 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 스트리밍 끝점이 “실행 중” 상태에 있어야 합니다. 
+* Azure Media Services 계정이 만들어지면 기본 스트리밍 엔드포인트가 “중지됨” 상태에 있는 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 스트리밍 엔드포인트가 “실행 중” 상태에 있어야 합니다. 
 * 사용자의 자산은 적응 비트 전송률 MP4 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합을 포함해야 합니다. 자세한 내용은 [자산 인코딩](media-services-encode-asset.md)을 참조하세요.
 * AssetCreationOptions.StorageEncrypted 옵션을 사용하여 자산을 업로드하고 인코딩합니다.
 * 동일한 정책 구성이 필요한 여러 콘텐츠 키를 사용하려는 경우 단일 권한 부여 정책을 만들고 여러 콘텐츠 키와 함께 다시 사용하는 것이 좋습니다.
 * 키 배달 서비스는 ContentKeyAuthorizationPolicy 및 관련 개체(정책 옵션 및 제한 사항)를 15분 동안 캐시합니다. ContentKeyAuthorizationPolicy를 만들고 토큰 제한을 사용하도록 지정하고, 테스트한 다음, 정책을 개방형 제한으로 업데이트할 수 있습니다. 이 프로세스를 수행할 경우 대략 15분 후에 정책이 개방형 버전의 정책으로 전환됩니다.
 * 자산 배달 정책을 추가하거나 업데이트하는 경우, 기존 로케이터를 삭제하고 새 로케이터를 만들어야 합니다.
 * 현재 점진적 다운로드는 암호화할 수 없습니다.
-* Media Services 스트리밍 끝점은 실행 전 응답에서 CORS 'Access-Control-Allow-Origin' 헤더 값을 ‘\*’ 와일드카드로 설정합니다. 이 값은 Azure Media Player, Roku 및 JWPlayer 등을 망라한 대부분의 플레이어에서 작동합니다. 그러나 자격 증명 모드가 “include”로 설정된 상태에서 dashjs의 XMLHttpRequest가 “\*” 와일드카드를 Access-Control-Allow-Origin 값으로 허용하지 않으므로 dash.js를 사용하는 일부 플레이어에서는 작동하지 않습니다. 이러한 dashjs 제한을 해결하기 위해 단일 도메인에서 클라이언트를 호스트하는 경우 Media Services가 실행 전 응답 헤더에서 해당 도메인을 지정할 수 있습니다. 도움이 필요한 경우 Azure Portal을 통해 지원 티켓을 엽니다.
+* Media Services 스트리밍 엔드포인트는 실행 전 응답에서 CORS 'Access-Control-Allow-Origin' 헤더 값을 ‘\*’ 와일드카드로 설정합니다. 이 값은 Azure Media Player, Roku 및 JWPlayer 등을 망라한 대부분의 플레이어에서 작동합니다. 그러나 자격 증명 모드가 “include”로 설정된 상태에서 dashjs의 XMLHttpRequest가 “\*” 와일드카드를 Access-Control-Allow-Origin 값으로 허용하지 않으므로 dash.js를 사용하는 일부 플레이어에서는 작동하지 않습니다. 이러한 dashjs 제한을 해결하기 위해 단일 도메인에서 클라이언트를 호스트하는 경우 Media Services가 실행 전 응답 헤더에서 해당 도메인을 지정할 수 있습니다. 도움이 필요한 경우 Azure Portal을 통해 지원 티켓을 엽니다.
 
 ## <a name="aes-128-dynamic-encryption"></a>AES-128 동적 암호화
 ### <a name="open-restriction"></a>열기 제한
@@ -88,7 +88,7 @@ Media Services는 STS를 제공하지 않습니다. 사용자 지정 STS를 만�
 
         policy.Options.Add(policyOption);
 
-        // Add ContentKeyAutorizationPolicy to ContentKey
+        // Add ContentKeyAuthorizationPolicy to ContentKey
         contentKey.AuthorizationPolicyId = policy.Id;
         IContentKey updatedKey = contentKey.UpdateAsync().Result;
         Console.WriteLine("Adding Key to Asset: Key ID is " + updatedKey.Id);
@@ -185,7 +185,7 @@ Media Services는 STS를 제공하지 않습니다. 사용자 지정 STS를 만�
 
         policy.Options.Add(policyOption);
 
-        // Add ContentKeyAutorizationPolicy to ContentKey
+        // Add ContentKeyAuthorizationPolicy to ContentKey
         contentKey.AuthorizationPolicyId = policy.Id;
         IContentKey updatedKey = contentKey.UpdateAsync().Result;
         Console.WriteLine("Adding Key to Asset: Key ID is " + updatedKey.Id);
@@ -315,7 +315,7 @@ PlayReady 및 Widevine으로 콘텐츠를 암호화하는 방법을 알아보려
 
         policy.Options.Add(policyOption);
 
-        // Add ContentKeyAutorizationPolicy to ContentKey
+        // Add ContentKeyAuthorizationPolicy to ContentKey
         contentKeyAuthorizationPolicy.Options.Add(policyOption);
 
         // Associate the content key authorization policy with the content key

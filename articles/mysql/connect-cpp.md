@@ -1,25 +1,22 @@
 ---
 title: C++에서 Azure Database for MySQL에 연결
 description: 이 빠른 시작에서는 MySQL용 Azure Database에서 데이터를 연결하고 쿼리하는 데 사용할 수 있는 C++ 코드 샘플을 제공합니다.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
-ms.devlang: C++
+ms.devlang: cpp
 ms.topic: quickstart
 ms.date: 04/12/2018
-ms.openlocfilehash: 6d9deba8c7e6317ab349f86d5a1730f05288ea35
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: b262359b91a2545682e7611c44cfccd2b08da0c1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987667"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544195"
 ---
-# <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>MySQL용 Azure Database: Connector/C++를 사용하여 데이터 연결 및 쿼리
-이 빠른 시작에서는 C++ 응용 프로그램을 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 항목에서는 C++를 사용하여 개발하는 데 익숙하고 MySQL용 Azure Database를 처음 사용한다고 가정합니다.
+# <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Azure Database for MySQL: Connector/C++를 사용하여 데이터 연결 및 쿼리
+이 빠른 시작에서는 C++ 애플리케이션을 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 항목에서는 C++를 사용하여 개발하는 데 익숙하고 MySQL용 Azure Database를 처음 사용한다고 가정합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작에서는 다음과 같은 가이드 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
@@ -28,7 +25,7 @@ ms.locfileid: "49987667"
 
 다음과 같은 작업도 필요합니다.
 - [.NET Framework](https://www.microsoft.com/net/download) 설치
-- [Visual Studio](https://www.visualstudio.com/downloads/)
+-  [Visual Studio](https://www.visualstudio.com/downloads/)
 - [MySQL Connector/C++](https://dev.mysql.com/downloads/connector/cpp/) 설치 
 - [부스트](https://www.boost.org/) 설치
 
@@ -36,7 +33,7 @@ ms.locfileid: "49987667"
 이 섹션의 단계에서는 개발자가 .NET을 사용한 개발에 익숙하다고 가정합니다.
 
 ### <a name="windows"></a>**Windows**
-- Android, iOS, Windows뿐만 아니라 웹 및 데이터베이스 응용 프로그램, 클라우드 서비스를 위한 최신 응용 프로그램을 만들기 위해 완전한 기능을 갖춘 확장 가능한 평가판 IDE인 Visual Studio 2017 Community를 설치합니다. 전체 .NET Framework 또는 .NET Core만 설치할 수 있습니다. 이 빠른 시작의 코드 조각은 둘 중 하나에서 작동합니다. 컴퓨터에 이미 Visual Studio가 설치된 경우 다음 두 단계를 건너뜁니다.
+- Android, iOS, Windows뿐만 아니라 웹 및 데이터베이스 애플리케이션, 클라우드 서비스를 위한 최신 애플리케이션을 만들기 위해 완전한 기능을 갖춘 확장 가능한 평가판 IDE인 Visual Studio 2017 Community를 설치합니다. 전체 .NET Framework 또는 .NET Core만 설치할 수 있습니다. 이 빠른 시작의 코드 조각은 둘 중 하나에서 작동합니다. 컴퓨터에 이미 Visual Studio가 설치된 경우 다음 두 단계를 건너뜁니다.
    1. [Visual Studio 2017 설치 관리자](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)를 다운로드합니다. 
    2. 설치 관리자를 실행하고 설치 메시지에 따라 설치를 완료합니다.
 
@@ -46,7 +43,7 @@ ms.locfileid: "49987667"
    - c++ 커넥터의 "\include" 디렉터리(예: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\include\)를 추가합니다.
    - Boost 라이브러리의 루트 디렉터리(예: C:\boost_1_64_0\)를 추가합니다.
 3. Visual Studio, 프로젝트 -> 속성 -> 링커 > 입력 > 추가 종속성에서 텍스트 필드에 **mysqlcppconn.lib**를 추가합니다.
-4. 3단계에서 C++ 커넥터 라이브러리 폴더의 **mysqlcppconn.dll**을 응용 프로그램 실행 파일과 같은 폴더에 복사하거나 응용 프로그램에서 찾을 수 있도록 환경 변수에 추가합니다.
+4. 3단계에서 C++ 커넥터 라이브러리 폴더의 **mysqlcppconn.dll**을 애플리케이션 실행 파일과 같은 폴더에 복사하거나 애플리케이션에서 찾을 수 있도록 환경 변수에 추가합니다.
 
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.

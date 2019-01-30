@@ -9,21 +9,24 @@ ms.devlang: ''
 ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
-ms.reviewer: ''
+ms.reviewer: douglasl
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: fa5ce7264fd003e0a49d6408acae070577879cdd
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: a7289ba5ab1f4e94adc099978591d69cac6ff786
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686622"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721600"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL 데이터 동기화의 모범 사례 
 
 이 문서에서는 Azure SQL 데이터 동기화에 대한 모범 사례를 설명합니다.
 
 SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-database-sync-data.md)를 참조하세요.
+
+> [!IMPORTANT]
+> Azure SQL 데이터 동기화는 이때 Azure SQL Database Managed Instance를 지원하지 **않습니다**.
 
 ## <a name="security-and-reliability"></a> 보안 및 안정성
 
@@ -225,7 +228,7 @@ SQL 데이터 동기화에 대한 자세한 내용은 다음 항목을 참조하
     - PowerShell 사용
         -  [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)
--   데이터 동기화 에이전트 - [Azure SQL 데이타 동기화용 데이터 동기화 에이전트](sql-database-data-sync-agent.md)
+-   데이터 동기화 에이전트 - [Azure SQL 데이터 동기화용 데이터 동기화 에이전트](sql-database-data-sync-agent.md)
 -   모니터 - [Log Analytics를 사용하여 SQL 데이터 동기화 모니터링](sql-database-sync-monitor-oms.md)
 -   문제 해결 - [Azure SQL 데이터 동기화 문제 해결](sql-database-troubleshoot-data-sync.md)
 -   동기화 스키마 업데이트

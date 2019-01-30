@@ -1,22 +1,23 @@
 ---
-title: 전용 HSM 네트워킹 | Microsoft Docs
-description: Azure Dedicated HSM은 Azure 내에서 FIPS 140-2 수준 3 인증을 충족하는 키 스토리지 기능을 제공합니다.
+title: 네트워킹 고려 사항 - Azure Dedicated HSM | Microsoft Docs
+description: Azure Dedicated HSM 배포에 적용되는 네트워킹 고려 사항의 개요
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/21/2018
+ms.date: 12/06/2018
 ms.author: barclayn
-ms.openlocfilehash: ca72d33b52bdda2ebce432dffd46a84963a7bce5
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 46a4cc5e48a9fe239a3c62bd72cf6a99e9bf76d8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319152"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092889"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure Dedicated HSM 네트워킹
 
@@ -38,7 +39,7 @@ Azure 서비스를 가상 네트워크에 통합하는 방법 및 제공되는 �
 
 ### <a name="subnets"></a>서브넷
 
-서브넷은 가상 네트워크를 서브넷에 배치하는 Azure 리소스가 사용할 수 있는 개별 주소 공간으로 구분합니다. 전용 HSM은 가상 네트워크의 서브넷에 배포됩니다. 고객의 서브넷에 배포되는 각 전용 HSM 디바이스는 이 서브넷에서 개인 IP 주소를 수신합니다. HSM 디바이스를 배포하는 서브넷은 명시적으로 서비스(Microsoft.HardwareSecurityModules/dedicatedHSMs)에 위임되어야 합니다. 그러면 서브넷에 배포를 위해 HSM 서비스에 특정 권한이 부여됩니다. 전용 HSM에 위임하면 서브넷에 특정 정책 제한을 적용합니다. NSG(네트워크 보안 그룹) 및 UDR(사용자 정의 경로)은 현재 위임된 서브넷에서 지원되지 않습니다. 결과적으로 전용 HSM에 위임되는 서브넷은 HSM 리소스를 배포하는 데만 사용될 수 있습니다. 따라서 다른 고객의 모든 리소스를 서브넷에 배포하지 못합니다.
+서브넷은 가상 네트워크를 서브넷에 배치하는 Azure 리소스가 사용할 수 있는 개별 주소 공간으로 구분합니다. 전용 HSM은 가상 네트워크의 서브넷에 배포됩니다. 고객의 서브넷에 배포되는 각 전용 HSM 디바이스는 이 서브넷에서 개인 IP 주소를 수신합니다. HSM 디바이스가 배포되는 서브넷은 서비스: Microsoft.HardwareSecurityModules/dedicatedHSMs에 명시적으로 위임되어야 합니다. 그러면 서브넷에 배포를 위해 HSM 서비스에 특정 권한이 부여됩니다. 전용 HSM에 위임하면 서브넷에 특정 정책 제한을 적용합니다. NSG(네트워크 보안 그룹) 및 UDR(사용자 정의 경로)은 현재 위임된 서브넷에서 지원되지 않습니다. 결과적으로 전용 HSM에 위임되는 서브넷은 HSM 리소스를 배포하는 데만 사용될 수 있습니다. 따라서 다른 고객의 모든 리소스를 서브넷에 배포하지 못합니다.
 
 
 ### <a name="expressroute-gateway"></a>ExpressRoute 게이트웨이

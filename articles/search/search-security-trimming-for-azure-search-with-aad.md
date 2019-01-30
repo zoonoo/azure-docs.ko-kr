@@ -1,19 +1,20 @@
 ---
-title: Active Directory ID를 사용하여 Azure Search 결과를 자르는 보안 필터 | Microsoft Docs
-description: 보안 필터 및 Active Directory ID를 사용하는 Azure Search 콘텐츠에 대한 액세스 제어입니다.
-author: revitalbarletz
+title: Active Directory를 사용하여 결과를 자르는 보안 필터 - Azure Search
+description: 보안 필터 및 AAD(Azure Active Directory) ID를 사용하는 Azure Search 콘텐츠에 대한 액세스 제어입니다.
+author: brjohnstmsft
 manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
-ms.author: revitalb
-ms.openlocfilehash: b134bc2529bf11557ddb1778b87f127db8da650c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.author: brjohnst
+ms.custom: seodec2018
+ms.openlocfilehash: 1cd862c59154f9da766b5df1ab8fb8d61e15d054
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684640"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628292"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Active Directory ID를 사용하여 Azure Search 결과를 자르는 보안 필터
 
@@ -36,17 +37,17 @@ Azure Search의 인덱스에는 문서에 대한 읽기 권한이 있는 그룹 
 
 이 연습에서는 AAD에서 사용자, 그룹 및 연결을 만들려면 AAD 관리자 권한이 있어야 합니다.
 
-또한 다음 절차에 설명된 대로 응용 프로그램을 AAD에 등록해야 합니다.
+또한 다음, 절차에 설명된 대로 애플리케이션을 AAD에 등록해야 합니다.
 
-### <a name="register-your-application-with-aad"></a>AAD에 응용 프로그램 등록
+### <a name="register-your-application-with-aad"></a>AAD에 애플리케이션 등록
 
-이 단계에서는 사용자 및 그룹 계정 로그인을 수락하기 위해 응용 프로그램을 AAD와 통합합니다. 조직의 AAD 관리자가 아닌 경우 다음 단계를 수행할 [새 테넌트를 만들어야](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) 할 수도 있습니다.
+이 단계에서는 사용자 및 그룹 계정 로그인을 수락하기 위해 애플리케이션을 AAD와 통합합니다. 조직의 AAD 관리자가 아닌 경우 다음 단계를 수행할 [새 테넌트를 만들어야](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) 할 수도 있습니다.
 
-1. [**응용 프로그램 등록 포털**](https://apps.dev.microsoft.com) >  **수렴형 앱** > **앱 추가**로 이동합니다.
-2. 응용 프로그램의 이름을 입력한 다음 **만들기**를 클릭합니다. 
-3. [내 응용 프로그램] 페이지에서 새로 등록한 응용 프로그램을 선택합니다.
-4. [응용 프로그램 등록] 페이지 > **플랫폼** > **플랫폼 추가**에서 **웹 API**를 선택합니다.
-5. 계속해서 [응용 프로그램 등록] 페이지에서 **Microsoft Graph 권한** > **추가**로 이동합니다.
+1. [**애플리케이션 등록 포털**](https://apps.dev.microsoft.com) >  **수렴형 앱** > **앱 추가**로 이동합니다.
+2. 애플리케이션의 이름을 입력한 다음, **만들기**를 클릭합니다. 
+3. [내 애플리케이션] 페이지에서 새로 등록한 애플리케이션을 선택합니다.
+4. [애플리케이션 등록] 페이지 &gt; **플랫폼** > **플랫폼 추가**에서 **웹 API**를 선택합니다.
+5. 계속해서 [애플리케이션 등록] 페이지에서 **Microsoft Graph 권한** > **추가**로 이동합니다.
 6. [권한 선택]에서 다음 위임된 권한을 추가하고 **확인**을 클릭합니다.
 
    + **Directory.ReadWrite.All**
@@ -57,7 +58,7 @@ Microsoft Graph는 REST API를 통해 AAD에 프로그래밍 방식으로 액세
 
 ## <a name="create-users-and-groups"></a>사용자 및 그룹 만들기
 
-기존 응용 프로그램에 검색을 추가하려는 경우 AAD에 기존 사용자 및 그룹 식별자가 있을 수도 있습니다. 이 경우 다음 세 단계를 건너뛸 수 있습니다. 
+기존 애플리케이션에 검색을 추가하려는 경우 AAD에 기존 사용자 및 그룹 식별자가 있을 수도 있습니다. 이 경우 다음 세 단계를 건너뛸 수 있습니다. 
 
 그러나 기존 사용자가 없는 경우에는 Microsoft Graph API를 사용하여 보안 주체를 만들 수 있습니다. 다음 코드 조각은 Azure Search 인덱스의 보안 필드에 대한 데이터 값이 되는 식별자를 생성하는 방법을 보여줍니다. 앞에서 예로 든 대학 입학 지원서에서는 입학 담당의 보안 식별자가 됩니다.
 

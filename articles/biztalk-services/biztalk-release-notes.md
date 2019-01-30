@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: f990aa086997d51e59df4285aabeccd31dcce822
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 10e790c2edb22b3c7926216535d76c50261589f3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253434"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260337"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Azure BizTalk Services에 대한 릴리스 정보
 
@@ -38,7 +38,7 @@ Microsoft Azure BizTalk Services에 대한 릴리스 정보는 이 릴리스의 
   * **시나리오**: Microsoft 계정(예: user@live.com)을 사용하여 BizTalk 서비스 배포를 등록했습니다. 이 시나리오에서는 Microsoft 계정 사용자만 BizTalk Services 포털을 사용하여 BizTalk 서비스를 관리할 수 있습니다. 조직 계정을 사용할 수 없습니다.  
   * **시나리오**: Azure Active Directory의 조직 계정(예: user@fabrikam.com 또는 user@contoso.com)을 사용하여 BizTalk 서비스 배포를 등록했습니다. 이 시나리오에서는 동일한 조직 내의 Azure Active Directory 사용자만 BizTalk Services 포털을 사용하여 BizTalk 서비스를 관리할 수 있습니다. Microsoft 계정을 사용할 수 없습니다.  
 * BizTalk 서비스를 만드는 경우 BizTalk Services 포털에 자동으로 등록됩니다.
-  * **시나리오**: Azure에 로그인하고 BizTalk 서비스를 만든 후 제일 먼저 **관리**를 선택합니다. BizTalk Services 포털이 열리면 BizTalk Services가 자동으로 등록되고 배포할 준비가 됩니다.  
+  * **시나리오**: Azure에 로그인하고 BizTalk 서비스를 만든 후 처음으로 **관리**를 선택합니다. BizTalk Services 포털이 열리면 BizTalk Services가 자동으로 등록되고 배포할 준비가 됩니다.  
     [BizTalk Services 포털에서 BizTalk Services 배포 등록 및 업데이트](https://msdn.microsoft.com/library/azure/hh689837.aspx)를 참조하세요.  
 
 ### <a name="august-14-update"></a>8월 14일 업데이트
@@ -97,7 +97,7 @@ ID의 한정자를 수정하려면 규약을 삭제하고 파트너 프로필에
 ### <a name="as2-attachments"></a>AS2 첨부 파일
 AS2 메시지의 첨부 파일의 송신 및 수신은 지원되지 않습니다. 특히, 첨부 파일은 자동으로 무시되고 메시지 본문은 일반 AS2 메시지로 처리됩니다.  
 
-### <a name="resources-remembering-path"></a>리소스: 경로 기억
+### <a name="resources-remembering-path"></a>리소스: 경로 저장
 **리소스**를 추가하는 경우 대화 상자 창에서 리소스를 추가하기 위해 이전에 사용한 경로를 기억하지 못할 수 있습니다. 이전에 사용한 경로를 기억하려면 Internet Explorer에서 BizTalk Services 포털 웹 사이트를 **신뢰할 수 있는 사이트** 에 추가해 보세요.  
 
 ### <a name="if-you-rename-the-entity-name-of-a-bridge-and-close-the-project-without-saving-changes-opening-the-entity-again-results-in-an-error"></a>브리지의 엔터티 이름을 바꾸고 변경 내용을 저장하지 않고 프로젝트를 닫은 경우 엔터티를 다시 열면 오류가 발생
@@ -140,9 +140,9 @@ BizTalk 어댑터 서비스 기능 내의 BizTalk Adapter Pack 어댑터는 어�
 > 
 
 ### <a name="restarting-the-biztalk-adapter-service-web-site"></a>BizTalk 어댑터 서비스 웹 사이트 다시 시작
-**BizTalk 어댑터 서비스 런타임**\*을 설치하면 **BizTalk 어댑터 서비스** 웹 사이트가 **BAService** 응용 프로그램을 포함하는 IIS에 만들어집니다. **BAService** 응용 프로그램은 내부적으로 릴레이 바인딩을 사용하여 온-프레미스 서비스 엔드포인트의 도달률을 클라우드로 확장합니다. 온-프레미스에 호스팅된 서비스의 경우 해당 릴레이 엔드포인트는 온-프레미스 서비스가 시작될 때만 Service Bus에 등록됩니다.  
+**BizTalk 어댑터 서비스 런타임**\*을 설치하면 **BizTalk 어댑터 서비스** 웹 사이트가 **BAService** 애플리케이션을 포함하는 IIS에 만들어집니다. **BAService** 애플리케이션은 내부적으로 릴레이 바인딩을 사용하여 온-프레미스 서비스 엔드포인트의 도달률을 클라우드로 확장합니다. 온-프레미스에 호스팅된 서비스의 경우 해당 릴레이 엔드포인트는 온-프레미스 서비스가 시작될 때만 Service Bus에 등록됩니다.  
 
-응용 프로그램을 중지했다가 시작하는 경우 응용 프로그램을 자동 시작하기 위한 구성은 적용되지 않습니다. 따라서 **BAService**가 중지되면 대신, **BizTalk 어댑터 서비스** 웹 사이트를 항상 다시 시작해야 합니다. **BAService** 응용 프로그램을 시작하거나 중지하지 마십시오.
+애플리케이션을 중지했다가 시작하는 경우 애플리케이션을 자동 시작하기 위한 구성은 적용되지 않습니다. 따라서 **BAService**가 중지되면 대신, **BizTalk 어댑터 서비스** 웹 사이트를 항상 다시 시작해야 합니다. **BAService** 애플리케이션을 시작하거나 중지하지 마십시오.
 
 ### <a name="special-characters-should-not-be-used-for-address-and-entity-names-of-lob-components"></a>LOB 구성 요소의 주소 및 엔터티 이름에 특수 문자를 사용할 수 없음
 LOB 구성 요소의 주소 및 엔터티 이름에 특수 문자를 사용하지 않아야 합니다. 이렇게 하면 BizTalk 서비스 프로젝트를 배포하는 동안 오류가 발생합니다. '%'와 같은 특수 문자의 경우 BizTalk 어댑터 서비스 웹 사이트가 중지됨 상태로 들어가고 수동으로 시작해야 합니다.
@@ -199,7 +199,7 @@ WCF를 사용하여 브리지에 전송되는 메시지가 확장되지 않습�
 ### <a name="upgrade-token-provider-error-after-upgrading-from-biztalk-services-preview-to-general-availability-ga"></a>업그레이드: BizTalk Services 미리 보기에서 GA(일반 공급)로 업그레이드한 후 토큰 공급자 오류
 활성 배치가 있는 EDI 또는 AS2 규약이 있습니다. BizTalk 서비스를 미리 보기에서 GA로 업그레이드하는 경우 다음이 발생할 수 있습니다.
 
-* 오류: 토큰 공급자가 보안 토큰을 제공할 수 없습니다. 토큰 공급자 반환 메시지: 원격 이름을 확인할 수 없습니다.
+* 오류: 토큰 공급자가 보안 토큰을 제공할 수 없습니다. 토큰 공급자가 다음 메시지를 반환했습니다. 원격 이름을 확인할 수 없습니다.
 * Batch 작업이 취소됩니다.
 
 **해결 방법**: BizTalk 서비스를 GA(일반 공급)로 업데이트한 후 규약을 다시 배포합니다.  
@@ -214,7 +214,7 @@ BizTalk Services가 미리 보기에서 GA로 업그레이드되는 동안 BizTa
 
 이 기능은 이 버전의 Microsoft Azure BizTalk Services의 일부로 사용할 수 없습니다. 이러한 기능을 사용하려면 해당 버전으로 전환하세요.  
 
-**해상도**: 포털에서 로그아웃하고 브라우저를 닫았다 연 후 포털에 로그인합니다.  
+**해결 방법**: 포털에서 로그아웃하고 브라우저를 닫았다 연 후 포털에 로그인합니다.  
 
 ### <a name="upgrade-new-tracking-data-does-not-show-up-after-biztalk-services-is-upgraded-to-ga"></a>업그레이드: BizTalk Services를 GA로 업그레이드 한 후 새 추적 데이터가 표시되지 않음
 BizTalk Services 미리 보기 구독에 배포된 XML 브리지가 있는 시나리오를 가정해 봅니다. 브리지에 메시지를 보내면 해당 추적 데이터를 BizTalk Services 포털에서 사용할 수 있습니다. 이제 BizTalk Services 포털 및 BizTalk Services 런타임 비트가 GA로 업그레이드된 경우 메시지를 이전에 배포된 것과 동일한 브리지 엔드포인트에 보내면 업그레이드 후 전송된 메시지에 대해 추적 데이터가 표시되지 않습니다.  

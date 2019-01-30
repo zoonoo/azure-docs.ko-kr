@@ -2,24 +2,24 @@
 title: 사용자 지정 Azure Event Grid 토픽에 이벤트 게시
 description: Azure Event Grid에 대한 사용자 지정 토픽에 이벤트를 게시하는 방법 설명
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/17/2018
-ms.author: tomfitz
-ms.openlocfilehash: e4256de1d9112d785b6d1cd52067fc99144a0a04
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.date: 01/17/2019
+ms.author: spelluru
+ms.openlocfilehash: b219e9475151ecd14d8b45db9501a06cde05875b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303337"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470599"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Azure Event Grid에 대한 사용자 지정 토픽에 게시
 
 이 문서에서는 Azure Event Grid에 대한 사용자 지정 토픽에 이벤트를 게시하는 방법을 설명합니다. 게시 및 이벤트 데이터의 형식을 보여 줍니다. [SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/)는 기대한 형식과 일치하는 게시에만 적용됩니다.
 
-## <a name="endpoint"></a>끝점
+## <a name="endpoint"></a>엔드포인트
 
 HTTP POST를 사용자 지정 토픽에 보낼 때 URI 형식: `https://<topic-endpoint>?api-version=2018-01-01`을 사용합니다.
 

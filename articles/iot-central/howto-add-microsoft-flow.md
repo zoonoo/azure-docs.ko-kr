@@ -19,7 +19,7 @@ ms.locfileid: "50959293"
 
 ‘이 항목의 내용은 빌더와 관리자에게 적용됩니다.’
 
-Microsoft Flow를 사용하여 비즈니스 사용자가 의존하는 많은 응용 프로그램 및 서비스 전반에서 워크플로를 자동화합니다. Microsoft Flow에서 IoT Central 커넥터를 사용하면 IoT Central에서 규칙이 트리거될 때 워크플로를 트리거할 수 있습니다. IoT Central 또는 다른 응용 프로그램에 의해 트리거되는 워크플로에서 IoT Central 커넥터의 작업을 사용하여 디바이스를 만들고, 디바이스의 속성 및 설정을 업데이트하거나 디바이스를 삭제할 수 있습니다. IoT Central을 모바일 알림 및 Microsoft Teams와 같은 다른 서비스에 연결하는 [이러한 Microsoft Flow 템플릿](https://aka.ms/iotcentralflowtemplates)을 확인하세요.
+Microsoft Flow를 사용하여 비즈니스 사용자가 의존하는 많은 애플리케이션 및 서비스 전반에서 워크플로를 자동화합니다. Microsoft Flow에서 IoT Central 커넥터를 사용하면 IoT Central에서 규칙이 트리거될 때 워크플로를 트리거할 수 있습니다. IoT Central 또는 다른 응용 프로그램에 의해 트리거되는 워크플로에서 IoT Central 커넥터의 작업을 사용하여 디바이스를 만들고, 디바이스의 속성 및 설정을 업데이트하거나 디바이스를 삭제할 수 있습니다. IoT Central을 모바일 알림 및 Microsoft Teams와 같은 다른 서비스에 연결하는 [이러한 Microsoft Flow 템플릿](https://aka.ms/iotcentralflowtemplates)을 확인하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -36,7 +36,7 @@ Microsoft Flow를 사용하여 비즈니스 사용자가 의존하는 많은 응
 
 1. Microsoft Flow에 로그인합니다. IoT Central에서 사용하는 것과 동일한 계정일 필요가 없습니다. 사용자 지정 작업에 연결하는 IoT Central 커넥터를 보여주는 개요 페이지로 연결됩니다.
 
-1. IoT Central 커넥터에 로그인한 다음 **계속**을 클릭합니다. 워크플로를 구축하는 Microsoft Flow 디자이너로 이동됩니다. 워크플로에는 응용 프로그램 및 규칙이 이미 채워져 있는 IoT Central 트리거가 있습니다.
+1. IoT Central 커넥터에 로그인한 다음 **계속**을 클릭합니다. 워크플로를 구축하는 Microsoft Flow 디자이너로 이동됩니다. 워크플로에는 애플리케이션 및 규칙이 이미 채워져 있는 IoT Central 트리거가 있습니다.
 
 1. **+ 새 단계** 및 **작업 추가**를 선택합니다. 이 시점에서 워크플로에 원하는 모든 작업을 추가할 수 있습니다. 예를 들어 모바일 알림을 전송해 보겠습니다. **알림**을 검색하고, **알림 - 모바일 알림 보내기**를 선택합니다.
 
@@ -93,7 +93,7 @@ Microsoft Flow에서 IoT Central 커넥터를 사용하여 항상 워크플로 �
 
 1. 새 작업을 추가합니다. **Azure IoT Central - 장치 업데이트** 작업을 검색합니다.
 
-1. 드롭다운에서 응용 프로그램을 선택합니다. 이제 업데이트하려는 기존 디바이스의 ID가 필요합니다. 브라우저 URL에서 IoT Central 디바이스의 ID를 확인할 수 있습니다.
+1. 드롭다운에서 애플리케이션을 선택합니다. 이제 업데이트하려는 기존 디바이스의 ID가 필요합니다. 브라우저 URL에서 IoT Central 디바이스의 ID를 확인할 수 있습니다.
 
     ![IoT Central 디바이스 탐색기 디바이스 ID](./media/howto-add-microsoft-flow/iotcdeviceid.PNG)
 
@@ -119,7 +119,7 @@ Azure IoT Central 커넥터에 연결하는 데 문제가 있는 경우 다음�
 
 1. Microsoft 개인 계정(예: @hotmail.com, @live.com, @outlook.com 도메인)은 현재 지원되지 않습니다. AAD 회사 또는 학교 계정을 사용해야 합니다.
 
-2. Microsoft Flow에서 IoT Central 커넥터를 사용하려면 IoT Central 응용 프로그램에 한 번 이상 로그인한 적이 있어야 합니다. 그렇지 않으면 응용 프로그램이 응용 프로그램 드롭다운에 표시되지 않습니다.
+2. Microsoft Flow에서 IoT Central 커넥터를 사용하려면 IoT Central 애플리케이션에 한 번 이상 로그인한 적이 있어야 합니다. 그렇지 않으면 애플리케이션이 애플리케이션 드롭다운에 표시되지 않습니다.
 
 3. AAD 계정을 사용하는 동안 오류를 수신하는 경우 Windows PowerShell을 열고 관리자 권한으로 다음 commandlet을 실행합니다.
     ``` PowerShell

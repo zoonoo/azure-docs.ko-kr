@@ -1,21 +1,21 @@
 ---
-title: Ansible을 사용하여 Azure Database for MySQL 서버 만들기 및 구성(미리 보기)
+title: Ansible을 사용하여 Azure Database for MySQL 서버 만들기 및 구성
 description: Ansible을 사용하여 Azure Database for MySQL 서버를 만들고 구성하는 방법 알아보기
 ms.service: ansible
 keywords: Ansible, Azure, DevOps, Bash, 플레이북, MySQK, 데이터베이스
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/23/2018
-ms.openlocfilehash: b549aeaf24bd774245ee1f2ff6924ac1f6dbeee3
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 85f3957af599c80c46871a126681d29dfa513431
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427899"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051019"
 ---
-# <a name="create-and-configure-an-azure-database-for-mysql-server-by-using-ansible-preview"></a>Ansible을 사용하여 Azure Database for MySQL 서버 만들기 및 구성(미리 보기)
+# <a name="create-and-configure-an-azure-database-for-mysql-server-by-using-ansible"></a>Ansible을 사용하여 Azure Database for MySQL 서버 만들기 및 구성
 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/)은 클라우드에서 고가용성 MySQL 데이터베이스를 실행, 관리 및 확장하는 데 사용하는 관리되는 서비스입니다. Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. 
 
 이 문서에서는 Ansible을 사용하여 Azure Database for MySQL 서버를 만들고 해당 방화벽 규칙을 구성하는 방법을 보여줍니다. Azure Portal을 사용하여 약 5분 이내에 이러한 작업을 완료할 수 있습니다.
@@ -25,7 +25,7 @@ ms.locfileid: "49427899"
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Ansible 2.7은 이 자습서에서 다음의 샘플 플레이북을 실행해야 합니다. `sudo pip install ansible[azure]==2.7.0rc2`를 실행하여 Ansible 2.7 RC 버전을 설치할 수 있습니다. Ansible 2.7이 릴리스된 후에 기본 버전이 2.7이 되므로 여기서 버전을 지정할 필요가 없습니다.
+> Ansible 2.7은 이 자습서에서 다음의 샘플 플레이북을 실행해야 합니다. 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.  
@@ -90,7 +90,7 @@ ansible-playbook mysql_create.yml
 ```
 
 ## <a name="configure-a-firewall-rule"></a>방화벽 규칙 구성
-서버 수준 방화벽 규칙을 사용하면 외부 응용 프로그램에서 Azure MySQL 서비스 방화벽을 통해 서버에 연결할 수 있습니다. 외부 응용 프로그램에는 **mysql** 명령줄 도구 또는 MySQL Workbench 등이 있습니다.
+서버 수준 방화벽 규칙을 사용하면 외부 애플리케이션에서 Azure MySQL 서비스 방화벽을 통해 서버에 연결할 수 있습니다. 외부 애플리케이션에는 **mysql** 명령줄 도구 또는 MySQL Workbench 등이 있습니다.
 다음 예제는 외부 IP 주소에서 연결할 수 있는 **extenalaccess**라는 방화벽 규칙을 만듭니다. 
 
 **startIpAddress** 및 **endIpAddress**에 대한 값을 직접 입력합니다. 연결할 위치에 해당하는 IP 주소 범위를 사용합니다. 

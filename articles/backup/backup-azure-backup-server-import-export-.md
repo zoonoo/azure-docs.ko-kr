@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 1a0e196f4d96494aca1c19a7527ac7d81837fb5c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 01b90d6bb18addd6a0235101f86b9d51953cc096
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34606480"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818560"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>DPM 및 Azure Backup Server에 대한 오프라인 백업 워크플로
 Azure Backup은 데이터를 Azure에 처음 전체 백업하는 동안 네트워크 및 저장소 비용을 절약하는 여러 가지 기본 제공 효율성 향상 기능이 있습니다. 초기 "전체" 백업은 일반적으로 많은 양의 데이터를 전송하며 델타/증분만 전송하는 후속 백업에 비해 네트워크 대역폭을 더 많이 요구합니다. Azure Backup은 초기 백업을 압축합니다. 오프라인 시드의 프로세스를 통해 Azure Backup은 디스크를 사용하여 오프라인으로 압축된 초기 백업 데이터를 Azure에 업로드할 수 있습니다.
@@ -59,7 +59,7 @@ Azure Backup의 오프라인 시드 기능 및 Azure Import/Export를 사용하�
 
 * 네트워크 공유 또는 컴퓨터의 추가 드라이브에 있을 수 있는, 초기 복사본을 저장할 충분한 디스크 공간이 있는 내부 또는 외부의 스테이징 위치가 생성됩니다. 예를 들어 500GB 파일 서버를 백업하려는 경우 준비 영역이 500GB인지 확인합니다. (압축으로 인해 더 작은 양이 사용됩니다.)
 * Azure로 전송되는 디스크의 경우 2.5인치 SSD 또는, 2.5인치 또는 3.5인치 SATA II/III 내부 하드 드라이브가 사용되는지 확인합니다. 최대 10TB의 하드 드라이브를 사용할 수 있습니다. [Azure Import/Export 서비스 설명서](../storage/common/storage-import-export-requirements.md#supported-hardware)에서 서비스가 지원하는 최신 드라이브를 집합을 확인하세요.
-* SATA 드라이브는 *스테이징 위치*에서 SATA 드라이브로 백업 데이터의 복사가 수행되는 컴퓨터(*복사 컴퓨터*라고 함)에 연결되어야 합니다. BitLocker가 *복사 컴퓨터*에서 활성화되는지 확인합니다. 
+* SATA 드라이브는 *스테이징 위치*에서 SATA 드라이브로 백업 데이터의 복사가 수행되는 컴퓨터(*복사 컴퓨터*라고 함)에 연결되어야 합니다. BitLocker가 ‘복사 컴퓨터’에서 사용하도록 설정되었는지 확인합니다. 
 
 ## <a name="workflow"></a>워크플로
 이 섹션에 제공된 정보는 데이터를 Azure 데이터 센터에 배송하고 Azure Storage에 업로드할 수 있도록 오프라인 백업 워크플로를 완료하는 데 도움이 됩니다. 가져오기 서비스 또는 프로세스의 모든 측면에 대한 질문이 있으면 앞에서 언급한 [가져오기 서비스 개요](../storage/common/storage-import-export-service.md)를 참조하세요.
@@ -74,12 +74,12 @@ Azure Backup의 오프라인 시드 기능 및 Azure Import/Export를 사용하�
 
     입력에 대한 설명은 다음과 같습니다.
 
-    * **스테이징 위치**: 초기 백업 복사본을 쓸 임시 저장소 위치입니다. 스테이징 위치는 네트워크 공유 또는 로컬 컴퓨터에 있을 수 있습니다. 복사 컴퓨터와 원본 컴퓨터가 서로 다르면 스테이징 위치의 전체 네트워크 경로를 지정하는 것이 좋습니다.
-    * **Azure 가져오기 작업 이름**: Azure 가져오기 서비스 및 Azure Backup이 디스크에서 Azure에 보내지는 데이터의 전송을 추적하는 고유한 이름입니다.
+    * **스테이징 위치**: 초기 백업 복사본을 쓸 임시 스토리지 위치입니다. 스테이징 위치는 네트워크 공유 또는 로컬 컴퓨터에 있을 수 있습니다. 복사 컴퓨터와 원본 컴퓨터가 서로 다르면 스테이징 위치의 전체 네트워크 경로를 지정하는 것이 좋습니다.
+    * **Azure 가져오기 작업 이름**: Azure 가져오기 서비스 및 Azure Backup이 디스크에서 Azure로 보낸 데이터의 전송을 추적하는 고유한 이름입니다.
     * **Azure 게시 설정**: 게시 설정 파일에 대한 로컬 경로를 제공합니다.
-    * **Azure 구독 ID**: Azure 게시 설정 파일을 다운로드한 구독에 대한 Azure 구독 ID입니다. 
-    * **Azure Storage 계정**: Azure 게시 설정 파일과 연결된 Azure 구독의 저장소 계정 이름입니다.
-    * **Azure Storage 컨테이너**: 백업 데이터를 가져올 Azure 저장소 계정의 대상 저장소 Blob 이름입니다.
+    * **Azure 구독 ID**: Azure 게시 설정 파일을 다운로드한 구독의 Azure 구독 ID입니다. 
+    * **Azure Storage 계정**: Azure 게시 설정 파일과 연결된 Azure 구독의 스토리지 계정 이름입니다.
+    * **Azure Storage 컨테이너**: 백업 데이터를 가져올 Azure Storage 계정의 대상 스토리지 Blob 이름입니다.
 
      디스크를 준비하는 데 필요하므로 제공한 *스테이징 위치* 및 *Azure 가져오기 작업 이름*을 저장합니다.  
      

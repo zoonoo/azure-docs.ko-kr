@@ -1,23 +1,20 @@
 ---
-title: Azure Cosmos DB 진단 로깅 | Microsoft Docs
-description: 이 자습서를 사용하여 Azure Cosmos DB 로깅을 시작할 수 있습니다.
-services: cosmos-db
+title: Azure Cosmos DB의 진단 로깅
+description: Azure Cosmos DB에 저장된 데이터를 기록 및 모니터링하는 다양한 방법에 대해 알아봅니다.
 author: SnehaGunda
-manager: kfile
-tags: azure-resource-manager
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/07/2018
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: 1c25db0a217d6aff984029a28932242b06096735
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.custom: seodec18
+ms.openlocfilehash: cdc55491e827ab949d471c9b66c7caaa86f5055d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423236"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043331"
 ---
-# <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB Cosmos DB 진단 로깅
+# <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB의 진단 로깅 
 
 하나 이상의 Azure Cosmos DB 데이터베이스를 사용하기 시작한 후에는 데이터베이스에 액세스하는 방법과 시기를 모니터링할 수 있습니다. 이 문서에서는 Azure 플랫폼에서 사용할 수 있는 로그의 개요를 제공합니다. 모니터링을 위해 진단 로깅을 사용하도록 설정하여 [Azure Storage](https://azure.microsoft.com/services/storage/)로 로그를 전송하는 방법, 로그를 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트리밍하는 방법 및 로그를 [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/)로 내보내는 방법을 알아봅니다.
 
@@ -29,7 +26,7 @@ Azure Cosmos DB 계정 모니터링 방법을 논의하기 전에 로깅과 모�
 
 ![다양한 종류의 Azure 로그](./media/logging/azurelogging.png)
 
-이 이미지에서 **계산 리소스**는 Microsoft 게스트 OS에 액세스할 수 있는 Azure 리소스를 나타냅니다. 예를 들어, Azure Virtual Machines, 가상 머신 확장 집합, Azure Container Service 등은 계산 리소스로 간주됩니다. 계산 리소스는 활동 로그, 진단 로그 및 응용 프로그램 로그를 생성합니다. 자세한 내용은 [Azure의 모니터링 데이터 원본](../azure-monitor/platform/data-sources.md) 문서를 참조하세요.
+이 이미지에서 **계산 리소스**는 Microsoft 게스트 OS에 액세스할 수 있는 Azure 리소스를 나타냅니다. 예를 들어, Azure Virtual Machines, 가상 머신 확장 집합, Azure Container Service 등은 계산 리소스로 간주됩니다. 계산 리소스는 활동 로그, 진단 로그 및 애플리케이션 로그를 생성합니다. 자세한 내용은 [Azure의 모니터링 데이터 원본](../azure-monitor/platform/data-sources.md) 문서를 참조하세요.
 
 **비계산 리소스**는 기본 OS에 액세스할 수 없고 리소스를 바로 사용하는 경우의 리소스입니다. 예를 들면 네트워크 보안 그룹, Logic Apps 등이 있습니다. Azure Cosmos DB는 비계산 리소스입니다. 활동 로그에서 또는 포털에서 진단 로그 옵션을 사용하도록 설정하여 비계산 리소스에 대한 로그를 볼 수 있습니다. 자세한 내용은 [Azure Monitor의 데이터 원본](../azure-monitor/platform/data-sources.md) 문서를 참조하세요.
 
@@ -52,7 +49,7 @@ Azure Activity Log는 Azure에서 발생하는 구독 수준 이벤트에 대한
 
 ### <a name="azure-diagnostic-logs"></a>Azure 진단 로그
 
-Azure 진단 로그는 리소스에서 내보내며, 해당 리소스의 작업에 대한 풍부하고 빈번한 데이터를 제공합니다. 이러한 로그의 내용은 리소스 유형에 따라 달라집니다. 리소스 수준 진단 로그도 게스트 OS 수준 진단 로그와 다릅니다. 게스트 OS 진단 로그는 가상 머신이나 다른 지원되는 리소스 유형 안에서 실행되는 에이전트가 수집합니다. 리소스 수준 진단 로그는 에이전트가 필요하지 않고 Azure 플랫폼 자체에서 리소스 관련 데이터를 캡처합니다. 게스트 OS 수준 진단 로그는 가상 머신에서 실행되는 운영 체제 및 응용 프로그램에서 데이터를 캡처합니다.
+Azure 진단 로그는 리소스에서 내보내며, 해당 리소스의 작업에 대한 풍부하고 빈번한 데이터를 제공합니다. 이러한 로그의 내용은 리소스 유형에 따라 달라집니다. 리소스 수준 진단 로그도 게스트 OS 수준 진단 로그와 다릅니다. 게스트 OS 진단 로그는 가상 머신이나 다른 지원되는 리소스 유형 안에서 실행되는 에이전트가 수집합니다. 리소스 수준 진단 로그는 에이전트가 필요하지 않고 Azure 플랫폼 자체에서 리소스 관련 데이터를 캡처합니다. 게스트 OS 수준 진단 로그는 가상 머신에서 실행되는 운영 체제 및 애플리케이션에서 데이터를 캡처합니다.
 
 ![Storage, Event Hubs 또는 Log Analytics에 대한 진단 로깅](./media/logging/azure-cosmos-db-logging-overview.png)
 
@@ -80,12 +77,12 @@ Azure Portal에서 진단 로그를 사용하도록 설정하려면 다음 단�
 
     * **이름**: 만들 로그에 대한 이름을 입력합니다.
 
-    * **저장소 계정에 보관**: 이 옵션을 사용하려면 연결할 기존 저장소 계정이 필요합니다. 포털에서 새 저장소 계정을 만들려면 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md)를 참조하고 지침에 따라 Azure Resource Manager, 범용 계정을 만듭니다. 그런 다음, 포털의 이 페이지로 돌아가 저장소 계정을 선택합니다. 새로 만든 저장소 계정이 드롭다운 메뉴에 나타나기까지 몇 분 정도 걸릴 수 있습니다.
-    * **이벤트 허브로 스트림**: 이 옵션을 사용하려면 연결할 기존 Event Hub 네임스페이스 및 이벤트 허브가 필요합니다. Event Hubs 네임스페이스를 만들려면 [Azure Portal을 사용하여 Event Hubs 네임스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조하세요. 그런 다음 포털의 이 페이지로 돌아가 Event Hub 네임스페이스 및 정책 이름을 선택합니다.
-    * **Log Analytics에 보내기**: 이 옵션을 사용하려면 기존 작업 영역을 사용하거나 포털에서 [새 작업 영역 만들기](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) 단계를 따라 새 Log Analytics 작업 영역을 만듭니다. Log Analytics에서 로그를 보는 방법에 대한 자세한 내용은 [Log Analytics에서 로그 보기](#view-in-loganalytics)를 참조하세요.
+    * **스토리지 계정에 보관**: 이 옵션을 사용하려면 연결할 기존 저장소 계정이 필요합니다. 포털에서 새 저장소 계정을 만들려면 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md)를 참조하고 지침에 따라 Azure Resource Manager, 범용 계정을 만듭니다. 그런 다음, 포털의 이 페이지로 돌아가 저장소 계정을 선택합니다. 새로 만든 저장소 계정이 드롭다운 메뉴에 나타나기까지 몇 분 정도 걸릴 수 있습니다.
+    * **이벤트 허브로의 스트림**: 이 옵션을 사용하려면 연결할 기존 Event Hubs 네임스페이스 및 이벤트 허브가 필요합니다. Event Hubs 네임스페이스를 만들려면 [Azure Portal을 사용하여 Event Hubs 네임스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조하세요. 그런 다음 포털의 이 페이지로 돌아가 Event Hub 네임스페이스 및 정책 이름을 선택합니다.
+    * **Log Analytics에 보내기**: 이 옵션을 사용하려면 기존 작업 영역을 사용하거나 포털에서 [새 작업 영역 만들기](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) 단계를 따라 새 Log Analytics 작업 영역을 만듭니다. Log Analytics에서 로그를 보는 방법에 대한 자세한 내용은 [Log Analytics에서 로그 보기](#view-in-loganalytics)를 참조하세요.
     * **DataPlaneRequests 로그**: 이 옵션을 선택하면 SQL, Graph, MongoDB, Cassandra 및 Table API 계정에 대해 기본 Azure Cosmos DB 배포 플랫폼으로부터 백 엔드 요청이 로깅됩니다. 저장소 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
-    * **MongoRequests 로그**: 이 옵션을 선택하면 MongoDB API 계정을 서비스하기 위한 Azure Cosmos DB의 프런트 엔드로부터 사용자가 시작한 요청이 로깅됩니다. 저장소 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
-    * **메트릭 요청**: [Azure 메트릭](../monitoring-and-diagnostics/monitoring-supported-metrics.md)에 자세한 데이터를 저장하려면 이 옵션을 선택합니다. 저장소 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
+    * **MongoRequests 로깅**: Azure Cosmos DB의 API for MongoDB로 구성된 Cosmos 계정을 서비스하기 위해 Azure Cosmos DB 프런트 엔드에서 사용자가 시작한 요청을 기록하려면 이 옵션을 선택합니다. 저장소 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
+    * **메트릭 요청**: [Azure 메트릭](../azure-monitor/platform/metrics-supported.md)에 자세한 데이터를 저장하려면 이 옵션을 선택합니다. 저장소 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
 
 3. **저장**을 선택합니다.
 
@@ -462,7 +459,7 @@ Azure Storage 및 Log Analytics에 저장된 진단 데이터는 유사한 스�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 로깅을 사용하도록 설정하는 방법뿐 아니라 여러 Azure 서비스에서 지원하는 메트릭 및 로그 범주를 이해하려면 [Microsoft Azure의 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md) 및 [Azure 진단 로그 개요](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 문서를 읽어보세요.
+- 로깅을 사용하도록 설정하는 방법뿐 아니라 여러 Azure 서비스에서 지원하는 메트릭 및 로그 범주를 이해하려면 [Microsoft Azure의 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md) 및 [Azure 진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md) 문서를 읽어보세요.
 - Event Hubs에 대한 자세한 내용은 다음 문서를 참조하세요.
    - [Azure Event Hubs 정의](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

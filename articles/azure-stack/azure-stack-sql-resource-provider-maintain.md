@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: 360661402289ab9b06eb01be447dc98942c93302
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.reviewer: jiahan
+ms.lastreviewed: 01/11/2019
+ms.openlocfilehash: 85c3e27171ad0e760c6c7aab39ac923bba8cbcaf
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364098"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250734"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL 리소스 공급자 유지 관리 작업
 
@@ -32,16 +33,6 @@ SQL 리소스 공급자는 추가 기능 구성 요소 이기 때문에 Azure St
 ### <a name="provider-virtual-machine"></a>공급자 가상 컴퓨터
 
 리소스 공급자에서 실행 되므로 한 *사용자* 릴리스되는 경우 필요한 패치 및 업데이트를 적용 해야 하는 가상 머신. VM에 업데이트를 적용할 패치 및 업데이트 주기의 일환으로 제공 되는 Windows 업데이트 패키지를 사용할 수 있습니다.
-
-## <a name="backuprestoredisaster-recovery"></a>백업/복원/장애 복구
-
- 추가 구성 요소 이기 때문에 SQL 리소스 공급자는 Azure Stack 비즈니스 연속성 재해 복구 (BCDR) 프로세스의 일부로 백업 되지 않습니다. 다음 작업을 위한 스크립트를 제공 합니다.
-
-- 백업 상태 정보 (Azure Stack 저장소 계정에 저장 합니다.)
-- 전체 스택 복구 해야 하는 경우 리소스 공급자를 복원 합니다.
-
->[!NOTE]
->복구를 수행 해야 할 경우에 리소스 공급자 복원 되기 전에 데이터베이스 서버 복구 되어야 합니다.
 
 ## <a name="updating-sql-credentials"></a>SQL 자격 증명 업데이트
 
@@ -107,7 +98,7 @@ SQL 및 MySQL 리소스 공급자를 사용 하 여 Azure Stack을 사용 하 �
     -DefaultSSLCertificatePassword $certPasswd
 ```
 
-### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider.ps1 매개 변수
+### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider.ps1 parameters
 
 |매개 변수|설명|
 |-----|-----|
@@ -122,7 +113,7 @@ SQL 및 MySQL 리소스 공급자를 사용 하 여 Azure Stack을 사용 하 �
 
 ### <a name="known-issues"></a>알려진 문제
 
-**문제**: 비밀 회전 로그 합니다.<br>
+**문제**: 암호 순환 로그입니다.<br>
 비밀 회전에 대 한 로그 되지 비밀 회전 사용자 지정 스크립트를 실행할 때 실패 하는 경우 자동으로 수집 됩니다.
 
 **해결 방법**:<br>
@@ -191,8 +182,8 @@ $session | Remove-PSSession
 
 잠긴된 가상 컴퓨터에서 로그를 수집 하려면 PowerShell 관리 JEA (Just Enough) 끝점을 사용할 수 있습니다 *DBAdapterDiagnostics*합니다. 이 끝점에는 다음 명령을 제공합니다.
 
-- **Get-AzsDBAdapterLog**합니다. 이 명령은 리소스 공급자 진단 로그의 zip 패키지를 만들고 세션의 사용자 드라이브에 파일을 저장 합니다. 매개 변수 없이이 명령을 실행할 수 있습니다 하 고 로그의 마지막 4 시간 수집 됩니다.
-- **제거-AzsDBAdapterLog**합니다. 이 명령은 리소스 공급자 VM에서 기존 로그 패키지를 제거합니다.
+- **Get-AzsDBAdapterLog**. 이 명령은 리소스 공급자 진단 로그의 zip 패키지를 만들고 세션의 사용자 드라이브에 파일을 저장 합니다. 매개 변수 없이이 명령을 실행할 수 있습니다 하 고 로그의 마지막 4 시간 수집 됩니다.
+- **Remove-AzsDBAdapterLog**. 이 명령은 리소스 공급자 VM에서 기존 로그 패키지를 제거합니다.
 
 ### <a name="endpoint-requirements-and-process"></a>끝점의 요구 사항 및 프로세스
 

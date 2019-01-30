@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 858d098f18604d1360af8509eb8a0cec6fa7d0c7
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: ecdd419331c88e712644851f9213861f882cf0f6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354591"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53381586"
 ---
 ## <a name="prepare-your-web-app"></a>웹앱 준비
 
@@ -41,7 +41,7 @@ ms.locfileid: "49354591"
 
 ![가격 책정 계층 확인](./media/app-service-ssl-prepare-app/check-pricing-tier.png)
 
-사용자 지정 SSL은 **F1** 또는 **D1** 계층에서 지원되지 않습니다. 강화해야 하는 경우 다음 섹션의 단계를 수행합니다. 그렇지 않은 경우 **스케일업** 페이지를 닫고 [SSL 인증서 업로드 및 바인딩](#upload)으로 건너뜁니다.
+사용자 지정 SSL은 **F1** 또는 **D1** 계층에서 지원되지 않습니다. 강화해야 하는 경우 다음 섹션의 단계를 수행합니다. 그렇지 않으면 **강화** 페이지를 닫고, [App Service 계획 강화](#scale-up-your-app-service-plan) 섹션을 건너뜁니다.
 
 ### <a name="scale-up-your-app-service-plan"></a>App Service 계획 강화
 

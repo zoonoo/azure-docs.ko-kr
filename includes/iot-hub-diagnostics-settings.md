@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 0039c4eff3571a96cba1ab36136e0a588d78eb75
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: e518263fc7f427ade4943f91fdc840b62a235205
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50159131"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53550026"
 ---
 ### <a name="enable-logging-with-diagnostics-settings"></a>진단 설정에 대한 로깅 사용
 
@@ -57,4 +57,4 @@ Select-AzureRmSubscription -SubscriptionName <subscription that includes your Io
 Set-AzureRmDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```
 
-새 설정은 약 10분 후에 적용됩니다. 그런 다음 구성된 보관 대상의 **진단 설정** 블레이드에 로그가 나타납니다. 진단을 구성하는 방법에 대한 자세한 내용은 [Azure 리소스에서 로그 데이터 수집 및 사용](../articles/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)을 참조하세요.
+새 설정은 약 10분 후에 적용됩니다. 그런 다음 구성된 보관 대상의 **진단 설정** 블레이드에 로그가 나타납니다. 진단을 구성하는 방법에 대한 자세한 내용은 [Azure 리소스에서 로그 데이터 수집 및 사용](../articles/azure-monitor/platform/diagnostic-logs-overview.md)을 참조하세요.

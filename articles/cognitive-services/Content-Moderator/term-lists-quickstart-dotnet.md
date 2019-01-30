@@ -413,7 +413,7 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="run-the-application-to-see-the-output"></a>응용 프로그램을 실행하여 출력 확인
+## <a name="run-the-application-to-see-the-output"></a>애플리케이션을 실행하여 출력 확인
 
 출력은 다음 줄에 있지만 데이터는 다를 수 있습니다.
 

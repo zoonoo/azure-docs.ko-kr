@@ -10,16 +10,17 @@ ms.component: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: d1fa468874cdc51bad3421f700a69f3ffb268635
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: f4f588ad9123ec98cbae9f9bf03c08ec551a31a5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342656"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232756"
 ---
-# <a name="tutorial-build-an-image-processing-app---c35"></a>자습서: 이미지 처리 앱 빌드 - C#
+# <a name="tutorial-build-an-image-processing-app---c35"></a>자습서: 이미지 처리 앱 빌드 - C&#35;
 
-Computer Vision을 사용하는 기본 Windows 응용 프로그램을 탐색합니다. 이 프로그램은 OCR(광학 문자 인식)을 수행하고, 스마트하게 자른 썸네일을 만들고, 이미지에서 얼굴을 비롯한 시각적 특징을 감지하고, 분류하고, 태그를 지정하고, 설명합니다. 아래 예제에서는 이미지 URL 또는 로컬로 저장된 파일을 제출할 수 있습니다. .NET Framework의 일부인 WPF(Windows Presentation Foundation) 및 Computer Vision API를 사용하여 고유한 Windows용 앱을 빌드하기 위한 템플릿으로 이 오픈 소스 예제를 사용할 수 있습니다.
+Computer Vision을 사용하는 기본 Windows 애플리케이션을 탐색합니다. 이 프로그램은 OCR(광학 문자 인식)을 수행하고, 스마트하게 자른 썸네일을 만들고, 이미지에서 얼굴을 비롯한 시각적 특징을 감지하고, 분류하고, 태그를 지정하고, 설명합니다. 아래 예제에서는 이미지 URL 또는 로컬로 저장된 파일을 제출할 수 있습니다. .NET Framework의 일부인 WPF(Windows Presentation Foundation) 및 Computer Vision API를 사용하여 고유한 Windows용 앱을 빌드하기 위한 템플릿으로 이 오픈 소스 예제를 사용할 수 있습니다.
 
 > [!div class="checklist"]
 > * GitHub에서 샘플 앱 가져오기
@@ -97,11 +98,8 @@ git clone --recurse-submodules https://github.com/Microsoft/Cognitive-Face-Windo
    |텍스트 인식 V2(영어) | [텍스트 인식](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) 및 [텍스트 인식 작업 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) 작업을 사용하여 이미지에서 인쇄되거나 필기한 텍스트를 비동기적으로 인식하고 추출합니다. |
    |썸네일 가져오기 | [썸네일 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) 작업을 사용하여 로컬 또는 원격 이미지에 대한 썸네일을 생성합니다. |
 
-   > [!IMPORTANT]
-   > Microsoft는 업로드되는 이미지를 수신하며, 해당 이미지를 사용하여 Computer Vision API 및 관련 서비스를 개선할 수 있습니다. 이미지를 제출하면 [개발자 준수 사항](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)을 따랐음을 확인하는 것입니다.
-
    다음 스크린샷은 샘플 이미지를 분석한 후 이미지 분석 시나리오에 제공된 페이지를 보여줍니다.
-   ![이미지 분석 시나리오 페이지](../Images/Analyze_Image_Example.PNG)
+   ![이미지 분석 페이지의 스크린샷](../Images/Analyze_Image_Example.PNG)
 
 ## <a name="explore-the-sample-app"></a>샘플 앱 탐색
 
@@ -179,7 +177,7 @@ private async Task<ImageAnalysis> UploadAndAnalyzeImageAsync(string imageFilePat
 
 ### <a name="explore-the-client-library"></a>클라이언트 라이브러리 탐색
 
-이 예제 앱은 Azure Cognitive Services의 Computer Vision API용 씬 C# 클라이언트 래퍼인 Computer Vision API 클라이언트 라이브러리를 사용합니다. 클라이언트 라이브러리는 [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) 패키지의 NuGet에서 제공됩니다. Visual Studio 응용 프로그램을 빌드할 때 해당하는 NuGet 패키지에서 클라이언트 라이브러리를 검색했습니다. 또한 `Microsoft/Cognitive-Vision-Windows` 리포지토리의 `/ClientLibrary` 폴더에서 클라이언트 라이브러리에 대한 소스 코드를 볼 수 있습니다.
+이 예제 앱은 Azure Cognitive Services의 Computer Vision API용 씬 C# 클라이언트 래퍼인 Computer Vision API 클라이언트 라이브러리를 사용합니다. 클라이언트 라이브러리는 [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) 패키지의 NuGet에서 제공됩니다. Visual Studio 애플리케이션을 빌드할 때 해당하는 NuGet 패키지에서 클라이언트 라이브러리를 검색했습니다. 또한 `Microsoft/Cognitive-Vision-Windows` 리포지토리의 `/ClientLibrary` 폴더에서 클라이언트 라이브러리에 대한 소스 코드를 볼 수 있습니다.
 
 클라이언트 라이브러리의 기능은 `Microsoft.Azure.CognitiveServices.Vision.ComputerVision` 네임스페이스의 `ComputerVisionClient` 클래스를 중심으로 하며, Computer Vision과 상호 작용할 때 `ComputerVisionClient` 클래스에서 사용되는 모델은 `Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models` 네임스페이스에 있습니다. 샘플 앱에 포함된 다양한 XAML 시나리오 페이지에서 해당 네임스페이스에 대한 다음 `using` 지시문을 확인할 수 있습니다.
 

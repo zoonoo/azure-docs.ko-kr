@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: da270792c8987ff43c422c5b03eb8b789b8bda5e
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1e638bd348b7a5272dd8bfbe25aa841f38a51b9a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634593"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409703"
 ---
 # <a name="run-apache-hive-queries-using-the-query-console"></a>쿼리 콘솔을 사용하여 Apache Hive 쿼리 실행
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
 이 문서에서는 HDInsight 쿼리 콘솔을 사용하여 브라우저의 HDInsight Hadoop 클러스터에서 Apache Hive 쿼리를 실행하는 방법에 대해 알아봅니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > HDInsight 쿼리 콘솔은 Windows 기반 HDInsight 클러스터에서만 사용할 수 있습니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 >
-> HDInsight 3.4 이상의 경우 웹 브라우저에서 Hive 쿼리 실행에 대한 자세한 내용은 [Ambari Hive 보기에서 Hive 쿼리 실행](apache-hadoop-use-hive-ambari-view.md)을 참조하세요.
+> HDInsight 3.4 이상의 경우 웹 브라우저에서 Hive 쿼리 실행에 대한 자세한 내용은 [Ambari Hive 보기에서 Apache Hive 쿼리 실행](apache-hadoop-use-hive-ambari-view.md)을 참조하세요.
 
 ## <a id="prereq"></a>필수 조건
 이 문서의 단계를 완료하려면 다음이 필요합니다.
@@ -32,7 +32,7 @@ ms.locfileid: "51634593"
 * Windows 기반 HDInsight Hadoop 클러스터
 * 최신 웹 브라우저
 
-## <a id="run"></a> 쿼리 콘솔을 사용하여 Hive 쿼리 실행
+## <a id="run"></a> 쿼리 콘솔을 사용하여 Apache Hive 쿼리 실행
 1. 웹 브라우저를 열고 **https://CLUSTERNAME.azurehdinsight.net**으로 이동합니다. 여기서 **CLUSTERNAME**은 HDInsight 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 사용한 사용자 이름과 암호를 입력합니다.
 2. 페이지 위쪽에 있는 링크 중 **Hive 편집기**를 선택합니다. HDInsight 클러스터에서 실행하려는 HiveQL 문을 입력하는 데 사용할 수 있는 양식이 표시됩니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "51634593"
    * **DROP TABLE**: 테이블이 이미 있는 경우 테이블과 데이터 파일을 삭제합니다.
    * **CREATE EXTERNAL TABLE**: Hive에서 새 ‘외부’ 테이블을 만듭니다. 외부 테이블은 Hive에 테이블 정의만 저장하고, 데이터는 원래 위치에 남아 있습니다.
 
-     > [!NOTE]
+     > [!NOTE]  
      > 자동화된 데이터 업로드 프로세스와 같은 외부 원본이나 또 다른 MapReduce 작업을 통해 기본 데이터를 업데이트해야 하지만 Hive 쿼리에서 항상 최신 데이터를 사용하려고 할 경우 외부 테이블을 사용해야 합니다.
      >
      > 외부 테이블을 삭제하면 데이터는 삭제되지 **않고** 테이블 정의만 삭제됩니다.
@@ -73,29 +73,29 @@ Hive 쿼리 콘솔을 사용하여 Hive 작업을 실행하는 방법에 대한 
 ## <a id="nextsteps"></a>다음 단계
 HDInsight의 Hive에 대한 일반적인 정보:
 
-* [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Hive 사용](hdinsight-use-hive.md)
 
 HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
-* [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
-* [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 Apache Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
 Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문서를 참조하세요.
 
-* [Windows 기반 HDInsight 클러스터에서 Tez UI 사용](../hdinsight-debug-tez-ui.md)
-* [Linux 기반 HDInsight에서 Ambari Tez 보기 사용](../hdinsight-debug-ambari-tez-view.md)
+* [Windows 기반 HDInsight 클러스터에서 Apache Tez UI 사용](../hdinsight-debug-tez-ui.md)
+* [Linux 기반 HDInsight에서 Apache Ambari Tez 보기 사용](../hdinsight-debug-ambari-tez-view.md)
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[apache-tez]: http://tez.apache.org
-[apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[apache-tez]: https://tez.apache.org
+[apache-hive]: https://hive.apache.org/
+[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -111,7 +111,7 @@ Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문�
 [hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
 
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png

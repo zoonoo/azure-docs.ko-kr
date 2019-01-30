@@ -5,25 +5,24 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3adf0c9c2e2b264904e66b82716447d634aaeee7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 47223f22c797d892bc7cbdc0086439ee9cae9fcb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209652"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187725"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Power BI Desktop 파일 가져오기
 
-Azure Analysis Services로 Power BI Desktop 파일(pbix)의 데이터 모델을 가져올 수 있습니다. 모델 메타데이터, 캐시된 데이터 및 데이터 원본 연결이 가져오기됩니다. 보고서 및 시각화는 가져오기되지 않습니다. Power BI Desktop에서 가져온 데이터 모델은 1400 호환성 수준만 적용됩니다.
+Azure Analysis Services로 Power BI Desktop 파일(pbix)의 데이터 모델을 가져올 수 있습니다. 모델 메타데이터, 캐시된 데이터 및 데이터 원본 연결이 가져오기됩니다. 보고서 및 시각화는 가져오기되지 않습니다. Power BI Desktop에서 가져온 데이터 모델은 1400 및 1465 호환성 수준만 적용됩니다.
 
 > [!IMPORTANT]
 > 이 기능은 더 이상 사용되지 않습니다. 제거되거나 향후 업데이트에서 크게 변경될 수 있습니다. 향후 업데이트를 통해 호환성을 유지하기 위해 이 기능은 신규 및 기존 프로젝트에서 사용하지 않는 것이 좋습니다. 고급 모델을 개발하고 테스트하려면 Visual Studio(SSDT) 및 SSMS(SQL Server Management Studio)를 사용하는 것이 가장 좋습니다.
 
-**제한 사항**   
-
+## <a name="restrictions"></a>제한  
 
 - Power BI Desktop 2018년 7월 업데이트(2.60.5169.3201) 이후 버전에서 데이터 모델을 만드는 경우 사용하도록 설정된 미리 보기 기능이 없는지 확인합니다. 미리 보기 기능은 Azure Analysis Services에서 아직 지원되지 않습니다. 가져오기를 진행할 때 다음 오류가 표시되는 경우에는 Azure Analysis Services에서 아직 지원되지 않는 미리 보기 기능이 pbix 파일에서 사용하도록 설정되어 있는 것입니다.
 

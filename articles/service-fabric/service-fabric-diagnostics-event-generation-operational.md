@@ -12,92 +12,97 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
+ms.date: 10/23/2018
 ms.author: dekapur
-ms.openlocfilehash: 03dac03405588ba00a0f8ca5b127956c40853e36
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: a568fc6316211755fabc15ab3cf0227e3a87cb01
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868516"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727361"
 ---
 # <a name="list-of-service-fabric-events"></a>Service Fabric 이벤트 목록 
 
-Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.md)로 클러스터의 상태를 알리도록 클러스터 이벤트의 기본 집합을 노출합니다. 노드 및 클러스터의 Service Fabric에서 수행하는 작업 또는 클러스터 소유자/연산자에서 만드는 관리 결정을 기반으로 합니다. 이러한 이벤트는 클러스터에서 [EventStore](service-fabric-diagnostics-eventstore.md)를 쿼리하거나 작업 채널을 통해 액세스할 수 있습니다. Windows 컴퓨터에서 작업 채널은 EventLog에도 연결되므로 이벤트 뷰어에서 Service Fabric을 볼 수 있습니다. 
+Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.md)로 클러스터의 상태를 알리도록 클러스터 이벤트의 기본 집합을 노출합니다. 노드 및 클러스터의 Service Fabric에서 수행하는 작업 또는 클러스터 소유자/연산자에서 만드는 관리 결정을 기반으로 합니다. 이러한 이벤트는 [클러스터에서 Log Analytics를 구성](service-fabric-diagnostics-oms-setup.md)하거나 [EventStore](service-fabric-diagnostics-eventstore.md)를 쿼리하는 등 여러 가지 방법으로 구성하여 액세스 할 수 있습니다. Windows 머신에서 이러한 이벤트는 EventLog에 반영되므로 이벤트 뷰어에서 Service Fabric 이벤트를 볼 수 있습니다. 
 
->[!NOTE]
->버전 < 6.2에서 클러스터에 대한 Service Fabric 이벤트 목록의 경우 다음 섹션을 참조하세요. 
+이러한 이벤트에 대한 몇 가지 특징은 다음과 같습니다.
+* 각 이벤트는 클러스터의 특정 엔터티(예: 애플리케이션, 서비스, 노드, 복제본)에 연결됩니다.
+* 각 이벤트에는 다음과 같은 공용 필드 세트가 포함되어 있습니다. EventInstanceId, EventName 및 범주.
+* 각 이벤트는 연결된 엔터티로 이벤트를 다시 연결하는 필드를 포함합니다. 예를 들어 ApplicationCreated 이벤트에는 생성된 애플리케이션의 이름을 식별하는 필드가 있습니다.
+* 이벤트는 추가 분석을 수행하는 다양한 도구에서 사용될 수 있는 방식으로 구성됩니다. 또한 이벤트에 대한 관련 세부 정보는 긴 문자열 대신 개별 속성으로 정의됩니다. 
+* 이벤트는 아래 원본(태스크)로 식별되는 Service Fabric의 다른 하위 시스템으로 작성됩니다. [Service Fabric 아키텍처](service-fabric-architecture.md) 및 [Service Fabric 기술 개요](service-fabric-technical-overview.md)에서 이러한 하위 시스템에 대한 자세한 내용을 확인할 수 있습니다.
 
-다음은 매핑되는 엔터티별로 정렬된 플랫폼에서 사용할 수 있는 모든 이벤트의 목록입니다.
+다음은 엔터티별로 구성된 Service Fabric 이벤트의 목록입니다.
 
 ## <a name="cluster-events"></a>클러스터 이벤트
 
 **클러스터 업그레이드 이벤트**
 
-| EventId | 이름 | 설명 |원본(태스크) | Level | 버전 |
-| --- | --- | --- | --- | --- | --- |
-| 29627 | ClusterUpgradeStarted | 클러스터 업그레이드가 시작되었습니다. | CM | 정보 제공 | 1 |
-| 29628 | ClusterUpgradeCompleted | 클러스터 업그레이드가 완료되었습니다.| CM | 정보 제공 | 1 |
-| 29629 | ClusterUpgradeRollbackStarted | 클러스터 업그레이드 롤백이 시작되었습니다. | CM | 정보 제공 | 1 |
-| 29630 | ClusterUpgradeRollbackCompleted | 클러스터 업그레이드 롤백이 완료되었습니다. | CM | 정보 제공 | 1 |
-| 29631 | ClusterUpgradeDomainCompleted | 클러스터 업그레이드 중에 도메인 업그레이드가 완료되었습니다. | CM | 정보 제공 | 1 |
+클러스터 업그레이드에 대한 자세한 내용은 [여기](service-fabric-cluster-upgrade-windows-server.md)를 참조하세요.
+
+| EventId | 이름 | Category | 설명 |원본(태스크) | Level | 
+| --- | --- | --- | --- | --- | --- | 
+| 29627 | ClusterUpgradeStarted | 업그레이드 | 클러스터 업그레이드가 시작되었습니다. | CM | 정보 제공 |
+| 29628 | ClusterUpgradeCompleted | 업그레이드 | 클러스터 업그레이드가 완료되었습니다. | CM | 정보 제공 | 
+| 29629 | ClusterUpgradeRollbackStarted | 업그레이드 | 클러스터 업그레이드 롤백이 시작되었습니다.  | CM | Warning | 
+| 29630 | ClusterUpgradeRollbackCompleted | 업그레이드 | 클러스터 업그레이드 롤백이 완료되었습니다. | CM | Warning | 
+| 29631 | ClusterUpgradeDomainCompleted | 업그레이드 | 업그레이드 도메인이 클러스터 업그레이드 중 업그레이드를 완료했습니다. | CM | 정보 제공 | 
 
 ## <a name="node-events"></a>노드 이벤트
 
 **노드 수명 주기 이벤트** 
 
-| EventId | 이름 | 설명 |원본(태스크) | Level | 버전 |
-| --- | --- | ---| --- | --- | --- |
-| 18602 | NodeDeactivateCompleted | 노드 비활성화가 완료되었습니다. | FM | 정보 제공 | 1 |
-| 18603 | NodeUp | 클러스터에서 노드가 시작되었음을 감지했습니다. | FM | 정보 제공 | 1 |
-| 18604 | NodeDown | 클러스터에서 노드가 종료되었음을 감지했습니다. |  FM | 정보 제공 | 1 |
-| 18605 | NodeAddedToCluster | 새 노드가 클러스터에 추가되었습니다. | FM | 정보 제공 | 1 |
-| 18606 | NodeRemovedFromCluster | 노드가 클러스터에서 제거되었습니다. | FM | 정보 제공 | 1 |
-| 18607 | NodeDeactivateStarted | 노드 비활성화가 시작되었습니다. | FM | 정보 제공 | 1 |
-| 25620 | NodeOpening | 노드를 시작하고 있습니다. 노드 수명 주기의 첫 번째 단계입니다. | FabricNode | 정보 제공 | 1 |
-| 25621 | NodeOpenSucceeded | 노드가 성공적으로 시작되었습니다. | FabricNode | 정보 제공 | 1 |
-| 25622 | NodeOpenFailed | 노드가 시작되지 못했습니다. | FabricNode | 정보 제공 | 1 |
-| 25623 | NodeClosing | 노드를 종료하고 있습니다. 노드 수명 주기의 마지막 단계가 시작됩니다. | FabricNode | 정보 제공 | 1 |
-| 25624 | NodeClosed | 노드가 성공적으로 종료되었습니다. | FabricNode | 정보 제공 | 1 |
-| 25625 | NodeAborting | 노드가 비정상적으로 종료되고 있습니다. | FabricNode | 정보 제공 | 1 |
-| 25626 | NodeAborted | 노드가 비정상적으로 종료되었습니다. | FabricNode | 정보 제공 | 1 |
+| EventId | 이름 | Category | 설명 |원본(태스크) | Level |
+| --- | --- | ---| --- | --- | --- | 
+| 18602 | NodeDeactivateCompleted | StateTransition | 노드 비활성화가 완료되었습니다. | FM | 정보 제공 | 
+| 18603 | NodeUp | StateTransition | 클러스터에서 노드가 시작되었음을 감지했습니다. | FM | 정보 제공 | 
+| 18604 | NodeDown | StateTransition | 클러스터에서 노드가 종료되었음을 감지했습니다. 노드를 다시 시작하는 동안 NodeDown 이벤트 다음으로 NodeUp 이벤트가 표시됩니다 |  FM | 오류 | 
+| 18605 | NodeAddedToCluster | StateTransition |  새 노드가 클러스터에 추가되었으며 Service Fabric에서 이 노드에 애플리케이션을 배포할 수 있습니다. | FM | 정보 제공 | 
+| 18606 | NodeRemovedFromCluster | StateTransition |  노드가 클러스터에서 제거되었습니다. Service Fabric에서 이 노드에 애플리케이션을 더 이상 배포하지 않습니다. | FM | 정보 제공 | 
+| 18607 | NodeDeactivateStarted | StateTransition |  노드 비활성화가 시작되었습니다. | FM | 정보 제공 | 
+| 25621 | NodeOpenSucceeded | StateTransition |  노드가 성공적으로 시작되었습니다. | FabricNode | 정보 제공 | 
+| 25622 | NodeOpenFailed | StateTransition |  노드가 시작되지 못하고 링에 조인하지 못했습니다. | FabricNode | 오류 | 
+| 25624 | NodeClosed | StateTransition |  노드가 성공적으로 종료되었습니다. | FabricNode | 정보 제공 | 
+| 25626 | NodeAborted | StateTransition |  노드가 비정상적으로 종료되었습니다. | FabricNode | 오류 | 
 
 ## <a name="application-events"></a>응용 프로그램 이벤트
 
 **응용 프로그램 수명 주기 이벤트**
 
-| EventId | 이름 | 설명 |원본(태스크) | Level | 버전 |
-| --- | --- | ---| --- | --- | --- |
-| 29620 | ApplicationCreated | 새 응용 프로그램이 만들어졌습니다. | CM | 정보 제공 | 1 |
-| 29625 | ApplicationDeleted | 기존 응용 프로그램이 삭제되었습니다. | CM | 정보 제공 | 1 |
-| 23083 | ApplicationProcessExited | 응용 프로그램 내 프로세스가 종료되었습니다. | Hosting | 정보 제공 | 1 |
+| EventId | 이름 | Category | 설명 |원본(태스크) | Level | 
+| --- | --- | --- | --- | --- | --- | 
+| 29620 | ApplicationCreated | LifeCycle | 새 애플리케이션이 만들어졌습니다. | CM | 정보 제공 | 
+| 29625 | ApplicationDeleted | LifeCycle | 기존 애플리케이션이 삭제되었습니다. | CM | 정보 제공 | 
+| 23083 | ApplicationProcessExited | LifeCycle | 애플리케이션 내 프로세스가 종료되었습니다. | Hosting | 정보 제공 | 
 
 **응용 프로그램 업그레이드 이벤트**
 
-| EventId | 이름 | 설명 |원본(태스크) | Level | 버전 |
-| --- | --- | ---| --- | --- | --- |
-| 29621 | ApplicationUpgradeStarted | 응용 프로그램 업그레이드가 시작되었습니다. | CM | 정보 제공 | 1 |
-| 29622 | ApplicationUpgradeCompleted | 응용 프로그램 업그레이드가 완료되었습니다. | CM | 정보 제공 | 1 |
-| 29623 | ApplicationUpgradeRollbackStarted | 응용 프로그램 업그레이드 롤백이 시작되었습니다. |CM | 정보 제공 | 1 |
-| 29624 | ApplicationUpgradeRollbackCompleted | 응용 프로그램 롤백이 완료되었습니다. | CM | 정보 제공 | 1 |
-| 29626 | ApplicationUpgradeDomainCompleted | 응용 프로그램 업그레이드 중에 도메인 업그레이드가 완료되었습니다. | CM | 정보 제공 | 1 |
+애플리케이션 업그레이드에 대한 자세한 내용은 [여기](service-fabric-application-upgrade.md)를 참조하세요.
+
+| EventId | 이름 | Category | 설명 |원본(태스크) | Level | 
+| --- | --- | ---| --- | --- | --- | 
+| 29621 | ApplicationUpgradeStarted | 업그레이드 | 애플리케이션 업그레이드가 시작되었습니다. | CM | 정보 제공 | 
+| 29622 | ApplicationUpgradeCompleted | 업그레이드 | 애플리케이션 업그레이드가 완료되었습니다. | CM | 정보 제공 | 
+| 29623 | ApplicationUpgradeRollbackStarted | 업그레이드 | 애플리케이션 업그레이드 롤백이 시작되었습니다. |CM | Warning | 
+| 29624 | ApplicationUpgradeRollbackCompleted | 업그레이드 | 애플리케이션 롤백이 완료되었습니다. | CM | Warning | 
+| 29626 | ApplicationUpgradeDomainCompleted | 업그레이드 | 업그레이드 도메인이 애플리케이션 업그레이드 중 업그레이드를 완료했습니다. | CM | 정보 제공 | 
 
 ## <a name="service-events"></a>서비스 이벤트
 
 **서비스 수명 주기 이벤트**
 
-| EventId | 이름 | 설명 |원본(태스크) | Level | 버전 |
+| EventId | 이름 | Category | 설명 |원본(태스크) | Level | 
 | --- | --- | ---| --- | --- | --- |
-| 18657 | ServiceCreated | 새 서비스가 만들어졌습니다. | FM | 정보 제공 | 1 |
-| 18658 | ServiceDeleted | 기존 서비스가 삭제되었습니다. | FM | 정보 제공 | 1 |
+| 18657 | ServiceCreated | LifeCycle | 새 서비스가 만들어졌습니다. | FM | 정보 제공 | 
+| 18658 | ServiceDeleted | LifeCycle | 기존 서비스가 삭제되었습니다. | FM | 정보 제공 | 
 
 ## <a name="partition-events"></a>파티션 이벤트
 
 **파티션 이동 이벤트**
 
-| EventId | 이름 | 설명 |원본(태스크) | Level | 버전 |
+| EventId | 이름 | Category | 설명 |원본(태스크) | Level | 
 | --- | --- | ---| --- | --- | --- |
-| 18940 | PartitionReconfigured | 파티션 재구성이 완료되었습니다. | RA | 정보 제공 | 1 |
+| 18940 | PartitionReconfigured | LifeCycle | 파티션 재구성이 완료되었습니다. | RA | 정보 제공 | 
 
 ## <a name="container-events"></a>컨테이너 이벤트
 
@@ -110,6 +115,12 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 | 23082 | ContainerExited | 컨테이너가 종료되었습니다. UnexpectedTermination 플래그를 확인하세요. | Hosting | 정보 제공 | 1 |
 
 ## <a name="health-reports"></a>상태 보고서
+
+[Service Fabric 상태 모델](service-fabric-health-introduction.md)은 다양하고 유연하며 확장 가능한 상태 평가 및 보고 기능을 제공합니다. Service Fabric 버전 6.2부터, 상태 데이터는 과거의 상태 기록을 제공하기 위한 플랫폼 이벤트로 기록됩니다. 상태 이벤트의 볼륨을 낮게 유지하기 위해 다음 항목만 Service Fabric 이벤트로 작성됩니다.
+
+* 모든 `Error` 또는 `Warning` 상태 보고서
+* 전환 중 `Ok` 상태 보고서
+* `Error` 또는 `Warning` 상태 이벤트가 만료되는 경우. 엔터티가 비정상이었던 기간을 확인하는 데 사용됩니다.
 
 **클러스터 상태 보고서 이벤트**
 
@@ -129,11 +140,11 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 | EventId | 이름 | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
-| 54425 | ApplicationNewHealthReport | 새 응용 프로그램 상태 보고서가 만들어졌습니다. 배포되지 않은 응용 프로그램에 대한 보고서입니다. | HM | 정보 제공 | 1 |
-| 54426 | DeployedApplicationNewHealthReport | 새로 배포된 응용 프로그램 상태 보고서가 만들어졌습니다. | HM | 정보 제공 | 1 |
+| 54425 | ApplicationNewHealthReport | 새 애플리케이션 상태 보고서가 만들어졌습니다. 배포되지 않은 애플리케이션에 대한 보고서입니다. | HM | 정보 제공 | 1 |
+| 54426 | DeployedApplicationNewHealthReport | 새로 배포된 애플리케이션 상태 보고서가 만들어졌습니다. | HM | 정보 제공 | 1 |
 | 54427 | DeployedServicePackageNewHealthReport | 새로 배포된 서비스 상태 보고서가 만들어졌습니다. | HM | 정보 제공 | 1 |
-| 54434 | ApplicationHealthReportExpired | 기존 응용 프로그램 상태 보고서가 만료되었습니다. | HM | 정보 제공 | 1 |
-| 54435 | DeployedApplicationHealthReportExpired | 기존 배포된 응용 프로그램 상태 보고서가 만료되었습니다. | HM | 정보 제공 | 1 |
+| 54434 | ApplicationHealthReportExpired | 기존 애플리케이션 상태 보고서가 만료되었습니다. | HM | 정보 제공 | 1 |
+| 54435 | DeployedApplicationHealthReportExpired | 기존 배포된 애플리케이션 상태 보고서가 만료되었습니다. | HM | 정보 제공 | 1 |
 | 54436 | DeployedServicePackageHealthReportExpired | 기존 배포된 서비스 상태 보고서가 만료되었습니다. | HM | 정보 제공 | 1 |
 
 **서비스 상태 보고서 이벤트**
@@ -238,6 +249,7 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 ## <a name="next-steps"></a>다음 단계
 
-* Service Fabric에서 전반적인 [플랫폼 수준의 이벤트 생성](service-fabric-diagnostics-event-generation-infra.md)에 대해 자세히 알아보기
+* [Service Fabric의 진단](service-fabric-diagnostics-overview.md)에 대한 개요를 가져옵니다.
+* [Service Fabric Eventstore 개요](service-fabric-diagnostics-eventstore.md)에서 EventStore에 대해 자세히 알아보기
 * 더 많은 로그를 수집하도록 [Azure 진단](service-fabric-diagnostics-event-aggregation-wad.md) 구성 수정
 * 작동 채널 로그를 표시하도록 [Application Insights 설정](service-fabric-diagnostics-event-analysis-appinsights.md)

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
 ms.author: trinadhk
-ms.openlocfilehash: 4d45db6ba6354f85c3ed67561751720b6f6f4b77
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0e599c95f40e62a4bb01a7ab698fe0ce1f738e49
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38465723"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635768"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Azure 가상 머신 백업 관리
 
@@ -37,7 +37,7 @@ Azure Portal에서 Recovery Services 자격 증명 모음 대시보드는 다음
 ![슬라이더가 있는 전체 보기](./media/backup-azure-manage-vms/bottom-slider.png)
 
 ### <a name="open-a-recovery-services-vault-in-the-dashboard"></a>대시보드에서 Recovery Services 자격 증명 모음을 엽니다.
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 허브 메뉴에서 **찾아보기**를 클릭하고 리소스 목록에서 **Recovery Services**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Recovery Services 자격 증명 모음**을 클릭합니다.
 
     ![Recovery Services 자격 증명 모음 만들기 1단계](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
@@ -77,7 +77,7 @@ Azure Portal에서 Recovery Services 자격 증명 모음 대시보드는 다음
 
     ![설정 블레이드에서 Backup 항목 대시보드](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
-    자격 증명 모음 항목 대시보드에서 다음과 같은 다양한 키 관리 작업을 완료할 수 있습니다.
+    자격 증명 모음 항목 대시보드에서 다음과 같은 다양한 키 작업을 완료할 수 있습니다.
 
    * 정책 변경 또는 새 백업 정책 만들기
    * 복원 지점 확인 및 해당 일관성 상태 확인
@@ -85,7 +85,7 @@ Azure Portal에서 Recovery Services 자격 증명 모음 대시보드는 다음
    * 가상 머신 보호 중지
    * 가상 머신 보호 재개
    * 백업 데이터(또는 복구 지점) 삭제
-   * [백업 디스크 복원](backup-azure-arm-restore-vms.md#restore-backed-up-disks)
+   * [백업 디스크 복원](backup-azure-arm-restore-vms.md#create-new-restore-disks)
 
 다음 절차의 경우 시작점은 자격 증명 모음 항목 대시보드입니다.
 

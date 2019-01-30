@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure Service Fabric Mesh에서 실행 중인 앱 제거 | Microsoft Docs
-description: 이 자습서에서는 Service Fabric Mesh에서 실행 중인 응용 프로그램을 제거하고 리소스를 삭제하는 방법을 알아봅니다.
+description: 이 자습서에서는 Service Fabric Mesh에서 실행 중인 애플리케이션을 제거하고 리소스를 삭제하는 방법을 알아봅니다.
 services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
@@ -12,32 +12,32 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/15/2018
+ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 9b72ca2a166e805d960eab47835f449e0f5b991e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: d3ac0f6f8f6811117a515236de81eca1dc3d0e4d
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889517"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264141"
 ---
-# <a name="tutorial-remove-an-application-and-resources"></a>자습서: 응용 프로그램 및 리소스 제거
+# <a name="tutorial-remove-an-application-and-resources"></a>자습서: 애플리케이션 및 리소스 제거
 
-이 자습서는 시리즈의 4부입니다. [이전에 Service Fabric Mesh에 배포된](service-fabric-mesh-tutorial-template-deploy-app.md) 실행 중인 응용 프로그램을 제거하는 방법을 알아보겠습니다. 
+이 자습서는 시리즈의 4부입니다. [이전에 Service Fabric Mesh에 배포된](service-fabric-mesh-tutorial-template-deploy-app.md) 실행 중인 애플리케이션을 제거하는 방법을 알아보겠습니다. 
 
 시리즈 4부에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Service Fabric Mesh에서 실행 중인 앱 삭제
-> * 응용 프로그램 리소스 삭제
+> * 애플리케이션 리소스 삭제
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * [템플릿을 사용하여 Service Fabric Mesh에 응용 프로그램 배포](service-fabric-mesh-tutorial-template-deploy-app.md)
-> * [Service Fabric Mesh에서 실행 중인 응용 프로그램 확장](service-fabric-mesh-tutorial-template-scale-services.md)
-> * [Service Fabric Mesh에서 실행 중인 응용 프로그램 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)
-> * 응용 프로그램 제거
+> * [Service Fabric Mesh에서 실행 중인 애플리케이션 확장](service-fabric-mesh-tutorial-template-scale-services.md)
+> * [Service Fabric Mesh에서 실행되는 애플리케이션 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)
+> * 애플리케이션 제거
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -51,7 +51,7 @@ ms.locfileid: "52889517"
 
 ## <a name="delete-the-resource-group-and-all-the-resources"></a>리소스 그룹 및 모든 리소스 삭제
 
-더 이상 필요하지 않은 경우 만든 리소스를 모두 삭제합니다. 이전에는 Azure Container Registry 인스턴스 및 Service Fabric Mesh 응용 프로그램 리소스를 호스트하는 [새로운 리소스 그룹을 생성](service-fabric-mesh-tutorial-template-deploy-app.md#create-a-container-registry)했습니다.  이 리소스 그룹은 삭제할 수 있으며, 그러면 연결된 모든 리소스도 삭제됩니다.
+더 이상 필요하지 않은 경우 만든 리소스를 모두 삭제합니다. 이전에는 Azure Container Registry 인스턴스 및 Service Fabric Mesh 애플리케이션 리소스를 호스트하는 [새로운 리소스 그룹을 생성](service-fabric-mesh-tutorial-template-deploy-app.md#create-a-container-registry)했습니다.  이 리소스 그룹은 삭제할 수 있으며, 그러면 연결된 모든 리소스도 삭제됩니다.
 
 ```azurecli
 az group delete --resource-group myResourceGroup
@@ -62,7 +62,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="individually-delete-the-resources"></a>리소스 개별 삭제
-또한 ACR 인스턴스, Service Fabric Mesh 응용 프로그램 및 네트워크 리소스를 개별적으로 삭제할 수도 있습니다.
+또한 ACR 인스턴스, Service Fabric Mesh 애플리케이션 및 네트워크 리소스를 개별적으로 삭제할 수도 있습니다.
 
 ACR 인스턴스를 삭제하려면:
 
@@ -70,7 +70,7 @@ ACR 인스턴스를 삭제하려면:
 az acr delete --resource-group myResourceGroup --name myContainerRegistry
 ```
 
-Service Fabric Mesh 응용 프로그램을 삭제하려면:
+Service Fabric Mesh 애플리케이션을 삭제하려면:
 
 ```azurecli
 az mesh app delete --resource-group myResourceGroup --name todolistapp
@@ -87,4 +87,4 @@ az mesh network delete --resource-group myResourceGroup --name todolistappNetwor
 
 > [!div class="checklist"]
 > * Service Fabric Mesh에서 실행 중인 앱 삭제
-> * 응용 프로그램 리소스 삭제
+> * 애플리케이션 리소스 삭제

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 43ea8703bdbfc23511c831a5f91c9461948cc254
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9a4d5acfe16a2fdbb3b631cb8baf6cb8e90a7d58
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055669"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016292"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 시스템 변수
 이 문서에서는 Azure Data Factory에서 지원하는 시스템 변수에 대해 설명합니다. 데이터 팩터리 엔터티를 정의할 때 식에서 이러한 변수를 사용할 수 있습니다.
@@ -45,7 +44,7 @@ ms.locfileid: "37055669"
 | @trigger().startTime |트리거가 파이프라인 실행을 **실제로** 실행한 시간입니다. 예를 들어 5분마다 발생하는 트리거의 경우 이 변수는 각각 `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z`, `2017-06-01T22:29:00.9935483Z`를 반환할 수 있습니다.|
 
 ## <a name="tumbling-window-trigger-scope"></a>연속 창 트리거 범위
-이 시스템 변수는 트리거가 “TumblingWindowTrigger” 유형인 경우, 트리거 JSON의 어디에서나 참조할 수 있습니다.
+이 시스템 변수는 트리거가 "TumblingWindowTrigger" 유형인 경우, 트리거 JSON의 어디에서나 참조할 수 있습니다.
 
 | 변수 이름 | 설명 |
 | --- | --- |

@@ -4,7 +4,7 @@ description: 관리되는 도메인 보호
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 6b4665b5-4324-42ab-82c5-d36c01192c2a
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1dea3def00423ecf092562aa47c76258316194a9
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 1a9a8ee13145e6326c234a4eda053ed49faf33aa
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50159063"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856675"
 ---
 # <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인 보호
 이 문서에서는 관리되는 도메인을 보호하는 방법을 설명합니다. 취약한 암호 그룹 사용을 해제하고 NTLM 자격 증명 해시 동기화를 사용하지 않도록 설정할 수 있습니다.
@@ -31,7 +31,7 @@ ms.locfileid: "50159063"
 이 문서의 지침에 따라 [Azure AD PowerShell 모듈을 설치하고 Azure AD에 연결](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json)합니다.
 
 ### <a name="install-and-configure-azure-powershell"></a>Azure PowerShell 설치 및 구성
-이 문서의 지침에 따라 [Azure PowerShell 모듈을 설치하고 Azure 구독에 연결](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json)합니다.
+이 문서의 지침에 따라 [Azure PowerShell 모듈을 설치하고 Azure 구독에 연결](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json)합니다.
 
 
 ## <a name="disable-weak-cipher-suites-and-ntlm-credential-hash-synchronization"></a>취약한 암호 그룹 및 NTLM 자격 증명 해시 동기화를 사용하지 않도록 설정

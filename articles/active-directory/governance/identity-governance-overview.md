@@ -26,7 +26,7 @@ ms.locfileid: "47167755"
 
 Azure AD(Azure Active Directory) ID 거버넌스를 사용하면 올바른 프로세스 및 표시 유형을 사용하여 보안 및 직원 생산성에 대한 조직의 필요를 분산시킬 수 있습니다. 적절한 사용자가 적절한 리소스에 대한 권한 액세스하는지 확인하는 기능을 제공하고, 직원의 생산성을 보장하면서 중요한 자산에 대한 액세스를 보호하고, 모니터링하고, 감사할 수 있습니다.  
 
-ID 거버넌스는 조직에 직원, 비즈니스 파트너와 공급 업체 및 서비스와 응용 프로그램에서 다음을 수행하는 기능을 제공합니다.
+ID 거버넌스는 조직에 직원, 비즈니스 파트너와 공급 업체 및 서비스와 애플리케이션에서 다음을 수행하는 기능을 제공합니다.
 
 - ID 수명 주기 거버넌스
 - 액세스 수명 주기 거버넌스
@@ -41,7 +41,7 @@ ID 거버넌스는 조직에 직원, 비즈니스 파트너와 공급 업체 및
 
 ## <a name="identity-lifecycle"></a>ID 수명 주기
 
-ID 거버넌스를 통해 조직이 *생산성* 간에 균형을 설정할 수 있습니다. 사용자가 조직에 조인할 때와 같이 필요한 리소스에 얼마나 빠르게 액세스할 수 있나요? *보안* - 해당하는 사람의 고용 상태의 변경 내용과 같이 시간이 지남에 따라 해당하는 액세스를 어떻게 변경해야 하나요?  ID 수명 주기 관리는 ID 거버넌스의 기반이며 대규모의 효과적인 거버넌스에는 응용 프로그램에 대한 ID 수명 주기 관리 인프라를 현대화해야 합니다.
+ID 거버넌스를 통해 조직이 *생산성* 간에 균형을 설정할 수 있습니다. 사용자가 조직에 조인할 때와 같이 필요한 리소스에 얼마나 빠르게 액세스할 수 있나요? *보안* - 해당하는 사람의 고용 상태의 변경 내용과 같이 시간이 지남에 따라 해당하는 액세스를 어떻게 변경해야 하나요?  ID 수명 주기 관리는 ID 거버넌스의 기반이며 대규모의 효과적인 거버넌스에는 애플리케이션에 대한 ID 수명 주기 관리 인프라를 현대화해야 합니다.
 
 많은 조직에서 직원의 ID 수명 주기가 HCM(인적 자원 관리) 시스템에서 해당 사용자의 표현에 연결됩니다.  Azure AD Premium은 [Workday 인바운드 프로비전(미리 보기) 자습서](../saas-apps/workday-inbound-tutorial.md)에 설명된 대로 Active Directory와 Azure Active Directory 모두의 Workday에 표시된 사람에 대한 사용자 ID를 자동으로 유지합니다.  또한 Azure AD Premium에는 SAP, Oracle eBusiness 및 Oracle PeopleSoft와 같은 온-프레미스 HCM 시스템에서 레코드를 가져올 수 있는 [Microsoft Identity Manager](/microsoft-identity-manager/)가 포함됩니다.
 
@@ -51,11 +51,11 @@ ID 거버넌스를 통해 조직이 *생산성* 간에 균형을 설정할 수 �
 
 조직은 사용자의 ID를 만들 때 해당 사용자에 대해 처음으로 프로비전된 범위를 넘어서 액세스를 관리하는 프로세스가 필요합니다.  또한 기업 조직은 액세스 정책 및 컨트롤을 지속적으로 개발하고 적용할 수 있도록 효율적으로 규모를 조정해야 합니다.
 
-IT 대리자는 일반적으로 비즈니스 의사 결정권자에 대한 승인 결정에 액세스합니다.  또한 IT에는 사용자가 스스로가 포함될 수 있습니다.  예를 들어 유럽에 있는 회사의 마케팅 응용 프로그램에서 기밀 고객 데이터에 액세스하는 사용자는 회사의 정책을 알아야 합니다. 게스트 사용자는 초대된 조직의 데이터에 대해 처리 중인 요구 사항을 인식하지 못할 수 있습니다.
+IT 대리자는 일반적으로 비즈니스 의사 결정권자에 대한 승인 결정에 액세스합니다.  또한 IT에는 사용자가 스스로가 포함될 수 있습니다.  예를 들어 유럽에 있는 회사의 마케팅 애플리케이션에서 기밀 고객 데이터에 액세스하는 사용자는 회사의 정책을 알아야 합니다. 게스트 사용자는 초대된 조직의 데이터에 대해 처리 중인 요구 사항을 인식하지 못할 수 있습니다.
 
-조직은 [동적 그룹](../users-groups-roles/groups-dynamic-membership.md)과 같은 기술을 통해 액세스 수명 주기 프로세스를 자동화하여 [SaaS 앱](../saas-apps/tutorial-list.md) 또는 [SCIM과 통합된 앱](../manage-apps/use-scim-to-provision-users-and-groups.md)에 프로비전한 사용자와 결합할 수 있습니다.  조직은 [온-프레미스 응용 프로그램에 액세스할 수 있는 게스트 사용자](../b2b/hybrid-cloud-to-on-premises.md)를 제어할 수도 있습니다.  그런 다음, 정기 [Azure AD 액세스 검토](access-reviews-overview.md)를 사용하여 이러한 액세스 권한을 정기적으로 검토할 수 있습니다.
+조직은 [동적 그룹](../users-groups-roles/groups-dynamic-membership.md)과 같은 기술을 통해 액세스 수명 주기 프로세스를 자동화하여 [SaaS 앱](../saas-apps/tutorial-list.md) 또는 [SCIM과 통합된 앱](../manage-apps/use-scim-to-provision-users-and-groups.md)에 프로비전한 사용자와 결합할 수 있습니다.  조직은 [온-프레미스 애플리케이션에 액세스할 수 있는 게스트 사용자](../b2b/hybrid-cloud-to-on-premises.md)를 제어할 수도 있습니다.  그런 다음, 정기 [Azure AD 액세스 검토](access-reviews-overview.md)를 사용하여 이러한 액세스 권한을 정기적으로 검토할 수 있습니다.
 
-사용자가 응용 프로그램에 액세스하려고 하는 경우 Azure AD는 [조건부 액세스](/azure/active-directory/conditional-access/) 정책을 적용합니다. 예를 들어, 조건부 액세스 정책에는 응용 프로그램에 액세스하기 전에 [사용 약관](active-directory-tou.md)을 표시하고 [사용자가 해당 약관에 동의했는지 확인](../conditional-access/require-tou.md)하는 작업이 포함될 수 있습니다.
+사용자가 애플리케이션에 액세스하려고 하는 경우 Azure AD는 [조건부 액세스](/azure/active-directory/conditional-access/) 정책을 적용합니다. 예를 들어, 조건부 액세스 정책에는 애플리케이션에 액세스하기 전에 [사용 약관](active-directory-tou.md)을 표시하고 [사용자가 해당 약관에 동의했는지 확인](../conditional-access/require-tou.md)하는 작업이 포함될 수 있습니다.
 
 ## <a name="privileged-access-lifecycle"></a>권한 있는 액세스 수명 주기
 

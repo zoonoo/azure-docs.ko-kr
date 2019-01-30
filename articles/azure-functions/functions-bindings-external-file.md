@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: cshoe
-ms.openlocfilehash: 39036f17b8ceafebbe3660f2074e2a6c84c4df03
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 765eab8dfc1163c4d9e0337a1af840278ae1a82c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248696"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546269"
 ---
 # <a name="azure-functions-external-file-bindings-experimental"></a>Azure Functions 외부 파일 바인딩(실험)
 이 문서에서는 Azure Functions에서 다른 SaaS 공급자(예: Dropbox 또는 Google Drive)로부터 파일을 조작하는 방법을 보여 줍니다. Azure Functions는 외부 파일에 대한 트리거, 입력 및 출력 바인딩을 지원합니다. 이러한 바인딩은 SaaS 공급자에 대한 API 연결을 만들거나 함수 앱의 리소스 그룹에서 기존 API 연결을 사용합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "50248696"
 |:-----|:---:|:---:|:---:|
 |[Box](https://www.box.com)|x|x|x
 |[Dropbox](https://www.dropbox.com)|x|x|x
-|[FTP](https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp)|x|x|x
+|[FTP](https://docs.microsoft.com/azure/app-service/deploy-ftp)|x|x|x
 |[OneDrive](https://onedrive.live.com)|x|x|x
 |[OneDrive for Business](https://onedrive.live.com/about/business/)|x|x|x
 |[SFTP](https://docs.microsoft.com/azure/connectors/connectors-create-api-sftp)|x|x|x
@@ -204,7 +204,7 @@ To force reprocessing of a file, delete the file receipt for that file from the 
 * FileType
 * FolderName
 * FileName
-* ETag(파일 버전 식별자, 예: "0x8D1DC6E70A277EF")
+* ETag(파일 버전 식별자, 예: “0x8D1DC6E70A277EF”)
 
 ## <a name="input"></a>입력
 

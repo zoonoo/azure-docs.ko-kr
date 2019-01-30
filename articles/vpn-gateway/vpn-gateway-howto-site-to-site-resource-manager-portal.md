@@ -1,18 +1,18 @@
 ---
-title: '온-프레미스 네트워크를 Azure Virtual Network에 연결: 사이트 간 VPN: Portal | Microsoft Docs'
+title: 'Azure 가상 네트워크에 온-프레미스 네트워크 연결: 사이트 간 VPN: 포털 | Microsoft Docs'
 description: 공용 인터넷을 통해 온-프레미스 네트워크에서 Azure Virtual Network에 IPsec을 만드는 단계입니다. 이 단계는 포털을 사용하여 크로스-프레미스 사이트 간 VPN Gateway 연결을 만드는 데 도움이 됩니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 12/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: dd29b4af85826e350e116b31fa53031aacaba067
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 032b6a4f5147d06a4613a827a0372437dca47f47
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457122"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651642"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Azure Portal에서 사이트 간 연결 만들기
 
@@ -35,7 +35,7 @@ ms.locfileid: "49457122"
 구성을 시작하기 전에 다음 기준을 충족하는지 확인합니다.
 
 * 호환되는 VPN 디바이스 및 이 디바이스를 구성할 수 있는 사람이 있는지 확인합니다. 호환되는 VPN 디바이스 및 디바이스 구성에 대한 자세한 내용은 [VPN 디바이스 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요.
-* VPN 디바이스에 대한 외부 연결 공용 IPv4 주소가 있는지 확인합니다. 이 IP 주소는 NAT 뒤에 배치할 수 없습니다.
+* VPN 디바이스에 대한 외부 연결 공용 IPv4 주소가 있는지 확인합니다.
 * 온-프레미스 네트워크에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다. 이 구성을 만들 때 Azure가 온-프레미스 위치에 라우팅할 IP 주소 범위 접두사를 지정해야 합니다. 온-프레미스 네트워크의 어떤 서브넷도 사용자가 연결하려는 가상 네트워크 서브넷과 중첩될 수 없습니다. 
 
 ### <a name="values"></a>예제 값
@@ -44,16 +44,16 @@ ms.locfileid: "49457122"
 
 * **VNet 이름:** TestVNet1
 * **주소 공간:** 10.1.0.0/16
-* **구독:** 사용할 구독을 선택합니다.
+* **구독:** 사용할 구독
 * **리소스 그룹:** TestRG1
 * **위치:** 미국 동부
 * **서브넷:** 프런트 엔드: 10.1.0.0/24, 백 엔드: 10.1.1.0/24(이 연습의 선택 사항)
 * **게이트웨이 서브넷 이름:** GatewaySubnet(포털에서 자동으로 채워짐)
-* **게이트웨이 서브넷 주소 범위:** 10.1.255.0/27
-* **DNS 서버:** 8.8.8.8 - 선택 사항입니다. DNS 서버의 IP 주소입니다.
-* **Virtual Network 게이트웨이 이름:** VNet1GW
-* **공용 IP:** VNet1GWIP
-* **VPN 유형:** 경로 기반
+* **게이트웨이 서브넷 주소 범위**: 10.1.255.0/27
+* **DNS 서버:** 8.8.8.8 - 선택 사항 DNS 서버의 IP 주소입니다.
+* **가상 네트워크 게이트웨이 이름:** VNet1GW
+* **공용 IP**: VNet1GWIP
+* **VPN 유형**: 경로 기반
 * **연결 형식:** 사이트 간(IPsec)
 * **게이트웨이 유형:** VPN
 * **로컬 네트워크 게이트웨이 이름:** Site1

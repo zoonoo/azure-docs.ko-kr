@@ -1,10 +1,10 @@
 ---
 title: Azure의 하이브리드 ID 디자인 - 채택 전략 | Microsoft Docs
-description: 조건부 액세스 제어를 통해 Azure Active Directory는 사용자를 인증할 때 및 응용 프로그램에 대한 액세스를 허용하기 전에 선택한 특정 조건을 확인합니다. 이러한 조건이 충족되면 사용자가 인증되고 응용 프로그램에 대한 액세스가 허용됩니다.
+description: 조건부 액세스 제어를 통해 Azure Active Directory는 사용자를 인증할 때 및 애플리케이션에 대한 액세스를 허용하기 전에 선택한 특정 조건을 확인합니다. 이러한 조건이 충족되면 사용자가 인증되고 애플리케이션에 대한 액세스가 허용됩니다.
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5aeefe82255d40938eff09d7920e2fd5aca94c95
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 50f2d3f3ad934668c4a243b387b56db48c3e7d35
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308302"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471806"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>하이브리드 ID 채택 전략 정의
 이 작업에서 하이브리드 ID 솔루션에 대한 하이브리드 ID 채택 전략을 정의하여 다음에서 설명한 비즈니스 요구 사항을 충족합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "46308302"
 * [Multi-Factor Authentication 요구 사항 결정](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## <a name="define-business-needs-strategy"></a>비즈니스 요구 사항 전략 정의
-첫 번째 작업은 조직 비즈니스 필요를 다룹니다.  신중하지 않으면 매우 광범위한 범위 변형이 발생할 수 있습니다.  처음에 단순하게 유지하지만 나중에 변화를 수용하고 촉진하는 설계에 대한 계획을 항상 기억합니다.  간단한 설계 또는 매우 복잡한 설계에 관계 없이 Azure Active Directory는 Office 365, Microsoft 온라인 서비스 및 클라우드 인식 응용 프로그램을 지원하는 Microsoft ID 플랫폼입니다.
+첫 번째 작업은 조직 비즈니스 필요를 다룹니다.  신중하지 않으면 매우 광범위한 범위 변형이 발생할 수 있습니다.  처음에 단순하게 유지하지만 나중에 변화를 수용하고 촉진하는 설계에 대한 계획을 항상 기억합니다.  간단한 설계 또는 매우 복잡한 설계에 관계 없이 Azure Active Directory는 Office 365, Microsoft 온라인 서비스 및 클라우드 인식 애플리케이션을 지원하는 Microsoft ID 플랫폼입니다.
 
 ## <a name="define-an-integration-strategy"></a>통합 전략 정의
 Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3개의 주요 통합 시나리오가 있습니다.  이러한 통합 전략 중 하나를 채택하도록 계획해야 합니다.  어떤 사용자 환경을 제공할 것인지, 기존 인프라가 있는지, 가장 비용 효과적인 방법은 무엇인지에 따라 선택하는 전략이 달라질 수 있습니다.  
@@ -60,7 +60,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 ### <a name="client-experience"></a>클라이언트 환경
 사용자 로그인 환경을 결정하는 데 사용하는 전략입니다.  다음 테이블에서는 어떤 사용자가 해당 로그인 환경을 예상해야 하는지에 대한 정보를 제공합니다.  페더레이션된 모든 ID 공급자가 모든 시나리오에서 SSO를 지원하는 것은 아닙니다.
 
-**도메인 가입된 개인 네트워크 응용 프로그램**:
+**도메인 가입된 개인 네트워크 애플리케이션**:
 
 |  | 동기화된 ID | 페더레이션된 ID |
 | --- | --- | --- |
@@ -81,7 +81,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 
 타사 IdP가 있거나 Azure AD의 페더레이션을 제공하는 IdP를 사용하도록 작업1에서 결정한 경우 지원되는 다음 기능에 주의해야 합니다.
 
-* SP-Lite 프로필 규격인 SAML 2.0 공급자는 Azure AD 및 관련 응용 프로그램에 인증을 지원할 수 있습니다.
+* SP-Lite 프로필 규격인 SAML 2.0 공급자는 Azure AD 및 관련 애플리케이션에 인증을 지원할 수 있습니다.
 * OWA, SPO 등에 대한 인증을 용이하게 하는 수동 인증을 지원합니다.
 * Exchange Online 클라이언트는 SAML 2.0 ECP(향상된 클라이언트 프로필)를 통해 지원될 수 있습니다.
 
@@ -92,7 +92,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 * 수동 인증에 Office를 전환하면 순수하게 SAML 2.0 IdP를 지원할 수 있지만 지원은 클라이언트 별 기준입니다.
 
 > [!NOTE]
-> 최근 업데이트된 목록은 https://aka.ms/ssoproviders 문서를 읽어보세요.
+> 최근 업데이트된 목록은 [Azure AD 페더레이션 호환성 목록](how-to-connect-fed-compatibility.md)을 참조하세요.
 > 
 > 
 
@@ -183,8 +183,8 @@ Multi-Factor 설계 옵션:
 | --- | --- | --- |
 | Microsoft 앱 |예 |예 |
 | 앱 갤러리의 SaaS 앱 |예 |예 |
-| Azure AD 응용프로그램 프록시를 통해 IIS 응용프로그램 게시됨 |예 |예 |
-| Azure AD 응용 프로그램 프록시를 통해 IIS 응용 프로그램이 게시되지 않음 |no |예 |
+| Azure AD 앱 프록시를 통해 IIS 애플리케이션 게시됨 |예 |예 |
+| Azure AD 애플리케이션 프록시를 통해 IIS 애플리케이션이 게시되지 않음 |no |예 |
 | VPN 및 RDG와 같은 원격 액세스 |no |예 |
 
 전략에 대한 솔루션에 적응했더라도 여전히 사용자가 있는 위치의 위쪽에서 평가를 사용해야 합니다.  솔루션을 변경할 수 있습니다.  아래 테이블을 사용하여 다음을 결정하는 데 도움이 됩니다.

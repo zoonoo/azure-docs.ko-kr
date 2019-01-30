@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 0e8138f66c9284531b9610c9bc2996974e2075ad
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: 8eb02eadba68f4e226e09e8e243e6c88eb0dc9fe
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339512"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239199"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack 원격 분석
 
@@ -68,7 +69,7 @@ Windows 레지스트리 편집기는 Azure Stack을 배포 하기 전에 물리�
 Azure Stack 개발 키트 호스트를 배포 하기 전에 CloudBuilder.vhdx 부팅할 및 관리자 권한 PowerShell 창에서 다음 스크립트를 실행 합니다.
 
 ```powershell
-### Get current AllowTelmetry value on DVM Host
+### Get current AllowTelemetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
 ### Set & Get updated AllowTelemetry value for ASDK-Host

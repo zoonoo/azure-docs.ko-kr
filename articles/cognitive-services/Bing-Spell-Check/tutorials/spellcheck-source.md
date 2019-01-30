@@ -1,7 +1,7 @@
 ---
 title: '자습서: Bing Spell Check API를 사용하여 맞춤법 검사 결과 가져오기'
 titlesuffix: Azure Cognitive Services
-description: 단일 페이지 웹 응용 프로그램에서 Bing Spell Check API를 사용하는 방법을 보여 주는 자습서의 소스 코드입니다.
+description: 단일 페이지 웹 애플리케이션에서 Bing Spell Check API를 사용하는 방법을 보여 주는 자습서의 소스 코드입니다.
 services: cognitive-services
 author: aahill
 manager: cgronlun

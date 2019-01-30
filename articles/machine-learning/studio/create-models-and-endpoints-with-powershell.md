@@ -1,29 +1,10 @@
 ---
-title: 한 실험에서 여러 모델 만들기 - Azure Machine Learning Studio | Microsoft Docs
-description: PowerShell을 사용하여 알고리즘은 동일하지만 다른 학습 데이터 세트로 여러 Machine Learning 모델 및 웹 서비스 엔드포인트를 만듭니다.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=haining, author=hning86)
-ms.author: amlstudiodocs
-manager: mwinkle
-editor: cgronlun
-ms.assetid: 1076b8eb-5a0d-4ac5-8601-8654d9be229f
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/04/2017
-ms.openlocfilehash: e1a6eb4f61869c3c6299011c46a5953f93cc7305
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316568"
+제목: Studio 실험 하나에서 여러 모델 만들기 titleSuffix: Azure Machine Learning Studio 설명: PowerShell을 사용하여 알고리즘은 동일하지만 다른 학습 데이터 세트로 여러 Machine Learning 모델 및 웹 서비스 엔드포인트를 만듭니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 2017/04/04
 ---
-# <a name="azure-machine-learning-studio-use-powershell-to-create-many-models-and-web-service-endpoints-from-one-experiment"></a>Azure Machine Learning Studio: PowerShell을 사용하여 한 실험에서 여러 모델 및 웹 서비스 엔드포인트 만들기
+# <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>PowerShell을 사용하여 한 실험에서 Studio 모델 및 웹 서비스 엔드포인트 만들기
 
 일반적인 기계 학습 문제는 동일한 학습 워크플로를 포함하고 동일한 알고리즘을 사용하지만 서로 다른 학습 데이터 세트를 입력으로 사용하려는 것입니다. 이 문서에서는 단일 실험을 사용하여 Azure Machine Learning Studio에서 대규모로 이 작업을 수행하는 방법을 보여 줍니다.
 
@@ -48,7 +29,7 @@ ms.locfileid: "52316568"
 > 
 > 
 
-이 실험에서는 **데이터 가져오기** 모듈을 사용하여 Azure 저장소 계정에서 학습 데이터 세트 *customer001.csv* 를 가져옵니다. 모든 자전거 임대 위치에서 학습 데이터 세트를 수집하고 이를 *rentalloc001.csv*에서 *rentalloc10.csv*까지 범위의 파일 이름으로 동일한 Blob Store 위치에 저장한다고 가정해 보겠습니다.
+이 실험에서는 **데이터 가져오기** 모듈을 사용하여 Azure 저장소 계정에서 학습 데이터 세트 *customer001.csv* 를 가져옵니다. 모든 자전거 임대 위치에서 학습 데이터 집합을 수집하고 이를 *rentalloc001.csv*에서 *rentalloc10.csv*까지 범위의 파일 이름으로 동일한 Blob Storage 위치에 저장한다고 가정해 보겠습니다.
 
 ![이미지](./media/create-models-and-endpoints-with-powershell/reader-module.png)
 
@@ -100,7 +81,7 @@ ms.locfileid: "52316568"
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>PowerShell을 사용하여 별도의 학습 데이터 세트를 사용하도록 엔드포인트 업데이트
 다음 단계는 각 고객의 개별 데이터에서 고유하게 학습된 모델로 엔드포인트를 업데이트하는 것입니다. 하지만 먼저 **Bike Rental Training** 웹 서비스에서 이러한 모델을 생성해야 합니다. **Bike Rental Training** 웹 서비스를 다시 살펴보겠습니다. 10가지 서로 다른 모델을 생성하기 위해서는 10개의 서로 다른 학습 데이터 세트로 BES 엔드포인트를 10번 호출해야 합니다. **InovkeAmlWebServiceBESEndpoint** PowerShell cmdlet을 사용하여 이 작업을 수행합니다.
 
-Blob 저장소 계정에 대한 자격 증명을 `$configContent`, 즉 `AccountName`, `AccountKey` 및 `RelativeLocation` 필드에 제공해야 합니다. `AccountName`은 **Azure Portal**(*저장소* 탭)에 표시되는 계정 이름 중 하나일 수 있습니다. 저장소 계정에서 클릭하면 아래쪽의 **선택키 관리** 단추를 누르고 *기본 선택키*를 복사하여 해당 `AccountKey`를 찾을 수 있습니다. `RelativeLocation`은 새 모델을 저장할 저장소의 상대적인 경로입니다. 예를 들어 다음 스크립트의 경로 `hai/retrain/bike_rental/`은 `hai`라는 컨테이너를 가리키고 `/retrain/bike_rental/`은 하위 폴더입니다. 현재 포털 UI 통해 하위 폴더를 만들 수는 없지만 [여러 Azure Storage 탐색기](../../storage/common/storage-explorers.md)에서 이 작업을 수행할 수 있습니다. 다음과 같이 학습된 새 모델(.iLearner 파일)을 저장할 새 컨테이너를 저장소에 만드는 것이 좋습니다. 저장소 페이지 아래쪽의 **추가** 단추를 클릭하고 `retrain`으로 이름을 지정합니다. 요약하면 다음 스크립트의 필수 변경 내용은 `AccountName`, `AccountKey` 및 `RelativeLocation`(:`"retrain/model' + $seq + '.ilearner"`)과 관련이 있습니다.
+Blob Storage 계정에 대한 자격 증명을 `$configContent`, 즉 `AccountName`, `AccountKey` 및 `RelativeLocation` 필드에 제공해야 합니다. `AccountName`은 **Azure Portal**(*저장소* 탭)에 표시되는 계정 이름 중 하나일 수 있습니다. 저장소 계정에서 클릭하면 아래쪽의 **선택키 관리** 단추를 누르고 *기본 선택키*를 복사하여 해당 `AccountKey`를 찾을 수 있습니다. `RelativeLocation`은 새 모델을 저장할 저장소의 상대적인 경로입니다. 예를 들어 다음 스크립트의 경로 `hai/retrain/bike_rental/`은 `hai`라는 컨테이너를 가리키고 `/retrain/bike_rental/`은 하위 폴더입니다. 현재 포털 UI 통해 하위 폴더를 만들 수는 없지만 [여러 Azure Storage 탐색기](../../storage/common/storage-explorers.md)에서 이 작업을 수행할 수 있습니다. 다음과 같이 학습된 새 모델(.iLearner 파일)을 저장할 새 컨테이너를 저장소에 만드는 것이 좋습니다. 저장소 페이지 아래쪽의 **추가** 단추를 클릭하고 `retrain`으로 이름을 지정합니다. 요약하면 다음 스크립트의 필수 변경 내용은 `AccountName`, `AccountKey` 및 `RelativeLocation`(:`"retrain/model' + $seq + '.ilearner"`)과 관련이 있습니다.
 
     # Invoke the retraining API 10 times
     # This is the default (and the only) endpoint on the training web service

@@ -38,7 +38,7 @@ Media Services를 Storage SDK 종속성과 분리하기 위해 AssetFiles가 AMS
 
 ## <a name="where-did-client-side-storage-encryption-go"></a>클라이언트 쪽 저장소 암호화는 어디에 있나요?
 
-이제 서버 쪽 저장소 암호화(기본적으로 설정됨)를 사용하는 것이 좋습니다. 자세한 내용은 [미사용 데이터에 대한 Azure Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 참조하세요.
+이제 서버 쪽 스토리지 암호화(기본적으로 설정됨)를 사용하는 것이 좋습니다. 자세한 내용은 [미사용 데이터에 대한 Azure Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 참조하세요.
 
 ## <a name="what-is-the-recommended-upload-method"></a>권장되는 업로드 방법은 무엇인가요?
 

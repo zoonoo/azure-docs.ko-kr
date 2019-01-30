@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 185c4685de0c889c3b6e7b173445546ed5b7d921
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/16/2018
+ms.openlocfilehash: 38b5ac475667013da463bbd1871bcd380e02a744
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955415"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245306"
 ---
 # <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>고급 Azure Stack 개발 키트 평가 작업
 기본 Azure Stack 개발 키트 (ASDK) 서비스 기능 및 기능에 알고 나면 있습니다 수 파악해 보세요 추가 Azure Stack의 고급 시나리오를 테스트 하 여 합니다. 이러한 고급 평가 작업은 Azure Stack 연산자 설명서에서 완벽 하 게 설명 되어 있습니다.

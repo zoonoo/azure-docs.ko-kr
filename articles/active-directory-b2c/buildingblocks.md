@@ -3,19 +3,19 @@ title: BuildingBlocks - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책의 BuildingBlocks 요소를 지정하는 방법을 설명합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 85fbbc4e489c7b48f7dc95de1738636b7383de16
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 3075c047dd4ff42d0578a6824d95a0f4b822292a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419409"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848549"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
@@ -25,8 +25,8 @@ ms.locfileid: "47419409"
 
 ```XML
 <TrustFrameworkPolicy
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="https://www.w3.org/2001/XMLSchema"
   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
   PolicySchemaVersion="0.3.0.0"
   TenantId="mytenant.onmicrosoft.com"
@@ -57,7 +57,7 @@ ms.locfileid: "47419409"
 
 **BuildingBlocks** 요소에는 다음 요소가 포함됩니다. 이러한 요소는 정의된 순서대로 지정해야 합니다.
 
-- [ClaimsSchema](claimsschema.md) - 정책의 일부로 참조할 수 있는 클레임 형식을 정의합니다. 클레임 스키마에서 클레임 형식을 정의합니다. 클레임 형식은 대다수 프로그래밍 언어의 변수와 비슷합니다. 클레임 형식을 사용하여 응용 프로그램 사용자의 데이터를 수집하거나, 소셜 ID 공급자에서 클레임을 수신하거나, 사용자 지정 REST API에서 데이터를 전송 및 수신하거나, 사용자 지정 정책에 사용되는 내부 데이터를 저장할 수 있습니다. 
+- [ClaimsSchema](claimsschema.md) - 정책의 일부로 참조할 수 있는 클레임 형식을 정의합니다. 클레임 스키마에서 클레임 형식을 정의합니다. 클레임 형식은 대다수 프로그래밍 언어의 변수와 비슷합니다. 클레임 형식을 사용하여 애플리케이션 사용자의 데이터를 수집하거나, 소셜 ID 공급자에서 클레임을 수신하거나, 사용자 지정 REST API에서 데이터를 전송 및 수신하거나, 사용자 지정 정책에 사용되는 내부 데이터를 저장할 수 있습니다. 
 
 - [Predicates 및 PredicateValidationsInput](predicates.md) - 적절한 형식의 데이터만 클레임에 입력하도록 유효성 검사 프로세스를 수행할 수 있습니다.
  

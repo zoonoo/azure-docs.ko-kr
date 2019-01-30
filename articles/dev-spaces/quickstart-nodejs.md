@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: efb3e63841dbe88bd8711881b373ab505468eabd
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 52cca29392f226aa0f33081b9303a8c5d1f41036
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51704769"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413339"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>빠른 시작: Azure Dev Spaces(Node.js)를 사용하여 Kubernetes 개발 환경 만들기
 
@@ -33,16 +33,16 @@ ms.locfileid: "51704769"
 - Azure 구독. Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 버전 2.0.43 이상.
-- 미국 동부, 미국 동부 2, 미국 중부, 미국 서부 2, 서유럽, 동남 아시아, 캐나다 중부 또는 캐나다 동부 지역에서 **Http 응용 프로그램 라우팅**이 활성화된 상태로 Kubernetes 1.9.6 이상을 실행하는 Kubernetes 클러스터.
+- 미국 동부, 미국 동부 2, 미국 중부, 미국 서부 2, 서유럽, 동남 아시아, 캐나다 중부 또는 캐나다 동부 지역에서 **Http 애플리케이션 라우팅**이 활성화된 상태로 Kubernetes 1.9.6 이상을 실행하는 Kubernetes 클러스터.
 
     ```cmd
     az group create --name MyResourceGroup --location <region>
-    az aks create -g MyResourceGroup -n myAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing --generate-ssh-keys
+    az aks create -g MyResourceGroup -n myAKS --location <region> --kubernetes-version 1.10.9 --enable-addons http_application_routing --generate-ssh-keys
     ```
 
 ## <a name="set-up-azure-dev-spaces"></a>Azure Dev Spaces 설치
 
-Azure CLI 및 Azure Dev Spaces 확장은 Windows, Mac 또는 Linux 머신에 설치하여 실행할 수 있습니다. Linux에 지원되는 배포판은 Ubuntu(18.04, 16.04, 14.04), Debian 8 및 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2 및 SLES 12입니다.
+Azure CLI 및 Azure Dev Spaces 확장은 Windows, Mac 또는 Linux 머신에 설치하여 실행할 수 있습니다. Linux의 경우 지원되는 배포는 Ubuntu(18.04, 16.04, 14.04), Debian 8 및 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2 및 SLES 12입니다.
 
 다음 단계에 따라 Azure Dev Spaces를 설치합니다.
 

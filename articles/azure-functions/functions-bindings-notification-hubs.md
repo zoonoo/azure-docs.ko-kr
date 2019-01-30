@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: e51a74783f7d7f080d1caa237bb7aabab0100e72
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 72c0db44e1f56cab190f343a87c6b453625a7f70
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248589"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996025"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Azure Functions에 대한 Notification Hubs 출력 바인딩
 
@@ -28,7 +28,7 @@ Azure Notification Hubs는 사용할 PNS(플랫폼 알림 서비스)에 대해 �
 
 ## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 
-Notification Hubs는 [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet 패키지 버전 1.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) GitHub 리포지토리에 있습니다.
+Notification Hubs는 [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet 패키지 버전 1.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -322,9 +322,9 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 1. [Azure Portal](https://portal.azure.com)에서 알림 허브로 이동한 후 **액세스 정책**을 선택하고 **DefaultFullSharedAccessSignature** 정책 옆에 있는 복사 단추를 선택합니다. 그러면 *DefaultFullSharedAccessSignature* 정책에 대한 연결 문자열이 알림 허브로 복사됩니다. 이 연결 문자열을 사용하면 함수로 허브에 알림 메시지를 보낼 수 있습니다.
     ![알림 허브 연결 문자열 복사](./media/functions-bindings-notification-hubs/get-notification-hub-connection.png)
-1. Azure Portal에서 함수 앱으로 이동한 후 **응용 프로그램 설정**을 선택하고 **MyHubConnectionString**과 같은 키를 추가한 다음, 알림 허브에 대해 복사한 *DefaultFullSharedAccessSignature*를 값으로 붙여넣고 **저장**을 클릭합니다.
+1. Azure Portal에서 함수 앱으로 이동한 후 **애플리케이션 설정**을 선택하고 **MyHubConnectionString**과 같은 키를 추가한 다음, 알림 허브에 대해 복사한 *DefaultFullSharedAccessSignature*를 값으로 붙여넣고 **저장**을 클릭합니다.
 
-이 응용 프로그램 설정의 이름은 *function.json* 또는 .NET 특성의 출력 바인딩 연결 설정에 들어가는 내용입니다. 이 문서의 앞쪽에 있는 [구성 섹션](#configuration)을 참조하세요.
+이 애플리케이션 설정의 이름은 *function.json* 또는 .NET 특성의 출력 바인딩 연결 설정에 들어가는 내용입니다. 이 문서의 앞쪽에 있는 [구성 섹션](#configuration)을 참조하세요.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

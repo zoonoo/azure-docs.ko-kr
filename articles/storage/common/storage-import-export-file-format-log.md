@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: b842a80762989c34ae278a397cc49c088ff77fb2
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 2ae44edf0d9356000f64ab72fd609f1921cf095c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525521"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316593"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure Import/Export 서비스 로그 파일 형식
 Microsoft Azure Import/Export 서비스가 드라이브에서 가져오기 작업 또는 내보내기 작업의 일부로 작업을 수행하는 경우 로그는 해당 작업과 연결된 저장소 계정의 블록 Blob에 작성됩니다.  
@@ -74,7 +74,7 @@ page-range-list ::=
 <PageRangeList>  
       [<PageRange Offset="page-range-offset" Length="page-range-length"   
        [Hash="md5-hash"] Status="page-range-status"/>]  
-      [<PageRange Offset="page-range-offset" Length="page-range-length"   
+      [<PageRange Offset="page-range-offset" Length="page-range-length"   
        [Hash="md5-hash"] Status="page-range-status"/>]  
 </PageRangeList>  
   
@@ -82,7 +82,7 @@ block-list ::=
 <BlockList>  
       [<Block Offset="block-offset" Length="block-length" [Id="block-id"]  
        [Hash="md5-hash"] Status="block-status"/>]  
-      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
+      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
        [Hash="md5-hash"] Status="block-status"/>]  
 </BlockList>  
   
@@ -142,7 +142,7 @@ properties-status ::=
 |`Properties/Path/@Hash`|특성, 문자열|속성 파일의 Base16 인코딩 MD5 해시입니다.|  
 |`Blob/Status`|문자열|Blob을 처리하는 상태입니다.|  
   
-# <a name="drive-status-codes"></a>드라이브 상태 코드  
+## <a name="drive-status-codes"></a>드라이브 상태 코드  
 다음 테이블에서는 드라이브를 처리하는 상태 코드를 나열합니다.  
   
 |상태 코드|설명|  

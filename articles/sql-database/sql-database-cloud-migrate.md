@@ -4,21 +4,21 @@ description: 클라우드에서 Azure SQL Database로 SQL Server 데이터베이
 keywords: 데이터베이스 마이그레이션, SQL Server 데이터베이스 마이그레이션, 데이터베이스 마이그레이션 도구, 데이터베이스 마이그레이션, SQL 데이터베이스 마이그레이션
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: douglaslMS
+ms.author: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 77aab172c5e7f2dc088da49b636e2ec04299f2e5
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 89cf69ba8bc88a40582ea795b6a17fab4f286d64
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353210"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651983"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Azure SQL Database로 SQL Server 데이터베이스 마이그레이션
 
@@ -28,14 +28,14 @@ ms.locfileid: "49353210"
 
 Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database의 단일 또는 풀링된 데이터베이스로 마이그레이션하는 2가지 주요 방법이 있습니다. 첫 번째 방법이 더 간단하지만, 마이그레이션하는 동안 다소 상당한 가동 중지 시간이 있을 수 있습니다. 두 번째 방법은 좀 복잡하지만, 마이그레이션하는 동안 가동 중지 시간이 대폭 줄어듭니다.
 
-두 경우 모두 [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)를 사용하여 원본 데이터베이스가 Azure SQL Database와 호환되는지 확인해야 합니다. SQL Database V12는 서버 수준 및 데이터베이스 간 작업 관련 문제를 제외하고 SQL Server를 사용하여 [기능 패리티](sql-database-features.md)에 접근합니다. SQL Server 데이터베이스를 마이그레이션하려면 [부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)을 사용하는 데이터베이스 및 응용 프로그램을 [어느 정도 다시 엔지니어링하여 이러한 비호환성 문제를 해결](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues)해야 합니다.
+두 경우 모두 [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)를 사용하여 원본 데이터베이스가 Azure SQL Database와 호환되는지 확인해야 합니다. SQL Database V12는 서버 수준 및 데이터베이스 간 작업 관련 문제를 제외하고 SQL Server를 사용하여 [기능 패리티](sql-database-features.md)에 접근합니다. SQL Server 데이터베이스를 마이그레이션하려면 [부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)을 사용하는 데이터베이스 및 애플리케이션을 [어느 정도 다시 엔지니어링하여 이러한 비호환성 문제를 해결](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues)해야 합니다.
 
 > [!NOTE]
 > Microsoft Access, Sybase, MySQL Oracle, DB2를 비롯한 비-SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션해야 할 경우 [SSMA(SQL Server Migration Assistant)](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/)를 참조하세요.
 
 ## <a name="method-1-migration-with-downtime-during-the-migration"></a>방법 1: 마이그레이션하는 동안 가동 중지 시간을 사용한 마이그레이션
 
- 약간의 가동 중지 시간이 허용되거나 나중에 마이그레이션할 수 있도록 프로덕션 데이터베이스의 테스트 마이그레이션을 수행하려면 이 방법을 사용하여 단일 또는 풀링된 데이터베이스로 마이그레이션하세요. 자습서를 보려면 [SQL Server 데이터베이스 마이그레이션](sql-database-migrate-your-sql-server-database.md)을 참조하세요.
+ 약간의 가동 중지 시간이 허용되거나 나중에 마이그레이션할 수 있도록 프로덕션 데이터베이스의 테스트 마이그레이션을 수행하려면 이 방법을 사용하여 단일 또는 풀링된 데이터베이스로 마이그레이션하세요. 자습서를 보려면 [SQL Server 데이터베이스 마이그레이션](../dms/tutorial-sql-server-to-azure-sql.md)을 참조하세요.
 
 다음 목록에는 이 방법을 사용한 단일 또는 풀링된 데이터베이스의 SQL Server 데이터베이스 마이그레이션에 대한 일반적인 워크플로가 포함되어 있습니다. Managed Instance으로의 마이그레이션에 대한 내용은 [Managed Instance로 마이그레이션](sql-database-managed-instance-migrate.md)을 참조하세요.
 
@@ -71,7 +71,7 @@ Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database의 단일 
 
 이 솔루션을 사용하려면 마이그레이션할 SQL Server 인스턴스에서 Azure SQL Database를 구독자로 구성합니다. 트랜잭션 복제 배포자는 새 트랜잭션이 계속 발생하는 동안 데이터베이스의 데이터를 동기화합니다(게시자).
 
-트랜잭션 복제를 사용하면 데이터 또는 스키마에 대한 모든 변경 내용이 Azure SQL Database에 표시됩니다. 동기화가 완료되고 마이그레이션 준비가 끝나면 Azure SQL Database를 가리키도록 응용 프로그램의 연결 문자열을 변경합니다. 트랜잭션 복제를 통해 원본 데이터베이스에 남아 있는 모든 변경 사항을 비우고 모든 응용 프로그램이 Azure DB를 가리키면 트랜잭션 복제를 제거할 수 있습니다. Azure SQL Database는 현재 프로덕션 시스템입니다.
+트랜잭션 복제를 사용하면 데이터 또는 스키마에 대한 모든 변경 내용이 Azure SQL Database에 표시됩니다. 동기화가 완료되고 마이그레이션 준비가 끝나면 Azure SQL Database를 가리키도록 애플리케이션의 연결 문자열을 변경합니다. 트랜잭션 복제를 통해 원본 데이터베이스에 남아 있는 모든 변경 사항을 비우고 모든 애플리케이션이 Azure DB를 가리키면 트랜잭션 복제를 제거할 수 있습니다. Azure SQL Database는 현재 프로덕션 시스템입니다.
 
  ![SeedCloudTR 다이어그램](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 

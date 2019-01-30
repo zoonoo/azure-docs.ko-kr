@@ -1,20 +1,21 @@
 ---
-title: Azure Event Hubs FAQ | Microsoft Docs
-description: Azure Event Hubs FAQ(질문과 대답)
+title: 질문과 대답 - Azure Event Hubs | Microsoft Docs
+description: 이 문서에서는 Azure Event Hubs에 대한 FAQ(질문과 대답) 목록 및 그에 대한 답변을 제공합니다.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.date: 10/07/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 9bd1649c0ec89abf660865971314becb6580852f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: bcbb249c6cb3c886b94f8ad68dd668cb8858ac77
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300678"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354592"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -139,7 +140,7 @@ Dedicated 클러스터의 경우 수집하고 스트림할 수 있는 양은 생
 
 Event Hubs는 소비자 그룹당 단일 파티션 판독기를 허용하도록 설계되었습니다. 대부분의 경우 기본 설정인 4개의 파티션만으로도 충분합니다. 이벤트 처리의 크기를 조정하려는 경우 추가 파티션을 추가할지 고려할 수 있습니다. 파티션에 대한 특정 처리량 제한은 없지만 네임스페이스에서 집계 처리량은 처리량 단위 수로 제한됩니다. 네임스페이스에서 처리량 단위 수를 늘리면 추가 파티션을 통해 동시 판독기가 고유한 최대 처리량을 달성하도록 할 수 있습니다.
 
-그러나 응용 프로그램에 특정 파티션에 대한 선호도가 있는 모델인 경우 파티션 수를 늘리게 되면 사용자에게 혜택이 돌아오지 않습니다. 자세한 내용은 [가용성 및 일관성](event-hubs-availability-and-consistency.md)을 참조하세요.
+그러나 애플리케이션에 특정 파티션에 대한 선호도가 있는 모델인 경우 파티션 수를 늘리게 되면 사용자에게 혜택이 돌아오지 않습니다. 자세한 내용은 [가용성 및 일관성](event-hubs-availability-and-consistency.md)을 참조하세요.
 
 ## <a name="pricing"></a>가격
 
@@ -149,11 +150,11 @@ Event Hubs 가격 책정에 대한 전체 내용은 [Event Hubs 가격 책정 �
 
 ### <a name="is-there-a-charge-for-retaining-event-hubs-events-for-more-than-24-hours"></a>24시간 이상 Event Hubs 이벤트를 유지 하려면 비용이 청구됩니까?
 
-Event Hubs 표준 계층은 최대 7일 동안 24시간을 초과하는 메시지 보존 기간을 허용합니다. 저장된 이벤트 수의 총 크기가 선택한 처리량 단위(처리량 단위당 84GB)에 대한 저장소 허용 한도를 초과하면, 해당 허용 한도를 초과하는 크기는 게시된 Azure Blob 저장소 요금으로 청구됩니다. 처리량 단위가 최대 수신 허용 한도까지 사용되었더라도 각 처리량 단위의 저장소 허용 한도는 24 시간(기본값) 동안의 보존 기간에 대한 모든 저장소 비용이 포함됩니다.
+Event Hubs 표준 계층은 최대 7일 동안 24시간을 초과하는 메시지 보존 기간을 허용합니다. File Storage에 대한 자세한 내용은 파일 서비스 REST API를 참조하세요. 처리량 단위가 최대 수신 허용 한도까지 사용되었더라도 각 처리량 단위의 저장소 허용 한도는 24 시간(기본값) 동안의 보존 기간에 대한 모든 저장소 비용이 포함됩니다.
 
 ### <a name="how-is-the-event-hubs-storage-size-calculated-and-charged"></a>Event Hubs 저장소 크기가 계산 및 청구되는 방법
 
-모든 이벤트 허브의 디스크 저장소 구조 또는 이벤트 헤더의 내부 오버헤드를 포함하여, 저장된 모든 이벤트의 전체 크기가 하루 종일 측정됩니다. 하루가 끝날 때 최대 저장소 크기가 계산됩니다. 일일 저장소 허용 한도는 하루 동안 선택된 최소 처리량 단위 수를 기준으로 계산됩니다(각 처리량 단위는 84GB의 허용 한도를 제공함) . 총 크기가 계산된 일일 저장소 허용 한도를 초과하면, 초과 저장소는 Azure Blob Storage 가격을 사용하여 청구됩니다( **로컬 중복 저장소** 속도로).
+모든 이벤트 허브의 디스크 저장소 구조 또는 이벤트 헤더의 내부 오버헤드를 포함하여, 저장된 모든 이벤트의 전체 크기가 하루 종일 측정됩니다. 하루가 끝날 때 최대 저장소 크기가 계산됩니다. 일일 저장소 허용 한도는 하루 동안 선택된 최소 처리량 단위 수를 기준으로 계산됩니다(각 처리량 단위는 84GB의 허용 한도를 제공함) . 총 크기가 계산된 일일 스토리지 허용 한도를 초과하면, 초과 스토리지는 Azure Blob Storage 가격을 사용하여 청구됩니다( **로컬 중복 스토리지** 속도로).
 
 ### <a name="how-are-event-hubs-ingress-events-calculated"></a>Event Hubs 수신 이벤트 계산하는 방법
 
@@ -180,6 +181,9 @@ AMQP 프로토콜을 사용하는 경우에 연결 요금이 적용됩니다. �
 Event Hubs 할당량의 목록은 [할당량](event-hubs-quotas.md)을 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
+
+### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>네임스페이스를 다른 구독에서 삭제한 후 만들 수 없는 이유는 무엇인가요? 
+구독에서 네임스페이스를 삭제한 후에 다른 구독에서 동일한 이름으로 다시 만들려면 4시간 정도 기다려야 합니다. 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>Event Hubs에 의해 생성된 일부 예외 및 해당 제안된 작업은 무엇인가요?
 

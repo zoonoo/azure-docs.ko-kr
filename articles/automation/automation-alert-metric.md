@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 65de18445f114f468dd42c5a7e7128dd2f63d44c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f742f6923b7d9f40a8752d77c7702e9b2ea2a4cf
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959833"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185871"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>메트릭 경고로 Runbook 모니터링
 
@@ -51,7 +51,7 @@ Azure Portal에서 Automation 계정으로 이동합니다. **모니터링**에�
 
 ### <a name="define-the-action-to-take"></a>수행할 작업 정의
 
-1. **3. 작업 그룹 정의**에서 **+ 새 작업 그룹**을 클릭합니다. 작업 그룹은 하나 이상의 경고에서 사용할 수 있는 작업의 그룹입니다. 여기에는 이메일 알림, Runbook, 웹후크 등이 포함되며 이에 국한되지 않습니다. 작업 그룹에 대해 자세히 알아보려면 [작업 그룹 만들기 및 관리](../monitoring-and-diagnostics/monitoring-action-groups.md)를 참조하세요.
+1. **3. 작업 그룹 정의**에서 **+ 새 작업 그룹**을 클릭합니다. 작업 그룹은 하나 이상의 경고에서 사용할 수 있는 작업의 그룹입니다. 여기에는 이메일 알림, Runbook, 웹후크 등이 포함되며 이에 국한되지 않습니다. 작업 그룹에 대해 자세히 알아보려면 [작업 그룹 만들기 및 관리](../azure-monitor/platform/action-groups.md)를 참조하세요.
 
 1. **작업 그룹 이름** 상자에 표시 이름과 약식 이름을 입력합니다. 약식 이름은 이 그룹을 사용하여 알림을 보내는 경우 전체 작업 그룹 이름 대신 사용됩니다.
 

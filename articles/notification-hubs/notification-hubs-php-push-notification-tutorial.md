@@ -3,8 +3,8 @@ title: PHP에서 Notification Hubs를 사용하는 방법
 description: PHP 백 엔드에서 Azure Notification Hubs를 사용하는 방법에 대해 알아봅니다.
 services: notification-hubs
 documentationcenter: ''
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 0156f994-96d0-4878-b07b-49b7be4fd856
 ms.service: notification-hubs
@@ -12,16 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: php
 ms.devlang: php
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: cf7dd8b111683a3b5b2f0a9f371c08ffb788fe58
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: dd153558e8cf3dbe64bc2693a72d16934dfb23cb
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241075"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446700"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>PHP에서 Notification Hubs를 사용하는 방법
+
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 MSDN 항목 [Notification Hubs REST API](https://msdn.microsoft.com/library/dn223264.aspx)에 설명된 대로 Notification Hubs REST 인터페이스를 사용하여 Java/PHP/Ruby 백 엔드에서 모든 Notification Hubs 기능에 액세스할 수 있습니다.
@@ -29,23 +30,29 @@ MSDN 항목 [Notification Hubs REST API](https://msdn.microsoft.com/library/dn22
 이 항목에서는 다음 방법을 보여 줍니다.
 
 * PHP에서 Notification Hubs 기능에 대한 REST 클라이언트를 빌드하는 방법
-* 선택한 모바일 플랫폼에 대한 [시작 자습서](notification-hubs-ios-apple-push-notification-apns-get-started.md) 에 따라 PHP에서 백 엔드 부분을 구현합니다.
+* 선택한 모바일 플랫폼에 대한 [시작 자습서](notification-hubs-ios-apple-push-notification-apns-get-started.md)에 따라 PHP에서 백 엔드 부분을 구현합니다.
 
 ## <a name="client-interface"></a>클라이언트 인터페이스
+
 기본 클라이언트 인터페이스에서는 [.NET Notification Hubs SDK](https://msdn.microsoft.com/library/jj933431.aspx)에서 제공되는 것과 같은 메서드를 제공할 수 있습니다. 이 인터페이스를 사용하여 현재 이 사이트에서 사용할 수 있고 인터넷의 커뮤니티에서 제공되는 모든 자습서와 샘플을 직접 변환할 수 있습니다.
 
 [PHP REST 래퍼 샘플]에서 사용할 수 있는 모든 코드를 찾을 수 있습니다.
 
 예를 들어 클라이언트를 만들려면 다음을 수행합니다.
 
-    $hub = new NotificationHub("connection string", "hubname");    
+    ```php
+    $hub = new NotificationHub("connection string", "hubname");
+    ```
 
 iOS 기본 알림을 보내려면 다음을 수행합니다.
 
+    ```php
     $notification = new Notification("apple", '{"aps":{"alert": "Hello!"}}');
     $hub->sendNotification($notification, null);
+    ```
 
 ## <a name="implementation"></a>구현
+
 아직 수행하지 않았으면 백 엔드를 구현해야 하는 [시작 자습서]의 마지막 섹션까지 수행합니다.
 필요하면 [PHP REST 래퍼 샘플]에서 코드를 사용하고 직접 [자습서 완료](#complete-tutorial) 섹션으로 이동할 수도 있습니다.
 
@@ -56,8 +63,10 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 3. HTTP 호출 수행
 
 ### <a name="parse-the-connection-string"></a>연결 문자열 구문 분석
+
 연결 문자열을 구문 분석하는 생성자가 포함된 클라이언트를 구현하는 기본 클래스는 다음과 같습니다.
 
+    ```php
     class NotificationHub {
         const API_VERSION = "?api-version=2013-10";
 
@@ -89,12 +98,15 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
             }
         }
     }
+    ```
 
+### <a name="create-a-security-token"></a>보안 토큰 만들기
 
-### <a name="create-security-token"></a>보안 토큰 만들기
-보안 토큰 만들기에 대한 자세한 내용은 [여기](https://msdn.microsoft.com/library/dn495627.aspx)를 참조하세요.
-현재 요청의 URI 및 연결 문자열에서 추출된 자격 증명에 따라 토큰을 만들려면 **NotificationHub** 클래스에 다음 메서드를 추가해야 합니다.
+[SAS 보안 토큰을 만드는](https://docs.microsoft.com/previous-versions/azure/reference/dn495627(v=azure.100)#create-sas-security-token) 방법에 대한 정보는 Azure 설명서를 참조하세요.
 
+`NotificationHub` 클래스에 `generateSasToken` 메서드를 추가하여 현재 요청의 URI 및 연결 문자열에서 추출된 자격 증명에 따라 토큰을 만듭니다.
+
+    ```php
     private function generateSasToken($uri) {
         $targetUri = strtolower(rawurlencode(strtolower($uri)));
 
@@ -110,10 +122,13 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 
         return $token;
     }
+    ```
 
 ### <a name="send-a-notification"></a>알림 보내기
+
 먼저 알림을 나타내는 클래스를 정의합니다.
 
+    ```php
     class Notification {
         public $format;
         public $payload;
@@ -132,13 +147,15 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
             $this->payload = $payload;
         }
     }
+    ```
 
 이 클래스는 기본 알림 본문(또는 템플릿 알림의 경우 속성 집합) 및 형식(기본 플랫폼 또는 템플릿)과 플랫폼 특정 속성(예: Apple 만료 속성 및 WNS 헤더)이 포함된 헤더 집합에 대한 컨테이너입니다.
 
 모든 사용할 수 있는 옵션은 [Notification Hubs REST API 설명서](https://msdn.microsoft.com/library/dn495827.aspx) 및 특정 알림 플랫폼의 형식을 참조하세요.
 
-이제 이 클래스를 사용하여 **NotificationHub** 클래스 내부에서 알림 보내기 메서드를 쓸 수 있습니다.
+이제 이 클래스를 사용하여 `NotificationHub` 클래스 내부에서 알림 보내기 메서드를 쓸 수 있습니다.
 
+    ```php
     public function sendNotification($notification, $tagsOrTagExpression="") {
         if (is_array($tagsOrTagExpression)) {
             $tagExpression = implode(" || ", $tagsOrTagExpression);
@@ -195,35 +212,50 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
             throw new Exception('Error sending notificaiton: '. $info['http_code'] . ' msg: ' . $response);
         }
     } 
+    ```
 
-위의 메서드는 알림을 보내기 위한 올바른 본문과 헤더가 있는 알림 허브의 /messages 엔드포인트로 HTTP POST 요청을 보냅니다.
+위의 메서드는 알림을 보내기 위한 올바른 본문과 헤더가 있는 알림 허브의 `/messages` 엔드포인트로 HTTP POST 요청을 보냅니다.
 
 ## <a name="complete-tutorial"></a>자습서 완료
+
 이제 PHP 백 엔드에서 알림을 보내 시작 자습서를 완료할 수 있습니다.
 
 Notification Hubs 클라이언트를 초기화합니다( [시작 자습서]에 설명된 대로 연결 문자열 및 허브 이름 대체).
 
-    $hub = new NotificationHub("connection string", "hubname");    
+    ```php
+    $hub = new NotificationHub("connection string", "hubname");
+    ```
 
 그리고 대상 모바일 플랫폼에 따라 보내기 코드를 추가합니다.
 
 ### <a name="windows-store-and-windows-phone-81-non-silverlight"></a>Windows 스토어 및 Windows Phone 8.1(비 Silverlight)
+
+    ```php
     $toast = '<toast><visual><binding template="ToastText01"><text id="1">Hello from PHP!</text></binding></visual></toast>';
     $notification = new Notification("windows", $toast);
     $notification->headers[] = 'X-WNS-Type: wns/toast';
     $hub->sendNotification($notification, null);
+    ```
 
 ### <a name="ios"></a>iOS
+
+    ```php
     $alert = '{"aps":{"alert":"Hello from PHP!"}}';
     $notification = new Notification("apple", $alert);
     $hub->sendNotification($notification, null);
+    ```
 
 ### <a name="android"></a>Android
+
+    ```php
     $message = '{"data":{"msg":"Hello from PHP!"}}';
     $notification = new Notification("gcm", $message);
     $hub->sendNotification($notification, null);
+    ```
 
 ### <a name="windows-phone-80-and-81-silverlight"></a>Windows Phone 8.0 및 8.1 Silverlight
+
+    ```php
     $toast = '<?xml version="1.0" encoding="utf-8"?>' .
                 '<wp:Notification xmlns:wp="WPNotification">' .
                    '<wp:Toast>' .
@@ -234,16 +266,20 @@ Notification Hubs 클라이언트를 초기화합니다( [시작 자습서]에 �
     $notification->headers[] = 'X-WindowsPhone-Target : toast';
     $notification->headers[] = 'X-NotificationClass : 2';
     $hub->sendNotification($notification, null);
-
+    ```
 
 ### <a name="kindle-fire"></a>Kindle Fire
+
+    ```php
     $message = '{"data":{"msg":"Hello from PHP!"}}';
     $notification = new Notification("adm", $message);
     $hub->sendNotification($notification, null);
+    ```
 
 이제 PHP 코드를 실행하면 대상 디바이스에 나타나는 알림이 생성되어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 이 항목에서는 Notification Hubs에 대한 단순한 Java REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음을 할 수 있습니다.
 
 * 위의 모든 코드가 포함된 전체 [PHP REST 래퍼 샘플]을 다운로드합니다.
@@ -254,4 +290,3 @@ Notification Hubs 클라이언트를 초기화합니다( [시작 자습서]에 �
 
 [PHP REST 래퍼 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [시작 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-

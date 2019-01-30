@@ -11,17 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 57624133b249a8ec2ece90eac4a64729e4d15151
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: anajod
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: a8c4ef5df586c87862ea8e1634e9a72356401d0b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968206"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247428"
 ---
-# <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>자습서: Azure와 클라우드 간 크기 조정 솔루션 만들기
+# <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>자습서: Azure를 사용 하 여 클라우드 간 크기 조정 솔루션 만들기
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
@@ -273,7 +274,7 @@ Azure 파이프라인 및 Azure DevOps 서버 제공 항상 구성 및 관리 �
 
 #### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>두 클라우드 모두에서 App Services에 대 한 자체 포함 된 웹 앱 배포 만들기
 
-1.  편집 합니다 **WebApplication.csproj** 파일: 선택 **runtimeidentifier-** 다음 win10-x64를 추가 합니다. 자세한 내용은 [자체 포함된 배포](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) 설명서.
+1.  편집 된 **WebApplication.csproj** 파일: 선택 **runtimeidentifier-** 다음 win10-x64를 추가 합니다. 자세한 내용은 [자체 포함된 배포](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) 설명서.
 
 2.  팀 탐색기를 사용 하 여 코드를 Azure 리포지토리를 확인 합니다.
 

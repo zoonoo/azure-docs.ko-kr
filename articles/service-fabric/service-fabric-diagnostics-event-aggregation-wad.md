@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: d670b90404d441876727336fc50a848965082de5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: baa86fe70c394aaea31a6fa775073bb26d062c49
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232498"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002402"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Miscrosoft Azure 진단을 사용하여 이벤트 집계 및 수집
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "50232498"
 >
 >
 
-Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그를 중앙 위치에 수집하는 것이 좋습니다. 중앙 위치에 로그를 두면 클러스터나 해당 클러스터에서 실행 중인 응용 프로그램 및 서비스의 문제를 분석하고 해결하는 데 도움이 됩니다.
+Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그를 중앙 위치에 수집하는 것이 좋습니다. 중앙 위치에 로그를 두면 클러스터나 해당 클러스터에서 실행 중인 애플리케이션 및 서비스의 문제를 분석하고 해결하는 데 도움이 됩니다.
 
 로그를 업로드 및 수집하는 방법 중 하나는 MAD(Microsoft Azure 진단) 확장을 사용하는 것입니다. 이 확장을 사용하면 Azure Storage에 로그를 업로드하고 Azure Application Insights 또는 Event Hubs에 로그를 보낼 수 있습니다. 또한 외부 프로세스를 사용하여 저장소의 이벤트를 읽고 분석 플랫폼 제품(예: [Log Analytics](../log-analytics/log-analytics-service-fabric.md) 또는 기타 로그 구문 분석 솔루션)에 배치할 수 있습니다.
 
@@ -41,7 +41,7 @@ Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그�
 
 ## <a name="service-fabric-platform-events"></a>Service Fabric 플랫폼 이벤트
 Service Fabric은 몇 가지 [기본 로깅 채널](service-fabric-diagnostics-event-generation-infra.md)을 제공하며, 다음 채널은 확장을 사용하여 모니터링 및 진단 데이터를 저장소 테이블이나 다른 곳에 보내도록 사전 구성되어 있습니다.
-  * [작업 이벤트](service-fabric-diagnostics-event-generation-operational.md): Service Fabric 플랫폼이 수행하는 상위 수준 작업입니다. 응용 프로그램 및 서비스 만들기, 노드 상태 변경, 업그레이드 정보 등을 예로 들 수 있습니다. 이러한 이벤트를 ETW(Windows용 이벤트 추적) 로그로 내보냅니다.
+  * [작업 이벤트](service-fabric-diagnostics-event-generation-operational.md): Service Fabric 플랫폼이 수행하는 상위 수준 작업입니다. 애플리케이션 및 서비스 만들기, 노드 상태 변경, 업그레이드 정보 등을 예로 들 수 있습니다. 이러한 이벤트를 ETW(Windows용 이벤트 추적) 로그로 내보냅니다.
   * [Reliable Actors 프로그래밍 모델 이벤트](service-fabric-reliable-actors-diagnostics.md)
   * [Reliable Services 프로그래밍 모델 이벤트](service-fabric-reliable-services-diagnostics.md)
 
@@ -65,7 +65,7 @@ Azure Storage에서 이벤트를 집계하므로 Log Analytics 포털에서 인�
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Azure Resource Manager를 통해 진단 확장 배포
 
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>진단 확장을 사용하여 클러스터 만들기
-Resource Manager를 사용하여 클러스터를 만들려면 클러스터를 만들기 전에 진단 구성 JSON을 전체 Resource Manager 템플릿에 추가해야 합니다. Resource Manager 템플릿 샘플의 일부로 진단 구성이 추가된 샘플 5VM 클러스터 Resource Manager 템플릿이 제공됩니다. Azure 샘플 갤러리의 [진단 Resource Manager 템플릿 샘플이 포함된 5노드 클러스터](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/)에서 샘플을 볼 수 있습니다.
+Resource Manager를 사용하여 클러스터를 만들려면 진단 구성 JSON을 전체 Resource Manager 템플릿에 추가해야 합니다. Resource Manager 템플릿 샘플의 일부로 진단 구성이 추가된 샘플 5VM 클러스터 Resource Manager 템플릿이 제공됩니다. Azure 샘플 갤러리의 이 위치에서 확인할 수 있습니다. [진단 Resource Manager 템플릿 샘플을 사용하는 5개 노드 클러스터](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/)
 
 Resource Manager 템플릿에서 진단 설정을 표시하려면 azuredeploy.json 파일을 열고 **IaaSDiagnostics**를 검색합니다. 이 템플릿을 사용하여 클러스터를 만들려면 이전 링크에 제공된 **Azure에 배포** 버튼을 선택합니다.
 
@@ -196,24 +196,24 @@ template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플
 ## <a name="log-collection-configurations"></a>로그 컬렉션 구성
 컬렉션에 대한 추가 채널의 로그도 사용할 수 있습니다. 여기서는 Azure에서 실행되는 클러스터용 템플릿에서 수행할 수 있는 가장 일반적인 몇 가지 구성을 소개합니다.
 
-* 작동 채널 - 기본: 기본적으로 사용하도록 설정됩니다. 노드에 대해 발생하는 이벤트, 배포되는 새 응용 프로그램, 업그레이드 롤백 등을 포함하여 Service Fabric 및 클러스터에서 수행하는 상위 수준 작업입니다. 이벤트 목록은 [작동 채널 이벤트](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational)를 참조하세요.
+* 작업 채널 - 기본: 제공될 노드에 대한 이벤트, 배포 중인 새 애플리케이션 또는 업그레이드 롤백 등을 포함하여 Service Fabric 및 클러스터에서 수행하는 기본적으로 설정된 상위 수준 작업입니다. 이벤트 목록은 [작동 채널 이벤트](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational)를 참조하세요.
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"
   ```
-* 작동 채널 - 상세: 기본 작동 채널의 모든 내용과 상태 보고서 및 부하 분산 결정이 포함됩니다. 이러한 이벤트는 시스템이나 코드에서 [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) 또는 [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx)와 같은 상태 또는 부하 보고 API를 사용하여 생성됩니다. Visual Studio의 Diagnostic Event Viewer에서 이 이벤트를 보려면 ETW 공급자 목록에 "Microsoft-ServiceFabric:4:0x4000000000000008"을 추가합니다.
+* 작업 채널 - 상세: 기본 작동 채널의 모든 내용과 상태 보고서 및 부하 분산 결정 사항이 포함됩니다. 이러한 이벤트는 시스템이나 코드에서 [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) 또는 [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx)와 같은 상태 또는 부하 보고 API를 사용하여 생성됩니다. Visual Studio의 Diagnostic Event Viewer에서 이 이벤트를 보려면 ETW 공급자 목록에 "Microsoft-ServiceFabric:4:0x4000000000000008"을 추가합니다.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387912"
   ```
 
-* 데이터 및 메시징 채널 - 기본: 상세 작동 채널 로그 외에 메시징(현재 ReverseProxy만) 및 데이터 경로에 생성된 중요 로그 및 이벤트입니다. 이러한 이벤트는 요청 처리 실패와 ReverseProxy 및 처리된 요청의 기타 중요 문제입니다. **포괄적인 로깅을 위한 권장 사항입니다**. Visual Studio의 진단 이벤트 뷰어에서 이 이벤트를 보려면 ETW 공급자 목록에 “Microsoft-ServiceFabric:4:0x4000000000000010”을 추가합니다.
+* 데이터 및 메시징 채널 - 기본: 상세 작업 채널 로그 외에도 메시징(현재 ReverseProxy만) 및 데이터 경로에서 생성된 중요 로그 및 이벤트입니다. 이러한 이벤트는 요청 처리 실패와 ReverseProxy 및 처리된 요청의 기타 중요 문제입니다. **포괄적인 로깅을 위한 권장 사항입니다**. Visual Studio의 진단 이벤트 뷰어에서 이 이벤트를 보려면 ETW 공급자 목록에 “Microsoft-ServiceFabric:4:0x4000000000000010”을 추가합니다.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387928"
   ```
 
-* 데이터 및 메시징 채널 - 상세: 클러스터 및 상세 작동 채널의 메시징 데이터에서 중요하지 않은 모든 로그를 포함하는 상세 채널입니다. 모든 역방향 프록시 이벤트의 문제 해결에 대한 자세한 내용은 [역방향 프록시 진단 가이드](service-fabric-reverse-proxy-diagnostics.md)를 참조하세요.  Visual Studio의 진단 이벤트 뷰어에서 이 이벤트를 보려면 ETW 공급자 목록에 “Microsoft-ServiceFabric:4:0x4000000000000020”을 추가합니다.
+* 데이터 및 메시징 채널 - 상세: 클러스터 및 상세 작업 채널의 메시징 데이터에서 중요하지 않은 모든 로그를 포함하는 자세한 정보 표시 채널입니다. 모든 역방향 프록시 이벤트의 문제 해결에 대한 자세한 내용은 [역방향 프록시 진단 가이드](service-fabric-reverse-proxy-diagnostics.md)를 참조하세요.  Visual Studio의 진단 이벤트 뷰어에서 이 이벤트를 보려면 ETW 공급자 목록에 “Microsoft-ServiceFabric:4:0x4000000000000020”을 추가합니다.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387944"
@@ -265,7 +265,7 @@ template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플
 
 ## <a name="collect-from-new-eventsource-channels"></a>새 EventSource 채널에서 수집
 
-배포하려는 새 응용 프로그램을 나타내는 새 EventSource 채널에서 로그를 수집하도록 진단을 업데이트하려면 기존 클러스터에 대한 이전 설명과 동일한 단계를 수행해야 합니다.
+배포하려는 새 애플리케이션을 나타내는 새 EventSource 채널에서 로그를 수집하도록 진단을 업데이트하려면 기존 클러스터에 대한 이전 설명과 동일한 단계를 수행해야 합니다.
 
 새 EventSource 채널의 항목을 추가하도록 template.json 파일의 `EtwEventSourceProviderConfiguration` 섹션을 업데이트한 후 `New-AzureRmResourceGroupDeployment` PowerShell 명령을 사용하여 구성 업데이트를 적용합니다. 이벤트 원본의 이름은 ServiceEventSource.cs 파일을 생성한 Visual Studio에서 코드의 일부로 정의됩니다.
 

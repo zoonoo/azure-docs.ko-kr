@@ -19,7 +19,7 @@ ms.locfileid: "52316364"
 ---
 # <a name="quickstart-for-bing-spell-check-api-with-python"></a>빠른 시작: Python을 통해 Bing Spell Check API 사용 
 
-이 문서에서는 Python을 통해 [Bing Spell Check API](https://azure.microsoft.com/services/cognitive-services/spell-check/) 를 사용하는 방법을 보여줍니다. Spell Check API는 제안된 바꾸기와 함께 인식할 수 없는 단어 목록을 반환합니다. 일반적으로 텍스트를 이 API에 제출한 다음, 텍스트에서 제안된 바꾸기를 수행하거나 응용 프로그램 사용자에게 표시하여 바꾸기 여부를 결정할 수 있습니다. 이 문서에서는 "Hello, wrld!" 텍스트가 포함된 요청을 보내는 방법을 보여 줍니다. 제안된 바꾸기는 "Hello" 및 "World"입니다.
+이 문서에서는 Python을 통해 [Bing Spell Check API](https://azure.microsoft.com/services/cognitive-services/spell-check/) 를 사용하는 방법을 보여줍니다. Spell Check API는 제안된 바꾸기와 함께 인식할 수 없는 단어 목록을 반환합니다. 일반적으로 텍스트를 이 API에 제출한 다음, 텍스트에서 제안된 바꾸기를 수행하거나 애플리케이션 사용자에게 표시하여 바꾸기 여부를 결정할 수 있습니다. 이 문서에서는 "Hello, wrld!" 텍스트가 포함된 요청을 보내는 방법을 보여 줍니다. 제안된 바꾸기는 "Hello" 및 "World"입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

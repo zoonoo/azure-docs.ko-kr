@@ -8,18 +8,17 @@ manager: abhemraj
 editor: ''
 ms.assetid: ''
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/27/2018
+ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: 1e7486dc646843c473cfb355445e194893934a1a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 742e7891ec9c7151f23f1ad6eb57e728dd2a1ddd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447149"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255094"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>가상 머신을 Azure로 장애 조치 시 오류 문제 해결
 
@@ -29,7 +28,7 @@ ms.locfileid: "52447149"
 
 Site Recovery가 Azure에서 장애 조치된 가상 머신을 만들 수 없습니다. 다음 이유 중 하나로 인해 발생할 수 있습니다.
 
-* 가상 머신을 만드는 데 사용할 수 있는 할당량이 충분하지 않습니다. [구독] -&gt; [사용량 + 할당량]으로 이동하여 사용할 수 있는 할당량을 확인할 수 있습니다. [새로운 지원 요청](http://aka.ms/getazuresupport)을 열어 할당량을 늘릴 수 있습니다.
+* 가상 머신을 만드는 데 사용할 수 있는 할당량이 부족합니다. [구독] -> [사용량 + 할당량]으로 이동하여 사용할 수 있는 할당량을 확인할 수 있습니다. [새로운 지원 요청](http://aka.ms/getazuresupport)을 열어 할당량을 늘릴 수 있습니다.
 
 * 동일한 가용성 집합에 다른 크기 제품군의 가상 머신을 장애 조치하려고 합니다. 동일한 가용성 집합의 모든 가상 머신에 대해 동일한 크기 제품군을 선택했는지 확인합니다. 가상 머신의 Compute 및 네트워크 설정으로 이동하여 크기를 변경한 후 장애 조치를 다시 시도합니다.
 
@@ -114,9 +113,6 @@ Azure에서 장애 조치(failover)된 VM의 **연결** 단추를 사용할 수 
 장애 조치(failover) 후 Windows VM을 부팅할 때 복구된 VM에 예기치 않은 시스템 종료 메시지를 수신하는 경우 장애 조치(failover)에 사용된 복구 지점에서 VM 종료 상태가 캡처되지 않았음을 나타냅니다. 이 오류는 VM이 완전히 종료되지 않은 시점으로 복구할 때 발생합니다.
 
 일반적으로 문제를 유발하지는 않으며, 계획되지 않은 장애 조치(failover)의 경우 무시할 수 있습니다. 계획된 장애 조치(failover)의 경우 장애 조치(failover) 전에 VM이 제대로 종료되었는지 확인하고 온-프레미스에서 보류 중인 복제 데이터가 Azure에 전송되는 데 충분한 시간을 제공합니다. 그런 다음, [장애 조치(failover) 화면](site-recovery-failover.md#run-a-failover)의 **최신** 옵션을 사용하여 Azure에서 보류 중인 데이터가 복구 지점으로 처리되어 VM 장애 조치(failover)에 사용되도록 합니다.
-
-## <a name="retaining-drive-letter-after-failover"></a>장애 조치 후 드라이브 문자 유지
-장애 조치(failover) 후 가상 머신에서 드라이브 문자를 유지하려면 온-프레미스 가상 머신에 대한 **SAN 정책**을 **OnlineAll**로 설정하면 됩니다. [자세히 알아보기](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
 ## <a name="next-steps"></a>다음 단계
 - [Windows VM에 대한 RDP 연결](../virtual-machines/windows/troubleshoot-rdp-connection.md) 문제 해결

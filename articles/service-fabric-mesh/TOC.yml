@@ -32,9 +32,9 @@ items:
       href: service-fabric-mesh-tutorial-template-deploy-app.md
     - name: 2- 애플리케이션에서 서비스 확장
       href: service-fabric-mesh-tutorial-template-scale-services.md
-    - name: 3- 응용 프로그램 업그레이드
+    - name: 3- 애플리케이션 업그레이드
       href: service-fabric-mesh-tutorial-template-upgrade-app.md
-    - name: 4- 응용 프로그램 제거
+    - name: 4- 애플리케이션 제거
       href: service-fabric-mesh-tutorial-template-remove-app.md
 - name: 개념
   items:
@@ -82,11 +82,13 @@ items:
     href: /rest/api/servicefabric/sfclient-index#service-fabric-resource-model
   - name: Service Fabric Maven CLI 참조
     href: service-fabric-mesh-reference-maven.md
+  - name: Resource Manager 템플릿
+    href: /azure/templates/microsoft.servicefabricmesh/allversions
 - name: 리소스
   items:
   - name: 일반적인 질문
     href: service-fabric-mesh-faq.md
-  - name: 샘플 응용 프로그램
+  - name: 샘플 애플리케이션
     href: https://github.com/Azure-Samples/service-fabric-mesh
   - name: Azure 로드맵
     href: https://azure.microsoft.com/roadmap/?category=service-fabric-mesh
@@ -98,9 +100,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric-mesh
   - name: 국가별 가용성
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: a510d3eeace6125e25faf4088cee16389001b3d9
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: dc098445928ca07eb29260c650321e17f00c7dfe
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888446"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353977"

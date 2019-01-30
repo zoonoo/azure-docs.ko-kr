@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 4b0491d59e4ac495750a338ad743aab69ff47a4e
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: cf283803dfa45c362330ccf73fc5eea198d3a5e2
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494246"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278647"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Service Fabric 클러스터를 선택하고, 관리하고, 운영합니다.
@@ -37,7 +37,7 @@ Service Fabric 클러스터를 선택하고, 관리하고, 운영합니다.
 | provision | Service Fabric 클러스터의 코드 또는 구성 패키지를 프로 비전합니다. |
 | recover-system | 현재 쿼럼 손실에 걸린 시스템 서비스를 복구하고자 시도해야 함을 Service Fabric 클러스터에 나타냅니다. |
 | report-health | Service Fabric 클러스터 대한 상태 보고서를 보냅니다. |
-| 선택 | Service Fabric 클러스터 끝점에 연결합니다. |
+| 선택 | Service Fabric 클러스터 엔드포인트에 연결합니다. |
 | show-connection | 이 sfctl 인스턴스가 연결된 Service Fabric 클러스터를 보여줍니다. |
 | unprovision | Service Fabric 클러스터의 코드 또는 구성 패키지를 프로 비전합니다. |
 | 업그레이드 | Service Fabric 클러스터의 코드 또는 구성 버전 업그레이드를 시작합니다. |
@@ -93,7 +93,7 @@ Service Fabric 클러스터에 프로비전되는 패브릭 구성 버전의 목
 ## <a name="sfctl-cluster-health"></a>sfctl cluster health
 Service Fabric 클러스터의 상태를 가져옵니다.
 
-상태에 따라 클러스터에 보고된 상태 이벤트의 컬렉션을 필터링하려면 EventsHealthStateFilter를 사용합니다. 마찬가지로, 집계된 상태에 따라 반환된 노드 및 응용 프로그램 컬렉션을 필터링할 NodesHealthStateFilter 및 ApplicationsHealthStateFilter를 사용합니다.
+상태에 따라 클러스터에 보고된 상태 이벤트의 컬렉션을 필터링하려면 EventsHealthStateFilter를 사용합니다. 마찬가지로, 집계된 상태에 따라 반환된 노드 및 애플리케이션 컬렉션을 필터링할 NodesHealthStateFilter 및 ApplicationsHealthStateFilter를 사용합니다.
 
 ### <a name="arguments"></a>인수
 
@@ -102,7 +102,7 @@ Service Fabric 클러스터의 상태를 가져옵니다.
 | --applications-health-state-filter | 상태에 따라 클러스터 상태 쿼리의 결과로 반환된 응용 프로그램 상태 개체를 필터링할 수 있습니다. 이 매개 변수에 사용 가능한 값은 HealthStateFilter 열거형의 멤버 또는 멤버에 대한 비트 연산에서 가져온 정수 값입니다. 필터와 일치하는 응용 프로그램만 반환됩니다. 모든 응용 프로그램은 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 응용 프로그램의 상태가 반환됩니다.  <br> - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다.  <br> - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다.  <br> - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다.  <br> - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다.  <br> - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다.  <br> - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다. |
 | --events-health-state-filter | 상태에 따라 반환된 HealthEvent 개체의 컬렉션을 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 이벤트만 반환됩니다. 모든 이벤트는 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 모든 이벤트가 반환됩니다.  <br> - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다.  <br> - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다.  <br> - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다.  <br> - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다.  <br> - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다.  <br> - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다. |
 | --exclude-health-statistics | 상태 통계가 쿼리 결과의 일부로 반환되어야 하는지 여부를 나타냅니다. False(기본값). 통계는 Ok, Warning 및 Error 상태의 자식 엔터티 수를 보여줍니다. |
-| --include-system-application-health-statistics | 상태 통계에 fabric\:/System 응용 프로그램 상태 통계를 포함할지 여부를 지정합니다. False(기본값). IncludeSystemApplicationHealthStatistics가 true로 설정된 경우 fabric\:/System 응용 프로그램에 속한 엔터티를 포함합니다. 그렇지 않으면 쿼리 결과는 사용자 응용 프로그램에 대해서만 상태 통계를 포함합니다. 이 매개 변수를 적용하려면 상태 통계를 쿼리 결과에 포함해야 합니다. |
+| --include-system-application-health-statistics | 상태 통계에 fabric\:/System 응용 프로그램 상태 통계를 포함할지 여부를 지정합니다. False(기본값). IncludeSystemApplicationHealthStatistics가 true로 설정된 경우 fabric\:/System 응용 프로그램에 속한 엔터티를 포함합니다. 그렇지 않으면 쿼리 결과는 사용자 애플리케이션에 대해서만 상태 통계를 포함합니다. 이 매개 변수를 적용하려면 상태 통계를 쿼리 결과에 포함해야 합니다. |
 | --nodes-health-state-filter | 상태에 따라 클러스터 상태 쿼리의 결과로 반환된 노드 상태 개체를 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 노드만 반환됩니다. 모든 노드는 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 노드의 상태가 반환됩니다.  <br> - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다.  <br> - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다.  <br> - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다.  <br> - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다.  <br> - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다.  <br> - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
@@ -140,9 +140,9 @@ Service Fabric 클러스터 매니페스트를 가져옵니다. 클러스터 매
 ## <a name="sfctl-cluster-operation-cancel"></a>sfctl cluster operation-cancel
 사용자로 인한 오류 작업을 취소합니다.
 
-다음 API는 CancelOperation: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition을 사용하여 취소될 수 있는 오류 작업을 시작합니다. force가 false인 경우 지정된 사용자로 인한 작업이 정상적으로 중지되며 정리됩니다.  force가 true인 경우 명령이 중단되며, 일부 내부 상태가 남아 있을 수 있습니다.  force를 true로 지정하는 것은 주의해서 사용해야 합니다. force가 true로 설정된 이 API를 호출하는 것은 이 API가 force가 false로 먼저 설정된 동일한 테스트 명령에서 호출될 때까지 또는 테스트 명령에 이미 OperationState.RollingBack의 OperationState가 있는 한 허용되지 않습니다. 
+다음 API는 CancelOperation\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition을 사용하여 취소될 수 있는 오류 작업을 시작합니다. force가 false인 경우 지정된 사용자로 인한 작업이 정상적으로 중지되며 정리됩니다.  force가 true인 경우 명령이 중단되며, 일부 내부 상태가 남아 있을 수 있습니다.  force를 true로 지정하는 것은 주의해서 사용해야 합니다. force가 true로 설정된 이 API를 호출하는 것은 이 API가 force가 false로 먼저 설정된 동일한 테스트 명령에서 호출될 때까지 또는 테스트 명령에 이미 OperationState.RollingBack의 OperationState가 있는 한 허용되지 않습니다. 
 
- 설명\: OperationState.RollingBack은 시스템이 명령 실행으로 인해 발생된 내부 시스템 상태를 정리함을 의미합니다. 테스트 명령이 데이터 손실을 발생시킨 경우 데이터를 복원하지 않습니다.  예를 들어 StartDataLoss를 호출한 다음, 이 API를 호출하는 경우 시스템은 명령 실행에서의 내부 상태만을 정리합니다. 명령이 데이터 손실을 충분히 진행시킨 경우 대상 파티션의 데이터를 복원하지 않습니다. 
+설명\: OperationState.RollingBack은 시스템이 명령 실행으로 인해 발생된 내부 시스템 상태를 정리함을 의미합니다.  테스트 명령이 데이터 손실을 발생시킨 경우 데이터를 복원하지 않습니다.  예를 들어 StartDataLoss를 호출한 다음, 이 API를 호출하는 경우 시스템은 명령 실행에서의 내부 상태만을 정리합니다. 명령이 데이터 손실을 충분히 진행시킨 경우 대상 파티션의 데이터를 복원하지 않습니다. 
 
 > [!NOTE]
 > 이 API가 force==true로 호출된 경우 내부 상태는 남아 있을 수 있습니다.
@@ -249,7 +249,7 @@ Service Fabric 클러스터 대한 상태 보고서를 보냅니다.
 | --remove-when-expired | 보고서가 만료될 때 Health 스토어에서 제거할지 여부를 나타내는 값입니다. <br><br> true로 설정된 경우 보고서는 만료된 후 Health 스토어에서 제거됩니다. false로 설정된 경우 보고서는 만료될 때 오류로 처리됩니다. 이 속성의 값은 기본적으로 false입니다. 클라이언트가 주기적으로 보고하는 경우 RemoveWhenExpired를 false(기본값)로 설정해야 합니다. 이러한 방식은 문제가 있고(예: 교착 상태) 보고할 수 없는 보고자이며, 엔터티는 상태 보고서가 만료되는 경우 오류로 평가됩니다. 엔터티를 오류 성능 상태에 있는 것으로 플래그 지정합니다. |
 | --sequence-number | 숫자 문자열의 이 상태 보고서에 대한 일련 번호입니다. <br><br> 보고서 일련 번호는 Health 스토어에서 유효하지 않은 보고서를 검색하는 데 사용됩니다. 지정되지 않은 경우 일련 번호는 보고서가 추가될 때 상태 클라이언트에서 자동으로 생성됩니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
-| --ttl | 이 상태 보고서가 유효한 기간입니다. 이 필드는 기간을 지정하기 위해 ISO8601 형식을 사용합니다. <br><br> 클라이언트가 주기적으로 보고하는 경우 TTL(Time to Live)보다 높은 빈도로 보고서를 보내야 합니다. 클라이언트가 전환 시 보고하는 경우 TTL(Time to live)을 무한으로 설정할 수 있습니다. TTL(Time to live)이 만료되면 상태 정보를 포함하는 상태 이벤트는 RemoveWhenExpired가 true인 경우 Health 스토어에서 제거되거나 RemoveWhenExpired가 false인 경우 오류로 평가됩니다. 지정되지 않은 경우 TTL(Time to live)은 무한 값으로 기본 설정됩니다. |
+| --ttl | 이 상태 보고서가 유효한 기간입니다. 이 필드는 기간을 지정하는 데 ISO8601 형식을 사용합니다. <br><br> 클라이언트가 주기적으로 보고하는 경우 TTL(Time to Live)보다 높은 빈도로 보고서를 보내야 합니다. 클라이언트가 전환 시 보고하는 경우 TTL(Time to live)을 무한으로 설정할 수 있습니다. TTL(Time to live)이 만료되면 상태 정보를 포함하는 상태 이벤트는 RemoveWhenExpired가 true인 경우 Health 스토어에서 제거되거나 RemoveWhenExpired가 false인 경우 오류로 평가됩니다. 지정되지 않은 경우 TTL(Time to live)은 무한 값으로 기본 설정됩니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -262,15 +262,15 @@ Service Fabric 클러스터 대한 상태 보고서를 보냅니다.
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
 
 ## <a name="sfctl-cluster-select"></a>sfctl cluster select
-Service Fabric 클러스터 끝점에 연결합니다.
+Service Fabric 클러스터 엔드포인트에 연결합니다.
 
-보안 클러스터에 연결한 경우, 인증서(.crt) 및 키 파일(.key)에 대한 절대 경로를 지정하거나 단일 파일을 양쪽 모두(.pem)로 지정합니다. 둘 다 지정하지 마세요. 보안 클러스터에 연결한 경우 필요에 따라 CA 번들 파일 또는 신뢰할 수 있는 CA 인증서 디렉터리에 대한 절대 경로를 지정합니다.
+보안 클러스터에 연결한 경우, 인증서(.crt) 및 키 파일(.key)에 대한 절대 경로를 지정하거나 단일 파일을 양쪽 모두(.pem)로 지정합니다. 둘 다 지정하지 마세요. 보안 클러스터에 연결한 경우 필요에 따라 CA 번들 파일 또는 신뢰할 수 있는 CA 인증서 디렉터리에 대한 절대 경로를 지정합니다. CA 인증서 디렉터리를 사용하는 경우 OpenSSL에서 제공하는 `c_rehash <directory>`를 먼저 실행하여 인증서 해시를 계산하고 적절한 기호 링크를 만들어야 합니다.
 
 ### <a name="arguments"></a>인수
 
 |인수|설명|
 | --- | --- |
-| --endpoint [필수] | 포트 및 HTTP 또는 HTTPS 접두사를 포함하는 클러스터 끝점 URL입니다. |
+| --endpoint [필수] | 포트 및 HTTP 또는 HTTPS 접두사를 포함하는 클러스터 엔드포인트 URL입니다. |
 | --aad | 인증에 Azure Active Directory를 사용합니다. |
 | --ca | 유효로 처리될 CA 인증서 디렉터리 또는 CA 번들 파일에 대한 절대 경로입니다. |
 | --cert | 클라이언트 인증서 파일에 대한 절대 경로입니다. |
@@ -340,19 +340,19 @@ Service Fabric 클러스터의 코드 또는 구성 버전 업그레이드를 �
 | --delta-health-evaluation | 각 업그레이드 도메인 완료 후 절대 상태 평가가 아닌 델타 상태 평가를 사용하도록 설정합니다. |
 | --delta-unhealthy-nodes | 클러스터를 업그레이드하는 동안 허용되는 노드 상태 저하의 최대 비율입니다.  기본값\: 10. <br><br> 델타는 업그레이드 시작 시 노드 상태와 상태 평가 시 노드 상태 간에 측정됩니다. 클러스터의 전역 상태를 허용 한도 내로 유지하기 위해 업그레이드 도메인 업그레이드가 완료될 때마다 검사가 수행됩니다. |
 | --failure-action | 사용할 수 있는 값\: 'Invalid', 'Rollback', 'Manual'. |
-| --force-restart | 다시 시작을 강제합니다. |
-| --health-check-retry | 상태 점검 다시 시도 시간 제한(밀리초 단위로 측정). |
-| --health-check-stable | 안정적 지속 기간 상태 점검(밀리초 단위로 측정). |
-| --health-check-wait | 대기 기간 상태 점검(밀리초 단위로 측정). |
-| --replica-set-check-timeout | 복제본 세트 업그레이드 점검 시간 제한(밀리초 단위로 측정). |
+| --force-restart | 코드 버전이 변경되지 않은 경우에도 업그레이드 중에 프로세스를 강제로 다시 시작합니다. <br><br> 업그레이드는 구성 또는 데이터만 변경합니다. |
+| --health-check-retry | 애플리케이션 또는 클러스터가 정상이 아닌지 상태 확인을 수행하는 시도의 시간 간격입니다. |
+| --health-check-stable | 업그레이드가 다음 업그레이드 도메인으로 진행되기 전에 응용 프로그램 또는 클러스터가 정상 상태로 유지되어야 하는 시간입니다. <br><br> 먼저 ISO 8601 기간을 나타내는 문자열로 해석됩니다. 실패하는 경우 총 시간(밀리초)을 나타내는 숫자로 해석됩니다. |
+| --health-check-wait | 업그레이드 도메인을 완료한 후 상태 확인 프로세스를 시작하기 전에 대기하는 시간입니다. |
+| --replica-set-check-timeout | 예기치 않은 문제가 있을 때 업그레이드 도메인의 처리를 차단하고 가용성의 손실을 방지하는 최대 시간입니다. <br><br> 이 시간 제한이 만료되면 가용성 손실 문제와 상관없이 업그레이드 도메인 처리가 진행됩니다. 시간 제한은 각 업그레이드 도메인의 시작 시 다시 설정됩니다. 유효한 값은 0과 42949672925(포함) 사이입니다. |
 | --rolling-upgrade-mode | 사용할 수 있는 값\: 'Invalid', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  기본값\: UnmonitoredAuto. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
-| --unhealthy-applications | 오류를 보고하기 전에 허용되는 비정상 응용 프로그램의 최대 백분율입니다. <br><br> 예를 들어 응용 프로그램의 10%를 비정상 상태가 되도록 허용하면 값은 10입니다. 비율은 클러스터에서 오류로 처리하기 전에 비정상 상태로 있을 수 있는 응용 프로그램의 최대 허용 비율을 나타냅니다. 비율은 지켜지나 비정상 응용 프로그램이 적어도 하나 있다면 상태는 경고로 평가됩니다. 이 값은 클러스터에 있는 응용 프로그램 인스턴스의 총 수를 비정상 응용 프로그램의 수로 나눠 계산합니다. 이 때 ApplicationTypeHealthPolicyMap에 포함된 응용 프로그램 형식의 응용 프로그램은 제외합니다. 계산값은 적은 수의 응용 프로그램에서 오류 하나를 허용할 수 있도록 반올림됩니다. |
+| --unhealthy-applications | 오류를 보고하기 전에 허용되는 비정상 응용 프로그램의 최대 백분율입니다. <br><br> 예를 들어 애플리케이션의 10%를 비정상 상태가 되도록 허용하면 값은 10입니다. 비율은 클러스터에서 오류로 처리하기 전에 비정상 상태로 있을 수 있는 애플리케이션의 최대 허용 비율을 나타냅니다. 비율은 지켜지나 비정상 애플리케이션이 적어도 하나 있다면 상태는 경고로 평가됩니다. 이 값은 클러스터에 있는 애플리케이션 인스턴스의 총 수를 비정상 애플리케이션의 수로 나눠 계산합니다. 이 때 ApplicationTypeHealthPolicyMap에 포함된 애플리케이션 형식의 애플리케이션은 제외합니다. 계산값은 적은 수의 응용 프로그램에서 오류 하나를 허용할 수 있도록 반올림됩니다. |
 | --unhealthy-nodes | 오류를 보고하기 전에 허용되는 비정상 노드의 최대 백분율입니다. <br><br> 예를 들어 노드의 10%를 비정상 상태가 되도록 허용하면 값은 10입니다. 비율은 클러스터에서 오류로 처리하기 전에 비정상 상태로 있을 수 있는 노드의 최대 허용 비율을 나타냅니다. 비율은 지켜지나 비정상 노드가 적어도 하나 있다면 상태는 경고로 평가됩니다. 이 백분율은 클러스터에 있는 노드 총 수를 비정상 노드 수로 나눠 계산합니다. 계산값은 적은 수의 노드에서 오류 하나를 허용할 수 있도록 반올림됩니다. 대형 클러스터에는 항상 복구를 위해 다운되거나 중단되는 노드가 있으므로 이를 감안하여 이 비율을 구성해야 합니다. |
 | --upgrade-domain-delta-unhealthy-nodes | 클러스터를 업그레이드하는 동안 허용되는 업그레이드 도메인 노드 상태 저하의 최대 비율입니다.  기본값\: 15. <br><br> 델타는 업그레이드 시작 시 업그레이드 도메인 노드 상태와 상태 평가 시 업그레이드 도메인 노드 상태 간에 측정됩니다. 클러스터의 전역 상태를 허용 한도 내로 유지하기 위해 업그레이드 도메인 업그레이드가 완료될 때마다 완료된 업그레이드 도메인에 대한 검사가 수행됩니다. |
-| --upgrade-domain-timeout | 업그레이드 도메인 시간 제한(밀리초 단위로 측정). |
-| --upgrade-timeout | 업그레이드 시간 제한(밀리초 단위로 측정). |
-| --warning-as-error | 경고는 오류와 같은 심각도로 처리됩니다. |
+| --upgrade-domain-timeout | FailureAction이 실행되기 전에 각 업그레이드 도메인이 완료해야 하는 시간입니다. <br><br> 먼저 ISO 8601 기간을 나타내는 문자열로 해석됩니다. 실패하는 경우 총 시간(밀리초)을 나타내는 숫자로 해석됩니다. |
+| --upgrade-timeout | FailureAction이 실행되기 전에 전체 업그레이드를 완료해야 하는 시간입니다. <br><br> 먼저 ISO 8601 기간을 나타내는 문자열로 해석됩니다. 실패하는 경우 총 시간(밀리초)을 나타내는 숫자로 해석됩니다. |
+| --warning-as-error | 경고가 오류와 동일한 심각도로 처리되는지 여부를 나타냅니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -440,20 +440,20 @@ Service Fabric 클러스터의 업그레이드 매개 변수를 업데이트합�
 | --delta-health-evaluation | 각 업그레이드 도메인 완료 후 절대 상태 평가가 아닌 델타 상태 평가를 사용하도록 설정합니다. |
 | --delta-unhealthy-nodes | 클러스터를 업그레이드하는 동안 허용되는 노드 상태 저하의 최대 비율입니다.  기본값\: 10. <br><br> 델타는 업그레이드 시작 시 노드 상태와 상태 평가 시 노드 상태 간에 측정됩니다. 클러스터의 전역 상태를 허용 한도 내로 유지하기 위해 업그레이드 도메인 업그레이드가 완료될 때마다 검사가 수행됩니다. |
 | --failure-action | 사용할 수 있는 값\: 'Invalid', 'Rollback', 'Manual'. |
-| --force-restart | 다시 시작을 강제합니다. |
-| --health-check-retry | 상태 점검 다시 시도 시간 제한(밀리초 단위로 측정). |
-| --health-check-stable | 안정적 지속 기간 상태 점검(밀리초 단위로 측정). |
-| --health-check-wait | 대기 기간 상태 점검(밀리초 단위로 측정). |
-| --replica-set-check-timeout | 복제본 세트 업그레이드 점검 시간 제한(밀리초 단위로 측정). |
+| --force-restart | 코드 버전이 변경되지 않은 경우에도 업그레이드 중에 프로세스를 강제로 다시 시작합니다. <br><br> 업그레이드는 구성 또는 데이터만 변경합니다. |
+| --health-check-retry | 애플리케이션 또는 클러스터가 정상이 아닌지 상태 확인을 수행하는 시도의 시간 간격입니다. |
+| --health-check-stable | 업그레이드가 다음 업그레이드 도메인으로 진행되기 전에 응용 프로그램 또는 클러스터가 정상 상태로 유지되어야 하는 시간입니다. <br><br> 먼저 ISO 8601 기간을 나타내는 문자열로 해석됩니다. 실패하는 경우 총 시간(밀리초)을 나타내는 숫자로 해석됩니다. |
+| --health-check-wait | 업그레이드 도메인을 완료한 후 상태 확인 프로세스를 시작하기 전에 대기하는 시간입니다. |
+| --replica-set-check-timeout | 예기치 않은 문제가 있을 때 업그레이드 도메인의 처리를 차단하고 가용성의 손실을 방지하는 최대 시간입니다. <br><br> 이 시간 제한이 만료되면 가용성 손실 문제와 상관없이 업그레이드 도메인 처리가 진행됩니다. 시간 제한은 각 업그레이드 도메인의 시작 시 다시 설정됩니다. 유효한 값은 0과 42949672925(포함) 사이입니다. |
 | --rolling-upgrade-mode | 사용할 수 있는 값\: 'Invalid', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  기본값\: UnmonitoredAuto. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
-| --unhealthy-applications | 오류를 보고하기 전에 허용되는 비정상 응용 프로그램의 최대 백분율입니다. <br><br> 예를 들어 응용 프로그램의 10%를 비정상 상태가 되도록 허용하면 값은 10입니다. 비율은 클러스터에서 오류로 처리하기 전에 비정상 상태로 있을 수 있는 응용 프로그램의 최대 허용 비율을 나타냅니다. 비율은 지켜지나 비정상 응용 프로그램이 적어도 하나 있다면 상태는 경고로 평가됩니다. 이 값은 클러스터에 있는 응용 프로그램 인스턴스의 총 수를 비정상 응용 프로그램의 수로 나눠 계산합니다. 이 때 ApplicationTypeHealthPolicyMap에 포함된 응용 프로그램 형식의 응용 프로그램은 제외합니다. 계산값은 적은 수의 응용 프로그램에서 오류 하나를 허용할 수 있도록 반올림됩니다. |
+| --unhealthy-applications | 오류를 보고하기 전에 허용되는 비정상 응용 프로그램의 최대 백분율입니다. <br><br> 예를 들어 애플리케이션의 10%를 비정상 상태가 되도록 허용하면 값은 10입니다. 비율은 클러스터에서 오류로 처리하기 전에 비정상 상태로 있을 수 있는 애플리케이션의 최대 허용 비율을 나타냅니다. 비율은 지켜지나 비정상 애플리케이션이 적어도 하나 있다면 상태는 경고로 평가됩니다. 이 값은 클러스터에 있는 애플리케이션 인스턴스의 총 수를 비정상 애플리케이션의 수로 나눠 계산합니다. 이 때 ApplicationTypeHealthPolicyMap에 포함된 애플리케이션 형식의 애플리케이션은 제외합니다. 계산값은 적은 수의 응용 프로그램에서 오류 하나를 허용할 수 있도록 반올림됩니다. |
 | --unhealthy-nodes | 오류를 보고하기 전에 허용되는 비정상 노드의 최대 백분율입니다. <br><br> 예를 들어 노드의 10%를 비정상 상태가 되도록 허용하면 값은 10입니다. 비율은 클러스터에서 오류로 처리하기 전에 비정상 상태로 있을 수 있는 노드의 최대 허용 비율을 나타냅니다. 비율은 지켜지나 비정상 노드가 적어도 하나 있다면 상태는 경고로 평가됩니다. 이 백분율은 클러스터에 있는 노드 총 수를 비정상 노드 수로 나눠 계산합니다. 계산값은 적은 수의 노드에서 오류 하나를 허용할 수 있도록 반올림됩니다. 대형 클러스터에는 항상 복구를 위해 다운되거나 중단되는 노드가 있으므로 이를 감안하여 이 비율을 구성해야 합니다. |
 | --upgrade-domain-delta-unhealthy-nodes | 클러스터를 업그레이드하는 동안 허용되는 업그레이드 도메인 노드 상태 저하의 최대 비율입니다.  기본값\: 15. <br><br> 델타는 업그레이드 시작 시 업그레이드 도메인 노드 상태와 상태 평가 시 업그레이드 도메인 노드 상태 간에 측정됩니다. 클러스터의 전역 상태를 허용 한도 내로 유지하기 위해 업그레이드 도메인 업그레이드가 완료될 때마다 완료된 업그레이드 도메인에 대한 검사가 수행됩니다. |
-| --upgrade-domain-timeout | 업그레이드 도메인 시간 제한(밀리초 단위로 측정). |
+| --upgrade-domain-timeout | FailureAction이 실행되기 전에 각 업그레이드 도메인이 완료해야 하는 시간입니다. <br><br> 먼저 ISO 8601 기간을 나타내는 문자열로 해석됩니다. 실패하는 경우 총 시간(밀리초)을 나타내는 숫자로 해석됩니다. |
 | --upgrade-kind | 가능한 값\: 'Invalid', 'Rolling', 'Rolling_ForceRestart'.  기본값\: Rolling. |
-| --upgrade-timeout | 업그레이드 시간 제한(밀리초 단위로 측정). |
-| --warning-as-error | 경고는 오류와 같은 심각도로 처리됩니다. |
+| --upgrade-timeout | FailureAction이 실행되기 전에 전체 업그레이드를 완료해야 하는 시간입니다. <br><br> 먼저 ISO 8601 기간을 나타내는 문자열로 해석됩니다. 실패하는 경우 총 시간(밀리초)을 나타내는 숫자로 해석됩니다. |
+| --warning-as-error | 경고가 오류와 동일한 심각도로 처리되는지 여부를 나타냅니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -464,6 +464,7 @@ Service Fabric 클러스터의 업그레이드 매개 변수를 업데이트합�
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+
 
 ## <a name="next-steps"></a>다음 단계
 - Service Fabric CLI [설정](service-fabric-cli.md)

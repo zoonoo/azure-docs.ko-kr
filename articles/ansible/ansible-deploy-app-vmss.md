@@ -1,22 +1,22 @@
 ---
-title: Ansible을 사용하여 Azure에서 가상 머신 확장 집합에 응용 프로그램 배포
-description: Ansible을 사용하여 가상 머신 확장 집합을 구성하고 Azure의 가상 머신 확장 집합에서 응용 프로그램을 배포하는 방법 알아보기
+title: Ansible을 사용하여 Azure에서 가상 머신 확장 집합에 애플리케이션 배포
+description: Ansible을 사용하여 가상 머신 확장 집합을 구성하고 Azure의 가상 머신 확장 집합에서 애플리케이션을 배포하는 방법 알아보기
 ms.service: ansible
 keywords: ansible, azure, devops, bash, 플레이북, 가상 머신, 가상 머신 확장 집합, vmss
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: c1e38064e8abe53c96a70fb189b3d9e4cc4bc4e4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4f3712a45fdb2474eedeb8d4eac034060723010d
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413998"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156547"
 ---
-# <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible을 사용하여 Azure에서 가상 머신 확장 집합에 응용 프로그램 배포
-Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 Azure에 응용 프로그램을 배포할 수 있습니다. 이 문서에서는 Azure VMSS(가상 머신 확장 집합)에 Java 응용 프로그램을 배포하는 방법을 보여줍니다.  
+# <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible을 사용하여 Azure에서 가상 머신 확장 집합에 애플리케이션 배포
+Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 Azure에 애플리케이션을 배포할 수 있습니다. 이 문서에서는 Azure VMSS(가상 머신 확장 집합)에 Java 애플리케이션을 배포하는 방법을 보여줍니다.  
 
 ## <a name="prerequisites"></a>필수 조건
 - **Azure 구독** - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
@@ -35,7 +35,7 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 
 다음 샘플 플레이북을 `get-hosts-tasks.yml`로 저장합니다. 
 
-  ```yaml
+  ```yml
   - name: Get facts for all Public IPs within a resource groups
     azure_rm_publicipaddress_facts:
       resource_group: "{{ resource_group }}"
@@ -59,11 +59,11 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
       - "{{ output.ansible_facts.azure_loadbalancers[0].properties.inboundNatRules }}"
   ```
 
-## <a name="prepare-an-application-for-deployment"></a>배포를 위한 응용 프로그램 준비  
+## <a name="prepare-an-application-for-deployment"></a>배포를 위한 애플리케이션 준비  
 
 이 섹션에서는 git을 사용하여 GitHub에서 Java 샘플 프로젝트를 복제하고 프로젝트를 빌드합니다. 다음 플레이북을 `app.yml`로 저장합니다.
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       repo_url: https://github.com/spring-guides/gs-spring-boot.git
@@ -87,7 +87,7 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 
 Ansible 플레이북 명령의 출력은 GitHub에서 복제된 샘플 앱을 빌드한 다음과 비슷하게 표시됩니다.
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -104,13 +104,13 @@ Ansible 플레이북 명령의 출력은 GitHub에서 복제된 샘플 앱을 �
 
   ```
 
-## <a name="deploy-the-application-to-vmss"></a>VMSS에 응용 프로그램 배포
+## <a name="deploy-the-application-to-vmss"></a>VMSS에 애플리케이션 배포
 
-Ansible 플레이북의 다음 섹션에서는 **saclesethosts**라는 호스트 그룹에 JRE(Java Runtime Environment)를 설치하고, **saclesethosts**라는 호스트 그룹에 Java 응용 프로그램을 배포합니다. 
+Ansible 플레이북의 다음 섹션에서는 **saclesethosts**라는 호스트 그룹에 JRE(Java Runtime Environment)를 설치하고, **saclesethosts**라는 호스트 그룹에 Java 애플리케이션을 배포합니다. 
 
 (`admin_password`를 고유한 암호로 변경합니다.)
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -150,7 +150,7 @@ Ansible 플레이북의 다음 섹션에서는 **saclesethosts**라는 호스트
 위의 샘플 Ansible 플레이북을 `vmss-setup-deploy.yml`로 저장하거나 [전체 샘플 플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss)할 수 있습니다. 
 
 암호로 ssh 연결 형식을 사용하려면 sshpass 프로그램을 설치해야 합니다. 
-  - Ubunto 16.04의 경우 `apt-get install sshpass` 명령을 실행합니다.
+  - Ubuntu 16.04의 경우 `apt-get install sshpass` 명령을 실행합니다.
   - CentOS 7.4의 경우 `yum install sshpass` 명령을 실행합니다.
 
 **호스트 키 확인이 활성화되었고 sshpass는 이를 지원하지 않으므로 키 대신 SSH 암호를 사용할 수 없습니다. 이 호스트를 관리하려면 known_hosts 파일에 이 호스트의 지문을 추가합니다.** 와 같은 오류가 표시될 수 있습니다. 이 오류가 표시되는 경우 `/etc/ansible/ansible.cfg` 파일 또는 `~/.ansible.cfg` 파일에 다음 줄을 추가하여 호스트 키 확인을 비활성화할 수 있습니다.
@@ -165,9 +165,9 @@ Ansible 플레이북의 다음 섹션에서는 **saclesethosts**라는 호스트
   ansible-playbook vmss-setup-deploy.yml
   ```
 
-Ansible 플레이북 명령 실행에서 출력은 샘플 Java 응용 프로그램이 가상 머신 확장 집합의 호스트 그룹에 설치되었음을 나타냅니다.
+Ansible 플레이북 명령 실행에서 출력은 샘플 Java 애플리케이션이 가상 머신 확장 집합의 호스트 그룹에 설치되었음을 나타냅니다.
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -202,10 +202,10 @@ Ansible 플레이북 명령 실행에서 출력은 샘플 Java 응용 프로그�
   localhost                  : ok=4    changed=1    unreachable=0    failed=0
   ```
 
-축하합니다. 이제 응용 프로그램이 Azure에서 실행되고 있습니다. 이제 가상 머신 확장 집합에 대해 부하 분산 장치의 URL을 탐색할 수 있습니다.
+축하합니다. 이제 애플리케이션이 Azure에서 실행되고 있습니다. 이제 가상 머신 확장 집합에 대해 부하 분산 장치의 URL을 탐색할 수 있습니다.
 
 ![Azure의 가상 머신 확장 집합에서 실행되는 Java 앱](media/ansible-deploy-app-vmss/ansible-deploy-app-vmss.png)
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"] 
-> [VMSS에 대한 Ansible 샘플 플레이북](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Ansible을 사용하여 가상 머신 확장 세트의 크기를 자동으로 조정](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

@@ -120,7 +120,7 @@ Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 ```
 
 ## <a name="understand-how-snapshots-accrue-charges"></a>스냅숏 요금 청구 방법 이해
-Blob의 읽기 전용 복사본인 스냅숏을 만들면 계정에 데이터 저장소 요금이 추가로 부과될 수 있습니다. 응용 프로그램을 디자인할 때는 비용을 최소화할 수 있도록 이러한 요금 발생 방식을 파악하는 것이 중요합니다.
+Blob의 읽기 전용 복사본인 스냅숏을 만들면 계정에 데이터 저장소 요금이 추가로 부과될 수 있습니다. 애플리케이션을 디자인할 때는 비용을 최소화할 수 있도록 이러한 요금 발생 방식을 파악하는 것이 중요합니다.
 
 ### <a name="important-billing-considerations"></a>청구 관련 중요 고려 사항
 아래 목록에는 스냅숏을 만들 때 고려할 주요 사항이 나와 있습니다.
@@ -134,7 +134,7 @@ Blob의 읽기 전용 복사본인 스냅숏을 만들면 계정에 데이터 �
 
 추가 비용을 방지하기 위해서는 스냅숏을 신중하게 관리하는 것이 좋습니다. 스냅숏 저장으로 인해 발생하는 비용을 최소화하려면 다음 모범 사례를 따를 수 있습니다.
 
-* 응용 프로그램 디자인상 스냅숏을 유지해야 하는 경우가 아니면, Blob을 업데이트할 때마다 같은 데이터로 업데이트하더라도 해당 Blob에 연결된 스냅숏을 삭제한 후에 다시 만듭니다. Blob의 스냅숏을 삭제한 후에 다시 만들면 Blob와 스냅숏이 달라지지 않습니다.
+* 애플리케이션 디자인상 스냅숏을 유지해야 하는 경우가 아니면, Blob을 업데이트할 때마다 같은 데이터로 업데이트하더라도 해당 Blob에 연결된 스냅숏을 삭제한 후에 다시 만듭니다. Blob의 스냅숏을 삭제한 후에 다시 만들면 Blob와 스냅숏이 달라지지 않습니다.
 * Blob의 스냅숏을 유지하는 경우에는 [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] 또는 [UploadFromByteArray][dotnet_UploadFromByteArray]를 호출하여 Blob을 업데이트하지 않습니다. 이러한 메서드는 Blob의 모든 블록을 바꾸어 기본 Blob 및 해당 스냅숏이 심각하게 달라집니다. 대신 [PutBlock][dotnet_PutBlock] 및 [PutBlockList][dotnet_PutBlockList] 메서드를 사용하여 가능한 최소 블록 수만 업데이트합니다.
 
 ### <a name="snapshot-billing-scenarios"></a>스냅숏 청구 시나리오
@@ -168,7 +168,7 @@ Blob의 읽기 전용 복사본인 스냅숏을 만들면 계정에 데이터 �
 
 * VM(가상 머신) 디스크 스냅숏 사용에 대한 자세한 내용은 [증분 스냅숏을 사용하여 Azure 관리되지 않는 VM 디스크 백업](../../virtual-machines/windows/incremental-snapshots.md)에서 확인할 수 있습니다.
 
-* Blob Storage를 사용하는 추가 코드 예제는 [Azure 코드 샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)을 참조하세요. GitHub에서 샘플 응용 프로그램을 다운로드하고 실행하거나 코드를 탐색할 수 있습니다.
+* Blob Storage를 사용하는 추가 코드 예제는 [Azure 코드 샘플](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)을 참조하세요. GitHub에서 샘플 애플리케이션을 다운로드하고 실행하거나 코드를 탐색할 수 있습니다.
 
 [dotnet_AccessCondition]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.accesscondition.aspx
 [dotnet_CloudBlockBlob]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.aspx

@@ -1,6 +1,6 @@
 ---
-title: 미리 정의된 데이터 추출, 자연어, 이미지 처리 기술(Azure Search) | Microsoft Docs
-description: 데이터 추출, 자연어, 이미지 처리 인식 기술은 Azure Seach 파이프라인의 원시 콘텐츠에 의미 체계와 구조를 추가합니다.
+title: 기본 제공 데이터 추출, 자연어, 이미지 처리 - Azure Search
+description: 데이터 추출, 자연어, 이미지 처리 인식 기술은 Azure Search 파이프라인의 원시 콘텐츠에 의미 체계와 구조를 추가합니다.
 manager: pablocas
 author: luiscabrer
 services: search
@@ -9,19 +9,22 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: c342eca8f27db713e139c187147abddd80eb854e
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: bc1353ffb4514622ce0ef6e5c3ced76adc7f999f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734537"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314791"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>콘텐츠 보강을 위해 미리 정의된 기술(Azure Search)
 
 이 문서에서는 Azure Search와 함께 제공되는 인식 기술에 대해 알아봅니다. 인식 기술은 어떤 방식으로든 콘텐츠를 변환하는 작업입니다. 대체로, 데이터를 추출하거나 구조를 추론하여 입력 데이터에 대한 이해를 보강하는 구성 요소입니다. 출력은 거의 항상 텍스트 기반입니다. 기능은 보강 파이프라인을 정의하는 기술 컬렉션입니다. 
 
 > [!NOTE]
-> 인식 검색은 현재 공개 미리 보기로 제공됩니다. 기능 실행과 이미지 추출 및 정규화는 현재 무료로 제공됩니다. 이러한 기능의 가격은 추후에 발표될 예정입니다. 
+> 2018년 12월 21일부터 Cognitive Services 리소스를 Azure Search 기술과 연결할 수 있습니다. 이를 통해 Microsoft는 기술 실행 요금을 부과할 수 있습니다. 또한 문서 해독 단계의 일부로 이미지 추출에 대한 요금 청구가 이 날짜에서 시작됩니다. 문서에서의 텍스트 추출은 추가 비용 없이 계속 제공됩니다.
+>
+> 기본 제공 기술의 실행에 대한 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격은 미리 보기 가격으로 책정되며 [Azure Search 가격 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다. [자세히](cognitive-search-attach-cognitive-services.md) 알아봅니다.
 
 ## <a name="predefined-skills"></a>미리 정의된 기술
 

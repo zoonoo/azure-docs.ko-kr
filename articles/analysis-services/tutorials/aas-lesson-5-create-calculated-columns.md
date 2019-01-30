@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2d92edd0bda15ecd57a5a29375adae3a51c661c2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bb0a17d4b7e11dd83439d943abf0bdd34ef915ae
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428133"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187453"
 ---
 # <a name="create-calculated-columns"></a>계산된 열 만들기
 
@@ -42,7 +42,7 @@ ms.locfileid: "49428133"
   
     **계산된 열 1**이라는 새 열이 **사분기** 열의 왼쪽에 삽입됩니다.  
   
-4.  테이블 위의 수식 입력줄에 다음 DAX 수식을 입력합니다. 자동 완성을 통해 열 및 테이블의 정규화된 이름을 입력하고 사용 가능한 함수 목록을 보여 줍니다.  
+4.  테이블 위의 수식 입력줄에 다음 DAX 수식을 입력합니다. 자동 완성을 통해 열 및 테이블의 정규화된 이름을 입력하고 사용 가능한 함수 목록을 보여줍니다.  
   
     ```  
     =RIGHT(" " & FORMAT([MonthNumberOfYear],"#0"), 2) & " - " & [EnglishMonthName]  

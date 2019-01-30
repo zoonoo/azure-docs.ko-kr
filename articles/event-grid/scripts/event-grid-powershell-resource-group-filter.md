@@ -9,14 +9,14 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2018
+ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: ed77e8f09af841a1414212d7df6b60655ac158cd
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 21719ab4e6b999f262ff53adf31d855d6e1833b4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39482586"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271405"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-and-filter-for-a-resource-with-powershell"></a>PowerShell을 사용하여 리소스 그룹에 대한 이벤트를 구독하고 리소스 필터링
 
@@ -24,25 +24,16 @@ ms.locfileid: "39482586"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>샘플 스크립트
+미리 보기 샘플 스크립트를 사용하려면 Event Grid 모듈이 필요합니다. 설치하려면 `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`를 실행합니다.
 
-```powershell
-# Provide an endpoint for handling the events.
-$myEndpoint = "<endpoint URL>"
+## <a name="sample-script---stable"></a>샘플 스크립트 - 안정적
 
-# Select the Azure subscription that contains the resource group.
-Set-AzureRmContext -Subscription "Contoso Subscription"
+[!code-powershell[main](../../../powershell_scripts/event-grid/filter-events/filter-events.ps1 "Filter events")]
 
-# Get the resource ID to filter events
-$resourceId = (Get-AzureRmResource -ResourceName demoSecurityGroup -ResourceGroupName myResourceGroup).ResourceId
+## <a name="sample-script---preview-module"></a>샘플 스크립트 - 미리 보기 모듈
 
-# Subscribe to the resource group. Provide the name of the resource group you want to subscribe to.
-New-AzureRmEventGridSubscription `
-  -Endpoint $myEndpoint `
-  -EventSubscriptionName demoSubscriptionToResourceGroup `
-  -ResourceGroupName myResourceGroup `
-  -SubjectBeginsWith $resourceId
-```
+[!code-powershell[main](../../../powershell_scripts/event-grid/filter-events-preview/filter-events-preview.ps1 "Filter events")]
+
 
 ## <a name="script-explanation"></a>스크립트 설명
 
@@ -54,5 +45,5 @@ New-AzureRmEventGridSubscription `
 
 ## <a name="next-steps"></a>다음 단계
 
-* 관리되는 응용 프로그램에 대한 소개는 [Azure Managed Application 개요](../overview.md)를 참조하세요.
+* 관리되는 애플리케이션에 대한 소개는 [Azure Managed Application 개요](../overview.md)를 참조하세요.
 * PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/get-started-azureps)를 참조하세요.

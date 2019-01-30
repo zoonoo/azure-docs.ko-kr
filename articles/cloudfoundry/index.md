@@ -23,7 +23,7 @@ ms.locfileid: "44294520"
     <div class="introHolder" style="justify-content: space-between;">
     <div class="intro" style="min-width: 200px">
     <img src="media/cloudfoundry.png" align="right" alt="Cloud Foundry Logo">
-Cloud Foundry는 다양한 언어 및 프레임워크로 개발되는 12개 요소(12-factor) 응용 프로그램을 빌드하고, 배포하고, 운영하기 위한 오픈 소스 PaaS(Platform-as-a-Service)입니다.  빠른 시작 및 자습서를 사용하여 Azure에서 Cloud Foundry를 사용하는 방법을 알아보세요.
+Cloud Foundry는 다양한 언어 및 프레임워크로 개발되는 12개 요소(12-factor) 애플리케이션을 빌드하고, 배포하고, 운영하기 위한 오픈 소스 PaaS(Platform-as-a-Service)입니다.  빠른 시작 및 자습서를 사용하여 Azure에서 Cloud Foundry를 사용하는 방법을 알아보세요.
         </div>
     </div>
 <h2>5분 빠른 시작</h2>

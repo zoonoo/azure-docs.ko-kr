@@ -8,19 +8,19 @@ manager: jeconnoc
 editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
-ms.service: virtual-machines-linux
+ms.service: azure-monitor
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 0039536caf917a051f0ddabd6be7cf2b1be90ba2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 198d6e596faf47528c508a9323ab22de563dfc62
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404905"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819036"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Cloud Foundry 시스템 모니터링용 Azure Log Analytics Nozzle 배포
 
@@ -44,7 +44,7 @@ Log Analytics Nozzle(Nozzle)은 [Cloud Foundry Loggregator](https://docs.cloudfo
 
 ### <a name="2-install-the-cf-command-line-tools-for-deploying-the-nozzle"></a>2. Nozzle 배포를 위해 CF 명령줄 도구 설치
 
-Nozzle은 CF 환경에서 응용 프로그램을 실행합니다. 응용 프로그램을 배포하려면 CF CLI가 필요합니다.
+Nozzle은 CF 환경에서 애플리케이션을 실행합니다. 애플리케이션을 배포하려면 CF CLI가 필요합니다.
 
 Nozzle은 또한 Loggregator Firehose 및 클라우드 컨트롤러에 대한 액세스 권한이 필요합니다. 사용자를 만들고 구성하려면 UAA(사용자 계정 및 인증) 서비스가 필요합니다.
 
@@ -67,7 +67,7 @@ UAA 명령줄 클라이언트를 설치하기 전에 Rubygems가 설치되어 �
    * **구독**: 구독이 여러 개인 경우 CF 배포와 동일한 구독을 선택합니다.
    * **리소스 그룹**: 새 리소스 그룹을 만들거나 CF 배포가 포함된 그룹과 같은 그룹을 사용할 수 있습니다.
    * **위치**: 위치를 입력합니다.
-   * **가격 책정 계층**: **확인**을 클릭하여 완료합니다.
+   * **가격 책정 계층**: **확인**을 선택하여 완료합니다.
 
 자세한 내용은 [Log Analytics 시작](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)을 참조하세요.
 
@@ -82,23 +82,23 @@ UAA 명령줄 클라이언트를 설치하기 전에 Rubygems가 설치되어 �
     * **리소스 그룹**: Log Analytics 작업 영역에 대해 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.
     * **리소스 그룹 위치**: 리소스 그룹의 위치를 선택합니다.
     * **OMS_Workspace_Name**: 작업 영역 이름을 입력합니다. 작업 영역이 없는 경우 템플릿에서 새로 만듭니다.
-    * **OMS_Workspace_Region**: 작업 영역에 대한 위치를 선택합니다.
+    * **OMS_Workspace_Region**: 작업 영역의 위치를 선택합니다.
     * **OMS_Workspace_Pricing_Tier**: Log Analytics 작업 영역 SKU를 선택합니다. 참조는 [가격 책정 지침](https://azure.microsoft.com/pricing/details/log-analytics/)에서 확인하세요.
-    * **약관**: 약관을 클릭한 다음, "만들기"를 클릭하여 약관에 동의합니다.
+    * **약관**: 약관을 클릭한 다음, “만들기”를 클릭하여 약관에 동의합니다.
 - 모든 매개 변수를 지정한 후 "만들기"를 클릭하여 템플릿을 배포합니다. 배포가 완료되면 상태가 알림 탭에 표시됩니다.
 
 
 ## <a name="deploy-the-nozzle"></a>Nozzle 배포
 
-PCF 타일로 또는 CF 응용 프로그램과 같은 다양한 방법으로 Nozzle을 배포할 수 있습니다.
+PCF 타일로 또는 CF 애플리케이션과 같은 다양한 방법으로 Nozzle을 배포할 수 있습니다.
 
 ### <a name="deploy-the-nozzle-as-a-pcf-ops-manager-tile"></a>PCF Ops Manager 타일로 Nozzle 배포
 
 단계에 따라 [Azure Log Analytics Nozzle for PCF를 설치하고 구성합니다](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). 이것은 간단한 방식이기 때문에 PCF Ops Manager 타일이 자동으로 노즐을 구성하여 푸시합니다. 
 
-### <a name="deploy-the-nozzle-manually-as-a-cf-application"></a>자동으로 Nozzle을 CF 응용 프로그램으로 배포
+### <a name="deploy-the-nozzle-manually-as-a-cf-application"></a>자동으로 Nozzle을 CF 애플리케이션으로 배포
 
-PCF Ops Manager를 사용하지 않는 경우 Nozzle을 응용 프로그램으로 배포합니다. 다음 섹션은 이 프로세스를 설명합니다.
+PCF Ops Manager를 사용하지 않는 경우 Nozzle을 애플리케이션으로 배포합니다. 다음 섹션은 이 프로세스를 설명합니다.
 
 #### <a name="sign-in-to-your-cf-deployment-as-an-admin-through-cf-cli"></a>CF CLI를 통해 관리자로 CF 배포에 로그인
 
@@ -155,7 +155,7 @@ LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle h
 LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Log Analytics. The default is 60 seconds.
 ```
 
-### <a name="push-the-application-from-your-development-computer"></a>개발 컴퓨터에서 응용 프로그램 푸시
+### <a name="push-the-application-from-your-development-computer"></a>개발 컴퓨터에서 애플리케이션 푸시
 
 현재 위치가 oms-log-analytics-firehose-nozzle 폴더인지 확인합니다. 다음 명령 실행:
 ```
@@ -175,7 +175,7 @@ CF CLI 창에서 다음을 입력합니다.
 ```
 cf apps
 ```
-OMS Nozzle 응용 프로그램이 실행되고 있는지 확인합니다.
+OMS Nozzle 애플리케이션이 실행되고 있는지 확인합니다.
 
 ## <a name="view-the-data-in-the-azure-portal"></a>Azure Portal에서 데이터 보기
 
@@ -223,7 +223,7 @@ Loggregator를 강화하려면 Doppler 버퍼 크기를 늘리거나 CF 매니�
 
 ## <a name="update"></a>주 지역에서
 
-Nozzle을 최신 버전으로 업데이트하려면 새 Nozzle 릴리스를 다운로드한 다음 “Nozzle 배포” 섹션의 단계에 따라 응용 프로그램을 다시 푸시합니다.
+Nozzle을 최신 버전으로 업데이트하려면 새 Nozzle 릴리스를 다운로드한 다음, “Nozzle 배포” 섹션의 단계에 따라 애플리케이션을 다시 푸시합니다.
 
 ### <a name="remove-the-nozzle-from-ops-manager"></a>Ops Manager에서 Nozzle 제거
 

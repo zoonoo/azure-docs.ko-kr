@@ -24,8 +24,8 @@
     }
   ],
   "notification_subscribers": [
-    "dengyun@microsoft.com",
-    "MORDPS@microsoft.com"
+    "issahn@microsoft.com",
+    "CnE_UE_Acom_doc_all@moravia.com"
   ],
   "branches_to_filter": [
     "master",
@@ -160,7 +160,7 @@
     },
     {
       "path_to_root": "samples-luis",
-      "url": "https://github.com/Microsoft/Luis-Samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-language-understanding",
       "branch": "master",
       "branch_mapping": {}
     },
@@ -311,6 +311,18 @@
     {
       "path_to_root": "cognitive-services-content-moderator-samples",
       "url": "https://github.com/Azure-Samples/cognitive-services-content-moderator-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-eCommerceCatalogModeration",
+      "url": "https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-cogserv-containers",
+      "url": "https://github.com/Azure-Samples/cognitive-services-containers-samples",
       "branch": "master",
       "branch_mapping": {}
     }

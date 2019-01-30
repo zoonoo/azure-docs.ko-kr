@@ -2,21 +2,21 @@
 title: Azure Event Grid 이벤트 원본
 description: Azure Event Grid에 대한 지원되는 이벤트 원본을 설명합니다.
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/19/2018
-ms.author: tomfitz
-ms.openlocfilehash: adef9d2f2d859c62d3b3b3a542536698fa668f9a
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.date: 01/19/2019
+ms.author: spelluru
+ms.openlocfilehash: 44bd92568db3a762453e1d76a620e6c792cd8913
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498303"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476039"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure Event Grid의 이벤트 원본
 
-이벤트 원본은 이벤트가 발생하는 위치입니다. 여러 Azure 서비스는 이벤트를 전송하도록 자동으로 구성됩니다. 또한 이벤트를 전송하는 사용자 지정 응용 프로그램을 만들 수도 있습니다. 사용자 지정 응용 프로그램은 이벤트 배포에서 Event Grid를 사용하기 위해 Azure에서 호스트될 필요가 없습니다.
+이벤트 원본은 이벤트가 발생하는 위치입니다. 여러 Azure 서비스는 이벤트를 전송하도록 자동으로 구성됩니다. 또한 이벤트를 전송하는 사용자 지정 애플리케이션을 만들 수도 있습니다. 사용자 지정 애플리케이션은 이벤트 배포에서 Event Grid를 사용하기 위해 Azure에서 호스트될 필요가 없습니다.
 
 이 문서에서는 각 이벤트 원본에 대한 콘텐츠 링크를 제공합니다.
 
@@ -43,14 +43,14 @@ Container Registry 이벤트를 구독하여 이미지에서 변경 내용에 �
 
 ## <a name="custom-topics"></a>사용자 지정 항목
 
-사용자 지정 토픽을 구독하여 응용 프로그램 이벤트에 응답합니다.
+사용자 지정 토픽을 구독하여 애플리케이션 이벤트에 응답합니다.
 
 |제목  |설명  |
 |---------|---------|
 | [빠른 시작: Azure CLI를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md) | Azure CLI를 사용하여 사용자 지정 이벤트를 전송하는 방법을 보여 줍니다. |
 | [빠른 시작: Azure PowerShell을 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart-powershell.md) | Azure PowerShell을 사용하여 사용자 지정 이벤트를 전송하는 방법을 보여 줍니다. |
 | [빠른 시작: Azure Portal을 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart-portal.md) | 포털을 사용하여 사용자 지정 이벤트를 전송하는 방법을 보여 줍니다. |
-| [빠른 시작: Azure Queue Storage로 사용자 지정 이벤트 라우팅](custom-event-to-queue-storage.md) | 큐 저장소에 사용자 지정 이벤트를 보내는 방법을 설명합니다. |
+| [빠른 시작: Azure Queue Storage로 사용자 지정 이벤트 라우팅](custom-event-to-queue-storage.md) | Queue Storage에 사용자 지정 이벤트를 보내는 방법을 설명합니다. |
 | [방법: 사용자 지정 토픽에 게시](post-to-custom-topic.md) | 사용자 지정 토픽에 이벤트를 게시하는 방법을 설명합니다. |
 | [Azure CLI: Event Grid 사용자 지정 토픽 만들기](./scripts/event-grid-cli-create-custom-topic.md)|사용자 지정 토픽을 만드는 샘플 스크립트입니다. 스크립트는 엔드포인트 및 키를 검색합니다.|
 | [Azure CLI: 사용자 지정 토픽에 대한 이벤트 구독](./scripts/event-grid-cli-subscribe-custom-topic.md)|사용자 지정 토픽에 대한 구독을 만드는 샘플 스크립트입니다. WebHook에 이벤트를 보냅니다.|
@@ -81,7 +81,7 @@ IoT Hub 이벤트를 구독하여 디바이스 생성, 삭제, 연결 및 연결
 | [Logic Apps를 사용하여 Azure IoT Hub 이벤트에 관한 이메일 알림 보내기](publish-iot-hub-events-to-logic-apps.md) | 논리 앱은 사용자의 IoT Hub에 디바이스가 추가될 때마다 알림 이메일을 보냅니다. |
 | [작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응](../iot-hub/iot-hub-event-grid.md) | Event Grid와 IoT Hub 통합의 개요입니다. |
 | [이벤트 스키마](event-schema-iot-hub.md) | IoT Hub 이벤트의 필드를 보여 줍니다. |
-| [장치 연결 및 장치 연결 해제 이벤트 정렬](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | 디바이스 연결 상태 이벤트 정렬하는 방법을 보여 줍니다. |
+| [디바이스 연결 및 디바이스 연결 해제 이벤트 정렬](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | 디바이스 연결 상태 이벤트 정렬하는 방법을 보여 줍니다. |
 
 ## <a name="media-services"></a>Media Services
 
@@ -114,7 +114,7 @@ Service Bus 이벤트를 구독하여 활성 수신기 없이 메시지에 응�
 |제목  |설명  |
 |---------|---------|
 | [자습서: Azure Service Bus-Azure Event Grid 통합 예제](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid는 Service Bus 토픽의 메시지를 함수 앱 및 논리 앱에 전송합니다. |
-| [개요: Azure Service Bus-Event Grid 통합](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Event Grid와 Service Bus 통합의 개요입니다. |
+| [개요: Azure Service Bus와 Event Grid 통합](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Event Grid와 Service Bus 통합의 개요입니다. |
 | [이벤트 스키마](event-schema-service-bus.md) | Service Bus 이벤트의 필드를 표시합니다. |
 
 ## <a name="storage"></a>Storage
@@ -128,8 +128,8 @@ Blob Storage 이벤트를 구독하여 만든 blob 및 삭제된 이벤트에 �
 | [빠른 시작: Azure Portal을 사용하여 Blob Storage 이벤트 만들기 및 라우팅](blob-event-quickstart-portal.md) | 포털를 사용하여 Blob Storage 이벤트를 WebHook로 전송하는 방법을 보여줍니다. |
 | [Azure CLI: Blob Storage 계정에 대한 이벤트 구독](./scripts/event-grid-cli-blob.md) | Blob Storage 계정에 대한 이벤트를 구독하는 샘플 스크립트입니다. 이벤트를 WebHook로 전송합니다. |
 | [PowerShell: Blob Storage 계정에 대한 이벤트 구독](./scripts/event-grid-powershell-blob.md) | Blob Storage 계정에 대한 이벤트를 구독하는 샘플 스크립트입니다. 이벤트를 WebHook로 전송합니다. |
-| [Resource Manager 템플릿: Blob Storage 및 구독 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Azure Blob Storage 계정을 배포하고 해당 저장소 계정에 대한 이벤트를 구독합니다. WebHook에 이벤트를 보냅니다. |
-| [개요: Blob Storage 이벤트에 대응](../storage/blobs/storage-blob-event-overview.md) | Event Grid와 Blob 저장소 통합의 개요입니다. |
+| [Resource Manager 템플릿: Blob 스토리지 및 구독 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Azure Blob Storage 계정을 배포하고 해당 스토리지 계정에 대한 이벤트를 구독합니다. WebHook에 이벤트를 보냅니다. |
+| [개요: Blob Storage 이벤트에 대응](../storage/blobs/storage-blob-event-overview.md) | Event Grid와 Blob Storage 통합의 개요입니다. |
 | [이벤트 스키마](event-schema-blob-storage.md) | Blob Storage 이벤트의 필드를 표시합니다. |
 
 ## <a name="next-steps"></a>다음 단계

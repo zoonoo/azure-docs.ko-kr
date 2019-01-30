@@ -1,10 +1,10 @@
 ---
-title: 사용자 지정 개발 응용 프로그램에 로그인하는 문제 | Microsoft Docs
-description: Azure AD를 사용하여 개발한 응용 프로그램에 로그인하지 못하게 되는 결과를 발생시킬 수 있는 일반적인 오류
+title: 사용자 지정 개발 애플리케이션에 로그인하는 문제 | Microsoft Docs
+description: Azure AD를 사용하여 개발한 애플리케이션에 로그인하지 못하게 되는 결과를 발생시킬 수 있는 일반적인 오류
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 8ae8fa823b919ec4a67832e7c42088c994bd2d97
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 017d2c6e49b47d11db3c9599a3e769f066496eee
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355347"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472659"
 ---
-# <a name="problems-signing-in-to-an-custom-developed-application"></a>사용자 지정 개발 응용 프로그램에 로그인하는 문제
+# <a name="problems-signing-in-to-an-custom-developed-application"></a>사용자 지정 개발 애플리케이션에 로그인하는 문제
 
 앱에 로그인하지 못하게 될 수 있는 여러 가지 오류가 있습니다. 이 문제가 발생하는 가장 큰 이유는 앱이 잘못 구성되었기 때문입니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "44355347"
 
 * 구성한 리소스만을 요청하기 위해 **필요한 리소스** 탭에서 구성된 권한이 있는 코드에서 액세스를 요청하는 리소스를 비교합니다.
 
-* 유사한 오류 또는 문제는 [Azure AD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)를 참조하세요.
+* 유사한 오류 또는 문제는 [Azure AD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -42,4 +42,4 @@ ms.locfileid: "44355347"
 
 [Azure AD v2.0 수렴형 앱에 대한 동의 및 권한 부여](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
-[Azure AD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory>)
+[Azure AD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory>)

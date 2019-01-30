@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 52b6265722d5cfbf8baf54e1785ace627aa0892f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 07d3f5d365fa5c552ccb61c97532a9931b7e282e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341670"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583683"
 ---
-# <a name="extracting-text-with-ocr"></a>OCR을 사용하여 텍스트 추출
+# <a name="extracting-text-with-optical-character-recognition"></a>광학 문자 인식을 사용하여 텍스트 추출
 
 Computer Vision의 OCR(광학 문자 인식) 기술은 이미지에서 텍스트 콘텐츠를 감지하고 식별된 텍스트를 기계로 판독 가능한 문자 스트림으로 추출합니다. 검색과 의료 기록, 보안, 뱅킹 등의 기타 다양한 용도로 결과를 사용할 수 있습니다. OCR은 언어를 자동으로 감지합니다. OCR을 사용하면 텍스트를 받아쓰는 대신 사진을 찍으면 되므로 간편하고 시간도 절약됩니다.
 
@@ -25,7 +26,7 @@ OCR은 25개 언어를 지원합니다. 해당 언어는 아랍어, 중국어 �
 
 필요한 경우, OCR은 가로 이미지 축을 중심으로 인식된 텍스트의 회전(도)을 수정합니다. OCR은 다음 일러스트레이션과 같이 각 단어의 프레임 좌표를 제공합니다.
 
-![OCR 개요](./Images/vision-overview-ocr.png)
+![이미지가 회전되고 텍스트가 읽고 설명되고 있음을 나타내는 다이어그램](./Images/vision-overview-ocr.png)
 
 ## <a name="ocr-requirements"></a>OCR 요구 사항
 

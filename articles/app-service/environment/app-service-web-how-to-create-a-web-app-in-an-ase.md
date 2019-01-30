@@ -1,5 +1,5 @@
 ---
-title: App Service Environment v1에서 웹앱 만들기
+title: App Service Environment v1에서 웹앱 만들기 - Azure
 description: App Service Environment v1에서 웹앱 및 App Service 계획을 만드는 방법을 알아봅니다.
 services: app-service
 documentationcenter: ''
@@ -12,14 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/11/2017
+ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 1e8540409c6174ad02bd2d9d57c53e0279f49871
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: seodec18
+ms.openlocfilehash: 3e7db670a125f3c5f308107aabfbbab9301b7561
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386914"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718098"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>App Service Environment v1에서 웹앱 만들기
 
@@ -42,7 +43,7 @@ ms.locfileid: "29386914"
 1. [Azure Portal](https://portal.azure.com/)에서 **리소스 만들기 > 웹 + 모바일 > 웹앱**을 클릭합니다. 
    
     ![][1]
-2. 사용 중인 구독을 선택합니다.  
+2. 구독을 선택합니다.  
    
     여러 구독이 있는 경우 App Service Environment의 앱을 만들려면 환경을 만드는 데 사용한 동일한 구독을 사용해야 한다는 점에 주의합니다. 
 3. 리소스 그룹을 선택하거나 만듭니다.
@@ -50,7 +51,7 @@ ms.locfileid: "29386914"
     *리소스 그룹*을 통해 관련 Azure 리소스를 하나의 단위로 관리할 수 있으며 앱에 대해 *역할 기반 액세스 제어*(RBAC) 규칙을 설정할 때 유용합니다. 자세한 내용은 [Azure Resource Manager 개요][ResourceGroups]를 참조하세요. 
 4. App Service 계획을 선택하거나 만듭니다.
    
-    *App Service 계획*은 관리되는 웹앱 집합입니다.  일반적으로 가격 책정을 선택하면 개별 앱이 아니라 App Service 계획에 청구되는 가격이 적용됩니다. ASE에서는 ASP와 함께 표시된 계산 인스턴스가 아니라 ASE에 할당된 계산 인스턴스에 대해 비용을 지불합니다.  웹앱의 인스턴스 수를 늘리려면 App Service 계획 인스턴스를 늘립니다. 그러면 해당 계획의 모든 웹앱에 적용됩니다.  사이트 슬롯 또는 VNET 통합과 같은 일부 기능에는 계획 내 수량 제한도 있습니다.  자세한 내용은 [Azure App Service 계획 개요](../azure-web-sites-web-hosting-plans-in-depth-overview.md)를 참조하세요.
+    *App Service 계획*은 관리되는 웹앱 집합입니다.  일반적으로 가격 책정을 선택하면 개별 앱이 아니라 App Service 계획에 청구되는 가격이 적용됩니다. ASE에서는 ASP와 함께 표시된 계산 인스턴스가 아니라 ASE에 할당된 계산 인스턴스에 대해 비용을 지불합니다.  웹앱의 인스턴스 수를 늘리려면 App Service 계획 인스턴스를 늘립니다. 그러면 해당 계획의 모든 웹앱에 적용됩니다.  사이트 슬롯 또는 VNET 통합과 같은 일부 기능에는 계획 내 수량 제한도 있습니다.  자세한 내용은 [Azure App Service 계획 개요](../overview-hosting-plans.md)를 참조하세요.
    
     계획 이름에서 설명한 위치를 확인하여 ASE의 App Service 계획을 식별할 수 있습니다.  
    
@@ -107,9 +108,9 @@ ASE에서 웹앱을 실행하고 App Service 계획을 관리하기 위해 고�
 
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
-[Appserviceplans]: ../azure-web-sites-web-hosting-plans-in-depth-overview.md
+[Appserviceplans]: ../overview-hosting-plans.md
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
 [ResourceGroups]: ../../azure-resource-manager/resource-group-overview.md
-[AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[AzurePowershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/

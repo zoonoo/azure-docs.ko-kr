@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 08ffc3a9eb4942cb21c0a800d493b87b016d7f87
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c3cb9b7988269f394615b6498bbe7af5bb0ab1e1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016185"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743360"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Storage 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한
 
 HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대해 모든 액세스 권한을 갖습니다. blob 컨테이너에서 공유 액세스 서명을 사용하여 데이터에 대한 액세스를 제한할 수 있습니다. 공유 액세스 서명(SAS)은 데이터에 대한 액세스를 제한할 수 있는 Azure 저장소 계정의 기능입니다. 예를 들어 데이터에 대한 읽기 전용 액세스를 제공합니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Apache Ranger를 사용하는 솔루션의 경우 도메인에 가입된 HDInsight를 사용하는 것이 좋습니다. 자세한 내용은 [도메인에 가입된 HDInsight 구성](./domain-joined/apache-domain-joined-configure.md) 문서를 참조하세요.
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight는 클러스터의 기본 저장소에 대해 모든 액세스 권한이 있어야 합니다.
 
 ## <a name="requirements"></a>요구 사항
@@ -34,9 +34,9 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
   * Visual Studio는 버전 2013, 2015 또는 2017이어야 합니다.
   * Python은 버전 2.7 이상이어야 합니다.
 
-* Linux 기반 HDInsight 클러스터 또는 [Azure PowerShell][powershell] - 기존 Linux 기반 클러스터가 있는 경우 Ambari를 사용하여 클러스터에 공유 액세스 서명을 추가할 수 있습니다. 그렇지 않으면 Azure PowerShell을 사용하여 클러스터를 만들고 클러스터를 만들 때 공유 액세스 서명을 추가합니다.
+* Linux 기반 HDInsight 클러스터 또는 [Azure PowerShell][powershell] - 기존 Linux 기반 클러스터가 있는 경우 Apache Ambari를 사용하여 클러스터에 공유 액세스 서명을 추가할 수 있습니다. 그렇지 않으면 Azure PowerShell을 사용하여 클러스터를 만들고 클러스터를 만들 때 공유 액세스 서명을 추가합니다.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 * [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature)의 예제 파일 이 리포지토리에는 다음 항목이 포함됩니다.
@@ -49,7 +49,7 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
 
 두 가지 형태의 공유 액세스 서명이 있습니다.
 
-* Ad hoc: SAS에 대한 시작 시간, 만료 시간 및 사용 권한이 SAS URI에 모두 지정됩니다.
+* 임시: SAS에 대한 시작 시간, 만료 시간 및 사용 권한이 SAS URI에 모두 지정됩니다.
 
 * 저장된 액세스 정책: 저장된 액세스 정책은 Blob 컨테이너 같은 리소스 컨테이너에서 정의됩니다. 정책은 하나 이상의 공유 액세스 서명에 대한 제약 조건을 관리하는 데 사용될 수 있습니다. SAS를 공유 액세스 정책과 연결할 경우 SAS는 저장된 액세스 정책에 대해 정의된 제약 조건(시작 시간, 만료 시간 및 사용 권한)을 상속합니다.
 
@@ -64,9 +64,9 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
 
 3. SAS에서 참조되는 저장된 액세스 정책을 삭제한 경우(SAS를 해지하는 다른 방법). 똑같은 이름을 사용하여 저장된 액세스 정책을 다시 만들면 이전 정책에 대한 모든 SAS 토큰이 다시 유효해집니다(SAS의 만료 시간이 경과하지 않은 경우). SAS를 해지하기 위해 만료 시간을 미래의 시간으로 지정하여 액세스 정책을 다시 만들 경우 다른 이름을 사용해야 합니다.
 
-4. SAS를 만드는 데 사용된 계정 키를 다시 생성한 경우. 키를 다시 생성하면 이전 키를 사용하는 모든 응용 프로그램이 인증에 실패합니다. 모든 구성 요소를 새 키로 업데이트합니다.
+4. SAS를 만드는 데 사용된 계정 키를 다시 생성한 경우. 키를 다시 생성하면 이전 키를 사용하는 모든 애플리케이션이 인증에 실패합니다. 모든 구성 요소를 새 키로 업데이트합니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 공유 액세스 서명 URI는 서명을 만드는 데 사용된 계정 키 및 저장된 관련 액세스 정책(있는 경우)에 연결됩니다. 저장된 액세스 정책을 지정하지 않는 경우 공유 액세스 서명을 해지하는 방법은 계정 키를 변경하는 것뿐입니다.
 
 항상 저장된 액세스 정책을 사용하는 것이 좋습니다. 저장된 정책을 사용하는 경우 필요에 따라 서명을 철회하거나 만료 날짜를 연장할 수 있습니다. 이 문서의 단계에서는 SAS를 생성하는 데 저장된 액세스 정책을 사용합니다.
@@ -81,13 +81,13 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
 
 3. **설정** 을 선택하고 다음 항목에 대한 값을 추가합니다.
 
-   * StorageConnectionString: 저장된 정책 및 SAS를 만들 저장소 계정에 대한 연결 문자열입니다. 형식은 `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`여야 하며 여기서 `myaccount`는 사용자의 저장소 계정 이름이고 `mykey`는 저장소 계정에 대한 키입니다.
+   * StorageConnectionString: 저장된 정책 및 SAS를 만들 스토리지 계정에 대한 연결 문자열입니다. 형식은 `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`여야 하며 여기서 `myaccount`는 사용자의 저장소 계정 이름이고 `mykey`는 저장소 계정에 대한 키입니다.
 
-   * ContainerName: 액세스를 제한할 저장소 계정의 컨테이너입니다.
+   * ContainerName: 액세스를 제한할 스토리지 계정의 컨테이너입니다.
 
-   * SASPolicyName: 만들 저장된 정책에 대해 사용할 이름입니다.
+   * SASPolicyName: 만들려는 저장된 정책에 사용할 이름입니다.
 
-   * FileToUpload: 컨테이너에 업로드할 파일에 대한 경로입니다.
+   * FileToUpload: 컨테이너에 업로드되는 파일의 경로입니다.
 
 4. 프로젝트를 실행합니다. SAS가 생성되면 다음 텍스트와 유사한 정보가 표시됩니다.
 
@@ -99,15 +99,15 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
 
 1. SASToken.py 파일을 열고 다음 값을 변경합니다.
 
-   * policy\_name: 만들 저장된 정책에 대해 사용할 이름입니다.
+   * policy\_name: 만들려는 저장된 정책에 사용할 이름입니다.
 
-   * storage\_account\_name: 저장소 계정 이름입니다.
+   * storage\_account\_name: 사용자 스토리지 계정의 이름입니다.
 
    * storage\_account\_key: 저장소 계정의 키입니다.
 
-   * storage\_container\_name: 액세스를 제한할 저장소 계정의 컨테이너입니다.
+   * storage\_container\_name: 액세스를 제한할 스토리지 계정의 컨테이너입니다.
 
-   * example\_file\_path: 컨테이너에 업로드할 파일에 대한 경로입니다.
+   * example\_file\_path: 컨테이너에 업로드되는 파일의 경로입니다.
 
 2. 스크립트를 실행합니다. 스크립트가 완료되면 다음 텍스트와 유사한 SAS 토큰이 표시됩니다.
 
@@ -177,13 +177,13 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 
     Linux 기반 클러스터를 만드는 경우 SSH 사용자 계정 이름 및 암호를 묻는 메시지가 표시됩니다. 이 계정은 클러스터에 원격으로 로그인하는 데 사용됩니다.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > HTTP/s 또는 SSH 사용자 이름 및 암호를 묻는 메시지가 나타나면 다음 조건을 충족하는 암호를 제공해야 합니다.
    >
-   > * 길이가 10자 이상이어야 함
-   > * 숫자를 1개 이상 포함해야 함
-   > * 영숫자가 아닌 문자를 1개 이상 포함해야 함
-   > * 대문자 또는 소문자를 1개 이상 포함해야 함
+   > * 길이가 10자 이상이어야 합니다.
+   > * 숫자를 1개 이상 포함해야 합니다.
+   > * 영숫자가 아닌 문자를 1개 이상 포함해야 합니다.
+   > * 대문자 또는 소문자를 1개 이상 포함해야 합니다.
 
 이 스크립트를 완료하는 데는 일반적으로 약 15분이 소요됩니다. 스크립트가 오류 없이 완료되면 클러스터가 만들어진 것입니다.
 
@@ -200,15 +200,15 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 4. **Custom core-site** 섹션을 확장한 후 끝까지 스크롤하여 **Add property...** 링크를 선택합니다. **Key** 및 **Value** 필드에 다음 값을 사용합니다.
 
    * **키**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
-   * **값**: 이전에 실행한 C# 또는 Python 응용 프로그램에서 반환된 SAS
+   * **값**: 이전에 실행한 C# 또는 Python 애플리케이션에서 반환된 SAS
 
-     **CONTAINERNAME** 을 C# 또는 SAS 응용 프로그램에서 사용한 컨테이너 이름으로 바꿉니다. **STORAGEACCOUNTNAME** 을 사용한 저장소 계정 이름으로 바꿉니다.
+     **CONTAINERNAME** 을 C# 또는 SAS 애플리케이션에서 사용한 컨테이너 이름으로 바꿉니다. **STORAGEACCOUNTNAME** 을 사용한 저장소 계정 이름으로 바꿉니다.
 
 5. **Add** 단추를 클릭하여 이 키 및 값을 저장한 후 **Save** 단추를 클릭하여 구성 변경을 저장합니다. 메시지가 나타나면 변경에 대한 설명(예: "SAS 저장소 액세스 추가")을 추가하고 **저장**을 클릭합니다.
 
     변경이 완료되었으면 **확인** 을 클릭합니다.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > 변경 내용을 적용하기 전에 여러 서비스를 다시 시작해야 합니다.
 
 6. Ambari 웹 UI의 왼쪽 목록에서 **HDFS**를 선택한 다음, 오른쪽의 **Service Actions** 드롭다운 목록에서 **Restart All Affected**을 선택합니다. 메시지가 나타나면 __모두 다시 시작 확인__을 선택합니다.
@@ -290,17 +290,17 @@ SAS를 사용하는 HDInsight 클러스터를 만드는 예제는 리포지토�
 
 **해결 방법**: 다음 조건을 충족하는 암호를 사용합니다.
 
-* 길이가 10자 이상이어야 함
-* 숫자를 1개 이상 포함해야 함
-* 영숫자가 아닌 문자를 1개 이상 포함해야 함
-* 대문자 또는 소문자를 1개 이상 포함해야 함
+* 길이가 10자 이상이어야 합니다.
+* 숫자를 1개 이상 포함해야 합니다.
+* 영숫자가 아닌 문자를 1개 이상 포함해야 합니다.
+* 대문자 또는 소문자를 1개 이상 포함해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이제 HDInsight 클러스터에 액세스가 제한된 저장소를 추가하는 방법을 배웠으므로 클러스터에서 데이터에 대해 작업하는 다른 방법에 알아보겠습니다.
 
-* [HDInsight에서 하이브 사용](hadoop/hdinsight-use-hive.md)
-* [HDInsight에서 Pig 사용](hadoop/hdinsight-use-pig.md)
+* [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)
+* [HDInsight에서 Apache Pig 사용](hadoop/hdinsight-use-pig.md)
 * [HDInsight와 함께 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
 
 [powershell]: /powershell/azureps-cmdlets-docs

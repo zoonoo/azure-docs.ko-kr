@@ -4,7 +4,7 @@ description: DirSync에서 Azure AD Connect로 업그레이드하는 방법을 �
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: baf52da7-76a8-44c9-8e72-33245790001c
 ms.service: active-directory
@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 41bbc2fd57617bb4bafb121f9c766b1f673dd075
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9ec2cdd26db03698a3093336b500cb66e2125c50
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228626"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467811"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: DirSync에서 업그레이드
 Azure AD Connect는 DirSync의 후속 도구입니다. 이 항목의 DirSync에서 업그레이드하는 방법을 찾습니다. 다음 단계는 Azure AD Connect의 다른 버전 또는 Azure AD Sync에서 업그레이드하는 경우에 작동하지 않습니다.
 
-Azure AD Connect 설치를 시작하기 전에 [Azure AD Connect를 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771)하고 [Azure AD Connect: 하드웨어 및 필수 구성 요소](how-to-connect-install-prerequisites.md)의 필수 구성 요소 단계를 완료하도록 합니다. 특히, 이러한 영역이 DirSync와 다르기 때문에 다음에 대해 참고해야 합니다.
+Azure AD Connect 설치를 시작하기 전에 [Azure AD Connect를 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771)하고 [Azure AD Connect: 하드웨어 및 필수 구성 요소](how-to-connect-install-prerequisites.md)의 필수 구성 요소 단계를 완료해야 합니다. 특히, 이러한 영역이 DirSync와 다르기 때문에 다음에 대해 참고해야 합니다.
 
 * .Net 및 PowerShell의 필수 버전입니다. 서버에는 DirSync에서보다 최신 버전이 필요합니다.
 * 프록시 서버 구성입니다. 프록시 서버를 사용하여 인터넷에 연결하는 경우 업그레이드하기 전에 이 설정을 구성해야 합니다. DirSync을 설치하는 사용자를 위해 구성된 프록시 서버를 항상 사용하지만 Azure AD Connect는 대신 컴퓨터 설정을 사용합니다.
@@ -136,7 +136,7 @@ DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 
 1. Azure AD Connect 설치 관리자(MSI)를 실행합니다.
 2. **Azure AD Connect 시작** 화면이 표시되면 창 오른쪽 위 모서리에서 "X"를 클릭하여 설치 마법사를 종료합니다.
 3. 명령 프롬프트를 엽니다.
-4. Azure AD Connect 설치 위치(기본값: C:\Program Files\Microsoft Azure Active Directory Connect)에서 `AzureADConnect.exe /ForceExport` 명령을 실행합니다.
+4. Azure AD Connect의 설치 위치에서(기본값: C:\Program Files\Microsoft Azure Active Directory Connect) `AzureADConnect.exe /ForceExport` 명령을 실행합니다.
 5. **설정 내보내기** 단추를 클릭합니다. 별도 서버에 Azure AD Connect를 설치하면 이 설정을 현재 DirSync에서 새 Azure AD Connect 설치로 이미그레이션됩니다.
 
 ![분석 완료](./media/how-to-dirsync-upgrade-get-started/forceexport.png)
@@ -149,13 +149,13 @@ DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 
 1. Azure AD Connect 설치 관리자(MSI)를 실행합니다.
 2. **Azure AD Connect 시작** 화면이 표시되면 창 오른쪽 위 모서리에서 "X"를 클릭하여 설치 마법사를 종료합니다.
 3. 명령 프롬프트를 엽니다.
-4. Azure AD Connect 설치 위치(기본값: C:\Program Files\Microsoft Azure Active Directory Connect)에서 `AzureADConnect.exe /migrate` 명령을 실행합니다.
+4. Azure AD Connect의 설치 위치에서(기본값: C:\Program Files\Microsoft Azure Active Directory Connect) `AzureADConnect.exe /migrate` 명령을 실행합니다.
    Azure AD Connect 설치 마법사가 시작되면 다음 화면이 표시됩니다.  
    ![Azure AD 자격 증명 입력](./media/how-to-dirsync-upgrade-get-started/ImportSettings.png)
 5. DirSync 설치에서 내보낸 설정 파일을 선택합니다.
 6. 다음을 포함한 고급 옵션을 구성합니다.
    * Azure AD Connect에 대한 사용자 지정 설치 위치
-   * 기존 SQL Server 인스턴스(기본값: Azure AD Connect는 SQL Server 2012 Express를 설치함) DirSync 서버와 동일한 데이터베이스 인스턴스를 사용하지 마세요.
+   * SQL Server의 기본 인스턴스(기본값: Azure AD Connect에서 SQL Server 2012 Express 설치). DirSync 서버와 동일한 데이터베이스 인스턴스를 사용하지 마세요.
    * SQL Server에 연결하는 데 사용되는 서비스 계정(SQL Server 데이터베이스가 원격인 경우에는 이 계정이 도메인 서비스 계정이어야 함) 이러한 옵션은 이 화면에서 볼 수 있습니다.
      이러한 옵션은 이 화면에서 볼 수 있습니다.  
      ![Azure AD 자격 증명 입력](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
@@ -170,7 +170,7 @@ DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 
 ### <a name="verify-that-azure-ad-connect-is-ready-to-begin-synchronization"></a>Azure AD Connect가 동기화를 시작할 준비가 되었는지 확인
 Azure AD Connect가 DirSync로부터 인수할 준비가 되었는지 확인하려면 시작 메뉴에서 **Azure AD Connect** 그룹의 **동기화 서비스 관리자**를 열어야 합니다.
 
-응용 프로그램에서 **작업** 탭으로 이동합니다. 이 탭에서 다음 작업이 완료되었는지 확인합니다.
+애플리케이션에서 **작업** 탭으로 이동합니다. 이 탭에서 다음 작업이 완료되었는지 확인합니다.
 
 * AD 커넥터에 가져오기
 * Azure AD 커넥터에 가져오기
@@ -213,7 +213,7 @@ DirSync를 제거하거나 사용하지 않으면 Azure AD로 내보내는 활�
 ## <a name="next-steps"></a>다음 단계
 Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 할당](how-to-connect-post-installation.md)할 수 있습니다.
 
-[자동 업그레이드](how-to-connect-install-automatic-upgrade.md), [실수로 인한 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md) 및 [Azure AD Connect Health](how-to-connect-health-sync.md)를 설치하여 사용할 수 있는 이러한 새 기능에 대해 자세히 알아봅니다.
+다음을 설치하여 사용할 수 있는 이러한 기능에 대해 알아봅니다. [자동 업그레이드](how-to-connect-install-automatic-upgrade.md), [실수로 인한 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md) 및 [Azure AD Connect Health](how-to-connect-health-sync.md).
 
 공통 항목인 [스케줄러 및 동기화를 트리거하는 방법](how-to-connect-sync-feature-scheduler.md)에 대해 자세히 알아봅니다.
 

@@ -1,20 +1,17 @@
 ---
 title: 기존 Azure App Service를 Azure Database for MySQL에 연결
 description: 기존 Azure App Service를 Azure Database for MySQL에 적절하게 연결하는 방법에 대한 지침
-services: mysql
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-manager: kfile
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 4aecc4941f2181216ea537c0019152ce822ac4b0
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: eb2fee7c76bcf29aee2dcd70d7975d7631bb23f6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408938"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548955"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>기존 Azure App Service를 Azure Database for MySQL 서버에 연결
 이 항목에서는 기존 Azure App Service를 Azure Database for MySQL 서버에 연결하는 방법을 설명합니다.
@@ -50,7 +47,7 @@ Azure App Service의 모든 아웃바운드 IP를 명시적으로 추가할 수 
 Azure App Service에서는 시간이 지나도 IP 주소를 동일하게 유지하려고 하지만 경우에 따라 IP 주소가 변경될 수도 있습니다. 예를 들어 수용 작업량을 늘리기 위해 앱 재활용 또는 크기 조정 작업이 발생하거나 Azure 지역 데이터 센터에 새 컴퓨터가 추가되는 경우에 발생할 수 있습니다. IP 주소가 변경되면 앱에서 더 이상 MySQL 서버에 연결할 수 없는 경우 가동 중지가 발생할 수 있습니다. 이전 솔루션 중 하나를 선택할 때 이 고려 사항을 염두에 둡니다.
 
 ## <a name="ssl-configuration"></a>SSL 구성
-Azure Database for MySQL은 기본적으로 SSL을 사용하도록 설정됩니다. 응용 프로그램에서 데이터베이스에 연결할 때 SSL을 사용하지 않는 경우 MySQL 서버에서 SSL을 사용하지 않도록 설정해야 합니다. SSL을 구성하는 방법에 대한 자세한 내용은 [Azure Database for MySQL에 SSL 사용](howto-configure-ssl.md)을 참조하세요.
+Azure Database for MySQL은 기본적으로 SSL을 사용하도록 설정됩니다. 애플리케이션에서 데이터베이스에 연결할 때 SSL을 사용하지 않는 경우 MySQL 서버에서 SSL을 사용하지 않도록 설정해야 합니다. SSL을 구성하는 방법에 대한 자세한 내용은 [Azure Database for MySQL에 SSL 사용](howto-configure-ssl.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 연결 문자열에 대한 자세한 내용은 [연결 문자열](howto-connection-string.md)을 참조하세요.

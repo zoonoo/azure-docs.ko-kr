@@ -3,18 +3,18 @@ title: Azure Maps를 사용하여 검색 | Microsoft Docs
 description: Azure Maps를 사용하여 주변 관심 지점 검색
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/22/2018
+ms.date: 01/17/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c6513c3a92fdf509d9e81d76d1b3547048b2fd8d
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 04ab94d8b0b8f012707bb88a52c44b91063cbe39
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262060"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402186"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Azure Maps를 사용하여 주변 관심 지점 검색
 
@@ -67,7 +67,7 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 
 ## <a name="create-a-new-map"></a>새 지도 만들기
 
-지도 컨트롤 API는 Maps를 웹 응용 프로그램에 쉽게 통합할 수 있도록 하는 편리한 클라이언트 라이브러리입니다. 기본 REST 서비스 호출의 복잡성을 숨기고 스타일 지정 및 사용자 지정 가능한 구성 요소를 사용하여 생산성을 향상합니다. 다음 단계에서는 지도 컨트롤 API가 포함된 정적 HTML 페이지를 만드는 방법을 보여줍니다.
+지도 컨트롤 API는 Maps를 웹 애플리케이션에 쉽게 통합할 수 있도록 하는 편리한 클라이언트 라이브러리입니다. 기본 REST 서비스 호출의 복잡성을 숨기고 스타일 지정 및 사용자 지정 가능한 구성 요소를 사용하여 생산성을 향상합니다. 다음 단계에서는 지도 컨트롤 API가 포함된 정적 HTML 페이지를 만드는 방법을 보여줍니다.
 
 1. 로컬 컴퓨터에서 새 파일을 만들고 이름을 **MapSearch.html**로 지정합니다.
 2. 다음 HTML 구성 요소를 파일에 추가합니다.
@@ -103,7 +103,7 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
          margin: 0;
       }
 
-      #map {
+      #myMap {
          width: 100%;
          height: 100%;
       }
@@ -153,11 +153,6 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
       });
       map.layers.add(resultLayer);
 
-      //Create a popup but leave it closed so we can update it and display it later.
-      popup = new atlas.Popup();
-
-      //Add a mouse over event to the result layer and display a popup when this event fires.
-      map.events.add('mouseover', resultLayer, showPopup);
    });
    ```
 
@@ -234,7 +229,7 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 
    ```JavaScript
    function showPopup(e) {
-        //Get the properties and coordinates of the first shape that the event occured on.
+        //Get the properties and coordinates of the first shape that the event occurred on.
         var p = e.shapes[0].getProperties();
         var position = e.shapes[0].getCoordinates();
 

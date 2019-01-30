@@ -1,28 +1,10 @@
 ---
-title: 기계 학습 일괄 처리 실행 서비스 작업에 대한 전용 용량 - Azure Machine Learning Studio | Microsoft Docs
-description: Machine Learning 작업에 대한 Azure Batch 서비스 개요입니다.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
-ms.author: amlstudiodocs
-manager: hjerez
-editor: cgronlun
-ms.service: machine-learning
-ms.component: studio
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/19/2017
-ms.openlocfilehash: 13e9921b15faff10ac250aa7c19d655ada782ce2
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308135"
+제목: Machine Learning Studio 작업에 대한 Azure Batch 서비스 titleSuffix: Azure Machine Learning Studio 설명: Machine Learning 작업에 대한 Azure Batch 서비스 개요입니다. Batch 풀 처리를 사용하면 배치 작업을 제출할 수 있는 풀을 만들 수 있습니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-title='일괄 처리 실행 서비스 작업용 전용 용량 - Azure Machine Learning Studio | Microsoft Docs' ms.date: 2017/04/19
 ---
-# <a name="azure-batch-service-for-machine-learning-jobs"></a>Machine Learning 작업에 대한 Azure Batch 서비스
+# <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Azure Machine Learning Studio 작업에 대한 Azure Batch 서비스
 
 Machine Learning Batch 풀 처리는 Azure Machine Learning Batch 실행 서비스의 고객 관리 규모를 제공합니다. Machine Learning에 대한 클래식 Batch 처리는 제출할 수 있는 동시 작업 수를 제한하는 다중 테넌트 환경에서 수행되며, 작업은 선입 선출 기준으로 큐에 보관됩니다. 이 불확실성은 작업이 실행되는 시기를 예측할 수 없다는 것입니다.
 

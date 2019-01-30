@@ -1,6 +1,6 @@
 ---
 title: .NET Desktop(WPF) 앱에서 사용자 로그인 및 Microsoft Graph API 호출 | Microsoft Docs
-description: 로그인을 위해 Azure AD와 통합되고 OAuth 2.0을 사용하여 Azure AD로 보호되는 API를 호출하는 .NET Windows Desktop 응용 프로그램을 빌드하는 방법을 알아보세요.
+description: 로그인을 위해 Azure AD와 통합되고 OAuth 2.0을 사용하여 Azure AD로 보호되는 API를 호출하는 .NET Windows Desktop 애플리케이션을 빌드하는 방법을 알아보세요.
 services: active-directory
 documentationcenter: .net
 author: CelesteDG
@@ -30,15 +30,15 @@ ms.locfileid: "46987444"
 
 보호된 리소스에 액세스해야 하는 .NET 네이티브 클라이언트의 경우 Azure AD(Azure Active Directory)에서는 Active Directory 인증 라이브러리(ADAL)를 제공합니다. ADAL을 사용하면 앱에서 쉽게 액세스 토큰을 가져올 수 있습니다. 
 
-이 빠른 시작에서는 다음과 같은 .NET WPF 할 일 목록 응용 프로그램을 빌드하는 방법을 알아보겠습니다.
+이 빠른 시작에서는 다음과 같은 .NET WPF 할 일 목록 애플리케이션을 빌드하는 방법을 알아보겠습니다.
 
 * OAuth 2.0 인증 프로토콜을 사용하여 Azure AD Graph API를 호출하기 위한 액세스 토큰을 가져옵니다.
 * 지정된 별칭을 가진 사용자를 디렉터리에서 검색합니다.
 * 사용자를 로그아웃합니다.
 
-완전하게 작동하는 응용 프로그램을 빌드하려면 다음 작업이 필요합니다.
+완전하게 작동하는 애플리케이션을 빌드하려면 다음 작업이 필요합니다.
 
-1. Azure AD에 응용 프로그램을 등록합니다.
+1. Azure AD에 애플리케이션을 등록합니다.
 2. ADAL을 설치 및 구성합니다.
 3. ADAL을 사용하여 Azure AD에서 토큰을 가져옵니다.
 
@@ -47,26 +47,26 @@ ms.locfileid: "46987444"
 시작하려면 다음과 같은 필수 구성 요소를 완료하세요.
 
 * [앱 기본 사항 다운로드](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/skeleton.zip) 또는 [완성된 샘플 다운로드](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip)
-* 사용자를 만들고 응용 프로그램을 등록할 수 있는 Azure AD 테넌트 보유 테넌트가 아직 없는 경우 [얻는 방법을 알아보세요](quickstart-create-new-tenant.md).
+* 사용자를 만들고 애플리케이션을 등록할 수 있는 Azure AD 테넌트 보유 테넌트가 아직 없는 경우 [얻는 방법을 알아보세요](quickstart-create-new-tenant.md).
 
-## <a name="step-1-register-the-directorysearcher-application"></a>1단계: DirectorySearcher 응용 프로그램 등록
+## <a name="step-1-register-the-directorysearcher-application"></a>1단계: DirectorySearcher 애플리케이션 등록
 
 앱에서 토큰을 가져올 수 있게 하려면 Azure AD 테넌트에 앱을 등록하고 Azure AD Graph API에 액세스할 수 있는 사용 권한을 부여해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 위쪽 표시줄에서 계정을 선택하고 **디렉터리** 목록에서 응용 프로그램을 등록하려는 Active Directory 테넌트를 선택합니다.
+2. 위쪽 표시줄에서 계정을 선택하고 **디렉터리** 목록에서 애플리케이션을 등록하려는 Active Directory 테넌트를 선택합니다.
 3. 왼쪽 탐색 창에서 **모든 서비스**를 선택하고 **Azure Active Directory**를 선택합니다.
 4. **앱 등록**에서 **추가**를 선택합니다.
-5. 프롬프트에 따라 새 **네이티브** 클라이언트 응용 프로그램을 만듭니다.
-    * 응용 프로그램의 **이름**은 최종 사용자에게 응용 프로그램을 설명하는 항목입니다.
-    * **리디렉션 Uri** 는 Azure AD가 토큰 응답을 반환하는 데 사용하는 구성표 및 문자열 조합입니다. 응용 프로그램에 고유하게 해당되는 값을 입력합니다(예: `http://DirectorySearcher`).
+5. 프롬프트에 따라 새 **네이티브** 클라이언트 애플리케이션을 만듭니다.
+    * 애플리케이션의 **이름**은 최종 사용자에게 애플리케이션을 설명하는 항목입니다.
+    * **리디렉션 Uri** 는 Azure AD가 토큰 응답을 반환하는 데 사용하는 구성표 및 문자열 조합입니다. 애플리케이션에 고유하게 해당되는 값을 입력합니다(예: `http://DirectorySearcher`).
 
-6. 등록을 완료하면 AAD는 앱에 고유한 응용 프로그램 ID를 할당합니다. 이 값은 다음 섹션에서 필요하므로 응용 프로그램 페이지에서 복사해 둡니다.
-7. **설정** 페이지에서 **필수 사용 권한**, **추가**를 차례로 선택합니다. **Microsoft Graph**를 API로 선택하고 **위임된 사용 권한**에서 **디렉터리 데이터 읽기** 사용 권한을 추가합니다. 이 사용 권한을 설정하면 응용 프로그램이 사용자에 대해 Graph API를 쿼리할 수 있습니다.
+6. 등록을 완료하면 AAD는 앱에 고유한 애플리케이션 ID를 할당합니다. 이 값은 다음 섹션에서 필요하므로 애플리케이션 페이지에서 복사해 둡니다.
+7. **설정** 페이지에서 **필수 사용 권한**, **추가**를 차례로 선택합니다. **Microsoft Graph**를 API로 선택하고 **위임된 사용 권한**에서 **디렉터리 데이터 읽기** 사용 권한을 추가합니다. 이 사용 권한을 설정하면 애플리케이션이 사용자에 대해 Graph API를 쿼리할 수 있습니다.
 
 ## <a name="step-2-install-and-configure-adal"></a>2단계: ADAL 설치 및 구성
 
-Azure AD에서 응용 프로그램이 있으므로 ADAL을 설치하고 ID 관련 코드를 작성할 수 있습니다. ADAL이 Azura AD와 통신할 수 있게 하려면, 앱 등록에 관한 일부 정보를 제공해야 합니다.
+Azure AD에서 애플리케이션이 있으므로 ADAL을 설치하고 ID 관련 코드를 작성할 수 있습니다. ADAL이 Azura AD와 통신할 수 있게 하려면, 앱 등록에 관한 일부 정보를 제공해야 합니다.
 
 1. 먼저 패키지 관리자 콘솔을 사용하는 `DirectorySearcher` 프로젝트에 ADAL을 추가합니다.
 
@@ -181,9 +181,9 @@ ADAL에서 확인되는 기본 원칙은 액세스 토큰이 필요할 때마다
     }
     ```
 
-축하합니다! 이제 사용자를 인증하고 OAuth 2.0을 사용하여 Web API를 안전하게 호출하고, 사용자에 대한 기본 정보를 가져올 수 있는 .NET WPF 응용 프로그램이 작동하게 되었습니다. 아직 일부 사용자로 테넌트를 채우지 않은 경우 지금 할 수 있습니다. DirectorySearcher 앱을 실행하고 해당 사용자 중 하나로 로그인합니다. 해당 UPN에 따라 다른 사용자를 검색합니다. 앱을 닫았다가 다시 실행합니다. 사용자의 세션을 그대로 유지하는 방법을 알아두세요. 로그아웃했다가 다른 사용자로 다시 로그인합니다.
+축하합니다! 이제 사용자를 인증하고 OAuth 2.0을 사용하여 Web API를 안전하게 호출하고, 사용자에 대한 기본 정보를 가져올 수 있는 .NET WPF 애플리케이션이 작동하게 되었습니다. 아직 일부 사용자로 테넌트를 채우지 않은 경우 지금 할 수 있습니다. DirectorySearcher 앱을 실행하고 해당 사용자 중 하나로 로그인합니다. 해당 UPN에 따라 다른 사용자를 검색합니다. 앱을 닫았다가 다시 실행합니다. 사용자의 세션을 그대로 유지하는 방법을 알아두세요. 로그아웃했다가 다른 사용자로 다시 로그인합니다.
 
-ADAL을 통해 응용 프로그램에 이러한 일반적인 ID 기능을 쉽게 통합할 수 있습니다. 또한 캐시 관리, OAuth 프로토콜 지원, 사용자에게 로그인 UI 제공, 만료된 토큰 새로 고침을 비롯한 귀찮은 작업을 관리해줍니다. 실제로 알아두어야 할 모든 항목은 단일 API 호출, `authContext.AcquireTokenAsync(...)`입니다.
+ADAL을 통해 애플리케이션에 이러한 일반적인 ID 기능을 쉽게 통합할 수 있습니다. 또한 캐시 관리, OAuth 프로토콜 지원, 사용자에게 로그인 UI 제공, 만료된 토큰 새로 고침을 비롯한 귀찮은 작업을 관리해줍니다. 실제로 알아두어야 할 모든 항목은 단일 API 호출, `authContext.AcquireTokenAsync(...)`입니다.
 
 참조용으로 [GitHub의](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip) 완성된 샘플(사용자 구성 값 제외)을 참조하세요.
 

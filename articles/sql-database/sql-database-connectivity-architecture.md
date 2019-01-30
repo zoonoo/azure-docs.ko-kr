@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database 연결 아키텍처 | Microsoft Docs
-description: 이 문서에서는 Azure 내부 또는 Azure 외부의 Azure SQL Database 연결 아키텍처에 대해 설명합니다.
+title: Azure SQL Database 및 SQL Data Warehouse로 Azure 트래픽 전달 | Microsoft Doc
+description: 이 문서에서는 Azure 내부 또는 Azure 외부의 Azure SQL Database 및 SQL Data Warehouse 연결 아키텍처에 대해 설명합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,66 +11,76 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/02/2018
-ms.openlocfilehash: 11133a24f4446478dcc7f38ed50eb36de8843442
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 01/17/2019
+ms.openlocfilehash: 593388c143c31bb4736aa317522ed4c52a8a5296
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978404"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388345"
 ---
-# <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database 연결 아키텍처
+# <a name="azure-sql-connectivity-architecture"></a>Azure SQL 연결 아키텍처
 
-이 문서에서는 Azure SQL Database 연결 아키텍처에 대해 설명하고 다양한 구성 요소가 Azure SQL Database의 인스턴스에 트래픽을 전달하는 방법에 대해 설명합니다. 이러한 Azure SQL Database 연결 구성 요소는 Azure 내에서 연결하는 클라이언트와 Azure 외부에서 연결하는 클라이언트를 사용하여 Azure 데이터베이스에 네트워크 트래픽을 전달합니다. 또한 이 문서에서는 연결되는 방법을 변경하는 스크립트 샘플 및 기본 연결 설정을 변경하는 데 관련된 고려 사항을 제공합니다.
+이 문서에서는 Azure SQL Database 및 SQL Data Warehouse 연결 아키텍처와 다양한 구성 요소가 Azure SQL 인스턴스에 트래픽을 전달하는 방법을 설명합니다. 이러한 연결 구성 요소는 Azure 내에서 연결하는 클라이언트와 Azure 외부에서 연결하는 클라이언트를 사용하여 Azure SQL Database 또는 SQL Data Warehouse에 네트워크 트래픽을 전달합니다. 또한 이 문서에서는 연결되는 방법을 변경하는 스크립트 샘플 및 기본 연결 설정을 변경하는 데 관련된 고려 사항을 제공합니다.
+
+> [!IMPORTANT]
+> **[예정된 변경 내용] Azure SQL 서버에 대한 서비스 엔드포인트 연결에서 `Default` 연결 동작이 `Redirect`로 변경됩니다.**
+>
+> 변경 내용은 2019년 1월 2일까지 모든 지역에 적용됩니다.
+>
+> 기존 환경에서 연결 서비스 엔드포인트를 통한 연결이 이러한 변경으로 인해 중단되지 않도록 하기 위해 원격 분석을 통해 다음을 수행할 것입니다.
+> - 변경 이전에 서비스 엔드포인트를 통해 액세스한 것으로 확인된 서버의 경우, 연결 유형을 `Proxy`로 전환합니다.
+> - 다른 모든 서버에서는 연결 유형을 `Redirect`로 전환합니다.
+>
+> 서비스 엔드포인트 사용자는 다음과 같은 시나리오에서 계속 영향을 받을 수 있습니다.
+> - 애플리케이션이 기존 서버에 자주 연결하지 않아 원격 분석을 통해 해당 애플리케이션에 대한 정보를 캡처하지 못했습니다.
+> - 자동화된 배포 논리가 서비스 엔드포인트 연결에 대한 기본 동작을 `Proxy`로 가정하고 논리 서버를 만듭니다.
+>
+> Azure SQL Server로의 서비스 엔드포인트 연결을 설정할 수 없습니다. 이 변경의 영향을 받을 것으로 의심될 경우 해당 연결 유형이 명시적으로 `Redirect`로 설정되어 있는지 확인하세요. 이 경우 포트 11000 ~ 12000의 SQL [서비스 태그](../virtual-network/security-overview.md#service-tags)에 속하는 모든 Azure IP 주소에 대해 VM 방화벽 규칙 및 NSG(네트워크 보안 그룹)를 열어야 합니다. 이 방법을 사용할 수 없는 경우 서버를 명시적으로 `Proxy`로 전환합니다.
+> [!NOTE]
+> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
 
 ## <a name="connectivity-architecture"></a>연결 아키텍처
 
 다음 다이어그램은 Azure SQL Database 연결 아키텍처의 대략적인 개요를 제공합니다.
 
-![아키텍처 개요](./media/sql-database-connectivity-architecture/architecture-overview.png)
+![아키텍처 개요](./media/sql-database-connectivity-architecture/connectivity-overview.png)
 
-다음 단계는 Azure SQL Database SLB(소프트웨어 부하 분산 장치) 및 Azure SQL Database 게이트웨이를 통해 Azure SQL Database에 연결이 설정되는 방법을 설명합니다.
+다음 단계에서는 Azure SQL Database에 연결하는 방법을 설명합니다.
 
-- 클라이언트는 공용 IP 주소를 포함하고 포트 1433에서 수신 대기하는 SLB에 연결합니다.
-- SLB는 Azure SQL Database 게이트웨이에 트래픽을 전달합니다.
-- 효과적인 연결 정책에 따라 게이트웨이는 트래픽을 올바른 프록시 미들웨어로 리디렉션 또는 프록시합니다.
-- 프록시 미들웨어는 적절한 Azure SQL 데이터베이스에 트래픽을 전달합니다.
-
-> [!IMPORTANT]
-> 이러한 각 구성 요소는 보호 네트워크 및 앱 계층에서 기본 제공되는 DDoS(distributed denial of service)를 배포합니다.
+- 클라이언트는 공용 IP 주소를 가지며 포트 1433에서 수신 대기하는 게이트웨이에 연결합니다.
+- 효과적인 연결 정책에 따라 게이트웨이는 트래픽을 올바른 데이터베이스 클러스터로 리디렉션 또는 프록시합니다.
+- 데이터베이스 내에서 클러스터 트래픽은 해당 Azure SQL Database로 전달됩니다.
 
 ## <a name="connection-policy"></a>연결 정책
 
 Azure SQL Database는 SQL Database 서버의 연결 정책 설정에 대한 다음 세 가지 옵션을 지원합니다.
 
-- **리디렉션(권장):** 클라이언트는 데이터베이스를 호스팅하는 노드로 직접 연결을 설정합니다. 연결을 활성화하려면 클라이언트는 지역에서 Azure SQL Database 게이트웨이 IP 주소 뿐만 아니라 모든 Azure IP 주소에 대한 아웃바운드 방화벽 규칙을 허용해야 합니다([서비스 태그](../virtual-network/security-overview.md#service-tags)와 함께 NSG(네트워크 보안 그룹)를 사용하여 시도). 패킷은 데이터베이스로 직접 이동하므로 대기 시간 및 처리량의 성능이 향상됩니다.
-- **프록시:** 이 모드에서 모든 연결은 Azure SQL Database 게이트웨이를 통해 프록시됩니다. 연결을 활성화하려면 클라이언트는 Azure SQL Database 게이트웨이 IP 주소만 허용하는 아웃바운드 방화벽 규칙이 있어야 합니다(일반적으로 지역당 두 개의 IP 주소). 이 모드를 선택하면 워크로드의 특성에 따라 더 높은 대기 시간 및 더 낮은 처리량이 발생할 수 있습니다. 가장 낮은 대기 시간 및 높은 처리량을 위해 프록시 연결 정책을 통해 리디렉션 연결 정책을 사용하는 것이 좋습니다.
-- **기본값:** 연결 정책을 프록시 또는 리디렉션 중 하나로 명시적으로 변경하지 않는 한 생성 후 모든 서버에 적용되는 연결 정책입니다. 실제 정책은 Azure(리디렉션) 내에서 또는 Azure(프록시) 외부에서 연결이 발생하는지 여부에 따라 달라집니다.
+- **리디렉션(권장):** 클라이언트는 데이터베이스를 호스팅하는 노드로 직접 연결을 설정합니다. 연결을 활성화하려면 클라이언트는 지역에서 포트 1433의 Azure SQL Database 게이트웨이 IP 주소 뿐만 아니라 포트 11000 ~ 12000의 [서비스 태그](../virtual-network/security-overview.md#service-tags)에서 NSG(네트워크 보안 그룹)를 사용하여 지역의 모든 Azure IP 주소에 대한 아웃바운드 방화벽 규칙을 허용해야 합니다. 패킷은 데이터베이스로 직접 이동하므로 대기 시간 및 처리량의 성능이 향상됩니다.
+- **프록시:** 이 모드에서 모든 연결은 Azure SQL Database 게이트웨이를 통해 프록시됩니다. 연결을 활성화하려면 클라이언트는 Azure SQL Database 게이트웨이 IP 주소만 허용하는 아웃바운드 방화벽 규칙이 있어야 합니다(일반적으로 지역당 두 개의 IP 주소). 이 모드를 선택하면 워크로드의 특성에 따라 더 높은 대기 시간 및 더 낮은 처리량이 발생할 수 있습니다. 가장 낮은 대기 시간 및 높은 처리량을 위해 `Proxy` 연결 정책을 통해 `Redirect` 연결 정책을 사용하는 것이 좋습니다.
+- **기본값:** 연결 정책을 `Proxy` 또는 `Redirect` 중 하나로 명시적으로 변경하지 않는 한 생성 후 모든 서버에 적용되는 연결 정책입니다. 실제 정책은 Azure(`Redirect`) 내에서 또는 Azure(`Proxy`) 외부에서 연결이 발생하는지 여부에 따라 달라집니다.
 
 ## <a name="connectivity-from-within-azure"></a>Azure 내부에서 연결
 
-2018년 11월 10일 이후에 생성된 서버의 Azure 내부에서 연결하는 경우 연결에는 기본적으로 **리디렉션** 연결 정책이 있습니다. **리디렉션** 정책의 경우 TCP 세션 이후 연결이 Azure SQL Database로 설정되고 대상 가상 IP가 Azure SQL Database 게이트웨이에서 프록시 미들웨어의 대상 가상 IP로 변경되어 클라이언트 세션이 프록시 미들웨어로 리디렉션됩니다. 그런 다음 모든 후속 패킷은 Azure SQL Database 게이트웨이를 무시하고 프록시 미들웨어를 통해 직접 전달됩니다. 아래 다이어그램은 이 트래픽 흐름을 보여줍니다.
+Azure 내부에서 연결하는 경우 연결에는 기본적으로 `Redirect` 연결 정책이 있습니다. `Redirect` 정책의 경우 TCP 세션이 Azure SQL Database로 설정된 후에 대상 가상 IP가 Azure SQL Database 게이트웨이에서 클러스터의 대상 가상 IP로 변경되어 클라이언트 세션이 적절한 데이터베이스 클러스터로 리디렉션됩니다. 그런 다음, 모든 후속 패킷은 Azure SQL Database 게이트웨이를 우회하고 클러스터로 직접 흐릅니다. 아래 다이어그램은 이 트래픽 흐름을 보여줍니다.
 
-![아키텍처 개요](./media/sql-database-connectivity-architecture/connectivity-from-within-azure.png)
-
-> [!IMPORTANT]
-> 2018년 11월 10일 이전에 SQL Database 서버를 만든 경우 연결 정책은 **프록시**로 명시적으로 설정됩니다. 서비스 엔드포인트를 사용하는 경우 더 나은 성능을 사용하도록 설정하려면 연결 정책을 **리디렉션**으로 변경하는 것이 좋습니다. 연결 정책을 **리디렉션**으로 변경하는 경우 NSG에서 아래에 나열된 Azure SQL Database 게이트웨이 IP에 아웃바운드를 허용하는 것으로 충분하지 않으면 모든 Azure SQL Database IP에 아웃바운드를 허용해야 합니다. NSG(네트워크 보안 그룹) 서비스 태그의 도움을 받아 수행할 수 있습니다. 자세한 내용은 [서비스 태그](../virtual-network/security-overview.md#service-tags)를 참조하세요.
+![아키텍처 개요](./media/sql-database-connectivity-architecture/connectivity-azure.png)
 
 ## <a name="connectivity-from-outside-of-azure"></a>Azure 외부에서 연결
 
-Azure 외부에서 연결하는 경우 연결에는 기본적으로 **프록시** 연결 정책이 있습니다. **프록시** 정책의 경우 TCP 세션이 Azure SQL Database 게이트웨이를 통해 설정되고 모든 후속 패킷이 게이트웨이를 통합니다. 아래 다이어그램은 이 트래픽 흐름을 보여줍니다.
+Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연결 정책이 있습니다. `Proxy` 정책의 경우 TCP 세션이 Azure SQL Database 게이트웨이를 통해 설정되고 모든 후속 패킷이 게이트웨이를 통합니다. 아래 다이어그램은 이 트래픽 흐름을 보여줍니다.
 
-![아키텍처 개요](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
+![아키텍처 개요](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database 게이트웨이 IP 주소
 
-온-프레미스 리소스에서 Azure SQL Database에 연결하려면 Azure 지역의 Azure SQL Database 게이트웨이에 아웃바운드 네트워크 트래픽을 허용하도록 해야 합니다. 온-프레미스 리소스에서 연결할 때 기본 설정인 프록시 모드에서는 연결할 경우 연결은 게이트웨이를 통합니다.
+온-프레미스 리소스에서 Azure SQL Database에 연결하려면 Azure 지역의 Azure SQL Database 게이트웨이에 아웃바운드 네트워크 트래픽을 허용하도록 해야 합니다. 온-프레미스 리소스에서 연결할 때 기본 설정인 `Proxy` 모드에서는 연결할 경우 연결은 게이트웨이를 통합니다.
 
 다음 표에서는 모든 데이터 지역에 있는 Azure SQL Database 게이트웨이의 기본 및 보조 IP를 나열합니다. 일부 지역에는 두 개의 IP 주소가 있습니다. 이러한 지역에서 기본 IP 주소는 게이트웨이의 현재 IP 주소이고 두 번째 IP 주소는 장애 조치 IP 주소입니다. 장애 조치 주소는 높은 서비스 가용성을 유지하기 위해 서버를 이동할 수 있는 주소입니다. 이러한 지역의 경우 두 IP 주소에 아웃바운드를 허용하는 것이 좋습니다. 두 번째 IP 주소는 Microsoft가 소유하고 있으며 Azure SQL Database에서 연결을 허용하기 위해 활성화될 때까지 어떤 서비스도 수신하지 않습니다.
 
 | 지역 이름 | 기본 IP 주소 | 보조 IP 주소 |
 | --- | --- |--- |
-| 오스트레일리아 동부 | 191.238.66.109 | 13.75.149.87 |
+| 오스트레일리아 동부 | 13.75.149.87 | 40.79.161.1 |
 | 오스트레일리아 동남부 | 191.239.192.109 | 13.73.109.251 |
 | 브라질 남부 | 104.41.11.5 | |
 | 캐나다 중부 | 40.85.224.249 | |
@@ -113,67 +123,28 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 **프록시*
 
 Azure SQL Database 서버에 대한 Azure SQL Database 연결 정책을 변경하려면 [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy)를 사용합니다.
 
-- 연결 정책을 **프록시**로 설정한 경우 모든 네트워크 패킷은 Azure SQL Database 게이트웨이를 통합니다. 이 설정에서 Azure SQL Database 게이트웨이 IP로만 아웃바운드를 허용해야 합니다. **프록시** 설정을 사용하면 **리디렉션** 설정보다 대기 시간이 길어집니다.
-- 연결 정책을 **리디렉션**으로 설정하는 경우 모든 네트워크 패킷은 미들웨어 프록시에 직접 전달됩니다. 이 설정에서 여러 IP에 대한 아웃바운드를 허용해야 합니다.
+- 연결 정책을 `Proxy`로 설정한 경우 모든 네트워크 패킷은 Azure SQL Database 게이트웨이를 통합니다. 이 설정에서 Azure SQL Database 게이트웨이 IP로만 아웃바운드를 허용해야 합니다. `Proxy` 설정을 사용하면 `Redirect` 설정보다 대기 시간이 길어집니다.
+- 연결 정책을 `Redirect`로 설정하는 경우 모든 네트워크 패킷은 데이터베이스 클러스터에 직접 전달됩니다. 이 설정에서 여러 IP에 대한 아웃바운드를 허용해야 합니다.
 
 ## <a name="script-to-change-connection-settings-via-powershell"></a>PowerShell을 통해 연결 설정을 변경하는 스크립트
 
 > [!IMPORTANT]
-> 이 스크립트에는 [Azure PowerShell 모듈](/powershell/azure/install-azurerm-ps)이 필요합니다.
->
+> 이 스크립트에는 [Azure PowerShell 모듈](/powershell/azure/install-az-ps)이 필요합니다.
 
 다음 PowerShell 스크립트에서는 연결 정책을 변경하는 방법을 보여줍니다.
 
 ```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName <Subscription Name>
+# Get SQL Server ID
+$sqlserverid=(Get-AzureRmSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
 
-# Azure Active Directory ID
-$tenantId = "<Azure Active Directory GUID>"
-$authUrl = "https://login.microsoftonline.com/$tenantId"
+# Set URI
+$id="$sqlserverid/connectionPolicies/Default"
 
-# Subscription ID
-$subscriptionId = "<Subscription GUID>"
+# Get current connection policy
+(Get-AzureRmResource -ResourceId $id).Properties.connectionType
 
-# Create an App Registration in Azure Active Directory.  Ensure the application type is set to NATIVE
-# Under Required Permissions, add the API:  Windows Azure Service Management API
-
-# Specify the redirect URL for the app registration
-$uri = "<NATIVE APP - REDIRECT URI>"
-
-# Specify the application id for the app registration
-$clientId = "<NATIVE APP - APPLICATION ID>"
-
-# Logical SQL Server Name
-$serverName = "<LOGICAL DATABASE SERVER - NAME>"
-
-# Resource Group where the SQL Server is located
-$resourceGroupName= "<LOGICAL DATABASE SERVER - RESOURCE GROUP NAME>"
-
-
-# Login and acquire a bearer token
-$AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]$authUrl
-$result = $AuthContext.AcquireToken(
-"https://management.core.windows.net/",
-$clientId,
-[Uri]$uri,
-[Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Auto
-)
-
-$authHeader = @{
-'Content-Type'='application\json; '
-'Authorization'=$result.CreateAuthorizationHeader()
-}
-
-#Get current connection Policy
-Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method GET -Headers $authHeader
-
-#Set connection policy to Proxy
-$connectionType="Proxy" <#Redirect / Default are other options#>
-$body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
-
-# Apply Changes
-Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
+# Update connection policy
+Set-AzureRmResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ```
 
 ## <a name="script-to-change-connection-settings-via-azure-cli"></a>Azure CLI를 통해 연결 설정을 변경하는 스크립트
@@ -184,9 +155,8 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 다음 CLI 스크립트에서는 연결 정책을 변경하는 방법을 보여줍니다.
 
 ```azurecli-interactive
-<pre>
 # Get SQL Server ID
-sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
+sqlserverid=$(az sql server show -n sql-server-name -g sql-server-group --query 'id' -o tsv)
 
 # Set URI
 id="$sqlserverid/connectionPolicies/Default"
@@ -196,12 +166,10 @@ az resource show --ids $id
 
 # Update connection policy
 az resource update --ids $id --set properties.connectionType=Proxy
-
-</pre>
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
 - Azure SQL Database 서버에 대한 Azure SQL Database 연결 정책을 변경하는 방법에 대해서는 [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy)를 참조합니다.
 - ADO.NET 4.5 이상 버전을 사용하는 클라이언트의 Azure SQL Database 연결 동작에 대한 자세한 정보는 [ADO.NET 4.5에 대한 1433 이외 포트](sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
-- 일반 응용 프로그램 개발 개요 정보는 [SQL Database 응용 프로그램 개발 개요](sql-database-develop-overview.md)를 참조하세요.
+- 일반 애플리케이션 개발 개요 정보는 [SQL Database 애플리케이션 개발 개요](sql-database-develop-overview.md)를 참조하세요.

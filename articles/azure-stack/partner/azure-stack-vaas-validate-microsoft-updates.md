@@ -10,21 +10,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 8e0009bf0fc34d3e0d22755d93d941b85db62ffd
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.lastreviewed: 01/14/2019
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4e6f5a17544c1419eb6101acdd6590f034ea4aa3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334468"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241461"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Microsoft의 소프트웨어 업데이트의 유효성을 검사합니다
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Microsoft은 Azure Stack 소프트웨어 업데이트를 주기적으로 해제 됩니다. 이러한 업데이트는 해당 솔루션에 대 한 업데이트의 유효성을 검사 하 고 Microsoft에 피드백을 제공할 수 있도록 공개적으로 제공 되 전에 Azure Stack 공동 엔지니어링 파트너에 게 제공 됩니다.
+Microsoft은 Azure Stack 소프트웨어 업데이트를 주기적으로 해제 됩니다. 이러한 업데이트는 Azure stack 파트너 coengineering 제공 됩니다. 업데이트를 공개적으로 사용할 수 있는 사전에 제공 됩니다. 솔루션에 대 한 업데이트를 확인 하 고 Microsoft에 피드백을 제공할 수 있습니다.
 
 [!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 
@@ -34,11 +36,15 @@ Microsoft은 Azure Stack 소프트웨어 업데이트를 주기적으로 해제 
 
 ## <a name="create-a-workflow"></a>워크플로 만들기
 
-Update 유효성 검사와 같은 워크플로 사용 하 여 **패키지 유효성 검사**합니다. 지침을 따르세요 [패키지 유효성 검사 워크플로 만드는](azure-stack-vaas-validate-oem-package.md#create-a-package-validation-workflow)합니다.
+Update 유효성 검사와 같은 워크플로 사용 하 여 **솔루션 유효성 검사**합니다.
 
 ## <a name="run-tests"></a>테스트 실행
 
-Update 유효성 검사와 같은 워크플로 사용 하 여 **패키지 유효성 검사**합니다. 지침을 따르세요 [실행 패키지 유효성 검사 테스트](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests)합니다.
+1. Update 유효성 검사와 같은 워크플로 사용 하 여 **솔루션 유효성 검사**합니다. 
+
+2. 지침을 따르세요 [솔루션의 유효성 검사 실행 테스트](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests)합니다. 대신 다음 테스트를 선택 합니다.
+    - 월별 Azure Stack 업데이트 확인
+    - 클라우드 시뮬레이션 엔진
 
 패키지 업데이트 유효성 검사에 대 한 서명 요청할 필요가 없습니다.
 

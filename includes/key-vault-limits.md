@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: ed0c387f9785336fbf18b3fd3c0cd9a7b09df633
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 9a39abf77a7396302f93e5a423271402b7c3edb3
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279790"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54084007"
 ---
 키 트랜잭션(지역당 자격 증명 모음당 10초 내에 허용되는 최대 트랜잭션<sup>1</sup>)
 
@@ -23,6 +23,23 @@ ms.locfileid: "52279790"
 |ECC P-521|5|1000|10|2000|
 |ECC SECP256K1|5|1000|10|2000|
 |
+
+> [!NOTE]
+> 위의 임계값은 가중치를 부여한 값이며, 해당 합계에 적용되어 있습니다. 125개 RSA-HSM-4k와 0개 RSA-HSM-2k 또는 124개 RSA-HSM-4k와 16개 RSA-HSM-2k 작업을 수행할 수 있습니다. 나중에 동일한 10초 간격으로 다른 작업을 수행하면 AKV 클라이언트 예외가 발생합니다.
+
+> [!NOTE]
+> 아래 표를 보면 소프트웨어 백업 키에 대해 10초마다 2,000개의 트랜잭션을 허용하고, HSM 백업 키에 대해 10초마다 1,000개의 트랜잭션을 허용한다는 것을 알 수 있습니다. 소프트웨어 백업 트랜잭션의 비율인 3,072개 키에 대한 2,048개 키는 500/2000 또는 0.4입니다. 이것은 고객이 10초 안에 3,072개 키 트랜잭션을 500개 수행할 경우 최대 한계에 도달하여 다른 키 작업을 수행할 수 없음을 의미합니다. 
+   
+|키 유형  | 소프트웨어 키 |HSM 키  |
+|---------|---------|---------|
+|RSA 2048비트     |    2000     |   1000    |
+|RSA 3072비트     |     500    |    250     |
+|RSA 4096비트     |    125     |    250     |
+|ECC P-256     |    2000     |  1000     |
+|ECC P-384     |    2000     |  1000     |
+|ECC P-521     |    2000     |  1000     |
+|ECC SECP256K1     |    2000     |  1000     |
+
 
 암호, 관리되는 Storage 계정 키 및 자격 증명 모음 트랜잭션:
 | 트랜잭션 유형 | 지역당 자격 증명 모음당 10초 내에 허용되는 최대 트랜잭션<sup>1</sup> |

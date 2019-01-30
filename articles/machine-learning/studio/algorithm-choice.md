@@ -1,24 +1,21 @@
 ---
-title: 기계 학습 알고리즘을 선택하는 방법 - Azure Machine Learning Studio | Microsoft Docs
+title: 알고리즘 선택 방법
+titleSuffix: Azure Machine Learning Studio
 description: 클러스터링, 분류 또는 회귀 실험에서 감독 및 자율 학습에 대한 Azure Machine Learning Studio 알고리즘을 선택하는 방법입니다.
 services: machine-learning
-author: ericlicoding
-ms.custom: (previous ms.author=pakalra, author=pakalra)
-ms.author: amlstudiodocs
-manager: cgronlun
-editor: cgronlun
-tags: ''
-ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
 ms.component: studio
 ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 7ddfb98a884779385cde643e213bebb98b050436
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 20debfe2a1f3cf92e1a90867ca2b3a01852f7f9c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312421"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267354"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio를 위한 알고리즘 선택 방법
 
@@ -44,7 +41,7 @@ ms.locfileid: "52312421"
 완벽하게 맞는 것이 없는 경우도 있습니다. 경험에 기반한 권장 방법으로 제공되는 것이므로 정확하지 않은 것에 대해 걱정하지 않아도 됩니다.
 수많은 데이터 과학자가 최적의 알고리즘을 찾는 가장 확실한 방법은 모든 알고리즘을 시도해보는 것이라고 말합니다.
 
-동일한 데이터에 대해 여러 알고리즘을 시도하고 그 결과를 비교하는 실험의 예제는 [Azure AI 갤러리](http://gallery.cortanaintelligence.com/)에서 [다중 클래스 분류자 비교: 문자 인식](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92)을 참조합니다.
+동일한 데이터에 대해 여러 알고리즘을 시도하고 그 결과를 비교하는 실험의 예제는 [Azure AI Gallery](http://gallery.cortanaintelligence.com/)에서 [다중 클래스 분류자 비교: 문자 인식](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92)을 참조하세요.
 
 > [!TIP]
 > Machine Learning Studio의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure Machine Learning Studio 기능 개요](studio-overview-diagram.md)를 참조하세요.
@@ -70,7 +67,7 @@ ms.locfileid: "52312421"
 ### <a name="reinforcement-learning"></a>보충 학습
 
 보충 학습에서는 알고리즘이 각 데이터 요소에 대한 응답으로 작업을 선택합니다. 또한 학습 알고리즘은 짧은 시간 후에 결정이 얼마나 효율적이었는지를 나타내는 보상 신호를 받습니다.
-이 신호에 따라 알고리즘은 가장 높은 보상을 달성하기 위해 해당 전략을 수정합니다. 현재 Azure Machine Learning에는 보충 학습 알고리즘 모듈이 없습니다. 보충 학습은 지정 시간 센서 판독값 집합이 한 데이터 요소이며 알고리즘으로 로봇의 다음 동작을 선택해야 하는 로봇 공학에서 일반적입니다. 사물 인터넷의 응용 프로그램에 적합한 학습이기도 합니다.
+이 신호에 따라 알고리즘은 가장 높은 보상을 달성하기 위해 해당 전략을 수정합니다. 현재 Azure Machine Learning에는 보충 학습 알고리즘 모듈이 없습니다. 보충 학습은 지정 시간 센서 판독값 집합이 한 데이터 요소이며 알고리즘으로 로봇의 다음 동작을 선택해야 하는 로봇 공학에서 일반적입니다. 사물 인터넷 애플리케이션에 적합한 학습이기도 합니다.
 
 ## <a name="considerations-when-choosing-an-algorithm"></a>알고리즘 선택 시 고려 사항
 

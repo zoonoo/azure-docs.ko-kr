@@ -3,19 +3,19 @@ title: Predicates 및 PredicateValidations - Azure Active Directory B2C | Micros
 description: Azure Active Directory B2C의 ID 경험 프레임워크 스키마용 소셜 계정 클레임 변환의 예제를 제공합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d00bbddc6523f75b3208a41296b5b94f9f06a5ed
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 24aa6bf67b3b841b950e047a5c2509f04a3546b7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432174"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850861"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 및 PredicateValidations
 
@@ -33,7 +33,7 @@ ms.locfileid: "47432174"
 
 **Predicates** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | Predicate | 1:n | 조건자 목록입니다. | 
 
@@ -41,25 +41,25 @@ ms.locfileid: "47432174"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| Id | yes | 조건자에 사용되는 식별자입니다. 다른 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
-| 방법 | yes | 유효성 검사에 사용할 메서드 형식입니다. 가능한 값은 **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** 또는 **IsDateRange**입니다. **IsLengthRange** 값은 문자열 클레임 값의 길이가 지정한 최소/최대 매개 변수 범위 내에 포함되는지 여부를 확인합니다. **MatchesRegex** 값은 문자열 클레임 값이 정규식과 일치하는지 여부를 확인합니다. **IncludesCharacters** 값은 문자열 클레임 값에 특정 문자 집합이 포함되는지 여부를 확인합니다. **IsDateRange** 값은 날짜 클레임 값이 지정한 최소/최대 매개 변수 범위 사이에 있는지 여부를 확인합니다. |
+| Id | 예 | 조건자에 사용되는 식별자입니다. 다른 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
+| 방법 | 예 | 유효성 검사에 사용할 메서드 형식입니다. 가능한 값은 다음과 같습니다. **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** 또는 **IsDateRange**. **IsLengthRange** 값은 문자열 클레임 값의 길이가 지정한 최소/최대 매개 변수 범위 내에 포함되는지 여부를 확인합니다. **MatchesRegex** 값은 문자열 클레임 값이 정규식과 일치하는지 여부를 확인합니다. **IncludesCharacters** 값은 문자열 클레임 값에 특정 문자 집합이 포함되는지 여부를 확인합니다. **IsDateRange** 값은 날짜 클레임 값이 지정한 최소/최대 매개 변수 범위 사이에 있는지 여부를 확인합니다. |
 
 **Predicate** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 | 확인이 실패하면 사용자에게 표시할 오류 메시지입니다. [언어 사용자 지정](localization.md)을 통해 이 문자열을 지역화할 수 있습니다. |
 | 매개 변수 | 1:1 | 문자열 유효성 검사의 메서드 형식에 대한 매개 변수입니다. | 
 
 **Parameters** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | 매개 변수 | 1:n | 문자열 유효성 검사의 메서드 형식에 대한 매개 변수입니다. | 
 
 **Parameter** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | Id | 1:1 | 매개 변수의 식별자입니다. |
 
@@ -132,7 +132,7 @@ ms.locfileid: "47432174"
 
 **PredicateValidations** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | PredicateValidation | 1:n | 조건자 유효성 검사 목록입니다. | 
 
@@ -140,17 +140,17 @@ ms.locfileid: "47432174"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| Id | yes | 조건자 유효성 검사에 사용되는 식별자입니다. **ClaimType** 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
+| Id | 예 | 조건자 유효성 검사에 사용되는 식별자입니다. **ClaimType** 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
 
 **PredicateValidation** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | PredicateGroups | 1:n | 조건자 그룹 목록입니다. | 
 
 **PredicateGroups** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | PredicateGroup | 1:n | 조건자 목록입니다. | 
 
@@ -158,11 +158,11 @@ ms.locfileid: "47432174"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| Id | yes | 조건자 그룹에 사용되는 식별자입니다.  |
+| Id | 예 | 조건자 그룹에 사용되는 식별자입니다.  |
 
 **PredicateGroup** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 |  사용자가 입력해야 하는 값을 쉽게 확인할 수 있는 조건자 설명입니다. | 
 | PredicateReferences | 1:n | 조건자 참조 목록입니다. | 
@@ -175,7 +175,7 @@ ms.locfileid: "47432174"
 
 **PredicateReferences** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | PredicateReference | 1:n | 조건자에 대한 참조입니다. | 
 
@@ -183,7 +183,7 @@ ms.locfileid: "47432174"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| Id | yes | 조건자 유효성 검사에 사용되는 식별자입니다.  |
+| Id | 예 | 조건자 유효성 검사에 사용되는 식별자입니다.  |
 
 
 ## <a name="configure-password-complexity"></a>암호 복잡도 구성
@@ -262,7 +262,7 @@ ms.locfileid: "47432174"
 기본적인 유효성 검사를 정의한 후에는 유효성 검사를 결합하여 정책에서 사용 가능한 암호 정책 집합을 만들 수 있습니다.
 
 - **SimplePassword**는 DisallowedWhitespace, AllowedAADCharacters 및 IsLengthBetween8And64 유효성 검사를 수행합니다.
-- **StrongPassword**는 DisallowedWhitespace, AllowedAADCharacters, 및 IsLengthBetween8And64 유효성 검사를 수행합니다. 마지막 그룹인 `CharacterClasses`는 `MatchAtLeast`가 3으로 설정된 추가 조건자 집합을 실행합니다. 이 경우 사용자 암호는 8~16자 사이여야 하며 소문자, 대문자, 숫자, 기호 중 3가지를 포함해야 합니다.
+- **StrongPassword**는 DisallowedWhitespace, AllowedAADCharacters, 및 IsLengthBetween8And64 유효성 검사를 수행합니다. 마지막 그룹인 `CharacterClasses`는 `MatchAtLeast`가 3으로 설정된 추가 조건자 집합을 실행합니다. 사용자 암호는 8~16자 사이여야 하며 소문자, 대문자, 숫자, 기호 중 세 가지를 포함해야 합니다.
 - **CustomPassword**는 DisallowedWhitespace, AllowedAADCharacters 유효성 검사만 수행합니다. 따라서 사용자는 문자가 유효하기만 하면 어떤 길이의 암호든 입력할 수 있습니다.
 
 ```XML

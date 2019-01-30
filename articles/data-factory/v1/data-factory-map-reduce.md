@@ -9,17 +9,16 @@ ms.assetid: c34db93f-570a-44f1-a7d6-00390f4dc0fa
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: edbef08eaa100248368d7f0b23171f15b52ec56a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 309ddcf68d03f34ca3309d76d15cc3928037c667
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050950"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017449"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>데이터 팩터리에서 MapReduce 프로그램 호출
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -41,7 +40,7 @@ ms.locfileid: "37050950"
 Data Factory [파이프라인](data-factory-create-pipelines.md)의 HDInsight MapReduce 작업은 [사용자 고유](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) 또는 [주문형](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux 기반 HDInsight 클러스터에서 MapReduce 프로그램을 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서에서 작성합니다.
 
 > [!NOTE] 
-> Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](data-factory-introduction.md)를 읽고 이 문서를 읽기 전에 [첫 번째 데이터 파이프라인 빌드](data-factory-build-your-first-pipeline.md) 자습서를 수행하세요.  
+> Azure Data Factory를 처음 접하는 경우 이 문서를 읽기 전에 [Azure Data Factory 소개](data-factory-introduction.md)를 읽고 [첫 번째 데이터 파이프라인 빌드](data-factory-build-your-first-pipeline.md) 자습서를 수행하세요.  
 
 ## <a name="introduction"></a>소개
 Azure 데이터 팩터리의 파이프라인은 연결된 저장소 서비스의 데이터를 연결된 계산 서비스를 사용하여 처리합니다. 파이프라인에는 일련의 작업이 포함되며 각 작업에서는 특정 처리 작업을 수행합니다. 이 문서에서는 HDInsight MapReduce 작업을 사용하는 방법을 설명합니다.
@@ -114,7 +113,7 @@ HDInsight 작업에 대한 JSON 정의에서 다음을 수행합니다:
 HDInsight MapReduce 작업을 사용하여 HDInsight 클러스터에서 모든 MapReduce jar 파일을 실행할 수 있습니다. 다음 파이프라인의 샘플 JSON 정의에서 HDInsight 작업은 Mahout JAR 파일을 실행하도록 구성되어 있습니다.
 
 ## <a name="sample-on-github"></a>GitHub의 샘플
-HDInsight MapReduce 작업을 사용하는 샘플은 [GitHub의 데이터 팩터리 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample)에서 다운로드할 수 있습니다.  
+HDInsight MapReduce 작업을 사용하는 샘플은 [GitHub의 Data Factory 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample)에서 다운로드할 수 있습니다.  
 
 ## <a name="running-the-word-count-program"></a>Word Count 프로그램 실행
 이 예제의 파이프라인에서는 Azure HDInsight 클러스터에서 Word Count Map/Reduce 프로그램을 실행합니다.   
@@ -181,7 +180,7 @@ HDInsight MapReduce 작업을 사용하는 샘플은 [GitHub의 데이터 팩터
 ```
 
 ### <a name="pipeline"></a>파이프라인
-이 예제의 파이프라인은 HDInsightMapReduce 형식의 작업을 하나만 포함합니다. JSON의 중요한 속성에 대한 예를 들면 다음과 같습니다. 
+이 예제의 파이프라인은 다음 형식의 작업을 하나만 포함합니다. HDInsightMapReduce. JSON의 중요한 속성에 대한 예를 들면 다음과 같습니다. 
 
 | 자산 | 메모 |
 |:--- |:--- |

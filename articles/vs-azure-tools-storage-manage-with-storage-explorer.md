@@ -1,6 +1,6 @@
 ---
 title: Storage 탐색기 시작 | Microsoft Docs
-description: Storage 탐색기로 Azure 저장소 리소스 관리
+description: Storage 탐색기로 Azure 스토리지 리소스 관리
 services: storage
 documentationcenter: na
 author: cawaMS
@@ -80,7 +80,7 @@ Storage 탐색기는 Storage 계정에 연결하는 여러 방법을 제공합�
 
 * Azure 구독과 연결된 저장소 계정에 연결합니다.
 * 다른 Azure 구독에서 공유되는 저장소 계정 및 서비스에 연결합니다.
-* Azure Storage 에뮬레이터를 사용하여 로컬 저장소에 연결하고 관리합니다.
+* Azure Storage 에뮬레이터를 사용하여 로컬 스토리지에 연결하고 관리합니다.
 
 또한 글로벌 및 국가별 Azure에서 저장소 계정으로 작업할 수 있습니다.
 
@@ -118,9 +118,9 @@ Storage 탐색기는 Storage 계정에 연결하는 여러 방법을 제공합�
 
 ## <a name="work-with-local-development-storage"></a>로컬 개발 저장소로 작업
 
-Storage 탐색기로 에뮬레이터를 사용하여 로컬 저장소에서 작업할 수 있습니다. 이 방식에서는 Azure에 저장소 계정을 반드시 배포하지 않고도, Azure Storage 작업을 시뮬레이션할 수 있습니다.
+Storage 탐색기로 에뮬레이터를 사용하여 로컬 스토리지에서 작업할 수 있습니다. 이 방식에서는 Azure에 스토리지 계정을 반드시 배포하지 않고도, Azure Storage 작업을 시뮬레이션할 수 있습니다.
 
-로컬 저장소 에뮬레이터는 버전 1.1.0부터 모든 플랫폼에서 지원됩니다. Storage 탐색기는 해당 기본 로컬 저장소 엔드포인트를 수신 대기하는 모든 에뮬레이트된 서비스에 연결할 수 있습니다.
+로컬 저장소 에뮬레이터는 버전 1.1.0부터 모든 플랫폼에서 지원됩니다. Storage 탐색기는 해당 기본 로컬 스토리지 엔드포인트를 수신 대기하는 모든 에뮬레이트된 서비스에 연결할 수 있습니다.
 
 > [!NOTE]
 > Storage 서비스 및 기능에 대한 지원은 에뮬레이터의 선택에 따라 광범위하게 달라질 수 있습니다. 에뮬레이터가 함께 작업하려는 서비스 및 기능을 지원하는지 확인합니다.
@@ -150,7 +150,7 @@ Storage 탐색기로 에뮬레이터를 사용하여 로컬 저장소에서 작�
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>외부 저장소 계정 연결 또는 분리
 
-Storage 탐색기를 사용하면 외부 저장소 계정에 연결하여 저장소 계정을 쉽게 공유할 수 있습니다. 이 섹션은 외부 저장소 계정에 연결(및 분리)하는 방법을 설명합니다.
+Storage 탐색기를 사용하면 외부 스토리지 계정에 연결하여 스토리지 계정을 쉽게 공유할 수 있습니다. 이 섹션은 외부 저장소 계정에 연결(및 분리)하는 방법을 설명합니다.
 
 ### <a name="get-the-storage-account-credentials"></a>저장소 계정 자격 증명 가져오기
 
@@ -223,7 +223,7 @@ Storage 탐색기를 사용하면 외부 저장소 계정에 연결하여 저장
 
 ### <a name="generate-a-sas-connection-string-for-the-account-you-want-to-share"></a>공유하려는 계정에 대한 SAS 연결 문자열 생성
 
-1. Storage 탐색기에서 공유하려는 저장소 계정을 마우스 오른쪽 단추로 클릭하고 **공유 액세스 서명 가져오기...** 를 선택합니다.
+1. Storage 탐색기에서 공유하려는 스토리지 계정을 마우스 오른쪽 단추로 클릭하고 **공유 액세스 서명 가져오기...** 를 선택합니다.
 
     ![SAS 상황에 맞는 메뉴 옵션 가져오기][14]
 

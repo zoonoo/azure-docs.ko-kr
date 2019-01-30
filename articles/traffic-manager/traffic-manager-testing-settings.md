@@ -1,8 +1,7 @@
 ---
-title: Azure Traffic Manager 설정 확인 | Microsoft Docs
+title: Azure Traffic Manager 설정 확인
 description: 이 문서는 Traffic Manager 설정을 확인하는 데 도움이 됩니다.
 services: traffic-manager
-documentationcenter: ''
 author: kumudd
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: ce6467f2cdb47dd7cc61897831019a34e174478f
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 1e954e3c4ebba245d91cfb84ab583b314150e5b2
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140454"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200788"
 ---
 # <a name="verify-traffic-manager-settings"></a>Traffic Manager 설정 확인
 
@@ -48,7 +47,7 @@ DNS 이름이 사용자 프로필에서 엔드포인트의 IP 주소로 확인�
 1. 모든 엔드포인트를 실행 상태로 둡니다.
 2. 단일 클라이언트를 사용할 경우, Nslookup이나 유사한 유틸리티를 사용하여 회사의 도메인 이름에 대한 DNS 확인을 요청합니다.
 3. 확인된 IP 주소가 기본 엔드포인트와 일치하는지 확인합니다.
-4. Traffic Manager가 응용 프로그램이 종료되었다고 인식되도록 기본 엔드포인트를 종료하거나 모니터링 파일을 제거합니다.
+4. Traffic Manager가 애플리케이션이 종료되었다고 인식되도록 기본 엔드포인트를 종료하거나 모니터링 파일을 제거합니다.
 5. Traffic Manager 프로필의 DNS TTL(Time-to-Live)에 2분을 추가하여 기다립니다. 예를 들어, DNS TTL이 300초(5분)인 경우 7분을 대기해야 합니다.
 6. Nslookup을 사용하여 DNS 클라이언트 캐시 및 요청 DNS 확인을 플러시하십시오. Windows에서는 ipconfig /flushdns 명령을 실행하여 DNS 캐시를 플러시할 수 있습니다.
 7. 확인된 IP 주소가 보조 엔드포인트와 일치하는지 확인합니다.

@@ -4,15 +4,16 @@ description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로의
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 11/19/2018
+services: site-recovery
+ms.date: 12/31/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 248b2a748088330f91b3cc76564d5d8743f04411
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 703d255a962dbac7a430404835c6d45c358d99a7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162486"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478106"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>일반적인 질문 - VMware에서 Azure로 복제
 
@@ -42,7 +43,23 @@ LRS 또는 GRS 저장소 계정이 필요합니다. 지역 정전이 발생하�
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>내 Azure 계정에 VM을 만들 수 있는 권한이 필요한가요?
 구독 관리자인 경우 필요한 복제 권한을 갖고 있습니다. 구독 관리자가 아닌 경우 Site Recovery를 구성할 때 지정한 리소스 그룹 및 가상 네트워크에 Azure VM을 만들 수 있는 권한과 선택한 저장소 계정에 쓸 수 있는 권한이 필요합니다. [자세히 알아보기](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
+## <a name="azure-site-recovery-components-upgrade"></a>Azure Site Recovery 구성 요소 업그레이드
 
+### <a name="my-mobility-agentconfiguration-serverprocess-server-version-is-very-old-and-my-upgrade-has-failed-how-should-i-upgrade-to-latest-version"></a>내 모바일 에이전트/구성 서버/프로세스 서버 버전이 너무 오래되어 업그레이드하지 못했습니다. 최신 버전으로 업그레이드하려면 어떻게 해야 하나요?
+
+Azure Site Recovery는 N-4 지원 모델을 따릅니다. [지원 설명](https://aka.ms/asr_support_statement)을 참조하여 오래된 버전에서 업그레이드하는 자세한 방법을 알아보세요.
+
+### <a name="where-can-i-find-the-release-notesupdate-rollups-of-azure-site-recovery"></a>Azure Site Recovery의 릴리스 정보/업데이트 롤업을 어디서 찾을 수 있나요?
+
+릴리스 정보에 대한 [문서](https://aka.ms/asr_update_rollups)를 참조하세요. 각 업데이트 롤업에서 각 구성 요소의 설치 링크를 찾을 수 있습니다.
+
+### <a name="how-should-i-upgrade-site-recovery-components-for-on-premises-vmware-or-physical-site-to-azure"></a>Site Recovery 구성 요소를 온-프레미스 VMware 또는 물리적 사이트에서 Azure로 업그레이드하려면 어떻게 해야 하나요?
+
+[여기](https://aka.ms/asr_vmware_upgrades)에 제공된 지침을 참조하여 구성 요소를 업그레이드하세요.
+
+## <a name="is-reboot-of-source-machine-mandatory-for-each-upgrade"></a>업그레이드할 때마다 원본 머신을 반드시 다시 부팅해야 하나요?
+
+다시 부팅하는 것이 좋지만, 필수는 아닙니다. 자세한 지침은 [여기](https://aka.ms/asr_vmware_upgrades)서 확인하세요.
 
 ## <a name="on-premises"></a>온-프레미스
 
@@ -68,13 +85,13 @@ VMware에서 Azure로 복제 아키텍처에 대해 [자세히 알아보세요](
 ## <a name="replication"></a>복제
 
 ### <a name="what-apps-can-i-replicate"></a>복제할 수 있는 앱은 무엇인가요?
-[복제 요구 사항](vmware-physical-azure-support-matrix.md##replicated-machines)을 준수하는 VMware VM에서 실행되는 모든 응용 프로그램 또는 작업을 복제할 수 있습니다. Site Recovery는 응용 프로그램 인식 복제를 지원하므로 앱을 지능형 상태로 장애 조치 및 장애 복구할 수 있습니다. SharePoint, Exchange, Dynamics, SQL Server, Active Directory와 같은 Microsoft 응용 프로그램과 통합되고, Oracle, SAP, IBM, Red Hat과 같은 선도적인 공급 업체와 긴밀하게 협력합니다. [자세히 알아봅니다](site-recovery-workload.md) .
+[복제 요구 사항](vmware-physical-azure-support-matrix.md##replicated-machines)을 준수하는 VMware VM에서 실행되는 모든 응용 프로그램 또는 작업을 복제할 수 있습니다. Site Recovery는 애플리케이션 인식 복제를 지원하므로 앱을 지능형 상태로 장애 조치 및 장애 복구할 수 있습니다. SharePoint, Exchange, Dynamics, SQL Server, Active Directory와 같은 Microsoft 애플리케이션과 통합되고, Oracle, SAP, IBM, Red Hat과 같은 선도적인 공급 업체와 긴밀하게 협력합니다. [자세히 알아봅니다](site-recovery-workload.md) .
 
 ### <a name="can-i-replicate-to-azure-with-a-site-to-site-vpn"></a>사이트 간 VPN을 사용하여 Azure에 복제할 수 있나요?
 Site Recovery는 공용 엔드포인트를 통하거나 ExpressRoute 공용 피어링을 사용하여 온-프레미스에서 Azure 저장소로 데이터를 복제합니다. 사이트 간 VPN 네트워크를 통한 복제는 지원되지 않습니다.
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>ExpressRoute를 사용하여 Azure에 복제할 수 있나요?
-예, ExpressRoute를 사용하여 VM을 Azure로 복제할 수 있습니다. Site Recovery에서 공용 엔드포인트를 통해 Azure Storage 계정에 데이터를 복제하므로 Site Recovery 복제에 대해 [공용 피어링](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)을 설정해야 합니다. VM에서 Azure 가상 네트워크로 장애 조치한 후에는 [개인 피어링](../expressroute/expressroute-circuit-peerings.md#azure-private-peering)을 사용하여 해당 VM에 액세스할 수 있습니다.
+예, ExpressRoute를 사용하여 VM을 Azure로 복제할 수 있습니다. Site Recovery는 공용 엔드포인트를 통해 Azure Storage 계정에 데이터를 복제합니다. Site Recovery 복제에 ExpressRoute를 사용하려면 [공용 피어링](../expressroute/expressroute-circuit-peerings.md#publicpeering) 또는 [Microsoft 피어링](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)을 설정해야 합니다. Microsoft 피어링은 복제에 권장되는 라우팅 도메인입니다. 복제를 위해 [네트워킹 요구 사항](vmware-azure-configuration-server-requirements.md#network-requirements)이 충족되는지도 확인합니다. VM에서 Azure 가상 네트워크로 장애 조치한 후에는 [개인 피어링](../expressroute/expressroute-circuit-peerings.md#privatepeering)을 사용하여 해당 VM에 액세스할 수 있습니다.
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>VPN을 통해 복제할 수 없는 이유는 무엇인가요?
@@ -90,7 +107,7 @@ Azure에 복제하는 경우 복제 트래픽이 Azure Storage 계정의 공용 
 VMware VM을 Azure에 복제하는 경우에는 복제가 계속됩니다.
 
 ### <a name="can-i-extend-replication"></a>복제를 확장할 수 있나요?
-확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication)을 통해 이 기능에 대한 의견을 보내 주세요.
+확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959)을 통해 이 기능에 대한 의견을 보내 주세요.
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>오프라인 초기 복제를 수행할 수 있나요?
 지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)을 통해 이 기능에 대한 의견을 보내 주세요.
@@ -107,6 +124,12 @@ VMware VM을 Azure에 복제하는 경우에는 복제가 계속됩니다.
 ### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>디스크를 추가하거나 크기를 조정하여 복제 중인 VM을 수정할 수 있나요?
 
 Azure로 VMware 복제의 경우 디스크 크기를 수정할 수 있습니다. 새 디스크를 추가하려는 경우 디스크를 추가하고 VM에 대한 보호를 다시 활성화해야 합니다.
+
+### <a name="can-i-migrate-on-prem-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>진행 중인 복제에 영향을 주지 않고 온-프레미스 머신을 새 Vcenter에 마이그레이션할 수 있나요?
+아니요, Vcenter를 변경하거나 마이그레이션하면 진행 중인 복제에 영향을 줍니다. 새 Vcenter로 ASR를 설정하고 해당 머신에 대해 복제를 사용하도록 설정해야 합니다.
+
+### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>Vnet(Azure Storage 방화벽 포함)이 구성되어 있는 캐시/대상 스토리지 계정에 복제할 수 있나요?
+아니요, Azure Site Recovery는 Vnet의 스토리지에 복제하는 기능을 지원하지 않습니다.
 
 ## <a name="configuration-server"></a>구성 서버
 
@@ -135,7 +158,7 @@ Azure로 VMware 복제의 경우 디스크 크기를 수정할 수 있습니다.
 가능한 경우 구성 서버를 실행하는 Azure VM에서 온-프레미스 VMware 인프라 및 VM과 통신해야 합니다. 이로 인해 대기 시간이 늘어나고 진행 중인 복제에 영향을 줄 수 있습니다.
 
 ### <a name="how-do-i-update-the-configuration-server"></a>구성 서버를 업데이트하려면 어떻게 할까요?
-구성 서버 업데이트에 [대해 알아봅니다](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). 최신 업데이트 정보는 [Azure 업데이트 페이지](https://azure.microsoft.com/updates/?product=site-recovery)에서 찾을 수 있습니다. [Microsoft 다운로드 센터](https://aka.ms/asrconfigurationserver)에서 최신 버전의 구성 서버를 직접 다운로드할 수도 있습니다.
+구성 서버 업데이트에 [대해 알아봅니다](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). 최신 업데이트 정보는 [Azure 업데이트 페이지](https://azure.microsoft.com/updates/?product=site-recovery)에서 찾을 수 있습니다. [Microsoft 다운로드 센터](https://aka.ms/asrconfigurationserver)에서 최신 버전의 구성 서버를 직접 다운로드할 수도 있습니다. 사용하는 버전이 현재 버전보다 4 버전 오래된 경우 [지원 설명](https://aka.ms/asr_support_statement)에서 업그레이드 지침을 참조하세요.
 
 ### <a name="should-i-backup-the-deployed-configuration-server"></a>배포된 구성 서버를 백업해야 하나요?
 구성 서버의 예약된 정기 백업을 수행하는 것이 좋습니다. 성공적인 장애 복구(Failover)를 위해서는 장애 복구(Failover)하려는 가상 머신이 구성 서버 데이터베이스에 있어야 하고 구성 서버가 실행 중이고 연결된 상태여야 합니다. [여기](vmware-azure-manage-configuration-server.md)에서 일반 구성 서버 관리 작업에 대해 자세히 알아볼 수 있습니다.
@@ -146,11 +169,14 @@ Azure로 VMware 복제의 경우 디스크 크기를 수정할 수 있습니다.
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>MySQL을 다운로드하지 않고 Site Recovery에서 설치할 수 있나요?
 예. MySQL 설치 관리자를 다운로드하여 **C:\Temp\ASRSetup** 폴더에 넣습니다.  구성 서버 VM을 설정하고, 조건에 동의하고, **다운로드 및 설치**를 클릭하면 포털에서 추가한 설치 관리자를 사용하여 MySQL을 설치합니다.
  
-### <a name="canl-i-use-the-configuration-server-vm-for-anything-else"></a>다른 용도로 구성 서버 VM을 사용할 수 있나요?
+### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>다른 용도로 구성 서버 VM을 사용할 수 있나요?
 아니요, 구성 서버로만 VM을 사용해야 합니다. 
 
+### <a name="can-i-clone-a-configuration-server-and-use-it-for-orchestration"></a>구성 서버를 복제하고 오케스트레이션에 사용할 수 있나요?
+아니요, 등록 문제를 방지하기 위해 새 구성 서버를 설치해야 합니다.
+
 ### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>구성 서버에 등록된 자격 증명 모음을 변경할 수 있나요?
- 아니요. 구성 서버에 등록된 후에는 자격 증명 모음을 변경할 수 없습니다.
+ 아니요. 구성 서버에 등록된 후에는 자격 증명 모음을 변경할 수 없습니다. 재등록 단계는 [이 문서](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault)를 검토하세요.
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버의 재해 복구에 동일한 구성 서버를 사용할 수 있나요?
 예, 하지만 물리적 머신은 VMware VM으로만 장애 복구(failback)할 수 있습니다.
@@ -221,9 +247,10 @@ Azure는 복원을 위해 디자인되었습니다. Site Recovery는 Azure SLA�
 예, Azure에 장애 조치한 경우 원본을 사용할 수 없을 때 다른 위치로 장애 복구할 수 있습니다. [자세히 알아보기](concepts-types-of-failback.md#alternate-location-recovery-alr).
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-to-fail-back"></a>장애 복구하는 데 VPN 또는 ExpressRoute가 필요한 이유는 무엇인가요?
-
 Azure에서 장애 복구하는 경우 Azure의 데이터가 온-프레미스 VM으로 다시 복사되고 개인 액세스가 필요합니다.
 
+### <a name="can-i-resize-the-azure-vm-after-failover"></a>장애 조치(failover) 후 Azure VM의 크기를 조정할 수 있나요?
+아니요, 장애 조치(failover) 후에 대상 VM의 크기를 변경할 수 없습니다.
 
 
 ## <a name="automation-and-scripting"></a>자동화 및 스크립팅

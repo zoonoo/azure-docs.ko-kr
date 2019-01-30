@@ -1,5 +1,5 @@
 ---
-title: Azure에서 앱 복원
+title: 백업에서 복원 - Azure App Service
 description: 스냅숏에서 앱을 복원하는 방법에 대해 알아봅니다.
 services: app-service
 documentationcenter: ''
@@ -13,17 +13,18 @@ ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: aelnably;nicking
-ms.openlocfilehash: e1ae8fcc30323c865aa96937f43054515f293394
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.custom: seodec18
+ms.openlocfilehash: ab1ae63352e66da557cad49bf5f320b577055877
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766665"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726564"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>스냅숏에서 Azure의 앱 복원
-이 문서에서는 스냅숏에서 [Azure App Service](../app-service/app-service-web-overview.md)의 앱을 복원하는 방법을 설명합니다. 앱의 스냅숏 중 하나를 기반으로 이전 상태로 앱을 복원할 수 있습니다. 스냅숏 백업을 사용하도록 설정할 필요는 없으며 플랫폼이 데이터 복구를 위해 모든 앱의 스냅숏을 자동으로 저장합니다.
+이 문서에서는 스냅숏에서 [Azure App Service](../app-service/overview.md)의 앱을 복원하는 방법을 설명합니다. 앱의 스냅숏 중 하나를 기반으로 이전 상태로 앱을 복원할 수 있습니다. 스냅숏 백업을 사용하도록 설정할 필요는 없으며 플랫폼이 데이터 복구를 위해 모든 앱의 스냅숏을 자동으로 저장합니다.
 
-스냅숏은 증분 섀도 복사본으로, 일반 [백업](web-sites-backup.md)보다 몇 가지 장점이 있습니다.
+스냅숏은 증분 섀도 복사본으로, 일반 [백업](manage-backup.md)보다 몇 가지 장점이 있습니다.
 - 파일 잠금으로 인한 파일 복사 오류가 없습니다.
 - 저장소 크기 제한이 없습니다.
 - 구성이 필요 없습니다.

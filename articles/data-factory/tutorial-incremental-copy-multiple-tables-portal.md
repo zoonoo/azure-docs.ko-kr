@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 95f2947a30499ce563d5943dfa423ee89a172f47
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 686e008a83924460b1f85212b5c06796b6bc8217
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614524"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354215"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 데이터 증분 로드
 이 자습서에서는 델타 데이터를 온-프레미스 SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.    
@@ -55,13 +54,13 @@ ms.locfileid: "51614524"
 
     b. 두 가지 조회 작업을 만듭니다. 첫 번째 조회 작업을 사용하여 마지막 워터마크 값을 검색합니다. 두 번째 조회 작업을 사용하여 새 워터마크 값을 검색합니다. 이러한 워터마크 값은 복사 작업에 전달됩니다.
 
-    c. 이전 워터마크 값보다 크고, 새 워터마크 값보다 작은 워터마크 열 값으로 원본 데이터 저장소의 행을 복사하는 복사 작업을 만듭니다. 그런 다음 원본 데이터 저장소의 델타 데이터를 새 파일로 Azure Blob 저장소에 복사합니다.
+    c. 이전 워터마크 값보다 크고, 새 워터마크 값보다 작은 워터마크 열 값으로 원본 데이터 저장소의 행을 복사하는 복사 작업을 만듭니다. 그런 다음 원본 데이터 스토리지의 델타 데이터를 새 파일로 Azure Blob Storage에 복사합니다.
 
     d. 다음에 실행되는 파이프라인에 대한 워터마크 값을 업데이트하는 StoredProcedure 작업을 만듭니다. 
 
     대략적인 솔루션 다이어그램은 다음과 같습니다. 
 
-    ![데이터 증분 로드](media\tutorial-incremental-copy-multiple-tables-portal\high-level-solution-diagram.png)
+    ![데이터 증분 로드](media/tutorial-incremental-copy-multiple-tables-portal/high-level-solution-diagram.png)
 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
@@ -160,7 +159,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 다음 명령을 실행하여 SQL 데이터베이스에 저장 프로시저를 만듭니다. 이 저장 프로시저는 파이프라인의 실행이 끝날 때마다 워터마크 값을 업데이트합니다. 
 
 ```sql
-CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
+CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
 AS
 
 BEGIN
@@ -185,7 +184,7 @@ CREATE TYPE DataTypeforCustomerTable AS TABLE(
 
 GO
 
-CREATE PROCEDURE sp_upsert_customer_table @customer_table DataTypeforCustomerTable READONLY
+CREATE PROCEDURE usp_upsert_customer_table @customer_table DataTypeforCustomerTable READONLY
 AS
 
 BEGIN
@@ -208,7 +207,7 @@ CREATE TYPE DataTypeforProjectTable AS TABLE(
 
 GO
 
-CREATE PROCEDURE sp_upsert_project_table @project_table DataTypeforProjectTable READONLY
+CREATE PROCEDURE usp_upsert_project_table @project_table DataTypeforProjectTable READONLY
 AS
 
 BEGIN
@@ -248,7 +247,7 @@ END
 1. 데이터 팩터리의 **위치** 를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 1. **대시보드에 고정**을 선택합니다.     
 1. **만들기**를 클릭합니다.      
-1. 대시보드에서 **데이터 팩터리 배포 중** 상태의 타일이 표시됩니다. 
+1. 대시보드에서 다음과 같은 **데이터 팩터리 배포 중** 상태의 타일이 표시됩니다. 
 
     ![데이터 팩터리 배포 중 타일](media/tutorial-incremental-copy-multiple-tables-portal/deploying-data-factory.png)
 1. 만들기가 완료되면 이미지와 같은 **Data Factory** 페이지가 표시됩니다.
@@ -277,7 +276,7 @@ END
 1. **이름**에 대해 **MySelfHostedIR**을 입력하고 **다음**을 클릭합니다. 
 
    ![자체 호스팅 IR 이름](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
-1. **옵션 1: 빠른 설치** 섹션에서 **Click here to launch the express setup for this computer**(이 컴퓨터에 대한 빠른 설치를 시작하려면 여기를 클릭하세요.)를 클릭합니다. 
+1. 다음 위치에서 **이 컴퓨터에 대한 기본 설치를 시작하려면 여기를 클릭하세요**를 클릭합니다. **옵션 1: 빠른 설치** 섹션 
 
    ![빠른 설치 링크 클릭](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. **Integration Runtime(자체 호스팅) 빠른 설치** 창에서 **닫기**를 클릭합니다. 
@@ -288,7 +287,7 @@ END
    ![통합 런타임 설정 - 완료](./media/tutorial-incremental-copy-multiple-tables-portal/click-finish-integration-runtime-setup.png)
 1. 통합 런타임 목록에 **MySelfHostedIR**이 표시되는지 확인합니다.
 
-       ![Integration runtimes - list](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtimes-list.png)
+    ![통합 런타임 - 목록](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtimes-list.png)
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 계산 서비스를 데이터 팩터리에 연결합니다. 이 섹션에서는 온-프레미스 SQL Server 데이터베이스와 SQL 데이터베이스에 연결된 서비스를 만듭니다. 
@@ -346,7 +345,7 @@ END
 1. 왼쪽 창에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다.
 
    ![새 데이터 세트 메뉴](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
-1. **새 데이터 집합** 창에서 **SQL Server**를 선택하고 **마침**을 클릭합니다. 
+1. **새 데이터 세트** 창에서 **SQL Server**를 선택하고 **마침**을 클릭합니다. 
 
    ![SQL Server 선택](./media/tutorial-incremental-copy-multiple-tables-portal/select-sql-server-for-dataset.png)
 1. 웹 브라우저에 데이터 세트를 구성하기 위해 열린 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 세트가 표시됩니다. 아래쪽 속성 창의 **일반** 탭에서 **이름**에 대해 **SourceDataset**를 입력합니다. 
@@ -361,7 +360,7 @@ END
 1. 왼쪽 창에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다.
 
    ![새 데이터 세트 메뉴](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
-1. **새 데이터 집합** 창에서 **Azure SQL Database**를 선택하고 **마침**을 클릭합니다. 
+1. **새 데이터 세트** 창에서 **Azure SQL Database**를 선택하고 **마침**을 클릭합니다. 
 
    ![Azure SQL Database 선택](./media/tutorial-incremental-copy-multiple-tables-portal/select-azure-sql-database.png)
 1. 웹 브라우저에 데이터 세트를 구성하기 위해 열린 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 세트가 표시됩니다. 아래쪽 속성 창의 **일반** 탭에서 **이름**에 대해 **SinkDataset**를 입력합니다.
@@ -393,7 +392,7 @@ END
 1. 왼쪽 창에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다.
 
    ![새 데이터 세트 메뉴](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
-1. **새 데이터 집합** 창에서 **Azure SQL Database**를 선택하고 **마침**을 클릭합니다. 
+1. **새 데이터 세트** 창에서 **Azure SQL Database**를 선택하고 **마침**을 클릭합니다. 
 
    ![Azure SQL Database 선택](./media/tutorial-incremental-copy-multiple-tables-portal/select-azure-sql-database.png)
 1. 아래쪽 속성 창의 **일반** 탭에서 **이름**에 대해 **WatermarkDataset**를 입력합니다.
@@ -444,7 +443,7 @@ END
     ![첫 번째 조회 활동 - 이름](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-name.png)
 1. **속성** 창에서 **설정** 탭으로 전환하고 다음 단계를 수행합니다. 
 
-    1. **원본 데이터 집합**에 대해 **WatermarkDataset**을 선택합니다.
+    1. **원본 데이터 세트**에 대해 **WatermarkDataset**을 선택합니다.
     1. **쿼리 사용**에 대해 **쿼리**를 선택합니다. 
     1. **쿼리**에 대해 다음 SQL 쿼리를 입력합니다. 
 
@@ -458,7 +457,7 @@ END
     ![두 번째 조회 활동 - 이름](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-name.png)
 1. **설정** 탭으로 전환합니다.
 
-    1. **원본 데이터 집합**에 대해 **SourceDataset**를 선택합니다. 
+    1. **원본 데이터 세트**에 대해 **SourceDataset**를 선택합니다. 
     1. **쿼리 사용**에 대해 **쿼리**를 선택합니다.
     1. **쿼리**에 대해 다음 SQL 쿼리를 입력합니다.
 
@@ -475,7 +474,7 @@ END
     ![조회 활동 및 복사 활동 연결](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
 1. 파이프라인에서 **복사** 활동을 선택합니다. **속성** 창의 **원본** 탭으로 전환합니다. 
 
-    1. **원본 데이터 집합**에 대해 **SourceDataset**를 선택합니다. 
+    1. **원본 데이터 세트**에 대해 **SourceDataset**를 선택합니다. 
     1. **쿼리 사용**에 대해 **쿼리**를 선택합니다. 
     1. **쿼리**에 대해 다음 SQL 쿼리를 입력합니다.
 
@@ -484,14 +483,14 @@ END
         ```
 
         ![복사 활동 - 원본 설정](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
-1. **싱크** 탭으로 전환하고, **싱크 데이터 집합**에 대해 **SinkDataset**을 선택합니다. 
+1. **싱크** 탭으로 전환하고, **싱크 데이터 세트**에 대해 **SinkDataset**을 선택합니다. 
         
     ![복사 활동 - 싱크 설정](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
 1. **매개 변수** 탭으로 전환하고 다음 단계를 수행합니다.
 
     1. **싱크 저장 프로시저 이름** 속성에 `@{item().StoredProcedureNameForMergeOperation}`을 입력합니다.
     1. **싱크 테이블 형식** 속성에 `@{item().TableType}`을 입력합니다.
-    1. **싱크 데이터 집합** 섹션에서 **SinkTableName** 매개 변수에 `@{item().TABLE_NAME}`을 입력합니다.
+    1. **싱크 데이터 세트** 섹션에서 **SinkTableName** 매개 변수에 `@{item().TABLE_NAME}`을 입력합니다.
 
         ![복사 활동 - 매개 변수](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. **저장 프로시저** 활동을 **활동** 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. **복사** 활동을 **저장 프로시저** 활동에 연결합니다. 
@@ -505,7 +504,7 @@ END
     ![저장 프로시저 활동 - SQL 계정](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 1. **저장 프로시저** 탭으로 전환하고 다음 단계를 수행합니다.
 
-    1. **저장 프로시저 이름**에 `sp_write_watermark`를 입력합니다. 
+    1. **저장 프로시저 이름**에 `usp_write_watermark`를 입력합니다. 
     1. **가져오기 매개 변수**를 선택합니다. 
     1. 매개 변수에 대해 다음 값을 지정합니다. 
 
@@ -536,13 +535,13 @@ END
             "TABLE_NAME": "customer_table",
             "WaterMark_Column": "LastModifytime",
             "TableType": "DataTypeforCustomerTable",
-            "StoredProcedureNameForMergeOperation": "sp_upsert_customer_table"
+            "StoredProcedureNameForMergeOperation": "usp_upsert_customer_table"
         },
         {
             "TABLE_NAME": "project_table",
             "WaterMark_Column": "Creationtime",
             "TableType": "DataTypeforProjectTable",
-            "StoredProcedureNameForMergeOperation": "sp_upsert_project_table"
+            "StoredProcedureNameForMergeOperation": "usp_upsert_project_table"
         }
     ]
     ```
@@ -640,13 +639,13 @@ VALUES
             "TABLE_NAME": "customer_table",
             "WaterMark_Column": "LastModifytime",
             "TableType": "DataTypeforCustomerTable",
-            "StoredProcedureNameForMergeOperation": "sp_upsert_customer_table"
+            "StoredProcedureNameForMergeOperation": "usp_upsert_customer_table"
         },
         {
             "TABLE_NAME": "project_table",
             "WaterMark_Column": "Creationtime",
             "TableType": "DataTypeforProjectTable",
-            "StoredProcedureNameForMergeOperation": "sp_upsert_project_table"
+            "StoredProcedureNameForMergeOperation": "usp_upsert_project_table"
         }
     ]
     ```
@@ -739,6 +738,6 @@ project_table   2017-10-01 00:00:00.000
 Azure에서 Spark 클러스터를 사용하여 데이터를 변환하는 방법을 알아보려면 다음 자습서로 진행하세요.
 
 > [!div class="nextstepaction"]
->[변경 내용 추적 기술을 사용하여 Azure SQL Database에서 Azure Blob 저장소로 데이터 증분 로드](tutorial-incremental-copy-change-tracking-feature-portal.md)
+>[변경 내용 추적 기술을 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드](tutorial-incremental-copy-change-tracking-feature-portal.md)
 
 

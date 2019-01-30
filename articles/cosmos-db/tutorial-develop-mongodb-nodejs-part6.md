@@ -1,29 +1,26 @@
 ---
-title: Azure에 대한 MongoDB, Angular 및 노드 자습서 - 6부 | Microsoft Docs
+title: Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - 앱에 CRUD 함수 추가
+titleSuffix: Azure Cosmos DB
 description: MongoDB에 사용하는 것과 정확히 동일한 API를 사용한 Azure Cosmos DB의 Angular 및 노드를 사용하여 MongoDB 앱을 만드는 방법에 대한 자습서 시리즈의 6부
-services: cosmos-db
 author: johnpapa
-manager: kfile
-editor: ''
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/17/2018
+ms.date: 12/26/2018
 ms.author: jopapa
-ms.custom: mvc
-ms.openlocfilehash: 667c1fbce398e06f9f2a6edca21935ae1062a737
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.custom: seodec18
+ms.reviewer: sngun
+ms.openlocfilehash: 42015ca816f2744ef28660c5396db4cfd93a76f0
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740573"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040560"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-post-put-and-delete-functions-to-the-app"></a>Angular 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기 - 6부: 앱에 게시, 배치 및 삭제 함수 추가
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - 앱에 CRUD 함수 추가
 
-이 다중 파트 자습서에서는 Express 및 Angular와 Node.js로 작성된 새 [MongoDB API](mongodb-introduction.md) 앱을 만들고 Azure Cosmos DB 데이터베이스에 연결하는 방법을 보여줍니다.
-
-자습서의 6부는 [5부](tutorial-develop-mongodb-nodejs-part5.md)를 기반으로 하고 다음과 같은 작업을 다룹니다.
+여러 파트로 구성된 이 자습서에서는 Express 및 Angular를 사용하여 Node.js로 작성된 새 앱을 만든 다음, [Cosmos DB의 API for MongoDB를 사용하여 구성된 Cosmos 계정](mongodb-introduction.md)에 연결하는 방법을 보여줍니다. 자습서의 6부는 [5부](tutorial-develop-mongodb-nodejs-part5.md)를 기반으로 하고 다음과 같은 작업을 다룹니다.
 
 > [!div class="checklist"]
 > * Hero 서비스에 게시, 배치 및 삭제 함수 만들기

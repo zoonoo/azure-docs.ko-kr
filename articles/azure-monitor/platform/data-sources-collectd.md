@@ -1,6 +1,6 @@
 ---
 title: Log Analytics에서 CollectD의 데이터 수집 | Microsoft Docs
-description: CollectD는 주기적으로 응용 프로그램의 데이터 및 시스템 수준 정보를 수집하는 오픈 소스 Linux 디먼입니다.  이 문서에서는 Log Analytics에서 CollectD의 데이터 수집에 대한 정보를 제공합니다.
+description: CollectD는 주기적으로 애플리케이션의 데이터 및 시스템 수준 정보를 수집하는 오픈 소스 Linux 디먼입니다.  이 문서에서는 Log Analytics에서 CollectD의 데이터 수집에 대한 정보를 제공합니다.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -8,22 +8,20 @@ manager: carmonm
 editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
+ms.date: 11/27/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: b393fcefbc2de1941118d02a671e5696e1510fa2
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 3ccb307eb028170f2dc65fd7cf90edf3115ae9a7
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336586"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102689"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Log Analytics에서 Linux 에이전트의 CollectD에서 데이터 수집
-[CollectD](https://collectd.org/)는 주기적으로 응용 프로그램의 성능 메트릭 및 시스템 수준 정보를 수집하는 오픈 소스 Linux 디먼입니다. 예제 응용 프로그램은 JVM(Java Virtual Machine), MySQL 서버 및 Nginx를 포함합니다. 이 문서에서는 Log Analytics에서 CollectD의 성능 데이터 수집에 대한 정보를 제공합니다.
+[CollectD](https://collectd.org/)는 주기적으로 애플리케이션의 성능 메트릭 및 시스템 수준 정보를 수집하는 오픈 소스 Linux 디먼입니다. 예제 애플리케이션은 JVM(Java Virtual Machine), MySQL 서버 및 Nginx를 포함합니다. 이 문서에서는 Log Analytics에서 CollectD의 성능 데이터 수집에 대한 정보를 제공합니다.
 
 사용 가능한 플러그 인의 전체 목록은 [플러그 인의 테이블](https://collectd.org/wiki/index.php/Table_of_Plugins)에서 찾을 수 있습니다.
 
@@ -124,6 +122,5 @@ Linux용 Log Analytics 에이전트에서 이미 수집된 인프라 메트릭�
 | 값[] | CounterValue |
 
 ## <a name="next-steps"></a>다음 단계
-* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](../../log-analytics/log-analytics-queries.md)에 대해 알아봅니다. 
-* [사용자 지정 필드](../../log-analytics/log-analytics-custom-fields.md) 를 사용하여 syslog 레코드의 데이터를 개별 필드로 구문 분석합니다.
-
+* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하는 [로그 쿼리](../../log-analytics/log-analytics-queries.md)에 대해 알아봅니다. 
+* [사용자 지정 필드](../../log-analytics/log-analytics-custom-fields.md)를 사용하여 syslog 레코드의 데이터를 개별 필드로 구문 분석합니다.

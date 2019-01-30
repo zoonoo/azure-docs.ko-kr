@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3ea1048b1bd47a5cb4f8f4f7725f5ac4d3bbed8a
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 3bae6d93ffe7ea028d3329dcc69c2f33bdf7aa2a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582848"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635462"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight의 Apache Storm이란?
 
-[Apache Storm](http://storm.apache.org/)은 내결함성이 있는 분산형 오픈 소스 계산 시스템입니다. Storm을 사용하여 [Apache Hadoop](https://hadoop.apache.org/)에서 실시간으로 데이터 스트림을 처리할 수 있습니다. 또한 Storm 솔루션은 처음에 정상적으로 처리되지 않은 데이터를 재생하는 기능을 통해 데이터 처리를 보장할 수 있습니다.
+[Apache Storm](https://storm.apache.org/)은 내결함성이 있는 분산형 오픈 소스 계산 시스템입니다. Storm을 사용하여 [Apache Hadoop](https://hadoop.apache.org/)에서 실시간으로 데이터 스트림을 처리할 수 있습니다. 또한 Storm 솔루션은 처음에 정상적으로 처리되지 않은 데이터를 재생하는 기능을 통해 데이터 처리를 보장할 수 있습니다.
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
@@ -27,7 +27,7 @@ ms.locfileid: "52582848"
 
 HDInsight의 Storm은 다음과 같은 기능을 제공합니다.
 
-* __Storm 작동 시간에 99% SLA(서비스 수준 약정)__: 자세한 내용은 [HDInsight에 대한 SLA 정보](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) 문서를 참조하세요.
+* __Storm 작동 시간의 99% SLA(서비스 수준 약정)__: 자세한 내용은 [HDInsight에 대한 SLA 정보](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) 문서를 참조하세요.
 
 * 생성 중 또는 생성 후에 Storm 클러스터에 대해 스크립트를 실행하여 손쉬운 사용자 지정을 지원합니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
@@ -39,10 +39,10 @@ HDInsight의 Storm은 다음과 같은 기능을 제공합니다.
 
 * **동적 크기 조정**: 실행 중인 Storm 토폴로지에 영향을 주지 않고 작업자 노드를 추가하거나 제거할 수 있습니다.
 
-    > [!NOTE]
+    > [!NOTE]  
     > 크기 조정 작업을 통해 추가된 새 노드를 활용하기 위해 실행 중인 토폴로지를 비활성화하고 다시 활성화해야 합니다.
 
-* **여러 Azure 서비스를 사용하여 스트리밍 파이프라인 만들기**: HDInsight의 Storm은 Event Hubs, SQL Database, Azure Storage 및 Azure Data Lake Store 등 다른 Azure 서비스와 통합합니다.
+* **여러 Azure 서비스를 사용하여 스트리밍 파이프라인 만들기**: HDInsight의 Storm은 Event Hubs, SQL Database, Azure Storage 및 Azure Data Lake Storage 등 다른 Azure 서비스와 통합합니다.
 
     Azure 서비스와 통합되는 예제 솔루션은 [HDInsight의 Apache Storm으로 Event Hubs의 이벤트 처리](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)를 참조하세요.
 
@@ -84,7 +84,7 @@ HDInsight에서 새 Storm 클러스터를 몇 분 내에 만들 수 있습니다
 
   자세한 내용은 [Apache Ambari 웹 UI를 사용하여 HDInsight 관리](../hdinsight-hadoop-manage-ambari.md) 및 [Apache Storm UI를 사용하여 모니터링 및 관리](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui) 문서를 참조하세요.
 
-* __Azure PowerShell 및 Azure 클래식 CLI__: PowerShell 및 클래식 CLI는 HDInsight 및 다른 Azure 서비스를 사용하는 클라이언트 시스템에서 사용할 수 있는 명령줄 유틸리티를 제공합니다.
+* __Azure PowerShell 및 Azure 클래식 CLI__: PowerShell 및 클래식 CLI는 모두 HDInsight 및 다른 Azure 서비스를 사용하는 클라이언트 시스템에서 사용할 수 있는 명령줄 유틸리티를 제공합니다.
 
 * __Visual Studio 통합__: Azure Data Lake Tools for Visual Studio에는 SCP.Net Framework를 사용하여 C# Storm 토폴로지를 만드는 프로젝트 템플릿이 포함되어 있습니다. 또한 Data Lake 도구는 HDInsight의 Storm을 사용하여 솔루션을 배포, 모니터링 및 관리하는 도구를 제공합니다.
 
@@ -92,7 +92,7 @@ HDInsight에서 새 Storm 클러스터를 몇 분 내에 만들 수 있습니다
 
 ## <a name="integration-with-other-azure-services"></a>다른 Azure 서비스와 통합
 
-* __Azure Data Lake Store__: Storm 클러스터에서 Data Lake Store를 사용하는 예제는 [HDInsight의 Apache Storm에서 Azure Data Lake Store 사용](apache-storm-write-data-lake-store.md)을 참조하세요.
+* __Azure Data Lake Storage__: Storm 클러스터에서 Data Lake Storage를 사용하는 예제는 [HDInsight의 Apache Storm에서 Azure Data Lake Storage 사용](apache-storm-write-data-lake-store.md)을 참조하세요.
 
 * __Event Hubs__: Storm 클러스터에서 Event Hubs를 사용하는 예제는 다음 예제를 참조하세요.
 
@@ -136,17 +136,17 @@ Python은 Storm 구성 요소를 개발하는 데에도 사용합니다. 자세�
 
 ### <a name="guaranteed-message-processing"></a>메시지 처리 보장
 
-Apache Storm은 다양한 수준의 보장된 메시지 처리를 제공할 수 있습니다. 예를 들어 기본적인 Storm 애플리케이션은 최소한 한 번 처리를 보장할 수 있고, [Trident](http://storm.apache.org/releases/current/Trident-API-Overview.html)는 정확히 한 번 처리를 보장할 수 있습니다.
+Apache Storm은 다양한 수준의 보장된 메시지 처리를 제공할 수 있습니다. 예를 들어 기본적인 Storm 애플리케이션은 최소한 한 번 처리를 보장할 수 있고, [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html)는 정확히 한 번 처리를 보장할 수 있습니다.
 
 자세한 내용은 apache.org에서 [데이터 처리 보장](https://storm.apache.org/about/guarantees-data-processing.html) 을 참조하세요.
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-입력 튜플을 읽고 튜플을 내보내지 않거나 하나 이상 내보낸 다음 실행 메서드 끝에서 입력 튜플을 즉시 승인하는 패턴은 매우 흔히 사용됩니다. Storm은 이 패턴을 자동화하는 [IBasicBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) 인터페이스를 제공합니다.
+입력 튜플을 읽고 튜플을 내보내지 않거나 하나 이상 내보낸 다음 실행 메서드 끝에서 입력 튜플을 즉시 승인하는 패턴은 매우 흔히 사용됩니다. Storm은 이 패턴을 자동화하는 [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) 인터페이스를 제공합니다.
 
 ### <a name="joins"></a>조인
 
-데이터 스트림이 조인되는 방식은 응용 프로그램마다 다릅니다. 예를 들어 여러 스트림의 각 튜플을 새 스트림 하나에 조인할 수도 있고 특정 창에 대한 튜플 배치만 조인할 수도 있습니다. 어떤 방법을 사용하든 [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-)을 통해 조인을 수행할 수 있습니다. 필드 그룹화는 튜플을 Bolt로 라우팅하는 방식을 정의합니다.
+데이터 스트림이 조인되는 방식은 애플리케이션마다 다릅니다. 예를 들어 여러 스트림의 각 튜플을 새 스트림 하나에 조인할 수도 있고 특정 창에 대한 튜플 배치만 조인할 수도 있습니다. 어떤 방법을 사용하든 [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-)을 통해 조인을 수행할 수 있습니다. 필드 그룹화는 튜플을 Bolt로 라우팅하는 방식을 정의합니다.
 
 다음 Java 예제에서는 fieldsGrouping을 사용하여 구성 요소 "1", "2", "3"에서 생성된 튜플을 MyJoiner Bolt로 라우팅합니다.
 
@@ -160,11 +160,11 @@ C# 구성 요소에서 틱 튜플을 사용하는 예제는 [PartialBoltCount.cs
 
 ### <a name="caches"></a>캐시
 
-메모리 내 캐싱은 자주 사용되는 자산을 메모리에 저장하므로 처리 속도를 높이기 위한 메커니즘으로 사용되는 경우가 많습니다. 토폴로지는 여러 노드 및 각 노드 내의 여러 프로세스로 분산되므로 [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-)을 사용하는 것이 좋습니다. `fieldsGrouping`을 사용하여 캐시 조회에 사용되는 필드가 포함된 튜플은 항상 같은 프로세스로 라우팅될 수 있습니다. 이 그룹화 기능으로 프로세스 간 캐시 항목 중복을 방지할 수 있습니다.
+메모리 내 캐싱은 자주 사용되는 자산을 메모리에 저장하므로 처리 속도를 높이기 위한 메커니즘으로 사용되는 경우가 많습니다. 토폴로지는 여러 노드 및 각 노드 내의 여러 프로세스로 분산되므로 [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-)을 사용하는 것이 좋습니다. `fieldsGrouping`을 사용하여 캐시 조회에 사용되는 필드가 포함된 튜플은 항상 같은 프로세스로 라우팅될 수 있습니다. 이 그룹화 기능으로 프로세스 간 캐시 항목 중복을 방지할 수 있습니다.
 
 ### <a name="stream-top-n"></a>스트림 “상위 N”
 
-토폴로지가 상위 N 값 계산에 따라 다른 경우 상위 N 값을 병렬로 계산합니다. 그런 다음 해당 계산의 출력을 전역 값으로 병합합니다. 이 작업은 병렬 처리를 위해 필드별로 라우팅하도록 [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-)을 사용하여 수행할 수 있습니다. 그런 다음 상위 N 값을 전역적으로 결정하는 Bolt로 라우팅할 수 있습니다.
+토폴로지가 상위 N 값 계산에 따라 다른 경우 상위 N 값을 병렬로 계산합니다. 그런 다음 해당 계산의 출력을 전역 값으로 병합합니다. 이 작업은 병렬 처리를 위해 필드별로 라우팅하도록 [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-)을 사용하여 수행할 수 있습니다. 그런 다음 상위 N 값을 전역적으로 결정하는 Bolt로 라우팅할 수 있습니다.
 
 상위 N 값을 계산하는 예제는 [RollingTopWords](https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/org/apache/storm/starter/RollingTopWords.java) 예제를 참조하세요.
 
@@ -182,6 +182,6 @@ HDInsight의 Apache Storm을 사용한 실시간 분석 솔루션에 대해 자�
 * [HDInsight의 Apache Storm에 대한 예제 토폴로지](apache-storm-example-topology.md)
 
 [stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
-[samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
+[samoa]: https://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
 [apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
 [gettingstarted]: apache-storm-tutorial-get-started-linux.md

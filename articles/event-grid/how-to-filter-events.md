@@ -2,17 +2,17 @@
 title: Azure Event Grid에 대한 이벤트를 필터링하는 방법
 description: 이벤트를 필터링하는 Azure Event Grid 구독을 만드는 방법을 보여줍니다.
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/07/2018
-ms.author: tomfitz
-ms.openlocfilehash: fd0b2bda91ecb9b717f4cfe366c45bc95b21fd8e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.date: 01/07/2019
+ms.author: spelluru
+ms.openlocfilehash: fa7deb8a1ef536ef0c2b7fbb0a184a950821aebf
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277565"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477339"
 ---
 # <a name="filter-events-for-event-grid"></a>Event Grid에 대한 이벤트 필터링
 
@@ -91,7 +91,7 @@ New-AzureRmEventGridSubscription `
   -SubjectBeginsWith $resourceId
 ```
 
-다음 PowerShell 예제에서는 Blob 저장소에 대한 구독을 만듭니다. 이벤트를 `.jpg`로 끝나는 제목이 있는 것으로 제한합니다.
+다음 PowerShell 예제에서는 Blob Storage에 대한 구독을 만듭니다. 이벤트를 `.jpg`로 끝나는 제목이 있는 것으로 제한합니다.
 
 ```powershell
 $storageId = (Get-AzureRmStorageAccount -ResourceGroupName myResourceGroup -AccountName $storageName).Id
@@ -115,7 +115,7 @@ az eventgrid event-subscription create \
   --subject-begins-with $resourceId
 ```
 
-다음 Azure CLI 예제에서는 Blob 저장소에 대한 구독을 만듭니다. 이벤트를 `.jpg`로 끝나는 제목이 있는 것으로 제한합니다.
+다음 Azure CLI 예제에서는 Blob Storage에 대한 구독을 만듭니다. 이벤트를 `.jpg`로 끝나는 제목이 있는 것으로 제한합니다.
 
 ```azurecli
 storageid=$(az storage account show --name $storageName --resource-group myResourceGroup --query id --output tsv)
@@ -153,7 +153,7 @@ az eventgrid event-subscription create \
 ]
 ```
 
-다음 Resource Manager 템플릿 예제에서는 Blob 저장소에 대한 구독을 만듭니다. 이벤트를 `.jpg`로 끝나는 제목이 있는 것으로 제한합니다.
+다음 Resource Manager 템플릿 예제에서는 Blob Storage에 대한 구독을 만듭니다. 이벤트를 `.jpg`로 끝나는 제목이 있는 것으로 제한합니다.
 
 ```json
 "resources": [

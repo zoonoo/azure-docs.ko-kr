@@ -1,9 +1,9 @@
 ---
-title: Azure Batch의 서비스 할당량 및 제한 | Microsoft Docs
+title: 서비스 할당량 및 제한 - Azure Batch | Microsoft Docs
 description: 기본 Azure Batch 할당량, 한도 및 제약 조건에 대해 알아보고 할당량 증가를 요청하는 방법에 대해 알아봅니다.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0493783cb1253aab78ff39aa42eeabbec8ddb726
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 12/18/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 5194fa73d246cee039e113207bbde277b06d7130
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263607"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753202"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 서비스 할당량 및 제한
 
@@ -63,11 +63,11 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
 | **리소스** | **최대 제한** |
 | --- | --- |
 | [동시 작업](batch-parallel-node-tasks.md)  | 4 x 노드 코어 수 |
-| [응용 프로그램](batch-application-packages.md)  | 20 |
-| 응용 프로그램당 응용 프로그램 패키지 | 40 |
-| 최대 작업 수명 | 7일<sup>1</sup> |
+| [애플리케이션](batch-application-packages.md) | 20 |
+| 애플리케이션당 애플리케이션 패키지 | 40 |
+| 최대 작업 수명 | 180일<sup>1</sup> |
 
-<sup>1</sup> 태스크가 작업에 추가될 때부터 완료될 때까지 태스크의 최대 수명은 7일입니다. 완료된 태스크무한 지속됩니다. 최대 수명 이내에 완료되지 않은 태스크에 대한 데이터에는 액세스할 수 없습니다.
+<sup>1</sup> 태스크의 최대 수명(태스크가 작업에 추가되는 시점부터 완료되는 시점까지)은 180일입니다. 완료된 태스크는 7일 동안 지속됩니다. 최대 수명 이내에 완료되지 않은 태스크에 대한 데이터에는 액세스할 수 없습니다.
 
 ## <a name="view-batch-quotas"></a>Batch 할당량 보기
 

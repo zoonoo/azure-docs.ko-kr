@@ -44,7 +44,7 @@ Azure Machine Learning을 사용하여 Azure IoT Hub의 온도 및 습도 데이
 - 다음 요구 사항을 다루는 자습서 [디바이스 설정](iot-hub-raspberry-pi-kit-node-get-started.md) 완료:
   - 활성 Azure 구독.
   - 구독 중인 Azure IoT Hub
-  - 메시지를 Azure IoT Hub로 보내는 클라이언트 응용 프로그램
+  - 메시지를 Azure IoT Hub로 보내는 클라이언트 애플리케이션
 - Azure Machine Learning Studio 계정 [Machine Learning Studio 체험해 보기](https://studio.azureml.net/)
 
 ## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a>날씨 예측 모델을 웹 서비스로 배포
@@ -173,7 +173,7 @@ Stream Analytics 작업에서 **시작** > **지금 시작** > **시작**을 차
 
 ## <a name="use-microsoft-azure-storage-explorer-to-view-the-weather-forecast"></a>Microsoft Azure Storage 탐색기를 사용하여 일기 예보 보기
 
-클라이언트 응용 프로그램을 실행하여 온도 및 습도 데이터를 수집하여 IoT Hub로 보냅니다. Stream Analytics 작업에서는 IoT Hub에서 받은 각 메시지에 대해 일기 예보 웹 서비스를 호출하여 강우 확률을 생성합니다. 그런 다음 Azure Blob 저장소에 결과를 저장합니다. Azure Storage 탐색기는 결과를 보는 데 사용할 수 있는 도구입니다.
+클라이언트 애플리케이션을 실행하여 온도 및 습도 데이터를 수집하여 IoT Hub로 보냅니다. Stream Analytics 작업에서는 IoT Hub에서 받은 각 메시지에 대해 일기 예보 웹 서비스를 호출하여 강우 확률을 생성합니다. 그런 다음 Azure Blob 저장소에 결과를 저장합니다. Azure Storage 탐색기는 결과를 보는 데 사용할 수 있는 도구입니다.
 
 1. [Microsoft Azure Storage 탐색기를 다운로드하고 설치합니다](http://storageexplorer.com/).
 1. Azure Storage 탐색기를 엽니다.

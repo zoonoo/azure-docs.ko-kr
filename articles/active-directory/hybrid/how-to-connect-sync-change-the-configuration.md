@@ -4,7 +4,7 @@ description: Azure AD Connect 동기화의 구성을 변경하는 방법을 안�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c8aa337be2dd3c4209a3095d8733893d78f6cb74
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 50088dd00b0410ea32b6b61516021563c7ae061f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310052"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463374"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 변경
 이 문서의 목적은 Azure AD(Active Directory) Connect 동기화에서 기본 구성 변경 방법을 안내하는 것입니다. 몇 가지 일반적인 시나리오를 위한 단계를 제공합니다. 이러한 지식을 바탕으로 사용자의 고유한 비즈니스 규칙에 따라 자체 구성에 대해 간단한 내용을 변경할 수 있습니다.
@@ -60,15 +60,15 @@ ms.locfileid: "46310052"
 2. **설명** 페이지에서 다음을 입력합니다.  
    ![인바운드 규칙 필터링](./media/how-to-connect-sync-change-the-configuration/description2.png)  
    * **이름**: 규칙에 설명이 포함된 이름을 지정합니다.
-   * **설명**: 다른 사용자가 어떤 규칙인지 이해할 수 있도록 하기 위한 간단한 설명을 입력합니다.
+   * **설명**: 다른 사용자가 어떤 규칙인지 이해할 수 있도록 간단한 설명을 제공합니다.
    * **연결된 시스템**: 개체를 찾을 수 있는 시스템입니다. 이 경우 **Active Directory Connector**를 선택합니다.
-   * **연결된 시스템/메타 버스 개체 유형**: **사용자**와 **사람**을 각각 선택합니다.
-   * **링크 형식**:이 값을 **조인**으로 변경합니다.
+   * **연결된 시스템/메타버스 개체 유형**: **사용자** 및 **개인**을 각각 선택합니다.
+   * **링크 형식**: 이 값을 **조인**으로 변경합니다.
    * **우선 순위**: 시스템에서 고유한 값을 제공합니다. 숫자 값이 낮을수록 높은 우선 순위를 나타냅니다.
    * **태그**: 이 항목은 비워 둡니다. Microsoft의 기본 규칙으로만 이 상자에 값을 채워야 합니다.
 3. **범위 지정 필터** 페이지에서 **givenName ISNOTNULL**을 입력합니다.  
    ![인바운드 규칙 범위 지정 필터](./media/how-to-connect-sync-change-the-configuration/scopingfilter.png)  
-   이 섹션은 규칙을 적용해야 개체를 정의하는 데 사용됩니다. 비워 두면 규칙은 모든 사용자 개체에 적용됩니다. 하지만 여기에는 회의실, 서비스 계정 및 기타 사람이 아닌 사용자 개체가 포함됩니다.
+    이 섹션은 규칙을 적용해야 개체를 정의하는 데 사용됩니다. 비워 두면 규칙은 모든 사용자 개체에 적용됩니다. 하지만 여기에는 회의실, 서비스 계정 및 기타 사람이 아닌 사용자 개체가 포함됩니다.
 4. **조인 규칙** 페이지에서는 필드를 비워 둡니다.
 5. **변환** 페이지에서 **FlowType**을 **식**으로 변경합니다. **대상 특성**에 **givenName**을 선택합니다. 또 **원본**에는 **PCase([givenName])** 를 입력합니다.
    ![인바운드 규칙 변환](./media/how-to-connect-sync-change-the-configuration/transformations.png)  
@@ -211,7 +211,7 @@ UserType 특성의 동기화를 사용하도록 설정하기 전에 먼저 이 �
 
     이 방법을 선택한 경우 UserType 특성의 동기화를 사용하도록 설정하기 전에 지정된 특성이 Azure AD에 동기화된 온-프레미스 Active Directory의 모든 기존 사용자 개체에 대해 올바른 값으로 채워져 있는지 확인해야 합니다.
 
-- 또는 UserType 특성의 값을 다른 속성에서 파생할 수 있습니다. 예를 들어 온-프레미스 AD userPrincipalName 특성이 도메인 부분 *@partners.fabrikam123.org*로 끝나는 경우 모든 사용자를 **게스트**로 동기화하는 것이 좋습니다. 
+- 또는 UserType 특성의 값을 다른 속성에서 파생할 수 있습니다. 예를 들어 온-프레미스 AD userPrincipalName 특성이 도메인 부분 <em>@partners.fabrikam123.org</em>로 끝나는 경우 모든 사용자를 **게스트**로 동기화하는 것이 좋습니다. 
 
     앞에서 언급했듯이 Azure AD Connect는 Azure AD Connect에 의해 변경될 기존 Azure AD 사용자에 대해 UserType 특성을 허용하지 않습니다. 그러므로 결정한 논리가 테넌트의 모든 기존 Azure AD 사용자에 대해 UserType 특성이 구성되는 방법과 일치하도록 해야 합니다.
 
@@ -228,7 +228,7 @@ UserType 특성의 동기화를 사용하도록 설정하는 단계는 다음과
 >[!NOTE]
 > 이 섹션의 나머지 부분에서는 이러한 단계에 대해 설명하며, 단일 포리스트 토폴로지를 사용하고 사용자 지정 동기화 규칙이 없는 Azure AD 배포와 관련됩니다. 다중 포리스트 토폴로지, 사용자 지정 동기화 규칙이 구성되어 있거나 스테이징 서버가 있으면 이에 따라 단계를 조정해야 합니다.
 
-### <a name="step-1-disable-the-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>1단계: 동기화 스케줄러를 비활성화하고 진행 중인 동기화가 없는지 확인
+### <a name="step-1-disable-the-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>1단계: 동기화 스케줄러를 사용하지 않도록 설정하고 진행 중인 동기화가 없는지 확인
 Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기화 규칙을 업데이트하는 중에 동기화가 수행되지 않도록 합니다. 기본 제공 동기화 스케줄러를 비활성화하려면
 
  1. Azure AD Connect 서버에서 PowerShell 세션을 시작합니다.
@@ -289,7 +289,7 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
     | --- | --- | --- | --- | --- |
     | 직접 | UserType | extensionAttribute1 | 선택 취소됨 | 주 지역에서 |
 
-    또 다른 예로 UserType 특성의 값을 다른 속성에서 파생할 수 있습니다. 예를 들어 온-프레미스 AD userPrincipalName 특성이 도메인 부분 *@partners.fabrikam123.org*로 끝나는 경우 모든 사용자를 게스트로 동기화하는 것이 좋습니다. 다음과 같은 식을 구현할 수 있습니다.
+    또 다른 예로 UserType 특성의 값을 다른 속성에서 파생할 수 있습니다. 예를 들어 온-프레미스 AD userPrincipalName 특성이 도메인 부분 <em>@partners.fabrikam123.org</em>로 끝나는 경우 모든 사용자를 게스트로 동기화하는 것이 좋습니다. 다음과 같은 식을 구현할 수 있습니다.
 
     | 흐름 형식 | 대상 특성 | 원본 | 한 번 적용 | 병합 종류 |
     | --- | --- | --- | --- | --- |
@@ -349,7 +349,7 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
    4. 작업이 완료될 때까지 기다립니다.
 
     > [!NOTE]
-    > 원본 특성이 가져온 특성 목록에 이미 포함되어 있으면 온-프레미스 AD 커넥터에서 전체 가져오기를 건너뛸 수 있습니다. 즉 [2단계: 온-프레미스 AD 커넥터 스키마에 원본 특성 추가](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema)에서 변경하지 않아도 됩니다.
+    > 원본 특성이 가져온 특성 목록에 이미 포함되어 있으면 온-프레미스 AD 커넥터에서 전체 가져오기를 건너뛸 수 있습니다. 즉, [2단계: 온-프레미스 AD 커넥터 스키마에 원본 특성 추가](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema) 중에 변경할 필요는 없습니다.
 
 2. **Azure AD Connector**에서 **전체 가져오기**를 실행합니다.
 
@@ -375,7 +375,7 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
    2. **커넥터 공간 검색** 팝업 대화 상자에서
 
       - **범위**를 **보류 중인 내보내기**로 설정합니다.
-      - **추가**, **수정** 및 **삭제** 등, 세 확인란을 모두 선택합니다.
+      - 세 개의 확인란(**추가**, **수정** 및 **삭제**)을 모두 선택합니다.
       - **검색** 단추를 클릭하여 내보낼 변경 내용이 있는 개체의 목록을 가져옵니다. 지정된 개체에 대한 변경 내용을 검사하려면 해당 개체를 두 번 클릭합니다.
       - 필요한 변경 내용인지 확인합니다.
 

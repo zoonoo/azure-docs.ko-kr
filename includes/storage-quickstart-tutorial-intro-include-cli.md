@@ -38,7 +38,7 @@ az storage account create \
 
 Azure CLI는 이 자습서의 명령 대부분에 저장소 계정 자격 증명을 필요로 합니다. 이를 수행하는 여러 가지 옵션이 있지만 가장 쉬운 방법 중 하나는 `AZURE_STORAGE_ACCOUNT` 및 `AZURE_STORAGE_ACCESS_KEY` 환경 변수를 설정하는 것입니다.
 
-먼저, [az storage account keys list](/cli/azure/storage/account/keys#list) 명령을 사용하여 저장소 계정 키를 표시합니다.
+먼저, [az storage account keys list](/cli/azure/storage/account/keys#list) 명령을 사용하여 스토리지 계정 키를 표시합니다.
 
 ```azurecli-interactive
 az storage account keys list \

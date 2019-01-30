@@ -1,23 +1,23 @@
 ---
-title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 응용 프로그램의 사용자 인터페이스 사용자 지정 | Microsoft Docs
+title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 애플리케이션의 사용자 인터페이스 사용자 지정 | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 사용자 인터페이스를 사용자 지정하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/18/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 237d22054ecb4eea58494c1b5066eb8e00ecd2fc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 738e4a4f94d86fc3a1acbb2e43c5b1974d6abac2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583452"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849272"
 ---
-# <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 응용 프로그램의 사용자 인터페이스 사용자 지정
+# <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 애플리케이션의 사용자 인터페이스 사용자 지정
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -29,9 +29,9 @@ ms.locfileid: "52583452"
 
 ## <a name="page-ui-customization"></a>페이지 UI 사용자 지정
 
-페이지 UI 사용자 지정 기능을 사용하면 사용자 지정 정책의 모양과 느낌을 사용자 지정할 수 있습니다. 또한 응용 프로그램과 Azure AD B2C 간에 브랜드와 시각적 개체 일관성을 유지할 수 있습니다.
+페이지 UI 사용자 지정 기능을 사용하면 사용자 지정 정책의 모양과 느낌을 사용자 지정할 수 있습니다. 또한 애플리케이션과 Azure AD B2C 간에 브랜드와 시각적 개체 일관성을 유지할 수 있습니다.
 
-작동 방식은 다음과 같습니다. Azure AD B2C는 소비자의 브라우저에서 코드를 실행하고 [CORS(원본 간 리소스 공유)](http://www.w3.org/TR/cors/)라는 최신의 방법을 사용합니다. 먼저, 사용자 지정된 HTML 콘텐츠가 있는 사용자 지정 정책에서 URL을 지정합니다. Azure AD B2C는 UI 요소를 URL에서 로드된 HTML 콘텐츠와 병합한 다음 고객에게 해당 페이지를 표시합니다.
+작동 방식은 다음과 같습니다. Azure AD B2C는 고객의 브라우저에서 코드를 실행하고 [CORS(원본 간 리소스 공유)](https://www.w3.org/TR/cors/)라는 최신 방법을 사용합니다. 먼저, 사용자 지정된 HTML 콘텐츠가 있는 사용자 지정 정책에서 URL을 지정합니다. Azure AD B2C는 UI 요소를 URL에서 로드된 HTML 콘텐츠와 병합한 다음 고객에게 해당 페이지를 표시합니다.
 
 ## <a name="create-your-html5-content"></a>HTML5 콘텐츠 만들기
 
@@ -51,17 +51,14 @@ ms.locfileid: "52583452"
    </html>
    ```
 
-   >[!NOTE]
-   >보안상의 이유로 사용자 지정에 JavaScript의 사용이 현재 차단됩니다.
-
 2. 복사한 코드 조각을 텍스트 편집기에 붙여넣은 다음 *customize-ui.html*이라는 파일로 저장합니다.
 
-## <a name="create-an-azure-blob-storage-account"></a>Azure Blob 저장소 계정 만들기
+## <a name="create-an-azure-blob-storage-account"></a>Azure Blob Storage 계정 만들기
 
 >[!NOTE]
-> 이 가이드에서는 Azure Blob 저장소를 사용하여 콘텐츠를 호스팅합니다. 웹 서버에서 콘텐츠를 호스팅하도록 선택할 수 있지만 [웹 서버에서 CORS를 사용하도록 설정](https://enable-cors.org/server.html)(영문)해야 합니다.
+> 이 가이드에서는 Azure Blob Storage를 사용하여 콘텐츠를 호스팅합니다. 웹 서버에서 콘텐츠를 호스팅하도록 선택할 수 있지만 [웹 서버에서 CORS를 사용하도록 설정](https://enable-cors.org/server.html)(영문)해야 합니다.
 
-Blob 저장소에서 이 HTML 콘텐츠를 호스팅하려면 다음을 수행합니다.
+Blob Storage에서 이 HTML 콘텐츠를 호스팅하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **허브** 메뉴에서 **새로 만들기** > **저장소** > **저장소 계정**을 차례로 선택합니다.
@@ -80,7 +77,7 @@ Blob 저장소에서 이 HTML 콘텐츠를 호스팅하려면 다음을 수행�
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
-Blob 저장소에 공용 컨테이너를 만들려면 다음을 수행합니다.
+Blob Storage에 공용 컨테이너를 만들려면 다음을 수행합니다.
 
 1. **개요** 탭을 클릭합니다.
 2. **컨테이너**를 클릭합니다.
@@ -97,7 +94,7 @@ Blob 저장소에 공용 컨테이너를 만들려면 다음을 수행합니다.
 
 ## <a name="configure-cors"></a>CORS 구성
 
-다음을 수행하여 CORS(원본 간 리소스 공유)에 Blob 저장소를 구성합니다.
+다음을 수행하여 CORS(원본 간 리소스 공유)에 Blob Storage를 구성합니다.
 
 1. 메뉴에서 **CORS**를 선택합니다.
 2. **허용된 원본**에 `your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예: `fabrikam.b2clogin.com` 테넌트 이름을 입력할 때는 모두 소문자를 사용해야 합니다.
@@ -111,7 +108,7 @@ Blob 저장소에 공용 컨테이너를 만들려면 다음을 수행합니다.
 
 다음을 수행하여 준비가 되었는지 확인합니다.
 
-1. [www.test-cors.org](http://www.test-cors.org/) 웹 사이트로 이동한 다음, **원격 URL** 상자에 URL을 붙여넣습니다.
+1. [www.test-cors.org](https://www.test-cors.org/) 웹 사이트로 이동한 다음, **원격 URL** 상자에 URL을 붙여넣습니다.
 2. **요청 보내기**를 클릭합니다.  
     오류가 발생하는 경우 [CORS 설정](#configure-cors)이 올바른지 확인합니다. Ctrl+Shift+P를 눌러 브라우저 캐시를 비우거나 개인 검색 세션을 열어야 할 수도 있습니다.
 
@@ -124,7 +121,7 @@ UI 사용자 지정을 구성하려면 **ContentDefinition** 및 해당 자식 �
 3. 확장 파일을 엽니다(예: 예: *TrustFrameworkExtensions.xml* **BuildingBlocks** 요소를 검색합니다. 요소가 존재하지 않는 경우 추가합니다.
 4. 복사한 **ContentDefinitions**의 전체 내용을 **BuildingBlocks** 요소의 자식으로 붙여 넣습니다. 
 5. 복사한 XML에서 `Id="api.signuporsignin"`을 포함하는 **ContentDefinition** 요소를 검색합니다.
-6. **LoadUri** 값을 저장소에 업로드한 HTML 파일의 URL로 변경합니다. 예: `https://mystore1.azurewebsites.net/b2c/customize-ui.html.
+6. **LoadUri** 값을 저장소에 업로드한 HTML 파일의 URL로 변경합니다. 예: `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`
     
     사용자 지정 정책이 다음과 비슷해야 합니다.
 

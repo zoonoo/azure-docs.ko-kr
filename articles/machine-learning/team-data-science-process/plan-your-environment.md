@@ -1,6 +1,6 @@
 ---
-title: 시나리오를 식별하고 분석 프로세스 계획 - Azure | Microsoft Docs
-description: 일련의 주요 질문을 고려한 고급 분석 계획
+title: 시나리오 식별 및 분석 프로세스 계획 - Team Data Science Process
+description: 일련의 주요 질문을 고려하여 시나리오를 파악하고 고급 분석 데이터 처리를 계획합니다.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b61f6c12aaa94fc61063e8d3bd7e339f1548781c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5faa7a58a252a5d3b8cc044f9e81a6d7cb2df7d5
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446426"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138044"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>시나리오를 파악하고 고급 분석 데이터 처리를 계획하는 방법
 데이터 세트에 대해 고급 분석 처리를 수행할 환경을 설정할 때 어떤 리소스를 포함하도록 계획해야 할까요? 이 문서는 시나리오에 적합한 작업과 리소스를 파악하는 데 도움이 될만한 것을 묻는 일련의 질문을 제시합니다. 예측 분석에 대한 고급 단계의 순서는 [TDSP(팀 데이터 과학 프로세스)란 무엇입니까?](overview.md)에 대략적으로 설명되어 있습니다. 각각의 단계에는 개별적인 시나리오에 관련된 작업을 위한 구체적인 리소스가 필요합니다. 시나리오를 파악하기 위한 주요 질문은 데이터 로지스틱, 특징, 데이터 세트의 품질, 분석에 사용할 도구 및 언어에 대한 것입니다.
@@ -65,9 +65,9 @@ ms.locfileid: "52446426"
    * SQL Server 테이블
 3. **데이터가 얼마나 큽니까?**
    
-   * 작음: 2GB 미만
+   * 소형: 2GB보다 작음
    * 보통: 2GB보다 크고 10GB보다 작음
-   * 큼: 10GB 초과
+   * 대형: 10GB보다 큼
 
 Azure Machine Learning Studio 환경을 예로 들어 보겠습니다.
 

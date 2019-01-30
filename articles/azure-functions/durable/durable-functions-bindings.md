@@ -1,6 +1,6 @@
 ---
 title: 지속성 함수의 바인딩 - Azure
-description: Azure Functions의 지속성 함수 확장에 트리거 및 바인딩을 사용하는 방법을 설명합니다.
+description: Azure Functions의 Durable Functions 확장에 트리거 및 바인딩을 사용하는 방법입니다.
 services: functions
 author: kashimiz
 manager: jeconnoc
@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1a932e5548941a949120ab6c15c73c739a7dc8c3
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 889d26be12fef62d37a471fbe0640a2b8ecdd99c
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637028"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337192"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>지속성 함수의 바인딩(Azure Functions)
 
@@ -27,7 +27,7 @@ ms.locfileid: "52637028"
 
 Azure Functions에 Visual Studio 도구를 사용하는 경우 오케스트레이션 트리거는 [OrchestrationTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationTriggerAttribute.html) .NET 특성을 사용하여 구성됩니다.
 
-스크립팅 언어(예: Azure Portal)에서 오케스트레이터 함수를 작성하는 경우 오케스트레이션 트리거는 *function.json* 파일의 `bindings` 배열에 있는 다음 JSON 개체에서 정의됩니다.
+스크립팅 언어(예: JavaScript 또는 C# 스크립팅)에서 오케스트레이터 함수를 작성하는 경우 오케스트레이션 트리거는 *function.json* 파일의 `bindings` 배열에 있는 다음 JSON 개체에서 정의됩니다.
 
 ```json
 {
@@ -54,12 +54,15 @@ Azure Functions에 Visual Studio 도구를 사용하는 경우 오케스트레�
 > [!WARNING]
 > 오케스트레이터 함수는 오케스트레이션 트리거 바인딩 이외의 입력 또는 출력 바인딩을 절대로 사용하면 안됩니다. 이렇게 하면 그러한 바인딩에서 단일 스레딩 및 I/O 규칙을 따르지 않을 수 있으므로 지속성 작업 확장에서 문제가 발생할 수 있습니다.
 
-### <a name="trigger-usage"></a>트리거 사용
+> [!WARNING]
+> JavaScript 오케스트레이터 함수는 `async`로 선언되지 않아야 합니다.
+
+### <a name="trigger-usage-net"></a>트리거 사용(.NET)
 
 오케스트레이션 트리거 바인딩은 입력과 출력을 모두 지원합니다. 다음은 입력 및 출력 처리에 대해 알고 있어야 할 몇 가지 사항입니다.
 
-* **입력** - 오케스트레이션 함수는 [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)만 매개 변수 형식으로 지원합니다. 함수 시그니처에서 직접적인 역직렬화 입력은 지원되지 않습니다. 코드에서는 오케스트레이터 함수 입력을 가져오기 위해 [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) 메서드를 사용해야 합니다. 이러한 입력은 JSON 직렬화 가능 형식이어야 합니다.
-* **출력** - 오케스트레이션 트리거는 입력뿐만 아니라 출력 값도 지원합니다. 함수의 반환 값은 출력 값을 할당하는 데 사용되며 JSON 직렬화 가능해야 합니다. 함수에서 `Task` 또는 `void`를 반환하면 `null` 값이 출력으로 저장됩니다.
+* **입력** - .NET 오케스트레이션 함수는 [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)만 매개 변수 형식으로 지원합니다. 함수 시그니처에서 직접적인 역직렬화 입력은 지원되지 않습니다. 코드에서는 오케스트레이터 함수 입력을 가져오기 위해 [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1)(.NET) 또는 `getInput`(JavaScript) 메서드를 사용해야 합니다. 이러한 입력은 JSON 직렬화 가능 형식이어야 합니다.
+* **출력** - 오케스트레이션 트리거는 입력뿐만 아니라 출력 값도 지원합니다. 함수의 반환 값은 출력 값을 할당하는 데 사용되며 JSON 직렬화 가능해야 합니다. .NET 함수에서 `Task` 또는 `void`를 반환하면 `null` 값이 출력으로 저장됩니다.
 
 ### <a name="trigger-sample"></a>트리거 샘플
 
@@ -76,7 +79,7 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+#### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
 
 ```javascript
 const df = require("durable-functions");
@@ -86,6 +89,9 @@ module.exports = df.orchestrator(function*(context) {
     return `Hello ${name}!`;
 });
 ```
+
+> [!NOTE]
+> JavaScript의 `context` 개체는 DurableOrchestrationContext가 아니라 [전체적으로 함수 컨텍스트](../functions-reference-node.md#context-object)를 나타냅니다. `context` 개체의 `df` 속성을 통해 오케스트레이션 메서드에 액세스할 수 있습니다.
 
 > [!NOTE]
 > JavaScript 오케스트레이터는 `return`을 사용해야 합니다. `durable-functions` 라이브러리는 `context.done` 메서드 호출을 처리합니다.
@@ -105,7 +111,7 @@ public static async Task<string> Run(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+#### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
 
 ```javascript
 const df = require("durable-functions");
@@ -121,7 +127,7 @@ module.exports = df.orchestrator(function*(context) {
 
 작업 트리거를 사용하면 오케스트레이터 함수에서 호출하는 함수를 작성할 수 있습니다.
 
-Visual Studio를 사용하는 경우 작업 트리거는 [ActivityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .NET 특성을 사용하여 구성됩니다. 
+Visual Studio를 사용하는 경우 작업 트리거는 [ActivityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .NET 특성을 사용하여 구성됩니다.
 
 개발을 위해 VS Code 또는 Azure Portal을 사용하는 경우 작업 트리거는 *function.json*의 `bindings` 배열에 있는 다음 JSON 개체에서 정의됩니다.
 
@@ -150,13 +156,13 @@ Visual Studio를 사용하는 경우 작업 트리거는 [ActivityTriggerAttribu
 > [!WARNING]
 > 작업 함수에 대한 저장소 백 엔드는 구현 세부 정보이며, 사용자 코드는 이러한 저장소 엔터티와 직접 상호 작용하면 안됩니다.
 
-### <a name="trigger-usage"></a>트리거 사용
+### <a name="trigger-usage-net"></a>트리거 사용(.NET)
 
 작업 트리거 바인딩은 오케스트레이션 트리거와 마찬가지로 입력과 출력을 모두 지원합니다. 다음은 입력 및 출력 처리에 대해 알고 있어야 할 몇 가지 사항입니다.
 
-* **입력** - 작업 함수는 본질적으로 [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html)를 매개 변수 형식으로 사용합니다. 또는 JSON 직렬화 가능 매개 변수 형식으로 선언될 수 있습니다. `DurableActivityContext`를 사용하면 [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1)를 호출하여 작업 함수 입력을 가져오고 역직렬화할 수 있습니다.
-* **출력** - 작업 함수는 입력뿐만 아니라 출력 값도 지원합니다. 함수의 반환 값은 출력 값을 할당하는 데 사용되며 JSON 직렬화 가능해야 합니다. 함수에서 `Task` 또는 `void`를 반환하면 `null` 값이 출력으로 저장됩니다.
-* **메타데이터** - 작업 함수는 `string instanceId` 매개 변수에 바인딩하여 부모 오케스트레이션의 인스턴스 ID를 가져올 수 있습니다.
+* **입력** - .NET 활동 함수는 기본적으로 [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html)를 매개 변수 형식으로 사용합니다. 또는 JSON 직렬화 가능 매개 변수 형식으로 선언될 수 있습니다. `DurableActivityContext`를 사용하면 [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1)를 호출하여 작업 함수 입력을 가져오고 역직렬화할 수 있습니다.
+* **출력** - 작업 함수는 입력뿐만 아니라 출력 값도 지원합니다. 함수의 반환 값은 출력 값을 할당하는 데 사용되며 JSON 직렬화 가능해야 합니다. .NET 함수에서 `Task` 또는 `void`를 반환하면 `null` 값이 출력으로 저장됩니다.
+* **메타데이터** - .NET 활동 함수는 `string instanceId` 매개 변수에 바인딩하여 부모 오케스트레이션의 인스턴스 ID를 가져올 수 있습니다.
 
 ### <a name="trigger-sample"></a>트리거 샘플
 
@@ -173,17 +179,7 @@ public static string SayHello([ActivityTrigger] DurableActivityContext helloCont
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
-
-```javascript
-module.exports = function(context) {
-    context.done(null, `Hello ${context.bindings.name}!`);
-};
-```
-
-`ActivityTriggerAttribute` 바인딩에 대한 기본 매개 변수 형식은 `DurableActivityContext`입니다. 그러나 작업 트리거는 JSON 직렬화 가능 형식(기본 형식 포함)에 대한 직접 바인딩도 지원하므로 동일한 함수를 다음과 같이 단순화할 수 있습니다.
-
-#### <a name="c"></a>C#
+.NET `ActivityTriggerAttribute` 바인딩의 기본 매개 변수 형식은 `DurableActivityContext`입니다. 그러나 .NET 작업 트리거는 JSON 직렬화 가능 형식(기본 형식 포함)에 대한 직접 바인딩도 지원하므로 동일한 함수를 다음과 같이 단순화할 수 있습니다.
 
 ```csharp
 [FunctionName("SayHello")]
@@ -193,17 +189,25 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+#### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
 
 ```javascript
-module.exports = function(context, name) {
-    context.done(null, `Hello ${name}!`);
+module.exports = async function(context) {
+    return `Hello ${context.bindings.name}!`;
 };
 ```
 
-### <a name="passing-multiple-parameters"></a>여러 매개 변수 전달 
+JavaScript 바인딩도 추가 매개 변수로 전달될 수 있으므로 동일한 함수를 다음과 같이 단순화할 수 있습니다.
 
-작업 함수에 직접 여러 매개 변수를 전달하는 것은 불가능합니다. 이 경우 개체의 배열에 전달하거나 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) 개체를 사용하는 것이 좋습니다.
+```javascript
+module.exports = async function(context, name) {
+    return `Hello ${name}!`;
+};
+```
+
+### <a name="passing-multiple-parameters"></a>여러 매개 변수 전달
+
+작업 함수에 직접 여러 매개 변수를 전달하는 것은 불가능합니다. 이 경우 개체 배열로 전달하거나 .NET에서 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) 개체를 사용하는 것이 좋습니다.
 
 다음 샘플은 [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples)로 추가된 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples)의 새로운 기능을 사용하는 것입니다.
 
@@ -222,7 +226,7 @@ public static async Task<dynamic> RunOrchestrator(
 [FunctionName("CourseRecommendations")]
 public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContext inputs)
 {
-    // parse input for student's major and year in university 
+    // parse input for student's major and year in university
     (string Major, int UniversityYear) studentInfo = inputs.GetInput<(string, int)>();
 
     // retrieve and return course recommendations by major and university year
@@ -242,6 +246,7 @@ public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContex
 ## <a name="orchestration-client"></a>오케스트레이션 클라이언트
 
 오케스트레이션 클라이언트 바인딩을 사용하면 오케스트레이터 함수와 상호 작용하는 함수를 작성할 수 있습니다. 예를 들어 오케스트레이션 인스턴스에서 다음과 같은 방법으로 작동할 수 있습니다.
+
 * 인스턴스를 시작합니다.
 * 해당 상태를 쿼리합니다.
 * 인스턴스를 종료합니다.
@@ -270,17 +275,20 @@ Visual Studio를 사용하는 경우 [OrchestrationClientAttribute](https://azur
 
 ### <a name="client-usage"></a>클라이언트 사용
 
-C# 함수에서는 일반적으로 `DurableOrchestrationClient`에 바인딩하며, 이는 지속성 함수에서 지원하는 모든 클라이언트 API에 대한 모든 액세스 권한을 부여합니다. 클라이언트 개체에 대한 API는 다음과 같습니다.
+.NET 함수에서는 일반적으로 `DurableOrchestrationClient`에 바인딩하며, 이는 Durable Functions에서 지원하는 모든 클라이언트 API에 대한 모든 액세스 권한을 부여합니다. JavaScript에서 동일한 API는 `getClient`에서 반환된 `DurableOrchestrationClient` 개체를 통해 공개됩니다. 클라이언트 개체에 대한 API는 다음과 같습니다.
 
 * [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)
 * [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_)
 * [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_)
 * [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_)
-* [PurgeInstanceHistoryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_PurgeInstanceHistoryAsync_)
+* [PurgeInstanceHistoryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_PurgeInstanceHistoryAsync_)(현재는 .NET만 해당)
 
-또는 `T`가 [StartOrchestrationArgs](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.StartOrchestrationArgs.html) 또는 `JObject`인 `IAsyncCollector<T>`에 바인딩할 수 있습니다.
+또는 .NET 함수는 `T`가 [StartOrchestrationArgs](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.StartOrchestrationArgs.html) 또는 `JObject`인 `IAsyncCollector<T>`에 바인딩할 수 있습니다.
 
 이러한 작업에 대한 자세한 내용은 [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) API 설명서를 참조하세요.
+
+> [!WARNING]
+> JavaScript에서 로컬로 개발하는 경우 환경 변수 `WEBSITE_HOSTNAME`을 `localhost:<port>`(예: `localhost:7071`)로 설정해야 `DurableOrchestrationClient`에서 메서드를 사용할 수 있습니다. 이 요구 사항에 대한 자세한 내용은 [GitHub 문제](https://github.com/Azure/azure-functions-durable-js/issues/28)를 참조하세요.
 
 ### <a name="client-sample-visual-studio-development"></a>클라이언트 샘플(Visual Studio 개발)
 
@@ -315,9 +323,8 @@ public static Task Run(
       "type": "orchestrationClient",
       "direction": "in"
     }
-  ],
-  "disabled": false
-} 
+  ]
+}
 ```
 
 다음은 새 오케스트레이터 함수 인스턴스를 시작하는 언어 관련 샘플입니다.
@@ -339,22 +346,18 @@ public static Task<string> Run(string input, DurableOrchestrationClient starter)
 
 다음 샘플에서는 지속성 오케스트레이션 클라이언트 바인딩을 사용하여 JavaScript 함수에서 새 함수 인스턴스를 시작하는 방법을 보여줍니다.
 
-```js
-module.exports = function (context, input) {
-    var id = generateSomeUniqueId();
-    context.bindings.starter = [{
-        FunctionName: "HelloWorld",
-        Input: input,
-        InstanceId: id
-    }];
+```javascript
+const df = require("durable-functions");
 
-    context.done(null, id);
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    return instanceId = await client.startNew("HelloWorld", undefined, context.bindings.input);
 };
 ```
 
 인스턴스 시작에 대한 자세한 내용은 [인스턴스 관리](durable-functions-instance-management.md)에서 찾을 수 있습니다.
 
-<a name="host-json"></a>  
+<a name="host-json"></a>
 
 ## <a name="hostjson-settings"></a>host.json 설정
 
@@ -364,4 +367,3 @@ module.exports = function (context, input) {
 
 > [!div class="nextstepaction"]
 > [검사점 설정 및 재생 동작](durable-functions-checkpointing-and-replay.md)
-

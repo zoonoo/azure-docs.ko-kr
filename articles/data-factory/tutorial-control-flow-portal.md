@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 4cb133cc617ecc121fb93a4da816120986e131e8
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 037dafcfc60c629841e326cecc38bb2b3250d77c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43086929"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015426"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
-이 자습서에서는 몇 가지 컨트롤 흐름 기능을 보여 주는 Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Azure Blob Storage의 컨테이너에서 동일한 저장소 계정의 다른 컨테이너로 간단한 복사를 수행합니다. 복사 활동이 성공하면 파이프라인에서 성공적인 복사 작업에 대한 세부 정보(예: 기록된 데이터 양)를 성공 전자 메일에 보냅니다. 복사 활동이 실패하면 파이프라인에서 실패한 복사 작업에 대한 세부 정보(예: 오류 메시지)를 실패 전자 메일에 보냅니다. 자습서 전체에서 매개 변수를 전달하는 방법을 확인할 수 있습니다.
+이 자습서에서는 몇 가지 컨트롤 흐름 기능을 보여 주는 Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Azure Blob Storage의 컨테이너에서 동일한 스토리지 계정의 다른 컨테이너로 간단한 복사를 수행합니다. 복사 활동이 성공하면 파이프라인에서 성공적인 복사 작업에 대한 세부 정보(예: 기록된 데이터 양)를 성공 전자 메일에 보냅니다. 복사 활동이 실패하면 파이프라인에서 실패한 복사 작업에 대한 세부 정보(예: 오류 메시지)를 실패 전자 메일에 보냅니다. 자습서 전체에서 매개 변수를 전달하는 방법을 확인할 수 있습니다.
 
 대략적인 시나리오 개요: ![개요](media/tutorial-control-flow-portal/overview.png)
 
@@ -42,7 +41,7 @@ ms.locfileid: "43086929"
 ## <a name="prerequisites"></a>필수 조건
 
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-* **Azure Storage 계정**. Blob 저장소를 **원본** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
+* **Azure Storage 계정**. Blob 저장소를 **원본** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
 * **Azure SQL Database**. 데이터베이스를 **싱크** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure SQL Database를 만드는 단계는 [Azure SQL Database 만들기](../sql-database/sql-database-get-started-portal.md) 문서를 참조하세요.
 
 ### <a name="create-blob-table"></a>Blob 테이블 만들기
@@ -149,7 +148,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 5. 데이터 팩터리의 **위치** 를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 6. **대시보드에 고정**을 선택합니다.     
 7. **만들기**를 클릭합니다.      
-8. 대시보드에서 **데이터 팩터리 배포 중** 상태의 타일이 표시됩니다. 
+8. 대시보드에서 다음과 같은 **데이터 팩터리 배포 중** 상태의 타일이 표시됩니다. 
 
     ![데이터 팩터리 배포 중 타일](media/tutorial-control-flow-portal/deploying-data-factory.png)
 9. 만들기가 완료되면 이미지와 같은 **Data Factory** 페이지가 표시됩니다.
@@ -171,8 +170,8 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
    ![시작 페이지](./media/tutorial-control-flow-portal/get-started-page.png) 
 3. 파이프라인에 대한 속성 창에서 **매개 변수**탭으로 전환하고, **새로 만들기** 단추를 사용하여 문자열 형식의 세 매개 변수인 sourceBlobContainer, sinkBlobContainer 및 receiver를 추가합니다. 
 
-    - **sourceBlobContainer** - 원본 Blob 데이터 집합에서 사용하는 파이프라인의 매개 변수입니다.
-    - **sinkBlobContainer** - 싱크 Blob 데이터 집합에서 사용하는 파이프라인의 매개 변수입니다.
+    - **sourceBlobContainer** - 원본 Blob 데이터 세트에서 사용하는 파이프라인의 매개 변수입니다.
+    - **sinkBlobContainer** - 싱크 Blob 데이터 세트에서 사용하는 파이프라인의 매개 변수입니다.
     - **receiver** – 이 매개 변수로 지정된 이메일 주소의 받는 사람에게 성공 또는 실패 전자 메일을 보내는 파이프라인의 두 개의 웹 활동에서 사용됩니다.
 
    ![새 파이프라인 메뉴](./media/tutorial-control-flow-portal/pipeline-parameters.png)
@@ -182,7 +181,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 5. 아래쪽의 **복사** 활동에 대한 **속성** 창에서 **원본** 탭으로 전환하고, **+ 새로 만들기**를 클릭합니다. 이 단계에서는 복사 활동에 대한 원본 데이터 세트를 만듭니다. 
 
    ![원본 데이터 세트](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
-6. **새 데이터 집합** 창에서 **Azure Blob Storage**를 선택하고 **마침**을 클릭합니다. 
+6. **새 데이터 세트** 창에서 **Azure Blob Storage**를 선택하고 **마침**을 클릭합니다. 
 
    ![Azure Blob Storage 선택](./media/tutorial-control-flow-portal/select-azure-blob-storage.png)
 7. **AzureBlob1**이라는 제목의 새 **탭**이 표시됩니다. 데이터 세트의 이름을 **SourceBlobDataset**로 변경합니다.
@@ -207,7 +206,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 13. 속성 창에서 **싱크** 탭으로 전환하고, **싱크 데이터 세트**에 대해 **+ 새로 만들기**를 클릭합니다. 이 단계에서는 원본 데이터 세트를 만드는 것과 비슷한 방식으로 복사 활동에 대한 싱크 데이터 세트를 만듭니다. 
 
     ![새 싱크 데이터 세트 단추](./media/tutorial-control-flow-portal/new-sink-dataset-button.png)
-14. **새 데이터 집합** 창에서 **Azure Blob Storage**를 선택하고 **마침**을 클릭합니다. 
+14. **새 데이터 세트** 창에서 **Azure Blob Storage**를 선택하고 **마침**을 클릭합니다. 
 15. 데이터 세트에 대한 **일반** 설정 페이지에서 **이름**에 대해 **SinkBlobDataset**를 입력합니다.
 16. **연결** 탭으로 전환하고 다음 단계를 수행합니다. 
 

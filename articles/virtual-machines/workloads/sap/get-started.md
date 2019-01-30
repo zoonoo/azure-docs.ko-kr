@@ -3,8 +3,8 @@ title: Azure VM에서 SAP 솔루션 시작 | Microsoft Docs
 description: Microsoft Azure의 VM(가상 머신)에서 실행되는 SAP 솔루션에 대한 자세한 정보
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: jeconnoc
+author: msjuergent
+manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,41 +14,35 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/06/2018
-ms.author: rclaus
+ms.date: 01/22/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6fbb09d41535bf811a42b204f4e3d38b87c2846c
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: a30448580d394f83642de824f2d50115aaf964dc
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287951"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448452"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>SAP 워크로드 시나리오 호스팅 및 실행에 Azure 사용
 
-SAP 준비 클라우드 파트너로 Microsoft Azure를 선택하여 중요 업무용 SAP 워크로드 및 시나리오를 확장 가능하고 규정을 준수하는 엔터프라이즈 입증 플랫폼에서 안정적으로 실행할 수 있습니다.  Azure의 확장성, 유연성 및 비용 절감을 활용하세요. Microsoft와 SAP 사이의 확장된 파트너 관계 덕분에 Azure에서 개발/테스트 및 프로덕션 시나리오 전체에서 SAP 응용 프로그램을 실행할 수 있으며 완전한 지원을 받을 수 있습니다. SAP NetWeaver에서 SAP S4/HANA, SAP BI로, Linux에서 Windows로, SAP HANA에서 SQL로, 모두 가능합니다.
+Microsoft Azure를 선택하면 중요 업무용 SAP 워크로드 및 시나리오를 확장 가능하고 규정을 준수하는 엔터프라이즈 입증 플랫폼에서 안정적으로 실행할 수 있습니다.  Azure의 확장성, 유연성 및 비용 절감을 활용하세요. Microsoft와 SAP 사이의 확장된 파트너 관계 덕분에 Azure에서 개발/테스트 및 프로덕션 시나리오 전체에서 SAP 애플리케이션을 실행할 수 있으며 완전한 지원을 받을 수 있습니다. SAP NetWeaver에서 SAP S4/HANA, SAP BI로, Linux에서 Windows로, SAP HANA에서 SQL로, 모두 가능합니다.
 
-Azure에 다양한 DBMS가 있는 SAP NetWeaver 시나리오 호스팅 외에, Azure의 SAP BI와 같은 다른 다양한 SAP 워크로드 시나리오를 호스팅할 수 있습니다. "Azure Virtual Machines의 SAP NetWeaver” 섹션에서 Azure 네이티브 Virtual Machines에 SAP NetWeaver 배포하기에 대한 문서를 찾을 수 있습니다.
+Azure에 다양한 DBMS가 있는 SAP NetWeaver 시나리오 호스팅 외에, Azure의 SAP BI와 같은 다른 다양한 SAP 워크로드 시나리오를 호스팅할 수 있습니다. 
 
-SAP HANA용 Azure의 고유한 특성은 Azure를 경쟁에서 차별화하는 고유한 요소입니다. SAP HANA와 관련된 메모리 및 CPU 리소스 요구량이 높은 SAP 시나리오를 호스팅하기 위해 Azure는 S/4HANA 또는 다른 SAP HANA 워크로드를 위해 최대 20TB(60TB 스케일 아웃)의 메모리가 필요한 SAP HANA 배포를 실행할 용도로 고객 전용 베어 메탈 하드웨어 사용을 제안합니다. 이 고유한 Azure의 SAP HANA Azure 솔루션(큰 인스턴스)을 통해 SAP 응용 프로그램 레이어 또는 워크로드 미들웨어 레이어를 네이티브 Azure Virtual Machines에 호스팅하면서 전용 베어 메탈 하드웨어에서 SAP HANA를 실행할 수 있습니다. 이 솔루션은 “Azure의 SAP HANA(큰 인스턴스)” 섹션의 여러 문서에 설명되어 있습니다.   
+SAP HANA용 Azure의 고유한 특성은 Azure를 경쟁에서 차별화하는 고유한 요소입니다. SAP HANA와 관련된 메모리 및 CPU 리소스 요구량이 높은 SAP 시나리오를 호스팅하기 위해 Azure는 S/4HANA 또는 다른 SAP HANA 워크로드를 위해 최대 24TB(120TB 스케일 아웃)의 메모리가 필요한 SAP HANA 배포를 실행할 용도로 고객 전용 베어 메탈 하드웨어 사용을 제안합니다. 이 고유한 Azure의 SAP HANA Azure 솔루션(큰 인스턴스)을 통해 SAP 애플리케이션 레이어 또는 워크로드 미들웨어 레이어를 네이티브 Azure Virtual Machines에 호스팅하면서 전용 베어 메탈 하드웨어에서 SAP HANA를 실행할 수 있습니다. 이 솔루션은 “Azure의 SAP HANA(큰 인스턴스)” 섹션의 여러 문서에 설명되어 있습니다.   
 
 Azure의 SAP 워크로드 호스팅 시나리오에서는 Azure Activity Directory를 사용한 다양한 SAP 구성 요소 및 SAP SaaS 또는 PaaS 제품에 대한 ID 통합 및 Single-Sign-On 요구 사항도 발생할 수 있습니다. Azure Active Directory(AAD) 및 SAP 엔터티를 사용한 이러한 통합 및 Single-Sign-On 시나리오 목록은 "AAD SAP ID 통합 및 Single-Sign-On” 섹션에 설명 및 문서화되어 있습니다.
 
 ## <a name="latest-changes"></a>최신 변경 내용
+
+[SAP 워크로드 계획 및 배포 검사 목록](sap-deployment-checklist.md)의 릴리스
 
 대기 시간이 중요한 SAP 시스템 통신 경로에서의 [Azure 네트워크 가상 어플라이언스](https://azure.microsoft.com/solutions/network-appliances/) 사용과 구성에 대한 설명
 
 - [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
 - [Azure에서 SAP HANA 인프라 구성 및 작업](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
 
-Azure VM의 SAP HANA 동적 계층화에 대한 설명서
-
-- [Azure에서 SAP HANA 인프라 구성 및 작업](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations#sap-hana-dynamic-tiering-20-for-azure-virtual-machines)
-
-Azure VM M128s의 SAP HANA 스케일 아웃 관련 설명서에 다음이 추가되었습니다.
-
-- [Azure에서 SAP HANA 인프라 구성 및 작업](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations#configuring-azure-infrastructure-for-sap-hana-scale-out)
-- [단일 Azure 지역 내 SAP HANA 가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
 
 
 ## <a name="sap-hana-on-sap-hana-on-azure-large-instances"></a>Azure(큰 인스턴스)에서 SAP HANA
@@ -94,7 +88,7 @@ Azure의 HANA 관련 설명서는 문서 및 해당 하위 문서의 목록으�
 - [Microsoft Azure SUSE Linux VM에서 SAP NetWeaver 실행](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart)
 - [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
 - [SAP NetWeaver에 대한 Azure Virtual Machines 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)
-- [Site Recovery를 사용하여 다중 계층 SAP NetWeaver 응용 프로그램 배포 보호](https://docs.microsoft.com/azure/site-recovery/site-recovery-sap)
+- [Site Recovery를 사용하여 다중 계층 SAP NetWeaver 애플리케이션 배포 보호](https://docs.microsoft.com/azure/site-recovery/site-recovery-sap)
 - [Azure용 SAP LaMa 커넥터](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/lama-installation)
 
 Azure의 SAP 워크로드에서 비 HANA 데이터베이스에 관련된 문서 목록은 다음과 같습니다.

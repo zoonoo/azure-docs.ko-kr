@@ -8,20 +8,20 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
-ms.reviewer: carlrab
+ms.author: danil
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 04/04/2018
-ms.openlocfilehash: fb18507cc9b7aef92a07e6c34c99403e47be1c88
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 1464b2685e0ae084de3679e8a8fea36a3cf19c4b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977100"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599147"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Intelligent Insights의 Azure SQL Database 성능 진단 로그 사용
 
-이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md)에서 생성된 Azure SQL Database 성능 진단 로그, 해당 형식 및 사용자 지정 개발 요구 사항을 위해 포함된 데이터를 사용하는 방법을 설명합니다. 이 진단 로그는 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage) 또는 타사 솔루션으로 보낼 수 있습니다.
+이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md)에서 생성된 Azure SQL Database 성능 진단 로그, 해당 형식 및 사용자 지정 개발 요구 사항을 위해 포함된 데이터를 사용하는 방법을 설명합니다. 이 진단 로그는 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Azure Event Hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage) 또는 타사 솔루션으로 보낼 수 있습니다.
 
 ## <a name="log-header"></a>로그 헤더
 
@@ -100,7 +100,7 @@ Intelligent Insights 성능 로그의 다음 섹션에는 기본 제공 인공 �
 
 ### <a name="impacted-queries"></a>영향받는 쿼리
 
-Intelligent Insights 로그의 다음 섹션에서는 검색된 성능 문제가 영향을 미친 특정 쿼리에 대한 정보를 제공합니다. 이 정보는 impact_s 속성에 포함된 개체 배열로 공개됩니다. 영향 속성은 엔터티 및 메트릭으로 구성됩니다. 엔터티는 특정 쿼리(Type: Query)를 나타냅니다. 고유한 쿼리 해시는 값(Value) 속성을 통해 공개됩니다. 또한 공개된 각 쿼리 뒤에 검색된 성능 문제를 나타내는 메트릭 및 값이 옵니다.
+Intelligent Insights 로그의 다음 섹션에서는 검색된 성능 문제가 영향을 미친 특정 쿼리에 대한 정보를 제공합니다. 이 정보는 impact_s 속성에 포함된 개체 배열로 공개됩니다. 영향 속성은 엔터티 및 메트릭으로 구성됩니다. 엔터티는 특정 쿼리(형식: Query)를 나타냅니다. 고유한 쿼리 해시는 값(Value) 속성을 통해 공개됩니다. 또한 공개된 각 쿼리 뒤에 검색된 성능 문제를 나타내는 메트릭 및 값이 옵니다.
 
 다음 로그 예제에서는 해시가 0x9102EXZ4인 쿼리의 실행 기간이 증가한 것으로 감지되었습니다(메트릭: DurationIncreaseSeconds). 값 110초는 값이 특정 쿼리를 실행하는 데 110초가 더 걸린 것을 나타냅니다. 여러 쿼리 항목이 포함될 수 있으므로 이 특정 로그 섹션에 여러 쿼리가 포함될 수 있습니다.
 

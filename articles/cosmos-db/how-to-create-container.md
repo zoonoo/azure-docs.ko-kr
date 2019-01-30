@@ -1,18 +1,17 @@
 ---
 title: Azure Cosmos DB에서 컨테이너 만들기
 description: Azure Cosmos DB에서 컨테이너를 만드는 방법 알아보기
-services: cosmos-db
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: d22103a049d62f48e8b9b9d3f71138842fbfaa89
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7434407c7d1afe197a560d9ed9c4f1e7e94b6c2b
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262491"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033539"
 ---
 # <a name="create-a-container-in-azure-cosmos-db"></a>Azure Cosmos DB에서 컨테이너 만들기
 
@@ -20,7 +19,7 @@ ms.locfileid: "51262491"
 
 ## <a name="create-a-container-using-azure-portal"></a>Azure Portal을 사용하여 컨테이너 만들기
 
-### <a id="portal-sql"></a>SQL(Core) API
+### <a id="portal-sql"></a>SQL API
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
@@ -30,14 +29,13 @@ ms.locfileid: "51262491"
 
    * 새 데이터베이스를 만들거나 기존 데이터베이스를 사용합니다.
    * 컬렉션 ID를 입력합니다.
-   * **무제한** 저장소 용량을 선택합니다.
    * 파티션 키를 입력합니다.
    * 처리량을 입력합니다(예: 1000RU).
    * **확인**을 선택합니다.
 
 ![SQL API 컬렉션 만들기](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
-### <a id="portal-mongodb"></a>MongoDB API
+### <a id="portal-mongodb"></a>Azure Cosmos DB의 MongoDB API
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
@@ -52,7 +50,7 @@ ms.locfileid: "51262491"
    * 처리량을 입력합니다(예: 1000RU).
    * **확인**을 선택합니다.
 
-![MongoDB API 컬렉션 만들기](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+![Azure Cosmos DB의 MongoDB API에서 컬렉션 만들기](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
 ### <a id="portal-cassandra"></a>Cassandra API
 
@@ -110,7 +108,7 @@ ms.locfileid: "51262491"
 
 ## <a name="create-a-container-using-azure-cli"></a>Azure CLI를 사용하여 컨테이너 만들기
 
-### <a id="cli-sql"></a>SQL(Core) API
+### <a id="cli-sql"></a>SQL API
 
 ```azurecli-interactive
 # Create a container with a partition key and provision 1000 RU/s throughput.
@@ -124,7 +122,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-### <a id="cli-mongodb"></a>MongoDB API
+### <a id="cli-mongodb"></a>Azure Cosmos DB의 MongoDB API
 
 ```azurecli-interactive
 # Create a collection with a shard key and provision 1000 RU/s throughput.
@@ -192,7 +190,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 1000 });
 ```
 
-### <a id="dotnet-mongodb"></a>MongoDB API
+### <a id="dotnet-mongodb"></a>Azure Cosmos DB의 MongoDB API
 
 ```csharp
 // Create a collection with a partition key by using Mongo Shell:
@@ -200,7 +198,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 ```
 
 > [!Note]
-> MongoDB에는 요청 단위 개념이 없습니다. 처리량을 사용하여 새 컬렉션을 만들려면 이전 예제처럼 Azure Portal 또는 SQL API를 사용합니다.
+MongoDB 유선 프로토콜에는 요청 단위 개념이 없습니다. 처리량을 사용하여 새 컬렉션을 만들려면 이전 예제와 같이 Azure Portal 또는 SQL API를 사용하세요.
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
 

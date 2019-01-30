@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: d0b804c48f3de4d4ba29ebe0785f6dd991329a53
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2beb5aa7218df25a1af87411d9481d30b259c353
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409257"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256732"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure 진단 로그
 
@@ -166,7 +166,7 @@ Log Analytics를 사용하여 로그를 저장하려면 아래 단계를 따릅�
 이 섹션에서는 CDN 핵심 분석의 스키마를 설명하고, Azure Storage 계정 내에서 이러한 분석을 구성하는 방법을 설명하며, 로그를 CSV 파일로 다운로드하기 위한 샘플 코드를 제공합니다.
 
 ### <a name="using-microsoft-azure-storage-explorer"></a>Microsoft Azure Storage 탐색기 사용
-Azure Storage 계정에서 핵심 분석 데이터에 액세스하려면 먼저 저장소 계정의 콘텐츠에 액세스하기 위한 도구가 있어야 합니다. 시중에 여러 도구가 나와 있지만 Microsoft Azure Storage 탐색기가 권장됩니다. 도구를 다운로드하려면 [Azure Storage 탐색기](http://storageexplorer.com/)를 참조하세요. 소프트웨어를 다운로드하여 설치한 후에는 CDN 진단 로그의 대상으로 구성된 동일한 Azure Storage 계정을 사용하도록 구성합니다.
+Azure Storage 계정에서 핵심 분석 데이터에 액세스하려면 먼저 스토리지 계정의 콘텐츠에 액세스하기 위한 도구가 있어야 합니다. 시중에 여러 도구가 나와 있지만 Microsoft Azure Storage 탐색기가 권장됩니다. 도구를 다운로드하려면 [Azure Storage 탐색기](http://storageexplorer.com/)를 참조하세요. 소프트웨어를 다운로드하여 설치한 후에는 CDN 진단 로그의 대상으로 구성된 동일한 Azure Storage 계정을 사용하도록 구성합니다.
 
 1.  **Microsoft Azure Storage 탐색기**를 엽니다.
 2.  저장소 계정을 찾습니다.
@@ -202,7 +202,7 @@ Azure Storage 계정에서 핵심 분석 데이터에 액세스하려면 먼저 
 
 도구를 사용하는 방법은 다음과 같습니다.
 
-1.  Github 링크를 방문합니다. [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
+1.  GitHub 링크를 방문합니다. [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
 2.  코드를 다운로드합니다.
 3.  지침에 따라 컴파일 및 구성합니다.
 4.  도구를 실행합니다.

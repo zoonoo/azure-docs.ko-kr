@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: c0525cfba16fb61f8388ae4d6a693be3bb71674c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: adddbc03b5ec61944e95a2e0fff8767c41d96b0e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628532"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033760"
 ---
 # <a name="indexing-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱
 

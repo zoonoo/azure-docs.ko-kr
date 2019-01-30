@@ -13,21 +13,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 3ff1db9ee7dc34ce529702d61b3ac5970bb5d9df
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0ef4aa988f4adc855051b213013636b4a04f1cca
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309868"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316984"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>VM이 안전 모드로 부팅되어 VM에 RDP로 연결할 수 없음
 
 이 문서에서는 VM이 안전 모드로 부팅하도록 구성되어 Azure Windows VM(Virtual Machines)에 연결할 수 없는 문제 해결 방법을 보여줍니다.
 
-> [!NOTE] 
-> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용에 대해 설명합니다. 이 배포 모델은 클래식 배포 모델 대신 새 배포에 사용하는 것이 좋습니다. 
+> [!NOTE]
+> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용에 대해 설명합니다. 이 배포 모델은 클래식 배포 모델 대신 새 배포에 사용하는 것이 좋습니다.
 
-## <a name="symptoms"></a>증상 
+## <a name="symptoms"></a>증상
 
 VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 방법(예: HTTP)으로 연결할 수 없습니다. Azure Portal에서 [부팅 진단](../troubleshooting/boot-diagnostics.md)의 스크린샷을 확인하면 VM이 정상적으로 부팅되지만 네트워크 인터페이스를 사용할 수 없는 것이 보일 것입니다.
 
@@ -38,7 +38,7 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
 안전 모드에서는 RDP 서비스를 사용할 수 없습니다. VM이 안전 모드로 부팅되면 핵심 시스템 프로그램 및 서비스만 로드됩니다. 이것은 "Safe Boot minimal" 및 "Safe Boot with connectivity"의 두 가지 안전 모드 버전에 적용됩니다.
 
 
-## <a name="solution"></a>해결 방법 
+## <a name="solution"></a>해결 방법
 
 다음 단계를 수행하기 전에 영향을 받는 VM의 OS 디스크 스냅숏을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅숏](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 
@@ -46,9 +46,9 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
 
 ### <a name="use-serial-control"></a>직렬 콘솔 사용
 
-1. [직렬 콘솔에 연결하고 CMD 인스턴스를 엽니다](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
+1. [직렬 콘솔에 연결하고 CMD 인스턴스를 엽니다](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). VM에서 직렬 콘솔을 사용하도록 설정되지 않은 경우 [오프라인으로 VM 복구](#repair-the-vm-offline)를 참조하세요.
-2. 부팅 구성 데이터를 확인합니다. 
+2. 부팅 구성 데이터를 확인합니다.
 
         bcdedit /enum
 
@@ -65,7 +65,7 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
 3. VM이 일반 모드로 부팅하도록 **safemoade** 플래그를 삭제합니다.
 
         bcdedit /deletevalue {current} safeboot
-        
+
 4. 부팅 구성 데이터를 검사하여 **safeboot** 플래그가 제거되었는지 확인합니다.
 
         bcdedit /enum
@@ -77,7 +77,7 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>복구 VM에 OS 디스크 연결
 
 1. [복구 VM에 OS 디스크를 연결합니다](../windows/troubleshoot-recovery-disks-portal.md).
-2. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다. 
+2. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
 3. 디스크 관리 콘솔에서 디스크의 플래그가 **온라인**으로 지정되었는지 확인합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
 
 #### <a name="enable-dump-log-and-serial-console-optional"></a>덤프 로그 및 직렬 콘솔을 사용하도록 설정(선택 사항)
@@ -111,23 +111,24 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
     REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
 
     reg unload HKLM\BROKENSYSTEM
+    ```
 
-#### Configure the Windows to boot into normal mode
+#### <a name="configure-the-windows-to-boot-into-normal-mode"></a>Windows를 표준 모드로 부팅되도록 구성합니다.
 
-1. Open an elevated command prompt session (**Run as administrator**).
-2. Check the boot configuration data. In the following commands, we assume that the drive letter that is assigned to the attached OS disk is F. Replace this drive letter with the appropriate value for your VM. 
+1. 관리자 권한 명령 프롬프트 세션을 엽니다(**관리자 권한으로 실행**).
+2. 부팅 구성 데이터를 확인합니다. 다음 명령에서 연결된 OS 디스크에 할당된 드라이브 문자가 F라고 가정합니다. 이 드라이브 문자를 VM에서 적절한 값으로 바꿉니다.
 
         bcdedit /store F:\boot\bcd /enum
-    Take note of the Identifier name of the partition that has the **\windows** folder. By default, the  Identifier name is "Default".  
+    **\windows** 폴더가 있는 파티션의 식별자 이름을 적어 둡니다. 기본적으로 식별자 이름은 “기본값”입니다.
 
-    If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the **safeboot** flag, this article does not apply to your scenario.
+    VM이 안전 모드로 부팅하도록 구성된 경우 **Windows 부팅 로더** 섹션 아래에 **safeboot**라는 추가 플래그가 보입니다. **safeboot** 플래그가 표시되지 않는 경우 이 문서는 시나리오에 적용되지 않습니다.
 
-    ![The image about boot Identifier](./media/troubleshoot-rdp-safe-mode/boot-id.png)
+    ![부트 식별자에 대한 이미지](./media/troubleshoot-rdp-safe-mode/boot-id.png)
 
-3. Remove the **safeboot** flag, so the VM will boot into normal mode:
+3. VM이 표준 모드로 부팅되도록 **safeboot** 플래그를 제거합니다.
 
         bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
-4. Check the boot configuration data to make sure that the **safeboot** flag is removed:
+4. 부팅 구성 데이터를 검사하여 **safeboot** 플래그가 제거되었는지 확인합니다.
 
         bcdedit /store F:\boot\bcd /enum
-5. [Detach the OS disk and recreate the VM](../windows/troubleshoot-recovery-disks-portal.md). Then check whether the issue is resolved.
+5. [OS 디스크를 분리하고 VM을 다시 만듭니다](../windows/troubleshoot-recovery-disks-portal.md). 그런 다음, 문제가 해결되었는지 확인합니다.

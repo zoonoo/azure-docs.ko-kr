@@ -4,7 +4,7 @@ description: Azure Active Directory와 HubSpot 간에 Single Sign-On을 구성�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 57343ccd-53ea-4e62-9e54-dee2a9562ed5
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 76a19668453b35b39359bef442f7f34a06623cbe
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 2806288378e5fa080164155b97a47a7046ecbba1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49433487"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814905"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>자습서: Azure Active Directory와 HubSpot 통합
+# <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>자습서: HubSpot과 Azure Active Directory 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 HubSpot을 통합하는 방법에 대해 알아봅니다.
 
@@ -31,7 +31,7 @@ HubSpot을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정으로 HubSpot에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -50,7 +50,7 @@ HubSpot과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 HubSpot 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -65,13 +65,13 @@ HubSpot의 Azure AD 통합을 구성하려면 갤러리의 HubSpot을 관리되�
 
     ![Active Directory][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
 
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
 4. 검색 상자에 **HubSpot**을 입력합니다. 결과 패널에서 **HubSpot**을 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
@@ -164,7 +164,7 @@ HubSpot에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     d. **ID 공급자 Single Sign-On URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여 넣습니다.
 
-    e. 다운로드한 **인증서(Base64)** 파일을 메모장에서 엽니다. 내용을 클립보드로 복사한 다음, **X.509 인증서** 상자에 붙여 넣습니다.
+    e. 다운로드한 **인증서(Base64)**  파일을 메모장에서 엽니다. 내용을 클립보드로 복사한 다음, **X.509 인증서** 상자에 붙여넣습니다.
 
     f. **확인**을 클릭합니다.
 
@@ -263,7 +263,7 @@ HubSpot의 경우 프로비전은 수동 작업입니다.
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

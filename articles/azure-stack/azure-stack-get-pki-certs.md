@@ -10,28 +10,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a4a9fefa98d30d0f9815a935f000c8a663dffd21
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: 602517f13b762f5dd7a13e652a5e8bf5de56e403
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514199"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245636"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack 인증서 서명 요청 만들기
 
-이 문서에 설명 된 Azure Stack 준비 상태 검사기 도구를 사용할 수 [PowerShell 갤러리에서](https://aka.ms/AzsReadinessChecker)합니다. 이 도구는 Azure Stack 배포에 적합 한 인증서 서명 요청 (Csr)를 만듭니다. 인증서 요청, 생성 있고 충분 한 시간을 배포 하기 전에 테스트를 사용 하 여 유효성을 검사 합니다.
+Azure Stack 배포를 위한 적합 한 인증서 서명 요청 (Csr)를 만들려면 Azure Stack 준비 상태 검사기 도구를 사용할 수 있습니다. 인증서 요청, 생성 있고 충분 한 시간을 배포 하기 전에 테스트를 사용 하 여 유효성을 검사 합니다. 이 도구를 얻을 수 있습니다 [PowerShell 갤러리에서](https://aka.ms/AzsReadinessChecker)합니다.
 
-Azure Stack 준비 상태 검사기 도구 (AzsReadinessChecker) 다음 인증서 요청을 수행합니다.
+다음 인증서를 요청 하는 Azure Stack 준비 상태 검사기 도구 (AzsReadinessChecker)를 사용할 수 있습니다.
 
- - **표준 인증서 요청**  
-    요청에 따라 [Azure Stack 배포를 위한 PKI 인증서를 생성할](azure-stack-get-pki-certs.md)합니다.
- - **플랫폼-as a Service**  
+ - **표준 인증서 요청** 에 따라 [Azure Stack 배포를 위한 PKI 인증서를 생성할](azure-stack-get-pki-certs.md)합니다.
+ - **Platform-as-a-Service**  
     플랫폼-as a service (PaaS) 이름에 지정 된 대로 인증서를 요청할 수 있습니다 [Azure Stack 공개 키 인프라 인증서 요구 사항-선택적 PaaS 인증서](azure-stack-pki-certs.md#optional-paas-certificates)합니다.
-
-
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -53,43 +51,43 @@ Azure Stack 준비 상태 검사기 도구 (AzsReadinessChecker) 다음 인증�
 
 1.  (5.1 이상) PowerShell 프롬프트에서 다음 cmdlet을 실행 하 여 AzsReadinessChecker를 설치 합니다.
 
-    ````PowerShell  
+    ```PowerShell  
         Install-Module Microsoft.AzureStack.ReadinessChecker
-    ````
+    ```
 
 2.  선언 된 **주체** 정렬된 된 사전을으로 합니다. 예:  
 
-    ````PowerShell  
+    ```PowerShell  
     $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"} 
-    ````
+    ```
     > [!note]  
     > 일반 이름 (CN)이 제공 하는 경우이 인증서 요청의 첫 번째 DNS 이름으로 덮어씁니다.
 
 3.  이미 존재 하는 출력 디렉터리를 선언 합니다. 예: 
 
-    ````PowerShell  
+    ```PowerShell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
-    ````
+    ```
 4.  Id 시스템을 선언
 
     Azure Active Directory
 
     ```PowerShell
     $IdentitySystem = "AAD"
-    ````
+    ```
 
     Active Directory Federation Services
 
     ```PowerShell
     $IdentitySystem = "ADFS"
-    ````
+    ```
 
 5. 선언 **지역 이름** 와 **외부 FQDN** Azure Stack 배포를 위해 사용 합니다.
 
     ```PowerShell
     $regionName = 'east'
     $externalFQDN = 'azurestack.contoso.com'
-    ````
+    ```
 
     > [!note]  
     > `<regionName>.<externalFQDN>` 모든 외부 DNS 이름을 Azure Stack에서 만들어지면이 예제의 기본을 형성, 포털 `portal.east.azurestack.contoso.com`합니다.  
@@ -98,7 +96,7 @@ Azure Stack 준비 상태 검사기 도구 (AzsReadinessChecker) 다음 인증�
 
     ```PowerShell  
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
-    ````
+    ```
 
     PaaS 서비스를 포함 하려면 스위치를 지정 합니다. ```-IncludePaaS```
 
@@ -106,13 +104,13 @@ Azure Stack 준비 상태 검사기 도구 (AzsReadinessChecker) 다음 인증�
 
     ```PowerShell  
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
-    ````
+    ```
 
     PaaS 서비스를 포함 하려면 스위치를 지정 합니다. ```-IncludePaaS```
     
 8. 출력을 검토 합니다.
 
-    ````PowerShell  
+    ```PowerShell  
     New-AzsCertificateSigningRequest v1.1809.1005.1 started.
     
     CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont
@@ -123,7 +121,7 @@ Azure Stack 준비 상태 검사기 도구 (AzsReadinessChecker) 다음 인증�
 
     Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
     New-AzsCertificateSigningRequest Completed
-    ````
+    ```
 
 9.  제출 된 **합니다. 요청** CA (내부 또는 공용)에 생성 된 파일입니다.  출력 디렉터리 **새로 만들기-AzsCertificateSigningRequest** 인증 기관에 제출 하는 데 필요한 CSR(s)를 포함 합니다.  디렉터리도 포함 되어 있는, 참조를 위해 인증서 요청 생성 하는 동안 사용 되는 INF 파일이 들어 있는 하위 디렉터리입니다. CA를 충족 하는 생성 된 요청을 사용 하 여 인증서를 생성 해야 합니다 [Azure Stack에 대 한 PKI 요구 사항](azure-stack-pki-certs.md)합니다.
 

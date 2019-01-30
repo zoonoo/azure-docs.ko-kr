@@ -1,23 +1,19 @@
 ---
-title: Node.js용 Azure Cosmos DB Table API | Microsoft Docs
+title: Node.js용 Azure Cosmos DB Table API
 description: 릴리스 날짜, 사용 중지 날짜 및 각 버전의 변경 내용을 포함하여 Azure Cosmos DB Table API에 대해 자세히 알아봅니다.
-services: cosmos-db
-author: yarong
-manager: kfile
-editor: ''
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: reference
 ms.date: 11/20/2017
-ms.author: yaronyg
-ms.custom: ''
-ms.openlocfilehash: 4bdcb7c587ef05ced3c163136c52c81433a98cf4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+author: wmengmsft
+ms.author: wmeng
+ms.openlocfilehash: 1cf72069d545fc1f4c337a1b67f5fd4aa2ef143c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468707"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043722"
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Node.js용 Azure Cosmos DB Table API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -31,7 +27,7 @@ ms.locfileid: "49468707"
 |   |   |
 |---|---|
 |**SDK 다운로드**|[NPM](https://www.npmjs.com/package/azure-storage)|
-|**API 설명서**|[Node.js API 참조 설명서](http://azure.github.io/azure-storage-node/)|
+|**API 설명서**|[Node.js API 참조 설명서](https://azure.github.io/azure-storage-node/)|
 |**SDK에 참여**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
 
 > [!IMPORTANT]

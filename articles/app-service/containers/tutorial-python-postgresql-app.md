@@ -1,5 +1,5 @@
 ---
-title: Azure App Service에서 Python 및 PostgreSQL 웹앱 빌드 | Microsoft Docs
+title: Linux에서 PostgreSQL을 사용하여 Python 앱 빌드 - Azure App Service | Microsoft Docs
 description: Azure에서 데이터 기반 Python 앱을 실행하고 PostgreSQL 데이터베이스에 연결하는 방법을 알아봅니다.
 services: app-service\web
 documentationcenter: python
@@ -9,21 +9,21 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 09/28/2018
+ms.date: 11/29/2018
 ms.author: beverst;cephalin
-ms.custom: mvc
-ms.openlocfilehash: f4ce197d541b8573e38fd85dcebb575c8ee99f59
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.custom: seodec18
+ms.openlocfilehash: c70c7e8b893c511aae36f122c5983fd0958eac8e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435789"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975392"
 ---
-# <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Azure에서 Docker Python 및 PostgreSQL 웹앱 빌드
+# <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>Azure App Service에서 Python 및 PostgreSQL 앱 빌드
 
-[Linux의 App Service](app-service-linux-intro.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 PostgreSQL을 데이터베이스 백 엔드로 사용하여 데이터 기반 Python 웹앱을 만드는 방법을 보여줍니다. 작업이 완료되면 Linux의 App Service에 있는 Docker 컨테이너 내에서 Python Flask 응용 프로그램을 실행하게 됩니다.
+[Linux의 App Service](app-service-linux-intro.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 PostgreSQL을 데이터베이스 백 엔드로 사용하여 데이터 기반 Python 앱을 만드는 방법을 보여줍니다. 완료되면 Linux의 App Service에서 Django 애플리케이션을 실행하게 됩니다.
 
-![Linux의 App Service의 Docker Python Flask 앱](./media/tutorial-python-postgresql-app/docker-flask-in-azure.png)
+![Linux의 App Service의 Python Django 앱](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -32,7 +32,6 @@ ms.locfileid: "47435789"
 > * PostgreSQL에 Python 앱 연결
 > * Azure에 앱 배포
 > * 진단 로그 보기
-> * 데이터 모델 업데이트 및 앱 다시 배포
 > * Azure Portal에서 앱 관리
 
 macOS에서 이 문서의 단계를 수행할 수 있습니다. Linux와 Windows의 지침은 대부분 동일하지만, 차이점은 이 자습서에서 자세히 설명하지 않습니다.
@@ -44,8 +43,8 @@ macOS에서 이 문서의 단계를 수행할 수 있습니다. Linux와 Windows
 이 자습서를 완료하려면 다음이 필요합니다.
 
 1. [Git 설치](https://git-scm.com/)
-1. [Python 설치](https://www.python.org/downloads/)
-1. [PostgreSQL 설치 및 실행](https://www.postgresql.org/download/)
+2. [Python 설치](https://www.python.org/downloads/)
+3. [PostgreSQL 설치 및 실행](https://www.postgresql.org/download/)
 
 ## <a name="test-local-postgresql-installation-and-create-a-database"></a>로컬 PostgreSQL 설치 테스트 및 데이터베이스 만들기
 
@@ -63,12 +62,12 @@ psql postgres
 
 연결이 성공하면 PostgreSQL 데이터베이스가 실행되고 있습니다. 그렇지 않으면 [다운로드 - PostgreSQL 핵심 배포](https://www.postgresql.org/download/)에서 운영 체제에 대한 지침을 수행하여 로컬 PostgresQL 데이터베이스가 시작되도록 합니다.
 
-*eventregistration*라는 데이터베이스를 만들고, 암호가 *supersecretpass*인 *manager*라는 별도의 데이터베이스 사용자를 설정합니다.
+*pollsdb*라는 데이터베이스를 만들고, 암호가 *supersecretpass*인 *manager*라는 별도의 데이터베이스 사용자를 설정합니다.
 
 ```sql
-CREATE DATABASE eventregistration;
+CREATE DATABASE pollsdb;
 CREATE USER manager WITH PASSWORD 'supersecretpass';
-GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
+GRANT ALL PRIVILEGES ON DATABASE pollsdb TO manager;
 ```
 
 `\q`를 입력하여 PostgreSQL 클라이언트를 종료합니다.
@@ -77,7 +76,7 @@ GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 
 ## <a name="create-local-python-app"></a>로컬 Python 앱 만들기
 
-이 단계에서는 로컬 ASP.NET 프로젝트를 설정합니다.
+이 단계에서는 로컬 Python Django 프로젝트를 설정합니다.
 
 ### <a name="clone-the-sample-app"></a>샘플 앱 복제
 
@@ -86,53 +85,69 @@ GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
 다음 명령을 실행하여 샘플 리포지토리를 복제합니다.
 
 ```bash
-git clone https://github.com/Azure-Samples/flask-postgresql-app.git
-cd flask-postgresql-app
+git clone https://github.com/Azure-Samples/djangoapp.git
+cd djangoapp
 ```
 
-이 샘플 리포지토리에는 [Flask](http://flask.pocoo.org/) 응용 프로그램이 들어 있습니다.
+이 샘플 리포지토리에는 [Django](https://www.djangoproject.com/) 애플리케이션이 들어 있습니다. [Django 설명서의 자습서 시작](https://docs.djangoproject.com/en/2.1/intro/tutorial01/)을 수행하여 얻는 것과 동일한 데이터 기반 앱입니다. 이 자습서에서는 Django를 설명하지 않지만 App Service에 Django 앱(또는 다른 데이터 기반 Python 앱)을 배포하고 실행하는 방법을 보여줍니다.
 
-### <a name="run-the-app-locally"></a>로컬에서 앱 실행하기
+### <a name="configure-environment"></a>환경 구성
 
-필요한 패키지를 설치하고 응용 프로그램을 시작합니다.
+Python 가상 환경을 만들고 스크립트를 사용하여 데이터베이스 연결 설정을 설정합니다.
 
 ```bash
 # Bash
 python3 -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
-cd app
-FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
-FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
+source ./env.sh
 
 # PowerShell
-pip install virtualenv
-virtualenv venv
-source venv/bin/activate
+py -3 -m venv venv
+venv\scripts\activate
+.\env.ps1
+```
+
+*env.sh* 및 *env.ps1*에 정의된 환경 변수는 데이터베이스 설정을 정의하기 위해 _azuresite/settings.py_에서 사용됩니다.
+
+### <a name="run-app-locally"></a>로컬에서 앱 실행
+
+필요한 패키지를 설치하고, [Django 마이그레이션을 실행](https://docs.djangoproject.com/en/2.1/topics/migrations/)하고 [관리 사용자를 만듭니다](https://docs.djangoproject.com/en/2.1/intro/tutorial02/#creating-an-admin-user).
+
+```bash
 pip install -r requirements.txt
-cd app
-Set-Item Env:FLASK_APP ".\app.py"
-DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
-DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
+python manage.py migrate
+python manage.py createsuperuser
+```
+
+관리 사용자가 만들어지면 Django 서버를 실행합니다.
+
+```bash
+python manage.py runserver
 ```
 
 앱이 완전히 로드되면 다음과 비슷한 메시지가 표시됩니다.
 
 ```bash
-INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
-INFO  [alembic.runtime.migration] Will assume transactional DDL.
-INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty message
- * Serving Flask app "app"
- * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+Performing system checks...
+
+System check identified no issues (0 silenced).
+October 26, 2018 - 10:54:59
+Django version 2.1.2, using settings 'azuresite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
 ```
 
-브라우저에서 `http://localhost:5000` 으로 이동합니다. **Register!** 를 클릭하고 테스트 사용자를 만듭니다.
+브라우저에서 `http://localhost:8000` 으로 이동합니다. 메시지 `No polls are available.`이 표시되어야 합니다. 
 
-![로컬로 Python Flask 응용 프로그램 실행](./media/tutorial-python-postgresql-app/local-app.png)
+`http://localhost:8000/admin`으로 이동하고 마지막 단계에서 만든 관리 사용자를 사용하여 로그인합니다. **질문** 옆의 **추가**를 클릭하고 몇 가지 옵션을 사용하여 설문 조사 질문을 만듭니다.
 
-Flask 샘플 응용 프로그램은 데이터베이스에 사용자 데이터를 저장합니다. 사용자 등록에 성공하면 앱에서 로컬 PostgreSQL 데이터베이스에 데이터를 쓰고 있습니다.
+![로컬로 Python Django 애플리케이션 실행](./media/tutorial-python-postgresql-app/django-admin-local.png)
 
-언제든지 Flask 서버를 중지하려면 터미널에서 Ctrl+C를 입력합니다.
+`http://localhost:8000`으로 다시 이동하고 표시되는 설문 조사 질문을 확인합니다.
+
+Django 샘플 애플리케이션은 데이터베이스에 사용자 데이터를 저장합니다. 설문 조사 질문 추가에 성공하면 앱에서 로컬 PostgreSQL 데이터베이스에 데이터를 쓰고 있습니다.
+
+언제든지 Django 서버를 중지하려면 터미널에서 Ctrl+C를 입력합니다.
 
 ## <a name="create-a-production-postgresql-database"></a>프로덕션 PostgreSQL 데이터베이스 만들기
 
@@ -188,7 +203,7 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 ```
 
 > [!NOTE]
-> 이 설정을 사용하면 Azure 네트워크 내의 모든 IP에서 네트워크 연결을 허용합니다. 프로덕션에서 사용하기 위해 [앱에서 사용하는 아웃바운드 IP 주소를 사용하여](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips) 가장 제한적인 방화벽 규칙을 구성하려고 합니다.
+> 이 설정을 사용하면 Azure 네트워크 내의 모든 IP에서 네트워크 연결을 허용합니다. 프로덕션에서 사용하기 위해 [앱에서 사용하는 아웃바운드 IP 주소를 사용하여](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips) 가장 제한적인 방화벽 규칙을 구성하려고 합니다.
 
 Cloud Shell에서 *\<you_ip_address>* 를 [로컬 IPv4 IP 주소](http://www.whatsmyip.org/)로 바꾸어 로컬 컴퓨터에서 데이터베이스에 액세스할 수 있도록 명령을 다시 실행합니다.
 
@@ -198,11 +213,11 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 
 ## <a name="connect-python-app-to-production-database"></a>Python 앱을 프로덕션 데이터베이스에 연결
 
-이 단계에서는 Flask 샘플 앱을 앞에서 만든 Azure Database for PostgreSQL 서버에 연결합니다.
+이 단계에서는 Django 샘플 앱을 앞에서 만든 Azure Database for PostgreSQL 서버에 연결합니다.
 
 ### <a name="create-empty-database-and-user-access"></a>빈 데이터베이스 및 사용자 액세스 만들기
 
-로컬 터미널 창에서 아래 명령을 실행하여 데이터베이스에 연결합니다. 관리자 암호를 묻는 메시지가 나타나면 [PostgreSQL 서버용 Azure Database 만들기](#create-an-azure-database-for-postgresql-server)에서 지정한 암호를 사용합니다.
+Cloud Shell에서 아래 명령을 실행하여 데이터베이스에 연결합니다. 관리자 암호를 묻는 메시지가 나타나면 [PostgreSQL 서버용 Azure Database 만들기](#create-an-azure-database-for-postgresql-server)에서 지정한 암호를 사용합니다.
 
 ```bash
 psql -h <postgresql_name>.postgres.database.azure.com -U <my_admin_username>@<postgresql_name> postgres
@@ -210,39 +225,55 @@ psql -h <postgresql_name>.postgres.database.azure.com -U <my_admin_username>@<po
 
 로컬 Postgres 서버와 같이 Azure Postgres 서버에서 데이터베이스 및 사용자를 만듭니다.
 
-```bash
-CREATE DATABASE eventregistration;
+```sql
+CREATE DATABASE pollsdb;
 CREATE USER manager WITH PASSWORD 'supersecretpass';
-GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
+GRANT ALL PRIVILEGES ON DATABASE pollsdb TO manager;
 ```
 
 `\q`를 입력하여 PostgreSQL 클라이언트를 종료합니다.
 
 > [!NOTE]
-> 관리 사용자를 사용하는 대신 특정 응용 프로그램에 대해 제한된 사용 권한으로 데이터베이스 사용자를 만드는 것이 좋습니다. 이 예제에서 `manager` 사용자에게는 `eventregistration` 데이터베이스에 대해서_만_ 모든 권한이 있습니다.
+> 관리 사용자를 사용하는 대신 특정 응용 프로그램에 대해 제한된 사용 권한으로 데이터베이스 사용자를 만드는 것이 좋습니다. 이 예제에서 `manager` 사용자에게는 `pollsdb` 데이터베이스에 대해서_만_ 모든 권한이 있습니다.
 
 ### <a name="test-app-connectivity-to-production-database"></a>프로덕션 데이터베이스에 대한 앱 연결 테스트
 
-다시 로컬 터미널 창에서 다음 명령을 실행하여 Flask 데이터베이스 마이그레이션 및 Flask 서버를 실행합니다.
+로컬 터미널 창에서 데이터베이스 환경 변수(*env.sh* 또는 *env.ps1*을 실행하여 이전에 구성한)를 변경합니다.
 
 ```bash
-FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
-FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
+# Bash
+export DBHOST="<postgresql_name>.postgres.database.azure.com"
+export DBUSER="manager@<postgresql_name>"
+export DBNAME="pollsdb"
+export DBPASS="supersecretpass"
+
+# PowerShell
+$Env:DBHOST = "<postgresql_name>.postgres.database.azure.com"
+$Env:DBUSER = "manager@<postgresql_name>"
+$Env:DBNAME = "pollsdb"
+$Env:DBPASS = "supersecretpass"
 ```
 
-앱이 완전히 로드되면 다음과 비슷한 메시지가 표시됩니다.
+Azure 데이터베이스에 Django 마이그레이션을 실행하고 관리 사용자를 만듭니다.
 
 ```bash
-INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
-INFO  [alembic.runtime.migration] Will assume transactional DDL.
-INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty message
- * Serving Flask app "app"
- * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+python manage.py migrate
+python manage.py createsuperuser
 ```
 
-브라우저에서 http://localhost:5000 으로 이동합니다. **Register!** 를 클릭하고 테스트 등록을 만듭니다. 이제 Azure에서 데이터베이스에 데이터를 쓰고 있습니다.
+관리 사용자가 만들어지면 Django 서버를 실행합니다.
 
-![로컬로 Python Flask 응용 프로그램 실행](./media/tutorial-python-postgresql-app/local-app.png)
+```bash
+python manage.py runserver
+```
+
+`http://localhost:8000`으로 다시 이동합니다. 메시지 `No polls are available.`이 다시 표시되어야 합니다. 
+
+`http://localhost:8000/admin`으로 이동하고 만든 관리 사용자를 사용하여 로그인하고, 전과 같이 설문 조사 질문을 만듭니다.
+
+![로컬로 Python Django 애플리케이션 실행](./media/tutorial-python-postgresql-app/django-admin-local.png)
+
+`http://localhost:8000`으로 다시 이동하고 표시되는 설문 조사 질문을 확인합니다. 이제 앱이 Azure에서 데이터베이스에 데이터를 쓰고 있습니다.
 
 ## <a name="deploy-to-azure"></a>Deploy to Azure
 
@@ -250,13 +281,42 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
 
 ### <a name="configure-repository"></a>리포지토리 구성
 
-리포지토리 루트에 _application.py_가 있으면 App Service의 Git 배포 엔진은 `pip` 자동화를 호출합니다. 이 자습서에서는 배포 엔진이 자동화를 실행할 수 있게 됩니다. 로컬 터미널 창에서 리포지토리의 루트로 이동하고, 더미 _application.py_를 만들고, 변경 내용을 커밋합니다.
+Django가 들어오는 요청에서 `HTTP_HOST` 헤더의 유효성을 검사합니다. Django 앱을 App Service에서 작동하도록 하려면 허용된 호스트에 앱의 정규화된 도메인 이름을 추가해야 합니다. _azuresite/settings.py_를 열고 `ALLOWED_HOSTS` 설정을 찾습니다. 줄을 다음으로 변경합니다.
+
+```python
+ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net', '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
+```
+
+다음으로 Django는 [프로덕션 환경에서 정적 파일 제공](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/)을 지원하지 않으므로 이 작업을 수동으로 활성화해야 합니다. 이 자습서의 경우 [WhiteNoise](https://whitenoise.evans.io/en/stable/)를 사용합니다. WhiteNoise 패키지는 _requirements.txt_에 이미 포함되어 있습니다. Django를 사용하려면 구성하기만 하면 됩니다. 
+
+_azuresite/settings.py_에서 `MIDDLEWARE` 설정을 찾고, `django.middleware.security.SecurityMiddleware` 미들웨어 바로 아래의 목록에 `whitenoise.middleware.WhiteNoiseMiddleware` 미들웨어를 추가합니다. `MIDDLEWARE` 설정은 다음과 비슷합니다.
+
+```python
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    ...
+]
+```
+
+_azuresite/settings.py_의 끝에 다음 줄을 추가합니다.
+
+```python
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+```
+
+WhiteNoise 구성에 대한 자세한 내용은 [WhiteNoise 설명서](https://whitenoise.evans.io/en/stable/)를 참조하세요.
+
+> [!IMPORTANT]
+> 데이터베이스 설정 섹션은 이미 환경 변수를 사용하는 보안 모범 사례를 따릅니다. 전체 배포 권장 사항은 [Django 설명서: 배포 검사 목록](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/)을 참조하세요.
+
+
+리포지토리에 변경 내용을 커밋합니다.
 
 ```bash
-cd ..
-touch application.py
-git add .
-git commit -m "ensure azure automation"
+git commit -am "configure for App Service"
 ```
 
 ### <a name="configure-a-deployment-user"></a>배포 사용자 구성
@@ -280,7 +340,7 @@ App Service의 Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure
 다음 예제에서는 데이터베이스 연결 세부 정보를 앱 설정으로 지정합니다. 
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration"
+az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="pollsdb"
 ```
 
 ### <a name="push-to-azure-from-git"></a>Git에서 Azure에 푸시
@@ -288,146 +348,70 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 [!INCLUDE [app-service-plan-no-h](../../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
 ```bash 
-Counting objects: 5, done. 
-Delta compression using up to 4 threads. 
-Compressing objects: 100% (5/5), done. 
-Writing objects: 100% (5/5), 489 bytes | 0 bytes/s, done. 
-Total 5 (delta 3), reused 0 (delta 0) 
-remote: Updating branch 'master'. 
-remote: Updating submodules. 
-remote: Preparing deployment for commit id '6c7c716eee'. 
-remote: Running custom deployment command... 
-remote: Running deployment command... 
-remote: Handling node.js deployment. 
+Counting objects: 7, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 775 bytes | 0 bytes/s, done.
+Total 7 (delta 4), reused 0 (delta 0)
+remote: Updating branch 'master'.
+remote: Updating submodules.
+remote: Preparing deployment for commit id '6520eeafcc'.
+remote: Generating deployment script.
+remote: Running deployment command...
+remote: Python deployment.
+remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
 . 
 . 
 . 
-remote: Deployment successful. 
+remote: Deployment successful.
+remote: App container will begin restart within 10 seconds.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git 
- * [new branch]      master -> master 
+   06b6df4..6520eea  master -> master
 ```  
 
-### <a name="configure-entry-point"></a>진입점 구성
+App Service 배포 서버는 리포지토리 루트에서 _requirements.txt_를 살펴보고 `git push` 후에 Python 패키지 관리를 자동으로 실행합니다.
 
-기본 제공 이미지가 기본적으로 루트 디렉터리에서 진입점인 _wsgi.py_ 또는 _application.py_를 찾지만 진입점은 _app/app.py_입니다. 이전에 추가한 _application.py_는 비어 있으며 아무 작업도 수행하지 않습니다.
+### <a name="browse-to-the-azure-app"></a>Azure 앱으로 이동
 
-Cloud Shell에서 [`az webapp config set`](/cli/azure/webapp/config?view=azure-cli-latest#az-webapp-config-set) 명령을 실행하여 사용자 지정 시작 스크립트를 설정합니다.
-
-```azurecli-interactive
-az webapp config set --name <app_name> --resource-group myResourceGroup --startup-file "gunicorn '--bind=0.0.0.0' --chdir /home/site/wwwroot/app app:app"
-```
-
-`--startup-file` 매개 변수는 사용자 지정 명령이 포함된 파일에 대한 사용자 지정 명령 또는 경로를 사용합니다. 사용자 지정 명령은 다음과 같은 형식이어야 합니다.
-
-```
-gunicorn '--bind=0.0.0.0' --chdir /home/site/wwwroot/<subdirectory> <module>:<variable>
-```
-
-사용자 지정 명령에서 루트 디렉터리에 진입점이 없는 경우 `--chdir`이 필요하고 `<subdirectory>`는 하위 디렉터리입니다. `<module>`은 _.py_ 파일의 이름이고 `<variable>`은 웹앱을 나타내는 모듈의 변수입니다.
-
-### <a name="browse-to-the-azure-web-app"></a>Azure 웹앱 찾아보기
-
-배포된 웹앱으로 이동합니다. 앱이 처음으로 요청될 때 컨테이너를 다운로드하여 실행해야 하므로 시작될 때까지 시간이 걸립니다. 페이지가 시간 초과 또는 오류 메시지를 표시하는 경우 몇 분 정도 기다렸다가 페이지를 새로 고칩니다.
+배포된 앱으로 이동합니다. 앱이 처음으로 요청될 때 컨테이너를 다운로드하여 실행해야 하므로 시작될 때까지 시간이 걸립니다. 페이지가 시간 초과 또는 오류 메시지를 표시하는 경우 몇 분 정도 기다렸다가 페이지를 새로 고칩니다.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-이전 단계에서 Azure 프로덕션 데이터베이스에 저장된 이전에 등록한 게스트를 볼 수 있습니다.
+이전에 만든 설문 조사 질문이 표시됩니다. 
 
-![Azure에서 실행 중인 Python Flask 응용 프로그램](./media/tutorial-python-postgresql-app/docker-app-deployed.png)
+App Service는 기본적으로 `manage.py startproject`에서 만들어진 각 하위 디렉터리에서 _wsgi.py_를 검색하여 리포지토리에서 Django 프로젝트를 검색합니다. 파일을 찾으면 Django 앱을 로드합니다. App Service에서 Python 앱을 로드하는 방법에 대한 자세한 내용은 [기본 제공 Python 이미지 구성](how-to-configure-python.md)을 참조하세요.
+
+`<app_name>.azurewebsites.net`으로 이동하고 사용자가 만든 동일한 관리 사용자를 사용하여 로그인합니다. 원하는 경우 자세한 일부 설문 조사 질문을 만들어 보세요.
+
+![로컬로 Python Django 애플리케이션 실행](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
 **축하합니다.** Linux용 App Service에서 Python 앱이 실행되고 있습니다.
 
 ## <a name="access-diagnostic-logs"></a>진단 로그 액세스
 
-Python 앱이 컨테이너에서 실행되므로 Linux의 App Service를 통해 컨테이너 내에서 생성된 콘솔 로그에 액세스할 수 있습니다. 로그를 찾으려면 다음 URL로 이동합니다.
+Linux의 App Service에서 앱은 기본 Docker 이미지의 컨테이너 내에서 실행됩니다. 컨테이너 내에서 생성된 콘솔 로그에 액세스할 수 있습니다. 로그를 가져오려면 먼저 Cloud Shell에서 다음 명령을 실행하여 컨테이너 로깅을 설정합니다.
 
-```
-https://<app_name>.scm.azurewebsites.net/api/logs/docker
-```
-
-`href` 속성을 포함하여 두 개의 JSON 개체가 표시됩니다. 하나의 `href`는 Docker 콘솔 로그를 가리키고 `_docker.log`로 끝납니다. 또 다른 `href`는 Python 컨테이너 내에서 생성된 콘솔 로그를 가리킵니다. 
-
-```json
-[  
-   {  
-      "machineName":"RD0003FF61ACD0_default",
-      "lastUpdated":"2018-09-27T16:48:17Z",
-      "size":4766,
-      "href":"https://<app_name>.scm.azurewebsites.net/api/vfs/LogFiles/2018_09_27_RD0003FF61ACD0_default_docker.log",
-      "path":"/home/LogFiles/2018_09_27_RD0003FF61ACD0_default_docker.log"
-   },
-   {  
-      "machineName":"RD0003FF61ACD0",
-      "lastUpdated":"2018-09-27T16:48:19Z",
-      "size":2589,
-      "href":"https://<app_name>.scm.azurewebsites.net/api/vfs/LogFiles/2018_09_27_RD0003FF61ACD0_docker.log",
-      "path":"/home/LogFiles/2018_09_27_RD0003FF61ACD0_docker.log"
-   }
-]
+```azurecli-interactive
+az webapp log config --name <app_name> --resource-group myResourceGroup --docker-container-logging filesystem
 ```
 
-브라우저 창에 원하는 `href` 값을 복사하여 로그로 이동합니다. 로그는 스트리밍되지 않으므로 약간의 지연이 발생할 수 있습니다. 새 로그를 보려면 브라우저 페이지를 새로 고칩니다.
+컨테이너 로깅이 설정되면 다음 명령을 실행하여 로그 스트림을 확인합니다.
 
-## <a name="update-data-model-and-redeploy"></a>데이터 모델 업데이트 및 다시 배포
-
-이 단계에서는 `Guest` 모델을 업데이트하여 각 이벤트 등록에 대한 참석자 수를 추가한 다음, Azure에 업데이트를 다시 배포합니다.
-
-로컬 터미널 창에서 다음 Git 명령을 사용하여 `modelChange` 분기의 파일을 확인합니다.
-
-```bash
-git checkout origin/modelChange -- .
+```azurecli-interactive
+az webapp log tail --name <app_name> --resource-group myResourceGroup
 ```
 
-이 확인을 통해 모델, 보기 및 컨트롤러에 필요한 변경 내용을 적용합니다. 또한 *alembic*(`flask db migrate`)를 통해 생성된 데이터베이스 마이그레이션도 포함됩니다. 다음 Git 명령을 통해 모든 변경 내용을 확인할 수 있습니다.
+## <a name="manage-your-app-in-the-azure-portal"></a>Azure Portal에서 앱 관리
 
-```bash
-git diff master origin/modelChange
-```
+[Azure Portal](https://portal.azure.com)로 이동하여 만든 앱을 확인합니다.
 
-### <a name="test-your-changes-locally"></a>변경 내용을 로컬에서 테스트
+왼쪽 메뉴에서 **App Services**를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
 
-로컬 터미널 창에서 다음 명령을 통해 flask 서버를 로컬로 실행하여 로컬에서 변경 내용을 테스트합니다.
+![Azure 앱에 대한 포털 탐색](./media/tutorial-python-postgresql-app/app-resource.png)
 
-```bash
-source venv/bin/activate
-cd app
-FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
-FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
-```
-
-브라우저에서 http://localhost:5000 으로 이동하여 변경 내용을 확인합니다. 테스트 등록을 만듭니다.
-
-![로컬로 실행되는 Docker 컨테이너 기반 Python Flask 응용 프로그램](./media/tutorial-python-postgresql-app/local-app-v2.png)
-
-### <a name="publish-changes-to-azure"></a>변경 내용을 Azure에 게시
-
-로컬 터미널 창에서 Git의 모든 변경 내용을 커밋한 다음 Azure에 코드 변경 내용을 푸시합니다.
-
-```bash 
-git add . 
-git commit -m "updated data model" 
-git push azure master 
-``` 
-
-Azure Web App으로 이동하여 새 기능을 다시 시험해 봅니다. 페이지를 새로 고쳤는지 확인합니다.
-
-```bash
-http://<app_name>.azurewebsites.net
-```
-
-![Azure App Service의 Docker Python Flask 앱](./media/tutorial-python-postgresql-app/docker-flask-in-azure.png)
-
-## <a name="manage-your-web-app-in-the-azure-portal"></a>Azure Portal에서 웹앱 관리
-
-[Azure Portal](https://portal.azure.com)로 이동하여 만든 웹앱을 확인합니다.
-
-왼쪽 메뉴에서 **App Services**를 클릭한 다음 Azure 웹앱의 이름을 클릭합니다.
-
-![Azure 웹앱에 대한 포털 탐색](./media/tutorial-python-postgresql-app/app-resource.png)
-
-기본적으로 포털에는 웹앱의 **개요** 페이지가 표시됩니다. 이 페이지에서는 앱이 어떻게 작동하고 있는지를 보여 줍니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 페이지의 왼쪽에 있는 탭에서는 열 수 있는 여러 구성 페이지를 보여 줍니다.
+기본적으로 포털에 앱의 **개요** 페이지가 표시됩니다. 이 페이지에서는 앱이 어떻게 작동하고 있는지를 보여 줍니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 페이지의 왼쪽에 있는 탭에서는 열 수 있는 여러 구성 페이지를 보여 줍니다.
 
 ![Azure Portal의 App Service 페이지](./media/tutorial-python-postgresql-app/app-mgmt.png)
 
@@ -442,14 +426,13 @@ http://<app_name>.azurewebsites.net
 > * PostgreSQL에 Python 앱 연결
 > * Azure에 앱 배포
 > * 진단 로그 보기
-> * 데이터 모델 업데이트 및 앱 다시 배포
 > * Azure Portal에서 앱 관리
 
-다음 자습서로 이동하여 사용자 지정 DNS 이름을 웹앱에 매핑하는 방법을 알아봅니다.
+다음 자습서로 이동하여 사용자 지정 DNS 이름을 앱에 매핑하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [기본 제공 Python 이미지 구성](how-to-configure-python.md)
+> [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md)
 
 > [!div class="nextstepaction"]
-> [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](../app-service-web-tutorial-custom-domain.md)
+> [기본 제공 Python 이미지 구성 및 오류 문제 해결](how-to-configure-python.md)
 

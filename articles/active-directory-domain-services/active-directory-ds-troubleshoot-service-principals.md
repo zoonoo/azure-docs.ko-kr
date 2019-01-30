@@ -36,11 +36,11 @@ ms.locfileid: "51035038"
 ## <a name="check-for-missing-service-principals"></a>누락된 서비스 주체에 대한 확인
 다음 단계에 따라 다시 만들어야 하는 서비스 주체를 확인합니다.
 
-1. Azure Portal에서 [엔터프라이즈 응용 프로그램 - 모든 응용 프로그램](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) 페이지로 이동합니다.
+1. Azure Portal에서 [엔터프라이즈 애플리케이션 - 모든 애플리케이션](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) 페이지로 이동합니다.
 2. **표시** 드롭다운에서 **모든 응용 프로그램**을 선택하고 **적용**을 클릭합니다.
-3. 다음 표를 사용하여 검색 상자에 ID를 붙여 넣어 Enter 키를 눌러 각 응용 프로그램 ID를 검색합니다. 검색 결과가 비어 있으면 "해결 방법" 열에 나와 있는 단계를 수행하여 서비스 주체를 다시 만들어야 합니다.
+3. 다음 표를 사용하여 검색 상자에 ID를 붙여 넣어 Enter 키를 눌러 각 애플리케이션 ID를 검색합니다. 검색 결과가 비어 있으면 "해결 방법" 열에 나와 있는 단계를 수행하여 서비스 주체를 다시 만들어야 합니다.
 
-| 응용 프로그램 UI | 해결 방법 |
+| 애플리케이션 UI | 해결 방법 |
 | :--- | :--- | :--- |
 | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [PowerShell을 사용하여 누락된 서비스 주체 다시 만들기](#recreate-a-missing-service-principal-with-powershell) |
 | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Microsoft.AAD 네임스페이스에 다시 등록](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
@@ -87,7 +87,7 @@ ID ```443155a6-77f3-45e3-882b-22b3a8d431fb```, ```abba844e-bc0e-44b0-947a-dc74e5
 5. 경고가 해결되었는지 확인하려면 2시간 내에 관리되는 도메인에 대한 상태 페이지를 봅니다.
 
 
-## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>경고 AADDS105: 암호 동기화 응용 프로그램이 만료됨
+## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>경고 AADDS105: 암호 동기화 애플리케이션이 만료됨
 
 **경고 메시지:** 응용 프로그램 ID가 “d87dcbc6-a371-462e-88e3-28ad15ec4e64”인 서비스 주체가 삭제된 다음, 다시 생성됩니다. 다시 만들기를 수행할 경우 관리되는 도메인을 서비스하는 데 필요한 Azure AD Domain Services 리소스에 일치하지 않는 권한이 남게 됩니다. 관리되는 도메인에서 암호 동기화에 영향이 있을 수 있습니다.
 
@@ -101,7 +101,7 @@ ID ```443155a6-77f3-45e3-882b-22b3a8d431fb```, ```abba844e-bc0e-44b0-947a-dc74e5
     Install-Module AzureAD
     Import-Module AzureAD
     ```
-2. 다음 PowerShell 명령을 사용하여 이전 응용 프로그램 및 개체 삭제
+2. 다음 PowerShell 명령을 사용하여 이전 애플리케이션 및 개체 삭제
 
     ```powershell
     $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
@@ -109,7 +109,7 @@ ID ```443155a6-77f3-45e3-882b-22b3a8d431fb```, ```abba844e-bc0e-44b0-947a-dc74e5
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $app.ObjectId
     ```
-3. 둘 모두를 삭제하면 시스템에서 자체적으로 해결하고 암호 동기화에 필요한 응용 프로그램을 다시 만듭니다. 경고가 해결되었는지 확인하려면 2시간 후에 도메인의 상태를 확인하세요.
+3. 둘 모두를 삭제하면 시스템에서 자체적으로 해결하고 암호 동기화에 필요한 애플리케이션을 다시 만듭니다. 경고가 해결되었는지 확인하려면 2시간 후에 도메인의 상태를 확인하세요.
 
 
 ## <a name="contact-us"></a>문의처

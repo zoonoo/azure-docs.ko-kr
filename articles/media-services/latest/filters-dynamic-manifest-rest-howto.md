@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/17/2018
 ms.author: juliako
-ms.openlocfilehash: 6b0ef646ba9ea535038f181ebfff5bf7639afdf8
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 32b9664d12d6fe3a44329665c730dbc8709430f2
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633625"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650844"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Media Services REST API를 사용하여 필터 만들기
 
@@ -31,12 +31,13 @@ ms.locfileid: "52633625"
 이 항목에 설명된 단계를 완료하려면 다음을 수행해야 합니다.
 
 - [필터 및 동적 매니페스트](filters-dynamic-manifest-overview.md)를 검토합니다.
-- [Media Services 계정 만들기](create-account-cli-how-to.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해 두어야 합니다. 
-- [Azure Media Services REST API 호출에 대해 Postman 구성](media-rest-apis-with-postman.md)/
+- [Azure Media Services REST API 호출에 대해 Postman 구성](media-rest-apis-with-postman.md)
+
+    [Azure AD 토큰 가져오기](media-rest-apis-with-postman.md#get-azure-ad-token) 항목의 마지막 단계를 수행해야 합니다. 
 
 ## <a name="define-a-filter"></a>필터 정의  
 
-다음은 매니페스트에 추가되는 트랙 선택 조건을 정의하는 **요청 본문** 예제입니다. 이 필터에는 EC-3를 사용하는 모든 영어 오디오 트랙 및 비트 전송률이 0-1000000 범위인 모든 비디오 트랙이 포함됩니다.
+다음은 매니페스트에 추가되는 트랙 선택 조건을 정의하는 **요청 본문** 예제입니다. 이 필터는 EC-3인 오디오 트랙 및 비트 전송률이 0-1000000 범위인 비디오 트랙을 모두 포함합니다.
 
 ```json
 {
@@ -50,14 +51,9 @@ ms.locfileid: "52633625"
                         "operation": "Equal"
                     },
                     {
-                        "property": "Language",
-                        "value": "en",
-                        "operation": "Equal"
-                    },
-                    {
                         "property": "FourCC",
                         "value": "EC-3",
-                        "operation": "NotEqual"
+                        "operation": "Equal"
                     }
                 ]
             },
@@ -86,7 +82,9 @@ ms.locfileid: "52633625"
 
 **PUT** HTTP 요청 메서드는 다음과 유사합니다.
 
+```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/accountFilters/{filterName}?api-version=2018-07-01
+```
 
 **본문** 탭을 선택하고 [이전에 정의](#define-a-filter)한 json 코드를 붙여넣습니다.
 
@@ -98,11 +96,13 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="create-asset-filters"></a>자산 필터 만들기  
 
-다운로드한 “Media Services v3” Postman 컬렉션에서 **자산**->**Create or update Asset Filter(자산 필터 만들기 또는 업데이트)를 선택합니다.
+다운로드한 “Media Services v3” Postman 컬렉션에서 **자산**->**자산 필터 만들기 또는 업데이트**를 선택합니다.
 
 **PUT** HTTP 요청 메서드는 다음과 유사합니다.
 
+```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/assets/{assetName}/assetFilters/{filterName}?api-version=2018-07-01
+```
 
 **본문** 탭을 선택하고 [이전에 정의](#define-a-filter)한 json 코드를 붙여넣습니다.
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: juanpere
-ms.openlocfilehash: b2ab88f467de1fd1f94b46d3e45a108e237acc94
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 278765957156b56c3c476678b8db0efe5fb73c68
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514285"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118271"
 ---
 # <a name="get-started-with-device-management-node"></a>디바이스 관리 시작(노드)
 
@@ -27,9 +27,9 @@ ms.locfileid: "51514285"
 
 이 자습서를 마치면 두 가지 Node.js 콘솔 앱이 만들어집니다.
 
-**dmpatterns_getstarted_device.js**, 이전에 만든 장치 ID로 IoT Hub에 연결하며 재부팅 직접 메서드를 수신하고 물리적 재부팅을 시뮬레이션하며 마지막 재부팅 시간을 보고합니다.
+**dmpatterns_getstarted_device.js** - 이전에 만든 디바이스 ID로 IoT Hub에 연결하며 재부팅 직접 메서드를 수신하고 물리적 재부팅을 시뮬레이션하며 마지막 재부팅 시간을 보고합니다.
 
-**dmpatterns_getstarted_service.js**, 시뮬레이션된 장치 앱에 직접 메서드를 호출하고 응답을 표시하고 업데이트된 reported 속성을 표시합니다.
+**dmpatterns_getstarted_service.js**, 시뮬레이션된 디바이스 앱에 직접 메서드를 호출하고 응답을 표시하고 업데이트된 reported 속성을 표시합니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "51514285"
     ```
     npm init
     ```
-2. **manageddevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device** 장치 SDK 패키지 및 **azure-iot-device-mqtt** 패키지를 설치합니다.
+2. **manageddevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device** 디바이스 SDK 패키지 및 **azure-iot-device-mqtt** 패키지를 설치합니다.
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
@@ -86,7 +86,7 @@ ms.locfileid: "51514285"
         // Respond the cloud app for the direct method
         response.send(200, 'Reboot started', function(err) {
             if (err) {
-                console.error('An error occured when sending a method response:\n' + err.toString());
+                console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.');
             }
@@ -144,7 +144,7 @@ ms.locfileid: "51514285"
     ```
     npm init
     ```
-2. **triggerrebootondevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iothub** 장치 SDK 패키지 및 **azure-iot-device-mqtt** 패키지를 설치합니다.
+2. **triggerrebootondevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iothub** 디바이스 SDK 패키지 및 **azure-iot-device-mqtt** 패키지를 설치합니다.
    
     ```
     npm install azure-iothub --save
@@ -224,7 +224,7 @@ ms.locfileid: "51514285"
     ```
     node dmpatterns_getstarted_device.js
     ```
-2. **triggerrebootondevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 원격 재부팅을 트리거하고 마지막 재부팅 시간을 찾기 위해 장치 쌍에 대한 쿼리를 수행합니다.
+2. **triggerrebootondevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 원격 재부팅을 트리거하고 마지막 재부팅 시간을 찾기 위해 디바이스 쌍에 대한 쿼리를 수행합니다.
    
     ```
     node dmpatterns_getstarted_service.js

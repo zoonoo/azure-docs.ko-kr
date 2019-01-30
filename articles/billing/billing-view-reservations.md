@@ -1,5 +1,5 @@
 ---
-title: Azure 예약 보기 | Microsoft Docs
+title: Azure 리소스에 대한 예약 보기 | Microsoft Docs
 description: Azure Portal에서 Azure 예약을 보는 방법을 알아봅니다.
 services: billing
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2018
 ms.author: cwatson
-ms.openlocfilehash: 4506d65d173ea483558a772d89fe7cbc8cd84944
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: c7522076987aacacc6fde6a0c9d2fa867a3f14aa
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584590"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314043"
 ---
-# <a name="view-azure-reservations-in-the-azure-portal"></a>Azure Portal에서 Azure 예약 보기
+# <a name="view-reservations-for-azure-in-the-azure-portal"></a>Azure Portal에서 Azure에 대한 예약 보기
 
-구독 유형 및 권한에 따라 Azure 예약을 보는 몇 가지 방법이 있습니다.
+구독 유형 및 사용 권한에 따라 Azure 리소스에 대한 예약을 보는 몇 가지 방법이 있습니다.
 
 ## <a name="view-reservations-as-owner-or-reader"></a>소유자 또는 읽기 권한자로 예약 보기
 
@@ -30,7 +30,7 @@ ms.locfileid: "52584590"
  
 소유자 또는 읽기 권한자로 예약을 보려면
 
-1. [Azure Portal]( http://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **예약**에서 검색합니다.
 
     ![Azure Portal 검색을 보여 주는 스크린샷](./media/billing-view-reservation/portal-reservation-search.png)
@@ -45,7 +45,7 @@ ms.locfileid: "52584590"
 
 Azure Portal에서 예약 트랜잭션을 보려면
 
-1. [Azure Portal]( http://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **Cost Management + 청구**에서 검색합니다.
 
     ![Azure Portal 검색을 보여 주는 스크린샷](./media/billing-view-reservation/portal-cm-billing-search.png)
@@ -66,11 +66,11 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [Cosmos DB 예약 용량 선불](../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Azure SQL Database 예약된 용량을 사용하여 SQL Database 계산 리소스 요금 선결제](../sql-database/sql-database-reserved-capacity.md)
 - [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Azure Reservations 관리](billing-manage-reserved-vm-instance.md)
+- [Azure 예약 관리](billing-manage-reserved-vm-instance.md)
 - [종량제 구독의 예약 사용량 이해](billing-understand-reserved-instance-usage.md)
 - [엔터프라이즈 등록의 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
 - [CSP 구독의 예약 사용량 이해](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>도움 필요 시 문의처
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

@@ -26,7 +26,7 @@ ms.locfileid: "44391524"
 >
 >
 
-Azure Data Lake Storage Gen1에 액세스할 수 있는 HDInsight 클러스터가 있는 경우 Distcp와 같은 Hadoop 에코시스템 도구를 사용하여 HDInsight 클러스터 저장소(WASB)에서 **보내고 받는** 데이터를 Data Lake Storage Gen1 계정에 복사할 수 있습니다. 이 문서에서는 Distcp 도구 사용 방법에 대한 지침을 제공합니다.
+Azure Data Lake Storage Gen1에 액세스할 수 있는 HDInsight 클러스터가 있는 경우 Distcp와 같은 Hadoop 에코시스템 도구를 사용하여 HDInsight 클러스터 스토리지(WASB)에서 **보내고 받는** 데이터를 Data Lake Storage Gen1 계정에 복사할 수 있습니다. 이 문서에서는 Distcp 도구 사용 방법에 대한 지침을 제공합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -39,7 +39,7 @@ Distcp를 사용하여 Azure Storage Blob과 Data Lake Storage Gen1 간에 데�
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>HDInsight Linux 클러스터에서 Distcp 사용
 
-HDInsight 클러스터는 서로 다른 원본에서 HDInsight 클러스터로 데이터를 복사하는 데 사용할 수 있는 Distcp 유틸리티와 함께 제공됩니다. Data Lake Storage Gen1을 추가 저장소로 사용하도록 HDInsight 클러스터를 구성한 경우 기본적으로 Distcp 유틸리티를 사용하여 Data Lake Storage Gen1 계정으로/에서 데이터를 복사할 수 있습니다. 이 섹션에서는 Distcp 유틸리티를 사용하는 방법에 대해 살펴봅니다.
+HDInsight 클러스터는 서로 다른 원본에서 HDInsight 클러스터로 데이터를 복사하는 데 사용할 수 있는 Distcp 유틸리티와 함께 제공됩니다. Data Lake Storage Gen1을 추가 스토리지로 사용하도록 HDInsight 클러스터를 구성한 경우 기본적으로 Distcp 유틸리티를 사용하여 Data Lake Storage Gen1 계정으로/에서 데이터를 복사할 수 있습니다. 이 섹션에서는 Distcp 유틸리티를 사용하는 방법에 대해 살펴봅니다.
 
 1. 데스크탑에서 SSH를 사용하여 클러스터에 연결합니다. [Linux 기반 HDInsight 클러스터에 연결](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. SSH 프롬프트에서 명령을 실행합니다.
 
@@ -97,7 +97,7 @@ Distcp의 가장 낮은 세분성은 단일 파일이므로 최대 동시 복사
 
         m = (4 nodes * 96GB) / 3072MB = 128 mappers
 
-다른 응용 프로그램에서 메모리를 사용하고 있으면 DistCp에 대한 클러스터 YARN 메모리 중에서 일부만 사용하도록 선택할 수 있습니다.
+다른 애플리케이션에서 메모리를 사용하고 있으면 DistCp에 대한 클러스터 YARN 메모리 중에서 일부만 사용하도록 선택할 수 있습니다.
 
 ### <a name="copying-large-datasets"></a>큰 데이터 세트 복사
 

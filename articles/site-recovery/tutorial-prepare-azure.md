@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 01/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5c5699d6e25b1f12f87e389011d044315baccd4d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: da71857e84b27b9e9a063d707f75fdf33e5d6a96
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838874"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159012"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>온-프레미스 재해 복구를 위한 Azure 리소스 준비
 
@@ -68,11 +68,12 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
-1. Azure Portal에서 **리소스 만들기** > **Storage** > **Backup 및 Site Recovery(OMS)** 를 선택합니다.
-2. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이 자습서의 집합의 경우 **ContosoVMVault**를 사용합니다.
-3. **리소스 그룹**에서 **contosoRG**를 사용합니다.
-4. **위치**에서 **유럽 서부**를 사용합니다.
-5. 대시보드에서 자격 증명 모음에 빠르게 액세스하려면 **대시보드에 고정** > **만들기**를 선택합니다.
+1. Azure Portal에서 **+리소스 만들기**를 클릭하고, Marketplace에서 **Recovery Services**를 검색합니다.
+2. **Backup 및 Site Recovery(OMS)** 를 클릭하고, Backup 및 Site Recovery 페이지에서 **만들기**를 클릭합니다. 
+1. **Recovery Services 자격 증명 모음** > **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이 자습서의 집합의 경우 **ContosoVMVault**를 사용합니다.
+2. 기존 **리소스 그룹**을 선택하거나 새 리소스 그룹을 만듭니다. 이 자습서에서는 **contosoRG**를 사용합니다.
+3. **위치**에서 자격 증명 모음을 배치할 지역을 선택합니다. **유럽 서부**를 사용합니다.
+4. 대시보드에서 자격 증명 모음에 빠르게 액세스하려면 **대시보드에 고정** > **만들기**를 선택합니다.
 
    ![새 자격 증명 모음 만들기](./media/tutorial-prepare-azure/new-vault-settings.png)
 

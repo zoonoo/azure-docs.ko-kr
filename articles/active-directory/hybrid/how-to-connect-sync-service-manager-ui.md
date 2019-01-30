@@ -4,7 +4,7 @@ description: Azure AD Connect의 Synchronization Service Manager를 이해합니
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 5847c33f-aaa2-48f9-abe6-78c4a87a3b7c
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 877f41fb1d47bc8faf4ea1275c94cd492884bfb1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 17a842d5de08f067559f1d0f208180ce436a1f3c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46307742"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474645"
 ---
 # <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Azure AD Connect Synchronization Service Manager UI 소개
 
@@ -32,9 +32,10 @@ ms.locfileid: "46307742"
 시작 메뉴에서 **Synchronization Service Manager** UI를 시작합니다. 이를 **동기화 서비스**라고 하고 **Azure AD Connect** 그룹에서 찾을 수 있습니다.  
 ![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui/startmenu.png)
 
-UI에서 다른 탭에 대한 자세한 내용을 보려면 이 항목의 위쪽에 있는 링크를 클릭합니다.
-
 ## <a name="next-steps"></a>다음 단계
+
+[작업](how-to-connect-sync-service-manager-ui-operations.md), [커넥터](how-to-connect-sync-service-manager-ui-connectors.md), [메타버스 디자이너](how-to-connect-sync-service-manager-ui-mvdesigner.md) 및 [메타버스 검색](how-to-connect-sync-service-manager-ui-mvsearch.md) 탭을 포함한 Synchronization Service Manager UI에 대해 자세히 알아봅니다.
+
 [Azure AD Connect 동기화](how-to-connect-sync-whatis.md) 구성에 대해 자세히 알아봅니다.
 
 [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에 대해 자세히 알아봅니다.

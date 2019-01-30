@@ -5,14 +5,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.author: nisoneji
-ms.openlocfilehash: b890dce5d94c2177c8fc8cdb5477b92df15c8095
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 12/28/2018
+ms.author: mayg
+ms.openlocfilehash: 210872a468f92f92edef9c8e29a26382c5646dae
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211029"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321554"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위해 Azure Site Recovery Deployment Planner 실행
 이 문서는 VMware에서 Azure로의 프로덕션 배포를 위한 Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
@@ -113,18 +113,18 @@ VM 구성은 프로파일링 작업을 시작할 때 한 번 캡처되어 VMDeta
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  30  -User vCenterUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
-#### <a name="example-2-profile-vms-for-15-days"></a>예제 2: 15일 동안 프로파일링
+#### <a name="example-2-profile-vms-for-15-days"></a>예 2: 15일 동안 VM 프로파일링
 
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -NoOfDaysToProfile  15  -User vCenterUser1
 ```
 
-#### <a name="example-3-profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>예제 3: 도구에 대한 빠른 테스트를 위해 60분 동안 VM 프로파일링
+#### <a name="example-3-profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>예 3: 도구에 대한 빠른 테스트를 위해 60분 동안 VM 프로파일링
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfMinutesToProfile 60  -User vCenterUser1
 ```
 
-#### <a name="example-4-profile-vms-for-2-hours-for-a-proof-of-concept"></a>예제 4: 개념 증명을 위해 2시간 동안 VM 프로파일링
+#### <a name="example-4-profile-vms-for-2-hours-for-a-proof-of-concept"></a>예 4: 개념 증명을 위해 2시간 동안 VM 프로파일링
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -NoOfHoursToProfile 2 -User vCenterUser1
 ```
@@ -137,6 +137,9 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 
 ## <a name="generate-report"></a>보고서 생성
 이 도구는 배포의 모든 권장 사항을 요약하는 보고서 출력으로 매크로가 사용하도록 설정된 Microsoft Excel 파일(XLSM 파일)을 생성합니다. 이 보고서는 DeploymentPlannerReport_<unique numeric identifier>.xlsm이라고 명명되며 지정된 디렉터리에 배치됩니다.
+
+>[!NOTE]
+>Deployment Planner를 실행하는 서버의 예상 비용을 계산하려면 보고서의 소수점 기호를 "."로 구성해야 합니다. Windows 머신에서 소수점 기호를 ","으로 설정한 경우 제어판의 "날짜, 시간 또는 숫자 형식 변경"에서 "추가 설정"으로 이동하여 소수점 기호를 "."로 변경합니다.
 
 프로파일링이 완료되면 보고서 생성 모드에서 도구를 실행할 수 있습니다. 다음 표는 보고서 생성 모드에서 실행할 필수 및 선택적 도구 매개 변수의 목록을 포함하고 있습니다.
 
@@ -160,7 +163,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 | -EndDate | (선택 사항) MM-DD-YYYY:HH:MM 형식(24시간 형식)의 종료 날짜 및 시간입니다. *EndDate*는 *StartDate*와 함께 지정해야 합니다. EndDate를 지정한 경우 StartDate와 EndDate 사이에 수집한 프로파일링된 데이터에 대한 보고서가 생성됩니다. |
 | -GrowthFactor | (선택 사항) 백분율로 표시된 증가율입니다. 기본값은 30%입니다. |
 | -UseManagedDisks | (선택 사항)UseManagedDisks - 예/아니요. 기본값은 [예]입니다. 단일 저장소 계정에 배치할 수 있는 가상 머신의 수는 가상 머신의 장애 조치/테스트 장애 조치가 관리되지 않는 디스크가 아닌 Managed Disk에서 수행되었음을 고려하여 계산됩니다. |
-|-SubscriptionId |(선택 사항) 구독 GUID입니다. 구독, 구독과 연결된 제안 및 특정 대상 Azure 지역의 제안에 기반한 최신 가격과 지정된 통화로 비용 예측 보고서를 생성하려면 이 매개 변수를 사용합니다.|
+|-SubscriptionId |(선택 사항) 구독 GUID입니다. 구독, 구독과 연결된 제안 및 특정 대상 Azure 지역의 제안에 기반한 최신 가격과 **지정된 통화**로 비용 예측 보고서를 생성하려면 이 매개 변수가 필요합니다.|
 |-TargetRegion|(선택 사항) 복제 대상이 되는 Azure 지역입니다. Azure는 지역마다 비용이 다르기 때문에 특정 대상 Azure 지역으로 보고서를 생성하려면 이 매개 변수를 사용합니다.<br>기본값은 WestUS2 또는 마지막으로 사용된 대상 지역입니다.<br>[지원되는 대상 지역](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) 목록을 참조하세요.|
 |-OfferId|(선택 사항) 주어진 구독과 연결된 제안입니다. 기본값은 MS-AZR-0003P(종량제)입니다.|
 |-Currency|(선택 사항) 생성된 보고서의 비용 표시에 사용되는 통화입니다. 기본값은 미국 달러($) 또는 마지막 사용한 통화입니다.<br>[지원되는 통화](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies) 목록을 참조하세요.|
@@ -176,34 +179,36 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-#### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>예제 2: 프로파일링된 데이터가 원격 서버에 있는 경우 보고서 생성
+#### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>예 2: 프로파일링된 데이터가 원격 서버에 있는 경우 보고서 생성
 사용자는 원격 디렉터리에서 읽기/쓰기 액세스 권한을 가지고 있어야 합니다.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-#### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>예제 3: 지정된 시간 내에 IR을 완료하기 위한 특정 대역폭 및 목표로 보고서 생성
+#### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>예 3: 지정된 시간 내에 IR을 완료하기 위한 특정 대역폭 및 목표로 보고서 생성
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -Bandwidth 100 -GoalToCompleteIR 24
 ```
 
-#### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>예제 4: 기본값 30% 대신 5% 증가율로 보고서 생성
+#### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>예 4: 기본값 30% 대신 5% 증가율로 보고서 생성
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualzation VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
 ```
 
-#### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>예제 5: 프로파일링된 데이터의 하위 집합으로 보고서 생성
+#### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>예 5: 프로파일링된 데이터의 하위 집합으로 보고서 생성
 예를 들어 30일 동안 프로파일링된 데이터가 있지만 20일 동안만의 보고서를 생성하려고 합니다.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
 ```
 
-#### <a name="example-6-generate-a-report-for-5-minute-rpo"></a>예제 6: 5분 동안의 RPO 보고서 생성
+#### <a name="example-6-generate-a-report-for-5-minute-rpo"></a>예 6: 5분 동안의 RPO 보고서 생성
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
 ```
 
-#### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>예제 7: 인도 루피 및 특정 제품 ID로 인도 남부 Azure 지역에 대한 보고서 생성
+#### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>예 7: 인도 루피 및 특정 제품 ID로 인도 남부 Azure 지역에 대한 보고서 생성
+
+특정 통화로 비용 보고서를 작성하려면 구독 ID가 필요합니다.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
@@ -227,11 +232,11 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 
 예를 들어 현재 VM이 표준 저장소 복제 계정에 적합하다고 가정해 보겠습니다. 다음 3개월 동안 몇 가지 변경 사항이 발생할 가능성이 있습니다.
 
-* VM에서 실행되는 응용 프로그램의 사용자 수가 증가합니다.
-* 그 결과 VM에서 변동이 증가하므로 Site Recovery 복제가 일어날 수 있도록 VM을 프리미엄 저장소로 이동해야 합니다.
-* 따라서 프리미엄 저장소 계정에 대한 보호를 해제하고 다시 사용하도록 설정해야 합니다.
+* VM에서 실행되는 애플리케이션의 사용자 수가 증가합니다.
+* 그 결과 VM에서 변동이 증가하므로 Site Recovery 복제가 일어날 수 있도록 VM을 Premium Storage로 이동해야 합니다.
+* 따라서 Premium Storage 계정에 대한 보호를 해제하고 다시 사용하도록 설정해야 합니다.
 
-배포 계획 중에 그리고 기본값이 30%인 동안 증가에 대해 계획할 것을 적극 권장합니다. 사용자는 응용 프로그램 사용 패턴과 증가 예측에 대한 전문가이며 보고서를 생성하는 동안 이 숫자를 해당 계획에 따라 변경할 수 있습니다. 또한 사용자는 여러 증가율 및 동일한 프로파일링된 데이터가 포함된 여러 보고서를 생성하고 가장 적합한 대상 저장소 및 원본 대역폭 권장 사항을 결정할 수 있습니다.
+배포 계획 중에 그리고 기본값이 30%인 동안 증가에 대해 계획할 것을 적극 권장합니다. 사용자는 애플리케이션 사용 패턴과 증가 예측에 대한 전문가이며 보고서를 생성하는 동안 이 숫자를 해당 계획에 따라 변경할 수 있습니다. 또한 사용자는 여러 증가율 및 동일한 프로파일링된 데이터가 포함된 여러 보고서를 생성하고 가장 적합한 대상 저장소 및 원본 대역폭 권장 사항을 결정할 수 있습니다.
 
 생성된 Microsoft Excel 보고서에는 다음과 같은 정보가 포함되어 있습니다.
 
@@ -264,7 +269,7 @@ Site Recovery에서 복제 중에 온-프레미스 환경에서 Azure로 달성�
 
 이 도구는 지정된 디렉터리에 여러 개의 asrvhdfile<#>.vhd(여기서 #은 파일 수) 64MB 파일을 만듭니다. 도구에서 처리량을 확인하기 위해 저장소 계정에 파일을 업로드합니다. 처리량이 측정된 후 저장소 계정과 로컬 서버에서 이러한 파일을 모두 삭제합니다. 도구가 처리량을 계산하는 동안 어떤 이유로든 종료되는 경우 저장소 또는 로컬 서버에서 파일을 삭제하지 않습니다. 따라서 직접 삭제해야 합니다.
 
-처리량은 특정 시점에서 측정되며, 다른 모든 요소가 동일하게 유지된다는 조건 하에 복제 중에 Site Recovery에서 달성할 수 있는 최대 처리량입니다. 예를 들어 응용 프로그램이 동일한 네트워크에서 더 많은 대역폭을 사용하기 시작하면 복제 중에 실제 처리량이 달라집니다. 구성 서버에서 GetThroughput 명령을 실행하는 경우 이 도구는 보호된 VM과 진행 중인 복제를 인식하지 못합니다. VM에 높은 데이터 변동이 있을 때 GetThroughput 작업이 실행되는 경우 측정된 처리량의 결과가 다릅니다. 프로파일링 중에 여러 시점에서 도구를 실행하여 다양한 시간에서 어떤 처리량 수준을 달성할 수 있는지 이해하는 것이 좋습니다. 보고서에는 도구에서 마지막으로 측정한 처리량이 표시됩니다.
+처리량은 특정 시점에서 측정되며, 다른 모든 요소가 동일하게 유지된다는 조건 하에 복제 중에 Site Recovery에서 달성할 수 있는 최대 처리량입니다. 예를 들어 애플리케이션이 동일한 네트워크에서 더 많은 대역폭을 사용하기 시작하면 복제 중에 실제 처리량이 달라집니다. 구성 서버에서 GetThroughput 명령을 실행하는 경우 이 도구는 보호된 VM과 진행 중인 복제를 인식하지 못합니다. VM에 높은 데이터 변동이 있을 때 GetThroughput 작업이 실행되는 경우 측정된 처리량의 결과가 다릅니다. 프로파일링 중에 여러 시점에서 도구를 실행하여 다양한 시간에서 어떤 처리량 수준을 달성할 수 있는지 이해하는 것이 좋습니다. 보고서에는 도구에서 마지막으로 측정한 처리량이 표시됩니다.
 
 ### <a name="example"></a>예
 ```

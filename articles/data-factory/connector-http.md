@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/24/2018
+ms.date: 12/202018
 ms.author: jingwang
-ms.openlocfilehash: 1f3e9be3a0048c4bf2e87ac23cbdc76b1aaa649f
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: b092509c1029bbff028da6bf94b9f7dbd1068b16
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166409"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020033"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HTTP 엔드포인트에서 데이터 복사
 
@@ -28,6 +27,12 @@ ms.locfileid: "49166409"
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 HTTP 엔드포인트에서 데이터를 복사하는 방법을 간략히 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 기반으로 합니다.
 
+HTTP 커넥터인 [REST 커넥터](connector-rest.md)와 [웹 테이블 커넥터](connector-web-table.md) 간의 차이점은 다음과 같습니다.
+
+- **REST 커넥터**는 특히 RESTful API에서 데이터를 복사하는 것을 지원합니다. 
+- **HTTP 커넥터**는 일반적으로 모든 HTTP 엔드포인트에서 데이터를 검색합니다(예: 파일 다운로드). REST 커넥터를 사용할 수 있게 되기 전에는 HTTP 커넥터를 사용하여 지원은 되지만 REST 커넥터와 비교할 때 기능이 적은 RESTful API에서 데이터를 복사할 수도 있습니다.
+- **웹 테이블 커넥터**는 HTML 웹 페이지에서 테이블 콘텐츠를 추출합니다.
+
 ## <a name="supported-capabilities"></a>지원되는 기능
 
 HTTP 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)을 참조하세요.
@@ -35,10 +40,8 @@ HTTP 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 이 HTTP 커넥터를 사용하여 다음을 수행할 수 있습니다.
 
 - HTTP **GET** 또는 **POST** 메서드를 사용하여 HTTP/S 엔드포인트에서 데이터를 검색합니다.
-- **Anonymous**, **Basic**, **Digest**, **Windows** 또는 **ClientCertificate** 인증 중 하나를 사용하여 데이터를 검색합니다.
+- 인증 방법으로 **Anonymous**, **Basic**, **Digest**, **Windows** 또는 **ClientCertificate** 중 하나를 사용하여 데이터를 검색합니다.
 - HTTP 응답을 그대로 복사하거나 [지원되는 파일 형식과 압축 코덱](supported-file-formats-and-compression-codecs.md)을 사용하여 구문 분석합니다.
-
-이 커넥터와 [웹 테이블 커넥터](connector-web-table.md) 간 차이점은 웹 테이블 커넥터가 HTML 페이지에서 테이블 콘텐츠를 추출한다는 것입니다.
 
 > [!TIP]
 > Data Factory에서 HTTP 커넥터를 구성하기 전에 데이터 검색을 위한 HTTP 요청을 테스트하려면 헤더 및 본문 요구 사항의 API 사양을 알아봅니다. Postman 또는 웹 브라우저와 같은 도구를 사용하여 유효성을 검사할 수 있습니다.
@@ -55,10 +58,10 @@ HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | **type** 속성은 **HttpServer**로 설정해야 합니다. | yes |
-| URL | 웹 서버의 기본 URL입니다. | yes |
+| 형식 | **type** 속성은 **HttpServer**로 설정해야 합니다. | 예 |
+| URL | 웹 서버의 기본 URL입니다. | 예 |
 | enableServerCertificateValidation | HTTP 엔드포인트에 연결할 때 서버 SSL 인증서 유효성 검사를 사용할지 지정합니다. HTTPS 서버에서 자체 서명된 인증서를 사용하는 경우 이 속성을 **false**로 설정합니다. | 아니요<br /> (기본값: **true**) |
-| authenticationType | 인증 유형을 지정합니다. 허용되는 값은 **Anonymous**, **Basic**, **Digest**, **Windows** 및 **ClientCertificate**입니다. <br><br> 이러한 인증 형식의 더 많은 속성 및 JSON 샘플은 이 표 뒤의 섹션을 참조하세요. | yes |
+| authenticationType | 인증 유형을 지정합니다. 허용되는 값은 **Anonymous**, **Basic**, **Digest**, **Windows** 및 **ClientCertificate**입니다. <br><br> 이러한 인증 형식의 더 많은 속성 및 JSON 샘플은 이 표 뒤의 섹션을 참조하세요. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 개인 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 이 속성은 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Basic, Digest 또는 Windows 인증 사용
@@ -67,8 +70,8 @@ HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| userName | HTTP 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | yes |
-| 암호 | 사용자(**userName** 값)의 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | yes |
+| userName | HTTP 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | 예 |
+| 암호 | 사용자(**userName** 값)의 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 예 |
 
 **예제**
 
@@ -165,13 +168,13 @@ HTTP에서 데이터를 복사하려면 데이터 세트의 **type** 속성을 *
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 **type** 속성을 **HttpFile**로 설정해야 합니다. | yes |
+| 형식 | 데이터 세트의 **type** 속성을 **HttpFile**로 설정해야 합니다. | 예 |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. | 아니요 |
 | requestMethod | HTTP 메서드입니다. 허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 아니요 |
 | additionalHeaders | 추가 HTTP 요청 헤더입니다. | 아니요 |
 | requestBody | HTTP 요청의 본문입니다. | 아니요 |
-| format | 데이터를 구문 분석하지 않고 HTTP 엔드포인트에서 데이터를 있는 그대로 검색하고 파일 기반 저장소에 복사하려면 입력 및 출력 데이터 세트 정의 모두에서 **형식** 섹션을 건너뜁니다.<br/><br/>복사 중에 HTTP 응답 콘텐츠를 구문 분석하려는 경우 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** 및 **ParquetFormat**과 같은 파일 형식 유형이 지원됩니다. **형식**에서 **type** 속성을 이러한 값 중 하나로 설정합니다. 자세한 내용은 [JSON 형식](supported-file-formats-and-compression-codecs.md#json-format), [텍스트 형식](supported-file-formats-and-compression-codecs.md#text-format), [Avro 형식](supported-file-formats-and-compression-codecs.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs.md#parquet-format)을 참조하세요. |아니요 |
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md#compression-support)을 참조하세요.<br/><br/>지원되는 형식: **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**.<br/>지원되는 수준: **Optimal** 및 **Fastest**. |아니요 |
+| format | 데이터를 구문 분석하지 않고 HTTP 엔드포인트에서 데이터를 있는 그대로 검색하고 파일 기반 저장소에 복사하려면 입력 및 출력 데이터 세트 정의 모두에서 **형식** 섹션을 건너뜁니다.<br/><br/>복사 중에 HTTP 응답 콘텐츠를 구문 분석하려는 경우 지원되는 파일 형식 유형은 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** 및 **ParquetFormat**입니다. **형식**에서 **type** 속성을 이러한 값 중 하나로 설정합니다. 자세한 내용은 [JSON 형식](supported-file-formats-and-compression-codecs.md#json-format), [텍스트 형식](supported-file-formats-and-compression-codecs.md#text-format), [Avro 형식](supported-file-formats-and-compression-codecs.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs.md#parquet-format)을 참조하세요. |아니요 |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md#compression-support)을 참조하세요.<br/><br/>지원되는 형식: **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다.<br/>지원되는 수준:  **최적** 및 **가장 빠름**입니다. |아니요 |
 
 > [!NOTE]
 > 지원되는 HTTP 요청 페이로드 크기는 약 500KB입니다. 웹 엔드포인트에 전달하려는 페이로드 크기가 500KB보다 큰 경우 더 작은 청크로 페이로드를 일괄 처리하는 것이 좋습니다.
@@ -227,7 +230,7 @@ HTTP에서 데이터를 복사하려면 복사 작업의 **원본 형식**을 **
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 **type** 속성을 **HttpSource**로 설정해야 합니다. | yes |
+| 형식 | 복사 작업 원본의 **type** 속성을 **HttpSource**로 설정해야 합니다. | 예 |
 | httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40**입니다.  | 아니요 |
 
 **예제**

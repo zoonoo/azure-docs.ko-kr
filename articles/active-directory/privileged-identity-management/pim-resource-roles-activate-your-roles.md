@@ -81,7 +81,7 @@ PIM에서 역할을 활성화하는 경우 원하는 관리 포털에 액세스�
 
 1. **응용 프로그램 액세스** 페이지를 클릭합니다.
 
-    ![PIM 응용 프로그램 액세스 - 스크린샷](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
+    ![PIM 애플리케이션 액세스 - 스크린샷](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
 
 1. **모든 리소스** 페이지에서 포털을 다시 열려면 **Azure 리소스** 링크를 클릭합니다.
 

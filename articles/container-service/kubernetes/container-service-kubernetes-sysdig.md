@@ -1,5 +1,5 @@
 ---
-title: Azure Kubernetes 클러스터 모니터링 - Sysdig
+title: (사용되지 않음) Azure Kubernetes 클러스터 모니터링 - Sysdig
 description: Sysdig을 사용하여 Azure Container Service에서 Kubernetes 클러스터 모니터링
 services: container-service
 author: bburns
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: bbf59a35f420b5bbf292fbdaa5a8bbc173e4ee24
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 4aef241e2c86e4016c3c468fcdcfdfc620fc7aa9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091310"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998715"
 ---
-# <a name="monitor-an-azure-container-service-kubernetes-cluster-using-sysdig"></a>Sysdig을 사용하여 Azure Container Service Kubernetes 클러스터 모니터링
+# <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-using-sysdig"></a>(사용되지 않음) Sysdig을 사용하여 Azure Container Service Kubernetes 클러스터 모니터링
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 이 연습에서는 [Azure Container Service를 사용하여 Kubernetes 클러스터를 만들었다고](container-service-kubernetes-walkthrough.md) 가정합니다.

@@ -3,7 +3,7 @@ title: 탄력적 데이터베이스 작업 도구를 제거하는 방법
 description: PowerShell의 Azure Portal을 사용하여 Elastic Database 작업 구성 요소를 설치 제거하는 방법에 대해 알아보십시오.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: elastic-scale
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 15313bf0d2d152a8295fb831e62452f8ad63bbeb
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: f717c0c656c5a80b14ef09a10cda18bd12500eeb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242452"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869027"
 ---
 # <a name="uninstall-elastic-database-jobs-components"></a>Elastic Database 작업 구성 요소 제거
 

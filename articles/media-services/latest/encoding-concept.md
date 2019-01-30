@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services를 사용하여 클라우드에서 인코딩 | Microsoft Docs
+title: Media Services를 사용하여 클라우드에서 인코딩 - Azure | Microsoft Docs
 description: 이 항목에서는 Azure Media Services를 사용할 때의 인코딩 프로세스에 대해 설명합니다.
 services: media-services
 documentationcenter: ''
@@ -9,14 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: 0df13e3364cebe7cb5804b840889bca971b36be2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: d236f00e70e08c7bce2a94c5bd4fb64f1fa99bbc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235057"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826601"
 ---
 # <a name="encoding-with-media-services"></a>Media Services를 사용하여 인코딩
 
@@ -27,6 +28,11 @@ Media Services v3을 사용하여 인코딩하려면 변환 및 작업을 만들
 Media Services를 사용하여 인코딩하는 경우 미리 설정을 사용하여 입력 미디어 파일을 처리하는 방법을 인코더에 알려줍니다. 예를 들어 인코딩된 콘텐츠에서 원하는 비디오 해상도 및/또는 오디오 채널 수를 지정할 수 있습니다. 
 
 업계 모범 사례에 따라 권장되는 기본 제공 미리 설정 중 하나를 사용하여 빠르게 시작하거나 특정 시나리오 또는 디바이스 요구 사항을 대상으로 지정하는 사용자 지정 미리 설정을 작성할 수 있습니다. 자세한 내용은 [사용자 지정 변환을 사용하여 인코딩](customize-encoder-presets-how-to.md)을 참조하세요. 
+
+2019년 1월부터 Media Encoder Standard로 인코딩하여 MP4 파일을 생성하는 경우 새 .mpi 파일이 생성되고 출력 자산에 추가됩니다. 이 MPI 파일은 동적 패키징 및 스트리밍 시나리오의 성능을 향상시키기 위한 것입니다.
+
+> [!NOTE]
+> MPI 파일을 수정 또는 제거하거나 해당 파일의 존재 여부에 따른 종속성을 서비스에서 사용하지 않아야 합니다.
 
 ## <a name="built-in-presets"></a>기본 제공 미리 설정
 

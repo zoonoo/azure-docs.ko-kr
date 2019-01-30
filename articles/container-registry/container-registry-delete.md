@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 01/04/2019
 ms.author: danlep
-ms.openlocfilehash: a1644f68465cffa8cce27257bb91100c111af8a1
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: b18638057def03a02024200edb157e5caf08a669
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857774"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065174"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Azure Container Registry에서 컨테이너 이미지 삭제
 
@@ -60,7 +60,7 @@ Azure Container Registry 같은 개인 레지스트리에서 이미지 이름에
 myregistry.azurecr.io/marketing/campaign10-18/web:v2
 ```
 
-이미지 태그 지정 모범 사례에 대한 내용은 MSDN에서 [Docker Tagging: Best practices for tagging and versioning docker images][tagging-best-practices](Docker 태그 지정: docker 이미지 태그 지정 및 버전 관리를 위한 모범 사례) 블로그 게시물을 참조하세요.
+이미지 태그 지정 모범 사례에 대한 논의는 [Docker 태그 지정: Docker 이미지 태그 지정 및 버전 관리에 대한 모범 사례][tagging-best-practices] MSDN 블로그 포스트를 참조하세요.
 
 ### <a name="layer"></a>계층
 
@@ -239,20 +239,20 @@ Are you sure you want to continue? (y/n): y
      },
      {
        "digest": "sha256:d2bdc0c22d78cde155f53b4092111d7e13fe28ebf87a945f94b19c248000ceec",
-       "tags": null,
+       "tags": [],
        "timestamp": "2018-07-11T21:32:21.1400513Z"
      }
    ]
    ```
 
-시퀀스의 마지막 단계 출력에서 볼 수 있듯이, 이제 해당 `"tags"` 속성이 `null`인 분리된 매니페스트가 나타납니다. 이 매니페스트는 참조하는 고유한 계층 데이터와 함께 레지스트리에 내에 계속 존재합니다. **분리된 이미지와 해당 계층 데이터를 삭제하려면 매니페스트 다이제스트에 따라 삭제해야 합니다**.
+시퀀스의 마지막 단계 출력에서 볼 수 있듯이, 이제 해당 `"tags"` 속성이 빈 배열인 분리된 매니페스트가 나타납니다. 이 매니페스트는 참조하는 고유한 계층 데이터와 함께 레지스트리에 내에 계속 존재합니다. **분리된 이미지와 해당 계층 데이터를 삭제하려면 매니페스트 다이제스트에 따라 삭제해야 합니다**.
 
 ### <a name="list-untagged-images"></a>태그가 지정되지 않은 이미지 나열
 
 다음 Azure CLI 명령을 사용하여 리포지토리의 태그가 지정되지 않은 모든 이미지를 나열할 수 있습니다. `<acrName>` 및 `<repositoryName>`을(를) 사용자 환경에 적절한 값으로 바꿉니다.
 
 ```azurecli
-az acr repository show-manifests --name <acrName> --repository <repositoryName>  --query "[?tags==null].digest"
+az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?!(tags[?'*'])].digest"
 ```
 
 ### <a name="delete-all-untagged-images"></a>태그가 지정되지 않은 모든 이미지 삭제
@@ -283,7 +283,7 @@ REPOSITORY=myrepository
 # Delete all untagged (orphaned) images
 if [ "$ENABLE_DELETE" = true ]
 then
-    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags==null].digest" -o tsv \
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?!(tags[?'*'])].digest" -o tsv \
     | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
     echo "No data deleted. Set ENABLE_DELETE=true to enable image deletion."
@@ -310,7 +310,7 @@ $registry = "myregistry"
 $repository = "myrepository"
 
 if ($enableDelete) {
-    az acr repository show-manifests --name $registry --repository $repository --query "[?tags==null].digest" -o tsv `
+    az acr repository show-manifests --name $registry --repository $repository --query "[?!(tags[?'*'])].digest" -o tsv `
     | %{ az acr repository delete --name $registry --image $repository@$_ --yes }
 } else {
     Write-Host "No data deleted. Set `$enableDelete = `$TRUE to enable image deletion."

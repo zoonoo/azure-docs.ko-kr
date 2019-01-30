@@ -14,7 +14,7 @@ ms.locfileid: "50166288"
 <!--author=SharS last changed: 9/17/15-->
 
 #### <a name="to-install-the-storsimple-adapter-for-sharepoint"></a>SharePoint용 StorSimple 어댑터를 설치하려면
-1. SharePoint 중앙 관리 웹 응용 프로그램을 실행하도록 구성된 WFE(웹 프런트 엔드) 서버에 설치 프로그램을 복사합니다. 
+1. SharePoint 중앙 관리 웹 애플리케이션을 실행하도록 구성된 WFE(웹 프런트 엔드) 서버에 설치 프로그램을 복사합니다. 
 2. 관리자 권한이 있는 계정을 사용하여 WFE 서버에 로그인할 수 있습니다.
 3. 인증서를 두 번 클릭합니다. SharePoint용 StorSimple 어댑터 설치 마법사가 시작됩니다. **다음** 을 클릭하여 설치를 시작합니다.
    

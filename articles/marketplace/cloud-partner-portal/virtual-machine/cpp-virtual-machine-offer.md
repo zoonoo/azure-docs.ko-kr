@@ -12,23 +12,27 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d3682d18fb849b2d851bae0986f9e61f216aaf2c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: bbe757ccd1d6a37cbcf04f3ecd6dd088ef1ff211
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639382"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353024"
 ---
 # <a name="virtual-machine-offer"></a>가상 머신 제안
 
-이 섹션에서는 VM(Virtual Machine)을 게시하는 요소에 대해 간략히 설명하고, [Azure Marketplace](https://azuremarketplace.microsoft.com)의 게시자를 위한 지침으로 사용됩니다.  이 관점에서 다음과 같은 주요 부분으로 나뉩니다.
+|    |    |
+|-----------------------------------------------------------------|------------------------------------------|
+| 이 섹션에서는 [Azure Marketplace](https://azuremarketplace.microsoft.com)에 새 가상 머신 제품을 게시하는 방법을 설명합니다. 운영 체제 VHD(가상 하드 디스크) 및 0개 이상의 데이터 VHD를 포함하여 Windows 기반 가상 머신과 Linux 기반 가상 머신 둘 다가 지원됩니다. | ![가상 머신 아이콘](./media/virtual-machine-icon.png)  |
 
-- [필수 조건](./cpp-prerequisites.md) - VM 제안을 만들거나 게시하기 전에 기술 및 비즈니스 요구 사항을 나열합니다.
-- [VM 제안 만들기](./cpp-create-offer.md) - [Cloud 파트너 포털](https://cloudpartner.azure.com)을 사용하여 새 VM 제안 항목을 만드는 데 필요한 단계를 나열합니다.
-- [VM 기술 자산 만들기](./cpp-create-technical-assets.md) - VM 솔루션에 대한 기술 자산을 만드는 방법과 Azure Marketplace에서 이 패키지를 VM 제안으로 구성하는 방법입니다.
-- [VM 제안 게시](./cpp-publish-offer.md) - Azure Marketplace에 게시할 제안을 제출하는 방법입니다.
+
+## <a name="publishing-overview"></a>게시 개요
+
+다음 [Azure Marketplace 제품 최적화](https://channel9.msdn.com/Events/Build/2017/P4026?ocid=player) 비디오에서는 이 마켓플레이스에 게시하는 방법(가상 머신 솔루션 사용), 제품 페이지 및 선택적 시험 사용 환경을 사용하여 사용자 경험을 최적화하는 방법, 사용자 잠재 고객이 생성되는 방법, 잠재 고객을 사용하고 고객 참여를 최적화하는 방법을 포함하여 Azure Marketplace에 대한 광범위한 개요를 제공합니다.
+
+> [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4026/player]
 
 
 ## <a name="vm-publishing-process-flow"></a>VM 게시 프로세스 흐름

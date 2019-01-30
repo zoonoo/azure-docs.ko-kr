@@ -3,19 +3,19 @@ title: Azure Automation Runbook에 Azure Resource Manager 템플릿 배포
 description: Runbook에서 Azure Storage에 저장된 Azure Resource Manager 템플릿을 배포하는 방법
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powershell,  runbook, json, azure automation
-ms.openlocfilehash: fe7a3632936e13a0762ebc0afcc357965e019146
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: d13f21da88ae3fb9dfa67b11285e0c3e984d5e5b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918609"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421814"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Azure Automation PowerShell Runbook에 Azure Resource Manager 템플릿 배포
 
@@ -32,7 +32,7 @@ ms.locfileid: "42918609"
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [체험 계정을 등록](https://azure.microsoft.com/free/)할 수 있습니다.
 * [Automation 계정](automation-sec-configure-azure-runas-account.md) .  이 계정은 가상 머신을 시작하고 중지할 수 있는 권한이 있어야 합니다.
 * [Azure Storage 계정](../storage/common/storage-create-storage-account.md) - Resource Manager 템플릿을 저장하는 위치입니다.
-* 로컬 컴퓨터에 설치된 Azure Powershell. Azure PowerShell을 얻는 방법에 대한 자세한 내용은 [Install and configure Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0)(Azure Powershell 설치 및 구성)을 참조하세요.
+* 로컬 컴퓨터에 설치된 Azure Powershell. Azure PowerShell을 얻는 방법에 대한 자세한 내용은 [Install and configure Azure Powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.1.0)(Azure Powershell 설치 및 구성)을 참조하세요.
 
 ## <a name="create-the-resource-manager-template"></a>리소스 관리자 템플릿 만들기
 
@@ -248,4 +248,5 @@ Get-AzureRmStorageAccount
 * Azure Storage를 시작하려면 [Azure Storage 소개](../storage/common/storage-introduction.md)를 참조하세요.
 * 다른 유용한 Azure Automation Runbook을 찾으려면 [Azure Automation용 Runbook 및 모듈 갤러리](automation-runbook-gallery.md)를 참조하세요.
 * 다른 유용한 Resource Manager 템플릿을 찾으려면 [Azure 퀵 스타트 템플릿](https://azure.microsoft.com/resources/templates/)을 참조하세요.
+
 

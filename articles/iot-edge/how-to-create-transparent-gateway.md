@@ -1,19 +1,20 @@
 ---
-title: Azure IoT Edge를 사용하여 투명한 게이트웨이 만들기 | Microsoft Docs
-description: Azure IoT Edge 디바이스를 사용하여 여러 디바이스에 대한 정보를 처리할 수 있는 투명한 게이트웨이 만들기
+title: 투명한 게이트웨이 디바이스 만들기 - Azure IoT Edge | Microsoft Docs
+description: Azure IoT Edge 디바이스를 다운스트림 디바이스의 정보를 처리할 수 있는 투명한 게이트웨이로 사용
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a867122aef5dd9d2152bca3ac10c11459ffc03f5
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: a42f4ce85214ad2a8c5692736b7d36101ccb62ed
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568474"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556223"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성
 
@@ -31,7 +32,7 @@ ms.locfileid: "51568474"
 
 디바이스-게이트웨이 토폴로지에 필요한 신뢰를 설정하는 어떤 인증서 인프라도 만들 수 있습니다. 이 문서에서는 IoT Hub에서 [X.509 CA 보안](../iot-hub/iot-hub-x509ca-overview.md)을 사용하도록 설정하는 데 사용하는 것과 동일한 인증서 설정을 가정합니다. 여기에는 특정 IoT Hub에 연결된 X.509 CA 인증서(IoT Hub 소유자 CA) 및 이 CA로 서명된 일련의 인증서 및 Edge 디바이스용 CA가 포함됩니다.
 
-![게이트웨이 설치](./media/how-to-create-transparent-gateway/gateway-setup.png)
+![게이트웨이 인증서 설정](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
 게이트웨이는 연결을 시작할 때 다운스트림 디바이스에 해당하는 Edge 디바이스 CA 인증서를 나타냅니다. 다운스트림 디바이스는 Edge 디바이스 CA 인증서가 소유자 CA 인증서에서 서명했는지를 확인합니다. 이 프로세스를 사용하면 다운스트림 디바이스는 게이트웨이가 신뢰되는 원본에서 전송되었는지 확인할 수 있습니다.
 
@@ -40,7 +41,7 @@ ms.locfileid: "51568474"
 ## <a name="prerequisites"></a>필수 조건
 
 Azure IoT Edge 디바이스를 게이트웨이로 구성합니다. 다음 운영 체제를 위한 단계에 따라 개발 머신 또는 가상 머신을 IoT Edge 디바이스로 사용할 수 있습니다.
-* [Windows](./how-to-install-iot-edge-windows-with-windows.md)
+* [Windows](./how-to-install-iot-edge-windows.md)
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 
@@ -59,9 +60,9 @@ Windows 디바이스에서 테스트 인증서를 생성하려면 이 섹션의 
    >[!NOTE]
    >Windows 디바이스에 이미 OpenSSL을 설치한 경우 이 단계를 건너뛰어도 되지만 PATH 환경 변수에서 openssl.exe를 사용할 수 있는지 확인하세요.
 
-* **더 손쉬운 방법:** [타사 OpenSSL 이진 파일](https://wiki.openssl.org/index.php/Binaries)을 다운로드하여 설치합니다(예: [SourceForge의 이 프로젝트](https://sourceforge.net/projects/openssl/)). PATH 환경 변수에 openssl.exe에 대한 전체 경로를 추가합니다. 
+* **간편:** 타사 OpenSSL 이진 파일을 다운로드하여 설치합니다(예: [SourceForge의 이 프로젝트](https://sourceforge.net/projects/openssl/)). PATH 환경 변수에 openssl.exe에 대한 전체 경로를 추가합니다. 
    
-* **권장 사항:** 직접 또는 [vcpkg](https://github.com/Microsoft/vcpkg)를 통해 OpenSSL 소스 코드를 다운로드하고 머신에서 이진 파일을 빌드합니다. 아래에 나열된 지침은 vcpkg를 사용하여 간단한 단계를 통해 소스 코드를 다운로드하고, 컴파일하고, Windows 머신에 OpenSSL을 설치합니다.
+* **권장:** 직접 또는 [vcpkg](https://github.com/Microsoft/vcpkg)를 통해 OpenSSL 소스 코드를 다운로드하고 머신에서 이진 파일을 빌드합니다. 아래에 나열된 지침은 vcpkg를 사용하여 간단한 단계를 통해 소스 코드를 다운로드하고, 컴파일하고, Windows 머신에 OpenSSL을 설치합니다.
 
    1. vcpkg를 설치하려는 디렉터리로 이동합니다. 이 디렉터리를 *\<VCPKGDIR>* 이라고 부르겠습니다. 지침에 따라 [vcpkg](https://github.com/Microsoft/vcpkg)를 다운로드하고 설치합니다.
    
@@ -239,7 +240,7 @@ IoT Edge를 디바이스에 처음으로 설치하는 경우 Edge 에이전트�
 
 1. Azure Portal에서 IoT Hub로 이동합니다.
 
-2. **IoT Edge**로 이동하고 게이트웨이로 사용할 IoT Edge 장치를 선택합니다.
+2. **IoT Edge**로 이동하고 게이트웨이로 사용할 IoT Edge 디바이스를 선택합니다.
 
 3. **모듈 설정**을 선택합니다.
 
@@ -258,7 +259,11 @@ IoT Edge를 디바이스에 처음으로 설치하는 경우 Edge 에이전트�
 6. **템플릿 검토** 페이지에서 **제출**을 선택합니다.
 
 ## <a name="route-messages-from-downstream-devices"></a>다운스트림 디바이스에서 메시지 라우팅
-IoT Edge 런타임은 모듈에서 전송한 메시지와 같은 다운스트림 디바이스에서 전송된 메시지를 라우팅할 수 있습니다. 그러면 클라우드로 데이터를 보내기 전에 게이트웨이에서 실행되는 모듈에서 분석을 수행할 수 있습니다. 아래 경로는 `sensor`라는 다운스트림 디바이스에서 `ai_insights`라는 모듈로 메시지를 보내는 데 사용됩니다.
+IoT Edge 런타임은 모듈에서 전송한 메시지와 같은 다운스트림 디바이스에서 전송된 메시지를 라우팅할 수 있습니다. 그러면 클라우드로 데이터를 보내기 전에 게이트웨이에서 실행되는 모듈에서 분석을 수행할 수 있습니다. 
+
+현재 다운스트림 디바이스에서 보낸 메시지를 라우팅하는 방식은 모듈에 의해 전송 된 메시지와 구별됩니다. 모듈에서 보낸 메시지에는 모두 **connectionModuleId**라는 시스템 속성이 포함되지만 다운스트림 디바이스에서 보낸 메시지에는 포함되지 않습니다. 경로의 WHERE 절을 사용하여 해당 시스템 특성을 포함하는 메시지를 제외할 수 있습니다. 
+
+아래 경로는 다운스트림 디바이스에서 `ai_insights`라는 모듈로 메시지를 보내는 데 사용됩니다.
 
 ```json
 {
@@ -269,7 +274,7 @@ IoT Edge 런타임은 모듈에서 전송한 메시지와 같은 다운스트림
 }
 ```
 
-메시지 라우팅에 대한 자세한 내용은 [모듈 컴퍼지션](./module-composition.md)을 참조하세요.
+메시지 라우팅에 대한 자세한 내용은 [모듈 배포 및 경로 설정](./module-composition.md#declare-routes)을 참조하세요.
 
 [!INCLUDE [iot-edge-extended-ofline-preview](../../includes/iot-edge-extended-offline-preview.md)]
 

@@ -16,12 +16,12 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 07/07/2017
 ms.author: crdun
-ms.openlocfilehash: 223e9e35fcab347f9b5b8db01a9fd667b9f5d55d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0c00709417f3b393e8505dc7232abd5541c4e961
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488649"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52954972"
 ---
 # <a name="create-an-apache-cordova-app"></a>Apache Cordova 앱 만들기
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "38488649"
 * [Visual Studio Tools for Apache Cordova]
 * [활성 Azure 계정](https://azure.microsoft.com/pricing/free-trial/)
 
-Visual Studio를 바이패스하고 직접 Apache Cordova 명령줄을 사용할 수도 있습니다.  명령줄을 사용하면 Mac 컴퓨터에서 자습서를 완료하는 경우 유용합니다.  명령줄을 사용하여 Apache Cordova 클라이언트 응용 프로그램을 컴파일하는 작업은 이 자습서에서 다루지 않습니다.
+Visual Studio를 바이패스하고 직접 Apache Cordova 명령줄을 사용할 수도 있습니다.  명령줄을 사용하면 Mac 컴퓨터에서 자습서를 완료하는 경우 유용합니다.  명령줄을 사용하여 Apache Cordova 클라이언트 애플리케이션을 컴파일하는 작업은 이 자습서에서 다루지 않습니다.
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Azure 모바일 앱 백 엔드 만들기
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
@@ -74,7 +74,7 @@ SDK 사용 방법을 알아봅니다.
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2017]: http://www.visualstudio.com/
+[Visual Studio Community 2017]: https://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [오프라인 데이터]: app-service-mobile-offline-data-sync.md
 [인증]: app-service-mobile-auth.md

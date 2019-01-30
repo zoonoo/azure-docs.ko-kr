@@ -24,7 +24,7 @@ ms.locfileid: "29847814"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>저장소 계정 만들기 및 계정 액세스 키 회전
 
-이 스크립트는 Azure Storage 계정을 만들고, 새 저장소 계정의 액세스 키를 표시하고 나서, 키를 갱신(회전)합니다.
+이 스크립트는 Azure Storage 계정을 만들고, 새 스토리지 계정의 액세스 키를 표시하고 나서, 키를 갱신(회전)합니다.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -57,4 +57,4 @@ az group delete --name myResourceGroup
 
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
 
-추가 저장소 CLI 스크립트 샘플은 [Azure Blob Storage에 대한 Azure CLI 샘플](../blobs/storage-samples-blobs-cli.md)에서 찾을 수 있습니다.
+추가 스토리지 CLI 스크립트 샘플은 [Azure Blob Storage에 대한 Azure CLI 샘플](../blobs/storage-samples-blobs-cli.md)에서 찾을 수 있습니다.

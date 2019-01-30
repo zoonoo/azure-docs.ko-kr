@@ -22,11 +22,11 @@ ms.lasthandoff: 11/07/2018
 ms.locfileid: "51228320"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>.NET용 Media Services SDK의 다시 시도 논리
-Microsoft Azure 서비스에서 작업할 때 일시적 오류가 발생할 수 있습니다. 일시적 오류가 발생하는 대부분의 경우 몇 번 재시도하면 성공적으로 작동합니다. .NET용 Media Services SDK는 웹 요청, 쿼리 실행, 변경 저장, 저장소 작업에 의해 발생하는 예외 및 오류와 관련된 일시적 오류를 처리하기 위해 재시도 논리를 구현합니다.  기본적으로 .NET용 Media Services SDK는 응용 프로그램에 예외를 다시 던져넣기 전에 재시도를 네 번 실행합니다. 그러면 응용 프로그램의 코드가 이 예외를 제대로 처리해야 합니다.  
+Microsoft Azure 서비스에서 작업할 때 일시적 오류가 발생할 수 있습니다. 일시적 오류가 발생하는 대부분의 경우 몇 번 재시도하면 성공적으로 작동합니다. .NET용 Media Services SDK는 웹 요청, 쿼리 실행, 변경 저장, 저장소 작업에 의해 발생하는 예외 및 오류와 관련된 일시적 오류를 처리하기 위해 재시도 논리를 구현합니다.  기본적으로 .NET용 Media Services SDK는 애플리케이션에 예외를 다시 던져넣기 전에 재시도를 네 번 실행합니다. 그러면 애플리케이션의 코드가 이 예외를 제대로 처리해야 합니다.  
 
  다음은 Web Request, Storage, Query 및 SaveChanges 정책에 대한 간략한 지침입니다.  
 
-* Storage 정책은 blob 저장소 작업(자산 파일의 업로드 또는 다운로드)에 사용됩니다.  
+* Storage 정책은 blob 스토리지 작업(자산 파일의 업로드 또는 다운로드)에 사용됩니다.  
 * Web Request 정책은 일반적인 웹 요청(예: 인증 토큰을 가져오고 사용자 클러스터 엔드포인트를 해결하기 위함)에 사용됩니다.  
 * Query 정책은 REST(예: mediaContext.Assets.Where(…))에서 엔터티를 쿼리하는 데 사용됩니다.  
 * SaveChanges 정책은 서비스 내에서 데이터를 변경하는 무언가를 하는 것(예: 엔터티 생성, 엔터티 업데이트, 작업에 대한 서비스 함수 호출)에 대해 사용됩니다.  

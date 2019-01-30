@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory에서 관리되지 않는 디렉터리 또는 섀도 테넌트의 관리자 인수 | Microsoft Docs
+title: 관리되지 않는 디렉터리 인수 - 관리자 - Azure Active Directory | Microsoft Docs
 description: Microsoft Azure Active Directory의 관리되지 않는 디렉터리(섀도 테넌트)에서 DNS 도메인 이름을 인수하는 방법.
 services: active-directory
 documentationcenter: ''
@@ -10,19 +10,19 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 01/14/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 857d58d31565e413a207162202f1a680d7da7c65
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 44fe3b54e2dfedb71b50a75befce96121ecebe05
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250736"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320245"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Microsoft Azure Active Directory에서 관리자로서 관리되지 않는 디렉터리 인수
-이 문서에서는 Azure Active Directory (Azure AD)에서 관리 되지 않는 디렉터리의 DNS 도메인 이름을 인수할 두 가지 방법을 설명합니다. 셀프 서비스 사용자가 Microsoft AD를 사용하는 클라우드 서비스에 등록할 때, 전자 메일 도메인에 기반하여 관리되지 않는 Microsoft Azure AD 디렉토리에 추가됩니다. 셀프 서비스 또는 서비스에 대한 "바이럴" 등록에 대한 자세한 내용은 [Microsoft Azure Active Directory의 셀프 서비스 등록이란?](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)을 참조하세요.
+이 문서에서는 Azure Active Directory (Azure AD)에서 관리 되지 않는 디렉터리의 DNS 도메인 이름을 인수할 두 가지 방법을 설명합니다. 셀프 서비스 사용자가 Microsoft AD를 사용하는 클라우드 서비스에 등록할 때, 전자 메일 도메인에 기반하여 관리되지 않는 Microsoft Azure AD 디렉토리에 추가됩니다. 셀프 서비스 또는 서비스에 대한 "바이럴" 등록에 대한 자세한 내용은 [Microsoft Azure Active Directory의 셀프 서비스 가입이란?](directory-self-service-signup.md)을 참조하세요.
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>관리되지 않는 디렉터리를 인수하고자 하는 방법을 결정합니다.
 관리자 인수 과정 중에 [Microsoft Azure AD에 사용자 지정 도메인 이름 추가](../fundamentals/add-custom-domain.md)에서 설명된 대로 소유권을 증명할 수 있습니다. 다음 섹션에서 관리자 환경을 보다 자세히 설명하지만 요약 내용은 다음과 같습니다.
@@ -41,7 +41,7 @@ Office 365와 같이 SharePoint 및 OneDrive를 포함하는 일부 제품은 �
 
 3. Power BI에서 온 확인 전자 메일에서 **예, 바로 저입니다**를 선택합니다.
 
-4. Power BI 사용자 계정을 사용하여 [Office 365 관리자 센터](https://portal.office.com/adminportal/Home)에 로그인합니다. 관리되지 않는 테넌트에서 이미 확인된 도메인 이름의 **관리자 되기**에 관해 지시하는 메시지를 수신합니다. **예, 관리자가 되고 싶습니다**를 선택합니다.
+4. Power BI 사용자 계정을 사용하여 [Office 365 관리자 센터](https://portal.office.com/admintakeover)에 로그인합니다. 관리되지 않는 테넌트에서 이미 확인된 도메인 이름의 **관리자 되기**에 관해 지시하는 메시지를 수신합니다. **예, 관리자가 되고 싶습니다**를 선택합니다.
   
   ![관리자 되기에 대한 첫 번째 스크린샷](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -53,9 +53,9 @@ Office 365와 같이 SharePoint 및 OneDrive를 포함하는 일부 제품은 �
 
 앞의 단계를 완료하면 이제 Office 365에서 Fourth Coffee 테넌트의 전역 관리자가 되었습니다. 도메인 이름을 다른 Azure 서비스와 통합하려면 Office 365에서 제거하고 Azure에서 다른 관리되는 테넌트에 추가할 수 있습니다.
 
-### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Microsoft Azure AD에서 관리되는 테넌트에 도메인 이름 추가하기 
+### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Microsoft Azure AD에서 관리되는 테넌트에 도메인 이름 추가하기
 
-1. [Office 365 관리 센터](https://portal.office.com/adminportal/Home)를 엽니다.
+1. [Office 365 관리 센터](https://portal.office.com/admintakeover)를 엽니다.
 2. **사용자** 탭을 선택하고, 사용자 지정 도메인 이름을 사용하지 않는 *user@fourthcoffeexyz.onmicrosoft.com*와 같은 이름으로 새 사용자 계정을 만듭니다. 
 3. 새 사용자 계정에 Microsoft Azure AD 테넌트에 대한 전역 관리자 권한이 있는지 확인합니다.
 4. Office 365 관리 센터에서 **도메인** 탭을 연 후, 도메인 이름을 선택하고 **제거**를 선택합니다. 
@@ -108,7 +108,11 @@ SharePoint, OneDrive, 또는 Skype For Business를 포함하는 서비스 계획
 
 관리되지 않는 테넌트가 다른 지역에 있을 때는 이 키 및 템플릿이 이동되지 않습니다. 예를 들어, 관리되지 않는 테넌트는 유럽에 있고 사용자 소유의 테넌트는 북미 지역에 있을 수 있습니다. 
 
-개인용 RMS는 보호된 콘텐츠를 열기 위한 Azure AD 인증을 지원하도록 디자인되었지만, 사용자의 콘텐츠 보호를 방지하지 못 합니다. 사용자가 개인용 RMS 구독을 사용하여 콘텐츠를 보호하며 해당 키와 템플릿이 이동되지 않은 경우, 해당 콘텐츠는 도메인이 작업을 인계받은 후에 액세스할 수 없게 됩니다.    
+개인용 RMS는 보호된 콘텐츠를 열기 위한 Azure AD 인증을 지원하도록 디자인되었지만, 사용자의 콘텐츠 보호를 방지하지 못 합니다. 사용자가 개인용 RMS 구독을 사용하여 콘텐츠를 보호하며 해당 키와 템플릿이 이동되지 않은 경우, 해당 콘텐츠는 도메인이 작업을 인계받은 후에 액세스할 수 없게 됩니다.
+
+#### <a name="more-information-about-power-bi"></a>Power BI에 대한 자세한 정보
+
+외부 인수를 수행하면 인수 전에 생성했던 Power BI 콘텐츠가 [Power BI 보관 작업 영역](/power-bi/service-admin-power-bi-archived-workspace)에 배치됩니다. 새 테넌트에서 사용하려는 콘텐츠는 수동으로 마이그레이션해야 합니다.
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>ForceTakeover 옵션에 대한 Microsoft Azure AD PowerShell cmdlets
 [PowerShell 예](#powershell-example)에서 사용되는 이러한 cmdlet을 참조할 수 있습니다.

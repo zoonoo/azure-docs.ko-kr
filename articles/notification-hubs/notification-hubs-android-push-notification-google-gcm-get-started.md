@@ -4,8 +4,8 @@ description: 이 자습서에서 Azure Notification Hubs 및 Google Firebase Clo
 services: notification-hubs
 documentationcenter: android
 keywords: 푸시 알림,푸시알림,android 푸시 알림
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 8268c6ef-af63-433c-b14e-a20b04a0342a
 ms.service: notification-hubs
@@ -14,20 +14,22 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/05/2018
-ms.author: dimazaid
-ms.openlocfilehash: dc2535bb8cae91e5df4554cdbc4239a5e81a4d90
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: 05caf83ffbd75ffdc66f9e31e4b34f2303c2024c
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616268"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448859"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시
+
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>개요
-이 자습서에서는 Azure Notification Hubs를 사용하여 Android 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다.
+
+이 자습서에서는 Azure Notification Hubs를 사용하여 Android 애플리케이션에 푸시 알림을 보내는 방법을 보여 줍니다.
 GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 앱을 만듭니다.
 
 > [!IMPORTANT]
@@ -35,7 +37,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 
 이 자습서에 대해 완료된 코드는 GitHub의 [여기](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted)서 다운로드할 수 있습니다.
 
-이 자습서에서는 다음 작업을 수행합니다. 
+이 자습서에서는 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
 > * Google Cloud Messaging을 지원하는 프로젝트 만들기
@@ -45,48 +47,54 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. 
-- [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797).
+* **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
+* [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797).
 
 ## <a name="creating-a-project-that-supports-google-cloud-messaging"></a>Google Cloud Messaging을 지원하는 프로젝트 만들기
+
 [!INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ## <a name="create-a-notification-hub"></a>알림 허브 만들기
+
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 ### <a name="configure-gcm-setting-for-the-notification-hub"></a>알림 허브에 대한 GCM 설정 구성
 
-1. **알림 설정**에서 **Google(GCM)** 을 선택합니다. 
-2. Google Cloud Console에서 얻은 **API 키**를 입력합니다. 
-3. 도구 모음에서 **저장**을 선택합니다. 
+1. **알림 설정**에서 **Google(GCM)** 을 선택합니다.
+2. Google Cloud Console에서 얻은 **API 키**를 입력합니다.
+3. 도구 모음에서 **저장**을 선택합니다.
 
     ![Azure Notification Hubs - Google(GCM)](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
 
 이제 알림 허브가 GCM과 작동하도록 구성되었으며, 푸시 알림을 받고 보내도록 앱을 등록하기 위한 연결 문자열이 있습니다.
 
 ## <a id="connecting-app"></a>알림 허브에 앱 연결
+
 ### <a name="create-a-new-android-project"></a>새 Android 프로젝트 만들기
+
 1. Android Studio에서 새 Android Studio 프로젝트를 시작합니다.
-   
+
    ![Android Studio - 새 프로젝트][13]
 2. **휴대폰 및 태블릿** 폼 팩터와 지원할 **최소 SDK**를 선택합니다. 그런 후 **Next** 를 클릭합니다.
-   
+
    ![Android Studio - 프로젝트 만들기 워크플로][14]
 3. **빈 활동**을 기본 활동으로 선택하고 **다음**, **마침**을 차례로 클릭합니다.
 
 ### <a name="add-google-play-services-to-the-project"></a>프로젝트에 Google Play Services 추가
+
 [!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
 
 ### <a name="adding-azure-notification-hubs-libraries"></a>Azure Notification Hubs 라이브러리 추가
+
 1. **앱**의 `Build.Gradle` 파일에서 **종속성** 섹션에 다음 줄을 추가합니다.
-   
-    ```java
-        compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
-        compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
+
+    ```text
+    compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
+    compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 2. **종속성** 섹션 뒤에 다음 리포지토리를 추가합니다.
-   
-    ```java
+
+    ```text
     repositories {
         maven {
             url "http://dl.bintray.com/microsoftazuremobile/SDK"
@@ -94,22 +102,23 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
     }
     ```
 
-### <a name="updating-the-androidmanifestxml"></a>AndroidManifest.xml을 업데이트합니다.
-1. GCM을 지원하기 위해, 코드에 [Google 인스턴스 ID API](https://developers.google.com/instance-id/)를 사용하여 [등록 토큰 가져오기](https://developers.google.com/cloud-messaging/android/client#sample-register)에 사용되는 인스턴스 ID 수신기 서비스를 구현합니다. 이 자습서에서 클래스 이름은 `MyInstanceIDService`입니다. 
-   
+### <a name="updating-the-projects-androidmanifestxml"></a>프로젝트의 AndroidManifest.xml 업데이트
+
+1. GCM을 지원하기 위해, 코드에 [Google 인스턴스 ID API](https://developers.google.com/instance-id/)를 사용하여 [등록 토큰 가져오기](https://developers.google.com/cloud-messaging/android/client#sample-register)에 사용되는 인스턴스 ID 수신기 서비스를 구현합니다. 이 자습서에서 클래스 이름은 `MyInstanceIDService`입니다.
+
     AndroidManifest.xml 파일의 `<application>` 태그 내부에 다음 서비스 정의를 추가합니다. `<your package>` 자리 표시자를 `AndroidManifest.xml` 파일의 맨 위에 표시된 실제 패키지 이름으로 바꿉니다.
   
-    ```xml 
+    ```xml
     <service android:name="<your package>.MyInstanceIDService" android:exported="false">
         <intent-filter>
             <action android:name="com.google.android.gms.iid.InstanceID"/>
         </intent-filter>
     </service>
     ```
-2. 응용 프로그램이 인스턴스 ID API에서 GCM 등록 토큰을 수신하면 토큰을 사용하여 [Azure Notification Hub에 등록](notification-hubs-push-notification-registration-management.md)합니다. 등록은 `RegistrationIntentService`라는 `IntentService`를 사용하여 백그라운드에서 수행됩니다. 이 서비스는 [GCM 등록 토큰을 새로 고칩니다](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
-   
-    AndroidManifest.xml 파일의 `<application>` 태그 내부에 다음 서비스 정의를 추가합니다. `<your package>` 자리 표시자를 `AndroidManifest.xml` 파일의 맨 위에 표시된 실제 패키지 이름으로 바꿉니다. 
-   
+2. 애플리케이션이 인스턴스 ID API에서 GCM 등록 토큰을 수신하면 토큰을 사용하여 [Azure Notification Hub에 등록](notification-hubs-push-notification-registration-management.md)합니다. 등록은 `RegistrationIntentService`라는 `IntentService`를 사용하여 백그라운드에서 수행됩니다. 이 서비스는 [GCM 등록 토큰을 새로 고칩니다](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
+
+    AndroidManifest.xml 파일의 `<application>` 태그 내부에 다음 서비스 정의를 추가합니다. `<your package>` 자리 표시자를 `AndroidManifest.xml` 파일의 맨 위에 표시된 실제 패키지 이름으로 바꿉니다.
+
     ```xml
     <service
         android:name="<your package>.RegistrationIntentService"
@@ -117,7 +126,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
     </service>
     ```
 3. 알림을 수신할 수신기를 정의합니다. 다음 수신기 정의를 `<application>` 태그 안의 AndroidManifest.xml 파일에 추가합니다. `<your package>` 자리 표시자를 `AndroidManifest.xml` 파일의 맨 위에 표시된 실제 패키지 이름으로 바꿉니다.
-   
+
     ```xml
     <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
         android:permission="com.google.android.c2dm.permission.SEND">
@@ -128,9 +137,9 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
     </receiver>
     ```
 4. `</application>` 태그 아래에 다음 필수 GCM 권한을 추가합니다. `<your package>`를 `AndroidManifest.xml` 파일 맨 위에 있는 패키지 이름으로 바꿉니다.
-   
+
     이러한 권한에 대한 자세한 내용은 [Android용 GCM 클라이언트 앱 설치](https://developers.google.com/cloud-messaging/android/client#manifest)를 참조하세요.
-   
+
     ```xml
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
@@ -140,31 +149,32 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
     <permission android:name="<your package>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
     <uses-permission android:name="<your package>.permission.C2D_MESSAGE"/>
     ```
+
 ### <a name="adding-code"></a>코드 추가
-1. 프로젝트 뷰에서 **앱** > **src** > **기본** > **java**를 확장합니다. **java** 아래의 패키지 폴더를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**, **Java 클래스**를 차례로 클릭합니다. `NotificationSettings`(이)라는 새 클래스를 추가합니다. 
-   
+
+1. 프로젝트 뷰에서 **앱** > **src** > **기본** > **java**를 확장합니다. **java** 아래의 패키지 폴더를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**, **Java 클래스**를 차례로 클릭합니다. `NotificationSettings`(이)라는 새 클래스를 추가합니다.
+
     ![Android Studio - 새 Java 프로젝트][6]
-   
+
     `NotificationSettings` 클래스에 대한 다음 코드에서 세 개의 자리 표시자를 업데이트합니다.
-   
-   * **SenderId**: 이전에 [Google 클라우드 콘솔](http://cloud.google.com/console)에서 얻은 프로젝트 번호입니다.
-   * **HubListenConnectionString**: 허브의 **DefaultListenAccessSignature** 연결 문자열입니다. [Azure Portal]에 있는 허브의 **설정** 페이지에서 **액세스 정책**을 클릭하여 이 연결 문자열을 복사할 수 있습니다.
-   * **HubName**: [Azure Portal]의 허브 페이지에 표시되는 알림 허브 이름을 사용합니다.
-     
+
+   * `SenderId`: 이전에 [Google 클라우드 콘솔](http://cloud.google.com/console)에서 얻은 프로젝트 번호입니다.
+   * `HubListenConnectionString`: 허브에 대한 `DefaultListenAccessSignature` 연결 문자열입니다. [Azure Portal]에 있는 허브의 **설정** 페이지에서 **액세스 정책**을 클릭하여 이 연결 문자열을 복사할 수 있습니다.
+   * `HubName`: [Azure Portal]의 허브 페이지에 표시되는 알림 허브 이름을 사용합니다.
+
      `NotificationSettings` 코드:
-     
+
     ```java
     public class NotificationSettings {
-    
         public static String SenderId = "<Your project number>";
         public static String HubName = "<Your HubName>";
         public static String HubListenConnectionString = "<Your default listen connection string>";
     }
     ```
 2. `MyInstanceIDService`라는 또 다른 새 클래스를 추가합니다. 이 클래스는 인스턴스 ID 수신기 서비스 구현입니다.
-   
+
     이 클래스에 대한 코드는 `IntentService`를 호출하여 백그라운드에서 [FCM 토큰을 새로 고칩니다](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
-   
+
     ```java
     import android.content.Intent;
     import android.util.Log;
@@ -184,10 +194,10 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
         }
     };
     ```
-1. `RegistrationIntentService`라는 프로젝트에 또 다른 새 클래스를 추가합니다. 이 클래스는 [FCM 토큰 새로 고침](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) 및 [알림 허브 등록](notification-hubs-push-notification-registration-management.md)을 처리하는 `IntentService`를 구현합니다.
-   
+3. `RegistrationIntentService`라는 프로젝트에 또 다른 새 클래스를 추가합니다. 이 클래스는 [FCM 토큰 새로 고침](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) 및 [알림 허브 등록](notification-hubs-push-notification-registration-management.md)을 처리하는 `IntentService`를 구현합니다.
+
     이 클래스에 대해 다음 코드를 사용합니다.
-   
+
     ```java
     import android.app.IntentService;
     import android.content.Intent;
@@ -210,7 +220,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
         }
 
         @Override
-        protected void onHandleIntent(Intent intent) {        
+        protected void onHandleIntent(Intent intent) {
             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
             String resultString = null;
             String regID = null;
@@ -218,13 +228,13 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
             try {
                 InstanceID instanceID = InstanceID.getInstance(this);
                 String token = instanceID.getToken(NotificationSettings.SenderId,
-                        GoogleCloudMessaging.INSTANCE_ID_SCOPE);        
+                        GoogleCloudMessaging.INSTANCE_ID_SCOPE);
                 Log.i(TAG, "Got GCM Registration Token: " + token);
 
                 // Storing the registration id that indicates whether the generated token has been
                 // sent to your server. If it is not stored, send the token to your server,
                 // otherwise your server should have already received the token.
-                if ((regID=sharedPreferences.getString("registrationID", null)) == null) {        
+                if ((regID=sharedPreferences.getString("registrationID", null)) == null) {
                     NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
                             NotificationSettings.HubListenConnectionString, this);
                     Log.i(TAG, "Attempting to register with NH using token : " + token);
@@ -236,7 +246,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
                     // regID = hub.register(token, "tag1", "tag2").getRegistrationId();
 
                     resultString = "Registered Successfully - RegId : " + regID;
-                    Log.i(TAG, resultString);        
+                    Log.i(TAG, resultString);
                     sharedPreferences.edit().putString("registrationID", regID ).apply();
                 } else {
                     resultString = "Previously Registered Successfully - RegId : " + regID;
@@ -254,9 +264,9 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
         }
     }
     ```
-2. `MainActivity` 클래스에서 클래스 시작 부분에 다음 `import` 문을 추가합니다.
+4. `MainActivity` 클래스에서 클래스 시작 부분에 다음 `import` 문을 추가합니다.
 
-    ```java   
+    ```java
     import com.google.android.gms.common.ConnectionResult;
     import com.google.android.gms.common.GoogleApiAvailability;
     import com.google.android.gms.gcm.*;
@@ -266,17 +276,17 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
     import android.widget.Toast;
     import android.content.Intent;
     ```
-3. 클래스의 맨 위에 다음과 같은 private 멤버를 추가합니다. 이 코드는 [Google 권장 사항에 따라 Google Play Services의 가용성을 확인](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk)합니다.
-   
+5. 클래스의 맨 위에 다음과 같은 private 멤버를 추가합니다. 이 코드는 [Google 권장 사항에 따라 Google Play Services의 가용성을 확인](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk)합니다.
+
     ```java
     public static MainActivity mainActivity;
-    public static Boolean isVisible = false;    
+    public static Boolean isVisible = false;
     private GoogleCloudMessaging gcm;
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     private static final String TAG = "MainActivity";
     ```
-4. `MainActivity` 클래스에서 Google Play Services 가용성에 다음 메서드를 추가합니다. 
-   
+6. `MainActivity` 클래스에서 Google Play Services 가용성에 다음 메서드를 추가합니다.
+
     ```java
     /**
         * Check the device to make sure it has the Google Play Services APK. If
@@ -300,8 +310,8 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
         return true;
     }
     ```
-5. `MainActivity` 클래스에서 `IntentService`를 호출하기 전에 Google Play 서비스를 확인하는 다음 코드를 추가하여 FCM 등록 토큰을 가져오고 알림 허브에 등록합니다.
-   
+7. `MainActivity` 클래스에서 `IntentService`를 호출하기 전에 Google Play 서비스를 확인하는 다음 코드를 추가하여 FCM 등록 토큰을 가져오고 알림 허브에 등록합니다.
+
     ```java
     public void registerWithNotificationHubs()
     {
@@ -314,8 +324,8 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
         }
     }
     ```
-6. `MainActivity` 클래스의 `OnCreate` 메서드에서 활동이 생성되면 등록 프로세스를 시작하는 다음 코드를 추가합니다.
-   
+8. `MainActivity` 클래스의 `OnCreate` 메서드에서 활동이 생성되면 등록 프로세스를 시작하는 다음 코드를 추가합니다.
+
     ```java
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -327,8 +337,8 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
         registerWithNotificationHubs();
     }
     ```
-7. `MainActivity` 에 이러한 추가 메서드를 추가하여 앱 상태를 확인하고 앱에서 상태를 보고합니다.
-   
+9. `MainActivity` 에 이러한 추가 메서드를 추가하여 앱 상태를 확인하고 앱에서 상태를 보고합니다.
+
     ```java
     @Override
     protected void onStart() {
@@ -365,14 +375,14 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
         });
     }
     ```
-8. `ToastNotify` 메서드는 *"Hello World"* `TextView` 컨트롤을 사용하여 앱에서 영구적으로 상태 및 알림을 보고합니다. activity_main.xml 레이아웃에서 해당 컨트롤에 대한 다음 ID를 추가합니다.
-   
-    ```
+10. `ToastNotify` 메서드는 *"Hello World"* `TextView` 컨트롤을 사용하여 앱에서 영구적으로 상태 및 알림을 보고합니다. activity_main.xml 레이아웃에서 해당 컨트롤에 대한 다음 ID를 추가합니다.
+
+    ```xml
     android:id="@+id/text_hello"
     ```
-9. AndroidManifest.xml에서 정의한 수신기에 대한 하위 클래스를 추가합니다. `MyHandler`라는 프로젝트에 또 다른 새 클래스를 추가합니다.
-10. 그런 다음 `MyHandler.java`의 맨 위에 다음 import 문을 추가합니다.
-    
+11. AndroidManifest.xml에서 정의한 수신기에 대한 하위 클래스를 추가합니다. `MyHandler`라는 프로젝트에 또 다른 새 클래스를 추가합니다.
+12. 그런 다음 `MyHandler.java`의 맨 위에 다음 import 문을 추가합니다.
+
     ```java
     import android.app.NotificationManager;
     import android.app.PendingIntent;
@@ -384,10 +394,10 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
     import android.net.Uri;
     import android.media.RingtoneManager;
     ```
-11. `MyHandler` 클래스에 대해 다음 코드를 추가하여 `com.microsoft.windowsazure.notifications.NotificationsHandler`의 하위 클래스로 만듭니다.
-    
+13. `MyHandler` 클래스에 대해 다음 코드를 추가하여 `com.microsoft.windowsazure.notifications.NotificationsHandler`의 하위 클래스로 만듭니다.
+
     이 코드는 `OnReceive` 메서드를 재정의하여 처리기에서 받은 알림을 보고합니다. 또한 처리기는 `sendNotification()` 메서드를 사용하여 Android 알림 관리자에 푸시 알림을 보냅니다. `sendNotification()` 메서드는 앱이 실행되지 않을 때, 알림이 수신될 때 실행해야 합니다.
-    
+
     ```java
     public class MyHandler extends NotificationsHandler {
         public static final int NOTIFICATION_ID = 1;
@@ -431,44 +441,48 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
         }
     }
     ```
-12. Android Studio의 메뉴 모음에서 **빌드** > **프로젝트 다시 빌드**를 클릭하여 코드에 오류가 없는지 확인합니다.
+14. Android Studio의 메뉴 모음에서 **빌드** > **프로젝트 다시 빌드**를 클릭하여 코드에 오류가 없는지 확인합니다.
 
 ## <a name="testing-your-app"></a>앱 테스트
-### <a name="run-the-mobile-application"></a>모바일 응용 프로그램 실행
+
+### <a name="run-the-mobile-application"></a>모바일 애플리케이션 실행
+
 1. 앱을 실행하고 등록에 성공한 경우 등록 ID가 보고되는지 확인합니다.
-   
+
       ![Android에서 테스트 - 채널 등록][18]
 2. 허브에 등록된 모든 Android 디바이스로 보낼 알림 메시지를 입력합니다.
-   
+
       ![Android에서 테스트 - 메시지 보내기][19]
 
 3. **알림 보내기**를 누릅니다. 앱을 실행 중인 모든 디바이스에는 푸시 알림 메시지가 있는 `AlertDialog` 인스턴스가 표시됩니다. 앱이 실행되지는 않지만 이전에 푸시 알림이 등록된 디바이스는 Android 알림 관리자에서 알림을 받습니다. 왼쪽 위 모서리에서 아래로 살짝 밀어 알림 메시지를 볼 수 있습니다.
-   
+
       ![Android에서 테스트 - 알림][21]
 
 ### <a name="test-send-push-notifications-from-the-azure-portal"></a>Azure Portal에서 푸시 알림 보내기 테스트
-[Azure Portal]을 통해 푸시 알림을 전송하여 앱에서 푸시 알림 받기를 테스트할 수 있습니다. 
 
-1. **문제 해결** 섹션에서 **테스트 보내기**를 선택합니다. 
+[Azure Portal]을 통해 푸시 알림을 전송하여 앱에서 푸시 알림 받기를 테스트할 수 있습니다.
+
+1. **문제 해결** 섹션에서 **테스트 보내기**를 선택합니다.
 2. **플랫폼**에 대해 **Android**를 선택합니다.
-3. **보내기**를 선택하여 테스트 알림을 보냅니다. 
-4. Android 디바이스에서 알림 메시지가 표시되는지 확인합니다. 
+3. **보내기**를 선택하여 테스트 알림을 보냅니다.
+4. Android 디바이스에서 알림 메시지가 표시되는지 확인합니다.
 
     ![Azure Notification Hubs - 전송 테스트](./media/notification-hubs-android-get-started/notification-hubs-test-send.png)
 
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
 #### <a name="push-notifications-in-the-emulator"></a>에뮬레이터의 푸시 알림
+
 에뮬레이터 내부에서 푸시 알림을 테스트하려는 경우 에뮬레이터 이미지가 앱에 대해 선택한 Google API 수준을 지원하는지 확인합니다. 이미지에서 네이티브 Google API를 지원하지 않으면 **SERVICE\_NOT\_AVAILABLE** 예외가 발생합니다.
 
 또한 **설정** > **계정**에서 실행 중인 에뮬레이터에 Google 계정을 추가했는지 확인합니다. 그렇지 않으면 GCM 등록 시 **AUTHENTICATION\_FAILED** 예외가 발생할 수 있습니다.
 
-
 ## <a name="optional-send-push-notifications-directly-from-the-app"></a>(선택 사항) 앱에서 바로 푸시 알림 보내기
-일반적으로, 백 엔드 서버를 사용하여 알림을 보냅니다. 경우에 따라, 클라이언트 응용 프로그램에서 직접 푸시 알림을 보낼 수 있기를 원하기도 합니다. 이 섹션은 [Azure 알림 허브 REST API](https://msdn.microsoft.com/library/azure/dn223264.aspx)를 사용하여 클라이언트에서 알림을 보내는 방법을 설명합니다.
+
+일반적으로, 백 엔드 서버를 사용하여 알림을 보냅니다. 경우에 따라, 클라이언트 애플리케이션에서 직접 푸시 알림을 보낼 수 있기를 원하기도 합니다. 이 섹션은 [Azure 알림 허브 REST API](https://msdn.microsoft.com/library/azure/dn223264.aspx)를 사용하여 클라이언트에서 알림을 보내는 방법을 설명합니다.
 
 1. Android Studio 프로젝트 뷰에서 **앱** > **src** > **기본** > **자원** > **레이아웃**을 확장합니다. `activity_main.xml` 레이아웃 파일을 열고 **텍스트** 탭을 클릭하여 파일의 텍스트 내용을 업데이트합니다. 아래 코드로 업데이트하여 알림 허브에 푸시 알림 메시지를 보내는 새 `Button` 및 `EditText` 컨트롤을 추가합니다. 이 코드를 맨 아래의 `</RelativeLayout>`바로 앞에 추가합니다.
-   
+
     ```xml
     <Button
     android:layout_width="wrap_content"
@@ -490,19 +504,19 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
     ```
 2. Android Studio 프로젝트 뷰에서 **앱** > **src** > **기본** > **자원** > **값**을 확장합니다. `strings.xml` 파일을 열고 새 `Button` 및 `EditText` 컨트롤에서 참조하는 문자열 값을 추가합니다. 파일 맨 아래에서 `</resources>` 바로 앞에 다음 줄을 추가합니다.
 
-    ```xml   
+    ```xml
     <string name="send_button">Send Notification</string>
     <string name="notification_message_hint">Enter notification message text</string>
     ```
 3. `NotificationSetting.java` 파일에서 `NotificationSettings` 클래스에 다음 설정을 추가합니다.
-   
+
     허브에 **DefaultFullSharedAccessSignature** 연결 문자열을 사용하여 `HubFullAccess`을 업데이트합니다. 알림 허브에 대한 **설정** 페이지에서 **액세스 정책**을 클릭하여 [Azure Portal]에서 이 연결 문자열을 복사할 수 있습니다.
-   
+
     ```java
     public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
     ```
 4. `MainActivity.java` 파일에서 시작 부분에 다음 `import` 문을 추가합니다.
-   
+
     ```java
     import java.io.BufferedOutputStream;
     import java.io.BufferedReader;
@@ -517,17 +531,17 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
     import android.view.View;
     import android.widget.EditText;
     ```
-5. `MainActivity.java` 파일에서 다음 멤버를 `MainActivity` 클래스 위에 추가합니다.    
-   
+5. `MainActivity.java` 파일에서 다음 멤버를 `MainActivity` 클래스 위에 추가합니다.
+
     ```java
     private String HubEndpoint = null;
     private String HubSasKeyName = null;
     private String HubSasKeyValue = null;
     ```
 6. 알림 허브로 메시지를 보낼 POST 요청을 인증하기 위해 SaS(Software Access Signature) 토큰을 만듭니다. 연결 문자열에서 키 데이터를 구문 분석한 다음, [일반적인 개념](https://msdn.microsoft.com/library/azure/dn495627.aspx) REST API 참조에 설명된 대로 SaS 토큰을 만듭니다. 다음 코드는 구현 예제입니다.
-   
+
     `MainActivity.java`에서 `MainActivity` 클래스에 다음 메서드를 추가하여 연결 문자열의 구문을 분석합니다.
-   
+
     ```java
     /**
         * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx
@@ -556,7 +570,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
     }
     ```
 7. `MainActivity.java`에서 `MainActivity` 클래스에 다음 메서드를 추가하여 SaS 인증 토큰을 만듭니다.
-   
+
     ```java
     /**
         * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx to
@@ -611,7 +625,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
     }
     ```
 8. `MainActivity.java`에서 `MainActivity` 클래스에 다음 메서드를 추가하여 **알림 보내기** 단추 클릭을 처리하고 내장된 REST API를 사용하여 허브에 푸시 알림 메시지를 보냅니다.
-   
+
     ```java
     /**
         * Send Notification button click handler. This method parses the
@@ -645,7 +659,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
                         urlConnection.setDoOutput(true);
 
                         // Authenticate the POST request with the SaS token
-                        urlConnection.setRequestProperty("Authorization", 
+                        urlConnection.setRequestProperty("Authorization",
                             generateSasToken(url.toString()));
 
                         // Notification format should be GCM
@@ -654,7 +668,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
                         // Include any tags
                         // Example below targets 3 specific tags
                         // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
-                        // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
+                        // urlConnection.setRequestProperty("ServiceBusNotification-Tags",
                         //        "tag1 || tag2 || tag3");
 
                         // Send notification message
@@ -693,39 +707,32 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
     ```
 
 ## <a name="next-steps"></a>다음 단계
+
 이 자습서에서는 백 엔드에 등록된 모든 Android 디바이스로 브로드캐스트 알림을 보냈습니다. 특정 Android 디바이스로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.  
 
- > [!div class="nextstepaction"] 
- > [특정 장치에 알림 푸시](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md) 
-
+ > [!div class="nextstepaction"]
+ > [특정 디바이스에 알림 푸시](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 
 <!-- Images. -->
 [6]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
-
 [12]: ./media/notification-hubs-android-get-started/notification-hub-connection-strings.png
-
 [13]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-new-project.png
 [14]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-choose-form-factor.png
 [15]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app4.png
 [16]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app5.png
 [17]: ./media/notification-hubs-android-get-started/notification-hub-create-android-app6.png
-
 [18]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-registered.png
 [19]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-set-message.png
-
 [20]: ./media/notification-hubs-android-get-started/notification-hub-create-console-app.png
 [21]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-received-message.png
 [22]: ./media/notification-hubs-android-get-started/notification-hub-scheduler1.png
 [23]: ./media/notification-hubs-android-get-started/notification-hub-scheduler2.png
 [29]: ./media/mobile-services-android-get-started-push/mobile-eclipse-import-Play-library.png
-
 [30]: ./media/notification-hubs-android-get-started/notification-hubs-debug-hub-gcm.png
-
 [31]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-add-ui.png
 
-
 <!-- URLs. -->
-[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md 
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx

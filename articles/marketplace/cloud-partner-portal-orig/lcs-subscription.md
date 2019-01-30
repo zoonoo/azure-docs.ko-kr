@@ -14,15 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 2d75a432e84c3490186da6f8342562fddcaa32e1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: ee6c18d1d0dda691f8b108cbe70e05eedae606e5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807070"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446330"
 ---
-<a name="lcs-subscription"></a>LCS 구독
-================
+# <a name="lcs-subscription"></a>LCS 구독
 
 이 자습서에서는 구독을 만드는 방법을 알아봅니다. 이 구독에서는 환경을 배포할 수 있는 Microsoft Online 테스트 테넌트 및 Microsoft Dynamics Lifecycle Services 프로젝트를 제공합니다. 또한 Microsoft Online 테넌트에서 추가 사용자도 설정하며, 다음 서비스 관리 기능을 사용해 봅니다. 이 문서의 작업을 통해 익힐 수 있는 기술은 다음과 같습니다.
 
@@ -32,14 +31,13 @@ ms.locfileid: "48807070"
 - Microsoft Azure Active Directory 및 클라이언트에 사용자 더 추가
 - 구독 전자 메일에서 리소스 확인
 
-<a name="key-terms"></a>주요 용어
-=========
+## <a name="key-terms"></a>주요 용어
 
 **Microsoft Online Services 테넌트** - 조직의 모든 구독과 사용자가 포함된 그룹인 테넌트는 Microsoft Online Services 첫 번째 구독과 동시에 생성됩니다.
 
 **구독** - 구독에서는 온라인 환경이 제공됩니다. 이 환경에서는 클라우드의 Dynamics 365 for Operations를 사용해 볼 수 있으며, 직접 개발한 사용자 지정 기능을 클라우드에 배포하는 방법도 파악할 수 있습니다.
 
-**Microsoft Azure Active Directory** - 클라우드 환경에 포함된 Azure AD(Active Directory)에서는 온-프레미스 환경에서와 비슷한 방식으로 온라인 응용 프로그램의 사용자/그룹/보안 역할/라이선스를 관리할 수 있습니다.
+**Microsoft Azure Active Directory** - 클라우드 환경에 포함된 Azure AD(Active Directory)에서는 온-프레미스 환경에서와 비슷한 방식으로 온라인 애플리케이션의 사용자/그룹/보안 역할/라이선스를 관리할 수 있습니다.
 
 **사용자** - 조직에서 구독한 서비스의 관리자는 Azure AD에서 관리됩니다. 테넌트의 모든 사용자를 추가하고 보안 역할에 할당할 수 있습니다.
 

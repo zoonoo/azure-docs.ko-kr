@@ -1,23 +1,24 @@
 ---
 title: Azure Cosmos DB의 지역 현재 상태
-description: 이 문서에서는 Azure Cosmos DB 및 사용할 수 있는 다른 클라우드 환경의 지역 현재 상태에 대해 설명합니다.
+description: 이 문서에서는 Azure Cosmos DB 및 여러 클라우드 환경의 지역 현재 상태에 대해 설명합니다.
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 7c060fae389766e89a84e2f6779209ad31edb031
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 5a4523405f7a9182bb5123ebacaebc9a9e5ae9a9
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52166802"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038666"
 ---
 # <a name="regional-presence-of-azure-cosmos-db"></a>Azure Cosmos DB의 지역 현재 상태
 
 현재, Azure는 [54개 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 사용할 수 있습니다. Azure Cosmos DB는 Azure의 기본 서비스이며 Azure를 사용할 수 있는 모든 지역에서 사용할 수 있습니다.
 
-![Azure Cosmos DB의 지역별 가용성](./media/regional-presence/regional-presence.png)
+[![Azure Cosmos DB를 사용할 수 있는 지역](./media/regional-presence/regional-presence.png)](./media/regional-presence/regional-presence.png#lightbox)
 
 Cosmos DB는 고객이 사용할 수 있는 5개의 고유한 Azure 클라우드 환경에서 사용할 수 있습니다.
 

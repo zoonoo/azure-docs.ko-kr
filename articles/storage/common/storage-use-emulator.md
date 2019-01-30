@@ -1,6 +1,6 @@
 ---
 title: 개발 및 테스트에 Azure Storage 에뮬레이터 사용 | Microsoft Docs
-description: Azure Storage 에뮬레이터는 Azure Storage 응용 프로그램에 대한 개발 및 테스트에 대해 무료 로컬 개발 환경을 제공합니다. 요청을 인증하는 방법, 응용 프로그램에서 에뮬레이터에 연결하는 방법 및 명령줄 도구를 사용하는 방법을 알아봅니다.
+description: Azure Storage 에뮬레이터는 Azure Storage 애플리케이션에 대한 개발 및 테스트에 대해 무료 로컬 개발 환경을 제공합니다. 요청을 인증하는 방법, 애플리케이션에서 에뮬레이터에 연결하는 방법 및 명령줄 도구를 사용하는 방법을 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 529612aeecfcea1d775c2f4359c5135ca3c6885e
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 22c7adc5db044568b4aa49dbbb0e36d2c919f6a6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052546"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629631"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure Storage 에뮬레이터 사용
 
-Microsoft Azure 저장소 에뮬레이터는 개발 목적으로 Azure Blob, 큐 및 Table service를 에뮬레이트하는 로컬 환경을 제공합니다. 저장소 에뮬레이터를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 저장소 서비스에 대해 응용 프로그램을 테스트할 수 있습니다. 에뮬레이터에서 응용 프로그램이 작동하는 방식에 만족하는 경우 Azure 저장소 계정을 클라우드에서 사용하도록 전환할 수 있습니다.
+Microsoft Azure 저장소 에뮬레이터는 개발 목적으로 Azure Blob, 큐 및 Table service를 에뮬레이트하는 로컬 환경을 제공합니다. 저장소 에뮬레이터를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 저장소 서비스에 대해 애플리케이션을 테스트할 수 있습니다. 에뮬레이터에서 애플리케이션이 작동하는 방식에 만족하는 경우 Azure 스토리지 계정을 클라우드에서 사용하도록 전환할 수 있습니다.
 
 ## <a name="get-the-storage-emulator"></a>저장소 에뮬레이터 가져오기
 저장소 에뮬레이터는 [Microsoft Azure SDK](https://azure.microsoft.com/downloads/)의 일부로 제공됩니다. [독립 실행형 설치 관리자](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409)(직접 다운로드)를 사용하여 저장소 에뮬레이터를 설치할 수도 있습니다. 저장소 에뮬레이터를 설치하려면 컴퓨터에 대한 관리자 권한이 있어야 합니다.
@@ -41,7 +41,7 @@ Microsoft Azure 저장소 에뮬레이터는 개발 목적으로 Azure Blob, 큐
 Azure Storage 에뮬레이터를 시작하려면:
 1. **시작** 단추를 선택하거나 **Windows** 키를 누릅니다.
 2. `Azure Storage Emulator`를 입력하여 시작합니다.
-3. 표시된 응용 프로그램 목록에서 에뮬레이터를 선택합니다.
+3. 표시된 애플리케이션 목록에서 에뮬레이터를 선택합니다.
 
 저장소 에뮬레이터가 시작되면 명령 프롬프트 창이 표시됩니다. 이 콘솔 창을 사용하여 저장소 에뮬레이터를 시작/중지하고, 데이터를 지우고, 상태를 가져오고, 에뮬레이터를 초기화할 수 있습니다. 자세한 내용은 이 문서 뒷부분에 나오는 [저장소 에뮬레이터 명령줄 도구 참조](#storage-emulator-command-line-tool-reference) 섹션을 참조하세요.
 
@@ -88,21 +88,24 @@ Azure Storage 에뮬레이터를 시작하려면:
 연결 문자열에 대한 자세한 내용은 [Azure Storage 연결 문자열 구성](../storage-configure-connection-string.md)을 참조하세요.
 
 ### <a name="authorize-with-a-shared-access-signature"></a>공유 액세스 서명을 사용하여 인증
-Xamarin 라이브러리와 같은 일부 Azure 저장소 클라이언트 라이브러리는 공유 액세스 서명 (SAS) 토큰 인증만 지원합니다. [저장소 탐색기](http://storageexplorer.com/) 또는 공유 키 인증을 지원하는 다른 응용 프로그램과 같은 도구를 사용하여 SAS 토큰을 만들 수 있습니다.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Xamarin 라이브러리와 같은 일부 Azure 저장소 클라이언트 라이브러리는 공유 액세스 서명 (SAS) 토큰 인증만 지원합니다. [저장소 탐색기](http://storageexplorer.com/) 또는 공유 키 인증을 지원하는 다른 애플리케이션과 같은 도구를 사용하여 SAS 토큰을 만들 수 있습니다.
 
 또한 Azure PowerShell을 사용하여 SAS 토큰을 생성할 수 있습니다. 다음 예제에서는 blob 컨테이너에 대한 모든 권한을 가진 SAS 토큰을 생성합니다.
 
-1. Azure PowerShell이 아직 없는 경우 설치합니다(최신 버전의 Azure PowerShell cmdlet 사용 권장). 설치 지침은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/install-azurerm-ps)을 참조하세요.
+1. Azure PowerShell이 아직 없는 경우 설치합니다(최신 버전의 Azure PowerShell cmdlet 사용 권장). 설치 지침은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/install-Az-ps)을 참조하세요.
 2. Azure PowerShell을 열고 다음 명령을 실행하여 `CONTAINER_NAME`을 선택한 이름으로 바꿉니다.
 
 ```powershell
-$context = New-AzureStorageContext -Local
+$context = New-AzStorageContext -Local
 
-New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
+New-AzStorageContainer CONTAINER_NAME -Permission Off -Context $context
 
 $now = Get-Date
 
-New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
+New-AzStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
 ```
 
 새 컨테이너에 대해 결과적으로 생성된 공유 액세스 서명 URI는 다음과 유사해야 합니다.
@@ -170,7 +173,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 | **중지** |저장소 에뮬레이터를 중지합니다. |`AzureStorageEmulator.exe stop` | |
 | **상태** |저장소 에뮬레이터의 상태를 인쇄합니다. |`AzureStorageEmulator.exe status` | |
 | **지우기** |명령줄에 지정된 모든 서비스의 데이터를 지웁니다. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*blob*: blob 데이터를 지웁니다. <br/>*queue*: 큐 데이터를 지웁니다. <br/>*table*: 테이블 데이터를 지웁니다. <br/>*all*: 모든 서비스의 모든 데이터를 지웁니다. |
-| **Init** |에뮬레이터를 설정하기 위해 하는 일회 초기화를 수행 합니다. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*: SQL 인스턴스를 호스팅하는 서버를 지정합니다. <br/>*-sqlinstance instanceName*: 기본 서버 인스턴스에서 사용할 SQL 인스턴스의 이름을 지정합니다. <br/>*-forcecreate*: 이미 존재하는 경우라도 SQL Database를 강제로 생성합니다. <br/>*-skipcreate*: SQL 데이터베이스 만들기를 건너뜁니다. 이 옵션은 -forcecreate보다 우선합니다.<br/>*-reserveports*: 서비스와 연결된 HTTP 포트를 예약하려고 합니다.<br/>*-unreserveports*: 서비스와 연결된 HTTP 포트에 대한 예약을 제거하려고 합니다. 이 옵션은 -reserveports보다 우선합니다.<br/>*-inprocess*: 새 프로세스를 생성하는 대신 현재 프로세스의 초기화를 수행합니다. 포트 예약을 변경할 경우 관리자 권한으로 현재 프로세스를 시작해야 합니다. |
+| **Init** |에뮬레이터를 설정하기 위해 하는 일회 초기화를 수행 합니다. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*: SQL 인스턴스를 호스트하는 서버를 지정합니다. <br/>*-sqlinstance instanceName*: 기본 서버 인스턴스에서 사용할 SQL 인스턴스의 이름을 지정합니다. <br/>*-forcecreate*: 이미 존재하는 경우라도 SQL 데이터베이스를 강제로 생성합니다. <br/>*-skipcreate*: SQL 데이터베이스 만들기를 건너뜁니다. 이 옵션은 -forcecreate보다 우선합니다.<br/>*-reserveports*: 서비스와 연결된 HTTP 포트를 예약하려고 시도합니다.<br/>*-unreserveports*: 서비스와 연결된 HTTP 포트에 대한 예약을 제거하려고 합니다. 이 옵션은 -reserveports보다 우선합니다.<br/>*-inprocess*: 새 프로세스를 생성하는 대신 현재 프로세스의 초기화를 수행합니다. 포트 예약을 변경할 경우 관리자 권한으로 현재 프로세스를 시작해야 합니다. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>저장소 에뮬레이터와 Azure Storage의 차이점
 저장소 에뮬레이터는 로컬 SQL 인스턴스를 실행하는 에뮬레이트된 환경이기 때문에 클라우드에서 에뮬레이터와 Azure Storage 계정 간에 기능에 차이가 있습니다.
@@ -277,5 +280,5 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 ## <a name="next-steps"></a>다음 단계
 
 * 커뮤니티에서 유지 관리하는 플랫폼 간 오픈 소스 저장소 에뮬레이터 [Azurite](https://github.com/arafato/azurite)를 평가합니다. 
-* [.NET을 사용한 Azure Storage 샘플](../storage-samples-dotnet.md)에는 응용 프로그램을 개발할 때 사용할 수 있는 몇 가지 코드 샘플에 대한 링크가 있습니다.
+* [.NET을 사용한 Azure Storage 샘플](../storage-samples-dotnet.md)에는 애플리케이션을 개발할 때 사용할 수 있는 몇 가지 코드 샘플에 대한 링크가 있습니다.
 * [Microsoft Azure Storage 탐색기](http://storageexplorer.com)를 사용하여 클라우드 저장소 계정 및 저장소 에뮬레이터의 리소스를 사용할 수 있습니다.

@@ -3,7 +3,7 @@ title: Azure Service Fabric의 ReliableConcurrentQueue
 description: ReliableConcurrentQueue는 병렬 큐에 추가하고 큐에서 제거할 수 있는 처리량이 높은 큐입니다.
 services: service-fabric
 documentationcenter: .net
-author: sangarg
+author: tylermsft
 manager: timlt
 editor: raja,tyadam,masnider,vturecek
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: sangarg
-ms.openlocfilehash: e04123f7870921a2979564d0f6c68424d4d7711c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney
+ms.openlocfilehash: 61b53a23fdbb08b226878d9b702ec6bb2879f8bc
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206580"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185038"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Azure Service Fabric의 ReliableConcurrentQueue 소개
 신뢰할 수 있는 동시 큐는 비동기, 트랜잭션 및 복제된 큐로서 큐에 넣기 및 큐에서 제거 작업에 대한 높은 동시성을 제공합니다. [신뢰할 수 있는 큐](https://msdn.microsoft.com/library/azure/dn971527.aspx)에서 제공한 엄격한 FIFO 순서를 완화하여 처리량이 높고 대기 시간이 짧게 설계되었으며 대신 최상의 순서를 제공합니다.

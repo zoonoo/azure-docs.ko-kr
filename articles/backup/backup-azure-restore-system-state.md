@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: 31784c44d7561c690278aa4764e98992fbca73ae
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0b880d77004013d3b3eb1999b7e9344577b9fb4f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230787"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266487"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server에 시스템 상태 복원
 
@@ -157,7 +157,7 @@ Azure Recovery Services 에이전트를 사용하여 시스템 상태를 파일�
 
 10. 시스템 상태 복구 위치에서 **원래 위치**를 선택하고 **다음**을 클릭합니다.
 
-11. 확인 세부 정보를 검토하고, 다시 부팅 설정을 확인하고, **복구**를 클릭하여 복원된 시스템 상태 파일을 적용합니다.
+11. 확인 세부 정보를 검토하고 다시 부팅 설정을 확인한 다음 **복구**를 클릭하여 복원된 시스템 상태 파일을 적용합니다.
 
     ![복원된 시스템 상태 파일 시작](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
 

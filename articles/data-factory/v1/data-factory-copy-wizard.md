@@ -10,17 +10,16 @@ ms.assetid: f904972f-cd33-48db-9755-2b3196ae4168
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8b74a431664faa95e8be9c9ff90970fd6e7c0ec7
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 90f78428601d7b039d00d39c1ca8339ab3ace9ba
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048723"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020356"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Azure Data Factory 복사 마법사를 사용하여 데이터를 쉽게 복사 또는 이동
 > [!NOTE]
@@ -41,7 +40,7 @@ Azure Data Factory Copy Wizard는 일반적으로 종단 간 데이터 통합 �
 > 
 > 
 
-이 마법사는 처음부터 빅 데이터를 염두에 두고 설계되었습니다. Copy Data Wizard를 사용하여 수백 개의 폴더, 파일 또는 테이블을 이동하는 Data Factory 파이프라인을 간단하고 효율적으로 만들 수 있습니다. 이 마법사는 자동 데이터 미리 보기, 스키마 캡처 및 매핑, 데이터 필터링이라는 세 가지 기능을 지원합니다. 
+이 마법사는 처음부터 빅 데이터를 염두에 두고 설계되었습니다. Copy Data Wizard를 사용하여 수백 개의 폴더, 파일 또는 테이블을 이동하는 Data Factory 파이프라인을 간단하고 효율적으로 만들 수 있습니다. 이 마법사는 자동 데이터 미리 보기, 스키마 캡처 및 매핑, 데이터 필터링을 지원합니다. 
 
 ## <a name="automatic-data-preview"></a>자동 데이터 미리 보기
 복사 마법사를 사용하면 선택한 데이터 원본에서 데이터의 일부를 검토하여 데이터가 복사하려는 올바른 데이터인지 여부를 확인할 수 있습니다. 또한 원본 데이터가 텍스트 파일에 있는 경우 복사 마법사는 텍스트 파일을 구문 분석하여 행 및 열 구분 기호와 스키마를 자동으로 파악합니다. 

@@ -1,59 +1,75 @@
 ---
-title: '빠른 시작: Bing News Search SDK, Python'
+title: '빠른 시작: 뉴스 검색 수행 - Python용 Bing News Search SDK'
 titleSuffix: Azure Cognitive Services
-description: Bing News Search SDK 콘솔 응용 프로그램을 설정합니다.
+description: 이 빠른 시작을 사용하여 Python용 Bing News Search SDK를 통해 뉴스를 검색하고 응답을 처리합니다.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 02/14/2018
+ms.date: 01/10/2019
 ms.author: v-gedod
-ms.openlocfilehash: 6e029b7e830b6ec157d03d17dc24e65282a9c742
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 7927e680194d682ab9ee48320afa42ba29c676dc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316806"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259498"
 ---
-# <a name="quickstart-bing-news-search-sdk-with-python"></a>빠른 시작: Python을 통해 Bing News Search SDK 설정
+# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>빠른 시작: Python용 Bing News Search SDK로 뉴스 검색 수행
 
-News Search SDK는 웹 쿼리 및 구문 분석 결과에 대한 REST API 기능을 포함하고 있습니다. 
+Python용 Bing News Search SDK를 사용하여 뉴스 검색을 시작하려면 이 빠른 시작을 사용합니다. Bing News Search에는 대부분의 프로그래밍 언어와 호환되는 REST API가 있는 반면, SDK를 사용하면 서비스를 애플리케이션에 쉽게 통합할 수 있습니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py)에서 확인할 수 있습니다.
 
-[Python Bing News Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py)은 Git Hub에서 얻을 수 있습니다.
+## <a name="prerequisites"></a>필수 조건
 
-## <a name="application-dependencies"></a>응용 프로그램 종속성
-**검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
+* [Python](https://www.python.org/) 2.x 또는 3.x
 
-Python이 없을 경우 설치하세요. SDK는 Python 2.7 3.3, 3.4, 3.5 및 3.6과 호환됩니다.
+python 개발에 대해 [가상 환경](https://docs.python.org/3/tutorial/venv.html)을 사용하는 것이 좋습니다. [venv module](https://pypi.python.org/pypi/virtualenv)을 사용하여 가상 환경을 설치하고 초기화할 수 있습니다. Python 2.7용 virtualenv를 설치해야 합니다. 다음을 사용하여 가상 환경을 만들 수 있습니다.
 
-Python 개발에 대한 일반 권장 사항은 [가상 환경](https://docs.python.org/3/tutorial/venv.html)을 사용하는 것입니다. [venv module](https://pypi.python.org/pypi/virtualenv)을 사용하여 가상 환경을 설치하고 초기화합니다. Python 2.7용 virtualenv를 설치해야 합니다.
-```
+```console
 python -m venv mytestenv
 ```
-Bing News Search SDK 종속성을 설치합니다.
-```
-cd mytestenv
+
+이 명령을 사용하여 Bing News Search SDK 종속성을 설치할 수 있습니다.
+    
+```console
 python -m pip install azure-cognitiveservices-search-newssearch
 ```
-## <a name="news-search-client"></a>News Search 클라이언트
-*검색* 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다. 가져오기를 추가합니다.
-```
-from azure.cognitiveservices.search.newssearch import NewsSearchAPI
-from msrest.authentication import CognitiveServicesCredentials
 
-subscription_key = "YOUR-SUBSCRIPTION-KEY"
-```
-`CognitiveServicesCredentials`의 인스턴스를 만듭니다. 클라이언트를 인스턴스화합니다.
-```
-client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
-```
-결과를 검색하고 첫 번째 웹 페이지 결과를 출력합니다.
-```
-news_result = client.news.search(query="Quantum Computing", market="en-us", count=10)
-print("Search news for query \"Quantum Computing\" with market and count")
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
+## <a name="create-and-initialize-the-application"></a>애플리케이션 만들기 및 초기화
+
+1. 즐겨 찾는 IDE 또는 편집기에서 새 Python 파일을 만들고 다음 라이브러리를 가져옵니다. 구독 키 및 검색 용어에 대한 변수를 만듭니다.
+
+    ```python
+    from azure.cognitiveservices.search.newssearch import NewsSearchAPI
+    from msrest.authentication import CognitiveServicesCredentials
+    subscription_key = "YOUR-SUBSCRIPTION-KEY"
+    search_term = "Quantum Computing"
+    ```
+
+## <a name="initialize-the-client-and-send-a-request"></a>클라이언트 초기화 및 요청 보내기
+
+1. `CognitiveServicesCredentials`의 인스턴스를 만듭니다. 클라이언트를 인스턴스화합니다.
+    
+    ```python
+    client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
+    ```
+
+2. News Search API에 검색 쿼리를 보내고, 응답을 저장합니다.
+
+    ```python
+    news_result = client.news.search(query=search_term, market="en-us", count=10)
+    ```
+
+## <a name="parse-the-response"></a>응답 구문 분석
+
+검색 결과가 발견되면 첫 번째 웹 페이지 결과를 출력합니다.
+
+```python
 if news_result.value:
     first_news_result = news_result.value[0]
     print("Total estimated matches value: {}".format(news_result.total_estimated_matches))
@@ -65,97 +81,9 @@ if news_result.value:
     print("First news provider: {}".format(first_news_result.provider[0].name))
 else:
     print("Didn't see any news result data..")
-
-```
-`freshness` 및 `sortBy` 매개 변수를 사용하여 "Artificial Intelligence"에 대한 최신 뉴스를 검색하고 필터링합니다. 결과 수를 확인하고 첫 번째 뉴스 항목 결과의 `totalEstimatedMatches`, `name`, `url`, `description`, `published time` 및 `name of provider`를 출력합니다.
-```
-def news_search_with_filtering(subscription_key):
-
-    client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
-
-    try:
-        news_result = client.news.search(
-            query="Artificial Intelligence",
-            market="en-us",
-            freshness="Week",
-            sort_by="Date"
-        )
-        print("\r\nSearch most recent news for query \"Artificial Intelligence\" with freshness and sortBy")
-
-        if news_result.value:
-            first_news_result = news_result.value[0]
-            print("News result count: {}".format(len(news_result.value)))
-            print("First news name: {}".format(first_news_result.name))
-            print("First news url: {}".format(first_news_result.url))
-            print("First news description: {}".format(first_news_result.description))
-            print("First published time: {}".format(first_news_result.date_published))
-            print("First news provider: {}".format(first_news_result.provider[0].name))
-        else:
-            print("Didn't see any news result data..")
-
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-
-```
-안전 검색을 사용하여 동영상 및 TV 엔터테인먼트에 대한 범주 뉴스를 검색합니다. 결과 수를 확인하고 첫 번째 뉴스 항목 결과의 `category`, `name`, `url`, `description`, `published time` 및 `name of provider`를 출력합니다.
-```
-def news_category(subscription_key):
-
-    client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
-
-    try:
-        news_result = client.news.category(
-            category="Entertainment_MovieAndTV",
-            market="en-us",
-            safe_search="strict"
-        )
-        print("\r\nSearch category news for movie and TV entertainment with safe search")
-
-        if news_result.value:
-            first_news_result = news_result.value[0]
-            print("News result count: {}".format(len(news_result.value)))
-            print("First news category: {}".format(first_news_result.category))
-            print("First news name: {}".format(first_news_result.name))
-            print("First news url: {}".format(first_news_result.url))
-            print("First news description: {}".format(first_news_result.description))
-            print("First published time: {}".format(first_news_result.date_published))
-            print("First news provider: {}".format(first_news_result.provider[0].name))
-        else:
-            print("Didn't see any news result data..")
-
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-
-
-```
-Bing에서 최신 뉴스 항목을 검색합니다.  결과 수를 확인하고 첫 번째 뉴스 결과의 `name`, `text of query`, `webSearchUrl`, `newsSearchUrl` 및 `image Url`을 출력합니다.
-```
-def news_trending(subscription_key):
-
-    client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
-
-    try:
-        trending_topics = client.news.trending(market="en-us")
-        print("\r\nSearch news trending topics in Bing")
-
-        if trending_topics.value:
-            first_topic = trending_topics.value[0]
-            print("News result count: {}".format(len(trending_topics.value)))
-            print("First topic name: {}".format(first_topic.name))
-            print("First topic query: {}".format(first_topic.query.text))
-            print("First topic image url: {}".format(first_topic.image.url))
-            print("First topic webSearchUrl: {}".format(first_topic.web_search_url))
-            print("First topic newsSearchUrl: {}".format(first_topic.news_search_url))
-        else:
-            print("Didn't see any topics result data..")
-
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-[Cognitive Services Python SDK 샘플](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
-
-
+> [!div class="nextstepaction"]
+[단일 페이지 웹앱 만들기](tutorial-bing-news-search-single-page-app.md)

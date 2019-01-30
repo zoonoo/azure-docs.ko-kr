@@ -3,7 +3,7 @@ title: 암호 재설정 - Azure Active Directory | Microsoft Docs
 description: 셀프 서비스 암호 재설정을 사용하여 회사 또는 학교 사용자 계정에 대한 액세스 권한 다시 얻기
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.assetid: 7ba69b18-317a-4a62-afa3-924c4ea8fb49
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.custom: end-user
-ms.openlocfilehash: 05a4961938f8a4f7d14c9dbf5041a2d02257b476
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 22cb3b908301c298bd7d37f39fbcb1ffa1d0d3ce
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106682"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816996"
 ---
 # <a name="reset-your-work-or-school-password"></a>회사 또는 학교 암호 재설정
 
@@ -77,7 +77,7 @@ ms.locfileid: "47106682"
 
 ### <a name="change-your-password-from-the-office-365-portal"></a>Office 365 포털에서 암호 변경
 
-주로 Office 포털을 통해 응용 프로그램에 액세스하는 경우 이 방법을 사용하세요.
+주로 Office 포털을 통해 애플리케이션에 액세스하는 경우 이 방법을 사용하세요.
 
 1. 기존 암호를 사용하여 [Office 365 계정](https://www.office.com)에 로그인합니다.
 2. 오른쪽 위에서 자신의 프로필을 선택한 다음 **계정 보기**를 선택합니다.
@@ -86,7 +86,7 @@ ms.locfileid: "47106682"
 
 ### <a name="change-your-password-from-the-azure-access-panel"></a>Azure 액세스 패널에서 암호 변경
 
-주로 Azure 액세스 패널(MyApps)을 사용하여 응용 프로그램에 액세스하는 경우 이 방법을 사용하세요.
+주로 Azure 액세스 패널(MyApps)을 사용하여 애플리케이션에 액세스하는 경우 이 방법을 사용하세요.
 
 1. 기존 암호를 사용하여 [Azure 액세스 패널](https://myapps.microsoft.com/)에 로그인합니다.
 2. 오른쪽 위에서 자신의 프로필을 선택한 다음 **프로필**을 선택합니다.

@@ -1,5 +1,5 @@
 ---
-title: 사용되지 않는 인식 기술(Azure Search) | Microsoft Docs
+title: 사용되지 않는 인식 기술 - Azure Search
 description: 이 페이지에는 사용되지 않는 것으로 간주되어 향후 지원되지 않는 인식 검색 기술 목록이 포함됩니다.
 services: search
 manager: pablocas
@@ -10,21 +10,22 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
-ms.openlocfilehash: 6bd364ea9923b1c8cdd7c96fc29cb91dff88ec95
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: c35e4253858d6820d86d7d3e0763a3dcc577d09d
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447674"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54387925"
 ---
-#    <a name="deprecated-cognitive-seach-skills"></a>사용되지 않는 인식 검색 기술
+# <a name="deprecated-cognitive-search-skills"></a>사용되지 않는 인식 검색 기술
 
 이 문서에서는 사용되지 않는 것으로 간주되는 기술을 설명합니다. 내용에 대해서는 다음 가이드를 사용합니다.
 
 * 기술 이름: 사용되지 않는 기술 이름이 @odata.type 특성에 매핑됩니다.
-* 사용 가능한 마지막 api 버전: 마지막 버전의 Azure 검색 공용 API를 통해 사용되지 않는 해당 기술이 포함된 기술 세트를 만들고 업데이트할 수 있습니다.
-* 지원 종료: 종료 마지막 날 이후로 해당 기술은 지원되지 않는 것으로 간주됩니다. 이전에 만든 기술 세트는 계속 작동해야 하지만 사용자는 사용되지 않는 기술에서 마이그레이션하는 것이 좋습니다.
-* 권장 사항: 지원되는 기술을 사용하기 위한 마이그레이션 경로 전달. 사용자는 지원을 계속 받을 수 있도록 권장 사항을 따르는 것이 좋습니다.
+* 사용 가능한 마지막 api 버전: 사용되지 않는 해당 기술이 포함된 기술 세트를 만들고 업데이트할 수 있는 Azure Search 공용 API의 마지막 버전입니다.
+* 지원 종료: 이 날짜 이후에는 해당 기술이 지원되지 않는 것으로 간주되는 마지막 날입니다. 이전에 만든 기술 세트는 계속 작동해야 하지만 사용자는 사용되지 않는 기술에서 마이그레이션하는 것이 좋습니다.
+* 권장 사항: 지원되는 기술을 사용하도록 마이그레이션 경로를 전달합니다. 사용자는 지원을 계속 받을 수 있도록 권장 사항을 따르는 것이 좋습니다.
 
 ## <a name="microsoftskillstextnamedentityrecognitionskill"></a>Microsoft.Skills.Text.NamedEntityRecognitionSkill
 

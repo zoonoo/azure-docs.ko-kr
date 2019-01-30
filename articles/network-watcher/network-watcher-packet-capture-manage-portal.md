@@ -88,7 +88,7 @@ Network Watcher 패킷 캡처를 사용하면 가상 머신 간에 트래픽을 
 
 ## <a name="download-a-packet-capture"></a>패킷 캡처 다운로드
 
-패킷 캡처 세션이 완료되면 캡처 파일을 Blob Storage 또는 가상 머신의 로컬 파일에 업로드합니다. 패킷 캡처의 저장소 위치는 패킷 캡처를 만드는 동안 정의됩니다. 저장소 계정에 저장되는 캡처 파일에 액세스하는 편리한 도구는 [다운로드](http://storageexplorer.com/)할 수 있는 Microsoft Azure Storage 탐색기입니다.
+패킷 캡처 세션이 완료되면 캡처 파일을 Blob Storage 또는 가상 머신의 로컬 파일에 업로드합니다. 패킷 캡처의 저장소 위치는 패킷 캡처를 만드는 동안 정의됩니다. 스토리지 계정에 저장되는 캡처 파일에 액세스하는 편리한 도구는 [다운로드](http://storageexplorer.com/)할 수 있는 Microsoft Azure Storage 탐색기입니다.
 
 저장소 계정이 지정되어 있으면 패킷 캡처 파일은 다음 위치에서 저장소 계정에 저장됩니다.
 

@@ -35,7 +35,7 @@ SQL Data Warehouse에 연결하려면 다음 정보를 제공해야 합니다.
 
 기본적으로 사용자의 연결은 사용자의 사용자 데이터베이스가 아닌 *master* 데이터베이스에 연결합니다. 사용자의 사용자 데이터베이스에 연결하려면 다음과 같은 두 가지 작업 중 하나를 수행하도록 선택할 수 있습니다.
 
-* SSDT, SSMS 또는 응용 프로그램 연결 문자열에서 SQL Server 개체 탐색기에 서버를 등록할 때 기본 데이터베이스를 지정합니다. 예를 들어 ODBC 연결에 대해 InitialCatalog 매개 변수를 포함합니다.
+* SSDT, SSMS 또는 애플리케이션 연결 문자열에서 SQL Server 개체 탐색기에 서버를 등록할 때 기본 데이터베이스를 지정합니다. 예를 들어 ODBC 연결에 대해 InitialCatalog 매개 변수를 포함합니다.
 * SSDT에서 세션을 만들기 전에 사용자 데이터베이스를 강조 표시합니다.
 
 > [!NOTE]
@@ -55,7 +55,7 @@ Azure Active Directory의 이점은 다음과 같습니다.
 * 외부(AAD) 그룹을 사용하여 데이터베이스 사용 권한을 관리할 수 있습니다.
 * Windows 통합 인증 또는 Azure Active Directory에서 지원하는 기타 인증을 사용하여 암호 저장을 제거할 수 있습니다.
 * 포함된 데이터베이스 사용자를 통해 데이터베이스 수준에서 ID를 인증합니다.
-* SQL Data Warehouse에 연결되는 응용 프로그램에 대한 토큰 기반 인증을 지원합니다.
+* SQL Data Warehouse에 연결되는 애플리케이션에 대한 토큰 기반 인증을 지원합니다.
 * SQL Server Management Studio에 대한 Active Directory 유니버설 인증을 통해 Multi-Factor Authentication을 지원합니다. Multi-Factor Authentication에 대한 설명을 보려면 [SQL Database 및 SQL Data Warehouse를 사용한 Azure AD MFA에 대한 SSMS 지원](../sql-database/sql-database-ssms-mfa-authentication.md)을 참조하세요.
 
 > [!NOTE]
@@ -80,7 +80,7 @@ Azure Active Directory의 이점은 다음과 같습니다.
 * 사용자 지정 데이터베이스 역할을 만들고 역할에 사용자를 추가 합니다. 그런 다음 역할에 세부적인 권한을 부여합니다. 자세한 내용은 [데이터베이스 엔진 권한 시작](https://msdn.microsoft.com/library/mt667986.aspx)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Visual Studio 및 다른 응용 프로그램으로 데이터 웨어하우스 쿼리를 시작하려면 [Visual Studio를 사용하여 쿼리][Query with Visual Studio]를 참조하세요.
+Visual Studio 및 다른 애플리케이션으로 데이터 웨어하우스 쿼리를 시작하려면 [Visual Studio를 사용하여 쿼리][Query with Visual Studio]를 참조하세요.
 
 <!-- Article references -->
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md

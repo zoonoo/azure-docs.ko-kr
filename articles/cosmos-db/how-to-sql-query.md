@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: f7b3826e1e77933b49f0a742ebf8dfb994bf7ea9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d101931fb2a4184ff9ffffc0aed4fc90fee2cbd5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848734"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452958"
 ---
-# <a name="query-azure-cosmos-db-data-with-sql-queries"></a>SQL 쿼리를 사용하여 Azure Cosmos DB 데이터 쿼리
+# <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터를 쿼리하는 SQL 쿼리 예제
 
 Azure Cosmos DB는 SQL API 계정에서 JSON 쿼리 언어로 SQL(구조적 쿼리 언어)을 사용하는 항목 쿼리를 지원합니다. Azure Cosmos DB에 대한 쿼리 언어를 디자인하는 경우 다음 두 가지 목표를 고려합니다.
 
@@ -21,7 +21,7 @@ Azure Cosmos DB는 SQL API 계정에서 JSON 쿼리 언어로 SQL(구조적 쿼�
 
 * Azure Cosmos DB는 JavaScript의 프로그래밍 모델을 쿼리 언어의 기초로 사용합니다. SQL API는 JavaScript의 형식 시스템, 식 평가 및 함수 호출을 기반으로 합니다. 따라서 관계형 프로젝션, JSON 항목에 대한 계층적 탐색, 자체 조인, 공간 쿼리, JavaScript로만 작성된 UDF(사용자 정의 함수) 호출 등을 위한 일반 프로그래밍 모델을 제공합니다.
 
-이 문서에서는 간단한 JSON 항목을 사용하여 몇 가지 예제 SQL 쿼리를 설명합니다. Azure Cosmos DB SQL 언어 구문에 대해 자세히 알아보려면 [SQL 구문 참조](sql-api-sql-query-reference.md) 문서를 참조하세요.
+이 문서에서는 간단한 JSON 항목을 사용하여 몇 가지 예제 SQL 쿼리를 설명합니다. Azure Cosmos DB SQL 언어 구문에 대해 자세히 알아보려면 [SQL 구문 참조](sql-api-query-reference.md) 문서를 참조하세요.
 
 ## <a id="GettingStarted"></a> SQL 명령 시작
 
@@ -86,7 +86,7 @@ Azure Cosmos DB는 SQL API 계정에서 JSON 쿼리 언어로 SQL(구조적 쿼�
 
 이제 Azure Cosmos DB SQL 쿼리 언어의 몇 가지 주요 측면을 이해하기 위해 이 데이터에 대해 몇 가지 쿼리를 시도해 보겠습니다.
 
-**쿼리1**: 예를 들어 다음 쿼리는 ID 필드가 `AndersenFamily`와 일치하는 항목을 반환합니다. `SELECT *` 문이므로 쿼리 결과는 완전한 JSON 항목입니다. 구문에 대해 자세히 알아보려면 [SELECT 문](sql-api-sql-query-reference.md#select-query)을 참조하세요.
+**쿼리 1**: 예를 들어 ID 필드에서 `AndersenFamily`와 일치하는 항목을 반환하는 쿼리는 다음과 같습니다. `SELECT *` 문이므로 쿼리 결과는 완전한 JSON 항목입니다. 구문에 대해 자세히 알아보려면 [SELECT 문](sql-api-query-reference.md#select-query)을 참조하세요.
 
 ```sql
     SELECT *
@@ -116,7 +116,7 @@ Azure Cosmos DB는 SQL API 계정에서 JSON 쿼리 언어로 SQL(구조적 쿼�
     }]
 ```
 
-**쿼리2**: 이제 JSON 출력을 다른 형식으로 변경해야 하는 경우를 고려해 보겠습니다. 이 쿼리는 주소의 구/군/시 이름이 시/도와 같은 경우 두 개의 선택한 필드인 이름 및 구/군/시와 함께 새 JSON 개체를 프로젝션합니다. 이 경우 "NY, NY"가 일치합니다.
+**쿼리 2:** 이제 JSON 출력을 다른 형식으로 변경해야 하는 경우를 고려해 보겠습니다. 이 쿼리는 주소의 구/군/시 이름이 시/도와 같은 경우 두 개의 선택한 필드인 이름 및 구/군/시와 함께 새 JSON 개체를 프로젝션합니다. 이 경우 "NY, NY"가 일치합니다.
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family
@@ -135,7 +135,7 @@ Azure Cosmos DB는 SQL API 계정에서 JSON 쿼리 언어로 SQL(구조적 쿼�
     }]
 ```
 
-**쿼리3**: 다음 쿼리는 ID가 거주 도시의 순서로 정렬한 `WakefieldFamily` 와 일치하는 가족의 자녀 이름을 모두 반환합니다.
+**쿼리 3**: ID에서 거주 도시의 순서로 정렬한 `WakefieldFamily`와 일치하는 가족의 자녀 이름을 모두 반환하는 쿼리는 다음과 같습니다.
 
 ```sql
     SELECT c.givenName
@@ -166,7 +166,7 @@ Azure Cosmos DB는 SQL API 계정에서 JSON 쿼리 언어로 SQL(구조적 쿼�
 
 ## <a id="SelectClause"></a>Select 절
 
-ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHERE 절로 구성됩니다. 일반적으로 각 쿼리에 대해 FROM 절의 소스가 열거됩니다. 그런 다음, WHERE 절의 필터를 소스에 적용하여 JSON 항목의 하위 세트를 검색합니다. 마지막으로, SELECT 절을 사용하여 선택 목록에서 요청된 JSON 값을 프로젝션합니다. 구문에 대해 자세히 알아보려면 [SELECT 구문](sql-api-sql-query-reference.md#bk_select_query)을 참조하세요.
+ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHERE 절로 구성됩니다. 일반적으로 각 쿼리에 대해 FROM 절의 소스가 열거됩니다. 그런 다음, WHERE 절의 필터를 소스에 적용하여 JSON 항목의 하위 세트를 검색합니다. 마지막으로, SELECT 절을 사용하여 선택 목록에서 요청된 JSON 값을 프로젝션합니다. 구문에 대해 자세히 알아보려면 [SELECT 구문](sql-api-query-reference.md#bk_select_query)을 참조하세요.
 
 다음 예제에서는 일반적인 SELECT 쿼리를 보여 줍니다.
 
@@ -260,7 +260,7 @@ ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHER
 
 ## <a id="FromClause"></a>FROM 절
 
-쿼리의 뒷부분에서 소스를 필터링/프로젝션하지 않을 경우 FROM <from_specification> 절은 선택 사항입니다. 구문에 대해 자세히 알아보려면 [FROM 구문](sql-api-sql-query-reference.md#bk_from_clause)을 참조하세요. `SELECT * FROM Families`와 유사한 쿼리는 전체 Families 컨테이너가 열거할 소스임을 나타냅니다. 컨테이너 이름을 사용하는 대신 특수 식별자 ROOT를 사용하여 컨테이너를 나타낼 수 있습니다.
+쿼리의 뒷부분에서 소스를 필터링/프로젝션하지 않을 경우 FROM <from_specification> 절은 선택 사항입니다. 구문에 대해 자세히 알아보려면 [FROM 구문](sql-api-query-reference.md#bk_from_clause)을 참조하세요. `SELECT * FROM Families`와 유사한 쿼리는 전체 Families 컨테이너가 열거할 소스임을 나타냅니다. 컨테이너 이름을 사용하는 대신 특수 식별자 ROOT를 사용하여 컨테이너를 나타낼 수 있습니다.
 다음 목록은 쿼리 단위로 적용되는 규칙입니다.
 
 * 컨테이너를 별칭으로 `SELECT f.id FROM Families AS f` 또는 간단히 `SELECT f.id FROM Families f`로 지정할 수 있습니다. 여기서 `f`는 `Families`와 같습니다. `AS` 는 식별자를 별칭으로 지정하는 선택적 키워드입니다.  
@@ -313,7 +313,7 @@ ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHER
     ]
 ```
 
-위 예제에서는 배열을 원본으로 사용했지만 다음 예제에 나온 대로 개체를 원본으로 사용할 수도 있습니다. 원본에 있는 유효한 모든 JSON 값(undefined 제외)이 쿼리 결과에 포함되기 위해 고려됩니다. 일부 가족에 `address.state` 값이 없는 경우 쿼리 결과에서 제외됩니다.
+위의 예제에서는 배열을 원본으로 사용했지만, 다음 예제와 같이 개체를 원본으로 사용할 수도 있습니다. 원본에 있는 유효한 모든 JSON 값(undefined 제외)이 쿼리 결과에 포함되기 위해 고려됩니다. 일부 가족에 `address.state` 값이 없는 경우 쿼리 결과에서 제외됩니다.
 
 **쿼리**
 
@@ -333,7 +333,7 @@ ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHER
 
 ## <a id="WhereClause"></a>WHERE 절
 
-WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에서 제공하는 JSON 항목이 결과의 일부로 포함되기 위해 충족해야 하는 조건을 지정합니다. JSON 항목이 결과에 고려되려면 지정된 조건이 "true"여야 합니다. WHERE 절은 결과에 포함될 수 있는 소스 항목의 가장 작은 절대 하위 세트를 결정하기 위해 인덱스 계층에서 사용됩니다. 구문에 대해 자세히 알아보려면 [WHERE 구문](sql-api-sql-query-reference.md#bk_where_clause)을 참조하세요.
+WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에서 제공하는 JSON 항목이 결과의 일부로 포함되기 위해 충족해야 하는 조건을 지정합니다. JSON 항목이 결과에 고려되려면 지정된 조건이 "true"여야 합니다. WHERE 절은 결과에 포함될 수 있는 소스 항목의 가장 작은 절대 하위 세트를 결정하기 위해 인덱스 계층에서 사용됩니다. 구문에 대해 자세히 알아보려면 [WHERE 구문](sql-api-query-reference.md#bk_where_clause)을 참조하세요.
 
 다음 쿼리는 이름 속성을 포함하고 속성 값이 `AndersenFamily`인 항목을 요청합니다. 이름 속성이 없거나 값이 `AndersenFamily`와 일치하지 않는 다른 항목은 모두 제외됩니다.
 
@@ -506,7 +506,7 @@ IN 키워드는 지정된 값이 목록에 있는 값과 일치하는지를 확�
 
 다른 쿼리 연산자에서처럼 조건식에서 참조된 속성이 항목에서 누락된 경우 또는 비교할 형식이 다른 경우 해당 항목이 쿼리 결과에서 제외됩니다.
 
-병합(??) 연산자를 사용하면 문서에서 속성의 존재(정의됨)를 효율적으로 확인할 수 있습니다. 이 연산자는 반구조적 데이터나 혼합 형식의 데이터에 대해 쿼리할 때 유용합니다. 예를 들어 이 쿼리는 "lastName"(있는 경우) 또는 "surname"(없는 경우)을 반환합니다.
+병합(??) 연산자를 사용하여 항목에서 속성의 존재를 효과적으로 확인할 수 있습니다. 이 연산자는 반구조적 데이터나 혼합 형식의 데이터에 대해 쿼리할 때 유용합니다. 예를 들어 이 쿼리는 "lastName"(있는 경우) 또는 "surname"(없는 경우)을 반환합니다.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName
@@ -1179,7 +1179,7 @@ Azure Cosmos DB는 저장 프로시저 및 트리거 측면에서 컨테이너�
 
 SQL API는 이 문서에 이미 정의되어 있는 형식과 더불어 UDF(사용자 정의 함수)를 지원합니다. 특히 개발자가 0개 또는 많은 인수를 전달하고 단일 인수 결과를 반환할 수 있는 스칼라 UDF가 지원됩니다. 이러한 각 인수가 유효한 JSON 값인지 확인됩니다.  
 
-이러한 사용자 정의 함수를 사용한 사용자 지정 응용 프로그램 논리를 지원하기 위해 SQL 구문이 확장됩니다. UDF를 SQL API에 등록한 다음 SQL 쿼리의 일부로 참조할 수 있습니다. 실제로 UDF는 쿼리에서 호출되도록 설계되었습니다. 이 선택의 필연적인 결과로 UDF는 다른 JavaScript 형식(저장 프로시저 및 트리거)과 달리 컨텍스트 개체에 액세스할 수 없습니다. 쿼리는 읽기 전용으로 실행되므로 주 복제본 또는 보조 복제본에서 실행될 수 있습니다. 따라서 UDF는 다른 JavaScript 형식과 달리 보조 복제본에서 실행되도록 설계되었습니다.
+이러한 사용자 정의 함수를 사용한 사용자 지정 애플리케이션 논리를 지원하기 위해 SQL 구문이 확장됩니다. UDF를 SQL API에 등록한 다음 SQL 쿼리의 일부로 참조할 수 있습니다. 실제로 UDF는 쿼리에서 호출되도록 설계되었습니다. 이 선택의 필연적인 결과로 UDF는 다른 JavaScript 형식(저장 프로시저 및 트리거)과 달리 컨텍스트 개체에 액세스할 수 없습니다. 쿼리는 읽기 전용으로 실행되므로 주 복제본 또는 보조 복제본에서 실행될 수 있습니다. 따라서 UDF는 다른 JavaScript 형식과 달리 보조 복제본에서 실행되도록 설계되었습니다.
 
 다음은 Cosmos DB 데이터베이스의 항목 컨테이너 아래에 UDF를 등록할 수 있는 방법의 예제입니다.
 
@@ -1411,14 +1411,14 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데�
 
 | **사용 현황** | **설명** |
 |-----------|------------|
-| [IS_ARRAY (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_array) | 값의 형식이 배열인지 여부를 나타내는 부울을 반환합니다. |
-| [IS_BOOL (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_bool) | 값의 형식이 부울인지 여부를 나타내는 부울을 반환합니다. |
-| [IS_NULL (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_null) | 값의 형식이 null인지 여부를 나타내는 부울을 반환합니다. |
-| [IS_NUMBER (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_number) | 값의 형식이 숫자인지 여부를 나타내는 부울을 반환합니다. |
-| [IS_OBJECT (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_object) | 값의 형식이 JSON 개체인지 여부를 나타내는 부울을 반환합니다. |
-| [IS_STRING (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_string) | 값의 형식이 문자열인지 여부를 나타내는 부울을 반환합니다. |
-| [IS_DEFINED (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_defined) | 속성이 값을 할당할지를 나타내는 부울 값을 반환합니다. |
-| [IS_PRIMITIVE (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_primitive) | 문자열, 숫자, 부울 또는 null 값의 형식인지를 나타내는 부울 값을 반환합니다. |
+| [IS_ARRAY (expr)](sql-api-query-reference.md#bk_is_array) | 값의 형식이 배열인지 여부를 나타내는 부울을 반환합니다. |
+| [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | 값의 형식이 부울인지 여부를 나타내는 부울을 반환합니다. |
+| [IS_NULL (expr)](sql-api-query-reference.md#bk_is_null) | 값의 형식이 null인지 여부를 나타내는 부울을 반환합니다. |
+| [IS_NUMBER (expr)](sql-api-query-reference.md#bk_is_number) | 값의 형식이 숫자인지 여부를 나타내는 부울을 반환합니다. |
+| [IS_OBJECT (expr)](sql-api-query-reference.md#bk_is_object) | 값의 형식이 JSON 개체인지 여부를 나타내는 부울을 반환합니다. |
+| [IS_STRING (expr)](sql-api-query-reference.md#bk_is_string) | 값의 형식이 문자열인지 여부를 나타내는 부울을 반환합니다. |
+| [IS_DEFINED (expr)](sql-api-query-reference.md#bk_is_defined) | 속성이 값을 할당할지를 나타내는 부울 값을 반환합니다. |
+| [IS_PRIMITIVE (expr)](sql-api-query-reference.md#bk_is_primitive) | 문자열, 숫자, 부울 또는 null 값의 형식인지를 나타내는 부울 값을 반환합니다. |
 
 이제 다음 예제와 같이 이러한 함수를 사용하여 쿼리를 실행할 수 있습니다.
 
@@ -1440,22 +1440,22 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데�
 
 | 사용 현황 | 설명 |
 | --- | --- |
-| [LENGTH (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) | 지정한 문자열 식의 문자 수를 반환합니다. |
-| [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) | 둘 이상의 문자열 값을 연결한 결과인 문자열을 반환합니다. |
-| [SUBSTRING (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) | 문자열 식의 일부를 반환합니다. |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) | 첫 번째 문자열 식이 두 번째 문자열 식으로 시작하는지 여부를 나타내는 부울 값을 반환합니다. |
-| [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) | 첫 번째 문자열 식이 두 번째로 끝나지를 나타내는 부울을 반환합니다. |
-| [CONTAINS (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) | 첫 번째 문자열 식이 두 번째를 포함하는지를 나타내는 부울 값을 반환합니다. |
-| [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) | 지정된 첫 번째 문자열 식 내의 두 번째 문자열 식에서 첫 번째로 나타나는 시작 위치를 반환하거나 문자열을 찾을 수 없는 경우 -1을 반환합니다. |
-| [LEFT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left) | 지정된 수의 문자로 문자열의 왼쪽 부분을 반환합니다. |
-| [RIGHT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) | 지정된 수의 문자로 문자열의 오른쪽 부분을 반환합니다. |
-| [LTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim) | 선행 공백을 제거한 후에 문자열 식을 반환합니다. |
-| [RTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim) | 후행 공백을 잘라낸 후에 문자열 식을 반환합니다. |
-| [LOWER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) | 대문자 데이터를 소문자로 변환한 후에 문자열 식을 반환합니다. |
-| [UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) | 소문자 데이터를 대문자로 변환한 후에 문자열 식을 반환합니다. |
-| [REPLACE (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) | 지정된 문자열 값의 모든 항목을 다른 문자열 값으로 바꿉니다. |
+| [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | 지정한 문자열 식의 문자 수를 반환합니다. |
+| [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | 둘 이상의 문자열 값을 연결한 결과인 문자열을 반환합니다. |
+| [SUBSTRING (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | 문자열 식의 일부를 반환합니다. |
+| [STARTSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_startswith) | 첫 번째 문자열 식이 두 번째 문자열 식으로 시작하는지 여부를 나타내는 부울 값을 반환합니다. |
+| [ENDSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_endswith) | 첫 번째 문자열 식이 두 번째로 끝나지를 나타내는 부울을 반환합니다. |
+| [CONTAINS (str_expr, str_expr)](sql-api-query-reference.md#bk_contains) | 첫 번째 문자열 식이 두 번째를 포함하는지를 나타내는 부울 값을 반환합니다. |
+| [INDEX_OF (str_expr, str_expr)](sql-api-query-reference.md#bk_index_of) | 지정된 첫 번째 문자열 식 내의 두 번째 문자열 식에서 첫 번째로 나타나는 시작 위치를 반환하거나 문자열을 찾을 수 없는 경우 -1을 반환합니다. |
+| [LEFT (str_expr, num_expr)](sql-api-query-reference.md#bk_left) | 지정된 수의 문자로 문자열의 왼쪽 부분을 반환합니다. |
+| [RIGHT (str_expr, num_expr)](sql-api-query-reference.md#bk_right) | 지정된 수의 문자로 문자열의 오른쪽 부분을 반환합니다. |
+| [LTRIM (str_expr)](sql-api-query-reference.md#bk_ltrim) | 선행 공백을 제거한 후에 문자열 식을 반환합니다. |
+| [RTRIM (str_expr)](sql-api-query-reference.md#bk_rtrim) | 후행 공백을 잘라낸 후에 문자열 식을 반환합니다. |
+| [LOWER (str_expr)](sql-api-query-reference.md#bk_lower) | 대문자 데이터를 소문자로 변환한 후에 문자열 식을 반환합니다. |
+| [UPPER (str_expr)](sql-api-query-reference.md#bk_upper) | 소문자 데이터를 대문자로 변환한 후에 문자열 식을 반환합니다. |
+| [REPLACE (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | 지정된 문자열 값의 모든 항목을 다른 문자열 값으로 바꿉니다. |
 | [REPLICATE (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-reference#bk_replicate) | 문자열 값을 지정한 횟수 만큼 반복합니다. |
-| [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) | 문자열 값의 순서와 반대로 반환합니다. |
+| [REVERSE (str_expr)](sql-api-query-reference.md#bk_reverse) | 문자열 값의 순서와 반대로 반환합니다. |
 
 이제 이러한 함수를 사용하여 다음과 같은 쿼리를 실행할 수 있습니다. 예를 들어 다음과 같이 대문자로 제품군 이름을 반환할 수 있습니다.
 
@@ -1522,10 +1522,10 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데�
 
 | 사용 현황 | 설명 |
 | --- | --- |
-| [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |지정된 배열 식의 요소 수를 반환합니다. |
-| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |둘 이상의 배열 값을 연결한 결과인 배열을 반환합니다. |
-| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |지정된 값이 배열에 포함되는지를 나타내는 부울 값을 반환합니다. 전체 또는 부분 일치 항목인지를 지정할 수 있습니다. |
-| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |배열 식의 일부를 반환합니다. |
+| [ARRAY_LENGTH (arr_expr)](sql-api-query-reference.md#bk_array_length) |지정된 배열 식의 요소 수를 반환합니다. |
+| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](sql-api-query-reference.md#bk_array_concat) |둘 이상의 배열 값을 연결한 결과인 배열을 반환합니다. |
+| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](sql-api-query-reference.md#bk_array_contains) |지정된 값이 배열에 포함되는지를 나타내는 부울 값을 반환합니다. 전체 또는 부분 일치 항목인지를 지정할 수 있습니다. |
+| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](sql-api-query-reference.md#bk_array_slice) |배열 식의 일부를 반환합니다. |
 
 배열 함수는 JSON 내 배열을 조작하는 데 사용할 수 있습니다. 예를 들어 다음은 부모 중 한 사람이 "Robin Wakefield"인 모든 항목을 반환하는 쿼리입니다. 
 
@@ -1627,7 +1627,7 @@ LINQ는 개체 스트림에 대한 쿼리로 계산을 표현하는 .NET 프로�
 
 ### <a name="net-and-json-mapping"></a>.NET 및 JSON 매핑
 
-.NET 개체와 JSON 항목 간의 매핑은 기본적으로 수행됩니다. 각 데이터 멤버 필드가 JSON 개체에 매핑됩니다. 여기서 필드 이름은 개체의 "키" 부분에 매핑되고 "값" 부분은 개체의 값 부분에 재귀적으로 매핑됩니다. 다음 예제를 고려해 보세요. 만들어진 Family 개체는 아래와 같이 JSON 항목에 매핑됩니다. 반대로 JSON 항목은 .NET 개체에 다시 매핑됩니다.
+.NET 개체와 JSON 항목 간의 매핑은 기본적으로 수행됩니다. 각 데이터 멤버 필드가 JSON 개체에 매핑됩니다. 여기서 필드 이름은 개체의 "키" 부분에 매핑되고 "값" 부분은 개체의 값 부분에 재귀적으로 매핑됩니다. 다음 예제를 살펴보세요. 만들어진 Family 개체는 아래와 같이 JSON 항목에 매핑됩니다. 반대로 JSON 항목은 .NET 개체에 다시 매핑됩니다.
 
 **C# 클래스**
 
@@ -1735,19 +1735,19 @@ Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑�
 
 다음은 SQL .NET SDK에 포함된 LINQ 공급자에서 지원되는 LINQ 연산자의 목록입니다.
 
-* **Select**: 프로젝션이 개체 생성을 포함하는 SQL SELECT로 변환합니다.
-* **Where**: 필터가 SQL WHERE로 변환하고 && , || 및 ! 간의 SQL 연산자로 변환을 지원합니다.
+* **Select**: 프로젝션에서 개체 생성을 포함하는 SQL SELECT로 변환합니다.
+* **Where**: 필터에서 SQL WHERE로 변환하고, &&, || 및 ! 간의 SQL 연산자로 변환을 지원합니다.
 * **SelectMany**: SQL JOIN 절에 대한 배열 해제를 허용합니다. 배열 요소를 필터링하는 데 체인/중첩 식을 사용할 수 있습니다.
 * **OrderBy 및 OrderByDescending**: ORDER BY 오름차순/내림차순으로 변환합니다.
 * 집계를 위한 **Count**, **Sum**, **Min**, **Max** 및 **Average** 연산자와 해당 비동기 동급 연산자 **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** 및 **AverageAsync**
 * **CompareTo**: 범위 비교로 변환합니다. .NET에서 비교 불가능하므로 문자열에 대해 일반적으로 사용됩니다.
 * **Take**: 쿼리에서 결과를 제한하기 위해 SQL TOP으로 변환합니다.
-* **수치 연산 함수**: NET의 Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan, Truncate를 해당하는 SQL 기본 제공 함수로의 변환을 지원합니다.
-* **문자열 함수**: .NET의 Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString, ToUpper를 해당하는 SQL 기본 제공 함수로의 변환을 지원합니다.
-* **배열 함수**: .NET의 oncat, Contains 및 Count를 해당하는 SQL 기본 제공 함수로의 변환을 지원합니다.
-* **지리 공간 확장 함수**: 스텁 메서드 Distance, Within, IsValid 및 IsValidDetailed에서 해당하는 SQL 기본 제공 함수로의 변환을 지원합니다.
-* **사용자 정의 함수 확장 함수**: 스텁 메서드 UserDefinedFunctionProvider.Invoke에서 해당하는 사용자 정의 함수로의 변환을 지원합니다.
-* **기타**: coalesce 및 조건부 연산자의 변환을 지원합니다. 컨텍스트에 따라 Contains는 문자열 CONTAINS, ARRAY_CONTAINS 또는 SQL IN으로 변환할 수 있습니다.
+* **수학 함수**: .NET의 Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan, Truncate에서 동등한 SQL 기본 제공 함수로의 변환을 지원합니다.
+* **문자열 함수**: .NET의 Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString, ToUpper에서 동등한 SQL 기본 제공 함수로의 변환을 지원합니다.
+* **배열 함수**: .NET의 Concat, Contains 및 Count에서 동등한 SQL 기본 제공 함수로의 변환을 지원합니다.
+* **지리 공간적 확장 함수**: Distance, Within, IsValid 및 IsValidDetailed 스텁 메서드에서 동등한 SQL 기본 제공 함수로의 변환을 지원합니다.
+* **사용자 정의 함수 확장 함수**: UserDefinedFunctionProvider.Invoke 스텁 메서드에서 동등한 사용자 정의 함수로의 변환을 지원합니다.
+* **기타**: 병합 및 조건부 연산자의 변환을 지원합니다. 컨텍스트에 따라 Contains는 문자열 CONTAINS, ARRAY_CONTAINS 또는 SQL IN으로 변환할 수 있습니다.
 
 ### <a name="sql-query-operators"></a>SQL 쿼리 연산자
 
@@ -2117,7 +2117,7 @@ Cosmos DB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 
 컨테이너에 구성된 인덱싱 정책이 지정된 쿼리를 지원할 수 없는 경우 Azure Cosmos DB 서버에서 400 "잘못된 요청"이 반환됩니다. 이 오류 메시지는 해시(같음) 조회에 구성된 경로 및 인덱싱에서 명시적으로 제외된 경로의 범위 쿼리에 대해 반환됩니다. 인덱스를 사용할 수 없는 경우 쿼리에서 스캔을 수행할 수 있도록 `x-ms-documentdb-query-enable-scan` 헤더를 지정할 수 있습니다.
 
-`x-ms-documentdb-populatequerymetrics` 헤더를 `True`로 설정하여 쿼리 실행에 대한 자세한 메트릭을 얻을 수 있습니다. 자세한 내용은 [SQL query metrics for Azure Cosmos DB](sql-api-sql-query-metrics.md)(Azure Cosmos DB에 대한 SQL 쿼리 메트릭)를 참조하세요.
+`x-ms-documentdb-populatequerymetrics` 헤더를 `True`로 설정하여 쿼리 실행에 대한 자세한 메트릭을 얻을 수 있습니다. 자세한 내용은 [SQL query metrics for Azure Cosmos DB](sql-api-query-metrics.md)(Azure Cosmos DB에 대한 SQL 쿼리 메트릭)를 참조하세요.
 
 ### <a id="DotNetSdk"></a>C#(.NET) SDK
 
@@ -2253,14 +2253,14 @@ Cosmos DB는 저장 프로시저 및 트리거를 사용하여 컨테이너에 �
 ## <a id="References"></a>참조
 
 1. [Azure Cosmos DB 소개][introduction]
-2. [Azure Cosmos DB SQL 사양](http://go.microsoft.com/fwlink/p/?LinkID=510612)
+2. [Azure Cosmos DB SQL 사양](https://go.microsoft.com/fwlink/p/?LinkID=510612)
 3. [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-cosmosdb-dotnet)
 4. [Azure Cosmos DB 일관성 수준][consistency-levels]
-5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-6. JSON [http://json.org/](http://json.org/)
-7. Javascript 사양 [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9. 대형 데이터베이스에 대한 쿼리 평가 기법 [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+5. ANSI SQL 2011 [https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+6. JSON [https://json.org/](https://json.org/)
+7. Javascript 사양 [https://www.ecma-international.org/publications/standards/Ecma-262.htm](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+8. LINQ [https://msdn.microsoft.com/library/bb308959.aspx](https://msdn.microsoft.com/library/bb308959.aspx) 
+9. 대형 데이터베이스에 대한 쿼리 평가 기법 [https://dl.acm.org/citation.cfm?id=152611](https://dl.acm.org/citation.cfm?id=152611)
 10. Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11. Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.

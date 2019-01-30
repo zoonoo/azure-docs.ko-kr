@@ -1,5 +1,5 @@
 ---
-title: 비용 효율적이며 우선 순위가 낮은 VM에서 Azure Batch 워크로드 실행 | Microsoft Docs
+title: 경제적이며 우선 순위가 낮은 VM에서 워크로드 실행 - Azure Batch | Microsoft Docs
 description: 우선 순위가 낮은 VM을 프로비전하여 Azure Batch 워크로드의 비용을 줄이는 방법을 알아봅니다.
 services: batch
 author: mscurrell
@@ -11,12 +11,13 @@ ms.topic: article
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: markscu
-ms.openlocfilehash: d42cef944c3b971804ef1417a3877bf919784a02
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.custom: seodec18
+ms.openlocfilehash: 17668470be3e997c215aacc4cc2c32c80de2dd81
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093006"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546796"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Batch에서 낮은 우선 순위 VM 사용
 
@@ -44,7 +45,7 @@ Batch 처리 사용 사례의 일부 예제에는 우선 순위가 낮은 VM을 
 
 -   **개발 및 테스트**: 특히 대규모 솔루션을 개발 중인 경우 상당한 비용 절감을 실현할 수 있습니다. 모든 유형의 테스트가 혜택을 볼 수 있지만 대규모 부하 테스트 및 회귀 테스트에 사용하면 아주 좋습니다.
 
--   **요청 시 용량 보완**: 우선 순위가 낮은 VM은 일반적인 전용 VM을 보완하는 데 사용될 수 있습니다. 사용 가능한 경우 작업을 확장하여 더 낮은 비용으로 더 빠르게 완료할 수 있고, 사용 가능하지 않은 경우 전용 VM 수준만 사용할 수 있게 유지됩니다.
+-   **요청 시 용량 보완**: 우선 순위가 낮은 VM은 일반적인 전용 VM을 보완하는 데 사용될 수 있습니다. 사용 가능한 경우 작업을 확장하여 더 낮은 비용으로 더 빠르게 완료할 수 있고, 사용 가능하지 않은 경우 전용 VM의 기준만 사용할 수 있게 유지됩니다.
 
 -   **유연한 작업 실행 시간**: 작업이 완료되어야 하는 시간이 유연한 경우 잠재적인 용량 감소가 허용될 수 있지만 우선 순위가 낮은 VM을 추가하면 작업이 더 낮은 비용으로 더 빠르게 실행됩니다.
 
@@ -151,7 +152,7 @@ pool.Resize(targetDedicatedComputeNodes: 0, targetLowPriorityComputeNodes: 25);
 -   작업의 JobManagerTask 속성은 새 속성 **AllowLowPriorityNode**를 갖습니다. 
     이 속성이 true이면 작업 관리자 태스크는 전용 또는 우선 순위가 낮은 노드에서 예약될 수 있습니다. 이 속성이 false이면 작업 관리자 태스크는 전용 노드에서만 예약됩니다.
 
--   태스크 응용 프로그램에서는 [환경 변수](batch-compute-node-environment-variables.md)를 사용하여 해당 응용 프로그램이 우선 순위가 낮은 노드에서 실행되는지 또는 전용 노드에서 실행되는지를 확인할 수 있습니다. 환경 변수는 AZ_BATCH_NODE_IS_DEDICATED입니다.
+-   태스크 애플리케이션에서는 [환경 변수](batch-compute-node-environment-variables.md)를 사용하여 해당 애플리케이션이 우선 순위가 낮은 노드에서 실행되는지 또는 전용 노드에서 실행되는지를 확인할 수 있습니다. 환경 변수는 AZ_BATCH_NODE_IS_DEDICATED입니다.
 
 ## <a name="handling-preemption"></a>선점 처리
 
@@ -181,5 +182,5 @@ Azure Portal에서 메트릭을 확인하려면 다음을 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 배치를 사용하려는 사용자를 위한 중요한 정보는 [개발자를 Batch 기능 개요](batch-api-basics.md)를 참고합니다. 문서에는 Batch 응용 프로그램을 빌드하는 동안 사용할 수 있는 풀, 노드, 작업 및 태스크와 같은 Batch 서비스 리소스 및 여러 API 기능에 대한 자세한 내용이 포함됩니다.
+* 배치를 사용하려는 사용자를 위한 중요한 정보는 [개발자를 Batch 기능 개요](batch-api-basics.md)를 참고합니다. 문서에는 Batch 애플리케이션을 빌드하는 동안 사용할 수 있는 풀, 노드, 작업 및 태스크와 같은 Batch 서비스 리소스 및 여러 API 기능에 대한 자세한 내용이 포함됩니다.
 * Batch 솔루션을 빌드하는 데 사용할 수 있는 [Batch API 및 도구](batch-apis-tools.md)에 대해 알아봅니다.

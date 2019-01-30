@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 93eb6fb0da86909dfc880db2a9bb2331abe4418a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 30f96c54dd916188296ca0245d4095a32ae0bbe4
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948131"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742884"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight 클러스터 크기 조정
 
 HDInsight는 클러스터의 작업자 노드 수를 증가 및 감소하는 옵션을 제공하여 유연성을 보장합니다. 따라서 몇 시간 후에 또는 주말에 클러스터를 축소했다가, 비즈니스 요구가 최대 수준일 때 확장할 수 있습니다.
 
-예를 들어, 하루에 1번 또는 한 달에 1번 수행되는 일부 일괄 처리가 있을 때, 적절한 메모리 및 CPU 계산 능력을 확보하기 위해 예약된 이벤트보다 몇 분 전에 HDInsight 클러스터를 확장할 수 있습니다. PowerShell cmdlet [`Set–AzureRmHDInsightClusterSize`](hdinsight-administer-use-powershell.md#scale-clusters)를 사용하여 크기 조정을 자동화할 수 있습니다.  나중에, 처리가 완료된 후 사용량이 다시 줄어들면, HDInsight 클러스터를 더 적은 수의 작업자 노드로 축소할 수 있습니다.
+예를 들어, 하루에 1번 또는 한 달에 1번 수행되는 일부 일괄 처리가 있을 때, 적절한 메모리 및 CPU 계산 능력을 확보하기 위해 예약된 이벤트보다 몇 분 전에 HDInsight 클러스터를 확장할 수 있습니다. PowerShell cmdlet [`Set–AzureRmHDInsightClusterSize`](hdinsight-administer-use-powershell.md#scale-clusters)를 사용하여 크기 조정을 자동화할 수 있습니다.  나중에, 처리가 완료된 후 사용량이 다시 줄어들면, HDInsight 클러스터를 더 적은 수의 작업자 노드로 축소할 수 있습니다.
 
 * [PowerShell](hdinsight-administer-use-powershell.md)을 통해 클러스터 크기를 조정하려면
 
@@ -63,9 +63,9 @@ HDInsight는 클러스터의 작업자 노드 수를 증가 및 감소하는 옵
 
 현재 상태와 함께 작업 목록이 표시됩니다. 스크린샷에는 현재 실행 중인 하나의 작업만 나와 있습니다.
 
-![ResourceManager UI 응용 프로그램](./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png)
+![ResourceManager UI 애플리케이션](./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png)
 
-실행 중인 해당 응용 프로그램을 수동으로 종료하려면 SSH 셸에서 다음 명령을 실행합니다.
+실행 중인 해당 애플리케이션을 수동으로 종료하려면 SSH 셸에서 다음 명령을 실행합니다.
 
 ```bash
 yarn application -kill <application_id>
@@ -77,7 +77,7 @@ yarn application -kill <application_id>
 yarn application -kill "application_1499348398273_0003"
 ```
 
-## <a name="rebalancing-an-hbase-cluster"></a>HBase 클러스터의 부하 다시 분산
+## <a name="rebalancing-an-apache-hbase-cluster"></a>Apache HBase 클러스터 부하 다시 분산
 
 지역 서버는 크기 조정 작업을 완료한 후 몇 분 안에 자동으로 균형을 맞춥니다. 지역 서버를 수동으로 조정하려면 다음 단계를 사용합니다.
 
@@ -99,11 +99,11 @@ yarn application -kill "application_1499348398273_0003"
 
 ![클러스터 크기 조정](./media/hdinsight-scaling-best-practices/scale-cluster.png)
 
-이전 그림에 나와 있는 것처럼, 클러스터를 최소 1개의 작업자 노드로 축소하는 경우 작업자 노드가 패치로 인해 재부팅될 때 또는 크기 조정 작업 직후에 HDFS가 안전 모드에서 고정될 수 있습니다.
+이전 이미지에 나와 있는 것처럼, 클러스터를 최소 1개의 작업자 노드로 축소하는 경우 작업자 노드가 패치로 인해 다시 부팅될 때 또는 크기 조정 작업 직후에 Apache HDFS가 안전 모드에서 고정될 수 있습니다.
 
 이 오류의 주요 원인은 Hive가 소수의 `scratchdir` 파일을 사용하고, 기본적으로 각 블록의 복제본이 3개 있다고 예상하지만, 최소 1개의 작업자 노드로 축소하는 경우 복제본이 1개로만 유지된다는 것입니다. 따라서 `scratchdir`의 파일은 *덜 복제*됩니다. 이로 인해 HDFS는 크기 조정 작업 후에 서비스가 다시 시작될 때 안전 모드를 유지할 수 있습니다.
 
-축소 시도가 수행될 때, HDInsight는 Ambari 관리 인터페이스를 사용하여 먼저 원치 않는 불필요한 작업자 노드의 서비스를 해제하여 HDFS 블록을 다른 온라인 작업자 노드로 복제한 후 클러스터를 안전하게 축소합니다. HDFS는 유지 관리 기간 동안 안전 모드가 되며, 크기 조정이 완료되면 안전 모드에서 해제됩니다. 이때 HDFS는 안전 모드에서 고정될 수 있습니다.
+축소 시도가 수행될 때, HDInsight는 Apache Ambari 관리 인터페이스를 사용하여 먼저 원치 않는 불필요한 작업자 노드의 서비스를 해제하여 HDFS 블록을 다른 온라인 작업자 노드로 복제한 후 클러스터를 안전하게 축소합니다. HDFS는 유지 관리 기간 동안 안전 모드가 되며, 크기 조정이 완료되면 안전 모드에서 해제됩니다. 이때 HDFS는 안전 모드에서 고정될 수 있습니다.
 
 HDFS는 `dfs.replication` 값 3으로 구성됩니다. 따라서 사용 가능한 각 블록의 예상되는 복사본이 3개가 아니므로, 사용 가능한 각 블록의 스크래치 파일의 블록은 3개 미만의 작업자 노드가 온라인 상태가 될 때마다 덜 복제됩니다.
 
@@ -117,13 +117,13 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 
 ### <a name="example-errors-when-safe-mode-is-turned-on"></a>안전 모드가 켜지는 오류 예제
 
-* H070 Hive 세션을 열 수 없습니다. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **디렉터리를 만들 수 없습니다.** /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0. **이름 노드가 안전 모드 상태입니다**. 보고된 블록 75는 총 블록 87의 임계값 0.9900에 도달하려면 추가로 12개의 블록이 필요합니다. 라이브 데이터 노드의 수 10이 최소 수인 0에 도달했습니다. 이 임계값에 도달하면 안전 모드가 자동으로 해제됩니다.
+* H070 Hive 세션을 열 수 없습니다. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0 **디렉터리를 만들 수 없습니다**. **이름 노드가 안전 모드 상태입니다**. 보고된 블록 75는 총 블록 87의 임계값 0.9900에 도달하려면 추가로 12개의 블록이 필요합니다. 라이브 데이터 노드의 수 10이 최소 수인 0에 도달했습니다. 이 임계값에 도달하면 안전 모드가 자동으로 해제됩니다.
 
 * H100 show databases 문을 제출할 수 없습니다. org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1]에 대한 연결이 실패했습니다. **연결이 거부되었습니다.**
 
-* H020 hn0-hdisrv.servername.bx.internal.cloudapp.net:10001에 대한 연결을 설정할 수 없습니다. org.apache.thrift.transport.TTransportException: http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/에 대한 http 연결을 만들 수 없습니다. org.apache.http.conn.HttpHostConnectException: hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28]에 대한 연결이 실패했습니다. 연결이 거부되었습니다. org.apache.thrift.transport.TTransportException: http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/에 대한 http 연결을 만들 수 없습니다. org.apache.http.conn.HttpHostConnectException: hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28]에 대한 연결이 실패했습니다. **연결이 거부되었습니다.**
+* H020 hn0-hdisrv.servername.bx.internal.cloudapp.net:10001에 대한 연결을 설정할 수 없습니다. org.apache.thrift.transport.TTransportException: http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/에 대한 HTTP 연결을 만들 수 없습니다. org.apache.http.conn.HttpHostConnectException: hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28]에 대한 연결이 실패했습니다. 연결이 거부되었습니다. org.apache.thrift.transport.TTransportException: http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/에 대한 HTTP 연결을 만들 수 없습니다. org.apache.http.conn.HttpHostConnectException: hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28]에 대한 연결이 실패했습니다. **연결이 거부되었습니다.**
 
-* Hive 로그: WARN [main]: server.HiveServer2 (HiveServer2.java:startHiveServer2(442)) – 시도 21에서 HiveServer2를 시작하는 동안 오류가 발생하여 60초 후에 다시 시도됩니다. java.lang.RuntimeException: Hive 구성에서 인증 정책을 적용하는 동안 오류가 발생했습니다. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **디렉터리를 만들 수 없습니다.** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **이름 노드가 안전 모드 상태입니다**.
+* Hive 로그에서: WARN [main]: server.HiveServer2 (HiveServer2.java:startHiveServer2(442)) – 시도 21에서 HiveServer2를 시작하는 중 오류가 발생했습니다. 60초 이내에 다시 시도합니다. java.lang.RuntimeException: Hive 구성에서 권한 부여 정책을 적용하는 중 오류가 발생했습니다. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374 **디렉터리를 만들 수 없습니다**. **이름 노드가 안전 모드 상태입니다**.
     보고된 블록 0은 총 블록 9의 임계값 0.9900에 도달하려면 추가로 9개의 블록이 필요합니다.
     라이브 데이터 노드의 수 10이 최소 수인 0에 도달했습니다. **이 임계값에 도달하면 안전 모드가 자동으로 해제됩니다**.
     at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1324)
@@ -151,8 +151,8 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 
 ![안전 모드 해제](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
-> [!NOTE]
-> `-D` 스위치는 HDInsight의 기본 파일 시스템이 Azure Storage 또는 Azure Data Lake Store 중 하나이므로 필요합니다. `-D`는 명령이 로컬 HDFS 파일 시스템에 대해 실행되도록 지정합니다.
+> [!NOTE]  
+> `-D` 스위치는 HDInsight의 기본 파일 시스템이 Azure Storage 또는 Azure Data Lake Storage 중 하나이므로 필요합니다. `-D`는 명령이 로컬 HDFS 파일 시스템에 대해 실행되도록 지정합니다.
 
 다음으로, HDFS 상태의 세부 정보를 표시하는 보고서를 볼 수 있습니다.
 
@@ -251,7 +251,7 @@ The filesystem under path '/tmp/hive/hive' is CORRUPT
 hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 이 명령을 실행하면 일부 작업이 아직 실행 중인 경우 Hive가 중단될 수 있습니다.
 
 ### <a name="how-to-prevent-hdinsight-from-getting-stuck-in-safe-mode-due-to-under-replicated-blocks"></a>블록이 덜 복제된 이유로 인해 HDInsight가 안전 모드를 유지하지 못하게 하는 방법
@@ -327,4 +327,4 @@ Hive가 임시 파일을 남겨 두면 안전 모드를 피하기 위해 축소 
 
 * [Azure HDInsight 소개](hadoop/apache-hadoop-introduction.md)
 * [클러스터 크기 조정](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
+* [Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)

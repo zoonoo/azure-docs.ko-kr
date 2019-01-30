@@ -34,7 +34,7 @@ Data Lake Analytics은 SQL의 친숙하고 간단한 선언적 특성을 C#의 �
 
 ### <a name="integrates-seamlessly-with-your-it-investments"></a>IT 투자와 완벽하게 통합
   
-Data Lake Analytics은 ID, 관리 및 보안에 대한 기존 IT 투자를 사용합니다. 이러한 방법으로 데이터 거버넌스가 간소화되며 현재 데이터 응용 프로그램을 쉽게 확장할 수 있습니다. Data Lake Analytics은 사용자 관리 및 권한에 대해 Active Directory와 통합되고 기본 제공 모니터링 및 감사와 함께 제공됩니다.
+Data Lake Analytics은 ID, 관리 및 보안에 대한 기존 IT 투자를 사용합니다. 이러한 방법으로 데이터 거버넌스가 간소화되며 현재 데이터 애플리케이션을 쉽게 확장할 수 있습니다. Data Lake Analytics은 사용자 관리 및 권한에 대해 Active Directory와 통합되고 기본 제공 모니터링 및 감사와 함께 제공됩니다.
 
 ### <a name="affordable-and-cost-effective"></a>저렴하고 비용 효율적
 

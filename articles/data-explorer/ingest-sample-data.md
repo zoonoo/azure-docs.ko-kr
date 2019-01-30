@@ -32,7 +32,7 @@ ms.locfileid: "49394581"
 
 1. [https://dataexplorer.azure.com](https://dataexplorer.azure.com)에 로그인합니다.
 
-1. 응용 프로그램의 왼쪽 위에서 **클러스터 추가**를 선택합니다.
+1. 애플리케이션의 왼쪽 위에서 **클러스터 추가**를 선택합니다.
 
 1. **클러스터 추가** 대화 상자에 `https://<ClusterName>.<Region>.kusto.windows.net/` 형식으로 클러스터 URL을 입력하고 **추가**를 선택합니다.
 

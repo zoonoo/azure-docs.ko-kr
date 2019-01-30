@@ -1,6 +1,7 @@
 ---
-title: Azure Machine Learning 서비스의 배포 문제 해결 가이드
-description: Azure Machine Learning 서비스와 관련된 일반적인 Docker 배포 오류를 해결하는 방법을 알아봅니다.
+title: 배포 문제 해결 가이드
+titleSuffix: Azure Machine Learning service
+description: Azure Machine Learning 서비스를 사용하여 AKS 및 ACI에서 일반적인 Docker 배포 오류를 해결하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,17 +9,18 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: jmartens
-ms.date: 10/01/2018
-ms.openlocfilehash: a10b05e95fa719b80775191e48bd4117e3a785fd
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 71b4cf5d44ec6cb3fb8b70975193320a4eabfc3f
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321685"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401319"
 ---
-# <a name="troubleshooting-azure-machine-learning-service-deployments"></a>Azure Machine Learning 서비스 배포 문제 해결
+# <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Azure Machine Learning AKS 및 ACI 서비스 배포 문제 해결
 
-이 문서에서는 Azure Machine Learning 서비스와 관련된 일반적인 Docker 배포 오류를 해결하는 방법을 알아봅니다.
+이 문서에서는 Azure Machine Learning 서비스를 사용하여 ACI(Azure Container Instances) 및 AKS(Azure Kubernetes Service)에서 일반적인 Docker 배포 오류를 해결하는 방법을 알아봅니다.
 
 Azure Machine Learning 서비스에서 모델을 배포할 때 시스템에서 많은 작업을 수행합니다. 이 과정은 매우 복잡한 일련의 이벤트이며 종종 문제가 발생합니다. 배포 작업은 다음과 같습니다.
 
@@ -91,13 +93,13 @@ Azure Machine Learning 서비스에서 모델을 배포할 때 시스템에서 �
 print(image.image_build_log_uri)
 
 # if you only know the name of the image (note there might be multiple images with the same name but different version number)
-print(ws.images()['myimg'].image_build_log_uri)
+print(ws.images['myimg'].image_build_log_uri)
 
 # list logs for all images in the workspace
-for name, img in ws.images().items():
+for name, img in ws.images.items():
     print (img.name, img.version, img.image_build_log_uri)
 ```
-이미지 로그 uri는 Azure Blob 저장소에 저장된 로그 파일을 가리키는 SAS URL입니다. 간단하게 uri를 복사하여 브라우저 창에 붙여넣는 방법으로 로그 파일을 다운로드하여 볼 수 있습니다.
+이미지 로그 uri는 Azure Blob Storage에 저장된 로그 파일을 가리키는 SAS URL입니다. 간단하게 uri를 복사하여 브라우저 창에 붙여넣는 방법으로 로그 파일을 다운로드하여 볼 수 있습니다.
 
 
 ## <a name="service-launch-fails"></a>서비스 시작 실패
@@ -113,11 +115,11 @@ for name, img in ws.images().items():
 print(service.get_logs())
 
 # if you only know the name of the service (note there might be multiple services with the same name but different version number)
-print(ws.webservices()['mysvc'].get_logs())
+print(ws.webservices['mysvc'].get_logs())
 ```
 
 ### <a name="debug-the-docker-image-locally"></a>Docker 이미지를 로컬로 디버그
-Docker 로그에 오류에 대한 정보가 충분히 제공되지 않는 경우가 가끔 있습니다. 한 단계 더 나아가서 빌드된 Docker 이미지를 끌어오고, 로컬 컨테이너를 시작하고, 라이브 컨테이너 내부에서 대화형으로 직접 디버그할 수 있습니다. 로컬 컨테이너를 시작하려면 로컬에서 실행 중인 Docker 엔진이 있어야 하며, [azure-cli](/cli/azure/install-azure-cli?view=azure-cli-latest)가 설치되어 있으면 훨씬 쉽습니다.
+Docker 로그에 오류에 대한 정보가 충분히 제공되지 않는 경우가 가끔 있습니다. 한 단계 더 나아가서 빌드된 Docker 이미지를 끌어오고, 로컬 컨테이너를 시작하고, 라이브 컨테이너 내부에서 대화형으로 직접 디버그할 수 있습니다. 로컬 컨테이너를 시작하려면 로컬에서 실행 중인 Docker 엔진이 있어야 하며, [azure-cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)가 설치되어 있으면 훨씬 쉽습니다.
 
 먼저 이미지 위치를 확인해야 합니다.
 
@@ -222,10 +224,6 @@ def run(input_data):
 ## <a name="next-steps"></a>다음 단계
 
 배포에 대해 자세히 알아보세요. 
-* [ACI에 배포하는 방법](how-to-deploy-to-aci.md)
+* [배포 방법 및 위치](how-to-deploy-and-where.md)
 
-* [AKS에 배포하는 방법](how-to-deploy-to-aks.md)
-
-* [자습서 1부: 모델 학습](tutorial-train-models-with-aml.md)
-
-* [자습서 2부: 모델 배포](tutorial-deploy-models-with-aml.md)
+* [자습서: 모델 학습 및 배포](tutorial-train-models-with-aml.md)

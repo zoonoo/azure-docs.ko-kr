@@ -3,7 +3,7 @@ title: 데이터베이스 간 쿼리 시작(수직 분할) | Microsoft Docs
 description: 수직 분할 데이터베이스에서 탄력적 데이터베이스 쿼리를 사용하는 방법
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/03/2018
-ms.openlocfilehash: e665e00c9f769f4ee1f6e468ee6a03ee28271d5b
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: c24fedcc2ab42825950ca6a93fc954d7e6d36b00
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239785"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864908"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>데이터베이스 간 쿼리 시작(수직 분할)(미리 보기)
 

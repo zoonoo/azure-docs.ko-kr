@@ -3,7 +3,7 @@ title: Microsoft Authenticator 앱을 사용하여 백업 및 복구 - Azure Act
 description: Microsoft Authenticator 앱을 사용하여 계정 자격 증명을 백업 및 복구하는 방법을 알아봅니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.component: user-help
 ms.service: active-directory
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: b019523227bcd45e502ec84055cfb09025918331
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 49cc5114106336f41d119b00db1bfa472f09d2d5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406127"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821705"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱을 사용하여 계정 자격 증명 백업 및 복구
 
@@ -76,7 +76,7 @@ Microsoft Authenticator 앱은 계정 자격 증명과 계정 순서 같은 관�
 ### <a name="to-provide-additional-verification-for-work-or-school-accounts"></a>회사 또는 학교 계정에 대한 추가 확인을 제공하려면
 1.  Microsoft Authenticator 앱의 **계정** 화면에서 복구하려는 계정 옆에 있는 드롭다운 화살표를 선택합니다.
 
-    ![연결된 드롭다운 화살표가 있는 사용 가능한 계정을 보여주는 Microsoft Authenticator 앱](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additonal-accts.png)
+    ![연결된 드롭다운 화살표가 있는 사용 가능한 계정을 보여주는 Microsoft Authenticator 앱](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additional-accts.png)
 
 2.  **복구하려면 QR 코드 검사**을 선택한 다음, QR 코드를 검사합니다.
 

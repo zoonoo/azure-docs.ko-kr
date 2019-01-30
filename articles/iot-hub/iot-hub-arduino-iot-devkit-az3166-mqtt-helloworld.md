@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: fc74613e00adc459f7a7b0a16c6f773fe4bf601d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 8959c1d773a7e4ea79c7a7531c2bba578f2801e2
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593658"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158485"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>MQTT 서버에 메시지 보내기
 
@@ -48,7 +48,7 @@ IoT(사물 인터넷) 시스템은 종종 간헐적이거나, 품질이 낮거�
 왼쪽의 **ARDUINO 예제** 섹션을 펼치고, **MXCHIP AZ3166 예제 > MQTT**로 차례로 이동하고, **MQTTClient**를 선택합니다. 프로젝트 폴더가 있는 새 VS Code 창이 열립니다.
 
 > [!NOTE]
-> 명령 팔레트에서 예제를 열 수도 있습니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음 **Arduino: 예제**를 찾아서 선택합니다.
+> 명령 팔레트에서 예제를 열 수도 있습니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음, **Arduino: 예제**를 찾아서 선택합니다.
 
 ## <a name="build-and-upload-the-arduino-sketch-to-the-devkit"></a>DevKit에 Arduino 스케치 빌드 및 업로드
 
@@ -75,10 +75,10 @@ VS Code에서 다음 절차에 따라 직렬 모니터를 열고 설정합니다
 
 ## <a name="problems-and-feedback"></a>문제 및 피드백
 
-문제가 발생하면 [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)를 참조하거나 다음 채널을 사용하여 문의해주세요.
+문제가 발생하면 [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)를 참조하거나 다음 채널을 사용하여 문의하세요.
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [스택 오버플로](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="see-also"></a>참고 항목
 
@@ -90,4 +90,4 @@ VS Code에서 다음 절차에 따라 직렬 모니터를 열고 설정합니다
 이제 MXChip Iot DevKit를 MQTT 클라이언트로 구성하고, MQTT 클라이언트 라이브러리를 사용하여 메시지를 MQTT broker에 보내는 방법을 알아보았으므로 여기서 제안되는 단계는 다음과 같습니다.
 
 * [Azure IoT 원격 모니터링 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
-* [Azure IoT Central 응용 프로그램에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

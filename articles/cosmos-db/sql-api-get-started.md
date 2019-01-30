@@ -1,28 +1,27 @@
 ---
-title: 'Azure Cosmos DB: SQL API 시작 자습서 | Microsoft Docs'
-description: SQL API를 사용하여 온라인 데이터베이스 및 C# 콘솔 응용 프로그램을 만드는 자습서입니다.
-keywords: NoSQL 자습서, 온라인 데이터베이스, C# 콘솔 응용 프로그램
-services: cosmos-db
+title: Azure Cosmos DB는 SQL API 시작 자습서
+description: SQL API를 사용하여 온라인 데이터베이스 및 C# 콘솔 애플리케이션을 만드는 자습서입니다.
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/16/2017
 ms.author: sngun
-ms.openlocfilehash: b1ff7e7a2f79d99bc14f8e25ea82b212fad2acef
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: d73638e0c02af5dc07e80084dd2ce5a7e090ecd2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165529"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043450"
 ---
-# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: SQL API 시작 자습서
+# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB는 SQL API 시작 자습서
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
+> * [.NET(미리 보기)](sql-api-dotnet-get-started-preview.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
+> * [.NET Core(미리 보기)](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [비동기 Java](sql-api-async-java-get-started.md)
 > * [Node.JS](sql-api-nodejs-get-started.md)
@@ -62,7 +61,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
 ## <a id="SetupVS"></a>2단계: Visual Studio 솔루션 설치
 1. 컴퓨터에서 **Visual Studio 2017**을 엽니다.
 2. **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 선택합니다.
-3. **새 프로젝트** 대화 상자에서 **템플릿** / **Visual C#** / **콘솔 응용 프로그램**을 선택하고 프로젝트 이름을 지정한 후 **확인**을 클릭합니다.
+3. **새 프로젝트** 대화 상자에서 **템플릿** / **Visual C#** / **콘솔 애플리케이션**을 선택하고 프로젝트 이름을 지정한 후 **확인**을 클릭합니다.
    ![새 프로젝트 창의 스크린샷](./media/sql-api-get-started/nosql-tutorial-new-project-2.png)
 4. **솔루션 탐색기**에서 Visual Studio 솔루션 아래에 있는 새 콘솔 응용 프로그램을 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...** 를 클릭합니다.
     
@@ -77,7 +76,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
 잘하셨습니다. 설치를 완료했으므로 코드를 작성해 보겠습니다. [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs)에서 이 자습서의 완성된 코드 프로젝트를 찾을 수 있습니다.
 
 ## <a id="Connect"></a>3단계: Azure Cosmos DB 계정에 연결
-먼저 Program.cs에서 C# 응용 프로그램의 시작 부분에 다음 참조를 추가합니다.
+먼저 Program.cs에서 C# 애플리케이션의 시작 부분에 다음 참조를 추가합니다.
 
     using System;
     using System.Linq;
@@ -364,7 +363,7 @@ Azure Portal에서 Azure Cosmos DB 계정으로 이동한 다음 **키**를 클�
 
 축하합니다! 두 개의 Azure Cosmos DB 문서를 성공적으로 만들었습니다.  
 
-![NoSQL에서 C# 콘솔 응용 프로그램을 만들기 위해 사용한 계정, 데이터베이스, 컬렉션 및 문서 간의 계층 관계를 보여 주는 다이어그램](./media/sql-api-get-started/nosql-tutorial-account-database.png)
+![NoSQL에서 C# 콘솔 애플리케이션을 만들기 위해 사용한 계정, 데이터베이스, 컬렉션 및 문서 간의 계층 관계를 보여 주는 다이어그램](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
 ## <a id="Query"></a>7단계: Azure Cosmos DB 리소스 쿼리
 Azure Cosmos DB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 쿼리](how-to-sql-query.md)를 지원합니다.  다음 샘플 코드는 Azure Cosmos DB SQL 구문뿐 아니라 LINQ를 사용하는 다양한 쿼리를 보여 줍니다. 이러한 쿼리는 이전 단계에서 삽입한 문서에 대해 실행할 수 있습니다.
@@ -418,7 +417,7 @@ Azure Cosmos DB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 �
 
 다음 다이어그램에서는 만든 컬렉션에 대해 Azure Cosmos DB SQL 쿼리 구문을 호출하는 방법을 보여 주며, 마찬가지로 동일한 논리가 LINQ 쿼리에 적용됩니다.
 
-![NoSQL에서 C# 콘솔 응용 프로그램을 만들기 위해 사용한 쿼리의 의미와 범위를 보여 주는 다이어그램](./media/sql-api-get-started/nosql-tutorial-collection-documents.png)
+![NoSQL에서 C# 콘솔 애플리케이션을 만들기 위해 사용한 쿼리의 의미와 범위를 보여 주는 다이어그램](./media/sql-api-get-started/nosql-tutorial-collection-documents.png)
 
 Azure Cosmos DB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때문에 [FROM](how-to-sql-query.md#FromClause) 키워드는 쿼리에서 선택 사항입니다. 따라서 "FROM Families f"를 "FROM root r" 또는 선택한 다른 변수 이름으로 교체할 수 있습니다. Azure Cosmos DB는 패밀리, 루트 또는 선택한 변수 이름이 기본적으로 현재 컬렉션을 참조하는 것으로 유추합니다.
 
@@ -494,8 +493,8 @@ Azure Cosmos DB는 JSON 문서 삭제를 지원합니다.
 
 축하합니다! Azure Cosmos DB 데이터베이스를 성공적으로 삭제했습니다.
 
-## <a id="Run"></a>11단계: C# 콘솔 응용 프로그램 모두 함께 실행
-디버그 모드에서 응용 프로그램을 빌드하려면 Visual Studio에서 F5 키를 누릅니다.
+## <a id="Run"></a>11단계: C# 콘솔 애플리케이션 모두 함께 실행
+디버그 모드에서 애플리케이션을 빌드하려면 Visual Studio에서 F5 키를 누릅니다.
 
 시작한 앱의 출력이 콘솔 창에 표시됩니다. 출력은 추가한 쿼리 결과를 보여 주며, 아래 예제 텍스트와 일치해야 합니다.
 
@@ -520,7 +519,7 @@ Azure Cosmos DB는 JSON 문서 삭제를 지원합니다.
     Deleted Family Andersen.1
     End of demo, press any key to exit.
 
-축하합니다! 이 자습서를 완료했으며 실행되는 C# 콘솔 응용 프로그램이 생겼습니다.
+축하합니다! 이 자습서를 완료했으며 실행되는 C# 콘솔 애플리케이션이 생겼습니다.
 
 ## <a id="GetSolution"></a> 전체 자습서 솔루션 가져오기
 이 자습서의 단계를 완료할 시간이 없거나 코드 샘플만 다운로드하려는 경우 [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started)에서 가져올 수 있습니다. 
@@ -537,7 +536,7 @@ Visual Studio에서 Azure Cosmos DB .NET SDK에 대한 참조를 복원하려면
 
 
 ## <a name="next-steps"></a>다음 단계
-* 보다 복잡한 ASP.NET MVC 자습서가 필요하신가요? [ASP.NET MVC 자습서: Azure Cosmos DB를 사용한 웹 응용 프로그램 개발](sql-api-dotnet-application.md)을 참조하세요.
+* 보다 복잡한 ASP.NET MVC 자습서가 필요하신가요? [ASP.NET MVC 자습서: Azure Cosmos DB를 사용한 웹 애플리케이션 개발](sql-api-dotnet-application.md)을 참조하세요.
 * Azure Cosmos DB를 사용하여 규모 및 성능 테스트를 수행하고 싶으신가요? [Azure Cosmos DB를 사용한 성능 및 규모 테스트](performance-testing.md)를 참조하세요.
 * [Azure Cosmos DB 요청, 사용 및 저장소 모니터링](monitor-accounts.md) 방법에 대해 알아보세요.
 * [쿼리 실습](https://www.documentdb.com/sql/demo)의 샘플 데이터 집합에 대해 쿼리를 실행합니다.

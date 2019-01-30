@@ -10,17 +10,16 @@ ms.assetid: 8208271b-7f4c-4214-b665-d2ff503c4470
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f53c9e2b21e4758bccb6b0f89eb69501df2a6009
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 863f3500c84eeab1c3dac19141cd334fc6961694
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051402"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015919"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure 데이터 팩터리 - .NET API 변경 로그
 > [!NOTE]
@@ -90,7 +89,7 @@ ms.locfileid: "37051402"
 * 다음 속성이 [PipelineProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties_properties.aspx)에 추가되었습니다.
   * [PipelineMode](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.pipelinemode.aspx)
   * [ExpirationTime](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.expirationtime.aspx)
-  * [데이터 집합](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.datasets.aspx)
+  * [데이터 세트](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.datasets.aspx)
 * 다음 속성이 [PipelineRuntimeInfo](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.aspx)에 추가되었습니다.
   * [PipelineState](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.pipelinestate.aspx)
 * 데이터가 JSON 형식인 데이터 세트를 정의하는 [StorageFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.storageformat.aspx) 유형 [JsonFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.jsonformat.aspx) 유형이 새로 추가되었습니다.
@@ -119,7 +118,7 @@ ms.locfileid: "37051402"
 
 ## <a name="version-420"></a>버전 4.2.0
 ### <a name="feature-additions"></a>기능 추가 사항
-* 다음과 같은 새 활동 유형을 추가되었습니다. [AzureMLUpdateResourceActivity](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremlupdateresourceactivity.aspx) [업데이트 리소스 활동을 사용하여 Azure ML 모델 업데이트](data-factory-azure-ml-batch-execution-activity.md)를 참조하세요.
+* 다음과 같은 새로운 활동 유형이 추가되었습니다. [AzureMLUpdateResourceActivity](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremlupdateresourceactivity.aspx). [업데이트 리소스 활동을 사용하여 Azure ML 모델 업데이트](data-factory-azure-ml-batch-execution-activity.md)를 참조하세요.
 * 새 선택 속성 [updateResourceEndpoint](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremllinkedservice.updateresourceendpoint.aspx)가 [AzureMLLinkedService class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremllinkedservice.aspx)에 추가되었습니다.
 * [LongRunningOperationInitialTimeout](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.longrunningoperationinitialtimeout.aspx) 및 [LongRunningOperationRetryTimeout](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.longrunningoperationretrytimeout.aspx) 속성이 [DataFactoryManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.aspx) 클래스에 추가되었습니다.
 * 데이터 팩터리 서비스에 대한 클라이언트 호출의 시간 제한 구성을 허용합니다.
@@ -157,7 +156,7 @@ ms.locfileid: "37051402"
 | 이전 이름 | 새 이름 |
 |:--- |:--- |
 | ITableOperations |[IDatasetOperations](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.idatasetoperations.aspx) |
-| 테이블 |[데이터 집합](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.dataset.aspx) |
+| 테이블 |[데이터 세트](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.dataset.aspx) |
 | TableProperties |[DatasetProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetproperties.aspx) |
 | TableTypeProprerties |[DatasetTypeProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasettypeproperties.aspx) |
 | TableCreateOrUpdateParameters |[DatasetCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdateparameters.aspx) |
@@ -166,7 +165,7 @@ ms.locfileid: "37051402"
 | TableListResponse |[DatasetListResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetlistresponse.aspx) |
 | CreateOrUpdateWithRawJsonContentParameters |[DatasetCreateOrUpdateWithRawJsonContentParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdatewithrawjsoncontentparameters.aspx) |
 
-* **List** 메서드는 이제 페이징된 결과를 반환합니다. 응답에 비어 있지 않은 **NextLink** 속성이 포함된 경우 클라이언트 응용 프로그램은 모든 페이지가 반환될 때까지 다음 페이지를 계속 가져와야 합니다.  다음은 예제입니다.
+* **List** 메서드는 이제 페이징된 결과를 반환합니다. 응답에 비어 있지 않은 **NextLink** 속성이 포함된 경우 클라이언트 애플리케이션은 모든 페이지가 반환될 때까지 다음 페이지를 계속 가져와야 합니다.  다음은 예제입니다.
 
     ```csharp
     PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");
@@ -185,4 +184,4 @@ ms.locfileid: "37051402"
 
 ### <a name="feature-additions"></a>기능 추가 사항
 * [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) 클래스는 두 가지 새로운 속성인 **SliceIdentifierColumnName** 및 **SqlWriterCleanupScript**를 지원하여 Azure SQL Data Warehouse에 대한 idempotent 복사를 지원합니다. 이러한 속성에 대한 자세한 내용은 [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) 문서를 참조하세요.
-* 이제 복사 작업의 일부로 Azure SQL Database 및 Azure SQL Data Warehouse 소스에 대한 저장 프로시저 실행을 지원합니다. [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx)와 [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) 클래스에는 **SqlReaderStoredProcedureName**과 **StoredProcedureParameters** 속성이 있습니다. 이러한 속성에 대한 자세한 내용은 Azure.com에서 [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) 및 [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) 문서를 참조하세요.  
+* 이제 복사 작업의 일부로 Azure SQL Database 및 Azure SQL Data Warehouse 소스에 대한 저장 프로시저 실행을 지원합니다. [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) 및 [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) 클래스에는 **SqlReaderStoredProcedureName** 및 **StoredProcedureParameters**와 같은 속성이 있습니다. 이러한 속성에 대한 자세한 내용은 Azure.com에서 [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) 및 [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) 문서를 참조하세요.  

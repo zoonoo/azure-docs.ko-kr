@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning 이상 감지 API | Microsoft Docs
+title: Azure Machine Learning 이상 감지 API - Team Data Science Process
 description: 이상 감지 API는 Microsoft Azure Machine Learning을 사용하여 빌드한 예로서, 시간 간격이 불균일한 숫자 값이 있는 시계열 데이터에서 이상을 감지합니다.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
-ms.custom: (previous author=alokkirpal, ms.author=alok)
-ms.openlocfilehash: 485cf6af9f019bc43ee862627db8549240690247
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
+ms.openlocfilehash: de625e7cc394d1b292f9876a1b4cdd3fb0daeaa8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443936"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134797"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning 이상 감지 API
 ## <a name="overview"></a>개요
@@ -37,9 +37,9 @@ ms.locfileid: "52443936"
 > [!NOTE]
 > [이 API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)에서 제공되는 **IT Anomaly Insights 솔루션**을 사용해 봅니다.
 > 
-> Azure 구독에 배포된 이 종단 간 솔루션을 가져오려면 <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**여기에서 시작 >**</a>하세요.
-> 
->
+<!-- This Solution is no longer available
+> To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
+--> 
 
 ## <a name="api-deployment"></a>API 배포
 API를 사용하려면 Azure Machine Learning 웹 서비스로 호스팅되는 Azure 구독에 API를 배포해야 합니다.  이 작업은 [Azure AI 갤러리](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)에서 수행할 수 있습니다.  그러면 두 개의 AzureML(Azure Machine Learning) 웹 서비스 및 관련 리소스가 Azure 구독에 배포됩니다. 하나는 계절성 감지가 있는 이상 감지용이고, 다른 하나는 계절성 감지가 없는 이상 감지용입니다.  배포가 완료되면 [AzureML 웹 서비스](https://services.azureml.net/webservices/) 페이지에서 API를 관리할 수 있습니다.  이 페이지에서 API를 호출하기 위한 샘플 코드와 엔드포인트 위치, API 키를 찾을 수 있습니다.  더 자세한 지침은 [여기](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice)에 있습니다.
@@ -108,10 +108,10 @@ Score API는 비계절성 시계열 데이터에 이상 감지를 실행하는 �
 
 | 감지기 범주 | 감지기 | 설명 | 입력 매개 변수 | outputs |
 | --- | --- | --- | --- | --- |
-| 급증 감지기 |TSpike 감지기 |값이 첫 번째와 세 번째 사분위 수에서 얼마나 떨어져 있는지를 기반으로 급증과 급락을 감지합니다. |*tspikedetector.sensitivity:* 1-10 범위의 정수 값을 갖습니다. 기본값: 3. 값이 높을수록 더 극단값을 포착하므로 민감도는 낮습니다. |TSpike: 이진 값 – 급증/급락이 감지되면 ‘1’, 그 외 경우는 ‘0’ |
-| 급증 감지기 | ZSpike 감지기 |데이터 요소가 평균값에서 얼마나 떨어져 있는지를 기반으로 급증 및 급락을 감지합니다. |*zspikedetector.sensitivity:* 1~10 범위의 정수 값을 갖습니다. 기본값: 3. 값이 높을수록 더 극단값을 포착하므로 민감도는 낮습니다. |ZSpike: 이진 값 – 급증/급락이 감지되면 ‘1’, 그 외 경우는 ‘0’ | |
-| 느린 추세 감지기 |느린 추세 감지기 |집합 민감도에 따른 느리고 긍정적인 추세 감지 |*trenddetector.sensitivity:* 감지기 점수 임계값(기본값: 3.25. 3.25 – 5는 선택하기에 적절한 범위입니다. 값이 높을수록 민감도가 낮습니다.) |tscore: 추세에 대한 이상 점수를 나타내는 부동 소수점 숫자 |
-| 수준 변화 감지기 | 양방향 수준 변화 감지기 |집합 민감도에 따른 상향 및 하향 수준 변경 감지 |*bileveldetector.sensitivity:* 감지기 점수 임계값(기본값: 3.25. 3.25 – 5는 선택하기에 적절한 범위입니다. 값이 높을수록 민감도가 낮습니다.) |rpscore: 상향 및 하향 수준 변화에 대한 이상 점수를 나타내는 부동 소수점 숫자 | |
+| 급증 감지기 |TSpike 감지기 |값이 첫 번째와 세 번째 사분위 수에서 얼마나 떨어져 있는지를 기반으로 급증과 급락을 감지합니다. |*tspikedetector.sensitivity:* 는 1-10 범위의 정수 값을 취하고, 기본값은 3이며, 값은 더 극단값을 캐치하므로 민감도가 낮습니다. |TSpike: 이진 값 – 급증/급락이 감지되면 ‘1’, 그 외 경우는 ‘0’ |
+| 급증 감지기 | ZSpike 감지기 |데이터 요소가 평균값에서 얼마나 떨어져 있는지를 기반으로 급증 및 급락을 감지합니다. |*zspikedetector.sensitivity:* 는 1-10 범위의 정수 값을 취하고, 기본값은 3이며, 값은 더 극단값을 캐치하므로 민감도가 낮습니다. |ZSpike: 이진 값 – 급증/급락이 감지되면 ‘1’, 그 외 경우는 ‘0’ | |
+| 느린 추세 감지기 |느린 추세 감지기 |집합 민감도에 따른 느리고 긍정적인 추세 감지 |*trenddetector.sensitivity:* 감지기 점수의 임계값(기본값: 3.25, 3.25–5는 이를 선택하는 적절한 범위입니다. 높을수록 민감도가 낮습니다.) |tscore: 추세에 대한 이상 점수를 나타내는 부동 소수점 숫자 |
+| 수준 변화 감지기 | 양방향 수준 변화 감지기 |집합 민감도에 따른 상향 및 하향 수준 변경 감지 |*bileveldetector.sensitivity:* 감지기 점수의 임계값(기본값: 3.25, 3.25–5는 이를 선택하는 적절한 범위입니다. 높을수록 민감도가 낮습니다.) |rpscore: 상향 및 하향 수준 변화에 대한 이상 점수를 나타내는 부동 소수점 숫자 | |
 
 ### <a name="parameters"></a>매개 변수
 이러한 입력 매개 변수에 대한 자세한 정보는 아래 테이블에 나와 있습니다.

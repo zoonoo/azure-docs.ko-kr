@@ -1,25 +1,21 @@
 ---
-title: 'Azure Cosmos DB: SQL .NET Core API, SDK 및 리소스 | Microsoft Docs'
+title: Azure Cosmos DB는 SQL .NET Core API, SDK 및 리소스
 description: 릴리스 날짜, 사용 중지 날짜 및 Azure Cosmos DB .NET Core SDK의 각 버전 간 변경 내용을 포함하여 SQL .NET Core API 및 SDK에 대한 모든 것을 알아봅니다.
-services: cosmos-db
-author: rnagpal
-manager: kfile
-editor: cgronlun
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5216a4a21fbbded4a10429c658f4842db225657
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.author: sngun
+ms.openlocfilehash: 95ebdd74fa8be433c7a31f79ad36d4645bc57318
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161721"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354521"
 ---
-# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK for SQL API: 릴리스 정보 및 리소스
+# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SQL API에 대한 Azure Cosmos DB .NET Core SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
@@ -30,7 +26,7 @@ ms.locfileid: "52161721"
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -44,7 +40,7 @@ ms.locfileid: "52161721"
 
 <tr><td>**시작**</td><td>[Azure Cosmos DB .NET Core SDK 시작](sql-api-dotnetcore-get-started.md)</td></tr>
 
-<tr><td>**웹앱 자습서**</td><td>[Azure Cosmos DB를 사용한 웹 응용 프로그램 개발](sql-api-dotnet-application.md)</td></tr>
+<tr><td>**웹앱 자습서**</td><td>[Azure Cosmos DB를 사용한 웹 애플리케이션 개발](sql-api-dotnet-application.md)</td></tr>
 
 <tr><td>**현재 지원되는 프레임워크**</td><td>[.NET Standard 1.6 및 .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
 </table></br>
@@ -52,6 +48,31 @@ ms.locfileid: "52161721"
 ## <a name="release-notes"></a>릴리스 정보
 
 Azure Cosmos DB .NET Core SDK에는 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md)의 최신 버전에 대응하는 기능이 있습니다.
+
+### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-preview
+* 공개 미리 보기용 .NET SDK [버전 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)의 미리 보기 1.
+* .NET Framework 4.6.1 이상 및 .NET Core 2.0 이상을 지원하는 대상 .NET Standard
+* 최상위 CosmosClient 및 관련 CosmosDatabases, CosmosContainers 및 CosmosItems 클래스 간에 분할되는 메서드가 포함된 새 개체 모델
+* 스트림 지원
+* 상태 코드를 반환하고 응답이 반환되지 않을 경우에만 예외를 throw하는 서버에서 업데이트된 CosmosResponseMessage
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+
+* StoredProcedure 실행 호출 장애 조치(failover) 중 다시 시도 논리가 개선되었습니다.
+
+* DocumentClientEventSource 싱글톤을 만들었습니다. 
+
+* ConnectionPolicy RequestTimeout을 고려하지 않는 GatewayAddressCache 시간 제한이 수정되었습니다.
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+
+* 직접/TCP 전송 진단의 경우 SDK의 내부 예외 유형인 TransportException이 추가되었습니다. 예외 메시지에 포함될 경우 이 유형은 클라이언트 연결 문제를 해결하기 위해 추가 정보를 인쇄합니다.
+
+* HttpClient 요청(예: HttpClientHandler)을 전송하는 데 사용할 HTTP 처리기 스택인 HttpMessageHandler를 가져오는 새 생성자 오버로드가 추가되었습니다.
+
+* Null 값이 있는 헤더가 제대로 처리되지 않은 버그를 수정합니다.
+
+* 컬렉션 캐시 유효성 검사를 개선했습니다.
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 
@@ -121,7 +142,7 @@ Azure Cosmos DB .NET Core SDK에는 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotne
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
  
- * API 참조 설명서, 어셈블리의 메타데이터 정보 및 NuGet 패키지에서 Azure DocumentDB를 Azure Cosmos DB로 브랜딩 변경. 
+ * API 참조 설명서, 어셈블리의 메타데이터 정보 및 NuGet 패키지에서 Azure DocumentDB를 Azure Cosmos DB로 브랜딩 변경.
  * 직접 연결 모드로 전송된 요청의 응답에서 진단 정보 및 대기 시간을 표시합니다. 속성 이름은 ResourceResponse 클래스의 RequestDiagnosticsString 및 RequestLatency입니다.
  * 이 SDK 버전은 https://aka.ms/cosmosdb-emulator에서 다운로드할 수 있는 최신 버전의 Azure Cosmos DB 에뮬레이터가 필요합니다.
  
@@ -135,8 +156,8 @@ Azure Cosmos DB .NET Core SDK에는 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotne
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0 
 
-* 특정 파티션 키 범위 값으로 쿼리 결과의 범위를 지정하기 위해 PartitionKeyRangeId에 대한 지원이 FeedOption으로 추가되었습니다. 
-* 해당 시간 이후에 변경 검색을 시작할 수 있도록 StartTime에 대한 지원이 ChangeFeedOption으로 추가되었습니다. 
+* 특정 파티션 키 범위 값으로 쿼리 결과의 범위를 지정하기 위해 PartitionKeyRangeId에 대한 지원이 FeedOption으로 추가되었습니다.
+* 해당 시간 이후에 변경 검색을 시작할 수 있도록 StartTime에 대한 지원이 ChangeFeedOption으로 추가되었습니다.
 
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
 
@@ -194,24 +215,26 @@ Azure Cosmos DB .NET Core SDK에는 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotne
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 
-Azure Cosmos DB .NET Core SDK를 사용하면 Windows, Mac 및 Linux에서 실행하는 빠른 플랫폼 간 [ASP.NET Core](https://www.asp.net/core) 및 [.NET Core](https://www.microsoft.com/net/core#windows) 앱을 빌드할 수 있습니다. Azure Cosmos DB .NET Core SDK 최신 릴리스는 [Xamarin](https://www.xamarin.com)과 완벽하게 호환되며 iOS, Android 및 Mono(Linux)를 대상으로 하는 응용 프로그램을 빌드하는 데 사용됩니다.  
+Azure Cosmos DB .NET Core SDK를 사용하면 Windows, Mac 및 Linux에서 실행하는 빠른 플랫폼 간 [ASP.NET Core](https://www.asp.net/core) 및 [.NET Core](https://www.microsoft.com/net/core#windows) 앱을 빌드할 수 있습니다. Azure Cosmos DB .NET Core SDK 최신 릴리스는 [Xamarin](https://www.xamarin.com)과 완벽하게 호환되며 iOS, Android 및 Mono(Linux)를 대상으로 하는 애플리케이션을 빌드하는 데 사용됩니다.  
 
 ### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-preview
 
 Azure Cosmos DB .NET Core Preview SDK를 사용하면 Windows, Mac 및 Linux에서 실행하는 빠른 플랫폼 간 [ASP.NET Core](https://www.asp.net/core) 및 [.NET Core](https://www.microsoft.com/net/core#windows) 앱을 빌드할 수 있습니다.
 
 Azure Cosmos DB .NET Core Preview SDK에는 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md)의 최신 버전에 대응하는 기능이 있으며 다음이 지원됩니다.
-* 모든 [연결 모드](performance-tips.md#networking): 게이트웨이 모드, Direct TCP 및 Direct HTTP 
+* 모든 [연결 모드](performance-tips.md#networking): 게이트웨이 모드, Direct TCP 및 Direct HTTP
 * 모든 [일관성 수준](consistency-levels.md): 강함, 세션, 제한된 부실, 최종
-* [분할된 컬렉션](partition-data.md) 
+* [분할된 컬렉션](partition-data.md)
 * [다중 하위 지역 데이터베이스 계정 및 지역에서 복제](distribute-data-globally.md)
 
-이 SDK와 관련된 질문이 있으면 [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb)에 게시하거나 [github 저장소](https://github.com/Azure/azure-documentdb-dotnet/issues)에서 문제를 제기하세요. 
+이 SDK와 관련된 질문이 있으면 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb)에 게시하거나 [GitHub 리포지토리](https://github.com/Azure/azure-documentdb-dotnet/issues)에서 문제를 제기하세요.
 
 ## <a name="release--retirement-dates"></a>릴리스 및 사용 중지 날짜
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |2018년 12월 24일 |--- |
+| [2.2.0](#2.2.0) |2018년 12월 7일 |--- |
 | [2.1.3](#2.1.3) |2018년 10월 15일 |--- |
 | [2.1.2](#2.1.2) |2018년 10월 4일 |--- |
 | [2.1.1](#2.1.1) |2018년 9월 27일 |--- |
@@ -240,5 +263,5 @@ Azure Cosmos DB .NET Core Preview SDK에는 [Azure Cosmos DB .NET SDK](sql-api-s
 | [0.1.0-preview](#0.1.0-preview) |2016년 11월 15일 |2015년 12월 31일 |
 
 ## <a name="see-also"></a>참고 항목
-Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요. 
+Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요.
 

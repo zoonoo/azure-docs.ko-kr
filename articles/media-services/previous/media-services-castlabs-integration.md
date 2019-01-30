@@ -73,9 +73,9 @@ castLabs 및 AMS는 둘 다 라이선스를 인증하는 데 사용되는 JWT(JS
 [샘플 솔루션](https://github.com/AzureMediaServicesSamples/CastlabsIntegration) 은 다음 두 프로젝트로 구성되어 있습니다.
 
 * PlayReady 및 Widevine에 대해 이미 수집된 자산에 DRM 제한을 설정하는 데 사용할 수 있는 콘솔 응용 프로그램.
-* 토큰을 배포하는 웹 응용 프로그램. STS의 간소화된 버전으로 볼 수 있습니다.
+* 토큰을 배포하는 웹 애플리케이션. STS의 간소화된 버전으로 볼 수 있습니다.
 
-콘솔 응용 프로그램을 사용하려면
+콘솔 애플리케이션을 사용하려면
 
 1. app.config를 변경하여 AMS 자격 증명, castLabs 자격 증명, STS 구성 및 공유 키를 설정합니다.
 2. AMS에 자산을 업로드합니다.
@@ -87,7 +87,7 @@ castLabs 및 AMS는 둘 다 라이선스를 인증하는 데 사용되는 JWT(JS
    **castLabs**에 대해 AssetId를 설정해야 하며, 고유한 영숫자 문자열로 지정해야 합니다.
 5. 프로그램을 실행합니다.
 
-웹 응용 프로그램(STS)을 사용하려면
+웹 애플리케이션(STS)을 사용하려면
 
 1. web.config를 변경하여 castlabs 판매자 ID, STS 구성 및 공유 키를 설정합니다.
 2. Azure Websites에 배포합니다.

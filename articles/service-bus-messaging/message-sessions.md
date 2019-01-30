@@ -3,22 +3,22 @@ title: Azure Service Bus 메시지 세션 | Microsoft Docs
 description: Azure Service Bus 메시지 시퀀스를 세션으로 처리합니다.
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2018
-ms.author: spelluru
-ms.openlocfilehash: f1f796f7dc0a5ca4e1143f07303c218117e745e7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: b45b59775abd2db7cea9d0fa9b0cc23f7ce31277
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314322"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848838"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>메시지 세션: FIFO(처음 들어간 것부터 사용) 
 
@@ -27,11 +27,11 @@ Microsoft Azure Service Bus 세션을 사용하면 관련 메시지의 무제한
 > [!NOTE]
 > Service Bus의 기본 계층에서는 세션을 지원하지 않습니다. 표준 및 프리미엄 계층은 세션을 지원합니다. 자세한 내용은 [Service Bus 가격](service-bus-pricing-billing.md)을 참조하세요.
 
-발신자는 메시지를 토픽이나 큐에 제출할 때 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) 속성을 세션에 고유한 응용 프로그램 정의 식별자로 설정하여 세션을 만들 수 있습니다. AMQP 1.0 프로토콜 수준에서 이 값은 *group-id* 속성에 매핑됩니다.
+발신자는 메시지를 토픽이나 큐에 제출할 때 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) 속성을 세션에 고유한 애플리케이션 정의 식별자로 설정하여 세션을 만들 수 있습니다. AMQP 1.0 프로토콜 수준에서 이 값은 *group-id* 속성에 매핑됩니다.
 
 세션 인식 큐 또는 구독에서 세션의 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId)가 있는 메시지가 하나 이상일 때 해당 세션이 존재하게 됩니다. 세션이 존재하면 세션이 언제 만료되거나 사라지는지에 대해 정의된 시간이나 API가 없습니다. 이론적으로 메시지는 오늘 세션에서 수신되고 1년 후 다음 메시지가 수신될 수 있으며 **SessionId**가 일치하면 세션은 Service Bus 측면에서 동일합니다.
 
-하지만 일반적으로 응용 프로그램에는 관련된 메시지 집합이 시작되고 끝나는 위치에 대한 명확한 개념이 있지만 Service Bus는 특정 규칙을 설정하지 않습니다.
+하지만 일반적으로 애플리케이션에는 관련된 메시지 집합이 시작되고 끝나는 위치에 대한 명확한 개념이 있지만 Service Bus는 특정 규칙을 설정하지 않습니다.
 
 파일 전송 시퀀스를 서술하는 방법의 예에는 첫 번째 메시지의 **Label** 속성을 **start**로 설정하고 중간 메시지는 **content**로 설정하고 마지막 메시지는 **end**라고 설정하는 방법이 있습니다. 콘텐츠 메시지의 상대적인 위치는 **start** 메시지의 *SequenceNumber*에서 현재 메시지의 *SequenceNumber* 델타로 계산될 수 있습니다.
 
@@ -53,7 +53,7 @@ Service Bus의 세션 기능을 사용하면 C# 및 Java API의 [MessageSession]
 
 [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) 개체가 수락되고 클라이언트에서 유지되는 동안 해당 클라이언트는 큐 또는 구독에 있는 세션의 [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId)가 포함된 모든 메시지와 세션이 유지되는 동안 도착하는 **SessionId**가 포함된 모든 메시지에 대해 배타적 잠금을 유지합니다.
 
-잠금은 **Close** 또는 **CloseAsync**가 호출되거나 응용 프로그램이 잠금 작업을 수행할 수 없어서 잠금이 만료될 때 해제됩니다. 세션 잠금은 파일에 대한 배타적인 잠금으로 처리되어야 합니다. 즉, 응용 프로그램은 세션이 더 이상 필요하지 않거나 더 이상 메시지를 기대하지 않는 경우 세션을 닫아야 합니다.
+잠금은 **Close** 또는 **CloseAsync**가 호출되거나 애플리케이션이 잠금 작업을 수행할 수 없어서 잠금이 만료될 때 해제됩니다. 세션 잠금은 파일에 대한 배타적인 잠금으로 처리되어야 합니다. 즉, 애플리케이션은 세션이 더 이상 필요하지 않거나 더 이상 메시지를 기대하지 않는 경우 세션을 닫아야 합니다.
 
 다수의 동시 수신자가 큐에서 풀링되면 특정 세션에 속하는 메시지는 해당 세션에 대한 잠금을 보유하고 있는 특정 수신자에게 전달됩니다. 이러한 작업을 통해 하나의 큐 또는 구독에 상주하는 인터리브된 메시지 스트림이 다른 수신자로 완전히 역멀티플렉싱되며 잠금 관리가 Service Bus 내의 서비스 쪽에서 발생하기 때문에 해당 수신자는 다른 클라이언트 시스템에서도 작동할 수 있습니다.
 
@@ -65,7 +65,7 @@ Service Bus의 세션 기능을 사용하면 C# 및 Java API의 [MessageSession]
 
 워크플로가 대규모의 고가용성 클라우드 시스템에서 처리되는 경우 특정 세션과 연관된 워크플로 처리기는 예상치 못한 장애를 복구할 수 있어야 하며 작업이 시작된 다른 프로세스 또는 컴퓨터에서 부분적으로 완료된 작업을 재개할 수 있어야 합니다.
 
-세션 상태 기능을 통해 broker 내부의 메시지 세션에 대한 응용 프로그램 정의 주석을 사용할 수 있기 때문에 세션을 새 프로세서로 가져올 때 해당 세션에 대해 기록된 처리 상태를 즉시 사용할 수 있습니다.
+세션 상태 기능을 통해 broker 내부의 메시지 세션에 대한 애플리케이션 정의 주석을 사용할 수 있기 때문에 세션을 새 프로세서로 가져올 때 해당 세션에 대해 기록된 처리 상태를 즉시 사용할 수 있습니다.
 
 Service Bus 측면에서 메시지 세션 상태는 한 개 메시지 크기의 데이터(Service Bus Standard의 경우 256KB 및 Service Bus Premium의 경우 1MB)를 보유할 수 있는 불투명한 이진 개체입니다. 세션과 관련된 처리 상태는 세션 상태 내에 유지되거나 이러한 정보를 보유하는 저장소 위치 또는 데이터베이스 레코드를 세션 상태가 가리킬 수 있습니다.
 
@@ -75,7 +75,7 @@ Service Bus 측면에서 메시지 세션 상태는 한 개 메시지 크기의 
 
 큐 또는 구독의 모든 기존 세션은 Java API의 **SessionBrowser** 메서드 및 .NET 클라이언트의 [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) 및 [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient)의 [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions)를 사용하여 열거할 수 있습니다.
 
-큐 또는 구독에 보관된 세션 상태는 해당 엔터티의 저장소 할당량에 포함됩니다. 응용 프로그램이 세션을 끝내면 외부 관리 비용을 피하기 위해 응용 프로그램이 보유 상태를 정리하는 것이 좋습니다.
+큐 또는 구독에 보관된 세션 상태는 해당 엔터티의 저장소 할당량에 포함됩니다. 애플리케이션이 세션을 끝내면 외부 관리 비용을 피하기 위해 애플리케이션이 보유 상태를 정리하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

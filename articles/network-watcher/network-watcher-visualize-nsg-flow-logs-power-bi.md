@@ -54,7 +54,7 @@ ms.locfileid: "51822877"
 
 ### <a name="steps"></a>단계
 
-1. Power BI Desktop 응용 프로그램 [Network Watcher PowerBI 흐름 로그 템플릿](https://aka.ms/networkwatcherpowerbiflowlogstemplate)에서 다음 Power BI 템플릿을 다운로드하여 열기
+1. Power BI Desktop 애플리케이션 [Network Watcher PowerBI 흐름 로그 템플릿](https://aka.ms/networkwatcherpowerbiflowlogstemplate)에서 다음 Power BI 템플릿을 다운로드하여 열기
 1. 필요한 쿼리 매개 변수 입력
     1. **StorageAccountName** - 로드하여 시각화하려는 NSG 흐름 로그가 포함된 저장소 계정의 이름을 지정합니다.
     1. **NumberOfLogFiles** – Power BI에서 다운로드하여 시각화하려는 로그 파일의 수를 지정합니다. 예를 들어 50을 지정하면 가장 최근의 로그 파일 50개가 지정됩니다. NSG 2개가 활성화되어 이 계정에 NSG 흐름 로그를 보내도록 구성되어 있는 경우 지난 25시간 동안의 로그를 볼 수 있습니다.

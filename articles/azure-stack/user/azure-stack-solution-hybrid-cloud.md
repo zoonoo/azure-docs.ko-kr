@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/18/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: e4da34be5b1e9eb2675f540fe4069cfd3dc1d056
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.reviewer: anajod
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: 5f142192571bdd15a33575a425d75baf3e5caea2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49410199"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243490"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 하이브리드 클라우드 솔루션 배포
 
@@ -77,13 +78,13 @@ ms.locfileid: "49410199"
 
 2. 에 **대시보드**를 선택 **Marketplace**합니다.
 
-    ![Auzure Stack Marketplace](media/azure-stack-solution-hybrid-cloud/image1.png)
+    ![Azure Stack Marketplace](media/azure-stack-solution-hybrid-cloud/image1.png)
 
 3. **Marketplace**를 선택 **Compute**를 선택한 후 **자세한**합니다. 아래 **자세한**를 선택 합니다 **체험 용 SQL Server 라이선스: Windows Server에서 SQL Server 2017 Developer** 이미지입니다.
 
     ![가상 컴퓨터 이미지 선택](media/azure-stack-solution-hybrid-cloud/image2.png)
 
-4. 온 **체험 용 SQL Server 라이선스: Windows Server에서 SQL Server 2017 Developer** 선택 **만들기**합니다.
+4. **무료 SQL Server 라이선스: Windows Server에서 SQL Server 2017 Developer** 선택 **만들기**합니다.
 
 5. **기본 사항 > 기본 설정 구성**를 제공는 **이름** 가상 머신 (VM)에 대 한를 **사용자 이름** SQL Server SA에 대 한 및 **암호** SA에 대 한 합니다.  **구독** 드롭 다운 목록에서 배포 하는 구독을 선택 합니다. 에 대 한 **리소스 그룹**를 사용 하 여 **기존 항목 선택** Azure Stack 웹 앱으로 동일한 리소스 그룹에 VM을 배치 합니다.
 
@@ -176,7 +177,7 @@ Azure에서 프런트 엔드 웹 및 Azure Stack에서 SQL Server 데이터베�
 
 1. 응용 프로그램을 Azure VNet에 연결 하려면의 지침을 따릅니다 [VNet 통합 사용](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#enabling-vnet-integration)합니다.
 
-2. 이동할 **설정을** 웹 응용 프로그램을 호스팅하는 App Service 계획에 대 한 합니다. **설정을**를 선택 **네트워킹**합니다.
+2. 이동할 **설정을** 웹 응용 프로그램을 호스팅하는 App Service 계획에 대 한 합니다. **설정**에서 **네트워킹**을 선택합니다.
 
     ![네트워킹 구성](media/azure-stack-solution-hybrid-cloud/image11.png)
 
@@ -194,7 +195,7 @@ Azure Vnet과 App Service 통합 하는 방법에 대 한 자세한 내용은 �
 
 Azure Stack virtual network의 로컬 네트워크 게이트웨이 App Service 지점-사이트 간 주소 범위에서 트래픽을 라우팅하도록 구성 해야 합니다.
 
-1. Azure Stack에서로 이동 **로컬 네트워크 게이트웨이**합니다. 아래 **설정을**를 선택 **구성**합니다.
+1. Azure Stack에서로 이동 **로컬 네트워크 게이트웨이**합니다. **설정**에서 **구성**을 선택합니다.
 
     ![게이트웨이 구성 옵션](media/azure-stack-solution-hybrid-cloud/image14.png)
 
@@ -308,7 +309,7 @@ App Service environment에서 웹 앱을 만들 때 인스턴스 하나를 사�
 
     ![자동 크기 조정 사용](media/azure-stack-solution-hybrid-cloud/image17.png)
 
-3. 에 대 한 이름을 입력 **자동 크기 조정 설정 이름**합니다. 에 대 한 합니다 **기본** 자동 크기 조정 규칙을 선택 **메트릭에 따라 크기 조정**합니다. 설정 합니다 **인스턴스 제한** 하 **최소: 1**, **최대: 10**, 및 **기본: 1**합니다.
+3. 에 대 한 이름을 입력 **자동 크기 조정 설정 이름**합니다. 에 대 한 합니다 **기본** 자동 크기 조정 규칙을 선택 **메트릭에 따라 크기 조정**합니다. 설정 된 **인스턴스 제한** 에 **최소: 1**, **최대: 10**, 및 **기본: 1**.
 
     ![자동 크기 조정 구성](media/azure-stack-solution-hybrid-cloud/image18.png)
 
@@ -447,7 +448,7 @@ Application Insights 메트릭 경고를 만들려면 사용 합니다. 이러�
 ### <a name="create-the-scale-out-alert"></a>경고 확장 만들기
 
 1. 아래 **구성**를 선택 **경고 (클래식)** 합니다.
-2. 선택 **메트릭 경고 추가 (클래식)** 합니다.
+2. **메트릭 경고 추가(클래식)** 를 선택합니다.
 3. **규칙 추가**, 다음을 구성 합니다.
 
    - 에 대 한 **이름을**를 입력 **Azure 클라우드로 버스트**합니다.
@@ -468,7 +469,7 @@ Application Insights 메트릭 경고를 만들려면 사용 합니다. 이러�
 ### <a name="create-the-scale-in-alert"></a>경고 확장 만들기
 
 1. 아래 **구성**를 선택 **경고 (클래식)** 합니다.
-2. 선택 **메트릭 경고 추가 (클래식)** 합니다.
+2. **메트릭 경고 추가(클래식)** 를 선택합니다.
 3. **규칙 추가**, 다음을 구성 합니다.
 
    - 에 대 한 **이름을**를 입력 **Azure Stack에 다시 확장**합니다.
@@ -502,7 +503,7 @@ Azure 및 Azure Stack 간에 전환 하 여 웹 앱 트래픽 수동 또는 자�
 
     ![Traffic Manager 엔드포인트](media/azure-stack-solution-hybrid-cloud/image20.png)
 
-2. 선택 **끝점**합니다.
+2. **엔드포인트**를 선택합니다.
 3. 선택 된 **Azure 끝점**합니다.
 4. 아래 **상태** 를 선택 **Enabled**를 선택한 후 **저장**.
 

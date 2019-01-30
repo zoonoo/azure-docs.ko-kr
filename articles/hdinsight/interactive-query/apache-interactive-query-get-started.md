@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 6086c03961294a18fbf6a106188593c79c88d663
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b34d67e640f09ac6949e992d3af9388581851622
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310000"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629529"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>HDInsight에서 대화형 쿼리 사용
 대화형 쿼리(Apache Hive LLAP 또는 [짧은 대기 시간 분석 처리](https://cwiki.apache.org/confluence/display/Hive/LLAP)라고도 함)는 Azure HDInsight [클러스터 유형](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types)입니다. Interactive Query에서는 메모리 내 캐싱을 지원하여 Apache Hive 쿼리를 더 강화된 대화형 방식으로 더 빠르게 수행할 수 있습니다.
@@ -23,10 +23,8 @@ ms.locfileid: "52310000"
 
 Interactive Query 클러스터는 Apache Hadoop 클러스터와 다릅니다. Hive 서비스만 포함합니다. 
 
-> [!NOTE]
+> [!NOTE]  
 > Interactive Query 클러스터의 Hive 서비스는 Apache Ambari Hive 보기, Beeline 및 Microsoft Hive ODBC(Open Database Connectivity) Driver를 통해서만 액세스할 수 있습니다. Hive 콘솔, Templeton, Azure 클래식 CLI 또는 Azure PowerShell을 통해서는 액세스할 수 없습니다. 
-> 
-> 
 
 ## <a name="create-an-interactive-query-cluster"></a>대화형 쿼리 클러스터 만들기
 HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 대화형 쿼리 클러스터 형식을 선택합니다.
@@ -34,7 +32,7 @@ HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsi
 ## <a name="execute-apache-hive-queries-from-interactive-query"></a>Interactive Query에서 Apache Hive 쿼리 실행
 Hive 쿼리를 실행하려면 다음 옵션이 있어야 합니다.
 
-* Power BI 사용
+* Microsoft Power BI 사용
 
     [Azure HDInsight에서 Power BI를 사용하여 대화형 쿼리 Apache Hive 데이터 시각화](./apache-hadoop-connect-hive-power-bi-directquery.md) 참조 [Azure HDInsight에서 Power BI를 사용하여 빅 데이터 시각화](../hadoop/apache-hadoop-connect-hive-power-bi.md)를 참조하세요.
  
@@ -44,7 +42,7 @@ Hive 쿼리를 실행하려면 다음 옵션이 있어야 합니다.
 
 * Visual Studio 사용
 
-    [Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 및 Apache Hive 쿼리 실행](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-hive-queries)을 참조하세요.
+    [Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 및 Apache Hive 쿼리 실행](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-apache-hive-queries)을 참조하세요.
 
 * Visual Studio Code 사용
 
@@ -75,7 +73,7 @@ JDBC(Java Database Connectivity) 연결 문자열을 찾으려면 다음을 수�
 * [HDInsight에서 Interactive Query 클러스터를 만드는 방법](../hdinsight-hadoop-provision-linux-clusters.md)에 대해 알아봅니다.
 * [Azure HDInsight에서 Power BI를 사용하여 빅 데이터를 시각화](../hadoop/apache-hadoop-connect-hive-power-bi.md)하는 방법에 대해 알아봅니다.
 * [Azure HDInsight에서 Apache Zeppelin을 사용하여 Apache Hive 쿼리를 실행하는 방법](../hdinsight-connect-hive-zeppelin.md)을 알아봅니다.
-* [Data Lake Tools for Visual Studio를 사용하여 Apache Hive 쿼리를 실행하는 방법](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-hive-queries)을 알아봅니다.
+* [Data Lake Tools for Visual Studio를 사용하여 Apache Hive 쿼리를 실행하는 방법](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-apache-hive-queries)을 알아봅니다.
 * [HDInsight Tools for Visual Studio Code를 사용](../hdinsight-for-vscode.md)하는 방법에 대해 알아봅니다.
 * [HDInsight에서 Apache Hadoop과 Apache Hive View를 사용하는 방법](../hadoop/apache-hadoop-use-hive-ambari-view.md)을 알아봅니다.
 * [Beeline을 사용하여 HDInsight에서 Apache Hive 쿼리를 제출하는 방법](../hadoop/apache-hadoop-use-hive-beeline.md)을 알아봅니다.

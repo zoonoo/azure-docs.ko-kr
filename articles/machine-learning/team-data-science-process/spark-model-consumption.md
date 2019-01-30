@@ -1,5 +1,5 @@
 ---
-title: Spark에서 만든 Machine Learning 모델 운영 | Microsoft Docs
+title: Spark에서 만든 기계 학습 모델 운영 - Team Data Science Process
 description: Python을 사용하여 Azure Blob Storage(WASB)에 저장된 학습 모델을 로드하고 점수를 매기는 방법입니다.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 6ffe1dd960b6fd09539d093d8a632efc99452c00
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: eb66e5c84542127f63b6311a887494f1e2ba394c
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442508"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448791"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Spark에서 만든 Machine Learning 모델 운영
 
@@ -104,7 +104,7 @@ Spark 컨텍스트를 설정하고 다음 코드를 사용하여 필요한 라�
 
 
 ### <a name="preset-spark-context-and-pyspark-magics"></a>미리 설정된 Spark 컨텍스트 및 PySpark 매직
-Jupyter Notebook과 함께 제공되는 PySpark 커널에는 사전 설정 컨텍스트가 있습니다. 따라서 개발 중인 응용 프로그램으로 작업을 시작하기 전에 Spark 또는 Hive 컨텍스트를 명시적으로 설정할 필요는 없습니다. 이러한 컨텍스트는 기본적으로 사용할 수 있습니다. 이러한 컨텍스트는 다음과 같습니다.
+Jupyter Notebook과 함께 제공되는 PySpark 커널에는 사전 설정 컨텍스트가 있습니다. 따라서 개발 중인 애플리케이션으로 작업을 시작하기 전에 Spark 또는 Hive 컨텍스트를 명시적으로 설정할 필요는 없습니다. 이러한 컨텍스트는 기본적으로 사용할 수 있습니다. 이러한 컨텍스트는 다음과 같습니다.
 
 * sc - Spark용 
 * sqlContext - Hive용
@@ -120,7 +120,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 ## <a name="ingest-data-and-create-a-cleaned-data-frame"></a>데이터 수집 및 정리된 데이터 프레임 만들기
 이 섹션에는 점수를 매길 데이터를 수집하는 데 필요한 일련의 작업에 대한 코드가 포함되어 있습니다. 택시 여정 및 요금 파일(.tsv 파일로 저장됨)의 연결된 0.1% 샘플을 읽고 데이터를 서식 지정한 다음 정리된 데이터 프레임을 만듭니다.
 
-택시 여정 및 요금 파일은 [실행 중인 팀 데이터 과학 프로세스: HDInsight Hadoop 클러스터 사용](hive-walkthrough.md) 항목에 제공된 절차를 기반으로 연결됩니다.
+택시 여정 및 요금 파일은 다음에서 제공된 절차에 따라 조인되었습니다. [실행 중인 Team Data Science Process: HDInsight Hadoop 클러스터 사용](hive-walkthrough.md) 항목
 
     # INGEST DATA AND CREATE A CLEANED DATA FRAME
 
@@ -279,7 +279,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
                              line.trip_distance, line.fare_amount])
         return  features
 
-    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC RERESSION MODELS
+    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC REGRESSION MODELS
     def parseRowOneHotBinary(line):
         features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
                                             line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
@@ -364,7 +364,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 ## <a name="score-a-linear-regression-model"></a>선형 회귀 모델 점수 매기기
 [LinearRegressionWithSGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD)를 사용하여 최적화를 위해 SGD(Stochastic Gradient Descent)를 통해, 지불한 팁 금액을 예측하는 선형 회귀 모델을 학습했습니다. 
 
-이 섹션의 코드는 Azure blob 저장소에서 선형 회귀 모델을 로드하고 규모 조정된 변수를 사용하여 점수를 매긴 다음 결과를 blob에 다시 저장하는 방법을 보여 줍니다.
+이 섹션의 코드는 Azure Blob Storage에서 선형 회귀 모델을 로드하고 규모 조정된 변수를 사용하여 점수를 매긴 다음 결과를 blob에 다시 저장하는 방법을 보여 줍니다.
 
     #SCORE LINEAR REGRESSION MODEL
 
@@ -395,7 +395,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 위의 셀을 실행하는 데 걸린 시간: 16.63초
 
 ## <a name="score-classification-and-regression-random-forest-models"></a>분류 및 회귀 임의 포리스트 모델 점수 매기기
-이 섹션의 코드는 Azure blob 저장소에 저장된 분류 및 회귀 임의 포리스트 모델을 로드하고 표준 분류자 및 회귀 측정값을 사용하여 해당 성능의 점수를 매긴 다음 결과를 blob 저장소에 다시 저장하는 방법을 보여 줍니다.
+이 섹션의 코드는 Azure Blob Storage에 저장된 분류 및 회귀 임의 포리스트 모델을 로드하고 표준 분류자 및 회귀 측정값을 사용하여 해당 성능의 점수를 매긴 다음 결과를 Blob Storage에 다시 저장하는 방법을 보여 줍니다.
 
 [임의 포리스트](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) 는 결정 트리의 결합체입니다.  즉, 과잉 맞춤의 위험을 줄이기 위해 많은 결정 트리를 결합합니다. 임의 포리스트는 범주 기능을 처리하고 다중 클래스 분류 설정으로 확장하고 기능 규모 조정을 요구하지 않으며 비선형 및 기능 상호 작용을 캡처할 수 있습니다. 임의 포리스트는 분류 및 회귀를 위해 매우 성공적인 기계 학습 모델 중 하나입니다.
 
@@ -441,7 +441,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 위의 셀을 실행하는 데 걸린 시간: 31.07초
 
 ## <a name="score-classification-and-regression-gradient-boosting-tree-models"></a>분류 및 회귀 점진적 향상 트리 모델 점수 매기기
-이 섹션의 코드는 Azure blob 저장소에서 점진적 향상 트리 모델을 로드하고 표준 분류자 및 회귀 측정값을 사용하여 해당 성능의 점수를 매긴 다음 결과를 blob 저장소에 다시 저장하는 방법을 보여 줍니다. 
+이 섹션의 코드는 Azure Blob Storage에서 점진적 향상 트리 모델을 로드하고 표준 분류자 및 회귀 측정값을 사용하여 해당 성능의 점수를 매긴 다음 결과를 Blob Storage에 다시 저장하는 방법을 보여 줍니다. 
 
 **spark.mllib** 는 연속 기능과 범주 기능을 둘 다 사용하여 이진 분류 및 회귀에 대해 GBT를 지원합니다. 
 
@@ -524,7 +524,7 @@ BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-031
 BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## <a name="consume-spark-models-through-a-web-interface"></a>웹 인터페이스를 통해 Spark 모델 사용
-Spark는 Livy라는 구성 요소와의 REST 인터페이스를 통해 배치 작업 또는 대화형 쿼리를 원격으로 제출하는 메커니즘을 제공합니다. Livy는 HDInsight Spark 클러스터에서 기본적으로 사용하도록 설정되어 있습니다. Livy에 대한 자세한 내용은 [Livy를 사용하여 원격으로 Spark 작업 제출](../../hdinsight/spark/apache-spark-livy-rest-interface.md)을 참조하세요. 
+Spark는 Livy라는 구성 요소와의 REST 인터페이스를 통해 배치 작업 또는 대화형 쿼리를 원격으로 제출하는 메커니즘을 제공합니다. Livy는 HDInsight Spark 클러스터에서 기본적으로 사용하도록 설정되어 있습니다. Livy에 대한 자세한 내용은 다음을 참조하세요. [Livy를 사용하여 원격으로 Spark 작업 제출](../../hdinsight/spark/apache-spark-livy-rest-interface.md) 
 
 Livy를 사용하면 Azure blob에 저장된 파일의 점수를 일괄적으로 매긴 다음 결과를 다른 blob에 쓰는 작업을 원격으로 제출할 수 있습니다. 이 작업을 수행하려면  
 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py)에서 Python 스크립트를 Spark 클러스터의 Blob에 업로드합니다. **Microsoft Azure Storage Explorer** 또는 **AzCopy** 등과 같은 도구를 사용하여 스크립트를 클러스터 Blob에 복사할 수 있습니다. 여기서는 스크립트를 ***wasb:///example/python/ConsumeGBNYCReg.py***로 업로드했습니다.   
@@ -555,7 +555,7 @@ HTTP 호출을 위한 Python 코드는 다음과 같습니다.
 
     import os
 
-    # OLDER HTTP LIBRARIES USED HERE INSTEAD OF THE REQUEST LIBRARY AS THEY ARE AVAILBLE BY DEFAULT
+    # OLDER HTTP LIBRARIES USED HERE INSTEAD OF THE REQUEST LIBRARY AS THEY ARE AVAILABLE BY DEFAULT
     import httplib, urllib, base64
 
     # REPLACE VALUE WITH ONES FOR YOUR SPARK CLUSTER
@@ -587,5 +587,5 @@ HTTP 호출을 위한 Python 코드는 다음과 같습니다.
 ![Logic Apps 디자이너](./media/spark-model-consumption/spark-logica-app-client.png)
 
 ## <a name="whats-next"></a>다음 작업
-**교차 유효성 검사 및 하이퍼 매개 변수 비우기**: 교차 유효성 검사 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습하는 방법은 [Spark를 사용한 고급 데이터 탐색 및 모델링](spark-advanced-data-exploration-modeling.md) 을 참조하세요.
+**교차 유효성 검사 및 하이퍼 매개 변수 비우기**: 교차 유효성 검사 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습하는 방법은 [Spark로 고급 데이터 탐색 및 모델링](spark-advanced-data-exploration-modeling.md)을 참조하세요.
 

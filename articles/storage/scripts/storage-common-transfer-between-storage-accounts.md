@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell 스크립트 샘플 - Windows에서 AzCopy를 사용하여 저장소 계정 간에 Blob 마이그레이션 | Microsoft Docs
-description: AzCopy를 사용하여 한 Azure Storage 계정의 Blob 내용을 다른 저장소 계정에 복사합니다.
+description: AzCopy를 사용하여 한 Azure Storage 계정의 Blob 내용을 다른 스토리지 계정에 복사합니다.
 services: storage
 documentationcenter: na
 author: roygara
@@ -13,20 +13,20 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/01/2018
 ms.author: rogarana
-ms.openlocfilehash: 58e2275398216f29764d54d1a230959e86eda0b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: eddf85df3f9efb6a742e226e9582e2e284cbd4cf
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253264"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215136"
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Windows에서 AzCopy를 사용하여 저장소 계정 간에 Blob 마이그레이션
 
 이 샘플에서는 모든 Blob 개체를 사용자가 제공한 원본 저장소 계정에서 사용자가 제공한 대상 저장소 계정으로 복사합니다. 
 
-이 작업은 저장소 계정의 모든 컨테이너를 나열하는 `Get-AzureStorageContainer` 명령을 사용하여 수행됩니다. 그런 다음 샘플에서 AzCopy 명령을 실행하여 각 컨테이너를 원본 저장소 계정에서 대상 저장소 계정으로 복사합니다. 오류가 발생하면 샘플에서 $retryTimes를 다시 시도 합니다(기본값은 3이며, `-RetryTimes` 매개 변수로 수정할 수 있음). 다시 시도할 때마다 실패하는 경우 사용자는 `-LastSuccessContainerName` 매개 변수를 사용하여 마지막으로 성공적으로 복사된 컨테이너를 샘플에 제공함으로써 스크립트를 다시 실행할 수 있습니다. 그런 다음 샘플은 해당 지점에서 컨테이너를 계속 복사합니다.
+이 작업은 저장소 계정의 모든 컨테이너를 나열하는 `Get-AzStorageContainer` 명령을 사용하여 수행됩니다. 그런 다음 샘플에서 AzCopy 명령을 실행하여 각 컨테이너를 원본 저장소 계정에서 대상 저장소 계정으로 복사합니다. 오류가 발생하면 샘플에서 $retryTimes를 다시 시도 합니다(기본값은 3이며, `-RetryTimes` 매개 변수로 수정할 수 있음). 다시 시도할 때마다 실패하는 경우 사용자는 `-LastSuccessContainerName` 매개 변수를 사용하여 마지막으로 성공적으로 복사된 컨테이너를 샘플에 제공함으로써 스크립트를 다시 실행할 수 있습니다. 그런 다음 샘플은 해당 지점에서 컨테이너를 계속 복사합니다.
 
-이 샘플에는 Azure PowerShell 저장소 모듈 버전 **4.0.2** 이상이 필요합니다. `Get-Module -ListAvailable Azure.storage`를 사용하여 설치된 버전을 확인할 수 있습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 
+이 샘플에는 Azure PowerShell 스토리지 모듈 버전 **0.7** 이상이 필요합니다. `Get-Module -ListAvailable Az.storage`를 사용하여 설치된 버전을 확인할 수 있습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -68,11 +68,11 @@ AzCopyPath: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe
 
 | 명령 | 메모 |
 |---|---|
-| [Get-AzureStorageContainer](/powershell/module/azure.storage/Get-AzureStorageContainer) | 이 Storage 계정에 연결된 컨테이너를 반환합니다. |
-| [New-AzureStorageContext](/powershell/module/azure.storage/New-AzureStorageContext) | Azure Storage 컨텍스트를 만듭니다. |
+| [Get-AzStorageContainer](/powershell/module/az.storage/Get-AzStorageContainer) | 이 Storage 계정에 연결된 컨테이너를 반환합니다. |
+| [New-AzStorageContext](/powershell/module/az.storage/New-AzStorageContext) | Azure Storage 컨텍스트를 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
 
-추가 저장소 PowerShell 스크립트 샘플은 [Azure Blob Storage에 대한 PowerShell 샘플](../blobs/storage-samples-blobs-powershell.md)에서 찾을 수 있습니다.
+추가 스토리지 PowerShell 스크립트 샘플은 [Azure Blob Storage에 대한 PowerShell 샘플](../blobs/storage-samples-blobs-powershell.md)에서 찾을 수 있습니다.

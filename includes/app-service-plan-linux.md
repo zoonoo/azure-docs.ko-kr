@@ -4,14 +4,14 @@ ms.service: app-service
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 77e545ca9286ee7e24f99fa74bf769704f07d892
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: d64e054313ed83f6e96f877da088d1d02e9c7cef
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133875"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736928"
 ---
-[App Service 계획](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)은 위치, 크기 및 앱을 호스트하는 웹 서버 팜의 기능을 지정합니다. 단일 App Service 계획을 공유하도록 웹앱을 구성하여 여러 앱을 호스팅하는 비용을 절감할 수 있습니다.
+[App Service 계획](../articles/app-service/overview-hosting-plans.md)은 위치, 크기 및 앱을 호스트하는 웹 서버 팜의 기능을 지정합니다. 단일 App Service 계획을 공유하도록 웹앱을 구성하여 여러 앱을 호스팅하는 비용을 절감할 수 있습니다.
 
 App Service 계획은 다음을 정의합니다.
 

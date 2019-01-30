@@ -26,7 +26,7 @@ Azure Stream Analytics는 완전히 관리되는 서비스로, 클라우드의 �
 먼저, [Azure Stream Analytics를 사용하여 시작][Get started using Azure Stream Analytics] 자습서에서 다음 단계를 실행합니다.  
 
 1. 이벤트 허브 입력 만들기
-2. 이벤트 생성기 응용 프로그램 구성 및 시작
+2. 이벤트 생성기 애플리케이션 구성 및 시작
 3. Stream Analytics 작업 프로비전
 4. 작업 입력 및 쿼리 지정
 

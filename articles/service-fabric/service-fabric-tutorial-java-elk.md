@@ -1,6 +1,6 @@
 ---
 title: Azure에서 ELK를 사용하여 Service Fabric에서 앱 모니터링 | Microsoft Docs
-description: 이 자습서에서는 ELK를 설정하고 Service Fabric 응용 프로그램을 모니터링 하는 방법에 대해 알아봅니다.
+description: 이 자습서에서는 ELK를 설정하고 Service Fabric 애플리케이션을 모니터링 하는 방법에 대해 알아봅니다.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -22,22 +22,22 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 06/29/2018
 ms.locfileid: "37112506"
 ---
-# <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>자습서: ELK를 사용한 Service Fabric 응용 프로그램 모니터링
+# <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>자습서: ELK를 사용한 Service Fabric 애플리케이션 모니터링
 
-이 자습서는 시리즈의 4부입니다. 여기서는 ELK(Elasticsearch, Logstash 및 Kibana)를 사용하여 Azure에서 실행하는 Service Fabric 응용 프로그램을 모니터링하는 방법을 설명합니다.
+이 자습서는 시리즈의 4부입니다. 여기서는 ELK(Elasticsearch, Logstash 및 Kibana)를 사용하여 Azure에서 실행하는 Service Fabric 애플리케이션을 모니터링하는 방법을 설명합니다.
 
 시리즈 4부에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * Azure에 ELK 서버 설정
 > * Event Hubs에서 로그를 수신할 Logstash 구성
-> * Kibana에서 플랫폼 및 응용 프로그램 로그 시각화
+> * Kibana에서 플랫폼 및 애플리케이션 로그 시각화
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * [Java Service Fabric Reliable Services 응용 프로그램 빌드](service-fabric-tutorial-create-java-app.md)
 > * [로컬 클러스터에서 응용 프로그램 배포 및 디버그](service-fabric-tutorial-debug-log-local-cluster.md)
 > * [Azure 클러스터에 응용 프로그램 배포](service-fabric-tutorial-java-deploy-azure.md)
-> * 응용 프로그램에 대한 모니터링 및 진단 설정
+> * 애플리케이션에 대한 모니터링 및 진단 설정
 > * [CI/CD를 설정합니다](service-fabric-tutorial-java-jenkins.md).
 
 ## <a name="prerequisites"></a>필수 조건
@@ -49,7 +49,7 @@ ms.locfileid: "37112506"
 * [3부](service-fabric-tutorial-java-deploy-azure.md)를 완료하고 Event Hubs에 로그를 보내기 위해 실행 중인 Service Fabric 클러스터를 구성합니다.
 * '수신 대기' 권한과 시리즈 3부에서 연결된 기본 키가 있는 Event Hubs 정책입니다.
 
-## <a name="download-the-voting-sample-application"></a>투표 응용 프로그램 예제 다운로드
+## <a name="download-the-voting-sample-application"></a>투표 애플리케이션 예제 다운로드
 
 [이 자습서 시리즈의 1부](service-fabric-tutorial-create-java-app.md)에서 투표 예제 응용 프로그램을 빌드하지 않은 경우 다운로드할 수 있습니다. 명령 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
 

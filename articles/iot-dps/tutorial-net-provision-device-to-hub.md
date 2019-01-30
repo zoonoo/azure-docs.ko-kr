@@ -58,7 +58,7 @@ Device Provisioning Service에 디바이스를 등록하는 방법은 두 가지
 
 ### <a name="enroll-the-device-using-individual-enrollments"></a>개별 등록을 사용한 디바이스 등록
 
-1. Visual Studio에서 **콘솔 앱** 프로젝트 템플릿을 사용하여 Visual C# 콘솔 응용 프로그램 프로젝트를 만듭니다. 프로젝트 이름을 **DeviceProvisioning**으로 지정합니다.
+1. Visual Studio에서 **콘솔 앱** 프로젝트 템플릿을 사용하여 Visual C# 콘솔 애플리케이션 프로젝트를 만듭니다. 프로젝트 이름을 **DeviceProvisioning**으로 지정합니다.
     
 1. 솔루션 탐색기에서 **DeviceProvisioning** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...** 를 클릭합니다.
 

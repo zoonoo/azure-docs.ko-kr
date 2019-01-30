@@ -3,17 +3,15 @@ title: Azure Database for MariaDB에서 서버 매개 변수를 구성하는 방
 description: 이 문서에서는 Azure Portal을 사용하여 Azure Database for MariaDB에서 MariaDB 서버 매개 변수를 구성하는 방법을 설명합니다.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 865a95a5e6f6feb945475e50bbd9f6692688c12b
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 0576941c803dfed6359fe34b67370eaf3f99c7e7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310048"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538262"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB에서 서버 매개 변수를 구성하는 방법
 
@@ -33,7 +31,7 @@ Azure Database for MariaDB에서는 일부 서버 매개 변수를 구성할 수
 
 ## <a name="list-of-configurable-server-parameters"></a>구성 가능한 서버 매개 변수 목록
 
-지원되는 서버 매개 변수 목록은 계속 확장됩니다. Azure Portal의 서버 매개 변수 탭을 사용하여 정의를 가져오고 응용 프로그램 요구 사항에 따라 서버 매개 변수를 구성합니다.
+지원되는 서버 매개 변수 목록은 계속 확장됩니다. Azure Portal의 서버 매개 변수 탭을 사용하여 정의를 가져오고 애플리케이션 요구 사항에 따라 서버 매개 변수를 구성합니다.
 
 ## <a name="non-configurable-server-parameters"></a>구성 불가능한 서버 매개 변수
 

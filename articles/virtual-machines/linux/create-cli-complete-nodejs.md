@@ -618,7 +618,7 @@ azure network public-ip show myResourceGroup myPublicIP --json | jq '.'
 ```
 
 ## <a name="create-a-load-balancer-and-ip-pools"></a>부하 분산 장치 및 IP 풀 만들기
-부하 분산 장치를 만들면 여러 VM에 트래픽을 분산할 수 있습니다. 또한 유지 보수 중 또는 부하가 많을 경우 사용자 요청에 대응하는 여러 VM을 실행하여 응용 프로그램에 중복성을 제공합니다. 다음 예제는 `myLoadBalancer`라는 부하 분산 장치를 만듭니다.
+부하 분산 장치를 만들면 여러 VM에 트래픽을 분산할 수 있습니다. 또한 유지 보수 중 또는 부하가 많을 경우 사용자 요청에 대응하는 여러 VM을 실행하여 애플리케이션에 중복성을 제공합니다. 다음 예제는 `myLoadBalancer`라는 부하 분산 장치를 만듭니다.
 
 ```azurecli
 azure network lb create --resource-group myResourceGroup --location westeurope \
@@ -1289,4 +1289,4 @@ azure group deployment create --resource-group myNewResourceGroup \
 [템플릿에서 배포하는 방법에 대해 자세히 읽어볼 수 있습니다](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 환경을 점진적으로 업데이트하고, 매개 변수 파일을 사용하고, 단일 저장소 위치에서 템플릿에 액세스하는 방법을 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
-이제 여러 네트워킹 구성 요소 및 VM을 사용할 준비가 되셨습니다. 이 샘플 환경에 사용하여 여기에 소개된 핵심 구성 요소로 응용 프로그램을 빌드할 수 있습니다.
+이제 여러 네트워킹 구성 요소 및 VM을 사용할 준비가 되셨습니다. 이 샘플 환경에 사용하여 여기에 소개된 핵심 구성 요소로 애플리케이션을 빌드할 수 있습니다.

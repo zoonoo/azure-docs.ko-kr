@@ -3,7 +3,7 @@ title: Azure SQL 데이터베이스 연결 및 쿼리 빠른 시작 | Microsoft 
 description: Azure SQL 데이터베이스 빠른 시작에서는 Azure SQL 데이터베이스에 연결하고 쿼리하는 방법을 보여 줍니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: scenario
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 11/01/2018
-ms.openlocfilehash: ab1f96b2348c24a746aaa7bdd670f396884ee3f5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 613b4cf2b08269259a4608a6960b815777cd0ae9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870200"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608037"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>빠른 시작: Azure SQL Database 연결 및 쿼리
 
@@ -42,7 +42,7 @@ ms.locfileid: "52870200"
 |||
 
 ## <a name="tls-considerations-for-sql-database-connectivity"></a>SQL Database 연결에 대한 TLS 고려 사항
-TLS(전송 계층 보안)는 Microsoft가 Azure SQL Database에 대한 연결을 위해 제공하거나 지원하는 모든 드라이버에서 사용됩니다. 특별한 구성은 필요하지 않습니다. SQL Server 또는 Azure SQL Database에 대한 모든 연결의 경우 모든 응용 프로그램에서 다음 구성 또는 해당 사항을 설정하는 것이 좋습니다.
+TLS(전송 계층 보안)는 Microsoft가 Azure SQL Database에 대한 연결을 위해 제공하거나 지원하는 모든 드라이버에서 사용됩니다. 특별한 구성은 필요하지 않습니다. SQL Server 또는 Azure SQL Database에 대한 모든 연결의 경우 모든 애플리케이션에서 다음 구성 또는 해당 사항을 설정하는 것이 좋습니다.
 
  - **암호화 = 켜짐**
  - **TrustServerCertificate = 꺼짐**
@@ -51,7 +51,7 @@ TLS(전송 계층 보안)는 Microsoft가 Azure SQL Database에 대한 연결을
 
 또한 PCI-DSS(Payment Card Industry - Data Security Standard)를 준수해야 하는 경우 클라이언트에서 TLS 1.1 및 1.0을 비활성화하는 것이 좋습니다.
 
-타사 드라이버는 기본적으로 TLS를 사용할 수 있습니다. Azure SQL Database에 연결할 때 요인이 될 수 있습니다. 포함된 드라이버가 있는 응용 프로그램은 이러한 연결 설정을 제어하도록 허용할 수 없습니다. 중요한 데이터와 상호 작용하는 시스템에서 사용하기 전에 이러한 드라이버와 응용 프로그램의 보안을 검사하는 것이 좋습니다.
+타사 드라이버는 기본적으로 TLS를 사용할 수 있습니다. Azure SQL Database에 연결할 때 요인이 될 수 있습니다. 포함된 드라이버가 있는 애플리케이션은 이러한 연결 설정을 제어하도록 허용할 수 없습니다. 중요한 데이터와 상호 작용하는 시스템에서 사용하기 전에 이러한 드라이버와 애플리케이션의 보안을 검사하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

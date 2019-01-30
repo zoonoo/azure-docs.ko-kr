@@ -1,5 +1,5 @@
 ---
-title: Linux의 Azure App Service에 대한 FAQ | Microsoft Docs
+title: Linux의 App Service에 대한 FAQ - Azure | Microsoft Docs
 description: Linux의 Azure App Service에 대한 FAQ.
 keywords: Azure App Service, 웹앱, FAQ, Linux, OS, 컨테이너에 대한 웹앱, 다중 컨테이너, 다중 컨테이너
 services: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
-ms.openlocfilehash: 94e61cf5bf4f629dfd776cf9ea2ae54233e91dc6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec18
+ms.openlocfilehash: cdda4b0951edd0d1471113c48a4082dfa7407211
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417585"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719085"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux의 Azure App Service에 대한 FAQ
 
@@ -60,7 +61,7 @@ Node.js의 경우 PM2 구성 파일 또는 스크립트 파일을 지정합니�
 
 **Docker Hub에서 이미지를 업데이트한 후에도 웹앱에서 여전히 기존 Docker 컨테이너 이미지를 사용합니다. 사용자 지정 컨테이너의 지속적인 통합 및 배포를 지원하나요?**
 
-예, Azure Container Registry 또는 DockerHub에 대한 지속적인 통합/배포를 설정하려면 [Web App for Containers를 사용한 지속적인 배포](./app-service-linux-ci-cd.md) 문서를 확인하세요. 개인 레지스트리의 경우 웹앱을 중지했다가 다시 시작하여 컨테이너를 새로 고칠 수 있습니다. 또는 컨테이너를 강제로 새로 고침하도록 더미 응용 프로그램을 변경 또는 추가할 수 있습니다.
+예, Azure Container Registry 또는 DockerHub에 대한 지속적인 통합/배포를 설정하려면 [Web App for Containers를 사용한 지속적인 배포](./app-service-linux-ci-cd.md) 문서를 확인하세요. 개인 레지스트리의 경우 웹앱을 중지했다가 다시 시작하여 컨테이너를 새로 고칠 수 있습니다. 또는 컨테이너를 강제로 새로 고침하도록 더미 애플리케이션을 변경 또는 추가할 수 있습니다.
 
 **스테이징 환경이 지원되나요?**
 
@@ -70,9 +71,9 @@ Node.js의 경우 PM2 구성 파일 또는 스크립트 파일을 지정합니�
 
 예. `WEBSITE_WEBDEPLOY_USE_SCM`이라는 앱 설정을 *false*로 설정해야 합니다.
 
-**Linux 웹앱을 사용할 때 내 응용 프로그램의 Git 배포가 실패합니다. 이 문제를 어떻게 해결할 수 있나요?**
+**Linux 웹앱을 사용할 때 내 애플리케이션의 Git 배포가 실패합니다. 이 문제를 어떻게 해결할 수 있나요?**
 
-Linux 웹앱에 대한 Git 배포가 실패하면 다음 옵션 중 하나를 선택하여 응용 프로그램 코드를 배포할 수 있습니다.
+Linux 웹앱에 대한 Git 배포가 실패하면 다음 옵션 중 하나를 선택하여 애플리케이션 코드를 배포할 수 있습니다.
 
 - 지속적인 업데이트(미리 보기) 기능 사용: Azure 지속적인 업데이트를 사용하도록 Azure DevOps Git 리포지토리 또는 GitHub 리포지토리에 앱의 소스 코드를 저장할 수 있습니다. 자세한 내용은 [Linux 웹앱에 지속적인 업데이트를 구성하는 방법](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/)을 참조하세요.
 
@@ -86,7 +87,7 @@ Linux 웹앱에 대한 Git 배포가 실패하면 다음 옵션 중 하나를 �
 
 ## <a name="language-support"></a>언어 지원
 
-**Node.js 응용 프로그램에서 웹 소켓을 사용하려고 합니다. 특별한 설정이나 구성이 필요한가요?**
+**Node.js 애플리케이션에서 웹 소켓을 사용하려고 합니다. 특별한 설정이나 구성이 필요한가요?**
 
 예, 서버 쪽 Node.js 코드에서 `perMessageDeflate`를 비활성화해야 합니다. 예를 들어, socket.io를 사용하고 있다면 다음 코드를 사용합니다.
 
@@ -102,7 +103,7 @@ var io = require('socket.io')(server,{
 
 **작성기를 PHP 앱의 종속성 관리자로 지원하나요?**
 
-예, Git 배포 중에 Kudu는 사용자가 PHP 응용 프로그램을 배포하고 있음을 감지해야 합니다(composer.lock 파일의 존재 덕분). 그러면 Kudu가 작성기 설치를 트리거합니다.
+예, Git 배포 중에 Kudu는 사용자가 PHP 애플리케이션을 배포하고 있음을 감지해야 합니다(composer.lock 파일의 존재 덕분). 그러면 Kudu가 작성기 설치를 트리거합니다.
 
 ## <a name="custom-containers"></a>사용자 지정 컨테이너
 
@@ -149,9 +150,9 @@ SCM 사이트는 별도의 컨테이너에서 실행됩니다. 사용자가 앱 
 
 **다중 컨테이너를 사용하도록 ACR(Azure Container Registry)을 구성하려면 어떻게 할까요?**
 
-다중 컨테이너에서 ACR을 사용하기 위해 **모든 컨테이너 이미지**는 동일한 ACR 레지스트리 서버에 호스트되어야 합니다. 동일한 레지스트리 서버에 위치하면 응용 프로그램 설정을 만든 다음, Docker Compose 또는 Kubernetes 구성 파일을 업데이트하여 ACR 이미지 이름을 포함해야 합니다.
+다중 컨테이너에서 ACR을 사용하기 위해 **모든 컨테이너 이미지**는 동일한 ACR 레지스트리 서버에 호스트되어야 합니다. 동일한 레지스트리 서버에 위치하면 애플리케이션 설정을 만든 다음, Docker Compose 또는 Kubernetes 구성 파일을 업데이트하여 ACR 이미지 이름을 포함해야 합니다.
 
-다음 응용 프로그램 설정을 만듭니다.
+다음 애플리케이션 설정을 만듭니다.
 
 - DOCKER_REGISTRY_SERVER_USERNAME
 - DOCKER_REGISTRY_SERVER_URL(전체 URL, 예: https://<server-name>.azurecr.io)
@@ -170,7 +171,7 @@ image: <server-name>.azurecr.io/<image-name>:<tag>
 
 우선 순위로 액세스할 수 있는 컨테이너를 결정하는 규칙은 다음과 같습니다.
 
-- 컨테이너 이름으로 설정된 응용 프로그램 설정 `WEBSITES_WEB_CONTAINER_NAME`
+- 컨테이너 이름으로 설정된 애플리케이션 설정 `WEBSITES_WEB_CONTAINER_NAME`
 - 포트 80 또는 8080을 정의하는 첫 번째 컨테이너
 - 위의 조건이 모두 true가 아닌 경우 파일에 정의된 첫 번째 컨테이너는 액세스될 수 있습니다(노출됨).
 
@@ -182,9 +183,9 @@ image: <server-name>.azurecr.io/<image-name>:<tag>
 
 ## <a name="other-questions"></a>기타 질문
 
-**응용 프로그램 설정 이름에 지원되는 문자는 무엇입니까?**
+**애플리케이션 설정 이름에 지원되는 문자는 무엇입니까?**
 
-응용 프로그램 설정에 문자(A-Z, a-z), 숫자(0-9) 및 밑줄(_)만 사용할 수 있습니다.
+애플리케이션 설정에 문자(A-Z, a-z), 숫자(0-9) 및 밑줄(_)만 사용할 수 있습니다.
 
 **어디서 새 기능을 요청할 수 있나요?**
 
@@ -193,5 +194,5 @@ image: <server-name>.azurecr.io/<image-name>:<tag>
 ## <a name="next-steps"></a>다음 단계
 
 - [Linux의 Azure App Service란?](app-service-linux-intro.md)
-- [Azure App Service에서 스테이징 환경 설정](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Azure App Service에서 스테이징 환경 설정](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Web App for Containers를 사용한 연속 배포](./app-service-linux-ci-cd.md)

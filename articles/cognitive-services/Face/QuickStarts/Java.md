@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: REST API 및 Java로 이미지에서 얼굴 감지'
+title: '빠른 시작: Azure REST API 및 Java로 이미지에서 얼굴 감지'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 이미지에서 얼굴을 감지하기 위해 Java와 함께 Azure Face REST API를 사용합니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 7656d8247cfb16df9989638b7e8ad2ffd3ff445f
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 2c035734d443eba01af6f167681ae289401dbcb4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51851673"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212875"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>빠른 시작: REST API 및 Java를 사용하여 이미지에서 얼굴 감지
 
@@ -31,8 +31,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="create-the-java-project"></a>Java 프로젝트 만들기
 
 IDE에서 새 명령줄 Java 앱을 만들고 **main** 메서드와 함께 **Main** 클래스를 추가합니다. 다음 글로벌 라이브러리를 Maven 리포지토리에서 프로젝트의 `lib` 디렉터리로 다운로드합니다.
-* `org.apache.httpcomponents:httpclient:4.2.4`
+* `org.apache.httpcomponents:httpclient:4.5.6`
+* `org.apache.httpcomponents:httpcore:4.4.10`
 * `org.json:json:20170516`
+* `commons-logging:commons-logging:1.1.2`
 
 ## <a name="add-face-detection-code"></a>얼굴 감지 코드 추가
 
@@ -54,7 +56,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -92,7 +94,7 @@ private static final String faceAttributes =
 **main** 메서드에 다음 메서드를 추가합니다. Face API에 대한 REST 호출을 구성하여 원격 이미지의 얼굴 정보를 감지합니다(검색할 얼굴 특성을 지정하는 `faceAttributes` 문자열). 그런 다음, 출력 데이터를 JSON 문자열에 기록합니다.
 
 ```Java
-HttpClient httpclient = new DefaultHttpClient();
+HttpClient httpclient = HttpClientBuilder.create().build();
 
 try
 {

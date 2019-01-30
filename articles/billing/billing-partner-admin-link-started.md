@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 1e2492d978073f63c1c9494d652ec35a7d6565b7
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: eeb88627cbcc1736586defd403b19c19c9cdf56c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274182"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579246"
 ---
-# <a name="link-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
+# <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 
-파트너로써 고객의 리소스를 관리하기 위해 사용하는 계정에 파트너 ID를 연결하여 고객 관리에 대한 영향을 추적할 수 있습니다.
+파트너로서 고객 참여에 미치는 영향을 추적할 수 있습니다. 고객 리소스를 관리하는 데 사용되는 계정에 파트너 ID를 연결할 수 있습니다.
 
 이 기능은 공개 미리 보기 상태로 지원됩니다.
 
@@ -28,42 +28,42 @@ ms.locfileid: "52274182"
 
 파트너 ID를 연결하려면 먼저 고객이 다음 옵션 중 하나를 사용하여 해당 Azure 리소스에 대한 액세스 권한을 사용자에게 부여해야 합니다.
 
-- **게스트 사용자:** 고객은 사용자를 게스트 사용자로 추가하고 RBAC 역할을 할당할 수 있습니다. 자세한 내용은 [다른 디렉터리에서 게스트 사용자 추가](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)를 참조하세요.
+- **게스트 사용자**: 고객은 사용자를 게스트 사용자로 추가하고 RBAC(역할 기반 액세스 제어) 역할을 할당할 수 있습니다. 자세한 내용은 [다른 디렉터리에서 게스트 사용자 추가](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)를 참조하세요.
 
-- **디렉터리 계정:** 고객이 해당 디렉터리에서 조직의 새 사용자를 만들고 RBAC 역할을 할당할 수 있습니다.
+- **디렉터리 계정**: 고객은 자신의 디렉터리에 사용자 계정을 만들고 RBAC 역할을 할당할 수 있습니다.
 
-- **서비스 주체:** 고객이 해당 디렉터리에서 조직의 앱 또는 스크립트를 추가하고 RBAC 역할을 할당할 수 있습니다. 앱 또는 스크립트의 ID는 서비스 주체라고 알려집니다.
+- **서비스 주체**: 고객은 해당 디렉터리에서 조직의 앱 또는 스크립트를 추가하고 RBAC 역할을 할당할 수 있습니다. 앱 또는 스크립트의 ID를 서비스 주체라고 합니다.
 
-## <a name="link-partner-id"></a>파트너 ID 연결
+## <a name="link-to-a-partner-id"></a>파트너 ID에 연결
 
-고객의 리소스에 액세스할 수 있는 경우 Azure Portal, PowerShell 또는 CLI를 사용하여 MPN ID(Microsoft 파트너 네트워크 ID)를 사용자 ID 또는 서비스 주체에 연결합니다. 각 고객 테넌트에서 파트너 ID를 연결해야 합니다.
+고객의 리소스에 액세스할 수 있는 경우 Azure Portal, PowerShell 또는 Azure CLI를 사용하여 MPN ID(Microsoft 파트너 네트워크 ID)를 사용자 ID 또는 서비스 주체에 연결합니다. 각 고객 테넌트에서 파트너 ID를 연결합니다.
 
-### <a name="use-azure-portal-to-link-new-partner-id"></a>Azure Portal을 사용하여 새 파트너 ID 연결
+### <a name="use-the-azure-portal-to-link-to-a-new-partner-id"></a>Azure Portal을 사용하여 새 파트너 ID에 연결
 
 1. Azure Portal에서 [파트너 ID에 연결](https://portal.azure.com/#blade/Microsoft_Azure_Billing/managementpartnerblade)로 이동합니다.
 
 2. Azure 포털에 로그인합니다.
 
-3. Microsoft 파트너 ID를 입력합니다. 파트너 ID는 조직의 [MPN(Microsoft 파트너 네트워크)](https://partner.microsoft.com/) ID입니다.
+3. Microsoft 파트너 ID를 입력합니다. 파트너 ID는 조직의 [Microsoft 파트너 네트워크](https://partner.microsoft.com/) ID입니다.
 
-  ![파트너 ID 연결을 보여 주는 스크린샷](./media/billing-link-partner-id/link-partner-ID.PNG)
+   ![파트너 ID에 연결을 보여 주는 스크린샷](./media/billing-link-partner-id/link-partner-ID.PNG)
 
-4. 다른 고객의 파트너 ID를 연결하려면 디렉터리 전환기를 사용합니다. [디렉터리 전환] 아래에서 디렉터리를 선택합니다.
+4. 다른 고객의 파트너 ID에 연결하려면 디렉터리를 전환합니다. **디렉터리 전환** 아래에서 디렉터리를 선택합니다.
 
-  ![파트너 ID 연결을 보여 주는 스크린샷](./media/billing-link-partner-id/directory-switcher.png)
+   ![디렉터리를 전환을 보여 주는 스크린샷](./media/billing-link-partner-id/directory-switcher.png)
 
-### <a name="use-powershell-to-link-new-partner-id"></a>PowerShell을 사용하여 새 파트너 ID 연결
+### <a name="use-powershell-to-link-to-a-new-partner-id"></a>PowerShell을 사용하여 새 파트너 ID에 연결
 
 1. [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner) PowerShell 모듈을 설치합니다.
 
-2. 사용자 계정 또는 서비스 주체를 사용하여 고객의 테넌트에 로그인합니다. 자세한 정보는 [PowerShell을 사용하여 로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0)을 참조하세요.
+2. 사용자 계정 또는 서비스 주체를 사용하여 고객의 테넌트에 로그인합니다. 자세한 내용은 [PowerShell로 로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0)을 참조하세요.
  
    ```azurepowershell-interactive
     C:\> Connect-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
    ```
 
 
-3. 새 파트너 ID를 연결합니다. 파트너 ID는 조직의 [MPN(Microsoft 파트너 네트워크)](https://partner.microsoft.com/) ID입니다.
+3. 새 파트너 ID에 연결합니다. 파트너 ID는 조직의 [Microsoft 파트너 네트워크](https://partner.microsoft.com/) ID입니다.
 
     ```azurepowershell-interactive
     C:\> new-AzureRmManagementPartner -PartnerId 12345 
@@ -83,20 +83,20 @@ C:\> Update-AzureRmManagementPartner -PartnerId 12345
 C:\> remove-AzureRmManagementPartner -PartnerId 12345 
 ```
 
-### <a name="use-cli-to-link-new-partner-id"></a>CLI를 사용하여 새 파트너 ID 연결
-1.  CLI 확장을 설치합니다.
+### <a name="use-the-azure-cli-to-link-to-a-new-partner-id"></a>Azure CLI를 사용하여 새 파트너 ID에 연결
+1. Azure CLI 확장을 설치합니다.
 
     ```azurecli-interactive
     C:\ az extension add --name managementpartner
     ``` 
 
-2.  사용자 계정 또는 서비스 주체를 사용하여 고객의 테넌트에 로그인합니다. 자세한 내용은 [Azure CLI를 사용하여 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)을 참조하세요.
+2. 사용자 계정 또는 서비스 주체를 사용하여 고객의 테넌트에 로그인합니다. 자세한 내용은 [Azure CLI로 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)을 참조하세요.
 
     ```azurecli-interactive
     C:\ az login --tenant <tenant>
     ``` 
 
-3.  새 파트너 ID를 연결합니다. 파트너 ID는 조직의 [MPN(Microsoft 파트너 네트워크)](https://partner.microsoft.com/) ID입니다.
+3. 새 파트너 ID에 연결합니다. 파트너 ID는 조직의 [Microsoft 파트너 네트워크](https://partner.microsoft.com/) ID입니다.
 
      ```azurecli-interactive
      C:\ az managementpartner create --partner-id 12345
@@ -127,13 +127,13 @@ C:\ az managementpartner delete --partner-id 12345
 
 고객의 Azure 리소스를 관리하는 파트너 조직의 모든 사용자는 파트너 ID를 계정에 연결할 수 있습니다.
 
-**파트너 ID가 연결되면 변경할 수 있나요?**
+**파트너 ID가 연결된 후에 파트너 ID를 변경할 수 있나요?**
 
-예, 연결된 파트너 ID를 변경하거나, 추가하거나, 제거할 수 있습니다.
+예. 연결된 파트너 ID를 변경하거나, 추가하거나, 제거할 수 있습니다.
 
-**사용자가 여러 고객 테넌트에 계정을 보유한 경우에 어떻게 되나요?**
+**사용자가 둘 이상의 고객 테넌트에 계정을 보유한 경우에 어떻게 되나요?**
 
-파트너 ID와 계정 간의 연결은 고객 테넌트 각각에 수행됩니다.  각 고객 테넌트에서 파트너 ID를 연결해야 합니다.
+파트너 ID와 계정 간의 연결은 고객 테넌트 각각에 수행됩니다. 각 고객 테넌트에서 파트너 ID를 연결합니다.
 
 **다른 파트너 또는 고객이 파트너 ID에 대한 연결을 편집하거나 제거할 수 있나요?**
 

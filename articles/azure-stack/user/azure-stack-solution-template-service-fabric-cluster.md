@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: abb77f59e49a98c1195dcd2e7b622b2b8e3fd7b8
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: a8897288e19a7628dbd1cc2c022de4db2a111393
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087287"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55248047"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Azure Stack에서 Service Fabric 클러스터 배포
 
@@ -27,7 +28,7 @@ ms.locfileid: "50087287"
 
 Service Fabric을 사용 하 여 작업에 대 한 자세한 내용은 참조 하세요. [Azure Service Fabric의 개요](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) 하 고 [Service Fabric 클러스터 보안 시나리오](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security), Azure 설명서에서.
 
-Azure Stack에서 Service Fabric 클러스터는 Microsoft.ServiceFabric 리소스 공급자를 사용 하지 않습니다. 대신, Azure Stack에서 Service Fabric 클러스터는 Desired State Configuration (DSC)를 사용 하 여 설정 하는 사전 설치 된 소프트웨어를 사용 하 여 설정 하는 가상 머신 확장 합니다.
+Azure Stack에서 Service Fabric 클러스터는 Microsoft.ServiceFabric 리소스 공급자를 사용 하지 않습니다. 대신, Azure Stack에서 Service Fabric 클러스터는 Desired State Configuration (DSC)를 사용 하 여 사전 설치 된 소프트웨어 집합을 사용 하 여 설정 하는 가상 머신 확장 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -118,7 +119,7 @@ Service Fabric 클러스터를 배포 하려면 올바른 KeyVault를 지정 해
    ``` 
 
 
-자세한 내용은 [PowerShell 사용 하 여 Azure Stack에 KeyVault 관리](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-kv-manage-powershell)합니다.
+자세한 내용은 [PowerShell 사용 하 여 Azure Stack에 KeyVault 관리](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-key-vault-manage-powershell)합니다.
 
 ## <a name="deploy-the-marketplace-item"></a>Marketplace 항목 배포
 
@@ -138,10 +139,10 @@ Service Fabric 클러스터를 배포 하려면 올바른 KeyVault를 지정 해
 
    에 대 한는 *관리 클라이언트 인증서 지문이*, 지문을 입력 합니다 *관리 클라이언트 인증서*합니다. (참조를 [필수 구성 요소](#prerequisites).)
    
-   - 원본 키 자격 증명 모음: 전체 지정할 *keyVault id* 스크립트 결과 문자열입니다. 
+   - 원본 주요 자격 증명 모음:  전체 지정할 *keyVault id* 스크립트 결과 문자열입니다. 
    - 클러스터 인증서 URL: 전체 URL을 지정 합니다 *비밀 Id* 스크립트 결과에서. 
    - 클러스터 인증서 지문: 지정 된 *클러스터 인증서 지문과* 스크립트 결과에서.
-   - 관리자 클라이언트 인증서 지문: 지정 된 *관리 클라이언트 인증서 지문이* 필수 구성 요소에서 만든 합니다. 
+   - 관리 클라이언트 인증서 지문: 지정 된 *관리 클라이언트 인증서 지문이* 필수 구성 요소에서 만든 합니다. 
 
    ![스크립트 출력](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
@@ -210,7 +211,7 @@ Service Fabric Explorer 또는 Service Fabric PowerShell을 사용 하 여 Servi
 
 1. 환경 변수의 순서를 변경한 후 PowerShell을 다시 시작 하 고 Service Fabric 클러스터에 액세스 하려면 다음 PowerShell 스크립트를 실행 하십시오.
 
-   ````PowerShell  
+   ```PowerShell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric
     CLUSTER FQDN\]:19000" \`
 
@@ -221,8 +222,11 @@ Service Fabric Explorer 또는 Service Fabric PowerShell을 사용 하 여 Servi
     0272251171BA32CEC7938A65B8A6A553AA2D3283 \`
 
     -StoreLocation CurrentUser -StoreName My -Verbose
-   ````
+   ```
    
    > [!NOTE]  
    > 방법이 없는 *https://* 스크립트에서 클러스터의 이름 앞입니다. 19000 포트가 필요 합니다.
- 
+
+## <a name="next-steps"></a>다음 단계
+
+[Azure Stack에 Kubernetes 배포](azure-stack-solution-template-kubernetes-deploy.md)

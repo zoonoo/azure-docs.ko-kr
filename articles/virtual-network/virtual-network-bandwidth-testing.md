@@ -1,12 +1,10 @@
 ---
-title: Azure VM 네트워크 처리량 테스트 | Microsoft Docs
+title: Azure VM 네트워크 처리량 테스트
+titlesuffix: Azure Virtual Network
 description: Azure Virtual Machine 네트워크 처리량을 테스트하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: steveesp
-manager: Gerald DeGrace
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: 45efaebb9539c4c0e2542966df6ab890b64d12ee
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b02f5011b9482481ca3fbe439061c160b3c73a1e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023828"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016616"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>대역폭/처리량 테스트(NTTTCP)
 
@@ -29,10 +27,11 @@ Azure에서 네트워크 처리량 성능을 테스트하는 경우 테스트할
 
 #### <a name="deploying-vms-for-testing"></a>테스트를 위해 VM 배포
 이 테스트의 목적에 맞게, 이러한 두 VM은 동일한 클라우드 서비스 또는 동일한 가용성 집합에 있어야 합니다. 그래야 내부 IP를 사용하고 테스트에서 부하 분산 장치를 제외할 수 있습니다. VIP로 테스트할 수 있지만 이러한 종류의 테스트는 이 문서에서 다루지 않습니다.
- 
+
 수신기의 IP 주소를 기록해 둡니다. 해당 IP를 "a.b.c.r"로 지칭하겠습니다.
 
-VM의 코어 수를 기록해 둡니다. 이것을 "\#num\_cores" 로 지칭하겠습니다.
+VM의 코어 수를 기록해 둡니다. 이것을 "\#num\_cores"로 지칭하겠습니다.
+
 송신기 VM과 수신기 VM에서 300초(또는 5분) 동안 NTTTCP 테스트를 실행합니다.
 
 팁: 이 테스트를 처음 설정할 때는 더 빠른 피드백을 얻기 위해 테스트 기간을 더 짧게 유지할 수 있습니다. 이 도구가 예상대로 작동하면 가장 정확한 결과를 얻기 위해 테스트 기간을 300초로 연장합니다.

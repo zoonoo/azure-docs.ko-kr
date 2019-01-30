@@ -54,7 +54,7 @@ ms.locfileid: "51004122"
 
     ![디자인 모드 켜기](media/howto-use-device-sets/image3.png)
 
-1. 이미지 추가에 대한 내용은 [이미지를 준비하여 Azure IoT Central 응용 프로그램에 업로드](howto-prepare-images.md)를 참조하세요.
+1. 이미지 추가에 대한 내용은 [이미지를 준비하여 Azure IoT Central 애플리케이션에 업로드](howto-prepare-images.md)를 참조하세요.
 
 1. 링크 타일 추가:
     1. 오른쪽 창에서 **링크**를 선택합니다.

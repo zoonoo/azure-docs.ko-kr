@@ -1,26 +1,20 @@
 ---
-title: Azure PowerShell 스크립트 - MongoDB 앱에 대한 Azure Cosmos DB 연결 문자열 가져오기 | Microsoft Docs
+title: Azure PowerShell 스크립트 - MongoDB 앱에 대한 Azure Cosmos DB 연결 문자열 가져오기
 description: Azure PowerShell 스크립트 샘플 - MongoDB 앱에 대한 Azure Cosmos DB 연결 문자열 가져오기
-services: cosmos-db
-documentationcenter: cosmosdb
-author: SnehaGunda
-manager: kfile
-tags: azure-service-management
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
-ms.custom: mvc
+author: SnehaGunda
+ms.author: sngun
+ms.subservice: cosmosdb-sql
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
 ms.date: 05/10/2017
-ms.author: sngun
-ms.openlocfilehash: 149d9d4c8d66c139f8ee8b100b67ac23c7da9aa4
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.reviewer: sngun
+ms.openlocfilehash: e90c0533f6caee697a9083aae6086ecceec430e0
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41917583"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038486"
 ---
 # <a name="get-an-azure-cosmos-db-connection-string-for-mongodb-apps-using-powershell"></a>PowerShell을 사용하여 MongoDB 앱에 대한 Azure Cosmos DB 연결 문자열 가져오기
 

@@ -4,7 +4,7 @@ description: 이 페이지에 Single Sign-On을 구현하는 데 사용할 수 �
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 22c8693e-8915-446d-b383-27e9587988ec
 ms.service: active-directory
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4a31e7ed12e75bd7dee3d53a8d650179d8e118d8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 56447f04e63c588e2192d350ce9188f8a15c604b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304502"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464734"
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Azure AD 페더레이션 호환성 목록
-Azure Active Directory에서는 임의 타사 솔루션을 요구하지 않고 Office 365용 Single Sign-On과 강화된 응용 프로그램 액세스 보안 및 하이브리드와 클라우드 전용 구현에 대한 기타 Microsoft Online Services를 제공합니다. 대부분의 Microsoft Online Services와 마찬가지로 Office 365는 디렉터리 서비스, 인증 및 권한 부여에 대해 Azure Active Directory와 통합되어 있습니다. 또한 Azure Active Directory는 수천 개의 SaaS 응용 프로그램 및 온-프레미스 웹 응용 프로그램에도 Single Sign-On을 제공합니다. 지원되는 SaaS 응용 프로그램에 대한 Azure Active Directory [응용 프로그램 갤러리](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps)를 참조하세요. 
+Azure Active Directory에서는 임의 타사 솔루션을 요구하지 않고 Office 365용 Single Sign-On과 강화된 애플리케이션 액세스 보안 및 하이브리드와 클라우드 전용 구현에 대한 기타 Microsoft Online Services를 제공합니다. 대부분의 Microsoft Online Services와 마찬가지로 Office 365는 디렉터리 서비스, 인증 및 권한 부여에 대해 Azure Active Directory와 통합되어 있습니다. 또한 Azure Active Directory는 수천 개의 SaaS 애플리케이션 및 온-프레미스 웹 애플리케이션에도 Single Sign-On을 제공합니다. 지원되는 SaaS 애플리케이션에 대한 Azure Active Directory [애플리케이션 갤러리](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps)를 참조하세요. 
 
 ## <a name="idp-validation"></a>IDP 유효성 검사
 조직에서 타사 페더레이션 솔루션을 사용하는 경우 Office 365와 같은 Microsoft Online 서비스로 온-프레미스 Active Directory 사용자에 대한 Single Sign-On을 구성할 수 있습니다. 제공되는 타사 페더레이션 솔루션은 Azure Active Directory와 호환됩니다.  호환성에 대한 질문은 ID 공급자에게 문의하세요.  Microsoft에서 Azure AD와의 호환성에 대해 이전에 테스트한 ID 공급자의 목록을 보려는 경우 [여기](https://www.microsoft.com/download/details.aspx?id=56843)를 클릭합니다. 

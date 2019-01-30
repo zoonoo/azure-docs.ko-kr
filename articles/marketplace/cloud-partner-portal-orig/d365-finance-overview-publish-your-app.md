@@ -40,9 +40,9 @@ Microsoft AppSource에 Business Central 앱을 가져오려면 다음 단계를 
     - 앱의 마케팅 요소를 개발합니다.
 4.  **앱을 게시합니다.**
 
-일반적인 응용 프로그램 프로세스 및 타임라인은 다음과 같습니다. 
+일반적인 애플리케이션 프로세스 및 타임라인은 다음과 같습니다. 
 
 ![Dynamics 365 Business Central 앱 게시 순서](./media/d365-financials/image001.png)
 
-이 응용 프로그램 유형에 대한 자세한 내용은 [Dynamics 365 Business Central 발표](https://dynamics.microsoft.com/business-central/finance-and-operations-business-edition-to-business-central/)를 참조하세요.
+이 애플리케이션 유형에 대한 자세한 내용은 [Dynamics 365 Business Central 발표](https://dynamics.microsoft.com/business-central/finance-and-operations-business-edition-to-business-central/)를 참조하세요.
 

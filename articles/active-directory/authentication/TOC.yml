@@ -11,7 +11,7 @@ items:
     href: quickstart-sspr.md
 - name: 자습서
   items:
-  - name: 1 응용 프로그램에 MFA를 사용하도록 설정
+  - name: 1 애플리케이션에 MFA를 사용하도록 설정
     href: tutorial-mfa-applications.md
   - name: 2 SSPR 파일럿을 사용하도록 설정
     href: tutorial-sspr-pilot.md
@@ -61,6 +61,8 @@ items:
       href: concept-password-ban-bad.md
     - name: 온-프레미스에서 취약한 암호 제거
       href: concept-password-ban-bad-on-premises.md
+  - name: 복원력 있는 액세스 제어
+    href: concept-resilient-controls.md
   expanded: true
 - name: 방법 가이드
   items:
@@ -221,9 +223,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-active-directory
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: abbb727dc5d8f86903412280b05d6b4e11b69209
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 3d208d1154c8c2fe24f403216084da56c42ae3aa
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424915"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744754"

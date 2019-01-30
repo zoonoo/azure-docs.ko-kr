@@ -4,17 +4,17 @@ description: Terraform을 사용하여 Packer에서 생성한 사용자 지정 �
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, 확장 집합, 가상 머신, 네트워크, 저장소, 모듈, 사용자 지정 이미지, packer
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/29/2017
-ms.openlocfilehash: 9e999ba8a36edd990bbab4648d9d4d98e3301153
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 12c6ebc9b29c356ad169dbd921e71c7aa0c273b7
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668634"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077507"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Terraform을 사용하여 Packer 사용자 지정 이미지에서 Azure 가상 머신 확장 집합 만들기
 
@@ -70,7 +70,7 @@ variable "resource_group_name" {
 
 파일을 저장합니다.
 
-Terraform 템플릿을 배포하는 경우 응용 프로그램에 액세스하는 데 사용되는 정규화된 도메인 이름을 가져오려고 합니다. Terraform의 ```output``` 리소스 형식을 사용하고 리소스의 ```fqdn``` 속성을 가져옵니다. 
+Terraform 템플릿을 배포하는 경우 애플리케이션에 액세스하는 데 사용되는 정규화된 도메인 이름을 가져오려고 합니다. Terraform의 ```output``` 리소스 형식을 사용하고 리소스의 ```fqdn``` 속성을 가져옵니다. 
 
 `output.tf` 파일을 편집하고 다음 코드를 복사하여 가상 머신의 정규화된 도메인 이름을 노출합니다. 
 
@@ -175,10 +175,10 @@ terraform apply
 ## <a name="edit-the-infrastructure-to-add-the-virtual-machine-scale-set"></a>인프라를 편집하여 가상 머신 확장 집합 추가
 
 이 단계에서는 이전에 배포한 네트워크에서 다음 리소스를 만듭니다.
-- Azure Load Balancer를 응용 프로그램에 제공 및 4단계에서 배포된 공용 IP 주소에 연결
-- 하나의 Azure Load Balancer 및 응용 프로그램을 제공하여 이전에 구성된 공용 IP 주소에 연결하는 규칙
+- Azure Load Balancer를 애플리케이션에 제공 및 4단계에서 배포된 공용 IP 주소에 연결
+- 하나의 Azure Load Balancer 및 애플리케이션을 제공하여 이전에 구성된 공용 IP 주소에 연결하는 규칙
 - Azure 백 엔드 주소 풀 및 이를 부하 분산 장치에 할당 
-- 응용 프로그램에서 사용되고 부하 분산 장치에 구성된 상태 프로브 포트 
+- 애플리케이션에서 사용되고 부하 분산 장치에 구성된 상태 프로브 포트 
 - 이전에 배포한 vnet에서 실행 중인, 부하 분산 장치 뒤에 있는 가상 머신 확장 집합
 - 사용자 지정 이미지에서 설치된 가상 머신 확장 노드의 [Nginx](http://nginx.org/)
 

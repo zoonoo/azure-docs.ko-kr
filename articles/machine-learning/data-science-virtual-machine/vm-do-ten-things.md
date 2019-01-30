@@ -1,11 +1,13 @@
 ---
-title: Azure의 데이터 과학 Virtual Machine에서 수행할 수 있는 10가지 작업 | Microsoft 문서
+title: Data Science Virtual Machine에서 데이터 탐색 및 모델링
+titleSuffix: Azure
 description: 데이터 과학 Virtual Machine에서 다양한 데이터 탐색 및 모델링 작업을 수행합니다.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
 editor: cgronlun
+ms.custom: seodec18
 ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: df9edfee9d8a6a0736a040924bac736cfcb3633c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1c56be7a7d9b03d115516b05c10c0b87c6956c47
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250920"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727669"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows 데이터 과학 Virtual Machine으로 할 수 있는 10가지 작업
 
@@ -30,7 +32,7 @@ Windows DSVM(데이터 과학 Virtual Machine)은 다양한 데이터 탐색 및
 
 1. Microsoft ML 서버, Python을 사용하여 DSVM에서 로컬로 데이터 탐색 및 모델 개발
 2. Jupyter Notebook에서 Python 2, Python 3 그리고 성능 위주로 설계된 R의 엔터프라이즈급 버전인 Microsoft R을 사용하여 브라우저에서 데이터 실험
-3. 클라이언트 응용 프로그램이 간단한 웹 서비스 인터페이스를 사용하여 모델에 액세스할 수 있도록 Azure Machine Learning에서 R 및 Python을 사용하여 구축된 모델 배포
+3. 클라이언트 애플리케이션이 간단한 웹 서비스 인터페이스를 사용하여 모델에 액세스할 수 있도록 Azure Machine Learning에서 R 및 Python을 사용하여 구축된 모델 배포
 4. Azure Portal 또는 Powershell을 사용하여 Azure 리소스 관리
 5. Azure File Storage를 DSVM에 탑재 가능한 드라이브로 만들어 저장소 공간을 확장하고 전체 팀에서 대규모 데이터 세트/코드 공유
 6. GitHub를 사용하여 팀과 코드를 공유하고 사전 설치된 Git 클라이언트(Git Bash Git GUI)를 사용하여 리포지토리에 액세스
@@ -62,11 +64,11 @@ Python의 경우 PTVS(Python Tools for Visual Studio) 확장 기능이 사전 �
 
 Visual Studio에서 사용자 지정 환경 설정이 다음과 같이 표시됩니다.
 
-![PTVS 설치](./media/vm-do-ten-things/PTVSSetup.png)
+![선택한 Visual Studio용 Python 도구를 사용하는 Visual Studio의 스크린샷](./media/vm-do-ten-things/PTVSSetup.png)
 
 Python 환경을 만드는 방법에 대한 자세한 내용은 [PTVS 설명서](https://aka.ms/ptvsdocs) 를 참조하세요.
 
-이제 새 Python 프로젝트를 만들 수 있도록 설정되어 있습니다. **파일** -> **새로 만들기** -> **프로젝트** -> **Python**으로 이동하고 작성하는 Python 응용 프로그램의 종류를 선택합니다. 현재 프로젝트에 대한 Python 환경을 원하는 버전(Python 2.7 또는 3.6)으로 설정할 수 있습니다. **Python 환경**을 마우스 오른쪽 단추로 클릭하고 **Python 환경 추가/제거**를 선택한 다음, 원하는 환경을 선택합니다. 제품 [설명서](https://aka.ms/ptvsdocs)에서 PTVS 작업에 대한 자세한 정보를 찾을 수 있습니다.
+이제 새 Python 프로젝트를 만들 수 있도록 설정되어 있습니다. **파일** -> **새로 만들기** -> **프로젝트** -> **Python**으로 이동하고 작성하는 Python 애플리케이션의 종류를 선택합니다. 현재 프로젝트에 대한 Python 환경을 원하는 버전(Python 2.7 또는 3.6)으로 설정할 수 있습니다. **Python 환경**을 마우스 오른쪽 단추로 클릭하고 **Python 환경 추가/제거**를 선택한 다음, 원하는 환경을 선택합니다. 제품 [설명서](https://aka.ms/ptvsdocs)에서 PTVS 작업에 대한 자세한 정보를 찾을 수 있습니다.
 
 ## <a name="2-using-a-jupyter-notebook-to-explore-and-model-your-data-with-python-or-r"></a>2. Jupyter Notebook에서 Python 또는 R을 사용하여 데이터 탐색 및 모델링
 Jupyter Notebook은 데이터 탐색 및 모델링을 위한 브라우저 기반 "IDE"를 제공하는 강력한 환경입니다. Jupyter Notebook에서 Python 2, Python 3 또는 R(오픈 소스 및 Microsoft R 서버 모두)을 사용할 수 있습니다.
@@ -88,7 +90,7 @@ Jupyter를 시작하면 DSVM에 사전 패키지된 예제 노트북 몇 개가 
 Notebook에 액세스한 다음에는 데이터를 탐색하고, 모델을 구축하고, 선택한 라이브러리로 모델을 테스트할 수 있습니다.
 
 ## <a name="3-build-models-using-r-or-python-and-operationalize-them-using-azure-machine-learning"></a>3. R 또는 Python을 사용하여 모델을 구축하고 Azure Machine Learning을 사용하여 운영
-모델을 구축하고 유효성을 검사한 후에는 일반적으로 프로덕션 환경에 모델을 배포합니다. 이렇게 하면 클라이언트 응용 프로그램에서 실시간으로 또는 배치 모드 기준으로 예측 모델을 호출할 수 있습니다. Azure Machine Learning은 R 또는 Python에서 구축된 모델을 운영하는 메커니즘을 제공합니다.
+모델을 구축하고 유효성을 검사한 후에는 일반적으로 프로덕션 환경에 모델을 배포합니다. 이렇게 하면 클라이언트 애플리케이션에서 실시간으로 또는 배치 모드 기준으로 예측 모델을 호출할 수 있습니다. Azure Machine Learning은 R 또는 Python에서 구축된 모델을 운영하는 메커니즘을 제공합니다.
 
 Azure Machine Learning에서 모델을 운영하면 클라이언트가 입력 매개 변수를 전달하고 그에 대한 출력으로 모델로부터 예측을 수신하는 REST 호출을 만들 수 있도록 웹 서비스가 노출됩니다.   
 
@@ -100,36 +102,41 @@ Azure Machine Learning에서 모델을 운영하면 클라이언트가 입력 �
 ### <a name="build-and-operationalize-python-models"></a>Python 모델 구축 및 운영
 SciKit-학습 라이브러리를 사용하여 간단한 모델을 작성하는 Python Jupyter Notebook에서 개발된 코드의 조각은 다음과 같습니다.
 
-    #IRIS classification
-    from sklearn import datasets
-    from sklearn import svm
-    clf = svm.SVC()
-    iris = datasets.load_iris()
-    X, y = iris.data, iris.target
-    clf.fit(X, y)
+```python
+#IRIS classification
+from sklearn import datasets
+from sklearn import svm
+clf = svm.SVC()
+iris = datasets.load_iris()
+X, y = iris.data, iris.target
+clf.fit(X, y)
+```
 
 Azure Machine Learning에 python 모델을 배포하는 데 사용되는 메서드는 함수로 모델의 예측을 래핑하고 Azure Machine Learning 작업 영역 ID, API 키 및 입력을 표시하고 매개 변수를 반환하는 사전 설치된 Azure Machine Learning python 라이브러리에서 제공하는 특성으로 데코레이트합니다.  
 
-    from azureml import services
-    @services.publish(workspaceid, auth_token)
-    @services.types(sep_l = float, sep_w = float, pet_l=float, pet_w=float)
-    @services.returns(int) #0, or 1, or 2
-    def predictIris(sep_l, sep_w, pet_l, pet_w):
-     inputArray = [sep_l, sep_w, pet_l, pet_w]
-    return clf.predict(inputArray)
+```python
+from azureml import services
+@services.publish(workspaceid, auth_token)
+@services.types(sep_l = float, sep_w = float, pet_l=float, pet_w=float)
+@services.returns(int) #0, or 1, or 2
+def predictIris(sep_l, sep_w, pet_l, pet_w):
+    inputArray = [sep_l, sep_w, pet_l, pet_w]
+return clf.predict(inputArray)
+```
 
 이제 클라이언트에서 웹 서비스에 대한 호출을 만들 수 있습니다. REST API 요청을 작성하는 간편한 래퍼가 있습니다. 다음은 웹 서비스를 사용하는 샘플 코드입니다.
 
-    # Consume through web service URL and keys
-    from azureml import services
-    @services.service(url, api_key)
-    @services.types(sep_l = float, sep_w = float, pet_l=float, pet_w=float)
-    @services.returns(float)
-    def IrisPredictor(sep_l, sep_w, pet_l, pet_w):
-    pass
+```python
+# Consume through web service URL and keys
+from azureml import services
+@services.service(url, api_key)
+@services.types(sep_l = float, sep_w = float, pet_l=float, pet_w=float)
+@services.returns(float)
+def IrisPredictor(sep_l, sep_w, pet_l, pet_w):
+pass
 
-    IrisPredictor(3,2,3,4)
-
+IrisPredictor(3,2,3,4)
+```
 
 > [!NOTE]
 > Azure Machine Learning 라이브러리는 현재 Python 2.7에서만 지원됩니다.   
@@ -151,44 +158,50 @@ Azure Machine Learning에서 모델을 설정, 작성, 게시하고 웹 서비�
 
 settings.json 파일 구조:
 
-    {"workspace":{
-    "id"                  : "ENTER YOUR AZUREML WORKSPACE ID",
-    "authorization_token" : "ENTER YOUR AZUREML AUTH TOKEN"
-    }}
-
+```json
+{"workspace":{
+"id"                  : "ENTER YOUR AZUREML WORKSPACE ID",
+"authorization_token" : "ENTER YOUR AZUREML AUTH TOKEN"
+}}
+```
 
 #### <a name="build-a-model-in-r-and-publish-it-in-azure-machine-learning"></a>R에서 모델을 구축하고 Azure Machine Learning에 게시
-    library(AzureML)
-    ws <- workspace(config="~/.azureml/settings.json")
 
-    if(!require("lme4")) install.packages("lme4")
-    library(lme4)
-    set.seed(1)
-    train <- sleepstudy[sample(nrow(sleepstudy), 120),]
-    m <- lm(Reaction ~ Days + Subject, data = train)
+```r
+library(AzureML)
+ws <- workspace(config="~/.azureml/settings.json")
 
-    # Define a prediction function to publish based on the model:
-    sleepyPredict <- function(newdata){
-          predict(m, newdata=newdata)
-    }
+if(!require("lme4")) install.packages("lme4")
+library(lme4)
+set.seed(1)
+train <- sleepstudy[sample(nrow(sleepstudy), 120),]
+m <- lm(Reaction ~ Days + Subject, data = train)
 
-    ep <- publishWebService(ws, fun = sleepyPredict, name="sleepy lm", inputSchema = sleepstudy, data.frame=TRUE)
+# Define a prediction function to publish based on the model:
+sleepyPredict <- function(newdata){
+        predict(m, newdata=newdata)
+}
+
+ep <- publishWebService(ws, fun = sleepyPredict, name="sleepy lm", inputSchema = sleepstudy, data.frame=TRUE)
+```
 
 #### <a name="consume-the-model-deployed-in-azure-machine-learning"></a>Azure Machine Learning에 배포된 모델 사용
-클라이언트 응용 프로그램의 모델을 사용하기 위해 Azure Machine Learning 라이브러리를 사용하여 엔드포인트를 확인하는 `services` API 호출을 통해 게시된 웹 서비스를 이름으로 조회합니다. 그런 다음 `consume` 함수를 호출하여 예측할 데이터 프레임을 전달합니다.
+클라이언트 애플리케이션의 모델을 사용하기 위해 Azure Machine Learning 라이브러리를 사용하여 엔드포인트를 확인하는 `services` API 호출을 통해 게시된 웹 서비스를 이름으로 조회합니다. 그런 다음 `consume` 함수를 호출하여 예측할 데이터 프레임을 전달합니다.
 다음 코드는 모델을 Azure Machine Learning 웹 서비스로 게시하는 데 사용됩니다.
 
-    library(AzureML)
-    library(lme4)
-    ws <- workspace(config="~/.azureml/settings.json")
+```r
+library(AzureML)
+library(lme4)
+ws <- workspace(config="~/.azureml/settings.json")
 
-    s <-  services(ws, name = "sleepy lm")
-    s <- tail(s, 1) # use the last published function, in case of duplicate function names
+s <-  services(ws, name = "sleepy lm")
+s <- tail(s, 1) # use the last published function, in case of duplicate function names
 
-    ep <- endpoints(ws, s)
+ep <- endpoints(ws, s)
 
-    # OK, try this out, and compare with raw data
-    ans = consume(ep, sleepstudy)$ans
+# OK, try this out, and compare with raw data
+ans = consume(ep, sleepstudy)$ans
+```
 
 Azure Machine Learning R 라이브러리에 대한 자세한 정보는 [여기](https://cran.r-project.org/web/packages/AzureML/AzureML.pdf)에서 찾을 수 있습니다.
 
@@ -208,33 +221,35 @@ Azure 구독 및 클라우드 리소스를 관리하려는 경우 브라우저�
 
 Azure Powershell을 사용하여 Azure 파일 서비스 공유를 만들 수 있습니다. 다음은 Azure PowerShell에서 실행하여 Azure 파일 서비스 공유를 만들 수 있는 스크립트입니다.
 
-    # Authenticate to Azure.
-    Connect-AzureRmAccount
-    # Select your subscription
-    Get-AzureRmSubscription –SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
-    # Create a new resource group.
-    New-AzureRmResourceGroup -Name <dsvmdatarg>
-    # Create a new storage account. You can reuse existing storage account if you wish.
-    New-AzureRmStorageAccount -Name <mydatadisk> -ResourceGroupName <dsvmdatarg> -Location "<Azure Data Center Name For eg. South Central US>" -Type "Standard_LRS"
-    # Set your current working storage account
-    Set-AzureRmCurrentStorageAccount –ResourceGroupName "<dsvmdatarg>" –StorageAccountName <mydatadisk>
+```powershell
+# Authenticate to Azure.
+Connect-AzureRmAccount
+# Select your subscription
+Get-AzureRmSubscription –SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
+# Create a new resource group.
+New-AzureRmResourceGroup -Name <dsvmdatarg>
+# Create a new storage account. You can reuse existing storage account if you wish.
+New-AzureRmStorageAccount -Name <mydatadisk> -ResourceGroupName <dsvmdatarg> -Location "<Azure Data Center Name For eg. South Central US>" -Type "Standard_LRS"
+# Set your current working storage account
+Set-AzureRmCurrentStorageAccount –ResourceGroupName "<dsvmdatarg>" –StorageAccountName <mydatadisk>
 
-    # Create a Azure File Service Share
-    $s = New-AzureStorageShare <<teamsharename>>
-    # Create a directory under the FIle share. You can give it any name
-    New-AzureStorageDirectory -Share $s -Path <directory name>
-    # List the share to confirm that everything worked
-    Get-AzureStorageFile -Share $s
-
+# Create a Azure File Service Share
+$s = New-AzureStorageShare <<teamsharename>>
+# Create a directory under the FIle share. You can give it any name
+New-AzureStorageDirectory -Share $s -Path <directory name>
+# List the share to confirm that everything worked
+Get-AzureStorageFile -Share $s
+```
 
 Azure 파일 공유를 만들었으니 이제 Azure의 모든 가상 머신에 파일을 마운트할 수 있습니다. 대기 시간을 줄이고 데이터 전송 요금이 부과되지 않도록 VM과 저장소 계정을 동일한 Azure 데이터 센터에 둘 것을 강력하게 권장합니다. 다음은 Azure Powershell에서 실행할 수 있는 드라이브를 DSVM에 마운트하는 명령입니다.
 
-    # Get storage key of the storage account that has the Azure file share from Azure portal. Store it securely on the VM to avoid prompted in next command.
-    cmdkey /add:<<mydatadisk>>.file.core.windows.net /user:<<mydatadisk>> /pass:<storage key>
+```powershell
+# Get storage key of the storage account that has the Azure file share from Azure portal. Store it securely on the VM to avoid prompted in next command.
+cmdkey /add:<<mydatadisk>>.file.core.windows.net /user:<<mydatadisk>> /pass:<storage key>
 
-    # Mount the Azure file share as Z: drive on the VM. You can chose another drive letter if you wish
-    net use z:  \\<mydatadisk>.file.core.windows.net\<<teamsharename>>
-
+# Mount the Azure file share as Z: drive on the VM. You can chose another drive letter if you wish
+net use z:  \\<mydatadisk>.file.core.windows.net\<<teamsharename>>
+```
 
 이제 VM의 일반적인 드라이브처럼 이 드라이브에 액세스할 수 있습니다.
 
@@ -249,7 +264,7 @@ GitHub 리포지토리에서 코드를 다운로드하려면 ```git clone``` 명
 
 Visual Studio에서 동일한 복제 작업을 수행할 수 있습니다. 아래 스크린샷은 Visual Studio에서 Git 및 GitHub 도구에 액세스하는 방법을 보여 줍니다.
 
-![Visual Studio의 Git](./media/vm-do-ten-things/VSGit.PNG)
+![GitHub 연결이 표시된 Visual Studio 스크린샷](./media/vm-do-ten-things/VSGit.PNG)
 
 github.com에서 제공하는 여러 리소스를 통해 Git를 사용하여 GitHub 리포지토리를 작업하는 방법에 대한 자세한 내용을 찾을 수 있습니다. [참고 자료](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) 를 보시면 많은 도움이 될 것입니다.
 
@@ -261,14 +276,14 @@ Azure Blob은 크고 작은 데이터를 위한 경제적이면서 안정적인 
 
 * **[Azure 포털](https://portal.azure.com)에서 고유한 Azure Blob 저장소 계정을 만듭니다.**
 
-![Create_Azure_Blob](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
+![Azure Portal에서 스토리지 계정 만들기 프로세스의 스크린샷](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * 사전 설치된 명령줄 AzCopy 도구를 ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```에서 찾을 수 있는지 확인합니다. 이 도구를 실행할 때 전체 명령 경로 입력하지 않아도 PATH 환경 변수에 azcopy.exe를 포함하는 디렉터리가 이미 있습니다. AzCopy 도구에 대한 자세한 내용은 [AzCopy 설명서](../../storage/common/storage-use-azcopy.md)를 참조하세요.
 * Azure Storage 탐색기 도구를 시작합니다. 이 도구는 [Microsoft Azure Storage 탐색기](http://storageexplorer.com/)에서 다운로드할 수 있습니다. 
 
-![AzureStorageExplorer_v4](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
+![스토리지 계정에 액세스하는 Azure Storage 탐색기의 스크린샷](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
-**VM에서 Azure Blob로 데이터 이동: AzCopy**
+**VM에서 Azure Blob: AzCopy로 데이터 이동**
 
 로컬 파일과 Blob Storage 간에 데이터를 이동하려면 명령줄 또는 PowerShell에서 AzCopy를 사용합니다.
 
@@ -276,83 +291,87 @@ Azure Blob은 크고 작은 데이터를 위한 경제적이면서 안정적인 
 
 파일이 저장되는 경로를 **C:\myfolder**로, Blob Store 계정 이름을 **mystorageaccount**로, 컨테이너 이름을 **mycontainer**로, Blob Store 액세스 키를 **저장소 계정 키**로 바꿉니다. 저장소 계정 자격 증명은 [Azure 포털](https://portal.azure.com)에서 찾을 수 있습니다.
 
-![StorageAccountCredential_v2](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
+![Azure Portal에서 스토리지 계정 키 및 컨테이너 정보의 스크린샷](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
 
 PowerShell 또는 명령 프롬프트에서 AzCopy 명령을 실행합니다. 다음은 AzCopy 명령을 사용하는 예입니다.
 
-    # Copy *.sql from local machine to a Azure Blob
-    "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:"c:\Aaqs\Data Science Scripts" /Dest:https://[ENTER STORAGE ACCOUNT].blob.core.windows.net/[ENTER CONTAINER] /DestKey:[ENTER STORAGE KEY] /S /Pattern:*.sql
+```powershell
+# Copy *.sql from local machine to a Azure Blob
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:"c:\Aaqs\Data Science Scripts" /Dest:https://[ENTER STORAGE ACCOUNT].blob.core.windows.net/[ENTER CONTAINER] /DestKey:[ENTER STORAGE KEY] /S /Pattern:*.sql
 
-    # Copy back all files from Azure Blob container to Local machine
+# Copy back all files from Azure Blob container to Local machine
 
-    "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Dest:"c:\Aaqs\Data Science Scripts\temp" /Source:https://[ENTER STORAGE ACCOUNT].blob.core.windows.net/[ENTER CONTAINER] /SourceKey:[ENTER STORAGE KEY] /S
-
-
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Dest:"c:\Aaqs\Data Science Scripts\temp" /Source:https://[ENTER STORAGE ACCOUNT].blob.core.windows.net/[ENTER CONTAINER] /SourceKey:[ENTER STORAGE KEY] /S
+```
 
 Azure 명령을 실행하여 AzCopy Blob을 복사하면 잠시 후 Azure Storage 탐색기에 해당 파일이 표시될 것입니다.
 
-![AzCopy_run_finshed_Storage_Explorer_v3](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
+![업로드된 CSV 파일을 표시하는 스토리지 계정의 스크린샷](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
-**VM에서 Azure Blob로 데이터 이동: Azure Storage 탐색기**
+**VM에서 Azure Blob: Azure Storage 탐색기로 데이터 이동**
 
 Azure Storage 탐색기를 사용하여 VM의 로컬 파일에서 데이터를 업로드할 수도 있습니다.
 
-* 컨테이너에 데이터를 업로드하려면 대상 컨테이너를 선택하고 **업로드** 단추를 클릭합니다.![Storage 탐색기에서 업로드](./media/vm-do-ten-things/storage-accounts.png)
-* **파일** 상자 오른쪽의 **...** 을 클릭하고 파일 시스템에서 업로드할 파일을 하나 이상 선택한 후에 **업로드**를 클릭하여 파일 업로드를 시작합니다.![Blob에 파일 업로드](./media/vm-do-ten-things/upload-files-to-blob.png)
+* 컨테이너에 데이터를 업로드하려면 대상 컨테이너를 선택하고 **업로드** 단추를 클릭합니다. ![Storage 탐색기에서 업로드 단추의 스크린샷](./media/vm-do-ten-things/storage-accounts.png)
+* **파일** 상자 오른쪽의 **...** 을 클릭하고, 파일 시스템에서 업로드할 파일을 하나 이상 선택하고 **업로드**를 클릭하여 파일 업로드를 시작합니다. ![파일 업로드 대화 상자의 스크린샷](./media/vm-do-ten-things/upload-files-to-blob.png)
 
-**Azure Blob에서 데이터 읽기: Machine Learning 판독기 모듈**
+**Azure Blob: Machine Learning 판독기 모듈에서 데이터 읽기**
 
 Azure Machine Learning Studio에서 **데이터 가져오기 모듈**을 사용하여 Blob에서 데이터를 읽을 수 있습니다.
 
-![AML_ReaderBlob_Module_v3](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
+![Machine Learning Studio에서 데이터 가져오기 모듈의 스크린샷](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
 
-**Azure Blob에서 데이터 읽기: Python ODBC**
+**Azure Blob: Python ODBC에서 데이터 읽기**
 
 **BlobService** 라이브러리를 사용하여 Jupyter Notebook 또는 Python 프로그램의 Blob에서 직접 데이터를 읽을 수 있습니다.
 
 먼저 필요한 패키지를 가져옵니다.
 
-    import pandas as pd
-    from pandas import Series, DataFrame
-    import numpy as np
-    import matplotlib.pyplot as plt
-    from time import time
-    import pyodbc
-    import os
-    from azure.storage.blob import BlobService
-    import tables
-    import time
-    import zipfile
-    import random
+```python
+import pandas as pd
+from pandas import Series, DataFrame
+import numpy as np
+import matplotlib.pyplot as plt
+from time import time
+import pyodbc
+import os
+from azure.storage.blob import BlobService
+import tables
+import time
+import zipfile
+import random
+```
 
 그런 다음 Azure Blob 계정 자격 증명을 연결하고 Blob에서 데이터를 읽습니다.
 
-    CONTAINERNAME = 'xxx'
-    STORAGEACCOUNTNAME = 'xxxx'
-    STORAGEACCOUNTKEY = 'xxxxxxxxxxxxxxxx'
-    BLOBNAME = 'nyctaxidataset/nyctaxitrip/trip_data_1.csv'
-    localfilename = 'trip_data_1.csv'
-    LOCALDIRECTORY = os.getcwd()
-    LOCALFILE =  os.path.join(LOCALDIRECTORY, localfilename)
+```python
+CONTAINERNAME = 'xxx'
+STORAGEACCOUNTNAME = 'xxxx'
+STORAGEACCOUNTKEY = 'xxxxxxxxxxxxxxxx'
+BLOBNAME = 'nyctaxidataset/nyctaxitrip/trip_data_1.csv'
+localfilename = 'trip_data_1.csv'
+LOCALDIRECTORY = os.getcwd()
+LOCALFILE =  os.path.join(LOCALDIRECTORY, localfilename)
 
-    #download from blob
-    t1 = time.time()
-    blob_service = BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
-    blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILE)
-    t2 = time.time()
-    print(("It takes %s seconds to download "+BLOBNAME) % (t2 - t1))
+#download from blob
+t1 = time.time()
+blob_service = BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
+blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILE)
+t2 = time.time()
+print(("It takes %s seconds to download "+BLOBNAME) % (t2 - t1))
 
-    #unzipping downloaded files if needed
-    #with zipfile.ZipFile(ZIPPEDLOCALFILE, "r") as z:
-    #    z.extractall(LOCALDIRECTORY)
+#unzipping downloaded files if needed
+#with zipfile.ZipFile(ZIPPEDLOCALFILE, "r") as z:
+#    z.extractall(LOCALDIRECTORY)
 
-    df1 = pd.read_csv(LOCALFILE, header=0)
-    df1.columns = ['medallion','hack_license','vendor_id','rate_code','store_and_fwd_flag','pickup_datetime','dropoff_datetime','passenger_count','trip_time_in_secs','trip_distance','pickup_longitude','pickup_latitude','dropoff_longitude','dropoff_latitude']
-    print 'the size of the data is: %d rows and  %d columns' % df1.shape
+df1 = pd.read_csv(LOCALFILE, header=0)
+df1.columns = ['medallion','hack_license','vendor_id','rate_code','store_and_fwd_flag','pickup_datetime','dropoff_datetime','passenger_count','trip_time_in_secs','trip_distance','pickup_longitude','pickup_latitude','dropoff_longitude','dropoff_latitude']
+print 'the size of the data is: %d rows and  %d columns' % df1.shape
+```
 
 데이터 프레임으로 데이터를 읽어 들입니다.
 
-![IPNB_data_readin](./media/vm-do-ten-things/IPNB_data_readin.PNG)
+![데이터의 처음 10개 행의 스크린샷](./media/vm-do-ten-things/IPNB_data_readin.PNG)
 
 ### <a name="azure-data-lake"></a>Azure Data Lake
 빅 데이터 분석 작업용의 초대형 리포지토리인 Azure Data Lake Storage는 HDFS(Hadoop 분산 파일 시스템)와 호환됩니다. Hadoop, Spark 및 Azure Data Lake Analytics와 작동합니다. 이 섹션에서는 Azure Data Lake 저장소에 데이터를 이동하고 Azure Data Lake 분석을 사용하여 분석을 실행하는 방법을 알아봅니다.
@@ -361,87 +380,87 @@ Azure Machine Learning Studio에서 **데이터 가져오기 모듈**을 사용�
 
 * [Azure 포털](https://portal.azure.com)에서 Azure Data Lake Analytics를 만듭니다.
 
-![Azure_Data_Lake_Create_v2](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
+![Azure Portal에서 Data Lake Analytics 만들기의 스크린샷](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
 
 * 이 [링크](https://www.microsoft.com/download/details.aspx?id=49504)에서 찾을 수 있는 **Visual Studio**의 **Azure Data Lake 도구**는 이미 가상 머신의 Visual Studio Community Edition에 설치되어 있습니다. Visual Studio를 시작하고 Azure 구독에 로그인하면 Visual Studio의 왼쪽 패널에 Azure Data Lake Analytics 계정 및 저장소가 표시됩니다.
 
-![Azure_Data_Lake_PlugIn_v2](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
+![Visual Studio에서 Data Lake Tools의 스크린샷](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
 
-**VM에서 Data Lake로 데이터 이동: Azure Data Lake 탐색기**
+**VM에서 Data Lake: Azure Data Lake Explorer로 데이터 이동**
 
 **Azure Data Lake Explorer** 를 사용하여 Virtual Machine의 로컬 파일에서 Data Lake Storage로 데이터를 업로드할 수 있습니다.
 
-![Azure_Data_Lake_UploadData](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
+![Data Lake Explorer를 사용하여 파일을 업로드하는 스크린샷](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
 
 [ADF(Azure Data Factory)](https://azure.microsoft.com/services/data-factory/)를 사용하여 Azure Data Lake와의 데이터 이동을 운용하는 데이터 파이프라인을 구축할 수도 있습니다. 데이터 파이프라인을 구축하는 단계를 안내하는 이 [문서](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/)를 참조하세요.
 
-**Azure Blob에서 Data Lake로 데이터 읽기: U-SQL**
+**Azure Blob에서 Data Lake: U-SQL로 데이터 읽기**
 
 데이터가 Azure Blob 저장소에 상주하는 경우 U SQL 쿼리를 사용하여 Azure 저장소 Blob에서 직접 데이터를 읽을 수 있습니다. U-SQL 쿼리를 작성하기 전에 Blob 저장소 계정이 Azure Data Lake에 연결되었는지 확인합니다. **Azure Portal**로 이동하여 Azure Data Lake Analytics 대시보드를 찾은 다음 **데이터 원본 추가**를 클릭하고 저장소 유형을 **Azure Storage**로 선택한 후에 Azure Storage 계정 이름 및 키를 연결합니다. 그러면 저장소 계정에 저장된 데이터를 참조할 수 있습니다.
 
-![저장소 계정 및 키 입력](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
+![데이터 원본 추가 대화 상자의 스크린샷](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 Visual Studio에서 Blob Storage의 데이터를 읽고, 데이터를 조작하고, 기능을 엔지니어링하고, Azure Data Lake 또는 Azure Blob Storage에 결과 데이터를 출력할 수 있습니다. Blob Storage의 데이터를 참조할 때는 **wasb://** 를 사용하고, Azure Data Lake의 데이터를 참조할 때는 **swbhdfs://** 를 사용합니다.
 
-![데이터 프레임](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
+![WASB 항목이 강조 표시된 쿼리의 스크린샷](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
 Visual Studio에서 다음 U-SQL 쿼리를 사용할 수 있습니다.
 
-    @a =
-        EXTRACT medallion string,
-                hack_license string,
-                vendor_id string,
-                rate_code string,
-                store_and_fwd_flag string,
-                pickup_datetime string,
-                dropoff_datetime string,
-                passenger_count int,
-                trip_time_in_secs double,
-                trip_distance double,
-                pickup_longitude string,
-                pickup_latitude string,
-                dropoff_longitude string,
-                dropoff_latitude string
+```usql
+@a =
+    EXTRACT medallion string,
+            hack_license string,
+            vendor_id string,
+            rate_code string,
+            store_and_fwd_flag string,
+            pickup_datetime string,
+            dropoff_datetime string,
+            passenger_count int,
+            trip_time_in_secs double,
+            trip_distance double,
+            pickup_longitude string,
+            pickup_latitude string,
+            dropoff_longitude string,
+            dropoff_latitude string
 
-        FROM "wasb://<Container name>@<Azure Blob Storage Account Name>.blob.core.windows.net/<Input Data File Name>"
-        USING Extractors.Csv();
+    FROM "wasb://<Container name>@<Azure Blob Storage Account Name>.blob.core.windows.net/<Input Data File Name>"
+    USING Extractors.Csv();
 
-    @b =
-        SELECT vendor_id,
-        COUNT(medallion) AS cnt_medallion,
-        SUM(passenger_count) AS cnt_passenger,
-        AVG(trip_distance) AS avg_trip_dist,
-        MIN(trip_distance) AS min_trip_dist,
-        MAX(trip_distance) AS max_trip_dist,
-        AVG(trip_time_in_secs) AS avg_trip_time
-        FROM @a
-        GROUP BY vendor_id;
+@b =
+    SELECT vendor_id,
+    COUNT(medallion) AS cnt_medallion,
+    SUM(passenger_count) AS cnt_passenger,
+    AVG(trip_distance) AS avg_trip_dist,
+    MIN(trip_distance) AS min_trip_dist,
+    MAX(trip_distance) AS max_trip_dist,
+    AVG(trip_time_in_secs) AS avg_trip_time
+    FROM @a
+    GROUP BY vendor_id;
 
-    OUTPUT @b   
-    TO "swebhdfs://<Azure Data Lake Storage Account Name>.azuredatalakestore.net/<Folder Name>/<Output Data File Name>"
-    USING Outputters.Csv();
+OUTPUT @b   
+TO "swebhdfs://<Azure Data Lake Storage Account Name>.azuredatalakestore.net/<Folder Name>/<Output Data File Name>"
+USING Outputters.Csv();
 
-    OUTPUT @b   
-    TO "wasb://<Container name>@<Azure Blob Storage Account Name>.blob.core.windows.net/<Output Data File Name>"
-    USING Outputters.Csv();
-
-
+OUTPUT @b   
+TO "wasb://<Container name>@<Azure Blob Storage Account Name>.blob.core.windows.net/<Output Data File Name>"
+USING Outputters.Csv();
+```
 
 서버에 쿼리가 제출되면 작업 상태를 표시하는 다이어그램이 표시됩니다.
 
-![작업 상태 다이어그램](./media/vm-do-ten-things/USQL_Job_Status.PNG)
+![작업 대화 상자 상태의 스크린샷](./media/vm-do-ten-things/USQL_Job_Status.PNG)
 
-**Data Lake의 데이터 쿼리: U SQL**
+**Data Lake: U-SQL의 데이터 쿼리**
 
 Azure Data Lake에 데이터 세트가 수집되면 [U-SQL 언어](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md)를 사용하여 데이터를 쿼리하고 탐색할 수 있습니다. U-SQL 언어는 T-SQL과 비슷하지만 C#의 일부 기능이 결합되어 사용자가 사용자 지정 모듈, 사용자 정의 함수 등을 작성할 수 있습니다. 이전 단계의 스크립트를 사용할 수 있습니다.
 
 서버에 쿼리가 제출되면 잠시 후 **Azure Data Lake 탐색기**에서 tripdata_summary.CSV 파일이 표시되며, 이 파일을 마우스 오른쪽 단추로 클릭하여 데이터를 미리 볼 수 있습니다.
 
-![Azure Data Lake Explorer의 파일](./media/vm-do-ten-things/USQL_create_summary.png)
+![Data Lake Explorer에서 csv 파일의 스크린샷](./media/vm-do-ten-things/USQL_create_summary.png)
 
 파일 정보를 보려면:
 
-![파일 요약](./media/vm-do-ten-things/USQL_tripdata_summary.png)
+![파일 요약 정보의 스크린샷](./media/vm-do-ten-things/USQL_tripdata_summary.png)
 
 ### <a name="hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터
 Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase 및 Storm 서비스입니다. 데이터 과학 가상 머신에서 Azure HDInsight 클러스터를 쉽게 사용할 수 있습니다.
@@ -450,7 +469,7 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
 
 * [Azure 포털](https://portal.azure.com)에서 고유한 Azure Blob 저장소 계정을 만듭니다. 이 저장소 계정은 HDInsight 클러스터에 대한 데이터를 저장하는 데 사용됩니다.
 
-![Azure Blob Storage 계정 만들기](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
+![Azure Portal에서 HDInsight 만들기의 스크린샷](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 *  [Azure 포털](../team-data-science-process/customize-hadoop-cluster.md)
   
@@ -460,7 +479,7 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
 
 * 클러스터의 헤드 노드에 대한 **원격 액세스**를 사용하도록 설정합니다. 여기에서 지정한 원격 액세스 자격 증명은 이후 절차에서 필요하므로 기억해둡니다.
 
-![원격 액세스 사용](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
+![HDInsight 클러스터에 원격 액세스를 사용하도록 설정](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
 * Azure Machine Learning 작업 영역을 만듭니다. Machine Learning 실험이 이 Machine Learning 작업 영역에 저장됩니다. 아래 스크린샷에 표시된 것과 같이 포털에서 강조 표시된 옵션을 선택합니다.
 
@@ -472,94 +491,95 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
 
 * IPython Notebook을 사용하여 데이터를 업로드합니다. 먼저 필요한 패키지를 가져오고 자격 증명에 연결하고 저장소 계정에 db를 만든 다음 HDI 클러스터에 데이터를 로드합니다.
 
-        #Import required Packages
-        import pyodbc
-        import time as time
-        import json
-        import os
-        import urllib
-        import urllib2
-        import warnings
-        import re
-        import pandas as pd
-        import matplotlib.pyplot as plt
-        from azure.storage.blob import BlobService
-        warnings.filterwarnings("ignore", category=UserWarning, module='urllib2')
+```python
+#Import required Packages
+import pyodbc
+import time as time
+import json
+import os
+import urllib
+import urllib2
+import warnings
+import re
+import pandas as pd
+import matplotlib.pyplot as plt
+from azure.storage.blob import BlobService
+warnings.filterwarnings("ignore", category=UserWarning, module='urllib2')
 
 
-        #Create the connection to Hive using ODBC
-        SERVER_NAME='xxx.azurehdinsight.net'
-        DATABASE_NAME='nyctaxidb'
-        USERID='xxx'
-        PASSWORD='xxxx'
-        DB_DRIVER='Microsoft Hive ODBC Driver'
-        driver = 'DRIVER={' + DB_DRIVER + '}'
-        server = 'Host=' + SERVER_NAME + ';Port=443'
-        database = 'Schema=' + DATABASE_NAME
-        hiveserv = 'HiveServerType=2'
-        auth = 'AuthMech=6'
-        uid = 'UID=' + USERID
-        pwd = 'PWD=' + PASSWORD
-        CONNECTION_STRING = ';'.join([driver,server,database,hiveserv,auth,uid,pwd])
-        connection = pyodbc.connect(CONNECTION_STRING, autocommit=True)
-        cursor=connection.cursor()
+#Create the connection to Hive using ODBC
+SERVER_NAME='xxx.azurehdinsight.net'
+DATABASE_NAME='nyctaxidb'
+USERID='xxx'
+PASSWORD='xxxx'
+DB_DRIVER='Microsoft Hive ODBC Driver'
+driver = 'DRIVER={' + DB_DRIVER + '}'
+server = 'Host=' + SERVER_NAME + ';Port=443'
+database = 'Schema=' + DATABASE_NAME
+hiveserv = 'HiveServerType=2'
+auth = 'AuthMech=6'
+uid = 'UID=' + USERID
+pwd = 'PWD=' + PASSWORD
+CONNECTION_STRING = ';'.join([driver,server,database,hiveserv,auth,uid,pwd])
+connection = pyodbc.connect(CONNECTION_STRING, autocommit=True)
+cursor=connection.cursor()
 
 
-        #Create Hive database and tables
-        queryString = "create database if not exists nyctaxidb;"
-        cursor.execute(queryString)
+#Create Hive database and tables
+queryString = "create database if not exists nyctaxidb;"
+cursor.execute(queryString)
 
-        queryString = """
-                        create external table if not exists nyctaxidb.trip
-                        (
-                            medallion string,
-                            hack_license string,
-                            vendor_id string,
-                            rate_code string,
-                            store_and_fwd_flag string,
-                            pickup_datetime string,
-                            dropoff_datetime string,
-                            passenger_count int,
-                            trip_time_in_secs double,
-                            trip_distance double,
-                            pickup_longitude double,
-                            pickup_latitude double,
-                            dropoff_longitude double,
-                            dropoff_latitude double)  
-                        PARTITIONED BY (month int)
-                        ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\\n'
-                        STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/trip' TBLPROPERTIES('skip.header.line.count'='1');
-                    """
-        cursor.execute(queryString)
+queryString = """
+                create external table if not exists nyctaxidb.trip
+                (
+                    medallion string,
+                    hack_license string,
+                    vendor_id string,
+                    rate_code string,
+                    store_and_fwd_flag string,
+                    pickup_datetime string,
+                    dropoff_datetime string,
+                    passenger_count int,
+                    trip_time_in_secs double,
+                    trip_distance double,
+                    pickup_longitude double,
+                    pickup_latitude double,
+                    dropoff_longitude double,
+                    dropoff_latitude double)  
+                PARTITIONED BY (month int)
+                ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\\n'
+                STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/trip' TBLPROPERTIES('skip.header.line.count'='1');
+            """
+cursor.execute(queryString)
 
-        queryString = """
-                        create external table if not exists nyctaxidb.fare
-                        (
-                            medallion string,
-                            hack_license string,
-                            vendor_id string,
-                            pickup_datetime string,
-                            payment_type string,
-                            fare_amount double,
-                            surcharge double,
-                            mta_tax double,
-                            tip_amount double,
-                            tolls_amount double,
-                            total_amount double)
-                        PARTITIONED BY (month int)
-                        ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\\n'
-                        STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/fare' TBLPROPERTIES('skip.header.line.count'='1');
-                    """
-        cursor.execute(queryString)
+queryString = """
+                create external table if not exists nyctaxidb.fare
+                (
+                    medallion string,
+                    hack_license string,
+                    vendor_id string,
+                    pickup_datetime string,
+                    payment_type string,
+                    fare_amount double,
+                    surcharge double,
+                    mta_tax double,
+                    tip_amount double,
+                    tolls_amount double,
+                    total_amount double)
+                PARTITIONED BY (month int)
+                ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\\n'
+                STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/fare' TBLPROPERTIES('skip.header.line.count'='1');
+            """
+cursor.execute(queryString)
 
 
-        #Upload data from blob storage to HDI cluster
-        for i in range(1,13):
-            queryString = "LOAD DATA INPATH 'wasb:///nyctaxitripraw2/trip_data_%d.csv' INTO TABLE nyctaxidb2.trip PARTITION (month=%d);"%(i,i)
-            cursor.execute(queryString)
-            queryString = "LOAD DATA INPATH 'wasb:///nyctaxifareraw2/trip_fare_%d.csv' INTO TABLE nyctaxidb2.fare PARTITION (month=%d);"%(i,i)  
-            cursor.execute(queryString)
-
+#Upload data from blob storage to HDI cluster
+for i in range(1,13):
+    queryString = "LOAD DATA INPATH 'wasb:///nyctaxitripraw2/trip_data_%d.csv' INTO TABLE nyctaxidb2.trip PARTITION (month=%d);"%(i,i)
+    cursor.execute(queryString)
+    queryString = "LOAD DATA INPATH 'wasb:///nyctaxifareraw2/trip_fare_%d.csv' INTO TABLE nyctaxidb2.fare PARTITION (month=%d);"%(i,i)  
+    cursor.execute(queryString)
+```
 
 * 또는 이 [연습](../team-data-science-process/hive-walkthrough.md)에 따라 NYC Taxi 데이터를 HDI 클러스터에 업로드할 수 있습니다. 주요 단계는 다음과 같습니다.
   
@@ -573,216 +593,226 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
 
 데이터가 Hadoop 클러스터에 있기 때문에 pyodbc 패키지를 사용하여 Hadoop 클러스터에 연결한 후 Hive를 사용하여 데이터베이스를 쿼리하여 데이터 탐색 및 기능 엔지니어링을 수행할 수 있습니다. 필수 조건 단계에서 만든 기존 테이블을 볼 수 있습니다.
 
-    queryString = """
-        show tables in nyctaxidb2;
-        """
-    pd.read_sql(queryString,connection)
-
+```python
+queryString = """
+    show tables in nyctaxidb2;
+    """
+pd.read_sql(queryString,connection)
+```
 
 ![기존 테이블 보기](./media/vm-do-ten-things/Python_View_Existing_Tables_Hive_v3.PNG)
 
 각 월의 레코드 수와 trip 테이블에서 팁을 받은 여정과 팁을 받지 않은 여정의 빈도를 살펴보겠습니다.
 
-    queryString = """
-        select month, count(*) from nyctaxidb.trip group by month;
-        """
-    results = pd.read_sql(queryString,connection)
+```python
+queryString = """
+    select month, count(*) from nyctaxidb.trip group by month;
+    """
+results = pd.read_sql(queryString,connection)
 
-    %matplotlib inline
+%matplotlib inline
 
-    results.columns = ['month', 'trip_count']
-    df = results.copy()
-    df.index = df['month']
-    df['trip_count'].plot(kind='bar')
-
+results.columns = ['month', 'trip_count']
+df = results.copy()
+df.index = df['month']
+df['trip_count'].plot(kind='bar')
+```
 
 ![월별 레코드 수에 대한 도표](./media/vm-do-ten-things/Exploration_Number_Records_by_Month_v3.PNG)
 
-    queryString = """
-        SELECT tipped, COUNT(*) AS tip_freq
-        FROM
-        (
-            SELECT if(tip_amount > 0, 1, 0) as tipped, tip_amount
-            FROM nyctaxidb.fare
-        )tc
-        GROUP BY tipped;
-        """
-    results = pd.read_sql(queryString,connection)
+```python
+queryString = """
+    SELECT tipped, COUNT(*) AS tip_freq
+    FROM
+    (
+        SELECT if(tip_amount > 0, 1, 0) as tipped, tip_amount
+        FROM nyctaxidb.fare
+    )tc
+    GROUP BY tipped;
+    """
+results = pd.read_sql(queryString,connection)
 
-    results.columns = ['tipped', 'trip_count']
-    df = results.copy()
-    df.index = df['tipped']
-    df['trip_count'].plot(kind='bar')
-
+results.columns = ['tipped', 'trip_count']
+df = results.copy()
+df.index = df['tipped']
+df['trip_count'].plot(kind='bar')
+```
 
 ![팁 빈도 도표](./media/vm-do-ten-things/Exploration_Frequency_tip_or_not_v3.PNG)
 
 또한 승차 위치와 하차 위치 사이의 거리를 계산한 다음 주행 거리와 비교할 수 있습니다.
 
-    queryString = """
-                    select pickup_longitude, pickup_latitude, dropoff_longitude, dropoff_latitude, trip_distance, trip_time_in_secs,
-                        3959*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
-                        *radians(180)/180/2),2)-cos(pickup_latitude*radians(180)/180)
-                        *cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2)))
-                        /sqrt(pow(sin((dropoff_latitude-pickup_latitude)*radians(180)/180/2),2)
-                        +cos(pickup_latitude*radians(180)/180)*cos(dropoff_latitude*radians(180)/180)*
-                        pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2))) as direct_distance
-                        from nyctaxidb.trip
-                        where month=1
-                            and pickup_longitude between -90 and -30
-                            and pickup_latitude between 30 and 90
-                            and dropoff_longitude between -90 and -30
-                            and dropoff_latitude between 30 and 90;
-                """
-    results = pd.read_sql(queryString,connection)
-    results.head(5)
+```python
+queryString = """
+                select pickup_longitude, pickup_latitude, dropoff_longitude, dropoff_latitude, trip_distance, trip_time_in_secs,
+                    3959*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
+                    *radians(180)/180/2),2)-cos(pickup_latitude*radians(180)/180)
+                    *cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2)))
+                    /sqrt(pow(sin((dropoff_latitude-pickup_latitude)*radians(180)/180/2),2)
+                    +cos(pickup_latitude*radians(180)/180)*cos(dropoff_latitude*radians(180)/180)*
+                    pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2))) as direct_distance
+                    from nyctaxidb.trip
+                    where month=1
+                        and pickup_longitude between -90 and -30
+                        and pickup_latitude between 30 and 90
+                        and dropoff_longitude between -90 and -30
+                        and dropoff_latitude between 30 and 90;
+            """
+results = pd.read_sql(queryString,connection)
+results.head(5)
+```
 
+![승차 및 하차 테이블의 상위 행](./media/vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
 
-![승차 및 하차 테이블](./media/vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
-
-    results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
-                       'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
-    df = results.loc[results['trip_distance']<=100] #remove outliers
-    df = df.loc[df['direct_distance']<=100] #remove outliers
-    plt.scatter(df['direct_distance'], df['trip_distance'])
-
+```python
+results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
+                    'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
+df = results.loc[results['trip_distance']<=100] #remove outliers
+df = df.loc[df['direct_distance']<=100] #remove outliers
+plt.scatter(df['direct_distance'], df['trip_distance'])
+```
 
 ![주행 거리에 대한 승차/하차 거리 도표](./media/vm-do-ten-things/Exploration_direct_distance_trip_distance_v2.PNG)
 
 이제 모델링을 위한 다운샘플링(1%) 데이터 집합을 준비하겠습니다. Machine Learning 판독기 모듈에서 이 데이터를 사용할 수 있습니다.
 
-        queryString = """
-        create  table if not exists nyctaxi_downsampled_dataset_testNEW (
-        medallion string,
-        hack_license string,
-        vendor_id string,
-        rate_code string,
-        store_and_fwd_flag string,
-        pickup_datetime string,
-        dropoff_datetime string,
-        pickup_hour string,
-        pickup_week string,
-        weekday string,
-        passenger_count int,
-        trip_time_in_secs double,
-        trip_distance double,
-        pickup_longitude double,
-        pickup_latitude double,
-        dropoff_longitude double,
-        dropoff_latitude double,
-        direct_distance double,
-        payment_type string,
-        fare_amount double,
-        surcharge double,
-        mta_tax double,
-        tip_amount double,
-        tolls_amount double,
-        total_amount double,
-        tipped string,
-        tip_class string
-        )
-        row format delimited fields terminated by ','
-        lines terminated by '\\n'
-        stored as textfile;
-        """
-        cursor.execute(queryString)
+```python
+queryString = """
+create  table if not exists nyctaxi_downsampled_dataset_testNEW (
+medallion string,
+hack_license string,
+vendor_id string,
+rate_code string,
+store_and_fwd_flag string,
+pickup_datetime string,
+dropoff_datetime string,
+pickup_hour string,
+pickup_week string,
+weekday string,
+passenger_count int,
+trip_time_in_secs double,
+trip_distance double,
+pickup_longitude double,
+pickup_latitude double,
+dropoff_longitude double,
+dropoff_latitude double,
+direct_distance double,
+payment_type string,
+fare_amount double,
+surcharge double,
+mta_tax double,
+tip_amount double,
+tolls_amount double,
+total_amount double,
+tipped string,
+tip_class string
+)
+row format delimited fields terminated by ','
+lines terminated by '\\n'
+stored as textfile;
+"""
+cursor.execute(queryString)
+```
 
-        --- now insert contents of the join into the preceding internal table
+이제 조인의 삽입 내용을 이전 내부 테이블에 삽입합니다.
 
-        queryString = """
-        insert overwrite table nyctaxi_downsampled_dataset_testNEW
-        select
-        t.medallion,
-        t.hack_license,
-        t.vendor_id,
-        t.rate_code,
-        t.store_and_fwd_flag,
-        t.pickup_datetime,
-        t.dropoff_datetime,
-        hour(t.pickup_datetime) as pickup_hour,
-        weekofyear(t.pickup_datetime) as pickup_week,
-        from_unixtime(unix_timestamp(t.pickup_datetime, 'yyyy-MM-dd HH:mm:ss'),'u') as weekday,
-        t.passenger_count,
-        t.trip_time_in_secs,
-        t.trip_distance,
-        t.pickup_longitude,
-        t.pickup_latitude,
-        t.dropoff_longitude,
-        t.dropoff_latitude,
-        t.direct_distance,
-        f.payment_type,
-        f.fare_amount,
-        f.surcharge,
-        f.mta_tax,
-        f.tip_amount,
-        f.tolls_amount,
-        f.total_amount,
-        if(tip_amount>0,1,0) as tipped,
-        if(tip_amount=0,0,
-        if(tip_amount>0 and tip_amount<=5,1,
-        if(tip_amount>5 and tip_amount<=10,2,
-        if(tip_amount>10 and tip_amount<=20,3,4)))) as tip_class
-        from
-        (
-        select
-        medallion,
-        hack_license,
-        vendor_id,
-        rate_code,
-        store_and_fwd_flag,
-        pickup_datetime,
-        dropoff_datetime,
-        passenger_count,
-        trip_time_in_secs,
-        trip_distance,
-        pickup_longitude,
-        pickup_latitude,
-        dropoff_longitude,
-        dropoff_latitude,
-        3959*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
-        radians(180)/180/2),2)-cos(pickup_latitude*radians(180)/180)
-        *cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2)))
-        /sqrt(pow(sin((dropoff_latitude-pickup_latitude)*radians(180)/180/2),2)
-        +cos(pickup_latitude*radians(180)/180)*cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2))) as direct_distance,
-        rand() as sample_key
+```python
+queryString = """
+insert overwrite table nyctaxi_downsampled_dataset_testNEW
+select
+t.medallion,
+t.hack_license,
+t.vendor_id,
+t.rate_code,
+t.store_and_fwd_flag,
+t.pickup_datetime,
+t.dropoff_datetime,
+hour(t.pickup_datetime) as pickup_hour,
+weekofyear(t.pickup_datetime) as pickup_week,
+from_unixtime(unix_timestamp(t.pickup_datetime, 'yyyy-MM-dd HH:mm:ss'),'u') as weekday,
+t.passenger_count,
+t.trip_time_in_secs,
+t.trip_distance,
+t.pickup_longitude,
+t.pickup_latitude,
+t.dropoff_longitude,
+t.dropoff_latitude,
+t.direct_distance,
+f.payment_type,
+f.fare_amount,
+f.surcharge,
+f.mta_tax,
+f.tip_amount,
+f.tolls_amount,
+f.total_amount,
+if(tip_amount>0,1,0) as tipped,
+if(tip_amount=0,0,
+if(tip_amount>0 and tip_amount<=5,1,
+if(tip_amount>5 and tip_amount<=10,2,
+if(tip_amount>10 and tip_amount<=20,3,4)))) as tip_class
+from
+(
+select
+medallion,
+hack_license,
+vendor_id,
+rate_code,
+store_and_fwd_flag,
+pickup_datetime,
+dropoff_datetime,
+passenger_count,
+trip_time_in_secs,
+trip_distance,
+pickup_longitude,
+pickup_latitude,
+dropoff_longitude,
+dropoff_latitude,
+3959*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
+radians(180)/180/2),2)-cos(pickup_latitude*radians(180)/180)
+*cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2)))
+/sqrt(pow(sin((dropoff_latitude-pickup_latitude)*radians(180)/180/2),2)
++cos(pickup_latitude*radians(180)/180)*cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2))) as direct_distance,
+rand() as sample_key
 
-        from trip
-        where pickup_latitude between 30 and 90
-            and pickup_longitude between -90 and -30
-            and dropoff_latitude between 30 and 90
-            and dropoff_longitude between -90 and -30
-        )t
-        join
-        (
-        select
-        medallion,
-        hack_license,
-        vendor_id,
-        pickup_datetime,
-        payment_type,
-        fare_amount,
-        surcharge,
-        mta_tax,
-        tip_amount,
-        tolls_amount,
-        total_amount
-        from fare
-        )f
-        on t.medallion=f.medallion and t.hack_license=f.hack_license and t.pickup_datetime=f.pickup_datetime
-        where t.sample_key<=0.01
-        """
-        cursor.execute(queryString)
+from trip
+where pickup_latitude between 30 and 90
+    and pickup_longitude between -90 and -30
+    and dropoff_latitude between 30 and 90
+    and dropoff_longitude between -90 and -30
+)t
+join
+(
+select
+medallion,
+hack_license,
+vendor_id,
+pickup_datetime,
+payment_type,
+fare_amount,
+surcharge,
+mta_tax,
+tip_amount,
+tolls_amount,
+total_amount
+from fare
+)f
+on t.medallion=f.medallion and t.hack_license=f.hack_license and t.pickup_datetime=f.pickup_datetime
+where t.sample_key<=0.01
+"""
+cursor.execute(queryString)
+```
 
 잠시 후 Hadoop 클러스터에 데이터가 로드된 것을 볼 수 있습니다.
 
-    queryString = """
-        select * from nyctaxi_downsampled_dataset limit 10;
-        """
-    cursor.execute(queryString)
-    pd.read_sql(queryString,connection)
+```python
+queryString = """
+    select * from nyctaxi_downsampled_dataset limit 10;
+    """
+cursor.execute(queryString)
+pd.read_sql(queryString,connection)
+```
 
-
-![데이터 테이블](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
+![테이블에서 데이터의 상위 행](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
 **Machine Learning을 사용하여 HDI에서 데이터 읽기: 판독기 모듈**
 
@@ -826,17 +856,17 @@ DSVM에서 Azure Cosmos DB에 액세스하기 위한 다음과 같은 필수 조
 
 위의 단계를 수행하는 대신, 위의 단계를 스크립팅하는 다음 코드를 Power BI 고급 편집기에 붙여넣어서 데이터 변환을 쿼리 언어로 작성할 수 있습니다.
 
-    let
-        Source = Json.Document(Web.Contents("https://cahandson.blob.core.windows.net/samples/volcano.json")),
-        #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
-        #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"Volcano Name", "Country", "Region", "Location", "Elevation", "Type", "Status", "Last Known Eruption", "id"}, {"Volcano Name", "Country", "Region", "Location", "Elevation", "Type", "Status", "Last Known Eruption", "id"}),
-        #"Expanded Location" = Table.ExpandRecordColumn(#"Expanded Column1", "Location", {"coordinates"}, {"coordinates"}),
-        #"Added Custom" = Table.AddColumn(#"Expanded Location", "LatLong", each Text.From([coordinates]{1})&","&Text.From([coordinates]{0})),
-        #"Changed Type" = Table.TransformColumnTypes(#"Added Custom",{{"Elevation", type number}})
-    in
-        #"Changed Type"
-
-
+```pqfl
+let
+    Source = Json.Document(Web.Contents("https://cahandson.blob.core.windows.net/samples/volcano.json")),
+    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"Volcano Name", "Country", "Region", "Location", "Elevation", "Type", "Status", "Last Known Eruption", "id"}, {"Volcano Name", "Country", "Region", "Location", "Elevation", "Type", "Status", "Last Known Eruption", "id"}),
+    #"Expanded Location" = Table.ExpandRecordColumn(#"Expanded Column1", "Location", {"coordinates"}, {"coordinates"}),
+    #"Added Custom" = Table.AddColumn(#"Expanded Location", "LatLong", each Text.From([coordinates]{1})&","&Text.From([coordinates]{0})),
+    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom",{{"Elevation", type number}})
+in
+    #"Changed Type"
+```
 
 이제 Power BI 데이터 모델에 데이터가 있습니다. Power BI Desktop이 다음과 같이 표시됩니다.
 

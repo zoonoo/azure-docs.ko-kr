@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 11/15/2018
 ms.author: stbaron
-ms.openlocfilehash: 73e58653c249639d2c2317badcd9995658009b64
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 3abf0268a7a6f84e5c26efc5643d048216fc2215
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710990"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163041"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure Resource Health에서 리소스 유형 및 상태 검사
 다음은 리소스 유형별 리소스 상태를 통해 실행되는 모든 검사 목록입니다.
@@ -124,7 +124,7 @@ ms.locfileid: "51710990"
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 |실행된 검사|
 |---|
-|<ul><li>Azure Storage 플랫폼 문제로 인해 저장소 계정에서 데이터를 읽는 요청이 실패하는가?</li><li>Azure Storage 플랫폼 문제로 인해 저장소 계정에 데이터를 쓰는 요청이 실패하는가?</li><li>저장소 계정이 있는 저장소 클러스터를 사용할 수 없는가?</li></ul>|
+|<ul><li>Azure Storage 플랫폼 문제로 인해 스토리지 계정에서 데이터를 읽는 요청이 실패하는가?</li><li>Azure Storage 플랫폼 문제로 인해 스토리지 계정에 데이터를 쓰는 요청이 실패하는가?</li><li>저장소 계정이 있는 저장소 클러스터를 사용할 수 없는가?</li></ul>|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 |실행된 검사|
@@ -144,4 +144,4 @@ ms.locfileid: "51710990"
 # <a name="next-steps"></a>다음 단계
 -  [Azure Service Health 대시보드 소개](service-health-overview.md) 및 [Azure Resource Health 소개](resource-health-overview.md)를 참조하여 자세한 내용을 확인합니다. 
 -  [Azure Resource Health에 대한 질문과 대답](resource-health-faq.md)
-- 상태 문제 알림을 받도록 경고를 설정합니다. 자세한 내용은 [Service Health 이벤트에 대한 경고 구성](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)을 참조하세요. 
+- 상태 문제 알림을 받도록 경고를 설정합니다. 자세한 내용은 [Service Health 이벤트에 대한 경고 구성](../azure-monitor/platform/alerts-activity-log-service-notifications.md)을 참조하세요. 

@@ -26,7 +26,7 @@ ms.locfileid: "46949622"
 Azure에서 실행되는 Service Fabric 클러스터는 가상 머신 확장 집합 위에 구축됩니다.  [클러스터 크기 조정](./service-fabric-cluster-scale-up-down.md)에서는 Service Fabric 클러스터 크기를 수동으로 또는 자동 크기 조정 규칙을 사용하여 조정하는 방법을 설명합니다. 이 문서에서는 좀 더 고급 시나리오에 해당하는 유연한 Azure Compute SDK를 사용하여 자격 증명을 관리하고 클러스터의 크기를 조정하는 방법을 설명합니다. 개요를 보려면 [Azure 크기 조정 작업을 조정하는 프로그래밍 방법](service-fabric-cluster-scaling.md#programmatic-scaling)을 읽어보세요. 
 
 ## <a name="manage-credentials"></a>자격 증명 관리
-크기 조정을 처리하는 서비스를 작성할 때 마주치는 한 가지 어려움은 대화형 로그인 없이 서비스가 가상 머신 확장 집합에 액세스할 수 있어야 한다는 점입니다. 크기 조정 서비스가 자체 Service Fabric 응용 프로그램을 수정하는 경우 Service Fabric 클러스터에 손쉽게 액세스할 수 있지만 자격 증명이 확장 집합에 액세스해야 합니다. 로그인하려면 [Azure CLI](https://github.com/azure/azure-cli)로 만든 [서비스 사용자](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)를 사용하면 됩니다.
+크기 조정을 처리하는 서비스를 작성할 때 마주치는 한 가지 어려움은 대화형 로그인 없이 서비스가 가상 머신 확장 집합에 액세스할 수 있어야 한다는 점입니다. 크기 조정 서비스가 자체 Service Fabric 애플리케이션을 수정하는 경우 Service Fabric 클러스터에 손쉽게 액세스할 수 있지만 자격 증명이 확장 세트에 액세스해야 합니다. 로그인하려면 [Azure CLI](https://github.com/azure/azure-cli)로 만든 [서비스 사용자](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)를 사용하면 됩니다.
 
 서비스 주체는 다음 단계에 따라 만들 수 있습니다.
 

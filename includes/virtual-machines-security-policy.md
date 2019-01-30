@@ -4,14 +4,14 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 4887dbcc89180c54b8e991e6fa152463476c5ce9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 801266ed13aa993ad04ed8a3b21d6a6b3e1d6603
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226418"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54841437"
 ---
-실행하는 응용 프로그램에 대해 VM을 안전하게 유지하는 것은 중요합니다. VM 보안은 VM에 대한 보안 액세스 및 데이터의 보안 저장소를 포함하는 하나 이상의 Azure 서비스 및 기능을 포함할 수 있습니다. 이 문서에서는 VM 및 응용 프로그램을 안전하게 유지할 수 있도록 하는 정보를 제공합니다.
+실행하는 애플리케이션에 대해 VM을 안전하게 유지하는 것은 중요합니다. VM 보안은 VM에 대한 보안 액세스 및 데이터의 보안 저장소를 포함하는 하나 이상의 Azure 서비스 및 기능을 포함할 수 있습니다. 이 문서에서는 VM 및 애플리케이션을 안전하게 유지할 수 있도록 하는 정보를 제공합니다.
 
 ## <a name="antimalware"></a>맬웨어 방지
 
@@ -23,7 +23,7 @@ ms.locfileid: "50226418"
 
 ## <a name="encryption"></a>암호화
 
-[Windows VM](../articles/virtual-machines/windows/encrypt-disks.md) 및 [Linux VM](../articles/virtual-machines/linux/encrypt-disks.md)의 보안과 규정 준수 상태를 향상시키기 위해 Azure에서 가상 디스크를 암호화할 수 있습니다. Windows VM의 가상 디스크는 미사용 시 Bitlocker를 사용하여 암호화됩니다. Linux VM의 가상 디스크는 미사용 시 dm-crypt를 사용하여 암호화됩니다. 
+[Windows VM](../articles/virtual-machines/windows/encrypt-disks.md) 및 [Linux VM](../articles/virtual-machines/linux/encrypt-disks.md)의 보안과 규정 준수 상태를 향상시키기 위해 Azure에서 가상 디스크를 암호화할 수 있습니다. Windows VM의 가상 디스크는 미사용 시 BitLocker를 사용하여 암호화됩니다. Linux VM의 가상 디스크는 미사용 시 dm-crypt를 사용하여 암호화됩니다. 
 
 Azure에서 가상 디스크 암호화는 무료입니다. 암호화 키는 소프트웨어 보호를 사용하여 Azure Key Vault에 저장되거나 FIPS 140-2 레벨 2 표준 인증 HSM(하드웨어 보안 모듈)에서 키를 가져오거나 생성할 수 있습니다. 이러한 암호화 키는 VM에 연결된 가상 디스크를 암호화하고 암호를 해독하는 데 사용됩니다. 이러한 암호화 키에 대한 제어를 유지하고 그 사용을 감사할 수 있습니다. Azure Active Directory 서비스 사용자는 VM이 켜지고 꺼지는 경우 이러한 암호화 키 발급을 위한 보안 메커니즘을 제공합니다.
 
@@ -37,7 +37,7 @@ VM에 연결할 때 public-key cryptography를 사용하면 더욱 안전한 방
 
 ## <a name="managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID
 
-클라우드 응용 프로그램을 빌드할 때 일반적으로 직면하는 난관 중 하나는 코드에서 클라우드 서비스에 인증하는 데 사용되는 자격 증명을 관리하는 방법입니다. 자격 증명을 안전하게 보호하는 것이 중요합니다. 자격 증명이 개발자 워크스테이션에 표시되지 않고 소스 제거에 체크 인되지 않는 것이 가장 좋습니다. Azure Key Vault를 사용하면 자격 증명, 비밀 및 기타 키를 안전하게 저장할 수 있지만, 자격 증명/키/비밀을 검색하려면 코드가 Key Vault에 인증해야 합니다. 
+클라우드 애플리케이션을 빌드할 때 일반적으로 직면하는 난관 중 하나는 코드에서 클라우드 서비스에 인증하는 데 사용되는 자격 증명을 관리하는 방법입니다. 자격 증명을 안전하게 보호하는 것이 중요합니다. 자격 증명이 개발자 워크스테이션에 표시되지 않고 소스 제거에 체크 인되지 않는 것이 가장 좋습니다. Azure Key Vault를 사용하면 자격 증명, 비밀 및 기타 키를 안전하게 저장할 수 있지만, 자격 증명/키/비밀을 검색하려면 코드가 Key Vault에 인증해야 합니다. 
 
 Azure AD(Azure Active Directory)의 Azure 리소스에 대한 관리 ID 기능은 이 문제를 해결합니다. 이 기능은 Azure AD에서 자동으로 관리되는 ID를 Azure 서비스에 제공합니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명이 필요 없습니다.  VM에서 실행되는 코드는 VM 내에서만 액세스할 수 있는 두 엔드포인트에서 토큰을 요청할 수 있습니다. 이 서비스에 대한 자세한 내용은 [Azure 리소스의 관리 ID](../articles/active-directory/managed-identities-azure-resources/overview.md) 개요 페이지를 참조하세요.   
 

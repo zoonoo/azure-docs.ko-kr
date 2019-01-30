@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: 8080cdf78333eed9541311ba67221c713341a21a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 6cd42675fa70f338fd4e1223d6a48bf8c6773915
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741575"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579314"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>가상 머신 확장 집합을 사용하여 수직으로 규모 조정
 이 문서에서는 다시 프로비저닝을 사용하거나 사용하지 않고 Azure [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/)를 수직으로 확장하는 방법을 설명합니다. 확장 집합에 있지 않은 VM의 수직 규모 조정에 대해서는 [Azure Automation을 사용하여 Azure 가상 머신을 수직으로 확장](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.
@@ -84,7 +84,7 @@ Runbook을 가져온 후에는 가상 머신 확장 집합에서 경고를 통�
 > 
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>가상 머신 확장 집합에 경고 추가
-다음은 가상 머신 확장 집합에 경고를 추가하는 방법을 보여 주는 PowerShell 스크립트입니다. [Azure Monitor 자동 크기 조정 공용 메트릭](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)문서를 참조하여 경고를 시작할 메트릭의 이름을 가져옵니다.
+다음은 가상 머신 확장 집합에 경고를 추가하는 방법을 보여 주는 PowerShell 스크립트입니다. 다음 문서를 참조하여 경고를 시작할 메트릭의 이름을 가져옵니다. [Azure Monitor 자동 크기 조정 공용 메트릭](../azure-monitor/platform/autoscale-common-metrics.md).
 
 ```
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail user@contoso.com
@@ -119,8 +119,8 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
 
 경고를 만드는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Monitor PowerShell 빠른 시작 샘플](../monitoring-and-diagnostics/insights-powershell-samples.md)
-* [Azure Monitor 플랫폼 간 CLI 빠른 시작 샘플](../monitoring-and-diagnostics/insights-cli-samples.md)
+* [Azure Monitor PowerShell 빠른 시작 샘플](../azure-monitor/platform/powershell-quickstart-samples.md)
+* [Azure Monitor 플랫폼 간 CLI 빠른 시작 샘플](../azure-monitor/platform/cli-samples.md)
 
 ## <a name="summary"></a>요약
 이 문서에서 간단한 수직 규모 조정 예제를 살펴보았습니다. Automation 계정, Runbook, Webhook, 경고 등 이러한 구성 요소를 사용하여 다양한 이벤트를 사용자 지정 작업 집합과 연결할 수 있습니다.

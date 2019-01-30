@@ -7,20 +7,20 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: f96ed8659fc2f49b89199a813f9fab9d5f4af5a1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 84cc99bac9ae5fa1743ed151e5bf8c3043cf5869
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232174"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851022"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Active Directory 및 DNS에 대한 재해 복구 설정
 
-SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 응용 프로그램이 올바르게 작동하려면 Active Directory 및 DNS 인프라가 필요합니다. 응용 프로그램에 대한 재해 복구 솔루션을 설정할 때 응용 프로그램이 제대로 작동하도록 하려면 다른 응용 프로그램 구성 요소를 복구하기 전에 Active Directory 및 DNS를 복구해야 합니다.
+SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 응용 프로그램이 올바르게 작동하려면 Active Directory 및 DNS 인프라가 필요합니다. 애플리케이션에 대한 재해 복구 솔루션을 설정할 때 애플리케이션이 제대로 작동하도록 하려면 다른 애플리케이션 구성 요소를 복구하기 전에 Active Directory 및 DNS를 복구해야 합니다.
 
-[Site Recovery](site-recovery-overview.md)를 사용하여 Active Directory에 대한 재해 복구 계획을 만들 수 있습니다. 중단되는 경우 장애 조치(failover)를 시작할 수 있습니다. 몇 분 안에 Active Directory를 가동 및 실행할 수 있습니다. 주 사이트에서 SharePoint 및 SAP와 같은 여러 응용 프로그램에 Active Directory를 배포한 경우 전체 사이트를 장애 조치(failover)할 수 있습니다. 먼저 Site Recovery를 사용하여 Active Directory를 장애 조치(failover)합니다. 그런 다음, 응용 프로그램별 복구 계획을 사용하여 다른 응용 프로그램을 장애 조치(failover)합니다.
+[Site Recovery](site-recovery-overview.md)를 사용하여 Active Directory에 대한 재해 복구 계획을 만들 수 있습니다. 중단되는 경우 장애 조치(failover)를 시작할 수 있습니다. 몇 분 안에 Active Directory를 가동 및 실행할 수 있습니다. 주 사이트에서 SharePoint 및 SAP와 같은 여러 애플리케이션에 Active Directory를 배포한 경우 전체 사이트를 장애 조치(failover)할 수 있습니다. 먼저 Site Recovery를 사용하여 Active Directory를 장애 조치(failover)합니다. 그런 다음, 응용 프로그램별 복구 계획을 사용하여 다른 응용 프로그램을 장애 조치(failover)합니다.
 
 이 문서에서는 Active Directory에 대한 재해 복구 솔루션을 만드는 방법을 설명합니다. 필수 구성 요소 및 장애 조치(failover) 지침을 포함합니다. 시작하기 전에 Active Directory와 Site Recovery에 대해 잘 알고 있어야 합니다.
 
@@ -33,8 +33,8 @@ SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 응용 프로그램
 
 - 도메인 컨트롤러 또는 DNS를 호스트하는 하나 이상의 VM에 [Site Recovery 복제](#enable-protection-using-site-recovery)를 설정해야 합니다.
 - 환경에 [여러 도메인 컨트롤러](#environment-with-multiple-domain-controllers)가 있는 경우 대상 사이트에도 [추가 도메인 컨트롤러](#protect-active-directory-with-active-directory-replication)를 설치해야 합니다. 추가 도메인 컨트롤러는 Azure 또는 보조 온-프레미스 데이터 센터에 있을 수 있습니다.
-- 약간의 응용 프로그램과 단일 도메인 컨트롤러가 있는 경우 전체 사이트를 함께 장애 조치(failover)할 수 있습니다. 이 경우 Site Recovery를 사용하여 도메인 컨트롤러를 대상 사이트(Azure 또는 보조 온-프레미스 데이터 센터)에 복제하는 것이 좋습니다. [테스트 장애 조치(failover)](#test-failover-considerations)에도 동일한 복제 도메인 컨트롤러 또는 DNS 가상 머신을 사용할 수 있습니다.
-- - 환경에 많은 응용 프로그램과 둘 이상의 도메인 컨트롤러가 있거나 응용 프로그램 몇 개를 동시에 장애 조치(failover)하려는 경우 Site Recovery로 도메인 컨트롤러 가상 머신을 복제하는 동시에 대상 사이트(Azure 또는 보조 온-프레미스 데이터 센터)에 [추가 도메인 컨트롤러](#protect-active-directory-with-active-directory-replication)를 설정하는 것이 좋습니다. [테스트 장애 조치(failover)](#test-failover-considerations)의 경우 Site Recovery에서 복제한 도메인 컨트롤러를 사용할 수 있습니다. 장애 조치(failover)의 경우 대상 사이트의 추가 도메인 컨트롤러를 사용할 수 있습니다.
+- 약간의 애플리케이션과 단일 도메인 컨트롤러가 있는 경우 전체 사이트를 함께 장애 조치(failover)할 수 있습니다. 이 경우 Site Recovery를 사용하여 도메인 컨트롤러를 대상 사이트(Azure 또는 보조 온-프레미스 데이터 센터)에 복제하는 것이 좋습니다. [테스트 장애 조치(failover)](#test-failover-considerations)에도 동일한 복제 도메인 컨트롤러 또는 DNS 가상 머신을 사용할 수 있습니다.
+- - 환경에 많은 애플리케이션과 둘 이상의 도메인 컨트롤러가 있거나 애플리케이션 몇 개를 동시에 장애 조치(failover)하려는 경우 Site Recovery로 도메인 컨트롤러 가상 머신을 복제하는 동시에 대상 사이트(Azure 또는 보조 온-프레미스 데이터 센터)에 [추가 도메인 컨트롤러](#protect-active-directory-with-active-directory-replication)를 설정하는 것이 좋습니다. [테스트 장애 조치(failover)](#test-failover-considerations)의 경우 Site Recovery에서 복제한 도메인 컨트롤러를 사용할 수 있습니다. 장애 조치(failover)의 경우 대상 사이트의 추가 도메인 컨트롤러를 사용할 수 있습니다.
 
 ## <a name="enable-protection-with-site-recovery"></a>Site Recovery를 사용하여 보호 사용
 
@@ -165,7 +165,7 @@ Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 �
 1. 도메인 컨트롤러의 정식 복원을 수행합니다. 다음 정보를 숙지하세요.
     * [FRS 복제](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/)를 권장하지는 않지만 사용 중이라면 신뢰할 수 있는 복원 단계를 수행합니다. 프로세스는 [BurFlags 레지스트리 키를 사용하여 파일 복제 서비스 다시 초기화](https://support.microsoft.com/kb/290762)에 설명되어 있습니다.
 
-        BurFlags에 대한 자세한 내용은 블로그 게시물 [D2 and D4: What is it for?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/)(D2 및 D4의 용도)를 참조하세요.
+        BurFlags에 대한 자세한 내용은 블로그 게시물 [D2 및 D4: What is it for?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/)(D2 및 D4의 용도)를 참조하세요.
     * DFSR 복제를 사용하는 경우 신뢰할 수 있는 복원 단계를 완료합니다. 프로세스는 [DFSR 복제 SYSVOL(예: FRS용 "D4/D2")의 신뢰할 수 있는 동기화 및 신뢰할 수 없는 동기화 강제 실행](https://support.microsoft.com/kb/2218556)에 설명되어 있습니다.
 
         Powershell 함수를 사용할 수도 있습니다. 자세한 내용은 [DFSR-SYSVOL authoritative/non-authoritative restore PowerShell functions](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/)(DFSR SYSVOL 신뢰할 수 있는/신뢰할 수 없는 복원 PowerShell 함수)를 참조하세요.

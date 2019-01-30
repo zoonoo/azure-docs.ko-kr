@@ -9,17 +9,16 @@ ms.assetid: 4acc894f-fee0-4c2f-988e-bc0eceea5eda
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/10/2018
+ms.date: 01/08/2019
 ms.author: barclayn
-ms.openlocfilehash: 0214d6cf09795605bca60774604ecd1fec94fdc6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9b57dfcd6ecd00f9f1bb8ec752e0996ee52305db
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989431"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159046"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -44,7 +43,7 @@ CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로�
 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *ContosoResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
-az group create --name 'ContosoResourceGroup' --location eastus
+az group create --name "ContosoResourceGroup" --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>주요 자격 증명 모음 만들기
@@ -56,24 +55,24 @@ az group create --name 'ContosoResourceGroup' --location eastus
 - 위치는 **미국 동부**입니다.
 
 ```azurecli
-az keyvault create --name 'Contoso-Vault2' --resource-group 'ContosoResourceGroup' --location eastus
+az keyvault create --name "Contoso-Vault2" --resource-group "ContosoResourceGroup" --location eastus
 ```
 
 이 cmdlet의 출력에는 새로 만든 Key Vault의 속성이 표시됩니다. 아래에 나열된 두 개의 속성을 기록합니다.
 
 - **자격 증명 모음 이름**: 이 예에서는 **Contoso-Vault2**입니다. 다른 Key Vault 명령에 이 이름을 사용합니다.
-- **자격 증명 모음 URI**: 이 예에서는 https://contoso-vault2.vault.azure.net/입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 응용 프로그램은 URI를 사용해야 합니다.
+- **자격 증명 모음 URI**: 이 예에서는 https://contoso-vault2.vault.azure.net/입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
 
 이때 사용자의 Azure 계정은 이 새 자격 증명 모음에서 모든 작업을 수행할 권한이 있는 유일한 계정입니다.
 
 ## <a name="add-a-secret-to-key-vault"></a>Key Vault에 비밀 추가
 
-자격 증명 모음에 비밀을 추가하려면 몇 가지 추가 단계만 수행하면 됩니다. 이 암호는 응용 프로그램에서 사용할 수 있습니다. 암호는 **ExamplePassword**라고 명명되며 **Pa$$w0rd** 값을 저장합니다.
+자격 증명 모음에 비밀을 추가하려면 몇 가지 추가 단계만 수행하면 됩니다. 이 암호는 애플리케이션에서 사용할 수 있습니다. 암호는 **ExamplePassword**라고 명명되며 **Pa$$w0rd** 값을 저장합니다.
 
 아래의 명령을 입력하여 Key Vault에 값 **Pa$$w0rd**를 저장하는 **ExamplePassword**라는 비밀을 만듭니다.
 
 ```azurecli
-az keyvault secret set --vault-name 'Contoso-Vault2' --name 'ExamplePassword' --value 'Pa$$w0rd'
+az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "Pa$$w0rd"
 ```
 
 이제 해당 URI를 사용하여 Azure Key Vault에 추가한 이 암호를 참조할 수 있습니다. 현재 버전을 가져오려면 **https://ContosoVault.vault.azure.net/secrets/ExamplePassword**를 사용합니다. 
@@ -81,7 +80,7 @@ az keyvault secret set --vault-name 'Contoso-Vault2' --name 'ExamplePassword' --
 비밀에 들어 있는 값을 일반 텍스트로 보려면:
 
 ```azurecli
-az keyvault secret show --name 'ExamplePassword' --vault-name 'Contoso-Vault2'
+az keyvault secret show --name "ExamplePassword" --vault-name "Contoso-Vault2"
 ```
 
 지금까지 Key Vault를 만들고 비밀을 저장하고, 검색했습니다.
@@ -97,7 +96,7 @@ az group delete --name ContosoResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Key Vault를 만들어 비밀을 저장했습니다. Key Vault와 이 Key Vault를 응용 프로그램과 함께 사용하는 방법에 대해 자세히 알아보려면 Key Vault와 함께 작동하는 웹 응용 프로그램에 대한 자습서를 진행합니다.
+이 빠른 시작에서는 Key Vault를 만들어 비밀을 저장했습니다. Key Vault와 이 Key Vault를 애플리케이션과 함께 사용하는 방법에 대해 자세히 알아보려면 Key Vault와 함께 작동하는 웹 애플리케이션에 대한 자습서를 진행합니다.
 
 > [!div class="nextstepaction"]
 > Azure 리소스에 대한 관리 ID를 사용하여 웹 응용 프로그램의 Key Vault에서 비밀을 읽는 방법을 알아보려면 [Key Vault에서 비밀을 읽도록 Azure 웹 응용 프로그램 구성](quick-create-net.md) 자습서를 계속 진행하세요.

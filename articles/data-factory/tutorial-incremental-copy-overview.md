@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 5151ef834a35f410d8caf9904cd3c7567a8958ad
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 8097ee9ccf8efe5f4bba00110578d29f4f92ac14
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43088779"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020896"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>원본 데이터 저장소에서 대상 데이터 저장소로 데이터 증분 로드
 
@@ -35,7 +34,7 @@ ms.locfileid: "43088779"
 - [온-프레미스 SQL Server의 여러 테이블에서 Azure SQL Database로 데이터 증분 복사](tutorial-incremental-copy-multiple-tables-powershell.md)
 
 ## <a name="delta-data-loading-by-using-the-change-tracking-technology"></a>변경 내용 추적 기술을 사용한 델타 데이터 로드
-변경 내용 추적 기술은 응용 프로그램에 효율적인 변경 내용 추적 메커니즘을 제공하는 SQL Server 및 Azure SQL Database의 경 솔루션입니다. 이를 통해 응용 프로그램에서 삽입되거나 업데이트되거나 삭제된 데이터를 쉽게 식별할 수 있습니다. 
+변경 내용 추적 기술은 애플리케이션에 효율적인 변경 내용 추적 메커니즘을 제공하는 SQL Server 및 Azure SQL Database의 경 솔루션입니다. 이를 통해 애플리케이션에서 삽입되거나 업데이트되거나 삭제된 데이터를 쉽게 식별할 수 있습니다. 
 
 이 방식에 대한 워크플로는 다음 다이어그램과 같습니다.
 

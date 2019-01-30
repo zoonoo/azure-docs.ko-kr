@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: 23ec5cd6eee3333922b5371a0ece631ebbc20939
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 1ddb993a3e4d41647a4afcf5a5daed03a834db9f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248034"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826004"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid 바인딩
 
@@ -25,13 +25,13 @@ ms.locfileid: "50248034"
 
 ## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 
-SendGrid 바인딩은 [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet 패키지 버전 2.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.SendGrid/) GitHub 리포지토리에 있습니다.
+SendGrid 바인딩은 [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet 패키지 버전 2.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.SendGrid/) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="packages---functions-2x"></a>패키지 - Functions 2.x
 
-SendGrid 바인딩은 [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet 패키지 버전 3.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub 리포지토리에 있습니다.
+SendGrid 바인딩은 [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet 패키지 버전 3.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -47,17 +47,21 @@ SendGrid 바인딩은 [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.n
 
 다음 예제에서는 Service Bus 큐 트리거와 SendGrid 출력 바인딩을 사용하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
 
+#### <a name="synchronous-c-example"></a>동기 C# 예제:
+
 ```cs
 [FunctionName("SendEmail")]
 public static void Run(
-    [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] OutgoingEmail email,
+    [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
     [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
 {
-    message = new SendGridMessage();
-    message.AddTo(email.To);
-    message.AddContent("text/html", email.Body);
-    message.SetFrom(new EmailAddress(email.From));
-    message.SetSubject(email.Subject);
+var emailObject = JsonConvert.DeserializeObject<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
+
+var message = new SendGridMessage();
+message.AddTo(emailObject.To);
+message.AddContent("text/html", emailObject.Body);
+message.SetFrom(new EmailAddress(emailObject.From));
+message.SetSubject(emailObject.Subject);
 }
 
 public class OutgoingEmail
@@ -66,6 +70,33 @@ public class OutgoingEmail
     public string From { get; set; }
     public string Subject { get; set; }
     public string Body { get; set; }
+}
+```
+#### <a name="asynchronous-c-example"></a>비동기 C# 예제:
+
+```cs
+[FunctionName("SendEmail")]
+public static async void Run(
+ [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
+ [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] IAsyncCollector<SendGridMessage> messageCollector)
+{
+ var emailObject = JsonConvert.DeserializeObject<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
+
+ var message = new SendGridMessage();
+ message.AddTo(emailObject.To);
+ message.AddContent("text/html", emailObject.Body);
+ message.SetFrom(new EmailAddress(emailObject.From));
+ message.SetSubject(emailObject.Subject);
+ 
+ await messageCollector.AddAsync(message);
+}
+
+public class OutgoingEmail
+{
+ public string To { get; set; }
+ public string From { get; set; }
+ public string Subject { get; set; }
+ public string Body { get; set; }
 }
 ```
 
@@ -81,13 +112,19 @@ public class OutgoingEmail
 {
     "bindings": [
         {
-            "name": "message",
-            "type": "sendGrid",
-            "direction": "out",
-            "apiKey" : "MySendGridKey",
-            "to": "{ToEmail}",
-            "from": "{FromEmail}",
-            "subject": "SendGrid output bindings"
+          "type": "queueTrigger",
+          "name": "mymsg",
+          "queueName": "myqueue",
+          "connection": "AzureWebJobsStorage",
+          "direction": "in"
+        },
+        {
+          "type": "sendGrid",
+          "name": "$return",
+          "direction": "out",
+          "apiKey": "SendGridAPIKeyAsAppSetting",
+          "from": "{FromEmail}",
+          "to": "{ToEmail}"
         }
     ]
 }
@@ -99,27 +136,28 @@ C# 스크립트 코드는 다음과 같습니다.
 
 ```csharp
 #r "SendGrid"
+
 using System;
 using SendGrid.Helpers.Mail;
-using Microsoft.Extensions.Logging;
+using Microsoft.Azure.WebJobs.Host;
 
-public static void Run(ILogger log, string input, out Mail message)
+public static SendGridMessage Run(Message mymsg, ILogger log)
 {
-     message = new Mail
-    {        
-        Subject = "Azure news"          
-    };
-
-    var personalization = new Personalization();
-    personalization.AddTo(new Email("recipient@contoso.com"));   
-
-    Content content = new Content
+    SendGridMessage message = new SendGridMessage()
     {
-        Type = "text/plain",
-        Value = input
+        Subject = $"{mymsg.Subject}"
     };
-    message.AddContent(content);
-    message.AddPersonalization(personalization);
+    
+    message.AddContent("text/plain", $"{mymsg.Content}");
+
+    return message;
+}
+public class Message
+{
+    public string ToEmail { get; set; }
+    public string FromEmail { get; set; }
+    public string Subject { get; set; }
+    public string Content { get; set; }
 }
 ```
 

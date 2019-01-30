@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 52e034f9a0c11c2b27888d181304bc16c3369e4a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 69f36773b702d9f0059e0cd27dbb864ccd7f7b2b
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390026"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262764"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Azure Application Insights와 Azure API Management를 통합하는 방법
 
-Azure API Management는 Azure Application Insights와 쉽게 통합할 수 있습니다. Azure Application Insights는 웹 개발자가 여러 플랫폼에서 응용 프로그램을 구축하고 관리할 수 있는 확장 가능한 서비스입니다. 이 가이드에서는 이러한 통합의 모든 단계를 안내하고, API Management 서비스 인스턴스의 성능에 미치는 영향을 줄이기 위한 전략에 대해 설명합니다.
+Azure API Management는 Azure Application Insights와 쉽게 통합할 수 있습니다. Azure Application Insights는 웹 개발자가 여러 플랫폼에서 애플리케이션을 구축하고 관리할 수 있는 확장 가능한 서비스입니다. 이 가이드에서는 이러한 통합의 모든 단계를 안내하고, API Management 서비스 인스턴스의 성능에 미치는 영향을 줄이기 위한 전략에 대해 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -36,7 +36,7 @@ Azure Application Insight를 사용하려면 먼저 서비스의 인스턴스를
     ![Application Insights 만들기](media/api-management-howto-app-insights/apim-app-insights-instance-1.png)  
 2. **+ 추가**를 클릭합니다.  
     ![Application Insights 만들기](media/api-management-howto-app-insights/apim-app-insights-instance-2.png)  
-3. 양식을 채웁니다. **응용 프로그램 유형**으로 **일반**을 선택합니다.
+3. 양식을 채웁니다. **애플리케이션 유형**으로 **일반**을 선택합니다.
 4. **만들기**를 클릭합니다.
 
 ## <a name="create-a-connection-between-azure-application-insights-and-azure-api-management-service-instance"></a>Azure Application Insight 및 Azure API Management 서비스 인스턴스 간 연결 만들기
@@ -64,8 +64,10 @@ Azure Application Insight를 사용하려면 먼저 서비스의 인스턴스를
 6. **사용** 확인란을 선택합니다.
 7. **대상** 드롭다운에서 연결된 로거를 선택합니다.
 8. **샘플링(%)** 으로 **100**을 입력하고, **항상 오류 로깅** 확인란을 선택합니다.
-9. **본문의 첫 번째 바이트 수** 필드에서 **1024**를 입력합니다.
-10. **저장**을 클릭합니다.
+9. **저장**을 클릭합니다.
+
+> [!WARNING]
+> **본문의 첫 번째 바이트** 필드에서 기본값 **0**을 재정의하면 API의 성능이 현저히 저하될 수 있습니다.
 
 > [!NOTE]
 > 내부적으로 이름이 'applicationinsights'인 [진단](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate) 엔터티가 API 수준에서 만들어집니다.
@@ -77,7 +79,7 @@ Azure Application Insight를 사용하려면 먼저 서비스의 인스턴스를
 | 샘플링(%)                        | decimal                           | 0-100의 값(퍼센트)입니다. <br/> Azure Application Insights에 기록할 요청의 백분율을 지정합니다. 0% 샘플링은 기록되는 요청이 없음을 의미하고, 100%는 모든 요청이 기록됨을 의미합니다. <br/> 이 설정은 Azure Application Insights에 대한 로깅 요청으로 인해 성능에 미치는 영향을 줄이기 위해 사용됩니다(아래 섹션 참조). |
 | 항상 오류 로깅                   | 부울                           | 이 설정을 선택하면 **샘플링** 설정에 관계없이 모든 오류가 Azure Application Insights에 기록됩니다.                                                                                                                                                                                                                  |
 | 기본 옵션: 헤더              | list                              | 요청 및 응답에 대해 Azure Application Insights에 기록할 헤더를 지정합니다.  기본값: 헤더가 기록되지 않음                                                                                                                                                                                                             |
-| 기본 옵션: 본문의 첫 번째 바이트 수  | 정수                           | 요청 및 응답에 대해 Azure Application Insights에 기록할 본문의 첫 번째 바이트 수를 지정합니다.  기본값: 본문이 기록되지 않음                                                                                                                                                                                              |
+| 기본 옵션: 본문의 첫 번째 바이트  | 정수                           | 요청 및 응답에 대해 Azure Application Insights에 기록할 본문의 첫 번째 바이트 수를 지정합니다.  기본값: 본문이 기록되지 않음                                                                                                                                                                                              |
 | 고급 옵션: 프런트 엔드 요청  |                                   | *프런트 엔드 요청*이 Azure Application Insights에 기록되는지 여부와 방법을 지정합니다. *프런트 엔드 요청*은 Azure API Management 서비스로 들어오는 요청입니다.                                                                                                                                                                        |
 | 고급 옵션: 프런트 엔드 응답 |                                   | *프런트 엔드 응답*이 Azure Application Insights에 기록되는지 여부와 방법을 지정합니다. *프런트 엔드 응답*은 Azure API Management 서비스에서 나가는 응답입니다.                                                                                                                                                                   |
 | 고급 옵션: 백 엔드 요청   |                                   | *백 엔드 요청*이 Azure Application Insights에 기록되는지 여부와 방법을 지정합니다. *백 엔드 요청*은 Azure API Management 서비스에서 나가는 요청입니다.                                                                                                                                                                        |
@@ -109,7 +111,7 @@ Azure Application Insights에서 받는 항목은 다음과 같습니다.
 > [!WARNING]
 > 모든 이벤트를 기록하면 들어오는 요청 속도에 따라 성능에 심각한 영향을 미칠 수 있습니다.
 
-내부 부하 테스트에 따라 이 기능을 사용하면 요청 속도가 초당 1,000개 요청을 초과할 때 처리량이 40-50% 감소합니다. Azure Application Insights는 응용 프로그램 성능을 평가하기 위해 통계 분석을 사용하도록 설계되었습니다. 감사 시스템이 아니며, 대용량 API에 대한 개별 요청 각각을 기록하는 데 적합하지 않습니다.
+내부 부하 테스트에 따라 이 기능을 사용하면 요청 속도가 초당 1,000개 요청을 초과할 때 처리량이 40-50% 감소합니다. Azure Application Insights는 애플리케이션 성능을 평가하기 위해 통계 분석을 사용하도록 설계되었습니다. 감사 시스템이 아니며, 대용량 API에 대한 개별 요청 각각을 기록하는 데 적합하지 않습니다.
 
 **샘플링** 설정을 조정하여 기록되는 요청 수를 조작할 수 있습니다(위의 단계 참조). 100% 값은 모든 요청이 기록됨을 의미하고, 0%는 전혀 기록하지 않음을 의미합니다. **샘플링**을 사용하면 원격 분석의 양을 줄이고, 심각한 성능 저하를 효과적으로 방지하면서 로깅의 이점을 계속 유지할 수 있습니다.
 

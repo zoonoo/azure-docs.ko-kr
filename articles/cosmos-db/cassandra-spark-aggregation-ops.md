@@ -1,21 +1,19 @@
 ---
 title: Spark에서 Azure Cosmos DB Cassandra API의 테이블에 대한 집계 연산
 description: 이 문서에서는 Spark에서 Azure Cosmos DB Cassandra API 테이블에 대한 기본적인 집계 연산을 다룹니다.
-services: cosmos-db
-author: anagha-microsoft
+author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.custom: basics, DDL, DML
-ms.devlang: spark-scala
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: ankhanol
-ms.openlocfilehash: 385a365ac3b81bca70a71eeed7ca1876c9df49b8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 56cd2284fb4bf7dabb280170757c128b8f985433
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225004"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037313"
 ---
 # <a name="aggregate-operations-on-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Spark에서 Azure Cosmos DB Cassandra API의 테이블에 대한 집계 연산 
 
@@ -89,13 +87,13 @@ res48: Long = 5
 
 "메모리 부족" 문제가 발생하지 않도록 다음 옵션 중에서 [저장소 옵션]( https://spark.apache.org/docs/2.2.0/rdd-programming-guide.html#which-storage-level-to-choose)을 선택합니다.
 
-* MEMORY_ONLY: 이 옵션은 기본 저장소 옵션입니다. RDD를 JVM에 역직렬화된 Java 개체로 저장합니다. RDD가 메모리에 맞지 않으면 파티션이 캐시되지 않고 필요할 때마다 즉석에서 다시 계산됩니다.
+* MEMORY_ONLY: 기본 스토리지 옵션입니다. RDD를 JVM에 역직렬화된 Java 개체로 저장합니다. RDD가 메모리에 맞지 않으면 파티션이 캐시되지 않고 필요할 때마다 즉석에서 다시 계산됩니다.
 
 * MEMORY_AND_DISK: RDD를 JVM에 역직렬화된 Java 개체로 저장합니다. RDD가 메모리에 맞지 않으면 디스크에 맞지 않는 파티션을 저장하고 필요할 때마다 저장된 위치에서 읽어옵니다.
 
-* MEMORY_ONLY_SER(Java/Scala): RDD를 직렬화된 Java 개체(파티션 당 1바이트 배열)로 저장합니다. 이 옵션은 역직렬화된 개체에 비해 공간 효율적이며, 특히 고속 직렬 변환기를 사용하는 경우에는 더 그렇습니다. 단, 읽기 작업에 CPU가 많이 사용됩니다.
+* MEMORY_ONLY_SER(Java/Scala): RDD를 직렬화된 Java 개체(파티션당 1바이트 배열)로 저장합니다. 이 옵션은 역직렬화된 개체에 비해 공간 효율적이며, 특히 고속 직렬 변환기를 사용하는 경우에는 더 그렇습니다. 단, 읽기 작업에 CPU가 많이 사용됩니다.
 
-* MEMORY_AND_DISK_SER(Java/Scala): 이 저장소 옵션은 MEMORY_ONLY_SER와 비슷합니다. 유일한 차이점은 필요할 때 디스크 메모리를 다시 계산하지 않고 디스크 메모리에 맞지 않는 파티션을 분산하는 것입니다.
+* MEMORY_AND_DISK_SER(Java/Scala): 이 스토리지 옵션은 MEMORY_ONLY_SER와 비슷합니다. 유일한 차이점은 필요할 때 디스크 메모리를 다시 계산하지 않고 디스크 메모리에 맞지 않는 파티션을 분산하는 것입니다.
 
 * DISK_ONLY: RDD 파티션을 디스크에만 저장합니다.
 

@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: aecb193d1d9a10dbb5c936401f9900c4b2be071f
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: f898b21e84cc57327991c97d2694e9e44e608417
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638245"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014899"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Data Factory 버전 1과 Azure Data Factory 비교
 이 아티클에서는 Data Factory 버전 1과 Data Factory를 비교합니다. Data Factory에 대한 소개는 [Data Factory 소개](introduction.md)를 참조하세요. 데이터 팩터리 버전 1에 대한 소개는 [Azure Data Factory 소개](v1/data-factory-introduction.md)를 참조하세요. 
@@ -27,7 +26,7 @@ ms.locfileid: "49638245"
 
 | 기능 | 버전 1 | 현재 버전 | 
 | ------- | --------- | --------- | 
-| 데이터 세트 | 활동에서 입력 및 출력으로 사용하려는 데이터를 참조하는 데이터의 명명된 보기입니다. 데이터 세트는 테이블, 파일, 폴더, 문서를 비롯한 다양한 데이터 저장소 내의 데이터를 식별합니다. 예를 들어 Azure Blob 데이터 세트는 활동에서 데이터를 읽어 들여야 하는 Azure Blob 저장소의 Blob 컨테이너와 폴더를 지정합니다.<br/><br/>**가용성**은 데이터 집합에 대한 처리 기간 조각화 모델을 정의합니다(예: 매시간, 매일 등). | 데이터 세트는 현재 버전에서 동일합니다. 하지만 데이터 세트에 대한 **가용성** 일정을 정의할 필요가 없습니다. 클록 스케줄러 패러다임에서 파이프라인을 예약할 수 있는 트리거 리소스를 정의할 수 있습니다. 자세한 내용은 [트리거](concepts-pipeline-execution-triggers.md#triggers) 및 [데이터 세트](concepts-datasets-linked-services.md)를 참조하세요. | 
+| 데이터 세트 | 활동에서 입력 및 출력으로 사용하려는 데이터를 참조하는 데이터의 명명된 보기입니다. 데이터 세트는 테이블, 파일, 폴더, 문서를 비롯한 다양한 데이터 저장소 내의 데이터를 식별합니다. 예를 들어 Azure Blob 데이터 세트는 활동에서 데이터를 읽어 들여야 하는 Azure Blob 저장소의 Blob 컨테이너와 폴더를 지정합니다.<br/><br/>**가용성**은 데이터 세트에 대한 처리 기간 조각화 모델을 정의합니다(예: 매시간, 매일 등). | 데이터 세트는 현재 버전에서 동일합니다. 하지만 데이터 세트에 대한 **가용성** 일정을 정의할 필요가 없습니다. 클록 스케줄러 패러다임에서 파이프라인을 예약할 수 있는 트리거 리소스를 정의할 수 있습니다. 자세한 내용은 [트리거](concepts-pipeline-execution-triggers.md#triggers) 및 [데이터 세트](concepts-datasets-linked-services.md)를 참조하세요. | 
 | 연결된 서비스 | 연결된 서비스는 Data Factory에서 외부 리소스에 연결하는 데 필요한 연결 정보를 정의하는 연결 문자열과 같습니다. | 연결된 서비스는 Data Factory V1에서와 동일하지만 현재 버전의 Data Factory에 포함된 Integration Runtime 계산 환경을 활용하는 새로운 **connectVia** 속성이 있습니다. 자세한 내용은 [Azure Data Factory의 통합 런타임](concepts-integration-runtime.md) 및 [Azure Blob 저장소의 연결된 서비스 속성](connector-azure-blob-storage.md#linked-service-properties)을 참조하세요. |
 | 파이프라인 | 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인은 함께 작업을 수행하는 활동의 논리적 그룹화입니다. startTime, endTime 및 isPaused를 사용하여 파이프라인을 예약하고 실행합니다. | 파이프라인은 데이터에 수행되는 활동의 그룹입니다. 단, 파이프 라인에서 활동의 일정 계획이 새로운 트리거 리소스로 분리되었습니다. 현재 버전의 Data Factory에 포함된 파이프라인이 트리거를 통해 개별적으로 예약하는 "워크플로 단위"라고 생각할 수 있습니다. <br/><br/>현재 버전의 Data Factory에서는 파이프라인에 시간 실행의 "기간"이 없습니다. Data Factory V1의 startTime, endTime, isPaused 개념은 현재 버전의 Data Factory에 더 이상 존재하지 않습니다. 자세한 내용은 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md)와 [파이프라인 및 활동](concepts-pipelines-activities.md)을 참조하세요. |
 | 활동 | 활동은 파이프라인 내에서 데이터에 수행할 동작을 정의합니다. 데이터 이동(복사 활동) 및 데이터 변환 활동(예: Hive, Pig 및 MapReduce)이 지원됩니다. | 현재 버전의 데이터 팩터리에서 작업은 파이프라인 내에 정의된 작업입니다. 현재 버전의 Data Factory에서는 새로운 [제어 흐름 작업](concepts-pipelines-activities.md#control-activities)을 도입합니다. 이러한 활동은 제어 흐름(루핑 및 분기)에서 사용합니다. V1에서 지원되었던 데이터 이동 및 데이터 변환 활동이 현재 버전에서 지원됩니다. 현재 버전에서는 데이터 세트를 사용하지 않고 변환 활동을 정의할 수 있습니다. |
@@ -119,7 +118,7 @@ V1에서는 IDotNetActivity 인터페이스의 Execute 메서드를 구현하는
 
 - **.NET SDK**: .NET SDK가 현재 버전에서 업데이트되었습니다.
 
-- **PowerShell**: PowerShell cmdlet이 현재 버전에서 업데이트되었습니다. 현재 버전의 cmdlet은 이름에 **DataFactoryV2**가 포함됩니다(예: Get-AzureRmDataFactoryV2). 
+- **PowerShell**: PowerShell cmdlet이 현재 버전에서 업데이트되었습니다. 현재 버전의 cmdlet은 이름에 **DataFactoryV2**가 포함됩니다. 예를 들면 Get-AzureRmDataFactoryV2. 
 
 - **Python SDK**: 이 SDK는 현재 버전의 새로운 기능입니다.
 
@@ -143,7 +142,7 @@ V1에서는 IDotNetActivity 인터페이스의 Execute 메서드를 구현하는
 Data Factory 버전 1 기여자 역할을 사용하여 현재 버전의 Data Factory 리소스를 만들고 관리할 수 있습니다. 자세한 내용은 [Data Factory 기여자](../role-based-access-control/built-in-roles.md#data-factory-contributor)를 참조하세요.
 
 ## <a name="monitoring-experience"></a>모니터링 환경
-현재 버전에서는 [Azure Monitor](monitor-using-azure-monitor.md)를 사용하여 데이터 팩터리를 모니터링할 수도 있습니다. 새로운 PowerShell cmdlet은 [통합 런타임](monitor-integration-runtime.md)에 대한 모니터링을 지원합니다. V1과 V2 모두 Azure Portal에서 시작할 수 있는 모니터링 응용 프로그램을 통해 시각적인 모니터링을 지원합니다.
+현재 버전에서는 [Azure Monitor](monitor-using-azure-monitor.md)를 사용하여 데이터 팩터리를 모니터링할 수도 있습니다. 새로운 PowerShell cmdlet은 [통합 런타임](monitor-integration-runtime.md)에 대한 모니터링을 지원합니다. V1과 V2 모두 Azure Portal에서 시작할 수 있는 모니터링 애플리케이션을 통해 시각적인 모니터링을 지원합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -11,18 +11,18 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 3af8aec6bb2fe08c4bd1ef65e4f272a6f85af50b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 20aef7f971b4c4bf8dcff98c633aa0b0aa69811a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427431"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828182"
 ---
 # <a name="analyzing-video-and-audio-files"></a>비디오 및 오디오 파일 분석
 
 Azure Media Services v3을 사용하면 AMS v3 분석기 사전 설정(이 문서에 설명되어 있음)을 통해 Video Indexer로 비디오 및 오디오 파일에서 인사이트를 추출할 수 있습니다. 더 자세한 인사이트가 필요하면 Video Indexer를 직접 사용해 보세요. Video Indexer 및 Media Services 분석기 미리 설정을 사용하려는 경우를 이해하려면 [비교 문서](../video-indexer/compare-video-indexer-with-media-services-presets.md)를 확인하세요.
 
-Media Services v3 사전 설정을 사용하여 콘텐츠를 분석하려면 **Transform**을 만들고 **AudioAnalyzerPreset** 또는 **VideoAnalyzerPreset** 사전 설정 중 하나를 사용하는 **Job**을 제출합니다. 다음 문서에서는 **VideoAnalyzerPreset**: [자습서: Azure Media Services를 통해 비디오 분석](analyze-videos-tutorial-with-api.md)을 사용하는 방법을 설명합니다.
+Media Services v3 사전 설정을 사용하여 콘텐츠를 분석하려면 **Transform**을 만들고 다음 사전 설정 중 하나를 사용하는 **Job**을 제출합니다. **AudioAnalyzerPreset** 또는 **VideoAnalyzerPreset**. 다음 문서에서는 **VideoAnalyzerPreset**을 사용하는 방법을 설명합니다. [자습서: Azure Media Services를 통해 비디오 분석](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
 > 비디오 또는 오디오 분석기 사전 설정을 사용할 때는 Azure Portal을 통해 S3 미디어 예약 10단위를 갖도록 계정을 설정합니다. 자세한 내용은 [미디어 처리 크기 조정](../previous/media-services-scale-media-processing-overview.md)을 참조하세요.
@@ -33,7 +33,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 |**미리 설정 이름**|**시나리오**|**세부 정보**|
 |---|---|---|
-|**AudioAnalyzerPreset**|오디오 분석|미리 설정은 음성 기록을 포함하여 미리 정의된 AI 기반 분석 작업 집합을 적용합니다. 현재 미리 설정은 단일 오디오 트랙을 사용하여 콘텐츠를 처리하도록 지원합니다.<br/>BCP-47 형식의 'language tag-region'(예: 'en-US')을 사용하여 입력에서 오디오 페이로드의 언어를 지정할 수 있습니다. 지원되는 언어 목록은 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'입니다. 언어가 지정되지 않거나 Null로 설정되지 않은 경우 자동 언어 감지가 사용됩니다. 자동 언어 감지 기능은 현재 영어, 중국어, 프랑스어, 독일어, 이탈리아어, 일본어, 스페인어, 러시아어 및 포르투갈어를 지원합니다.|
+|**AudioAnalyzerPreset**|오디오 분석|미리 설정은 음성 기록을 포함하여 미리 정의된 AI 기반 분석 작업 집합을 적용합니다. 현재 미리 설정은 단일 오디오 트랙을 사용하여 콘텐츠를 처리하도록 지원합니다. BCP-47 형식의 ‘language tag-region’을 사용하여 입력에서 오디오 페이로드의 언어를 지정할 수 있습니다. 지원되는 언어는 영어('en-US' 및 'en-GB'), 스페인어('es-ES' 및 'es-MX'), 프랑스어('fr-FR'), 이탈리아어('it-IT'), 일본어('ja-JP'), 포르투갈어('pt-BR'), 중국어('zh-CN'), 독일어('de-DE'), 아라비아어('ar-EG'), 러시아어('ru-RU'), 힌디어('hi-IN') 및 한국어('ko-KR')입니다.<br/><br/> 언어가 지정되지 않거나 Null로 설정되지 않은 경우 자동 언어 감지가 사용됩니다. 자동 언어 감지 기능은 현재 영어, 중국어, 프랑스어, 독일어, 이탈리아어, 일본어, 스페인어, 러시아어 및 포르투갈어를 지원합니다. 자동 언어 감지 기능은 분명히 구별할 수 있는 음성이 포함된 오디오 녹음에 가장 적합합니다. 자동 언어 감지가 언어를 찾지 못하면 전사가 영어로 폴백됩니다.|
 |**VideoAnalyzerPreset**|오디오 및 비디오 분석|오디오 및 비디오 모두에서 통찰력(풍부한 메타데이터)을 추출하고 JSON 형식 파일을 출력합니다. 비디오 파일을 처리할 때 오디오 통찰력만 추출할지 여부를 지정할 수 있습니다. 자세한 내용은 [비디오 분석](analyze-videos-tutorial-with-api.md)을 참조하세요.|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
@@ -148,7 +148,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 |이름|얼굴 이름입니다. ‘Unknown #0’, 확인된 유명인 또는 고객 교육을 받은 사람일 수 있습니다.|
 |신뢰도|얼굴 인식 신뢰도입니다.|
 |description|유명인에 대한 설명입니다. |
-|thumbnalId|얼굴 썸네일의 ID입니다.|
+|thumbnailId|얼굴 썸네일의 ID입니다.|
 |knownPersonId|알려진 사람인 경우 내부 ID입니다.|
 |referenceId|Bing 유명인인 경우 Bing ID입니다.|
 |referenceType|현재는 그냥 Bing입니다.|

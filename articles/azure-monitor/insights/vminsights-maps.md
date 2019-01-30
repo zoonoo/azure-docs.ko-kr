@@ -1,6 +1,6 @@
 ---
 title: VM용 Azure Monitor(미리 보기)를 사용하여 앱 종속성을 보는 방법 | Microsoft Docs
-description: 맵은 Windows 및 Linux 시스템의 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 VM용 Azure Monitor 기능입니다. 이 문서에서는 다양한 시나리오에서 이 기능을 사용하는 방법에 대해 자세하게 설명합니다.
+description: 맵은 Windows 및 Linux 시스템의 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 VM용 Azure Monitor 기능입니다. 이 문서에서는 다양한 시나리오에서 이 기능을 사용하는 방법에 대해 자세하게 설명합니다.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -8,21 +8,20 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 3e8230ea7b2d6d0e44468bd90289ee82d5a82367
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 73c94b79bb315c317d39ade704e2ee70a241a348
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714270"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187748"
 ---
-# <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>VM용 Azure Monitor(미리 보기) 맵을 사용하여 응용 프로그램 구성 요소 이해
-Azure에서 실행 중인 Windows 및 Linux 가상 머신에서 검색된 응용 프로그램 구성 요소를 보고 VM용 Azure Monitor를 사용하여 가상 머신에서 직접 또는 Azure Monitor에서 VM 그룹을 통해서와 같이 두 가지 방법으로 환경을 관찰할 수 있습니다. 
+# <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>VM용 Azure Monitor(미리 보기) 맵을 사용하여 애플리케이션 구성 요소 이해
+Azure에서 실행 중인 Windows 및 Linux 가상 머신에서 검색된 애플리케이션 구성 요소를 보고 VM용 Azure Monitor를 사용하여 가상 머신에서 직접 또는 Azure Monitor에서 VM 그룹을 통해서와 같이 두 가지 방법으로 환경을 관찰할 수 있습니다. 
 
 이 문서는 이러한 두 관점에서 환경 및 맵 기능을 사용하는 방법을 이해하는 데 도움이 됩니다. VM용 Azure Monitor를 구성하는 방법에 대한 자세한 내용은 [VM용 Azure Monitor 사용하도록 설정](vminsights-onboard.md)을 참조하세요.
 
@@ -32,7 +31,7 @@ Azure에서 실행 중인 Windows 및 Linux 가상 머신에서 검색된 응용
 ## <a name="introduction-to-map-experience"></a>맵 환경 소개
 단일 가상 머신 또는 VM 그룹에 대한 맵 보기를 살펴보기 전에 정보를 제공하는 방법 및 시각화에서 나타내는 의미를 파악할 수 있도록 해당 기능에 대해 간략하게 소개해야 합니다.  
 
-VM에서 직접 또는 Azure Monitor에서 맵 기능을 선택하는 경우 일관된 환경을 나타냅니다.  Azure Monitor에서는 하나의 맵에 있는 다중 계층 응용 프로그램 또는 클러스터의 모든 멤버를 확인할 수 있다는 것이 유일한 차이점입니다.
+VM에서 직접 또는 Azure Monitor에서 맵 기능을 선택하는 경우 일관된 환경을 나타냅니다.  Azure Monitor에서는 하나의 맵에 있는 다중 계층 애플리케이션 또는 클러스터의 모든 멤버를 확인할 수 있다는 것이 유일한 차이점입니다.
 
 맵에서는 지정된 시간 범위 동안 TCP 연결 아키텍처를 통해 서버, 인바운드 및 아웃바운드 연결 대기 시간과 포트 간에 활성 네트워크 연결에서 실행 중인 프로세스를 검색하여 VM 종속성을 시각화합니다.  VM을 확장하면 프로세스 세부 정보를 표시하고 VM과 통신하는 프로세스만 표시됩니다. 가상 머신에 연결된 프런트 엔드 클라이언트 수는 클라이언트 그룹에서 표시됩니다. VM을 연결할 백 엔드 서버 수는 서버 포트 그룹에 표시됩니다. 서버 포트 그룹을 확장하여 해당 포트를 통해 연결된 서버의 자세한 목록을 확인합니다.  
 
@@ -52,7 +51,7 @@ VM에서 직접 또는 Azure Monitor에서 맵 기능을 선택하는 경우 일
 - 컴퓨터별로 그룹화할 절(예, **by Computer interval 1 minute**)을 포함합니다.
 - 미터법을 기준으로 경고하도록 선택
 
-Azure 경고 및 경고 규칙 만들기에 대한 자세한 내용은 [Azure Monitor의 통합 경고](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)를 참조하세요.
+Azure 경고 및 경고 규칙 만들기에 대한 자세한 내용은 [Azure Monitor의 통합 경고](../../azure-monitor/platform/alerts-overview.md)를 참조하세요.
 
 오른쪽 위 모서리에서 **범례** 옵션은 맵의 기호 및 역할을 설명합니다.  맵을 좀 더 자세히 살펴보고 사용해 보기 위해 페이지의 오른쪽 아래에 있는 확대/축소 컨트롤에서는 확대/축소 수준을 설정하고 현재 페이지 크기로 페이지를 맞춥니다.  
 
@@ -66,7 +65,7 @@ Azure 경고 및 경고 규칙 만들기에 대한 자세한 내용은 [Azure Mo
 
 ![맵에서 실패한 연결 예제](./media/vminsights-maps/map-group-failed-connection-01.png)
 
-실패한 연결을 이해하면 서비스의 전체 아키텍처에서 문제 해결, 마이그레이션 유효성 검사, 보안 분석 및 이해에 도움이 됩니다. 실패한 연결이 문제가 되지 않을 때도 있지만 갑자기 장애 조치(failover) 환경에 도달할 수 없거나 두 개의 응용 프로그램 계층이 클라우드 마이그레이션 후에 서로 의사 소통할 수 없는 등과 같은 문제를 직접적으로 나타내는 경우가 있습니다.
+실패한 연결을 이해하면 서비스의 전체 아키텍처에서 문제 해결, 마이그레이션 유효성 검사, 보안 분석 및 이해에 도움이 됩니다. 실패한 연결이 문제가 되지 않을 때도 있지만 갑자기 장애 조치(failover) 환경에 도달할 수 없거나 두 개의 애플리케이션 계층이 클라우드 마이그레이션 후에 서로 의사 소통할 수 없는 등과 같은 문제를 직접적으로 나타내는 경우가 있습니다.
 
 ### <a name="client-groups"></a>클라이언트 그룹
 맵의 클라이언트 그룹은 매핑된 머신에 연결된 클라이언트 머신을 나타냅니다. 단일 클라이언트 그룹은 개별 프로세스 및 컴퓨터에 대한 클라이언트를 나타냅니다.
@@ -107,7 +106,7 @@ Azure Monitor에서 맵 기능은 가상 머신 및 해당 종속성의 글로�
 
 ![Azure Monitor 다중 VM 맵 개요](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-페이지 위쪽의 **작업 영역** 선택기에서 Log Analytics 작업 영역이 둘 이상 있는 경우 솔루션에서 사용하도록 설정되고 가상 머신에서 보고하는 작업 영역을 선택합니다. **그룹** 선택기에서 선택한 작업 영역과 관련된 컴퓨터의 구독, 리소스 그룹, [컴퓨터 그룹](../../log-analytics/log-analytics-computer-groups.md) 및 VM 확장 집합을 반환합니다. 선택 항목은 맵 기능에만 적용되며 성능 또는 맵으로 전달되지 않습니다.
+페이지 위쪽의 **작업 영역** 선택기에서 Log Analytics 작업 영역이 둘 이상 있는 경우 솔루션에서 사용하도록 설정되고 가상 머신에서 보고하는 작업 영역을 선택합니다. **그룹** 선택기에서 선택한 작업 영역과 관련된 컴퓨터의 구독, 리소스 그룹, [컴퓨터 그룹](../../azure-monitor/platform/computer-groups.md) 및 VM 확장 집합을 반환합니다. 선택 항목은 맵 기능에만 적용되며 성능 또는 맵으로 전달되지 않습니다.
 
 기본적으로 맵은 최근 30분을 보여줍니다. **TimeRange** 선택기를 사용하여 최대 1시간이라는 기록 시간 범위에 대해 쿼리하여 과거의 종속성(예: 인시던트 중 또는 변경되기 전)을 보여줄 수 있습니다.   
 

@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 02/27/2018
+ms.date: 12/17/2018
 ms.author: danlep
-ms.openlocfilehash: 2694e8cdc4f1918aab36794804ff48f5a70b44be
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 647890517e6f08a4602ebed8ee1057cb45f10cbe
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739688"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075501"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Azure Container Instances에 대한 할당량 및 지역 가용성
 
@@ -24,15 +24,17 @@ ms.locfileid: "50739688"
 
 ## <a name="region-availability"></a>지역 가용성
 
-Azure Container Instances를 지정된 CPU 및 메모리 제한을 사용하여 다음 지역에서 사용할 수 있습니다.
+Azure Container Instances를 지정된 CPU 및 메모리 제한을 사용하여 다음 지역에서 사용할 수 있습니다. 값은 게시 시점에 제공됩니다. 최신 정보의 경우 [목록 기능](/rest/api/container-instances/listcapabilities/listcapabilities) API를 사용합니다. [가상 네트워크](container-instances-vnet.md)(미리 보기) 또는 [GPU 리소스](container-instances-gpu.md)(미리 보기)에 Azure Container Instances를 사용할 때 가용성 및 리소스 제한이 달라질 수 있습니다.
 
 | 위치 | OS | CPU | 메모리(GB) |
 | -------- | -- | :---: | :-----------: |
+| 캐나다 중부 | Linux | 4 | 16 |
 | 미국 동부, 북유럽, 유럽 서부, 미국 서부, 미국 서부 2 | Linux | 4 | 14 |
+| 일본 동부 | Linux | 2 | 8 |
 | 오스트레일리아 동부, 미국 동부 2, 동남 아시아 | Linux | 2 | 7 |
-| 캐나다 중부, 인도 중부, 미국 중남부 | Linux | 2 | 3.5 |
-| 미국 동부, 유럽 서부, 미국 서부 | Windows | 4 | 14 |
-| 오스트레일리아 동부, 캐나다 중부, 인도 중부, 미국 동부 2, 북유럽, 미국 중남부, 동남 아시아, 미국 서부 2 | Windows | 2 | 3.5 |
+| 인도 중부, 동아시아, 미국 중북부, 미국 중남부, 인도 남부 | Linux | 2 | 3.5 |
+| 미국 동부, 유럽 서부, 미국 서부 |  Windows | 4 | 14 |
+| 오스트레일리아 동부, 캐나다 중부, 인도 중부, 동아시아, 미국 동부 2, 일본 동부, 미국 중북부, 유럽 북부, 미국 중남부, 인도 남부, 동남 아시아, 미국 서부 2 |  Windows | 2 | 3.5 |
 
 이러한 리소스 제한 내에서 만든 컨테이너 인스턴스는 배포 지역 내의 사용 가능 여부의 적용을 받습니다. 영역이 과부하 상태에 있는 경우 인스턴스를 배포할 때 오류가 발생할 수 있습니다. 이러한 배포 오류를 완화하려면 낮은 CPU 및 메모리 설정을 사용하여 인스턴스를 배포하거나 나중에 배포를 시도합니다.
 

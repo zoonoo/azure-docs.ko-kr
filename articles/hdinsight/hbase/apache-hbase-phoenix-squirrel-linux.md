@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4b673423bcf3785b29cc287e025d1ee52bc402f7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 51707baeba4a511d2766161afacd512a4338cf24
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312905"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653988"
 ---
 # <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>HDInsight에서 Linux 기반 Apache HBase 클러스터와 함께 Apache Phoenix 사용
-Azure HDInsight에서 [Apache Phoenix](http://phoenix.apache.org/)를 사용하는 방법 및 SQLLine을 사용하는 방법에 대해 알아봅니다. Phoenix에 대한 자세한 내용은 [15분 이내의 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)를 참조하세요. Phoenix 문법은 [Phoenix 문법(영문)](http://phoenix.apache.org/language/index.html)을 참조하세요.
+Azure HDInsight에서 [Apache Phoenix](https://phoenix.apache.org/)를 사용하는 방법 및 SQLLine을 사용하는 방법에 대해 알아봅니다. Phoenix에 대한 자세한 내용은 [15분 이내의 Apache Phoenix](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)를 참조하세요. Phoenix 문법은 [Apache Phoenix 문법](https://phoenix.apache.org/language/index.html)을 참조하세요.
 
-> [!NOTE]
-> HDInsight에 대한 Phoenix 버전 정보는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능](../hdinsight-component-versioning.md)을 참조하세요.
+> [!NOTE]  
+> HDInsight에 대한 Phoenix 버전 정보는 [HDInsight에서 제공하는 Apache Hadoop 클러스터 버전의 새로운 기능](../hdinsight-component-versioning.md)을 참조하세요.
 >
 >
 
@@ -61,7 +61,7 @@ HBase 클러스터에 연결할 때 [Apache ZooKeeper](https://zookeeper.apache.
 
         !quit
 
-자세한 내용은 [SQLLine 설명서(영문)](http://sqlline.sourceforge.net/#manual) 및 [Apache Phoenix 문법(영문)](http://phoenix.apache.org/language/index.html)을 참조하세요.
+자세한 내용은 [SQLLine 설명서(영문)](http://sqlline.sourceforge.net/#manual) 및 [Apache Phoenix 문법(영문)](https://phoenix.apache.org/language/index.html)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 HDInsight에서 Apache Phoenix를 사용하는 방법을 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.

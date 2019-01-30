@@ -2,18 +2,19 @@
 title: 작업 및 노드에 대한 상태 계산 - Azure Batch | Microsoft Docs
 description: Batch 솔루션을 관리하고 모니터링할 수 있으려면 계산 노드 및 Azure Batch 태스크의 상태를 계산합니다.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 09/07/2018
-ms.author: danlep
-ms.openlocfilehash: 5c65ee3ecc851b289c32a480ecad8f2df3aaad95
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: c51fc9fd3faa1e3bd2210b5105339434ebe3235f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913889"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546489"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>상태별로 노드 및 작업을 계산하여 Batch 솔루션 모니터링
 
@@ -27,7 +28,7 @@ ms.locfileid: "50913889"
 
   각 상태에서 노드를 계산하면 작업을 실행하기에 충분한 계산 리소스가 있고 풀을 사용하여 잠재적인 문제를 식별하는 경우를 확인할 수 있습니다. List Pool Node Counts는 Batch 서비스 API 버전 2018-03-01.6.1 및 관련 SDK 및 도구부터 사용할 수 있습니다.
 
-태스크 또는 노드 계산 연산을 지원하지 않는 서비스 버전을 사용하는 경우 대신 이러한 리소스를 계산하기 위한 목록 쿼리를 사용합니다. 또한 목록 쿼리를 사용하여 응용 프로그램, 파일 및 작업 등의 다른 Batch 리소스에 대한 정보를 가져옵니다. 목록 쿼리에 필터링을 적용하는 방법에 대한 자세한 내용은 [Batch 리소스를 효율적으로 나열하는 쿼리 만들기](batch-efficient-list-queries.md)를 참조하세요.
+태스크 또는 노드 계산 연산을 지원하지 않는 서비스 버전을 사용하는 경우 대신 이러한 리소스를 계산하기 위한 목록 쿼리를 사용합니다. 또한 목록 쿼리를 사용하여 애플리케이션, 파일 및 작업 등의 다른 Batch 리소스에 대한 정보를 가져옵니다. 목록 쿼리에 필터링을 적용하는 방법에 대한 자세한 내용은 [Batch 리소스를 효율적으로 나열하는 쿼리 만들기](batch-efficient-list-queries.md)를 참조하세요.
 
 ## <a name="task-state-counts"></a>태스크 상태 수
 

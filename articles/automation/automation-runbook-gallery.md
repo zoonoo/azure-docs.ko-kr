@@ -3,21 +3,24 @@ title: Azure Automation용 Runbook 및 모듈 갤러리
 description: Microsoft 및 커뮤니티의 Runbook과 모듈을 Azure Automation 환경에 설치하여 사용할 수 있습니다.  이 글에서는 이러한 리소스에 액세스하는 방법과 자신의 Runbook을 갤러리에 올리는 방법을 설명합니다.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a518d00a50c0fc6ec83626852f30f739d64b18ea
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 7330d826cb196a664f06198a0e83f73bd7763ef9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283297"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428110"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Automation용 Runbook 및 모듈 갤러리
 Azure Automation에서 사용자 고유의 Runbook 및 모듈을 만드는 대신 Microsoft 및 커뮤니티에서 이미 구성한 다양한 시나리오에 액세스할 수 있습니다.  이러한 시나리오는 수정 없이 그대로 사용하거나, 이를 기초로 특정 요구 사항에 맞게 편집하여 사용할 수 있습니다.
+
+> [!NOTE]
+> Azure Automation에서는 새 [Azure PowerShell Az 모듈](/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0)이 지원되지 않습니다. 이러한 cmdlet을 사용하여 PowerShell 갤러리에서 다운로드한 스크립트는 Azure Automation에서 작동하지 않습니다.
 
 Runbook은 [Runbook 갤러리](#runbooks-in-runbook-gallery)에서, 모듈은 [PowerShell 갤러리](#modules-in-powerShell-gallery)에서 가져올 수 있습니다.  또한 자신이 개발한 시나리오를 공유하여 커뮤니티에 기여할 수 있습니다. [갤러리에 Runbook 추가](automation-runbook-gallery.md#adding-a-runbook-to-the-runbook-gallery)를 참조하세요.
 
@@ -105,4 +108,5 @@ Python Runbooks는 [스크립트 센터 갤러리](https://gallery.technet.micro
 ## <a name="next-steps"></a>다음 단계
 * Runbook 작성을 시작하려면 [Azure Automation에서 Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md)
 * Runbook용 PowerShell 및 PowerShell 워크플로 간의 차이점을 이해하려면 [PowerShell 워크플로 학습](automation-powershell-workflow.md)
+
 

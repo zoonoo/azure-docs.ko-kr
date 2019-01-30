@@ -11,18 +11,19 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.openlocfilehash: 6c4a99096efc95f439d6c9479cb9014957207ea6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: f921cc5af9d7f0ad8a072f5c14a24692e837e382
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630860"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198879"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>C#을 사용하여 Azure Time Series Insights 환경에서 데이터 쿼리
 
 이 C# 예제에서는 Azure Time Series Insights 환경에서 데이터를 쿼리하는 방법을 보여 줍니다.
 이 샘플은 쿼리 API 사용의 몇 가지 기본 예제를 보여 줍니다.
-1. 준비 단계로, Azure Active Directory API를 통해 액세스 토큰을 가져옵니다. 이 토큰을 모든 쿼리 API 요청의 `Authorization` 헤더에 전달합니다. 비대화형 응용 프로그램을 설정하려면 [인증 및 권한 부여](time-series-insights-authentication-and-authorization.md)를 참조하세요. 또한 샘플의 시작 부분에 정의된 모든 상수를 올바르게 설정합니다.
+1. 준비 단계로, Azure Active Directory API를 통해 액세스 토큰을 가져옵니다. 이 토큰을 모든 쿼리 API 요청의 `Authorization` 헤더에 전달합니다. 비대화형 애플리케이션을 설정하려면 [인증 및 권한 부여](time-series-insights-authentication-and-authorization.md)를 참조하세요. 또한 샘플의 시작 부분에 정의된 모든 상수를 올바르게 설정합니다.
 2. 사용자가 액세스 권한을 가진 환경 목록을 가져옵니다. 환경 중 하나를 관심 환경으로 선택하고 이 환경에 대해 추가 데이터를 쿼리합니다.
 3. HTTPS 요청의 예로, 관심 환경에 대해 가용성 데이터를 요청합니다.
 4. 웹 소켓 요청의 예로, 관심 환경에 대해 이벤트 집계 데이터를 요청합니다. 전체 가용성 시간 범위에 대한 데이터가 요청됩니다.
@@ -456,4 +457,4 @@ namespace TimeSeriesInsightsQuerySample
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-> [쿼리 API 참조](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
+> [쿼리 API 참조](/rest/api/time-series-insights/ga-query-api).

@@ -12,16 +12,21 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2018
+ms.date: 10/29/2018
 ms.author: vturecek
-ms.openlocfilehash: c72aea9d104264243ef0654aea01e0a41f33ed6f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d5922e21dd464b8cbd0075e7bd2515ffa73607e6
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206869"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726936"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>Reliable Actors 백업 및 복원 구현
+
+> [!NOTE]
+> Reliable Stateful 서비스 및 Reliable Actors의 데이터 백업 구성에는 [정기적인 백업 및 복원](service-fabric-backuprestoreservice-quickstart-azurecluster.md)을 사용하는 것이 좋습니다. 
+> 
+
 다음 예제에서는 사용자 지정 행위자 서비스가 `ActorService`에 이미 나타난 원격 수신기를 활용하여 행위자 데이터를 백업하는 메서드를 노출합니다.
 
 ```csharp
@@ -113,7 +118,7 @@ MyActorService myActorServiceProxy = ActorServiceProxy.create(MyActorService.cla
 myActorServiceProxy.backupActorsAsync();
 ```
 
-Reliable Actors에 대한 자세한 내용은 다음을 참조하세요.
+Reliable Actors에 대한 자세한 내용은 다음 문서를 읽어보세요.
 * [행위자 상태 관리](service-fabric-reliable-actors-state-management.md)
 * [행위자 수명 주기 및 가비지 수집](service-fabric-reliable-actors-lifecycle.md)
 * [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)

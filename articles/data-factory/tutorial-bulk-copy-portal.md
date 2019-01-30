@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: e7c134881cbf8745a4e4ef9102a418f7d47a6f8c
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 37aa248af30c4beae3f9d170174842c908933339
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43098031"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020016"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 여러 테이블 대량 복사
 이 자습서에서는 **Azure SQL Database에서 Azure SQL Data Warehouse로 여러 테이블을 복사**하는 방법을 보여 줍니다. 다른 복사 시나리오에도 동일한 패턴을 적용할 수 있습니다. 예를 들어 SQL Server/Oracle에서 Azure SQL Database/Data Warehouse/Azure Blob으로 테이블을 복사하고, Blob에서 Azure SQL Database 테이블로 다른 경로를 복사합니다.
@@ -49,7 +48,7 @@ ms.locfileid: "43098031"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
-* **Azure Storage 계정**. Azure Storage 계정은 대량 복사 작업에서 스테이징 Blob 저장소로 사용됩니다. 
+* **Azure Storage 계정**. Azure Storage 계정은 대량 복사 작업에서 스테이징 Blob 스토리지로 사용됩니다. 
 * **Azure SQL Database**. 이 데이터베이스에는 원본 데이터가 포함되어 있습니다. 
 * **Azure SQL Data Warehouse** 이 데이터 웨어하우스에는 SQL Database에서 복사된 데이터를 보관하고 있습니다. 
 
@@ -93,16 +92,16 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
          
       리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
 1. **버전**에 대해 **V2**를 선택합니다.
-1. 데이터 팩터리의 **위치** 를 선택합니다. Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+1. 데이터 팩터리의 **위치** 를 선택합니다. 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 1. **대시보드에 고정**을 선택합니다.     
 1. **만들기**를 클릭합니다.
-1. 대시보드에서 **데이터 팩터리 배포 중** 상태의 타일이 표시됩니다. 
+1. 대시보드에서 다음과 같은 **데이터 팩터리 배포 중** 상태의 타일이 표시됩니다. 
 
     ![데이터 팩터리 배포 중 타일](media//tutorial-bulk-copy-portal/deploying-data-factory.png)
 1. 만들기가 완료되면 이미지와 같은 **Data Factory** 페이지가 표시됩니다.
    
     ![데이터 팩터리 홈페이지](./media/tutorial-bulk-copy-portal/data-factory-home-page.png)
-1. **작성 및 모니터링** 타일을 클릭하여 별도의 탭에서 Data Factory UI 응용 프로그램을 시작합니다.
+1. **작성 및 모니터링** 타일을 클릭하여 별도의 탭에서 Data Factory UI 애플리케이션을 시작합니다.
 1. **시작** 페이지에서 다음 이미지와 같이 왼쪽 패널의 **편집** 탭으로 전환합니다.  
 
     ![시작 페이지](./media/tutorial-bulk-copy-portal/get-started-page.png)
@@ -110,7 +109,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 연결된 서비스를 만들어 데이터 저장소와 계산을 데이터 팩터리에 연결합니다. 연결된 서비스에는 런타임에 Data Factory 서비스에서 데이터 저장소에 연결하는 데 사용하는 연결 정보가 있습니다. 
 
-이 자습서에서는 Azure SQL Database, Azure SQL Data Warehouse 및 Azure Blob Storage 데이터 저장소를 데이터 팩터리에 연결합니다. Azure SQL Database는 원본 데이터 저장소입니다. Azure SQL Data Warehouse는 싱크/대상 데이터 저장소입니다. Azure Blob Storage는 PolyBase를 사용하여 데이터를 SQL Data Warehouse에 로드하기 전에 데이터를 준비하는 저장소입니다. 
+이 자습서에서는 Azure SQL Database, Azure SQL Data Warehouse 및 Azure Blob Storage 데이터 저장소를 데이터 팩터리에 연결합니다. Azure SQL Database는 원본 데이터 저장소입니다. Azure SQL Data Warehouse는 싱크/대상 데이터 저장소입니다. Azure Blob Storage는 PolyBase를 사용하여 데이터를 SQL Data Warehouse에 로드하기 전에 데이터를 준비하는 스토리지입니다. 
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>원본 Azure SQL Database 연결된 서비스 만들기
 이 단계에서는 Azure SQL Database를 데이터 팩터리에 연결하기 위한 연결된 서비스를 만듭니다. 
@@ -155,16 +154,16 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
 1. **새 연결된 서비스** 창에서 다음 단계를 수행합니다. 
 
     1. **이름**에 대해 **AzureStorageLinkedService**를 입력합니다. 
-    1. **저장소 계정 이름**에 대해 **Azure Storage 계정**을 선택합니다.
+    1. **스토리지 계정 이름**에 대해 **Azure Storage 계정**을 선택합니다.
     1. **저장**을 클릭합니다.
 
 
 ## <a name="create-datasets"></a>데이터 세트 만들기
 이 자습서에서는 데이터가 저장되는 위치를 지정하는 원본 및 싱크 데이터 세트를 만듭니다. 
 
-**AzureSqlDatabaseDataset** 입력 데이터 집합은 **AzureSqlDatabaseLinkedService**를 참조합니다. 연결된 서비스에서 데이터베이스에 연결하기 위한 연결 문자열을 지정합니다. 데이터 세트는 원본 데이터가 포함된 데이터베이스와 테이블의 이름을 지정합니다. 
+**AzureSqlDatabaseDataset** 입력 데이터 세트는 **AzureSqlDatabaseLinkedService**를 참조합니다. 연결된 서비스에서 데이터베이스에 연결하기 위한 연결 문자열을 지정합니다. 데이터 세트는 원본 데이터가 포함된 데이터베이스와 테이블의 이름을 지정합니다. 
 
-**AzureSqlDWDataset** 출력 데이터 집합은 **AzureSqlDWLinkedService**를 참조합니다. 연결된 서비스에서 데이터 웨어하우스에 연결하기 위한 연결 문자열을 지정합니다. 데이터 세트는 데이터가 복사될 데이터베이스와 테이블을 지정합니다. 
+**AzureSqlDWDataset** 출력 데이터 세트는 **AzureSqlDWLinkedService**를 참조합니다. 연결된 서비스에서 데이터 웨어하우스에 연결하기 위한 연결 문자열을 지정합니다. 데이터 세트는 데이터가 복사될 데이터베이스와 테이블을 지정합니다. 
 
 이 자습서에서는 원본 및 대상 SQL 테이블이 데이터 세트 정의에 하드 코드되지 않습니다. 대신 ForEach 활동에서 런타임에 테이블의 이름을 복사 활동으로 전달합니다. 
 
@@ -173,7 +172,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
 1. 왼쪽 창에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다. 
 
     ![새 데이터 세트 메뉴](./media/tutorial-bulk-copy-portal/new-dataset-menu.png)
-1. **새 데이터 집합** 창에서 **Azure SQL Database**를 선택하고 **마침**을 클릭합니다. **AzureSqlTable1**이라는 새 탭이 표시됩니다. 
+1. **새 데이터 세트** 창에서 **Azure SQL Database**를 선택하고 **마침**을 클릭합니다. **AzureSqlTable1**이라는 새 탭이 표시됩니다. 
     
     ![Azure SQL Database 선택](./media/tutorial-bulk-copy-portal/select-azure-sql-database-dataset.png)
 1. 아래쪽의 속성 창에서 **이름**에 대해 **AzureSqlDatabaseDataset**를 입력합니다.
@@ -189,7 +188,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
 ### <a name="create-a-dataset-for-sink-sql-data-warehouse"></a>싱크 SQL Data Warehouse에 대한 데이터 세트 만들기
 
 1. 왼쪽 창에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다. 
-1. **새 데이터 집합** 창에서 **Azure SQL Data Warehouse**를 선택하고 **마침**을 클릭합니다. **AzureSqlDWTable1**이라는 새 탭이 표시됩니다. 
+1. **새 데이터 세트** 창에서 **Azure SQL Data Warehouse**를 선택하고 **마침**을 클릭합니다. **AzureSqlDWTable1**이라는 새 탭이 표시됩니다. 
 1. 아래쪽의 속성 창에서 **이름**에 대해 **AzureSqlDWDataset**를 입력합니다.
 1. **매개 변수** 탭으로 전환하고, **+ 새로 만들기**를 클릭하고, 매개 변수 이름에 **DWTableName**을 입력합니다. 페이지에서 이 이름을 복사/붙여넣는 경우 **DWTableName** 끝에 **후행 공백 문자**가 없는지 확인합니다. 
 
@@ -208,7 +207,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
     ![데이터 세트 매개 변수 작성기](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
 
 ## <a name="create-pipelines"></a>파이프라인 만들기
-이 자습서에서는 **IterateAndCopySQLTables** 및 **GetTableListAndTriggerCopyData**라는 두 개의 파이프라인을 만듭니다. 
+이 자습서에서는 두 개의 파이프라인을 만듭니다. **IterateAndCopySQLTables** 및 **GetTableListAndTriggerCopyData**. 
 
 **GetTableListAndTriggerCopyData** 파이프라인은 다음 두 단계를 수행합니다.
 
@@ -250,7 +249,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
     ![ForEach의 복사](./media/tutorial-bulk-copy-portal/copy-in-for-each.png)
 1. **원본** 탭으로 전환하고 다음 단계를 수행합니다.
 
-    1. **원본 데이터 집합**에 대해 **AzureSqlDatabaseDataset**를 선택합니다. 
+    1. **원본 데이터 세트**에 대해 **AzureSqlDatabaseDataset**를 선택합니다. 
     1. **쿼리 사용**에 대해 **쿼리** 옵션을 선택합니다. 
     1. **쿼리** 입력란을 선택하고, 아래에서 **동적 콘텐츠 추가**를 선택하고, **쿼리**에 대해 다음 식을 입력하고, **마침**을 선택합니다.
 
@@ -261,7 +260,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
         ![원본 복사 설정](./media/tutorial-bulk-copy-portal/copy-source-settings.png)
 1. **싱크** 탭으로 전환하고 다음 단계를 수행합니다. 
 
-    1. **싱크 데이터 집합**에 대해 **AzureSqlDWDataset**를 선택합니다.
+    1. **싱크 데이터 세트**에 대해 **AzureSqlDWDataset**를 선택합니다.
     1. DWTableName 매개 변수 값에 대해 입력란을 선택하고, 아래에서 **동적 콘텐츠 추가**를 선택하고, `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` 식을 스크립트로 입력하고, **마침**을 선택합니다.
     1. **Polybase 설정**을 펼치고 **Polybase 허용**을 선택합니다. 
     1. **유형 기본 사용** 옵션의 선택을 취소합니다. 
@@ -302,7 +301,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
         ![조회 활동 - 일반 페이지](./media/tutorial-bulk-copy-portal/lookup-general-page.png)
 1. **설정** 페이지로 전환하고 다음 단계를 수행합니다.
 
-    1. **원본 데이터 집합**에 대해 **AzureSqlDatabaseDataset**를 선택합니다. 
+    1. **원본 데이터 세트**에 대해 **AzureSqlDatabaseDataset**를 선택합니다. 
     1. **쿼리 사용**에 대해 **쿼리**를 선택합니다. 
     1. **쿼리**에 대해 다음 SQL 쿼리를 입력합니다.
 

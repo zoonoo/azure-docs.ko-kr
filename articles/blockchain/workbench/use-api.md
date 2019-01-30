@@ -19,19 +19,19 @@ ms.locfileid: "51712350"
 ---
 # <a name="using-the-azure-blockchain-workbench-rest-api"></a>Azure Blockchain Workbench REST API 사용
 
-Azure Blockchain Workbench REST API는 개발자 및 정보 근로자에게 블록체인 응용 프로그램과 통합하는 다양한 방법을 제공합니다. 이 문서에서는 Workbench REST API의 여러 가지 핵심 메서드를 안내합니다. 예를 들어 개발자가 사용자 지정 블록체인 클라이언트를 만들려고 한다고 가정합니다. 이 블록체인 클라이언트를 통해 로그인된 사용자는 할당된 블록체인 애플리케이션을 보고 상호 작용할 수 있습니다. 이 클라이언트에서는 사용자가 계약 인스턴스를 살펴보고 스마트 계약에 대한 작업을 수행할 수 있습니다. 클라이언트는 로그인한 사용자의 컨텍스트에서 Workbench REST API를 사용하여 다음 작업을 수행합니다.
+Azure Blockchain Workbench REST API는 개발자 및 정보 근로자에게 블록체인 애플리케이션과 통합하는 다양한 방법을 제공합니다. 이 문서에서는 Workbench REST API의 여러 가지 핵심 메서드를 안내합니다. 예를 들어 개발자가 사용자 지정 블록체인 클라이언트를 만들려고 한다고 가정합니다. 이 블록체인 클라이언트를 통해 로그인된 사용자는 할당된 블록체인 애플리케이션을 보고 상호 작용할 수 있습니다. 이 클라이언트에서는 사용자가 계약 인스턴스를 살펴보고 스마트 계약에 대한 작업을 수행할 수 있습니다. 클라이언트는 로그인한 사용자의 컨텍스트에서 Workbench REST API를 사용하여 다음 작업을 수행합니다.
 
-* 응용 프로그램 나열
-* 응용 프로그램에 대한 워크플로 나열
+* 애플리케이션 나열
+* 애플리케이션에 대한 워크플로 나열
 * 워크플로에 대한 스마트 계약 인스턴스 나열
 * 계약에 사용 가능한 작업 나열
 * 계약에 대한 작업 실행
 
-시나리오에서 사용되는 예제 블록체인 응용 프로그램은 [GitHub에서 다운로드](https://github.com/Azure-Samples/blockchain)할 수 있습니다.
+시나리오에서 사용되는 예제 블록체인 애플리케이션은 [GitHub에서 다운로드](https://github.com/Azure-Samples/blockchain)할 수 있습니다.
 
-## <a name="list-applications"></a>응용 프로그램 나열
+## <a name="list-applications"></a>애플리케이션 나열
 
-사용자가 블록체인 클라이언트에 로그인하면 가장 먼저 해당 사용자에 대한 모든 Blockchain Workbench 응용 프로그램이 검색됩니다. 이 시나리오에서 사용자는 다음 두 응용 프로그램에 액세스할 수 있습니다.
+사용자가 블록체인 클라이언트에 로그인하면 가장 먼저 해당 사용자에 대한 모든 Blockchain Workbench 애플리케이션이 검색됩니다. 이 시나리오에서 사용자는 다음 두 애플리케이션에 액세스할 수 있습니다.
 
 1. [Asset Transfer](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
 2. [Refrigerated Transportation](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md)
@@ -43,7 +43,7 @@ GET /api/v1/applications
 Authorization : Bearer {access token}
 ```
 
-사용자가 Blockchain Workbench에서 액세스할 수 있는 모든 블록체인 응용 프로그램이 응답으로 나열됩니다. Blockchain Workbench 관리자는 모든 블록체인 애플리케이션을 얻게 됩니다. 비 Workbench 관리자는 연결된 애플리케이션 역할 또는 연결된 스마트 계약 인스턴스 역할이 하나 이상 있는 모든 블록체인을 얻게 됩니다.
+사용자가 Blockchain Workbench에서 액세스할 수 있는 모든 블록체인 애플리케이션이 응답으로 나열됩니다. Blockchain Workbench 관리자는 모든 블록체인 애플리케이션을 얻게 됩니다. 비 Workbench 관리자는 연결된 애플리케이션 역할 또는 연결된 스마트 계약 인스턴스 역할이 하나 이상 있는 모든 블록체인을 얻게 됩니다.
 
 ``` http
 HTTP/1.1 200 OK
@@ -75,9 +75,9 @@ Content-type: application/json
 }
 ```
 
-## <a name="list-workflows-for-an-application"></a>응용 프로그램에 대한 워크플로 나열
+## <a name="list-workflows-for-an-application"></a>애플리케이션에 대한 워크플로 나열
 
-사용자가 해당 블록체인 애플리케이션(예제: **Asset Transfer**)을 선택하면 블록체인 클라이언트는 특정 블록체인 애플리케이션의 모든 워크플로를 검색합니다. 그 후 사용자가 해당 워크플로를 선택하면 워크플로에 대한 모든 스마트 계약 인스턴스가 표시됩니다. 각 블록체인 응용 프로그램에는 하나 이상의 워크플로가 있고 각 워크플로에는 제로 또는 스마트 계약 인스턴스가 있습니다. 하나의 워크플로만 있는 블록체인 클라이언트 애플리케이션의 경우 사용자가 적절한 워크플로 선택할 수 있도록 하는 사용자 경험 흐름을 건너뛰는 것이 좋습니다. 이 예의 **Asset Transfer**는 워크플로가 하나밖에 없고, 그 이름도 **Asset Transfer**입니다.
+사용자가 해당 블록체인 애플리케이션(예제: **Asset Transfer**)을 선택하면 블록체인 클라이언트는 특정 블록체인 애플리케이션의 모든 워크플로를 검색합니다. 그 후 사용자가 해당 워크플로를 선택하면 워크플로에 대한 모든 스마트 계약 인스턴스가 표시됩니다. 각 블록체인 애플리케이션에는 하나 이상의 워크플로가 있고 각 워크플로에는 제로 또는 스마트 계약 인스턴스가 있습니다. 하나의 워크플로만 있는 블록체인 클라이언트 애플리케이션의 경우 사용자가 적절한 워크플로 선택할 수 있도록 하는 사용자 경험 흐름을 건너뛰는 것이 좋습니다. 이 예의 **Asset Transfer**는 워크플로가 하나밖에 없고, 그 이름도 **Asset Transfer**입니다.
 
 [Applications Workflows GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/workflowsget) 사용:
 
@@ -86,7 +86,7 @@ GET /api/v1/applications/{applicationId}/workflows
 Authorization: Bearer {access token}
 ```
 
-사용자가 Blockchain Workbench에서 액세스할 수 있는 지정된 블록체인 응용 프로그램의 모든 워크플로가 응답으로 나열됩니다. Blockchain Workbench 관리자는 모든 블록체인 워크플로를 얻게 됩니다. 비 Workbench 관리자는 연결된 애플리케이션 역할 또는 연결된 스마트 계약 인스턴스 역할이 하나 이상 있는 모든 워크플로를 얻게 됩니다.
+사용자가 Blockchain Workbench에서 액세스할 수 있는 지정된 블록체인 애플리케이션의 모든 워크플로가 응답으로 나열됩니다. Blockchain Workbench 관리자는 모든 블록체인 워크플로를 얻게 됩니다. 비 Workbench 관리자는 연결된 애플리케이션 역할 또는 연결된 스마트 계약 인스턴스 역할이 하나 이상 있는 모든 워크플로를 얻게 됩니다.
 
 ``` http
 HTTP/1.1 200 OK
@@ -220,7 +220,7 @@ GET /api/v1/contracts/{contractId}/actions
 Authorization: Bearer {access token}
 ```
 
-지정된 스마트 계약 인스턴스의 현재 상태를 고려할 때 사용자가 수행할 수 있는 모든 작업이 응답으로 나열됩니다. 사용자는 연결된 응용 프로그램 역할이 있거나 지정된 스마트 계약 인스턴스의 현재 상태에 대한 스마트 계약 인스턴스 역할과 연결된 경우 적용 가능한 모든 작업을 얻게 됩니다.
+지정된 스마트 계약 인스턴스의 현재 상태를 고려할 때 사용자가 수행할 수 있는 모든 작업이 응답으로 나열됩니다. 사용자는 연결된 애플리케이션 역할이 있거나 지정된 스마트 계약 인스턴스의 현재 상태에 대한 스마트 계약 인스턴스 역할과 연결된 경우 적용 가능한 모든 작업을 얻게 됩니다.
 
 ``` http
 HTTP/1.1 200 OK
@@ -300,7 +300,7 @@ actionInformation: {
 }
 ```
 
-사용자는 지정된 스마트 계약 인스턴스 및 사용자의 연결된 응용 프로그램 역할 또는 스마트 계약 인스턴스 역할의 상태를 고려한 작업만 실행할 수 있습니다. 게시가 성공하면 응답 본문 없이 HTTP 200 OK 응답이 반환됩니다.
+사용자는 지정된 스마트 계약 인스턴스 및 사용자의 연결된 애플리케이션 역할 또는 스마트 계약 인스턴스 역할의 상태를 고려한 작업만 실행할 수 있습니다. 게시가 성공하면 응답 본문 없이 HTTP 200 OK 응답이 반환됩니다.
 
 ``` http
 HTTP/1.1 200 OK

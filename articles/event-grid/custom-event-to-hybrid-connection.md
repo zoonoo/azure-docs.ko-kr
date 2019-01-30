@@ -1,27 +1,28 @@
 ---
-title: 하이브리드 연결로 Azure Event Grid에 대한 사용자 지정 이벤트 보내기 | Microsoft Docs
+title: 하이브리드 연결에 사용자 지정 이벤트 보내기 - Event Grid, Azure CLI
 description: Azure Event Grid 및 Azure CLI를 사용하여 토픽을 게시하고 해당 이벤트를 구독합니다. 하이브리드 연결은 엔드포인트에 사용됩니다.
 services: event-grid
 keywords: ''
-author: tfitzmac
-ms.author: tomfitz
-ms.date: 10/30/2018
+author: spelluru
+ms.author: spelluru
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: 488f4e09e329ee41fb307dc3579e76b5378d3a9f
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.custom: seodec18
+ms.openlocfilehash: 5790e71d2b5a5b20224c3c6d75b079b0458dba16
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747782"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461599"
 ---
-# <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Azure CLI 및 Event Grid를 사용하여 Azure Relay 하이브리드 연결로 사용자 지정 이벤트 라우팅
+# <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>자습서: Azure CLI 및 Event Grid를 사용하여 Azure Relay 하이브리드 연결로 사용자 지정 이벤트 라우팅
 
-Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. Azure Relay 하이브리드 연결은 지원되는 이벤트 처리기 중 하나입니다. 공용 엔드포인트가 없는 응용 프로그램에서 이벤트를 처리해야 할 때 하이브리드 연결을 이벤트 처리기로 사용합니다. 이러한 응용 프로그램은 회사 엔터프라이즈 네트워크 내에서 작성될 수 있습니다. 이 문서에서는 Azure CLI를 사용하여 사용자 지정 항목을 만들고 사용자 지정 항목을 구독하며 이벤트를 트리거하여 결과를 확인합니다. 이벤트를 하이브리드 연결로 보냅니다.
+Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. Azure Relay 하이브리드 연결은 지원되는 이벤트 처리기 중 하나입니다. 공용 엔드포인트가 없는 애플리케이션에서 이벤트를 처리해야 할 때 하이브리드 연결을 이벤트 처리기로 사용합니다. 이러한 애플리케이션은 회사 엔터프라이즈 네트워크 내에서 작성될 수 있습니다. 이 문서에서는 Azure CLI를 사용하여 사용자 지정 항목을 만들고 사용자 지정 항목을 구독하며 이벤트를 트리거하여 결과를 확인합니다. 이벤트를 하이브리드 연결로 보냅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 문서에서는 이미 하이브리드 연결 및 수신기 응용 프로그램이 있는 것으로 가정합니다. 하이브리드 연결을 시작하려면 [Relay 하이브리드 연결 시작 - .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) 또는 [Relay 하이브리드 연결 시작 - 노드](../service-bus-relay/relay-hybrid-connections-node-get-started.md)를 참조하세요.
+이 문서에서는 이미 하이브리드 연결 및 수신기 애플리케이션이 있는 것으로 가정합니다. 하이브리드 연결을 시작하려면 [Relay 하이브리드 연결 시작 - .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) 또는 [Relay 하이브리드 연결 시작 - 노드](../service-bus-relay/relay-hybrid-connections-node-get-started.md)를 참조하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -78,9 +79,9 @@ az eventgrid event-subscription create \
 
 구독의 [만료 날짜](concepts.md#event-subscription-expiration)가 설정되었습니다.
 
-## <a name="create-application-to-process-events"></a>이벤트를 처리하는 응용 프로그램 만들기
+## <a name="create-application-to-process-events"></a>이벤트를 처리하는 애플리케이션 만들기
 
-하이브리드 연결에서 이벤트를 검색할 수 있는 응용 프로그램이 필요합니다. [C#용 Microsoft Azure Event Grid 하이브리드 연결 소비자 샘플](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination)은 해당 작업을 수행합니다. 필수 구성 요소 단계를 이미 완료했습니다.
+하이브리드 연결에서 이벤트를 검색할 수 있는 애플리케이션이 필요합니다. [C#용 Microsoft Azure Event Grid 하이브리드 연결 소비자 샘플](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination)은 해당 작업을 수행합니다. 필수 구성 요소 단계를 이미 완료했습니다.
 
 1. Visual Studio 2017 버전 15.5 이상이 설치되어 있는지 확인합니다.
 
@@ -90,11 +91,11 @@ az eventgrid event-subscription create \
 
 1. Program.cs에서 `<relayConnectionString>` 및 `<hybridConnectionName>`을 만든 릴레이 연결 문자열 및 하이브리드 연결 이름으로 바꿉니다.
 
-1. Visual Studio에서 응용 프로그램을 컴파일하고 실행합니다.
+1. Visual Studio에서 애플리케이션을 컴파일하고 실행합니다.
 
 ## <a name="send-an-event-to-your-topic"></a>토픽에 이벤트 보내기
 
-이벤트를 트리거하여 Event Grid가 메시지를 사용자 엔드포인트에 어떻게 배포하는지 살펴보겠습니다. 이 아티클에서는 Azure CLI를 사용하여 이벤트를 트리거하는 방법을 보여줍니다. 또한 [Event Grid 게시자 응용 프로그램](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridPublisher)을 사용할 수 있습니다.
+이벤트를 트리거하여 Event Grid가 메시지를 사용자 엔드포인트에 어떻게 배포하는지 살펴보겠습니다. 이 아티클에서는 Azure CLI를 사용하여 이벤트를 트리거하는 방법을 보여줍니다. 또한 [Event Grid 게시자 애플리케이션](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridPublisher)을 사용할 수 있습니다.
 
 먼저, 사용자 지정 토픽에 대한 URL 및 키를 가져오겠습니다. 다시, `<topic_name>`의 사용자 지정 항목 이름을 사용합니다.
 
@@ -103,14 +104,14 @@ endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --qu
 key=$(az eventgrid topic key list --name <topic_name> -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-이 문서를 간소화하기 위해 사용자 지정 항목에 보낼 샘플 이벤트 데이터를 사용합니다. 일반적으로 응용 프로그램 또는 Azure 서비스는 이벤트 데이터를 보냅니다. CURL은 HTTP 요청을 보내는 유틸리티입니다. 이 문서에서는 CURL을 사용하여 사용자 지정 항목에 이벤트를 보냅니다.
+이 문서를 간소화하기 위해 사용자 지정 항목에 보낼 샘플 이벤트 데이터를 사용합니다. 일반적으로 애플리케이션 또는 Azure 서비스는 이벤트 데이터를 보냅니다. CURL은 HTTP 요청을 보내는 유틸리티입니다. 이 문서에서는 CURL을 사용하여 사용자 지정 항목에 이벤트를 보냅니다.
 
 ```azurecli-interactive
 event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
-수신기 응용 프로그램이 이벤트 메시지를 수신해야 합니다.
+수신기 애플리케이션이 이벤트 메시지를 수신해야 합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 이 이벤트로 작업을 계속하려는 경우 이 문서에서 만든 리소스를 정리하지 마세요. 그렇지 않으면 다음 명령을 사용하여 이 문서에서 만든 리소스를 삭제합니다.

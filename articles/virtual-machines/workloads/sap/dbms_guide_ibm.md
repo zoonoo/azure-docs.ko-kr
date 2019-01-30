@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/11/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 945dcf5776867a9b892a879569a4b58890cb1975
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 2c496f78650be6fc19197c82dc9534fbd256ac45
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075930"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422595"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드에 대한 IBM DB2 Azure Virtual Machines DBMS 배포
 
@@ -235,7 +235,7 @@ ms.locfileid: "39075930"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -321,15 +321,15 @@ Azure에서 LUW용 DB2의 SAP에 대한 추가 정보 및 업데이트는 SAP No
 
 | Note 번호 | 제목 |
 | --- | --- |
-| [1928533] |Azure의 SAP 응용 프로그램: 지원 제품 및 Azure VM 유형 |
-| [2015553] |Microsoft Azure의 SAP: 지원 필수 조건 |
+| [1928533] |Azure의 SAP 애플리케이션: 지원되는 제품 및 Azure VM 유형 |
+| [2015553] |Microsoft Azure의 SAP: 필수 구성 요소 지원 |
 | [1999351] |SAP용 고급 Azure 모니터링 문제 해결 |
 | [2178632] |Microsoft Azure의 SAP용 주요 모니터링 메트릭 |
-| [1409604] |Windows에서의 가상화: 향상된 모니터링 |
-| [2191498] |Azure와 Linux의 SAP: 향상된 모니터링 |
-| [2233094] |DB6: Linux, UNIX 및 Windows용 IBM DB2를 사용하는 SAP 응용 프로그램 - 추가 정보 |
+| [1409604] |Windows에서의 가상화: 고급 모니터링 |
+| [2191498] |Azure 포함 Linux의 SAP: 고급 모니터링 |
+| [2233094] |DB6: Linux, UNIX 및 Windows용 IBM DB2를 사용하는 Azure의 SAP 애플리케이션 - 추가 정보 |
 | [2243692] |Microsoft Azure(IaaS) VM의 Linux: SAP 라이선스 문제 |
-| [1984787] |SUSE LINUX Enterprise Server 12: 설치 참고 |
+| [1984787] |SUSE LINUX Enterprise Server 12: 설치 참고 사항 |
 | [2002167] |Red Hat Enterprise Linux 7.x: 설치 및 업그레이드 |
 | [1597355] |Linux에 대한 스왑 공간 권장 사항 |
 
@@ -343,7 +343,7 @@ Microsoft Azure Virtual Machine 서비스에서 LUW용 IBM DB2의 SAP는 DB2 버
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Azure VM의 SAP 설치에 대한 Linux, UNIX 및 Windows용 IBM DB2 구성 지침
 ### <a name="storage-configuration"></a>저장소 구성
-모든 데이터베이스 파일은 직접 연결된 디스크 기반의 NTFS 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, Azure 페이지 Blob 저장소(<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) 또는 Managed Disks(<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>)를 기반으로 합니다. 모든 종류의 네트워크 드라이브 또는 다음 Azure 파일 서비스 같은 원격 공유는 데이터베이스 파일에 대해 지원되지 **않습니다** . 
+모든 데이터베이스 파일은 직접 연결된 디스크 기반의 NTFS 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, Azure 페이지 Blob Storage(<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) 또는 Managed Disks(<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>)를 기반으로 합니다. 모든 종류의 네트워크 드라이브 또는 다음 Azure 파일 서비스 같은 원격 공유는 데이터베이스 파일에 대해 지원되지 **않습니다** . 
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
@@ -356,7 +356,7 @@ Azure 페이지 Blob Storage 또는 Managed Disks를 기반으로 하는 디스�
 
 SAP 설치 가이드의 ‘데이터베이스 디렉터리의 데이터 보안 및 성능 고려 사항’ 장에서도 성능 고려 사항을 참조할 수 있습니다.
 
-또는 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md)에서 설명한 대로 Window 저장소 풀(Windows Server 2012 이상에서만 사용 가능)을 사용하여 탑재된 여러 디스크에 하나의 큰 논리적 디바이스를 만들 수 있습니다.
+또는 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md)에서 설명한 대로 Window 저장소 풀(Windows Server 2012 이상에서만 사용 가능)을 사용하여 탑재된 여러 디스크에 하나의 큰 논리적 장치를 만들 수 있습니다.
 
 sapdata 및 saptmp 디렉터리에 대한 DB2 저장소 경로를 포함하는 디스크의 경우 물리적 디스크 섹터 크기를 512KB로 지정해야 합니다. Windows 저장소 풀을 사용하는 경우 `-LogicalSectorSizeDefault` 매개 변수를 사용하여 명령줄 인터페이스를 통해 수동으로 저장소 풀을 만들어야 합니다. 자세한 내용은 <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>을 참조하세요.
 
@@ -395,7 +395,7 @@ Windows의 DB2 배포에서는 [Azure 가속화된 네트워킹](https://azure.m
 ### <a name="specifics-for-linux-deployments"></a>Linux 배포에 대한 세부 정보
 디스크당 현재 IOPS 할당량이 충분한 경우 하나의 단일 디스크에 모든 데이터베이스 파일을 저장할 수 있습니다. 그러나 항상 데이터 파일 및 트랜잭션 로그 파일을 서로 다른 디스크/VHD로 분리해야 합니다.
 
-또는 단일 Azure VHD의 IOPS 또는 I/O 처리량이 충분하지 않은 경우, [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md) 문서에서 설명한 대로 LVM(Logical Volume Manager) 또는 MDADM을 사용하여 여러 디스크에 하나의 큰 논리적 디바이스를 만들 수 있습니다.
+또는 단일 Azure VHD의 IOPS 또는 I/O 처리량이 충분하지 않은 경우, [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md) 문서에서 설명한 대로 LVM(Logical Volume Manager) 또는 MDADM을 사용하여 여러 디스크에 하나의 큰 논리적 장치를 만들 수 있습니다.
 sapdata 및 saptmp 디렉터리에 대한 DB2 저장소 경로를 포함하는 디스크의 경우 물리적 디스크 섹터 크기를 512KB로 지정해야 합니다.
 
 

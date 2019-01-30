@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 38d73f38a5e04a42ee15c9206ce760936e3e10c9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 42635852bb5c6e7b388d4dc58b9d5bfaa6212438
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980307"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725856"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 개발자 가이드
 Azure Functions에서 특정 함수는 사용하는 언어나 바인딩에 관계없이 몇 가지 핵심적 기술 개념과 구성 요소를 공유합니다. 특정 언어나 바인딩에 해당하는 세부 정보를 학습하기 전에, 모든 항목에 해당하는 이 개요를 꼼꼼히 읽어 보시기 바랍니다.
@@ -76,7 +76,7 @@ Azure에서 함수를 함수 앱에 배포하기 위한 프로젝트를 설정�
 ## <a id="fileupdate"></a> 함수 앱 파일을 업데이트하는 방법
 Azure 포털에 기본 제공되는 함수 편집기를 사용하면 함수에 대한 코드 파일 및 *function.json* 파일을 업데이트할 수 있습니다. *package.json* 또는 *project.json* 또는 종속성 등의 다른 파일을 업로드하거나 업데이트하려면 다른 배포 방법을 사용해야 합니다.
 
-함수 앱은 App Service를 기반으로 하므로 [표준 웹앱에 사용할 수 있는 배포 옵션](../app-service/app-service-deploy-local-git.md)을 함수 앱에 모두 사용할 수도 있습니다. 함수 앱 파일을 업로드하거나 업데이트하는 데 사용할 수 있는 방법이 몇 가지 입니다. 
+함수 앱은 App Service를 기반으로 하므로 [표준 웹앱에 사용할 수 있는 배포 옵션](../app-service/deploy-local-git.md)을 함수 앱에 모두 사용할 수도 있습니다. 함수 앱 파일을 업로드하거나 업데이트하는 데 사용할 수 있는 방법이 몇 가지 입니다. 
 
 #### <a name="use-local-tools-and-publishing"></a>로컬 도구 및 게시 사용
 함수 앱은 [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](functions-create-first-function-vs-code.md), [IntelliJ](./functions-create-maven-intellij.md), [Eclipse](./functions-create-maven-eclipse.md) 및 [Azure Functions Core Tools](./functions-develop-local.md)를 비롯한 다양한 도구를 사용하여 작성하고 게시할 수 있습니다. 자세한 내용은 [Azure Functions를 로컬에서 코딩 및 테스트](./functions-develop-local.md)를 참조하세요.
@@ -87,7 +87,7 @@ Azure 포털에 기본 제공되는 함수 편집기를 사용하면 함수에 �
 [Azure Functions에 대한 연속 배포](functions-continuous-deployment.md)항목의 지침을 따릅니다.
 
 ## <a name="parallel-execution"></a>병렬 실행
-복수의 트리거 이벤트가 단일 스레드 함수 런타임이 해당 이벤트를 처리할 수 있는 속도보다 빨리 발생하면 런타임은 병렬 모드로 함수를 여러 번 호출할 수 있습니다.  함수 앱이 [소비 호스팅 계획](functions-scale.md#how-the-consumption-plan-works)을 사용하는 경우 함수 앱은 자동으로 확장할 수 있습니다.  앱이 소비 호스팅 계획 또는 일반 [App Service 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)에서 실행되는지 여부에 관계없이 함수 앱의 각 인스턴스는 여러 스레드를 사용하여 동시 함수 호출을 병렬로 처리할 수 있습니다.  각 함수 앱 인스턴스의 최대 동시 함수 호출 수는 함수 앱 내의 다른 함수에서 사용하는 리소스뿐만 아니라 사용 중인 트리거 유형에 따라 달라집니다.
+복수의 트리거 이벤트가 단일 스레드 함수 런타임이 해당 이벤트를 처리할 수 있는 속도보다 빨리 발생하면 런타임은 병렬 모드로 함수를 여러 번 호출할 수 있습니다.  함수 앱이 [소비 호스팅 계획](functions-scale.md#how-the-consumption-plan-works)을 사용하는 경우 함수 앱은 자동으로 확장할 수 있습니다.  앱이 소비 호스팅 계획 또는 일반 [App Service 계획](../app-service/overview-hosting-plans.md)에서 실행되는지 여부에 관계없이 함수 앱의 각 인스턴스는 여러 스레드를 사용하여 동시 함수 호출을 병렬로 처리할 수 있습니다.  각 함수 앱 인스턴스의 최대 동시 함수 호출 수는 함수 앱 내의 다른 함수에서 사용하는 리소스뿐만 아니라 사용 중인 트리거 유형에 따라 달라집니다.
 
 ## <a name="functions-runtime-versioning"></a>Functions 런타임 버전 관리
 
@@ -120,5 +120,5 @@ Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리�
 * [Azure Functions F# 개발자 참조](functions-reference-fsharp.md)
 * [Azure Functions NodeJS 개발자 참조](functions-reference-node.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
-* [Azure Functions: Azure App Service](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) 팀 블로그 과정. Azure Functions 개발에 대한 기록
+* Azure App Service 팀 블로그의 [Azure Functions: 과정](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) Azure Functions 개발에 대한 기록
 

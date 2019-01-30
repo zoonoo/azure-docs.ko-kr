@@ -1,26 +1,19 @@
 ---
-title: Azure CLI 스크립트 샘플 - App Service를 사용하여 SignalR Service 만들기 | Microsoft Docs
+title: Azure CLI 스크립트 샘플 - App Service를 사용하여 SignalR Service 만들기
 description: Azure CLI 스크립트 샘플 - App Service를 사용하여 SignalR Service 만들기
-services: signalr
-documentationcenter: signalr
 author: sffamily
-manager: cfowler
-editor: ''
-tags: azure-service-management
 ms.service: signalr
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: signalr
 ms.date: 04/20/2018
 ms.author: zhshang
 ms.custom: mvc
-ms.openlocfilehash: 971c618300c1aedcdfb26bfaa79660a92eada475
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 007bf58c06d28f4445b3e57c5d692e3ee19b5b8c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978729"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257746"
 ---
 # <a name="create-a-signalr-service-with-an-app-service"></a>App Service로 SignalR Service 만들기
 
@@ -54,7 +47,7 @@ az extension add -n signalr
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az signalr create](/cli/azure/ext/signalr/signalr#ext-signalr-az-signalr-create) | Azure SignalR Service 리소스를 만듭니다. |
-| [az signalr key list](/cli/azure/ext/signalr/signalr/key#ext-signalr-az-signalr-key-list) | SignalR을 통해 실시간 콘텐츠 업데이트를 푸시할 때 응용 프로그램에서 사용할 키를 나열합니다. |
+| [az signalr key list](/cli/azure/ext/signalr/signalr/key#ext-signalr-az-signalr-key-list) | SignalR을 통해 실시간 콘텐츠 업데이트를 푸시할 때 애플리케이션에서 사용할 키를 나열합니다. |
 | [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) | 웹앱을 호스팅하기 위한 Azure App Service 계획을 만듭니다. |
 | [az webapp create](/cli/azure/webapp#az-webapp-create) | App Service 호스팅 계획을 사용하는 Azure 웹앱을 만듭니다. |
 | [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | 웹앱에 대한 새 앱 설정을 추가합니다. 이 앱 설정은 SignalR 연결 문자열을 저장하는 데 사용됩니다. |

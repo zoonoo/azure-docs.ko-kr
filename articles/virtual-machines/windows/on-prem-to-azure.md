@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0440eccbdf76fc58fadf46de2508d362c0de6cc3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 83e69cd488ab7e8b69895a25716350c8025c6c48
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190788"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074906"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>AWS(Amazon Web Services) 및 기타 플랫폼에서 Azure의 Managed Disks로 마이그레이션
 
@@ -29,7 +29,7 @@ AWS 또는 온-프레미스 가상화 솔루션에서 Azure로 VHD 파일을 업
 
 일반화된 VHD 및 특수한 VHD를 모두 업로드할 수 있습니다. 
 - **일반화된 VHD** - Sysprep을 사용하여 제거된 모든 개인 계정 정보가 포함되어 있습니다. 
-- **특수한 VHD** - 사용자 계정, 응용 프로그램 및 원본 VM의 다른 상태 데이터를 유지 관리합니다. 
+- **특수한 VHD** - 사용자 계정, 애플리케이션 및 원본 VM의 다른 상태 데이터를 유지 관리합니다. 
 
 > [!IMPORTANT]
 > Azure에 VHD를 업로드하기 전에 [Azure에 업로드할 Windows VHD 또는 VHDX 준비](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 수행해야 합니다.
@@ -71,29 +71,29 @@ Premium Storage와 작동하는 가상 머신의 성능 특징을 검토하고 �
 
 **프리미엄 Managed Disks**
 
-VM에서 사용할 수 있는 프리미엄 Managed Disks에는 세 종류가 있으며 각 종류에는 특정 IOP 및 처리량 제한이 있습니다. 용량, 성능, 확장성 및 최대 로드 측면에서 응용 프로그램의 필요에 따라 VM에 대한 프리미엄 디스크 유형을 선택할 때 이 제한을 고려합니다.
+VM에서 사용할 수 있는 프리미엄 관리 디스크에는 7가지 형식이 있으며 각 형식에는 특정 IOP 및 처리량 한도가 있습니다. 용량, 성능, 확장성 및 최대 로드 측면에서 애플리케이션의 필요에 따라 VM에 대한 프리미엄 디스크 유형을 선택할 때 이 제한을 고려해야 합니다.
 
-| 프리미엄 디스크 유형  | P10               | P20               | P30               |
-|---------------------|-------------------|-------------------|-------------------|
-| 디스크 크기           | 128GB            | 512 GB            | 1024GB(1TB)    |
-| 디스크당 IOPS       | 500               | 2,300              | 5,000              |
-| 디스크당 처리량 | 초당 100MB | 초당 150MB | 초당 200MB |
+| 프리미엄 디스크 유형  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| 디스크 크기           | 32GB| 64GB| 128GB| 256GB|512 GB | 1,024GB(1TB)    | 2,048GB(2TB)    | 4,095GB(4TB)    | 
+| 디스크당 IOPS       | 120   | 240   | 500   | 1100  |2,300              | 5,000              | 7,500              | 7,500              | 
+| 디스크당 처리량 | 초당 25MB  | 초당 50MB  | 초당 100MB | 초당 125MB |초당 150MB | 초당 200MB | 초당 250MB | 초당 250MB |
 
 **표준 Managed Disks**
 
-VM에서 사용할 수 있는 표준 Managed Disks에는 다섯 가지 종류가 있습니다. 각각은 용량이 다르지만 동일한 IOPS 및 처리량이 제한됩니다. 응용 프로그램의 용량 요구 사항에 따라 표준 Managed Disks의 종류를 선택합니다.
+VM에서 사용할 수 있는 표준 관리 디스크에는 7가지 형식이 있습니다. 각각은 용량이 다르지만 동일한 IOPS 및 처리량이 제한됩니다. 애플리케이션의 용량 요구 사항에 따라 표준 Managed Disks의 종류를 선택합니다.
 
-| 표준 디스크 유형  | S4               | S6               | S10              | S20              | S30              |
-|---------------------|------------------|------------------|------------------|------------------|------------------|
-| 디스크 크기           | 30GB            | 64GB            | 128GB           | 512 GB           | 1024GB(1TB)   |
-| 디스크당 IOPS       | 500              | 500              | 500              | 500              | 500              |
-| 디스크당 처리량 | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second |
+| 표준 디스크 유형  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
+|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
+| 디스크 크기           | 30GB            | 64GB            | 128GB           | 256GB           |512 GB           | 1,024GB(1TB)   | 2,048GB(2TB)    | 4,095GB(4TB)   | 
+| 디스크당 IOPS       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
+| 디스크당 처리량 | 60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second |60 MB per second | 60 MB per second | 60 MB per second | 60 MB per second | 
 
 ### <a name="disk-caching-policy"></a>디스크 캐싱 정책 
 
 **프리미엄 Managed Disks**
 
-기본적으로 디스크 캐싱 정책은 VM에 연결된 프리미엄 운영 체제 디스크에 대한 *읽기 / 쓰기* 및 모든 프리미엄 데이터 디스크에 대한 *읽기 전용*입니다. 응용 프로그램의 IO에 대한 최적의 성능을 얻으려면 이 구성 설정이 좋습니다. 쓰기가 많거나 쓰기 전용인 디스크의 경우(예: SQL Server 로그 파일) 더 나은 응용 프로그램 성능을 얻기 위해 디스크 캐싱을 사용하지 않도록 설정합니다.
+기본적으로 디스크 캐싱 정책은 VM에 연결된 프리미엄 운영 체제 디스크에 대한 *읽기 / 쓰기* 및 모든 프리미엄 데이터 디스크에 대한 *읽기 전용*입니다. 애플리케이션의 IO에 대한 최적의 성능을 얻으려면 이 구성 설정이 좋습니다. 쓰기가 많거나 쓰기 전용인 디스크의 경우(예: SQL Server 로그 파일) 더 나은 애플리케이션 성능을 얻기 위해 디스크 캐싱을 사용하지 않도록 설정합니다.
 
 ### <a name="pricing"></a>가격
 

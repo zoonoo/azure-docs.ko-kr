@@ -1,17 +1,19 @@
 ---
 title: 온-프레미스 사이트로 장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치 | Microsoft Docs
 description: Azure Site Recovery를 사용한 VMware VM과 Azure 간 재해 복구 중에 온-프레미스 사이트로 장애 복구(failback)를 위한 Linux 마스터 대상 서버를 설치하는 방법을 알아봅니다.
-author: nsoneji
+author: mayurigupta13
+services: site-recovery
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.author: nisoneji
-ms.openlocfilehash: 415b50b94052e7d428ddfa55d5288c8954a3ff1a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 11/27/2018
+ms.author: mayg
+ms.openlocfilehash: 7ff73051abc5168b4dc3852a9008adc22d7d56c6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212372"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811862"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치
 Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 머신을 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 
@@ -20,6 +22,7 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 
 > [!IMPORTANT]
 > 9.10.0 마스터 대상 서버 릴리스부터 최신 마스터 대상 서버는 Ubuntu 16.04 서버에만 설치할 수 있습니다. 새로운 설치는 CentOS6.6 서버에서 허용되지 않습니다. 그러나 9.10.0 버전을 사용하여 이전 마스터 대상 서버를 계속 업그레이드할 수 있습니다.
+> LVM의 마스터 대상 서버는 지원되지 않습니다.
 
 ## <a name="overview"></a>개요
 이 문서에서는 Linux 마스터 대상을 설치하는 방법의 지침을 제공합니다.
@@ -41,7 +44,7 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 - **RAM**: 6GB 이상
 - **OS 디스크 크기**: 100GB 이상(OS 설치에 필요)
 - **보존 드라이브에 대한 추가 디스크 크기**: 1TB
-- **CPU 코어**: 코어 4개 이상
+- **CPU 코어**: 4 코어 이상
 
 다음 지원되는 Ubuntu 커널을 사용할 수 있습니다.
 
@@ -59,7 +62,7 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 
 다음 단계를 통해 Ubuntu 16.04.2 64비트 운영 체제를 설치합니다.
 
-1.   [다운로드 링크](https://www.ubuntu.com/download/server/thank-you?version=16.04.2&architecture=amd64)로 이동하고 가장 가까운 미러를 선택한 다음, Ubuntu 16.04.2 최소 64비트 ISO를 다운로드합니다.
+1.   [다운로드 링크](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso)로 이동하고 가장 가까운 미러를 선택한 다음, Ubuntu 16.04.2 최소 64비트 ISO를 다운로드합니다.
 DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스템을 시작합니다.
 
 1.  기본 설정 언어로 **영어**를 선택하고 **Enter** 키를 선택합니다.
@@ -132,9 +135,9 @@ DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스
     ![GRUB 부팅 설치 관리자](./media/vmware-azure-install-linux-master-target/image20.png)
 
 
-1. 부팅 로더를 설치할 적절한 장치(가급적 **/dev/sda**)를 선택하고 **Enter** 키를 선택합니다.
+1. 부팅 로더를 설치할 적절한 디바이스(가급적 **/dev/sda**)를 선택하고 **Enter** 키를 선택합니다.
      
-    ![해당 장치 선택](./media/vmware-azure-install-linux-master-target/image21.png)
+    ![해당 디바이스 선택](./media/vmware-azure-install-linux-master-target/image21.png)
 
 1. **계속**을 선택한 다음, **Enter** 키를 선택하여 설치를 완료합니다.
 
@@ -182,7 +185,7 @@ Azure Site Recovery 마스터 대상 서버에 Ubuntu의 매우 구체적인 버
 #### <a name="download-and-install-additional-packages"></a>추가 패키지를 다운로드하여 설치
 
 > [!NOTE]
-> 추가 패키지를 다운로드하여 설치할 수 있도록 인터넷에 연결되어 있는지 확인합니다. 인터넷에 연결되지 않으면 이러한 RPM 패키지를 수동으로 찾아서 설치해야 합니다.
+> 추가 패키지를 다운로드하여 설치할 수 있도록 인터넷에 연결되어 있는지 확인합니다. 인터넷에 연결되지 않으면 해당 Deb 패키지를 수동으로 찾아서 설치해야 합니다.
 
  `apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx`
 

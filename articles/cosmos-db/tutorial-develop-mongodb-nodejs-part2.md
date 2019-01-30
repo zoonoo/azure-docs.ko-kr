@@ -1,27 +1,26 @@
 ---
-title: Azure에 대한 MongoDB, Angular 및 노드 자습서 - 2부 | Microsoft Docs
+title: Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Node.js Express 앱 만들기
+titleSuffix: Azure Cosmos DB
 description: MongoDB에 사용하는 것과 정확히 동일한 API를 사용한 Azure Cosmos DB의 Angular 및 노드를 사용하여 MongoDB 앱을 만드는 방법에 대한 자습서 시리즈의 2부
-services: cosmos-db
 author: johnpapa
-manager: kfile
-editor: ''
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 09/05/2017
+ms.date: 12/26/2018
 ms.author: jopapa
-ms.custom: mvc
-ms.openlocfilehash: 99fc6c7dc43f66d92b17f25ad0fba52ce8f34413
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.custom: seodec18
+ms.reviewer: sngun
+ms.openlocfilehash: bcc0d69024954b0b8cbf58fb3eac938ff3e1b0e6
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41917987"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039863"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-2-create-a-nodejs-express-app-with-the-angular-cli"></a>Angular 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기 - 2부: Angular CLI를 사용하여 Node.js Express 앱 만들기 
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Node.js Express 앱 만들기
 
-이 다중 파트 자습서에서는 Express, Angular Azure Cosmos DB 데이터베이스를 포함한 Node.js로 작성된 새 [MongoDB API](mongodb-introduction.md) 앱을 만드는 방법을 보여줍니다.
+여러 파트로 구성된 이 자습서에서는 Express 및 Angular를 사용하여 Node.js로 작성된 새 앱을 만든 다음, [Cosmos DB의 API for MongoDB를 사용하여 구성된 Cosmos 계정](mongodb-introduction.md)에 연결하는 방법을 보여줍니다.
 
 자습서의 2부는 [소개](tutorial-develop-mongodb-nodejs.md)를 기반으로 하고 다음과 같은 작업을 다룹니다.
 
@@ -102,7 +101,7 @@ ms.locfileid: "41917987"
     * Express 시작
     * 서버를 제공하는 데 사용하려고 하는 미들웨어를 사용하는 방법을 앱에 지시합니다
     * dist 폴더에 있는 모든 항목을 제공하여 고정 콘텐츠로 사용
-    * 응용 프로그램 제공 및 서버에 없는 모든 GET 요청에 index.html 제공(딥 링크의 경우)
+    * 애플리케이션 제공 및 서버에 없는 모든 GET 요청에 index.html 제공(딥 링크의 경우)
     * app.listen에서 서버 시작
     * arow 함수를 사용하여 활성 포트 기록
     

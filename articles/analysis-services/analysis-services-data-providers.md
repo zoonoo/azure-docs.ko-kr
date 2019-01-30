@@ -1,32 +1,32 @@
 ---
 title: Azure Analysis Services에 연결하는 데 필요한 클라이언트 라이브러리 | Microsoft Docs
-description: 클라이언트 응용 프로그램 및 도구에서 Azure Analysis Services를 연결하는 데 필요한 클라이언트 라이브러리에 대해 설명합니다.
+description: 클라이언트 애플리케이션 및 도구에서 Azure Analysis Services를 연결하는 데 필요한 클라이언트 라이브러리에 대해 설명합니다.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/12/2018
+ms.date: 01/07/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f0c852b0b3de4edcf894d80ae397eae6c8980d49
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: f7be89a2c02769d09f93e8d5d1545cf814c86bba
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240412"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102741"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Azure Analysis Services에 연결하기 위한 클라이언트 라이브러리
 
-클라이언트 라이브러리는 클라이언트 응용 프로그램 및 도구에서 Analysis Services 서버에 연결하는 데 필요합니다. 
+클라이언트 라이브러리는 클라이언트 애플리케이션 및 도구에서 Analysis Services 서버에 연결하는 데 필요합니다. 
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>최신 클라이언트 라이브러리 다운로드(Windows Installer)  
 
 |다운로드  |제품 버전  | 
 |---------|---------|
-|[MSOLAP(amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.2.39      |
-|[MSOLAP(x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.2.39      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.7.0.2    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.7.0.2     |
+|[MSOLAP(amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.2.241      |
+|[MSOLAP(x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.2.241      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.12.1.0    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.12.1.0     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO 및 ADOMD(NuGet 패키지)
 
@@ -34,16 +34,16 @@ AMO(Analysis Services Management Objects) 및 ADOMD 클라이언트 라이브러
 
 |패키지  | 제품 버전  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.7.0.2    |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.7.02     |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.12.1.0    |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.12.1.0     |
 
-NuGet 패키지 어셈블리 AssemblyVersion은 의미 체계 버전 지정 MAJOR.MINOR.PATCH를 따릅니다. NuGet 참조는 GAC에 다른 버전이 있더라도(MSI 설치의 결과) 필요한 버전을 로드합니다. 패치는 각 릴리스에 대해 증가합니다. AMO 및 ADOMD 버전은 동기 상태로 유지됩니다.
+NuGet 패키지 어셈블리 AssemblyVersion은 유의적 버전 MAJOR.MINOR.PATCH를 따릅니다. NuGet 참조는 GAC에 다른 버전이 있더라도(MSI 설치의 결과) 필요한 버전을 로드합니다. 패치는 각 릴리스에 대해 증가합니다. AMO 및 ADOMD 버전은 동기 상태로 유지됩니다.
 
 ## <a name="understanding-client-libraries"></a>클라이언트 라이브러리 이해
 
 Analysis Services는 데이터 공급자로도 알려진 세 가지 클라이언트 라이브러리를 활용합니다. ADOMD.NET 및 AMO(Analysis Services Management Objects)는 관리되는 클라이언트 라이브러리입니다. Analysis Services OLE DB 공급자(MSOLAP DLL)는 네이티브 클라이언트 라이브러리입니다. 일반적으로 세 가지 모두 동시에 설치됩니다. **Azure Analysis Services에는 세 라이브러리 모두의 최신 버전이 필요합니다**. 
 
-Power BI Desktop 및 Excel과 같은 Microsoft 클라이언트 응용 프로그램은 이러한 세 가지 클라이언트 라이브러리를 모두 설치하고 새 버전이 사용 가능해지면 업데이트합니다. 업데이트의 버전 또는 빈도에 따라 일부 클라이언트 라이브러리가 Azure Analysis Services에서 요구하는 최신 버전이 아닐 수도 있습니다. 사용자 지정 응용 프로그램, 또는 AsCmd, TOM, ADOMD.NET과 같은 다른 인터페이스에도 마찬가지입니다. 이러한 응용 프로그램에서는 라이브러리를 수동으로 또는 프로그래밍 방식으로 설치해야 합니다. 수동 설치를 위한 클라이언트 라이브러리는 SQL Server 기능 팩에 배포 가능 패키지로 포함되어 있습니다. 그러나 이러한 클라이언트 라이브러리는 SQL Server 버전에 연결되며 최신 버전이 아닐 수도 있습니다.  
+Power BI Desktop 및 Excel과 같은 Microsoft 클라이언트 애플리케이션은 이러한 세 가지 클라이언트 라이브러리를 모두 설치하고 새 버전이 사용 가능해지면 업데이트합니다. 업데이트의 버전 또는 빈도에 따라 일부 클라이언트 라이브러리가 Azure Analysis Services에서 요구하는 최신 버전이 아닐 수도 있습니다. 사용자 지정 애플리케이션, 또는 AsCmd, TOM, ADOMD.NET과 같은 다른 인터페이스에도 마찬가지입니다. 이러한 애플리케이션에서는 라이브러리를 수동으로 또는 프로그래밍 방식으로 설치해야 합니다. 수동 설치를 위한 클라이언트 라이브러리는 SQL Server 기능 팩에 배포 가능 패키지로 포함되어 있습니다. 그러나 이러한 클라이언트 라이브러리는 SQL Server 버전에 연결되며 최신 버전이 아닐 수도 있습니다.  
 
 클라이언트 연결을 위한 클라이언트 라이브러리는 Azure Analysis Services 서버에서 데이터 원본에 연결하는 데 필요한 데이터 공급자와는 다릅니다. 데이터 원본 연결에 대한 자세한 내용은 [데이터 원본 연결](analysis-services-datasource.md)을 참조하세요.
 
@@ -51,20 +51,20 @@ Power BI Desktop 및 Excel과 같은 Microsoft 클라이언트 응용 프로그�
 
 ### <a name="analysis-services-ole-db-provider-msolap"></a>Analysis Services OLE DB Provider(MSOLAP) 
 
- Analysis Services OLE DB Provider(MSOLAP)는 Analysis Services 데이터베이스 연결용 네이티브 클라이언트 라이브러리입니다. 이 라이브러리는 ADOMD.NET과 AMO 둘 다에서 데이터 공급자에 연결 요청을 위임하는 방식으로 간접적으로 사용됩니다. 응용 프로그램 코드에서 직접 OLE DB Provider를 호출할 수도 있습니다.  
+ Analysis Services OLE DB Provider(MSOLAP)는 Analysis Services 데이터베이스 연결용 네이티브 클라이언트 라이브러리입니다. 이 라이브러리는 ADOMD.NET과 AMO 둘 다에서 데이터 공급자에 연결 요청을 위임하는 방식으로 간접적으로 사용됩니다. 애플리케이션 코드에서 직접 OLE DB Provider를 호출할 수도 있습니다.  
   
- Analysis Services OLE DB Provider는 Analysis Services 데이터베이스에 액세스하는 데 사용되는 대부분의 도구와 응용 프로그램에 의해 자동으로 설치됩니다. Analysis Services 데이터에 액세스하는 데 사용되는 컴퓨터에 설치되어야 합니다.  
+ Analysis Services OLE DB Provider는 Analysis Services 데이터베이스에 액세스하는 데 사용되는 대부분의 도구와 애플리케이션에 의해 자동으로 설치됩니다. Analysis Services 데이터에 액세스하는 데 사용되는 컴퓨터에 설치되어야 합니다.  
   
  OLE DB 공급자는 종종 연결 문자열에 지정됩니다. Analysis Services 연결 문자열은 다른 명명법을 사용하여 OLE DB Provider: MSOLAP.\<version>.dll을 나타냅니다.
 
 ### <a name="amo"></a>AMO  
 
- AMO는 서버 관리 및 데이터 정의에 사용되는 관리되는 클라이언트 라이브러리입니다. 도구 및 클라이언트 응용 프로그램에 의해 설치되고 사용됩니다. 예를 들어 SSMS(SQL Server Management Studio)는 AMO를 사용하여 Analysis Services에 연결합니다. AMO를 사용하는 연결은 일반적으로 최소로 유지되며 `"data source=\<servername>"`으로 구성됩니다. 연결이 설정된 후에 API를 사용하여 데이터베이스 컬렉션 및 주요 개체에 대해 작업을 수행합니다. SSDT와 SSMS는 둘 다 AMO를 사용하여 Analysis Services 인스턴스에 연결합니다.  
+ AMO는 서버 관리 및 데이터 정의에 사용되는 관리되는 클라이언트 라이브러리입니다. 도구 및 클라이언트 애플리케이션에 의해 설치되고 사용됩니다. 예를 들어 SSMS(SQL Server Management Studio)는 AMO를 사용하여 Analysis Services에 연결합니다. AMO를 사용하는 연결은 일반적으로 최소로 유지되며 `"data source=\<servername>"`으로 구성됩니다. 연결이 설정된 후에 API를 사용하여 데이터베이스 컬렉션 및 주요 개체에 대해 작업을 수행합니다. SSDT와 SSMS는 둘 다 AMO를 사용하여 Analysis Services 인스턴스에 연결합니다.  
 
   
 ### <a name="adomd"></a>ADOMD
 
- ADOMD.NET은 Analysis Services 데이터를 쿼리하는 데 사용되는 관리되는 데이터 클라이언트 라이브러리입니다. 도구 및 클라이언트 응용 프로그램에 의해 설치되고 사용됩니다. 
+ ADOMD.NET은 Analysis Services 데이터를 쿼리하는 데 사용되는 관리되는 데이터 클라이언트 라이브러리입니다. 도구 및 클라이언트 애플리케이션에 의해 설치되고 사용됩니다. 
   
  데이터베이스에 연결하는 경우 세 라이브러리에 대한 연결 문자열 속성이 모두 비슷합니다. [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](https://msdn.microsoft.com/library/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring.aspx)을 사용하여 ADOMD.NET에 대해 정의한 거의 모든 연결 문자열이 AMO 및 Analysis Services OLE DB Provider(MSOLAP)에도 작동합니다. 자세한 내용은 [연결 문자열 속성&#40;Analysis Services&#41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services)를 참조하세요.  
 

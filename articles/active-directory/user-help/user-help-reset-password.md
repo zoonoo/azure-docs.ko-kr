@@ -3,7 +3,7 @@ title: 보안 정보를 사용하여 암호 재설정 - Azure Active Directory |
 description: 암호를 잊어버린 경우 보안 정보 및 2단계 인증을 사용하여 암호를 재설정하는 방법을 설명합니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: a95d5adb4ee0eb8aa71f7759e3f2b5520bda5ff4
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6bf8c548d81b3cade487f3188cdafae82b5776d9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347848"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815942"
 ---
 # <a name="reset-your-work-or-school-password"></a>회사 또는 학교 암호 재설정
 
@@ -159,7 +159,7 @@ Azure AD(Azure Active Directory) 계정에 액세스할 수 없는 경우 원인
 |암호를 변경하려고 하면 오류가 발생합니다. |암호에 쉽게 추측할 수 있는 단어, 구 또는 패턴이 포함되어 있습니다.| 더 강력한 암호를 사용하여 다시 시도하세요.|
 |사용자 ID를 입력하면 "관리자에 문의하세요"라는 페이지로 이동됩니다.|Microsoft는 해당 사용자 계정 암호가 온-프레미스 환경의 관리자를 통해 관리되는 것을 확인했습니다. 따라서 "계정에 액세스할 수 없음" 링크에서 암호를 재설정할 수 없습니다. |관리자에게 문의하여 도움을 받으세요.|
 |사용자 ID를 입력하면 "암호 재설정을 위해 계정을 사용할 수 없습니다" 오류가 발생합니다.|사용자가 암호를 재설정할 수 있도록 관리자가 계정을 설정하지 않았습니다.|관리자가 "계정에 액세스할 수 없음" 링크에서 조직에 대해 암호 재설정을 활성화하지 않았거나 기능을 사용하도록 허가하지 않았기 때문입니다.<br><br> 암호를 재설정하려면 "관리자에게 문의" 링크를 선택하고 회사의 관리자에게 이메일을 보내서 암호를 재설정하려 한다고 알려야 합니다.|
-|사용자 ID를 입력한 후 "계정을 확인할 수 없습니다" 오류가 발생합니다.|로그인 프로세스에서 계정 정보를 확인할 수 없었습니다.|두 가지 이유로 이 메시지가 표시될 수 있습니다.<br><br>1. 관리자가 조직에 대해 암호 재설정 기능을 설정했지만, 사용자가 서비스를 사용하도록 등록하지 않았습니다. 암호 재설정을 등록하려면 인증 방법에 따라 [Authenticator 앱을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-auth-app.md), [전화 통화를 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-phone-number.md), [문자 메시지를 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-text-msg.md), [이메일을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-email.md) 또는 [보안 질문을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-questions.md) 문서 중에 하나를 살펴보세요.<br><br>2. 관리자가 조직에 대해 암호 재설정을 설정하지 않았습니다. 이 경우 "관리자에게 문의" 링크를 선택하여 관리자에게 암호 재설정을 요청하는 이메일을 보내야 합니다.|
+|사용자 ID를 입력한 후 "계정을 확인할 수 없습니다" 오류가 발생합니다.|로그인 프로세스에서 계정 정보를 확인할 수 없었습니다.|두 가지 이유로 이 메시지가 표시될 수 있습니다.<br><br>1. 관리자가 조직에 대해 암호 재설정 기능을 설정했지만, 사용자가 서비스를 사용하도록 등록하지 않았습니다. 암호 재설정을 등록하려면 확인 방법에 따라 다음 문서 중 하나를 참조하세요. [Authenticator 앱을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-auth-app.md), [전화 통화를 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-phone-number.md), [문자 메시지를 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-text-msg.md), [이메일을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-email.md) 또는 [보안 질문을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-questions.md).<br><br>2. 관리자가 조직에 대해 암호 재설정을 설정하지 않았습니다. 이 경우 "관리자에게 문의" 링크를 선택하여 관리자에게 암호 재설정을 요청하는 이메일을 보내야 합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

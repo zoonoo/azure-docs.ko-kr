@@ -1,5 +1,5 @@
 ---
-title: Azure WebJobs SDK 시작
+title: WebJobs SDK 시작 - Azure
 description: 이벤트 구동 백그라운드 처리를 위한 WebJobs SDK에 대해 간략히 소개합니다. Azure 서비스 및 타사 서비스에서 데이터에 액세스하는 방법을 알아봅니다.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: b0f4ef5079ac689827cb49884fa1c6a51529ea83
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 913b23946f70500ace7ab7e4ff7b5cd2858492fc
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140352"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121667"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 시작
 
@@ -54,7 +54,7 @@ public static void Run(
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 문서에서는 [Azure 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)이 있고, [Azure App Service에서 앱을 사용한 경험](app-service-web-overview.md)이 있다고 가정합니다. 이 문서의 단계를 완료하려면 다음을 수행합니다.
+이 문서에서는 [Azure 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)이 있고, [Azure App Service에서 앱을 사용한 경험](overview.md)이 있다고 가정합니다. 이 문서의 단계를 완료하려면 다음을 수행합니다.
 
 * **Azure 개발** 워크로드를 사용하여 [Visual Studio 2017을 설치](https://docs.microsoft.com/visualstudio/install/)합니다. Visual Studio는 있지만 해당 워크로드가 없는 경우 **도구 > 도구 및 기능 가져오기**를 선택하여 워크로드를 추가합니다.
 * [App Service 앱을 만듭니다](app-service-web-get-started-dotnet-framework.md). WebJob을 배포할 수 있는 앱이 이미 있는 경우 새 앱을 만드는 대신 해당 앱을 사용할 수 있습니다.
@@ -63,9 +63,9 @@ public static void Run(
 
 1. Visual Studio에서 **파일 -> 새 프로젝트**를 차례로 선택합니다.
 
-1. **클래식 Windows 데스크톱 > 콘솔 앱(.NET Framework)** 을 차례로 선택합니다.
+2. **클래식 Windows 데스크톱 > 콘솔 앱(.NET Framework)** 을 차례로 선택합니다.
 
-1. *WebJobsSDKSample* 프로젝트의 이름을 지정한 다음, **확인**을 선택합니다.
+3. *WebJobsSDKSample* 프로젝트의 이름을 지정한 다음, **확인**을 선택합니다.
 
    ![새 프로젝트 대화 상자](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -292,7 +292,7 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
 
 ## <a name="add-application-insights-logging"></a>Application Insights 로깅 추가
 
-프로젝트가 Azure에서 실행되면 콘솔 출력을 확인하여 함수 실행을 모니터링할 수 없습니다. 권장되는 모니터링 솔루션은 [Application Insights](../application-insights/app-insights-overview.md)입니다. 자세한 내용은 [Azure Functions 모니터링](../azure-functions/functions-monitoring.md)을 참조하세요.
+프로젝트가 Azure에서 실행되면 콘솔 출력을 확인하여 함수 실행을 모니터링할 수 없습니다. 권장되는 모니터링 솔루션은 [Application Insights](../azure-monitor/app/app-insights-overview.md)입니다. 자세한 내용은 [Azure Functions 모니터링](../azure-functions/functions-monitoring.md)을 참조하세요.
 
 이 섹션에서는 Azure에 배포하기 전에 Application Insights 로깅을 설정하기 위해 다음 작업을 수행합니다.
 
@@ -304,9 +304,9 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
 
 1. 사용할 수 있는 App Service 앱이 아직 없는 경우 [하나를 만듭니다](app-service-web-get-started-dotnet-framework.md).
 
-1. 사용할 수 있는 Application Insights 리소스가 아직 없는 경우 [하나를 만듭니다](../application-insights/app-insights-create-new-resource.md). **응용 프로그램 종류**를 **일반**으로 설정하고, **계측 키 복사**를 수행하는 섹션을 건너뜁니다.
+1. 사용할 수 있는 Application Insights 리소스가 아직 없는 경우 [하나를 만듭니다](../azure-monitor/app/create-new-resource.md ). **애플리케이션 종류**를 **일반**으로 설정하고, **계측 키 복사**를 수행하는 섹션을 건너뜁니다.
 
-1. 사용하려는 Application Insights 리소스가 이미 있는 경우 [계측 키를 복사합니다](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key).
+1. 사용하려는 Application Insights 리소스가 이미 있는 경우 [계측 키를 복사합니다](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key).
 
 ### <a name="configure-app-settings"></a>앱 설정 구성 
 
@@ -322,7 +322,7 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
    |---------|---------|------|
    |AzureWebJobsStorage | {앞에서 복사한 Storage 연결 문자열}|사용자 지정|
    
-1. **응용 프로그램 설정** 상자에 Application Insights 계측 키가 없으면 앞에서 복사한 계측 키를 추가합니다. (계측 키는 App Service 앱을 만든 방법에 따라 이미 있을 수 있습니다.)
+1. **애플리케이션 설정** 상자에 Application Insights 계측 키가 없으면 앞에서 복사한 계측 키를 추가합니다. (계측 키는 App Service 앱을 만든 방법에 따라 이미 있을 수 있습니다.)
 
    |이름  |값  |
    |---------|---------|
@@ -396,7 +396,7 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
 
 이 섹션에서는 로컬로 다시 실행하여 로깅 데이터가 이제 Application Insights 및 콘솔 모두로 이동하는지 확인합니다.
 
-1. *Hello App Insights!* 를 메시지 텍스트로 입력하는 것을 제외하고는 [이전](#trigger-the-function)과 동일한 방식으로 Visual Studio의 **서버 탐색기**를 사용하여 큐 메시지를 만듭니다.
+1. *Hello App Insights!* 를 메시지 텍스트로 입력하는 것을 제외하고는 [이전](#trigger-the-function-in-azure)과 동일한 방식으로 Visual Studio의 **서버 탐색기**를 사용하여 큐 메시지를 만듭니다.
 
 1. 프로젝트를 실행합니다.
 

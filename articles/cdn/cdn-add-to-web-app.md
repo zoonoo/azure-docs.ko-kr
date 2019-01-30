@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: db4a9a43a971f66870c2079762b9c62802122baa
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 33b47d33262a4968a0eafb9ec70ef73e50975735
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093326"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602820"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>자습서: Azure App Service 웹앱에 Azure CDN 추가
 
-이 자습서에서는 [Azure CDN(Content Delivery Network)](cdn-overview.md)을 [Azure App Service의 웹앱](../app-service/app-service-web-overview.md)에 추가하는 방법을 보여줍니다. 웹앱은 웹 응용 프로그램, REST API 및 모바일 백 엔드를 호스팅하는 서비스입니다. 
+이 자습서에서는 [Azure CDN(Content Delivery Network)](cdn-overview.md)을 [Azure App Service의 웹앱](../app-service/overview.md)에 추가하는 방법을 보여줍니다. 웹앱은 웹 애플리케이션, REST API 및 모바일 백 엔드를 호스팅하는 서비스입니다. 
 
 사용하게 될 샘플 정적 HTML 사이트의 홈 페이지는 다음과 같습니다.
 

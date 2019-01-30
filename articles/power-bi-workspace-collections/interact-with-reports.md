@@ -1,6 +1,6 @@
 ---
 title: JavaScript API를 사용하여 보고서와 상호 작용 | Microsoft Docs
-description: Power BI JavaScript API를 사용하면 응용 프로그램에 Power BI 보고서를 쉽게 포함할 수 있습니다.
+description: Power BI JavaScript API를 사용하면 애플리케이션에 Power BI 보고서를 쉽게 포함할 수 있습니다.
 services: power-bi-embedded
 author: markingmyname
 ROBOTS: NOINDEX
@@ -19,20 +19,20 @@ ms.locfileid: "43048676"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>JavaScript API를 사용하여 Power BI 보고서와 상호 작용
 
-Power BI JavaScript API를 사용하면 응용 프로그램에 Power BI 보고서를 쉽게 포함할 수 있습니다. 응용 프로그램에서 API를 사용하여 프로그래밍 방식으로 페이지 및 필터와 같은 다른 보고서 요소와 상호 작용할 수 있습니다. 이러한 상호 작용은 Power BI 보고서가 응용 프로그램에 더욱 통합되게 합니다.
+Power BI JavaScript API를 사용하면 애플리케이션에 Power BI 보고서를 쉽게 포함할 수 있습니다. 애플리케이션에서 API를 사용하여 프로그래밍 방식으로 페이지 및 필터와 같은 다른 보고서 요소와 상호 작용할 수 있습니다. 이러한 상호 작용은 Power BI 보고서가 애플리케이션에 더욱 통합되게 합니다.
 
 > [!IMPORTANT]
-> Power BI 작업 영역 컬렉션은 2018년 6월 또는 계약에서 명시한 때까지만 사용할 수 있으며 이후에는 사용되지 않습니다. 응용 프로그램에서 중단을 방지하기 위해 Power BI Embedded에 대한 마이그레이션을 계획하는 것이 좋습니다. Power BI Embedded에 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [Power BI Embedded에 Power BI 작업 영역 컬렉션 콘텐츠를 마이그레이션하는 방법](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)을 참조하세요.
+> Power BI 작업 영역 컬렉션은 2018년 6월 또는 계약에서 명시한 때까지만 사용할 수 있으며 이후에는 사용되지 않습니다. 애플리케이션에서 중단을 방지하기 위해 Power BI Embedded에 대한 마이그레이션을 계획하는 것이 좋습니다. Power BI Embedded에 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [Power BI Embedded에 Power BI 작업 영역 컬렉션 콘텐츠를 마이그레이션하는 방법](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)을 참조하세요.
 
-응용 프로그램의 일부로 호스팅되는 iframe을 사용하여 응용 프로그램에 Power BI 보고서를 포함합니다. iframe은 다음 이미지에 표시된 대로 응용 프로그램 및 보고서 간에 경계의 역할을 합니다.
+애플리케이션의 일부로 호스팅되는 iframe을 사용하여 애플리케이션에 Power BI 보고서를 포함합니다. iframe은 다음 이미지에 표시된 대로 애플리케이션 및 보고서 간에 경계의 역할을 합니다.
 
 ![Javascript API가 없는 Power BI 작업 영역 컬렉션 iframe](media/interact-with-reports/iframe-without-javacript.png)
 
-iframe을 통해 포함 프로세스가 훨씬 쉬워지지만 JavaScript API 없이 보고서와 응용 프로그램은 서로 상호 작용할 수 없습니다. 상호 작용이 부족하면 보고서가 실제로 응용 프로그램의 일부가 아닌 것처럼 느낄 수 있습니다. 보고서와 응용 프로그램은 실제로 다음 이미지와 같이 서로 통신해야 합니다.
+iframe을 통해 포함 프로세스가 훨씬 쉬워지지만 JavaScript API 없이 보고서와 애플리케이션은 서로 상호 작용할 수 없습니다. 상호 작용이 부족하면 보고서가 실제로 애플리케이션의 일부가 아닌 것처럼 느낄 수 있습니다. 보고서와 애플리케이션은 실제로 다음 이미지와 같이 서로 통신해야 합니다.
 
 ![Javascript API가 있는 Power BI 작업 영역 컬렉션 iframe](media/interact-with-reports/iframe-with-javascript.png)
 
-Power BI JavaScript API를 사용하면 안전하게 iframe 경계를 통과할 수 있는 코드를 작성할 수 있습니다. 이를 통해 응용 프로그램은 프로그래밍 방식으로 보고서에서 작업을 수행하고 보고서 내에서 사용자가 만든 작업으로부터의 이벤트를 수신 대기할 수 있습니다.
+Power BI JavaScript API를 사용하면 안전하게 iframe 경계를 통과할 수 있는 코드를 작성할 수 있습니다. 이를 통해 애플리케이션은 프로그래밍 방식으로 보고서에서 작업을 수행하고 보고서 내에서 사용자가 만든 작업으로부터의 이벤트를 수신 대기할 수 있습니다.
 
 ## <a name="what-can-you-do-with-the-power-bi-javascript-api"></a>Power BI JavaScript API를 사용하여 할 수 있는 작업은 무엇인가요?
 
@@ -43,10 +43,10 @@ JavaScript API를 통해 보고서를 관리하고 보고서의 페이지를 탐
 ### <a name="manage-reports"></a>보고서 관리
 Javascript API를 통해 보고서 및 페이지 수준에서 동작을 관리할 수 있습니다.
 
-* 응용 프로그램에 특정 Power BI 보고서를 안전하게 포함 - [데모 응용 프로그램 포함](http://azure-samples.github.io/powerbi-angular-client/#/scenario1)
+* 애플리케이션에 특정 Power BI 보고서를 안전하게 포함 - [데모 애플리케이션 포함](http://azure-samples.github.io/powerbi-angular-client/#/scenario1)
   * 액세스 토큰 설정
 * 보고서 구성
-  * 필터 창 및 페이지 탐색 창 사용 및 사용 안 함 - [설정 데모 응용 프로그램 업데이트](http://azure-samples.github.io/powerbi-angular-client/#/scenario6)
+  * 필터 창 및 페이지 탐색 창 사용 및 사용 안 함 - [설정 데모 애플리케이션 업데이트](http://azure-samples.github.io/powerbi-angular-client/#/scenario6)
   * 페이지 및 필터에 대한 기본값 설정 - [기본값 데모 설정](http://azure-samples.github.io/powerbi-angular-client/#/scenario5)
 * 전체 화면 모드 시작 및 종료
 
@@ -117,7 +117,7 @@ const advancedFilter: pbi.models.IAdvancedFilter = {
 
 ### <a name="handling-events"></a>이벤트 처리
 
-응용 프로그램은 iframe에 정보를 보낼 뿐만 아니라 iframe에서 가져온 다음 이벤트에 대한 정보를 받을 수 있습니다.
+애플리케이션은 iframe에 정보를 보낼 뿐만 아니라 iframe에서 가져온 다음 이벤트에 대한 정보를 받을 수 있습니다.
 
 * Embed
   * loaded

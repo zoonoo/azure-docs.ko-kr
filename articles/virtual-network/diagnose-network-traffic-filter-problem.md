@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 366ff0b59835ca3a28cafd5de77c0bd645ff58c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d05adabc9bbabdb9f6d1af9831dbb33afe63cf87
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984231"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424645"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>가상 머신 네트워크 트래픽 필터 문제 진단
 
@@ -77,7 +77,7 @@ NSG에서는 VM에서 들어오고 나가는 트래픽 유형을 제어할 수 �
 
 ## <a name="diagnose-using-powershell"></a>PowerShell을 사용하여 진단
 
-[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령 또는 컴퓨터에서 PowerShell을 사용하여 실행할 수 있습니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행하는 경우 *AzureRM* PowerShell 모듈 버전 6.0.1 이상이 필요합니다. 컴퓨터에서 `Get-Module -ListAvailable AzureRM`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. PowerShell을 로컬로 실행 중인 경우 `Login-AzureRmAccount`를 실행하여 [필요한 권한](virtual-network-network-interface.md#permissions)을 가진 계정으로 Azure에 로그인해야 합니다.
+[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령 또는 컴퓨터에서 PowerShell을 사용하여 실행할 수 있습니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행하는 경우 *AzureRM* PowerShell 모듈 버전 6.0.1 이상이 필요합니다. 컴퓨터에서 `Get-Module -ListAvailable AzureRM`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. PowerShell을 로컬로 실행 중인 경우 `Login-AzureRmAccount`를 실행하여 [필요한 권한](virtual-network-network-interface.md#permissions)을 가진 계정으로 Azure에 로그인해야 합니다.
 
 [Get-AzureRmEffectiveNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup)을 사용하여 네트워크 인터페이스에 대한 효과적인 보안 규칙을 가져옵니다. 다음 예제에서는 *myResourceGroup*이라는 리소스 그룹에 있는 *myVMVMNic*라는 네트워크 인터페이스에 대한 효과적인 보안 규칙을 가져옵니다.
 
@@ -179,7 +179,7 @@ az vm show \
 
 규칙을 만든 후 규칙의 우선 순위는 트래픽을 거부하는 *DenyAllInBound*라는 기본 보안 규칙보다 높기 때문에 포트 80은 인터넷에서 허용된 인바운드입니다. [보안 규칙을 만드는](manage-network-security-group.md#create-a-security-rule) 방법을 알아봅니다. 다른 NSG가 네트워크 인터페이스와 서브넷 모두에 연결되어 있는 경우 두 NSG에 동일한 규칙을 만들어야 합니다.
 
-Azure에서 인바운드 트래픽을 처리할 때 서브넷에 연결된 NSG의 규칙을 처리한 다음(연결된 NSG가 있는 경우), 네트워크 인터페이스에 연결된 NSG의 규칙을 처리합니다. 네트워크 인터페이스와 서브넷에 연결된 NSG가 있는 경우 포트는 VM에 도달하는 트래픽에 대해 두 NSG에서 열려야 합니다. 관리 및 통신 문제를 완화하려면 개별 네트워크 인터페이스가 아닌 서브넷에 NSG를 연결하는 것이 좋습니다. 서브넷 내의 VM에 다른 보안 규칙이 필요한 경우 ASG(응용 프로그램 보안 그룹)의 네트워크 인터페이스 멤버를 만들고, ASG를 보안 규칙의 원본 및 대상으로 지정할 수 있습니다. [응용 프로그램 보안 그룹](security-overview.md#application-security-groups)에 대해 자세히 알아봅니다.
+Azure에서 인바운드 트래픽을 처리할 때 서브넷에 연결된 NSG의 규칙을 처리한 다음(연결된 NSG가 있는 경우), 네트워크 인터페이스에 연결된 NSG의 규칙을 처리합니다. 네트워크 인터페이스와 서브넷에 연결된 NSG가 있는 경우 포트는 VM에 도달하는 트래픽에 대해 두 NSG에서 열려야 합니다. 관리 및 통신 문제를 완화하려면 개별 네트워크 인터페이스가 아닌 서브넷에 NSG를 연결하는 것이 좋습니다. 서브넷 내의 VM에 다른 보안 규칙이 필요한 경우 ASG(애플리케이션 보안 그룹)의 네트워크 인터페이스 멤버를 만들고, ASG를 보안 규칙의 원본 및 대상으로 지정할 수 있습니다. [애플리케이션 보안 그룹](security-overview.md#application-security-groups)에 대해 자세히 알아봅니다.
 
 여전히 통신 문제가 있는 경우 [고려 사항](#considerations) 및 [추가 진단](#additional-dignosis)을 참조하세요.
 

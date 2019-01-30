@@ -1,24 +1,26 @@
 ---
-title: '자습서: Bing News Search 단일 페이지 앱'
+title: '자습서: 단일 페이지 웹앱 만들기 - Bing News Search API'
 titlesuffix: Azure Cognitive Services
-description: 단일 페이지 웹 응용 프로그램에서 Bing News Search API를 사용하는 방법을 설명합니다.
+description: 이 자습서를 사용하여 검색 쿼리를 Bing News API에 보낼 수 있는 단일 페이지 웹 애플리케이션을 빌드하고 웹 페이지 내에 결과를 표시합니다.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: tutorial
-ms.date: 10/30/2017
+ms.date: 01/10/2019
 ms.author: v-gedod
-ms.openlocfilehash: 1d27751d12c82736ca519bb3a0e9bcd49bef4a47
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.custom: seodec2018
+ms.openlocfilehash: 02cfd00b8ab1f51c46e745dae480e39dee2ed710
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803650"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262339"
 ---
-# <a name="tutorial-single-page-news-search-app"></a>자습서: 단일 페이지 News Search 앱
-Bing News Search API를 사용하여 웹을 검색하고 검색 쿼리와 관련된 뉴스 유형의 결과를 얻을 수 있습니다. 이 자습서에서는 Bing News Search API를 사용하여 페이지에 검색 결과를 표시하는 단일 페이지 웹 응용 프로그램을 빌드합니다. 응용 프로그램에는 HTML, CSS 및 JavaScript 구성 요소가 포함됩니다.
+# <a name="tutorial-create-a-single-page-web-app"></a>자습서: 단일 페이지 웹앱 만들기
+
+Bing News Search API를 사용하여 웹을 검색하고 검색 쿼리와 관련된 뉴스 유형의 결과를 얻을 수 있습니다. 이 자습서에서는 Bing News Search API를 사용하여 페이지에 검색 결과를 표시하는 단일 페이지 웹 애플리케이션을 빌드합니다. 애플리케이션에는 HTML, CSS 및 JavaScript 구성 요소가 포함됩니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingNewsSearchApp.html)에 제공됩니다.
 
 <!-- Remove until we can replace it with sanitized copy
 ![Single-page Bing News Search app](media/news-search-singlepage.png)
@@ -38,10 +40,8 @@ Bing News Search API를 사용하여 웹을 검색하고 검색 쿼리와 관련
 
 자습서 페이지는 완전히 독립적입니다. 즉, 모든 외부 프레임워크, 스타일시트 또는 이미지 파일을 사용하지 않습니다. 이 페이지는 광범위하게 지원되는 JavaScript 언어 기능만 사용하며, 모든 주요 웹 브라우저의 현재 버전에서 작동합니다.
 
-이 자습서에서는 소스 코드의 선택된 부분에 대해 설명합니다. 전체 [소스 코드](tutorial-bing-news-search-single-page-app-source.md)를 확인할 수 있습니다. 예제를 실행하려면 소스 코드를 복사한 후 텍스트 편집기에 붙여넣고 `bing.html`로 저장합니다.
-
 ## <a name="app-components"></a>앱 구성 요소
-단일 페이지 웹앱과 마찬가지로, 이 자습서 응용 프로그램은 다음 세 부분으로 구성되어 있습니다.
+단일 페이지 웹앱과 마찬가지로, 이 자습서 애플리케이션은 다음 세 부분으로 구성되어 있습니다.
 
 > [!div class="checklist"]
 > * HTML - 페이지의 구조와 콘텐츠를 정의합니다.
@@ -88,7 +88,7 @@ function getSubscriptionKey() {
     return key;
 }
 ```
-HTML `<form>` 태그 `onsubmit`는 `bingWebSearch` 함수를 호출하여 검색 결과를 반환합니다. `bingWebSearch`는 `getSubscriptionKey()`를 사용하여 각 쿼리를 인증합니다. 이전 정의에 표시된 것처럼 키를 입력하지 않은 경우 `getSubscriptionKey`는 사용자에게 키를 확인하는 메시지를 표시합니다. 그런 다음, 응용 프로그램에서 계속 사용할 수 있도록 키가 저장됩니다.
+HTML `<form>` 태그 `onsubmit`는 `bingWebSearch` 함수를 호출하여 검색 결과를 반환합니다. `bingWebSearch`는 `getSubscriptionKey()`를 사용하여 각 쿼리를 인증합니다. 이전 정의에 표시된 것처럼 키를 입력하지 않은 경우 `getSubscriptionKey`는 사용자에게 키를 확인하는 메시지를 표시합니다. 그런 다음, 애플리케이션에서 계속 사용할 수 있도록 키가 저장됩니다.
 
 ```html
 <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
@@ -395,7 +395,7 @@ Bing Search API의 응답에는 후속 요청과 함께 API로 다시 전송되�
 브라우저 보안 정책(CORS) 때문에 JavaScript에서 `X-MSEdge-ClientID` 헤더를 사용하지 못할 수 있습니다. 이러한 제한은 검색 응답의 원본이 해당 응답을 요청한 페이지와 다른 경우에 발생합니다. 프로덕션 환경에서는 웹 페이지와 동일한 도메인에 대해 API 호출을 수행하는 서버 쪽 스크립트를 호스트하여 이 정책 문제를 해결해야 합니다. 스크립트의 원본은 웹 페이지와 동일하므로 JavaScript에서 `X-MSEdge-ClientID` 헤더를 사용할 수 있습니다.
 
 > [!NOTE]
-> 프로덕션 웹 응용 프로그램의 경우 서버 쪽에서 요청을 수행해야 합니다. 그렇지 않은 경우 Bing Search API 키를 웹 페이지에 포함해야만 원본을 보는 누구나 사용할 수 있게 됩니다. 권한 없는 사람이 수행한 요청을 포함하여 API 구독 키를 통한 모든 사용량에 요금이 청구되므로, 키를 노출하지 않는 것이 중요합니다.
+> 프로덕션 웹 애플리케이션의 경우 서버 쪽에서 요청을 수행해야 합니다. 그렇지 않은 경우 Bing Search API 키를 웹 페이지에 포함해야만 원본을 보는 누구나 사용할 수 있게 됩니다. 권한 없는 사람이 수행한 요청을 포함하여 API 구독 키를 통한 모든 사용량에 요금이 청구되므로, 키를 노출하지 않는 것이 중요합니다.
 
 개발 목적으로 CORS 프록시를 통해 Bing Web Search API 요청을 수행할 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 허용 목록에 추가하고 JavaScript에서 응답 헤더를 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
 

@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: fef4ecd207fd32b5a92a4c072832f3ab45b58300
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 74b421691f5d3536c44af16e99dc54451dfde3f7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627971"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872767"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>문서 형식 및 명명 규칙 가이드
 
@@ -43,11 +43,13 @@ ms.locfileid: "51627971"
 
 문서를 하나의 zip 파일로 묶어서 업로드할 수 있습니다. Custom Translator는 zip 파일 형식 ZIP, GZ, TGZ를 지원합니다.
 
-zip 파일에 포함된 각 문서는 다음과 같은 명명 규칙을 따라야 합니다.
+TXT, HTML, HTM, PDF, DOCX, ALIGN 확장명의 zip 파일에서 각 문서는 이 명명 규칙을 따라야 합니다.
 
 {document name}\_{language code}: 여기서 {document name}은 문서 이름이고 {language code}는 문서에 해당 언어의 문장이 포함되어 있음을 나타내는 ISO LanguageID(2자)입니다. 언어 코드 앞에는 밑줄(_)이 와야 합니다.
 
 예를 들어, 영어-스페인어 시스템을 위해 하나의 zip 파일로 2개의 병렬 문서를 업로드하려면 파일 이름이 각각 “data_en”과 “data_es”가 되어야 합니다.
+
+번역 메모리 파일(TMX, XLF, XLIFF, LCL, XLSX)은 특정 언어 명명 규칙을 따르지 않아도 됩니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

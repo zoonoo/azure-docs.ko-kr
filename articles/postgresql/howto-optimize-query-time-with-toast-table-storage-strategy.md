@@ -3,16 +3,15 @@ title: 알림 테이블 스토리지 전략을 사용하여 Azure Database for P
 description: 이 문서에서는 Azure Database for PostgreSQL 서버에서 알림 테이블 스토리지 전략을 사용하여 쿼리 시간을 최적화하는 방법을 설명합니다.
 author: dianaputnam
 ms.author: dianas
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: dee8aaaef4b1998a7234a88d07ad5efbc79d050b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 1fb818a65e26f969f72131b0f5265f3efdd36bb6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628841"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542222"
 ---
 # <a name="optimizing-query-time-with-toast-table-storage-strategy"></a>TOAST 테이블 스토리지 전략을 사용하여 쿼리 시간 최적화 
 이 문서에서는 TOAST 테이블 스토리지 전략을 사용하여 쿼리 시간을 최적화하는 방법을 설명합니다.
@@ -32,4 +31,4 @@ ms.locfileid: "51628841"
 ## <a name="next-steps"></a>다음 단계
 위의 특성은 워크로드를 검토합니다. 
 
-PostgreSQL 설명서 [68장: 데이터베이스 실제 스토리지](https://www.postgresql.org/docs/current/storage-toast.html)를 검토합니다. 
+다음 PostgreSQL 설명서를 검토합니다. [Chapter 68, Database physical storage](https://www.postgresql.org/docs/current/storage-toast.html)(68장, 데이터베이스 물리적 스토리지) 

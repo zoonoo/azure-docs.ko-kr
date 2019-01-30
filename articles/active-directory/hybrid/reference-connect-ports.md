@@ -4,7 +4,7 @@ description: 이 페이지는 Azure AD Connect에 대해 열려야 하는 포트
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: de97b225-ae06-4afc-b2ef-a72a3643255b
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4ae221efe19d548c3b19cfcebc6728390cabf2b1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 38a344fb6e67beae6310480646d84a1fe7730f84
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306822"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461045"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>포트 및 프로토콜이 필요한 하이브리드 ID
 다음 문서는 하이브리드 ID 솔루션을 구현하는 포트 및 프로토콜에 대한 기술 참조입니다. 다음 그림을 사용하고 해당 테이블을 참조합니다.

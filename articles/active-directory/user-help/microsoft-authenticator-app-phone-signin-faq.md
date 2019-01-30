@@ -3,7 +3,7 @@ title: Microsoft Authenticator 휴대폰 로그인 - Azure 및 Microsoft 계정 
 description: 암호를 입력하는 대신 휴대폰을 사용하여 Microsoft 계정에 로그인합니다. 이 문서에서는 이 기능에 대한 FAQ를 제공합니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: user-help
@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 08/12/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: b2483d93fdc83970ca1568326f4bc728de16f77c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 39ad9beeb6e562a4487588967910efaf0cbe4d84
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038870"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822538"
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>암호가 아닌 휴대폰을 사용하여 로그인
 Microsoft Authenticator 앱을 통해 암호를 입력한 후 2단계 인증을 수행하여 계정 보안을 유지할 수 있을 뿐 아니라 이제는 Microsoft 계정을 완전히 대신할 수 있습니다.
 
-이 기능은 iOS 장치 및 Android 6.0 이상을 실행하는 Android 장치에서 사용할 수 있습니다.
+이 기능은 iOS 디바이스 및 Android 6.0 이상을 실행하는 Android 디바이스에서 사용할 수 있습니다.
  
 ## <a name="how-it-works"></a>작동 방법
 사용자들은 대부분 Microsoft 계정에 로그인할 때 2단계 인증을 위해 Microsoft Authenticator 앱을 사용합니다. 암호를 입력한 후 앱으로 이동하여 알림을 승인하거나 확인 코드를 가져옵니다. 휴대폰 로그인을 사용하여 암호를 건너뛰고 휴대폰에서 ID 확인을 모두 수행할 수 있습니다. 휴대폰 로그인은 2단계 인증 유형이기 때문에 사용자의 신분 확인을 위해 사용자가 알고 있는 것과 보유하고 있는 것에 대한 정보를 제공해야 합니다. 휴대폰은 사용자가 보유하고 있는 것이지만, 휴대폰의 PIN 또는 생체 인식 키는 사용자가 알고 있는 것입니다.
@@ -43,13 +43,13 @@ Microsoft Authenticator 앱을 통해 암호를 입력한 후 2단계 인증을 
 
     사용자 이름을 입력하면 2자리 숫자가 보이는 페이지가 표시되고 Microsoft Authenticator 앱을 통해 로그인을 승인하라는 메시지가 표시됩니다. 이 로그인 방법을 사용하지 않으려면 **암호를 대신 사용**하도록 선택하고, 암호를 사용하여 로그인합니다.
 
-    ![로그인 승인 상자](media\microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
+    ![로그인 승인 상자](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
 
 2. Microsoft 인증 앱에서 **로그인 승인**을 요청하는 알림을 받게 됩니다. 로그인 시도를 인식한 경우 **승인**을 선택합니다. 그렇지 않은 경우 **거부**를 선택합니다. 
 
 3. **로그인 승인** 화면의 번호와 같은 번호를 탭합니다. 휴대폰의 PIN 또는 생체 인식 키를 사용하여 인증을 완료합니다.
 
-    ![선택할 번호가 있는 로그인 승인 상자](media\microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
+    ![선택할 번호가 있는 로그인 승인 상자](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
 
 ## <a name="turn-on-phone-sign-in-for-your-personal-account"></a>개인 계정에 휴대폰 로그인 사용 
 Outlook.com, Xbox, Skype 등의 개인 Microsoft 계정에 휴대폰 로그인할 사용할 수 있습니다.
@@ -63,7 +63,7 @@ Outlook.com, Xbox, Skype 등의 개인 Microsoft 계정에 휴대폰 로그인�
 - **이미 2단계 인증에 Microsoft Authenticator 앱을 사용하는 경우.** 앱의 **계정** 화면으로 이동하여 회사 또는 학교 계정에 대한 드롭다운 화살표를 선택한 다음, **휴대폰 로그인 사용**을 선택합니다.
 
     >[!NOTE]
-    >계정을 보호하기 위해 앱에서 장치의 PIN 또는 생체 인식을 잠글 것을 요구합니다. 휴대폰을 잠금 해제 상태로 유지하면 휴대폰 로그인을 활성화하기 전에 보안 잠금을 설정하라고 앱에서 요구합니다.
+    >계정을 보호하기 위해 앱에서 디바이스의 PIN 또는 생체 인식을 잠글 것을 요구합니다. 휴대폰을 잠금 해제 상태로 유지하면 휴대폰 로그인을 활성화하기 전에 보안 잠금을 설정하라고 앱에서 요구합니다.
 
 ### <a name="to-use-phone-sign-in-to-sign-in-to-your-personal-account"></a>휴대폰 로그인을 사용하여 개인 계정에 로그인하려면 
 

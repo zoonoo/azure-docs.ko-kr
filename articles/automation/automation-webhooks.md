@@ -3,22 +3,22 @@ title: 웹후크를 사용하여 Azure Automation Runbook 시작
 description: 클라이언트가 Azure Automation에서 HTTP 호출을 통해 runbook을 시작하는 데 사용되는 webhook입니다.  이 문서는 webhook를 만드는 방법 및 webhook를 호출하여 runbook을 시작하는 방법에 대해 설명합니다.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/04/2018
+ms.date: 10/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a65a0b8e054b1d0bb6cd4cbeb2daf9be2b132a9e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 19a771d75cd1f2a2a18a3a4c42fcc34e55afb111
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304535"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438850"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>웹후크를 사용하여 Azure Automation Runbook 시작
 
-*Webhook*를 사용하면 단일 HTTP 요청을 통해 Azure Automation에서 특정 runbook을 시작할 수 있습니다. 이는 Azure Automation API를 사용하여 전체 솔루션을 구현하지 않아도 Azure DevOps Services, GitHub, Azure Log Analytics 또는 사용자 지정 응용 프로그램과 같은 외부 서비스가 Runbook을 시작할 수 있게 해줍니다.  
+*Webhook*를 사용하면 단일 HTTP 요청을 통해 Azure Automation에서 특정 runbook을 시작할 수 있습니다. 이는 Azure Automation API를 사용하여 전체 솔루션을 구현하지 않아도 Azure DevOps Services, GitHub, Azure Log Analytics 또는 사용자 지정 애플리케이션과 같은 외부 서비스가 Runbook을 시작할 수 있게 해줍니다.  
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 [Azure Automation에서 Runbook 시작](automation-starting-a-runbook.md)
@@ -29,9 +29,9 @@ ms.locfileid: "44304535"
 
 | 자산 | 설명 |
 |:--- |:--- |
-| Name |클라이언트에 노출되지 않으므로 원하는 Webhook 이름을 제공할 수 있습니다. Azure Automation에서 사용자가 runbook을 식별하는 용도로만 사용됩니다. <br> 가장 좋은 방법은 webhook를 사용할 클라이언트와 관련된 이름을 지정하는 것입니다. |
+| 이름 |클라이언트에 노출되지 않으므로 원하는 Webhook 이름을 제공할 수 있습니다. Azure Automation에서 사용자가 runbook을 식별하는 용도로만 사용됩니다. <br> 가장 좋은 방법은 webhook를 사용할 클라이언트와 관련된 이름을 지정하는 것입니다. |
 | URL |webhook의 URL은 클라이언트가 webhook에 연결된 runbook을 시작하기 위해 HTTP POST로 호출하는 고유한 주소입니다. webhook를 만들 때 자동으로 생성됩니다. 사용자 지정 URL은 지정할 수 없습니다. <br> <br> URL에는 타사 시스템이 추가 인증 없이 runbook을 호출할 수 있게 해주는 보안 토큰이 포함됩니다. 따라서 암호처럼 취급해야 합니다. 보안상의 이유로 이 URL은 Azure 포털에서 webhook가 생성될 때만 볼 수 있습니다. 이 URL을 나중에 사용할 수 있도록 안전한 위치에 기록해 둡니다. |
-| 만료 날짜 |각 webhook는 인증서처럼 만료 날짜가 있으며, 이 날짜가 되면 인증서를 더 이상 사용할 수 없습니다. 웹후크를 생성한 후에 이 만료 날짜를 수정할 수 있습니다. |
+| 만료 날짜 |각 webhook는 인증서처럼 만료 날짜가 있으며, 이 날짜가 되면 인증서를 더 이상 사용할 수 없습니다. webhook가 만료되지 않는 한 webhook를 생성한 후에 이 만료 날짜를 수정할 수 있습니다. |
 | 사용 |webhook는 생성되었을 때 기본적으로 사용하도록 설정됩니다. 사용 안함으로 설정할 경우 클라이언트가 사용할 수 없게 됩니다. **Enabled** 속성은 webhook를 만들 때 또는 webhook가 생성된 후 언제든지 설정할 수 있습니다. |
 
 ### <a name="parameters"></a>매개 변수
@@ -99,7 +99,7 @@ Azure 포털에서 runbook에 연결된 새 webhook를 만들려면 다음 절�
 
 ## <a name="using-a-webhook"></a>webhook 사용
 
-만들어진 후 webhook를 사용하려면 클라이언트 응용 프로그램이 webhook의 URL로 HTTP POST를 실행해야 합니다. webhook의 구문 형식은 다음과 같습니다.
+만들어진 후에 webhook를 사용하려면 클라이언트 애플리케이션이 webhook의 URL로 HTTP POST를 실행해야 합니다. webhook의 구문 형식은 다음과 같습니다.
 
 ```http
 http://<Webhook Server>/token?=<Token Value>
@@ -122,6 +122,12 @@ http://<Webhook Server>/token?=<Token Value>
 
 클라이언트는 runbook 작업이 완료되었거나 webhook의 완료 상태인 경우 클라이언트를 확인할 수 없습니다. [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) 또는 [Azure Automation API](/rest/api/automation/job)와 같은 다른 메서드로 작업 ID를 사용하여 이 정보를 확인할 수 있습니다.
 
+## <a name="renew-webhook"></a>webhook 갱신
+
+webhook를 만들 때 1년의 유효 기간이 있습니다. 해당 연도 후 webhook는 자동으로 만료됩니다. webhook가 만료되면 다시 활성화할 수 없습니다. 제거하고 다시 생성해야 합니다. webhook가 만료 시간에 도달하지 않은 경우 만료 시간을 확장할 수 있습니다.
+
+webhook를 확장하려면 webhook를 포함하는 Runbook으로 이동합니다. **리소스** 아래에서 **Webhook**를 선택합니다. 확장하려는 webhook를 클릭하면 **Webhook** 페이지가 열립니다.  새 만료 날짜 및 시간을 선택하고 **저장**을 클릭합니다.
+
 ## <a name="sample-runbook"></a>샘플 Runbook
 
 다음 샘플 Runbook은 webhook 데이터를 수락하고 요청 본문에 지정된 가상 머신을 시작합니다. 이 Runbook을 테스트하려면 Automation 계정의 **Runbook** 아래에서 **+ Runbook 추가**를 클릭합니다. Runbook을 만드는 방법을 모르는 경우 [Runbook 만들기](automation-quickstart-create-runbook.md)를 참조하세요.
@@ -133,8 +139,20 @@ param
     [object] $WebhookData
 )
 
+
+
 # If runbook was called from Webhook, WebhookData will not be null.
 if ($WebhookData) {
+
+    # Check header for message to validate request
+    if ($WebhookData.RequestHeader.message -eq 'StartedbyContoso')
+    {
+        Write-Output "Header has required information"}
+    else
+    {
+        Write-Output "Header missing required information";
+        exit;
+    }
 
     # Retrieve VM's from Webhook request body
     $vms = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
@@ -143,7 +161,7 @@ if ($WebhookData) {
 
     Write-Output "Authenticating to Azure with service principal and certificate"
     $ConnectionAssetName = "AzureRunAsConnection"
-    Write-Output "Get connection asset: $ConnectionAssetName" 
+    Write-Output "Get connection asset: $ConnectionAssetName"
 
     $Conn = Get-AutomationConnection -Name $ConnectionAssetName
             if ($Conn -eq $null)
@@ -171,7 +189,7 @@ else {
 
 다음 예제는 Windows PowerShell을 사용하여 webhook로 runbook을 시작합니다. HTTP 요청을 만들 수 있는 모든 언어는 webhook를 사용할 수 있습니다. Windows PowerShell은 예제로 여기에서 사용됩니다.
 
-Runbook에는 요청 본문에 JSON으로 서식이 지정된 가상 머신의 목록이 있어야 합니다.
+Runbook에는 요청 본문에 JSON으로 서식이 지정된 가상 머신의 목록이 있어야 합니다. Runbook은 헤더에 webhook 호출자가 유효한지 유효성을 검사하는 특별히 정의된 메시지가 포함되어 있는지 유효성을 검사합니다.
 
 ```azurepowershell-interactive
 $uri = "<webHook Uri>"
@@ -181,8 +199,8 @@ $vms  = @(
             @{ Name="vm02";ResourceGroup="vm02"}
         )
 $body = ConvertTo-Json -InputObject $vms
-
-$response = Invoke-RestMethod -Method Post -Uri $uri -Body $body
+$header = @{ message="StartedbyContoso"}
+$response = Invoke-RestMethod -Method Post -Uri $uri -Body $body -Headers $header
 $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
 ```
 
@@ -208,3 +226,4 @@ $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Automation을 사용하여 Azure 경고에 대해 조치를 취하는 방법을 알아보려면 [경고를 사용하여 Azure Automation Runbook 트리거](automation-create-alert-triggered-runbook.md)를 참조하세요.
+

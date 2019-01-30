@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 62e15b5845ed9faa605f978f0d2fd427c9c3ee9b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 8295c149d513f89318aa63ddd7f4236013923203
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008184"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434011"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 아키텍처 모범 사례
 
@@ -57,25 +57,27 @@ HDInsight 클러스터가 오랜 기간 동안 사용되지 않을 수 있습니
 
 클러스터를 삭제할 때 관련된 저장소 계정 및 외부 메타데이터는 제거되지 않습니다. 나중에 동일한 저장소 계정 및 metastore를 사용하여 클러스터를 다시 만들 수 있습니다.
 
-Azure Data Factory를 사용하여 주문형 HDInsight 클러스터를 만들 일정을 예약할 수 있습니다. 자세한 내용은 [Azure Data Factory를 사용하여 HDInsight에서 주문형 Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-adf.md) 문서를 참조하세요.
+Azure Data Factory를 사용하여 주문형 HDInsight 클러스터를 만들 일정을 예약할 수 있습니다. 자세한 내용은 [Azure Data Factory를 사용하여 HDInsight에서 주문형 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-adf.md) 문서를 참조하세요.
 
 ## <a name="decouple-storage-from-compute"></a>컴퓨팅에서 저장소 분리
 
 일반적으로 온-프레미스 Hadoop 배포에서는 데이터 저장소 및 데이터 처리에 동일한 머신 집합을 사용합니다. 컴퓨팅 및 저장소가 공존하기 때문에 함께 크기를 조정해야 합니다.
 
-HDInsight 클러스터에서는 저장소가 컴퓨팅과 공존할 필요가 없으며 Azure 저장소, Azure Data Lake Storage 또는 둘 다에 있을 수 있습니다. 컴퓨팅에서 저장소를 분리할 경우 다음과 같은 혜택이 있습니다.
+HDInsight 클러스터에서는 스토리지가 컴퓨팅과 공존할 필요가 없으며 Azure 스토리지, Azure Data Lake Storage 또는 둘 다에 있을 수 있습니다. 컴퓨팅에서 저장소를 분리할 경우 다음과 같은 혜택이 있습니다.
 
 - 여러 클러스터에서 데이터 공유
 - 데이터가 클러스터에 종속되지 않으므로 임시 클러스터 사용
-- 저장소 비용 감소
-- 서로 분리해서 저장소 및 컴퓨팅 크기 조정
+- 스토리지 비용 절감
+- 별도로 스토리지 및 컴퓨팅 크기 조정
 - 여러 지역에서 데이터 복제
 
 컴퓨팅 클러스터는 Azure 지역에서 저장소 계정 리소스에 가까운 곳에 생성되어 컴퓨팅 및 저장소 분리로 인한 성능 저하를 완화합니다. 고속 네트워크를 사용하면 컴퓨팅 노드가 Azure 저장소 내의 데이터에 효율적으로 액세스할 수 있습니다.
 
 ## <a name="use-external-metadata-stores"></a>외부 메타데이터 저장소 사용
 
-HDInsight 클러스터에서 작동하는 두 가지 주요 metastore는 Hive 및 Oozie입니다. Hive metastore는 Hadoop, Spark, LLAP, Presto 및 Pig를 비롯한 데이터 처리 엔진에서 사용할 수 있는 중앙 스키마 리포지토리입니다. Oozie metastore는 진행 중인 Hadoop 작업과 완료된 Hadoop 작업의 일정 및 상태에 대한 세부 정보를 저장합니다.
+
+HDInsight 클러스터에서 작동하는 두 가지 주요 metastore는 [Apache Hive](https://hive.apache.org/) 및 [Apache Oozie](https://oozie.apache.org/)입니다. Hive metastore는 Hadoop, Spark, LLAP, Presto 및 Apache Pig를 비롯한 데이터 처리 엔진에서 사용할 수 있는 중앙 스키마 리포지토리입니다. Oozie metastore는 진행 중인 Hadoop 작업과 완료된 Hadoop 작업의 일정 및 상태에 대한 세부 정보를 저장합니다.
+
 
 HDInsight는 Hive 및 Oozie metastore에 Azure SQL Database를 사용합니다. HDInsight 클러스터에서 metastore를 설정하는 방법에는 다음 두 가지가 있습니다.
 
@@ -106,7 +108,7 @@ HDInsight는 Hive 및 Oozie metastore에 Azure SQL Database를 사용합니다. 
 - Azure Portal 또는 Azure Log Analytics와 같은 Azure SQL Database 모니터링 도구를 사용하여 성능 및 가용성 확인을 위해 metastore를 모니터링합니다.
 - 필요에 따라 **ANALYZE TABLE** 명령을 실행하여 테이블 및 열에 대한 통계를 생성합니다. 예: `ANALYZE TABLE [table_name] COMPUTE STATISTICS`
 
-## <a name="best-practices-for-different-types-of-workloads"></a>다양한 워크로드 유형의 모범 사례
+## <a name="best-practices-for-different-workloads"></a>다양한 워크로드에 대한 모범 사례
 
 - 대화형 Hive 쿼리에 LLAP 클러스터를 사용하여 응답 시간을 향상합니다. [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP)는 쿼리의 메모리 내 캐싱을 허용하는 Hive 2.0의 새로운 기능입니다. LLAP 덕분에 Hive 쿼리를 훨씬 빠르게,  [일부 경우에는 Hive 1.x보다 26배 더 빠르게](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/) 수행합니다.
 - Hive 작업 대신 Spark 작업을 사용합니다.

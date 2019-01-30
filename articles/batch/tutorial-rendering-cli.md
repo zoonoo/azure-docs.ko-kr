@@ -2,19 +2,19 @@
 title: 클라우드에서 장면 렌더링 - Azure Batch
 description: 자습서 - Batch Rendering Service 및 Azure 명령줄 인터페이스를 사용하여 Arnold에서 Autodesk 3ds Max 장면을 렌더링하는 방법을 알아봅니다.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: tutorial
-ms.date: 10/24/2018
-ms.author: danlep
+ms.date: 12/11/2018
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 9f9464874230538bf2976b47896dae8e67c9744f
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 0b9f6e440140edbec59d1bf837a0dfb16ab44d5f
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024395"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323425"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>자습서: Azure Batch를 사용하여 장면 렌더링 
 
@@ -27,11 +27,11 @@ Azure Batch Rendering Service는 클라우드 수준 렌더링 기능을 사용�
 > * 풀 크기 조정 및 다중 프레임 장면 렌더링
 > * 렌더링된 출력 다운로드
 
-이 자습서에서는 [Arnold](https://www.autodesk.com/products/arnold/overview) 광선 투사 방식 렌더러를 사용하여 Batch를 통해 3ds Max 장면을 렌더링합니다. Batch 풀은 사용량 기준 과금 라이선스를 제공하는 미리 설치된 그래픽 및 렌더링 응용 프로그램과 함께 Azure Marketplace 이미지를 사용합니다.
+이 자습서에서는 [Arnold](https://www.autodesk.com/products/arnold/overview) 광선 투사 방식 렌더러를 사용하여 Batch를 통해 3ds Max 장면을 렌더링합니다. Batch 풀은 사용량 기준 과금 라이선스를 제공하는 미리 설치된 그래픽 및 렌더링 애플리케이션과 함께 Azure Marketplace 이미지를 사용합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-사용량 기준 과금 단위로 일괄 처리에서 렌더링 응용 프로그램을 사용하는 데 종량제 구독 또는 다른 Azure 구입 옵션이 필요합니다. **사용량 기준 과금 라이선스는 금액 크레딧을 제공하는 무료 Azure 제품을 사용하는 경우 지원되지 않습니다.**
+사용량 기준 과금 단위로 일괄 처리에서 렌더링 애플리케이션을 사용하는 데 종량제 구독 또는 다른 Azure 구입 옵션이 필요합니다. **사용량 기준 과금 라이선스는 금액 크레딧을 제공하는 무료 Azure 제품을 사용하는 경우 지원되지 않습니다.**
 
 이 자습서의 3ds Max 장면 샘플은 Bash 스크립트 샘플 및 JSON 구성 파일과 함께 [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene)에 있습니다. 3ds Max 장면은 [Autodesk 3ds Max 샘플 파일](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe)에서 제공된 것입니다. (Autodesk 3ds Max 샘플 파일은 Creative 일반 저작자 표시 - 비영리 목적 - 동일 조건 변경 허락 라이선스에 따라 사용할 수 있습니다. Copyright © Autodesk, Inc.)
 
@@ -70,7 +70,7 @@ az batch account create \
     --location eastus2
 ```
 
-계산 풀 및 작업을 만들고 관리하려면 Batch를 통해 인증해야 합니다. [az batch account login](/cli/azure/batch/account#az-batch-account-login) 명령으로 계정에 로그인합니다. 로그인되면 이 계정 컨텍스트가 `az batch` 명령에 사용됩니다. 다음 예제에서는 배치 계정 이름과 키를 기반으로 하는 공유 키 인증을 사용합니다. 또한 Batch는 [Azure Active Directory](batch-aad-auth.md)를 통한 인증도 지원하여 개별 사용자 또는 무인 응용 프로그램을 인증합니다.
+계산 풀 및 작업을 만들고 관리하려면 Batch를 통해 인증해야 합니다. [az batch account login](/cli/azure/batch/account#az-batch-account-login) 명령으로 계정에 로그인합니다. 로그인되면 이 계정 컨텍스트가 `az batch` 명령에 사용됩니다. 다음 예제에서는 배치 계정 이름과 키를 기반으로 하는 공유 키 인증을 사용합니다. 또한 Batch는 [Azure Active Directory](batch-aad-auth.md)를 통한 인증도 지원하여 개별 사용자 또는 무인 애플리케이션을 인증합니다.
 
 ```azurecli-interactive 
 az batch account login \
@@ -124,7 +124,7 @@ az storage blob upload-batch \
       "publisher": "batch",
       "offer": "rendering-windows2016",
       "sku": "rendering",
-      "version": "1.2.1"
+      "version": "1.3.1"
     },
     "nodeAgentSKUId": "batch.node.windows amd64"
   },
@@ -264,7 +264,7 @@ az batch task show \
     --task-id myrendertask
 ```
 
-태스크는 계산 노드에서 *dragon0001.jpg*를 생성하고, 저장소 계정의 *job-myrenderjob* 컨테이너에 업로드합니다. 출력을 보려면 [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download) 명령을 사용하여 파일을 저장소에서 로컬 컴퓨터로 다운로드합니다.
+태스크는 계산 노드에서 *dragon0001.jpg*를 생성하고, 저장소 계정의 *job-myrenderjob* 컨테이너에 업로드합니다. 출력을 보려면 [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download) 명령을 사용하여 파일을 스토리지에서 로컬 컴퓨터로 다운로드합니다.
 
 ```azurecli-interactive
 az storage blob download \

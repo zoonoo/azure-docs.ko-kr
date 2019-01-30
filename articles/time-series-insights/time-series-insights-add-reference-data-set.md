@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights 환경에 참조 데이터 집합을 추가하는 방법
+title: Azure Time Series Insights 환경에 참조 데이터 집합을 추가하는 방법 | Microsoft Docs
 description: 이 문서에서는 Azure Time Series Insights 환경에서 참조 데이터 집합을 추가하여 데이터를 확장하는 방법을 설명합니다.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
-ms.openlocfilehash: 45520a556d109158987dd47e33a1efb52a1cd356
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: a14f568e2485e59cb3e567eb9ee5c5eb20b02afc
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364740"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198425"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Azure Portal을 사용하여 Time Series Insights 환경에 대한 참조 데이터 집합 만들기
 
@@ -59,9 +60,9 @@ ms.locfileid: "46364740"
    - 데이터를 텍스트 편집기에 붙여 넣습니다. 그런 다음, **참조 데이터 구문 분석** 단추를 선택합니다.
    - **파일 선택** 단추를 선택하여 로컬 텍스트 파일의 데이터를 추가합니다. 
 
-   예를 들어, ![CSV 데이터 붙여넣기](media/add-reference-data-set/csv_data_pasted.png)로 CSV 데이터를 붙여 넣습니다.
+   예를 들어 ![CSV 데이터 붙여넣기](media/add-reference-data-set/csv_data_pasted.png)로 CSV 데이터를 붙여넣습니다.
 
-   예를 들어, ![JSON 데이터 붙여넣기](media/add-reference-data-set/json_data_pasted.png)로 JSON 배열 데이터를 붙여 넣습니다.
+   예를 들어 ![JSON 데이터 붙여넣기](media/add-reference-data-set/json_data_pasted.png)로 JSON 배열 데이터를 붙여넣습니다.
 
    데이터 값을 구문 분석하는 동안 오류가 발생하면 페이지 하단에 빨간색으로 오류가 표시됩니다(예: `CSV parsing error, no rows extracted`).
 
@@ -97,4 +98,4 @@ ms.locfileid: "46364740"
 
 ## <a name="next-steps"></a>다음 단계
 * 프로그래밍 방식으로 [참조 데이터를 관리](time-series-insights-manage-reference-data-csharp.md)합니다.
-* 전체 API 참조는 [참조 데이터 API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) 문서를 참조하세요.
+* 전체 API 참조는 [참조 데이터 API](/rest/api/time-series-insights/ga-reference-data-api) 문서를 참조하세요.

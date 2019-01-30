@@ -1,32 +1,33 @@
 ---
-title: LUIS 미리 빌드된 온도 엔터티 참조 - Azure | Microsoft Docs
+title: 미리 빌드된 온도 엔터티
 titleSuffix: Azure
 description: 이 아티클에는 LUIS(Language Understanding)의 미리 빌드된 온도 엔터티가 포함됩니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 2716600346e65f2ca0b97e56cc156fdfb10ff3a4
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 348030d888383c497d80259b279056d8ff892bfe
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52440961"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165525"
 ---
-# <a name="temperature-entity"></a>온도 엔터티
+# <a name="temperature-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 미리 빌드된 온도 엔터티
 온도는 다양한 온도 형식을 추출합니다. 이 엔터티를 이미 학습했기 때문에 온도를 포함하는 예제 발언을 응용 프로그램에 추가할 필요가 없습니다. 온도 엔터티는 [여러 문화권](luis-reference-prebuilt-entities.md)에서 지원됩니다. 
 
 ## <a name="types-of-temperature"></a>온도 형식
-온도는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819) Github 리포지토리에서 관리됩니다.
+온도는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819) GitHub 리포지토리에서 관리됩니다.
 
 ## <a name="resolution-for-prebuilt-temperature-entity"></a>미리 빌드된 온도 엔터티의 해결 방법
 다음 예제에서는 **builtin.temperature** 엔터티의 해결 방법을 보여줍니다.
 
-```JSON
+```json
 {
   "query": "set the temperature to 30 degrees",
   "topScoringIntent": {

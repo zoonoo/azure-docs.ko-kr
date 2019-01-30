@@ -1,45 +1,32 @@
 ---
-title: '자습서 4: 컨텍스트 관련 데이터에 대한 패턴 역할'
+title: 패턴 역할
 titleSuffix: Azure Cognitive Services
 description: 적절한 형식의 템플릿 발언에서 데이터를 추출하는 패턴을 사용합니다. 템플릿 발언은 간단한 엔터티와 역할을 사용하여 원본 위치 및 대상 위치 같은 관련 데이터를 추출합니다.
+ms.custom: seodec18
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: d13d77fdb741f7f7cf16e3d25c755f4363e56f93
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8b66895e1ae37947c995ffc643505d466c42b93b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427491"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753118"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>자습서 4: 컨텍스트 관련 패턴 추출
+# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>자습서: 역할을 사용하여 컨텍스트 관련 패턴 추출
 
 이 자습서에서는 적절한 형식의 템플릿 발언에서 데이터를 추출하는 패턴을 사용합니다. 템플릿 발언은 간단한 엔터티와 역할을 사용하여 원본 위치 및 대상 위치 같은 관련 데이터를 추출합니다.  패턴을 사용할 경우 의도에 더 적은 수의 예제 발언이 필요합니다.
 
-역할의 용도는 발언에서 문맥상 관련이 있는 엔터티를 추출하는 것입니다. 발언 `Move new employee Robert Williams from Sacramento and San Francisco`에서 출발지 도시 및 목적지 도시 값은 서로 관련이 있으며 일반적인 언어를 사용해서 각 위치를 나타냅니다. 
-
-
-새 직원의 이름인 Billy Patterson은 아직 **Employee** 목록 엔터티에 속하지 않습니다. 이름을 외부 시스템으로 전송하여 회사 자격 증명을 만들기 위해 먼저 새 직원 이름이 추출됩니다. 회사 자격 증명이 만들어진 후에는 직원 자격 증명이 **Employee** 목록 엔터티에 추가됩니다.
-
-새 직원과 가족은 도시에서 가상의 회사가 있는 도시로 이사해야 합니다. 새 직원는 어떤 도시에서도 올 수 있으므로 위치를 검색해야 합니다. 목록의 도시만 추출될 수 있으므로 목록 엔터티 같은 설정된 목록은 작동하지 않습니다.
-
-출발지 및 목적지 도시와 연결된 역할 이름은 모든 엔터티에서 고유해야 합니다. 역할을 고유하게 유지하는 쉬운 방법은 명명 전략을 통해 포함하는 엔터티와 연결하는 것입니다. **NewEmployeeRelocation** 엔터티는 두 가지 역할, **NewEmployeeReloOrigin** 및 **NewEmployeeReloDestination**을 갖는 단순 엔터티입니다. Relo는 relocation의 약어입니다.
-
-예제 발언 `Move new employee Robert Williams from Sacramento and San Francisco`에는 기계 학습된 엔터티만 있으므로 엔터티가 검색되기 위해 의도에 충분한 예제 발언을 제공하는 것이 중요합니다.  
-
-**패턴을 사용하면 몇 가지 예제 발언을 제공할 수 있지만 엔터티가 검색되지 않으면 패턴이 일치되지 않습니다.**
-
-이것은 도시와 같은 이름이므로 단순 엔터티를 검색하는 데 문제가 있는 경우 비슷한 값의 구 목록을 추가하는 것이 좋습니다. 이렇게 하면 LUIS에 해당 형식의 단어 또는 구에 대한 추가 신호를 제공하여 도시 이름 검색에 도움을 줍니다. 구 목록은 패턴이 일치하는 데 필요한 엔터티 검색에 도움을 주는 방식으로만 패턴을 지원합니다. 
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 
 > [!div class="checklist"]
-> * 기존 자습서 앱 사용
+> * 앱 가져오기 예제
 > * 새 엔터티 만들기
 > * 새 의도 만들기
 > * 학습
@@ -51,12 +38,29 @@ ms.locfileid: "52427491"
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>기존 앱 사용
+## <a name="using-roles-in-patterns"></a>패턴에 역할 사용
+
+역할의 용도는 발언에서 문맥상 관련이 있는 엔터티를 추출하는 것입니다. 발언 `Move new employee Robert Williams from Sacramento and San Francisco`에서 출발지 도시 및 목적지 도시 값은 서로 관련이 있으며 일반적인 언어를 사용해서 각 위치를 나타냅니다. 
+
+
+새 직원의 이름인 Billy Patterson은 아직 **Employee** 목록 엔터티에 속하지 않습니다. 이름을 외부 시스템으로 전송하여 회사 자격 증명을 만들기 위해 먼저 새 직원 이름이 추출됩니다. 회사 자격 증명이 만들어진 후에는 직원 자격 증명이 **Employee** 목록 엔터티에 추가됩니다.
+
+새 직원과 가족은 도시에서 가상의 회사가 있는 도시로 이사해야 합니다. 새 직원는 어떤 도시에서도 올 수 있으므로 위치를 검색해야 합니다. 목록의 도시만 추출될 수 있으므로 목록 엔터티 같은 설정된 목록은 작동하지 않습니다.
+
+출발지 및 목적지 도시와 연결된 역할 이름은 모든 엔터티에서 고유해야 합니다. 역할을 고유하게 유지하는 쉬운 방법은 명명 전략을 통해 포함하는 엔터티와 연결하는 것입니다. **NewEmployeeRelocation** 엔터티는 다음 두 역할이 포함된 단순 엔터티입니다. **NewEmployeeReloOrigin** 및 **NewEmployeeReloDestination**. Relo는 relocation의 약어입니다.
+
+예제 발언 `Move new employee Robert Williams from Sacramento and San Francisco`에는 기계 학습된 엔터티만 있으므로 엔터티가 검색되기 위해 의도에 충분한 예제 발언을 제공하는 것이 중요합니다.  
+
+**패턴을 사용하면 몇 가지 예제 발언을 제공할 수 있지만 엔터티가 검색되지 않으면 패턴이 일치되지 않습니다.**
+
+이것은 도시와 같은 이름이므로 단순 엔터티를 검색하는 데 문제가 있는 경우 비슷한 값의 구 목록을 추가하는 것이 좋습니다. 이렇게 하면 LUIS에 해당 형식의 단어 또는 구에 대한 추가 신호를 제공하여 도시 이름 검색에 도움을 줍니다. 구 목록은 패턴이 일치하는 데 필요한 엔터티 검색에 도움을 주는 방식으로만 패턴을 지원합니다. 
+
+## <a name="import-example-app"></a>앱 가져오기 예제
 마지막 자습서에서 만든 **HumanResources**라는 앱을 사용하여 계속 진행합니다. 
 
-이전 자습서의 HumanResources 앱이 없으면 다음 단계를 사용합니다.
+다음 단계를 사용하세요.
 
-1.  [앱 JSON 파일](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json)을 다운로드하고 저장합니다.
+1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json)을 다운로드하고 저장합니다.
 
 2. JSON을 새 앱으로 가져옵니다.
 
@@ -128,7 +132,7 @@ ms.locfileid: "52427491"
 
 2. 주소의 URL 끝으로 이동하고 `Move Wayne Berry from Miami to Mount Vernon`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 
 
-    ```JSON
+    ```json
     {
       "query": "Move Wayne Berry from Newark to Columbus",
       "topScoringIntent": {
@@ -212,7 +216,7 @@ ms.locfileid: "52427491"
     }  
     ```
 
-의도 예측 점수는 약 50%입니다. 클라이언트 응용 프로그램이 더 높은 점수를 원할 경우 수정해야 합니다. 두 경우 모두 엔터티는 예측되지 않았습니다.
+의도 예측 점수는 약 50%입니다. 클라이언트 애플리케이션이 더 높은 점수를 원할 경우 수정해야 합니다. 두 경우 모두 엔터티는 예측되지 않았습니다.
 
 위치 중 하나가 추출되었지만 다른 위치는 추출되지 않았습니다. 
 
@@ -258,7 +262,7 @@ ms.locfileid: "52427491"
 
 2. 주소의 URL 끝으로 이동하고 `Move wayne berry from miami to mount vernon`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 
 
-    ```JSON
+    ```json
     {
       "query": "Move Wayne Berry from Miami to Mount Vernon",
       "topScoringIntent": {

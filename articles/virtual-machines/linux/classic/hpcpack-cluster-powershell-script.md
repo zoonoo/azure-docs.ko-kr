@@ -32,7 +32,7 @@ HPC Pack IaaS 배포 PowerShell 스크립트를 실행하여 Azure 가상 머신
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
 ## <a name="example-configuration-file"></a>예제 구성 파일
-다음 구성 파일은 도메인 컨트롤러 및 도메인 포리스트를 만들고 HPC Pack 클러스터(로컬 데이터베이스를 사용하는 1개 헤드 노드 및 10개 Linux 계산 노드)를 배포합니다. 모든 클라우드 서비스는 동아시아 위치에서 직접 생성됩니다. Linux 계산 노드는 2개 클라우드 서비스와 2개 저장소 계정에 만들어집니다(즉, *MyLnxCNService01* 및 *mylnxstorage01*의 *MyLnxCN-0001*에서 *MyLnxCN-0005*까지와 *MyLnxCNService02* 및 *mylnxstorage02*의 *MyLnxCN-0006*에서 *MyLnxCN-0010*까지). 계산 노드는 OpenLogic CentOS 버전 7.0 Linux 이미지에서 만들어집니다. 
+다음 구성 파일은 도메인 컨트롤러 및 도메인 포리스트를 만들고 HPC Pack 클러스터(로컬 데이터베이스를 사용하는 1개 헤드 노드 및 10개 Linux 계산 노드)를 배포합니다. 모든 클라우드 서비스는 동아시아 위치에서 직접 생성됩니다. Linux 계산 노드는 2개 클라우드 서비스와 2개 스토리지 계정에 만들어집니다(즉, *MyLnxCNService01* 및 *mylnxstorage01*의 *MyLnxCN-0001*에서 *MyLnxCN-0005*까지와 *MyLnxCNService02* 및 *mylnxstorage02*의 *MyLnxCN-0006*에서 *MyLnxCN-0010*까지). 계산 노드는 OpenLogic CentOS 버전 7.0 Linux 이미지에서 만들어집니다. 
 
 구독 이름과 계정 및 서비스 이름을 고유한 값으로 대체합니다.
 

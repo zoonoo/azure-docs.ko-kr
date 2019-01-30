@@ -3,7 +3,7 @@ title: 신뢰할 수 있는 컬렉션 작업 | Microsoft Docs
 description: 신뢰할 수 있는 컬렉션으로 작업하는 모범 사례를 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: rajak
+author: tylermsft
 manager: timlt
 editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2017
-ms.author: rajak
-ms.openlocfilehash: 2568e116fdb3f80976d49787877d2ecf68f128ef
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney
+ms.openlocfilehash: 86e1370bb5241dbe14b34cebe2f2ee6d71a0a323
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210820"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193538"
 ---
 # <a name="working-with-reliable-collections"></a>신뢰할 수 있는 컬렉션 작업
-서비스 패브릭은 신뢰할 수 있는 컬렉션을 통해 .NET 개발자에게 사용할 수 있는 상태 저장 프로그래밍 모델을 제공합니다. 즉, 서비스 패브릭은 신뢰할 수 있는 사전 및 신뢰할 수 있는 큐 클래스를 제공합니다. 이러한 클래스를 사용하는 경우 상태가 분할되고(확장성의 경우) 복제되며(가용성의 경우) 파티션 내에서 트랜잭션 처리됩니다(ACID 의미 체계의 경우). 신뢰할 수 있는 사전 개체의 일반적인 사용을 살펴보고 실제로 어떤 역할을 하는지 확인하겠습니다.
+Service Fabric은 신뢰할 수 있는 컬렉션을 통해 .NET 개발자에게 사용할 수 있는 상태 저장 프로그래밍 모델을 제공합니다. 즉, 서비스 패브릭은 신뢰할 수 있는 사전 및 신뢰할 수 있는 큐 클래스를 제공합니다. 이러한 클래스를 사용하는 경우 상태가 분할되고(확장성의 경우) 복제되며(가용성의 경우) 파티션 내에서 트랜잭션 처리됩니다(ACID 의미 체계의 경우). 신뢰할 수 있는 사전 개체의 일반적인 사용을 살펴보고 실제로 어떤 역할을 하는지 확인하겠습니다.
 
 ```csharp
 

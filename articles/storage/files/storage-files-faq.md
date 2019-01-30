@@ -4,15 +4,15 @@ description: Azure Files에 대한 질문과 대답을 확인합니다.
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.date: 10/04/2018
+ms.date: 01/02/2019
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 1ed08562657eb0c50f05efb335c1790d35dcab01
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: cce2254ef54483e7d0c4d26fbc4b08de3b2366c3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976828"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825156"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -31,30 +31,30 @@ ms.locfileid: "51976828"
 
 * <a id="file-access-options"></a>
 **Azure Files에서 파일에 액세스하는 다른 방법은 무엇인가요?**  
-    SMB 3.0 프로토콜을 사용하여 로컬 컴퓨터에 파일 공유를 탑재하거나 [Storage 탐색기](http://storageexplorer.com/)와 같은 도구를 사용하여 파일 공유의 파일을 액세스할 수 있습니다. 응용 프로그램에서 저장소 클라이언트 라이브러리, REST API, Powershell 또는 Azure CLI를 사용하여 Azure 파일 공유의 파일에 액세스할 수 있습니다.
+    SMB 3.0 프로토콜을 사용하여 로컬 컴퓨터에 파일 공유를 탑재하거나 [Storage 탐색기](http://storageexplorer.com/)와 같은 도구를 사용하여 파일 공유의 파일을 액세스할 수 있습니다. 애플리케이션에서 스토리지 클라이언트 라이브러리, REST API, Powershell 또는 Azure CLI를 사용하여 Azure 파일 공유의 파일에 액세스할 수 있습니다.
 
 * <a id="what-is-afs"></a>
 **Azure 파일 동기화란?**  
     Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server 컴퓨터를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS(네트워크 파일 시스템) 및 FTPS(파일 전송 프로토콜 서비스)를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
 
 * <a id="files-versus-blobs"></a>
-**데이터를 위해 Azure 파일 공유 및 Azure Blob 저장소를 사용해야 하는 이유는 각각 무엇인가요?**  
-    Azure Files 및 Azure Blob 저장소는 둘 다 대량의 데이터를 클라우드에 저장하는 방법을 제공하지만 약간 다른 용도에서 유용합니다. 
+**데이터를 위해 Azure 파일 공유 및 Azure Blob Storage를 사용해야 하는 이유는 각각 무엇인가요?**  
+    Azure Files 및 Azure Blob Storage는 둘 다 대량의 데이터를 클라우드에 저장하는 방법을 제공하지만 약간 다른 용도에서 유용합니다. 
     
-    Azure Blob Storage는 구조화되지 않은 데이터를 저장해야 하는 대규모 클라우드 네이티브 응용 프로그램에 유용합니다. 성능 및 확장성을 최대화하기 위해 Azure Blob Storage는 실제 파일 시스템보다 더 간단한 저장소 추상화를 구현합니다. REST 기반 클라이언트 라이브러리를 통해서만(또는 REST 기반 프로토콜을 통해 직접) Azure Blob 저장소에 액세스할 수 있습니다.
+    Azure Blob 스토리지는 구조화되지 않은 데이터를 저장해야 하는 대규모 클라우드 네이티브 애플리케이션에 유용합니다. 성능 및 확장성을 최대화하기 위해 Azure Blob Storage는 실제 파일 시스템보다 더 간단한 스토리지 추상화를 구현합니다. REST 기반 클라이언트 라이브러리를 통해서만(또는 REST 기반 프로토콜을 통해 직접) Azure Blob Storage에 액세스할 수 있습니다.
 
-    Azure Files는 특히 파일 시스템입니다. Azure Files에는 다년간의 온-프레미스 운영 체제 사용에서 알고 있고 애용하는 모든 파일 요약이 있습니다. Azure Blob 저장소와 같이 Azure Files에서는 REST 인터페이스 및 REST 기반 클라이언트 라이브러리를 제공합니다. Azure Blob 저장소와 달리 Azure Files는 Azure 파일 공유에 대한 SMB 액세스를 제공합니다. SMB를 사용하여 코드를 쓰거나 파일 시스템에 특수한 드라이버를 연결하지 않고도, Windows, Linux 또는 macOS, 온-프레미스 또는 클라우드 VM에 Azure 파일 공유를 직접 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버에서 Azure 파일 공유를 캐시할 수도 있습니다. 
+    Azure Files는 특히 파일 시스템입니다. Azure Files에는 다년간의 온-프레미스 운영 체제 사용에서 알고 있고 애용하는 모든 파일 요약이 있습니다. Azure Blob Storage와 같이 Azure Files에서는 REST 인터페이스 및 REST 기반 클라이언트 라이브러리를 제공합니다. Azure Blob Storage와 달리 Azure Files는 Azure 파일 공유에 대한 SMB 액세스를 제공합니다. SMB를 사용하여 코드를 쓰거나 파일 시스템에 특수한 드라이버를 연결하지 않고도, Windows, Linux 또는 macOS, 온-프레미스 또는 클라우드 VM에 Azure 파일 공유를 직접 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버에서 Azure 파일 공유를 캐시할 수도 있습니다. 
    
-    Azure Files 및 Azure Blob 저장소 간의 차이점에 대한 심도 있는 설명을 보려면 [Azure Blob 저장소, Azure Files 또는 Azure 디스크를 사용해야 하는 경우 결정](../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요. Azure Blob Storage에 대한 자세한 내용은 [Blob Storage 소개](../blobs/storage-blobs-introduction.md)를 참조하세요.
+    Azure Files 및 Azure Blob Storage 간의 차이점에 대한 심도 있는 설명을 보려면 [Azure Blob Storage, Azure Files 또는 Azure 디스크를 사용해야 하는 경우 결정](../common/storage-decide-blobs-files-disks.md)을 참조하세요. Azure Blob Storage에 대한 자세한 내용은 [Blob Storage 소개](../blobs/storage-blobs-introduction.md)를 참조하세요.
 
 * <a id="files-versus-disks"></a>**Azure 디스크 대신 Azure 파일 공유를 사용하는 이유는 무엇인가요?**  
-    Azure 디스크의 디스크는 단순히 디스크입니다. Azure 디스크에서 값을 가져오려면 Azure에서 실행 중인 가상 머신에 디스크를 연결해야 합니다. 온-프레미스 서버에서 디스크를 사용하는 모든 항목에 대해 Azure 디스크를 사용할 수 있습니다. OS 시스템 디스크, OS에 대한 스왑 공간 또는 응용 프로그램에 대한 전용 저장소로 사용할 수 있습니다. Azure 디스크의 유용한 용도는 Azure 파일 공유를 사용할 수 있는 동일한 장소에서 사용하기 위해 클라우드에 파일 서버를 만들 수 있다는 것입니다. Azure Virtual Machines에 파일 서버를 배포하는 일은 현재 Azure Files에서 지원하지 않는 배포 옵션(예: NFS 프로토콜 지원 또는 프리미엄 저장소)이 필요할 때 Azure에서 파일 저장소를 얻는 고성능 방식입니다. 
+    Azure 디스크의 디스크는 단순히 디스크입니다. Azure 디스크에서 값을 가져오려면 Azure에서 실행 중인 가상 머신에 디스크를 연결해야 합니다. 온-프레미스 서버에서 디스크를 사용하는 모든 항목에 대해 Azure 디스크를 사용할 수 있습니다. OS 시스템 디스크, OS에 대한 스왑 공간 또는 애플리케이션에 대한 전용 스토리지로 사용할 수 있습니다. Azure 디스크의 유용한 용도는 Azure 파일 공유를 사용할 수 있는 동일한 장소에서 사용하기 위해 클라우드에 파일 서버를 만들 수 있다는 것입니다. Azure Virtual Machines에 파일 서버를 배포하는 일은 현재 Azure Files에서 지원하지 않는 배포 옵션(예: NFS 프로토콜 지원 또는 Premium Storage)이 필요할 때 Azure에서 파일 스토리지를 얻는 고성능 방식입니다. 
 
     그러나 Azure 디스크를 백 엔드 저장소로 사용해서 파일 서버를 실행하게 되면 몇 가지 이유로 인해 Azure 파일 공유를 사용할 때보다 일반적으로 훨씬 더 많은 비용이 초래됩니다. 첫째, 디스크 저장소에 대해 요금을 지불하는 것 외에, 하나 이상의 Azure VM을 실행하는 비용도 지불해야 합니다. 둘째, 파일 서버를 실행하는 데 사용 되는 VM도 관리해야 합니다. 예를 들어, OS 업그레이드에 대한 책임이 있습니다. 마지막으로 온-프레미스에 데이터를 캐시하려는 경우 사용자가 이를 위해 DFSR(분산 파일 시스템 복제)과 같은 복제 토폴로지를 설정하고 관리해야 합니다.
 
-    Azure Virtual Machines에 호스트된 Azure Files 및 파일 서버를 둘 다 적절히 활용하는 방법 중 하나는(Azure 디스크를 백 엔드 저장소로 사용하는 것 외에) 클라우드 VM에서 호스트되는 파일 서버에 Azure 파일 동기화를 설치하는 것입니다. Azure 파일 공유가 파일 서버와 동일한 지역에 있으면 클라우드 계층화를 사용하도록 설정하고 사용 가능한 볼륨 공간 비율을 최대값(99%)으로 설정할 수 있습니다. 이렇게 하면 데이터의 최소 중복을 보장합니다. NFS 프로토콜 지원을 필요로 하는 응용 프로그램과 같이 파일 서버와 함께 원하는 응용 프로그램을 사용할 수도 있습니다.
+    Azure Virtual Machines에 호스트된 Azure Files 및 파일 서버를 둘 다 적절히 활용하는 방법 중 하나는(Azure 디스크를 백 엔드 저장소로 사용하는 것 외에) 클라우드 VM에서 호스트되는 파일 서버에 Azure 파일 동기화를 설치하는 것입니다. Azure 파일 공유가 파일 서버와 동일한 지역에 있으면 클라우드 계층화를 사용하도록 설정하고 사용 가능한 볼륨 공간 비율을 최대값(99%)으로 설정할 수 있습니다. 이렇게 하면 데이터의 최소 중복을 보장합니다. NFS 프로토콜 지원을 필요로 하는 애플리케이션과 같이 파일 서버와 함께 원하는 애플리케이션을 사용할 수도 있습니다.
 
-    Azure에서 고성능 및 고가용성 파일 서버를 설정하는 옵션에 대한 자세한 내용은 [Microsoft Azure에서 IaaS VM 게스트 클러스터 배포](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/)를 참조하세요. Azure Files 및 Azure 디스크 간의 차이점에 대한 심도 있는 설명을 보려면 [Azure Blob 저장소, Azure Files 또는 Azure 디스크를 사용해야 하는 경우 결정](../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요. Azure 디스크에 대한 자세한 내용은 [Azure Managed Disks 개요](../../virtual-machines/windows/managed-disks-overview.md)를 참조하세요.
+    Azure에서 고성능 및 고가용성 파일 서버를 설정하는 옵션에 대한 자세한 내용은 [Microsoft Azure에서 IaaS VM 게스트 클러스터 배포](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/)를 참조하세요. Azure Files 및 Azure 디스크 간의 차이점에 대한 심도 있는 설명을 보려면 [Azure Blob Storage, Azure Files 또는 Azure 디스크를 사용해야 하는 경우 결정](../common/storage-decide-blobs-files-disks.md)을 참조하세요. Azure 디스크에 대한 자세한 내용은 [Azure Managed Disks 개요](../../virtual-machines/windows/managed-disks-overview.md)를 참조하세요.
 
 * <a id="get-started"></a>
 **Azure Files 사용을 시작하려면 어떻게 해야 하나요?**  
@@ -72,10 +72,10 @@ ms.locfileid: "51976828"
 
 * <a id="tier-options"></a>
 **Azure Files에서 어떤 저장소 계층이 지원되나요?**  
-    현재 Azure Files는 표준 저장소 계층만 지원합니다. 이 시점에서 프리미엄 저장소 및 쿨 저장소 지원에 대해 공유할 타임라인이 없습니다. 
+    현재 Azure Files는 표준 저장소 계층만 지원합니다. 이 시점에서 Premium Storage 및 쿨 스토리지 지원에 대해 공유할 타임라인이 없습니다. 
     
     > [!NOTE]
-    > Blob 전용 저장소 계정 또는 프리미엄 저장소 계정에서 Azure 파일 공유를 만들 수 없습니다.
+    > Blob 전용 스토리지 계정 또는 Premium Storage 계정에서 Azure 파일 공유를 만들 수 없습니다.
 
 * <a id="give-us-feedback"></a>
 **Azure Files에 특정 기능이 추가되는 것을 정말 보고 싶습니다. 추가해줄 수 있나요?**  
@@ -144,7 +144,7 @@ ms.locfileid: "51976828"
     * \SyncShareState
 
 * <a id="afs-os-support"></a>
-**Windows Server 2008 R2, Linux 또는 NAS(Network Attached Storage) 장치와 함께 Azure 파일 동기화를 사용할 수 있습니까?**  
+**Windows Server 2008 R2, Linux 또는 NAS(Network Attached Storage) 디바이스와 함께 Azure 파일 동기화를 사용할 수 있습니까?**  
     현재, Azure 파일 동기화는 Windows Server 2016 및 Windows Server 2012 R2만 지원합니다. 지금은 알려드릴 수 있는 다른 계획이 없지만 고객의 요구에 따라 얼마든지 추가 플랫폼을 지원할 수도 있습니다. 지원받고 싶은 플랫폼이 있으면 [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)에서 알려주세요.
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
@@ -182,7 +182,7 @@ ms.locfileid: "51976828"
 * <a id="ad-support-regions"></a>
 **Azure Files에 대한 SMB를 통한 Azure AD의 미리 보기는 모든 Azure 지역에서 사용할 수 있나요?**
 
-    이 미리 보기는 북유럽을 제외한 모든 공용 지역에서 사용할 수 있습니다.
+    이 미리 보기는 모든 공용 지역에서 사용할 수 있습니다.
 
 * <a id="ad-support-on-premises"></a>
 **Azure Files(미리 보기)에 대한 SMB를 통한 Azure AD 인증은 온-프레미스 컴퓨터에서 Azure AD를 사용한 인증을 지원하나요?**
@@ -190,7 +190,7 @@ ms.locfileid: "51976828"
     아니요. Azure Files는 미리 보기 릴리스에서는 온-프레미스 컴퓨터에서 Azure AD를 사용한 인증을 지원하지 않습니다.
 
 * <a id="ad-support-devices"></a>
-**Azure Files(미리 보기)에 대한 SMB를 통한 Azure AD 인증은 Azure AD에 가입되거나 등록된 장치에서 Azure AD 자격 증명을 사용한 SMB 액세스를 지원하나요?**
+**Azure Files(미리 보기)에 대한 SMB를 통한 Azure AD 인증은 Azure AD에 가입되거나 등록된 디바이스에서 Azure AD 자격 증명을 사용한 SMB 액세스를 지원하나요?**
 
     아니요. 이 시나리오는 지원되지 않습니다.
 
@@ -242,7 +242,7 @@ ms.locfileid: "51976828"
 * <a id="data-compliance-policies"></a>
 **Azure Files는 어떤 데이터 규정 준수 정책을 지원하나요?**  
 
-   Azure Files는 Azure Storage의 다른 저장소 서비스에서 사용되는 동일한 저장소 아키텍처를 기반으로 하여 실행됩니다. Azure Files는 다른 Azure 저장소 서비스에서 사용되는 동일한 데이터 규정 준수 정책을 적용합니다. Azure Storage 데이터 규정 준수에 대한 자세한 내용은 [Azure Storage 준수 제품](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings)을 참조하고, [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx)로 이동하여 참조할 수 있습니다.
+   Azure Files는 Azure Storage의 다른 스토리지 서비스에서 사용되는 동일한 스토리지 아키텍처를 기반으로 하여 실행됩니다. Azure Files는 다른 Azure 저장소 서비스에서 사용되는 동일한 데이터 규정 준수 정책을 적용합니다. Azure Storage 데이터 규정 준수에 대한 자세한 내용은 [Azure Storage 준수 제품](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings)을 참조하고, [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx)로 이동하여 참조할 수 있습니다.
 
 ## <a name="on-premises-access"></a>온-프레미스 액세스
 * <a id="expressroute-not-required"></a>
@@ -276,8 +276,8 @@ ms.locfileid: "51976828"
     공유 스냅숏은 성능 오버헤드를 발생하지 않습니다.
 
 * <a id="snapshot-consistency"></a>
-**공유 스냅숏은 응용 프로그램 일치 스냅숏인가요?**  
-    아니요, 공유 스냅숏은 응용 프로그램 일치 스냅숏이 아닙니다. 사용자는 공유 스냅숏을 작성하기 전에 응용 프로그램에서 공유로 쓰기를 플러시해야 합니다.
+**공유 스냅숏은 애플리케이션 일치 스냅숏인가요?**  
+    아니요, 공유 스냅숏은 애플리케이션 일치 스냅숏이 아닙니다. 사용자는 공유 스냅숏을 작성하기 전에 애플리케이션에서 공유로 쓰기를 플러시해야 합니다.
 
 * <a id="snapshot-limits"></a>
 **사용할 수 있는 공유 스냅숏 수에 제한이 있나요?**  
@@ -298,7 +298,7 @@ ms.locfileid: "51976828"
     
     파일 스냅숏 기능이 필요하면 [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)에 알려주세요.
 
-* <a id="encypted-snapshots"></a>
+* <a id="encrypted-snapshots"></a>
 **암호화된 파일 공유의 공유 스냅숏을 만들 수 있나요?**  
     미사용 암호화가 사용하도록 설정된 Azure 파일 공유의 공유 스냅숏을 작성할 수 있습니다. 공유 스냅숏에서 암호화된 파일 공유로 파일을 복원할 수 있습니다. 공유가 암호화된 경우 공유 스냅숏도 암호화됩니다.
 
@@ -368,7 +368,7 @@ ms.locfileid: "51976828"
 ## <a name="features-and-interoperability-with-other-services"></a>다른 서비스와의 기능 및 상호 운용성
 * <a id="cluster-witness"></a>
 **내 Windows Server 장애 조치(Failover) 클러스터에 대해 Azure 파일 공유를 *파일 공유 감시*로 사용할 수 있나요?**  
-    현재, 이 구성은 Azure 파일 공유에서 지원되지 않습니다. Azure Blob 저장소에 대해 이 기능을 설정하는 방법에 대한 자세한 내용은 [장애 조치(Failover) 클러스터에 대한 클라우드 감시 배포](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)를 참조하세요.
+    현재, 이 구성은 Azure 파일 공유에서 지원되지 않습니다. Azure Blob Storage에 대해 이 기능을 설정하는 방법에 대한 자세한 내용은 [장애 조치(Failover) 클러스터에 대한 클라우드 감시 배포](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)를 참조하세요.
 
 * <a id="containers"></a>
 **Azure Container Instance에 Azure 파일 공유를 탑재할 수 있나요?**  

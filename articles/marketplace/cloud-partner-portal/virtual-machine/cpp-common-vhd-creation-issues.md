@@ -27,7 +27,7 @@ ms.locfileid: "49639400"
 
 ## <a name="how-do-you-create-a-vm-from-the-azure-portal-using-the-vhd-that-is-uploaded-to-premium-storage"></a>Premium Storage에 업로드된 VHD를 사용하여 Azure Portal에서 VM을 만들려면 어떻게 해야 하나요?
 
-현재 Azure Marketplace는 관리되는 저장소 또는 Azure Premium Storage에 있는 이미지에서 VM 제안을 만들도록 지원하지 않습니다.  이러한 저장소 계정 옵션에 대한 자세한 내용은 [Azure Managed Disks 개요](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) 및 [VM의 고성능 Premium Storage 및 관리 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)를 참조하세요.
+현재 Azure Marketplace는 관리되는 스토리지 또는 Azure Premium Storage에 있는 이미지에서 VM 제안을 만들도록 지원하지 않습니다.  이러한 스토리지 계정 옵션에 대한 자세한 내용은 [Azure Managed Disks 개요](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) 및 [VM의 고성능 Premium Storage 및 관리 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)를 참조하세요.
 
 
 ## <a name="can-you-use-generation-2-vms-for-offers"></a>2세대 VM은 제안에 사용할 수 있나요?
@@ -76,9 +76,9 @@ Azure Resource Manager 배포 모델을 사용하는 경우 VPN을 설정하는 
 [Windows용 사용자 지정 스크립트 확장](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/) 문서에서 Azure PowerShell 모듈, Azure Resource Manager 템플릿을 통해 사용자 지정 스크립트 확장을 사용하는 방법과 Windows 시스템의 문제 해결 단계에 대해 자세히 설명하고 있습니다.
 
 
-## <a name="are-32-bit-applications-or-services-supported-in-the-azure-marketplace"></a>Azure Marketplace에서 32비트 응용 프로그램 또는 서비스가 지원되나요?
+## <a name="are-32-bit-applications-or-services-supported-in-the-azure-marketplace"></a>Azure Marketplace에서 32비트 애플리케이션 또는 서비스가 지원되나요?
 
-일반적으로 그렇지 않습니다.  Azure VM에 지원되는 운영 체제 및 표준 서비스는 모두 64비트입니다.  그러나 기술적인 관점에서 대부분의 64비트 운영 체제는 이전 버전과의 호환성을 위해 32비트 버전의 응용 프로그램을 실행할 수 있습니다.  그러나 32비트 응용 프로그램은 VM 솔루션의 일부로 사용하도록 지원되지 않으므로 *매우 권장되지 않습니다*.  대신 응용 프로그램을 64비트 프로젝트로 다시 컴파일하세요.
+일반적으로 그렇지 않습니다.  Azure VM에 지원되는 운영 체제 및 표준 서비스는 모두 64비트입니다.  그러나 기술적인 관점에서 대부분의 64비트 운영 체제는 이전 버전과의 호환성을 위해 32비트 버전의 애플리케이션을 실행할 수 있습니다.  그러나 32비트 애플리케이션은 VM 솔루션의 일부로 사용하도록 지원되지 않으므로 *매우 권장되지 않습니다*.  대신 애플리케이션을 64비트 프로젝트로 다시 컴파일하세요.
 
 자세한 내용은 다음 문서를 참조하세요.
 - [32비트 응용 프로그램 실행](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)

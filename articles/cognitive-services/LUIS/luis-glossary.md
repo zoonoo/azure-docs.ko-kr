@@ -1,6 +1,6 @@
 ---
-title: Language Understanding(LUIS) API 서비스 용어집
-titleSuffix: Azure Cognitive Services
+title: 용어
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 용어집에서는 LUIS API 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
 services: cognitive-services
 author: diberry
@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: b24b21ee5fc929d3e7bd026191ce8791d79f9abc
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 8ab5000f1f50e10195c02b6198fa0bcffd0408b5
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870777"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844767"
 ---
-# <a name="glossary"></a>용어
+# <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>일반적인 용어 및 개념의 언어 이해 용어집
 Language Understanding(LUIS) 용어집에서는 LUIS API 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
 
 ## <a name="active-version"></a>활성 버전
@@ -74,7 +74,7 @@ LUIS 컨텍스트에서 **도메인**은 정보 영역입니다. 도메인은 �
 
 ## <a name="endpoint"></a>엔드포인트
 
-[LUIS 엔드포인트](https://aka.ms/luis-endpoint-apis) URL은 [LUIS 앱](#luis-app)이 작성되고 게시된 후 LUIS 쿼리를 제출하는 위치입니다. 엔드포인트 URL에는 앱 ID와 게시된 앱의 지역이 포함됩니다. 앱의 **[키 및 엔드포인트](luis-how-to-manage-keys.md)** 페이지에 있는 엔드포인트를 찾거나 [앱 정보 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API에서 엔드포인트 URL을 가져올 수 있습니다.
+[LUIS 엔드포인트](https://aka.ms/luis-endpoint-apis) URL은 [LUIS 앱](#luis-app)이 작성되고 게시된 후 LUIS 쿼리를 제출하는 위치입니다. 엔드포인트 URL에는 앱 ID와 게시된 앱의 지역이 포함됩니다. 앱의 **[키 및 엔드포인트](luis-how-to-azure-subscription.md)** 페이지에 있는 엔드포인트를 찾거나 [앱 정보 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API에서 엔드포인트 URL을 가져올 수 있습니다.
 
 예제 엔드포인트가 다음과 같이 표시됩니다.
 
@@ -137,7 +137,7 @@ LUIS 앱은 [의도](#intent), [엔터티](#entity) 및 레이블이 지정된 [
 
 ## <a name="prebuilt-entity"></a>미리 빌드된 엔터티
 
-[미리 빌드된 엔터티](luis-prebuilt-entities.md)는 LUIS가 번호, URL 및 메일과 같은 일반적인 정보 유형에 제공하는 엔터티입니다. 미리 빌드된 엔터티를 응용 프로그램에 추가하도록 선택합니다.
+[미리 빌드된 엔터티](luis-prebuilt-entities.md)는 LUIS가 번호, URL 및 메일과 같은 일반적인 정보 유형에 제공하는 엔터티입니다. 미리 빌드된 엔터티를 애플리케이션에 추가하도록 선택합니다.
 
 ## <a name="precision"></a>정밀도
 [일괄 테스트](luis-interactive-test.md#batch-testing)에서 정밀도(긍정적 예측 값이라고도 함)는 검색된 발언 중에 관련된 발언의 일부입니다.
@@ -177,7 +177,7 @@ Bing Spell Checker를 사용하여 예측 전에 발화에서 맞춤법이 잘�
 
 ## <a name="subscription-key"></a>구독 키
 
-구독 키는 [Azure에서 만든](luis-how-to-azure-subscription.md) LUIS 서비스와 연결된 **끝점** 키입니다. 이 키는 [작성 키](#programmatic-key)가 아닙니다. 끝점 키가 있는 경우 작성 키 대신 모든 끝점 요청에 사용해야 합니다. [LUIS](luis-reference-regions.md) 웹 사이트의 [**키 및 엔드포인트** 페이지](luis-how-to-manage-keys.md) 아래쪽에 있는 엔드포인트 URL 내부에서 현재 엔드포인트 키를 확인할 수 있습니다. 이는 **subscription-key** 이름/값 쌍의 값입니다.
+구독 키는 [Azure에서 만든](luis-how-to-azure-subscription.md) LUIS 서비스와 연결된 **끝점** 키입니다. 이 키는 [작성 키](#programmatic-key)가 아닙니다. 끝점 키가 있는 경우 작성 키 대신 모든 끝점 요청에 사용해야 합니다. [LUIS](luis-reference-regions.md) 웹 사이트의 [**키 및 엔드포인트** 페이지](luis-how-to-azure-subscription.md) 아래쪽에 있는 엔드포인트 URL 내부에서 현재 엔드포인트 키를 확인할 수 있습니다. 이는 **subscription-key** 이름/값 쌍의 값입니다.
 
 ## <a name="test"></a>테스트
 
@@ -185,12 +185,12 @@ LUIS 앱 [테스트](luis-interactive-test.md#test-your-app)는 LUIS에 발화�
 
 ## <a name="timezoneoffset"></a>표준 시간대 오프셋
 
-엔드포인트에는 timezoneOffset이 포함됩니다. 이는 datetimeV2 미리 빌드된 엔터티에서 추가하거나 제거하려는 시간(분)입니다. 예를 들어, 발화가 “몇 시인가요?”인 경우 반환된 datetimeV2는 클라이언트 요청의 현재 시간입니다. 클라이언트 요청을 봇에서 가져오거나 봇의 사용자와 동일하지 않은 다른 응용 프로그램에서 가져오는 경우에는 봇과 사용자 간의 오프셋을 전달해야 합니다.
+엔드포인트에는 timezoneOffset이 포함됩니다. 이는 datetimeV2 미리 빌드된 엔터티에서 추가하거나 제거하려는 시간(분)입니다. 예를 들어, 발화가 “몇 시인가요?”인 경우 반환된 datetimeV2는 클라이언트 요청의 현재 시간입니다. 클라이언트 요청을 봇에서 가져오거나 봇의 사용자와 동일하지 않은 다른 애플리케이션에서 가져오는 경우에는 봇과 사용자 간의 오프셋을 전달해야 합니다.
 
 [미리 빌드된 datetimeV2 엔터티의 표준 시간대 변경](luis-concept-data-alteration.md?#change-time-zone-of-prebuilt-datetimev2-entity)을 참조하세요.
 
 ## <a name="token"></a>토큰
-토큰은 엔터티에서 레이블을 지정할 수 있는 가장 작은 단위입니다. 토큰화는 응용 프로그램의 [문화권](luis-language-support.md#tokenization)을 기반으로 합니다.
+토큰은 엔터티에서 레이블을 지정할 수 있는 가장 작은 단위입니다. 토큰화는 애플리케이션의 [문화권](luis-language-support.md#tokenization)을 기반으로 합니다.
 
 ## <a name="train"></a>학습
 

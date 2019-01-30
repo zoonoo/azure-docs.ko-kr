@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 10ebb5f549aba42c4de74cec2c16ed63f90532a1
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 09db18f38cd64d462815793e3067b29fa0989cf9
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633744"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52719320"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Cognitive Services Speech Devices SDK의 릴리스 정보
 
@@ -24,7 +24,8 @@ ms.locfileid: "52633744"
 ## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>Cognitive Services Speech Devices SDK 1.1.0: 2018년 11월 릴리스 
 
 * [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 구성 요소가 1.1.0 버전으로 업데이트되었습니다. 해당 [릴리스 정보](https://aka.ms/csspeech/whatsnew)를 참조하세요. 
-* 향상된 오디오 처리 알고리즘으로 원거리 음성 인식 정확도가 향상되었습니다.  
+* 향상된 오디오 처리 알고리즘으로 원거리 음성 인식 정확도가 향상되었습니다.
+* 샘플 애플리케이션에 중국어 음성 인식 지원이 추가되었습니다.
 
 ## <a name="cognitive-services-speech-devices-sdk-101-2018-oct-release"></a>Cognitive Services Speech Devices SDK 1.0.1: 2018년 10월 릴리스 
 

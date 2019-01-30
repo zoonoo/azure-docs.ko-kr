@@ -33,7 +33,7 @@ ms.locfileid: "49956717"
 > * 리소스 만들기
 > * 관리 작업 수행
 > * 리소스 삭제
-> * 응용 프로그램 실행
+> * 애플리케이션 실행
 
 이러한 단계를 수행하려면 약 20분이 걸립니다.
 
@@ -56,7 +56,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 ## <a name="create-credentials"></a>자격 증명 만들기
 
-이 단계를 시작하기 전에 [Active Directory 서비스 주체](../../active-directory/develop/howto-create-service-principal-portal.md)에 액세스할 수 있는지 확인합니다. 또한 이후 단계에서 필요한 응용 프로그램 ID, 인증 키 및 테넌트 ID를 기록해 두어야 합니다.
+이 단계를 시작하기 전에 [Active Directory 서비스 주체](../../active-directory/develop/howto-create-service-principal-portal.md)에 액세스할 수 있는지 확인합니다. 또한 이후 단계에서 필요한 애플리케이션 ID, 인증 키 및 테넌트 ID를 기록해 두어야 합니다.
 
 ### <a name="create-the-authorization-file"></a>권한 부여 파일 만들기
 
@@ -114,7 +114,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 모든 리소스는 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md)에 포함되어야 합니다.
 
-응용 프로그램의 값을 지정하고 리소스 그룹을 만들려면 Main 메서드에 다음 코드를 추가합니다.
+애플리케이션의 값을 지정하고 리소스 그룹을 만들려면 Main 메서드에 다음 코드를 추가합니다.
 
 ```
 var groupName = "myResourceGroup";
@@ -386,11 +386,11 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 azure.ResourceGroups.DeleteByName(groupName);
 ```
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
-이 콘솔 응용 프로그램을 처음부터 끝까지 완전히 실행하려면 약 5분이 필요합니다. 
+이 콘솔 애플리케이션을 처음부터 끝까지 완전히 실행하려면 약 5분이 필요합니다. 
 
-1. 콘솔 응용 프로그램을 실행하려면 **시작**을 클릭합니다.
+1. 콘솔 애플리케이션을 실행하려면 **시작**을 클릭합니다.
 
 2. **Enter** 키를 눌러 리소스를 삭제하기 전에 Azure Portal에서 리소스 만들기를 확인하는 데에 몇 분이 걸릴 수 있습니다. 배포에 대한 정보를 보려면 배포 상태를 클릭합니다.
 

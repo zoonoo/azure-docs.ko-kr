@@ -4,17 +4,17 @@ description: 이 아티클에서는 실시간 Power BI 대시보드를 사용하
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/27/2017
-ms.openlocfilehash: e84903870110091d527e870600d9a67bdc9cc6e5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: d7f67015d4df20ea39c1225d52be36340b8f65d1
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418457"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556979"
 ---
 # <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>자습서: Stream Analytics 및 Power BI: 스트리밍 데이터에 대한 실시간 분석 대시보드
 Azure Stream Analytics를 사용하면 최고의 비즈니스 인텔리전스 도구 중 하나인 [Microsoft Power BI](https://powerbi.com/)를 이용할 수 있습니다. 이 문서에서는 Azure Stream Analytics 작업에 대한 출력으로 Power BI를 사용하여 비즈니스 인텔리전스 도구를 만드는 방법에 대해 알아봅니다. 실시간 대시보드를 만들고 사용하는 방법도 학습합니다.
@@ -44,23 +44,23 @@ Azure Stream Analytics를 사용하면 최고의 비즈니스 인텔리전스 �
 
 4. **싱크** 아래에서 **Power BI**를 선택합니다.
 
-   ![Power BI에 대한 출력 만들기](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut.png)
+   ![Power BI에 대한 출력 만들기](./media/stream-analytics-power-bi-dashboard/create-power-bi-ouptut.png)
 
 5. **권한 부여**를 클릭합니다.
 
     회사 또는 학교 계정에 대한 Azure 자격 증명을 제공할 수 있는 창이 열립니다. 
 
-    ![Power BI에 액세스하기 위한 자격 증명 입력](./media/stream-analytics-power-bi-dashboard/authorize-area.png)
+    ![Power BI에 액세스하기 위한 자격 증명 입력](./media/stream-analytics-power-bi-dashboard/power-bi-authorization-credentials.png)
 
 6. 자격 증명을 입력합니다. 자격 증명을 입력하면 Streaming Analytic 작업에 권한을 부여하여 Power BI 영역에 액세스할 수 있습니다.
 
 7. **새 출력** 블레이드로 돌아가면 다음 정보를 입력합니다.
 
-    * **그룹 작업 영역**: 데이터 집합을 만들려는 Power BI 테넌트에서 작업 영역을 선택합니다.
-    * **데이터 집합 이름**: `sa-dataset`을 입력합니다. 다른 이름을 사용할 수 있습니다. 이 경우 나중을 위해 기록해 둡니다.
-    * **테이블 이름**: `fraudulent-calls`를 입력합니다. 현재, Stream Analytics 작업의 Power BI 출력에는 하나의 데이터 세트에 하나의 테이블만 있을 수 있습니다.
+    * **그룹 작업 영역**: 데이터 세트를 만들려는 Power BI 테넌트에서 작업 영역을 선택합니다.
+    * **데이터 세트 이름**:  `sa-dataset` 을 입력합니다. 다른 이름을 사용할 수 있습니다. 이 경우 나중을 위해 기록해 둡니다.
+    * **테이블 이름**: `fraudulent-calls` 을 입력합니다. 현재, Stream Analytics 작업의 Power BI 출력에는 하나의 데이터 세트에 하나의 테이블만 있을 수 있습니다.
 
-    ![PBI 작업 영역](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
+    ![Power BI 작업 영역 데이터 세트 및 테이블](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
 
     > [!WARNING]
     > 이 Stream Analytics 작업에서 지정한 것과 동일한 이름의 데이터 세트와 테이블이 Power BI에 있는 경우에는 기존 항목을 덮어씁니다.
@@ -71,8 +71,8 @@ Azure Stream Analytics를 사용하면 최고의 비즈니스 인텔리전스 �
 
 데이터 세트는 다음과 같은 설정으로 만들어집니다.
 
-* **defaultRetentionPolicy: BasicFIFO**:데이터는 FIFO이고, 최대 200,000개의 행이 있습니다.
-* **defaultMode: pushStreaming**: 데이터 집합이 스트리밍 타일 및 기존의 보고서 기반 시각적 개체(즉,  푸시)를 모두 지원합니다.
+* **defaultRetentionPolicy: BasicFIFO**: 데이터는 FIFO이고, 최대 200,000개의 행이 있습니다.
+* **defaultMode: pushStreaming**: 데이터 세트가 스트리밍 타일 및 기존의 보고서 기반 시각적 개체(즉, 푸시)를 모두 지원합니다.
 
 지금은 다른 플래그로 데이터 세트를 만들 수 없습니다.
 
@@ -90,6 +90,7 @@ Power BI 데이터 세트에 대한 자세한 내용은 [Power BI REST API](http
     >[!NOTE]
     >사기 감지 자습서에서 입력 `CallStream`에 이름을 지정하지 않으면 쿼리에서 **FROM** 및 **JOIN** 절의 `CallStream` 이름을 바꿉니다.
 
+        ```SQL
         /* Our criteria for fraud:
         Calls made from the same caller to two phone switches in different locations (for example, Australia and Europe) within five seconds */
 
@@ -107,6 +108,7 @@ Power BI 데이터 세트에 대한 자세한 내용은 [Power BI REST API](http
         /* Where the switch location is different */
         WHERE CS1.SwitchNum != CS2.SwitchNum
         GROUP BY TumblingWindow(Duration(second, 1))
+        ```
 
 4. **저장**을 클릭합니다.
 
@@ -120,7 +122,7 @@ Power BI 데이터 세트에 대한 자세한 내용은 [Power BI REST API](http
     * telcogenerator.exe 및 수정된 telcodatagen.exe.config 파일이 있는 폴더로 이동합니다.
     * 다음 명령 실행:
 
-            telcodatagen.exe 1000 .2 2
+       `telcodatagen.exe 1000 .2 2`
 
 2. **쿼리** 블레이드에서 `CallStream` 입력 옆에 있는 점을 클릭한 후 **입력의 샘플 데이터**를 선택합니다.
 
@@ -146,7 +148,7 @@ Streaming Analytics 작업이 들어오는 스트림에서 사기성 호출을 �
 
 1. [Powerbi.com](https://powerbi.com)으로 이동한 다음 회사 또는 학교 계정으로 로그인합니다. Stream Analytics 작업 쿼리가 결과를 출력하면, 사용자 데이터 세트가 이미 생성되어 표시됩니다.
 
-    ![Power BI에서 스트리밍 데이터 세트](./media/stream-analytics-power-bi-dashboard/streaming-dataset.png)
+    ![Power BI의 스트리밍 데이터 세트 위치](./media/stream-analytics-power-bi-dashboard/stream-analytics-streaming-dataset.png)
 
 2. 작업 영역에서 **+&nbsp;만들기**를 클릭합니다.
 
@@ -158,15 +160,15 @@ Streaming Analytics 작업이 들어오는 스트림에서 사기성 호출을 �
 
 4. 창의 맨 위에서 **타일 추가**를 클릭하고 **사용자 지정 스트리밍 데이터**를 선택한 후 **다음**을 클릭합니다.
 
-    ![사용자 지정 스트리밍 데이터 세트](./media/stream-analytics-power-bi-dashboard/custom-streaming-data.png)
+    ![Power BI의 사용자 지정 스트리밍 데이터 세트 타일](./media/stream-analytics-power-bi-dashboard/custom-streaming-data.png)
 
-5. **데이터 집합** 아래에서 데이터 집합을 선택하고 **다음**을 클릭합니다.
+5. **데이터 세트** 아래에서 데이터 세트를 선택하고 **다음**을 클릭합니다.
 
-    ![스트리밍 데이터 세트](./media/stream-analytics-power-bi-dashboard/your-streaming-dataset.png)
+    ![Power BI의 스트리밍 데이터 세트](./media/stream-analytics-power-bi-dashboard/your-streaming-dataset.png)
 
 6. **시각화 유형** 아래에서 **카드**를 선택한 다음 **필드** 목록에서 **fraudulentcalls**를 선택합니다.
 
-    ![새 타일에 대한 시각화 세부 정보](./media/stream-analytics-power-bi-dashboard/add-fraud.png)
+    ![새 타일에 대한 시각화 세부 정보](./media/stream-analytics-power-bi-dashboard/add-fraudulent-calls-tile.png)
 
 7. **다음**을 클릭합니다.
 
@@ -174,11 +176,11 @@ Streaming Analytics 작업이 들어오는 스트림에서 사기성 호출을 �
 
     ![새 타일에 대한 제목 및 부제목](./media/stream-analytics-power-bi-dashboard/pbi-new-tile-details.png)
 
-9. **Apply**를 클릭합니다.
+9. **적용**을 클릭합니다.
 
     이제 사기 카운터가 나타납니다.
 
-    ![사기 카운터](./media/stream-analytics-power-bi-dashboard/fraud-counter.png)
+    ![Power BI 대시보드의 사기 카운터](./media/stream-analytics-power-bi-dashboard/power-bi-fraud-counter-tile.png)
 
 8. 타일을 추가하는 단계를 다시 진행합니다(4단계부터 시작). 이때 다음을 수행합니다.
 
@@ -187,7 +189,7 @@ Streaming Analytics 작업이 들어오는 스트림에서 사기성 호출을 �
     * 값을 추가하고 **fraudulentcalls**를 선택합니다.
     * **표시할 시간 창**에 지난 10분을 선택합니다.
 
-    ![꺾은선형 차트에 대한 타일 만들기](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
+    ![Power BI에서 꺾은선형 차트 타일 만들기](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
 
 9. **다음**을 클릭하고 제목 및 부제목을 추가하고 **적용**을 클릭합니다.
 
@@ -210,7 +212,7 @@ Streaming Analytics 작업이 들어오는 스트림에서 사기성 호출을 �
 
 다음 수식을 사용하여 값을 초 단위로 계산하여 창에 제공할 수 있습니다.
 
-![수식 1](./media/stream-analytics-power-bi-dashboard/equation1.png)  
+![값을 계산하여 기간(초)을 제공하는 수식](./media/stream-analytics-power-bi-dashboard/compute-window-seconds-equation.png)  
 
 예: 
 
@@ -220,10 +222,11 @@ Streaming Analytics 작업이 들어오는 스트림에서 사기성 호출을 �
 
 그 결과, 수식은 다음과 같습니다.
 
-![수식 2](./media/stream-analytics-power-bi-dashboard/equation2.png)  
+![예제 기준을 기반으로 한 수식](./media/stream-analytics-power-bi-dashboard/power-bi-example-equation.png)  
 
 이 구성이 지정되면 원래 쿼리를 다음과 같이 변경할 수 있습니다.
 
+```SQL
     SELECT
         MAX(hmdt) AS hmdt,
         MAX(temp) AS temp,
@@ -235,7 +238,7 @@ Streaming Analytics 작업이 들어오는 스트림에서 사기성 호출을 �
     GROUP BY
         TUMBLINGWINDOW(ss,4),
         dspl
-
+```
 
 ### <a name="renew-authorization"></a>권한 부여 갱신
 작업을 만들거나 마지막으로 인증한 후에 암호가 변경된 경우 Power BI 계정을 다시 인증해야 합니다. Azure Multi-Factor Authentication가 Azure Active Directory(Azure AD) 테넌트에서 구성된 경우 2주마다 Power BI 권한 부여도 갱신해야 합니다. 갱신하지 않으면 작업 출력 부족 또는 작업 로그에 `Authenticate user error`와 같은 증상을 볼 수 있습니다.

@@ -1,24 +1,21 @@
 ---
-title: Java로 Azure Cosmos DB 그래프 데이터베이스 만들기 | Microsoft Docs
+title: Java로 Azure Cosmos DB 그래프 데이터베이스 만들기
 description: Gremlin을 사용하여 Azure Cosmos DB에서 그래프 데이터에 연결 및 쿼리하는 데 사용할 수 있는 Java 코드 샘플을 제시합니다.
-services: cosmos-db
 author: luisbosquez
-manager: kfile
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-graph
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: lbosq
-ms.openlocfilehash: bd857cbef3b052e85d0b666f211d5f158b8931c2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 54a371b5cd5049ba7ac73e3b49408c30a74a8f78
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420883"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040696"
 ---
-# <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Java 및 Azure Portal을 사용하여 그래프 데이터베이스 만들기
+# <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB는 Java 및 Azure Portal을 사용하여 그래프 데이터베이스 만들기
 
 > [!div class="op_single_selector"]
 > * [Gremlin 콘솔](create-graph-gremlin-console.md)
@@ -31,7 +28,7 @@ ms.locfileid: "50420883"
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB를 사용하여 관리되는 문서, 테이블 및 그래프 데이터베이스를 신속하게 만들고 쿼리할 수 있습니다. 
 
-이 빠른 시작은 Azure Cosmos DB용 Azure Portal 도구를 사용하여 간단한 그래프 데이터베이스를 만듭니다. 또한 이 빠른 시작은 OSS [Apache TinkerPop](http://tinkerpop.apache.org/) 드라이버를 사용하는 [Gremlin API](graph-introduction.md) 데이터베이스를 사용하여 Java 콘솔 앱을 빠르게 만드는 방법도 보여줍니다. 이 빠른 시작의 지침은 Java를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다. 이 빠른 시작을 통해 원하는 것이 무엇이든지 UI 또는 프로그래밍 방식으로 그래프를 만들고 수정하는 작업을 알아봅니다. 
+이 빠른 시작은 Azure Cosmos DB용 Azure Portal 도구를 사용하여 간단한 그래프 데이터베이스를 만듭니다. 또한 이 빠른 시작은 OSS [Apache TinkerPop](https://tinkerpop.apache.org/) 드라이버를 사용하는 [Gremlin API](graph-introduction.md) 데이터베이스를 사용하여 Java 콘솔 앱을 빠르게 만드는 방법도 보여줍니다. 이 빠른 시작의 지침은 Java를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다. 이 빠른 시작을 통해 원하는 것이 무엇이든지 UI 또는 프로그래밍 방식으로 그래프를 만들고 수정하는 작업을 알아봅니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -41,7 +38,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 * [JDK(Java Development Kit) 1.7+](https://aka.ms/azure-jdks)
     * Ubuntu에서 `apt-get install default-jdk`를 실행하여 JDK를 설치합니다.
     * JAVA_HOME 환경 변수가 반드시 JDK가 설치된 폴더를 지정하도록 설정합니다.
-* [Maven](http://maven.apache.org/) 이진 아카이브 [다운로드](http://maven.apache.org/download.cgi) 및 [설치](http://maven.apache.org/install.html)
+* [Maven](https://maven.apache.org/) 이진 아카이브 [다운로드](https://maven.apache.org/download.cgi) 및 [설치](https://maven.apache.org/install.html)
     * Ubuntu에서 `apt-get install maven`을 실행하여 Maven을 실행할 수 있습니다.
 * [Git](https://www.git-scm.com/)
     * Ubuntu에서 `sudo apt-get install git`를 실행하여 Git를 실행할 수 있습니다.
@@ -109,7 +106,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이제 Azure Portal로 다시 이동하여 연결 정보를 가져와서 앱에 복사합니다. 이러한 설정을 사용하면 앱이 호스팅된 데이터베이스와 통신할 수 있게 됩니다.
 
-1. [Azure Portal](http://portal.azure.com/)에서 **키**를 클릭합니다. 
+1. [Azure Portal](https://portal.azure.com/)에서 **키**를 클릭합니다. 
 
     URI 값의 첫 번째 부분을 복사합니다.
 

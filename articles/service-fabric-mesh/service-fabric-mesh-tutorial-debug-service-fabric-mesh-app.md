@@ -1,6 +1,6 @@
 ---
 title: 자습서 - 로컬 개발 클러스터에서 실행 중인 Azure Service Fabric Mesh 웹 응용 프로그램 디버그 | Microsoft Docs
-description: 이 자습서에서는 로컬 클러스터에서 실행 중인 Azure Service Fabric Mesh 응용 프로그램을 디버그합니다.
+description: 이 자습서에서는 로컬 클러스터에서 실행 중인 Azure Service Fabric Mesh 애플리케이션을 디버그합니다.
 services: service-fabric-mesh
 documentationcenter: .net
 author: TylerMSFT
@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 27e4c8f6ac24d40a6afacf10175413745f5151d9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6e7f6499a78b21ad81af5d541966e18090467532
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997015"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787633"
 ---
-# <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>자습서: 로컬 개발 클러스터에서 실행 중인 Service Fabric Mesh 응용 프로그램 디버그
+# <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>자습서: 로컬 개발 클러스터에서 실행 중인 Service Fabric Mesh 애플리케이션 디버그
 
 이 자습서는 시리즈의 2부로, 로컬 개발 클러스터에서 Azure Service Fabric Mesh 앱을 빌드 및 디버그하는 방법을 보여 줍니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "46997015"
 
 ## <a name="download-the-to-do-sample-application"></a>할 일 응용 프로그램 예제 다운로드
 
-[이 자습서 시리즈의 1부](service-fabric-mesh-tutorial-create-dotnetcore.md)에서 할 일 응용 프로그램 예제를 만들지 않은 경우 다운로드할 수 있습니다. 명령 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
+[이 자습서 시리즈의 1부](service-fabric-mesh-tutorial-create-dotnetcore.md)에서 할 일 애플리케이션 예제를 만들지 않은 경우 다운로드할 수 있습니다. 명령 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
 
 ```
 git clone https://github.com/azure-samples/service-fabric-mesh
@@ -74,7 +74,9 @@ Docker 이미지는 프로젝트가 로드되는 즉시 자동으로 빌드되�
 
 로컬 배포가 마무리되고 Visual Studio에서 앱을 실행한 후에 기본 샘플 웹 페이지에 대한 브라우저 창이 열립니다.
 
-**디버깅 팁**
+## <a name="debugging-tips"></a>디버깅 팁
+
+[Visual Studio 성능 최적화](service-fabric-mesh-howto-optimize-vs.md)의 지침에 따라 첫 번째 디버깅 실행(F5)을 더 신속하게 수행합니다.
 
 현재 `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` 호출이 서비스 연결에 실패하는 문제가 있습니다. 호스트 IP 주소가 변경될 때마다 이 문제가 발생할 수 있습니다. 해결 방법:
 
@@ -90,19 +92,19 @@ Docker 이미지는 프로젝트가 로드되는 즉시 자동으로 빌드되�
 
 ### <a name="debug-in-visual-studio"></a>Visual Studio에서 디버그
 
-Visual Studio에서 Service Fabric Mesh 응용 프로그램을 디버깅할 때 로컬 Service Fabric 개발 클러스터를 사용합니다. 백 엔드 서비스에서 할 일 항목을 검색하는 방법을 보려면 OnGet() 메서드를 디버그합니다.
-1. **WebFrontEnd** 프로젝트에서 **페이지** > **Index.cshtml** > **Index.cshtml.cs**를 열고 **Get** 메서드(줄 17)에서 중단점을 설정합니다.
-2. **ToDoService** 프로젝트에서 **TodoController.cs**를 열고 **OnGet** 메서드(줄 15)에서 중단점을 설정합니다.
+Visual Studio에서 Service Fabric Mesh 애플리케이션을 디버깅할 때 로컬 Service Fabric 개발 클러스터를 사용합니다. 백 엔드 서비스에서 할 일 항목을 검색하는 방법을 보려면 OnGet() 메서드를 디버그합니다.
+1. **WebFrontEnd** 프로젝트에서 **페이지** > **Index.cshtml** > **Index.cshtml.cs**를 열고 **OnGet** 메서드(줄 17)에서 중단점을 설정합니다.
+2. **ToDoService** 프로젝트에서 **TodoController.cs**를 열고 **Get** 메서드(줄 15)에서 중단점을 설정합니다.
 3. 브라우저로 돌아가서 페이지를 새로 고칩니다. 웹 프런트 엔드 `OnGet()` 메서드에서 중단점에 도달합니다. `backendUrl` 변수를 검사하여 **service.yaml** 파일에서 정의한 환경 변수를 백 엔드 서비스에 연결하는 데 사용된 URL로 결합하는 방법을 보여줄 수 있습니다.
 4. `client.GetAsync(backendUrl).GetAwaiter().GetResult())` 호출(F10)을 넘어서면 컨트롤러의 `Get()` 중단점에 도달합니다. 이 메서드에서는 메모리 내 목록에서 할 일 항목 목록을 검색하는 방법을 볼 수 있습니다.
 5. 작업이 완료되면 **shift+F5**를 눌러 Visual Studio에서 프로젝트 디버깅을 중지합니다.
- 
+
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서 부분에서는 다음에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * Azure Service Fabric Mesh 응용 프로그램을 빌드할 때 발생하는 결과
+> * Azure Service Fabric Mesh 애플리케이션을 빌드할 때 발생하는 결과
 > * 서비스 간 호출을 관찰하도록 중단점을 설정하는 방법
 
 다음 자습서를 진행합니다.

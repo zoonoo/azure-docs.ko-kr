@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b269b8db59c4aeecf182b6ea11b92a3980a2cd6d
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 6793a83002029c009e3d4e124b4386feabecd5f8
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567420"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201077"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Azure Backup으로 암호화된 가상 머신을 백업 및 복원 
 이 문서에서는 Azure Backup을 사용하여 VM(가상 머신)을 백업하고 복원하는 단계에 대해 설명합니다. 또한 지원되는 시나리오, 필수 조건 및 오류 사례에 대한 문제 해결 조치에 대한 자세한 정보도 제공합니다.
@@ -25,8 +25,12 @@ ms.locfileid: "51567420"
 
    |  | BEK + KEK VM | BEK 전용 VM |
    | --- | --- | --- |
-   | **관리되지 않는 VM**  | yes | yes  |
-   | **관리되는 VM**  | yes | yes  |
+   | **관리되지 않는 VM**  | 예 | 예  |
+   | **관리되는 VM**  | 예 | 예  |
+
+   > [!NOTE]
+   > Azure Backup은 독립 실행형 키를 사용하여 암호화된 VM을 지원합니다. VM을 암호화하는 데 사용되는 인증서의 일부인 키는 현재 지원되지 않습니다.
+   >   
 
 ## <a name="prerequisites"></a>필수 조건
 * VM이 [Azure Disk Encryption](../security/azure-security-disk-encryption.md)을 사용하여 암호화되었습니다. 
@@ -124,6 +128,8 @@ Recovery Services 자격 증명 모음에서 VM이 이미 백업되었으며 나
 권한이 성공적으로 주어지면 암호화된 VM에 백업을 사용하도록 진행할 수 있습니다.
 
 ## <a name="restore-an-encrypted-vm"></a>암호화된 VM 복원
+Azure Backup은 이제 이전에 제공하던 Azure AD를 사용한 Azure 암호화 VM에 대한 복원 외에, [Azure AD를 사용하지 않는 Azure 암호화 VM](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites-aad)에 대한 복원도 지원합니다.<br>
+
 암호화된 VM을 복원하려면 먼저 [VM 복원 구성 선택](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration)의 "백업된 디스크 복원" 섹션의 단계를 따라 디스크를 복원합니다.  그런 후에 다음 옵션 중 하나를 사용할 수 있습니다.
 
 * [복원된 디스크에서 VM 만들기](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)의 PowerShell 단계를 따라 복원된 디스크에서 전체 VM을 만듭니다.

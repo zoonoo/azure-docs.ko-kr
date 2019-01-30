@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 10/28/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 9da64ebe675f9d481c7474a81fec294d50e49ce7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c353c40cc838dc4082d3d4b843a48a5fedb6e1f5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215211"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039472"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure에 Azure Stack VM 복제
 
@@ -31,11 +31,11 @@ Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에
 
 > [!div class="checklist"]
 > * **1단계: Azure Stack VM 복제 준비**. VM이 Site Recovery 요구 사항을 준수하는지 확인하고 Site Recovery 모바일 서비스의 설치를 준비합니다. 이 서비스는 복제하려는 각 VM에 설치됩니다.
-> * **2단계: Recovery Services 자격 증명 모음 설정**. Site Recovery에 대한 자격 증명 모음을 설정하고 복제할 항목을 지정합니다. Site Recovery 구성 요소 및 작업은 자격 증명 모음에서 구성 및 관리됩니다.
-> * **3단계: 원본 복제 환경 설정**. Site Recovery 구성 서버를 설정합니다. 구성 서버는 Site Recovery에 필요한 모든 구성 요소를 실행하는 단일 Azure Stack VM입니다. 구성 서버를 설정한 후 자격 증명 모음에 등록합니다.
-> * **4단계: 대상 복제 환경 설정**. 사용하려는 Azure 계정, Azure Storage 계정 및 네트워크를 선택합니다. 복제 중에 VM 데이터가 Azure Storage에 복사됩니다. 장애 조치(Failover) 후에 Azure VM은 지정된 네트워크에 가입됩니다.
-> * **5단계: 복제 사용**. 복제 설정을 구성하고 VM에 대한 복제를 사용하도록 설정합니다. 복제를 사용하도록 설정하면 모바일 서비스가 VM에 설치됩니다. Site Recovery가 VM의 초기 복제를 수행하면 진행 중인 복제가 시작됩니다.
-> * **6단계: 재해 복구 훈련 실행**: 복제가 작동 및 실행되면 훈련을 실행하여 장애 조치(Failover)가 예상대로 작동하는지 확인합니다. 훈련을 시작하려면 Site Recovery에서 테스트 장애 조치(Failover)를 실행합니다. 테스트 장애 조치(Failover)는 프로덕션 환경에 영향을 주지 않습니다.
+> * **2단계: Recovery Services 자격 증명 모음을 설정합니다**. Site Recovery에 대한 자격 증명 모음을 설정하고 복제할 항목을 지정합니다. Site Recovery 구성 요소 및 작업은 자격 증명 모음에서 구성 및 관리됩니다.
+> * **3단계: 소스 복제 환경을 설정합니다**. Site Recovery 구성 서버를 설정합니다. 구성 서버는 Site Recovery에 필요한 모든 구성 요소를 실행하는 단일 Azure Stack VM입니다. 구성 서버를 설정한 후 자격 증명 모음에 등록합니다.
+> * **4단계: 대상 복제 환경을 설정합니다**. 사용하려는 Azure 계정, Azure Storage 계정 및 네트워크를 선택합니다. 복제 중에 VM 데이터가 Azure Storage에 복사됩니다. 장애 조치(Failover) 후에 Azure VM은 지정된 네트워크에 가입됩니다.
+> * **5단계: 복제를 사용하도록 설정합니다**. 복제 설정을 구성하고 VM에 대한 복제를 사용하도록 설정합니다. 복제를 사용하도록 설정하면 모바일 서비스가 VM에 설치됩니다. Site Recovery가 VM의 초기 복제를 수행하면 진행 중인 복제가 시작됩니다.
+> * **6단계: 재해 복구 훈련 실행**: 복제가 가동 및 실행되면 훈련을 실행하여 장애 조치(Failover)가 예상대로 작동하는지 확인합니다. 훈련을 시작하려면 Site Recovery에서 테스트 장애 조치(Failover)를 실행합니다. 테스트 장애 조치(Failover)는 프로덕션 환경에 영향을 주지 않습니다.
 
 이러한 단계가 완료되면 필요할 때 Azure로의 전체 장애 조치(Failover)를 실행할 수 있습니다.
 
@@ -45,7 +45,7 @@ Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에
 
 **위치**: | **구성 요소** |**세부 정보**
 --- | --- | ---
-**구성 서버** | 단일 Azure Stack VM에서 실행됩니다. | 각 구독에서 구성 서버 VM을 설정합니다. 이 VM은 다음 Site Recovery 구성 요소를 실행합니다.<br/><br/> - 구성 서버: 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다. - 프로세스 서버:복제 게이트웨이 역할을 합니다. 복제 데이터를 수신하고, 캐싱, 압축 및 암호화를 사용하여 최적화하며, Azure Storage로 보냅니다.<br/><br/> 복제하려는 VM이 아래에 설명된 제한을 초과하는 경우 별도의 독립 실행형 프로세스 서버를 설정할 수 있습니다. [자세히 알아보기](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-process-server-scale).
+**구성 서버** | 단일 Azure Stack VM에서 실행됩니다. | 각 구독에서 구성 서버 VM을 설정합니다. 이 VM은 다음 Site Recovery 구성 요소를 실행합니다.<br/><br/> - 구성 서버: 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다. - 프로세스 서버: 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하고, 캐싱, 압축 및 암호화를 사용하여 최적화하며, Azure Storage로 보냅니다.<br/><br/> 복제하려는 VM이 아래에 설명된 제한을 초과하는 경우 별도의 독립 실행형 프로세스 서버를 설정할 수 있습니다. [자세히 알아보기](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-process-server-scale).
 **모바일 서비스** | 복제하려는 각 VM에 설치됩니다. | 이 문서의 단계에서는 복제가 사용되도록 설정될 경우 VM에 모바일 서비스가 자동으로 설치되도록 계정을 준비합니다. 이 서비스를 자동으로 설치하지 않으려는 경우 다양한 다른 방법을 사용할 수 있습니다. [자세히 알아보기](https://docs.microsoft.com/azure/site-recovery/vmware-azure-install-mobility-service).
 **Azure** | Azure에는 Recovery Services 저장소, 저장소 계정 및 가상 네트워크가 필요합니다. |  복제된 데이터는 저장소 계정에 저장됩니다. 장애 조치(Failover)가 발생하면 Azure VM이 Azure 네트워크에 추가됩니다. 
 
@@ -104,7 +104,7 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
     - 도메인 계정을 사용하지 않는 경우 VM에서 원격 사용자 액세스 제어를 사용하지 않도록 설정해야 합니다.
         - 레지스트리에서 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 아래에 DWORD 값 **LocalAccountTokenFilterPolicy**를 만듭니다.
         - 이 값을 1로 설정합니다.
-        - 명령 프롬프트에서 이 작업을 수행하려면 **REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1**을 입력합니다.
+        - 명령 프롬프트에서 이 작업을 수행하려면 다음 명령을 입력합니다. **REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1**.
 - 복제하려는 VM의 Windows 방화벽에서 파일 및 프린터 공유, WMI를 허용합니다.
     - 이 작업을 수행하려면 **wf.msc**를 실행하여 Windows 방화벽 콘솔을 엽니다. 마우스 오른쪽 단추로 **인바운드 규칙** > **새 규칙**을 클릭합니다. **미리 정의**를 선택하고 목록에서 **파일 및 프린터 공유**를 선택합니다. 마법사를 완료하고 연결을 허용하도록 선택한 후 **마침**을 선택합니다.
     - 도메인 컴퓨터에 대해 GPO를 사용하여 이 작업을 수행할 수 있습니다.
@@ -142,7 +142,7 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 
 ## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>2단계: 자격 증명 모음을 만들기 및 복제 목표 선택
 
-1. Azure Portal에서 **리소스 만들기** > **모니터링 + 관리** > **Backup 및 Site Recovery**를 선택합니다.
+1. Azure Portal에서 **리소스 만들기** > **관리 도구** > **Backup 및 Site Recovery**를 선택합니다.
 2. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 
 3. **리소스 그룹**에서 리소스 그룹을 만들거나 선택합니다. **contosoRG**를 사용합니다.
 4. **위치**에서 Azure 지역을 입력합니다. **유럽 서부**를 사용합니다.
@@ -162,7 +162,7 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 
     ![보호 목표](./media/azure-stack-site-recovery/protection-goal.png)
 
-## <a name="step-3-set-up-the-source-environment"></a>3단계: 소스 환경 설정
+## <a name="step-3-set-up-the-source-environment"></a>3단계: 원본 환경 설정
 
 구성 서버 컴퓨터를 설정하고 자격 증명 모음에 등록한 후 복제하려는 컴퓨터를 검색합니다.
 
@@ -227,17 +227,17 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 
 ### <a name="enable-replication"></a>복제 사용
 
-[1단계: 컴퓨터 준비](#step-1-prepare-azure-stack-vms)의 모든 태스크를 완료했는지 확인합니다. 그런 후 다음과 같이 복제를 사용하도록 설정합니다.
+[1단계: 머신 준비](#step-1-prepare-azure-stack-vms)의 모든 태스크를 완료했는지 확인합니다. 그런 후 다음과 같이 복제를 사용하도록 설정합니다.
 
-1. **응용 프로그램 복제** > **원본**을 선택합니다.
+1. **애플리케이션 복제** > **원본**을 선택합니다.
 2. **원본**에서 구성 서버를 선택합니다.
 3. **컴퓨터 형식**에서 **물리적 컴퓨터**를 선택합니다.
 4. 프로세스 서버(구성 서버)를 선택합니다. 그런 후 **OK**를 클릭합니다.
 5. **대상**에서 장애 조치(failover) 후 VM을 만들 구독 및 리소스 그룹을 선택합니다. 장애 조치(Failover)된 VM에 사용할 배포 모델을 선택합니다.
-6. 복제된 데이터를 저장하려는 Azure Storage 계정을 선택합니다.
+6. 복제된 데이터를 저장할 Azure Storage 계정을 선택합니다.
 7. 장애 조치(failover) 후 Azure VM이 생성될 때 연결될 Azure 네트워크 및 서브넷을 선택합니다.
 8. 컴퓨터마다 Azure 네트워크를 선택하려면 **나중에 구성** 을 선택합니다. 각 컴퓨터에 대해 별도로 Azure 네트워크를 선택하려는 경우 **나중에 구성**을 선택합니다.
-9. **물리적 컴퓨터**에서 **+물리적 컴퓨터**를 클릭합니다. 복제하려는 각 컴퓨터의 IP 주소 이름과 운영 체제를 지정합니다.
+9. **물리적 컴퓨터**에서 **+물리적 컴퓨터**를 클릭합니다. 복제하려는 각 머신의 이름, IP 주소 및 OS 종류를 지정합니다.
 
     - 컴퓨터의 내부 IP 주소를 사용합니다.
     - 공용 IP 주소를 지정하는 경우 복제가 예상대로 작동하지 않을 수 있습니다.
@@ -278,9 +278,9 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 
 1. 필수 구성 요소 확인은 장애 조치(failover)에 필요한 모든 조건이 충족되었는지 확인하기 위해 실행합니다.
 2. 장애 조치(Failover)는 지정된 복구 지점을 사용하여 데이터를 처리합니다.
-    - **가장 최근에 처리됨**: 컴퓨터는 Site Recovery에서 처리된 최신 복구 지점으로 장애 조치(Failover)됩니다. 타임스탬프가 표시됩니다. 이 옵션을 사용하면 데이터를 처리하는 데 시간을 소비하지 않으므로 낮은 RTO(복구 시간 목표)가 제공됩니다.
-    - **최신 앱 일치**: 컴퓨터는 최신 앱 일치 복구 지점으로 장애 조치(Failover)됩니다.
-    - **사용자 지정**. 장애 조치(Failover)에 사용되는 복구 지점을 선택합니다.
+    - **가장 최근에 처리됨**: 머신은 Site Recovery에서 처리된 최신 복구 지점으로 장애 조치(Failover)됩니다. 타임스탬프가 표시됩니다. 이 옵션을 사용하면 데이터를 처리하는 데 시간을 소비하지 않으므로 낮은 RTO(복구 시간 목표)가 제공됩니다.
+    - **최신 앱 일치**: 최신 앱 일치 복구 지점으로 머신이 장애 조치(Failover)됩니다.
+    - **사용자 지정**: 장애 조치(Failover)에 사용되는 복구 지점을 선택합니다.
 
 3. Azure VM은 처리된 데이터를 사용하여 생성됩니다.
 4. 테스트 장애 조치(Failover)는 훈련 동안 만든 Azure VM을 자동으로 정리할 수 있습니다.
@@ -314,12 +314,12 @@ VM에 대해 테스트 장애 조치(Failover)를 다음과 같이 실행합니�
 7. VM을 확인한 후에 **커밋**을 클릭하여 장애 조치를 완료합니다. 그러면 사용 가능한 복구 지점이 모두 삭제됩니다.
 
 > [!WARNING]
-> 진행 중인 장애 조치(Failover) 취소 안 함: 장애 조치(Failover)를 시작하기 전에 VM 복제가 중지됩니다. 진행 중인 장애 조치(failover)를 취소하면 장애 조치(failover)가 중지되지만 VM은 다시 복제되지 않습니다.
+> 진행 중인 장애 조치(Failover)는 취소하지 마세요. 장애 조치(failover)를 시작하기 전에 VM 복제가 중지됩니다. 진행 중인 장애 조치(failover)를 취소하면 장애 조치(failover)가 중지되지만 VM은 다시 복제되지 않습니다.
 
 
 ### <a name="fail-back-to-azure-stack"></a>Azure Stack으로 장애 복구(Failback)
 
-기본 사이트가 다시 작동되고 실행되면 Azure에서 Azure Stack으로 장애 복구(Failback)할 수 있습니다. 이렇게 하려면 Azure VM VHD를 다운로드하고 Azure Stack에 업로드해야 합니다.
+기본 사이트가 다시 작동되고 실행되면 Azure에서 Azure Stack으로 장애 복구(failback)할 수 있습니다. 이렇게 하려면 Azure VM VHD를 다운로드하고 Azure Stack에 업로드해야 합니다.
 
 1. VHD를 다운로드할 수 있도록 Azure VM을 종료합니다. 
 2. VHD 다운로드를 시작하려면 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 설치합니다.
@@ -327,7 +327,7 @@ VM에 대해 테스트 장애 조치(Failover)를 다음과 같이 실행합니�
 4. **디스크**에서 디스크 이름을 클릭하고 설정을 수집합니다.
 
     - 예를 들어 테스트에서 사용되는 VHD URI https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd를 분석하여 VHD 다운로드에 사용되는 다음 입력 매개 변수를 가져올 수 있습니다.
-        - 저장소 계정: 502055westcentralus
+        - Storage 계정: 502055westcentralus
         - 컨테이너: wahv9b8d2ceb284fb59287
         - VHD 이름: copied-3676553984.vhd
 

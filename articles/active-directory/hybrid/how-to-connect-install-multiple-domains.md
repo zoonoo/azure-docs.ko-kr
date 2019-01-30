@@ -4,7 +4,7 @@ description: 이 문서에는 O365 및 Azure AD를 사용하여 여러 최상위
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 5595fb2f-2131-4304-8a31-c52559128ea4
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8b5abe252ab9b3389680508537ea1d6f3823f910
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: abc01239a2bf61c39f99fe880bf17d7958a1597c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305762"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477935"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Azure AD로 페더레이션에 대한 여러 도메인 지원
 다음 설명서에서는 Office 365 또는 Azure AD 도메인으로 페더레이션하는 경우 여러 최상위 도메인 및 하위 도메인을 사용하는 방법에 대한 지침을 제공합니다.
@@ -168,7 +168,7 @@ PowerShell 명령을 사용하여 `Get-MsolDomainFederationSettings -DomainName 
 ## <a name="next-steps"></a>다음 단계
 Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 할당](how-to-connect-post-installation.md)할 수 있습니다.
 
-[자동 업그레이드](how-to-connect-install-automatic-upgrade.md), [실수로 인한 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md) 및 [Azure AD Connect Health](how-to-connect-health-sync.md)를 설치하여 사용할 수 있는 이러한 기능에 대해 자세히 알아봅니다.
+다음을 설치하여 사용할 수 있는 이러한 기능에 대해 알아봅니다. [자동 업그레이드](how-to-connect-install-automatic-upgrade.md), [실수로 인한 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md) 및 [Azure AD Connect Health](how-to-connect-health-sync.md).
 
 공통 항목인 [스케줄러 및 동기화를 트리거하는 방법](how-to-connect-sync-feature-scheduler.md)에 대해 자세히 알아봅니다.
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 62712a201e8f9717f3e0215c4c29130d3bddcdf2
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 29b3f0de5fd7cd578f152902412ca9d7cb82912b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050214"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975205"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기
 
@@ -83,9 +83,9 @@ Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케�
 > [!IMPORTANT]
 > 웹 서비스에서 다중 입력을 받을 경우 **webServiceInput**를 사용하는 대신에 **webServiceInputs** 속성을 사용합니다. webServiceInputs 속성을 사용하는 예제는 [웹 서비스에는 다중 입력이 필요합니다](#web-service-requires-multiple-inputs) 섹션을 참조합니다.
 >
-> **webServiceInput**/**webServiceInputs** 및 **webServiceOutputs** 속성(**typeProperties** 내)에서 참조하는 데이터 집합은 **inputs** 및 **outputs** 작업에 포함되어야 합니다.
+> **webServiceInput**/**webServiceInputs** 및 **webServiceOutputs** 속성(**typeProperties** 내)에서 참조하는 데이터 세트는 **inputs** 및 **outputs** 작업에 포함되어야 합니다.
 >
-> Azure ML 실험에서 웹 서비스 입력 및 출력 포트와 전역 매개 변수에는 사용자 지정할 수 있는 기본 이름("input1", "input2")이 붙어있습니다. WebServiceInputs, webServiceOutputs 및 globalParameters 설정에 대해 사용하는 이름은 실험에서의 이름과 정확히 일치해야 합니다. 예상된 매핑을 확인하기 위해 일괄 처리 실행 도움말 페이지에서 Azure ML 끝점에 대한 샘플 요청 페이로드를 볼 수 있습니다.
+> Azure ML 실험에서 웹 서비스 입력 및 출력 포트와 전역 매개 변수에는 사용자 지정할 수 있는 기본 이름("input1", "input2")이 붙어있습니다. WebServiceInputs, webServiceOutputs 및 globalParameters 설정에 대해 사용하는 이름은 실험에서의 이름과 정확히 일치해야 합니다. 예상된 매핑을 확인하기 위해 일괄 처리 실행 도움말 페이지에서 Azure ML 엔드포인트에 대한 샘플 요청 페이로드를 볼 수 있습니다.
 >
 >
 
@@ -153,7 +153,7 @@ Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케�
       }
     }
     ```
-2. **입력** Azure Data Factory **데이터 집합**을 만듭니다. 다른 Data Factory 데이터 세트와 달리 이러한 데이터 세트는 **folderPath** 및 **fileName** 값을 둘 다 포함해야 합니다. 분할을 사용하여 각 배치 실행(각 데이터 조각)이 고유한 입력 및 출력 파일을 처리하거나 생성하도록 할 수 있습니다. 입력을 CSV 파일 형식으로 변환하여 각 조각의 저장소 계정에 배치하는 업스트림 작업을 포함해야 할 수 있습니다. 이 경우 다음 예제에 표시된 **external** 및 **externalData** 설정을 포함하지 않으며, DecisionTreeInputBlob은 다른 작업의 출력 데이터 세트가 됩니다.
+2. **입력** Azure Data Factory **데이터 세트**를 만듭니다. 다른 Data Factory 데이터 세트와 달리 이러한 데이터 세트는 **folderPath** 및 **fileName** 값을 둘 다 포함해야 합니다. 분할을 사용하여 각 배치 실행(각 데이터 조각)이 고유한 입력 및 출력 파일을 처리하거나 생성하도록 할 수 있습니다. 입력을 CSV 파일 형식으로 변환하여 각 조각의 저장소 계정에 배치하는 업스트림 작업을 포함해야 할 수 있습니다. 이 경우 다음 예제에 표시된 **external** 및 **externalData** 설정을 포함하지 않으며, DecisionTreeInputBlob은 다른 작업의 출력 데이터 세트가 됩니다.
 
     ```JSON
     {
@@ -195,8 +195,8 @@ Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케�
     }
     ```
 
-    csv 파일에 머리글 행이 없는 경우 다음과 같은 오류가 표시될 수 있습니다. **Error in Activity: Error reading string. Unexpected token: StartObject. Path '', line 1, position 1**.
-3. **출력** Azure Data Factory **데이터 집합**을 만듭니다. 이 예제에서는 분할을 사용하여 각 조각 실행의 고유한 출력 경로를 만듭니다. 분할하지 않으면 작업에서 파일을 덮어씁니다.
+    csv 파일에 머리글 행이 없는 경우 다음과 같은 오류가 표시될 수 있습니다. **작업 오류입니다. 문자열을 읽는 동안 오류 발생. 예기치 않은 토큰: StartObject. Path '', line 1, position 1**.
+3. **출력** Azure Data Factory **데이터 세트**를 만듭니다. 이 예제에서는 분할을 사용하여 각 조각 실행의 고유한 출력 경로를 만듭니다. 분할하지 않으면 작업에서 파일을 덮어씁니다.
 
     ```JSON
     {
@@ -237,7 +237,7 @@ Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케�
       }
     }
     ```
-4. **AzureMLLinkedService** 형식의 **연결된 서비스**를 만들고 API 키 및 모델 배치 실행 URL을 제공합니다.
+4. **연결된 서비스** (**AzureMLLinkedService** 형식)를 만들고 API 키 및 모델 일괄 처리 실행 URL을 제공합니다.
 
     ```JSON
     {
@@ -304,14 +304,14 @@ Azure 데이터 팩터리를 사용하여 데이터 이동 및 처리를 오케�
     }
     ```
 
-      **start** 및 **end** 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항입니다. **end** 속성 값을 지정하지 않는 경우 "**start + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09**를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](https://msdn.microsoft.com/library/dn835050.aspx) 를 참조하세요.
+      **start** 및 **end** 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예:  2014-10-14T16:32:41Z. **end** 시간은 선택 사항입니다. **end** 속성 값을 지정하지 않는 경우 "**start + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09**를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](https://msdn.microsoft.com/library/dn835050.aspx) 를 참조하세요.
 
       > [!NOTE]
       > AzureMLBatchExecution 작업에 대한 입력 지정은 선택 사항입니다.
       >
       >
 
-### <a name="scenario-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>시나리오: 다양한 저장소의 데이터를 참조하는 판독기/기록기 모듈을 사용하여 실험
+### <a name="scenario-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>시나리오: 다양한 스토리지의 데이터를 참조하는 판독기/기록기 모듈을 사용하여 실험
 Azure ML 실험을 만들 때 다른 일반적인 시나리오는 판독기 및 기록기기 모듈을 사용하는 것입니다. 판독기 모듈은 실험으로 데이터를 로드할 때 사용되고 기록기 모듈은 실험에서 데이터를 저장할 때 사용됩니다. 판독기 및 기록기 모듈에 대한 자세한 내용은 MSDN 라이브러리의 [판독기](https://msdn.microsoft.com/library/azure/dn905997.aspx) 및 [기록기](https://msdn.microsoft.com/library/azure/dn905984.aspx) 항목을 참조하세요.     
 
 판독기 및 작성기 모듈을 사용하는 경우 해당 판독기/기록기 모듈의 각 속성에 대해 웹 서비스 매개 변수를 사용하는 것이 좋습니다. 이러한 웹 매개 변수를 통해 런타임 중 값을 구성할 수 있습니다. 예를 들어 Azure SQL Database: XXX.database.windows.net을 사용하는 판독기 모듈을 사용하여 실험을 만들 수 있습니다. 웹 서비스를 배포한 후 웹 서비스의 소비자가 YYY.database.windows.net이라는 다른 Azure SQL Server를 지정할 수 있도록 하려고 합니다. 웹 서비스 매개 변수를 사용하여 이 값을 구성할 수 있습니다.
@@ -350,7 +350,7 @@ Azure ML 실험을 만들 때 다른 일반적인 시나리오는 판독기 및 
 ### <a name="using-a-reader-module-to-read-data-from-multiple-files-in-azure-blob"></a>Azure Blob에서 여러 파일의 데이터를 읽는 판독기 모듈 사용
 Pig, Hive와 같은 작업이 있는 빅 데이터 파이프라인은 확장명 없이 하나 이상의 출력 파일을 만들 수 있습니다. 예를 들어 외부 Hive 테이블을 지정하는 경우 외부 Hive 테이블에 대한 데이터는 다음 이름 000000_0으로 Azure Blob 저장소에 저장될 수 있습니다. 실험에서 판독기 모듈을 사용하여 여러 파일을 읽고 예측에 사용할 수 있습니다.
 
-Azure Machine Learning 실험에서 판독기 모듈을 사용하는 경우 입력으로 Azure Blob를 지정할 수 있습니다. Azure Blob 저장소에 있는 파일은 HDInsight에서 실행되는 Pig 및 Hive 스크립트에서 생성되는 출력 파일(예: 000000_0)일 수 있습니다. 판독기 모듈을 통해 **컨테이너, 디렉터리/blob에 대한 경로**를 구성하여 파일(확장명 없음)을 읽을 수 있습니다. **컨테이너에 대한 경로**는 컨테이너를 가리키고 **디렉터리/blob**은 다음 이미지에 표시된 파일이 들어 있는 폴더를 가리킵니다. **컨테이너/폴더에 있는 모든 파일을 지정하는(즉, data/aggregateddata/year=2014/month-6/\*)** 별표, 즉 \*)는 실험의 일부로 읽습니다.
+Azure Machine Learning 실험에서 판독기 모듈을 사용하는 경우 입력으로 Azure Blob를 지정할 수 있습니다. Azure Blob Storage에 있는 파일은 HDInsight에서 실행되는 Pig 및 Hive 스크립트에서 생성되는 출력 파일(예: 000000_0)일 수 있습니다. 판독기 모듈을 통해 **컨테이너, 디렉터리/blob에 대한 경로**를 구성하여 파일(확장명 없음)을 읽을 수 있습니다. **컨테이너에 대한 경로**는 컨테이너를 가리키고 **디렉터리/blob**은 다음 이미지에 표시된 파일이 들어 있는 폴더를 가리킵니다. **컨테이너/폴더에 있는 모든 파일을 지정하는(즉, data/aggregateddata/year=2014/month-6/\*)** 별표, 즉 \*)는 실험의 일부로 읽습니다.
 
 ![Azure Blob 속성](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -407,14 +407,14 @@ Azure Machine Learning 실험에서 판독기 모듈을 사용하는 경우 입�
 
 위 JSON 예제에서
 
-* 배포된 Azure Machine Learning 웹 서비스는 판독기 및 기록기 모듈을 사용하여 Azure SQL Database에서/로 데이터를 읽고/쓸 수 있습니다. 이 웹 서비스는 네 개의 매개 변수, 즉 데이터베이스 서버 이름, 데이터베이스 이름, 서버 사용자 계정 이름 및 서버 사용자 계정 암호를 공개합니다.  
-* **start** 및 **end** 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항입니다. **end** 속성 값을 지정하지 않는 경우 "**start + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09**를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](https://msdn.microsoft.com/library/dn835050.aspx) 를 참조하세요.
+* 배포된 Azure Machine Learning 웹 서비스는 판독기 및 기록기 모듈을 사용하여 Azure SQL Database에서/로 데이터를 읽고/쓸 수 있습니다. 이 웹 서비스는 네 개의 매개 변수, 즉  데이터베이스 서버 이름, 데이터베이스 이름, 서버 사용자 계정 이름 및 서버 사용자 계정 암호를 제공합니다.  
+* **start** 및 **end** 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예:  2014-10-14T16:32:41Z. **end** 시간은 선택 사항입니다. **end** 속성 값을 지정하지 않는 경우 "**start + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09**를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](https://msdn.microsoft.com/library/dn835050.aspx) 를 참조하세요.
 
 ### <a name="other-scenarios"></a>기타 시나리오
 #### <a name="web-service-requires-multiple-inputs"></a>웹 서비스에는 다중 입력이 필요합니다
-웹 서비스에서 다중 입력을 받을 경우 **webServiceInput**를 사용하는 대신에 **webServiceInputs** 속성을 사용합니다. **webServiceInputs**에서 참조하는 데이터 집합은 또한 **입력** 작업에 포함되어야 합니다.
+웹 서비스에서 다중 입력을 받을 경우 **webServiceInput**를 사용하는 대신에 **webServiceInputs** 속성을 사용합니다. **webServiceInputs**에서 참조하는 데이터 세트는 또한 **입력** 작업에 포함되어야 합니다.
 
-Azure ML 실험에서 웹 서비스 입력 및 출력 포트와 전역 매개 변수에는 사용자 지정할 수 있는 기본 이름("input1", "input2")이 붙어있습니다. WebServiceInputs, webServiceOutputs 및 globalParameters 설정에 대해 사용하는 이름은 실험에서의 이름과 정확히 일치해야 합니다. 예상된 매핑을 확인하기 위해 일괄 처리 실행 도움말 페이지에서 Azure ML 끝점에 대한 샘플 요청 페이로드를 볼 수 있습니다.
+Azure ML 실험에서 웹 서비스 입력 및 출력 포트와 전역 매개 변수에는 사용자 지정할 수 있는 기본 이름("input1", "input2")이 붙어있습니다. WebServiceInputs, webServiceOutputs 및 globalParameters 설정에 대해 사용하는 이름은 실험에서의 이름과 정확히 일치해야 합니다. 예상된 매핑을 확인하기 위해 일괄 처리 실행 도움말 페이지에서 Azure ML 엔드포인트에 대한 샘플 요청 페이로드를 볼 수 있습니다.
 
 ```JSON
 {
@@ -541,9 +541,9 @@ Azure ML 웹 서비스의 판독기 및 기록기 모듈은 GlobalParameters를 
 
 **내용** 은 다음과 같습니다.
 
-* 실험 끝점에서 webServiceInput을 사용하면 Blob 데이터 집합으로 표시되고 작업 입력 및 webServiceInput 속성에 포함됩니다. 그렇지 않은 경우 webServiceInput 속성은 생략됩니다.
-* 실험 끝점에서 webServiceOutput을 사용하면 Blob 데이터 집합으로 표시되고 작업 출력 및 webServiceOutputs 속성에 포함됩니다. 작업 출력 및 webServiceOutputs는 실험에서 각 출력의 이름으로 매핑됩니다. 그렇지 않은 경우 webServiceOutputs 속성은 생략됩니다.
-* 실험 끝점에서 globalParameter를 노출하는 경우 키, 값 쌍으로 작업 globalParameters 속성에 지정됩니다. 그렇지 않은 경우 globalParameters 속성은 생략됩니다. 키는 대/소문자를 구분합니다. [Azure Data Factory 함수](data-factory-functions-variables.md) 를 사용할 수 있습니다.
+* 실험 엔드포인트에서 webServiceInput을 사용하면 Blob 데이터 세트로 표시되고 작업 입력 및 webServiceInput 속성에 포함됩니다. 그렇지 않은 경우 webServiceInput 속성은 생략됩니다.
+* 실험 엔드포인트에서 webServiceOutput을 사용하면 Blob 데이터 세트로 표시되고 작업 출력 및 webServiceOutputs 속성에 포함됩니다. 작업 출력 및 webServiceOutputs는 실험에서 각 출력의 이름으로 매핑됩니다. 그렇지 않은 경우 webServiceOutputs 속성은 생략됩니다.
+* 실험 엔드포인트에서 globalParameter를 노출하는 경우 키, 값 쌍으로 작업 globalParameters 속성에 지정됩니다. 그렇지 않은 경우 globalParameters 속성은 생략됩니다. 키는 대/소문자를 구분합니다. [Azure Data Factory 함수](data-factory-functions-variables.md) 를 사용할 수 있습니다.
 * 작업 typeProperties 속성에 참조되지 않고도 추가 데이터 세트가 작업 입력 및 출력 속성에 포함될 수 있습니다. 이러한 데이터 세트는 조각 종속성을 사용한 실행에 적용되지만 그렇지 않은 경우 AzureMLBatchExecution 작업에서 무시됩니다.
 
 
@@ -605,7 +605,7 @@ AzureMLBatchScoring 작업을 사용하여 계속하려면 이 섹션을 계속 
 ```
 
 ### <a name="web-service-parameters"></a>웹 서비스 매개 변수
-웹 서비스 매개 변수에 대한 값을 지정하려면 다음 예제와 같이 파이프라인 JSON의 **AzureMLBatchScoringActivty** 섹션에 **typeProperties** 섹션을 추가합니다.
+웹 서비스 매개 변수에 대한 값을 지정하려면 다음 예제와 같이 파이프라인 JSON의 **AzureMLBatchScoringActivity** 섹션에 **typeProperties** 섹션을 추가합니다.
 
 ```JSON
 "typeProperties": {
@@ -631,7 +631,7 @@ AzureMLBatchScoring 작업을 사용하여 계속하려면 이 섹션을 계속 
 >
 
 ## <a name="see-also"></a>참고 항목
-* [Azure 블로그 게시물: Azure 데이터 팩터리 및 Azure Machine Learning 시작하기](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
+* [Azure 블로그 게시물: Azure Data Factory 및 Azure Machine Learning 시작하기](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 

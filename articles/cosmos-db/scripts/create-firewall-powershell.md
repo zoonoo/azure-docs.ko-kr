@@ -1,27 +1,22 @@
 ---
-title: Azure PowerShell 스크립트-Azure Cosmos DB에 대한 방화벽 만들기 | Microsoft Docs
+title: Azure PowerShell 스크립트 - Azure Cosmos DB에 대한 방화벽 만들기
 description: Azure PowerShell 스크립트 샘플 - Azure Cosmos DB에 대한 방화벽 만들기
-services: cosmos-db
-documentationcenter: cosmosdb
-author: SnehaGunda
-manager: kfile
-tags: azure-service-management
 ms.service: cosmos-db
-ms.custom: mvc
+author: SnehaGunda
+ms.author: sngun
+ms.subservice: cosmosdb-sql
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
 ms.date: 05/10/2017
-ms.author: sngun
-ms.openlocfilehash: b6f6d58772ffef385abb0c7ad4d59e301afd2b61
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.reviewer: sngun
+ms.openlocfilehash: 9fcebed584d1abb35f491eb7d401aebb4da3f8d8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41918234"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037177"
 ---
-# <a name="azure-cosmos-db-create-a-firewall-using-powershell"></a>Azure Cosmos DB: PowerShell을 사용하여 방화벽 만들기
+# <a name="azure-cosmos-db-create-a-firewall-using-powershell"></a>Azure Cosmos DB는 PowerShell을 사용하여 방화벽 만들기
 
 이 샘플 PowerShell 스크립트는 종류에 관계없이 Azure Cosmos DB API 계정에 대해 방화벽을 만듭니다. 
 

@@ -11,15 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 4795de2126a34907ecdec69e87a059dbadd0c3d0
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: 9b9a041f1e4269538488d17ee73a7ffdd138c8ab
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380389"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251821"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>빠른 시작: Azure Stack에서 PowerShell을 사용 하 여 Windows Server 가상 머신 만들기
 

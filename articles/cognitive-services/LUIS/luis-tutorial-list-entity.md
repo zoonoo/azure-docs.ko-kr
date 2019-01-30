@@ -1,5 +1,5 @@
 ---
-title: Nodejs를 사용하여 자동으로 엔터티에 목록 엔터티로 레이블 붙이기 | Microsoft Docs
+title: 정확한 텍스트 일치 엔터티
 description: 단어 또는 구의 LUIS 레이블 변형에 유용한 목록 엔터티를 추가하는 방법을 알아봅니다.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: 42fde2b24f851129e24257bbfe6d65a96e235485
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 4cac20cb44c2400e44ff2ca0939b1537f0b20734
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036782"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727185"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>엔터티 검색을 높이기 위한 목록 엔터티 사용 
 이 자습서에서는 엔터티 검색을 높이기 위한 [목록 엔터티](luis-concept-entity-types.md) 사용을 설명합니다. 목록 엔터티는 용어가 정확히 일치하므로 레이블을 지정할 필요가 없습니다.  
@@ -35,9 +35,9 @@ ms.locfileid: "47036782"
 > * LUIS 앱에 대한 [AuthoringKey](luis-concept-keys.md#authoring-key), [EndpointKey](luis-concept-keys.md#endpoint-key)(여러 번 쿼리하는 경우), 앱 ID, 버전 ID 및 [지역](luis-reference-regions.md).
 
 > [!Tip]
-> 아직 구독이 없는 경우 [체험판 계정](https://azure.microsoft.com/free/)으로 등록할 수 있습니다.
+> 아직 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)으로 등록할 수 있습니다.
 
-이 자습서에서는 모든 코드를 [LUIS 샘플 github 리포지토리](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-list-entity)에서 사용할 수 있습니다. 
+이 자습서의 모든 코드는 [Azure-Samples GitHub 리포지토리](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity)에서 사용할 수 있습니다. 
 
 ## <a name="use-homeautomation-app"></a>HomeAutomation 앱 사용
 HomeAutomation 앱은 조명, 엔터테인먼트 시스템 및 환경 제어(예: 냉난방)와 같은 디바이스 제어 기능을 제어합니다. 이러한 시스템은 제조업체 이름, 애칭, 머리글자어 및 속어를 포함할 수 있는 여러 개의 다른 이름이 있습니다. 
@@ -81,15 +81,16 @@ Node.js 파일을 만들고 다음 코드를 복사합니다. authoringKey, appI
 
 다음 명령을 사용하여 NPM 종속성을 설치하고, 코드를 실행하여 목록 엔터티를 만듭니다.
 
-```Javascript
+```console
 npm install && node add-entity-list.js
 ```
 
 실행의 출력은 목록 엔터티의 ID입니다.
 
-```Javascript
+```console
 026e92b3-4834-484f-8608-6114a83b03a6
 ```
+
 ## <a name="train-the-model"></a>모델 학습
 새 목록이 쿼리에 적용될 수 있도록 LUIS를 학습합니다. 학습은 두 부분으로 이루어집니다. 교육과 교육이 완료된 경우 상태 확인입니다. 여러 모델을 사용한 앱은 학습하는 데 몇 분 정도 걸릴 수 있습니다. 다음 코드는 앱을 학습한 다음, 학습에 성공할 때까지 대기합니다. 코드는 기다렸다 다시 시도하는 전략을 사용하여 429 “요청이 너무 많음” 오류를 방지합니다. 
 
@@ -99,13 +100,13 @@ Node.js 파일을 만들고 다음 코드를 복사합니다. authoringKey, appI
 
 다음 명령을 사용하여 앱을 학습하는 코드를 실행합니다.
 
-```Javascript
+```console
 node train.js
 ```
 
 실행의 출력은 LUIS 모델의 학습에서 각 반복의 상태입니다. 다음 실행은 교육에서 단 하나의 검사가 필요합니다.
 
-```Javascript
+```console
 1 trained = true
 [ { modelId: '2c549f95-867a-4189-9c35-44b95c78b70f',
     details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } },
@@ -130,13 +131,13 @@ Node.js 파일을 만들고 다음 코드를 복사합니다. endpointKey, appId
 
 다음 명령을 사용하여 앱을 쿼리하는 코드를 실행합니다.
 
-```Javascript
+```console
 node publish.js
 ```
 
 다음 출력에는 모든 쿼리에 대한 엔드포인트 URL이 포함됩니다. 실제 JSON 결과에는 실제 appID가 포함될 수 있습니다. 
 
-```JSON
+```json
 { 
   versionId: null,
   isStaging: false,
@@ -157,13 +158,13 @@ Node.js 파일을 만들고 다음 코드를 복사합니다. endpointKey, appId
 
 다음 명령을 사용하여 코드를 실행하고 앱을 쿼리합니다.
 
-```Javascript
+```console
 node train.js
 ```
 
 출력은 쿼리 결과입니다. 코드가 **verbose** 이름/값 쌍을 쿼리 문자열에 추가했으므로 출력에는 모든 의도와 해당 점수가 포함됩니다.
 
-```JSON
+```json
 {
   "query": "turn up the heat",
   "topScoringIntent": {
@@ -207,7 +208,7 @@ node train.js
 }
 ```
 
-**Thermostat**의 특정 장치는 “turn up the heat”의 결과 지향 쿼리를 통해 식별됩니다. 원래 HomeAutomation.Device 엔터티는 계속 앱에 있으므로 해당 결과도 확인할 수 있습니다. 
+**Thermostat**의 특정 디바이스는 “turn up the heat”의 결과 지향 쿼리를 통해 식별됩니다. 원래 HomeAutomation.Device 엔터티는 계속 앱에 있으므로 해당 결과도 확인할 수 있습니다. 
 
 두 개의 다른 발언을 시도하여 thermostat으로 반환되는지 확인합니다. 
 

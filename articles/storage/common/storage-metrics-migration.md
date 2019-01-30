@@ -23,7 +23,7 @@ Azure에서 모니터 환경을 통합하는 전략에 맞춰 Azure Storage는 �
 
 ## <a name="understand-old-metrics-that-are-managed-by-azure-storage"></a>Azure Storage에서 관리하는 이전 메트릭 이해
 
-Azure Storage는 이전 메트릭 값을 수집하고, 집계하며, 동일한 저장소 계정 내의 $Metric 테이블에 저장합니다. Azure Portal을 사용하여 모니터링 차트를 설정할 수 있습니다. 또한 Azure Storage SDK를 사용하여 스키마를 기반으로 하는 $Metric 테이블에서 데이터를 읽을 수 있습니다. 자세한 정보는 [저장소 분석](./storage-analytics.md)을 참조하세요.
+Azure Storage는 이전 메트릭 값을 수집하고, 집계하며, 동일한 스토리지 계정 내의 $Metric 테이블에 저장합니다. Azure Portal을 사용하여 모니터링 차트를 설정할 수 있습니다. 또한 Azure Storage SDK를 사용하여 스키마를 기반으로 하는 $Metric 테이블에서 데이터를 읽을 수 있습니다. 자세한 정보는 [저장소 분석](./storage-analytics.md)을 참조하세요.
 
 이전 메트릭은 Azure Blob Storage에 대한 용량 메트릭만 제공합니다. 이전 메트릭은 Blob 저장소, 테이블 저장소, Azure 파일 및 큐 저장소에 대한 트랜잭션 메트릭을 제공합니다.
 
@@ -31,7 +31,7 @@ Azure Storage는 이전 메트릭 값을 수집하고, 집계하며, 동일한 �
 
 ## <a name="understand-new-metrics-managed-by-azure-monitor"></a>Azure Monitor에서 관리하는 새 메트릭 이해
 
-새 저장소 메트릭의 경우, Azure Storage는 메트릭 데이터를 Azure Monitor 백 엔드에 내보냅니다. Azure Monitor는 데이터 수집뿐만 아니라 포털의 데이터를 포함하여 통합 모니터링 환경도 제공합니다. 자세한 내용은 이 [문서](../../monitoring-and-diagnostics/monitoring-overview-metrics.md)를 참조할 수 있습니다.
+새 스토리지 메트릭의 경우, Azure Storage는 메트릭 데이터를 Azure Monitor 백 엔드에 내보냅니다. Azure Monitor는 데이터 수집뿐만 아니라 포털의 데이터를 포함하여 통합 모니터링 환경도 제공합니다. 자세한 내용은 이 [문서](../../monitoring-and-diagnostics/monitoring-overview-metrics.md)를 참조할 수 있습니다.
 
 새 메트릭은 Blob, 테이블, 파일, 큐 및 프리미엄 저장소에 대한 용량 메트릭과 트랜잭션 메트릭을 제공합니다.
 

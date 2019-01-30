@@ -52,7 +52,7 @@ ms.locfileid: "51514862"
 
 이 섹션에서는 **myDeviceId**와 연결된 디바이스 쌍에 위치 메타데이터를 추가하는 .NET 콘솔 앱(C# 사용)을 만듭니다. 그런 다음, IoT Hub에 저장된 디바이스 쌍을 쿼리하여 미국에 있는 디바이스를 선택한 다음 셀룰러 연결을 보고하는 디바이스를 선택합니다.
 
-1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. 프로젝트의 이름을 **AddTagsAndQuery**로 지정합니다.
+1. Visual Studio에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. 프로젝트의 이름을 **AddTagsAndQuery**로 지정합니다.
    
     ![새 Visual C# Windows 클래식 데스크톱 프로젝트](./media/iot-hub-csharp-csharp-twin-getstarted/createnetapp.png)
 
@@ -132,7 +132,7 @@ ms.locfileid: "51514862"
 
 이 섹션에서는 **myDeviceId**로 허브에 연결하는 .NET 콘솔 앱을 만든 다음 셀룰러 네트워크를 사용하여 연결되는 정보에 포함된 reported 속성을 업데이트합니다.
 
-1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. 프로젝트 이름을 **ReportConnectivity**로 지정합니다.
+1. Visual Studio에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. 프로젝트 이름을 **ReportConnectivity**로 지정합니다.
    
     ![새 Visual C# Windows 클래식 디바이스 앱](./media/iot-hub-csharp-csharp-twin-getstarted/createdeviceapp.png)
     

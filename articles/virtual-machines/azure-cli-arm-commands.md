@@ -1333,7 +1333,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     -s, --subscription <subscription>            the subscription identifier
 
 <br>
-    network public-ip list [options] &lt;resource-group&gt; 리소스 그룹 내 모든 공용 IP 리소스를 나열합니다.
+     network public-ip list [options] <resource-group> 리소스 그룹 내 모든 공용 IP 리소스를 나열합니다.
 
     azure network public-ip list -g myresourcegroup
 
@@ -1557,7 +1557,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     role assignment list [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
-## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>azure storage: 저장소 개체를 관리하는 명령
+## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>azure storage: 스토리지 개체를 관리하는 명령
 **Storage 계정을 관리하는 명령**
 
     storage account list [options]

@@ -1,20 +1,17 @@
 ---
 title: Azure Database for PostgreSQL 비디오
 description: 이 페이지는 PostgreSQL용 Azure Database 학습과 관련된 비디오 콘텐츠를 나열합니다.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: ddc5249bb5b001a93f2695f9df2fb8e870988095
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: de4194671f09bde65bee0a1d0d86ffacdcedfbf3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29687903"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543240"
 ---
 # <a name="azure-database-for-postgresql-videos"></a>PostgreSQL용 Azure Database 비디오
 
@@ -40,4 +37,4 @@ Azure Database for PostgreSQL은 완전히 관리되는 장치의 커뮤니티 �
 
 >[!VIDEO https://channel9.msdn.com/Events/Build/2017/B8046/player]
 
-2017 Microsoft //Build 컨퍼런스의 이 비디오에서는 두 명의 조기 채택 고객이 PostgreSQL용 Azure Database 서비스를 사용하여 어떻게 신속하게 혁신을 이루었는지 알아봅니다. 이러한 서비스로 마이그레이션하는 방법에 대해 알아보고 해당 응용 프로그램에서 다음 단계에 대해 논의합니다. 이 비디오에서는 몇 가지 주요 서비스 기능을 살펴보고 개발자가 기존 응용 프로그램을 마이그레이션하거나 Azure에서 이 관리 PostgreSQL 서비스를 사용하는 새로운 응용 프로그램을 개발하는 방법에 대해 논의합니다.
+2017 Microsoft //Build 컨퍼런스의 이 비디오에서는 두 명의 조기 채택 고객이 PostgreSQL용 Azure Database 서비스를 사용하여 어떻게 신속하게 혁신을 이루었는지 알아봅니다. 이러한 서비스로 마이그레이션하는 방법에 대해 알아보고 해당 애플리케이션에서 다음 단계에 대해 논의합니다. 이 비디오에서는 몇 가지 주요 서비스 기능을 살펴보고 개발자가 기존 애플리케이션을 마이그레이션하거나 Azure에서 이 관리 PostgreSQL 서비스를 사용하는 새로운 애플리케이션을 개발하는 방법에 대해 논의합니다.

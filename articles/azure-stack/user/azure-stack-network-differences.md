@@ -5,17 +5,18 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: de98387b0c7d5eb3c5ca99f9aa31619397e2aadf
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: f0e3eca0c38a47e7107e52464e889580dd0b1b8a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944582"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243575"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure Stack 네트워킹에 대 한 고려 사항
 
@@ -25,7 +26,7 @@ Azure Stack 네트워킹에는 다양 한 Azure 네트워킹에서 제공 하는
 
 이 문서에서는 Azure Stack 네트워킹 및 해당 기능에 대 한 고유한 고려 사항의 개요를 제공합니다. Azure Stack 및 Azure 간의 대략적인 차이 대 한 자세한 내용은 참조는 [고려 사항 키](azure-stack-considerations.md) 문서.
 
-## <a name="cheat-sheet-networking-differences"></a>치트 시트: 네트워킹 차이점
+## <a name="cheat-sheet-networking-differences"></a>참고 자료: 네트워킹 차이점
 
 | 서비스 | 기능 | Azure (전역) | Azure Stack |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -44,7 +45,7 @@ Azure Stack 네트워킹에는 다양 한 Azure 네트워킹에서 제공 하는
 |  | 서비스 터널 | 지원됨 | 아직 지원 되지 않습니다.  |
 | 네트워크 보안 그룹 | 보강 된 보안 규칙 | 지원됨 | 아직 지원 되지 않습니다. |
 |  | 효과적인 보안 규칙 | 지원됨 | 아직 지원 되지 않습니다. |
-|  | 응용 프로그램 보안 그룹 | 지원됨 | 아직 지원 되지 않습니다. |
+|  | 애플리케이션 보안 그룹 | 지원됨 | 아직 지원 되지 않습니다. |
 | Virtual Network 게이트웨이 | 지점-사이트 간 VPN Gateway | 지원됨 | 아직 지원 되지 않습니다. |
 |  | Vnet 대 Vnet 게이트웨이 | 지원됨 | 아직 지원 되지 않습니다. |
 |  | 가상 네트워크 게이트웨이 유형 | Azure에서는 VPN<br> Express 경로 <br> 하이퍼 Net | Azure Stack이 이번에만 VPN 유형을 지원합니다. |
@@ -54,7 +55,6 @@ Azure Stack 네트워킹에는 다양 한 Azure 네트워킹에서 제공 하는
 |  | 기본 게이트웨이 사이트 | Azure는 강제 터널링에 대 한 기본 사이트의 구성을 지원 합니다. | 아직 지원 되지 않습니다. |
 |  | 게이트웨이 크기 조정 | Azure는 배포 후 게이트웨이 크기 조정 지원 합니다. | 크기 조정 하지 지원 합니다. |
 |  | 활성/비활성 구성 | 지원됨 | 아직 지원 되지 않습니다. |
-|  | IKE/IPSec 정책 | Azure에서는 사용자 지정 IPSec 정책 구성 합니다. | 아직 지원 되지 않습니다. |
 |  | UsePolicyBasedTrafficSelectors | Azure 정책 기반 트래픽 선택기를 사용 하 여 경로 기반 게이트웨이 연결을 지원 합니다. | 아직 지원 되지 않습니다. |
 | 부하 분산 장치 | SKU | 기본 및 표준 Load Balancer는 지원 | 기본 Load Balancer만 지원 됩니다.  SKU 속성은 지원 되지 않습니다. |
 |  | 영역 | 가용성 영역 지원 됩니다. | 아직 지원 되지 않음 |
@@ -65,14 +65,12 @@ Azure Stack 네트워킹에는 다양 한 Azure 네트워킹에서 제공 하는
 |  | 효과적인 Acl 가져오기 | 지원됨 | 아직 지원 되지 않습니다. |
 |  | 가속화된 네트워킹 사용 | 지원됨 | 아직 지원 되지 않습니다. |
 |  | IP 전달 | 기본적으로 사용 하지 않도록 설정 합니다.  사용할 수 있습니다. | 이 설정을 토글 하면 지원 되지 않습니다.  기본적으로 합니다. |
-|  | 인터페이스 당 여러 IP 구성 | 지원됨 | 아직 지원 되지 않습니다. |
-|  | 응용 프로그램 보안 그룹 | 지원됨 | 아직 지원 되지 않습니다. |
+|  | 애플리케이션 보안 그룹 | 지원됨 | 아직 지원 되지 않습니다. |
 |  | 내부 DNS 이름 레이블 | 지원됨 | 아직 지원 되지 않습니다. |
 |  | 개인 IP 주소 버전 | IPv6 및 IPv4 둘 다 지원 됩니다. | IPv4만 지원됩니다. |
-|  | 기본 IP 구성 | 지원됩니다. 인터페이스의 기본 IP 구성을 식별합니다. | 아직 지원 되지 않습니다. |
 | Network Watcher | 네트워크 감시자 테 넌 트 네트워크 모니터링 기능 | 지원됨 | 아직 지원 되지 않습니다. |
 | CDN | Content Delivery Network 프로필 | 지원됨 | 아직 지원 되지 않습니다. |
-| 응용 프로그램 게이트웨이 | 계층 7 부하 분산 | 지원됨 | 아직 지원 되지 않습니다. |
+| 애플리케이션 게이트웨이 | 계층 7 부하 분산 | 지원됨 | 아직 지원 되지 않습니다. |
 | Traffic Manager | 최적의 응용 프로그램 성능과 안정성을 위해 들어오는 트래픽을 라우팅하십시오. | 지원됨 | 아직 지원 되지 않습니다. |
 | Express 경로 | 에 온-프레미스 인프라 또는 공동 배치 시설에서 Microsoft 클라우드 서비스에 신속 하 고 개인 연결을 설정 합니다. | 지원됨 | Expressroute 회로에 Azure Stack에 연결을 지원 합니다. |
 

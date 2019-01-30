@@ -1,22 +1,25 @@
 ---
-title: Java 빠른 시작 - 의도 예측 - LUIS
-titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 사용 가능한 공용 LUIS 앱을 통해 대화형 텍스트에서 사용자의 의도를 판단합니다. Java를 사용하여 공용 앱의 HTTP 예측 엔드포인트에 사용자의 의도를 텍스트로 보냅니다. 엔드포인트에서 LUIS는 공용 앱의 모델을 적용하여 자연어 텍스트의 의미를 분석하고 전반적인 의도를 판단하여 앱의 주체 도메인에 적절한 데이터를 추출합니다.
+title: 의도 가져오기, Java
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: 이 Java 빠른 시작에서는 사용 가능한 공용 LUIS 앱을 통해 대화형 텍스트에서 사용자의 의도를 판단합니다.
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c492a0d0a9d90a79b0e05d4e7de6f5ef0796184a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 3b50678691342b5b106a375e79380cb8cc1515e4
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417535"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855672"
 ---
 # <a name="quickstart-get-intent-using-java"></a>빠른 시작: Java를 사용하여 의도 가져오기
+
+이 빠른 시작에서는 발언을 LUIS 엔드포인트로 전달하고 의도와 엔터티를 다시 가져옵니다.
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -51,7 +54,7 @@ Java를 사용하여 이전 단계의 브라우저 창에서 본 것과 동일�
 
 3. `javac -cp ":lib/*" LuisGetRequest.java`를 사용하여 Java 프로그램을 컴파일합니다. 
 
-4. `java -cp ":lib/*" LuisGetRequest.java`키를 눌러 응용 프로그램을 실행합니다. 브라우저 창에서 앞서 본 것과 동일한 JSON을 표시합니다.
+4. `java -cp ":lib/*" LuisGetRequest.java`키를 눌러 애플리케이션을 실행합니다. 브라우저 창에서 앞서 본 것과 동일한 JSON을 표시합니다.
 
     ![콘솔 창에서는 LUIS의 JSON 결과를 표시합니다.](./media/luis-get-started-java-get-intent/console-turn-on.png)
     

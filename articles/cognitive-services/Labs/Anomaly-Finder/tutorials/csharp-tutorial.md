@@ -10,18 +10,18 @@ ms.component: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: f99ce765c1d9417fd5ca88b49214eca8a3b0bf49
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ea9083d530d9a94825b8c568ef4c3dbc847c44c0
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887652"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162463"
 ---
-# <a name="tutorial-anomaly-detection-with-c-application"></a>자습서: C# 응용 프로그램을 사용하여 변칙 검색
+# <a name="tutorial-anomaly-detection-with-c-application"></a>자습서: C# 애플리케이션을 사용하여 변칙 검색
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-변칙 검색 API를 사용하여 입력에서 변칙을 검색하는 기본 Windows 응용 프로그램을 탐색합니다. 예제는 시계열 데이터를 구독 키가 있는 변칙 검색 API에 제출한 후 API에서 각 데이터 요소에 대한 모든 변칙 요소와 예상 값을 가져옵니다.
+변칙 검색 API를 사용하여 입력에서 변칙을 검색하는 기본 Windows 애플리케이션을 탐색합니다. 예제는 시계열 데이터를 구독 키가 있는 변칙 검색 API에 제출한 후 API에서 각 데이터 요소에 대한 모든 변칙 요소와 예상 값을 가져옵니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -35,7 +35,7 @@ ms.locfileid: "48887652"
 
 ## <a name="get-and-use-the-example"></a>예제 가져오기 및 사용
 
-변칙 검색 예제 응용 프로그램을 [Github](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git)에서 컴퓨터로 복제할 수 있습니다. 
+변칙 검색 예제 애플리케이션을 [GitHub](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git)에서 컴퓨터로 복제할 수 있습니다. 
 <a name="Step1"></a>
 ### <a name="install-the-example"></a>예제 설치
 
@@ -62,11 +62,11 @@ Ctrl+Shift+B를 누르거나, 리본 메뉴에서 빌드를 클릭하고 솔루�
 <a name="Review"></a>
 ### <a name="review-and-learn"></a>검토 및 학습
 
-이제 실행 중인 응용 프로그램이 있으므로 예제 앱이 Cognitive Services 기술과 어떻게 통합되는지를 살펴보겠습니다. 이 단계를 사용하면 계속해서 이 앱에 빌드하거나 Microsoft 변칙 검색을 사용하여 고유한 앱을 개발하는 작업이 더 쉬워집니다.
+이제 실행 중인 애플리케이션이 있으므로 예제 앱이 Cognitive Services 기술과 어떻게 통합되는지를 살펴보겠습니다. 이 단계를 사용하면 계속해서 이 앱에 빌드하거나 Microsoft 변칙 검색을 사용하여 고유한 앱을 개발하는 작업이 더 쉬워집니다.
 
 이 예제 앱은 변칙 검색 Restful API 엔드포인트를 활용합니다.
 
-Restful API가 예제 응용 프로그램에서 사용되는 방법을 검토하면서 **AnomalyDetectionClient.cs**의 코드 조각을 살펴보겠습니다. 이 파일에는 아래에 재현된 코드 조각을 찾는 데 도움이 되도록 “KEY SAMPLE CODE STARTS HERE” 및 “KEY SAMPLE CODE ENDS HERE”를 표시하는 코드 주석이 포함되어 있습니다.
+Restful API가 예제 애플리케이션에서 사용되는 방법을 검토하면서 **AnomalyDetectionClient.cs**의 코드 조각을 살펴보겠습니다. 이 파일에는 아래에 재현된 코드 조각을 찾는 데 도움이 되도록 “KEY SAMPLE CODE STARTS HERE” 및 “KEY SAMPLE CODE ENDS HERE”를 표시하는 코드 주석이 포함되어 있습니다.
 
 ```csharp
             // ----------------------------------------------------------------------

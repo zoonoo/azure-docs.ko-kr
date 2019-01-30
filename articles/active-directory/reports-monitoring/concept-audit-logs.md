@@ -4,7 +4,7 @@ description: Azure Active Directory 포털의 감사 작업 보고서 소개
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 883f521040c67cb8fe9578bc5c490bc3dfccba28
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 37c733a595285311b05bb420697c190ecabedc9b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624661"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811522"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 감사 작업 보고서 
 
@@ -45,7 +45,7 @@ Azure AD(Azure Active Directory) 보고서를 통해 사용자 환경의 작동 
 
 ## <a name="audit-logs"></a>감사 로그
 
-Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 제공합니다. 감사 보고서에 액세스하려면 **Azure Active Directory**의 **활동** 섹션에서 **감사 로그**를 선택합니다. 
+Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 제공합니다. 감사 보고서에 액세스하려면 **Azure Active Directory**의 **활동** 섹션에서 **감사 로그**를 선택합니다. 감사 로그는 최대 1시간의 대기 시간을 발생할 수 있으므로 작업을 완료한 후 감사 활동 데이터가 포털에 표시되는 데 그만큼 오래 걸릴 수 있습니다.
 
 ![감사 로그](./media/concept-audit-logs/61.png "감사 로그")
 
@@ -114,7 +114,7 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 - 그룹
 - 디렉터리
 - 사용자
-- 응용 프로그램
+- 애플리케이션
 - 정책
 - 디바이스
 - 기타
@@ -134,7 +134,7 @@ Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?
 **Azure Active Directory** 외에도 Azure Portal에서는 감사 데이터에 대한 다음 두 개의 추가 진입점을 제공합니다.
 
 - 개요
-- Enterprise 응용 프로그램
+- Enterprise 애플리케이션
 
 ### <a name="users-and-groups-audit-logs"></a>사용자 및 그룹 감사 로그
 
@@ -160,15 +160,15 @@ Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?
 
 ![감사 로그](./media/concept-audit-logs/93.png "감사 로그")
 
-### <a name="enterprise-applications-audit-logs"></a>Enterprise 응용 프로그램 감사 로그
+### <a name="enterprise-applications-audit-logs"></a>Enterprise 애플리케이션 감사 로그
 
-응용 프로그램 기반 감사 보고서를 사용하여 다음과 같은 질문에 대한 답을 얻을 수 있습니다.
+애플리케이션 기반 감사 보고서를 사용하여 다음과 같은 질문에 대한 답을 얻을 수 있습니다.
 
 * 추가되거나 업데이트된 애플리케이션은 무엇인가요?
 * 제거된 애플리케이션은 무엇인가요?
 * 애플리케이션에 대한 서비스 주체가 변경되었나요?
-* 응용 프로그램의 이름이 변경되었나요?
-* 누가 응용 프로그램에 동의했나요?
+* 애플리케이션의 이름이 변경되었나요?
+* 누가 애플리케이션에 동의했나요?
 
 애플리케이션과 관련된 감사 데이터를 검토하려면 **Enterprise 애플리케이션** 블레이드의 **활동** 섹션에 있는 **감사 로그**에서 필터링된 보기를 찾을 수 있습니다. 이 진입점에는 **활동 리소스 종류**로 미리 선택된 **엔터프라이즈 애플리케이션**이 있습니다.
 
@@ -178,6 +178,11 @@ Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?
 
 ![감사 로그](./media/concept-audit-logs/25.png "감사 로그")
 
+## <a name="office-365-activity-logs"></a>Office 365 활동 로그
+
+[Office 365 관리 센터](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center)에서 Office 365 활동 로그를 확인할 수 있습니다. Office 365 활동 로그와 Azure AD 활동 로그는 여러 디렉터리 리소스를 공유하지만 Office 365 관리 센터에서만 Office 365 활동 로그를 전체적으로 확인할 수 있습니다. 
+
+[Office 365 관리 API](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview)를 사용하여 프로그래밍 방식으로 Office 365 활동 로그에 액세스할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,21 +3,21 @@ title: Azure SQL Database 장기 백업 보존 관리 | Microsoft Docs
 description: 자동화된 백업을 SQL Azure Storage에 저장한 다음, 복원하는 방법 알아보기
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: b4736f47d066d1e2b8e5c7115cb14abeb1cc566a
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 6be0603c8332a6d1bd6c965a167b14f5a22362e6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50137228"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064222"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL Database 장기 백업 보존 관리
 
@@ -33,7 +33,7 @@ Azure SQL Database에서는 최대 10년 동안 Azure Blob Storage에 백업을 
 
 서비스 계층의 보존 기간보다 긴 기간 동안 [자동화된 백업을 유지](sql-database-long-term-retention.md)하도록 SQL Database를 구성할 수 있습니다. 
 
-1. Azure Portal에서 SQL Server를 선택한 다음, **백업 관리**를 클릭합니다. **정책 구성** 탭에서 장기 백업 보존 정책을 설정하거나 수정할 데이터베이스에 대한 확인란을 선택합니다.
+1. Azure Portal에서 SQL Server를 선택한 다음, **백업 관리**를 클릭합니다. **정책 구성** 탭에서 *장기 백업 보존 정책을 설정하거나 수정할 데이터베이스에 대한 확인란을 선택합니다*. 데이터베이스 옆의 확인란을 선택하지 않으면 정책에 대한 변경 내용이 해당 데이터베이스에 적용되지 않습니다.  
 
    ![백업 관리 링크](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 
@@ -173,7 +173,7 @@ $ltrBackup = $ltrBackups[0]
 Remove-AzureRmSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 > [!IMPORTANT]
-> LTR 백업을 삭제하면 되돌릴 수 없습니다. ‘장기 보존 백업 삭제’ 작업으로 필터링하여 Azure Monitor에서 각 삭제에 대한 알림을 설정할 수 있습니다. 활동 로그에는 요청한 사람과 시기에 대한 정보가 포함되어 있습니다. 자세한 지침은 [활동 로그 경고 만들기](../monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md)를 참조하세요.
+> LTR 백업을 삭제하면 되돌릴 수 없습니다. ‘장기 보존 백업 삭제’ 작업으로 필터링하여 Azure Monitor에서 각 삭제에 대한 알림을 설정할 수 있습니다. 활동 로그에는 요청한 사람과 시기에 대한 정보가 포함되어 있습니다. 자세한 지침은 [활동 로그 경고 만들기](../azure-monitor/platform/alerts-activity-log.md)를 참조하세요.
 >
 
 ### <a name="restore-from-ltr-backups"></a>LTR 백업에서 복원

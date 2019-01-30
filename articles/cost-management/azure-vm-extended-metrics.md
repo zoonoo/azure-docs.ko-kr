@@ -6,16 +6,16 @@ keywords: ''
 author: bandersmsft
 manager: vitavor
 ms.author: banders
-ms.date: 11/13/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
-ms.custom: ''
-ms.openlocfilehash: a41136837a56137ce92bd186cb4ee825e4f664c4
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 9bb8d74b012b25ca959cdb87b8a3d5e4284b6497
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274962"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097219"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Azure Virtual Machines에 대한 확장 메트릭 추가 
 
@@ -35,7 +35,7 @@ Cloudyn은 Azure VM의 Azure 메트릭 데이터를 사용하여 리소스 관�
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>확장 메트릭을 사용하도록 설정되었는지 확인
 
-1. http://portal.azure.com에서 Azure Portal에 로그인합니다.
+1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 2. **가상 머신**에서 VM을 선택한 다음, **모니터링**에서 **메트릭**을 선택합니다. 사용 가능한 메트릭 목록이 표시됩니다.
 3. 일부 메트릭을 선택하면 그래프가 해당 항목에 대한 데이터를 표시합니다.  
     ![예제 메트릭 - 호스트 백분율 CPU](./media/azure-vm-extended-metrics/metric01.png)
@@ -55,18 +55,18 @@ Azure와 Linux 게스트 수준 모니터링 모두 저장소 계정이 필요�
 1. **가상 머신**에서 VM 목록을 확인한 다음, VM을 선택합니다.
 2. **모니터링** 아래에서 **진단 설정**을 선택합니다.
 3. 진단 설정 페이지에서 **게스트 수준 모니터링 사용**을 클릭합니다.  
-    ![게스트 수준 모니터링 사용](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
+    ![개요 페이지에서 게스트 수준 모니터링 사용](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
 4. 몇 분 후 VM에 Azure 진단 에이전트가 설치되어 있습니다. 기본 메트릭 집합이 추가됩니다. 페이지를 새로 고칩니다. 개요 탭에 추가 성능 카운터가 표시됩니다.
 5. 모니터링에서 **메트릭**을 선택합니다.
 6. **메트릭 네임스페이스**의 메트릭 차트에서 **게스트(클래식)** 을 선택합니다.
 7. 메트릭 목록에서 게스트 VM에 대해 모든 사용 가능한 성능 카운터를 볼 수 있습니다.  
-    ![확장 메트릭](./media/azure-vm-extended-metrics/extended-metrics.png)
+    ![예제 확장 메트릭 목록](./media/azure-vm-extended-metrics/extended-metrics.png)
 
 ### <a name="enable-guest-level-monitoring-on-new-vms"></a>새 VM에서 게스트 수준 모니터링 사용 
 
 새 VM을 만들 때는 관리 탭에서 **OS 게스트 진단**에 대해 **사용**을 선택합니다.
 
-![게스트 OS 진단 사용](./media/azure-vm-extended-metrics/new-enable-diag.png)
+![게스트 OS 진단을 켬으로 설정](./media/azure-vm-extended-metrics/new-enable-diag.png)
 
 Azure Virtual Machines에 대해 확장 메트릭을 활성화하는 방법은 [Azure Linux 에이전트 이해 및 사용](../virtual-machines/extensions/agent-linux.md)과 [Azure Virtual Machine 에이전트 개요](../virtual-machines/extensions/agent-windows.md)를 참조하세요.
 
@@ -82,7 +82,7 @@ Azure PowerShell 스크립트를 통해 VM 메트릭을 사용하도록 설정�
 
 Cloudyn 포털에서 Azure 인스턴스의 성능 메트릭을 보려면 **자산** > **계산** > **인스턴스 탐색기**로 이동합니다. VM 인스턴스 목록에서 인스턴스를 확장한 다음, 리소스를 확장하여 세부 정보를 확인합니다.
 
-![인스턴스 탐색기](./media/azure-vm-extended-metrics/instance-explorer.png)
+![인스턴스 탐색기에 표시되는 예제 정보](./media/azure-vm-extended-metrics/instance-explorer.png)
 
 ## <a name="next-steps"></a>다음 단계
 

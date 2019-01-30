@@ -4,6 +4,7 @@ description: Traffic Manager로 실제 사용자 측정을 보내도록 웹 페�
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 19a641ba86333047b90c36cef242d524ccad5fe1
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c994190ed4ccbd8e5b90f17b70ec6b65477fb0d8
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138180"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232008"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>웹 페이지를 사용하여 Azure Traffic Manager의 실제 사용자 측정을 보내는 방법
 
@@ -25,7 +26,7 @@ RUM(실제 사용자 측정) 키를 가져오고 웹 페이지에 생성된 코�
 
 ## <a name="obtain-a-real-user-measurements-key"></a>실제 사용자 측정 키 가져오기
 
-클라이언트 응용 프로그램에서 Traffic Manager로 보낸 측정값은 **RUM(실제 사용자 측정) 키**라고 하는 고유한 문자열을 사용하여 서비스에 의해 식별됩니다. Azure Portal, REST API를 사용하거나 PowerShell 또는 Azure CLI를 사용하여 RUM 키를 가져올 수 있습니다.
+클라이언트 애플리케이션에서 Traffic Manager로 보낸 측정값은 **RUM(실제 사용자 측정) 키**라고 하는 고유한 문자열을 사용하여 서비스에 의해 식별됩니다. Azure Portal, REST API를 사용하거나 PowerShell 또는 Azure CLI를 사용하여 RUM 키를 가져올 수 있습니다.
 
 Azure Portal을 사용하여 RUM 키를 가져오려면:
 1. 브라우저에서 Azure Portal에 로그인합니다. 아직 계정이 없는 경우 1개월 평가판에 등록할 수 있습니다.

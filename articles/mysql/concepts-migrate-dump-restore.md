@@ -1,20 +1,17 @@
 ---
 title: Azure Database for MySQL에서 덤프 및 복원을 사용하여 MySQL 데이터베이스 마이그레이션
 description: 이 문서에서는 mysqldump, MySQL Workbench 및 PHPMyAdmin과 같은 도구를 사용하여 MySQL용 Azure Database에서 데이터베이스를 백업 및 복원하는 2가지 일반적인 방법에 대해 설명합니다.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/02/2018
-ms.openlocfilehash: f3e38bb3e7e4f2c58f1ae955878747ebc7d386f1
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: e79c83ecb17c4dcd11f7ccbecded59e7d1d13dfd
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984489"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542464"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>덤프 및 복원을 사용하여 MySQL Database를 MySQL용 Azure 데이터베이스로 마이그레이션
 이 문서에서는 MySQL용 Azure Database에서 데이터베이스를 백업 및 복원하는 2가지 일반적인 방법에 대해 설명합니다.
@@ -33,7 +30,7 @@ MySQL Workbench, mysqldump, Toad 또는 Navicat과 같은 일반 유틸리티 �
 ## <a name="common-uses-for-dump-and-restore"></a>덤프 및 복원을 위한 일반적인 사용
 몇 가지 일반적인 시나리오에서 mysqldump 및 mysqlpump와 같은 MySQL 유틸리티를 사용하여 데이터베이스를 Azure MySQL Database로 덤프 및 로드할 수 있습니다. 다른 시나리오에서 대신 [가져오기 및 내보내기](concepts-migrate-import-export.md) 방법을 사용할 수 있습니다.
 
-- 전체 데이터베이스를 마이그레이션할 때 데이터베이스 덤프를 사용합니다. 이 권장 사항은 많은 양의 MySQL 데이터를 이동하거나 실시간 사이트 또는 응용 프로그램에 대한 서비스 중단을 최소화하려는 경우 유지합니다. 
+- 전체 데이터베이스를 마이그레이션할 때 데이터베이스 덤프를 사용합니다. 이 권장 사항은 많은 양의 MySQL 데이터를 이동하거나 실시간 사이트 또는 애플리케이션에 대한 서비스 중단을 최소화하려는 경우 유지합니다. 
 -  데이터베이스의 모든 테이블이 데이터를 Azure Database for MySQL로 로드할 때 InnoDB 저장소 엔진을 사용하도록 합니다. Azure Database for MySQL은 InnoDB 저장소 엔진만을 지원하므로 대체 저장소 엔진을 지원하지 않습니다. 테이블이 다른 저장소 엔진으로 구성된 경우 Azure Database for MySQL로 마이그레이션 전에 InnoDB 엔진 형식으로 변환합니다.
    예를 들어 MyISAM 테이블을 사용하는 WordPress 또는 WebApp이 있는 경우 Azure Database for MySQL로 복원하기 전에 InnoDB 형식으로 마이그레이션하여 먼저 해당 테이블을 변환합니다. `ENGINE=InnoDB` 절을 사용하여 새 테이블을 만들 때 사용되는 엔진을 설정한 다음 복원 전에 데이터를 호환되는 테이블로 전송합니다. 
 
@@ -126,5 +123,5 @@ $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p test
 6. **이동** 단추를 클릭하여 백업을 내보내고 SQL 명령을 실행하고, 데이터베이스를 다시 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Database for MySQL에 응용 프로그램을 연결합니다](./howto-connection-string.md).
+- [Azure Database for MySQL에 애플리케이션을 연결합니다](./howto-connection-string.md).
 - Azure Database for MySQL로 데이터베이스 마이그레이션에 대한 자세한 내용은 [데이터베이스 마이그레이션 가이드](https://aka.ms/datamigration)을 참조합니다.

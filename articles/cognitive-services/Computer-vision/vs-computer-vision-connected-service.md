@@ -1,7 +1,7 @@
 ---
-title: '자습서: Computer Vision C#'
+title: Visual Studio 연결된 서비스 - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: ASP.NET Core 웹 응용 프로그램에서 Computer Vision API에 연결합니다.
+description: Visual Studio 연결된 서비스 기능을 사용하여 ASP.NET Core 웹 애플리케이션의 Computer Vision API에 연결합니다.
 services: cognitive-services
 author: ghogen
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: Tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: ebfcabdea1e83a83af5eea8025ba5a411c3f9880
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.custom: seodec18
+ms.openlocfilehash: e9207fe19272dac23db165e160ce9f7a7e802c14
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077953"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579739"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Visual Studio의 연결된 서비스를 사용하여 Computer Vision API에 연결
 
@@ -37,15 +38,15 @@ Cognitive Services Computer Vision API를 사용하여 다양한 정보를 추�
 1. **솔루션 탐색기**에서 **추가** > **연결된 서비스**를 선택합니다.
    연결된 서비스 페이지가 프로젝트에 추가할 수 있는 서비스와 함께 표시됩니다.
 
-   ![연결된 서비스 추가 메뉴 항목](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Visual Studio 프로젝트에서 오른쪽 클릭 메뉴의 스크린샷: 추가 > 연결된 서비스](../media/vs-common/Connected-Service-Menu.PNG)
 
 1. 사용 가능한 서비스 메뉴에서 **Cognitive Services Computer Vision API**를 선택합니다.
 
-   ![연결할 서비스를 선택합니다.](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
+   ![연결된 서비스 메뉴에서 Computer Vision을 사용하여 분석 이미지를 강조 표시](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
    Visual Studio에 로그인하고 사용자 계정과 연결된 Azure 구독이 있는 경우 구독이 포함된 드롭다운 목록이 페이지에 표시됩니다.
 
-   ![구독 선택](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
+   ![강조 표시된 구독 드롭다운을 사용한 “Computer Vision API” Visual Studio 창](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
 
 1. 사용하려는 구독을 선택하고, Computer Vision API의 이름을 선택하거나 편집 링크를 선택하여 자동으로 생성된 이름을 수정하고 리소스 그룹 및 가격 책정 계층을 선택합니다.
 
@@ -93,11 +94,11 @@ Cognitive Services Computer Vision API를 사용하여 다양한 정보를 추�
 
 1. 프로젝트의 wwwroot 폴더에 images 폴더를 추가하고 wwwroot 폴더에 이미지 파일을 추가합니다. 예를 들어, 이 [Computer Vision API 페이지](https://azure.microsoft.com/services/cognitive-services/computer-vision/)에 나오는 이미지 중 하나를 사용할 수 있습니다. 이미지 중 하나를 마우스 오른쪽 단추로 클릭하고, 로컬 하드 드라이브에 저장한 후 솔루션 탐색기에서 images 폴더를 마우스 오른쪽 단추로 클릭하고 **추가** > **기존 항목**을 선택하여 프로젝트에 추가합니다. 프로젝트는 솔루션 탐색기에서 다음과 같이 표시됩니다. 
   
-   ![이미지 파일이 있는 images 폴더](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
+   ![선택한 이미지 파일을 사용한 솔루션 탐색기 보기의 스크린샷](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
 
 1. 이미지 파일을 마우스 오른쪽 단추로 클릭하고, 속성을 선택한 후 **변경된 내용만 복사**를 선택합니다. 
 
-   ![변경된 내용만 복사](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
+   ![이미지 속성 창에서 출력 디렉터리로 복사가 변경된 내용만 복사로 설정됨](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
  
 1. Configure 메서드를 다음 코드로 바꾸어 Computer Vision API에 액세스하고 이미지를 테스트합니다.
 
@@ -247,7 +248,7 @@ Cognitive Services Computer Vision API를 사용하여 다양한 정보를 추�
         }
    ```
 
-1. 웹 응용 프로그램을 실행하고 이미지에서 Computer Vision API가 이미지에서 찾은 결과를 확인합니다.
+1. 웹 애플리케이션을 실행하고 이미지에서 Computer Vision API가 이미지에서 찾은 결과를 확인합니다.
 
    ![Computer Vision API 이미지 및 서식이 지정된 결과](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-4.PNG)  
 

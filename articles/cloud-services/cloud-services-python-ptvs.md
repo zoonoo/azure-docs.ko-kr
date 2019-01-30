@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: d9871b399ff06fb08d817c0d892b667b4ef0242d
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: db540326ccdf1683394eda4e168a684e8e2ae3db
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41919441"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605877"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Python Tools for Visual Studio의 Python 웹 및 작업자 역할
 
@@ -36,7 +36,7 @@ ms.locfileid: "41919441"
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>Python 웹 및 작업자 역할 정의
-Azure는 응용 프로그램을 실행하기 위한 세 가지 컴퓨팅 모델인 [Azure App Service의 Web Apps 기능][execution model-web sites], [Azure Virtual Machines][execution model-vms] 및 [Azure Cloud Services][execution model-cloud services]를 제공합니다. 이 세 모델은 모두 Python을 지원합니다. 웹 및 작업자 역할을 포함하는 Cloud Services는 *PaaS(Platform as a Service)* 를 제공합니다. Cloud Service 내에서 웹 역할은 프런트 엔드 웹 응용 프로그램을 호스트하기 위해 전용 IIS(인터넷 정보 서비스) 웹 서버를 제공하고, 작업자 역할은 사용자 조작 또는 입력과 관계없이 비동기, 장기 실행 또는 영구 작업을 실행할 수 있습니다.
+Azure에서는 애플리케이션 실행을 위해 다음과 같은 세 가지 컴퓨팅 모델을 제공합니다. [Azure App Service의 웹앱 기능][execution model-web sites], [Azure Virtual Machines][execution model-vms] 및 [Azure Cloud Services][execution model-cloud services]. 이 세 모델은 모두 Python을 지원합니다. 웹 및 작업자 역할을 포함하는 Cloud Services는 *PaaS(Platform as a Service)* 를 제공합니다. Cloud Service 내에서 웹 역할은 프런트 엔드 웹 애플리케이션을 호스트하기 위해 전용 IIS(인터넷 정보 서비스) 웹 서버를 제공하고, 작업자 역할은 사용자 조작 또는 입력과 관계없이 비동기, 장기 실행 또는 영구 작업을 실행할 수 있습니다.
 
 자세한 내용은 [Cloud Service란?]을 참조하세요.
 
@@ -346,7 +346,7 @@ Azure Storage 또는 Service Bus를 사용하는 등 웹 및 작업자 역할에
 <!--Link references-->
 
 [Cloud Service란?]: cloud-services-choose-me.md
-[execution model-web sites]: ../app-service/app-service-web-overview.md
+[execution model-web sites]: ../app-service/overview.md
 [execution model-vms]:../virtual-machines/windows/overview.md
 [execution model-cloud services]: cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/

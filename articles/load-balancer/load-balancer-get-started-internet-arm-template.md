@@ -1,5 +1,6 @@
 ---
-title: 공용 부하 분산 장치 만들기 - Azure 템플릿 | Microsoft Docs
+title: 공용 Load Balancer 만들기 - Azure 템플릿
+titlesuffix: Azure Load Balancer
 description: 템플릿을 사용하여 Resource Manager에서 공용 부하 분산 장치를 만드는 방법에 대해 알아봅니다.
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: af638c01121aa3a7f1d533cd8b50403f909d6b8e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5f6a0ce0c9d863b5ab4922e7228a873ed5398600
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235618"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033284"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>템플릿을 사용하여 공용 부하 분산 장치 만들기
 
@@ -78,3 +80,5 @@ Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르�
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
+
+템플릿에서 부하 분산 장치의 JSON 구문 및 속성은 [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers)를 참조하세요.

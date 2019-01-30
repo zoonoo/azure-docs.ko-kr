@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 127bd965fdce93ae44fbb38a037477174c9cb3fe
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 91f706b882c4f245dbd111b0f9cac269db6fd65f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583247"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652238"
 ---
 # <a name="configure-apache-spark-settings"></a>Apache Spark 설정 구성
 
@@ -33,12 +33,12 @@ HDInsight 클러스터 노드의 VM 수 및 VM 크기는 Spark 구성에 영향�
 새 클러스터를 만들 때 여러 Spark 버전 중에서 선택할 수 있습니다. 전체 목록을 보려면 [HDInsight 구성 요소 및 버전](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning)을 참조하세요.
 
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight 서비스에서 Apache Spark의 기본 버전은 예고 없이 변경될 수 있습니다. 버전 종속성이 있는 경우 .NET SDK/Azure PowerShell 및 Azure 클래식 CLI를 사용하여 클러스터를 만들 때 특정 버전을 지정하는 것이 좋습니다.
 
 Apache Spark에는 다음과 같은 3가지 시스템 구성 위치가 있습니다.
 
-* Spark 속성은 대부분의 응용 프로그램 매개 변수를 제어하며, `SparkConf` 개체 또는 Java 시스템 속성을 통해 설정할 수 있습니다.
+* Spark 속성은 대부분의 애플리케이션 매개 변수를 제어하며, `SparkConf` 개체 또는 Java 시스템 속성을 통해 설정할 수 있습니다.
 * 각 노드의 `conf/spark-env.sh` 스크립트를 통해, IP 주소와 같은 컴퓨터별 설정을 지정하는 데 환경 변수를 사용할 수 있습니다.
 * 로깅은 `log4j.properties`를 통해 구성할 수 있습니다.
 
@@ -76,7 +76,7 @@ Apache Spark에 대한 구성 값을 표시하려면 **구성 기록**을 선택
 
 기본이 아닌 구성 값 집합을 만들면 구성 업데이트의 기록도 볼 수 있습니다.  이 구성 기록은 기본이 아닌 구성 중에서 최적 성능을 나타내는 구성을 확인하는 데도 유용할 수 있습니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 일반적인 Spark 클러스터 구성 설정을 변경하지는 않고 보기만 하려면 최상위 **Spark 작업 UI** 인터페이스에서 **환경** 탭을 선택합니다.
 
 ## <a name="configuring-spark-executors"></a>Spark 실행기 구성
@@ -87,12 +87,12 @@ Apache Spark에 대한 구성 값을 표시하려면 **구성 기록**을 선택
 
 Spark 작업은 작업자 리소스, 특히 메모리를 사용하므로, 작업자 노드 실행기에 대한 Spark 구성 값을 조정하는 것이 일반적입니다.
 
-응용 프로그램 요구 사항을 개선하기 위해 Spark 구성 조정을 위해 수정되는 3가지 핵심 매개 변수는 `spark.executor.instances`, `spark.executor.cores` 및 `spark.executor.memory`입니다. 실행자는 Spark 응용 프로그램을 위해 시작된 프로세스입니다. 실행기는 작업자 노드에서 실행되며 응용 프로그램에 대한 태스크를 담당합니다. 각 클러스터에 대한 실행기 및 실행기 크기의 기본 수는 작업자 노드 및 작업자 노드 크기의 수에 기반하여 계산됩니다. 클러스터 헤드 노드의 `spark-defaults.conf` 에 저장됩니다.  Ambari Web UI에서 **사용자 지정 spark-defaults** 링크를 선택하여 실행 중인 클러스터에서 이러한 값을 편집할 수 있습니다.  변경한 후에는 UI에 영향 받은 모든 서비스를 **다시 시작**하라는 메시지가 표시됩니다.
+애플리케이션 요구 사항을 개선하기 위해 Spark 구성 조정을 위해 수정되는 3가지 핵심 매개 변수는 `spark.executor.instances`, `spark.executor.cores` 및 `spark.executor.memory`입니다. 실행자는 Spark 애플리케이션을 위해 시작된 프로세스입니다. 실행기는 작업자 노드에서 실행되며 애플리케이션에 대한 작업을 담당합니다. 각 클러스터에 대한 실행기 및 실행기 크기의 기본 수는 작업자 노드 및 작업자 노드 크기의 수에 기반하여 계산됩니다. 클러스터 헤드 노드의 `spark-defaults.conf` 에 저장됩니다.  Ambari Web UI에서 **사용자 지정 spark-defaults** 링크를 선택하여 실행 중인 클러스터에서 이러한 값을 편집할 수 있습니다.  변경한 후에는 UI에 영향 받은 모든 서비스를 **다시 시작**하라는 메시지가 표시됩니다.
 
-> [!NOTE]
-> 이러한 세 가지 구성 매개 변수는 (클러스터에서 실행된는 모든 응용 프로그램의 경우) 클러스터 수준에서 구성될 수도 있고, 각 개별 응용 프로그램에 대해 지정될 수도 있습니다.
+> [!NOTE]  
+> 이러한 세 가지 구성 매개 변수는 (클러스터에서 실행된는 모든 애플리케이션의 경우) 클러스터 수준에서 구성될 수도 있고, 각 개별 애플리케이션에 대해 지정될 수도 있습니다.
 
-Spark 실행기에서 사용되는 리소스에 대한 또 다른 정보원은 Spark 응용 프로그램 UI입니다.  Spark UI에서 **실행기** 탭을 선택하여 실행기에서 사용되는 구성 및 리소스의 요약 및 세부 정보 보기를 표시합니다.  이러한 보기는 Spark 실행기 기본값을 전체 클러스터에 대해 변경할지 또는 특정 작업 실행 집합에 대해 변경할지를 결정하는 데 도움이 될 수 있습니다.
+Spark 실행기에서 사용되는 리소스에 대한 또 다른 정보원은 Spark 애플리케이션 UI입니다.  Spark UI에서 **실행기** 탭을 선택하여 실행기에서 사용되는 구성 및 리소스의 요약 및 세부 정보 보기를 표시합니다.  이러한 보기는 Spark 실행기 기본값을 전체 클러스터에 대해 변경할지 또는 특정 작업 실행 집합에 대해 변경할지를 결정하는 데 도움이 될 수 있습니다.
 
 ![Spark 실행기](./media/apache-spark-settings/spark-executors.png)
 
@@ -119,22 +119,22 @@ YARN은 각 Spark 노드의 컨테이너에서 사용되는 메모리의 최대 
 
 ![YARN Spark 메모리 관리](./media/apache-spark-settings/yarn-spark-memory.png)
 
-## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Jupyter 노트에서 실행 중인 응용 프로그램에 대한 매개 변수 변경
+## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Jupyter 노트에서 실행 중인 애플리케이션에 대한 매개 변수 변경
 
 기본적으로 HDInsight의 Spark 클러스터에는 다양한 구성 요소가 포함되어 있습니다. 이러한 각 구성 요소에는 필요에 따라 재정의될 수 있는 기본 구성 값이 포함되어 있습니다.
 
-* Spark Core - Spark Core, Spark SQL, Spark Streaming API, GraphX 및 MLlib
+* Spark Core - Spark Core, Spark SQL, Spark Streaming API, GraphX 및 Apache Spark MLlib
 * Anaconda - Python 패키지 관리자
 * [Apache Livy](https://livy.incubator.apache.org/) - HDInsight Spark 클러스터에 원격 작업을 제출하는 데 사용되는 Apache Spark REST API
 * [Jupyter](https://jupyter.org/) 및 [Apache Zeppelin](https://zeppelin.apache.org/) Notebook - Spark 클러스터와의 상호 작용을 위한 브라우저 기반 대화형 UI
 * ODBC 드라이버 - HDInsight의 Spark 클러스터를 Microsoft Power BI 및 Tableau와 같은 BI(비즈니스 인텔리전스) 도구에 연결합니다.
 
-Jupyter 노트에서 실행되는 응용 프로그램의 경우 `%%configure` 명령을 사용하여 노트 자체에서 구성을 변경합니다. 이러한 구성 변경 내용은 노트 인스턴스에서 실행되는 Spark 작업에 적용됩니다. 첫 번째 코드 셀을 실행하기 전에 응용 프로그램의 시작 부분에 이를 변경해야 합니다. 변경된 구성은 생성된 Livy 세션에 적용됩니다.
+Jupyter 노트에서 실행되는 애플리케이션의 경우 `%%configure` 명령을 사용하여 노트 자체에서 구성을 변경합니다. 이러한 구성 변경 내용은 노트 인스턴스에서 실행되는 Spark 작업에 적용됩니다. 첫 번째 코드 셀을 실행하기 전에 애플리케이션의 시작 부분에 이를 변경해야 합니다. 변경된 구성은 생성된 Livy 세션에 적용됩니다.
 
-> [!NOTE]
-> 응용 프로그램의 이후 단계에서 구성을 변경하려면 `-f`(force) 매개 변수를 사용합니다. 그러나 응용 프로그램의 모든 진행 상태는 손실됩니다.
+> [!NOTE]  
+> 애플리케이션의 이후 단계에서 구성을 변경하려면 `-f`(force) 매개 변수를 사용합니다. 그러나 애플리케이션의 모든 진행 상태는 손실됩니다.
 
-다음 코드는 Jupyter 노트에서 실행 중인 응용 프로그램에 대한 구성을 변경하는 방법을 보여 줍니다.
+다음 코드는 Jupyter 노트에서 실행 중인 애플리케이션에 대한 구성을 변경하는 방법을 보여 줍니다.
 
 ```
     %%configure

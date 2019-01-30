@@ -5,26 +5,26 @@ services: functions
 keywords: ''
 author: ggailey777
 ms.author: glenga
-ms.date: 09/12/2018
+ms.date: 11/28/2018
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
-ms.devlang: multiple
+ms.devlang: javascript
 manager: jeconnoc
-ms.openlocfilehash: 1045e0cc0d114bb8b35e6136a2054b3642eac7e8
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: b6df653f89f05a9b253ecea102ed8310ff2a53b7
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249876"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438286"
 ---
 # <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>Core Tools 및 Azure CLI(미리 보기)를 사용하여 Linux에 호스트되는 첫 번째 함수 만들기
 
-Azure Functions를 사용하면 먼저 VM을 만들거나 웹 응용 프로그램을 게시하지 않고도 [서버리스](https://azure.microsoft.com/overview/serverless-computing/) Linux 환경에서 코드를 실행할 수 있습니다. Linux 호스팅은 현재 미리 보기이므로 [Functions 2.0 런타임](functions-versions.md)이 필요합니다.
+Azure Functions를 사용하면 먼저 VM을 만들거나 웹 애플리케이션을 게시하지 않고도 [서버리스](https://azure.com/serverless) Linux 환경에서 코드를 실행할 수 있습니다. Linux 호스팅은 현재 미리 보기이므로 [Functions 2.0 런타임](functions-versions.md)이 필요합니다. Linux에서 함수 앱을 실행하기 위한 미리 보기 고려 사항에 대해 자세히 알아보려면 [이 Linux의 함수 문서](https://aka.ms/funclinux)를 참조하세요.
 
 이 빠른 시작 문서에서는 Azure CLI를 사용하여 Linux에서 실행되는 첫 번째 함수 앱을 만드는 방법을 안내합니다. [Azure Functions Core Tools](functions-run-local.md)를 사용하여 함수 코드를 로컬로 만든 후 Azure에 배포합니다.
 
-다음 단계는 Mac, Windows 또는 Linux 컴퓨터에서 지원됩니다. 이 문서에서는 JavaScript 또는 C#으로 함수를 만드는 방법을 보여줍니다.
+다음 단계는 Mac, Windows 또는 Linux 컴퓨터에서 지원됩니다. 이 문서에서는 JavaScript 또는 C#으로 함수를 만드는 방법을 보여줍니다. Python 함수를 만드는 방법을 알아보려면 [Core 도구 및 Azure CLI를 사용하여 첫 번째 Python 함수 만들기(미리 보기)](functions-create-first-function-python.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -50,6 +50,9 @@ func init MyFunctionProj
 
 + `dotnet`: .NET 클래스 라이브러리 프로젝트(.csproj)를 만듭니다.
 + `node`: JavaScript 프로젝트를 만듭니다.
++ `python`: Python 프로젝트를 만듭니다. Python 함수의 경우 [Python 빠른 시작](functions-create-first-function-python.md)을 참조하세요.
+
+명령을 실행하는 경우 다음 출력과 같이 표시됩니다.
 
 ```output
 Writing .gitignore
@@ -68,15 +71,19 @@ Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
 
 [!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
 
+## <a name="create-a-linux-app-service-plan"></a>Linux App Service 계획 만들기
+
+[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+
 ## <a name="create-a-linux-function-app-in-azure"></a>Azure에서 Linux 함수 앱 만들기
 
-Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱은 함수 코드를 실행하기 위한 서버리스 환경을 제공합니다. 이를 통해 함수를 논리 단위로 그룹화하여 더욱 쉽게 리소스를 관리, 배포 및 공유할 수 있습니다. [az functionapp create](/cli/azure/functionapp#az_functionapp_create) 명령을 사용하여 Linux에서 실행되는 함수 앱을 만듭니다.
+Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱은 함수 코드를 실행하기 위한 서버리스 환경을 제공합니다. 이를 통해 함수를 논리 단위로 그룹화하여 더욱 쉽게 리소스를 관리, 배포 및 공유할 수 있습니다. [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 명령을 사용하여 Linux에서 실행되는 함수 앱을 만듭니다.
 
-다음 명령에서 `<app_name>` 자리 표시자 및 `<storage_name>`의 저장소 계정 이름에 고유한 함수 앱 이름을 사용합니다. `<app_name>`은 함수 앱의 기본 DNS 도메인이기도 합니다. 이 이름은 Azure의 모든 앱에서 고유해야 합니다.
+다음 명령에서 `<app_name>` 자리 표시자 및 `<storage_name>`의 저장소 계정 이름에 고유한 함수 앱 이름을 사용합니다. `<app_name>`은 함수 앱의 기본 DNS 도메인이기도 합니다. 이 이름은 Azure의 모든 앱에서 고유해야 합니다. 또한 `dotnet`(C#), `node`(JavaScript) 또는 `python`에서 함수 앱에 대한 `<language>` 런타임을 설정해야 합니다.
 
-```azurecli
-az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
---location "westus" --is-linux
+```azurecli-interactive
+az functionapp create --resource-group myResourceGroup --consumption-plan-location westus --os-type Linux \
+--name <app_name> --storage-account  <storage_name> --runtime <language>
 ```
 
 > [!NOTE]
@@ -101,5 +108,5 @@ To active this function app, publish your app content using Azure Functions Core
 
 이 문서에서는 기본 Azure App Service 컨테이너에 함수 앱을 호스트하는 방법을 보여주었습니다. 사용자 지정 컨테이너에서 Linux에 함수를 호스팅할 수도 있습니다.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [사용자 지정 이미지를 사용하여 Linux에서 함수 만들기](functions-create-function-linux-custom-image.md)

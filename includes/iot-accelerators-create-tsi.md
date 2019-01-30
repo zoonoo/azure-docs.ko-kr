@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/20/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 8c114ed137089e70899e601ebdc1d4d39f562601
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: ab3d4cbe8a200e91d02177e49446065cd9c228df
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382852"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53609075"
 ---
 ## <a name="create-a-consumer-group"></a>소비자 그룹 만들기
 
@@ -41,7 +41,7 @@ Time Series Insights에 원격 분석을 스트리밍하도록 전용 소비자 
 
 [Azure Time Series Insights](../articles/time-series-insights/time-series-insights-overview.md)는 클라우드에서 IoT 규모 시계열 데이터를 관리하기 위한 완전 관리형 분석, 저장 및 가상화 서비스입니다. 새로운 Time Series Insights 환경을 만들려면:
 
-1. [Azure Portal](http://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. **리소스 만들기** > **사물 인터넷** > **Time Series Insights**를 선택합니다.
 

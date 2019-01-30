@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: 393543bbb1891e14ed67487aff26a7bda1eebcd5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 8714c91079d087b16a62af4af8b381edf6871f8b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304240"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065735"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>논리 앱 배포를 위한 Azure Resource Manager 템플릿 만들기
 
@@ -27,14 +27,14 @@ Resource Manager 템플릿에 대한 자세한 내용은 [Azure Resource Manager
 
 논리 앱은 세 가지 기본 구성 요소가 있습니다.
 
-* **논리 앱 리소스**: 가격 책정 정책, 위치, 워크플로 정의 등의 정보가 포함됩니다.
+* **논리 앱 리소스**: 가격 책정 계획, 위치, 워크플로 정의 등의 정보가 포함됩니다.
 * **워크플로 정의**: 논리 앱 워크플로 단계 및 Logic Apps 엔진이 워크플로를 실행하는 방법을 설명합니다.
 논리 앱의 **코드 보기** 창에서 이 정의를 볼 수 있습니다.
 논리 앱 리소스의 `definition` 속성에서 이 정의를 찾을 수 있습니다.
-* **연결**: 연결 문자열 및 액세스 토큰과 같은 커넥터 연결과 관련된 메타데이터를 안전하게 보관하는 별도의 리소스를 참조합니다.
+* **연결**: 연결 문자열 및 액세스 토큰과 같은 커넥터 연결과 관련된 메타데이터를 안전하게 보관하는 별도의 리소스입니다.
 논리 앱 리소스에서 논리 앱은 `parameters` 섹션의 이러한 리소스를 참조합니다.
 
-[Azure Resource Explorer](http://resources.azure.com)와 같은 도구를 사용하여 기존 Logic Apps에 대한 이런 모든 내용을 볼 수 있습니다.
+[Azure Resource Explorer](http://resources.azure.com)와 같은 도구를 사용하여 기존 Logic Apps에 대한 이런 모든 내용을 볼 수 있습니다. JSON 구문 및 속성의 경우 [Microsoft.Logic 리소스 종류](/azure/templates/microsoft.logic/allversions)를 참조하세요.
 
 리소스 그룹 배포에 사용할 수 있는 논리 앱 템플릿을 만들려면 리소스를 정의하고 필요에 따라 매개 변수화해야 합니다.
 예를 들어, 개발, 테스트 및 프로덕션 환경에 배포하는 경우 각 환경에서 SQL Database에 대해 다른 연결 문자열을 사용할 수 있습니다.
@@ -173,7 +173,7 @@ parameters, variables, resourceId, concat 등과 같은 템플릿 함수를 사�
 
 ## <a name="deploy-a-logic-app-template"></a>논리 앱 템플릿 배포
 
-템플릿을 만든 후에는 PowerShell, REST API, [Azure DevOps Release Management](#team-services), Azure Portal을 통한 템플릿 배포와 같은 여러 도구를 사용하여 배포할 수 있습니다.
+PowerShell, REST API, [Azure DevOps Azure Pipelines](#team-services), Azure Portal을 통한 템플릿 배포와 같은 여러 도구를 사용하여 템플릿을 배포할 수 있습니다.
 또한, 매개 변수 값을 저장할 [매개 변수 파일](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)을 만드는 것이 좋습니다.
 [Azure Resource Manager 템플릿 및 PowerShell로 리소스 배포](../azure-resource-manager/resource-group-template-deploy.md) 또는 [Azure Resource Manager 템플릿 및 Azure Portal로 리소스 배포](../azure-resource-manager/resource-group-template-deploy-portal.md) 방법을 알아봅니다.
 
@@ -185,11 +185,11 @@ OAuth 연결에 권한을 부여하려면 Logic Apps Designer에서 논리 앱�
 GitHub에 [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) 프로젝트라는 예시가 있습니다.
 
 <a name="team-services"></a>
-## <a name="azure-devops-release-management"></a>Azure DevOps Release Management
+## <a name="azure-devops-azure-pipelines"></a>Azure DevOps Azure Pipelines
 
-환경을 배포 및 관리하는 일반적인 시나리오는 논리 앱 배포 템플릿과 함께 Azure DevOps의 Release Management 같은 도구를 사용하는 것입니다. Azure DevOps에는 모든 빌드 또는 릴리스 파이프라인에 추가할 수 있는 [Azure 리소스 그룹 배포](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) 작업이 포함됩니다. [서비스 주체](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)가 있어야 배포 권한을 부여한 다음 릴리스 파이프라인을 생성할 수 있습니다.
+환경을 배포 및 관리하는 일반적인 시나리오는 논리 앱 배포 템플릿과 함께 Azure DevOps의 Azure Pipelines와 같은 도구를 사용하는 것입니다. Azure DevOps에는 모든 빌드 또는 릴리스 파이프라인에 추가할 수 있는 [Azure 리소스 그룹 배포](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) 작업이 포함됩니다. [서비스 주체](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)가 있어야 배포 권한을 부여한 다음 릴리스 파이프라인을 생성할 수 있습니다.
 
-1. Release Management에서 빈 파이프라인을 생성할 수 있도록 **비어 있음**을 선택합니다.
+1. Azure Pipelines에서 빈 파이프라인을 생성할 수 있도록 **비어 있음**을 선택합니다.
 
     ![빈 파이프라인 만들기][1]
 

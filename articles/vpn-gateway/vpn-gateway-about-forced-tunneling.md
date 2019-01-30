@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: 71a8077f2423dd170d08d540edd307c08ed886cc
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: cf566811f1e5fe7fde20d148e68417acf6d42f54
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165518"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073825"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 강제 터널링 구성
 
@@ -41,9 +41,9 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
 
 * 각 가상 네트워크 서브넷에는 기본 제공 시스템 라우팅 테이블이 있습니다. 시스템 라우팅 테이블에는 다음 3개의 경로 그룹이 있습니다.
 
-  * **로컬 VNet 경로:** 동일한 가상 네트워크에서 대상 VM으로 직접
-  * **온-프레미스 경로:** Azure VPN Gateway로
-  * **기본 경로:** 인터넷으로 직접. 이전의 두 경로를 벗어나는 개인 IP 주소로 향하는 패킷은 삭제됩니다.
+  * **로컬 VNet 경로**: 동일한 가상 네트워크의 대상 VM에 바로 연결됩니다.
+  * **온-프레미스 경로**: Azure VPN Gateway에 연결됩니다.
+  * **기본 경로**: 인터넷에 바로 연결됩니다. 이전의 두 경로를 벗어나는 개인 IP 주소로 향하는 패킷은 삭제됩니다.
 * 사용자 정의 경로가 릴리스되면서 라우팅 테이블을 만들어 기본 경로에 추가한 다음 라우팅 테이블을 VNet 서브넷에 연결하여 해당 서브넷에 강제 터널링을 사용할 수 있습니다.
 * 가상 네트워크에 연결된 크로스-프레미스 로컬 사이트 사이에서 "기본 사이트"를 설정해야 합니다.
 * 강제 터널링은 동적 라우팅 VPN Gateway(정적 게이트웨이 아님)가 있는 VNet에 연결되어야 합니다.
@@ -104,38 +104,41 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
     </VirtualNetworkSite>
 ```
 
-이 예제에서 가상 네트워크 'MultiTier-VNet'에는 3개의 서브넷(Frontend', 'Midtier' 및 'Backend' 서브넷)과 함께 4개의 크로스 프레미스 연결(DefaultSiteHQ 및 3개의 분기)이 있습니다. 
+이 예제에서 가상 네트워크 'MultiTier-VNet'에는 세 개의 서브넷(‘Frontend’, ‘Midtier’ 및 ‘Backend’ 서브넷)과 네 개의 프레미스 간 연결(‘DefaultSiteHQ’ 및 분기 세 개)이 있습니다. 
 
 단계에서는 강제 터널링에 대한 기본 사이트 연결로 DefaultSiteHQ 를 설정하고 강제 터널링을 사용하도록 Midtier 및 Backend 서브넷을 구성합니다.
 
 1. 라우팅 테이블을 만듭니다. 경로 테이블을 만들려면 다음 cmdlet을 사용합니다.
 
-  ```powershell
-  New-AzureRouteTable –Name "MyRouteTable" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
-  ```
+   ```powershell
+   New-AzureRouteTable –Name "MyRouteTable" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
+   ```
+
 2. 라우팅 테이블에 기본 경로를 추가합니다. 
 
-  다음 예제는 기본 경로를 1단계에서 생성된 라우팅 테이블에 추가합니다. 경로만 지원되는 경우는 "VPNGateway" 다음 홉에 대한 "0.0.0.0/0"의 대상 접두사입니다.
+   다음 예제는 기본 경로를 1단계에서 생성된 라우팅 테이블에 추가합니다. 경로만 지원되는 경우는 "VPNGateway" 다음 홉에 대한 "0.0.0.0/0"의 대상 접두사입니다.
 
-  ```powershell
-  Get-AzureRouteTable -Name "MyRouteTable" | Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
-  ```
+   ```powershell
+   Get-AzureRouteTable -Name "MyRouteTable" | Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
+   ```
+
 3. 서브넷에 라우팅 테이블을 연결합니다. 
 
-  라우팅 테이블을 만들고 경로를 추가한 후 다음 예제를 사용하여 경로 테이블을 VNet 서브넷에 추가하거나 연결합니다. 예제는 경로 테이블 "MyRouteTable"을 VNet MultiTier-VNet의 중간 계층 및 백 엔드 서브넷에 추가합니다.
+   라우팅 테이블을 만들고 경로를 추가한 후 다음 예제를 사용하여 경로 테이블을 VNet 서브넷에 추가하거나 연결합니다. 예제는 경로 테이블 "MyRouteTable"을 VNet MultiTier-VNet의 중간 계층 및 백 엔드 서브넷에 추가합니다.
 
-  ```powershell
-  Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
-  Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
-  ```
+   ```powershell
+   Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
+   Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
+   ```
+
 4. 강제 터널링에 대한 기본 사이트를 할당합니다. 
 
-  이전 단계에서 샘플 cmdlet 스크립트는 라우팅 테이블을 만들고 경로 테이블을 두 개의 VNet 서브넷에 연결했습니다. 나머지 단계는 기본 사이트 또는 터널로 가상 네트워크의 다중 사이트 연결 중에서 로컬 사이트를 선택하는 것입니다.
+   이전 단계에서 샘플 cmdlet 스크립트는 라우팅 테이블을 만들고 경로 테이블을 두 개의 VNet 서브넷에 연결했습니다. 나머지 단계는 기본 사이트 또는 터널로 가상 네트워크의 다중 사이트 연결 중에서 로컬 사이트를 선택하는 것입니다.
 
-  ```powershell
-  $DefaultSite = @("DefaultSiteHQ")
-  Set-AzureVNetGatewayDefaultSite –VNetName "MultiTier-VNet" –DefaultSite "DefaultSiteHQ"
-  ```
+   ```powershell
+   $DefaultSite = @("DefaultSiteHQ")
+   Set-AzureVNetGatewayDefaultSite –VNetName "MultiTier-VNet" –DefaultSite "DefaultSiteHQ"
+   ```
 
 ## <a name="additional-powershell-cmdlets"></a>추가 PowerShell cmdlet
 ### <a name="to-delete-a-route-table"></a>경로 테이블을 삭제하려면

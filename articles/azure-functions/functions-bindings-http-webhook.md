@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: a20dec67201cb7d8b7ccd3a7662438f2afabfe63
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: dc9c3b6740533ae26cf395e436908a359cadf8d9
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446792"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321316"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 트리거 및 바인딩
 
@@ -30,19 +30,19 @@ HTTP 트리거는 [웹후크](https://en.wikipedia.org/wiki/Webhook)에 응답�
 
 ## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 
-HTTP 바인딩은 [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet 패키지 버전 1.x에 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.Http) GitHub 리포지토리에 있습니다.
+HTTP 바인딩은 [Microsoft.Azure.WebJobs.Extensions.Http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet 패키지 버전 1.x에 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.Http) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="packages---functions-2x"></a>패키지 - Functions 2.x
 
-HTTP 바인딩은 [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet 패키지 버전 3.x에 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub 리포지토리에 있습니다.
+HTTP 바인딩은 [Microsoft.Azure.WebJobs.Extensions.Http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet 패키지 버전 3.x에 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>트리거
 
-HTTP 트리거를 사용하면 HTTP 요청으로 함수를 호출할 수 있습니다. HTTP 트리거를 사용하여 서버리스 API를 만들고 웹후크에 응답할 수 있습니다. 
+HTTP 트리거를 사용하면 HTTP 요청으로 함수를 호출할 수 있습니다. HTTP 트리거를 사용하여 서버리스 API를 만들고 웹후크에 응답할 수 있습니다.
 
 기본적으로 HTTP 트리거는 Functions 1.x에서 본문이 비어 있는 HTTP 200 OK 또는 Functions 2.x에서 본문이 비어 있는 HTTP 204 No Content를 반환합니다. 응답을 수정하려면 [HTTP 출력 바인딩](#output)을 구성합니다.
 
@@ -53,8 +53,9 @@ HTTP 트리거를 사용하면 HTTP 요청으로 함수를 호출할 수 있습�
 * [C#](#trigger---c-example)
 * [C# 스크립트(.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
+* [Java](#trigger---java-examples)
 * [JavaScript](#trigger---javascript-example)
-* [Java](#trigger---java-example)
+* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>트리거 - C# 예제
 
@@ -276,10 +277,69 @@ module.exports = function(context, req) {
 };
 ```
 
-### <a name="trigger---java-example"></a>트리거 - Java 예제
+### <a name="trigger---python-example"></a>트리거 - Python 예제
 
-다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [Java 함수](functions-reference-java.md)를 보여줍니다. 함수는 인사말 "Hello,"로 트리거 요청 본문을 앞에 붙이는 arequest 본문과 함께 HTTP 상태 코드 200 응답을 반환합니다.
+다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](functions-reference-python.md)를 보여 줍니다. 함수는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
 
+*function.json* 파일은 다음과 같습니다.
+
+```json
+{
+    "scriptFile": "__init__.py",
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
+```
+
+[구성](#trigger---configuration) 섹션에서는 이러한 속성을 설명합니다.
+
+다음은 Python 코드입니다.
+
+```python
+import logging
+import azure.functions as func
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+    if name:
+        return func.HttpResponse(f"Hello {name}!")
+    else:
+        return func.HttpResponse(
+            "Please pass a name on the query string or in the request body",
+            status_code=400
+        )
+```
+
+### <a name="trigger---java-examples"></a>트리거 - Java 예제
+
+* [쿼리 문자열에서 매개 변수 읽기](#read-parameter-from-the-query-string-java)
+* [POST 요청에서 본문 읽기](#read-body-from-a-post-request-java)
+* [경로에서 매개 변수 읽기](#read-parameter-from-a-route-java)
+* [POST 요청에서 POJO 본문 읽기](#read-pojo-body-from-a-post-request-java)
+
+다음 예제는 *function.json* 파일의 HTTP 트리거 바인딩과 이 바인딩을 사용하는 해당 [Java 함수](functions-reference-java.md)를 보여 줍니다. 
 
 *function.json* 파일은 다음과 같습니다.
 
@@ -302,17 +362,181 @@ module.exports = function(context, req) {
 }
 ```
 
-Java 코드는 다음과 같습니다.
+#### <a name="read-parameter-from-the-query-string-java"></a>쿼리 문자열에서 매개 변수 읽기(Java)  
+
+이 예제에서는 쿼리 문자열에서 ```id```라는 매개 변수를 읽고 이 매개 변수를 사용하여 콘텐츠 형식 ```application/json```으로 클라이언트에 반환되는 JSON 문서를 빌드합니다. 
 
 ```java
-@FunctionName("hello")
-public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS), Optional<String> request,
-                        final ExecutionContext context) 
-    {
-        // default HTTP 200 response code
-        return String.format("Hello, %s!", request);
+    @FunctionName("TriggerStringGet")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET}, 
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("GET parameters are: " + request.getQueryParameters());
+
+        // Get named parameter
+        String id = request.getQueryParameters().getOrDefault("id", "");
+
+        // Convert and display
+        if (id.isEmpty()) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from to the client
+            // Generate document
+            final String name = "fake_name";
+            final String jsonDocument = "{\"id\":\"" + id + "\", " + 
+                                         "\"description\": \"" + name + "\"}";
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(jsonDocument)
+                          .build();
+        }
     }
+```
+
+#### <a name="read-body-from-a-post-request-java"></a>POST 요청에서 본문 읽기(Java)  
+
+이 예제에서는 POST 요청의 본문을 ```String```으로 읽고, 이 매개 변수를 사용하여 콘텐츠 형식 ```application/json```으로 클라이언트에 반환되는 JSON 문서를 빌드합니다.
+
+```java
+    @FunctionName("TriggerStringPost")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Request body is: " + request.getBody().orElse(""));
+
+        // Check request body
+        if (!request.getBody().isPresent()) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from to the client
+            // Generate document
+            final String body = request.getBody().get();
+            final String jsonDocument = "{\"id\":\"123456\", " + 
+                                         "\"description\": \"" + body + "\"}";
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(jsonDocument)
+                          .build();
+        }
+    }
+```
+
+#### <a name="read-parameter-from-a-route-java"></a>경로에서 매개 변수 읽기(Java)  
+
+이 예제에서는 라우팅 경로에서 ```id```라는 필수 매개 변수와 선택적 매개 변수 ```name```을 읽은 후 이러한 매개 변수를 사용하여 콘텐츠 형식 ```application/json```으로 클라이언트에 반환되는 JSON 문서를 빌드합니다. T
+
+```java
+    @FunctionName("TriggerStringRoute")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET}, 
+              authLevel = AuthorizationLevel.ANONYMOUS,
+              route = "trigger/{id}/{name=EMPTY}") // name is optional and defaults to EMPTY
+            HttpRequestMessage<Optional<String>> request,
+            @BindingName("id") String id,
+            @BindingName("name") String name,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Route parameters are: " + id);
+
+        // Convert and display
+        if (id == null) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from to the client
+            // Generate document
+            final String jsonDocument = "{\"id\":\"" + id + "\", " + 
+                                         "\"description\": \"" + name + "\"}";
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(jsonDocument)
+                          .build();
+        }
+    }
+```
+
+#### <a name="read-pojo-body-from-a-post-request-java"></a>POST 요청에서 POJO 본문 읽기(Java)  
+
+다음은 이 예제에서 참조되는 ```ToDoItem``` 클래스의 코드입니다.
+
+```java
+
+public class ToDoItem {
+
+  private String id;
+  private String description;  
+
+  public ToDoItem(String id, String description) {
+    this.id = id;
+    this.description = description;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+  
+  @Override
+  public String toString() {
+    return "ToDoItem={id=" + id + ",description=" + description + "}";
+  }
 }
+
+```
+
+이 예제에서는 POST 요청의 본문을 읽습니다. 요청 본문은 자동으로 ```ToDoItem``` 개체로 역직렬화된 후 콘텐츠 형식 ```application/json```을 사용하여 클라이언트에 반환됩니다. ```ToDoItem``` 매개 변수는 ```HttpMessageResponse.Builder``` 클래스의 ```body``` 속성에 할당될 때 Functions 런타임에 의해 직렬화됩니다.
+
+```java
+    @FunctionName("TriggerPojoPost")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<ToDoItem>> request,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Request body is: " + request.getBody().orElse(null));
+
+        // Check request body
+        if (!request.getBody().isPresent()) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from to the client
+            // Generate document
+            final ToDoItem body = request.getBody().get();
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(body)
+                          .build();
+        }
+    }
 ```
 
 ## <a name="trigger---attributes"></a>트리거 - 특성
@@ -352,12 +576,11 @@ C# 및 F# 함수의 경우 트리거 입력 형식을 `HttpRequestMessage` 또�
 
 JavaScript 함수의 경우 함수 런타임은 요청 개체 대신 요청 본문을 제공합니다. 자세한 내용은 [JavaScript 트리거 예제](#trigger---javascript-example)를 참조하세요.
 
-
 ### <a name="customize-the-http-endpoint"></a>HTTP 엔드포인트 사용자 지정
 
 기본적으로 HTTP 트리거용 함수를 만드는 경우 폼의 경로를 사용하여 이 함수의 주소를 지정할 수 있습니다.
 
-    http://<yourapp>.azurewebsites.net/api/<funcname> 
+    http://<yourapp>.azurewebsites.net/api/<funcname>
 
 HTTP 트리거의 입력 바인딩에서 선택적 `route` 속성을 사용하여 이 경로를 사용자 지정할 수 있습니다. 예를 들어 다음 *function.json* 파일은 HTTP 트리거에 대한 `route` 속성을 정의합니다.
 
@@ -389,7 +612,7 @@ http://<yourapp>.azurewebsites.net/api/products/electronics/357
 이렇게 하면 함수 코드에서 주소의 두 매개 변수, _category_ 및 _id_를 지원할 수 있습니다. 매개 변수에서 [웹 API 경로 제약 조건](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints)을 사용할 수 있습니다. 다음 C# 함수 코드는 두 매개 변수를 모두 사용합니다.
 
 ```csharp
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
+public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id,
                                                 ILogger log)
 {
     if (id == null)
@@ -421,7 +644,7 @@ module.exports = function (context, req) {
     }
 
     context.done();
-} 
+}
 ```
 
 기본적으로 모든 함수 경로에는 *api* 접두사가 붙습니다. [host.json](functions-host-json.md) 파일에서 `http.routePrefix` 속성을 사용하여 접두사를 사용자 지정하거나 제거할 수도 있습니다. 다음 예제에서는 *host.json* 파일에서 빈 문자열을 접두사로 사용하여 *api* 경로 접두사를 제거합니다.
@@ -436,11 +659,11 @@ module.exports = function (context, req) {
 
 ### <a name="working-with-client-identities"></a>클라이언트 ID 사용
 
-함수 앱이 [App Service 인증 / 권한 부여](../app-service/app-service-authentication-overview.md)를 사용하는 경우 코드에서 인증된 클라이언트에 대한 정보를 볼 수 있습니다. 이 정보는 [플랫폼에 의해 삽입된 요청 헤더](../app-service/app-service-authentication-how-to.md#access-user-claims)로서 사용할 수 있습니다. 
+함수 앱이 [App Service 인증 / 권한 부여](../app-service/overview-authentication-authorization.md)를 사용하는 경우 코드에서 인증된 클라이언트에 대한 정보를 볼 수 있습니다. 이 정보는 [플랫폼에 의해 삽입된 요청 헤더](../app-service/app-service-authentication-how-to.md#access-user-claims)로서 사용할 수 있습니다. 
 
 데이터 바인딩에서 이 정보를 읽을 수도 있습니다. 이 기능은 Functions 2.x 런타임에서만 사용할 수 있습니다. 또한 이 기능은 현재 .NET 언어에 대해서만 사용할 수 있습니다.
 
-.NET 언어에서 이 정보는 [ClaimsPrincipal](https://docs.microsoft.com/en-us/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0)로 사용할 수 있습니다. 다음 예제에 표시된 대로 ClaimsPrincipal을 요청 컨텍스트의 일부로 사용할 수 있습니다.
+.NET 언어에서 이 정보는 [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0)로 사용할 수 있습니다. 다음 예제에 표시된 대로 ClaimsPrincipal을 요청 컨텍스트의 일부로 사용할 수 있습니다.
 
 ```csharp
 using System.Net;
@@ -486,14 +709,14 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 다음과 같이 두 가지 유형의 키가 있습니다.
 
 * **호스트 키**: 함수 앱 내의 모든 함수에서 공유합니다. API 키로 사용되면 이 키를 통해 함수 앱 내의 모든 함수에 액세스할 수 있습니다.
-* **function 키**: 정의된 특정 함수에만 적용됩니다. API 키로 사용되면 이 키를 통해 해당 함수에만 액세스할 수 있습니다.
+* **함수 키**: 정의된 특정 함수에만 적용됩니다. API 키로 사용되면 이 키를 통해 해당 함수에만 액세스할 수 있습니다.
 
 각 키의 이름은 참조될 수 있도록 지정되며 함수 및 호스트 수준에서는 "default"라는 기본 키가 있습니다. function 키는 호스트 키보다 우선합니다. 두 키가 동일한 이름으로 정의되면 항상 함수 키가 사용됩니다.
 
 각 함수 앱에는 특수 **마스터 키**도 있습니다. 이 키는 런타임 API에 대한 관리자 권한을 제공하는 `_master` 호스트 키입니다. 이 키를 취소할 수 없습니다. 권한 부여 수준 `admin`을 설정하는 경우 요청은 마스터 키를 사용해야 하며, 다른 키를 사용하는 경우 권한 부여가 실패합니다.
 
 > [!CAUTION]  
-> 함수 앱에서는 마스터 키를 통해 높은 권한이 부여되므로, 이 키를 제3자와 공유하거나 네이티브 클라이언트 응용 프로그램에 배포해서는 안 됩니다. 따라서 관리자 권한 부여 수준을 선택할 때는 주의해야 합니다.
+> 함수 앱에서는 마스터 키를 통해 높은 권한이 부여되므로, 이 키를 제3자와 공유하거나 네이티브 클라이언트 애플리케이션에 배포해서는 안 됩니다. 따라서 관리자 권한 부여 수준을 선택할 때는 주의해야 합니다.
 
 ### <a name="obtaining-keys"></a>키 확보
 
@@ -522,28 +745,26 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 프로덕션 환경에서 함수 엔드포인트를 완벽하게 보호하려면 다음의 함수 앱 수준 보안 옵션 중 하나를 구현해야 합니다.
 
-* 함수 앱에 대해 App Service 인증/권한 부여를 설정합니다. App Service 플랫폼에서는 AAD(Azure Active Directory) 및 기타 여러 타사 ID 공급자를 사용하여 클라이언트를 인증할 수 있습니다. 이 플랫폼을 통해 함수용 사용자 지정 권한 부여 규칙을 구현할 수 있으며, 함수 코드에서 사용자 정보를 사용할 수 있습니다. 자세히 알아보려면 [Azure App Service에서 인증 및 권한 부여](../app-service/app-service-authentication-overview.md) 및 [클라이언트 ID 사용](#working-with-client-identities)을 참조하세요.
+* 함수 앱에 대해 App Service 인증/권한 부여를 설정합니다. App Service 플랫폼에서는 AAD(Azure Active Directory) 및 기타 여러 타사 ID 공급자를 사용하여 클라이언트를 인증할 수 있습니다. 이 플랫폼을 통해 함수용 사용자 지정 권한 부여 규칙을 구현할 수 있으며, 함수 코드에서 사용자 정보를 사용할 수 있습니다. 자세히 알아보려면 [Azure App Service에서 인증 및 권한 부여](../app-service/overview-authentication-authorization.md) 및 [클라이언트 ID 사용](#working-with-client-identities)을 참조하세요.
 
 * Azure APIM(API Management)를 사용하여 요청을 인증합니다. APIM은 수신 요청에 사용할 수 있는 여러 가지 API 보안 옵션을 제공합니다. 자세히 알아보려면 [API Management 인증 정책](../api-management/api-management-authentication-policies.md)을 참조하세요. APIM을 적용하면 APIM 인스턴스의 IP 주소에서 보내는 요청만 수락하도록 함수 앱을 구성할 수 있습니다. 자세히 알아보려면 [IP 주소 제한](ip-addresses.md#ip-address-restrictions)을 참조하세요.
 
-* Azure ASE(App Service Environment)에 함수 앱을 배포합니다. ASE는 함수를 실행할 전용 호스팅 환경을 제공합니다. ASE 사용 시에는 모든 수신 요청을 인증하는 데 사용할 수 있는 단일 프런트 엔드 게이트웨이를 구성할 수 있습니다. 자세한 내용은 [App Service Environment용 WAF(웹 응용 프로그램 방화벽) 구성](../app-service/environment/app-service-app-service-environment-web-application-firewall.md)을 참조하세요.
+* Azure ASE(App Service Environment)에 함수 앱을 배포합니다. ASE는 함수를 실행할 전용 호스팅 환경을 제공합니다. ASE 사용 시에는 모든 수신 요청을 인증하는 데 사용할 수 있는 단일 프런트 엔드 게이트웨이를 구성할 수 있습니다. 자세한 내용은 [App Service Environment용 WAF(웹 애플리케이션 방화벽) 구성](../app-service/environment/app-service-app-service-environment-web-application-firewall.md)을 참조하세요.
 
 이러한 함수 앱 수준 보안 방법 중 하나를 사용할 때는 HTTP 트리거 함수 인증 수준을 `anonymous`로 설정해야 합니다.
 
 ### <a name="webhooks"></a>Webhook
 
 > [!NOTE]
-> 웹후크 모드는 Functions 런타임의 버전 1.x에서만 사용 가능합니다.
+> 웹후크 모드는 Functions 런타임의 버전 1.x에서만 사용 가능합니다. 버전 2.x에서 HTTP 트리거의 성능 향상을 위해 이렇게 변경되었습니다.
 
-웹후크 모드에서는 웹후크 페이로드용으로 추가 유효성 검사 기능을 제공합니다. 버전 2.x의 경우 기본 HTTP 트리거가 계속 작동하며, 웹후크에는 이 방식을 사용하는 것이 좋습니다.
+버전 1.x에서 웹후크 템플릿은 웹후크 페이로드용으로 추가 유효성 검사를 제공합니다. 버전 2.x의 경우 기본 HTTP 트리거가 계속 작동하며, 웹후크에는 이 방식을 사용하는 것이 좋습니다. 
 
 #### <a name="github-webhooks"></a>GitHub 웹후크
 
 GitHub 웹후크에 응답하려면 먼저 HTTP 트리거를 사용하여 함수를 만들고 **webHookType** 속성을 `github`로 설정합니다. 그런 다음 URL 및 API 키를 GitHub 리포지토리의 **웹후크 추가** 페이지에 복사합니다. 
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
-
-예제를 보려면 [GitHub 웹후크를 통해 트리거되는 함수 만들기](functions-create-github-webhook-triggered-function.md)를 참조하세요.
 
 #### <a name="slack-webhooks"></a>Slack 웹후크
 
@@ -560,7 +781,7 @@ Slack webhook은 함수 전용 키를 지정하는 대신 사용자를 위한 �
 
 HTTP 요청 길이는 100MB(104,857,600바이트)로 제한되고 URL 길이는 4KB(4,096바이트)로 제한됩니다. 이러한 제한은 런타임의 [Web.config 파일](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config)의 `httpRuntime` 요소에 의해 지정됩니다.
 
-HTTP 트리거를 사용하는 함수가 약 2.5분 안에 완료되지 않으면 게이트웨이가 시간 제한을 적용하고 HTTP 502 오류를 반환합니다. 함수는 계속 실행되지만 HTTP 응답은 반환할 수 없습니다. 장기 실행 함수의 경우 비동기 패턴을 따르고 요청 상태를 ping할 수 있는 위치를 반환하는 것이 좋습니다. 함수 실행 시간에 대한 정보는 [크기 조정 및 호스팅 - 소비 계획](functions-scale.md#consumption-plan)을 참조하세요. 
+HTTP 트리거를 사용하는 함수가 약 2.5분 안에 완료되지 않으면 게이트웨이가 시간 제한을 적용하고 HTTP 502 오류를 반환합니다. 함수는 계속 실행되지만 HTTP 응답은 반환할 수 없습니다. 장기 실행 함수의 경우 비동기 패턴을 따르고 요청 상태를 ping할 수 있는 위치를 반환하는 것이 좋습니다. 함수 실행 시간에 대한 정보는 [크기 조정 및 호스팅 - 소비 계획](functions-scale.md#consumption-plan)을 참조하세요.
 
 ## <a name="trigger---hostjson-properties"></a>트리거 - host.json 속성
 
@@ -574,7 +795,7 @@ HTTP 요청 발신기(sender)에 응답하려면 HTTP 출력 바인딩을 사용
 
 ## <a name="output---configuration"></a>출력 - 구성
 
-다음 표에서는 *function.json* 파일에 설정된 바인딩 구성 속성을 설명합니다. C# 클래스 라이브러리의 경우 *function.json* 속성에 해당하는 attribute 속성이 없습니다. 
+다음 표에서는 *function.json* 파일에 설정된 바인딩 구성 속성을 설명합니다. C# 클래스 라이브러리의 경우 *function.json* 속성에 해당하는 attribute 속성이 없습니다.
 
 |자산  |설명  |
 |---------|---------|

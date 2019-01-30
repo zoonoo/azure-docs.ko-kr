@@ -8,20 +8,20 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: ce2391014eb5e15650c0a81ebb8e2fd4a08ca96b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 0a2ccdc6b02e9d348517bee95306ffc88d9ccd98
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139227"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599947"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>연결된 팩터리 솔루션 가속기를 위해 Windows 또는 Linux에 경계 게이트웨이 배포
 
 *연결된 팩터리* 솔루션 가속기의 경계 게이트웨이를 배포하기 위해서는 두 개의 소프트웨어 구성 요소가 필요합니다.
 
--  *OPC 프록시*는 연결된 팩터리에 대한 연결을 설정합니다. OPC 프록시는 연결된 팩터리 솔루션 포털에서 실행되는 통합된 OPC 브라우저의 명령 및 제어 메시지를 기다립니다.
+-  *OPC 프록시* 는 연결된 팩터리에 대한 연결을 설정합니다. OPC 프록시는 연결된 팩터리 솔루션 포털에서 실행되는 통합된 OPC 브라우저의 명령 및 제어 메시지를 기다립니다.
 
--  *OPC 게시자*는 기존 온-프레미스 OPC UA 서버에 연결하고 해당 서버의 원격 분석 메시지를 연결된 팩터리에 전달합니다. [OPC UA에 대한 OPC 클래식 어댑터](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md)를 사용하여 OPC 클래식 장치를 연결할 수 있습니다.
+-  *OPC 게시자* 는 기존 온-프레미스 OPC UA 서버에 연결하고 해당 서버의 원격 분석 메시지를 연결된 팩터리에 전달합니다. [OPC UA에 대한 OPC 클래식 어댑터](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md)를 사용하여 OPC 클래식 디바이스를 연결할 수 있습니다.
 
 두 구성 요소는 오픈 소스이며 GitHub의 원본 및 DockerHub의 Docker 컨테이너로 사용할 수 있습니다.
 
@@ -70,11 +70,11 @@ Docker 명령의 `<SharedFolder>`를 참조하는 경우 운영 체제에 올바
 
 OPC 구성 요소를 설치하기 전에 다음 단계를 완료하여 환경을 준비합니다.
 
-1. 게이트웨이 배포를 완료하려면 연결된 팩터리 배포에서 IoT Hub의  **iothubowner** 연결 문자열이 필요합니다.  [Azure Portal](http://portal.azure.com/)에서 연결된 팩터리 솔루션을 배포할 때 만든 리소스 그룹의 IoT Hub로 이동합니다.  **공유 액세스 정책** 을 클릭하여  **iothubowner** 연결 문자열에 액세스합니다.
+1. 게이트웨이 배포를 완료하려면 연결된 팩터리 배포에서 IoT Hub의  **iothubowner** 연결 문자열이 필요합니다.  [Azure Portal](https://portal.azure.com/)에서 연결된 팩터리 솔루션을 배포할 때 만든 리소스 그룹의 IoT Hub로 이동합니다.  **공유 액세스 정책**  을 클릭하여  **iothubowner**  연결 문자열에 액세스합니다.
 
     ![IoT Hub 연결 문자열 찾기](./media/iot-accelerators-connected-factory-gateway-deployment/image2.png)
 
-     **연결 문자열 - 기본 키** 값을 복사합니다.
+     **연결 문자열 - 기본 키** 값을 복사합니다. 
 
 1. Docker 컨테이너 간의 통신을 허용하려면 사용자 정의 브리지 네트워크가 필요합니다. 사용자 컨테이너에 대한 브리지 네트워크를 만들려면 명령 프롬프트에서 다음 명령을 실행합니다.
 

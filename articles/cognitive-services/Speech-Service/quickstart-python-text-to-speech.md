@@ -1,21 +1,22 @@
 ---
 title: '빠른 시작: 텍스트 음성 변환, Python - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Python 및 Text-to-Speech REST API를 사용하여 텍스트를 음성으로 변환하는 방법을 알아봅니다. 이 가이드에 포함된 샘플 텍스트는 SSML(Speech Synthesis Markup Language)로 구조화되어 있습니다. 이를 통해 음성 응답의 음성 및 언어를 선택할 수 있습니다. REST API는 일반 텍스트(ASCII 또는 UTF-8)를 지원하지만, 일반 텍스트가 제공된 경우 응답이 Speech Service의 기본 음성 및 언어로 반환됩니다.
+description: 이 빠른 시작에서는 Python 및 Text-to-Speech REST API를 사용하여 텍스트를 음성으로 변환하는 방법을 알아봅니다. 이 가이드에 포함된 샘플 텍스트는 SSML(Speech Synthesis Markup Language)로 구조화되어 있습니다. 이를 통해 음성 응답의 음성 및 언어를 선택할 수 있습니다.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/16/2018
+ms.date: 01/11/2019
 ms.author: erhopf
-ms.openlocfilehash: 38bcd67dfb6d9b1a1955658872fee7b8b7a14a0c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 2828330a0b00bb0695dcf91a84d0099d30c43183
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447734"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360125"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>빠른 시작: Python을 사용하여 텍스트 음성 변환
 
@@ -37,6 +38,7 @@ ms.locfileid: "52447734"
 
 ```python
 import os, requests, time
+from xml.etree import ElementTree
 ```
 
 > [!NOTE]
@@ -85,7 +87,7 @@ def get_token(self):
 ```
 
 > [!NOTE]
-> 인증에 대한 자세한 내용은 [액세스 토큰을 가져오는 방법](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#how-to-get-an-access-token)을 참조하세요.
+> 인증에 대한 자세한 내용은 [액세스 토큰으로 인증](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token)을 참조하세요.
 
 ## <a name="make-a-request-and-save-the-response"></a>요청을 작성하고 응답을 저장합니다.
 
@@ -112,10 +114,15 @@ def save_audio(self):
         'Authorization': 'Bearer ' + self.access_token,
         'Content-Type': 'application/ssml+xml',
         'X-Microsoft-OutputFormat': 'riff-24khz-16bit-mono-pcm',
-        'User-Agent': 'YOUR_RESOURCE_NAME',
-        'cache-control': 'no-cache'
+        'User-Agent': 'YOUR_RESOURCE_NAME'
     }
-    body = "<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>" + self.tts + "</voice></speak>"
+    xml_body = ElementTree.Element('speak', version='1.0')
+    xml_body.set('{http://www.w3.org/XML/1998/namespace}lang', 'en-us')
+    voice = ElementTree.SubElement(xml_body, 'voice')
+    voice.set('{http://www.w3.org/XML/1998/namespace}lang', 'en-US')
+    voice.set('name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24KRUS)')
+    voice.text = self.tts
+    body = ElementTree.tostring(xml_body)
 
     response = requests.post(constructed_url, headers=headers, data=body)
     if response.status_code == 200:
@@ -124,7 +131,6 @@ def save_audio(self):
             print("\nStatus code: " + str(response.status_code) + "\nYour TTS is ready for playback.\n")
     else:
         print("\nStatus code: " + str(response.status_code) + "\nSomething went wrong. Check your subscription key and headers.\n")
-
 ```
 
 ## <a name="put-it-all-together"></a>모든 요소 결합
@@ -151,14 +157,15 @@ python tts.py
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-샘플 앱의 원본 코드에서 구독 키와 같은 기밀 정보를 제거해야 합니다.
+샘플 앱의 소스 코드에서 구독 키와 같은 기밀 정보를 제거해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [텍스트를 음성으로 변환 API 참조](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+> [GitHub에서 Python 샘플 살펴보기](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
 
 ## <a name="see-also"></a>참고 항목
 
+* [텍스트를 음성으로 변환 API 참조](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
 * [사용자 지정 음성 글꼴 만들기](how-to-customize-voice-font.md)
 * [사용자 지정 음성을 만들기 위한 음성 샘플 녹음](record-custom-voice-samples.md)

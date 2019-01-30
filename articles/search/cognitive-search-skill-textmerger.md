@@ -1,5 +1,5 @@
 ---
-title: 텍스트 병합 인식 검색 기술(Azure Search) | Microsoft Docs
+title: 텍스트 병합 인식 검색 기술 - Azure Search
 description: 필드 컬렉션에서 통합된 하나의 필드로 텍스트를 병합합니다. Azure Search 보강 파이프라인에서 이 인식 기술을 사용합니다.
 services: search
 manager: pablocas
@@ -8,21 +8,22 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 01/17/2019
 ms.author: luisca
-ms.openlocfilehash: 5387eeacc78875ac0f38f96a6c83fb3f5791775e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec2018
+ms.openlocfilehash: a3c64a26ed5ee7454fcfd22f47c1a161f65c6de7
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167622"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445360"
 ---
 #    <a name="text-merge-cognitive-skill"></a>텍스트 병합 인식 기술
 
 **텍스트 병합** 기술은 필드 컬렉션에서 단일 필드로 텍스트를 통합합니다. 
 
 > [!NOTE]
-> 인식 검색은 현재 공개 미리 보기로 제공됩니다. 기능 실행과 이미지 추출 및 정규화는 현재 무료로 제공됩니다. 이러한 기능의 가격은 추후에 발표될 예정입니다. 
+> 이 기술은 Cognitive Services API에 바인딩되지 않으며 사용 요금이 부과되지 않습니다. 그렇지만 **무료** 리소스 옵션을 재정의하여 일별 보강 횟수를 낮게 제한하려면 계속해서 [Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.MergeSkill
@@ -108,7 +109,7 @@ Microsoft.Skills.Text.MergeSkill
       "description": "Create merged_text, which includes all the textual representation of each image inserted at the right location in the content field.",
       "context": "/document",
       "insertPreTag": " ",
-      "insertPostTag": " "
+      "insertPostTag": " ",
       "inputs": [
         {
           "name":"text", "source": "/document/content"

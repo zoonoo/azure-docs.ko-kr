@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 3fa2183a5bb3239059c349e8417aeb52553829cf
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 395b0cadf3ba3313a9a1304d9244f1fe72a8209c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430588"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016881"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 고급 스케줄러 기능 모범 사례
 
@@ -151,14 +151,14 @@ spec:
 
 Kubernetes 스케줄러가 워크로드를 논리적으로 격리하는 한 가지 마지막 접근 방식은 Pod 간 선호도 또는 선호도 방지를 사용하는 것입니다. 설정은 기존 일치하는 Pod가 있는 노드에서 Pod가 예약’되지 않도록’ 정의하거나 Pod가 예약’되도록’ 정의합니다. 기본적으로 Kubernetes 스케줄러는 전체 노드의 복제본 세트에서 여러 Pod를 예약하려고 시도합니다. 이 동작에 관한 보다 구체적인 규칙을 정의할 수 있습니다.
 
-좋은 예는 Redis 캐시를 사용하는 웹 애플리케이션입니다. Pod 선호도 방지 규칙을 사용하여 Kubernetes 스케줄러가 전체 노드에 복제본을 배포하도록 요청할 수 있습니다. 그런 다음, 선호도 규칙을 사용하여 각 웹앱 구성 요소가 해당 캐시와 동일한 호스트에서 예약되도록 할 수 있습니다. 전체 노드에 대한 Pod 배포는 다음 예제와 같이 표시됩니다.
+좋은 예는 Azure Cache for Redis를 사용하는 웹 애플리케이션입니다. Pod 선호도 방지 규칙을 사용하여 Kubernetes 스케줄러가 전체 노드에 복제본을 배포하도록 요청할 수 있습니다. 그런 다음, 선호도 규칙을 사용하여 각 웹앱 구성 요소가 해당 캐시와 동일한 호스트에서 예약되도록 할 수 있습니다. 전체 노드에 대한 Pod 배포는 다음 예제와 같이 표시됩니다.
 
 | **노드 1** | **노드 2** | **노드 3** |
 |------------|------------|------------|
 | webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-이 예제는 노드 선택기 또는 노드 선호도를 사용하는 것보다 더 복잡한 배포입니다. 배포를 통해 Kubernetes가 노드에서 Pod를 예약하는 방법을 제어하고 리소스를 논리적으로 격리할 수 있습니다. Redis 캐시 예제와 함께 이 웹 애플리케이션의 전체 예제를 보려면 [동일한 노드에서 Pod 공동 배치][k8s-pod-affinity]를 참조하세요.
+이 예제는 노드 선택기 또는 노드 선호도를 사용하는 것보다 더 복잡한 배포입니다. 배포를 통해 Kubernetes가 노드에서 Pod를 예약하는 방법을 제어하고 리소스를 논리적으로 격리할 수 있습니다. Azure Cache for Redis 예제와 함께 이 웹 애플리케이션의 전체 예제를 보려면 [동일한 노드에서 Pod 공동 배치][k8s-pod-affinity]를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

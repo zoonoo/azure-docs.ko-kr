@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 8106c68397dea8d52c6d2daa2d09dfbc72c2a4c8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0e1c5e4c3e4b40fd04ca9d48aba9b1e5194d4261
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995061"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330928"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>자습서: Front Door에 사용자 지정 도메인 추가
-이 자습서에서는 사용자 지정 도메인을 Front Door에 추가하는 방법을 알아봅니다. 응용 프로그램 전송에 Azure Front Door Service를 사용하는 경우 고유한 도메인 이름을 최종 사용자 요청에 표시하려면 사용자 지정 도메인이 필요합니다. 볼 수 있는 도메인 이름이 있다면 고객에게 편리하고 브랜딩 목적상 유용합니다.
+이 자습서에서는 사용자 지정 도메인을 Front Door에 추가하는 방법을 알아봅니다. 애플리케이션 전송에 Azure Front Door Service를 사용하는 경우 고유한 도메인 이름을 최종 사용자 요청에 표시하려면 사용자 지정 도메인이 필요합니다. 볼 수 있는 도메인 이름이 있다면 고객에게 편리하고 브랜딩 목적상 유용합니다.
 
 Front Door를 만든 후, 기본적으로 백 엔드에서 Front Door 콘텐츠를 전송하기 위해 기본 프런트 엔드 호스트(`azurefd.net`의 하위 도메인)가 URL에 포함됩니다(예: https:\//contoso.azurefd.net/activeusers.htm). 사용자 편의를 위해 Azure Front Door는 사용자 지정 도메인을 기본 호스트에 연결하는 옵션을 제공합니다. 이 옵션을 사용하면 URL에 Front Door 소유의 도메인 이름 대신 사용자 지정 도메인을 사용하여 콘텐츠를 전송합니다(예: https:\//www.contoso.com/photo.png). 
 
@@ -36,14 +36,14 @@ Front Door를 만든 후, 기본적으로 백 엔드에서 Front Door 콘텐츠�
 
 이 자습서의 단계를 완료하려면 먼저 Front Door를 만들어야 합니다. 자세한 내용은 [빠른 시작: Front Door 만들기](quickstart-create-front-door.md)를 참조하세요.
 
-사용자 지정 도메인이 없으면 먼저 도메인 공급자를 통해 구매해야 합니다. 예를 들어 [사용자 지정 도메인 이름 구매](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app)를 참조하세요.
+사용자 지정 도메인이 없으면 먼저 도메인 공급자를 통해 구매해야 합니다. 예를 들어 [사용자 지정 도메인 이름 구매](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain)를 참조하세요.
 
 Azure를 사용하여 [DNS 도메인](https://docs.microsoft.com/azure/dns/dns-overview)을 호스트하는 경우 도메인 공급자의 DNS(Domain Name System)를 Azure DNS에 위임해야 합니다. 자세한 내용은 [Azure DNS에 도메인 위임](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns)을 참조하세요. 그렇지 않으면, 도메인 공급자를 사용하여 DNS 도메인을 처리하는 경우 [CNAME DNS 레코드 만들기](#create-a-cname-dns-record)로 계속 진행합니다.
 
 
 ## <a name="create-a-cname-dns-record"></a>CNAME DNS 레코드 만들기
 
-Front Door에 사용자 지정 도메인을 사용하려면 먼저 도메인 공급자를 사용하여 Front Door의 기본 프런트 엔드 호스트(contose.azurefd.net으로 가정)를 가리키는 CNAME(정식 이름) 레코드를 만들어야 합니다. CNAME 레코드는 원본 도메인을 대상 도메인 이름에 매핑하는 DNS 레코드의 형식입니다. Azure Front Door Service의 경우 원본 도메인 이름은 사용자 지정 도메인 이름이고, 대상 도메인 이름은 Front Door 기본 호스트 이름입니다. Front Door가 사용자가 만든 CNAME 레코드를 확인하면, 원본 사용자 지정 도메인(예: www.contoso.com)에 전달되는 트래픽은 지정된 대상 Front Door 기본 프런트 엔드 호스트(예: contoso.azurefd.net)로 라우팅됩니다. 
+Front Door에 사용자 지정 도메인을 사용하려면 먼저 도메인 공급 기업을 사용하여 Front Door의 기본 프런트 엔드 호스트(contoso.azurefd.net으로 가정)를 가리키는 CNAME(정식 이름) 레코드를 만들어야 합니다. CNAME 레코드는 원본 도메인을 대상 도메인 이름에 매핑하는 DNS 레코드의 형식입니다. Azure Front Door Service의 경우 원본 도메인 이름은 사용자 지정 도메인 이름이고, 대상 도메인 이름은 Front Door 기본 호스트 이름입니다. Front Door가 사용자가 만든 CNAME 레코드를 확인하면, 원본 사용자 지정 도메인(예: www.contoso.com)에 전달되는 트래픽은 지정된 대상 Front Door 기본 프런트 엔드 호스트(예: contoso.azurefd.net)로 라우팅됩니다. 
 
 사용자 지정 도메인 및 해당 하위 도메인은 한 번에 한 Front Door에만 연결할 수 있습니다. 그러나 여러 CNAME 레코드를 사용하면 동일한 사용자 지정 도메인의 여러 하위 도메인을 여러 Front Door에 사용할 수 있습니다. 여러 하위 도메인이 있는 사용자 지정 도메인을 동일한 Front Door에 매핑할 수도 있습니다.
 
@@ -90,7 +90,7 @@ afdverify 하위 도메인에서 CNAME 레코드를 만들려면:
 
     - 호스트: afdverify 하위 도메인 이름을 포함하여 사용할 사용자 지정 도메인의 하위 도메인을 입력합니다. 예: afdverify.www.
 
-    - 가리키는 대상: afdverify 하위 도메인 이름을 포함하여 기본 Front Door 프런트 엔드 호스트의 호스트 이름을 입력합니다. 예: afdverify.contoso.azurefd.net. 
+    - 지시 대상: afdverify 하위 도메인 이름을 포함하여 기본 Front Door 프런트 엔드 호스트의 호스트 이름을 입력합니다. 예: afdverify.contoso.azurefd.net. 
 
     - TTL: *1시간*을 선택해 둡니다.
 
@@ -171,7 +171,7 @@ afdverify 하위 도메인이 Front Door에 성공적으로 매핑되었음을 �
 
     - 호스트: 사용할 사용자 지정 도메인의 하위 도메인을 입력합니다. 예: www 또는 프로필.
 
-    - 가리키는 대상: Front Door의 기본 호스트 이름을 입력합니다. 예: contoso.azurefd.net. 
+    - 지시 대상: Front Door의 기본 호스트 이름을 입력합니다. 예: contoso.azurefd.net. 
 
     - TTL: *1시간*을 선택해 둡니다.
 

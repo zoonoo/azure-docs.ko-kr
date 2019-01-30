@@ -11,15 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 12/19/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 9d6bb8d4327b428bb47d1d44422d816e7b20ed87
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.lastreviewed: 12/19/2018
+ms.openlocfilehash: 421e3bf4465f5aa9aafc4ad666af2178faedb7c3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847527"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245976"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Azure Stack에서 virtual machines 사용 시 고려 사항
 
@@ -27,7 +28,7 @@ ms.locfileid: "52847527"
 
 Azure Stack virtual machines는 주문형으로 확장 가능한 컴퓨팅 리소스를 제공합니다. 가상 머신 (Vm)를 배포 하기 전에 Azure Stack에서 사용할 수 있는 가상 머신 기능 및 Microsoft Azure의 차이점을 이해 해야 합니다. 이 문서에서는 이러한 차이점을 설명 하 고 가상 머신 배포를 계획 하는 것에 대 한 주요 고려 사항이 식별 합니다. Azure Stack 및 Azure 간의 대략적인 차이 대 한 자세한 내용은 참조는 [고려 사항 키](azure-stack-considerations.md) 문서.
 
-## <a name="cheat-sheet-virtual-machine-differences"></a>치트 시트: 가상 머신 차이점
+## <a name="cheat-sheet-virtual-machine-differences"></a>참고 자료: 가상 머신 차이점
 
 | 기능 | Azure (전역) | Azure Stack |
 | --- | --- | --- |
@@ -39,6 +40,7 @@ Azure Stack virtual machines는 주문형으로 확장 가능한 컴퓨팅 리�
 | 가상 머신 저장소 | 지원 [디스크를 관리 합니다.](../../virtual-machines/windows/managed-disks-overview.md) | Managed disks는 1808 이상 버전을 사용 하 여 Azure Stack에서 지원 됩니다. |
 | 가상 머신 디스크 성능 | 디스크 유형 및 크기에 따라 달라 집니다. | 디스크가 연결 된 VM의 VM 크기에 따라 달라 집니다를 참조 하는 [Azure Stack에서 지원 되는 가상 머신 크기](azure-stack-vm-sizes.md) 문서.
 | API 버전 | Azure는 항상 모든 가상 머신 기능에 대 한 최신 API 버전을 가집니다. | Azure Stack 이러한 서비스에 대 한 특정 Azure 서비스 및 특정 API 버전을 지원합니다. 지원 되는 API 버전의 목록을 보려면를 참조 합니다 [API 버전](#api-versions) 이 문서의 섹션입니다. |
+| Azure Instance Metadata Service | Azure Instance Metadata Service는 가상 머신을 관리 및 구성하는 데 사용할 수 있는 가상 머신 인스턴스를 실행하는 방법에 대한 정보를 제공합니다.  | Instance metadata service는 Azure Stack에서 지원 되지 않습니다. |
 |가상 컴퓨터 가용성 집합|여러 장애 도메인 (2 또는 3 지역당)<br>여러 업데이트 도메인<br>관리 되는 디스크 지원|여러 장애 도메인 (2 또는 3 지역당)<br>여러 업데이트 도메인 (최대 20)<br>관리 디스크 지원 되지 않습니다|
 |가상 머신 크기 집합|자동 크기 조정 지원|지원 되지 않습니다 자동 크기 조정 합니다.<br>확장 집합 포털, Resource Manager 템플릿 또는 PowerShell을 사용 하 여에 더 많은 인스턴스를 추가 합니다.
 
@@ -52,7 +54,7 @@ Azure Stack에서 리소스 제한을 (server 로컬 및 서비스 수준입니�
 
 다음 표에서 해당 구성과 함께 Azure Stack에서 지원 되는 Vm을 나열 합니다.
 
-| type           | 크기          | 지원 되는 크기 범위 |
+| Type           | 크기          | 지원 되는 크기 범위 |
 | ---------------| ------------- | ------------------------ |
 |범용 가상 컴퓨터 |Basic A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
 |범용 가상 컴퓨터 |표준 A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
@@ -103,8 +105,8 @@ Get-AzureRmResourceProvider | `
 
 Windows 제품이 제품 사용권 및 Microsoft 사용 조건에 따라 사용 되어야 합니다. 다음을 사용 하 여 azure Stack [자동 VM 정품 인증](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) AVMA () Windows Server virtual machines (Vm)를 활성화 합니다.
 
-- Azure Stack 호스트는 Windows Server 2016 용 AVMA 키를 사용 하 여 Windows를 활성화합니다. Windows Server 2012를 실행 하거나 나중에 자동으로 활성화 되는 모든 Vm입니다.
-- Vm을 실행된 하는 Windows Server 2008 R2 자동으로 활성화 되지 않으면 사용 하 여 활성화 해야 합니다 [MAK 정품 인증](https://technet.microsoft.com/library/ff793438.aspx)합니다. MAK 정품 인증을 사용 하려면 고유한 제품 키를 제공 해야 합니다.
+- Azure Stack 호스트는 Windows Server 2016 용 AVMA 키를 사용 하 여 Windows를 활성화합니다. Windows Server 2012 R2를 실행 하거나 나중에 자동으로 활성화 되는 모든 Vm입니다.
+- Vm를 실행 하는 Windows Server 2012 또는 이전 자동으로 활성화 되지 않으면 사용 하 여 활성화 해야 합니다 [MAK 정품 인증](https://technet.microsoft.com/library/ff793438.aspx)합니다. MAK 정품 인증을 사용 하려면 고유한 제품 키를 제공 해야 합니다.
 
 Microsoft Azure Windows Vm을 활성화 하려면 KMS 정품 인증을 사용 합니다. Azure Stack에서 발생 하 고 Azure로 VM을 활성화 문제를 이동 하는 경우 참조 [문제 해결 Azure Windows 가상 머신 정품 인증 문제](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems)합니다. 추가 정보를 찾을 수 있습니다 합니다 [Azure Vm에서 문제 해결 Windows 정품 인증 오류](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) Azure 지원 팀 블로그 게시물.
 

@@ -1,32 +1,33 @@
 ---
-title: LUIS 미리 빌드된 URL 참조 - Azure | Microsoft Docs
+title: URL 미리 빌드된 엔터티
 titleSuffix: Azure
 description: 이 문서에는 LUIS(Language Understanding)의 URL 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 62872a3fd3e6e830e25fc4cdba01d1f32b80db91
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 5a1d86c58b6b6b8b54d170459157371e8e73f0e8
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446537"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163670"
 ---
-# <a name="url-entity"></a>URL 엔터티
+# <a name="url-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 URL 미리 빌드된 엔터티
 URL 엔터티는 도메인 이름 또는 IP 주소를 사용하여 URL을 추출합니다. 이 엔터티를 이미 학습했기 때문에 URL을 응용 프로그램에 포함하는 예제 발언을 추가할 필요가 없습니다. URL 엔터티는 `en-us` 문화권에서만 지원됩니다. 
 
 ## <a name="types-of-urls"></a>URL 유형
-URL은 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) Github 리포지토리에서 관리됩니다.
+URL은 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) GitHub 리포지토리에서 관리됩니다.
 
 ## <a name="resolution-for-prebuilt-url-entity"></a>미리 빌드된 URL 엔터티의 해결
 다음 예제에서는 **builtin.url** 엔터티의 해결을 보여 줍니다.
 
-```JSON
+```json
 {
   "query": "http://www.luis.ai is a great cognitive services example of artificial intelligence",
   "topScoringIntent": {

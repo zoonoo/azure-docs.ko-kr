@@ -1,21 +1,22 @@
 ---
-title: 저장소 큐에 Azure Event Grid에 대한 사용자 지정 이벤트 보내기 | Microsoft Docs
+title: 스토리지 큐에 사용자 지정 이벤트 보내기 - Event Grid, Azure CLI
 description: Azure Event Grid 및 Azure CLI를 사용하여 토픽을 게시하고 해당 이벤트를 구독합니다. 저장소 큐가 엔드포인트에 사용됩니다.
 services: event-grid
 keywords: ''
-author: tfitzmac
-ms.author: tomfitz
-ms.date: 11/08/2018
+author: spelluru
+ms.author: spelluru
+ms.date: 01/07/2019
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: c9b5e33f7994209bf1530200cf14d812fa1cf67d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.custom: seodec18
+ms.openlocfilehash: ba48473b0370c2ee0acbb7b03834eb36922db556
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299149"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474985"
 ---
-# <a name="route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Azure CLI 및 Event Grid를 사용하여 Azure Queue 저장소로 사용자 지정 이벤트 라우팅
+# <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Queue 저장소로 사용자 지정 이벤트 라우팅
 
 Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. Azure Queue 저장소는 지원되는 이벤트 처리기 중 하나입니다. 이 문서에서는 Azure CLI를 사용하여 사용자 지정 항목을 만들고 사용자 지정 항목을 구독하며 이벤트를 트리거하여 결과를 확인합니다. Queue 저장소에 이벤트를 보냅니다.
 
@@ -109,7 +110,7 @@ endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --qu
 key=$(az eventgrid topic key list --name <topic_name> -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-이 문서를 간소화하기 위해 사용자 지정 항목에 보낼 샘플 이벤트 데이터를 사용합니다. 일반적으로 응용 프로그램 또는 Azure 서비스는 이벤트 데이터를 보냅니다. CURL은 HTTP 요청을 보내는 유틸리티입니다. 이 문서에서는 CURL을 사용하여 사용자 지정 항목에 이벤트를 보냅니다.  다음 예제는 세 개의 이벤트를 Event Grid 토픽으로 보냅니다.
+이 문서를 간소화하기 위해 사용자 지정 항목에 보낼 샘플 이벤트 데이터를 사용합니다. 일반적으로 애플리케이션 또는 Azure 서비스는 이벤트 데이터를 보냅니다. CURL은 HTTP 요청을 보내는 유틸리티입니다. 이 문서에서는 CURL을 사용하여 사용자 지정 항목에 이벤트를 보냅니다.  다음 예제는 세 개의 이벤트를 Event Grid 토픽으로 보냅니다.
 
 ```azurecli-interactive
 for i in 1 2 3

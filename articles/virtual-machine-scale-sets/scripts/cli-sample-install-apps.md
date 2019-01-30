@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: a551856d5be1df63f4376c76c50ed53564afc175
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2469eef981246da9bfd9132ea0164395078fd164
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465035"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468457"
 ---
-# <a name="install-applications-into-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합에 응용 프로그램 설치
-이 스크립트는 Ubuntu를 실행하는 가상 머신 확장 집합을 만들고, 사용자 지정 스크립트 확장을 사용하여 기본 웹 응용 프로그램을 설치합니다. 스크립트가 실행되면 웹 브라우저를 통해 웹 응용 프로그램에 액세스할 수 있습니다.
+# <a name="install-applications-into-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합에 애플리케이션 설치
+이 스크립트는 Ubuntu를 실행하는 가상 머신 확장 집합을 만들고, 사용자 지정 스크립트 확장을 사용하여 기본 웹 애플리케이션을 설치합니다. 스크립트가 실행되면 웹 브라우저를 통해 웹 응용 프로그램에 액세스할 수 있습니다.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -45,7 +45,7 @@ az group delete --name myResourceGroup
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](/cli/azure/ad/group#az_ad_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az group create](/cli/azure/ad/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az vmss create](/cli/azure/vmss#az_vmss_create) | 가상 머신 확장 집합을 만들고 가상 네트워크, 서브넷 및 네트워크 보안 그룹에 연결합니다. 부하 분산 장치도 여러 VM 인스턴스에 트래픽을 분산하기 위해 만듭니다. 또한 이 명령은 사용할 VM 이미지와 관리 자격 증명도 지정합니다.  |
 | [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) | Azure 사용자 지정 스크립트 확장을 설치하여 각 VM 인스턴스에서 데이터 디스크를 준비하는 스크립트를 실행합니다. |
 | [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) | 80 TCP 포트의 트래픽을 확장 집합의 VM 인스턴스에 분산하는 부하 분산 장치 규칙을 만듭니다. |

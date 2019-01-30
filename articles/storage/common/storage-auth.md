@@ -17,7 +17,7 @@ ms.locfileid: "39530487"
 ---
 # <a name="authorizing-access-to-azure-storage"></a>Azure Storage에 대한 액세스 권한 부여
 
-저장소 계정의 데이터에 액세스할 때마다 클라이언트에서 HTTP/HTTPS를 통해 Azure Storage에 요청합니다. 보안 리소스에 대한 모든 요청은 권한을 부여받아 클라이언트에서 데이터 액세스에 필요한 권한을 갖도록 해야 합니다. 보안 리소스에 대한 액세스 권한을 부여하기 위해 Azure Storage에서 제공하는 옵션은 다음과 같습니다.
+스토리지 계정의 데이터에 액세스할 때마다 클라이언트에서 HTTP/HTTPS를 통해 Azure Storage에 요청합니다. 보안 리소스에 대한 모든 요청은 권한을 부여받아 클라이언트에서 데이터 액세스에 필요한 권한을 갖도록 해야 합니다. 보안 리소스에 대한 액세스 권한을 부여하기 위해 Azure Storage에서 제공하는 옵션은 다음과 같습니다.
 
 - Blob 및 큐에 대한 **Azure AD(Azure Active Directory) 통합(미리 보기)**. Azure AD는 저장소 계정의 리소스에 대한 클라이언트 액세스를 자세히 제어하기 위해 RBAC(역할 기반 액세스 제어)를 제공합니다. 자세한 내용은 [Azure Active Directory를 사용하여 Azure Storage에 대한 요청 인증(미리 보기)](storage-auth-aad.md)을 참조하세요.
 - Blob, 파일, 큐 및 테이블에 대한 **공유 키 권한 부여**. 공유 키를 사용하는 클라이언트는 저장소 계정 액세스 키를 사용하여 서명된 모든 요청에 헤더를 전달합니다. 자세한 내용은 [공유 키를 사용하여 권한 부여](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)를 참조하세요.

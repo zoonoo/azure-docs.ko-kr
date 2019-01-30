@@ -22,7 +22,7 @@ ms.locfileid: "50166296"
 #### <a name="to-upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-adapter"></a>SharePoint 2010에서 SharePoint 2013으로 업그레이드한 다음 어댑터를 설치하려면
 1. SharePoint 2010 팜에서 구체화된 BLOB 및 RBS를 사용할 수 있는 콘텐츠 데이터베이스에 대한 BLOB 저장소 경로를 기록합니다. 
 2. 새 SharePoint 2013 팜을 설치하고 구성합니다. 
-3. SharePoint 2010 팜에서 새 SharePoint 2013 팜으로 데이터베이스, 응용 프로그램 및 사이트 모음을 이동합니다. 지침을 보려면 [SharePoint 2013으로의 업그레이드 프로세스 개요](https://technet.microsoft.com/library/cc262483.aspx)로 이동합니다.
+3. SharePoint 2010 팜에서 새 SharePoint 2013 팜으로 데이터베이스, 애플리케이션 및 사이트 모음을 이동합니다. 지침을 보려면 [SharePoint 2013으로의 업그레이드 프로세스 개요](https://technet.microsoft.com/library/cc262483.aspx)로 이동합니다.
 4. 새 팜에 SharePoint용 StorSimple 어댑터를 설치합니다. 절차를 보려면 [SharePoint용 StorSimple 어댑터 설치](#install-the-storsimple-adapter-for-sharepoint) 로 이동합니다.
 5. 1단계에서 기록한 정보를 사용하여 콘텐츠 데이터베이스의 동일한 집합에 대해 RBS를 사용하도록 설정하고 SharePoint 2010 설치에 사용된 동일한 BLOB 저장소 경로를 제공합니다. 절차를 보려면 [RBS 구성](#configure-rbs) 으로 이동합니다. 이 단계를 완료한 후에 이전에 구체화된 파일을 새 팜에서 액세스할 수 있어야 합니다. 
 

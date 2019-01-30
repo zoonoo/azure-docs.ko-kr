@@ -1,10 +1,10 @@
 ---
-title: '자습서: FactSet과 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: FactSet와 Azure Active Directory 통합 | Microsoft Docs'
 description: Azure Active Directory와 FactSet 간 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: f41072d1-b2a4-4c4d-9deb-101b52e29096
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-ms.openlocfilehash: ca66ddb60be962ddbaf45af2932022e45340c1f8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e5aeab971c0de35ecc5a8f398b3ec85b2249d57c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438980"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817456"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-factset"></a>자습서: FactSet과 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-factset"></a>자습서: FactSet와 Azure Active Directory 통합
 
 이 자습서에서는 FactSet을 Azure AD(Active Directory)와 통합하는 방법에 대해 알아봅니다.
 
@@ -32,11 +32,11 @@ FactSet을 Azure AD(Active Directory)와 통합하면 다음과 같은 이점이
 - 사용자가 Azure AD 계정을 통해 자동으로 FactSet에 로그인하도록(Single Sign-On) 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-FactSet과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
+FactSet와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 - Azure AD 구독
 - FactSet Single Sign-On을 사용하는 구독
@@ -50,7 +50,7 @@ FactSet과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리의 FactSet 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -64,15 +64,15 @@ Azure AD로의 FactSet 통합을 구성하려면 갤러리의 FactSet을 관리�
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
-1. 검색 상자에 **FactSet**을 입력하고 결과 창에서 **FactSet**을 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에 **FactSet**을 입력하고 결과 창에서 **FactSet**을 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 FactSet](./media/factset-tutorial/tutorial_factset_addfromgallery.png)
 
@@ -94,11 +94,11 @@ FactSet으로 Azure AD Single Sign-On을 구성 및 테스트하려면 다음 �
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 FactSet 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 FactSet 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **FactSet으로 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **FactSet** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **FactSet** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -112,7 +112,7 @@ FactSet으로 Azure AD Single Sign-On을 구성 및 테스트하려면 다음 �
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://login.factset.com/services/auth-test?idpid=<GUID>`
 
-    나. **식별자** 텍스트 상자에 URL `https://login.factset.com`를 입력합니다.
+    b. **식별자** 텍스트 상자에 URL `https://login.factset.com`를 입력합니다.
 
     > [!NOTE] 
     > 이 Sign-On URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 해당 값을 얻으려면 [FactSet 클라이언트 지원 팀](mailto:support@factset.com)에 문의하세요. 
@@ -128,7 +128,7 @@ FactSet으로 Azure AD Single Sign-On을 구성 및 테스트하려면 다음 �
 1. **FactSet** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **Metadata XML**을 [FactSet 지원 팀](mailto:support@factset.com)으로 전송해야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -165,7 +165,7 @@ FactSet으로 Azure AD Single Sign-On을 구성 및 테스트하려면 다음 �
  
 ### <a name="create-a-factset-test-user"></a>FactSet 테스트 사용자 만들기
 
-이 섹션에서는 FactSet에서 Britta Simon이라는 사용자를 만듭니다. [FactSet 지원 팀](mailto:support@factset.com)의 도움을 받아 FactSet 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
+이 섹션에서는 FactSet에서 Britta Simon이라는 사용자를 만듭니다. FactSet 플랫폼에 사용자를 추가하려면 [FactSet 지원 팀](mailto:support@factset.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -175,13 +175,13 @@ FactSet으로 Azure AD Single Sign-On을 구성 및 테스트하려면 다음 �
 
 **Britta Simon을 FactSet에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **FactSet**을 선택합니다.
+1. 애플리케이션 목록에서 **FactSet**을 선택합니다.
 
-    ![응용 프로그램 목록의 FactSet 링크](./media/factset-tutorial/tutorial_factset_app.png)  
+    ![애플리케이션 목록의 FactSet 링크](./media/factset-tutorial/tutorial_factset_app.png)  
 
 1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -201,13 +201,13 @@ FactSet으로 Azure AD Single Sign-On을 구성 및 테스트하려면 다음 �
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 FactSet 타일을 클릭하면 FactSet 응용 프로그램으로 자동으로 로그인되어야 합니다.
+액세스 패널에서 FactSet 타일을 클릭하면 FactSet 애플리케이션으로 자동으로 로그인되어야 합니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

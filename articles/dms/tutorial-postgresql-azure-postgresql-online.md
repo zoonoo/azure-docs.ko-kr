@@ -5,21 +5,21 @@ services: dms
 author: HJToland3
 ms.author: scphang
 manager: craigg
-ms.reviewer: ''
+ms.reviewer: douglasl
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/04/2018
-ms.openlocfilehash: ba27ceb784cf139c288a89f3191282fb9b364ddc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/19/2018
+ms.openlocfilehash: eb18fd521ca885b37c60c4f3a53e2bce1508fda2
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864379"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382823"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>자습서: DMS를 사용하여 PostgreSQL을 Azure Database for PostgreSQL로 온라인 마이그레이션
-Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 데이터베이스를 온-프레미스 PostgreSQL 인스턴스에서 [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/)로 마이그레이션할 수 있습니다. 즉 응용 프로그램의 가동 중지 시간을 최소화하면서 마이그레이션을 수행할 수 있습니다. 이 자습서에서는 Azure Database Migration Service에서 온라인 마이그레이션 작업을 사용하여 **DVD대여** 샘플 데이터베이스를 PostgreSQL 9.6의 온-프레미스 인스턴스에서 Azure Database for PostgreSQL로 마이그레이션합니다.
+Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 데이터베이스를 온-프레미스 PostgreSQL 인스턴스에서 [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/)로 마이그레이션할 수 있습니다. 즉 애플리케이션의 가동 중지 시간을 최소화하면서 마이그레이션을 수행할 수 있습니다. 이 자습서에서는 Azure Database Migration Service에서 온라인 마이그레이션 작업을 사용하여 **DVD대여** 샘플 데이터베이스를 PostgreSQL 9.6의 온-프레미스 인스턴스에서 Azure Database for PostgreSQL로 마이그레이션합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -30,7 +30,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 > * 마이그레이션을 모니터링합니다.
 
 > [!NOTE]
-> Azure Database Migration Service를 사용하여 온라인 마이그레이션을 수행하려면 프리미엄(미리 보기) 가격 책정 계층에 따라 인스턴스를 만들어야 합니다.
+> Azure Database Migration Service를 사용하여 온라인 마이그레이션을 수행하려면 프리미엄 가격 책정 계층에 따라 인스턴스를 만들어야 합니다.
 
 > [!IMPORTANT]
 > 최적의 마이그레이션 환경을 위해 대상 데이터베이스와 동일한 Azure 지역에서 Azure Database Migration Service의 인스턴스를 만드는 것이 좋습니다. 영역 또는 지역 간에 데이터를 이동하면 마이그레이션 프로세스 속도가 저하되고 오류가 발생할 수 있습니다.
@@ -38,7 +38,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- [PostgreSQL 커뮤니티 버전](https://www.postgresql.org/download/) 9.5, 9.6 또는 10.3을 다운로드하여 설치합니다. 원본 PostgreSQL 서버 버전은 9.5.11, 9.6.7, 10.3 이상이어야 합니다. 자세한 내용은 [지원되는 PostgreSQL 데이터베이스 버전](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) 문서를 참조하세요.
+- [PostgreSQL 커뮤니티 버전](https://www.postgresql.org/download/) 9.5, 9.6 또는 10을 다운로드하여 설치합니다. 원본 PostgreSQL 서버 버전은 9.5.11, 9.6.7, 10 이상이어야 합니다. 자세한 내용은 [지원되는 PostgreSQL 데이터베이스 버전](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) 문서를 참조하세요.
 
     또한 온-프레미스 PostgreSQL 버전은 Azure Database for PostgreSQL 버전과 일치해야 합니다. 예를 들어 PostgreSQL 9.5.11.5는 Azure Database for PostgreSQL 9.5.11로만 마이그레이션할 수 있고, 버전 9.6.7로는 업그레이드할 수 없습니다.
 
@@ -52,7 +52,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 - CLI를 호출하는 방법은 두 가지가 있습니다.
     - Azure Portal 오른쪽 위에서 Cloud Shell 단추를 선택합니다.
  
-       ![Azure Portal의 Cloud Shell 단추](media\tutorial-postgresql-to-azure-postgresql-online\cloud-shell-button.png)
+       ![Azure Portal의 Cloud Shell 단추](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
  
     - CLI를 로컬로 설치하고 실행합니다. CLI 2.0은 Azure 리소스를 관리하기 위한 명령줄 도구입니다.
      
@@ -188,7 +188,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     ```
 
     예를 들어 다음 명령은 서비스를 만듭니다.
-    - 위치: 미국 동부 2
+    - 위치: 미국 동부2
     - 구독: 97181df2-909d-420b-ab93-1bff15acb6b7
     - 리소스 그룹 이름: PostgresDemo
     - DMS 서비스 이름: PostgresCLI

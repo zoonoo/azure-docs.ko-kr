@@ -8,12 +8,12 @@ ms.date: 06/19/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c11013c926e77447a69ce0dfe697fdda1ecc2b8c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 52ff52ffb558278507bb24e1b1e2054c251b2512
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284849"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879644"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>솔루션을 온보딩할 때 발생하는 오류 문제 해결
 
@@ -21,7 +21,7 @@ ms.locfileid: "52284849"
 
 ## <a name="general-errors"></a>일반 오류
 
-### <a name="computer-grou-query-format-error"></a>시나리오: ComputerGroupQueryFormatError
+### <a name="computer-group-query-format-error"></a>시나리오: ComputerGroupQueryFormatError
 
 #### <a name="issue"></a>문제
 

@@ -3,7 +3,7 @@ title: Azure Security Center에 대한 테넌트 수준 가시성 얻기 | Micro
 description: Azure Security Center에서 테넌트 수준 가시성 얻기에 대해 알아봅니다.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
-ms.author: terrylan
-ms.openlocfilehash: caab7e3d15f6d82ee4daf6eb343601ff849bfde5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 12/19/2018
+ms.author: rkarlin
+ms.openlocfilehash: 98ff96b70951cb289fe6a83ad59eb83a6522e42c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298781"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433370"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Security Center에 대한 테넌트 수준 가시성 얻기
 이 문서에서는 Azure Security Center에서 제공하는 혜택을 최대화하는 여러 작업을 수행하여 시작하도록 돕습니다. 이러한 작업을 수행하면 Azure Active Directory 테넌트에 연결된 모든 Azure 구독에 대한 가시성을 얻고 집합적 방식으로 여러 구독에 보안 정책을 적용하여 모든 규모에서 조직의 보안 상태를 효율적으로 관리할 수 있습니다.
@@ -38,7 +38,7 @@ Azure 관리 그룹은 액세스, 정책 및 구독 그룹에 대한 보고를 �
 관리 그룹에 구독을 구성하고 거버넌스 정책을 관리 그룹에 적용합니다. 관리 그룹에 속하는 모든 구독은 관리 그룹에 적용되는 정책을 자동으로 상속합니다. 관리 그룹은 Security Center에 등록할 필요가 없지만 루트 관리 그룹이 생성되도록 적어도 하나의 관리 그룹을 만드는 것이 좋습니다. 그룹이 만들어진 후 Azure AD 테넌트 아래의 모든 하위 구독이 연결됩니다. PowerShell에 대한 지침 및 추가 정보는 [리소스 및 조직 관리를 위한 관리 그룹 만들기](../azure-resource-manager/management-groups-create.md)를 참조하세요.
 
  
-1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](http://portal.azure.com)에 로그인합니다.
 2. **모든 서비스** > **관리 그룹**을 선택합니다.
 3. 주 페이지에서 **새 관리 그룹**을 선택합니다. 
 
@@ -71,13 +71,13 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 
    ![Azure AD 속성 - 스크린샷](./media/security-center-management-groups/aad-properties.png)
 
-3. **전역 관리자는 Azure 구독 및 관리 그룹을 관리할 수 있습니다.** 에서 스위치를 **예**로 설정합니다.
+3. **Azure 리소스에 대한 액세스 관리**에서 스위치를 **예**로 설정합니다.
 
    ![전역 관리자는 Azure 구독 및 관리 그룹을 관리할 수 있습니다. - 스크린샷](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
-   - 스위치를 **예**로 설정하면 전역 관리자 계정(현재 로그인한 사용자)이 루트 범위(`/`)에서 Azure RBAC의 사용자 액세스 관리자 역할에 추가됩니다. 여기에서는 Azure AD 테넌트와 연결된 모든 Azure 구독에서 보고 보고할 액세스할 수 있는 권한을 부여합니다.
+   - 스위치를 예로 설정하면 Azure RBAC의 루트 범위(/)에서 사용자 액세스 관리자 역할이 할당됩니다. 그러면 이 Azure AD 디렉터리와 연결된 모든 Azure 구독 및 관리 그룹의 역할을 할당할 수 있는 권한이 부여됩니다. 이 스위치는 Azure AD에서 글로벌 관리자 역할이 할당된 사용자만 사용할 수 있습니다.
 
-   - 스위치를 **아니요**로 설정하면 전역 관리자 계정(현재 로그인한 사용자)이 Azure RBAC의 사용자 액세스 관리자 역할에서 제거됩니다. Azure AD 테넌트와 연결된 모든 Azure 구독을 볼 수 없습니다. 또한 액세스 권한이 부여된 Azure 구독만을 보고 관리할 수 있습니다.
+  - 스위치를 아니요로 설정하면 Azure RBAC의 사용자 액세스 관리자 역할이 사용자 계정에서 제거됩니다. 그러면 이 Azure AD 디렉터리와 연결된 모든 Azure 구독 및 관리 그룹의 역할을 더 이상 할당할 수 없습니다. 액세스 권한이 부여된 Azure 구독 및 관리 그룹만 살펴보고 관리할 수 있습니다.
 
 4. **Save**를 클릭하여 설정을 저장합니다.
 
@@ -93,19 +93,22 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 #### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Azure Portal을 통해 사용자에게 RBAC 역할 할당: 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
-2. 관리 그룹을 보려면 Azure 주 메뉴에서 **모든 서비스**를 선택한 다음, **관리 그룹**을 선택합니다.
-3.  관리 그룹을 선택하고 **세부 정보**를 클릭합니다.
+1. 관리 그룹을 보려면 Azure 주 메뉴에서 **모든 서비스**를 선택한 다음, **관리 그룹**을 선택합니다.
+1.  관리 그룹을 선택하고 **세부 정보**를 클릭합니다.
 
     ![관리 그룹 세부 정보 스크린샷](./media/security-center-management-groups/management-group-details.PNG)
  
-4. **액세스 제어(IAM)**, **추가**를 차례로 클릭합니다.
-5. 할당할 역할과 사용자를 선택한 다음, **저장**을 클릭합니다.  
+1. **액세스 제어(IAM)**, **역할 할당**을 차례로 클릭합니다.
+
+1. **역할 할당 추가**를 클릭합니다.
+
+1. 할당할 역할과 사용자를 선택한 다음, **저장**을 클릭합니다.  
    
    ![보안 읽기 권한자 역할 추가 스크린샷](./media/security-center-management-groups/asc-security-reader.png)
 
 
 #### <a name="assign-rbac-roles-to-users-with-powershell"></a>PowerShell을 사용하여 사용자에게 RBAC 역할 할당: 
-1. [Azure PowerShell](/powershell/azure/install-azurerm-ps)을 설치합니다.
+1. [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)을 설치합니다.
 2. 다음 명령을 실행합니다. 
 
     ```azurepowershell

@@ -4,39 +4,39 @@ description: RBAC(역할 기반 액세스 제어)를 통해 Azure 리소스에 �
 keywords: 자동화 rbac, 역할 기반 액세스 제어, azure rbac
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fe35f26fe73661901fa85da65e353fe66adf5d47
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 4fb90dbdb02fc0a0448b8cb6723c980c0fe41bd6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094220"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424322"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure Automation의 역할 기반 Access Control
 
-RBAC(역할 기반 액세스 제어)를 통해 Azure 리소스에 대한 액세스 관리가 가능합니다. [RBAC](../role-based-access-control/overview.md)를 사용하여 팀 내에서 업무를 분리하고 사용자, 그룹 및 응용 프로그램에 해당 작업을 수행하는 데에만 필요한 권한을 부여할 수 있습니다. Azure Portal, Azure 명령줄 도구 또는 Azure 관리 API를 사용하여 사용자에게 역할 기반 액세스에 대한 권한을 부여할 수 있습니다.
+RBAC(역할 기반 액세스 제어)를 통해 Azure 리소스에 대한 액세스 관리가 가능합니다. [RBAC](../role-based-access-control/overview.md)를 사용하여 팀 내에서 업무를 분리하고 사용자, 그룹 및 애플리케이션에 해당 작업을 수행하는 데에만 필요한 권한을 부여할 수 있습니다. Azure Portal, Azure 명령줄 도구 또는 Azure 관리 API를 사용하여 사용자에게 역할 기반 액세스에 대한 권한을 부여할 수 있습니다.
 
 ## <a name="roles-in-automation-accounts"></a>Automation 계정의 역할
 
-Azure Automation의 Automation 계정 범위에서 사용자, 그룹 및 응용 프로그램에 적절한 RBAC 역할을 할당하여 액세스를 허용합니다. 다음은 Automation 계정에서 지원하는 기본 제공 역할입니다.
+Azure Automation의 Automation 계정 범위에서 사용자, 그룹 및 애플리케이션에 적절한 RBAC 역할을 할당하여 액세스를 허용합니다. 다음은 Automation 계정에서 지원하는 기본 제공 역할입니다.
 
 | **역할** | **설명** |
 |:--- |:--- |
-| 소유자 |소유자 역할을 사용하면 Automation 계정을 관리하기 위해 다른 사용자, 그룹 및 응용 프로그램에 대한 액세스 권한 제공이 포함된 Automation 계정 내에서 모든 리소스 및 동작에 액세스할 수 있습니다. |
+| 소유자 |소유자 역할을 사용하면 Automation 계정을 관리하기 위해 다른 사용자, 그룹 및 애플리케이션에 대한 액세스 권한 제공이 포함된 Automation 계정 내에서 모든 리소스 및 동작에 액세스할 수 있습니다. |
 | 참가자 |참가자 역할을 사용하면 Automation 계정에 대한 다른 사용자의 액세스 권한 수정을 제외한 모든 사항을 관리할 수 있습니다. |
-| 읽기 권한자 |읽기 역할을 사용하면 Automation 계정의 모든 리소스를 볼 수 있지만 변경할 수는 없습니다. |
+| 판독기 |읽기 역할을 사용하면 Automation 계정의 모든 리소스를 볼 수 있지만 변경할 수는 없습니다. |
 | Automation 운영자 |Automation 연산자 역할을 사용하면 Runbook 이름 및 속성을 보고 Automation 계정의 모든 Runbook에 대한 작업을 만들고 관리할 수 있습니다. 이 역할은 자격 증명 자산 및 Runnbook 등의 Automation 계정 리소스를 보거나 수정하지 못하도록 보호하며 조직의 구성원이 이러한 Runbook을 여전히 실행하도록 하려는 경우 유용합니다. |
 |Automation 작업 연산자|Automation 작업 연산자 역할을 사용하면 Automation 계정의 모든 Runbook에 대한 작업을 만들고 관리할 수 있습니다.|
-|Automation Runbook 운영자|Automation Runbook 연산자 역할을 사용하면 Runbook의 이름 및 속성을 볼 수 있습니다.|
-| Log Analytics 참가자 | Log Analytics Contributor 역할을 사용하면 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 저장소 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다.|
-| Log Analytics 읽기 권한자 | Log Analytics Reader 역할을 사용하면 모니터링 설정을 볼 뿐만 아니라 모든 모니터링 데이터를 보고 검색할 수 있습니다. 여기에는 모든 Azure 리소스에 대한 Azure 진단 구성 보기가 포함됩니다. |
-| 모니터링 참가자 | Monitoring Contributor 역할을 사용하면 모든 모니터링 데이터를 읽고 모니터링 설정을 업데이트할 수 있습니다.|
-| 모니터링 읽기 권한자 | Montioring Reader 역할을 사용하면 모든 모니터링 데이터를 읽을 수 있습니다. |
+|Automation Runbook 연산자|Automation Runbook 연산자 역할을 사용하면 Runbook의 이름 및 속성을 볼 수 있습니다.|
+| Log Analytics 참가자 | Log Analytics Contributor 역할을 사용하면 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다.|
+| Log Analytics 독자 | Log Analytics Reader 역할을 사용하면 모니터링 설정을 볼 뿐만 아니라 모든 모니터링 데이터를 보고 검색할 수 있습니다. 여기에는 모든 Azure 리소스에 대한 Azure 진단 구성 보기가 포함됩니다. |
+| Monitoring Contributor | Monitoring Contributor 역할을 사용하면 모든 모니터링 데이터를 읽고 모니터링 설정을 업데이트할 수 있습니다.|
+| Monitoring Reader | Montioring Reader 역할을 사용하면 모든 모니터링 데이터를 읽을 수 있습니다. |
 | 사용자 액세스 관리자 |사용자 액세스 관리자 역할을 사용하면 Azure Automation 계정에 대한 사용자 액세스 권한을 관리할 수 있습니다. |
 
 ## <a name="role-permissions"></a>역할 권한
@@ -55,7 +55,7 @@ Azure Automation의 Automation 계정 범위에서 사용자, 그룹 및 응용 
 
 Contributor는 액세스를 제외한 모든 것을 관리할 수 있습니다. 다음 표에서는 역할에 부여되거나 거부된 사용 권한을 보여줍니다.
 
-|**Actions**  |**설명**  |
+|**actions**  |**설명**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/|모든 유형의 리소스 만들기 및 관리|
 |**조치 없음**||
@@ -63,11 +63,11 @@ Contributor는 액세스를 제외한 모든 것을 관리할 수 있습니다. 
 |Microsoft.Authorization/*/Write     |  역할 및 역할 할당을 만듭니다.       |
 |Microsoft.Authorization/elevateAccess/Action    | 사용자 액세스 관리자를 만드는 기능을 거부합니다.       |
 
-### <a name="reader"></a>읽기 권한자
+### <a name="reader"></a>판독기
 
 Reader는 Automation 계정의 모든 리소스를 볼 수 있지만 변경할 수는 없습니다.
 
-|**Actions**  |**설명**  |
+|**actions**  |**설명**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/read|Automation 계정에서 모든 리소스를 봅니다. |
 
@@ -75,7 +75,7 @@ Reader는 Automation 계정의 모든 리소스를 볼 수 있지만 변경할 �
 
 Automation 연산자 역할은 작업을 만들고 관리할 수 있으며, Automation 계정의 모든 Runbook에 대한 Runbook 이름 및 속성을 읽을 수 있습니다.  참고: 개별 Runbook에 액세스하도록 연산자를 제어하려는 경우에는 이 역할을 설정하지 말고 대신 ‘Automation 작업 연산자’ 및 ‘Automation Runbook 연산자’ 역할을 조합하여 사용합니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
-|**Actions**  |**설명**  |
+|**actions**  |**설명**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|권한 부여를 읽습니다.|
 |Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read|Hybrid Runbook Worker 리소스를 읽습니다.|
@@ -102,7 +102,7 @@ Automation 연산자 역할은 작업을 만들고 관리할 수 있으며, Auto
 
 Automation 작업 연산자 역할은 Automation 계정 범위에서 부여됩니다. 그러면 연산자 권한이 계정의 모든 Runbook에 대한 작업을 만들고 관리할 수 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
-|**Actions**  |**설명**  |
+|**actions**  |**설명**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|권한 부여를 읽습니다.|
 |Microsoft.Automation/automationAccounts/jobs/read|Runbook의 작업을 나열합니다.|
@@ -120,7 +120,7 @@ Automation 작업 연산자 역할은 Automation 계정 범위에서 부여됩�
 
 Automation Runbook 운영자 역할은 Runbook 범위에서 부여됩니다. Automation Runbook 연산자 역할은 Runbook의 이름 및 속성을 볼 수 있습니다.  ‘Automation 작업 연산자’ 역할과 결합된 이 역할은 연산자가 Runbook에 대한 작업을 만들고 관리할 수 있도록 설정합니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
-|**Actions**  |**설명**  |
+|**actions**  |**설명**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/runbooks/read     | Runbook을 나열합니다.        |
 |Microsoft.Authorization/*/read      | 권한 부여를 읽습니다.        |
@@ -131,9 +131,9 @@ Automation Runbook 운영자 역할은 Runbook 범위에서 부여됩니다. Aut
 
 ### <a name="log-analytics-contributor"></a>Log Analytics 참가자
 
-Log Analytics Contributor 역할은 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 저장소 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
+Log Analytics Contributor 역할은 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
-|**Actions**  |**설명**  |
+|**actions**  |**설명**  |
 |---------|---------|
 |*/read|암호를 제외한 모든 유형의 리소스를 읽습니다.|
 |Microsoft.Automation/automationAccounts/*|Automation 계정을 관리합니다.|
@@ -149,11 +149,11 @@ Log Analytics Contributor 역할은 모든 모니터링 데이터를 읽고 모�
 |Microsoft.Storage/storageAccounts/listKeys/action|저장소 계정 키를 나열합니다.|
 |Microsoft.Support/*|지원 티켓을 만들고 관리합니다.|
 
-### <a name="log-analytics-reader"></a>Log Analytics 읽기 권한자
+### <a name="log-analytics-reader"></a>Log Analytics 독자
 
 Log Analytics Reader는 모든 Azure 리소스에 대한 Azure 진단의 구성 보기를 비롯하여 모니터링 설정 보기 및 모든 모니터링 데이터를 보고 검색할 수 있습니다. 다음 표에서는 역할에 부여되고 거부된 사용 권한을 보여줍니다.
 
-|**Actions**  |**설명**  |
+|**actions**  |**설명**  |
 |---------|---------|
 |*/read|암호를 제외한 모든 유형의 리소스를 읽습니다.|
 |Microsoft.OperationalInsights/workspaces/analytics/query/action|Log Analytics에서 쿼리를 관리합니다.|
@@ -162,11 +162,11 @@ Log Analytics Reader는 모든 Azure 리소스에 대한 Azure 진단의 구성 
 |**조치 없음**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|공유 액세스 키를 읽을 수 없습니다.|
 
-### <a name="monitoring-contributor"></a>모니터링 참가자
+### <a name="monitoring-contributor"></a>Monitoring Contributor
 
 Monitoring Contributor는 모든 모니터링 데이터를 읽고 모니터링 설정을 업데이트할 수 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
-|**Actions**  |**설명**  |
+|**actions**  |**설명**  |
 |---------|---------|
 |*/read|암호를 제외한 모든 유형의 리소스를 읽습니다.|
 |Microsoft.AlertsManagement/alerts/*|경고를 관리합니다.|
@@ -188,11 +188,11 @@ Monitoring Contributor는 모든 모니터링 데이터를 읽고 모니터링 �
 |Microsoft.Support/*|지원 티켓을 만들고 관리합니다.|
 |Microsoft.WorkloadMonitor/workloads/*|워크로드를 관리합니다.|
 
-### <a name="monitoring-reader"></a>모니터링 읽기 권한자
+### <a name="monitoring-reader"></a>Monitoring Reader
 
 Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
-|**Actions**  |**설명**  |
+|**actions**  |**설명**  |
 |---------|---------|
 |*/read|암호를 제외한 모든 유형의 리소스를 읽습니다.|
 |Microsoft.OperationalInsights/workspaces/search/action|Log Analytics 작업 영역 검색|
@@ -202,11 +202,11 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 
 사용자 액세스 관리자는 Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
-|**Actions**  |**설명**  |
+|**actions**  |**설명**  |
 |---------|---------|
 |*/read|모든 리소스 읽기|
 |Microsoft.Authorization/*|권한 부여 관리|
-|Microsoft.Support/*|지원 티켓을 만들고 관리합니다.|
+|Microsoft.Support/*|지원 티켓 만들기 및 관리|
 
 ## <a name="onboarding"></a>온보딩
 
@@ -262,7 +262,7 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 |Automation 계정     | Log Analytics 참가자       | Automation 계정        |
 |Automation 계정    | 가상 머신 참가자        | 계정의 리소스 그룹        |
 |Log Analytics 작업 영역     | Log Analytics 참가자| Log Analytics 작업 영역        |
-|Log Analytics 작업 영역 |Log Analytics 읽기 권한자| 구독|
+|Log Analytics 작업 영역 |Log Analytics 독자| 구독|
 |해결 방법     |Log Analytics 참가자         | 해결 방법|
 |Virtual Machine     | 가상 머신 참가자        | Virtual Machine        |
 
@@ -273,13 +273,14 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 ### <a name="configure-rbac-using-the-azure-portal"></a>Azure Portal을 사용한 RBAC 구성 
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하고 Automation 계정 페이지에서 Automation 계정을 엽니다.
-2. 왼쪽 위 모서리에 있는 **액세스 제어(IAM)** 컨트롤을 클릭합니다. 그러면 새 사용자, 그룹, 응용 프로그램을 추가하여 Automation 계정을 관리하고 Automation 계정에 구성 가능한 기존 역할을 볼 수 있는 **액세스 제어(IAM)** 페이지가 열립니다.
+2. 왼쪽 위 모서리에 있는 **액세스 제어(IAM)** 컨트롤을 클릭합니다. 그러면 새 사용자, 그룹, 애플리케이션을 추가하여 Automation 계정을 관리하고 Automation 계정에 구성 가능한 기존 역할을 볼 수 있는 **액세스 제어(IAM)** 페이지가 열립니다.
+3. **역할 할당** 탭을 클릭합니다.
 
    ![액세스 단추](media/automation-role-based-access-control/automation-01-access-button.png)
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>새 사용자 추가 및 역할 할당
 
-1. **액세스 제어(IAM)** 페이지에서 **+추가**를 클릭하여 사용자, 그룹 또는 응용 프로그램을 추가할 수 있는 **사용 권한 추가** 페이지를 열고 역할을 할당합니다.
+1. **액세스 제어(IAM)** 페이지에서 **+ 역할 할당 추가**를 클릭하여 사용자, 그룹 또는 애플리케이션을 추가할 수 있는 **역할 할당 추가** 페이지를 열고, 역할을 할당합니다.
 
 2. 사용 가능한 역할 목록에서 역할을 선택합니다. Automation 계정이 지원하는 기본 제공 역할이나 사용자가 정의한 사용자 지정 역할을 선택할 수 있습니다.
 
@@ -353,7 +354,7 @@ ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
 ObjectType         : User
 ```
 
-[New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx)는 특정 범위에서 사용자, 그룹, 응용 프로그램에 액세스 권한을 할당합니다.
+[New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx)는 특정 범위에서 사용자, 그룹, 애플리케이션에 액세스 권한을 할당합니다.
     **예제:** 다음 명령을 사용하여 Automation 계정 범위의 사용자에 "Automation 운영자" 역할을 할당합니다.
 
 ```azurepowershell-interactive
@@ -374,7 +375,7 @@ ObjectId           : f5ecbe87-1181-43d2-88d5-a8f5e9d8014e
 ObjectType         : User
 ```
 
-[Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx)를 사용하여 특정 범위에서 지정된 사용자, 그룹 또는 응용 프로그램의 액세스 권한을 제거합니다.
+[Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx)를 사용하여 특정 범위에서 지정된 사용자, 그룹 또는 애플리케이션의 액세스 권한을 제거합니다.
     **예제:** 다음 명령을 사용하여 Automation 계정 범위의 "Automation 운영자" 역할에서 사용자를 제거합니다.
 
 ```azurepowershell-interactive
@@ -427,3 +428,4 @@ Runbook에 대한 Automation 운영자 역할이 할당된 사용자가 자신�
 * Azure Automation에 RBAC를 구성하는 다양한 방법에 대한 자세한 내용은 [Azure PowerShell로 RBAC 관리](../role-based-access-control/role-assignments-powershell.md)를 참조하세요.
 * Runbook을 시작하는 다양한 방법에 대한 자세한 내용은 [Runbook 시작](automation-starting-a-runbook.md)
 * 다른 runbook 형식에 대한 자세한 내용은 [Azure Automation Runbook 형식](automation-runbook-types.md)
+

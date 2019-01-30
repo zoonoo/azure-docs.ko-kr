@@ -6,13 +6,13 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 11/08/2018
-ms.openlocfilehash: 4e21b1bb85ba91266370d89ec8dbd0fae84ef197
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 01/08/2019
+ms.openlocfilehash: 131a55d130e7ebf619ee283e943c0b0a7b45edfd
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299795"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472860"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Event Grid 토픽을 관리하는 이벤트 도메인 이해
 
@@ -43,7 +43,7 @@ ms.locfileid: "51299795"
 
 ## <a name="access-management"></a>액세스 관리
 
-도메인을 사용하면 Azure의 RBAC(역할 기반 액세스 제어)를 통해 각 토픽에 대한 권한 부여 및 인증을 세밀하게 제어할 수 있습니다. 이러한 역할을 사용하여 응용 프로그램의 각 테넌트를 제한하는 방법으로 원하는 토픽에만 액세스 권한을 부여할 수 있습니다.
+도메인을 사용하면 Azure의 RBAC(역할 기반 액세스 제어)를 통해 각 토픽에 대한 권한 부여 및 인증을 세밀하게 제어할 수 있습니다. 이러한 역할을 사용하여 애플리케이션의 각 테넌트를 제한하는 방법으로 원하는 토픽에만 액세스 권한을 부여할 수 있습니다.
 
 이벤트 도메인의 RBAC는 Event Grid 및 Azure의 나머지 부분에서 [관리 액세스 제어](security-authentication.md#management-access-control)가 작동하는 방식과 동일하게 작동합니다. RBAC를 사용하여 이벤트 도메인에 사용자 지정 역할 정의를 만들고 적용할 수 있습니다.
 

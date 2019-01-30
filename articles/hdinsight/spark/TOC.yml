@@ -42,7 +42,7 @@ items:
     - name: Azure Storage 사용
       href: ../hdinsight-hadoop-use-blob-storage.md
       maintainContext: true
-    - name: Azure Data Lake Store 사용
+    - name: Azure Data Lake Storage 사용
       href: ../hdinsight-hadoop-use-data-lake-store.md
       maintainContext: true
   - name: 개발
@@ -59,7 +59,7 @@ items:
       href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
     - name: IntelliJ를 사용하여 VPN을 통해 원격으로 Apache Spark 작업 디버그
       href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
-    - name: 비대화형 인증 .NET HDInsight 응용 프로그램 만들기
+    - name: 비대화형 인증 .NET HDInsight 애플리케이션 만들기
       href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
       maintainContext: true
   - name: HDInsight 도구 사용
@@ -93,14 +93,16 @@ items:
       href: apache-spark-zeppelin-notebook.md
   - name: 다른 Azure 서비스와 함께 사용
     items:
-    - name: Data Lake Store와 함께 사용
+    - name: Data Lake Storage와 함께 사용
       href: apache-spark-use-with-data-lake-store.md
     - name: Azure SQL 데이터베이스에 연결
       href: apache-spark-connect-to-sql-database.md
     - name: Apache Spark 및 Cosmos DB를 사용하여 람다 아키텍처 구현
       href: ../../cosmos-db/lambda-architecture.md
+    - name: AutoML로 Azure ML 워크로드 실행
+      href: apache-spark-run-machine-learning-automl.md
       maintainContext: true
-  - name: Spark 스트리밍
+  - name: Apache Spark 스트리밍
     items:
     - name: 스트리밍 개요
       href: apache-spark-streaming-overview.md
@@ -170,7 +172,7 @@ items:
     - name: 빈 에지 노드 사용
       href: ../hdinsight-apps-use-edge-node.md
       maintainContext: true
-    - name: HDInsight 응용 프로그램 빌드
+    - name: HDInsight 애플리케이션 빌드
       items:
       - name: 사용자 지정 앱 설치
         href: ../hdinsight-apps-install-custom-applications.md
@@ -180,7 +182,7 @@ items:
       - name: Azure Marketplace에 HDInsight 앱 게시
         href: ../hdinsight-apps-publish-applications.md
         maintainContext: true
-      - name: 게시된 앱 설치 - Cask 데이터 응용 프로그램 플랫폼(CDAP)
+      - name: 게시된 앱 설치 - Cask 데이터 애플리케이션 플랫폼(CDAP)
         href: ../hdinsight-apps-install-cask.md
         maintainContext: true
       - name: 게시된 앱 설치 - Dataiku
@@ -206,7 +208,7 @@ items:
     - name: 데이터에 액세스 제한
       href: ../hdinsight-storage-sharedaccesssignature-permissions.md
       maintainContext: true
-    - name: 사용자에게 Apache Ambari 보기에 대한 권한 부여
+    - name: 사용자에게 Apache Ambari Views에 대한 권한 부여
       href: ../hdinsight-authorize-users-to-ambari.md
       maintainContext: true
   - name: 관리
@@ -281,7 +283,7 @@ items:
     - name: Apache Hadoop 작업용 데이터 업로드
       href: ../hdinsight-upload-data.md
       maintainContext: true
-    - name: Data Lake Store가 있는 다중 HDInsight 클러스터
+    - name: Data Lake Storage가 있는 다중 HDInsight 클러스터
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
     - name: Apache Sqoop으로 데이터 가져오기 및 내보내기
@@ -300,7 +302,7 @@ items:
         href: ../hadoop/apache-hadoop-use-sqoop-powershell.md
         maintainContext: true
       maintainContext: true
-    - name: 워크플로에 대해 Oozie 사용
+    - name: 워크플로에 대해 Apache Oozie 사용
       href: ../hdinsight-use-oozie-linux-mac.md
       maintainContext: true
     - name: 시간 기준의 Apache Oozie 코디네이터 사용
@@ -434,6 +436,8 @@ items:
     href: /rest/api/hdinsight/
   - name: REST API(Apache Spark)
     href: /rest/api/hdinsightspark/
+  - name: Resource Manager 템플릿
+    href: /azure/templates/microsoft.hdinsight/allversions
 - name: 리소스
   items:
   - name: 릴리스 정보
@@ -456,9 +460,9 @@ items:
   - name: HDInsight에 대한 Windows 도구
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 35ef5face0f64b6766993eeb7f546923726bd166
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 9f6cad17d2263d250ff1bfad53a0756b5007209d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584335"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427460"

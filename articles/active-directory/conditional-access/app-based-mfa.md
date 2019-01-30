@@ -5,7 +5,7 @@ services: active-directory
 keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: conditional-access
@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f27ced5c67c5124d0792c5ce3884c88473fba056
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 05d447a7d36e0e8ca9da35407e825eb8f49fb4a3
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604198"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448278"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>빠른 시작: Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구 
 
@@ -85,11 +85,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     ![Azure Active Directory](./media/app-based-mfa/02.png)
 
-3. **Azure Active Directory** 페이지의 **관리** 섹션에서 **조건부 액세스**를 클릭합니다.
+3. **Azure Active Directory** 페이지의 **보안** 섹션에서 **조건부 액세스**를 클릭합니다.
 
     ![조건부 액세스](./media/app-based-mfa/03.png)
  
-4. **조건부 액세스** 페이지에서 위쪽의 도구 모음에서 **추가**를 클릭합니다.
+4. **조건부 액세스** 페이지의 위쪽 도구 모음에서 **새 정책**을 클릭합니다.
 
     ![추가](./media/app-based-mfa/04.png)
 

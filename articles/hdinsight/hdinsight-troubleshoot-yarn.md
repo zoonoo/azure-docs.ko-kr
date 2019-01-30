@@ -6,20 +6,19 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
-ms.date: 11/2/2017
-ms.openlocfilehash: c3904286fc998769b9a72522bd31d3a9797c55c2
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.date: 12/06/2018
+ms.openlocfilehash: d5582038c35ba3b599be89b7b7939e644d55ea78
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008048"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408833"
 ---
-# <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Azure HDInsight를 사용한 YARN 문제 해결
+# <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Hadoop YARN 문제를 해결합니다.
 
 Apache Ambari에서 Apache Hadoop YARN 페이로드를 사용할 때의 주요 문제 및 해결 방법을 알아봅니다.
 
 ## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>클러스터에서 새 YARN 큐를 만들려면 어떻게 하나요?
-
 
 ### <a name="resolution-steps"></a>해결 단계: 
 
@@ -60,7 +59,7 @@ Ambari에서 다음 단계를 사용하여 새 YARN 큐를 만들고 모든 큐�
 
 ### <a name="additional-reading"></a>추가 참조 자료
 
-- [YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
+- [Apache Hadoop YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
 
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>클러스터에서 YARN 로그를 다운로드하려면 어떻게 하나요?
@@ -70,7 +69,7 @@ Ambari에서 다음 단계를 사용하여 새 YARN 큐를 만들고 모든 큐�
 
 1. SSH(Secure Shell) 클라이언트를 사용하여 HDInsight 클러스터에 연결합니다. 자세한 내용은 [더 보기](#additional-reading-2)를 참조하세요.
 
-2. 현재 실행 중인 YARN 응용 프로그램의 모든 응용 프로그램 ID를 나열하려면 다음 명령을 사용합니다.
+2. 현재 실행 중인 YARN 애플리케이션의 모든 애플리케이션 ID를 나열하려면 다음 명령을 사용합니다.
 
     ```apache
     yarn top
@@ -90,7 +89,7 @@ Ambari에서 다음 단계를 사용하여 새 YARN 큐를 만들고 모든 큐�
      application_1490377567345_0006 hive            spark  thriftsvr       1       0       1       0      1G      0G    1628430    2442645  10.00   18:20:20 Thrift JDBC/ODBC Server
     ```
 
-3. 모든 응용 프로그램 마스터에 대한 YARN 컨테이너 로그를 다운로드하려면 다음 명령을 사용합니다.
+3. 모든 애플리케이션 마스터에 대한 YARN 컨테이너 로그를 다운로드하려면 다음 명령을 사용합니다.
    
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am ALL > amlogs.txt
@@ -98,7 +97,7 @@ Ambari에서 다음 단계를 사용하여 새 YARN 큐를 만들고 모든 큐�
 
     amlogs.txt라는 로그 파일이 만들어집니다. 
 
-4. 최신 응용 프로그램 마스터에 대한 YARN 컨테이너 로그만 다운로드하려면 다음 명령을 사용합니다.
+4. 최신 애플리케이션 마스터에 대한 YARN 컨테이너 로그만 다운로드하려면 다음 명령을 사용합니다.
 
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am -1 > latestamlogs.txt
@@ -106,7 +105,7 @@ Ambari에서 다음 단계를 사용하여 새 YARN 큐를 만들고 모든 큐�
 
     latestamlogs.txt라는 로그 파일이 만들어집니다. 
 
-4. 처음 두 개 응용 프로그램 마스터에 대한 YARN 컨테이너 로그를 다운로드하려면 다음 명령을 사용합니다.
+4. 처음 두 개 애플리케이션 마스터에 대한 YARN 컨테이너 로그를 다운로드하려면 다음 명령을 사용합니다.
 
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am 1,2 > first2amlogs.txt 
@@ -132,16 +131,9 @@ Ambari에서 다음 단계를 사용하여 새 YARN 큐를 만들고 모든 큐�
 
 ### <a name="additional-reading-2"></a>추가 참조 자료
 
-- [SSH를 사용하여 HDInsight(Hadoop)에 연결](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+- [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Apache Hadoop YARN 개념 및 응용 프로그램](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
 
 
 ### <a name="see-also"></a>참고 항목
 [Azure HDInsight를 사용하여 문제 해결](hdinsight-troubleshoot-guide.md)
-
-
-
-
-
-
-

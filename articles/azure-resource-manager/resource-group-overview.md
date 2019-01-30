@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
+ms.date: 01/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: 470d08c13d5874283794fa9a2ce06fcaad4f60c2
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: c447efba4fe6a3e3b969ea228a60e1ba8dd39f9d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300543"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320874"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 개요
-응용 프로그램에 대한 인프라는 일반적으로 가상 머신, 저장소 계정 및 가상 네트워크 또는 웹앱, 데이터베이스, 데이터베이스 서버 및 타사 서비스 등의 많은 구성 요소를 만듭니다. 이러한 구성 요소는 별도 엔터티로 표시되지 않을 수 있으며, 대신 관련된 단일 엔터티의 상호 종속적으로 부분으로 표시됩니다. 그룹으로 배포, 관리 및 모니터링하려고 합니다. Azure 리소스 관리자를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 리소스 관리자는 보안, 감사 및 태그 기능을 제공하여 배포 후에 리소스를 관리할 수 있습니다. 
+애플리케이션에 대한 인프라는 일반적으로 가상 머신, 스토리지 계정 및 가상 네트워크 또는 웹앱, 데이터베이스, 데이터베이스 서버 및 타사 서비스 등의 많은 구성 요소를 만듭니다. 이러한 구성 요소는 별도 엔터티로 표시되지 않을 수 있으며, 대신 관련된 단일 엔터티의 상호 종속적으로 부분으로 표시됩니다. 그룹으로 배포, 관리 및 모니터링하려고 합니다. Azure 리소스 관리자를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 리소스 관리자는 보안, 감사 및 태그 기능을 제공하여 배포 후에 리소스를 관리할 수 있습니다. 
 
 ## <a name="consistent-management-layer"></a>일관적인 관리 계층
-Resource Manager는 Azure PowerShell, Azure CLI, Azure Portal, REST API 및 클라이언트 SDK를 통해 작업을 수행하는 일관적인 관리 계층을 제공합니다. Azure Portal에서 사용할 수 있는 기능은 Azure PowerShell, Azure CLI, Azure REST API 및 클라이언트 SDK를 통해서만 사용 가능합니다. API를 통해 처음 릴리스된 기능은 처음 릴리스된 지 180일 이내에 포털에 표시됩니다.
+Resource Manager는 Azure Portal을 통해 작업을 수행할 수 있는 일관된 관리 계층을 제공합니다. 한편 Azure Portal에서 사용할 수 있는 모든 기능은 Azure PowerShell, Azure CLI, Azure REST API 및 클라이언트 SDK를 통해 사용할 수도 있습니다. API를 통해 처음 릴리스된 기능은 처음 릴리스된 지 180일 이내에 포털에 표시됩니다.
 
 동일한 기능이 있고 일관된 결과를 제공하는 사용자에게 가장 잘 맞는 도구 및 API를 선택합니다.
 
@@ -37,8 +37,8 @@ Resource Manager는 Azure PowerShell, Azure CLI, Azure Portal, REST API 및 클�
 Azure Resource Manager가 처음이라면 익숙하지 않은 용어가 있을 수 있습니다.
 
 * **리소스** - Azure를 통해 사용할 수 있는 관리 가능한 항목입니다. 몇 가지 일반적인 리소스는 가상 머신, 저장소 계정, 웹앱, 데이터베이스 및 가상 네트워크이지만 더 많은 종류가 있습니다.
-* **리소스 그룹** - Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 리소스 그룹에는 솔루션에 대한 모든 리소스 또는 그룹으로 관리하려는 해당 리소스만 포함될 수 있습니다. 사용자의 조직에 가장 적합한 내용에 따라 리소스 그룹에 리소스를 어떻게 할당할지 결정합니다. [리소스 그룹](#resource-groups)을 참조하세요.
-* **리소스 공급자** - Resource Manager를 통해 배포하고 관리할 수 있는 리소스를 제공하는 서비스입니다. 각 리소스 공급자는 배포된 리소스로 작업하기 위한 작업을 제공합니다. 몇 가지 일반 리소스 공급자는 가상 머신 리소스를 제공하는 Microsoft.Compute, 저장소 계정 리소스를 제공하는 Microsoft.Storage 및 웹앱에 관련된 리소스를 제공하는 Microsoft.Web입니다. [리소스 공급자](#resource-providers)를 참조하세요.
+* **리소스 그룹** - Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 리소스 그룹은 그룹으로 관리하려는 리소스만 포함합니다. 사용자의 조직에 가장 적합한 내용에 따라 리소스 그룹에 리소스를 어떻게 할당할지 결정합니다. [리소스 그룹](#resource-groups)을 참조하세요.
+* **리소스 공급자** - Resource Manager를 통해 배포하고 관리할 수 있는 리소스를 제공하는 서비스입니다. 각 리소스 공급자는 배포된 리소스로 작업하기 위한 작업을 제공합니다. 몇 가지 일반 리소스 공급자는 가상 머신 리소스를 제공하는 Microsoft.Compute, 스토리지 계정 리소스를 제공하는 Microsoft.Storage 및 웹앱에 관련된 리소스를 제공하는 Microsoft.Web입니다. [리소스 공급자](#resource-providers)를 참조하세요.
 * **Resource Manager 템플릿** - 리소스 그룹에 배포한 하나 이상의 리소스를 정의하는 JSON(JavaScript Object Notation) 파일입니다. 또한 배포된 리소스 간의 종속성을 정의합니다. 템플릿은 리소스를 일관되고 반복적으로 배포하는 데 사용할 수 있습니다. [템플릿 배포](#template-deployment)를 참조하세요.
 * **선언적 구문** - 항목을 만드는 프로그래밍 명령의 시퀀스를 작성하지 않고도 "만들려는 대상은 다음과 같습니다"라고 선언하는 구문입니다. Resource Manager 템플릿은 선언적 구문의 예입니다. 파일에서 Azure에 배포하는 인프라에 대한 속성을 정의합니다. 
 
@@ -90,7 +90,7 @@ Azure, Azure 소버린 클라우드 및 Azure Stack에서 사용할 수 있는 R
 ## <a name="template-deployment"></a>템플릿 배포
 Resource Manager로 Azure 솔루션의 인프라 및 구성을 정의하는 템플릿을 JSON 형식으로 만들 수 있습니다. 템플릿을 사용하여 수명 주기 내내 솔루션을 반복적으로 배포하고 안심하고 일관된 상태로 리소스를 배포할 수 있습니다. 포털에서 솔루션을 만들 때 자동으로 솔루션에 배포 템플릿을 포함합니다. 솔루션용 템플릿으로 시작하고 특정 요구 사항에 맞게 사용자 지정할 수 있기 때문에 서식 파일을 처음부터 새로 만들 필요가 없습니다. 샘플은 [빠른 시작: Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](./resource-manager-quickstart-create-templates-use-the-portal.md)를 참조하세요. 리소스 그룹의 현재 상태를 내보내거나 특정 배포에 사용된 템플릿을 검토하여 기존 리소스 그룹에 대한 템플릿을 검색할 수도 있습니다. [내보낸 템플릿](resource-manager-export-template.md)을 살펴보면 템플릿 구문에 대해 알아보는 데 도움이 됩니다.
 
-템플릿의 형식 및 템플릿을 생성하는 방법에 대해 알아보려면 [빠른 시작: Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](./resource-manager-quickstart-create-templates-use-the-portal.md)를 참조하세요. 리소스 유형의 JSON 구문을 보려면 [Azure Resource Manager 템플릿에서 리소스 정의](/azure/templates/)를 참조하세요.
+템플릿의 형식과 구성하는 방법에 대한 자세한 내용은 [빠른 시작: Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](./resource-manager-quickstart-create-templates-use-the-portal.md)를 참조하세요. 리소스 유형의 JSON 구문을 보려면 [Azure Resource Manager 템플릿에서 리소스 정의](/azure/templates/)를 참조하세요.
 
 리소스 관리자는 다른 요청과 같이 템플릿을 처리합니다([일관적인 관리 계층](#consistent-management-layer)에 대한 이미지 참조). 템플릿을 구문 분석하고 해당 구문을 적절한 리소스 공급자에 대한 REST API 작업으로 변환합니다. 예를 들어 리소스 관리자가 다음 리소스 정의로 템플릿을 받는 경우:
 
@@ -128,7 +128,7 @@ REQUEST BODY
 }
 ```
 
-템플릿 및 리소스 그룹을 정의하는 방법은 사용자 및 솔루션을 관리하려는 방법에 전적으로 달려 있습니다. 예를 들어 단일 템플릿을 통해 3계층 응용 프로그램을 단일 리소스 그룹에 배포할 수 있습니다.
+템플릿 및 리소스 그룹을 정의하는 방법은 사용자 및 솔루션을 관리하려는 방법에 전적으로 달려 있습니다. 예를 들어 단일 템플릿을 통해 3계층 애플리케이션을 단일 리소스 그룹에 배포할 수 있습니다.
 
 ![3계층 템플릿](./media/resource-group-overview/3-tier-template.png)
 
@@ -214,11 +214,11 @@ Azure는 몇 가지 리소스 특정 역할도 제공합니다. 몇 가지 일�
 
 역할 및 허용되는 작업의 전체 목록은 [RBAC: 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조하세요. 역할 기반 액세스 제어에 대한 자세한 내용은 [Azure 역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md)을 참조하세요. 
 
-경우에 따라 리소스에 액세스하는 코드 또는 스크립트를 실행하려고 하지만 사용자의 자격 증명으로 실행하지 않으려 할 수 있습니다. 대신, 응용 프로그램에 대한 서비스 주체를 호출하는 ID를 만들고 서비스 주체에 대한 적절한 역할을 할당하려고 합니다. Resource Manager를 사용하면 응용 프로그램에 대한 자격 증명을 만들고 프로그래밍 방식으로 응용 프로그램을 인증할 수 있습니다. 서비스 주체를 만드는 방법에 대해 알아보려면 다음 항목 중 하나를 참조하세요.
+경우에 따라 리소스에 액세스하는 코드 또는 스크립트를 실행하려고 하지만 사용자의 자격 증명으로 실행하지 않으려 할 수 있습니다. 대신, 애플리케이션에 대한 서비스 주체를 호출하는 ID를 만들고 서비스 주체에 대한 적절한 역할을 할당하려고 합니다. Resource Manager를 사용하면 애플리케이션에 대한 자격 증명을 만들고 프로그래밍 방식으로 애플리케이션을 인증할 수 있습니다. 서비스 주체를 만드는 방법에 대해 알아보려면 다음 항목 중 하나를 참조하세요.
 
 * [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 * [Azure CLI를 사용하여 리소스에 액세스하는 서비스 주체 만들기](resource-group-authenticate-service-principal-cli.md)
-* [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)
+* [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)
 
 또한 사용자가 삭제 및 수정하는 것을 방지하기 위해 명시적으로 중요한 리소스를 잠글 수 있습니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
 

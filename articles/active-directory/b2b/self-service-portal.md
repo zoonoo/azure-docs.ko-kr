@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory B2B 공동 작업을 위한 셀프 서비스 등록 포털 | Microsoft Docs
-description: Azure Active Directory B2B 공동 작업은 비즈니스 파트너가 선택적으로 회사 응용 프로그램에 액세스할 수 있게 함으로써 회사 간 관계를 지원합니다.
+description: Azure Active Directory B2B 공동 작업은 비즈니스 파트너가 선택적으로 회사 애플리케이션에 액세스할 수 있게 함으로써 회사 간 관계를 지원합니다.
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
@@ -8,14 +8,14 @@ ms.topic: sample
 ms.date: 05/08/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: cb88645530f904bc35c70dfa12b09b76fcd1eb7c
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 67ddcb977fc61e48ab06ccf732874208236664c9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985263"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430944"
 ---
 # <a name="self-service-portal-for-azure-ad-b2b-collaboration-sign-up"></a>Azure AD B2B 공동 작업 등록을 위한 셀프 서비스 포털
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: jdial
-ms.openlocfilehash: 695d5f1507f766cf0a2ad96d7dcd25f45f98c20e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 56dd13f5c2c0db4af65d8bc5d4ee5c072a161964
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994720"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429637"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>가상 머신 라우팅 문제 진단
 
@@ -54,7 +54,7 @@ VM에 연결하려고 하지만 연결에 실패합니다. VM에 액세스할 �
 
 ## <a name="diagnose-using-powershell"></a>PowerShell을 사용하여 진단
 
-[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령 또는 컴퓨터에서 PowerShell을 사용하여 실행할 수 있습니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행하는 경우 *AzureRM* PowerShell 모듈 버전 6.0.1 이상이 필요합니다. 컴퓨터에서 `Get-Module -ListAvailable AzureRM`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. PowerShell을 로컬로 실행 중인 경우 `Login-AzureRmAccount`를 실행하여 [필요한 권한](virtual-network-network-interface.md#permissions)을 가진 계정으로 Azure에 로그인해야 합니다.
+[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령 또는 컴퓨터에서 PowerShell을 사용하여 실행할 수 있습니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행하는 경우 *AzureRM* PowerShell 모듈 버전 6.0.1 이상이 필요합니다. 컴퓨터에서 `Get-Module -ListAvailable AzureRM`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. PowerShell을 로컬로 실행 중인 경우 `Login-AzureRmAccount`를 실행하여 [필요한 권한](virtual-network-network-interface.md#permissions)을 가진 계정으로 Azure에 로그인해야 합니다.
 
 [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable)을 사용하여 네트워크 인터페이스에 대한 유효 경로를 가져옵니다. 다음 예제에서는 *myResourceGroup*이라는 리소스 그룹에 있는 *myVMVMNic*라는 네트워크 인터페이스에 대한 유효 경로를 가져옵니다.
 
@@ -123,7 +123,7 @@ az vm show \
 통신 문제를 해결하려고 할 때 다음 사항을 고려합니다.
 
 - 라우팅은 정의한 경로, BGP(Border Gateway Protocol) 및 시스템 경로 중 LPM(접두사 최대 길이 일치)에 기반합니다. 동일한 LPM 일치가 포함된 경로가 두 개 이상 있으면 [경로 개요](virtual-networks-udr-overview.md#how-azure-selects-a-route)에 나열된 순서대로 해당 원점에 따라 경로가 선택됩니다. 유효 경로를 사용하면 사용 가능한 모든 경로를 기준으로 LPM 일치에 해당하는 유효 경로만 표시될 수 있습니다. 네트워크 인터페이스에 대해 경로가 평가되는 방법이 표시되면 VM으로부터 연결에 영향을 미칠 수 있는 특정 경로 문제를 훨씬 더 쉽게 해결할 수 있습니다.
-- *VirtualAppliance*를 다음 홉 형식으로 사용하여 NVA(네트워크 가상 어플라이언스)에 대한 사용자 지정 경로를 정의하는 경우 트래픽을 수신하는 NVA에 IP 전달이 사용되도록 설정되어 있는지 확인합니다. 그렇지 않으면 패킷이 삭제됩니다. [네트워크 인터페이스에 IP 전달을 사용](virtual-network-network-interface.md#enable-or-disable-ip-forwarding)하는 방법에 대해 자세히 알아봅니다. 또한 운영 체제 또는 NVA 내의 응용 프로그램은 네트워크 트래픽을 전달하고 작업을 수행하도록 구성되어야 합니다.
+- *VirtualAppliance*를 다음 홉 형식으로 사용하여 NVA(네트워크 가상 어플라이언스)에 대한 사용자 지정 경로를 정의하는 경우 트래픽을 수신하는 NVA에 IP 전달이 사용되도록 설정되어 있는지 확인합니다. 그렇지 않으면 패킷이 삭제됩니다. [네트워크 인터페이스에 IP 전달을 사용](virtual-network-network-interface.md#enable-or-disable-ip-forwarding)하는 방법에 대해 자세히 알아봅니다. 또한 운영 체제 또는 NVA 내의 애플리케이션은 네트워크 트래픽을 전달하고 작업을 수행하도록 구성되어야 합니다.
 - 0.0.0.0/0에 대한 경로를 만든 경우 모든 아웃바운드 인터넷 트래픽은 NVA 또는 VPN Gateway 등 사용자가 지정한 다음 홉으로 라우팅됩니다. 이러한 경로 생성을 흔히 강제 터널링이라고 합니다. 다음 홉이 트래픽을 처리하는 방법에 따라 인터넷에서 VM으로 RDP 또는 SSH 프로토콜을 사용하는 원격 연결은 이 경로에서 작동하지 않을 수 있습니다. 다음과 같이 강제 터널링을 사용하도록 설정할 수 있습니다.
     - 사이트 간 VPN을 사용하는 경우 *VPN Gateway*라는 다음 홉 형식을 사용하여 경로를 만듭니다. [강제 터널링을 구성](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)하는 방법에 대해 자세히 알아봅니다.
     - 사이트 간 VPN 또는 ExpressRoute 회로를 사용할 때 가상 네트워크 게이트웨이를 통해 BGP에 0.0.0.0/0(기본 경로)을 보급하는 경우입니다. [사이트 간 VPN](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#ip-addresses-used-for-azure-private-peering)에서 BGP를 사용하는 방법을 자세히 알아봅니다.

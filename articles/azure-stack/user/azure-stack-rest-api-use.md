@@ -10,15 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 945c5df9aa76cef6d55b759e3cef7c00bf54e1c4
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: 651950cfe6ab1b752c4bcf92c4e2f00591e9eb97
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078333"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252101"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -116,7 +117,7 @@ grant_type=password
   대체 옵션은 특정 시나리오에 사용할 수 있습니다.
 
   
-  | 응용 프로그램 | ApplicationID |
+  | 애플리케이션 | ApplicationID |
   | --------------------------------------- |:-------------------------------------------------------------:|
   | LegacyPowerShell | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417 |
   | PowerShell | 1950a258-227b-4e31-a9cf-717495945fc2 |

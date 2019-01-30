@@ -11,15 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 01/08/2019
 ms.author: mabrigg
-ms.reviewer: alfredo
-ms.openlocfilehash: 67e1e22bc5569e7d6e20332ee86ffe4c7dd6a354
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.reviewer: alfredop
+ms.lastreviewed: 01/08/2019
+ms.openlocfilehash: 5ae8297f8e189fbe9374cec826bf5e566e5403da
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343846"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241953"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Azure Stack에서 테 넌 트 등록 관리
 
@@ -59,7 +60,7 @@ Azure Stack 및 API 프로필에 대 한 자세한 내용은 참조 하세요. [
 
 ### <a name="powershell"></a>PowerShell
 
-New-azurermresource cmdlet을 사용 하 여 등록 리소스를 업데이트 합니다. Azure에 로그인 (`Add-AzureRmAccount`) 초기 등록에 사용한 계정을 사용 합니다. 테 넌 트를 추가 하는 방법의 예는 다음과 같습니다.
+New-azurermresource cmdlet을 사용 하 여 등록 리소스를 업데이트 합니다. 테 넌 트를 추가 하는 방법의 예는 다음과 같습니다.
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -67,11 +68,11 @@ New-azurermresource cmdlet을 사용 하 여 등록 리소스를 업데이트 �
 
 ### <a name="api-call"></a>API 호출
 
-**작업**: 배치  
+**Operation**: PUT  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
-**응답**: 201 생성 됨  
-**응답 본문**: 빈  
+**응답**: 201 생성됨  
+**응답 본문**: Empty  
 
 ## <a name="list-all-registered-tenants"></a>등록 된 모든 테 넌 트를 나열 합니다.
 
@@ -100,7 +101,7 @@ New-azurermresource cmdlet을 사용 하 여 등록 리소스를 업데이트 �
 
 가져오기 작업을 사용 하 여 모든 테 넌 트 매핑의 목록을 가져올 수 있습니다.
 
-**작업**: 가져오기  
+**Operation**: GET  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?  
 api-version=2017-06-01 HTTP/1.1`  
@@ -149,12 +150,12 @@ api-version=2017-06-01 HTTP/1.1`
 
 삭제 작업을 사용 하 여 테 넌 트 매핑을 제거할 수 있습니다.
 
-**작업**: 삭제  
+**Operation**: 삭제  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **응답**: 204 콘텐츠 없음  
-**응답 본문**: 빈
+**응답 본문**: Empty
 
 ## <a name="next-steps"></a>다음 단계
 

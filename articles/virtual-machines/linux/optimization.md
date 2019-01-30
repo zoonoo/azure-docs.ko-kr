@@ -16,12 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 91e9cb6b436cc78a0c5bd4769d38622abda4c04d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.component: disks
+ms.openlocfilehash: 6cccf31842825c3e4d50aa67165d19f8ac471695
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977573"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478164"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Azure에서 Linux VM 최적화
 Linux 가상 머신(VM) 만들기는 명령줄 또는 포털에서 수행하는 것이 쉽습니다. 이 자습서에서는 Microsoft Azure Platform에서 해당 성능을 최적화하도록 설정하는 방법을 보여줍니다. 이 항목에서는 Ubuntu Server VM을 사용 하지만 [템플릿으로 사용자 고유의 이미지](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 Linux 가상 머신을 만들 수도 있습니다.  
@@ -33,7 +34,7 @@ Linux 가상 머신(VM) 만들기는 명령줄 또는 포털에서 수행하는 
 Azure에서 Linux VM을 만들면 이에 연결된 두 개의 디스크가 있습니다. **/dev/sda**는 OS 디스크이며 **/dev/sdb**는 임시 디스크입니다.  OS 디스크(**/dev/sda**)는 신속한 VM 부팅 시간에 최적화되고 워크로드에 좋은 성능을 제공하지 않으므로 운영 체제 이외에 사용하지 않습니다. 데이터에 대한 영구적이고 최적화된 저장소를 얻기 위해 VM에 하나 이상의 디스크를 연결하려고 합니다. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>크기 및 성능 대상에 디스크 추가
-VM 크기에 따라 A 시리즈에 16개, D 시리즈에 32개 및 G 시리즈에 64개의 디스크를 최대로 연결할 수 있고 각각 최대 크기는 1TB입니다. 공간 및 IOps 요구 사항에 따라 필요한 만큼 디스크를 더 추가합니다. 각 디스크의 성능 목표는 Standard Storage의 경우 최대 500IOps이며 Premium Storage의 경우 디스크당 최대 5000IOps입니다.  Premium Storage에 대한 자세한 내용은 [Premium Storage: Azure VM용 고성능 저장소](../windows/premium-storage.md)를 참조하세요.
+VM 크기에 따라 A 시리즈에 16개, D 시리즈에 32개 및 G 시리즈에 64개의 디스크를 최대로 연결할 수 있고 각각 최대 크기는 1TB입니다. 공간 및 IOps 요구 사항에 따라 필요한 만큼 디스크를 더 추가합니다. 각 디스크의 성능 목표는 Standard Storage의 경우 최대 500IOps이며 Premium Storage의 경우 디스크당 최대 5000IOps입니다.  Premium Storage 디스크에 대한 자세한 내용은 [Premium Storage: Azure VM용 고성능 스토리지](../windows/premium-storage.md)를 참조하세요.
 
 **읽기 전용** 또는 **해당 없음**으로 캐시를 설정한 Premium Storage 디스크에서 가장 높은 IOps를 수행하기 위해 Linux에서 파일 시스템을 탑재하는 동안 **장벽**을 사용하지 않도록 설정해야 합니다. Premium Storage 백업 디스크에 쓰기는 이러한 캐시 설정에 대해 내구성이 있기 때문에 장벽이 필요하지 않습니다.
 
@@ -46,7 +47,7 @@ Azure CLI를 사용하여 VM을 만들 때 기본 작업은 Azure Managed Disks�
 
 관리되지 않는 디스크를 사용하여 VM을 만들 경우 가까운 근접성을 제공하고 네트워크 대기 시간을 최소화하기 위해 VM과 동일한 지역에 위치한 저장소 계정에서 디스크를 연결해야 합니다.  각 표준 저장소 계정에는 최대 20,000IOps 및 500TB 크기의 용량이 포함됩니다.  이러한 제한은 만든 OS 디스크 및 데이터 디스크를 비롯한 약 40개의 많이 사용되는 디스크에 적용됩니다. Premium Storage 계정의 경우 최대 IOps 제한이 없지만 크기는 32TB로 제한됩니다. 
 
-높은 IOps 워크로드를 다루고 디스크에 Standard Storage를 선택한 경우 여러 저장소 계정에 디스크를 분할하여 Standard Storage 계정에 대한 20,000IOps 제한을 넘지 않아야 합니다. VM은 다른 저장소 계정 및 저장소 계정 유형에서 혼합된 디스크를 포함하여 최적의 구성을 달성할 수 있습니다.
+높은 IOps 워크로드를 다루고 디스크에 Standard Storage를 선택한 경우 여러 스토리지 계정에 디스크를 분할하여 Standard Storage 계정에 대한 20,000IOps 제한을 넘지 않아야 합니다. VM은 다른 저장소 계정 및 저장소 계정 유형에서 혼합된 디스크를 포함하여 최적의 구성을 달성할 수 있습니다.
  
 
 ## <a name="your-vm-temporary-drive"></a>VM 임시 드라이브
@@ -132,7 +133,7 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 
 추가 리소스에 대한 몇 가지 유용한 링크: 
 
-* [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 저장소](premium-storage.md)
+* [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 스토리지](premium-storage.md)
 * [Azure Linux 에이전트 사용자 가이드](../extensions/agent-linux.md)
 * [Azure Linux VM에서 MySQL 성능 최적화](classic/optimize-mysql.md)
 * [Linux에서 소프트웨어 RAID 구성](configure-raid.md)

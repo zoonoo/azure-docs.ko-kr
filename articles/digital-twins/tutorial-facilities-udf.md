@@ -1,18 +1,19 @@
 ---
-title: Azure Digital Twins를 사용하여 공간 모니터링 | Microsoft Docs
+title: '자습서: Azure Digital Twins를 사용하여 공간 모니터링 | Microsoft Docs'
 description: 이 자습서의 단계에 따라 Azure Digital Twins를 사용하여 공간 리소스를 프로비전하고 작업 상태를 모니터링하는 방법을 알아봅니다.
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/26/2018
+ms.date: 12/27/2018
 ms.author: dkshir
-ms.openlocfilehash: a9784860cbc0b6d58f63fb22b7ad676048c8aee6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 465dd2a69ad42b8b6a88268eb35a1aa7d8d922c5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584199"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229399"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>자습서: Azure Digital Twins를 사용하여 건물을 프로비전하고 작업 조건 모니터링
 
@@ -29,6 +30,7 @@ ms.locfileid: "52584199"
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서에서는 [Azure Digital Twins 설정을 완료](tutorial-facilities-setup.md)한 것으로 가정합니다. 계속 진행하기 전에 다음 사항을 확인합니다.
+
 - [Azure 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - 실행 중인 Digital Twins 인스턴스. 
 - 작업 머신에 다운로드하여 추출한 [Digital Twins C# 샘플](https://github.com/Azure-Samples/digital-twins-samples-csharp). 
@@ -36,6 +38,7 @@ ms.locfileid: "52584199"
 - 샘플 코드를 탐색할 [Visual Studio Code](https://code.visualstudio.com/). 
 
 ## <a name="define-conditions-to-monitor"></a>모니터링할 조건 정의
+
 디바이스 또는 센서 데이터에서 모니터링할 특정 조건 집합, 즉, *선택기*를 정의할 수 있습니다. 그런 다음, *사용자 정의 함수*를 정의할 수 있습니다. 사용자 정의 함수는 선택기에서 지정한 조건이 발생하면 공간 및 디바이스에서 오는 데이터에 대해 사용자 지정 논리를 실행합니다. 자세한 내용은 [데이터 처리 및 사용자 정의 함수](concepts-user-defined-functions.md)를 참조하세요. 
 
 **occupancy-quickstart** 샘플 프로젝트에서, **src\actions\provisionSample.yaml** 파일을 Visual Studio Code에서 엽니다. **matchers** 형식으로 시작하는 섹션을 봅니다. 이 형식에 속하는 각 항목은 지정된 **이름**을 사용하여 선택기를 만듭니다. 선택기는 **dataTypeValue** 형식의 센서를 모니터링합니다. **디바이스** 노드가 있고 몇 가지 센서를 포함하고 있는 *Focus Room A1*이라는 이름의 공간과 어떤 관계가 있는지 살펴봅니다. 이러한 센서 중 하나를 추적하는 선택기를 프로비전하려면 **dataTypeValue**가 해당 센서의 **dataType**과 일치하는지 확인합니다. 
@@ -47,14 +50,15 @@ ms.locfileid: "52584199"
         dataTypeValue: Temperature
 ```
 
-이 선택기는 [첫 번째 자습서](tutorial-facilities-setup.md)에서 추가한 SAMPLE_SENSOR_TEMPERATURE 센서를 추적합니다. 이러한 줄은 *provisionSample.yaml* 파일에도 주석 처리된 줄로 표시됩니다. 각 줄의 앞에서 `#` 문자를 제거하여 주석 처리를 제거할 수 있습니다. 
+이 선택기는 [첫 번째 자습서](tutorial-facilities-setup.md)에서 추가한 SAMPLE_SENSOR_TEMPERATURE 센서를 추적합니다. 이러한 줄은 *provisionSample.yaml* 파일에도 주석 처리된 줄로 표시됩니다. 각 줄의 앞에서 `#` 문자를 제거하여 주석 처리를 제거할 수 있습니다.
 
-<a id="udf" />
+<a id="udf"></a>
 
 ## <a name="create-a-user-defined-function"></a>사용자 정의 함수 만들기
+
 사용자 정의 함수를 사용하여 센서 데이터 처리 방식을 사용자 지정할 수 있습니다. 사용자 정의 함수는 선택기에서 설명하는 특정 조건이 충족될 때 Azure Digital Twins 인스턴스 내에서 실행 가능한 사용자 지정 JavaScript 코드입니다. 모니터링하려는 각 센서에 대한 선택기 및 사용자 정의 함수를 만들 수 있습니다. 자세한 내용은 [데이터 처리 및 사용자 정의 함수](concepts-user-defined-functions.md)를 참조하세요. 
 
-샘플 provisionSample.yaml 파일에서, **userdefinedfunctions** 형식으로 시작하는 섹션을 찾아봅니다. 이 섹션에서는 지정된 **이름**을 사용하는 사용자 정의 함수를 프로비전합니다. 이 UDF는 **matcherNames** 아래의 선택기 목록에 따라 작동합니다. UDF에 대한 사용자 고유의 JavaScript 파일을 **스크립트**로 제공하는 방법을 살펴봅니다. 
+샘플 provisionSample.yaml 파일에서, **userdefinedfunctions** 형식으로 시작하는 섹션을 찾아봅니다. 이 섹션에서는 지정된 **이름**을 사용하는 사용자 정의 함수를 프로비전합니다. 이 UDF는 **matcherNames** 아래의 선택기 목록에 따라 작동합니다. UDF에 대한 사용자 고유의 JavaScript 파일을 **스크립트**로 제공하는 방법을 살펴봅니다.
 
 **roleassignments** 섹션도 살펴봅니다. 사용자 정의 함수에 공간 관리자 역할을 할당합니다. 이 역할을 사용하면 프로비전된 공간에서 오는 이벤트에 액세스할 수 있습니다. 
 
@@ -187,7 +191,7 @@ ms.locfileid: "52584199"
 > [!TIP]
 > 프로비전 중에 "스레드 종료 또는 애플리케이션 요청으로 인해 I/O 작업이 중단되었습니다"라는 오류 메시지를 받으면 명령을 다시 실행하세요. 네트워크 문제로 인해 HTTP 클라이언트 시간이 초과되면 이 오류가 발생할 수 있습니다.
 
-<a id="simulate" />
+<a id="simulate"></a>
 
 ## <a name="simulate-sensor-data"></a>센서 데이터 시뮬레이션
 
@@ -201,13 +205,13 @@ ms.locfileid: "52584199"
     dotnet restore
     ```
 
-1. 편집기에서 **appSettings.json** 파일을 열고 다음 값을 편집합니다.
+1. 편집기에서 [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) 파일을 열고 다음 값을 편집합니다.
 
    a. **DeviceConnectionString**: 이전 섹션의 출력 창에 있는 `ConnectionString` 값을 할당합니다. 시뮬레이터가 IoT 허브에 올바르게 연결할 수 있도록 따옴표 안의 이 문자열을 모두 복사해야 합니다.
 
    b. **센서** 배열의 **HardwareId**: Azure Digital Twins 인스턴스에 프로비전된 센서의 이벤트를 시뮬레이션하는 것이므로, 이 파일의 하드웨어 ID와 센서 이름이 provisionSample.yaml 파일의 `sensors` 노드와 일치해야 합니다.
 
-      온도 센서에 대한 새 항목을 추가합니다. appSettings.json의 **센서** 노드는 다음과 같이 생겼습니다.
+      온도 센서에 대한 새 항목을 추가합니다. appsettings.json의 **센서** 노드는 다음과 같습니다.
 
       ```JSON
       "Sensors": [{
@@ -232,6 +236,7 @@ ms.locfileid: "52584199"
    > 시뮬레이션 샘플은 Digital Twin 인스턴스와 직접 통신하지 않기 때문에 인증이 필요 없습니다.
 
 ## <a name="get-results-of-the-user-defined-function"></a>사용자 정의 함수 결과 가져오기
+
 인스턴스가 디바이스 및 센서 데이터를 받을 때마다 사용자 정의 함수가 실행됩니다. 이 섹션에서는 Azure Digital Twins 인스턴스를 쿼리하여 사용자 정의 함수의 결과를 가져옵니다. 언제 방을 사용할 수 있고, 공기가 깨끗하고, 온도가 적정 수준인지 거의 실시간으로 볼 수 있습니다. 
 
 1. 샘플을 프로비전할 때 사용한 명령 창 또는 새 명령 창을 열고, 샘플의 **occupancy-quickstart\src** 폴더로 다시 이동합니다.

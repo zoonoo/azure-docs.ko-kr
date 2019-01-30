@@ -27,7 +27,7 @@ ms.locfileid: "51253128"
 > * [Azure Blob 저장소](cdn-manage-expiration-of-blob-content.md)
 > 
 
-TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로 액세스할 수 있는 파일은 Azure CDN(콘텐츠 전송 네트워크)에 캐시될 수 있습니다. TTL은 원본 서버의 HTTP 응답에 있는 `Cache-Control` 헤더를 기반으로 결정됩니다. 이 문서에서는 Microsoft Azure App Service, Azure Cloud Services, ASP.NET 응용 프로그램 및 IIS(인터넷 정보 서비스) 사이트에 대한 웹앱 기능의 `Cache-Control` 헤더를 설정하는 방법을 설명하며, 이 헤더들은 모두 비슷하게 구성됩니다. 구성 파일을 사용하거나 프로그래밍 방식으로 `Cache-Control` 헤더를 설정할 수 있습니다. 
+TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로 액세스할 수 있는 파일은 Azure CDN(콘텐츠 전송 네트워크)에 캐시될 수 있습니다. TTL은 원본 서버의 HTTP 응답에 있는 `Cache-Control` 헤더를 기반으로 결정됩니다. 이 문서에서는 Microsoft Azure App Service, Azure Cloud Services, ASP.NET 애플리케이션 및 IIS(인터넷 정보 서비스) 사이트에 대한 웹앱 기능의 `Cache-Control` 헤더를 설정하는 방법을 설명하며, 이 헤더들은 모두 비슷하게 구성됩니다. 구성 파일을 사용하거나 프로그래밍 방식으로 `Cache-Control` 헤더를 설정할 수 있습니다. 
 
 [CDN 캐시 규칙](cdn-caching-rules.md)을 설정하여 Azure Portal에서 캐시 설정을 제어할 수도 있습니다. 하나 이상의 캐싱 규칙을 만들고 캐싱 동작을 **재정의** 또는 **캐시 무시**로 설정하는 경우 이 문서에 설명된 원본 제공 캐싱 설정이 무시됩니다. 일반적인 캐싱 개념에 대한 자세한 내용은 [캐싱 동작 방식](cdn-how-caching-works.md)을 참조하세요.
 
@@ -84,15 +84,15 @@ TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로
 
 
 ## <a name="setting-cache-control-headers-by-using-configuration-files"></a>구성 파일을 사용하여 Cache-Control 헤더 설정
-이미지, 스타일 시트 등 정적 콘텐츠에 대해서는 웹 응용 프로그램의 **applicationHost.config** 또는 **Web.config** 구성 파일을 수정함으로써 업데이트 빈도를 제어할 수 있습니다. 콘텐츠에 대한 `Cache-Control` 헤더를 설정하려면 각 파일의 `<system.webServer>/<staticContent>/<clientCache>` 요소를 사용합니다.
+이미지, 스타일 시트 등 정적 콘텐츠에 대해서는 웹 애플리케이션의 **applicationHost.config** 또는 **Web.config** 구성 파일을 수정함으로써 업데이트 빈도를 제어할 수 있습니다. 콘텐츠에 대한 `Cache-Control` 헤더를 설정하려면 각 파일의 `<system.webServer>/<staticContent>/<clientCache>` 요소를 사용합니다.
 
 ### <a name="using-applicationhostconfig-files"></a>ApplicationHost.config 파일 사용
 **ApplicationHost.config** 파일은 IIS 구성 시스템의 루트 파일입니다. **ApplicationHost.config** 파일의 구성 설정은 사이트의 모든 응용 프로그램에 영향을 미치지만 웹 응용 프로그램에 대해 존재하는 **Web.config** 파일의 설정에 의해 재정의됩니다.
 
 ### <a name="using-webconfig-files"></a>Web.config 파일 사용
-**Web.config** 파일을 사용하여 전체 웹 응용 프로그램 또는 웹 응용 프로그램에서 특정 디렉터리가 작동하는 방식을 사용자 지정할 수 있습니다. 일반적으로 웹 응용 프로그램의 루트 폴더에 하나 이상의 **Web.config** 파일이 있습니다. 특정 폴더에 있는 각 **Web.config** 파일의 구성 설정은 다른 **Web.config** 파일에 의해 하위 폴더 수준에서 재정의된 경우를 제외하고는 해당 폴더 및 그 하위 폴더의 모든 항목에 영향을 줍니다. 
+**Web.config** 파일을 사용하여 전체 웹 응용 프로그램 또는 웹 응용 프로그램에서 특정 디렉터리가 작동하는 방식을 사용자 지정할 수 있습니다. 일반적으로 웹 애플리케이션의 루트 폴더에 하나 이상의 **Web.config** 파일이 있습니다. 특정 폴더에 있는 각 **Web.config** 파일의 구성 설정은 다른 **Web.config** 파일에 의해 하위 폴더 수준에서 재정의된 경우를 제외하고는 해당 폴더 및 그 하위 폴더의 모든 항목에 영향을 줍니다. 
 
-예를 들어 3일 동안 웹 응용 프로그램의 모든 정적 콘텐츠를 캐시하도록 웹 응용 프로그램 루트 폴더의 **Web.config** 파일에 `<clientCache>` 요소를 설정할 수 있습니다. 또한 가변 콘텐츠(예: `\frequent`)가 더 많이 포함된 하위 폴더에 **Web.config** 파일을 추가하고 6시간 동안 하위 폴더의 콘텐츠를 캐시하도록 `<clientCache>` 요소를 설정할 수도 있습니다. 그 결과 전체 웹 사이트의 콘텐츠는 3일 동안 캐시되지만 `\frequent` 디렉터리의 콘텐츠는 6시간 동안만 캐시됩니다.  
+예를 들어 3일 동안 웹 애플리케이션의 모든 정적 콘텐츠를 캐시하도록 웹 애플리케이션 루트 폴더의 **Web.config** 파일에 `<clientCache>` 요소를 설정할 수 있습니다. 또한 가변 콘텐츠(예: `\frequent`)가 더 많이 포함된 하위 폴더에 **Web.config** 파일을 추가하고 6시간 동안 하위 폴더의 콘텐츠를 캐시하도록 `<clientCache>` 요소를 설정할 수도 있습니다. 그 결과 전체 웹 사이트의 콘텐츠는 3일 동안 캐시되지만 `\frequent` 디렉터리의 콘텐츠는 6시간 동안만 캐시됩니다.  
 
 다음 XML 구성 파일 예제에서는 최대 기간을 3일로 지정하도록 `<clientCache>` 요소를 설정하는 방법을 보여 줍니다.  
 
@@ -109,9 +109,9 @@ TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로
 **cacheControlMaxAge** 특성을 사용하려면 **cacheControlMode** 특성의 값을 `UseMaxAge`로 설정해야 합니다. 이 설정으로 인해 HTTP 헤더 및 지시문, `Cache-Control: max-age=<nnn>`이 응답에 추가됩니다. **cacheControlMaxAge** 특성에 대한 시간 범위 값의 형식은 `<days>.<hours>:<min>:<sec>`입니다. 해당 값은 초로 변환되고 `Cache-Control` `max-age` 지시문의 값으로 사용됩니다. `<clientCache>` 요소에 대한 자세한 내용은 [클라이언트 캐시 <clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)를 참조하세요.  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>프로그래밍 방식으로 Cache-Control 헤더 설정
-ASP.NET 응용 프로그램의 경우 .NET API의 **HttpResponse.Cache** 속성을 설정하면 CDN 캐싱 동작을 프로그래밍 방식으로 제어합니다. **HttpResponse.Cache** 속성에 대한 자세한 내용은 [HttpResponse.Cache 속성](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 및 [HttpCachePolicy 클래스](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)를 참조하세요.  
+ASP.NET 애플리케이션의 경우 .NET API의 **HttpResponse.Cache** 속성을 설정하면 CDN 캐싱 동작을 프로그래밍 방식으로 제어합니다. **HttpResponse.Cache** 속성에 대한 자세한 내용은 [HttpResponse.Cache 속성](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 및 [HttpCachePolicy 클래스](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)를 참조하세요.  
 
-ASP.NET에서 프로그래밍 방식으로 콘텐츠를 캐시하려면 다음 단계를 따릅니다.
+ASP.NET에서 프로그래밍 방식으로 애플리케이션 콘텐츠를 캐시하려면 다음 단계를 따릅니다.
    1. `HttpCacheability`를 `Public`으로 설정하여 콘텐츠를 캐시 가능하게 표시합니다. 
    1. 다음 `HttpCachePolicy` 메서드 중 하나를 호출하여 캐시 유효성 검사기를 설정합니다.
       - `Last-Modified` 헤더의 타임스탬프 값을 설정하려면 `SetLastModified`를 호출합니다.

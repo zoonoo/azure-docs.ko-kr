@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 01/03/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33b0b2b4148a8cfbe97413bf3cdec23d375206bb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c6e4e142025e40e77afee01d70de9cef68eca1f0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983891"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013199"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Linux 가상 머신을 만드는 방법
 
@@ -32,7 +32,6 @@ ms.locfileid: "46983891"
 
 ## <a name="templates-overview"></a>템플릿 개요
 Azure Resource Manager 템플릿은 Azure 솔루션의 인프라와 구성을 정의하는 JSON 파일입니다. 템플릿을 사용하여 수명 주기 내내 솔루션을 반복적으로 배포하고 안심하고 일관된 상태로 리소스를 배포할 수 있습니다. 템플릿의 형식 및 템플릿을 생성하는 방법에 대해 자세히 알아보려면 [첫 번째 Azure Resource Manager 템플릿 만들기](../../azure-resource-manager/resource-manager-create-first-template.md)를 참조하세요. 리소스 유형의 JSON 구문을 보려면 [Azure Resource Manager 템플릿에서 리소스 정의](/azure/templates/)를 참조하세요.
-
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 머신보다 먼저 리소스 그룹을 만들어야 합니다. 다음 예제에서는 *eastus* 지역에 *myResourceGroupVM*이라는 리소스 그룹을 만듭니다.
@@ -72,4 +71,12 @@ ssh azureuser@<ipAddress>
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이 예제에서는 기본 Linux VM을 만들었습니다. 응용 프로그램 프레임워크를 포함하거나 더 복잡한 환경을 만드는 더 많은 Resource Manager 템플릿은 [Azure 빠른 시작 템플릿 갤러리](https://azure.microsoft.com/documentation/templates/)를 찾아보세요.
+이 예제에서는 기본 Linux VM을 만들었습니다. 애플리케이션 프레임워크를 포함하거나 더 복잡한 환경을 만드는 더 많은 Resource Manager 템플릿은 [Azure 빠른 시작 템플릿 갤러리](https://azure.microsoft.com/documentation/templates/)를 찾아보세요.
+
+템플릿 만들기에 대해 자세히 알아보려면 배포한 리소스 종류의 JSON 구문 및 속성을 확인하세요.
+
+* [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
+* [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
+* [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
+* [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
+* [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)

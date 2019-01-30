@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: 29c0a1a15db7670d83ff384a1ba0f37499389ef7
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 601c23bbcddeaeff89e1d1b1a4be8cb6b0256e51
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741887"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258784"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>가상 머신 확장 집합 템플릿에 대해 알아보기
 [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)은 관련된 리소스 그룹을 배포하는 유용한 방법입니다. 이 자습서 시리즈에서는 실행 가능한 최소 확장 집합 템플릿을 만드는 방법과 이러한 템플릿을 다양한 시나리오에 맞게 수정하는 방법을 보여 줍니다. 모든 예제는 [GitHub 리포지토리](https://github.com/gatneil/mvss)에서 가져온 것입니다. 
@@ -70,7 +70,7 @@ Resource Manager 템플릿을 사용하여 나중에 템플릿에 사용할 변�
    "resources": [
 ```
 
-모든 리소스에는 `type`, `name`, `apiVersion` 및 `location` 속성이 필요합니다. 이 예제의 첫 번째 리소스는 `Microsft.Network/virtualNetwork` 형식이고 이름은 `myVnet`이며 apiVersion은 `2016-03-30`입니다. (리소스 형식에 대한 최신 API 버전을 찾으려면 [Azure REST API 설명서](https://docs.microsoft.com/rest/api/)를 참조하세요.)
+모든 리소스에는 `type`, `name`, `apiVersion` 및 `location` 속성이 필요합니다. 이 예제의 첫 번째 리소스는 형식이 [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks)이고, 이름은 `myVnet`이며, apiVersion은 `2016-03-30`입니다. (리소스 형식에 대한 최신 API 버전을 찾으려면 [Azure Resource Manager 템플릿 참조](/azure/templates/)를 확인하세요.)
 
 ```json
      {
@@ -124,7 +124,7 @@ Resource Manager 템플릿을 사용하여 나중에 템플릿에 사용할 변�
        ],
 ```
 ## <a name="specify-scale-set-properties"></a>확장 집합 속성 지정
-확장 집합에는 VM을 사용자 지정하기 위한 속성이 많이 있습니다. 이러한 속성의 전체 목록은 [확장 집합 REST API 설명서](https://docs.microsoft.com/rest/api/virtualmachinescalesets/create-or-update-a-set)를 참조하세요. 이 자습서에서는 일반적으로 사용되는 몇 가지 속성만 설정됩니다.
+확장 집합에는 VM을 사용자 지정하기 위한 속성이 많이 있습니다. 이러한 속성의 전체 목록은 [템플릿 참조](/azure/templates/microsoft.compute/virtualmachinescalesets)에서 확인하세요. 이 자습서에서는 일반적으로 사용되는 몇 가지 속성만 설정됩니다.
 ### <a name="supply-vm-size-and-capacity"></a>VM 크기 및 용량 제공
 확장 집합은 만들 VM의 크기("sku 이름") 및 이러한 크기로 만들려는 VM의 수("sku 용량")를 알아야 합니다. 사용 가능한 VM 크기를 확인하려면 [VM 크기 설명서](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes)를 참조하세요.
 

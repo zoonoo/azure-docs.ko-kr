@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: d3326ef4bba5649f5420c1d92b6117d44edba47b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 89878b2774727d49d81ebec4c2a3c2cee355d8e8
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281985"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743666"
 ---
-# <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>HDInsight에서 Hadoop 클러스터의 가용성 및 안정성
+# <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>HDInsight에서 Apache Hadoop 클러스터의 가용성 및 안정성
 
-HDInsight 클러스터는 두 개의 헤드 노드를 제공하여 실행 중인 Hadoop 서비스와 작업의 안정성과 가용성을 높입니다.
+HDInsight 클러스터는 두 개의 헤드 노드를 제공하여 실행 중인 Apache Hadoop 서비스와 작업의 안정성과 가용성을 높입니다.
 
 Hadoop은 클러스터의 여러 노드에서 서비스와 데이터를 복사하여 고가용성과 안정성을 달성합니다. 그러나 Hadoop의 표준 배포에는 일반적으로 단일 헤드 노드만 있습니다. 단일 헤드 노드의 가동 중단으로 인해 클러스터의 작동이 중지될 수 있습니다. HDInsight는 Hadoop의 가용성 및 안정성을 향상시키기 위해 두 헤드 노드를 제공합니다.
 
@@ -29,25 +29,25 @@ Hadoop은 클러스터의 여러 노드에서 서비스와 데이터를 복사�
 
 HDInsight 클러스터에 있는 노드는 Azure Virtual Machines를 사용하여 구현됩니다. 다음 섹션에서는 HDInsight와 함께 사용되는 개별 노드 유형을 설명합니다. 
 
-> [!NOTE]
+> [!NOTE]  
 > 일부 노드 유형은 클러스터 유형에 사용되지 않습니다. 예를 들어 Hadoop 클러스터 유형에는 Nimbus 노드가 없습니다. HDInsight 클러스터 유형에서 사용하는 노드에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) 문서의 클러스터 유형 섹션을 참조하세요.
 
 ### <a name="head-nodes"></a>헤드 노드
 
-Hadoop 서비스의 고가용성을 보장하기 위해 HDInsight는 두 개의 헤드 노드를 제공합니다. 두 헤드 노드가 모두 활성화되어 HDInsight 클러스터 내에서 동시에 실행됩니다. 일부 서비스(예: HDFS 또는 YARN)는 항상 헤드 노드 하나에서만 '활성' 상태입니다. 다른 서비스(예: HiveServer2 또는 Hive MetaStore)는 두 헤드 노드에서 동시에 활성화됩니다.
+Hadoop 서비스의 고가용성을 보장하기 위해 HDInsight는 두 개의 헤드 노드를 제공합니다. 두 헤드 노드가 모두 활성화되어 HDInsight 클러스터 내에서 동시에 실행됩니다. 일부 서비스(예: Apache HDFS 또는 Apache Hadoop YARN)는 항상 헤드 노드 하나에서만 '활성' 상태입니다. 다른 서비스(예: HiveServer2 또는 Hive MetaStore)는 두 헤드 노드에서 동시에 활성화됩니다.
 
 헤드 노드(및 HDInsight의 다른 노드)에는 노드의 호스트 이름의 일부인 숫자 값이 있습니다. 예를 들면 `hn0-CLUSTERNAME` 또는 `hn4-CLUSTERNAME`과 같습니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 숫자 값을 노드가 기본 또는 보조 노드와 연결하지 마세요. 숫자 값은 각 노드에 대해 고유한 이름을 제공하기 위해 존재합니다.
 
 ### <a name="nimbus-nodes"></a>Nimbus 노드
 
-Nimbus 노드는 Storm 클러스터와 함께 사용할 수 있습니다. Nimbus 노드는 작업자 노드에 대한 프로세싱을 배포하고 모니터링하여 Hadoop JobTracker에 유사한 기능을 제공합니다. HDInsight는 Storm 클러스터에 두 개의 Nimbus 노드를 제공합니다.
+Nimbus 노드는 Apache Storm 클러스터와 함께 사용할 수 있습니다. Nimbus 노드는 작업자 노드에 대한 프로세싱을 배포하고 모니터링하여 Hadoop JobTracker에 유사한 기능을 제공합니다. HDInsight는 Storm 클러스터에 두 개의 Nimbus 노드를 제공합니다.
 
-### <a name="zookeeper-nodes"></a>Zookeeper 노드
+### <a name="apache-zookeeper-nodes"></a>Apache Zookeeper 노드
 
-[ZooKeeper](http://zookeeper.apache.org/) 노드는 헤드 노드에서 마스터 서비스의 리더 선택에 사용됩니다. 서비스, 데이터(작업자) 노드 및 게이트웨이에서 어떤 헤드 노드의 마스터 서비스가 활성화되어 있는지 파악하도록 하는 데 사용됩니다. 기본적으로 HDInsight는 3개의 ZooKeeper 노드를 제공합니다.
+[ZooKeeper](https://zookeeper.apache.org/) 노드는 헤드 노드에서 마스터 서비스의 리더 선택에 사용됩니다. 서비스, 데이터(작업자) 노드 및 게이트웨이에서 어떤 헤드 노드의 마스터 서비스가 활성화되어 있는지 파악하도록 하는 데 사용됩니다. 기본적으로 HDInsight는 3개의 ZooKeeper 노드를 제공합니다.
 
 ### <a name="worker-nodes"></a>작업자 노드
 
@@ -63,7 +63,7 @@ Nimbus 노드는 Storm 클러스터와 함께 사용할 수 있습니다. Nimbus
 
 ## <a name="accessing-the-nodes"></a>노드 액세스
 
-인터넷을 통한 클러스터 액세스는 공용 게이트웨이를 통해 제공되며, 액세스는 헤드 노드와 에지 노드(하나가 있는 경우)에 연결하는 것으로 제한됩니다. 여러 헤드 노드가 있는 경우 헤드 노드에서 실행되는 서비스에 대한 액세스는 영향을 받지 않습니다. 공용 게이트웨이는 요청된 서비스를 호스팅하는 헤드 노드로 요청을 라우팅합니다. 예를 들어 현재 Ambari가 보조 헤드 노드에서 호스팅되는 경우 게이트웨이는 Ambari에 들어오는 요청을 해당 노드로 라우팅합니다.
+인터넷을 통한 클러스터 액세스는 공용 게이트웨이를 통해 제공되며, 액세스는 헤드 노드와 에지 노드(하나가 있는 경우)에 연결하는 것으로 제한됩니다. 여러 헤드 노드가 있는 경우 헤드 노드에서 실행되는 서비스에 대한 액세스는 영향을 받지 않습니다. 공용 게이트웨이는 요청된 서비스를 호스팅하는 헤드 노드로 요청을 라우팅합니다. 예를 들어 현재 Apache Ambari가 보조 헤드 노드에서 호스트되는 경우 게이트웨이는 Ambari에 들어오는 요청을 해당 노드로 라우팅합니다.
 
 공용 게이트웨이를 통한 액세스는 443(HTTPS), 22 및 23 포트로 제한됩니다.
 
@@ -79,7 +79,7 @@ SSH 사용에 대한 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsi
 
 HDInsight 클러스터의 노드에는 클러스터에서만 액세스할 수 있는 내부 IP 주소와 FQDN이 있습니다. 내부 FQDN 또는 IP 주소를 사용하여 클러스터의 서비스에 액세스할 경우, Ambari를 사용하여 서비스 액세스 시 사용할 IP 또는 FQDN을 확인해야 합니다.
 
-예를 들어 Oozie 서비스는 헤드 노드에서만 실행될 수 있으며, SSH 세션에서 `oozie` 명령을 사용하려면 서비스에 대한 URL이 필요합니다. 이 URL은 다음 명령을 사용하여 Ambari에서 검색할 수 있습니다.
+예를 들어 Apache Oozie 서비스는 헤드 노드에서만 실행될 수 있으며, SSH 세션에서 `oozie` 명령을 사용하려면 서비스에 대한 URL이 필요합니다. 이 URL은 다음 명령을 사용하여 Ambari에서 검색할 수 있습니다.
 
     curl -u admin:PASSWORD "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=oozie-site&tag=TOPOLOGY_RESOLVED" | grep oozie.base.url
 
@@ -87,7 +87,7 @@ HDInsight 클러스터의 노드에는 클러스터에서만 액세스할 수 �
 
     "oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
 
-Ambari REST API 작업에 대한 자세한 내용은 [Ambari REST API를 사용하여 HDInsight 모니터링 및 관리](hdinsight-hadoop-manage-ambari-rest-api.md)를 참조하세요.
+Ambari REST API 작업에 대한 자세한 내용은 [Apache Ambari REST API를 사용하여 HDInsight 모니터링 및 관리](hdinsight-hadoop-manage-ambari-rest-api.md)를 참조하세요.
 
 ### <a name="accessing-other-node-types"></a>다른 노드 유형에 액세스
 
@@ -95,7 +95,7 @@ Ambari REST API 작업에 대한 자세한 내용은 [Ambari REST API를 사용�
 
 * **SSH**: SSH를 사용하여 헤드 노드에 연결되면 SSH를 사용하여 헤드 노드에서 클러스터의 다른 노드에 연결할 수 있습니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md) 문서를 참조하세요.
 
-* **SSH 터널**: 인터넷에 노출되지 않는 노드 중 하나에서 호스팅되는 웹 서비스에 액세스해야 하는 경우 SSH 터널을 사용해야 합니다. 자세한 내용은 [HDInsight와 SSH 터널 사용](hdinsight-linux-ambari-ssh-tunnel.md) 문서를 참조하세요.
+* **SSH 터널**: 인터넷에 노출되지 않는 노드 중 하나에서 호스트되는 웹 서비스에 액세스해야 하는 경우 SSH 터널을 사용해야 합니다. 자세한 내용은 [HDInsight와 SSH 터널 사용](hdinsight-linux-ambari-ssh-tunnel.md) 문서를 참조하세요.
 
 * **Azure Virtual Network**: HDInsight 클러스터가 Azure Virtual Network의 일부인 경우 동일한 Virtual Network의 리소스는 클러스터의 모든 노드에 직접 액세스할 수 있습니다. 자세한 내용은 [Azure Virtual Network를 사용하여 HDInsight 기능 확장](hdinsight-extend-hadoop-virtual-network.md) 문서를 참조하세요.
 
@@ -121,7 +121,7 @@ Ambari 페이지로 이동하면 설치된 서비스가 페이지 왼쪽에 나�
 
 ![구성 요소 상태](./media/hdinsight-high-availability-linux/nodeservices.png)
 
-Ambari 사용에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 모니터링 및 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
+Ambari 사용에 대한 자세한 내용은 [Apache Ambari Web UI를 사용하여 HDInsight 모니터링 및 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
 ### <a name="ambari-rest-api"></a>Ambari REST API
 
@@ -158,7 +158,7 @@ URL은 현재 서비스가 **hn0-CLUSTERNAME**라는 헤드 노드에서 실행�
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services
 
-Ambari REST API 작업에 대한 자세한 내용은 [Ambari REST API를 사용하여 HDInsight 모니터링 및 관리](hdinsight-hadoop-manage-ambari-rest-api.md)를 참조하세요.
+Ambari REST API 작업에 대한 자세한 내용은 [Apache Ambari REST API를 사용하여 HDInsight 모니터링 및 관리](hdinsight-hadoop-manage-ambari-rest-api.md)를 참조하세요.
 
 #### <a name="service-components"></a>서비스 구성 요소
 
@@ -191,12 +191,12 @@ SSH를 통해 헤드 노드에 연결된 동안에는 **/var/log**에서 로그 
 
 사용 가능한 명령 목록의 경우 `sftp>` 프롬프트에 `help`을 입력합니다.
 
-> [!NOTE]
-> 또한 SFTP를 사용하여 연결하는 경우 파일 시스템을 시각화할 수 있는 그래픽 인터페이스가 있습니다. 예를 들어 [MobaXTerm](http://mobaxterm.mobatek.net/)을 사용하면 Windows 탐색기와 비슷한 인터페이스를 사용하는 파일 시스템을 찾아볼 수 있습니다.
+> [!NOTE]  
+> 또한 SFTP를 사용하여 연결하는 경우 파일 시스템을 시각화할 수 있는 그래픽 인터페이스가 있습니다. 예를 들어 [MobaXTerm](https://mobaxterm.mobatek.net/)을 사용하면 Windows 탐색기와 비슷한 인터페이스를 사용하는 파일 시스템을 찾아볼 수 있습니다.
 
 ### <a name="ambari"></a>Ambari
 
-> [!NOTE]
+> [!NOTE]  
 > Ambari를 사용하여 로그 파일에 액세스하려면 SSH 터널을 사용해야 합니다. 개별 서비스의 웹 인터페이스는 인터넷에 공개적으로 노출되지 않습니다. SSH 터널 사용에 대한 내용은 [SSH 터널 사용](hdinsight-linux-ambari-ssh-tunnel.md) 문서를 참조하세요.
 
 Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택합니다. 그런 다음 **빠른 링크**를 사용하여 로그를 볼 헤드 노드를 선택합니다.
@@ -209,7 +209,7 @@ Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택합니다.
 
 클러스터를 만들 때 노드 크기를 지정할 수 있습니다. 다음 정보는 [Azure Portal][preview-portal], [Azure PowerShell][azure-powershell] 및 [Azure 클래식 CLI][azure-cli]를 사용하여 크기를 지정하는 방법에 대한 지침을 제공합니다.
 
-* **Azure Portal**: 클러스터를 만들 때 클러스터에서 사용하는 노드의 크기를 설정할 수 있습니다.
+* **Azure 포털**: 클러스터를 만들 때 클러스터에서 사용하는 노드의 크기를 설정할 수 있습니다.
 
     ![노드 크기 선택이 포함된 클러스터 만들기 마법사의 이미지](./media/hdinsight-high-availability-linux/headnodesize.png)
 
@@ -221,10 +221,10 @@ Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택합니다.
 
 이 문서에서 설명된 항목에 대해 자세히 알아보려면 다음 링크를 사용하세요.
 
-* [Ambari REST 참조](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
+* [Apache Ambari REST 참조](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Azure 클래식 CLI 설치 및 구성](../cli-install-nodejs.md)
 * [Azure PowerShell 설치 및 구성](/powershell/azure/overview)
-* [Ambari를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md)
+* [Apache Ambari를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md)
 * [Linux 기반 HDInsight 클러스터 프로비전을](hdinsight-hadoop-provision-linux-clusters.md)
 
 [preview-portal]: https://portal.azure.com/

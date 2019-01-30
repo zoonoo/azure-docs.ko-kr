@@ -6,37 +6,37 @@ manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-ms.assetid: d72848e2-4b65-4c84-94bc-e2a90a6e7f47
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
-ms.openlocfilehash: 1f37dcd14c1b3e85c3fae3bbf7aa67c16b8a898d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3eea59eba9fc1fc79a6f72a61860ee7e66a7df5b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249019"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994275"
 ---
 # <a name="input-metadata"></a>입력 메타데이터
+
 인코딩 작업은 일부 인코딩 태스크를 수행할 입력 자산(또는 자산)과 연결됩니다.  태스크가 완료되는 즉시 출력 자산이 생성됩니다.  출력 자산에는 비디오, 오디오, 미리 보기, 매니페스트 등이 포함됩니다. 출력 자산에는 입력된 자산에 대한 메타데이터가 있는 파일도 포함됩니다. 메타데이터 XML 파일의 이름 형식은 &lt;asset_id&gt;_metadata.xml입니다(예: 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml). 여기서 &lt;asset_id&gt;는 입력 자산의 AssetId 값입니다.  
+
+Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 자산을 검사하지 않습니다. 입력 자산이 작업에서 처리되는 경우 입력 메타데이터는 아티팩트로만 생성됩니다. 따라서 이 아티팩트는 출력 자산에 기록됩니다. 다른 도구는 입력 자산 및 출력 자산에 대한 메타데이터를 생성하는 데 사용됩니다. 따라서 입력 메타데이터는 출력 메타데이터와 스키마가 약간 다를 수 있습니다.
 
 메타데이터 파일을 검사하려는 경우 **SAS** 로케이터를 만들어 로컬 컴퓨터에 파일을 다운로드할 수 있습니다. [Media Services .NET SDK 확장을 사용](media-services-dotnet-get-started.md)하면 SAS 로케이터를 만들고 파일을 다운로드하는 방법에 대한 예제를 찾을 수 있습니다.  
 
 이 문서에서는 입력 메타데이터(&lt; asset_id&gt;_metadata.xml)의 기초가 되는 XML 스키마의 요소 및 형식에 대해 설명합니다.  출력 자산에 대한 메타데이터가 포함된 파일에 대한 자세한 내용은 [출력 메타데이터](media-services-output-metadata-schema.md)를 참조하세요.  
 
-> [!NOTE]
-> [스키마 코드](media-services-input-metadata-schema.md#code) 및 [XML 예제](media-services-input-metadata-schema.md#xml)는 이 문서의 끝에 있습니다.  
-> 
-> 
+[스키마 코드](media-services-input-metadata-schema.md#code) 및 [XML 예제](media-services-input-metadata-schema.md#xml)는 이 문서의 끝에 있습니다.  
+ 
 
 ## <a name="AssetFiles"></a> AssetFiles 요소(루트 요소)
 인코딩 작업에 대한 [AssetFile 요소](media-services-input-metadata-schema.md#AssetFile) 컬렉션이 포함됩니다.  
 
-이 문서의 끝에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
+이 문서의 마지막에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
 
 | 이름 | 설명 |
 | --- | --- |
@@ -45,18 +45,18 @@ ms.locfileid: "50249019"
 ## <a name="AssetFile"></a> AssetFile 요소
  자산 파일을 설명하는 속성과 요소를 포함하고 있습니다.  
 
- 이 문서의 끝에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
+ 이 문서의 마지막에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
 
 ### <a name="attributes"></a>특성
 | 이름 | type | 설명 |
 | --- | --- | --- |
 | **Name**<br /><br /> 필수 |**xs:string** |자산 파일의 이름입니다. |
 | **크기**<br /><br /> 필수 |**xs:long** |자산 파일의 크기(바이트)입니다. |
-| **Duration**<br /><br /> 필수 |**xs:duration** |콘텐츠 재생 시간입니다. 예제: Duration="PT25M37.757S" |
+| **Duration**<br /><br /> 필수 |**xs:duration** |콘텐츠 재생 시간입니다. 예제: Duration="PT25M37.757S". |
 | **NumberOfStreams**<br /><br /> 필수 |**xs:int** |자산 파일의 스트림 수입니다. |
 | **FormatNames**<br /><br /> 필수 |**xs: string** |형식 이름입니다. |
 | **FormatVerboseNames**<br /><br /> 필수 |**xs: string** |자세한 형식 이름입니다. |
-| **StartTime** |**xs:duration** |콘텐츠 시작 시간입니다. 예제: StartTime="PT2.669S" |
+| **StartTime** |**xs:duration** |콘텐츠 시작 시간입니다. 예제: StartTime="PT2.669S". |
 | **OverallBitRate** |**xs: int** |자산 파일의 평균 비트 전송률(Kbps)입니다. |
 
 > [!NOTE]
@@ -73,7 +73,7 @@ ms.locfileid: "50249019"
 | **Metadata**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |key/value 문자열로 표시되는 자산 파일의 메타데이터입니다. 예: <br /><br /> **&lt;Metadata key="language" value="eng" /&gt;** |
 
 ## <a name="TrackType"></a> TrackType
-이 문서의 끝에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
+이 문서의 마지막에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
 
 ### <a name="attributes"></a>특성
 | 이름 | type | 설명 |
@@ -84,7 +84,7 @@ ms.locfileid: "50249019"
 | **TimeBase**<br /><br /> 필수 |**xs:string** |시간 기준입니다. 예제: TimeBase="1/48000" |
 | **NumberOfFrames** |**xs:int** |프레임 수입니다(비디오 트랙의 경우). |
 | **StartTime** |**xs: duration** |트랙 시작 시간입니다. 예제: StartTime="PT2.669S" |
-| **Duration** |**xs:duration** |트랙 지속 시간입니다. 예제: Duration="PTSampleFormat M37.757S" |
+| **Duration** |**xs:duration** |트랙 지속 시간입니다. 예제: Duration="PTSampleFormat M37.757S". |
 
 > [!NOTE]
 > 다음 2개의 자식 요소가 순서대로 나타나야 합니다.  
@@ -102,7 +102,7 @@ ms.locfileid: "50249019"
 
  형식은 자산 파일의 특정 오디오 트랙을 나타냅니다.  
 
- 이 문서의 끝에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
+ 이 문서의 마지막에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
 
 ### <a name="attributes"></a>특성
 | 이름 | type | 설명 |
@@ -119,7 +119,7 @@ ms.locfileid: "50249019"
 
 형식은 자산 파일의 특정 비디오 트랙을 나타냅니다.  
 
-이 문서의 끝에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
+이 문서의 마지막에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
 
 ### <a name="attributes"></a>특성
 | 이름 | type | 설명 |
@@ -143,7 +143,7 @@ ms.locfileid: "50249019"
 ## <a name="MetadataType"></a> MetadataType
 **MetadataType**은 자산 파일의 메타데이터를 key/value 문자열로 설명하는 전역 복합 형식입니다. 예제: key=”language” 및 value=”eng”  
 
-이 문서의 끝에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
+이 문서의 마지막에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
 
 ### <a name="attributes"></a>특성
 | 이름 | type | 설명 |
@@ -167,7 +167,7 @@ ms.locfileid: "50249019"
 ## <a name="StreamDispositionType"></a> StreamDispositionType
 **StreamDispositionType**은 스트림을 설명하는 전역 복합 형식입니다.  
 
-이 문서의 끝에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
+이 문서의 마지막에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
 
 ### <a name="attributes"></a>특성
 | 이름 | type | 설명 |
@@ -195,7 +195,7 @@ ms.locfileid: "50249019"
 ## <a name="VideoTracks"></a> VideoTracks 요소
  여러 **VideoTrack** 요소를 보유하는 래퍼 요소입니다.  
 
- 이 문서의 끝에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
+ 이 문서의 마지막에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
 
 ### <a name="child-elements"></a>자식 요소
 | 이름 | type | 설명 |
@@ -205,7 +205,7 @@ ms.locfileid: "50249019"
 ## <a name="AudioTracks"></a> AudioTracks 요소
  여러 **AudioTrack** 요소를 보유하는 래퍼 요소입니다.  
 
- 이 문서의 끝에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
+ 이 문서의 마지막에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
 
 ### <a name="elements"></a>요소
 | 이름 | type | 설명 |

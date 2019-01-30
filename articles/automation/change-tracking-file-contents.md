@@ -3,18 +3,18 @@ title: Azure Automation으로 파일 콘텐츠 변경 내용 보기
 description: 변경 내용 추적의 파일 콘텐츠 변경 기능을 사용하여 변경된 파일의 콘텐츠를 확인합니다.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0582505d66bbef3064359fa4047676c4ba60b4e9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: ad011d778ab575c146c202a7940e03a4451979fb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37871127"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438004"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>변경 내용 추적으로 추적 중인 파일의 콘텐츠 보기
 
@@ -76,3 +76,4 @@ ms.locfileid: "37871127"
 > [환경 변경 문제 해결](automation-tutorial-troubleshoot-changes.md)
 
 * [Log Analytics에서 로그 검색](../log-analytics/log-analytics-log-searches.md) 을 사용하여 자세한 변경 내용 추적 데이터를 볼 수 있습니다.
+

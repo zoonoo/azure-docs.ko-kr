@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5bb36c693db5b2d7d46b772fd8b92bcda3667dc7
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f1607a7d795e3934881429feb18c711a75995e31
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039431"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062947"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>여러 VM에서 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 사용
 
@@ -59,6 +59,24 @@ Log Analytics 작업 영역 및 Automation 계정에 대한 선택 항목을 검
 
 ![작업 영역 없음](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
+솔루션을 사용하도록 설정하는 경우 Log Analytics 작업 영역 및 Automation 계정 연결은 특정 지역에서만 지원됩니다.
+
+다음 표에 지원되는 매핑이 나와 있습니다.
+
+|**Log Analytics 작업 영역 지역**|**Azure Automation 지역**|
+|---|---|
+|AustraliaSoutheast|AustraliaSoutheast|
+|CanadaCentral|CanadaCentral|
+|CentralIndia|CentralIndia|
+|EastUS|EastUS2|
+|JapanEast|JapanEast|
+|SoutheastAsia|SoutheastAsia|
+|WestCentralUS|WestCentralUS|
+|WestEurope|WestEurope|
+|UKSouth|UKSouth|
+|USGovVirginia|USGovVirginia|
+|EastUS2EUAP|CentralUSEUAP|
+
 사용하지 않을 가상 머신 옆에 있는 확인란을 선택 취소합니다. 사용할 수 없는 가상 머신은 이미 선택이 취소되어 있습니다.
 
 **사용**을 클릭하여 솔루션을 사용하도록 설정합니다. 솔루션을 사용하도록 설정하는 데 최대 15분이 걸립니다.
@@ -80,13 +98,13 @@ Automation 계정을 Log Analytics에 더 이상 통합하지 않기로 결정�
 
 1. Azure Portal에서 Automation 계정을 열고 Automation 계정 페이지에서 왼쪽의 **관련된 리소스** 섹션 아래의 **연결된 작업 영역**을 선택합니다.
 
-1. 작업 영역 연결 해제 페이지에서 **작업 영역 연결 해제**를 클릭합니다.
+2. 작업 영역 연결 해제 페이지에서 **작업 영역 연결 해제**를 클릭합니다.
 
    ![작업 영역 연결 해제 페이지](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
 
    계속할지 묻는 메시지가 나타납니다.
 
-1. Azure Automation이 Log Analytics에서 계정 연결을 끊으려고 하는 동안 메뉴의 **알림**에서 진행 상태를 추적할 수 있습니다.
+3. Azure Automation이 Log Analytics에서 계정 연결을 끊으려고 하는 동안 메뉴의 **알림**에서 진행 상태를 추적할 수 있습니다.
 
 업데이트 관리 솔루션을 사용한 경우 솔루션을 제거한 후 더 이상 필요하지 않은 다음 항목을 제거할 수도 있습니다.
 
@@ -108,7 +126,7 @@ Automation 계정을 Log Analytics에 더 이상 통합하지 않기로 결정�
 
 **원인**: 이 오류는 등록하려는 VM이 다른 작업 영역에 보고함을 나타냅니다.
 
-**해결 방법**: **구성으로 사용**을 클릭하여 대상 Automation 계정 및 Log Analytics 작업 영역을 변경합니다.
+**솔루션**: **구성으로 사용**을 클릭하여 대상 Automation 계정 및 Log Analytics 작업 영역을 변경합니다.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>VM이 이 구독에서 사용할 수 있는 작업 영역에 보고
 
@@ -118,25 +136,25 @@ Automation 계정을 Log Analytics에 더 이상 통합하지 않기로 결정�
 * 더 이상 존재하지 않습니다.
 * 액세스 권한이 없는 리소스 그룹에 있습니다.
 
-**해결 방법**: VM이 보고하는 작업 영역과 연결된 Automation 계정을 찾아서 범위 구성을 변경하여 가상 머신을 등록합니다.
+**솔루션**: VM이 보고하는 작업 영역과 연결된 Automation 계정을 찾아서 범위 구성을 변경하여 가상 머신을 등록합니다.
 
 ### <a name="vm-operating-system-version-or-distribution-is-not-supported"></a>VM 운영 체제 버전 또는 배포가 지원되지 않음
 
 **원인:** 솔루션이 일부 Linux 배포판 또는 일부 Windows에 지원되지 않습니다.
 
-**해결 방법:** [지원되는 클라이언트 목록](automation-update-management.md#clients)을 참조하세요.
+**해결 방법:** 해결 방법은 [지원되는 클라이언트 목록](automation-update-management.md#clients)을 참조하세요.
 
 ### <a name="classic-vms-cannot-be-enabled"></a>클래식 VM을 사용할 수 없음
 
-**원인**: 클래식 배포 모델을 사용하는 VM이 지원되지 않습니다.
+**원인**: 클래식 배포 모델을 사용하는 가상 머신이 지원되지 않습니다.
 
-**해결 방법**: 가상 머신을 리소스 관리자 배포 모델로 마이그레이션합니다. 작업 방법은 [클래식 배포 모델 리소스 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-overview.md)을 참조하세요.
+**솔루션**: 가상 머신을 리소스 관리자 배포 모델로 마이그레이션합니다. 작업 방법은 [클래식 배포 모델 리소스 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-overview.md)을 참조하세요.
 
 ### <a name="vm-is-stopped-deallocated"></a>VM이 중지되었습니다. (할당 취소됨)
 
 **원인**: 가상 머신의 상태가 **실행 중**이 아닙니다.
 
-**해결 방법**: VM을 솔루션에 등록하려면 VM이 실행 중이어야 합니다. 페이지에서 나가지 말고 **VM 시작** 인라인 링크를 클릭하여 VM을 시작합니다.
+**솔루션**: VM을 솔루션에 등록하려면 VM이 실행 중이어야 합니다. 페이지에서 나가지 말고 **VM 시작** 인라인 링크를 클릭하여 VM을 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

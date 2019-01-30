@@ -9,34 +9,34 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 027c8155c84959ca429eb9b093a155ac22aaf324
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 85d95354d24a3f107fc518b367ab1187da43269d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582216"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633779"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(C#)
 
-HDInsight의 [Apache Storm](http://storm.apache.org/)에서 Azure Event Hubs를 사용하는 방법에 대해 알아봅니다. 이 문서는 C# Storm 토폴로지를 사용하여 Event Hubs에서 데이터를 읽고 씁니다.
+HDInsight의 [Apache Storm](https://storm.apache.org/)에서 Azure Event Hubs를 사용하는 방법에 대해 알아봅니다. 이 문서는 C# Storm 토폴로지를 사용하여 Event Hubs에서 데이터를 읽고 씁니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 이 프로젝트의 Java 버전은 [HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)를 참조하세요.
 
 ## <a name="scpnet"></a>SCP.NET
 
 이 문서의 단계에서는 NuGet 패키지인 SCP.NET을 사용하여 HDInsight에서 Storm과 함께 사용할 C# 토폴로지 및 구성 요소를 쉽게 만들 수 있습니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이 문서의 단계에서는 Visual Studio를 사용하는 Windows 개발 환경을 사용하지만 컴파일된 프로젝트는 Linux를 사용하는 HDInsight 클러스터의 Storm에 제출할 수 있습니다. 2016년 10월 28일 이후에 만든 Linux 기반 클러스터만 SCP.NET 토폴로지를 지원합니다.
 
-HDInsight 3.4 이상은 Mono를 사용하여 C# 토폴로지를 실행합니다. 이 문서에 사용된 예제는 HDInsight 3.6에서 작동합니다. HDInsight용 .NET 솔루션을 만들 계획인 경우 [Mono 호환성](http://www.mono-project.com/docs/about-mono/compatibility/) 문서에서 잠재적인 비호환성을 확인하세요.
+HDInsight 3.4 이상은 Mono를 사용하여 C# 토폴로지를 실행합니다. 이 문서에 사용된 예제는 HDInsight 3.6에서 작동합니다. HDInsight용 .NET 솔루션을 만들 계획인 경우 [Mono 호환성](https://www.mono-project.com/docs/about-mono/compatibility/) 문서에서 잠재적인 비호환성을 확인하세요.
 
 ### <a name="cluster-versioning"></a>클러스터 버전 관리
 
 프로젝트에 사용하는 Microsoft.SCP.Net.SDK NuGet 패키지는 HDInsight에 설치된 Storm의 주 버전과 일치해야 합니다. HDInsight 버전 3.5 및 3.6은 Storm 1.x를 사용하므로 이 클러스터와 함께 SCP.NET 버전 1.0.x.x를 사용해야 합니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이 문서의 예제는 HDInsight 3.5 또는 3.6 클러스터를 가정합니다.
 >
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
@@ -47,7 +47,7 @@ C# 토폴로지도 .NET 4.5를 대상으로 해야 합니다.
 
 Microsoft는 Storm 토폴로지의 Event Hubs와 통신하는 데 사용할 수 있는 Java 구성 요소 집합을 제공합니다. [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar)에서 이러한 구성 요소의 HDInsight 3.6 호환 버전이 포함된 JAR(Java archive) 파일을 찾을 수 있습니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 구성 요소는 Java로 작성되지만 C# 토폴로지에서 쉽게 사용할 수 있습니다.
 
 이 예제에서는 다음 구성 요소가 사용됩니다.
@@ -99,7 +99,7 @@ topologyBuilder.SetJavaBolt(
         .shuffleGrouping("Spout");
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 이 예제에서는 Spout 예제와 같이 **JavaComponentConstructor**를 사용하여 **EventHubBoltConfig**를 만드는 대신 문자열로 전달되는 Clojure 식을 사용합니다. 어떤 방법이든 작동합니다. 자신에게 가장 좋은 것을 사용하세요.
 
 ## <a name="download-the-completed-project"></a>완성된 프로젝트 다운로드
@@ -110,7 +110,7 @@ topologyBuilder.SetJavaBolt(
 
 * [HDInsight 클러스터 버전 3.5 또는 3.6의 Apache Storm](apache-storm-tutorial-get-started-linux.md).
 
-    > [!WARNING]
+    > [!WARNING]  
     > 이 문서에서 사용되는 예제에는 HDInsight 버전 3.5 또는 3.6에서 Storm이 필요합니다. 이 내용은 주요 클래스 이름 변경 때문에 이전 버전의 HDInsight에는 적용되지 않습니다. 이전 클러스터에서 작동하는 이 예제의 버전은 [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases)를 참조하세요.
 
 * [Azure Event Hub](../../event-hubs/event-hubs-create.md)

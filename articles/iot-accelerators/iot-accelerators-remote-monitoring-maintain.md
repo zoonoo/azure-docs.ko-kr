@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 8ea4a615cff02cad1030f10b408fe047f1208a60
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 1cd1eb9a0bd4b8457ea82303a747acb2553ab707
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819223"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451726"
 ---
 # <a name="tutorial-troubleshoot-and-fix-device-issues"></a>자습서: 디바이스 문제 해결 및 수정
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="investigate-an-alert"></a>경고 조사
 
-**대시보드** 페이지에서 **프로토타입** 장치와 관련된 규칙에서 들어오는 예기치 않은 온도 경고가 있다는 것을 알게 됩니다.
+**대시보드** 페이지에서 **프로토타입** 디바이스와 관련된 규칙에서 들어오는 예기치 않은 온도 경고가 있다는 것을 알게 됩니다.
 
 [![대시보드에 표시되는 경고](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm-expanded.png#lightbox)
 
@@ -58,15 +58,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 경고가 발생한 디바이스 목록에서 온도 경고를 발생시키는 **프로토타입** 디바이스를 확인할 수 있습니다.
 
-[![경고를 유발하는 장치 나열](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-expanded.png#lightbox)
+[![경고를 유발하는 디바이스 나열](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-expanded.png#lightbox)
 
 ## <a name="resolve-the-issue"></a>이 문제 해결
 
-**프로토타입** 장치의 문제를 해결하려면 장치에서 **DecreaseTemperature** 메서드를 호출해야 합니다.
+**프로토타입** 디바이스의 문제를 해결하려면 디바이스에서 **DecreaseTemperature** 메서드를 호출해야 합니다.
 
-디바이스에 조치를 취하려면 경고가 발생한 디바이스 목록에서 해당 디바이스를 선택한 다음, **작업**을 선택합니다. **프로토타입** 장치 모델은 다음과 같은 6가지 메서드를 지원합니다.
+디바이스에 조치를 취하려면 경고가 발생한 디바이스 목록에서 해당 디바이스를 선택한 다음, **작업**을 선택합니다. **프로토타입** 디바이스 모델은 다음과 같은 6가지 메서드를 지원합니다.
 
-[![장치에서 지원하는 메서드 보기](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-expanded.png#lightbox)
+[![디바이스에서 지원하는 메서드 보기](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-expanded.png#lightbox)
 
 **DecreaseTemperature**를 선택하고 작업 이름을 **DecreaseTemperature**로 설정합니다. 그런 다음 **적용**을 클릭합니다.
 
@@ -76,7 +76,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [![온도를 낮추는 작업 모니터링](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-expanded.png#lightbox)
 
-**대시보드** 페이지의 원격 분석 데이터를 보면 장치의 온도가 낮아진 것을 확인할 수 있습니다.
+**대시보드** 페이지의 원격 분석 데이터를 보면 디바이스의 온도가 낮아진 것을 확인할 수 있습니다.
 
 [![온도 감소보기](./media/iot-accelerators-remote-monitoring-maintain/jobresult-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/jobresult-expanded.png#lightbox)
 
@@ -84,6 +84,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 경고를 사용하여 디바이스와 관련된 문제를 식별하고 문제를 해결하기 위해 해당 디바이스에 조치를 취하는 방법을 알아봤습니다. 물리적 디바이스를 솔루션 가속기에 연결하는 방법을 알아보려면 방법 문서를 참조하세요.
+이 자습서에서는 경고를 사용하여 디바이스와 관련된 문제를 식별하고 문제를 해결하기 위해 해당 디바이스에 조치를 취하는 방법을 알아봤습니다. 실제 디바이스를 솔루션 가속기에 연결하는 방법을 알아보려면 방법 문서를 참조하세요.
 
 디바이스 문제를 관리하는 방법을 알아본 후, 권장되는 다음 단계는 [디바이스를 원격 모니터링 솔루션 가속기에 연결](iot-accelerators-connecting-devices.md)하는 방법을 알아보는 것입니다.

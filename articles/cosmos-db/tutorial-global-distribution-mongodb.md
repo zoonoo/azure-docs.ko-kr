@@ -1,38 +1,34 @@
 ---
-title: MongoDB API의 Azure Cosmos DB 전역 배포 자습서 | Microsoft Docs
-description: MongoDB API를 사용하여 Azure Cosmos DB 전역 배포를 설정하는 방법에 대해 알아봅니다.
-services: cosmos-db
-keywords: 전역 배포, MongoDB
-author: SnehaGunda
-manager: kfile
+title: Azure Cosmos DB의 API for MongoDB를 사용하는 글로벌 배포 자습서
+description: Azure Cosmos DB의 API for MongoDB를 사용하여 글로벌 배포를 설정하는 방법을 알아봅니다.
+author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
-ms.devlang: na
+ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
-ms.date: 05/10/2017
-ms.author: sngun
-ms.custom: mvc
-ms.openlocfilehash: 1885c979fe2532d26b2e7b59111675bebee8ec05
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 12/26/2018
+ms.author: rimman
+ms.reviewer: sngun
+ms.openlocfilehash: 5ae5923253575fc3dea6b90b599b9fa3d79a85b8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38668091"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041376"
 ---
-# <a name="set-up-azure-cosmos-db-global-distribution-using-the-mongodb-api"></a>MongoDB API를 사용하여 Azure Cosmos DB 전역 배포 설정
+# <a name="set-up-global-distributed-database-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 글로벌 분산 데이터베이스 설정
 
-이 문서에서는 Azure Portal을 사용하여 Azure Cosmos DB 전역 배포를 설정한 다음 MongoDB API를 사용하여 연결하는 방법을 보여 줍니다.
+이 문서에서는 Azure Portal을 통해 Azure Cosmos DB의 API for MongoDB를 사용하여 글로벌 분산 데이터베이스를 설정하고 연결하는 방법을 보여줍니다.
 
 이 문서에서 다루는 작업은 다음과 같습니다. 
 
 > [!div class="checklist"]
 > * Azure Portal을 사용하여 전역 배포 구성
-> * [MongoDB API](mongodb-introduction.md)를 사용하여 전역 배포 구성
+> * [Azure Cosmos DB의 API for MongoDB](mongodb-introduction.md)를 사용하여 글로벌 배포 구성
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
-## <a name="verifying-your-regional-setup-using-the-mongodb-api"></a>MongoDB API를 사용하여 지역별 설정 확인
-MongoDB API 내에서 글로벌 구성을 이중 확인하는 가장 간단한 방법은 Mongo Shell에서 *isMaster()* 명령을 실행하는 것입니다.
+## <a name="verifying-your-regional-setup"></a>지역별 설정 확인 
+Cosmos DB의 API for MongoDB를 사용하는 글로벌 구성을 확인하는 간단한 방법은 Mongo Shell에서 *isMaster()* 명령을 실행하는 것입니다.
 
 Mongo Shell에서 다음을 수행합니다.
 
@@ -66,16 +62,16 @@ Mongo Shell에서 다음을 수행합니다.
       }
    ```
 
-## <a name="connecting-to-a-preferred-region-using-the-mongodb-api"></a>MongoDB API를 사용하여 기본 설정 지역에 연결
+## <a name="connecting-to-a-preferred-region"></a>기본 설정 지역에 연결 
 
-MongoDB API를 사용하면 전역적으로 분산된 데이터베이스에 대한 컬렉션의 읽기 기본 설정을 지정할 수 있습니다. 짧은 대기 시간 읽기 및 글로벌 고가용성을 위해 컬렉션의 읽기 기본 설정을 *nearest*(최근접)로 설정하는 것이 좋습니다. *nearest*(최근접)의 읽기 기본 설정은 가장 가까운 지역에서 읽도록 구성됩니다.
+Azure Cosmos DB의 API for MongoDB를 통해 전역적으로 분산된 데이터베이스에 대한 컬렉션의 읽기 기본 설정을 지정할 수 있습니다. 짧은 대기 시간 읽기 및 글로벌 고가용성을 위해 컬렉션의 읽기 기본 설정을 *nearest*(최근접)로 설정하는 것이 좋습니다. *nearest*(최근접)의 읽기 기본 설정은 가장 가까운 지역에서 읽도록 구성됩니다.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Nearest));
 ```
 
-주 읽기/쓰기 지역 및 재해 복구(DR) 시나리오를 위한 보조 지역이 있는 응용 프로그램에는 컬렉션의 읽기 기본 설정을 *secondary preferred*(보조 기본 설정)로 설정하는 것이 좋습니다. *secondary preferred*(보조 기본 설정)의 읽기 기본 설정은 주 지역의 데이터를 사용할 수 없는 경우 보조 지역에서 읽도록 구성됩니다.
+주 읽기/쓰기 지역 및 재해 복구(DR) 시나리오를 위한 보조 지역이 있는 애플리케이션에는 컬렉션의 읽기 기본 설정을 *secondary preferred*(보조 기본 설정)로 설정하는 것이 좋습니다. *secondary preferred*(보조 기본 설정)의 읽기 기본 설정은 주 지역의 데이터를 사용할 수 없는 경우 보조 지역에서 읽도록 구성됩니다.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
@@ -98,9 +94,9 @@ collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode
 
 > [!div class="checklist"]
 > * Azure Portal을 사용하여 전역 배포 구성
-> * SQL API를 사용하여 전역 배포 구성
+> * Cosmos DB의 API for MongoDB를 사용하여 글로벌 배포 구성
 
 이제 다음 자습서로 진행하여 Azure Cosmos DB 로컬 에뮬레이터를 사용하여 로컬로 개발하는 방법에 대해 자세히 알아볼 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [에뮬레이터를 사용하여 로컬로 개발](local-emulator.md)
+> [Azure Cosmos DB 에뮬레이터를 사용하여 로컬로 개발](local-emulator.md)

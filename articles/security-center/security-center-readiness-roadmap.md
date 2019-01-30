@@ -3,7 +3,7 @@ title: Azure Security Center 준비 로드맵 | Microsoft Docs
 description: Azure Security Center에서 시작하기 위한 준비 로드맵을 제공합니다.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: ndicola
 editor: ''
 ms.assetid: fece670cc-df70-445d-9773-b32cbaba8d4a
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 099d3fcac5d7574f744ab1bb00dd636b8d867fa9
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 56d18b7ec44e979bee48c3598286a461199e1005
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408444"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958204"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure Security Center 준비 로드맵
 이 문서에서는 Azure Security Center를 시작하는 데 도움이 되는 준비 로드맵을 제공합니다.
@@ -91,7 +91,7 @@ Security Center에서는 Security Center 표준 계층이 적용되지 않은 �
 
 ## <a name="advanced-cloud-defense"></a>고급 클라우드 방어
 
-Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 수 있습니다. 이러한 기능에는 JIT(Just-In-Time) VM(가상 머신) 액세스 및 적응형 응용 프로그램 컨트롤이 포함됩니다.
+Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 수 있습니다. 이러한 기능에는 JIT(Just-In-Time) VM(가상 머신) 액세스 및 적응형 애플리케이션 제어가 포함됩니다.
 
 다음 리소스를 사용하여 Security Center에서 이러한 기능을 사용하는 방법을 알아봅니다.
 

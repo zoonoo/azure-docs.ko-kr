@@ -4,7 +4,7 @@ description: 이 페이지는 Azure AD Connect를 사용하는 AD FS 작업에 �
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: f9107cf5-0131-499a-9edf-616bf3afef4d
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 214dd95bb277053794656e1ba3dd148c085688ce
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 3462c61bbd7c9972248eb1126763782f5fbc7e84
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900447"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472299"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect 및 페더레이션
 Azure AD(Azure Active Directory) Connect를 통해 온-프레미스 AD FS(Active Directory Federation Services) 및 Azure AD와 페더레이션을 구성할 수 있습니다. 페더레이션 로그인에서, 사용자가 자신의 온-프레미스 암호로 Azure AD 기반 서비스에 로그인 하고 자신의 암호를 다시 입력하지 않고도 회사 네트워크에 로그인하도록 설정할 수 있습니다. AD FS와 페더레이션 옵션을 사용하여 AD FS의 새 설치를 배포하거나 Windows Server 2012 R2 팜에 기존 설치를 지정할 수 있습니다.
@@ -39,7 +39,7 @@ Azure AD(Azure Active Directory) Connect를 통해 온-프레미스 AD FS(Active
 | **AD FS 구성 수정** | |
 | [트러스트 복구](how-to-connect-fed-management.md#repairthetrust) |온-프레미스 AD FS와 Office 365/Azure 사이의 현재 트러스트를 복구합니다. |
 | [새 AD FS 서버 추가](how-to-connect-fed-management.md#addadfsserver) |초기 설치 후 추가적인 AD FS 서버를 통한 AD FS 팜을 확장합니다. |
-| [새 AD FS WAP 서버 추가](how-to-connect-fed-management.md#addwapserver) |초기 설치 후 추가적인 WAP(웹 응용 프로그램 프록시) 서버를 통한 AD FS 팜을 확장합니다. |
+| [새 AD FS WAP 서버 추가](how-to-connect-fed-management.md#addwapserver) |초기 설치 후에 추가적인 WAP(웹 애플리케이션 프록시) 서버를 통한 AD FS 팜을 확장합니다. |
 | [새 페더레이션된 도메인 추가](how-to-connect-fed-management.md#addfeddomain) |Azure AD를 통해 페더레이션될 또 다른 도메인을 추가합니다. |
 | [SSL 인증서 업데이트](how-to-connect-fed-ssl-update.md)| AD FS 팜에 대한 SSL 인증서를 업데이트합니다. |
 | [Office 365 및 Azure AD에 대한 페더레이션 인증서 갱신](how-to-connect-fed-o365-certs.md)|Azure AD로 O365 인증서를 갱신합니다.|

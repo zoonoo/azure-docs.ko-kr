@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 03eb5958e1c447ec1239289538906a0cb3e4b30d
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 6e0641f2d9427133f951ef63720b4efdac4defe5
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634212"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409057"
 ---
 # <a name="use-apache-hive-with-apache-hadoop-on-hdinsight-with-remote-desktop"></a>원격 데스크톱을 사용하여 HDInsight에서 Apache Hadoop과 Hive 사용
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-이 문서에서는 원격 데스크톱을 사용하여 HDInsight 클러스터에 연결한 다음 Hive CLI(명령줄 인터페이스)를 사용하여 Hive 쿼리를 실행하는 방법을 배웁니다.
+이 문서에서는 원격 데스크톱을 사용하여 HDInsight 클러스터에 연결한 후 Hive CLI(명령줄 인터페이스)를 사용하여 Apache Hive 쿼리를 실행하는 방법을 알아봅니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 원격 데스크톱은 Windows를 운영 체제로 사용하는 HDInsight 클러스터에서만 사용할 수 있습니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 >
-> HDInsight 3.4 이상의 경우 명령줄에서, 클러스터에서 Hive 쿼리 직접 실행에 대한 자세한 내용은 [HDInsight 및 Beeline으로 Hive 사용](apache-hadoop-use-hive-beeline.md)을 참조하세요.
+> HDInsight 3.4 이상의 경우 명령줄에서, 클러스터에서 Hive 쿼리 직접 실행에 대한 자세한 내용은 [HDInsight 및 Beeline으로 Apache Hive 사용](apache-hadoop-use-hive-beeline.md)을 참조하세요.
 
 ## <a id="prereq"></a>필수 조건
 이 문서의 단계를 완료하려면 다음이 필요합니다.
@@ -58,14 +58,14 @@ HDInsight 클러스터용 데스크톱에 연결되면, Hive에서 작업하기 
    * **DROP TABLE**: 테이블이 이미 있는 경우 테이블과 데이터 파일을 삭제합니다.
    * **CREATE EXTERNAL TABLE**: Hive에서 새 ‘외부’ 테이블을 만듭니다. 외부 테이블은 Hive에 테이블 정의만 저장하고, 데이터는 원래 위치에 남아 있습니다.
 
-     > [!NOTE]
+     > [!NOTE]  
      > 자동화된 데이터 업로드 프로세스와 같은 외부 원본이나 또 다른 MapReduce 작업을 통해 기본 데이터를 업데이트해야 하지만 Hive 쿼리에서 항상 최신 데이터를 사용하려고 할 경우 외부 테이블을 사용해야 합니다.
      >
      > 외부 테이블을 삭제하면 데이터는 삭제되지 **않고** 테이블 정의만 삭제됩니다.
      >
      >
    * **ROW FORMAT**: 데이터의 형식 지정 방식을 Hive에 알립니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
-   * **STORED AS TEXTFILE LOCATION**: 데이터가 저장된 위치(example/data 디렉터리)에 텍스트로 저장되었음을 Hive에 알립니다.
+   * **STORED AS TEXTFILE LOCATION**: 데이터가 저장된 위치(example/data 디렉터리) 및 텍스트로 저장되었음을 Hive에 알립니다.
    * **SELECT**: **t4** 열에 **[ERROR]** 값이 포함된 모든 행의 수를 선택합니다. 이 경우 이 값을 포함하는 행이 3개 있으므로 **3** 값이 반환되어야 합니다.
    * **INPUT__FILE__NAME LIKE '%.log'** - .log로 끝나는 파일의 데이터만 반환하도록 Hive에 지시합니다. 데이터를 포함하는 sample.log 파일로 검색을 제한하며, 정의한 스키마와 일치하지 않는 다른 예제 데이터 파일의 데이터가 반환되지 않도록 합니다.
 4. 다음 문을 사용하여 **errorLogs**라는 새 ‘내부' 테이블을 만듭니다.
@@ -77,7 +77,7 @@ HDInsight 클러스터용 데스크톱에 연결되면, Hive에서 작업하기 
 
    * **CREATE TABLE IF NOT EXISTS**: 테이블이 아직 없는 경우 테이블을 만듭니다. **EXTERNAL** 키워드가 사용되지 않으면 Hive 데이터 웨어하우스에 저장되고 Hive에서 완전히 관리되는 내부 테이블입니다.
 
-     > [!NOTE]
+     > [!NOTE]  
      > **EXTERNAL** 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
      >
      >
@@ -96,29 +96,29 @@ HDInsight 클러스터용 데스크톱에 연결되면, Hive에서 작업하기 
 ## <a id="nextsteps"></a>다음 단계
 HDInsight의 Hive에 대한 일반적인 정보:
 
-* [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Hive 사용](hdinsight-use-hive.md)
 
 HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
-* [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
-* [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 Apache Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
 Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문서를 참조하세요.
 
-* [Windows 기반 HDInsight 클러스터에서 Tez UI 사용](../hdinsight-debug-tez-ui.md)
-* [Linux 기반 HDInsight에서 Ambari Tez 보기 사용](../hdinsight-debug-ambari-tez-view.md)
+* [Windows 기반 HDInsight 클러스터에서 Apache Tez UI 사용](../hdinsight-debug-tez-ui.md)
+* [Linux 기반 HDInsight에서 Apache Ambari Tez 보기 사용](../hdinsight-debug-ambari-tez-view.md)
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[apache-tez]: http://tez.apache.org
-[apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[apache-tez]: https://tez.apache.org
+[apache-hive]: https://hive.apache.org/
+[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -134,4 +134,4 @@ Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문�
 
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx

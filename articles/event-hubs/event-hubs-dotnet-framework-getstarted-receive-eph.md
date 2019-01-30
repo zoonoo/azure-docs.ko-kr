@@ -1,5 +1,5 @@
 ---
-title: .NET Framework를 사용하여 Azure Event Hubs에서 이벤트 수신 | Microsoft Docs
+title: .NET Framework를 사용하여 이벤트 수신 - Azure Event Hubs | Microsoft Docs
 description: .NET Framework를 사용하여 Azure Event Hubs에서 이벤트를 수신하려면 이 자습서를 따르세요.
 services: event-hubs
 documentationcenter: ''
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: cb1d26082fe4fbbd14b2b77f54d1bc7697b3538d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8052b797707f7913fdd678f4dd51822754623104
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227963"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077259"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>.NET Framework를 사용하여 Azure Event Hubs에서 이벤트 수신
 
@@ -27,7 +28,7 @@ ms.locfileid: "51227963"
 
 Event Hubs는 연결된 디바이스 및 응용 프로그램에서 많은 양의 이벤트 데이터(원격 분석)를 처리하는 서비스입니다. Event Hubs에 데이터를 수집한 후 저장소 클러스터를 사용하여 데이터를 저장하거나 실시간 분석 공급자를 사용하여 변환할 수 있습니다. 이 대규모 이벤트 수집 및 처리 기능은 IoT(사물 인터넷)를 포함하여 최신 응용 프로그램 아키텍처의 핵심 구성 요소입니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
 
-이 자습서에서는 [이벤트 프로세서 호스트](event-hubs-event-processor-host.md)를 사용하여 이벤트 허브에서 메시지를 받는 .NET Framework 콘솔 응용 프로그램을 작성하는 방법을 보여 줍니다. [이벤트 프로세서 호스트](event-hubs-event-processor-host.md)는 영구적 검사점을 관리하여 Event Hubs의 이벤트 수신을 간소화하고 이러한 Event Hubs에서 병렬 수신하는 .NET 클래스입니다. 이벤트 프로세서 호스트를 사용하면 다른 노드에 호스트된 수신기를 비롯한 여러 수신기 간에 이벤트를 분할할 수 있습니다. 이 예제에서는 단일 수신기에 대해 이벤트 프로세서 호스트를 사용하는 방법을 보여 줍니다. [확장된 이벤트 처리][Scale out Event Processing with Event Hubs] 샘플에서는 여러 수신기에서 이벤트 프로세서 호스트를 사용하는 방법을 보여 줍니다.
+이 자습서에서는 [이벤트 프로세서 호스트](event-hubs-event-processor-host.md)를 사용하여 이벤트 허브에서 메시지를 받는 .NET Framework 콘솔 애플리케이션을 작성하는 방법을 보여 줍니다. [이벤트 프로세서 호스트](event-hubs-event-processor-host.md)는 영구적 검사점을 관리하여 Event Hubs의 이벤트 수신을 간소화하고 이러한 Event Hubs에서 병렬 수신하는 .NET 클래스입니다. 이벤트 프로세서 호스트를 사용하면 다른 노드에 호스트된 수신기를 비롯한 여러 수신기 간에 이벤트를 분할할 수 있습니다. 이 예제에서는 단일 수신기에 대해 이벤트 프로세서 호스트를 사용하는 방법을 보여 줍니다. [확장된 이벤트 처리][Scale out Event Processing with Event Hubs] 샘플에서는 여러 수신기에서 이벤트 프로세서 호스트를 사용하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -44,14 +45,14 @@ Event Hubs는 연결된 디바이스 및 응용 프로그램에서 많은 양의
 
 Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 응용 프로그램 프로젝트를 새로 만듭니다. 프로젝트 이름을 **Receiver**로 지정합니다.
    
-![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp1.png)
+![콘솔 응용 프로그램 만들기](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp1.png)
 
 ## <a name="add-the-event-hubs-nuget-package"></a>Event Hubs NuGet 패키지 추가
 
 1. 솔루션 탐색기에서 **Receiver** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **솔루션에 대한 NuGet 패키지 관리**를 클릭합니다.
 2. **찾아보기** 탭을 클릭한 다음 `Microsoft Azure Service Bus Event Hub - EventProcessorHost`를 검색합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
+    ![이벤트 프로세서 호스트 NuGet 패키지 검색](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
    
     Visual Studio는 [Azure Service Bus Event Hub - EventProcessorHost NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost)에 대한 참조 및 해당하는 모든 종속성을 다운로드, 설치 및 추가합니다.
 
@@ -59,7 +60,7 @@ Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사
 
 1. **Receiver** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **클래스**를 클릭합니다. 새 클래스의 이름을 **SimpleEventProcessor**로 지정하고 **추가**를 클릭하여 클래스를 생성합니다.
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp2.png)
+    ![SimpleEventProcessor 클래스 추가](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp2.png)
 2. SimpleEventProcessor.cs 파일의 맨 위에 다음 구문을 추가합니다.
     
       ```csharp
@@ -154,7 +155,7 @@ Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사
 > 이 자습서에서는 [EventProcessorHost](event-hubs-event-processor-host.md)의 단일 인스턴스를 사용합니다. 처리량을 늘리려면 [확장된 이벤트 처리](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) 샘플에 표시된 대로 [EventProcessorHost](event-hubs-event-processor-host.md)의 여러 인스턴스를 실행하는 것이 좋습니다. 이러한 경우 여러 인스턴스가 자동으로 서로 조정되어 받은 이벤트의 부하를 분산시킵니다. 
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 이벤트 허브에서 메시지를 받은 .NET Framework 응용 프로그램을 만들었습니다. .NET Framework를 사용하여 이벤트 허브에 이벤트를 보내는 방법을 알아보려면 [이벤트 허브에서 이벤트 보내기 - .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)를 참조하세요.
+이 빠른 시작에서는 이벤트 허브에서 메시지를 받은 .NET Framework 애플리케이션을 만들었습니다. .NET Framework를 사용하여 이벤트 허브에 이벤트를 보내는 방법을 알아보려면 [이벤트 허브에서 이벤트 보내기 - .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)를 참조하세요.
 
 <!-- Images. -->
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png

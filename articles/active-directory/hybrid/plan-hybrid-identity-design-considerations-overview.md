@@ -4,7 +4,7 @@ description: 하이브리드 ID 설계 고려 사항 가이드의 개요 및 콘
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 100509c4-0b83-4207-90c8-549ba8372cf7
 ms.service: active-directory
@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d85157c3f1aafd33a2b996168f2f9eac613a209c
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: d0930de0ac3272d2858e961ec2038093dcc9ccc9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344885"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463017"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Azure Active Directory 하이브리드 ID 설계 고려 사항
-소비자 기반 디바이스가 기업 전반에 퍼지고 있기 때문에 클라우드 기반 소프트웨어 SaaS 애플리케이션은 쉽게 채택할 수 있습니다. 결과적으로 내부 데이터 센터 및 클라우드 플랫폼에 걸쳐 사용자의 응용 프로그램 액세스를 제어하도록 유지하는 것은 어렵습니다.  
+소비자 기반 디바이스가 기업 전반에 퍼지고 있기 때문에 클라우드 기반 소프트웨어 SaaS 애플리케이션은 쉽게 채택할 수 있습니다. 결과적으로 내부 데이터 센터 및 클라우드 플랫폼에 걸쳐 사용자의 애플리케이션 액세스를 제어하도록 유지하는 것은 어렵습니다.  
 
 Microsoft의 ID 솔루션은 온-프레미스 및 클라우드 기반 기능을 확장하며 이는 위치에 관계 없이 모든 리소스에 인증 및 권한 부여에 대한 단일 사용자 ID를 만듭니다. 이 개념을 하이브리드 ID라고 합니다. Microsoft 솔루션을 사용하여 하이브리드 ID에 대한 여러 설계 및 구성 옵션이 있으며 일부 경우에 어떤 조합이 조직의 요구에 가장 적합한지 확인하기 어려울 수 있습니다. 
 
@@ -41,7 +41,7 @@ Microsoft의 ID 솔루션은 온-프레미스 및 클라우드 기반 기능을 
 ## <a name="how-can-this-guide-help-you"></a>이 가이드가 어떻게 도움이 됩니까?
 클라우드 기반 ID 관리 시스템을 현재 온-프레미스 ID 솔루션과 통합할 수 있는 하이브리드 ID 솔루션을 설계하는 방법을 이해하는 데 이 가이드를 사용할 수 있습니다. 
 
-다음 그래픽은 IT 관리자가 클라우드 및 온-프레미스에 위치한 응용 프로그램에 Single Sign-On(SSO)을 사용자가 사용할 수 있도록 Microsoft Azure Active Directory를 사용하여 현재 온-프레미스에 있는 Windows Server Active Directory 솔루션을 통합하도록 관리할 수 있는 하이브리드 ID 솔루션의 예를 보여줍니다.
+다음 그래픽은 IT 관리자가 클라우드 및 온-프레미스에 위치한 애플리케이션에 Single Sign-On(SSO)을 사용자가 사용할 수 있도록 Microsoft Azure Active Directory를 사용하여 현재 온-프레미스에 있는 Windows Server Active Directory 솔루션을 통합하도록 관리할 수 있는 하이브리드 ID 솔루션의 예를 보여줍니다.
 
 ![예](media/plan-hybrid-identity-design-considerations/hybridID-example.png)
 

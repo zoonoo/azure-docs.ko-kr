@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/23/2018
 ms.author: cshoe
-ms.openlocfilehash: 40cad9eec87c07a205a86f1009074cdbeaf58d15
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 7a7063b9177774c5207746283dc7cd25e3dd5793
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249977"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721889"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Azure Functions의 SignalR Service 바인딩
 
@@ -30,7 +30,7 @@ ms.locfileid: "50249977"
 
 ## <a name="packages---functions-2x"></a>패키지 - Functions 2.x
 
-SignalR Service 바인딩은 [Microsoft.Azure.WebJobs.Extensions.SignalRService](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) NuGet 패키지 버전 1.0.0-preview1-*에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub 리포지토리에 있습니다.
+SignalR Service 바인딩은 [Microsoft.Azure.WebJobs.Extensions.SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) NuGet 패키지 버전 1.0.0-preview1-*에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub 리포지토리에 있습니다.
 
 > [!NOTE]
 > Azure SignalR Service는 일반적으로 사용할 수 있습니다. 그러나 Azure Functions의 SignalR Service 바인딩은 현재 미리 보기로 제공됩니다.
@@ -62,7 +62,7 @@ public static SignalRConnectionInfo GetSignalRInfo(
 
 #### <a name="authenticated-tokens"></a>인증된 토큰
 
-인증된 클라이언트에서 함수를 트리거하는 경우 생성된 토큰에 사용자 ID 클레임을 추가할 수 있습니다. [App Service 인증](../app-service/app-service-authentication-overview.md)을 사용하여 함수 앱에 인증을 쉽게 추가할 수 있습니다.
+인증된 클라이언트에서 함수를 트리거하는 경우 생성된 토큰에 사용자 ID 클레임을 추가할 수 있습니다. [App Service 인증](../app-service/overview-authentication-authorization.md)을 사용하여 함수 앱에 인증을 쉽게 추가할 수 있습니다.
 
 App Service 인증은 `x-ms-client-principal-id`라는 HTTP 헤더 및 인증된 사용자의 클라이언트 보안 주체 ID 및 이름 각각을 포함하는 `x-ms-client-principal-name`을 설정합니다. [바인딩 식](functions-triggers-bindings.md#binding-expressions-and-patterns)을 사용하여 바인딩의 `UserId` 속성을 `{headers.x-ms-client-principal-id}` 또는 `{headers.x-ms-client-principal-name}` 헤더 중 하나의 값으로 설정할 수 있습니다. 
 
@@ -108,7 +108,7 @@ module.exports = function (context, req, connectionInfo) {
 
 #### <a name="authenticated-tokens"></a>인증된 토큰
 
-인증된 클라이언트에서 함수를 트리거하는 경우 생성된 토큰에 사용자 ID 클레임을 추가할 수 있습니다. [App Service 인증](../app-service/app-service-authentication-overview.md)을 사용하여 함수 앱에 인증을 쉽게 추가할 수 있습니다.
+인증된 클라이언트에서 함수를 트리거하는 경우 생성된 토큰에 사용자 ID 클레임을 추가할 수 있습니다. [App Service 인증](../app-service/overview-authentication-authorization.md)을 사용하여 함수 앱에 인증을 쉽게 추가할 수 있습니다.
 
 App Service 인증은 `x-ms-client-principal-id`라는 HTTP 헤더 및 인증된 사용자의 클라이언트 보안 주체 ID 및 이름 각각을 포함하는 `x-ms-client-principal-name`을 설정합니다. [바인딩 식](functions-triggers-bindings.md#binding-expressions-and-patterns)을 사용하여 바인딩의 `userId` 속성을 `{headers.x-ms-client-principal-id}` 또는 `{headers.x-ms-client-principal-name}` 헤더 중 하나의 값으로 설정할 수 있습니다. 
 
@@ -249,7 +249,7 @@ module.exports = function (context, req) {
 |**direction**|| `in`로 설정해야 합니다.|
 |**name**|| 연결 정보 개체에 대한 함수 코드에 사용되는 변수 이름입니다. |
 |**hubName**|**HubName**| 이 값은 연결 정보가 생성되는 SignalR 허브의 이름으로 설정되어야 합니다.|
-|**userId**|**UserId**| 선택 사항: 액세스 키 토큰에서 설정될 사용자 식별자 클레임의 값입니다. |
+|**userId**|**UserId**| 선택 사항: 액세스 키 토큰에서 설정할 사용자 식별자 클레임의 값입니다. |
 |**connectionStringSetting**|**ConnectionStringSetting**| SignalR Service 연결 문자열("AzureSignalRConnectionString"에 대한 기본값)을 포함하는 앱 설정의 이름 |
 
 ### <a name="signalr"></a>SignalR

@@ -7,12 +7,12 @@ ms.author: maghan
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 156673bfac9bfa38772e4daca166e3431f81c09a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e68dc22943b7a53693320528f91670d9229b806f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405012"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958335"
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Azure Data Catalog에서 관련 데이터 자산을 보는 방법
 Azure Data Catalog를 사용하면 선택한 데이터 자산과 관련된 데이터 자산을 보고 관계를 확인할 수 있습니다. 
@@ -31,7 +31,7 @@ Azure Data Catalog를 사용하면 선택한 데이터 자산과 관련된 데�
 ## <a name="view-related-data-assets"></a>관련된 데이터 자산 보기
 선택한 데이터 세트와 관련된 데이터 자산을 보려면 다음 그림과 같이 **관계** 탭을 사용합니다. 
 
-![Azure Data Catalog - 관련 데이터 자산 보기](media\data-catalog-how-to-view-related-data-assets\relationships-tab.png)
+![Azure Data Catalog - 관련 데이터 자산 보기](media/data-catalog-how-to-view-related-data-assets/relationships-tab.png)
 
 이 예제에는 선택한 **ProductSubcategory** 데이터 자산에 대해 2가지 관계가 설정되어 있습니다. 
 
@@ -43,7 +43,7 @@ Azure Data Catalog를 사용하면 선택한 데이터 자산과 관련된 데�
 
 열의 정규화된 이름 같은 자세한 정보를 보려면 마우스를 위로 가져갑니다. 그러면 다음 그림과 비슷한 팝업이 표시됩니다. 
 
-![Azure Data Catalog - 관계 팝업](media\data-catalog-how-to-view-related-data-assets\relationship-popup.png)
+![Azure Data Catalog - 관계 팝업](media/data-catalog-how-to-view-related-data-assets/relationship-popup.png)
 
 이미 등록된 자산 간의 관계를 포함하려면 해당 자산을 다시 등록합니다.
 

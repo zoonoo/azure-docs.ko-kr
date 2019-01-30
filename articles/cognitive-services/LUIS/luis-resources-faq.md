@@ -1,23 +1,24 @@
 ---
-title: FAQ - 질문과 대답 - LUIS(Language Understanding)
+title: 질문과 대답(FAQ)
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 LUIS(Language Understanding)에 대한 FAQ(질문과 대답)에 대해 알아봅니다.
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/11/2018
 ms.author: diberry
-ms.openlocfilehash: d371ead3280bca5239a9ee6bf2c4275414141fb4
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 3c0d7d3aed08c6dbbcac5f25e91edd8e27e64440
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284373"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429364"
 ---
-# <a name="language-understanding-faq"></a>Language Understanding FAQ
+# <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
 이 문서에서는 LUIS(Language Understanding)에 대한 FAQ(질문과 대답)에 대해 알아봅니다.
 
@@ -74,7 +75,7 @@ Cortana의 미리 빌드된 앱은 2017년부터 더 이상 사용되지 않습�
 LUIS는 [문화권](luis-language-support.md#tokenization)에 따라 발언을 [토큰화](luis-glossary.md#token)합니다. 원래 값과 토큰화된 값 둘다 [데이터 추출](luis-concept-data-extraction.md#tokenized-entity-returned)에 사용할 수 있습니다.
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>LUIS 엔드포인트 키를 만들고 할당하려면 어떻게 해야 하나요?
-Azure에서 [서비스](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) 수준에 대해 [엔드포인트 키를 만듭니다](luis-how-to-azure-subscription.md#create-luis-endpoint-key). **[키 및 엔드포인트](luis-how-to-manage-keys.md)** 페이지에서 [키를 할당](luis-how-to-manage-keys.md#assign-endpoint-key)합니다. 이 작업에 해당하는 API는 없습니다. 그런 후 엔드포인트에 대한 HTTP 요청을 [새 엔드포인트 키를 사용하도록](luis-concept-keys.md#use-endpoint-key-in-query) 변경해야 합니다.
+Azure에서 [서비스](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) 수준에 대해 [엔드포인트 키를 만듭니다](luis-how-to-azure-subscription.md). **[키 및 엔드포인트](luis-how-to-azure-subscription.md)** 페이지에서 [키를 할당](luis-how-to-azure-subscription.md)합니다. 이 작업에 해당하는 API는 없습니다. 그런 후 엔드포인트에 대한 HTTP 요청을 [새 엔드포인트 키를 사용하도록](luis-concept-keys.md#use-endpoint-key-in-query) 변경해야 합니다.
 
 ### <a name="how-do-i-interpret-luis-scores"></a>LUIS 점수는 어떻게 해석할 수 있나요?
 시스템은 해당 값에 관계 없이 점수가 가장 높은 의도를 사용해야 합니다. 예를 들어, 0.5(50%) 미만 점수라고 해서 LUIS가 반드시 낮은 신뢰도를 갖는다는 것을 의미하는 것은 아닙니다. 더 많은 학습 데이터를 제공하면 가능성이 가장 높은 의도의 [점수](luis-concept-prediction-score.md)를 높일 수 있습니다.
@@ -83,6 +84,14 @@ Azure에서 [서비스](https://azure.microsoft.com/pricing/details/cognitive-se
 앱의 대시보드에 표시되는 총 끝점 적중은 주기적으로 업데이트되지만 Azure Portal의 LUIS 끝점 키와 연결된 메트릭은 좀 더 자주 업데이트됩니다.
 
 대시보드에서 업데이트된 끝점 적중이 표시되지 않으면 Azure Portal에 로그인하고 LUIS 끝점 키와 연결된 리소스를 찾은 후 **메트릭**을 열어 **총 호출** 메트릭을 선택합니다. 끝점 키가 둘 이상의 LUIS 앱에 사용되는 경우 Azure Portal의 메트릭은 해당 메트릭을 사용하는 모든 LUIS 앱의 집계된 호출 수를 나타냅니다.
+
+### <a name="is-there-a-powershell-command-to-the-endpoint-quota"></a>엔드포인트 할당량을 확인할 수 있는 PowerShell 명령이 있나요?
+
+다음 PowerShell 명령을 사용해 엔드포인트 할당량을 확인할 수 있습니다.
+
+```powershell
+Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
+``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>내 LUIS 앱이 어제도 작동했으나 오늘 403 오류가 발생하고 있습니다. 앱을 변경한 적도 없었습니다. 이 문제를 어떻게 해결하나요?
 다음은 LUIS 엔드포인트 키 만들고 앱에 할당하기 위한 다음 FAQ의 [지침](#how-do-i-create-and-assign-a-luis-endpoint-key)입니다. 그런 후 엔드포인트에 대한 HTTP 요청을 [새 엔드포인트 키를 사용하도록](luis-concept-keys.md#use-endpoint-key-in-query) 변경해야 합니다.
@@ -146,13 +155,13 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 ## <a name="app-management"></a>앱 관리
 
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>LUIS 앱의 소유권을 양도하려면 어떻게 해야 하나요?
-LUIS 앱을 다른 Azure 구독으로 이전하려면 LUIS 앱을 내보낸 후 새 계정을 사용하여 가져옵니다. LUIS 앱을 호출하는 클라이언트 응용 프로그램에서 해당 앱 ID를 업데이트합니다. 새 앱은 원래 앱과는 약간 다른 LUIS 점수를 반환할 수 있습니다.
+LUIS 앱을 다른 Azure 구독으로 이전하려면 LUIS 앱을 내보낸 후 새 계정을 사용하여 가져옵니다. LUIS 앱을 호출하는 클라이언트 애플리케이션에서 해당 앱 ID를 업데이트합니다. 새 앱은 원래 앱과는 약간 다른 LUIS 점수를 반환할 수 있습니다.
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>사용자 발언의 로그를 다운로드하려면 어떻게 해야 하나요?
 기본적으로 LUIS 앱은 사용자의 발언을 로깅합니다. 사용자가 LUIS 앱으로 전송하는 발언 로그를 다운로드하려면 **내 앱**으로 이동한 후 앱을 선택합니다. 상황에 맞는 도구 모음에서 **엔드포인트 로그 내보내기**를 선택합니다. 로그 형식은 쉼표로 구분된 값(CSV) 파일로 지정됩니다.
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>발언 로깅을 사용하지 않도록 설정하려면 어떻게 해야 하나요?
-클라이언트 응용 프로그램이 LUIS를 쿼리하는 사용하는 엔드포인트 URL에서 `log=false`를 설정하여 사용자 발언의 로깅을 해제할 수 있습니다. 그렇지만 로깅을 해제하면 [활성 학습](luis-concept-review-endpoint-utterances.md#what-is-active-learning)에 따라 발언을 제안하거나 성능을 향상시키는 LUIS 앱 기능을 사용할 수 없게 됩니다. 데이터 개인 정보 문제 때문에 `log=false`를 설정하는 경우 LUIS에서 해당 사용자 발언의 기록을 다운로드하거나 해당 발언을 사용하여 앱을 향상시킬 수 없습니다.
+클라이언트 애플리케이션이 LUIS를 쿼리하는 사용하는 엔드포인트 URL에서 `log=false`를 설정하여 사용자 발언의 로깅을 해제할 수 있습니다. 그렇지만 로깅을 해제하면 [활성 학습](luis-concept-review-endpoint-utterances.md#what-is-active-learning)에 따라 발언을 제안하거나 성능을 향상시키는 LUIS 앱 기능을 사용할 수 없게 됩니다. 데이터 개인 정보 문제 때문에 `log=false`를 설정하는 경우 LUIS에서 해당 사용자 발언의 기록을 다운로드하거나 해당 발언을 사용하여 앱을 향상시킬 수 없습니다.
 
 로깅은 발언의 유일한 저장소입니다.
 
@@ -182,7 +191,7 @@ LUIS 앱을 다른 Azure 구독으로 이전하려면 LUIS 앱을 내보낸 후 
 ## <a name="app-notification"></a>앱 알림
 
 ### <a name="why-did-i-get-an-email-saying-im-almost-out-of-quota"></a>할당량이 거의 초과되려고 한다는 전자 메일이 수신되는 이유는 무엇인가요?
-작성/시작 키는 매월 1,000개의 엔드포인트 쿼리만 허용합니다. LUIS 끝점 키(무료 또는 유료)를 만들고 끝점 쿼리를 만들 때 해당 키를 사용합니다. 봇이나 다른 클라이언트 응용 프로그램에서 엔드포인트 쿼리를 만드는 경우 해당 위치에서 LUIS 엔드포인트를 변경해야 합니다.
+작성/시작 키는 매월 1,000개의 엔드포인트 쿼리만 허용합니다. LUIS 끝점 키(무료 또는 유료)를 만들고 끝점 쿼리를 만들 때 해당 키를 사용합니다. 봇이나 다른 클라이언트 애플리케이션에서 엔드포인트 쿼리를 만드는 경우 해당 위치에서 LUIS 엔드포인트를 변경해야 합니다.
 
 ## <a name="integrating-luis"></a>LUIS 통합
 
@@ -194,11 +203,17 @@ LUIS 템플릿을 선택하고 템플릿 창에서 **선택** 단추를 선택�
 ### <a name="what-luis-regions-support-bot-framework-speech-priming"></a>어떤 LUIS 지역에서 Bot Framework 음성 초기화를 지원하나요?
 [음성 초기화](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)는 미국 중부 인스턴스의 LUIS 앱에서만 지원됩니다.
 
+## <a name="api-programming-strategies"></a>API 프로그래밍 전략
+
+### <a name="how-do-i-programmatically-get-the-luis-region-of-a-resource"></a>리소스의 LUIS 지역을 프로그래밍 방식으로 가져오려면 어떻게 해야 하나요? 
+
+LUIS 샘플을 사용하여 C# 또는 Node.Js를 통해 프로그래밍 방식으로 [지역을 찾을 수 있습니다](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region). 
+
 ## <a name="luis-service"></a>LUIS 서비스
 
-### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>온-프레미스 또는 사설 클라우드에서 LUIS를 사용할 수 있나요?
- 아니요.
+### <a name="is-language-understanding-luis-available-on-premises-or-in-private-cloud"></a>온-프레미스 또는 사설 클라우드에서 LUIS(Language Understanding)를 사용할 수 있나요?
 
+예, 사용량을 산정하는 데 필요한 연결이 있는 경우 이러한 시나리오에 LUIS [컨테이너](luis-container-howto.md)를 사용할 수 있습니다. 
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Build 2018 Conference에서 Language Understanding 기능이나 데모에 대해 들어보았으나 어떻게 지칭하는지 기억이 나지 않습니다.
 
@@ -211,16 +226,16 @@ Build 2018 Conference에서는 다음 기능이 발표되었습니다.
 |통합|[텍스트 분석](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)과 [감정 분석](luis-how-to-publish-app.md#enable-sentiment-analysis) 통합<br>[Speech](https://docs.microsoft.com/azure/cognitive-services/speech)에 [Speech SDK](https://aka.ms/SpeechSDK)와 음성 초기화 통합|
 |Dispatch 도구|[BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools)의 일부로서, 봇에서의 더 나은 의도 인식을 위해 여러 LUIS 및 QnA Maker 앱을 단일 LUIS 앱에 결합하기 위한 Dispatch 명령줄 [도구](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps)
 
-추가적인 작성 [API 경로](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md)가 포함되었습니다.
+추가적인 작성 [API 경로](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md)가 포함되었습니다.
 
 비디오:
-* [Build 2018의 Azure Friday: Cognitive Services - 언어(LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
+* [Azure Friday(빌드 2018): Cognitive Services - 언어(LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
 * [Build 2018 AI Show - Language Understanding Service의 새로운 기능](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
 * [Build 2018 Session - 봇 인텔리전스, 음성 기능 및 NLU 모범 사례](https://channel9.msdn.com/events/Build/2018/BRK3208)
 * [Build 2018 - LUIS 업데이트](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
 프로젝트:
-* [Contoso Cafe 봇](https://github.com/botbuilderbuild2018/build2018demo) 데모 - Github의 소스 코드
+* [Contoso Cafe 봇](https://github.com/botbuilderbuild2018/build2018demo) 데모 - GitHub의 소스 코드
 
 ## <a name="next-steps"></a>다음 단계
 

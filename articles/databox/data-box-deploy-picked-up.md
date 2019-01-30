@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 42ed9091ff7ab8059ba253f62726b30899d6e697
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b948616aa21d390cedc877b0a09e272815abc82a
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036058"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358561"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>자습서: Azure Data Box 반송 및 Azure에 대한 데이터 업로드 확인
 
@@ -37,9 +37,7 @@ ms.locfileid: "51036058"
 
     디바이스를 유럽에서 배송하는 경우 E-ink 디스플레이에 배송 레이블이 표시되지 않습니다. 대신 반송 레이블이 배송 레이블 아래 투명 파우치에 포함됩니다. 오래된 배송 레이블을 제거하여 배송 레이블이 명확히 보이도록 합니다.
     
-3. 미국에서 디바이스를 반환하는 경우 UPS로 픽업을 예약합니다. DHL로 유럽에서 디바이스를 반환하는 경우 해당 웹 사이트를 방문하고 항공 화물 운송장 번호를 지정하여 DHL에서 픽업을 요청합니다. 국가 DHL Express 웹 사이트로 이동하고 **Courier 컬렉션 예약 > eReturn 배송**을 선택합니다. 
-
-    운송장 번호를 지정하고 **픽업 예약**을 클릭하여 픽업을 준비합니다.
+3. 디바이스를 반송하는 경우 UPS로 픽업을 예약합니다. 픽업을 예약하려면 현지 UPS(국가 특정 무료 전화 번호)에 전화하거나 Data Box를 가장 가까운 반납 위치에 인계합니다.
 
 4. 운송업체에서 Data Box를 픽업하고 나면 포털의 주문 상태가 **픽업됨**으로 업데이트됩니다. 추적 ID도 표시됩니다.
 

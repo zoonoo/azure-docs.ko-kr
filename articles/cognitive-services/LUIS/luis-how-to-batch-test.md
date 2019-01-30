@@ -1,25 +1,26 @@
 ---
-title: 1000개의 예제 발화를 사용한 일괄 테스트
-titleSuffix: Azure Cognitive Services
+title: 테스트 일괄 처리
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS(Language Understanding) 일괄 테스트 집합을 사용하여 잘못된 의도 및 엔터티가 있는 발화를 찾습니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 1560b8e574b0932e258353648c73f030ef19d314
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 340805e668190fedc7df047b66bec710d7e726c7
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333499"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53992977"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>예제 발화 집합으로 일괄 테스트
 
- 일괄 테스트는 현재 학습된 모델의 포괄적인 테스트로, LUIS에서 성능을 측정할 수 있습니다. 
+ 일괄 테스트는 현재 학습된 모델의 포괄적인 테스트로, LUIS에서 성능을 측정할 수 있습니다. 일괄 처리 테스트에 사용되는 데이터 세트에는 의도 예제 발화 또는 예측 런타임 엔드포인트에서 수신된 예제 발화를 포함하지 않습니다. 
 
 <a name="batch-testing"></a>
 
@@ -29,11 +30,11 @@ ms.locfileid: "52333499"
 
     ![일괄 테스트 링크](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-2. **데이터 집합 가져오기**를 선택합니다. **새 데이터 집합 가져오기** 대화 상자가 표시됩니다. **파일 선택**을 선택하고 테스트할 *1,000개 이하* 발언을 포함하는 올바른 [JSON 형식](luis-concept-batch-test.md#batch-file-format)의 JSON 파일을 찾습니다.
+2. **데이터 세트 가져오기**를 선택합니다. **새 데이터 세트 가져오기** 대화 상자가 표시됩니다. **파일 선택**을 선택하고 테스트할 *1,000개 이하* 발언을 포함하는 올바른 [JSON 형식](luis-concept-batch-test.md#batch-file-format)의 JSON 파일을 찾습니다.
 
     가져오기 오류는 브라우저 위쪽의 빨간색 알림 표시줄에 보고됩니다. 가져오기에 오류가 있으면 데이터 세트가 생성되지 않습니다. 자세한 내용은 [일반 오류](luis-concept-batch-test.md#common-errors-importing-a-batch)를 참조하세요.
 
-3. **데이터 집합 이름** 필드에 데이터 집합 파일의 이름을 입력합니다. 데이터 세트 파일에는 ‘레이블이 지정된 의도’ 및 ‘엔터티’를 포함하는 **발화 배열**이 포함되어 있습니다. 구문의 [예제 일괄 처리 파일](luis-concept-batch-test.md#batch-file-format)을 검토합니다. 
+3. **데이터 세트 이름** 필드에 데이터 세트 파일의 이름을 입력합니다. 데이터 세트 파일에는 ‘레이블이 지정된 의도’ 및 ‘엔터티’를 포함하는 **발화 배열**이 포함되어 있습니다. 구문의 [예제 일괄 처리 파일](luis-concept-batch-test.md#batch-file-format)을 검토합니다. 
 
 4. **완료**를 선택합니다. 데이터 세트 파일이 추가됩니다.
 
@@ -64,9 +65,6 @@ ms.locfileid: "52333499"
 일괄 테스트 결과를 검토하려면 **결과 보기**를 선택합니다.
 
 ![일괄 테스트 결과](./media/luis-how-to-batch-test/run-test-results.png)
-
-<!-- Select the **See results** link that appears after you run the test. A scatter graph known as an error matrix displays. The data points represent the utterances in the dataset. Green points indicate correct prediction, and red ones indicate incorrect prediction. The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities that were predicted correctly in all dataset utterances, and a red point for those items with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances.-->
-
 
 <a name="filter-chart-results-by-intent-or-entity"></a>  
 

@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 5e34aae62f871cba2a27a292242cff8e90c67934
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7497255dcad55cea86e0c640e2f1423d7d763a7f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228983"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713629"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Azure Portal에서 함수 앱을 관리하는 방법 
 
 Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트를 제공합니다. 함수 앱 동작은 지정된 함수 앱에서 호스트하는 모든 함수에 적용됩니다. 이 항목에서는 Azure Portal에서 함수 앱을 구성 및 관리하는 방법을 설명합니다.
 
-시작하려면 [Azure Portal](http://portal.azure.com)로 이동한 후 Azure 계정으로 로그인합니다. 포털 맨 위에 있는 검색 표시줄에 함수 앱의 이름을 입력하고 목록에서 선택합니다. 함수 앱을 선택하면 다음 페이지가 표시됩니다.
+시작하려면 [Azure Portal](https://portal.azure.com)로 이동한 후 Azure 계정으로 로그인합니다. 포털 맨 위에 있는 검색 표시줄에 함수 앱의 이름을 입력하고 목록에서 선택합니다. 함수 앱을 선택하면 다음 페이지가 표시됩니다.
 
 ![Azure Portal의 함수 앱 개요](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
@@ -64,7 +64,7 @@ Functions는 소비 호스팅 및 App Service 호스팅 계획을 모두 지원�
 이 항목의 나머지 부분에서는 Functions에 유용한 Azure Portal의 다음과 같은 App Service 기능을 중점적으로 설명합니다.
 
 + [App Service 편집기](#editor)
-+ [응용 프로그램 설정](#settings) 
++ [애플리케이션 설정](#settings) 
 + [Console](#console)
 + [고급 도구(Kudu)](#kudu)
 + [배포 옵션](#deployment)
@@ -82,13 +82,13 @@ App Service 설정을 사용하는 방법에 대한 자세한 내용은 [Azure A
 
 ![App Service 편집기](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
-### <a name="settings"></a>응용 프로그램 설정
+### <a name="settings"></a>애플리케이션 설정
 
 | | |
 |-|-|
-| ![함수 앱 응용 프로그램 설정](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | App Service **응용 프로그램 설정** 블레이드에서 프레임워크 버전, 원격 디버깅, 앱 설정 및 연결 문자열을 구성 및 관리합니다. 다른 Azure 및 타사 서비스에 함수 앱을 통합할 경우 이 블레이드에서 해당 설정을 수정할 수 있습니다. 설정을 삭제하려면 오른쪽으로 스크롤하고 줄 오른쪽 끝에서 **X** 아이콘을 선택합니다(다음 이미지에 표시되지 않음).
+| ![함수 앱 애플리케이션 설정](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | App Service **애플리케이션 설정** 블레이드에서 프레임워크 버전, 원격 디버깅, 앱 설정 및 연결 문자열을 구성 및 관리합니다. 다른 Azure 및 타사 서비스에 함수 앱을 통합할 경우 이 블레이드에서 해당 설정을 수정할 수 있습니다. 설정을 삭제하려면 오른쪽으로 스크롤하고 줄 오른쪽 끝에서 **X** 아이콘을 선택합니다(다음 이미지에 표시되지 않음).
 
-![응용 프로그램 설정 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
+![애플리케이션 설정 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
 ### <a name="console"></a>콘솔
 
@@ -126,7 +126,7 @@ App Service 설정을 사용하는 방법에 대한 자세한 내용은 [Azure A
 
 | | |
 |-|-|
-| ![Azure Portal의 함수 앱 인증](./media/functions-how-to-use-azure-function-app-settings/function-app-authentication.png) | 함수가 HTTP 트리거를 사용하는 경우 먼저 호출이 인증되도록 요구할 수 있습니다. App Service는 Facebook, Microsoft 및 Twitter 같은 소셜 공급자를 사용하는 Azure Active Directory 인증 및 로그인을 지원합니다. 특정 인증 공급자를 구성하는 방법에 대한 자세한 내용은 [Azure App Service 인증 개요](../app-service/app-service-authentication-overview.md)를 참조하세요. |
+| ![Azure Portal의 함수 앱 인증](./media/functions-how-to-use-azure-function-app-settings/function-app-authentication.png) | 함수가 HTTP 트리거를 사용하는 경우 먼저 호출이 인증되도록 요구할 수 있습니다. App Service는 Facebook, Microsoft 및 Twitter 같은 소셜 공급자를 사용하는 Azure Active Directory 인증 및 로그인을 지원합니다. 특정 인증 공급자를 구성하는 방법에 대한 자세한 내용은 [Azure App Service 인증 개요](../app-service/overview-authentication-authorization.md)를 참조하세요. |
 
 ![함수 앱에 대한 인증 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 

@@ -1,22 +1,19 @@
 ---
 title: '자습서: Azure CLI를 사용하여 Azure Database for MySQL 디자인'
 description: 이 자습서에서는 명령줄에서 Azure CLI를 사용하여 MySQL용 Azure Database 서버 및 데이터베이스를 만들고 관리하는 방법을 설명합니다.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 60cfb5e1c5fa44952ca6a5e6fc411f4a6ab0e8be
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 352444dcb3beace0e1618aadba50b56cdcd9d003
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966982"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545793"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Database for MySQL 디자인
 
@@ -71,7 +68,7 @@ sku-name 매개 변수 값은 아래 예에서 같이 {가격 책정 계층}\_{�
 
 
 ## <a name="configure-firewall-rule"></a>방화벽 규칙 구성
-az mysql server firewall-rule create 명령을 사용하여 Azure Database for MySQL 서버 수준 방화벽 규칙을 만듭니다. 서버 수준 방화벽 규칙을 사용하면 **mysql** 명령줄 도구 또는 MySQL Workbench와 같은 외부 응용 프로그램에서 Azure MySQL 서비스 방화벽을 통해 서버에 연결할 수 있습니다. 
+az mysql server firewall-rule create 명령을 사용하여 Azure Database for MySQL 서버 수준 방화벽 규칙을 만듭니다. 서버 수준 방화벽 규칙을 사용하면 **mysql** 명령줄 도구 또는 MySQL Workbench와 같은 외부 애플리케이션에서 Azure MySQL 서비스 방화벽을 통해 서버에 연결할 수 있습니다. 
 
 다음 예제는 특정 IP 주소 192.168.0.1에서 연결하는 것을 허용하는 `AllowMyIP` 방화벽 규칙을 만듭니다. 연결할 위치에 해당하는 IP 주소 또는 IP 주소 범위로 바꿉니다. 
 
@@ -175,7 +172,7 @@ SELECT * FROM inventory;
 
 복원에는 다음 정보가 필요합니다.
 
-- 복원 지점: 데이터베이스를 변경하기 전의 특정 시점을 선택합니다. 원본 데이터베이스의 가장 오래된 백업 값보다 크거나 같아야 합니다.
+- 복원 지점: 서버를 변경하기 전 발생한 특정 시점을 선택합니다. 원본 데이터베이스의 가장 오래된 백업 값보다 크거나 같아야 합니다.
 - 대상 서버: 복원해 두려는 새 서버의 이름을 제공합니다.
 - 원본 서버: 복원해 오려는 서버의 이름을 제공합니다.
 - 위치: 지역은 선택할 수 없으며, 기본적으로 원본 서버와 동일합니다.
@@ -185,9 +182,9 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 ```
 
 `az mysql server restore` 명령에는 다음 매개 변수가 필요합니다.
-| 설정 | 제안 값 | 설명  |
+| 설정 | 제안 값 | 설명  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  원본 서버가 존재하는 리소스 그룹입니다.  |
+| resource-group |  myresourcegroup |  원본 서버가 존재하는 리소스 그룹입니다.  |
 | 이름 | mydemoserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | 복원하려는 지정 시간을 선택합니다. 이 날짜 및 시간은 원본 서버의 백업 보존 기간 내에 있어야 합니다. ISO8601 날자 및 시간 형식을 사용합니다. 예를 들어 `2017-04-13T05:59:00-08:00`과 같은 고유한 현지 표준 시간대 또는 UTC Zulu 형식 `2017-04-13T13:59:00Z`를 사용할 수도 있습니다. |
 | source-server | mydemoserver | 복원을 수행하려는 원본 서버의 이름 또는 ID입니다. |

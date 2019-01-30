@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: e5e9901d6265b48a7b57cdf2c146ebb623ad5c3d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 501659a93306342c7a212d135b4fdd89be096451
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992205"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428172"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Azure 가상 네트워크의 토폴로지 보기
 
@@ -46,7 +46,7 @@ ms.locfileid: "46992205"
 
 6. **토폴로지 다운로드**를 선택하여 이미지를 편집 가능한 파일을 svg 형식으로 다운로드합니다.
 
-다이어그램에 표시된 리소스는 가상 네트워크에 있는 네트워킹 구성 요소의 하위 집합입니다. 예를 들어, 다이어그램에 네트워크 보안 그룹은 표시되지만, 해당 그룹 내의 보안 규칙은 표시되지 않습니다. 다이어그램에서는 구별되지 않지만, 선은 두 관계(*포함* 또는 *연결*) 중 하나를 나타냅니다. 가상 네트워크의 리소스에 대한 전체 목록과 리소스 간의 관계 유형을 확인하려면 [PowerShell](#powershell) 또는 [Azure CLI](#azure-cli)를 사용하여 토폴로지를 생성합니다.
+다이어그램에 표시된 리소스는 가상 네트워크에 있는 네트워킹 구성 요소의 하위 집합입니다. 예를 들어, 다이어그램에 네트워크 보안 그룹은 표시되지만, 해당 그룹 내의 보안 규칙은 표시되지 않습니다. 다이어그램에서는 구별되지 않지만, 선은 두 관계 (*포함* 또는 *연결*) 중 하나를 나타냅니다. 가상 네트워크의 리소스에 대한 전체 목록과 리소스 간의 관계 유형을 확인하려면 [PowerShell](#powershell) 또는 [Azure CLI](#azure-cli)를 사용하여 토폴로지를 생성합니다.
 
 ## <a name = "azure-cli"></a>토폴로지 보기 - Azure CLI
 
@@ -85,7 +85,7 @@ ms.locfileid: "46992205"
 
 다음에 나오는 단계에서 명령을 실행할 수 있습니다.
 - Azure Cloud Shell에서 명령의 오른쪽 위에 있는 **사용해 보세요**를 선택합니다. Azure Cloud Shell은 공통 Azure 도구가 사전 설치되고 계정으로 사용하도록 구성된 체험 대화형 셸입니다.
-- 컴퓨터에서 PowerShell을 실행합니다. 컴퓨터에서 PowerShell을 실행하는 경우 이 문서의 단계에서는 AzureRm 모듈 버전 5.7.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+- 컴퓨터에서 PowerShell을 실행합니다. 컴퓨터에서 PowerShell을 실행하는 경우 이 문서의 단계에서는 AzureRm 모듈 버전 5.7.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
 사용하는 계정에 필요한 [권한](required-rbac-permissions.md)이 있어야 합니다.
 
@@ -138,12 +138,12 @@ ms.locfileid: "46992205"
 
 토폴로지에서 반환되는 모든 리소스에는 다음과 같은 속성이 있습니다.
 
-- **Name** - 리소스의 이름입니다.
+- **이름**: 리소스의 이름입니다.
 - **Id**: 리소스 그룹의 URI입니다.
-- **Location**: 리소스가 있는 Azure 지역입니다.
+- **위치**: 리소스가 있는 Azure 지역입니다.
 - **Associations**: 참조되는 개체에 대한 연결 목록입니다. 각 연결에는 다음과 같은 속성이 있습니다.
     - **AssociationType**: 자식 개체 및 부모 개체 간의 관계를 참조합니다. 유효한 값은 *포함* 또는 *관련됨*입니다.
-    - **Name**: 참조되는 리소스의 이름입니다.
+    - **이름**: 참조되는 리소스의 이름입니다.
     - **ResourceId** - 연결에서 참조되는 리소스의 URI입니다.
 
 ## <a name="next-steps"></a>다음 단계

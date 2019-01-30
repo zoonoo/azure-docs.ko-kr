@@ -23,7 +23,7 @@ ms.locfileid: "42146845"
 
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-이 문서에서는 Visual Studio **연결된 서비스** 기능을 사용하여 ASP.NET Core 프로젝트에서 Azure 저장소 계정을 만들거나 참조한 후 Visual Studio에서 Azure Table Storage 사용을 시작하는 방법에 대해 설명합니다. **연결된 서비스** 작업은 프로젝트의 Azure Storage에 액세스하는 데 적합한 NuGet 패키지를 설치하고 프로젝트 구성 파일에 저장소 계정에 대한 연결 문자열을 추가합니다. (Azure Storage에 대한 일반적인 내용은 [저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.)
+이 문서에서는 Visual Studio **연결된 서비스** 기능을 사용하여 ASP.NET Core 프로젝트에서 Azure 스토리지 계정을 만들거나 참조한 후 Visual Studio에서 Azure Table Storage 사용을 시작하는 방법에 대해 설명합니다. **연결된 서비스** 작업은 프로젝트의 Azure Storage에 액세스하는 데 적합한 NuGet 패키지를 설치하고 프로젝트 구성 파일에 저장소 계정에 대한 연결 문자열을 추가합니다. (Azure Storage에 대한 일반적인 내용은 [스토리지 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.)
 
 Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 데이터를 저장할 수 있습니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락하는 NoSQL 데이터 저장소입니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다. Azure 테이블 저장소를 사용하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Azure 테이블 저장소 시작](../storage/storage-dotnet-how-to-use-tables.md)을 참조하세요.
 

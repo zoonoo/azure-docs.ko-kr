@@ -3,7 +3,7 @@ title: Azure PowerShell에서 SQL Server Virtual Machine 만들기(클래식) | 
 description: SQL Server 가상 컴퓨터 갤러리 이미지를 사용하여 Azure VM을 만드는 단계 및 PowerShell 스크립트를 제공합니다. 이 항목에서는 클래식 배포 모드를 사용합니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-service-management
 ms.assetid: b73be387-9323-4e08-be53-6e5928e3786e
@@ -13,20 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/07/2017
-ms.author: jroth
-ms.openlocfilehash: 66f44e27562f33373e0b67fe6e0ebf9c6bf99e03
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: ad8b59a9290c533a3687b5ff8956d8682fb6d9e9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29399664"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332288"
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Azure PowerShell을 사용하여 SQL Server 가상 컴퓨터 프로비전(클래식)
 
 이 문서에서는 PowerShell cmdlet을 사용하여 Azure에서 SQL Server 가상 머신을 만드는 방법에 대한 단계를 제공합니다.
 
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 이 항목의 Resource Manager 버전에 대해서는 [Azure PowerShell Resource Manager를 사용하여 SQL Server 가상 머신 프로비전](../sql/virtual-machines-windows-ps-sql-create.md)을 참조하세요.
 
@@ -77,7 +78,7 @@ SQL Server Virtual Machine을 특정 Azure 지역에 있는 클라우드 서비�
    ```
 
    > [!NOTE]
-   > 새 저장소 계정이 필요한 경우 먼저 New-AzureStorageAccount 명령을 사용하여 저장소 계정 이름(모두 소문자)을 만듭니다. `New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
+   > 새 스토리지 계정이 필요한 경우 먼저 New-AzureStorageAccount 명령을 사용하여 스토리지 계정 이름(모두 소문자)을 만듭니다. `New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
 
 4. 대상 저장소 계정 이름을 **$staccount**에 할당합니다. **Set-AzureSubscription** 을 사용하여 구독 및 현재 저장소 계정을 설정합니다.
 
@@ -115,7 +116,7 @@ SQL Server Virtual Machine을 특정 Azure 지역에 있는 클라우드 서비�
    New-AzureService -ServiceName $svcname -Label $svcname -Location $dcLocation
    ```
 
-2. 가상 머신 이름 및 크기를 지정합니다. 가상 머신 크기에 대한 자세한 내용은 [Azure에 대한 Virtual Machine 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+2. 가상 머신 이름 및 크기를 지정합니다. 가상 컴퓨터 크기에 대한 자세한 내용은 [Azure에 대한 Virtual Machine 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
    ```powershell
    $vmname="<machine name>"

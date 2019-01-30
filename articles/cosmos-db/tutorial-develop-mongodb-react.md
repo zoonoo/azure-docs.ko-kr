@@ -1,29 +1,26 @@
 ---
-title: Azure의 MongoDB, React 및 Node.js 자습서 | Microsoft Docs
+title: Azure의 MongoDB, React 및 Node.js 자습서
 description: 이 동영상 기반 자습서 시리즈에서 MongoDB에 사용하는 것과 정확히 동일한 API를 사용하여 Azure Cosmos DB의 React 및 Node.js를 사용하여 MongoDB 앱을 만드는 방법을 알아봅니다.
-services: cosmos-db
 author: johnpapa
-manager: kfile
-editor: ''
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
-ms.custom: mvc
-ms.openlocfilehash: 28651f0b9a2c775292b5c9406f676b45fc4e5d14
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.reviewer: sngun
+ms.openlocfilehash: 2033c309a63c7135ba845aebbfc4e353380429f6
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701785"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043280"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>React 및 Azure Cosmos DB에서 MongoDB 앱 만들기  
 
-이 여러 비디오 자습서는 React 프런트 엔드에서 추적 앱을 만드는 방법을 보여줍니다. 서버에 대한 앱 사용 노드 및 Express는 [MongoDB API](mongodb-introduction.md)에서 Azure Cosmos DB에 연결되고 앱의 서버 부분에 React 프런트 엔드를 연결합니다. 이 자습서에는 Azure Portal에서 Azure Cosmos DB 포인트 클릭 동작 크기 조정을 수행하는 방법 및 모든 사용자가 즐겨 찾는 Heroes를 추적할 수 있도록 인터넷에 앱을 배포하는 방법을 보여줍니다. 
+이 여러 비디오 자습서는 React 프런트 엔드에서 추적 앱을 만드는 방법을 보여줍니다. 앱에서 서버에 노드 및 Express를 사용하고, [Azure Cosmos DB의 API for MongoDB](mongodb-introduction.md)를 사용하여 구성된 Cosmos 데이터베이스에 연결하고, 앱의 서버 부분에 React 프런트 엔드를 연결합니다. 이 자습서에는 Azure Portal에서 Cosmos DB 포인트 클릭 동작 크기 조정을 수행하는 방법 및 모든 사용자가 자신이 좋아하는 Heroes를 추적할 수 있도록 인터넷에 앱을 배포하는 방법을 보여줍니다. 
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 MongoDB 클라이언트 연결을 지원합니다. 따라서 MongoDB 대신 Azure Cosmos DB를 사용할 수 있지만 MongoDB 앱에 사용하는 동일한 코드를 사용합니다. 또한 간단한 클라우드 배포, 크기 조정 및 초고속 읽기 및 쓰기와 같은 추가 이점이 있습니다.  
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 MongoDB와의 유선 프로토콜 호환성을 지원하므로 클라이언트가 MongoDB 대신 Azure Cosmos DB를 사용할 수 있습니다.  
 
 이 다중 파트 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -38,7 +35,7 @@ ms.locfileid: "43701785"
 Angular를 사용하여 동일한 앱을 빌드하시겠습니까? [Angular 자습서 비디오 시리즈](tutorial-develop-mongodb-nodejs.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
-* [Node.js](https://www.nodejs.org)
+* [Node.JS](https://www.nodejs.org)
 
 ### <a name="finished-project"></a>완료된 프로젝트
 [GitHub에서](https://github.com/Azure-Samples/react-cosmosdb) 완성된 응용 프로그램을 가져옵니다.
@@ -104,9 +101,9 @@ Angular를 사용하여 동일한 앱을 빌드하시겠습니까? [Angular 자�
 > * Azure Cosmos DB 계정 만들기
 > * 앱을 Azure Cosmos DB 계정에 연결
 > * Postman을 사용하여 앱 테스트
-> * 응용 프로그램 실행 및 데이터베이스에 Heroes 추가
+> * 애플리케이션 실행 및 데이터베이스에 Heroes 추가
 
-이 자습서 시리즈의 추가 비디오에서는 응용 프로그램을 배포하고 전역으로 데이터를 복제하는 방법을 다룹니다.
+이 자습서 시리즈의 추가 비디오에서는 애플리케이션을 배포하고 전역으로 데이터를 복제하는 방법을 다룹니다.
 
 다음 자습서로 진행하여 Azure Cosmos DB로 MongoDB 데이터를 가져오는 방법을 알아볼 수 있습니다.  
 

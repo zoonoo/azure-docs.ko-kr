@@ -10,17 +10,15 @@ ms.assetid: 8b4e56bc-2d4f-4648-a236-16e9e732ebef
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 761140b1022f5a1c1cd523c6e0e52193ff2a9700
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a006e9a9eb3fe4d9dc049e29eb404e5edf8f35c9
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52429988"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342139"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Log Analytics로 Surface Hub를 모니터링하여 상태 추적
 
@@ -35,7 +33,7 @@ Surface Hub마다 Microsoft Monitoring Agent가 설치되어 있습니다. 에�
 
 * 모니터링할 디바이스의 수를 지원하는 [Log Analytics 구독](https://azure.microsoft.com/pricing/details/log-analytics/) 수준. Log Analytics 가격 책정은 등록하는 디바이스 수와 처리할 데이터 양에 따라 달라집니다. Surface Hub 롤아웃을 계획할 때 이 점을 고려해야 합니다.
 
-다음으로, 기존 Log Analytics 작업 영역을 추가하거나 새로 만듭니다. 두 방법 중 하나를 사용하는 방법에 대한 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../log-analytics/log-analytics-quick-create-workspace.md)를 참조하세요. Log Analytics 작업 영역이 구성되면 다음 두 가지 방법으로 Surface Hub 디바이스를 등록할 수 있습니다.
+다음으로, 기존 Log Analytics 작업 영역을 추가하거나 새로 만듭니다. 두 방법 중 하나를 사용하는 방법에 대한 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../azure-monitor/learn/quick-create-workspace.md)를 참조하세요. Log Analytics 작업 영역이 구성되면 다음 두 가지 방법으로 Surface Hub 디바이스를 등록할 수 있습니다.
 
 * InTune을 통해 자동으로
 * Surface Hub 디바이스의 **설정**을 통한 수동 등록
@@ -66,7 +64,7 @@ Surface Hub를 관리할 Log Analytics 작업 영역에 대한 작업 영역 ID 
 
 1. Surface Hub에서 **설정**을 엽니다.
 2. 메시지가 표시되면 디바이스 관리자 자격 증명을 입력합니다.
-3. **이 장치**를 클릭한 다음, **모니터링**에서 **Log Analytics 설정 구성**을 클릭합니다.
+3. **이 디바이스**를 클릭한 다음, **모니터링**에서 **Log Analytics 설정 구성**을 클릭합니다.
 4. **모니터링 사용**을 선택합니다.
 5. Log Analytics 설정 대화 상자에서 Log Analytics **작업 영역 ID**, **작업 영역 키**를 차례로 입력합니다.  
    ![설정](./media/surface-hubs/settings.png)
@@ -84,8 +82,8 @@ Log Analytics를 통한 Surface Hub 모니터링은 등록된 다른 디바이�
 
    ![Surface Hub 대시보드](./media/surface-hubs/surface-hub-dashboard.png)
 
-기존 또는 사용자 지정 로그 검색에 기반한 [경고](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)를 만들 수 있습니다. Log Analytics에서 Surface Hub로부터 수집한 데이터를 사용하면 문제를 검색하여 디바이스에 정의하는 조건에 대해 경고할 수 있습니다.
+기존 또는 사용자 지정 로그 검색에 기반한 [경고](../../azure-monitor/platform/alerts-overview.md)를 만들 수 있습니다. Log Analytics에서 Surface Hub로부터 수집한 데이터를 사용하면 문제를 검색하여 디바이스에 정의하는 조건에 대해 경고할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics에서 로그 검색](../../log-analytics/log-analytics-queries.md)을 통한 자세한 Surface Hub 데이터 보기
-* Surface Hub 문제 발생 시 알리는 [경고](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) 만들기
+* [Log Analytics에서 로그 검색](../../azure-monitor/log-query/log-query-overview.md)을 통한 자세한 Surface Hub 데이터 보기
+* Surface Hub 문제 발생 시 알리는 [경고](../../azure-monitor/platform/alerts-overview.md) 만들기

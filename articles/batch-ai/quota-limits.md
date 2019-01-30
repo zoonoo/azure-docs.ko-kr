@@ -11,14 +11,17 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: cade124cefbd4e2e63ab4cb6fa4f22b3bd672ad0
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 16032ec5ba1e613462f92b86281ce93153b70923
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391813"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409720"
 ---
 # <a name="batch-ai-service-quotas-and-limits"></a>Batch AI 서비스 할당량 및 한도
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 다른 Azure 서비스와 마찬가지로 Batch AI 서비스와 관련하여 특정 리소스에 대한 한도가 있습니다. Batch AI에서 이러한 한도는 서비스를 [사용할 수 있는](https://azure.microsoft.com/global-infrastructure/services/) 각 지역에 대해 구독 수준에서 적용되는 기본 할당량입니다. 이 문서는 그러한 기본값을 설명하고 할당량 증가를 요청하는 방법을 설명합니다.
 

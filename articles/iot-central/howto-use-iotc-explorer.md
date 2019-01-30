@@ -44,7 +44,7 @@ npm install -g iotc-explorer
 
 ### <a name="login"></a>로그인
 
-계속하기 전에 사용할 액세스 토큰을 가져오려면 IoT Central 응용 프로그램의 관리자가 있어야 합니다. 관리자는 다음 단계를 수행합니다.
+계속하기 전에 사용할 액세스 토큰을 가져오려면 IoT Central 애플리케이션의 관리자가 있어야 합니다. 관리자는 다음 단계를 수행합니다.
 1. **관리/액세스 토큰**으로 이동합니다. 
 1. **생성**을 클릭합니다.
 ![액세스 토큰 페이지 스크린샷](media/howto-use-iotc-explorer/accesstokenspage.png)

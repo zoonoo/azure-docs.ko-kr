@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 01/09/2019
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: ec8fabfce8c26aef98217947da33a56222288b3c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.reviewer: unknown
+ms.lastreviewed: 01/09/2019
+ms.openlocfilehash: 5e532e02dbf4c0c9c938b1e7e3c591c65203e158
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077565"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251744"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Azure Stack에서 계획 만들기
 
@@ -28,9 +29,9 @@ ms.locfileid: "49077565"
 
 [계획](azure-stack-key-features.md)은 하나 이상의 서비스에 대한 그룹화입니다. 공급자 사용자에 게 제공할 계획을 만들 수 있습니다. 차례로 사용자 계획 및 포함 하는 서비스를 사용 하 여 제품을 구독 합니다. 이 예제에서는 계산, 네트워크 및 storage 리소스 공급자를 포함 하는 계획을 만드는 방법을 보여 줍니다. 이 계획 구독자가 가상 머신을 프로 비전 하는 기능을 제공 합니다.
 
-1. Azure Stack 관리자 포털에 로그인 (https://adminportal.local.azurestack.external)합니다.
+1. 에 로그인 합니다 [Azure Stack 관리자 포털](https://adminportal.local.azurestack.external)합니다.
 
-2. 계획 및 사용자가 구독할 수 있는 제품을 만들려면 **+ 리소스 만들기** > **제공 + 계획** > **계획**합니다.
+2. 계획 및 사용자가 구독할 수 있는 제품을 만들려면 선택 **+ 리소스 만들기**, 한 다음 **제공 + 계획**, 한 다음 **계획**.
   
    ![계획 선택](media/azure-stack-create-plan/select-plan.png)
 
@@ -72,4 +73,4 @@ ms.locfileid: "49077565"
 
 ## <a name="next-steps"></a>다음 단계
 
-[제안 만들기](azure-stack-create-offer.md)
+* [제안 만들기](azure-stack-create-offer.md)

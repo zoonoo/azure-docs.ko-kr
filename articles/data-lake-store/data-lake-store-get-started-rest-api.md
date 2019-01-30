@@ -37,8 +37,8 @@ ms.locfileid: "46121671"
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Azure Active Directory를 사용하여 인증하려면 어떻게 해야 하나요?
 Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있습니다.
 
-* 응용 프로그램에 대한 최종 사용자 인증의 경우(대화형) [.NET SDK를 사용한 Data Lake Storage Gen1에서의 최종 사용자 인증](data-lake-store-end-user-authenticate-rest-api.md)을 참조하세요.
-* 응용 프로그램에 대한 서비스 간 인증의 경우(비대화형) [.NET SDK를 사용한 Data Lake Storage Gen1에서의 서비스 간 인증](data-lake-store-service-to-service-authenticate-rest-api.md)을 참조하세요.
+* 애플리케이션에 대한 최종 사용자 인증의 경우(대화형) [.NET SDK를 사용한 Data Lake Storage Gen1에서의 최종 사용자 인증](data-lake-store-end-user-authenticate-rest-api.md)을 참조하세요.
+* 애플리케이션에 대한 서비스 간 인증의 경우(비대화형) [.NET SDK를 사용한 Data Lake Storage Gen1에서의 서비스 간 인증](data-lake-store-service-to-service-authenticate-rest-api.md)을 참조하세요.
 
 
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Data Lake Storage Gen1 계정 만들기

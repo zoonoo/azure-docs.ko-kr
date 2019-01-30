@@ -36,11 +36,11 @@
 #### [공유 관리](storsimple-virtual-array-manage-shares.md)
 #### [볼륨 관리](storsimple-virtual-array-manage-volumes.md)
 #### [서비스 요약 보기](storsimple-virtual-array-service-summary.md)
-#### [장치 요약 보기](storsimple-virtual-array-device-summary.md)
+#### [디바이스 요약 보기](storsimple-virtual-array-device-summary.md)
 #### [저장소 계정 관리](storsimple-virtual-array-manage-storage-accounts.md)
 #### [ACR 관리](storsimple-virtual-array-manage-acrs.md)
 #### [작업 관리](storsimple-virtual-array-manage-jobs.md)
-#### [장치 암호 변경](storsimple-virtual-array-change-device-admin-password.md)
+#### [디바이스 암호 변경](storsimple-virtual-array-change-device-admin-password.md)
 #### [경고를 사용하여 모니터](storsimple-virtual-array-manage-alerts.md)
 #### [진단 및 문제 해결](storsimple-virtual-array-diagnose-problems.md)
 #### [로그 지원 요청](storsimple-virtual-array-log-support-ticket.md)
@@ -83,10 +83,10 @@
 #### [10GbE 네트워크 인터페이스에 지원되는 하드웨어](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 ### 배포
-#### [StorSimple 장치 관리자 서비스](storsimple-8000-manage-service.md)
+#### [StorSimple 디바이스 관리자 서비스](storsimple-8000-manage-service.md)
 #### [서비스에 대한 새 인증](storsimple-8000-aad-registration-key.md)
-#### [Azure의 물리적 장치](storsimple-8000-deployment-walkthrough-u2.md)
-#### [정부 포털의 물리적 장치](storsimple-8000-deployment-walkthrough-gov-u2.md)
+#### [Azure의 물리적 디바이스](storsimple-8000-deployment-walkthrough-u2.md)
+#### [정부 포털의 물리적 디바이스](storsimple-8000-deployment-walkthrough-gov-u2.md)
 #### [Azure에서 클라우드 어플라이언스](storsimple-8000-cloud-appliance-u2.md)
 #### [StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)
 #### [SharePoint용 StorSimple 어댑터](storsimple-adapter-for-sharepoint.md)
@@ -98,12 +98,12 @@
 #### [StorSimple Manager 서비스 사용](storsimple-8000-manager-service-administration.md)
 ##### [백업에서 복구](storsimple-8000-restore-from-backup-set-u2.md)
 ##### [볼륨 복제](storsimple-8000-clone-volume-u2.md)
-##### [장치 원격 연결](storsimple-8000-remote-connect.md)
-##### [장치 비활성화 및 삭제](storsimple-8000-deactivate-and-delete-device.md)
-##### [장치 장애 조치(failover)](storsimple-8000-device-failover-disaster-recovery.md)
-###### [실제 장치로 장애 조치(failover)](storsimple-8000-device-failover-physical-device.md)
+##### [디바이스 원격 연결](storsimple-8000-remote-connect.md)
+##### [디바이스 비활성화 및 삭제](storsimple-8000-deactivate-and-delete-device.md)
+##### [디바이스 장애 조치(failover)](storsimple-8000-device-failover-disaster-recovery.md)
+###### [실제 디바이스로 장애 조치(failover)](storsimple-8000-device-failover-physical-device.md)
 ###### [클라우드 어플라이언스로 장애 조치(failover)](storsimple-8000-device-failover-cloud-appliance.md)
-###### [동일한 장치로 장애 조치(failover)](storsimple-8000-device-failover-same-device.md)
+###### [동일한 디바이스로 장애 조치(failover)](storsimple-8000-device-failover-same-device.md)
 ##### [백업 카탈로그 관리](storsimple-8000-manage-backup-catalog.md)
 ##### [백업 정책 관리](storsimple-8000-manage-backup-policies-u2.md)
 ##### [저장소 계정 관리](storsimple-8000-manage-storage-accounts.md)
@@ -114,9 +114,9 @@
 ##### [ACR 관리](storsimple-8000-manage-acrs.md)
 ##### [대역폭 템플릿 관리](storsimple-8000-manage-bandwidth-templates.md)
 ##### [작업 보기 및 관리](storsimple-8000-manage-jobs-u2.md)
-##### [장치 모드 변경](storsimple-8000-device-modes.md)
-##### [장치 암호 변경](storsimple-8000-change-passwords.md)
-##### [장치 구성 수정](storsimple-8000-modify-device-config.md)
+##### [디바이스 모드 변경](storsimple-8000-device-modes.md)
+##### [디바이스 암호 변경](storsimple-8000-change-passwords.md)
+##### [디바이스 구성 수정](storsimple-8000-modify-device-config.md)
 ##### [켜기 및 끄기](storsimple-turn-device-on-or-off.md)
 ##### [Windows Server 호스트에 MPIO 구성](storsimple-8000-configure-mpio-windows-server.md)
 ##### [Linux 호스트에 MPIO 구성](storsimple-configure-mpio-on-linux.md)
@@ -124,7 +124,7 @@
 
 
 #### [StorSimple용 Windows PowerShell 사용](storsimple-8000-windows-powershell-administration.md)
-##### [장치 컨트롤러 관리](storsimple-8000-manage-device-controller.md)
+##### [디바이스 컨트롤러 관리](storsimple-8000-manage-device-controller.md)
 ##### [웹 프록시 구성](storsimple-8000-configure-web-proxy.md)
 ##### [데이터 0 설정 수정](storsimple-8000-modify-data-0.md)
 
@@ -133,7 +133,7 @@
 #### [StorSimple Snapshot Manager 사용](storsimple-snapshot-manager-admin.md)
 ##### [StorSimple Snapshot Manager란?](storsimple-what-is-snapshot-manager.md)
 ##### [StorSimple Snapshot Manager 인터페이스 정보](storsimple-use-snapshot-manager.md)
-##### [StorSimple Snapshot Manager를 통해 장치 관리](storsimple-snapshot-manager-manage-devices.md)
+##### [StorSimple Snapshot Manager를 통해 디바이스 관리](storsimple-snapshot-manager-manage-devices.md)
 ##### [StorSimple Snapshot Manager를 통해 장치 관리](storsimple-snapshot-manager-manage-backup-policies.md)
 ##### [StorSimple Snapshot Manager를 통해 볼륨 그룹 관리](storsimple-snapshot-manager-manage-volume-groups.md)
 ##### [StorSimple Snapshot Manager를 통해 백업 카탈로그 관리](storsimple-snapshot-manager-manage-backup-catalog.md)
@@ -158,7 +158,7 @@
 
 ### 모니터
 #### [서비스 요약 사용](storsimple-8000-service-dashboard.md)
-#### [장치 요약 사용](storsimple-8000-device-dashboard.md)
+#### [디바이스 요약 사용](storsimple-8000-device-dashboard.md)
 #### [모니터링 차트 사용](storsimple-8000-monitor-device.md)
 #### [서비스 경고 사용](storsimple-8000-manage-alerts.md)
 #### [하드웨어 상태 사용](storsimple-8000-monitor-hardware-status.md)
@@ -170,7 +170,7 @@
 #### [진단 도구 사용](storsimple-8000-diagnostics.md)
 #### [운영 문제](storsimple-troubleshoot-operational-device.md)
 #### [하드웨어 교체](storsimple-8000-hardware-component-replacement.md)
-##### [장치 컨트롤러 교체](storsimple-8000-controller-replacement.md)
+##### [디바이스 컨트롤러 교체](storsimple-8000-controller-replacement.md)
 ##### [EBOD 컨트롤러 교체](storsimple-8000-ebod-controller-replacement.md)
 ##### [PCM 교체](storsimple-8000-power-cooling-module-replacement.md)
 ##### [디스크 드라이브 교체](storsimple-8000-disk-drive-replacement.md)
@@ -181,10 +181,10 @@
 
 ### 마이그레이션
 #### [구독 및 저장소 계정](storsimple-8000-migrate-classic-azure-portal.md)
-#### [5000/7000 시리즈 장치에서](storsimple-8000-migration-options.md)
-##### [StorSimple 8000 시리즈 장치 대상](storsimple-8000-migrate-from-5000-7000.md)
+#### [5000/7000 시리즈 디바이스에서](storsimple-8000-migration-options.md)
+##### [StorSimple 8000 시리즈 디바이스 대상](storsimple-8000-migrate-from-5000-7000.md)
 ##### [Azure 파일 동기화 대상](storsimple-5000-7000-afs-migration.md)
-#### [다른 저장 장치에서](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
+#### [다른 저장 디바이스에서](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### 주 지역에서
 #### [업데이트 5 설치 - 현재](storsimple-8000-install-update-5.md)
@@ -209,7 +209,7 @@
 ## 참고 자료
 ### [REST API](https://docs.microsoft.com/rest/api/storsimple)
 ### [StorSimple용 Windows PowerShell cmdlet](https://technet.microsoft.com/library/dn688168.aspx)
-
+### [Resource Manager 템플릿](/azure/templates/microsoft.storsimple/allversions)
 
 # StorSimple 데이터 관리자
 

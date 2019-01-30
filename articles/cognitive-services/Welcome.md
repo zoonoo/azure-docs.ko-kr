@@ -1,24 +1,24 @@
 ---
 title: Azure Cognitive Services란?
-description: Azure Cognitive Servicessms Microsoft Azure에서 지능형 응용 프로그램을 빌드하는 데 사용할 수 있는 API, SDK 및 서비스입니다.
+description: Azure Cognitive Servicessms Microsoft Azure에서 지능형 애플리케이션을 빌드하는 데 사용할 수 있는 API, SDK 및 서비스입니다.
 services: cognitive-services
 author: nitinme
 manager: cgronlund
 ms.service: cognitive-services
 ms.component: ''
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/17/2018
 ms.author: nitinme
-ms.openlocfilehash: f7a68aab4959c3793c7688504d73d2b539a26f83
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 60bf74135e760e837de7e5548bcb60f6c7b8dd0c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025398"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475240"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure Cognitive Services란?
 
-Azure Cognitive Services는 개발자가 직접적인 AI 또는 데이터 과학 기술이나 지식 없이도 지능형 응용 프로그램을 빌드하는 데 도움이 되도록 사용할 수 있는 API, SDK 및 서비스입니다. Azure Cognitive Services는 진화하는 기계 학습 API 포트폴리오를 확장하고, 개발자가 응용 프로그램에 인지 기능, 즉 감정 및 비디오 검색, 얼굴, 음성 및 영상 인식, 음성 및 언어 이해 등을 쉽게 추가할 수 있게 합니다. Azure Cognitive Services의 목표는 개발자가 보고, 듣고, 말하고, 이해하고, 추론까지 할 수 있는 응용 프로그램을 만들도록 지원하는 것입니다. Azure Cognitive Services 내의 서비스 카탈로그는 5가지 주요 핵심 요소인 Vision, Speech, Language, Search 및 Knowledge로 분류될 수 있습니다.
+Azure Cognitive Services는 개발자가 직접적인 AI 또는 데이터 과학 기술이나 지식 없이도 지능형 애플리케이션을 빌드하는 데 도움이 되도록 사용할 수 있는 API, SDK 및 서비스입니다. Azure Cognitive Services는 진화하는 기계 학습 API 포트폴리오를 확장하고, 개발자가 애플리케이션에 인지 기능, 즉 감정 및 비디오 검색, 얼굴, 음성 및 영상 인식, 음성 및 언어 이해 등을 쉽게 추가할 수 있게 합니다. Azure Cognitive Services의 목표는 개발자가 보고, 듣고, 말하고, 이해하고, 추론까지 할 수 있는 애플리케이션을 만들도록 지원하는 것입니다. Azure Cognitive Services 내의 서비스 카탈로그는 5가지 주요 핵심 요소인 Vision, Speech, Language, Search 및 Knowledge로 분류될 수 있습니다.
 
 ## <a name="vision-apis"></a>Vision API
 
@@ -35,9 +35,9 @@ Azure Cognitive Services는 개발자가 직접적인 AI 또는 데이터 과학
 
 |서비스 이름|서비스 설명|
 |:-----------|:------------------|
-|[Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Speech Service")(미리 보기)|Speech Service는 응용 프로그램에 음성 지원 기능을 추가합니다.|
-|[Custom Speech Service](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home "Custom Speech Service")(미리 보기)|Custom Speech Service는 응용 프로그램과 사용자에 맞게 조정된 사용자 지정 언어 모델과 음향 모델이 음성 모델을 만들 수 있습니다.|
-|[Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing Speech API")|Bing Speech API는 응용 프로그램에서 음성 지원 기능을 만드는 편리한 방법을 제공합니다.|
+|[Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Speech Service")(미리 보기)|Speech Service는 애플리케이션에 음성 지원 기능을 추가합니다.|
+|[Custom Speech Service](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home "Custom Speech Service")(미리 보기)|Custom Speech Service는 애플리케이션과 사용자에 맞게 조정된 사용자 지정 언어 모델과 음향 모델이 음성 모델을 만들 수 있습니다.|
+|[Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing Speech API")|Bing Speech API는 애플리케이션에서 음성 지원 기능을 만드는 편리한 방법을 제공합니다.|
 |[Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Translator Speech")|Translator Speech는 기계 번역 서비스입니다.|
 |[Speaker Recognition API](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "Speaker Recognition API")(미리 보기)|Speaker Recognition API는 화자 식별 및 인증을 위한 알고리즘을 제공합니다.|
 
@@ -46,7 +46,7 @@ Azure Cognitive Services는 개발자가 직접적인 AI 또는 데이터 과학
 |서비스 이름|서비스 설명|
 |:-----------|:------------------|
 |[Bing Spell Check](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "Bing Spell Check")|Bing Spell Check API를 사용하여 상황별 문법 및 맞춤법 검사를 수행할 수 있습니다.|
-|[Language Understanding LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "Language Understanding")|LUIS(Language Understanding) 서비스를 사용하면 응용 프로그램에서 사람의 말을 통해 무엇을 원하는지 이해할 수 있습니다.|
+|[Language Understanding LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "Language Understanding")|LUIS(Language Understanding) 서비스를 사용하면 애플리케이션에서 사람의 말을 통해 무엇을 원하는지 이해할 수 있습니다.|
 |[Linguistic Analysis](https://docs.microsoft.com/azure/cognitive-services/linguisticanalysisapi/home "Linguistic Analysis")(미리 보기)|Linguistic Analysis는 텍스트 구조를 식별하는 자연어 처리 도구를 제공합니다.|
 |[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Text Analytics")|텍스트 분석은 감정 분석, 핵심 구 추출 및 언어 감지를 위한 원시 텍스트의 자연어 처리를 제공합니다.|
 |[Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/ "Translator Text")|Translator Text는 거의 실시간으로 컴퓨터 기반 텍스트 번역을 제공합니다.||
@@ -89,6 +89,14 @@ Microsoft 계정으로 로그인하면 [내 구독](https://www.microsoft.com/co
 Cognitive Services에서 API는 증가하는 Microsoft 운영 데이터 센터의 네트워크에서 호스팅됩니다. [Azure 지역 목록](https://azure.microsoft.com/regions)에서 각 API에 대한 지역별 가용성을 확인할 수 있습니다.
 
 아직 지원하지 않는 지역을 찾습니까? [UserVoice 포럼](https://cognitive.uservoice.com/)에서 기능 요청을 제출하여 Microsoft에 알려주세요.
+
+## <a name="supported-cultural-languages"></a>지원되는 문화 언어
+
+ Cognitive Services는 서비스 수준에서 광범위한 문화 언어를 지원합니다. [지원되는 언어 목록](language-support.md)에서 각 API에서 사용할 수 있는 언어를 찾을 수 있습니다.
+
+ ## <a name="container-support"></a>컨테이너 지원
+
+ Cognitive Services는 Azure 클라우드 또는 온-프레미스에 배포하는 데 사용할 컨테이너를 제공합니다. [Cognitive Services 컨테이너](cognitive-services-container-support.md)에 대해 자세히 알아봅니다.
 
 ## <a name="support"></a>지원
 

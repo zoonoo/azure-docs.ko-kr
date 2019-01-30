@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: quickstart
 ms.date: 10/31/2018
 ms.author: areddish
-ms.openlocfilehash: 926e9feaa5061c84ce8de6d828da820e133700ce
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 14123c316b2881c2ded36a5e30ce62a961183991
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278863"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079156"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>빠른 시작: Custom Vision .NET SDK를 사용하여 개체 검색 프로젝트 만들기
 
@@ -31,9 +31,9 @@ Custom Vision을 사용하는 .NET 앱을 작성하려면 Custom Vision NuGet �
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
-[Cognitive Services .NET 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples) 프로젝트를 복제 또는 다운로드합니다. **CustomVision/ObjectDetection** 폴더로 이동하여 Visual Studio에서 ObjectDetection.csproj_를 엽니다.
+[Cognitive Services .NET 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples) 프로젝트를 복제 또는 다운로드합니다. **CustomVision/ObjectDetection** 폴더로 이동하여 Visual Studio에서 _ObjectDetection.csproj_를 엽니다.
 
-이 Visual Studio 프로젝트는 [Custom Vision 웹 사이트](https://customvision.ai/)를 통해 액세스할 수 있는 __My New Project__라는 새로운 Custom Vision 프로젝트를 만듭니다. 그런 다음, 이미지를 업로드하여 개체 검색 모델을 교육하고 테스트합니다. 이 프로젝트의 모델은 이미지에서 포트와 가위를 검색하는 교육을 받습니다.
+이 Visual Studio 프로젝트는 [Custom Vision 웹 사이트](https://customvision.ai/)를 통해 액세스할 수 있는 __My New Project__ 라는 새로운 Custom Vision 프로젝트를 만듭니다. 그런 다음, 이미지를 업로드하여 개체 검색 모델을 교육하고 테스트합니다. 이 프로젝트의 모델은 이미지에서 포트와 가위를 검색하는 교육을 받습니다.
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
 
@@ -42,6 +42,10 @@ Custom Vision을 사용하는 .NET 앱을 작성하려면 Custom Vision NuGet �
 _Program.cs_ 파일을 열고 코드를 검사합니다. **Main** 메서드의 적절한 정의에 구독 키를 삽입합니다.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=18-27)]
+
+엔드포인트 매개 변수는 Custom Vision 리소스를 포함하는 Azure 리소스 그룹이 생성된 위치를 가리켜야 합니다. 이 예제에서는 미국 중남부 지역이라고 가정하고 다음 항목을 사용하겠습니다.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=14-14)]
 
 ### <a name="create-a-new-custom-vision-service-project"></a>새 Custom Vision Service 프로젝트 만들기
 
@@ -87,7 +91,7 @@ _Program.cs_ 파일을 열고 코드를 검사합니다. **Main** 메서드의 �
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=133-145)]
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
 응용 프로그램이 실행되면 콘솔 창이 열리고 다음 출력이 기록됩니다.
 

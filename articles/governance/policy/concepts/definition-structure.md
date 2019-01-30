@@ -1,23 +1,25 @@
 ---
-title: Azure Policy 정의 구조
+title: 정책 정의 구조에 대한 세부 정보
 description: 정책이 언제 적용되고 어떤 영향이 있는지 설명함으로써 Azure Policy가 조직의 리소스에 대한 규칙을 설정하기 위해 리소스 정책 정의가 어떻게 사용되는지 설명합니다.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/30/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: b5c7d0c6d54272518b19ffec0d8f02ebbcfe55d9
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.custom: seodec18
+ms.openlocfilehash: 0fe15cc87e0d30f58dc26ae925efa6d65b243f5b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283294"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851660"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
-Azure Policy에서 사용되는 리소스 정책을 통해 정책이 언제 적용되고 어떤 영향이 있는지 설명함으로써 조직의 리소스에 대한 규칙을 설정할 수 있습니다. 규칙을 정의하여 비용을 제어하고 리소스를 보다 쉽게 관리할 수 있습니다. 예를 들어, 특정 유형의 가상 머신만 허용되게 지정할 수 있습니다. 또는 모든 리소스가 특정 태그를 갖도록 요구할 수 있습니다. 정책은 모든 자식 리소스에 의해 상속됩니다. 이에 따라 리소스 그룹에 정책을 적용하면 해당 리소스 그룹의 모든 리소스에 해당 정책을 적용할 수 있습니다.
+리소스 정책 정의는 Azure Policy에서 리소스에 대한 규칙을 설정하는 데 사용됩니다. 각 정의는 리소스 규정 준수 및 리소스가 규정을 준수하지 않을 때 적용되는 영향에 대해 설명합니다.
+규칙을 정의하여 비용을 제어하고 리소스를 보다 쉽게 관리할 수 있습니다. 예를 들어, 특정 유형의 가상 머신만 허용되게 지정할 수 있습니다. 또는 모든 리소스가 특정 태그를 갖도록 요구할 수 있습니다. 정책은 모든 자식 리소스에 의해 상속됩니다. 리소스 그룹에 정책을 적용하면 해당 리소스 그룹의 모든 리소스에 해당 정책을 적용할 수 있습니다.
 
 여기에서는 Azure Policy에서 사용하는 스키마를 찾을 수 있습니다. [https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json](https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json)
 
@@ -66,6 +68,8 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 모든 Azure Policy 샘플은 [정책 샘플](../samples/index.md)에 있습니다.
 
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+
 ## <a name="mode"></a>Mode
 
 **mode**는 정책에 대해 평가할 리소스 종류를 결정합니다. 지원되는 모드는 다음과 같습니다.
@@ -73,9 +77,9 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - `all`: 리소스 그룹 및 모든 리소스 종류를 평가합니다.
 - `indexed`: 태그 및 위치를 지원하는 리소스 종류만 평가합니다.
 
-대부분 **mode**를 `all`로 설정하는 것이 좋습니다. 포털을 통해 생성된 모든 정책 정의는 `all` 모드를 사용합니다. PowerShell 또는 Azure CLI를 사용하는 경우 **mode** 매개 변수를 수동으로 지정할 수 있습니다. 정책 정의에 **mode** 값이 포함되어 있지 않으면 이전 버전과의 호환성을 위해 Azure PowerShell에서 `all` 및 Azure CLI에서 `null`(`indexed`와 동등함)로 기본값이 설정됩니다.
+대부분 **mode**를 `all`로 설정하는 것이 좋습니다. 포털을 통해 생성된 모든 정책 정의는 `all` 모드를 사용합니다. PowerShell 또는 Azure CLI를 사용하는 경우 **mode** 매개 변수를 수동으로 지정할 수 있습니다. 정책 정의에 **mode** 값이 포함되지 않으면 기본적으로 Azure PowerShell에서는 `all`로 설정되고 Azure CLI에서는 `null`로 설정됩니다. `null` 모드는 이전 버전과의 호환성을 지원하기 위해 `indexed`를 사용하는 것과 같습니다.
 
-`indexed`는 태그 또는 위치를 시스템에 적용하는 정책을 만들 때 사용해야 합니다. 필수는 아니지만, 태그 및 위치를 지원하지 않는 리소스가 준수 결과에서 호환되지 않음으로 표시되지 않도록 방지합니다. 한 가지 예외는 **리소스 그룹**입니다. 리소스 그룹에서 위치 또는 태그를 적용하려고 하는 정책은 **모드**를 `all`로 설정하고 구체적으로 `Microsoft.Resources/subscriptions/resourceGroup` 형식을 대상으로 지정해야 합니다. 예를 들어 [리소스 그룹 태그 적용](../samples/enforce-tag-rg.md)을 참조하세요.
+`indexed`는 태그 또는 위치를 시스템에 적용하는 정책을 만들 때 사용해야 합니다. 필수는 아니지만, 태그 및 위치를 지원하지 않는 리소스가 규정 준수 결과에서 호환되지 않음으로 표시되지 않도록 방지합니다. 예외는 **리소스 그룹**입니다. 리소스 그룹에서 위치 또는 태그를 적용하는 정책은 **mode**를 `all`로 설정하고 구체적으로 `Microsoft.Resources/subscriptions/resourceGroup` 형식을 대상으로 지정해야 합니다. 예를 들어 [리소스 그룹 태그 적용](../samples/enforce-tag-rg.md)을 참조하세요.
 
 ## <a name="parameters"></a>매개 변수
 
@@ -86,7 +90,8 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 > 정책 또는 이니셔티브 정의에 대한 매개 변수 정의는 정책 또는 이니셔티브의 초기 작성 중에만 구성할 수 있습니다. 매개 변수 정의는 나중에 변경할 수 없습니다.
 > 이렇게 하면 정책 또는 이니셔티브의 기존 지정이 간접적으로 유효하지 않게 됩니다.
 
-예를 들어 리소스를 배포할 수 있는 위치를 제한하는 리소스 속성에 대한 정책을 정의할 수 있습니다. 이 경우 정책을 만들 때 다음 매개 변수를 선언합니다.
+예를 들어 리소스를 배포할 수 있는 위치를 제한하는 정책을 정의할 수 있습니다.
+정책을 만들 때 다음 매개 변수를 선언합니다.
 
 ```json
 "parameters": {
@@ -123,7 +128,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 ## <a name="definition-location"></a>정의 위치
 
-이니셔티브 또는 정책을 만드는 동안 정의 위치를 지정해야 합니다. 정의 위치는 관리 그룹 또는 구독이어야 하며, 이니셔티브 또는 정책을 할당할 수 있는 범위를 결정합니다. 리소스는 할당 대상으로 지정할 정의 위치의 계층 구조 내의 직접 멤버 또는 자식 멤버여야 합니다.
+이니셔티브 또는 정책을 만드는 동안 정의 위치를 지정해야 합니다. 정의 위치는 관리 그룹 또는 구독이어야 합니다. 이 위치는 이니셔티브 또는 정책을 할당할 수 있는 범위를 결정합니다. 리소스는 할당 대상으로 지정할 정의 위치의 계층 구조 내의 직접 멤버 또는 자식 멤버여야 합니다.
 
 정의 위치는 다음과 같습니다.
 
@@ -132,7 +137,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 ## <a name="display-name-and-description"></a>표시 이름 및 설명
 
-**displayName** 및 **설명**을 사용하여 정책 정의를 식별하고 사용하는 시기에 대한 컨텍스트를 제공할 수 있습니다.
+**displayName** 및 **description**을 사용하여 정책 정의를 식별하고 사용하는 시기에 대한 컨텍스트를 제공합니다.
 
 ## <a name="policy-rule"></a>정책 규칙
 
@@ -197,14 +202,14 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-**like** 및 **notLike** 조건을 사용하는 경우 값에 와일드카드`*`를 제공할 수 있습니다.
-값에 1을 초과하는 와일드 카드`*`가 있으면 안 됩니다.
+**like** 및 **notLike** 조건을 사용하는 경우 값에 와일드카드 `*`를 제공합니다.
+값에 와일드카드 `*`를 두 개 이상 포함하면 안 됩니다.
 
-**match** 및 **notMatch** 조건을 사용하는 경우 자릿수 하나를 나타내려면 `#`를, 문자 하나를 나타내려면 `?`를, 모든 문자에 일치하려면 `.`를, 실제 문자를 나타내려면 다른 문자를 입력합니다. 예를 들어 [여러 이름 패턴 허용](../samples/allow-multiple-name-patterns.md)을 참조하세요.
+**match** 및 **notMatch** 조건을 사용하는 경우 숫자 하나를 일치시키려면 `#`를, 문자 하나를 일치시키려면 `?`를, 모든 문자를 일치시키려면 `.`를, 실제 문자와 일치시키려면 다른 문자를 입력합니다. 예를 들어 [여러 이름 패턴 허용](../samples/allow-multiple-name-patterns.md)을 참조하세요.
 
 ### <a name="fields"></a>필드
 
-조건은 필드를 사용하여 구성됩니다. 필드는 리소스의 상태를 설명하는 데 사용되는 리소스 요청 페이로드의 속성을 나타냅니다.
+조건은 필드를 사용하여 구성됩니다. 필드는 리소스 요청 페이로드의 속성을 일치시키고 리소스 상태를 설명합니다.
 
 다음 필드가 지원됩니다.
 
@@ -214,12 +219,15 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - `kind`
 - `type`
 - `location`
+  - 위치에 관계없는 리소스에는 **전역**을 사용합니다. 예를 들어 [샘플 - 허용된 위치](../samples/allowed-locations.md)를 참조하세요.
+- `identity.type`
+  - 리소스에서 사용 가능한 [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md) 형식을 반환합니다.
 - `tags`
 - `tags.<tagName>`
   - 여기서 **\<tagName\>** 은 조건의 유효성을 검사하기 위한 태그 이름입니다.
   - 예: `tags.CostCenter` 여기서 **CostCenter**는 태그의 이름입니다.
 - `tags[<tagName>]`
-  - 이 대괄호 구문은 마침표가 포함된 태그 이름을 지원합니다.
+  - 이 대괄호 구문은 마침표가 있는 태그 이름을 지원합니다.
   - 여기서 **\<tagName\>** 은 조건의 유효성을 검사하기 위한 태그 이름입니다.
   - 예: `tags[Acct.CostCenter]` 여기서 **Acct.CostCenter**는 태그의 이름입니다.
 - 속성 별칭 - 목록은 [별칭](#aliases)을 참조하세요.
@@ -229,9 +237,9 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 정책은 다음과 같은 형식의 결과 지원합니다.
 
 - **거부**: 활동 로그에 이벤트를 생성하고 요청을 실패합니다.
-- **감사**: 활동 로그에 경고 이벤트를 생성하지만 요청을 실패하지는 않습니다.
+- **Audit**: 활동 로그에 경고 이벤트를 생성하지만 요청을 실패하지는 않습니다.
 - **추가**는 정의된 필드 집합을 요청에 추가합니다.
-- **AuditIfNotExists** - 리소스가 없으면 감사를 사용하도록 설정합니다.
+- **AuditIfNotExists**: 리소스가 없으면 감사를 사용하도록 설정합니다.
 - **DeployIfNotExists**: 아직 존재하지 않는 리소스를 배포합니다.
 - **Disabled**: 정책 규칙 준수에 대해 리소스를 평가하지 않습니다.
 
@@ -247,7 +255,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 값은 문자열 또는 JSON 형식의 개체일 수 있습니다.
 
-**AuditIfNotExists** 및 **DeployIfNotExists**를 사용하면 관련 리소스의 존재 여부를 평가하고, 해당 리소스가 없을 경우 규칙과 그 결과를 적용할 수 있습니다. 예를 들어 모든 가상 네트워크에 대해 네트워크 감시자를 배포하도록 요구할 수 있습니다. 가상 머신 확장이 배포되지 않은 경우의 감사 예제는 [확장이 존재하지 않을 경우 감사](../samples/audit-ext-not-exist.md)를 참조하세요.
+**AuditIfNotExists** 및 **DeployIfNotExists**는 관련 리소스의 존재를 평가하고 규칙을 적용합니다. 리소스가 규칙과 일치하지 않으면 영향이 구현됩니다. 예를 들어 모든 가상 네트워크에 대해 네트워크 감시자를 배포하도록 요구할 수 있습니다. 자세한 내용은 [확장이 없는 경우 감사](../samples/audit-ext-not-exist.md)를 참조하세요.
 
 **DeployIfNotExists** 효과에는 정책 규칙의 **details** 부분에 **roleDefinitionId** 속성이 필요합니다. 자세한 내용은 [수정 - 정책 정의 구성](../how-to/remediate-resources.md#configure-policy-definition)을 참조하세요.
 
@@ -265,14 +273,14 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 ### <a name="policy-functions"></a>정책 함수
 
-정책 규칙 내에서 [Resource Manager 템플릿 함수](../../../azure-resource-manager/resource-group-template-functions.md)의 하위 집합을 사용할 수 있습니다. 현재 지원되는 함수는 다음과 같습니다.
+정책 규칙 내에서 여러 가지 [Resource Manager 템플릿 함수](../../../azure-resource-manager/resource-group-template-functions.md)를 사용할 수 있습니다. 현재 지원되는 함수는 다음과 같습니다.
 
 - [매개 변수](../../../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
 - [concat](../../../azure-resource-manager/resource-group-template-functions-array.md#concat)
 - [resourceGroup](../../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
 - [subscription](../../../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
 
-`field` 함수도 정책 규칙에 사용할 수 있습니다. 이 함수는 주로 평가 중인 리소스의 필드를 참조하기 위해 **AuditIfNotExists** 및 **DeployIfNotExists**와 함께 사용할 수 있습니다. 이 예제는 [ DeployIfNotExists 예제](effects.md#deployifnotexists-example)에서 볼 수 있습니다.
+`field` 함수도 정책 규칙에 사용할 수 있습니다. `field`는 주로 평가 중인 리소스의 필드를 참조하기 위해 **AuditIfNotExists** 및 **DeployIfNotExists**와 함께 사용합니다. 이 사용 예제는 [DeployIfNotExists 예제](effects.md#deployifnotexists-example)에서 볼 수 있습니다.
 
 #### <a name="policy-function-examples"></a>정책 함수 예제
 
@@ -314,18 +322,18 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 리소스 유형에 대한 특정 속성에 액세스하려면 속성 별칭을 사용합니다. 별칭을 사용하면 리소스의 속성에 허용되는 값이나 조건을 제한할 수 있습니다. 각 별칭은 주어진 리소스 유형에 대해 서로 다른 API 버전의 경로에 매핑됩니다. 정책 평가 중에 정책 엔진은 해당 API 버전에 대한 속성 경로를 가져옵니다.
 
-별칭의 목록은 항상 업데이트됩니다. 현재 Azure Policy에서 지원하는 별칭을 검색하려면 다음 방법 중 하나를 사용합니다.
+별칭의 목록은 항상 업데이트됩니다. 현재 Azure Policy에서 지원하는 별칭을 찾으려면 다음 방법 중 하나를 사용합니다.
 
 - Azure PowerShell
 
   ```azurepowershell-interactive
-  # Login first with Connect-AzureRmAccount if not using Cloud Shell
+  # Login first with Connect-AzAccount if not using Cloud Shell
 
-  # Use Get-AzureRmPolicyAlias to list available providers
-  Get-AzureRmPolicyAlias -ListAvailable
+  # Use Get-AzPolicyAlias to list available providers
+  Get-AzPolicyAlias -ListAvailable
 
-  # Use Get-AzureRmPolicyAlias to list aliases for a Namespace (such as Azure Automation -- Microsoft.Automation)
-  Get-AzureRmPolicyAlias -NamespaceMatch 'automation'
+  # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Automation -- Microsoft.Automation)
+  Get-AzPolicyAlias -NamespaceMatch 'automation'
   ```
 
 - Azure CLI
@@ -355,7 +363,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 첫 번째 예는 전체 배열을 평가하는 데 사용되며, **[\*]** 별칭은 배열의 각 요소를 평가합니다.
 
-정책 규칙을 예제로 살펴보겠습니다. 이 정책은 ipRules가 구성되고 ipRules에 “127.0.0.1” 값이 **없는** 저장소 계정을 **거부**합니다.
+정책 규칙을 예제로 살펴보겠습니다. 이 정책은 ipRules가 구성되고 ipRules에 “127.0.0.1” 값이 **없는** 스토리지 계정을 **거부**합니다.
 
 ```json
 "policyRule": {
@@ -420,7 +428,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 ## <a name="initiatives"></a>이니셔티브
 
-그룹을 단일 항목으로 작업할 수 있기 때문에 이니셔티브를 사용하면 여러 관련 정책 정의를 그룹화할 수 있어 할당 및 관리를 간소화합니다. 예를 들어 관련 태그 지정 정책 정의 모두를 단일 이니셔티브로 그룹화할 수 있습니다. 각 정책을 개별적으로 할당하는 대신 이니셔티브를 적용합니다.
+그룹을 단일 항목으로 작업할 수 있기 때문에 이니셔티브를 사용하면 여러 관련 정책 정의를 그룹화할 수 있어 할당 및 관리를 간소화합니다. 예를 들어 관련 태그 지정 정책 정의를 단일 이니셔티브로 그룹화할 수 있습니다. 각 정책을 개별적으로 할당하는 대신 이니셔티브를 적용합니다.
 
 다음 예제에서는 두 태그 `costCenter`과 `productName`를 처리하기 위한 이니셔티브를 만드는 방법을 보여 줍니다. 기본 태그 값을 적용하려면 두 가지 기본 제공 정책을 사용합니다.
 
@@ -502,5 +510,5 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - [정책 효과 이해](effects.md)를 검토합니다.
 - [프로그래밍 방식으로 정책을 생성](../how-to/programmatically-create.md)하는 방법을 이해합니다.
 - [규정 준수 데이터를 가져오는 방법](../how-to/getting-compliance-data.md)을 알아봅니다.
-- [비준수 리소스를 수정](../how-to/remediate-resources.md)하는 방법을 파악합니다.
+- [비준수 리소스를 수정](../how-to/remediate-resources.md)하는 방법을 알아봅니다.
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

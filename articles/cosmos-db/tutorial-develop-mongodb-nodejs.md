@@ -1,29 +1,28 @@
 ---
-title: Azure에 대한 MongoDB, Angular 및 노드 자습서 | Microsoft Docs
+title: Node.Js, MongoB API를 사용하는 Angular 앱(1부)
+titleSuffix: Azure Cosmos DB
 description: 이 동영상 기반 자습서 시리즈에서 MongoDB에 사용하는 것과 정확히 동일한 API를 사용하여 Azure Cosmos DB의 Angular 및 노드를 사용하여 MongoDB 앱을 만드는 방법을 알아봅니다.
-services: cosmos-db
 author: johnpapa
-manager: kfile
-editor: ''
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 09/05/2017
+ms.date: 12/26/2018
 ms.author: jopapa
-ms.custom: mvc
-ms.openlocfilehash: 1a9d608e7f959b3fc164f87d408ccd268e8d2568
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.custom: seodec18
+ms.reviewer: sngun
+ms.openlocfilehash: ec88b8e78c2d73ffa4badbc8ceaa468b4e5169e0
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41917982"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044351"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db"></a>Angular 및 Azure Cosmos DB에서 MongoDB 앱 만들기 
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기
 
-이 다중 파트 자습서에서는 Express, Angular 및 Node.js(MEAN 스택)을 사용하여 새 [MongoDB API](mongodb-introduction.md) 앱을 만들고 Azure Cosmos DB 데이터베이스에 연결하는 방법을 보여줍니다. Azure Cosmos DB는 MongoDB 클라이언트 연결을 지원합니다. 따라서 MongoDB 대신 Azure Cosmos DB를 사용할 수 있지만 MongoDB 앱에 사용하는 동일한 코드를 사용합니다. 여기에는 추가 이점이 있습니다. Azure Cosmos DB의 이러한 이점은 쉬운 클라우드 배포, 크기 조정, 보안, 복제된 글로벌 데이터, 다중 모델 지원 및 초고속 읽기 및 쓰기입니다. 
+여러 파트로 구성된 이 자습서에서는 Express 및 Angular를 사용하여 Node.js로 작성된 새 앱을 만든 다음, [Cosmos DB의 API for MongoDB를 사용하여 구성된 Cosmos 계정](mongodb-introduction.md)에 연결하는 방법을 보여줍니다.
 
-Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
+Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Cosmos DB의 핵심인 글로벌 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
 이 다중 파트 자습서에서 다루는 작업은 다음과 같습니다.
 

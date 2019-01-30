@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 696c331111fef9d6fc238b733e15230ab3ee1e56
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 50340218f80dfb0b443075a3a4f85e7a5ed86159
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378019"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433279"
 ---
 # <a name="which-version-of-azure-mfa-is-right-for-my-organization"></a>우리 조직에 적합한 Azure MFA 버전은 무엇입니까?
 
@@ -29,14 +29,14 @@ MFA(Multi-Factor Authentication)를 어디에 어떻게 배포할 것인지 결�
 
 ## <a name="what-am-i-trying-to-secure"></a>보안을 유지하려는 대상은 무엇입니까?
 
-적합한 2단계 확인 솔루션을 결정하려면, 먼저 추가 인증 방법으로 보안을 유지하려는 대상이 무엇인지 답해야 합니다. Azure에 있는 응용프로그램입니까? 또는 원격 액세스 시스템입니까? 보안을 유지하려는 대상이 무엇인지 결정하면 Multi-Factor Authentication 활성화가 어디에 필요한지 대답할 수 있습니다.
+적합한 2단계 확인 솔루션을 결정하려면, 먼저 추가 인증 방법으로 보안을 유지하려는 대상이 무엇인지 답해야 합니다. Azure에 있는 애플리케이션입니까? 또는 원격 액세스 시스템입니까? 보안을 유지하려는 대상이 무엇인지 결정하면 Multi-Factor Authentication 활성화가 어디에 필요한지 대답할 수 있습니다.
 
 | 보안을 유지하려는 대상은 무엇입니까 | 클라우드의 MFA | MFA 서버  |
 | --- |:---:|:---:|
 | 자사 Microsoft 앱 |● |● |
 | 앱 갤러리의 SaaS 앱 |● |  |
-| Azure AD 앱 프록시를 통해 웹 응용프로그램 게시됨 |● |  |
-| Azure AD 응용프로그램 프록시를 통해 IIS 응용프로그램 게시되지 않음 | |● |
+| Azure AD 앱 프록시를 통해 웹 애플리케이션 게시됨 |● |  |
+| Azure AD 애플리케이션 프록시를 통해 IIS 애플리케이션 게시되지 않음 | |● |
 | VPN, RDG와 같은 원격 액세스 | ● | ● |
 
 ## <a name="where-are-the-users-located"></a>사용자는 어디에 있습니까

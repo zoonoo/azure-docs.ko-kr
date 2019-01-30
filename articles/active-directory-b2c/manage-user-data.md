@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 사용자 데이터 관리 | Microsoft D
 description: Azure AD B2C에서 사용자 데이터를 삭제하거나 내보내는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 49e9efa537ad1f2a1d7f06dd7f8a68a409c7d4e0
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: fc49191fe6141470ddd5304bdd12cec1d40bd1ee
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142653"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854023"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 데이터 관리
 
@@ -34,11 +34,11 @@ Azure AD B2C의 모든 사용자에게는 개체 ID가 할당됩니다. 개체 I
 다음 예제에는 가능한 데이터 삭제 흐름을 보여줍니다.
 
 1. 사용자가 로그인하여 **내 데이터 삭제**를 선택합니다.
-2. 응용 프로그램이 응용 프로그램의 관리 섹션 내에 데이터를 삭제하는 옵션을 제공합니다.
-3. 응용 프로그램이 Azure AD B2C에 인증을 강제로 수행합니다. Azure AD B2C가 사용자의 개체 ID가 포함된 토큰을 응용 프로그램에 제공합니다. 
-4. 응용 프로그램이 토큰을 수신하고 개체 ID가 Azure AD Graph API에 대한 호출을 통해 사용자 데이터를 삭제하는 데 사용됩니다. Azure AD Graph API가 사용자 데이터를 삭제하고 200 OK 상태 코드를 반환합니다.
-5. 응용 프로그램이 개체 ID나 기타 식별자를 사용하여 필요에 따라 다른 조직 시스템에서 사용자 데이터 삭제를 조정합니다.
-6. 응용 프로그램이 데이터 삭제를 확인하고 사용자에게 다음 단계를 제공합니다.
+2. 애플리케이션이 애플리케이션의 관리 섹션 내에 데이터를 삭제하는 옵션을 제공합니다.
+3. 애플리케이션이 Azure AD B2C에 인증을 강제로 수행합니다. Azure AD B2C가 사용자의 개체 ID가 포함된 토큰을 애플리케이션에 제공합니다. 
+4. 애플리케이션이 토큰을 수신하고 개체 ID가 Azure AD Graph API에 대한 호출을 통해 사용자 데이터를 삭제하는 데 사용됩니다. Azure AD Graph API가 사용자 데이터를 삭제하고 200 OK 상태 코드를 반환합니다.
+5. 애플리케이션이 개체 ID나 기타 식별자를 사용하여 필요에 따라 다른 조직 시스템에서 사용자 데이터 삭제를 조정합니다.
+6. 애플리케이션이 데이터 삭제를 확인하고 사용자에게 다음 단계를 제공합니다.
 
 ## <a name="export-customer-data"></a>고객 데이터 내보내기
 
@@ -49,16 +49,16 @@ Azure AD B2C 사용자 데이터는 다음 항목으로 제한됩니다.
 - **Azure Active Directory에 저장된 데이터**: 개체 ID나 이메일 또는 사용자 이름과 같은 로그인 이름을 사용하여 Azure AD B2C 인증 사용자 경험에서 데이터를 검색할 수 있습니다. 
 - **사용자별 감사 이벤트 보고서**: 개체 ID를 사용하여 데이터를 인덱싱할 수 있습니다.
 
-다음과 같은 데이터 내보내기 흐름 예제에서 응용 프로그램이 수행하는 것으로 언급된 단계는 백 엔드 프로세스 또는 디렉터리의 관리자 역할이 있는 사용자에 의해 수행될 수도 있습니다.
+다음과 같은 데이터 내보내기 흐름 예제에서 애플리케이션이 수행하는 것으로 언급된 단계는 백 엔드 프로세스 또는 디렉터리의 관리자 역할이 있는 사용자에 의해 수행될 수도 있습니다.
 
-1. 사용자가 응용 프로그램에 로그인합니다. Azure AD B2C는 필요한 경우 Azure Multi-Factor Authentication을 사용하여 인증을 적용합니다.
-2. 응용 프로그램은 사용자 자격 증명을 사용하여 사용자 특성을 검색하는 Azure AD Graph API 작업을 호출합니다. Azure AD Graph API는 속성 데이터를 JSON 형식으로 제공합니다. 스키마에 따라 사용자에 대한 모든 개인 데이터를 포함하도록 ID 토큰 콘텐츠를 설정할 수 있습니다.
-3. 응용 프로그램이 사용자 감사 활동을 검색합니다. Azure AD Graph API가 이벤트 데이터를 응용 프로그램에 제공합니다.
-4. 응용 프로그램이 사용자가 사용할 수 있도록 데이터를 집계합니다.
+1. 사용자가 애플리케이션에 로그인합니다. Azure AD B2C는 필요한 경우 Azure Multi-Factor Authentication을 사용하여 인증을 적용합니다.
+2. 애플리케이션은 사용자 자격 증명을 사용하여 사용자 특성을 검색하는 Azure AD Graph API 작업을 호출합니다. Azure AD Graph API는 속성 데이터를 JSON 형식으로 제공합니다. 스키마에 따라 사용자에 대한 모든 개인 데이터를 포함하도록 ID 토큰 콘텐츠를 설정할 수 있습니다.
+3. 애플리케이션이 사용자 감사 활동을 검색합니다. Azure AD Graph API가 이벤트 데이터를 애플리케이션에 제공합니다.
+4. 애플리케이션이 사용자가 사용할 수 있도록 데이터를 집계합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 사용자가 응용 프로그램에 액세스하는 방법을 관리하는 방법에 대해 알아보려면 [사용자 액세스 관리](manage-user-access.md)를 참조하세요.
+- 사용자가 애플리케이션에 액세스하는 방법을 관리하는 방법에 대해 알아보려면 [사용자 액세스 관리](manage-user-access.md)를 참조하세요.
 
 
 

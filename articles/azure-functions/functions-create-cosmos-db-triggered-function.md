@@ -12,16 +12,16 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 4fc1c0b87aa5312be0ccac50681e952dc7f1c4ed
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f0173940656581c8bf6b66b0d2a4744e1c751f82
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251732"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968291"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Azure Cosmos DB에 의해 트리거되는 함수 만들기
 
-데이터가 Azure Cosmos DB에 추가될 때 또는 변경될 때 트리거되는 함수를 만드는 방법에 대해 알아봅니다. Azure Cosmos DB에 대한 자세한 내용은 [Azure Cosmos DB: Azure Functions를 통한, 서버를 사용하지 않는 데이터베이스 컴퓨팅](..\cosmos-db\serverless-computing-database.md)을 참조하세요.
+데이터가 Azure Cosmos DB에 추가될 때 또는 변경될 때 트리거되는 함수를 만드는 방법에 대해 알아봅니다. Azure Cosmos DB에 대한 자세한 내용은 [Azure Cosmos DB: Azure Functions를 사용하는 서버리스 데이터베이스 컴퓨팅](../cosmos-db/serverless-computing-database.md)을 참조하세요.
 
 ![로그에서 메시지 보기.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
@@ -71,7 +71,7 @@ ms.locfileid: "51251732"
     | 설정      | 제안 값  | 설명                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Name** | 기본값 | 템플릿에서 추천하는 기본 함수 이름을 사용합니다.|
-    | **Azure Cosmos DB 계정 연결** | 새 설정 | **새로 만들기**를 선택한 다음, **구독**, 이전에 만든 **데이터베이스 계정**, **선택**을 차례로 선택합니다. 그러면 계정 연결에 대한 응용 프로그램 설정이 만들어집니다. 이 설정은 데이터베이스에 연결하는 바인딩에서 사용됩니다. |
+    | **Azure Cosmos DB 계정 연결** | 새 설정 | **새로 만들기**를 선택한 다음, **구독**, 이전에 만든 **데이터베이스 계정**, **선택**을 차례로 선택합니다. 그러면 계정 연결에 대한 애플리케이션 설정이 만들어집니다. 이 설정은 데이터베이스에 연결하는 바인딩에서 사용됩니다. |
     | **컬렉션 이름** | 항목 | 모니터링할 컬렉션의 이름입니다. |
     | **임대 컬렉션이 없는 경우 새로 만들기** | 선택 | 아직 컬렉션이 없으므로 지금 만듭니다. |
     | **데이터베이스 이름** | 작업 | 모니터링할 컬렉션이 포함된 데이터베이스의 이름입니다. |

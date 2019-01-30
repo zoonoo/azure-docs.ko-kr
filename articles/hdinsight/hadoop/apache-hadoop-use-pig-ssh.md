@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6bcd2d299d3816c17265eef658ff1f01409828a1
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: a674ee52ae5e8f8f800d4584a53c808ceae70156
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632225"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435058"
 ---
 # <a name="run-apache-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Pig 명령(SSH)를 사용하여 Linux 기반 클러스터에서 Apache Pig 작업 실행
 
@@ -22,7 +22,7 @@ ms.locfileid: "51632225"
 
 SSH 연결에서 HDInsight 클러스터로 Apache Pig 작업을 대화형으로 실행하는 방법에 대해 알아봅니다. Pig Latin 프로그래밍 언어를 사용하면 원하는 출력을 생성하는 입력 데이터에 적용되는 변환을 설명할 수 있습니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이 문서의 단계에는 Linux 기반 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ## <a id="ssh"></a>SSH를 사용하여 연결
@@ -35,7 +35,7 @@ ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 
 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-## <a id="pig"></a>Pig 명령 사용
+## <a id="pig"></a> Apache Pig 명령 사용
 
 1. 연결되면 다음 명령을 사용하여 Pig CLI(명령줄 인터페이스)를 시작합니다.
 
@@ -74,7 +74,7 @@ ssh sshuser@myhdinsight-ssh.azurehdinsight.net
     | `FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;` | 고유한 각 로그 수준 값 및 발생 횟수를 포함하는 데이터 집합을 만듭니다. 데이터 집합은 `FREQUENCIES`에 저장됩니다. |
     | `RESULT = order FREQUENCIES by COUNT desc;` | 로그 수준을 개수(내림차순)를 기준으로 정렬하고 `RESULT`에 저장합니다. |
 
-    > [!TIP]
+    > [!TIP]  
     > `DUMP`를 사용하여 각 단계 후의 변환 결과를 확인합니다.
 
 5. `STORE` 문을 사용하여 변환 결과를 저장할 수도 있습니다. 예를 들어 다음 문은 `RESULT`를 클러스터 기본 저장소의 `/example/data/pigout` 디렉터리에 저장합니다.
@@ -83,7 +83,7 @@ ssh sshuser@myhdinsight-ssh.azurehdinsight.net
     STORE RESULT into '/example/data/pigout';
     ```
 
-   > [!NOTE]
+   > [!NOTE]  
    > 데이터는 `part-nnnnn` 파일의 지정된 디렉터리에 저장됩니다. 해당 디렉터리가 이미 존재하는 경우 오류가 발생합니다.
 
 6. 프롬프트를 종료하려면 다음 문을 입력합니다.
@@ -136,9 +136,9 @@ Pig 명령을 사용하여 파일에 포함된 Pig Latin을 실행할 수도 있
 
 HDInsight의 Pig에 대한 일반적인 내용은 다음 문서를 참조하세요.
 
-* [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용](hdinsight-use-pig.md)
 
 HDInsight에서 Hadoop을 사용하여 작업하는 다른 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
-* [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Hive 사용](hdinsight-use-hive.md)
+* [HDInsight에서 Apache Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)

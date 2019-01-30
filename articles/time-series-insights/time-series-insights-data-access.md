@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights 액세스 및 관리를 위한 보안 구성 | Microsoft Docs
-description: 이 문서에서는 Azure Time Series Insights를 보호하기 위해 관리 액세스 정책 및 데이터 액세스 정책으로 보안 및 권한을 구성하는 방법을 설명합니다.
+title: Azure Time Series Insights 미리 보기 액세스 및 관리를 위한 보안 구성 | Microsoft Docs
+description: 이 문서에서는 Azure Time Series Insights 미리 보기를 보호하기 위해 관리 액세스 정책 및 데이터 액세스 정책으로 보안 및 권한을 구성하는 방법을 설명합니다.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -9,134 +9,130 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/15/2017
-ms.openlocfilehash: c9bddf8e20524433b31793e277efd954a5d1320e
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.date: 11/26/2018
+ms.custom: seodec18
+ms.openlocfilehash: 9aea7a9c9dd96bf30ebb3def9354df9e4bd30114
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423377"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558525"
 ---
-# <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Azure Portal을 사용하여 Time Series Insights 환경에 대한 데이터 액세스 권한 부여
+# <a name="grant-data-access-to-an-environment"></a>환경에 대한 데이터 액세스 권한 부여
 
-이 문서에서는 두 가지 유형의 Time Series Insights 액세스 정책에 대해 설명합니다.
-
-## <a name="video"></a>비디오: 
-
-### <a name="in-this-video-we-cover-creating-and-managing-access-policies-within-time-series-insights-br"></a>이 비디오에서는 Time Series Insights 내에서 액세스 정책을 만들고 관리하는 방법을 설명합니다. </br>
-
-> [!VIDEO https://www.youtube.com/embed/5zTIdyHMJW8]
-
-Time Series Insights 환경에는 다음과 같은 두 가지 독립적인 액세스 정책이 있습니다.
-
-* 관리 액세스 정책
-* 데이터 액세스 정책
-
-두 정책 모두 Azure Active Directory 주체(사용자 및 앱)에게 특정 환경에 대한 다양한 권한을 부여합니다. 보안 주체(사용자 및 앱)는 환경을 포함하고 있는 구독과 연결된 활성 디렉터리(Azure 테넌트라고 함)에 속해 있어야 합니다.
-
-관리 액세스 정책은
-*   환경 생성 및 삭제, 이벤트 원본, 참조 데이터 집합 및
-*   데이터 액세스 정책 관리 등 환경의 구성과 관련된 권한을 부여합니다.
-
-데이터 액세스 정책은 데이터 쿼리를 실행하고 환경에서 참조 데이터를 조작하며 환경과 관련된 저장된 쿼리 및 관심 사항을 공유 할 수 있는 권한을 부여합니다.
-
-두 종류의 정책은 환경 관리에 대한 액세스와 환경 내 데이터에 대한 액세스를 명확하게 구분합니다. 예를 들어, 환경의 소유자/생성자가 데이터 액세스에서 제거되도록 환경을 설정할 수 있습니다. 환경에서 데이터를 읽을 수 있는 사용자 및 서비스에도 환경의 구성에 대한 액세스 권한을 부여하지 않을 수 있습니다.
+이 문서에서는 두 가지 유형의 Azure Time Series Insights 미리 보기 액세스 정책에 대해 설명합니다.
 
 ## <a name="grant-data-access"></a>데이터 액세스 권한 부여
-다음 단계에 따라 사용자 계정에 대한 데이터 액세스를 부여합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+다음 단계에 따라 사용자 계정에 대해 데이터 액세스 권한을 부여합니다.
 
-2. Time Series Insights 환경을 찾습니다. **검색** 창에 **시계열**을 입력합니다. 검색 결과에서 **시계열 환경**을 선택합니다. 
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. Time Series Insights 환경을 찾습니다. **검색** 상자에 `Time Series`를 입력합니다. 검색 결과에서 **시계열 환경**을 선택합니다.
+1. 목록에서 Time Series Insights 환경을 선택합니다.
+1. **데이터 액세스 정책**을 선택한 다음, **+ 추가**를 선택합니다.
 
-3. 목록에서 Time Series Insights 환경을 선택합니다.
-   
-4. **데이터 액세스 정책**을 선택한 다음 **+ 추가**를 선택합니다.
-  ![Time Series Insights 소스 관리 - 환경](media/data-access/getstarted-grant-data-access1.png)
+    ![Data-access-one][1]
 
-5. **사용자 선택**을 선택합니다.  사용자 이름 또는 메일 주소를 검색하여 추가할 사용자를 찾습니다. **선택**을 클릭하여 선택 사항을 확인합니다. 
+1. **사용자 선택**을 선택합니다. 사용자 이름 또는 메일 주소를 검색하여 추가할 사용자를 찾습니다. **선택**을 클릭하여 선택 사항을 확인합니다.
 
-   ![Time Series Insights 소스 관리 - 추가](media/data-access/getstarted-grant-data-access2.png)
+    ![Data-access-two][2]
 
-6. **역할 선택**을 선택합니다. 사용자에 대한 적절한 액세스 역할을 선택합니다.
-   - 사용자가 참조 데이터를 변경하고 저장된 쿼리 및 큐브 뷰를 환경의 다른 사용자와 공유할 수 있게 허용하려면 **참가자**를 선택합니다. 
-   - 또는 사용자가 환경의 데이터를 쿼리하고 개인(공유되지 않는) 쿼리를 환경에 저장할 수 있게 허용하려면 **읽기 권한자**를 선택합니다.
-
-   **확인**을 선택하여 역할 선택을 확인합니다.
-
-   ![Time Series Insights 소스 관리 - 사용자 선택](media/data-access/getstarted-grant-data-access3.png)
-
-8. **사용자 역할 선택** 페이지에서 **확인**을 선택합니다.
-
-   ![Time Series Insights 소스 관리 - 역할 선택](media/data-access/getstarted-grant-data-access4.png)
-
-9. **데이터 액세스 정책** 페이지에는 사용자 및 각 사용자의 역할이 나열됩니다.
-
-   ![Time Series Insights 소스 관리 - 결과](media/data-access/getstarted-grant-data-access5.png)
-
-## <a name="provide-guest-access-to-a-user-from-another-aad-tenant"></a>다른 AAD 테넌트에서 사용자에게 게스트 액세스 제공
-
-"게스트"는 관리 역할이 아니라 특정 테넌트에서 다른 테넌트로 초대된 계정에 사용되는 용어입니다. 테넌트 디렉터리로 초대된 게스트 계정에는 다른 계정과 동일한 액세스 제어가 적용될 수 있습니다. 예를 들어 액세스 제어(IAM) 블레이드를 사용해 TSI 환경에 대한 관리 액세스 권한을 부여하거나, 데이터 액세스 정책 블레이드를 통해 환경의 데이터에 대한 액세스 권한을 부여할 수 있습니다. AAD 테넌트 게스트 액세스에 대한 자세한 내용은 이 [문서](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator)를 참조하세요.
-
-다른 테넌트의 AAD 사용자에게 Time Series Insights 환경에 대한 게스트 액세스 권한을 부여하려면 다음 단계를 수행합니다.
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-
-2. Time Series Insights 환경을 찾습니다. **검색** 창에 **시계열**을 입력합니다. 검색 결과에서 **시계열 환경**을 선택합니다.
-
-3. 목록에서 Time Series Insights 환경을 선택합니다.
-
-4. **데이터 액세스 정책**을 선택한 다음 + **초대**를 선택합니다.
-
-    ![Time Series Insights 원본 관리 - 사용자 초대](media/data-access/getstarted-grant-data-access6.png)
-
-5. 초대하려는 사용자의 전자 메일을 입력합니다. AAD와 연결된 전자 메일을 입력해야 합니다. 필요한 경우 초대에 개인 메시지를 포함할 수 있습니다.
-
-    ![Time Series Insights 소스 관리 - 사용자 선택](media/data-access/getstarted-grant-data-access7.png)
-
-6. 화면에 풍선형 확인 메시지가 표시됩니다.
-
-    ![Time Series Insights 원본 관리 - 사용자 확인](media/data-access/getstarted-grant-data-access8.png)
-
-7. **사용자 선택**을 선택합니다. 방금 초대한 게스트 사용자의 전자 메일 주소를 검색하여 추가할 사용자를 찾습니다. **선택**을 클릭하여 선택 사항을 확인합니다.
-  
-    ![Time Series Insights 원본 관리 - 사용자 확인](media/data-access/getstarted-grant-data-access9.png)
-
-8. **역할 선택**을 선택합니다. 게스트 사용자의 적절한 액세스 역할을 선택합니다.
+1. **역할 선택**을 선택합니다. 사용자에 대한 적절한 액세스 역할을 선택합니다.
 
     * 사용자가 참조 데이터를 변경하고 저장된 쿼리 및 큐브 뷰를 환경의 다른 사용자와 공유할 수 있도록 하려면 **참가자**를 선택합니다.
 
-    * 또는 사용자가 환경의 데이터를 쿼리하고 개인(공유되지 않는) 쿼리를 환경에 저장할 수 있게 허용하려면 **읽기 권한자**를 선택합니다.
+    * 또는 사용자가 환경의 데이터를 쿼리하고 공유되지 않는 개인 쿼리를 환경에 저장할 수 있게 허용하려면 **읽기 권한자**를 선택합니다.
 
-    **확인**을 선택하여 역할 선택을 확인합니다.
+   **확인**을 선택하여 역할 선택을 확인합니다.
 
-    ![Time Series Insights 소스 관리 - 역할 선택](media/data-access/getstarted-grant-data-access10.png)
+    ![Data-access-three][3]
 
-9. **사용자 역할 선택** 페이지에서 **확인**을 선택합니다.
+1. **사용자 역할 선택** 페이지에서 **확인**을 선택합니다.
 
-10. 이제 **데이터 액세스 정책** 페이지에 게스트 사용자 및 각 게스트 사용자의 역할이 나열됩니다.
+    ![Data-access-four][4]
 
-    ![Time Series Insights 원본 관리 - 역할 확인](media/data-access/getstarted-grant-data-access11.png)
+1. **데이터 액세스 정책** 페이지에 사용자 및 각 사용자의 역할이 표시되는지 확인합니다.
 
-11. 이제 게스트 사용자가 방금 초대를 받은 Azure 테넌트에 있는 환경에 액세스하기 위한 특정 단계를 수행해야 합니다. 먼저 방금 전송된 초대를 수락해야 합니다. 이 초대는 5단계에서 초대한 전자 메일 주소로 전자 메일을 통해 전송됩니다. 게스트는 ‘시작’을 클릭하여 초대를 수락해야 합니다.
+    ![Data-access-five][5]
 
-    ![Time Series Insights 원본 관리 - 사용자 초대](media/data-access/getstarted-grant-data-access12.png)
+## <a name="provide-guest-access-to-a-user-from-another-azure-active-directory-tenant"></a>다른 Azure Active Directory 테넌트에서 사용자에게 게스트 액세스 제공
 
-12. 다음으로 게스트 사용자는 관리자 조직과 연결된 권한을 수락해야 합니다.
+`Guest`는 관리 역할이 아니라 특정 테넌트에서 다른 테넌트로 초대된 계정에 사용되는 용어입니다. 게스트 계정을 테넌트의 디렉터리에 초대한 후에는 다른 계정과 동일한 액세스 제어가 적용될 수 있습니다. 액세스 제어(IAM) 블레이드를 사용하여 Time Series Insights 환경에 대한 관리 액세스 권한을 부여할 수 있습니다. 또는 데이터 액세스 정책 블레이드를 통해 환경의 데이터에 대한 액세스 권한을 부여할 수 있습니다. Azure AD(Azure Active Directory) 테넌트 게스트 액세스에 대한 자세한 내용은 [Azure Portal에서 Azure Active Directory B2B 공동 작업 사용자 추가](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator)를 참조하세요.
 
-    ![Time Series Insights 원본 관리 - 권한 수락](media/data-access/getstarted-grant-data-access13.png)
+다른 테넌트의 Azure AD 사용자에게 Time Series Insights 환경에 대한 게스트 액세스 권한을 부여하려면 다음 단계를 수행합니다.
 
-13. 초대한 전자 메일 주소에 로그인하여 초대를 수락하는 게스트 사용자에게는 insights.azure.com이 표시됩니다. 이 페이지에서 게스트 사용자는 화면 오른쪽 위 모서리의 전자 메일 옆에 있는 아바타를 클릭해야 합니다. 
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. Time Series Insights 환경을 찾습니다. **검색** 창에 **시계열**을 입력합니다. 검색 결과에서 **시계열 환경**을 선택합니다.
+1. 목록에서 Time Series Insights 환경을 선택합니다.
+1. **데이터 액세스 정책**을 선택한 다음, **+ 초대**를 선택합니다.
 
-    ![Time Series Insights 원본 관리 - 권한 수락](media/data-access/getstarted-grant-data-access14.png)
+    ![Data-access-six][6]
 
-14. 다음으로 게스트 사용자는 디렉터리 드롭다운 메뉴에서 Azure 테넌트(게스트 사용자를 초대한 테넌트)를 선택합니다. 
+1. 초대할 사용자의 메일 주소를 입력합니다. 이 메일 주소는 Azure AD와 연결되어야 합니다. 필요한 경우 초대에 개인 메시지를 포함할 수 있습니다.
 
-    ![Time Series Insights 원본 관리 - 권한 수락](media/data-access/getstarted-grant-data-access15.png)
+    ![Data-access-seven][7]
 
-15. 마지막으로 게스트 사용자가 테넌트를 선택하면 게스트 사용자에게 액세스 권한을 제공한 Time Series Insights 환경이 표시됩니다. 이제 게스트 사용자는 8단계에서 지정한 역할과 연결된 모든 기능을 사용할 수 있습니다.
+1. 화면에 표시되는 확인 거품을 찾습니다.
+
+    ![Data-access-eight][8]
+
+1. **사용자 선택**을 선택합니다. 초대한 게스트 사용자의 메일 주소를 검색하여 추가할 사용자를 찾습니다. **선택**을 클릭하여 선택 사항을 확인합니다.
+
+    ![Data-access-nine][9]
+
+1. **역할 선택**을 선택합니다. 게스트 사용자의 적절한 액세스 역할을 선택합니다.
+
+    * 사용자가 참조 데이터를 변경하고 저장된 쿼리 및 큐브 뷰를 환경의 다른 사용자와 공유할 수 있도록 하려면 **참가자**를 선택합니다.
+
+    * 또는 사용자가 환경의 데이터를 쿼리하고 공유되지 않는 개인 쿼리를 환경에 저장할 수 있게 허용하려면 **읽기 권한자**를 선택합니다.
+
+   **확인**을 선택하여 역할 선택을 확인합니다.
+
+    ![Data-access-ten][10]
+
+1. **사용자 역할 선택** 페이지에서 **확인**을 선택합니다.
+
+1. **데이터 액세스 정책** 페이지에 게스트 사용자 및 각 게스트 사용자의 역할이 표시되는지 확인합니다.
+
+    ![Data-access-eleven][11]
+
+1. 이제 게스트 사용자가 초대를 받은 Azure 테넌트에 있는 환경에 액세스하기 위한 단계를 따라야 합니다. 먼저 전송된 초대를 수락합니다. 이 초대는 5단계에서 사용된 메일 주소로 메일을 통해 전송됩니다. **시작**을 선택하여 수락합니다.
+
+    ![Data-access-twelve][12]
+
+1. 다음으로, 게스트 사용자가 관리자 조직과 연결된 사용 권한을 수락합니다.
+
+    ![Data-access-thirteen][13]
+
+1. 초대하는 데 사용된 메일 주소에 게스트 사용자가 로그인하고 초대를 수락하면 insights.azure.com으로 이동됩니다. 이 페이지에서 화면 오른쪽 위의 메일 주소 옆에 있는 아바타를 선택합니다.
+
+    ![Data-access-fourteen][14]
+
+1. 다음으로, 게스트 사용자가 디렉터리 드롭다운 메뉴에서 Azure 테넌트를 선택합니다. 이 테넌트는 초대 받은 테넌트입니다.
+
+    ![Data-access-fifteen][15]
+
+게스트 사용자가 테넌트를 선택하면 액세스 권한이 부여된 Time Series Insights 환경이 표시됩니다. 이제 8단계에서 제공된 역할과 연결된 모든 기능을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Time Series Insights 환경에 이벤트 허브 이벤트 원본을 추가하는 방법](time-series-insights-how-to-add-an-event-source-eventhub.md)을 알아보세요.
-* 이벤트 원본으로 [이벤트 보내기](time-series-insights-send-events.md)
-* [Time Series Insights 탐색기](https://insights.timeseries.azure.com)에서 환경 보기
+
+* Time Series Insights 환경에 [Azure Event Hubs 이벤트 원본을 추가하는 방법](./time-series-insights-how-to-add-an-event-source-eventhub.md)을 알아봅니다.
+* [이벤트 원본으로 이벤트를 전송](./time-series-insights-send-events.md)합니다.
+* [Time Series Insights 미리 보기 탐색기에서 사용자 환경을 봅니다](./time-series-insights-update-explorer.md).
+
+<!-- Images -->
+[1]: media/data-access/data-access-one.png
+[2]: media/data-access/data-access-two.png
+[3]: media/data-access/data-access-three.png
+[4]: media/data-access/data-access-four.png
+[5]: media/data-access/data-access-five.png
+[6]: media/data-access/data-access-six.png
+[7]: media/data-access/data-access-seven.png
+[8]: media/data-access/data-access-eight.png
+[9]: media/data-access/data-access-nine.png
+[10]: media/data-access/data-access-ten.png
+[11]: media/data-access/data-access-eleven.png
+[12]: media/data-access/data-access-twelve.png
+[13]: media/data-access/data-access-thirteen.png
+[14]: media/data-access/data-access-fourteen.png
+[15]: media/data-access/data-access-fifteen.png

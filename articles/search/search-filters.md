@@ -1,5 +1,5 @@
 ---
-title: Azure Search의 필터 | Microsoft Docs
+title: 인덱스에서 검색 결과의 범위를 지정하기 위한 필터 - Azure Search
 description: Microsoft Azure의 호스트된 클라우드 검색 서비스인 Azure Search에서 쿼리에 대한 검색 결과를 줄이려면 사용자 보안 ID, 언어, 지리적 위치 또는 숫자 값별로 필터링합니다.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: 9f891dbe3f051f2fb5bfd242830f3c30abede487
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: seodec2018
+ms.openlocfilehash: 539a7fc5b9d3038424059f1ee599c6966a968781
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32191369"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629600"
 ---
 # <a name="filters-in-azure-search"></a>Azure Search의 필터 
 
@@ -49,7 +50,7 @@ ms.locfileid: "32191369"
 
  + `searchFields` 쿼리 매개 변수는 검색을 특정 필드로 고정합니다. 예를 들어, 인덱스에서 영어와 스페인어 설명을 위한 별도의 필드를 제공하는 경우 searchFields를 사용하여 전체 텍스트 검색에 사용할 대상 필드를 지정할 수 있습니다. 
 
-+ `$select` 매개 변수는 결과 집합에 포함할 필드를 지정하는 데 사용되며 호출 응용 프로그램에 보내기 전에 효과적으로 응답을 조정합니다. 이 매개 변수는 쿼리를 구체화하거나 문서 컬렉션을 줄이지 않지만 세부적인 응답이 목표인 경우 이 매개 변수 옵션을 고려할 수 있습니다. 
++ `$select` 매개 변수는 결과 집합에 포함할 필드를 지정하는 데 사용되며 호출 애플리케이션에 보내기 전에 효과적으로 응답을 조정합니다. 이 매개 변수는 쿼리를 구체화하거나 문서 컬렉션을 줄이지 않지만 세부적인 응답이 목표인 경우 이 매개 변수 옵션을 고려할 수 있습니다. 
 
 두 매개 변수에 대한 자세한 내용은 [문서 검색 > 요청 > 쿼리 매개 변수](https://docs.microsoft.com/rest/api/searchservice/search-documents#request)를 참조하세요.
 
@@ -66,7 +67,7 @@ ms.locfileid: "32191369"
 
 **검색** 작업마다 하나의 필터를 지정할 수 있지만 필터 자체에는 여러 필드와 여러 조건을 포함할 수 있으며 **ismatch** 함수를 사용하면 여러 표현식을 사용할 수도 있습니다. 여러 부분으로 이루어진 필터 식에서 조건자의 순서는 임의로 지정할 수 있습니다. 특정한 순서로 조건자를 다시 정렬해도 성능에 별다른 도움은 되지 않습니다.
 
-필터 식의 하드 제한은 요청의 최대 제한입니다. 필터를 포함한 전체 요청은 POST의 경우 최대 16MB, GET의 경우 최대 8KB가 될 수 있습니다. 소프트 제한은 필터 식의 절 수와 관련이 있습니다. 경험에 따르면 수백 개의 절이 있는 경우 제한에 도달할 위험이 있습니다. 응용 프로그램을 설계할 때 필터의 크기를 무제한으로 생성하지 않는 것이 좋습니다.
+필터 식의 하드 제한은 요청의 최대 제한입니다. 필터를 포함한 전체 요청은 POST의 경우 최대 16MB, GET의 경우 최대 8KB가 될 수 있습니다. 소프트 제한은 필터 식의 절 수와 관련이 있습니다. 경험에 따르면 수백 개의 절이 있는 경우 제한에 도달할 위험이 있습니다. 애플리케이션을 설계할 때 필터의 크기를 무제한으로 생성하지 않는 것이 좋습니다.
 
 다음 예제는 여러 API의 정형화된 필터 정의를 나타냅니다.
 
@@ -95,7 +96,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ## <a name="filter-design-patterns"></a>필터 디자인 패턴
 
-다음 예제에는 필터 시나리오에 대한 여러 디자인 패턴이 나와 있습니다. 자세한 내용은 [OData 식 구문 > 예제](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples)를 참조하세요.
+다음 예제에는 필터 시나리오에 대한 여러 디자인 패턴이 나와 있습니다. 자세한 내용은 [OData 식 구문 > 예제](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)를 참조하세요.
 
 + 독립 실행형 **$filter**는 쿼리 문자열 없이, 필터 식이 관심 있는 문서를 정규화할 수 있을 때 유용합니다. 쿼리 문자열이 없으면 어휘 또는 언어 분석, 점수 매기기 및 순위 지정 등이 없으며 검색 문자열은 비어 있습니다.
 
@@ -109,7 +110,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
    search=hotels ocean$filter=(baseRate ge 60 and baseRate lt 300) and city eq 'Los Angeles'
    ```
 
-+ "or"로 구분된 복합 쿼리에서는 각각 자체 필터 조건이 있습니다. 예를 들어, '개'는 '비글', '고양이'는 '샤미즈' 등입니다. OR 식은 개별적으로 평가되며 각각의 응답이 하나의 응답으로 결합되어 호출 응용 프로그램으로 다시 전송됩니다. 이 디자인 패턴은 search.ismatch 함수를 통해 구현됩니다. 점수 매기기 아닌 버전(search.ismatch) 또는 점수 매기기 버전(search.ismatchscoring)을 사용할 수 있습니다.
++ "or"로 구분된 복합 쿼리에서는 각각 자체 필터 조건이 있습니다. 예를 들어, '개'는 '비글', '고양이'는 '샤미즈' 등입니다. OR 식은 개별적으로 평가되며 각각의 응답이 하나의 응답으로 결합되어 호출 애플리케이션으로 다시 전송됩니다. 이 디자인 패턴은 search.ismatch 함수를 통해 구현됩니다. 점수 매기기 아닌 버전(search.ismatch) 또는 점수 매기기 버전(search.ismatchscoring)을 사용할 수 있습니다.
 
    ```
    # Match on hostels rated higher than 4 OR 5-star motels.
@@ -191,7 +192,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=city gt 'Seattle'
 ```
 
-더 많은 예제를 사용하려면 [OData 필터 식 구문 > 예제](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples)를 참조하세요.
+더 많은 예제를 사용하려면 [OData 필터 식 구문 > 예제](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 

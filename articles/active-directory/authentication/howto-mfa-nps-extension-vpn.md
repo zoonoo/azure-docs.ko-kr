@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: f08bf6a65a93c31d76c5b336cc6ef433153d71c4
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 30c5a3cf623a16395ad8c09c813d631c10e2dedf
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423120"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433484"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure용 네트워크 정책 서버 확장을 사용하여 VPN 인프라를 Azure MFA와 통합
 
@@ -44,7 +44,7 @@ Azure용 NPS(네트워크 정책 서비스) 확장을 사용하면 조직에서 
 * 802.1x 지원 무선 액세스 지점 및 이더넷 스위치에 액세스하기 위한 인증 및 권한 부여를 적용할 수 있는 방법을 제공합니다.   
 자세한 내용은 [네트워크 정책 서버](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)를 참조하세요. 
 
-보안을 강화하고 높은 수준의 규정 준수를 제공하기 위해 조직에서는 NPS를 Azure Multi-Factor Authentication과 통합하여 사용자가 2단계 인증을 통해 VPN 서버의 가상 포트에 연결하도록 할 수 있습니다. 사용자가 액세스 권한을 부여받으려면 자신이 제어할 수 있는 기타 정보와 함께 사용자 이름 및 암호 조합을 제공해야 합니다. 이 정보는 신뢰할 수 있어야 하고 복제하기 어려워야 합니다. 휴대폰 번호, 유선 전화 번호 또는 모바일 디바이스의 응용 프로그램이 여기에 포함될 수 있습니다.
+보안을 강화하고 높은 수준의 규정 준수를 제공하기 위해 조직에서는 NPS를 Azure Multi-Factor Authentication과 통합하여 사용자가 2단계 인증을 통해 VPN 서버의 가상 포트에 연결하도록 할 수 있습니다. 사용자가 액세스 권한을 부여받으려면 자신이 제어할 수 있는 기타 정보와 함께 사용자 이름 및 암호 조합을 제공해야 합니다. 이 정보는 신뢰할 수 있어야 하고 복제하기 어려워야 합니다. 휴대폰 번호, 유선 전화 번호 또는 모바일 장치의 애플리케이션이 여기에 포함될 수 있습니다.
 
 Azure용 NPS 확장을 사용하기 전에 통합된 NPS 및 MFA 환경에 대한 2단계 인증을 구현하려는 고객은 온-프레미스 환경에서 별도의 MFA 서버를 구성하고 유지 관리해야 했습니다. 이 유형의 인증은 RADIUS를 사용하는 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버에서 제공합니다.
 
@@ -417,7 +417,7 @@ Windows 이벤트 뷰어 로그에서 성공적인 로그인 이벤트를 확인
 
 ![네트워크 정책 서버 로그](./media/howto-mfa-nps-extension-vpn/image45.png)
 
-Azure Multi-Factor Authentication용 NPS 확장을 설치한 서버에서 *Application and Services Logs\Microsoft\AzureMfa*에 있는 확장과 관련된 이벤트 뷰어 응용 프로그램 로그를 찾을 수 있습니다. 
+Azure Multi-Factor Authentication용 NPS 확장을 설치한 서버에서 *Application and Services Logs\Microsoft\AzureMfa*에 있는 확장과 관련된 이벤트 뷰어 애플리케이션 로그를 찾을 수 있습니다. 
 
     _Get-WinEvent -Logname Security_ | where {$_.ID -eq '6272'} | FL
 
@@ -438,9 +438,9 @@ Azure Multi-factor Authentication 로그의 관련 이벤트는 다음과 같습
 
 고급 문제 해결을 수행하려면 NPS 서비스가 설치된 NPS 데이터베이스 형식 로그 파일을 참조하세요. 이 로그 파일은 _%SystemRoot%\System32\Logs_ 폴더에 쉼표로 구분된 텍스트 파일로 만들어집니다. 로그 파일에 대한 자세한 내용은 [NPS 데이터베이스 형식 로그 파일 해석](https://technet.microsoft.com/library/cc771748.aspx)을 참조하세요. 
 
-이러한 로그 파일의 항목은 스프레드시트 또는 데이터베이스로 내보내지 않으면 해석하기 어렵습니다. 온라인에서 로그 파일을 해석하는 데 도움이 되는 많은 IAS(인터넷 인증 서비스) 구문 분석 도구를 찾을 수 있습니다. 다운로드할 수 있는 [셰어웨어 응용 프로그램](https://www.deepsoftware.com/iasviewer)의 출력은 다음과 같습니다. 
+이러한 로그 파일의 항목은 스프레드시트 또는 데이터베이스로 내보내지 않으면 해석하기 어렵습니다. 온라인에서 로그 파일을 해석하는 데 도움이 되는 많은 IAS(인터넷 인증 서비스) 구문 분석 도구를 찾을 수 있습니다. 다운로드할 수 있는 [셰어웨어 애플리케이션](https://www.deepsoftware.com/iasviewer)의 출력은 다음과 같습니다. 
 
-![셰어웨어 응용 프로그램](./media/howto-mfa-nps-extension-vpn/image49.png)
+![셰어웨어 애플리케이션](./media/howto-mfa-nps-extension-vpn/image49.png)
 
 추가적인 문제 해결을 수행하려면 Wireshark 또는 [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)와 같은 프로토콜 분석기를 사용할 수 있습니다. 다음의 Wireshark 이미지에서는 VPN 서버와 NPS 간의 RADIUS 메시지를 보여줍니다.
 

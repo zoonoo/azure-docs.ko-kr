@@ -14,18 +14,19 @@ ms.topic: article
 ms.date: 11/6/2018
 ms.author: patricka
 ms.reviewer: bryanr
-ms.openlocfilehash: fbf62e53ffe3fc3540086137955417bec56e7825
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.lastreviewed: 11/6/2018
+ms.openlocfilehash: 7d013fce08f688c49d828b829f84e385455c84fe
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240174"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249700"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Azure Stack의 다중 테 넌 트
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-Azure Stack에서 서비스를 사용 하도록 여러 Azure Active Directory (Azure AD) 테 넌 트에서 사용자를 지 원하는 Azure Stack을 구성할 수 있습니다. 예를 들어, 다음 시나리오를 고려 합니다.
+Azure Stack에서 서비스를 사용 하도록 여러 Azure Active Directory (Azure AD) 테 넌 트에서 사용자를 지 원하는 Azure Stack을 구성할 수 있습니다. 예를 들어 다음 시나리오를 고려할 수 있습니다.
 
 - Azure Stack이 설치 되어 있는 서비스 관리자 contoso.onmicrosoft.com 것입니다.
 - Mary가 게스트 사용자가 있는 fabrikam.onmicrosoft.com, 디렉터리 관리자입니다.
@@ -41,10 +42,10 @@ Azure Stack에서 서비스를 사용 하도록 여러 Azure Active Directory (A
  - 했는지 [설치](azure-stack-powershell-install.md) 하 고 [구성](azure-stack-powershell-configure-admin.md) Azure Stack 용 PowerShell.
  - [Azure Stack Tools를 다운로드할](azure-stack-powershell-download.md), 연결 및 Id 모듈을 가져옵니다.
 
-    ````PowerShell  
+    ```PowerShell  
     Import-Module .\Connect\AzureStack.Connect.psm1
     Import-Module .\Identity\AzureStack.Identity.psm1
-    ````
+    ```
 
 ### <a name="configure-azure-stack-directory"></a>Azure Stack 디렉터리 구성
 
@@ -54,7 +55,7 @@ Azure Stack에서 서비스를 사용 하도록 여러 Azure Active Directory (A
 
 Contoso.onmicrosoft.com의 서비스 관리자는 다음 명령을 실행합니다.
 
-````PowerShell  
+```PowerShell  
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
@@ -75,7 +76,7 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
  -GuestDirectoryTenantName $guestDirectoryTenantToBeOnboarded `
  -Location $location `
  -ResourceGroupName $ResourceGroupName
-````
+```
 
 ### <a name="configure-guest-directory"></a>게스트 디렉터리를 구성 합니다.
 
@@ -85,7 +86,7 @@ Azure Stack 관리자가 한 번 / 연산자가 Azure Stack과 함께 사용할 
 
 Mary는 디렉터리 관리자에 게 Fabrikam의 게스트 디렉터리 fabrikam.onmicrosoft.com에서 다음 명령을 실행 합니다.
 
-````PowerShell
+```PowerShell
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $tenantARMEndpoint = "https://management.local.azurestack.external"
     
@@ -96,7 +97,7 @@ Register-AzSWithMyDirectoryTenant `
  -TenantResourceManagerEndpoint $tenantARMEndpoint `
  -DirectoryTenantName $guestDirectoryTenantName `
  -Verbose 
-````
+```
 
 > [!IMPORTANT]
 > Azure Stack 관리자에 게 나중에 새 서비스 또는 업데이트 설치를 하는 경우이 스크립트를 다시 실행 해야 합니다.
@@ -133,7 +134,7 @@ Azure Stack에서 여러 테 넌 트를 하지 않으려는 경우 다음 단계
 2. 실행 (사용자이 시나리오에서), Azure Stack의 서비스 관리자로 *등록 취소 AzSGuestDirectoryTenant*합니다. 
 
     ``` PowerShell  
-    ## The following Azure Resource Manaager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
+    ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
     $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
     
     ## Replace the value below with the Azure Stack directory
@@ -158,3 +159,5 @@ Azure Stack에서 여러 테 넌 트를 하지 않으려는 경우 다음 단계
 
 - [위임 된 공급자 관리](azure-stack-delegated-provider.md)
 - [Azure Stack의 주요 개념](azure-stack-key-features.md)
+- [클라우드 서비스 공급자로서 Azure Stack의 사용량 및 청구 관리](azure-stack-add-manage-billing-as-a-csp.md)
+- [사용량 및 청구에 대한 테넌트를 Azure Stack에 추가](azure-stack-csp-howto-register-tenants.md)

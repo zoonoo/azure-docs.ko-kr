@@ -1,19 +1,19 @@
 ---
 title: 사용자 지정 이미지에서 Azure Batch 풀 프로비전| Microsoft Docs
-description: 사용자 지정 이미지에서 Batch 풀을 만들어 응용 프로그램에 필요한 데이터와 소프트웨어가 포함된 계산 노드를 프로비전하는 방법을 설명합니다. 사용자 지정 이미지는 Batch 워크로드를 실행하도록 계산 노드를 구성하는 효율적인 방법입니다.
+description: 사용자 지정 이미지에서 Batch 풀을 만들어 애플리케이션에 필요한 데이터와 소프트웨어가 포함된 계산 노드를 프로비전하는 방법을 설명합니다. 사용자 지정 이미지는 Batch 워크로드를 실행하도록 계산 노드를 구성하는 효율적인 방법입니다.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/04/2018
-ms.author: danlep
-ms.openlocfilehash: 7d0526dd233afd3976b22d257300681db0bfcead
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.author: lahugh
+ms.openlocfilehash: b296dce0a83971626c8e66ddc314c4d1e07d8602
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885214"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840370"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>사용자 지정 이미지를 사용하여 가상 머신 풀 만들기 
 
@@ -21,15 +21,15 @@ Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에�
 
 ## <a name="why-use-a-custom-image"></a>사용자 지정 이미지를 사용하는 이유
 
-사용자 이미지를 제공할 경우에는 운영 체제 구성, 사용할 운영 체제의 유형 및 데이터 디스크를 관리합니다. 사용자 지정 이미지는 프로비전되는 즉시 모든 Batch 풀 노드에서 사용할 수 있는 응용 프로그램 및 참조 데이터를 포함할 수 있습니다.
+사용자 이미지를 제공할 경우에는 운영 체제 구성, 사용할 운영 체제의 유형 및 데이터 디스크를 관리합니다. 사용자 지정 이미지는 프로비전되는 즉시 모든 Batch 풀 노드에서 사용할 수 있는 애플리케이션 및 참조 데이터를 포함할 수 있습니다.
 
 사용자 지정 이미지를 사용하면 풀의 계산 노드가 Batch 워크로드를 실행하는 데 걸리는 시간을 절약할 수 있습니다. Azure Marketplace 이미지를 사용할 경우 프로비전 후 각 계산 노드에서 소프트웨어를 설치할 수 있지만 사용자 지정 이미지를 사용하면 효율성을 높일 수 있습니다.
 
 시나리오에 맞게 구성된 사용자 지정 이미지를 사용하면 몇 가지 이점을 제공할 수 있습니다.
 
 - **OS(운영 체제) 구성**. 이미지의 운영 체제 디스크 구성을 사용자 지정할 수 있습니다. 
-- **응용 프로그램 미리 설치**. OS 디스크에 응용 프로그램을 미리 설치합니다. 이 방식은 시작 작업을 사용하여 계산 노드를 프로비전한 후에 응용 프로그램을 설치하는 방식에 비해 효율성은 높고 오류 발생 가능성은 낮습니다.
-- **VM에서 재부팅 시간 절감.** 응용 프로그램을 설치할 경우 일반적으로 VM을 재부팅해야 하며, 이 작업은 많은 시간이 소요됩니다. 응용 프로그램을 사전 설치하면 재부팅 시간을 절감할 수 있습니다. 
+- **응용 프로그램 미리 설치**. OS 디스크에 애플리케이션을 미리 설치합니다. 이 방식은 시작 작업을 사용하여 계산 노드를 프로비전한 후에 애플리케이션을 설치하는 방식에 비해 효율성은 높고 오류 발생 가능성은 낮습니다.
+- **VM에서 재부팅 시간 절감.** 애플리케이션을 설치할 경우 일반적으로 VM을 재부팅해야 하며, 이 작업은 많은 시간이 소요됩니다. 애플리케이션을 사전 설치하면 재부팅 시간을 절감할 수 있습니다. 
 - **많은 데이터를 한 번에 복사.** 관리되는 사용자 지정 이미지를 관리되는 이미지의 데이터 디스크에 복사하여 관리되는 사용자 지정 이미지의 정적 데이터 부분을 만듭니다. 이 작업은 한 번만 수행하며 풀의 각 노드에서 데이터를 사용할 수 있게 됩니다.
 - **디스크 유형 선택.** OS 디스크 및 데이터 디스크에 Premium Storage를 사용할 수 있습니다.
 - **풀 크기 증가.** 관리되는 사용자 지정 이미지를 사용하여 풀을 만들면 이미지 Blob VHD의 복사본을 만들지 않고도 풀 크기를 늘릴 수 있습니다. 
@@ -50,7 +50,13 @@ Azure에서는 Azure VM OS 및 데이터 디스크의 스냅숏, 관리되는 �
 
 ### <a name="prepare-a-vm"></a>VM 준비 
 
-이미지용으로 새 VM을 만드는 경우 Batch에서 지원되는 Azure Marketplace 이미지를 관리되는 이미지의 기본 이미지로 사용한 후 사용자 지정할 수 있습니다.  Azure Batch에서 지원하는 Azure Marketplace 이미지 참조의 목록을 가져오려면 [노드 에이전트 SKU 나열](/rest/api/batchservice/account/listnodeagentskus) 작업을 참조하세요. 타사 이미지는 기본 이미지로 사용할 수 없습니다.
+이미지용으로 새 VM을 만드는 경우 Batch에서 지원되는 Azure Marketplace 이미지를 관리되는 이미지의 기본 이미지로 사용한 후 사용자 지정할 수 있습니다.  Azure Batch에서 지원하는 Azure Marketplace 이미지 참조의 목록을 가져오려면 [노드 에이전트 SKU 나열](/rest/api/batchservice/account/listnodeagentskus) 작업을 참조하세요. 
+
+> [!NOTE]
+> 추가 라이선스 및 구매 약관이 있는 타사 이미지는 기본 이미지로 사용할 수 없습니다. Marketplace 이미지에 대한 자세한 내용은 [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+) 또는 [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+) VM을 참조하세요.
+
 
 * 관리되는 디스크로 VM이 생성되었는지 확인합니다. VM을 만들 때 기본 저장소 설정입니다.
 * 사용자 지정 스크립트 확장 등의 Azure 확장을 VM에 설치해서는 안 됩니다. 이미지에 미리 설치된 확장이포함되어 있으면 Batch 풀을 배포할 때 Azure에서 문제가 발생할 수 있습니다.

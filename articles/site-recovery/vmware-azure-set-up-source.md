@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 5f7d3bb51b2d1c05083645ccc5bca4f668d4a661
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: b4ed878b19b2eebe01c9888388949600e85c56e3
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160531"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792985"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Azure 복제에 대한 VMware의 원본 환경 설정
 
@@ -69,7 +69,7 @@ OVA(Open Virtualization Application) 템플릿을 통해 구성 서버를 온-�
  - C:\ProgramData\ASRSetupLogs
  - C:\ProgramData\LogUploadServiceLogs
  - C:\inetpub
- - ASR 서버 설치 디렉터리입니다. 예: E:\Program Files (x86)\Microsoft Azure Site Recovery
+ - ASR 서버 설치 디렉터리입니다. 예:  E:\Program Files (x86)\Microsoft Azure Site Recovery
 
 ### <a name="if-antivirus-software-is-active-on-scale-out-process-servermaster-target"></a>바이러스 백신 소프트웨어가 스케일 아웃 프로세스 서버/마스터 대상에서 활성 상태인 경우
 
@@ -81,10 +81,8 @@ OVA(Open Virtualization Application) 템플릿을 통해 구성 서버를 온-�
 4. C:\ProgramData\ASRSetupLogs
 5. C:\ProgramData\LogUploadServiceLogs
 6. C:\ProgramData\Microsoft Azure Site Recovery
-7. ASR 워크로드 분산 프로세스 서버 설치 디렉터리(예: C:\Program Files (x86)\Microsoft Azure Site Recovery)
+7. ASR 부하 분산된 프로세스 서버 설치 디렉터리, 예: C:\Program Files (x86)\Microsoft Azure Site Recovery
 
-## <a name="common-issues"></a>일반적인 문제
-[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
 ## <a name="next-steps"></a>다음 단계
 [대상 환경 설정](./vmware-azure-set-up-target.md) 

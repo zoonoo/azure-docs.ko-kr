@@ -1,5 +1,5 @@
 ---
-title: Azure Search의 전체 텍스트 검색 엔진(Lucene) 아키텍처 | Microsoft Docs
+title: 전체 텍스트 검색 엔진(Lucene) 아키텍처 - Azure Search
 description: Azure Search에 관련된 전체 텍스트 검색에 대한 Lucene 쿼리 처리 및 문서 검색 개념을 설명합니다.
 manager: jlembicz
 author: yahnoosh
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: 55d361e90dbc5fe48bc118088a6f859d096048ff
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.custom: seodec2018
+ms.openlocfilehash: dedfc7db6aef6d55fd50c94a217bdc489b9615f3
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036873"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633864"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Azure Search에서 전체 텍스트 검색의 작동 방식
 
@@ -25,7 +26,7 @@ ms.locfileid: "39036873"
 
 ## <a name="architecture-overview-and-diagram"></a>아키텍처 개요 및 다이어그램
 
-전체 텍스트 검색 쿼리의 처리는 쿼리 텍스트를 구문 분석하여 검색 용어를 추출하는 작업부터 시작합니다. 검색 엔진은 인덱스를 사용하여 일치하는 용어가 포함된 문서를 검색합니다. 잠재적 일치 항목으로 간주할 수 있는 항목의 범위를 넓히기 위해 때때로 개별 쿼리 용어를 새로운 형식으로 분류하고 재구성하기도 합니다. 그런 다음 각 개별 일치 문서에 할당된 관련성 점수를 기준으로 결과 집합을 정렬합니다. 순위 목록 맨 위에 있는 항목은 호출 응용 프로그램으로 반환됩니다.
+전체 텍스트 검색 쿼리의 처리는 쿼리 텍스트를 구문 분석하여 검색 용어를 추출하는 작업부터 시작합니다. 검색 엔진은 인덱스를 사용하여 일치하는 용어가 포함된 문서를 검색합니다. 잠재적 일치 항목으로 간주할 수 있는 항목의 범위를 넓히기 위해 때때로 개별 쿼리 용어를 새로운 형식으로 분류하고 재구성하기도 합니다. 그런 다음 각 개별 일치 문서에 할당된 관련성 점수를 기준으로 결과 집합을 정렬합니다. 순위 목록 맨 위에 있는 항목은 호출 애플리케이션으로 반환됩니다.
 
 다시 정리하면, 쿼리 실행은 다음과 같은 네 단계로 구성됩니다. 
 
@@ -68,7 +69,7 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 1. 가격이 $60 이상 $300 미만인 문서를 필터링합니다.
 2. 쿼리를 실행합니다. 이 예제의 검색 쿼리는 다음과 같은 구와 용어로 구성되어 있습니다. `"Spacious, air-condition* +\"Ocean view\""`(일반적으로는 사용자가 문장 부호를 입력하지 않지만, 이 예에서는 분석기가 문장 부호를 어떻게 처리하는지 설명하기 위해 문장 부호를 포함함). 이 쿼리에서 검색 엔진은 "Ocean view"가 포함된 문서를 찾기 위해 `searchFields`에 지정된 설명 및 제목 필드를 검색하고, 추가적으로 "spacious" 용어 또는 접두사 "air-condition"으로 시작하는 용어를 검색합니다. `searchMode` 매개 변수는 용어가 명시적으로 필요하지 않은 경우(`+`)에 일부 일치(기본값) 또는 전체 일치에 사용됩니다.
-3. 호텔 검색 결과 집합을 특정 지리적 위치에 가까운 순서대로 정렬한 후 호출 응용 프로그램으로 반환합니다. 
+3. 호텔 검색 결과 집합을 특정 지리적 위치에 가까운 순서대로 정렬한 후 호출 애플리케이션으로 반환합니다. 
 
 이 문서의 대부분은 *검색 쿼리* `"Spacious, air-condition* +\"Ocean view\""`의 처리에 대한 내용입니다. 필터링 및 정렬은 본 문서에서 다루지 않습니다. 자세한 내용은 [검색 API 참조 문서](https://docs.microsoft.com/rest/api/searchservice/search-documents)를 참조하세요.
 
@@ -95,7 +96,7 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
  ![부울 쿼리 searchmode any][2]
 
-### <a name="supported-parsers-simple-and-full-lucene"></a>지원되는 파서: 단순(simple) 및 전체(full) Lucene 
+### <a name="supported-parsers-simple-and-full-lucene"></a>지원되는 파서: 단순 및 전체 Lucene 
 
  Azure Search는 두 쿼리 언어 `simple`(기본값) 및 `full`을 노출합니다. 사용자는 검색 요청에서 `queryType` 매개 변수를 설정함으로써 쿼리 파서에 어떤 쿼리 언어를 사용하여 연산자와 구문을 해석해야 하는지 알려줍니다. [단순 쿼리 언어](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)는 직관적이고 견고하며, 종종 클라이언트 측 처리 없이 사용자 입력을 있는 그대로 해석하는 데 적합합니다. 웹 검색 엔진과 비슷한 쿼리 연산자를 지원합니다. `queryType=full`로 설정하면 사용할 수 있는 [전체 Lucene 쿼리 언어](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)는 와일드카드, 퍼지, regex, 필드 범위가 지정된 쿼리 등의 추가 연산자 및 쿼리 유형에 대한 지원을 추가하여 기본값인 단순 쿼리 언어를 확장합니다. 예를 들어 단순 쿼리 구문에서 전송되는 정규식은 식이 아닌 쿼리 문자열로 해석됩니다. 이 문서의 요청 예제에서는 전체 Lucene 쿼리 언어를 사용합니다.
 
@@ -384,15 +385,15 @@ Azure Search의 모든 인덱스는 여러 분할 영역으로 자동 분할되�
 
 + 샘플 인덱스를 작성하고, 여러 쿼리를 시도하고, 결과를 검토합니다. 자세한 지침은 [포털에서 인덱스를 빌드하고 쿼리](search-get-started-portal.md#query-index)를 참조하세요.
 
-+ 포털의 Search 탐색기에서 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) 예제 섹션 또는 [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)의 추가 쿼리 구문을 사용해 보세요.
++ 포털의 Search 탐색기에서 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) 예제 섹션 또는 [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)의 추가 쿼리 구문을 사용해 보세요.
 
-+ 검색 응용 프로그램의 순위를 조정하려는 경우 [점수 매기기 프로필](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)을 검토하세요.
++ 검색 애플리케이션의 순위를 조정하려는 경우 [점수 매기기 프로필](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)을 검토하세요.
 
 + [언어별 어휘 분석기](https://docs.microsoft.com/rest/api/searchservice/language-support)를 적용하는 방법을 알아보세요.
 
 + 특정 필드에 대해 최소한의 처리 또는 특수한 처리를 수행하려면 [사용자 지정 분석기를 구성](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)하세요.
 
-+ 데모 웹 사이트에서 [표준 및 영어 분석기를 나란히 비교](http://alice.unearth.ai/)하세요. 
++ 데모 웹 사이트에서 [표준 및 영어 분석기를 나란히 비교](https://alice.unearth.ai/)하세요. 
 
 ## <a name="see-also"></a>참고 항목
 

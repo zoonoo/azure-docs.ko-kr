@@ -1,20 +1,19 @@
 ---
-title: Azure Policy 샘플 - 승인된 VM 이미지
+title: 샘플 - 승인된 VM 이미지
 description: 이 샘플 정책에서는 승인된 사용자 지정 이미지만 환경에 배포되어야 합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 09/18/2018
+ms.date: 01/23/2019
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: d4216c785155ac5462dbcb1b48bf58e7bc718601
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9fe9e0021d4c2c0ebccf8f0fdb123e2fa413a1aa
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965373"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856607"
 ---
 # <a name="approved-vm-images"></a>승인된 VM 이미지
 
@@ -87,16 +86,16 @@ PowerShell은 cmdlet에 이름/값 해시 테이블을 전달해야 하는 `-Pol
 
 ```azurepowershell-interactive
 # Create the Policy Definition (Subscription scope)
-$definition = New-AzureRmPolicyDefinition -Name 'allowed-custom-images' -DisplayName 'Approved VM images' -description 'This policy governs the approved VM images' -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.parameters.json' -Mode All
+$definition = New-AzPolicyDefinition -Name 'allowed-custom-images' -DisplayName 'Approved VM images' -description 'This policy governs the approved VM images' -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.parameters.json' -Mode All
 
 # Set the scope to a resource group; may also be a subscription or management group
-$scope = Get-AzureRmResourceGroup -Name 'YourResourceGroup'
+$scope = Get-AzResourceGroup -Name 'YourResourceGroup'
 
 # Set the Policy Parameter (JSON format)
 $policyparam = '{ "imageIds": { "value": [ "/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage", "/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510" ] } }'
 
 # Create the Policy Assignment
-$assignment = New-AzureRmPolicyAssignment -Name 'allowed-custom-images-assignment' -DisplayName 'Approved VM images Assignment' -Scope $scope.ResourceId -PolicyDefinition $definition -PolicyParameter $policyparam
+$assignment = New-AzPolicyAssignment -Name 'allowed-custom-images-assignment' -DisplayName 'Approved VM images Assignment' -Scope $scope.ResourceId -PolicyDefinition $definition -PolicyParameter $policyparam
 ```
 
 ### <a name="remove-with-azure-powershell"></a>Azure PowerShell을 사용하여 제거
@@ -105,10 +104,10 @@ $assignment = New-AzureRmPolicyAssignment -Name 'allowed-custom-images-assignmen
 
 ```azurepowershell-interactive
 # Remove the Policy Assignment
-Remove-AzureRmPolicyAssignment -Id $assignment.ResourceId
+Remove-AzPolicyAssignment -Id $assignment.ResourceId
 
 # Remove the Policy Definition
-Remove-AzureRmPolicyDefinition -Id $definition.ResourceId
+Remove-AzPolicyDefinition -Id $definition.ResourceId
 ```
 
 ### <a name="azure-powershell-explanation"></a>Azure PowerShell 설명
@@ -117,11 +116,11 @@ Remove-AzureRmPolicyDefinition -Id $definition.ResourceId
 
 | 명령 | 메모 |
 |---|---|
-| [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition) | 새 Azure Policy 정의를 만듭니다. |
-| [Get-AzureRmResourceGroup](/powershell/module/azurerm.resources/get-azurermresourcegroup) | 단일 리소스 그룹을 가져옵니다. |
-| [New-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment) | 새 Azure Policy 할당을 만듭니다. 이 예제에서는 정의를 제공하지만, 이니셔티브를 취할 수도 있습니다. |
-| [Remove-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/remove-azurermpolicyassignment) | 기존 Azure Policy 할당을 제거합니다. |
-| [Remove-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/remove-azurermpolicydefinition) | 기존 Azure Policy 정의를 제거합니다. |
+| [New-AzPolicyDefinition](/powershell/module/az.resources/New-Azpolicydefinition) | 새 Azure Policy 정의를 만듭니다. |
+| [Get-AzResourceGroup](/powershell/module/az.resources/Get-Azresourcegroup) | 단일 리소스 그룹을 가져옵니다. |
+| [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) | 새 Azure Policy 할당을 만듭니다. 이 예제에서는 정의를 제공하지만, 이니셔티브를 취할 수도 있습니다. |
+| [Remove-AzPolicyAssignment](/powershell/module/az.resources/Remove-Azpolicyassignment) | 기존 Azure Policy 할당을 제거합니다. |
+| [Remove-AzPolicyDefinition](/powershell/module/az.resources/Remove-Azpolicydefinition) | 기존 Azure Policy 정의를 제거합니다. |
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -220,10 +219,10 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 
 | 서비스 | 그룹 | 작업(Operation) | 메모 |
 |---|---|---|---|
-| 리소스 관리 | 정책 정의 | [만들기](/rest/api/resources/policydefinitions/createorupdate) | 구독에서 새 Azure Policy 정의를 만듭니다. 대안: [관리 그룹 만들기](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
+| 리소스 관리 | 정책 정의 | [만들기](/rest/api/resources/policydefinitions/createorupdate) | 구독에서 새 Azure Policy 정의를 만듭니다. 대안: [관리 그룹에서 만들기](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
 | 리소스 관리 | 정책 할당 | [만들기](/rest/api/resources/policyassignments/create) | 새 Azure Policy 할당을 만듭니다. 이 예제에서는 정의를 제공하지만, 이니셔티브를 취할 수도 있습니다. |
 | 리소스 관리 | 정책 할당 | [삭제](/rest/api/resources/policyassignments/delete) | 기존 Azure Policy 할당을 제거합니다. |
-| 리소스 관리 | 정책 정의 | [삭제](/rest/api/resources/policydefinitions/delete) | 기존 Azure Policy 정의를 제거합니다. 대안: [관리 그룹 삭제](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
+| 리소스 관리 | 정책 정의 | [삭제](/rest/api/resources/policydefinitions/delete) | 기존 Azure Policy 정의를 제거합니다. 대안: [관리 그룹에서 삭제](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
 
 ## <a name="next-steps"></a>다음 단계
 

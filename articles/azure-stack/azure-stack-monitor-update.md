@@ -13,12 +13,13 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: 4641dce6fe8518016ee85cd480de6d11354fe170
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 09d3d996e4c939d6691162d66f303536a3f2038d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037222"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239267"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>권한 있는 끝점을 사용 하 여 Azure Stack의 업데이트를 모니터링 합니다.
 
@@ -35,7 +36,7 @@ ms.locfileid: "51037222"
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>Cmdlet을 사용할 수 확인
-Cmdlet은 Azure Stack에 대 한 1710 업데이트 패키지의 새 이기 때문에 1710 업데이트 프로세스를 모니터링 하는 기능을 사용할 특정 시점에 도달 해야 합니다. 일반적으로 cmdlet은 관리자 포털에서 상태를 나타내면 1710 업데이트를 사용할 수는 **저장소 호스트를 다시 시작** 단계입니다. Cmdlet은 업데이트 하는 동안 발생 하는 특히 **단계: 2.6-PrivilegedEndpoint 업데이트 허용 목록에 추가 단계를 실행 중인**합니다.
+Cmdlet은 Azure Stack에 대 한 1710 업데이트 패키지의 새 이기 때문에 1710 업데이트 프로세스를 모니터링 하는 기능을 사용할 특정 시점에 도달 해야 합니다. 일반적으로 cmdlet은 관리자 포털에서 상태를 나타내면 1710 업데이트를 사용할 수는 **저장소 호스트를 다시 시작** 단계입니다. Cmdlet은 업데이트 하는 동안 발생 하는 특히 **단계: 2.6-업데이트 PrivilegedEndpoint 허용 목록에 추가 단계를 실행 중인**합니다.
 
 Cmdlet은 사용 가능한 지 프로그래밍 방식으로 권한 있는 끝점에서 명령 목록을 쿼리하여 확인할 수 있습니다. 이 위해 수명 주기 호스트 하드웨어에서에서 또는 권한 있는 액세스 워크스테이션에서 다음 명령을 실행 합니다. 또한 권한 있는 끝점은 신뢰할 수 있는 호스트 해야 합니다. 자세한 내용은 참조의 1 단계 [끝점에 권한 있는 액세스](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)합니다. 
 

@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 011fa2dcce390597337ec583c1d5704177fda251
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d914f14d2b7a50e700e53b55cd43e699cf560a76
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347189"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810366"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 LucidChart 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "44347189"
 
 ## <a name="assigning-users-to-lucidchart"></a>LucidChart에 사용자 할당
 
-Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 "할당된" 사용자 및 그룹만 동기화됩니다. 
+Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 애플리케이션에 “할당된” 사용자 및 그룹만 동기화됩니다. 
 
 프로비전 서비스를 구성하고 사용하도록 설정하기 전에 LucidChart 앱에 액세스해야 하는 사용자를 나타내는 Azure AD의 사용자 및/또는 그룹을 결정해야 합니다. 결정했으면 다음 지침에 따라 이러한 사용자를 LucidChart 앱에 할당할 수 있습니다.
 
@@ -47,7 +47,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 *   단일 Azure AD 사용자를 LucidChart에 할당하여 프로비전 구성을 테스트하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
 
-*   LucidChart에 사용자를 할당할 때 [할당] 대화 상자에서 **사용자** 역할이나 다른 유효한 응용 프로그램 관련 역할(사용 가능한 경우)을 선택해야 합니다. **기본 액세스** 역할은 프로비전에 적합하지 않으므로 이러한 사용자는 건너뜁니다.
+*   LucidChart에 사용자를 할당할 때 [할당] 대화 상자에서 **사용자** 역할이나 다른 유효한 애플리케이션 관련 역할(사용 가능한 경우)을 선택해야 합니다. **기본 액세스** 역할은 프로비전에 적합하지 않으므로 이러한 사용자는 건너뜁니다.
 
 
 ## <a name="configuring-user-provisioning-to-lucidchart"></a>LucidChart에 사용자 프로비전 구성 
@@ -61,9 +61,9 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 ### <a name="configure-automatic-user-account-provisioning-to-lucidchart-in-azure-ad"></a>Azure AD에서 LucidChart에 자동 사용자 계정 프로비전을 구성
 
 
-1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory > 엔터프라이즈 앱 > 모든 응용 프로그램** 섹션으로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; 모든 애플리케이션** 섹션으로 이동합니다.
 
-2. 이미 LucidChart에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 LucidChart의 인스턴스를 검색합니다. 그러지 않은 경우 **추가**를 선택하고 응용 프로그램 갤러리에서 **LucidChart**를 검색합니다. 검색 결과에서 LucidChart를 선택하고 응용 프로그램 목록에 추가합니다.
+2. 이미 LucidChart에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 LucidChart의 인스턴스를 검색합니다. 그러지 않은 경우 **추가**를 선택하고 애플리케이션 갤러리에서 **LucidChart**를 검색합니다. 검색 결과에서 LucidChart를 선택하고 애플리케이션 목록에 추가합니다.
 
 3. LucidChart의 인스턴스를 선택한 다음 **프로비전** 탭을 선택합니다.
 
@@ -71,7 +71,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     ![LucidChart 프로비전](./media/lucidchart-provisioning-tutorial/LucidChart1.png)
 
-5. **관리자 자격 증명** 섹션 아래에 LucidChart 계정에서 생성한 **비밀 토큰**을 입력합니다(이 토큰은 계정 아래의 **팀** > **App Integration**(앱 통합) > **SCIM**에서 확인할 수 있음). 
+5. **관리자 자격 증명** 섹션 아래에 LucidChart 계정에서 생성한 **비밀 토큰**을 입력합니다(이 토큰은 계정 아래의 **팀** > **앱 통합** > **SCIM**에서 확인할 수 있음). 
 
     ![LucidChart 프로비전](./media/lucidchart-provisioning-tutorial/LucidChart2.png)
 
@@ -97,7 +97,7 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 

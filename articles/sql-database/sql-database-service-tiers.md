@@ -11,19 +11,22 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 102a00ac79c91ac4d571c0254570f14e8f2af46f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/10/2018
+ms.openlocfilehash: 9d566c0f95325635c5ce5030f4d3b22dba7ceb08
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239086"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726034"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database 구매 모델
 
 Azure SQL Database를 사용하면 성능 및 비용 요구에 적합한 완벽히 관리되는 PaaS 데이터베이스 엔진을 손쉽게 구매할 수 있습니다. Azure SQL Database의 배포 모델에 따라 필요에 맞는 구매 모델을 선택할 수 있습니다.
+- [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)(권장)을 사용하면 워크로드에 필요한 스토리지 용량 및 컴퓨팅의 정확한 양을 선택할 수 있습니다.
+- [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)을 사용하면 일반적인 워크로드에 맞게 부하가 분산되어 번들로 제공되는 컴퓨팅 및 스토리지 패키지를 선택할 수 있습니다.
 
-- [Azure SQL Database](sql-database-technical-overview.md)의 [논리 서버](sql-database-logical-servers.md)는 계산, 저장소 및 IO 리소스에 대한 두 가지 구매 모델, 즉 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)과 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 제공합니다. 이 구매 모델에서는 [단일 데이터베이스](sql-database-single-databases-manage.md) 또는 [탄력적 풀](sql-database-elastic-pool.md)을 선택할 수 있습니다.
+Azure SQL Database 배포 모델에서 다양한 구매 모델을 사용할 수 있습니다.
+- [Azure SQL Database](sql-database-technical-overview.md)의 [논리 서버](sql-database-logical-servers.md)에는 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)과 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)이 모두 제공됩니다. 이 구매 모델에서는 [단일 데이터베이스](sql-database-single-databases-manage.md) 또는 [탄력적 풀](sql-database-elastic-pool.md)을 선택할 수 있습니다.
 - Azure SQL Database의 [Managed Instance](sql-database-managed-instance.md)는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)만 제공합니다.
 
 > [!IMPORTANT]
@@ -51,13 +54,13 @@ vCore 기반 구매 모델을 사용하면 계산 및 저장소 리소스를 독
 
 > [!IMPORTANT]
 > 계산, IO, 데이터 저장소 및 로그 저장소는 데이터베이스 또는 탄력적 풀당 요금이 부과됩니다. 백업 저장소는 각 데이터베이스당 요금이 부과됩니다. Managed Instance 요금에 대한 자세한 내용은 [Azure SQL Database Managed Instance](sql-database-managed-instance.md)를 참조하세요.
-> **지역 제한:** vCore 기반 구매 모델은 유럽 서부, 프랑스 중부, 영국 남부, 영국 서부 및 오스트레일리아 남동부 등의 지역에서는 아직 사용할 수 없습니다.
+> **지역 제한 사항:** vCore 기반 구매 모델을 다음 지역에서는 아직 사용할 수 없습니다. 유럽 서부, 프랑스 중부, 영국 남부, 영국 서부 및 오스트레일리아 남동부.
 
 데이터베이스 또는 탄력적 풀에서 300을 초과하는 DTU를 vCore로 변환하면 비용을 절약할 수 있습니다. 선택한 API를 사용하거나 Azure Portal을 사용하여 가동 중지 시간 없이 변환할 수 있습니다. 그러나 변환이 필요하지 않습니다. DTU 구매 모델이 성능 및 비즈니스 요구 사항을 충족하는 경우 이 모델을 계속 사용해야 합니다. DTU 모델을 vCore 모델로 변환하려는 경우 경험 규칙을 사용하여 계산 크기를 선택해야 합니다. 이 경우 표준 계층의 각 100 DTU에는 범용 계층에서 1개 이상의 vCore가 필요합니다. 프리미엄 계층의 각 125 DTU에는 중요 비즈니스용 계층에서 1개 이상의 vCore가 필요합니다.
 
 ## <a name="dtu-based-purchasing-model"></a>DTU 기반 구매 모델
 
-DTU(데이터베이스 트랜잭션 단위)는 CPU, 메모리, 읽기 및 쓰기의 혼합 측정값을 나타냅니다. DTU 기반 구매 모델은 다양한 수준의 응용 프로그램 성능을 구동하기 위해 계산 리소스 및 포함된 저장소를 미리 구성된 번들로 묶은 집합을 제공합니다. 매월 미리 구성된 번들과 고정된 지불 금액의 단순성을 선호하는 고객의 경우 DTU 기반 모델이 요구 사항에 더 적합하다는 것을 알 수 있습니다. DTU 기반 구매 모델에서 고객은 [단일 데이터베이스](sql-database-single-database-scale.md) 및 [탄력적 풀](sql-database-elastic-pool.md) 모두에 대해 **기본**, **표준** 및 **프리미엄** 서비스 계층 중에서 선택할 수 있습니다. 이 구매 모델은 [관리되는 인스턴스](sql-database-managed-instance.md)에서 사용할 수 없습니다.
+DTU(데이터베이스 트랜잭션 단위)는 CPU, 메모리, 읽기 및 쓰기의 혼합 측정값을 나타냅니다. DTU 기반 구매 모델은 다양한 수준의 애플리케이션 성능을 구동하기 위해 계산 리소스 및 포함된 저장소를 미리 구성된 번들로 묶은 집합을 제공합니다. 매월 미리 구성된 번들과 고정된 지불 금액의 단순성을 선호하는 고객의 경우 DTU 기반 모델이 요구 사항에 더 적합하다는 것을 알 수 있습니다. DTU 기반 구매 모델에서 고객은 [단일 데이터베이스](sql-database-single-database-scale.md) 및 [탄력적 풀](sql-database-elastic-pool.md) 모두에 대해 **기본**, **표준** 및 **프리미엄** 서비스 계층 중에서 선택할 수 있습니다. 이 구매 모델은 [관리되는 인스턴스](sql-database-managed-instance.md)에서 사용할 수 없습니다.
 
 ### <a name="database-transaction-units-dtus"></a>DTU(데이터베이스 트랜잭션 단위)
 

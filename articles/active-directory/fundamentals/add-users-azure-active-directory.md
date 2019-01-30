@@ -1,9 +1,9 @@
 ---
-title: Azure Active Directory에서 사용자를 추가 또는 삭제하는 방법 | Microsoft Docs
-description: Azure Active Directory를 사용하여 새 사용자를 추가하거나 기존 사용자를 삭제하는 방법을 알아봅니다.
+title: 사용자 추가 또는 삭제 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory를 사용하여 새 사용자를 추가하거나 기존 사용자를 삭제하는 방법에 대한 지침입니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: 782363144a6b1dd87aff515c38588b6ce70b61bd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: fbe513abee2eccdc4448df961517f179facab58a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295107"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452737"
 ---
-# <a name="how-to-add-or-delete-users-using-azure-active-directory"></a>방법: Azure Active Directory를 사용한 사용자 추가 또는 삭제
+# <a name="add-or-delete-users-using-azure-active-directory"></a>Azure Active Directory를 사용한 사용자 추가 또는 삭제
 Azure AD(Azure Active Directory) 테넌트에서 새 사용자를 추가하거나 기존 사용자를 삭제합니다.
 
 ## <a name="add-a-new-user"></a>새 사용자 추가
-Azure Active Directory를 사용하여 새 사용자를 만들 수 있습니다.
+Azure Active Directory 포털을 사용하여 새 사용자를 만들 수 있습니다.
 
 ### <a name="to-add-a-new-user"></a>새 사용자를 추가하려면
 1. 디렉터리의 전역 관리자 또는 사용자 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
@@ -58,10 +58,10 @@ Azure Active Directory를 사용하여 새 사용자를 만들 수 있습니다.
 Azure Active Directory(클라우드)와 Windows Server Active Directory(온-프레미스)를 모두 사용하는 환경이 있는 경우 기존 사용자 계정 데이터를 동기화하여 새 사용자를 추가할 수 있습니다. 하이브리드 환경에 대한 자세한 내용은 [Azure Active Directory와 온-프레미스 디렉터리 통합](../hybrid/whatis-hybrid-identity.md)을 참조하세요.
 
 ## <a name="delete-a-user"></a>사용자 삭제
-Azure Active Directory를 사용하여 기존 사용자를 삭제할 수 있습니다.
+Azure Active Directory 포털을 사용하여 기존 사용자를 삭제할 수 있습니다.
 
 ### <a name="to-delete-a-user"></a>사용자를 삭제하려면
-1. 해당 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 2. **Azure Active Directory**를 선택하고 **사용자**를 선택한 다음, Azure AD 테넌트에서 삭제할 사용자를 검색하여 선택합니다. 예를 들어, _Mary Parker_입니다.
 

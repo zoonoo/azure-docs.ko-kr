@@ -3,7 +3,7 @@ title: Azure Active Directory에서 “여기서는 거기에 접근할 수 없�
 description: “여기서는 거기에 접근할 수 없습니다.” 오류 메시지가 표시되는 잠재적 원인을 해결합니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
 ms.component: user-help
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: c34b096766b6b7dda26c51559bf58e40d95715e7
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: eb924a612188d905eb6c7127067fed2fd4b0f218
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651269"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825530"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>“여기서는 거기에 접근할 수 없습니다.” 오류 메시지가 표시되는 잠재적 원인
 조직의 내부 웹앱 또는 서비스에 액세스하는 동안 **여기서는 거기에 접근할 수 없습니다.** 라는 오류 메시지가 표시될 수 있습니다. 이 메시지는 조직에서 디바이스가 조직 리소스에 액세스하지 못하도록 방지하는 정책을 설정했음을 의미합니다. 이 문제를 해결하기 위해 결과적으로 기술 지원 팀에 문의해야 할 수 있지만 먼저 다음 작업을 시도할 수 있습니다.
@@ -48,7 +48,7 @@ ms.locfileid: "49651269"
 ![네트워크에 연결되어 있는지 여부와 관련된 오류 메시지](media/user-help-device-remediation/network-version.png)
 
 ### <a name="to-check-whether-your-device-is-joined-to-your-network"></a>디바이스가 네트워크에 가입되어 있는지 여부를 확인하려면
-1. 회사 또는 학교 계정을 사용하여 Windows에 로그인합니다. 예: alain@contoso.com.
+1. 회사 또는 학교 계정을 사용하여 Windows에 로그인합니다. 예: alain@contoso.com
 
 2. VPN(가상 사설망) 또는 DirectAccess를 통해 회사 네트워크에 연결합니다.
 

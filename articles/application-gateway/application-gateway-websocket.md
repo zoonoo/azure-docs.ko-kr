@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: amsriva
-ms.openlocfilehash: 75b06ddd02da231b7813c609c848c75e42116da5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc6e2480ea117a288ae94c9cd66be6a354d8230f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22986728"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993333"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Application Gateway의 WebSocket 지원 개요
 
@@ -27,7 +27,7 @@ Application Gateway는 모든 게이트웨이 크기에 WebSocket에 대한 네�
 
 [RFC6455](https://tools.ietf.org/html/rfc6455)에서 표준화된 WebSocket 프로토콜을 사용하면 장기 실행 TCP 연결을 통해 서버와 클라이언트 간의 전이중 통신을 수행할 수 있습니다. 이 기능을 사용하면 웹 서버와 클라이언트 간의 대화형 통신이 가능하며, HTTP 기반 구현에서 필요에 따라 폴링하지 않고도 양방향 통신을 수행할 수 있습니다. WebSocket은 HTTP와 달리 오버헤드가 낮고 여러 요청/응답에 동일한 TCP 연결을 다시 사용하므로 리소스를 더 효율적으로 활용할 수 있습니다. WebSocket 프로토콜은 기존의 HTTP 포트 80 및 443을 통해 작동하도록 디자인되었습니다.
 
-80 또는 443 포트에서 표준 HTTP 수신기를 계속 사용하여 WebSocket 트래픽을 받을 수 있습니다. WebSocket 트래픽은 Application Gateway 규칙에 지정된 대로 적절한 백 엔드 풀을 사용하여 WebSocket 활성화된 백 엔드 서버로 지정됩니다. 백 엔드 서버는 [상태 프로브 개요](application-gateway-probe-overview.md) 섹션에서 설명한 대로 응용 프로그램 게이트웨이 프로브에 응답해야 합니다. 응용 프로그램 게이트웨이 상태 프로브는 HTTP/HTTPS 전용입니다. 각 백 엔드 서버는 WebSocket 트래픽을 서버로 라우팅하기 위해 응용 프로그램 게이트웨이에 대한 HTTP 프로브에 응답해야 합니다.
+80 또는 443 포트에서 표준 HTTP 수신기를 계속 사용하여 WebSocket 트래픽을 받을 수 있습니다. WebSocket 트래픽은 Application Gateway 규칙에 지정된 대로 적절한 백 엔드 풀을 사용하여 WebSocket 활성화된 백 엔드 서버로 지정됩니다. 백 엔드 서버는 [상태 프로브 개요](application-gateway-probe-overview.md) 섹션에서 설명한 대로 애플리케이션 게이트웨이 프로브에 응답해야 합니다. 애플리케이션 게이트웨이 상태 프로브는 HTTP/HTTPS 전용입니다. 각 백 엔드 서버는 WebSocket 트래픽을 서버로 라우팅하기 위해 애플리케이션 게이트웨이에 대한 HTTP 프로브에 응답해야 합니다.
 
 ## <a name="listener-configuration-element"></a>수신기 구성 요소
 
@@ -113,14 +113,14 @@ WebSocket이 작동되려면 사용자의 백 엔드가 구성된 포트(대개 
     Upgrade: websocket
     Connection: Upgrade
     Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==
-    Origin: http://example.com
+    Origin: https://example.com
     Sec-WebSocket-Protocol: chat, superchat
     Sec-WebSocket-Version: 13
 ```
 
-또 다른 이유는 응용 프로그램 게이트웨이 백 엔드 상태 프로브에서 HTTP/HTTPS 프로토콜만 지원하기 때문입니다. 백 엔드 서버에서 HTTP 또는 HTTPS 프로브에 응답하지 않으면 해당 백 엔드 서버가 백 엔드 풀에서 제거됩니다.
+또 다른 이유는 애플리케이션 게이트웨이 백 엔드 상태 프로브에서 HTTP/HTTPS 프로토콜만 지원하기 때문입니다. 백 엔드 서버에서 HTTP 또는 HTTPS 프로브에 응답하지 않으면 해당 백 엔드 서버가 백 엔드 풀에서 제거됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-WebSocket 지원에 대해 알아본 후에 [Application Gateway 만들기](application-gateway-create-gateway.md)로 이동하여 WebSocket 활성화 웹 응용 프로그램을 시작합니다.
+WebSocket 지원에 대해 알아본 후에 [Application Gateway 만들기](application-gateway-create-gateway.md)로 이동하여 WebSocket 활성화 웹 애플리케이션을 시작합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: '예: Computer Vision API 호출'
+title: '예제: 분석 이미지 API 호출 - Computer Vision'
 titlesuffix: Azure Cognitive Services
 description: Azure Cognitive Services에서 REST를 사용하여 Computer Vision API를 호출하는 방법을 알아봅니다.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
-ms.openlocfilehash: e8297fbe59ebe2dea9caf112ebea4517447cf9e0
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: seodec18
+ms.openlocfilehash: 9520d4bcec0e170700aacc5ef4bc69100e333af1
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981748"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581711"
 ---
-# <a name="example-how-to-call-the-computer-vision-api"></a>예: Computer Vision API를 호출하는 방법
+# <a name="example-how-to-call-the-computer-vision-api"></a>예제: Computer Vision API를 호출하는 방법
 
 이 가이드에서는 REST를 사용하여 Computer Vision API를 호출하는 방법을 보여 줍니다. 샘플은 Computer Vision API 클라이언트 라이브러리를 사용하여 C#으로 작성되고 HTTP POST/GET 호출로 작성됩니다. 다음을 집중적으로 살펴보겠습니다.
 
@@ -60,11 +61,11 @@ Computer Vision API를 호출할 때마다 구독 키가 필요합니다. 이 �
 ```var visionClient = new VisionServiceClient(“Your subscriptionKey”);```
 
 ### <a name="Step2">2단계: Computer Vision API 서비스에 이미지를 업로드하고 태그, 설명 및 유명인 다시 가져오기</a>
-Computer Vision API 호출을 수행하는 기본적인 방법은 직접 이미지를 업로드하는 것입니다. 이미지에서 데이터 판독과 함께 응용 프로그램/옥텟 스트림 콘텐츠 형식으로 “POST” 요청을 보내 수행합니다. “태그” 및 “설명”의 경우 이 업로드 메서드는 모든 Computer Vision API 호출에 동일합니다. 유일한 차이점은 사용자가 지정하는 쿼리 매개 변수입니다. 
+Computer Vision API 호출을 수행하는 기본적인 방법은 직접 이미지를 업로드하는 것입니다. 이미지에서 데이터 판독과 함께 애플리케이션/옥텟 스트림 콘텐츠 형식으로 “POST” 요청을 보내 수행합니다. “태그” 및 “설명”의 경우 이 업로드 메서드는 모든 Computer Vision API 호출에 동일합니다. 유일한 차이점은 사용자가 지정하는 쿼리 매개 변수입니다. 
 
 제공된 이미지의 “태그” 및 “설명”을 가져오는 방법은 다음과 같습니다.
 
-**옵션 1:** “태그” 및 1개 “설명”의 목록 가져오기
+**옵션 1:** “태그” 목록 및 “설명” 목록 가져오기
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
 ```
@@ -111,7 +112,7 @@ var models = await visionClient.ListModelsAsync();
 ```
 **옵션 2:** 고급 분석 - [86개 범주 분류](../Category-Taxonomy.md)를 통해 추가 정보를 제공하도록 분석
 
-하나 이상 도메인별 모델의 세부 정보 외에 일반 이미지 분석을 가져오려는 응용 프로그램의 경우 모델 쿼리 매개 변수를 사용하여 v1 API를 확장합니다.
+하나 이상 도메인별 모델의 세부 정보 외에 일반 이미지 분석을 가져오려는 애플리케이션의 경우 모델 쿼리 매개 변수를 사용하여 v1 API를 확장합니다.
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?details=celebrities
 ```

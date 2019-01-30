@@ -13,12 +13,13 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: f754242d0cf7ee30572b21a3f4daf6fd2c0f63ff
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.lastreviewed: 12/03/2018
+ms.openlocfilehash: 82a691c0e0b6280a168605d56ee628d81f10823f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275910"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245653"
 ---
 # <a name="validate-azure-stack-system-state"></a>Azure Stack 시스템 상태 유효성 검사
 
@@ -125,7 +126,7 @@ Azure Stack 운영자, 시스템 주문형의 상태를 파악 하는 능력은 
 
 - **BackupSharePath** 하 고 **BackupShareCredential** 에 표시 된 대로 인프라 백업 설정을 테스트할 때 사용 됩니다 합니다 [사용 사례 예제](azure-stack-diagnostic-test.md#use-case-examples) 섹션입니다.
 
-- 유효성 검사 도구는 또한 일반적인 PowerShell 매개 변수를 지원합니다. Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable, 및 outvariable을 지원 합니다. 자세한 내용은 [에 대 한 일반 매개 변수](http://go.microsoft.com/fwlink/?LinkID=113216)합니다.  
+- 유효성 검사 도구는 또한 일반적인 PowerShell 매개 변수를 지원합니다. Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable, 및 outvariable을 지원 합니다. 자세한 내용은 [에 대 한 일반 매개 변수](https://go.microsoft.com/fwlink/?LinkID=113216)합니다.  
 
 ## <a name="use-case-examples"></a>사용 사례 예제
 

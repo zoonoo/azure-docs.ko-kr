@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 02d21db5c5fadb65ec63e41cbd9e2db8869ed2e7
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 332687d14593024bb4354e2cd59ff0d50ae0aaef
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415834"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017313"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Marketo에서 데이터 복사(미리 보기)
 
@@ -34,7 +33,7 @@ Marketo에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제공합니다. 따라서 이 커넥터를 사용하여 드라이버를 수동으로 설치하지 않아도 됩니다.
 
 >[!NOTE]
->이 Marketo 커넥터는 Marketo REST API를 기반으로 합니다. Marketo에는 서버 쪽에 [동시 요청 제한](http://developers.marketo.com/rest-api/)이 있습니다. "REST API를 사용하려고 시도하는 동안 오류가 발생했습니다: 최대 속도 제한 '100'이 '20'초로 초과되었습니다(606)" 또는 "REST API를 사용하려고 시도하는 동안 오류가 발생했습니다: 동시 액세스 제한 '10'에 도달했습니다(615)"라는 오류가 발생하는 경우 서비스에 대한 요청 수를 줄이도록 동시 복사 작업 실행을 줄입니다.
+>이 Marketo 커넥터는 Marketo REST API를 기반으로 합니다. Marketo에는 서버 쪽에 [동시 요청 제한](http://developers.marketo.com/rest-api/)이 있습니다. "REST API를 사용하려고 시도하는 동안 오류 발생: 최대 속도 제한 '100'에서 '20'초 초과(606)" 또는 "REST API를 사용하려고 시도하는 동안 오류 발생: 동시 액세스 제한 '10'에 도달(615)" 오류가 발생하면 동시 복사 작업 실행을 줄여서 서비스에 대한 요청 수를 줄이는 것이 좋습니다.
 
 ## <a name="getting-started"></a>시작
 
@@ -48,10 +47,10 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **Marketo**로 설정해야 합니다. | yes |
-| endpoint | Marketo 서버의 엔드포인트입니다. (즉, 123-ABC-321.mktorest.com)  | yes |
-| clientId | Marketo 서비스의 클라이언트 ID입니다.  | yes |
-| clientSecret | Marketo 서비스의 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| 형식 | type 속성을 다음으로 설정해야 합니다. **Marketo** | 예 |
+| endpoint | Marketo 서버의 엔드포인트입니다. (즉, 123-ABC-321.mktorest.com)  | 예 |
+| clientId | Marketo 서비스의 클라이언트 ID입니다.  | 예 |
+| clientSecret | Marketo 서비스의 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 | useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 | usePeerVerification | SSL을 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
@@ -79,7 +78,12 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Marketo 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Marketo에서 데이터를 복사하려면 데이터 세트의 type 속성을 **MarketoObject**로 설정합니다. 이 형식의 데이터 세트에는 추가적인 형식별 속성이 없습니다.
+Marketo에서 데이터를 복사하려면 데이터 세트의 type 속성을 **MarketoObject**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+
+| 속성 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| 형식 | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **MarketoObject** | 예 |
+| tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
 
@@ -91,7 +95,8 @@ Marketo에서 데이터를 복사하려면 데이터 세트의 type 속성을 **
         "linkedServiceName": {
             "referenceName": "<Marketo linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -100,14 +105,14 @@ Marketo에서 데이터를 복사하려면 데이터 세트의 type 속성을 **
 
 작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인](concepts-pipelines-activities.md) 문서를 참조하세요. 이 섹션에서는 Marketo 원본에서 지원하는 속성의 목록을 제공합니다.
 
-### <a name="marketosource-as-source"></a>MarketoSource를 원본으로 설정
+### <a name="marketo-as-source"></a>Marketo를 원본으로
 
 MarketoSource에서 데이터를 복사하려면 복사 작업의 원본 형식을 **MarketoSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성은 **MarketoSource**로 설정해야 합니다. | yes |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Activitiy_Types"` | yes |
+| 형식 | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **MarketoSource** | 예 |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Activitiy_Types"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
 

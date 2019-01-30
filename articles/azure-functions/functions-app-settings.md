@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 2eb736891b12c07441bc8828ca07dd0b9fa13d98
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 8b364e2a51db8ee8d97fc981ac3df0d1fa5650ef
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458125"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037075"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
-함수 앱의 앱 설정에는 해당 함수 앱의 모든 함수에 영향을 주는 전역 구성 옵션이 포함됩니다. 로컬에서 실행할 때 이러한 설정은 [환경 변수](functions-run-local.md#local-settings-file)에 있습니다. 이 문서에는 함수 앱에서 사용할 수 있는 앱 설정이 나열되어 있습니다.
+함수 앱의 앱 설정에는 해당 함수 앱의 모든 함수에 영향을 주는 전역 구성 옵션이 포함됩니다. 로컬에서 실행할 때 이러한 설정은 로컬 [환경 변수](functions-run-local.md#local-settings-file)로 액세스합니다. 이 문서에는 함수 앱에서 사용할 수 있는 앱 설정이 나열되어 있습니다.
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
@@ -82,7 +82,7 @@ Application Insights를 사용하는 경우 Application Insights 계측 키입�
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
-키 저장소에 사용할 리포지토리 또는 공급자를 지정합니다. 현재 지원되는 리포지토리는 Blob 저장소("Blob") 및 로컬 파일 시스템("Files")입니다. 기본값은 버전 1에서는 blob, 버전 2에서는 파일 시스템입니다. 버전 1에서 파일 시스템은 App Service 계획에서 실행되는 기능에만 작동합니다.
+키 저장소에 사용할 리포지토리 또는 공급자를 지정합니다. 현재 지원되는 리포지토리는 Blob 저장소("Blob") 및 로컬 파일 시스템("Files")입니다. 기본값은 버전 2에서는 Blob, 버전 1에서는 파일 시스템입니다.
 
 |키|샘플 값|
 |---|------------|
@@ -122,7 +122,7 @@ TypeScript에 사용되는 컴파일러의 경로입니다. 필요한 경우 기
 
 ## <a name="functionsworkerruntime"></a>FUNCTIONS\_WORKER\_RUNTIME
 
-함수 앱에 로드할 언어 작업자 런타임입니다.  이것은 응용 프로그램(예: "dotnet")에 사용되는 언어에 해당합니다. 여러 언어로 된 함수는 여러 개의 앱을 각각 해당하는 작업자 런타임 값을 사용하여 게시해야 합니다.  유효한 값은 `dotnet`(C#/F#), `node`(JavaScript) 및 `java`(Java)입니다.
+함수 앱에 로드할 언어 작업자 런타임입니다.  이것은 애플리케이션(예: "dotnet")에 사용되는 언어에 해당합니다. 여러 언어로 된 함수는 여러 개의 앱을 각각 해당하는 작업자 런타임 값을 사용하여 게시해야 합니다.  유효한 값은 `dotnet`(C#/F#), `node`(JavaScript) 및 `java`(Java)입니다.
 
 |키|샘플 값|
 |---|------------|
@@ -172,6 +172,48 @@ TypeScript에 사용되는 컴파일러의 경로입니다. 필요한 경우 기
 |WEBSITE\_RUN\_FROM\_PACKAGE|1|
 
 유효한 값은 배포 패키지 파일의 위치를 확인하는 URL이거나 `1`입니다. `1`로 설정하면 패키지는 `d:\home\data\SitePackages` 폴더에 있어야 합니다. 이 설정으로 zip 배포를 사용하면 패키지가 자동으로 이 위치에 업로드됩니다. 미리 보기에서 이 설정은 `WEBSITE_RUN_FROM_ZIP`으로 명명되었습니다. 자세한 내용은 [패키지 파일에서 Functions 실행](run-functions-from-deployment-package.md)을 참조하세요.
+
+## <a name="azurefunctionproxydisablelocalcall"></a>AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
+
+기본적으로 Functions 프록시는 바로 가기를 사용하여 새 HTTP 요청을 생성하는 대신 프록시에서 동일한 함수 앱의 함수로 API 호출을 직접 보냅니다. 이 설정을 사용하면 해당 동작을 사용하지 않도록 설정할 수 있습니다.
+
+|키|값|설명|
+|-|-|-|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|로컬 함수 앱에서 함수를 가리키는 백 엔드 URL을 사용하는 호출은 함수로 더 이상 전송되지 않으며, 대신 함수 앱에 대한 HTTP 프런트 엔드에 다시 전달됩니다.|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|기본값입니다. 로컬 함수 앱에서 함수를 가리키는 백 엔드 URL을 사용하는 호출은 해당 함수로 직접 전달됩니다.|
+
+
+## <a name="azurefunctionproxybackendurldecodeslashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
+
+이 설정은 백 엔드 URL로 삽입될 때 %2F가 경로 매개 변수에서 슬래시로 디코딩되는지 여부를 제어합니다. 
+
+|키|값|설명|
+|-|-|-|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|인코딩된 슬래시를 사용하는 경로 매개 변수는 해당 항목을 디코딩합니다. `example.com/api%2ftest`는 `example.com/api/test`가 됩니다.|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|기본 동작입니다. 모든 경로 매개 변수는 변경 안됨으로 전달됩니다.|
+
+### <a name="example"></a>예
+
+다음은 URL myfunction.com에서 함수 앱의 예제 proxies.json입니다.
+
+```JSON
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "root": {
+            "matchCondition": {
+                "route": "/{*all}"
+            },
+            "backendUri": "example.com/{all}"
+        }
+    }
+}
+```
+|URL 디코딩|입력|출력|
+|-|-|-|
+|true|myfunction.com/test%2fapi|example.com/test/api
+|false|myfunction.com/test%2fapi|example.com/test%2fapi|
+
 
 ## <a name="next-steps"></a>다음 단계
 

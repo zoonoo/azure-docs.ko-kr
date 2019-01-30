@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
-ms.openlocfilehash: e1dc637d2f629b5002c2e8796fbd29a95478c392
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b48de6a6eeed997fe162cabe4d57e6770e016971
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035435"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54122805"
 ---
 Azure VM(Virtual Machines)은 *프로비전* 및 *전원* 상태로 분류될 수 있는 여러 상태를 거칩니다. 이 아티클은 이러한 상태를 설명하고, 고객에게 인스턴스 사용량에 요금이 청구된 경우 특히 강조 표시하려고 합니다. 
 
@@ -108,7 +108,7 @@ Azure VM(Virtual Machines)은 *프로비전* 및 *전원* 상태로 분류될 �
  ]</code><br>
 </td>
 <td>
-<p><b>청구되지 않음</b></p>
+<p><b>청구됨&#42;</b></p>
 </td>
 </tr>
 <tr>
@@ -151,7 +151,7 @@ Azure VM(Virtual Machines)은 *프로비전* 및 *전원* 상태로 분류될 �
 </table>
 
 
-일부 Azure 리소스(예: 디스크 및 네트워킹)는 해당 인스턴스의 상태에 관계 없이 요금이 발생합니다. 
+&#42;일부 Azure 리소스(예: 디스크 및 네트워킹)에는 요금이 부과됩니다. 인스턴스의 소프트웨어 라이선스에는 요금이 부과되지 않습니다.
 
 ## <a name="provisioning-states"></a>프로비전 상태
 

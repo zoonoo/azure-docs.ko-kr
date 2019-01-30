@@ -1,6 +1,6 @@
 ---
 title: Data Factory에서 예약 및 실행 | Microsoft Docs
-description: Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 알아봅니다.
+description: Azure Data Factory 애플리케이션 모델의 예약 및 실행에 대한 내용을 알아봅니다.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -9,27 +9,26 @@ ms.assetid: 088a83df-4d1b-4ac1-afb3-0787a9bd1ca5
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: bd8b682e073e86bb824d31d6ebab20a80f807730
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a70c3ddb624639411dbee961b1c4d59ac1277147
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054605"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016089"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Data Factory 예약 및 실행
 > [!NOTE]
 > 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [파이프라인 실행 및 트리거](../concepts-pipeline-execution-triggers.md) 문서를 참조하세요.
 
-이 문서에서는 Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 설명합니다. 이 문서는 사용자가 작업, 파이프라인, 연결된 서비스 및 데이터 세트와 같은 Data Factory 응용 프로그램 모델 개념을 이해하고 있다고 가정합니다. Azure Data Factory의 기본 개념은 다음 문서를 참조하세요.
+이 문서에서는 Azure Data Factory 애플리케이션 모델의 예약 및 실행에 대한 내용을 설명합니다. 이 문서는 사용자가 작업, 파이프라인, 연결된 서비스 및 데이터 세트와 같은 Data Factory 애플리케이션 모델 개념을 이해하고 있다고 가정합니다. Azure Data Factory의 기본 개념은 다음 문서를 참조하세요.
 
 * [데이터 팩터리 소개](data-factory-introduction.md)
 * [파이프라인](data-factory-create-pipelines.md)
-* [데이터 집합](data-factory-create-datasets.md) 
+* [데이터 세트](data-factory-create-datasets.md) 
 
 ## <a name="start-and-end-times-of-pipeline"></a>파이프라인의 시작 및 종료 시간
 파이프라인은 **시작** 시간과 **종료** 시간 사이에서만 활성화됩니다. 시작 시간 이전 또는 종료 시간 이후에 실행되지 않습니다. 파이프라인이 일시 중지되면 시작 및 종료 시간에 관계없이 실행되지 않습니다. 실행될 파이프라인의 경우 일시 중지되지 않아야 합니다. 파이프라인 정의에서 이러한 설정(start, end, paused)을 찾습니다. 
@@ -62,11 +61,11 @@ ms.locfileid: "37054605"
 ## <a name="specify-schedule-for-a-dataset"></a>데이터 세트 일정 지정
 Data Factory 파이프라인의 활동은 0개 이상의 입력 **데이터 세트**를 받고, 하나 이상의 출력 데이터 세트를 생성할 수 있습니다. 활동의 경우 데이터 세트 정의의 **availability** 섹션을 사용하여 입력 데이터를 사용할 수 있거나 출력 데이터를 생성하는 빈도를 지정할 수 있습니다. 
 
-**availability** 섹션의 **frequency**는 시간 단위를 지정합니다. frequency에 허용되는 값은 Minute, Hour, Day, Week 및 Month입니다. availability 섹션의 **interval** 속성은 frequency에 대한 승수를 지정합니다. 예를 들어 출력 데이터 세트에 대해 frequency가 Day로 설정되고 interval이 1로 설정되면 출력 데이터를 매일 생성합니다. frequency를 Minute로 지정하는 경우 interval을 15 이상으로 설정하는 것이 좋습니다. 
+**availability** 섹션의 **frequency**는 시간 단위를 지정합니다. 빈도에 허용되는 값은 Minute, Hour, Day, Week 및 Month입니다. availability 섹션의 **interval** 속성은 frequency에 대한 승수를 지정합니다. 예를 들어 출력 데이터 세트에 대해 frequency가 Day로 설정되고 interval이 1로 설정되면 출력 데이터를 매일 생성합니다. frequency를 Minute로 지정하는 경우 interval을 15 이상으로 설정하는 것이 좋습니다. 
 
 다음 예제에서 입력 데이터는 매시간 사용할 수 있으며 출력 데이터는 매시간(`"frequency": "Hour", "interval": 1`) 생성됩니다. 
 
-**입력 데이터 집합:** 
+**입력 데이터 세트:** 
 
 ```json
 {
@@ -89,7 +88,7 @@ Data Factory 파이프라인의 활동은 0개 이상의 입력 **데이터 세�
 ```
 
 
-**출력 데이터 집합:**
+**출력 데이터 세트**
 
 ```json
 {
@@ -173,7 +172,7 @@ Data Factory 파이프라인의 활동은 0개 이상의 입력 **데이터 세�
 
 위 다이어그램에서는 입력 및 출력 데이터 세트에 대한 매시간 데이터 조각을 보여 줍니다. 다이어그램은 처리할 준비가 된 입력 조각 3개를 보여 줍니다. 오전 10-11시 작업이 진행 중이며 오전 10-11시 출력 조각이 생성되고 있습니다. 
 
-[SliceStart](data-factory-functions-variables.md#data-factory-system-variables) 및 [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables) 변수를 사용하여 데이터 집합 JSON에서 현재 조각과 관련된 시간 간격에 액세스할 수 있습니다. 마찬가지로 WindowStart 및 WindowEnd를 사용하여 활동 기간과 관련된 시간 간격에 액세스할 수 있습니다. 활동 일정은 해당 활동의 출력 데이터 세트 일정과 일치해야 합니다. 따라서 SliceStart 및 SliceEnd 값은 각각 WindowStart 및 WindowEnd 값과 동일합니다. 이러한 변수에 대한 자세한 내용은 [Data Factory 함수 및 시스템 변수](data-factory-functions-variables.md#data-factory-system-variables) 문서를 참조하세요.  
+데이터 세트 JSON에서 현재 조각과 관련된 시간 간격에 액세스하려면 [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) 및 [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables) 변수를 사용하면 됩니다. 마찬가지로 WindowStart 및 WindowEnd를 사용하여 활동 기간과 관련된 시간 간격에 액세스할 수 있습니다. 활동 일정은 해당 활동의 출력 데이터 세트 일정과 일치해야 합니다. 따라서 SliceStart 및 SliceEnd 값은 각각 WindowStart 및 WindowEnd 값과 동일합니다. 이러한 변수에 대한 자세한 내용은 [Data Factory 함수 및 시스템 변수](data-factory-functions-variables.md#data-factory-system-variables) 문서를 참조하세요.  
 
 이러한 변수를 작업 JSON에서 다양한 용도로 사용할 수 있습니다. 예를 들어 시계열 데이터(예: 오전 8시에서 오전 9시)를 나타내는 입력 및 출력 데이터 세트에서 데이터를 선택하는 데 사용할 수 있습니다. 또한 이 예제에서는 **WindowStart** 및 **WindowEnd**를 사용하여 활동 실행에 대한 관련 데이터를 선택하고 적절한 **folderPath**의 Blob에 이 데이터를 복사합니다. **folderPath** 는 매시간 별도의 폴더를 포함하도록 매개 변수화됩니다.  
 
@@ -187,11 +186,11 @@ Data Factory 파이프라인의 활동은 0개 이상의 입력 **데이터 세�
 
 | 자산 | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
-| frequency |데이터 세트 조각 생성을 위한 시간 단위를 지정합니다.<br/><br/><b>지원되는 빈도</b>: 분, 시, 일, 주, 월 |예 |해당 없음 |
-| interval |빈도 승수를 지정합니다.<br/><br/>"빈도 x 간격"은 조각을 생성하는 빈도를 결정합니다.<br/><br/>데이터 세트를 시간 단위로 조각화해야 하는 경우 <b>frequency</b>를 <b>Hour</b>로, <b>interval</b>을 <b>1</b>로 설정합니다.<br/><br/><b>참고:</b> 빈도를 Minute(분)으로 지정하면 15 이상으로 간격을 설정하는 것이 좋습니다. |예 |해당 없음 |
-| style |간격의 시작/끝에 조각을 생성해야 하는지를 지정합니다.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Frequency를 Month로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 월의 마지막 날에 생성합니다. style을 StartOfInterval로 설정하는 경우 조각을 달의 첫 번째 날에 생성합니다.<br/><br/>frequency를 Day로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 일의 마지막 시간에 생성합니다.<br/><br/>Frequency를 Hour로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 시간의 끝에 생성합니다. 예를 들어 오후 1~2시 기간에 대한 조각은 오후 2시에 생성됩니다. |아니오 |EndOfInterval |
-| anchorDateTime |스케줄러에서 사용하는 시간에 절대 위치를 정의하여 데이터 세트 조각 경계를 계산합니다. <br/><br/><b>참고:</b> AnchorDateTime에 빈도보다 더 세분화된 날짜 부분이 있는 경우 더 세분화된 부분을 무시합니다. <br/><br/>예를 들어 <b>간격</b>이 <b>매시간</b>(frequency: Hour 및 interval: 1)이고 <b>AnchorDateTime</b>에서 <b>분 및 초</b>를 포함하는 경우 AnchorDateTime의 <b>분 및 초</b> 부분은 무시됩니다. |아니오 |01/01/0001 |
-| offset |모든 데이터 세트 조각의 시작과 끝이 이동에 의한 Timespan입니다. <br/><br/><b>참고:</b> anchorDateTime 및 offset이 모두 지정되면 결과적으로 이동이 결합됩니다. |아니오 |해당 없음 |
+| frequency |데이터 세트 조각 생성을 위한 시간 단위를 지정합니다.<br/><br/><b>지원되는 빈도</b>: Minute, Hour, Day, Week, Month |예 |해당 없음 |
+| interval |빈도 승수를 지정합니다.<br/><br/>"빈도 x 간격"은 조각을 생성하는 빈도를 결정합니다.<br/><br/>데이터 세트를 시간 단위로 조각화해야 하는 경우 <b>frequency</b>를 <b>Hour</b>로, <b>interval</b>을 <b>1</b>로 설정합니다.<br/><br/><b>참고</b>: 빈도를 Minute(분)으로 지정하면 15 이상으로 간격을 설정하는 것이 좋습니다. |예 |해당 없음 |
+| style |간격의 시작/끝에 조각을 생성해야 하는지를 지정합니다.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Frequency를 Month로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 월의 마지막 날에 생성합니다. style을 StartOfInterval로 설정하는 경우 조각을 달의 첫 번째 날에 생성합니다.<br/><br/>frequency를 Day로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 일의 마지막 시간에 생성합니다.<br/><br/>Frequency를 Hour로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 시간의 끝에 생성합니다. 예를 들어 오후 1~2시 기간에 대한 조각은 오후 2시에 생성됩니다. |아니요 |EndOfInterval |
+| anchorDateTime |스케줄러에서 사용하는 시간에 절대 위치를 정의하여 데이터 세트 조각 경계를 계산합니다. <br/><br/><b>참고</b>: AnchorDateTime에 빈도보다 더 세분화된 날짜 부분이 있는 경우 더 세분화된 부분을 무시합니다. <br/><br/>예를 들어 <b>간격</b>이 <b>매시간</b>으로 설정됩니다(frequency: hour and interval: 1)이고 <b>AnchorDateTime</b>에서 <b>분 및 초</b>를 포함하는 경우 AnchorDateTime의 <b>분 및 초</b> 부분은 무시됩니다. |아니요 |01/01/0001 |
+| offset |모든 데이터 세트 조각의 시작과 끝이 이동에 의한 Timespan입니다. <br/><br/><b>참고</b>: anchorDateTime 및 offset이 모두 지정되면 결과적으로 이동이 결합됩니다. |아니요 |해당 없음 |
 
 ### <a name="offset-example"></a>offset example
 기본적으로 매일(`"frequency": "Day", "interval": 1`) 조각은 UTC 시간으로 오전 12시(자정)에서 시작합니다. 대신, 시작 시간을 UTC 시간으로 오전 6시로 설정하려면 다음 코드 조각과 같이 오프셋을 설정합니다. 
@@ -235,8 +234,8 @@ Data Factory 파이프라인의 활동은 0개 이상의 입력 **데이터 세�
 
 | 정책 이름 | 설명 | 에 적용 | 필수 | 기본값 |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB | **Azure Blob** 에서 데이터가 최소 크기 요구 사항(메가바이트)을 충족하는지 확인합니다. |Azure Blob |아니오 |해당 없음 |
-| minimumRows | **Azure SQL Database** 또는 **Azure 테이블**에서 데이터가 최소 행 수를 포함하는지 확인합니다. |<ul><li>Azure SQL Database</li><li>Azure 테이블</li></ul> |아니오 |해당 없음 |
+| minimumSizeMB | **Azure Blob** 에서 데이터가 최소 크기 요구 사항(메가바이트)을 충족하는지 확인합니다. |Azure Blob |아니요 |해당 없음 |
+| minimumRows | **Azure SQL Database** 또는 **Azure 테이블**에서 데이터가 최소 행 수를 포함하는지 확인합니다. |<ul><li>Azure SQL Database</li><li>Azure 테이블</li></ul> |아니요 |해당 없음 |
 
 #### <a name="examples"></a>예
 **minimumSizeMB:**
@@ -271,12 +270,12 @@ Data Factory 파이프라인의 활동은 0개 이상의 입력 **데이터 세�
 
 | 자산 | 허용된 값 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| 동시성 |정수  <br/><br/>최대값: 10 |1 |작업의 동시 실행 수입니다.<br/><br/>다른 조각에 발생할 수 있는 병렬 작업 실행 횟수를 결정합니다. 예를 들어 활동이 사용 가능한 많은 데이터 집합을 거쳐야 하는 경우 동시성 값을 높이면 데이터 처리가 빨라집니다. |
+| 동시성 |정수  <br/><br/>최댓값: 10 |1 |작업의 동시 실행 수입니다.<br/><br/>다른 조각에 발생할 수 있는 병렬 작업 실행 횟수를 결정합니다. 예를 들어 활동이 사용 가능한 많은 데이터 집합을 거쳐야 하는 경우 동시성 값을 높이면 데이터 처리가 빨라집니다. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |처리 중인 데이터 조각의 순서를 결정합니다.<br/><br/>예를 들어 2개의 조각이 있으며(각각 오후 4시 및 오후 5시에 발생) 둘 다 실행 보류 상태입니다. executionPriorityOrder를 설정하여 NewestFirst가 되도록 하면 오후 5시에 조각이 먼저 처리됩니다. 마찬가지로 executionPriorityORder를 OldestFIrst로 설정하면 오후 4시의 조각이 처리됩니다. |
 | retry |정수 <br/><br/>최대값이 10이 될 수 있음 |0 |조각에 대한 데이터 처리 전에 다시 시도 횟수가 실패로 표시됩니다. 데이터 조각에 대한 활동 실행은 지정된 재시도 횟수까지 다시 시도됩니다. 재시도는 실패 후 가능한 한 빨리 수행합니다. |
-| 시간 제한 |timespan |00:00:00 |활동에 대한 시간 제한입니다. 예: 00:10:00(시간 제한 10분을 의미함)<br/><br/>값이 지정되지 않거나 0인 경우 시간 제한은 무한입니다.<br/><br/>조각의 데이터 처리 시간이 시간 제한 값을 초과하면 취소되고 시스템이 처리를 다시 시도합니다. 다시 시도 횟수는 다시 시도 속성에 따라 달라집니다. 시간 제한이 발생할 때 상태는 TimedOut으로 설정됩니다. |
-| delay |timespan |00:00:00 |조각의 데이터 처리 작업이 시작되기 전에 지연을 지정합니다.<br/><br/>데이터 조각에 대한 활동의 실행은 지연이 예상된 실행 시간을 지난 후에 시작됩니다.<br/><br/>예: 00:10:00(10분의 지연을 의미함) |
-| longRetry |정수 <br/><br/>최대값: 10 |1 |조각 실행이 실패하기 전까지의 긴 재시도 횟수입니다.<br/><br/>longRetry 시도는 longRetryInterval에 따라 간격이 조정됩니다. 따라서 재시도 간의 시간을 지정해야 하는 경우 longRetry를 사용합니다. Retry 및 longRetry를 둘 다 지정하면 각 longRetry 시도에는 Retry 시도가 포함되고 최대 시도 횟수는 Retry * longRetry가 됩니다.<br/><br/>예를 들어 활동 정책에 다음 설정이 있는 경우:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>실행할 조각이 하나뿐이며(Waiting 상태) 작업 실행이 매번 실패한다고 가정합니다. 우선 3번 연속 실행 시도를 합니다. 시도한 후 각 조각 상태는 다시 시도입니다. 처음 3번 시도 후에 조각 상태는 LongRetry입니다.<br/><br/>한 시간(즉, longRetryInteval의 값) 후에 3번 연속 실행이 다시 시도됩니다. 그 후에 조각 상태가 실패이면 다시 시도는 더 이상 시도하지 않습니다. 즉, 전체적으로 6번의 시도가 일어납니다.<br/><br/>모든 실행에 성공하면 조각 상태는 준비 상태가 되며 더 이상 다시 시도하지 않습니다.<br/><br/>longRetry는 종속 데이터가 명확하지 않은 시간에 도착하거나 데이터 처리가 발생하는 전체적인 환경을 신뢰할 수 없는 상황에서 사용될 수 있습니다. 이러한 경우 하나씩 다시 시도를 수행해도 도움이 되지 않을 수 있으며 특정 시간 간격 후에 시도할 경우 출력이 나타납니다.<br/><br/>주의: longRetry 또는 longRetryInterval에 높은 값을 설정하지 마세요. 일반적으로 더 높은 값을 지정하면 다른 시스템 문제가 발생합니다. |
+| 시간 제한 |timespan |00:00:00 |활동에 대한 시간 제한입니다. 예제: 00:10:00(시간 제한 10분을 의미함)<br/><br/>값이 지정되지 않거나 0인 경우 시간 제한은 무한입니다.<br/><br/>조각의 데이터 처리 시간이 시간 제한 값을 초과하면 취소되고 시스템이 처리를 다시 시도합니다. 다시 시도 횟수는 다시 시도 속성에 따라 달라집니다. 시간 제한이 발생할 때 상태는 TimedOut으로 설정됩니다. |
+| delay |timespan |00:00:00 |조각의 데이터 처리 작업이 시작되기 전에 지연을 지정합니다.<br/><br/>데이터 조각에 대한 활동의 실행은 지연이 예상된 실행 시간을 지난 후에 시작됩니다.<br/><br/>예제: 00:10:00(10분 지연을 의미함) |
+| longRetry |정수 <br/><br/>최댓값: 10 |1 |조각 실행이 실패하기 전까지의 긴 재시도 횟수입니다.<br/><br/>longRetry 시도는 longRetryInterval에 따라 간격이 조정됩니다. 따라서 재시도 간의 시간을 지정해야 하는 경우 longRetry를 사용합니다. Retry 및 longRetry를 둘 다 지정하면 각 longRetry 시도에는 Retry 시도가 포함되고 최대 시도 횟수는 Retry * longRetry가 됩니다.<br/><br/>예를 들어 활동 정책에 다음 설정이 있는 경우:<br/>다시 시도: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>실행할 조각이 하나뿐이며(Waiting 상태) 작업 실행이 매번 실패한다고 가정합니다. 우선 3번 연속 실행 시도를 합니다. 시도한 후 각 조각 상태는 다시 시도입니다. 처음 3번 시도 후에 조각 상태는 LongRetry입니다.<br/><br/>한 시간(즉, longRetryInteval의 값) 후에 3번 연속 실행이 다시 시도됩니다. 그 후에 조각 상태가 실패이면 다시 시도는 더 이상 시도하지 않습니다. 즉, 전체적으로 6번의 시도가 일어납니다.<br/><br/>모든 실행에 성공하면 조각 상태는 준비 상태가 되며 더 이상 다시 시도하지 않습니다.<br/><br/>longRetry는 종속 데이터가 명확하지 않은 시간에 도착하거나 데이터 처리가 발생하는 전체적인 환경을 신뢰할 수 없는 상황에서 사용될 수 있습니다. 이러한 경우 하나씩 다시 시도를 수행해도 도움이 되지 않을 수 있으며 특정 시간 간격 후에 시도할 경우 출력이 나타납니다.<br/><br/>주의: longRetry 또는 longRetryInterval에 높은 값을 설정하지 마세요. 일반적으로 더 높은 값을 지정하면 다른 시스템 문제가 발생합니다. |
 | longRetryInterval |timespan |00:00:00 |긴 다시 시도 간의 지연 |
 
 자세한 내용은 [파이프라인](data-factory-create-pipelines.md) 문서를 참조하세요. 
@@ -297,7 +296,7 @@ Data Factory 파이프라인의 활동은 0개 이상의 입력 **데이터 세�
 
 Data Factory 모니터링 및 관리 도구를 사용하면 실패한 조각에 대한 진단 로그를 자세히 보고 문제에 대한 근본 원인을 쉽게 파악하여 해결할 수 있습니다. 문제를 해결했으면 작업 실행을 쉽게 시작하여 실패한 조각을 생성할 수 있습니다. 데이터 조각의 상태 전환을 다시 실행하고 이해하는 방법에 대한 자세한 내용은 [Azure Portal 블레이드를 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) 또는 [앱 모니터링 및 관리 앱](data-factory-monitor-manage-app.md)을 참조하세요.
 
-**Dataset2**에 대한 오전 9-10시 조각을 다시 실행한 후 Data Factory는 최종 데이터 집합에서 오전 9-10시 종속 조각에 대한 실행을 시작합니다.
+**Dataset2**에 대한 오전 9-10시 조각을 다시 실행한 후 Data Factory는 최종 데이터 세트에서 오전 9-10시 종속 조각에 대한 실행을 시작합니다.
 
 ![실패한 조각 다시 실행](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
@@ -331,9 +330,9 @@ Azure Blob 저장소에서 매시간 사용 가능한 센서로부터 입력 측
 
 다음은 Data Factory로 이 시나리오를 모델링하는 방법입니다.
 
-**입력 데이터 집합**
+**입력 데이터 세트**
 
-매시간 입력 파일이 지정된 날에 대한 폴더에서 삭제됩니다. 입력에 대한 Availability가 **Hour** 로 설정됩니다(frequency: Hour, interval: 1).
+매시간 입력 파일이 지정된 날에 대한 폴더에서 삭제됩니다. 입력에 대한 Availability가 **Hour**로 설정됩니다(frequency: Hour, interval: 1).
 
 ```json
 {
@@ -360,9 +359,9 @@ Azure Blob 저장소에서 매시간 사용 가능한 센서로부터 입력 측
   }
 }
 ```
-**출력 데이터 집합**
+**출력 데이터 세트**
 
-하나의 출력 파일이 그 날에 대한 폴더에서 매일 생성됩니다. 출력의 Availability는 **Day** 로 설정됩니다(frequency: Day 및 interval: 1).
+하나의 출력 파일이 그 날에 대한 폴더에서 매일 생성됩니다. 출력에 대한 Availability가 **Day**로 설정됩니다(frequency: Day and interval: 1).
 
 ```json
 {
@@ -453,7 +452,7 @@ Data Factory가 출력 데이터 조각의 기간에 맞추어 처리할 적절�
 
 모든 작업 실행에 대해 지정해야 하며 Data Factory에서 매주 입력 데이터 세트에 대해 마지막 주의 데이터 조각을 사용해야 합니다. 다음 코드 조각에 나와 있는 것처럼 Azure Data Factory 함수를 사용하여 이 동작을 구현할 수 있습니다.
 
-**입력1: Azure Blob**
+**입력 1: Azure blob**
 
 첫 번째 입력은 매일 업데이트된 Azure Blob입니다.
 
@@ -483,7 +482,7 @@ Data Factory가 출력 데이터 조각의 기간에 맞추어 처리할 적절�
 }
 ```
 
-**입력2: Azure Blob**
+**입력 2: Azure blob**
 
 입력2는 매주 업데이트된 Azure Blob입니다.
 
@@ -513,9 +512,9 @@ Data Factory가 출력 데이터 조각의 기간에 맞추어 처리할 적절�
 }
 ```
 
-**출력: Azure Blob**
+**출력: Azure blob**
 
-하나의 출력 파일이 그 날에 대한 폴더에서 매일 생성됩니다. 출력의 Availability는 **day** 로 설정됩니다(frequency: Day, interval: 1).
+하나의 출력 파일이 그 날에 대한 폴더에서 매일 생성됩니다. 출력에 대한 Availability가 **day**로 설정됩니다(frequency: Day, interval: 1).
 
 ```json
 {
@@ -607,7 +606,7 @@ Data Factory에서 지원하는 함수 및 시스템 변수 목록은 [Data Fact
 
 CopyActivity1
 
-입력: Dataset1. 출력: Dataset2.
+입력: Dataset. 출력: Dataset2.
 
 CopyActivity2
 

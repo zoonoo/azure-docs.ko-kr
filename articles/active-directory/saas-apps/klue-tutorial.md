@@ -4,7 +4,7 @@ description: Azure Active Directory와 Klue 간에 Single Sign-On을 구성하�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 08341008-980b-4111-adb2-97bbabbf1e47
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 4afe11d6d241e86b57ebb40d54e4c2dceb63a46c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 9312006af84e74aa039d762abdfc6edba79a47fb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123059"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824799"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>자습서: Klue와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ Klue를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 자신의 Azure AD 계정으로 Klue에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -50,7 +50,7 @@ Klue와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Klue 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -65,19 +65,19 @@ Klue가 Azure AD에 통합되도록 구성하려면 갤러리의 Klue를 관리�
 
     ![Active Directory][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
 
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
 4. 검색 상자에 **Klue**를 입력합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/klue-tutorial/tutorial_klue_search.png)
 
-5. 결과 패널에서 **Klue**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+5. 결과 패널에서 **Klue**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/klue-tutorial/tutorial_klue_addfromgallery.png)
 
@@ -99,11 +99,11 @@ Klue에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Klue 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Klue 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Klue에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Klue** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Klue** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -111,7 +111,7 @@ Klue에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
     ![Configure Single Sign-On](./media/klue-tutorial/tutorial_klue_samlbase.png)
 
-3. **Klue 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+3. **Klue 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/klue-tutorial/tutorial_klue_url1.png)
 
@@ -119,7 +119,7 @@ Klue에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
     b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
 
-4. **고급 URL 설정 표시**를 선택합니다. **SP** 시작 모드에서 응용 프로그램을 구성하려면:
+4. **고급 URL 설정 표시**를 선택합니다. **SP** 시작 모드에서 애플리케이션을 구성하려면:
 
     ![Configure Single Sign-On](./media/klue-tutorial/tutorial_klue_url2.png)
 
@@ -128,7 +128,7 @@ Klue에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL, 식별자 및 로그온 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [Klue 클라이언트 지원 팀](mailto:support@klue.com)에 문의하세요.
 
-5. Klue 응용 프로그램에는 특정 형식의 SAML 어설션이 필요하므로, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 응용 프로그램 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다.
+5. Klue 애플리케이션에는 특정 형식의 SAML 어설션이 필요하므로, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 애플리케이션 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다.
 
     ![Configure Single Sign-On](./media/klue-tutorial/attribute.png)
 
@@ -138,7 +138,7 @@ Klue에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
     | ------------------- | -------------------- |
     | first_name          | user.givenname |
     | last_name           | user.surname |
-    | email               | user.userprincipalname|
+    | 이메일               | user.userprincipalname|
 
     a. **특성 추가**를 클릭하여 **특성 추가** 대화 상자를 엽니다.
 
@@ -206,7 +206,7 @@ Klue에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 이 섹션은 Klue에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Klue는 적시에 프로비전을 지원하며 기본적으로 사용하도록 설정합니다. 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 Klue에 액세스하는 동안 만들어집니다.
 
 > [!Note]
-> 사용자를 수동으로 만들어야 하는 경우 [Klue 지원 팀](mailto:support@klue.com)에 문의하세요.
+> 사용자를 수동으로 만들어야 하는 경우 [Klue 지원 팀](mailto:support@klue.com)에 문의하세요.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -216,11 +216,11 @@ Klue에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
 **Britta Simon을 Klue에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **Klue**를 선택합니다.
+2. 애플리케이션 목록에서 **Klue**를 선택합니다.
 
     ![Configure Single Sign-On](./media/klue-tutorial/tutorial_klue_app.png) 
 
@@ -242,13 +242,13 @@ Klue에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Klue 타일을 클릭하면 Klue 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Klue 타일을 클릭하면 Klue 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

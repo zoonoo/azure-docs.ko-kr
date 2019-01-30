@@ -6,13 +6,14 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
-ms.date: 11/2/2017
-ms.openlocfilehash: ab7602f7bae4dfb77a733dd7efe011a29b730377
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 2108de8988e973644e0622a4b76a04408949298e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581597"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635155"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Spark 문제 해결
 
@@ -108,7 +109,7 @@ ms.locfileid: "52581597"
 
 1. 설정해야 하는 Spark 구성 및 값을 결정하려면 [Apache Spark 애플리케이션 OutofMemoryError 예외가 발생하는 원인](#what-causes-a-spark-application-outofmemoryerror-exception)을 참조하세요. 
 
-2. cURL 같은 REST 클라이언트를 사용하여 Livy로 Spark 응용 프로그램을 제출합니다. 다음과 유사한 명령을 사용합니다. 필요에 따라 실제 값을 변경합니다.
+2. cURL 같은 REST 클라이언트를 사용하여 Livy로 Spark 애플리케이션을 제출합니다. 다음과 유사한 명령을 사용합니다. 필요에 따라 실제 값을 변경합니다.
 
     ```apache
     curl -k --user 'username:password' -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://container@storageaccountname.blob.core.windows.net/example/jars/sparkapplication.jar", "className":"com.microsoft.spark.application", "numExecutors":4, "executorMemory":"4g", "executorCores":2, "driverMemory":"8g", "driverCores":4}'  
@@ -140,7 +141,7 @@ ms.locfileid: "52581597"
 
 ### <a name="detailed-description"></a>자세한 설명
 
-Spark 응용 프로그램이 다음과 같은 유형의 확인(catch)할 수 없는 예외로 인해 실패합니다.
+Spark 애플리케이션이 다음과 같은 유형의 확인(catch)할 수 없는 예외로 인해 실패합니다.
 
 ```apache
 ERROR Executor: Exception in task 7.0 in stage 6.0 (TID 439) 
@@ -184,15 +185,15 @@ java.lang.OutOfMemoryError
 
 ### <a name="probable-cause"></a>가능한 원인:
 
-이 예외의 가장 가능성 높은 원인은 JVM(Java Virtual Machine)에 할당된 힙 메모리가 충분하지 않다는 것입니다. 이러한 JVM은 Spark 응용 프로그램의 일부로 실행기 또는 드라이버로서 시작됩니다. 
+이 예외의 가장 가능성 높은 원인은 JVM(Java Virtual Machine)에 할당된 힙 메모리가 충분하지 않다는 것입니다. 이러한 JVM은 Spark 애플리케이션의 일부로 실행기 또는 드라이버로서 시작됩니다. 
 
 ### <a name="resolution-steps"></a>해결 단계:
 
-1. Spark 응용 프로그램에서 처리하는 데이터의 최대 크기를 결정합니다. 입력 데이터의 최대 크기, 입력 데이터 변환을 통해 생성되는 중간 데이터, 응용 프로그램이 중간 데이터를 추가적으로 변환할 때 생성되는 출력 데이터에 따라 이러한 크기를 추측해 볼 수 있습니다. 초기에 공식적으로 추측할 수 없는 경우 이 프로세스를 반복할 수 있습니다. 
+1. Spark 애플리케이션에서 처리하는 데이터의 최대 크기를 결정합니다. 입력 데이터의 최대 크기, 입력 데이터 변환을 통해 생성되는 중간 데이터, 애플리케이션이 중간 데이터를 추가적으로 변환할 때 생성되는 출력 데이터에 따라 이러한 크기를 추측해 볼 수 있습니다. 초기에 공식적으로 추측할 수 없는 경우 이 프로세스를 반복할 수 있습니다. 
 
-2. 사용할 HDInsight 클러스터가 Spark 응용 프로그램을 수용할 수 있는 메모리와 코어 등 충분한 리소스를 갖추고 있는지 확인하세요. YARN UI에서 Cluster Metrics 섹션에 있는 **Memory Used** 값과 Memory Total 값, VCores Used 값과 **Memory Total** 값, **VCores Used** 값과 **VCores Total** 값을 검토하여 이를 확인할 수 있습니다.
+2. 사용할 HDInsight 클러스터가 Spark 애플리케이션을 수용할 수 있는 메모리와 코어 등 충분한 리소스를 갖추고 있는지 확인하세요. YARN UI에서 Cluster Metrics 섹션에 있는 **Memory Used** 값과 Memory Total 값, VCores Used 값과 **Memory Total** 값, **VCores Used** 값과 **VCores Total** 값을 검토하여 이를 확인할 수 있습니다.
 
-3. 다음 Spark 구성을 사용 가능한 메모리 및 코어의 90%를 초과하지 않는 적절한 값으로 설정합니다. 값은 Spark 응용 프로그램의 메모리 요구 사항을 벗어나지 않아야 합니다. 
+3. 다음 Spark 구성을 사용 가능한 메모리 및 코어의 90%를 초과하지 않는 적절한 값으로 설정합니다. 값은 Spark 애플리케이션의 메모리 요구 사항을 벗어나지 않아야 합니다. 
 
     ```apache
     spark.executor.instances (Example: 8 for 8 executor count) 
@@ -217,7 +218,7 @@ java.lang.OutOfMemoryError
 
 ### <a name="additional-reading"></a>추가 참조 자료
 
-- [Apache Spark 메모리 관리 개요](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
+- [Apache Spark 메모리 관리 개요](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
 - [HDInsight 클러스터에서 Apache Spark 애플리케이션 디버그](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
 

@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 80c38ecc766d60fba578e877998aeb216ea66012
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: eaf18cf7d7a5f150d3400e133bf0703bb03e7b8f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215279"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845980"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>장애 조치(failover) 후 공용 IP 주소 설정
 
@@ -26,13 +26,13 @@ Azure Resource Manager에서 공용 IP 주소는 자체 속성이 있는 리소�
 * 가상 머신 네트워크 인터페이스
 * 인터넷 연결 부하 분산 장치
 * VPN 게이트웨이
-* 응용 프로그램 게이트웨이
+* 애플리케이션 게이트웨이
 
 이 문서에서는 Site Recovery를 통해 공용 IP 주소를 사용하는 방법을 설명합니다.
 
 ## <a name="public-ip-address-assignment-using-recovery-plan"></a>복구 계획을 사용하여 공용 IP 주소 할당
 
-프로덕션 응용 프로그램의 공용 IP 주소는 **장애 조치(failover) 시 유지할 수 없습니다**. 장애 조치(failover) 프로세스의 일부로 포함된 워크로드에는 대상 지역에서 사용 가능한 Azure 공용 IP 리소스를 할당해야 합니다. 이 단계는 수동으로 수행할 수도 있고 복구 계획을 통해 자동으로 수행할 수도 있습니다. 복구 계획은 복구 그룹으로 컴퓨터를 수집합니다. 그러므로 체계적인 복구 프로세스를 정의할 수 있습니다. 복구 계획을 사용하여 순서를 적용하고 Azure 또는 스크립트로 장애 조치(failover)에 대한 Azure Automation Runbook을 사용하여 각 단계에 필요한 작업을 자동화할 수 있습니다.
+프로덕션 애플리케이션의 공용 IP 주소는 **장애 조치(failover) 시 유지할 수 없습니다**. 장애 조치(failover) 프로세스의 일부로 포함된 워크로드에는 대상 지역에서 사용 가능한 Azure 공용 IP 리소스를 할당해야 합니다. 이 단계는 수동으로 수행할 수도 있고 복구 계획을 통해 자동으로 수행할 수도 있습니다. 복구 계획은 복구 그룹으로 컴퓨터를 수집합니다. 그러므로 체계적인 복구 프로세스를 정의할 수 있습니다. 복구 계획을 사용하여 순서를 적용하고 Azure 또는 스크립트로 장애 조치(failover)에 대한 Azure Automation Runbook을 사용하여 각 단계에 필요한 작업을 자동화할 수 있습니다.
 
 설정 방법은 다음과 같습니다.
 - [복구 계획](../site-recovery/site-recovery-create-recovery-plans.md#create-a-recovery-plan)을 만들고 필요에 따라 워크로드를 계획에 그룹화합니다.
@@ -56,4 +56,4 @@ Azure Traffic Manager에서는 엔드포인트 간의 DNS 수준 라우팅이 �
 ## <a name="next-steps"></a>다음 단계
 - [Azure Site Recovery와 함께 Traffic Manager 사용](../site-recovery/concepts-traffic-manager-with-site-recovery.md) 문서를 자세히 살펴봅니다.
 - Traffic Manager [라우팅 메서드](../traffic-manager/traffic-manager-routing-methods.md)에 대해 자세히 알아봅니다.
-- 응용 프로그램 장애 조치(failover)를 자동화하는 [복구 계획](site-recovery-create-recovery-plans.md)에 대해 자세히 알아봅니다.
+- 애플리케이션 장애 조치(failover)를 자동화하는 [복구 계획](site-recovery-create-recovery-plans.md)에 대해 자세히 알아봅니다.

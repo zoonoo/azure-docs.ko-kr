@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 5566ea8b21682c5023afc4af357e1a80e1d37384
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 38f0d03698ff8b11e1a6a06dc29102f407e0e90f
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248474"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156870"
 ---
 # <a name="external-table-binding-for-azure-functions-experimental"></a>Azure Functions의 외부 테이블 바인딩(실험)
 
@@ -49,7 +49,7 @@ ms.locfileid: "50248474"
 |[Salesforce](https://docs.microsoft.com/azure/connectors/connectors-create-api-salesforce)||x|x
 |[SharePoint](https://docs.microsoft.com/azure/connectors/connectors-create-api-sharepointonline)||x|x
 |[SQL Server](https://docs.microsoft.com/azure/connectors/connectors-create-api-sqlazure)||x|x
-|[Teradata](http://www.teradata.com/products-and-services/azure/products/)||x|x
+|[Teradata](https://www.teradata.com/products-and-services/azure/products/)||x|x
 |UserVoice||x|x
 |Zendesk||x|x
 
@@ -166,7 +166,7 @@ GO
 
 ### <a name="google-sheets-data-source"></a>Google Sheets 데이터 원본
 
-Google Docs에서 이 예제와 함께 사용할 테이블을 만들려면 `Contact`라는 워크시트가 있는 스프레드시트를 만듭니다. 커넥터는 스프레드시트 표시 이름을 사용할 수 없습니다. dataSetName으로 내부 이름(굵게)을 사용해야 합니다. 예: `docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** 열 이름 `Id`, `LastName`, `FirstName`을 첫 번째 행에 추가한 후 후속 행에서 데이터를 채웁니다.
+Google Docs에서 이 예제와 함께 사용할 테이블을 만들려면 `Contact`라는 워크시트가 있는 스프레드시트를 만듭니다. 커넥터는 스프레드시트 표시 이름을 사용할 수 없습니다. 내부 이름(굵게)은 dataSetName으로 사용되어야 합니다. 예를 들어 다음과 같습니다. `docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** 열 이름 `Id`, `LastName`, `FirstName`을 첫 번째 행에 추가한 다음, 후속 행의 데이터를 채웁니다.
 
 ### <a name="salesforce"></a>Salesforce
 

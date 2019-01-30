@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: f71db50678ad0f1b37e30a4120b90d47d9090942
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: fcc5052d73d921a8181ad068453111e5ead4361a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113855"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999881"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Azure Blob Storage에 의해 트리거되는 함수 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "49113855"
 
 ## <a name="prerequisites"></a>필수 조건
 
-+ [Microsoft Azure Storage 탐색기](http://storageexplorer.com/)를 다운로드하고 설치합니다.
++ [Microsoft Azure Storage 탐색기](https://storageexplorer.com/)를 다운로드하고 설치합니다.
 + Azure 구독. 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
 
 ## <a name="create-an-azure-function-app"></a>Azure Function 앱 만들기
@@ -76,7 +76,7 @@ ms.locfileid: "49113855"
 
     ![Storage 계정 연결 자격 증명 가져오기.](./media/functions-create-storage-blob-triggered-function/functions-storage-account-connection.png)
 
-1. [Microsoft Azure Storage 탐색기](http://storageexplorer.com/) 도구를 실행하고 왼쪽의 연결 아이콘을 클릭하고 **저장소 계정 이름 및 키 사용**을 선택하고 **다음**을 클릭합니다.
+1. [Microsoft Azure Storage 탐색기](https://storageexplorer.com/) 도구를 실행하고 왼쪽의 연결 아이콘을 클릭하고 **저장소 계정 이름 및 키 사용**을 선택하고 **다음**을 클릭합니다.
 
     ![Storage 계정 탐색기 도구 실행.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-1.png)
 
@@ -94,7 +94,7 @@ ms.locfileid: "49113855"
 
 1. Azure Portal로 돌아가서 함수를 찾은 후 페이지 맨 아래에 있는 **로그**를 확장하고 로그 스트리밍이 일시 중지되지 않았는지 확인합니다.
 
-1. Storage 탐색기에서 저장소 계정, **Blob 컨테이너** 및 **samples-workitems**를 확장합니다. **업로드**를 클릭한 후 **파일 업로드...** 를 클릭합니다.
+1. Storage 탐색기에서 스토리지 계정, **Blob 컨테이너** 및 **samples-workitems**를 확장합니다. **업로드**를 클릭한 후 **파일 업로드...** 를 클릭합니다.
 
     ![Blob 컨테이너에 파일 업로드.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 

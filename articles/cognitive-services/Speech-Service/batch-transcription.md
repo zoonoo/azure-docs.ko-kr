@@ -1,32 +1,36 @@
 ---
-title: Azure Batch Transcription API 사용
+title: Batch Transcription을 사용하는 방법 - Speech Services
 titlesuffix: Azure Cognitive Services
-description: 대규모 오디오 콘텐츠를 기록하는 방법에 대한 샘플입니다.
+description: Batch Transcription은 Azure Blob과 같이 스토리지에 많은 양의 오디오를 전사하려는 경우에 이상적입니다. 전용 REST API를 사용하면 SAS(공유 액세스 서명) URI가 있는 오디오 파일을 가리키고 비동기식으로 전사를 수신할 수 있습니다.
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 12/06/2018
 ms.author: panosper
-ms.openlocfilehash: 8a180dfada9da92e0b8ed69373a20602b3b0a177
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18
+ms.openlocfilehash: b4e7c11a6077104e874d67b75f5d00e8f481f739
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495586"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086932"
 ---
 # <a name="why-use-batch-transcription"></a>Batch Transcription을 사용하는 이유
 
-일괄 처리 전사는 저장소에 대용량의 오디오가 있는 경우에 적합합니다. 전용 Rest API를 사용하면 SAS(공유 액세스 서명) URI를 통해 오디오 파일을 가리키고 비동기식으로 전사를 받을 수 있습니다.
+Batch Transcription은 Azure Blob과 같이 스토리지에 많은 양의 오디오를 전사하려는 경우에 이상적입니다. 전용 REST API를 사용하면 SAS(공유 액세스 서명) URI가 있는 오디오 파일을 가리키고 비동기식으로 전사를 수신할 수 있습니다.
+
+>[!NOTE]
+> Batch Transcription을 사용하려면 Speech Services를 위한 표준 구독(S0)이 필요합니다. 체험 구독 키(F0)는 작동하지 않습니다. 자세한 내용은 [가격 책정 및 제한](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/)을 참조하세요.
 
 ## <a name="the-batch-transcription-api"></a>Batch Transcription API
 
 Batch Transcription API는 추가 기능과 함께 비동기 음성 텍스트 변환 전사를 제공합니다. 다음 용도로 사용되는 메서드를 노출하는 REST API입니다.
 
 1. 일괄 처리 요청 만들기
-1. 상태 쿼리 
+1. 상태 쿼리
 1. 전사 다운로드
 
 > [!NOTE]
@@ -75,7 +79,7 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 
 ## <a name="authorization-token"></a>권한 부여 토큰
 
-Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-started.md)에 따라 [Azure Portal](https://portal.azure.com)에서 구독 키를 만듭니다. 기준 모델에서 전사를 가져오려는 경우 키 만들기만 수행하면 됩니다. 
+Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-started.md)에 따라 [Azure Portal](https://portal.azure.com)에서 구독 키를 만듭니다. 기준 모델에서 전사를 가져오려는 경우 키 만들기만 수행하면 됩니다.
 
 사용자 지정 모델을 사용자 지정하고 사용하려는 경우 다음에 따라 구독 키를 사용자 지정 음성 포털에 추가합니다.
 
@@ -106,19 +110,19 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-start
             client.Timeout = TimeSpan.FromMinutes(25);
             client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
-         
+
             return new CrisClient(client);
         }
 ```
 
-토큰을 가져온 후 전사가 필요한 오디오 파일을 가리키는 SAS URI를 지정합니다. 코드의 나머지 부분은 상태를 통해 반복되고 결과를 표시합니다. 먼저, 다음 코드 조각에 표시된 대로 키, 지역, 사용할 모델 및 SA를 설정합니다. 다음으로, 클라이언트 및 POST 요청을 인스턴스화합니다. 
+토큰을 가져온 후 전사가 필요한 오디오 파일을 가리키는 SAS URI를 지정합니다. 코드의 나머지 부분은 상태를 통해 반복되고 결과를 표시합니다. 먼저, 다음 코드 조각에 표시된 대로 키, 지역, 사용할 모델 및 SA를 설정합니다. 다음으로, 클라이언트 및 POST 요청을 인스턴스화합니다.
 
 ```cs
             private const string SubscriptionKey = "<your Speech subscription key>";
             private const string HostName = "westus.cris.ai";
             private const int Port = 443;
-    
-            // SAS URI 
+
+            // SAS URI
             private const string RecordingsBlobUri = "SAS URI pointing to the file in Azure Blob Storage";
 
             // adapted model Ids
@@ -127,14 +131,14 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-start
 
             // Creating a Batch Transcription API Client
             var client = CrisClient.CreateApiV2Client(SubscriptionKey, HostName, Port);
-            
+
             var transcriptionLocation = await client.PostTranscriptionAsync(Name, Description, Locale, new Uri(RecordingsBlobUri), new[] { AdaptedAcousticId, AdaptedLanguageId }).ConfigureAwait(false);
 ```
 
 이제 요청을 했으니 다음 코드 조각에 표시된 대로 전사 결과를 쿼리하고 다운로드할 수 있습니다.
 
 ```cs
-  
+
             // get all transcriptions for the user
             transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
 
@@ -152,9 +156,9 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-start
                             // not created from here, continue
                             continue;
                         }
-                            
+
                         completed++;
-                            
+
                         // if the transcription was successful, check the results
                         if (transcription.Status == "Succeeded")
                         {
@@ -166,7 +170,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-start
                             Console.WriteLine("Transcription succeeded. Results: ");
                             Console.WriteLine(results);
                         }
-                    
+
                     break;
                     case "Running":
                     running++;
@@ -174,7 +178,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-start
                     case "NotStarted":
                     notStarted++;
                     break;
-                    
+
                     }
                 }
             }
@@ -188,7 +192,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-start
 
 오디오를 게시하고 전사 상태를 수신하려면 비동기 설정을 기록해 둡니다. 만든 클라이언트는 .NET HTTP 클라이언트입니다. 오디오 파일 세부 정보를 전송하기 위한 `PostTranscriptions` 메서드 및 결과를 수신하기 위한 `GetTranscriptions` 메서드가 있습니다. `PostTranscriptions`는 핸들을 반환하고, `GetTranscriptions`는 이 핸들을 사용하여 전사 상태를 가져오기 위한 핸들을 만듭니다.
 
-현재 샘플 코드는 사용자 지정 모델을 지정하지 않습니다. 이 서비스는 파일을 전사하기 위해 기준 모델을 사용합니다. 모델을 지정하려면 음향 및 언어 모델에 대해 모델 ID와 동일한 메서드를 전달할 수 있습니다. 
+현재 샘플 코드는 사용자 지정 모델을 지정하지 않습니다. 이 서비스는 파일을 전사하기 위해 기준 모델을 사용합니다. 모델을 지정하려면 음향 및 언어 모델에 대해 모델 ID와 동일한 메서드를 전달할 수 있습니다.
 
 기준 모델을 사용하지 않으려면 음향 모델 및 언어 모델 모두에 대해 모델 ID를 전달합니다.
 

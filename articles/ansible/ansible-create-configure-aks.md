@@ -3,17 +3,17 @@ title: Ansible을 사용하여 Azure에서 Azure Kubernetes Service 클러스터
 description: Ansible을 사용하여 Azure에서 Azure Kubernetes Service 클러스터를 만들고 관리하는 방법 알아보기
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, 플레이북, aks, 컨테이너, Kubernetes
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/23/2018
-ms.openlocfilehash: f7dbc124781992ada9c3538cf415b836d8764064
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: c4f78d8bb43b26814dc3a4b94109dfd8719cb48f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42810823"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258835"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Ansible을 사용하여 Azure에서 Azure Kubernetes Service 클러스터 만들기 및 구성
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 AKS(Azure Kubernetes Service)를 관리할 수 있습니다. 이 문서에서는 Ansible을 사용하여 Azure에서 Azure Kubernetes Service 클러스터를 만들고 구성하는 방법을 보여줍니다.
@@ -28,7 +28,10 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 > Ansible 2.6은 이 자습서에서 다음의 샘플 플레이북을 실행해야 합니다. 
 
 ## <a name="create-a-managed-aks-cluster"></a>관리되는 AKS 클러스터 만들기
-다음 샘플 Ansible 플레이북은 리소스 그룹 및 리소스 그룹에 상주하는 AKS 클러스터를 만듭니다.
+이 섹션의 코드에서는 샘플 Ansible 플레이북을 제공하여 리소스 그룹 및 리소스 그룹에 상주하는 AKS 클러스터를 만듭니다.
+
+> [!Tip]
+> `your_ssh_key` 자리 표시자의 경우 "ssh-rsa"로 시작하는 단일 줄 형식으로 RSA 공개 키를 입력합니다(따옴표 제외). 
 
   ```yaml
   - name: Create Azure Kubernetes Service
@@ -79,7 +82,7 @@ Ansible을 사용하여 AKS 클러스터를 만들려면 위의 샘플 플레이
 
 **ansible-playbook* 명령의 출력은 AKS 클러스터가 성공적으로 만들어졌음을 보여주는 다음과 비슷합니다.
 
-  ```bash
+  ```Output
   PLAY [Create AKS] ****************************************************************************************
 
   TASK [Gathering Facts] ********************************************************************************************
@@ -99,7 +102,8 @@ Ansible을 사용하여 AKS 클러스터를 만들려면 위의 샘플 플레이
 
 이전 섹션에서 샘플 플레이북은 두 노드를 정의합니다. 클러스터에 대한 컨테이너 워크로드를 더 늘리거나 줄일 필요가 있는 경우 노드 수를 쉽게 조정할 수 있습니다. 이 섹션의 샘플 플레이북은 노드 수를 2개에서 3개로 증가시킵니다. 노드 수 수정은 **agent_pool_profiles** 블록에서 **개수** 값을 변경하여 완료합니다. 
 
-**service_principal** 블록에 `ssh_key`, `client_id` 및 `client_secret`을 입력합니다.
+> [!Tip]
+> `your_ssh_key` 자리 표시자의 경우 "ssh-rsa"로 시작하는 단일 줄 형식으로 RSA 공개 키를 입력합니다(따옴표 제외). 
 
 ```yaml
 - name: Scale AKS cluster
@@ -140,7 +144,7 @@ Ansible 사용하여 Azure Kubernetes Service 클러스터 크기를 조정하�
 
 다음 출력은 AKS 클러스터가 성공적으로 만들어졌음을 보여줍니다.
 
-  ```bash
+  ```Output
   PLAY [Scale AKS cluster] ***************************************************************
 
   TASK [Gathering Facts] ******************************************************************
@@ -178,7 +182,7 @@ Ansible 사용하여 Azure Kubernetes Service 클러스터를 삭제하려면 �
   ```
 
 다음 출력은 AKS 클러스터가 성공적으로 삭제되었음을 보여줍니다.
-  ```bash
+  ```Output
 PLAY [Delete a managed Azure Container Services (AKS) cluster] ****************************
 
 TASK [Gathering Facts] ********************************************************************
@@ -192,4 +196,4 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
   
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"] 
-> [자습서: AKS(Azure Kubernetes Service)에서 응용 프로그램 크기 조정](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)
+> [자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 크기 조정](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)

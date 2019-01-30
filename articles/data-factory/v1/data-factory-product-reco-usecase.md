@@ -9,17 +9,16 @@ ms.assetid: 6f1523c7-46c3-4b8d-9ed6-b847ae5ec4ae
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a940b1d2184961d907f72ad072270dad3571e844
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8ff100cd3fc1c9def10b4e585119414281b90d92
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229256"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017381"
 ---
 # <a name="use-case---product-recommendations"></a>사용 사례 - 제품 추천
 Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구현하는 데 사용되는 다양한 서비스 중 하나입니다.  이 제품군에 대한 자세한 내용은 [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) 페이지를 참조하세요. 이 문서에서는 Azure 사용자가 Azure Data Factory 및 기타 Cortana Intelligence 구성 요소 서비스를 사용하여 이미 해결하고 구현한 경험이 있는 일반적인 사용 사례를 설명합니다.
@@ -53,7 +52,7 @@ Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구�
 
 이 예에서 기계 학습에 사용되는 권장 시스템은 [Apache Mahout](http://mahout.apache.org/)의 공개 소스 기계 학습 권장 플랫폼입니다.  모든 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 또는 사용자 지정 모델을 시나리오에 적용할 수 있습니다.  Mahout 모델은 전체 사용 패턴을 기반으로 웹 사이트에 있는 항목 간의 유사성을 예측하고 개별 사용자에 따라 개인 설정된 권장을 생성하는 데 사용됩니다.
 
-마지막으로, 개인 설정된 제품 추천의 결과 집합이 소매점 웹 사이트에서 사용되도록 관계형 데이터 마트로 이동됩니다.  결과 집합은 blob 저장소에서도 다른 응용 프로그램으로 직접 액세스할 수 있으며 다른 소비자 및 사용 사례를 위한 추가 저장소로 이동할 수 있습니다.
+마지막으로, 개인 설정된 제품 추천의 결과 집합이 소매점 웹 사이트에서 사용되도록 관계형 데이터 마트로 이동됩니다.  결과 집합은 Blob Storage에서도 다른 애플리케이션으로 직접 액세스할 수 있으며 다른 소비자 및 사용 사례를 위한 추가 스토리지로 이동할 수 있습니다.
 
 ## <a name="benefits"></a>이점
 제품 추천 전략을 최적화하고 비즈니스 목표에 부합하도록 한다면 이 솔루션은 온라인 소매점의 머천다이징 및 마케팅 목표를 충족합니다. 또한 제품 추천 워크플로를 효율적이고 안정적이며 비용 효율적인 방식으로 운영 및 관리할 수 있습니다. 이 방법에서는 자신의 모델을 쉽게 업데이트하고 클릭-판매 변환 성공을 측정한 결과에 따라 효율성을 미세하게 조정할 수 있습니다. Azure Data Factory를 사용하면 시간과 비용이 많이 드는 수동 클라우드 리소스 관리를 중단하고 주문형 클라우드 리소스 관리로 전환할 수 있습니다. 따라서 시간, 비용을 절약하고 솔루션 배포 시간을 단축할 수 있습니다. 데이터 계보 뷰 및 작업 서비스 상태를 직관적인 데이터 팩터리 모니터링과 Azure 포털에서 제공되는 관리 UI로 손쉽게 시각화하고 문제 해결할 수 있습니다. 이제 이러한 솔루션을 예약 및 관리할 수 있으므로 완료된 데이터를 안정적으로 생성하고 사용자에게 전달할 수 있으며 데이터 및 처리 종속성이 사용자의 개입 없이 자동으로 관리됩니다.

@@ -3,25 +3,25 @@ title: Azure SQL Database 자동, 지역 중복 백업 | Microsoft Docs
 description: SQL Database는 몇 분마다 로컬 데이터베이스 백업을 자동으로 만들고 Azure 읽기 액세스 지역 중복 저장소를 사용하여 지리적 중복을 제공합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: 9c5cdf6c2baf4197b693b522848fc1fd04db7abf
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.date: 12/10/2018
+ms.openlocfilehash: 0be1ddea4d5eaa253850ae640152b2538b39d0ca
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422513"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035426"
 ---
-# <a name="learn-about-automatic-sql-database-backups"></a>자동 SQL Database 백업에 대한 자세한 정보
+# <a name="automated-backups"></a>자동화된 백업
 
-SQL Database는 데이터베이스 백업을 자동으로 만들고 Azure RA-GRS(읽기 액세스 지역 중복 저장소)를 사용하여 지리적 중복을 제공합니다. 이러한 백업은 추가 비용 없이 자동으로 만들어집니다. 사용자는 아무 작업도 할 필요가 없습니다. 데이터베이스 백업은 실수로 손상되거나 삭제되지 않도록 데이터를 보호해 주기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다. 보안 규칙에서 오랫동안 백업을 사용할 수 있도록 요구하는 경우, 장기 백업 보존 정책을 구성할 수 있습니다. 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
+SQL Database는 7-35일 동안 유지되는 데이터베이스 백업을 자동으로 만들고 Azure RA-GRS(읽기 액세스 지역 중복 스토리지)를 사용하여 데이터 센터를 사용할 수 없는 경우에도 백업이 유지되도록 합니다. 이러한 백업은 추가 비용 없이 자동으로 만들어집니다. 백업을 위해 아무 작업도 수행할 필요가 없으며 [백업 보존 기간을 변경](#how-to-change-the-pitr-backup-retention-period)할 수 있습니다. 데이터베이스 백업은 실수로 손상되거나 삭제되지 않도록 데이터를 보호해 주기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다. 보안 규칙에서 오랫동안(최대 10년) 백업을 사용할 수 있도록 요구하는 경우, [장기 보존](sql-database-long-term-retention.md)을 구성할 수 있습니다.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
@@ -33,8 +33,8 @@ SQL Database는 SQL Server 기술을 사용하여 PITR(지정 시간 복원)의 
 
 - 보존 기간 내 지정 시간으로 데이터베이스를 복원합니다. 이 작업으로 원본 데이터베이스와 같은 서버에 새 데이터베이스가 만들어집니다.
 - 삭제된 시간 또는 보존 기간 내 임의 시간으로 삭제된 데이터베이스를 복원합니다. 삭제된 데이터베이스는 원래 데이터베이스가 생성되었던 동일한 서버에만 복원할 수 있습니다.
-- 데이터베이스를 다른 지리적 지역으로 복원합니다. 이렇게 하면 서버 및 데이터베이스에 액세스할 수 없는 경우 지리적 재해로부터 복구할 수 있습니다. 그러면 전 세계 어디에서든 기존 서버에 새 데이터베이스가 만들어집니다.
-- LTR(장기 보존 정책)을 사용하여 데이터베이스를 구성한 경우, 특정 장기 백업에서 데이터베이스를 복원합니다. 그러면 이전 버전의 데이터베이스를 복원하여 규정 준수 요청을 충족하고 이전 버전의 응용 프로그램을 실행할 수 있습니다. [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
+- 데이터베이스를 다른 지리적 지역으로 복원합니다. 이러한 지리적 복원을 사용하면 서버 및 데이터베이스에 액세스할 수 없는 경우 지리적 재해로부터 복구할 수 있습니다. 그러면 전 세계 어디에서든 기존 서버에 새 데이터베이스가 만들어집니다.
+- LTR(장기 보존 정책)을 사용하여 데이터베이스를 구성한 경우, 특정 장기 백업에서 데이터베이스를 복원합니다. LTR을 사용하면 이전 버전의 데이터베이스를 복원하여 규정 준수 요청을 충족하고 이전 버전의 애플리케이션을 실행할 수 있습니다. 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
 - 복원을 수행하려면 [백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.
 
 > [!NOTE]
@@ -42,16 +42,16 @@ SQL Database는 SQL Server 기술을 사용하여 PITR(지정 시간 복원)의 
 
 ## <a name="how-long-are-backups-kept"></a>백업은 얼마 동안 유지되나요?
 
-각 SQL Database에는 [구매 모델 및 서비스 계층](#pitr-retention-period)에 따라 달라지는 7-35일의 기본 백업 보존 기간이 있습니다. Azure 논리 서버에서 데이터베이스의 백업 보존 기간을 업데이트할 수 있습니다(이 기능은 Managed Instance에서 사용하도록 곧 설정됩니다). 자세한 내용은 [백업 보존 기간 변경](#how-to-change-backup-retention-period)을 참조하세요.
+각 SQL Database에는 구매 모델 및 서비스 계층에 따라 달라지는 7-35일의 기본 백업 보존 기간이 있습니다. Azure 논리 서버에서 데이터베이스의 백업 보존 기간을 업데이트할 수 있습니다. 자세한 내용은 [백업 보존 기간 변경](#how-to-change-the-pitr-backup-retention-period)을 참조하세요.
 
 데이터베이스를 삭제하면 SQL Database는 온라인 데이터베이스에 하는 것과 동일한 방식으로 백업을 유지합니다. 예를 들어, 보존 기간이 7일인 기본 데이터베이스를 삭제하는 경우, 4일 된 백업은 앞으로 3일 동안 더 저장됩니다.
 
-최대 PITR 보존 기간보다 더 오랫동안 백업을 유지해야 하는 경우, 백업 속성을 수정하여 하나 이상의 장기 보존 기간을 데이터베이스에 추가할 수 있습니다. 자세한 내용은 [장기 백업 보존](sql-database-long-term-retention.md)을 참조하세요.
+최대 보존 기간보다 더 오랫동안 백업을 유지해야 하는 경우, 백업 속성을 수정하여 하나 이상의 장기 보존 기간을 데이터베이스에 추가할 수 있습니다. 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
 
 > [!IMPORTANT]
 > SQL Database를 호스트하는 Azure SQL 서버를 삭제하면 해당 서버에 속하는 모든 탄력적 풀과 데이터베이스도 삭제되어 복구할 수 없습니다. 삭제된 서버는 복원할 수 없습니다. 그러나 장기 보존을 구성한 경우, LTR을 사용하는 데이터베이스의 백업이 삭제되지 않으므로 이러한 데이터베이스는 복원할 수 있습니다.
 
-### <a name="pitr-retention-period"></a>PITR 보존 기간
+### <a name="default-backup-retention-period"></a>기본 백업 보존 기간
 
 #### <a name="dtu-based-purchasing-model"></a>DTU 기반 구매 모델
 
@@ -63,12 +63,10 @@ DTU 기반 구매 모델을 사용하여 만든 데이터베이스의 기본 보
 
 #### <a name="vcore-based-purchasing-model"></a>vCore 기반 구매 모델
 
-[vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 사용하는 경우 기본 백업 보존 기간은 7일입니다(논리 서버 및 관리되는 인스턴스에서 둘 다).
+[vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 사용하는 경우 기본 백업 보존 기간은 7일입니다(단일, 풀링된 및 Managed Instance 데이터베이스). 모든 Azure SQL Database(단일, 풀링된 및 Managed Instance 데이터베이스)에 대해 [백업 보존 기간을 최대 35일로 변경](#how-to-change-the-pitr-backup-retention-period)할 수 있습니다.
 
-- 단일 및 풀링된 데이터베이스의 경우 [백업 보존 기간을 최대 35일로 변경](#how-to-change-backup-retention-period)할 수 있습니다.
-- Managed Instance에서는 백업 보존 기간을 변경할 수 없습니다.
-
-현재 보존 기간을 줄이면 새 보존 기간보다 오래된 기존의 모든 백업을 더 이상 사용할 수 없게 됩니다. 현재 보존 기간을 늘리면 SQL Database는 더 긴 보존 기간에 도달할 때까지 기존 백업을 유지합니다.
+> [!WARNING]
+> 현재 보존 기간을 줄이면 새 보존 기간보다 오래된 기존의 모든 백업을 더 이상 사용할 수 없게 됩니다. 현재 보존 기간을 늘리면 SQL Database는 더 긴 보존 기간에 도달할 때까지 기존 백업을 유지합니다.
 
 ## <a name="how-often-do-backups-happen"></a>백업이 얼마나 자주 수행됩니까?
 
@@ -96,21 +94,30 @@ PITR과 마찬가질 LTR 백업은 지역 중복 백업이며 [Azure Storage 지
 
 Azure SQL Database 엔지니어링 팀은 지속적으로 서비스 전체에서 데이터베이스의 자동화된 데이터베이스 백업에 대한 복원을 자동으로 테스트합니다. 복원 시 데이터베이스도 DBCC CHECKDB를 사용하여 무결성 검사를 받습니다. 무결성 검사 중에 문제가 발견되면 해당 경고를 엔지니어링 팀에 알려줍니다. Azure SQL Database의 데이터 무결성에 대한 자세한 내용은 [Azure SQL Database의 데이터 무결성](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)을 참조하세요.
 
-## <a name="how-do-automated-backups-impact-my-compliance"></a>자동화된 백업은 준수에 어떻게 영향을 주나요?
+## <a name="how-do-automated-backups-impact-compliance"></a>자동화된 백업은 규정 준수에 어떻게 영향을 주나요?
 
-기본 PITR 보존 기간이 35일인 DTU 기반 서비스 계층에서 vCore 기반 서비스 계층으로 데이터베이스를 마이그레이션하는 경우, 응용 프로그램의 데이터 복구 정책이 손상되지 않도록 PITR 보존이 유지됩니다. 기본 보존이 준수 요구 사항을 충족하지 못하는 경우, PowerShell 또는 REST API를 사용하여 PITR 보존 기간을 변경할 수 있습니다. 자세한 내용은 [백업 보존 기간 변경](#how-to-change-backup-retention-period)을 참조하세요.
+기본 PITR 보존 기간이 35일인 DTU 기반 서비스 계층에서 vCore 기반 서비스 계층으로 데이터베이스를 마이그레이션하는 경우, 애플리케이션의 데이터 복구 정책이 손상되지 않도록 PITR 보존이 유지됩니다. 기본 보존이 준수 요구 사항을 충족하지 못하는 경우, PowerShell 또는 REST API를 사용하여 PITR 보존 기간을 변경할 수 있습니다. 자세한 내용은 [백업 보존 기간 변경](#how-to-change-the-pitr-backup-retention-period)을 참조하세요.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="how-to-change-backup-retention-period"></a>백업 보존 기간을 변경하는 방법
+## <a name="how-to-change-the-pitr-backup-retention-period"></a>PITR 백업 보존 기간은 어떻게 변경하나요?
 
-> [!Note]
-> Managed Instance에서는 기본 백업 보존 기간(7일)을 변경할 수 없습니다.
-
-REST API 또는 PowerShell을 사용하여 기본 보존을 변경할 수 있습니다. 지원되는 값은 7일, 14일, 21일, 28일 또는 35일입니다. 다음 예제에서는 PITR 보존 기간을 28일로 변경하는 방법을 보여 줍니다.
+Azure Portal, PowerShell 또는 REST API를 사용하여 기본 PITR 백업 보존 기간을 변경할 수 있습니다. 지원되는 값은 7, 14, 21, 28 또는 35일입니다. 다음 예제에서는 PITR 보존 기간을 28일로 변경하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> 이 API는 PITR 보존 기간에만 영향을 줍니다. 데이터베이스에 대해 LTR을 구성한 경우에는 영향을 받지 않습니다. LTR 보존 기간을 변경하는 방법에 대한 자세한 내용은 [장기 백업 보존](sql-database-long-term-retention.md)을 참조하세요.
+> 이러한 API는 PITR 보존 기간에만 영향을 줍니다. 데이터베이스에 대해 LTR을 구성한 경우에는 영향을 받지 않습니다. LTR 보존 기간을 변경하는 방법에 대한 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
+
+### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Azure Portal을 사용하여 PITR 백업 보존 기간 변경
+
+Azure Portal을 사용하여 PITR 백업 보존 기간을 변경하려면 Portal 내에서 보존 기간을 변경하려는 서버 개체로 이동한 후, 수정할 서버 개체에 따라 적절한 옵션을 선택합니다.
+
+#### <a name="change-pitr-for-a-logical-server"></a>논리 서버의 PITR 변경
+
+![PITR 변경 Azure Portal](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
+
+#### <a name="change-pitr-for-a-managed-instance"></a>Managed Instance의 PITR 변경
+
+![PITR 변경 Azure Portal](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>PowerShell을 사용하여 PITR 백업 보존 기간 변경
 
@@ -154,7 +161,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 }
 ```
 
-자세한 내용은 [Backup Retention REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies)(백업 보존 REST API)를 참조하세요.
+자세한 내용은 [백업 보존 REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

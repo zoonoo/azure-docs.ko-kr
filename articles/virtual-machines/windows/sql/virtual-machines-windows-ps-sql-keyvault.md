@@ -3,7 +3,7 @@ title: Azure의 Windows VM에서 Key Vault를 SQL Server에 통합(Resource Mana
 description: Azure Key Vault와 함께 사용하도록 SQL Server 암호화 구성을 자동화하는 방법에 대해 알아보세요. 이 항목에서는 Azure Key Vault 통합을 Resource Manager로 만든 SQL Server 가상 머신과 함께 사용하는 방법에 대해 설명합니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/30/2018
-ms.author: jroth
-ms.openlocfilehash: d80526768c59bbb746408a026915b3228747e18a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 6ad8eea21c10726b2c3eaf1e10bfd5efba4d1e48
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251173"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358697"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines에서 SQL Server에 대한 Azure Key Vault 통합 구성(Resource Manager)
 
@@ -36,6 +37,10 @@ ms.locfileid: "51251173"
 이 기능은 활성화되면 자동으로 SQL Server 커넥터를 설치하고, Azure Key Vault에 액세스하도록 EKM 공급자를 구성하고, 사용자가 자격 증명 모음에 액세스할 수 있도록 자격 증명을 만듭니다. 앞에서 언급한 온-프레미스 설명서의 단계를 살펴보셨다면 이 기능이 2 및 3단계를 자동화한다는 것을 알 수 있습니다. 사용자가 수동으로 해야 하는 유일한 일은 키 자격 증명 모음 및 키를 만드는 작업입니다. 그 이후에 SQL VM을 설정하는 전체 과정이 자동화됩니다. 이 기능이 설정을 완료하면 사용자는 T-SQL 문을 실행하여 평소와 같이 데이터베이스 암호화 또는 백업을 시작할 수 있습니다.
 
 [!INCLUDE [AKV Integration Prepare](../../../../includes/virtual-machines-sql-server-akv-prepare.md)]
+
+  >[!NOTE]
+  > EKM 공급자 버전 1.0.4.0은 [SQL IaaS 확장](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)을 통해 SQL Server VM에 설치됩니다. SQL IaaS 확장을 업그레이드해도 공급자 버전이 업데이트되지는 않습니다. SQL Managed Instance로 마이그레이션하는 등 필요한 경우에는 EKM 공급자 버전을 수동으로 업그레이드하세요.
+
 
 ## <a name="enabling-and-configuring-akv-integration"></a>AKV 통합 설정 및 구성
 기존 VM에 대해 프로비전닝 또는 구성하는 동안 AKV 통합을 설정할 수 있습니다.

@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 07/02/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: ed49eed6dbfce9a71f13770e3ddcaec6557cf875
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 5e62d8679a76c024b0dcada5cfaad50659fcd4c8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986548"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431693"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 디렉터리에 게스트 사용자 추가
 
@@ -54,8 +54,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 ## <a name="assign-an-app-to-the-guest-user"></a>게스트 사용자에게 앱 할당
 테스트 테넌트에 Salesforce 앱을 추가하고 테스트 게스트 사용자를 앱에 할당합니다.
 1.  Azure AD 관리자로 Azure Portal에 로그인합니다.
-2.  왼쪽 창에서 **엔터프라이즈 응용 프로그램**을 선택합니다.
-3.  **새 응용 프로그램**을 선택합니다.
+2.  왼쪽 창에서 **엔터프라이즈 애플리케이션**을 선택합니다.
+3.  **새 애플리케이션**을 선택합니다.
 4. **갤러리에서 추가** 아래에서 **Salesforce**를 검색한 후 선택합니다.
 
     ![Azure Active Directory 선택](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
@@ -76,14 +76,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     ![B2B 초대 수락 페이지](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
 
-4. **수락**을 선택합니다. 게스트 사용자가 액세스할 수 있는 응용 프로그램을 나열하는 액세스 패널이 열립니다.
+4. **수락**을 선택합니다. 게스트 사용자가 액세스할 수 있는 애플리케이션을 나열하는 액세스 패널이 열립니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 더 이상 필요하지 않은 경우 테스트 게스트 사용자 및 테스트 앱을 삭제합니다.
 1.  Azure AD 관리자로 Azure Portal에 로그인합니다.
 2.  왼쪽 창에서 **Azure Active Directory**를 선택합니다.
 3.  **관리**에서 **엔터프라이즈 응용 프로그램**을 선택합니다.
-4.  응용 프로그램 **Salesforce**를 열고 **삭제**를 선택합니다.
+4.  애플리케이션 **Salesforce**를 열고 **삭제**를 선택합니다.
 5.  왼쪽 창에서 **Azure Active Directory**를 선택합니다.
 6.  **관리**에서 **사용자**를 선택합니다.
 7.  테스트 사용자를 선택한 후 **사용자 삭제**를 선택합니다.

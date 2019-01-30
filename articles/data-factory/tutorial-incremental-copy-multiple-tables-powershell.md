@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 0cec1fb09503d3cc685b718c2497a363dfd15824
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 3902e6ae93159266de9f9e9cc0f355a37976a8ed
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868397"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425665"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 데이터 증분 로드
 이 자습서에서는 델타 데이터를 온-프레미스 SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.    
@@ -53,13 +52,13 @@ ms.locfileid: "48868397"
 
     b. 두 가지 조회 작업을 만듭니다. 첫 번째 조회 작업을 사용하여 마지막 워터마크 값을 검색합니다. 두 번째 조회 작업을 사용하여 새 워터마크 값을 검색합니다. 이러한 워터마크 값은 복사 작업에 전달됩니다.
 
-    c. 이전 워터마크 값보다 크고, 새 워터마크 값보다 작은 워터마크 열 값으로 원본 데이터 저장소의 행을 복사하는 복사 작업을 만듭니다. 그런 다음 원본 데이터 저장소의 델타 데이터를 새 파일로 Azure Blob 저장소에 복사합니다.
+    c. 이전 워터마크 값보다 크고, 새 워터마크 값보다 작은 워터마크 열 값으로 원본 데이터 저장소의 행을 복사하는 복사 작업을 만듭니다. 그런 다음 원본 데이터 스토리지의 델타 데이터를 새 파일로 Azure Blob Storage에 복사합니다.
 
     d. 다음에 실행되는 파이프라인에 대한 워터마크 값을 업데이트하는 StoredProcedure 작업을 만듭니다. 
 
     대략적인 솔루션 다이어그램은 다음과 같습니다. 
 
-    ![데이터 증분 로드](media\tutorial-incremental-copy-multiple-tables-powershell\high-level-solution-diagram.png)
+    ![데이터 증분 로드](media/tutorial-incremental-copy-multiple-tables-powershell/high-level-solution-diagram.png)
 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
@@ -158,7 +157,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 다음 명령을 실행하여 SQL 데이터베이스에 저장 프로시저를 만듭니다. 이 저장 프로시저는 파이프라인의 실행이 끝날 때마다 워터마크 값을 업데이트합니다. 
 
 ```sql
-CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
+CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
 AS
 
 BEGIN
@@ -183,7 +182,7 @@ CREATE TYPE DataTypeforCustomerTable AS TABLE(
 
 GO
 
-CREATE PROCEDURE sp_upsert_customer_table @customer_table DataTypeforCustomerTable READONLY
+CREATE PROCEDURE usp_upsert_customer_table @customer_table DataTypeforCustomerTable READONLY
 AS
 
 BEGIN
@@ -206,7 +205,7 @@ CREATE TYPE DataTypeforProjectTable AS TABLE(
 
 GO
 
-CREATE PROCEDURE sp_upsert_project_table @project_table DataTypeforProjectTable READONLY
+CREATE PROCEDURE usp_upsert_project_table @project_table DataTypeforProjectTable READONLY
 AS
 
 BEGIN
@@ -223,7 +222,7 @@ END
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell 설치 및 구성](/powershell/azure/install-azurerm-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
+[Azure PowerShell 설치 및 구성](/powershell/azure/azurerm/install-azurerm-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 1. 나중에 PowerShell 명령에서 사용할 리소스 그룹 이름에 대한 변수를 정의합니다. PowerShell에 다음 명령 텍스트를 복사하고, 큰따옴표에 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름을 지정한 다음 명령을 실행합니다. 예는 `"adfrg"`입니다. 
@@ -268,7 +267,7 @@ END
     The specified Data Factory name 'ADFIncMultiCopyTutorialFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정이 참여자 또는 소유자 역할의 구성원이거나, Azure 구독의 관리자여야 합니다.
-* Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, SQL Database 등) 및 계산(Azure HDInsight 등)은 다른 지역에 있을 수 있습니다.
+* 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, SQL Database 등) 및 계산(Azure HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
@@ -411,7 +410,7 @@ END
 
     테이블 이름은 더미 이름입니다. 파이프라인의 복사 작업은 전체 테이블을 로드하는 대신 SQL 쿼리를 사용하여 데이터를 로드합니다.
 
-1. **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 SourceDataset 데이터 집합을 만듭니다.
+1. **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 SourceDataset 데이터 세트를 만듭니다.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
@@ -455,7 +454,7 @@ END
     }
     ```
 
-1. **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 SinkDataset 데이터 집합을 만듭니다.
+1. **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 SinkDataset 데이터 세트를 만듭니다.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
@@ -491,7 +490,7 @@ END
         }
     }    
     ```
-1. **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 WatermarkDataset 데이터 집합을 만듭니다.
+1. **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 WatermarkDataset 데이터 세트를 만듭니다.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
@@ -614,7 +613,7 @@ END
                             "type": "SqlServerStoredProcedure",
                             "typeProperties": {
     
-                                "storedProcedureName": "sp_write_watermark",
+                                "storedProcedureName": "usp_write_watermark",
                                 "storedProcedureParameters": {
                                     "LastModifiedtime": {
                                         "value": "@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}",
@@ -681,13 +680,13 @@ END
                 "TABLE_NAME": "customer_table",
                 "WaterMark_Column": "LastModifytime",
                 "TableType": "DataTypeforCustomerTable",
-                "StoredProcedureNameForMergeOperation": "sp_upsert_customer_table"
+                "StoredProcedureNameForMergeOperation": "usp_upsert_customer_table"
             },
             {
                 "TABLE_NAME": "project_table",
                 "WaterMark_Column": "Creationtime",
                 "TableType": "DataTypeforProjectTable",
-                "StoredProcedureNameForMergeOperation": "sp_upsert_project_table"
+                "StoredProcedureNameForMergeOperation": "usp_upsert_project_table"
             }
         ]
     }
@@ -704,22 +703,22 @@ END
 
 1. **모든 서비스**를 선택하고 *데이터 팩터리* 키워드를 사용하여 검색하고 **데이터 팩터리**를 선택합니다. 
 
-    ![데이터 팩터리 메뉴](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-data-factories-menu-1.png)
+    ![데이터 팩터리 메뉴](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-data-factories-menu-1.png)
 
 1. 데이터 팩터리 목록에서 데이터 팩터리를 검색하고 선택하여 **데이터 팩터리** 페이지를 시작합니다. 
 
-    ![데이터 팩터리 검색](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-search-data-factory-2.png)
+    ![데이터 팩터리 검색](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-search-data-factory-2.png)
 
 1. **데이터 팩터리** 페이지에서 **모니터링 및 관리**를 선택합니다. 
 
-    ![타일 모니터링 및 관리](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-monitor-manage-tile-3.png)
+    ![타일 모니터링 및 관리](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-monitor-manage-tile-3.png)
 
-1. **데이터 통합 응용 프로그램**이 별도의 탭에서 열립니다. 모든 파이프라인 실행과 해당 상태를 볼 수 있습니다. 다음 예제에서 파이프라인 실행의 상태는 **성공**입니다. 파이프라인에 전달된 매개 변수를 확인하려면 **매개 변수** 열의 링크를 선택합니다. 오류가 발생하면 **오류** 열에 링크가 표시됩니다. **작업** 열에서 링크를 선택합니다. 
+1. **데이터 통합 애플리케이션**이 별도의 탭에서 열립니다. 모든 파이프라인 실행과 해당 상태를 볼 수 있습니다. 다음 예제에서 파이프라인 실행의 상태는 **성공**입니다. 파이프라인에 전달된 매개 변수를 확인하려면 **매개 변수** 열의 링크를 선택합니다. 오류가 발생하면 **오류** 열에 링크가 표시됩니다. **작업** 열에서 링크를 선택합니다. 
 
-    ![파이프라인 실행](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-4.png)    
+    ![파이프라인 실행](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
 1. **작업** 열에 있는 링크를 선택하면 파이프라인에 실행된 모든 작업을 보여주는 다음 페이지가 표시됩니다. 
 
-    ![활동 실행](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-activity-runs-5.png)
+    ![활동 실행](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-activity-runs-5.png)
 
 1. **파이프라인 실행** 보기로 돌아가려면 이미지에서와 같이 **파이프라인**을 선택합니다. 
 
@@ -801,11 +800,11 @@ VALUES
     ```
 1. [파이프라인 모니터링](#monitor-the-pipeline) 섹션의 지침에 따라 파이프라인 실행을 모니터링합니다. 파이프라인 상태가 **진행 중**이므로 **작업** 아래 파이프라인 실행을 취소하는 다른 작업 링크가 표시됩니다. 
 
-    ![파이프라인 실행 진행 중](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-6.png)
+    ![파이프라인 실행 진행 중](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-6.png)
 
 1. **새로 고침**을 선택하여 파이프라인 실행이 성공할 때까지 목록을 새로 고칩니다. 
 
-    ![파이프라인 실행 새로 고침](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-succeded-7.png)
+    ![파이프라인 실행 새로 고침](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-succeded-7.png)
 
 1. 필요에 따라, **작업** 아래 **View Activity Runs**(작업 실행 보기) 링크를 클릭하여 이 파이프라인 실행과 연결된 모든 작업 실행을 표시합니다. 
 
@@ -888,6 +887,6 @@ project_table   2017-10-01 00:00:00.000
 Azure에서 Spark 클러스터를 사용하여 데이터를 변환하는 방법을 알아보려면 다음 자습서로 진행하세요.
 
 > [!div class="nextstepaction"]
->[변경 내용 추적 기술을 사용하여 Azure SQL Database에서 Azure Blob 저장소로 데이터 증분 로드](tutorial-incremental-copy-change-tracking-feature-powershell.md)
+>[변경 내용 추적 기술을 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 

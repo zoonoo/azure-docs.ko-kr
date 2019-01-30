@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure AD Connect 동기화의 기본 구성을 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bd708d279649138fcb17362491da4eb7539c478b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6de48b0f4c7c69ab0c6acb4099234b853d2c1523
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308752"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478572"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 이해
 이 문서는 기본 구성 규칙을 설명합니다. 규칙 및 해당 규칙이 구성에 어떤 영향을 주는지를 문서화합니다. 또한 Azure AD Connect 동기화의 기본 구성을 안내합니다. 목표는 판독기로 선언적 프로비전이라고 명명된 구성 모델이 실제 예제에서 작동하는 방식을 이해하는 것입니다. 이 문서에서는 설치 마법사를 사용하여 Azure AD Connect 동기화를 설치한 뒤 구성하는 상황을 가정합니다.
@@ -51,7 +51,7 @@ ms.locfileid: "46308752"
   * `(Left([sAMAccountName], 4) = "CAS_" && (InStr([sAMAccountName], "}")> 0))`
 * Exchange Online에서 작동하지 않는 개체를 동기화하지 않습니다.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
-  이 비트 마스크(&amp;H21C07000)는 다음 개체도 필터링합니다.
+   이 비트 마스크(&H21C07000)는 다음 개체도 필터링합니다.
   * 메일 사용이 가능한 공용 폴더(미리 보기 버전 1.1.524.0부터)
   * 시스템 도우미 사서함
   * 사서함 데이터베이스 사서함(시스템 사서함)
@@ -59,7 +59,7 @@ ms.locfileid: "46308752"
   * 비유니버설 그룹(사용자에 대해 적용하지 않지만 레거시를 지원하기 위해 존재합니다)
   * 사서함 계획
   * 검색 사서함
-* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)` 복제 피해 개체를 동기화하지 않습니다.
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. 복제 피해 개체를 동기화하지 않습니다.
 
 다음 특성 규칙이 적용됩니다.
 
@@ -78,12 +78,12 @@ ms.locfileid: "46308752"
 * 연락처는 메일을 사용할 수 있어야 합니다. 다음 규칙을 통해 확인합니다.
   * `IsPresent([proxyAddresses]) = True)`. proxyAddresses 특성을 채워야 합니다.
   * 기본 전자 메일 주소는 proxyAddresses 특성 또는 메일 특성에서 찾을 수 있습니다. \@의 존재는 콘텐츠가 전자 메일 주소인지 확인하는 데 사용됩니다. 이 두 가지 규칙 중 하나가 True로 평가되어야 합니다.
-    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))` "SMTP:"가 있는 항목이 있나요? 있다면 문자열에서 \@을 찾을 수 있나요?
-    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)` 메일 특성이 채워지나요? 그리고 채워진다면 문자열에서 \@을 찾을 수 있나요?
+    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. "SMTP:"가 있는 항목이 있나요? 있다면 문자열에서 \@을 찾을 수 있나요?
+    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. 메일 특성이 채워지나요? 그리고 채워진다면 문자열에서 \@을 찾을 수 있나요?
 
 다음 연락처 개체는 Azure AD에 동기화되지 **않습니다** .
 
-* `IsPresent([isCriticalSystemObject])` 중요로 표시된 연락처 개체가 동기화되지 않도록 합니다. 기본 구성을 사용하지 않아야 합니다.
+* `IsPresent([isCriticalSystemObject])`. 중요로 표시된 연락처 개체가 동기화되지 않도록 합니다. 기본 구성을 사용하지 않아야 합니다.
 * `((InStr([displayName], "(MSOL)") > 0) && (CBool([msExchHideFromAddressLists])))`.
 * `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`. 해당 개체는 Exchange Online에서 작동하지 않습니다.
 * `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. 복제 피해 개체를 동기화하지 않습니다.
@@ -99,10 +99,10 @@ ms.locfileid: "46308752"
 
 다음 그룹 개체는 Azure AD에 동기화되지 **않습니다** .
 
-* `IsPresent([isCriticalSystemObject])` 기본 제공 관리자 그룹과 같은 Active Directory의 많은 기본 개체가 동기화되지 않도록 합니다.
+* `IsPresent([isCriticalSystemObject])`. 기본 제공 관리자 그룹과 같은 Active Directory의 많은 기본 개체가 동기화되지 않도록 합니다.
 * `[sAMAccountName] = "MSOL_AD_Sync_RichCoexistence"`. DirSync에서 사용하는 레거시 그룹입니다.
 * `BitAnd([msExchRecipientTypeDetails],&amp;H40000000)`. 역할 그룹입니다.
-* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)` 복제 피해 개체를 동기화하지 않습니다.
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. 복제 피해 개체를 동기화하지 않습니다.
 
 ### <a name="foreignsecurityprincipal-out-of-box-rules"></a>ForeignSecurityPrincipal 기본 규칙
 FSP는 메타버스에서 "어떤"(\*) 개체에 조인됩니다. 실제로 이 조인은 사용자 및 보안 그룹의 경우에만 발생합니다. 이 구성을 통해 포리스트 간 멤버 자격을 확인하고 Azure AD에 올바르게 표시합니다.
@@ -134,7 +134,7 @@ SRE는 리소스 키트 도구이며 Azure AD Connect 동기화와 함께 설치
 
 ![동기화 규칙 인바운드](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
 
-이 창에서 사용자의 구성을 위해 만든 모든 동기화 규칙을 보게 됩니다. 테이블의 각 줄은 하나의 동기화 규칙입니다. 왼쪽의 규칙 우형 아래에 인바운드 및 아웃바운드의 두 가지 유형이 나열됩니다. 인바운드 및 아웃바운드는 메타버스의 보기에서 제공됩니다. 이 개요에서는 주로 인바운드 규칙에 집중합니다. 동기화 규칙의 실제 목록은 AD에서 검색된 스키마에 따라 달라집니다. 위의 그림에서 계정 포리스트(fabrikamonline.com)에는 Exchange, Lync 등의 서비스가 없으며 이러한 서비스에 대해 어떤 동기화 규칙도 만들어지지 않았습니다. 그러나 리소스 포리스트(res.fabrikamonline.com)에서 이러한 서비스에 대한 동기화 규칙을 찾을 수 있습니다. 규칙의 콘텐츠는 검색된 버전에 따라 다릅니다. 예를 들어 Exchange 2013를 사용한 배포에서는 Exchange 2010/2007에서 보다 자세한 특성 흐름이 구성되었습니다.
+이 창에서 사용자의 구성을 위해 만든 모든 동기화 규칙을 보게 됩니다. 테이블의 각 줄은 하나의 동기화 규칙입니다. 왼쪽의 규칙 유형 아래에는 두 가지 유형 인바운드 및 아웃바운드가 나열됩니다. 인바운드 및 아웃바운드는 메타버스의 보기에서 제공됩니다. 이 개요에서는 주로 인바운드 규칙에 집중합니다. 동기화 규칙의 실제 목록은 AD에서 검색된 스키마에 따라 달라집니다. 위의 그림에서 계정 포리스트(fabrikamonline.com)에는 Exchange, Lync 등의 서비스가 없으며 이러한 서비스에 대해 어떤 동기화 규칙도 만들어지지 않았습니다. 그러나 리소스 포리스트(res.fabrikamonline.com)에서 이러한 서비스에 대한 동기화 규칙을 찾을 수 있습니다. 규칙의 콘텐츠는 검색된 버전에 따라 다릅니다. 예를 들어 Exchange 2013를 사용한 배포에서는 Exchange 2010/2007에서 보다 자세한 특성 흐름이 구성되었습니다.
 
 ### <a name="synchronization-rule"></a>동기화 규칙
 동기화 규칙은 조건을 만족할 때 흐르는 특성 집합이 포함된 구성 개체입니다. 또한 커넥터 공간에는 개체가 **조인** 또는 **일치**로 알려진 메타버스에 있는 개체와 관련되는 방법을 설명하기 위해서도 사용됩니다. 동기화 규칙에는 서로 관계를 나타내는 우선 순위 값이 있습니다. 낮은 숫자 값을 가진 동기화 규칙이 더 높은 우선 순위를 가지며 특성 흐름 충돌에서 높은 우선 순위가 충돌을 해결합니다.
@@ -145,7 +145,7 @@ SRE는 리소스 키트 도구이며 Azure AD Connect 동기화와 함께 설치
 
 ![동기화 규칙 경고](./media/concept-azure-ad-connect-sync-default-configuration/warningeditrule.png)
 
-동기화 규칙에는 설명, 범위 지정 필터, 조인 규칙 및 변환의 네 가지 구성 섹션이 있습니다.
+동기화 규칙에는 네 개의 구성 섹션 설명, 범위 지정 필터, 조인 규칙 및 변환이 있습니다.
 
 #### <a name="description"></a>설명
 첫 번째 섹션은 이름 및 설명과 같은 기본 정보를 제공합니다.
@@ -187,7 +187,7 @@ SRE는 리소스 키트 도구이며 Azure AD Connect 동기화와 함께 설치
 
 이 구성을 컨텍스트에 배치하려면 계정 리소스 포리스트 배포에서 Exchange 및 Lync 설정을 사용하여 계정 포리스트에서 활성화된 계정을 찾고 리소스 포리스트에서 비활성화된 계정을 찾을 예정입니다. 찾고 있는 동기화 규칙은 로그인에 필요한 특성을 포함하며 해당 특성은 활성화된 계정이 있는 포리스트에서부터 진행되어야 합니다. 이러한 모든 특성 흐름은 하나의 동기화 규칙에 함께 배치됩니다.
 
-변환은 다른 형식을 가질 수 있습니다: 상수, 직접 및 식.
+변환 형식으로는 상수, 직접 및 식이 있습니다.
 
 * 일정한 흐름은 항상 하드 코딩된 값을 전달합니다. 위의 경우 **accountEnabled**라는 메타버스 특성에서 값을 항상 **True**로 설정합니다.
 * 직접 흐름은 원본에 있는 특성의 값을 대상 특성에 항상 있는 그대로 전달합니다.

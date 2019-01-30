@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Single Sign On에 SAML 2.0 ID 공급자 사용 | Micro
 description: 이 문서에서는 Single Sign-On에 SAML 2.0 호환 Idp를 사용하는 방법을 설명합니다.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.custom: it-pro
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e3bd48cf56650e266f5002a179d20177b3127f25
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d7211cdec2e1de1aafd8d81289ab399f25b3c26a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426412"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463136"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용
 
@@ -167,7 +167,7 @@ SAML 2.0 ID 공급자와 Azure AD 간의 통신을 사용하도록 설정해야 
 ## <a name="install-windows-powershell-for-sign-on-with-saml-20-identity-provider"></a>SAML 2.0 ID 공급자로 로그온하기 위해 Windows PowerShell 설치
 Azure AD 로그온에 사용하기 위해 SAML 2.0 ID 공급자를 구성하고 다음에 수행할 단계는 Windows PowerShell용 Azure Active Directory 모듈을 다운로드하고 설치하는 것입니다. 일단 설치되면 이러한 cmdlet을 사용하여 Azure AD 도메인을 페더레이션된 도메인으로 구성합니다.
 
-Windows PowerShell용 Azure Active Directory 모듈은 Azure AD에서 조직 데이터를 관리하기 위한 다운로드입니다. 이 모듈은 Windows PowerShell에 cmdlet 집합을 설치합니다. 이러한 cmdlet을 사용하여 Azure AD 및 구독된 모든 클라우드 서비스에 대한 Single Sign-On 액세스를 설정합니다. cmdlet을 다운로드하고 설치하는 방법에 대한 지침을 [https://technet.microsoft.com/library/jj151815.aspx](httpss://technet.microsoft.com/library/jj151815.aspx)를 참조하세요.
+Windows PowerShell용 Azure Active Directory 모듈은 Azure AD에서 조직 데이터를 관리하기 위한 다운로드입니다. 이 모듈은 Windows PowerShell에 cmdlet 집합을 설치합니다. 이러한 cmdlet을 사용하여 Azure AD 및 구독된 모든 클라우드 서비스에 대한 Single Sign-On 액세스를 설정합니다. cmdlet을 다운로드하고 설치하는 방법에 대한 지침을 [https://technet.microsoft.com/library/jj151815.aspx](https://technet.microsoft.com/library/jj151815.aspx)를 참조하세요.
 
 ## <a name="set-up-a-trust-between-your-saml-identity-provider-and-azure-ad"></a>SAML ID 공급자 및 Azure AD 간에 트러스트 설정
 Azure AD 도메인에서 페더레이션을 구성하기 전에 사용자 지정 도메인을 먼저 구성해야 합니다. Microsoft에서 제공하는 기본 도메인은 페더레이션할 수 없습니다. Microsoft의 기본 도메인은 "onmicrosoft.com"으로 끝납니다.
@@ -183,14 +183,14 @@ SAML 2.0 ID 공급자를 사용하여 페더레이션하려는 각 Azure Active 
 ## <a name="configuring-a-domain-in-your-azure-ad-directory-for-federation"></a>Azure AD 디렉터리에서 페더레이션에 대한 도메인 구성
 
 
-1. Azure AD 디렉터리에 테넌트 관리자 권한으로 연결: Connect-MsolService
+1. Azure AD 디렉터리에 테넌트 관리자 권한으로 연결: Connect-MsolService.
 2.  원하는 Office 365 도메인이 SAML 2.0에서 페더레이션을 사용하도록 구성: `$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
 
 3.  IDP 메타데이터 파일에서 서명 인증서 base64 인코딩 문자열을 얻을 수 있습니다. 이 위치의 예가 제공되어 있으나 구현에 따라 약간 다를 수 있습니다.
 
     `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
 
-“Set-MsolDomainAuthentication”에 대한 자세한 내용은 [https://technet.microsoft.com/library/dn194112.aspx](httpss://technet.microsoft.com/library/dn194112.aspx)를 참조하세요.
+“Set-MsolDomainAuthentication”에 대한 자세한 내용은 [https://technet.microsoft.com/library/dn194112.aspx](https://technet.microsoft.com/library/dn194112.aspx)를 참조하세요.
 
 >[!NOTE]
 >“$ecpUrl = “https://WS2012R2-0.contoso.com/PAOS””는 ID 공급자에 대해 ECP 확장을 설정한 경우에만 실행해야 합니다. OWA(Outlook Web Application)를 제외한 Exchange Online 클라이언트는 POST 기반 활성 끝점에 의존합니다. SAML 2.0 STS가 Shibboleth의 ECP 활성 끝점 구현과 비슷한 활성 끝점을 구현하는 경우 이러한 리치 클라이언트가 Exchange Online 서비스와 상호 작용할 수 있습니다.
@@ -207,7 +207,7 @@ Azure AD에 새 사용자 추가를 자동화하고 온-프레미스 디렉터�
 이 절차에서는 Azure AD에 단일 사용자를 추가하는 방법을 보여 줍니다.
 
 
-1. Azure AD 디렉터리에 테넌트 관리자 권한으로 연결: Connect-MsolService
+1. Azure AD 디렉터리에 테넌트 관리자 권한으로 연결: Connect-MsolService.
 2.  새 사용자 계정 만들기: ` New-MsolUser
         -UserPrincipalName elwoodf1@contoso.com
         -ImmutableId ABCDEFG1234567890
@@ -218,7 +218,7 @@ Azure AD에 새 사용자 추가를 자동화하고 온-프레미스 디렉터�
         -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
         -UsageLocation "US" ` 
 
-“New-MsolUser” 체크 아웃에 대한 자세한 내용은 [https://technet.microsoft.com/library/dn194096.aspx](httpss://technet.microsoft.com/library/dn194096.aspx)을 참조하세요.
+“New-MsolUser” 체크 아웃에 대한 자세한 내용은 [https://technet.microsoft.com/library/dn194096.aspx](https://technet.microsoft.com/library/dn194096.aspx)을 참조하세요.
 
 >[!NOTE]
 >"UserPrinciplName" 값은 SAML 2.0 클레임의 "IDPEmail"에 대해 전송하는 값과 일치해야 하고 "ImmutableID" 값은 "NameID" 어설션에 전송된 값과 일치해야 합니다.
@@ -260,7 +260,7 @@ Microsoft는 SAML 2.0 기반된 ID 공급자를 테스트하는 데 사용할 �
 7. 이 창에는 실패한 테스트 결과가 표시됩니다. 자세한 결과 검토를 클릭하면 수행한 각 테스트 결과에 대한 정보가 표시됩니다. 또한 결과를 공유하기 위해 디스크를 저장할 수도 있습니다.
  
 >[!NOTE]
->또한 연결 분석기는 WS* 기반 및 ECP/PAOS 프로토콜을 사용하여 활성 페더레이션을 테스트합니다. 이 도구를 사용하는 경우 “ID 공급자의 활성 페더레이션 엔드포인트를 사용하여 활성 로그인 흐름을 테스트하는 중” 오류는 무시해도 됩니다.
+>또한 연결 분석기는 WS* 기반 및 ECP/PAOS 프로토콜을 사용하여 활성 페더레이션을 테스트합니다. 이러한 기능을 사용하지 않는 경우 다음 오류를 무시해도 됩니다. ID 공급자의 활성 페더레이션 엔드포인트를 사용하여 활성 로그인 흐름 테스트
 
 ### <a name="manually-verify-that-single-sign-on-has-been-set-up-correctly"></a>Single Sign-On이 올바르게 설정되어 있는지 수동으로 확인
 수동 확인은 SAML 2.0 ID 공급자가 많은 시나리오에서 제대로 작동하고 있는지 확인하기 위해 수행할 수 있는 추가 단계를 제공합니다.
@@ -268,7 +268,7 @@ Single Sign-On이 올바르게 설정되어 있는지 확인하려면 다음 단
 
 
 1. 도메인에 가입된 컴퓨터에서 회사 자격 증명에 사용하는 것과 동일한 로그온 이름을 사용하여 클라우드 서비스에 로그인합니다.
-2.  암호 상자 내부를 클릭합니다. Single Sign-On이 설정되면 암호 상자가 음영 처리되며 "이제 &lt;회사&gt;에서 로그인해야 합니다." 메시지가 표시됩니다.
+2.  암호 상자 내부를 클릭합니다. Single Sign-On이 설정되면 암호 상자가 음영 처리되며 "이제 &lt;회사&gt;에 로그인해야 합니다"라는 메시지가 표시됩니다.
 3.  &lt;회사&gt; 링크에서 로그인을 클릭합니다. 로그인할 수 있으면 Single Sign-On이 설정된 것입니다.
 
 ## <a name="next-steps"></a>다음 단계

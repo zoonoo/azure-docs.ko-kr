@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 6d36733b63645fd86580ccdc5af756739f77338c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7c790d03143eece9b0c827a033bdd46bfd1a8f45
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048148"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024368"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon Redshift에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,13 +53,13 @@ Amazon Redshift 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **AmazonRedshift**로 설정되어야 합니다. | 예 |
+| 형식 | type 속성을 다음으로 설정해야 합니다. **AmazonRedshift** | 예 |
 | 서버 |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |예 |
 | 포트 |Amazon Redshift 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트 수입니다. |아니요(기본값: 5439) |
 | 데이터베이스 |Amazon Redshift 데이터베이스의 이름입니다. |예 |
 | 사용자 이름 |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |예 |
 | 암호 |사용자 계정의 password입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니오 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제:**
 
@@ -94,9 +93,9 @@ Amazon Redshift 연결된 서비스에 다음 속성이 지원됩니다.
 
 Amazon Redshift에서 데이터를 복사하려면 데이터 세트의 type 속성을 **RelationalTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 type 속성을 **RelationalTable**로 설정해야 합니다. | 예 |
+| 형식 | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **RelationalTable** | 예 |
 | tableName | Amazon Redshift에서 테이블의 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -126,9 +125,9 @@ Amazon Redshift에서 데이터를 복사하려면 복사 작업의 원본 형�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성을 **AmazonRedshiftSource**로 설정해야 합니다. | 예 |
+| 형식 | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **AmazonRedshiftSource** | 예 |
 | 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |아니요(데이터 세트의 "tableName"이 지정된 경우) |
-| redshiftUnloadSettings | Amazon Redshift UNLOAD를 사용하는 경우 속성 그룹입니다. | 아니오 |
+| redshiftUnloadSettings | Amazon Redshift UNLOAD를 사용하는 경우 속성 그룹입니다. | 아니요 |
 | s3LinkedServiceName | “AmazonS3” 형식의 연결된 서비스 이름을 지정하여 중간 저장소로 사용하려는 Amazon S3을 참조합니다. | 예(UNLOAD를 사용하는 경우) |
 | bucketName | 중간 데이터를 저장할 S3 버킷을 지정합니다. 제공되지 않은 경우 Data Factory 서비스는 자동으로 생성합니다.  | 예(UNLOAD를 사용하는 경우) |
 
@@ -158,7 +157,7 @@ Amazon Redshift에서 데이터를 복사하려면 복사 작업의 원본 형�
 
 이 샘플 사용 사례의 경우 복사 작업은 "redshiftUnloadSettings"에 구성된 대로 Amazon Redshift에서 Amazon S3으로 데이터를 언로드한 다음 "stagingSettings"에 지정된 대로 Amazon S3에서 Azure Blob으로 데이터를 복사하고, 마지막으로 PolyBase를 사용하여 SQL Data Warehouse로 데이터를 로드합니다. 모든 중간 형식은 복사 작업에서 제대로 처리됩니다.
 
-![Redshift에서 SQL DW로 복사 워크플로](media\copy-data-from-amazon-redshift\redshift-to-sql-dw-copy-workflow.png)
+![Redshift에서 SQL DW로 복사 워크플로](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 "activities":[

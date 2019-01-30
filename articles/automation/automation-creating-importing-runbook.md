@@ -3,18 +3,18 @@ title: Azure Automation에서 Runbook 만들기 또는 가져오기
 description: 이 문서에서는 Azure Automation에서 새 Runbook을 만들거나 파일에서 가져오는 방법을 설명합니다.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 08/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2ccf9036d3701c710c6d3258f81390ed355c246c
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: fdc064ab2b74424ce1e4e163c8843bfebc28bcf4
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578034"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435569"
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>Azure Automation에서 Runbook 만들기 또는 가져오기
 
@@ -24,7 +24,7 @@ ms.locfileid: "39578034"
 
 Azure Portal 또는 Windows PowerShell 중 하나를 사용하여 Azure Automation에서 새 Runbook을 만들 수 있습니다. Runbook를 만든 후에는 [PowerShell 워크플로 학습](automation-powershell-workflow.md) 및 [Azure Automation에서 그래픽 제작](automation-graphical-authoring-intro.md)의 정보를 사용하여 편집할 수 있습니다.
 
-### <a name="to-create-a-new-azure-automation-runbook-with-the-azure-portal"></a>Azure Portal에서 새 Azure Automation Runbook을 만들려면
+### <a name="to-create-a-new-azure-automation-runbook-with-the-azure-portal"></a>Azure Portal에서 새 Azure Automation  Runbook을 만들려면
 
 1. Azure Portal에서 Automation 계정을 엽니다.
 1. Hub에서 **Runbook**을 클릭하여 Runbook 목록을 엽니다.

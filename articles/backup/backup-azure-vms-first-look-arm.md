@@ -1,24 +1,21 @@
 ---
-title: '소개: 복구 서비스 자격 증명 모음으로 Azure VM 보호'
-description: 복구 서비스 자격 증명 모음으로 Azure VM 보호. Resource Manager에 의해 배포된 VM, 클래식으로 배포된 VM 및 Premium Storage VM, 암호화된 VM, Managed Disks의 VM 백업을 사용하여 데이터를 보호합니다. 복구 서비스 자격 증명 모음을 만들고 등록합니다. Azure에서 VM을 등록하고 정책을 만들며 VM을 보호합니다.
+title: Azure Backup 서비스를 사용하여 Azure VM 백업
+description: Azure Backup 서비스를 사용하여 Azure VM을 백업하는 방법 알아보기
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
-keyword: backups; vm backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: markgal
-ms.custom: H1Hack27Feb2017
-keywords: 백업; vm 백업
-ms.openlocfilehash: daa2355d028af9b61b0b14a453452c1a96487403
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/17/2018
+ms.author: raynew
+ms.openlocfilehash: c1bd92b9c4611465b680f195e4881a447f4bb701
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233544"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044402"
 ---
-# <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 Azure 가상 머신 백업
+# <a name="back-up-azure-vms-with-the-azure-backup-service"></a>Azure Backup 서비스를 사용하여 Azure VM 백업
 
 이 문서에서는 가상 머신 작업 메뉴 또는 Recovery Services 자격 증명 모음에서 가상 머신에 대한 보호를 구성하는 방법을 설명합니다. Recovery Services 자격 증명 모음이 보호하는 항목:
 
@@ -28,11 +25,11 @@ ms.locfileid: "51233544"
 * 프리미엄 저장소 VM
 * Managed Disks에서 실행 중인 VM
 * Azure Disk Encryption을 사용하여 암호화된 VM
-* 사용자 지정 사전 스냅숏 및 사후 스냅숏 스크립트를 사용하는 VSS 및 Linux VM을 사용하여 Windows VM의 응용 프로그램 일치 백업
+* 사용자 지정 사전 스냅숏 및 사후 스냅숏 스크립트를 사용하는 VSS 및 Linux VM을 사용하여 Windows VM의 애플리케이션 일치 백업
 
-Premium Storage VM 보호에 대한 자세한 내용은 [Premium Storage VM 백업 및 복원](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) 문서를 참조하세요. Managed Disks VM 지원에 대한 자세한 내용은 [Managed Disks의 VM 백업 및 복원](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)을 참조하세요. Linux VM을 백업하기 위한 사전 및 사후 스크립트 프레임워크에 대한 자세한 내용은 [사전 및 사후 스크립트를 사용하여 응용 프로그램 일치 Linux VM 백업](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)을 참조하세요.
+Premium Storage VM 보호에 대한 자세한 내용은 [Premium Storage VM 백업 및 복원](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) 문서를 참조하세요. Managed Disks VM 지원에 대한 자세한 내용은 [Managed Disks의 VM 백업 및 복원](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)을 참조하세요. Linux VM을 백업하기 위한 사전 및 사후 스크립트 프레임워크에 대한 자세한 내용은 [사전 및 사후 스크립트를 사용하여 애플리케이션 일치 Linux VM 백업](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)을 참조하세요.
 
-백업을 할 수 있는, 할 수 없는 항목에 대해 자세히 알아보려면 [Azure VM을 백업하도록 환경 준비](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)를 참조하세요.
+백업을 할 수 있는, 할 수 없는 항목에 대해 자세히 알아보려면 [Azure VM을 백업하도록 환경 준비](backup-azure-arm-vms-prepare.md#before-you-start)를 참조하세요.
 
 > [!NOTE]
 > 백업 서비스는 VM의 리소스 그룹과 별개의 리소스 그룹을 만들어 복원 지점 컬렉션을 저장합니다. 고객은 백업 서비스에서 사용하기 위해 생성된 리소스 그룹을 잠그지 않는 것이 좋습니다.
@@ -172,7 +169,7 @@ Recovery Services 자격 증명 모음을 만들려면:
 자격 증명 모음을 만들었으므로 저장소 복제를 설정하는 방법에 대해 알아보십시오.
 
 ### <a name="set-storage-replication"></a>저장소 복제 설정
-저장소 복제 옵션을 사용하면 지역 중복 저장소와 로컬 중복 저장소 중에서 선택할 수 있습니다. 기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. 기본 백업의 Recovery Services 자격 증명 모음에서 저장소 복제 옵션을 지역 중복 저장소로 설정해 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 저장소를 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 저장소 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
+저장소 복제 옵션을 사용하면 지역 중복 저장소와 로컬 중복 저장소 중에서 선택할 수 있습니다. 기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. 기본 백업의 Recovery Services 자격 증명 모음에서 저장소 복제 옵션을 지역 중복 저장소로 설정해 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 저장소를 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 스토리지 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
 
 저장소 복제 설정을 편집하려면
 
@@ -195,7 +192,7 @@ Recovery Services 자격 증명 모음을 만들려면:
 
     ![저장소 구성 선택 항목](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. Azure를 기본 백업 저장소 엔드포인트로 사용하는 경우 **지역 중복**을 계속 사용합니다. Azure를 기본 백업 저장소 엔드포인트로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 저장소 옵션에 대한 자세한 내용은 [저장소 중복 개요](../storage/common/storage-redundancy.md)를 참조하세요.
+    기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. Azure를 기본 백업 저장소 엔드포인트로 사용하는 경우 **지역 중복**을 계속 사용합니다. Azure를 기본 백업 스토리지 엔드포인트로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 저장소 옵션에 대한 자세한 내용은 [저장소 중복 개요](../storage/common/storage-redundancy.md)를 참조하세요.
 
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>백업 목표 선택, 정책 설정, 보호할 항목 정의
@@ -293,7 +290,7 @@ Recovery Services 자격 증명 모음을 만들려면:
   배포 알림을 통해 백업 작업이 트리거되고 Backup 작업 페이지에서 작업의 진행률을 모니터링할 수 있다는 것을 알립니다. VM의 크기에 따라 초기 백업을 만드는 데 시간이 걸릴 수 있습니다.
 
   > [!NOTE]
-  > Azure Backup으로 백업하는 모든 미사용 데이터는 [SSE(저장소 서비스 암호화)](../storage/common/storage-service-encryption.md)를 통해 암호화됩니다.
+  > - Azure Backup으로 백업하는 모든 미사용 데이터는 [SSE(저장소 서비스 암호화)](../storage/common/storage-service-encryption.md)를 통해 암호화됩니다.
   >
   >
 
@@ -331,13 +328,14 @@ Recovery Services 자격 증명 모음을 만들려면:
 ### <a name="backup-extension"></a>Backup 확장
 가상 머신에 VM 에이전트를 설치하면 Azure Backup 서비스는 VM 에이전트에 대한 백업 확장을 설치합니다. Azure Backup 서비스는 추가 사용자 개입 없이 원활하게 백업 확장을 업그레이드 및 패치합니다.
 
-VM을 실행하고 있지 않아도 Backup 서비스가 백업 확장을 설치합니다. 실행 중인 VM은 응용 프로그램 일치 복구 지점을 확보할 수 있는 큰 기회를 제공합니다. 그러나 Azure Backup 서비스는 VM이 꺼져 확장을 설치할 수 없더라도 VM을 계속 백업합니다. 이런 유형의 백업은 오프라인 VM으로 알려져 있으며 복구 지점은 *충돌 일치*입니다.
+VM을 실행하고 있지 않아도 Backup 서비스가 백업 확장을 설치합니다. 실행 중인 VM은 애플리케이션 일치 복구 지점을 확보할 수 있는 큰 기회를 제공합니다. 그러나 Azure Backup 서비스는 VM이 꺼져 확장을 설치할 수 없더라도 VM을 계속 백업합니다. 이런 유형의 백업은 오프라인 VM으로 알려져 있으며 복구 지점은 *충돌 일치*입니다.
 
 ## <a name="troubleshooting-information"></a>문제 해결 정보
 이 문서의 작업 중 일부를 수행하는 데 문제가 있는 경우 [문제 해결 지침](backup-azure-vms-troubleshoot.md)을 참조하세요.
 
 ## <a name="pricing"></a>가격
-Azure VM을 백업하는 비용은 보호된 인스턴스의 수에 기반합니다. 보호된 인스턴스에 대한 정의는 [보호된 인스턴스란 무엇인가요?](backup-introduction-to-azure-backup.md#what-is-a-protected-instance)를 참조하세요. 가상 머신을 백업하는 비용을 계산하는 예제는 [보호된 인스턴스를 계산하는 방법](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances)을 참조하세요. [Backup 가격 책정](https://azure.microsoft.com/pricing/details/backup/)에 대한 정보는 Azure Backup 가격 책정 페이지를 참조하세요.
+Azure VM을 백업하는 비용은 보호된 인스턴스의 수에 기반합니다. 보호된 인스턴스에 대한 정의는 [보호된 인스턴스란 무엇인가요?](backup-introduction-to-azure-backup.md#what-is-a-protected-instance)를 참조하세요. [Backup 가격 책정](https://azure.microsoft.com/pricing/details/backup/)에 대한 정보는 Azure Backup 가격 책정 페이지를 참조하세요.
 
-## <a name="questions"></a>질문이 있으십니까?
-질문이 있거나 포함되었으면 하는 기능이 있는 경우 [의견을 보내 주세요](https://aka.ms/azurebackup_feedback).
+## <a name="next-steps"></a>다음 단계
+
+백업을 [관리](backup-azure-manage-vms.md)합니다.

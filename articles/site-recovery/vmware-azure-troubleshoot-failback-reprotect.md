@@ -5,14 +5,14 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 89484e14d69493c74ed1ff983cf88ec146e0313d
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 57630d1fa95c2133e592f691add8c515ca718afb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210366"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833434"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Azure에서 온-프레미스로 장애 복구(failback) 문제 해결
 
@@ -31,12 +31,12 @@ ms.locfileid: "50210366"
 이 오류가 발생하는 경우는 다음과 같습니다.
 
 * Azure VM에서 온-프레미스 구성 서버에 연결할 수 없습니다. VM을 검색하여 구성 서버에 등록할 수 없습니다.
-* InMage Scout 응용 프로그램 서비스가 장애 조치 후에 Azure VM에서 실행되지 않습니다. 이 서비스는 온-프레미스 구성 서버와 통신하는 데 필요합니다.
+* InMage Scout 애플리케이션 서비스가 장애 조치 후에 Azure VM에서 실행되지 않습니다. 이 서비스는 온-프레미스 구성 서버와 통신하는 데 필요합니다.
 
 이 문제를 해결하려면:
 
 * Azure VM 네트워크에서 Azure VM이 온-프레미스 구성 서버와 통신할 수 있는지 확인합니다. 온-프레미스 데이터 센터에 사이트 간 VPN을 설정하거나 Azure VM의 가상 네트워크에서 개인 피어링을 사용하여 Azure ExpressRoute 연결을 구성할 수 있습니다.
-* VM이 온-프레미스 구성 서버와 통신할 수 있는 경우 VM에 로그인합니다. 그런 다음, InMage Scout 응용 프로그램 서비스를 확인합니다. 해당 서비스가 실행되지 않는 경우 서비스를 수동으로 시작합니다. 서비스 시작 형식이 **자동**으로 설정되었는지 확인합니다.
+* VM이 온-프레미스 구성 서버와 통신할 수 있는 경우 VM에 로그인합니다. 그런 다음, InMage Scout 애플리케이션 서비스를 확인합니다. 해당 서비스가 실행되지 않는 경우 서비스를 수동으로 시작합니다. 서비스 시작 형식이 **자동**으로 설정되었는지 확인합니다.
 
 ### <a name="error-code-78052"></a>오류 코드 78052
 

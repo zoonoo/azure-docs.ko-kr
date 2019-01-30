@@ -1,5 +1,5 @@
 ---
-title: '자습서: 데이터를 복사하는 Azure Data Factory 파이프라인 만들기 (Azure Portal) | Microsoft Docs'
+title: '자습서: 데이터를 복사하는 Azure Data Factory 파이프라인 만들기(Azure Portal) | Microsoft Docs'
 description: 이 자습서에서는 Azure Portal을 사용하여 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
 documentationcenter: ''
@@ -10,17 +10,16 @@ ms.assetid: d9317652-0170-4fd3-b9b2-37711272162b
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2e40e518f9f04809b1fd59b0ed12dcee9b1da9ce
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 2ecbfacd16ee7ba5cfdf673bf84e20e41ad0c75d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240919"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025915"
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>자습서: Azure Portal을 사용하여 데이터를 복사하는 Data Factory 파이프라인 만들기 
 > [!div class="op_single_selector"]
@@ -39,12 +38,12 @@ ms.locfileid: "50240919"
 
 이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 파이프라인이 있는 데이터 팩터리를 만드는 방법에 대해 알아봅니다. Azure Data Factory를 처음 사용하는 경우 이 자습서를 수행하기 전에 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 참조하세요.   
 
-이 자습서에는 한 가지 작업 즉, 복사 작업이 포함된 파이프라인을 만듭니다. 복사 작업은 지원되는 데이터 저장소에서 지원되는 싱크 데이터 저장소로 데이터를 복사합니다. 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고 안정적이며 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md)을 참조하세요.
+이 자습서에는 다음 한 가지 작업이 포함된 파이프라인을 만듭니다. 복사 작업 복사 작업은 지원되는 데이터 저장소에서 지원되는 싱크 데이터 저장소로 데이터를 복사합니다. 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고 안정적이며 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md)을 참조하세요.
 
 파이프라인 하나에는 활동이 둘 이상 있을 수 있습니다. 한 활동의 출력 데이터 세트를 다른 활동의 입력 데이터 세트로 설정함으로써 두 활동을 연결하여 활동을 하나씩 차례로 실행할 수 있습니다. 자세한 내용은 [파이프라인의 여러 작업](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)을 참조하세요. 
 
 > [!NOTE] 
-> 이 자습서에서 데이터 파이프라인은 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사합니다. Azure Data Factory를 사용하여 데이터를 변환하는 방법에 대한 자습서는 [자습서: Hadoop 클러스터를 사용하여 데이터를 변환하도록 파이프라인 빌드](data-factory-build-your-first-pipeline.md)를 참조하세요.
+> 이 자습서에서 데이터 파이프라인은 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사합니다. Azure Data Factory를 사용하여 데이터를 변환하는 방법에 대한 자습서는 [자습서: Hadoop 클러스터를 사용하여 데이터를 변환하는 파이프라인 빌드](data-factory-build-your-first-pipeline.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 수행하기 전에 [자습서 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 문서에서 나열하는 필수 구성 요소를 완료합니다.
@@ -53,9 +52,9 @@ ms.locfileid: "50240919"
 이 자습서의 일부로 수행하는 단계는 다음과 같습니다.
 
 1. Azure **데이터 팩터리**를 만듭니다. 이 단계에서는 ADFTutorialDataFactory라는 데이터 팩터리를 만듭니다. 
-2. 데이터 팩터리에서 **연결된 서비스**를 만듭니다. 이 단계에서는 두 가지 연결된 서비스 유형, 즉 Azure Storage와 Azure SQL Database를 만듭니다. 
+2. 데이터 팩터리에서 **연결된 서비스**를 만듭니다. 이 단계에서는 두 가지 유형의 연결된 서비스 즉, Azure Storage 및 Azure SQL Database를 만듭니다. 
     
-    AzureStorageLinkedService는 Azure 저장소 계정을 데이터 팩터리에 연결합니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 컨테이너를 만들고 이 저장소 계정에 데이터를 업로드했습니다.   
+    AzureStorageLinkedService는 Azure 스토리지 계정을 데이터 팩터리에 연결합니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 컨테이너를 만들고 이 저장소 계정에 데이터를 업로드했습니다.   
 
     AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. Blob 저장소에서 복사된 데이터는 이 데이터베이스에 저장됩니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 이 데이터베이스에서 SQL 테이블을 만들었습니다.   
 3. 데이터 팩터리에서 입력 및 출력 **데이터 세트**를 만듭니다.  
@@ -94,7 +93,7 @@ ms.locfileid: "50240919"
       - **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다. 
       - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.   
          
-          이 자습서의 일부 단계에서는 리소스 그룹에 **ADFTutorialResourceGroup** 이라는 이름을 사용한다고 가정합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
+          이 자습서의 단계 중 일부에서는 리소스 그룹에 대해 **ADFTutorialResourceGroup**이라는 이름을 사용한다고 가정합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
    4. 데이터 팩터리의 **위치** 를 선택합니다. Data Factory 서비스에서 지원하는 지역만 드롭다운 목록에 표시됩니다.
    5. **대시보드에 고정**을 선택합니다.     
    6. **만들기**를 클릭합니다.
@@ -105,7 +104,7 @@ ms.locfileid: "50240919"
       > 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.                
       > 
       > 
-3. 대시보드에서 **데이터 팩터리 배포 중** 상태의 타일이 표시됩니다. 
+3. 대시보드에서 다음과 같은 **데이터 팩터리 배포 중** 상태의 타일이 표시됩니다. 
 
     ![데이터 팩터리 배포 중 타일](media/data-factory-copy-activity-tutorial-using-azure-portal/deploying-data-factory.png)
 4. 만들기가 완료되면 이미지와 같이 **Data Factory** 블레이드가 표시됩니다.
@@ -117,7 +116,7 @@ ms.locfileid: "50240919"
 
 이에 따라 두 개의 연결된 서비스, 즉 AzureStorage와 AzureSqlDatabase 유형의 AzureStorageLinkedService와 AzureSqlLinkedService를 만듭니다.  
 
-AzureStorageLinkedService는 Azure 저장소 계정을 데이터 팩터리에 연결합니다. 이 저장소 계정은 컨테이너를 만들고 [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 데이터를 업로드한 계정입니다.   
+AzureStorageLinkedService는 Azure 스토리지 계정을 데이터 팩터리에 연결합니다. 이 저장소 계정은 컨테이너를 만들고 [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 데이터를 업로드한 계정입니다.   
 
 AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. Blob 저장소에서 복사된 데이터는 이 데이터베이스에 저장됩니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 이 데이터베이스에서 emp 테이블을 만들었습니다.  
 
@@ -261,7 +260,7 @@ Azure SQL Database 연결된 서비스는 런타임에 Data Factory 서비스에
     데이터베이스의 emp 테이블에 **ID**, **FirstName** 및 **LastName**이라는 세 개의 열이 있습니다. ID는 ID 열이므로 여기서 **FirstName** 및 **LastName**만 지정해야 합니다.
 
     이러한 JSON 속성에 대한 자세한 내용은 [Azure SQL 커넥터 문서](data-factory-azure-sql-connector.md#dataset-properties)를 참조하세요.
-3. 도구 모음에서 **배포**를 클릭하여 **OutputDataset** 데이터 세트를 만들고 배포합니다. **데이터 집합**의 트리 보기에서 **OutputDataset**이 표시되는지 확인합니다. 
+3. 도구 모음에서 **배포**를 클릭하여 **OutputDataset** 데이터 세트를 만들고 배포합니다. **데이터 세트**의 트리 보기에서 **OutputDataset**이 표시되는지 확인합니다. 
 
 ## <a name="create-pipeline"></a>파이프라인 만들기
 이 단계에서는 **InputDataset**을 입력으로 사용하고 **OutputDataset**을 출력으로 사용하는 **복사 활동**을 포함한 파이프라인을 만듭니다.
@@ -319,7 +318,7 @@ Azure SQL Database 연결된 서비스는 런타임에 Data Factory 서비스에
     - 작업 섹션에는 **형식**이 **복사**로 설정된 작업만 있습니다. 복사 활동에 대한 자세한 내용은 [데이터 이동 활동](data-factory-data-movement-activities.md)을 참조하세요. Data Factory 솔루션에서 [데이터 변환 활동](data-factory-data-transformation-activities.md)을 사용할 수도 있습니다.
     - 작업에 대한 입력을 **InputDataset**으로 설정하고 작업에 대한 출력을 **OutputDataset**으로 설정합니다. 
     - **typeProperties** 섹션에서 **BlobSource**를 원본 유형으로 지정하고 **SqlSink**를 싱크 유형으로 지정합니다. 복사 활동에서 원본 및 싱크로 지원되는 데이터 저장소의 전체 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. 지원되는 특정 데이터 저장소를 원본/싱크로 사용하는 방법을 알아보려면 표에 나와 있는 링크를 클릭하세요.
-    - start 및 end 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예를 들어 2016-10-14T16:32:41Z입니다. **종료** 시간은 선택 사항이지만 이 자습서에서는 사용합니다. **종료** 속성 값을 지정하지 않는 경우 "**시작 + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09**를 지정합니다.
+    - start 및 end 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예:  2016-10-14T16:32:41Z. **종료** 시간은 선택 사항이지만 이 자습서에서는 사용합니다. **종료** 속성 값을 지정하지 않는 경우 "**시작 + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09**를 지정합니다.
      
     앞의 예에서는 각 데이터 조각이 1시간마다 생성되므로 24개 데이터 조각이 있게 됩니다.
 
@@ -334,12 +333,12 @@ Azure SQL Database 연결된 서비스는 런타임에 Data Factory 서비스에
 이 단계에서는 Azure 포털을 사용하여 Azure Data Factory에서 어떤 일이 일어나는지 모니터링합니다.    
 
 ### <a name="monitor-pipeline-using-monitor--manage-app"></a>앱 모니터링 및 관리를 사용하여 파이프라인 모니터링
-다음 단계에서는 [모니터링 및 관리] 응용 프로그램을 사용하여 데이터 팩터리의 파이프라인을 모니터링하는 방법을 보여 줍니다. 
+다음 단계에서는 [모니터링 및 관리] 애플리케이션을 사용하여 데이터 팩터리의 파이프라인을 모니터링하는 방법을 보여 줍니다. 
 
 1. 데이터 팩터리의 홈페이지에서 **모니터링 및 관리** 타일을 클릭합니다.
    
     ![타일 모니터링 및 관리](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-manage-tile.png) 
-2. 별도의 탭에서 **모니터링 및 관리 응용 프로그램**이 표시되어야 합니다. 
+2. 별도의 탭에서 **모니터링 및 관리 애플리케이션**이 표시되어야 합니다. 
 
     > [!NOTE]
     > 웹 브라우저가 "권한 부여 중..." 상태에서 갇혀 있음이 확인되면, **타사 쿠키 및 사이트 데이터 차단** 확인란의 선택을 해제하거나 **login.microsoftonline.com**에 대한 예외를 만든 다음, 앱을 다시 열어봅니다.
@@ -359,7 +358,7 @@ Azure SQL Database 연결된 서비스는 런타임에 Data Factory 서비스에
     
     ![SQL 쿼리 결과](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
 
-이 응용 프로그램을 사용하는 방법에 대한 자세한 내용은 [앱 모니터링 및 관리를 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요.
+이 애플리케이션을 사용하는 방법에 대한 자세한 내용은 [앱 모니터링 및 관리를 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요.
 
 ### <a name="monitor-pipeline-using-diagram-view"></a>다이어그램 보기를 사용하여 파이프라인 모니터링
 다이어그램 보기를 사용하여 데이터 파이프라인을 모니터링할 수도 있습니다.  

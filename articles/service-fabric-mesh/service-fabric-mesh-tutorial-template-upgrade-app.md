@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure Service Fabric Mesh에서 실행되는 앱 업그레이드 | Microsoft Docs
-description: 이 자습서에서는 Service Fabric Mesh에서 실행되는 Service Fabric 응용 프로그램을 업그레이드하는 방법을 알아봅니다.
+description: 이 자습서에서는 Service Fabric Mesh에서 실행되는 Service Fabric 애플리케이션을 업그레이드하는 방법을 알아봅니다.
 services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c82e0cd5bd6a15ff33f51b4e88f68c13080f595d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d27cc555a8cf96a07818e83b342cf145d9e98a96
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967968"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265910"
 ---
-# <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>자습서: Service Fabric Mesh에서 실행되는 Service Fabric 응용 프로그램 업그레이드
+# <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>자습서: Service Fabric Mesh에서 실행되는 Service Fabric 애플리케이션 업그레이드
 
-이 자습서는 시리즈의 3부입니다. 할당된 CPU 리소스를 늘려서 [Service Fabric Mesh에 이전에 배포한](service-fabric-mesh-tutorial-template-deploy-app.md) Service Fabric 응용 프로그램을 업그레이드하는 방법을 알아봅니다.  이 과정을 완료하면 늘어난 CPU 리소스로 실행되는 웹 프런트 엔드 서비스를 갖게 됩니다.
+이 자습서는 시리즈의 3부입니다. 할당된 CPU 리소스를 늘려서 [Service Fabric Mesh에 이전에 배포한](service-fabric-mesh-tutorial-template-deploy-app.md) Service Fabric 응용 프로그램을 업그레이드하는 방법을 알아봅니다.  이 과정을 완료하면 웹 프런트 엔드 서비스가 늘어난 CPU 리소스로 실행됩니다.
 
 시리즈 3부에서는 다음 방법에 대해 알아봅니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "46967968"
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * [템플릿을 사용하여 Service Fabric Mesh에 응용 프로그램 배포](service-fabric-mesh-tutorial-template-deploy-app.md)
-> * [Service Fabric Mesh에서 실행되는 응용 프로그램 크기 조정](service-fabric-mesh-tutorial-template-scale-services.md)
+> * [Service Fabric Mesh에서 실행 중인 애플리케이션 확장](service-fabric-mesh-tutorial-template-scale-services.md)
 > * Service Fabric Mesh에서 실행되는 응용 프로그램 업그레이드
 > * [응용 프로그램 제거](service-fabric-mesh-tutorial-template-remove-app.md)
 
@@ -47,25 +47,25 @@ ms.locfileid: "46967968"
 
 * Azure 구독이 아직 없으면 시작하기 전에 [무료 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
 
-* [Azure Cloud Shell](service-fabric-mesh-howto-setup-cli.md)을 열거나 [Azure CLI 및 Service Fabric Mesh CLI를 로컬에 설치](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally)합니다.
+* [Azure Cloud Shell](service-fabric-mesh-howto-setup-cli.md)을 열거나 [Azure CLI 및 Service Fabric Mesh CLI를 로컬에 설치](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli)합니다.
 
-## <a name="upgrade-application-configurations"></a>응용 프로그램 구성 업그레이드
+## <a name="upgrade-application-configurations"></a>애플리케이션 구성 업그레이드
 
-Service Fabric Mesh에 응용 프로그램을 배포하여 얻을 수 있는 주요 이점 중 하나는 응용 프로그램 구성을 쉽게 업데이트할 수 있는 기능입니다.  예를 들어, 서비스의 CPU 또는 메모리 리소스를 쉽게 업데이트할 수 있습니다.
+Service Fabric Mesh에 애플리케이션을 배포하여 얻을 수 있는 주요 이점 중 하나는 애플리케이션 구성을 쉽게 업데이트할 수 있는 기능입니다.  예를 들어, 서비스의 CPU 또는 메모리 리소스를 쉽게 업데이트할 수 있습니다.
 
-이 자습서에서는 [이전에 배포되어](service-fabric-mesh-tutorial-template-deploy-app.md) 현재 실행 중인 할 일 목록 샘플을 예제로 사용합니다. 응용 프로그램에 WebFrontEnd 및 ToDoService라는 두 가지 서비스가 있습니다. 각 서비스는 처음에 CPU 리소스 0.5로 배포되었습니다.  WebFrontEnd 서비스에 대한 CPU 리소스를 보려면 다음을 실행합니다.
+이 자습서에서는 [이전에 배포되어](service-fabric-mesh-tutorial-template-deploy-app.md) 현재 실행 중인 할 일 목록 샘플을 예제로 사용합니다. 애플리케이션에 두 개의 서비스가 있습니다. WebFrontEnd 및 ToDoService 각 서비스는 처음에 CPU 리소스 0.5로 배포되었습니다.  WebFrontEnd 서비스에 대한 CPU 리소스를 보려면 다음을 실행합니다.
 
 ```azurecli
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp
 ```
 
-응용 프로그램 리소스에 대한 배포 템플릿에서, 각 서비스에는 요청된 CPU 리소스를 설정하는 데 사용할 수 있는 *cpu* 속성이 있습니다. 응용 프로그램은 함께 배포되고 관리되는 여러 서비스로 구성될 수 있으며, 각 서비스에는 고유한 *cpu* 설정이 있습니다. 웹 프런트 엔드 서비스의 CPU 리소스를 늘리려면 배포 템플릿이나 매개 변수 파일에서 *cpue* 값을 수정합니다.  그런 다음, 응용 프로그램을 업그레이드합니다.
+애플리케이션 리소스에 대한 배포 템플릿에서, 각 서비스에는 요청된 CPU 리소스를 설정하는 데 사용할 수 있는 *cpu* 속성이 있습니다. 응용 프로그램은 함께 배포되고 관리되는 여러 서비스로 구성될 수 있으며, 각 서비스에는 고유한 *cpu* 설정이 있습니다. 웹 프런트 엔드 서비스의 CPU 리소스를 늘리려면 배포 템플릿이나 매개 변수 파일에서 *cpue* 값을 수정합니다.  그런 다음, 응용 프로그램을 업그레이드합니다.
 
 ### <a name="modify-the-deployment-template-parameters"></a>배포 템플릿 매개 변수 수정
 
-응용 프로그램을 배포한 후에 템플릿의 값이 변경될 것으로 예상되거나 배포별로 값을 변경하는 옵션을 포함하려는 경우(다른 배포에 이 템플릿을 다시 사용하려는 경우) 가장 좋은 방법은 값을 매개 변수화하는 것입니다.
+애플리케이션을 배포한 후에 템플릿의 값이 변경될 것으로 예상되거나 배포별로 값을 변경하는 옵션을 포함하려는 경우(다른 배포에 이 템플릿을 다시 사용하려는 경우) 가장 좋은 방법은 값을 매개 변수화하는 것입니다.
 
-이전에 [mesh_rp.windows.json 배포 템플릿](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json)과 [mesh_rp.windows.parameter.json 매개 변수](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) 파일을 사용하여 응용 프로그램을 배포했습니다.
+이전에 [mesh_rp.windows.json 배포 템플릿](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json)과 [mesh_rp.windows.parameter.json 매개 변수](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) 파일을 사용하여 애플리케이션을 배포했습니다.
 
 로컬에서 [mesh_rp.windows.parameter.json 매개 변수](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) 파일을 열고 *frontEndCpu* 값을 1로 설정합니다.
 
@@ -127,7 +127,7 @@ WebFrontEnd 서비스 *codePackages->resources->requests->cpu* 속성은 *frontE
 az mesh deployment create --resource-group myResourceGroup --template-file c:\temp\mesh_rp.windows.json --parameters c:\temp\mesh_rp.windows.parameters.json
 ```
 
-그러면 응용 프로그램에 대한 롤링 업그레이드가 시작되고 몇 분 안에 CPU 리소스가 증가하는 것을 볼 수 있습니다.  WebFrontEnd 서비스에 대한 CPU 리소스를 보려면 다음을 실행합니다.
+그러면 애플리케이션에 대한 롤링 업그레이드가 시작되고 몇 분 안에 CPU 리소스가 증가하는 것을 볼 수 있습니다.  WebFrontEnd 서비스에 대한 CPU 리소스를 보려면 다음을 실행합니다.
 
 ```azurecli
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp

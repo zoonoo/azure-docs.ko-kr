@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: .Net을 사용하여 개체 저장소에 Blob 만들기 - Azure Storage'
+title: '빠른 시작: .Net을 사용하여 개체 스토리지에 Blob 만들기 - Azure Storage'
 description: 이 빠른 시작에서는 .NET용 Azure Storage 클라이언트 라이브러리를 사용하여 Blob(개체) Storage에서 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 나열하는 방법을 알아봅니다.
 services: storage
 author: tamram
@@ -44,9 +44,9 @@ ms.locfileid: "51712027"
 
 ---
 
-## <a name="download-the-sample-application"></a>샘플 응용 프로그램 다운로드
+## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
 
-이 빠른 시작 가이드에서 사용되는 샘플 응용 프로그램은 기본적인 콘솔 응용 프로그램입니다. [GitHub](https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart)에서 샘플 응용 프로그램을 탐색할 수 있습니다.
+이 빠른 시작 가이드에서 사용되는 샘플 애플리케이션은 기본적인 콘솔 애플리케이션입니다. [GitHub](https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart)에서 샘플 응용 프로그램을 탐색할 수 있습니다.
 
 [git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드합니다. 
 
@@ -60,9 +60,9 @@ git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 
 ## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
 
-응용 프로그램을 실행하려면 저장소 계정에 대한 연결 문자열을 제공해야 합니다. 이 응용 프로그램 예제는 환경 변수의 연결 문자열을 읽어서 Azure Storage에 대한 요청 권한을 부여하는 데 사용합니다.
+애플리케이션을 실행하려면 스토리지 계정에 대한 연결 문자열을 제공해야 합니다. 이 애플리케이션 예제는 환경 변수의 연결 문자열을 읽어서 Azure Storage에 대한 요청 권한을 부여하는 데 사용합니다.
 
-연결 문자열을 복사한 후 응용 프로그램을 실행 중인 로컬 컴퓨터의 새 환경 변수에 씁니다. 환경 변수를 설정하려면 콘솔 창을 열고 사용 중인 운영 체제의 지침을 따릅니다. `<yourconnectionstring>`을 실제 연결 문자열로 바꿉니다.
+연결 문자열을 복사한 후 애플리케이션을 실행 중인 로컬 컴퓨터의 새 환경 변수에 씁니다. 환경 변수를 설정하려면 콘솔 창을 열고 사용 중인 운영 체제의 지침을 따릅니다. `<yourconnectionstring>`을 실제 연결 문자열로 바꿉니다.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -100,7 +100,7 @@ export STORAGE_CONNECTION_STRING=<yourconnectionstring>
 
 편집기로 Visual Studio를 사용하는 경우 **F5** 키를 눌러 실행할 수 있습니다. 
 
-그렇지 않으면 응용 프로그램 디렉터리로 이동하여 `dotnet run` 명령으로 응용 프로그램을 실행합니다.
+그렇지 않으면 애플리케이션 디렉터리로 이동하여 `dotnet run` 명령으로 애플리케이션을 실행합니다.
 
 ```
 dotnet run
@@ -108,7 +108,7 @@ dotnet run
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-응용 프로그램 디렉터리로 이동하여 `dotnet run` 명령으로 응용 프로그램을 실행합니다.
+애플리케이션 디렉터리로 이동하여 `dotnet run` 명령으로 애플리케이션을 실행합니다.
 
 ```
 dotnet run
@@ -116,7 +116,7 @@ dotnet run
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-응용 프로그램 디렉터리로 이동하여 `dotnet run` 명령으로 응용 프로그램을 실행합니다.
+애플리케이션 디렉터리로 이동하여 `dotnet run` 명령으로 애플리케이션을 실행합니다.
 
 ```
 dotnet run
@@ -124,7 +124,7 @@ dotnet run
 
 ---
 
-응용 프로그램 예제의 출력은 다음 예제와 비슷합니다.
+애플리케이션 예제의 출력은 다음 예제와 비슷합니다.
 
 ```
 Azure Blob storage - .NET Quickstart sample
@@ -152,7 +152,7 @@ Press any key to delete the sample files and example container.
 
 ### <a name="try-parsing-the-connection-string"></a>연결 문자열 구문 분석 시도
 
-샘플에서 수행하는 첫 번째 작업은 환경 변수가 저장소 계정을 가리키는 [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) 개체를 만들도록 구문 분석될 수 있는 연결 문자열을 포함하는지 확인하는 것입니다. 연결 문자열이 유효한지 확인하려면 [TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) 메서드를 사용합니다. **TryParse**가 성공적인 경우 *storageAccount* 변수를 초기화하고 **true**를 반환합니다.
+샘플에서 수행하는 첫 번째 작업은 환경 변수가 스토리지 계정을 가리키는 [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) 개체를 만들도록 구문 분석될 수 있는 연결 문자열을 포함하는지 확인하는 것입니다. 연결 문자열이 유효한지 확인하려면 [TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) 메서드를 사용합니다. **TryParse**가 성공적인 경우 *storageAccount* 변수를 초기화하고 **true**를 반환합니다.
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
@@ -281,7 +281,7 @@ File.Delete(sourceFile);
 File.Delete(destinationFile);
 ```
 
-## <a name="resources-for-developing-net-applications-with-blobs"></a>Blob을 사용하는 .NET 응용 프로그램 개발을 위한 리소스
+## <a name="resources-for-developing-net-applications-with-blobs"></a>Blob을 사용하는 .NET 애플리케이션 개발을 위한 리소스
 
 Blob 저장소를 사용하는 .NET 개발에 대한 이러한 추가 리소스를 참조합니다.
 
@@ -299,11 +299,11 @@ Blob 저장소를 사용하는 .NET 개발에 대한 이러한 추가 리소스�
 
 이 빠른 시작에서는 .NET을 사용하여 Blob을 업로드, 다운로드 및 나열하는 방법을 배웠습니다. 
 
-Blob 저장소로 이미지를 업로드하는 웹앱을 만드는 방법에 대해 자세히 알아보려면 [Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드](storage-upload-process-images.md)를 참조하세요.
+Blob 스토리지로 이미지를 업로드하는 웹앱을 만드는 방법에 대해 자세히 알아보려면 [Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드](storage-upload-process-images.md)를 참조하세요.
 
 > [!div class="nextstepaction"]
 > [Blob Storage 작업 방법](storage-dotnet-how-to-use-blobs.md)
 
 - .NET Core에 대해 자세히 알아보려면 [10분 안에 .NET 시작](https://www.microsoft.com/net/learn/get-started/)을 참조하세요.
-- Windows용 Visual Studio에서 배포할 수 있는 샘플 응용 프로그램을 탐색하려면 [Azure Blob Storage를 사용하여 .NET 사진 갤러리 웹 응용 프로그램 샘플](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/)을 참조하세요.
+- Windows용 Visual Studio에서 배포할 수 있는 샘플 애플리케이션을 탐색하려면 [Azure Blob Storage를 사용하여 .NET 사진 갤러리 웹 애플리케이션 샘플](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/)을 참조하세요.
  

@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager 요청 한도 | Microsoft Docs
+title: 요청 한도 및 제한 - Azure Resource Manager
 description: 구독 한도에 도달할 때 Azure Resource Manager 요청에 제한을 사용하는 방법을 설명합니다.
 services: azure-resource-manager
 documentationcenter: na
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/17/2018
+ms.date: 12/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: fdc98c6d88b18f770d1869acbea5998ad4571287
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: seodec18
+ms.openlocfilehash: 0ba4a1a4119db515e10c0b704b0a10501fe79682
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981816"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136892"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager 요청 제한
 각 Azure 구독 및 테넌트에 대해 Resource Manager는 시간당 최대 12,000개 읽기 요청과 1,200개 쓰기 요청을 허용합니다. 이러한 제한의 범위는 요청을 하는 보안 주체 ID 및 구독 ID나 테넌트 ID의 범위로 설정됩니다. 둘 이상의 보안 주체 ID가 요청을 하는 경우 구독 또는 테넌트 전체에 적용되는 제한이 시간당 12,000개/1,200개보다 커집니다.

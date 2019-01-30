@@ -5,21 +5,21 @@ services: iot-accelerators
 author: avneet723
 ms.service: iot-accelerators
 ms.topic: include
-ms.date: 10/29/2018
+ms.date: 01/17/2019
 ms.author: avneet723
 ms.custom: include file
-ms.openlocfilehash: 900d75f826830ea7336044a892506d3bec546e30
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: d4da1597ebed6c27cf6c12bab4a4e59be742c577
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283933"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54383113"
 ---
 ## <a name="download-the-source-code"></a>소스 코드 다운로드
 
-원격 모니터링 소스 코드 리포지토리에는 마이크로 서비스 Docker 이미지를 실행하는 데 필요한 Docker 구성 파일이 포함되어 있습니다.
+원격 모니터링 소스 코드 리포지토리에는 마이크로 서비스 Docker 이미지를 실행하는 데 필요한 소스 코드 및 Docker 구성 파일이 포함되어 있습니다.
 
-리포지토리의 로컬 버전을 복제하고 만들려면 명령줄 환경을 사용하여 로컬 머신의 적절한 폴더로 이동합니다. 그런 다음, 다음 명령 세트 중 하나를 실행하여 NET 또는 Java 리포지토리를 복제합니다.
+리포지토리의 로컬 버전을 복제하고 만들려면 명령줄 환경을 사용하여 로컬 머신의 적절한 폴더로 이동합니다. 그런 후, 다음 명령 세트 중 하나를 실행하여 NET 리포지토리를 복제합니다.
 
 .NET 마이크로 서비스 구현의 최신 버전을 다운로드하려면 다음을 실행합니다.
 
@@ -32,7 +32,7 @@ cd azure-iot-pcs-remote-monitoring-dotnet
 git submodule foreach git pull origin master
 ```
 
-Java 마이크로 서비스 구현의 최신 버전을 다운로드하려면 다음을 실행합니다.
+이 문서에서는 .NET 마이크로 서비스를 사용하고 있다고 가정합니다. Java 구현을 사용할 수도 있습니다. Java 마이크로 서비스 구현의 최신 버전을 다운로드하려면 다음을 실행합니다.
 
 ```cmd/sh
 git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-java.git
@@ -70,11 +70,13 @@ git submodule foreach git pull origin master
 
     스크립트는 솔루션 이름을 사용하여 Azure에서 리소스 그룹을 만듭니다. 이 리소스 그룹에는 솔루션 가속기에서 사용하는 Azure 리소스가 포함됩니다. 해당 리소스가 더 이상 필요하지 않으면 이 리소스 그룹을 삭제할 수 있습니다.
 
-    또한 이 스크립트는 로컬 머신에 **PCS** 접두사가 있는 환경 변수 세트도 추가합니다. Docker 컨테이너를 로컬로 시작하면 이러한 환경 변수에서 해당 구성 값을 읽습니다.
+    또한 이 스크립트는 로컬 머신에 **PCS** 접두사가 있는 환경 변수 세트도 추가합니다. Docker 컨테이너 또는 마이크로 서비스 프로젝트를 로컬로 시작하면 이러한 환경 변수에서 해당 구성 값을 읽습니다.
 
-> [!TIP]
-> 스크립트가 완료되면 환경 변수 목록을 표시합니다. 이러한 값을 **services\\scripts\\local\\.env** 파일에 저장하면 나중의 솔루션 가속기 배포에 사용할 수 있습니다. **docker-compose**를 실행할 때 로컬 머신에 설정된 모든 환경 변수에서 **services\\scripts\\local\\.env** 파일의 값을 재정의합니다.
+    > [!TIP]
+    > 스크립트가 완료되면 **\<홈 폴더\>\\.pcs\\\<솔루션 이름\>.env**라는 파일에 환경 변수를 저장합니다. 나중에 솔루션 가속기 배포에 사용할 수 있습니다. **docker-compose**를 실행할 때 로컬 머신에 설정된 모든 환경 변수에서 **services\\scripts\\local\\.env** 파일의 값을 재정의합니다.
+
+1. 명령줄 환경에서 나갑니다.
 
 ### <a name="use-existing-azure-resources"></a>기존 Azure 리소스 사용
 
-필요한 Azure 리소스를 이미 만든 경우 로컬 머신에 해당 환경 변수를 만듭니다. 마지막 배포의 일환으로 이러한 값을 **services\\scripts\\local\\.env** 파일에 저장했을 수 있습니다. **docker-compose**를 실행할 때 로컬 머신에 설정된 환경 변수에서 **services\\scripts\\local\\.env** 파일의 값을 재정의합니다.
+필요한 Azure 리소스를 이미 만든 경우 로컬 머신에 해당 환경 변수를 만듭니다. 이러한 환경 변수는 배포의 **\<홈 폴더\>\\.pcs\\\<솔루션 이름\>.env** 파일에 저장될 수 있습니다. **docker-compose**를 실행할 때 로컬 머신에 설정된 환경 변수에서 **services\\scripts\\local\\.env** 파일의 값을 재정의합니다.

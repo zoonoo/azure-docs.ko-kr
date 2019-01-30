@@ -73,7 +73,7 @@ HPC Pack IaaS 배포 PowerShell 스크립트를 실행하여 Azure 가상 머신
 
 ### <a name="example-2"></a>예 2
 다음 구성 파일은 기존 도메인 포리스트에 HPC 팩 클러스터를 배포합니다. 클러스터에는 로컬 데이터베이스가 포함된 1개 헤드와 BGInfo VM 확장이 적용된 12개 계산 노드가 있습니다.
-도메인 포리스트의 모든 VM에 대해 Windows 업데이트 자동 설치를 사용하지 않습니다. 모든 클라우드 서비스는 동아시아 위치에서 직접 생성됩니다. 계산 노드는 3개 클라우드 서비스와 3개 저장소 계정에 생성됩니다(*MyHPCCNService01* 및 *mycnstorage01*에서 *MyHPCCN-0001* - *MyHPCCN-0005*, *MyHPCCNService02* 및 *mycnstorage02*에서 *MyHPCCN-0006* - *MyHPCCN0010*, *MyHPCCNService03* 및 *mycnstorage03*에서 *MyHPCCN-0011* - *MyHPCCN-0012*). 계산 노드는 계산 노드에서 캡처된 기존 개인 이미지에서 만들어집니다. 자동 증가 및 축소 서비스를 사용하며 기본 증가 및 축소 간격이 적용됩니다.
+도메인 포리스트의 모든 VM에 대해 Windows 업데이트 자동 설치를 사용하지 않습니다. 모든 클라우드 서비스는 동아시아 위치에서 직접 생성됩니다. 계산 노드는 3개 클라우드 서비스와 3개 스토리지 계정에 생성됩니다(*MyHPCCNService01* 및 *mycnstorage01*에서 *MyHPCCN-0001* - *MyHPCCN-0005*, *MyHPCCNService02* 및 *mycnstorage02*에서 *MyHPCCN-0006* - *MyHPCCN0010*, *MyHPCCNService03* 및 *mycnstorage03*에서 *MyHPCCN-0011* - *MyHPCCN-0012*). 계산 노드는 계산 노드에서 캡처된 기존 개인 이미지에서 만들어집니다. 자동 증가 및 축소 서비스를 사용하며 기본 증가 및 축소 간격이 적용됩니다.
 
 ```Xml
 <?xml version="1.0" encoding="utf-8" ?>

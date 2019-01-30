@@ -6,15 +6,14 @@ author: yushwang
 manager: rossort
 ms.service: vpn-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 10/05/2018
+ms.date: 01/10/2019
 ms.author: yushwang
-ms.openlocfilehash: e93f1174f0beaa7b1c8b3164081714281d5b1050
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 0110b6daa34d0bb24ad0abb7128ee6409bc4ff25
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687540"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215459"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>사이트 간 VPN Gateway 연결에 대한 VPN 디바이스 및 IPsec/IKE 매개 변수 정보
 
@@ -31,7 +30,7 @@ VPN 게이트웨이를 사용하여 S2S(사이트 간) 프레미스 간 VPN 연�
   * 동적 라우팅 = 경로 기반
 * 고성능 VPN 게이트웨이 및 경로 기반 VPN 게이트웨이에 대한 사양은 별도로 언급하지 않는 한 동일합니다. 예를 들어 경로 기반 VPN 게이트웨이와 호환되는 확인된 VPN 디바이스는 고성능 VPN 게이트웨이와도 호환됩니다.
 
-## <a name="devicetable"></a>확인된 VPN 장치 및 장치 구성 가이드
+## <a name="devicetable"></a>확인된 VPN 디바이스 및 디바이스 구성 가이드
 
 > [!NOTE]
 > 사이트 간 연결을 구성할 때 VPN 디바이스에 공용 IPv4 IP 주소가 필요합니다.
@@ -41,10 +40,10 @@ VPN 게이트웨이를 사용하여 S2S(사이트 간) 프레미스 간 VPN 연�
 
 VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당하는 링크를 참조하세요. 구성 지침에 대한 링크가 가장 효율적으로 제공됩니다. VPN 디바이스 지원은 디바이스 제조업체에 문의하세요.
 
-|**공급업체**          |**장치 패밀리**     |**최소 OS 버전** |**정책 기반 구성 지침** |**경로 기반 구성 지침** |
+|**공급업체**          |**디바이스 패밀리**     |**최소 OS 버전** |**정책 기반 구성 지침** |**경로 기반 구성 지침** |
 | ---                | ---                  | ---                   | ---            | ---           |
 | A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |호환되지 않음  |[구성 가이드](https://www.a10networks.com/resources/deployment-guides/a10-thunder-cfw-ipsec-vpn-interoperability-azure-vpn-gateways)|
-| Allied Telesis     |AR 시리즈 VPN 라우터 |2.9.2                  |서비스 예정     |호환되지 않음  |
+| Allied Telesis     |AR 시리즈 VPN 라우터 |AR 시리즈 5.4.7 이상               |서비스 예정     |[구성 가이드](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
 | Barracuda Networks, Inc. |Barracuda NextGen 방화벽 F 시리즈 |정책 기반: 5.4.3<br>경로 기반: 6.2.0 |[구성 가이드](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) |[구성 가이드](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
 | Barracuda Networks, Inc. |Barracuda NextGen 방화벽 X 시리즈 |Barracuda Firewall 6.5 |[구성 가이드](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |호환되지 않음 |
 | Brocade            |Vyatta 5400 vRouter   |Virtual Router 6.6R3 GA|[구성 가이드](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |호환되지 않음 |
@@ -57,10 +56,11 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 | F5 |BIG-IP 시리즈 |12.0 |[구성 가이드](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[구성 가이드](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.6 |  |[구성 가이드](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-56/) |
 | IIJ(Internet Initiative Japan) |SEIL 시리즈 |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[구성 가이드](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |호환되지 않음 |
-| Juniper |SRX |정책 기반: JunOS 10.2<br>경로 기반: JunOS 11.4 |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |
-| Juniper |J 시리즈 |정책 기반: JunOS 10.4r9<br>경로 기반: JunOS 11.4 |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
-| Juniper |ISG |ScreenOS 6.3 |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |
-| Juniper |SSG |ScreenOS 6.2 |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
+| Juniper |SRX |정책 기반: JunOS 10.2<br>경로 기반: JunOS 11.4 |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |J 시리즈 |정책 기반: JunOS 10.4r9<br>경로 기반: JunOS 11.4 |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |ISG |ScreenOS 6.3 |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |SSG |ScreenOS 6.2 |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |MX |JunOS 12.x|[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
 | Microsoft |라우팅 및 원격 액세스 서비스 |Windows Server 2012 |호환되지 않음 |[구성 샘플](https://go.microsoft.com/fwlink/p/?LinkId=717761) |
 | 개방형 시스템 AG |핵심 업무 제어 보안 게이트웨이 |해당 없음 |[구성 가이드](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |호환되지 않음 |
 | Palo Alto Networks |PAN-OS를 실행하는 모든 디바이스 |PAN-OS<br>정책 기반: 6.1.5 이상<br>경로 기반: 7.1.4 |[구성 가이드](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[구성 가이드](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
@@ -76,7 +76,7 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 >
 > (\*\*)ISR 7200 시리즈 라우터는 정책 기반 VPN만을 지원합니다.
 
-## <a name="configscripts"></a>Azure에서 VPN 장치 구성 스크립트 다운로드
+## <a name="configscripts"></a>Azure에서 VPN 디바이스 구성 스크립트 다운로드
 
 특정 디바이스의 경우 Azure에서 직접 구성 스크립트를 다운로드할 수 있습니다. 자세한 내용 및 다운로드 지침은 [VPN 디바이스 구성 스크립트 다운로드](vpn-gateway-download-vpndevicescript.md)를 참조하세요.
 
@@ -84,11 +84,11 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 
 [!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 
-## <a name="additionaldevices"></a>확인되지 않은 VPN 장치
+## <a name="additionaldevices"></a>확인되지 않은 VPN 디바이스
 
 디바이스가 확인된 VPN 디바이스 테이블에 없더라도 사이트 간 연결을 사용할 수 있습니다. 추가 지원 및 구성 지침은 디바이스 제조업체에 문의하세요.
 
-## <a name="editing"></a>장치 구성 샘플 편집
+## <a name="editing"></a>디바이스 구성 샘플 편집
 
 제공된 VPN 디바이스 구성 샘플을 다운로드한 후 환경에 대한 설정을 반영하기 위해 일부 값을 바꿔야 합니다.
 
@@ -104,10 +104,10 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 | &lt;RP_AccessList&gt; |이 개체에 대해 선택한 이름입니다. 예: myAzureAccessList |
 | &lt;RP_IPSecTransformSet&gt; |이 개체에 대해 선택한 이름입니다. 예: myIPSecTransformSet |
 | &lt;RP_IPSecCryptoMap&gt; |이 개체에 대해 선택한 이름입니다. 예: myIPSecCryptoMap |
-| &lt;SP_AzureNetworkIpRange&gt; |범위를 지정합니다. 예: 192.168.0.0 |
-| &lt;SP_AzureNetworkSubnetMask&gt; |서브넷 마스크를 지정합니다. 예: 255.255.0.0 |
-| &lt;SP_OnPremisesNetworkIpRange&gt; |온-프레미스 범위를 지정합니다. 예: 10.2.1.0 |
-| &lt;SP_OnPremisesNetworkSubnetMask&gt; |온-프레미스 서브넷 마스크를 지정합니다. 예: 255.255.255.0 |
+| &lt;SP_AzureNetworkIpRange&gt; |범위를 지정합니다. 예제: 192.168.0.0 |
+| &lt;SP_AzureNetworkSubnetMask&gt; |서브넷 마스크를 지정합니다. 예제: 255.255.0.0 |
+| &lt;SP_OnPremisesNetworkIpRange&gt; |온-프레미스 범위를 지정합니다. 예제: 10.2.1.0 |
+| &lt;SP_OnPremisesNetworkSubnetMask&gt; |온-프레미스 서브넷 마스크를 지정합니다. 예제: 255.255.255.0 |
 | &lt;SP_AzureGatewayIpAddress&gt; |이 정보는 가상 네트워크와 관련이 있으며 **게이트웨이 IP 주소**인 관리 포털에 있습니다. |
 | &lt;SP_PresharedKey&gt; |이 정보는 가상 네트워크와 관련이 있으며 키 관리인 관리 포털에 있습니다. |
 
@@ -196,7 +196,7 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 * 경로 기반 및 고성능 VPN 게이트웨이를 사용하여 IPsec ESP NULL 암호화를 지정할 수 있습니다. Null 기반 암호화는 전송 중인 데이터를 보호하지 않으며, 최대 처리량 및 최소 대기 시간이 필요한 경우에만 사용됩니다. 클라이언트에서는 VNet 간 통신 시나리오 또는 솔루션의 다른 곳에서 암호화가 적용된 경우에 이 암호화를 사용할 수 있습니다.
 * 인터넷을 통한 프레미스 간 연결의 경우 중요한 통신의 보안을 보장하려면 위의 테이블에 나열된 암호화 및 해시 알고리즘을 사용하는 기본 Azure VPN Gateway 설정을 사용하세요.
 
-## <a name="known"></a>알려진 장치 호환성 문제
+## <a name="known"></a>알려진 디바이스 호환성 문제
 
 > [!IMPORTANT]
 > 해당 내용은 타사 VPN 디바이스 및 Azure VPN 게이트웨이 간의 알려진 호환성 문제입니다. Azure 팀은 여기에 나열된 문제를 해결하기 위해 공급 업체와 함께 적극적으로 작업 중입니다. 문제가 해결되면 이 페이지는 가장 최신 정보로 업데이트됩니다. 주기적으로 다시 확인하세요.
@@ -205,7 +205,7 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 
 ### <a name="feb-16-2017"></a>2017년 2월 16일
 
-Azure 경로 기반 VPN에 대한 **7.1.4 이전 버전으로 Palo Alto Networks 장치**: 7.1.4 이전의 PAN-OS 버전으로 Palo Alto Networks에서 VPN 장치를 사용하고 Azure 경로 기반 VPN 게이트웨이에 연결 문제가 발생하는 경우 다음 단계를 수행하세요.
+Azure 경로 기반 VPN에 대한 **7.1.4 이전 버전으로 Palo Alto Networks 디바이스**: 7.1.4 이전의 PAN-OS 버전으로 Palo Alto Networks에서 VPN 디바이스를 사용하고 Azure 경로 기반 VPN 게이트웨이에 연결 문제가 발생하는 경우 다음 단계를 수행합니다.
 
 1. Palo Alto Networks 디바이스의 펌웨어 버전을 확인합니다. PAN-OS 버전이 7.1.4보다 오래된 경우 7.1.4로 업그레이드하세요.
 2. Palo Alto Networks 디바이스에서 Azure VPN Gateway로 연결하는 경우 단계 2 SA(또는 빠른 모드 SA) 수명을 28,800초(8시간)로 변경합니다.

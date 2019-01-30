@@ -1,29 +1,10 @@
 ---
-title: Machine Learning 웹 서비스 포털 사용 - Azure Machine Learning Studio | Microsoft Docs
-description: Microsoft Azure Machine Learning 웹 서비스 포털을 사용하여 Machine Learning 새 웹 서비스 및 기존 웹 서비스를 관리할 수 있습니다. 기존 웹 서비스와 새 웹 서비스는 서로 다른 기본 기술에 기반하고 있으므로 서비스 각각에는 약간씩 다른 관리 기능이 있습니다.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
-ms.author: amlstudiodocs
-manager: hjerez
-editor: cgronlun
-ms.assetid: b62cf2ca-dd2a-4a83-bb54-469f948fb026
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2017
-ms.openlocfilehash: 78e776da17e8e068ff45e426795fa5d86a92cc79
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308667"
+제목: Azure Machine Learning Studio 웹 서비스 포털 사용 titleSuffix: Azure Machine Learning Studio 설명: Microsoft Azure Machine Learning 웹 서비스 포털을 사용하여 Machine Learning 새 웹 서비스 및 기존 웹 서비스를 관리할 수 있습니다. 기존 웹 서비스와 새 웹 서비스는 서로 다른 기본 기술에 기반하고 있으므로 서비스 각각에는 약간씩 다른 관리 기능이 있습니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 02/28/2017
 ---
-# <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Azure Machine Learning 웹 서비스 포털을 사용하여 웹 서비스 관리
+# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Azure Machine Learning Studio 웹 서비스 포털을 사용하여 웹 서비스 관리
 Microsoft Azure Machine Learning 웹 서비스 포털을 사용하여 Machine Learning 새 웹 서비스 및 기존 웹 서비스를 관리할 수 있습니다. 기존 웹 서비스와 새 웹 서비스는 서로 다른 기본 기술에 기반하고 있으므로 서비스 각각에는 약간씩 다른 관리 기능이 있습니다.
 
 Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다음과 같습니다.
@@ -34,7 +15,7 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 * 청구 계획을 만들거나 삭제하거나 업데이트합니다(새 서비스에만 해당).
 * 엔드포인트를 추가하거나 삭제 합니다(기존 서비스에만 해당).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>새 Resources Manager 기반 웹 서비스를 관리하기 위한 권한
 

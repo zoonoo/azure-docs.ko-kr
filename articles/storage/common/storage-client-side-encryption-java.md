@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Storage용 Java를 사용하는 클라이언트 쪽 암호화 | Microsoft Docs
-description: Java용 Azure Storage 클라이언트 라이브러리는 Azure Storage 응용 프로그램의 보안을 최대화하기 위해 클라이언트 쪽 암호화 및 Azure Key Vault와의 통합을 지원합니다.
+description: Java용 Azure Storage 클라이언트 라이브러리는 Azure Storage 애플리케이션의 보안을 최대화하기 위해 클라이언트 쪽 암호화 및 Azure Key Vault와의 통합을 지원합니다.
 services: storage
 author: lakasa
 ms.service: storage
@@ -102,7 +102,7 @@ ms.locfileid: "39522019"
 쿼리 작업을 수행 하려면 결과 집합에 있는 모든 키를 확인할 수 있는 키 확인자를 지정 해야 합니다. 공급자에는 쿼리 결과에 포함 된 엔터티를 확인할 수 없으면, 클라이언트 라이브러리는 오류를 throw 합니다. 서버 쪽 프로젝션을 수행하는 모든 쿼리에 대해 클라이언트 라이브러리는 선택한 열에 기본적으로 특별한 암호 메타데이터 속성(_ClientEncryptionMetadata1 및 _ClientEncryptionMetadata2)을 추가합니다.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
-Azure Key Vault는 클라우드 응용 프로그램 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. Azure Key Vault를 사용하여, 사용자는 키와 비밀(예: 인증 키, 저장소 계정 키, 데이터 암호화 키, PFX 파일 및 암호)을 암호화하여 하드웨어 보안 모듈(HSM)로 보호된 키를 사용합니다. 자세한 내용은 [Azure Key Vault란?](../../key-vault/key-vault-whatis.md)을 참조하세요.
+Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. Azure Key Vault를 사용하여, 사용자는 키와 비밀(예: 인증 키, 저장소 계정 키, 데이터 암호화 키, PFX 파일 및 암호)을 암호화하여 하드웨어 보안 모듈(HSM)로 보호된 키를 사용합니다. 자세한 내용은 [Azure Key Vault란?](../../key-vault/key-vault-whatis.md)을 참조하세요.
 
 저장소 클라이언트 라이브러리는 Azure 내에서 키를 관리 하기 위한 공통 프레임 워크를 제공 하기 위해 키 자격 증명 모음 핵심 라이브러리를 사용 합니다. 사용자는 또한 키 자격 증명 모음 확장 라이브러리를 사용하여 추가적인 이점을 제공을 받습니다. 이 확장 라이브러리는 간단하고 원활한 대칭/RSA 로컬 및 집계와 캐싱같은 클라우드 키 공급자 관련 유용한 기능을 제공합니다. .
 
@@ -145,7 +145,7 @@ EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구
     [암호화 샘플](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples)<fix URL>은 Key Vault 통합과 함께 BLOB, 큐 및 테이블에 대한 보다 자세한 종단 간 시나리오를 보여 줍니다.
 
 ### <a name="requireencryption-mode"></a>RequireEncryption 모드
-사용자는 모든 업로드 및 다운로드를 암호화해야 할 경우 작업 모드를 선택적으로 사용하도록 설정할 수 있습니다. 이 모드에서는 클라이언트에서 암호화 정책 없이 데이터를 업로드하거나 서비스에서 암호화되지 않은 데이터를 다운로드하려고 하면 실패합니다. 요청 옵션 개체의 **requireEncryption** 플래그가 이 동작을 제어합니다. 응용 프로그램이 Azure Storage에 저장된 모든 개체를 암호화하는 경우 서비스 클라이언트 개체에 대한 기본 요청 옵션에서 **requireEncryption** 속성을 설정할 수 있습니다.   
+사용자는 모든 업로드 및 다운로드를 암호화해야 할 경우 작업 모드를 선택적으로 사용하도록 설정할 수 있습니다. 이 모드에서는 클라이언트에서 암호화 정책 없이 데이터를 업로드하거나 서비스에서 암호화되지 않은 데이터를 다운로드하려고 하면 실패합니다. 요청 옵션 개체의 **requireEncryption** 플래그가 이 동작을 제어합니다. 애플리케이션이 Azure Storage에 저장된 모든 개체를 암호화하는 경우 서비스 클라이언트 개체에 대한 기본 요청 옵션에서 **requireEncryption** 속성을 설정할 수 있습니다.   
 
 예를 들어 모든 BLOB 작업에 대한 암호화가 해당 클라이언트 개체를 통해 수행되도록 하려면 **CloudBlobClient.getDefaultRequestOptions().setRequireEncryption(true)** 을 사용합니다.
 
@@ -245,7 +245,7 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 ```
 
 ## <a name="encryption-and-performance"></a>암호화 및 성능
-저장소 데이터를 암호화하면 추가 성능 오버헤드가 발생합니다. 콘텐츠 키 및 IV를 생성해야 하고, 콘텐츠 자체를 암호화해야 하고, 추가 메타데이터의 형식을 지정한 후 업로드해야 합니다. 이 오버헤드는 암호화되는 데이터의 양에 따라 달라집니다. 고객은 항상 개발 중에 응용 프로그램 성능을 테스트하는 것이 좋습니다.
+저장소 데이터를 암호화하면 추가 성능 오버헤드가 발생합니다. 콘텐츠 키 및 IV를 생성해야 하고, 콘텐츠 자체를 암호화해야 하고, 추가 메타데이터의 형식을 지정한 후 업로드해야 합니다. 이 오버헤드는 암호화되는 데이터의 양에 따라 달라집니다. 고객은 항상 개발 중에 애플리케이션 성능을 테스트하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Java Maven 패키지에 대한 Azure Storage 클라이언트 라이브러리](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  

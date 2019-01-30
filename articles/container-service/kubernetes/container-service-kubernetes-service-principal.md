@@ -1,24 +1,27 @@
 ---
-title: Azure Kubernetes 클러스터의 서비스 주체
+title: (사용되지 않음) Azure Kubernetes 클러스터의 서비스 주체
 description: Azure Container Service에서 Kubernetes 클러스터에 대한 Azure Active Directory 서비스 주체를 만들고 관리합니다.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: get-started-article
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c370d25ed5d70887c8beecae8fea3528a259a0ea
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: da4fda3d0cfa6cb33d2dd8bb3bb844f18654c30a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954575"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851898"
 ---
-# <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Container Service에서 Kubernetes 클러스터에 대한 Azure AD 서비스 주체 설정
+# <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(사용되지 않음) Container Service에서 Kubernetes 클러스터에 대한 Azure AD 서비스 주체 설정
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Azure Kubernetes Service를 사용하는 이 문서의 업데이트된 버전은 [AKS(Azure Kubernetes Service)를 사용하는 서비스 주체](../../aks/kubernetes-service-principal.md)를 참조하세요.
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Azure Container Service에서 Kubernetes 클러스터는 Azure API와 상호 작용하기 위해 [Azure Active Directory 서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)를 요구합니다. 서비스 주체는 [사용자 정의 경로](../../virtual-network/virtual-networks-udr-overview.md) 및 [계층 4 Azure Load Balancer](../../load-balancer/load-balancer-overview.md)와 같은 리소스를 동적으로 관리하는 데 필요합니다.
 
@@ -34,10 +37,10 @@ Azure Container Service에서 Kubernetes 클러스터는 Azure API와 상호 작
 
 * **역할**: 참가자
 
-* **클라이언트 비밀**: 암호여야 합니다. 현재 인증서 인증을 위해 설정된 서비스 주체는 사용할 수 없습니다.
+* **클라이언트 암호**: 암호여야 합니다. 현재 인증서 인증을 위해 설정된 서비스 주체는 사용할 수 없습니다.
 
 > [!IMPORTANT]
-> 서비스 주체를 만들려면 Azure AD 테넌트에 응용 프로그램을 등록하고 구독의 역할에 해당 응용 프로그램을 할당할 수 있는 권한이 있어야 합니다. 필요한 권한이 있는지 확인하려면 [포털에서 확인합니다](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+> 서비스 주체를 만들려면 Azure AD 테넌트에 애플리케이션을 등록하고 구독의 역할에 해당 애플리케이션을 할당할 수 있는 권한이 있어야 합니다. 필요한 권한이 있는지 확인하려면 [포털에서 확인합니다](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 >
 
 ## <a name="option-1-create-a-service-principal-in-azure-ad"></a>옵션 1: Azure AD에서 서비스 주체 만들기
@@ -65,7 +68,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 
 ### <a name="specify-service-principal-when-creating-the-kubernetes-cluster"></a>Kubernetes 클러스터를 만들 때 서비스 주체 지정
 
-Kubernetes 클러스터를 만들 때 기존 서비스 주체의 **클라이언트 ID**(응용 프로그램 ID의 경우 `appId`라고도 함) 및 **클라이언트 비밀**(`password`)을 매개 변수로 제공합니다. 서비스 주체가 이 문서의 시작 부분에 나오는 요구 사항을 충족하는지 확인합니다.
+Kubernetes 클러스터를 만들 때 기존 서비스 주체의 **클라이언트 ID**(애플리케이션 ID의 경우 `appId`라고도 함) 및 **클라이언트 비밀**(`password`)을 매개 변수로 제공합니다. 서비스 주체가 이 문서의 시작 부분에 나오는 요구 사항을 충족하는지 확인합니다.
 
 포털, [Azure CLI(명령줄 인터페이스)](container-service-kubernetes-walkthrough.md), [Azure Portal](../dcos-swarm/container-service-deployment.md) 또는 다른 방법을 사용하여 Kubernetes 클러스터를 배포할 때 이러한 매개 변수를 지정할 수 있습니다.
 
@@ -116,7 +119,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * Kubernetes에 대한 서비스 주체는 클러스터 구성의 일부입니다. 그러나 클러스터를 배포하는 데에는 이 ID를 사용하지 마세요.
 
-* 모든 서비스 주체는 Azure AD 응용 프로그램과 연결됩니다. Kubernetes 클러스터에 대한 서비스 주체는 유효한 모든 Azure AD 응용 프로그램 이름(예: `https://www.contoso.org/example`)과 연결할 수 있습니다. 응용 프로그램에 대한 URL은 실제 엔드포인트일 필요가 없습니다.
+* 모든 서비스 주체는 Azure AD 애플리케이션과 연결됩니다. Kubernetes 클러스터에 대한 서비스 주체는 유효한 모든 Azure AD 애플리케이션 이름(예: `https://www.contoso.org/example`)과 연결할 수 있습니다. 애플리케이션에 대한 URL은 실제 엔드포인트일 필요가 없습니다.
 
 * 서비스 주체 **클라이언트 ID**를 지정하는 경우 `appId`(이 문서에서 표시한 대로) 또는 해당되는 `name` 서비스 주체(예: `https://www.contoso.org/example`)의 값을 사용할 수 있습니다.
 
@@ -146,7 +149,7 @@ az ad app show --id <appId> --debug
 ...
 ```
 
-서비스 주체 자격 증명이 만료된 경우 [az ad sp reset-credentials](/cli/azure/ad/sp#az-ad-sp-reset-credentials) 명령을 사용하여 자격 증명을 업데이트합니다.
+서비스 주체 자격 증명이 만료된 경우 [az ad sp reset-credentials](/cli/azure/ad/sp) 명령을 사용하여 자격 증명을 업데이트합니다.
 
 ```azurecli
 az ad sp reset-credentials --name <appId>

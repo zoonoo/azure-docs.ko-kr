@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: d8d7850e7d5253cfec4431fed3e09f4007995494
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 90eb9177ec679fdf8007b734848a5bc3c72e5974
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249696"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430333"
 ---
 # <a name="what-are-authentication-methods"></a>인증 방법이란?
 
@@ -210,7 +210,7 @@ CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 
 
 특정 비 브라우저 앱은 다단계 인증을 지원하지 않으며, 다단계 인증에 대해 활성화되어 있는 사용자가 비 브라우저 앱을 사용하려 하면 인증할 수 없습니다.  앱 암호는 사용자가 인증을 계속할 수 있게 합니다.
 
-사용자별 MFA를 통하지 않고 조건부 액세스 정책을 통해 Multi-Factor Authentication을 적용하는 경우 앱 암호를 만들 수 없습니다. 조건부 액세스 정책을 사용하여 액세스를 제어하는 응용 프로그램은 앱 암호가 필요하지 않습니다.
+사용자별 MFA를 통하지 않고 조건부 액세스 정책을 통해 Multi-Factor Authentication을 적용하는 경우 앱 암호를 만들 수 없습니다. 조건부 액세스 정책을 사용하여 액세스를 제어하는 애플리케이션은 앱 암호가 필요하지 않습니다.
 
 조직이 Azure AD를 사용하여 SSO에 대해 페더레이션되고 Azure MFA를 사용할 계획인 경우 다음 사항에 유의하세요.
 
@@ -218,7 +218,7 @@ CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 
 * 앱 암호를 사용할 경우 온-프레미스 클라이언트 Access Control 설정은 적용되지 않습니다.
 * 온-프레미스 인증 로깅/감사 기능은 앱 암호에 사용할 수 없습니다
 * 특정 고급 아키텍처 디자인은 클라이언트와 2단계 인증을 사용하는 경우 인증 위치에 따라 조직의 사용자 이름과 암호 및 앱 암호를 조합하여 사용할 필요가 있습니다. 온-프레미스 인프라에 대해 인증하는 클라이언트의 경우 조직의 사용자 이름과 암호를 사용합니다. Azure AD에 대해 인증하는 클라이언트의 경우 앱 암호를 사용합니다.
-* 기본적으로 사용자가 앱 암호를 만들 수 없습니다. 사용자가 앱 암호를 만들 수 있도록 해야 할 경우 서비스 설정에서 **사용자가 브라우저에 기반하지 않는 응용 프로그램에 로그인하기 위해 앱 암호를 만들 수 있음** 옵션을 선택합니다.
+* 기본적으로 사용자가 앱 암호를 만들 수 없습니다. 사용자가 앱 암호를 만들 수 있도록 해야 할 경우 서비스 설정에서 **사용자가 브라우저에 기반하지 않는 애플리케이션에 로그인하기 위해 앱 암호를 만들 수 있음** 옵션을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

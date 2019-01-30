@@ -11,24 +11,27 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/16/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: e4e1b3cb823d08948c31aa6486c08a930a377dfa
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.lastreviewed: 01/16/2019
+ms.openlocfilehash: 1cf0d0f6676da78d9b8b159abce2c83c8a850c15
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161959"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252169"
 ---
-# <a name="report-azure-stack-usage-data-to-azure"></a>Azure에 Azure Stack 사용 현황 데이터를 보고 합니다. 
+# <a name="report-azure-stack-usage-data-to-azure"></a>Azure에 Azure Stack 사용 현황 데이터를 보고 합니다.
 
-소비량 데이터 라고도 사용 현황 데이터를 사용 하는 리소스의 양을 나타냅니다. 
+소비량 데이터 라고도 사용 현황 데이터를 사용 하는 리소스의 양을 나타냅니다.
 
 Azure Stack 다중 노드 시스템 사용량 기반 청구 모델을 사용 하는 청구를 위해 Azure에 사용 현황 데이터를 보고 해야 합니다. Azure Stack 운영자가 Azure Stack 인스턴스 azure 사용 데이터 보고를 구성 해야 합니다.
 
-> [!NOTE]
-> 사용 데이터 보고-수-종 모델에서 사용 허가 받은 Azure Stack 다중 노드 사용자에 대 한 필요 합니다. 용량 모델에서 사용 허가 받은 고객에 대 한 선택 사항입니다 (참조를 [구입 방법 페이지](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)합니다. Azure Stack Development Kit 사용자에 대 한 Azure Stack 운영자는 사용 현황 데이터를 보고 하 고 기능을 테스트 수 있습니다. 그러나 그로 인해 발생 하는 사용량에 대해 사용자 요금이 청구 되지 않습니다. 
+> [!IMPORTANT]
+> 모든 워크 로드 [테 넌 트 구독에 배포 해야](#are-users-charged-for-the-infrastructure-vms) Azure Stack의 사용 조건을 준수 하도록 합니다.
+
+사용 데이터 보고-수-종 모델에서 사용 허가 받은 Azure Stack 다중 노드 사용자에 대 한 필요 합니다. 용량 모델에서 사용 허가 받은 고객에 대 한 선택 사항입니다 (참조를 [구입 방법 페이지](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)합니다. Azure Stack Development Kit 사용자에 대 한 Azure Stack 운영자는 사용 현황 데이터를 보고 하 고 기능을 테스트 수 있습니다. 그러나 그로 인해 발생 하는 사용량에 대해 사용자 요금이 청구 되지 않습니다.
 
 ![결제 흐름](media/azure-stack-usage-reporting/billing-flow.png)
 

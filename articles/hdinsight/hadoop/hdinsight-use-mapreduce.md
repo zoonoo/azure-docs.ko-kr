@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: c9a4a0944c51cb8c6f6d91cd153580a17a9b7898
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: eeb548d6bd955aedf322a63c861fd23bb37c1167
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632663"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634629"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>HDInsight의 Apache Hadoop에서 MapReduce 사용
 
@@ -28,15 +28,15 @@ HDInsight 클러스터에서 MapReduce 작업을 실행하는 방법에 대해 �
 
 > [!IMPORTANT]
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
->
+
 
 ## <a id="whatis"></a>MapReduce란
 
 Apache Hadoop MapReduce는 방대한 양의 데이터를 처리하는 작업을 작성하기 위한 소프트웨어 프레임워크입니다. 입력 데이터는 독립적인 청크로 분할됩니다. 각 청크는 클러스터의 노드에서 동시에 처리됩니다. MapReduce 작업은 두 함수로 구성됩니다.
 
-* **매퍼**: 입력된 데이터를 소비하고 분석하며(일반적으로 필터 및 정렬 작업) 튜플을 내보냅니다.(키-값 쌍)
+* **매퍼**: 입력 데이터를 사용하고, 일반적으로 필터 및 정렬 작업을 통해 분석하며, 튜플(키-값 쌍)을 내보냅니다.
 
-* **리듀서**: 매퍼에서 나온 튜플을 소배하고 매퍼 데이터에서 더 작고 결합된 결과를 생성하는 요약 작업을 수행합니다.
+* **리듀서**: 매퍼에서 내보낸 튜플을 사용하고 매퍼 데이터에서 더 작고 결합된 결과를 만드는 요약 작업을 수행합니다.
 
 다음 다이어그램에서는 기본 단어 계산 MapReduce 작업 예제를 보여줍니다.
 
@@ -51,13 +51,13 @@ MapReduce는 다양한 언어로 구현할 수 있습니다. Java는 가장 일�
 
 ## <a name="development-languages"></a>개발 언어
 
-Java 및 Java Virtual Machine을 기반으로 하는 언어 또는 프레임워크는 MapReduce 작업으로 직접 실행할 수 있습니다. 이 문서에서 사용된 예는 Java MapReduce 응용 프로그램입니다. C#, Python, 독립 실행형 실행 파일 등의 비-Java 언어는 **Hadoop 스트리밍**을 사용해야 합니다.
+Java 및 Java Virtual Machine을 기반으로 하는 언어 또는 프레임워크는 MapReduce 작업으로 직접 실행할 수 있습니다. 이 문서에서 사용된 예는 Java MapReduce 애플리케이션입니다. C#, Python, 독립 실행형 실행 파일 등의 비-Java 언어는 **Hadoop 스트리밍**을 사용해야 합니다.
 
 Hadoop 스트리밍은 STDIN 및 STDOUT을 통해 매퍼 및 리듀서와 통신합니다. 매퍼와 리듀서는 STDIN에서 한 번에 한 줄씩 데이터를 읽고 STDOUT에 출력을 씁니다. 매퍼 및 리듀서가 읽거나 내보낸 각 줄은 탭 문자로 구분된 키/값 쌍의 형식이어야 합니다.
 
     [key]/t[value]
 
-자세한 내용은 [Hadoop 스트리밍](http://hadoop.apache.org/docs/r1.2.1/streaming.html)을 참조하세요.
+자세한 내용은 [Hadoop 스트리밍](https://hadoop.apache.org/docs/r1.2.1/streaming.html)을 참조하세요.
 
 HDInsight에서 Hadoop 스트리밍을 사용하는 예를 보려면 다음 문서를 참조하세요.
 
@@ -71,9 +71,9 @@ HDInsight는 `/example/data` 및 `/HdiSamples` 디렉터리에 저장되는 다�
 
 ## <a id="job"></a>예제 MapReduce
 
-MapReduce 단어 수 세기 응용 프로그램 예가 HDInsight 클러스터에 포함되어 있습니다. 이 예제는 클러스터의 기본 저장소인 `/example/jars/hadoop-mapreduce-examples.jar`에 있습니다.
+MapReduce 단어 수 세기 애플리케이션 예가 HDInsight 클러스터에 포함되어 있습니다. 이 예제는 클러스터의 기본 저장소인 `/example/jars/hadoop-mapreduce-examples.jar`에 있습니다.
 
-다음 Java 코드는 `hadoop-mapreduce-examples.jar` 파일에 포함된 MapReduce 응용 프로그램의 원본입니다.
+다음 Java 코드는 `hadoop-mapreduce-examples.jar` 파일에 포함된 MapReduce 애플리케이션의 원본입니다.
 
 ```java
 package org.apache.hadoop.examples;
@@ -147,11 +147,11 @@ public class WordCount {
 }
 ```
 
-고유한 MapReduce 응용 프로그램을 쓰는 지침은 다음 문서를 참조하세요.
+고유한 MapReduce 애플리케이션을 쓰는 지침은 다음 문서를 참조하세요.
 
-* [HDInsight용 Java MapReduce 프로그램 개발](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [HDInsight용 Java MapReduce 애플리케이션 개발](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
-* [HDInsight용 Python MapReduce 프로그램 개발](apache-hadoop-streaming-python.md)
+* [HDInsight용 Python MapReduce 애플리케이션 개발](apache-hadoop-streaming-python.md)
 
 ## <a id="run"></a>MapReduce 실행
 
@@ -163,7 +163,7 @@ HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 
 | [Curl](apache-hadoop-use-mapreduce-curl.md) | **REST** |Linux 또는or Windows |Linux, Unix, Mac OS X, 또는 Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) | **Windows PowerShell** |Linux 또는or Windows | Windows |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ## <a id="nextsteps"></a>다음 단계
@@ -174,9 +174,9 @@ HDInsight에서 데이터를 사용하는 방법에 대한 자세한 내용은 �
 
 * [HDInsight용 Python 스트리밍 MapReduce 프로그램 개발](apache-hadoop-streaming-python.md)
 
-* [HDInsight에서 Hive 사용][hdinsight-use-hive]
+* [HDInsight에서 Apache Hive 사용][hdinsight-use-hive]
 
-* [HDInsight에서 Pig 사용][hdinsight-use-pig]
+* [HDInsight에서 Apache Pig 사용][hdinsight-use-pig]
 
 
 [hdinsight-upload-data]: hdinsight-upload-data.md

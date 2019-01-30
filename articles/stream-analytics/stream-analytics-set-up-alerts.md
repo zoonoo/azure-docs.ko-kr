@@ -4,47 +4,72 @@ description: 이 아티클에서는 Azure Portal을 사용하여 Azure Stream An
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/26/2017
-ms.openlocfilehash: 4c676ab3039a02a4fda27ab00312133e5de8077a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 01/19/2019
+ms.custom: seodec18
+ms.openlocfilehash: 4c0d32a201da5befbc8b68148f0b051e283ec289
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47090969"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412394"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업에 대한 경고 설정
-메트릭이 지정한 조건에 도달하면 경고를 트리거하도록 경고를 설정할 수 있습니다. 예를 들어 다음과 같은 조건에 대한 경고를 설정할 수 있습니다.
 
-`If there are zero input events in the last 5 minutes, send email notification to sa-admin@example.com`
+Azure Stream Analytics 작업을 모니터링하여 작업이 문제 없이 계속 실행되도록 하는 것이 중요합니다. 이 문서에서는 모니터링해야 하는 일반적인 시나리오에 대한 경고를 설정하는 방법에 대해 설명합니다. 
 
-포털을 통해 메트릭에 대한 규칙을 설정하거나 [프로그래밍 방식](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a)으로 작업 로그 데이터에 대한 규칙을 구성할 수 있습니다.
+포털을 통해 메트릭에 대한 규칙을 설정하고 작업 로그 데이터에 대한 규칙을 [프로그래밍 방식](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a)으로 구성할 수 있습니다.
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a>Azure Portal에서 경고 설정
-1. Azure Portal에서 경고를 만들려는 Stream Analytics 작업을 엽니다. 
 
-2. **작업** 블레이드에서 **모니터링** 섹션을 클릭합니다.  
+다음 예제에서는 작업이 실패한 상태가 될 때 경고를 설정하는 방법을 보여 줍니다. 이 경고는 모든 작업에 권장됩니다.
 
-3. **메트릭** 블레이드에서 **경고 추가** 명령을 클릭합니다.
+1. Azure Portal에서 경고를 만들려는 Stream Analytics 작업을 엽니다.
 
-      ![Azure Portal 설치](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)  
+2. **작업** 페이지에서 **모니터링** 섹션으로 이동합니다.  
 
-4. 이름과 설명을 입력합니다.
+3. **메트릭**을 선택한 다음, **새 경고 규칙**을 클릭합니다.
 
-5. 경고가 전송될 조건을 정의하는 데 선택기를 사용합니다.
+   ![Azure Portal Stream Analytics 경고 설정](./media/stream-analytics-set-up-alerts/stream-analytics-set-up-alerts.png)  
 
-6. 경고를 전달할 위치에 대한 정보를 제공합니다.
+4. Stream Analytics 작업 이름이 **리소스** 아래에 자동으로 나타납니다. **조건 추가**를 클릭하고 **신호 논리 구성**에서 **모든 관리 작업**을 선택합니다.
 
-      ![Azure Streaming Analytics 작업에 대한 경고 설정](./media/stream-analytics-set-up-alerts/stream-analytics-add-alert.png)  
+   ![Stream Analytics 경고에 대한 신호 이름 선택](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
+
+5. **신호 논리 구성**에서 **이벤트 수준**을 **모두**로 변경하고 **상태**를 **실패**로 변경합니다. **이벤트를 시작한 사람**은 비어 있는 상태로 두고 **완료**를 클릭합니다.
+
+   ![Stream Analytics 경고에 대한 신호 논리 구성](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
+
+6. 기존 작업 그룹을 선택하거나 새 그룹을 만듭니다. 이 예제에서는 **소유자** Azure Resource Manager 역할을 가진 사용자에게 이메일을 보내는 **이메일** 작업으로 **TIDashboardGroupActions**라는 새로운 작업 그룹이 생성되었습니다.
+
+   ![Azure Streaming Analytics 작업에 대한 경고 설정](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
+
+7. **리소스**, **조건** 및 **작업 그룹**에 각 항목이 있어야 합니다.
+
+   ![Stream Analytics 경고 규칙 만들기](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
+
+   **경고 규칙 이름**, **설명** 및 **리소스 그룹**을 **경고 세부 정보**에 추가하고 **경고 규칙 만들기**를 클릭하여 Stream Analytics 작업에 대한 규칙을 만듭니다.
+
+   ![Stream Analytics 경고 규칙 만들기](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
+
+## <a name="scenarios-to-monitor"></a>모니터링할 시나리오
+
+Stream Analytics 작업의 성능 모니터링에 대해 다음 경고를 사용하는 것이 좋습니다. 이러한 메트릭은 마지막 5분 동안 1분마다 평가되어야 합니다. 작업에 성능 문제가 있는 경우 쿼리 병렬 처리를 사용하여 최적의 상태로 만들고 스트리밍 단위 수를 늘릴 수 있습니다.
+
+|메트릭|조건|시간 집계|임계값|정정 작업|
+|-|-|-|-|-|
+|SU% 사용률|초과|최대|80|SU% 사용률이 증가하는 여러 요인이 있습니다. 쿼리 병렬화로 크기 조정하거나 스트리밍 단위 수를 늘릴 수 있습니다. 자세한 내용은 [Azure Stream Analytics에서 쿼리 병렬 처리 활용](stream-analytics-parallelization.md)을 참조하세요.|
+|런타임 오류|초과|합계|0|작업 또는 진단 로그를 검토하고 입력, 쿼리 또는 출력을 적절히 변경합니다.|
+|워터마크 지연|초과|최대|마지막 15분 동안 이 메트릭의 평균 값이 지연 도착 허용 시간(초)보다 큰 경우. 지연 도착 허용 시간을 수정하지 않은 경우, 기본값은 5초로 설정됩니다.|SU 수를 늘리거나 쿼리를 병렬 처리하세요. SU에 대한 자세한 내용은 [스트리밍 단위 이해 및 조정](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job)을 참조하세요. 쿼리 병렬 처리에 대한 자세한 내용은 [Azure Stream Analytics에서 쿼리 병렬 처리 활용](stream-analytics-parallelization.md)을 참조하세요.|
+|입력 역직렬화 오류|초과|합계|0|작업 또는 진단 로그를 검토하고 입력을 적절히 변경합니다. 진단 로그에 대한 자세한 내용은 [진단 로그를 사용하여 Azure Stream Analytics 문제 해결](stream-analytics-job-diagnostic-logs.md)을 참조하세요.|
+
+## <a name="get-help"></a>도움말 보기
 
 Azure Portal에서 경고를 구성에 대한 자세한 내용은 [경고 알림 받기](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)를 참조하세요.  
 
-
-## <a name="get-help"></a>도움말 보기
-추가 지원이 필요할 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)

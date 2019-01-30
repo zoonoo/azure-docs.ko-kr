@@ -4,7 +4,7 @@ description: Azure Active Directory와 Huddle 간에 Single Sign-On을 구성하
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 8389ba4c-f5f8-4ede-b2f4-32eae844ceb0
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 050a5a210ab10a557b149513a0416b188f4618ba
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: d9d145aa5da636574426f1ff4ad978eb857ab252
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885906"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827927"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>자습서: Huddle과 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ Huddle을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정으로 Huddle에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -50,7 +50,7 @@ Huddle과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Huddle 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -65,13 +65,13 @@ Huddle의 Azure AD 통합을 구성하려면 갤러리의 Huddle을 관리되는
 
     ![Active Directory][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
 
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
 4. 검색 상자에 **Huddle**을 입력합니다. 결과 패널에서 **Huddle**을 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
@@ -93,11 +93,11 @@ Huddle에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Huddle 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Huddle 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Huddle에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Huddle** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Huddle** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -186,7 +186,7 @@ Huddle에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
     b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음 암호 상자에 표시된 값을 적어 둡니다.
+    다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음, 암호 상자에 표시된 값을 적어 둡니다.
 
     d. **만들기**를 선택합니다.
 
@@ -228,7 +228,7 @@ Azure AD 사용자가 Huddle에 로그인할 수 있도록 하려면 Huddle로 �
 
     ![사용자 할당][201]
 
-2. 응용 프로그램 목록에서 **Huddle**을 선택합니다.
+2. 애플리케이션 목록에서 **Huddle**을 선택합니다.
 
     ![Configure Single Sign-On](./media/huddle-tutorial/tutorial_huddle_app.png) 
 
@@ -248,13 +248,13 @@ Azure AD 사용자가 Huddle에 로그인할 수 있도록 하려면 Huddle로 �
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Huddle 타일을 클릭하면 Huddle 응용 프로그램의 로그인 페이지가 자동으로 표시됩니다.
+액세스 패널에서 Huddle 타일을 클릭하면 Huddle 애플리케이션의 로그인 페이지가 자동으로 표시됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

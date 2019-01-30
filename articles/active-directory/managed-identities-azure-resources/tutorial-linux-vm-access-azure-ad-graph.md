@@ -4,7 +4,7 @@ description: Linux VM 시스템 할당 관리 ID를 사용하여 Azure AD Graph 
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: daveba
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: b58bfc5345e06f82b2550ea2a1a53443946f2096
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 25aca9ebe0e5bb618960f8526c4ca3e413ecf6bf
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427458"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432645"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>자습서: Linux VM 시스템 할당 관리 ID를 사용하여 Azure AD Graph API에 액세스
 
@@ -59,16 +59,16 @@ Linux VM에서 시스템 할당 관리 ID를 사용하도록 설정하면 Azure 
 
 ## <a name="grant-your-vm-access-to-the-azure-ad-graph-api"></a>Azure AD Graph API에 대한 VM 액세스 권한 부여
 
-Azure 리소스에 대한 관리 ID를 사용하면 코드에서 Azure AD 인증을 지원하는 리소스에 인증하기 위한 액세스 토큰을 가져올 수 있습니다. Microsoft Azure AD Graph API는 Azure AD 인증을 지원합니다. 이 단계에서는 Azure AD Graph에 대한 VM ID의 서비스 주체 액세스 권한을 부여하여 그룹 멤버 자격을 쿼리할 수 있습니다. 서비스 주체에게는 **응용 프로그램 권한**을 통해 Microsoft 또는 Azure AD Graph에 대한 액세스 권한이 부여됩니다. 부여해야 하는 응용 프로그램 권한의 유형은 MS 또는 Azure AD Graph에서 액세스하려는 엔터티에 따라 다릅니다.
+Azure 리소스에 대한 관리 ID를 사용하면 코드에서 Azure AD 인증을 지원하는 리소스에 인증하기 위한 액세스 토큰을 가져올 수 있습니다. Microsoft Azure AD Graph API는 Azure AD 인증을 지원합니다. 이 단계에서는 Azure AD Graph에 대한 VM ID의 서비스 주체 액세스 권한을 부여하여 그룹 멤버 자격을 쿼리할 수 있습니다. 서비스 주체에게는 **애플리케이션 권한**을 통해 Microsoft 또는 Azure AD Graph에 대한 액세스 권한이 부여됩니다. 부여해야 하는 애플리케이션 권한의 유형은 MS 또는 Azure AD Graph에서 액세스하려는 엔터티에 따라 다릅니다.
 
-이 자습서에서는 `Directory.Read.All` 응용 프로그램 권한을 사용하여 그룹 멤버 자격을 쿼리할 수 있는 능력을 VM ID에 부여합니다. 이 권한을 부여하려면 Azure AD에서 글로벌 관리자 역할이 할당된 사용자 계정이 필요합니다. 일반적으로 Azure Portal에서 응용 프로그램의 등록으로 이동하고, 여기서 권한을 추가하여 응용 프로그램 권한을 부여합니다. 그러나 Azure 리소스에 대한 관리 ID는 Azure AD에서 응용 프로그램 개체를 등록하지 않고 서비스 주체만 등록합니다. 응용 프로그램 권한을 등록하려면 Azure AD PowerShell 명령줄 도구를 사용합니다. 
+이 자습서에서는 `Directory.Read.All` 애플리케이션 권한을 사용하여 그룹 멤버 자격을 쿼리할 수 있는 능력을 VM ID에 부여합니다. 이 권한을 부여하려면 Azure AD에서 글로벌 관리자 역할이 할당된 사용자 계정이 필요합니다. 일반적으로 Azure Portal에서 애플리케이션의 등록으로 이동하고, 여기서 권한을 추가하여 애플리케이션 권한을 부여합니다. 그러나 Azure 리소스에 대한 관리 ID는 Azure AD에서 애플리케이션 개체를 등록하지 않고 서비스 주체만 등록합니다. 애플리케이션 권한을 등록하려면 Azure AD PowerShell 명령줄 도구를 사용합니다. 
 
 Azure AD Graph:
 - 서비스 주체 appId(앱 권한을 부여할 때 사용됨): 00000002-0000-0000-c000-000000000000
 - 리소스 ID(Azure 리소스에 대한 관리 ID에서 액세스 토큰을 요청할 때 사용됨): https://graph.windows.net
-- 권한 범위 참조: [Azure AD Graph 권한 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
+- 사용 권한 범위 참조: [Azure AD Graph 사용 권한 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
-### <a name="grant-application-permissions-using-curl"></a>CURL을 사용하여 응용 프로그램 권한 부여
+### <a name="grant-application-permissions-using-curl"></a>CURL을 사용하여 애플리케이션 권한 부여
 
 1. CURL을 요청하는 토큰을 검색합니다.
 

@@ -22,7 +22,7 @@ ms.locfileid: "46127859"
 > [!IMPORTANT]
 > 이 버전의 Translator Text API는 더 이상 사용되지 않습니다. [Translator Text API v3에 대한 설명서를 참조하세요](v3-0-reference.md).
 
-Translator Text API V2는 응용 프로그램, 웹 사이트, 도구 또는 기타 솔루션에 원활하게 통합되어 다국어 사용자 환경을 제공할 수 있습니다. 업계 표준을 활용하는 이 API는 모든 하드웨어 플랫폼 및 운영 체제에서 사용되면서 언어 번역은 물론, 텍스트 언어 검색 또는 텍스트 음성 변환과 같은 기타 언어 관련 작업을 수행할 수 있습니다. Microsoft Translator API에 대한 자세한 내용을 보려면 여기를 클릭하세요.
+Translator Text API V2는 애플리케이션, 웹 사이트, 도구 또는 기타 솔루션에 원활하게 통합되어 다국어 사용자 환경을 제공할 수 있습니다. 업계 표준을 활용하는 이 API는 모든 하드웨어 플랫폼 및 운영 체제에서 사용되면서 언어 번역은 물론, 텍스트 언어 검색 또는 텍스트 음성 변환과 같은 기타 언어 관련 작업을 수행할 수 있습니다. Microsoft Translator API에 대한 자세한 내용을 보려면 여기를 클릭하세요.
 
 ## <a name="getting-started"></a>시작
 Translator Text API에 액세스하려면 [Microsoft Azure에 등록](../translator-text-how-to-signup.md)해야 합니다.

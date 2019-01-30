@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 3d88ac7adc950e2c216824f74586ff6ef4f70712
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: ea022ce9b02fd54be7959f5e9521ca5dc34e4e7b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715773"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426424"
 ---
 # <a name="understand-role-definitions"></a>역할 정의 이해
 
@@ -133,7 +133,7 @@ JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있�
 
 ### <a name="data-operations-example"></a>데이터 작업 예제
 
-관리 및 데이터 작업 방법에 대한 이해를 돕기 위한 구체적인 예를 살펴 보겠습니다. Alice는 구독 범위에서 [소유자](built-in-roles.md#owner) 역할을 할당 받았습니다. Bob에게는 저장소 계정 범위에서 [Storage Blob 데이터 기여자(미리 보기)](built-in-roles.md#storage-blob-data-contributor-preview) 역할이 할당되었습니다. 다음 다이어그램은 이 예제를 보여 줍니다.
+관리 및 데이터 작업 방법에 대한 이해를 돕기 위한 구체적인 예를 살펴 보겠습니다. Alice는 구독 범위에서 [소유자](built-in-roles.md#owner) 역할을 할당 받았습니다. Bob에게는 스토리지 계정 범위에서 [Storage Blob 데이터 기여자(미리 보기)](built-in-roles.md#storage-blob-data-contributor-preview) 역할이 할당되었습니다. 다음 다이어그램은 이 예제를 보여 줍니다.
 
 ![역할 기반 액세스 제어가 관리 및 데이터 작업을 모두 지원하도록 확장되었습니다.](./media/role-definitions/rbac-management-data.png)
 
@@ -165,13 +165,21 @@ Bob의 권한은 [Storage Blob 데이터 기여자(미리 보기)](built-in-role
 
 | 도구  | 버전  |
 |---------|---------|
-| [Azure PowerShell](/powershell/azure/install-azurerm-ps) | 5.6.0 이상 |
+| [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) | 5.6.0 이상 |
 | [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 이상 |
 | [.NET용 Azure](/dotnet/azure/) | 2.8.0-미리 보기 이상 버전 |
 | [Azure SDK for Go](/go/azure/azure-sdk-go-install) | 15.0.0 이상 |
 | [Java용 Azure](/java/azure/) | 1.9.0 이상 |
 | [Python용 Azure](/python/azure) | 0.40.0 이상 |
 | [Ruby용 Azure SDK](https://rubygems.org/gems/azure_sdk) | 0.17.1 이상 |
+
+REST API에서 데이터 작업을 보고 사용하려면 **api-version** 매개 변수를 다음 버전 이상으로 설정해야 합니다.
+
+- 2018-01-01-preview
+
+Azure Portal에서는 또한 Azure AD 환경에서 큐 및 Blob 컨테이너의 콘텐츠를 찾아보고 관리할 수 있습니다. 큐 또는 Blob 컨테이너 콘텐츠를 보고 관리하려면 스토리지 계정 개요에서 **Azure AD 미리 보기를 사용하여 데이터 알아보기**를 클릭합니다.
+
+![Azure AD 미리 보기를 사용하여 큐 및 Blob 컨테이너 알아보기](./media/role-definitions/rbac-dataactions-browsing.png)
 
 ## <a name="actions"></a>작업
 

@@ -5,7 +5,7 @@
 ## [Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 ## [Azure Storage와 비교](data-lake-store-comparison-with-blob-storage.md)
 ## [빅 데이터 처리](data-lake-store-data-scenarios.md)
-## [오픈 소스 응용 프로그램으로 작업](data-lake-store-compatible-oss-other-applications.md)
+## [오픈 소스 애플리케이션으로 작업](data-lake-store-compatible-oss-other-applications.md)
 ## [모범 사례](data-lake-store-best-practices.md)
 
 # 시작하기
@@ -92,6 +92,7 @@
 ## [Python(계정 관리)](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python)
 ## [Python(파일 시스템 관리)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST (영문)](/rest/api/datalakestore)
+## [Resource Manager 템플릿](/azure/templates/microsoft.datalakestore/allversions)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/dls)
 
 # 리소스

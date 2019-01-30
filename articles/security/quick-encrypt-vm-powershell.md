@@ -1,6 +1,6 @@
 ---
 title: 빠른 시작 - Azure PowerShell을 사용하여 Windows IaaS VM 암호화 | Microsoft Docs
-description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 Windows 가상 머신을 암호화하는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 Azure에서 Windows IaaS VM을 암호화하는 방법을 알아봅니다.
 services: security
 documentationcenter: na
 author: mestew
@@ -11,27 +11,28 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2018
+ms.date: 01/14/2019
 ms.author: mstewart
-ms.openlocfilehash: 531da9af871595e6f8bf5d22832367bbfb301dab
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.custom: seodec18
+ms.openlocfilehash: 6f94ec1a64108cde6ff69a572559960a988a1b7c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43245874"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261284"
 ---
 # <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Windows IaaS VM 암호화
 
-Azure Disk Encryption을 사용하면 Windows 및 Linux IaaS 가상 머신 디스크를 암호화할 수 있습니다. 이 솔루션은 Azure Key Vault와 통합되어 디스크 암호화 키와 비밀을 제어하고 관리할 수 있습니다. Azure Disk Encryption을 사용하면 업계 표준 암호화 기술을 사용하여 미사용 VM을 안전하게 보호할 수 있습니다. 이 빠른 시작에서는 Windows Server 2016 VM을 만들고 OS 디스크를 암호화합니다. 
+Azure Disk Encryption을 사용하면 Windows 및 Linux IaaS 가상 머신 디스크를 암호화할 수 있습니다. 이 솔루션은 Azure Key Vault와 통합되어 디스크 암호화 키와 비밀을 제어하고 관리할 수 있습니다. Azure Disk Encryption을 사용하면 업계 표준 암호화 기술을 사용하여 미사용 VM을 안전하게 보호할 수 있습니다. 이 빠른 시작에서는 Windows Server 2016 VM을 만들고 OS 디스크를 암호화합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 - Windows PowerShell ISE
-- [최신 버전의 Azure PowerShell](/powershell/azure/install-azurerm-ps)을 설치하거나 업데이트합니다.
+- [최신 버전의 AzureRM PowerShell 모듈](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0)을 설치하거나 업데이트합니다.
     - AzureRM 모듈 버전은 6.0.0 이상이어야 합니다. `Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path`
-- [Azure Disk Encryption 필수 구성 요소 스크립트](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1)의 복사본
+- [Azure Disk Encryption 필수 구성 요소 스크립트](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1)의 복사본
     - 이 스크립트가 이미 있는 경우 최근에 변경된 새 복사본을 다운로드합니다. 
     - **CTRL-A**를 사용하여 모든 텍스트를 선택한 다음, **CTRL-C**를 사용하여 모든 텍스트를 메모장에 복사합니다.
     - 파일을 **ADEPrereqScript.ps1**로 저장합니다.

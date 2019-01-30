@@ -1,5 +1,6 @@
 ---
-title: Azure Load Balancer 개요 | Microsoft Docs
+title: Azure Load Balancer란?
+titlesuffix: Azure Load Balancer
 description: Azure Load Balancer 기능, 아키텍처 및 구현에 대한 개요입니다. Load Balancer의 작동 방식과 클라우드에서의 활용에 대해 알아봅니다.
 services: load-balancer
 documentationcenter: na
@@ -8,20 +9,21 @@ ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
 ms.devlang: na
 ms.topic: overview
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 6368b47400f6ea06babfe538cf6f58b18cc49117
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 9ca8e6876b67167429dbc0b5e6c3f5b454878c2a
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219582"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382675"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer란?
 
-Azure Load Balancer를 사용하여 응용 프로그램 크기를 조정하고 서비스에 대한 고가용성을 구현할 수 있습니다. Load Balancer는 인바운드 및 아웃바운드 시나리오를 지원하고, 짧은 대기 시간과 높은 처리량을 제공하고, 모든 TCP 및 UDP 응용 프로그램에 대해 수백만 개의 흐름으로 확장됩니다.  
+Azure Load Balancer를 사용하여 애플리케이션 크기를 조정하고 서비스에 대한 고가용성을 구현할 수 있습니다. Load Balancer는 인바운드 및 아웃바운드 시나리오를 지원하고, 짧은 대기 시간과 높은 처리량을 제공하고, 모든 TCP 및 UDP 애플리케이션에 대해 수백만 개의 흐름으로 확장됩니다.  
 
 Load Balancer는 규칙 및 상태 프로브에 따라, Load Balancer의 프런트 엔드에 도착하는 새 인바운드 흐름을 백 엔드 풀 인스턴스에 분산합니다. 
 
@@ -40,7 +42,7 @@ Azure Load Balancer를 다음에 사용할 수 있습니다.
 
 
 >[!NOTE]
-> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다. TLS(Transport Layer Security) 프로토콜 종료("SSL 오프로드") 또는 HTTP/HTTPS 요청별 응용 프로그램 계층 처리를 확인하려는 경우 [Application Gateway](../application-gateway/application-gateway-introduction.md)를 검토하세요. 전역 DNS 부하 분산을 확인하려는 경우 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 검토하세요. 필요에 따라 종단 간 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
+> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다. TLS(Transport Layer Security) 프로토콜 종료("SSL 오프로드") 또는 HTTP/HTTPS 요청별 애플리케이션 계층 처리를 확인하려는 경우 [Application Gateway](../application-gateway/application-gateway-introduction.md)를 검토하세요. 전역 DNS 부하 분산을 확인하려는 경우 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 검토하세요. 필요에 따라 종단 간 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
 
 ## <a name="what-are-load-balancer-resources"></a>Load Balancer 리소스란?
 
@@ -50,7 +52,7 @@ Load Balancer 리소스는 만들려는 시나리오를 달성하기 위해 Azur
 
 ## <a name="fundamental-load-balancer-features"></a>기본적인 Load Balancer 기능
 
-Load Balancer는 TCP 및 UDP 응용 프로그램에 대해 다음과 같은 기본적인 기능을 제공합니다.
+Load Balancer는 TCP 및 UDP 애플리케이션에 대해 다음과 같은 기본적인 기능을 제공합니다.
 
 * **부하 분산**.
 
@@ -62,18 +64,18 @@ Load Balancer는 TCP 및 UDP 응용 프로그램에 대해 다음과 같은 기�
 
     ![해시 기반 배포](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    *그림: 해시 기반 배포*
+    그림: 해시 기반 배포
 
 * **포트 전달**
 
-    Load Balancer를 사용하여 특정 프런트 엔드 IP 주소의 특정 포트에서 가상 네트워크 내에 있는 특정 백 엔드 인스턴스의 특정 포트로 트래픽을 전달하기 위한 인바운드 NAT 규칙을 만들 수 있습니다. 또한 이러한 작업은 부하 분산과 동일한 해시 기반 배포에 의해서도 수행됩니다. 이 기능에 대한 일반적인 시나리오는 Azure Virtual Network 내의 개별 VM 인스턴스에 대한 RDP(원격 데스크톱 프로토콜) 또는 SSH(보안 셸) 세션입니다. 여러 개의 내부 엔드포인트를 동일한 프런트 엔드 IP 주소의 서로 다른 포트에 매핑할 수 있습니다. 프런트 엔드 IP 주소를 사용하여 추가 프로그램 없이 인터넷을 통해 VM을 원격으로 관리할 수 있습니다.
+    Load Balancer를 사용하여 특정 프런트 엔드 IP 주소의 특정 포트에서 가상 네트워크 내에 있는 특정 백 엔드 인스턴스의 특정 포트로 트래픽을 전달하기 위한 인바운드 NAT 규칙을 만들 수 있습니다. 또한 이러한 작업은 부하 분산과 동일한 해시 기반 배포에 의해서도 수행됩니다. 이 기능에 대한 일반적인 시나리오는 Azure Virtual Network 내의 개별 VM 인스턴스에 대한 RDP(원격 데스크톱 프로토콜) 또는 SSH(보안 셸) 세션입니다. 여러 개의 내부 엔드포인트를 동일한 프런트 엔드 IP 주소의 서로 다른 포트에 매핑할 수 있습니다. 프런트 엔드 IP 주소를 사용하여 추가 점프 상자 없이 인터넷을 통해 VM을 원격으로 관리할 수 있습니다.
 
-* **응용 프로그램 모호성 및 투명성**
+* **애플리케이션 모호성 및 투명성**
 
-    Load Balancer는 TCP/UDP 또는 응용 프로그램 계층과 직접 상호 작용하지 않으며, 모든 TCP 또는 UDP 응용 프로그램이 지원될 수 있습니다.  Load Balancer는 흐름을 종료하거나 시작하지 않고 흐름의 페이로드와 상호 작용하지 않으며, 응용 프로그램 계층 게이트웨이 기능을 제공하고, 프로토콜 핸드셰이크는 항상 클라이언트와 백 엔드 풀 인스턴스 간에 직접 발생합니다.  인바운드 흐름에 대한 응답은 항상 가상 머신의 응답입니다.  흐름이 가상 머신에 도착하면 원래 원본 IP 주소도 유지됩니다.  투명도를 더 자세히 설명하기 위한 몇 가지 예입니다.
+    Load Balancer는 TCP/UDP 또는 애플리케이션 계층과 직접 상호 작용하지 않으며, 모든 TCP 또는 UDP 애플리케이션이 지원될 수 있습니다.  Load Balancer는 흐름을 종료하거나 시작하지 않고 흐름의 페이로드와 상호 작용하지 않으며, 애플리케이션 계층 게이트웨이 기능을 제공하고, 프로토콜 핸드셰이크는 항상 클라이언트와 백 엔드 풀 인스턴스 간에 직접 발생합니다.  인바운드 흐름에 대한 응답은 항상 가상 머신의 응답입니다.  흐름이 가상 머신에 도착하면 원래 원본 IP 주소도 유지됩니다.  투명도를 더 자세히 설명하기 위한 몇 가지 예입니다.
     - 모든 엔드포인트는 VM에서만 응답합니다.  예를 들어, TCP 핸드셰이크는 항상 클라이언트와 선택한 백 엔드 VM 사이에서 발행합니다.  프런트 엔드에 요청에 대한 응답은 백 엔드 VM에서 생성한 응답입니다. 프런트 엔드에 대한 연결의 유효성을 성공적으로 확인하는 경우 최소 하나 이상의 백 엔드 가상 머신에 통합형 연결의 유효성을 검사하는 것입니다.
-    - 응용 프로그램 페이로드는 Load Balancer에 대해 투명하며 모든 UDP 또는 TCP 응용 프로그램을 지원할 수 있습니다. HTTP당 요청 처리 또는 응용 프로그램 계층 페이로드 조작을 요청하는 워크로드의 경우(예를 들어, HTTP URL의 구문 분석) [Application Gateway](https://azure.microsoft.com/services/application-gateway) 같은 계층 7 부하 분산 장치를 사용해야 합니다.
-    - Load Balancer는 TCP 페이로드에 독립적이며 TLS 오프 로드("SSL")은 제공되지 않기 때문에 Load Balancer를 사용하여 통합형 암호화 시나리오를 빌드하고 VM 자체에서 TLS 연결을 종료하여 TLS 응용 프로그램에 대한 대규모 스케일 아웃을 얻을 수 있습니다.  예를 들어 TLS 세션 키 용량은 백 엔드 풀에 추가하는 VM의 수와 유형으로만 제한됩니다.  응용 프로그램 계층 처리인 "SSL 오프 로딩"를 요구하거나 Azure에 인증서 관리를 위임하려는 경우 대신 Azure의 계층 7 부하 분산 장치 [Application Gateway](https://azure.microsoft.com/services/application-gateway)를 사용해야 합니다.
+    - 애플리케이션 페이로드는 Load Balancer에 대해 투명하며 모든 UDP 또는 TCP 애플리케이션을 지원할 수 있습니다. HTTP당 요청 처리 또는 애플리케이션 계층 페이로드 조작을 요청하는 워크로드의 경우(예를 들어, HTTP URL의 구문 분석) [Application Gateway](https://azure.microsoft.com/services/application-gateway) 같은 계층 7 부하 분산 장치를 사용해야 합니다.
+    - Load Balancer는 TCP 페이로드에 독립적이며 TLS 오프 로드("SSL")은 제공되지 않기 때문에 Load Balancer를 사용하여 통합형 암호화 시나리오를 빌드하고 VM 자체에서 TLS 연결을 종료하여 TLS 애플리케이션에 대한 대규모 스케일 아웃을 얻을 수 있습니다.  예를 들어 TLS 세션 키 용량은 백 엔드 풀에 추가하는 VM의 수와 유형으로만 제한됩니다.  애플리케이션 계층 처리인 "SSL 오프 로딩"를 요구하거나 Azure에 인증서 관리를 위임하려는 경우 대신 Azure의 계층 7 부하 분산 장치 [Application Gateway](https://azure.microsoft.com/services/application-gateway)를 사용해야 합니다.
         
 
 * **자동 재구성**
@@ -82,11 +84,11 @@ Load Balancer는 TCP 및 UDP 응용 프로그램에 대해 다음과 같은 기�
 
 * **상태 프로브**
 
-    백 엔드 풀에 있는 인스턴스의 상태를 확인하려면 Load Balancer는 사용자가 정의한 상태 프로브를 사용합니다. 프로브가 응답하지 않으면 Load Balancer는 비정상 인스턴스에 새 연결의 전송을 중지합니다. 기존 연결은 영향을 받지 않으며, 응용 프로그램이 흐름을 종료하거나, 유휴 시간 제한이 발생하거나, VM이 종료될 때까지 계속됩니다.
+    백 엔드 풀에 있는 인스턴스의 상태를 확인하려면 Load Balancer는 사용자가 정의한 상태 프로브를 사용합니다. 프로브가 응답하지 않으면 Load Balancer는 비정상 인스턴스에 새 연결의 전송을 중지합니다. 기존 연결은 영향을 받지 않으며, 애플리케이션이 흐름을 종료하거나, 유휴 시간 제한이 발생하거나, VM이 종료될 때까지 계속됩니다.
      
     Load Balancer는 TCP, HTTP 및 HTTPS 엔드포인트에 대한 [다양한 상태 프로브 유형](load-balancer-custom-probe-overview.md#types)을 제공합니다.
 
-    또한 클래식 클라우드 서비스를 사용하는 경우 추가 형식이 허용됩니다. [게스트 에이전트](load-balancer-custom-probe-overview.md#guestagent)  이는 상태 프로브의 마지막 수단으로 간주되어야 하며 다른 옵션이 실행 가능한 경우 권장되지 않습니다.
+    또한 클래식 클라우드 서비스를 사용하는 경우 추가 형식이 허용됩니다.  [게스트 에이전트](load-balancer-custom-probe-overview.md#guestagent).  이는 상태 프로브의 마지막 수단으로 간주되어야 하며 다른 옵션이 실행 가능한 경우 권장되지 않습니다.
     
 * **아웃바운드 연결(SNAT)**
 
@@ -129,7 +131,7 @@ _아직 필수적인 것은 아니지만 SKU를 명시적으로 지정하는 것
 
 ![공용 Load Balancer 예](./media/load-balancer-overview/IC727496.png)
 
-*그림: 공용 Load Balancer를 사용하여 웹 트래픽 부하 분산*
+그림: 공용 Load Balancer를 사용하여 웹 트래픽 부하 분산
 
 인터넷 클라이언트가 TCP 포트 80에서 웹앱의 공용 IP 주소에 웹 페이지 요청을 보내면 Azure Load Balancer가 부하 분산 집합에 있는 3개의 VM에 요청을 분산합니다. Load Balancer 알고리즘에 대한 자세한 내용은 이 문서의 [Load Balancer 기능](load-balancer-overview.md##fundamental-load-balancer-features) 섹션을 참조하세요.
 
@@ -137,21 +139,27 @@ _아직 필수적인 것은 아니지만 SKU를 명시적으로 지정하는 것
 
 ### <a name = "internalloadbalancer"></a> 내부 Load Balancer
 
-내부 Load Balancer는 가상 네트워크 내부에 있는 리소스 또는 VPN을 사용하여 Azure 인프라에 액세스하는 리소스로만 트래픽을 보냅니다. 이런 측면에서 내부 Load Balancer는 공용 Load Balancer와 다릅니다. Azure 인프라는 가상 네트워크의 부하가 분산된 프런트 엔드 IP 주소에 대한 액세스를 제한합니다. 프런트 엔드 IP 주소와 가상 네트워크는 인터넷 엔드포인트에 직접 노출되지 않습니다. 내부 LOB(기간 업무) 응용 프로그램은 Azure에서 실행되며 Azure 내에서 또는 온-프레미스 리소스에서 액세스 할 수 있습니다.
+내부 Load Balancer는 가상 네트워크 내부에 있는 리소스 또는 VPN을 사용하여 Azure 인프라에 액세스하는 리소스로만 트래픽을 보냅니다. 이런 측면에서 내부 Load Balancer는 공용 Load Balancer와 다릅니다. Azure 인프라는 가상 네트워크의 부하가 분산된 프런트 엔드 IP 주소에 대한 액세스를 제한합니다. 프런트 엔드 IP 주소와 가상 네트워크는 인터넷 엔드포인트에 직접 노출되지 않습니다. 내부 LOB(기간 업무) 애플리케이션은 Azure에서 실행되며 Azure 내에서 또는 온-프레미스 리소스에서 액세스할 수 있습니다.
 
 내부 Load Balancer를 통해 다음과 같은 유형의 부하 분산을 사용할 수 있습니다.
 
-* **가상 네트워크 내에서**: 가상 네트워크의 VM에서 동일한 가상 네트워크 내에 있는 VM 집합으로 부하 분산.
-* **크로스-프레미스 가상 네트워크의 경우**: 온-프레미스 컴퓨터에서 동일한 가상 네트워크 내에 있는 VM 집합으로 부하 분산. 
-* **다중 계층 응용 프로그램의 경우**: 백 엔드 계층이 인터넷에 연결되어 있지 않은 인터넷 연결 다중 계층 응용 프로그램의 부하 분산. 백 엔드 계층에는 인터넷 연결 계층의 트래픽 부하 분산이 필요합니다(다음 그림 참조).
-* **LOB(기간 업무) 응용 프로그램의 경우**: 추가적인 부하 분산 장치 하드웨어 또는 소프트웨어 없이 Azure에서 호스트되는 LOB(기간 업무) 응용 프로그램의 부하 분산. 이 시나리오는 트래픽 부하가 분산되는 컴퓨터 집합에 있는 온-프레미스 서버를 포함합니다.
+* **가상 네트워크 내에서**: 가상 네트워크의 VM에서 동일한 가상 네트워크 내에 있는 VM 세트로 부하 분산.
+* **크로스-프레미스 가상 네트워크의 경우**: 온-프레미스 컴퓨터에서 동일한 가상 네트워크 내에 있는 VM 세트로 부하 분산. 
+* **다중 계층 애플리케이션의 경우**: 백 엔드 계층이 인터넷에 연결되어 있지 않은 인터넷 연결 다중 계층 애플리케이션의 부하 분산. 백 엔드 계층에는 인터넷 연결 계층의 트래픽 부하 분산이 필요합니다(다음 그림 참조).
+* **LOB(기간 업무) 애플리케이션의 경우**: 추가적인 부하 분산 장치 하드웨어 또는 소프트웨어 없이 Azure에서 호스트되는 LOB(기간 업무) 애플리케이션의 부하 분산. 이 시나리오는 트래픽 부하가 분산되는 컴퓨터 집합에 있는 온-프레미스 서버를 포함합니다.
 
 ![내부 Load Balancer 예제](./media/load-balancer-overview/IC744147.png)
 
-*그림: 공용 및 내부 Load Balancer를 둘 다 사용하여 다중 계층 응용 프로그램 부하 분산*
+그림: 공용 및 내부 Load Balancer를 둘 다 사용하여 다중 계층 애플리케이션 부하 분산
 
 ## <a name="pricing"></a>가격
-표준 Load Balancer 사용량은 구성된 부하 분산 규칙 수와 인바운드 및 아웃바운드 처리 데이터의 양에 따라 청구됩니다. 표준 Load Balancer 가격 정보에 대해서는 [Load Balancer 가격](https://azure.microsoft.com/pricing/details/load-balancer/) 페이지를 참조하세요.
+
+표준 Load Balancer 사용량에 해당하는 요금이 청구됩니다.
+
+- 구성된 부하 분산 및 아웃바운드 규칙의 수(인바운드 NAT 규칙은 총 규칙 수에 포함되지 않음)
+- 규칙에 관계없이 인바운드 및 아웃바운드에서 처리된 데이터의 양 
+
+표준 Load Balancer 가격 정보에 대해서는 [Load Balancer 가격](https://azure.microsoft.com/pricing/details/load-balancer/) 페이지를 참조하세요.
 
 기본 Load Balancer는 무료로 제공됩니다.
 

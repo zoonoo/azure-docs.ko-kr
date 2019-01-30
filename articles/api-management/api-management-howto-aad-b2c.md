@@ -13,25 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 1e2d809ed476b1789736f0d61dfea528b090da50
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 8c60e7dec2d2a9bc3e063adfee0ffaff63417265
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447132"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960166"
 ---
-> [!WARNING]
-> Azure Active Directory B2C 통합은 [개발자, 표준 및 프리미엄](https://azure.microsoft.com/pricing/details/api-management/) 계층에서만 사용 가능합니다.
-
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory B2C를 사용하여 개발자 계정에 권한을 부여하는 방법
 
 ## <a name="overview"></a>개요
+
 Azure Active Directory B2C는 소비자 지향 웹 및 모바일 응용 프로그램을 위한 클라우드 ID 관리 솔루션입니다. 개발자 포털에 대한 액세스 권한을 관리하는 데 사용할 수 있습니다. 이 가이드에서는 Azure Active Directory B2C와 통합하려는 API Management 서비스에 필요한 구성을 보여 줍니다. 클래식 Azure Active Directory를 사용하여 개발자 포털에 대한 액세스를 사용하는 방법에 대한 정보는 [Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법]을 참조하세요.
 
 > [!NOTE]
 > 이 가이드의 단계를 완료하려면 먼저 응용 프로그램을 만들 Azure Active Directory B2C 테넌트가 있어야 합니다. 또한, 등록 및 로그인 정책이 준비되어야 합니다. 자세한 내용은 [Azure Active Directory B2C 개요]를 참조하세요.
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
 ## <a name="authorize-developer-accounts-by-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 개발자 계정에 권한 부여
 
@@ -50,7 +48,7 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 응용 프로�
 
   ![AAD B2C ID 공급자 리디렉션 URL][api-management-howto-copy-b2c-identity-provider-redirect-url]
 
-4. 새 탭에서 Azure Portal의 Azure Active Directory B2C 테넌트에 액세스하고 **응용 프로그램** 블레이드를 엽니다.
+4. 새 탭에서 Azure Portal의 Azure Active Directory B2C 테넌트에 액세스하고 **애플리케이션** 블레이드를 엽니다.
 
   ![새 응용 프로그램 1 등록][api-management-howto-aad-b2c-portal-menu]
 
@@ -91,7 +89,7 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 응용 프로�
   ![정책][api-management-howto-aad-b2c-policies]
 
   > [!NOTE]
-  > 정책에 대한 자세한 내용은 [Azure Active Directory B2C: 확장할 수 있는 정책 프레임워크]를 참조하세요.
+  > 정책에 대한 자세한 내용은 [Azure Active Directory B2C: 확장 가능한 정책 프레임워크]를 참조하세요.
 
 14. 원하는 구성이 지정되면 **저장**을 클릭합니다.
 
@@ -121,7 +119,7 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 응용 프로�
 ## <a name="next-steps"></a>다음 단계
 
 *  [Azure Active Directory B2C 개요]
-*  [Azure Active Directory B2C: 확장할 수 있는 정책 프레임워크]
+*  [Azure Active Directory B2C: 확장 가능한 정책 프레임워크]
 *  [Azure Active Directory B2C에서 Microsoft 계정을 ID 공급자로 사용]
 *  [Azure Active Directory B2C에서 Google 계정을 ID 공급자로 사용]
 *  [Azure Active Directory B2C에서 LinkedIn 계정을 ID 공급자로 사용]
@@ -187,12 +185,12 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 응용 프로�
 [Caching policies]: api-management-policy-reference.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
-[http://oauth.net/2/]: http://oauth.net/2/
+[https://oauth.net/2/]: https://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[Accessing the Graph API]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
+[Accessing the Graph API]: https://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
 [Azure Active Directory B2C 개요]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
 [Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad
-[Azure Active Directory B2C: 확장할 수 있는 정책 프레임워크]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
+[Azure Active Directory B2C: 확장 가능한 정책 프레임워크]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
 [Azure Active Directory B2C에서 Microsoft 계정을 ID 공급자로 사용]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app
 [Azure Active Directory B2C에서 Google 계정을 ID 공급자로 사용]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-goog-app
 [Azure Active Directory B2C에서 Facebook 계정을 ID 공급자로 사용]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app

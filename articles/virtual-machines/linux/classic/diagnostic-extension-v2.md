@@ -40,7 +40,7 @@ Linux 진단 확장을 통해 사용자는 Microsoft Azure에서 실행하는 Li
 
 최신 2.3 버전에는 다음 데이터가 포함됩니다.
 
-* 시스템, 보안 및 응용 프로그램 로그를 비롯한 모든 Linux Rsyslog 로그.
+* 시스템, 보안 및 애플리케이션 로그를 비롯한 모든 Linux Rsyslog 로그.
 * [System Center 플랫폼 간 솔루션 사이트](https://scx.codeplex.com/wikipage?title=xplatproviders)에 지정된 모든 시스템 데이터.
 * 사용자가 지정한 로그 파일.
 
@@ -78,7 +78,7 @@ Azure Portal에서 직접 시스템 및 성능 데이터를 보고 구성하려�
 
 버전 2.3 이상의 경우 수집되는 기본 데이터에는 다음이 포함됩니다.
 
-* 모든 Rsyslog 정보(시스템, 보안 및 응용 프로그램 로그 포함)  
+* 모든 Rsyslog 정보(시스템, 보안 및 애플리케이션 로그 포함)  
 * 기본 시스템 데이터의 핵심 집합입니다. 전체 데이터 집합은 [System Center 플랫폼 간 솔루션 사이트](https://scx.codeplex.com/wikipage?title=xplatproviders)에 설명되어 있습니다.
   추가 데이터를 사용하도록 설정하려는 경우 시나리오 2와 3의 단계를 계속 진행하세요.
 
@@ -152,7 +152,7 @@ Azure Portal에서 직접 시스템 및 성능 데이터를 보고 구성하려�
 
 ## <a name="review-your-data"></a>데이터 검토
 
-성능 및 진단 데이터는 Azure Storage 테이블에 저장됩니다. Azure CLI 스크립트를 사용하여 저장소 테이블의 데이터에 액세스 하는 방법을 알아보려면 [Ruby에서 Azure Table Storage를 사용하는 방법](../../../cosmos-db/table-storage-how-to-use-ruby.md) 을 검토하세요.
+성능 및 진단 데이터는 Azure Storage 테이블에 저장됩니다. Azure CLI 스크립트를 사용하여 스토리지 테이블의 데이터에 액세스 하는 방법을 알아보려면 [Ruby에서 Azure Table Storage를 사용하는 방법](../../../cosmos-db/table-storage-how-to-use-ruby.md) 을 검토하세요.
 
 또한 다음 UI 도구를 사용하여 데이터에 액세스할 수 있습니다.
 

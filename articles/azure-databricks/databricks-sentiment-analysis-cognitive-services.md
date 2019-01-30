@@ -3,19 +3,18 @@ title: '자습서: Azure Databricks를 사용하여 스트리밍 데이터에 �
 description: Event Hubs 및 Cognitive Services API를 통해 Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석을 거의 실시간으로 실행하는 방법을 알아봅니다.
 services: azure-databricks
 author: lenadroid
+ms.author: alehall
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.workload: Active
-ms.date: 10/23/2018
-ms.author: alehall
-ms.openlocfilehash: cf396dea6ee467267ea73379ea04026fc8cc53b2
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.date: 12/07/2018
+ms.openlocfilehash: 449d721683bd59646506db57d78b9535aa7d614d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636584"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100188"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석
 
@@ -23,7 +22,7 @@ ms.locfileid: "51636584"
 
 이 자습서가 완료되면 Twitter에서 "Azure"라는 용어가 포함된 트윗을 스트리밍하고 트윗에 대한 감정 분석을 실행하게 됩니다.
 
-다음 그림에서는 응용 프로그램 흐름을 보여줍니다.
+다음 그림에서는 애플리케이션 흐름을 보여줍니다.
 
 ![Event Hubs 및 Cognitive Services를 사용하는 Azure Databricks](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-tutorial.png "Event Hubs 및 Cognitive Services를 사용하는 Azure Databricks")
 
@@ -104,11 +103,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
 
-## <a name="create-a-twitter-application"></a>Twitter 응용 프로그램 만들기
+## <a name="create-a-twitter-application"></a>Twitter 애플리케이션 만들기
 
-트윗 스트림을 받으려면 Twitter에 응용 프로그램을 만들어야 합니다. 다음 단계에 따라 Twitter 응용 프로그램을 만들고 이 자습서를 완료하는 데 필요한 값을 기록합니다.
+트윗 스트림을 받으려면 Twitter에 애플리케이션을 만들어야 합니다. 다음 단계에 따라 Twitter 애플리케이션을 만들고 이 자습서를 완료하는 데 필요한 값을 기록합니다.
 
-1. 웹 브라우저에서 [Twitter 응용 프로그램 관리](https://apps.twitter.com/)로 이동하고 **새 앱 만들기**를 선택합니다.
+1. 웹 브라우저에서 [Twitter 애플리케이션 관리](https://apps.twitter.com/)로 이동하고 **새 앱 만들기**를 선택합니다.
 
     ![Twitter 응용 프로그램 만들기](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-twitter-app.png "Twitter 응용 프로그램 만들기")
 
@@ -116,11 +115,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ![Twitter 응용 프로그램 세부 정보](./media/databricks-sentiment-analysis-cognitive-services/databricks-provide-twitter-app-details.png "Twitter 응용 프로그램 세부 정보")
 
-3. 응용 프로그램 페이지에서 **키 및 액세스 토큰** 탭을 선택하고, **소비자 키** 및 **소비자 비밀**에 대한 값을 복사합니다. 또한 **내 액세스 토큰 만들기**를 선택하여 액세스 토큰을 생성합니다. **액세스 토큰** 및 **액세스 토큰 비밀**에 대한 값을 복사합니다.
+3. 애플리케이션 페이지에서 **키 및 액세스 토큰** 탭을 선택하고, **소비자 키** 및 **소비자 비밀**에 대한 값을 복사합니다. 또한 **내 액세스 토큰 만들기**를 선택하여 액세스 토큰을 생성합니다. **액세스 토큰** 및 **액세스 토큰 비밀**에 대한 값을 복사합니다.
 
     ![Twitter 응용 프로그램 세부 정보](./media/databricks-sentiment-analysis-cognitive-services/twitter-app-key-secret.png "Twitter 응용 프로그램 세부 정보")
 
-Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러한 값은 자습서의 뒷부분에서 필요합니다.
+Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한 값은 자습서의 뒷부분에서 필요합니다.
 
 ## <a name="attach-libraries-to-spark-cluster"></a>Spark 클러스터에 라이브러리 연결
 
@@ -151,7 +150,7 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
 
 ## <a name="get-a-cognitive-services-access-key"></a>Cognitive Services 액세스 키 가져오기
 
-이 자습서에서는 [Microsoft Cognitive Services 텍스트 분석 API](../cognitive-services/text-analytics/overview.md)를 사용하여 트윗 스트림에 대한 감정 분석을 거의 실시간으로 실행합니다. API를 사용하기 전에 Azure에 Microsoft Cognitive Services 계정을 만들고 텍스트 분석 API를 사용하기 위한 액세스 키를 검색해야 합니다.
+이 자습서에서는 [Microsoft Cognitive Services Text Analytics API](../cognitive-services/text-analytics/overview.md)를 사용하여 트윗 스트림에 대한 감정 분석을 거의 실시간으로 실행합니다. API를 사용하기 전에 Azure에 Microsoft Cognitive Services 계정을 만들고, Text Analytics API를 사용하기 위한 액세스 키를 검색해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -206,7 +205,7 @@ Twitter 응용 프로그램에 대해 검색한 값을 저장합니다. 이러�
 
 ## <a name="send-tweets-to-event-hubs"></a>Event Hubs에 트윗 보내기
 
-**SendTweetsToEventHub** 노트북에서 다음 코드를 붙여넣고, 자리 표시자를 이전에 만든 Event Hubs 네임스페이스 및 Twitter 응용 프로그램에 대한 값으로 바꿉니다. 이 노트북은 "Azure" 키워드가 있는 트윗을 Event Hubs에 실시간으로 스트리밍합니다.
+**SendTweetsToEventHub** 노트북에서 다음 코드를 붙여넣고, 자리 표시자를 이전에 만든 Event Hubs 네임스페이스 및 Twitter 애플리케이션에 대한 값으로 바꿉니다. 이 노트북은 "Azure" 키워드가 있는 트윗을 Event Hubs에 실시간으로 스트리밍합니다.
 
 ```scala
 import java.util._
@@ -313,7 +312,7 @@ val customEventhubParameters =
   EventHubsConf(connectionString)
   .setMaxEventsPerTrigger(5)
 
-val incomingStream = spark.readStream.format("eventhubs").option(customEventhubParameters.toMap).load()
+val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
 
 incomingStream.printSchema
 
@@ -396,7 +395,7 @@ messages.writeStream.outputMode("append").format("console").option("truncate", f
     ...
     ...
 
-이제 Apache Spark의 Event Hubs 커넥터를 사용하여 거의 실시간으로 Azure Event Hubs의 데이터를 Azure Databricks로 스트리밍합니다. Spark에 Event Hubs 커넥터를 사용하는 방법에 대한 자세한 내용은 [커넥터 설명서](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs)를 참조하세요.
+이제 Apache Spark용 Event Hubs 커넥터를 사용하여 거의 실시간으로 Azure Event Hubs의 데이터를 Azure Databricks로 스트림했습니다. Spark에 Event Hubs 커넥터를 사용하는 방법에 대한 자세한 내용은 [커넥터 설명서](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs)를 참조하세요.
 
 ## <a name="run-sentiment-analysis-on-tweets"></a>트윗에 대한 감정 분석 실행
 
@@ -509,7 +508,7 @@ object SentimentDetector extends Serializable {
 }
 ```
 
-감정을 결정하는 Spark UDF(사용자 정의 함수)를 정의하는 다른 셀을 추가합니다.
+다른 셀을 추가하여 감정을 결정하는 Spark UDF(사용자 정의 함수)를 정의합니다.
 
 ```scala
 // User Defined Function for processing content of messages to return their sentiment.
@@ -571,7 +570,7 @@ streamingDataFrame.writeStream.outputMode("append").format("console").option("tr
 
 **Sentiment** 열에서 **1**에 가까운 값은 Azure와 훌륭한 경험이 있음을 나타냅니다. **0**에 가까운 값은 Microsoft Azure를 사용하면서 사용자가 직면한 문제가 있음을 나타냅니다.
 
-이것으로 끝입니다. Azure Databricks를 사용하여 데이터를 Azure Event Hubs에 성공적으로 스트리밍하고, Event Hubs 커넥터를 사용하여 스트림 데이터를 사용한 다음, 스트리밍 데이터에 대한 감정 분석을 거의 실시간으로 실행했습니다.
+이것으로 끝입니다. Azure Databricks를 사용하여 데이터를 Azure Event Hubs에 성공적으로 스트림하고, Event Hubs 커넥터를 통해 스트림 데이터를 사용한 다음, 스트리밍 데이터에 대한 감정 분석을 거의 실시간으로 실행했습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -579,7 +578,7 @@ streamingDataFrame.writeStream.outputMode("append").format("console").option("tr
 
 ![Databricks 클러스터 중지](./media/databricks-sentiment-analysis-cognitive-services/terminate-databricks-cluster.png "Databricks 클러스터 중지")
 
-클러스터를 수동으로 종료하지 않은 경우 클러스터를 만드는 중에 **\_\_분 후 종료** 확인란을 선택하면 자동으로 중지됩니다. 이 경우 지정한 시간 동안 클러스터가 비활성 상태이면 클러스터가 자동으로 중지됩니다.
+클러스터를 수동으로 종료하지 않은 경우 클러스터를 만드는 중에 **비활성 \_\_분 후 종료** 확인란을 선택하면 자동으로 중지됩니다. 이 경우 지정한 시간 동안 클러스터가 비활성 상태이면 클러스터가 자동으로 중지됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 Azure Databricks를 사용하여 Azure Event Hubs로 데이터를 스트리밍한 다음, Event Hubs에서 스트리밍 데이터를 실시간으로 읽는 방법을 알아보았습니다. 다음 방법에 대해 알아보았습니다.

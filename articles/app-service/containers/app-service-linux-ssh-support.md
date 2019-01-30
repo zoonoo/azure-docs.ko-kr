@@ -1,5 +1,5 @@
 ---
-title: Linux의 Azure App Service에 대한 SSH 지원 | Microsoft Docs
+title: Linux의 App Service에 대한 SSH 지원 - Azure | Microsoft Docs
 description: Linux의 Azure App Service에서 SSH 사용에 대해 자세히 알아봅니다.
 keywords: azure app service, 웹앱, linux, oss
 services: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 631933647e27428349fc1efeb17f62f4614f7f64
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.custom: seodec18
+ms.openlocfilehash: ff5c18b08a2921efe72a35b9bd982986c1867812
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423309"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251309"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux의 Azure App Service에 대한 SSH 지원
 
@@ -66,7 +67,7 @@ https://<app_name>.scm.azurewebsites.net/webssh/host
         && echo "root:Docker!" | chpasswd
     ```
 
-1. [`COPY` 명령](https://docs.docker.com/engine/reference/builder/#copy)을 Dockerfile에 추가하여 [sshd_config](http://man.openbsd.org/sshd_config) 파일을 */etc/ssh/* 디렉터리에 복사합니다. 구성 파일은 Azure-App-Service GitHub 리포지토리([여기](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config) 참조)의 sshd_config 파일을 기준으로 해야 합니다.
+2. [`COPY` 명령](https://docs.docker.com/engine/reference/builder/#copy)을 Dockerfile에 추가하여 [sshd_config](https://man.openbsd.org/sshd_config) 파일을 */etc/ssh/* 디렉터리에 복사합니다. 구성 파일은 Azure-App-Service GitHub 리포지토리([여기](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config) 참조)의 sshd_config 파일을 기준으로 해야 합니다.
 
     > [!NOTE]
     > *sshd_config* 파일에 다음이 포함되어야 하며 이러한 항목이 없으면 연결이 실패합니다. 
@@ -77,13 +78,13 @@ https://<app_name>.scm.azurewebsites.net/webssh/host
     COPY sshd_config /etc/ssh/
     ```
 
-1. Dockerfile에 대한 [`EXPOSE` 명령](https://docs.docker.com/engine/reference/builder/#expose)에 포트 2222를 포함합니다. 루트 암호를 알고 있더라도 인터넷에서 포트 2222에 액세스할 수 없습니다. 개인 가상 네트워크의 브리지 네트워크 내에 있는 컨테이너에서만 액세스할 수 있는 내부 전용 포트입니다.
+3. Dockerfile에 대한 [`EXPOSE` 명령](https://docs.docker.com/engine/reference/builder/#expose)에 포트 2222를 포함합니다. 루트 암호를 알고 있더라도 인터넷에서 포트 2222에 액세스할 수 없습니다. 개인 가상 네트워크의 브리지 네트워크 내에 있는 컨테이너에서만 액세스할 수 있는 내부 전용 포트입니다.
 
     ```docker
     EXPOSE 2222 80
     ```
 
-1. 셸 스크립트를 사용하여 SSH 서비스를 시작해야 합니다([init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)의 예제 참조).
+4. 셸 스크립트를 사용하여 SSH 서비스를 시작해야 합니다([init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)의 예제 참조).
 
     ```bash
     #!/bin/bash

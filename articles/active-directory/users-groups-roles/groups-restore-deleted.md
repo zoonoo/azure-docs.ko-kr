@@ -14,12 +14,12 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 3b2264817dce63885ce0c428fe4df8427f7cdde6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 090c6c2d20bf169a3b3362cc796f6fc5c04b3c83
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049250"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155034"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Azure Active Directory에서 삭제된 Office 365 그룹 복원
 
@@ -73,7 +73,7 @@ Office 365 그룹을 성공적으로 복원했는지 확인하려면 `Get-AzureA
 
 - 그룹은 Exchange의 왼쪽 탐색 모음에 표시됩니다.
 - 그룹에 대한 계획은 Planner에 표시됩니다.
-- 모든 Sharepoint 사이트와 모든 해당 콘텐츠를 사용할 수 있습니다.
+- 모든 SharePoint 사이트와 모든 해당 콘텐츠를 사용할 수 있습니다.
 - Office 365 그룹을 지원하는 Exchange 엔드포인트 및 다른 Office 365 워크로드 중 하나에서 그룹에 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

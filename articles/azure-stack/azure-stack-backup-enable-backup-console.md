@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: d8d88484181c3c38f64cf8f00f9d8feaa3b0217a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: db2c55ec30e766496b98ef66b584df26f2dfe116
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962565"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239284"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>관리 포털에서 Azure Stack에 대 한 백업을 사용 하도록 설정
 Azure Stack 백업을 생성할 수 있도록 관리 포털을 통해 인프라 Backup 서비스를 사용 합니다. 경우 클라우드 복구를 사용 하 여 환경을 복원 하려면 이러한 백업에 사용할 수 있습니다 [치명적인 오류](./azure-stack-backup-recover-data.md)합니다. 클라우드 복구의 목적은 운영자와 사용자 수에 다시 로그인 포털 복구가 완료 된 후 확인 합니다. 사용자 구독 역할 기반 액세스 권한 및 역할, 원래 계획, 제품 및 이전에 정의 된 계산, 저장소 및 네트워크 할당량을 비롯 하 여 복원 해야 합니다.
@@ -30,7 +31,7 @@ Azure Stack 백업을 생성할 수 있도록 관리 포털을 통해 인프라 
 관리자와 사용자가 백업 및 인프라 백업 프로세스에서 IaaS 및 PaaS 리소스를 개별적으로 복원 하는 일을 담당 합니다. IaaS 및 PaaS 리소스에 대 한 자세한 내용은 다음 링크를 참조 합니다.
 
 - [Virtual Machines](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-protect)
-- [App Service](https://docs.microsoft.com/azure/app-service/web-sites-backup)
+- [App Service](https://docs.microsoft.com/azure/app-service/manage-backup)
 - [SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
 
 

@@ -2,10 +2,10 @@
 title: Azure Active Directory Identity Protection에서 다단계 인증 등록 정책을 구성하는 방법 | Microsoft Docs
 description: Azure AD ID 보호 다단계 인증 등록 정책을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
-keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
+keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 애플리케이션 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.component: identity-protection
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 792a1fc2403e672c973577efd7a05c9c81d45ad4
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 47c742e486c01d2861889419a56c252e74f1e316
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054084"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469834"
 ---
 # <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>방법: 다단계 인증 등록 정책 구성
 

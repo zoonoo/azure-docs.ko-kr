@@ -3,19 +3,19 @@ title: Azure Active Directory B2C의 ID 경험 프레임워크 스키마용 JSON
 description: Azure Active Directory B2C의 ID 경험 프레임워크 스키마용 JSON 클레임 변환의 예제를 제공합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d712286cb4ea5e67474ec11d56d99eaf2cabec3e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: e7096773f2aaa39abd965b4697f45a3b3f80f136
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433075"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850844"
 ---
 # <a name="json-claims-transformations"></a>JSON 클레임 변환
 

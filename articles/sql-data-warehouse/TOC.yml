@@ -20,20 +20,26 @@ items:
 - name: 릴리스 정보
   href: release-notes.md
   items:
-  - name: 2018년 10월
-    href: release-notes-october-2018.md
-  - name: 2018년 9월
-    href: release-notes-september-2018.md
-  - name: 2018년 8월
-    href: release-notes-august-2018.md
-  - name: 2018년 7월
-    href: release-notes-july-2018.md
-  - name: 2018년 6월
-    href: release-notes-june-2018.md
-  - name: 2018년 5월
-    href: release-notes-may-2018.md
-  - name: 2018년 4월
-    href: release-notes-april-2018.md
+  - name: 버전 10.0.10106.0
+    href: release-notes-10-0-10106-0.md
+  - name: 보관된 릴리스 정보
+    items:
+    - name: 2018년 12월
+      href: release-notes-december-2018.md
+    - name: 2018년 10월
+      href: release-notes-october-2018.md
+    - name: 2018년 9월
+      href: release-notes-september-2018.md
+    - name: 2018년 8월
+      href: release-notes-august-2018.md
+    - name: 2018년 7월
+      href: release-notes-july-2018.md
+    - name: 2018년 6월
+      href: release-notes-june-2018.md
+    - name: 2018년 5월
+      href: release-notes-may-2018.md
+    - name: 2018년 4월
+      href: release-notes-april-2018.md
 - name: 빠른 시작
   items:
   - name: 만들기 및 연결
@@ -78,7 +84,7 @@ items:
     - name: Multi-Factor Auth
       href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
     - name: 감사
-      href: sql-data-warehouse-auditing-overview.md
+      href: ../sql-database/sql-database-auditing.md?toc=/azure/sql-data-warehouse/toc.json
     - name: 열 수준 보안
       href: column-level-security.md
     - name: 행 수준 보안
@@ -305,9 +311,9 @@ items:
       href: sql-data-warehouse-partner-data-integration.md
     - name: 데이터 관리
       href: sql-data-warehouse-partner-data-management.md
-ms.openlocfilehash: f971671b20921a2e92e85054fe770acea040360a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 33d40d3884c61a95b791afff2c11f65dd2e20878
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964495"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423581"

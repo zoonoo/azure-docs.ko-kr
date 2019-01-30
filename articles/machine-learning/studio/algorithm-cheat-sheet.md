@@ -1,24 +1,21 @@
 ---
-title: 기계 학습 알고리즘 치트 시트 - Azure Machine Learning Studio | Microsoft Docs
+title: 기계 학습 알고리즘 치트 시트
+titleSuffix: Azure Machine Learning Studio
 description: 인쇄 가능한 기계 학습 알고리즘 치트 시트를 사용하면 Azure Machine Learning Studio에서 예측 모델에 적합한 알고리즘을 선택합니다.
-keywords: 알고리즘 치트 시트, 치트 시트, 기계 학습 알고리즘
 services: machine-learning
-author: ericlicoding
-ms.custom: (previous ms.author=pakalra, author=pakalra)
-ms.author: amlstudiodocs
-manager: cgronlun
-editor: cgronlun
-ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
 ms.service: machine-learning
 ms.component: studio
 ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 307a2d442fc8cf82630b111b6ea73e180c740c64
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 69b085faf10b9e22618fa248460d269bd2efdb73
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307417"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264311"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 기계 학습 알고리즘 치트 시트
 
@@ -28,9 +25,9 @@ ms.locfileid: "52307417"
 
 ## <a name="download-machine-learning-algorithm-cheat-sheet"></a>다운로드: 기계 학습 알고리즘 치트 시트
 
-**여기서 치트 시트 다운로드: [Machine Learning 알고리즘 치트 시트(11x17인치)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
+**여기서 치트 시트 다운로드: [기계 학습 알고리즘 치트 시트(11x17인치)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
 
-![Machine Learning 알고리즘 치트 시트: Machine Learning 알고리즘을 선택하는 방법에 대해 알아봅니다.][cheat-sheet]
+![기계 학습 알고리즘 치트 시트: 기계 학습 알고리즘을 선택하는 방법을 알아봅니다.][cheat-sheet]
 
 [cheat-sheet]: ./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
 
@@ -43,7 +40,7 @@ ms.locfileid: "52307417"
 
 * 알고리즘 치트 시트에서 제공된 제안 사항은 대략적인 위치 조정 규칙입니다. 제안을 변형하거나 명백하게 위반할 수 있습니다. 시작점을 제안하기 위한 용도로만 제공됩니다. 데이터에 대해 여러 알고리즘을 실행하고 비교해 보세요. 각 알고리즘의 원칙과 데이터를 생성한 시스템에 대한 이해가 필요합니다.
 
-* 모든 Machine Learning 알고리즘에는 자체 스타일이나 *귀납적 바이어스*가 있습니다. 특정 문제의 경우 여러 알고리즘이 적절할 수 있으며, 한 알고리즘이 다른 알고리즘보다 더 적합할 수 있습니다. 하지만 어떤 것이 가장 적합한지 항상 미리 알 수 없습니다. 이러한 경우 여러 알고리즘이 참고 자료에 함께 나열됩니다. 적절한 전략은 한 알고리즘을 시도하고, 결과가 만족스럽지 않을 경우 다른 알고리즘을 시도하는 것입니다. 동일한 데이터에 대해 여러 알고리즘을 시도하고 그 결과를 비교하는 실험의 예제는 [Azure AI 갤러리](http://gallery.azure.ai/)에서 [다중 클래스 분류자 비교: 문자 인식](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92)을 참조합니다.
+* 모든 Machine Learning 알고리즘에는 자체 스타일이나 *귀납적 바이어스*가 있습니다. 특정 문제의 경우 여러 알고리즘이 적절할 수 있으며, 한 알고리즘이 다른 알고리즘보다 더 적합할 수 있습니다. 하지만 어떤 것이 가장 적합한지 항상 미리 알 수 없습니다. 이러한 경우 여러 알고리즘이 참고 자료에 함께 나열됩니다. 적절한 전략은 한 알고리즘을 시도하고, 결과가 만족스럽지 않을 경우 다른 알고리즘을 시도하는 것입니다. 동일한 데이터에 대해 여러 알고리즘을 시도하고 그 결과를 비교하는 실험의 예제는 [Azure AI Gallery](http://gallery.azure.ai/)에서 [다중 클래스 분류자 비교: 문자 인식](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92)을 참조하세요.
 
 * Machine Learning의 세 가지 주요 범주는 **감독 학습**, **자율 학습** 및 **보충 학습**입니다.
 
@@ -51,7 +48,7 @@ ms.locfileid: "52307417"
 
   * **자율 학습**에서 데이터 요소에는 연결된 레이블이 없습니다. 대신, 자율 학습 알고리즘의 목표는 어떤 방식으로든 데이터를 구성하거나 해당 구조를 설명하는 것입니다. 이는 K-Means처럼 클러스터로 그룹화하거나 더 간단하게 표시되도록 복잡한 데이터를 보는 다양한 방법을 찾는 것을 의미할 수 있습니다.
 
-  * **보충 학습**에서 알고리즘은 각 데이터 요소에 대한 응답으로 작업을 선택합니다. 이는 지정 시간 센서 판독값 집합이 한 데이터 요소이며 알고리즘으로 로봇의 다음 동작을 선택해야 하는 로봇 공학의 일반적인 접근 방식입니다. 사물 인터넷의 응용 프로그램에 적합한 학습이기도 합니다. 또한 학습 알고리즘은 짧은 시간 후에 결정이 얼마나 효율적이었는지를 나타내는 보상 신호를 받습니다. 이 신호에 따라 알고리즘은 가장 높은 보상을 달성하기 위해 해당 전략을 수정합니다. 현재 Azure 기계 학습에는 보충 학습 알고리즘 모듈이 없습니다.
+  * **보충 학습**에서 알고리즘은 각 데이터 요소에 대한 응답으로 작업을 선택합니다. 이는 지정 시간 센서 판독값 집합이 한 데이터 요소이며 알고리즘으로 로봇의 다음 동작을 선택해야 하는 로봇 공학의 일반적인 접근 방식입니다. 사물 인터넷의 애플리케이션에 적합한 학습이기도 합니다. 또한 학습 알고리즘은 짧은 시간 후에 결정이 얼마나 효율적이었는지를 나타내는 보상 신호를 받습니다. 이 신호에 따라 알고리즘은 가장 높은 보상을 달성하기 위해 해당 전략을 수정합니다. 현재 Azure 기계 학습에는 보충 학습 알고리즘 모듈이 없습니다.
 
 * **베이지안 분석법**은 통계적으로 독립적인 데이터 요소를 가정합니다. 즉, 한 데이터 요소의 모델링되지 않은 가변성이 다른 데이터 요소와 상호 관련이 없어 예측할 수 없음을 의미합니다. 예를 들어 기록되는 데이터가 다음 지하철이 도착할 때까지 남은 시간(분)인 경우 하루 간격으로 수행된 두 측정값은 통계적으로 독립적입니다. 그러나 1분 간격으로 측정한 두 값은 통계적으로 독립적이지 않습니다. 한 측정값을 보면 다른 측정값을 쉽게 예측할 수 있습니다.
 
@@ -73,7 +70,7 @@ ms.locfileid: "52307417"
 
 * Machine Learning Studio의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure Machine Learning Studio 기능 개요](studio-overview-diagram.md)를 참조하세요.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 <!-- Module References -->
 [a-z-list]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list

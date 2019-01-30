@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 87bef3568e45f3d966d90d980403c83c96aa461f
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 7e320bdc98de75141aed4783d343571971287f37
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300871"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052538"
 documentType: LandingData
 title: Azure의 Chef Software 설명서
 metadata:
@@ -12,7 +12,7 @@ metadata:
   description: Chef Software는 실제 및 가상 서버 구성의 관리를 활성화하는 Linux 및 Windows용 DevOps 자동화 플랫폼을 제공합니다. 빠른 시작 및 자습서를 통해 Chef Software 제품을 사용하여 IaC(Infrastructure as Code) 기법을 자동화하고 Azure에서 가상 머신을 관리하고 배포하는 방법을 알아보세요.
   ms.service: chef
   keywords: chef, azure, devops, 자습서, 샘플, 참조
-  author: tomarcher
+  author: tomarchermsft
   manager: jeconnoc
   ms.author: tarcher
   ms.topic: landing page

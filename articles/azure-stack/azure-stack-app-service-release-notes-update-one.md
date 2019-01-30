@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: 632cf506477bdc6f35c66a473963168f81e22351
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 03/20/2018
+ms.openlocfilehash: 9288ffa406b0e5765b35fa9b23aa13dee5754e9a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971898"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240032"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service에서 Azure Stack 업데이트 1 릴리스 정보
 
@@ -202,7 +203,7 @@ Get-AzureStackRootCert.ps1의 오류로 인해 고객이 루트 인증서가 설
 
 기존 가상 네트워크와 파일 서버에 연결할 내부 IP 주소에 배포 하기로 선택한 경우 아웃 바운드 보안 규칙을 추가 하 있습니다 작업자 서브넷과 파일 서버 간에 SMB 트래픽을 사용 하도록 설정 해야 합니다. 이렇게 하려면 관리 포털에서 WorkersNsg 이동한 다음 속성을 사용 하 여 아웃 바운드 보안 규칙을 추가 합니다.
 
-- 원본: 모든
+- 원본: 모두
 - 원본 포트 범위: *
 - 대상: IP 주소
 - 대상 IP 주소 범위: 파일 서버에 대 한 Ip의 범위

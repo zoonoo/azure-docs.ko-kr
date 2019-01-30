@@ -1,10 +1,10 @@
 ---
-title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Concur 구성 | Microsoft Docs'
+title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 Concur 구성 | Microsoft Docs'
 description: Azure Active Directory와 Concur 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: df47f55f-a894-4e01-a82e-0dbf55fc8af1
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 5832444cd30d60f7b5fe7fe6108acd5604389474
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e6e6d0d51174250954f886790dccc650064a6f45
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210108"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821892"
 ---
-# <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Concur 구성
+# <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Concur 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 Concur로 자동으로 프로비전 및 프로비전 해제하도록 Concur 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "36210108"
 
 ## <a name="assigning-users-to-concur"></a>Concur에 사용자 할당
 
-Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 “할당된” 사용자 및 그룹만 동기화됩니다.
+Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 애플리케이션에 “할당된” 사용자 및 그룹만 동기화됩니다.
 
 프로비전 서비스를 구성하고 사용하도록 설정하기 전에 Concur 앱에 대한 액세스가 필요한 사용자를 대표하는 Azure AD의 사용자 및/또는 그룹을 결정해야 합니다. 결정했으면 다음 지시에 따라 이러한 사용자를 Concur 앱에 할당할 수 있습니다.
 
@@ -66,7 +66,7 @@ Concur 컨설턴트 또는 클라이언트 관리자는 고유한 웹 서비스 
 
 다음과 같은 이유로 이 작업은 일반 T&E 관리에 사용하는 프로필을 사용하지 말아야 합니다.
 
-* 앱을 사용하도록 설정한 후에 클라이언트가 표시되는 대화창에서 "*예*"를 클릭해야 합니다. 클릭함으로써 클라이언트는 파트너 응용 프로그램이 데이터에 액세스하도록 승인하므로 사용자나 파트너가 해당 예 단추를 클릭할 수 없습니다.
+* 앱을 사용하도록 설정한 후에 클라이언트가 표시되는 대화창에서 "*예*"를 클릭해야 합니다. 클릭함으로써 클라이언트는 파트너 애플리케이션이 데이터에 액세스하도록 승인하므로 사용자나 파트너가 해당 예 단추를 클릭할 수 없습니다.
 
 * T&E 관리자 프로필을 사용하여 앱을 사용하도록 설정한 클라이언트 관리자가 퇴사하면(비활성화된 프로필이 발생함) 앱이 다른 WS 관리자 프로필로 설정될 때까지 해당 프로필을 사용하도록 설정된 앱은 작동하지 않습니다. 이 때문에 고유한 WS 관리자 프로필을 만들도록 합니다.
 
@@ -80,11 +80,11 @@ Concur 컨설턴트 또는 클라이언트 관리자는 고유한 웹 서비스 
    
     ![Concur 테넌트](./media/concur-provisioning-tutorial/IC721729.png "Concur 테넌트")
 
-3. 왼쪽의 **웹 서비스** 창에서 **파트너 응용 프로그램 사용**을 선택합니다.
+3. 왼쪽의 **웹 서비스** 창에서 **파트너 애플리케이션 사용**을 선택합니다.
    
-    ![파트너 응용 프로그램 사용](./media/concur-provisioning-tutorial/ic721730.png "파트너 응용 프로그램 사용")
+    ![파트너 애플리케이션 사용](./media/concur-provisioning-tutorial/ic721730.png "파트너 애플리케이션 사용")
 
-4. **응용 프로그램 사용** 목록에서 **Azure Active Directory**를 선택하고 **사용**을 클릭합니다.
+4. **애플리케이션 사용** 목록에서 **Azure Active Directory**를 선택하고 **사용**을 클릭합니다.
    
     ![Microsoft Azure Active Directory](./media/concur-provisioning-tutorial/ic721731.png "Microsoft Azure Active Directory")
 
@@ -92,9 +92,9 @@ Concur 컨설턴트 또는 클라이언트 관리자는 고유한 웹 서비스 
    
     ![동작 확인](./media/concur-provisioning-tutorial/ic721732.png "동작 확인")
 
-6. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory > 엔터프라이즈 앱 > 모든 응용 프로그램** 섹션으로 이동합니다.
+6. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; 모든 애플리케이션** 섹션으로 이동합니다.
 
-7. Single Sign-On에 대한 Concur를 이미 구성한 경우 검색 필드를 사용하여 Concur의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 응용 프로그램 갤러리에서 **Concur**를 검색합니다. 검색 결과에서 Concur를 선택하고 응용 프로그램의 목록에 추가합니다.
+7. Single Sign-On에 대한 Concur를 이미 구성한 경우 검색 필드를 사용하여 Concur의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 애플리케이션 갤러리에서 **Concur**를 검색합니다. 검색 결과에서 Concur를 선택하고 애플리케이션의 목록에 추가합니다.
 
 8. Concur의 인스턴스를 선택한 다음 **프로비전** 탭을 선택합니다.
 
@@ -123,6 +123,6 @@ Concur 컨설턴트 또는 클라이언트 관리자는 고유한 웹 서비스 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 * [Single Sign-On 구성](concur-tutorial.md)
 

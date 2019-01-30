@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 180d84f40f3d439419f9667b246b8c4b5c69814a
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 05e77821ffe913a8c6669d58a3145635d230ff2b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974191"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847000"
 ---
 # <a name="manage-process-servers"></a>프로세스 서버 관리
 
@@ -49,7 +49,7 @@ ms.locfileid: "51974191"
 
 이 옵션을 통해 하나 이상의 가상 머신을 선택하고 다른 프로세스 서버로 전송할 수 있습니다.
 
-1. **부하 분산**을 클릭하고, 드롭다운에서 대상 프로세스 서버를 선택합니다.  **확인**
+1. **부하 분산**을 클릭하고, 드롭다운에서 대상 프로세스 서버를 선택합니다. **확인**
 
     ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
@@ -125,5 +125,5 @@ ms.locfileid: "51974191"
 - C:\ProgramData\ASRSetupLogs
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site Recovery
-- 프로세스 서버 설치 디렉터리(예: C:\Program Files (x86)\Microsoft Azure Site Recovery)
+- 프로세스 서버 설치 디렉터리, 예제: C:\Program Files (x86)\Microsoft Azure Site Recovery
 

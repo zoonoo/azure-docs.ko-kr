@@ -1,5 +1,5 @@
 ---
-title: 데이터 과학 팀 프로젝트용 플랫폼 및 도구 - Azure | Microsoft Docs
+title: 데이터 과학 프로젝트에 대한 플랫폼 및 도구 - Team Data Science Process
 description: Team Data Science Process를 표준화하는 기업에서 사용할 수 있는 데이터 및 분석 리소스를 항목별로 정리하고 설명합니다.
 author: marktab
 manager: cgronlun
@@ -9,13 +9,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 5df2cbabeb704453d71a0ac1db14c618dae352d2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 8a37c200e52e1d2786690a8a0e669af57312294d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446452"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139180"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>데이터 과학 프로젝트용 플랫폼 및 도구
 
@@ -57,7 +57,7 @@ DSVM에서 일반적인 데이터 과학 작업 중 일부를 효율적으로 �
 
 Apache Spark는 메모리 내 처리를 지원하여 빅데이터 분석 응용 프로그램의 성능을 향상시키는 오픈 소스 병렬 처리 프레임워크입니다. 속도, 간편한 사용 및 정교한 분석을 위해 Spark 처리 엔진이 빌드되었습니다. Spark의 메모리 내 계산 기능은 기계 학습 및 그래프 계산의 반복 알고리즘에 적합합니다. 또한 Spark는 Azure Blob 저장소(WASB)와 호환되므로 Azure에 저장된 기존 데이터를 Spark를 통해 쉽게 처리할 수 있습니다.
 
-HDInsight에서 Spark 클러스터를 만들 때는 설치 및 구성된 Spark로 Azure 계산 리소스를 만듭니다. HDInsight에서 Spark 클러스터를 만드는 데 약 10분 정도 걸립니다. 처리되는 데이터는 Azure Blob Storage에 저장합니다. 클러스터에서 Azure Blob Storage를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop으로 HDFS 호환 Azure Blob 저장소 사용](../../hdinsight/hdinsight-hadoop-use-blob-storage.md)을 참조하세요.
+HDInsight에서 Spark 클러스터를 만들 때는 설치 및 구성된 Spark로 Azure 계산 리소스를 만듭니다. HDInsight에서 Spark 클러스터를 만드는 데 약 10분 정도 걸립니다. 처리되는 데이터는 Azure Blob Storage에 저장합니다. 클러스터에서 Azure Blob Storage를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop으로 HDFS 호환 Azure Blob 스토리지 사용](../../hdinsight/hdinsight-hadoop-use-blob-storage.md)을 참조하세요.
 
 Microsoft의 TDSP 팀은 Azure HDInsight Spark Clusters를 사용하여 Python과 다른 Scala를 사용하여 데이터 과학 솔루션을 구축하는 방법에 대한 두 가지 포괄적인 연습을 게시했습니다. Azure HDInsight **Spark 클러스터**에 대한 자세한 내용은 [개요: HDInsight Linux의 Apache Spark](../../hdinsight/spark/apache-spark-overview.md)를 참조하세요. Azure HDInsight Spark 클러스터에서 **Python**을 사용하여 데이터 과학 솔루션을 빌드하는 방법은 [Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요](spark-overview.md)를 참조하세요. Azure HDInsight Spark 클러스터에서 **Scala**를 사용하여 데이터 과학 솔루션을 빌드하는 방법은 [Azure에서 Scala 및 Spark를 사용하는 데이터 과학](scala-walkthrough.md)을 참조하세요. 
 
@@ -73,7 +73,7 @@ Azure SQL Data Warehouse에 대한 자세한 내용은 [SQL Data Warehouse](http
 
 Azure Data Lake는 공식 요구 사항이나 스키마가 적용되기 전에 모든 형식의 데이터를 단일 위치에 수집하는 엔터프라이즈 수준의 리포지토리입니다. 이러한 유연성을 통해 크기, 구조 또는 수집 속도에 관계 없이 모든 형식의 데이터를 데이터 레이크에 보관할 수 있습니다. 그런 다음 조직에서는 Hadoop 또는 고급 분석을 사용하여 이러한 데이터 레이크에서 패턴을 찾을 수 있습니다. 또한 데이터 레이크는 데이터를 큐레이팅하고 데이터 웨어하우스로 이동하기 전에 저렴한 비용으로 데이터를 준비하기 위한 리포지토리 역할을 수행할 수 있습니다.
 
-Azure Data Lake에 대한 자세한 내용은 [Azure Data Lake 소개](https://azure.microsoft.com/blog/introducing-azure-data-lake/)를 참조하세요. Azure Data Lake를 사용하여 확장 가능한 종단 간 데이터 과학 솔루션을 빌드하는 방법은 [Azure Data Lake의 확장 가능한 데이터 과학: 종단 간 연습](data-lake-walkthrough.md)을 참조하세요.
+Azure Data Lake에 대한 자세한 내용은 [Azure Data Lake 소개](https://azure.microsoft.com/blog/introducing-azure-data-lake/)를 참조하세요. Azure Data Lake를 사용하여 확장 가능한 엔드투엔드 데이터 과학 솔루션을 빌드하는 방법은 [Azure Data Lake의 확장 가능한 데이터 과학: 엔드투엔드 연습](data-lake-walkthrough.md)을 참조하세요.
 
 
 ## <a name="azure-hdinsight-hive-hadoop-clusters"></a>Azure HDInsight Hive(Hadoop) 클러스터
@@ -129,17 +129,17 @@ Linux(CentOS) 컴퓨터를 사용하여 git 명령을 실행하는 경우 Azure 
         ssh-keygen
         cat .ssh/id_rsa.pub
 
-![](./media/platforms-and-tools/resources-1-generate_ssh.png)
+![SSH 키를 생성하는 명령](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - *ssh-rsa*가 포함된 ssh 키 전체를 복사합니다. 
 - Azure DevOps Services에 로그인합니다. 
 - 페이지의 오른쪽 위 모서리에 있는 **<사용자 이름\>** 을 클릭하고 **보안**을 클릭합니다. 
     
-    ![](./media/platforms-and-tools/resources-2-user-setting.png)
+    ![이름을 클릭한 다음, 보안 클릭](./media/platforms-and-tools/resources-2-user-setting.png)
 
 - **SSH 공개 키**를 클릭하고 **+ 추가**를 클릭합니다. 
 
-    ![](./media/platforms-and-tools/resources-3-add-ssh.png)
+    ![SSH 공개 키를 클릭한 다음, +추가 클릭](./media/platforms-and-tools/resources-3-add-ssh.png)
 
 - 텍스트 상자에서 방금 복사한 ssh 키를 붙여넣고 저장합니다.
 

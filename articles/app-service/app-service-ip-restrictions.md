@@ -1,5 +1,5 @@
 ---
-title: Azure App Service IP 제한 | Microsoft Docs
+title: 클라이언트 IP 제한 - Azure App Service | Microsoft Docs
 description: Azure App Service에 IP 제한을 사용하는 방법
 author: ccompy
 manager: stefsch
@@ -12,20 +12,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 7/30/2018
+ms.date: 07/30/2018
 ms.author: ccompy
-ms.openlocfilehash: 9ffeb01a46b62202292f6e1ea91f47cd87954387
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.custom: seodec18
+ms.openlocfilehash: 337d71c84ace7f44c2668cf2344d9083c4a85bee
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219131"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651065"
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Azure App Service 고정 IP 제한 #
 
 IP 제한을 사용하여 앱 액세스가 허용되는 IP 주소의 허용/거부 목록을 우선 순위대로 정의할 수 있습니다. 허용 목록에는 IPv4 및 IPv6 주소가 포함될 수 있습니다. 하나 이상의 항목이 있는 경우 목록 끝에 암시적 모두 거부가 표시됩니다. 
 
-IP 제한 기능은 웹앱 API 앱, Linux 앱, Linux 컨테이너 앱 및 함수를 포함하는 모든 App Service 호스티드 워크로드에 작동합니다. 
+IP 제한 기능은 웹앱, API 앱, Linux 앱, Linux 컨테이너 앱 및 Functions를 포함하는 모든 App Service 호스트된 워크로드에 작동합니다. 
 
 앱에 대한 요청이 수행될 경우 FROM IT 주소가 IP 제한 목록에 속하는지 평가됩니다. 주소가 목록의 규칙을 기준으로 허용되지 않을 경우 서비스는 [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) 상태 코드로 답변합니다.
 
@@ -33,7 +34,7 @@ IP 제한 기능은 코드가 실행되는 작업자 역할의 업스트림에 �
 
 ![IP 제한 흐름](media/app-service-ip-restrictions/ip-restrictions-flow.png)
 
-이전에 포털의 IP 제한 기능은 IIS의 ipSecurity 기능 맨 위에 있는 계층이었습니다. 현재 IP 제한 기능은 다릅니다. ipSecurity를 응용 프로그램 web.config 내에서 구성할 수 있지만 트래픽이 IIS에 도달하기 전에 프런트 엔드 기반 IP 제한 규칙이 적용됩니다.
+이전에 포털의 IP 제한 기능은 IIS의 ipSecurity 기능 맨 위에 있는 계층이었습니다. 현재 IP 제한 기능은 다릅니다. ipSecurity를 애플리케이션 web.config 내에서 구성할 수 있지만 트래픽이 IIS에 도달하기 전에 프런트 엔드 기반 IP 제한 규칙이 적용됩니다.
 
 ## <a name="adding-and-editing-ip-restriction-rules-in-the-portal"></a>포털에서 IP 제한 규칙 추가 및 편집 ##
 

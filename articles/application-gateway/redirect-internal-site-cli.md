@@ -1,6 +1,6 @@
 ---
-title: 내부 리디렉션으로 응용 프로그램 게이트웨이 만들기 - Azure CLI | Microsoft Docs
-description: Azure CLI를 사용하여 내부 웹 트래픽을 해당 풀로 리디렉션하는 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다.
+title: 내부 리디렉션으로 애플리케이션 게이트웨이 만들기 - Azure CLI | Microsoft Docs
+description: Azure CLI를 사용하여 내부 웹 트래픽을 해당 풀로 리디렉션하는 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 7a70f70d8cdabe325aa3b177d67bf86bd2c6e806
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9874903b93cd958e0063348e2df428790af9d144
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999633"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850176"
 ---
-# <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Azure CLI를 사용하여 내부 리디렉션으로 응용 프로그램 게이트웨이 만들기
+# <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Azure CLI를 사용하여 내부 리디렉션으로 애플리케이션 게이트웨이 만들기
 
-Azure CLI를 사용하여 [응용 프로그램 게이트웨이](overview.md)를 만들 때 [웹 트래픽 리디렉션](multiple-site-overview.md)을 구성할 수 있습니다. 이 자습서에서는 가상 머신 확장 집합을 사용하여 백 엔드 풀을 정의합니다. 그런 다음, 웹 트래픽이 적절한 풀에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 자습서에서는 여러 도메인을 소유하고 있으며 *www.contoso.com* 및 *www.contoso.org*의 예를 사용한다고 가정합니다.
+Azure CLI를 사용하여 [애플리케이션 게이트웨이](overview.md)를 만들 때 [웹 트래픽 리디렉션](multiple-site-overview.md)을 구성할 수 있습니다. 이 자습서에서는 가상 머신 확장 집합을 사용하여 백 엔드 풀을 정의합니다. 그런 다음, 웹 트래픽이 적절한 풀에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 자습서에서는 여러 도메인을 소유하고 있으며 *www.contoso.com* 및 *www.contoso.org*의 예를 사용한다고 가정합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 > * 네트워크 설정
-> * 응용 프로그램 게이트웨이 만들기
+> * 애플리케이션 게이트웨이 만들기
 > * 수신기 및 리디렉션 규칙 추가
 > * 백 엔드 풀로 가상 머신 확장 집합 만들기
 > * 도메인에서 CNAME 레코드 만들기
@@ -40,7 +40,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. [az group create](/cli/azure/group#create)를 사용하여 리소스 그룹을 만듭니다.
+리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다.
 
 다음 예제에서는 *eastus* 위치에 *myResourceGroupAG*라는 리소스 그룹을 만듭니다.
 
@@ -70,9 +70,9 @@ az network public-ip create \
   --name myAGPublicIPAddress
 ```
 
-## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
+## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
-[az network application-gateway create](/cli/azure/network/application-gateway#create)를 사용하여 *myAppGateway*라는 응용 프로그램 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 응용 프로그램 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 응용 프로그램 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myAGPublicIPAddress*에 할당됩니다. 
+[az network application-gateway create](/cli/azure/network/application-gateway)를 사용하여 *myAppGateway*라는 애플리케이션 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myAGPublicIPAddress*에 할당됩니다. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -90,9 +90,9 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress
 ```
 
-응용 프로그램 게이트웨이가 생성될 때까지 몇 분 정도 걸릴 수 있습니다. 응용 프로그램 게이트웨이가 생성되면 다음과 같은 새 기능을 볼 수 있습니다.
+애플리케이션 게이트웨이가 생성될 때까지 몇 분 정도 걸릴 수 있습니다. 애플리케이션 게이트웨이가 생성되면 다음과 같은 새 기능을 볼 수 있습니다.
 
-- *appGatewayBackendPool* - 응용 프로그램 게이트웨이에 백 엔드 주소 풀이 하나 이상 있어야 합니다.
+- *appGatewayBackendPool* - 애플리케이션 게이트웨이에 백 엔드 주소 풀이 하나 이상 있어야 합니다.
 - *appGatewayBackendHttpSettings* - 포트 80 및 HTTP 프로토콜을 통신에 사용하도록 지정합니다.
 - *appGatewayHttpListener* - *appGatewayBackendPool*에 연결되는 기본 수신기입니다.
 - *appGatewayFrontendIP* - *myAGPublicIPAddress*를 *appGatewayHttpListener*에 할당합니다.
@@ -101,7 +101,7 @@ az network application-gateway create \
 
 ## <a name="add-listeners-and-rules"></a>수신기 및 규칙 추가 
 
-응용 프로그램 게이트웨이에서 트래픽을 백 엔드 풀로 적절히 라우팅할 수 있는 수신기가 필요합니다. 이 자습서에서는 두 도메인에 대해 두 개의 수신기를 만듭니다. 이 예제에서는 *www.contoso.com* 및 *www.contoso.org*의 도메인에 대해 수신기가 생성됩니다.
+애플리케이션 게이트웨이에서 트래픽을 백 엔드 풀로 적절히 라우팅할 수 있는 수신기가 필요합니다. 이 자습서에서는 두 도메인에 대해 두 개의 수신기를 만듭니다. 이 예제에서는 *www.contoso.com* 및 *www.contoso.org*의 도메인에 대해 수신기가 생성됩니다.
 
 [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create)를 사용하여 트래픽을 라우팅하는 데 필요한 백 엔드 수신기를 추가합니다.
 
@@ -124,7 +124,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>리디렉션 구성 추가
 
-[az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network_application_gateway_redirect_config_create)를 사용하여 응용 프로그램 게이트웨이에서 *www.consoto.org*의 트래픽을 *www.contoso.com*의 수신기로 전송하는 리디렉션 구성을 추가합니다.
+[az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network_application_gateway_redirect_config_create)를 사용하여 애플리케이션 게이트웨이에서 *www.consoto.org*의 트래픽을 *www.contoso.com*의 수신기로 전송하는 리디렉션 구성을 추가합니다.
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -139,7 +139,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-routing-rules"></a>라우팅 규칙 추가
 
-규칙은 생성된 순서대로 처리되며, 응용 프로그램 게이트웨이로 전송된 URL과 일치하는 첫 번째 규칙을 사용하여 트래픽이 리디렉션됩니다. 예를 들어 기본 수신기를 사용하는 규칙과 다중 사이트 수신기를 사용하는 규칙이 둘 다 같은 포트에 있는 경우 다중 사이트 규칙이 예상대로 작동하려면 다중 사이트 수신기를 사용하는 규칙은 기본 수신기를 사용하는 규칙 앞에 나열되어야 합니다. 
+규칙은 생성된 순서대로 처리되며, 애플리케이션 게이트웨이로 전송된 URL과 일치하는 첫 번째 규칙을 사용하여 트래픽이 리디렉션됩니다. 예를 들어 기본 수신기를 사용하는 규칙과 다중 사이트 수신기를 사용하는 규칙이 둘 다 같은 포트에 있는 경우 다중 사이트 규칙이 예상대로 작동하려면 다중 사이트 수신기를 사용하는 규칙은 기본 수신기를 사용하는 규칙 앞에 나열되어야 합니다. 
 
 이 예제에서는 두 개의 새 규칙을 만들고 생성된 기본 규칙을 삭제합니다.  [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create)를 사용하여 규칙을 추가할 수 있습니다.
 
@@ -201,7 +201,7 @@ az vmss extension set \
 
 ## <a name="create-cname-record-in-your-domain"></a>도메인에서 CNAME 레코드 만들기
 
-응용 프로그램 게이트웨이가 해당 공용 IP 주소로 생성된 후 DNS 주소를 가져와 도메인에서 CNAME 레코드를 만드는 데 사용할 수 있습니다. [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show)를 사용하여 응용 프로그램 게이트웨이의 DNS 주소를 가져올 수 있습니다. DNSSettings의 *fqdn* 값을 복사하여 만드는 CNAME 레코드의 값으로 사용합니다. A 레코드를 사용할 경우 응용 프로그램 게이트웨이를 다시 시작할 때 VIP가 변경될 수 있으므로 권장되지 않습니다.
+애플리케이션 게이트웨이가 해당 공용 IP 주소로 생성된 후 DNS 주소를 가져와 도메인에서 CNAME 레코드를 만드는 데 사용할 수 있습니다. [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show)를 사용하여 애플리케이션 게이트웨이의 DNS 주소를 가져올 수 있습니다. DNSSettings의 *fqdn* 값을 복사하여 만드는 CNAME 레코드의 값으로 사용합니다. A 레코드를 사용할 경우 애플리케이션 게이트웨이를 다시 시작할 때 VIP가 변경될 수 있으므로 권장되지 않습니다.
 
 ```azurecli-interactive
 az network public-ip show \
@@ -211,11 +211,11 @@ az network public-ip show \
   --output tsv
 ```
 
-## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
+## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
 브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http://www.contoso.com
 
-![응용 프로그램 게이트웨이에서 contoso 사이트 테스트](./media/redirect-internal-site-cli/application-gateway-nginxtest.png)
+![애플리케이션 게이트웨이에서 contoso 사이트 테스트](./media/redirect-internal-site-cli/application-gateway-nginxtest.png)
 
 주소를 다른 도메인(예: http://www.contoso.org ) 으로 변경하면 트래픽이 www.contoso.com의 수신기로 다시 리디렉션되었다고 표시됩니다.
 
@@ -224,7 +224,7 @@ az network public-ip show \
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > * 네트워크 설정
-> * 응용 프로그램 게이트웨이 만들기
+> * 애플리케이션 게이트웨이 만들기
 > * 수신기 및 리디렉션 규칙 추가
 > * 백 엔드 풀로 가상 머신 확장 집합 만들기
 > * 도메인에서 CNAME 레코드 만들기

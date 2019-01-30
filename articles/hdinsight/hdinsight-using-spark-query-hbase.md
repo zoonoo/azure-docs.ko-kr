@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: 1136d97ad1c1d02320331e6d2013b68526d5abb4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 547cc30bdf3dedff30c28165a7a76093a6512b83
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277905"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993095"
 ---
-# <a name="use-spark-to-read-and-write-hbase-data"></a>Spark를 사용하여 HBase 데이터 읽기 및 쓰기
+# <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Apache Spark를 사용하여 Apache HBase 데이터 읽기 및 쓰기
 
-Apache HBase는 일반적으로 낮은 수준의 API(scans, gets, puts) 또는 Phoenix를 사용하는 SQL 구문을 사용하여 쿼리됩니다. 또한 Apache는 Spark HBase 커넥터를 제공하며 이 커넥터는 HBase에서 저장한 데이터를 쿼리하고 수정하는 대신 편리하고 효율적인 대안입니다.
+Apache HBase는 일반적으로 낮은 수준의 API(scans, gets, puts) 또는 Apache Phoenix를 사용하는 SQL 구문을 사용하여 쿼리됩니다. 또한 Apache는 Apache Spark HBase 커넥터를 제공하며 이 커넥터는 HBase에서 저장한 데이터를 쿼리하고 수정하는 대신 편리하고 효율적인 대안입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -38,9 +38,9 @@ Spark 클러스터가 HDInsight 클러스터를 쿼리할 수 ​​있도록 �
 5. Spark에서 HBase로 스키마를 매핑하는 카탈로그를 정의합니다.
 6. RDD 또는 데이터 프레임 API를 사용하여 HBase 데이터와 상호 작용합니다.
 
-## <a name="prepare-sample-data-in-hbase"></a>HBase에서 샘플 데이터 준비
+## <a name="prepare-sample-data-in-apache-hbase"></a>Apache HBase에서 샘플 데이터 준비
 
-이 단계에서는 Spark를 사용하여 쿼리할 수 있는 간단한 단일 테이블을 HBase에 만들어 채웁니다.
+이 단계에서는 Spark를 사용하여 쿼리할 수 있는 간단한 단일 테이블을 Apache HBase에 만들어 채웁니다.
 
 1. SSH를 사용하여 HBase 클러스터의 헤드 노드에 연결합니다. 자세한 내용은 [SSH를 사용하여 HDInsight에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 2. HBase 셸을 실행합니다.
@@ -126,13 +126,13 @@ Spark 클러스터가 HDInsight 클러스터를 쿼리할 수 ​​있도록 �
 1. SSH를 사용하여 Spark 클러스터의 헤드 노드에 연결합니다.
 2. Spark 셸을 시작하여 Spark HBase 커넥터 패키지를 지정합니다.
 
-        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/content/groups/public/
+        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/
 
 3. 이 Spark 셸 인스턴스를 열린 상태로 유지하고 다음 단계를 계속합니다.
 
 ## <a name="define-a-catalog-and-query"></a>카탈로그 및 쿼리 정의
 
-이 단계에서는 Spark에서 HBase로 스키마를 매핑하는 카탈로그 개체를 정의합니다. 
+이 단계에서는 Apache Spark에서 Apache HBase로 스키마를 매핑하는 카탈로그 개체를 정의합니다. 
 
 1. 열려 있는 Spark 셸에서 다음 `import` 문을 실행합니다.
 
@@ -244,4 +244,4 @@ Spark 클러스터가 HDInsight 클러스터를 쿼리할 수 ​​있도록 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Spark HBase 커넥터](https://github.com/hortonworks-spark/shc)
+* [Apache Spark HBase 커넥터](https://github.com/hortonworks-spark/shc)

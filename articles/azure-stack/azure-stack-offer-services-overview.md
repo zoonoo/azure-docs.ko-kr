@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
-ms.reviewer: ''
-ms.openlocfilehash: e4e1701a145a36fce93db3812b67c307b342da5c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.reviewer: unknown
+ms.lastreviewed: 09/17/2018
+ms.openlocfilehash: 20cddc74dd05e982cbd332a65f9a477559caece7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127485"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244099"
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Azure Stack에서 서비스 제공 개요
 
@@ -49,9 +50,9 @@ ms.locfileid: "46127485"
 
 **평가판**: 그런 다음 추가 서비스를 업그레이드할 수 있는 새 사용자를 유치에 평가판을 사용할 수 있습니다. 평가판 제품을 만들려면 작은 [기본 계획](azure-stack-plan-offer-quota-overview.md#base-plan) 큰 선택적 추가 기능 계획 합니다.
 
-**용량 계획**: 많은 양의 리소스 및 모든 사용자를 위해 시스템을 막 히기 때문 가져오기는 사용자에 대 한 문제가 발생할 수 있습니다. 성능을 위해 수 있습니다 [계획에 할당량을 구성할](azure-stack-plan-offer-quota-overview.md#plans) cap 사용 합니다.
+**용량 계획**: 사용자 가져오기 대용량 리소스 및 모든 사용자를 위해 시스템을 막 히기 때문에 대 한 우려 수 있습니다. 성능을 위해 수 있습니다 [계획에 할당량을 구성할](azure-stack-plan-offer-quota-overview.md#plans) cap 사용 합니다.
 
-**공급자 위임**: 다른 환경에서 제품을 만들 수 있습니다를 부여할 수 있습니다. 예를 들어, 서비스 공급자 인 경우 있습니다 [대리자](azure-stack-delegated-provider.md) 여 재판매인이 기능입니다. 또는 조직 라면 다른 부서/자회사에 위임할 수 있습니다.
+**공급자 위임**: 사용자 환경에서 만드는 기능을 제공 하는 다른 사용자가 부여할 수 있습니다. 예를 들어, 서비스 공급자 인 경우 있습니다 [대리자](azure-stack-delegated-provider.md) 여 재판매인이 기능입니다. 또는 조직 라면 다른 부서/자회사에 위임할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

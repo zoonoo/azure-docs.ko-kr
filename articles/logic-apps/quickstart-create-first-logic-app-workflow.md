@@ -1,6 +1,6 @@
 ---
-title: 첫 번째 워크플로 만들기 및 자동화 - Azure Logic Apps | Microsoft Docs
-description: Azure Logic Apps를 사용하여 작업, 프로세스 및 워크플로를 자동화하는 첫 번째 논리 앱을 만드는 방법에 대한 빠른 시작입니다. 시스템 및 클라우드 서비스에서 시스템 통합 및 EAI(Enterprise Application Integration) 솔루션에 대한 논리 앱 만들기
+title: 빠른 시작 - 첫 번째 워크플로 만들기 및 자동화 - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps를 사용하여 작업, 프로세스 및 워크플로를 자동화하는 첫 번째 논리 앱을 만듭니다. 시스템 및 클라우드 서비스에서 시스템 통합 및 EAI(Enterprise Application Integration) 솔루션에 대한 논리 앱 만들기
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: fe2ca48c1cab3789f2bb501eaf00aeb9cd866b8c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: cc0f452cf9dc27354124437acc8d9a7c99fa80f4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233687"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065191"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>빠른 시작: Azure Logic Apps를 사용하여 첫 번째 자동화된 워크플로 만들기 - Azure Portal
 
@@ -38,7 +38,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
    ![논리 앱 만들기](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
-3. 여기에 보이는 것처럼 **논리 앱 만들기** 아래에서 논리 앱에 대한 정보를 제공합니다. 완료되면 **대시보드에 고정** > **만들기**를 선택합니다.
+3. 여기에 보이는 것처럼 **논리 앱 만들기** 아래에서 논리 앱에 대한 정보를 제공합니다. 완료되면 **만들기**를 선택합니다.
 
    ![논리 앱 세부 정보 제공](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
@@ -61,9 +61,9 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
 ## <a name="check-rss-feed-with-a-trigger"></a>트리거로 RSS 피드 확인
 
-1. 디자이너에서 검색 상자에 "rss"를 입력합니다. **RSS - 피드 항목이 게시되는 경우** 트리거를 선택합니다.
+1. 디자이너에서 검색 상자에 "rss"를 입력합니다. 다음 트리거를 선택합니다. **RSS - 피드 항목이 게시된 경우**
 
-   ![“RSS - 피드 항목이 게시되는 경우” 트리거를 선택합니다.](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
+   ![트리거 선택: "RSS - 피드 항목이 게시된 경우"](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
 
 2. 그림의 설명과 같이 트리거에 대한 이 정보를 제공합니다. 
 
@@ -91,13 +91,13 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
 이제 RSS 피드에 새 항목이 표시되면 이메일을 보내는 [작업](../logic-apps/logic-apps-overview.md#logic-app-concepts)을 추가합니다. 
 
-1. **피드 항목이 게시된 경우** 트리거에서 **+ 새 단계** > **작업 추가**를 선택합니다.
+1. **피드 항목이 게시된 경우** 트리거 아래에서 **새 단계**를 선택합니다.
 
    ![작업 추가](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
 
-2. **작업 선택** 아래에서 "이메일 보내기"를 필터로 입력합니다. 작업 목록에서 원하는 이메일 공급자에 대한 "이메일 보내기" 작업을 선택합니다. 
+2. **작업 선택** 아래의 검색 상자에서 "이메일 보내기"를 입력합니다. 검색 상자 아래에서 **모두**를 선택합니다. 작업 목록에서 원하는 이메일 공급자에 대한 "이메일 보내기" 작업을 선택합니다. 
 
-   ![“Office 365 Outlook - 전자 메일 보내기” 작업을 선택합니다.](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
+   ![현재 선택한 작업: "Office 365 Outlook - 이메일 보내기"](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
    특정 앱 또는 서비스에 대한 작업 목록을 필터링하기 위해 먼저 앱 또는 서비스를 선택할 수 있습니다.
 

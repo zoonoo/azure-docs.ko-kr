@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 8b6ed6a7e71da2f302df4b41656c8a63e93be2b0
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 35e39ca4aa00838d7437ec675294b6c3cc62be6f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159076"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426227"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Azure AD 계정으로 Azure Multi-Factor Authentication을 사용하기 위한 보안 지침
 
@@ -87,7 +87,7 @@ Multi-Factor Authentication 서버를 설정할 때 고려해야 할 세부 사�
 * 앱 암호를 사용할 경우 온-프레미스 클라이언트 Access Control 설정은 적용되지 않습니다.
 * 온-프레미스 인증 로깅/감사 기능은 앱 암호에 사용할 수 없습니다
 * 특정 고급 아키텍처 디자인은 클라이언트와 2단계 인증을 사용하는 경우 인증 위치에 따라 조직의 사용자 이름과 암호 및 앱 암호를 조합하여 사용할 필요가 있습니다. 온-프레미스 인프라에 대해 인증하는 클라이언트의 경우 조직의 사용자 이름과 암호를 사용합니다. Azure AD에 대해 인증하는 클라이언트의 경우 앱 암호를 사용합니다.
-* 기본적으로 사용자가 앱 암호를 만들 수 없습니다. 사용자가 앱 암호를 만들 수 있도록 해야 할 경우 **사용자가 브라우저에 기반하지 않는 응용 프로그램에 로그인하기 위해 앱 암호를 만들 수 있음** 옵션을 선택합니다.
+* 기본적으로 사용자가 앱 암호를 만들 수 없습니다. 사용자가 앱 암호를 만들 수 있도록 해야 할 경우 **사용자가 브라우저에 기반하지 않는 애플리케이션에 로그인하기 위해 앱 암호를 만들 수 있음** 옵션을 선택합니다.
 
 ## <a name="additional-considerations"></a>추가 고려 사항
 온-프레미스로 배포할 각 구성 요소에 대한 추가 고려 사항 및 지침을 보려면 다음 목록을 사용하세요.

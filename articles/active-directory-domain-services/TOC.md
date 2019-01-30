@@ -30,7 +30,7 @@
 ## [관리되는 도메인에서 그룹 정책 관리](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [관리되는 도메인에서 암호 정책 구성](active-directory-ds-password-policy.md)
 ## [가상 네트워크 선택](active-directory-ds-networking.md)
-## 응용 프로그램 배포
+## 애플리케이션 배포
 ### [SharePoint 서버에 대한 프로필 동기화 지원 구성](active-directory-ds-enable-sharepoint-profile-sync.md)
 ### [Kerberos 제한 위임 구성](active-directory-ds-enable-kcd.md)
 ### [Azure AD 응용 프로그램 프록시 배포](active-directory-ds-deploy-azure-app-proxy.md)

@@ -9,18 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/20/2018
 ms.author: juliako
-ms.openlocfilehash: cb34855fc9451679c885eebb0ef5a2fab0be8c57
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 658843fd5acbe0d4e29947e99c00edf4909fe9f4
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086848"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742748"
 ---
 # <a name="streaming-locators"></a>스트리밍 로케이터
 
-인코딩된 비디오 또는 오디오 파일을 재생하는 데 사용할 수 있는 URL을 클라이언트에 제공하려면 [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)를 만들고 스트리밍 URL을 작성해야 합니다. 자세한 내용은 [파일 스트리밍](stream-files-dotnet-quickstart.md)을 참조하세요.
+인코딩된 비디오 또는 오디오 파일을 재생하는 데 사용할 수 있는 URL을 클라이언트에 제공하려면 [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators)를 만들고 스트리밍 URL을 작성해야 합니다. 자세한 내용은 [파일 스트리밍](stream-files-dotnet-quickstart.md)을 참조하세요.
 
 ## <a name="streaminglocator-definition"></a>StreamingLocator 정의
 
@@ -29,13 +29,13 @@ ms.locfileid: "50086848"
 |이름|설명|
 |---|---|
 |id |리소스에 대한 정규화된 리소스 ID입니다.|
-|이름   |리소스의 이름입니다.|
+|이름|리소스의 이름입니다.|
 |properties.alternativeMediaId|이 스트리밍 로케이터의 대체 미디어 ID입니다.|
-|properties.assetName   |자산 이름입니다.|
-|properties.contentKeys |이 스트리밍 로케이터에서 사용하는 ContentKeys입니다.|
-|properties.created |스트리밍 로케이터를 만든 시간입니다.|
+|properties.assetName|자산 이름입니다.|
+|properties.contentKeys|이 스트리밍 로케이터에서 사용하는 ContentKeys입니다.|
+|properties.created|스트리밍 로케이터를 만든 시간입니다.|
 |properties.defaultContentKeyPolicyName|이 스트리밍 로케이터에서 사용하는 ContentKeyPolicy의 기본 이름입니다.|
-|properties.endTime |스트리밍 로케이터의 종료 시간입니다.|
+|properties.endTime|스트리밍 로케이터의 종료 시간입니다.|
 |properties.startTime|스트리밍 로케이터의 시작 시간입니다.|
 |properties.streamingLocatorId|스트리밍 로케이터의 StreamingLocatorId입니다.|
 |properties.streamingPolicyName |이 스트리밍 로케이터에서 사용하는 스트리밍 정책의 이름입니다. 만든 스트리밍 정책의 이름을 지정하거나 미리 정의된 스트리밍 정책 중 하나를 사용합니다. 사용 가능한 미리 정의된 스트리밍 정책은 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' 및 'Predefined_MultiDrmStreaming'입니다.|

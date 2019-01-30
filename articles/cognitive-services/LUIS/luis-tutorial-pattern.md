@@ -1,30 +1,31 @@
 ---
-title: '자습서 3: 패턴을 사용하여 LUIS 예측 향상'
+title: 패턴
 titleSuffix: Azure Cognitive Services
 description: 패턴을 사용하여 의도 및 엔터티 예측을 높이는 한편 발화 예제를 줄입니다. 패턴은 엔터티 및 무시 가능한 텍스트를 식별하는 구문을 포함하는 템플릿 발언 예제를 통해 제공됩니다.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 7ba5db8e50e8da5b274f73046d56f7816ca8834d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 05af52ab492fcfe509b547efdd182a366642b9ed
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138330"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754410"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>자습서 3: 일반적인 발화 형식 추가
+# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>자습서: 일반적인 패턴 템플릿 발언 서식 추가
 
 이 자습서에서는 패턴을 사용하여 의도 및 엔터티 예측을 높이는 한편 발화 예제를 줄입니다. 패턴은 엔터티 및 무시 가능한 텍스트를 식별하는 구문을 포함하는 템플릿 발언 예제를 통해 제공됩니다. 패턴은 식 일치 및 기계 학습의 조합입니다.  의도 발언과 함께 템플릿 발언 예제는 의도에 맞는 발언을 LUIS가 더 잘 이해하도록 합니다. 
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 
 > [!div class="checklist"]
-> * 기존 자습서 앱 사용 
+> * 앱 가져오기 예제 
 > * 의도 만들기
 > * 학습
 > * 게시
@@ -36,13 +37,13 @@ ms.locfileid: "50138330"
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>기존 앱 사용
+## <a name="import-example-app"></a>앱 가져오기 예제
 
 마지막 자습서에서 만든 **HumanResources**라는 앱을 사용하여 계속 진행합니다. 
 
-이전 자습서의 HumanResources 앱이 없으면 다음 단계를 사용합니다.
+다음 단계를 사용하세요.
 
-1.  [앱 JSON 파일](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json)을 다운로드하고 저장합니다.
+1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json)을 다운로드하고 저장합니다.
 
 2. JSON을 새 앱으로 가져옵니다.
 
@@ -106,7 +107,7 @@ ms.locfileid: "50138330"
 
 2. 주소의 URL 끝으로 이동하고 `Who is the boss of Jill Jones?`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 
 
-    ```JSON
+    ```json
     {
         "query": "who is the boss of jill jones?",
         "topScoringIntent": {
@@ -229,7 +230,7 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
 
 LUIS가 클라이언트 앱에 예측을 반환하면, 의도 이름을 클라이언트 앱에서 함수 이름으로 사용할 수 있으며 Employee 엔터티는 해당 함수의 매개 변수로 사용할 수 있습니다.
 
-```Javascript
+```nodejs
 OrgChartManager(employee){
     ///
 }
@@ -277,7 +278,7 @@ OrgChartManager(employee){
 
 3. 주소의 URL 끝으로 이동하고 `Who is the boss of Jill Jones?`를 발언으로 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 
 
-    ```JSON
+    ```json
     {
         "query": "who is the boss of jill jones?",
         "topScoringIntent": {
@@ -388,13 +389,13 @@ OrgChartManager(employee){
 
 대괄호 `[]`의 선택적 구문을 사용하면 템플릿 발언에 선택적 텍스트를 쉽게 추가할 수 있고 두 번째 수준 `[[]]`까지 중첩할 수 있으며 엔터티 또는 텍스트를 포함할 수 있습니다.
 
-**질문: 마지막 두 개 예제 발언이 하나의 발언 예제로 결합될 수 있는 이유는 무엇인가요?** 패턴 템플릿은 OR 구문을 지원하지 않습니다. `in` 버전과 `on` 버전을 모두 catch하려면 각각이 별도의 템플릿 예제여야 합니다.
+**질문: 마지막 두 개 예제 발화가 하나의 템플릿 발화로 결합될 수 없는 이유는 무엇인가요?** 패턴 템플릿은 OR 구문을 지원하지 않습니다. `in` 버전과 `on` 버전을 모두 catch하려면 각각이 별도의 템플릿 예제여야 합니다.
 
-**질문: 각 템플릿 발언의 첫 글자인 `w`가 모두 소문자인 이유가 무엇인가요? 필요에 따라 대문자나 소문자가 되어야 하지 않나요?** 클라이언트 응용 프로그램이 쿼리 엔드포인트에 제출한 발언은 소문자로 변환됩니다. 템플릿 발언은 대문자나 소문자일 수 있으며 엔드포인트 발언도 마찬가지입니다. 비교는 항상 소문자로 변환한 후 수행됩니다.
+**질문: 각 템플릿 발화의 첫 글자인 `w`가 모두 소문자인 이유가 무엇인가요? 필요에 따라 대문자나 소문자가 되어야 하지 않나요?** 클라이언트 애플리케이션이 쿼리 엔드포인트에 제출한 발언은 소문자로 변환됩니다. 템플릿 발언은 대문자나 소문자일 수 있으며 엔드포인트 발언도 마찬가지입니다. 비교는 항상 소문자로 변환한 후 수행됩니다.
 
-**질문: March 3이 예측된 경우 템플릿 발언의 미리 작성된 번호 부분이 숫자 `3`과 날짜 `March 3` 모두로 예측되지 않는 이유가 무엇인가요?** 템플릿 발언은 날짜를 컨텍스트에 따라 문자 그대로 `March 3`으로 사용하거나 `in a month`로 추상화하여 사용합니다. 날짜에는 숫자가 포함될 수 있지만 숫자가 반드시 날짜로 보이지는 아닙니다. 예측 JSON 결과로 반환하려는 유형을 가장 잘 나타내는 엔터티를 항상 사용하십시오.  
+**질문: March 3이 예측된 경우 템플릿 발화의 미리 작성된 번호 부분이 숫자 `3`과 날짜 `March 3` 모두로 예측되지 않는 이유가 무엇인가요?** 템플릿 발언은 날짜를 컨텍스트에 따라 문자 그대로 `March 3`으로 사용하거나 `in a month`로 추상화하여 사용합니다. 날짜에는 숫자가 포함될 수 있지만 숫자가 반드시 날짜로 보이지는 아닙니다. 예측 JSON 결과로 반환하려는 유형을 가장 잘 나타내는 엔터티를 항상 사용하십시오.  
 
-**질문: `Who will {Employee}['s] manager be on March 3?`와 같이 표현이 부족한 발언의 경우는 어떤가요?** `will`과 `be`가 구분되는 경우와 같이 문법적으로 다른 동사 시제는 새로운 템플릿 발언이 되어야 합니다. 기존 템플릿 발언은 일치하지 않습니다. 발언의 의도는 변경되지 않았지만 발언의 단어 배치가 변경되었습니다. 이러한 변화는 LUIS의 예측에 영향을 미칩니다.
+**질문: `Who will {Employee}['s] manager be on March 3?`와 같이 표현이 부족한 발화의 경우는 어떤가요?** `will`과 `be`가 구분되는 경우와 같이 문법적으로 다른 동사 시제는 새로운 템플릿 발언이 되어야 합니다. 기존 템플릿 발언은 일치하지 않습니다. 발언의 의도는 변경되지 않았지만 발언의 단어 배치가 변경되었습니다. 이러한 변화는 LUIS의 예측에 영향을 미칩니다.
 
 **기억해야 할 사항: 엔터티를 먼저 찾은 다음, 패턴을 일치시킵니다.**
 

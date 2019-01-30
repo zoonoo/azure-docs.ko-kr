@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.date: 08/09/2018
-ms.openlocfilehash: 078a64bf625fad15b66a3c4e6e31e798f675fc33
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 01/17/2019
+ms.openlocfilehash: c6d0d2eec61375760ee3dc4e4b100b24cef2b405
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161780"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388797"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>TDE 보호 데이터베이스의 인증서를 Azure SQL Database Managed Instance로 마이그레이션
 
@@ -39,7 +39,7 @@ ms.locfileid: "47161780"
 
 - 파일로 내보낸 인증서에 대한 액세스 권한이 있는 온-프레미스 서버나 기타 시스템에 설치된 [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) 명령줄 도구. Pvk2Pfx 도구는 [Enterprise Windows 드라이버 키트](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk)에 속하며 독립 실행형 자체 포함 명령줄 환경입니다.
 - [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) 버전 5.0 이상 설치.
-- AzureRM PowerShell 모듈을 [설치하고 업데이트](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+- AzureRM PowerShell 모듈을 [설치하고 업데이트](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - [AzureRM.Sql 모듈](https://www.powershellgallery.com/packages/AzureRM.Sql) 버전 4.10.0 이상.
   PowerShell 모듈을 설치/업데이트하려면 PowerShell에서 다음 명령을 실행하십시오.
 

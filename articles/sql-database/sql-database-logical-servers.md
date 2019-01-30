@@ -11,19 +11,19 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 6432c6b2c1c224f44b962df63e1502729f69e57f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 01/17/2019
+ms.openlocfilehash: 8e03aed38f75459d781d90960efc612ab962fa1d
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470662"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390842"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Azure SQL Database 논리 서버 및 이 서버에 대한 관리
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>Azure SQL 논리 서버란?
 
-논리 서버는 단일 또는 여러 [풀링된](sql-database-elastic-pool.md) 데이터베이스, [로그인](sql-database-manage-logins.md), [방화벽 규칙](sql-database-firewall-configure.md), [감사 규칙](sql-database-auditing.md), [위협 검색 정책](sql-database-threat-detection.md) 및 [장애 조치(Failover) 그룹](sql-database-geo-replication-overview.md)에 대한 중앙 관리 지점의 역할을 담당합니다. 논리 서버는 리소스 그룹과 다른 지역에 위치할 수 있습니다. Azure SQL Database를 만들기 전에 논리 서버가 있어야 합니다. 서버에 있는 모든 데이터베이스는 논리 서버와 동일한 지역 내에서 생성됩니다.
+논리 서버는 단일 또는 여러 [풀링된](sql-database-elastic-pool.md) 데이터베이스, [로그인](sql-database-manage-logins.md), [방화벽 규칙](sql-database-firewall-configure.md), [감사 규칙](sql-database-auditing.md), [위협 검색 정책](sql-database-threat-detection.md) 및 [장애 조치(Failover) 그룹](sql-database-auto-failover-group.md)에 대한 중앙 관리 지점의 역할을 담당합니다. 논리 서버는 리소스 그룹과 다른 지역에 위치할 수 있습니다. Azure SQL Database를 만들기 전에 논리 서버가 있어야 합니다. 서버에 있는 모든 데이터베이스는 논리 서버와 동일한 지역 내에서 생성됩니다.
 
 논리 서버는 온-프레미스 환경에서 친숙한 SQL Server 인스턴스와 구별되는 논리적 구문입니다. 특히, SQL Database 서비스는 해당 논리 서버와 관련하여 데이터베이스의 위치르 보증하지는 않으며 인스턴스 수준의 액세스 또는 기능을 노출하지 않습니다. 반대로, SQL Database Managed Instance의 서버는 온-프레미스 환경에서 친숙할 수 있는 SQL Server 인스턴스와 비슷합니다.
 
@@ -82,7 +82,7 @@ Managed Instance를 만들려면 [Managed Instance 만들기](sql-database-manag
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽 관리
 
-Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 다음 PowerShell cmdlet을 사용합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
+Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 다음 PowerShell cmdlet을 사용합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
 
 | Cmdlet | 설명 |
 | --- | --- |

@@ -4,15 +4,15 @@ ms.service: application-insights
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: edd7492dba1352484e1a1e5c361c8041bcd966b0
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 669aac4903b2de03fe845193b55e6538a3bf9d6c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572427"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53730690"
 ---
 ## <a name="analytics"></a>분석
-* [개요](../articles/application-insights/app-insights-analytics.md)
+* [개요](../articles/azure-monitor/app/analytics.md)
 * [분석 둘러보기](../articles/application-insights/app-insights-analytics-tour.md)
   * 여기에서 시작합니다. 주요 기능을 다루는 자습서입니다.
 * [쿼리](../articles/application-insights/app-insights-analytics-reference.md)
@@ -25,5 +25,5 @@ ms.locfileid: "51572427"
   * 분석을 사용합니다.
 * [언어 참조](../articles/application-insights/app-insights-analytics-reference.md)
   * 한 페이지 참조.
-* [문제 해결](../articles/application-insights/app-insights-analytics-troubleshooting.md)
+* [문제 해결](../articles/azure-monitor/app/analytics-troubleshooting.md)
 

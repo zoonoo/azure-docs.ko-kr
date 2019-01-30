@@ -95,7 +95,7 @@ az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --
 
 컨테이너 인스턴스에서 여러 볼륨을 탑재하려면 [Azure Resource Manager 템플릿](/azure/templates/microsoft.containerinstance/containergroups) 또는 YAML 파일을 사용하여 배포해야 합니다.
 
-템플릿을 사용하려면 먼저 공유 세부 정보를 제공하고 템플릿의 `properties` 섹션에서 `volumes` 배열을 채워서 볼륨을 정의합니다. 예를 들어, 저장소 계정 *myStorageAccount*에 *share1* 및 *share2*라는 두 개의 Azure 파일 공유를 만든 경우 `volumes` 배열이 다음과 비슷하게 표시됩니다.
+템플릿을 사용하려면 먼저 공유 세부 정보를 제공하고 템플릿의 `properties` 섹션에서 `volumes` 배열을 채워서 볼륨을 정의합니다. 예를 들어, 스토리지 계정 *myStorageAccount*에 *share1* 및 *share2*라는 두 개의 Azure 파일 공유를 만든 경우 `volumes` 배열이 다음과 비슷하게 표시됩니다.
 
 ```JSON
 "volumes": [{

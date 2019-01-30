@@ -1,20 +1,18 @@
 ---
-title: 미사용 데이터베이스 암호화 - Azure Cosmos DB | Microsoft Docs
-description: Azure Cosmos DB가 모든 데이터의 기본 암호화를 제공하는 방법을 알아봅니다.
-services: cosmos-db
+title: Azure Cosmos DB의 미사용 암호화
+description: Azure Cosmos DB에서 미사용 데이터 암호화를 제공하는 방법 및 구현 방식을 알아봅니다.
 author: rafats
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/23/2017
-ms.author: rafats
-ms.openlocfilehash: 2b54f8c7d9f6427f3104d3c64c65cc555f68738a
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.date: 12/06/2018
+ms.author: sngun
+ms.custom: seodec18
+ms.openlocfilehash: 8ad5b167977059f0749da4221effd427427920e9
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038419"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040220"
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>미사용 Azure Cosmos DB 데이터베이스 암호화
 
@@ -24,7 +22,7 @@ PaaS 서비스인 Cosmos DB는 사용하기가 매우 간편합니다. Cosmos DB
 
 ## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 미사용 암호화 구현
 
-미사용 암호화는 보안 키 저장소 시스템, 암호화된 네트워크 및 암호화 API를 비롯한 수많은 보안 기술을 사용하여 구현되었습니다. 데이터를 암호 해독하고 처리하는 시스템은 키를 관리하는 시스템과 통신해야 합니다. 다이어그램에서는 암호화된 데이터의 저장소와 키 관리가 어떻게 구분되는지를 보여 줍니다. 
+저장 데이터 암호화는 보안 키 저장소 시스템, 암호화된 네트워크 및 암호화 API를 비롯한 수많은 보안 기술을 사용하여 구현되었습니다. 데이터를 암호 해독하고 처리하는 시스템은 키를 관리하는 시스템과 통신해야 합니다. 다이어그램에서는 암호화된 데이터의 저장소와 키 관리가 어떻게 구분되는지를 보여 줍니다. 
 
 ![디자인 다이어그램](./media/database-encryption-at-rest/design-diagram.png)
 
@@ -38,19 +36,19 @@ PaaS 서비스인 Cosmos DB는 사용하기가 매우 간편합니다. Cosmos DB
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>Q: 저장소 서비스 암호화를 사용하는 경우 Azure Storage 비용은 얼마나 늘어나나요?
+### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>Q: 스토리지 서비스 암호화를 사용하는 경우 Azure Storage 비용은 얼마나 늘어나나요?
 A: 추가 비용은 없습니다.
 
 ### <a name="q-who-manages-the-encryption-keys"></a>Q: 암호화 키는 누가 관리하나요?
 A: 키는 Microsoft에서 관리합니다.
 
 ### <a name="q-how-often-are-encryption-keys-rotated"></a>Q: 얼마나 자주 암호화 키가 순환되나요?
-A: Microsoft에는 Cosmos DB가 따르는 암호화 키 회전에 대한 일련의 내부 지침이 있습니다. 특정 지침은 게시되지 않습니다. Microsoft는 내부 지침의 하위 집합으로 간주되고 개발자를 위한 유용한 모범 사례가 있는 [SDL(Security Development Lifecycle)](https://www.microsoft.com/sdl/default.aspx)을 게시합니다.
+A: Microsoft에는 Cosmos DB가 따르는 암호화 키 순환에 대한 일련의 내부 지침이 있습니다. 특정 지침은 게시되지 않습니다. Microsoft는 내부 지침의 하위 집합으로 간주되고 개발자를 위한 유용한 모범 사례가 있는 [SDL(Security Development Lifecycle)](https://www.microsoft.com/sdl/default.aspx)을 게시합니다.
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>Q: 나만의 암호화 키를 사용할 수 있나요?
 A: Cosmos DB는 PaaS 서비스로, Microsoft는 서비스의 사용 용이성을 높이기 위해 열심히 노력해 왔습니다. 이 질문이 PCI-DSS와 같은 규정 준수 요구 사항을 충족시키기 위한 프록시 질문으로 자주 제기되는 것을 확인했습니다. 이 기능을 구축하는 과정에서 준수 감사자와 협력하여 Cosmos DB를 사용하는 고객이 키를 직접 관리할 필요 없이 요구 사항을 충족할 수 있도록 했습니다.
 
-### <a name="q-what-regions-have-encryption-turned-on"></a>Q: 암호화가 설정된 지역은 어디인가요?
+### <a name="q-what-regions-have-encryption-turned-on"></a>Q: 암호화가 켜져 있는 Azure 지역은 어디인가요?
 A: 모든 Azure Cosmos DB 지역에서 모든 사용자 데이터에 대해 암호화가 켜져 있습니다.
 
 ### <a name="q-does-encryption-affect-the-performance-latency-and-throughput-slas"></a>Q: 암호화는 성능 대기 시간 및 처리량 SLA에 영향을 주나요?

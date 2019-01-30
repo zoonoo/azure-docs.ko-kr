@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 8e1494594546c432123b8b1b98d646e8637eea99
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8d0e00223fcd55a1049900b502b52745837bf8fc
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622842"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462559"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>PowerShell을 사용하여 Hyper-V VM과 보조 사이트 간 재해 복구 설정(Resource Manager)
 
@@ -276,4 +276,4 @@ Azure PowerShell을 사용할 준비가 되었는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Resource Manager PowerShell cmdlet을 사용한 Site Recovery에 대해 [자세히 알아봅니다](/powershell/module/azurerm.recoveryservices.backup/#recovery).
+Resource Manager PowerShell cmdlet을 사용한 Site Recovery에 대해 [자세히 알아봅니다](/powershell/module/azurerm.recoveryservices.backup/).

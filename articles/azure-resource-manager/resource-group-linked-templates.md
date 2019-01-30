@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: fbfe7255f2b848187c74fd832f349186eef5eaef
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 724b1a2562e4723bd02c97cdecb0ef7dbd8ed177
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287577"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139064"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
@@ -169,7 +169,9 @@ ms.locfileid: "51287577"
 
 ## <a name="get-values-from-linked-template"></a>연결된 템플릿에서 값 가져오기
 
-연결된 템플릿에서 출력 값을 가져오려면 `"[reference('<name-of-deployment>').outputs.<property-name>.value]"` 같은 구문으로 속성 값을 검색합니다.
+연결된 템플릿에서 출력 값을 가져오려면 `"[reference('deploymentName').outputs.propertyName.value]"` 같은 구문으로 속성 값을 검색합니다.
+
+연결된 템플릿에서 출력 속성을 가져올 때 속성 이름에 대시를 포함할 수 없습니다.
 
 다음 예에서는 연결된 템플릿을 참조하고 출력 값을 가져오는 방법을 보여 줍니다. 연결된 템플릿이 간단한 메시지를 반환합니다.
 

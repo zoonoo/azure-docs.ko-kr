@@ -23,7 +23,7 @@ ms.locfileid: "37111187"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric Java 클라이언트 API
 
-Service Fabric 클라이언트 API를 사용하면 Azure, 온-프레미스, 로컬 개발 컴퓨터 또는 다른 클라우드의 Service Fabric 클러스터에 마이크로 서비스 기반 응용 프로그램 및 컨테이너를 배포하고 관리할 수 있습니다. 이 문서에서는 Service Fabric 클라이언트 REST API에 기반하여 Service Fabric Java 클라이언트 API를 생성하고 사용하는 방법에 대해 설명합니다.
+Service Fabric 클라이언트 API를 사용하면 Azure, 온-프레미스, 로컬 개발 컴퓨터 또는 다른 클라우드의 Service Fabric 클러스터에 마이크로 서비스 기반 애플리케이션 및 컨테이너를 배포하고 관리할 수 있습니다. 이 문서에서는 Service Fabric 클라이언트 REST API에 기반하여 Service Fabric Java 클라이언트 API를 생성하고 사용하는 방법에 대해 설명합니다.
 
 ## <a name="generate-the-client-code-using-autorest"></a>AutoRest를 사용하여 클라이언트 코드 생성
 
@@ -104,15 +104,15 @@ Service Fabric 클라이언트 API를 사용하면 Azure, 온-프레미스, 로�
             .build();
         ServiceFabricClientAPIs client = new ServiceFabricClientAPIsImpl(simpleClient);
     ```
-4. 클라이언트 개체를 사용하고 필요에 따라 적절하게 호출합니다. 다음은 클라이언트 개체의 사용법을 보여 주는 몇 가지 예제입니다. 여기서는 아래의 API를 사용하기 전에 응용 프로그램 패키지가 빌드되어 이미지 저장소에 업로드되었다고 가정합니다.
-    * 응용 프로그램 프로비전
+4. 클라이언트 개체를 사용하고 필요에 따라 적절하게 호출합니다. 다음은 클라이언트 개체의 사용법을 보여 주는 몇 가지 예제입니다. 여기서는 아래의 API를 사용하기 전에 애플리케이션 패키지가 빌드되어 이미지 저장소에 업로드되었다고 가정합니다.
+    * 애플리케이션 프로비전
     
         ```java
             ApplicationTypeImageStorePath imageStorePath = new ApplicationTypeImageStorePath();
             imageStorePath.withApplicationTypeBuildPath("<application-path-in-image-store>");
             client.provisionApplicationType(imageStorePath);
         ```
-    * 응용 프로그램 만들기
+    * 애플리케이션 만들기
 
         ```java
             ApplicationDescription applicationDescription = new ApplicationDescription();

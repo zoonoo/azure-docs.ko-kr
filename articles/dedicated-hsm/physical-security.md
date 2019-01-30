@@ -1,22 +1,23 @@
 ---
-title: Azure Dedicated HSM 물리적 보안 | Microsoft 문서
-description: Azure Dedicated HSM은 Azure 내에서 FIPS 140-2 수준 3 인증을 충족하는 키 스토리지 기능을 제공합니다.
+title: HSM 물리적 보안 - Azure Dedicated HSM | Microsoft Docs
+description: 데이터 센터 내 Azure Dedicated HSM 디바이스의 물리적 보안에 대한 정보
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/21/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: a0f85c755b269d95720137368a4ff438031a9fae
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 662800d2b9db7d7a19861431354e55b3897e020a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318922"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080047"
 ---
 # <a name="azure-dedicated-hsm-physical-security"></a>Azure Dedicated HSM 물리적 보안
 

@@ -1,20 +1,19 @@
 ---
-title: Azure Policy 샘플 ‑ VM 네트워크 인터페이스에 승인된 서브넷 사용
+title: 샘플 - VM 네트워크 인터페이스에 대해 승인된 서브넷 사용
 description: 이 샘플 정책에서는 네트워크 인터페이스가 승인된 서브넷을 사용해야 합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 09/18/2018
+ms.date: 01/23/2019
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 60a79c73765a201f4ed3c9ad6f45900e13753c1c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9b7bac8cb50c6ad6f173b53ffd7c6aa918d42814
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995876"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849518"
 ---
 # <a name="use-approved-subnet-for-vm-network-interfaces"></a>VM 네트워크 인터페이스에 승인된 서브넷을 사용합니다.
 
@@ -37,9 +36,9 @@ ms.locfileid: "46995876"
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition -Name "vm-creation-in-approved-subnet" -DisplayName "Use approved subnet for VM network interfaces" -description "This policy enforces VM network interfaces to use subnet" -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/vm-creation-in-approved-subnet/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/vm-creation-in-approved-subnet/azurepolicy.parameters.json' -Mode All
+$definition = New-AzPolicyDefinition -Name "vm-creation-in-approved-subnet" -DisplayName "Use approved subnet for VM network interfaces" -description "This policy enforces VM network interfaces to use subnet" -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/vm-creation-in-approved-subnet/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/vm-creation-in-approved-subnet/azurepolicy.parameters.json' -Mode All
 $definition
-$assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope>  -subnetId <Subnet Id> -PolicyDefinition $definition
+$assignment = New-AzPolicyAssignment -Name <assignmentname> -Scope <scope>  -subnetId <Subnet Id> -PolicyDefinition $definition
 $assignment
 ```
 
@@ -48,7 +47,7 @@ $assignment
 다음 명령을 실행하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="deploy-with-azure-cli"></a>Azure CLI를 사용하여 배포
@@ -71,4 +70,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Policy 샘플](index.md)에서 더 많은 샘플을 검토합니다.
+- [Azure Policy 샘플](index.md)에서 더 많은 샘플 검토

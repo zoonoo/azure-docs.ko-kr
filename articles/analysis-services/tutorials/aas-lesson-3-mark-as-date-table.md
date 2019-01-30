@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9cbbf8c5ea05915293c785028bdd0a47ba081036
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 4c383fe30b8a6be3a5915f3cc1c0f5e5712ab328
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426025"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189000"
 ---
 # <a name="mark-as-date-table"></a>날짜 테이블로 표시
 
@@ -23,7 +23,7 @@ DAX 시간 인텔리전스 함수를 사용할 때마다, 나중에 측정값을
   
 이 단원에서는 DimDate 테이블을 *날짜 테이블*로, 날짜 열(날짜 테이블의)을 *날짜 열*(고유 식별자)로 표시합니다.  
 
-날짜 테이블 및 날짜 열을 표시하기 전에 모델을 더 쉽게 이해하려면 약간 관리 유지 작업을 수행하는 것이 좋습니다. DimDate 테이블에서 **FullDateAlternateKey**라는 열을 확인합니다. 이 열은 테이블에 포함된 각 달력 연도의 모든 날에 대한 하나의 행을 포함합니다. 측정 수식 및 보고서에서 이 열을 많이 사용합니다. 하지만 실제로 FullDateAlternateKey는 이 열에 대한 적절한 식별자가 아닙니다. 수식에서 쉽게 식별하고 포함할 수 있도록 이름을 **Date**로 변경합니다. 가능하다면, 테이블 및 열과 같은 개체의 이름을 변경하여 SSDT 및 클라이언트 보고 응용 프로그램(Power BI 및 Excel)에서 쉽게 식별할 수 있도록 하는 것이 좋습니다. 
+날짜 테이블 및 날짜 열을 표시하기 전에 모델을 더 쉽게 이해하려면 약간 관리 유지 작업을 수행하는 것이 좋습니다. DimDate 테이블에서 **FullDateAlternateKey**라는 열을 확인합니다. 이 열은 테이블에 포함된 각 달력 연도의 모든 날에 대한 하나의 행을 포함합니다. 측정 수식 및 보고서에서 이 열을 많이 사용합니다. 하지만 실제로 FullDateAlternateKey는 이 열에 대한 적절한 식별자가 아닙니다. 수식에서 쉽게 식별하고 포함할 수 있도록 이름을 **Date**로 변경합니다. 가능하다면, 테이블 및 열과 같은 개체의 이름을 변경하여 SSDT 및 클라이언트 보고 애플리케이션(Power BI 및 Excel)에서 쉽게 식별할 수 있도록 하는 것이 좋습니다. 
   
 이 단원을 완료하기 위한 예상 시간: **3분**  
   

@@ -22,7 +22,7 @@ ms.locfileid: "50232645"
 ---
 # <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>PowerShell을 사용하여 Azure Media Services API와 함께 사용할 Azure AD 앱 만들기
 
-PowerShell 스크립트를 사용하여 Azure Media Services 리소스에 액세스하기 위한 Azure AD(Azure Active Directory) 응용 프로그램 및 서비스 주체를 만드는 방법에 대해 알아봅니다.  
+PowerShell 스크립트를 사용하여 Azure Media Services 리소스에 액세스하기 위한 Azure AD(Azure Active Directory) 애플리케이션 및 서비스 주체를 만드는 방법에 대해 알아봅니다.  
 
 ## <a name="prerequisites"></a>필수 조건
 

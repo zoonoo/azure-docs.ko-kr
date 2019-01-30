@@ -1,5 +1,5 @@
 ---
-title: C#에서 불쾌한 자료에 대한 텍스트 콘텐츠 분석
+title: C#에서 비디오 콘텐츠의 유해한 자료 분석 - Content Moderator
 titlesuffix: Azure Cognitive Services
 description: .NET용 Content Moderator SDK를 사용하여 다양하고 불쾌한 자료에 대한 텍스트 비디오 콘텐츠를 분석하는 방법
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 80635354b228edc1a8c1334e5d59cf530a10083e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 70fe30e53635203d80aca2406c52b2ec08d0035c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008286"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265518"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>C#에서 불쾌한 자료에 대한 텍스트 콘텐츠 분석
 
@@ -34,7 +34,7 @@ Content Moderator의 비디오 조정 기능은 AMS(Azure Media Services)에서 
 
 [Azure Media Services 계정 만들기](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account)의 지침에 따라 AMS를 구독하고 연결된 Azure Storage 계정을 만듭니다. 해당 스토리지 계정에서 새 Blob 스토리지 컨테이너를 만듭니다.
 
-### <a name="create-an-azure-active-directory-application"></a>Azure Active Directory 응용 프로그램 만들기
+### <a name="create-an-azure-active-directory-application"></a>Azure Active Directory 애플리케이션 만들기
 
 Azure Portal에서 새 AMS 구독으로 이동한 후 측면 메뉴에서 **API 액세스**를 선택합니다. **서비스 주체를 사용하여 Azure Media Services에 연결**을 선택합니다. 나중에 필요하므로 **REST API 엔드포인트** 필드의 값을 기록합니다.
 

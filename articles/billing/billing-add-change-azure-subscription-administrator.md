@@ -13,21 +13,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 1/23/2019
 ms.author: cwatson
-ms.openlocfilehash: 2380cd3712c47ca08e9b9b3597f09f4119238af3
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 4490db0c479abdda19957be98335edeefc08bb59
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581616"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808751"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Azure 구독 관리자 추가 또는 변경
 
 Azure 리소스에 대한 액세스를 관리하려면 적절한 관리자 역할이 있어야 합니다. 이 문서에서는 구독 수준에서 사용자에 대한 관리자 역할을 추가하거나 변경하는 방법에 대해 설명합니다.
-
-> [!div class="nextstepaction"]
-> [Azure 청구 문서 개선](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="what-administrator-role-do-i-use"></a>어떤 관리자 역할을 사용하나요?
 
@@ -42,10 +39,10 @@ Azure 구독에 대한 관리자로 다른 사용자를 추가하려면 구독 �
 1. [Azure Portal에서 **구독**](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에 방문하세요.
 2. 액세스 권한을 부여하려는 구독을 선택합니다.
 3. 목록에서 **액세스 제어(IAM)** 를 선택합니다.
-4. **추가**를 선택합니다.
-   (추가 단추가 없으면 사용 권한을 추가할 수 있는 권한이 없는 것입니다.)
+4. **역할 할당 추가**를 선택합니다.
+   (역할 할당 추가 단추가 없으면 사용 권한을 추가할 수 있는 권한이 없는 것입니다.)
 5. **역할**상자에서 **소유자**를 선택합니다. 
-6. **다음에 대한 액세스 할당** 상자에서 **Azure AD 사용자, 그룹 또는 응용 프로그램**을 선택합니다. 
+6. **다음에 대한 액세스 할당** 상자에서 **Azure AD 사용자, 그룹 또는 서비스 보안 주체**를 선택합니다. 
 7. **선택** 상자에서 소유자로 추가할 사용자의 메일 주소를 입력합니다. 사용자를 선택한 다음 **저장**을 선택합니다.
 
     ![선택한 소유자 역할을 보여 주는 스크린샷](./media/billing-add-change-azure-subscription-administrator/add-role.png)
@@ -70,14 +67,14 @@ Azure 구독에 대한 관리자로 다른 사용자를 추가하려면 구독 �
 
 ### <a name="adding-a-guest-user-as-a-co-administrator"></a>게스트 사용자를 공동 관리자로 추가
 
-공동 관리자 역할이 할당된 게스트 사용자는 공동 관리자 역할의 멤버 사용자에 비해 몇 가지 차이를 나타낼 수 있습니다. 다음과 같은 시나리오를 고려해 보세요.
+공동 관리자 역할이 할당된 [게스트 사용자](../active-directory/b2b/b2b-quickstart-add-guest-users-portal.md)는 공동 관리자 역할의 멤버 사용자와 비교해 몇 가지 차이를 나타낼 수 있습니다. 다음과 같은 시나리오를 고려해 보세요.
 
 - Azure AD 회사 또는 학교 계정이 있는 사용자 A는 Azure 구독의 서비스 관리자입니다.
 - 사용자 B에게는 Microsoft 계정이 있습니다.
 - 사용자는 A는 사용자 B에게 공동 관리자 역할을 할당합니다.
-- 사용자 B는 거의 모든 작업을 수행할 수 있지만 Azure AD 디렉터리에서 응용 프로그램을 등록하거나 사용자를 조회할 수 없습니다.
+- 사용자 B는 거의 모든 작업을 수행할 수 있지만 Azure AD 디렉터리에서 애플리케이션을 등록하거나 사용자를 조회할 수 없습니다.
 
-사용자 B는 모든 것을 관리할 수 있다고 예상할 수 있습니다. 이러한 차이가 나타나는 이유는 Microsoft 계정이 멤버 사용자가 아닌 게스트 사용자로 구독에 추가되기 때문입니다. 게스트 사용자에 멤버 사용자와 비교할 때 Azure AD에서 다른 기본 권한을 갖습니다. 예를 들어, 멤버 사용자는 Azure AD에서 다른 사용자가 읽을 수 있지만 게스트 사용자는 그럴 수 없습니다. 멤버 사용자는 Azure AD에서 새 서비스 주체를 등록할 수 있지만 게스트 사용자는 그럴 수 없습니다. 게스트 사용자가 이러한 작업을 수행할 수 있도록 하려면 게스트 사용자가 필요한 특정 Azure AD 관리자 역할을 할당해야 합니다. 예를 들어, 이전 시나리오에서는 다른 사용자를 읽기 위한 [디렉터리 읽기 권한자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) 역할과 서비스 주체를 만들 수 있는 [응용 프로그램 개발자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) 역할을 할당할 수 있습니다. 멤버 및 게스트 사용자와 해당 권한에 대한 자세한 내용은 [Azure Active Directory의 기본 사용자 권한이란?](../active-directory/fundamentals/users-default-permissions.md)을 참조하세요.
+사용자 B는 모든 것을 관리할 수 있다고 예상할 수 있습니다. 이러한 차이가 나타나는 이유는 Microsoft 계정이 멤버 사용자가 아닌 게스트 사용자로 구독에 추가되기 때문입니다. 게스트 사용자에 멤버 사용자와 비교할 때 Azure AD에서 다른 기본 권한을 갖습니다. 예를 들어, 멤버 사용자는 Azure AD에서 다른 사용자가 읽을 수 있지만 게스트 사용자는 그럴 수 없습니다. 멤버 사용자는 Azure AD에서 새 서비스 주체를 등록할 수 있지만 게스트 사용자는 그럴 수 없습니다. 게스트 사용자가 이러한 작업을 수행할 수 있도록 하려면 게스트 사용자가 필요한 특정 Azure AD 관리자 역할을 할당해야 합니다. 예를 들어, 이전 시나리오에서는 다른 사용자를 읽기 위한 [디렉터리 읽기 권한자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) 역할과 서비스 주체를 만들 수 있는 [애플리케이션 개발자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) 역할을 할당할 수 있습니다. 멤버 및 게스트 사용자와 해당 권한에 대한 자세한 내용은 [Azure Active Directory의 기본 사용자 권한이란?](../active-directory/fundamentals/users-default-permissions.md)을 참조하세요. 
 
 [Azure 리소스의 기본 제공 역할](../role-based-access-control/built-in-roles.md)은 [Azure AD 관리자 역할](../active-directory/users-groups-roles/directory-assign-admin-roles.md)과 다릅니다. 기본 제공 역할은 Azure AD에 대한 액세스 권한을 부여하지 않습니다. 자세한 내용은 [다른 역할 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)를 참조하세요.
 
@@ -106,8 +103,8 @@ Azure 구독에 대한 관리자로 다른 사용자를 추가하려면 구독 �
 
   | 로그인 방법 | Microsoft 계정 사용자를 서비스 관리자로 추가하는가요? | 서비스 관리자와 동일한 조직에 회사 또는 학교 계정을 추가하는가요? | 다른 조직의 회사 또는 학교 계정을 서비스 관리자로 추가하는가요? |
   | --- | --- | --- | --- |
-  |  Microsoft 계정 |yes |아니요 |아니요 |
-  |  회사 또는 학교 계정 |yes |yes |아니요 |
+  |  Microsoft 계정 |예 |아니요 |아니요 |
+  |  회사 또는 학교 계정 |예 |예 |아니요 |
 
 ## <a name="change-the-account-administrator-for-an-azure-subscription"></a>Azure 구독에 대한 계정 관리자 변경
 

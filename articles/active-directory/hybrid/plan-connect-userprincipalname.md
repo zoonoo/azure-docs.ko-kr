@@ -8,13 +8,13 @@ ms.date: 06/26/2018
 ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
-manager: mtillman
-ms.openlocfilehash: 59df0dc61be1f670f21b94fe24e56a2f040f950e
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+manager: daveba
+ms.openlocfilehash: da2ae0262ef8380f31f37bfbbe5ddca45c72ebd1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426811"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468100"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD userPrincipalName 채우기
 
@@ -47,7 +47,7 @@ UPN은 사용자가 로그인할 수 있도록 하기 위해 Azure AD에서 사�
    ![확인되지 않은 도메인](./media/plan-connect-userprincipalname/unverifieddomain.png) 
 
 ## <a name="alternate-login-id"></a>대체 로그인 ID
-일부 환경에서는 최종 사용자가 메일 주소만 인식하고 해당 UPN은 인식하지 못할 수 있습니다.  메일 주소를 사용하는 것은 기업 정책 또는 온-프레미스 사업 부문 응용 프로그램 종속성 때문일 수 있습니다.
+일부 환경에서는 최종 사용자가 메일 주소만 인식하고 해당 UPN은 인식하지 못할 수 있습니다.  메일 주소를 사용하는 것은 기업 정책 또는 온-프레미스 사업 부문 애플리케이션 종속성 때문일 수 있습니다.
 
 대체 로그인 ID를 사용하면 사용자가 UPN 이외의 특성(예: 메일)을 사용하여 로그인할 수 있는 로그인 환경을 구성할 수 있습니다.
 

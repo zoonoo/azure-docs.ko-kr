@@ -49,7 +49,7 @@ Azure는 고정된 VHD 형식 가상 하드 디스크를 지원합니다. VHDX�
 많은 측면에서, “1 세대” Hyper-V VM과 유사하지만, 정확히 동일하지는 않습니다. 두 형식 모두 가상화된 하드웨어를 제공하지만, VHD-형식 가상 하드 디스크는 호환이 가능합니다. 이 의미는 사용자가 Hyper-V 및 Azure 사이를 이동할 수 있다는 것입니다. Hyper-V 사용자에게 중요한 세 가지 차이점이 있습니다.
 
 * Azure에서는 가상 머신에 대한 콘솔 액세스를 제공하지 않습니다. 부팅이 완료될 때까지 VM에 액세스할 수 없습니다.
-* 대부분의 [크기](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 가진 Azure VM에는 가상 네트워크 어댑터가 하나만 있습니다. 따라서 외부 IP 주소가 하나만 지정될 수 있습니다. A8 및 A9 크기는 제한된 시나리오에서 인스턴스 간의 응용 프로그램 커뮤니케이션을 위해 두 번째 네트워크 어댑터를 사용합니다.
+* 대부분의 [크기](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 가진 Azure VM에는 가상 네트워크 어댑터가 하나만 있습니다. 따라서 외부 IP 주소가 하나만 지정될 수 있습니다. A8 및 A9 크기는 제한된 시나리오에서 인스턴스 간의 애플리케이션 커뮤니케이션을 위해 두 번째 네트워크 어댑터를 사용합니다.
 * Azure VM은 2세대 Hyper-V VM 기능을 지원하지 않습니다. 이러한 기능에 대한 자세한 내용은 [Hyper-v에 대한 Virtual Machine 사양](https://technet.microsoft.com/library/dn592184.aspx) 및 [2세대 가상 머신 개요](https://technet.microsoft.com/library/dn282285.aspx)를 참조하세요.
 
 ## <a name="can-these-virtual-machines-use-my-existing-on-premises-networking-infrastructure"></a>이러한 가상 머신은 현존하는 온-프레미스 네트워킹 인프라를 사용할 수 있습니까?
@@ -125,7 +125,7 @@ Azure는 때때로 Azure 데이터 센터에서 일반, 계획된 유지 관리 
 
 Azure가 사용자의 VM에 영향을 주는 심각한 하드웨어 문제를 감지할 때 계획되지 않은 유지 관리 이벤트가 발생할 수 있습니다. 계획되지 않은 이벤트에 대해, Azure는 VM을 정상 호스트에 마이그레이션 하고 해당 VM을 다시 시작합니다.
 
-모든 독립 실행형 VM(VM은 가용성 집합의 일부가 아니라는 의미)에 대해, 업데이트를 하는 동안 VM이 다시 시작될 수 있기 때문에, Azure는 계획된 유지 관리 시행 시기 기준 적어도 한 주 전에 구독의 서비스 관리자에게 e-mail로 알립니다. VM에서 실행 중인 응용 프로그램에서 가동 중지 시간이 발생할 수 있습니다.
+모든 독립 실행형 VM(VM은 가용성 집합의 일부가 아니라는 의미)에 대해, 업데이트를 하는 동안 VM이 다시 시작될 수 있기 때문에, Azure는 계획된 유지 관리 시행 시기 기준 적어도 한 주 전에 구독의 서비스 관리자에게 e-mail로 알립니다. VM에서 실행 중인 애플리케이션에서 가동 중지 시간이 발생할 수 있습니다.
 
 또한 계획된 유지 관리로 인해 다시 부팅할 때 Azure Portal 또는 Azure PowerShell을 사용하여 다시 부팅 로그를 볼 수 있습니다. 자세한 내용은 [VM 다시 부팅 로그 보기](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/)를 참조하세요.
 

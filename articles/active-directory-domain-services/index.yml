@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 840e4a7cb70d32927d4d11e0364826231ac73841
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: eea379cbf2fae2f443fc077111ede517e3fa3647
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41928073"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175964"
 documentType: LandingData
 title: Azure AD Domain Services 설명서
 metadata:
@@ -13,12 +13,12 @@ metadata:
   keywords: Azure AD, Azure, 도메인 가입, 그룹 정책, LDAP, Kerberos, 도메인 컨트롤러, DC, 리프트 앤 시프트
   author: mahesh-unnikrishnan
   ms.author: maheshu
-  manager: mtillman
+  manager: daveba
   ms.date: 6/1/2018
   ms.topic: landing-page
   ms.devlang: na
   ms.service: active-directory
-  ms.component: domain-services
+  ms.subservice: domain-services
 sections:
 - items:
   - type: markdown
@@ -63,7 +63,7 @@ sections:
     - html: <a href="active-directory-ds-scenarios.md">서비스 사용 방법</a>
     - html: <a href="active-directory-ds-synchronization.md">Azure AD Domain Services에서 동기화가 작동하는 방식 이해</a>
     - html: <a href="https://azure.microsoft.com/pricing/details/active-directory-ds/">Azure AD Domain Services의 가격 책정</a>
-- title: 응용 프로그램 및 Azure AD Domain Services
+- title: 애플리케이션 및 Azure AD Domain Services
   items:
   - type: list
     style: unordered

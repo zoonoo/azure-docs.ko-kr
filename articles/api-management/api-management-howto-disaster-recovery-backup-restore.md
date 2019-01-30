@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 1653cfe0f75914fa321771a70284602cab75330d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 7da97b763c532a2189ef058cbb8ffb14c5b150f9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444871"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968376"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -221,7 +221,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
 
-[Azure API Management REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
+[Azure API Management REST API]: https://msdn.microsoft.com/library/azure/dn781421.aspx
 
 [api-management-add-aad-application]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-add-aad-application.png
 

@@ -1,6 +1,6 @@
 ---
-title: 자동 생성된 비트 전송률 사다리를 사용하여 비디오를 인코딩하려면 Azure Media Services의 Standard Encoder를 사용합니다 | Microsoft Docs
-description: 이 항목은 Media Services의 표준 인코더를 사용하여 입력 해상도 및 비트 전송률을 기반으로 자동 생성된 비트 전송률 사다리로 입력 비디오를 인코딩하는 방법을 보여줍니다. 입력 해상도 및 비트 전송률은 초과되지 않습니다. 예를 들어, 입력이 3Mbps에서 720p이고 출력이 최적 시 720p로 유지되는 경우 3Mbps보다 낮은 전송률로 시작됩니다.
+title: Media Services에서 표준 인코더를 사용하여 비디오 인코딩 - Azure | Microsoft Docs
+description: 이 항목은 Media Services의 표준 인코더를 사용하여 입력 해상도 및 비트 전송률을 기반으로 자동 생성된 비트 전송률 사다리로 입력 비디오를 인코딩하는 방법을 보여줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: ec1b4b88e5b9639c3ee9debbd8ac7d48544344dc
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.custom: seodec18
+ms.openlocfilehash: 976e1ea013c6a30615bdc742ed79e76ec35258a1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378961"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132809"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>자동 생성된 비트 전송률 사다리로 인코딩
 

@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: f06094fb82f10276f7a41d1b22f6dd99836a497f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 92441e55d0a423e1e716d15166791c85fcf5d8ec
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095513"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434226"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>변경 내용 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드 
-이 자습서에서는 원본 Azure SQL 데이터베이스의 **변경 내용 추적** 정보를 기반으로 Azure Blob 저장소에 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.  
+이 자습서에서는 원본 Azure SQL 데이터베이스의 **변경 내용 추적** 정보를 기반으로 Azure Blob Storage에 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.  
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -46,7 +45,7 @@ ms.locfileid: "43095513"
 1. **과거 데이터의 초기 로드**(한 번 실행):
     1. 원본 Azure SQL 데이터베이스에서 변경 내용 추적 기술을 사용하도록 설정합니다.
     2. Azure SQL 데이터베이스의 SYS_CHANGE_VERSION 초기 값을 변경된 데이터를 캡처하는 기준선으로 가져옵니다.
-    3. Azure SQL 데이터베이스의 전체 데이터를 Azure Blob 저장소로 로드합니다. 
+    3. Azure SQL 데이터베이스의 전체 데이터를 Azure Blob Storage로 로드합니다. 
 2. **일정에 따라 델타 데이터 증분 로드**(데이터의 초기 로드 후 주기적으로 실행):
     1. SYS_CHANGE_VERSION의 이전 값과 새 값을 가져옵니다.
     3. **sys.change_tracking_tables**의 변경된 행(두 SYS_CHANGE_VERSION 값 사이)의 기본 키를 **원본 테이블**의 데이터와 조인하여 델타 데이터를 로드한 다음 델타 데이터를 대상으로 이동합니다.
@@ -70,7 +69,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 * **Azure SQL Database**. 데이터베이스를 **원본** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure SQL Database를 만드는 단계는 [Azure SQL Database 만들기](../sql-database/sql-database-get-started-portal.md) 문서를 참조하세요.
-* **Azure Storage 계정**. Blob 저장소를 **싱크** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요. **adftutorial**이라는 컨테이너를 만듭니다. 
+* **Azure Storage 계정**. Blob Storage를 **싱크** 데이터 스토리지로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요. **adftutorial**이라는 컨테이너를 만듭니다. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Azure SQL 데이터베이스에 데이터 원본 테이블 만들기
 1. **SQL Server Management Studio**를 시작하고 Azure SQL Server에 연결합니다. 
@@ -145,7 +144,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-azurerm-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
+[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/azurerm/install-azurerm-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
@@ -171,7 +170,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 5. 데이터 팩터리의 **위치** 를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 6. **대시보드에 고정**을 선택합니다.     
 7. **만들기**를 클릭합니다.      
-8. 대시보드에서 **데이터 팩터리 배포 중** 상태의 타일이 표시됩니다. 
+8. 대시보드에서 다음과 같은 **데이터 팩터리 배포 중** 상태의 타일이 표시됩니다. 
 
     ![데이터 팩터리 배포 중 타일](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
 9. 만들기가 완료되면 이미지와 같은 **Data Factory** 페이지가 표시됩니다.
@@ -197,7 +196,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 3. **새 연결된 서비스** 창에서 다음 단계를 수행합니다. 
 
     1. **이름**에 대해 **AzureStorageLinkedService**를 입력합니다. 
-    2. **저장소 계정 이름**에 대해 Azure Storage 계정을 선택합니다. 
+    2. **스토리지 계정 이름**에 대해 Azure Storage 계정을 선택합니다. 
     3. **저장**을 클릭합니다. 
     
    ![Azure Storage 계정 설정](./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-storage-linked-service-settings.png)
@@ -232,7 +231,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 2. **Azure SQL Database**를 선택하고 **마침**을 클릭합니다. 
 
    ![원본 데이터 세트 유형 - Azure SQL Database](./media/tutorial-incremental-copy-change-tracking-feature-portal/select-azure-sql-database.png)
-3. 데이터 세트를 구성하기 위한 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 세트가 표시됩니다. **속성** 창에서 데이터 집합의 이름을 **SourceDataset**로 변경합니다.
+3. 데이터 세트를 구성하기 위한 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 세트가 표시됩니다. **속성** 창에서 데이터 세트의 이름을 **SourceDataset**로 변경합니다.
 
    ![원본 데이터 세트 이름](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-name.png)    
 4. **연결** 탭으로 전환하고 다음 단계를 수행합니다. 
@@ -251,7 +250,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 2. **Azure Blob Storage**를 선택하고 **마침**을 클릭합니다. 
 
    ![싱크 데이터 세트 유형 - Azure Blob Storage](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-type.png)
-3. 데이터 세트를 구성하기 위한 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 세트가 표시됩니다. **속성** 창에서 데이터 집합의 이름을 **SinkDataset**로 변경합니다.
+3. 데이터 세트를 구성하기 위한 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 세트가 표시됩니다. **속성** 창에서 데이터 세트의 이름을 **SinkDataset**로 변경합니다.
 
    ![싱크 데이터 세트 - 이름](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-name.png)
 4. [속성] 창에서 **연결** 탭으로 전환하고 다음 단계를 수행합니다.
@@ -267,7 +266,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 트리 뷰에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다. 
 2. **Azure SQL Database**를 선택하고 **마침**을 클릭합니다. 
-3. 데이터 세트를 구성하기 위한 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 세트가 표시됩니다. **속성** 창에서 데이터 집합의 이름을 **ChangeTrackingDataset**로 변경합니다.
+3. 데이터 세트를 구성하기 위한 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 세트가 표시됩니다. **속성** 창에서 데이터 세트의 이름을 **ChangeTrackingDataset**로 변경합니다.
 4. **연결** 탭으로 전환하고 다음 단계를 수행합니다. 
     
     1. **연결된 서비스**에 대해 **AzureSqlDatabaseLinkedService**를 선택합니다. 
@@ -285,10 +284,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 3. **활동** 도구 상자에서 **데이터 흐름**을 펼치고, **복사** 활동을 파이프라인 디자이너 화면으로 끌어서 놓고, 이름을 **FullCopyActivity**로 설정합니다. 
 
     ![전체 복사 활동 - 이름](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-activity-name.png)
-4. **원본** 탭으로 전환하고, **원본 데이터 집합** 필드에 대해 **SourceDataset**를 선택합니다. 
+4. **원본** 탭으로 전환하고, **원본 데이터 세트** 필드에 대해 **SourceDataset**를 선택합니다. 
 
     ![복사 활동 - 원본](./media/tutorial-incremental-copy-change-tracking-feature-portal/copy-activity-source.png)
-5. **싱크** 탭으로 전환하고, **싱크 데이터 집합** 필드에 대해 **SinkDataset**를 선택합니다. 
+5. **싱크** 탭으로 전환하고, **싱크 데이터 세트** 필드에 대해 **SinkDataset**를 선택합니다. 
 
     ![복사 활동 - 싱크](./media/tutorial-incremental-copy-change-tracking-feature-portal/copy-activity-sink.png)
 6. 파이프라인 정의에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사**를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **>>** 를 클릭하여 **파이프라인 유효성 검사 보고서**를 닫습니다. 
@@ -322,7 +321,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ### <a name="review-the-results"></a>결과 검토
 `adftutorial` 컨테이너의 `incchgtracking` 폴더에 `incremental-<GUID>.txt`라는 파일이 표시됩니다. 
 
-![전체 복사의 출력 파일](media\tutorial-incremental-copy-change-tracking-feature-portal\full-copy-output-file.png)
+![전체 복사의 출력 파일](media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-output-file.png)
 
 파일에는 Azure SQL 데이터베이스의 데이터가 포함됩니다.
 
@@ -362,7 +361,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 3. **활동** 도구 상자에서 **일반**을 펼치고, **조회** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 활동 이름을 **LookupLastChangeTrackingVersionActivity**로 설정합니다. 이 활동은 **table_store_ChangeTracking_version** 테이블에 저장된 마지막 복사 작업에서 사용된 변경 내용 추적 버전을 가져옵니다.
 
     ![조회 활동 - 이름](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
-4. **속성** 창에서 **설정**으로 전환하고, **원본 데이터 집합** 필드에 대해 **ChangeTrackingDataset**를 선택합니다. 
+4. **속성** 창에서 **설정**으로 전환하고, **원본 데이터 세트** 필드에 대해 **ChangeTrackingDataset**를 선택합니다. 
 
     ![조회 활동 - 설정](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png)
 5. **조회** 활동을 **활동** 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. 활동 이름을 **LookupCurrentChangeTrackingVersionActivity**로 설정합니다. 이 활동은 현재 변경 내용 추적 버전을 가져옵니다.
@@ -370,7 +369,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
     ![조회 활동 - 이름](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
 6. **속성** 창에서 **설정**으로 전환하고 다음 단계를 수행합니다.
 
-    1. **원본 데이터 집합** 필드에 대해 **SourceDataset**를 선택합니다.
+    1. **원본 데이터 세트** 필드에 대해 **SourceDataset**를 선택합니다.
     2. **쿼리 사용**에 대해 **쿼리**를 선택합니다. 
     3. **쿼리**에 대해 다음 SQL 쿼리를 입력합니다. 
 
@@ -384,7 +383,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
     ![복사 활동 - 이름](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
 8. **속성** 창에서 **원본**으로 전환하고 다음 단계를 수행합니다.
 
-    1. **원본 데이터 집합**에 대해 **SourceDataset**를 선택합니다. 
+    1. **원본 데이터 세트**에 대해 **SourceDataset**를 선택합니다. 
     2. **쿼리 사용**에 대해 **쿼리**를 선택합니다. 
     3. **쿼리**에 대해 다음 SQL 쿼리를 입력합니다. 
 
@@ -393,7 +392,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
         ```
     
     ![복사 활동 - 원본 설정](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
-9. **싱크** 탭으로 전환하고, **싱크 데이터 집합** 필드에 대해 **SinkDataset**를 선택합니다. 
+9. **싱크** 탭으로 전환하고, **싱크 데이터 세트** 필드에 대해 **SinkDataset**를 선택합니다. 
 
     ![복사 활동 - 싱크 설정](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-sink-settings.png)
 10. **두 개의 조회 활동을 하나씩 복사 활동에 연결합니다**. **조회** 활동에 연결된 **녹색** 단추를 **복사** 활동으로 끕니다. 
@@ -411,7 +410,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
     2. **가져오기 매개 변수**를 선택합니다. 
     3. **저장 프로시저 매개 변수** 섹션에서 매개 변수에 대해 다음 값을 지정합니다. 
 
-        | Name | type | 값 | 
+        | 이름 | type | 값 | 
         | ---- | ---- | ----- | 
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
         | TableName | 문자열 | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
@@ -423,7 +422,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 15. 도구 모음에서 **유효성 검사**를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **>>** 를 클릭하여 **파이프라인 유효성 검사 보고서** 창을 닫습니다. 
 
     ![유효성 검사 단추](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
-16.  **모두 게시** 단추를 클릭하여 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)를 Data Factory 서비스에 게시합니다. **게시 성공** 메시지가 표시될 때까지 기다립니다. 
+16.  **모두 게시** 단추를 클릭하여 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)를 Data Factory 서비스에 게시합니다. **게시 성공** 메시지가 표시될 때까지 기다립니다. 
 
         ![게시 단추](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
@@ -445,7 +444,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 ### <a name="review-the-results"></a>결과 검토
 `adftutorial` 컨테이너의 `incchgtracking` 폴더에 두 번째 파일이 표시됩니다. 
 
-![증분 복사의 출력 파일](media\tutorial-incremental-copy-change-tracking-feature-portal\incremental-copy-output-file.png)
+![증분 복사의 출력 파일](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-output-file.png)
 
 파일에는 Azure SQL 데이터베이스의 델타 데이터만 포함됩니다. `U`가 포함된 레코드가 데이터베이스에서 업데이트된 행이고 `I`가 추가된 행입니다. 
 
@@ -453,7 +452,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 1,update,10,2,U
 6,new,50,1,I
 ```
-처음 세 열은 data_source_table에서 변경된 데이터입니다. 마지막 두 열은 변경 내용 추적 시스템 테이블의 메타데이터입니다. 네 번째 열은 변경된 각 행의 SYS_CHANGE_VERSION입니다. 다섯 번째 열의 U=업데이트, I=삽입 작업입니다.  변경 내용 추적 정보에 대한 자세한 내용은 [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql)을 참조하세요. 
+처음 세 열은 data_source_table에서 변경된 데이터입니다. 마지막 두 열은 변경 내용 추적 시스템 테이블의 메타데이터입니다. 네 번째 열은 변경된 각 행의 SYS_CHANGE_VERSION입니다. 다섯 번째 열에서  U는 업데이트 작업, I는 삽입 작업을 나타냅니다.  변경 내용 추적 정보에 대한 자세한 내용은 [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql)을 참조하세요. 
 
 ```
 ==================================================================

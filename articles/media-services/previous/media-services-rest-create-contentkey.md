@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 9fb28d618a9375dec19e75d04ef0a6bc5de334b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4e4d01371733a2292c69174e4cb135e995e5e935
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242639"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189101"
 ---
 # <a name="create-content-keys-with-rest"></a>REST를 사용하여 콘텐츠 키 만들기
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Media Services를 사용하면 암호화된 자산을 제공할 수 있습니다
 
 새 자산을 만들 때(예: [파일 업로드](media-services-rest-upload-files.md) 전) **StorageEncrypted**, **CommonEncryptionProtected** 또는 **EnvelopeEncryptionProtected** 암호화 옵션을 지정할 수 있습니다. 
 
-클라이언트에 자산을 제공할 때 **DynamicEnvelopeEncryption** 또는 **DynamicCommonEncryption** 암호화 중 하나를 사용하여 [자산이 동적으로 암호화되도록 구성](media-services-rest-configure-asset-delivery-policy.md)할 수 있습니다.
+클라이언트에 자산을 제공할 때 다음 두 암호화 중 하나를 사용하여 [자산이 동적으로 암호화되도록 구성](media-services-rest-configure-asset-delivery-policy.md)할 수 있습니다. **DynamicEnvelopeEncryption** 또는 **DynamicCommonEncryption**.
 
 암호화된 자산은 **ContentKey**와 연관되어야 합니다. 이 문서에서는 콘텐츠 키를 만드는 방법을 설명합니다.
 
@@ -71,9 +71,9 @@ Media Services를 사용하면 암호화된 자산을 제공할 수 있습니다
 
 이 문서는 AES 키를 생성하고, 키를 암호화하고 체크섬을 계산하는 방법을 표시하지 않습니다. 
 
->[!NOTE]
-
->Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
+> [!NOTE]
+> 
+> Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
 
 ## <a name="connect-to-media-services"></a>Media Services에 연결
 

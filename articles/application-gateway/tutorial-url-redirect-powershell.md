@@ -1,6 +1,6 @@
 ---
-title: URL 경로 기반 리디렉션으로 응용 프로그램 게이트웨이 만들기 - Azure PowerShell
-description: Azure PowerShell을 사용하여 URL 경로 기반 리디렉션된 트래픽으로 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다.
+title: URL 경로 기반 리디렉션으로 애플리케이션 게이트웨이 만들기 - Azure PowerShell
+description: Azure PowerShell을 사용하여 URL 경로 기반 리디렉션된 트래픽으로 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -10,22 +10,22 @@ ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 785f3e5f55520b3851e8989b79c340bce55c2135
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 8f0ed678615b65e6ec15a516c349a40c279a4da1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566911"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427312"
 ---
-# <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Azure PowerShell을 사용하여 URL 경로 기반 리디렉션으로 응용 프로그램 게이트웨이 만들기
+# <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Azure PowerShell을 사용하여 URL 경로 기반 리디렉션으로 애플리케이션 게이트웨이 만들기
 
-Azure PowerShell을 사용하여 [응용 프로그램 게이트웨이](application-gateway-introduction.md)를 만들 때 [URL 기반 라우팅 규칙](application-gateway-url-route-overview.md)을 구성할 수 있습니다. 이 자습서에서는 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하여 백 엔드 풀을 만듭니다. 그런 다음, 웹 트래픽이 적절한 백 엔드 풀로 리디렉션되도록 하는 URL 라우팅 규칙을 만듭니다.
+Azure PowerShell을 사용하여 [애플리케이션 게이트웨이](application-gateway-introduction.md)를 만들 때 [URL 기반 회람 규칙](application-gateway-url-route-overview.md)을 구성할 수 있습니다. 이 자습서에서는 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하여 백 엔드 풀을 만듭니다. 그런 다음, 웹 트래픽이 적절한 백 엔드 풀로 리디렉션되도록 하는 URL 라우팅 규칙을 만듭니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 네트워크 설정
-> * 응용 프로그램 게이트웨이 만들기
+> * 애플리케이션 게이트웨이 만들기
 > * 수신기 및 라우팅 규칙 추가
 > * 백 엔드 풀에 대한 가상 머신 확장 집합 만들기
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 3.6 이상을 실행해야 합니다. 버전을 확인하려면 ` Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure PowerShell 모듈 버전 3.6 이상을 실행해야 합니다. 버전을 확인하려면 ` Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -51,7 +51,7 @@ New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
 
-[New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig)를 사용하여 *myBackendSubnet* 및 *myAGSubnet*에 대한 서브넷 구성을 만듭니다. 서브넷 구성으로 [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)를 사용하여 *myVNet*이라는 가상 네트워크를 만듭니다. 마지막으로 [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)를 사용하여 *myAGPublicIPAddress*라는 공용 IP 주소를 만듭니다. 이러한 리소스는 응용 프로그램 게이트웨이 및 연결된 리소스에 대한 네트워크 연결을 제공하는 데 사용됩니다.
+[New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig)를 사용하여 *myBackendSubnet* 및 *myAGSubnet*에 대한 서브넷 구성을 만듭니다. 서브넷 구성으로 [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)를 사용하여 *myVNet*이라는 가상 네트워크를 만듭니다. 마지막으로 [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)를 사용하여 *myAGPublicIPAddress*라는 공용 IP 주소를 만듭니다. 이러한 리소스는 애플리케이션 게이트웨이 및 연결된 리소스에 대한 네트워크 연결을 제공하는 데 사용됩니다.
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
@@ -76,17 +76,17 @@ New-AzureRmPublicIpAddress `
   -AllocationMethod Dynamic
 ```
 
-## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
+## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
-이 섹션에서는 응용 프로그램 게이트웨이를 지원하는 리소스를 만든 다음, 최종적으로 응용 프로그램 게이트웨이를 만듭니다. 다음과 같은 리소스를 만듭니다.
+이 섹션에서는 애플리케이션 게이트웨이를 지원하는 리소스를 만든 다음, 최종적으로 애플리케이션 게이트웨이를 만듭니다. 다음과 같은 리소스를 만듭니다.
 
-- *IP 구성 및 프런트 엔드 포트* - 앞에서 만든 서브넷을 응용 프로그램 게이트웨이에 연결하고 액세스 시 사용할 포트를 할당합니다.
-- *기본 풀* - 모든 응용 프로그램 게이트웨이에 서버 백 엔드 풀이 하나 이상 있어야 합니다.
+- *IP 구성 및 프런트 엔드 포트* - 앞에서 만든 서브넷을 애플리케이션 게이트웨이에 연결하고 액세스 시 사용할 포트를 할당합니다.
+- *기본 풀* - 모든 애플리케이션 게이트웨이에 서버 백 엔드 풀이 하나 이상 있어야 합니다.
 - *기본 수신기 및 규칙* - 기본 수신기는 할당된 포트에서 트래픽을 수신 대기하고 기본 규칙은 기본 풀로 트래픽을 보냅니다.
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>IP 구성 및 프론트 엔드 포트 만들기
 
-[New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration)을 사용하여 이전에 응용 프로그램 게이트웨이에 만든 *myAGSubnet*을 연결합니다. [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig)를 사용하여 응용 프로그램 게이트웨이에 *myAGPublicIPAddress*를 할당합니다. 그런 후 [New-AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport)를 사용하여 HTTP 포트를 만들 수 있습니다.
+[New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration)을 사용하여 이전에 애플리케이션 게이트웨이에 만든 *myAGSubnet*을 연결합니다. [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig)를 사용하여 애플리케이션 게이트웨이에 *myAGPublicIPAddress*를 할당합니다. 그런 후 [New-AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport)를 사용하여 HTTP 포트를 만들 수 있습니다.
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork `
@@ -114,7 +114,7 @@ $frontendport = New-AzureRmApplicationGatewayFrontendPort `
 
 ### <a name="create-the-default-pool-and-settings"></a>기본 풀 및 설정 만들기
 
-[New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool)을 사용하여 응용 프로그램 게이트웨이에 대해 *appGatewayBackendPool*이라는 기본 백 엔드 풀을 만듭니다. [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings)를 사용하여 백 엔드 풀에 대한 설정을 구성합니다.
+[New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool)을 사용하여 애플리케이션 게이트웨이에 대해 *appGatewayBackendPool*이라는 기본 백 엔드 풀을 만듭니다. [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings)를 사용하여 백 엔드 풀에 대한 설정을 구성합니다.
 
 ```azurepowershell-interactive
 $defaultPool = New-AzureRmApplicationGatewayBackendAddressPool `
@@ -130,7 +130,7 @@ $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-default-listener-and-rule"></a>기본 수신기 및 규칙 만들기
 
-응용 프로그램 게이트웨이에서 트래픽을 백 엔드 풀로 적절하게 라우팅할 수 있으려면 수신기가 필요합니다. 이 자습서에서는 여러 개의 수신기를 만듭니다. 첫 번째 기본 수신기는 루트 URL에서 트래픽을 예상합니다. 다른 수신기는 특정 URL(예: *http://52.168.55.24:8080/images/* 또는 *http://52.168.55.24:8081/video/*)에서 트래픽을 예상합니다.
+애플리케이션 게이트웨이에서 트래픽을 백 엔드 풀로 적절하게 라우팅할 수 있으려면 수신기가 필요합니다. 이 자습서에서는 여러 개의 수신기를 만듭니다. 첫 번째 기본 수신기는 루트 URL에서 트래픽을 예상합니다. 다른 수신기는 특정 URL(예: *http://52.168.55.24:8080/images/* 또는 *http://52.168.55.24:8081/video/*)에서 트래픽을 예상합니다.
 
 이전에 만든 프론트 엔드 구성 및 프론트 엔드 포트로 [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener)를 사용하여 *defaultListener*라는 수신기를 만듭니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule)을 사용하여 *rule1*이라는 기본 규칙을 만듭니다.
 
@@ -151,7 +151,7 @@ $frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
-필요한 지원 리소스를 만들었으니 [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku)를 사용하여 *myAppGateway*라는 응용 프로그램 게이트웨이에 대한 매개 변수를 지정한 다음, [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway)를 사용하여 만듭니다.
+필요한 지원 리소스를 만들었으니 [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku)를 사용하여 *myAppGateway*라는 애플리케이션 게이트웨이에 대한 매개 변수를 지정한 다음, [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway)를 사용하여 만듭니다.
 
 ```azurepowershell-interactive
 $sku = New-AzureRmApplicationGatewaySku `
@@ -175,7 +175,7 @@ New-AzureRmApplicationGateway `
 
 ### <a name="add-backend-pools-and-ports"></a>백 엔드 풀과 포트 추가
 
-[Add-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/add-azurermapplicationgatewaybackendaddresspool)을 사용하여 응용 프로그램 게이트웨이에 백 엔드 풀을 추가할 수 있습니다. 이 예제에서는 *imagesBackendPool* 및 *videoBackendPool*이 생성됩니다. [Add-AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/add-azurermapplicationgatewayfrontendport)를 사용하여 풀에 대한 프런트 엔드 포트를 추가합니다. 그런 다음, [Set-AzureRmApplicationGateway](/powershell/module/azurerm.network/set-azurermapplicationgateway)를 사용하여 변경 내용을 응용 프로그램 게이트웨이에 전송합니다.
+[Add-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/add-azurermapplicationgatewaybackendaddresspool)을 사용하여 애플리케이션 게이트웨이에 백 엔드 풀을 추가할 수 있습니다. 이 예제에서는 *imagesBackendPool* 및 *videoBackendPool*이 생성됩니다. [Add-AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/add-azurermapplicationgatewayfrontendport)를 사용하여 풀에 대한 프런트 엔드 포트를 추가합니다. 그런 다음, [Set-AzureRmApplicationGateway](/powershell/module/azurerm.network/set-azurermapplicationgateway)를 사용하여 변경 내용을 애플리케이션 게이트웨이에 전송합니다.
 
 ```azurepowershell-interactive
 $appgw = Get-AzureRmApplicationGateway `
@@ -490,29 +490,29 @@ for ($i=1; $i -le 3; $i++)
 }
 ```
 
-## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
+## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-[Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress)를 사용하여 응용 프로그램 게이트웨이의 공용 IP 주소를 가져올 수 있습니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: *http://52.168.55.24*, *http://52.168.55.24:8080/images/test.htm*, *http://52.168.55.24:8080/video/test.htm* 또는 *http://52.168.55.24:8081/images/test.htm*.
+[Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress)를 사용하여 애플리케이션 게이트웨이의 공용 IP 주소를 가져올 수 있습니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: *http://52.168.55.24*, *http://52.168.55.24:8080/images/test.htm*, *http://52.168.55.24:8080/video/test.htm* 또는 *http://52.168.55.24:8081/images/test.htm*.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
-![응용 프로그램 게이트웨이의 기준 URL 테스트](./media/tutorial-url-redirect-powershell/application-gateway-iistest.png)
+![애플리케이션 게이트웨이의 기준 URL 테스트](./media/tutorial-url-redirect-powershell/application-gateway-iistest.png)
 
 URL을 http://&lt;ip-address&gt;:8080/video/test.htm으로 변경하고 &lt;ip-address&gt;를 사용자의 IP 주소로 대체하면 다음 예제와 같은 내용이 표시됩니다.
 
-![응용 프로그램 게이트웨이의 이미지 URL 테스트](./media/tutorial-url-redirect-powershell/application-gateway-iistest-images.png)
+![애플리케이션 게이트웨이의 이미지 URL 테스트](./media/tutorial-url-redirect-powershell/application-gateway-iistest-images.png)
 
 URL을 http://&lt;ip-address&gt;:8080/video/test.htm으로 변경하고 &lt;ip-address&gt;를 사용자의 IP 주소로 대체하면 다음 예제와 같은 내용이 표시됩니다.
 
-![응용 프로그램 게이트웨이의 비디오 URL 테스트](./media/tutorial-url-redirect-powershell/application-gateway-iistest-video.png)
+![애플리케이션 게이트웨이의 비디오 URL 테스트](./media/tutorial-url-redirect-powershell/application-gateway-iistest-video.png)
 
 이제 URL을 http://&lt;ip-address&gt;:8081/images/test.htm으로 변경하고 &lt;ip-address&gt;를 사용자의 IP 주소로 대체하면 트래픽이 http://&lt;ip-address&gt;:8080/images에 있는 이미지 백 엔드 풀로 다시 리디렉션되었다고 표시됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요 없으면 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 명령을 사용하여 리소스 그룹, 응용 프로그램 게이트웨이 및 모든 관련 리소스를 제거합니다.
+더 이상 필요 없으면 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 명령을 사용하여 리소스 그룹, 애플리케이션 게이트웨이 및 모든 관련 리소스를 제거합니다.
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroupAG
@@ -520,4 +520,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [응용 프로그램 게이트웨이 통해 수행할 수 있는 작업에 대한 자세한 정보](application-gateway-introduction.md)
+> [애플리케이션 게이트웨이 통해 수행할 수 있는 작업에 대한 자세한 정보](application-gateway-introduction.md)

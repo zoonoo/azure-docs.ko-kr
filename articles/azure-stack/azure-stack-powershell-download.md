@@ -11,15 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 5b90ebc554738c89816cf88f8984ffab01c87d4d
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: 05dd3b292f90964c6af21890aaeafab9849a09ed
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451323"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242980"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>GitHub에서 Azure Stack 도구 다운로드
 

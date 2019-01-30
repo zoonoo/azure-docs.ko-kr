@@ -3,18 +3,18 @@ title: Azure Automation의 변수 자산
 description: 변수 자산은 Azure Automation의 모든 runbook과 DSC 구성에서 사용할 수 있는 값입니다.  이 문서에서는 변수에 대해 자세히 알아보고 텍스트 작성과 그래픽 작성 모두에서 변수를 사용하는 방법을 설명합니다.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ea6aae349bfbec0d1b6538010df42e7a0fb22d8e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e60c5eee20caafc1c5ad41e3ccf568f4bd944745
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196103"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434430"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure Automation의 변수 자산
 
@@ -31,7 +31,7 @@ runbook 또는 DSC 구성이 실패할지라도 계속 사용 가능할 수 있�
 변수를 만들 때 암호화된 상태로 저장되도록 지정할 수 있습니다. 변수를 암호화하면 Azure Automation에 안전하게 저장되며 Azure PowerShell 모듈의 일부로 제공되는 [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) cmdlet에서 해당 값을 검색할 수 없습니다. 오직 runbook 또는 DSC 구성의 **Get-AutomationVariable** 에서만 암호화 된 값을 검색할 수 있습니다.
 
 >[!NOTE]
->Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 Automation 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure Automation에 저장됩니다. 이 키는 Key Vault에 저장됩니다. 보안 자산을 저장하기 전에 Key Vault에서 키가 로드된 다음, 자산을 암호화하는 데 사용됩니다.
+>Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 Automation 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure Automation에 저장됩니다. 이 키는 시스템에서 관리하는 Key Vault에 저장됩니다. 보안 자산을 저장하기 전에 Key Vault에서 키가 로드된 다음, 자산을 암호화하는 데 사용됩니다. Azure Automation에서 이 프로세스를 관리합니다.
 
 ## <a name="variable-types"></a>변수 형식
 
@@ -201,3 +201,4 @@ AzureRM에 대해 다음 표의 cmdlet은 Windows PowerShell을 사용하여 자
 
 * 그래픽 작성에서 모든 연결 활동에 대해 자세히 알아보려면 [그래픽 작성 링크](automation-graphical-authoring-intro.md#links-and-workflow)
 * 그래픽 Runbook을 시작하려면 [내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md) 
+

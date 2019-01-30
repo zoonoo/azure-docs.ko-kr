@@ -3,20 +3,20 @@ title: Visual Studio로 논리 앱 관리 - Azure Logic Apps | Microsoft Docs
 description: Visual Studio 클라우드 탐색기를 사용하여 Logic Apps 및 기타 Azure 자산 관리
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d4de75238e48b8eb955095b5a3823f2fed799fae
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: dbb38336f0521f8f8e526ad3f5e13829075e7cca
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445646"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158148"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Visual Studio로 논리 앱 관리
 
@@ -172,6 +172,13 @@ Azure Portal에서 논리 앱을 삭제하려면 클라우드 탐색기에서 �
 
 > [!NOTE]
 > 논리 앱을 삭제하면 새 실행이 인스턴스화되지 않습니다. 모든 진행 중 및 보류 중인 실행이 취소됩니다. 수천 개의 실행이 있다면 취소를 완료하는 데 상당한 시간이 소요될 수 있습니다. 
+
+## <a name="troubleshooting"></a>문제 해결
+
+Logic Apps 디자이너에서 논리 앱 프로젝트를 열 때 Azure 구독을 선택하는 옵션이 제공되지 않을 수 있습니다. 그 대신, 사용하려는 Azure 구독이 아닌 다른 구독으로 논리 앱이 열립니다. 사용자가 논리 앱의 .json 파일을 연 후 Visual Studio가 처음에 선택된 구독을 나중에 사용하기 위해 캐시하기 때문에 이 동작이 발생합니다. 이 문제를 해결하려면 다음 단계 중 하나를 수행합니다.
+
+* 논리 앱의 .json 파일 이름을 바꿉니다. 구독 캐시는 파일 이름에 따라 달라집니다. 
+* 이전에 솔루션의 *모든* 논리 앱에 대해 선택한 구독을 제거하려면 솔루션의 디렉터리에서 *숨겨진* .vs 폴더를 삭제합니다. 이 위치에 구독 정보가 저장됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

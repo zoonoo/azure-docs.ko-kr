@@ -1,20 +1,17 @@
 ---
 title: Azure Database for MySQL과 AKS(Azure Kubernetes Service) 연결
 description: Azure Database for MySQL과 Azure Kubernetes Service를 연결하는 방법에 대한 자세한 정보
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2018
-ms.openlocfilehash: 54deae9fcf9fdc786aa917bae518a2177a7acaff
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 624689fd6b9d8f364b0caf7e96b79b2773ce6171
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52577125"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538177"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Azure Kubernetes Service 및 Azure Database for MySQL 연결
 
@@ -39,7 +36,7 @@ AKS 클러스터에 가속 네트워킹이 있는지 여부를 확인할 수 있
 ## <a name="open-service-broker-for-azure"></a>Open Service Broker for Azure 
 OSBA([Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md))를 사용하면 Kubernetes 또는 Cloud Foundry에서 직접 Azure 서비스를 프로비전할 수 있습니다. OSBA는 Azure용으로 구현된 [Open Service Broker API](https://www.openservicebrokerapi.org/)입니다.
 
-OSBA를 통해 Azure Database for MySQL 서버를 만들고, Kubernetes 네이티브 언어를 사용하여 AKS 클러스터에 바인딩할 수 있습니다. [OSBA Github 페이지](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/mysql.md)에서 OSBA 및 Azure Database for MySQL을 함께 사용하는 방법을 알아봅니다. 
+OSBA를 통해 Azure Database for MySQL 서버를 만들고, Kubernetes 네이티브 언어를 사용하여 AKS 클러스터에 바인딩할 수 있습니다. [OSBA GitHub 페이지](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/mysql.md)에서 OSBA 및 Azure Database for MySQL을 함께 사용하는 방법을 알아봅니다. 
 
 
 

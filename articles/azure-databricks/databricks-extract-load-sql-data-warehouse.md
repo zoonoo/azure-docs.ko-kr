@@ -10,20 +10,20 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 11/19/2018
-ms.openlocfilehash: 5a6d3265fde3b7633036ddc4cae0a5ea7d246957
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: de1033a6e43105f92775682458677a4578a410b9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265273"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265489"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드
 
 이 자습서에서는 Azure Databricks를 사용하여 ETL(추출, 변환 및 데이터 로드) 작업을 수행합니다. Azure Data Lake Store에서 Azure Databricks로 데이터를 추출하고, Azure Databricks에서 데이터를 변환한 다음, Azure SQL Data Warehouse로 데이터를 로드합니다.
 
-이 자습서의 단계에서는 Azure Databricks용 SQL Data Warehouse 커넥터를 사용하여 Azure Databricks로 데이터를 전송합니다. 그러면 이 커넥터는 Azure Blob Storage를 Azure Databricks 클러스터와 Azure SQL Data Warehouse 간에 전송되는 데이터의 임시 저장소로 사용합니다.
+이 자습서의 단계에서는 Azure Databricks용 SQL Data Warehouse 커넥터를 사용하여 Azure Databricks로 데이터를 전송합니다. 그러면 이 커넥터는 Azure Blob Storage를 Azure Databricks 클러스터와 Azure SQL Data Warehouse 간에 전송되는 데이터의 임시 스토리지로 사용합니다.
 
-다음 그림에서는 응용 프로그램 흐름을 보여줍니다.
+다음 그림에서는 애플리케이션 흐름을 보여줍니다.
 
 ![Azure Databricks를 Data Lake Store 및 SQL Data Warehouse와 함께 사용](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks를 Data Lake Store 및 SQL Data Warehouse와 함께 사용")
 
@@ -46,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이 자습서를 시작하기 전에 다음 요구 사항이 충족되는지 확인합니다.
 - Azure SQL Data Warehouse를 만들고, 서버 수준 방화벽 규칙을 만들고, 서버 관리자로 서버에 연결합니다. [빠른 시작: Azure SQL Data Warehouse 만들기](../sql-data-warehouse/create-data-warehouse-portal.md)의 지침을 따르세요.
 - Azure SQL Data Warehouse에 대한 데이터베이스 마스터 키를 만듭니다. [데이터베이스 마스터 키 만들기](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key)의 지침을 따르세요.
-- Azure Blob Storage 계정을 만들고, 그 안에 컨테이너를 만듭니다. 또한 저장소 계정에 액세스하는 데 사용되는 액세스 키를 검색합니다. [빠른 시작: Azure Blob 저장소 계정 만들기](../storage/blobs/storage-quickstart-blobs-portal.md)의 지침을 따르세요.
+- Azure Blob Storage 계정을 만들고, 그 안에 컨테이너를 만듭니다. 또한 저장소 계정에 액세스하는 데 사용되는 액세스 키를 검색합니다. [빠른 시작: Azure Blob 스토리지 계정 만들기](../storage/blobs/storage-quickstart-blobs-portal.md)의 지침을 따르세요.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -54,7 +54,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Azure Databricks 작업 영역 만들기
 
-이 섹션에서는 Azure Portal을 사용하여 Azure Databricks 작업 영역을 만듭니다. 
+이 섹션에서는 Azure Portal을 사용하여 Azure Databricks 작업 영역을 만듭니다.
 
 1. Azure Portal에서 **리소스 만들기** > **데이터 + 분석** > **Azure Databricks**를 차례로 선택합니다.
 
@@ -65,7 +65,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ![Azure Databricks 작업 영역 만들기](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "Azure Databricks 작업 영역 만들기")
 
     다음 값을 제공합니다.
-     
+    
     |자산  |설명  |
     |---------|---------|
     |**작업 영역 이름**     | Databricks 작업 영역의 이름을 제공합니다.        |
@@ -95,7 +95,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     다음 항목 이외의 다른 모든 기본값을 허용합니다.
 
     * 클러스터의 이름을 입력합니다.
-    * 이 문서에서는 **4.0** 런타임을 사용하여 클러스터를 만듭니다.
+    * 이 문서에서는 런타임 버전 **4.1 이상**을 사용하여 클러스터를 만듭니다.
     * **비활성 \_\_분 후 종료** 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
     
     **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
@@ -106,11 +106,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **저장소** > **Data Lake Store**를 선택합니다.
 3. **새 Data Lake Store** 블레이드에서 아래 스크린샷에 표시된 대로 값을 제공합니다.
-   
+
     ![새 Azure Data Lake Store 계정 만들기](./media/databricks-extract-load-sql-data-warehouse/create-new-datalake-store.png "새 Azure Data Lake 계정 만들기")
 
-    다음 값을 제공합니다. 
-     
+    다음 값을 제공합니다.
+    
     |자산  |설명  |
     |---------|---------|
     |**Name**     | Data Lake Store 계정의 고유한 이름을 입력합니다.        |
@@ -125,37 +125,37 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이제 Azure Active Directory 서비스 사용자를 만들고 앞에서 만든 Data Lake Store 계정을 연결합니다.
 
 ### <a name="create-an-azure-active-directory-service-principal"></a>Azure Active Directory 서비스 사용자 만들기
-   
+
 1. [Azure Portal](https://portal.azure.com)에서 **모든 서비스**를 선택한 다음, **Azure Active Directory**를 검색합니다.
 
 2. **앱 등록**을 선택합니다.
 
    ![앱 등록 선택](./media/databricks-extract-load-sql-data-warehouse/select-app-registrations.png)
 
-3. **새 응용 프로그램 등록**을 선택합니다.
+3. **새 애플리케이션 등록**을 선택합니다.
 
    ![앱 추가](./media/databricks-extract-load-sql-data-warehouse/select-add-app.png)
 
-4. 응용 프로그램에 대한 이름 및 URL을 제공합니다. 만들려는 응용 프로그램 유형으로 **웹앱/API**를 선택합니다. 로그온 URL을 입력하고 **만들기**를 선택합니다.
+4. 애플리케이션에 대한 이름 및 URL을 제공합니다. 만들려는 애플리케이션 유형으로 **웹앱/API**를 선택합니다. 로그온 URL을 입력하고 **만들기**를 선택합니다.
 
-   ![응용 프로그램 이름 지정](./media/databricks-extract-load-sql-data-warehouse/create-app.png)
+   ![애플리케이션 이름 지정](./media/databricks-extract-load-sql-data-warehouse/create-app.png)
 
 Azure Databricks에서 Data Lake Store 계정에 액세스하려면 앞에서 만든 Azure Active Directory 서비스 사용자에 대한 다음 값이 있어야 합니다.
-- 응용 프로그램 UI
+- 애플리케이션 UI
 - 인증 키
 - 테넌트 ID
 
 다음 섹션에서는 앞에서 만든 Azure Active Directory 서비스 사용자에 대한 다음 값을 검색합니다.
 
-### <a name="get-application-id-and-authentication-key-for-the-service-principal"></a>서비스 사용자의 응용 프로그램 ID 및 인증 키 가져오기
+### <a name="get-application-id-and-authentication-key-for-the-service-principal"></a>서비스 사용자의 애플리케이션 ID 및 인증 키 가져오기
 
-프로그래밍 방식으로 로그인하는 경우 응용 프로그램에 대한 ID 및 인증 키가 필요합니다. 이러한 값을 가져오려면 다음 단계를 사용합니다.
+프로그래밍 방식으로 로그인하는 경우 애플리케이션에 대한 ID 및 인증 키가 필요합니다. 이러한 값을 가져오려면 다음 단계를 사용합니다.
 
-1. Azure Active Directory의 **앱 등록**에서 응용 프로그램을 선택합니다.
+1. Azure Active Directory의 **앱 등록**에서 애플리케이션을 선택합니다.
 
-   ![응용 프로그램 선택](./media/databricks-extract-load-sql-data-warehouse/select-app.png)
+   ![애플리케이션 선택](./media/databricks-extract-load-sql-data-warehouse/select-app.png)
 
-2. **응용 프로그램 ID**를 복사하고 응용 프로그램 코드에 저장합니다. 일부 [응용 프로그램 예제](#log-in-as-the-application)에서는 이 값을 클라이언트 ID라고 합니다.
+2. **애플리케이션 ID**를 복사하고 애플리케이션 코드에 저장합니다. 일부 [애플리케이션 예제](#log-in-as-the-application)에서는 이 값을 클라이언트 ID라고 합니다.
 
    ![클라이언트 ID](./media/databricks-extract-load-sql-data-warehouse/copy-app-id.png)
 
@@ -171,7 +171,7 @@ Azure Databricks에서 Data Lake Store 계정에 액세스하려면 앞에서 �
 
    ![키 저장](./media/databricks-extract-load-sql-data-warehouse/save-key.png)
 
-   키를 저장하면 키 값이 표시됩니다. 나중에 키를 검색할 수 없으므로 이 값을 복사해둡니다. 응용 프로그램으로 로그인하려면 응용 프로그램 ID와 함께 키 값을 제공합니다. 응용 프로그램에서 검색할 수 있는 위치에 키 값을 저장합니다.
+   키를 저장하면 키 값이 표시됩니다. 나중에 키를 검색할 수 없으므로 이 값을 복사해둡니다. 애플리케이션으로 로그인하려면 애플리케이션 ID와 함께 키 값을 제공합니다. 애플리케이션에서 검색할 수 있는 위치에 키 값을 저장합니다.
 
    ![공유 키](./media/databricks-extract-load-sql-data-warehouse/copy-key.png)
 
@@ -193,7 +193,7 @@ Azure Databricks에서 Data Lake Store 계정에 액세스하려면 앞에서 �
 
 ## <a name="upload-data-to-data-lake-store"></a>데이터 레이크 저장소에 데이터 업로드
 
-이 섹션에서는 Data Lake Store에 샘플 데이터 파일을 업로드합니다. 이 파일은 Azure Databricks의 뒷부분에서 변환을 수행하는 데 사용됩니다. 이 자습서에서 사용하는 샘플 데이터(**small_radio_json.json**)는 이 [Github 리포지토리](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json)에서 받을 수 있습니다.
+이 섹션에서는 Data Lake Store에 샘플 데이터 파일을 업로드합니다. 이 파일은 Azure Databricks의 뒷부분에서 변환을 수행하는 데 사용됩니다. 이 자습서에서 사용하는 샘플 데이터(**small_radio_json.json**)는 이 [GitHub 리포지토리](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json)에서 사용할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에서, 앞에서 만든 Data Lake Store 계정을 선택합니다.
 
@@ -376,9 +376,9 @@ Azure Data Lake Store에서 Azure Databricks로 데이터를 추출했습니다.
 
 이 섹션에서는 변환된 데이터를 Azure SQL Data Warehouse로 업로드합니다. Azure Databricks용 Azure SQL Data Warehouse 커넥터를 사용하여 데이터 프레임을 SQL 데이터 웨어하우스의 테이블로 직접 업로드할 수 있습니다.
 
-앞서 언급했듯이, SQL 데이터 웨어하우스 커넥터는 Azure Blob Storage를 임시 저장소 위치로 사용하여 Azure Databricks와 Azure SQL Data Warehouse 간의 데이터를 업로드합니다. 따라서 저장소 계정에 연결하는 구성을 먼저 제공해야 합니다. 이 문서의 필수 구성 요소로 이미 계정을 만들어 두셨을 것입니다.
+앞에서 설명한 대로 SQL 데이터 웨어하우스 커넥터는 Azure Blob Storage를 임시 스토리지 위치로 사용하여 Azure Databricks와 Azure SQL Data Warehouse 간에 데이터를 업로드합니다. 따라서 저장소 계정에 연결하는 구성을 먼저 제공해야 합니다. 이 문서의 필수 구성 요소로 이미 계정을 만들어 두셨을 것입니다.
 
-1. Azure Databricks에서 Azure Storage 계정에 액세스하기 위한 구성을 입력합니다. 포털에서 Blob 저장소에 대한 URL을 복사하는 경우 처음부터 *https://* 를 제거해야 합니다. 
+1. Azure Databricks에서 Azure Storage 계정에 액세스하기 위한 구성을 입력합니다. 포털에서 Blob 저장소에 대한 URL을 복사하는 경우 처음부터 *https://* 를 제거해야 합니다.
 
         val blobStorage = "<STORAGE ACCOUNT NAME>.blob.core.windows.net"
         val blobContainer = "<CONTAINER NAME>"
@@ -410,7 +410,7 @@ Azure Data Lake Store에서 Azure Databricks로 데이터를 추출했습니다.
         spark.conf.set(
           "spark.sql.parquet.writeLegacyFormat",
           "true")
-        
+    
         renamedColumnsDf.write
             .format("com.databricks.spark.sqldw")
             .option("url", sqlDwUrlSmall)

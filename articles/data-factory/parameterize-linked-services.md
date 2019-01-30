@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 12/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 99efd29165f381b9038758c3384774a65da91501
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: af06be520b10184c1e96bdb27d0b8b648cde84a2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649417"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018456"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Azure Data Factory의 연결된 서비스 매개 변수화
 
@@ -34,7 +33,7 @@ Azure Portal의 Data Factory UI 또는 프로그래밍 인터페이스를 사용
 
 ## <a name="supported-data-stores"></a>지원되는 데이터 저장소
 
-현재, 연결된 서비스 매개 변수화는 다음 데이터 저장소에 대해 Azure Portal의 Data Factory UI에서 지원됩니다. 다른 모든 데이터 저장소의 경우, JSON 편집기를 사용하여 파이프라인 탭에서 **코드** 아이콘을 선택하여 연결된 서비스를 매개 변수화할 수 있습니다.
+현재, 연결된 서비스 매개 변수화는 다음 데이터 저장소에 대해 Azure Portal의 Data Factory UI에서 지원됩니다. 다른 모든 데이터 저장소의 경우, **연결** 탭에서 **코드** 아이콘을 선택하고 JSON 편집기를 사용하여 연결된 서비스를 매개 변수화할 수 있습니다.
 - Azure SQL Database
 - Azure SQL Data Warehouse
 - SQL Server

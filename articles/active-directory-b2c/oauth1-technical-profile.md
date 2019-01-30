@@ -3,25 +3,25 @@ title: Azure Active Directory B2C의 사용자 지정 정책에서 OAuth1 기술
 description: Azure Active Directory B2C의 사용자 지정 정책에서 OAuth1 기술 프로필을 정의합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 10c90b060c184bb911ac149640e8a9570b59e2fb
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 6e93f42540492d138afef3a1d4b826165201b04c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382821"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851354"
 ---
 # <a name="define-a-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OAuth1 기술 프로필 정의
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD(Azure Active Directory) B2C는 [OAuth 1.0](http://tools.ietf.org/html/rfc5849) 프로토콜 ID 공급자를 지원합니다. 이 문서에서는 이 표준 프로토콜을 지원하는 클레임 공급자와 상호 작용하기 위한 기술 프로필에 대해 구체적으로 설명합니다. OAuth1 기술 프로필을 사용하면 Twitter와 같은 OAuth1 기반 ID 공급자를 페더레이션할 수 있습니다. 그러면 사용자가 기존 소셜 또는 엔터프라이즈 ID로 로그인할 수 있게 됩니다.
+Azure AD(Azure Active Directory) B2C는 [OAuth 1.0](https://tools.ietf.org/html/rfc5849) 프로토콜 ID 공급자를 지원합니다. 이 문서에서는 이 표준 프로토콜을 지원하는 클레임 공급자와 상호 작용하기 위한 기술 프로필에 대해 구체적으로 설명합니다. OAuth1 기술 프로필을 사용하면 Twitter와 같은 OAuth1 기반 ID 공급자를 페더레이션할 수 있습니다. 그러면 사용자가 기존 소셜 또는 엔터프라이즈 ID로 로그인할 수 있게 됩니다.
 
 ## <a name="protocol"></a>프로토콜
 
@@ -69,11 +69,11 @@ Azure AD(Azure Active Directory) B2C는 [OAuth 1.0](http://tools.ietf.org/html/r
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| client_id | yes | ID 공급자의 응용 프로그램 식별자입니다. |
+| client_id | 예 | ID 공급자의 애플리케이션 식별자입니다. |
 | ProviderName | 아니요 | ID 공급자의 이름입니다. |
-| request_token_endpoint | yes | RFC 5849에 따른 요청 토큰 엔드포인트의 URL입니다. |
-| authorization_endpoint | yes | RFC 5849에 따른 권한 부여 엔드포인트의 URL입니다. |
-| access_token_endpoint | yes | RFC 5849에 따른 토큰 엔드포인트의 URL입니다. |
+| request_token_endpoint | 예 | RFC 5849에 따른 요청 토큰 엔드포인트의 URL입니다. |
+| authorization_endpoint | 예 | RFC 5849에 따른 권한 부여 엔드포인트의 URL입니다. |
+| access_token_endpoint | 예 | RFC 5849에 따른 토큰 엔드포인트의 URL입니다. |
 | ClaimsEndpoint | 아니요 | 사용자 정보 엔드포인트의 URL입니다. | 
 | ClaimsResponseFormat | 아니요 | 클레임 응답 형식입니다.|
 
@@ -83,7 +83,7 @@ Azure AD(Azure Active Directory) B2C는 [OAuth 1.0](http://tools.ietf.org/html/r
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| client_secret | yes | ID 공급자 응용 프로그램의 클라이언트 암호입니다.   | 
+| client_secret | 예 | ID 공급자 애플리케이션의 클라이언트 암호입니다.   | 
 
 ## <a name="redirect-uri"></a>리디렉션 URI
 

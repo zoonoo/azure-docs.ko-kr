@@ -15,14 +15,15 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 50f5662fa574b512ab607e17dbdfcf1861e2f5c6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.lastreviewed: 10/23/2018
+ms.openlocfilehash: 27a1f385468c2fac59bdb2a5365e798e975b7c87
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954915"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252008"
 ---
-# <a name="tutorial-offer-highly-available-sql-databases"></a>자습서: 항상 사용 가능한 SQL 데이터베이스 제공
+# <a name="tutorial-offer-highly-available-sql-databases"></a>자습서: 항상 사용 가능한 SQL database를 제공 합니다.
 
 Azure Stack 운영자로 SQL Server 데이터베이스를 호스트 서버 Vm을 구성할 수 있습니다. Sql 호스팅 서버를 성공적으로 SQL 서비스에 가입한 사용자 SQL 데이터베이스를 쉽게 만들 수 생성 하 고 Azure Stack에서 관리 합니다.
 

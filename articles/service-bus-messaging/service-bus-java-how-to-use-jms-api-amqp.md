@@ -3,9 +3,9 @@ title: Java Service Bus API와 함께 AMQP 1.0을 사용하는 방법 | Microsof
 description: Azure Service Bus 및 AMQP(Advanced Message Queuing Protocol) 1.0과 함께 JMS(Java Message Service)를 사용하는 방법을 설명합니다.
 services: service-bus-messaging
 documentationcenter: java
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2018
-ms.author: spelluru
-ms.openlocfilehash: fbd74b227afd2191616100d74c7864eacf015add
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.author: aschhab
+ms.openlocfilehash: f0c3aac95b1d19dc3f217cc146532254d8740ca0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308073"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853292"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Service Bus 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법
-AMQP(Advanced Message Queuing Protocol) 1.0은 강력한 크로스 플랫폼 메시징 응용 프로그램을 빌드하는 데 사용할 수 있는 효율성과 안정성이 뛰어난 유선 수준 메시징 프로토콜입니다.
+AMQP(Advanced Message Queuing Protocol) 1.0은 강력한 크로스 플랫폼 메시징 애플리케이션을 빌드하는 데 사용할 수 있는 효율성과 안정성이 뛰어난 유선 수준 메시징 프로토콜입니다.
 
-Service Bus에서 AMQP 1.0이 지원되므로 효율적인 이진 프로토콜을 사용하여 다양한 플랫폼에서 큐 및 게시/구독 조정된 메시징 기능을 이용할 수 있습니다. 뿐만 아니라 여러 언어, 프레임워크 및 운영 체제가 혼합되어 사용된 구성 요소로 이루어진 응용 프로그램을 만들 수 있습니다.
+Service Bus에서 AMQP 1.0이 지원되므로 효율적인 이진 프로토콜을 사용하여 다양한 플랫폼에서 큐 및 게시/구독 조정된 메시징 기능을 이용할 수 있습니다. 뿐만 아니라 여러 언어, 프레임워크 및 운영 체제가 혼합되어 사용된 구성 요소로 이루어진 애플리케이션을 만들 수 있습니다.
 
-이 문서에서는 널리 사용되는 JMS(Java Message Service) API 표준을 통해 Java 응용 프로그램에서 Service Bus 메시징 기능(큐 및 게시/구독 토픽)을 사용하는 방법을 설명합니다. Service Bus .NET API를 사용하여 동일한 작업을 수행하는 방법을 설명하는 [동반 문서](service-bus-amqp-dotnet.md)가 있습니다. AMQP 1.0을 사용한 플랫폼 간 메시징에 대해 알아보려면 이 두 가지 가이드를 함께 사용할 수 있습니다.
+이 문서에서는 널리 사용되는 JMS(Java Message Service) API 표준을 통해 Java 애플리케이션에서 Service Bus 메시징 기능(큐 및 게시/구독 토픽)을 사용하는 방법을 설명합니다. Service Bus .NET API를 사용하여 동일한 작업을 수행하는 방법을 설명하는 [동반 문서](service-bus-amqp-dotnet.md)가 있습니다. AMQP 1.0을 사용한 플랫폼 간 메시징에 대해 알아보려면 이 두 가지 가이드를 함께 사용할 수 있습니다.
 
 ## <a name="get-started-with-service-bus"></a>Service Bus 시작
 이 가이드에서는 사용자가 **basicqueue**라는 큐가 포함된 Service Bus 네임스페이스를 이미 가지고 있다고 가정합니다. 가지고 있지 않은 사용자는 [Azure Portal](https://portal.azure.com)을 사용하여 [네임스페이스와 큐를 만들](service-bus-create-namespace-portal.md) 수 있습니다. Service Bus 네임스페이스와 큐를 만드는 방법에 대한 자세한 내용은 [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)을 참조하세요.
@@ -39,16 +39,16 @@ Service Bus에서 AMQP 1.0이 지원되므로 효율적인 이진 프로토콜�
 ## <a name="downloading-the-amqp-10-jms-client-library"></a>AMQP 1.0 JMS 클라이언트 라이브러리 다운로드
 최신 버전의 Apache Qpid JMS AMQP 1.0 클라이언트 라이브러리를 다운로드할 위치에 대한 자세한 내용은 [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html)을 참조하세요.
 
-Service Bus를 사용하여 JMS 응용 프로그램을 빌드 및 실행할 때 Apache Qpid JMS AMQP 1.0 배포 보관에 포함된 다음 JAR 파일 4개를 Java CLASSPATH에 추가해야 합니다.
+Service Bus를 사용하여 JMS 애플리케이션을 빌드 및 실행할 때 Apache Qpid JMS AMQP 1.0 배포 보관에 포함된 다음 JAR 파일 4개를 Java CLASSPATH에 추가해야 합니다.
 
 * geronimo-jms\_1.1\_spec-1.0.jar
 * qpid-jms-client-[version].jar
 
 > ![참고] JMS JAR 이름 및 버전이 변경되었을 수 있습니다. 자세한 내용은 [Qpid JMS - AMQP 1.0](https://qpid.apache.org/maven.html#qpid-jms-amqp-10)을 참조하세요.
 
-## <a name="coding-java-applications"></a>Java 응용 프로그램 코딩
+## <a name="coding-java-applications"></a>Java 애플리케이션 코딩
 ### <a name="java-naming-and-directory-interface-jndi"></a>JNDI(Java Naming and Directory Interface)
-JMS는 JNDI(Java Naming and Directory Interface)를 사용하여 논리적 이름과 물리적 이름 간에 구분을 만듭니다. JNDI를 사용하여 두 유형의 JMS 개체인 ConnectionFactory와 Destination을 확인합니다. JNDI는 다양한 디렉터리 서비스를 연결할 수 있는 공급자 모델을 사용하여 이름 확인 책임을 처리합니다. Apache Qpid JMS AMQP 1.0 라이브러리에는 다음 형식의 속성 파일을 사용하여 구성된 간단한 속성 파일 기반 JNDI 공급자가 포함되어 있습니다.
+JMS는 JNDI(Java Naming and Directory Interface)를 사용하여 논리적 이름과 물리적 이름 간에 구분을 만듭니다. JNDI를 사용하여 확인되는 두 가지 유형의 JMS 개체는 ConnectionFactory 및 Destination입니다. JNDI는 다양한 디렉터리 서비스를 연결할 수 있는 공급자 모델을 사용하여 이름 확인 책임을 처리합니다. Apache Qpid JMS AMQP 1.0 라이브러리에는 다음 형식의 속성 파일을 사용하여 구성된 간단한 속성 파일 기반 JNDI 공급자가 포함되어 있습니다.
 
 ```
 # servicebus.properties - sample JNDI configuration
@@ -116,8 +116,8 @@ Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
 MessageConsumer consumer = session.createConsumer(queue);
 ```
 
-### <a name="write-the-jms-application"></a>JMS 응용 프로그램 작성
-Service Bus와 함께 JMS를 사용할 때 필요한 특별한 API 또는 옵션은 없습니다. 하지만 나중에 다룰 몇 가지 제한은 있습니다. JMS 응용 프로그램과 마찬가지로 **ConnectionFactory** 및 대상을 확인하려면 먼저 JNDI 환경의 구성이 필요합니다.
+### <a name="write-the-jms-application"></a>JMS 애플리케이션 작성
+Service Bus와 함께 JMS를 사용할 때 필요한 특별한 API 또는 옵션은 없습니다. 하지만 나중에 다룰 몇 가지 제한은 있습니다. JMS 애플리케이션과 마찬가지로 **ConnectionFactory** 및 대상을 확인하려면 먼저 JNDI 환경의 구성이 필요합니다.
 
 #### <a name="configure-the-jndi-initialcontext"></a>JNDI InitialContext 구성
 JNDI 환경은 구성 정보 해시 테이블을 javax.naming.InitialContext 클래스의 생성자에 전달하여 구성됩니다. 해시 테이블의 두 가지 필수 요소는 초기 컨텍스트 팩터리의 클래스 이름과 공급자 URL입니다. 다음 코드는 **servicebus.properties**라는 속성 파일과 함께 Qpid 속성 파일 기반 JNDI 공급자를 사용하도록 JNDI 환경을 구성하는 방법을 보여 줍니다.
@@ -132,7 +132,7 @@ hashtable.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.jms.jndi.JmsInit
 Context context = new InitialContext(hashtable);
 ``` 
 
-### <a name="a-simple-jms-application-using-a-service-bus-queue"></a>Service Bus 큐를 사용하는 간단한 JMS 응용 프로그램
+### <a name="a-simple-jms-application-using-a-service-bus-queue"></a>Service Bus 큐를 사용하는 간단한 JMS 애플리케이션
 다음 예제 프로그램은 JNDI 논리적 이름이 QUEUE인 Service Bus 큐에 JMS TextMessages를 보내고 메시지를 받습니다.
 
 [Azure Service Bus 샘플 JMS 큐 빠른 시작](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client/JmsQueueQuickstart)에서 모든 소스 코드 및 구성 정보에 액세스할 수 있습니다.
@@ -296,9 +296,9 @@ public class JmsQueueQuickstart {
 }
 ```
 
-### <a name="run-the-application"></a>응용 프로그램 실행
+### <a name="run-the-application"></a>애플리케이션 실행
 공유 액세스 정책의 **연결 문자열**을 전달하여 애플리케이션을 실행합니다.
-응용 프로그램을 실행하면 다음과 같은 양식 출력이 표시됩니다.
+애플리케이션을 실행하면 다음과 같은 양식 출력이 표시됩니다.
 
 ```
 > mvn clean package
@@ -344,7 +344,7 @@ MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ## <a name="unsupported-features-and-restrictions"></a>지원되지 않는 기능 및 제한
 Service Bus와 함께 JMS over AMQP 1.0을 사용하는 경우 다음과 같은 제한 사항이 있습니다.
 
-* **세션**당 하나의 **MessageProducer** 또는 **MessageConsumer**만 허용됩니다. 응용 프로그램에서 **MessageProducers** 또는 **MessageConsumers**를 여러 개 만들어야 하는 경우 각 항목에 대한 전용 **세션**을 만듭니다.
+* **세션**당 하나의 **MessageProducer** 또는 **MessageConsumer**만 허용됩니다. 애플리케이션에서 **MessageProducers** 또는 **MessageConsumers**를 여러 개 만들어야 하는 경우 각 항목에 대한 전용 **세션**을 만듭니다.
 * 휘발성 토픽 구독은 현재 지원되지 않습니다.
 * **MessageSelectors**는 현재 지원되지 않습니다.
 * 트랜잭션 처리된 세션과 분산 트랜잭션은 지원되지 않습니다.

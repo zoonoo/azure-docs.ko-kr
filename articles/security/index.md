@@ -1,6 +1,6 @@
 ---
 title: Azure Security 설명서 | Microsoft Docs
-description: 보안은 Azure의 모든 측면에 통합됩니다. Azure는 글로벌 보안 인텔리전스, 정교한 고객 관련 컨트롤 및 강화된 보안 인프라로 인한 고유한 보안 장점을 제공합니다. 이 강력한 조합을 통해 응용 프로그램 및 데이터를 보호하고 규정 준수 활동을 지원하며, 모든 규모의 조직에 비용 효율적인 보안을 제공합니다.
+description: 보안은 Azure의 모든 측면에 통합됩니다. Azure는 글로벌 보안 인텔리전스, 정교한 고객 관련 컨트롤 및 강화된 보안 인프라로 인한 고유한 보안 장점을 제공합니다. 이 강력한 조합을 통해 애플리케이션 및 데이터를 보호하고 규정 준수 활동을 지원하며, 모든 규모의 조직에 비용 효율적인 보안을 제공합니다.
 services: security
 author: arob98
 manager: angrobe
@@ -10,18 +10,18 @@ ms.service: security
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 03/30/2018
+ms.date: 01/16/2019
 ms.author: angrobe
-ms.openlocfilehash: 98cb089baa759b6569d1e1e06c90022eb75f5355
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e83a49f83fd8ac890a6c89eba3ef1c4a88f52df0
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228117"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390583"
 ---
 # <a name="azure-security-documentation"></a>Azure 보안 설명서
 
-보안은 Azure의 모든 측면에 통합됩니다. Azure는 글로벌 보안 인텔리전스, 정교한 고객 관련 컨트롤 및 강화된 보안 인프라로 인한 고유한 보안 장점을 제공합니다. 이 강력한 조합을 통해 응용 프로그램 및 데이터를 보호하고 규정 준수 활동을 지원하며, 모든 규모의 조직에 비용 효율적인 보안을 제공합니다.
+보안은 Azure의 모든 측면에 통합됩니다. Azure는 글로벌 보안 인텔리전스, 정교한 고객 관련 컨트롤 및 강화된 보안 인프라로 인한 고유한 보안 장점을 제공합니다. 이 강력한 조합을 통해 애플리케이션 및 데이터를 보호하고 규정 준수 활동을 지원하며, 모든 규모의 조직에 비용 효율적인 보안을 제공합니다.
 
 <ul class="cardsFTitle panelContent">
     <li style="-ms-flex: 0 1 100%; flex: 0 1 100%">
@@ -162,7 +162,7 @@ ms.locfileid: "51228117"
     </li>
 </ul>
 
-<ul class="cardsL panelContent singlePanelContent" style="display:flex!important;"> 
+<ul class="cardsL panelContent singlePanelContent" style="display:flex!important;">
     <li style="list-style: none;">
         <div class="cardSize">
             <div class="cardPadding">
@@ -181,7 +181,7 @@ ms.locfileid: "51228117"
                                 <a class="barLink" href="/azure/security/abstract-azure-network-security">Azure 네트워크 보안</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/abstract-container-security-microsoft-azure">Microsoft Azure의 컨테이너 보안</a>
+                                <a class="barLink" href="/azure/security/abstract-develop-secure-apps">Azure에서 보안 애플리케이션 개발</a>
                             </li>
                         </ul>
                     </div>
@@ -216,7 +216,7 @@ ms.locfileid: "51228117"
                                 <a class="barLink" href="/azure/security/azure-security-iaas">IaaS 보안</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-service-fabric-security-best-practices">Service Fabric 보안</a>
+                                <a class="barLink" href="/azure/security/security-paas-deployments">PaaS 배포 보안</a>
                             </li>
                             <li style="list-style: none;">
                                 <a class="barLink" href="/azure/security/azure-security-global-admin">Azure 관리자 계정 보안</a>

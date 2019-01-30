@@ -1,19 +1,20 @@
 ---
-title: Azure Search의 결과를 한정하기 위한 보안 필터 | Microsoft Docs
+title: 결과를 한정하기 위한 보안 필터 - Azure Search
 description: 보안 필터 및 사용자 ID를 사용하여 Azure Search 콘텐츠에 대한 액세스 제어
 ms.service: search
 ms.topic: conceptual
 services: search
 ms.date: 08/07/2017
-author: revitalbarletz
-ms.author: revitalb
+author: brjohnstmsft
+ms.author: brjohnst
 manager: jlembicz
-ms.openlocfilehash: dd26676b74431566b3631b8a79cd06bcf3022518
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 84147b250ea17df9af67cc8a9025cdf6ec59a705
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792803"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314230"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Azure Search의 결과를 한정하기 위한 보안 필터
 
@@ -57,7 +58,7 @@ ms.locfileid: "31792803"
 
 ## <a name="pushing-data-into-your-index-using-the-rest-api"></a>REST API를 사용하여 인덱스에 데이터 푸시
   
-인덱스의 URL 끝점에 HTTP POST 요청을 발급합니다. HTTP 요청의 본문은 추가될 문서를 포함하는 JSON 개체입니다.
+인덱스의 URL 엔드포인트에 HTTP POST 요청을 발급합니다. HTTP 요청의 본문은 추가될 문서를 포함하는 JSON 개체입니다.
 
 ```
 POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=[api-version]  

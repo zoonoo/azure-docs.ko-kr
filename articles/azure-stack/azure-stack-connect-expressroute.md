@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/22/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: e9365008c47c2aac71d3983a16db37b0c5ea62ea
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.reviewer: unknown
+ms.lastreviewed: 10/22/2018
+ms.openlocfilehash: b12e696260793a79bab6b384fc7be810eb2a803c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648108"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240831"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure Stack Azure ExpressRoute를 사용 하 여 Azure에 연결
 
@@ -59,7 +60,7 @@ Azure Stack 및 ExpressRoute를 사용 하 여 Azure에 연결 하려면 다음 
 
 다음 다이어그램에서는 Azure Stack 및 Azure 환경에서 ExpressRoute 설정을 마친 후이 문서의 예제를 사용 하 여:
 
-*그림 1. ExpressRoute 네트워크*
+*그림 1. ExpressRoute network*
 
 ![ExpressRoute 네트워크](media/azure-stack-connect-expressroute/Conceptual.png)
 

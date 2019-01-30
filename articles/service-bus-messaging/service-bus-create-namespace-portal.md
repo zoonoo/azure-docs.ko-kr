@@ -3,27 +3,27 @@ title: Azure Portal에서 Service Bus 네임스페이스를 만드는 방법 | M
 description: Azure Portal을 사용하여 Service Bus 네임스페이스를 만듭니다.
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: fbb10e62-b133-4851-9d27-40bd844db3ba
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: spelluru
-ms.openlocfilehash: a56a13db5df1234a8011caf10a82ac561b6877cf
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: c456fa392c3ba07ad26e300eff07a89fa849b354
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47390191"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856318"
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Azure Portal을 사용하여 Service Bus 네임스페이스 만들기
 
-네임스페이스는 모든 메시징 구성 요소에 대한 영역 컨테이너입니다. 여러 큐 및 토픽은 단일 네임스페이스 내에 있을 수 있으며 네임스페이스는 종종 응용 프로그램 컨테이너로 사용됩니다. 두 가지 방법으로 Service Bus 네임스페이스를 만들 수 있습니다.
+네임스페이스는 모든 메시징 구성 요소에 대한 영역 컨테이너입니다. 여러 큐 및 토픽은 단일 네임스페이스 내에 있을 수 있으며 네임스페이스는 종종 애플리케이션 컨테이너로 사용됩니다. 두 가지 방법으로 Service Bus 네임스페이스를 만들 수 있습니다.
 
 1. Azure Portal(이 문서)
 2. [Resource Manager 템플릿][create-namespace-using-arm]

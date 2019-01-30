@@ -1,7 +1,7 @@
 ---
 title: 도메인 특정 콘텐츠 검색 - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Computer Vision API를 사용하여 이미지를 설명하는 데 관련된 개념입니다.
+description: 이미지에 대한 보다 자세한 정보를 반환하기 위해 이미지 범주화 도메인을 지정하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: a9c71fa7e5d86cfeb4fe6fab44bbce241546ccb8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 50942634bd50974453c242d1980db9fc589bd47e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342561"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579212"
 ---
 # <a name="detecting-domain-specific-content"></a>도메인 특정 콘텐츠 검색
 
@@ -26,7 +27,7 @@ Computer Vision은 태그 지정 및 최상위 수준 분류 외에도 특수(�
 * 범위가 지정된 분석  
   HTTP POST를 호출하여 선택한 모델만 분석합니다. 사용할 모델을 알고 있는 경우 모델의 이름을 지정합니다. 해당 모델에 관련된 정보만 얻게 됩니다. 예를 들어 이 옵션을 사용하여 유명인 인식만 찾을 수 있습니다. 응답에는 잠재적 일치 유명인 목록이 신뢰도 점수와 함께 포함됩니다.
 * 향상된 분석  
-  분석을 통해 86개 범주 분류의 범주와 관련된 추가 세부 정보를 제공합니다. 이 옵션은 사용자가 하나 이상 도메인 특정 모델의 세부 정보 외에 일반 이미지 분석을 가져오려는 응용 프로그램에서 사용할 수 있습니다. 이 메서드를 호출하는 경우 86개 범주 분류의 분류자가 먼저 호출됩니다. 범주 중 하나가 알려지거나 일치하는 모델의 범주와 일치할 경우 분류자 호출이 두 번째로 전달됩니다. 예를 들어 HTTP POST 호출의 `details` 매개 변수가 "all"로 설정되거나 "celebrities"를 포함하는 경우 메서드는 86개 범주 분류자가 호출된 후에 유명인 분류자를 호출합니다. 이미지가 `people_` 또는 해당 범주의 하위 범주로 분류되는 경우 유명인 분류자를 호출합니다.
+  분석을 통해 86개 범주 분류의 범주와 관련된 추가 세부 정보를 제공합니다. 이 옵션은 사용자가 하나 이상 도메인 특정 모델의 세부 정보 외에 일반 이미지 분석을 가져오려는 애플리케이션에서 사용할 수 있습니다. 이 메서드를 호출하는 경우 86개 범주 분류의 분류자가 먼저 호출됩니다. 범주 중 하나가 알려지거나 일치하는 모델의 범주와 일치할 경우 분류자 호출이 두 번째로 전달됩니다. 예를 들어 HTTP POST 호출의 `details` 매개 변수가 "all"로 설정되거나 "celebrities"를 포함하는 경우 메서드는 86개 범주 분류자가 호출된 후에 유명인 분류자를 호출합니다. 이미지가 `people_` 또는 해당 범주의 하위 범주로 분류되는 경우 유명인 분류자를 호출합니다.
 
 ## <a name="listing-domain-specific-models"></a>도메인 특정 모델 나열
 

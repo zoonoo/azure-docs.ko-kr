@@ -31,11 +31,11 @@ ms.locfileid: "52582346"
 이러한 구성 요소는 Reliable Actor 프레임워크를 함께 구성합니다.
 
 ## <a name="service-layering"></a>서비스 계층
-행위자 서비스 자체가 Reliable Service이므로 Reliable Services의 [응용 프로그램 모델](service-fabric-application-model.md), 수명 주기, [패키징](service-fabric-package-apps.md), [배포](service-fabric-deploy-remove-applications.md), 업그레이드 및 개념 확장은 모두 행위자 서비스에 동일한 방식으로 적용됩니다.
+행위자 서비스 자체가 Reliable Service이므로 Reliable Services의 [애플리케이션 모델](service-fabric-application-model.md), 수명 주기, [패키징](service-fabric-package-apps.md), [배포](service-fabric-deploy-remove-applications.md), 업그레이드 및 개념 확장은 모두 행위자 서비스에 동일한 방식으로 적용됩니다.
 
 ![행위자 서비스 계층][1]
 
-이전 다이어그램은 Service Fabric 응용 프로그램 프레임워크와 사용자 코드 간의 관계를 보여 줍니다. 블루 요소는 Reliable Services 응용 프로그램 프레임워크를 나타내고 오렌지는 Reliable Actor 프레임워크를 나타내며 그린은 사용자 코드를 나타냅니다.
+이전 다이어그램은 Service Fabric 애플리케이션 프레임워크와 사용자 코드 간의 관계를 보여 줍니다. 블루 요소는 Reliable Services 애플리케이션 프레임워크를 나타내고 오렌지는 Reliable Actor 프레임워크를 나타내며 그린은 사용자 코드를 나타냅니다.
 
 Reliable Services에서 서비스는 `StatefulService` 클래스를 상속합니다. 이 클래스는 `StatefulServiceBase`(또는 상태 비저장 서비스의 경우 `StatelessService`)에서 파생됩니다. Reliable Actors에서 행위자 서비스를 사용합니다. 행위자 서비스는 행위자가 실행되는 행위자 패턴을 구현하는 `StatefulServiceBase` 클래스의 다른 구현입니다. 행위자 서비스 자체는 `StatefulServiceBase`의 구현이므로 `ActorService`에서 파생된 고유한 서비스를 작성할 수 있고 다음과 같이 `StatefulService`을 상속하는 경우와 동일한 방식으로 서비스 수준 기능을 구현할 수 있습니다.
 
@@ -45,8 +45,8 @@ Reliable Services에서 서비스는 `StatefulService` 클래스를 상속합니
 
 자세한 내용은 [행위자 서비스에서 서비스 수준 기능 구현](service-fabric-reliable-actors-using.md)을 참조하세요.
 
-## <a name="application-model"></a>응용 프로그램 모델
-행위자 서비스는 Reliable Services에 속하므로 응용 프로그램 모델이 동일합니다. 그러나 행위자 프레임워크 빌드 도구는 일부 응용 프로그램 모델 파일을 생성합니다.
+## <a name="application-model"></a>애플리케이션 모델
+행위자 서비스는 Reliable Services에 속하므로 애플리케이션 모델이 동일합니다. 그러나 행위자 프레임워크 빌드 도구는 일부 애플리케이션 모델 파일을 생성합니다.
 
 ### <a name="service-manifest"></a>서비스 매니페스트
 행위자 프레임워크 빌드 도구에서 행위자 서비스의 ServiceManifest.xml 파일의 콘텐츠를 자동으로 생성합니다. 이 파일에는 다음이 포함됩니다.
@@ -56,7 +56,7 @@ Reliable Services에서 서비스는 `StatefulService` 클래스를 상속합니
 * 구성 패키지.
 * 장치 및 엔드포인트.
 
-### <a name="application-manifest"></a>응용 프로그램 매니페스트.
+### <a name="application-manifest"></a>애플리케이션 매니페스트
 행위자 프레임워크 빌드 도구는 행위자 서비스에 대한 기본 서비스 정의를 자동으로 만듭니다. 빌드 도구가 기본 서비스 속성을 채웁니다.
 
 * 복제본 세트 수는 행위자의 지속성 특성에 의해 결정됩니다. 행위자의 지속성 특성이 변경될 때마다 기본 서비스 정의에 있는 복제본 세트 수는 적절하게 다시 설정됩니다.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: 9c3815f0083d049d9b4baed8e360f5927fcd3d69
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 1f2d3c40352d60d3cc7366aca6f38a8255a7a629
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025687"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302394"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure의 FreeBSD 소개
 이 문서에서는 Azure에서 FreeBSD 가상 머신을 실행하는 방법의 개요를 제공합니다.
@@ -41,9 +41,8 @@ FreeBSD 후속 버전에서는 제품을 최신 상태로 유지하고, FreeBSD 
 ## <a name="deploying-a-freebsd-virtual-machine"></a>FreeBSD 가상 머신 배포
 FreeBSD 가상 머신 배포 작업은 Azure Portal에서 Azure Marketplace의 이미지를 사용하는 간단한 프로세스입니다.
 
-- [Azure Marketplace의 FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103)
-- [Azure Marketplace의 FreeBSD 10.4](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeBSD104)
-- [Azure Marketplace의 FreeBSD 11.1](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111)
+- [Azure Marketplace의 FreeBSD 10.4](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD104)
+- [Azure Marketplace의 FreeBSD 11.2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD112)
 
 ### <a name="create-a-freebsd-vm-through-azure-cli-on-freebsd"></a>FreeBSD에서 Azure CLI를 통해 FreeBSD VM 만들기
 먼저 FreeBSD 컴퓨터에서 다음 명령을 사용하여 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 설치해야 합니다.
@@ -105,7 +104,7 @@ FreeBSD에서 지원되는 VM 확장은 다음과 같습니다.
 ### <a name="customscript"></a>CustomScript
 [CustomScript](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript) 확장으로 다음을 수행할 수 있습니다.
 
-* 제공될 경우 Azure Storage 또는 외부 공용 저장소(예: GitHub)에서 사용자 지정된 스크립트를 다운로드합니다.
+* 제공될 경우 Azure Storage 또는 외부 공용 스토리지(예: GitHub)에서 사용자 지정된 스크립트를 다운로드합니다.
 * 진입점 스크립트를 실행합니다.
 * 인라인 명령을 지원합니다.
 * 셸 및 Python 스크립트에서 Windows 스타일 줄 바꿈 문자를 자동으로 변환합니다.
@@ -134,4 +133,4 @@ $ sudo <COMMAND>
 [Azure VM 게스트 에이전트](https://github.com/Azure/WALinuxAgent/) 버전 2.2.2에는 Azure의 FreeBSD VM에 프로비전 오류를 유발하는 [알려진 문제](https://github.com/Azure/WALinuxAgent/pull/517)가 있습니다. [Azure VM 게스트 에이전트](https://github.com/Azure/WALinuxAgent/) 버전 2.2.3 및 이후 릴리스에서는 해결책이 확보될 것입니다. 
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111) 로 가서 FreeBSD VM을 만듭니다.
+* [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD112) 로 가서 FreeBSD VM을 만듭니다.

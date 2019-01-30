@@ -6,21 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 07/10/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 569442f5dfdf96f03a95f7210bfe1ed7dc3af8de
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 569f89d389e4bc8c7f2d1f46f3713e9792d4e466
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091490"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159692"
 ---
-# <a name="azure-data-box-disk-security-and-data-protection-preview"></a>Azure Data Box Disk 보안 및 데이터 보호(미리 보기)
+# <a name="azure-data-box-disk-security-and-data-protection"></a>Azure Data Box Disk 보안 및 데이터 보호
 
 이 문서에서는 각 Data Box 솔루션 구성 요소 및 저장된 데이터를 보호하는 데 도움을 주는 Azure Data Box Disk 보안 기능을 설명합니다. 
-
-> [!IMPORTANT]
-> Data Box Disk는 미리 보기로 제공됩니다. 이 솔루션을 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요.
 
 ## <a name="data-flow-through-components"></a>구성 요소를 통한 데이터 흐름
 

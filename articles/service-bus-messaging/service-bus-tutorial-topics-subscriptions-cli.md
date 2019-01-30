@@ -9,16 +9,16 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 1d2be579dda9f90f06897f11d62ccd08076f892e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fbfb6a030d4979f9bd6a27f4c5b6908e62ffd9ab
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413573"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001756"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>자습서: CLI 및 토픽/구독을 사용하여 재고 업데이트
 
-Microsoft Azure Service Bus는 응용 프로그램과 서비스 간에 정보를 보내는 다중 테넌트 클라우드 메시징 서비스입니다. 비동기 작업은 구조적 FIFO(선입 선출) 메시징 및 게시/구독 기능과 함께 유연하게 조정할 수 있는 메시징 기능을 제공합니다. 이 자습서에서는 소매점 재고 시나리오에서 Azure CLI 및 Java를 사용하여 게시/구독 채널을 통해 Service Bus 토픽과 구독을 사용하는 방법을 보여 줍니다.
+Microsoft Azure Service Bus는 애플리케이션과 서비스 간에 정보를 보내는 다중 테넌트 클라우드 메시징 서비스입니다. 비동기 작업은 구조적 FIFO(선입 선출) 메시징 및 게시/구독 기능과 함께 유연하게 조정할 수 있는 메시징 기능을 제공합니다. 이 자습서에서는 소매점 재고 시나리오에서 Azure CLI 및 Java를 사용하여 게시/구독 채널을 통해 Service Bus 토픽과 구독을 사용하는 방법을 보여 줍니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -126,7 +126,7 @@ connectionString=$(az servicebus namespace authorization-rule keys list \
 
 ## <a name="create-filter-rules-on-subscriptions"></a>구독에 대한 필터 규칙 만들기
 
-네임스페이스와 토픽/구독이 프로비전되고 필요한 자격 증명이 있으면 구독에 대한 필터 규칙을 만듭니다. 그러면 메시지를 보내고 받을 준비가 됩니다. [이 GitHub 샘플 폴더](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/tutorial-topics-subscriptions-filters-java/src/main/java/com/microsoft/azure/)에서 코드를 검사할 수 있습니다.
+네임스페이스와 토픽/구독이 프로비전되고 필요한 자격 증명이 있으면 구독에 대한 필터 규칙을 만듭니다. 그러면 메시지를 보내고 받을 준비가 됩니다. [이 GitHub 샘플 폴더](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters)에서 코드를 검사할 수 있습니다.
 
 ## <a name="send-and-receive-messages"></a>메시지 보내기 및 받기
 
@@ -140,7 +140,7 @@ connectionString=$(az servicebus namespace authorization-rule keys list \
 
 2. 다음 샘플 폴더로 이동합니다. `azure-service-bus/samples/Java/quickstarts-and-tutorials/quickstart-java/tutorial-topics-subscriptions-filters-java` Bash 셸에서 명령은 대/소문자를 구분하며 경로 구분 기호는 슬래시여야 합니다.
 
-3. 다음 명령을 실행하여 응용 프로그램을 빌드합니다.
+3. 다음 명령을 실행하여 애플리케이션을 빌드합니다.
    
    ```shell
    mvn clean package -DskipTests

@@ -30,9 +30,9 @@ ms.locfileid: "42144933"
 **연결된 서비스 추가** 작업은 프로젝트의 Azure 저장소에 액세스하는 데 적합한 NuGet 패키지를 설치하고 프로젝트 구성 파일에 저장소 계정에 대한 연결 문자열을 추가합니다.
 
 * 코드에서 큐를 조작하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Azure 큐 저장소 시작](../storage/queues/storage-dotnet-how-to-use-queues.md) 을 참조하세요.
-* Azure Storage에 대한 일반적인 내용은 [저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.
+* Azure Storage에 대한 일반적인 내용은 [스토리지 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.
 * Azure Cloud Services에 대한 일반적인 내용은 [Cloud Services 설명서](https://azure.microsoft.com/documentation/services/cloud-services/) 를 참조하세요.
-* ASP.NET 응용 프로그램을 프로그래밍하는 방법에 대한 자세한 내용은 [ASP.NET](http://www.asp.net) 을 참조하세요.
+* ASP.NET 애플리케이션을 프로그래밍하는 방법에 대한 자세한 내용은 [ASP.NET](http://www.asp.net) 을 참조하세요.
 
 Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 저장소 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다.
 
@@ -44,7 +44,7 @@ Visual Studio Cloud Services 프로젝트의 큐에 액세스하려면 Azure 큐
         using Microsoft.Framework.Configuration;
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Queue;
-2. 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다.
+2. 스토리지 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다.
    
          CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
            CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
@@ -129,7 +129,7 @@ Visual Studio Cloud Services 프로젝트의 큐에 액세스하려면 Azure 큐
     Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
 ## <a name="use-the-async-await-pattern-with-common-azure-queue-apis"></a>일반적인 Azure 큐 API와 함께 Async-Await 패턴 사용
-이 예에서는 일반적인 Azure 큐 API와 함께 Async-Await 패턴을 사용하는 방법을 보여 줍니다. 샘플은 지정된 각 메서드의 비동기 버전을 호출합니다. 이것은 각 메서드의 **Async** 사후 수정에서 확인할 수 있습니다. 비동기 메서드가 사용되는 경우 호출이 완료될 때까지 Async- Await 패턴이 로컬 실행을 일시 중단합니다. 이 동작은 현재 스레드가 성능 병목 현상을 방지해주는 다른 작업을 수행할 수 있게 해주며, 응용 프로그램의 전반적인 응답성을 향상시킵니다. .NET에서의 Async-Await 패턴 사용에 대한 자세한 내용은 [Async 및 Await(C# 및 Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)을 참조하세요.
+이 예에서는 일반적인 Azure 큐 API와 함께 Async-Await 패턴을 사용하는 방법을 보여 줍니다. 샘플은 지정된 각 메서드의 비동기 버전을 호출합니다. 이것은 각 메서드의 **Async** 사후 수정에서 확인할 수 있습니다. 비동기 메서드가 사용되는 경우 호출이 완료될 때까지 Async- Await 패턴이 로컬 실행을 일시 중단합니다. 이 동작은 현재 스레드가 성능 병목 현상을 방지해주는 다른 작업을 수행할 수 있게 해주며, 애플리케이션의 전반적인 응답성을 향상시킵니다. .NET에서의 Async-Await 패턴 사용에 대한 자세한 내용은 [Async 및 Await(C# 및 Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)을 참조하세요.
 
     // Create a message to put in the queue
     CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");

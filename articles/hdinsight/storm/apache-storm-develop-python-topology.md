@@ -10,18 +10,18 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 04046b4c7c36418b9024a690ad5279f9e34578a5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 87d13f8b0df4d9a357218b34035993663dfda8b3
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583638"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634595"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>HDInsight에서 Python을 사용하여 Apache Storm 토폴로지 개발
 
-Python 구성 요소를 사용하는 [Apache Storm](http://storm.apache.org/) 토폴로지를 만드는 방법에 대해 알아봅니다. Apache Storm은 여러 언어를 지원하여 한 토폴로지에 여러 언어의 구성 요소를 결합할 수 있습니다. [Flux](http://storm.apache.org/releases/current/flux.html) 프레임워크(Storm 0.10.0에서 소개)를 사용하면 Python 구성 요소를 사용하는 솔루션을 쉽게 만들 수 있습니다.
+Python 구성 요소를 사용하는 [Apache Storm](https://storm.apache.org/) 토폴로지를 만드는 방법에 대해 알아봅니다. Apache Storm은 여러 언어를 지원하여 한 토폴로지에 여러 언어의 구성 요소를 결합할 수 있습니다. [Flux](https://storm.apache.org/releases/current/flux.html) 프레임워크(Storm 0.10.0에서 소개)를 사용하면 Python 구성 요소를 사용하는 솔루션을 쉽게 만들 수 있습니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이 문서의 정보는 HDInsight 3.6에서 Storm을 사용하여 테스트했습니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 이 프로젝트에 대한 코드는 [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount)에서 사용할 수 있습니다.
@@ -34,7 +34,7 @@ Python 구성 요소를 사용하는 [Apache Storm](http://storm.apache.org/) �
 
 * [Apache Maven 3](https://maven.apache.org/download.cgi)
 
-* (선택 사항) 로컬 Storm 개발 환경 - 로컬 Storm 환경은 토폴로지를 로컬로 실행하려는 경우에만 필요합니다. 자세한 내용은 [개발 환경 설정](http://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html)(영문)을 참조하세요.
+* (선택 사항) 로컬 Storm 개발 환경 - 로컬 Storm 환경은 토폴로지를 로컬로 실행하려는 경우에만 필요합니다. 자세한 내용은 [개발 환경 설정](https://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html)(영문)을 참조하세요.
 
 ## <a name="storm-multi-language-support"></a>Storm 다중 언어 지원
 
@@ -92,8 +92,8 @@ mvn clean compile package
 storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.yaml
 ```
 
-> [!NOTE]
-> 이 명령에는 로컬 Storm 개발 환경이 필요합니다. 자세한 내용은 [개발 환경 설정](http://storm.apache.org/releases/current/Setting-up-development-environment.html)(영문)을 참조하세요.
+> [!NOTE]  
+> 이 명령에는 로컬 Storm 개발 환경이 필요합니다. 자세한 내용은 [개발 환경 설정](https://storm.apache.org/releases/current/Setting-up-development-environment.html)(영문)을 참조하세요.
 
 토폴로지가 시작되면 다음 텍스트와 비슷한 정보를 로컬 콘솔로 내보냅니다.
 
@@ -137,7 +137,7 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 
 3. Storm UI를 사용하여 클러스터에서 토폴로지를 볼 수 있습니다. Storm UI는 https://mycluster.azurehdinsight.net/stormui에 있습니다. `mycluster`를 클러스터 이름으로 바꿉니다.
 
-> [!NOTE]
+> [!NOTE]  
 > Storm 토폴로지가 시작되면 중지될 때까지 실행됩니다. 토폴로지를 중지하려면 다음 방법 중 하나를 사용합니다.
 >
 > * 명령줄에서 `storm kill TOPOLOGYNAME` 명령
@@ -148,5 +148,5 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 
 HDInsight와 함께 Python을 사용하는 다른 방법은 다음 문서를 참조하세요.
 
-* [Apache Hadoop MapReduce 작업을 스트리밍하는 데 Python을 사용하는 방법](../hadoop/apache-hadoop-streaming-python.md)
+* [MapReduce 작업을 스트리밍하는 데 Python을 사용하는 방법](../hadoop/apache-hadoop-streaming-python.md)
 * [Apache Pig 및 Apache Hive에서 UDF(사용자 정의 함수)를 사용하는 방법](../hadoop/python-udf-hdinsight.md)

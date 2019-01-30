@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 731730aae59fa654394bf01a139af0088c207774
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: b43dac7f81b92ac504427dab164d23d9ebb1ec03
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955340"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411410"
 ---
 # <a name="what-is-azure-data-box"></a>Azure Data Box란?
 
@@ -29,7 +29,7 @@ Data Box는 네트워크 연결에 제한이 없는 시나리오에서 40TB 이�
 
  - **일회성 마이그레이션** - 대량의 온-프레미스 데이터를 Azure로 이동하는 경우입니다. 
      - 온라인 미디어 라이브러리를 만들기 위해 오프라인 테이프에서 Azure로 미디어 라이브러리를 이동합니다.
-     - VM 팜에서, SQL Server 및 응용 프로그램을 Azure로 마이그레이션합니다.
+     - VM 팜에서, SQL Server 및 애플리케이션을 Azure로 마이그레이션합니다.
      - 심층 분석을 위해 기록 데이터를 Azure로 이동하고 HDInsight를 사용하여 보고합니다.
 
  - **초기 대량 전송** - Data Box(초기값)를 사용하여 초기 대량 전송을 수행한 후에 네트워크를 통해 증분 전송이 수행되는 경우입니다. 
@@ -43,7 +43,7 @@ Data Box는 네트워크에 거의 영향을 주지 않으면서 대량의 데�
 
 - **속도** - Data Box는 1Gbps 또는 10Gbps 네트워크 인터페이스를 사용하여 80TB의 데이터를 Azure로 이동합니다.
 
-- **보안** - Data Box에는 장치, 데이터 및 서비스에 대한 보안 보호 기능이 기본적으로 제공됩니다.
+- **보안** - Data Box에는 디바이스, 데이터 및 서비스에 대한 보안 보호 기능이 기본적으로 제공됩니다.
     - 디바이스는 나사 변조 방지 및 변조 방지 스티커로 보호되어 견고하게 포장됩니다. 
     - 디바이스의 데이터는 항상 AES 256비트 암호화로 보호됩니다.
     - 디바이스는 Azure Portal에 제공된 암호로만 잠금 해제할 수 있습니다.
@@ -63,6 +63,7 @@ Data Box 디바이스에는 이 릴리스의 다음과 같은 기능이 있습�
 | 랙 공간                                              | 장치 쪽 랙에 배치되는 경우 7U(랙에 설치할 수 없음)|
 | 필요한 케이블                                         | 전원 케이블 1개(포함) <br> RJ45 케이블 2개 <br> SFP+ Twinax 구리 케이블 2개|
 | Storage 용량                                        | 100TB 디바이스 - RAID 5 보호 후 사용 가능한 용량 80TB|
+| 전력 소요량                                            | 전원 공급 장치는 정격 700W입니다. <br> 일반적으로 장치는 375W를 소비합니다.|
 | 네트워크 인터페이스                                      | 1 GbE 인터페이스 2개 - MGMT, DATA 3. <br> MGMT - 관리용, 사용자 구성 불가능, 초기 설치에 사용됨 <br> DATA3 - 데이터용, 구성 가능, 기본적으로 동적임 <br> MGMT 및 DATA 3은 10GbE로 사용할 수도 있음 <br> 10GbE 인터페이스 2개 - DATA 1, DATA 2 <br> 모두 데이터용으로, 동적(기본값) 또는 정적으로 구성할 수 있음 |
 | 데이터 전송 미디어                                     | RJ45, SFP+ 구리 10GbE 이더넷  |
 | 보안                                                | 조작 방지 사용자 지정 나사를 사용한 견고한 디바이스 포장 <br> 디바이스의 하단에 변조 방지 스티커 부착|
@@ -73,18 +74,18 @@ Data Box 디바이스에는 이 릴리스의 다음과 같은 기능이 있습�
 
 Data Box는 다음과 같은 구성 요소를 포함합니다.
 
-* **Data Box 장치** - 기본 저장소를 제공하고, 클라우드 저장소와의 통신을 관리하고, 장치에 저장된 모든 데이터의 보안과 기밀성을 보장하는 데 도움을 주는 물리적 장치입니다. Data Box 디바이스에는 80TB의 사용 가능한 저장소 용량이 있습니다. 
+* **Data Box 디바이스** - 기본 저장소를 제공하고, 클라우드 저장소와의 통신을 관리하고, 디바이스에 저장된 모든 데이터의 보안과 기밀성을 보장하는 데 도움을 주는 물리적 디바이스입니다. Data Box 디바이스에는 80TB의 사용 가능한 저장소 용량이 있습니다. 
 
     ![Data Box의 앞면 및 뒷면 ](media/data-box-overview/data-box-combined3.png)
 
     
-* **Data Box 서비스** – 다양한 지리적 위치에서 액세스할 수 있는 웹 인터페이스에서 Data Box 장치를 관리할 수 있는 Azure Portal의 확장입니다. Data Box 서비스를 사용하여 사용자의 Data Box 디바이스에 대한 일일 관리를 수행합니다. 서비스 작업에는 주문 만들기 및 관리, 경고 보기 및 관리, 공유 관리 방법이 포함됩니다.  
+* **Data Box 서비스** – 다양한 지리적 위치에서 액세스할 수 있는 웹 인터페이스에서 Data Box 디바이스를 관리할 수 있는 Azure Portal의 확장입니다. Data Box 서비스를 사용하여 사용자의 Data Box 디바이스에 대한 일일 관리를 수행합니다. 서비스 작업에는 주문 만들기 및 관리, 경고 보기 및 관리, 공유 관리 방법이 포함됩니다.  
 
     ![Azure Portal의 Data Box 서비스](media/data-box-overview/data-box-service1.png)
 
     자세한 내용은 [Data Box 서비스를 사용하여 Data Box 디바이스 관리](data-box-portal-ui-admin.md)로 이동하세요.
 
-* **로컬 웹 사용자 인터페이스** – 로컬 네트워크에 연결할 수 있도록 장치를 구성한 다음, Data Box 서비스에 장치를 등록하는 데 사용되는 웹 기반 UI입니다. 로컬 웹 UI는 Data Box 디바이스를 종료 및 다시 시작하고, 복사 로그를 보고, 서비스 요청을 위해 Microsoft 지원에 문의하는 데도 사용됩니다.
+* **로컬 웹 사용자 인터페이스** – 로컬 네트워크에 연결할 수 있도록 디바이스를 구성한 다음, Data Box 서비스에 디바이스를 등록하는 데 사용되는 웹 기반 UI입니다. 로컬 웹 UI는 Data Box 디바이스를 종료 및 다시 시작하고, 복사 로그를 보고, 서비스 요청을 위해 Microsoft 지원에 문의하는 데도 사용됩니다.
 
     ![Data Box 로컬 웹 UI](media/data-box-overview/data-box-local-web-ui.png)
 
@@ -96,13 +97,13 @@ Data Box는 다음과 같은 구성 요소를 포함합니다.
 
 1. **주문** - Azure Portal에서 주문을 만들고, 배송 정보를 제공하고, 데이터에 대한 대상 Azure 저장소 계정을 만듭니다. 디바이스가 사용 가능 상태가 되면 Azure에서 배송 추적 ID를 사용하여 디바이스를 준비 및 배송합니다.
 
-2. **수신** - 장치가 배송되면 네트워크 및 전원 공급을 위해 장치를 지정된 케이블을 사용하여 연결합니다. 디바이스를 켜고 연결합니다. 디바이스 네트워크를 구성하고 데이터를 복사하려는 호스트 컴퓨터에서 공유를 탑재합니다.
+2. **수신** - 디바이스가 배송되면 네트워크 및 전원 공급을 위해 디바이스를 지정된 케이블을 사용하여 연결합니다. 디바이스를 켜고 연결합니다. 디바이스 네트워크를 구성하고 데이터를 복사하려는 호스트 컴퓨터에서 공유를 탑재합니다.
 
 3. **데이터 복사** - Data Box 공유에 데이터를 복사합니다.
 
-4. **반환** - 장치가 준비되면 전원을 끈 상태로 Azure 데이터센터로 다시 배송합니다.
+4. **반환** - 디바이스가 준비되면 전원을 끈 상태로 Azure 데이터 센터로 다시 배송합니다.
 
-5. **업로드** - 데이터가 자동으로 장치에서 Azure로 복사됩니다. 디바이스 디스크는 NIST(National Institute of Standard and Technology) 지침에 따라 안전하게 지워집니다.
+5. **업로드** - 데이터가 자동으로 디바이스에서 Azure로 복사됩니다. 디바이스 디스크는 NIST(National Institute of Standard and Technology) 지침에 따라 안전하게 지워집니다.
 
 이 과정에서 모든 상태 변경에 대해 이메일을 통해 알림을 받습니다. 세부적인 흐름에 대한 자세한 내용은 [Azure Portal에서 Data Box 배포](data-box-deploy-ordered.md)로 이동하세요.
 

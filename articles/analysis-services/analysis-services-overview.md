@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/18/2018
+ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3cdc4a8a670b5af43e72b38d7a3b6d9aafdac348
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 3e192449858d6cbd2d054fa7c70276739cfe1143
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429442"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189482"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -29,7 +29,7 @@ Azure Analysis Services는 클라우드에서 엔터프라이즈급 데이터 �
 
 Azure Portal에서는 수분 내에 [서버를 만들 수 있습니다](analysis-services-create-server.md). 그리고 Azure Resource Manager [템플릿](../azure-resource-manager/resource-manager-create-first-template.md) 및 PowerShell을 사용하면 선언적 템플릿을 통해 서버를 만들 수 있습니다. 단일 템플릿을 사용하면 저장소 계정 및 Azure Functions와 같은 다른 Azure 구성 요소와 함께 서버 리소스를 배포할 수 있습니다. 
 
-**비디오:** Azure Automation을 사용하여 서버 생성을 신속하게 할 수 있는 방법에 대한 자세한 내용을 알아보려면 [배포 자동화](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation)를 확인합니다.
+**비디오:** Azure Automation을 사용하여 서버 생성을 신속하게 하는 방법에 대한 자세한 내용을 알아보려면 [배포 자동화](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation)를 확인합니다.
 
 Azure Analysis Services는 다양한 Azure Services와 통합되어 정교한 분석 솔루션을 빌드할 수 있습니다. [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)와 통합되어 중요한 데이터에 안전한 역할 기반 액세스를 제공합니다. 모델에 데이터를 로드하는 활동을 포함하여 [Azure Data Factory](../data-factory/introduction.md) 파이프라인에 통합합니다. [Azure Automation](../automation/automation-intro.md) 및 [Azure Functions](../azure-functions/functions-overview.md)는 사용자 지정 코드를 사용하여 모델의 간단한 오케스트레이션을 수행하는 데 사용할 수 있습니다. 
 
@@ -57,7 +57,7 @@ Azure Analysis Services는 **개발자**, **기본** 및 **표준** 계층에서
 
 ### <a name="standard-tier"></a>표준 계층
 
-이 계층은 탄력적 사용자 동시성이 필요하고 빠르게 성장하는 데이터 모델이 있는 중요 업무용 프로덕션 응용 프로그램에 적합합니다. 근실시간 데이터 모델 업데이트에 고급 데이터 새로 고침을 지원하고, 모든 테이블 형식 모델링 기능을 지원합니다.
+이 계층은 탄력적 사용자 동시성이 필요하고 빠르게 성장하는 데이터 모델이 있는 중요 업무용 프로덕션 애플리케이션에 적합합니다. 근실시간 데이터 모델 업데이트에 고급 데이터 새로 고침을 지원하고, 모든 테이블 형식 모델링 기능을 지원합니다.
 
 |계획  |QPU  |메모리(GB)  |
 |---------|---------|---------|
@@ -132,9 +132,9 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 
 ## <a name="built-on-sql-server-analysis-services"></a>SQL Server Analysis Services에 구축
 
-Azure Analysis Services는 이미 SQL Server Analysis Services Enterprise Edition에 있은 훌륭한 기능과 호환 가능하며, 1200 이상 [호환성 수준](analysis-services-compat-level.md)의 테이블 형식 모델을 지원합니다. 테이블 형식 모델은 관계형 모델링 구문(모델, 테이블, 열)이며 TMSL(Tabular Model Scripting Language) 및 TOM(Tabular Object Model) 코드로 테이블 형식 메타데이터 개체 정의에 명시됩니다. 파티션, 큐브 뷰, 행 수준 보안, 양방향 관계 및 변환을 모두 지원합니다\*. 다차원 모델 및 PowerPivot for Sharepoint는 Azure Analysis Services에서 지원되지 *않습니다*.
+Azure Analysis Services는 이미 SQL Server Analysis Services Enterprise Edition에 있은 훌륭한 기능과 호환 가능하며, 1200 이상 [호환성 수준](analysis-services-compat-level.md)의 테이블 형식 모델을 지원합니다. 테이블 형식 모델은 관계형 모델링 구문(모델, 테이블, 열)이며 TMSL(Tabular Model Scripting Language) 및 TOM(Tabular Object Model) 코드로 테이블 형식 메타데이터 개체 정의에 명시됩니다. 파티션, 큐브 뷰, 행 수준 보안, 양방향 관계 및 변환을 모두 지원합니다\*. 다차원 모델 및 PowerPivot for SharePoint는 Azure Analysis Services에서 지원되지 *않습니다*.
 
-메모리 내 및 DirectQuery 모드 모두에서 테이블 형식 모델이 지원됩니다. 메모리 내 모드(기본값) 테이블 형식 모델은 여러 데이터 원본을 지원합니다. 모델 데이터가 고도로 압축되고 메모리 내에 캐시되었기 때문에서 이 모드는 대량의 데이터에 가장 빠른 쿼리 응답을 제공합니다. 또한 복잡한 데이터 세트 및 쿼리에 가장 훌륭한 유연성을 제공합니다. 분할하면 증분 로드를 활성화하고, 평행을 증가하고, 메모리 소비를 줄입니다. 계산된 테이블 및 모든 DAX 함수와 같은 기타 고급 데이터 모델링 기능이 지원됩니다. 데이터 원본에서 캐시된 데이터를 업데이트하기 위해 메모리 내 모델을 새로 고칠(처리할) 수 있어야 합니다. Azure 서비스 사용자 지원에서 PowerShell, TOM, TMSL 및 REST를 사용하는 무인 새로 고침 작업은 모델 데이터를 항상 최신 상태로 유지할 수 있는 유연성을 제공합니다. 
+메모리 내 및 DirectQuery 모드 모두에서 테이블 형식 모델이 지원됩니다. 메모리 내 모드(기본값) 테이블 형식 모델은 여러 데이터 원본을 지원합니다. 모델 데이터가 고도로 압축되고 메모리 내에 캐시되었기 때문에서 이 모드는 대량의 데이터에 가장 빠른 쿼리 응답을 제공합니다. 또한 복잡한 데이터 세트 및 쿼리에 가장 훌륭한 유연성을 제공합니다. 분할하면 증분 로드를 활성화하고, 평행을 증가하고, 메모리 소비를 줄입니다. 계산된 테이블 및 모든 DAX 함수와 같은 기타 고급 데이터 모델링 기능이 지원됩니다. 데이터 원본에서 캐시된 데이터를 업데이트하기 위해 메모리 내 모델을 새로 고칠(처리할) 수 있어야 합니다. Azure 서비스 주체가 지원되므로 PowerShell, TOM, TMSL 및 REST를 사용하는 무인 새로 고침 작업은 모델 데이터를 항상 최신 상태로 유지하는 유연성을 제공합니다. 
 
 DirectQuery 모드*는 저장소 및 쿼리 실행에 백 엔드 관계형 데이터베이스를 활용합니다. 단일 SQL Server, SQL Server 데이터 웨어하우스, Azure SQL Database, Azure SQL Data Warehouse, Oracle 및 Teradata 데이터 원본에서 초대량의 데이터 집합이 지원됩니다. 백 엔드 데이터 집합은 사용 가능한 서버 리소스 메모리를 초과할 수 있습니다. 복잡한 데이터 모델 새로 고침 시나리오가 필요하지 않습니다. 또한 제한된 데이터 원본 형식, DAX 수식 제한 사항과 같은 몇 가지 제한 사항이 있으며 일부 고급 데이터 모델링 기능이 지원되지 않습니다. 사용자에게 적절한 모드를 결정하기 전에 [직접 쿼리 모드](https://docs.microsoft.com/sql/analysis-services/tabular-models/directquery-mode-ssas-tabular)를 참조하세요.
 
@@ -158,7 +158,7 @@ Azure Analysis Services 방화벽은 규칙에 지정된 해다 IP 주소 이외
 
 ### <a name="data-security"></a>데이터 보안
 
-Azure Analysis Services에서는 Azure Blob Storage를 사용하여 Analysis Services 데이터베이스의 저장소와 메타데이터를 유지합니다. Blob에 있는 데이터 파일은 [Azure Blob SSE(Server Side Encryption)](../storage/common/storage-service-encryption.md)를 사용하여 암호화됩니다. 직접 쿼리 모드를 사용하는 경우 메타데이터만 저장됩니다. 실제 데이터는 쿼리 시 데이터 원본에서 암호화된 프로토콜을 통해 액세스됩니다.
+Azure Analysis Services에서는 Azure Blob Storage를 사용하여 Analysis Services 데이터베이스의 스토리지와 메타데이터를 유지합니다. Blob에 있는 데이터 파일은 [Azure Blob SSE(Server Side Encryption)](../storage/common/storage-service-encryption.md)를 사용하여 암호화됩니다. 직접 쿼리 모드를 사용하는 경우 메타데이터만 저장됩니다. 실제 데이터는 쿼리 시 데이터 원본에서 암호화된 프로토콜을 통해 액세스됩니다.
 
 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 설치하고 구성하여 조직의 온-프레미스 데이터 원본에 대한 액세스를 보호합니다. 게이트웨이는 DirectQuery와 메모리 내 모드 모두의 데이터에 대한 액세스 권한을 제공합니다.
 
@@ -176,13 +176,13 @@ Analysis Services에서는 서버 및 데이터베이스 작업 모델, 개체 �
 
 1400 호환성 수준에서 테이블 형식 모델은 개체 수준 보안을 지원합니다. 여기에는 테이블 수준 보안 및 열 수준 보안이 포함됩니다. 개체 수준 보안은 TOM 또는 TMSL을 사용하여 Model.bim 파일의 JSON 기반 메타데이터에서 설정됩니다. 자세한 내용은 [개체 수준 보안](https://docs.microsoft.com/sql/analysis-services/tabular-models/object-level-security)을 참조하세요.
 
-### <a name="automation-through-service-principles"></a>서비스 원칙을 통한 자동화
+### <a name="automation-through-service-principals"></a>서비스 주체를 통한 자동화
 
-서비스 사용자는 무인 리소스 및 서비스 수준 작업을 수행하도록 테넌트 내에서 만드는 Azure Active Directory 응용 프로그램 리소스입니다. 서비스 사용자는 새로 고침, 확장/축소 및 일시 정지/다시 시작과 같은 일반적인 작업을 자동화하는 Azure Automation, PowerShell 무인 모드, 사용자 지정 클라이언트 응용 프로그램 및 웹앱에 사용됩니다. 사용 권한은 역할 멤버 자격을 통해 서비스 사용자에게 할당됩니다. 자세한 내용은 [서비스 사용자를 사용한 자동화](analysis-services-service-principal.md)를 참조하세요.
+서비스 사용자는 무인 리소스 및 서비스 수준 작업을 수행하도록 테넌트 내에서 만드는 Azure Active Directory 애플리케이션 리소스입니다. 서비스 사용자는 새로 고침, 확장/축소 및 일시 정지/다시 시작과 같은 일반적인 작업을 자동화하는 Azure Automation, PowerShell 무인 모드, 사용자 지정 클라이언트 애플리케이션 및 웹앱에 사용됩니다. 사용 권한은 역할 멤버 자격을 통해 서비스 사용자에게 할당됩니다. 자세한 내용은 [서비스 사용자를 사용한 자동화](analysis-services-service-principal.md)를 참조하세요.
 
 ### <a name="azure-governance"></a>Azure 거버넌스
 
-Azure Analysis Services는 [Microsoft Online Services 약관](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) 및 [Microsoft 개인정보처리방침](https://privacy.microsoft.com/privacystatement)에 따라 사용할 수 있습니다.
+Azure Analysis Services는 [Microsoft Online Services 약관](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) 및 [Microsoft 개인정보처리방침](https://privacy.microsoft.com/privacystatement)에 따라 사용할 수 있습니다.
 Azure 보안에 대한 자세한 내용은 [Microsoft 보안 센터](https://www.microsoft.com/trustcenter)를 참조하세요.
 
 ## <a name="use-the-tools-you-already-know"></a>이미 알고 있는 도구 사용
@@ -215,7 +215,7 @@ Power BI, Excel, Reporting Services 및 타사 도구와 같은 최신 데이터
 
 ## <a name="monitoring-and-diagnostics"></a>모니터링 및 진단
 
-Azure Analysis Services는 Azure 메트릭과 통합되어 서버의 성능 및 상태를 모니터링할 수 있도록 리소스 특정 메트릭의 확장된 수를 제공합니다. 자세한 내용은 [서버 메트릭 모니터링](analysis-services-monitor.md)을 참조하세요. [Azure 리소스 진단 로그란?](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)에서 메트릭을 기록합니다. 로그를 모니터링하 [Azure Storage](https://azure.microsoft.com/services/storage/)로 전송하고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트리밍하고, [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite)의 서비스인 [Log Analytics](https://azure.microsoft.com/services/log-analytics/)로 내보낼 수 있습니다. 자세한 내용은 [진단 로깅 설정](analysis-services-logging.md)을 참조하세요.
+Azure Analysis Services는 Azure 메트릭과 통합되어 서버의 성능 및 상태를 모니터링할 수 있도록 리소스 특정 메트릭의 확장된 수를 제공합니다. 자세한 내용은 [서버 메트릭 모니터링](analysis-services-monitor.md)을 참조하세요. [Azure 리소스 진단 로그란?](../azure-monitor/platform/diagnostic-logs-overview.md)에서 메트릭을 기록합니다. 로그를 모니터링하 [Azure Storage](https://azure.microsoft.com/services/storage/)로 전송하고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트리밍하고, [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite)의 서비스인 [Log Analytics](https://azure.microsoft.com/services/log-analytics/)로 내보낼 수 있습니다. 자세한 내용은 [진단 로깅 설정](analysis-services-logging.md)을 참조하세요.
 
 Azure Analysis Services는 [DMV(동적 관리 뷰)](https://docs.microsoft.com/sql/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services)도 사용하도록 지원합니다. SQL 구문에 따라 서버 인스턴스에 대한 메타데이터 및 모니터링 정보를 반환하는 DMV 인터페이스 스키마 행 집합입니다.
 

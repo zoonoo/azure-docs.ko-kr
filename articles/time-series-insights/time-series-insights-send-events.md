@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights 환경으로 이벤트를 보내는 방법 | Microsoft Docs
-description: 이 자습서에서는 Azure Time Series Insights에 표시하기 위해 이벤트 허브를 생성 및 구성하고 이벤트를 푸시하는 샘플 응용 프로그램을 실행하는 방법을 설명합니다.
+title: Azure Time Series Insights 환경으로 이벤트 보내기 | Microsoft Docs
+description: Azure Time Series Insights에서 볼 수 있는 이벤트를 푸시하기 위해 이벤트 허브를 구성하고 샘플 애플리케이션을 실행하는 방법을 알아봅니다.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -10,144 +10,90 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/09/2018
-ms.openlocfilehash: 30b83c54d314934f1de170955eec22e7b2a264b8
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.date: 12/03/2018
+ms.custom: seodec18
+ms.openlocfilehash: 424476b91537c60a6d7f0f9a854453353bf98633
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629755"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557022"
 ---
-# <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>이벤트 허브를 사용하여 Time Series Insights 환경으로 이벤트 보내기
-이 문서에서는 이벤트 허브를 생성 및 구성하고 이벤트를 푸시하는 샘플 응용 프로그램을 실행하는 방법을 설명합니다. JSON 형식의 이벤트가 있는 기존 이벤트 허브가 있는 경우 이 자습서를 건너뛰고 [시계열 정보](https://insights.timeseries.azure.com)에서 환경을 봅니다.
+# <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>이벤트 허브를 사용하여 Time Series Insights 환경으로 이벤트 보내기
+
+이 문서에서는 Azure Event Hubs에서 이벤트 허브를 생성 및 구성한 다음, 이벤트를 푸시하는 샘플 애플리케이션을 실행하는 방법을 설명합니다. JSON 형식의 이벤트가 있는 기존 이벤트 허브가 있는 경우 이 자습서를 건너뛰고 [Azure Time Series Insights](./time-series-insights-update-create-environment.md)에서 환경을 봅니다.
 
 ## <a name="configure-an-event-hub"></a>이벤트 허브 구성
-1. 이벤트 허브를 만들려면 이벤트 허브 [설명서](../event-hubs/event-hubs-create.md)의 지침을 따릅니다.
 
-2. 검색 창에서 **이벤트 허브**를 검색합니다. 반환된 목록에서 **이벤트 허브**를 클릭합니다.
+1. 이벤트 허브를 만드는 방법을 알아보려면 [Event Hubs 설명서](https://docs.microsoft.com/azure/event-hubs/)를 참조하세요.
+1. 검색 상자에서 **Event Hubs**를 검색합니다. 반환된 목록에서 **Event Hubs**를 선택합니다.
+1. 이벤트 허브를 선택합니다.
+1. 이벤트 허브를 만드는 경우 실제로 이벤트 허브 네임스페이스를 만드는 것입니다. 네임스페이스 내에 이벤트 허브를 아직 만들지 않은 경우 메뉴의 **엔터티** 아래에서 이벤트 허브를 만듭니다.  
 
-3. 해당 이름을 클릭하여 이벤트 허브를 선택합니다.
+    ![이벤트 허브의 목록][1]
 
-4. 중간 구성 창의 **엔터티** 아래에서 **Event Hubs**를 다시 클릭합니다.
+1. 이벤트 허브를 만든 후 이벤트 허브의 목록에서 선택합니다.
+1. 메뉴의 **엔터티** 아래에서 **Event Hubs**를 선택합니다.
+1. 구성할 이벤트 허브의 이름을 선택합니다.
+1. **엔터티**에서 **소비자 그룹**을 선택한 다음, **소비자 그룹**을 선택합니다.
 
-5. 구성할 이벤트 허브의 이름을 선택합니다.
+    ![소비자 그룹 만들기][2]
 
-  ![이벤트 허브 소비자 그룹 선택](media/send-events/consumer-group.png)
+1. Time Series Insights 이벤트 원본에서 단독으로 사용하는 소비자 그룹을 만들어야 합니다.
 
-6. **엔터티** 아래에서 **소비자 그룹**을 선택합니다.
- 
-7. Time Series Insights 이벤트 원본에서 단독으로 사용하는 소비자 그룹을 만들어야 합니다.
+    > [!IMPORTANT]
+    > 이 소비자 그룹을 다른 서비스(예: Azure Stream Analytics 작업 또는 다른 Time Series Insights 환경)에서 사용하지 못하게 합니다. 소비자 그룹을 다른 서비스에서 사용하는 경우 읽기 작업이 이 환경 및 다른 서비스 모두에 부정적인 영향을 미칩니다. 소비자 그룹으로 **$Default**를 사용하는 경우 다른 읽기 권한자는 소비자 그룹을 잠재적으로 다시 사용할 수 있습니다.
 
-   > [!IMPORTANT]
-   > 이 소비자 그룹을 다른 서비스(예: Stream Analytics 작업 또는 다른 Time Series Insights 환경)에서 사용하지 못하게 합니다. 소비자 그룹을 다른 서비스에서 사용하는 경우 읽기 작업이 이 환경 및 다른 서비스에 부정적인 영향을 미칩니다. 소비자 그룹으로 “$Default”를 사용할 경우 다른 읽기 권한자가 재사용할 수도 있습니다.
+1. 메뉴의 **설정** 아래에서 **공유 액세스 정책**을 선택한 다음, **추가**를 선택합니다.
 
-8. **설정** 제목 아래에서 **액세스 정책 공유**를 선택합니다.
+    ![공유 액세스 정책을 선택한 다음, 추가 단추를 선택합니다.][3]
 
-9. 이벤트 허브에서 csharp 샘플에서 이벤트를 보내는 데 사용되는 **MySendPolicy**를 만듭니다.
+1. **새 공유 액세스 정책 추가** 창에서 **MySendPolicy**라는 공유 액세스를 만듭니다. 이 문서 뒷부분의 C# 예제에서 이벤트를 보내는 데 이 공유 액세스 정책을 사용합니다.
 
-  ![공유 액세스 정책을 선택하고 추가 단추 클릭](media/send-events/shared-access-policy.png)  
+    ![정책 이름 상자에 MySendPolicy 입력][4]
 
-  ![새 공유 액세스 정책 추가](media/send-events/shared-access-policy-2.png)  
+1. **클레임**에서 **보내기** 확인란을 선택합니다.
 
-## <a name="add-time-series-insights-reference-data-set"></a>Time Series Insights 참조 데이터 집합 추가 
-TSI에서 참조 데이터를 사용하여 원격 분석 데이터의 맥락을 추가합니다.  해당 맥락은 데이터에 의미를 더하여 보다 쉽게 필터링하고 집계할 수 있도록 합니다.  TSI는 수신 시에 참조 데이터를 조인하며, 이 데이터를 소급해서 조인할 수는 없습니다.  따라서 데이터와 함께 이벤트 원본을 추가하기 전에, 참조 데이터를 추가하는 것이 중요합니다.  위치 또는 센서 유형과 같은 데이터는 디바이스/태그/센서 ID에 조인하여 보다 쉽게 조각화 및 필터링할 수 있는 유용한 차원입니다.  
+## <a name="add-a-time-series-insights-instance"></a>Time Series Insights 인스턴스 추가
 
-> [!IMPORTANT]
-> 기록 데이터를 업로드하는 경우 참조 데이터 집합이 구성되도록 하는 것이 중요합니다.
+Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 원격 분석 데이터에 상황별 데이터를 추가합니다. 데이터는 **시계열 ID**를 사용하여 쿼리 시에 조인됩니다. 이 문서의 뒷부분에서 사용하는 샘플 가상 프로젝트에 대한 **시계열 ID**는 **Id**입니다. Time Series Insight 인스턴스 및 **시계열 ID**에 대해 자세히 알아보려면 [시계열 모델](./time-series-insights-update-tsm.md)을 참조하세요.
 
-기록 데이터를 TSI에 대량으로 업로드할 때 참조 데이터가 준비되어 있는지 확인합니다.  TSI는 조인된 이벤트 원본에 데이터가 있는 경우 바로 읽기 시작한다는 점에 유의하세요.  특히 이벤트 원본 데이터가 들어 있는 경우, 참조 데이터가 제대로 준비될 때까지 기다렸다가 이벤트 원본을 TSI에 조인하는 것이 유용합니다. 또는, 참조 데이터 집합이 준비될 때까지 기다렸다가 해당 이벤트 원본에 데이터를 밀어 넣을 수 있습니다.
+### <a name="create-a-time-series-insights-event-source"></a>Time Series Insights 이벤트 원본 만들기
 
-참조 데이터를 관리하기 위해 TSI 탐색기에는 웹 기반 사용자 인터페이스가 있으며 프로그래밍 방식 C# API도 있습니다. TSI 탐색기에는 파일을 업로드하거나 기존 참조 데이터 집합을 JSON 또는 CSV 형식으로 붙여넣기 위한 시각적 사용자 환경이 있습니다. 해당 API를 사용하여 필요할 때 사용자 지정 앱을 빌드할 수 있습니다.
+1. 아직 이벤트 원본을 만들지 않은 경우 [이벤트 원본 만들기](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub)에 대한 단계를 완료합니다.
 
-Time Series Insights에서 참조 데이터를 관리하는 방법에 대한 자세한 내용은 [참조 데이터 문서](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set)를 참조하세요.
+1. `timeSeriesId`에 대한 값을 설정합니다. **시계열 ID**에 대해 자세히 알아보려면 [시계열 모델](./time-series-insights-update-tsm.md)을 참조하세요.
 
-## <a name="create-time-series-insights-event-source"></a>Time Series Insights 이벤트 원본 만들기
-1. 아직 이벤트 원본을 만들지 않은 경우 [다음된 지침](time-series-insights-how-to-add-an-event-source-eventhub.md)에 따라 이벤트 원본을 만듭니다.
+### <a name="push-events"></a>이벤트 푸시(가상 샘플)
 
-2. 타임스탬프 속성 이름으로 **deviceTimestamp**를 지정합니다. 이 속성은 C# 샘플에서 실제 타임스탬프로 사용됩니다. 타임스탬프 속성 이름은 대소문자를 구분하며 이벤트 허브에 JSON으로 보낼 때 값이 __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__ 형식을 따라야 합니다. 해당 속성이 이벤트에 없는 경우 시간이 큐에 추가된 이벤트 허브가 사용됩니다.
+1. 검색 창에서 **Event Hubs**를 검색합니다. 반환된 목록에서 **Event Hubs**를 선택합니다.
 
-  ![이벤트 원본 만들기](media/send-events/event-source-1.png)
+1. 이벤트 허브를 선택합니다.
 
-## <a name="sample-code-to-push-events"></a>이벤트를 푸시하는 샘플 코드
-1. **MySendPolicy**라고 명명된 이벤트 허브 정책으로 이동합니다. **연결 문자열**을 정책 키와 함께 복사합니다.
+1. **공유 액세스 정책** > **RootManageSharedAccessKey**로 이동합니다. **연결 문자열-기본 키**의 값을 복사합니다.
 
-  ![MySendPolicy 연결 문자열 복사](media/send-events/sample-code-connection-string.png)
+    ![기본 키 연결 문자열의 값 복사][5]
 
-2. 세 개의 각 디바이스마다 600개의 이벤트를 보내는 다음 코드를 실행합니다. 연결 문자열로 `eventHubConnectionString`을 업데이트합니다.
+1. https://tsiclientsample.azurewebsites.net/windFarmGen.html로 이동합니다. URL은 시뮬레이션된 가상 디바이스를 실행합니다.
+1. 웹 페이지의 **이벤트 허브 연결 문자열** 상자에 [이벤트 푸시](#push-events)에서 복사한 연결 문자열을 붙여넣습니다.
+  
+    ![이벤트 허브 연결 문자열 상자에 기본 키 연결 문자열 붙여넣기][6]
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using Microsoft.ServiceBus.Messaging;
+1. **시작하려면 클릭**을 선택합니다. 시뮬레이터는 직접 사용할 수 있는 인스턴스 JSON을 생성합니다.
 
-namespace Microsoft.Rdx.DataGenerator
-{
-    internal class Program
-    {
-        private static void Main(string[] args)
-        {
-            var from = new DateTime(2017, 4, 20, 15, 0, 0, DateTimeKind.Utc);
-            Random r = new Random();
-            const int numberOfEvents = 600;
+1. Azure Portal에서 이벤트 허브로 돌아갑니다. **개요** 페이지에 이벤트 허브에서 받은 새 이벤트가 표시되어야 합니다.
 
-            var deviceIds = new[] { "device1", "device2", "device3" };
+    ![이벤트 허브에 대한 메트릭을 보여주는 이벤트 허브 개요 페이지][7]
 
-            var events = new List<string>();
-            for (int i = 0; i < numberOfEvents; ++i)
-            {
-                for (int device = 0; device < deviceIds.Length; ++device)
-                {
-                    // Generate event and serialize as JSON object:
-                    // { "deviceTimestamp": "utc timestamp", "deviceId": "guid", "value": 123.456 }
-                    events.Add(
-                        String.Format(
-                            CultureInfo.InvariantCulture,
-                            @"{{ ""deviceTimestamp"": ""{0}"", ""deviceId"": ""{1}"", ""value"": {2} }}",
-                            (from + TimeSpan.FromSeconds(i * 30)).ToString("o"),
-                            deviceIds[device],
-                            r.NextDouble()));
-                }
-            }
+<a id="json"></a>
 
-            // Create event hub connection.
-            var eventHubConnectionString = @"Endpoint=sb://...";
-            var eventHubClient = EventHubClient.CreateFromConnectionString(eventHubConnectionString);
-
-            using (var ms = new MemoryStream())
-            using (var sw = new StreamWriter(ms))
-            {
-                // Wrap events into JSON array:
-                sw.Write("[");
-                for (int i = 0; i < events.Count; ++i)
-                {
-                    if (i > 0)
-                    {
-                        sw.Write(',');
-                    }
-                    sw.Write(events[i]);
-                }
-                sw.Write("]");
-
-                sw.Flush();
-                ms.Position = 0;
-
-                // Send JSON to event hub.
-                EventData eventData = new EventData(ms);
-                eventHubClient.Send(eventData);
-            }
-        }
-    }
-}
-
-```
 ## <a name="supported-json-shapes"></a>지원되는 JSON 셰이프
+
 ### <a name="sample-1"></a>샘플 1
 
 #### <a name="input"></a>입력
 
-간단한 JSON 개체입니다.
+간단한 JSON 개체:
 
 ```json
 {
@@ -155,7 +101,8 @@ namespace Microsoft.Rdx.DataGenerator
     "timestamp":"2016-01-08T01:08:00Z"
 }
 ```
-#### <a name="output---one-event"></a>출력 - 하나의 이벤트
+
+#### <a name="output-one-event"></a>출력: 하나의 이벤트
 
 |id|timestamp|
 |--------|---------------|
@@ -164,7 +111,9 @@ namespace Microsoft.Rdx.DataGenerator
 ### <a name="sample-2"></a>샘플 2
 
 #### <a name="input"></a>입력
+
 두 JSON 개체가 포함된 JSON 배열입니다. 각 JSON 개체는 이벤트로 변환됩니다.
+
 ```json
 [
     {
@@ -177,7 +126,8 @@ namespace Microsoft.Rdx.DataGenerator
     }
 ]
 ```
-#### <a name="output---two-events"></a>출력 - 2개의 이벤트
+
+#### <a name="output-two-events"></a>출력: 두 개의 이벤트
 
 |id|timestamp|
 |--------|---------------|
@@ -189,6 +139,7 @@ namespace Microsoft.Rdx.DataGenerator
 #### <a name="input"></a>입력
 
 두 JSON 개체가 들어 있는 중첩된 JSON 배열이 포함된 JSON 개체입니다.
+
 ```json
 {
     "location":"WestUs",
@@ -203,10 +154,11 @@ namespace Microsoft.Rdx.DataGenerator
         }
     ]
 }
-
 ```
-#### <a name="output---two-events"></a>출력 - 2개의 이벤트
-"location" 속성은 각 이벤트로 복사됩니다.
+
+#### <a name="output-two-events"></a>출력: 두 개의 이벤트
+
+**location** 속성은 각 이벤트로 복사됩니다.
 
 |location|events.id|events.timestamp|
 |--------|---------------|----------------------|
@@ -217,7 +169,7 @@ namespace Microsoft.Rdx.DataGenerator
 
 #### <a name="input"></a>입력
 
-두 JSON 개체가 들어 있는 중첩된 JSON 배열이 포함된 JSON 개체입니다. 이 입력은 복합 JSON 개체로 전역 속성을 표시할 수 있음을 보여줍니다.
+두 JSON 개체가 들어 있는 중첩된 JSON 배열이 포함된 JSON 개체입니다. 이 입력은 복합 JSON 개체로 글로벌 속성을 표시할 수 있음을 보여줍니다.
 
 ```json
 {
@@ -248,15 +200,24 @@ namespace Microsoft.Rdx.DataGenerator
     ]
 }
 ```
-#### <a name="output---two-events"></a>출력 - 2개의 이벤트
+
+#### <a name="output-two-events"></a>출력: 두 개의 이벤트
 
 |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.type|events.data.type|
 |---|---|---|---|---|---|---|---|
 |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
-
-
 ## <a name="next-steps"></a>다음 단계
+
 > [!div class="nextstepaction"]
-> [Time Series Insights 탐색기에서 환경을 봅니다](https://insights.timeseries.azure.com).
+> [Time Series Insights 탐색기에서 환경 보기](https://insights.timeseries.azure.com)
+
+<!-- Images -->
+[1]: media/send-events/updated.png
+[2]: media/send-events/consumer-group.png
+[3]: media/send-events/shared-access-policy.png
+[4]: media/send-events/shared-access-policy-2.png
+[5]: media/send-events/sample-code-connection-string.png
+[6]: media/send-events/updated_two.png
+[7]: media/send-events/telemetry.png

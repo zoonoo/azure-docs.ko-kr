@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: b99874ce87c6e161fcd62ec871c6aee277ec946e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e8f37adc07bffb8a1e770085ecee6f813d3c2932
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232298"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425614"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Azure PowerShell을 사용하여 IoT Hub 파일 업로드 구성
 
@@ -24,11 +24,11 @@ ms.locfileid: "51232298"
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
 
-* [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+* [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 
 * Azure IoT Hub - IoT Hub가 없는 경우 [New-AzureRmIoTHub cmdlet](https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub)을 사용하여 IoT Hub를 만들거나, 포털을 사용하여 [IoT Hub를 만들](iot-hub-create-through-portal.md) 수 있습니다.
 
-* Azure 저장소 계정. Azure 저장소 계정이 없는 경우 [Azure Storage PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.storage/)을 사용하여 저장소 계정을 만들거나, 포털을 사용하여 [저장소 계정을 만들](../storage/common/storage-create-storage-account.md) 수 있습니다.
+* Azure 저장소 계정. Azure 스토리지 계정이 없는 경우 [Azure Storage PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.storage/)을 사용하여 스토리지 계정을 만들거나, 포털을 사용하여 [스토리지 계정을 만들](../storage/common/storage-create-storage-account.md) 수 있습니다.
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Azure 계정 로그인 및 설정
 
@@ -96,11 +96,11 @@ Get-AzureRmStorageAccountKey `
 
 구성에는 다음 값이 필요합니다.
 
-* **저장소 컨테이너**: 현재 Azure 구독에 있는 Azure Storage 계정의 Blob 컨테이너로 IoT Hub와 연결됩니다. 이전 섹션에서 필요한 저장소 계정 정보를 검색했습니다. IoT Hub는 파일을 업로드하는 경우에 사용할 디바이스에 대한 이 Blob 컨테이너에 쓰기 권한이 있는 SAS URI를 자동으로 생성합니다.
+* **스토리지 컨테이너**: 현재 Azure 구독에 있는 Azure Storage 계정의 Blob 컨테이너로 IoT Hub와 연결됩니다. 이전 섹션에서 필요한 저장소 계정 정보를 검색했습니다. IoT Hub는 파일을 업로드하는 경우에 사용할 디바이스에 대한 이 Blob 컨테이너에 쓰기 권한이 있는 SAS URI를 자동으로 생성합니다.
 
 * **업로드된 파일에 대한 알림 받기**: 파일 업로드 알림을 사용하거나 사용하지 않도록 설정합니다.
 
-* **SAS TTL**: 이 설정은 IoT Hub에서 장치로 반환하는 SAS URI의 TTL(Time-to-Live)입니다. 기본적으로 1시간으로 설정합니다.
+* **SAS TTL**: 이 설정은 IoT Hub에서 디바이스로 반환하는 SAS URI의 TTL(Time-to-Live)입니다. 기본적으로 1시간으로 설정합니다.
 
 * **파일 알림 설정 기본 TTL**: 만료되기 전의 파일 업로드 알림 TTL입니다. 기본적으로 1일로 설정합니다.
 
@@ -126,7 +126,7 @@ IoT Hub의 파일 업로드 기능에 대한 자세한 내용은 [디바이스�
 
 Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려면 다음 링크를 따라가세요.
 
-* [IoT 장치 대량 관리](iot-hub-bulk-identity-mgmt.md)
+* [IoT 디바이스 대량 관리](iot-hub-bulk-identity-mgmt.md)
 * [IoT Hub 메트릭](iot-hub-metrics.md)
 * [작업 모니터링](iot-hub-operations-monitoring.md)
 

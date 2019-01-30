@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: douglasl
-ms.openlocfilehash: 03652ce20d82565d5714cdc43a01a9e7c3074f6a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: e904075908fe7108c0566856b25fe03be0b7fd86
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48903976"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023810"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Azure Data Factory의 변수 추가 작업
 
@@ -28,7 +27,7 @@ ms.locfileid: "48903976"
 
 자산 | 설명 | 필수
 -------- | ----------- | --------
-이름 | 파이프라인의 작업 이름 | yes
+이름 | 파이프라인의 작업 이름 | 예
 description | 작업이 어떤 일을 수행하는지 설명하는 텍스트 | no
 형식 | 활동 유형은 AppendVariable입니다. | 예
 값 | 지정된 변수에 추가하는 데 사용되는 문자열 리터럴 또는 표현식 개체 값 | 예

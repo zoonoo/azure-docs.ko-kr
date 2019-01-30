@@ -1,27 +1,28 @@
 ---
-title: v1에서 v2로의 API 마이그레이션 가이드
+title: v1에서 v2 API 마이그레이션
 titleSuffix: Azure Cognitive Services
-description: 최신 API 집합으로 마이그레이션하는 방법을 알아봅니다.
+description: 버전 1 엔드포인트 및 작성 API는 더 이상 사용되지 않습니다. 이 가이드를 사용하여 버전 2 엔드포인트 및 작성 API로 마이그레이션하는 방법을 이해합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 57742d72c8be0dcd999bc8b73f6d598263429c12
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 9542fe14cc262731ca0f2ade65e6e4dfafbc34d7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646578"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427511"
 ---
-# <a name="api-v2-migration-guide"></a>API v2 마이그레이션 가이드
+# <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>LUIS 앱에 대한 API v1에서 v2로 마이그레이션 가이드
 버전 1 [엔드포인트](https://aka.ms/v1-endpoint-api-docs) 및 [작성](https://aka.ms/v1-authoring-api-docs) API는 더 이상 사용되지 않습니다. 이 가이드를 사용하여 버전 2 [엔드포인트](https://aka.ms/luis-endpoint-apis) 및 [작성](https://aka.ms/luis-authoring-apis) API로 마이그레이션하는 방법을 이해합니다. 
 
 ## <a name="new-azure-regions"></a>새 Azure 지역
-LUIS에는 LUIS API에 제공된 새로운 [지역](https://aka.ms/LUIS-regions)이 있습니다. LUIS는 지역 그룹에 다른 웹 사이트를 제공합니다. 응용 프로그램은 쿼리할 것으로 예상되는 같은 지역에서 작성해야 합니다. 응용 프로그램은 지역을 자동으로 마이그레이션하지 않습니다. 한 지역에서 앱을 내보낸 다음, 새 지역에서 사용할 수 있도록 다른 지역으로 가져옵니다.
+LUIS에는 LUIS API에 제공된 새로운 [지역](https://aka.ms/LUIS-regions)이 있습니다. LUIS는 지역 그룹에 다른 웹 사이트를 제공합니다. 애플리케이션은 쿼리할 것으로 예상되는 같은 지역에서 작성해야 합니다. 애플리케이션은 지역을 자동으로 마이그레이션하지 않습니다. 한 지역에서 앱을 내보낸 다음, 새 지역에서 사용할 수 있도록 다른 지역으로 가져옵니다.
 
 ## <a name="authoring-route-changes"></a>작성 경로 변경 내용
 작성 API 경로가 **prog** 경로 사용에서 **api** 경로 사용으로 변경되었습니다.
@@ -43,7 +44,7 @@ LUIS에는 LUIS API에 제공된 새로운 [지역](https://aka.ms/LUIS-regions)
 
 
 v1 엔드포인트 성공 응답:
-```JSON
+```json
 {
   "odata.metadata":"https://dialogice.cloudapp.net/odata/$metadata#domain","value":[
     {
@@ -54,7 +55,7 @@ v1 엔드포인트 성공 응답:
 ```
 
 v2 엔드포인트 성공 응답:
-```JSON
+```json
 {
   "query": "forward to frank 30 dollars through HSBC",
   "topScoringIntent": {
@@ -111,7 +112,7 @@ v2 엔드포인트 성공 응답:
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Azure [끝점 키](luis-how-to-azure-subscription.md)는 Azure Portal에서 생성됩니다. **[게시](luis-how-to-manage-keys.md)** 페이지에서 LUIS 앱에 키를 할당합니다. 실제 키 값을 알 필요가 없습니다. LUIS는 구독 이름을 사용하여 키를 할당합니다. 
+Azure [끝점 키](luis-how-to-azure-subscription.md)는 Azure Portal에서 생성됩니다. **[게시](luis-how-to-azure-subscription.md)** 페이지에서 LUIS 앱에 키를 할당합니다. 실제 키 값을 알 필요가 없습니다. LUIS는 구독 이름을 사용하여 키를 할당합니다. 
 
 ## <a name="new-versioning-route"></a>새 버전 관리 경로
 이제 v2 모델이 [버전](luis-how-to-manage-versions.md)에 포함됩니다. 버전 이름은 경로에서 10자입니다. 기본 버전은 “0.1”입니다.
@@ -144,7 +145,7 @@ LUIS는 모델을 향상시킬 수 있는 기존 [엔드포인트 발화](luis-h
 
 
 ## <a name="create-app-from-prebuilt-domains"></a>미리 빌드된 도메인에서 앱 만들기
-[미리 빌드된 도메인](luis-how-to-use-prebuilt-domains.md)은 미리 정의된 도메인 모델을 제공합니다. 미리 빌드된 도메인을 사용하면 일반 도메인의 LUIS 응용 프로그램을 신속하게 개발할 수 있습니다. 이 API를 사용하면 미리 빌드된 도메인을 기반으로 새 앱을 만들 수 있습니다. 응답은 새 appID입니다.
+[미리 빌드된 도메인](luis-how-to-use-prebuilt-domains.md)은 미리 정의된 도메인 모델을 제공합니다. 미리 빌드된 도메인을 사용하면 일반 도메인의 LUIS 애플리케이션을 신속하게 개발할 수 있습니다. 이 API를 사용하면 미리 빌드된 도메인을 기반으로 새 앱을 만들 수 있습니다. 응답은 새 appID입니다.
 
 |v2 경로|verb|
 |--|--|

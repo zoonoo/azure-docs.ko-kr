@@ -12,16 +12,19 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 11/12/2018
-ms.openlocfilehash: bb80b512176e8fe260eb4572ea9fa801a6ffc80a
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: b5916b781c636752ada6898cfa0c03bc02891501
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685143"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715021"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Azure SQL 데이터 동기화용 데이터 동기화 에이전트
 
 Azure SQL 데이터 동기화용 데이터 동기화 에이전트를 설치 및 구성하여 온-프레미스 SQL Server 데이터베이스와 데이터를 동기화합니다. SQL 데이터 동기화에 대한 자세한 내용은 [SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화](sql-database-sync-data.md)를 참조하세요.
+
+> [!IMPORTANT]
+> Azure SQL 데이터 동기화는 이때 Azure SQL Database Managed Instance를 지원하지 **않습니다**.
 
 ## <a name="download-and-install"></a>다운로드 및 설치
 
@@ -160,7 +163,7 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
 
 ### <a name="agent-key"></a> 에이전트 키를 제출할 수 없음
 
-에이전트에 대한 키를 만들거나 다시 만든 후 SqlAzureDataSyncAgent 응용 프로그램을 통해 해당 키를 제출하려고 하지만, 제출이 완료되지 않습니다.
+에이전트에 대한 키를 만들거나 다시 만든 후 SqlAzureDataSyncAgent 애플리케이션을 통해 해당 키를 제출하려고 하지만, 제출이 완료되지 않습니다.
 
 ![동기화 오류 대화 상자 - 에이전트 키를 제출할 수 없음](media/sql-database-troubleshoot-data-sync/sync-error-cant-submit-agent-key.png)
 
@@ -188,7 +191,7 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
 
   1. 파일 탐색기에서 에이전트 설치 디렉터리로 이동합니다. 기본 설치 디렉터리는 C:\\Program Files (x86)\\Microsoft SQL Data Sync입니다.
   1. bin 하위 디렉터리를 두 번 클릭합니다.
-  1. SqlAzureDataSyncAgent 응용 프로그램을 엽니다.
+  1. SqlAzureDataSyncAgent 애플리케이션을 엽니다.
   1. **에이전트 키 제출**을 선택합니다.
   1. 제공된 공간에 클립보드의 키를 붙여 넣습니다.
   1. **확인**을 선택합니다.

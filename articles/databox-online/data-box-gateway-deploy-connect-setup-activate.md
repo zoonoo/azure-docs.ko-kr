@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 2126871472b044f9b8c0df99c7cb14df348eab0e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 887c1d554cd5bd2b935178a77a2de19e687ca3f2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166749"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450407"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>자습서: Azure Data Box Gateway(미리 보기)에 연결하고, 설정하고, 활성화 
 
@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Data Box Gateway를 구성하고 설정하기 전에 다음 사항을 확인합니다.
 
-* [Hyper-V에서 Data Box Gateway 프로비전](data-box-gateway-deploy-provision-hyperv.md) 또는 [VMware에서 Data Box Gateway 프로비전](data-box-gateway-deploy-provision-vmware.md)에서 설명한 대로 가상 장치를 프로비전하고 가상 장치에 연결된 URL을 가져왔습니다.
+* [Hyper-V에서 Data Box Gateway 프로비전](data-box-gateway-deploy-provision-hyperv.md) 또는 [VMware에서 Data Box Gateway 프로비전](data-box-gateway-deploy-provision-vmware.md)에서 설명한 대로 가상 디바이스를 프로비전하고 가상 디바이스에 연결된 URL을 가져왔습니다.
 * Data Box Gateway 디바이스를 관리하기 위해 만든 Data Box Gateway 서비스의 활성화 키를 갖고 있습니다. 자세한 내용은 [Azure Data Box Gateway 배포 준비](data-box-gateway-deploy-prep.md)를 참조하세요.
 
 <!--* If this is the second or subsequent virtual device that you are registering with an existing StorSimple Device Manager service, you should have the service data encryption key. This key was generated when the first device was successfully registered with this service. If you have lost this key, see [Get the service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) for your Data Box Gateway.-->
@@ -71,7 +71,7 @@ Data Box Gateway를 구성하고 설정하기 전에 다음 사항을 확인합�
    
     ![](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
 
-2. **장치 이름** 페이지에서 장치 이름을 구성합니다. 이름의 길이는 1~15 사이여야 하고 문자, 숫자 및 하이픈을 포함할 수 있습니다.
+2. **디바이스 이름** 페이지에서 디바이스 이름을 구성합니다. 이름의 길이는 1~15 사이여야 하고 문자, 숫자 및 하이픈을 포함할 수 있습니다.
 
     ![](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
 
@@ -84,14 +84,17 @@ Data Box Gateway를 구성하고 설정하기 전에 다음 사항을 확인합�
     - 환경에서 DHCP를 사용하도록 설정하면 네트워크 인터페이스가 자동으로 구성됩니다. 따라서 IP 주소, 서브넷, 게이트웨이 및 DNS가 자동으로 할당됩니다.
     - DHCP를 사용하지 않는 경우 필요에 따라 고정 IP를 할당할 수 있습니다.
     - 네트워크 인터페이스를 IPv4로 구성할 수 있습니다.
-   
+
+    >[!NOTE] 
+    > 디바이스에 연결할 다른 IP 주소가 없다면 네트워크 인터페이스의 로컬 IP 주소를 정적에서 DCHP로 전환하지 않는 것이 좋습니다. 하나의 네트워크 인터페이스를 사용하며 DHCP로 전환하는 경우 DHCP 주소를 확인할 방법이 없습니다. DHCP 주소로 변경하려는 경우 디바이스가 서비스에 등록될 때까지 기다렸다가 변경합니다. 그러면 서비스에 대한 Azure Portal의 **디바이스 속성**에서 모든 어댑터의 IP를 볼 수 있습니다.
+
 4. 선택적으로 웹 프록시 서버를 구성합니다. 웹 프록시 구성은 선택 사항이지만 웹 프록시를 사용하면 여기서만 구성할 수 있습니다.
    
    ![](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
    
    **웹 프록시** 페이지에서:
    
-   1. 다음 형식으로 **웹 프록시 URL** 공급: *http://&lt;호스트 IP 주소 또는 FDQN&gt;:포트 번호*. HTTPS URL은 지원되지 않습니다.
+   1. **웹 프록시 URL**을 *http://&lt;호스트 IP 주소 또는 FQDN&gt;:포트 번호* 형식으로 입력합니다. HTTPS URL은 지원되지 않습니다.
    2. **인증**은 **기본** 또는 **없음**으로 지정합니다.
    3. 인증을 사용하는 경우 **사용자 이름** 및 **암호**를 입력해야 합니다.
    4. **적용**을 클릭합니다. 구성된 웹 프록시 설정의 유효성을 검사하고 적용합니다.
@@ -102,12 +105,12 @@ Data Box Gateway를 구성하고 설정하기 전에 다음 사항을 확인합�
     
     **시간 설정** 페이지에서:
     
-    1. 드롭다운 목록에서 디바이스가 배포되는 지리적 위치를 기반으로 **표준 시간대**를 설정합니다. 디바이스의 기본 표준 시간대는 PST입니다. 디바이스는 모든 예약된 작업에 대해 이 표준 시간대를 사용합니다.
-    2. 디바이스에 **기본 NTP 서버**를 지정하거나 time.windows.com의 기본값을 적용합니다. 네트워크에서 NTP 트래픽이 데이터 센터에서 인터넷으로 전달되도록 허용하는지 확인합니다.
+    1. 드롭다운 목록에서 디바이스가 배포되는 지리적 위치를 기반으로 **표준 시간대** 를 설정합니다. 디바이스의 기본 표준 시간대는 PST입니다. 디바이스는 모든 예약된 작업에 대해 이 표준 시간대를 사용합니다.
+    2. 디바이스에 **기본 NTP 서버** 를 지정하거나 time.windows.com의 기본값을 적용합니다. 네트워크에서 NTP 트래픽이 데이터 센터에서 인터넷으로 전달되도록 허용하는지 확인합니다.
     3. 선택적으로 디바이스에 대한 **보조 NTP 서버**를 지정합니다.
     4. **Apply**를 클릭합니다. 구성된 시간 설정의 유효성을 검사하고 적용합니다.
 
-6. **클라우드 설정** 페이지에서, Azure Portal의 Data Box Gateway 서비스를 사용하여 장치를 활성화합니다.
+6. **클라우드 설정** 페이지에서, Azure Portal의 Data Box Gateway 서비스를 사용하여 디바이스를 활성화합니다.
     
     1. Data Box Gateway에 대한 **활성화 키 가져오기**에서 얻은 [활성화 키](data-box-gateway-deploy-prep.md#get-the-activation-key)를 입력합니다.
 

@@ -3,17 +3,17 @@ title: Jenkins로 Azure CLI 실행
 description: Azure CLI를 사용하여 Jenkins 파이프라인을 통해 Azure에 Java 웹앱을 배포하는 방법을 알아봅니다.
 ms.service: jenkins
 keywords: Jenkins, Azure, DevOps, App Service, CLI
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 6/7/2017
-ms.openlocfilehash: b9ca8848da543bbfb27246109c3a4ab97eb6bc58
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 05e21083b060e00602f58e1a17f52f40ced7d34e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974921"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075212"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Jenkins 및 Azure CLI를 사용해 Azure App Service에 배포
 Azure에 Java 웹앱을 배포하기 위해 [Jenkins 파이프라인](https://jenkins.io/doc/book/pipeline/)에서 Azure CLI를 사용할 수 있습니다. 이 자습서에서는 Azure VM에서 CI/CD 파이프라인을 만들며 다음 방법이 포함됩니다.
@@ -56,7 +56,7 @@ Azure CLI를 실행하려면 Azure 자격 증명이 필요합니다.
 
 ## <a name="create-an-azure-app-service-for-deploying-the-java-web-app"></a>Java 웹앱을 배포하기 위한 Azure App Service 만들기
 
-[az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) CLI 명령을 사용하여 **무료** 가격 책정 계층과 함께 Azure App Service 계획을 만듭니다. App Service 계획은 앱을 호스트하는 데 사용되는 실제 리소스를 정의합니다. App Service 계획에 할당된 모든 응용 프로그램은 이들 리소스를 공유하므로 여러 앱을 호스팅할 때 비용을 절감할 수 있습니다. 
+[az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) CLI 명령을 사용하여 **무료** 가격 책정 계층과 함께 Azure App Service 계획을 만듭니다. App Service 계획은 앱을 호스트하는 데 사용되는 실제 리소스를 정의합니다. App Service 계획에 할당된 모든 애플리케이션은 이들 리소스를 공유하므로 여러 앱을 호스팅할 때 비용을 절감할 수 있습니다. 
 
 ```azurecli-interactive
 az appservice plan create \
@@ -85,7 +85,7 @@ az appservice plan create \
 
 ### <a name="create-an-azure-web-app"></a>Azure Web App 만들기
 
- [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) CLI 명령을 사용하여 `myAppServicePlan` App Service 계획에서 웹앱 정의를 만듭니다. 웹앱 정의는 응용 프로그램에 액세스하는 URL을 제공하고 Azure에 코드를 배포하는 몇 가지 옵션을 구성합니다. 
+ [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) CLI 명령을 사용하여 `myAppServicePlan` App Service 계획에서 웹앱 정의를 만듭니다. 웹앱 정의는 애플리케이션에 액세스하는 URL을 제공하고 Azure에 코드를 배포하는 몇 가지 옵션을 구성합니다. 
 
 ```azurecli-interactive
 az webapp create \

@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 9b7e66e6789c1f24bbd784c9c3533ee2e2d678dc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 89ac87436fb6807177acf3882dd6e923b1722bd5
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981426"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849212"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Azure CLI를 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -89,7 +89,7 @@ az network vnet create \
   --subnet-prefix 10.0.0.0/24
 ```
 
-[az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)를 사용하여 2개의 추가 서브넷을 만듭니다.
+[az network vnet subnet create](/cli/azure/network/vnet/subnet)를 사용하여 2개의 추가 서브넷을 만듭니다.
 
 ```azurecli-interactive
 # Create a private subnet.
@@ -145,7 +145,7 @@ az network nic update \
   --ip-forwarding true
 ```
 
-VM 내 운영 체제 또는 VM 내에서 실행 중인 응용 프로그램도 네트워크 트래픽을 전달할 수 있어야 합니다. [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set)를 사용하여 VM의 운영 체제 내에서 IP 전달을 활성화합니다.
+VM 내 운영 체제 또는 VM 내에서 실행 중인 애플리케이션도 네트워크 트래픽을 전달할 수 있어야 합니다. [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set)를 사용하여 VM의 운영 체제 내에서 IP 전달을 활성화합니다.
 
 ```azurecli-interactive
 az vm extension set \

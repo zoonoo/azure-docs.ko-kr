@@ -4,7 +4,7 @@ description: Azure Active Directory 모니터링에 대한 일반 개요를 제�
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 92e200f358098d5516246d057d1cef406750e326
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 77cfddf8b7283487cc2417573379df53e8d26cdc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264685"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812525"
 ---
 # <a name="what-is-azure-active-directory-monitoring-preview"></a>Azure Active Directory 모니터링이란? (미리 보기)
 
@@ -58,7 +58,7 @@ Azure 저장소 계정으로 로그를 라우팅하면 [보존 정책](reference
 
 ## <a name="send-logs-to-log-analytics"></a>Log Analytics로 로그 보내기
 
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)는 여러 소스의 모니터링 데이터를 통합하는 솔루션으로, 응용 프로그램 및 리소스의 작업에 대한 인사이트를 제공하는 쿼리 언어 및 분석 엔진을 제공합니다. Azure AD 활동 로그를 Log Analytics로 보내서 수집한 데이터를 신속하게 검색하고, 모니터링하고, 경고할 수 있습니다. [Log Analytics로 데이터를 보내는 방법](howto-integrate-activity-logs-with-log-analytics.md)을 알아보세요.
+[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)는 여러 소스의 모니터링 데이터를 통합하는 솔루션으로, 애플리케이션 및 리소스의 작업에 대한 인사이트를 제공하는 쿼리 언어 및 분석 엔진을 제공합니다. Azure AD 활동 로그를 Log Analytics로 보내서 수집한 데이터를 신속하게 검색하고, 모니터링하고, 경고할 수 있습니다. [Log Analytics로 데이터를 보내는 방법](howto-integrate-activity-logs-with-log-analytics.md)을 알아보세요.
 
 Azure AD 활동 로그용으로 미리 작성된 보기를 설치하여 로그인 및 감사 이벤트가 관련된 일반적인 시나리오를 모니터링할 수 있습니다. [Azure AD 활동 로그용 Log Analytics 보기를 설치하는 방법](howto-install-use-log-analytics-views.md)을 알아보세요.
 

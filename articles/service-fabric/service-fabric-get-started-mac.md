@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric에서 작업하도록 Mac OS X에서 개발 환경 설정 | Microsoft Docs
-description: 런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 완료하면 Mac OS X에서 응용 프로그램을 빌드할 수 있습니다.
+description: 런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 완료하면 Mac OS X에서 애플리케이션을 빌드할 수 있습니다.
 services: service-fabric
 documentationcenter: linux
 author: suhuruli
@@ -29,7 +29,7 @@ ms.locfileid: "44160476"
 >
 >  
 
-Mac OS X를 사용하여 Azure Service Fabric 응용 프로그램을 Linux 클러스터에서 실행하도록 빌드할 수 있습니다. 이 문서에서는 개발을 위해 Mac을 설정하는 방법을 설명합니다.
+Mac OS X를 사용하여 Azure Service Fabric 애플리케이션을 Linux 클러스터에서 실행하도록 빌드할 수 있습니다. 이 문서에서는 개발을 위해 Mac을 설정하는 방법을 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다. 로컬 Service Fabric 클러스터를 실행하기 위해 미리 구성된 Docker 컨테이너 이미지가 제공됩니다. 시작하기 전에 다음 항목이 필요합니다.
@@ -61,7 +61,7 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
     >
     >권장되는 방식은 디먼 구성 설정을 Docker에서 직접 수정하는 것입니다. **Docker 아이콘**을 선택한 다음 **기본 설정** > **디먼** > **고급**을 선택합니다.
     >
-    >대규모 응용 프로그램을 테스트할 때에는 Docker에 할당된 리소스를 늘리는 것이 좋습니다. 이렇게 하려면 **Docker 아이콘**을 선택한 다음, **고급**을 선택하여 코어 및 메모리 수를 조정합니다.
+    >대규모 애플리케이션을 테스트할 때에는 Docker에 할당된 리소스를 늘리는 것이 좋습니다. 이렇게 하려면 **Docker 아이콘**을 선택한 다음, **고급**을 선택하여 코어 및 메모리 수를 조정합니다.
 
 2. 새 디렉터리에서 Service Fabric 이미지를 빌드할 `Dockerfile` 파일을 만듭니다.
 
@@ -82,7 +82,7 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
 
     >[!NOTE]
     >컨테이너에 추가 프로그램 또는 종속성을 추가하도록 이 파일을 조정할 수 있습니다.
-    >예를 들어 `RUN apt-get install nodejs -y`를 추가하면 게스트 실행 파일인 `nodejs` 응용 프로그램에 대한 지원이 허용됩니다.
+    >예를 들어 `RUN apt-get install nodejs -y`를 추가하면 게스트 실행 파일인 `nodejs` 애플리케이션에 대한 지원이 허용됩니다.
     
     >[!TIP]
     > 기본적으로 이렇게 하면 최신 버전의 Service Fabric으로 이미지를 가져옵니다. 특정 수정 버전은 [Docker 허브](https://hub.docker.com/r/microsoft/service-fabric-onebox/) 페이지를 참조하세요.
@@ -105,7 +105,7 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
     >[!TIP]
     >읽기 쉬운 방식으로 처리할 수 있도록 컨테이너 인스턴스의 이름을 제공합니다. 
     >
-    >응용 프로그램을 특정 포트에서 수신 대기하는 경우 추가 `-p` 태그를 사용하여 포트를 지정해야 합니다. 예를 들어 응용 프로그램이 포트 8080에서 수신 대기하는 경우 다음 `-p` 태그를 추가합니다.
+    >애플리케이션을 특정 포트에서 수신 대기하는 경우 추가 `-p` 태그를 사용하여 포트를 지정해야 합니다. 예를 들어 애플리케이션이 포트 8080에서 수신 대기하는 경우 다음 `-p` 태그를 추가합니다.
     >
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
@@ -133,17 +133,17 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
 ## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Mac에서 Service Fabric CLI(sfctl) 설정
 
 [Service Fabric CLI](service-fabric-cli.md#cli-mac)의 지침에 따라 Mac에 Service Fabric CLI(`sfctl`)를 설치합니다.
-CLI 명령은 클러스터, 응용 프로그램 및 서비스를 비롯한 Service Fabric 엔터티와의 상호 작용을 지원합니다.
+CLI 명령은 클러스터, 애플리케이션 및 서비스를 비롯한 Service Fabric 엔터티와의 상호 작용을 지원합니다.
 
-1. 응용 프로그램을 배포하기 전에 클러스터에 연결하려면 아래 명령을 실행합니다. 
+1. 애플리케이션을 배포하기 전에 클러스터에 연결하려면 아래 명령을 실행합니다. 
 
 ```bash
 sfctl cluster select --endpoint http://localhost:19080
 ```
 
-## <a name="create-your-application-on-your-mac-by-using-yeoman"></a>Yeoman을 사용하여 Mac에서 응용 프로그램 만들기
+## <a name="create-your-application-on-your-mac-by-using-yeoman"></a>Yeoman을 사용하여 Mac에서 애플리케이션 만들기
 
-Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Service Fabric 응용 프로그램을 만들 수 있는 스캐폴딩 도구를 제공합니다. 컴퓨터에서 Service Fabric Yeoman 템플릿 생성기가 작동하는지 확인하려면 다음 단계를 수행합니다.
+Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Service Fabric 애플리케이션을 만들 수 있는 스캐폴딩 도구를 제공합니다. 컴퓨터에서 Service Fabric Yeoman 템플릿 생성기가 작동하는지 확인하려면 다음 단계를 수행합니다.
 
 1. Node.js 및 NPM(노드 패키지 관리자)가 Mac에 설치되어 있어야 합니다. 다음과 같이 [HomeBrew](https://brew.sh/)를 사용하여 소프트웨어를 설치할 수 있습니다.
 
@@ -157,7 +157,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
     ```bash
     npm install -g yo
     ```
-3. 시작 [설명서](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)의 단계를 수행하여 원하는 Yeoman 생성기를 설치합니다. Yeoman을 사용하여 Service Fabric 응용 프로그램을 만들려면 다음 단계를 수행합니다.
+3. 시작 [설명서](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)의 단계를 수행하여 원하는 Yeoman 생성기를 설치합니다. Yeoman을 사용하여 Service Fabric 애플리케이션을 만들려면 다음 단계를 수행합니다.
 
     ```bash
     npm install -g generator-azuresfjava       # for Service Fabric Java Applications
@@ -166,7 +166,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
     ```
 4. 생성기를 설치한 후에는 각각 `yo azuresfguest` 또는 `yo azuresfcontainer`를 실행하여 게스트 실행 파일 또는 컨테이너 서비스를 만듭니다.
 
-5. Mac에서 Service Fabric Java 응용 프로그램을 빌드하려면 JDK 버전 1.8 및 Gradle을 호스트 컴퓨터에 설치해야 합니다. 다음과 같이 [HomeBrew](https://brew.sh/)를 사용하여 소프트웨어를 설치할 수 있습니다. 
+5. Mac에서 Service Fabric Java 애플리케이션을 빌드하려면 JDK 버전 1.8 및 Gradle을 호스트 컴퓨터에 설치해야 합니다. 다음과 같이 [HomeBrew](https://brew.sh/)를 사용하여 소프트웨어를 설치할 수 있습니다. 
 
     ```bash
     brew update
@@ -174,9 +174,9 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
     brew install gradle
     ```
 
-## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>터미널에서 Mac에 응용 프로그램 배포
+## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>터미널에서 Mac에 애플리케이션 배포
 
-Service Fabric 응용 프로그램을 만들고 빌드한 후 [Service Fabric CLI](service-fabric-cli.md#cli-mac)를 사용하여 응용 프로그램을 배포할 수 있습니다.
+Service Fabric 애플리케이션을 만들고 빌드한 후 [Service Fabric CLI](service-fabric-cli.md#cli-mac)를 사용하여 애플리케이션을 배포할 수 있습니다.
 
 1. Mac의 컨테이너 인스턴스 내에서 실행 중인 Service Fabric 클러스터에 연결합니다.
 
@@ -193,7 +193,7 @@ Service Fabric 응용 프로그램을 만들고 빌드한 후 [Service Fabric CL
 
 ## <a name="set-up-net-core-20-development"></a>.NET Core 2.0 개발 설정
 
-[Mac용 .NET Core 2.0 SDK](https://www.microsoft.com/net/core#macos)를 설치하여 [C# Service Fabric 응용 프로그램을 만들기](service-fabric-create-your-first-linux-application-with-csharp.md) 시작합니다. .NET Core 2.0 Service Fabric 응용 프로그램용 패키지는 현재 미리 보기 상태인 NuGet.org에서 호스트됩니다.
+[Mac용 .NET Core 2.0 SDK](https://www.microsoft.com/net/core#macos)를 설치하여 [C# Service Fabric 응용 프로그램을 만들기](service-fabric-create-your-first-linux-application-with-csharp.md) 시작합니다. .NET Core 2.0 Service Fabric 애플리케이션용 패키지는 현재 미리 보기 상태인 NuGet.org에서 호스트됩니다.
 
 ## <a name="install-the-service-fabric-plug-in-for-eclipse-on-your-mac"></a>Mac에 Eclipse용 Service Fabric 플러그 인 설치
 

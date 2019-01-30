@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: jeedes
-ms.openlocfilehash: b288bcbe14050c0f764f348d5e20186570e32866
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 34de89123e75f0c760fbcefa633b9aadf8d2b997
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442203"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878642"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>자습서: ForeSee CX Suite와 Azure Active Directory 통합
 
@@ -51,7 +51,7 @@ ForeSee CX Suite와 Azure AD의 통합을 구성하려면 다음 항목이 필�
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
-이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+ 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 ForeSee CX Suite 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -65,11 +65,11 @@ ForeSee CX Suite가 Azure AD에 통합되도록 구성하려면 갤러리의 For
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
 
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
 
@@ -113,9 +113,9 @@ ForeSee CX Suite에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![ForeSee CX Suite 도메인 및 URL Single Sign-On 정보](./media/foreseecxsuite-tutorial/tutorial_foreseen_uploadconfig.png)
 
-    나. **폴더 로고**를 클릭하여 메타데이터 파일을 선택하고 **업로드**를 클릭합니다.
+    b. **폴더 로고**를 클릭하여 메타데이터 파일을 선택하고 **업로드**를 클릭합니다.
 
-    다. **서비스 공급자 메타데이터 파일**이 성공적으로 업로드되면, 아래와 같이 **ForeSee CX Suite 도메인 및 URL** 섹션 텍스트 상자에 **식별자** 값이 자동으로 채워집니다.
+    다. **서비스 공급 기업 메타데이터 파일**이 성공적으로 업로드되면, 아래와 같이 **ForeSee CX Suite 도메인 및 URL** 섹션 텍스트 상자에 **식별자** 값이 자동으로 채워집니다.
 
     ![ForeSee CX Suite 도메인 및 URL Single Sign-On 정보](./media/foreseecxsuite-tutorial/urlupload.png)
 
@@ -125,7 +125,7 @@ ForeSee CX Suite에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     a. **로그온 URL** 텍스트 상자에서 URL `https://cxsuite.foresee.com/`을 입력합니다.
 
-    나. **식별자** 텍스트 상자에서 `https://www.okta.com/saml2/service-provider/<UniqueID>` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://www.okta.com/saml2/service-provider/<UniqueID>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 식별자 값은 실제 값이 아닙니다. 실제 식별자로 이 값을 업데이트하세요. 이 값을 얻으려면 [ForeSee CX Suite 고객 지원 팀](mailto:support@foresee.com)에 문의하세요.
@@ -184,7 +184,7 @@ ForeSee CX Suite에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 **Britta Simon을 ForeSee CX Suite에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201]
 

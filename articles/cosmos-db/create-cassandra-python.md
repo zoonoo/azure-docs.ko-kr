@@ -1,21 +1,19 @@
 ---
 title: '빠른 시작: Cassandra API와 Python - Azure Cosmos DB'
-description: 이 빠른 시작은 Python과 함께 Azure Cosmos DB의 Apache Cassandra API를 사용하여 프로필 응용 프로그램을 만드는 방법을 보여 줍니다.
-services: cosmos-db
+description: 이 빠른 시작은 Python과 함께 Azure Cosmos DB의 Apache Cassandra API를 사용하여 프로필 애플리케이션을 만드는 방법을 보여 줍니다.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-cassandra
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 5ffd134bd4e47f92264f8b299f8fd4bdb76f6c9f
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: ea6b117b6b44df6345f985a639894435944c74b8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870319"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042770"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>빠른 시작: Python 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
@@ -36,7 +34,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 또한 다음 항목도 필요합니다.
 * [Python](https://www.python.org/downloads/) 버전 v2.7.14
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 * [Apache Cassandra용 Python 드라이버](https://github.com/datastax/python-driver)
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
@@ -45,9 +43,9 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 [!INCLUDE [cosmos-db-create-dbaccount-cassandra](../../includes/cosmos-db-create-dbaccount-cassandra.md)]
 
-## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
-이제 github에서 Cassandra API 앱을 복제하고 연결 문자열을 설정한 다음 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
+이제 GitHub에서 Cassandra API 앱을 복제하고 연결 문자열을 설정한 다음, 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
 1. 명령 프롬프트를 엽니다. 이름이 `git-samples`인 새 폴더를 만듭니다. 그런 다음, 명령 프롬프트를 닫습니다.
 
@@ -138,7 +136,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다. 연결 문자열을 통해 앱이 호스트된 데이터베이스와 통신할 수 있습니다.
 
-1. [Azure Portal](http://portal.azure.com/)에서 **연결 문자열**을 선택합니다. 
+1. [Azure Portal](https://portal.azure.com/)에서 **연결 문자열**을 선택합니다. 
 
     화면 오른쪽에 있는 ![복사 단추](./media/create-cassandra-python/copy.png) 화면 오른쪽에 있는 단추를 사용하여 상위 값인 CONTACT POINT 값을 복사합니다.
 
@@ -189,7 +187,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     python -m pip install pyopenssl
     ```
 
-2. 다음 명령을 실행하여 노드 응용 프로그램을 시작합니다.
+2. 다음 명령을 실행하여 노드 애플리케이션을 시작합니다.
 
     ```
     python pyquickstart.py

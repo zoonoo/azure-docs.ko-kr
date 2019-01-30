@@ -1,26 +1,19 @@
 ---
-title: 'ExpressRoute 회로에 라우팅을 구성하는 방법(피어링): Resource Manager: Azure | Microsoft Docs'
+title: '회로의 피어링 구성 - ExpressRoute: Azure | Microsoft Docs'
 description: 이 문서에서는 ExpressRoute 회로의 개인, 공용 및 Microsoft 피어링을 만들고 프로비전하는 단계를 안내합니다. 또한 회로의 상태를 확인하고 업데이트 또는 삭제하는 방법을 보여줍니다.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 8c2a7ed2-ae5c-4e49-81f6-77cf9f2b2ac9
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/23/2018
+ms.topic: conceptual
+ms.date: 01/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: c0257aac5e82200c01eca168addc38133cfb6648
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 2ed6d23d9fe89715e41c8a40f70534f5edc44236
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243473"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189986"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>ExpressRoute 회로의 피어링 만들기 및 수정
 
@@ -36,6 +29,7 @@ ms.locfileid: "51243473"
 > * [PowerShell(클래식)](expressroute-howto-routing-classic.md)
 > 
 
+ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구성할 수 있습니다.(개인, Azure 공용 Azure 및 Microsoft) 선택한 순서로 피어링을 구성할 수 있습니다. 그러나 각 피어링의 구성을 한 번에 하나 씩 완료하도록 해야 합니다. 라우팅 도메인 및 피어링에 대한 자세한 내용은 [회로 및 피어링 정보](expressroute-circuit-peerings.md)를 참조하세요.
 
 ## <a name="configuration-prerequisites"></a>필수 구성 요소
 
@@ -49,8 +43,6 @@ ms.locfileid: "51243473"
 > 현재는 서비스 관리 포털을 통해 서비스 공급자가 구성한 피어링을 보급하지 않습니다. 이 기능을 곧 사용할 수 있도록 개발 중입니다. BGP 피어링을 구성하기 전에 서비스 공급자에게 확인하세요.
 > 
 > 
-
-ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구성할 수 있습니다.(개인, Azure 공용 Azure 및 Microsoft) 선택한 순서로 피어링을 구성할 수 있습니다. 그러나 각 피어링의 구성을 한 번에 하나 씩 완료하도록 해야 합니다. 라우팅 도메인 및 피어링에 대한 자세한 내용은 [ExpressRoute 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요.
 
 ## <a name="msft"></a>Microsoft 피어링
 
@@ -74,7 +66,7 @@ ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구
   * 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다.
   * 보급된 접두사: BGP 세션을 통해 보급하려는 모든 접두사 목록을 제공해야 합니다. 공용 IP 주소 접두사만 수락됩니다. 접두사 집합을 보내려는 경우 쉼표로 구분된 목록을 보낼 수 있습니다. 이 접두사는 RIR/IRR에 등록되어야 합니다.
   * **선택 사항 -** 고객 ASN: 피어링 AS 숫자에 등록되지 않은 광고 접두사인 경우 등록된 AS 번호를 지정할 수 있습니다.
-  * 라우팅 레지스트리 이름: AS 번호 및 접두사가 등록된 RIR/ IRR를 지정할 수 있습니다.
+  * 라우팅 레지스트리 이름: AS 번호 및 접두사가 등록된 RIR/IRR을 지정할 수 있습니다.
   * **선택 사항 -** 사용하기로 선택한 경우 MD5 해시를 사용합니다.
 3. 다음 예제와 같이 구성하려는 피어링을 선택할 수 있습니다. Microsoft 피어링 행을 선택합니다.
 

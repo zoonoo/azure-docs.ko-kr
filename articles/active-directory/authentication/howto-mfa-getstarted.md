@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: bd2f796ab2feee4bb862d8de2c44efc742163f06
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 1a5a5dc04f9ac663fe2e29fd81df5201435c1bc1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167531"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430165"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>클라우드 기반 Azure Multi-Factor Authentication 배포
 
@@ -30,7 +30,7 @@ Azure MFA(Azure Multi-Factor Authentication)를 시작하는 프로세스는 간
 
 **조건부 액세스 정책에 따라 사용하도록 설정** - 이 문서에서는 이 방법을 설명합니다. 사용자에게 2단계 인증을 사용하도록 설정하는 가장 유연한 방법입니다. 조건부 액세스 정책을 사용하도록 설정하는 방법은 클라우드의 Azure MFA에서만 가능하며, Azure AD의 프리미엄 기능입니다.
 
-**Azure AD ID 보호에 따라 사용하도록 설정** - 이 방법은 Azure AD ID 보호 위험 정책을 사용하여 모든 클라우드 응용 프로그램에 대해 로그인 위험이 있을 때만 2단계 인증을 요구합니다. 이 방법에는 Azure Active Directory P2 라이선스가 필요합니다. 이 방법에 대한 자세한 내용은 [사용자 위험 정책을 구성하는 방법](../identity-protection/howto-user-risk-policy.md)에서 확인할 수 있습니다.
+**Azure AD ID 보호에 따라 사용하도록 설정** - 이 방법은 Azure AD ID 보호 위험 정책을 사용하여 모든 클라우드 애플리케이션에 대해 로그인 위험이 있을 때만 2단계 인증을 요구합니다. 이 방법에는 Azure Active Directory P2 라이선스가 필요합니다. 이 방법에 대한 자세한 내용은 [사용자 위험 정책을 구성하는 방법](../identity-protection/howto-user-risk-policy.md)에서 확인할 수 있습니다.
 
 **사용자 상태를 변경하여 사용하도록 설정** - 2단계 인증을 요구하는 전통적인 방법입니다. 이 방법은 클라우드의 Azure MFA와 Azure MFA Server 둘 다에서 작동합니다. 이 방법을 사용할 경우 사용자는 로그인할 **때마다** 2단계 인증을 수행해야 하며, 조건부 액세스 정책이 무시됩니다. 이 방법에 대한 자세한 내용은 [사용자에 대해 2단계 인증을 요구하는 방법](howto-mfa-userstates.md)에서 찾을 수 있습니다.
 
@@ -77,7 +77,7 @@ Azure Multi-Factor Authentication을 사용하도록 설정하기 전에 조직�
    * 권장 사항: **제외** 탭에서 **사용자 및 그룹** 확인란을 선택하고, 사용자가 자신의 인증 방법에 액세스할 수 없는 경우 예외에 사용할 그룹을 선택합니다.
    * **Done**을 클릭합니다.
 1. **클라우드 앱**에서 **모든 클라우드 앱** 라디오 단추를 선택합니다.
-   * 선택 사항: **제외** 탭에서, 조직에서 MFA를 요구하지 않는 클라우드 앱을 선택합니다.
+   * 선택 사항: **제외** 탭에서 조직에서 MFA를 요구하지 않는 클라우드 앱을 선택합니다.
    * **Done**을 클릭합니다.
 1. **조건** 섹션에서:
    * 선택 사항: Azure Identity Protection을 사용하도록 설정한 경우 정책의 일부로 로그인 위험을 평가하도록 선택할 수 있습니다.

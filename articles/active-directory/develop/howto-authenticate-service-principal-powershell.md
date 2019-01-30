@@ -1,6 +1,6 @@
 ---
 title: PowerShell을 사용하여 Azure 앱에 대한 ID 만들기 | Microsoft Docs
-description: Azure PowerShell을 사용하여 Azure Active Directory 응용 프로그램 및 서비스 주체를 만들고 역할 기반 액세스 제어를 통해 리소스에 대한 액세스를 부여하는 방법을 설명합니다. 인증서를 사용하여 응용 프로그램을 인증하는 방법을 보여줍니다.
+description: Azure PowerShell을 사용하여 Azure Active Directory 애플리케이션 및 서비스 주체를 만들고 역할 기반 액세스 제어를 통해 리소스에 대한 액세스를 부여하는 방법을 설명합니다. 인증서를 사용하여 애플리케이션을 인증하는 방법을 보여줍니다.
 services: active-directory
 documentationcenter: na
 author: CelesteDG
@@ -30,7 +30,7 @@ ms.locfileid: "49959959"
 * 무인 스크립트를 실행할 때 인증을 위해 인증서를 사용합니다.
 
 > [!IMPORTANT]
-> 서비스 주체를 만드는 대신 응용 프로그램 ID에 Azure 리소스에 대한 관리 ID를 사용하는 것이 좋습니다. 코드가 관리 ID를 지원하는 서비스에서 실행되고 Azure AD(Azure Active Directory) 인증을 지원하는 리소스에 액세스하는 경우 관리 ID를 사용하는 것이 더 좋습니다. Azure 리소스에 대한 관리 ID 및 이것이 지원되는 서비스를 알아보려면 [Azure 리소스에 대한 관리 ID란?](../managed-identities-azure-resources/overview.md)을 참조하세요.
+> 서비스 주체를 만드는 대신 애플리케이션 ID에 Azure 리소스에 대한 관리 ID를 사용하는 것이 좋습니다. 코드가 관리 ID를 지원하는 서비스에서 실행되고 Azure AD(Azure Active Directory) 인증을 지원하는 리소스에 액세스하는 경우 관리 ID를 사용하는 것이 더 좋습니다. Azure 리소스에 대한 관리 ID 및 이것이 지원되는 서비스를 알아보려면 [Azure 리소스에 대한 관리 ID란?](../managed-identities-azure-resources/overview.md)을 참조하세요.
 
 이 아티클에서는 인증서로 인증하는 서비스 주체를 만드는 방법을 보여줍니다. 암호를 사용하여 서비스 주체를 설정하려면 [Azure PowerShell을 사용하여 Azure 서비스 주체 만들기](/powershell/azure/create-azure-service-principal-azureps)를 참조하세요.
 
@@ -173,13 +173,13 @@ Param (
   -TenantId $TenantId
 ```
 
-응용 프로그램 ID 및 테넌트 ID는 대/소문자를 구분하지 않으므로 스크립트에 직접 포함할 수 있습니다. 테넌트 ID를 검색해야 할 경우 다음을 사용합니다.
+애플리케이션 ID 및 테넌트 ID는 대/소문자를 구분하지 않으므로 스크립트에 직접 포함할 수 있습니다. 테넌트 ID를 검색해야 할 경우 다음을 사용합니다.
 
 ```powershell
 (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
 ```
 
-응용 프로그램 ID를 검색해야 할 경우 다음을 사용합니다.
+애플리케이션 ID를 검색해야 할 경우 다음을 사용합니다.
 
 ```powershell
 (Get-AzureRmADApplication -DisplayNameStartWith {display-name}).ApplicationId
@@ -189,7 +189,7 @@ Param (
 
 보안 위협 또는 자격 증명 만료 때문에 AD 앱에 대한 자격 증명을 변경하려면 [Remove-AzureRmADAppCredential](/powershell/module/azurerm.resources/remove-azurermadappcredential) 및 [New-AzureRmADAppCredential](/powershell/module/azurerm.resources/new-azurermadappcredential) cmdlet을 사용합니다.
 
-응용 프로그램에 대한 자격 증명을 모두 제거하려면 다음을 사용합니다.
+애플리케이션에 대한 자격 증명을 모두 제거하려면 다음을 사용합니다.
 
 ```powershell
 Get-AzureRmADApplication -DisplayName exampleapp | Remove-AzureRmADAppCredential
@@ -215,6 +215,6 @@ Get-AzureRmADApplication -DisplayName exampleapp | New-AzureRmADAppCredential `
 ## <a name="next-steps"></a>다음 단계
 
 * 암호를 사용하여 서비스 주체를 설정하려면 [Azure PowerShell을 사용하여 Azure 서비스 주체 만들기](/powershell/azure/create-azure-service-principal-azureps)를 참조하세요.
-* 리소스 관리를 위해 Azure에 응용 프로그램을 통합하는 자세한 단계를 보려면 [Azure Resource Manager API를 사용한 권한 부여 개발자 가이드](../../azure-resource-manager/resource-manager-api-authentication.md)를 참조하세요.
-* 응용 프로그램 및 서비스 주체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](app-objects-and-service-principals.md)를 참조하세요.
+* 리소스 관리를 위해 Azure에 애플리케이션을 통합하는 자세한 단계를 보려면 [Azure Resource Manager API를 사용한 권한 부여 개발자 가이드](../../azure-resource-manager/resource-manager-api-authentication.md)를 참조하세요.
+* 애플리케이션 및 서비스 주체에 대한 자세한 내용은 [애플리케이션 개체 및 서비스 주체 개체](app-objects-and-service-principals.md)를 참조하세요.
 * Azure AD 인증에 대한 자세한 내용은 [Azure AD의 인증 시나리오](authentication-scenarios.md)를 참조하세요.

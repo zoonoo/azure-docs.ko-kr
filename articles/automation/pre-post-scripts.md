@@ -3,18 +3,18 @@ title: Azure에서 업데이트 관리 배포에 대한 사전 및 사후 스크
 description: 이 문서에서는 업데이트 배포를 위해 사전 및 사후 스크립트를 구성하고 관리하는 방법에 대해 설명합니다.
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d84596b586ea54dd4a64faf46b32226862d83198
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 4c34c6c6e0a3f618cbd9337993aa6d176962fe6b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584624"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428242"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>사전 및 사후 스크립트 관리(미리 보기)
 
@@ -100,10 +100,7 @@ Runbook을 사전 또는 사후 스크립트로 사용하려면 Runbook을 Autom
    }
 ```
 
-모든 속성이 포함된 전체 예제는 [소프트웨어 업데이트 구성 - 이름으로 가져오기](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)에서 찾을 수 있습니다.
-
-> [!NOTE]
-> [동적 그룹(미리 보기)](automation-update-management.md#using-dynamic-groups)을 사용하여 배포에 추가된 컴퓨터는 현재 **SoftwareUpdateConfigurationRunContext** 매개 변수의 일부가 아닙니다.
+모든 속성을 포함하는 전체 예제는 다음에서 확인할 수 있습니다. [소프트웨어 업데이트 구성 - 이름으로 가져오기](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
 
 ## <a name="samples"></a>샘플
 
@@ -227,3 +224,4 @@ Windows 가상 머신에 대한 업데이트를 관리하는 방법을 알아보
 
 > [!div class="nextstepaction"]
 > [Azure Windows VM에 대한 업데이트 및 패치 관리](automation-tutorial-update-management.md)
+

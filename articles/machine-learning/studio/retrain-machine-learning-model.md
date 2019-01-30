@@ -1,27 +1,8 @@
 ---
-title: Machine Learning Studio 모델 보존 - Azure | Microsoft Docs
-description: Azure Machine Learning에서 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
-ms.author: amlstudiodocs
-manager: hjerez
-editor: cgronlun
-ms.assetid: d1cb6088-4f7c-4c32-94f2-f7523dad9059
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/19/2017
-ms.openlocfilehash: 1f2505eda232c518ccb24b32fad91fb36dd11b01
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317928"
+제목: Machine Learning Studio 모델 보존 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning에서 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 2017/04/19
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Azure Machine Learning Studio 모델 보존
 Azure Machine Learning에서 기계 학습 모델 운영 프로세스의 일부로 모델은 학습 및 저장됩니다. 그런 다음, 이를 예측 웹 서비스를 만드는 데 사용합니다. 그러면 웹 사이트, 대시보드 및 모바일 앱에서 웹 서비스를 사용할 수 있습니다. 
@@ -43,7 +24,7 @@ Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이�
 > 
 
 ## <a name="end-to-end-workflow"></a>종단 간 워크플로
-프로세스에 학습 실험 및 웹 서비스로 게시된 서술적 실험이 구성 요소로 포함됩니다. 학습된 모델을 다시 학습할 수 있으려면 학습 실험은 학습된 모델의 출력을 사용하여 웹 서비스로 게시되어야 합니다. 그러면 API가 다시 학습을 위해 모델에 액세스할 수 있습니다. 
+프로세스에는 다음 구성 요소가 포함됩니다. 웹 서비스로 게시된 학습 실험 및 예측 실험. 학습된 모델을 다시 학습할 수 있으려면 학습 실험은 학습된 모델의 출력을 사용하여 웹 서비스로 게시되어야 합니다. 그러면 API가 다시 학습을 위해 모델에 액세스할 수 있습니다. 
 
 다음 단계는 신규 및 기존 웹 서비스에 모두 적용됩니다.
 

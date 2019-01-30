@@ -4,25 +4,31 @@ description: 업데이트 관리 에이전트의 문제를 해결하는 방법�
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 61ff50cda6ec523964ccf8f885f07c39020fbc88
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 5637d409233abc68983bd7cf1e55f406f15e3b59
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335149"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432991"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>업데이트 관리에서 Windows 에이전트 확인 결과 이해
 
-Azure 업데이트 관리에서 Azure 머신이 **준비** 상태를 표시할 수 없는 이유는 많습니다. 업데이트 관리에서 Hybrid Worker 에이전트의 상태를 확인하여 기본 문제를 검토할 수 있습니다. 이 문서에서는 Azure Portal 및 오프라인 시나리오에서 업데이트 관리 문제 해결사를 실행하는 방법을 설명합니다.
+업데이트 관리에서 컴퓨터가 **준비**를 표시하지 않는 이유에는 여러 가지가 있을 수 있습니다. 업데이트 관리에서 Hybrid Worker 에이전트의 상태를 확인하여 기본 문제를 검토할 수 있습니다. 이 문서에서는 Azure Portal의 Azure 머신 및 [오프라인 시나리오](#troubleshoot-offline)의 경우 Azure 이외 머신에 대해 문제 해결사를 실행하는 방법을 설명합니다.
+
+다음 목록은 컴퓨터가 나타낼 수 있는 세 가지 준비 상태입니다.
+
+* **준비** - 업데이트 에이전트가 배포되었으며 마지막으로 확인된 시간이 1시간 이내입니다.
+* **연결이 끊김** - 업데이트 에이전트가 배포되었으며 마지막으로 확인된 시간이 1시간을 넘습니다.
+* **구성되지 않음** - 업데이트 에이전트가 확인되지 않거나 온보딩을 완료하지 않았습니다.
 
 ## <a name="start-the-troubleshooter"></a>문제 해결사 시작
 
-Azure Portal에서 **업데이트 에이전트 문제 해결** 페이지에는 에이전트를 사용하여 문제가 표시됩니다. 페이지에는 문제 해결을 통해 지원하기 위한 이 문서에 대한 링크가 있습니다. **업데이트 에이전트 문제 해결** 페이지로 이동하려면 **업데이트 에이전트 준비** 열에서 **문제 해결** 링크를 선택합니다.
+Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 **문제 해결** 링크를 클릭하여 **업데이트 에이전트 문제 해결** 페이지를 시작합니다. Azure 이외 머신의 경우 해당 링크를 클릭하면 이 문서로 이동합니다. Azure 이외 머신의 문제를 해결하려면 [오프라인 지침](#troubleshoot-offline)을 참조하세요.
 
 ![가상 머신의 업데이트 관리 목록](../media/update-agent-issues/vm-list.png)
 
@@ -82,7 +88,7 @@ WMF 검사는 시스템에 필요한 버전의 WMF(Windows Management Framework)
 
 서비스 문제를 해결하는 방법에 대한 자세한 내용은 [Microsoft Monitoring Agent가 실행되고 있지 않습니다.](hybrid-runbook-worker.md#mma-not-running)를 참조하세요.
 
-Microsoft Monitoring Agent를 다시 설치하려면 [Microsoft Monitoring Agent 설치 및 구성](../../log-analytics/log-analytics-quick-collect-windows-computer.md#install-the-agent-for-windows)을 참조하세요.
+Microsoft Monitoring Agent를 다시 설치하려면 [Microsoft Monitoring Agent 설치 및 구성](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)을 참조하세요.
 
 ### <a name="monitoring-agent-service-events"></a>에이전트 서비스 이벤트 모니터링
 
@@ -195,3 +201,4 @@ CheckResultMessageArguments : {}
 ## <a name="next-steps"></a>다음 단계
 
 Hybrid Runbook Worker의 문제를 더 많이 해결하려면 [Hybrid Runbook Worker 문제 해결](hybrid-runbook-worker.md)을 참조하세요.
+

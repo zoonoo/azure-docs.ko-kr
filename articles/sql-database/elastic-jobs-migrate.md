@@ -3,21 +3,21 @@ title: 새 Elastic Database 작업으로 마이그레이션 | Microsoft Docs
 description: 새 Elastic Database 작업으로 마이그레이션합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: johnpaulkee
 ms.author: joke
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 650de0e0bcafe81de0426bc4ec229506c6ed4421
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 75138979dc5f8ad7b86671267845a7a21af40f54
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242911"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607526"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>새 Elastic Database 작업으로 마이그레이션
 

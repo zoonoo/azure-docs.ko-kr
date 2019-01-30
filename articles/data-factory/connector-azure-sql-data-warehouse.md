@@ -9,18 +9,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 5c45167255ec91030f07e550de223a7ebed93168
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 48f33dcf66c282ee75fe665531e1c9a4eb0d5382
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345762"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305947"
 ---
-#  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사 
+# <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 > * [Version1 ](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [현재 버전](connector-azure-sql-data-warehouse.md)
@@ -33,7 +32,7 @@ Azure SQL Data Warehouse에서 데이터를 지원되는 모든 싱크 데이터
 
 특히 이 Azure SQL Data Warehouse 커넥터는 다음 기능을 지원합니다.
 
-- Azure 리소스용 관리 ID 또는 서비스 주체를 통해 SQL 인증 및 Azure AD(Azure Active Directory) 응용 프로그램 토큰 인증을 사용하여 데이터를 복사합니다.
+- 서비스 주체 또는 Azure 리소스에 대한 관리 ID를 통해 SQL 인증 및 Azure AD(Azure Active Directory) 애플리케이션 토큰 인증을 사용하여 데이터를 복사합니다.
 - 원본으로 SQL 쿼리 또는 저장 프로시저를 사용하여 데이터를 검색합니다.
 - 싱크로 PolyBase 또는 대량 삽입을 사용하여 데이터를 로드합니다. 더 나은 복사 성능을 얻으려면 PolyBase를 사용하는 것이 좋습니다.
 
@@ -61,16 +60,16 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
 |:--- |:--- |:--- |
 | type | type 속성은 **AzureSqlDW**로 설정해야 합니다. | 예 |
 | connectionString | Azure SQL Data Warehouse 인스턴스에 연결하는 데 필요한 정보를 **connectionString** 속성에 대해 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| servicePrincipalId | 응용 프로그램의 클라이언트 ID를 지정합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
-| servicePrincipalKey | 응용 프로그램의 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
-| tenant | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
+| servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
+| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
+| tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니오 |
 
 다른 인증 형식의 경우, 각각의 필수 조건 및 JSON 샘플에 대한 다음 섹션을 참조하세요.
 
 - [SQL 인증](#sql-authentication)
-- Azure AD 응용 프로그램 토큰 인증: [서비스 주체](#service-principal-authentication)
-- Azure AD 응용 프로그램 토큰 인증: [Azure 리소스에 대한 관리 ID](#managed-identity)
+- Azure AD 애플리케이션 토큰 인증: [서비스 주체](#service-principal-authentication)
+- Azure AD 애플리케이션 토큰 인증: [Azure 리소스에 대한 관리 ID](#managed-identity)
 
 >[!TIP]
 >"UserErrorFailedToConnectToSqlServer" 오류 코드 및 "데이터베이스에 대한 세션 제한이 XXX이고 이에 도달했습니다."와 같은 메시지가 있는 오류가 발생하면 연결 문자열에 `Pooling=false`를 추가하고 다시 시도하세요.
@@ -100,12 +99,12 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
 
 ### <a name="service-principal-authentication"></a>서비스 주체 인증
 
-서비스 주체 기반의 Azure AD 응용 프로그램 토큰 인증을 사용하려면 다음 단계를 따르세요.
+서비스 주체 기반의 Azure AD 애플리케이션 토큰 인증을 사용하려면 다음 단계를 따르세요.
 
-1. Azure Portal에서 **[Azure Active Directory 응용 프로그램을 만듭니다](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**. 응용 프로그램 이름 및 연결된 서비스를 정의하는 다음 값을 적어 둡니다.
+1. Azure Portal에서 **[Azure Active Directory 애플리케이션을 만듭니다](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**. 애플리케이션 이름 및 연결된 서비스를 정의하는 다음 값을 적어 둡니다.
 
-    - 응용 프로그램 UI
-    - 응용 프로그램 키
+    - 애플리케이션 UI
+    - 애플리케이션 키
     - 테넌트 ID
 
 1. Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**(아직 하지 않은 경우)합니다. Azure AD 관리자는 Azure AD 사용자 또는 Azure AD 그룹일 수 있습니다. MSI가 있는 그룹에 관리자 역할을 부여하는 경우, 3단계와 4단계를 건너뜁니다. 관리자는 데이터베이스에 대한 모든 권한을 갖습니다.
@@ -159,7 +158,7 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
 > [!IMPORTANT]
 > PolyBase는 현재 MSI 인증에 대해 지원되지 않습니다.
 
-MSI 기반 Azure AD 응용 프로그램 토큰 인증을 사용하려면 다음 단계를 따르세요.
+MSI 기반 Azure AD 애플리케이션 토큰 인증을 사용하려면 다음 단계를 따르세요.
 
 1. **Azure AD에서 그룹을 만듭니다.** 팩터리 MSI를 그룹의 구성원으로 지정합니다.
 
@@ -256,7 +255,7 @@ Azure SQL Data Warehouse에서/로 데이터를 복사하려면 복사 작업 �
 ### <a name="points-to-note"></a>주의할 사항
 
 - **sqlReaderQuery**가 **SqlSource**에 대해 지정된 경우, 복사 작업은 Azure SQL Data Warehouse 원본에 대해 이 쿼리를 실행하여 데이터를 가져옵니다. 또는 저장 프로시저를 지정할 수 있습니다. 저장 프로시저가 매개 변수를 사용하는 경우, **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정합니다.
-- **sqlReaderQuery** 또는 **sqlReaderStoredProcedureName** 중 하나를 지정하지 않는 경우, 데이터 집합 JSON의 **structure** 섹션에 정의된 열이 쿼리를 생성하는 데 사용됩니다. `select column1, column2 from mytable`은 Azure SQL Data Warehouse에 대해 실행됩니다. 데이터 세트 정의에 **structure**가 없는 경우, 테이블에서 모든 열이 선택됩니다.
+- **sqlReaderQuery** 또는 **sqlReaderStoredProcedureName** 중 하나를 지정하지 않는 경우, 데이터 세트 JSON의 **structure** 섹션에 정의된 열이 쿼리()를 생성하는 데 사용됩니다. `select column1, column2 from mytable`은 Azure SQL Data Warehouse에 대해 실행됩니다. 데이터 세트 정의에 **structure**가 없는 경우, 테이블에서 모든 열이 선택됩니다.
 
 #### <a name="sql-query-example"></a>SQL 쿼리 예제
 
@@ -337,9 +336,9 @@ CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
 AS
 SET NOCOUNT ON;
 BEGIN
-     select *
-     from dbo.UnitTestSrcTable
-     where dbo.UnitTestSrcTable.stringData != stringData
+    select *
+    from dbo.UnitTestSrcTable
+    where dbo.UnitTestSrcTable.stringData != stringData
     and dbo.UnitTestSrcTable.identifier != identifier
 END
 GO
@@ -359,7 +358,7 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 | rejectSampleValue | PolyBase가 거부된 행의 백분율을 다시 계산하기 전에 검색할 행 수를 결정합니다.<br/><br/>허용되는 값은 1, 2 등입니다. | **rejectType**이 **percentage**인 경우 예 |
 | useTypeDefault | PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)를 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다. | 아니오 |
 | writeBatchSize | 버퍼 크기가 **writeBatchSize**에 도달하면 SQL 테이블에 데이터를 삽입합니다. PolyBase가 사용되지 않는 경우에만 적용됩니다.<br/><br/>허용되는 값은 **정수**(행 수)입니다. | 아니요. 기본값은 10000입니다. |
-| writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다. PolyBase가 사용되지 않는 경우에만 적용됩니다.<br/><br/>허용되는 값은 **시간 범위**입니다. 예: “00:30:00”(30분). | 아니오 |
+| writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다. PolyBase가 사용되지 않는 경우에만 적용됩니다.<br/><br/>허용되는 값은 **시간 범위**입니다. 예제: “00:30:00”(30분) | 아니요 |
 | preCopyScript | 각 실행 시 Azure SQL Data Warehouse에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 아니오 | (#repeatability-during-copy). | 쿼리 문입니다. | 아니오 |
 
 #### <a name="sql-data-warehouse-sink-example"></a>SQL Data Warehouse 싱크 예제
@@ -388,7 +387,7 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 * 원본 데이터 저장소와 형식이 PolyBase에서 원래 지원되지 않는 경우, 대신 **[PolyBase를 사용한 준비된 복사](#staged-copy-by-using-polybase)** 기능을 사용합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. 이 기능은 데이터를 PolyBase 호환 형식으로 자동으로 변환합니다. 또한 Azure Blob Storage에 데이터를 저장합니다. 그런 다음, SQL Data Warehouse에 데이터를 로드합니다.
 
 > [!IMPORTANT]
-> PolyBase는 현재 MSI 기반 Azure AD 응용 프로그램 토큰 인증에 대해 지원되지 않습니다.
+> PolyBase는 현재 MSI 기반 Azure AD 애플리케이션 토큰 인증에 대해 지원되지 않습니다.
 
 ### <a name="direct-copy-by-using-polybase"></a>PolyBase를 사용한 직접 복사
 
@@ -399,31 +398,31 @@ SQL Data Warehouse PolyBase는 Azure Blob 및 Azure Data Lake Store를 직접 �
 
 조건을 충족하지 않는 경우, Azure Data Factory는 설정을 확인한 후 데이터 이동을 위해 BULKINSERT 메커니즘으로 자동으로 대체됩니다.
 
-1. **원본에 연결된 서비스** 유형은 계정 키 인증을 사용하는 Azure Blob 저장소(**AzureBLobStorage**/**AzureStorage**) 또는 서비스 주체 인증을 사용하는 Azure Data Lake Storage Gen1(**AzureDataLakeStore**)입니다.
-2. **입력 데이터 집합** 유형은 **AzureBlob** 또는 **AzureDataLakeStoreFile**입니다. `type` 속성 아래의 형식 유형은 다음 구성을 사용하는 **OrcFormat**, **ParquetFormat** 또는 **TextFormat**입니다.
+1. **원본에 연결된 서비스** 유형은 계정 키 인증을 사용하는 Azure Blob 스토리지(**AzureBLobStorage**/**AzureStorage**) 또는 서비스 주체 인증을 사용하는 Azure Data Lake Storage Gen1(**AzureDataLakeStore**)입니다.
+2. **입력 데이터 세트** 유형은 **AzureBlob** 또는 **AzureDataLakeStoreFile**입니다. `type` 속성 아래의 형식 유형은 다음 구성을 사용하는 **OrcFormat**, **ParquetFormat** 또는 **TextFormat**입니다.
 
    1. `fileName`은 와일드 카드 필터를 포함하지 않습니다.
    2. `rowDelimiter`는 **\n**이어야 합니다.
-   3. `nullValue`는 **빈 문자열**("")로 설정되거나 기본값으로 남아 있고, `treatEmptyAsNull`은 false로 설정되지 않습니다.
+   3. `nullValue`는 **빈 문자열**("")로 설정되거나 기본값으로 남아 있고, `treatEmptyAsNull`은 기본값으로 남아 있거나 true로 설정됩니다.
    4. `encodingName`이 기본값인 **utf-8**로 설정되어 있습니다.
    5. `escapeChar`, `quoteChar` 및 `skipLineCount`는 지정되지 않습니다. PolyBase 지원은 ADF에서 `firstRowAsHeader`로 구성될 수 있는 머리글 행을 건너뜁니다.
    6. `compression`은 **no compression**, **GZip** 또는 **Deflate**일 수 있습니다.
 
     ```json
     "typeProperties": {
-       "folderPath": "<blobpath>",
-       "format": {
-           "type": "TextFormat",
-           "columnDelimiter": "<any delimiter>",
-           "rowDelimiter": "\n",
-           "nullValue": "",
-           "encodingName": "utf-8",
-           "firstRowAsHeader": <any>
-       },
-       "compression": {
-           "type": "GZip",
-           "level": "Optimal"
-       }
+        "folderPath": "<blobpath>",
+        "format": {
+            "type": "TextFormat",
+            "columnDelimiter": "<any delimiter>",
+            "rowDelimiter": "\n",
+            "nullValue": "",
+            "encodingName": "utf-8",
+            "firstRowAsHeader": <any>
+        },
+        "compression": {
+            "type": "GZip",
+            "level": "Optimal"
+        }
     },
     ```
 

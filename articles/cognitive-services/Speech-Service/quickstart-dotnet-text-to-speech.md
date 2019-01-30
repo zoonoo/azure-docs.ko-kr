@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 4f424e73fbe1f05155e7f051d90dd72d57405adf
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 207836baaaa30dca24edeab93e9bd1c4a1ac67e6
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52641598"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359088"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>빠른 시작: .NET Core를 사용하여 텍스트 음성 변환
 
@@ -27,7 +27,7 @@ ms.locfileid: "52641598"
 
 이 빠른 시작에는 다음이 필요합니다.
 
-* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) 또는 즐겨 사용하는 텍스트 편집기
 * Speech Service에 대한 Azure 구독 키
 
@@ -109,7 +109,7 @@ public class Authentication
 ```
 
 > [!NOTE]
-> 인증에 대한 자세한 내용은 [액세스 토큰을 가져오는 방법](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#how-to-get-an-access-token)을 참조하세요.
+> 인증에 대한 자세한 내용은 [액세스 토큰으로 인증](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token)을 참조하세요.
 
 ## <a name="get-an-access-token-and-set-the-host-url"></a>액세스 토큰 가져오기 및 호스트 URL 설정
 
@@ -162,7 +162,7 @@ string body = @"<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis'
 ```
 
 > [!NOTE]
-> 이 샘플에서는 `ZiraRUS` 음성 글꼴을 사용합니다. Microsoft 제공 음성/언어의 전체 목록은 [언어 지원](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/language-support)을 참조하세요. 브랜드의 고유하고 인식 가능한 음성을 만들려면 [사용자 지정 음성 글꼴 만들기](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font)를 참조하세요.
+> 이 샘플에서는 `ZiraRUS` 음성 글꼴을 사용합니다. Microsoft 제공 음성/언어의 전체 목록은 [언어 지원](language-support.md)을 참조하세요. 브랜드의 고유하고 인식 가능한 음성을 만들려면 [사용자 지정 음성 글꼴 만들기](how-to-customize-voice-font.md)를 참조하세요.
 
 ## <a name="instantiate-the-client-make-a-request-and-save-synthesized-audio-to-a-file"></a>클라이언트 인스턴스화, 요청하기, 합성 오디오를 파일에 저장
 
@@ -193,7 +193,6 @@ using (var client = new HttpClient())
         // Update your resource name
         request.Headers.Add("User-Agent", "YOUR_RESOURCE_NAME");
         request.Headers.Add("X-Microsoft-OutputFormat", "riff-24khz-16bit-mono-pcm");
-        request.Headers.Add("Connection", "Keep-Alive");
         // Create a request
         Console.WriteLine("Calling the TTS service. Please wait... \n");
         using (var response = await client.SendAsync(request).ConfigureAwait(false))
@@ -233,8 +232,10 @@ dotnet run
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [텍스트를 음성으로 변환 API 참조](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+> [GitHub에서 .NET 샘플 살펴보기](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NETCore)
 
 ## <a name="see-also"></a>참고 항목
 
-* [자습서: 음성 의도 인식](how-to-recognize-intents-from-speech-csharp.md)
+* [텍스트를 음성으로 변환 API 참조](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+* [사용자 지정 음성 글꼴 만들기](how-to-customize-voice-font.md)
+* [사용자 지정 음성을 만들기 위한 음성 샘플 녹음](record-custom-voice-samples.md)

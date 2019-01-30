@@ -4,18 +4,18 @@ description: 자습서는 간단한 그래픽 runbook의 생성, 테스트, 게�
 keywords: runbook, runbook 템플릿, runbook 자동화, azure runbook
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/13/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6a9e6bbf3bc507a4d45af03c791104c9490cd36f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: be811d0dc2ce2eca0b20ca12165eaf0799bd6b5d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195899"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426797"
 ---
 # <a name="my-first-graphical-runbook"></a>내 첫 번째 그래픽 Runbook
 
@@ -129,7 +129,7 @@ ms.locfileid: "34195899"
 1. **매개 변수**를 클릭하면 활동 매개 변수 구성 페이지가 표시됩니다.
 1. **Connect-AzureRmAccount**에는 여러 매개 변수 집합이 있으므로 매개 변수 값을 입력하기 전에 하나를 선택해야 합니다. **매개 변수 집합**을 클릭한 후 **ServicePrincipalCertificate** 매개 변수 집합을 선택합니다.
 1. 매개 변수 집합을 선택하면, 활동 매개 변수 구성 페이지에 매개 변수가 표시됩니다. **APPLICATIONID**를 클릭합니다.<br> ![Azure RM 계정 매개 변수 추가](media/automation-first-runbook-graphical/Add-AzureRmAccount-params.png)
-1. 매개 변수 값 페이지에서 **데이터 원본**에 대해 **활동 출력**을 선택하고 목록에서 **실행 연결 가져오기**를 선택한 다음 **필드 경로** 텍스트 상자에 **ApplicationId**를 입력한 다음 **확인**을 클릭합니다. 작업에서 여러 속성을 가진 개체를 출력하기 때문에 필드 경로에 대한 속성의 이름을 지정합니다.
+1. 매개 변수 값 페이지에서 **데이터 원본**에 대해 **활동 출력**을 선택하고 목록에서 **실행 연결 가져오기**를 선택한 다음, **필드 경로** 텍스트 상자에 **ApplicationId**를 입력한 다음, **확인**을 클릭합니다. 작업에서 여러 속성을 가진 개체를 출력하기 때문에 필드 경로에 대한 속성의 이름을 지정합니다.
 1. **CERTIFICATETHUMBPRINT**를 클릭하고 매개 변수 값 페이지에서 **데이터 원본**에 대한 **활동 출력**을 선택합니다. 목록에서 **실행 연결 가져오기**를 선택하고 **필드 경로** 텍스트 상자에서 **CertificateThumbprint**를 입력한 다음 **확인**을 클릭합니다.
 1. **SERVICEPRINCIPAL**을 클릭하고 매개 변수 값 페이지에서 **데이터 원본**에 대한 **ConstantValue**를 선택하고 **True** 옵션을 클릭한 다음 **확인**을 클릭합니다.
 1. **TENANTID**를 클릭하고 매개 변수 값 페이지에서 **데이터 원본**에 대한 **활동 출력**을 선택합니다. 목록에서 **실행 연결 가져오기**를 선택하고 **필드 경로** 텍스트 상자에서 **TenantId**를 입력한 다음 **확인**을 두 번 클릭합니다.
@@ -138,7 +138,7 @@ ms.locfileid: "34195899"
 1. 캔버스에서 **Set-AzureRmContext**를 선택하고 구성 제어판의 **레이블** 텍스트 상자에 **구독 ID 지정**을 입력합니다.
 1. **매개 변수**를 클릭하면 활동 매개 변수 구성 페이지가 표시됩니다.
 1. **Set-AzureRmContext**에는 여러 매개 변수 집합이 있으므로 매개 변수 값을 입력하기 전에 하나를 선택해야 합니다. **매개 변수 집합**을 클릭한 후 **SubscriptionId** 매개 변수 집합을 선택합니다.
-1. 매개 변수 집합을 선택하면, 활동 매개 변수 구성 페이지에 매개 변수가 표시됩니다. **SubscriptionID**
+1. 매개 변수 집합을 선택하면, 활동 매개 변수 구성 페이지에 매개 변수가 표시됩니다.  **SubscriptionID**
 1. 매개 변수 값 페이지에서 **데이터 원본**에 대해 **변수 자산**을 선택하고 목록에서 **AzureSubscriptionId**를 선택한 다음 **확인**을 두 번 클릭합니다.
 1. 아래에 원 모양이 나타날 때까지 **Azure에 로그인** 을 마우스로 가리킵니다. 원을 클릭하고 화살표를 **구독 ID 지정**으로 끌어 놓습니다.
 
@@ -153,7 +153,7 @@ ms.locfileid: "34195899"
 1. 도형 아래에 원이 나타날 때까지 **구독 ID 지정** 을 마우스로 가리킵니다. 원을 클릭하고 화살표를 **Start-AzureRmVM**으로 끌어 놓습니다.
 1. **Start-AzureRmVM**을 선택합니다. **매개 변수**와 **매개 변수 집합**을 차례로 클릭하여 **Start-AzureRmVM**에 대한 집합을 확인합니다. **ResourceGroupNameParameterSetName** 매개 변수 집합을 선택합니다. **ResourceGroupName** 및 **이름** 옆에는 느낌표가 있습니다. 이것은 매개 변수가 필요하다는 것을 나타냅니다. 또한, 양 쪽 모두에 문자열 값이 필요합니다.
 1. **Name**을 선택합니다. **데이터 원본**에서 **PowerShell 식**을 선택하고, 이 Runbook으로 시작될 가상 머신의 이름을 큰따옴표로 묶어서 입력합니다. **확인**을 클릭합니다.
-1. **ResourceGroupName**을 선택합니다. **PowerShell 식** 에 대해 **데이터 원본** 을 사용하고 리소스 그룹의 이름을 큰따옴표 안에 입력합니다. **확인**을 클릭합니다.
+1. **ResourceGroupName**을 선택합니다.  **PowerShell 식** 에 대해 **데이터 원본** 을 사용하고 리소스 그룹의 이름을 큰따옴표 안에 입력합니다. **확인**을 클릭합니다.
 1. Runbook을 테스트할 수 있도록 테스트 창을 클릭합니다.
 1. **시작** 을 클릭하여 테스트를 시작합니다. 완료되면, 가상 머신이 시작되었다는 것을 확인합니다.
 
@@ -229,4 +229,5 @@ ms.locfileid: "34195899"
 * 그래픽 작성에 대해 자세히 알아보려면 [Azure Automation에서 그래픽 작성](automation-graphical-authoring-intro.md)
 * PowerShell Runbook을 시작하려면 [내 첫 번째 PowerShell Runbook](automation-first-runbook-textual-powershell.md)
 * PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)
+
 

@@ -1,5 +1,5 @@
 ---
-title: 자습서 - .NET에서 Azure Web App과 Azure Key Vault 사용 | Microsoft Docs
+title: 자습서 - .NET의 Azure 웹앱에서 Azure Key Vault 사용 - Azure Key Vault | Microsoft Docs
 description: 자습서 - Key Vault에서 비밀을 읽도록 ASP.NET Core 애플리케이션 구성
 services: key-vault
 documentationcenter: ''
@@ -9,21 +9,21 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: defe1a109381c7ee44c6fc5e5db4c6f6ecc5ac6f
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: b6dbae0f721983920c2073927fff74100528678e
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706843"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998798"
 ---
-# <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>자습서: .NET에서 Azure Web App과 Azure Key Vault 사용
+# <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>자습서: .NET에서 Azure 웹앱과 함께 Azure Key Vault 사용
 
 Azure Key Vault는 API 키 및 데이터베이스 연결 문자열과 같은 비밀을 보호하는 데 도움이 됩니다. 애플리케이션, 서비스 및 IT 리소스에 대한 액세스도 제공합니다.
 
-이 자습서에서는 Azure Key Vault에서 정보를 읽을 수 있는 Azure 웹 애플리케이션을 만드는 방법을 알아봅니다. 이 프로세스에서는 Azure 리소스에 대해 관리 ID를 사용합니다. Azure 웹 애플리케이션에 대한 자세한 내용은 [Azure Web Apps](../app-service/app-service-web-overview.md)를 참조하세요.
+이 자습서에서는 Azure Key Vault에서 정보를 읽을 수 있는 Azure 웹 애플리케이션을 만드는 방법을 알아봅니다. 이 프로세스에서는 Azure 리소스에 대해 관리 ID를 사용합니다. Azure 웹 애플리케이션에 대한 자세한 내용은 [Azure App Service](../app-service/overview.md)를 참조하세요.
 
 이 문서에서는 다음 방법을 안내합니다.
 
@@ -31,9 +31,9 @@ Azure Key Vault는 API 키 및 데이터베이스 연결 문자열과 같은 비
 > * 키 자격 증명 모음을 만듭니다.
 > * 키 자격 증명 모음에 비밀을 저장합니다.
 > * 키 자격 증명 모음에서 비밀을 검색합니다.
-> * Azure 웹 응용 프로그램을 만듭니다.
+> * Azure 웹 애플리케이션을 만듭니다.
 > * 웹앱의 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하도록 설정합니다.
-> * 웹 응용 프로그램이 키 자격 증명 모음에서 데이터를 읽는 데 필요한 권한을 부여합니다.
+> * 웹 애플리케이션이 키 자격 증명 모음에서 데이터를 읽는 데 필요한 권한을 부여합니다.
 > * Azure에서 웹 애플리케이션을 실행합니다.
 
 계속하기 전에 [Key Vault 기본 개념](key-vault-whatis.md#basic-concepts)을 읽어보세요.
@@ -88,7 +88,7 @@ Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 �
 
 리소스 그룹에 Key Vault를 만들려면 다음 정보를 제공합니다.
 
-* Key Vault 이름: 숫자, 문자 및 하이픈만 포함할 수 있는 3~24자 문자열입니다(예: 0-9, a-z, A-z, -)
+* 키 자격 증명 모음 이름: 숫자, 문자 및 하이픈만 포함할 수 있는 3~24자 문자열입니다(예: 0-9, a-z, A-z, -).
 * 리소스 그룹 이름
 * 위치: **미국 서부**
 
@@ -132,7 +132,7 @@ az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
    - [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
 3. 다음 코드를 About.cshtml.cs 파일로 가져옵니다.
 
-   ```
+   ```csharp
     using Microsoft.Azure.KeyVault;
     using Microsoft.Azure.KeyVault.Models;
     using Microsoft.Azure.Services.AppAuthentication;
@@ -140,7 +140,7 @@ az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
 
 4. AboutModel 클래스의 코드는 다음과 같습니다.
 
-   ```
+   ```csharp
     public class AboutModel : PageModel
     {
         public string Message { get; set; }
@@ -220,7 +220,7 @@ Azure Key Vault를 사용하면 자격 증명과 기타 비밀을 안전하게 �
 
 1. Azure에 애플리케이션을 게시할 때 `PrincipalId`를 기록해 둡니다. 1단계의 명령 출력은 다음과 같은 형식이어야 합니다.
 
-   ```
+   ```json
    {
      "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
      "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -229,9 +229,9 @@ Azure Key Vault를 사용하면 자격 증명과 기타 비밀을 안전하게 �
    ```
 
 >[!NOTE]
->이 절차의 명령은 [포털](https://portal.azure.com)로 이동하여 웹 응용 프로그램 속성에서 **ID/시스템 할당됨** 설정을 **켜기**로 전환하는 것과 동일합니다.
+>이 절차의 명령은 [포털](https://portal.azure.com)로 이동하여 웹 애플리케이션 속성에서 **ID/시스템 할당됨** 설정을 **켜기**로 전환하는 것과 동일합니다.
 
-## <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>응용 프로그램에 Key Vault에서 비밀을 읽을 수 있는 권한 할당
+## <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>애플리케이션에 Key Vault에서 비밀을 읽을 수 있는 권한 할당
 
 다음 명령에서 \<YourKeyVaultName\>을 Key Vault의 이름으로, \<PrincipalId\>를 **PrincipalId**의 값으로 바꿉니다.
 
@@ -241,7 +241,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 이 명령에서는 Key Vault에서 **가져오기** 및 **나열** 작업을 수행할 App Service 사용 권한의 ID(MSI)를 제공합니다.
 
-## <a name="publish-the-web-application-to-azure"></a>Azure에 웹 응용 프로그램 게시
+## <a name="publish-the-web-application-to-azure"></a>Azure에 웹 애플리케이션 게시
 
 웹앱을 Azure에 한 번 더 게시하여 실시간 웹앱이 비밀 값을 가져올 수 있는지 확인합니다.
 
@@ -256,4 +256,4 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 ## <a name="next-steps"></a>다음 단계
 
 >[!div class="nextstepaction"]
->[Azure Key Vault 개발자 가이드](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-developers-guide)
+>[Azure Key Vault 개발자 가이드](https://docs.microsoft.com/azure/key-vault/key-vault-developers-guide)

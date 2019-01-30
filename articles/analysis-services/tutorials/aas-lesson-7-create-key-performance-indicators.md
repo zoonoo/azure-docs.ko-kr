@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1e7fc5cd684610a5d96b5986f5c169741055c9b8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: d238b3bf159a5e540eb9c72ecbcee188bd357b05
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426821"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186535"
 ---
 # <a name="create-key-performance-indicators"></a>핵심 성과 지표 만들기
 
-이 단원에서는 KPI(핵심 성과 지표)를 만듭니다. KPI는 *대상* 값에 대해, *기본* 측정값에 정의되고 측정값 또는 절대값으로도 정의된 값의 성과를 측정하는 데 사용됩니다. 보고 클라이언트 응용 프로그램에서, 비즈니스 전문가는 KPI를 통해 비즈니스 성공 요약 및 추세 파악을 신속하고 간편하게 파악할 수 있습니다. 자세한 내용은 [KPI](https://docs.microsoft.com/sql/analysis-services/tabular-models/kpis-ssas-tabular)를 참조하세요.
+이 단원에서는 KPI(핵심 성과 지표)를 만듭니다. KPI는 *대상* 값에 대해, *기본* 측정값에 정의되고 측정값 또는 절대값으로도 정의된 값의 성과를 측정하는 데 사용됩니다. 보고 클라이언트 애플리케이션에서, 비즈니스 전문가는 KPI를 통해 비즈니스 성공 요약 및 추세 파악을 신속하고 간편하게 파악할 수 있습니다. 자세한 내용은 [KPI](https://docs.microsoft.com/sql/analysis-services/tabular-models/kpis-ssas-tabular)를 참조하세요.
   
 이 단원을 완료하기 위한 예상 시간: **15분**  
   
@@ -51,7 +51,7 @@ ms.locfileid: "49426821"
     ![aas-lesson7-kpi](../tutorials/media/aas-lesson7-kpi.png)
     
     > [!TIP]  
-    > 제공되는 아이콘 스타일 아래 확장 가능한 **설명** 레이블이 있습니다. 다양한 KPI 요소에 대한 설명을 사용하여 클라이언트 응용 프로그램에서 쉽게 식별할 수 있도록 합니다.  
+    > 제공되는 아이콘 스타일 아래 확장 가능한 **설명** 레이블이 있습니다. 다양한 KPI 요소에 대한 설명을 사용하여 클라이언트 애플리케이션에서 쉽게 식별할 수 있도록 합니다.  
   
 9. **확인**을 클릭하여 KPI를 완료합니다.  
   

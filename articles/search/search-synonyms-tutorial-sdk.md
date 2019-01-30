@@ -1,6 +1,6 @@
 ---
-title: Azure Search에서 동의어 C# 자습서 | Microsoft Docs
-description: 이 자습서에서 Azure Search의 인덱스에 동의어 기능을 추가합니다.
+title: 동의어 C# 자습서 - Azure Search
+description: 이 C# 자습서에서는 Azure Search의 인덱스에 동의어 기능을 추가하는 방법을 알아봅니다. 동의어 맵은 동일한 용어 목록입니다. 동의어를 지원하는 필드는 사용자가 제공한 용어 및 모든 관련 동의어를 포함하도록 쿼리를 확장합니다.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 8340c4dc2a855911073905a3aea93e19fc7b520d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: b239fdc176951066699c557eaae5f7fe08a6c26f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990564"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309232"
 ---
-# <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>자습서: C#에서 Azure Search에 대 한 동의어 추가
+# <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>자습서: C#에서 Azure Search에 대한 동의어 추가
 
 동의어는 입력 용어와 의미상 동일하다고 간주되는 용어를 비교하여 쿼리를 확장합니다. 예를 들어 "car"를 "automobile" 또는 "vehicle"이라는 용어를 포함하는 문서와 비교합니다. 
 
@@ -41,7 +42,7 @@ Azure Search에서 동의어는 동등한 용어를 연결하는 *매핑 규칙*
 
 ## <a name="overview"></a>개요
 
-이전 및 이후 쿼리는 동의어의 가치를 설명합니다. 이 자습서에서는 쿼리를 실행하고 샘플 인덱스에서 결과를 반환하는 샘플 응용 프로그램을 사용합니다. 샘플 응용 프로그램은 두 개의 문서로 채워진 "hotels"라는 작은 인덱스를 만듭니다. 응용 프로그램은 인덱스에 나타나지 않는 조건 및 구를 사용하여 검색 쿼리를 실행하고 동의어 기능을 사용한 다음 다시 동일한 검색을 실행합니다. 아래 코드에서는 전체 흐름을 보여 줍니다.
+이전 및 이후 쿼리는 동의어의 가치를 설명합니다. 이 자습서에서는 쿼리를 실행하고 샘플 인덱스에서 결과를 반환하는 샘플 애플리케이션을 사용합니다. 샘플 애플리케이션은 두 개의 문서로 채워진 "hotels"라는 작은 인덱스를 만듭니다. 애플리케이션은 인덱스에 나타나지 않는 조건 및 구를 사용하여 검색 쿼리를 실행하고 동의어 기능을 사용한 다음, 다시 동일한 검색을 실행합니다. 아래 코드에서는 전체 흐름을 보여 줍니다.
 
 ```csharp
   static void Main(string[] args)
@@ -75,7 +76,7 @@ Azure Search에서 동의어는 동등한 용어를 연결하는 *매핑 규칙*
       Console.ReadKey();
   }
 ```
-샘플 인덱스를 만들고 채우는 단계는 [.NET 응용 프로그램에서 Azure Search를 사용하는 방법](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)에서 설명됩니다.
+샘플 인덱스를 만들고 채우는 단계는 [.NET 애플리케이션에서 Azure Search를 사용하는 방법](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)에서 설명됩니다.
 
 ## <a name="before-queries"></a>"이전" 쿼리
 
@@ -162,7 +163,7 @@ Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 
 동의어를 추가하면 검색 환경이 완전히 변경됩니다. 이 자습서에서 인덱스에 있는 문서가 관련된 경우에도 원본 쿼리는 의미 있는 결과를 반환하지 못했습니다. 동의어를 사용하여 인덱스의 기본 데이터를 변경하지 않고 일반적인 용도로 사용되는 용어를 포함하도록 인덱스를 확장할 수 있습니다.
 
-## <a name="sample-application-source-code"></a>샘플 응용 프로그램 소스 코드
+## <a name="sample-application-source-code"></a>샘플 애플리케이션 소스 코드
 [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms)에서 이 연습에 사용된 샘플 응용 프로그램의 전체 소스 코드를 찾을 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리

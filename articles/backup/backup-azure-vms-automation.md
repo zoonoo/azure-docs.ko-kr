@@ -2,32 +2,33 @@
 title: PowerShell을 사용하여 Resource Manager 배포 VM에 대한 백업 배포 및 관리
 description: PowerShell을 사용하여 Azure에서 Resource Manager 배포 VM에 대한 백업 배포 및 관리
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 10/20/2018
-ms.author: markgal
+ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 855a046425f051739f61c74b551d4ffea7b9120a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f0a18931c037a1cf34d8a296a6330264bc8d38af
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252363"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424526"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>PowerShell을 사용하여 가상 머신 백업 및 복원
 
-이 문서는 Azure PowerShell cmdlet을 사용하여 Recovery Services 자격 증명 모음으로부터 Azure VM(가상 머신)을 복원하고 백업하는 방법을 보여 줍니다. Recovery Services 자격 증명 모음은 Azure Backup 및 Azure Site Recovery 서비스에서 데이터와 자산을 보호하는 데 사용되는 Azure Resource Manager 리소스입니다. 
+이 문서는 Azure PowerShell cmdlet을 사용하여 Recovery Services 자격 증명 모음으로부터 Azure VM(가상 머신)을 복원하고 백업하는 방법을 보여 줍니다. Recovery Services 자격 증명 모음은 Azure Backup 및 Azure Site Recovery 서비스에서 데이터와 자산을 보호하는 데 사용되는 Azure Resource Manager 리소스입니다.
 
 > [!NOTE]
-> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)모델이 있습니다. 이 문서는 리소스 관리자 모델을 사용하여 생성된 VM 사용에 대해 설명합니다.
+> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md) 모델이 있습니다. 이 문서는 리소스 관리자 모델을 사용하여 생성된 VM 사용에 대해 설명합니다.
 >
 >
 
 이 문서는 PowerShell을 사용하여 VM을 보호하고, 복구 지점으로부터 데이터를 복원하는 단계를 안내합니다.
 
 ## <a name="concepts"></a>개념
+
 Azure Backup Service를 잘 모르는 경우, [Azure 백업이란?](backup-introduction-to-azure-backup.md) 문서에서 서비스에 대한 개요를 확인하세요. 시작하기 전에 먼저 Azure Backup에 필요한 필수 조건 및 현재 VM 백업 솔루션의 제한에 대해 다루었는지 확인합니다.
 
 PowerShell을 효과적으로 사용하기 위해 개체의 계층 구조와 시작하는 위치를 이해하는 데 필요합니다.
@@ -40,10 +41,10 @@ AzureRm.RecoveryServices.Backup PowerShell cmdlet 참조를 보려면 Azure 라�
 
 시작하려면
 
-1. [PowerShell 최신 버전 다운로드](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (필요한 최소 버전: 1.4.0)
+1. [PowerShell 최신 버전 다운로드](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)(필요한 최소 버전: 1.4.0)
 
 2. 다음 명령을 입력하여 사용할 수 있는 Azure Backup PowerShell cmdlet을 찾습니다.
-   
+
     ```powershell
     Get-Command *azurermrecoveryservices*
     ```    
@@ -54,7 +55,7 @@ AzureRm.RecoveryServices.Backup PowerShell cmdlet 참조를 보려면 Azure 라�
 3. **Connect-AzureRmAccount**를 사용하여 Azure 계정에 로그인합니다. 이 cmdlet은 계정 자격 증명을 묻는 웹 페이지를 엽니다.
 
     * 또는 **Connect-AzureRmAccount** cmdlet에서 **-Credential** 매개 변수를 사용하여 계정 자격 증명을 매개 변수로 포함할 수 있습니다.
-    * 사용자가 테넌트를 대신하여 작업 중인 CSP 파트너인 경우 tenantID 또는 테넌트 기본 도메인 이름을 사용하여 고객을 테넌트로 지정합니다. 예: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
+    * 사용자가 테넌트를 대신하여 작업 중인 CSP 파트너인 경우 tenantID 또는 테넌트 기본 도메인 이름을 사용하여 고객을 테넌트로 지정합니다. 예:  **Connect-AzureRmAccount -Tenant "fabrikam.com"**
 
 4. 계정에 여러 구독이 있을 수 있으므로 사용하려는 구독을 계정과 연결합니다.
 
@@ -71,7 +72,7 @@ AzureRm.RecoveryServices.Backup PowerShell cmdlet 참조를 보려면 Azure 라�
 6. 다음 명령을 사용하여 공급자가 성공적으로 등록되었는지 확인할 수 있습니다.
     ```powershell
     Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
-    ``` 
+    ```
     명령 출력에서 **RegistrationState**는 **등록됨**으로 변경해야 합니다. 그렇지 않으면 **[Register-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet을 다시 실행합니다.
 
 다음 작업은 PowerShell로 자동화할 수 있습니다.
@@ -184,7 +185,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 
 보호 정책을 정의한 후에는 항목에 대한 정책을 계속 사용해야 합니다. 보호를 사용하도록 설정하려면 **[Enable-AzureRmRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/enable-azurermrecoveryservicesbackupprotection)** 을 사용합니다. 보호를 사용하도록 설정하는 데에는 항목 및 정책이라는 두 가지 개체가 필요합니다. 정책이 자격 증명 모음과 연결되고 나면, 백업 워크플로가 정책 일정에 정의된 시간에 트리거됩니다.
 
-다음 예제에서는 NewPolicy 정책을 사용하여 V2VM 항목에 대해 보호를 활성화합니다. 예제는 VM이 암호화되었는지 여부와 암호화 유형에 따라 다릅니다. 
+다음 예제에서는 NewPolicy 정책을 사용하여 V2VM 항목에 대해 보호를 활성화합니다. 예제는 VM이 암호화되었는지 여부와 암호화 유형에 따라 다릅니다.
 
 **암호화되지 않은 Resource Manager VM**에 대한 보호를 사용하도록 설정하려면
 
@@ -326,7 +327,7 @@ $rp[0]
 
 다음 예제와 유사하게 출력됩니다.
 
-```
+```powershell
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -350,15 +351,15 @@ BackupManagementType        : AzureVM
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG"
 $restorejob
 ```
+
 #### <a name="restore-managed-disks"></a>Managed Disks 복원
 
 > [!NOTE]
-> 백업된 VM에 Managed Disks가 있고 이를 Managed Disks로 복원할 수 있도록 하기 위해 Azure Powershell v 6.7.0부터 해당 기능을 도입했습니다.
+> 백업된 VM에 있는 관리 디스크를 관리 디스크로 복원할 수 있도록 Azure PowerShell v 6.7.0부터 해당 기능을 도입했습니다.
 >
 >
 
 추가 매개 변수를 **TargetResourceGroupName**을 제공하여 Managed Disks를 복원할 RG를 지정합니다.
-
 
 ```powershell
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"
@@ -366,9 +367,9 @@ $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -S
 
 **VMConfig.JSON** 파일은 저장소 계정으로 복원되고, Managed Disks는 지정한 대상 RG로 복원됩니다.
 
-
 다음 예제와 유사하게 출력됩니다.
-```
+
+```powershell
 WorkloadName     Operation          Status               StartTime                 EndTime            JobID
 ------------     ---------          ------               ---------                 -------          ----------
 V2VM              Restore           InProgress           4/23/2016 5:00:30 PM                        cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
@@ -397,6 +398,27 @@ $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
 > 복원된 디스크에서 암호화된 VM을 만들려면 Azure 역할에 **Microsoft.KeyVault/vaults/deploy/action** 작업을 수행할 권한이 있어야 합니다. 사용자의 역할에 이 사용 권한이 없는 경우 이 작업이 포함된 사용자 지정 역할을 만드세요. 자세한 내용은 [Azure RBAC에서 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조하세요.
 >
 >
+
+> [!NOTE]
+> 디스크를 복원하면 이제 새 VM을 만드는 데 직접 사용할 수 있는 배포 템플릿을 가져올 수 있습니다. 암호화/암호화되지 않은 관리/비관리 VM을 만들기 위한 더 이상의 다른 PS cmdlet은 없습니다.
+
+결과 작업 세부 정보는 쿼리 및 배포 가능한 템플릿 URI를 제공합니다.
+
+```powershell
+   $properties = $details.properties
+   $templateBlobURI = $properties["Template Blob Uri"]
+```
+
+[여기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy#deploy-a-template-from-an-external-source)에 설명된 대로 템플릿을 배포하여 새 VM을 만들면 됩니다.
+
+```powershell
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobURI -storageAccountType Standard_GRS
+```
+
+다음 섹션에서는 "VMConfig" 파일을 사용하여 VM을 만드는 데 필요한 단계를 나열합니다.
+
+> [!NOTE]
+> 위에 설명된 배포 템플릿을 사용하여 VM을 만드는 것이 좋습니다. 이 섹션(포인트 1-6)은 곧 삭제될 예정입니다.
 
 1. 복원된 디스크 속성에서 작업 세부 정보를 쿼리합니다.
 
@@ -435,7 +457,7 @@ $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
        }
        ```
 
-   * **관리되지 않고 암호화된 VM(BEK만 사용)** - 관리되지 않고 암호화된 VM의 경우(BEK만 사용하여 암호화됨) 디스크를 연결할 수 있으려면 암호를 Key Vault로 복원해야 합니다. 자세한 내용은 [Azure Backup 복구 지점에서 암호화된 가상 머신 복원](backup-azure-restore-key-secret.md) 문서를 참조하세요. 다음 샘플은 암호화된 VM에 대해 OS 및 데이터 디스크를 연결하는 방법을 보여 줍니다. OS 디스크를 설정할 때 관련 OS 형식을 언급해야 합니다.
+   * **Azure AD를 포함하며 BEK만 사용하여 암호화된 비관리 VM** - Azure AD를 포함하며 BEK만 사용하여 암호화된 비관리 VM의 경우에는 키 자격 증명 모음에 비밀을 복원해야 디스크를 연결할 수 있습니다. 자세한 내용은 [Azure Backup 복구 지점에서 암호화된 가상 머신 복원](backup-azure-restore-key-secret.md)을 참조하세요. 다음 샘플은 암호화된 VM에 대해 OS 및 데이터 디스크를 연결하는 방법을 보여 줍니다. OS 디스크를 설정할 때 관련 OS 형식을 언급해야 합니다.
 
       ```powershell
       $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -447,13 +469,8 @@ $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
        $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
       }
       ```
-      다음 명령을 사용하여 데이터 디스크의 암호화를 수동으로 사용 설정합니다.
 
-      ```powershell
-      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -VolumeType Data
-      ```
-
-   * **관리되지 않고 암호화된 VM(BEK 및 KEK 사용)** - 관리되지 않고 암호화된 VM의 경우(BEK 및 KEK를 사용하여 암호화됨) 디스크를 연결하려면 먼저 키 및 암호를 Key Vault로 복원합니다. 자세한 내용은 [Azure Backup 복구 지점에서 암호화된 가상 머신 복원](backup-azure-restore-key-secret.md) 문서를 참조하세요. 다음 샘플은 암호화된 VM에 대해 OS 및 데이터 디스크를 연결하는 방법을 보여 줍니다.
+   * **Azure AD를 포함하며 BEK 및 KEK를 사용하여 암호화된 비관리 VM** - Azure AD를 포함하며 BEK 및 KEK를 사용하여 암호화된 비관리 VM의 경우에는 디스크를 연결하기 전에 키 자격 증명 모음에 키와 비밀을 복원합니다. 자세한 내용은 [Azure Backup 복구 지점에서 암호화된 가상 머신 복원](backup-azure-restore-key-secret.md)을 참조하세요. 다음 샘플은 암호화된 VM에 대해 OS 및 데이터 디스크를 연결하는 방법을 보여 줍니다.
 
       ```powershell
       $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -462,34 +479,100 @@ $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
       Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.storageProfile'.osDisk.vhd.uri -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows
       $vm.StorageProfile.OsDisk.OsType = $obj.'properties.storageProfile'.osDisk.osType
       foreach($dd in $obj.'properties.storageProfile'.dataDisks)
-       {
-       $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
-       }
+     {
+     $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
+     }
       ```
 
-      다음 명령을 사용하여 데이터 디스크의 암호화를 수동으로 사용 설정합니다.
+   * **Azure AD를 포함하지 않으며 BEK만 사용하여 암호화된 비관리 VM** - Azure AD를 포함하지 않으며 BEK만 사용하여 암호화된 비관리 VM의 경우 원본 **키 자격 증명 모음/비밀을 사용할 수 없으면** [Azure Backup 복구 지점에서 암호화되지 않은 가상 머신 복원](backup-azure-restore-key-secret.md)의 절차를 수행하여 키 자격 증명 모음에 비밀을 복원합니다. 그런 후에 다음 스크립트를 실행하여 복원된 OS Blob에서 암호화 세부 정보를 설정합니다. 데이터 Blob의 경우에는 이 단계를 수행하지 않아도 됩니다. 복원된 키 자격 증명 모음에서 $dekurl을 가져올 수 있습니다.<br>
+
+   아래 스크립트는 원본 키 자격 증명 모음/비밀을 사용할 수 없을 때만 실행하면 됩니다.
 
       ```powershell
-      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
+      $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
+      $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
+      $encSetting = "{""encryptionEnabled"":true,""encryptionSettings"":[{""diskEncryptionKey"":{""sourceVault"":{""id"":""$keyVaultId""},""secretUrl"":""$dekUrl""}}]}"
+      $osBlobName = $obj.'properties.StorageProfile'.osDisk.name + ".vhd"
+      $osBlob = Get-AzureStorageBlob -Container $containerName -Blob $osBlobName
+      $osBlob.ICloudBlob.Metadata["DiskEncryptionSettings"] = $encSetting
+      $osBlob.ICloudBlob.SetMetadata()
       ```
 
-   * **관리 및 암호화되지 않은 VM** - 암호하되지 않은 관리되는 VM의 경우 복원된 Managed Disks를 연결합니다. 자세한 내용은 [PowerShell을 사용하여 Windows VM에 데이터 디스크 연결](../virtual-machines/windows/attach-disk-ps.md) 문서를 참조하세요.
+    OS Blob에서 암호화 세부 정보가 설정되고 **비밀이 사용 가능**해지면 아래에 나와 있는 스크립트를 사용하여 디스크를 연결합니다.<br>
 
-   * **관리 및 암호화되는 VM(BEK만 사용)** - 관리 및 암호화되는 VM의 경우(BEK만 사용하여 암호화됨) 복원된 Managed Disks를 연결합니다. 자세한 내용은 [PowerShell을 사용하여 Windows VM에 데이터 디스크 연결](../virtual-machines/windows/attach-disk-ps.md) 문서를 참조하세요.
-   
-      다음 명령을 사용하여 데이터 디스크의 암호화를 수동으로 사용 설정합니다.
-
-       ```powershell
-       Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
-       ```
-
-   * **관리 및 암호화되는 VM(BEK 및 KEK)** - 관리 및 암호화되는 VM의 경우(BEK 및 KEK를 사용하여 암호화됨) 복원된 Managed Disks를 연결합니다. 자세한 내용은 [PowerShell을 사용하여 Windows VM에 데이터 디스크 연결](../virtual-machines/windows/attach-disk-ps.md) 문서를 참조하세요. 
-
-      다음 명령을 사용하여 데이터 디스크의 암호화를 수동으로 사용 설정합니다.
+    원본 키 자격 증명 모음/비밀이 이미 사용 가능한 상태이면 위의 스크립트를 실행할 필요가 없습니다.
 
       ```powershell
-      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
+      Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
+      $vm.StorageProfile.OsDisk.OsType = $obj.'properties.StorageProfile'.OsDisk.OsType
+      foreach($dd in $obj.'properties.StorageProfile'.DataDisks)
+      {
+      $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
+      }
       ```
+
+   * **Azure AD를 포함하지 않으며 BEK 및 KEK를 사용하여 암호화된 비관리 VM** - Azure AD를 포함하지 않으며 BEK 및 KEK를 사용하여 암호화된 비관리 VM의 경우 원본 **키 자격 증명 모음/키/비밀을 사용할 수 없으면** [Azure Backup 복구 지점에서 암호화되지 않은 가상 머신 복원](backup-azure-restore-key-secret.md)의 절차를 수행하여 키 자격 증명 모음에 키와 비밀을 복원합니다. 그런 후에 다음 스크립트를 실행하여 복원된 OS Blob에서 암호화 세부 정보를 설정합니다. 데이터 Blob의 경우에는 이 단계를 수행하지 않아도 됩니다. 복원된 키 자격 증명 모음에서 $dekurl 및 $kekurl을 가져올 수 있습니다.
+
+   아래 스크립트는 원본 키 자격 증명 모음/키/비밀을 사용할 수 없을 때만 실행하면 됩니다.
+
+    ```powershell
+      $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
+      $kekUrl = "https://ContosoKeyVault.vault.azure.net/keys/ContosoKey007/x9xxx00000x0000x9b9949999xx0x006"
+      $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
+      $encSetting = "{""encryptionEnabled"":true,""encryptionSettings"":[{""diskEncryptionKey"":{""sourceVault"":{""id"":""$keyVaultId""},""secretUrl"":""$dekUrl""},""keyEncryptionKey"":{""sourceVault"":{""id"":""$keyVaultId""},""keyUrl"":""$kekUrl""}}]}"
+      $osBlobName = $obj.'properties.StorageProfile'.osDisk.name + ".vhd"
+      $osBlob = Get-AzureStorageBlob -Container $containerName -Blob $osBlobName
+      $osBlob.ICloudBlob.Metadata["DiskEncryptionSettings"] = $encSetting
+      $osBlob.ICloudBlob.SetMetadata()
+      ```
+   OS Blob에서 암호화 세부 정보가 설정되고 **키/비밀이 사용 가능**해지면 아래에 나와 있는 스크립트를 사용하여 디스크를 연결합니다.
+
+    원본 키 자격 증명 모음/키/비밀이 사용 가능한 상태이면 위의 스크립트를 실행할 필요가 없습니다.
+
+    ```powershell
+      Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
+      $vm.StorageProfile.OsDisk.OsType = $obj.'properties.StorageProfile'.OsDisk.OsType
+      foreach($dd in $obj.'properties.StorageProfile'.DataDisks)
+      {
+      $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
+      }
+      ```
+
+  * **관리 및 암호화되지 않은 VM** - 암호하되지 않은 관리되는 VM의 경우 복원된 Managed Disks를 연결합니다. 자세한 내용은 [PowerShell을 사용하여 Windows VM에 데이터 디스크 연결](../virtual-machines/windows/attach-disk-ps.md)을 참조하세요.
+
+  * **Azure AD를 포함하며 BEK만 사용하여 암호화된 관리형 VM** - Azure AD를 포함하며 BEK만 사용하여 암호화된 관리형 VM의 경우 복원된 관리형 디스크를 연결합니다. 자세한 내용은 [PowerShell을 사용하여 Windows VM에 데이터 디스크 연결](../virtual-machines/windows/attach-disk-ps.md)을 참조하세요.
+
+  * **Azure AD를 포함하며 BEK 및 KEK를 사용하여 암호화된 관리형 VM** - Azure AD를 포함하며 BEK 및 KEK를 사용하여 암호화된 관리형 VM의 경우에는 복원된 관리 디스크를 연결합니다. 자세한 내용은 [PowerShell을 사용하여 Windows VM에 데이터 디스크 연결](../virtual-machines/windows/attach-disk-ps.md)을 참조하세요.
+
+  * **Azure AD를 포함하지 않으며 BEK만 사용하여 암호화된 관리형 VM** - Azure AD를 포함하지 않으며 BEK만 사용하여 암호화된 관리형 VM의 경우 원본 **키 자격 증명 모음/비밀을 사용할 수 없으면** [Azure Backup 복구 지점에서 암호화되지 않은 가상 머신 복원](backup-azure-restore-key-secret.md)의 절차를 수행하여 키 자격 증명 모음에 비밀을 복원합니다. 그런 후에 다음 스크립트를 실행하여 복원된 OS 디스크에서 암호화 세부 정보를 설정합니다. 데이터 디스크의 경우에는 이 단계를 수행하지 않아도 됩니다. 복원된 키 자격 증명 모음에서 $dekurl을 가져올 수 있습니다.
+
+    아래 스크립트는 원본 키 자격 증명 모음/비밀을 사용할 수 없을 때만 실행하면 됩니다.  
+
+    ```powershell
+      $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
+      $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
+      $diskupdateconfig = New-AzureRmDiskUpdateConfig -EncryptionSettingsEnabled $true
+      $diskupdateconfig = Set-AzureRmDiskUpdateDiskEncryptionKey -DiskUpdate $diskupdateconfig -SecretUrl $dekUrl -SourceVaultId $keyVaultId  
+      Update-AzureRmDisk -ResourceGroupName "testvault" -DiskName $obj.'properties.StorageProfile'.osDisk.name -DiskUpdate $diskupdateconfig
+      ```
+
+    OS 디스크에서 암호화 세부 정보가 설정되고 비밀이 사용 가능해진 후에 복원된 관리 디스크를 연결하려면 [PowerShell을 사용하여 Windows VM에 데이터 디스크 연결](../virtual-machines/windows/attach-disk-ps.md)을 참조하세요.
+
+  * **Azure AD를 포함하지 않으며 BEK 및 KEK를 사용하여 암호화된 관리형 VM** - Azure AD를 포함하지 않으며 BEK 및 KEK를 사용하여 암호화된 관리형 VM의 경우 원본 **키 자격 증명 모음/키/비밀을 사용할 수 없으면** [Azure Backup 복구 지점에서 암호화되지 않은 가상 머신 복원](backup-azure-restore-key-secret.md)의 절차를 수행하여 키 자격 증명 모음에 키 및 비밀을 복원합니다. 그런 후에 다음 스크립트를 실행하여 복원된 OS 디스크에서 암호화 세부 정보를 설정합니다. 데이터 디스크의 경우에는 이 단계를 수행하지 않아도 됩니다. 복원된 키 자격 증명 모음에서 $dekurl 및 $kekurl을 가져올 수 있습니다.
+
+  아래 스크립트는 원본 키 자격 증명 모음/키/비밀을 사용할 수 없을 때만 실행하면 됩니다.
+
+  ```powershell
+     $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
+     $kekUrl = "https://ContosoKeyVault.vault.azure.net/keys/ContosoKey007/x9xxx00000x0000x9b9949999xx0x006"
+     $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
+     $diskupdateconfig = New-AzureRmDiskUpdateConfig -EncryptionSettingsEnabled $true
+     $diskupdateconfig = Set-AzureRmDiskUpdateDiskEncryptionKey -DiskUpdate $diskupdateconfig -SecretUrl $dekUrl -SourceVaultId $keyVaultId  
+     $diskupdateconfig = Set-AzureRmDiskUpdateKeyEncryptionKey -DiskUpdate $diskupdateconfig -KeyUrl $kekUrl -SourceVaultId $keyVaultId  
+     Update-AzureRmDisk -ResourceGroupName "testvault" -DiskName $obj.'properties.StorageProfile'.osDisk.name -DiskUpdate $diskupdateconfig
+    ```
+
+    OS 디스크에서 암호화 세부 정보가 설정되고 키/비밀이 사용 가능해진 후에 복원된 관리 디스크를 연결하려면 [PowerShell을 사용하여 Windows VM에 데이터 디스크 연결](../virtual-machines/windows/attach-disk-ps.md)을 참조하세요.
 
 5. 네트워크 설정을 지정합니다.
 
@@ -503,11 +586,44 @@ $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
     $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName "test" -Location "WestUS" -SubnetId $vnet.Subnets[$subnetindex].Id -PublicIpAddressId $pip.Id
     $vm=Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
     ```
+
 6. 가상 머신을 만듭니다.
 
     ```powershell  
     New-AzureRmVM -ResourceGroupName "test" -Location "WestUS" -VM $vm
     ```
+
+7. ADE 확장을 푸시합니다.
+
+  * **Azure AD가 포함된 VM** - 다음 명령을 사용하여 데이터 디스크에 대해 암호화를 수동으로 사용하도록 설정합니다.  
+
+    **BEK만 사용**
+
+      ```powershell  
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
+      ```
+
+    **BEK 및 KEK**
+
+      ```powershell  
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId  -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
+      ```
+
+  * **Azure AD가 포함되지 않은 VM** - 다음 명령을 사용하여 데이터 디스크에 대해 암호화를 수동으로 사용하도록 설정합니다.
+
+    명령 실행 중에 AADClientID를 입력하라는 메시지가 표시되면 Azure PowerShell을 업데이트해야 합니다.
+
+    **BEK만 사용**
+
+      ```powershell  
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
+      ```
+
+      **BEK 및 KEK**
+
+      ```powershell  
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
+      ```
 
 ## <a name="restore-files-from-an-azure-vm-backup"></a>Azure VM 백업에서 파일 복원
 
@@ -520,7 +636,6 @@ Azure VM 백업에서 파일을 복원하는 기본 단계는 다음과 같습�
 * 복구 지점의 디스크 탑재
 * 필요한 파일 복사
 * 디스크 분리
-
 
 ### <a name="select-the-vm"></a>VM 선택
 
@@ -575,7 +690,7 @@ Get-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 다음 예제와 유사하게 출력됩니다.
 
-```
+```powershell
 OsType  Password        Filename
 ------  --------        --------
 Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe

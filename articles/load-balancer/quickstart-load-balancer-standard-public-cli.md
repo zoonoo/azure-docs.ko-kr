@@ -4,7 +4,7 @@ description: 이 빠른 시작은 Azure CLI를 사용하여 공용 부하 분산
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
@@ -17,14 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: e4429c5ec808b561360f5088236b16a9fa6a276a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3c13388ea7a4e3a3016f7560a523c93c1fcb6c0c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955132"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468321"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 VM 부하를 분산하는 표준 부하 분산 장치 만들기
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 VM 부하를 분산하는 표준 Load Balancer 만들기
 
 이 빠른 시작에서는 표준 부하 분산 장치를 만드는 방법을 보여줍니다. 부하 분산 장치를 테스트하려면 Ubuntu 서버를 실행하는 두 VM(가상 머신)을 배포하고 두 VM 사이에 있는 웹앱의 부하를 분산합니다.
 
@@ -34,7 +34,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](https://docs.microsoft.com/cli/azure/group#create)를 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
+[az group create](https://docs.microsoft.com/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
 다음 예제에서는 *eastus* 위치에 *myResourceGroupSLB*라는 리소스 그룹을 만듭니다.
 
@@ -46,7 +46,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ## <a name="create-a-public-standard-ip-address"></a>공용 표준 IP 주소 만들기
 
-인터넷에서 웹앱에 액세스하려면 부하 분산 장치에 대한 공용 IP 주소가 필요합니다. 표준 부하 분산 장치는 표준 공용 IP 주소만 지원합니다. [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) 명령을 사용하여 *myResourceGroupLB*에 *myPublicIP*라는 표준 공용 IP 주소를 만듭니다.
+인터넷에서 웹앱에 액세스하려면 부하 분산 장치에 대한 공용 IP 주소가 필요합니다. 표준 부하 분산 장치는 표준 공용 IP 주소만 지원합니다. [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) 명령을 사용하여 *myResourceGroupLB*에 *myPublicIP*라는 표준 공용 IP 주소를 만듭니다.
 
 ```azurecli-interactive
   az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard
@@ -62,7 +62,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ### <a name="create-the-load-balancer"></a>부하 분산 장치 만들기
 
-[az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) 명령을 사용하여 **myFrontEnd**라는 프런트 엔드 풀, 이전 단계에서 만든 공용 IP 주소 **myPublicIP**와 연결된 **myBackEndPool**이라는 백 엔드 풀을 포함하는 **myLoadBalancer**라는 공용 Azure Load Balancer를 만듭니다.
+[az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 명령을 사용하여 **myFrontEnd**라는 프런트 엔드 풀, 이전 단계에서 만든 공용 IP 주소 **myPublicIP**와 연결된 **myBackEndPool**이라는 백 엔드 풀을 포함하는 **myLoadBalancer**라는 공용 Azure Load Balancer를 만듭니다.
 
 ```azurecli-interactive
   az network lb create \
@@ -76,7 +76,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ### <a name="create-the-health-probe"></a>상태 프로브 만들기
 
-상태 프로브는 네트워크 트래픽을 보낼 수 있도록 모든 가상 컴퓨터 인스턴스를 검사합니다. 프로브 검사에 실패한 가상 머신 인스턴스는 다시 온라인 상태가 되어 프로브 검사가 정상으로 나올 때까지 부하 분산 장치에서 제거됩니다. [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create)를 사용하여 가상 머신의 상태를 모니터링하는 상태 프로브를 만듭니다. 
+상태 프로브는 네트워크 트래픽을 보낼 수 있도록 모든 가상 컴퓨터 인스턴스를 검사합니다. 프로브 검사에 실패한 가상 머신 인스턴스는 다시 온라인 상태가 되어 프로브 검사가 정상으로 나올 때까지 부하 분산 장치에서 제거됩니다. [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest)를 사용하여 가상 머신의 상태를 모니터링하는 상태 프로브를 만듭니다. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -89,7 +89,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ### <a name="create-the-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
 
-부하 분산 장치 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 받을 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) 명령을 사용하여 프런트 엔드 풀 *myFrontEnd*의 포트 80에서 수신 대기하고 역시 포트 80을 사용하여 백 엔드 주소 풀 *myBackEndPool*에 부하 분산된 네트워크 트래픽을 보내는 *myLoadBalancerRuleWeb*이라는 부하 분산 장치 규칙을 만듭니다. 
+부하 분산 장치 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 받을 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) 명령을 사용하여 프런트 엔드 풀 *myFrontEnd*의 포트 80에서 수신 대기하고 역시 포트 80을 사용하여 백 엔드 주소 풀 *myBackEndPool*에 부하 분산된 네트워크 트래픽을 보내는 *myLoadBalancerRuleWeb*이라는 부하 분산 장치 규칙을 만듭니다. 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -110,7 +110,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create)를 사용하여 *myResourceGroup*에 *mySubnet*이라는 서브넷이 있는 *myVnet* 가상 네트워크를 만듭니다.
+[az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet)를 사용하여 *myResourceGroup*에 *mySubnet*이라는 서브넷이 있는 *myVnet* 가상 네트워크를 만듭니다.
 
 ```azurecli-interactive
   az network vnet create \

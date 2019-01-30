@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 53e49099fd3486d51f021528c9354cf32f4952d2
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: abc1e835fa153fc5d061cca5a3eb009931240332
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492792"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276335"
 ---
 # <a name="sfctl-is"></a>sfctl is
 쿼리하고 인프라 서비스에 명령을 보냅니다.
@@ -41,7 +41,7 @@ ms.locfileid: "39492792"
 |인수|설명|
 | --- | --- |
 | --command[필수] | 호출할 명령의 텍스트입니다. 명령의 콘텐츠는 인프라에 따라 다릅니다. |
-| --service-id | 인프라 서비스의 ID입니다. <br><br> 'fabric' URI 스키마가 없는 인프라 서비스의 전체 이름입니다. 이 매개 변수는 실행 중인 하나 이상의 인프라 서비스 인스턴스가 있는 클러스터에만 필요합니다. |
+| --service-id | 인프라 서비스의 ID입니다. <br><br> 'fabric\:' URI 스키마가 없는 인프라 서비스의 전체 이름입니다. 이 매개 변수는 실행 중인 하나 이상의 인프라 서비스 인스턴스가 있는 클러스터에만 필요합니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수

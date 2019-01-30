@@ -1,25 +1,25 @@
 ---
 title: 빠른 시작 - Azure Active Directory B2C를 사용하여 단일 페이지 앱에 대한 로그인 설정 | Microsoft Docs
-description: Azure Active Directory B2C를 사용하여 계정 로그인을 제공하는 샘플 단일 페이지 응용 프로그램을 실행합니다.
+description: Azure Active Directory B2C를 사용하여 계정 로그인을 제공하는 샘플 단일 페이지 애플리케이션을 실행합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f3c2eaf7277e63d8cc1311255d5809f73c6f5d19
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 39e89a5a4ddcce9df480eefa07d81436a56111f2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250372"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847852"
 ---
-# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>빠른 시작: Azure Active Directory B2C를 사용하여 단일 페이지 앱에 대한 로그인 설정 
+# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>빠른 시작: Azure Active Directory B2C를 사용하여 단일 페이지 앱에 대한 로그인 설정
 
-Azure AD(Azure Active Directory) B2C는 응용 프로그램, 비즈니스 및 고객을 보호하기 위한 클라우드 ID 관리 기능을 제공합니다. Azure AD B2C를 사용하면 응용 프로그램에서 개방형 표준 프로토콜을 사용하여 소셜 계정 및 엔터프라이즈 계정을 인증할 수 있습니다. 이 빠른 시작에서는 단일 페이지 응용 프로그램에서 소셜 ID 공급자를 사용하여 로그인하고 Azure AD B2C로 보호되는 웹 API를 호출합니다.
+Azure AD(Azure Active Directory) B2C는 애플리케이션, 비즈니스 및 고객을 보호하기 위한 클라우드 ID 관리 기능을 제공합니다. Azure AD B2C를 사용하면 응용 프로그램에서 개방형 표준 프로토콜을 사용하여 소셜 계정 및 엔터프라이즈 계정을 인증할 수 있습니다. 이 빠른 시작에서는 단일 페이지 응용 프로그램에서 소셜 ID 공급자를 사용하여 로그인하고 Azure AD B2C로 보호되는 웹 API를 호출합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -34,7 +34,7 @@ Azure AD(Azure Active Directory) B2C는 응용 프로그램, 비즈니스 및 �
     git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
     ```
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
 1. Node.js 명령 프롬프트에서 다음 명령을 실행하여 서버를 시작합니다. 
 
@@ -50,7 +50,7 @@ Azure AD(Azure Active Directory) B2C는 응용 프로그램, 비즈니스 및 �
     Listening on port 6420...
     ```
 
-2. 응용 프로그램의 URL로 이동합니다. 예: `http://localhost:6420`.
+2. 응용 프로그램의 URL로 이동합니다. 예: `http://localhost:6420`
 
 ## <a name="sign-in-using-your-account"></a>계정을 사용하여 로그인
 

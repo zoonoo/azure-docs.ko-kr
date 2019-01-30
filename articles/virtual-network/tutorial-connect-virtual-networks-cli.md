@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 0f98f815c0417d1ee8ad5708589b5402a033f83a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5fc5829744d3740f3484303ae009145106264fec
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989541"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470718"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 피어링으로 가상 네트워크 연결
 
@@ -47,7 +47,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 문서에서�
 az group create --name myResourceGroup --location eastus
 ```
 
-[az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 주소 접두사 *10.0.0.0/16*을 사용하는 *myVirtualNetwork1*이라는 가상 네트워크를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 주소 접두사 *10.0.0.0/16*을 사용하는 *myVirtualNetwork1*이라는 가상 네트워크를 만듭니다.
 
 ```azurecli-interactive 
 az network vnet create \
@@ -88,7 +88,7 @@ vNet2Id=$(az network vnet show \
   --out tsv)
 ```
 
-[az network vnet peering create](/cli/azure/network/vnet/peering#az_network_vnet_peering_create)를 사용하여 *myVirtualNetwork1*에서 *myVirtualNetwork2*로 피어링을 만듭니다. `--allow-vnet-access` 매개 변수를 지정하지 않으면 피어링이 설정되지만 이를 통해 통신이 전달될 수 없습니다.
+[az network vnet peering create](/cli/azure/network/vnet/peering)를 사용하여 *myVirtualNetwork1*에서 *myVirtualNetwork2*로 피어링을 만듭니다. `--allow-vnet-access` 매개 변수를 지정하지 않으면 피어링이 설정되지만 이를 통해 통신이 전달될 수 없습니다.
 
 ```azurecli-interactive
 az network vnet peering create \

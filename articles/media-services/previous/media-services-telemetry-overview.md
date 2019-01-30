@@ -25,7 +25,7 @@ ms.locfileid: "33786142"
 
 AMS(Azure Media Services)를 사용하면 해당 서비스에 대한 원격 분석/메트릭 데이터에 액세스할 수 있습니다. 현재 버전의 AMS를 사용하면 라이브 **Channel**, **StreamingEndpoint** 및 라이브 **Archive** 엔터티에 대한 원격 분석 데이터를 수집할 수 있습니다. 
 
-원격 분석은 지정된 Azure Storage 계정의 저장소 테이블에 기록됩니다(일반적으로 AMS 계정과 연결된 저장소 계정 사용). 
+원격 분석은 지정된 Azure Storage 계정의 스토리지 테이블에 기록됩니다(일반적으로 AMS 계정과 연결된 스토리지 계정 사용). 
 
 원격 분석 시스템은 데이터 보존을 관리하지 않습니다. 저장소 테이블을 삭제하여 이전 원격 분석 데이터를 제거할 수 있습니다.
 
@@ -43,7 +43,7 @@ AMS(Azure Media Services)를 사용하면 해당 서비스에 대한 원격 분�
 
 ## <a name="consuming-telemetry-information"></a>이
 
-원격 분석은 Media Services 계정에 대해 원격 분석을 구성할 때 지정된 저장소 계정의 Azure Storage 테이블에 기록됩니다. 이 섹션에서는 메트릭에 대한 저장소 테이블을 설명합니다.
+원격 분석은 Media Services 계정에 대해 원격 분석을 구성할 때 지정된 스토리지 계정의 Azure Storage 테이블에 기록됩니다. 이 섹션에서는 메트릭에 대한 저장소 테이블을 설명합니다.
 
 다음 방법 중 하나를 사용하여 원격 분석 데이터를 사용할 수 있습니다.
 

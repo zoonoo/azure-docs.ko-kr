@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: anwestg
-ms.openlocfilehash: add4a7f1ce8133b5c3891f731fc98ee7fdb26ebd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.lastreviewed: 12/11/2018
+ms.openlocfilehash: 558fc7280af398f0037c33121f662649ba9c3506
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275672"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251387"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure Stack에서 App Service를 사용 하 여 시작 하기 전에
 
@@ -71,7 +72,7 @@ Azure Stack 통합 시스템 또는 Azure Stack 개발 키트 호스트에서 �
     Get-AzureStackRootCert.ps1
 ```
 
-#### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert.ps1 스크립트 매개 변수
+#### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert.ps1 script parameters
 
 | 매개 변수 | 필수 또는 선택 | 기본값 | 설명 |
 | --- | --- | --- | --- |
@@ -166,14 +167,14 @@ App service 리소스 공급자를 배포 하기 전에 수행 해야 합니다 
 
 Azure Stack의 azure App Service 리소스 공급자에 기존 가상 네트워크에 배포할 수 있습니다 또는 배포의 일부분으로 가상 네트워크를 만들 수 있습니다. 기존 가상 네트워크를 사용 하 여 파일 서버 및 Azure Stack에서 Azure App Service에 필요한 SQL server에 연결할 내부 Ip 사용 하도록 설정 합니다. Azure Stack에서 Azure App Service를 설치 하기 전에 다음 주소 범위 및 서브넷을 사용 하 여 가상 네트워크를 구성 해야 합니다.
 
-가상 네트워크/16
+Virtual Network - /16
 
 서브넷
 
-- ControllersSubnet/24
-- ManagementServersSubnet/24
-- FrontEndsSubnet/24
-- PublishersSubnet/24
+- ControllersSubnet /24
+- ManagementServersSubnet /24
+- FrontEndsSubnet /24
+- PublishersSubnet /24
 - WorkersSubnet /21
 
 ## <a name="prepare-the-file-server"></a>파일 서버를 준비 합니다.
@@ -223,7 +224,7 @@ A [참조 아키텍처 빠른 시작 템플릿](https://github.com/Azure/AzureSt
 
 Azure Resource Manager 템플릿을 사용 하는 사용자가 이미 생성 됩니다.
 
-1. FileShareOwner 및 FileShareUser 계정을 만들려면 다음 명령을 실행 합니다. 대체 `<password>` 를 고유한 값입니다.
+1. FileShareOwner 및 FileShareUser 계정을 만들려면 다음 명령을 실행 합니다. `<password>`을 고유한 값으로 바꿉니다.
 
    ``` DOS
    net user FileShareOwner <password> /add /expires:never /passwordchg:no
@@ -310,7 +311,7 @@ Azure App Service on Azure Stack에 대 한 SQL Server 인스턴스를 모든 Ap
 > 기존 가상 네트워크에 App Service를 배포 하려는 경우 SQL Server는 App Service 및 파일 서버에서 별도 서브넷에 배포 되어야 합니다.
 >
 
-## <a name="create-an-azure-active-directory-application"></a>Azure Active Directory 응용 프로그램 만들기
+## <a name="create-an-azure-active-directory-application"></a>Azure Active Directory 애플리케이션 만들기
 
 다음 작업을 지 원하는 Azure AD 서비스 주체를 구성 합니다.
 
@@ -327,11 +328,11 @@ Azure App Service on Azure Stack에 대 한 SQL Server 인스턴스를 모든 Ap
 다음 단계를 수행하세요.
 
 1. Azurestack\AzureStackAdmin로 PowerShell 인스턴스를 엽니다.
-2. 스크립트를 다운로드 하 고에서 추출한 위치로 이동 합니다 [필수 조건 단계](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts)합니다.
+2. 스크립트를 다운로드 하 고에서 추출한 위치로 이동 합니다 [필수 조건 단계](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started)합니다.
 3. [Azure Stack 용 PowerShell 설치](azure-stack-powershell-install.md)합니다.
 4. 실행 합니다 **AADIdentityApp.ps1 만들기** 스크립트입니다. 메시지가 나타나면 Azure Stack 배포에 사용 하는 Azure AD 테 넌 트 ID를 입력 합니다. 예를 들어 입력 **myazurestack.onmicrosoft.com**합니다.
 5. 에 **자격 증명** 창에서 Azure AD 서비스 관리자 계정 및 암호를 입력 합니다. **확인**을 선택합니다.
-6. 인증서 파일 경로 및 인증서 암호를 입력 합니다 [앞에서 만든 인증서](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack)합니다. 기본적으로이 단계에 만든 인증서 **sso.appservice.local.azurestack.external.pfx**합니다.
+6. 인증서 파일 경로 및 인증서 암호를 입력 합니다 [앞에서 만든 인증서](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started)합니다. 기본적으로이 단계에 만든 인증서 **sso.appservice.local.azurestack.external.pfx**합니다.
 7. 스크립트는 테 넌 트 Azure AD 인스턴스에 새 응용 프로그램을 만듭니다. PowerShell 출력에 반환 되는 응용 프로그램 ID를 기록해 둡니다. 설치 하는 동안이 정보가 필요합니다.
 8. 새 브라우저 창을 열고 로그인 합니다 [Azure portal](https://portal.azure.com) 에 Azure Active Directory 서비스 관리자로
 9. Azure AD 리소스 공급자를 엽니다.
@@ -353,7 +354,7 @@ Azure App Service on Azure Stack에 대 한 SQL Server 인스턴스를 모든 Ap
 | AzureStackAdminCredential | 필수 | Null | Azure AD 서비스 관리자 자격 증명입니다. |
 | CertificateFilePath | 필수 | Null | **전체 경로** identity 응용 프로그램 인증서 파일 이전에 생성 합니다. |
 | CertificatePassword | 필수 | Null | 인증서 개인 키를 보호 하는 암호입니다. |
-| Environment | 옵션 | AzureCloud | 대상 Azure Active Directory 그래프 서비스를 사용할 수 있는 지원 되는 클라우드 환경의 이름입니다.  허용되는 값은 다음과 같습니다. 'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment', 'AzureGermanCloud'를 선택 합니다.|
+| Environment | 옵션 | AzureCloud | 대상 Azure Active Directory 그래프 서비스를 사용할 수 있는 지원 되는 클라우드 환경의 이름입니다.  허용되는 값은 다음과 같습니다. 'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment', 'AzureGermanCloud'.|
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Active Directory Federation Services 응용 프로그램 만들기
 
@@ -371,11 +372,11 @@ AD FS에서 보안이 유지 되는 Azure Stack 환경에서는 다음 작업을
 다음 단계를 수행하세요.
 
 1. Azurestack\AzureStackAdmin로 PowerShell 인스턴스를 엽니다.
-2. 스크립트를 다운로드 하 고에서 추출한 위치로 이동 합니다 [필수 조건 단계](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts)합니다.
+2. 스크립트를 다운로드 하 고에서 추출한 위치로 이동 합니다 [필수 조건 단계](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started)합니다.
 3. [Azure Stack 용 PowerShell 설치](azure-stack-powershell-install.md)합니다.
 4. 실행 합니다 **ADFSIdentityApp.ps1 만들기** 스크립트입니다.
 5. 에 **자격 증명** 창 AD FS 클라우드 관리자 계정 및 암호를 입력 합니다. **확인**을 선택합니다.
-6. 인증서 암호를 확인 하 고 인증서 파일 경로 제공 합니다 [앞에서 만든 인증서](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack)합니다. 기본적으로이 단계에 만든 인증서 **sso.appservice.local.azurestack.external.pfx**합니다.
+6. 인증서 암호를 확인 하 고 인증서 파일 경로 제공 합니다 [앞에서 만든 인증서](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started)합니다. 기본적으로이 단계에 만든 인증서 **sso.appservice.local.azurestack.external.pfx**합니다.
 
 ```PowerShell
     Create-ADFSIdentityApp.ps1

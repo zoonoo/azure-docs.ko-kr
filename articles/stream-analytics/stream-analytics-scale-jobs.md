@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: f7567d0c3bfdfc7bd44b918c9f2feda7499386e8
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: f4307da2e74846507cafb9f767a6ccae855e42a2
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984082"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554676"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>처리량을 높이도록 Azure Stream Analytics 작업 크기 조정
 이 문서에서는 Streaming Analytics 작업에 대한 처리량을 증가시키기 위해 Stream Analytics 쿼리를 조정하는 방법을 보여 줍니다. 다음 가이드를 사용하여 더 높은 부하를 처리하고 더 많은 시스템 리소스(예: 추가 대역폭, 추가 CPU 리소스, 추가 메모리)를 활용하도록 작업 크기를 조정할 수 있습니다.
@@ -34,7 +34,7 @@ ms.locfileid: "49984082"
 4.  6개 SU 작업이 도달할 수 있는 제한을 확인한 후에는, SU를 더 추가하면서 작업의 처리 용량을 선형으로 추론할 수 있습니다(특정 파티션의 “작업량을 높이는” 데이터 기울이기가 없다는 가정 하).
 
 > [!NOTE]
-> 적절한 스트리밍 단위 수를 선택합니다. Stream Analytics는 각 6개의 SU가 추가될 때마다 처리 노드를 만들기 때문에 노드 수를 입력 파티션 수의 제수로 사용하여 파티션을 노드 간에 균일하게 분산하는 것이 가장 좋습니다.
+> 적절한 스트리밍 단위 수 선택: Stream Analytics는 각 6개의 SU가 추가될 때마다 처리 노드를 만들기 때문에 노드 수를 입력 파티션 수의 제수로 사용하여 파티션을 노드 간에 균일하게 분산하는 것이 가장 좋습니다.
 > 예를 들어 6개 SU 작업이 4MB/s 처리 속도를 달성할 수 있다고 측정했고, 입력 파티션 수는 4개입니다. 약 8MB/s의 처리 속도를 얻기 위해서는 12개 SU, 16MB/s의 처리 속도를 얻기 위해서는 24개 SU의 작업을 선택하여 실행할 수 있습니다. 그런 후 입력 속도의 함수로서, 작업에 대한 SU 수를 특정 값으로 늘려야 하는 시기를 결정할 수 있습니다.
 
 
@@ -48,15 +48,16 @@ ms.locfileid: "49984082"
 
 쿼리:
 
-    WITH Step1 AS (
-    SELECT COUNT(*) AS Count, TollBoothId, PartitionId
-    FROM Input1 Partition By PartitionId
-    GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
-    )
-    SELECT SUM(Count) AS Count, TollBoothId
-    FROM Step1
-    GROUP BY TumblingWindow(minute, 3), TollBoothId
-
+ ```SQL
+ WITH Step1 AS (
+ SELECT COUNT(*) AS Count, TollBoothId, PartitionId
+ FROM Input1 Partition By PartitionId
+ GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+ )
+ SELECT SUM(Count) AS Count, TollBoothId
+ FROM Step1
+ GROUP BY TumblingWindow(minute, 3), TollBoothId
+ ```
 위의 쿼리에서는 파티션당 요금 창구별 차량 수를 계산한 다음, 모든 파티션의 차량 수를 합합니다.
 
 일단 분할되면, 단계의 각 파티션에 대해 최대 6개의 SU를 할당합니다. 그러면 6개의 SU를 갖는 각 파티션이 최대값이 되므로 각 파티션은 자체 처리 노드에 배치될 수 있습니다.

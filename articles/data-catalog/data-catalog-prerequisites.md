@@ -27,7 +27,7 @@ Azure 구독에서는 데이터 카탈로그와 같은 클라우드 서비스 �
 ## <a name="azure-active-directory"></a>Azure Active Directory
 데이터 카탈로그를 설정하려면 Azure AD(Azure Active Directory) 사용자 계정으로 로그인해야 합니다.
 
-Azure AD는 클라우드 및 온-프레미스 모두에서 비즈니스가 ID와 액세스를 쉽게 관리하는 방법을 제공합니다. 사용자는 클라우드 및 온-프레미스 웹 응용 프로그램에 SSO(Single Sign-on)를 위해 단일 회사 또는 학교 계정을 사용할 수 있습니다. 데이터 카탈로그는 로그인 인증에 Azure AD를 사용합니다. 자세히 알아보려면 [Azure Active Directory란?](../active-directory/fundamentals/active-directory-whatis.md)을 참조하세요.
+Azure AD는 클라우드 및 온-프레미스 모두에서 비즈니스가 ID와 액세스를 쉽게 관리하는 방법을 제공합니다. 사용자는 클라우드 및 온-프레미스 웹 애플리케이션에 SSO(Single Sign-on)를 위해 단일 회사 또는 학교 계정을 사용할 수 있습니다. 데이터 카탈로그는 로그인 인증에 Azure AD를 사용합니다. 자세히 알아보려면 [Azure Active Directory란?](../active-directory/fundamentals/active-directory-whatis.md)을 참조하세요.
 
 > [!NOTE]
 > [Azure Portal](http://portal.azure.com/)을 사용하여 사용자는 개인 Microsoft 계정 또는 Azure Active Directory 작업 또는 학교 계정으로 로그인할 수 있습니다. Azure Portal을 사용하거나 [데이터 카탈로그 포털](http://www.azuredatacatalog.com)을 사용하여 데이터 카탈로그를 설정하려면 개인 계정이 아닌, Azure Active Directory 계정을 사용하여 로그인해야 합니다.

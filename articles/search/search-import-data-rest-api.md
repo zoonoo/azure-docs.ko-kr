@@ -1,6 +1,6 @@
 ---
-title: 데이터 업로드(REST API - Azure Search) | Microsoft Docs
-description: REST API를 사용하여 Azure Search에서 인덱스에 데이터를 업로드하는 방법에 대해 알아봅니다.
+title: 검색 서비스 REST API를 사용하여 코드에서 데이터 업로드 - Azure Search
+description: HTTP 요청 및 REST API를 사용하여 Azure Search의 전체 텍스트 검색 가능 인덱스에 데이터를 업로드하는 방법을 알아봅니다.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -9,12 +9,13 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 04/20/2018
-ms.openlocfilehash: 53b20c9db7efe1f8876eec7c0167dc151aa38786
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: seodec2018
+ms.openlocfilehash: b3044ec3fb21e77c5174ebd5a6b2dabd2282240f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187983"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312860"
 ---
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>REST API를 사용하여 Azure Search에 데이터 업로드
 > [!div class="op_single_selector"]
@@ -29,10 +30,10 @@ ms.locfileid: "32187983"
 
 이 연습을 시작하기 전에 [Azure Search 인덱스를 만들어야](search-what-is-an-index.md)합니다.
 
-REST API를 사용하여 인덱스에 문서를 푸시하기 위해 인덱스의 URL 끝점에 HTTP 게시 요청을 발급합니다. HTTP 요청 본문의 본문은 문서의 추가, 수정 또는 삭제를 포함하는 JSON 개체입니다.
+REST API를 사용하여 인덱스에 문서를 푸시하기 위해 인덱스의 URL 엔드포인트에 HTTP 게시 요청을 발급합니다. HTTP 요청 본문의 본문은 문서의 추가, 수정 또는 삭제를 포함하는 JSON 개체입니다.
 
 ## <a name="identify-your-azure-search-services-admin-api-key"></a>Azure Search 서비스의 관리 API 키 식별
-REST API를 사용하여 서비스에 대한 HTTP 요청을 발급하는 경우 *각* API 요청은 프로비전한 Search 서비스에 생성된 API 키를 포함해야 합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
+REST API를 사용하여 서비스에 대한 HTTP 요청을 발급하는 경우 *각* API 요청은 프로비전한 Search 서비스에 생성된 API 키를 포함해야 합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하면 서비스의 API 키를 찾을 수 있습니다.
 2. Azure Search 서비스의 블레이드로 이동합니다.
@@ -46,7 +47,7 @@ REST API를 사용하여 서비스에 대한 HTTP 요청을 발급하는 경우 
 인덱스에 데이터를 가져오기 위해 기본 또는 보조 관리 키를 사용할 수 있습니다.
 
 ## <a name="decide-which-indexing-action-to-use"></a>사용할 인덱싱 동작 결정
-REST API를 사용하는 경우 Azure Search 인덱스의 끝점 URL에 대한 JSON 요청 본문을 사용하여 HTTP POST 요청을 발급합니다. HTTP 요청 본문의 JSON 개체는 인덱스, 업데이트 또는 삭제에 추가하려는 문서를 나타내는 JSON 개체를 포함하는 "값"이라는 단일 JSON 배열을 포함합니다.
+REST API를 사용하는 경우 Azure Search 인덱스의 엔드포인트 URL에 대한 JSON 요청 본문을 사용하여 HTTP POST 요청을 발급합니다. HTTP 요청 본문의 JSON 개체는 인덱스, 업데이트 또는 삭제에 추가하려는 문서를 나타내는 JSON 개체를 포함하는 "값"이라는 단일 JSON 배열을 포함합니다.
 
 "값" 배열의 각 JSON 개체는 인덱싱할 문서를 나타냅니다. 이러한 각 개체는 문서의 키를 포함하고 원하는 인덱싱 작업(업로드, 병합, 삭제 등)을 지정합니다. 아래에서 어떤 작업을 선택하는지에 따라 특정 필드는 각 문서에 포함되어야 합니다.
 

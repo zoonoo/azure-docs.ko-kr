@@ -6,17 +6,17 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 10/28/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e5f6cbec75a9f652cf05c9608c412e00489288b9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e73b4724dbe578e6cd46753c85a4f3dce62f1e3a
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212933"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402067"
 ---
-# <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>보조 Azure 지역에 Azure VM의 재해 복구 설정 
+# <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>보조 Azure 지역에 Azure VM의 재해 복구 설정        
 
 [Azure Site Recovery](site-recovery-overview.md) 서비스는 계획된 정전 및 계획되지 않은 정전 중 비즈니스 앱 작동을 유지하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. Site Recovery는 복제, 장애 조치(failover), 복구를 포함하여 온-프레미스 컴퓨터 및 Azure VM(Virtual Machines)의 재해 복구를 오케스트레이션합니다.
 
@@ -54,7 +54,7 @@ Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 
 복제를 비활성화하면 주 지역의 VM이 복제를 중지합니다.
 
-- 원본 복제 설정이 자동으로 정리됩니다.
+- 원본 복제 설정이 자동으로 정리됩니다. 복제의 일부로 설치되는 Site Recovery 확장은 제거되지 않았으며 수동으로 제거해야 합니다. 
 - VM에 대한 Site Recovery 청구도 중지됩니다.
 
 다음과 같이 복제를 중지합니다.

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 646c30be171a5aaaa17e40eae3cef6952b2b2747
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bf50dad01cf9893209cc861d29d275ec114966c4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657063"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186160"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -322,7 +322,7 @@ _**그림 4:** SAP 글로벌 호스트 파일을 보호하는 데 사용되는 �
 
 > [!IMPORTANT]
 > \<SAP 글로벌 호스트\>를 가리키는 SAPMNT 파일 공유는 이름을 변경할 수 없습니다. SAP는 공유 이름 “sapmnt”만 지원합니다.
-
+>
 > 자세한 내용은 [SAP Note 2492395 - 공유 이름 sapmnt를 변경할 수 있나요?][2492395]를 참조하세요.
 
 ### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>2개의 클러스터에서 SAP ASCS/SCS 인스턴스와 스케일 아웃 파일 공유 구성
@@ -360,4 +360,4 @@ _**그림 5:** 2개의 클러스터에 배포된 SAP ASCS/SCS 인스턴스와 �
 * [Windows 장애 조치(Failover) 클러스터 및 파일 공유에 SAP ASCS/SCS 인스턴스용 SAP NetWeaver HA 설치][sap-high-availability-installation-wsfc-shared-disk]
 * [Azure에서 UPD 저장소에 대해 2노드 저장소 공간 다이렉트 스케일아웃 파일 서버 배포][deploy-sofs-s2d-in-azure]
 * [Windows Server 2016의 저장소 공간 다이렉트][s2d-in-win-2016]
-* [심층 조사: 저장소 공간 다이렉트의 볼륨][deep-dive-volumes-in-s2d]
+* [심층 조사: 스토리지 공간 다이렉트의 볼륨][deep-dive-volumes-in-s2d]

@@ -3,18 +3,18 @@ title: Log Analytics에 Azure Automation 상태 구성 보고 데이터 전달
 description: 이 문서에서는 통찰력 및 관리를 강화할 수 있도록 DSC(필요한 상태 구성) 보고 데이터를 Azure Automation 상태 구성에서 Log Analytics로 보내는 방법을 알아봅니다.
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aa543ad119716b25b7f3ab00d49efb9fe6fb6c3f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2450ffcbd9fa7bebd5a1b862aa9c35baa5dbdc95
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244239"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425183"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-log-analytics"></a>Log Analytics에 Azure Automation 상태 구성 보고 데이터 전달
 
@@ -32,7 +32,8 @@ Automation 상태 구성 보고서를 Log Analytics로 보내려면 다음이 �
 
 - [Azure PowerShell](/powershell/azure/overview)의 2016년 11월(v2.3.0) 이후 릴리스
 - Azure Automation 계정. 자세한 내용은 [Azure Automation 시작](automation-offering-get-started.md)을 참조하세요.
-- **Automation &amp;amp; Control** 서비스가 제공되는 Log Analytics 작업 공간 자세한 내용은 [Log Analytics 시작](../log-analytics/log-analytics-get-started.md)을 참조하세요.
+- 
+  **Automation &amp; Control** 서비스가 제공되는 Log Analytics 작업 공간 자세한 내용은 [Log Analytics 시작](../log-analytics/log-analytics-get-started.md)을 참조하세요.
 - 적어도 하나 이상의 Azure Automation 상태 구성 노드 자세한 내용은 [Azure Automation 상태 구성을 통해 관리를 위한 머신 온보드](automation-dsc-onboarding.md)를 참조하세요.
 
 ## <a name="set-up-integration-with-log-analytics"></a>Log Analytics와의 통합 설정
@@ -127,7 +128,7 @@ Azure Automation의 진단은 Log Analytics에 두 가지 범주의 레코드를
 | NodeName_s |관리되는 노드의 이름입니다. |
 | NodeComplianceStatus_s |노드가 규정을 준수하는지 여부입니다. |
 | DscReportStatus |준수 검사가 성공적으로 실행되었는지 여부입니다. |
-| ConfigurationMode | 구성이 노드에 적용되는 방식입니다. 사용 가능한 값은 __"ApplyOnly"__,__"ApplyandMonitior"__ 및 __"ApplyandAutoCorrect"__ 입니다. <ul><li>__ApplyOnly__: DSC는 구성을 적용하며, 새 구성이 대상 노드에 푸시되지 않거나 서버에서 새 구성을 가져올 때 아무 작업도 수행하지 않습니다. 새 구성이 초기에 적용된 후 DSC는 이전에 구성된 상태에서 달라졌는지 여부를 확인하지 않습니다. DSC는 __ApplyOnly__가 적용되기 전에 성공할 때까지 구성을 적용하려고 합니다. </li><li> __ApplyAndMonitor__: 기본값입니다. LCM는 새 구성을 적용합니다. 새 구성이 초기에 적용된 후 대상 노드가 원하는 상태에서 다른 상태로 바뀌면 DSC는 불일치 상황을 로그에 보고합니다. DSC는 __ApplyAndMonitor__가 적용되기 전에 성공할 때까지 구성을 적용하려고 합니다.</li><li>__ApplyAndAutoCorrect__: DSC는 모든 새 구성을 적용합니다. 새 구성이 초기에 적용된 후 대상 노드가 원하는 상태에서 다른 상태로 바뀌면 DSC는 불일치 상황을 로그에 보고하고 현재 구성을 다시 적용합니다.</li></ul> |
+| ConfigurationMode | 구성이 노드에 적용되는 방식입니다. 사용 가능한 값은 __"ApplyOnly"__,__"ApplyandMonitior"__ 및 __"ApplyandAutoCorrect"__ 입니다. <ul><li>__ApplyOnly__: DSC는 구성을 적용하며, 새 구성이 대상 노드에 푸시되지 않거나 서버에서 새 구성을 가져올 때 아무 작업도 수행하지 않습니다. 새 구성의 애플리케이션이 초기에 적용된 후 DSC는 이전에 구성된 상태에서 달라졌는지 여부를 확인하지 않습니다. DSC는 __ApplyOnly__가 적용되기 전에 성공할 때까지 구성을 적용하려고 합니다. </li><li> __ApplyAndMonitor__: 기본값입니다. LCM는 새 구성을 적용합니다. 새 구성의 애플리케이션이 초기에 적용된 후 대상 노드가 원하는 상태에서 다른 상태로 바뀌면 DSC는 불일치 상황을 로그에 보고합니다. DSC는 __ApplyAndMonitor__가 적용되기 전에 성공할 때까지 구성을 적용하려고 합니다.</li><li>__ApplyAndAutoCorrect__: DSC는 새 구성을 적용합니다. 새 구성의 애플리케이션이 초기에 적용된 후 대상 노드가 원하는 상태에서 다른 상태로 바뀌면 DSC는 불일치 상황을 로그에 보고하고 현재 구성을 다시 적용합니다.</li></ul> |
 | HostName_s | 관리되는 노드의 이름입니다. |
 | IPAddress | 관리되는 노드의 IPv4 주소입니다. |
 | Category | DscNodeStatus |
@@ -197,4 +198,4 @@ Log Analytics는 Automation 상태 구성 데이터의 작동을 보다 정확�
 - 가격 책정 정보는 [Azure Automation 상태 구성 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
 - 지속적인 배포 파이프라인에서 Azure Automation 상태 구성을 사용하는 예제는 [Azure Automation 상태 구성 및 Chocolatey를 사용하여 지속적인 배포](automation-dsc-cd-chocolatey.md)를 참조하세요.
 - Log Analytics를 사용하여 여러 검색 쿼리를 작성하고 Automation 상태 구성 로그를 검토하는 방법에 대한 자세한 내용은 [Log Analytics의 로그 검색](../log-analytics/log-analytics-log-searches.md)을 참조하세요.
-- Log Analytics 및 데이터 수집 소스에 대한 자세한 내용은 [Log Analytics에서 Azure Storage 데이터 수집 개요](../log-analytics/log-analytics-azure-storage.md)를 참조하세요.
+- Log Analytics 및 데이터 수집 소스에 대한 자세한 내용은 [Log Analytics에서 Azure Storage 데이터 수집 개요](../azure-monitor/platform/collect-azure-metrics-logs.md)를 참조하세요.

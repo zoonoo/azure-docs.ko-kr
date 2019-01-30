@@ -8,12 +8,12 @@ ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 86c8e8c10811b1478ae2c853f1efef5b6b5caa83
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 782f68c52285e787b9dfc6d21352ab2d53876085
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406331"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353144"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure 데이터 카탈로그의 새로운 기능
 **Azure Data Catalog**에 대한 업데이트는 정기적으로 릴리스됩니다. 일부 릴리스에서 백 엔드 서비스 기능에 초점을 맞추므로 모든 릴리스는 새로운 사용자용 기능을 포함하지 않습니다. 이 페이지는 Azure Data Catalog 서비스에 추가된 새로운 사용자용 기능을 강조 표시합니다.
@@ -22,7 +22,7 @@ ms.locfileid: "47406331"
 2017년 11월을 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
 * 데이터 카탈로그 포털에서 특정 비즈니스 용어에 대한 직접 연결을 지원합니다. 사용자가 비즈니스 용어의 링크를 복사하여 문서, 이메일, 보고서 또는 기타 위치에 포함시켜 용어 정의에 직접 연결할 수 있습니다.
-* Azure Active Directory 서비스 주체를 지원합니다. 데이터 카탈로그 관리자는 서비스 주체를 사용하여 카탈로그에 액세스하도록 클라이언트 응용 프로그램을 인증하고, 사용자 및 보안 그룹에 권한을 부여하는 것처럼 그러한 응용 프로그램에게도 특정 권한을 부여할 수 있습니다. 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요.
+* Azure Active Directory 서비스 주체를 지원합니다. 데이터 카탈로그 관리자는 서비스 주체를 사용하여 카탈로그에 액세스하도록 클라이언트 애플리케이션을 인증하고, 사용자 및 보안 그룹에 권한을 부여하는 것처럼 그러한 애플리케이션에게도 특정 권한을 부여할 수 있습니다. 자세한 내용은 [Azure Active Directory의 애플리케이션 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요.
 * 데이터 카탈로그 데이터 원본 등록 도구를 사용하여 Azure SQL Database 및 Azure SQL Data Warehouse 데이터 원본에 연결할 때 Azure Active Directory 인증을 지원합니다. 자세한 내용은 [SQL Database 및 SQL Data Warehouse에서 인증을 위해 Azure Active Directory 인증 사용](../sql-database/sql-database-aad-authentication.md)을 참조하세요.
 
 
@@ -153,7 +153,7 @@ ms.locfileid: "47406331"
 
 * Azure Data Catalog 데이터 원본 등록 도구의 데이터 소스 선택 환경이 새로 디자인되었습니다. 사용자가 Azure Data Catalog에서 지원하는 데이터 원본을 더욱 쉽게 찾아서 선택할 수 있도록 데이터 원본 등록 도구가 업데이트되었습니다.
 * Azure Data Catalog 포털 및 데이터 원본 등록 도구에서 추가 언어 10개가 지원됩니다. 이제 Azure Data Catalog 환경이 영어 외에도 독일어, 스페인어, 프랑스어, 이탈리아어, 일본어, 한국어, 포르투갈어(브라질), 러시아어, 중국어 간체 및 중국어 번체로 제공됩니다. Azure Data Catalog 사용자 환경이 Windows 또는 사용자의 웹 브라우저에 설정된 언어 기본 설정에 따라 지역화됩니다.
-* 비즈니스 연속성 및 재해 복구를 위해 Azure Data Catalog 데이터에 대한 지역에서 복제가 지원됩니다. 이제 데이터 원본 메타데이터 및 크라우드소싱 주석을 비롯한 모든 Azure Data Catalog 내용이 두 Azure 지역 간에 무료로 복제됩니다. Azure 지역은 500마일 이상 떨어진 지역이 사전에 쌍으로 연결되며, [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍으로 연결된 지역](../best-practices-availability-paired-regions.md)에 설명된 대로 매핑을 따릅니다.
+* 비즈니스 연속성 및 재해 복구를 위해 Azure Data Catalog 데이터에 대한 지역에서 복제가 지원됩니다. 이제 데이터 원본 메타데이터 및 크라우드소싱 주석을 비롯한 모든 Azure Data Catalog 내용이 두 Azure 지역 간에 무료로 복제됩니다. Azure 지역은 500마일 이상 떨어진 지역이 사전에 쌍으로 연결되며, [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)을 참조하세요.
 * Azure Data Catalog에서 사용하는 Azure 구독을 변경할 수 있습니다. Azure Data Catalog 관리자가 Azure Data Catalog 포털의 설정 페이지에서 청구용으로 다른 Azure 구독을 선택할 수 있습니다.
 
 ## <a name="whats-new-for-january-2016"></a>2016년 1월의 새로운 기능
@@ -211,7 +211,7 @@ ms.locfileid: "47406331"
 
 
 > [!NOTE]
-> "Power BI Desktop에서 열기"를 사용하려면 최신 버전의 Power BI Desktop 응용 프로그램이 설치되어 있어야 합니다. 이 기능을 사용하는 중에 문제 또는 오류가 발생한 경우 [PowerBI.com](https://powerbi.com)에서 제공하는 최신 버전의 Power BI Desktop을 사용하고 있는지 확인하세요.
+> "Power BI Desktop에서 열기"를 사용하려면 최신 버전의 Power BI Desktop 애플리케이션이 설치되어 있어야 합니다. 이 기능을 사용하는 중에 문제 또는 오류가 발생한 경우 [PowerBI.com](https://powerbi.com)에서 제공하는 최신 버전의 Power BI Desktop을 사용하고 있는지 확인하세요.
 
 
 ## <a name="whats-new-for-october-2015"></a>2015년 10월의 새로운 기능
@@ -236,7 +236,7 @@ ms.locfileid: "47406331"
 2015년 9월을 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
 * Hive 데이터 원본을 등록하는 경우 데이터 프로필 포함을 지원합니다.
-* 응용 프로그램과 Azure Data Catalog의 통합이 용이하도록 프로그래밍 방식의 카탈로그 API 검색을 지원합니다.
+* 애플리케이션과 Azure Data Catalog의 통합이 용이하도록 프로그래밍 방식의 카탈로그 API 검색을 지원합니다.
 * Azure Data Catalog 포털의 새로운 "시작" 데이터 원본 검색 환경을 지원합니다. 사용자가 Azure Data Catalog 포털에서 검색어를 입력하지 않고 "검색" 페이지에 들어가면 가장 자주 사용한 태그, 전문가, 데이터 원본 유형, 개체 유형 등 카탈로그 내용의 개요가 표시됩니다.
 * Azure SQL Data Warehouse 개체 및 데이터베이스 등록 및 검색을 지원합니다. Azure SQL Data Warehouse에 대한 추가 정보는 [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/)를 참조하세요.
 * SQL Server Analysis Services과 SQL Server Reporting Services 서버를 컨테이너로 등록하고 검색할 수 있게 지원합니다. SSAS 및 SSRS 개체를 등록할 때 Azure Data Catalog가 SSAS 모델 및 SSRS 서버와 보고서 및 기타 개체에 대한 항목을 만듭니다. Azure Data Catalog 포털을 사용하여 컨테이너를 검색하고 주석을 추가할 수 있습니다. 사용자는 카탈로그 내용을 검색 및 필터링하는 것은 물론 모델 또는 서버의 내용을 검색 및 필터링할 수도 있습니다.

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5f133af5ec077821607bf3e942c8a931808d34fc
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d515363e1413634d8222e043fff0b91aa464002c
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953590"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337539"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>PowerShell을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 
@@ -34,7 +34,7 @@ ms.locfileid: "49953590"
 
 ### <a name="pre"></a>필수 조건
 
-* 두 VNet이 이미 생성되었습니다. 리소스 관리자 가상 네트워크를 만들어야 하는 경우 [가상 네트워크 만들기](../virtual-network/quick-create-powershell.md#create-a-virtual-network)를 참조하세요. 클래식 가상 네트워크를 만들려면 [클래식 VNet 만들기](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic)를 참조하세요.
+* 두 VNet이 이미 생성되었습니다. Resource Manager 가상 네트워크를 만들어야 하는 경우 [리소스 그룹 및 가상 네트워크 만들기](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network)를 참조하세요. 클래식 가상 네트워크를 만들려면 [클래식 VNet 만들기](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic)를 참조하세요.
 * VNet에 대한 주소 범위는 서로 겹치거나 게이트웨이가 연결되어 있는 다른 연결의 범위와 겹치지 않습니다.
 * 최신 PowerShell cmdlet을 설치했습니다. 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 을 참조하세요. SM(서비스 관리)와 RM(Resource Manager) cmdlet을 모두 설치해야 합니다. 
 
@@ -50,7 +50,7 @@ Virtual Network Address Spaces = 10.0.0.0/24 <br>
 Subnet-1 = 10.0.0.0/27 <br>
 GatewaySubnet = 10.0.0.32/29 <br>
 Local Network Name = RMVNetLocal <br>
-GatewayType = DynamicRouting
+ GatewayType = DynamicRouting
 
 **Resource Manager VNet 설정**
 
@@ -63,7 +63,7 @@ Location = East US <br>
 Gateway public IP name = gwpip <br>
 Local Network Gateway = ClassicVNetLocal <br>
 Virtual Network Gateway name = RMGateway <br>
-게이트웨이 IP 주소 구성 = gwipconfig
+ 게이트웨이 IP 주소 구성 = gwipconfig
 
 ## <a name="createsmgw"></a>섹션 1 - 클래식 VNet 구성
 ### <a name="1-download-your-network-configuration-file"></a>1. 네트워크 구성 파일 다운로드
@@ -263,7 +263,7 @@ RM VNet을 이미 만들었다고 가정합니다. 이 단계에서는 RM VNet�
 ## <a name="connect"></a>섹션 4 - 게이트웨이 간의 연결 만들기
 게이트웨이 간의 연결을 만들려면 PowerShell이 필요합니다. 클래식 버전의 PowerShell cmdlet을 사용하려면 Azure 계정을 추가해야 합니다. 이 작업에는 **Add-AzureAccount**를 사용합니다.
 
-1. PowerShell 콘솔에서 공유 키를 설정합니다. 이러한 cmdlet을 실행하기 전에 Azure에 필요한 정확한 이름에 대해서는 다운로드한 네트워크 구성 파일을 참조하세요. 공백이 포함된 VNet의 이름을 지정할 때는 값을 작은따옴표로 묶습니다.<br><br>다음 예제에서 **-VNetName**은 클래식 VNet의 이름이고 **-LocalNetworkSiteName**은 로컬 네트워크 사이트에 대해 지정한 이름입니다. **-SharedKey**는 사용자가 생성하고 지정하는 값입니다. 이 예제에서는 'abc123'을 사용했으나 좀 더 복잡한 항목을 생성하여 사용할 수 있습니다. 중요한 점은 여기에서 지정한 값이 연결을 만드는 다음 단계에서 지정한 것과 동일한 값이어야 한다는 것입니다. 반환 값에는 **상태:성공**이 표시됩니다.
+1. PowerShell 콘솔에서 공유 키를 설정합니다. 이러한 cmdlet을 실행하기 전에 Azure에 필요한 정확한 이름에 대해서는 다운로드한 네트워크 구성 파일을 참조하세요. 공백이 포함된 VNet의 이름을 지정할 때는 값을 작은따옴표로 묶습니다.<br><br>다음 예제에서 **-VNetName**은 클래식 VNet의 이름이고 **-LocalNetworkSiteName**은 로컬 네트워크 사이트에 대해 지정한 이름입니다. **-SharedKey**는 사용자가 생성하고 지정하는 값입니다. 이 예제에서는 'abc123'을 사용했으나 좀 더 복잡한 항목을 생성하여 사용할 수 있습니다. 중요한 점은 여기에서 지정한 값이 연결을 만드는 다음 단계에서 지정한 것과 동일한 값이어야 한다는 것입니다. 반환 값에는 **상태: 성공**이 표시됩니다.
 
   ```azurepowershell
   Set-AzureVNetGatewayKey -VNetName ClassicVNet `

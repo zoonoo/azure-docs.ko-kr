@@ -1,21 +1,22 @@
 ---
-title: Azure Event Hubs를 SQL Data Warehouse로 데이터 마이그레이션| Microsoft Docs
+title: 이벤트 데이터를 SQL Data Warehouse로 마이그레이션 - Azure Event Hubs | Microsoft Docs
 description: 이 자습서에서는 이벤트 그리드에서 트리거된 Azure 함수를 사용하여 데이터를 이벤트 허브에서 SQL 데이터 웨어하우스로 캡처하는 방법을 보여 줍니다.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: ''
 ms.author: shvija
-ms.date: 08/27/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 9673a7bff8e2d22764be28abef807434c53cc552
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 03ebdabf60882a73eb15cbd36481068591bbd3bc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43145328"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086286"
 ---
-# <a name="process-and-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Event Grid 및 Azure Functions를 사용하여 캡처된 Event Hubs 데이터를 처리하고 SQL Data Warehouse로 마이그레이션
+# <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Event Grid 및 Azure Functions를 사용하여 캡처된 Event Hubs 데이터를 SQL Data Warehouse로 마이그레이션
 
 Event Hubs [캡처](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)는 Event Hubs에 스트림된 데이터를 Azure Blob 저장소 또는 Azure Data Lake 저장소에 자동으로 전달하는 가장 쉬운 방법입니다. 이후에 데이터를 SQL Data Warehouse 또는 Cosmos DB와 같이 원하는 다른 저장소 대상으로 처리하고 전달할 수 있습니다. 이 자습서에서는 [이벤트 그리드](https://docs.microsoft.com/azure/event-grid/overview)에서 트리거된 Azure 함수를 사용하여 데이터를 이벤트 허브에서 SQL 데이터 웨어하우스로 캡처하는 방법을 알아봅니다.
 
@@ -166,7 +167,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
    private const string EventHubName = "hubdatamigration";
    ```
 
-6. 솔루션을 빌드한 다음, WindTurbineGenerator.exe 응용 프로그램을 실행합니다. 
+6. 솔루션을 빌드한 다음, WindTurbineGenerator.exe 애플리케이션을 실행합니다. 
 
 ## <a name="verify-captured-data-in-data-warehouse"></a>데이터 웨어하우스에서 캡처된 데이터 확인
 몇 분 후에 SQL 데이터 웨어하우스의 테이블을 쿼리합니다. WindTurbineDataGenerator에서 생성된 데이터가 Event Hub로 스트림되고, Azure Storage 컨테이너에 캡처된 다음, Azure Function에서 SQL Data Warehouse 테이블로 마이그레이션되었음을 알 수 있습니다.  

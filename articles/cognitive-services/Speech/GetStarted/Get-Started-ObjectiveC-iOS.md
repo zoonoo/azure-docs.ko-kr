@@ -1,7 +1,7 @@
 ---
 title: iOS의 Objective-C에서 Bing Speech Recognition API 시작 | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Bing Speech Recognition API를 사용하여 음성 오디오를 텍스트로 변환하는 iOS 응용 프로그램을 개발합니다.
+description: Bing Speech Recognition API를 사용하여 음성 오디오를 텍스트로 변환하는 iOS 애플리케이션을 개발합니다.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
@@ -21,9 +21,9 @@ ms.locfileid: "49338704"
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-Speech Recognition API를 사용하면 클라우드 기반 Speech Service를 사용하여 음성 오디오를 텍스트로 변환하는 iOS 응용 프로그램을 개발할 수 있습니다. API는 실시간 스트리밍을 지원하므로 응용 프로그램에서 오디오를 서비스에 보내는 동시에 부분 인식 결과를 동시에 비동기적으로 받을 수 있습니다.
+Speech Recognition API를 사용하면 클라우드 기반 Speech Service를 사용하여 음성 오디오를 텍스트로 변환하는 iOS 애플리케이션을 개발할 수 있습니다. API는 실시간 스트리밍을 지원하므로 애플리케이션에서 오디오를 서비스에 보내는 동시에 부분 인식 결과를 동시에 비동기적으로 받을 수 있습니다.
 
-이 문서에서는 샘플 응용 프로그램을 사용하여 Speech Recognition API를 시작하여 iOS 응용 프로그램을 개발하는 방법의 기본 사항을 보여 줍니다. 전체 API 참조는 [Speech SDK 클라이언트 라이브러리 참조](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html)를 참조하세요.
+이 문서에서는 샘플 애플리케이션을 사용하여 Speech Recognition API를 시작하여 iOS 애플리케이션을 개발하는 방법의 기본 사항을 보여 줍니다. 전체 API 참조는 [Speech SDK 클라이언트 라이브러리 참조](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -44,7 +44,7 @@ Speech API는 Cognitive Services(이전의 Project Oxford)의 일부입니다. [
 > [!IMPORTANT]
 > * 구독 키를 가져오세요. Speech 클라이언트 라이브러리를 사용하려면 먼저 [구독 키](https://azure.microsoft.com/try/cognitive-services/)가 있어야 합니다.
 >
-> * 구독 키를 사용하세요. 제공된 iOS 샘플 응용 프로그램을 사용하여 구독 키로 Samples/SpeechRecognitionServerExample/settings.plist 파일을 업데이트해야 합니다. 자세한 내용은 [샘플 빌드 및 실행](#build-and-run-samples)을 참조하세요.
+> * 구독 키를 사용하세요. 제공된 iOS 샘플 애플리케이션을 사용하여 구독 키로 Samples/SpeechRecognitionServerExample/settings.plist 파일을 업데이트해야 합니다. 자세한 내용은 [샘플 빌드 및 실행](#build-and-run-samples)을 참조하세요.
 
 ## <a name="use-the-speech-client-library"></a>Speech 클라이언트 라이브러리 사용
 

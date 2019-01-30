@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: f4edd1632203e2f8723fa7880683727f8fb69c4d
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: af764557a6bd3d3f60a3aa628834d5929e073a82
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614024"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021988"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터 복사
 이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 데이터 팩터리 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다.
@@ -75,7 +74,7 @@ ms.locfileid: "51614024"
 1. 트리 뷰에서 생성한 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 
 ### <a name="azure-storage-account"></a>Azure Storage 계정
-이 자습서에서는 범용 Azure 저장소 계정(특히 Blob 저장소)을 대상/싱크 데이터 저장소로 사용합니다. 범용 Azure Storage 계정이 없는 경우 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. 이 자습서에서 만드는 데이터 팩터리의 파이프라인은 온-프레미스 SQL Server 데이터베이스(원본)에서 Blob 저장소(싱크)로 데이터를 복사합니다. 
+이 자습서에서는 범용 Azure 저장소 계정(특히 Blob 저장소)을 대상/싱크 데이터 저장소로 사용합니다. 범용 Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. 이 자습서에서 만드는 데이터 팩터리의 파이프라인은 온-프레미스 SQL Server 데이터베이스(원본)에서 Blob 저장소(싱크)로 데이터를 복사합니다. 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>저장소 계정 이름 및 계정 키 가져오기
 이 자습서에서는 저장소 계정의 이름과 키를 사용합니다. 저장소 계정의 이름과 키를 가져오려면 다음 단계를 수행합니다. 
@@ -171,7 +170,7 @@ ms.locfileid: "51614024"
 
    ![원본 탭](./media/tutorial-hybrid-copy-portal/source-dataset-new-button.png)
 
-1. **새 데이터 집합** 창에서 **SQL Server**를 검색합니다. **SQL Server**를 선택한 다음, **마침**을 선택합니다. **SqlServerTable1**이라는 제목의 새 탭이 표시됩니다. 또한 왼쪽의 트리 뷰에도 **SqlServerTable1** 데이터 세트가 표시됩니다. 
+1. **새 데이터 세트** 창에서 **SQL Server**를 검색합니다. **SQL Server**를 선택한 다음, **마침**을 선택합니다. **SqlServerTable1**이라는 제목의 새 탭이 표시됩니다. 또한 왼쪽의 트리 뷰에도 **SqlServerTable1** 데이터 세트가 표시됩니다. 
 
    ![SQL Server 선택](./media/tutorial-hybrid-copy-portal/select-sql-server.png)
 
@@ -243,7 +242,7 @@ ms.locfileid: "51614024"
 
     ![싱크 탭](./media/tutorial-hybrid-copy-portal/sink-dataset-new-button.png)
 
-1. **새 데이터 집합** 창에서 **Azure Blob Storage**를 선택합니다. 그런 다음, **마침**을 선택합니다. 데이터 세트에 대해 열린 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 세트가 표시됩니다. 
+1. **새 데이터 세트** 창에서 **Azure Blob Storage**를 선택합니다. 그런 다음, **마침**을 선택합니다. 데이터 세트에 대해 열린 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 세트가 표시됩니다. 
 
     ![Blob 저장소 선택](./media/tutorial-hybrid-copy-portal/select-azure-blob-storage.png)
 
@@ -283,7 +282,7 @@ ms.locfileid: "51614024"
 
     ![싱크 데이터 세트에 연결](./media/tutorial-hybrid-copy-portal/sink-dataset-connection.png)
 
-1. 파이프라인이 열려 있는 탭으로 이동하거나 트리 뷰에서 파이프라인을 선택합니다. **싱크 데이터 집합**에서 **AzureBlobDataset**가 선택되어 있는지 확인합니다. 
+1. 파이프라인이 열려 있는 탭으로 이동하거나 트리 뷰에서 파이프라인을 선택합니다. **싱크 데이터 세트**에서 **AzureBlobDataset**가 선택되어 있는지 확인합니다. 
 
     ![싱크 데이터 세트 선택](./media/tutorial-hybrid-copy-portal/sink-dataset-selected.png)
 

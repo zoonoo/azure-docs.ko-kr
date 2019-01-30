@@ -1,23 +1,27 @@
 ---
-title: LUIS에서 버전 관리 이해
-titleSuffix: Azure Cognitive Services
-description: 버전을 사용하여 Language Understanding(LUIS)에서 변경 내용을 관리하는 방법 알아보기
+title: 버전 관리
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: LUIS의 버전은 기존의 프로그래밍 버전과 유사합니다. 각 버전은 앱의 시간에 대한 스냅숏입니다. 앱을 변경하기 전에 새 버전을 만듭니다. 정확한 앱으로 돌아가서 앱의 의도와 발언을 이전 상태로 복원하는 것이 더 쉽습니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 01/15/2019
 ms.author: diberry
-ms.openlocfilehash: 61be39fc870eb73a5836f8e60a3495aff877d7ed
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 547291fa5c4a49adff7a080db985388ef152d0b8
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637851"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319786"
 ---
-# <a name="versions"></a>버전
+# <a name="understand-how-and-when-to-use-a-luis-version"></a>LUIS 버전을 사용하는 방법 및 시기 이해
+
+LUIS의 버전은 기존의 프로그래밍 버전과 유사합니다. 각 버전은 앱의 시간에 대한 스냅숏입니다. 앱을 변경하기 전에 새 버전을 만듭니다. 정확한 버전으로 돌아가서 의도와 발화를 제거해 이전 상태로 되돌려 보는 것이 더 쉽습니다.
+
 [버전](luis-how-to-manage-versions.md)을 사용하여 동일한 앱의 여러 가지 모델을 만듭니다. 
 
 ## <a name="version-id"></a>버전 ID
@@ -34,7 +38,7 @@ ms.locfileid: "49637851"
 [ ![활성 버전 변경](./media/luis-concept-version/version-in-nav-bar-inline.png) ](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
 
 ## <a name="versions-and-publishing-slots"></a>버전 및 게시 슬롯
-스테이지 및 제품 슬롯에 게시합니다. 각 슬롯에는 다른 버전 또는 동일한 버전이 있을 수 있습니다. 이는 엔드포인트를 통해 모델 버전 간의 변경 내용을 확인하는 데 유용하며, 봇 또는 기타 LUIS 호출 응용 프로그램에 사용할 수 있습니다. 
+스테이지 및 제품 슬롯에 게시합니다. 각 슬롯에는 다른 버전 또는 동일한 버전이 있을 수 있습니다. 이는 엔드포인트를 통해 모델 버전 간의 변경 내용을 확인하는 데 유용하며, 봇 또는 기타 LUIS 호출 애플리케이션에 사용할 수 있습니다. 
 
 ## <a name="clone-a-version"></a>버전 복제
 버전을 복제하여 기존 버전의 복사본을 만들고 새 버전으로 저장합니다. 버전을 복제하여 기존 버전의 동일한 콘텐츠를 새 버전의 시작점으로 사용합니다. 버전을 복제하면 새 버전이 **활성** 버전이 됩니다. 

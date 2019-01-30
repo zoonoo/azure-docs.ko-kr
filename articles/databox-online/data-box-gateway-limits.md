@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 01/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 60078845c98f2e241b00e184303dce0c860629e9
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: f01fb88bf0ea726b421111a262bdfdd68cd3d38c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49164436"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388418"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Azure Data Box Gateway 제한(미리 보기)
 
@@ -57,13 +57,13 @@ Azure 저장소 서비스 제한에 대한 최신 정보 및 공유, 컨테이�
 다음 주의 사항은 Azure로 이동되는 데이터에 적용됩니다.
 
 - 둘 이상의 디바이스가 같은 컨테이너에 기록하지 않도록 하는 것이 좋습니다.
-- 클라우드에 복사되는 개체와 동일한 이름을 사용하는 기존 Azure 개체(예: Blob 또는 파일)가 있는 경우 디바이스는 클라우드의 파일을 덮어씁니다. 
+- 클라우드에 복사되는 개체와 동일한 이름을 사용하는 기존 Azure 개체(예: Blob 또는 파일)가 있는 경우 디바이스는 클라우드의 파일을 덮어씁니다.
 - 공유 폴더 아래에 만들어진 빈 디렉터리 계층 구조(파일 없음)는 Blob 컨테이너로 업로드되지 않습니다.
-
+- 디바이스 크기보다 큰 파일을 복사하는 경우 *Robocopy* 또는 *rsync*를 사용하여 오류가 없도록 하는 것이 좋습니다.
 
 ## <a name="azure-storage-account-size-and-object-size-limits"></a>Azure Storage 계정 크기 및 개체 크기 제한
 
-저장소 계정에 복사되는 데이터 크기에 대한 제한은 다음과 같습니다. 업로드한 데이터가 이러한 제한을 준수하는지 확인합니다. 이러한 제한에 대한 최신 정보는 [Azure Blob 저장소 크기 조정 목표](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) 및 [Azure Files 크기 조정 목표](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets)로 이동합니다.
+저장소 계정에 복사되는 데이터 크기에 대한 제한은 다음과 같습니다. 업로드한 데이터가 이러한 제한을 준수하는지 확인합니다. 이러한 제한에 대한 최신 정보는 [Azure Blob Storage 크기 조정 목표](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) 및 [Azure Files 크기 조정 목표](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets)로 이동합니다.
 
 | Azure 저장소 계정에 복사되는 데이터의 크기                      | 기본 제한          |
 |---------------------------------------------------------------------|------------------------|

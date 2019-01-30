@@ -5,17 +5,15 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/04/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: b3b6d7a64873d77336b2fcf14e22f4d6ae33e3a2
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 06430bf476c2e9f3af2102272fb54d201a3f1066
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976794"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790812"
 ---
-ms.author: ramamill
-
 # <a name="install-the-mobility-service-manually-on-vmware-vms-and-physical-servers"></a>VMware VM 및 물리적 서버의 재해 복구를 위한 Mobility 서비스 수동 설치
 
 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 VMware VM 및 물리적 서버에 대한 재해 복구를 설정할 경우 각 온-프레미스 VMware VM 및 물리적 서버에 [Site Recovery Mobility 서비스](vmware-physical-mobility-service-overview.md)를 설치합니다.  Mobility 서비스는 머신에 기록된 데이터를 캡처하고 이를 Site Recovery 프로세스 서버에 전달합니다.
@@ -93,7 +91,7 @@ ms.author: ramamill
 설정 로그 | %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log에 있습니다.
 /Role | 필수 설치 매개 변수입니다. MS(Mobility 서비스) 또는 MT(마스터 대상) 설치 여부를 지정합니다.
 /InstallLocation| 선택적 매개 변수. Mobility 서비스 설치 위치(모든 폴더)를 지정합니다.
-/Platform | 필수. Mobility Service가 설치되는 플랫폼을 지정합니다. Mware VM/물리적 서버에 **VMware**, Azure VM에 **Azure**입니다. 
+/Platform | 필수. Mobility Service가 설치되는 플랫폼을 지정합니다. VMware VM/물리적 서버에 **VMware**, Azure VM에 **Azure**입니다. 
 /Silent| 선택 사항입니다. 자동 모드에서의 설치 관리자 실행 여부를 지정합니다.
 
 #### <a name="registration-settings"></a>등록 설정
@@ -131,7 +129,7 @@ ms.author: ramamill
 사용 현황 | ./install -d <Install Location> -r <MS|MT> -v VmWare -q
 -r | 필수 설치 매개 변수입니다. MS(Mobility 서비스) 또는 MT(마스터 대상) 설치 여부를 지정합니다.
 일시 중지되고 | 선택적 매개 변수. Mobility 서비스 설치 위치(/usr/local/ASR)를 지정합니다.
--v | 필수. Mobility Service가 설치되는 플랫폼을 지정합니다. Mware VM/물리적 서버에 **VMware**, Azure VM에 **Azure**입니다. 
+-v | 필수. Mobility Service가 설치되는 플랫폼을 지정합니다. VMware VM/물리적 서버에 **VMware**, Azure VM에 **Azure**입니다. 
 -q | 선택 사항입니다. 자동 모드에서의 설치 관리자 실행 여부를 지정합니다.
 
 #### <a name="registration-settings"></a>등록 설정

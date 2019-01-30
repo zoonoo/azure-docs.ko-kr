@@ -1,9 +1,9 @@
 ---
-title: Azure Active Directory를 사용하여 그룹 정보를 편집하는 방법 | Microsoft Docs
-description: Azure Active Directory를 사용하여 그룹 정보를 편집하는 방법을 알아봅니다.
+title: 그룹 정보 편집 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory를 사용하여 그룹 정보를 편집하는 방법에 대한 지침입니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: a02987fdce3a15cd5d416234e3717df6d33622ec
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 80c7390c7df00efaf6acc9699c7433aa6e3e52f9
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731345"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447329"
 ---
-# <a name="how-to-edit-your-group-information-using-azure-active-directory"></a>방법: Azure Active Directory를 사용하여 그룹 정보 편집
+# <a name="edit-your-group-information-using-azure-active-directory"></a>Azure Active Directory를 사용하여 그룹 정보 편집
 
-Azure Active Directory를 사용하여 이름, 설명 또는 멤버 자격 유형을 업데이트할 뿐 아니라 그룹 설정을 편집할 수 있습니다.
+Azure AD(Azure Active Directory)를 사용하여 이름, 설명 또는 멤버 자격 유형을 업데이트할 뿐 아니라 그룹 설정을 편집할 수 있습니다.
 
 ## <a name="to-edit-your-group-settings"></a>그룹 설정을 편집하려면
 1. 해당 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
@@ -50,7 +50,7 @@ Azure Active Directory를 사용하여 이름, 설명 또는 멤버 자격 유�
 
     - **그룹 유형.** 그룹이 생성된 후에는 그룹 유형을 변경할 수 없습니다. **그룹 유형**을 변경하려면 그룹을 삭제하고 새 그룹을 만들어야 합니다.
     
-    - **멤버 자격 유형.** 멤버 자격 유형을 변경합니다. 다양한 사용 가능한 멤버 자격 유형에 대한 자세한 내용은 [방법: Azure Active Directory 포털을 사용하여 기본 그룹 만들기 및 멤버 추가](active-directory-groups-create-azure-portal.md)를 참조하세요.
+    - **멤버 자격 유형.** 멤버 자격 유형을 변경합니다. 사용 가능한 다양한 멤버 자격 유형에 대한 정보는 [방법: Azure Active Directory 포털을 사용하여 기본 그룹 만들기 및 멤버 추가](active-directory-groups-create-azure-portal.md)를 참조하세요.
     
     - **개체 ID.** 개체 ID를 변경할 수는 없지만, 개체 ID를 복사하여 그룹용 PowerShell 명령에서 사용할 수 있습니다. PowerShell cmdlet 사용에 대한 자세한 내용은 [그룹 설정 구성을 위한 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-v2-cmdlets.md)을 참조하세요.
 

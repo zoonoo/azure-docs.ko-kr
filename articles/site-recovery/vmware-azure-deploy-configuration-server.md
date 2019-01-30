@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/18/2018
+ms.date: 01/22/2018
 ms.author: ramamill
-ms.openlocfilehash: 8b67947412055d0c0b9f39cb49961e435393cec9
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 712f8fb2cb951460ad2be36b2899f52d4966fc82
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162605"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468406"
 ---
 # <a name="deploy-a-configuration-server"></a>구성 서버 배포
 
@@ -67,13 +67,16 @@ OVA 템플릿과 함께 제공되는 라이선스는 180일 동안 유효한 평
 3. **원본 선택**에서 다운로드한 OVF의 위치를 입력합니다.
 4. **세부 정보 검토**에서 **다음**을 선택합니다.
 5. **이름 및 폴더 선택**과 **구성 선택**에서 기본 설정을 그대로 적용합니다.
-6. 최상의 성능을 발휘할 수 있도록 **저장소 선택**의 **가상 디스크 형식 선택**에서 **씩 프로비전 Eager Zeroed**를 선택합니다.
+6. 최상의 성능을 발휘할 수 있도록 **저장소 선택**의 **가상 디스크 형식 선택**에서 **씩 프로비전 Eager Zeroed**를 선택합니다. 씬 프로비전 옵션을 사용하면 구성 서버의 성능에 영향을 줄 수 있습니다.
 7. 마법사 페이지의 나머지 부분에서는 기본 설정을 적용합니다.
 8. **완료 준비**에서 다음을 수행합니다.
 
     * 기본 설정을 사용하여 VM을 설정하려면 **배포 후 전원 켜기** > **마침**을 선택합니다.
 
     * 추가 네트워크 인터페이스를 추가하려면 **배포 후 전원 켜기**의 선택을 취소한 다음, **마침**을 선택합니다. 기본적으로 구성 서버 템플릿은 단일 NIC를 사용하여 배포됩니다. 배포 후 NIC를 추가할 수 있습니다.
+
+> [!IMPORTANT]
+> 배포 후에는 리소스 구성(메모리/코어 수/CPU 제한)을 변경하거나 구성 서버에 설치된 서비스 또는 파일을 수정/삭제하지 마세요. 이는 Azure 서비스에 대한 구성 서버 등록 및 구성 서버의 성능에 영향을 미칩니다.
 
 ## <a name="add-an-additional-adapter"></a>어댑터 추가
 
@@ -97,7 +100,7 @@ OVA 템플릿과 함께 제공되는 라이선스는 180일 동안 유효한 평
 
 ### <a name="configure-settings"></a>설정 구성
 
-1. 구성 서버 관리 마법사에서 **연결 설정**을 선택한 다음, 프로세스 서버가 VM에서 복제 트래픽을 수신할 때 사용할 NIC를 선택합니다. 그런 다음 **저장**을 선택합니다. 이 설정은 구성된 후에 변경할 수 없습니다.
+1. 구성 서버 관리 마법사에서 **연결 설정**을 선택한 다음, 프로세스 서버가 VM에서 복제 트래픽을 수신할 때 사용할 NIC를 선택합니다. 그런 다음 **저장**을 선택합니다. 이 설정은 구성된 후에 변경할 수 없습니다. 구성 서버의 IP 주소는 변경하지 않는 것이 좋습니다. 구성 서버에 할당된 IP가 DHCP IP가 아닌 정적 IP인지 확인합니다.
 2. **Recovery Services 자격 증명 모음 선택**에서 Microsoft Azure에 로그인하고, Azure 구독을 선택한 다음, 관련 리소스 그룹 및 자격 증명 모음을 선택합니다.
 
     > [!NOTE]
@@ -107,8 +110,8 @@ OVA 템플릿과 함께 제공되는 라이선스는 180일 동안 유효한 평
 
     |시나리오   |수행할 단계  |
     |---------|---------|
-    |MySQL을 수동으로 다운로드하고 설치할 수 있나요?     |  예. MySQL 응용 프로그램을 다운로드하고, **C:\Temp\ASRSetup** 폴더에 배치한 다음, 수동으로 설치합니다. 이제 사용 약관에 동의하고 **다운로드 및 설치**를 클릭하면 포털에서 *이미 설치되어 있습니다*라고 표시됩니다. 다음 단계로 진행할 수 있습니다.       |
-    |MySQL 온라인 다운로드를 방지할 수 있나요?     |   예. MySQL 설치 관리자 응용 프로그램을 **C:\Temp\ASRSetup** 폴더에 배치합니다. 사용 약관에 동의하고 **다운로드 및 설치**를 클릭하면 포털에서 추가한 설치 관리자를 사용하고 응용 프로그램을 설치합니다. 다음 설치 후 단계로 진행할 수 있습니다.    |
+    |MySQL을 수동으로 다운로드하고 설치할 수 있나요?     |  예. MySQL 애플리케이션을 다운로드하고, **C:\Temp\ASRSetup** 폴더에 배치한 다음, 수동으로 설치합니다. 이제 사용 약관에 동의하고 **다운로드 및 설치**를 클릭하면 포털에서 *이미 설치되어 있습니다*라고 표시됩니다. 다음 단계로 진행할 수 있습니다.       |
+    |MySQL 온라인 다운로드를 방지할 수 있나요?     |   예. MySQL 설치 관리자 애플리케이션을 **C:\Temp\ASRSetup** 폴더에 배치합니다. 사용 약관에 동의하고 **다운로드 및 설치**를 클릭하면 포털에서 추가한 설치 관리자를 사용하고 애플리케이션을 설치합니다. 다음 설치 후 단계로 진행할 수 있습니다.    |
     |Azure Site Recovery를 통해 MySQL을 다운로드하고 설치하려고 합니다.     |  사용권 계약에 동의하고 **다운로드 및 설치**를 클릭합니다. 그러면 다음 설치 후 단계로 진행할 수 있습니다.       |
 4. 계속하기 전에 **어플라이언스 구성 유효성 검사**에서 필수 구성 요소가 확인됩니다.
 5. **vCenter Server/vSphere ESXi 서버 구성**에 복제하려는 VM이 있는 vCenter 서버 또는 vSphere 호스트의 FQDN 또는 IP 주소를 지정합니다. 서버가 수신 대기하는 포트를 입력합니다. 자격 증명 모음의 VMware 서버에 사용할 이름을 입력합니다.
@@ -119,7 +122,7 @@ OVA 템플릿과 함께 제공되는 라이선스는 180일 동안 유효한 평
 
 ## <a name="upgrade-the-configuration-server"></a>구성 서버 업그레이드
 
-구성 서버를 최신 버전으로 업그레이드하려면 다음 [단계](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)를 따르세요.
+구성 서버를 최신 버전으로 업그레이드하려면 다음 [단계](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)를 따르세요. 모든 Site Recovery 구성 요소를 업그레이드하는 방법에 대한 자세한 지침을 보려면 [여기](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to)를 클릭하세요.
 
 ## <a name="manage-the-configuration-server"></a>구성 서버 관리
 
@@ -141,13 +144,28 @@ OVA 템플릿과 함께 제공되는 라이선스는 180일 동안 유효한 평
     구성 서버 및 해당 기능에 대해 자세히 알아보려면 [VMware를 Azure 복제 아키텍처로](vmware-azure-architecture.md)를 참조하세요.
 5. 최신 버전의 구성 서버는 어디서 찾을 수 있나요?
 
-    포털을 통해 구성 서버를 업그레이드하는 단계는 [구성 서버 업그레이드](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)를 참조하세요. [Microsoft 다운로드 센터](https://aka.ms/asrconfigurationserver)에서 직접 다운로드할 수도 있습니다.
+    포털을 통해 구성 서버를 업그레이드하는 단계는 [구성 서버 업그레이드](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)를 참조하세요. 모든 Site Recovery 구성 요소를 업그레이드하는 방법에 대한 자세한 지침은 [여기](https://aka.ms/asr_how_to_upgrade)를 참조하세요.
 6. 구성 서버의 암호는 어디서 다운로드할 수 있나요?
 
     암호를 다운로드하려면 [이 문서](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)를 참조하세요.
-7. 자격 증명 모음 등록 키는 어디서 다운로드할 수 있나요?
+7. 암호를 변경할 수 있나요?
+
+    **아니요**, **구성 서버의 암호를 변경하지 않는 것**이 좋습니다. 암호를 변경하면 보호되는 머신의 복제가 중단되고 심각한 상태가 됩니다.
+8. 자격 증명 모음 등록 키는 어디서 다운로드할 수 있나요?
 
     **Recovery Services 자격 증명 모음**에서 **관리** > **Site Recovery 인프라** > **구성 서버**를 통해 다운로드합니다. 서버에서 **등록 키 다운로드**를 선택하여 자격 증명 모음 파일을 다운로드합니다.
+9. 기존 구성 서버를 복제하고 복제 오케스트레이션에 사용할 수 있나요?
+
+    **아니요**, 복제된 구성 서버 구성 요소를 사용하는 것은 지원되지 않습니다.
+
+10. 구성 서버의 IP를 변경할 수 있나요?
+
+    **아니요**,구성 서버의 IP 주소는 변경하지 않는 것이 좋습니다. 구성 서버에 할당된 모든 IP가 DHCP IP가 아닌 정적 IP인지 확인합니다.
+11. Azure에서 구성 서버를 설정할 수 있나요?
+
+    데이터 전송 대기 시간을 최소화하기 위해 v-Center에서 직접 볼 수 있는 온-프레미스 환경에 구성 서버를 설정하는 것이 좋습니다. [장애 복구](vmware-azure-manage-configuration-server.md#failback-requirements)를 위해 구성 서버의 예약된 백업을 수행할 수 있습니다.
+
+구성 서버에 대한 자세한 FAQ는 [구성 서버의 일반적인 질문에 대한 설명서](vmware-azure-common-questions.md#configuration-server)를 참조하세요.
 
 ## <a name="troubleshoot-deployment-issues"></a>배포 문제 해결
 

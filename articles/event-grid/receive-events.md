@@ -6,18 +6,18 @@ author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 01/01/2019
 ms.author: babanisa
-ms.openlocfilehash: 7d8ee60f033d824a3ff83a7c6948c72160e24c1d
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: bb82ef542db09b3b7f864c4901107e1c5c0827f6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584288"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464788"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>HTTP 엔드포인트에서 이벤트 수신
 
-이 아티클에서는 이벤트 구독으로부터 이벤트를 수신하기 위해 [HTTP 엔드포인트의 유효성을 검사](security-authentication.md#webhook-event-delivery)한 다음, 이벤트를 수신하고 직렬화를 해제하는 방법을 설명합니다. 이 문서에서는 데모용으로 Azure Function을 사용하나 응용 프로그램이 어디서 호스팅되느냐와 관계없이 동일한 개념이 적용됩니다.
+이 아티클에서는 이벤트 구독으로부터 이벤트를 수신하기 위해 [HTTP 엔드포인트의 유효성을 검사](security-authentication.md#webhook-event-delivery)한 다음, 이벤트를 수신하고 직렬화를 해제하는 방법을 설명합니다. 이 문서에서는 데모용으로 Azure Function을 사용하나 애플리케이션이 어디서 호스팅되느냐와 관계없이 동일한 개념이 적용됩니다.
 
 > [!NOTE]
 > Event Grid로 Azure Function을 트리거할 때는 [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md)를 사용하는 것이 **좋습니다**. 여기서 사용된 일반 웹후크 트리거는 데모용입니다.
@@ -140,7 +140,7 @@ module.exports = function (context, req) {
 
 ![유효성 검사 응답](./media/receive-events/validation-response.png)
 
-## <a name="handle-blob-storage-events"></a>BLOB 저장소 이벤트 처리
+## <a name="handle-blob-storage-events"></a>Blob Storage 이벤트 처리
 
 이제 함수를 확장하여 `Microsoft.Storage.BlobCreated`를 처리해 보겠습니다.
 
@@ -217,7 +217,7 @@ module.exports = function (context, req) {
 
 ### <a name="test-blob-created-event-handling"></a>만든 Blob의 이벤트 처리 테스트
 
-[Blob 저장소 이벤트](./event-schema-blob-storage.md#example-event)를 테스트 필드에 놓고 실행하여 함수의 새 기능을 테스트할 수 있습니다.
+[Blob Storage 이벤트](./event-schema-blob-storage.md#example-event)를 테스트 필드에 놓고 실행하여 함수의 새 기능을 테스트할 수 있습니다.
 
 ```json
 [{
@@ -249,7 +249,7 @@ module.exports = function (context, req) {
 
 ![출력 로그](./media/receive-events/blob-event-response.png)
 
-Blob 저장소 계정이나 GPv2(General Purpose V2) 저장소 계정을 만들고 [이벤트 구독을 추가한 다음](../storage/blobs/storage-blob-event-quickstart.md) 엔드포인트를 함수 URL로 설정해서 테스트할 수도 있습니다.
+Blob Storage 계정이나 GPv2(General Purpose V2) 스토리지 계정을 만들고 [이벤트 구독을 추가한 다음](../storage/blobs/storage-blob-event-quickstart.md) 엔드포인트를 함수 URL로 설정해서 테스트할 수도 있습니다.
 
 ![함수 URL](./media/receive-events/function-url.png)
 
@@ -366,10 +366,10 @@ module.exports = function (context, req) {
 }]
 ```
 
-[포털의 CURL로 사용자 지정 이벤트를 보내거나](./custom-event-quickstart-portal.md), [Postman](https://www.getpostman.com/)처럼 엔드포인트에 POST할 수 있는 서비스나 응용 프로그램을 사용하여 [사용자 지정 토픽에 게시하여](./post-to-custom-topic.md) 이 기능을 라이브로 테스트할 수도 있습니다. 함수 URL로 설정된 엔드포인트를 통해 사용자 지정 토픽과 이벤트 구독을 만듭니다.
+[포털의 CURL로 사용자 지정 이벤트를 보내거나](./custom-event-quickstart-portal.md), [Postman](https://www.getpostman.com/)처럼 엔드포인트에 POST할 수 있는 서비스나 애플리케이션을 사용하여 [사용자 지정 토픽에 게시하여](./post-to-custom-topic.md) 이 기능을 라이브로 테스트할 수도 있습니다. 함수 URL로 설정된 엔드포인트를 통해 사용자 지정 토픽과 이벤트 구독을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Event Grid 관리 및 SDK 게시](./sdk-overview.md) 살펴보기
 * [사용자 지정 토픽에 게시](./post-to-custom-topic.md) 방법 알아보기
-* [Blob 저장소에 업로드된 이미지 크기 조정](resize-images-on-storage-blob-upload-event.md) 등, 심층적인 Event Grid 및 Functions 시도해 보기
+* [Blob Storage에 업로드된 이미지 크기 조정](resize-images-on-storage-blob-upload-event.md) 등, 심층적인 Event Grid 및 Functions 시도해 보기

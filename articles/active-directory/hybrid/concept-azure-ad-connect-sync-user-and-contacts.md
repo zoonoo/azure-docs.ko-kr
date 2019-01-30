@@ -4,7 +4,7 @@ description: Azure AD Connect 동기화의 사용자, 그룹 및 연락처에 �
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 8d204647-213a-4519-bd62-49563c421602
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 46d0ce28d6381662847917ce83c77780f1bd9e4c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c59065b21935336a77e3fb88c30f12cded341808
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310582"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473931"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect 동기화: 사용자, 그룹 및 연락처 이해
 여러 Active Directory 포리스트를 가져야 하는 이유와 배포 토폴로지는 여러 가지가 있습니다. 일반적인 모델에는 합병 & 인수 후 계정 리소스 배포 및 GAL 동기화 포리스트가 포함됩니다. 하지만 순수 모델이 있어도 하이브리드 모델도 일반적입니다. Azure AD Connect 동기화의 기본 구성은 어느 특정 모델을 가정하지는 않지만 설치 가이드에서 사용자 일치가 어떻게 선택되어 있는지에 따라 다양한 동작을 관찰할 수 있습니다.
@@ -73,6 +73,6 @@ Azure AD에 개체를 프로비전하는 경우에는 메타버스 특성 **sour
 개체를 Azure AD로 내보내면 더 이상 sourceAnchor를 변경할 수 없습니다. 개체가 내보내지면 메타버스 특성 **cloudSourceAnchor**가 Azure AD에서 허용한 **sourceAnchor** 값으로 설정됩니다. **sourceAnchor**가 변경되어 **cloudSourceAnchor**와 일치하지 않으면 **AAD로 나가기 – 사용자 조인** 규칙에서 **sourceAnchor 특성이 변경되었습니다**라는 오류가 발생합니다. 이 경우 개체를 다시 동기화하기 전에 동일한 sourceAnchor가 메타 버스에 다시 나타나도록 구성 또는 데이터를 수정해야 합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
-* [Azure AD Connect Sync: 사용자 지정 동기화 옵션](how-to-connect-sync-whatis.md)
+* [Azure AD Connect 동기화: 동기화 옵션 사용자 지정](how-to-connect-sync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)
 

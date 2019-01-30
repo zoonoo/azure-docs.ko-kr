@@ -1,5 +1,6 @@
 ---
-title: Azure Load Balancer 배포 모드 구성 | Microsoft Docs
+title: Azure Load Balancer 배포 모드 구성
+titlesuffix: Azure Load Balancer
 description: 원본 IP 선호도를 지원하도록 Azure Load Balancer에 대한 배포 모드를 구성하는 방법입니다.
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: b521d633f5779daeab431a16a13f72bbf301182c
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: bc78c4afd3a85dc4b7b03fb3543632da7586ea31
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415528"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083289"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Azure Load Balancer의 배포 모드 구성
 
@@ -42,7 +44,7 @@ Load Balancer는 원본 IP 선호도 배포 모드를 사용하여 구성할 수
 * 동일한 클라이언트 컴퓨터의 새 UDP 세션이 부하가 분산된 동일한 공개 엔드포인트로 시작됩니다. 연결은 이전 TCP 연결과 동일한 DIP 엔드포인트로 지정됩니다. TCP를 통해 제어 채널을 유지하면서 미디어 업로드를 높은 처리량으로 실행할 수 있습니다.
 
 > [!NOTE]
-> 가상 컴퓨터를 추가 또는 제거하여 부하 분산 집합이 변경되면 클라이언트 요청 배포가 다시 계산됩니다. 기존 클라이언트의 새 연결이 동일한 서버로 수행된다고 확신할 수 없습니다. 또한 원본 IP 선호도 배포 모드를 사용하는 경우 트래픽이 불규칙하게 배포될 수 있습니다. 프록시 뒤에서 실행되는 클라이언트는 하나의 고유한 클라이언트 응용 프로그램으로 보일 수 있습니다.
+> 가상 컴퓨터를 추가 또는 제거하여 부하 분산 집합이 변경되면 클라이언트 요청 배포가 다시 계산됩니다. 기존 클라이언트의 새 연결이 동일한 서버로 수행된다고 확신할 수 없습니다. 또한 원본 IP 선호도 배포 모드를 사용하는 경우 트래픽이 불규칙하게 배포될 수 있습니다. 프록시 뒤에서 실행되는 클라이언트는 하나의 고유한 클라이언트 애플리케이션으로 보일 수 있습니다.
 
 ## <a name="configure-source-ip-affinity-settings"></a>원본 IP 선호도 설정 구성
 

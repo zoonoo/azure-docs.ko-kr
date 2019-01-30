@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 B2C 테넌트로 전환 | Microsoft Docs
 description: Active Directory B2C 테넌트의 컨텍스트로 전환하는 방법입니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 4/13/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9b8ff03ff90a0962a6a890cf7cc99e7134559b7f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c6b239e6b6bf13a8bb3bb28cfdce1c82af44f6af
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442972"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846458"
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>Azure AD B2C 테넌트로 전환
 
@@ -25,7 +25,7 @@ Azure AD B2C을 구성하려면 Azure AD B2C 테넌트의 컨텍스트에 있어
 
 Azure AD B2C 테넌트를 탐색하려면 Azure AD B2C 테넌트의 전역 관리자로 Azure Portal에 로그인해야 합니다.
 
-1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 전자 메일 주소 또는 오른쪽 위 모서리의 그림을 클릭하여 테넌트를 전환합니다.
 1. 표시되는 `Directory` 목록에서, 관리하려는 Azure AD B2C 테넌트를 선택합니다.
 

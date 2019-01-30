@@ -9,19 +9,19 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 08/13/2018
 ms.author: shvija
-ms.openlocfilehash: 9b952bd96828c4f2c140cb2d75cecb9379895a63
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: f8cd167d8de738674939180e0d81fc9282434155
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746646"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450458"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>Event Hubs .NET Standard API 개요
 
 이 문서는 핵심 Azure Event Hubs[.NET Standard 클라이언트 API](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) 일부를 요약해서 설명합니다. 현재 다음과 같은 Event Hubs에 대한 두 개의 .NET Standard 클라이언트 라이브러리가 있습니다.
 
 * [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs): 모든 기본 런타임 작업을 제공합니다.
-* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): 처리된 이벤트를 추적하는 추가 기능을 추가하며, 이벤트 허브에서 읽는 가장 쉬운 방법입니다.
+* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): 처리된 이벤트를 추적할 수 있는 추가 기능을 추가하며, 이벤트 허브에서 읽을 수 있는 가장 쉬운 방법입니다.
 
 ## <a name="event-hubs-client"></a>Event Hubs 클라이언트
 
@@ -65,7 +65,7 @@ Event Hubs에서 이벤트를 수신하는 권장 방법은 이벤트 허브 오
 
 #### <a name="create-a-receiver"></a>수신기 만들기
 
-수신기는 특정 파티션에 연결되어 있으므로 이벤트 허브에서 모든 이벤트를 수신하려면 여러 인스턴스를 만들어야 합니다. 파티션 ID를 하드 코딩하는 것보다는 프로그래밍 방식으로 파티션 정보를 얻는 것이 더 좋습니다. 이렇게 하기 위해 [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) 메서드를 사용할 수 있습니다.
+수신기는 특정 파티션에 연결되어 있으므로 이벤트 허브에서 모든 이벤트를 수신하려면 여러 인스턴스를 만들어야 합니다. 파티션 ID를 하드 코딩하는 것보다 프로그래밍 방식으로 파티션 정보를 가져오는 것이 좋습니다. 이렇게 하기 위해 [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) 메서드를 사용할 수 있습니다.
 
 ```csharp
 // Create a list to keep track of the receivers

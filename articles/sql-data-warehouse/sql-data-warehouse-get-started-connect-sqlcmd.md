@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Data Warehouse sqlcmd에 연결 | Microsoft Azure
-description: '[sqlcmd][sqlcmd] 명령줄 유틸리티를 사용하여 Azure SQL Data Warehouse에 연결하고 쿼리합니다.'
+description: sqlcmd 명령줄 유틸리티를 사용하여 Azure SQL Data Warehouse에 연결하고 쿼리합니다.
 services: sql-data-warehouse
 author: kavithaj
 manager: craigg
@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 94f3955f9ce94fa52e89180fa649c4e412b80109
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 2534d668132db4c66b5e54c33849b76a8f93c348
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247716"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976412"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>sqlcmd를 사용하여 SQL Data Warehouse에 연결
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "43247716"
 
 * **서버(-S):** `<`서버 이름`>`.database.windows.net 형식의 서버
 * **데이터베이스(-D):** 데이터베이스 이름
-* **따옴표 붙은 식별자 설정(-I):** SQL Data Warehouse 인스턴스에 연결하려면 따옴표 붙은 식별자를 사용할 수 있어야 합니다.
+* **따옴표 붙은 식별자 사용(-I):** SQL Data Warehouse 인스턴스에 연결하려면 따옴표 붙은 식별자를 사용할 수 있어야 합니다.
 
 SQL Server 인증을 사용하려면 사용자 이름/암호 매개 변수를 추가해야 합니다.
 

@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: bd971b84b907d3fda1bea9922b2fd1881eb369e9
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 112a986efc11822f6c847511a33be6206b1f00da
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087239"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717487"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F# 개발자 참조
 
@@ -96,7 +96,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>로깅
-출력을 F#의 [스트리밍 로그](../app-service/web-sites-enable-diagnostic-log.md)에 기록하려면 함수에 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 형식의 인수를 사용해야 합니다. 일관성을 위해 이 인수의 이름을 `log`로 지정하는 것이 좋습니다. 예: 
+출력을 F#의 [스트리밍 로그](../app-service/troubleshoot-diagnostic-logs.md)에 기록하려면 함수에 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 형식의 인수를 사용해야 합니다. 일관성을 위해 이 인수의 이름을 `log`로 지정하는 것이 좋습니다. 예: 
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: ILogger) =
@@ -147,7 +147,7 @@ let Run(req: HttpRequestMessage, log: ILogger) =
 * `System.Net.Http`
 * `System.Threading.Tasks`
 * `Microsoft.Azure.WebJobs`
-* `Microsoft.Azure.WebJobs.Host`
+* `Microsoft.Azure.WebJobs.Host`.
 
 ## <a name="referencing-external-assemblies"></a>외부 어셈블리 참조
 마찬가지로 프레임워크 어셈블리 참조는 `#r "AssemblyName"` 지시문을 사용하여 추가할 수 있습니다.
@@ -183,7 +183,7 @@ let Run(req: HttpRequestMessage, log: ILogger) =
 * `Microsoft.WindowsAzure.Storage`
 * `Microsoft.ServiceBus`
 * `Microsoft.AspNet.WebHooks.Receivers`
-* `Microsoft.AspNEt.WebHooks.Common`
+* `Microsoft.AspNEt.WebHooks.Common`.
 
 개인 어셈블리를 참조해야 하는 경우 어셈블리 파일을 함수에 상대적인 `bin` 폴더에 업로드하고 파일 이름(예: `#r "MyAssembly.dll"`)을 사용하여 참조할 수 있습니다. 함수 폴더에 파일을 업로드하는 방법에 대한 내용은 패키지 관리에 대한 다음 섹션을 참조하세요.
 

@@ -1,21 +1,19 @@
 ---
-title: Azure Cosmos DB에서 Azure Table Storage 지원 | Microsoft Docs
+title: Azure Cosmos DB에서 Azure Table Storage 지원
 description: Azure Cosmos DB Table API 및 Azure Storage Tables이 함께 작동하는 방법에 대해 알아봅니다.
-services: cosmos-db
-author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.component: cosmosdb-table
-ms.devlang: na
+ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 11/15/2017
-ms.author: sngun
-ms.openlocfilehash: 114286b45df5f47e81bd2b990c8b50c8b7b7a482
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+author: wmengmsft
+ms.author: wmeng
+ms.reviewer: sngun
+ms.openlocfilehash: b105cf6c220534927a16be83ca5db8801c88f6c0
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43185369"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035596"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Azure Cosmos DB Table API 및 Azure Table storage로 개발하기
 
@@ -42,7 +40,7 @@ Azure Table 저장소에는 개발에 사용할 수 있는 다음과 같은 SDK�
 - [Java용 Azure Storage SDK](https://github.com/azure/azure-storage-java). 이 Azure Storage SDK는 Java에서 Azure Table 저장소를 사용하기 위한 클라이언트 라이브러리를 제공합니다.
 - [Node.js SDK](table-sdk-nodejs.md). 이 SDK는 저장소 Table 서비스를 사용하기 위한 Node.js 패키지 및 브라우저 호환 JavaScript 클라이언트 라이브러리를 제공합니다.
 - [AzureRmStorageTable PowerShell 모듈](https://www.powershellgallery.com/packages/AzureRmStorageTable/1.0.0.7). 이 PowerShell 모듈에는 저장소 테이블과 함께 작동하는 cmdlet이 있습니다.
-- [C++용 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-cpp/). 이 라이브러리를 사용하면 Azure Storage에 응용 프로그램을 빌드할 수 있습니다.
+- [C++용 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-cpp/). 이 라이브러리를 사용하면 Azure Storage에 애플리케이션을 빌드할 수 있습니다.
 - [Ruby용 Azure Storage Table 클라이언트 라이브러리](https://github.com/azure/azure-storage-ruby/tree/master/table). 이 프로젝트는 Azure Storage Table 서비스에 쉽게 액세스할 수 있게 해주는 Ruby 패키지를 제공합니다.
 - [Azure Storage Table PHP 클라이언트 라이브러리](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table). 이 프로젝트는 Azure Storage Table 서비스에 쉽게 액세스할 수 있게 해주는 PHP 클라이언트 라이브러리를 제공합니다.
 

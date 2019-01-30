@@ -1,5 +1,5 @@
 ---
-title: '자습서: Attendance Management Services와 Azure Active Directory 통합 | Microsoft 문서'
+title: '자습서: Attendance Management Services와 Azure Active Directory 통합 | Microsoft Docs'
 description: Azure Active Directory와 Attendance Management Services 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: jeedes
-ms.openlocfilehash: c5422c9894c66348d571b757e50073d2a5501c7b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f46cb8f0d0b04b0cff5d3118906f11a060a55f80
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440101"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833740"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>자습서: Attendance Management Services와 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ Attendance Management Services와의 Azure AD 통합을 구성하려면 다음 �
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Attendance Management Services 추가하기
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -64,11 +64,11 @@ Attendance Management Services의 Azure AD 통합을 구성하려면 갤러리�
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
 
@@ -110,10 +110,10 @@ Attendance Management Services에서 Azure AD Single Sign-On을 구성하고 테
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://id.obc.jp/<tenant information >/`
 
-    나. **식별자** 텍스트 상자에서 `https://id.obc.jp/<tenant information >/` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://id.obc.jp/<tenant information >/` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 가져오려면 [Attendance Management Services 클라이언트 지원 팀](http://www.obcnet.jp/)에 연락하십시오.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 가져오려면 [Attendance Management Services 클라이언트 지원 팀](https://www.obcnet.jp/)에 연락하십시오.
 
 1. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -139,9 +139,9 @@ Attendance Management Services에서 Azure AD Single Sign-On을 구성하고 테
 
     a. **SAML 인증**을 선택합니다.
 
-    나. Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 **식별자** 텍스트 상자에 붙여넣습니다. 
+    b. Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 **식별자** 텍스트 상자에 붙여넣습니다. 
 
-    다. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **인증 끝점 URL** 텍스트 상자에 붙여넣습니다.
+    다. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **인증 엔드포인트 URL** 텍스트 상자에 붙여넣습니다.
 
     d. **파일 선택하기**를 클릭하여 Azure AD에서 다운로드한 인증서를 업로드합니다.
 
@@ -150,7 +150,7 @@ Attendance Management Services에서 Azure AD Single Sign-On을 구성하고 테
     f. **등록** 클릭
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다. **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다. **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -207,7 +207,7 @@ Azure AD 사용자가 Attendance Management Services에 로그인할 수 있도�
 
     a. **OBCiD** 텍스트 상자에서 사용자의 이메일(예: **BrittaSimon@contoso.com**)을 입력합니다.
 
-    나. **암호** 텍스트 상자에서 사용자에 대한 암호를 입력합니다.
+    b. **암호** 텍스트 상자에서 사용자에 대한 암호를 입력합니다.
 
     다. **등록** 클릭
 
@@ -220,7 +220,7 @@ Azure AD 사용자가 Attendance Management Services에 로그인할 수 있도�
 
 **Britta Simon을 Attendance Management Services에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 

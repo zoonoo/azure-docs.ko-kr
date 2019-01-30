@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik
-ms.openlocfilehash: afb6c8345cd71e7d39b7f3a0b2307c99cf31b449
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1a34ad340463faf0cdccdb7fa8b87283de60b4cc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253340"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141614"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Windows Server용 Service Fabric 독립 실행형 패키지의 내용
 [다운로드된](https://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric 독립 실행형 패키지에서 다음 파일을 찾을 수 있습니다.
@@ -40,6 +40,7 @@ ms.locfileid: "51253340"
 | Tools\ServiceFabricUpdateService.zip |인터넷에 접속되지 않는 클러스터에 대한 자동 코드 업그레이드를 사용하도록 설정하는 데 사용되는 도구입니다. 자세한 내용은 [여기](service-fabric-cluster-upgrade-windows-server.md)|
 
 **템플릿** 
+
 | **파일 이름** | **간단한 설명** |
 | --- | --- |
 | ClusterConfig.Unsecure.DevCluster.json |클러스터에 있는 각 노드에 대한 정보를 포함하여 3개 노드의 비보안 단일 컴퓨터(또는 가상 머신) 개발 클러스터에 대한 설정이 포함된 클러스터 구성 샘플 파일입니다. |

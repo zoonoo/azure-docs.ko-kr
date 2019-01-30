@@ -1,23 +1,24 @@
 ---
-title: 컨테이너 구성
-titlesuffix: Computer Vision - Cognitive Services - Azure
-description: Computer Vision의 컨테이너에 대한 구성 설정입니다.
+title: 컨테이너 구성 - Computer Vision
+titlesuffix: Azure Cognitive Services
+description: Computer Vision에서 텍스트 인식 컨테이너에 대한 다양한 설정을 구성합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 8df293878486a9cd4ded6e899871c30498c4b68f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.custom: seodec18
+ms.openlocfilehash: 97de65acf724d12afd131ede25713e8f29d30bad
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635101"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477637"
 ---
-# <a name="configure-containers"></a>컨테이너 구성
+# <a name="configure-recognize-text-containers"></a>텍스트 인식 컨테이너 구성
 
 Computer Vision은 공통 구성 프레임워크를 사용하는 텍스트 인식 컨테이너를 제공합니다. 따라서 사용자는 컨테이너의 스토리지, 로깅 및 원격 분석, 보안 설정을 쉽게 구성하고 관리할 수 있습니다.
 
@@ -31,6 +32,7 @@ Computer Vision 컨테이너의 구성 설정은 계층적이고, 모든 컨테�
 * [결제](#billing-configuration-setting)
 * [Eula](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
+* [Http 프록시 자격 증명 설정](#http-proxy-credentials-settings)
 * [로깅](#logging-configuration-settings)
 * [탑재](#mounts-configuration-settings)
 
@@ -40,7 +42,7 @@ Computer Vision 컨테이너에서 컨테이너를 인스턴스화할 때 [환�
 
 ### <a name="configuration-settings-as-environment-variables"></a>환경 변수를 사용한 구성 설정
 
-[ASP.NET Core 환경 변수 구문](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#configuration-by-environment)을 사용하여 구성 설정을 지정할 수 있습니다.
+[ASP.NET Core 환경 변수 구문](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#environment-variables-configuration-provider)을 사용하여 구성 설정을 지정할 수 있습니다.
 
 컨테이너는 컨테이너가 인스턴스화될 때 사용자 환경 변수를 읽습니다. 환경 변수가 있을 경우 환경 변수의 값은 지정된 구성 설정에 대한 기본값을 재지정합니다. 환경 변수를 사용할 경우 컨테이너를 인스턴스화하기 전에 여러 구성 설정을 지정하고 여러 컨테이너가 동일한 구성 설정 집합을 자동으로 사용할 수 있다는 이점이 있습니다.
 
@@ -86,7 +88,7 @@ Computer Vision 컨테이너에서 컨테이너를 인스턴스화할 때 [환�
 
 ## <a name="billing-configuration-setting"></a>청구 구성 설정
 
-`Billing` 구성 설정은 컨테이너에 대한 청구 정보를 추적하기 위해 사용하는 Azure 기반 Computer Vision 리소스의 엔드포인트 URI를 지정합니다. 이 구성 설정에 대한 값을 지정해야 하며, 이 값은 Azure 기반 Computer Vision 리소스에 대해 유효한 엔드포인트 URI여야 합니다.
+`Billing` 구성 설정은 컨테이너에 대한 청구 정보를 측정하기 위해 사용하는 Azure 기반 Computer Vision 리소스의 엔드포인트 URI를 지정합니다. 이 구성 설정에 대한 값을 지정해야 하며, 이 값은 Azure 기반 Computer Vision 리소스에 대해 유효한 엔드포인트 URI여야 합니다.
 
 > [!IMPORTANT]
 > [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) 및 [`Eula`](#eula-configuration-setting) 구성 설정은 함께 사용됩니다. 따라서 이 세 가지 설정 모두에 대해 유효한 값을 제공해야 하며, 제공하지 않을 경우 컨테이너는 시작되지 않습니다. 이러한 구성 설정을 사용하여 컨테이너를 인스턴스화하는 방법에 대한 자세한 내용은 [청구](computer-vision-how-to-install-containers.md#billing)를 참조하세요.
@@ -97,6 +99,8 @@ Computer Vision 컨테이너에서 컨테이너를 인스턴스화할 때 [환�
 
 > [!IMPORTANT]
 > [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) 및 [`Eula`](#eula-configuration-setting) 구성 설정은 함께 사용됩니다. 따라서 이 세 가지 설정 모두에 대해 유효한 값을 제공해야 하며, 제공하지 않을 경우 컨테이너는 시작되지 않습니다. 이러한 구성 설정을 사용하여 컨테이너를 인스턴스화하는 방법에 대한 자세한 내용은 [청구](computer-vision-how-to-install-containers.md#billing)를 참조하세요.
+
+Cognitive Services 컨테이너는 Azure 사용에 관한 [계약](https://go.microsoft.com/fwlink/?linkid=2018657)에 따라 사용 허가됩니다. Azure 사용에 관한 기존 계약이 없으면 Azure 사용에 관한 계약은 [온라인 서비스 사용 약관](https://go.microsoft.com/fwlink/?linkid=2018760)을 포함한 [Microsoft 온라인 정기가입 계약](https://go.microsoft.com/fwlink/?linkid=2018755)임에 동의합니다. 미리 보기의 경우 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://go.microsoft.com/fwlink/?linkid=2018815)에도 동의합니다. 컨테이너를 사용하여 이 사용 약관에 동의합니다.
 
 ## <a name="fluentd-configuration-settings"></a>Fluentd 구성 설정
 
@@ -113,6 +117,11 @@ Computer Vision 컨테이너에서 컨테이너를 인스턴스화할 때 [환�
 | `TlsConnectionEstablishmentTimeoutMs` | 정수  | Fluentd 서버와 SSL/TLS 연결을 설정하기 위한 시간 제한(밀리초)입니다. 기본값은 10000밀리초(10초)입니다.<br/> `UseTLS`가 false로 설정되어 있는 경우 이 값은 무시됩니다. |
 | `UseTLS` | BOOLEAN | 컨테이너가 Fluentd 서버와 통신하기 위해 SSL/TLS를 사용해야 하는지 여부를 나타냅니다. 기본값은 False입니다. |
 
+
+## <a name="http-proxy-credentials-settings"></a>Http 프록시 자격 증명 설정
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+
 ## <a name="logging-configuration-settings"></a>로깅 구성 설정
 
 `Logging` 구성 설정은 컨테이너에 대한 ASP.NET Core 로깅 지원을 관리합니다. ASP.NET Core 애플리케이션에 사용할 수 있는 컨테이너에 동일한 구성 설정 및 값을 사용할 수 있습니다. Computer Vision 컨테이너에서 지원되는 로깅 공급자는 다음과 같습니다.
@@ -127,10 +136,10 @@ Computer Vision 컨테이너에서 컨테이너를 인스턴스화할 때 [환�
 
   | 이름 | 데이터 형식 | 설명 |
   |------|-----------|-------------|
-  | `Format` | 문자열 | 로그 파일에 대한 출력 형식입니다.<br/> **참고:** 로깅 공급자를 사용 설정하려면 이 값을 `json`으로 설정해야 합니다. 또한 컨테이너를 인스턴스화하는 동안 출력 탑재를 지정하지 않고 이 값이 지정된 경우에는 오류가 발생합니다. |
+  | `Format` | 문자열 | 로그 파일에 대한 출력 형식입니다.<br/> **참고:** 이 값은 `json`으로 설정해야 로깅 공급자를 사용할 수 있습니다. 또한 컨테이너를 인스턴스화하는 동안 출력 탑재를 지정하지 않고 이 값이 지정된 경우에는 오류가 발생합니다. |
   | `MaxFileSize` | 정수  | 로그 파일의 최대 크기(MB)입니다. 현재 로그 파일의 크기가 이 값을 충족하거나 초과할 경우 로깅 공급자가 새 로그 파일을 시작합니다. -1을 지정하면 로그 파일의 크기는 출력 탑재(있는 경우)에 대한 최대 파일 크기에 의해서만 제한됩니다. 기본값은 1입니다. |
 
-ASP.NET Core 로깅 지원 구성에 대한 자세한 내용은 [설정 파일 구성](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration)을 참조하세요.
+ASP.NET Core 로깅 지원 구성에 대한 자세한 내용은 [ASP.NET Core에서 로깅](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#configuration)을 참조하세요.
 
 ## <a name="mounts-configuration-settings"></a>탑재 구성 설정
 
@@ -161,3 +170,7 @@ Computer Vision에서 제공하는 Docker 컨테이너는 상태를 저장하지
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789 Logging:Disk:Format=json
   ```
+
+## <a name="next-steps"></a>다음 단계
+
+* 추가적인 [Cognitive Services 컨테이너](../cognitive-services-container-support.md) 사용

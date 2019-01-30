@@ -1,5 +1,5 @@
 ---
-title: Azure에서 PHP 웹앱 만들기 | Microsoft Docs
+title: PHP 웹앱 만들기 - Azure App Service | Microsoft Docs
 description: 몇 분 안에 Azure App Service Web Apps에서 첫 번째 PHP Hello World를 배포합니다.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: cephalin;cfowler
-ms.custom: mvc
-ms.openlocfilehash: 0dd8f90a39abc18263fcaa5bdb63a5b743728952
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.custom: seodec18
+ms.openlocfilehash: 48df416002a2c89e0172e82278f6154c6a6da836
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42884967"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630022"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Azure에서 PHP 웹앱 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "42884967"
 > 이 문서에서는 Windows의 App Service에 앱을 배포합니다. _Linux_의 App Service에 배포하려면 [Linux의 App Service에서 PHP 웹앱 만들기](./containers/quickstart-php.md)를 참조하세요.
 >
 
-[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작 자습서에서는 PHP 앱을 Azure Web Apps에 배포하는 방법을 보여 줍니다. Cloud Shell에서 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git을 사용하여 웹앱에 샘플 PHP 코드를 배포합니다.
+[Azure App Service](overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작 자습서에서는 PHP 앱을 Azure App Service에 배포하는 방법을 보여줍니다. Cloud Shell에서 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git을 사용하여 웹앱에 샘플 PHP 코드를 배포합니다.
 
 ![Azure에서 실행되는 샘플 앱](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
@@ -41,20 +41,20 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 여기서 설명하는 단�
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
 * <a href="https://git-scm.com/" target="_blank">Git 설치</a>
-* <a href="http://php.net/manual/install.php" target="_blank">PHP 설치</a>
+* <a href="https://php.net/manual/install.php" target="_blank">PHP 설치</a>
 
 ## <a name="download-the-sample-locally"></a>로컬로 샘플 다운로드
 
-터미널 창에서 다음 명령을 실행합니다. 그러면 응용 프로그램 예제가 로컬 컴퓨터에 복제되고 샘플 코드가 들어 있는 디렉터리로 이동합니다. 
+터미널 창에서 다음 명령을 실행합니다. 그러면 애플리케이션 예제가 로컬 컴퓨터에 복제되고 샘플 코드가 들어 있는 디렉터리로 이동합니다. 
 
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
 cd php-docs-hello-world
 ```
 
-## <a name="run-the-app-locally"></a>로컬에서 앱 실행
+## <a name="run-the-app-locally"></a>로컬에서 앱 실행하기
 
-응용 프로그램을 로컬로 실행하여 Azure에 응용 프로그램을 배포할 때 표시되는 모양을 확인합니다. 터미널 창을 열고 `php` 명령을 사용하여 기본 제공 PHP 웹 서버를 시작합니다.
+애플리케이션을 로컬로 실행하여 Azure에 애플리케이션을 배포할 때 표시되는 모양을 확인합니다. 터미널 창을 열고 `php` 명령을 사용하여 기본 제공 PHP 웹 서버를 시작합니다.
 
 ```bash
 php -S localhost:8080
@@ -150,7 +150,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ## <a name="browse-to-the-app"></a>앱으로 이동
 
-웹 브라우저를 사용하여 배포된 응용 프로그램으로 이동합니다.
+웹 브라우저를 사용하여 배포된 애플리케이션으로 이동합니다.
 
 ```
 http://<app_name>.azurewebsites.net
@@ -181,13 +181,13 @@ git push azure master
 
 ![Azure에서 실행되는 업데이트된 샘플 앱](media/app-service-web-get-started-php/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>새로운 Azure 웹앱 관리
+## <a name="manage-your-new-azure-app"></a>새 Azure 앱 관리
 
 만든 웹앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다.
 
-왼쪽 메뉴에서 **App Services**를 클릭한 다음 Azure 웹앱의 이름을 클릭합니다.
+왼쪽 메뉴에서 **App Services**를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
 
-![Azure 웹앱에 대한 포털 탐색](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
+![Azure 앱에 대한 포털 탐색](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
 웹앱의 개요 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다.
 

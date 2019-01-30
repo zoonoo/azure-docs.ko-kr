@@ -1,7 +1,7 @@
 ---
 title: Android의 Java에서 Microsoft Speech Recognition API 시작 | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Microsoft Speech API를 사용하여 음성 오디오를 텍스트로 변환하는 Android 응용 프로그램을 개발합니다.
+description: Microsoft Speech API를 사용하여 음성 오디오를 텍스트로 변환하는 Android 애플리케이션을 개발합니다.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
@@ -21,7 +21,7 @@ ms.locfileid: "49345257"
 
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>빠른 시작: Android의 Java에서 Bing Speech Recognition API 사용
 
-Bing Speech Recognition API를 사용하면 클라우드 기반 Bing Speech 서비스를 사용하여 음성 오디오를 텍스트로 변환하는 Android 응용 프로그램을 개발할 수 있습니다. API는 실시간 스트리밍을 지원하므로 응용 프로그램에서 오디오를 서비스에 보내는 동시에 부분 인식 결과를 동시에 비동기적으로 받을 수 있습니다.
+Bing Speech Recognition API를 사용하면 클라우드 기반 Bing Speech 서비스를 사용하여 음성 오디오를 텍스트로 변환하는 Android 애플리케이션을 개발할 수 있습니다. API는 실시간 스트리밍을 지원하므로 애플리케이션에서 오디오를 서비스에 보내는 동시에 부분 인식 결과를 동시에 비동기적으로 받을 수 있습니다.
 
 이 문서에서는 샘플 애플리케이션을 사용하여 Android용 Speech 클라이언트 라이브러리를 통해 Android 디바이스용 Java에서 음성 - 텍스트 변환 애플리케이션을 개발하는 방법을 보여 줍니다.
 
@@ -31,7 +31,7 @@ Bing Speech Recognition API를 사용하면 클라우드 기반 Bing Speech 서�
 
 이 샘플은 Windows용 [Android Studio](http://developer.android.com/sdk/index.html)를 통해 Java에서 개발되었습니다.
 
-### <a name="get-the-client-library-and-sample-application"></a>클라이언트 라이브러리 및 샘플 응용 프로그램 가져오기
+### <a name="get-the-client-library-and-sample-application"></a>클라이언트 라이브러리 및 샘플 애플리케이션 가져오기
 
 Android용 Speech 클라이언트 라이브러리 및 샘플은 [Android용 Speech 클라이언트 SDK](https://github.com/microsoft/cognitive-speech-stt-android)에서 사용할 수 있습니다. 빌드 가능한 샘플은 samples/SpeechRecoExample 디렉터리에서 찾을 수 있습니다. 사용자 고유의 앱에서 사용해야 하는 두 개의 라이브러리는 armeabi 및 x86 폴더의 SpeechSDK/libs에서 찾을 수 있습니다. libandroid_platform.so 파일의 크기는 22MB이지만 배포 시 4MB로 줄어듭니다.
 
@@ -44,11 +44,11 @@ Speech API는 Cognitive Services(이전의 Project Oxford)의 일부입니다. [
 > [!IMPORTANT]
 >* 구독 키를 가져오세요. Speech 클라이언트 라이브러리를 사용하려면 먼저 [구독 키](https://azure.microsoft.com/try/cognitive-services/)가 있어야 합니다.
 >
->* 구독 키를 사용하세요. 제공된 Android 샘플 응용 프로그램을 사용하여 samples/SpeechRecoExample/res/values/strings.xml 파일을 구독 키로 업데이트합니다. 자세한 내용은 [샘플 빌드 및 실행](#build-and-run-samples)을 참조하세요.
+>* 구독 키를 사용하세요. 제공된 Android 샘플 애플리케이션을 사용하여 samples/SpeechRecoExample/res/values/strings.xml 파일을 구독 키로 업데이트합니다. 자세한 내용은 [샘플 빌드 및 실행](#build-and-run-samples)을 참조하세요.
 
 ## <a name="use-the-speech-client-library"></a>Speech 클라이언트 라이브러리 사용
 
-응용 프로그램에서 클라이언트 라이브러리를 사용하려면 이 [지침](https://github.com/microsoft/cognitive-speech-stt-android#the-client-library)을 따르세요.
+애플리케이션에서 클라이언트 라이브러리를 사용하려면 이 [지침](https://github.com/microsoft/cognitive-speech-stt-android#the-client-library)을 따르세요.
 
 [Android용 Speech 클라이언트 SDK](https://github.com/microsoft/cognitive-speech-stt-android)의 docs 폴더에서 Android용 클라이언트 라이브러리 참조를 찾을 수 있습니다.
 

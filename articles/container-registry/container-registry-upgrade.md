@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: danlep
-ms.openlocfilehash: fd22677c2acc9e61abc082b3515a817c01c163cb
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 73e207dae61dfc8912fd79a151adf982753701f1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855972"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969110"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Classic 컨테이너 레지스트리 업그레이드
 
@@ -123,10 +123,10 @@ Azure Portal을 사용하여 Classic 레지스트리를 업그레이드하려면
 Classic 레지스트리를 Basic, Standard 또는 Premium으로 업그레이드하면 Azure에서는 Classic 레지스트리를 지원하던 저장소 계정을 더 이상 사용하지 않습니다. 비용을 줄이기 위해 이전 컨테이너 이미지를 포함하는 저장소 계정 또는 계정 내의 Blob 컨테이너를 삭제하는 것이 좋습니다.
 
 <!-- IMAGES -->
-[update-classic-01-upgrade]: ./media/container-registry-upgrade\update-classic-01-upgrade.png
-[update-classic-02-confirm]: ./media/container-registry-upgrade\update-classic-02-confirm.png
-[update-classic-03-updating]: ./media/container-registry-upgrade\update-classic-03-updating.png
-[update-classic-04-updated]: ./media/container-registry-upgrade\update-classic-04-updated.png
+[update-classic-01-upgrade]: ./media/container-registry-upgrade/update-classic-01-upgrade.png
+[update-classic-02-confirm]: ./media/container-registry-upgrade/update-classic-02-confirm.png
+[update-classic-03-updating]: ./media/container-registry-upgrade/update-classic-03-updating.png
+[update-classic-04-updated]: ./media/container-registry-upgrade/update-classic-04-updated.png
 
 <!-- LINKS - internal -->
 [az-acr-update]: /cli/azure/acr#az-acr-update

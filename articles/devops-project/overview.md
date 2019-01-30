@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/03/2018
 ms.author: mlearned
-ms.openlocfilehash: 9efb3c9bae790efed3d09274b1a77d7b8161d479
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 9e425662a698f077c3a1b9b3ff1270384fd61374
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165243"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261250"
 ---
 # <a name="overview-of-azure-devops-projects"></a>Azure DevOps Projects 개요
 
@@ -35,7 +35,7 @@ ms.locfileid: "52165243"
 
 DevOps Projects를 사용하여 다음을 수행할 수 있습니다.
 
-* Azure에 응용 프로그램 신속 배포
+* Azure에 애플리케이션 신속 배포
 * CI/CD 파이프라인의 설정 자동화
 * CI/CD 파이프라인을 제대로 설정하는 방법 확인 및 이해
 * 특정 시나리오에 따라 릴리스 파이프라인을 추가로 사용자 지정

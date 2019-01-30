@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 12/14/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 87d5389abd72875c62ea3484fc3f9ca43c339447
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 36b3fcfa90b5b1de9c9d3262da1f3e519cc99c19
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48240218"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "53444266"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>사용자 지정 IPsec/IKE 정책은 모든 Azure VPN Gateway SKU에서 지원되나요?
 사용자 지정 IPsec/IKE 정책은 **VpnGw1, VpnGw2, VpnGw3, 표준** 및 **HighPerformance** VPN Gateway에서 지원됩니다. **기본** SKU는 지원되지 **않습니다**.
@@ -47,7 +47,7 @@ ms.locfileid: "48240218"
 > 5. UsePolicyBasedTrafficSelector는 연결에 대한 옵션 매개 변수입니다. "UsePolicyBasedTrafficSelectors"에 대한 다음 FAQ 항목을 참조하세요.
 
 ### <a name="does-everything-need-to-match-between-the-azure-vpn-gateway-policy-and-my-on-premises-vpn-device-configurations"></a>Azure VPN Gateway 정책과 온-프레미스 VPN 디바이스 구성 간에 모든 항목이 일치해야 하나요?
-온-프레미스 VPN 장치 구성은 Azure IPsec/IKE 정책에서 지정한 다음 알고리즘 및 매개 변수가 일치하거나 포함해야 합니다.
+온-프레미스 VPN 디바이스 구성은 Azure IPsec/IKE 정책에서 지정한 다음 알고리즘 및 매개 변수가 일치하거나 포함해야 합니다.
 
 * IKE 암호화 알고리즘
 * IKE 무결성 알고리즘
@@ -59,7 +59,7 @@ ms.locfileid: "48240218"
 
 SA 수명은 로컬 사양일 뿐이며 일치하지 않아도 됩니다.
 
-**UsePolicyBasedTrafficSelectors**를 사용하도록 설정한 경우 VPN 장치에 온-프레미스 네트워크(로컬 네트워크 게이트웨이) 접두사 및 Azure Virtual Network 접두사 간의 모든 조합으로 정의된 일치하는 트래픽 선택기가 있는지 확인해야 합니다. 예를 들어 온-프레미스 네트워크 접두사가 10.1.0.0/16 및 10.2.0.0/16이고 가상 네트워크 접두사가 192.168.0.0/16 및 172.16.0.0/16이면 다음 트래픽 선택기를 지정해야 합니다.
+**UsePolicyBasedTrafficSelectors**를 사용하도록 설정한 경우 VPN 디바이스에 온-프레미스 네트워크(로컬 네트워크 게이트웨이) 접두사 및 Azure Virtual Network 접두사 간의 모든 조합으로 정의된 일치하는 트래픽 선택기가 있는지 확인해야 합니다. 예를 들어 온-프레미스 네트워크 접두사가 10.1.0.0/16 및 10.2.0.0/16이고 가상 네트워크 접두사가 192.168.0.0/16 및 172.16.0.0/16이면 다음 트래픽 선택기를 지정해야 합니다.
 * 10.1.0.0/16 <====> 192.168.0.0/16
 * 10.1.0.0/16 <====> 172.16.0.0/16
 * 10.2.0.0/16 <====> 192.168.0.0/16
@@ -102,3 +102,6 @@ SA 수명은 로컬 사양일 뿐이며 일치하지 않아도 됩니다.
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>ExpressRoute 연결에서 사용자 지정 IPsec/IKE 정책이 작동하나요?
  아니요. IPsec/IKE 정책은 Azure VPN Gateway를 통해 S2S VPN 및 VNet 간 연결에서만 작동합니다.
+
+### <a name="where-can-i-find-more-configuration-information-for-ipsec"></a>IPsec에 대한 추가 구성 정보는 어디에서 찾을 수 있나요?
+[S2S 또는 VNet 간 연결에 대한 IPsec/IKE 정책 구성](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)을 참조하세요.

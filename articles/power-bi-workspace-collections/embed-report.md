@@ -1,6 +1,6 @@
 ---
 title: Azure Power BI 작업 영역 컬렉션에 보고서 포함 | Microsoft Docs
-description: Power BI 작업 영역 컬렉션에 있는 보고서를 응용 프로그램에 포함하는 방법을 알아봅니다.
+description: Power BI 작업 영역 컬렉션에 있는 보고서를 애플리케이션에 포함하는 방법을 알아봅니다.
 services: power-bi-embedded
 author: markingmyname
 ROBOTS: NOINDEX
@@ -10,23 +10,23 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 94476486ed87662f3d6b989b8d5360dd792f8824
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: caa877a265fb8665e062cc0069247bca0994c4bf
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041183"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857100"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션에 보고서 포함
 
-Power BI 작업 영역 컬렉션에 있는 보고서를 응용 프로그램에 포함하는 방법을 알아봅니다.
+Power BI 작업 영역 컬렉션에 있는 보고서를 애플리케이션에 포함하는 방법을 알아봅니다.
 
 > [!IMPORTANT]
-> Power BI 작업 영역 컬렉션은 2018년 6월 또는 계약에서 명시한 때까지만 사용할 수 있으며 이후에는 사용되지 않습니다. 응용 프로그램에서 중단을 방지하기 위해 Power BI Embedded에 대한 마이그레이션을 계획하는 것이 좋습니다. Power BI Embedded에 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [Power BI Embedded에 Power BI 작업 영역 컬렉션 콘텐츠를 마이그레이션하는 방법](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)을 참조하세요.
+> Power BI 작업 영역 컬렉션은 2018년 6월 또는 계약에서 명시한 때까지만 사용할 수 있으며 이후에는 사용되지 않습니다. 애플리케이션에서 중단을 방지하기 위해 Power BI Embedded에 대한 마이그레이션을 계획하는 것이 좋습니다. Power BI Embedded에 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [Power BI Embedded에 Power BI 작업 영역 컬렉션 콘텐츠를 마이그레이션하는 방법](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)을 참조하세요.
 
-실제로 응용 프로그램에 보고서를 포함하는 방법을 살펴보겠습니다. 여기서는 작업 영역 컬렉션의 작업 영역 내에 보고서가 이미 있다고 가정합니다. 해당 단계를 아직 완료하지 않으면 [Power BI 작업 영역 컬렉션 시작](get-started.md)을 참조하세요.
+실제로 애플리케이션에 보고서를 포함하는 방법을 살펴보겠습니다. 여기서는 작업 영역 컬렉션의 작업 영역 내에 보고서가 이미 있다고 가정합니다. 해당 단계를 아직 완료하지 않으면 [Power BI 작업 영역 컬렉션 시작](get-started.md)을 참조하세요.
 
-JavaScript와 함께 .NET(C#) 또는 Node.js SDK를 사용하여 Power BI 작업 영역 컬렉션으로 응용 프로그램을 손쉽게 빌드할 수 있습니다.
+JavaScript와 함께 .NET(C#) 또는 Node.js SDK를 사용하여 Power BI 작업 영역 컬렉션으로 애플리케이션을 손쉽게 빌드할 수 있습니다.
 
 ## <a name="using-the-access-keys-to-use-rest-apis"></a>액세스 키를 사용하여 REST API 사용
 
@@ -82,9 +82,9 @@ using (var response = request.GetResponse() as System.Net.HttpWebResponse)
 
 ## <a name="create-an-access-token"></a>액세스 토큰 만들기
 
-Power BI 작업 영역 컬렉션은 HMAC 서명 JSON 웹 토큰에 해당하는 Embed 토큰을 사용합니다. 이러한 토큰은 Power BI 작업 영역 컬렉션의 액세스 키로 서명됩니다. 기본적으로 응용 프로그램에 포함할 보고서에 대해 읽기 전용 액세스를 제공하기 위해 Embed 토큰이 사용됩니다. Embed 토큰은 특정 보고서에 대해 발급되며 Embed URL에 연결되어야 합니다.
+Power BI 작업 영역 컬렉션은 HMAC 서명 JSON 웹 토큰에 해당하는 Embed 토큰을 사용합니다. 이러한 토큰은 Power BI 작업 영역 컬렉션의 액세스 키로 서명됩니다. 기본적으로 애플리케이션에 포함할 보고서에 대해 읽기 전용 액세스를 제공하기 위해 Embed 토큰이 사용됩니다. Embed 토큰은 특정 보고서에 대해 발급되며 Embed URL에 연결되어야 합니다.
 
-서명/토큰 암호화에 액세스 키가 사용되므로 서버에서 액세스 토큰을 만들어야 합니다. 액세스 토큰을 만드는 방법에 대한 자세한 내용은 [Power BI 작업 영역 컬렉션에서 인증 및 권한 부여](app-token-flow.md)를 참조하세요. [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) 메서드를 검토할 수도 있습니다. 다음은 Power BI용 .NET SDK를 사용할 경우의 예제입니다.
+서명/토큰 암호화에 액세스 키가 사용되므로 서버에서 액세스 토큰을 만들어야 합니다. 액세스 토큰을 만드는 방법에 대한 자세한 내용은 [Power BI 작업 영역 컬렉션에서 인증 및 권한 부여](app-token-flow.md)를 참조하세요. [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) 메서드를 검토할 수도 있습니다. 다음은 Power BI용 .NET SDK를 사용할 경우의 예제입니다.
 
 이전에 검색한 보고서 ID를 사용합니다. Embed 토큰이 만들어지면 액세스 키를 사용하여 javascript 관점에서 사용할 수 있는 토큰을 생성합니다. *PowerBIToken 클래스*를 사용하려면 [Power BI Core NuGut 패키지](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)를 설치해야 합니다.
 
@@ -147,7 +147,7 @@ var report = powerbi.embed($reportContainer.get(0), embedConfiguration);
 
 [샘플 시작](get-started-sample.md)  
 [Power BI 작업 영역 컬렉션에서 인증 및 권한 부여](app-token-flow.md)  
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [JavaScript Embed 샘플](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 [Power BI JavaScript 패키지](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
 [Power BI API NuGet 패키지](https://www.nuget.org/profiles/powerbi)

@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub에 원격 분석 전송 빠른 시작 | Microsoft Docs
-description: 이 빠른 시작에서는 샘플 iOS 응용 프로그램을 실행하여 시뮬레이션된 원격 분석을 IoT Hub로 보내고, 클라우드에서 처리할 원격 분석을 IoT Hub에서 읽습니다.
+description: 이 빠른 시작에서는 샘플 iOS 애플리케이션을 실행하여 시뮬레이션된 원격 분석을 IoT Hub로 보내고, 클라우드에서 처리할 원격 분석을 IoT Hub에서 읽습니다.
 author: kgremban
 manager: timlt
 ms.service: iot-hub
@@ -20,9 +20,9 @@ ms.locfileid: "51515117"
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
-IoT Hub는 저장 또는 처리를 위해 IoT 디바이스에서 클라우드로 다량의 원격 분석 데이터를 수집할 수 있게 해주는 Azure 서비스입니다. 이 아티클에서는 시뮬레이션된 디바이스 응용 프로그램에서 IoT Hub로 원격 분석을 보냅니다. 그런 다음, 백 엔드 응용 프로그램에서 데이터를 볼 수 있습니다. 
+IoT Hub는 저장 또는 처리를 위해 IoT 디바이스에서 클라우드로 다량의 원격 분석 데이터를 수집할 수 있게 해주는 Azure 서비스입니다. 이 아티클에서는 시뮬레이션된 디바이스 응용 프로그램에서 IoT Hub로 원격 분석을 보냅니다. 그런 다음, 백 엔드 애플리케이션에서 데이터를 볼 수 있습니다. 
 
-이 아티클에서는 미리 작성된 Swift 응용 프로그램을 사용하여 원격 분석을 보내고, CLI 유틸리티를 사용하여 IoT Hub에서 원격 분석을 읽습니다. 
+이 아티클에서는 미리 작성된 Swift 애플리케이션을 사용하여 원격 분석을 보내고, CLI 유틸리티를 사용하여 IoT Hub에서 원격 분석을 읽습니다. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -87,7 +87,7 @@ pod install
 
 설치 명령은 프로젝트에 필요한 포드를 설치하고, 종속성에 Pod를 사용하도록 이미 구성된 XCode 작업 영역 파일도 만들었습니다. 
 
-### <a name="run-the-sample-application"></a>샘플 응용 프로그램 실행 
+### <a name="run-the-sample-application"></a>샘플 애플리케이션 실행 
 
 1. XCode에서 샘플 작업 영역을 엽니다.
 
@@ -105,7 +105,7 @@ pod install
 
 7. 에뮬레이터가 열리면 샘플 앱에서 **시작**을 선택합니다.
 
-다음 스크린샷은 응용 프로그램이 시뮬레이션된 원격 분석을 IoT Hub로 보낼 때의 몇 가지 출력 예를 보여 줍니다.
+다음 스크린샷은 애플리케이션이 시뮬레이션된 원격 분석을 IoT Hub로 보낼 때의 몇 가지 출력 예를 보여 줍니다.
 
    ![시뮬레이션된 디바이스 실행](media/quickstart-send-telemetry-ios/view-d2c.png)
 

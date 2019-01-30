@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: bbb0bbc6ddbbabb37932edc6946394b020631231
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 484a0043b9b5eefa5491dee75e87244d1c001620
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45636429"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342326"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>SAP NetWeaver에 대한 Red Hat Enterprise Linux에 있는 Azure VM의 GlusterFS
 
@@ -110,10 +110,10 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 1. 가용성 집합 만들기  
    최대 업데이트 도메인 설정
 1. Virtual Machine 1 만들기  
-   RHEL 7 이상(이 예제에서는 Red Hat Enterprise Linux 7.4 이미지 <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>)을 사용합니다.  
+   RHEL 7 이상(이 예제에서는 Red Hat Enterprise Linux 7.4 이미지 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>)을 사용합니다.  
    이전에 만든 가용성 집합 선택  
 1. Virtual Machine 2 만들기  
-   RHEL 7 이상(이 예제에서는 Red Hat Enterprise Linux 7.4 이미지 <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>)을 사용합니다.  
+   RHEL 7 이상(이 예제에서는 Red Hat Enterprise Linux 7.4 이미지 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>)을 사용합니다.  
    이전에 만든 가용성 집합 선택  
 1. 두 가상 머신의 각 SAP 시스템에 하나의 데이터 디스크를 추가합니다.
 

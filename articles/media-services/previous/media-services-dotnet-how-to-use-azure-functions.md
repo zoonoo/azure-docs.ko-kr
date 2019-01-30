@@ -342,7 +342,7 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Media Services 응용 프로그램 개발을 시작할 준비가 되었습니다. 
+이제 Media Services 애플리케이션 개발을 시작할 준비가 되었습니다. 
  
 Azure Media Services에서 Azure Functions 및 Logic Apps를 사용하여 사용자 지정 콘텐츠 만들기 워크플로를 만드는 방법에 대한 자세한 내용 및 전체 샘플/솔루션은 [GitHub의 Media Services .NET 함수 통합 샘플](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)을 참조하세요.
 

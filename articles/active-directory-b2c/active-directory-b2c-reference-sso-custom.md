@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 
 description: Azure AD B2C에서 사용자 지정 정책을 사용하여 SSO 세션을 관리하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: bd41ce5ba0cc738c1fd0d61d080e63753706f975
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: f0c9355a4b4d61f9aadaa0923d89419e7d773431
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377415"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847971"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 Single Sign-On 세션 관리
 
@@ -42,7 +42,7 @@ Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다
 
 ## <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
 
-세션에서 클레임을 저장하는 데 이 공급자를 사용할 수 있습니다. 이 공급자는 로컬 계정을 관리하기 위해 사용되는 기술 프로필에서 일반적으로 참조됩니다. DefaultSSOSessionProvider를 사용하여 세션에 클레임을 저장하는 경우 응용 프로그램에 반환되거나 이후 단계의 사전 조건에 사용되어야 하는 모든 클레임이 해당 세션에 저장되어 있거나 디렉터리에 있는 사용자 프로필에서의 읽기로 확대되는지 확인해야 합니다. 이렇게 하면 인증 과정이 누락된 클레임에서도 실패하지 않게 됩니다.
+세션에서 클레임을 저장하는 데 이 공급자를 사용할 수 있습니다. 이 공급자는 로컬 계정을 관리하기 위해 사용되는 기술 프로필에서 일반적으로 참조됩니다. DefaultSSOSessionProvider를 사용하여 세션에 클레임을 저장하는 경우 애플리케이션에 반환되거나 이후 단계의 사전 조건에 사용되어야 하는 모든 클레임이 해당 세션에 저장되어 있거나 디렉터리에 있는 사용자 프로필에서의 읽기로 확대되는지 확인해야 합니다. 이렇게 하면 인증 과정이 누락된 클레임에서도 실패하지 않게 됩니다.
 
 ```XML
 <TechnicalProfile Id="SM-AAD">

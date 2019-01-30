@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 10/04/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: a2f8d295ca161ff2263f53b8faa407c7a42a4c6b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ae6ab0eb4c966ef57c7859098217b5b6b560614b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385846"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188558"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Data Box 배포
 
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Data Box를 배포하는 방법을 설명합니다. 여기서는 Data Box를 케이블로 연결 및 구성하고 Azure에 업로드되도록 Data Box에 데이터를 복사하는 단계를 수행합니다. 디바이스의 로컬 웹 UI와 Azure Portal에서 이 빠른 시작을 수행합니다.
 
-자세한 단계별 배포 및 추적 지침을 확인하려면 [자습서: Azure Data Box 주문](data-box-deploy-ordered.md)을 방문하세요.
+자세한 단계별 배포 및 추적 지침은 [자습서: Azure Data Box 주문](data-box-deploy-ordered.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -28,7 +28,6 @@ ms.locfileid: "49385846"
 - Data Box 서비스에 사용할 구독이 다음 형식 중 하나인지 확인합니다.
     - Microsoft EA(기업계약). [EA 구독](https://azure.microsoft.com/pricing/enterprise-agreement/)에 대해 자세히 알아보세요.
     - CSP(클라우드 솔루션 공급자). [CSP 프로그램](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)에 대해 자세히 알아보세요.
-    - 소비 - 종량제. Azure [종량제 구독](https://azure.microsoft.com/offers/ms-azr-0003p/)에 대해 자세히 알아보세요.
     - Microsoft Azure 스폰서쉽. [Azure 스폰서쉽 프로그램](https://azure.microsoft.com/offers/ms-azr-0036p/)에 대해 자세히 알아보세요. 
 
 - Data Box 주문을 작성할 구독에 대한 소유자 또는 참가자 권한이 있는지 확인합니다.
@@ -87,8 +86,8 @@ Data Box를 받으면 다음 단계를 수행하여 디바이스에 케이블을
 
 이 단계는 완료하는 데 약 5~7분이 걸립니다.
 
-1. 장치 암호를 확인하려면 [Azure Portal](http://portal.azure.com)에서 **일반 > 장치 정보**로 이동합니다.
-2. Data Box에 연결하는 데 사용 중인 컴퓨터의 이더넷 어댑터에서 고정 IP 주소 192.168.100.5 및 서브넷 255.255.255.0을 할당합니다. `https://192.168.100.10`에서 장치의 로컬 웹 UI에 액세스합니다. 디바이스를 켠 후 연결이 될 때까지 최대 5분이 소요될 수 있습니다. 
+1. 디바이스 암호를 확인하려면 [Azure Portal](http://portal.azure.com)에서 **일반 &gt; 디바이스 정보**로 이동합니다.
+2. Data Box에 연결하는 데 사용 중인 컴퓨터의 이더넷 어댑터에서 고정 IP 주소 192.168.100.5 및 서브넷 255.255.255.0을 할당합니다. `https://192.168.100.10`에서 디바이스의 로컬 웹 UI에 액세스합니다. 디바이스를 켠 후 연결이 될 때까지 최대 5분이 소요될 수 있습니다. 
 3. Azure Portal에서 암호를 사용하여 로그인합니다. 웹 사이트의 보안 인증서 문제를 나타내는 오류가 표시됩니다. 브라우저별 지침에 따라 웹 페이지로 이동합니다.
 4. 기본적으로 10Gbps 또는 1Gbps 데이터 인터페이스의 네트워크 설정은 DHCP로 구성됩니다. 필요한 경우 이 인터페이스를 정적으로 구성하고 IP 주소를 제공할 수 있습니다. 
 

@@ -1,9 +1,9 @@
 ---
-title: Azure Active Directory Premium Edition에 등록하는 방법 | Microsoft Docs
-description: Azure Active Directory Premium Edition에 등록하는 방법에 대한 단계별 지침입니다.
+title: Premium Edition에 가입 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory Premium Edition에 가입하는 방법에 대한 지침입니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
-ms.custom: it-pro
-ms.openlocfilehash: a0a992e62e7b1e375ff2591aa82bdc7733e9d26f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 9a2c7ddc97bacf05cfcab14bffddb18e95c43d68
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394700"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446445"
 ---
-# <a name="how-to-sign-up-for-azure-active-directory-premium"></a>방법: Azure Active Directory Premium에 등록
-Azure AD(Azure Active Directory) Premium을 구매하고 Azure 구독에 연결할 수 있습니다. 새로운 Azure 구독을 만들어야 하는 경우 라이선싱 계획 및 Azure AD 서비스 액세스도 활성화해야 합니다.
+# <a name="sign-up-for-azure-active-directory-premium-editions"></a>Azure Active Directory Premium Edition에 가입
+Azure AD(Azure Active Directory) Premium Edition을 구매하고 Azure 구독에 연결할 수 있습니다. 새로운 Azure 구독을 만들어야 하는 경우 라이선싱 계획 및 Azure AD 서비스 액세스도 활성화해야 합니다.
 
 > [!NOTE]
 >Azure AD Premium 및 Basic 버전은 Azure Active Directory의 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure AD Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Azure 서비스에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 사용하여 문의하세요.
@@ -66,7 +66,7 @@ Microsoft 볼륨 라이선싱 플랜을 통해 가져오려는 라이선스 수�
    
     ![로그인](media/active-directory-get-started-premium/MOLSEmail.png)
 
-    - **로그인.** 기존 테넌트가 있는 경우 이 링크를 선택한 후 기존 관리자 계정을 사용하여 로그인합니다. 라이선스가 활성화되는 테넌트에서 전역 관리자여야 합니다.
+    - **로그인.** 기존 테넌트가 있는 경우 이 링크를 선택한 후 기존 관리자 계정을 사용하여 로그인합니다. 라이선스가 활성화되는 테넌트의 글로벌 관리자여야 합니다.
 
     - **등록.** **계정 프로필 만들기** 페이지를 열려면 이 링크를 선택하고 라이선싱 플랜을 위한 새 Azure AD 테넌트를 만듭니다.
 

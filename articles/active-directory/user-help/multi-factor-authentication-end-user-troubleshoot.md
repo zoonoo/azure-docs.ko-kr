@@ -3,7 +3,7 @@ title: 2단계 인증 문제 해결 - Azure Active Directory | Microsoft Docs
 description: Azure Multi-Factor Authentication 및 2단계 인증에 문제가 발생할 경우, 수행할 작업에 대한 지침을 사용자에게 제공합니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.workload: identity
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.openlocfilehash: fd722da236f3e1fff18e2561756635cd95f098e0
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6cf794d36db865f553c0a4db16506305dab2f4fc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346526"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810179"
 ---
 # <a name="get-help-with-two-step-verification"></a>2단계 인증에 관한 도움말 얻기
 
@@ -32,13 +32,13 @@ ms.locfileid: "39346526"
 
 계정에 대체 인증 방법을 사용해야 하는 몇 가지 이유가 있습니다. 예: 
 
-- **휴대폰이나 장치를 기기를 잊은 경우** 전화기를 집에 두고 온 날에도, 직장에서는 여전히 로그인해야 합니다. 먼저 휴대폰이 필요하지 않은 다른 방법을 사용하여 로그인을 시도해야 합니다.
+- **휴대폰이나 디바이스를 기기를 잊은 경우** 전화기를 집에 두고 온 날에도, 직장에서는 여전히 로그인해야 합니다. 먼저 휴대폰이 필요하지 않은 다른 방법을 사용하여 로그인을 시도해야 합니다.
 
 - **휴대폰을 분실한 경우 또는 전화 번호가 바뀐 경우** 휴대폰을 분실했거나 번호가 바뀐 경우, 다른 방법으로 로그인하거나 관리자에게 요청하여 설정을 지울 수 있습니다. 휴대폰을 분실하거나 도난 당한 경우, 계정에 적절한 업데이트를 적용할 수 있도록 관리자에게 알리는 것이 좋습니다. 설정이 지워진 후 다음에 로그인할 때 [2단계 인증 등록](multi-factor-authentication-end-user-first-time.md) 메시지가 표시됩니다.
 
 - **인증 문자 또는 전화 통화를 받을 수 없는 경우** 문자나 전화 통화를 받을 수 없는 몇 가지 이유가 있습니다. 과거에 문자나 전화 통화를 성공적으로 받은 경우에는 계정이 아니라 휴대폰 공급자의 문제일 수 있습니다. 종종 잘못된 신호로 인해 지연된 경우, 모바일 디바이스에서 [Microsoft Authenticator 앱](microsoft-authenticator-app-how-to.md)을 사용하는 것이 좋습니다. 이 앱은 셀 신호 또는 인터넷 연결이 없어도 로그인용으로 임의 보안 코드를 생성할 수 있습니다.<br><br>문자 메시지를 받으려는 경우, 친구에게 테스트로 문자를 보내도록 부탁하여 문자를 받을 수 있는지 확인하고, 여러 개의 메시지를 받은 경우에는 가장 최근 문자의 코드를 사용하고 있는지 확인합니다.
 
-- **앱 암호가 작동하지 않는 경우** 2단계 인증을 지원하지 않는 이전 데스크톱 응용 프로그램의 경우, 앱 암호가 사용자의 일반 암호를 대체합니다. 먼저 암호를 올바르게 입력했는지 확인합니다. 그래도 문제가 해결되지 않으면 로그인을 시도하여 [새 앱 암호를 만들](multi-factor-authentication-end-user-app-passwords.md)거나 관리자에게 문의하여 새 암호를 만들 수 있도록 [기존 앱 암호를 삭제](../authentication/howto-mfa-userdevicesettings.md)하도록 요청합니다.
+- **앱 암호가 작동하지 않는 경우** 2단계 인증을 지원하지 않는 이전 데스크톱 애플리케이션의 경우, 앱 암호가 사용자의 일반 암호를 대체합니다. 먼저 암호를 올바르게 입력했는지 확인합니다. 그래도 문제가 해결되지 않으면 로그인을 시도하여 [새 앱 암호를 만들](multi-factor-authentication-end-user-app-passwords.md)거나 관리자에게 문의하여 새 암호를 만들 수 있도록 [기존 앱 암호를 삭제](../authentication/howto-mfa-userdevicesettings.md)하도록 요청합니다.
 
 ## <a name="sign-in-using-another-verification-method"></a>또 다른 인증 방법을 사용하여 로그인
 
@@ -61,4 +61,4 @@ ms.locfileid: "39346526"
 
 * [2단계 인증을 위한 설정 관리](multi-factor-authentication-end-user-manage-settings.md)
 
-* [Microsoft Authenticator 응용 프로그램 FAQ](microsoft-authenticator-app-faq.md)
+* [Microsoft Authenticator 애플리케이션 FAQ](microsoft-authenticator-app-faq.md)

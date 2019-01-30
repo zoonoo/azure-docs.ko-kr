@@ -1,24 +1,23 @@
 ---
 title: Azure Cosmos DB Cassandra API에서 지원하는 Apache Cassandra 기능 및 명령
 description: Azure Cosmos DB Cassandra API에서 지원되는 Apache Cassandra 기능에 대해 알아봅니다.
-services: cosmos-db
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
+ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 5a12a65e03e7ac104eb7b09b116f7c463bbb5b98
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: a68d290bc21a8cdc36d5c85f770752ad67a4e91e
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240718"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330762"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API에서 지원하는 Apache Cassandra 기능 
 
-Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. CQL(Cassandra Query Language) v4 [유선 프로토콜](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) 호환 오픈 소스 Cassandra 클라이언트 [드라이버](http://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver)를 통해 Azure Cosmos DB Cassandra API와 통신할 수 있습니다. 
+Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. CQL(Cassandra Query Language) v4 [유선 프로토콜](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) 호환 오픈 소스 Cassandra 클라이언트 [드라이버](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver)를 통해 Azure Cosmos DB Cassandra API와 통신할 수 있습니다. 
 
 Azure Cosmos DB Cassandra API를 사용하면 Apache Cassandra API의 기능뿐 아니라 Azure Cosmos DB에서 제공되는 엔터프라이즈 기능도 활용할 수 있습니다. 엔터프라이즈 기능에는 [전역 배포](distribute-data-globally.md), [자동 규모 확장 분할](partition-data.md), 가용성 및 대기 시간 보장, 미사용 시 암호화, 백업 등 여러 가지가 있습니다.
 
@@ -114,14 +113,14 @@ Apache Cassandra 3.1.1과 함께 제공되는 CQLSH 명령줄 유틸리티는 �
 set SSL_VERSION=TLSv1_2 
 SSL_CERTIFICATE=<path to Baltimore root ca cert>
 set CQLSH_PORT=10350 
-cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> –ssl 
+cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl 
 ```
 **Unix/Linux/Mac:**
 
 ```bash
 export SSL_VERSION=TLSv1_2 
 export SSL_CERTFILE=<path to Baltimore root ca cert>
-cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> –ssl 
+cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl 
 ```
 
 ## <a name="cql-commands"></a>CQL 명령
@@ -171,5 +170,5 @@ Azure Cosmos DB는 [Azure Portal](https://portal.azure.com)을 통해 가져올 
 
 ## <a name="next-steps"></a>다음 단계
 
-- Java 응용 프로그램을 사용하여 [Cassandra API 계정, 데이터베이스 및 테이블 만들기](create-cassandra-api-account-java.md)를 시작합니다.
+- Java 애플리케이션을 사용하여 [Cassandra API 계정, 데이터베이스 및 테이블 만들기](create-cassandra-api-account-java.md)를 시작합니다.
 

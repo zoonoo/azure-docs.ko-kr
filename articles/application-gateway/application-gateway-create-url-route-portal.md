@@ -1,5 +1,5 @@
 ---
-title: URL 경로 기반 라우팅 규칙을 사용하여 응용 프로그램 게이트웨이 만들기 - Azure Portal
+title: URL 경로 기반 회람 규칙을 사용하여 애플리케이션 게이트웨이 만들기 - Azure Portal
 description: Azure Portal을 사용하여 응용 프로그램 게이트웨이 및 가상 머신 확장 집합에 URL 경로 기반 라우팅 규칙을 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 5bec7be5f7ad744960d2602aaf24fec51d869267
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 108045c691d711dfdd12df39fe72e536f842f68f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056252"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993207"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Azure Portal을 사용하여 경로 기반 라우팅 규칙을 사용하여 응용 프로그램 게이트웨이 만들기
 
@@ -24,7 +24,7 @@ Azure Portal을 사용하여 [응용 프로그램 게이트웨이](application-g
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
-> * 응용 프로그램 게이트웨이 만들기
+> * 애플리케이션 게이트웨이 만들기
 > * 백 엔드 서버용 가상 머신 만들기
 > * 백 엔드 서버로 백 엔드 풀 만들기
 > * 백 엔드 수신기 만들기
@@ -32,13 +32,13 @@ Azure Portal을 사용하여 [응용 프로그램 게이트웨이](application-g
 
 ![URL 라우팅 예제](./media/application-gateway-create-url-route-portal/scenario.png)
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-[http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인
+[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인
 
-## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
+## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
 가상 네트워크는 사용자가 만든 리소스 간의 통신에 필요합니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 응용 프로그램 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 응용 프로그램 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다.
 
@@ -148,13 +148,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 5. **확인**을 클릭합니다.
 
-## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
+## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
 1. **모든 리소스**를 클릭한 다음, **myAGPublicIPAddress**를 클릭합니다.
 
     ![응용 프로그램 게이트웨이 공용 IP 주소 기록](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: http://http://40.121.222.19
+2. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: http:// http://40.121.222.19
 
     ![응용 프로그램 게이트웨이의 기준 URL 테스트](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
@@ -171,7 +171,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 이 문서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * 응용 프로그램 게이트웨이 만들기
+> * 애플리케이션 게이트웨이 만들기
 > * 백 엔드 서버용 가상 머신 만들기
 > * 백 엔드 서버로 백 엔드 풀 만들기
 > * 백 엔드 수신기 만들기

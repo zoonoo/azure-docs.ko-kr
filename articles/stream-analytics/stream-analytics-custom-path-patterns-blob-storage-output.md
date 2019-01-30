@@ -1,19 +1,20 @@
 ---
-title: Azure Stream Analytics Blob Storage 출력에 대한 사용자 지정 날짜/시간 경로 패턴(미리 보기)
-description: ''
+title: Azure Stream Analytics Blob 출력에 대한 날짜/시간 경로 패턴(미리 보기)
+description: 이 문서에서는 Azure Stream Analytics 작업에서 Blob 스토리지 출력에 대한 사용자 지정 날짜/시간 경로 패턴 기능을 설명합니다.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: da29c6bd8ddc1e2f62a78fb683df5e1784141722
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: ba386539c3f3c6740b843575bbccd4b028b8a5a7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452567"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090792"
 ---
 # <a name="custom-datetime-path-patterns-for-azure-stream-analytics-blob-storage-output-preview"></a>Azure Stream Analytics Blob Storage 출력에 대한 사용자 지정 날짜/시간 경로 패턴(미리 보기)
 
@@ -61,7 +62,7 @@ Blob Storage에 대한 사용자 지정 경로 패턴은 Hive 스트리밍 규�
 
 사용자 지정 출력은 테이블을 변경하고 파티션을 수동으로 추가하는 번거로움을 없애서 Azure Stream Analytics와 Hive 간에 데이터를 전송합니다. 대신, 다음을 사용하여 자동으로 여러 폴더를 추가할 수 있습니다.
 
-```
+```SQL
 MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 ```
 
@@ -75,9 +76,9 @@ MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 
 전체 경로 패턴은 다음과 같습니다.
 
-```
-year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}
-```
+
+`year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}`
+
 
 작업을 시작하는 경우 경로 패턴에 따라 폴더 구조는 Blob 컨테이너에서 생성됩니다. 일 수준으로 드릴다운할 수 있습니다.
 

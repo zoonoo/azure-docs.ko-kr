@@ -25,7 +25,7 @@ ms.locfileid: "49343694"
 
 C# 서비스 라이브러리를 사용하려면 [Microsoft.Bing.Speech NuGet 패키지](https://www.nuget.org/packages/Microsoft.Bing.Speech/)를 설치합니다. 라이브러리 API 참조는 [Microsoft Speech C# 서비스 라이브러리](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html)를 참조하세요.
 
-다음 섹션에서는 C# 서비스 라이브러리를 사용하여 C# 샘플 응용 프로그램을 설치, 빌드 및 실행하는 방법에 대해 설명합니다.
+다음 섹션에서는 C# 서비스 라이브러리를 사용하여 C# 샘플 애플리케이션을 설치, 빌드 및 실행하는 방법에 대해 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -33,7 +33,7 @@ C# 서비스 라이브러리를 사용하려면 [Microsoft.Bing.Speech NuGet 패
 
 다음 예제는 [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs)을 사용하여 Windows 8 이상 및 .NET Framework 4.5 이상용으로 개발되었습니다.
 
-### <a name="get-the-sample-application"></a>샘플 응용 프로그램 가져오기
+### <a name="get-the-sample-application"></a>샘플 애플리케이션 가져오기
 
 [Speech C# 서비스 라이브러리 샘플](https://github.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary) 리포지토리에서 샘플을 복제합니다.
 
@@ -44,19 +44,19 @@ Speech API는 Cognitive Services(이전의 Project Oxford)의 일부입니다. [
 > [!IMPORTANT]
 > * 구독 키를 가져오세요. Speech 클라이언트 라이브러리를 사용하려면 먼저 [구독 키](https://azure.microsoft.com/try/cognitive-services/)가 있어야 합니다.
 >
-> * 구독 키를 사용하세요. 제공된 C# 서비스 라이브러리 샘플 응용 프로그램을 사용하여 구독 키를 명령줄 매개 변수 중 하나로 제공해야 합니다. 자세한 내용은 [샘플 응용 프로그램 실행](#step-3-run-the-sample-application)을 참조하세요.
+> * 구독 키를 사용하세요. 제공된 C# 서비스 라이브러리 샘플 애플리케이션을 사용하여 구독 키를 명령줄 매개 변수 중 하나로 제공해야 합니다. 자세한 내용은 [샘플 애플리케이션 실행](#step-3-run-the-sample-application)을 참조하세요.
 
-## <a name="step-1-install-the-sample-application"></a>1단계: 샘플 응용 프로그램 설치
+## <a name="step-1-install-the-sample-application"></a>1단계: 샘플 애플리케이션 설치
 
 1. Visual Studio 2015를 시작하고, **파일** > **열기** > **프로젝트/솔루션**을 차례로 선택합니다.
 
 2. SpeechClient.sln이라는 Visual Studio 2015 솔루션(.sln) 파일을 두 번 클릭하여 엽니다. 솔루션이 Visual Studio에서 열립니다.
 
-## <a name="step-2-build-the-sample-application"></a>2단계: 샘플 응용 프로그램 빌드
+## <a name="step-2-build-the-sample-application"></a>2단계: 샘플 애플리케이션 빌드
 
 Ctrl+Shift+B를 누르거나 리본 메뉴에서 **빌드**를 선택합니다. 그런 다음, **솔루션 빌드**를 선택합니다.
 
-## <a name="step-3-run-the-sample-application"></a>3단계: 샘플 응용 프로그램 실행
+## <a name="step-3-run-the-sample-application"></a>3단계: 샘플 애플리케이션 실행
 
 1. 빌드가 완료되면 F5 키를 누르거나 리본 메뉴에서 **시작**을 선택하여 예제를 실행합니다.
 
@@ -121,8 +121,8 @@ SpeechClient 및 SpeechInput 개체가 인스턴스화되면 RecognizeAsync를 �
 
 **반환 형식** | 설명 |
 ------|------
-**LexicalForm** | 이 형식은 처리되지 않은 원시 음성 인식 결과가 필요한 응용 프로그램에서 사용하기에 적합합니다.
-**DisplayText** | 역 텍스트 정규화, 대문자 표시, 문장 부호 및 불경한 언어 마스킹이 적용된 인식된 구입니다. 불경한 언어는 첫 번째 문자 뒤에 별표로 마스킹됩니다(예: "d***"). 이 형식은 음성 인식 결과를 사용자에게 표시하는 응용 프로그램에서 사용하기에 적합합니다.
+**LexicalForm** | 이 형식은 처리되지 않은 원시 음성 인식 결과가 필요한 애플리케이션에서 사용하기에 적합합니다.
+**DisplayText** | 역 텍스트 정규화, 대문자 표시, 문장 부호 및 불경한 언어 마스킹이 적용된 인식된 구입니다. 불경한 언어는 첫 번째 문자 뒤에 별표로 마스킹됩니다(예: "d***"). 이 형식은 음성 인식 결과를 사용자에게 표시하는 애플리케이션에서 사용하기에 적합합니다.
 **신뢰도** | 인식된 구가 음성 인식 서버에서 정의한 대로 관련 오디오를 나타내는 신뢰도 수준입니다.
 **MediaTime** | 오디오 스트림의 시작을 기준으로 한 현재 시간입니다(100나노초 시간 단위).
 **MediaDuration** | 오디오 세그먼트를 기준으로 한 현재 구의 기간/길이(시간의 100나노초 단위)입니다.

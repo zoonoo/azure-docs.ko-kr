@@ -3,9 +3,9 @@ title: Azure Service Bus의 트랜잭션 처리 개요 | Microsoft Docs
 description: Azure Service Bus 원자성 트랜잭션 및 send via에 대한 개요
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 64449247-1026-44ba-b15a-9610f9385ed8
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2018
-ms.author: spelluru
-ms.openlocfilehash: 6be1605ee1bb385c303d100729238a8eb71605d0
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: aschhab
+ms.openlocfilehash: 69dc9c974c259f51ac0c6c9d64bfcda7ee65e181
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407334"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844588"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Service Bus 트랜잭션 처리의 개요
 
@@ -40,7 +40,7 @@ Service Bus는 트랜잭션 범위 내에서 단일 메시징 엔터티(큐, 토
 * **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: Send, SendAsync, SendBatch, SendBatchAsync 
 * **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
 
-응용 프로그램이 일부 수신 루프 내에서 또는 [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) 콜백과 함께 [ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) 모드를 사용하여 메시지를 획득한다고 가정하므로 수신 작업은 포함되지 않으며, 메시지 처리에 대한 트랜잭션 범위만 열립니다.
+애플리케이션이 일부 수신 루프 내에서 또는 [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) 콜백과 함께 [ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) 모드를 사용하여 메시지를 획득한다고 가정하므로 수신 작업은 포함되지 않으며, 메시지 처리에 대한 트랜잭션 범위만 열립니다.
 
 메시지 처리(완료, 중단, 배달 못 한 편지, 지연)가 범위 내에서 그리고 전반적인 트랜잭션 결과에 다라 발생합니다.
 

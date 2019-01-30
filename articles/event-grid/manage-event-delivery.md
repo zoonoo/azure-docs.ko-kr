@@ -2,17 +2,17 @@
 title: Azure Event Grid 구독에 대한 배달 못한 편지 및 다시 시도 정책
 description: Event Grid에 대한 이벤트 전송 옵션을 사용자 지정하는 방법을 설명합니다. 배달 못한 편지 대상을 설정하고 배달을 다시 시도하기 위한 기간을 지정합니다.
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: tomfitz
-ms.openlocfilehash: 0a89a315f9c97f3cc6a8683f13c22b5066dc5dab
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.date: 01/06/2019
+ms.author: spelluru
+ms.openlocfilehash: 8660f09c41cf6226f2ffb173508d37c260522b80
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277752"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474254"
 ---
 # <a name="dead-letter-and-retry-policies"></a>배달 못한 편지 및 다시 시도 정책
 
@@ -138,7 +138,7 @@ New-AzureRmEventGridSubscription `
 
 ## <a name="next-steps"></a>다음 단계
 
-* 배달 못한 편지 이벤트를 처리하기 위해 Azure 함수 앱을 사용하는 샘플 응용 프로그램은 [.NET용 Azure Event Grid 배달 못한 편지 샘플](https://azure.microsoft.com/resources/samples/event-grid-dotnet-handle-deadlettered-events/)을 참조하세요.
+* 배달 못한 편지 이벤트를 처리하기 위해 Azure 함수 앱을 사용하는 샘플 애플리케이션은 [.NET용 Azure Event Grid 배달 못한 편지 샘플](https://azure.microsoft.com/resources/samples/event-grid-dotnet-handle-deadlettered-events/)을 참조하세요.
 * 이벤트 배달 및 다시 시도에 대한 자세한 내용은 [Event Grid 메시지 배달 및 다시 시도](delivery-and-retry.md)를 참조하세요.
 * Event Grid에 대한 소개는 [Event Grid 정보](overview.md)를 참조하세요.
 * Event Grid를 빠르게 시작하려면 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요.

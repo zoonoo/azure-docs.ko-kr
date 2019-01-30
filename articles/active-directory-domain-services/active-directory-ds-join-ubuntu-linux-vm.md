@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: 관리되는 도메인에 Ubuntu VM 가입 | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Ubuntu VM을 관리되는 도메인에 연결 | Microsoft Docs'
 description: Ubuntu Linux 가상 머신을 Azure AD Domain Services에 가입
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 709c227c955aba6b31ce415767470fa18ff3684f
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 35b37a5c50346dc116b2f36394feecb82a0d88fd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155272"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845764"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Azure의 Ubuntu 가상 머신을 관리되는 도메인에 가입
 이 문서에서는 Ubuntu Linux 가상 컴퓨터를 Azure AD Domain Services 관리되는 도메인에 가입하는 방법을 보여 줍니다.
@@ -124,7 +124,7 @@ sudo systemctl start ntp
     ```
 
    > [!NOTE]
-   > **문제 해결:** *영역 검색*을 통해 관리되는 도메인을 찾을 수 없는 경우 다음을 수행합니다.
+   > **문제 해결:** ‘영역 검색’을 통해 관리되는 도메인을 찾을 수 없는 경우 다음을 수행합니다.
      * 해당 도메인을 가상 머신에서 연결 가능한지 확인합니다(ping 시도).
      * 또한 관리되는 도메인을 사용할 수 있는 동일한 가상 네트워크에 가상 머신을 확실히 배포했는지 확인합니다.
      * 가상 네트워크가 관리되는 도메인의 도메인 컨트롤러를 가리키도록 DNS 서버 설정을 업데이트했는지 확인합니다.

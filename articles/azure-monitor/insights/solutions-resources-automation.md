@@ -8,19 +8,18 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 5281462e-f480-4e5e-9c19-022f36dce76d
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 814646902a88c7170da66397709ff3a8c7b081fd
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: a72df28fbaed89076976f567774bd5fdb15bc2f9
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714381"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229492"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>관리 솔루션에 Azure Automation 리소스 추가(미리 보기)
 > [!NOTE]
@@ -317,8 +316,8 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 ### <a name="updating-modules"></a>모듈 업데이트
 일정을 사용하는 runbook이 포함된 관리 솔루션을 업데이트하는데 해당 runbook에 사용되는 새 모듈이 솔루션의 새 버전에 포함된 경우 runbook은 이전 버전의 모듈을 사용할 수 있습니다.  솔루션에 다음 runbook을 포함하고 다른 runbook 전에 runbook을 실행할 작업을 만들어야 합니다.  이렇게 하면 runbook이 로드되기 전에 필요한 경우 모듈이 업데이트됩니다.
 
-* [Update-ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/DisplayScript)을 사용하면 솔루션에서 runbook에 사용된 모든 모듈이 최신 버전이 됩니다.  
-* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/DisplayScript)를 사용하면 일정 리소스에 연결된 runbook이 최신 모듈을 사용하도록 모든 일정 리소스가 등록됩니다.
+* [Update-ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/)을 사용하면 솔루션에서 runbook에 사용된 모든 모듈이 최신 버전이 됩니다.  
+* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/)를 사용하면 일정 리소스에 연결된 runbook이 최신 모듈을 사용하도록 모든 일정 리소스가 등록됩니다.
 
 
 
@@ -398,7 +397,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
         "scheduleStartTime": {
           "type": "string",
           "metadata": {
-            "Description": "Start time for shedule."
+            "Description": "Start time for schedule."
           }
         },
         "scheduleTimeZone": {

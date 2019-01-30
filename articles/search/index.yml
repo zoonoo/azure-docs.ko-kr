@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b995f5f29c1377105e174faed43fb8ba82d90383
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 88a657e30d3b30825a3fea21aa6e1162e8bc09b4
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313244"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411155"
 documentType: LandingData
 title: Azure Search 설명서
 metadata:
@@ -17,10 +17,10 @@ metadata:
   ms.service: search
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/01/2018
+  ms.date: 01/18/2019
   ms.author: heidist
 abstract:
-  description: Azure Search를 사용하여 비공개, 이기종 콘텐츠에 대한 엔터프라이즈 검색 솔루션을 만드는 방법을 알아봅니다. 자습서, API 참조 및 기타 문서에서는 검색 가능한 콘텐츠를 광범위한 시나리오에서 단순 및 고급 구문을 통해 쿼리 가능한 단일 고속 인덱스로 통합하는 방법을 보여 줍니다. <p/><b>새 인지 검색 미리 보기입니다.</b> 시험판 REST API를 사용하여 AI 지원 알고리즘을 인덱싱 파이프라인에 바인딩합니다. 데이터를 추출하고 자연어 및 이미지 처리를 호출하여 Azure Search 인덱스에서 원시 비구조적 콘텐츠를 검색 가능한 콘텐츠로 변환합니다. <p/><a href="/azure/search/cognitive-search-quickstart-blob">리소스 및 샘플 데이터</a>를 사용하여 Cognitive Search를 탐색하거나 <a href="/azure/search/cognitive-search-concept-intro">개념</a>에서 자세히 알아봅니다.
+  description: Azure Search를 사용하여 비공개, 이기종 콘텐츠에 대한 엔터프라이즈 검색 솔루션을 만드는 방법을 알아봅니다. 자습서, API 참조 및 기타 문서에서는 검색 가능한 콘텐츠를 광범위한 시나리오에서 단순 및 고급 구문을 통해 쿼리 가능한 단일 고속 인덱스로 통합하는 방법을 보여 줍니다. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>새 인지 검색 미리 보기입니다.</b></a> 시험판 REST API를 사용하여 AI 지원 알고리즘을 인덱싱 파이프라인에 바인딩합니다. 데이터를 추출하고 자연어 및 이미지 처리를 호출하여 Azure Search 인덱스에서 원시 비구조적 콘텐츠를 검색 가능한 콘텐츠로 변환합니다. <p/><a href="/azure/search/cognitive-search-quickstart-blob">리소스 및 샘플 데이터</a>를 사용하여 Cognitive Search를 탐색하거나 <a href="/azure/search/cognitive-search-concept-intro">개념</a>에서 자세히 알아봅니다.
   aside:
     image:
       alt: 

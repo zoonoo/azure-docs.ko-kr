@@ -10,12 +10,13 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: dbd717d79230c5dc2fc823484376267e7b7b8ab1
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 305d81d6614d1f0654e0d96b10f1759498683003
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628803"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558467"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>매개 변수가 있는 URL을 사용하여 사용자 지정 보기 공유
 
@@ -70,7 +71,7 @@ Time Series Insights 탐색기는 URL에서 바로 환경의 보기를 지정할
   - *측정값*의 열 이름입니다.
 - "predicate":"<string>"
   - 서버 쪽 필터링에 대한 *where* 절입니다.
--  "useSum":"true"
+- "useSum":"true"
   - 이는 측정값에 대한 합계를 사용하도록 지정하는 선택적 매개 변수입니다.  "이벤트"가 선택된 측정값이면 count가 기본적으로 선택됩니다.  "이벤트"가 선택되지 않으면 average가 기본적으로 선택됩니다.  
 
 'multiChartStack=<true/false>' 매개 변수를 사용하면 차트에 스택이 가능하고 'multiChartSameScale=<true/false>' 매개 변수를 사용하면 선택적 매개 변수 내에서 용어 전체에 동일한 Y 축 눈금을 사용할 수 있습니다.  

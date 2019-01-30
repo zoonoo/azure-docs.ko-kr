@@ -46,6 +46,8 @@ items:
     href: expressroute-erdirect-about.md
   - name: ExpressRoute Global Reach 정보
     href: expressroute-global-reach.md
+  - name: ExpressRoute Global Reach 애플리케이션 시나리오
+    href: expressroute-global-reach-app-scenario.md
   - name: 백 엔드 연결 상호 운용성
     items:
     - name: 접두사 및 테스트 설정
@@ -219,15 +221,15 @@ items:
       href: https://go.microsoft.com/fwlink/p/?LinkId=615124
     - name: 회로에 대해 개인 피어링을 설정하는 방법
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/
-    - name: '하이브리드 파트너: 온-프레미스 시나리오 사용'
+    - name: '하이브리드 파트너십: 온-프레미스 시나리오 사용'
       href: https://go.microsoft.com/fwlink/p/?LinkId=615125
     - name: 회로에 대해 Microsoft 피어링 설정
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/
     - name: 회로에 대해 공용 피어링 설정
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/
-ms.openlocfilehash: 9980b405670b3fee0d1aa47c746e8f33001ba335
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 54100c59be82666914ea35684fbae5130a763ada
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083991"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329119"

@@ -4,12 +4,12 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
-ms.openlocfilehash: 4b0c8ad227b9aa8a0692ff453c3751aaa38a4849
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 9d9790c9b3dbe3b130be999dd76092ae64f7b52c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165266"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54841438"
 ---
 |매개 변수 이름| type | 설명| 가능한 값|
 |-|-|-|-|
@@ -17,7 +17,7 @@ ms.locfileid: "50165266"
 |/InstallLocation|필수|구성 요소가 설치되는 폴더입니다.| 컴퓨터의 모든 폴더|
 |/MySQLCredsFilePath|필수|MySQL 서버 자격 증명이 저장되는 파일 경로입니다.|파일은 아래에 지정된 형식이어야 합니다.|
 |/VaultCredsFilePath|필수|자격 증명 모음 자격 증명 파일의 경로입니다.|유효한 파일 경로|
-|/EnvType|필수|보호 하려는 환경 유형입니다. |VMware<br>NonVMware|
+|/EnvType|필수|보호하려는 환경 유형입니다. |VMware<br>NonVMware|
 |/PSIP|필수|복제 데이터 전송에 사용할 NIC의 IP 주소입니다.| 모든 유효한 IP 주소|
 |/CSIP|필수|구성 서버가 수신 대기하는 NIC의 IP 주소입니다.| 모든 유효한 IP 주소|
 |/PassphraseFilePath|필수|암호 파일의 위치에 대한 전체 경로입니다.|유효한 파일 경로|

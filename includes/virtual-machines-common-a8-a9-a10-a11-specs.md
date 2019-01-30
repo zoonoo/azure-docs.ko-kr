@@ -31,7 +31,7 @@ ms.locfileid: "49346107"
 ## <a name="rdma-capable-instances"></a>RDMA 지원 인스턴스
 계산 집약적 인스턴스(H16r, H16mr, A8 및 A9) 일부는 RDMA(원격 직접 메모리 액세스) 연결을 위한 네트워크 인터페이스로 사용됩니다. (NC24r과 같이 'r'로 지정된 N 시리즈 크기를 선택하는 경우에도 RDMA를 사용할 수 있습니다.) 이 인터페이스는 다른 VM 크기에서 사용할 수 있는 표준 Azure 네트워크 인터페이스 외에 추가로 사용됩니다. 
   
-이 인터페이스를 사용하면 RDMA 가능 인스턴스에서 IB(InfiniBand) 네트워크를 통해 통신할 수 있으며, H16r, H16mr 및 RDMA 가능 N 시리즈 가상 머신에서는 FDR 속도로, A8 및 A9 가상 머신에서는 QDR 속도로 작동할 수 있습니다. 이러한 RDMA 기능은 특정 MPI(Message Passing Interface) 응용 프로그램의 확장성 및 성능을 향상시킬 수 있습니다.
+이 인터페이스를 사용하면 RDMA 가능 인스턴스에서 IB(InfiniBand) 네트워크를 통해 통신할 수 있으며, H16r, H16mr 및 RDMA 가능 N 시리즈 가상 머신에서는 FDR 속도로, A8 및 A9 가상 머신에서는 QDR 속도로 작동할 수 있습니다. 이러한 RDMA 기능은 특정 MPI(Message Passing Interface) 애플리케이션의 확장성 및 성능을 향상시킬 수 있습니다.
 
 > [!NOTE]
 > IP over IB는 Azure에서 지원되지 않습니다. RDMA over IB만 지원됩니다.

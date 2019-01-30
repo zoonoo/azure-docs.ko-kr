@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a4117b41700446770e10ef799967ae4a43db342d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 877e42dc8d6e69834cf989122f855ada560b813c
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227759"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201247"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>IoT Edge 모듈 기술 자산 준비
 
@@ -45,14 +45,14 @@ IoT Edge 모듈은 다음 플랫폼 옵션 중 하나를 지원해야 합니다.
 IoT Edge에서 지원되는 모든 계층 1 플랫폼을 지원합니다([Azure IoT Edge 지원](https://docs.microsoft.com/azure/iot-edge/support)에 기록된 대로). 더 나은 고객 경험을 제공하기 때문에 이 옵션을 권장합니다. 이 조건을 충족하는 모듈이 소개됩니다. 이 플랫폼 옵션을 사용하는 모듈은 다음을 수행해야 합니다.
 
 - GitHub [매니페스트 도구](https://github.com/estesp/manifest-tool)를 사용하여 빌드된 매니페스트 태그인 `latest` 태그 및 버전 태그(예: `1.0.1`)를 제공합니다.
-- [Marketplace 탭](./cpp-marketplace-tab.md)을 사용하여 [호환 IoT Edge 인증 장치](https://aka.ms/iot-edge-certified)에 링크를 추가합니다. 이 링크는 고객이 인증된 디바이스를 찾거나 검색할 수 있는 웹 사이트인 `http://aka.ms/iot-edge-certified`로 이동합니다. 이 웹 사이트는 [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) 디바이스 카탈로그라고도 합니다.
+- [Marketplace 탭](./cpp-marketplace-tab.md)을 사용하여 [호환 IoT Edge 인증 디바이스](https://aka.ms/iot-edge-certified)에 링크를 추가합니다. 이 링크는 고객이 인증된 디바이스를 찾거나 검색할 수 있는 웹 사이트인 `http://aka.ms/iot-edge-certified`로 이동합니다. 이 웹 사이트는 [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) 디바이스 카탈로그라고도 합니다.
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>IoT Edge에서 지원되는 계층 1 플랫폼의 하위 집합
   
 IoT Edge에서 지원되는 계층 1 플랫폼의 하위 집합(하나 이상)을 지원합니다([Azure IoT Edge 지원](https://docs.microsoft.com/azure/iot-edge/support)에 기록된 대로). 이 플랫폼 옵션을 사용하는 모듈은 다음을 수행해야 합니다.
 
 - 둘 이상의 플랫폼이 지원되는 경우 GitHub [매니페스트 도구](https://github.com/estesp/manifest-tool)를 사용하여 빌드된 매니페스트 태그인 `latest` 태그 및 버전 태그(예: `1.0.1`)를 제공합니다. 하나의 플랫폼이 지원되는 경우에만 매니페스트 태그는 선택 사항입니다.
-- [Marketplace 탭](./cpp-marketplace-tab.md)을 사용하여 [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) 장치 카탈로그의 하나 이상의 IoT Edge 장치에 링크를 제공합니다.
+- [Marketplace 탭](./cpp-marketplace-tab.md)을 사용하여 [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) 디바이스 카탈로그의 하나 이상의 IoT Edge 디바이스에 링크를 제공합니다.
 
 ### <a name="device-dimensions"></a>디바이스 차원
 
@@ -111,7 +111,7 @@ IoT 모듈 SDK를 사용하는 모듈은 원격 분석을 위해 `PublisherId.Of
 - [C\#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo) 
 - [C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
 - [Python](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
-- [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._product_info?view=azure-java-stable)
+- [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.productinfo?view=azure-java-stable)
 
 IoT 모듈 SDK를 사용하지 않는 모듈의 경우 Cloud 파트너 포털을 통해 다운로드 횟수와 같은 덜 정확한 인사이트를 얻을 수 있습니다.
 

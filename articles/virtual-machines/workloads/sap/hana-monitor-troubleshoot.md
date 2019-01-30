@@ -102,13 +102,13 @@ SAP HANA 데이터베이스에 의해 할당된 메모리 양이 예상보다 �
 3. Linux 명령 **ifconfig**를 실행합니다(패킷 손실이 발생하는 경우 출력에서 표시).
 4. Linux 명령 **tcpdump**를 실행합니다.
 
-또한 오픈 소스 [IPERF](https://iperf.fr/) 도구(또는 유사한 기능)를 사용하여 실제 응용 프로그램 네트워크 성능을 측정합니다.
+또한 오픈 소스 [IPERF](https://iperf.fr/) 도구(또는 유사한 기능)를 사용하여 실제 애플리케이션 네트워크 성능을 측정합니다.
 
 자세한 문제 해결 단계는 [SAP HANA 문제 해결: 네트워킹 성능 및 연결 문제](http://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) 사이트를 참조하세요.
 
 ## <a name="storage"></a>Storage
 
-I/O 성능 문제가 있는 경우 최종 사용자의 관점에서 응용 프로그램(또는 전체 시스템)이 느리게 실행되고 응답성이 우수하지 않으며 반응이 없는 것처럼 보일 수 있습니다. SAP HANA Studio의 **볼륨** 탭에서 연결된 볼륨 및 각 서비스에서 사용하는 볼륨을 확인할 수 있습니다.
+I/O 성능 문제가 있는 경우 최종 사용자의 관점에서 애플리케이션(또는 전체 시스템)이 느리게 실행되고 응답성이 우수하지 않으며 반응이 없는 것처럼 보일 수 있습니다. SAP HANA Studio의 **볼륨** 탭에서 연결된 볼륨 및 각 서비스에서 사용하는 볼륨을 확인할 수 있습니다.
 
 ![SAP HANA Studio의 [볼륨] 탭에서 연결된 볼륨 및 각 서비스에서 사용하는 볼륨을 확인할 수 있습니다.](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
 

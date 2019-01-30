@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: cshoe
-ms.openlocfilehash: 9b2539d94c645f71b596e53429e6e0d8cc46b9ad
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a44b348e0c41e96c575555f2b5c275e196284c5b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016746"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074539"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
 
@@ -119,29 +119,29 @@ function generateRandomId() {
 클래스 라이브러리에서 동일한 트리거 및 바인딩 정보(큐 및 테이블 이름, 저장소 계정, 입력 및 출력에 대한 함수 매개 변수)는 function.json 파일 대신 특성에 의해 제공됩니다. 예를 들면 다음과 같습니다.
 
 ```csharp
- public static class QueueTriggerTableOutput
- {
-     [FunctionName("QueueTriggerTableOutput")]
-     [return: Table("outTable", Connection = "MY_TABLE_STORAGE_ACCT_APP_SETTING")]
-     public static Person Run(
-         [QueueTrigger("myqueue-items", Connection = "MY_STORAGE_ACCT_APP_SETTING")]JObject order, 
-         ILogger log)
-     {
-         return new Person() {
-                 PartitionKey = "Orders",
-                 RowKey = Guid.NewGuid().ToString(),
-                 Name = order["Name"].ToString(),
-                 MobileNumber = order["MobileNumber"].ToString() };
-     }
- }
+public static class QueueTriggerTableOutput
+{
+    [FunctionName("QueueTriggerTableOutput")]
+    [return: Table("outTable", Connection = "MY_TABLE_STORAGE_ACCT_APP_SETTING")]
+    public static Person Run(
+        [QueueTrigger("myqueue-items", Connection = "MY_STORAGE_ACCT_APP_SETTING")]JObject order,
+        ILogger log)
+    {
+        return new Person() {
+                PartitionKey = "Orders",
+                RowKey = Guid.NewGuid().ToString(),
+                Name = order["Name"].ToString(),
+                MobileNumber = order["MobileNumber"].ToString() };
+    }
+}
 
- public class Person
- {
-     public string PartitionKey { get; set; }
-     public string RowKey { get; set; }
-     public string Name { get; set; }
-     public string MobileNumber { get; set; }
- }
+public class Person
+{
+    public string PartitionKey { get; set; }
+    public string RowKey { get; set; }
+    public string Name { get; set; }
+    public string MobileNumber { get; set; }
+}
 ```
 
 ## <a name="supported-bindings"></a>지원되는 바인딩
@@ -231,6 +231,7 @@ C# 및 C# 스크립트에서 데이터를 출력 바인딩으로 보내는 또 �
 * [C# 스크립트(.csx)](#c-script-example)
 * [F#](#f-example)
 * [JavaScript](#javascript-example)
+* [Python](#python-example)
 
 ### <a name="c-example"></a>C# 예제
 
@@ -334,6 +335,29 @@ module.exports = function (context, input) {
     context.log('Node.js script processed queue message', json);
     context.done(null, json);
 }
+```
+
+### <a name="python-example"></a>Python 예제
+
+*function.json* 파일의 출력 바인딩은 다음과 같습니다.
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+다음은 Python 코드입니다.
+
+```python
+def main(input: azure.functions.InputStream) -> str:
+    return json.dumps({
+        'name': input.name,
+        'length': input.length,
+        'content': input.read().decode('utf-8')
+    })
 ```
 
 ## <a name="binding-datatype-property"></a>dataType 속성 바인딩
@@ -589,9 +613,10 @@ module.exports = function (context, info) {
 JSON 페이로드의 속성 중 일부가 속성을 가진 개체인 경우 점 표기법을 사용하여 직접 참조할 수 있습니다. 예를 들어 JSON이 다음과 같다고 가정합니다.
 
 ```json
-{"BlobName": {
-  "FileName":"HelloWorld",
-  "Extension":"txt"
+{
+  "BlobName": {
+    "FileName":"HelloWorld",
+    "Extension":"txt"
   }
 }
 ```
@@ -649,6 +674,10 @@ C# 및 기타 .NET 언어에서는 *function.json* 및 특성의 바인딩과 �
 ## <a name="functionjson-file-schema"></a>function.json 파일 스키마
 
 *function.json* 파일 스키마는 [http://json.schemastore.org/function](http://json.schemastore.org/function)에서 제공됩니다.
+
+## <a name="testing-bindings"></a>바인딩 테스트
+
+로컬로 함수를 개발 하는 경우 Visual Studio 2017 또는 Visual Studio Code를 사용하여 바인딩을 테스트할 수 있습니다. 자세히 알아보려면 [Azure Functions에서 코드를 테스트하기 위한 전략](functions-test-a-function.md)을 참조하세요. 또한 REST API를 사용하여 HTTP가 아닌 바인딩을 호출할 수 있습니다. 자세히 알아보려면 [HTTP 이외 트리거 함수를 수동으로 실행](functions-manually-run-non-http.md)을 참조하세요.
 
 ## <a name="handling-binding-errors"></a>바인딩 오류 처리
 

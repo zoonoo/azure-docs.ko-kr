@@ -28,7 +28,7 @@ ms.locfileid: "49091769"
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>필수 조건
-이 빠른 시작의 목적상 원본 호스트 이름에 사용한 *mystorageacct123*이라는 저장소 계정을 만들었어야 합니다. 자세한 내용은 [Azure CDN과 Azure 저장소 계정 통합](cdn-create-a-storage-account-with-cdn.md)을 참조하세요.
+이 빠른 시작의 목적상 원본 호스트 이름에 사용한 *mystorageacct123*이라는 스토리지 계정을 만들었어야 합니다. 자세한 내용은 [Azure CDN과 Azure 저장소 계정 통합](cdn-create-a-storage-account-with-cdn.md)을 참조하세요.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.

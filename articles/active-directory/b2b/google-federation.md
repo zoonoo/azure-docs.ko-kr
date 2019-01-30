@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 12/17/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: mal
-ms.openlocfilehash: 5bc94b6fe69a9ffec11fcbab952a6f8aa3e2259a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 329c12f76862addb6d14271f219b48089c615395
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569008"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428735"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google을 B2B 게스트 사용자에 대한 ID 공급자로 추가
 
 Google과의 페더레이션을 설정하면 초대된 사용자가 MSA(Microsoft 계정) 또는 Azure AD 계정을 만들 필요 없이 자신의 Google 계정을 사용하여 공유된 앱 및 리소스에 로그인하도록 허용할 수 있습니다.  
 > [!NOTE]
-> Google 게스트 사용자는 테넌트 컨텍스트를 포함하는 링크를 사용하여 로그인해야 합니다(예: `https://myapps.microsoft.com/?tenantid=<tenant id>`). 응용 프로그램 및 리소스에 대한 직접 링크는 테넌트 컨텍스트를 포함하는 한 작동합니다. 게스트 사용자는 현재 테넌트 컨텍스트가 없는 엔드포인트를 사용하여 로그인할 수 없습니다. 예를 들어 `https://myapps.microsoft.com`, `https://portal.azure.com` 또는 팀 공통 엔드포인트를 사용하면 오류가 발생합니다.
+> Google 게스트 사용자는 테넌트 컨텍스트를 포함하는 링크를 사용하여 로그인해야 합니다(예: `https://myapps.microsoft.com/<tenant id>`). 애플리케이션 및 리소스에 대한 직접 링크는 테넌트 컨텍스트를 포함하는 한 작동합니다. 게스트 사용자는 현재 테넌트 컨텍스트가 없는 엔드포인트를 사용하여 로그인할 수 없습니다. 예를 들어 `https://myapps.microsoft.com`, `https://portal.azure.com` 또는 팀 공통 엔드포인트를 사용하면 오류가 발생합니다.
  
 ## <a name="what-is-the-experience-for-the-google-user"></a>Google 사용자를 위한 환경이란?
 Google Gmail 사용자에게 초대를 보낼 때 게스트 사용자는 테넌트 컨텍스트를 포함하는 링크를 사용하여 공유된 앱 또는 리소스에 액세스해야 합니다. 환경은 Google에 이미 로그인했는지 여부에 따라 달라집니다.
@@ -57,7 +57,7 @@ Google Gmail 사용자에게 초대를 보낼 때 게스트 사용자는 테넌�
 
    ![Google API 자격 증명](media/google-federation/google-api-credentials.png)
 
-8. **응용 프로그램 유형**에서 **웹 응용 프로그램**을 선택한 다음, **권한이 부여된 리디렉션 URI**에서 다음 URI를 입력합니다.
+8. **애플리케이션 유형**에서 **웹 애플리케이션**을 선택한 다음, **권한이 부여된 리디렉션 URI**에서 다음 URI를 입력합니다.
    - `https://login.microsoftonline.com` 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(여기서 `<directory id>`는 디렉터리 ID입니다.)
    
@@ -90,7 +90,7 @@ Google Gmail 사용자에게 초대를 보낼 때 게스트 사용자는 테넌�
    `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
-   > “1단계: Google 개발자 프로젝트 구성”에서 만든 앱의 클라이언트 ID 및 클라이언트 비밀을 사용합니다. 자세한 내용은 [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) 문서를 참조하세요. 
+   > “1단계: Google 개발자 프로젝트 구성”에서 만든 앱의 클라이언트 ID 및 클라이언트 암호를 사용합니다. 자세한 내용은 [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) 문서를 참조하세요. 
  
 ## <a name="how-do-i-remove-google-federation"></a>Google 페더레이션은 어떻게 제거하나요?
 Google 페더레이션 설치 프로그램을 삭제할 수 있습니다. 이렇게 하면 이미 초대를 사용한 Google 게스트 사용자는 로그인할 수 없게 되지만, 디렉터리에서 해당 사용자를 삭제하고 다시 초대하여 리소스에 대한 액세스 권한을 다시 부여할 수 있습니다. 

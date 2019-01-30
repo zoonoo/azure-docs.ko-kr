@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 10/23/2018
 ms.topic: hub-page
-ms.openlocfilehash: 1d82809a4ed88ee5f84b812955e6979df2ae6070
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 3c67a6fc7345cb533ad0c7088ac09fb02d3da1f2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322076"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213978"
 ---
 <h1>Azure Cognitive Services 설명서</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">사용자의 요구 사항을 자연스러운 의사 소통 방식으로 보고 듣고 말하고 이해할 수 있도록 앱, 웹사이트 및 봇에 지능적인 알고리즘을 빌드하는 방법을 알아봅니다. 자습서, 빠른 시작, API 참조 및 예제는 방법을 보여줍니다.</p>
@@ -131,7 +131,7 @@ ms.locfileid: "53322076"
                     <div class="cardText">
                         <h3>Computer Vision을 사용하여 이미지 분석</h3>
                         <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk">C# 사용</a></p>
-                        <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/java-analyze">Java 사용</a></p>
+                        <p><a href="/azure/cognitive-services/bing-visual-search/quickstarts/java">Java 사용</a></p>
                         <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/node-analyze">Node.js 사용</a></p>
                         <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/python-analyze">Python 사용</a></p>
                     </div>
@@ -297,8 +297,8 @@ ms.locfileid: "53322076"
                     <div class="cardText">
                         <h3>Vision API</h3>
                         <p><a href="/azure/cognitive-services/computer-vision/">Computer Vision</a></p>
-                        <p><a href="/azure/cognitive-services/content-moderator/overview">Content Moderator</a></p>
-                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/home"><span>Custom Vision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
+                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/"><span>Custom Vision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/face/">Face API</a></p>
                         <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
                         <p><a href="/azure/cognitive-services/emotion/home"><span>Emotion API&nbsp;<sup style="font-size:70%">사용 중지</sup></span></a></p>

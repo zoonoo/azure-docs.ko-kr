@@ -1,5 +1,5 @@
 ---
-title: Azure Search에서 복합 데이터 형식을 모델링하는 방법 | Microsoft Docs
+title: 복합 데이터 형식을 모델링하는 방법 - Azure Search
 description: 일반 행 집합 및 컬렉션 데이터 형식을 사용하여 Azure Search 인덱스에서 중첩된 데이터 또는 계층적 데이터 구조를 모델링할 수 있습니다.
 author: brjohnstmsft
 manager: jlembicz
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 81298bedd43a89ea948753dffc5f80248f5429ca
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 973623d6c4cb57518af2012bccf67c969146d23c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799076"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311986"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Azure Search에서 복합 데이터 형식을 모델링하는 방법
 Azure Search 인덱스를 채우는 데 사용되는 외부 데이터 세트에는 가끔 테이블 형식의 행 집합으로 깔끔하게 분류되지 않는 계층적 또는 중첩된 하위 구조가 포함됩니다. 이러한 구조의 예에는 한 고객에 대한 여러 위치와 전화 번호, 단일 SKU에 대한 여러 색과 크기, 한 권의 책에 대한 여러 저자 등이 포함될 수 있습니다. 모델링 용어에서는 이러한 구조를 *복합 데이터 형식*, *복합형 데이터 형식*, *복합성 데이터 형식* 또는 *집계 데이터 형식*이라고도 합니다.
@@ -72,7 +73,7 @@ Azure Search의 데이터는 다음과 같습니다.
 
 ![샘플 데이터, 2행](./media/search-howto-complex-data-types/sample-data.png)
 
-## <a name="part-2-add-a-collection-field-in-the-index-definition"></a>2단계: 인덱스 정의에 컬렉션 필드 추가
+## <a name="part-2-add-a-collection-field-in-the-index-definition"></a>2부: 인덱스 정의에 컬렉션 필드 추가
 인덱스 스키마에서 필드 정의는 이 예제와 비슷합니다.
 
 ~~~~

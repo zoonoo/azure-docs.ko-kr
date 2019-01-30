@@ -1,5 +1,5 @@
 ---
-title: Azure에서 Hive를 사용하여 HDInsight Hadoop 데이터 과학 연습 | Microsoft Docs
+title: Hive를 사용하여 Azure HDInsight Hadoop에서 분석 - Team Data Science Process
 description: 예측 분석을 수행하기 위해 Azure HDInsight Hadoop에서 Hive 사용을 보여 주는 Team Data Science Process의 예제입니다.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: eae56eda72d775205a231e2c6482a1c0686d9251
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 91604e0ed18e8c78e5678eb9c8b85da3f8cbb500
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445927"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135052"
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Azure에서 Hive를 사용하여 HDInsight Hadoop 데이터 과학 연습 
 
@@ -36,7 +36,7 @@ Team Data Science Process를 실행하는 추가 데이터 과학 연습은 사�
 
 ## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>HDInsight Hadoop와 함께 Hive를 사용하여 광고 클릭 예측
 
-[1TB 데이터 집합에서 Azure HDInsight Hadoop 클러스터 사용](hive-criteo-walkthrough.md) 연습에서는 공개적으로 사용할 수 있는 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 클릭 데이터 집합을 사용하여 팁 지불 여부와 예상하는 금액 범위를 예측합니다. 시나리오는 샘플 데이터를 저장, 탐색, 기능 엔지니어링 및 다운하기 위해 [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)와 함께 Hive를 사용하여 구현됩니다. Azure Machine Learning을 사용하여 광고에 대한 사용자 클릭 여부를 예측하는 이진 분류 모델을 빌드, 학습 및 점수 매깁니다. 연습은 이러한 모델 중 하나를 웹 서비스로 게시하는 방법을 보여 주는 것으로 마칩니다.
+[1TB 데이터 세트에서 Azure HDInsight Hadoop 클러스터 사용](hive-criteo-walkthrough.md) 연습에서는 공개적으로 사용할 수 있는 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 클릭 데이터 세트를 사용하여 팁 지불 여부와 예상하는 금액 범위를 예측합니다. 시나리오는 샘플 데이터를 저장, 탐색, 기능 엔지니어링 및 다운하기 위해 [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)와 함께 Hive를 사용하여 구현됩니다. Azure Machine Learning을 사용하여 광고에 대한 사용자 클릭 여부를 예측하는 이진 분류 모델을 빌드, 학습 및 점수 매깁니다. 연습은 이러한 모델 중 하나를 웹 서비스로 게시하는 방법을 보여 주는 것으로 마칩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

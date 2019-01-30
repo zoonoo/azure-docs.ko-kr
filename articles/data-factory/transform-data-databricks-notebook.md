@@ -9,20 +9,19 @@ ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: 5f21f33678b8cf09d9dbd8966d42b1a5ebac9ffb
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 8ab6dad36bf47430a925d21ca2464286e7e70002
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224655"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022073"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Databricks Notebook을 실행하여 데이터 변환
 
-[Data Factory 파이프라인](concepts-pipelines-activities.md)의 Azure Databricks Notebook 활동은 Azure Databricks 작업 영역에서 Databricks Notebook을 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](transform-data.md) 문서에서 작성합니다. Azure Databricks는 Apache Spark를 실행하기 위해 관리되는 플랫폼입니다.
+[Data Factory 파이프라인](concepts-pipelines-activities.md)의 Azure Databricks Notebook 활동은 Azure Databricks 작업 영역에서 Databricks Notebook을 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는  [데이터 변환 활동](transform-data.md)  문서에서 작성합니다. Azure Databricks는 Apache Spark를 실행하기 위해 관리되는 플랫폼입니다.
 
 ## <a name="databricks-notebook-activity-definition"></a>Databricks Notebook 활동 정의
 
@@ -60,13 +59,13 @@ Databricks Notebook 활동에 대한 샘플 JSON 정의는 다음과 같습니�
 
 |자산|설명|필수|
 |---|---|---|
-|이름|파이프라인의 작업 이름입니다.|yes|
-|description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|아니오|
-|형식|Databricks Notebook 활동의 경우 활동 유형은 DatabricksNotebook입니다.|yes|
-|linkedServiceName|Databricks Notebook이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요.|yes|
-|notebookPath|Databricks 작업 영역에서 실행할 노트북의 절대 경로입니다. 이 경로는 슬래시로 시작해야 합니다.|yes|
-|baseParameters|키-값 쌍의 배열입니다. 각 활동 실행에 기본 매개 변수를 사용할 수 있습니다. 노트북에서 지정되지 않은 매개 변수를 사용하는 경우, 노트북의 기본값이 사용됩니다. 매개 변수에 대한 자세한 정보는 [Databricks Notebook](https://docs.databricks.com/api/latest/jobs.html#jobsparampair)을 참조하세요.|아니오|
-|라이브러리|작업을 실행할 클러스터에 설치할 라이브러리의 목록입니다. \<문자열, 개체>의 배열일 수 있습니다.|아니오|
+|이름|파이프라인의 작업 이름입니다.|예|
+|description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|아니요|
+|형식|Databricks Notebook 활동의 경우 활동 유형은 DatabricksNotebook입니다.|예|
+|linkedServiceName|Databricks Notebook이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은  [연결된 서비스 Compute](compute-linked-services.md)  문서를 참조하세요.|예|
+|notebookPath|Databricks 작업 영역에서 실행할 노트북의 절대 경로입니다. 이 경로는 슬래시로 시작해야 합니다.|예|
+|baseParameters|키-값 쌍의 배열입니다. 각 활동 실행에 기본 매개 변수를 사용할 수 있습니다. 노트북에서 지정되지 않은 매개 변수를 사용하는 경우, 노트북의 기본값이 사용됩니다. 매개 변수에 대한 자세한 정보는 [Databricks Notebook](https://docs.databricks.com/api/latest/jobs.html#jobsparampair)을 참조하세요.|아니요|
+|라이브러리|작업을 실행할 클러스터에 설치할 라이브러리의 목록입니다. \<문자열, 개체>의 배열일 수 있습니다.|아니요|
 
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Databricks 활동의 지원되는 라이브러리

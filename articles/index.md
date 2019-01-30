@@ -2,16 +2,16 @@
 layout: HubPage
 hide_bc: true
 title: Microsoft Azure 설명서
-description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 예제 코드, 자습서 등을 가져옵니다.
+description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 애플리케이션을 관리하는 방법을 알아봅니다. 설명서, 예제 코드, 자습서 등을 가져옵니다.
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 78f9fa6c3d15d43c1505b5a84a2e269992290afa
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6ff3aa57ceedbf9cfe4920cc8c3ca2327a1f882c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082223"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246816"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -211,6 +211,7 @@ Go</a>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/machine-learning/">Machine Learning </a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/">Cognitive Services</a></li>
+                                                    <li><a class="barLink" href="/azure/notebooks/">Azure 노트</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -380,12 +381,6 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             <a href="/azure/container-instances/">
                                                 <img src="media/index/ContainerInstances.svg" alt="" />
                                                 <p>Azure Container Instances</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/batch-ai/">
-                                                <img src="media/index/Azure_batch_ai.svg" alt="" />
-                                                <p>Azure Batch AI</p>
                                             </a>
                                         </li>
                                         <li>
@@ -756,12 +751,6 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/batch-ai/">
-                                                <img src="media/index/Azure_batch_ai.svg" alt="" />
-                                                <p>Azure Batch AI</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
                                                 <img src="media/index/bot-service.svg" alt="" />
                                                 <p>Azure Bot Service</p>
@@ -792,6 +781,11 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/notebooks">
+                                                <img src="media/index/notebooks.svg" alt="" />
+                                                <p>Azure Notebooks</p>
+                                            </a>
+                                        </li>                                        <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
                                                 <p>Azure Search</p>
@@ -1361,7 +1355,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                         <li>
                                             <a href="/azure/iot-dps/">
                                                 <img src="media/index/dps.svg" alt="" />
-                                                <p>IoT Hub Device Provisioning Service</p>
+                                                <p>IoT Hub Device Provisioning 서비스</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1434,6 +1428,12 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             <a href="/azure/api-management/">
                                                 <img src="media/index/APIManagement.svg" alt="" />
                                                 <p>API Management</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure-sphere/">
+                                                <img src="media/index/azure_sphere.svg" alt="" />
+                                                <p>Azure Sphere</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1893,25 +1893,6 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 <div class="cardText">
                                                     <h3>Container Instances</h3>
                                                     <p>단일 명령으로 컨테이너를 쉽게 실행</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/batch-ai/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/batch-ai.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Batch AI</h3>
-                                                    <p>심층 학습 및 AI 모델을 대규모 및 병렬로 쉽게 실험 및 학습</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2510,7 +2491,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Box 제품군</h3>
-                                                    <p>오프라인 또는 네트워크 기반 데이터 전송으로 사용하는 저장소 디바이스 제품군</p>
+                                                    <p>오프라인 또는 네트워크 기반 데이터 전송으로 사용하는 저장소 장치 제품군</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3390,7 +3371,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Event Hubs</h3>
-                                                    <p>수백만 개의 디바이스에서 원격 분석 수신</p>
+                                                    <p>수백만 개의 장치에서 원격 분석 수신</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3593,7 +3574,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                         <a href="#ai">AI + Machine Learning</a>
                         <ul id="ai" class="cardsA">
                             <li class="fullSpan">
-                                <h2>인공 지능</h2>
+                                <h2>AI + Machine Learning</h2>
                             </li>
                             <li>
                                 <a href="/azure/azure-databricks/">
@@ -3608,25 +3589,6 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 <div class="cardText">
                                                     <h3>Azure Databricks</h3>
                                                     <p>Spark 클러스터를 사용하여 Azure Databricks 작업 영역 만들기</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/batch-ai/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Azure_batch_ai.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Batch AI</h3>
-                                                    <p>심층 학습 및 AI 모델을 대규모 및 병렬로 쉽게 실험 및 학습</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3722,6 +3684,25 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 <div class="cardText">
                                                     <h3>Cognitive Services</h3>
                                                     <p>보고, 듣고, 말하고, 해석하도록 지능형 앱, 웹 사이트 및 봇에 정보 제공</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/notebooks/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/notebooks.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Notebooks</h3>
+                                                    <p>미리 구성된 클라우드 환경에서 Jupyter Notebook 호스트 및 실행</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3958,7 +3939,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT 기본 사항</h3>
-                                                    <p>디바이스 연결 시작</p>
+                                                    <p>장치 연결 시작</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4015,7 +3996,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Edge</h3>
-                                                    <p>클라우드로부터 Edge 디바이스까지 인텔리전스 확장</p>
+                                                    <p>클라우드로부터 에지 장치까지 인텔리전스 확장</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4071,7 +4052,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>IoT Hub Device Provisioning Service</h3>
+                                                    <h3>IoT Hub Device Provisioning 서비스</h3>
                                                     <p>Azure IoT Hub에 대한 Just-In-Time 무인 프로비전</p>
                                                 </div>
                                             </div>
@@ -4301,6 +4282,25 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 <div class="cardText">
                                                     <h3>API Management</h3>
                                                     <p>API를 개발자, 파트너 및 직원에게 안전하게 대규모로 게시</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure-sphere/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_sphere.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Sphere</h3>
+                                                    <p>높은 수준의 보안으로 연결된 MCU 구동 디바이스 만들기</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5288,7 +5288,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-resource-manager/resource-group-overview">
+                                <a href="/azure/azure-resource-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -5532,7 +5532,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Live and on-demand streaming</h3>
-                                                    <p>사실상 모든 디바이스에 비즈니스 요구에 맞는 규모로 콘텐츠 전송</p>
+                                                    <p>사실상 모든 장치에 비즈니스 요구에 맞는 규모로 콘텐츠 전송</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5731,7 +5731,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             </div>
                                             <div class="cardText">
                                                 <h3>Azure Stack 사용자</h3>
-                                                <p>Azure Stack에서 서비스 사용 및 응용 프로그램 빌드</p>
+                                                <p>Azure Stack에서 서비스 사용 및 애플리케이션 빌드</p>
                                             </div>
                                         </div>
                                     </div>
@@ -5754,7 +5754,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure US Government</h3>
-                                                    <p>Azure의 전용 인스턴스에서 미국 정부 기관 임무를 위한 응용 프로그램 빌드 및 호스팅</p>
+                                                    <p>Azure의 전용 인스턴스에서 미국 정부 기관 임무를 위한 애플리케이션 빌드 및 호스팅</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5773,7 +5773,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure Germany</h3>
-                                                    <p>데이터 트러스티의 추가 제어와 함께 주요 국제 표준 및 독일 규정에 따라 응용 프로그램 빌드 및 호스팅</p>
+                                                    <p>데이터 트러스티의 추가 제어와 함께 주요 국제 표준 및 독일 규정에 따라 애플리케이션 빌드 및 호스팅</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5792,7 +5792,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure 중국 21Vianet</h3>
-                                                    <p>중국에서 정부에 의해 규정된 정책 및 데이터 처리 규정을 준수하여 응용 프로그램 빌드 및 호스트</p>
+                                                    <p>중국에서 정부에 의해 규정된 정책 및 데이터 처리 규정을 준수하여 애플리케이션 빌드 및 호스트</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -6328,8 +6328,8 @@ Azure 아키텍처 센터에는 Microsoft Azure에서 종단 간 솔루션을 �
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure 응용 프로그램 아키텍처 가이드</h3>
-                                                    <p>이 가이드는 확장성과 복원력이 있고 가용성이 뛰어난 Azure에서 응용 프로그램을 디자인하기 위한 체계적인 방식을 제시합니다. 고객의 참여를 통해 확보한 검증된 사례를 기반으로 합니다.</p>
+                                                    <h3>Azure 애플리케이션 아키텍처 가이드</h3>
+                                                    <p>이 가이드는 확장성과 복원력이 있고 가용성이 뛰어난 Azure에서 애플리케이션을 디자인하기 위한 체계적인 방식을 제시합니다. 고객의 참여를 통해 확보한 검증된 사례를 기반으로 합니다.</p>
                                                 </div>
                                             </div>
                                         </div>

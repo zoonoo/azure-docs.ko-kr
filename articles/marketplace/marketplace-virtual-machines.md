@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: d2ff854d291f65848c7e87b88d8020a835b3bdaa
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fcfb3943109adbc095b90073f041662fb5c65b56
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958664"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078884"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Virtual Machines 제품 게시 가이드
 
@@ -66,14 +66,15 @@ IaaS(Infrastructure-as-a-Service) 또는 SaaS(Software-as-a-Service) 앱을 통�
 | 요구 사항 | 세부 정보 |  
 |:--- |:--- | 
 | 청구 및 계량 | VM은 BYOL 또는 종량제 월간 청구를 지원해야 합니다. |  
-| Azure 호환 VHD(가상 하드 디스크) | VM은 Windows 또는 Linux에서 빌드해야 합니다.<ul> <li>Linux VHD를 만드는 방법에 대한 자세한 내용은 [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based)에 있는 Azure 호환 VHD(Linux 기반) 만들기 섹션을 참조하세요.</li> <li>Windows VHD를 만드는 방법에 대한 자세한 내용은 [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based)에 있는 Azure 호환 VHD(Windows 기반) 만들기 섹션을 참조하세요.</li> </ul> |  
+| Azure 호환 VHD(가상 하드 디스크) | VM은 Windows 또는 Linux에서 빌드해야 합니다. <ul> <li>Linux VHD를 만드는 방법에 대한 자세한 내용은 [Azure 보증 Linux 배포판](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)을 참조하세요.</li> <li>Windows VHD를 만드는 방법에 대한 자세한 내용은 [Azure 호환 VHD 만들기](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)를 참조하세요.</li> </ul> |  
 
 ## <a name="next-steps"></a>다음 단계
 
 아직 수행하지 않았다면 
 
-- Marketplace에서 [등록](https://azuremarketplace.microsoft.com/sell)
+- Marketplace에 [등록](https://azuremarketplace.microsoft.com/sell).
 
 새 제품을 등록하고 만들거나 기존에서 작업하는 경우
 
-- 제품을 만들거나 완료하기 위해 [Cloud 파트너 포털에 로그인](https://cloudpartner.azure.com)
+- 제품을 만들거나 완료하기 위해 [Cloud 파트너 포털에 로그인](https://cloudpartner.azure.com).
+- 자세한 내용은 [가상 머신 제품](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer)을 참조하세요.

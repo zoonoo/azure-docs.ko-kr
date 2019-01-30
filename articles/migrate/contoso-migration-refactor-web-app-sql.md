@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 923a1ab9020925c17b3b19d24c7524ab2f8f3356
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 94ed136b48c53bd582a8b3ad210d421764b9f0f6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092765"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808462"
 ---
-# <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Contoso 마이그레이션: Azure 웹앱 및 Azure SQL 데이터베이스로 온-프레미스 앱 리팩터링
+# <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Contoso 마이그레이션: Azure Web App 및 Azure SQL Database로 온-프레미스 앱 리팩터링
 
 이 문서에서는 Contoso가 Azure에서 SmartHotel360 앱을 리팩터링하는 방법을 보여줍니다. 앱 프런트 엔드 VM을 Azure 웹앱으로, 앱 데이터베이스를 Azure SQL 데이터베이스로 마이그레이션합니다.
 
@@ -24,29 +24,29 @@ ms.locfileid: "49092765"
 **문서** | **세부 정보** | **상태**
 --- | --- | ---
 [문서 1: 개요](contoso-migration-overview.md) | Contoso 마이그레이션 전략, 문서 시리즈 및 사용할 샘플 앱에 대해 간략히 설명합니다. | 사용 가능
-[문서 2: Azure 인프라 배포](contoso-migration-infrastructure.md) | Contoso가 마이그레이션을 위해 온-프레미스 및 Azure 인프라를 준비하는 방법을 설명합니다. 모든 마이그레이션 문서에 동일한 인프라가 사용됩니다. | 사용 가능
+[문서 2: Azure 인프라 배포](contoso-migration-infrastructure.md) | Contoso에서 마이그레이션을 위해 온-프레미스 및 Azure 인프라를 준비하는 방법에 대해 설명합니다. 모든 마이그레이션 문서에 동일한 인프라가 사용됩니다. | 사용 가능
 [문서 3: 온-프레미스 리소스 평가](contoso-migration-assessment.md)  | Contoso가 VMware에서 실행되는 온-프레미스 2계층 SmartHotel 앱 평가를 실행하는 방법을 보여 줍니다. Contoso가 [Azure Migrate](migrate-overview.md) 서비스로 앱 VM을 평가하고 [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)로 앱 SQL Server 데이터베이스를 평가합니다. | 사용 가능
 [문서 4: 앱을 Azure VM 및 SQL Managed Instance에 다시 호스트](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso가 SmartHotel 앱에 대해 Azure로의 리프트 앤 시프트 마이그레이션을 실행하는 방법을 보여 줍니다. Contoso는 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 앱 프런트 엔드 VM을 마이그레이션하고 [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)를 사용하여 앱 데이터베이스를 SQL Managed Instance로 마이그레이션합니다. | 사용 가능
 [문서 5: 앱을 Azure VM에 다시 호스트](contoso-migration-rehost-vm.md) | Contoso가 Site Recovery만 사용하여 SmartHotel 앱 VM을 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
 [문서 6: 앱을 Azure VM 및 SQL Server Always On 가용성 그룹에 다시 호스트](contoso-migration-rehost-vm-sql-ag.md) | Contoso에서 SmartHotel 앱을 마이그레이션하는 방법을 보여 줍니다. Contoso가 Site Recovery를 사용하여 앱 VM을 마이그레이션하고 Database Migration Service를 사용하여 앱 데이터베이스를 AlwaysOn 가용성 그룹에서 보호하는 SQL Server 클러스터로 마이그레이션합니다. | 사용 가능
-[문서 7: Azure VM에 Linux 앱 다시 호스팅](contoso-migration-rehost-linux-vm.md) | Contoso가 Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 리프트 앤 시프트 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
+[문서 7: Azure VM에 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm.md) | Contoso가 Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 리프트 앤 시프트 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
 [문서 8: Azure VM 및 Azure MySQL 서버에 Linux 앱 다시 호스팅](contoso-migration-rehost-linux-vm-mysql.md) | Contoso가 Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 마이그레이션하고 MySQL Workbench를 사용하여 앱 데이터베이스를 Azure MySQL 서버 인스턴스로 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
-문서 9: Azure 웹앱 및 Azure SQL 데이터베이스에 앱 리팩터링 | Contoso가 SmartHotel 앱을 Azure 웹앱으로 마이그레이션하고, 앱 데이터베이스를 Azure SQL Server 인스턴스로 마이그레이션하는 방법 시연 | 이 문서의 내용:
+문서 9: Azure 웹앱 및 Azure SQL Database에 앱 리팩터링 | Contoso가 SmartHotel 앱을 Azure 웹앱으로 마이그레이션하고, 앱 데이터베이스를 Azure SQL Server 인스턴스로 마이그레이션하는 방법 시연 | 이 문서의 내용
 [문서 10: Azure Web Apps 및 Azure MySQL에 Linux 앱 리팩터링](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso가 지속적인 업데이트를 위해 GitHub와 통합된, 여러 사이트의 Azure Web Apps로 Linux osTicket 앱을 마이그레이션하는 방법을 보여줍니다. Azure MySQL 인스턴스로 앱 데이터베이스를 마이그레이션합니다. | 사용 가능
 [문서 11: Azure DevOps Services에서 TFS 리팩터링](contoso-migration-tfs-vsts.md) | Contoso가 온-프레미스 TFS(Team Foundation Server) 배포를 Azure의 Azure DevOps Services로 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
-[문서 12: Azure 컨테이너 및 Azure SQL Database에서 앱 아키텍처 변경](contoso-migration-rearchitect-container-sql.md) | Contoso가 SmartHotel 앱을 Azure로 마이그레이션하고 아키텍처를 변경하는 방법을 보여줍니다. 앱 웹 계층의 아키텍처를 Windows 컨테이너 및 Azure SQL Database의 앱 데이터베이스로 변경합니다. | 사용 가능
+[문서 12: Azure 컨테이너 및 Azure SQL Database에서 앱 재설계](contoso-migration-rearchitect-container-sql.md) | Contoso가 SmartHotel 앱을 Azure로 마이그레이션하고 아키텍처를 변경하는 방법을 보여줍니다. 앱 웹 계층의 아키텍처를 Windows 컨테이너 및 Azure SQL Database의 앱 데이터베이스로 변경합니다. | 사용 가능
 [문서 13: Azure에서 앱 다시 빌드](contoso-migration-rebuild.md) | Contoso가 App Services, Azure Kubernetes, Azure Functions, Cognitive services 및 Cosmos DB를 포함한 다양한 Azure 기능 및 서비스를 사용하여 자체 SmartHotel 앱을 다시 빌드하는 방법을 보여줍니다. | 사용 가능
 [문서 14: Azure로의 마이그레이션 확장](contoso-migration-scale.md) | 마이그레이션 조합을 시도한 후 Contoso는 Azure로 전체 마이그레이션을 확장할 준비를 합니다. | 사용 가능
 
-이 문서에서 Contoso는 2계층 Windows를 마이그레이션합니다. VMware VM에서 실행되는 NET SmartHotel360 앱을 Azure로. 이 앱을 사용하려는 경우 오픈 소스로 제공되므로 [GitHub](https://github.com/Microsoft/SmartHotel360)에서 다운로드할 수 있습니다.
+이 문서에서 Contoso는 2계층 Windows를 마이그레이션합니다. VMware VM에서 실행되는 NET SmartHotel360 앱을 Azure로 마이그레이션합니다. 이 앱을 사용하려는 경우 오픈 소스로 제공되므로 [GitHub](https://github.com/Microsoft/SmartHotel360)에서 다운로드할 수 있습니다.
 
 ## <a name="business-drivers"></a>비즈니스 영향 요소
 
 IT 리더십 팀은 비즈니스 파트너와의 긴밀한 협력을 통해 다음과 같이 기업이 이러한 마이그레이션으로 달성하고자 하는 바를 잘 이해하고 있습니다.
 
-- **비즈니스 성장 대응**: Contoso는 성장하고 있으며, 온-프레미스 시스템과 인프라에 부담을 주고 있습니다.
-- **효율성 증가**: Contoso는 불필요한 프로시저를 제거하고 개발자와 사용자가 사용할 프로세스를 간소화해야 합니다.  이 회사는 IT를 빠른 상태로 유지하고 시간이나 비용을 낭비하지 않도록 하여 고객 요구 사항을 더 빠르게 제공해야 합니다.
-- **민첩성 향상**: Contoso IT에서 비즈니스 요구 사항에 대해 더 빠르게 응답해야 합니다. 글로벌 경제에서 성공할 수 있으려면 시장의 변화에 더 빠르게 대응할 수 있어야 합니다.  사업상의 걸림돌이 되지 않아야 합니다.
+- **비즈니스 성장 해결**: Contoso는 성장하고 있으며 온-프레미스 시스템과 인프라에 부담을 주고 있습니다.
+- **효율성 증대**: Contoso는 불필요한 절차를 제거하고 개발자와 사용자를 위한 프로세스를 간소화해야 합니다.  이 회사는 IT를 빠른 상태로 유지하고 시간이나 비용을 낭비하지 않도록 하여 고객 요구 사항을 더 빠르게 제공해야 합니다.
+- **민첩성 향상**:  Contoso IT는 비즈니스 요구 사항에 대해 더 빠르게 대응해야 합니다. 글로벌 경제에서 성공할 수 있으려면 시장의 변화에 더 빠르게 대응할 수 있어야 합니다.  사업상의 걸림돌이 되지 않아야 합니다.
 - **크기 조정**: 비즈니스가 성공적으로 성장함에 따라 Contoso IT에서 동일한 속도로 크기를 조정할 수 있는 시스템을 제공해야 합니다.
 - **비용**: Contoso는 라이선스 비용을 최소화하려고 합니다.
 
@@ -56,7 +56,7 @@ Contoso 클라우드 팀은 이 마이그레이션에 대한 목표를 확정했
 
 **요구 사항** | **세부 정보**
 --- | --- 
-**앱** | Azure의 앱은 지금처럼 중요하게 유지됩니다.<br/><br/> 앞으로도 현재 VMWare에서 수행하는 것과 동일한 성능을 갖추어야 합니다.<br/><br/> 팀은 앱에 투자하려고 하지 않습니다. 이제 관리자는 앱을 안전하게 클라우드로 이동시키기만 하면 됩니다.<br/><br/> 앱이 현재 실행하는 Windows Server 2008 R2 지원을 팀이 중지하려고 합니다.<br/><br/> 팀은 SQL Server 2008 R2에서 관리에 대한 필요성을 최소화하는 최신 PaaS 데이터베이스 플랫폼으로 이동하려고 합니다.<br/><br/> Contoso는 가능한 경우 SQL Server 라이선싱 및 Software Assurance에 대한 투자를 활용하려고 합니다.<br/><br/> 또한 Contoso는 웹 계층에서 단일 실패 지점을 완화하려고 합니다.
+**앱** | Azure의 앱은 지금처럼 중요하게 유지됩니다.<br/><br/> 앞으로도 현재 VMWare에서 수행하는 것과 동일한 성능을 갖추어야 합니다.<br/><br/> 팀은 앱에 투자하려고 하지 않습니다. 지금으로선 관리자는 앱을 안전하게 클라우드로 이동시키기만 하면 됩니다.<br/><br/> 앱이 현재 실행하는 Windows Server 2008 R2 지원을 팀이 중지하려고 합니다.<br/><br/> 팀은 SQL Server 2008 R2에서 관리에 대한 필요성을 최소화하는 최신 PaaS 데이터베이스 플랫폼으로 이동하려고 합니다.<br/><br/> Contoso는 가능한 경우 SQL Server 라이선싱 및 Software Assurance에 대한 투자를 활용하려고 합니다.<br/><br/> 또한 Contoso는 웹 계층에서 단일 실패 지점을 완화하려고 합니다.
 **제한 사항** | 앱은 동일한 VM에서 실행되는 ASP.NET 앱 및 WCF 서비스로 구성됩니다. Contoso는 Azure App Service를 사용하여 두 개의 웹앱에서 분할하려고 합니다. 
 **Azure** | Contoso는 앱을 Azure로 이동하려고 하지만 VM에서 실행하지 않으려고 합니다. Contoso는 웹 및 데이터 계층에 대해 Azure PaaS 서비스를 활용하려고 합니다. 
 **DevOps** | Contoso는 빌드 및 릴리스 파이프라인에 Azure DevOps를 사용하여 DevOps 모델로 이동하려고 합니다.
@@ -89,7 +89,7 @@ Contoso는 장점 및 단점 목록을 함께 조합하여 제안된 디자인�
 
 **고려 사항** | **세부 정보**
 --- | ---
-**장점** | SmartHotel360 앱 코드를 Azure로 마이그레이션하기 위해 변경할 필요가 없습니다.<br/><br/> Contoso는 SQL Server와 Windows Server에 대한 Azure 하이브리드 혜택을 사용하여 Software Assurance에 대한 투자를 활용할 수 있습니다.<br/><br/> 마이그레이션 후 Windows Server 2008 R2는 지원되지 않아도 됩니다. [자세히 알아보기](https://support.microsoft.com/lifecycle).<br/><br/> Contoso는 더 이상 단일 실패 지점이 되지 않도록 여러 인스턴스를 사용하여 앱의 웹 계층을 구성할 수 있습니다.<br/><br/> 데이터베이스는 더 이상 오래된 SQL Server 2008 R2에 의존할 필요가 없습니다.<br/><br/> SQL Database는 기술 요구 사항을 지원합니다. Contoso는 Database Migration Assistant를 사용하여 온-프레미스 데이터베이스를 평가하고 호환된다는 것을 확인했습니다.<br/><br/> SQL Database에는 Contoso에서 설정할 필요가 없는 기본 제공 내결함성이 있습니다. 따라서 데이터 계층은 더 이상 단일 장애 조치(failover) 지점이 아닙니다.
+**장점** | Azure로 마이그레이션하기 위해 SmartHotel360 앱 코드를 변경할 필요가 없습니다.<br/><br/> Contoso는 SQL Server와 Windows Server에 대한 Azure 하이브리드 혜택을 사용하여 Software Assurance에 대한 투자를 활용할 수 있습니다.<br/><br/> 마이그레이션 후 Windows Server 2008 R2는 지원되지 않아도 됩니다. [자세히 알아보기](https://support.microsoft.com/lifecycle).<br/><br/> Contoso는 더 이상 단일 실패 지점이 되지 않도록 여러 인스턴스를 사용하여 앱의 웹 계층을 구성할 수 있습니다.<br/><br/> 데이터베이스는 더 이상 오래된 SQL Server 2008 R2에 의존할 필요가 없습니다.<br/><br/> SQL Database는 기술 요구 사항을 지원합니다. Contoso는 Database Migration Assistant를 사용하여 온-프레미스 데이터베이스를 평가하고 호환된다는 것을 확인했습니다.<br/><br/> SQL Database에는 Contoso에서 설정할 필요가 없는 기본 제공 내결함성이 있습니다. 따라서 데이터 계층은 더 이상 단일 장애 조치(failover) 지점이 아닙니다.
 **단점** | Azure App Services는 각 웹앱에 대해 하나의 앱 배포만 지원합니다. 즉, 두 개의 Web Apps가 프로비전되어야 합니다(각각 웹 사이트 및 WCF 서비스에 대해).<br/><br/> Contoso에서 해당 데이터베이스를 마이그레이션하는 데 Data Migration Service 대신 Data Migration Assistant를 사용하는 경우 Contoso에는 대규모 데이터베이스 마이그레이션을 위해 준비된 인프라가 없습니다. Contoso는 주 지역을 사용할 수 없는 경우 장애 조치(failover)되도록 다른 지역을 빌드해야 합니다.
 
 ## <a name="proposed-architecture"></a>제안된 아키텍처
@@ -110,7 +110,7 @@ Contoso는 장점 및 단점 목록을 함께 조합하여 제안된 디자인�
 --- | --- | ---
 [DMA(Database Migration Assistant)](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso는 DMA를 사용하여 Azure의 데이터베이스 기능에 영향을 줄 수 있는 호환성 문제를 평가하고 검색합니다. DMA는 SQL 원본과 대상 간의 기능 패리티를 평가하고 성능 및 안정성을 향상하기 위한 방안을 제시합니다. | DMA는 무료로 다운로드할 수 있는 도구입니다.
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) | 완전히 관리되는 지능적인 관계형 클라우드 데이터베이스 서비스입니다. | 기능, 처리량 및 크기에 따른 비용입니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/sql-database/managed/).
-[Azure App Services - Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) | 완전히 관리되는 플랫폼을 사용하여 강력한 클라우드 앱 만들기 | 크기, 위치 및 사용 기간에 따른 비용입니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/app-service/windows/).
+[Azure App Services - Web Apps](https://docs.microsoft.com/azure/app-service/overview) | 완전히 관리되는 플랫폼을 사용하여 강력한 클라우드 앱 만들기 | 크기, 위치 및 사용 기간에 따른 비용입니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/app-service/windows/).
 [Azure DevOps](https://docs.microsoft.com/azure/azure-portal/tutorial-azureportal-devops) | 앱 개발을 위한 CI/CD(연속 통합 및 연속 배포) 파이프라인을 제공합니다. 이 파이프라인은 앱 코드 관리용 Git 리포지토리, 패키지 및 기타 빌드 아티팩트 생성용 빌드 시스템, 그리고 개발/테스트/프로덕션 환경에서 변경 내용을 배포하기 위한 릴리스 관리 시스템을 초기 구성 요소로 포함합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -128,9 +128,9 @@ Contoso는 장점 및 단점 목록을 함께 조합하여 제안된 디자인�
 Contoso가 마이그레이션을 실행하는 방법은 다음과 같습니다.
 
 > [!div class="checklist"]
-> * **1단계: Azure에서 SQL Database 인스턴스 프로비전**: Contoso는 Azure에서 SQL 인스턴스를 프로비전합니다. 앱 웹 사이트를 Azure로 마이그레이션한 후 WCF 서비스 웹앱은 이 인스턴스를 가리킵니다.
+> * **1단계: Azure에서 SQL Database 인스턴스 프로비전**: Contoso는 Azure에 SQL 인스턴스를 프로비전합니다. 앱 웹 사이트를 Azure로 마이그레이션한 후 WCF 서비스 웹앱은 이 인스턴스를 가리킵니다.
 > * **2단계: DMA를 사용하여 데이터베이스 마이그레이션**: Contoso는 Database Migration Assistant를 사용하여 앱 데이터베이스를 마이그레이션합니다.
-> * **3단계: 웹앱 프로비전**: Contoso는 두 개의 웹앱을 프로비전합니다.
+> * **3단계: Web Apps 프로비전**: Contoso는 두 개의 웹앱을 프로비전합니다.
 > * **4단계: Azure DevOps 설정**: Contoso는 새 Azure DevOps 프로젝트를 만들고 Git 리포지토리를 가져옵니다.
 > * **5단계: 연결 문자열 구성**: Contoso는 웹 계층 웹앱, WCF 서비스 웹앱 및 SQL 인스턴스가 통신할 수 있도록 연결 문자열을 구성합니다.
 > * **6단계: 빌드 및 릴리스 파이프라인 설정**: 최종 단계로, Contoso는 빌드 및 릴리스 파이프라인을 설정하여 앱을 만들고, 두 개의 별도 Azure Web Apps에 배포합니다.
@@ -242,7 +242,7 @@ Contoso 관리자는 이제 DMA를 사용하여 SmartHotel360 데이터베이스
 ## <a name="step-4-set-up-azure-devops"></a>4단계: Azure DevOps 설정
 
 
-Contoso는 응용 프로그램에 대한 DevOps 인프라 및 파이프라인을 빌드해야 합니다.  이를 위해 Contoso 관리자는 새 DevOps 프로젝트를 만들고 코드를 가져온 다음 빌드 및 릴리스 파이프라인을 설정합니다.
+Contoso는 애플리케이션에 대한 DevOps 인프라 및 파이프라인을 빌드해야 합니다.  이를 위해 Contoso 관리자는 새 DevOps 프로젝트를 만들고 코드를 가져온 다음 빌드 및 릴리스 파이프라인을 설정합니다.
 
 1.   Contoso Azure DevOps 계정에서 새 프로젝트(**ContosoSmartHotelRefactor**)를 만들고 버전 제어용 **Git**을 선택합니다.
 
@@ -347,7 +347,7 @@ Contoso 관리자는 이제 빌드 및 릴리스 프로세스를 수행하도록
 
     ![앱 서비스 배포](./media/contoso-migration-refactor-web-app-sql/pipeline15.png)
 
-18. **파일 또는 폴더 선택**에서 빌드 중 생성된 **SmartHotel.Registration.Wcf.zip** 파일을 찾고 **저장**을 클릭합니다.-sql
+18. **파일 또는 폴더 선택**에서 빌드 중 생성된 **SmartHotel.Registration.Wcf.zip** 파일을 찾고 **저장**을 클릭합니다.
 
     ![WCF 저장](./media/contoso-migration-refactor-web-app-sql/pipeline16.png)
 

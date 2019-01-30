@@ -13,12 +13,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 10/29/2018
 ms.author: curtand
-ms.openlocfilehash: d046b8e6c054131a4154654637f12dbdc26608a6
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 9e0e1a70926127389101c79121ffab03e411f56a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210434"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265147"
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD의 그룹 기반 라이선스에 대한 PowerShell 예제
 
@@ -32,7 +32,7 @@ ms.locfileid: "50210434"
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>그룹에 할당된 제품 라이선스 보기
 [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) cmdlet은 그룹 개체를 검색하고 *라이선스* 속성을 확인하는 데 사용됩니다. 그룹에 현재 할당된 모든 제품 라이선스를 나열합니다.
-```
+```powershell
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
 | Select SkuPartNumber
 ```
@@ -78,11 +78,11 @@ HTTP/1.1 200 OK
 ## <a name="get-all-groups-with-licenses"></a>라이선스가 있는 모든 그룹 가져오기
 
 다음 명령을 실행하면 라이선스가 할당되어 있는 모든 그룹을 찾을 수 있습니다.
-```
+```powershell
 Get-MsolGroup | Where {$_.Licenses}
 ```
 어떤 제품이 할당되어 있는지에 대해 자세한 정보를 표시할 수 있습니다.
-```
+```powershell
 Get-MsolGroup | Where {$_.Licenses} | Select `
     ObjectId, `
     DisplayName, `
@@ -102,7 +102,7 @@ c2652d63-9161-439b-b74e-fcd8228a7074 EMSandOffice             {ENTERPRISEPREMIUM
 ## <a name="get-statistics-for-groups-with-licenses"></a>라이선스가 있는 그룹에 대한 통계 가져오기
 라이선스가 있는 그룹에 대해 기본적인 통계를 보고할 수 있습니다. 아래 예제에서 스크립트는 총 사용자 수, 그룹별 라이선스가 이미 할당되어 있는 사용자 수, 그룹별 라이선스가 할당될 수 없는 사용자 수를 나열합니다.
 
-```
+```powershell
 #get all groups with licenses
 Get-MsolGroup -All | Where {$_.Licenses}  | Foreach {
     $groupId = $_.ObjectId;
@@ -160,7 +160,7 @@ Access to Offi... 11151866-5419-4d93-9141-0603bbf78b42 STANDARDPACK             
 
 ## <a name="get-all-groups-with-license-errors"></a>라이선스 오류가 있는 모든 그룹 가져오기
 라이선스가 할당될 수 없는 사용자가 포함된 그룹을 찾으려면:
-```
+```powershell
 Get-MsolGroup -HasLicenseErrorsOnly $true
 ```
 출력:
@@ -201,7 +201,7 @@ HTTP/1.1 200 OK
 
 라이선스 관련 오류가 포함된 그룹이 있는 경우 오류의 영향을 받는 모든 사용자를 나열할 수 있습니다. 사용자는 다른 그룹의 오류도 가져올 수 있습니다. 하지만 이 예제에서는 사용자에 대한 **IndirectLicenseError** 항목의 **ReferencedObjectId** 속성을 확인하여 요청된 그룹과 관련된 오류만으로 결과를 제한합니다.
 
-```
+```powershell
 #a sample group with errors
 $groupId = '11151866-5419-4d93-9141-0603bbf78b42'
 
@@ -209,7 +209,7 @@ $groupId = '11151866-5419-4d93-9141-0603bbf78b42'
 Get-MsolGroupMember -All -GroupObjectId $groupId |
     #get full information about user objects
     Get-MsolUser -ObjectId {$_.ObjectId} |
-    #filter out users without license errors and users with licenense errors from other groups
+    #filter out users without license errors and users with license errors from other groups
     Where {$_.IndirectLicenseErrors -and $_.IndirectLicenseErrors.ReferencedObjectId -eq $groupId} |
     #display id, name and error detail. Note: we are filtering out license errors from other groups
     Select ObjectId, `
@@ -252,7 +252,7 @@ HTTP/1.1 200 OK
 > [!NOTE]
 > 이 스크립트는 테넌트의 모든 사용자를 열거하기 때문에 대규모 테넌트에는 적합하지 않을 수 있습니다.
 
-```
+```powershell
 Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
     $user = $_;
     $user.IndirectLicenseErrors | % {
@@ -278,7 +278,7 @@ Drew Fogarty     f2af28fc-db0b-4909-873d-ddd2ab1fd58c 1ebd5028-6092-41d0-9668-12
 
 다음은 라이선스 오류가 포함된 그룹만 검색하는 스크립트의 다른 버전입니다. 문제가 있는 그룹이 많지 않을 것으로 예상되는 시나리오에 더 적합할 수 있습니다.
 
-```
+```powershell
 $groupIds = Get-MsolGroup -HasLicenseErrorsOnly $true
     foreach ($groupId in $groupIds) {
     Get-MsolGroupMember -All -GroupObjectId $groupId.ObjectID |
@@ -296,7 +296,7 @@ $groupIds = Get-MsolGroup -HasLicenseErrorsOnly $true
 사용자 개체의 경우 특정 제품 라이선스가 그룹으로부터 할당되었는지 또는 직접 할당되었는지 확인하는 것이 가능합니다.
 
 아래 두 가지 샘플 함수를 사용하여 개별 사용자에 대한 할당 유형을 분석할 수 있습니다.
-```
+```powershell
 #Returns TRUE if the user has the license assigned directly
 function UserHasLicenseAssignedDirectly
 {
@@ -358,7 +358,7 @@ function UserHasLicenseAssignedFromGroup
 ```
 
 이 스크립트는 SKU ID를 입력으로 사용하여 테넌트의 각 사용자에 대해 해당 함수를 실행합니다. 이 예제에서는 *Enterprise Mobility + Security*에 대한 라이선스가 필요합니다. 이 라이선스는 테넌트에서 ID *contoso:EMS*로 표시됩니다.
-```
+```powershell
 #the license SKU we are interested in. use Msol-GetAccountSku to see a list of all identifiers in your tenant
 $skuId = "contoso:EMS"
 
@@ -436,7 +436,7 @@ HTTP/1.1 200 OK
 > [!NOTE]
 > 우선 제거할 직접 라이선스가 상속된 라이선스보다 더 많은 서비스 기능을 사용하지 않는지 검사하는 것이 중요합니다. 그렇지 않을 경우 직접 라이선스를 제거하면 사용자가 서비스 및 데이터를 액세스할 수 없게 될 수 있습니다. 현재는 어떤 서비스가 상속된 라이선스를 통해 사용되고 어떤 서비스가 직접 라이선스를 통해 사용되는지 PowerShell을 통해 확인할 수 없습니다. 스크립트에서는 우리가 아는 최소 수준의 서비스가 그룹에서 상속되는 것으로 지정하고 사용자가 예기치 않게 서비스 액세스 권한을 상실하지 않는지 확인합니다.
 
-```
+```powershell
 #BEGIN: Helper functions used by the script
 
 #Returns TRUE if the user has the license assigned directly

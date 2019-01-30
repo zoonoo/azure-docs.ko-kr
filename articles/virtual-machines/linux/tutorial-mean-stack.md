@@ -33,7 +33,7 @@ ms.locfileid: "49465684"
 > * MongoDB 설치 및 서버 설정
 > * Express 설치 및 서버에 대한 경로 설정
 > * AngularJS를 사용하여 경로에 액세스
-> * 응용 프로그램 실행
+> * 애플리케이션 실행
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -91,7 +91,7 @@ sudo apt-get install -y nodejs
 ```
 
 ## <a name="install-mongodb-and-set-up-the-server"></a>MongoDB 설치 및 서버 설정
-[MongoDB](http://www.mongodb.com)는 유연한 JSON 유사 문서에 데이터를 저장합니다. 데이터베이스의 필드는 문서마다 다를 수 있으며 데이터 구조는 시간이 지남에 따라 변경될 수 있습니다. 예제 응용 프로그램에서는 책 이름, isbn 번호, 저자 및 페이지 수를 포함하는 책 레코드를 MongoDB에 추가할 것입니다. 
+[MongoDB](http://www.mongodb.com)는 유연한 JSON 유사 문서에 데이터를 저장합니다. 데이터베이스의 필드는 문서마다 다를 수 있으며 데이터 구조는 시간이 지남에 따라 변경될 수 있습니다. 예제 애플리케이션에서는 책 이름, isbn 번호, 저자 및 페이지 수를 포함하는 책 레코드를 MongoDB에 추가할 것입니다. 
 
 1. VM에서 연 bash 셸을 SSH와 함께 사용하여 MongoDB를 설정합니다.
 
@@ -316,7 +316,7 @@ sudo apt-get install -y nodejs
     </html>
     ```
 
-##  <a name="run-the-application"></a>응용 프로그램 실행
+##  <a name="run-the-application"></a>애플리케이션 실행
 
 1. 디렉터리를 *Books*로 다시 변경하고(`cd ..`) 다음 명령을 실행하여 서버를 시작합니다.
 
@@ -340,7 +340,7 @@ sudo apt-get install -y nodejs
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Linux VM에 대해 MEAN 스택을 사용하여 책 레코드를 추적하는 웹 응용 프로그램을 만들었습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 Linux VM에 대해 MEAN 스택을 사용하여 책 레코드를 추적하는 웹 애플리케이션을 만들었습니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * Linux VM 만들기
@@ -348,7 +348,7 @@ sudo apt-get install -y nodejs
 > * MongoDB 설치 및 서버 설정
 > * Express 설치 및 서버에 대한 경로 설정
 > * AngularJS를 사용하여 경로에 액세스
-> * 응용 프로그램 실행
+> * 애플리케이션 실행
 
 SSL 인증서로 웹 서버를 보호하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
 

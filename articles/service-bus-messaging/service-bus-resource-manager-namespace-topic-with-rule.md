@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 09/11/2018
+ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 7774d67d02b2b0f0080cbff2ffc3606b99450f26
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 5c6ad222110081cd8f8838208da407e0e1d50f75
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404964"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851269"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기
 
@@ -47,7 +47,7 @@ Azure 리소스 명명 규칙의 사례 및 패턴에 대한 자세한 내용은
 
 이 템플릿을 사용하여 토픽, 구독 및 규칙(필터)이 있는 Service Bus 네임스페이스를 배포합니다.
 
-[Service Bus 토픽 및 구독](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions)은 *게시/구독* 패턴으로 일 대 다 형태의 통신을 제공합니다. 토픽 및 구독을 사용하는 경우, 분산된 응용 프로그램의 구성 요소는 서로 직접 통신하지 않으며 대신 중간 단계로 사용되는 토픽을 통해 메시지를 교환합니다. 토픽 구독은 토픽에 전송된 메시지의 복사본을 받는 가상 큐와 유사합니다. 구독에서 필터를 사용하여 토픽에 전송된 메시지 중 특정 토픽 구독 내에 표시되어야 하는 메시지를 지정할 수 있습니다.
+[Service Bus 토픽 및 구독](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions)은 *게시/구독* 패턴으로 일 대 다 형태의 통신을 제공합니다. 토픽 및 구독을 사용하는 경우, 분산된 애플리케이션의 구성 요소는 서로 직접 통신하지 않으며 대신 중간 단계로 사용되는 토픽을 통해 메시지를 교환합니다. 토픽 구독은 토픽에 전송된 메시지의 복사본을 받는 가상 큐와 유사합니다. 구독에서 필터를 사용하여 토픽에 전송된 메시지 중 특정 토픽 구독 내에 표시되어야 하는 메시지를 지정할 수 있습니다.
 
 ## <a name="what-are-rules-filters"></a>규칙(필터)란?
 
@@ -160,6 +160,8 @@ Service Bus 네임스페이스에서 만든 규칙(필터)의 이름입니다.
         }]
     }]
 ```
+
+JSON 구문 및 속성의 경우 [네임스페이스](/azure/templates/microsoft.servicebus/namespaces), [항목](/azure/templates/microsoft.servicebus/namespaces/topics), [구독](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions) 및 [규칙](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions/rules)을 참조하세요.
 
 ## <a name="commands-to-run-deployment"></a>배포 실행 명령
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]

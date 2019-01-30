@@ -42,14 +42,14 @@ DevOps Projects는 Azure DevOps에 CI/CD 파이프라인을 만듭니다. 새 Az
 
     ![지속적인 업데이트 시작](_img/azure-devops-project-aspnet-core/fullbrowser.png)
 
-## <a name="select-a-sample-application-and-azure-service"></a>샘플 응용 프로그램 및 Azure 서비스 선택
+## <a name="select-a-sample-application-and-azure-service"></a>샘플 애플리케이션 및 Azure 서비스 선택
 
 1. .NET 샘플 애플리케이션을 선택합니다. .NET 샘플에는 오픈 소스 ASP.NET 프레임워크 또는 플랫폼 간 .NET Core 프레임워크 중 하나의 선택이 포함됩니다.
 
     ![.NET Framework](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
 
 1. .NET Core 애플리케이션 프레임워크를 선택합니다.  
-    이 샘플은 ASP.NET Core MVC 응용 프로그램입니다.
+    이 샘플은 ASP.NET Core MVC 애플리케이션입니다.
     
 2. **다음**을 선택합니다.  
     Windows의 웹앱은 기본 배포 대상입니다.  필요에 따라 Web App on Linux 또는 Web App for Containers를 선택할 수 있습니다.  이전에 선택한 애플리케이션 프레임워크는 여기에서 사용 가능한 Azure 서비스 배포 대상의 유형을 나타냅니다.  

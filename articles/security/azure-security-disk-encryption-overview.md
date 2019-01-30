@@ -1,26 +1,29 @@
 ---
-title: IaaS VM용 Azure Disk Encryption 개요 | Microsoft Docs
+title: 개요 - IaaS VM용 Azure Disk Encryption | Microsoft Docs
 description: 이 문서에서는 IaaS VM용 Microsoft Azure Disk Encryption에 대해 간략히 설명합니다.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/14/2018
-ms.openlocfilehash: 1328effbc495422e5190362c562928fbb1742e1b
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 1674a54ea78e7fea2cc39cb26fefc52b8764bc4c
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913209"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200856"
 ---
-# <a name="azure-disk-encryption-for-iaas-vms"></a>IaaS VM용 Azure Disk Encryption 
-Microsoft Azure는 데이터 프라이버시 및 데이터 독립성을 보장하기 위해 노력하고 있습니다. Azure를 사용하면 암호화 키를 암호화, 제어 및 관리하고 데이터 액세스를 제어 및 감사하는 광범위한 고급 기술을 통해 Azure 호스팅 데이터를 제어할 수 있습니다. Azure 고객은 이러한 제어를 통해 비즈니스 요구에 가장 적합한 솔루션을 유연하게 선택할 수 있습니다. 이 문서에서는 "Windows 및 Linux IaaS VM(가상 머신)용 Azure Disk Encryption"과 같은 기술 솔루션을 소개합니다. 이 기술을 통해 고객 조직의 보안 및 규정 준수 약정에 맞게 데이터를 안전하게 보호할 수 있습니다. 
+# <a name="azure-disk-encryption-for-iaas-vms"></a>IaaS VM용 Azure Disk Encryption
+
+Microsoft Azure는 데이터 프라이버시 및 데이터 독립성을 보장하기 위해 노력하고 있습니다. Azure를 사용하면 암호화 키를 암호화, 제어 및 관리하고 데이터 액세스를 제어 및 감사하는 광범위한 고급 기술을 통해 Azure 호스팅 데이터를 제어할 수 있습니다. Azure 고객은 이러한 제어를 통해 비즈니스 요구에 가장 적합한 솔루션을 유연하게 선택할 수 있습니다. 이 문서에서는 기술 솔루션: “Windows 및 Linux IaaS VM(가상 머신)에 대한 Azure Disk Encryption”을 소개합니다. 이 기술을 통해 고객 조직의 보안 및 규정 준수 약정에 맞게 데이터를 안전하게 보호할 수 있습니다. 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 
 ## <a name="overview"></a>개요
+
 Azure Disk Encryption은 Windows 및 Linux IaaS VM 디스크를 암호화할 수 있도록 하는 기능입니다. 디스크 암호화는 업계 표준인 Windows의 [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) 기능과 Linux의 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 활용하여 OS 및 데이터 디스크를 위한 볼륨 암호화를 제공합니다. 이 솔루션은 [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/)와 통합되어 디스크 암호화 키와 비밀을 제어 및 관리할 수 있습니다. 이 솔루션은 VM 디스크에 있는 모든 데이터가 미사용 시 Azure Storage에 암호화되도록 합니다.
 
 Windows 및 Linux IaaS VM용 Disk Encryption은 표준 VM 및 Azure Premium Storage가 있는 VM을 위해 모든 Azure 공용 지역 및 Azure Government 지역에서 일반 공급되고 있습니다. 디스크 암호화 관리 솔루션을 적용할 때 다음 비즈니스 요구 사항을 충족할 수 있습니다.
@@ -37,6 +40,7 @@ Azure Security Center를 사용하는 경우 암호화되지 않은 VM이 있는
 
 
 ## <a name="encryption-scenarios"></a>암호화 시나리오
+
 디스크 암호화 솔루션은 다음의 고객 시나리오를 지원합니다.
 
 * 미리 암호화된 VHD 및 암호화 키에서 만든 새 Windows IaaS VM에서 암호화 사용
@@ -55,7 +59,7 @@ Azure Security Center를 사용하는 경우 암호화되지 않은 VM이 있는
 이 솔루션은 IaaS VM에 대한 다음 시나리오가 Microsoft Azure에서 사용되도록 설정될 경우 해당 시나리오를 지원합니다.
 
 * Azure Key Vault와 통합
-* 표준 계층 VM: [A, D, DS, G, GS, F 등 시리즈 IaaS VM](https://azure.microsoft.com/pricing/details/virtual-machines/) 이러한 계층 내의 [Linux VM](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)은 7GB의 최소 메모리 요구 사항을 충족해야 함
+* 표준 계층 VM: [A, D, DS, G, GS, F 등, 시리즈 IaaS VM](https://azure.microsoft.com/pricing/details/virtual-machines/). 이러한 계층 내의 [Linux VM](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)은 7GB의 최소 메모리 요구 사항을 충족해야 함
 * 지원되는 Azure 갤러리 이미지의 Windows 및 Linux IaaS VM, 관리 디스크, 확장 집합 VM에서 암호화 사용
 * Windows IaaS VM, 확장 집합 VM 및 관리 디스크 VM에 대한 OS 및 데이터 드라이브에서 암호화 사용 안 함
 * Linux IaaS VM, 확장 집합 VM 및 관리 디스크 VM에 대한 데이터 드라이브에서 암호화 사용 안 함
@@ -77,7 +81,7 @@ Azure Security Center를 사용하는 경우 암호화되지 않은 VM이 있는
 
 * 기본 계층 IaaS VM
 * Linux IaaS VM에 대한 OS 드라이브에서 암호화 사용 안 함
-* OS 드라이브가 Linux Iaas VM에 대해 암호화되는 경우 데이터 드라이브에 암호화 사용 안 함
+* OS 드라이브가 Linux IaaS VM에 대해 암호화되는 경우 데이터 드라이브에 암호화 사용 안 함
 * 클래식 VM 만들기 방법을 사용하여 만든 IaaS VM
 * Linux IaaS VM에서 고객 사용자 지정 이미지의 암호화 사용
 * 온-프레미스 키 관리 시스템과의 통합
@@ -87,6 +91,7 @@ Azure Security Center를 사용하는 경우 암호화되지 않은 VM이 있는
 * 소프트웨어 기반 RAID 시스템으로 구성된 Windows VM
 
 ## <a name="encryption-features"></a>암호화 기능
+
 Azure IaaS VM에 대한 Disk Encryption을 사용하도록 설정하고 배포할 때 제공된 구성에 따라 다음 기능이 활성화됩니다.
 
 * 사용자 스토리지에서 미사용 부팅 볼륨을 보호하기 위해 OS 볼륨 암호화

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: e8d0522dc4cc218792569498c149b32b3de652cb
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: e2f0fb6333f3786b29c2a7516e46a4599d6e89ed
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443579"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961012"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git을 사용하여 API Management 서비스 구성을 저장 및 구성하는 방법
 
@@ -81,7 +81,7 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 > 이 암호를 기록해 둡니다. 이 페이지를 떠나면 암호가 다시 표시되지 않습니다.
 > 
 
-다음 예제에서는 [Windows용 Git](http://www.git-scm.com/downloads) 에서 Git Bash 도구를 사용하지만 현재 친숙한 아무 Git나 사용할 수 있습니다.
+다음 예제에서는 [Windows용 Git](https://www.git-scm.com/downloads) 에서 Git Bash 도구를 사용하지만 현재 친숙한 아무 Git나 사용할 수 있습니다.
 
 원하는 폴더에서 Git 도구를 열고 Azure Portal에서 제공한 다음 명령을 실행하여 Git 리포지토리를 로컬 컴퓨터에 복제합니다.
 

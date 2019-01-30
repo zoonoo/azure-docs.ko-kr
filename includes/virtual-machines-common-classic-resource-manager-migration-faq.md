@@ -17,7 +17,7 @@ ms.locfileid: "34371306"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>클래식에서 Azure Resource Manager 마이그레이션에 대한 질문과 대답
 
-## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>이 마이그레이션 계획이 Azure 가상 머신에서 실행되는 기존 서비스 또는 응용 프로그램에 영향을 미치나요? 
+## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>이 마이그레이션 계획이 Azure 가상 머신에서 실행되는 기존 서비스 또는 애플리케이션에 영향을 미치나요? 
 
 번호 VM(클래식)은 일반 공급 제품에서 완전하게 지원되는 서비스입니다. 이러한 리소스를 사용하여 Microsoft Azure에서 작업 공간을 확장할 수 있습니다.
 

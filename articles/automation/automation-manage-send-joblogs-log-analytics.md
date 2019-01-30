@@ -3,18 +3,18 @@ title: Log Analytics에 Azure Automation 작업 데이터 전달
 description: 이 문서에서는 작업 상태 및 Runbook 작업 스트림을 Azure Log Analytics로 보내 통찰력 및 관리를 강화하는 방법을 알아봅니다.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 13ba4d774cbc347830c32385ba4927a0df687159
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0125c64a96929db9c8846ca7ad731fa3dc795f98
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035473"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432968"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Automation에서 Log Analytics로 작업 상태 및 작업 스트림 전달
 
@@ -138,10 +138,10 @@ Automation 작업 로그를 Log Analytics로 보내기 시작했으므로 이제
 경고 규칙을 만들려면 경고를 호출해야 하는 runbook 작업 레코드에 대한 로그 검색을 만드는 것으로 시작합니다. **경고** 단추를 클릭하여 경고 규칙을 만들고 구성합니다.
 
 1. Log Analytics 개요 페이지에서 **로그 검색**을 클릭합니다.
-2. 쿼리 필드에 다음 검색을 입력하여 경고에 대한 로그 검색 쿼리를 만듭니다. `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` 다음을 사용하여 RunbookName별로 그룹화할 수도 있습니다.`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+2. 쿼리 필드에 다음 검색을 입력하여 경고에 대한 로그 검색 쿼리를 만듭니다. `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  다음을 사용하여 RunbookName별로 그룹화할 수도 있습니다. `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    둘 이상의 Automation 계정 또는 구독에서 작업 영역으로의 로그를 설정한 경우 구독 또는 Automation 계정별로 경고를 그룹화할 수 있습니다. Automation 계정 이름은 JobLogs 검색의 리소스 필드에서 찾을 수 있습니다.
-1. **규칙 만들기** 화면을 열려면 페이지 위쪽에서 **+ 새 경고 규칙**을 클릭합니다. 경고 구성 옵션에 자세한 내용은 [Azure의 로그 경고](../monitoring-and-diagnostics/monitor-alerts-unified-log.md)를 참조하세요.
+1. **규칙 만들기** 화면을 열려면 페이지 위쪽에서 **+ 새 경고 규칙**을 클릭합니다. 경고 구성 옵션에 자세한 내용은 [Azure의 로그 경고](../azure-monitor/platform/alerts-unified-log.md)를 참조하세요.
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>오류와 함께 완료된 모든 작업 찾기
 오류에 대한 경고 외에도, runbook 작업에 대해 비종료 오류가 발생하는 경우를 확인할 수 있습니다. 이러한 경우에 PowerShell은 오류 스트림을 생성하지만 비종료 오류가 발생해도 작업이 일시 중단되거나 실패하지 않습니다.    
@@ -182,4 +182,5 @@ Log Analytics는 Automation 작업의 작동을 보다 정확히 이해하도록
 * Log Analytics를 사용하여 여러 검색 쿼리를 작성하고 Automation 작업 로그를 검토하는 방법에 대한 자세한 내용은 [Log Analytics의 로그 검색](../log-analytics/log-analytics-log-searches.md)을 참조하세요.
 * Runbook에서 출력 및 오류 메시지를 만들고 검색하는 방법을 이해하려면 [Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)를 참조하세요.
 * runbook 실행, runbook 작업 모니터링 방법 및 기타 기술 세부 정보를 알아보려면 [runbook 작업 추적](automation-runbook-execution.md)을 참조하세요.
-* Log Analytics 및 데이터 수집 소스에 대해 자세히 알아보려면 [Log Analytics에서 Azure Storage 데이터 수집 개요](../log-analytics/log-analytics-azure-storage.md)를 참조하세요.
+* Log Analytics 및 데이터 수집 소스에 대해 자세히 알아보려면 [Log Analytics에서 Azure Storage 데이터 수집 개요](../azure-monitor/platform/collect-azure-metrics-logs.md)를 참조하세요.
+

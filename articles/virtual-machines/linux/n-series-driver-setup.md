@@ -3,7 +3,7 @@ title: Linux용 Azure N 시리즈 GPU 드라이버 설치 | Microsoft Docs
 description: Azure에서 Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버를 설정하는 방법
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
-ms.author: danlep
+ms.date: 01/09/2019
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2bd9f8508f67a3c4b87533fb514854b5f66a5f6b
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: df78852e309054bb5c27a779b37bb2310d9f7a01
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017266"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201043"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치
 
@@ -38,7 +38,7 @@ N 시리즈 VM 사양, 저장소 용량 및 디스크 세부 정보는 [GPU Linu
 N 시리즈 VM의 NVIDIA CUDA 도구 키트에서 CUDA 드라이버를 설치하는 단계는 다음과 같습니다. 
 
 
-경우에 따라 C 및 C++ 개발자는 GPU 가속 응용 프로그램을 빌드하기 위해 전체 도구 키트를 설치할 수도 있습니다. 자세한 내용은 [CUDA 설치 가이드](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)를 참조하세요.
+경우에 따라 C 및 C++ 개발자는 GPU 가속 애플리케이션을 빌드하기 위해 전체 도구 키트를 설치할 수도 있습니다. 자세한 내용은 [CUDA 설치 가이드](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)를 참조하세요.
 
 CUDA 드라이버를 설치하려면 각 VM에 SSH 연결을 설정합니다. 시스템에 CUDA 호환 GPU가 있는지 확인하려면 다음 명령을 실행합니다.
 
@@ -51,9 +51,9 @@ lspci | grep -i NVIDIA
 
 그런 다음 배포 관련 특정 설치 명령을 실행합니다.
 
-### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+### <a name="ubuntu"></a>Ubuntu 
 
-1. CUDA 드라이버를 다운로드하여 설치합니다.
+1. NVIDIA 웹 사이트에서 CUDA 드라이버를 다운로드하여 설치합니다. 예를 들면 Ubuntu 16.04 LTS의 경우 다음과 같습니다.
   ```bash
   CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
 
@@ -97,7 +97,7 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
-### <a name="centos-or-red-hat-enterprise-linux-73-or-74"></a>CentOS 또는 Red Hat Enterprise Linux 7.3/7.4
+### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS 또는 Red Hat Enterprise Linux
 
 1. 커널을 업데이트합니다(권장). 커널을 업데이트하지 않도록 선택하는 경우 `kernel-devel` 및 `dkms`의 버전이 커널에 적합한지 확인하세요.
 
@@ -158,7 +158,7 @@ GPU 디바이스 상태를 쿼리하려면 VM에 대해 SSH를 실행하고 드�
 
 ## <a name="rdma-network-connectivity"></a>RDMA 네트워크 연결
 
-동일한 가용성 집합 또는 VM 확장 집합의 단일 배치 그룹에 배포된 NC24r과 같은 RDMA 지원 N 시리즈 VM에서 RDMA 네트워크 연결을 사용할 수 있습니다. RDMA 네트워크는 Intel MPI 5.x 이상 버전을 사용하여 실행되는 응용 프로그램에 대한 MPI(Message Passing Interface) 트래픽을 지원합니다. 추가 요구 사항은 다음과 같습니다.
+동일한 가용성 집합 또는 VM 확장 집합의 단일 배치 그룹에 배포된 NC24r과 같은 RDMA 지원 N 시리즈 VM에서 RDMA 네트워크 연결을 사용할 수 있습니다. RDMA 네트워크는 Intel MPI 5.x 이상 버전을 사용하여 실행되는 애플리케이션에 대한 MPI(Message Passing Interface) 트래픽을 지원합니다. 추가 요구 사항은 다음과 같습니다.
 
 ### <a name="distributions"></a>배포
 
@@ -174,7 +174,7 @@ N 시리즈 VM에서 RDMA 연결을 지원하는 Azure Marketplace의 이미지 
 
 NVIDIA GRID 드라이버를 NV 또는 NVv2 시리즈 VM에 설치하려면 각 VM에 대한 SSH 연결을 확인하고 Linux 배포에 필요한 단계를 수행합니다. 
 
-### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+### <a name="ubuntu"></a>Ubuntu 
 
 1. `lspci` 명령을 실행합니다. NVIDIA M60 카드가 PCI 디바이스로 표시되는지 확인합니다.
 

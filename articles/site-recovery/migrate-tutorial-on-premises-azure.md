@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로 �
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1df09a885d6c636ff6bd4bcbec03d27ff7b44ff9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4ba25da1f356f6164137dead467bd8bc948ce3d7
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836987"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037840"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Azure로 온-프레미스 컴퓨터 마이그레이션
 
@@ -45,7 +45,7 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
 1. [Azure Portal](https://portal.azure.com) > **Recovery Services**에 로그인합니다.
-2. **리소스 만들기** > **모니터링 및 관리** > **Backup 및 Site Recovery**를 클릭합니다.
+2. **리소스 만들기** > **관리 도구** > **Backup 및 Site Recovery**를 클릭합니다.
 3. **이름**에서 **ContosoVMVault**라는 이름을 지정합니다. 구독이 두 개 이상인 경우 적절한 구독을 선택합니다.
 4. **ContosoRG** 리소스 그룹을 만듭니다.
 5. Azure 지역을 지정합니다. 지원되는 지역을 확인하려면 [Azure Site Recovery 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하세요.
@@ -63,8 +63,8 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 1. **Recovery Services 자격 증명 모음** > 자격 증명 모음을 클릭합니다.
 2. 리소스 메뉴 >에서 **Site Recovery** > **인프라 준비** > **보호 목표**를 클릭합니다.
 3. **보호 목표**에서 마이그레이션할 항목을 선택합니다.
-    - **VMware**: **Azure에** > **예, VMware vSphere 하이퍼바이저 사용**을 차례로 선택합니다.
-    - **물리적 컴퓨터**: **Azure에** > **가상화되지 않음/기타**를 선택합니다.
+    - **VMware**: **Azure에** > **예, VMWare vSphere 하이퍼바이저 사용**을 차례로 선택합니다.
+    - **물리적 머신**: **Azure에** > **가상화되지 않음/기타**를 선택합니다.
     - **Hyper-V**: **Azure에** > **예, Hyper-V 사용**을 선택합니다. Hyper-V VM이 VMM에서 관리되는 경우 **예**를 선택합니다.
 
 
@@ -119,7 +119,7 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 
 
 > [!WARNING]
-> **진행 중인 장애 조치(failover) 취소 안 함**: 장애 조치(failover)를 시작하기 전에 VM 복제가 중지됩니다. 진행 중인 장애 조치(failover)를 취소하면 장애 조치(failover)가 중지되지만 VM은 다시 복제되지 않습니다.
+> **진행 중인 장애 조치(failover)는 취소하지 마세요**. 장애 조치(failover)가 시작되기 전에 VM 복제가 중지됩니다. 진행 중인 장애 조치(failover)를 취소하면 장애 조치(failover)가 중지되지만 VM은 다시 복제되지 않습니다.
 
 일부 시나리오에서는 장애 조치(Failover)를 위해서는 추가 처리가 필요하며 이러한 작업을 완료하는 데는 약 8~10분이 소요됩니다. 물리적 서버, VMware Linux 컴퓨터, DHCP 서비스가 사용되도록 설정되지 않은 VMware VM과 부팅 드라이버인 storvsc, vmbus, storflt, intelide, atapi가 없는 VMware VM의 경우 테스트 장애 조치(Failover)가 더 오래 걸릴 수 있습니다.
 
@@ -133,7 +133,7 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 ### <a name="post-migration-steps-in-azure"></a>Azure의 마이그레이션 후 단계
 
 - 데이터베이스 연결 문자열 업데이트, 웹 서버 구성 등의 마이그레이션 후 앱 조정을 수정합니다. 
-- 이제 Azure에서 실행 중인 마이그레이션된 응용 프로그램에서 최종 응용 프로그램 및 마이그레이션 수용 테스트를 수행합니다.
+- 이제 Azure에서 실행 중인 마이그레이션된 애플리케이션에서 최종 애플리케이션 및 마이그레이션 수용 테스트를 수행합니다.
 - [Azure VM 에이전트](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)는 Azure Fabric Controller와 VM 간 상호 작용을 관리합니다. 이는 Azure Backup, Site Recovery, Azure Security 같은 일부 Azure 서비스에 필요합니다.
     - VMware 머신과 물리적 서버를 마이그레이션하는 경우 모바일 서비스 설치 관리자는 Windows 머신에 사용 가능한 Azure VM 에이전트를 설치합니다. Linux VM에서는 장애 조치(failover) 후 에이전트를 설치하는 것이 좋습니다. a
     - Azure VM을 보조 지역으로 마이그레이션하는 경우 마이그레이션 전에 VM에서 Azure VM 에이전트를 프로비전해야 합니다.

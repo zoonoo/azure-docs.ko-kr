@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jeedes
-ms.openlocfilehash: fd35cb67d0555919a1340c428bac042b67239469
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d51ced3f264a486288c951def7c23a0d95609ac0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427342"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850685"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>자습서: Mobile Xpense와 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ Mobile Xpense와의 Azure AD 통합을 구성하려면 다음 항목이 필요�
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Mobile Xpense 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -64,15 +64,15 @@ Mobile Xpense의 Azure AD 통합을 구성하려면 갤러리의 Mobile Xpense�
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
 
-1. 검색 상자에 **Mobile Xpense**를 입력하고 결과 패널에서 **Mobile Xpense**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에 **Mobile Xpense**를 입력하고 결과 패널에서 **Mobile Xpense**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Mobile Xpense](./media/mobilexpense-tutorial/tutorial_mobilexpense_addfromgallery.png)
 
@@ -94,11 +94,11 @@ Mobile Xpense에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Mobile Xpense 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Mobile Xpense 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Mobile Xpense에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Mobile Xpense** 응용 프로그램 통합 페이지에서 **Single sign-on**을 클릭합니다.
+1. Azure Portal의 **Mobile Xpense** 애플리케이션 통합 페이지에서 **Single sign-on**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -106,7 +106,7 @@ Mobile Xpense에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
  
     ![Single Sign-On 대화 상자](./media/mobilexpense-tutorial/tutorial_mobilexpense_samlbase.png)
 
-1. IDP 시작 모드에서 응용 프로그램을 구성하려면 **Mobile Xpense 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+1. IDP 시작 모드에서 애플리케이션을 구성하려면 **Mobile Xpense 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Mobile Xpense 도메인 및 URL Single Sign-On 정보](./media/mobilexpense-tutorial/tutorial_mobilexpense_url11.png)
 
@@ -121,7 +121,7 @@ Mobile Xpense에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<sub-domain>.mobilexpense.com/<customername>`
      
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Mobile Xpense 클라이언트 지원 팀](http://www.mobilexpense.net/contact)에 문의하세요. 
+    > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Mobile Xpense 클라이언트 지원 팀](https://www.mobilexpense.net/contact)에 문의하세요. 
 
 1. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
@@ -131,10 +131,10 @@ Mobile Xpense에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![Single Sign-On 구성 저장 단추](./media/mobilexpense-tutorial/tutorial_general_400.png)
 
-1. **Mobile Xpense** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML**을 [Mobile Xpense 지원 팀](http://www.mobilexpense.net/contact)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+1. **Mobile Xpense** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML**을 [Mobile Xpense 지원 팀](https://www.mobilexpense.net/contact)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -170,7 +170,7 @@ Mobile Xpense에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
  
 ### <a name="create-a-mobile-xpense-test-user"></a>Mobile Xpense 테스트 사용자 만들기
 
-이 섹션에서는 MobileXpense에서 Britta Simon이라는 사용자를 만듭니다. MobileXpense 플랫폼에서 사용자를 추가하려면 [MobileXpense 지원 팀](http://www.mobilexpense.net/contact)과 작업합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
+이 섹션에서는 MobileXpense에서 Britta Simon이라는 사용자를 만듭니다. MobileXpense 플랫폼에서 사용자를 추가하려면  [MobileXpense 지원 팀](https://www.mobilexpense.net/contact) 에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -180,13 +180,13 @@ Mobile Xpense에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 **Britta Simon을 Mobile Xpense에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Mobile Xpense**를 선택합니다.
+1. 애플리케이션 목록에서 **Mobile Xpense**를 선택합니다.
 
-    ![응용 프로그램 목록의 Mobile Xpense 링크](./media/mobilexpense-tutorial/tutorial_mobilexpense_app.png)  
+    ![애플리케이션 목록의 Mobile Xpense 링크](./media/mobilexpense-tutorial/tutorial_mobilexpense_app.png)  
 
 1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -206,7 +206,7 @@ Mobile Xpense에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Mobile Xpense 타일을 클릭하면 Mobile Xpense 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Mobile Xpense 타일을 클릭하면 Mobile Xpense 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스

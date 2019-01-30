@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD 동기화 연결: 함수 참조 | Microsoft Docs'
+title: 'Azure AD Connect 동기화: Functions 참조 | Microsoft Docs'
 description: Azure AD Connect 동기화의 선언적 프로비전 식을 참조하세요.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb6f74a1de3e91868d7b20563a790352486862ee
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: cad9cec83ac5cc75ba5b4e5fc395e7f68f7d2770
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425696"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471186"
 ---
-# <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD 동기화 연결: 함수 참조
+# <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect 동기화: 함수 참조
 Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 사용합니다.  
 함수의 구문은 다음 형식을 사용하여 표현됩니다.  
 `<output type> FunctionName(<input type> <position name>, ..)`
@@ -146,7 +146,7 @@ CDate 함수는 문자열에서 UTC 날짜/시간을 반환합니다. 날짜/시
 **구문:**  
 `dt CDate(str value)`
 
-* 값: 날짜, 시간 및 임의적 시간대 문자열
+* 값: 날짜, 시간 및 선택적 표준 시간대 문자열
 
 **설명**  
 반환되는 문자열은 항상 UTC로 나타납니다.
@@ -372,7 +372,7 @@ Contains 함수는 다중 값 특성에 포함된 문자열을 찾습니다.
 
 * 특성: 다중 값 특성을 검색합니다.
 * 검색: 특성에서 찾을 문자열입니다.
-* 대소문자 유형: 대소문자를 구분하거나 구분하지 않습니다.
+* Casetype: 대소문자를 구분하거나 구분하지 않습니다.
 
 문자열이 발견된 다중값 특성에 인덱스를 반환합니다. 문자열을 찾을 수 없는 경우 0이 반환됩니다.
 
@@ -387,14 +387,14 @@ proxyAddresses 특성이 기본 전자 메일 주소(대문자로 표시 “SMTP
 - - -
 ### <a name="convertfrombase64"></a>ConvertFromBase64
 **설명:**  
-ConvertFromBase64 함수는 지정된 base64 인코딩 값을 일반 문자열로 변환합니다.
+ ConvertFromBase64 함수는 지정된 base64 인코딩 값을 일반 문자열로 변환합니다.
 
 **구문:**  
 `str ConvertFromBase64(str source)` - 인코딩에 유니코드 가정  
 `str ConvertFromBase64(str source, enum Encoding)`
 
 * 원본: Base64 인코딩된 문자열  
-* Encoding: 유니코드, ASCII, UTF8
+* 인코딩: 유니코드, ASCII, UTF8
 
 **예제**  
 `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")`  
@@ -499,7 +499,7 @@ CStr 함수는 문자열 데이터 형식으로 변환합니다.
 **구문:**  
 `dt DateAdd(str interval, num value, dt date)`
 
-* 간격: 추가하고자 하는 시간 간격에 해당하는 문자열 식입니다. 문자열은 다음 값 중 하나가 있어야 합니다.
+* 간격: 추가하려는 시간 간격의 문자열 식입니다. 문자열은 다음 값 중 하나가 있어야 합니다.
   * yyyy 년
   * q 분기
   * m 월
@@ -510,8 +510,8 @@ CStr 함수는 문자열 데이터 형식으로 변환합니다.
   * h 시간
   * n 분
   * s 초
-* 값: 추가하고자 하는 단위 수 입니다. 양수(미래 날짜) 또는 음수(과거 날짜)가 될 수 있습니다.
-* 날짜: 날짜/시간은 간격이 추가된 날짜로 나타납니다.
+* 값: 추가하려는 단위 수 입니다. 양수(미래 날짜) 또는 음수(과거 날짜)가 될 수 있습니다.
+* 날짜: 간격이 추가되는 날짜를 나타내는 날짜/시간입니다.
 
 **예제:**  
 `DateAdd("m", 3, CDate("2001-01-01"))`  
@@ -539,7 +539,7 @@ DNComponent 함수는 왼쪽부터 지정된 DN 구성 요소의 값을 반환�
 `str DNComponent(ref dn, num ComponentNumber)`
 
 * dn: 참조 특성 해석
-* ComponentNumber: 반환할 DN 내의 구성 요소
+* ComponentNumber: 반환할 DN의 구성 요소
 
 **예제:**  
 `DNComponent(CRef([dn]),1)`  
@@ -556,7 +556,7 @@ DNComponentRev 함수는 오른쪽(끝)부터 지정된 DN 구성 요소의 값�
 
 * dn: 참조 특성 해석
 * ComponentNumber-반환할 DN 내의 구성 요소
-* 옵션: DC –"dc ="가 있는 모든 구성 요소를 무시합니다.
+* 옵션: DC – "dc="이 있는 모든 구성 요소를 무시합니다.
 
 **예제:**  
 dn이 "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com"인 경우  
@@ -567,7 +567,7 @@ dn이 "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com"인 경우
 - - -
 ### <a name="error"></a>오류
 **설명:**  
-Error 함수는 사용자 지정 오류를 반환하는 데 사용됩니다.
+ Error 함수는 사용자 지정 오류를 반환하는 데 사용됩니다.
 
 **구문:**  
 `void Error(str ErrorMessage)`
@@ -600,7 +600,7 @@ FormatDateTime 함수는 날짜/시간을 지정된 형식의 문자열로 구�
 * 형식: 변환할 형식을 나타내는 문자열입니다.
 
 **설명**  
-형식에 대해 가능한 값은 [사용자 정의 날짜/시간 형식(Format 함수)](https://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)에서 확인할 수 있습니다.
+형식으로 사용 가능한 값은 여기서 확인할 수 있습니다. [FORMAT 함수의 사용자 지정 날짜 및 시간 형식](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function)
 
 **예제:**  
 
@@ -658,7 +658,7 @@ InStr 함수는 문자열에서 부분 문자열이 처음 나오는 경우를 �
 5로 계산합니다.
 
 `InStr("repEated","e",3,vbBinaryCompare)`  
-7로 계산합니다.
+ 7로 계산합니다.
 
 - - -
 ### <a name="instrrev"></a>InStrRev
@@ -852,8 +852,8 @@ Join 함수는 다중값 문자열을 사용하여 각 항목 사이에 지정�
 `str Join(mvstr attribute)`  
 `str Join(mvstr attribute, str Delimiter)`
 
-* attribute: 연결할 문자열을 포함하는 다중값 특성
-* 구분 기호: 반환된 문자열의 부분 문자열을 구분하는데 사용되는 모든 문자열입니다. 생략하면 공백(" ")이 사용됩니다. 구분 기호가 길이가 0인 문자열(“”)또는 없을 경우 ,목록에서 모든 항목이 구분 기호 없이 연결됩니다.
+* 특성: 연결할 문자열을 포함하는 다중값 특성입니다.
+* delimiter: 반환된 문자열의 부분 문자열을 구분하는 데 사용되는 모든 문자열입니다. 생략하면 공백(" ")이 사용됩니다. 구분 기호가 길이가 0인 문자열(“”)또는 없을 경우 ,목록에서 모든 항목이 구분 기호 없이 연결됩니다.
 
 **주의**  
 Join 및 Split 함수 사이에 패리티가 있습니다. Join 함수는 단일 문자열을 반환하기 위해 문자열의 배열을 채택하고  구분 기호 문자열을 사용하여 배열을 연결합니다. Split 함수는 문자열의 배열을 반환하기 위해 문자열을 채택하고 구분 기호로 구분합니다. 그러나 Join 함수는 모든 구분 기호 문자열을 사용하여 문자열을 연결할 수 있지만, Split 함수는 단일 문자 구분 기호를 사용하여 오직 문자열을 나눌 수만 있다는 것이 가장 중요한 차이점입니다.
@@ -982,7 +982,7 @@ PadLeft 함수는 제공된 채움 문자를 사용하여 문자열을 지정된
 `str PadLeft(str string, num length, str padCharacter)`
 
 * 문자열: 문자열을 채웁니다.
-* 길이: 원하는 문자열의 길이를 나타내는 정수입니다.
+* length: 원하는 문자열의 길이를 나타내는 정수입니다.
 * padCharacter: 채움 문자를 사용하여 단일 문자로 문자열을 구성합니다.
 
 **설명**
@@ -1007,7 +1007,7 @@ PadRight 함수는 제공된 채움 문자를 사용하여 지정된 길이로 �
 `str PadRight(str string, num length, str padCharacter)`
 
 * 문자열: 문자열을 채웁니다.
-* 길이: 원하는 문자열의 길이를 나타내는 정수입니다.
+* length: 원하는 문자열의 길이를 나타내는 정수입니다.
 * padCharacter: 채움 문자를 사용하여 단일 문자로 문자열을 구성합니다.
 
 **설명**
@@ -1077,9 +1077,9 @@ Replace 함수는 한 문자열이 나오는 모든 경우를 다른 문자열�
 **구문:**  
 `str Replace(str string, str OldValue, str NewValue)`
 
-* string: 값을 바꿀 문자열
-* OldValue: 검색한 후 바꿀 문자열
-* NewValue: 문자열을 대체합니다.
+* string: 값을 바꿀 문자열입니다.
+* OldValue: 검색한 후 바꿀 문자열입니다.
+* NewValue: 바꿀 문자열입니다.
 
 **설명**  
 이 함수는 다음의 특별한 모니커를 인식합니다.
@@ -1222,8 +1222,8 @@ Switch 함수는 계산 조건에 따라 단일 값을 반환하는 데 사용�
 **구문:**  
 `var Switch(exp expr1, var value1[, exp expr2, var value … [, exp expr, var valueN]])`
 
-* expr: 계산하고자 하는 변형 식입니다.
-* value: 해당 식이 True일 경우 반환될 값입니다.
+* expr: 평가하려는 변형 식입니다.
+* 값: 해당 식이 True일 경우 반환될 값입니다.
 
 **설명**  
 Switch 함수 인수 목록은 식과 값의 쌍으로 구성됩니다. 식은 왼쪽에서 오른쪽으로 계산되며, True로 계산되는 첫 번째 식과 연결된 값이 반환됩니다. 파트가 적절한 쌍으로 연결되지 않으면, 런타임 오류가 발생합니다.
@@ -1256,7 +1256,7 @@ Trim 함수는 선행 및 후행 공백을 문자열에서 제거합니다.
 "test"를 반환합니다.
 
 `Trim([proxyAddresses])`  
-proxyAddress 특성의 각 값에 대한 선행 및 후행 공백을 제거합니다.
+ proxyAddress 특성의 각 값에 대한 선행 및 후행 공백을 제거합니다.
 
 - - -
 ### <a name="ucase"></a>UCase
@@ -1335,5 +1335,5 @@ Word 함수는 사용할 구분 기호를 설명하는 매개 변수에 따라 �
 
 ## <a name="additional-resources"></a>추가 리소스
 * [선언적 프로비전 식 이해](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
-* [Azure AD Connect Sync: 사용자 지정 동기화 옵션](how-to-connect-sync-whatis.md)
+* [Azure AD Connect 동기화: 동기화 옵션 사용자 지정](how-to-connect-sync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)

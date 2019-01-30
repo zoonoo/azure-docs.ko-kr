@@ -1,5 +1,5 @@
 ---
-title: Azure DC/OS 클러스터용 파일 공유
+title: (사용되지 않음) Azure DC/OS 클러스터용 파일 공유
 description: Azure Container Service에서 DC/OS 클러스터에 파일 공유 만들기 및 탑재
 services: container-service
 author: julienstroheker
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 4e03a0b450c9806edfb81a867fba97052659ec44
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e6651fc5988a1e1830807219cda02ab057db9a4f
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973507"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329823"
 ---
-# <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>DC/OS 클러스터에 파일 공유 만들기 및 탑재
+# <a name="deprecated-create-and-mount-a-file-share-to-a-dcos-cluster"></a>(사용되지 않음) DC/OS 클러스터에 파일 공유 만들기 및 탑재
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 이 문서에서는 Azure에서 파일 공유를 만들어서 DC/OS 클러스터의 각 에이전트 및 마스터에 탑재하는 방법을 설명합니다. 파일 공유를 설정하면 구성, 액세스, 로그 등과 같은 클러스터 전반에서 파일을 간편하게 공유할 수 있습니다. 이 자습서에서는 다음 태스크를 완료합니다.
 
@@ -152,4 +154,4 @@ sh ./getNodesRunScript.sh
 다음 자습서로 넘어가서 Azure에서 DC/OS와 Azure Container Registry를 통합하는 방법을 알아봅니다.  
 
 > [!div class="nextstepaction"]
-> [부하 분산 응용 프로그램](container-service-dcos-acr.md)
+> [부하 분산 애플리케이션](container-service-dcos-acr.md)

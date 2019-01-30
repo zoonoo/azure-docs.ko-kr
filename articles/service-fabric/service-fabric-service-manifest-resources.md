@@ -23,10 +23,10 @@ ms.locfileid: "49985984"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>서비스 매니페스트에서 리소스 지정
 ## <a name="overview"></a>개요
-서비스 매니페스트를 사용하면 컴파일된 코드를 변경하지 않고도 서비스에서 사용하는 리소스를 선언/변경할 수 있게 해줍니다. Azure 서비스 패브릭은 서비스에 대한 엔드포인트 리소스 구성을 지원합니다. 서비스 매니페스트에 지정된 리소스에 대한 액세스는 응용 프로그램 매니페스트의 SecurityGroup을 통해 제어할 수 있습니다. 리소스를 선언하면 배포 시에 이러한 리소스를 변경할 수 있으며 즉, 서비스에 새로운 구성 메커니즘을 도입하지 않아도 됩니다. ServiceManifest.xml 파일에 대한 스키마 정의는 Service Fabric SDK 및 도구와 함께 *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*에 설치됩니다.
+서비스 매니페스트를 사용하면 컴파일된 코드를 변경하지 않고도 서비스에서 사용하는 리소스를 선언/변경할 수 있게 해줍니다. Azure 서비스 패브릭은 서비스에 대한 엔드포인트 리소스 구성을 지원합니다. 서비스 매니페스트에 지정된 리소스에 대한 액세스는 애플리케이션 매니페스트의 SecurityGroup을 통해 제어할 수 있습니다. 리소스를 선언하면 배포 시에 이러한 리소스를 변경할 수 있으며 즉, 서비스에 새로운 구성 메커니즘을 도입하지 않아도 됩니다. ServiceManifest.xml 파일에 대한 스키마 정의는 Service Fabric SDK 및 도구와 함께 *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*에 설치됩니다.
 
 ## <a name="endpoints"></a>엔드포인트
-서비스 매니페스트에 엔드포인트 리소스가 정의되면 서비스 패브릭에서는 포트가 명시적으로 지정되지 않을 경우 예약된 응용 프로그램 포트 범위에 포함되는 포트를 할당합니다. 예를 들어 이 단락 다음에 제공된 매니페스트 코드 조각에 지정된 엔드포인트 *ServiceEndpoint1* 을 보세요. 또한 서비스에서 리소스의 특정 포트를 요청할 수도 있습니다. 다른 클러스터 노드에서 실행되는 서비스 복제본을 다른 포트 번호에 할당할 수 있으며, 같은 노드에서 실행되는 서비스의 복제본은 포트를 공유합니다. 그러면 서비스 복제본은 복제 및 클라이언트 요청의 수신 대기를 위해 필요한 경우 이러한 포트를 사용할 수 있습니다.
+서비스 매니페스트에 엔드포인트 리소스가 정의되면 서비스 패브릭에서는 포트가 명시적으로 지정되지 않을 경우 예약된 애플리케이션 포트 범위에 포함되는 포트를 할당합니다. 예를 들어 이 단락 다음에 제공된 매니페스트 코드 조각에 지정된 엔드포인트 *ServiceEndpoint1* 을 보세요. 또한 서비스에서 리소스의 특정 포트를 요청할 수도 있습니다. 다른 클러스터 노드에서 실행되는 서비스 복제본을 다른 포트 번호에 할당할 수 있으며, 같은 노드에서 실행되는 서비스의 복제본은 포트를 공유합니다. 그러면 서비스 복제본은 복제 및 클라이언트 요청의 수신 대기를 위해 필요한 경우 이러한 포트를 사용할 수 있습니다.
 
 ```xml
 <Resources>
@@ -104,11 +104,11 @@ HTTP 엔드포인트는 서비스 패브릭에 의해 자동으로 ACL 처리됩
 HTTPS 프로토콜은 서버 인증을 제공하며, 클라이언트-서버 통신을 암호화하는 데에도 사용됩니다. Service Fabric 서비스에서 HTTPS를 사용할 수 있도록 설정하려면 위의 *ServiceEndpoint3* 엔드포인트와 같이 서비스 매니페스트의 *리소스 -&gt; 엔드포인트 -&gt; 엔드포인트* 섹션에서 프로토콜을 지정합니다.
 
 > [!NOTE]
-> 서비스의 프로토콜은 응용 프로그램 업그레이드 중에 변경될 수 없습니다. 업그레이드 중에 변경되는 경우 불안정한 변경이 됩니다.
+> 서비스의 프로토콜은 애플리케이션 업그레이드 중에 변경될 수 없습니다. 업그레이드 중에 변경되는 경우 불안정한 변경이 됩니다.
 > 
 
 > [!WARNING] 
-> HTTPS를 사용하는 경우 동일한 노드에 배포된 다른 서비스 인스턴스(응용 프로그램과 독립적)에 동일한 포트 및 인증서를 사용하지 않습니다. 다른 응용 프로그램 인스턴스에서 동일한 포트를 사용하는 두 가지 다른 서비스를 업그레이드하면 업그레이드 오류가 발생합니다. 자세한 내용은 [HTTPS 엔드포인트로 여러 응용 프로그램 업그레이드](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints)를 참조하세요.
+> HTTPS를 사용하는 경우 동일한 노드에 배포된 다른 서비스 인스턴스(애플리케이션과 독립적)에 동일한 포트 및 인증서를 사용하지 않습니다. 다른 애플리케이션 인스턴스에서 동일한 포트를 사용하는 두 가지 다른 서비스를 업그레이드하면 업그레이드 오류가 발생합니다. 자세한 내용은 [HTTPS 엔드포인트로 여러 애플리케이션 업그레이드](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints)를 참조하세요.
 >
 
 HTTPS에 대해 설정해야 하는 예제 ApplicationManifest는 다음과 같습니다. 인증서에 대한 지문을 제공해야 합니다. EndpointRef는 HTTPS 프로토콜을 설정하는 ServiceManifest의 EndpointResource에 대한 참조입니다. 둘 이상의 Endpointcertificate를 추가할 수 있습니다.  
@@ -192,7 +192,7 @@ Parameters에서 아래 내용을 추가합니다.
   </Parameters>
 ```
 
-응용 프로그램을 배포하는 동안 이러한 값을 ApplicationParameters로 제공할 수 있습니다.  예: 
+애플리케이션을 배포하는 동안 이러한 값을 ApplicationParameters로 제공할 수 있습니다.  예: 
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}

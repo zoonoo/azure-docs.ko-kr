@@ -1,33 +1,35 @@
-# Microsoft Azure Documentation
+# <a name="microsoft-azure-documentation"></a>Microsoft Azure 설명서
 
-[Microsoft Azure](https://azure.microsoft.com/ko-kr/)의 [오픈소스 문서](https://docs.microsoft.com/ko-kr/azure/)에 오신것을 환영합니다. 이 README는 Microsoft Azure 문서에 기여하는데 도움을 줍니다.
+[Microsoft Azure](https://azure.microsoft.com)의 오픈 소스 [설명서](https://docs.microsoft.com/azure)에 오신 것을 환영합니다. Microsoft Azure 설명서에 기여할 수 있는 방법을 이해하려면 이 README 파일을 살펴보세요.
 
-## 시작하기
+## <a name="getting-started"></a>시작하기
 
-오픈소스에 기여하는 것은 단지 업데이트를 제공하는것 이상의 가치가 있습니다. 문서에 의견이 있다면 언제든 알려주세요. 더 자세한 정보를 얻으려면 [기여 가이드](.github/CONTRIBUTING.md)를 참조하세요.
+오픈 소스에 기여하면 단순히 업데이트를 제공하는 것을 넘어서 문제가 발생했을 때 알려줄 수도 있습니다. [지침 기여](.github/CONTRIBUTING.md)를 읽고 자세한 내용을 알아보세요.
 
-### 전제조건
+### <a name="prerequisites"></a>필수 조건
 
-오픈소스에 기여하기로 결심했다면, 좋습니다! 문서에 기여하기 위한 편집을 위한 도구 등 몇가지 준비과정이 필요합니다.
+기여하기로 결정하셨군요. 잘 생각하셨습니다! 설명서에 기여하려면 몇 가지 도구가 필요합니다.
 
-먼저 GitHub 계정이 있어야 합니다. 계정이 없는 경우 [기여 가이드](.github/CONTRIBUTING.md)의 [GitHub 계정 설정](https://docs.microsoft.com/contribute/get-started-setup-github) 지침을 참조하여 계정을 생성합니다.
+설명서에 기여하려면 GitHub 계정이 필요합니다. 계정이 없으면 기여자 가이드에서 [GitHub 계정 설정](https://docs.microsoft.com/contribute/get-started-setup-github) 지침을 따르세요.
 
-#### 다운로드
+#### <a name="download"></a>다운로드
 
-다음의 도구들이 도움이 됩니다.
+다음 도구를 설치합니다.
 
 * [Git](https://git-scm.com/download)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
-* [Docs Authoring Pack](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-authoring-pack) (Visual Studio Code용 확장)
+* Visual Studio Code용 [Docs Authoring Pack](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-authoring-pack) 확장
 
-#### 설치
+#### <a name="install"></a>설치
 
-[기여 가이드](.github/CONTRIBUTING.md)의 [콘텐츠 작성 도구 설치](https://docs.microsoft.com/ko-kr/contribute/get-started-setup-tools)를 참조하세요.
+기여자 가이드의 [콘텐츠 제작 도구 설치](https://docs.microsoft.com/contribute/get-started-setup-tools)에 나와 있는 지침을 따르세요.
 
-## 라이선스
+## <a name="license"></a>License
 
-모든 라이선스 정보는 [라이선스](.github/LICENSE)와 [LICENSE-CODE](.github/LICENSE-CODE), 그리고 [ThirdPartyNotices](.github/ThirdPartyNotices.md)를 참조하세요.
+모든 라이선싱 정보는 [LICENSE](.github/LICENSE), [LICENSE-CODE](.github/LICENSE-CODE) 및 [ThirdPartyNotices](.github/ThirdPartyNotices.md)를 참조하세요.
 
-## Mirosoft 오픈소스 사용 규정
+## <a name="code-of-conduct"></a>준수 사항
 
-이 프로젝트는 Microsoft Open Source Code of Conduct(Microsoft 오픈 소스 사용 규정)를 채택했습니다. 자세한 내용은 Code of Conduct FAQ(사용 규정 FAQ)를 참조하고 추가 질문이나 의견이 있을 경우 opencode@microsoft.com으로 문의하세요.
+이 프로젝트에는 [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/)(Microsoft 오픈 소스 준수 사항)이 적용됩니다.
+자세한 내용은 [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/)(준수 사항 FAQ)를 참조하거나 [opencode@microsoft.com](mailto:opencode@microsoft.com)에 추가 질문 또는 의견을 알려주세요.
+

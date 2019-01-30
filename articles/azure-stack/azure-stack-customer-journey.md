@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: asganesh
-ms.openlocfilehash: db33deaa9bb0bf9a4c3f766fbae883df4075c431
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.lastreviewed: 12/10/2018
+ms.openlocfilehash: f900fa5105f42dac57b392d41a8cd888850fc648
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323374"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249498"
 ---
-# <a name="azure-stack-customer-journey"></a>Azure Stack 고객 경험
+# <a name="azure-stack-datacenter-integration"></a>Azure Stack 데이터 센터 통합
 
 이 문서에서는 구매 솔루션 공급자가 온사이트 성공적인 배포를 통해 통합된 된 솔루션에서 종단 간 Azure Stack 고객 환경을 설명 합니다. 이 정보를 사용 하 여 경험을 쉽게 하 고 여러분이, Azure Stack 고객의 기대치를 설정 하는 데는 데이터 센터에 Azure Stack을 통합 하는 경우 예상 해야 합니다.
 

@@ -4,7 +4,7 @@ description: Azure Active Directory와 Land Gorilla Client 간에 Single Sign-On
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: jeedes
-ms.openlocfilehash: e93c4721f34b06fec853d876543e9939220efd9f
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: e4ff5b3fd7797296761ba025dc54d15c491dea06
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116439"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827690"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>자습서: Land Gorilla Client와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ Land Gorilla Client를 Azure AD와 통합하면 다음과 같은 이점이 제�
 - 사용의 Azure AD 계정으로 Land Gorilla Client에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure 관리 포털에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -53,7 +53,7 @@ Land Gorilla Client와 Azure AD의 통합을 구성하려면 다음 항목이 �
 
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Land Gorilla Client 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -68,19 +68,19 @@ Land Gorilla Client가 Azure AD에 통합되도록 구성하려면 갤러리에�
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
     
 1. 대화 상자 위쪽에 있는 **추가** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
 1. 검색 상자에 **Land Gorilla Client**를 입력합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/landgorilla-tutorial/tutorial_landgorilla_search.png)
 
-1. 결과 창에서 **Land Gorilla Client**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **Land Gorilla Client**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/landgorilla-tutorial/tutorial_landgorilla_addfromgallery.png)
 
@@ -102,11 +102,11 @@ Land Gorilla Client에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure 관리 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Land Gorilla Client 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure 관리 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Land Gorilla Client 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Land Gorilla Client에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure 관리 포털의 **Land Gorilla Client** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure 관리 포털의 **Land Gorilla Client** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -145,7 +145,7 @@ Land Gorilla Client에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     ![Configure Single Sign-On](./media/landgorilla-tutorial/tutorial_general_400.png) 
 
-1. Land Gorilla 쪽에서 응용 프로그램에 대한 SSO 구성이 완료되도록 하려면 [Land Gorilla Client 지원 팀](https://www.landgorilla.com/support/)에 문의하고 다운로드한 **“메타데이터 XML** 파일을 제공하십시오.
+1. Land Gorilla 쪽에서 애플리케이션에 대한 SSO 구성이 완료되도록 하려면 [Land Gorilla Client 지원 팀](https://www.landgorilla.com/support/)에 문의하고 다운로드한 **“메타데이터 XML** 파일을 제공하십시오.
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -191,11 +191,11 @@ Land Gorilla Client에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 **Britta Simon을 Land Gorilla Client에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure 관리 포털에서 응용 프로그램 보기를 열고 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure 관리 포털에서 애플리케이션 보기를 열고 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Land Gorilla Client**를 선택합니다.
+1. 애플리케이션 목록에서 **Land Gorilla Client**를 선택합니다.
 
     ![Configure Single Sign-On](./media/landgorilla-tutorial/tutorial_landgorilla_app.png) 
 
@@ -219,13 +219,13 @@ Land Gorilla Client에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Land Gorilla Client 타일을 클릭하면 Land Gorilla Client 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Land Gorilla Client 타일을 클릭하면 Land Gorilla Client 애플리케이션에 자동으로 로그온됩니다.
 
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

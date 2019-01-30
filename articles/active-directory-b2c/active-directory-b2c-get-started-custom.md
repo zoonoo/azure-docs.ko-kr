@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 사용자 지정 정책 시작 | Microso
 description: Azure Active Directory B2C 사용자 지정 정책을 시작하는 방법
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b4ff8b607f9fded02a519b5f2a3abdfeedf93d88
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 235b72393801717bb5d7258d6492dc4c943fe232
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181784"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852306"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책 시작
 
@@ -62,25 +62,25 @@ Azure 구독에 연결된 [Azure AD B2C 테넌트](tutorial-create-tenant.md)가
 1. **정책 키**, **추가**를 차례로 선택합니다.
 2. **옵션**으로는 `Manual`을 선택합니다.
 3. **이름**에 `FacebookSecret`을 입력합니다. `B2C_1A_` 접두사가 자동으로 추가될 수 있습니다.
-4. **비밀**에 developers.facebook.com의 Facebook 비밀을 입력하거나 자리 표시자인 `0`을 입력합니다. 이 값은 응용 프로그램 ID가 아닌 비밀입니다.
+4. **비밀**에 developers.facebook.com의 Facebook 비밀을 입력하거나 자리 표시자인 `0`을 입력합니다. 이 값은 애플리케이션 ID가 아닌 비밀입니다.
 5. **키 사용**으로는 **서명**을 선택합니다.
 6. **만들기**를 클릭합니다.
 
-## <a name="register-applications"></a>응용 프로그램 등록
+## <a name="register-applications"></a>애플리케이션 등록
 
-Azure AD B2C에서는 사용자 등록 및 로그인에 사용되는 두 개의 응용 프로그램, 즉 IdentityExperienceFramework(웹앱) 및 IdentityExperienceFramework 앱에서 위임된 권한이 있는 ProxyIdentityExperienceFramework(네이티브 앱)를 등록해야 합니다. 로컬 계정은 테넌트에만 존재합니다. 사용자는 고유한 이메일 주소/암호 조합으로 등록하여 테넌트에 등록된 응용 프로그램에 액세스합니다.
+Azure AD B2C를 사용하려면 사용자 가입 및 로그인에 사용되고 IdentityExperienceFramework 앱에서 위임된 권한을 갖고 있는 두 개의 애플리케이션 IdentityExperienceFramework(웹앱) 및 ProxyIdentityExperienceFramework(네이티브 앱)를 등록해야 합니다. 로컬 계정은 테넌트에만 존재합니다. 사용자는 고유한 이메일 주소/암호 조합으로 등록하여 테넌트에 등록된 애플리케이션에 액세스합니다.
 
 ### <a name="register-the-identityexperienceframework-application"></a>IdentityExperienceFramework 응용 프로그램 등록
 
 1. Azure Portal의 왼쪽 위 모서리에서 **모든 서비스**를 선택하고 **Azure Active Directory**를 검색하여 선택한 다음 **앱 등록**을 선택합니다.
-2. **새 응용 프로그램 등록**을 선택합니다.
+2. **새 애플리케이션 등록**을 선택합니다.
 3. **이름**에 `IdentityExperienceFramework`를 입력합니다.
 4. **응용 프로그램 종류**로 **웹앱/API**를 선택합니다.
 5. **로그온 URL**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`을 입력합니다. 여기서 `your-tenant-name`은 Azure AD B2C 테넌트 도메인 이름입니다.
 6. **만들기**를 클릭합니다. 
 7. 생성된 응용 프로그램 ID를 복사한 후 나중에 사용할 수 있도록 저장합니다.
 
-### <a name="register-the-proxyidentityexperienceframework-application"></a>ProxyIdentityExperienceFramework 응용 프로그램 등록
+### <a name="register-the-proxyidentityexperienceframework-application"></a>ProxyIdentityExperienceFramework 애플리케이션 등록
 
 1. **앱 등록**, **새 응용 프로그램 등록**을 차례로 선택합니다.
 2. **이름**에 `ProxyIdentityExperienceFramework`를 입력합니다.
@@ -121,10 +121,10 @@ Azure AD B2C에서는 사용자 등록 및 로그인에 사용되는 두 개의 
 
 ### <a name="add-application-ids-to-the-custom-policy"></a>사용자 지정 정책에 응용 프로그램 ID 추가
 
-확장 파일 *TrustFrameworkExtensions.xml*에 응용 프로그램 ID를 추가합니다.
+확장 파일 *TrustFrameworkExtensions.xml*에 애플리케이션 ID를 추가합니다.
 
 1. *TrustFrameworkExtensions.xml* 파일을 열어 `<TechnicalProfile Id="login-NonInteractive">` 요소를 찾습니다.
-2. `IdentityExperienceFrameworkAppId`의 두 인스턴스를 이전에 만든 ID 경험 프레임워크의 응용 프로그램 ID로 바꿉니다. `ProxyIdentityExperienceFrameworkAppId`의 두 인스턴스를 이전에 만든 프록시 ID 경험 프레임워크 응용 프로그램의 응용 프로그램 ID로 바꿉니다. 다음 예제에서는 변경 후의 **login-NonInteractive** 기술 프로필을 보여 줍니다.
+2. `IdentityExperienceFrameworkAppId`의 두 인스턴스를 이전에 만든 ID 경험 프레임워크 애플리케이션의 애플리케이션 ID로 바꿉니다. `ProxyIdentityExperienceFrameworkAppId`의 두 인스턴스를 이전에 만든 프록시 ID 경험 프레임워크 애플리케이션의 애플리케이션 ID로 바꿉니다. 다음 예제에서는 변경 후의 **login-NonInteractive** 기술 프로필을 보여 줍니다.
 
     ![응용 프로그램 ID](./media/active-directory-b2c-get-started-custom/login-NonInteractive.png)
 
@@ -156,7 +156,7 @@ Azure AD B2C에서는 사용자 등록 및 로그인에 사용되는 두 개의 
        <Item Key="client_id">00000000000000</Item>
    ```
 3. 테넌트에 *TrustFrameworkExtensions.xml* 파일을 업로드합니다.
-4. **지금 실행**을 사용하여 테스트하거나 등록된 응용 프로그램에서 바로 정책을 호출합니다.
+4. **지금 실행**을 사용하여 테스트하거나 등록된 애플리케이션에서 바로 정책을 호출합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

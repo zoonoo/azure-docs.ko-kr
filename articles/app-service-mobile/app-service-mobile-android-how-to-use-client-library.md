@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: b595e62e032743be2655406ac02c8db94cf708f9
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: c0e6aa34b80389689e49ac6ad3566a3a109a96e1
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281770"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158165"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Android용 Azure Mobile Apps SDK를 사용하는 방법
 
@@ -81,7 +81,7 @@ Azure에 액세스하려면 앱은 인터넷 사용 권한을 사용하도록 �
 
 ## <a name="create-a-client-connection"></a>클라이언트 연결 만들기
 
-Azure Mobile Apps는 모바일 응용 프로그램에 네 가지 함수를 제공합니다.
+Azure Mobile Apps는 모바일 애플리케이션에 네 가지 함수를 제공합니다.
 
 * Azure Mobile Apps Service를 통한 데이터 액세스 및 오프라인 동기화.
 * Azure Mobile Apps 서버 SDK로 작성된 사용자 지정 API 호출.
@@ -189,7 +189,7 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Mobile Apps 백 엔드에 추가 테이블을 작성하는 방법을 알아보려면 [방법: 테이블 컨트롤러 정의][15](.NET 백 엔드) 또는 [동적 스키마를 사용하여 테이블 정의][16](Node.js 백 엔드)를 참조하세요.
+Mobile Apps 백 엔드에 추가 테이블을 만드는 방법을 알아보려면 [방법: 테이블 컨트롤러 정의][15](.NET 백 엔드) 또는 [동적 스키마를 사용하여 테이블 정의][16](Node.js 백 엔드)를 참조하세요.
 
 Azure Mobile Apps 백 엔드 테이블은 5개의 특수 필드를 정의하며 이 중 4개는 클라이언트에서 사용할 수 있습니다.
 
@@ -479,7 +479,7 @@ List<ToDoItem> results = mToDoTable
 * 화면 레이아웃
 * 두 요소를 연결하는 어댑터
 
-샘플 코드에서는 Mobile Apps SQL Azure 테이블 **ToDoItem** 의 데이터를 배열로 반환합니다. 이 활동은 데이터 응용 프로그램에서 매우 흔한 패턴입니다.  데이터베이스 쿼리는 종종 클라이언트에서 목록 또는 배열로 가져오는 행 컬렉션을 반환합니다. 이 샘플에서 배열은 데이터 원본입니다.  코드는 디바이스에 나타나는 데이터 뷰를 정의하는 화면 레이아웃을 지정합니다.  이 두 요소는 어댑터(이 코드에서 **ArrayAdapter&lt;ToDoItem&gt;** 클래스의 확장)를 통해 바인딩됩니다.
+샘플 코드에서는 Mobile Apps SQL Azure 테이블 **ToDoItem** 의 데이터를 배열로 반환합니다. 이 활동은 데이터 애플리케이션에서 매우 흔한 패턴입니다.  데이터베이스 쿼리는 종종 클라이언트에서 목록 또는 배열로 가져오는 행 컬렉션을 반환합니다. 이 샘플에서 배열은 데이터 원본입니다.  코드는 디바이스에 나타나는 데이터 뷰를 정의하는 화면 레이아웃을 지정합니다.  이 두 요소는 어댑터(이 코드에서 **ArrayAdapter&lt;ToDoItem&gt;** 클래스의 확장)를 통해 바인딩됩니다.
 
 #### <a name="layout"></a>레이아웃 정의
 
@@ -629,7 +629,7 @@ Mobile Apps 테이블에는 **id**라고 하는 기본 키 열이 필요합니�
 
 * 데이터베이스에 대한 왕복 없이도 ID를 생성할 수 있습니다.
 * 여러 테이블 또는 데이터베이스의 레코드를 병합하기가 더 쉽습니다.
-* 응용 프로그램의 논리를 통해 ID 값이 더 효율적으로 통합됩니다.
+* 애플리케이션의 논리를 통해 ID 값이 더 효율적으로 통합됩니다.
 
 오프라인 동기화를 지원하려면 문자열 ID 값이 **필수** 입니다.  ID가 백 엔드 데이터베이스에 저장되고 나면 ID를 변경할 수 없습니다.
 
@@ -767,9 +767,9 @@ public void showAllUntyped(View view) {
 
 Azure Mobile Apps 클라이언트 SDK는 SQLite 데이터베이스를 사용하여 서버 데이터의 복사본을 로컬에 저장하여 데이터의 오프라인 동기화를 구현합니다.  오프라인 테이블에 수행되는 작업에는 모바일 연결이 필요하지 않습니다.  오프라인 동기화는 충돌 해결을 위해보다 복잡한 논리를 사용하는 대신 복원력과 성능을 향상시킵니다.  Azure Mobile Apps 클라이언트 SDK는 다음 기능을 구현합니다.
 
-* 증분 동기화: 업데이트된 레코드와 새 레코드 만 다운로드되기 때문에 대역폭과 메모리 사용량이 절약됩니다.
+* 증분 동기화: 업데이트된 레코드와 새 레코드만 다운로드되기 때문에 대역폭과 메모리 사용량이 절약됩니다.
 * 낙관적 동시성: 작업이 성공한 것으로 간주됩니다.  충돌 해결은 서버에서 업데이트가 수행될 때까지 지연됩니다.
-* 충돌 해결: SDK는 서버에서 충돌하는 변경이 발생하면 이를 감지하고 사용자에게 경고하기 위해 후크를 제공합니다.
+* 충돌 해결: SDK는 서버에서 충돌하는 변경이 발생하면 이를 탐지하고 사용자에게 경고하기 위해 후크를 제공합니다.
 * 일시 삭제: 삭제된 레코드가 삭제된 것으로 표시되기 때문에 다른 디바이스가 오프라인 캐시를 업데이트할 수 있습니다.
 
 ### <a name="initialize-offline-sync"></a>오프라인 동기화 초기화
@@ -892,11 +892,11 @@ public void completeItem(View view) {
 
 자습서는 이러한 기능을 추가하는 방법을 이미 자세히 설명합니다.
 
-App Service는 Facebook, Google, Microsoft 계정, Twitter 및 Azure Active Directory와 같이 다양한 외부 ID 공급자를 사용하여 [앱 사용자의 인증](app-service-mobile-android-get-started-users.md) 을 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다.
+App Service는 다음과 같이 다양한 외부 ID 공급자를 사용하여 [앱 사용자의 인증](app-service-mobile-android-get-started-users.md)을 지원합니다. Facebook, Google, Microsoft 계정, Twitter 및 Azure Active Directory. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다.
 
 두 가지의 인증 흐름, 즉 **서버** 흐름과 **클라이언트** 흐름이 지원됩니다. 서버 흐름의 경우 ID 공급자의 웹 인터페이스를 사용하므로 인증 경험이 가장 단순합니다.  서버 흐름 인증을 구현하기 위해 추가 SDK가 필요하지는 않습니다. 서버 흐름 인증은 모바일 디바이스와 긴밀하게 통합되지 않으므로 개념 증명 시나리오에만 권장됩니다.
 
-클라이언트 흐름의 경우 ID 공급자가 제공한 SDK를 사용하므로 Single Sign-On 같은 디바이스별 기능과 심도 깊은 통합이 가능합니다.  예를 들어 Facebook SDK를 모바일 응용 프로그램에 통합할 수 있습니다.  모바일 클라이언트는 Facebook 앱으로 전환한 후 다시 모바일 앱으로 전환하기 전에 사용자의 로그온을 확인합니다.
+클라이언트 흐름의 경우 ID 공급자가 제공한 SDK를 사용하므로 Single Sign-On 같은 디바이스별 기능과 심도 깊은 통합이 가능합니다.  예를 들어 Facebook SDK를 모바일 애플리케이션에 통합할 수 있습니다.  모바일 클라이언트는 Facebook 앱으로 전환한 후 다시 모바일 앱으로 전환하기 전에 사용자의 로그온을 확인합니다.
 
 앱에서 인증을 사용하도록 설정하려면 다음 네 단계가 필요합니다.
 
@@ -957,7 +957,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 </activity>
 ```
 
-**redirectUriScheme**을 응용 프로그램의 `build.gradle` 파일에 추가합니다.
+**redirectUriScheme**을 애플리케이션의 `build.gradle` 파일에 추가합니다.
 
 ```text
 android {
@@ -1071,9 +1071,9 @@ MobileServiceUser user = mClient
 
 ### <a name="adal"></a>Active Directory 인증 라이브러리(ADAL)를 사용하여 사용자 인증
 
-Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로그인하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다. 클라이언트 흐름 로그인은 UX 느낌을 그대로 제공하고 추가 사용자 지정이 가능하기 때문에 `loginAsync()` 메서드보다 선호도가 높습니다.
+Azure Active Directory를 사용하여 애플리케이션에 사용자가 로그인하려면 Active Directory 인증 라이브러리(ADAL)를 사용할 수 있습니다. 클라이언트 흐름 로그인은 UX 느낌을 그대로 제공하고 추가 사용자 지정이 가능하기 때문에 `loginAsync()` 메서드보다 선호도가 높습니다.
 
-1. [Active Directory 로그인에 App Service를 구성하는 방법][22] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 응용 프로그램을 등록하는 선택적 단계를 완료해야 합니다.
+1. [Active Directory 로그인에 App Service를 구성하는 방법][22] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 애플리케이션을 등록하는 선택적 단계를 완료해야 합니다.
 2. 다음 정의를 포함하도록 build.gradle 파일을 수정하여 ADAL을 설치합니다.
 
     ```
@@ -1099,11 +1099,11 @@ Azure Active Directory를 사용하여 응용 프로그램에 사용자가 로�
     }
     ```
 
-3. 응용 프로그램에 아래 코드를 추가하여 다음과 같이 대체합니다.
+3. 애플리케이션에 아래 코드를 추가하여 다음과 같이 대체합니다.
 
-    * **INSERT-AUTHORITY-HERE** 를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com이어야 합니다.
+    * **INSERT-AUTHORITY-HERE**를 애플리케이션이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com이어야 합니다.
     * **INSERT-RESOURCE-ID-HERE** 를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 Azure **Active Directory 설정**에 있는 **고급** 탭에서 클라이언트 ID를 가져올 수 있습니다.
-    * **INSERT-CLIENT-ID-HERE** 를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
+    * **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 애플리케이션에서 복사한 클라이언트 ID로 바꿉니다.
     * HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE** 를 사이트의 */.auth/login/done* 엔드포인트로 바꿉니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done*과 비슷해야 합니다.
 
 ```java
@@ -1188,7 +1188,7 @@ mClient = new MobileServiceClient("https://myappname.azurewebsites.net");
 mClient.setAndroidHttpClientFactory(new OkHttpClientFactory() {
     @Override
     public OkHttpClient createOkHttpClient() {
-        OkHttpClient client = new OkHttpClinet();
+        OkHttpClient client = new OkHttpClient();
         client.setReadTimeout(60, TimeUnit.SECONDS);
         client.setWriteTimeout(60, TimeUnit.SECONDS);
         return client;
@@ -1281,7 +1281,7 @@ FieldNamingStrategy namingStrategy = new FieldNamingStrategy() {
 client.setGsonBuilder(
     MobileServiceClient
         .createMobileServiceGsonBuilder()
-        .setFieldNamingStrategy(namingStategy)
+        .setFieldNamingStrategy(namingStrategy)
 );
 ```
 
@@ -1289,31 +1289,31 @@ client.setGsonBuilder(
 
 <!-- URLs. -->
 [Get started with Azure Mobile Apps]: app-service-mobile-android-get-started.md
-[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[Mobile Services SDK for Android]: http://go.microsoft.com/fwlink/p/?LinkID=717033
+[ASCII control codes C0 and C1]: https://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+[Mobile Services SDK for Android]: https://go.microsoft.com/fwlink/p/?LinkID=717033
 [Azure portal]: https://portal.azure.com
 [인증 시작]: app-service-mobile-android-get-started-users.md
 [1]: https://static.javadoc.io/com.google.code.gson/gson/2.8.5/com/google/gson/JsonObject.html
-[2]: http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
+[2]: https://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
 [3]: https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5
-[4]: http://go.microsoft.com/fwlink/p/?LinkId=296840
+[4]: https://go.microsoft.com/fwlink/p/?LinkId=296840
 [5]: app-service-mobile-android-get-started-push.md
 [6]: ../notification-hubs/notification-hubs-push-notification-overview.md#integration-with-app-service-mobile-apps
 [7]: app-service-mobile-android-get-started-users.md#cache-tokens
-[8]: http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/table/MobileServiceTable.html
-[9]: http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html
+[8]: https://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/table/MobileServiceTable.html
+[9]: https://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html
 [10]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [11]: app-service-mobile-node-backend-how-to-use-server-sdk.md
-[12]: http://azure.github.io/azure-mobile-apps-android-client/
+[12]: https://azure.github.io/azure-mobile-apps-android-client/
 [13]: app-service-mobile-android-get-started.md#create-a-new-azure-mobile-app-backend
-[14]: http://go.microsoft.com/fwlink/p/?LinkID=717034
+[14]: https://go.microsoft.com/fwlink/p/?LinkID=717034
 [15]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller
 [16]: app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations
 [17]: https://developer.android.com/reference/java/util/UUID.html
 [18]: https://github.com/google/guava/wiki/ListenableFutureExplained
-[19]: http://www.odata.org/documentation/odata-version-3-0/
-[20]: http://hashtagfail.com/post/46493261719/mobile-services-android-querying
+[19]: https://www.odata.org/documentation/odata-version-3-0/
+[20]: https://hashtagfail.com/post/46493261719/mobile-services-android-querying
 [21]: https://github.com/Azure-Samples/azure-mobile-apps-android-quickstart
-[22]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Future]: http://developer.android.com/reference/java/util/concurrent/Future.html
-[AsyncTask]: http://developer.android.com/reference/android/os/AsyncTask.html
+[22]: ../app-service/configure-authentication-provider-aad.md
+[Future]: https://developer.android.com/reference/java/util/concurrent/Future.html
+[AsyncTask]: https://developer.android.com/reference/android/os/AsyncTask.html

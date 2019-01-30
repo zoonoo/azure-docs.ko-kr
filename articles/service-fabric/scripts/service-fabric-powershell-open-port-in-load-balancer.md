@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - Load Balancer에서 응용 프로그램 포트 열기 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - Service Fabric 응용 프로그램에 대한 Azure Load Balancer에서 응용 프로그램 포트 열기
+title: Azure PowerShell 스크립트 샘플 - Load Balancer에서 애플리케이션 포트 열기 | Microsoft Docs
+description: Azure PowerShell 스크립트 샘플 - Service Fabric 애플리케이션에 대한 Azure Load Balancer에서 애플리케이션 포트 열기
 services: service-fabric
 documentationcenter: ''
 author: rwike77
@@ -22,9 +22,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/20/2018
 ms.locfileid: "34366174"
 ---
-# <a name="open-an-application-port-in-the-azure-load-balancer"></a>Azure Load Balancer에서 응용 프로그램 포트 열기
+# <a name="open-an-application-port-in-the-azure-load-balancer"></a>Azure Load Balancer에서 애플리케이션 포트 열기
 
-Azure에서 실행되는 Service Fabric 응용 프로그램은 Azure Load Balancer 뒤에 있습니다. 이 샘플 스크립트는 Service Fabric 응용 프로그램이 외부 클라이언트와 통신할 수 있도록 Azure Load Balancer에서 포트를 엽니다. 필요에 따라 매개 변수를 사용자 지정합니다. 또한 클러스터가 네트워크 보안 그룹에 위치하는 경우 [인바운드 네트워크 보안 그룹 규칙을 추가](service-fabric-powershell-add-nsg-rule.md)하여 인바운드 트래픽을 허용합니다.
+Azure에서 실행되는 Service Fabric 애플리케이션은 Azure Load Balancer 뒤에 있습니다. 이 샘플 스크립트는 Service Fabric 애플리케이션이 외부 클라이언트와 통신할 수 있도록 Azure Load Balancer에서 포트를 엽니다. 필요에 따라 매개 변수를 사용자 지정합니다. 또한 클러스터가 네트워크 보안 그룹에 위치하는 경우 [인바운드 네트워크 보안 그룹 규칙을 추가](service-fabric-powershell-add-nsg-rule.md)하여 인바운드 트래픽을 허용합니다.
 
 필요한 경우 [Service Fabric SDK](../service-fabric-get-started.md)를 사용하여 Service Fabric PowerShell 모듈을 설치합니다. 
 

@@ -14,29 +14,29 @@ ms.date: 11/08/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: bd63e8379051864a19c473779625a925446185f2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 1e679a1d26ce219f7c0248e27d7f9cfffc5fdb4e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445024"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813851"
 ---
 # <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>Azure Active Directory의 ID 작업별 관리자 역할
 
 이 문서에서는 Azure AD(Azure Active Directory)에서 최소 권한 역할을 할당하여 사용자의 관리자 권한을 제한하는 데 필요한 정보를 찾을 수 있습니다. 관리자 작업은 각 작업을 수행하는 데 필요한 기능 영역 및 최소 권한 역할, 그리고 작업을 수행할 수 있는 비 글로벌 관리자 역할에 따라 구성되는 것을 알 수 있습니다.
 
-## <a name="application-proxy"></a>응용 프로그램 프록시
+## <a name="application-proxy"></a>애플리케이션 프록시
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
-애플리케이션 프록시 앱 구성 | 응용 프로그램 관리자 | 
-커넥터 그룹 속성 구성 | 응용 프로그램 관리자 | 
-모든 사용자에 대한 기능이 비활성화되면 애플리케이션 등록 만들기 | 응용 프로그램 개발자 | 클라우드 애플리케이션 관리자, 애플리케이션 관리자
-커넥터 그룹 만들기 | 응용 프로그램 관리자 | 
-커넥터 그룹 삭제 | 응용 프로그램 관리자 | 
-응용 프로그램 프록시 사용 안 함 | 응용 프로그램 관리자 | 
-커넥터 서비스 다운로드 | 응용 프로그램 관리자 | 
-모든 구성 읽기 | 응용 프로그램 관리자 | 
+애플리케이션 프록시 앱 구성 | 애플리케이션 관리자 | 
+커넥터 그룹 속성 구성 | 애플리케이션 관리자 | 
+모든 사용자에 대한 기능이 비활성화되면 애플리케이션 등록 만들기 | 애플리케이션 개발자 | 클라우드 애플리케이션 관리자, 애플리케이션 관리자
+커넥터 그룹 만들기 | 애플리케이션 관리자 | 
+커넥터 그룹 삭제 | 애플리케이션 관리자 | 
+애플리케이션 프록시 사용 안 함 | 애플리케이션 관리자 | 
+커넥터 서비스 다운로드 | 애플리케이션 관리자 | 
+모든 구성 읽기 | 애플리케이션 관리자 | 
 
 ## <a name="b2c"></a>B2C
 
@@ -44,7 +44,7 @@ Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 Azure AD B2C 디렉터리 만들기 | 모든 비 게스트 사용자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 B2C 애플리케이션 만들기 | 전역 관리자 | 
-엔터프라이즈 애플리케이션 만들기 | 클라우드 응용 프로그램 관리자 | 응용 프로그램 관리자
+엔터프라이즈 애플리케이션 만들기 | 클라우드 애플리케이션 관리자 | 애플리케이션 관리자
 B2C 정책 만들기, 읽기, 업데이트 및 삭제 | 전역 관리자 | 
 ID 공급자 만들기, 읽기, 업데이트 및 삭제 | 전역 관리자 | 
 암호 재설정 사용자 흐름 만들기, 읽기, 업데이트 및 삭제 | 전역 관리자 | 
@@ -86,7 +86,7 @@ Task | 최소 권한 역할 | 추가 역할
 알림 구성 | 기여자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | 소유자
 설정 구성 | 소유자([설명서 참조](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | 
 동기화 알림 구성 | 기여자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | 소유자
-ADFS 보안 보고서 읽기 | 보안 읽기 권한자 | 기여자, 소유자
+ADFS 보안 보고서 읽기 | 보안 판독기 | 기여자, 소유자
 모든 구성 읽기 | 읽기 권한자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | 기여자, 소유자
 동기화 오류 읽기 | 읽기 권한자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | 기여자, 소유자
 동기화 서비스 읽기 | 읽기 권한자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | 기여자, 소유자
@@ -117,20 +117,20 @@ Task | 최소 권한 역할 | 추가 역할
 디바이스 사용 안 함 | 클라우드 디바이스 관리자 | 
 디바이스 사용 | 클라우드 디바이스 관리자 | 
 기본 구성 읽기 | 기본 사용자 역할([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
-Bitlocker 키 읽기 | 보안 읽기 권한자 | 암호 관리자, 보안 관리자
+BitLocker 키 읽기 | 보안 판독기 | 암호 관리자, 보안 관리자
 
-## <a name="enterprise-applications"></a>Enterprise 응용 프로그램
+## <a name="enterprise-applications"></a>Enterprise 애플리케이션
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
-모든 위임된 권한에 동의 | 클라우드 애플리케이션 관리자 | 응용 프로그램 관리자
-Microsoft Graph 또는 Azure AD Graph를 포함하지 않는 애플리케이션 권한에 동의 | 클라우드 애플리케이션 관리자 | 응용 프로그램 관리자
+모든 위임된 권한에 동의 | 클라우드 애플리케이션 관리자 | 애플리케이션 관리자
+Microsoft Graph 또는 Azure AD Graph를 포함하지 않는 애플리케이션 권한에 동의 | 클라우드 애플리케이션 관리자 | 애플리케이션 관리자
 Microsoft Graph 또는 Azure AD Graph에 대한 애플리케이션 권한에 동의 | 전역 관리자 | 
 자체 데이터에 액세스하는 애플리케이션에 동의 | 기본 사용자 역할([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
-엔터프라이즈 애플리케이션 만들기 | 클라우드 애플리케이션 관리자 | 응용 프로그램 관리자
-애플리케이션 프록시 관리 | 응용 프로그램 관리자 | 
+엔터프라이즈 애플리케이션 만들기 | 클라우드 애플리케이션 관리자 | 애플리케이션 관리자
+애플리케이션 프록시 관리 | 애플리케이션 관리자 | 
 사용자 설정 관리 | 전역 관리자 | 
-그룹 또는 앱의 액세스 검토 읽기 | 보안 읽기 권한자 | 보안 관리자, 사용자 관리자
+그룹 또는 앱의 액세스 검토 읽기 | 보안 판독기 | 보안 관리자, 사용자 관리자
 모든 구성 읽기 | 기본 사용자 역할([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 엔터프라이즈 애플리케이션 할당 업데이트 | 엔터프라이즈 애플리케이션 소유자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 클라우드 애플리케이션 관리자, 애플리케이션 관리자
 엔터프라이즈 애플리케이션 소유자 업데이트 | 엔터프라이즈 애플리케이션 소유자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 클라우드 애플리케이션 관리자, 애플리케이션 관리자
@@ -167,9 +167,9 @@ MFA 정책을 구성하고 설정/해제| 보안 관리자 |
 주간 다이제스트 구성 | 보안 관리자| 
 모든 위험 이벤트 해체 | 보안 관리자 | 
 취약점 수정 또는 해결 | 보안 관리자 | 
-모든 구성 읽기 | 보안 읽기 권한자 | 
-모든 위험 이벤트 읽기 | 보안 읽기 권한자 | 
-취약점 읽기 | 보안 읽기 권한자 | 
+모든 구성 읽기 | 보안 판독기 | 
+모든 위험 이벤트 읽기 | 보안 판독기 | 
+취약점 읽기 | 보안 판독기 | 
 
 ## <a name="licenses"></a>라이선스
 
@@ -256,7 +256,7 @@ Task | 최소 권한 역할 | 추가 역할
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 역할 할당 관리 | 권한 있는 역할 관리자 | 
-Azure AD 역할의 액세스 검토 읽기  | 보안 읽기 권한자 | 보안 관리자, 권한 있는 역할 관리자
+Azure AD 역할의 액세스 검토 읽기  | 보안 판독기 | 보안 관리자, 권한 있는 역할 관리자
 모든 구성 읽기 | 기본 사용자 역할([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 
 ## <a name="security---authentication-methods"></a>보안 - 인증 방법
@@ -298,16 +298,16 @@ Task | 최소 권한 역할 | 추가 역할 |
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
-모든 구성 읽기 | 보안 읽기 권한자 | 
-위험한 로그인 읽기 | 보안 읽기 권한자 | 
+모든 구성 읽기 | 보안 판독기 | 
+위험한 로그인 읽기 | 보안 판독기 | 
 
 ## <a name="security---users-flagged-for-risk"></a>보안 - 위험 플래그가 지정된 사용자
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 모든 이벤트 해제 | 보안 관리자 | 
-모든 구성 읽기 | 보안 읽기 권한자 | 
-위험 플래그가 지정된 사용자 읽기 | 보안 읽기 권한자 | 
+모든 구성 읽기 | 보안 판독기 | 
+위험 플래그가 지정된 사용자 읽기 | 보안 판독기 | 
 
 ## <a name="users"></a>사용자
 

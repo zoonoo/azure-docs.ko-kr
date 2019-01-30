@@ -1,5 +1,5 @@
 ---
-title: Linux 기반의 Azure App Service에 대한 Java Enterprise 지원 | Microsoft Docs
+title: Linux에서 Java Enterprise 지원 - Azure App Service | Microsoft Docs
 description: Linux 기반의 Azure App Service와 Wildfly를 사용하여 Java Enterprise 앱을 배포하는 방법을 안내하는 개발자 가이드입니다.
 keywords: azure app service, web app, linux, oss, java, wildfly, enterprise
 services: app-service
@@ -12,16 +12,17 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: a6d50e6f405294bf8e91018dd4d7b6008cd49ada
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 408141650a11a81f0c6000c6e7927af8333e2afe
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161880"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548479"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Linux 기반의 App Service에 대한 Java Enterprise 가이드
 
-Linux 기반의 Azure App Service는 Java 개발자가 JEE(Java Enterprise) 애플리케이션을 빌드하고, 완벽하게 관리되는 Linux 기반 서비스에 배포하고, 규모를 조정할 수 있게 도와줍니다.  기본 Java Enterprise 런타임 환경은 오픈 소스 [Wildfly](http://wildfly.org/) 애플리케이션 서버입니다.
+Linux 기반의 Azure App Service는 Java 개발자가 JEE(Java Enterprise) 애플리케이션을 빌드하고, 완벽하게 관리되는 Linux 기반 서비스에 배포하고, 규모를 조정할 수 있게 도와줍니다.  기본 Java Enterprise 런타임 환경은 오픈 소스 [Wildfly](https://wildfly.org/) 애플리케이션 서버입니다.
 
 이 가이드에서는 Linux용 App Service를 사용하는 Java Enterprise 개발자를 위해 핵심 개념 및 지침을 제공합니다. Linux용 Azure App Service를 사용하여 Java 애플리케이션을 배포해본 경험이 없다면 [Java 빠른 시작](quickstart-java.md)을 먼저 완료해야 합니다. Java Enterprise에 국한되지 않는 Linux용 App Service 사용에 대한 질문의 답은 [Java 개발자 가이드](app-service-linux-java.md) 및 [App Service Linux FAQ](app-service-linux-faq.md)에서 찾을 수 있습니다.
 
@@ -48,7 +49,7 @@ Wildfly를 구성하는 데 CLI의 대화형 모드를 사용하지 마십시오
 /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/path/to/your/jboss_commands.cli
 ```
 
-시작 스크립트를 App Service 인스턴스의 `/home/site/deployments/tools`에 업로드합니다. FTP 자격 증명을 가져오는 방법에 대한 지침은 [이 문서](/azure/app-service/app-service-deployment-credentials#userscope)를 참조하세요. 
+시작 스크립트를 App Service 인스턴스의 `/home/site/deployments/tools`에 업로드합니다. FTP 자격 증명을 가져오는 방법에 대한 지침은 [이 문서](/azure/app-service/deploy-configure-credentials#userscope)를 참조하세요. 
 
 다음 예와 같이 Azure Portal의 **시작 스크립트** 필드를 시작 셸 스크립트의 위치에 설정합니다. `/home/site/deployments/tools/your-startup-script.sh`
 
@@ -81,7 +82,7 @@ Wildfly를 구성하는 데 CLI의 대화형 모드를 사용하지 마십시오
 2. “모듈 및 종속성”에 설명된 단계에 따라 XML 모듈 설명자, JBoss CLI 스크립트, 시작 스크립트 및 JDBC .jar 종속성을 만들고 업로드합니다.
 
 
-[PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7), [MySQL](https://dev.mysql.com/doc/connector-j/5.1/connector-j-usagenotes-jboss.html) 및 [SQL Database](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898)를 사용한 Wildfly 구성에 대한 자세한 정보가 제공됩니다. 이러한 사용자 정의 지침과 함께 위의 일반화된 접근 방식을 사용하여 서버에 데이터 원본 정의를 추가할 수 있습니다.
+[PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7), [MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource) 및 [SQL Database](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898)를 사용한 Wildfly 구성에 대한 자세한 정보가 제공됩니다. 이러한 사용자 정의 지침과 함께 위의 일반화된 접근 방식을 사용하여 서버에 데이터 원본 정의를 추가할 수 있습니다.
 
 ## <a name="messaging-providers"></a>메시징 공급자
 
@@ -103,16 +104,16 @@ Service Bus를 메시징 메커니즘으로 사용하여 메시지 기반 Bean�
 - 애플리케이션 인스턴스가 다시 시작하거나 규모가 축소되면 애플리케이션 서버의 사용자 세션 상태가 손실됩니다.
 - 애플리케이션의 세션 시간 초과 설정이 길거나 사용자 수가 고정된 경우 새 세션만 새로 시작된 인스턴스로 라우팅되므로 자동으로 크기가 조정된 새 인스턴스가 로드를 받는 데 시간이 다소 걸릴 수 있습니다.
 
-[Redis Cache](/azure/redis-cache/)와 같은 외부 세션 저장소를 사용하도록 Wildfly를 구성할 수 있습니다. 세션 쿠키 기반 라우팅을 해제하고 구성된 Wildfly 세션 저장소가 간섭 없이 작동하도록 하려면 [기존 ARR 인스턴스 선호도](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) 구성을 해제해야 합니다.
+[Azure Cache for Redis](/azure/azure-cache-for-redis/)와 같은 외부 세션 저장소를 사용하도록 Wildfly를 구성할 수 있습니다. 세션 쿠키 기반 라우팅을 해제하고 구성된 Wildfly 세션 저장소가 간섭 없이 작동하도록 하려면 [기존 ARR 인스턴스 선호도](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) 구성을 해제해야 합니다.
 
 ## <a name="enable-web-sockets"></a>웹 소켓 사용
 
-기본적으로 App Service에서 웹 소켓은 사용하도록 설정되어 있습니다. 애플리케이션에서 Websocket을 사용하여 시작하려면 [이 빠른 시작](https://github.com/wildfly/quickstart/tree/master/websocket-hello)을 참조하세요.
+기본적으로 App Service에서 웹 소켓은 사용하도록 설정되어 있습니다. 애플리케이션에서 WebSockets를 사용하여 시작하려면 [이 빠른 시작](https://github.com/wildfly/quickstart/tree/master/websocket-hello)을 참조하세요.
 
 ## <a name="logs-and-troubleshooting"></a>로그 및 문제 해결
 
 App Service는 애플리케이션 문제를 해결하는 데 도움이 되는 도구를 제공합니다.
 
 -   왼쪽 탐색 창에서 **진단 로그**를 클릭하여 로그를 켭니다. **파일 시스템**을 클릭하여 스토리지 할당량 및 보존 기간을 설정하고 변경 내용을 저장합니다. 이러한 로그는 `/home/LogFiles/`에서 찾을 수 있습니다.
--   실행 중인 애플리케이션의 로그를 보려면 [SSH를 사용하여 애플리케이션 인스턴스에 연결합니다](/app-service-linux-ssh-support).
+-   실행 중인 애플리케이션의 로그를 보려면 [SSH를 사용하여 애플리케이션 인스턴스에 연결합니다](app-service-linux-ssh-support.md).
 -   포털의 **진단 로그** 패널 또는 다음과 같은 Azure CLI 명령을 사용하여 검사 진단 로그를 확인합니다. ` az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group> `

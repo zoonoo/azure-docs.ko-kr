@@ -1,23 +1,22 @@
 ---
 title: 포함 파일
 description: 포함 파일
-services: signalr
 author: anthonychu
 ms.service: signalr
 ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: 97b8ef5e260a853ecdffb3c502f8a5051dd0e143
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c95f05127d62d366e1ad78b45df23d04ced0164a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47006261"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262781"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Azure SignalR Service 인스턴스 만들기
 
-응용 프로그램이 Azure의 SignalR Service 인스턴스에 연결됩니다.
+애플리케이션이 Azure의 SignalR Service 인스턴스에 연결됩니다.
 
 1. Azure Portal의 왼쪽 위에 있는 새로 만들기 단추를 선택합니다. 새 화면의 검색 상자에서 *SignalR Service*를 입력한 후 Enter 키를 누릅니다.
 

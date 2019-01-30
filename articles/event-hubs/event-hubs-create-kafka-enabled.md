@@ -1,6 +1,6 @@
 ---
-title: Apache Kafka 지원 Azure Event Hubs 만들기 | Microsoft Docs
-description: Azure Portal을 사용하여 Kafka 지원 Azure Event Hubs 네임스페이스 만들기
+title: Apache Kafka 지원 이벤트 허브 만들기 - Azure Event Hubs | Microsoft Docs
+description: 이 문서에서는 Azure Portal을 사용하여 Apache Kafka가 지원되는 Azure Event Hubs 네임스페이스를 만드는 과정을 안내합니다.
 services: event-hubs
 documentationcenter: .net
 author: basilhariri
@@ -8,14 +8,15 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: b72f6b190aad436398629c67f271020ffd0a8da9
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: bf78ac6bce23b739ed661929f6fe90eddc9b4d94
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822078"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090781"
 ---
 # <a name="create-apache-kafka-enabled-event-hubs"></a>Apache Kafka 지원 이벤트 허브 만들기
 

@@ -1,33 +1,33 @@
 ---
-title: '빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Hadoop 및 Apache Hive 시작 '
+title: '빠른 시작: Azure Portal을 사용하여 Apache Hadoop 및 Apache Hive 시작 - Azure HDInsight'
 description: Azure Portal을 사용하여 HDInsight 클러스터를 만들고 Hive로 데이터를 쿼리하는 방법에 대해 알아봅니다.
 keywords: Hadoop 시작, Hadoop Linux, Hadoop 빠른 시작, Hive 시작, Hive 빠른 시작
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017,mvc
+ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9b6ae9030069f48e1805a657f938595b081271ba
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b19866ad560dcb056f1cfad8fbc1918930bd143d
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632954"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811548"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Hadoop 및 Apache Hive 시작
 
-이 문서에서는 Azure Portal을 사용하여 HDInsight에서 [Apache Hadoop](http://hadoop.apache.org/) 클러스터를 만든 다음, HDInsight에서 Apache Hive 작업을 실행하는 방법을 알아봅니다. Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 일부 작업을 실행한 다음 클러스터를 삭제합니다. 이 문서에서는 세 가지 작업을 모두 수행할 수 있습니다.
+이 문서에서는 Azure Portal을 사용하여 HDInsight에서 [Apache Hadoop](https://hadoop.apache.org/) 클러스터를 만든 다음, HDInsight에서 Apache Hive 작업을 실행하는 방법을 알아봅니다. Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 일부 작업을 실행한 다음 클러스터를 삭제합니다. 이 문서에서는 세 가지 작업을 모두 수행할 수 있습니다.
 
 이 빠른 시작에서는 Azure Portal을 사용하여 HDInsight Hadoop 클러스터를 만듭니다. 또한 [Azure Resource Manager 템플릿](apache-hadoop-linux-tutorial-get-started.md)을 사용하여 클러스터를 만들 수 있습니다.
 
-현재 HDInsight는 [일곱 가지 클러스터 형식](./apache-hadoop-introduction.md#cluster-types-in-hdinsight)으로 제공됩니다. 각 클러스터 유형은 서로 다른 구성 요소 집합을 지원합니다. 모든 클러스터 형식은 Hive를 지원합니다. HDInsight에서 지원되는 구성 요소 목록은 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능](../hdinsight-component-versioning.md)  
+현재 HDInsight는 [일곱 가지 클러스터 형식](./apache-hadoop-introduction.md#cluster-types-in-hdinsight)으로 제공됩니다. 각 클러스터 유형은 서로 다른 구성 요소 집합을 지원합니다. 모든 클러스터 형식은 Hive를 지원합니다. HDInsight에서 지원되는 구성 요소 목록은 [HDInsight에서 제공하는 Apache Hadoop 클러스터 버전의 새로운 기능](../hdinsight-component-versioning.md)을 참조하세요.  
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="create-a-hadoop-cluster"></a>Hadoop 클러스터 만들기
+## <a name="create-an-apache-hadoop-cluster"></a>Apache Hadoop 클러스터 만들기
 
 이 섹션에서는 Azure Portal을 사용하여 HDInsight에서 Hadoop 클러스터를 만듭니다. 
 
@@ -76,7 +76,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     
     |속성  |설명  |
     |---------|---------|
-    |**기본 저장소 유형**     | 이 문서에서는 **Azure 저장소**를 선택하여 기본 저장소 계정으로 Azure Storage Blob을 사용합니다. 또한 Azure Data Lake Storage를 기본 저장소로 사용할 수 있습니다. |
+    |**기본 저장소 유형**     | 이 문서에서는 **Azure 스토리지**를 선택하여 기본 스토리지 계정으로 Azure Storage Blob을 사용합니다. 또한 Azure Data Lake Storage를 기본 스토리지로 사용할 수 있습니다. |
     |**선택 방법**     |  이 문서에서는 **내 구독**을 선택하여 Azure 구독에서 저장소 계정을 사용합니다. 다른 구독에서 저장소 계정을 사용하려면 **액세스 키**를 선택한 다음, 해당 계정에 대한 액세스 키를 입력합니다. |
     |**새 저장소 계정 만들기**     | 저장소 계정에 사용할 이름을 입력합니다.|
 
@@ -92,16 +92,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 4. 클러스터가 생성되면 Azure Portal에서 클러스터 개요 페이지가 나타납니다.
    
-    ![HDInsight Linux 시작 - 클러스터 설정](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png "HDInsight 클러스터 속성")    
+    ![HDInsight Linux 시작 - 클러스터 설정](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-get-started-cluster-settings.png "HDInsight 클러스터 속성")    
     
     각 클러스터에는 [Azure Storage 계정](../hdinsight-hadoop-use-blob-storage.md) 또는 [Azure Data Lake 계정](../hdinsight-hadoop-use-data-lake-store.md) 종속성이 있습니다. 이 저장소 계정을 기본 저장소 계정이라고 합니다. HDInsight 클러스터와 해당 기본 저장소 계정은 같은 Azure 지역에 있어야 합니다. 클러스터를 삭제해도 저장소 계정은 삭제되지 않습니다.
 
-    > [!NOTE]
+    > [!NOTE]  
     > 기타 클러스터 생성 방법 및 이 자습서에 사용된 속성에 대한 이해는 [HDInsight 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.       
-    > 
-    >
 
-## <a name="run-hive-queries"></a>Hive 쿼리 실행
+## <a name="run-apache-hive-queries"></a>Apache Hive 쿼리 실행
 
 [Apache Hive](hdinsight-use-hive.md) 는 HDInsight에서 사용되는 가장 인기 있는 구성 요소입니다. HDInsight에서 Hive 작업을 실행하는 방법은 여러 가지가 있습니다. 이 자습서에서는 포털에서 Ambari Hive 뷰를 사용합니다. Hive 작업을 제출하는 다른 방법은 [HDInsight에서 Hive 사용](hdinsight-use-hive.md)을 참조하세요.
 
@@ -121,10 +119,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ![HDInsight Hive 보기](./media/apache-hadoop-linux-tutorial-get-started/hiveview-1.png "HDInsight Hive 보기 - 쿼리 편집기")
    
-   > [!NOTE]
+   > [!NOTE]  
    > Hive에서 세미콜론이 필요합니다.       
-   > 
-   > 
+
 
 5. **실행**을 선택합니다. **쿼리** 탭 아래에 **결과** 탭이 나타나고 작업에 대한 정보가 표시됩니다. 
    
@@ -140,16 +137,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ![Hive 쿼리 결과 저장](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-hive-view-save-results.png "Hive 쿼리 결과 저장")
 
-Hive 작업을 완료한 후에 [결과를 Azure SQL Database 또는 SQL Server 데이터베이스로 내보내고](apache-hadoop-use-sqoop-mac-linux.md), [Excel을 사용하여 결과를 시각화](apache-hadoop-connect-excel-power-query.md)할 수도 있습니다. HDInsight에서 Hive를 사용하는 방법에 대한 자세한 내용은 [샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Hadoop와 함께 Hive 및 HiveQL 사용](hdinsight-use-hive.md)을 참조하세요.
+Hive 작업을 완료한 후에 [결과를 Azure SQL Database 또는 SQL Server 데이터베이스로 내보내고](apache-hadoop-use-sqoop-mac-linux.md), [Excel을 사용하여 결과를 시각화](apache-hadoop-connect-excel-power-query.md)할 수도 있습니다. HDInsight에서 Hive를 사용하는 방법에 대한 자세한 내용은 [샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Apache Hadoop과 함께 Apache Hive 및 HiveQL 사용](hdinsight-use-hive.md)을 참조하세요.
 
 ## <a name="troubleshoot"></a>문제 해결
 
-HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스 제어 요구 사항](../hdinsight-administer-use-portal-linux.md#create-clusters)을 참조하세요.
+HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스 제어 요구 사항](../hdinsight-hadoop-create-linux-clusters-portal.md)을 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 이 자습서를 완료한 후에 클러스터를 삭제할 수 있습니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. 
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight에서 Hadoop을 사용하여 ETL 작업을 실행하는 방법을 알아보기 위해 다음 자습서를 *즉시* 진행하는 경우 클러스터가 실행되도록 유지할 수 있습니다. 자습서에서 Hadoop 클러스터를 다시 만들어야 하기 때문입니다. 그러나 다음 자습서로 바로 진행하지 않는 경우 이제 클러스터를 삭제해야 합니다.
 > 
 >  
@@ -178,15 +175,15 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 
 HDInsight를 사용하여 데이터를 분석하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* Visual Studio에서 Hive 쿼리를 수행하는 방법을 비롯하여 HDInsight로 Hive를 사용하는 데 대한 자세한 내용은 [HDInsight로 Hive 사용](hdinsight-use-hive.md)을 참조하세요.
-* 데이터를 변환하는 데 사용되는 언어인 Pig에 대해 알아보려면 [HDInsight로 Pig 사용](hdinsight-use-pig.md)을 참조하세요.
+* Visual Studio에서 Hive 쿼리를 수행하는 방법을 비롯하여 HDInsight로 Hive를 사용하는 데 대한 자세한 내용은 [HDInsight에서 Apache Hive 사용](hdinsight-use-hive.md)을 참조하세요.
+* 데이터를 변환하는 데 사용되는 언어인 Pig에 대해 알아보려면 [HDInsight에서 Apache Pig 사용](hdinsight-use-pig.md)을 참조하세요.
 * Hadoop에서 데이터를 처리하는 프로그램을 작성하는 방법인 MapReduce에 대해 알아보려면 [HDInsight로 MapReduce 사용](hdinsight-use-mapreduce.md)을 참조하세요.
 * Visual Studio에 HDInsight Tools를 사용하여 HDInsight의 데이터를 분석하는 방법에 대해 알아보려면 [HDInsight용 Visual Studio Hadoop 도구를 사용하여 시작](apache-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
 
 HDInsight 클러스터를 만들거나 관리하는 방법에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 
-* Linux 기반 HDInsight 클러스터 관리에 대해 알아보려면 [Ambari를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari.md)를 참조하세요.
+* Linux 기반 HDInsight 클러스터 관리에 대해 알아보려면 [Apache Ambari를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 * HDInsight 클러스터를 만들 때 선택하는 옵션에 대해 자세히 알아보려면 [사용자 지정 옵션을 사용하여 Linux에 HDInsight 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
 

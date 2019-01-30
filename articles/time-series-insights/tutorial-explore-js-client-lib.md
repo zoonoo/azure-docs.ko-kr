@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights JavaScript 클라이언트 라이브러리
+title: '자습서: Azure Time Series Insights JavaScript 클라이언트 라이브러리 살펴보기 | Microsoft Docs'
 description: Azure Time Series Insights JavaScript 클라이언트 라이브러리 및 관련 프로그래밍 모델에 대해 알아봅니다.
 author: ashannon7
 manager: cshankar
@@ -8,25 +8,26 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
-ms.openlocfilehash: 5f31dce98cd873a0bf4b750934384e1bf6d2564a
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: seodec18
+ms.openlocfilehash: f231fa7624a2babea2a3d91076ad0348b3c9e976
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706996"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540383"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>자습서: Azure Time Series Insights JavaScript 클라이언트 라이브러리
 
-웹 개발자가 TSI(Time Series Insights)에 저장된 데이터를 쿼리하고 시각화하도록 돕기 위해 JavaScript D3 기반 TSI 클라이언트 라이브러리가 개발되었습니다.  이 자습서에서는 샘플 웹 응용 프로그램을 사용하여 TSI 클라이언트 라이브러리 및 관련 프로그래밍 모델을 탐구하도록 안내합니다.
+웹 개발자가 TSI(Time Series Insights)에 저장된 데이터를 쿼리하고 시각화하도록 돕기 위해 JavaScript D3 기반 TSI 클라이언트 라이브러리가 개발되었습니다.  이 자습서에서는 샘플 웹 애플리케이션을 사용하여 TSI 클라이언트 라이브러리 및 관련 프로그래밍 모델을 탐구하도록 안내합니다.
 
-이 자습서의 주제는 라이브러리로 실험하고, TSI 데이터에 액세스하고 차트 컨트롤을 사용하여 데이터를 렌더링 및 시각화하는 방법을 이해할 수 있는 기회를 제공하는 것입니다. 목표는 자기 자신의 웹 응용 프로그램에 라이브러리를 사용할 수 있을 만큼 충분한 세부 정보를 제공하는 것입니다.
+이 자습서의 주제는 라이브러리로 실험하고, TSI 데이터에 액세스하고 차트 컨트롤을 사용하여 데이터를 렌더링 및 시각화하는 방법을 이해할 수 있는 기회를 제공하는 것입니다. 목표는 자기 자신의 웹 애플리케이션에 라이브러리를 사용할 수 있을 만큼 충분한 세부 정보를 제공하는 것입니다.
 
 이 자습서에서는 다음에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * TSI 샘플 응용 프로그램.
+> * TSI 샘플 애플리케이션.
 > * TSI JavaScript 클라이언트 라이브러리.
-> * 샘플 응용 프로그램이 라이브러리를 사용하여 TSI 데이터를 시각화하는 방법.
+> * 샘플 애플리케이션이 라이브러리를 사용하여 TSI 데이터를 시각화하는 방법.
 
 ## <a name="video"></a>비디오: 
 
@@ -38,11 +39,11 @@ ms.locfileid: "51706996"
 
 이 자습서에서는 [Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/) 등 대부분의 최신 웹 브라우저에서 볼 수 있는 "개발자 도구" 기능(일명 DevTools 또는 F12)을 사용합니다. 아직 이 기능에 익숙하지 않은 경우 계속 진행하기 전에 브라우저에서 이 기능을 탐구하는 것이 좋습니다.
 
-## <a name="time-series-insights-sample-application"></a>Time Series Insights 샘플 응용 프로그램
+## <a name="time-series-insights-sample-application"></a>Time Series Insights 샘플 애플리케이션
 
-이 자습서 전체에서 Time Series Insights 샘플 응용 프로그램을 사용하여 TSI JavaScript 클라이언트 라이브러리의 사용을 포함하여 응용 프로그램 이면의 소스 코드를 탐구합니다. 이 샘플은 라이브러리를 사용하는 방법을 보여주는 SPA(단일 페이지 웹 응용 프로그램)입니다. 이 샘플은 샘플 TSI 환경에서 데이터를 쿼리하고 시각화하는 방법을 보여줍니다.
+이 자습서 전체에서 Time Series Insights 샘플 애플리케이션을 사용하여 TSI JavaScript 클라이언트 라이브러리의 사용을 포함하여 애플리케이션 이면의 소스 코드를 탐구합니다. 이 샘플은 라이브러리를 사용하는 방법을 보여주는 SPA(단일 페이지 웹 애플리케이션)입니다. 이 샘플은 샘플 TSI 환경에서 데이터를 쿼리하고 시각화하는 방법을 보여줍니다.
 
-1. [Time Series Insights 샘플 응용 프로그램](https://insights.timeseries.azure.com/clientsample)으로 이동합니다. 로그인하라는 메시지가 표시된 다음과 같은 이미지와 유사한 페이지가 표시됩니다.
+1. [Time Series Insights 샘플 애플리케이션](https://insights.timeseries.azure.com/clientsample)으로 이동합니다. 로그인하라는 메시지가 표시된 다음과 같은 이미지와 유사한 페이지가 표시됩니다.
 
    ![TSI 클라이언트 샘플 로그인 메시지](media/tutorial-explore-js-client-lib/tcs-sign-in.png)
 
@@ -82,7 +83,7 @@ ms.locfileid: "51706996"
 
 3. `<div class="chartsWrapper">` 요소를 확장하면 더 많은 하위 `<div>` 요소를 찾을 수 있습니다. 이러한 요소는 각 차트 컨트롤 예제의 위치를 지정하는 데 사용됩니다. 각 차트 예제마다 하나씩 `<div>` 요소 여러 쌍이 있는 것을 확인할 수 있습니다.
 
-   - 첫 번째(`class="rowOfCardsTitle"`) 요소는 차트가 보여 주는 내용을 요약하는 설명 텍스트를 포함합니다. 예: "전체 크기 범례를 포함한 고정적 꺾은선형 차트"
+   - 첫 번째(`class="rowOfCardsTitle"`) 요소는 차트가 보여 주는 내용을 요약하는 설명 텍스트를 포함합니다. 예:  "전체 크기 범례가 있는 고정 꺾은선형 차트"
    - 두 번째(`class="rowOfCards"`) 요소는 실제 차트 컨트롤을 한 줄 안에 배치하는 추가 하위 `<div>` 요소를 포함한 상위 요소입니다.
 
    ![본문 div 요소](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
@@ -95,8 +96,8 @@ ms.locfileid: "51706996"
 
 여기서는 자세히 검토하지 않지만, 기본적으로 TSI 라이브러리**tsclient.js**는 두 가지 중요한 범주에 대한 추상화를 제공합니다.
 
-- **TSI 쿼리 API를 호출하기 위한 래퍼 방법** - 집계 식을 사용하여 TSI 데이터를 쿼리할 수 있는 REST API입니다. 메서드는 라이브러리의 `TsiClient.Server` 네임스페이스 아래에 구성됩니다.
-- **여러 형식의 차트 컨트롤을 만들고 채우기 위한 메서드**: 웹 페이지의 TSI 집계 데이터를 렌더링하는 데 사용되는 메서드입니다. 메서드는 라이브러리의 `TsiClient.UX` 네임스페이스 아래에 구성됩니다.
+- **TSI 쿼리 API를 호출하는 래퍼 메서드**: 집계 식을 사용하여 TSI 데이터를 쿼리할 수 있게 하는 REST API입니다. 메서드는 라이브러리의 `TsiClient.Server` 네임스페이스 아래에 구성됩니다.
+- **여러 유형의 차트 작성 컨트롤을 만들고 채우는 메서드**: 웹 페이지에서 TSI 집계 데이터를 렌더링하는 데 사용되는 메서드입니다. 메서드는 라이브러리의 `TsiClient.UX` 네임스페이스 아래에 구성됩니다.
 
 다음 개념은 다목적이며 TSI 클라이언트 라이브러리 API에 일반적으로 적용할 수 있습니다.
 
@@ -104,9 +105,9 @@ ms.locfileid: "51706996"
 
 앞에서 언급했듯이 이 샘플은 사용자 인증을 위해 ADAL의 OAuth 2.0 지원을 사용하는 SPA입니다. 다음은 스크립트의 이 섹션에서 몇 가지 관심 지점입니다.
 
-1. 인증에 ADAL을 사용할 때는 클라이언트 응용 프로그램이 Azure AD(Azure Active Directory) 응용 프로그램 레지스트리에 자체를 등록해야 합니다. SPA와 마찬가지로 이 응용 프로그램은 "묵시적" OAuth 2.0 권한 부여 흐름을 사용하도록 등록됩니다. 따라서 응용 프로그램은 이 흐름에 참여하기 위해 클라이언트 ID GUID(`clientId`) 같은 몇몇 등록 속성을 런타임에 지정하고 URI(`postLogoutRedirectUri`)를 리디렉션합니다.
+1. 인증에 ADAL을 사용할 때는 클라이언트 애플리케이션이 Azure AD(Azure Active Directory) 애플리케이션 레지스트리에 자체를 등록해야 합니다. SPA와 마찬가지로 이 애플리케이션은 "묵시적" OAuth 2.0 권한 부여 흐름을 사용하도록 등록됩니다. 따라서 애플리케이션은 이 흐름에 참여하기 위해 클라이언트 ID GUID(`clientId`) 같은 몇몇 등록 속성을 런타임에 지정하고 URI(`postLogoutRedirectUri`)를 리디렉션합니다.
 
-2. 나중에 응용 프로그램은 Azure AD에서 "액세스 토큰"을 요청합니다. 액세스 토큰은 특정 서비스/API 식별자( https://api.timeseries.azure.com )에 대해 유한한 권한 집합을 할당하기 위해 발급됩니다. 서비스/API 식별자를 토큰 "대상"이라고도 합니다. 토큰 권한은 로그인한 사용자를 대신하여 발급됩니다. 서비스/API의 식별자는 역시 응용 프로그램의 Azure AD 등록에 포함된 또 다른 속성입니다. ADAL은 응용 프로그램에 대한 액세스 토큰을 반환한 후 TSI 서비스 API에 액세스할 때 "전달자 토큰"으로 전달됩니다.
+2. 나중에 애플리케이션은 Azure AD에서 "액세스 토큰"을 요청합니다. 액세스 토큰은 특정 서비스/API 식별자( https://api.timeseries.azure.com )에 대해 유한한 권한 집합을 할당하기 위해 발급됩니다. 서비스/API 식별자를 토큰 "대상"이라고도 합니다. 토큰 권한은 로그인한 사용자를 대신하여 발급됩니다. 서비스/API의 식별자는 역시 애플리케이션의 Azure AD 등록에 포함된 또 다른 속성입니다. ADAL은 애플리케이션에 대한 액세스 토큰을 반환한 후 TSI 서비스 API에 액세스할 때 "전달자 토큰"으로 전달됩니다.
 
    [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=145-204&highlight=4-9,36-39)]
 
@@ -120,7 +121,7 @@ TSI 클라이언트 라이브러리 API는 집계 식을 많이 사용합니다.
 
 ### <a name="call-pattern"></a>호출 패턴
 
-차트 컨트롤 채우기 및 렌더링은 일반적인 패턴을 따릅니다. 이 패턴을 TSI 샘플 응용 프로그램 컨트롤을 인스턴스화하고 로드하는 페이지 JavaScript 전체에 사용하는 것을 확인할 수 있을 것입니다.
+차트 컨트롤 채우기 및 렌더링은 일반적인 패턴을 따릅니다. 이 패턴을 TSI 샘플 애플리케이션 컨트롤을 인스턴스화하고 로드하는 페이지 JavaScript 전체에 사용하는 것을 확인할 수 있을 것입니다.
 
 1. TSI 집계 식을 하나 이상 저장하기 위한 `array`를 선언합니다.
 
@@ -186,7 +187,7 @@ TSI 클라이언트 라이브러리는 현재 꺾은선형 차트, 원형 차트
 
 ### <a name="line-bar-pie-chart-examples"></a>꺽은선형, 가로 막대형, 원형 차트 예제
 
-응용 프로그램에서 보여 준 몇몇 표준 차트 컨트롤 이면의 코드 및 해당 컨트롤을 만들기 위한 프로그래밍 모델/패턴을 살펴보겠습니다. 구체적으로, ID 값 `chart3`, `chart4` 및 `chart5`를 사용하여 컨트롤을 렌더링하는 `// Example 3/4/5` 주석 아래의 HTML 섹션을 검사합니다.
+애플리케이션에서 보여 준 몇몇 표준 차트 컨트롤 이면의 코드 및 해당 컨트롤을 만들기 위한 프로그래밍 모델/패턴을 살펴보겠습니다. 구체적으로, ID 값 `chart3`, `chart4` 및 `chart5`를 사용하여 컨트롤을 렌더링하는 `// Example 3/4/5` 주석 아래의 HTML 섹션을 검사합니다.
 
 [페이지 원본 및 구조 섹션](#page-source-and-structure)의 단계 #3부터 재현하여 차트 컨트롤을 각각 설명 제목 행이 있는 페이지의 행에 배열합니다. 이 예제에서는 "동일한 데이터의 여러 차트 형식" 제목 `<div>` 요소 아래에 3개 차트가 채워지고, 제목 아래의 `<div>` 요소 3개에 바인딩됩니다.
 
@@ -229,21 +230,21 @@ TSI 클라이언트 라이브러리는 현재 꺾은선형 차트, 원형 차트
 
 ### <a name="pop-up-context-menus"></a>팝업 바로 가기 메뉴
 
-고급 기능의 또 다른 예로 사용자 지정 바로 가기 메뉴(오른쪽 클릭 팝업 메뉴)가 있습니다. 사용자 지정 바로 가기 메뉴는 응용 프로그램의 범위 내에서 작업 및 논리적 다음 단계가 논리를 활성화하는 데 유용합니다.
+고급 기능의 또 다른 예로 사용자 지정 바로 가기 메뉴(오른쪽 클릭 팝업 메뉴)가 있습니다. 사용자 지정 바로 가기 메뉴는 애플리케이션의 범위 내에서 작업 및 논리적 다음 단계가 논리를 활성화하는 데 유용합니다.
 
 `// Example 13/14/15` 주석 아래에 있는 HTML 섹션 이면의 코드를 살펴보세요. 이 코드는 처음에 "원형/가로 막대형 차트를 만들기 위한 바로 가기 메뉴를 포함한 꺾은선형 차트" 제목 아래에 꺾은선형 차트를 렌더링하고 ID 값이 `chart13`인 `<div>` 요소에 바인딩합니다. 바로 가기 메뉴를 사용할 경우, 꺾은선형 차트는 ID가 `chart14` 및 `chart15`인 `<div>` 요소에 바인딩된 원형 및 가로 막대형 차트를 동적으로 만드는 기능을 제공합니다. 또한 원형 차트와 가로 막대형 차트 모두 바로 가기 메뉴를 사용하여 자체의 기능, 즉 각각 원형 차트의 데이터를 가로 막대형 차트에 복사하는 기능과 가로 막대형 차트 데이터를 브라우저 콘솔 창에 인쇄하는 기능을 활성화합니다.
 
 1. 먼저 일련의 사용자 지정 작업을 정의합니다. 하나 이상의 요소가 있는 배열을 포함하는 각 작업. 각 요소는 단일 바로 가기 메뉴 항목을 정의합니다.
 
-   - `barChartActions`: 이 작업은 원형 차트에 대한 바로 가기 메뉴를 정의하며, 단일 항목을 정의하는 단일 항목을 포함합니다.
-     - `name`: 메뉴 항목에 사용하는 텍스트: "매개 변수를 콘솔에 인쇄"
+   - `barChartActions`: 이 작업은 원형 차트에 대한 바로 가기 메뉴를 정의하며, 이 메뉴에는 단일 항목을 정의하는 하나의 요소가 포함됩니다.
+     - `name`: 메뉴 항목에 사용되는 텍스트, 즉 "콘솔에 매개 변수 출력"입니다.
      - `action`: 메뉴 항목과 연결된 작업입니다. 이 작업은 언제나 차트를 만드는 데 사용한 집계 식을 기반으로 인수 3개를 취하는 익명 함수입니다. 이 경우 인수를 브라우저 콘솔 창에 씁니다.
        - `ae`: 집계 식 배열입니다.
-       - `splitBy`: 분할 값입니다.
+       - `splitBy`: splitBy 값입니다.
        - `timestamp`: 타임스탬프입니다.
 
-   - `pieChartActions`: 이 작업은 가로 막대형 차트에 대한 바로 가기 메뉴를 정의하며, 단일 항목을 정의하는 단일 항목을 포함합니다. 도형 및 스키마는 이전의 `barChartActions` 요소와 같지만 `action` 함수는 가로 막대형 차트를 인스턴스화하고 렌더링하므로 크게 다르다는 데 주목하세요. 또한 `ae` 인수를 사용하여 런타임에 메뉴 항목이 열릴 때 전달된 집계 식 배열을 지정한다는 데 주목하세요. 또한 이 함수는 `barChartActions` 바로 가기 메뉴를 사용하여 `ae.contextMenu` 속성을 설정합니다.
-   - `contextMenuActions`: 이 작업은 메뉴 항목 3개를 정의하는 요소 3개를 포함하는 꺾은선형 차트에 대한 바로 가기 메뉴를 정의합니다. 각 요소에 대한 도형과 스키마는 이전에 설명한 요소와 같습니다. `barChartActions` 요소와 마찬가지로, 첫 번째 항목은 함수 인수 3개를 브라우저 콘솔 창에 씁니다. `pieChartActions` 요소와 유사하게, 두 번째 항목은 각각 원형 및 가로 막대형 차트를 인스턴스화 및 렌더링합니다. 두 번째 항목 두 개도 각각 `pieChartActions` 및 `barChartActions` 바로 가기 메뉴를 사용하여 해당 `ae.contextMenu` 속성을 설정합니다.
+   - `pieChartActions`: 이 작업은 가로 막대형 차트에 대한 바로 가기 메뉴를 정의하며, 이 메뉴에는 단일 항목을 정의하는 하나의 요소가 포함됩니다. 도형 및 스키마는 이전의 `barChartActions` 요소와 같지만 `action` 함수는 가로 막대형 차트를 인스턴스화하고 렌더링하므로 크게 다르다는 데 주목하세요. 또한 `ae` 인수를 사용하여 런타임에 메뉴 항목이 열릴 때 전달된 집계 식 배열을 지정한다는 데 주목하세요. 또한 이 함수는 `barChartActions` 바로 가기 메뉴를 사용하여 `ae.contextMenu` 속성을 설정합니다.
+   - `contextMenuActions`: 이 작업은 꺾은선형 차트에 대한 바로 가기 메뉴를 정의하며, 이 메뉴에는 세 개의 메뉴 항목을 정의하는 세 개의 요소가 포함됩니다. 각 요소에 대한 도형과 스키마는 이전에 설명한 요소와 같습니다. `barChartActions` 요소와 마찬가지로, 첫 번째 항목은 함수 인수 3개를 브라우저 콘솔 창에 씁니다. `pieChartActions` 요소와 유사하게, 두 번째 항목은 각각 원형 및 가로 막대형 차트를 인스턴스화 및 렌더링합니다. 두 번째 항목 두 개도 각각 `pieChartActions` 및 `barChartActions` 바로 가기 메뉴를 사용하여 해당 `ae.contextMenu` 속성을 설정합니다.
 
 2. 그런 다음, 집계 식 두 개를 `aes` 집계 식 배열에 푸시하여 각 항목에 대한 `contextMenuActions` 배열을 지정합니다. 이 식은 꺾은선형 차트 컨트롤과 함께 사용됩니다.
 
@@ -262,10 +263,10 @@ TSI 클라이언트 라이브러리는 현재 꺾은선형 차트, 원형 차트
 브러시를 보여 주기 위해 사용하는 코드는 [팝업 바로 가기 메뉴](#popup-context-menus-section)를 다루는 이전의 "원형/가로 막대형 차트를 만드는 바로 가기 메뉴를 설명하는 꺾은선형 차트"에 표시됩니다.
 
 1. 브러시 작업은 바로 가기 메뉴와 유사하게 브러시에 대한 일련의 사용자 지정 작업을 정의합니다. 하나 이상의 요소가 있는 배열을 포함하는 각 작업. 각 요소는 단일 바로 가기 메뉴 항목을 정의합니다.
-   - `name`: 메뉴 항목에 사용하는 텍스트: "매개 변수를 콘솔에 인쇄"
-   - `action`: 메뉴 항목과 연결된 작업이며, 언제나 인수 두 개를 취하는 익명 함수입니다. 이 경우 인수를 브라우저 콘솔 창에 씁니다.
-      - `fromTime`: 브러시 선택 영역의 "부터" 타임스탬프입니다.
-      - `toTime`: 브러시 선택 영역의 "까지" 타임스탬프입니다.
+   - `name`: 메뉴 항목에 사용되는 텍스트, 즉 "콘솔에 매개 변수 출력"입니다.
+   - `action`: 메뉴 항목과 연결된 작업이며, 항상 두 개의 인수를 사용하는 익명 함수입니다. 이 경우 인수를 브라우저 콘솔 창에 씁니다.
+      - `fromTime`: 브러시 선택 영역의 "from"(시작) 타임스탬프입니다.
+      - `toTime`: 브러시 선택 영역의 "to"(종료) 타임스탬프입니다.
 
 2. 브러시 작업은 또 다른 차트 옵션 속성으로 추가됩니다. `brushContextMenuActions: brushActions` 속성이 `linechart.Render` 호출에 전달된다는 데 주목하세요.
 
@@ -278,11 +279,11 @@ TSI 클라이언트 라이브러리는 현재 꺾은선형 차트, 원형 차트
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * TSI 샘플 응용 프로그램에 로그인하고 해당 소스 탐색.
+> * TSI 샘플 애플리케이션에 로그인하고 해당 소스 탐색.
 > * TSI JavaScript 클라이언트 라이브러리에 API 사용.
 > * JavaScript를 사용하여 차트 컨트롤을 만들고 TSI 데이터로 채우기.
 
-앞에서 설명했듯이, TSI 샘플 응용 프로그램은 데모 데이터 집합을 사용합니다. 자기 자신의 TSI 환경 및 데이터 집합을 만들 수 있는 방법을 알아보려면 다음 문서로 계속 진행하세요.
+앞에서 설명했듯이, TSI 샘플 애플리케이션은 데모 데이터 집합을 사용합니다. 자기 자신의 TSI 환경 및 데이터 집합을 만들 수 있는 방법을 알아보려면 다음 문서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [자습서: Azure Time Series Insights 환경 만들기](tutorial-create-populate-tsi-environment.md)

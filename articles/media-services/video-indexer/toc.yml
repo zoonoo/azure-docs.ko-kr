@@ -43,7 +43,7 @@ items:
     href: video-indexer-view-edit.md
   - name: 기존 비디오에서 비디오 정보 만들기
     href: video-indexer-create-new.md
-  - name: 응용 프로그램에 위젯 포함
+  - name: 애플리케이션에 위젯 포함
     href: video-indexer-embed-widgets.md
   - name: 콘텐츠 모델 사용자 지정
     items:
@@ -79,9 +79,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: 영역
     href: regions.md
-ms.openlocfilehash: cf7d67c6d03a7587f9fb62c5abce87ca95f36810
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 9b87d0495951823808cf64b125af35759b5881c6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383887"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015987"

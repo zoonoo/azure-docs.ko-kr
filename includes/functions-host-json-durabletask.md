@@ -43,7 +43,7 @@ ms.locfileid: "50251246"
 
 |자산  |기본값 | 설명 |
 |---------|---------|---------|
-|HubName|DurableFunctionsHub|여러 Durable Functions 응용 프로그램이 동일한 저장소 백 엔드를 사용하더라도 대체 [작업 허브](../articles/azure-functions/durable-functions-task-hubs.md) 이름을 사용하면 이러한 응용 프로그램을 서로 구분할 수 있습니다.|
+|HubName|DurableFunctionsHub|여러 Durable Functions 애플리케이션이 동일한 저장소 백 엔드를 사용하더라도 대체 [작업 허브](../articles/azure-functions/durable-functions-task-hubs.md) 이름을 사용하면 이러한 애플리케이션을 서로 구분할 수 있습니다.|
 |ControlQueueBatchSize|32|제어 큐에서 한 번에 끌어올 메시지의 수입니다.|
 |PartitionCount |4|제어 큐에 대한 파티션 수입니다. 1에서 16 사이의 양의 정수일 수 있습니다.|
 |ControlQueueVisibilityTimeout |5분|큐에서 제거된 제어 큐 메시지의 표시 여부 시간 제한입니다.|

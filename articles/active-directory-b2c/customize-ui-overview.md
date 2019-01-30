@@ -1,42 +1,42 @@
 ---
 title: Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정 정보| Microsoft Docs
-description: Azure Active Directory B2C를 사용하는 응용 프로그램의 사용자 인터페이스를 사용자 지정하는 방법에 대해 알아봅니다.
+description: Azure Active Directory B2C를 사용하는 애플리케이션의 사용자 인터페이스를 사용자 지정하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cec9e5bfea16e5ba11f8cd7324acf15188fb907a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 44d1e5996b1f9b8ae65df9ad16c4bb543fdab1a0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669360"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844775"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정 정보
 
-Azure AD(Azure Active Directory) B2C가 응용 프로그램에 제공하는 UI(사용자 인터페이스)를 브랜드하고 사용자 지정하는 기능은 고객에게 원활한 환경을 제공하는 데 중요합니다. 이러한 환경에는 등록, 로그인, 프로필 편집 및 암호 재설정이 포함됩니다. 이 문서에서는 응용 프로그램의 UI를 사용자 지정하는 데 유용한 정보를 제공합니다.
+Azure AD(Azure Active Directory) B2C가 애플리케이션에 제공하는 UI(사용자 인터페이스)를 브랜드하고 사용자 지정하는 기능은 고객에게 원활한 환경을 제공하는 데 중요합니다. 이러한 환경에는 등록, 로그인, 프로필 편집 및 암호 재설정이 포함됩니다. 이 문서에서는 애플리케이션의 UI를 사용자 지정하는 데 유용한 정보를 제공합니다.
 
-이러한 환경에 있어 필요에 따라 다양한 방식으로 응용 프로그램의 UI를 사용자 지정할 수 있습니다. 예: 
+이러한 환경에 있어 필요에 따라 다양한 방식으로 애플리케이션의 UI를 사용자 지정할 수 있습니다. 예: 
 
-- [기본 제공 정책](active-directory-b2c-reference-policies.md)을 사용하여 응용 프로그램에서 등록 또는 로그인, 암호 재설정 또는 프로필 편집 환경을 제공하는 경우 [UI를 사용자 지정하는 Azure Portal](tutorial-customize-ui.md)을 사용합니다.
+- [사용자 흐름](active-directory-b2c-reference-policies.md)을 사용하여 애플리케이션에 등록 또는 로그인, 암호 재설정 또는 프로필 편집 환경을 제공하는 경우 [UI를 사용자 지정하는 Azure Portal](tutorial-customize-ui.md)을 사용합니다.
 - 로그인 전용, 첨부된 암호 재설정 페이지와 확인 이메일을 제공하는 경우 [Azure AD 로그인 페이지](../active-directory/fundamentals/customize-branding.md)에 사용되는 것과 동일한 사용자 지정 단계를 사용합니다.
 - 고객이 로그인하기 전에 프로필을 편집하려는 경우 Azure AD 로그인 페이지를 사용자 지정하는 데 사용되는 것과 동일한 단계를 사용하여 사용자 지정하는 페이지로 리디렉션됩니다.
-- [사용자 지정 정책](active-directory-b2c-overview-custom.md)을 사용하여 응용 프로그램에서 등록 또는 로그인, 암호 재설정 또는 프로필 편집을 제공하는 경우 [UI를 사용자 지정하는 정책 파일](active-directory-b2c-ui-customization-custom.md)을 사용합니다.
-- 고객의 결정에 따라 동적 콘텐츠를 제공해야 하는 경우 쿼리 문자열에 전송된 매개 변수에 따라 [페이지 콘텐츠를 변경할 수 있는 사용자 지정 정책](active-directory-b2c-ui-customization-custom-dynamic.md) 을 사용합니다. 예를 들어 Azure AD B2C 등록 또는 로그인 페이지의 배경 이미지는 웹 또는 모바일 응용 프로그램에서 전달한 매개 변수에 따라 변경됩니다.
+- [사용자 지정 정책](active-directory-b2c-overview-custom.md)을 사용하여 애플리케이션에서 등록 또는 로그인, 암호 재설정 또는 프로필 편집을 제공하는 경우 [UI를 사용자 지정하는 정책 파일](active-directory-b2c-ui-customization-custom.md)을 사용합니다.
+- 고객의 결정에 따라 동적 콘텐츠를 제공해야 하는 경우 쿼리 문자열에 전송된 매개 변수에 따라 [페이지 콘텐츠를 변경할 수 있는 사용자 지정 정책](active-directory-b2c-ui-customization-custom-dynamic.md) 을 사용합니다. 예를 들어 Azure AD B2C 등록 또는 로그인 페이지의 배경 이미지는 웹 또는 모바일 애플리케이션에서 전달한 매개 변수에 따라 변경됩니다.
 
-Azure AD B2C는 고객의 브라우저에서 코드를 실행하고 [CORS(원본 간 리소스 공유)](http://www.w3.org/TR/cors/)라는 최신 방법을 사용합니다. 런타임에, 정책에서 지정한 URL에서 콘텐츠가 로드됩니다. 다른 페이지에 다른 URL을 지정합니다. URL에서 콘텐츠가 로드된 후 Azure AD B2C에서 삽입된 HTML 조각과 병합된 다음, 고객에게 표시됩니다.
+Azure AD B2C는 고객의 브라우저에서 코드를 실행하고 [CORS(원본 간 리소스 공유)](https://www.w3.org/TR/cors/)라는 최신 방법을 사용합니다. 런타임 시 사용자 흐름이나 정책에서 지정하는 URL에서 콘텐츠를 로드합니다. 다른 페이지에 다른 URL을 지정합니다. URL에서 콘텐츠가 로드된 후 Azure AD B2C에서 삽입된 HTML 조각과 병합된 다음, 고객에게 표시됩니다.
 
 시작하기 전에 다음 지침을 검토하세요.
 
 - Azure AD B2C는 HTML 콘텐츠를 페이지에 병합합니다. Azure AD B2C가 제공하는 기본 콘텐츠를 복사하여 변경하지 마세요. 처음부터 HTML 콘텐츠를 빌드하고 기본 콘텐츠를 참조로 사용하는 것이 가장 좋습니다.
 - 보안상의 이유로 콘텐츠에 JavaScript를 포함할 수 없습니다.
 - 지원되는 브라우저 버전은 다음과 같습니다. 
-    - Internet Explorer 11, 10 및 Edge
+    - Internet Explorer 11, 10 및 Microsoft Edge
     - Internet Explorer 9 및 8에 대한 제한된 지원
     - Google Chrome 42.0 이상
     - Mozilla Firefox 38.0 이상
@@ -44,7 +44,7 @@ Azure AD B2C는 고객의 브라우저에서 코드를 실행하고 [CORS(원본
 
 ## <a name="where-do-i-store-ui-content"></a>UI 콘텐츠는 어디에 저장하나요?
 
-[Azure Blob 저장소](../storage/blobs/storage-blobs-introduction.md), 웹 서버, CDN, AWS S3 또는 파일 공유 시스템과 같이 어느 곳에나 UI 콘텐츠를 호스트할 수 있습니다. 중요한 점은 CORS를 사용하도록 설정한 상태에서 공개적으로 사용 가능한 HTTPS 엔드포인트에서 콘텐츠를 호스팅하는 것입니다. 콘텐츠에 지정하는 경우 절대 URL을 사용해야 합니다.
+[Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), 웹 서버, CDN, AWS S3 또는 파일 공유 시스템과 같이 어느 곳에나 UI 콘텐츠를 호스트할 수 있습니다. 중요한 점은 CORS를 사용하도록 설정한 상태에서 공개적으로 사용 가능한 HTTPS 엔드포인트에서 콘텐츠를 호스팅하는 것입니다. 콘텐츠에 지정하는 경우 절대 URL을 사용해야 합니다.
 
 ## <a name="how-do-i-get-started"></a>어떻게 시작하나요?
 
@@ -118,6 +118,6 @@ Azure AD B2C 테넌트에서 [사용자 언어 지정](active-directory-b2c-refe
 
 ## <a name="next-steps"></a>다음 단계
 
-- 기본 제공 정책을 사용하는 경우, [Azure Active Directory B2C에서 응용 프로그램의 사용자 인터페이스 사용자 지정](tutorial-customize-ui.md) 자습서를 사용하여 UI 사용자 지정을 시작할 수 있습니다.
-- 사용자 지정 정책을 사용하는 경우 [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 응용 프로그램의 사용자 인터페이스 사용자 지정](active-directory-b2c-ui-customization-custom.md) 문서를 사용하여 UI 사용자 지정을 시작할 수 있습니다.
+- 사용자 흐름을 사용하는 경우 다음과 같은 자습서를 사용하여 UI를 사용자 지정할 수 있습니다. [Azure Active Directory B2C에서 애플리케이션의 사용자 인터페이스 사용자 지정](tutorial-customize-ui.md).
+- 사용자 지정 정책을 사용하는 경우 다음과 같은 문서를 사용하여 UI를 사용자 지정할 수 있습니다. [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 애플리케이션의 사용자 인터페이스 사용자 지정](active-directory-b2c-ui-customization-custom.md).
 

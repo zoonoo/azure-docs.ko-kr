@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ab238e31ba022427dc55fec842f3e89e72fa530a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7f8c410f368c5c63bd24bed25b9807b8061180be
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238882"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189799"
 ---
 # <a name="manage-database-roles-and-users"></a>데이터베이스 역할 및 사용자 관리
 
@@ -24,7 +24,7 @@ model 데이터베이스 수준에서 모든 사용자는 역할에 속해야 �
 역할 권한은 다음과 같습니다.
 *  **관리자** - 사용자가 데이터베이스에 대한 모든 권한을 갖습니다. 관리자 권한이 있는 데이터베이스 역할은 서버 관리자와 다릅니다.
 *  **처리** - 사용자가 데이터베이스에서 프로세스 작업에 연결하고 수행할 수 있으며 model 데이터베이스 데이터를 분석할 수 있습니다.
-*  **읽기** - 사용자가 클라이언트 응용 프로그램을 사용하여 model 데이터베이스 데이터에 연결하고 분석할 수 있습니다.
+*  **읽기** - 사용자가 클라이언트 애플리케이션을 사용하여 model 데이터베이스 데이터에 연결하고 분석할 수 있습니다.
 
 테이블 형식 모델 프로젝트를 만들 때 SSDT의 역할 관리자를 사용하여 역할을 만들고 해당 역할에 사용자나 그룹을 추가합니다. 서버에 배포된 경우 SSMS, [Analysis Services PowerShell cmdlet](https://msdn.microsoft.com/library/hh758425.aspx) 또는 TMSL([Tabular Model Scripting Language](https://msdn.microsoft.com/library/mt614797.aspx))(테이블 형식 모델 스크립트 언어)를 사용하여 역할 및 사용자 멤버를 추가하거나 제거합니다.
 
@@ -63,6 +63,7 @@ model 데이터베이스 수준에서 모든 사용자는 역할에 속해야 �
 
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssms"></a>SSMS에서 역할 및 사용자를 추가하거나 관리하려면
+
 배포된 model 데이터베이스에 역할 및 사용자를 추가하려면 서버 관리자로 서버에 연결되어 있거나 관리자 권한이 있는 데이터베이스 역할이 이미 있어야 합니다.
 
 1. 개체 탐색기에서 **역할**을 마우스 오른쪽 단추로 클릭 > **새 역할**을 클릭합니다.
@@ -83,6 +84,7 @@ model 데이터베이스 수준에서 모든 사용자는 역할에 속해야 �
 5. 만들려는 역할에 읽기 권한이 있는 경우 DAX 수식을 사용하여 행 필터를 추가할 수 있습니다. **행 필터**를 클릭하고 테이블을 선택한 다음 **DAX 필터** 필드에 DAX 수식을 입력합니다. 
 
 ## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>TMSL 스크립트를 사용하여 역할 및 사용자를 추가하려면
+
 SSMS에서 또는 PowerShell을 사용하여 XMLA 창에서 TMSL 스크립트를 실행할 수 있습니다. [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) 명령 및 [Roles](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-objects/roles-object-tmsl) 개체를 사용합니다.
 
 **샘플 TMSL 스크립트**
@@ -116,6 +118,7 @@ SSMS에서 또는 PowerShell을 사용하여 XMLA 창에서 TMSL 스크립트를
 ```
 
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>PowerShell을 사용하여 역할 및 사용자를 추가하려면
+
 [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) 모듈은 TMSL(테이블 형식 모델 스크립트 언어) 쿼리 또는 스크립트를 허용하는 범용 Invoke-ASCmd cmdlet 및 작업 관련 데이터베이스 관리 cmdlet을 제공합니다. 다음 cmdlet은 데이터베이스 역할 및 사용자 관리에 사용됩니다.
   
 |Cmdlet|설명|
@@ -125,6 +128,7 @@ SSMS에서 또는 PowerShell을 사용하여 XMLA 창에서 TMSL 스크립트를
 |[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|TMSL 스크립트를 실행합니다.|
 
 ## <a name="row-filters"></a>행 필터  
+
 행 필터는 특정 역할의 멤버가 쿼리할 수 있는 테이블의 행을 정의합니다. 행 필터는 DAX 수식을 사용하여 모델의 각 테이블에 대해 정의됩니다.  
   
 행 필터는 읽기와 읽기 및 처리 권한이 있는 역할에 대해서만 정의할 수 있습니다. 기본적으로 특정 테이블에 대해 행 필터가 정의되지 않은 경우 다른 테이블에서 교차 필터링을 적용하지 않는 한 멤버는 테이블의 모든 행을 쿼리할 수 있습니다.
@@ -144,6 +148,7 @@ SSMS에서 또는 PowerShell을 사용하여 XMLA 창에서 TMSL 스크립트를
  *=FALSE()* 필터를 사용하여 전체 테이블의 모든 행에 대한 액세스를 거부할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
   [서버 관리자 관리](analysis-services-server-admins.md)   
   [PowerShell을 사용하여 Azure Analysis Services 관리](analysis-services-powershell.md)  
   [TMSL(테이블 형식 모델 스크립트 언어) 참조](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)

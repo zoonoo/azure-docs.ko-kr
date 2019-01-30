@@ -3,21 +3,21 @@ title: 사용자 지정 정책에서 등록 수정 및 자체 어설션된 공�
 description: 등록에 클레임을 추가하고 사용자 입력을 구성하는 연습
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/29/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6b2a6d84fffecbe30bd2a47c795ee6143458ee2b
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 326b0289ebb7aa503d41d556bea15017c28f7a1e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345003"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853719"
 ---
-# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: 새 클레임을 추가하도록 등록 수정 및 사용자 입력 구성
+# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: 새 클레임을 추가하도록 가입 수정 및 사용자 입력 구성
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -213,7 +213,7 @@ ms.locfileid: "51345003"
   </TechnicalProfile>
   ```
 
-4. `<OutputClaim ClaimTypeReferenceId="city" />`를 RP 정책 파일 SignUporSignIn.xml에 추가하여 이 클레임이 성공적인 사용자 경험 후 응용 프로그램에 토큰으로 전송되도록 합니다.
+4. `<OutputClaim ClaimTypeReferenceId="city" />`를 RP 정책 파일 SignUporSignIn.xml에 추가하여 이 클레임이 성공적인 사용자 경험 후 애플리케이션에 토큰으로 전송되도록 합니다.
 
   ```xml
   <RelyingParty>
@@ -245,7 +245,7 @@ ms.locfileid: "51345003"
 
 ![수정된 등록 옵션의 스크린샷](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
 
-  이제 응용 프로그램에 반환되는 토큰은 아래 표시된 것처럼 `city` 클레임을 포함합니다.
+  이제 애플리케이션에 반환되는 토큰은 아래 표시된 것처럼 `city` 클레임을 포함합니다.
 ```json
 {
   "exp": 1493596822,
@@ -266,7 +266,7 @@ ms.locfileid: "51345003"
 }
 ```
 
-## <a name="optional-remove-email-verification-from-signup-journey"></a>선택 사항: 등록 경험에서 전자 메일 확인 제거
+## <a name="optional-remove-email-verification-from-signup-journey"></a>선택 사항: 가입 과정에서 이메일 확인 제거
 
 전자 메일 확인을 건너뛰려면 정책 작성자가 `PartnerClaimType="Verified.Email"`을 제거하도록 선택하면 됩니다. “Required” = true가 제거되지 않으면 이메일 주소가 필요하지만 확인되지 않습니다.  이 옵션이 사용자의 사용 사례에 적합한지 신중하게 고려하세요.
 

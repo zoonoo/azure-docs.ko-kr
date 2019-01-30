@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2018
+ms.date: 01/23/2019
 ms.author: cwatson
-ms.openlocfilehash: b9b1496c71e61fce815d225310c8beb57e8f9b19
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e1d9c348f83600b48f4b202c8660d9387dfc5484
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584573"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856378"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Microsoft Azure 청구서 이해
 Azure 청구서를 이해하려면 청구서를 자세한 일별 사용 현황 파일 및 Azure Portal의 비용 관리 보고서와 비교합니다.
 
 이 문서는 기업계약을 체결한 Azure 고객(EA 고객)에게는 적용되지 않습니다. EA 고객의 경우 [기업계약을 체결한 Azure 고객에 대한 요금 청구 방식](billing-understand-your-bill-ea.md)을 참조하세요.  
+
+청구 주기, 가격 책정 및 사용량을 포함하여 Azure CSP(Azure Cloud Solution Provider) 프로그램에서 청구 작동 방법에 대한 설명은 [Azure CSP 청구 개요](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/)를 참조합니다.
 
 ## <a name="charges"></a>요금 검토
 
@@ -140,6 +142,6 @@ VM이 생성되면 각 미터가 사용량 레코드를 내보내기 시작합�
 - [Azure Portal 비용 관리](https://docs.microsoft.com/azure/billing/billing-getting-started)
 - [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](billing-getting-started.md#costs)
 
-## <a name="need-help-contact-us"></a>도움 필요 시 문의처
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

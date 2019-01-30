@@ -1,23 +1,23 @@
 ---
-title: 자습서 - Azure Active Directory B2C를 사용하여 웹 응용 프로그램이 계정을 인증하도록 설정 | Microsoft Docs
-description: Azure Active Directory B2C를 사용하여 ASP.NET 웹 응용 프로그램에 대한 사용자 로그인을 제공하는 방법에 대한 자습서입니다.
+title: 자습서 - Azure Active Directory B2C를 사용하여 웹 애플리케이션이 계정을 인증하도록 설정 | Microsoft Docs
+description: Azure Active Directory B2C를 사용하여 ASP.NET 웹 애플리케이션에 대한 사용자 로그인을 제공하는 방법에 대한 자습서입니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
-ms.date: 1/23/2018
+ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: e215577fdb39b3dc1a9c5ce641c44e3cdef8fb45
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 30a94cb5de2d618938f17c4e5733821ac7247785
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604096"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851524"
 ---
-# <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 웹 응용 프로그램이 계정을 인증하도록 설정
+# <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 웹 애플리케이션이 계정을 인증하도록 설정
 
 이 자습서에서는 Azure AD(Azure Active Directory) B2C를 사용하여 로그인하고 ASP.NET 웹앱에서 사용자를 로그인하고 등록하는 방법을 보여 줍니다. Azure AD B2C를 사용하면 개방형 표준 프로토콜을 사용하여 소셜 계정, 엔터프라이즈 계정 및 Azure Active Directory 계정을 인증할 수 있습니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "45604096"
 
 > [!div class="checklist"]
 > * Azure AD B2C 테넌트에게 샘플 ASP.NET 웹앱을 등록합니다.
-> * 사용자 등록, 로그인, 프로필 편집 및 암호 재설정에 대한 정책을 만듭니다.
+> * 사용자 가입, 로그인, 프로필 편집 및 암호 재설정에 대한 사용자 흐름을 만듭니다.
 > * Azure AD B2C 테넌트를 사용하도록 샘플 웹앱을 구성합니다. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "45604096"
 
 ## <a name="register-web-app"></a>웹앱 등록
 
-Azure Active Directory에서 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)을 받으려면 먼저 응용 프로그램을 테넌트에 [등록](../active-directory/develop/developer-glossary.md#application-registration)해야 합니다. 앱을 등록하면 테넌트에서 앱에 대한 [응용 프로그램 ID](../active-directory/develop/developer-glossary.md#application-id-client-id)가 만들어집니다. 
+Azure Active Directory에서 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)을 받으려면 먼저 애플리케이션을 테넌트에 [등록](../active-directory/develop/developer-glossary.md#application-registration)해야 합니다. 앱을 등록하면 테넌트에서 앱에 대한 [응용 프로그램 ID](../active-directory/develop/developer-glossary.md#application-id-client-id)가 만들어집니다. 
 
 Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -79,65 +79,87 @@ Azure AD B2C는 [클라이언트 응용 프로그램](../active-directory/develo
 
 키는 포털에서 한 번만 표시되므로 키 값을 복사하여 저장하는 것이 중요합니다. 앱 구성에 이 값이 필요합니다. 키는 안전하게 보관하고, 공개적으로 공유하지 마세요.
 
-## <a name="create-policies"></a>정책 만들기
+## <a name="create-user-flows"></a>사용자 흐름 만들기
 
-Azure AD B2C 정책은 사용자 워크플로를 정의합니다. 예를 들어 로그인, 등록, 암호 변경 및 프로필 편집은 일반적인 워크플로입니다.
+Azure AD B2C 사용자 흐름은 ID 작업에 대한 사용자 환경을 정의합니다. 예를 들어 로그인, 가입, 암호 변경 및 프로필 편집은 일반적인 사용자 흐름입니다.
 
-### <a name="create-a-sign-up-or-sign-in-policy"></a>등록 또는 로그인 정책 만들기
+### <a name="create-a-sign-up-or-sign-in-user-flow"></a>가입 또는 로그인 사용자 흐름 만들기
 
-액세스할 사용자를 등록한 다음 웹앱에 로그인하려면 **등록 또는 로그인 정책**을 만듭니다.
+액세스할 사용자를 가입시킨 다음, 웹앱에 로그인하려면 **가입 또는 로그인 사용자 흐름**을 만듭니다.
 
-1. Azure AD B2C 포털 페이지에서 **등록 또는 로그인 정책**을 선택하고 **추가**를 클릭합니다.
+1. Azure AD B2C 포털 페이지에서 **사용자 흐름**을 선택하고 **새 사용자 흐름**을 클릭합니다.
+2. **추천** 탭에서 **가입 및 로그인**을 클릭합니다.
 
-    정책을 구성하려면 다음 설정을 사용합니다.
+    사용자 흐름을 구성하려면 다음 설정을 사용합니다.
 
-    ![등록 또는 로그인 정책 추가](media/active-directory-b2c-tutorials-web-app/add-susi-policy.png)
+    ![가입 또는 로그인 사용자 흐름 추가](media/active-directory-b2c-tutorials-web-app/add-susi-user-flow.png)
 
     | 설정      | 제안 값  | 설명                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | SiUpIn | 정책에 대한 **이름**을 입력합니다. 정책 이름 앞에 **b2c_1_** 이 붙습니다. 샘플 코드에서는 전체 정책 이름(**b2c_1_SiUpIn**)을 사용합니다. | 
+    | **Name** | SiUpIn | 사용자 흐름에 대한 **이름**을 입력합니다. 사용자 흐름 이름 앞에는 **b2c_1_** 접두사가 붙습니다. 샘플 코드에서 사용하는 전체 사용자 흐름 이름은 **b2c_1_SiUpIn**입니다. | 
     | **ID 공급자** | 이메일 등록 | ID 공급자는 사용자를 고유하게 식별하는 데 사용됩니다. |
-    | **등록 특성** | 표시 이름 및 우편 번호 | 등록 시 사용자로부터 수집할 특성을 선택합니다. |
-    | **응용 프로그램 클레임** | 표시 이름, 우편 번호, 새 사용자, 사용자의 개체 ID | [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)에 포함하려는 [클레임](../active-directory/develop/developer-glossary.md#claim)을 선택합니다. |
 
-2. **만들기**를 클릭하여 정책을 만듭니다. 
+3. **사용자 특성 및 클레임** 아래에서 **자세히 표시**를 클릭하고 다음 설정을 선택합니다.
 
-### <a name="create-a-profile-editing-policy"></a>프로필 편집 정책 만들기
+    ![가입 또는 로그인 사용자 흐름 추가](media/active-directory-b2c-tutorials-web-app/add-attributes-and-claims.png)
 
-사용자가 직접 사용자 프로필 정보를 다시 설정할 수 있게 하려면 **프로필 편집 정책**을 만듭니다.
+    | 열      | 제안 값  | 설명                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **특성 수집** | 표시 이름 및 우편 번호 | 등록 시 사용자로부터 수집할 특성을 선택합니다. |
+    | **클레임 반환** | 표시 이름, 우편 번호, 새 사용자, 사용자의 개체 ID | [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)에 포함하려는 [클레임](../active-directory/develop/developer-glossary.md#claim)을 선택합니다. |
 
-1. Azure AD B2C 포털 페이지에서 **프로필 편집 정책**을 선택하고 **추가**를 클릭합니다.
+4. **확인**을 클릭합니다.
+5. **만들기**를 클릭하여 사용자 흐름을 만듭니다. 
 
-    정책을 구성하려면 다음 설정을 사용합니다.
+### <a name="create-a-profile-editing-user-flow"></a>프로필 편집 사용자 흐름 만들기
+
+사용자가 직접 자신의 사용자 프로필 정보를 다시 설정할 수 있게 하려면 **프로필 편집 사용자 흐름**을 만듭니다.
+
+1. Azure AD B2C 포털 페이지에서 **사용자 흐름**을 선택하고 **새 사용자 흐름**을 클릭합니다.
+2. **추천** 탭에서 **프로필 편집**을 클릭합니다.
+
+    사용자 흐름을 구성하려면 다음 설정을 사용합니다.
 
     | 설정      | 제안 값  | 설명                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | SiPe | 정책에 대한 **이름**을 입력합니다. 정책 이름 앞에 **b2c_1_** 이 붙습니다. 샘플 코드에서는 전체 정책 이름(**b2c_1_SiPe**)을 사용합니다. | 
+    | **Name** | SiPe | 사용자 흐름에 대한 **이름**을 입력합니다. 사용자 흐름 이름 앞에는 **b2c_1_** 접두사가 붙습니다. 샘플 코드에서 사용하는 전체 사용자 흐름 이름은 **b2c_1_SiPe**입니다. | 
     | **ID 공급자** | 로컬 계정 로그인 | ID 공급자는 사용자를 고유하게 식별하는 데 사용됩니다. |
-    | **프로필 특성** | 표시 이름 및 우편 번호 | 사용자가 프로필 편집 시 수정할 수 있는 특성을 선택합니다. |
-    | **응용 프로그램 클레임** | 표시 이름, 우편 번호, 사용자의 개체 ID | 프로필을 성공적으로 편집한 후에 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)에 포함하려는 [클레임](../active-directory/develop/developer-glossary.md#claim)을 선택합니다. |
 
-2. **만들기**를 클릭하여 정책을 만듭니다. 
+3. **사용자 특성** 아래에서 **자세히 표시**를 클릭하고 다음 설정을 선택합니다.
 
-### <a name="create-a-password-reset-policy"></a>암호 재설정 정책 만들기
+    | 열      | 제안 값  | 설명                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **특성 수집** | 표시 이름 및 우편 번호 | 사용자가 프로필 편집 시 수정할 수 있는 특성을 선택합니다. |
+    | **클레임 반환** | 표시 이름, 우편 번호, 사용자의 개체 ID | 프로필을 성공적으로 편집한 후에 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)에 포함하려는 [클레임](../active-directory/develop/developer-glossary.md#claim)을 선택합니다. |
 
-응용 프로그램에서 암호 재설정을 사용하도록 설정하려면 **암호 재설정 정책**을 만들어야 합니다. 이 정책은 암호를 다시 설정하는 동안 소비자 환경 및 응용 프로그램에서 성공적으로 완료될 때 받는 토큰의 내용을 설명합니다.
+4. **확인**을 클릭합니다.
+5. **만들기**를 클릭하여 사용자 흐름을 만듭니다. 
+
+### <a name="create-a-password-reset-user-flow"></a>암호 재설정 사용자 흐름 만들기
+
+애플리케이션에서 암호 재설정을 사용하도록 설정하려면 **암호 재설정 사용자 흐름**을 만들어야 합니다. 이 사용자 흐름은 암호 재설정 시의 소비자 환경 및 애플리케이션에서 성공적인 완료를 받는 토큰의 콘텐츠를 설명합니다.
 
 1. Azure AD B2C 포털 페이지에서 **암호 재설정 정책**을 선택하고 **추가**를 클릭합니다.
+2. **추천** 탭에서 **암호 재설정**을 클릭합니다.
 
-    정책을 구성하려면 다음 설정을 사용합니다.
+    사용자 흐름을 구성하려면 다음 설정을 사용합니다.
 
     | 설정      | 제안 값  | 설명                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | SSPR | 정책에 대한 **이름**을 입력합니다. 정책 이름 앞에 **b2c_1_** 이 붙습니다. 샘플 코드에서는 전체 정책 이름(**b2c_1_SSPR**)을 사용합니다. | 
+    | **Name** | SSPR | 사용자 흐름에 대한 **이름**을 입력합니다. 사용자 흐름 이름 앞에는 **b2c_1_** 접두사가 붙습니다. 샘플 코드에서 사용하는 전체 사용자 흐름 이름은 **b2c_1_SSPR**입니다. | 
     | **ID 공급자** | 이메일 주소를 사용하여 암호 재설정 | 사용자를 고유하게 식별하는 데 사용되는 ID 공급자입니다. |
-    | **응용 프로그램 클레임** | 사용자의 개체 ID | 암호를 성공적으로 다시 설정한 후에 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)에 포함하려는 [클레임](../active-directory/develop/developer-glossary.md#claim)을 선택합니다. |
 
-2. **만들기**를 클릭하여 정책을 만듭니다. 
+3. **애플리케이션 클레임** 아래에서 **자세히 표시**를 클릭하고 다음 설정을 선택합니다.
+    | 열      | 제안 값  | 설명                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **클레임 반환** | 사용자의 개체 ID | 암호를 성공적으로 다시 설정한 후에 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)에 포함하려는 [클레임](../active-directory/develop/developer-glossary.md#claim)을 선택합니다. |
+
+4. **확인**을 클릭합니다.
+5. **만들기**를 클릭하여 사용자 흐름을 만듭니다. 
 
 ## <a name="update-web-app-code"></a>웹앱 코드 업데이트
 
-이제 웹앱을 등록하고 정책을 만들었으므로 앱에서 Azure AD B2C 테넌트를 사용하도록 구성해야 합니다. 이 자습서에서는 GitHub에서 다운로드할 수 있는 샘플 웹앱을 구성합니다. 
+이제 웹앱이 등록되고 사용자 흐름이 만들어졌으므로 Azure AD B2C 테넌트를 사용하도록 앱을 구성해야 합니다. 이 자습서에서는 GitHub에서 다운로드할 수 있는 샘플 웹앱을 구성합니다. 
 
 GitHub에서 [Zip 파일을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip)하거나 샘플 웹앱을 복제합니다. 경로의 총 문자 길이가 260자 미만인 폴더에 샘플 파일을 추출합니다.
 
@@ -145,15 +167,15 @@ GitHub에서 [Zip 파일을 다운로드](https://github.com/Azure-Samples/activ
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-샘플 ASP.NET 웹앱은 할 일 목록을 만들고 업데이트하는 간단한 작업 목록 앱입니다. 앱에서 [Microsoft OWIN 미들웨어 구성 요소](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/)를 사용하여 사용자가 Azure AD B2C 테넌트에서 이 앱을 사용하기 위해 등록할 수 있도록 합니다. Azure AD B2C 정책을 만들면 사용자가 소셜 계정을 사용하거나 자신의 ID로 사용할 계정을 만들어 앱에 액세스할 수 있습니다. 
+샘플 ASP.NET 웹앱은 할 일 목록을 만들고 업데이트하는 간단한 작업 목록 앱입니다. 앱에서 [Microsoft OWIN 미들웨어 구성 요소](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/)를 사용하여 사용자가 Azure AD B2C 테넌트에서 이 앱을 사용하기 위해 등록할 수 있도록 합니다. Azure AD B2C 사용자 흐름을 만들면 사용자가 소셜 계정을 사용하거나 자신의 ID로 사용할 계정을 만들어 앱에 액세스할 수 있습니다. 
 
 샘플 솔루션에는 두 개의 프로젝트가 있습니다.
 
-**웹앱 샘플 앱(TaskWebApp):** 작업 목록을 만들고 편집하는 웹앱입니다. 웹앱에서 **등록 또는 로그인** 정책을 사용하여 사용자를 등록하거나 로그인합니다.
+**웹앱 샘플 앱(TaskWebApp):** 작업 목록을 만들고 편집할 웹앱입니다. 웹앱에서 **가입 또는 로그인** 사용자 흐름을 사용하여 사용자를 가입 또는 로그인시킵니다.
 
 **Web API 샘플 앱(TaskService):** 작업 목록 만들기, 읽기, 업데이트 및 삭제 기능을 지원하는 Web API입니다. 웹 API는 Azure AD B2C를 통해 보호되고 웹앱에서 호출됩니다.
 
-테넌트에서 앱 등록을 사용하도록 앱을 변경해야 하며, 여기에는 클라이언트 ID와 이전에 기록한 키가 포함됩니다. 또한 만든 정책도 구성해야 합니다. 샘플 웹앱은 Web.config 파일에서 구성 값을 앱 설정으로 정의합니다. 앱 설정을 변경하려면 다음을 수행합니다.
+테넌트에서 앱 등록을 사용하도록 앱을 변경해야 하며, 여기에는 클라이언트 ID와 이전에 기록한 키가 포함됩니다. 또한 만든 사용자 흐름도 구성해야 합니다. 샘플 웹앱은 Web.config 파일에서 구성 값을 앱 설정으로 정의합니다. 앱 설정을 변경하려면 다음을 수행합니다.
 
 1. Visual Studio에서 **B2C-WebAPI-DotNet** 솔루션을 엽니다.
 
@@ -171,11 +193,11 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 ### <a name="sign-up-using-an-email-address"></a>전자 메일 주소를 사용하여 등록
 
-1. 위쪽 배너에서 **등록/로그인** 링크를 클릭하여 웹앱의 사용자로 등록합니다. 여기서는 이전 단계에서 정의한 **b2c_1_SiUpIn** 정책을 사용합니다.
+1. 위쪽 배너에서 **등록/로그인** 링크를 클릭하여 웹앱의 사용자로 등록합니다. 여기서는 이전 단계에서 정의한 **b2c_1_SiUpIn** 사용자 흐름을 사용합니다.
 
 2. Azure AD B2C에서 등록 링크가 있는 로그인 페이지를 제공합니다. 아직 계정이 없으므로 **지금 등록** 링크를 클릭합니다. 
 
-3. 등록 워크플로에서 이메일 주소를 사용하여 사용자의 ID를 수집하고 확인하는 페이지를 제공합니다. 또한 등록 워크플로는 사용자의 암호와 요청된 특성(정책에 정의되어 있음)을 수집합니다.
+3. 등록 워크플로에서 이메일 주소를 사용하여 사용자의 ID를 수집하고 확인하는 페이지를 제공합니다. 또한 가입 워크플로에서도 사용자 흐름에 정의된 사용자의 암호와 요청된 특성을 수집합니다.
 
     유효한 이메일 주소를 사용하고 확인 코드를 사용하여 유효성을 검사합니다. 암호를 설정합니다. 요청된 특성에 대한 값을 입력합니다. 
 
@@ -191,7 +213,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure AD B2C 테넌트를 만들고, 정책을 만들고, 샘플 웹앱을 업데이트하여 Azure AD B2C 테넌트를 사용하는 방법을 알아보았습니다. Azure AD B2C 테넌트에서 보호되는 ASP.NET 웹 API를 등록, 구성 및 호출하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
+이 자습서에서는 Azure AD B2C 테넌트를 만들고, 사용자 흐름을 만들고, Azure AD B2C 테넌트를 사용하도록 웹앱 샘플을 업데이트하는 방법을 알아보았습니다. Azure AD B2C 테넌트에서 보호되는 ASP.NET 웹 API를 등록, 구성 및 호출하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [자습서: Azure Active Directory B2C를 사용하여 ASP.NET 웹 API 보호](active-directory-b2c-tutorials-web-api.md)

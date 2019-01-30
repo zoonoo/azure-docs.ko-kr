@@ -4,7 +4,7 @@ description: Linux VM 시스템 할당 관리 ID를 사용하여 Azure Resource 
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: bryanla
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 6c4869c6ed392b8ae0fb33176435aa3f58abaa1e
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 2d421c39d124398729390d999195dcede51de717
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706435"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433493"
 ---
 # <a name="use-a-linux-vm-system-assigned-managed-identity-to-access-azure-resource-manager"></a>Linux VM 시스템 할당 관리 ID를 사용하여 Azure Resource Manager에 액세스
 
@@ -55,12 +55,12 @@ Azure 리소스에 대한 관리 ID를 사용하면 코드에서 Azure AD 인증
 
 1. Portal에서 Linux VM으로 이동한 다음 **개요**에서 **연결**을 클릭합니다.  
 2. 선택한 SSH 클라이언트를 사용하여 VM에 **연결**합니다. 
-3. 터미널 창에서 CURL을 사용하여 Azure 리소스에 대한 로컬 관리 ID 엔드포인트에 대한 요청을 만들어서 Azure Resource Manager에 대한 액세스 토큰을 가져옵니다.  
+3. 터미널 창에서 `curl`을 사용하여 Azure 리소스에 대한 로컬 관리 ID 엔드포인트에 대한 요청을 만들어서 Azure Resource Manager에 대한 액세스 토큰을 가져옵니다.  
  
-    액세스 토큰에 대한 CURL 요청은 다음과 같습니다.  
+    액세스 토큰에 대한 `curl` 요청은 다음과 같습니다.  
     
     ```bash
-    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true   
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' -H Metadata:true   
     ```
     
     > [!NOTE]
@@ -92,11 +92,11 @@ Azure 리소스에 대한 관리 ID를 사용하면 코드에서 Azure AD 인증
     특정 리소스 그룹 정보가 포함된 응답이 반환됩니다.    
     ```bash
     {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
-    ```     
+    ```
 
-## Next steps
+## <a name="next-steps"></a>다음 단계
 
-In this quickstart, you learned how to use a system-assigned managed identity to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:
+이 빠른 시작에서는 시스템 할당 관리 ID를 사용하여 Azure Resource Manager API에 액세스하는 방법을 알아보았습니다.  Azure Resource Manager에 대한 자세한 내용은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
->[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
+>[Azure 리소스 관리자](/azure/azure-resource-manager/resource-group-overview)

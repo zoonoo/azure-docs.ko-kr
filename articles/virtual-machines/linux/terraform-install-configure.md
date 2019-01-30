@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/19/2018
 ms.author: echuvyrov
-ms.openlocfilehash: 0943bd1bffb3df7beda97ea0619f1aced4ca3a41
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 71cf07b227a75e53119f2f35e79ccd7926b551e7
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946785"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200703"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Azure에 VM 및 기타 인프라를 프로비전하기 위해 Terraform 설치 및 구성
  
@@ -59,7 +59,7 @@ az account show --query "{subscriptionId:id, tenantId:tenantId}"
 az account set --subscription="${SUBSCRIPTION_ID}"
 ```
 
-이제 Terraform에 사용할 서비스 사용자를 만들 수 있습니다. 다음과 같이 [az ad sp create-for-rbac]/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 명령을 사용하고, *범위*를 구독으로 설정합니다.
+이제 Terraform에 사용할 서비스 사용자를 만들 수 있습니다. 다음과 같이 [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)를 사용하고, *범위*를 구독으로 설정합니다.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"

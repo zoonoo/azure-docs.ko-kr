@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge 오프라인 기능 | Microsoft Docs
-description: IoT Edge 디바이스 및 모듈을 오프라인으로 더 오래 작동하는 방법과 IoT Edge를 사용하여 일반 IoT 디바이스를 오프라인으로 작동하는 방법을 이해합니다.
+title: 디바이스 오프라인으로 작동 - Azure IoT Edge | Microsoft Docs
+description: IoT Edge 디바이스 및 모듈을 인터넷 연결 없이 오프라인으로 더 오래 작동하는 방법과 IoT Edge를 사용하여 일반 IoT 디바이스를 오프라인으로 작동하는 방법을 이해합니다.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3ab775d57ba188930cc66b0fa1655307e9a78179
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.custom: seodec18
+ms.openlocfilehash: 4c4713bade487ba46f1abdc6d0a76db3e81e38b1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284645"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096947"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>IoT Edge 디바이스, 모듈 및 자식 디바이스용 확장 오프라인 기능(미리 보기)을 이해합니다.
 
@@ -28,7 +29,7 @@ IoT Edge 디바이스가 오프라인으로 전환되면 Edge 허브는 세 가�
 
 다음 예제에서는 오프라인 모드에서 작동하는 IoT Edge 시나리오를 보여줍니다.
 
-1. **IoT Edge 장치를 구성합니다.**
+1. **IoT Edge 디바이스를 구성합니다.**
 
    IoT Edge 디바이스는 자동으로 오프라인 기능이 설정됩니다. 이 기능을 다른 IoT 디바이스로 확장하려면 IoT Hub의 디바이스 간에 부모-자식 관계를 선언해야 합니다. 
 

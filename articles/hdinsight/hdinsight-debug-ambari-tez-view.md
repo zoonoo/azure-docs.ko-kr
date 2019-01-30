@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0d2f55538517881ce6cc237885f3bcadfa084520
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 9b8b92b7a672a4d344b17d4ade497749766f8a91
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494964"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719696"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>HDInsight에서 Apache Ambari Tez 뷰를 사용하여 Tez 작업 디버깅
 
 HDInsight의 [Apache Ambari](https://ambari.apache.org/) Web UI에는 Tez를 사용하는 작업을 이해 및 디버그하는 데 사용할 수 있는 [Apache TEZ](https://tez.apache.org/) 보기가 포함되어 있습니다. Tez 뷰를 사용하면 연결된 항목의 그래프로 작업을 시각화하고 각 항목을 자세히 알아보며 통계 및 로깅 정보를 검색할 수 있습니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -94,15 +94,15 @@ Tez를 사용하는 Hive 쿼리를 실행하려면 다음 단계를 사용합니
     * **타임라인**: 각 처리 단계가 진행되는 데 걸린 시간에 대한 정보입니다.
     * **구성**: 이 쿼리에 사용된 구성입니다.
 
-    __쿼리 세부 정보__에서 링크를 사용하여 이 쿼리에 대한 __응용 프로그램__ 또는 __DAG__ 관련 정보를 찾을 수 있습니다.
+    __쿼리 세부 정보__에서 링크를 사용하여 이 쿼리에 대한 __애플리케이션__ 또는 __DAG__ 관련 정보를 찾을 수 있습니다.
     
-    * __응용 프로그램__ 링크를 클릭하면 이 쿼리의 YARN 응용 프로그램에 대한 정보가 표시됩니다. 여기에서 YARN 응용 프로그램 로그에 액세스할 수 있습니다.
+    * __애플리케이션__ 링크를 클릭하면 이 쿼리의 YARN 애플리케이션에 대한 정보가 표시됩니다. 여기에서 YARN 애플리케이션 로그에 액세스할 수 있습니다.
     * __DAG__ 링크를 클릭하면 이 쿼리에 대해 지정된 비순환 그래프 관련 정보가 표시됩니다. 여기에서 DAG의 그래픽 표시를 볼 수 있습니다. DAG 내에서 꼭짓점에 대한 정보를 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이제 Apache Tez 보기를 사용하는 방법을 알아보았으므로 [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)에 대해 자세히 알아봅니다.
 
-Apache Tez의 자세한 기술 정보는 [Hortonworks의 Apache Tez 페이지](http://hortonworks.com/hadoop/tez/)를 참조하세요.
+Apache Tez의 자세한 기술 정보는 [Hortonworks의 Apache Tez 페이지](https://hortonworks.com/hadoop/tez/)를 참조하세요.
 
 HDInsight과 함께 Apache Ambari를 사용하는 방법에 대한 자세한 내용은 [Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.

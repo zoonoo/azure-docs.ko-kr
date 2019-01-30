@@ -1,24 +1,24 @@
 ---
-title: Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB에서 대량 가져오기 및 업데이트 작업 수행 | Microsoft Docs
+title: Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB에서 대량 가져오기 및 업데이트 작업 수행
 description: Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB 문서를 대량으로 가져오고 업데이트합니다.
-services: cosmos-db
 author: tknandu
-manager: kfile
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: 44477f77547c9373bd4a3394c80e217d419bc8e0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.reviewer: sngun
+ms.openlocfilehash: 8031c8810d9916c3f6e02e1f2474c1ca9cdd528d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420050"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038758"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB 데이터에서 대량 작업 수행
 
-이 자습서는 Azure Cosmos DB Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB 문서를 가져오고 업데이트하는 데 관한 지침을 제공합니다. Bulk Executor 라이브러리와 방대한 처리량 및 저장소를 활용하는 방법에 대한 자세한 내용은 [Bulk Executor 라이브러리 개요](bulk-executor-overview.md) 문서를 참조하세요. 이 자습서에서는 임의의 문서를 생성하는 Java 응용 프로그램을 빌드하고 이러한 문서를 Azure Cosmos DB 컨테이너에 대량으로 가져옵니다. 가져온 후 문서의 일부 속성을 대량 업데이트합니다. 
+이 자습서는 Azure Cosmos DB Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB 문서를 가져오고 업데이트하는 데 관한 지침을 제공합니다. Bulk Executor 라이브러리와 방대한 처리량 및 저장소를 활용하는 방법에 대한 자세한 내용은 [Bulk Executor 라이브러리 개요](bulk-executor-overview.md) 문서를 참조하세요. 이 자습서에서는 임의의 문서를 생성하는 Java 애플리케이션을 빌드하고 이러한 문서를 Azure Cosmos DB 컨테이너에 대량으로 가져옵니다. 가져온 후 문서의 일부 속성을 대량 업데이트합니다. 
 
 현재 Azure Cosmos DB SQL API 및 Gremlin API 계정에서만 Bulk Executor 라이브러리가 지원됩니다. 이 문서에서는 SQL API 계정을 통해 Bulk Executor .Net 라이브러리를 사용하는 방법을 설명합니다. Bulk Executor .NET 라이브러리 사용에 대해 알아보려면 [Azure Cosmos DB Gremlin API에서 대량 작업 수행](bulk-executor-graph-dotnet.md)을 참조하세요.
 
@@ -33,21 +33,21 @@ ms.locfileid: "50420050"
 
   - JAVA_HOME 환경 변수가 반드시 JDK가 설치된 폴더를 지정하도록 설정합니다.
 
-* [Maven](http://maven.apache.org/) 이진 아카이브 [다운로드](http://maven.apache.org/download.cgi) 및 [설치](http://maven.apache.org/install.html)  
+* [Maven](https://maven.apache.org/) 이진 아카이브 [다운로드](https://maven.apache.org/download.cgi) 및 [설치](https://maven.apache.org/install.html)  
   
   - Ubuntu에서 `apt-get install maven`을 실행하여 Maven을 실행할 수 있습니다.
 
 * Java 빠른 시작 문서의 [데이터베이스 계정 만들기](create-sql-api-java.md#create-a-database-account) 섹션에 설명된 단계를 사용하여 Azure Cosmos DB SQL API 계정을 만듭니다.
 
-## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
-이제 GitHub에서 샘플 Java 응용 프로그램을 다운로드하여 코드 작업으로 전환해 보겠습니다. 이 응용 프로그램은 Azure Cosmos DB 데이터에서 대량 작업을 수행합니다. 응용 프로그램을 복제하려면 명령 프롬프트를 열고, 응용 프로그램을 복사할 디렉터리로 이동한 후, 다음 명령을 실행합니다.
+이제 GitHub에서 샘플 Java 애플리케이션을 다운로드하여 코드 작업으로 전환해 보겠습니다. 이 애플리케이션은 Azure Cosmos DB 데이터에서 대량 작업을 수행합니다. 애플리케이션을 복제하려면 명령 프롬프트를 열고, 애플리케이션을 복사할 디렉터리로 이동한 후, 다음 명령을 실행합니다.
 
 ```
  git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started.git 
 ```
 
-복제한 리포지토리에는 “\azure-cosmosdb-bulkexecutor-java-getting-started\samples\bulkexecutor-sample\src\main\java\com\microsoft\azure\cosmosdb\bulkexecutor” 폴더에 대한 두 개의 샘플 “bulkimport” 및 “bulkupdate”가 포함됩니다. “bulkimport” 응용 프로그램은 임의의 문서를 생성하고 Azure Cosmos DB에 가져옵니다. “bulkupdate” 응용 프로그램은 Azure Cosmos DB에서 일부 문서를 업데이트합니다. 다음 섹션에서는 이러한 각 샘플 앱에서 코드를 검토하겠습니다. 
+복제한 리포지토리에는 “\azure-cosmosdb-bulkexecutor-java-getting-started\samples\bulkexecutor-sample\src\main\java\com\microsoft\azure\cosmosdb\bulkexecutor” 폴더에 대한 두 개의 샘플 “bulkimport” 및 “bulkupdate”가 포함됩니다. “bulkimport” 애플리케이션은 임의의 문서를 생성하고 Azure Cosmos DB에 가져옵니다. “bulkupdate” 애플리케이션은 Azure Cosmos DB에서 일부 문서를 업데이트합니다. 다음 섹션에서는 이러한 각 샘플 앱에서 코드를 검토하겠습니다. 
 
 ## <a name="bulk-import-data-to-azure-cosmos-db"></a>Azure Cosmos DB로 데이터 대량 가져오기
 
@@ -121,13 +121,13 @@ ms.locfileid: "50420050"
    |List<Exception> getErrors() |  대량 가져오기 API 호출에 적용된 일괄 처리 중에서 일부 문서가 삽입에 실패한 경우 오류의 목록을 가져옵니다.       |
    |List<Object> getBadInputDocuments()  |    대량 가져오기 API 호출에 성공적으로 가져오지 못한 잘못된 형식의 문서 목록입니다. 사용자는 반환된 문서를 수정하고 가져오기를 다시 시도해야 합니다. 잘못된 형식의 문서에는 ID 값이 문자열이 아닌 문서가 포함됩니다(null 또는 다른 데이터 형식이 잘못된 것으로 간주됨).     |
 
-5. 대량 가져오기 응용 프로그램을 준비한 후, ‘mvn clean package’ 명령을 사용하여 원본의 명령줄 도구를 빌드합니다. 이 명령은 대상 폴더에서 jar 파일을 생성합니다.  
+5. 대량 가져오기 애플리케이션을 준비한 후, ‘mvn clean package’ 명령을 사용하여 원본의 명령줄 도구를 빌드합니다. 이 명령은 대상 폴더에서 jar 파일을 생성합니다.  
 
    ```java
    mvn clean package
    ```
 
-6. 대상 종속성이 생성된 후 다음 명령을 사용하여 대량 가져오기 응용 프로그램을 호출할 수 있습니다.  
+6. 대상 종속성이 생성된 후 다음 명령을 사용하여 대량 가져오기 애플리케이션을 호출할 수 있습니다.  
 
    ```java
    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB’s endpoint URI>*  -masterKey *<Fill in your Azure Cosmos DB’s master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
@@ -184,13 +184,13 @@ BulkUpdateAsync API를 사용하여 기존 문서를 업데이트할 수 있습�
    |Duration getTotalTimeTaken()  |   실행을 완료하기까지 대량 업데이트 API 호출에서 사용하는 총 시간입니다.      |
    |List<Exception> getErrors()   |     대량 업데이트 API 호출에 적용된 일괄 처리 중에서 일부 문서가 삽입에 실패한 경우 오류의 목록을 가져옵니다.      |
 
-3. 대량 업데이트 응용 프로그램을 준비한 후, ‘mvn clean package’ 명령을 사용하여 원본의 명령줄 도구를 빌드합니다. 이 명령은 대상 폴더에서 jar 파일을 생성합니다.  
+3. 대량 업데이트 애플리케이션을 준비한 후, ‘mvn clean package’ 명령을 사용하여 원본의 명령줄 도구를 빌드합니다. 이 명령은 대상 폴더에서 jar 파일을 생성합니다.  
 
    ```
    mvn clean package
    ```
 
-4. 대상 종속성이 생성된 후 다음 명령을 사용하여 대량 업데이트 응용 프로그램을 호출할 수 있습니다.
+4. 대상 종속성이 생성된 후 다음 명령을 사용하여 대량 업데이트 애플리케이션을 호출할 수 있습니다.
 
    ```
    java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB’s endpoint URI>* -masterKey **<Fill in your Azure Cosmos DB’s master key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
@@ -200,15 +200,15 @@ BulkUpdateAsync API를 사용하여 기존 문서를 업데이트할 수 있습�
 
 Bulk Executor 라이브러리를 사용하는 경우 성능 향상을 위해 다음 사항을 고려합니다.
 
-* 최상의 성능을 위해 Cosmos DB 계정 작성 지역과 동일한 지역의 Azure VM에서 응용 프로그램을 실행합니다.  
+* 최상의 성능을 위해 Cosmos DB 계정 작성 지역과 동일한 지역의 Azure VM에서 애플리케이션을 실행합니다.  
 * 더 높은 처리량을 달성하려면:  
 
    * 많은 수의 문서를 처리할 때 메모리 문제를 방지하기 위해 JVM의 힙 크기를 충분한 수로 설정합니다. 제안되는 힙 크기: 최대(3GB, 3 * sizeof(각 일괄 처리에서 대량 가져오기 API로 전달된 모든 문서)).  
    * 문서 수가 많은 대량 작업을 수행하면 처리량이 더 높아지므로 전처리 시간이 있습니다. 따라서 10,000,000개 문서를 가져오려는 경우 크기가 100,000개인 대량 문서 100개에서 대량 가져오기를 100번 수행하는 것보다 각 크기가 1,000,000개인 대량 문서 10개에서 대량 가져오기를 10번 실행하는 것이 좋습니다.  
 
-* 특정 Azure Cosmos DB 컨테이너에 해당하는 단일 가상 머신 내에서 전체 응용 프로그램에 대한 단일 DocumentBulkExecutor 개체를 인스턴스화하는 것이 좋습니다.  
+* 특정 Azure Cosmos DB 컨테이너에 해당하는 단일 가상 머신 내에서 전체 애플리케이션에 대한 단일 DocumentBulkExecutor 개체를 인스턴스화하는 것이 좋습니다.  
 
-* 단일 대량 작업 API 실행은 클라이언트 컴퓨터의 CPU 및 네트워크 IO의 대규모 청크를 사용하기 때문입니다. 이는 내부적으로 여러 작업을 생성되며 발생합니다. 대량 작업 API 호출을 각각 실행하는 응용 프로그램 내에서 여러 동시 작업이 발생하지 않도록 하십시오. 단일 가상 머신에서 실행되는 단일 대량 작업 API 호출에서 전체 컨테이너의 처리량을 사용할 수 없는 경우(컨테이너의 처리량이 1백만 RU/s 미만인 경우) 대량 작업 API 호출을 동시에 실행하도록 개별 가상 머신을 만드는 것이 좋습니다.
+* 단일 대량 작업 API 실행은 클라이언트 컴퓨터의 CPU 및 네트워크 IO의 대규모 청크를 사용하기 때문입니다. 이는 내부적으로 여러 작업을 생성되며 발생합니다. 대량 작업 API 호출을 각각 실행하는 애플리케이션 내에서 여러 동시 작업이 발생하지 않도록 하십시오. 단일 가상 머신에서 실행되는 단일 대량 작업 API 호출에서 전체 컨테이너의 처리량을 사용할 수 없는 경우(컨테이너의 처리량이 1백만 RU/s 미만인 경우) 대량 작업 API 호출을 동시에 실행하도록 개별 가상 머신을 만드는 것이 좋습니다.
 
     
 ## <a name="next-steps"></a>다음 단계

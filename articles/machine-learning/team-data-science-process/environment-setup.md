@@ -1,5 +1,5 @@
 ---
-title: Azure에서 데이터 과학 환경 설정 | Microsoft Docs
+title: Azure에서 데이터 과학 환경 설정 - Team Data Science Process
 description: 팀 데이터 과학 프로세스에서 사용되는 Azure의 데이터 과학 환경을 설정합니다.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: c8154400621fae719c7097e36c8e14d3f946d7c2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 2901c4dd352ff251d6c73c3fb847ee49d542d1f4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445910"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132485"
 ---
 # <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>팀 데이터 과학 프로세스에서 사용되는 데이터 과학 환경 설정
 팀 데이터 과학 프로세스는 데이터의 저장, 처리 및 분석을 위해 다양한 데이터 과학 환경을 사용합니다. 여기에는 Azure Blob Storage, 여러 유형의 Azure 가상 머신, HDInsight(Hadoop) 클러스터 및 Azure Machine Learning 작업 영역이 포함됩니다. 사용할 환경에 대한 결정은 모델링할 데이터의 유형 및 양과 클라우드에서 해당 데이터의 대상에 따라 달라집니다. 

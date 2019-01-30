@@ -45,7 +45,7 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- | 
 |operand1 |예 |int |더할 첫 번째 숫자입니다. |
 |operand2 |예 |int |더할 두 번째 숫자입니다. |
@@ -116,7 +116,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | loopName | 아니오 | string | 반복을 가져오기 위한 루프의 이름입니다. |
 | offset |아니오 |int |0부터 시작하는 반복 값에 더할 숫자입니다. |
@@ -162,7 +162,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | operand1 |예 |int |나누어지는 수입니다. |
 | operand2 |예 |int |나누는 데 사용되는 정수입니다. 0일 수 없습니다. |
@@ -229,11 +229,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="float"></a>float
 `float(arg1)`
 
-값을 부동 소수점 숫자로 변환합니다. 논리 앱과 같은 응용 프로그램에 사용자 지정 매개 변수를 전달할 때만 이 함수를 사용합니다.
+값을 부동 소수점 숫자로 변환합니다. 논리 앱과 같은 애플리케이션에 사용자 지정 매개 변수를 전달할 때만 이 함수를 사용합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 또는 int |부동 소수점 숫자로 변환할 값입니다. |
 
@@ -267,7 +267,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |예 |문자열 또는 int |정수로 변환할 값입니다. |
 
@@ -327,7 +327,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
 
@@ -391,7 +391,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
 
@@ -455,7 +455,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | operand1 |예 |int |나누어지는 수입니다. |
 | operand2 |예 |int |나누는 데 사용되는 정수로, 0일 수 없습니다. |
@@ -525,7 +525,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | operand1 |예 |int |곱할 첫 번째 숫자입니다. |
 | operand2 |예 |int |곱할 두 번째 숫자입니다. |
@@ -596,7 +596,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | operand1 |예 |int |빼는 피감수입니다. |
 | operand2 |예 |int |빼는 감수입니다. |
@@ -661,5 +661,5 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 * Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 * 여러 템플릿을 병합하려면 [Azure Resource Manager에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.
 * 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
-* 만든 템플릿을 배포하는 방법을 보려면 [Azure Resource Manager 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
+* 만든 템플릿을 배포하는 방법을 보려면 [Azure Resource Manager 템플릿을 사용하여 애플리케이션 배포](resource-group-template-deploy.md)를 참조하세요.
 

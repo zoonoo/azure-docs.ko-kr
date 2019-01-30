@@ -4,7 +4,7 @@ description: 개체가 Azure AD와 동기화되지 않는 이유를 해결합니
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b66aeb0832058c56e63c56c0420c7793eb2a632a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5b64472c6388a642c817fb67c97e963ecfa14c2c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306562"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478657"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Azure AD와 동기화되지 않는 개체 문제 해결
 
@@ -65,7 +65,7 @@ Synchronization Service Manager의 작업 탭에서 문제 해결을 시작합�
 
 * 오류가 **SyncRulesEngine**에서 발생한 경우 호출 스택 정보가 개체에 대한 모든 특성의 목록을 먼저 제공합니다. **InnerException =>** 머리글이 표시될 때까지 아래로 스크롤합니다.  
   ![Sync Service Manager](./media/tshoot-connect-object-not-syncing/errorinnerexception.png)  
-  다음 줄에서는 오류를 보여 줍니다. 위의 그림에서 오류는 생성된 사용자 지정 동기화 규칙 Fabrikam에서 발생했습니다.
+   다음 줄에서는 오류를 보여 줍니다. 위의 그림에서 오류는 생성된 사용자 지정 동기화 규칙 Fabrikam에서 발생했습니다.
 
 오류 자체가 충분한 정보를 제공하지 않는 경우 이제 데이터 자체에 대해 살펴봅니다. 개체 식별자가 있는 링크를 클릭하고 [커넥터 공간 가져온 개체](#cs-import) 문제를 계속 해결할 수 있습니다.
 
@@ -103,10 +103,10 @@ cs 개체를 열면 위쪽에 여러 개의 탭이 표시됩니다. **가져오�
 
 계보 탭에서 [메타버스 개체 속성](#mv-attributes)을 클릭하여 메타버스를 가져올 수 있습니다.
 
-모든 탭의 아래쪽에 두 개의 단추인 **미리 보기**와 **로그**가 있습니다.
+모든 탭의 아래쪽에는 두 개의 단추 **미리 보기**와 **로그**가 있습니다.
 
 ### <a name="preview"></a>미리 보기
-미리 보기 페이지는 단일 개체를 동기화하는 데 사용됩니다. 이는 일부 고객 동기화 규칙 문제를 해결하고 단일 개체에서 변경 내용의 영향을 보려는 경우에 유용합니다. **전체 동기화**와 **델타 동기화** 중에서 선택할 수 있습니다. 또한 변경 내용만을 메모리에 유지하는 **미리 보기 생성**과 메타버스를 업데이트했으며 모든 변경 내용을 대상 커넥터 공간에 준비하는 **커밋 미리 보기** 중에서 선택할 수 있습니다.  
+ 미리 보기 페이지는 단일 개체를 동기화하는 데 사용됩니다. 이는 일부 고객 동기화 규칙 문제를 해결하고 단일 개체에서 변경 내용의 영향을 보려는 경우에 유용합니다. **전체 동기화**와 **델타 동기화** 중에서 선택할 수 있습니다. 또한 변경 내용만을 메모리에 유지하는 **미리 보기 생성**과 메타버스를 업데이트했으며 모든 변경 내용을 대상 커넥터 공간에 준비하는 **커밋 미리 보기** 중에서 선택할 수 있습니다.  
 ![Sync Service Manager](./media/tshoot-connect-object-not-syncing/preview.png)  
 개체 및 특정 특성 흐름에 적용되는 규칙을 검사할 수 있습니다.  
 ![Sync Service Manager](./media/tshoot-connect-object-not-syncing/previewresult.png)
@@ -126,7 +126,7 @@ cs 개체를 열면 위쪽에 여러 개의 탭이 표시됩니다. **가져오�
 개체를 찾지 못한 경우 메타버스에 아직 도달하지 않은 것입니다. Active Directory [커넥터 공간](#connector-space-object-properties)에서 개체를 계속 검색합니다. 개체가 메타버스로 들어오지 못하게 하는 동기화 오류가 있거나 필터가 적용된 것일 수 있습니다.
 
 ### <a name="mv-attributes"></a>MV 특성
-특성 탭에서는 특성 값과 기여한 커넥터를 볼 수 있습니다.  
+ 특성 탭에서는 특성 값과 기여한 커넥터를 볼 수 있습니다.  
 ![Sync Service Manager](./media/tshoot-connect-object-not-syncing/mvobject.png)  
 
 개체가 동기화되지 않을 경우 메타버스에서 다음 특성을 찾습니다.
@@ -134,7 +134,7 @@ cs 개체를 열면 위쪽에 여러 개의 탭이 표시됩니다. **가져오�
 - 특성 **sourceAnchor**가 있나요? 없으면 계정-리소스 포리스트 토폴로지가 있나요? 개체가 연결된 사서함으로 식별되는 경우(특성 **msExchRecipientTypeDetails**의 값이 2임) sourceAnchor는 Active Directory 계정이 사용하도록 설정된 포리스트에서 제공한 것입니다. 마스터 계정을 제대로 가져와 동기화했는지 확인합니다. 마스터 계정은 개체에 대한 [커넥터](#mv-connectors)에 나열되어야 합니다.
 
 ### <a name="mv-connectors"></a>MV 커넥터
-커넥터 탭은 개체의 표현이 있는 모든 커넥터 공간을 표시합니다.  
+ 커넥터 탭은 개체의 표현이 있는 모든 커넥터 공간을 표시합니다.  
 ![Sync Service Manager](./media/tshoot-connect-object-not-syncing/mvconnectors.png)  
 다음에 대한 커넥터가 있어야 합니다.
 

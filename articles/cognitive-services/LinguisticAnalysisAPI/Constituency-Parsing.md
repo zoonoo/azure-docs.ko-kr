@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 89832f2d936a08df8b6f9e846c3dd4a5665c06a4
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 8d6e768e5cf846cb2c34ceb61d269854418e1dc5
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238627"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976599"
 ---
 # <a name="constituency-parsing"></a>팀원 구문 분석
 
@@ -61,7 +61,7 @@ ms.locfileid: "48238627"
 ![트리](./Images/tree.png)
 
 이 트리에서 “NP”라고 표시된 분기는 명사구입니다.
-그러한 구는 *I*, *a new hybrid automobile*, *Bluetooth* 및 *a new hybrid automobile with Bluetooth*와 같이 여러 개가 있습니다.
+이러한 문구는 *I*, *a new hybrid automobile*, *Bluetooth* 및 *a new hybrid automobile with Bluetooth*와 같이 여러 가지가 있습니다.
 
 ## <a name="phrase-types"></a>구 형식
 
@@ -97,4 +97,4 @@ ms.locfileid: "48238627"
 
 ## <a name="specification"></a>사양
 
-여기에 나온 트리는 [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42)의 S 표현식을 사용합니다.
+여기에 나온 트리는 [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42)의 S 표현식을 사용합니다.

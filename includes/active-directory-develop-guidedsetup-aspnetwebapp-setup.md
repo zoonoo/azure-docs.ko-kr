@@ -31,7 +31,7 @@ ms.locfileid: "49988538"
 
 1. Visual Studio에서: `File` > `New` > `Project`
 2. *Visual C#\Web*에서 `ASP.NET Web Application (.NET Framework)`을 선택합니다.
-3. 응용 프로그램의 이름을 지정하고 *확인*을 클릭합니다.
+3. 애플리케이션의 이름을 지정하고 *확인*을 클릭합니다.
 4. `Empty`를 선택하고 확인란을 선택하여 `MVC` 참조를 추가합니다.
 
 ## <a name="add-authentication-components"></a>인증 구성 요소 추가
@@ -47,7 +47,7 @@ ms.locfileid: "49988538"
 
 <!--start-collapse-->
 > ### <a name="about-these-libraries"></a>이러한 라이브러리 정보
-> 위의 라이브러리는 쿠키 기반 인증을 통해 OpenID Connect를 사용하여 SSO(Single Sign-On)를 사용하도록 설정합니다. 인증이 완료되고 사용자를 나타내는 토큰이 응용 프로그램으로 전송되면 OWIN 미들웨어가 세션 쿠키를 생성합니다. 그러면 브라우저가 후속 요청 시 이 쿠키를 사용합니다. 따라서 사용자가 암호를 다시 입력할 필요가 없고 추가 확인이 필요하지 않습니다.
+> 위의 라이브러리는 쿠키 기반 인증을 통해 OpenID Connect를 사용하여 SSO(Single Sign-On)를 사용하도록 설정합니다. 인증이 완료되고 사용자를 나타내는 토큰이 애플리케이션으로 전송되면 OWIN 미들웨어가 세션 쿠키를 생성합니다. 그러면 브라우저가 후속 요청 시 이 쿠키를 사용합니다. 따라서 사용자가 암호를 다시 입력할 필요가 없고 추가 확인이 필요하지 않습니다.
 <!--end-collapse-->
 
 ## <a name="configure-the-authentication-pipeline"></a>인증 파이프라인 구성

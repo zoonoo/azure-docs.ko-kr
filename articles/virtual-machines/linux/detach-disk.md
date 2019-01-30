@@ -15,19 +15,20 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: cynthn
-ms.openlocfilehash: b087040e5d219941ec0b2ee0f58dfe0058a1ad04
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.component: disks
+ms.openlocfilehash: 5a0c2f91c5290e679cc2a3ac03cbf226ceb902da
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968354"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477705"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Linux 가상 머신에서 데이터 디스크를 분리하는 방법
 
 가상 머신에 연결된 데이터 디스크가 더 이상 필요하지 않은 경우 쉽게 분리할 수 있습니다. 디스크를 분리하면 가상 머신에서 디스크가 제거되지만, 저장소에서는 제거되지 않습니다. 이 문서에서는 Ubuntu LTS 16.04 배포판으로 작업합니다. 다른 배포판을 사용하는 경우 디스크 탑재 해제 지침이 다를 수 있습니다.
 
 > [!WARNING]
-> 디스크를 분리해도 자동으로 삭제되지 않습니다. 프리미엄 저장소를 구독하는 경우 디스크에 대한 저장소 요금이 계속 부과됩니다. 자세한 내용은 [Premium Storage 사용 시 가격 책정 및 청구](../windows/premium-storage.md#pricing-and-billing)를 참조하세요. 
+> 디스크를 분리해도 자동으로 삭제되지 않습니다. Premium Storage를 구독하는 경우 디스크에 대한 스토리지 요금이 계속 부과됩니다. 자세한 내용은 [Premium Storage 사용 시 가격 책정 및 청구](../windows/premium-storage.md#pricing-and-billing)를 참조하세요. 
 > 
 > 
 

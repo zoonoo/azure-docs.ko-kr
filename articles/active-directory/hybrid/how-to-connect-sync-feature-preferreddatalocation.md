@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Connect 동기화: Office 365에서 다중 지역 기능에 대한 기본 데이터 위치 구성 | Microsoft Docs'
+title: 'Azure Active Directory Connect 동기화: Office 365에서 Multi-Geo 기능에 대한 기본 설정 데이터 위치 구성 | Microsoft Docs'
 description: Azure Active Directory Connect 동기화를 사용하여 Office 365 사용자 리소스를 사용자에게 가깝게 배치하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1dfc01d0f2f0f5f3eae58fd6c889fee3ad306135
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2fde653c6520b743990ae837f1553004793fefa2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623030"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470701"
 ---
-# <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 동기화: Office 365 리소스에 대한 기본 데이터 위치 구성
+# <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 동기화: Office 365 리소스에 대한 기본 설정 데이터 위치 구성
 이 항목의 목적은 Azure AD(Azure Active Directory) Connect 동기화에서 기본 데이터 위치에 대한 특성을 구성하는 방법을 안내하는 것입니다. Office 365에서 다중 지역 기능을 사용하는 경우, 이 특성을 사용하여 사용자의 Office 365 데이터의 지리적 위치를 지정할 수 있습니다. *region(지역)* 과 *Geo(지역)* 라는 용어는 서로 바꿔 사용할 수 있습니다.
 
 ## <a name="enable-synchronization-of-preferred-data-location"></a>기본 데이터 위치의 동기화 사용
@@ -83,7 +83,7 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
 > [!NOTE]
 > 이 단계는 단일 포리스트 토폴로지를 사용하고 사용자 지정 동기화 규칙이 없는 Azure AD 배포와 관련됩니다. 다중 포리스트 토폴로지, 사용자 지정 동기화 규칙이 구성되어 있거나 스테이징 서버가 있으면 이에 따라 단계를 조정해야 합니다.
 
-## <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>1단계: 동기화 스케줄러 비활성화 및 진행 중인 동기화가 없는지 확인
+## <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>1단계: 동기화 스케줄러를 비활성화하고 진행 중인 동기화가 없는지 확인합니다.
 의도치 않은 변경 내용을 Azure AD로 내보내지 않도록 하려면 동기화 규칙을 업데이트하는 동안 동기화가 수행되지 않도록 합니다. 기본 제공 동기화 스케줄러를 비활성화하려면
 
 1. Azure AD Connect 서버에서 PowerShell 세션을 시작합니다.
@@ -229,7 +229,7 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
 > [!NOTE]
 > Azure AD 커넥터에 전체 동기화 단계가 포함되어 있지 않거나 Active Directory Connector에 내보내기 단계가 포함되어 있지 않을 수도 있습니다. 특성 값이 온-프레미스 Active Directory에서 Azure AD로만 흐르기 때문에 이러한 단계가 필요하지 않습니다.
 
-## <a name="step-7-re-enable-sync-scheduler"></a>7단계: 동기화 스케줄러를 다시 사용하도록 설정
+## <a name="step-7-re-enable-sync-scheduler"></a>7단계: 동기화 스케줄러를 다시 활성화합니다.
 기본 제공 동기화 스케줄러를 다시 사용하도록 설정하려면
 
 1. PowerShell 세션을 시작합니다.

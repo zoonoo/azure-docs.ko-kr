@@ -7,16 +7,16 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 4dde10c5cb4a764a268b8b9d3ebfaebc008e13ed
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: ce6c3364c594bc515abd9f0c02bd69bf500e4f4e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162528"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436572"
 ---
 # <a name="set-environment-variables"></a>환경 변수 설정
 
-컨테이너 인스턴스에서 환경 변수를 설정하면 컨테이너가 실행하는 응용 프로그램 또는 스크립트의 동적 구성을 제공할 수 있습니다. 컨테이너에서 환경 변수를 설정하려면 컨테이너 인스턴스를 만들 때 지정합니다. [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example) 및 [Azure Portal](#azure-portal-example)로 컨테이너를 시작할 때 환경 변수를 설정할 수 있습니다.
+컨테이너 인스턴스에서 환경 변수를 설정하면 컨테이너가 실행하는 애플리케이션 또는 스크립트의 동적 구성을 제공할 수 있습니다. 컨테이너에서 환경 변수를 설정하려면 컨테이너 인스턴스를 만들 때 지정합니다. [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example) 및 [Azure Portal](#azure-portal-example)로 컨테이너를 시작할 때 환경 변수를 설정할 수 있습니다.
 
 예를 들어 [microsoft/aci-wordcount][aci-wordcount] 컨테이너 이미지를 실행하는 경우 다음 환경 변수를 지정하여 해당 동작을 수정할 수 있습니다.
 
@@ -156,7 +156,7 @@ Azure Portal에서 컨테이너를 시작할 때 환경 변수를 설정하려�
 
 ## <a name="secure-values"></a>보안 값
 
-보안 값이 있는 개체는 응용 프로그램에 대한 암호 또는 키와 같은 중요한 정보를 저장하는 데 사용됩니다. 환경 변수에 대한 보안 값을 사용하면 컨테이너의 이미지에 포함하는 것보다 더 안전하고 더 유연적입니다. 또 다른 옵션은 [Azure Container Instances에서 비밀 볼륨 탑재](container-instances-volume-secret.md)에서 설명한 비밀 볼륨을 사용하는 것입니다.
+보안 값이 있는 개체는 애플리케이션에 대한 암호 또는 키와 같은 중요한 정보를 저장하는 데 사용됩니다. 환경 변수에 대한 보안 값을 사용하면 컨테이너의 이미지에 포함하는 것보다 더 안전하고 더 유연적입니다. 또 다른 옵션은 [Azure Container Instances에서 비밀 볼륨 탑재](container-instances-volume-secret.md)에서 설명한 비밀 볼륨을 사용하는 것입니다.
 
 보안 값을 사용하는 환경 변수는 컨테이너의 속성에 표시되지 않으며, 컨테이너 내에서만 액세스할 수 있습니다. 예를 들어 Azure Portal 또는 Azure CLI에서 본 컨테이너 속성은 보안 변수의 이름만 표시하고 값을 표시하지 않습니다.
 
@@ -255,6 +255,6 @@ my-secret-value
 [az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/
 [azure-instance-log]: /powershell/module/azurerm.containerinstance/get-azurermcontainerinstancelog
-[azure-powershell-install]: /powershell/azure/install-azurerm-ps
+[azure-powershell-install]: /powershell/azure/azurerm/install-azurerm-ps
 [new-azurermcontainergroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
 [portal]: https://portal.azure.com

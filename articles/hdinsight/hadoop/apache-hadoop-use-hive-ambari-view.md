@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1328119917276b8135c4a6d4188b67bcff2fc069
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 16c9e1cb568533e8dcad046c4ee21bfeaf19d5b7
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632750"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407850"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop과 Apache Ambari Hive 보기 사용
 
@@ -26,7 +26,7 @@ Apache Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 
 
 * HDInsight 클러스터 버전 3.4 이상의 Linux 기반 Apache Hadoop
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 * 웹 브라우저
@@ -72,16 +72,16 @@ Apache Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 
 
    * `DROP TABLE`: 테이블이 이미 있는 경우 테이블과 데이터 파일을 삭제합니다.
 
-   * `CREATE EXTERNAL TABLE`: Hive에서 새 "외부" 테이블을 만듭니다.
+   * `CREATE EXTERNAL TABLE`: Hive에서 새 “외부” 테이블을 만듭니다.
    외부 테이블은 테이블 정의만 Hive에 저장합니다. 데이터는 원래 위치에 그대로 유지됩니다.
 
-   * `ROW FORMAT`: 데이터의 형식을 지정하는 방법을 보여줍니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
+   * `ROW FORMAT`: 데이터의 형식을 지정하는 방법을 보여 줍니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
 
-   * `STORED AS TEXTFILE LOCATION`: 데이터가 저장된 위치 및 텍스트로 저장되었음을 보여줍니다.
+   * `STORED AS TEXTFILE LOCATION`: 데이터가 저장된 위치 및 텍스트로 저장되었음을 보여 줍니다.
 
    * `SELECT`: t4 열에 [ERROR] 값이 포함된 모든 행의 수를 선택합니다.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > __데이터베이스__ 선택 영역을 __기본값__으로 둡니다. 이 문서의 예제에서는 HDInsight에 포함된 기본 데이터베이스를 사용합니다.
 
 5. 쿼리를 시작하려면 워크시트 아래에서 **실행** 단추를 사용합니다. 단추가 주황색으로 바뀌고 텍스트가 **중지**로 변경됩니다.
@@ -93,7 +93,7 @@ Apache Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 
 
     **로그** 탭을 사용하여 작업에서 생성된 로깅 정보를 볼 수 있습니다.
 
-   > [!TIP]
+   > [!TIP]  
    > **프로세스 결과 쿼리** 섹션의 맨위 왼쪽에서 **결과 저장** 드롭다운 대화 상자의 결과를 다운로드하거나 저장합니다.
 
 ### <a name="visual-explain"></a>시각적 개체 설명
@@ -106,7 +106,7 @@ Apache Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 
 
 쿼리에 대한 Tez UI를 표시하려면 워크시트 아래에서 **Tez** 탭을 선택합니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Tez는 모든 쿼리를 해결하는 데 사용되지 않습니다. Tez를 사용하지 않고도 많은 쿼리를 확인할 수 있습니다. 
 
 Tez가 쿼리를 해결하는 데 사용된 경우 DAG(방향성 비순환 그래프)가 표시됩니다. 이전에 실행한 쿼리에 대한 DAG를 보거나 Tez 프로세스를 디버그하려면 [Tez 뷰](../hdinsight-debug-ambari-tez-view.md)를 대신 사용합니다.
@@ -129,10 +129,10 @@ __테이블__ 탭을 사용하여 Hive 데이터베이스 내의 테이블을 �
 
 ![저장된 쿼리 탭의 이미지](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
 
-> [!TIP]
+> [!TIP]  
 > 저장된 쿼리는 기본 클러스터 저장소에 저장됩니다. `/user/<username>/hive/scripts` 경로에서 저장된 쿼리를 찾을 수 있습니다. 이러한 쿼리는 일반 텍스트 `.hql` 파일로 저장됩니다.
 >
-> 클러스터를 삭제하지만 저장소는 유지하는 경우 [Azure Portal](https://portal.azure.com)에서 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) 또는 Data Lake Storage 탐색기와 같은 유틸리티를 사용하여 쿼리를 검색할 수 있습니다.
+> 클러스터를 삭제하지만 스토리지는 유지하는 경우 [Azure Portal](https://portal.azure.com)에서 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) 또는 Data Lake Storage 탐색기와 같은 유틸리티를 사용하여 쿼리를 검색할 수 있습니다.
 
 ## <a name="user-defined-functions"></a>사용자 정의 함수
 
@@ -165,8 +165,8 @@ create temporary function myawesomeudf as 'com.myudfs.Awesome';
 
 HDInsight에서 Hive를 통해 UDF를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [HDInsight에서 Hive 및 Pig와 함께 Python 사용](python-udf-hdinsight.md)
-* [HDInsight에 사용자 지정 하이브 UDF를 추가 하는 방법](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [HDInsight에서 Apache Hive 및 Apache Pig와 함께 Python 사용](python-udf-hdinsight.md)
+* [HDInsight에 사용자 지정 Apache Hive UDF를 추가하는 방법](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 ## <a name="hive-settings"></a>Hive 설정
 
@@ -176,9 +176,9 @@ Tez(기본값)에서 MapReduce로 Hive에 대한 실행 엔진을 변경하는 �
 
 HDInsight의 Hive에 대한 일반적인 정보:
 
-* [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Hive 사용](hdinsight-use-hive.md)
 
 HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
-* [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
-* [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 Apache Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)

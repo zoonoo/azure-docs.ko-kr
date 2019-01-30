@@ -50,7 +50,7 @@ Azure에서 Windows VM을 배포하고 관리하며 모니터링하는 방법을
 
 ## <a name="samples"></a>샘플
 
-Azure에 첫 번째 응용 프로그램을 배포합니다.
+Azure에 첫 번째 애플리케이션을 배포합니다.
 
 - [Azure CLI](/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

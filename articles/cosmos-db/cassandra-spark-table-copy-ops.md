@@ -1,20 +1,19 @@
 ---
 title: Spark에서 Azure Cosmos DB Cassandra API의 테이블을 복사하는 작업
 description: 이 문서는 Azure Cosmos DB Cassandra API의 테이블 간에 데이터를 복사하는 방법을 자세히 설명합니다.
-services: cosmos-db
-author: anagha-microsoft
+author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.devlang: spark-scala
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: ankhanol
-ms.openlocfilehash: 4be80bfa7354f4a4b6a13a7a34150c7052a2117b
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c98582d5fe11b87d2ba88d5fb247a87cc905e1dc
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227132"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034165"
 ---
 # <a name="table-copy-operations-on-azure-cosmos-db-cassandra-api-from-spark"></a>Spark에서 Azure Cosmos DB Cassandra API의 테이블을 복사하는 작업
 
@@ -147,6 +146,6 @@ newBooksDF: org.apache.spark.sql.DataFrame = [book_id: string, book_author: stri
 
 ## <a name="next-steps"></a>다음 단계
 
- * Java 응용 프로그램을 사용하여 [Cassandra API 계정, 데이터베이스 및 테이블 만들기](create-cassandra-api-account-java.md)를 시작합니다.
- * Java 응용 프로그램을 사용하여 [샘플 데이터를 Cassandra API 테이블에 로드](cassandra-api-load-data.md)합니다.
- * Java 응용 프로그램을 사용하여 [Cassandra API 계정에서 데이터를 쿼리](cassandra-api-query-data.md)합니다.
+ * Java 애플리케이션을 사용하여 [Cassandra API 계정, 데이터베이스 및 테이블 만들기](create-cassandra-api-account-java.md)를 시작합니다.
+ * Java 애플리케이션을 사용하여 [샘플 데이터를 Cassandra API 테이블에 로드](cassandra-api-load-data.md)합니다.
+ * Java 애플리케이션을 사용하여 [Cassandra API 계정에서 데이터를 쿼리](cassandra-api-query-data.md)합니다.

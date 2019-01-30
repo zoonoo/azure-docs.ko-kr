@@ -113,7 +113,7 @@ StorSimple 디바이스를 제대로 구성하고 SharePoint 배포를 지원하
 또한 BLOB 표면화에 사용할 볼륨이 다음 요구 사항을 충족하는지 확인합니다.
 
 * 볼륨은 64KB 할당 단위 크기로 포맷되어야 합니다.
-* WFE(웹 프런트 엔드) 및 응용 프로그램 서버는 UNC(범용 명명 규칙) 경로를 통해 이 볼륨에 액세스할 수 있어야 합니다.
+* WFE(웹 프런트 엔드) 및 애플리케이션 서버는 UNC(범용 명명 규칙) 경로를 통해 이 볼륨에 액세스할 수 있어야 합니다.
 * SharePoint 서버 팜을 구성하여 볼륨에 써야 합니다.
 
 > [!NOTE]
@@ -123,16 +123,16 @@ StorSimple 디바이스를 제대로 구성하고 SharePoint 배포를 지원하
 StorSimple Snapshot Manager를 사용하여 BLOB 및 데이터베이스 데이터의 스냅숏을 만드는 경우 데이터베이스 서버에 StorSimple Snapshot Manager를 설치하므로 SQL 기록기 서비스를 사용하여 Windows VSS(볼륨 섀도 복사본 서비스)를 구현할 수 있습니다.
 
 > [!IMPORTANT]
-> StorSimple Snapshot Manager는 SharePoint VSS 기록기를 지원하지 않으며 응용 프로그램이 일관된 SharePoint 데이터의 스냅숏을 사용할 수 없습니다. SharePoint 시나리오에서 StorSimple Snapshot Manager는 크래시 일관성이 있는 백업만 제공합니다.
+> StorSimple Snapshot Manager는 SharePoint VSS 기록기를 지원하지 않으며 애플리케이션이 일관된 SharePoint 데이터의 스냅숏을 사용할 수 없습니다. SharePoint 시나리오에서 StorSimple Snapshot Manager는 크래시 일관성이 있는 백업만 제공합니다.
 
 
 ## <a name="sharepoint-farm-configuration-prerequisites"></a>SharePoint 팜 필수 구성 요소
 SharePoint 서버 팜이 올바르게 구성되어있는지 다음과 같이 확인합니다.
 
 * SharePoint 서버 팜이 정상 상태인지 확인하고 다음을 확인합니다.
-* 팜에 등록된 모든 SharePoint WFE와 응용 프로그램 서버는 실행 중이며 SharePoint용 StorSimple 어댑터를 설치하는 서버에서 ping을 실행할 수 있습니다.
-* SharePoint 타이머 서비스(SPTimerV3 또는 SPTimerV4)는 각 WFE 서버 및 응용 프로그램 서버에서 실행됩니다.
-* SharePoint 중앙 관리 사이트가 실행 중인 SharePoint 타이머 서비스 및 IIS 응용 프로그램 풀은 관리 권한을 가집니다.
+* 팜에 등록된 모든 SharePoint WFE와 애플리케이션 서버는 실행 중이며 SharePoint용 StorSimple 어댑터를 설치하는 서버에서 ping을 실행할 수 있습니다.
+* SharePoint 타이머 서비스(SPTimerV3 또는 SPTimerV4)는 각 WFE 서버 및 애플리케이션 서버에서 실행됩니다.
+* SharePoint 중앙 관리 사이트가 실행 중인 SharePoint 타이머 서비스 및 IIS 애플리케이션 풀은 관리 권한을 가집니다.
 * Internet Explorer 보안 강화 컨텍스트(IE ESC)가 사용되지 않는지 확인합니다. 다음 단계를 수행하여 IE ESC를 사용하지 않도록 설정합니다.
   
   1. Internet Explorer의 모든 인스턴스를 닫습니다.
@@ -170,7 +170,7 @@ SharePoint용 StorSimple 어댑터를 설치한 후에 다음 절차에서 설�
 ## <a name="configure-garbage-collection"></a>가비지 수집 구성
 개체가 SharePoint 사이트에서 삭제되면 RBS 저장소 볼륨에서 자동으로 삭제되지 않습니다. 대신 비동기 백그라운드 유지 관리 프로그램이 삭제 저장소에서 분리된 BLOB를 삭제합니다. 시스템 관리자는 이 프로세스가 주기적으로 실행되도록 예약하거나 필요할 때마다 프로세스를 시작할 수 있습니다.
 
-RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Data.SqlRemoteBlobs.Maintainer.exe)은 모든 SharePoint WFE 서버 및 응용 프로그램 서버에 자동으로 설치됩니다. 프로그램은 다음 위치에 설치됩니다. *부팅 드라이브*:\Program Files\Microsoft SQL Remote Blob Storage 10.50\Maintainer\
+RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Data.SqlRemoteBlobs.Maintainer.exe)은 모든 SharePoint WFE 서버 및 애플리케이션 서버에 자동으로 설치됩니다. 프로그램은 다음 위치에 설치됩니다. *부팅 드라이브*:\Program Files\Microsoft SQL Remote Blob Storage 10.50\Maintainer\
 
 유지 관리 프로그램을 구성 및 사용하는 방법에 대한 자세한 내용은 [SharePoint Server 2013에서 RBS 유지 관리][8]를 참조하세요.
 
@@ -183,7 +183,7 @@ RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Dat
 
 * 콘텐츠 데이터베이스 이름은 WSS_Content입니다.
 * SQL Server 이름은 SHRPT13 SQL12\SHRPT13입니다.
-* 웹 응용 프로그램 이름은 SharePoint-80입니다.
+* 웹 애플리케이션 이름은 SharePoint-80입니다.
 
 [!INCLUDE [storsimple-sharepoint-adapter-garbage-collection](../../includes/storsimple-sharepoint-adapter-garbage-collection.md)]
 

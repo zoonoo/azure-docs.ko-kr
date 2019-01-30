@@ -11,12 +11,12 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: e9b05751166ac200f4a9cdab4c7fe3ed797f2a10
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 1caf8455816bd86411a75821ee33516e8aad5de3
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465251"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002266"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Azure VM에서 중첩된 가상화를 사용하는 방법
 
@@ -52,7 +52,7 @@ Dv3 또는 Ev3 시리즈 가상 머신의 지역별 가용성은 [여기](https:
 이러한 설정을 수동으로 구성하거나 PowerShell 스크립트를 제공하여 구성을 자동화할 수 있습니다.
 
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>옵션 1: PowerShell 스크립트를 사용하여 중첩된 가상화 구성
-Windows Server 2016 호스트에서 중첩된 가상화를 사용하도록 설정하는 PowerShell 스크립트는 [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested)에서 사용할 수 있습니다. 이 스크립트는 사전 요구 사항을 확인한 다음 Azure VM에서 중첩된 가상화를 구성합니다. 구성을 완료하려면 Azure VM을 다시 시작해야 합니다. 이 스크립트는 다른 환경에서도 작동하지만 보장할 수는 없습니다. Azure에서 실행되는 중첩된 가상화에 대한 라이브 비디오 데모가 있는 Azure 블로그 게시물을 확인하세요. https://aka.ms/AzureNVblog
+Windows Server 2016 호스트에서 중첩된 가상화를 사용하도록 설정하는 PowerShell 스크립트는 [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested)에서 사용할 수 있습니다. 이 스크립트는 사전 요구 사항을 확인한 다음 Azure VM에서 중첩된 가상화를 구성합니다. 구성을 완료하려면 Azure VM을 다시 시작해야 합니다. 이 스크립트는 다른 환경에서도 작동하지만 보장할 수는 없습니다. Azure에서 실행되는 중첩된 가상화에 대한 라이브 비디오 데모가 있는 Azure 블로그 게시물을 확인하세요. https://aka.ms/AzureNVblog.
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>옵션 2: 수동으로 중첩된 가상화 구성
 
@@ -100,7 +100,7 @@ Windows Server 2016 호스트에서 중첩된 가상화를 사용하도록 설�
 게이트웨이를 구성하려면 네트워크에 대한 일부 정보가 필요합니다.    
   * IPAddress - NAT 게이트웨이 IP는 가상 네트워크 서브넷의 기본 게이트웨이 주소로 사용할 IPv4 또는 IPv6 주소를 지정합니다. 일반적인 형식은 a.b.c.1(예: "192.168.0.1")입니다. 최종 위치가 반드시 .1일 필요는 없지만 일반적으로(접두사 길이에 따라) .1입니다. 일반적으로 RFC 1918 개인 네트워크 주소 공간을 사용해야 합니다. 
   * PrefixLength - 서브넷 접두사 길이는 로컬 서브넷 크기(서브넷 마스크)를 정의합니다. 서브넷 접두사 길이는 0에서 32 사이의 정수 값입니다. 0은 전체 인터넷, 32는 하나의 매핑된 IP만 허용합니다. 일반적인 값의 범위는 NAT에 몇 개의 IP를 연결해야 하는지에 따라 24에서 12까지입니다. 일반적인 PrefixLength는 24입니다. 즉, 255.255.255.0의 서브넷 마스크입니다.
-  * InterfaceIndex- **ifIndex**는 이전 단계에서 만든 가상 스위치의 인터페이스 인덱스입니다. 
+  * InterfaceIndex - **ifIndex**는 이전 단계에서 만든 가상 스위치의 인터페이스 인덱스입니다. 
 
     ```powershell
     New-NetIPAddress -IPAddress 192.168.0.1 -PrefixLength 24 -InterfaceIndex 13
@@ -157,7 +157,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
   
 4. DCHP 서버의 IP 범위(예: 192.168.0.100~192.168.0.200)를 정의합니다.
   
-5. 기본 게이트웨이 페이지가 나타날 때까지 **다음**을 클릭합니다. 이전에 만든 IP 주소(예: 192.168.0.1)를 기본 게이트웨이로 입력합니다.
+5. 기본 게이트웨이 페이지가 나타날 때까지 **다음**을 클릭합니다. 이전에 만든 IP 주소(예: 192.168.0.1)를 기본 게이트웨이로 입력하고 **추가**를 클릭합니다.
   
 6. 모든 기본값을 유지한 채 마법사가 완료될 때까지 **다음**을 클릭한 다음 **마침**을 클릭합니다.
     
@@ -180,3 +180,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 게스트 가상 머신에서 브라우저를 열고 웹 페이지로 이동합니다.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
+
+## <a name="set-up-intranet-connectivity-for-the-guest-virtual-machine"></a>게스트 가상 머신에 대한 인트라넷 연결 설정
+
+게스트 VM 및 Azure VM 간에 투명한 연결을 사용하는 방법에 대한 지침은 [이 문서](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization-azure-virtual-network)를 참조하세요.

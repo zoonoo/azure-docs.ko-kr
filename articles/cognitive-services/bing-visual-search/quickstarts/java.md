@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: 시각적 개체 검색 쿼리 만들기, Java - Bing Visual Search'
+title: '빠른 시작: Bing Visual Search REST API 및 Java를 사용하여 이미지 인사이트 가져오기'
 titleSuffix: Azure Cognitive Services
-description: Bing Visual Search API에 이미지를 업로드하고 이미지에 대한 정보를 다시 얻는 방법입니다.
+description: 이미지를 Bing Visual Search API에 업로드하고 이미지에 대한 인사이트를 가져오는 방법을 알아봅니다.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -10,18 +10,18 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: c1b63b12a48f5ccfb1a396ffa9282249b03893fe
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 148d145dae01fffdf7a4c650a0e2b20f8387295a
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445177"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742187"
 ---
-# <a name="quickstart-your-first-bing-visual-search-query-in-java"></a>빠른 시작: Java에서 첫 번째 Bing Visual Search 쿼리
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>빠른 시작: Bing Visual Search REST API 및 Java를 사용하여 이미지 인사이트 가져오기
 
-Bing Visual Search API는 사용자가 제공하는 이미지에 대한 정보를 반환합니다. 이미지의 URL, 인사이트 토큰을 사용하거나 이미지를 업로드하여 이미지를 제공할 수 있습니다. 이러한 옵션에 대한 내용은 [Bing Visual Search API란?](../overview.md)을 참조하세요. 이 아티클에서는 이미지 업로드 방법을 보여줍니다. 이미지 업로드는 잘 알려진 이정표 사진을 찍은 후 해당 정보를 다시 얻는 모바일 시나리오에서 유용할 수 있습니다. 예를 들어, 중요 정보에는 이정표에 대한 잡학 지식이 포함될 수 있습니다. 
+이 빠른 시작을 사용하여 Bing Visual Search API를 처음 호출하고 검색 결과를 확인합니다. 이 간단한 C# 애플리케이션은 API에 이미지를 업로드하고, 이미지에 대한 반환된 정보를 표시합니다. 이 애플리케이션은 Java에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
-로컬 이미지를 업로드하는 경우 다음은 POST 본문에 포함해야 하는 양식 데이터를 보여줍니다. 양식 데이터에는 Content-Disposition 헤더가 포함되어야 합니다. 해당 `name` 매개 변수를 "image"로 설정해야 하고 `filename` 매개 변수를 임의의 문자열 매개 변수로 설정할 수 있습니다. 양식의 콘텐츠는 이미지의 이진입니다. 업로드할 수는 최대 이미지 크기는 1MB입니다. 
+로컬 이미지를 업로드하는 경우 양식 데이터에는 Content-Disposition 헤더가 포함되어야 합니다. 해당 `name` 매개 변수를 "image"로 설정해야 하고 `filename` 매개 변수를 임의의 문자열 매개 변수로 설정할 수 있습니다. 양식의 콘텐츠는 이미지의 이진입니다. 업로드할 수는 최대 이미지 크기는 1MB입니다.
 
 ```
 --boundary_1234-abcd
@@ -32,132 +32,102 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-이 아티클에는 Bing Visual Search API 요청을 보내고 JSON 검색 결과를 표시하는 간단한 콘솔 응용 프로그램이 포함되어 있습니다. 이 응용 프로그램은 Java에서 작성되었지만 API는 RESTful 웹 서비스로, HTTP를 요청하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다. 
-
-
 ## <a name="prerequisites"></a>필수 조건
-이 빠른 시작의 경우 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/)에 표시된 대로 S9 가격 계층에서 구독을 시작해야 합니다. 
 
-Azure Portal에서 구독을 시작하려면
-1. `Search resources, services, and docs`라고 표시되는 Azure Portal의 맨 위에 있는 텍스트 상자에 'BingSearchV7'을 입력합니다.  
-2. 드롭다운 목록의 Marketplace 아래에서 `Bing Search v7`을 선택합니다.
-3. 새 리소스에 대해 `Name`을 입력합니다.
-4. `Pay-As-You-Go` 구독을 선택합니다.
-5. `S9` 가격 책정 계층을 선택합니다.
-6. `Enable`을 클릭하여 구독을 시작합니다.
+* [JDK(Java Development Kit) 7 또는 8](https://aka.ms/azure-jdks)
+* [Gson 라이브러리](https://github.com/google/gson)
+* [Apache HttpComponents](http://hc.apache.org/downloads.cgi)
 
-이 코드를 컴파일하고 실행하려면 [JDK 7 또는 8](https://aka.ms/azure-jdks)이 필요합니다. 즐겨찾기가 있는 경우 Java IDE를 사용할 수 있지만 텍스트 편집기로 충분합니다.
 
-## <a name="running-the-application"></a>응용 프로그램 실행
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-다음은 Java에서 MultipartEntityBuilder를 사용하여 이미지를 업로드하는 방법을 보여줍니다.
+## <a name="create-and-initialize-a-project"></a>프로젝트 만들기 및 초기화
 
-이 응용 프로그램을 실행하려면 다음 단계를 따릅니다.
+1. 즐겨 찾는 IDE 또는 편집기에서 새 Java 프로젝트를 만들고 다음 라이브러리를 가져옵니다.
 
-1. [gson 라이브러리](https://github.com/google/gson)를 다운로드하거나 설치합니다. Maven을 통해 얻을 수도 있습니다.
-2. 즐겨 찾는 IDE 또는 편집기에서 새 Java 프로젝트를 만듭니다.
-3. `VisualSearch.java`라는 파일에 제공되는 코드를 추가합니다.
-4. `subscriptionKey` 값을 구독 키로 바꿉니다.
-4. `imagePath` 값을 업로드할 이미지의 경로로 바꿉니다.
-5. 프로그램을 실행합니다.
+    ```java
+    import java.util.*;
+    import java.io.*;
+    import com.google.gson.Gson;
+    import com.google.gson.GsonBuilder;
+    import com.google.gson.JsonObject;
+    import com.google.gson.JsonParser;
+    
+    // HttpClient libraries
+    
+    import org.apache.http.HttpEntity;
+    import org.apache.http.HttpResponse;
+    import org.apache.http.client.methods.HttpPost;
+    import org.apache.http.entity.ContentType;
+    import org.apache.http.entity.mime.MultipartEntityBuilder;
+    import org.apache.http.impl.client.CloseableHttpClient;
+    import org.apache.http.impl.client.HttpClientBuilder;
+    ```
 
+2. API 엔드포인트, 구독 키에 대한 변수 및 이미지에 대한 경로를 만듭니다. 
+
+    ```java
+    static String endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
+    static String subscriptionKey = "your-key-here";
+    static String imagePath = "path-to-your-image";
+    ```
+
+## <a name="create-the-json-parser"></a>JSON 파서 만들기
+
+`JsonParser`를 사용하여 API에서 JSON 응답을 쉽게 읽을 수 있도록 메서드를 만듭니다.
+
+    ```java
+    public static String prettify(String json_text) {
+            JsonParser parser = new JsonParser();
+            JsonObject json = parser.parse(json_text).getAsJsonObject();
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            return gson.toJson(json);
+        }
+    ```
+
+## <a name="construct-the-search-request-and-query"></a>검색 요청 및 쿼리 생성
+
+1. 애플리케이션의 기본 메서드에서 `HttpClientBuilder.create().build();`를 사용하여 Http 클라이언트를 만듭니다.
+
+    ```java
+    CloseableHttpClient httpClient = HttpClientBuilder.create().build();
+    ```
+
+2. API에 이미지를 업로드하는 `HttpEntity`를 만듭니다.
+
+    ```java
+    HttpEntity entity = MultipartEntityBuilder
+        .create()
+        .addBinaryBody("image", new File(imagePath))
+        .build();
+    ```
+
+3. 엔드포인트를 사용하여 `httpPost` 개체를 만들고, 구독 키를 사용하도록 헤더를 설정합니다.
+
+    ```java
+    HttpPost httpPost = new HttpPost(endpoint);
+    httpPost.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+    httpPost.setEntity(entity);
+    ```
+
+## <a name="receive-and-process-the-json-response"></a>JSON 응답 수신 및 처리
+
+1. `HttpClient.execute()`를 사용하여 API에 요청을 보내고, `InputStream` 개체에 응답을 저장합니다.
+    
+    ```java
+    HttpResponse response = httpClient.execute(httpPost);
+    InputStream stream = response.getEntity().getContent();
+    ```
+
+2. JSON 문자열을 저장하고, 응답을 출력합니다.
 
 ```java
-package uploadimage;
-
-import java.util.*;
-import java.io.*;
-
-/*
- * Gson: https://github.com/google/gson
- * Maven info:
- *     groupId: com.google.code.gson
- *     artifactId: gson
- *     version: 2.8.2
- *
- * Once you have compiled or downloaded gson-2.8.2.jar, assuming you have placed it in the
- * same folder as this file (BingImageSearch.java), you can compile and run this program at
- * the command line as follows.
- *
- * javac BingImageSearch.java -classpath .;gson-2.8.2.jar -encoding UTF-8
- * java -cp .;gson-2.8.2.jar BingImageSearch
- */
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
-// http://hc.apache.org/downloads.cgi (HttpComponents Downloads) HttpClient 4.5.5
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.ContentType;
-import org.apache.http.entity.mime.MultipartEntityBuilder;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-
-
-public class UploadImage2 {
-
-    static String endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
-    static String subscriptionKey = "<yoursubscriptionkeygoeshere";
-    static String imagePath = "<pathtoyourimagetouploadgoeshere>";
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        
-        CloseableHttpClient httpClient = HttpClientBuilder.create().build();
-        
-        try {
-            HttpEntity entity = MultipartEntityBuilder
-                .create()
-                .addBinaryBody("image", new File(imagePath))
-                .build();
-
-            HttpPost httpPost = new HttpPost(endpoint);
-            httpPost.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-            httpPost.setEntity(entity);
-            HttpResponse response = httpClient.execute(httpPost);
-
-            InputStream stream = response.getEntity().getContent();
-            String json = new Scanner(stream).useDelimiter("\\A").next();
-
-            System.out.println("\nJSON Response:\n");
-            System.out.println(prettify(json));
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace(System.out);
-            System.exit(1);
-        }
-        catch (Exception e) {
-            e.printStackTrace(System.out);
-            System.exit(1);
-        }
-    }
-    
-    // pretty-printer for JSON; uses GSON parser to parse and re-serialize
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(json_text).getAsJsonObject();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-    
-}
+String json = new Scanner(stream).useDelimiter("\\A").next();
+System.out.println("\nJSON Response:\n");
+System.out.println(prettify(json));
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-[인사이트 토큰을 사용하여 이미지에 대한 중요 정보 얻기](../use-insights-token.md)  
-[Bing Visual Search 이미지 업로드 자습서](../tutorial-visual-search-image-upload.md)
-[Bing Visual Search 단일 페이지 앱 자습서](../tutorial-bing-visual-search-single-page-app.md)  
-[Bing Visual Search 개요](../overview.md)  
-[사용해보기](https://aka.ms/bingvisualsearchtryforfree)  
-[평가판 액세스 키 받기](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing Visual Search API 참조](https://aka.ms/bingvisualsearchreferencedoc)
-
+> [!div class="nextstepaction"]
+> [Custom Search 웹앱 빌드](../tutorial-bing-visual-search-single-page-app.md)

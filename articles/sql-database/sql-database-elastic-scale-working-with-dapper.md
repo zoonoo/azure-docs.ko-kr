@@ -3,7 +3,7 @@ title: Dapper와 함께 탄력적 데이터베이스 클라이언트 라이브�
 description: Dapper과 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 3a25d68b0f0bdd97b204906af87fac8013ad3cff
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 14eb92141a9d27d9f8978abb6d5c9a738c821ead
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253026"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866307"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Dapper과 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용
 이 문서는 Dapper를 기반으로 응용 프로그램을 작성하는 개발자뿐만 아니라 데이터 계층 규모를 확장하도록 분할을 구현하는 응용 프로그램을 만들기 위해 [탄력적 데이터베이스 도구](sql-database-elastic-scale-introduction.md)를 받아들이려는 개발자를 대상으로 합니다.  이 문서에서는 탄력적 데이터베이스 도구와 통합하기 위해 Dapper 기반 응용 프로그램에서 수행해야 하는 변경에 대해 설명합니다. 여기서는 Dapper를 사용하여 탄력적 데이터베이스 분할 관리 및 데이터 종속 라우팅을 작성하는 방법에 대해 중점적으로 설명합니다. 
@@ -49,11 +49,11 @@ Dapper 어셈블리를 확인하려면 [Dapper.net](http://www.nuget.org/package
 ### <a name="requirements-for-dapper-integration"></a>Dapper 통합을 위한 요구 사항
 탄력적 데이터베이스 클라이언트 라이브러리와 Dapper API를 모두 사용할 때는 다음 속성을 유지해야 합니다.
 
-* **규모 확장**: 응용 프로그램의 용량 요구 사항에 따라 분할된 응용 프로그램의 데이터 계층에서 데이터베이스를 필요한 만큼 추가하거나 제거합니다. 
-* **일관성**: 응용 프로그램은 분할을 사용하여 규모가 확장되므로 데이터 종속 라우팅을 수행해야 합니다. 이를 위해 라이브러리의 데이터 종속 라우팅 기능을 사용합니다. 특히 손상이나 잘못된 쿼리 결과를 방지하기 위해 분할된 데이터베이스 맵을 통해 조정되는 연결에서 보장하는 유효성 검사 및 일관성을 유지해야 합니다. 이렇게 하면 예를 들어 지정된 shardlet이 분할/병합 API를 사용하여 현재 다른 분할된 데이터베이스로 이동되어 있는 경우 해당 shardlet에 대한 연결이 거부되거나 중지됩니다.
-* **개체 매핑**: 응용 프로그램의 클래스와 기본 데이터베이스 구조 간 변환을 수행하기 위해 Dapper에서 제공하는 편리한 매핑 기능을 유지합니다. 
+* **규모 확장**: 애플리케이션의 용량 요구 사항에 따라 분할된 애플리케이션의 데이터 계층에서 데이터베이스를 필요한 만큼 추가하거나 제거하려고 합니다. 
+* **일관성**: 애플리케이션은 분할을 사용하여 규모가 확장되므로 데이터 종속 라우팅을 수행해야 합니다. 이를 위해 라이브러리의 데이터 종속 라우팅 기능을 사용합니다. 특히 손상이나 잘못된 쿼리 결과를 방지하기 위해 분할된 데이터베이스 맵을 통해 조정되는 연결에서 보장하는 유효성 검사 및 일관성을 유지해야 합니다. 이렇게 하면 예를 들어 지정된 shardlet이 분할/병합 API를 사용하여 현재 다른 분할된 데이터베이스로 이동되어 있는 경우 해당 shardlet에 대한 연결이 거부되거나 중지됩니다.
+* **개체 매핑**: 애플리케이션의 클래스와 기본 데이터베이스 구조 간 변환을 수행하기 위해 Dapper에서 제공하는 편리한 매핑 기능을 유지합니다. 
 
-다음 섹션에서는 **Dapper** 및 **DapperExtensions**를 기반으로 하는 응용 프로그램에 대한 이러한 요구 사항 관련 지침을 제공합니다.
+다음 섹션에서는 **Dapper** 및 **DapperExtensions**를 기반으로 하는 애플리케이션에 대한 이러한 요구 사항 관련 지침을 제공합니다.
 
 ## <a name="technical-guidance"></a>기술 지침
 ### <a name="data-dependent-routing-with-dapper"></a>Dapper를 사용한 데이터 종속 라우팅
@@ -137,7 +137,7 @@ Dapper에는 데이터베이스 응용 프로그램을 개발할 때 데이터�
     }
 
 ### <a name="handling-transient-faults"></a>일시적인 오류 처리
-Microsoft Patterns & Practices 팀은 응용 프로그램 개발자들이 클라우드에서 실행 시에 일반적으로 발생하는 일시적인 오류 상황을 완화할 수 있도록 [일시적인 오류 처리 응용 프로그램 블록](https://msdn.microsoft.com/library/hh680934.aspx)을 게시했습니다. 더 자세한 정보는 [인내, 모든 승리의 비밀: 일시적인 오류 처리 응용 프로그램 블록 사용](https://msdn.microsoft.com/library/dn440719.aspx)(영문)을 참조하세요.
+Microsoft Patterns & Practices 팀은 응용 프로그램 개발자들이 클라우드에서 실행 시에 일반적으로 발생하는 일시적인 오류 상황을 완화할 수 있도록 [일시적인 오류 처리 응용 프로그램 블록](https://msdn.microsoft.com/library/hh680934.aspx)을 게시했습니다. 자세한 내용은 [모든 성공의 인내와 비밀: 일시적인 오류 처리 애플리케이션 블록 사용](https://msdn.microsoft.com/library/dn440719.aspx)(영문)을 참조하세요.
 
 코드 샘플에서는 일시적인 오류 라이브러리를 사용하여 일시적인 오류를 방지합니다. 
 

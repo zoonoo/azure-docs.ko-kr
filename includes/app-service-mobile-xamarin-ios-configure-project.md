@@ -27,7 +27,7 @@ ms.locfileid: "50133030"
 
 #### <a name="configure-the-ios-project-in-visual-studio"></a>Visual Studio에서 iOS 프로젝트 구성
 1. Visual Studio에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭합니다.
-2. 속성 페이지에서 **iOS 응용 프로그램** 탭을 클릭하고 앞에서 만든 ID를 사용하여 **식별자**를 업데이트합니다.
+2. 속성 페이지에서 **iOS 애플리케이션** 탭을 클릭하고 앞에서 만든 ID를 사용하여 **식별자**를 업데이트합니다.
 
     ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png)
 3. **iOS Bundle Signing** 탭에서 방금 이 프로젝트에 대해 설정한 해당 ID 및 프로비전 프로필을 선택합니다.

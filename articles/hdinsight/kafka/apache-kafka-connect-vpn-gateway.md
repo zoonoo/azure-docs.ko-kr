@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 7fd201dd7c766880b1ed892abe3900b523d75145
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a37e67f299262a7e0b353564c24c789859dcec7c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307477"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605010"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Azure Virtual Network를 통해 HDInsight의 Apache Kafka에 연결
 
@@ -49,7 +49,7 @@ HDInsight는 공용 인터넷을 통해 Kafka에 직접 연결하는 것을 허�
 
     자세한 내용은 [VPN 클라이언트와 함께 Apache Kafka 연결](#vpnclient) 섹션을 참조하세요.
 
-    > [!WARNING]
+    > [!WARNING]  
     > 이 구성은 다음과 같은 제한 사항 때문에 개발 용도로만 사용하는 것이 좋습니다.
     >
     > * 각 클라이언트는 VPN 소프트웨어 클라이언트를 사용하여 연결해야 합니다.
@@ -61,7 +61,7 @@ HDInsight는 공용 인터넷을 통해 Kafka에 직접 연결하는 것을 허�
 
 온-프레미스 네트워크와 통신하는 Kafka 클러스터를 만들려면 [온-프레미스 네트워크에 HDInsight 연결](./../connect-on-premises-network.md) 문서에 나오는 단계를 수행합니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > HDInsight 클러스터를 만들 때 __Kafka__ 클러스터 유형을 선택합니다.
 
 이러한 단계를 거쳐 다음 구성이 생성됩니다.
@@ -186,7 +186,7 @@ Kafka 클라이언트가 온-프레미스에서 클러스터로 연결할 수 �
         -VpnClientRootCertificates $p2sRootCert
     ```
 
-    > [!WARNING]
+    > [!WARNING]  
     > 이 프로세스는 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
 5. 다음 코드를 사용하여 Azure Storage 계정 및 Blob 컨테이너를 만듭니다.
@@ -232,7 +232,7 @@ Kafka 클라이언트가 온-프레미스에서 클러스터로 연결할 수 �
         -SubnetName $defaultSubnet.Id
     ```
 
-  > [!WARNING]
+  > [!WARNING]  
   > 이 프로세스를 완료하는 데 약 15분이 걸립니다.
 
 ### <a name="configure-kafka-for-ip-advertising"></a>IP 보급을 위해 Kafka 구성
@@ -287,7 +287,7 @@ Kafka 클라이언트가 온-프레미스에서 클러스터로 연결할 수 �
 
 VPN 게이트웨이에 연결하려면 [지점-사이트 간 연결 구성](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect) 문서의 __Azure에 연결__ 섹션을 사용합니다.
 
-## <a id="python-client"></a>예: Python 클라이언트
+## <a id="python-client"></a> 예: Python 클라이언트
 
 Kafka에 대한 연결 유효성 검사를 하려면, 다음 단계를 사용하여 Python 생산자와 소비자를 만들고 실행합니다.
 
@@ -317,7 +317,7 @@ Kafka에 대한 연결 유효성 검사를 하려면, 다음 단계를 사용하
 
     다음 단계에서의 사용을 위해 반환된 정보를 저장합니다.
 
-2. 다음을 사용하여 [kafka-python](http://kafka-python.readthedocs.io/) 클라이언트를 설치합니다.
+2. 다음을 사용하여 [kafka-python](https://kafka-python.readthedocs.io/) 클라이언트를 설치합니다.
 
         pip install kafka-python
 

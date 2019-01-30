@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: acbba991e6dcce56fad7f27c45f85214cc8fc707
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 3ad657fb695d88ffc75a37ee566ce59126906748
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637008"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038435"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Azure Portal을 사용하는 Durable Functions 만들기
 
@@ -24,17 +24,43 @@ Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확�
 >[!NOTE]
 >
 >* C#에서 Durable Functions를 개발하려는 경우에는 대신 [Visual Studio 2017 개발](durable-functions-create-first-csharp.md)을 고려해야 합니다.
-* JavaScript에서 Durable Functions를 개발하려는 경우에는 대신 **Visual Studio Code 개발**을 고려해야 합니다.
->
->JavaScript를 사용하여 Durable Functions를 만드는 것은 아직 포털에서 지원되지 않으므로, 대신 Visual Studio Code를 사용하세요.
+* JavaScript에서 Durable Functions를 개발하려는 경우에는 대신 [Visual Studio Code 개발](./quickstart-js-vscode.md)을 고려해야 합니다.
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 
-함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱을 통해 함수를 논리 단위로 그룹화하여 더욱 쉽게 관리, 배포 및 리소스 공유할 수 있습니다. Durable Functions에는 JavaScript 템플릿이 아직 지원되지 않으므로, C# 함수 앱을 만들어야 합니다.  
+함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱을 통해 함수를 논리 단위로 그룹화하여 더욱 쉽게 관리, 배포 및 리소스 공유할 수 있습니다. .NET 또는 JavaScript 앱을 만들 수 있습니다.
 
 [!INCLUDE [Create function app Azure portal](../../../includes/functions-create-function-app-portal.md)]
 
-기본적으로, 만들어진 함수 앱은 Azure Functions 런타임 버전 2.x를 사용합니다. Durable Functions 확장은 Azure Functions 런타임의 버전 1.x 및 2.x 모두에서 작동합니다. 그러나 템플릿은 런타임의 버전 2.x를 대상으로 하는 경우에만 사용 가능합니다.
+기본적으로 만들어진 함수 앱은 Azure Functions 런타임 버전 2.x를 사용합니다. Durable Functions 확장은 C#의 경우 Azure Functions 런타임의 버전 1.x 및 2.x 모두, JavaScript의 경우 버전 2.x에서 작동합니다. 그러나 템플릿은 선택한 언어에 관계없이 런타임의 버전 2.x를 대상으로 하는 경우에만 사용 가능합니다.
+
+## <a name="install-the-durable-functions-npm-package-javascript-only"></a>durable-functions npm 패키지 설치(JavaScript만 해당)
+
+JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키지](https://www.npmjs.com/package/durable-functions)를 설치해야 합니다.
+
+1. 함수 앱의 이름과 **플랫폼 기능**을 차례로 선택한 후 **고급 도구(Kudu)** 를 선택합니다.
+
+   ![Functions 플랫폼 기능에서 Kudu를 선택함](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
+
+2. Kudu 콘솔 내부에서 **디버그 콘솔**을 선택한 후 **CMD**를 선택합니다.
+
+   ![Kudu 디버그 콘솔](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+
+3. 함수 앱의 파일 디렉터리 구조가 표시되어야 합니다. `site/wwwroot` 폴더로 이동합니다. 여기에서 `package.json` 파일을 파일 디렉터리 창에 끌어서 놓아 업로드할 수 있습니다. 샘플 `package.json`은 다음과 같습니다.
+
+    ```json
+    {
+      "dependencies": {
+        "durable-functions": "^1.1.2"
+      }
+    }
+    ```
+
+   ![Kudu 업로드 package.json](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+
+4. `package.json`이 업로드되면 Kudu 원격 실행 콘솔에서 `npm install` 명령을 실행합니다.
+
+   ![Kudu 실행 npm install](./media/durable-functions-create-portal/kudu-npm-install.png)
 
 ## <a name="create-an-orchestrator-function"></a>오케스트레이터 함수 만들기
 
@@ -92,7 +118,7 @@ Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확�
         }
     ```
 
-1. 상태가 **완료됨**으로 변경될 때까지 `statusQueryGetUri` 엔드포인트를 계속 호출하면 다음 예제와 같은 응답이 표시됩니다. 
+1. 상태가 **완료됨**으로 변경될 때까지 `statusQueryGetUri` 엔드포인트를 계속 호출하면 다음 예제와 같은 응답이 표시됩니다.
 
     ```json
     {
@@ -113,4 +139,4 @@ Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [일반적인 Durable Functions 패턴에 대해 알아보기](durable-functions-overview.md)
+> [일반적인 지속성 함수 패턴에 대해 알아보기](durable-functions-concepts.md)

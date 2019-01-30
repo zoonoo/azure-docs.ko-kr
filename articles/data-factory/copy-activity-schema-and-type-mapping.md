@@ -9,29 +9,28 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 16275ddc4d4ad85bdac54244ceeec568603fdfef
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: c2f58a3510699cdf74e3150d3ad5882929f4f05b
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112102"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358714"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>복사 작업의 스키마 매핑
-이 문서에서는 Azure Data Factory 복사 작업에서 데이터 복사를 수행할 때 원본 데이터의 스키마 매핑과 데이터 형식을 싱크 데이터에 매핑하는 방법을 설명합니다. 
+이 문서에서는 Azure Data Factory 복사 작업에서 데이터 복사를 실행할 때 원본 데이터의 스키마 매핑과 데이터 형식을 싱크 데이터에 매핑하는 방법을 설명합니다.
 
 ## <a name="column-mapping"></a>열 매핑
 
-기본적으로 복사 작업은 [명시적 열 매핑](#explicit-column-mapping)을 구성하지 않은 한 **열 이름을 기준으로 원본 데이터를 싱크에 매핑합니다**. 보다 구체적으로 복사 작업:
+열 매핑은 테이블 형식 데이터 간에 데이터를 복사할 때 적용됩니다. 기본적으로 복사 작업은 [명시적 열 매핑](#explicit-column-mapping)을 구성하지 않은 한 **열 이름을 기준으로 원본 데이터를 싱크에 매핑합니다**. 보다 구체적으로 복사 작업:
 
 1. 원본에서 데이터를 읽고 원본 스키마를 결정합니다.
 
     * 메타데이터가 있는 데이터베이스/파일(Avro/ORC/Parquet/헤더 있는 텍스트)처럼 데이터 저장소/파일 형식으로 미리 정의된 데이터 원본의 경우, 원본 스키마는 쿼리 결과나 파일 메타데이터에서 추출됩니다.
-    * Azure Table/Cosmos DB처럼 유연한 스키마가 있는 데이터 원본의 경우 원본 스키마는 쿼리 결과에서 유추됩니다. 데이터 세트에서 "structure"를 제공하여 이를 덮어쓸 수 있습니다.
-    * 헤더 없는 텍스트 파일의 경우 기본 열 이름은 "Prop_0", "Prop_1" 패턴으로 생성되며 데이터 세트에서 "structure"를 제공하여 이를 덮어쓸 수 있습니다.
+    * Azure Table/Cosmos DB처럼 유연한 스키마가 있는 데이터 원본의 경우 원본 스키마는 쿼리 결과에서 유추됩니다. 데이터 세트에서 "structure"를 구성하여 이를 덮어쓸 수 있습니다.
+    * 헤더 없는 텍스트 파일의 경우 기본 열 이름은 "Prop_0", "Prop_1" 패턴으로 생성되며 데이터 세트에서 "structure"를 구성하여 이를 덮어쓸 수 있습니다.
     * Dynamics 원본의 경우 데이터 세트 “structure” 섹션에서 스키마 정보를 제공해야 합니다.
 
 2. 지정된 경우 명시적 열 매핑을 적용합니다.
@@ -50,7 +49,7 @@ ms.locfileid: "37112102"
 * 매핑에서 지정한 것보다 싱크 데이터 세트의 "structure"에 열이 더 많거나 적습니다.
 * 중복 매핑
 
-#### <a name="explicit-column-mapping-example"></a>명시적 열 매핑 예
+#### <a name="explicit-column-mapping-example"></a>명시적 열 매핑 예제
 
 이 예제에서 입력 테이블에는 구조가 있고 그 구조가 온-프레미스 SQL 데이터베이스에 있는 테이블을 가리킵니다.
 
@@ -135,11 +134,86 @@ ms.locfileid: "37112102"
 }
 ```
 
-`"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` 구문을 사용하여 열 매핑을 지정하는 경우, 있는 그대로도 지원됩니다.
+`"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` 구문을 사용하여 열 매핑을 지정하면 있는 그대로 지원됩니다.
 
 **열 매핑 흐름:**
 
 ![열 매핑 흐름 ](./media/copy-activity-schema-and-type-mapping/column-mapping-sample.png)
+
+## <a name="schema-mapping"></a>스키마 매핑
+
+매핑 스키마는 MongoDB/REST에서 텍스트 파일로, 그리고 SQL에서 MongoDB용 Azure Cosmos DB API로 복사할 때와 같이 계층형 데이터와 테이블형 데이터 간에 데이터를 복사할 때 적용됩니다. 다음 속성은 복사 작업 `translator` 섹션에서 지원됩니다.
+
+| 자산 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| 형식 | 복사 작업 변환기의 type 속성은 **TabularTranslator**로 설정해야 합니다. | 예 |
+| schemaMapping | 테이블 형식 쪽에서 계층 쪽으로의 매핑 관계를 나타내는 키-값 쌍 컬렉션입니다.<br/>- **키:** 데이터 세트 구조에 정의된 테이블 형식 데이터의 열 이름입니다.<br/>- **값:** 추출하여 매핑할 각 필드의 JSON 경로 식입니다. 루트 개체 아래의 필드는 root $로 시작하며, `collectionReference` 속성으로 선택된 배열 내부의 필드는 배열 요소에서 시작합니다.  | 예 |
+| collectionReference | 동일한 패턴으로 **배열 필드 내부**의 개체에서 데이터를 반복 및 추출하고 행별 개체별로 변환하려면 교차 적용하도록 해당 배열의 JSON 경로를 지정합니다. 이 속성은 계층적 데이터가 원본인 경우에만 지원됩니다. | 아니요 |
+
+**예: MongoDB에서 SQL로 복사:**
+
+예를 들어 MongoDB 문서에 다음과 같은 콘텐츠가 들어 있는 경우: 
+
+```json
+{
+    "id": {
+        "$oid": "592e07800000000000000000"
+    },
+    "number": "01",
+    "date": "20170122",
+    "orders": [
+        {
+            "prod": "p1",
+            "price": 23
+        },
+        {
+            "prod": "p2",
+            "price": 13
+        },
+        {
+            "prod": "p3",
+            "price": 231
+        }
+    ],
+    "city": [ { "name": "Seattle" } ]
+}
+```
+
+그리고 *(order_pd 및 order_price)* 배열 내부의 데이터를 평면화하고 일반적인 루트 정보 *(number, date 및 city)* 로 크로스 조인하여 Azure SQL 테이블에 데이터를 다음 형식으로 복사하려는 경우:
+
+| orderNumber | orderDate | order_pd | order_price | city |
+| --- | --- | --- | --- | --- |
+| 01 | 20170122 | P1 | 23 | 시애틀 |
+| 01 | 20170122 | P2 | 13 | 시애틀 |
+| 01 | 20170122 | P3 | 231 | 시애틀 |
+
+다음 복사 작업 JSON 샘플처럼 스키마-매핑 규칙을 구성합니다.
+
+```json
+{
+    "name": "CopyFromMongoDBToSqlAzure",
+    "type": "Copy",
+    "typeProperties": {
+        "source": {
+            "type": "MongoDbV2Source"
+        },
+        "sink": {
+            "type": "SqlSink"
+        },
+        "translator": {
+            "type": "TabularTranslator",
+            "schemaMapping": {
+                "orderNumber": "$.number", 
+                "orderDate": "$.date", 
+                "order_pd": "prod", 
+                "order_price": "price",
+                "city": " $.city[0].name"
+            },
+            "collectionReference":  "$.orders"
+        }
+    }
+}
+```
 
 ## <a name="data-type-mapping"></a>데이터 형식 매핑
 
@@ -152,7 +226,7 @@ ms.locfileid: "37112102"
 
 ### <a name="supported-data-types"></a>지원되는 데이터 원본
 
-데이터 팩터리는 다음 중간 데이터 형식을 지원합니다. [데이터 세트 구조](concepts-datasets-linked-services.md#dataset-structure) 구성에서 형식 정보를 입력할 때 아래 값을 지정할 수 있습니다.
+Data Factory는 다음과 같은 중간 데이터 형식을 지원합니다. [데이터 세트 구조](concepts-datasets-linked-services.md#dataset-structure) 구성에서 형식 정보를 구성할 때 아래 값을 지정할 수 있습니다.
 
 * Byte[]
 * BOOLEAN
@@ -186,7 +260,7 @@ ms.locfileid: "37112102"
 
 아래 시나리오에서는 데이터 세트의 “structure”가 필요합니다.
 
-* 헤더 없는 텍스트 파일에서 복사(입력 데이터 세트). 해당하는 싱크 열과 일치하는 텍스트 파일의 열 이름을 지정하여 명시적 열 매핑으로부터 저장할 수 있습니다.
+* 헤더 없는 텍스트 파일에서 복사(입력 데이터 세트). 해당하는 싱크 열과 일치하는 텍스트 파일의 열 이름을 지정하여 명시적 열 매핑을 피할 수 있습니다.
 * Azure Table/Cosmos DB 등, 유연한 스키마가 있는 데이터 저장소에서 복사하면(입력 데이터 세트) 각각의 작업 실행 중에 맨 위 행을 기준으로 복사 작업이 스키마를 유추하는 것이 아니라 원하는 데이터(열)가 복사되게 보장할 수 있습니다.
 
 

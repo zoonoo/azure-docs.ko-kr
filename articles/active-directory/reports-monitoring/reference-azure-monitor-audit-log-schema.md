@@ -4,7 +4,7 @@ description: Azure Monitor(미리 보기)에서 사용을 위해 Azure AD 감사
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/13/2018
+ms.date: 12/14/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0335c17c85313762c28aec8ba283e1944cceefd1
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 04ea9387607be9b4a82eefe3c8dd3daa83867978
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621397"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818255"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Azure Monitor(미리 보기)에서 Azure AD 감사 로그 스키마 해석
 
@@ -101,6 +101,49 @@ ms.locfileid: "51621397"
 } 
 ```
 
+```json
+{
+    "records": [
+    {
+        "time": "2018-12-10T00:03:46.6161822Z",
+        "resourceId": "/tenants/7918d4b5-0442-4a97-be2d-36f9f9962ece/providers/Microsoft.aadiam",
+        "operationName": "Update policy",
+        "operationVersion": "1.0",
+        "category": "AuditLogs",
+        "tenantId": "7918d4b5-0442-4a97-be2d-36f9f9962ece",
+        "resultSignature": "None",
+        "durationMs": 0,
+        "callerIpAddress": "<null>",
+        "correlationId": "192298c1-0994-4dd6-b05a-a6c5984c31cb",
+        "identity": "MS-PIM",
+        "level": "Informational",
+        "properties": {
+            "id": "Directory_VNXV4_28148892",
+            "category": "Policy",
+            "correlationId": "192298c1-0994-4dd6-b05a-a6c5984c31cb",
+            "result": 0,
+            "resultReason": "",
+            "activityDisplayName": "Update policy",
+            "activityDateTime": "2018-12-10T00:03:46.6161822+00:00",
+            "loggedByService": "Core Directory",
+            "operationType": "Update",
+            "initiatedBy": {},
+            "targetResources": [
+            {
+                "id": "5e7a8ae7-165d-44a4-a4f4-6141f8c8ef40",
+                "displayName": "Default Policy",
+                "type": "Policy",
+                "modifiedProperties": []
+            }
+            ],
+            "additionalDetails": []
+        }
+    }
+    ]
+}
+
+```
+
 ## <a name="field-and-property-descriptions"></a>필드 및 속성 설명
 
 | 필드 이름 | 설명 |
@@ -126,10 +169,10 @@ ms.locfileid: "51621397"
 | 속성 이름 | 설명 |
 |---------------|-------------|
 | AuditEventCategory | 감사 이벤트의 형식입니다. *사용자 관리*, *응용 프로그램 관리* 또는 다른 형식일 수 있습니다.|
-| ID 형식 | 형식은 *응용 프로그램* 또는 *사용자*일 수 있습니다. |
+| ID 형식 | 형식은 *애플리케이션* 또는 *사용자*일 수 있습니다. |
 | 작업 유형 | 형식은 *추가*, *업데이트*, *삭제* 또는 *기타*일 수 있습니다. |
-| 대상 리소스 종류 | 작업이 수행된 대상 리소스 종류를 지정합니다. 형식은 *응용 프로그램*, *사용자*, *역할*, *정책*일 수 있습니다. | 
-| 대상 리소스 이름 | 대상 리소스의 이름입니다. 응용 프로그램 이름, 역할 이름, 사용자 계정 이름 또는 서비스 사용자 이름일 수 있습니다. |
+| 대상 리소스 종류 | 작업이 수행된 대상 리소스 종류를 지정합니다. 형식은 *애플리케이션*, *사용자*, *역할*, *정책*일 수 있습니다. | 
+| 대상 리소스 이름 | 대상 리소스의 이름입니다. 애플리케이션 이름, 역할 이름, 사용자 계정 이름 또는 서비스 사용자 이름일 수 있습니다. |
 | additionalTargets | 특정 작업에 대한 추가 속성을 나열합니다. 예를 들어 업데이트 작업의 경우 이전 값과 새 값이 *targetUpdatedProperties* 아래에 나열됩니다. | 
 
 ## <a name="next-steps"></a>다음 단계

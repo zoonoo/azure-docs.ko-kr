@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c8edaba8de597e3e76e760e1f5109006338a663c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 2f426ab85d9ab15dd080a487337b8d48358ed040
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238823"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888463"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure Maps에서 지원되는 지도 스타일
-Azure Maps는 서로 다른 네 가지 기본 제공 지도 스타일을 지원합니다. 이러한 스타일은 설명과 함께 아래에 나와 있습니다.
+Azure Maps는 아래 설명된 대로 몇 가지 다른 기본 제공 지도 스타일을 지원합니다.
 
 ## <a name="road"></a>도로
 **도로** 지도는 도로, 자연적 특징 및 인공적 특징을 해당 특징에 대한 레이블과 함께 표시하는 표준 지도입니다.
@@ -49,6 +49,14 @@ Azure Maps는 서로 다른 네 가지 기본 제공 지도 스타일을 지원�
 **짙은 회색조**는 도로 지도 스타일의 어두운 버전입니다.
 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
+
+**적용 가능한 API:**
+* JS 지도 컨트롤 
+
+## <a name="night"></a>야간
+**야간**은 색이 지정된 도로 및 기호가 포함된 어두운 버전의 도로 지도 스타일입니다.
+
+![야간](./media/supported-map-styles/night.PNG)
 
 **적용 가능한 API:**
 * JS 지도 컨트롤 

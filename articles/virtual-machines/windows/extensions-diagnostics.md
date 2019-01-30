@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: db4208c8fef27d2e2085e63ba3a986456d0544bf
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: fe24307f7ed01c64217bcb1f9f7645a30bce7f44
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429119"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322826"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Windows VM용 Azure 진단 확장
 
@@ -37,7 +37,7 @@ Azure 진단 확장은 대상 가상 머신이 인터넷에 연결되어 있어�
 
 ## <a name="extension-schema"></a>확장 스키마
 
-[Azure 진단 확장 스키마 및 속성 값은 이 문서에 설명되어 있습니다.](../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md)
+[Azure 진단 확장 스키마 및 속성 값은 이 문서에 설명되어 있습니다.](../../azure-monitor/platform/diagnostics-extension-schema-1dot3.md)
 
 ## <a name="template-deployment"></a>템플릿 배포
 
@@ -80,12 +80,12 @@ Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-Azure 진단 확장에 대한 보다 포괄적인 문제 해결 가이드는 [이 문서를 참조](../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md)하세요.
+Azure 진단 확장에 대한 보다 포괄적인 문제 해결 가이드는 [이 문서를 참조](../../azure-monitor/platform/diagnostics-extension-troubleshooting.md)하세요.
 
 ### <a name="support"></a>지원
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure 진단 확장에 대한 자세한 정보](../../monitoring-and-diagnostics/azure-diagnostics.md)
-* [확장 스키마 및 버전 검토](../../monitoring-and-diagnostics/azure-diagnostics-schema.md)
+* [Azure 진단 확장에 대한 자세한 정보](../../azure-monitor/platform/diagnostics-extension-overview.md)
+* [확장 스키마 및 버전 검토](../../azure-monitor/platform/diagnostics-extension-schema.md)

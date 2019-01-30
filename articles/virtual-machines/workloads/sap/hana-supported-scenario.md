@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0e9d57c224150454677a03462368038ed8c63edf
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4e8253238bf5edb5e0ea3f89fe67d6aa39f4a2d7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576496"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855458"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>HANA 큰 인스턴스의 지원되는 시나리오
 이 문서에서는 HLI(HANA 큰 인스턴스)에 대한 아키텍처 세부 정보와 지원되는 시나리오에 대해 설명합니다.
@@ -32,11 +32,11 @@ HLI 단위 프로비전을 계속 진행하기 전에 SAP 또는 서비스 구�
 문서에 사용되는 용어 및 정의를 살펴보겠습니다.
 
 - SID: HANA 시스템에 대한 시스템 식별자입니다.
-- HLI: HANA 큰 인스턴스입니다.
+- HLI: Hana 대규모 인스턴스:
 - DR: 재해 복구 사이트입니다.
 - 일반 DR: DR 용도로만 사용되는 전용 리소스가 있는 시스템 설치입니다.
-- 다용도 DR: DR 이벤트에 사용하도록 구성된 프로덕션 인스턴스와 비프로덕션 환경을 사용하도록 구성된 DR 사이트의 시스템입니다. 
-- 단일 SID: 단일 인스턴스가 설치된 시스템입니다.
+- 다목적 DR: DR 이벤트에 사용하도록 구성된 프로덕션 인스턴스와 비프로덕션 환경을 사용하도록 구성된 DR 사이트의 시스템입니다. 
+- 단일 SID:  단일 인스턴스가 설치된 시스템입니다.
 - 다중 SID: 여러 인스턴스가 구성된 시스템입니다. MCOS 환경이라고도 합니다.
 
 
@@ -59,8 +59,8 @@ HANA 큰 인스턴스는 사용자의 비즈니스 요구를 충족하기 위해
 - **A**: 이 인터페이스는 클라이언트 액세스 간에 사용됩니다.
 - **B**: 이 인터페이스는 노드 간 통신에 사용됩니다. 이 인터페이스는 모든 서버(요청된 토폴로지와 관계 없음)에서 구성되지만 
 - 스케일 아웃 시나리오에서만 사용됩니다.
-- **C**: 이 인터페이스는 노드-저장소 연결에 사용됩니다.
-- **D**: 이 인터페이스는 STONITH 설치에 대한 노드-ISCSI 장치 연결에 사용됩니다. 이 인터페이스는 HSR 설치가 필요할 때만 구성됩니다.  
+- **C**: 이 인터페이스는 노드-스토리지 연결에 사용됩니다.
+- **D**: 이 인터페이스는 STONITH 설치에 대한 노드-ISCSI 디바이스 연결에 사용됩니다. 이 인터페이스는 HSR 설치가 필요할 때만 구성됩니다.  
 
 | NIC 논리적 인터페이스 | SKU 형식 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
@@ -237,7 +237,7 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 - /usr/sap/SID는 /hana/shared/SID의 심볼 링크입니다.
 - MCOS: 볼륨 크기 분산은 메모리의 데이터베이스 크기를 기준으로 합니다. [개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 섹션을 참조하여 다중 SID 환경에서 지원되는 메모리의 데이터베이스 크기에 대해 알아보세요.
 - DR: 볼륨 및 탑재 지점이 DR HLI 단위의 프로덕션 HANA 인스턴스 설치에 대해 구성됩니다("HANA 설치에 필요"로 표시). 
-- DR: 데이터, 로그 백업 및 공유 볼륨("저장소 복제"로 표시)이 프로덕션 사이트의 스냅숏을 통해 복제됩니다. 장애 조치(Failover) 동안에만 이러한 볼륨이 탑재됩니다. 자세한 내용은 [재해 복구 장애 조치 프로시저](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) 문서를 참고하세요.
+- DR: 데이터, 로그 백업 및 공유 볼륨("스토리지 복제"로 표시)이 프로덕션 사이트의 스냅숏을 통해 복제됩니다. 장애 조치(Failover) 동안에만 이러한 볼륨이 탑재됩니다. 자세한 내용은 [재해 복구 장애 조치 프로시저](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) 문서를 참고하세요.
 - **SKU 유형 I 클래스**에 대한 부팅 볼륨이 DR 노드에 복제됩니다.
 
 
@@ -286,7 +286,7 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 - /usr/sap/SID는 /hana/shared/SID의 심볼 링크입니다.
 - MCOS: 볼륨 크기 분산은 메모리의 데이터베이스 크기를 기준으로 합니다. [개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 섹션을 참조하여 다중 SID 환경에서 지원되는 메모리의 데이터베이스 크기에 대해 알아보세요.
 - DR: 볼륨 및 탑재 지점이 DR HLI 단위의 프로덕션 HANA 인스턴스 설치에 대해 구성됩니다("HANA 설치에 필요"로 표시). 
-- DR: 데이터, 로그 백업 및 공유 볼륨("저장소 복제"로 표시)이 프로덕션 사이트의 스냅숏을 통해 복제됩니다. 장애 조치(Failover) 동안에만 이러한 볼륨이 탑재됩니다. 자세한 내용은 [재해 복구 장애 조치 프로시저](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) 문서를 참고하세요. 
+- DR: 데이터, 로그 백업 및 공유 볼륨("스토리지 복제"로 표시)이 프로덕션 사이트의 스냅숏을 통해 복제됩니다. 장애 조치(Failover) 동안에만 이러한 볼륨이 탑재됩니다. 자세한 내용은 [재해 복구 장애 조치 프로시저](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) 문서를 참고하세요. 
 - DR: QA("QA 인스턴스 설치"로 표시)에 대한 데이터, 로그 백업, 로그, 공유 볼륨이 QA 인스턴스 설치에 대해 구성됩니다.
 - **SKU 유형 I 클래스**에 대한 부팅 볼륨이 DR 노드에 복제됩니다.
 
@@ -393,9 +393,9 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 - /usr/sap/SID는 /hana/shared/SID의 심볼 링크입니다.
 - MCOS: 볼륨 크기 분산은 메모리의 데이터베이스 크기를 기준으로 합니다. [개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 섹션을 참조하여 다중 SID 환경에서 지원되는 메모리의 데이터베이스 크기에 대해 알아보세요.
 - STONITH: STONITH 설치에 대해 SBD가 구성됩니다. 그러나 STONITH의 사용은 선택 사항입니다.
-- DR: 주 및 보조 노드 복제에 **두 저장소 볼륨 세트가 필요**합니다.
+- DR: 주 및 보조 노드 복제에 **두 스토리지 볼륨 세트가 필요**합니다.
 - DR: 볼륨 및 탑재 지점이 DR HLI 단위의 프로덕션 HANA 인스턴스 설치에 대해 구성됩니다("HANA 설치에 필요"로 표시). 
-- DR: 데이터, 로그 백업 및 공유 볼륨("저장소 복제"로 표시)이 프로덕션 사이트의 스냅숏을 통해 복제됩니다. 장애 조치(Failover) 동안에만 이러한 볼륨이 탑재됩니다. 자세한 내용은 [재해 복구 장애 조치 프로시저](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) 문서를 참고하세요. 
+- DR: 데이터, 로그 백업 및 공유 볼륨("스토리지 복제"로 표시)이 프로덕션 사이트의 스냅숏을 통해 복제됩니다. 장애 조치(Failover) 동안에만 이러한 볼륨이 탑재됩니다. 자세한 내용은 [재해 복구 장애 조치 프로시저](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) 문서를 참고하세요. 
 - DR: QA("QA 인스턴스 설치"로 표시)에 대한 데이터, 로그 백업, 로그, 공유 볼륨이 QA 인스턴스 설치에 대해 구성됩니다.
 - **SKU 유형 I 클래스**에 대한 부팅 볼륨이 DR 노드에 복제됩니다.
 
@@ -559,7 +559,7 @@ HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소�
 ### <a name="key-considerations"></a>주요 고려 사항
 - /usr/sap/SID는 /hana/shared/SID의 심볼 링크입니다.
 -  DR: 볼륨 및 탑재 지점이 DR HLI 단위의 프로덕션 HANA 인스턴스 설치에 대해 구성됩니다("HANA 설치에 필요"로 표시). 
-- DR: 데이터, 로그 백업 및 공유 볼륨("저장소 복제"로 표시)이 프로덕션 사이트의 스냅숏을 통해 복제됩니다. 장애 조치(Failover) 동안에만 이러한 볼륨이 탑재됩니다. 자세한 내용은 [재해 복구 장애 조치 프로시저](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) 문서를 참고하세요. 
+- DR: 데이터, 로그 백업 및 공유 볼륨("스토리지 복제"로 표시)이 프로덕션 사이트의 스냅숏을 통해 복제됩니다. 장애 조치(Failover) 동안에만 이러한 볼륨이 탑재됩니다. 자세한 내용은 [재해 복구 장애 조치 프로시저](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) 문서를 참고하세요. 
 - **SKU 유형 I 클래스**에 대한 부팅 볼륨이 DR 노드에 복제됩니다.
 
 

@@ -9,18 +9,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/21/2018
-ms.openlocfilehash: 623d03c96866392ef245fb924cbf6600e7850ffe
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 794e2f3db44c29707400f96970159578d9e83f2d
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47057817"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303278"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure SQL Database에 Azure Stream Analytics 출력
 
 이 문서에서는 Azure Stream Analytics를 사용하여 SQL Azure Database에 데이터를 로드할 때 쓰기 처리량 성능을 높이는 팁을 설명합니다.
 
-Azure Stream Analytics의 SQL 출력에서는 병렬 쓰기를 옵션으로 지원합니다. 이 옵션을 사용하면 여러 출력 파티션이 대상 테이블에 병렬로 쓰는 [완전한 병렬](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) 작업 토폴로지가 가능합니다. 그러나 Azure Stream Analytics는 SQL Azure 데이터베이스 구성 및 테이블 스키마에 크게 의존하므로 이 옵션을 사용하더라도 높은 처리량을 얻지 못할 수 있습니다. 선택하는 인덱스, 클러스터링 키, 인덱스 채우기 계수 및 압축은 테이블 로드 시간에 영향을 줍니다. SQL Azure 데이터베이스를 최적화하여 내부 밴치마크를 기준으로 쿼리 및 부하 성능을 개선하는 방법에 대한 자세한 내용은 [SQL 데이터베이스 성능 지침](https://docs.microsoft.com/azure/sql-database/sql-database-performance-guidance)을 참조하세요.
+Azure Stream Analytics의 SQL 출력에서는 병렬 쓰기를 옵션으로 지원합니다. 이 옵션을 사용하면 여러 출력 파티션이 대상 테이블에 병렬로 쓰는 [완전한 병렬](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) 작업 토폴로지가 가능합니다. 그러나 Azure Stream Analytics는 SQL Azure 데이터베이스 구성 및 테이블 스키마에 크게 의존하므로 이 옵션을 사용하더라도 높은 처리량을 얻지 못할 수 있습니다. 선택하는 인덱스, 클러스터링 키, 인덱스 채우기 계수 및 압축은 테이블 로드 시간에 영향을 줍니다. SQL Azure 데이터베이스를 최적화하여 내부 밴치마크를 기준으로 쿼리 및 부하 성능을 개선하는 방법에 대한 자세한 내용은 [SQL 데이터베이스 성능 지침](https://docs.microsoft.com/azure/sql-database/sql-database-performance-guidance)을 참조하세요. SQL Azure Database에 병렬로 쓸 때는 쓰기 순서가 보장되지 않습니다.
 
 다음은 솔루션의 전체 처리량을 개선하는 데 도움이 되는 각 서비스의 구성입니다.
 

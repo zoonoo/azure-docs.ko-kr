@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.component: common
-ms.openlocfilehash: 85f93e15cfce1d44567c48c6c6f4b38c42dfb296
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a15c983291d35063884178f7b84e21fe4908b49a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416395"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632317"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure Storage 마이그레이션에 대한 FAQ(질문과 대답)
 
@@ -37,7 +37,7 @@ Automation 스크립트는 저장소 콘텐츠 조작 대신 Azure Resource Mana
 
 **동일한 지역 내의 동일한 저장소 계정에 있는 별도의 두 파일 공유 간에 데이터를 복사하기 위해 요금이 있나요?**
 
-아니요. 이 프로세스에는 요금이 부과되지 않습니다.
+ 아니요. 이 프로세스에는 요금이 부과되지 않습니다.
 
 **내 저장소 계정 전체를 다른 저장소 계정에 백업하려면 어떻게 할까요?**
 
@@ -54,10 +54,10 @@ Automation 스크립트는 저장소 콘텐츠 조작 대신 Azure Resource Mana
             /Dest:https://destaccount.blob.core.windows.net/mycontainer2
             /SourceKey:key1 /DestKey:key2 /S
 
-    - `/Source`: 원본 저장소 계정에 대한 URI를 제공합니다(컨테이너까지).  
-    - `/Dest`: 대상 저장소 계정에 대한 URI를 제공합니다(컨테이너까지).  
-    - `/SourceKey`: 원본 저장소 계정에 대한 기본 키를 제공합니다. Azure Portal에서 저장소 계정을 선택하여 이 키를 복사할 수 있습니다.  
-    - `/DestKey`: 대상 저장소 계정에 대한 기본 키를 제공합니다. 포털에서 저장소 계정을 선택하여 이 키를 복사할 수 있습니다.
+    - `/Source`: 원본 스토리지 계정의 URI를 제공합니다(컨테이너까지).  
+    - `/Dest`: 대상 스토리지 계정의 URI를 제공합니다(컨테이너까지).  
+    - `/SourceKey`: 원본 스토리지 계정의 기본 키를 제공합니다. Azure Portal에서 저장소 계정을 선택하여 이 키를 복사할 수 있습니다.  
+    - `/DestKey`: 대상 스토리지 계정의 기본 키를 제공합니다. 포털에서 저장소 계정을 선택하여 이 키를 복사할 수 있습니다.
 
 이 명령을 실행하면 컨테이너 파일이 대상 저장소 계정으로 이동됩니다.
 
@@ -118,6 +118,8 @@ Azure 파일 공유를 사용합니다.
 
 **관리 디스크를 다른 저장소 계정으로 이동하려면 어떻게 할까요?**
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 다음 단계를 수행하세요.
 
 1.  관리 디스크가 연결된 가상 머신을 중지합니다.
@@ -125,15 +127,15 @@ Azure 파일 공유를 사용합니다.
 2.  다음 Azure PowerShell 스크립트를 실행하여 한 영역에서 다른 영역으로 관리 디스크 VHD를 복사합니다.
 
     ```
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
-    Select-AzureRmSubscription -SubscriptionId <ID>
+    Select-AzSubscription -SubscriptionId <ID>
 
-    $sas = Grant-AzureRmDiskAccess -ResourceGroupName <RG name> -DiskName <Disk name> -DurationInSecond 3600 -Access Read
+    $sas = Grant-AzDiskAccess -ResourceGroupName <RG name> -DiskName <Disk name> -DurationInSecond 3600 -Access Read
 
-    $destContext = New-AzureStorageContext –StorageAccountName contosostorageav1 -StorageAccountKey <your account key>
+    $destContext = New-AzStorageContext –StorageAccountName contosostorageav1 -StorageAccountKey <your account key>
 
-    Start-AzureStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
+    Start-AzStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
     ```
 
 3.  VHD를 복사한 다른 영역의 VHD 파일을 사용하여 관리 디스크를 만듭니다. 이렇게 하려면 다음 Azure PowerShell 스크립트를 실행합니다.  
@@ -151,9 +153,9 @@ Azure 파일 공유를 사용합니다.
 
     $storageType = 'StandardLRS'
 
-    $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
+    $diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
 
-    $osDisk = New-AzureRmDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
+    $osDisk = New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
     ``` 
 
 관리 디스크에서 가상 머신을 배포하는 방법에 대한 자세한 내용은 [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1)을 참조하세요.
@@ -164,7 +166,7 @@ AzCopy를 사용하여 데이터를 다운로드합니다. 자세한 내용은 [
 
 **저장소 계정에 대한 보조 지역을 유럽 지역으로 변경하려면 어떻게 할까요?**
 
-저장소 계정을 만들 때 계정에 대한 기본 지역을 선택합니다. 보조 지역은 주 지역을 기반으로 하여 선택하고 변경할 수 없습니다. 자세한 내용은 [GRS(지역 중복 저장소): Azure Storage의 지역 간 복제](storage-redundancy.md)를 참조하세요.
+저장소 계정을 만들 때 계정에 대한 기본 지역을 선택합니다. 보조 지역은 주 지역을 기반으로 하여 선택하고 변경할 수 없습니다. 자세한 내용은 [GRS(영역 중복 스토리지): Azure Storage에 대한 지역 간 복제](storage-redundancy.md)를 참조하세요.
 
 **Azure SSE(저장소 서비스 암호화)에 대한 자세한 정보는 어디서 얻을 수 있나요?**  
   
@@ -191,7 +193,7 @@ AzCopy를 사용하여 다른 저장소 계정으로 데이터를 복사한 다�
 
 **저장소 계정의 복제를 지역 중복 저장소에서 로컬 중복 저장소로 변경하기 위한 필수 구성 요소가 있나요?**
 
-아니요. 
+ 아니요. 
 
 **Azure Files 중복 저장소에 액세스하려면 어떻게 할까요?**
 
@@ -234,7 +236,7 @@ Premium Storage는 Azure 파일 공유에서 허용되지 않습니다.
 
 **클래식 저장소 계정에서 Azure Resource Manager 저장소 계정으로 이동하려면 어떻게 할까요?**
 
-**Move-AzureStorageAccount** cmdlet을 사용할 수 있습니다. 이 cmdlet에는 여러 단계(유효성 검사, 준비, 커밋)가 있습니다. 만들기 전에 확인할 수 있습니다.
+**Move-AzStorageAccount** cmdlet을 사용할 수 있습니다. 이 cmdlet에는 여러 단계(유효성 검사, 준비, 커밋)가 있습니다. 만들기 전에 확인할 수 있습니다.
 
 가상 머신이 있는 경우 저장소 계정 데이터를 마이그레이션하기 전에 몇 가지 추가 단계를 수행해야 합니다. 자세한 내용은 [Azure PowerShell을 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md)을 참조하세요.
 
@@ -274,7 +276,7 @@ Azure CLI를 사용할 수 있습니다.
 
 -   읽기 액세스 지역 중복 저장소를 사용하는 경우 언제든지 보조 지역의 데이터에 액세스할 수 있습니다. 다음 방법 중 하나를 사용합니다.  
       
-    - **AzCopy**: 보조 엔드포인트에 액세스하려면 URL의 저장소 계정 이름에 **-secondary**를 추가합니다. 예:   
+    - **AzCopy**: 보조 엔드포인트에 액세스하려면 URL의 스토리지 계정 이름에 **-secondary**를 추가합니다. 예:   
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
@@ -289,7 +291,7 @@ SSL은 현재 사용자 지정 도메인이 있는 저장소 계정에서 지원
 
 FTP를 사용하여 저장소 계정에 직접 액세스할 수 있는 방법은 없습니다. 그러나 Azure 가상 머신을 설정한 다음 가상 머신에 FTP 서버를 설치할 수 있습니다. FTP 서버는 Azure Files 공유 또는 가상 머신에서 사용할 수 있는 데이터 디스크에 파일을 저장할 수 있습니다.
 
-Storage 탐색기 또는 유사한 응용 프로그램을 사용하지 않고 데이터만 다운로드하려는 경우 SAS 토큰을 사용할 수 있습니다. 자세한 내용은 [공유 액세스 서명 사용](storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
+Storage 탐색기 또는 유사한 애플리케이션을 사용하지 않고 데이터만 다운로드하려는 경우 SAS 토큰을 사용할 수 있습니다. 자세한 내용은 [공유 액세스 서명 사용](storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
 **저장소 계정 간에 Blob을 마이그레이션하는 방법**
 

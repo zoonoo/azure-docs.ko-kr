@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 96141ddeeb73c7483935d5da49b9341436c10c18
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 198e7d8d32e7142a266881e2f4ddbc3ed573c521
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429712"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187286"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>빠른 시작: 서버 방화벽 구성 - 포털
 
@@ -21,10 +21,10 @@ ms.locfileid: "49429712"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- 구독의 Azure Analysis Services 서버 자세히 알아보려면 [빠른 시작: 서버 만들기 - 포털](analysis-services-create-server.md) 또는 [빠른 시작: 서버 만들기 - PowerShell](analysis-services-create-powershell.md)을 참조하세요.
+- 구독의 Azure Analysis Services 서버 자세한 내용은 [빠른 시작: 서버 만들기 - 포털](analysis-services-create-server.md) 또는 [빠른 시작: 서버 만들기 - PowerShell](analysis-services-create-powershell.md)을 참조하세요.
 - 클라이언트 컴퓨터에 대한 하나 이상의 IP 주소 범위(필요한 경우)
 
-## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인 
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인 
 
 [포털에 로그인](https://portal.azure.com)
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Search에서 이미지의 텍스트 처리 및 추출 | Microsoft Docs
+title: 인식 검색에서 이미지의 텍스트 처리 및 추출 - Azure Search
 description: Azure Search의 인식 검색 파이프라인에 있는 이미지에서 텍스트 및 기타 정보를 처리하고 추출합니다.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 5ee821f3d1e81e581f376d4b14b3e8393a8f190c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: b4829b0da656c648db732b2e7564de6db8fbf2eb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444638"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312615"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>인식 검색 시나리오의 이미지에서 정보를 처리하고 추출하는 방법
 

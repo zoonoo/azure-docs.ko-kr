@@ -1,58 +1,55 @@
 ---
-title: IoT Edge의 Azure Stream Analytics(미리 보기)
+title: IoT Edge의 Azure Stream Analytics
 description: Azure Stream Analytics에서 Edge 작업을 만들고 Azure IoT Edge가 실행되는 디바이스에 배포합니다.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/16/2017
-ms.openlocfilehash: a9d3b92b9cb3334c8c52a9127a2fab92d187e3d9
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 9d5a0cf9fa4f9ad8b5a673cd2420416f92edda91
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687438"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994983"
 ---
-# <a name="azure-stream-analytics-on-iot-edge-preview"></a>IoT Edge의 Azure Stream Analytics(미리 보기)
-
-> [!IMPORTANT]
-> 이 기능은 미리 보기이며 프로덕션에서 사용하지 않는 것이 좋습니다.
+# <a name="azure-stream-analytics-on-iot-edge"></a>IoT Edge의 Azure Stream Analytics
  
 IoT Edge의 ASA(Azure Stream Analytics)는 개발자가 IoT 디바이스에 보다 가깝게 거의 실시간으로 분석 인텔리전스를 배포하여 디바이스 생성 데이터의 가치를 극대화할 수 있도록 합니다. Azure Stream Analytics는 짧은 대기 시간, 복원력, 대역폭의 효율적 사용 및 규정 준수를 위해 고안되었습니다. 이제 기업에서는 업계 운영과 밀접한 컨트롤 논리를 배포하고, 클라우드에서 수행된 빅 데이터 분석을 보완할 수 있습니다.  
 
-IoT Edge의 Azure Stream Analytics는 [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) 프레임워크 내에서 실행됩니다. ASA에서 작업을 만든 후, IoT Hub를 사용하여 ASA 작업을 배포 및 관리할 수 있습니다. 이 기능은 미리 보기 상태입니다. 질문이나 의견이 있는 경우 [이 설문 조사](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u)를 사용하여 제품 팀에 문의할 수 있습니다. 
+IoT Edge의 Azure Stream Analytics는 [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) 프레임워크 내에서 실행됩니다. ASA에서 작업을 만든 후, IoT Hub를 사용하여 작업을 배포 및 관리할 수 있습니다.
 
 ## <a name="scenarios"></a>시나리오
-![높은 수준의 다이어그램](media/stream-analytics-edge/ASAedge_highlevel.png)
+![IoT Edge의 개괄적인 다이어그램](media/stream-analytics-edge/ASAedge-highlevel-diagram.png)
 
 * **대기 시간이 짧은 명령 및 컨트롤**: 예를 들어 제조 안전 시스템은 매우 짧은 대기 시간으로 운영 데이터에 응답해야 합니다. Azure IoT Edge의 ASA를 사용하면 예외 상황이 감지될 때 거의 실시간으로 센서 데이터를 분석하고 명령을 실행하여 컴퓨터를 중지하거나 경고를 트리거할 수 있습니다.
 *   **클라우드에 대한 연결 제한**: 원격 마이닝 장비, 연결된 선박 또는 해양 굴착 같은 중요한 업무용 시스템은 클라우드 연결이 간헐적으로 끊어지더라도 데이터를 분석하고 대응해야 합니다. ASA를 사용하면 스트리밍 논리가 네트워크 연결과는 별개로 실행되며, 추가 처리 및 저장을 위해 클라우드로 전송할 항목을 선택할 수 있습니다.
-* **제한된 대역폭**: 제트 엔진 또는 연결된 자동차에서 생성하는 데이터 양이 매우 커서 데이터를 클라우드로 전송하기 전에 필터링하고 미리 처리해야 합니다. ASA를 사용하면 클라우드로 전송해야 하는 데이터를 필터링하거나 집계할 수 있습니다.
+* **제한된 대역폭**: 제트 엔진 또는 연결된 자동차에서 생성하는 데이터 양이 매우 커서 데이터를 클라우드로 전송하기 전에 필터링하고 사전 처리해야 합니다. ASA를 사용하면 클라우드로 전송해야 하는 데이터를 필터링하거나 집계할 수 있습니다.
 * **규정 준수**: 규정 준수에 따라 일부 데이터를 클라우드로 전송하기 전에 로컬로 익명화하거나 집계해야 할 수 있습니다.
 
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Azure Stream Analytics의 Edge 작업
 ### <a name="what-is-an-edge-job"></a>"edge" 작업이란 무엇인가요?
 
-ASA Edge 작업은 [Azure IoT Edge 런타임](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)에서 모듈로 실행됩니다. 이 작업은 다음 두 부분으로 구성됩니다.
+ASA Edge 작업은 [Azure IoT Edge 디바이스](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)에 배포된 컨테이너에서 실행됩니다. 이 작업은 다음 두 부분으로 구성됩니다.
 1.  작업 정의를 담당하는 클라우드 부분: 사용자가 클라우드의 입력, 출력, 쿼리 및 기타 설정(잘못된 이벤트 등)을 정의합니다.
-2.  로컬로 실행되는 IoT Edge 모듈의 ASA. 이 부분은 ASA 복합 이벤트 처리 엔진을 포함하며 클라우드에서 작업 정의를 수신합니다. 
+2.  IoT 디바이스에서 실행되는 모듈입니다. ASA 엔진을 포함하며 클라우드에서 작업 정의를 수신합니다. 
 
 ASA는 IoT Hub를 사용하여 디바이스에 Edge 작업을 배포합니다. [IoT Edge 배포에 대한 추가 정보는 여기에서 확인할 수 있습니다](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
 
-![Edge 작업](media/stream-analytics-edge/ASAedge_job.png)
+![Azure Stream Analytics Edge 작업](media/stream-analytics-edge/stream-analytics-edge-job.png)
 
 
 ### <a name="installation-instructions"></a>설치 지침
 다음 표에는 간단한 단계가 설명되어 있습니다. 더 자세한 내용은 다음 섹션에 제공됩니다.
-|      |단계   | 위치     | 메모   |
-| ---   | ---   | ---       |  ---      |
-| 1   | **저장소 컨테이너 만들기**   | Azure portal       | 저장소 컨테이너는 작업 정의를 저장하는 데 사용되며 IoT 디바이스에서 액세스할 수 있습니다. <br>  모든 기존 저장소 컨테이너를 다시 사용할 수 있습니다.     |
-| 2   | **ASA Edge 작업 만들기**   | Azure portal      |  새 작업을 선택하고 **Edge**를 **호스팅 환경**으로 선택합니다. <br> 이러한 작업은 클라우드에서 생성/관리되며 사용자 고유의 IoT Edge 디바이스에서 실행됩니다.     |
-| 3   | **장치에서 IoT Edge 환경 설정**   | 디바이스      | [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) 또는 [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux)에 대한 지침          |
-| 4   | **IoT Edge 장치에 ASA 배포**   | Azure portal      |  ASA 작업 정의는 이전에 만든 저장소 컨테이너로 내보내집니다.       |
+|      |단계   | 메모   |
+| ---   | ---   |  ---      |
+| 1   | **저장소 컨테이너 만들기**   | 저장소 컨테이너는 작업 정의를 저장하는 데 사용되며 IoT 디바이스에서 액세스할 수 있습니다. <br>  모든 기존 저장소 컨테이너를 다시 사용할 수 있습니다.     |
+| 2   | **ASA Edge 작업 만들기**   |  새 작업을 선택하고 **Edge**를 **호스팅 환경**으로 선택합니다. <br> 이러한 작업은 클라우드에서 생성/관리되며 사용자 고유의 IoT Edge 디바이스에서 실행됩니다.     |
+| 3   | **디바이스에서 IoT Edge 환경 설정**   | [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) 또는 [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux)에 대한 지침          |
+| 4   | **IoT Edge 디바이스에 ASA 배포**   |  ASA 작업 정의는 이전에 만든 저장소 컨테이너로 내보내집니다.       |
 [이 단계별 자습서](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)에 따라 IoT Edge에 첫 번째 ASA 작업을 배포할 수 있습니다. 다음 비디오는 IoT Edge 디바이스에서 Stream Analytics 작업을 실행하는 프로세스를 이해하는 데 도움이 됩니다.  
 
 
@@ -73,7 +70,7 @@ ASA 컴파일된 쿼리 및 작업 구성을 내보내려면 저장소 컨테이
 
 2. 생성 화면에서 **Edge**를 **호스팅 환경**으로 선택합니다(다음 그림 참조).
 
-   ![작업 만들기](media/stream-analytics-edge/ASAEdge_create.png)
+   ![Edge에서 Stream Analytics 작업 만들기](media/stream-analytics-edge/create-asa-edge-job.png)
 3. 작업 정의
     1. **입력 스트림 정의**. 작업에 대해 하나 또는 여러 개의 입력 스트림을 정의합니다.
     2. 참조 데이터를 정의합니다(선택 사항).
@@ -107,7 +104,7 @@ Edge 작업은 Azure IoT Edge를 실행하는 디바이스에 배포할 수 있�
 - Azure Portal에서 IoT Hub를 열고 **IoT Edge**로 이동한 후, 이 배포에 대상을 지정할 디바이스를 클릭합니다.
 - **모듈 설정**을 선택한 다음, **+ 추가**를 선택하고 **Azure Stream Analytics 모듈**을 선택합니다.
 - 구독 및 사용자가 만든 ASA Edge 작업을 선택합니다. 저장을 클릭합니다.
-![모듈에 ASA 배포 추가](media/stream-analytics-edge/set_module.png)
+![모듈에 ASA 배포 추가](media/stream-analytics-edge/add-stream-analytics-module.png)
 
 
 > [!Note]
@@ -123,7 +120,8 @@ IoT Edge에서는 모듈 간에, 그리고 모듈과 IoT Hub 간에 선언적으
 ASA 작업에서 만든 입/출력의 이름은 라우팅을 위한 엔드포인트로 사용할 수 있습니다.  
 
 ###### <a name="example"></a>예
-```
+
+```json
 {
 "routes": {                                              
     "sensorToAsa":   "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/ASA/inputs/temperature\")",
@@ -134,24 +132,24 @@ ASA 작업에서 만든 입/출력의 이름은 라우팅을 위한 엔드포인
 
 ```
 이 예제에서는 다음 그림에 설명된 시나리오에 대한 경로를 보여 줍니다. 여기에는 이름이 "**ASA**"이고, 입력 "**temperature**"와 출력"**alert**"를 포함하는 Edge 작업이 포함되어 있습니다.
-![라우팅 예제](media/stream-analytics-edge/RoutingExample.png)
+![메시지 라우팅 다이어그램 예](media/stream-analytics-edge/edge-message-routing-example.png)
 
 이 예제에서는 다음 경로를 정의합니다.
 - **tempSensor**의 모든 메시지는 **temperature**라는 입력에 대해 **ASA** 모듈로 전송됩니다.
-- **ASA** 모듈의 모든 출력은 이 장치에 연결된 IoT Hub로 전송됩니다($upstream).
+- **ASA** 모듈의 모든 출력은 이 디바이스에 연결된 IoT Hub로 전송됩니다($upstream).
 - **ASA** 모듈의 모든 출력은 **tempSensor**의 **control** 엔드포인트로 전송됩니다.
 
 
 ## <a name="technical-information"></a>기술 정보
-### <a name="current-limitations-for-edge-jobs-compared-to-cloud-jobs"></a>클라우드 작업과 비교한 Edge 작업의 현재 제한 사항
-목표는 Edge 작업 및 클라우드 간에 동등성을 유지하는 것입니다. SQL 쿼리 언어 기능의 대부분은 이미 지원됩니다.
+### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>클라우드 작업 대비 IoT Edge 작업의 현재 제한 사항
+목표는 IoT Edge 작업과 클라우드 작업 간에 패리티를 유지하는 것입니다. SQL 쿼리 언어 기능의 대부분은 이미 지원됩니다.
 그러나 다음 기능이 Edge 작업에서는 아직 지원되지 않습니다.
-* UDF(사용자 정의 함수) 및 UDA(사용자 정의 집계)
+* JavaScript의 UDF(사용자 정의 함수). UDF는 [IoT Edge 작업용 C#](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf)(미리 보기)에서 사용할 수 있습니다.
+* UDA(사용자 정의 집계).
 * Azure ML 함수
 * 한 번에 15개 이상의 집계 사용
 * AVRO 형식의 입/출력 현재 CSV 및 JSON만 지원됩니다.
 * 다음 SQL 연산자:
-    * AnomalyDetection
     * 지리 공간적 연산자:
         * CreatePoint
         * CreatePolygon
@@ -169,7 +167,7 @@ IoT Edge에서 ASA를 실행하려면 [Azure IoT Edge](https://azure.microsoft.c
 
 ASA 및 Azure IoT Edge는 **Docker** 컨테이너를 사용하여 여러 호스트 운영 체제(Windows, Linux)에서 실행되는 이식 가능한 솔루션을 제공합니다.
 
-IoT Edge의 ASA는 x86-64 또는 Azure Resource Manager 아키텍처 모두에서 실행되는 Windows 및 Linux 이미지로 사용할 수 있습니다. 
+IoT Edge의 ASA는 x86-64 또는 ARM(Advanced RISC Machines) 아키텍처 둘 다에서 실행되는 Windows 및 Linux 이미지로 사용할 수 있습니다. 
 
 
 ### <a name="input-and-output"></a>입력 및 출력
@@ -197,9 +195,9 @@ Edge에서 참조 데이터를 사용하여 작업을 만들려면:
 
 3. 디바이스에서 참조 데이터 파일을 준비합니다. Windows 컨테이너의 경우 참조 데이터 파일을 로컬 드라이브에 저장하고 로컬 드라이브를 Docker 컨테이너와 공유합니다. Linux 컨테이너의 경우 Docker 볼륨을 만들고 데이터 파일을 볼륨에 채웁니다.
 
-4. 파일 경로를 설정합니다. Windows 디바이스의 경우 절대 경로를 사용합니다. Linux 디바이스의 경우 볼륨의 경로를 사용합니다.
+4. 파일 경로를 설정합니다. Windows 호스트 OS 및 Windows 컨테이너의 경우 절대 경로(`E:\<PathToFile>\v1.csv`)를 사용합니다. Windows 호스트 OS 및 Linux 컨테이너 또는 Linux OS 및 Linux 컨테이너의 경우 볼륨의 경로(`<VolumeName>/file1.txt`)를 사용합니다.
 
-![IoT Edge에서 Azure Stream Analytics 작업에 대한 새 참조 데이터 입력](./media/stream-analytics-edge/ReferenceDataNewInput.png)
+![IoT Edge에서 Azure Stream Analytics 작업에 대한 새 참조 데이터 입력](./media/stream-analytics-edge/Reference-Data-New-Input.png)
 
 IoT Edge 업데이트에 대한 참조 데이터는 배포에 의해 트리거됩니다. 트리거되면 ASA 모듈은 실행 중인 작업을 중지하지 않고 업데이트된 데이터를 선택합니다.
 
@@ -207,10 +205,9 @@ IoT Edge 업데이트에 대한 참조 데이터는 배포에 의해 트리거�
 * Azure Portal에서 ASA 작업의 참조 데이터 경로를 업데이트합니다.
 * IoT Edge 배포를 업데이트합니다.
 
-
 ## <a name="license-and-third-party-notices"></a>라이선스 및 타사 알림
-* [IoT Edge의 Azure Stream Analytics 미리 보기 라이선스](https://go.microsoft.com/fwlink/?linkid=862827). 
-* [IoT Edge의 Azure Stream Analytics에 대한 타사 알림 미리 보기](https://go.microsoft.com/fwlink/?linkid=862828).
+* [IoT Edge의 Azure Stream Analytics 라이선스](https://go.microsoft.com/fwlink/?linkid=862827) 
+* [IoT Edge의 Azure Stream Analytics에 대한 타사 알림](https://go.microsoft.com/fwlink/?linkid=862828)
 
 ## <a name="get-help"></a>도움말 보기
 추가 지원이 필요할 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
@@ -220,8 +217,8 @@ IoT Edge 업데이트에 대한 참조 데이터는 배포에 의해 트리거�
 
 * [Azure Iot Edge에 대한 추가 정보](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [IoT Edge의 ASA 자습서](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
-* [이 설문 조사를 사용하여 팀에 의견 보내기](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
 * [Visual Studio 도구를 사용하여 Stream Analytics Edge 작업 개발](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
+* [API를 사용하여 Stream Analytics를 위한 CI/CD 구현](stream-analytics-cicd-api.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

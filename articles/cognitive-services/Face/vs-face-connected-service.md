@@ -231,7 +231,7 @@ Cognitive Services Face API를 사용하여 사진의 얼굴을 감지, 분석 �
         }
    ```
 
-1. 웹 응용 프로그램을 실행하고 Face API가 이미지에서 찾은 결과를 확인합니다.
+1. 웹 애플리케이션을 실행하고 Face API가 이미지에서 찾은 결과를 확인합니다.
  
    ![Face API 이미지 및 서식이 지정된 결과](media/vs-face-connected-service/Cog-Face-Connected-Service-4.PNG)
 

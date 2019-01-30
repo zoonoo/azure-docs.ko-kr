@@ -3,7 +3,7 @@ title: 탄력적 데이터베이스 작업 설치 | Microsoft Docs
 description: 탄력적 작업 기능의 설치에 대한 단계별 안내
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: c2fb3ae20ea2b6ba71408a734c1e0c82cbeb699c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cc322f44760ddf0a7cd28751c895a7c4938dbbc0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233578"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867243"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Elastic Database 작업 설치 개요
 
@@ -51,7 +51,7 @@ ms.locfileid: "51233578"
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobsCmdlets.ps1
 
 ## <a name="install-the-elastic-database-jobs-components-using-powershell"></a>PowerShell을 사용하여 Elastic Database 작업 구성 요소 설치
-1. Microsoft Azure PowerShell 명령 창을 시작하고 Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x 폴더 아래의 \tools 하위 디렉터리로 이동합니다. cd \tools를 입력합니다.
+1. Microsoft Azure PowerShell 명령 창을 시작하고 Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x 폴더 아래의 \tools 하위 디렉터리로 이동합니다. cd \tools 입력
    
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 
@@ -156,7 +156,7 @@ ms.locfileid: "51233578"
 ## <a name="install-the-elastic-database-jobs-components-using-the-portal"></a>포털을 사용하여 Elastic Database 작업 구성 요소 설치
 [탄력적 풀을 만든](sql-database-elastic-pool-manage-portal.md)후에 **Elastic Database 작업** 구성 요소를 설치하여 탄력적 풀에 있는 각 데이터베이스에 대한 관리 작업을 실행할 수 있습니다. **Elastic Database 작업** PowerShell API를 사용하는 경우와 달리 포털 인터페이스는 현재 기존 풀에 대한 실행만으로 제한됩니다.
 
-**예상 완료 시간:** 10분
+**예상 완료 시간:** 10분.
 
 1. [Azure Portal](https://portal.azure.com/#)을 통해 탄력적 풀의 대시보드 뷰에서 **작업 만들기**를 클릭합니다.
 2. 처음으로 작업을 만드는 경우 **미리 보기 약관**을 클릭하여 **Elastic Database 작업**을 설치해야 합니다.

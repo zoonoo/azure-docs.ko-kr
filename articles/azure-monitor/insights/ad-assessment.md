@@ -10,17 +10,15 @@ ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 65acbfbecf8ae34ff25780bfc161c52b5adc1d65
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 063cedc679c3365e6352549e78c75ecff903cae7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634917"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193011"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Log Analytics에서 Active Directory Health Check 솔루션을 사용하여 사용자의 Active Directory 환경 최적화
 
@@ -55,7 +53,7 @@ Active Directory Health Check 솔루션을 사용하여 일정한 간격으로 �
 
 1. 도메인 컨트롤러를 아직 System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2에서 모니터링하지 않는 경우 [MMA(Microsoft Monitoring Agent)](../../azure-monitor/platform/agent-windows.md)를 설치합니다.
 2. System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2로 모니터링되며 관리 그룹이 Log Analytics 서비스와 통합되지 않은 경우, 도메인 컨트롤러는 Log Analytics와 멀티 홈으로 구성되어 데이터를 수집하고 서비스로 전달할 수 있으며 Operations Manager를 통해 모니터링할 수 있습니다.  
-3. 그렇지 않고 Operations Manager 관리 그룹이 서비스와 통합된 경우, 작업 영역에서 솔루션을 활성화한 후 [에이전트 관리 컴퓨터 추가](../../log-analytics/log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics)의 단계에 따라 데이터 수집을 위한 도메인 컨트롤러를 추가해야 합니다.  
+3. 그렇지 않고 Operations Manager 관리 그룹이 서비스와 통합된 경우, 작업 영역에서 솔루션을 활성화한 후 [에이전트 관리 컴퓨터 추가](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics)의 단계에 따라 데이터 수집을 위한 도메인 컨트롤러를 추가해야 합니다.  
 
 Operations Manager 관리 그룹에 보고하는 도메인 컨트롤러의 에이전트는 데이터를 수집하여 할당된 관리 서버로 전달한 다음 관리 서버에서 Log Analytics 서비스로 직접 보냅니다.  이 데이터는 Operations Manager 데이터베이스에 기록되지 않습니다.  
 
@@ -186,4 +184,4 @@ Active Directory Health Check는 사용자가 사용하도록 설정한 에이�
 * 예, 위의 [권장 사항 무시](#ignore-recommendations) 섹션을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics의 로그 검색](../../log-analytics/log-analytics-queries.md)을 사용하여 상세 AD Health Check 데이터 및 권장 사항의 분석 방법을 알아봅니다.
+* [Log Analytics의 로그 검색](../../azure-monitor/log-query/log-query-overview.md)을 사용하여 상세 AD Health Check 데이터 및 권장 사항의 분석 방법을 알아봅니다.

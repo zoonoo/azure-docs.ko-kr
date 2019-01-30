@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3cbe7c1d458e95aa27c51f0d1c9f61326888a5ab
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 09/12/2018
+ms.openlocfilehash: afb4e634b7e255ef8f2cfc84319029af7412372e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962684"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251880"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure Stack 통합 시스템의 데이터 센터 통합 고려 사항
 Azure Stack 통합 시스템에서 관심이 있는 경우에 배포 및 시스템 데이터 센터에 적용 하는 방법의 주요 계획 고려 사항 중 일부를 이해 해야 합니다. 이 문서에서는 Azure Stack 다중 노드 시스템에 대 한 중요 한 인프라 결정을 내릴 수 있도록 이러한 고려 사항은의 대략적인 개요를 제공 합니다. 이러한 고려 사항을 이해에는 데이터 센터에 Azure Stack을 배포할 때 OEM 하드웨어 공급 업체를 작업할 때 도움이 됩니다.  
@@ -196,7 +197,7 @@ Linux 또는 Windows IaaS virtual machines를 백업 하려면 파일, 폴더, �
 ## <a name="learn-more"></a>자세한 정보
 
 - 사용 사례, 구매, 파트너 및 OEM 하드웨어 공급 업체에 대 한 내용은 참조는 [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) 제품 페이지입니다.
-- 통합된 시스템을 Azure Stack에 대 한 로드맵 및 지역 가용성에 대 한 자세한 백서를 참조 합니다. [Azure Stack: Azure의 확장](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)합니다. 
+- 통합된 시스템, Azure Stack에 대 한 로드맵 및 지역 가용성에 대 한 자세한 백서를 참조 합니다. [Azure Stack: Azure의 확장](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Stack 배포 연결 모델](azure-stack-connection-models.md)

@@ -1,23 +1,24 @@
 ---
-title: LUIS 버전 학습
-titleSuffix: Azure Cognitive Services
+title: 앱 교육
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 학습은 해당 자연어 이해를 향상시키기 위해 LUIS(Language Understanding) 앱 버전을 학습하는 과정입니다. 엔터티, 의도 또는 발언을 추가하거나, 편집하거나, 레이블 지정하거나 삭제하는 등 모델에 대한 업데이트 후에 LUIS 앱을 학습합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: 362c5e2e7216d584a9858ace5fb607dc0ee126d5
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: ba450258a03fc21a06476a6bdd81dc5a886056de
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426107"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137627"
 ---
-# <a name="train-your-luis-app-version"></a>LUIS 앱 버전 학습
+# <a name="train-your-active-version-of-the-luis-app"></a>LUIS 앱의 활성 버전 학습 
 
 학습은 해당 자연어 이해를 개선하기 위해 LUIS(Language Understanding) 앱을 교육하는 과정입니다. 엔터티, 의도 또는 발언을 추가하거나, 편집하거나, 레이블 지정하거나 삭제하는 등 모델에 대한 업데이트 후에 LUIS 앱을 학습합니다. 
 

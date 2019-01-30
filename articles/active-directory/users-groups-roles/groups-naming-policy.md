@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory에서 Office 365 그룹에 대한 그룹 이름 정책 설정 (미리 보기) | Microsoft Docs
-description: Azure Active Directory에서 Office 365 그룹에 대한 만료를 설정하는 방법(미리 보기)
+title: 그룹 이름 정책(미리 보기) - Office 365 그룹 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory에서 Office 365 그룹에 대한 명명 정책 설정 방법(미리 보기)
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 01/14/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 2857f95eff0b2d039a1a3c7bbe566a8ed3ca4fea
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 1118be1c335d8f88171b359c9cd273cdd2923021
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243132"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321724"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Azure Active Directory에서 Office 365 그룹에 대한 명명 정책 적용(미리 보기)
 
@@ -58,6 +58,7 @@ Office 365 그룹에 대한 명명 정책은 두 가지 방법으로 적용할 �
 차단된 단어 목록은 그룹 이름 및 별칭에 대해 차단할 구문의 쉼표로 구분된 목록입니다. 하위 문자열 검색이 수행되지 않습니다. 실패를 트리거하려면 그룹 이름과 하나 이상의 사용자 정의 차단 단어가 정확하게 일치해야 합니다. ‘Class’는 차단된 단어임에도 불구하고 사용자가 ‘Class’와 같은 일반적인 단어를 사용할 수 있도록 하위 문자열 검색이 수행되지 않습니다.
 
 차단된 단어 목록 규칙:
+
 - 차단된 단어는 대소문자가 구분되지 않습니다.
 - 사용자가 그룹 이름의 일부로 차단된 단어를 입력하면 차단된 해당 단어와 함께 오류 메시지가 표시됩니다.
 - 차단된 단어에는 문자 제한이 없습니다.
@@ -120,7 +121,7 @@ PowerShell 명령을 실행하기 전에 Windows PowerShell용 그래프 모듈�
   
 ### <a name="set-the-naming-policy-and-custom-blocked-words"></a>명명 정책 및 사용자 정의 차단 단어 설정
 
-1. Azure AD PowerShell에서 그룹 이름 접두사 및 접미사를 설정합니다.
+1. Azure AD PowerShell에서 그룹 이름 접두사 및 접미사를 설정합니다. 기능이 제대로 작동하려면 [GroupName]이 설정에 포함되어야 합니다.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
@@ -166,6 +167,27 @@ $Settings["CustomBlockedWordsList"] = $BadWords
 $Settings["EnableMSStandardBlockedWords"] = $True
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
 ````
+
+## <a name="remove-the-naming-policy"></a>명명 정책 제거
+
+1. Azure AD PowerShell에서 그룹 이름 접두사 및 접미사를 비웁니다.
+  
+  ````
+  $Setting["PrefixSuffixNamingRequirement"] =""
+  ````
+  
+2. 사용자 지정 차단 단어를 비웁니다. 
+  
+  ````
+  $Setting["CustomBlockedWordsList"]=""
+  ````
+  
+3. 설정을 저장합니다.
+  
+  ````
+  Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+  ````
+
 
 ## <a name="naming-policy-experiences-across-office-365-apps"></a>Office 365 앱의 명명 정책 환경
 

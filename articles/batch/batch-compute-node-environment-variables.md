@@ -1,8 +1,8 @@
 ---
-title: Azure Batch 계산 노드 환경 변수 | Microsoft Docs
+title: 컴퓨팅 노드 환경 변수 - Azure Batch | Microsoft Docs
 description: Azure Batch 분석에 대한 Compute 노드 환경 변수 참조입니다.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -10,16 +10,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 05/05/2017
-ms.author: danlep
-ms.openlocfilehash: ca8d6a6484cd1f145e7d807681bf2d012f2399e0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.date: 01/03/2019
+ms.author: lahugh
+ms.openlocfilehash: 48c2172e02e935dde28ac323c776c8895b1d36b2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30312704"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017364"
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch 계산 노드 환경 변수
+
 [Azure Batch 서비스](https://azure.microsoft.com/services/batch/)는 계산 노드에 다음과 같은 환경 변수를 설정합니다. 태스크 명령줄과 명령줄로 실행되는 프로그램 및 스크립트에서 이러한 환경 변수를 참조할 수 있습니다.
 
 Batch에 환경 변수를 사용하는 방법에 대한 자세한 내용은 [태스크에 대한 환경 설정](https://docs.microsoft.com/azure/batch/batch-api-basics#environment-settings-for-tasks)을 참조하세요.
@@ -41,6 +42,7 @@ Batch에 환경 변수를 사용하는 방법에 대한 자세한 내용은 [태
 | 변수 이름                     | 설명                                                              | 가용성 | 예 |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | 태스크가 속한 Batch 계정의 이름입니다.                  | 모든 태스크입니다.   | mybatchaccount |
+| AZ_BATCH_AUTHENTICATION_TOKEN   | Batch 서비스 작업의 제한된 집합에 대한 액세스를 부여하는 인증 토큰입니다. 이 환경 변수는 [작업이 추가](/rest/api/batchservice/task/add#request-body)될 때 [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings)가 설정된 경우에만 존재합니다. 토큰 값은 [BatchClient.Open() .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_)와 같은 Batch API에서 Batch 클라이언트를 만들 때 자격 증명으로 사용됩니다. | 모든 태스크입니다. | OAuth2 액세스 토큰 |
 | AZ_BATCH_CERTIFICATES_DIR       | Linux 계산 노드에 대한 인증서가 저장된 [태스크 작업 디렉터리][files_dirs] 내 디렉터리입니다. 이 환경 변수는 Windows 계산 노드에 적용되지 않습니다.                                                  | 모든 태스크입니다.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_JOB_ID                 | 태스크가 속한 작업의 ID | 시작 태스크를 제외한 모든 태스크입니다. | batchjob001 |
 | AZ_BATCH_JOB_PREP_DIR           | 노드의 작업 준비 [태스크 디렉터리][files_dirs] 전체 경로입니다. | 시작 태스크 및 작업 준비 태스크를 제외한 모든 태스크입니다. 작업에 작업 준비 태스크가 구성된 경우에만 사용할 수 있습니다. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |
@@ -57,7 +59,7 @@ Batch에 환경 변수를 사용하는 방법에 대한 자세한 내용은 [태
 | AZ_BATCH_NODE_LIST              | [다중 인스턴스 태스크][multi_instance]에 할당된 노드의 목록으로, `nodeIP;nodeIP` 형식입니다. | 다중 인스턴스 기본 및 하위 태스크입니다. | `10.0.0.4;10.0.0.5` |
 | AZ_BATCH_HOST_LIST              | [다중 인스턴스 태스크][multi_instance]에 할당된 노드의 목록으로, `nodeIP,nodeIP` 형식입니다. | 다중 인스턴스 기본 및 하위 태스크입니다. | `10.0.0.4,10.0.0.5` |
 | AZ_BATCH_MASTER_NODE            | [다중 인스턴스 태스크][multi_instance]의 기본 태스크가 실행되는 계산 노드의 IP 주소와 포트입니다. | 다중 인스턴스 기본 및 하위 태스크입니다. | `10.0.0.4:6000`|
-| AZ_BATCH_TASK_SHARED_DIR | [다중 인스턴스 태스크][multi_instance]의 기본 태스크 및 모든 하위 태스크일 경우 동일한 디렉터리 경로입니다. 경로는 다중 인스턴스 태스크가 실행되며 해당 노드에서 실행 중인 태스크 명령에 읽기/쓰기 액세스 권한을 가진 모든 노드에 존재합니다([조정 명령][coord_cmd]과 [응용 프로그램 명령][app_cmd] 둘 다). 다른 노드에서 실행되는 하위 태스크 또는 기본 태스크는 이 디렉터리에 대한 원격 액세스 권한이 없습니다(“공유” 네트워크 디렉터리가 아님). | 다중 인스턴스 기본 및 하위 태스크입니다. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
+| AZ_BATCH_TASK_SHARED_DIR | [다중 인스턴스 태스크][multi_instance]의 기본 태스크 및 모든 하위 태스크일 경우 동일한 디렉터리 경로입니다. 경로는 다중 인스턴스 태스크가 실행되며 해당 노드에서 실행 중인 태스크 명령에 읽기/쓰기 액세스 권한을 가진 모든 노드에 존재합니다([조정 명령][coord_cmd]과 [애플리케이션 명령][app_cmd] 둘 다). 다른 노드에서 실행되는 하위 태스크 또는 기본 태스크는 이 디렉터리에 대한 원격 액세스 권한이 없습니다(“공유” 네트워크 디렉터리가 아님). | 다중 인스턴스 기본 및 하위 태스크입니다. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
 | AZ_BATCH_IS_CURRENT_NODE_MASTER | 현재 노드가 [다중 인스턴스 태스크][multi_instance]의 마스터 노드인지 여부를 지정합니다. 가능한 값은 `true` 및 `false`입니다.| 다중 인스턴스 기본 및 하위 태스크입니다. | `true` |
 | AZ_BATCH_NODE_IS_DEDICATED | `true`의 경우 현재 노드는 전용된 노드입니다. `false`의 경우 [우선 순위가 낮은 노드](batch-low-pri-vms.md)입니다. | 모든 태스크입니다. | `true` |
 

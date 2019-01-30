@@ -15,12 +15,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: tamram
-ms.openlocfilehash: f6f421e780bfbb7922a4b11f758330f2a9a0b84b
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 03a0f8885d51e6d45fabda86714afdeefc01f992
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
-ms.locfileid: "24814578"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213487"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>Blob Storage 컨테이너 크기 계산
 
@@ -42,17 +42,17 @@ ms.locfileid: "24814578"
 다음 명령을 실행하여 리소스 그룹, 컨테이너 및 모든 관련된 리소스를 제거합니다.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name bloblisttestrg
+Remove-AzResourceGroup -Name bloblisttestrg
 ```
 
 ## <a name="script-explanation"></a>스크립트 설명
 
 이 스크립트는 다음 명령을 사용하여 Blob Storage 컨테이너의 크기를 계산합니다. 표에 있는 각 항목은 명령 관련 설명서에 연결됩니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
-| [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/get-azurermstorageaccount) | 리소스 그룹 또는 구독의 지정된 저장소 계정 또는 모든 저장소 계정을 가져옵니다. |
-| [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) | 컨테이너의 Blob을 나열합니다. ||
+| [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | 리소스 그룹 또는 구독의 지정된 저장소 계정 또는 모든 저장소 계정을 가져옵니다. |
+| [Get-AzStorageBlob](/powershell/module/az.storage/Get-AzStorageBlob) | 컨테이너의 Blob을 나열합니다. ||
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -60,4 +60,4 @@ Remove-AzureRmResourceGroup -Name bloblisttestrg
 
 Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
 
-추가 저장소 PowerShell 스크립트 샘플은 [Azure Storage에 대한 PowerShell 샘플](../blobs/storage-samples-blobs-powershell.md)에서 찾을 수 있습니다.
+추가 스토리지 PowerShell 스크립트 샘플은 [Azure Storage에 대한 PowerShell 샘플](../blobs/storage-samples-blobs-powershell.md)에서 찾을 수 있습니다.

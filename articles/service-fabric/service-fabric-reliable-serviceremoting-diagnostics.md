@@ -35,7 +35,7 @@ Reliable ServiceRemoting 런타임은 다음과 같은 성능 카운터 범주�
 
 앞의 각 범주마다 하나 이상의 카운터가 있습니다.
 
-Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능 모니터](https://technet.microsoft.com/library/cc749249.aspx) 응용 프로그램을 사용하면 성능 카운터 데이터를 수집하고 볼 수 있습니다. [Azure 진단](../cloud-services/cloud-services-dotnet-diagnostics.md) 은 성능 카운터 데이터를 수집하여 Azure 테이블에 업로드하기 위한 또 다른 옵션입니다.
+Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능 모니터](https://technet.microsoft.com/library/cc749249.aspx) 애플리케이션을 사용하면 성능 카운터 데이터를 수집하고 볼 수 있습니다. [Azure 진단](../cloud-services/cloud-services-dotnet-diagnostics.md) 은 성능 카운터 데이터를 수집하여 Azure 테이블에 업로드하기 위한 또 다른 옵션입니다.
 
 ### <a name="performance-counter-instance-names"></a>성능 카운터 인스턴스 이름
 많은 수의 ServiceRemoting 서비스 또는 파티션이 있는 클러스터에는 성능 카운터 인스턴스 수가 많습니다. 성능 카운터 인스턴스 이름은 성능 카운터 인스턴스가 연결된 특정 파티션 및 서비스 메서드(있는 경우)를 식별하는 데 도움이 될 수 있습니다.

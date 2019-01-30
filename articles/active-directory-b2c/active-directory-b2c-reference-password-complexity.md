@@ -3,19 +3,19 @@ title: Azure Active Directory B2C의 암호 복잡성 | Microsoft Docs
 description: Azure Active Directory B2C에서 소비자가 제공한 암호에 복잡성 요구 사항을 구성하는 방법입니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b16ac10e10655bbc7e41d9336378228097ca19ff
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e728fb037895908882bbe6dc7e8414457ccf273f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014723"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845557"
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: 암호에 복잡성 요구 사항 구성
 
@@ -26,22 +26,21 @@ Azure AD B2C(Azure Active Directory B2C)는 계정을 만들 때 최종 사용�
 
 ## <a name="when-password-rules-are-enforced"></a>암호 규칙을 적용하는 경우
 
-등록 또는 암호 재설정 중에 최종 사용자는 복잡성 규칙을 충족하는 암호를 제공해야 합니다.  암호 복잡성 규칙은 정책별로 적용됩니다.  하나의 정책이 등록 중에 4자리 PIN을 요구하는 반면 다른 정책은 등록 중에 8개의 문자 문자열을 요구할 수 있습니다.  예를 들어 자식에 대한 경우보다 성인에 다양한 암호 복잡성을 포함한 정책을 사용할 수 있습니다.
+등록 또는 암호 재설정 중에 최종 사용자는 복잡성 규칙을 충족하는 암호를 제공해야 합니다.  암호 복잡성 규칙은 사용자 흐름별로 적용됩니다.  하나의 사용자 흐름이 등록 중에 4자리 PIN을 요구하는 반면 다른 사용자 흐름은 등록 중에 8개의 문자 문자열을 요구할 수 있습니다.  예를 들어 자식에 대한 경우보다 성인에 다양한 암호 복잡성을 포함한 사용자 흐름을 사용할 수 있습니다.
 
 암호의 복잡성은 로그인 중에 적용되지 않습니다.  사용자는 로그인 중에 해당 암호를 변경하라는 메시지를 수신하지 않습니다. 현재 복잡성 요구 사항을 충족하지 않기 때문입니다.
 
-암호 복잡성을 구성할 수 있는 정책의 형식은 다음과 같습니다.
+암호 복잡성을 구성할 수 있는 사용자 흐름의 형식은 다음과 같습니다.
 
-* 등록 또는 로그인 정책
-* 암호 재설정 정책
+* 가입 또는 로그인 사용자 흐름
+* 암호 재설정 사용자 흐름
 * 사용자 지정 정책([사용자 지정 정책에서 암호 복잡성 구성](active-directory-b2c-reference-password-complexity-custom.md))
 
 ## <a name="how-to-configure-password-complexity"></a>암호 복잡성을 구성하는 방법
 
-1. **등록 또는 로그인 정책**을 엽니다.
-2. 정책을 선택하고 **편집**을 클릭합니다.
-3. **암호 복잡성**을 엽니다.
-4. 이 정책에 대한 암호 복잡성을 **단순**, **강력** 또는 **사용자 지정**으로 변경합니다.
+1. **사용자 흐름**을 엽니다.
+2. 사용자 흐름을 선택하고, **속성**을 클릭합니다.
+3. **암호 복잡성**에서 이 사용자 흐름에 대한 암호 복잡성을 **단순**, **강력** 또는 **사용자 지정**으로 변경합니다.
 
 ### <a name="comparison-chart"></a>비교 차트
 
@@ -71,9 +70,9 @@ Azure AD B2C(Azure Active Directory B2C)는 계정을 만들 때 최종 사용�
 
 암호에 사용되는 다양한 문자 형식을 제어할 수 있습니다.
 
-* **소문자, 대문자, 숫자 (0-9), 기호 등 4개 항목 중 2가지**를 통해 암호에 두 개 이상의 문자 형식을 포함하도록 합니다. 예를 들어, 숫자 및 소문자입니다.
-* **소문자, 대문자, 숫자 (0-9), 기호 등 4개 항목 중 3가지**를 통해 암호에 두 개 이상의 문자 형식을 포함하도록 합니다. 예를 들어, 숫자, 소문자 및 대문자입니다.
-* **소문자, 대문자, 숫자 (0-9), 기호 등 4개 항목 중 4가지**를 통해 암호에 전체 문자 형식을 포함하도록 합니다.
+* **4개 항목 중 2가지: 소문자, 대문자, 숫자 (0-9), 기호 등**을 통해 암호에 두 개 이상의 문자 형식을 포함하도록 합니다. 예를 들어, 숫자 및 소문자입니다.
+* **4개 항목 중 3가지: 소문자, 대문자, 숫자 (0-9), 기호 등**을 통해 암호에 두 개 이상의 문자 형식을 포함하도록 합니다. 예를 들어, 숫자, 소문자 및 대문자입니다.
+* **4개 항목 중 4가지: 소문자, 대문자, 숫자 (0-9), 기호 등**을 통해 암호에 모든 문자 형식을 포함하도록 합니다.
 
     > [!NOTE]
     > **4개 항목 중 4가지**로 인해 최종 사용자 불만이 발생할 수 있습니다. 일부 연구에서는 이 요구 사항이 암호 엔트로피를 개선하지 않는다고 합니다. [NIST 암호 지침](https://pages.nist.gov/800-63-3/sp800-63b.html#appA)을 참조하세요.

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: juliako
-ms.openlocfilehash: f9ad7fcf414e90acc40ee5cd42e322a3b9e47f17
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 93222129b80592ef5b4e1ed2e1420d975fe9f108
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380908"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190732"
 ---
 # <a name="generate-a-thumbnail-sprite"></a>썸네일 스프라이트 생성 
 
@@ -70,7 +70,7 @@ Media Encoder Standard를 사용하여 썸네일 스프라이트를 생성하려
 
 1.  이미지의 단일 행이 있는 스프라이트 이미지는 생성할 수 없습니다(SpriteColumn = 1은 단일 열이 있는 이미지를 생성함).
 2.  스프라이트 이미지를 중간 크기의 JPEG 이미지의 청크로 분할하는 것은 아직 지원되지 않습니다. 따라서 썸네일 이미지의 수와 해당 크기를 제한하여 결과적으로 이어진 썸네일 스프라이트가 약 8M 픽셀 이하가 되도록 주의해야 합니다.
-3.  Azure Media Player는 Edge, Chrome 및 Firefox 브라우저에서 스프라이트를 지원합니다. IE11에서는 VTT 구문 분석이 지원되지 않습니다.
+3.  Azure Media Player는 Microsoft Edge, Chrome 및 Firefox 브라우저에서 스프라이트를 지원합니다. IE11에서는 VTT 구문 분석이 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

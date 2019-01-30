@@ -3,22 +3,22 @@ title: Azure Automation의 자격 증명 자산
 description: Azure Automation의 자격 증명 자산은 runbook 또는 DSC 구성을 통해 액세스 되는 리소스를 인증하는 보안 자격 증명을 포함합니다. 이 문서에서는 자격 증명 자산을 만들고 runbook 또는 DSC 구성에 사용하는 방법을 설명합니다.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 07452a97ba16d7745d48e210dd90ce077be64683
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9884138127d62e2dc524dc1b6d9e827d1ee0fac8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233442"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439190"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure Automation의 자격 증명 자산
 
-Automation 자격 증명 자산은 사용자 이름과 암호 등의 보안 자격 증명을 포함하는 개체를 보유합니다. Runbook과 DSC 구성은 인증을 위해 PSCredential 개체를 허용하는 cmdlet를 사용할 수 있고, 일부 응용 프로그램 도는 인증이 필요한 서비스에 제공하기 위해 PScredential 개체의 사용자 이름과 암호를 추출할 수 있습니다. 자격 증명의 속성은 Azure Automation에 안전하게 저장되며 [Get-AutomationPSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) 활동을 통해 runbook과 DSC 구성에서 액세스할 수 있습니다.
+Automation 자격 증명 자산은 사용자 이름과 암호 등의 보안 자격 증명을 포함하는 개체를 보유합니다. Runbook과 DSC 구성은 인증을 위해 PSCredential 개체를 허용하는 cmdlet을 사용할 수 있고, 일부 애플리케이션 또는 인증이 필요한 서비스에 제공하기 위해 PSCredential 개체의 사용자 이름과 암호를 추출할 수 있습니다. 자격 증명의 속성은 Azure Automation에 안전하게 저장되며 [Get-AutomationPSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) 활동을 통해 runbook과 DSC 구성에서 액세스할 수 있습니다.
 
 [!INCLUDE [gdpr-dsr-and-stp-note.md](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -142,4 +142,5 @@ print cred["password"]
 * 그래픽 Runbook을 시작하려면 [내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md)
 * PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md) 
 * Python2 Runbook을 시작하려면 [내 첫 번째 Python2 Runbook](automation-first-runbook-textual-python2.md)을 참조하세요. 
+
 

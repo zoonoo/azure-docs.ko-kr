@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 01/17/2019
 ms.author: alkohli
-ms.openlocfilehash: 78e56286e0dec3307c7481a6097c53a1362f57cc
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 460a05ac25ca4af56b81fb2025e0886c7bda3070
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427525"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391152"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>자습서: Azure Data Box에 케이블 연결
 
@@ -40,7 +40,7 @@ ms.locfileid: "52427525"
     - 고속 네트워크에 연결되어 있어야 합니다. 10GbE 연결이 하나 이상 있는 것이 좋습니다. 10GbE 연결을 사용할 수 없는 경우 1GbE 데이터 링크를 사용할 수 있지만 복사 속도에 영향을 미칩니다. 
 6. Data Box를 놓을 평평한 표면이 있어야 합니다. 표준 랙 선반에 디바이스를 놓으려면 데이터 센터 랙에 7U 슬롯이 있어야 합니다. 디바이스는 랙에 평평하게 놓거나 똑바로 세울 수 있습니다.
 7. Data Box를 호스트 컴퓨터에 연결하기 위해 다음과 같은 케이블을 준비해 둔 상태여야 합니다.
-    - 10GbE SFP+ 2축 동 케이블 2개(DATA 1, DATA 2 네트워크 인터페이스에 사용)
+    - 10GbE SFP+ 2축 동 케이블 2개(DATA 1, DATA 2 네트워크 인터페이스에 사용) Data Box에는 PCI Express 3.0 네트워크 인터페이스가 있는 Mellanox ConnectX®-3 Pro EN 이중 포트 10GBASE-T 어댑터가 있으므로 이 인터페이스와 호환되는 케이블이 작동합니다. 예를 들어, CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M 케이블을 내부 테스트에 사용했습니다.
     - RJ-45 CAT 6 네트워크 케이블 1개(MGMT 네트워크 인터페이스에 사용)
     - RJ-45 CAT 6A 하나 또는 RJ-45 CAT 6 네트워크 케이블 하나(각각 10Gbps 또는 1Gbps로 구성된 DATA 3 네트워크 인터페이스에 사용)
 
@@ -69,14 +69,14 @@ ms.locfileid: "52427525"
 다음 단계를 수행하여 로컬 웹 UI 및 포털 UI를 사용하여 디바이스를 설정합니다.
 
 1. 사용 중인 랩톱에서 이더넷 어댑터를 구성하여 고정 IP 주소가 192.168.100.5이고 서브넷이 255.255.255.0인 디바이스에 연결합니다. 
-2. 디바이스의 MGMT 포트에 연결하고 로컬 웹 UI(https://192.168.100.10)에 액세스합니다. 디바이스를 켠 후 최대 5분이 소요될 수 있습니다.
+2. 디바이스의 MGMT 포트에 연결하고 로컬 웹 UI(https\://192.168.100.10)에 액세스합니다. 디바이스를 켠 후 최대 5분이 소요될 수 있습니다.
 3. **세부 정보**를 클릭한 다음, **웹 페이지로 이동**을 클릭합니다.
 
    ![로컬 웹 UI에 연결](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 
 
 4. 로컬 웹 UI에 대한 **로그인** 페이지가 보입니다. 디바이스 일련 번호가 포털 UI와 로컬 웹 UI 모두에서 일치하는지 확인합니다. 이 때는 디바이스가 잠겨있습니다.
 5. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-6. 포털에서 디바이스 자격 증명을 다운로드합니다. **일반 > 장치 세부 정보**로 이동합니다. **장치 암호**를 복사합니다. 디바이스 암호는 포털에서 특정 순서에 연결됩니다. 
+6. 포털에서 디바이스 자격 증명을 다운로드합니다. **일반 &gt; 디바이스 세부 정보**로 이동합니다. **디바이스 암호**를 복사합니다. 디바이스 암호는 포털에서 특정 순서에 연결됩니다. 
 
     ![디바이스 자격 증명 얻기](media/data-box-deploy-set-up/data-box-device-credentials.png)
     

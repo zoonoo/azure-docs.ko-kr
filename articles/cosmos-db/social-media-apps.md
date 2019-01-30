@@ -1,21 +1,17 @@
 ---
-title: 'Azure Cosmos DB 디자인 패턴: 소셜 미디어 앱 | Microsoft Docs'
+title: 'Azure Cosmos DB 디자인 패턴: 소셜 미디어 앱'
 description: Azure Cosmos DB 및 기타 Azure 서비스의 저장소 유연성을 활용하여 소셜 네트워크에 대한 디자인 패턴을 알아봅니다.
-keywords: 소셜 미디어 앱
-services: cosmos-db
 author: ealsur
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: maquaran
-ms.openlocfilehash: 6c2911ac65b95ea0a705944fdd8fb9288af28498
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 8d6dfa292bd597c2e37f7111e3a068010dc4653c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165682"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042686"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 소셜 네트워크 디자인
 
@@ -49,14 +45,14 @@ ms.locfileid: "52165682"
         "date":"2016-01-01",
         "body":"this is an awesome post stored on NoSQL",
         "createdBy":User,
-        "images":["http://myfirstimage.png","http://mysecondimage.png"],
+        "images":["https://myfirstimage.png","https://mysecondimage.png"],
         "videos":[
-            {"url":"http://myfirstvideo.mp4", "title":"The first video"},
-            {"url":"http://mysecondvideo.mp4", "title":"The second video"}
+            {"url":"https://myfirstvideo.mp4", "title":"The first video"},
+            {"url":"https://mysecondvideo.mp4", "title":"The second video"}
         ],
         "audios":[
-            {"url":"http://myfirstaudio.mp3", "title":"The first audio"},
-            {"url":"http://mysecondaudio.mp3", "title":"The second audio"}
+            {"url":"https://myfirstaudio.mp3", "title":"The first audio"},
+            {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
         ]
     }
 
@@ -102,7 +98,7 @@ Azure Cosmos DB는 모든 속성이 자체 자동 인덱싱을 통해 인덱싱�
 
 게시물이 만든 날짜별로 정렬되는 "최신" 스트림이 있을 수 있습니다. 또는 지난 24시간 동안 더 많은 '좋아요'가 달린 게시물을 포함하는 "인기" 스트림이 있을 수 있습니다. 팔로워와 관심 분야와 같은 논리에 따라 각 사용자의 사용자 지정 스트림을 구현할 수도 있습니다. 그래도 게시물 목록인 것은 마찬가지입니다. 이러한 목록을 빌드하는 방법이 중요하지만 읽기 성능이 그대로 유지되어야 합니다. 이러한 목록 중 하나를 가져온 후에는 여러 페이지의 게시물을 한 번에 가져오기 위해 [IN 연산자](how-to-sql-query.md#WhereClause)를 사용하여 Cosmos DB에 대한 단일 쿼리를 실행합니다.
 
-피드 스트림은 [Azure App Services](https://azure.microsoft.com/services/app-service/)의 백그라운드 프로세스인 [Webjobs](../app-service/web-sites-create-web-jobs.md)를 사용하여 빌드할 수 있습니다. 게시물을 만든 후 [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)를 통해 트리거되고 고유한 사용자 지정 논리를 기반으로 스트림 내에 게시물 전파를 구현하는 [Azure Storage](https://azure.microsoft.com/services/storage/), [큐](../storage/queues/storage-dotnet-how-to-use-queues.md) 및 Webjobs를 사용하여 백그라운드 처리를 트리거할 수 있습니다.
+피드 스트림은 [Azure App Services](https://azure.microsoft.com/services/app-service/)의 백그라운드 프로세스인 [Webjobs](../app-service/webjobs-create.md)를 사용하여 빌드할 수 있습니다. 게시물을 만든 후 [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)를 통해 트리거되고 고유한 사용자 지정 논리를 기반으로 스트림 내에 게시물 전파를 구현하는 [Azure Storage](https://azure.microsoft.com/services/storage/), [큐](../storage/queues/storage-dotnet-how-to-use-queues.md) 및 Webjobs를 사용하여 백그라운드 처리를 트리거할 수 있습니다.
 
 이 동일한 기술을 사용하여 궁극적으로 일관된 환경을 만들어 게시물에 대한 평점 및 좋아요를 지연된 방식으로 처리할 수 있습니다.
 
@@ -141,7 +137,7 @@ Azure Cosmos DB [Gremlin API](../cosmos-db/graph-introduction.md)를 사용하�
 
 쿼리를 더 빠르게 처리하기 위해 데이터 중복을 허용하게 됩니다. 그 부작용으로 인한 문제는 일부 작업으로 인해 사용자의 데이터가 변경된 경우 해당 사용자가 지금까지 수행한 모든 활동을 찾아서 모두 업데이트해야 한다는 점입니다. 실용적으로 들리지 않죠, 그렇죠?
 
-각 활동에 대해 애플리케이션에 표시하는 사용자의 주요 특성을 식별하여 문제를 해결할 수 있습니다. 게시물을 응용 프로그램에 시각적으로 표시하고 만든 사람의 이름과 사진만 표시했을 뿐인데 “createdBy” 특성에 해당 사용자의 모든 데이터가 저장되는 이유는 무엇일까요? 각 의견에 대해 사용자의 사진만 표시하면 사용자의 나머지 정보는 필요 없습니다. 바로 여기에 “사다리 패턴”이 적용됩니다.
+각 활동에 대해 애플리케이션에 표시하는 사용자의 주요 특성을 식별하여 문제를 해결할 수 있습니다. 게시물을 애플리케이션에 시각적으로 표시하고 만든 사람의 이름과 사진만 표시했을 뿐인데 “createdBy” 특성에 해당 사용자의 모든 데이터가 저장되는 이유는 무엇일까요? 각 의견에 대해 사용자의 사진만 표시하면 사용자의 나머지 정보는 필요 없습니다. 바로 여기에 “사다리 패턴”이 적용됩니다.
 
 다음 사용자 정보를 예로 들어 보겠습니다.
 
@@ -208,9 +204,9 @@ Azure Search에 대한 자세한 내용은 [Hitchhiker의 검색 가이드](http
 
 ## <a name="the-underlying-knowledge"></a>기본 지식
 
-매일 증가하는 이 모든 콘텐츠를 저장한 후에는 이 모든 사용자 정보 스트림으로 수행할 수 있는 작업이 무엇인지 궁금할 수 있습니다.
+매일 증가하는 이 모든 콘텐츠를 저장한 후 다음의 정보를 확인할 수 있습니다. 사용자의 이 모든 정보 스트림으로 무엇을 수행할 수 있나요?
 
-대답은 간단합니다. 사용할 수 있도록 구성한 후 학습하는 것입니다.
+대답은 간단합니다. 작업에 적용하고 학습합니다.
 
 그렇다면 무엇을 배울 수 있을까요? 몇 가지 쉬운 예를 들면 [감정 분석](https://en.wikipedia.org/wiki/Sentiment_analysis), 사용자의 선호도에 따른 콘텐츠 추천 또는 소셜 네트워크에서 게시된 모든 콘텐츠가 가족에게 안전하도록 보장하는 자동화된 콘텐츠 중재자 등이 있습니다.
 

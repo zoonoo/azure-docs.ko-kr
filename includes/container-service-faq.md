@@ -4,14 +4,16 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: c5200e7e4d5550f26343fab1561c214ee19d6741
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: b0bb45233aa34dce6794638e5d49fc2b47bef71d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572460"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53615204"
 ---
-# <a name="container-service-frequently-asked-questions"></a>Container Service 질문과 대답
+# <a name="deprecated-container-service-frequently-asked-questions"></a>(사용되지 않음) Container Service 질문과 대답
+
+[!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
 ## <a name="orchestrators"></a>오케스트레이터
 
@@ -30,7 +32,7 @@ ms.locfileid: "51572460"
 ### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>Azure Container Service에 권장되는 특정 오케스트레이터가 있나요? 
 일반적으로 특정 오케스트레이터가 권장되지는 않습니다. 지원되는 오케스트레이터 중 하나에 경험이 있다면 그러한 경험을 Azure Container Service에 적용할 수 있습니다. 하지만 데이터 경향에 따르면 DC/OS는 빅 데이터 및 IoT 워크로드에 대해 성능이 입증되었고 Kubernetes는 클라우드 네이티브 워크로드에 적합하며 Docker Swarm은 Docker 도구와의 통합 및 학습이 쉬운 것으로 알려져 있습니다.
 
-시나리오에 따라 다른 Azure 서비스를 사용하여 사용자 지정 컨테이너 솔루션을 구축하고 관리할 수도 있습니다. 이러한 서비스에는 [Virtual Machines](../articles/virtual-machines/linux/overview.md), [Service Fabric](../articles/service-fabric/service-fabric-overview.md), [Web Apps](../articles/app-service/app-service-web-overview.md) 및 [Batch](../articles/batch/batch-technical-overview.md)가 있습니다.  
+시나리오에 따라 다른 Azure 서비스를 사용하여 사용자 지정 컨테이너 솔루션을 구축하고 관리할 수도 있습니다. 이러한 서비스에는 [Virtual Machines](../articles/virtual-machines/linux/overview.md), [Service Fabric](../articles/service-fabric/service-fabric-overview.md), [Web Apps](../articles/app-service/overview.md) 및 [Batch](../articles/batch/batch-technical-overview.md)가 있습니다.  
 
 ### <a name="what-is-the-difference-between-azure-container-service-and-acs-engine"></a>Azure Container Service와 ACS Engine의 차이는 무엇인가요? 
 Azure Container Service는 Azure Portal, Azure 명령줄 도구 및 Azure API의 기능이 포함된 SLA 기반 Azure 서비스입니다. 이 서비스를 사용하면 비교적 적은 수의 구성 옵션을 통해 표준 컨테이너 오케스트레이션 도구를 실행하는 클러스터를 신속하게 구현하고 관리할 수 있습니다. 

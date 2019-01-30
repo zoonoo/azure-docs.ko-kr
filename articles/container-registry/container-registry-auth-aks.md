@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
-ms.openlocfilehash: d08fc0cb8e3203a60cbd426145ec50bb3636e758
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 0dbdf2261b851b303a0c606e5de70354578c6d2e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857128"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078782"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증
 
@@ -20,9 +20,9 @@ AKS(Azure Kubernetes Service)에서 ACR(Azure Container Registry)을 사용할 �
 
 ## <a name="grant-aks-access-to-acr"></a>AKS에 ACR에 대한 액세스 권한 부여
 
-AKS 클러스터를 만들면 Azure도 다른 Azure 리소스와의 클러스터 운용성을 지원하기 위해 서비스 주체를 만듭니다. 이 자동으로 생성된 서비스 주체는 ACR 레지스트리에서 인증에 사용할 수 있습니다. 이렇게 하려면 클러스터의 서비스 주체에 컨테이너 레지스트리에 대한 액세스 권한을 부여하는 Azure AD [역할 할당](../role-based-access-control/overview.md#role-assignments)을 만들어야 합니다.
+AKS 클러스터를 만들면 Azure도 다른 Azure 리소스와의 클러스터 운용성을 지원하기 위해 서비스 주체를 만듭니다. 이 자동으로 생성된 서비스 주체는 ACR 레지스트리에서 인증에 사용할 수 있습니다. 이를 위해서는 클러스터의 서비스 주체에 컨테이너 레지스트리에 대한 액세스 권한을 부여하는 Azure AD [역할 할당](../role-based-access-control/overview.md#role-assignments)을 만들어야 합니다.
 
-다음 스크립트를 사용하여 AKS에서 생성된 서비스 주체에 Azure 컨테이너 레지스트리에 대한 액세스 권한을 부여합니다. 스크립트를 실행하기 전에 사용자 환경에 맞게 `AKS_*` 및 `ACR_*` 변수를 수정합니다.
+다음 스크립트를 사용하여 AKS에서 생성된 서비스 주체에 Azure 컨테이너 레지스트리에 대한 끌어오기 권한을 부여합니다. 스크립트를 실행하기 전에 사용자 환경에 맞게 `AKS_*` 및 `ACR_*` 변수를 수정합니다.
 
 ```bash
 #!/bin/bash
@@ -39,12 +39,12 @@ CLIENT_ID=$(az aks show --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER
 ACR_ID=$(az acr show --name $ACR_NAME --resource-group $ACR_RESOURCE_GROUP --query "id" --output tsv)
 
 # Create role assignment
-az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
+az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
 ```
 
 ## <a name="access-with-kubernetes-secret"></a>Kubernetes 비밀을 사용하여 액세스
 
-일부 경우에 자동 생성된 AKS 서비스 주체에 필요한 역할을 할당하여 ACR에 대한 액세스 권한을 부여하지 못할 수 있습니다. 예를 들어, 조직의 보안 모델로 인해 AKS에서 생성된 서비스 주체에 역할을 할당하기 위한 충분한 권한이 Azure AD 디렉터리에 없을 수 있습니다. 이러한 경우 새 서비스 주체를 만든 다음, Kubernetes 이미지 끌어오기 비밀을 사용하여 컨테이너 레지스트리에 대한 액세스 권한을 부여할 수 있습니다.
+일부 경우에 자동 생성된 AKS 서비스 주체에 필요한 역할을 할당하여 ACR에 대한 액세스 권한을 부여하지 못할 수 있습니다. 예를 들어, 조직의 보안 모델로 인해 AKS에서 생성된 서비스 주체에 역할을 할당하기 위한 충분한 권한이 Azure Active Directory 테넌트에 없을 수 있습니다. 서비스 주체에 역할을 할당하려면 Azure AD 계정에 Azure AD 테넌트에 대한 쓰기 권한이 있어야 합니다. 권한이 없는 경우 새 서비스 주체를 만든 다음, Kubernetes 이미지 끌어오기 비밀을 사용하여 컨테이너 레지스트리에 대한 액세스 권한을 부여할 수 있습니다.
 
 다음 스크립트를 사용하여 새 서비스 주체를 만듭니다(Kubernetes 이미지 끌어오기 비밀로 해당 자격 증명 사용). 스크립트를 실행하기 전에 사용자 환경에 맞게 `ACR_NAME` 변수를 수정합니다.
 
@@ -58,8 +58,8 @@ SERVICE_PRINCIPAL_NAME=acr-service-principal
 ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --query loginServer --output tsv)
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
 
-# Create a 'Reader' role assignment with a scope of the ACR resource.
-SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role Reader --scopes $ACR_REGISTRY_ID --query password --output tsv)
+# Create acrpull role assignment with a scope of the ACR resource.
+SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role acrpull --scopes $ACR_REGISTRY_ID --query password --output tsv)
 
 # Get the service principal client id.
 CLIENT_ID=$(az ad sp show --id http://$SERVICE_PRINCIPAL_NAME --query appId --output tsv)

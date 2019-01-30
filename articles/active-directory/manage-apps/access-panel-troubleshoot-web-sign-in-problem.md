@@ -4,7 +4,7 @@ description: 액세스 패널을 사용하여 로그인하려고 하는 동안 �
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviwer: japere,asteen
-ms.openlocfilehash: ac07a0aa9c324c7e44d68ea2674d0fa2af5dbba5
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 34a4da2c14b84b9e539fc2d3e755a523cf3574c9
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355985"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847240"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>액세스 패널 웹 사이트에 로그인할 때 발생하는 문제
 
-액세스 패널은 웹 기반 포털로 Azure AD(Azure Active Directory)에 회사 또는 학교 계정이 있는 사용자가 Azure AD 관리자를 통해 액세스 권한을 부여받은 클라우드 기반 응용 프로그램을 보고 시작할 수 있도록 합니다. 또한 Azure AD 버전의 사용자는 액세스 패널을 통해 셀프 서비스 그룹 및 앱 관리 기능을 사용할 수도 있습니다. 액세스 패널은 Azure Portal과 별개이며, 사용자에게 Azure 구독을 요구하지 않습니다.
+액세스 패널은 웹 기반 포털로 Azure AD(Azure Active Directory)에 회사 또는 학교 계정이 있는 사용자가 Azure AD 관리자를 통해 액세스 권한을 부여받은 클라우드 기반 애플리케이션을 보고 시작할 수 있도록 합니다. 또한 Azure AD 버전의 사용자는 액세스 패널을 통해 셀프 서비스 그룹 및 앱 관리 기능을 사용할 수도 있습니다. 액세스 패널은 Azure Portal과 별개이며, 사용자에게 Azure 구독을 요구하지 않습니다.
 
 사용자는 Azure AD에서 회사 또는 학교 계정이 있는 경우 액세스 패널에 로그인할 수 있습니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "44355985"
 
 -   사용자는 Windows Server Active Directory에서 인증을 받을 수 있습니다.
 
-사용자가 Azure 또는 Office 365에 대한 구독을 가지고 있고 Azure Portal 또는 Office 365 응용 프로그램을 사용하고 있으면, 다시 로그인할 필요 없이 액세스 패널을 사용할 수 있습니다. 인증되지 않은 사용자는 Azure AD 계정에 대한 사용자 이름과 암호를 사용하여 로그인하도록 요청받습니다. 조직에서 페더레이션을 구성한 경우 사용자 이름만 입력하면 됩니다.
+사용자가 Azure 또는 Office 365에 대한 구독을 가지고 있고 Azure Portal 또는 Office 365 애플리케이션을 사용하고 있으면, 다시 로그인할 필요 없이 액세스 패널을 사용할 수 있습니다. 인증되지 않은 사용자는 Azure AD 계정에 대한 사용자 이름과 암호를 사용하여 로그인하도록 요청받습니다. 조직에서 페더레이션을 구성한 경우 사용자 이름만 입력하면 됩니다.
 
 ## <a name="general-issues-to-check-first"></a>먼저 확인해야 할 일반적인 문제 
 
@@ -58,13 +58,13 @@ ms.locfileid: "44355985"
 
 ## <a name="meeting-browser-requirements-for-the-access-panel"></a>액세스 패널에 대한 브라우저 요구 사항 충족
 
-액세스 패널에는 JavaScript를 지원하고 CSS를 사용하도록 설정한 브라우저가 필요합니다. 액세스 패널에서 암호 기반 SSO(Single Sign-On)를 사용하려면 사용자의 브라우저에 액세스 패널 확장이 설치되어 있어야 합니다. 사용자가 암호 기반 SSO에 구성된 응용 프로그램을 선택할 때 이 확장이 자동으로 다운로드됩니다.
+액세스 패널에는 JavaScript를 지원하고 CSS를 사용하도록 설정한 브라우저가 필요합니다. 액세스 패널에서 암호 기반 SSO(Single Sign-On)를 사용하려면 사용자의 브라우저에 액세스 패널 확장이 설치되어 있어야 합니다. 사용자가 암호 기반 SSO에 구성된 애플리케이션을 선택할 때 이 확장이 자동으로 다운로드됩니다.
 
 암호 기반 SSO의 경우 최종 사용자 브라우저는 다음 중 하나일 수 있습니다.
 
 -   Internet Explorer 8, 9, 10, 11 - Windows 7 이상
 
--   Windows 10 Anniversary Edition 이상 Edge 
+-   Windows 10 Anniversary Edition 이상의 Microsoft Edge 
 
 -   Chrome - Windows 7 이상 및 Mac OS X 이상
 
@@ -159,7 +159,7 @@ ms.locfileid: "44355985"
 
 셀프 서비스 암호 재설정을 사용하려면 아래 배포 단계를 따르세요.
 
--   [사용자가 Azure Active Directory 암호를 재설정할 수 있도록 설정](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
+-   [사용자가 Azure Active Directory 암호를 재설정할 수 있도록 설정](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
 -   [사용자가 Active Directory 온-프레미스 암호를 재설정하거나 변경하도록 설정](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
 
@@ -291,4 +291,4 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 -   Fiddler 추적
 
 ## <a name="next-steps"></a>다음 단계
-[응용 프로그램 프록시를 사용하여 앱에 Single Sign-On 제공](application-proxy-configure-single-sign-on-with-kcd.md)
+[애플리케이션 프록시를 사용하여 앱에 Single Sign-On 제공](application-proxy-configure-single-sign-on-with-kcd.md)

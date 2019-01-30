@@ -12,18 +12,18 @@ ms.workload: identity
 ms.component: pim
 ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 5f0b5d1695603a7cd2a3c7ac1dbc484e44257d88
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 69bc2bb5fa06f4edc0283961063d2302c7905b4f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249614"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439003"
 ---
 # <a name="assign-azure-ad-directory-roles-in-pim"></a>PIM에서 Azure AD 디렉터리 역할 할당
 
 Azure AD(Azure Active Directory)를 사용할 경우 전역 관리자는 **영구** 디렉터리 역할을 할당할 수 있습니다. 이러한 역할은 [Azure Portal](../users-groups-roles/directory-assign-admin-roles.md) 또는 [PowerShell 명령](/powershell/module/azuread#directory_roles)을 사용하여 할당할 수 있습니다.
 
-Azure AD PIM(Privileged Identity Management) 서비스를 사용하여 권한 있는 역할 관리자는 영구 디렉터리 역할을 할당할 수도 있습니다. 또한 권한이 있는 역할 관리자는 사용자를 디렉터리 역할에 **적격** 사용자로 만들 수 있습니다. 적격인 관리자는 필요할 때 역할을 활성화할 수 있으며 작업을 완료하고 나면 권한이 만료됩니다. PIM을 사용하여 관리할 수 있는 역할에 대한 자세한 내용은 [PIM에서 관리할 수 있는 Azure AD 디렉터리 역할](pim-roles.md)을 참조하세요.
+Azure AD PIM(Privileged Identity Management) 서비스를 사용하여 권한 있는 역할 관리자는 영구 디렉터리 역할을 할당할 수도 있습니다. 또한 권한이 있는 역할 관리자는 사용자를 디렉터리 역할에 **적격** 사용자로 만들 수 있습니다. 적격인 관리자는 필요할 때 역할을 활성화할 수 있으며 작업을 완료하고 나면 권한이 만료됩니다.
 
 ## <a name="make-a-user-eligible-for-a-role"></a>사용자를 역할에 적격 사용자로 지정
 
@@ -125,13 +125,15 @@ Azure AD PIM(Privileged Identity Management) 서비스를 사용하여 권한 �
 
 1. 구독을 선택합니다.
 
-1. **액세스 제어(IAM)** 를 선택하면 구독 범위의 현재 역할 할당 목록을 볼 수 있습니다.
+1. **액세스 제어(IAM)** 를 선택합니다.
+
+1. **역할 할당**을 선택하면 구독 범위의 현재 역할 할당 목록을 볼 수 있습니다.
 
    ![구독의 액세스 제어(IAM) 블레이드](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
 
 1. **MS-PIM** 서비스 주체가 **사용자 액세스 관리자** 역할로 할당되었는지 여부를 확인합니다.
 
-1. 그렇지 않은 경우 **추가**를 선택하여 **권한 추가** 창을 엽니다.
+1. 할당되지 않은 경우 **역할 할당 추가**를 선택하여 **역할 할당 추가** 창을 엽니다.
 
 1. **역할** 드롭다운 목록에서 **사용자 액세스 관리자** 역할을 선택합니다.
 

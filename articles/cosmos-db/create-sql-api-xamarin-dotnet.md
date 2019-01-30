@@ -1,29 +1,27 @@
 ---
-title: 'Azure Cosmos DB: Xamarin을 사용하여 할 일 앱 빌드 | Microsoft Docs'
+title: Azure Cosmos DB는 Xamarin을 사용하여 todo 앱 빌드
 description: Azure Cosmos DB에 연결 및 쿼리하는 데 사용할 수 있는 Xamarin 코드 샘플을 제시합니다.
-services: cosmos-db
 author: codemillmatt
-manager: kfile
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: c48c5f116ef9c5716533ca28ccfd58b613facd26
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 127002dc59db6ab9940e4bc2a66678adecc33160
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993334"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354130"
 ---
-# <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB: Xamarin을 사용하여 할 일 앱 빌드
+# <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB는 Xamarin을 사용하여 todo 앱 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
+> * [.NET(미리 보기)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
-> * [Node.js](create-sql-api-nodejs.md)
+> * [Node.JS](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
@@ -62,9 +60,9 @@ Mac을 사용하는 경우 **무료** [Mac용 Visual Studio](https://www.visuals
 
 [!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
-## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
-이제 Github에서 Xamarin SQL API 앱을 복제하고, 코드를 검토하고, API 키를 가져오고, 실행하겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다.
+이제 GitHub에서 Xamarin SQL API 앱을 복제하고, 코드를 검토하고, API 키를 가져오고, 실행하겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다.
 
 1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
@@ -90,7 +88,7 @@ Mac을 사용하는 경우 **무료** [Mac용 Visual Studio](https://www.visuals
 
 Azure Portal로 다시 이동하여 API 키 정보를 가져오고 앱에 복사합니다.
 
-1. [Azure Portal](http://portal.azure.com/)의 Azure Cosmos DB SQL API 계정에서 왼쪽 탐색 영역의 **키**를 클릭한 다음, **읽기-쓰기 키**를 클릭합니다. 다음 단계에서 화면 오른쪽의 복사 단추를 사용하여 URI 및 기본 키를 APIKeys.cs 파일에 복사하게 됩니다.
+1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB SQL API 계정에서 왼쪽 탐색 영역의 **키**를 클릭한 다음, **읽기-쓰기 키**를 클릭합니다. 다음 단계에서 화면 오른쪽의 복사 단추를 사용하여 URI 및 기본 키를 APIKeys.cs 파일에 복사하게 됩니다.
 
     ![Azure Portal에서 선택 키 보기 및 복사, 키 블레이드](./media/create-sql-api-xamarin-dotnet/keys.png)
 
@@ -114,7 +112,7 @@ Azure Portal로 다시 이동하여 API 키 정보를 가져오고 앱에 복사
 
 ToDoItems 솔루션의 코드에는 다음 항목이 포함됩니다.
 
-* ToDoItems.Core: Azure Cosmos DB 내에서 할 일 항목을 유지하는 Xamarin.Forms 프로젝트 및 공유 응용 프로그램 논리 코드를 보유한 .NET Standard 프로젝트입니다.
+* ToDoItems.Core: Azure Cosmos DB 내에서 todo 항목을 유지하는 Xamarin.Forms 프로젝트 및 공유 애플리케이션 로직 코드를 보유한 .NET Standard 프로젝트입니다.
 * ToDoItems.Android: 이 프로젝트에는 Android 앱이 포함됩니다.
 * ToDoItems.iOS: 이 프로젝트에는 iOS 앱이 포함됩니다.
 
@@ -154,7 +152,7 @@ ToDoItems 솔루션의 코드에는 다음 항목이 포함됩니다.
 
     `CreateDocumentQuery<T>`는 이전 섹션에서 만든 컬렉션을 가리키는 URI를 사용합니다. `Where` 절과 같은 LINQ 연산자를 지정할 수도 있습니다. 이 경우에 완료되지 않은 할 일 항목만 반환됩니다.
 
-    `CreateDocumentQuery<T>` 함수는 동기적으로 실행되고 `IQueryable<T>`를 반환합니다. 그러나 `AsDocumentQuery` 메서드는 `IQueryable<T>`을 비동기적으로 실행될 수 있는 `IDocumentQuery<T>` 개체로 변환합니다. 따라서 모바일 응용 프로그램에 대한 UI 스레드를 차단하지 않습니다.
+    `CreateDocumentQuery<T>` 함수는 동기적으로 실행되고 `IQueryable<T>`를 반환합니다. 그러나 `AsDocumentQuery` 메서드는 `IQueryable<T>`을 비동기적으로 실행될 수 있는 `IDocumentQuery<T>` 개체로 변환합니다. 따라서 모바일 애플리케이션에 대한 UI 스레드를 차단하지 않습니다.
 
     `IDocumentQuery<T>.ExecuteNextAsync<T>` 함수는 Azure Cosmos DB에서 결과 페이지를 검색합니다. 여기서 `HasMoreResults` 검사는 추가 결과가 반환되었는지를 확인합니다.
 

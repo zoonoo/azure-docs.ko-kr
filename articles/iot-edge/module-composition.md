@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge 모듈 구성 | Microsoft Docs
+title: 배포 매니페스트로 모듈 및 경로 선언 - Azure IoT Edge | Microsoft Docs
 description: 배포 매니페스트에서 배포할 모듈을 선언하는 방법, 배포하는 방법 및 이들 간에 메시지 경로를 만드는 방법을 알아봅니다.
 author: kgremban
 manager: philmea
@@ -8,12 +8,13 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 106ad5d4649b2845327eadd99972d56f1503b3e4
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 0b221274923a6270e980d027aadc58154c7054b9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584811"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099973"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>IoT Edge에서 모듈을 배포하고 경로를 설정하는 방법 알아보기
 

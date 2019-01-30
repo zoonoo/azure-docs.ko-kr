@@ -4,7 +4,7 @@ description: SQL Database 및 SQL Data Warehouse 보안 관리, 특히 서버 �
 keywords: sql 데이터베이스 보안,데이터베이스 보안 관리,로그인 보안,데이터베이스 보안,데이터베이스 액세스
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/07/2018
-ms.openlocfilehash: f2627aab2598a706e717e8e1d18fd2f8c944835c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 12/18/2018
+ms.openlocfilehash: 2be5c8ddf6928d5529c2eb08a6d64bd64b8445de
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161474"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631977"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>SQL Database 및 SQL Data Warehouse에 대한 액세스 제어 및 권한 부여
 
@@ -28,12 +28,12 @@ ms.locfileid: "47161474"
 >  이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다. 
 
 > [!TIP]
-> 자습서는 [Azure SQL Database 보안](sql-database-security-tutorial.md)을 참조하세요.
+> 자습서는 [Azure SQL Database 보안](sql-database-security-tutorial.md)을 참조하세요. 이 자습서는 **Azure SQL Database Managed Instance**에 적용되지 않습니다.
 
 ## <a name="unrestricted-administrative-accounts"></a>무제한 관리 계정
-관리자로 작동하는 두 가지 관리 계정(**서버 관리자** 및 **Active Directory 관리자**)이 있습니다. SQL 서버에 대해 이러한 관리자 계정을 식별하려면 Azure Portal을 열고 SQL 서버의 속성으로 이동합니다.
+관리자로 작동하는 두 가지 관리 계정(**서버 관리자** 및 **Active Directory 관리자**)이 있습니다. SQL 서버에 대해 이러한 관리자 계정을 식별하려면 Azure Portal을 열고 SQL Server 또는 SQL Database의 [속성] 탭으로 이동합니다.
 
-![SQL Server 관리자](./media/sql-database-manage-logins/sql-admins.png)
+![SQL Server 관리자](media/sql-database-manage-logins/sql-admins.png)
 
 - **서버 관리자**   
 Azure SQL 서버를 만들 때 **서버 관리자 로그인**을 지정해야 합니다. SQL 서버는 master 데이터베이스에 로그인으로 해당 계정을 만듭니다. 이 계정은 SQL Server 인증(사용자 이름 및 암호)을 사용하여 연결됩니다. 이러한 계정 중 하나만 존재할 수 있습니다.   
@@ -68,13 +68,17 @@ Azure SQL 서버를 만들 때 **서버 관리자 로그인**을 지정해야 �
 
 
 ## <a name="additional-server-level-administrative-roles"></a>추가 서버 수준 관리 역할
+
+>[!IMPORTANT]
+>이 역할은 **Azure SQL Database**에 관련이 있기 때문에 이 섹션은 **Azure SQL Database Managed Instance**에 적용되지 않습니다.
+
 SQL Database는 앞에서 설명한 서버 수준 관리 역할 외에도 데이터베이스를 만들거나 로그인을 관리하는 권한을 부여하는 사용자 계정을 추가할 수 있도록 제한된 두 가지 관리 역할을 master 데이터베이스에 제공합니다.
 
 ### <a name="database-creators"></a>데이터베이스 작성자
 이러한 관리 역할 중 하나는 **dbmanager** 역할입니다. 이 역할의 멤버는 새 데이터베이스를 만들 수 있습니다. 이 역할을 사용하려면 `master` 데이터베이스에 사용자를 만든 다음 해당 사용자를 **dbmanager** 데이터베이스 역할에 추가합니다. 데이터베이스를 만들려면 사용자는 마스터 데이터베이스의 SQL Server 로그인을 기반으로 한 사용자이거나 Azure Active Directory 사용자를 기반으로 한 포함된 데이터베이스 사용자여야 합니다.
 
 1. 관리자 계정을 사용하여 master 데이터베이스에 연결합니다.
-2. 선택적 단계: [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) 문을 사용하여 SQL Server 인증 로그인을 만듭니다. 샘플 문:
+2. 선택적 단계: 선택적 단계: [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) 문을 사용하여 SQL Server 인증 로그인을 만듭니다. 샘플 문:
    
    ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
@@ -166,7 +170,7 @@ SQL Database에서 로그인 및 사용자를 관리하는 경우 다음 사항�
 * `CREATE/ALTER/DROP LOGIN` 문을 실행할 경우 master 데이터베이스에 연결해야 합니다. 그러나 로그인 사용은 권장되지 않습니다. 대신에 포함된 데이터베이스 사용자를 사용합니다.
 * 사용자 데이터베이스에 연결하려면 연결 문자열에 데이터베이스 이름을 제공해야 합니다.
 * **master** 데이터베이스에서 **loginmanager** 데이터베이스 역할의 서버 수준 보안 주체 로그인 및 멤버는 `CREATE LOGIN`, `ALTER LOGIN` 및 `DROP LOGIN` 문을 실행할 권한이 있습니다.
-* ADO.NET 응용 프로그램에서 `CREATE/ALTER/DROP LOGIN` 및 `CREATE/ALTER/DROP DATABASE` 문을 실행하는 경우 매개 변수화된 명령을 사용할 수 없습니다. 자세한 내용은 [명령 및 매개 변수](https://msdn.microsoft.com/library/ms254953.aspx)를 참조하세요.
+* ADO.NET 애플리케이션에서 `CREATE/ALTER/DROP LOGIN` 및 `CREATE/ALTER/DROP DATABASE` 문을 실행하는 경우 매개 변수화된 명령을 사용할 수 없습니다. 자세한 내용은 [명령 및 매개 변수](https://msdn.microsoft.com/library/ms254953.aspx)를 참조하세요.
 * `CREATE/ALTER/DROP DATABASE` 및 `CREATE/ALTER/DROP LOGIN` 문을 실행하는 경우 이러한 각 문은 Transact-SQL 배치에서 유일한 문이어야 합니다. 그렇지 않은 경우 오류가 발생합니다. 예를 들어 다음 Transact-SQL는 데이터베이스가 있는지를 확인합니다. 있는 경우 `DROP DATABASE` 문이 호출되어 데이터베이스를 제거합니다. `DROP DATABASE` 문은 배치에서 유일한 문이 아니기 때문에 다음 Transact-SQL 문을 실행하면 오류가 발생합니다.
 
   ```sql
@@ -180,7 +184,7 @@ SQL Database에서 로그인 및 사용자를 관리하는 경우 다음 사항�
 * `CREATE USER`문을 `FOR/FROM LOGIN` 옵션과 함께 실행하는 경우 Transact-SQL 배치에서 유일한 문이어야 합니다.
 * `ALTER USER`문을 `WITH LOGIN` 옵션과 함께 실행하는 경우 Transact-SQL 배치에서 유일한 문이어야 합니다.
 * `CREATE/ALTER/DROP`에 사용자가 `ALTER ANY USER` 데이터베이스에 대한 권한을 요청합니다.
-* 데이터베이스 역할의 소유자가 해당 데이터베이스 역할에서 다른 데이터베이스 사용자를 추가 또는 제거하려고 할 때 다음과 같은 오류가 발생할 수 있습니다. **사용자 또는 역할 '이름'이 데이터베이스에 존재하지 않습니다.** 사용자가 소유자에게 표시되지 않기 때문에 이 오류가 발생합니다. 이 문제를 해결하려면 역할 소유자에게 사용자에 대한 `VIEW DEFINITION` 권한을 부여합니다. 
+* 데이터베이스 역할의 소유자가 해당 데이터베이스 역할에서 다른 데이터베이스 사용자를 추가 또는 제거하려고 하면 다음 오류가 발생할 수 있습니다. **사용자 또는 역할 '이름'이 데이터베이스에 존재하지 않습니다.** 사용자가 소유자에게 표시되지 않기 때문에 이 오류가 발생합니다. 이 문제를 해결하려면 역할 소유자에게 사용자에 대한 `VIEW DEFINITION` 권한을 부여합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

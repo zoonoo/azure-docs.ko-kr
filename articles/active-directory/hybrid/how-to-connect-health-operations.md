@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure AD Connect Health를 배포한 후 수행
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
-manager: mtillman
+manager: daveba
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 7e0e2e19f2f21fa3199cbc4911fed3427cbc162c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 35bbc44a8a54071530806576294163cb7ba627ea
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280521"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478300"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health 작업
 이 항목에서는 Azure AD(Azure Active Directory) Connect Health를 사용하여 수행할 수 있는 다양한 작업에 대해 설명합니다.
@@ -64,6 +64,7 @@ AD FS(Active Directory Federation Services)용 Azure AD Connect Health 및 Azure
 
 1. **서버 목록** 블레이드에서 제거할 서버 이름을 선택하여 **서버** 블레이드를 엽니다.
 2. **서버** 블레이드의 작업 모음에서 **삭제**를 클릭합니다.
+![Azure AD Connect Health 서버 삭제 스크린샷](./media/how-to-connect-health-operations/DeleteServer2.png)
 3. 확인 상자에 서버 이름을 입력하여 확인합니다.
 4. **삭제**를 클릭합니다.
 
@@ -86,8 +87,9 @@ Azure Active Directory Domain Services용 Azure AD Connect Health:
 * 이 작업을 수행한 후 서비스를 모니터링하려는 경우 모든 서버에서 Health Agent를 제거한 후 다시 설치합니다. 이 작업을 수행한 후 동일한 서버를 다시 모니터링하려는 경우 해당 서버에서 Health Agent를 제거한 후 다시 설치하고 등록합니다.
 
 #### <a name="to-delete-a-service-instance-from-the-azure-ad-connect-health-service"></a>Azure AD Connect Health 서비스에서 서비스 인스턴스를 삭제하려면
-1. **서비스 목록** 블레이드에서 제거하려는 서비스 식별자(팜 이름)를 선택하여 **서비스** 블레이드를 엽니다.
-2. **서버** 블레이드의 작업 모음에서 **삭제**를 클릭합니다.
+1. **서비스 목록** 블레이드에서 제거하려는 서비스 식별자(팜 이름)를 선택하여 **서비스** 블레이드를 엽니다. 
+2. **서비스** 블레이드의 작업 모음에서 **삭제**를 클릭합니다. 
+![Azure AD Connect Health 서비스 삭제 스크린샷](./media/how-to-connect-health-operations/DeleteServer.png)
 3. 확인 상자에 서비스 이름(예: sts.contoso.com)을 입력하여 확인합니다.
 4. **삭제**를 클릭합니다.
    <br><br>

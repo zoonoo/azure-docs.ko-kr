@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics의 IIS 로그 | Microsoft Docs
-description: IIS(인터넷 정보 서비스)는 Log Analytics에서 수집할 수 있는 로그 파일에 사용자 활동을 저장합니다.  이 문서에서는 IIS 로그 수집을 구성하는 방법을 설명하고, Log Analytics 작업 영역에 생성되는 레코드에 대한 자세한 정보를 제공합니다.
+title: Log Analytics의 IIS 로그 | Microsoft Docs
+description: IIS(인터넷 정보 서비스)는 Log Analytics에서 수집할 수 있는 로그 파일에 사용자 활동을 저장합니다.  이 문서에서는 IIS 로그 수집을 구성하는 방법과 Log Analytics에서 만드는 레코드에 대한 자세한 정보에 대해 설명합니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -8,32 +8,29 @@ manager: carmonm
 editor: tysonn
 ms.assetid: cec5ff0a-01f5-4262-b2e8-e3db7b7467d2
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2018
+ms.date: 11/28/2018
 ms.author: bwren
-ms.comopnent: ''
-ms.openlocfilehash: e33c30f9de56c4c5dd5f898a6a5136bbcef36c18
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: cd63c63344f322f7d761a2907f52e97f1009e3b8
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336581"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101958"
 ---
-# <a name="iis-logs-in-log-analytics"></a>Log Analytics의 IIS 로그
-IIS(인터넷 정보 서비스)는 Log Analytics에서 수집할 수 있는 로그 파일에 사용자 활동을 저장합니다.  
+# <a name="collect-iis-logs-in-log-analytics"></a>Log Analytics의 IIS 로그 수집
+IIS(인터넷 정보 서비스)는 Log Analytics에서 수집하고 [로그 데이터](data-collection.md)로 저장할 수 있는 로그 파일에 사용자 활동을 저장합니다.
 
 ![IIS 로그](media/data-sources-iis-logs/overview.png)
 
 ## <a name="configuring-iis-logs"></a>IIS 로그 구성
 Log Analytics는 IIS에서 생성된 로그 파일의 항목을 수집하므로 [로깅에 대해 IIS를 구성](https://technet.microsoft.com/library/hh831775.aspx)해야 합니다.
 
-Log Analytics는 W3C 형식으로 저장된 IIS 로그 파일만 지원하며 사용자 지정 필드 또는 IIS 고급 로깅을 지원하지 않습니다.  
-Log Analytics는 NCSA 또는 IIS 네이티브 형식의 로그를 수집하지 않습니다.
+Log Analytics는 W3C 형식으로 저장된 IIS 로그 파일만 지원하며 사용자 지정 필드 또는 IIS 고급 로깅을 지원하지 않습니다. NCSA 또는 IIS 네이티브 형식의 로그는 수집하지 않습니다.
 
-[Log Analytics 설정의 데이터 메뉴](agent-data-sources.md#configuring-data-sources)에서 Log Analytics의 IIS 로그를 구성합니다.  **W3C 형식 IIS 로그 파일 수집**을 선택하는 것 외에 다른 구성은 필요 없습니다.
+[고급 설정 메뉴](agent-data-sources.md#configuring-data-sources)에서 Log Analytics의 IIS 로그를 구성합니다.  **W3C 형식 IIS 로그 파일 수집**을 선택하는 것 외에 다른 구성은 필요 없습니다.
 
 
 ## <a name="data-collection"></a>데이터 수집
@@ -67,7 +64,7 @@ IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있�
 | TimeGenerated |항목이 로깅된 날짜 및 시간입니다. |
 | TimeTaken |요청을 처리할 시간의 길이(밀리초)입니다. |
 
-## <a name="log-searches-with-iis-logs"></a>IIS 로그로 로그 검색
+## <a name="log-queries-with-iis-logs"></a>IIS 로그를 사용한 로그 쿼리
 다음 표에는 IIS 로그 레코드를 검색하는 로그 쿼리의 여러 예제가 나와 있습니다.
 
 | 쿼리 | 설명 |
@@ -80,5 +77,4 @@ IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있�
 
 ## <a name="next-steps"></a>다음 단계
 * 분석을 위해 다른 [데이터 원본](agent-data-sources.md) 을 수집하도록 Log Analytics를 구성합니다.
-* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](../../log-analytics/log-analytics-queries.md)에 대해 알아봅니다.
-* IIS 로그에서 발견된 중요한 조건을 사전에 알리도록 Log Analytics의 경고를 구성합니다.
+* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하는 [로그 쿼리](../../log-analytics/log-analytics-queries.md)에 대해 알아봅니다.

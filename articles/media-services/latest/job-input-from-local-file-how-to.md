@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 3b4c11c359c15f1275a16774b490c08b543572c3
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 9b366cca37e562e229e7d139426fc0b24978e366
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378714"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412966"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>로컬 파일에서 작업 입력 만들기
 
@@ -26,7 +26,7 @@ Media Services v3에서는, 비디오를 처리할 작업을 제출할 때 입�
 
 다음 코드는 입력 자산을 만들어서 작업에 대한 입력으로 사용하는 방법을 보여줍니다. CreateInputAsset 함수는 다음 작업을 수행합니다.
 
-* 자산 만들기 
+* 자산 만들기
 * [저장소에 있는 자산 컨테이너](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)에 대해 쓰기가 가능한 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 가져오기
 * SAS URL을 사용하여 저장소의 컨테이너에 파일 업로드
 

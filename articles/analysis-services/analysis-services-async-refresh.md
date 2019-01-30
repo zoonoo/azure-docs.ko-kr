@@ -5,22 +5,23 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e797f1faf249a1ad1eebbd46984829de5f087936
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f10bae780ebb05d3450f4dab7e53fa87fe25b022
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958672"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189556"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API를 사용한 비동기 새로 고침
+
 REST 호출을 지원하는 프로그래밍 언어를 사용하여 Azure Analysis Services 테이블 형식 모델에서 비동기 데이터 새로 고침 작업을 수행할 수 있습니다. 여기에는 쿼리 스케일 아웃을 위한 읽기 전용 복제본의 동기화가 포함됩니다. 
 
 데이터 새로 고침 작업은 데이터 볼륨, 파티션을 사용하는 사용자 지정 수준 등을 비롯한 다양한 요인에 따라 시간이 다소 소요될 수 있습니다. 이러한 작업은 일반적으로 [TOM](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo)(테이블 형식 개체 모델) [PowerShell](https://docs.microsoft.com/sql/analysis-services/powershell/analysis-services-powershell-reference) cmdlet 또는 [TMSL](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)(테이블 형식 모델 스크립팅 언어) 등을 사용하는 기존 방법으로 호출되었습니다. 그러나 이러한 메서드는 종종 신뢰할 수 없는, 장기 실행 HTTP 연결을 요구할 수 있습니다.
 
-Azure Analysis Services용 REST API에서는 데이터 새로 고침 작업을 비동기적으로 실행할 수 있습니다. REST API를 사용하면 클라이언트 응용 프로그램에서의 장기 실행 HTTP 연결이 필요하지 않습니다. 안정성을 위한 기타 기본 제공 기능(예: 자동 다시 시도 및 일괄 처리 커밋)도 있습니다.
+Azure Analysis Services용 REST API에서는 데이터 새로 고침 작업을 비동기적으로 실행할 수 있습니다. REST API를 사용하면 클라이언트 애플리케이션에서의 장기 실행 HTTP 연결이 필요하지 않습니다. 안정성을 위한 기타 기본 제공 기능(예: 자동 다시 시도 및 일괄 처리 커밋)도 있습니다.
 
 ## <a name="base-url"></a>기준 URL
 
@@ -60,16 +61,16 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 모든 호출은 권한 부여 헤더에서 유효한 Azure Active Directory(OAuth 2) 토큰으로 인증되어야 하며 다음과 같은 요구 사항을 충족해야 합니다.
 
-- 토큰은 사용자 토큰 또는 응용 프로그램 서비스 사용자여야 합니다.
+- 토큰은 사용자 토큰 또는 애플리케이션 서비스 사용자여야 합니다.
 - 토큰에는 올바른 대상이 `https://*.asazure.windows.net`으로 설정되어 있어야 합니다.
-- 사용자 또는 응용 프로그램은 서버 또는 모델에서 요청된 호출을 수행하기 위한 충분한 권한이 있어야 합니다. 사용 권한 수준은 서버의 모델 또는 관리 그룹 내 역할에 의해 결정됩니다.
+- 사용자 또는 애플리케이션은 서버 또는 모델에서 요청된 호출을 수행하기 위한 충분한 권한이 있어야 합니다. 사용 권한 수준은 서버의 모델 또는 관리 그룹 내 역할에 의해 결정됩니다.
 
     > [!IMPORTANT]
     > 현재 **서버 관리자** 역할 권한이 필요합니다.
 
 ## <a name="post-refreshes"></a>POST /refreshes
 
-새로 고침 작업을 수행하려면 /refreshes 컬렉션에서 POST 동사를 사용하여 컬렉션에 새로 고침 항목을 새로 추가합니다. 응답의 Location 헤더에는 새로 고침 ID가 포함됩니다. 클라이언트 응용 프로그램은 비동기적이므로, 연결을 끊은 후 나중에 필요할 때 상태를 확인할 수 있습니다.
+새로 고침 작업을 수행하려면 /refreshes 컬렉션에서 POST 동사를 사용하여 컬렉션에 새로 고침 항목을 새로 추가합니다. 응답의 Location 헤더에는 새로 고침 ID가 포함됩니다. 클라이언트 애플리케이션은 비동기적이므로, 연결을 끊은 후 나중에 필요할 때 상태를 확인할 수 있습니다.
 
 모델에 대해 한 번에 하나의 새로 고침 작업만 허용됩니다. 현재 실행 중인 새로 고침 작업이 있으며 다른 작업이 제출되면 409 충돌 HTTP 상태 코드가 반환됩니다.
 
@@ -94,6 +95,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 ```
 
 ### <a name="parameters"></a>매개 변수
+
 매개 변수를 지정할 필요는 없습니다. 기본값이 적용됩니다.
 
 |이름  |type  |설명  |기본값  |
@@ -187,8 +189,8 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 - 0: 복제 중. 데이터베이스 파일을 대상 폴더에 복제하고 있습니다.
 - 1: 리하이드레이션 중. 데이터베이스가 읽기 전용 서버 인스턴스에서 리하이드레이션되고 있습니다.
 - 2: 완료됨. 동기화 작업이 완료되었습니다.
-- 3: 실패. 동기화 작업이 실패했습니다.
-- 4: 종료하는 중 동기화 작업이 완료되었으나 정리 단계를 수행하고 있습니다.
+- 3: 실패함. 동기화 작업이 실패했습니다.
+- 4: 종료하는 중. 동기화 작업이 완료되었으나 정리 단계를 수행하고 있습니다.
 
 ## <a name="code-sample"></a>코드 샘플
 
@@ -203,20 +205,20 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 
 #### <a name="interactive-login-or-usernamepassword"></a>대화형 로그인 또는 사용자 이름/암호
 
-이러한 형식의 인증을 위해서는 필요한 API 사용 권한이 할당된 상태로 Azure 응용 프로그램이 생성되어야 합니다. 
+이러한 형식의 인증을 위해서는 필요한 API 사용 권한이 할당된 상태로 Azure 애플리케이션이 생성되어야 합니다. 
 
-1.  Azure Portal에서 **리소스 만들기** > **Azure Active Directory** > **앱 등록** > **새 응용 프로그램 등록**을 클릭합니다.
+1.  Azure Portal에서 **리소스 만들기** > **Azure Active Directory** > **앱 등록** > **새 애플리케이션 등록**을 클릭합니다.
 
-    ![새 응용 프로그램 등록](./media/analysis-services-async-refresh/aas-async-app-reg.png)
+    ![새 애플리케이션 등록](./media/analysis-services-async-refresh/aas-async-app-reg.png)
 
 
-2.  **만들기**에서 이름을 입력하고 **네이티브** 응용 프로그램 유형을 선택합니다. **리디렉션 URI**에 대해 **urn:ietf:wg:oauth:2.0:oob**를 입력하고 **만들기**를 클릭합니다.
+2.  **만들기**에서 이름을 입력하고 **네이티브** 애플리케이션 유형을 선택합니다. **리디렉션 URI**에 대해 **urn:ietf:wg:oauth:2.0:oob**를 입력하고 **만들기**를 클릭합니다.
 
     ![설정](./media/analysis-services-async-refresh/aas-async-app-reg-name.png)
 
-3.  앱을 선택한 후 **응용 프로그램 ID**를 복사하고 저장합니다.
+3.  앱을 선택한 후 **애플리케이션 ID**를 복사하고 저장합니다.
 
-    ![응용 프로그램 ID 복사](./media/analysis-services-async-refresh/aas-async-app-id.png)
+    ![애플리케이션 ID 복사](./media/analysis-services-async-refresh/aas-async-app-id.png)
 
 4.  **설정**에서 **필요한 권한** > **추가**를 클릭합니다.
 
@@ -231,7 +233,7 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
     ![모든 모델 읽기 및 쓰기 선택](./media/analysis-services-async-refresh/aas-async-select-read.png)
 
 7.  코드 샘플에서 **UpdateToken()** 메서드를 찾습니다. 이 메서드의 내용을 확인합니다.
-8.  **string clientID = …** 를 찾은 후 3단계에서 복사한 **응용 프로그램 ID**를 입력합니다.
+8.  **string clientID = …** 를 찾은 후 3단계에서 복사한 **애플리케이션 ID**를 입력합니다.
 9.  샘플을 실행합니다.
 
 #### <a name="service-principal"></a>서비스 주체

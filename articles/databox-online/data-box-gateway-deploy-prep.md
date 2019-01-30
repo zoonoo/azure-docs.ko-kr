@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: b8aac8a6a666bf3f360ef2867ff15933ad72dbd7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6db713984b62ce3db48b2e72a4b117696bdd6add
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166987"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452975"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>자습서: Azure Data Box Gateway 배포 준비(미리 보기)
 
@@ -78,7 +78,7 @@ Data Box Gateway를 배포하려면 다음 자습서를 규정된 순서대로 �
 
 * 데이터 센터의 네트워크가 Data Box Gateway 디바이스에 대한 네트워킹 요구 사항에 따라 구성되어 있습니다. 자세한 내용은 [Data Box Gateway 시스템 요구 사항](data-box-gateway-system-requirements.md)을 참조하세요.
 
-* Data Box Gateway에는 항상 사용 가능한 전용 20MB 인터넷 대역폭(또는 이상)이 있습니다. 이 대역폭은 다른 응용 프로그램과 공유하면 안됩니다. 네트워크 제한을 사용하는 경우 제한이 작동하려면 32Mbps 인터넷 대역폭 이상을 사용하는 것이 좋습니다.
+* Data Box Gateway에는 항상 사용 가능한 전용 20MB 인터넷 대역폭(또는 이상)이 있습니다. 이 대역폭은 다른 애플리케이션과 공유하면 안됩니다. 네트워크 제한을 사용하는 경우 제한이 작동하려면 32Mbps 인터넷 대역폭 이상을 사용하는 것이 좋습니다.
 
 ## <a name="create-a-new-resource"></a>새 리소스 만들기
 
@@ -147,7 +147,7 @@ Data Box Gateway 리소스가 가동하여 실행되면 활성화 키를 얻어�
 
 > [!IMPORTANT]
 > - 활성화 키는 생성되고 3일 후에 만료됩니다. 
-> - 키가 만료되면 새 키를 생성하세요. 이전 키는 유효하지 않습니다.
+> - 키가 만료된 경우 새 키를 만듭니다. 이전 키는 유효하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

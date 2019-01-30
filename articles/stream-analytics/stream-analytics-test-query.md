@@ -1,21 +1,20 @@
 ---
 title: 샘플 데이터를 사용하여 Azure Stream Analytics 작업 테스트
-description: Stream Analytics 작업에서 쿼리를 테스트하는 방법
-keywords: 이 문서에서는 Azure Portal을 사용하여 Azure Stream Analytics 작업을 테스트하고, 입력을 샘플링하고, 샘플 데이터를 업로드하는 방법을 설명합니다.
+description: 이 문서에서는 Azure Portal을 사용하여 Azure Stream Analytics 작업을 테스트하고, 입력을 샘플링하고, 샘플 데이터를 업로드하는 방법을 설명합니다.
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
-manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.openlocfilehash: 139ad76826f3e67577beba0369f6d4425e242af9
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: fca76b632e9bcc27ed762886eaea696a5696ad3f
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978352"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557635"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>샘플 데이터로 Stream Analytics 쿼리 테스트
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018
+ms.date: 12/05/2018
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 16e2da864d51cbc44457715813e851fd873c8746
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a90ef531cedb5e4c32a8f0af8b6cca86a93fb39a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276672"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997115"
 ---
 # <a name="what-is-azure-cost-management"></a>Azure Cost Management란?
 
@@ -29,7 +29,7 @@ Cost Management는 고급 분석을 통해 조직의 비용 및 사용 패턴을
 
 ## <a name="plan-and-control-expenses"></a>비용 계획 및 제어
 
-Cost Management가 비용을 계획하고 제어하는 데 도움이 되는 방법에는 비용 분석, 예산, 권장 사항 및 비용 관리 데이터 내보내기가 포함됩니다.
+Cost Management를 통해 비용을 계획하고 제어하는 방법에는 원가 분석, 예산, 추천 및 Cost Management 데이터 내보내기가 포함됩니다.
 
 비용 분석을 사용하여 조직 비용을 탐색하고 분석합니다. 조직의 집계된 비용을 확인하여 어느 부분에서 비용이 누적되었는지를 이해하고 지출 패턴을 식별할 수 있습니다. 또한 시간에 따라 누적된 비용을 확인하여 예산을 기준으로 월 단위, 분기 단위 또는 연 단위 비용 추세를 평가할 수 있습니다.
 

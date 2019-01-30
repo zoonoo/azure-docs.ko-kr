@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jeffgilb
-ms.reviewer: ''
+ms.reviewer: unknown
+ms.lastreviewed: 09/11/2018
 ms.custom: mvc
-ms.openlocfilehash: d106d9f79498678f08142f952e09c5125c6e5d6c
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 59a113739734c5e1a29de7e5876f255906ef5323
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721520"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252288"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>자습서: 사용자에 게 가상 머신을 사용할 수 있는 Azure Stack
 
@@ -137,7 +138,7 @@ Marketplace에 다양 한 항목을 추가 하는 방법에 대 한 내용은 [T
       - 입력을 **이름**
       - 입력을 **사용자 이름**
       - 입력을 **암호**
-      - **구독**
+      -  **구독**
       - 만들기는 **리소스 그룹** (또는 기존 항목을 선택 합니다.) 
       - 선택 **확인** 이 정보를 저장 합니다.
 

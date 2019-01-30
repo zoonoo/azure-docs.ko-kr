@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: d31cf6569f642d2c7b61abe25148f5cfb199f0a2
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 26c227d96c3d951a5140b94a4597a4d76405fe63
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159443"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429211"
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버를 사용하여 모바일 앱 인증 활성화
 
@@ -36,7 +36,7 @@ Microsoft Authenticator 앱을 사용하려면 Azure Multi-Factor Authentication
 2. **사용자가 모바일 앱을 활성화할 수 있도록 허용** 상자를 선택합니다.
 3. **사용자 등록 허용** 상자를 선택합니다.
 4. **Mobile App** 아이콘을 클릭합니다.
-5. **계정 이름** 필드를 이 계정의 모바일 응용 프로그램에서 표시할 회사 또는 조직 이름으로 채웁니다.
+5. **계정 이름** 필드를 이 계정의 모바일 애플리케이션에서 표시할 회사 또는 조직 이름으로 채웁니다.
    ![MFA 서버 구성 Mobile App 설정](./media/howto-mfaserver-deploy-mobileapp/mobile.png)
 
 ## <a name="next-steps"></a>다음 단계

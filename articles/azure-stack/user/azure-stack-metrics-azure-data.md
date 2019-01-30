@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2018
 ms.author: mabrigg
-ms.openlocfilehash: 45c06afd0d298c467d8f0a3a42b68bf1948c6ed3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.lastreviewed: 12/01/2018
+ms.openlocfilehash: c16f218903557a6d3a10f3ef201587d2885fffa9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726749"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239114"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Azure Stack에서 azure Monitor
 
@@ -59,11 +60,11 @@ Azure에서 Azure Monitor와 같은 Azure Stack에서 Azure Monitor 대부분의
 
 ### <a name="application---diagnostics-logs-application-logs-and-metrics"></a>응용 프로그램-진단 로그, 응용 프로그램 로그 및 메트릭
 
-응용 프로그램 VM의 OS에서 실행할 수 있습니다 사용 하 여 실행 합니다 **Microsoft.Compute** 리소스 공급자입니다. 이러한 응용 프로그램 및 Vm 자체 로그 및 메트릭 집합을 내보냅니다. Azure Monitor는 Azure 진단 확장(Windows 또는 Linux)을 사용하여 대부분의 응용 프로그램 수준 메트릭과 로그를 수집합니다. 
+응용 프로그램 VM의 OS에서 실행할 수 있습니다 사용 하 여 실행 합니다 **Microsoft.Compute** 리소스 공급자입니다. 이러한 응용 프로그램 및 Vm 자체 로그 및 메트릭 집합을 내보냅니다. Azure Monitor는 Azure 진단 확장(Windows 또는 Linux)을 사용하여 대부분의 애플리케이션 수준 메트릭과 로그를 수집합니다. 
 
 측정값의 유형은 다음과 같습니다.
  - 성능 카운터
- - 응용 프로그램 로그
+ - 애플리케이션 로그
  - Windows 이벤트 로그
  - .NET 이벤트 원본
  - IIS 로그
@@ -126,7 +127,7 @@ Azure Stack 인프라에서 볼 수 있듯이 계산 리소스에 대 한 자세
  - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
  - [플랫폼 간 명령줄 Interface(CLI)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
  - [REST API](https://docs.microsoft.com/rest/api/monitor)
- - [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
+ - [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 ## <a name="next-steps"></a>다음 단계
 

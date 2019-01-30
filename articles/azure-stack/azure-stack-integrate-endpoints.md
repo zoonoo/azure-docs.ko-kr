@@ -9,13 +9,14 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
+ms.lastreviewed: 12/06/2018
 keywords: ''
-ms.openlocfilehash: 1800ab19e2d99eb639ef4064e64d7bc475aa0c36
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 5946f62821d05bd9036b9fc0e6b0fc8daa74c5dc
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014874"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241205"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure 데이터 센터 통합 스택-끝점 게시
 
@@ -39,14 +40,14 @@ Azure Stack 인프라 역할에 대 한 가상 IP 주소 (Vip)를 설정합니�
 |---------|---------|---------|---------|
 |AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |포털 (관리자)|Adminportal 합니다.  *&lt;지역 >.&lt; fqdn >*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015|
-|Adminhosting | *.adminhosting 합니다. \<지역 >. \<fqdn > | HTTPS | 443 |
+|Adminhosting | *.adminhosting.\<region>.\<fqdn> | HTTPS | 443 |
 |Azure 리소스 관리자 (관리자)|Adminmanagement 합니다.  *&lt;지역 >.&lt; fqdn >*|HTTPS|443<br>30024|
 |포털 (사용자)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003|
 |Azure Resource Manager (사용자)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
 |그래프|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |인증서 해지 목록|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
-|DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP 및 UDP|53|
-|Hosting | *.hosting 합니다. \<지역 >. \<fqdn > | HTTPS | 443 |
+|DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP & UDP|53|
+|Hosting | *.hosting.\<region>.\<fqdn> | HTTPS | 443 |
 |Key Vault (사용자)|&#42;.vault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Key Vault (관리자)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |저장소 큐|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
@@ -75,7 +76,7 @@ Azure Stack은 투명 프록시 서버만 지원 합니다. 배포의 경우 기
 |패치 및 업데이트|https://&#42;.azureedge.net|HTTPS|443|
 |등록|https://management.azure.com|HTTPS|443|
 |사용 현황|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net|HTTPS|443|
-|Windows Defender|. wdcp.microsoft.com<br>. wdcpalt.microsoft.com<br>*. updates.microsoft.com<br>*. download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
+|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
 |NTP|(IP의 NTP 서버 배포에 대 한 제공)|UDP|123|
 |DNS|(배포에 대해 제공 된 IP의 DNS 서버)|TCP<br>UDP|53|
 |CRL|(인증서에 CRL 배포 지점 URL)|HTTP|80|

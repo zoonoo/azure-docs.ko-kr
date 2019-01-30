@@ -1,5 +1,5 @@
 ---
-title: '온-프레미스 네트워크를 Azure 가상 네트워크에 연결: 사이트 간 VPN: CLI | Microsoft Docs'
+title: 'Azure 가상 네트워크에 온-프레미스 네트워크 연결: 사이트 간 VPN: CLI | Microsoft Docs'
 description: 공용 인터넷을 통해 온-프레미스 네트워크에서 Azure Virtual Network에 IPsec을 만드는 단계입니다. 이 단계는 CLI를 사용하여 크로스-프레미스 사이트 간 VPN Gateway 연결을 만드는 데 도움이 됩니다.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: 73bf57721f670c06042b9b7a00f53126a6d1b145
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f7c07dbffaa179434fd30b2fdbc92fa661cdc516
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957074"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412124"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>CLI를 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기
 
@@ -49,21 +49,21 @@ ms.locfileid: "49957074"
 ```
 #Example values
 
-VnetName                = TestVNet1 
-ResourceGroup           = TestRG1 
-Location                = eastus 
-AddressSpace            = 10.11.0.0/16 
-SubnetName              = Subnet1 
-Subnet                  = 10.11.0.0/24 
-GatewaySubnet           = 10.11.255.0/27 
-LocalNetworkGatewayName = Site2 
+VnetName                = TestVNet1 
+ResourceGroup           = TestRG1 
+Location                = eastus 
+AddressSpace            = 10.11.0.0/16 
+SubnetName              = Subnet1 
+Subnet                  = 10.11.0.0/24 
+GatewaySubnet           = 10.11.255.0/27 
+LocalNetworkGatewayName = Site2 
 LNG Public IP           = <VPN device IP address>
 LocalAddrPrefix1        = 10.0.0.0/24
-LocalAddrPrefix2        = 20.0.0.0/24   
-GatewayName             = VNet1GW 
-PublicIP                = VNet1GWIP 
-VPNType                 = RouteBased 
-GatewayType             = Vpn 
+LocalAddrPrefix2        = 20.0.0.0/24   
+GatewayName             = VNet1GW 
+PublicIP                = VNet1GWIP 
+VPNType                 = RouteBased 
+GatewayType             = Vpn 
 ConnectionName          = VNet1toSite2
 ```
 
@@ -83,7 +83,7 @@ az group create --name TestRG1 --location eastus
 
 ## <a name="VNet"></a>3. 가상 네트워크 만들기
 
-아직 가상 네트워크가 없으면 [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) 명령을 사용하여 만듭니다. 가상 네트워크를 만들 때 지정하는 주소 공간이 온-프레미스 네트워크에 있는 주소 공간과 겹치지 않는지 확인하세요.
+아직 가상 네트워크가 없으면 [az network vnet create](/cli/azure/network/vnet) 명령을 사용하여 만듭니다. 가상 네트워크를 만들 때 지정하는 주소 공간이 온-프레미스 네트워크에 있는 주소 공간과 겹치지 않는지 확인하세요.
 
 >[!NOTE]
 >이 VNet을 온-프레미스 위치에 연결하려면 온-프레미스 네트워크 관리자와 협의하여 이 가상 네트워크에 특별히 사용할 수 있는 IP 주소 범위를 만들어야 합니다. VPN 연결의 양쪽 모두에 중복 주소 범위가 있는 경우 트래픽이 예상대로 라우팅되지 않습니다. 또한 이 VNet을 다른 VNet에 연결하려면 주소 공간이 다른 VNet과 겹치면 안됩니다. 이에 따라 네트워크 구성을 적절히 계획하도록 주의해야 합니다.
@@ -115,10 +115,10 @@ az network vnet subnet create --address-prefix 10.11.255.0/27 --name GatewaySubn
 
 다음 값을 사용합니다.
 
-* *--gateway-ip-address*는 온-프레미스 VPN 장치의 IP 주소입니다. VPN 디바이스는 NAT 뒤에 배치할 수 없습니다.
+* *--gateway-ip-address*는 온-프레미스 VPN 디바이스의 IP 주소입니다. VPN 디바이스는 NAT 뒤에 배치할 수 없습니다.
 * *--local-address-prefixes*는 온-프레미스 주소 공간입니다.
 
-[az network local-gateway create](/cli/azure/network/local-gateway#az_network_local_gateway_create) 명령을 사용하여 주소 접두사가 여러 개인 로컬 네트워크 게이트웨이를 추가합니다.
+[az network local-gateway create](/cli/azure/network/local-gateway) 명령을 사용하여 주소 접두사가 여러 개인 로컬 네트워크 게이트웨이를 추가합니다.
 
 ```azurecli-interactive
 az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 --resource-group TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
@@ -147,7 +147,7 @@ az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocati
 [az network vnet-gateway create](/cli/azure/network/vnet-gateway#az_network_vnet_gateway_create) 명령을 사용하여 VPN Gateway를 만듭니다. '--no-wait' 매개 변수를 사용하여 이 명령을 실행하면 피드백 또는 출력이 보이지 않습니다. 이 매개 변수는 백그라운드에서 게이트웨이를 만드는 것을 허용합니다. 게이트웨이를 만들 때까지 약 45분 정도가 걸립니다.
 
 ```azurecli-interactive
-az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 
+az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 
 ```
 
 ## <a name="VPNDevice"></a>8. VPN 디바이스 구성

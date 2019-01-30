@@ -1,6 +1,6 @@
 ---
 title: .NET Core를 사용하여 Azure SQL Database 쿼리 | Microsoft Docs
-description: 이 항목에서는 .NET Core를 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 쿼리하는 프로그램을 만드는 방법을 보여 줍니다.
+description: 이 항목에서는 .NET Core를 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 통해 쿼리하는 프로그램을 만드는 방법을 보여 줍니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,65 +11,73 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 646b75e845e1940a87a9a2f45aecda2840a96d81
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/10/2018
+ms.openlocfilehash: 5f2c8c2a9a2b21a15aa997ff0cc98860ceec76cc
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913073"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744839"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>빠른 시작: .NET Core(C#)를 사용하여 Azure SQL 데이터베이스 쿼리
 
-이 빠른 시작에서는 Windows/Linux/macOS에서 [.NET Core](https://www.microsoft.com/net/)를 사용하여 Azure SQL Database에 연결하고, TRANSACT-SQL 문을 사용하여 데이터를 쿼리하는 C# 프로그램을 만드는 방법을 보여 줍니다.
+이 빠른 시작에서는 [.NET Core](https://www.microsoft.com/net/) 및 C# 코드를 사용하여 Azure SQL 데이터베이스에 연결합니다. 그런 다음, Transact-SQL 문을 실행하여 데이터를 쿼리합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
+이 자습서에서는 다음이 필요합니다.
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- 이 빠른 시작에서 사용하는 컴퓨터의 공용 IP 주소에 대한 [서버 수준 방화벽 규칙](sql-database-get-started-portal-firewall.md)
+- 컴퓨터의 공용 IP 주소에 대한 [서버 수준 방화벽 규칙](sql-database-get-started-portal-firewall.md)
 
-- 설치된 [해당 운영 체제용 .NET Core](https://www.microsoft.com/net/core) 
+- [해당 운영 체제용 .NET Core](https://www.microsoft.com/net/core)가 설치됨 
 
-## <a name="sql-server-connection-information"></a>SQL 서버 연결 정보
+> [!NOTE]
+> 이 빠른 시작에서는 *mySampleDatabase* 데이터베이스를 사용합니다. 다른 데이터베이스를 사용하려면 데이터베이스 참조를 변경하고 C# 코드에서 `SELECT` 쿼리를 수정해야 합니다.
+
+
+## <a name="get-sql-server-connection-information"></a>SQL Server 연결 정보 가져오기
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-#### <a name="for-adonet"></a>ADO.NET의 경우
+#### <a name="get-adonet-connection-information-optional"></a>ADO.NET 연결 정보 가져오기(선택 사항)
 
-1. **데이터베이스 연결 문자열 표시**를 클릭하여 계속합니다.
+1. **mySampleDatabase** 페이지로 이동한 다음, **설정** 아래에서 **연결 문자열**을 선택합니다.
 
 2. 전체 **ADO.NET** 연결 문자열을 검토합니다.
 
-    ![ADO.NET 연결 문자열](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
+    ![ADO.NET 연결 문자열](./media/sql-database-connect-query-dotnet/adonet-connection-string2.png)
 
-> [!IMPORTANT]
-> 이 자습서를 수행하는 컴퓨터의 공용 IP 주소에 대한 방화벽 규칙이 있어야 합니다. 다른 컴퓨터에 있거나 다른 공용 IP 주소가 있으면 [Azure Portal을 사용하여 서버 수준 방화벽 규칙을 만듭니다](sql-database-get-started-portal-firewall.md). 
->
+3. 사용하려는 경우 **ADO.NET** 연결 문자열을 복사합니다.
   
-## <a name="create-a-new-net-project"></a>새 .NET 프로젝트 만들기
+## <a name="create-a-new-net-core-project"></a>새로운 .NET Core 프로젝트 만들기
 
-1. 명령 프롬프트를 열고 *sqltest*라는 폴더를 만듭니다. 생성한 폴더로 이동하여 다음 명령을 실행합니다.
+1. 명령 프롬프트를 열고 **sqltest**라는 폴더를 만듭니다. 이 폴더로 이동하여 이 명령을 실행합니다.
 
-    ```
+    ```cmd
     dotnet new console
     ```
+    이 명령은 초기 C# 코드 파일(**Program.cs**), XML 구성 파일(**sqltest.csproj**) 및 필요한 이진 파일을 포함하여 새로운 앱 프로젝트 파일을 만듭니다.
 
-2. 원하는 텍스트 편집기에서 ***sqltest.csproj***를 열고 다음 코드를 사용하여 System.Data.SqlClient를 종속성으로 추가합니다.
+2. 텍스트 편집기에서 **sqltest.csproj**를 열고 `<Project>` 태그 사이에 다음 XML을 붙여넣습니다. 이 XML은 `System.Data.SqlClient`를 종속성으로 추가합니다.
 
     ```xml
     <ItemGroup>
-        <PackageReference Include="System.Data.SqlClient" Version="4.4.0" />
+        <PackageReference Include="System.Data.SqlClient" Version="4.6.0" />
     </ItemGroup>
     ```
 
 ## <a name="insert-code-to-query-sql-database"></a>SQL 데이터베이스 쿼리 코드 삽입
 
-1. 개발 환경 또는 원하는 텍스트 편집기에서 **Program.cs**를 엽니다.
+1. 텍스트 편집기에서 **Program.cs**를 엽니다.
 
-2. 내용을 다음 코드로 바꾸고, 서버, 데이터베이스, 사용자 및 암호에 대해 적절한 값을 추가합니다.
+2. 내용을 다음 코드로 바꾸고 서버, 데이터베이스, 사용자 이름 및 암호에 대해 적절한 값을 추가합니다.
+
+> [!NOTE]
+> ADO.NET 연결 문자열을 사용하려면 서버, 데이터베이스, 사용자 이름 및 암호를 설정하는 코드의 4줄을 아래 줄로 바꿉니다. 문자열에서 사용자 이름과 암호를 설정합니다.
+>
+>    `builder.ConnectionString="<your_ado_net_connection_string>";`
 
 ```csharp
 using System;
@@ -85,11 +93,12 @@ namespace sqltest
             try 
             { 
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "your_server.database.windows.net"; 
-                builder.UserID = "your_user";            
-                builder.Password = "your_password";     
-                builder.InitialCatalog = "your_database";
 
+                builder.DataSource = "<your_server.database.windows.net>"; 
+                builder.UserID = "<your_username>";            
+                builder.Password = "<your_password>";     
+                builder.InitialCatalog = "<your_database>";
+         
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
                     Console.WriteLine("\nQuery data example:");
@@ -119,7 +128,8 @@ namespace sqltest
             {
                 Console.WriteLine(e.ToString());
             }
-            Console.ReadLine();
+            Console.WriteLine("\nDone. Press enter.");
+            Console.ReadLine(); 
         }
     }
 }
@@ -127,19 +137,47 @@ namespace sqltest
 
 ## <a name="run-the-code"></a>코드 실행
 
-1. 명령 프롬프트에서 다음 명령을 실행합니다.
+1. 프롬프트에서 다음 명령을 실행합니다.
 
-   ```csharp
+   ```cmd
    dotnet restore
    dotnet run
    ```
 
-2. 상위 20개 행이 반환되는지 확인한 다음 응용 프로그램 창을 닫습니다.
+2. 상위 20개 행이 반환되는지 확인합니다.
 
+   ```text
+   Query data example:
+   =========================================
+
+   Road Frames HL Road Frame - Black, 58
+   Road Frames HL Road Frame - Red, 58
+   Helmets Sport-100 Helmet, Red
+   Helmets Sport-100 Helmet, Black
+   Socks Mountain Bike Socks, M
+   Socks Mountain Bike Socks, L
+   Helmets Sport-100 Helmet, Blue
+   Caps AWC Logo Cap
+   Jerseys Long-Sleeve Logo Jersey, S
+   Jerseys Long-Sleeve Logo Jersey, M
+   Jerseys Long-Sleeve Logo Jersey, L
+   Jerseys Long-Sleeve Logo Jersey, XL
+   Road Frames HL Road Frame - Red, 62
+   Road Frames HL Road Frame - Red, 44
+   Road Frames HL Road Frame - Red, 48
+   Road Frames HL Road Frame - Red, 52
+   Road Frames HL Road Frame - Red, 56
+   Road Frames LL Road Frame - Black, 58
+   Road Frames LL Road Frame - Black, 60
+   Road Frames LL Road Frame - Black, 62
+
+   Done. Press enter.
+   ```
+3. **Enter**를 선택하여 애플리케이션 창을 닫습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [명령줄을 사용하여 Windows/Linux/macOS에서 .NET Core를 시작하는 방법](/dotnet/core/tutorials/using-with-xplat-cli)을 알아봅니다.
-- [.NET Framework 및 Visual Studio를 사용하여 Azure SQL Database를 연결 및 쿼리하는 방법](sql-database-connect-query-dotnet-visual-studio.md)을 알아봅니다.  
-- [SSMS를 사용하여 첫 번째 Azure SQL Database를 설계하는 방법](sql-database-design-first-database.md) 또는 [.NET을 사용하여 첫 번째 Azure SQL Database를 설계하는 방법](sql-database-design-first-database-csharp.md)을 알아봅니다.
+- [.NET Framework 및 Visual Studio를 사용하여 Azure SQL 데이터베이스를 연결하고 쿼리하는 방법](sql-database-connect-query-dotnet-visual-studio.md)을 알아봅니다.  
+- [SSMS를 사용하여 첫 번째 Azure SQL 데이터베이스를 디자인](sql-database-design-first-database.md)하거나 [Azure SQL 데이터베이스를 디자인하고 C# 및 ADO.NET에 연결](sql-database-design-first-database-csharp.md)하는 방법을 알아봅니다.
 - .NET에 대한 자세한 내용은 [.NET 설명서](https://docs.microsoft.com/dotnet/)를 참조하세요.

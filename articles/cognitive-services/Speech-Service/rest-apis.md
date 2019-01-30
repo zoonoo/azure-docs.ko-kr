@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: ce9b3df5093d51eac0a151269b486b5f1310700c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 765d93780ad45eaaca61d4deb5f6607ef70ee432
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584862"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413688"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API
 
@@ -32,8 +33,8 @@ Speech-to-Text 또는 Text-to-Speech REST API에 대한 각 요청에는 인증 
 
 | 지원되는 인증 헤더 | 음성 텍스트 변환 | 텍스트 음성 변환 |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | yes | 아니요 |
-| Authorization: Bearer | yes | yes |
+| Ocp-Apim-Subscription-Key | 예 | 아니요 |
+| 권한 부여: 전달자 | 예 | 예 |
 
 `Ocp-Apim-Subscription-Key` 헤더를 사용하는 경우 구독 키만 제공하면 됩니다. 예: 
 
@@ -255,23 +256,23 @@ Speech-to-Text REST API는 짧은 발화만 지원합니다. 요청은 최대 10
 
 ### <a name="query-parameters"></a>쿼리 매개 변수
 
-이 매개 변수를 REST 요청의 쿼리 문자열에 포함할 수 있습니다.
+이 매개 변수는 REST 요청의 쿼리 문자열에 포함할 수 있습니다.
 
-| 매개 변수 | 설명 | 필수/선택 사항 |
+| 매개 변수 | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `language` | 인식되는 음성 언어를 식별합니다. [지원되는 언어](language-support.md#speech-to-text)를 참조하세요. | 필수 |
 | `format` | 결과 형식을 지정합니다. 허용되는 값은 `simple` 및 `detailed`입니다. simple 결과에는 `RecognitionStatus`, `DisplayText`, `Offset` 및 `Duration`이 포함됩니다. detailed 응답에는 신뢰도 값 및 4가지 다른 표현과 함께 여러 결과가 포함됩니다. 기본 설정은 `simple`입니다. | 옵션 |
-| `profanity` | 인식 결과에서 욕설을 처리하는 방법을 지정합니다. 허용되는 값은 욕설을 별표로 바꾸는 `masked`, 결과에서 모든 욕설을 제거하는 `removed` 또는 욕설을 결과에 포함하는 `raw`입니다. 기본 설정은 `masked`입니다. | 옵션 |
+| `profanity` | 인식 결과에서 욕설의 처리 방법을 지정합니다. 허용되는 값은 욕설을 별표로 바꾸는 `masked`, 결과에서 모든 욕설을 제거하는 `removed` 또는 욕설을 결과에 포함하는 `raw`입니다. 기본 설정은 `masked`입니다. | 옵션 |
 
 ### <a name="request-headers"></a>헤더 요청
 
 이 표에는 음성 텍스트 변환 요청에 대한 필수 헤더 및 선택적 헤더가 나와 있습니다.
 
-|헤더| 설명 | 필수/선택 사항 |
+|헤더| 설명 | 필수/선택 |
 |------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Speech Service 구독 키입니다. | 이 헤더 또는 `Authorization`이 필요합니다. |
+| `Ocp-Apim-Subscription-Key` | Speech Service 구독 키입니다. | 이 헤더 또는 `Authorization`가 필요합니다. |
 | `Authorization` | 앞에 `Bearer` 단어가 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 이 헤더 또는 `Ocp-Apim-Subscription-Key`가 필요합니다. |
-| `Content-type` | 제공된 오디오 데이터의 형식과 코덱을 설명합니다. 허용되는 값은 `audio/wav; codec=audio/pcm; samplerate=16000` 및 `audio/ogg; codec=audio/pcm; samplerate=16000`입니다. | 필수 |
+| `Content-type` | 제공된 오디오 데이터의 형식과 코덱을 설명합니다. 허용되는 값은 `audio/wav; codecs=audio/pcm; samplerate=16000` 및 `audio/ogg; codecs=opus`입니다. | 필수 |
 | `Transfer-Encoding` | 단일 파일이 아닌 청크 분할된 오디오 데이터가 전송되고 있음을 지정합니다. 오디오 데이터를 청크 분할하는 경우에만 이 헤더를 사용합니다. | 옵션 |
 | `Expect` | 청크 분할된 전송을 사용하는 경우 `Expect: 100-continue`를 전송합니다. Speech Service는 초기 요청을 인식하고 추가 데이터를 대기합니다.| 청크 분할된 오디오 데이터를 전송하는 경우에 필요합니다. |
 | `Accept` | 제공하는 경우 `application/json`이어야 합니다. Speech Service는 JSON으로 결과를 제공합니다. 값을 지정하지 않을 경우 일부 웹 요청 프레임워크는 호환되지 않는 기본값을 지정하므로, 항상 `Accept`를 포함하는 것이 좋습니다. | 선택 사항이지만 권장됩니다. |
@@ -295,7 +296,7 @@ Speech-to-Text REST API는 짧은 발화만 지원합니다. 요청은 최대 10
 ```HTTP
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
 Accept: application/json;text/xml
-Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
+Content-Type: audio/wav; codecs=audio/pcm; samplerate=16000
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: westus.stt.speech.microsoft.com
 Transfer-Encoding: chunked
@@ -321,9 +322,20 @@ Expect: 100-continue
 이 코드 샘플은 오디오를 청크로 보내는 방법을 보여 줍니다. 오직 첫 번째 청크만 오디오 파일의 헤더를 포함해야 합니다. `request`는 적절한 REST 엔드포인트에 연결된 HTTPWebRequest 개체입니다. `audioFile`은 디스크에서 오디오 파일의 경로입니다.
 
 ```csharp
+
+    HttpWebRequest request = null;
+    request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
+    request.SendChunked = true;
+    request.Accept = @"application/json;text/xml";
+    request.Method = "POST";
+    request.ProtocolVersion = HttpVersion.Version11;
+    request.Host = host;
+    request.ContentType = @"audio/wav; codecs=audio/pcm; samplerate=16000";
+    request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
+    request.AllowWriteStreamBuffering = false;
+
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 {
-
     /*
     * Open a request stream and write 1024 byte chunks in the stream one at a time.
     */
@@ -423,26 +435,16 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 ## <a name="text-to-speech-api"></a>Text-to-Speech API
 
-이러한 지역은 REST API를 사용한 텍스트 음성 변환에 대해 지원됩니다. 사용자 구독 지역과 일치하는 엔드포인트를 선택해야 합니다.
+텍스트를 음성으로 변환 REST API는 인공신경망 및 표준 텍스트를 음성으로 보이스를 지원하며, 해당 음성 각각은 로캘로 식별되는 특정 언어를 지원합니다.
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
-
-Speech Service는 Bing Speech에서 지원했던 16Khz 출력과 함께 24KHz 오디오 출력을 지원합니다. 4개의 24KHz 출력 형식과 2개의 24KHz 음성이 지원됩니다.
-
-### <a name="voices"></a>음성
-
-| 로캘 | 언어   | 성별 | 매핑 |
-|--------|------------|--------|---------|
-| en-US  | 영어 | Female | “Microsoft Server Speech Text to Speech Voice(en-US, Jessa24kRUS)” |
-| en-US  | 영어 | Male   | “Microsoft Server Speech Text to Speech Voice(en-US, Guy24kRUS)” |
-
-사용 가능한 음성의 전체 목록은 [지원되는 언어](language-support.md#text-to-speech)를 참조하세요.
+* 음성의 전체 목록은 [언어 지원](language-support.md#text-to-speech)을 참조하세요.
+* 국가별 가용성에 대한 자세한 내용은 [지역](regions.md#text-to-speech)을 참조하세요.
 
 ### <a name="request-headers"></a>헤더 요청
 
 이 표에는 음성 텍스트 변환 요청에 대한 필수 헤더 및 선택적 헤더가 나와 있습니다.
 
-| 헤더 | 설명 | 필수/선택 사항 |
+| 헤더 | 설명 | 필수/선택 |
 |--------|-------------|---------------------|
 | `Authorization` | 앞에 `Bearer` 단어가 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 필수 |
 | `Content-Type` | 제공된 텍스트의 콘텐츠 형식을 지정합니다. 허용되는 값: `application/ssml+xml`. | 필수 |
@@ -451,23 +453,27 @@ Speech Service는 Bing Speech에서 지원했던 16Khz 출력과 함께 24KHz �
 
 ### <a name="audio-outputs"></a>오디오 출력
 
-각 요청에서 `X-Microsoft-OutputFormat` 헤더로 전송되는 지원되는 오디오 형식 목록입니다. 각 항목에 전송률 및 인코딩 형식이 포함됩니다.
+각 요청에서 `X-Microsoft-OutputFormat` 헤더로 전송되는 지원되는 오디오 형식 목록입니다. 각 항목에 전송률 및 인코딩 형식이 포함됩니다. Speech Service는 24KHz, 16KHz 및 8KHz 오디오 출력을 지원합니다.
 
 |||
 |-|-|
 | `raw-16khz-16bit-mono-pcm` | `raw-8khz-8bit-mono-mulaw` |
-| `riff-8khz-8bit-mono-mulaw` | `riff-16khz-16bit-mono-pcm` |
-| `audio-16khz-128kbitrate-mono-mp3` | `audio-16khz-64kbitrate-mono-mp3` |
-| `audio-16khz-32kbitrate-mono-mp3`  | `raw-24khz-16bit-mono-pcm` |
-| `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3` |
-| `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3` |
+| `riff-8khz-8bit-mono-alaw` | `riff-8khz-8bit-mono-mulaw` |
+| `riff-16khz-16bit-mono-pcm` | `audio-16khz-128kbitrate-mono-mp3` |
+| `audio-16khz-64kbitrate-mono-mp3` | `audio-16khz-32kbitrate-mono-mp3` |
+| `raw-24khz-16bit-mono-pcm` | `riff-24khz-16bit-mono-pcm` |
+| `audio-24khz-160kbitrate-mono-mp3` | `audio-24khz-96kbitrate-mono-mp3` |
+| `audio-24khz-48kbitrate-mono-mp3` | |
 
 > [!NOTE]
 > 선택한 음성 및 출력 형식의 비트 전송률이 다른 경우 필요에 오디오가 다시 샘플링됩니다. 단, 24khz 음성은 `audio-16khz-16kbps-mono-siren` 및 `riff-16khz-16kbps-mono-siren` 출력 형식을 지원하지 않습니다.
 
 ### <a name="request-body"></a>요청 본문
 
-텍스트가 HTTP `POST` 요청의 본문으로 전송됩니다. 일반 텍스트(ASCII 또는 UTF-8) 또는 SSML([Speech Synthesis Markup Language](speech-synthesis-markup.md)) 형식(UTF-8)일 수 있습니다. 일반 텍스트 요청은 Speech Service의 기본 음성 및 언어를 사용합니다. SSML을 사용하면 음성 및 언어를 지정할 수 있습니다.
+각 `POST` 요청의 본문은 [SSML(Speech Synthesis Markup Language)](speech-synthesis-markup.md)로 전송됩니다. SSML에서는 텍스트 음성 변환 서비스에서 반환한 합성된 음성의 목소리와 언어를 선택할 수 있습니다. 지원되는 목소리의 전체 목록은 [언어 지원](language-support.md#text-to-speech)을 참조하세요.
+
+> [!NOTE]
+> 사용자 지정 목소리를 사용하는 경우에는 요청 본문을 일반 텍스트(ASCII 또는 UTF-8)로 전송할 수 있습니다.
 
 ### <a name="sample-request"></a>샘플 요청
 

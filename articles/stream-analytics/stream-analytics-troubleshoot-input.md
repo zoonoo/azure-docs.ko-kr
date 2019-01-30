@@ -7,13 +7,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.openlocfilehash: 2b2dc3ba78cfa682c4a326754bdddfa9bc81f836
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 6694865909a165842f994501befa404e1bc0a447
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346405"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164384"
 ---
 # <a name="troubleshoot-input-connections"></a>입력 연결 문제 해결
 
@@ -35,7 +36,7 @@ Stream Analytics 작업의 입력 스트림에 잘못된 형식의 메시지가 
  
 Stream Analytics 작업이 입력으로부터 잘못된 형식의 메시지를 수신하면 해당 메시지를 삭제하고 경고로 알립니다. 경고 기호는 Stream Analytics 작업의 **입력** 타일에 표시됩니다. 작업이 실행 중인 경우 이 경고 기호가 존재합니다.
 
-![Azure Stream Analytics 입력 타일](media/stream-analytics-malformed-events/inputs_tile.png)
+![Azure Stream Analytics 입력 타일](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
 경고의 세부 정보를 보려면 진단 로그를 사용할 수 있습니다. 잘못된 형식의 입력 이벤트의 경우 실행 로그에는 다음과 같은 메시지와 함께 항목이 포함됩니다. 
 <code>Could not deserialize the input event(s) from resource <blob URI> as json.</code>
@@ -47,8 +48,8 @@ Stream Analytics 작업이 입력으로부터 잘못된 형식의 메시지를 �
 
 2. 입력 세부 정보 타일에는 각 문제에 대한 세부 정보를 포함하는 경고 목록이 표시됩니다. 아래의 예제 경고 메시지에는 잘못된 형식의 JSON 데이터가 있는 파티션, 오프셋 및 시퀀스 번호가 포함됩니다. 
 
-   ![오프셋을 포함하는 경고 메시지](media/stream-analytics-malformed-events/warning_message_with_offset.png)
-
+   ![오프셋을 포함하는 Stream Analytics 경고 메시지](media/stream-analytics-malformed-events/warning-message-with-offset.png)
+   
 3. 잘못된 형식이 포함된 JSON 데이터를 찾으려면 [GitHub 샘플 리포지토리](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH)에서 사용 가능한 CheckMalformedEvents.cs 코드를 실행합니다. 이 코드는 파티션 ID, 오프셋을 읽고 오프셋에 배치된 데이터를 출력합니다. 
 
 4. 데이터를 읽은 경우 직렬화 형식을 분석하고 수정할 수 있습니다.
@@ -90,7 +91,7 @@ Event Hubs 인스턴스에 새 소비자 그룹을 추가하려면 다음 단계
 파티션당 읽기 권한자 수가 5개 Event Hubs 제한을 초과하는 시나리오에는 다음이 포함됩니다.
 
 * 여러 SELECT 문: **동일한** 이벤트 허브 입력을 참조하는 여러 SELECT 문을 사용하는 경우 각 SELECT 문으로 인해 새 수신기가 생성됩니다.
-* UNION: UNION을 **동일한** 이벤트 허브 및 소비자 그룹을 참조하는 여러 입력이 발생할 수 있습니다.
+* UNION: UNION을 사용하면 **동일한** 이벤트 허브 및 소비자 그룹을 참조하는 여러 입력이 발생할 수 있습니다.
 * SELF JOIN: SELF JOIN 작업을 사용하면 **동일한** 이벤트 허브를 여러 번 참조할 수 있습니다.
 
 다음 모범 사례는 파티션당 읽기 권한자 수가 5개 Event Hubs 제한을 초과하는 시나리오를 완화하는 데 도움이 될 수 있습니다.
@@ -101,7 +102,7 @@ WITH 절은 쿼리의 FROM 절에서 참조할 수 있는 명명된 임시 결�
 
 예를 들어 아래 쿼리 대신,
 
-```
+```SQL
 SELECT foo 
 INTO output1
 FROM inputEventHub
@@ -114,7 +115,7 @@ FROM inputEventHub
 
 다음 쿼리를 사용합니다.
 
-```
+```SQL
 WITH data AS (
    SELECT * FROM inputEventHub
 )

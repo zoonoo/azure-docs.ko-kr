@@ -5,27 +5,28 @@ services: hdinsight
 author: tylerfox
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 9/21/2018
+ms.date: 09/21/2018
 ms.author: tyfox
-ms.openlocfilehash: f018130ca94c7efb7a9c6c873c150dcc382dbc4c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18
+ms.openlocfilehash: d353db3554837ebe13cc53f5adac6658b82e31ec
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498302"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717690"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>HDInsight Go 관리 SDK 미리 보기
 
 ## <a name="overview"></a>개요
 HDInsight Go SDK는 HDInsight 클러스터 관리를 위한 클래스 및 함수를 제공합니다. 여기에는 HDInsight 클러스터의 속성 만들기, 삭제, 업데이트, 나열, 크기 조정, 스크립트 작업 실행, 모니터링, 가져오기 작업을 포함합니다.
 
-> [!NOTE]
+> [!NOTE]  
 >이 SDK에 대한 GoDoc 참조 자료도 [여기](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight)서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 * Azure 계정. 계정이 없으면 [체험 계정을 얻습니다](https://azure.microsoft.com/free/).
-* [Go](https://golang.org/dl/)
+* [Go](https://golang.org/dl/).
 
 ## <a name="sdk-installation"></a>SDK 설치
 
@@ -35,8 +36,8 @@ GOPATH 위치에서 `go get github.com/Azure/azure-sdk-for-go/tree/master/servic
 
 Azure 구독을 사용해서 SDK를 먼저 인증해야 합니다.  아래 예제에 따라 서비스 주체를 만들고 이를 인증에 사용합니다. 완료되면 관리 작업 수행을 위해 사용할 수 있는 여러 함수(아래 섹션 참조)가 포함된 `ClustersClient` 인스턴스가 준비됩니다.
 
-> [!NOTE]
-> 아래 설명된 예제 외에도 사용자 요구에 더 적합할 수 있는 다른 인증 방법이 있습니다. 모든 함수는 [Go용 Azure SDK의 인증 함수](https://docs.microsoft.com/go/azure/azure-sdk-go-authorization)에 설명되어 있습니다.
+> [!NOTE]  
+> 아래 설명된 예제 외에도 사용자 요구에 더 적합할 수 있는 다른 인증 방법이 있습니다. 모든 함수가 다음에 설명되어 있습니다. [Azure SDK for Go에서의 인증 함수](https://docs.microsoft.com/go/azure/azure-sdk-go-authorization).
 
 ### <a name="authentication-example-using-a-service-principal"></a>서비스 주체를 사용한 인증 예제
 
@@ -69,7 +70,7 @@ az account show
 az account set -s <name or ID of subscription>
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Azure Portal을 통해 HDInsight Cluster를 만드는 등 다른 함수를 사용하여 HDInsight Resource Provider를 등록하지 않은 경우, 이를 먼저 수행해야 인증할 수 있습니다. 이 작업은 [Azure Cloud Shell](https://shell.azure.com/bash)에서 다음 명령을 실행하여 수행할 수 있습니다.
 >```azurecli-interactive
 >az provider register --namespace Microsoft.HDInsight
@@ -132,7 +133,7 @@ func main() {
 
 ## <a name="cluster-management"></a>클러스터 관리
 
-> [!NOTE]
+> [!NOTE]  
 > 이 섹션에서는 이미 인증이 수행되었고 `ClusterClient` 인스턴스가 생성되었으며, `client`라는 변수로 저장되었다고 가정합니다. `ClusterClient` 인증 및 가져오기 지침은 위에 표시된 인증 섹션에서 찾을 수 있습니다.
 
 ### <a name="create-a-cluster"></a>클러스터 만들기
@@ -143,7 +144,7 @@ func main() {
 
 이 예제에서는 2개의 헤드 노드 및 1개의 작업자 노드를 사용하여 [Apache Spark](https://spark.apache.org/) 클러스터를 만드는 방법을 보여줍니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 먼저 아래 설명된 대로 리소스 그룹 및 저장소 계정을 만들어야 합니다. 이미 만든 경우에는 이 단계를 건너뛸 수 있습니다.
 
 ##### <a name="creating-a-resource-group"></a>리소스 그룹 만들기
@@ -282,7 +283,8 @@ client.List()
 ```golang
 client.ListByResourceGroup("<Resource Group Name>")
 ```
-> [!NOTE]
+
+> [!NOTE]  
 > `List()` 및 `ListByResourceGroup()` 모두 `ClusterListResultPage` 구조체를 반환합니다. 다음 페이지를 가져오려면 `Next()`을(를) 호출할 수 있습니다. 이 작업은 아래 예제에 표시된 것처럼 `ClusterListResultPage.NotDone()`에서 `false`를 반환할 때까지 반복할 수 있습니다.
 
 #### <a name="example"></a>예
@@ -344,13 +346,13 @@ extClient := hdi.NewExtensionsClient(SUBSCRIPTION_ID)
 extClient.Authorizer, _ = credentials.Authorizer()
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 아래의 모니터링 예제에서는 이미 위처럼 `extClient`라고 하는 `ExtensionClient`를 초기화하고 `Authorizer`를 설정한 것으로 가정합니다.
 
 ### <a name="enable-oms-monitoring"></a>OMS 모니터링 사용
 
-> [!NOTE]
-> OMS 모니터링을 사용하려면 기존 Log Analytics 작업 영역이 있어야 합니다. 아직 만들지 않았으면 [Azure Portal에서 Log Analytics 작업 영역 만들기](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)에서 이를 수행하는 방법을 확인할 수 있습니다.
+> [!NOTE]  
+> OMS 모니터링을 사용하려면 기존 Log Analytics 작업 영역이 있어야 합니다. 아직 작업 영역을 만들지 않은 경우 다음에서 작업 영역을 만드는 방법을 알아볼 수 있습니다. [Azure Portal에서 Log Analytics 작업 영역 만들기](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
 클러스터에서 OMS 모니터링을 사용하려면:
 
@@ -377,8 +379,9 @@ extClient.DisableMonitoring(context.Background(), "<Resource Group Name", "Clust
 ## <a name="script-actions"></a>스크립트 작업
 
 HDInsight는 클러스터 사용자 지정을 위해 사용자 지정 스크립트를 호출하는 스크립트 작업이라고 부르는 구성 함수를 제공합니다.
-> [!NOTE]
-> 스크립트 작업 사용 방법에 대한 자세한 내용은 [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)에서 확인할 수 있습니다.
+
+> [!NOTE]  
+> 스크립트 작업을 사용하는 방법에 대한 자세한 내용은 다음에서 찾을 수 있습니다. [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
 ### <a name="execute-script-actions"></a>스크립트 작업 실행
 
@@ -396,7 +399,7 @@ scriptActionsClient := hdi.NewScriptActionsClient(SUBSCRIPTION_ID)
 scriptActionsClient.Authorizer, _ = credentials.Authorizer()
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 아래의 스크립트 작업 예제에서는 이미 위처럼 `scriptActionsClient`라고 하는 `ScriptActionsClient`를 초기화하고 `Authorizer`를 설정한 것으로 가정합니다.
 
 ### <a name="delete-script-action"></a>스크립트 작업 삭제
@@ -409,7 +412,7 @@ scriptActionsClient.Delete(context.Background(), "<Resource Group Name>", "<Clus
 
 ### <a name="list-persisted-script-actions"></a>지속형 스크립트 작업 나열
 
-> [!NOTE]
+> [!NOTE]  
 > 두 `ListByCluster()` 모두 `ScriptActionsListPage` 구조체를 반환합니다. 다음 페이지를 가져오려면 `Next()`을(를) 호출할 수 있습니다. 이 작업은 아래 예제에 표시된 것처럼 `ClusterListResultPage.NotDone()`에서 `false`를 반환할 때까지 반복할 수 있습니다.
 
 지정된 클러스터에 대해 모든 지속형 스크립트 작업을 나열하려면:
@@ -444,7 +447,7 @@ scriptExecutionHistoryClient := hdi.NewScriptExecutionHistoryClient(SUBSCRIPTION
 scriptExecutionHistoryClient.Authorizer, _ = credentials.Authorizer()
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 아래의 예제에서는 이미 위처럼 `scriptExecutionHistoryClient`라고 하는 `ScriptExecutionHistoryClient`를 초기화하고 `Authorizer`를 설정한 것으로 가정합니다.
 
 지정된 클러스터에 대해 모든 스크립트 실행 기록을 나열하려면:

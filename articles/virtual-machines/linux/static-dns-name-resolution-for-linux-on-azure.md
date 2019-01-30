@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: acfdd9070b49805c20b8ef921b5387c151448aa1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 862d239227c277a92cbf80e54b010a4b184da016
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961504"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466094"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>가상 네트워크 인터페이스 카드 만들기 및 Azure에서 VM 이름 확인을 위해 내부 DNS 사용
 
@@ -49,7 +49,7 @@ az network nic create \
 ```
 
 ### <a name="deploy-a-vm-and-connect-the-vnic"></a>VM 배포 및 vNic 연결
-[az vm create](/cli/azure/vm#az_vm_create)로 VM을 만듭니다. `--nics` 플래그는 Azure에 배포하는 동안 VM에 vNic를 연결합니다. 다음 예제에서는 Azure Managed Disks를 사용하여 가상 컴퓨터 `myVM`을 만들고 이전 단계에서 vNic `myNic`를 연결합니다.
+[az vm create](/cli/azure/vm)로 VM을 만듭니다. `--nics` 플래그는 Azure에 배포하는 동안 VM에 vNic를 연결합니다. 다음 예제에서는 Azure Managed Disks를 사용하여 가상 컴퓨터 `myVM`을 만들고 이전 단계에서 vNic `myNic`를 연결합니다.
 
 ```azurecli
 az vm create \
@@ -80,7 +80,7 @@ az group create --name myResourceGroup --location westus
 
 다음 단계는 VM을 시작할 가상 네트워크를 빌드하는 것입니다. 가상 네트워크는 이 연습을 위한 서브넷을 포함합니다. Azure Virtual Network에 대한 자세한 내용은 [가상 네트워크 만들기](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)를 참조하세요. 
 
-[az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 `myVnet`이라는 가상 네트워크와 `mySubnet`이라는 서브넷을 만듭니다.
+[az network vnet create](/cli/azure/network/vnet)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 `myVnet`이라는 가상 네트워크와 `mySubnet`이라는 서브넷을 만듭니다.
 
 ```azurecli
 az network vnet create \
@@ -103,7 +103,7 @@ az network nsg create \
 ```
 
 ## <a name="add-an-inbound-rule-to-allow-ssh"></a>SSH를 허용하는 인바운드 규칙 추가
-[az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create)를 사용하여 네트워크 보안 그룹에 대해 인바운드 규칙을 추가합니다. 다음 예제는 `myRuleAllowSSH`이라는 규칙을 만듭니다.
+[az network nsg rule create](/cli/azure/network/nsg/rule)를 사용하여 네트워크 보안 그룹에 대해 인바운드 규칙을 추가합니다. 다음 예제는 `myRuleAllowSSH`이라는 규칙을 만듭니다.
 
 ```azurecli
 az network nsg rule create \
@@ -149,7 +149,7 @@ az network nic create \
 ## <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>가상 네트워크 인프라에 VM 배포
 이제 가상 네트워크, 서브넷, 네트워크 보안 그룹이 SSH에 대한 포트 22 및 vNic를 제외한 모든 인바운드 트래픽을 차단하여 서브넷을 보호하는 방화벽의 역할을 하게 됩니다. 이제 이 기존 네트워크 인프라 내에 VM을 배포할 수 있습니다.
 
-[az vm create](/cli/azure/vm#az_vm_create)로 VM을 만듭니다. 다음 예제에서는 Azure Managed Disks를 사용하여 가상 컴퓨터 `myVM`을 만들고 이전 단계에서 vNic `myNic`를 연결합니다.
+[az vm create](/cli/azure/vm)로 VM을 만듭니다. 다음 예제에서는 Azure Managed Disks를 사용하여 가상 컴퓨터 `myVM`을 만들고 이전 단계에서 vNic `myNic`를 연결합니다.
 
 ```azurecli
 az vm create \

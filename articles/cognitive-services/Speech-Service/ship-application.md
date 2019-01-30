@@ -1,27 +1,28 @@
 ---
-title: Speech Service SDK API 설명서 - 자습서, API 참조
+title: Speech SDK를 사용하여 앱 개발 - 음성 서비스
 titleSuffix: Azure Cognitive Services
-description: Speech Service SDK를 사용하여 앱을 만들고 개발하는 방법을 알아봅니다.
+description: Speech SDK를 사용하여 앱을 만드는 방법을 알아봅니다.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 12/18/2018
 ms.author: wolfma
-ms.openlocfilehash: 7510b1501051b79f6bdaf33ec57647a7982fafda
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 8c230143a4b3ab15e5a43d8b565d1973bc47ec29
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469421"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599023"
 ---
-# <a name="ship-an-application"></a>응용 프로그램 배송
+# <a name="ship-an-application"></a>애플리케이션 배송
 
 [Speech SDK 라이선스](https://aka.ms/csspeech/license201809)를 준수하고 Azure Cognitive Services Speech SDK를 배포할 경우 [타사 소프트웨어 공지 사항](https://csspeechstorage.blob.core.windows.net/drop/1.0.0/ThirdPartyNotices.html)도 준수합니다. 또한 [Microsoft 개인정보처리방침](https://aka.ms/csspeech/privacy)을 검토합니다.
 
-플랫폼에 따라 응용 프로그램을 실행하기 위한 다양한 종속성이 존재합니다.
+플랫폼에 따라 애플리케이션을 실행하기 위한 다양한 종속성이 존재합니다.
 
 ## <a name="windows"></a> Windows
 
@@ -32,11 +33,11 @@ Cognitive Services Speech SDK에는 [Visual Studio 2017용 Microsoft Visual C++ 
 - [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
 
-응용 프로그램에서 관리 코드를 사용하는 경우, 대상 머신에 `.NET Framework 4.6.1` 이상이 필요합니다.
+애플리케이션에서 관리 코드를 사용하는 경우, 대상 머신에 `.NET Framework 4.6.1` 이상이 필요합니다.
 
 마이크 입력을 위해 미디어 파운데이션 라이브러리를 설치해야 합니다. 이러한 라이브러리는 Windows 10 및 Windows Server 2016에 포함됩니다. 마이크를 오디오 입력 디바이스로 사용하지 않는 경우에는 이러한 라이브러리 없이 Speech SDK를 사용할 수 있습니다.
 
-필요한 Speech SDK 파일은 응용 프로그램과 동일한 디렉터리에 배포할 수 있습니다. 이렇게 하면 응용 프로그램이 라이브러리에 직접 액세스할 수 있습니다. 응용 프로그램과 일치하는 올바른 버전(Win32/x64)을 선택해야 합니다.
+필요한 Speech SDK 파일은 애플리케이션과 동일한 디렉터리에 배포할 수 있습니다. 이렇게 하면 애플리케이션이 라이브러리에 직접 액세스할 수 있습니다. 애플리케이션과 일치하는 올바른 버전(Win32/x64)을 선택해야 합니다.
 
 | 이름 | 함수
 |:-----|:----|
@@ -46,15 +47,15 @@ Cognitive Services Speech SDK에는 [Visual Studio 2017용 Microsoft Visual C++ 
 
 ## <a name="linux"></a>Linux
 
-네이티브 응용 프로그램의 경우 Speech SDK 라이브러리 `libMicrosoft.CognitiveServices.Speech.core.so`를 전달해야 합니다.
-응용 프로그램과 일치하는 버전(x86, x64)을 선택해야 합니다. Linux 버전에 따라 다음 종속성을 포함해야 할 수도 있습니다.
+네이티브 애플리케이션의 경우 Speech SDK 라이브러리 `libMicrosoft.CognitiveServices.Speech.core.so`를 전달해야 합니다.
+애플리케이션과 일치하는 버전(x86, x64)을 선택해야 합니다. Linux 버전에 따라 다음 종속성을 포함해야 할 수도 있습니다.
 
 * GNU C 라이브러리의 공유 라이브러리(POSIX Threads Programming 라이브러리, `libpthreads` 포함)
 * OpenSSL 라이브러리(`libssl.so.1.0.0`)
 * cURL 라이브러리(`libcurl.so.4`)
-* ALSA 응용 프로그램의 공유 라이브러리(`libasound.so.2`)
+* ALSA 애플리케이션의 공유 라이브러리(`libasound.so.2`)
 
-예를 들어, Ubuntu 16.04에서는 기본적으로 GNU C 라이브러리가 설치되어 있어야 합니다. 마지막 세 가지는 다음 명령을 사용하여 설치할 수 있습니다.
+예를 들어, Ubuntu 16.04 또는 18.04에서는 기본적으로 GNU C 라이브러리가 설치되어 있어야 합니다. 마지막 세 가지는 다음 명령을 사용하여 설치할 수 있습니다.
 
 ```sh
 sudo apt-get update

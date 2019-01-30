@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: a91593c1bae3002be8b7e423b627f1baf19e86e2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: edbaa8fe42c0e6bfda8558e7d9e5cd0ce42bfcc4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129197"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260704"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Java SDK를 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
@@ -58,9 +58,9 @@ Azure Data Lake Storage Gen1 Java SDK를 사용하여 폴더 만들기, 데이�
           </dependency>
         </dependencies>
    
-    첫 번째 종속성은 Maven 리포지토리에서 Data Lake Storage Gen1 SDK(`azure-data-lake-store-sdk`)를 사용하는 것입니다. 두 번째 종속성은 이 응용 프로그램에 사용하는 로깅 프레임워크(`slf4j-nop`)를 지정하는 것입니다. Data Lake Storage Gen1 SDK는 [slf4j](http://www.slf4j.org/) 로깅 외관을 사용하며 이로 인해 log4j, Java 로깅, logback 혹은 로깅 없음과 같이 널리 사용되는 여러 로깅 프레임워크 중에서 선택할 수 있습니다. 이 예제에서 로깅을 비활성화하므로 **slf4j-nop** 바인딩을 사용합니다. 앱에서 다른 로깅 옵션을 사용하려면 [여기](http://www.slf4j.org/manual.html#projectDep)를 참조하세요.
+    첫 번째 종속성은 Maven 리포지토리에서 Data Lake Storage Gen1 SDK(`azure-data-lake-store-sdk`)를 사용하는 것입니다. 두 번째 종속성은 이 애플리케이션에 사용하는 로깅 프레임워크(`slf4j-nop`)를 지정하는 것입니다. Data Lake Storage Gen1 SDK는 [slf4j](http://www.slf4j.org/) 로깅 외관을 사용하며 이로 인해 log4j, Java 로깅, logback 혹은 로깅 없음과 같이 널리 사용되는 여러 로깅 프레임워크 중에서 선택할 수 있습니다. 이 예제에서 로깅을 비활성화하므로 **slf4j-nop** 바인딩을 사용합니다. 앱에서 다른 로깅 옵션을 사용하려면 [여기](http://www.slf4j.org/manual.html#projectDep)를 참조하세요.
 
-3. 응용 프로그램에 다음 import 문을 추가합니다.
+3. 애플리케이션에 다음 import 문을 추가합니다.
 
         import com.microsoft.azure.datalake.store.ADLException;
         import com.microsoft.azure.datalake.store.ADLStoreClient;
@@ -75,8 +75,8 @@ Azure Data Lake Storage Gen1 Java SDK를 사용하여 폴더 만들기, 데이�
 
 ## <a name="authentication"></a>인증
 
-* 응용 프로그램에 대한 최종 사용자 인증의 경우 [Java를 사용한 Data Lake Storage Gen1의 최종 사용자 인증](data-lake-store-end-user-authenticate-java-sdk.md)을 참조하세요.
-* 응용 프로그램에 대한 서비스 간 인증의 경우 [Java를 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-java.md)을 참조하세요.
+* 애플리케이션에 대한 최종 사용자 인증의 경우 [Java를 사용한 Data Lake Storage Gen1의 최종 사용자 인증](data-lake-store-end-user-authenticate-java-sdk.md)을 참조하세요.
+* 애플리케이션에 대한 서비스 간 인증의 경우 [Java를 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-java.md)을 참조하세요.
 
 ## <a name="create-a-data-lake-storage-gen1-client"></a>Data Lake Storage Gen1 클라이언트 만들기
 [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) 개체를 만들 때는 Data Lake Storage Gen1에 인증할 때 생성한 Data Lake Storage Gen1 계정 이름 및 토큰 공급자를 지정해야 합니다([인증](#authentication) 섹션 참조). Data Lake Storage Gen1 계정 이름은 정규화된 도메인 이름이어야 합니다. 예를 들어 **FILL-IN-HERE**는 **mydatalakestoragegen1.azuredatalakestore.net**과 같은 이름으로 바꿉니다.
@@ -204,7 +204,7 @@ Azure Data Lake Storage Gen1 Java SDK를 사용하여 폴더 만들기, 데이�
     System.out.println("All files and folders deleted recursively");
     promptEnterKey();
 
-## <a name="build-and-run-the-application"></a>응용 프로그램 빌드 및 실행
+## <a name="build-and-run-the-application"></a>애플리케이션 빌드 및 실행
 1. IDE 내에서 실행하려면 **실행** 단추를 찾아 누릅니다. Maven을 실행하려면 [exec:exec](http://www.mojohaus.org/exec-maven-plugin/exec-mojo.html)을 사용합니다.
 2. 명령줄 빌드에서 실행할 수 있는 독립 실행형 jar을 생성하려면 [Maven 어셈블리 플러그 인](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html)을 사용하여 포함된 모든 종속성을 가진 jar을 빌드합니다. [GitHub의 소스 코드 예제](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml)에서 pom.xml에 예제가 있습니다.
 

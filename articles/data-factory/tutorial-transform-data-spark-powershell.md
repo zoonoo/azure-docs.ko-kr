@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 21c2c9ab0300ed5eac9ceebbd88627ea091b3389
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 644b9f3ce38b050e57fe234756a2a9a0127727c3
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954473"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424237"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Azure Data Factory에서 Spark 작업을 사용하여 클라우드의 데이터 변환
 이 자습서에서는 Azure PowerShell을 사용하여 Spark 작업 및 주문형 HDInsight 연결된 서비스를 통해 데이터를 변환하는 Data Factory 파이프라인을 만듭니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
@@ -33,7 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 * **Azure Storage 계정**. Python 스크립트와 입력 파일을 만들고 Azure 저장소에 업로드합니다. Spark 프로그램의 출력은 이 저장소 계정에 저장됩니다. 주문형 Spark 클러스터는 기본 저장소와 동일한 저장소 계정을 사용합니다.  
-* **Azure PowerShell**. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-azurerm-ps)의 지침을 따르세요.
+* **Azure PowerShell**. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/azurerm/install-azurerm-ps)의 지침을 따르세요.
 
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Blob Storage 계정에 Python 스크립트 업로드
@@ -135,11 +134,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 - **hostSubscriptionId** - &lt;subscriptionID&gt;를 Azure 구독의 ID로 바꿉니다. 이 구독에 주문형 HDInsight 클러스터가 만들어집니다. 
 - **tenant** - &lt;tenantID&gt;를 Azure 테넌트의 ID로 바꿉니다. 
-- **servicePrincipalId**, **servicePrincipalKey** - &lt;servicePrincipalID&gt; 및 &lt;servicePrincipalKey&gt;를 Azure Active Directory에 있는 서비스 주체의 ID와 키로 바꿉니다. 이 서비스 주체는 클러스터를 만든 구독 또는 리소스 그룹의 참가자 역할의 구성원이어야 합니다. 자세한 내용은 [Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요. 
+- **servicePrincipalId**, **servicePrincipalKey** - &lt;servicePrincipalID&gt; 및 &lt;servicePrincipalKey&gt;를 Azure Active Directory에 있는 서비스 주체의 ID와 키로 바꿉니다. 이 서비스 주체는 클러스터를 만든 구독 또는 리소스 그룹의 참가자 역할의 구성원이어야 합니다. 자세한 내용은 [Azure Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요. 
 - **clusterResourceGroup** - &lt;resourceGroupOfHDICluster&gt;를 HDInsight 클러스터를 만들어야 하는 리소스 그룹의 이름으로 바꿉니다. 
 
 > [!NOTE]
-> Azure HDInsight에는 지원하는 각 Azure 지역에서 사용할 수 있는 총 코어 수에 대한 제한이 있습니다. 주문형 HDInsight 연결된 서비스의 경우 HDInsight 클러스터는 기본 저장소로 사용되는 Azure Storage와 동일한 위치에 만들어집니다. 클러스터를 성공적으로 만드는 데 충분한 코어 할당량이 있는지 확인합니다. 자세한 내용은 [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터 설정](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요. 
+> Azure HDInsight에는 지원하는 각 Azure 지역에서 사용할 수 있는 총 코어 수에 대한 제한이 있습니다. 주문형 HDInsight 연결된 서비스의 경우 HDInsight 클러스터는 기본 스토리지로 사용되는 Azure Storage와 동일한 위치에 만들어집니다. 클러스터를 성공적으로 만드는 데 충분한 코어 할당량이 있는지 확인합니다. 자세한 내용은 [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터 설정](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요. 
 
 
 ## <a name="author-a-pipeline"></a>파이프라인 작성 
@@ -199,7 +198,7 @@ JSON 파일에서 연결된 서비스 및 파이프라인 정의를 작성했습
     ```powershell
     $pipelineName = "MySparkOnDemandPipeline" # Name of the pipeline
     ```
-2. **PowerShell**을 시작합니다. 이 빠른 시작을 완료할 때까지 Azure PowerShell을 열어 둡니다. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다. Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+2. **PowerShell**을 시작합니다. 이 빠른 시작을 완료할 때까지 Azure PowerShell을 열어 둡니다. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다. 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
     다음 명령을 실행하고 Azure Portal에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
         
@@ -216,7 +215,7 @@ JSON 파일에서 연결된 서비스 및 파이프라인 정의를 작성했습
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"    
     ```  
-3. ADFTutorialResourceGroup 리소스 그룹을 만듭니다. 
+3. 리소스 그룹을 만듭니다. ADFTutorialResourceGroup. 
 
     ```powershell
     New-AzureRmResourceGroup -Name $resourceGroupName -Location "East Us" 
@@ -331,7 +330,7 @@ JSON 파일에서 연결된 서비스 및 파이프라인 정의를 작성했습
 
 
 ## <a name="next-steps"></a>다음 단계
-이 샘플의 파이프라인은 Azure Blob 저장소의 한 위치에서 다른 위치로 데이터를 복사합니다. 다음 방법에 대해 알아보았습니다. 
+이 샘플의 파이프라인은 Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사합니다. 다음 방법에 대해 알아보았습니다. 
 
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다. 

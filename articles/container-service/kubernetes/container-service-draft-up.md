@@ -1,6 +1,6 @@
 ---
-title: Azure Container Service 및 Azure Container Registry에서 Draft 사용
-description: ACS Kubernetes 클러스터와 Azure Container Registry를 만들어 Azure에서 Draft로 첫 번째 응용 프로그램을 만듭니다.
+title: (사용되지 않음) Azure Container Service 및 Azure Container Registry에서 Draft 사용
+description: ACS Kubernetes 클러스터와 Azure Container Registry를 만들어 Azure에서 Draft로 첫 번째 애플리케이션을 만듭니다.
 services: container-service
 author: squillace
 manager: jeconnoc
@@ -9,18 +9,21 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: c635a869506918ab7ee032df349eb307987c1284
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bd1e4da67ef3f2ffce94c62e1dbc151aa4680e54
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432282"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854572"
 ---
-# <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Azure Container Service 및 Azure Container Registry에서 Draft를 사용하여 응용 프로그램 빌드 및 Kubernetes에 배포
+# <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(사용되지 않음) Azure Container Service 및 Azure Container Registry에서 Draft를 사용하여 애플리케이션 빌드 및 Kubernetes에 배포
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Azure Kubernetes Service를 사용하는 이 문서의 업데이트된 버전은 [AKS(Azure Kubernetes Service)에서 Draft 사용](../../aks/kubernetes-draft.md)을 참조하세요.
 
-[Draft](https://aka.ms/draft)는 Docker와 Kubernetes에 대해 잘 알지 못하거나 패키지를 설치하지 않고도 손쉽게 컨테이너 기반 응용 프로그램을 개발하여 Kubernetes 클러스터에 배포할 수 있는 새로운 오픈 소스 도구입니다. Draft와 같은 도구를 사용하면 사용자와 팀이 Kubernetes로 응용 프로그램을 빌드하는 데 집중할 수 있는 한편 인프라에는 많은 주의를 기울이지 않습니다.
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
+
+[Draft](https://aka.ms/draft)는 Docker와 Kubernetes에 대해 잘 알지 못하거나 패키지를 설치하지 않고도 손쉽게 컨테이너 기반 애플리케이션을 개발하여 Kubernetes 클러스터에 배포할 수 있는 새로운 오픈 소스 도구입니다. Draft와 같은 도구를 사용하면 사용자와 팀이 Kubernetes로 애플리케이션을 빌드하는 데 집중할 수 있는 한편 인프라에는 많은 주의를 기울이지 않습니다.
 
 로컬을 포함하여 모든 Docker 이미지 레지스트리와 Kubernetes 클러스터에서 Draft를 사용할 수 있습니다. 이 자습서에서는 Kubernetes 및 ACR과 함께 ACS를 사용하여 Kubernetes에서 Draft를 사용하여 라이브지만 안전한 개발자 파이프라인을 만드는 방법과 Azure DNS를 사용하여 다른 사용자가 도메인에서 해당 개발자 파이프라인을 볼 수 있도록 노출하는 방법을 보여 줍니다.
 
@@ -95,7 +98,7 @@ waiting for AAD role to propagate.done
 }
 ```
 
-이제 클러스터가 있으므로 [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) 명령을 사용하여 자격 증명을 가져올 수 있습니다. 그리고 클러스터에 대한 로컬 구성 파일이 있습니다. 이는 Helm과 Draft가 작업을 완료하는 데 필요한 파일입니다.
+이제 클러스터가 있으므로 [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes) 명령을 사용하여 자격 증명을 가져올 수 있습니다. 그리고 클러스터에 대한 로컬 구성 파일이 있습니다. 이는 Helm과 Draft가 작업을 완료하는 데 필요한 파일입니다.
 
 ## <a name="install-and-configure-draft"></a>Draft 설치 및 구성
 
@@ -131,12 +134,12 @@ waiting for AAD role to propagate.done
     Happy Sailing!
 ```
 
-이제 응용 프로그램을 배포할 준비가 되었습니다.
+이제 애플리케이션을 배포할 준비가 되었습니다.
 
 
-## <a name="build-and-deploy-an-application"></a>응용 프로그램 빌드 및 배포
+## <a name="build-and-deploy-an-application"></a>애플리케이션 빌드 및 배포
 
-Draft 리포지토리에는 [간단한 6개 예제 응용 프로그램](https://github.com/Azure/draft/tree/master/examples)이 있습니다. 해당 리포지토리를 복제하고 [Java 예제](https://github.com/Azure/draft/tree/master/examples/java)를 사용해 보겠습니다. examples/java 디렉터리로 변경하고 `draft create`를 입력하여 응용 프로그램을 빌드합니다. 다음 예제와 같아야 합니다.
+Draft 리포지토리에는 [간단한 6개 예제 애플리케이션](https://github.com/Azure/draft/tree/master/examples)이 있습니다. 해당 리포지토리를 복제하고 [Java 예제](https://github.com/Azure/draft/tree/master/examples/java)를 사용해 보겠습니다. examples/java 디렉터리로 변경하고 `draft create`를 입력하여 애플리케이션을 빌드합니다. 다음 예제와 같아야 합니다.
 ```bash
 $ draft create
 --> Draft detected the primary language as Java with 91.228814% certainty.
@@ -153,9 +156,9 @@ handy-labradoodle: Releasing Application: SUCCESS ⚓  (3.8903s)
 handy-labradoodle: Build ID: 01BT0ZJ87NWCD7BBPK4Y3BTTPB
 ```
 
-## <a name="securely-view-your-application"></a>응용 프로그램 안전하게 보기
+## <a name="securely-view-your-application"></a>애플리케이션 안전하게 보기
 
-이제 컨테이너가 ACS에서 실행됩니다. 이를 보려면 `draft connect` 명령을 사용합니다. 이 명령을 사용하면 응용 프로그램의 특정 포트를 사용하여 클러스터 IP에 안전하게 연결하여 로컬로 볼 수 있습니다. 성공하면 **SUCCESS** 표시 다음의 첫 번째 줄에서 앱에 연결할 URL을 찾습니다.
+이제 컨테이너가 ACS에서 실행됩니다. 이를 보려면 `draft connect` 명령을 사용합니다. 이 명령을 사용하면 애플리케이션의 특정 포트를 사용하여 클러스터 IP에 안전하게 연결하여 로컬로 볼 수 있습니다. 성공하면 **SUCCESS** 표시 다음의 첫 번째 줄에서 앱에 연결할 URL을 찾습니다.
 
 > [!NOTE]
 > Pod가 준비되지 않았다는 메시지가 표시될 경우 잠시 후 다시 시도하거나 `kubectl get pods -w`를 사용하여 포드가 준비되는 것을 확인한 다음 준비되면 다시 시도합니다.
@@ -173,9 +176,9 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 
 앞의 예제에서 `curl -s http://localhost:46143`을 입력하면 `Hello World, I'm Java!`라는 응답을 받을 수 있었습니다. OS 환경에 따라 CTRL+C 또는 CMD+C를 누르면 보안 터널이 삭제되고 계속 반복할 수 있습니다.
 
-## <a name="sharing-your-application-by-configuring-a-deployment-domain-with-azure-dns"></a>Azure DNS로 배포 도메인을 구성하여 응용 프로그램 공유
+## <a name="sharing-your-application-by-configuring-a-deployment-domain-with-azure-dns"></a>Azure DNS로 배포 도메인을 구성하여 애플리케이션 공유
 
-이전 단계에서 이미 Draft가 만드는 개발자 반복 루프를 수행했습니다. 그러나 다음 작업을 수행하여 인터넷을 통해 응용 프로그램을 공유할 수 있습니다.
+이전 단계에서 이미 Draft가 만드는 개발자 반복 루프를 수행했습니다. 그러나 다음 작업을 수행하여 인터넷을 통해 애플리케이션을 공유할 수 있습니다.
 1. ACS 클러스터에 수신 설치(앱을 표시할 공용 IP 주소 제공)
 2. Azure DNS에 사용자 지정 도메인을 위임하고 수신 컨트롤러에 할당되는 IP 주소 ACS에 도메인 매핑
 
@@ -201,7 +204,7 @@ kubernetes                    10.0.0.1       <none>          443/TCP            
 
 ### <a name="map-the-ingress-ip-to-a-custom-subdomain"></a>사용자 지정 하위 도메인에 수신 IP 매핑
 
-Draft는 자체에서 만든 각 Helm 차트, 즉 작업 중인 각 응용 프로그램에 대한 릴리스를 만듭니다. 각각은 **draft**에서 사용자가 제어하는 루트 _배포 도메인_의 최상위에 있는 _하위 도메인_으로 사용하도록 생성된 이름을 가져옵니다. (이 예제에서는 `squillace.io`를 배포 도메인으로 사용합니다.) 이 하위 도메인 동작을 사용하도록 설정하려면 `'*.draft'`에 대한 A 레코드를 배포 도메인의 DNS 항목에 만들어 생성된 각 하위 도메인이 Kubernetes 클러스터의 수신 컨트롤러로 라우팅되도록 해야 합니다. 
+Draft는 자체에서 만든 각 Helm 차트, 즉 작업 중인 각 애플리케이션에 대한 릴리스를 만듭니다. 각각은 **draft**에서 사용자가 제어하는 루트 _배포 도메인_의 최상위에 있는 _하위 도메인_으로 사용하도록 생성된 이름을 가져옵니다. (이 예제에서는 `squillace.io`를 배포 도메인으로 사용합니다.) 이 하위 도메인 동작을 사용하도록 설정하려면 `'*.draft'`에 대한 A 레코드를 배포 도메인의 DNS 항목에 만들어 생성된 각 하위 도메인이 Kubernetes 클러스터의 수신 컨트롤러로 라우팅되도록 해야 합니다. 
 
 사용자의 도메인 공급자에는 DNS 서버를 할당하는 자체의 고유한 방법이 있습니다. [도메인 이름 서버를 Azure DNS로 위임](../../dns/dns-delegate-domain-azure-dns.md)하려면 다음 단계를 수행합니다.
 
@@ -274,7 +277,7 @@ Draft는 자체에서 만든 각 Helm 차트, 즉 작업 중인 각 응용 프�
    위에서 처음에 수행했던 것처럼 메시지에 응답합니다. 하지만 Azure DNS로 구성한 전체 도메인 경로 사용에 대한 질문에 추가로 응답해야 합니다.
 
 6. 송신(예: draft.example.com)에 대한 최상위 도메인(draft.squillace.io)을 입력합니다.
-7. 이번에 `draft up`을 호출하면 `<appname>.draft.<domain>.<top-level-domain>` 형식의 URL에서 응용 프로그램(또는 `curl`)을 볼 수 있습니다. 이 예제의 경우 `http://handy-labradoodle.draft.squillace.io`입니다. 
+7. 이번에 `draft up`을 호출하면 `<appname>.draft.<domain>.<top-level-domain>` 형식의 URL에서 애플리케이션(또는 `curl`)을 볼 수 있습니다. 이 예제의 경우 `http://handy-labradoodle.draft.squillace.io`입니다. 
 ```bash
 curl -s http://handy-labradoodle.draft.squillace.io
 Hello World, I'm Java!

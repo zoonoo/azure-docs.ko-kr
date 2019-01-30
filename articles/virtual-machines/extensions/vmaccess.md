@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: 638ca5d1b1b68896ff5dcad70fedf27261ae96cb
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 20d806540b0aa814c88ef4ff69834283ba4a7722
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452057"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413841"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Azure CLI에서 VMAccess 확장을 사용하여 관리 사용자, SSH를 관리하고 Linux VM의 디스크를 검사 또는 복구
 ## <a name="overview"></a>개요
@@ -53,7 +53,7 @@ Linux VM에서 두 가지 방법으로 VMAccess 확장을 사용할 수 있습�
 * Azure CLI 및 필수 매개 변수 사용
 * [VMAccess 확장을 처리하고 관련 작업을 수행하는 원시 JSON 파일을 사용](#use-json-files-and-the-vmaccess-extension)합니다.
 
-다음 예에서는 [az vm user](/cli/azure/vm/user) 명령을 사용합니다. 이러한 단계를 수행하려면 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인해야 합니다.
+다음 예에서는 [az vm user](/cli/azure/vm/user) 명령을 사용합니다. 이러한 단계를 수행하려면 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인해야 합니다.
 
 ## <a name="update-ssh-key"></a>SSH 키 업데이트
 다음 예제에서는 VM `myVM`에서 사용자 `azureuser`에 대한 SSH 키를 업데이트합니다.
@@ -66,7 +66,7 @@ az vm user update \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-> **참고:** `az vm user update` 명령은 VM의 관리 사용자에 대한 `~/.ssh/authorized_keys` 파일에 새 공개 키 텍스트를 추가합니다. 기존 SSH 키를 대체하거나 제거하지 않습니다. 배포 시 설정된 이전 키 또는 VMAccess 확장을 통한 후속 업데이트를 제거하지 않습니다.
+> **참고: `az vm user update` 명령은 VM의 관리 사용자에 대한 `~/.ssh/authorized_keys` 파일에 새 공개 키 텍스트를 추가합니다. 기존 SSH 키를 대체하거나 제거하지 않습니다. 배포 시 설정된 이전 키 또는 VMAccess 확장을 통한 후속 업데이트를 제거하지 않습니다.
 
 ## <a name="reset-password"></a>암호 재설정
 다음 예제에서는 VM `myVM`에서 사용자 `azureuser`에 대한 암호를 다시 설정합니다.

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 18675737dd03dd6c95a8f57a8f8bcdaed6c8b93d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: cfbbe9a5297627dec69683b819aabd721b3c33d7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837327"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470786"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
 
@@ -173,7 +173,7 @@ Site Recovery는 지정한 설정을 사용하여 VMware 서버에 연결하고 
 
 다음과 같은 방법으로 복제 사용을 수행할 수 있습니다.
 
-1. **응용 프로그램 복제** > **원본**을 선택합니다.
+1. **애플리케이션 복제** > **원본**을 선택합니다.
 2. **원본**에서 **온-프레미스**를 선택하고, **원본 위치**에서 구성 서버를 선택합니다.
 3. **컴퓨터 형식**에서 **Virtual Machines**를 선택합니다.
 4. **vCenter/vSphere 하이퍼바이저**에서 vSphere 호스트를 관리하는 vSphere 호스트 또는 vCenter Server를 선택하거나 해당 호스트를 선택합니다.
@@ -181,7 +181,7 @@ Site Recovery는 지정한 설정을 사용하여 VMware 서버에 연결하고 
 6. **대상**에서 장애 조치(Failover)된 VM을 만들려는 구독 및 리소스 그룹을 선택합니다. Resource Manager 배포 모델을 사용하는 경우입니다. 
 7. 데이터를 복제하는 데 사용할 Azure Storage 계정 및 장애 조치(failover) 후에 Azure VM을 생성할 때 연결할 Azure 네트워크 및 서브넷을 선택합니다.
 8. 복제를 활성화한 모든 VM에 네트워크 설정을 적용하려면 **선택한 컴퓨터에 대해 지금 구성**을 선택합니다. 네트워크가 없는 경우 **만들어야** 합니다.
-9. **Virtual Machines** > **Virtual Machines 선택**에서 복제하려는 각 컴퓨터를 선택합니다. 복제를 활성화할 수 있는 컴퓨터만 선택할 수 있습니다. 그런 다음 **확인**을 선택합니다.
+9. **Virtual Machines** > **Virtual Machines 선택**에서 복제하려는 각 컴퓨터를 선택합니다. 복제를 활성화할 수 있는 컴퓨터만 선택할 수 있습니다. 그런 다음 **확인**을 선택합니다. 특정 가상 머신을 보거나 선택할 수 없으면 [여기](https://aka.ms/doc-plugin-VM-not-showing)를 클릭하여 문제를 해결합니다.
 10. **속성** > **속성 구성**에서 프로세스 서버가 자동으로 컴퓨터에 모바일 서비스를 설치하는 데 사용할 계정을 선택합니다.
 11. **복제 설정** > **복제 설정 구성**에서 올바른 복제 정책이 선택되어 있는지 확인합니다.
 12. **복제 사용**을 선택합니다. VM에 복제를 사용하도록 설정하면 Site Recovery에서는 모바일 서비스를 설치합니다.

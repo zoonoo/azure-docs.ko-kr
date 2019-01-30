@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 3c683b24db2899ee680988c7bedc760d6bb8ec73
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: fae5b9ee84c9352bbeb6f14b1f3a6006ce4804e8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053219"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261675"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Batch 작업으로 많은 수의 작업 제출
 
@@ -45,7 +45,7 @@ Batch API는 한 번에 하나 외에도 *컬렉션*으로 작업(job)에 작업
 * 다음 API는 클라이언트 제출에서 RAM 가용성에 의해서만 제한되는 훨씬 더 큰 작업 컬렉션을 지원합니다. 이러한 API는 하위 수준 API 및 작업 추가에 실패하는 경우 재시도에 대한 "청크"로 작업 컬렉션 분할을 투명하게 처리합니다.
 
     * [.NET API](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet)
-    * [Java API](/java/api/com.microsoft.azure.batch.protocol._tasks.addcollectionasync?view=azure-java-stable)
+    * [Java API](/java/api/com.microsoft.azure.batch.protocol.tasks.addcollectionasync?view=azure-java-stable)
     * Batch CLI 템플릿이 포함된 [Azure Batch CLI 확장](batch-cli-templates.md)
     * [Python SDK 확장](https://pypi.org/project/azure-batch-extensions/)
 
@@ -53,7 +53,7 @@ Batch API는 한 번에 하나 외에도 *컬렉션*으로 작업(job)에 작업
 
 작업(job)에 대규모 작업(task)의 컬렉션을 추가하는 데 다소 시간이 걸릴 수 있습니다(예: .NET API를 통해 20,000개의 작업을 추가하는 데 최대 1분). Batch API 및 워크로드에 따라 다음 중 하나 이상을 수정하여 작업 처리량을 높일 수 있습니다.
 
-* **작업 크기** - 대규모 작업을 추가하는 것은 작은 작업을 추가하는 것보다 시간이 오래 걸립니다. 컬렉션에서 각 작업의 크기를 줄이려면 태스크 명령줄을 간소화하고, 환경 변수의 수를 줄이거나 태스크 실행에 대한 요구 사항을 보다 효율적으로 처리할 수 있습니다. 예를 들어 많은 수의 리소스 파일을 사용하는 대신 풀에서 [시작 작업](batch-api-basics.md#start-task)을 사용하여 작업 종속성을 설치하거나 [응용 프로그램 패키지](batch-application-packages.md) 또는 [Docker 컨테이너](batch-docker-container-workloads.md)를 사용합니다.
+* **작업 크기** - 대규모 작업을 추가하는 것은 작은 작업을 추가하는 것보다 시간이 오래 걸립니다. 컬렉션에서 각 작업의 크기를 줄이려면 태스크 명령줄을 간소화하고, 환경 변수의 수를 줄이거나 태스크 실행에 대한 요구 사항을 보다 효율적으로 처리할 수 있습니다. 예를 들어 많은 수의 리소스 파일을 사용하는 대신 풀에서 [시작 작업](batch-api-basics.md#start-task)을 사용하여 작업 종속성을 설치하거나 [애플리케이션 패키지](batch-application-packages.md) 또는 [Docker 컨테이너](batch-docker-container-workloads.md)를 사용합니다.
 
 * **병렬 작업의 수** - Batch API에 따라 Batch 클라이언트에서 동시 실행 작업의 최대 수를 늘려서 처리량을 증가시킵니다. .NET API의 [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) 속성 또는 Batch Python SDK 확장의 [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#add-collection)과 같은 메서드의 `threads` 매개 변수를 사용하여 이 설정을 구성합니다. (이 속성은 네이티브 Batch Python SDK에서 사용할 수 없습니다.) 기본적으로 이 속성은 1로 설정되지만 작업의 처리량을 개선하도록 더 높게 설정합니다. 네트워크 대역폭 및 일부 CPU 성능을 사용하여 향상된 처리량의 균형을 유지합니다. 작업 처리량은 `MaxDegreeOfParallelism` 또는 `threads`의 최대 100배까지 증가합니다. 실제로 100 미만의 동시 실행 작업 수를 설정해야 합니다. 
  
@@ -61,11 +61,11 @@ Batch API는 한 번에 하나 외에도 *컬렉션*으로 작업(job)에 작업
 
 * **HTTP 연결 제한** - 동시 HTTP 연결 수는 많은 작업을 추가하는 경우 Batch 클라이언트의 성능을 제한할 수 있습니다. HTTP 연결 수는 특정 API를 사용하여 제한됩니다. .NET API를 사용하여 개발하는 경우, 예를 들어 [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) 속성은 기본적으로 2로 설정됩니다. 병렬 작업의 수에 근접하거나 해당 수보다 큰 수로 값을 늘리는 것이 좋습니다.
 
-## <a name="example-batch-net"></a>예: Batch .NET
+## <a name="example-batch-net"></a>예제: Batch .NET
 
 다음 C# 코드 조각은 Batch .NET API를 사용하여 많은 수의 작업을 추가하는 경우에 구성하는 설정을 보여줍니다.
 
-작업 처리량을 늘리려면 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet)의 [MaxDegreeofParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) 속성 값을 늘립니다. 예: 
+작업 처리량을 늘리려면 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet)의 [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) 속성 값을 늘립니다. 예: 
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
@@ -85,7 +85,7 @@ await batchClient.JobOperations.AddTaskAsync(jobId, tasksToAdd, parallelOptions)
 ```
 
 
-## <a name="example-batch-cli-extension"></a>예: Batch CLI 확장
+## <a name="example-batch-cli-extension"></a>예제: Batch CLI 확장
 
 [Batch CLI 템플릿](batch-cli-templates.md)을 포함하는 Azure Batch CLI 확장을 사용하여 [작업 팩터리](https://github.com/Azure/azure-batch-cli-extensions/blob/master/doc/taskFactories.md)를 포함하는 작업 템플릿 JSON 파일을 만듭니다. 작업 팩터리는 단일 작업 정의에서 작업에 대한 관련된 작업의 컬렉션을 구성합니다.  
 
@@ -128,7 +128,7 @@ await batchClient.JobOperations.AddTaskAsync(jobId, tasksToAdd, parallelOptions)
 ```
 템플릿을 사용하여 작업을 실행하려면 [Azure Batch CLI 템플릿 및 파일 전송 사용](batch-cli-templates.md)을 참조하세요.
 
-## <a name="example-batch-python-sdk-extension"></a>예: Batch Python SDK 확장
+## <a name="example-batch-python-sdk-extension"></a>예제: Batch Python SDK 확장
 
 Azure Batch Python SDK 확장을 사용하려면 먼저 Python SDK 및 확장을 설치합니다.
 

@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 199095c3cffc8df7f9755f1f2c4bb5a1acba3748
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d35ac7cac5c14a7bd57913046e8f4c09a22f177a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260383"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267439"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse 감사
 
@@ -74,7 +74,7 @@ SQL Data Warehouse 데이터베이스 감사를 사용하여 다음을 수행할
     ![탐색 창][8]
 
     > [!IMPORTANT]
-    > 서버 수준 감사 로그는 Azure 구독의 Azure Blob 저장소에 있는 **Blob 추가**에 기록됩니다.
+    > 서버 수준 감사 로그는 Azure 구독의 Azure Blob Storage에 있는 **Blob 추가**에 기록됩니다.
     >
     > * **Premium Storage**는 현재 Blob 추가에서 **지원되지 않습니다**.
     > * **VNet의 저장소**는 현재 **지원되지 않습니다**.
@@ -107,13 +107,13 @@ SQL Data Warehouse 데이터베이스 감사를 사용하여 다음을 수행할
 
 5. **확인** 단추를 클릭하여 저장소 세부 정보 구성을 저장합니다.
 6. 아래에서 **이벤트별 로깅** 아래에서 **성공** 및 **실패**를 클릭하여 모든 이벤트를 기록하거나 개별 이벤트 범주를 선택합니다.
-7. 데이터베이스에 대한 감사를 구성하는 경우 클라이언트의 연결 문자열을 변경하여 데이터 감사가 바르게 캡처되는지 확인해야 합니다. [연결 문자열에서 서버 FDQN 수정](sql-data-warehouse-auditing-downlevel-clients.md) 항목에서 하위 클라이언트 연결을 확인합니다.
+7. 데이터베이스에 대한 감사를 구성하는 경우 클라이언트의 연결 문자열을 변경하여 데이터 감사가 바르게 캡처되는지 확인해야 합니다. [연결 문자열에서 서버 FQDN 수정](sql-data-warehouse-auditing-downlevel-clients.md) 항목에서 하위 클라이언트 연결을 확인합니다.
 8. **확인**을 클릭합니다.
 
 ## <a id="subheading-3"></a>감사 로그 및 보고서 분석
 
 ### <a name="server-level-policy-audit-logs"></a>서버 수준 정책 감사 로그
-서버 수준 감사 로그는 Azure 구독의 Azure Blob 저장소에 있는 **Blob 추가**에 기록됩니다. **sqldbauditlogs**라는 컨테이너 내부에 Blob 파일 컬렉션으로 저장됩니다.
+서버 수준 감사 로그는 Azure 구독의 Azure Blob Storage에 있는 **Blob 추가**에 기록됩니다. **sqldbauditlogs**라는 컨테이너 내부에 Blob 파일 컬렉션으로 저장됩니다.
 
 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대한 자세한 내용은 [BLOB 감사 로그 형식 참조](https://go.microsoft.com/fwlink/?linkid=829599)를 참조하세요.
 
@@ -128,7 +128,7 @@ Blob 감사 로그를 볼 수 있는 여러 가지 방법이 있습니다.
 
     4. 병합된 파일이 SSMS에서 열립니다. 여기에서 파일을 보고 분석할 수 있을 뿐만 아니라 XEL 또는 CSV 파일이나 테이블로 내보낼 수 있습니다.
 
-* Microsoft에서 만든 [동기화 응용 프로그램](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration)을 사용합니다. 이 응용 프로그램은 Azure에서 실행되며 Log Analytics 공용 API를 활용하여 SQL 감사 로그를 Log Analytics에 푸시합니다. 동기화 응용 프로그램은 Log Analytics 대시보드를 통해 사용할 수 있도록 Log Analytics에 SQL 감사 로그를 푸시합니다.
+* Microsoft에서 만든 [동기화 애플리케이션](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration)을 사용합니다. 이 응용 프로그램은 Azure에서 실행되며 Log Analytics 공용 API를 활용하여 SQL 감사 로그를 Log Analytics에 푸시합니다. 동기화 애플리케이션은 Log Analytics 대시보드를 통해 사용할 수 있도록 Log Analytics에 SQL 감사 로그를 푸시합니다.
 
 * Power BI를 사용합니다. Power BI에서 감사 로그 데이터를 보고 분석할 수 있습니다. 자세한 내용은 [Power BI 및 다운로드 가능한 템플릿 액세스](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/)를 참조하세요.
 
@@ -196,7 +196,7 @@ TDS 버전 7.3 이하를 지원하는 "하위 클라이언트"의 경우, 연결
 * JDBC(JDBC는 TDS 7.4를 지원하지만 TDS 리디렉션 기능은 완전히 지원되지 않음)
 * Tedious(Node.JS용)
 
-**주석:** 위의 서버 FDQN 수정은 각 데이터베이스에서 구성 단계에 대한 요구 없이 SQL 서버 수준 감사 정책의 적용에도 유용할 수 있습니다.     
+**주석:** 위의 서버 FQDN 수정은 각 데이터베이스에서 구성 단계에 대한 요구 없이 SQL 서버 수준 감사 정책의 적용에도 유용할 수 있습니다.     
 
 
 

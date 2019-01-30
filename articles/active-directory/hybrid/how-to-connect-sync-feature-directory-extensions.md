@@ -4,7 +4,7 @@ description: 이 항목에서는 Azure AD Connect의 디렉터리 확장 기능�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b6c5f55a575605eef3a280de4f973d9b2d0a4ace
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: e96a7d88a2e30bbedd6c57f9a72dd92f63586dd1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288308"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476906"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect 동기화: 디렉터리 확장
 디렉터리 확장을 사용하면 온-프레미스 Active Directory의 사용자 고유 특성을 사용하여 Azure AD(Active Directory)에서 스키마를 확장할 수 있습니다. 이 기능을 통해 온-프레미스를 계속 관리하는 특성을 이용하는 LOB 앱을 빌드할 수 있습니다. 이러한 특성은 [Azure AD Graph API 디렉터리 확장](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) 또는 [Microsoft Graph](https://developer.microsoft.com/graph/)를 통해 이용할 수 있습니다. 각각 [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) 및 [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)를 통해 사용할 수 있는 특성을 볼 수 있습니다.
@@ -38,7 +38,7 @@ ms.locfileid: "51288308"
 
 * 사용자 및 그룹 개체 유형
 * 단일 값 특성: 문자열, 부울, 정수, 이진
-* 다중 값 특성: 문자열, 이진
+* 다중값 특성 문자열, 이진
 
 
 >[!NOTE]
@@ -48,7 +48,7 @@ ms.locfileid: "51288308"
 
 Azure AD의 개체에는 최대 100개의 디렉터리 확장 특성이 있을 수 있습니다. 최대 길이는 250자입니다. 특성 값이 더 긴 경우 동기화 엔진에서 잘립니다.
 
-Azure AD Connect를 설치하는 동안 이러한 특성을 사용할 수 있는 응용 프로그램이 등록됩니다. Azure 포털에서 다음 응용 프로그램을 볼 수 있습니다.
+Azure AD Connect를 설치하는 동안 이러한 특성을 사용할 수 있는 애플리케이션이 등록됩니다. Azure Portal에서 다음 애플리케이션을 볼 수 있습니다.
 
 ![스키마 확장 앱](./media/how-to-connect-sync-feature-directory-extensions/extension3new.png)
 

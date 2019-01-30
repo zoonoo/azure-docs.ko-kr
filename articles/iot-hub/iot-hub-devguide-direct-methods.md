@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: 750c184dfc0adb92f26114d1911f27bc741ceb23
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: ab196645cc14acb3ed2e56ee785d4790a8df3c23
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265265"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052550"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
 
@@ -20,7 +20,7 @@ IoT Hub를 사용하면 클라우드의 디바이스에서 직접 메서드를 �
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-각 디바이스 메서드는 단일 디바이스를 대상으로 합니다. [여러 장치에서 작업 예약](iot-hub-devguide-jobs.md)에서는 여러 장치에서 직접 메서드를 호출하고 연결되지 않은 장치에 대한 메서드 호출을 예약하는 방법을 보여줍니다.
+각 디바이스 메서드는 단일 디바이스를 대상으로 합니다. [여러 디바이스에서 작업 예약](iot-hub-devguide-jobs.md)에서는 여러 디바이스에서 직접 메서드를 호출하고 연결되지 않은 디바이스에 대한 메서드 호출을 예약하는 방법을 보여 줍니다.
 
 IoT Hub에 **서비스 연결** 권한만 있다면 누구든 디바이스에서 메서드를 호출할 수 있습니다.
 
@@ -30,7 +30,7 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 
 ## <a name="method-lifecycle"></a>메서드 수명 주기
 
-직접 메서드는 디바이스에서 구현되며, 제대로 인스턴스화하기 위해 메서드 페이로드에 0개 이상의 입력이 필요할 수 있습니다. 직접 메서드는 서비스 지향 URI를 통해 호출합니다(`{iot hub}/twins/{device id}/methods/`). 디바이스는 디바이스별 MQTT 항목(`$iothub/methods/POST/{method name}/`) 또는 AMQP 링크(`IoThub-methodname` 및 `IoThub-status` 애플리케이션 속성)를 통해 직접 메서드를 수신합니다. 
+직접 메서드는 디바이스에서 구현되며, 제대로 인스턴스화하기 위해 메서드 페이로드에 0개 이상의 입력이 필요할 수 있습니다. 직접 메서드는 서비스 지향 URI를 통해 호출합니다(`{iot hub}/twins/{device id}/methods/`). 장치는 장치별 MQTT 항목(`$iothub/methods/POST/{method name}/`) 또는 AMQP 링크(`IoThub-methodname` 및 `IoThub-status` 애플리케이션 속성)를 통해 직접 메서드를 수신합니다. 
 
 > [!NOTE]
 > 디바이스에서 직접 메서드를 호출할 때 속성 이름과 값은 US-ASCII로 출력 가능한 영숫자만 포함할 수 있으며 다음 집합은 제외됩니다. ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
@@ -98,7 +98,7 @@ curl -X POST \
 
 백 엔드 앱은 다음 항목으로 구성된 응답을 받습니다.
 
-* *HTTP 상태 코드*는 현재 연결되지 않은 장치에 대한 404 오류를 비롯한 IoT Hub에서 오는 오류에 사용됩니다.
+* *HTTP 상태 코드*는 현재 연결되지 않은 디바이스에 대한 404 오류를 비롯한 IoT Hub에서 오는 오류에 사용됩니다.
 
 * *헤더*는 ETag, 요청 ID, 콘텐츠 형식, 콘텐츠 인코딩을 포함합니다.
 
@@ -111,7 +111,7 @@ curl -X POST \
     }
     ```
 
-    `status`와 `body`는 모두 장치에 의해 제공되며 장치 자체의 상태 코드 및/또는 설명으로 응답하는 데 사용됩니다.
+    `status`와 `body`는 모두 디바이스에 의해 제공되며 디바이스 자체의 상태 코드 및/또는 설명으로 응답하는 데 사용됩니다.
 
 ### <a name="method-invocation-for-iot-edge-modules"></a>IoT Edge 모듈에 대한 메서드 호출
 
@@ -146,7 +146,7 @@ IoT 디바이스에서 직접 메서드를 처리하는 방법을 살펴보겠�
 
 디바이스는 `$iothub/methods/res/{status}/?$rid={request id}`에 응답을 보내는데 여기서:
 
-* `status` 속성은 장치가 제공하는 메서드 실행 상태입니다.
+* `status` 속성은 디바이스가 제공하는 메서드 실행 상태입니다.
 
 * `$rid` 속성은 IoT Hub로부터 수신한 메서드 호출의 요청 ID입니다.
 
@@ -164,7 +164,7 @@ AMQP 메시지는 메서드 요청을 나타내는 수신 링크에 도착하며
 
 * 해당하는 메서드 응답과 함께 다시 전달해야 하는 요청 ID가 포함된 상관 관계 ID 속성
 
-* 호출 중인 메서드의 이름이 포함된 응용 프로그램 속성 `IoThub-methodname`
+* 호출 중인 메서드의 이름이 포함된 애플리케이션 속성 `IoThub-methodname`
 
 * 메서드 페이로드가 JSON으로 포함된 AMQP 메시지 본문
 
@@ -176,7 +176,7 @@ AMQP 메시지는 메서드 요청을 나타내는 수신 링크에 도착하며
 
 * 메서드의 요청 메시지에서 전달된 요청 ID를 포함하는 상관 관계 ID 속성
 
-* 사용자가 제공한 메서드 상태가 포함된 응용 프로그램 속성 `IoThub-status`
+* 사용자가 제공한 메서드 상태가 포함된 애플리케이션 속성 `IoThub-status`
 
 * 메서드 응답이 JSON으로 포함된 AMQP 메시지 본문
 
@@ -188,9 +188,9 @@ AMQP 메시지는 메서드 요청을 나타내는 수신 링크에 도착하며
 
 * [제한 및 할당량](iot-hub-devguide-quotas-throttling.md)은 IoT Hub를 사용할 때 적용되는 할당량과 예상되는 제한 동작에 대해 설명합니다.
 
-* [Azure IoT 장치 및 서비스 SDK](iot-hub-devguide-sdks.md)는 IoT Hub와 상호 작용하는 장치 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
+* [Azure IoT 디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md)는 IoT Hub와 상호 작용하는 디바이스 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
 
-* [장치 쌍, 작업 및 메시지 라우팅을 위한 IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)에서는 IoT Hub에서 장치 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 IoT Hub 쿼리 언어에 대해 설명합니다.
+* [디바이스 쌍, 작업 및 메시지 라우팅을 위한 IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)에서는 IoT Hub에서 디바이스 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 IoT Hub 쿼리 언어에 대해 설명합니다.
 
 * [IoT Hub MQTT 지원](iot-hub-mqtt-support.md)은 MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
 
@@ -198,9 +198,9 @@ AMQP 메시지는 메서드 요청을 나타내는 수신 링크에 도착하며
 
 직접 메서드를 사용하는 방법에 대해 알아봤으니 다음 IoT Hub 개발자 가이드 문서를 살펴보세요.
 
-* [여러 장치에서 작업 예약](iot-hub-devguide-jobs.md)
+* [여러 디바이스에서 작업 예약](iot-hub-devguide-jobs.md)
 
 이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 살펴보세요.
 
 * [직접 메서드 사용](quickstart-control-device-node.md)
-* [VS Code용 Azure IoT Toolkit을 사용하여 장치 관리](iot-hub-device-management-iot-toolkit.md)
+* [VS Code용 Azure IoT Tools를 사용한 디바이스 관리](iot-hub-device-management-iot-toolkit.md)

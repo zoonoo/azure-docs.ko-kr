@@ -1,26 +1,23 @@
 ---
-title: Azure Cosmos DB MongoDB API에서 인덱싱 | Microsoft Docs
-description: Azure Cosmos DB MongoDB API에서 인덱싱 기능에 대한 개요를 제공합니다.
-services: cosmos-db
-author: orestis-ms
-manager: kfile
-editor: ''
+title: Azure Cosmos DB의 API for MongoDB에서 인덱싱
+description: Azure Cosmos DB의 API for MongoDB의 인덱싱 기능의 개요를 설명합니다.
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 03/01/2018
-ms.author: orkostak
-ms.openlocfilehash: ad04976136fc8db04dbe52bf78bea49a9149e5db
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/26/2018
+author: sivethe
+ms.author: sivethe
+ms.openlocfilehash: de037316efa50dd25ea04c370fa0e5878fb52ba1
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312700"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040407"
 ---
-# <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB: MongoDB API에서 인덱싱
+# <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB를 사용하는 인덱싱
 
-Azure Cosmos DB MongoDB API는 Azure Cosmos DB의 자동 인덱스 관리 기능을 활용합니다. 결과적으로, 사용자는 Azure Cosmos DB의 기본 인덱싱 정책에 액세스할 수 있습니다. 따라서 사용자에 의해 정의된 인덱스가 없거나 삭제된 인덱스가 없는 경우 모든 필드는 컬렉션에 삽입될 때 기본적으로 자동으로 인덱싱됩니다. 대부분의 시나리오의 경우 계정에서 설정된 기본 인덱싱 정책을 사용하는 것이 좋습니다.
+Azure Cosmos DB의 API for MongoDB는 Cosmos DB의 자동 인덱스 관리 기능을 활용합니다. 결과적으로, 사용자는 Cosmos DB의 기본 인덱싱 정책에 액세스할 수 있습니다. 따라서 사용자에 의해 정의된 인덱스가 없거나 삭제된 인덱스가 없는 경우 모든 필드는 컬렉션에 삽입될 때 기본적으로 자동으로 인덱싱됩니다. 대부분의 시나리오의 경우 계정에서 설정된 기본 인덱싱 정책을 사용하는 것이 좋습니다.
 
 ## <a name="dropping-the-default-indexes"></a>기본 인덱스 삭제
 
@@ -99,5 +96,5 @@ globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 현재 컬렉션에 문서가 포함되지 않은 경우에만 고유 인덱스를 만들 수 있습니다. 인기 있는 MongoDB 마이그레이션 도구는 데이터를 가져온 후 고유 인덱스를 만들도록 시도합니다. 이 문제를 방지하기 위해 사용자는 마이그레이션 도구를 허용하는 대신 해당 컬렉션 및 고유 인덱스를 수동으로 만드는 것이 좋습니다(```mongorestore```의 경우 이 동작은 명령줄에서 --noIndexRestore 플래그를 사용하여 수행됨).
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Cosmos DB는 데이터를 어떻게 인덱싱하나요?](../cosmos-db/index-policy.md)
-* [TTL(Time To Live)을 사용하여 자동으로 Azure Cosmos DB 컬렉션의 데이터 만료](../cosmos-db/time-to-live.md)
+* [Azure Cosmos DB의 인덱싱](../cosmos-db/index-policy.md)
+* [TTL(Time To Live)을 사용하여 자동으로 Azure Cosmos DB의 데이터 만료](../cosmos-db/time-to-live.md)

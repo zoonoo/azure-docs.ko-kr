@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: bf70f9a74b58758e03800d7f6fb92a8f8754828a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.lastreviewed: 11/12/2018
+ms.openlocfilehash: 03a6f649f15f6a4905433d6e2ec292a901340929
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613098"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249683"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack Marketplace FAQ의에서 Windows Server
 
@@ -37,10 +38,10 @@ ms.locfileid: "51613098"
 
 Microsoft는 두 가지 버전의 Azure Stack Marketplace를 통해 Windows Server 이미지를 제공합니다.
 
-- **사용 하 여 비용을 지불**: 이러한 이미지 정 Windows 미터를 실행 합니다. 
-   사용자: 사용 하는 EA (기업 계약) 고객은 *소비 청구 모델*; Csp에 게 SPLA 라이선스를 사용 하지 않으려는 합니다.
-- **Bring Your 자체 라이선스 (BYOL)**: 이러한 이미지는 기본 미터를 실행 합니다.
-   사용자: EA 고객은 Windows Server 라이선스로; SPLA 라이선스를 사용 하는 Csp 합니다.
+- **사용 하 여 비용을 지불**: 이러한 이미지 정 Windows 미터를 실행합니다. 
+   사용 해야 합니다. 사용 하는 EA (기업 계약) 고객은 *소비 청구 모델*; Csp에 게 SPLA 라이선스를 사용 하지 않으려는 합니다.
+- **Bring Your Own License (BYOL)**: 이러한 이미지는 기본 미터를 실행합니다.
+   사용 해야 합니다. EA 고객은 Windows Server 라이선스로; SPLA 라이선스를 사용 하는 Csp 합니다.
 
 Azure Stack에서 azure 하이브리드 사용 혜택 (AHUB) 지원 되지 않습니다. "용량" 모델을 통해 사용 허가 받은 고객은 BYOL 이미지를 사용 해야 합니다. Azure Stack 개발 키트 (ASDK) 사용 하 여 테스트 하는 경우 이러한 옵션 중 하나를 사용할 수 있습니다.
 

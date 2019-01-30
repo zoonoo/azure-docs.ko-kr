@@ -23,9 +23,9 @@ ms.locfileid: "49988337"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Android 앱에서 사용자 로그인 및 Microsoft Graph 호출
 
-이 자습서에서는 Android 응용 프로그램을 빌드하고 Microsoft ID 플랫폼에 통합하는 방법을 배웁니다. 특히 이 앱은 사용자로 로그인하고 Microsoft Graph API를 호출하는 액세스 토큰을 가져오며 Microsoft Graph API에 대한 기본 요청을 만듭니다.  
+이 자습서에서는 Android 애플리케이션을 빌드하고 Microsoft ID 플랫폼에 통합하는 방법을 배웁니다. 특히 이 앱은 사용자로 로그인하고 Microsoft Graph API를 호출하는 액세스 토큰을 가져오며 Microsoft Graph API에 대한 기본 요청을 만듭니다.  
 
-이 가이드를 완료했으면 응용 프로그램에서 Azure Active Directory를 사용하는 모든 회사 또는 조직의 회사 또는 학교 계정뿐만 아니라 개인 Microsoft 계정(outlook.com, live.com 등)의 로그인을 수락하게 됩니다.
+이 가이드를 완료했으면 애플리케이션에서 Azure Active Directory를 사용하는 모든 회사 또는 조직의 회사 또는 학교 계정뿐만 아니라 개인 Microsoft 계정(outlook.com, live.com 등)의 로그인을 수락하게 됩니다.
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>이 가이드에서 생성된 샘플 앱의 작동 원리
 

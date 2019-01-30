@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: dfdc36ce5223beaf00fcc274934387c498505411
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: d209e1f6924e5c7d6bba7512606504b7165f0ed3
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620611"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359428"
 ---
 # <a name="configure-an-ip-firewall-for-your-azure-cosmos-db-account"></a>Azure Cosmos DB 계정에 대해 IP 방화벽 구성
 
@@ -145,10 +145,10 @@ az cosmosdb update \
 Azure Cosmos DB 계정에 대해 IP 액세스 제어 정책을 사용하도록 설정하면 허용되는 IP 주소 범위 목록 이외의 머신에서 시도하는 계정에 대한 모든 요청이 차단됩니다. 컨테이너 탐색 및 문서 쿼리와 같은 포털 데이터 평면 작업을 사용하도록 설정하려면 포털의 **방화벽** 창을 사용하여 Azure Portal 액세스를 명시적으로 허용해야 합니다.
 
 ### <a name="sdks"></a>SDK 
-허용 목록에 없는 머신에서 SDK를 사용하여 Azure Cosmos DB 리소스에 액세스하는 경우 **일반적인 404 찾을 수 없음** 응답이 추가 정보 없이 반환됩니다. 계정에 대해 허용된 IP 목록을 확인하고 Azure Cosmos DB 계정에 올바른 정책 구성이 적용되는지 확인합니다. 
+허용 목록에 없는 머신에서 SDK를 사용하여 Azure Cosmos DB 리소스에 액세스하는 경우 일반적인 **403 사용 권한 없음** 응답이 추가 정보 없이 반환됩니다. 계정에 대해 허용된 IP 목록을 확인하고 Azure Cosmos DB 계정에 올바른 정책 구성이 적용되는지 확인합니다. 
 
 ### <a name="source-ips-in-blocked-requests"></a>차단된 요청의 원본 IP
-Azure Cosmos DB 계정에 진단 로깅을 사용하도록 설정합니다. 이러한 로그는 각 요청 및 응답을 보여줍니다. 방화벽 관련 메시지가 403 반환 코드와 함께 내부적으로 로깅됩니다. 이러한 메시지를 필터링하면 차단된 요청에 대한 원본 IP를 확인할 수 있습니다. [Azure Cosmos DB 진단 로깅](logging.md)을 확인합니다.
+Azure Cosmos DB 계정에 진단 로깅을 사용하도록 설정합니다. 이러한 로그는 각 요청 및 응답을 보여줍니다. 방화벽 관련 메시지가 403 반환 코드와 함께 로깅됩니다. 이러한 메시지를 필터링하면 차단된 요청에 대한 원본 IP를 확인할 수 있습니다. [Azure Cosmos DB 진단 로깅](logging.md)을 확인합니다.
 
 ### <a name="requests-from-a-subnet-with-a-service-endpoint-for-azure-cosmos-db-enabled"></a>Azure Cosmos DB에 대해 서비스 엔드포인트를 설정한 서브넷의 요청
 Azure Cosmos DB에 대한 서비스 엔드포인트가 활성화된 가상 네트워크에 위치한 서브넷의 요청은 가상 네트워크 및 서브넷 ID를 Azure Cosmos DB 계정에 전송합니다. 이러한 요청에는 원본의 공용 IP가 없으므로 IP 필터에 의해 거부됩니다. 가상 네트워크에 있는 특정 서브넷의 액세스를 허용하려면 [Azure Cosmos DB 계정의 가상 네트워크 및 서브넷 기반 액세스를 구성하는 방법](how-to-configure-vnet-service-endpoint.md)에 설명된 대로 액세스 제어 목록을 추가합니다. 방화벽 규칙을 적용하는 데 최대 15분이 걸릴 수 있습니다.

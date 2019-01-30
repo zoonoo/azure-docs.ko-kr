@@ -4,7 +4,7 @@ description: 이 문서는 Azure AD Connect Health에 대한 릴리스 및 해�
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 8dd4e998-747b-4c52-b8d3-3900fe77d88f
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: f3684a1fa22982b62992db28cccd88d67738bc94
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 25024e5753720ab6e1efcab290d453f944442a4e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161704"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477108"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: 버전 릴리스 내역
 Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect Health를 정기적으로 업데이트합니다. 이 문서는 출시된 버전 및 기능을 나열합니다.
-동기화용 Azure AD Connect Health는 Azure AD Connect 설치와 통합됩니다. [Azure AD Connect 릴리스 기록](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)에 대해 자세히 알아보고 기능 피드백의 경우 [Connnect Health 사용자 의견 채널](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)에서 투표하세요.
+동기화용 Azure AD Connect Health는 Azure AD Connect 설치와 통합됩니다. [Azure AD Connect 릴리스 기록](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)에 대해 자세히 알아보고 기능 피드백의 경우 [Connect Health 사용자 의견 채널](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)에서 투표하세요.
 
 ## <a name="november-2018"></a>2018년 11월
 **새 GA 기능:** 
@@ -199,8 +199,8 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 
 * 전자 메일 알림으로 AD FS 및 AD FS 프록시 서버의 모니터링에 대한 경고.
 * AD FS 토폴로지 및 AD FS 성능 카운터의 패턴에 쉽게 액세스합니다.
-* 응용 프로그램, 인증 방법, 요청 네트워크 위치 등으로 그룹화된 AD FS 서버에서 토큰 요청이 성공하는 추세입니다.
-* 응용 프로그램, 오류 형식 등으로 그룹화된 AD FS 서버에서 요청이 실패하는 추세입니다.
+* 애플리케이션, 인증 방법, 요청 네트워크 위치 등으로 그룹화된 AD FS 서버에서 토큰 요청이 성공하는 추세입니다.
+* 애플리케이션, 오류 형식 등으로 그룹화된 AD FS 서버에서 요청이 실패하는 추세입니다.
 * Azure AD 전역 관리자 자격 증명을 사용하여 간단한 에이전트 배포.  
 
 ## <a name="next-steps"></a>다음 단계

@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
-ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: 0516ee7a8319b85765280b4c84f5febec8343ada
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: thoroet
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: 94431fda03effe7f3bfdbb9e6080cf6d8cf5b344
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965618"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238893"
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Azure Stack에 대 한 실제 메모리 용량 관리
 

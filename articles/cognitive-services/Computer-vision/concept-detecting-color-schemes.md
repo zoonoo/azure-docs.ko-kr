@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 5d0cb6ca751c844846288e8fe26f6ae542e89831
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 90eacdb120603fdb68c0f6c3de3457964ec5fd75
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339495"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579365"
 ---
-# <a name="detecting-color-schemes"></a>색 구성표 검색
+# <a name="detect-color-schemes-in-images"></a>이미지에서 색 구성표 검색
 
 Computer Vision은 이미지에서 색을 추출합니다. 색은 주조 전경색, 주조 배경색 및 전체 이미지의 주조색이라는 세 가지 컨텍스트에서 분석됩니다. 색은 12가지 기준 강조색으로 그룹화됩니다. 해당 강조색은 검정, 파랑, 갈색, 회색, 초록, 주황, 분홍, 자주, 청록, 흰색 및 노랑입니다. Computer Vision은 이미지에서 추출된 색을 분석하여 주조색 및 채도의 조합을 통해 시청자에게 이미지에 대한 가장 활발한 색을 나타내는 강조색을 반환합니다. 이미지의 색에 따라 단순한 흑백 또는 강조색이 16진수 색 코드로 반환될 수 있습니다. 또한 Computer Vision은 이미지가 흑백인지 여부를 나타내는 부울 값을 반환합니다.
 
@@ -51,8 +52,8 @@ Computer Vision은 이미지에서 색을 추출합니다. 색은 주조 전경�
 
 | 이미지 | 주조색 |
 |-------|-----------------|
-|![비전 분석 꽃](./Images/flower.png)| 전경색: 검은색<br/>배경색: 흰색<br/>색: 검은색, 흰색, 녹색|
-![비전 분석 학습 스테이션](./Images/train_station.png) | 전경색: 검은색<br/>배경색: 검은색<br/>색: 검은색 |
+|![녹색 배경의 흰색 꽃](./Images/flower.png)| 전경: 검정<br/>배경: 흰색<br/>색: 검은색, 흰색, 녹색|
+![역을 달리는 열차](./Images/train_station.png) | 전경: 검정<br/>배경: 검정<br/>색: 검정 |
 
 ### <a name="accent-color-examples"></a>강조색 예제
 
@@ -60,9 +61,9 @@ Computer Vision은 이미지에서 색을 추출합니다. 색은 주조 전경�
 
 | 이미지 | 강조 색 |
 |-------|--------------|
-|![옥외 산](./Images/mountain_vista.png) | #BB6D10 |
-|![비전 분석 꽃](./Images/flower.png) | #C6A205 |
-|![비전 분석 학습 스테이션](./Images/train_station.png) | #474A84 |
+|![석양이 보이는 산 바위에 서 있는 사람](./Images/mountain_vista.png) | #BB6D10 |
+|![녹색 배경의 흰색 꽃](./Images/flower.png) | #C6A205 |
+|![역을 달리는 열차](./Images/train_station.png) | #474A84 |
 
 ### <a name="black--white-detection-examples"></a>흑백 검색 예제
 
@@ -70,8 +71,8 @@ Computer Vision은 이미지에서 색을 추출합니다. 색은 주조 전경�
 
 | 이미지 | 흑백? |
 |-------|----------------|
-|![비전 분석 건물](./Images/bw_buildings.png) | true |
-|![비전 분석 주택 야드](./Images/house_yard.png) | false |
+|![맨해튼 건물의 흑백 사진](./Images/bw_buildings.png) | true |
+|![파란색 집 및 앞 마당](./Images/house_yard.png) | false |
 
 ## <a name="next-steps"></a>다음 단계
 

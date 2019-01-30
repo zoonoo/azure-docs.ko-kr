@@ -6,16 +6,17 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
-ms.reviewer: ''
+ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: e4e3fdbdd3bc9eb982f993a9be60ba0812c68a9d
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: 1dd5cb9bbd8e197e7654242861e97684f4f378c8
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713746"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241987"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-with-the-azure-stack-portal"></a>빠른 시작: Azure Stack 포털을 사용 하 여 Windows server 가상 머신 만들기
 

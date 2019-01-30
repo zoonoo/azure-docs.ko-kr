@@ -3,22 +3,22 @@ title: 작업 시간 외 VM 시작/중지 솔루션
 description: VM 관리 솔루션은 Azure Resource Manager 가상 머신을 일정에 따라 시작 및 중지하고 Log Analytics에서 사전에 모니터링합니다.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a664ec3643100f4bf477fbc58070ae966088d3af
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d9dfc70c7158c5f808367b8b2041725b03b9060d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426053"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846186"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Automation의 작업 시간 외 VM 시작/중지 솔루션
 
-작업 시간 외 VM 시작/중지 솔루션은 사용자 정의 일정에 따라 Azure Virtual Machines를 시작 및 중지하고, Azure Log Analytics를 통해 인사이트를 제공하고, [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md)을 사용하여 선택적 메일을 전송합니다. 대부분의 시나리오에서 Azure Resource Manager 및 클래식 VM이 둘 다 지원됩니다.
+작업 시간 외 VM 시작/중지 솔루션은 사용자 정의 일정에 따라 Azure Virtual Machines를 시작 및 중지하고, Azure Log Analytics를 통해 인사이트를 제공하고, [작업 그룹](../azure-monitor/platform/action-groups.md)을 사용하여 선택적 메일을 전송합니다. 대부분의 시나리오에서 Azure Resource Manager 및 클래식 VM이 둘 다 지원됩니다.
 
 이 솔루션은 VM 비용을 최적화하려는 사용자에게 분산된 저비용 자동화 옵션을 제공합니다. 이 솔루션을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "52426053"
    ![VM 관리 솔루션 추가 페이지](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
 4. **솔루션 추가** 페이지에서 **작업 영역**을 선택합니다. Automation 계정이 속하는 동일한 Azure 구독에 연결된 Log Analytics 작업 영역을 선택합니다. 작업 영역이 없으면 **새 작업 영역 만들기**를 선택합니다. **Log Analytics 작업 영역** 페이지에서 다음 단계를 수행합니다.
-   - 새 **Log Analytics 작업 영역**의 이름을 지정합니다.
+   - 새 **Log Analytics 작업 영역**의 이름(예: “ContosoLAWorkspace”)을 지정합니다.
    - 기본으로 선택된 값이 적절하지 않으면 드롭다운 목록에서 선택하여 연결할 **구독**을 선택합니다.
    - **리소스 그룹**의 경우, 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택할 수 있습니다.
    - **위치**를 선택합니다. 현재 사용할 수 있는 지역은 **오스트레일리아 남동부**, **캐나다 중부**, **인도 중부**, **미국 동부**, **일본 동부**, **동남 아시아**, **영국 남부** 및 **유럽 서부**입니다.
@@ -79,7 +79,7 @@ ms.locfileid: "52426053"
    - **대상 ResourceGroup 이름**을 지정합니다. 이 값은 이 솔루션에서 관리되는 VM을 포함하는 리소스 그룹 이름입니다. 이름은 두 개 이상 입력할 수 있으며 각 이름을 쉼표로 구분해야 하고 대/소문자는 구분되지 않습니다. 구독 내 모든 리소스 그룹의 VM을 대상으로 하려는 경우에는 와일드카드 사용이 지원됩니다. 이 값은 **External_Start_ResourceGroupNames** 및 **External_Stop_ResourceGroupNames** 변수에 저장됩니다.
    - **VM 제외 목록(문자열)** 을 지정합니다. 이 값은 대상 리소스 그룹에 있는 하나 이상의 가상 머신 이름입니다. 이름은 두 개 이상 입력할 수 있으며 각 이름을 쉼표로 구분해야 하고 대/소문자는 구분되지 않습니다. 와일드카드를 사용할 수 있습니다. 이 값은 **External_ExcludeVMNames** 변수에 저장됩니다.
    - **일정**을 선택합니다. 이 값은 대상 리소스 그룹의 VM을 시작하고 중지하는 되풀이 날짜 및 시간입니다. 기본적으로 일정은 지금부터 30분 동안 구성됩니다. 다른 지역을 선택할 수는 없습니다. 솔루션을 구성한 후 일정을 특정 표준 시간대로 구성하려면 [시작 및 종료 일정 수정](#modify-the-startup-and-shutdown-schedules)을 참조하세요.
-   - 작업 그룹에서 **메일 알림**을 받으려면 기본값인 **예**를 그대로 두고 유효한 메일 주소를 제공합니다. **아니요**를 선택하지만 나중에 메일 알림을 수신하려면 쉼표로 구분된 유효한 메일 주소로 만들어진 [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md)을 업데이트하면 됩니다. 또한 다음 경고 규칙을 사용하도록 설정해야 합니다.
+   - 작업 그룹에서 **메일 알림**을 받으려면 기본값인 **예**를 그대로 두고 유효한 메일 주소를 제공합니다. **아니요**를 선택하지만 나중에 메일 알림을 수신하려면 쉼표로 구분된 유효한 메일 주소로 만들어진 [작업 그룹](../azure-monitor/platform/action-groups.md)을 업데이트하면 됩니다. 또한 다음 경고 규칙을 사용하도록 설정해야 합니다.
 
      - AutoStop_VM_Child
      - Scheduled_StartStop_Parent
@@ -101,7 +101,7 @@ ms.locfileid: "52426053"
 > [!NOTE]
 > 표준 시간대는 예약 시간 매개 변수를 구성할 당시의 현재 표준 시간대입니다. 하지만 Azure Automation에서 UTC 형식으로 저장됩니다. 따라서 배포 중에 처리될 때 표준 시간대 변환 작업을 수행할 필요가 없습니다.
 
-다음 변수 **External_Start_ResourceGroupNames**, **External_Stop_ResourceGroupNames** 및 **External_ExcludeVMNames**를 구성하여 범위 안에 포함되는 VM을 제어합니다.
+변수 **External_Start_ResourceGroupNames**, **External_Stop_ResourceGroupNames** 및 **External_ExcludeVMNames**를 구성하여 범위 내의 VM을 제어합니다.
 
 구독 및 리소스 그룹 또는 특정 VM 목록 중 하나로만 작업 대상을 지정할 수 있습니다.
 
@@ -309,7 +309,7 @@ Azure Portal에서 [모니터] -> [작업 그룹]으로 이동합니다. **Start
 
 ![Automation 업데이트 관리 솔루션 페이지](media/automation-solution-vm-management/change-email.png)
 
-또는 작업 그룹에 추가 작업을 추가할 수 있습니다. 작업 그룹에 대한 자세한 내용은 [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md)을 참조하세요.
+또는 작업 그룹에 추가 작업을 추가할 수 있습니다. 작업 그룹에 대한 자세한 내용은 [작업 그룹](../azure-monitor/platform/action-groups.md)을 참조하세요.
 
 솔루션이 가상 머신을 종료할 때 전송되는 예제 메일은 다음과 같습니다.
 
@@ -354,4 +354,4 @@ Azure Automation 계정 구성 요소를 유지하지 않으려면 각각을 수
 
 - Log Analytics를 사용하여 여러 검색 쿼리를 작성하고 Automation 작업 로그를 검토하는 방법에 대한 자세한 내용은 [Log Analytics의 로그 검색](../log-analytics/log-analytics-log-searches.md)을 참조하세요.
 - runbook 실행, runbook 작업 모니터링 방법 및 기타 기술 세부 정보를 알아보려면 [runbook 작업 추적](automation-runbook-execution.md)을 참조하세요.
-- Log Analytics 및 데이터 수집 소스에 대해 자세히 알아보려면 [Log Analytics에서 Azure Storage 데이터 수집 개요](../log-analytics/log-analytics-azure-storage.md)를 참조하세요.
+- Log Analytics 및 데이터 수집 소스에 대해 자세히 알아보려면 [Log Analytics에서 Azure Storage 데이터 수집 개요](../azure-monitor/platform/collect-azure-metrics-logs.md)를 참조하세요.

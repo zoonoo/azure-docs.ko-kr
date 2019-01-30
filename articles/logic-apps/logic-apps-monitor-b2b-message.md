@@ -9,25 +9,25 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: 15bfe871731f5a6a04cae623faf0bd27cdba27fc
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d5425cf7c2ea39770bbc3e9368f34d57d7279842
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233194"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53534879"
 ---
 # <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>Azure Logic Apps의 Azure Log Analytics를 사용하여 B2B 메시지 모니터링
 
 통합 계정에서 거래 업체 간에 B2B 통신을 설정한 후 해당 업체는 서로 메시지를 교환할 수 있습니다. 이 통신이 예상대로 작동하는지 확인하려면 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)를 사용하여 AS2, X12 및 EDIFACT 메시지를 모니터링하고 통합 계정에 대한 진단 로깅을 설정할 수 있습니다. 이 서비스는 클라우드 및 온-프레미스 환경을 모니터링하고 해당 가용성 및 성능을 유지할 수 있고 런타임 세부 정보 및 보다 다양한 디버깅에 대한 이벤트를 수집합니다. 또한 Azure Storage 및 Azure Event Hub와 같은 [다른 서비스를 통해 이 데이터를 사용](#extend-diagnostic-data)할 수도 있습니다.
 
 > [!NOTE]
-> 이 페이지는 [2019년 1월에 사용 중지](../log-analytics/log-analytics-oms-portal-transition.md)되지만 가능한 경우 Azure Log Analytics로 이러한 단계를 대체하는 Microsoft OMS(Operations Management Suite)를 아직 참조할 수 있습니다. 
+> 이 페이지는 [2019년 1월에 사용 중지](../azure-monitor/platform/oms-portal-transition.md)되지만 가능한 경우 Azure Log Analytics로 이러한 단계를 대체하는 Microsoft OMS(Operations Management Suite)를 아직 참조할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
 * 진단 로깅과 함께 설정된 논리 앱. [논리 앱을 만드는 방법](quickstart-create-first-logic-app-workflow.md) 및 [해당 논리 앱에 대한 로깅을 설정하는 방법](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)을 알아봅니다.
 
-* 이전 요구 사항이 충족되면 Log Analytics를 통해 B2B 통신을 모니터링 및 추적하는 데 사용할 수 있는 Log Analytics 작업 영역도 필요합니다. Log Analytics 작업 영역이 없는 경우 [Log Analytics 작업 영역을 만드는 방법](../log-analytics/log-analytics-quick-create-workspace.md)을 알아봅니다.
+* 이전 요구 사항이 충족되면 Log Analytics를 통해 B2B 통신을 모니터링 및 추적하는 데 사용할 수 있는 Log Analytics 작업 영역도 필요합니다. Log Analytics 작업 영역이 없는 경우 [Log Analytics 작업 영역을 만드는 방법](../azure-monitor/learn/quick-create-workspace.md)을 알아봅니다.
 
 * 논리 앱에 연결된 통합 계정. [논리 앱에 대한 링크와 함께 통합 계정을 만드는 방법](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)을 알아봅니다.
 
@@ -121,10 +121,10 @@ ms.locfileid: "50233194"
 
 Azure Log Analytics와 마찬가지로 다른 Azure 서비스와 함께 논리 앱의 진단 데이터를 사용하는 방법을 다음과 같이 확장할 수 있습니다. 
 
-* [Azure Storage에 Azure 진단 로그 보관](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
-* [Azure Event Hubs로 Azure 진단 로그 스트림](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
+* [Azure Storage에 Azure 진단 로그 보관](../azure-monitor/platform/archive-diagnostic-logs.md)
+* [Azure Event Hubs로 Azure 진단 로그 스트림](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
 
-그런 다음 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 및 [Power BI](../log-analytics/log-analytics-powerbi.md)와 같은 다른 서비스의 원격 분석 및 분석을 사용하여 실시간으로 모니터링할 수 있습니다. 예: 
+그런 다음 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 및 [Power BI](../azure-monitor/platform/powerbi.md)와 같은 다른 서비스의 원격 분석 및 분석을 사용하여 실시간으로 모니터링할 수 있습니다. 예: 
 
 * [Event Hub에서 Stream Analytics로 데이터 스트림](../stream-analytics/stream-analytics-define-inputs.md)
 * [Stream Analytics를 사용하여 스트리밍 데이터 분석 및 Power BI에서 실시간 분석 대시보드 만들기](../stream-analytics/stream-analytics-power-bi-dashboard.md)

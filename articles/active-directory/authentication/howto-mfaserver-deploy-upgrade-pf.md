@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: f9e67a34ec1237eab0d1c567720cf905acda5def
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: e2c3024b16a7ef2fc02abb8bbdb75c166a6962cd
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160803"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432373"
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>PhoneFactor Agent를 Azure Multi-Factor Authentication 서버로 업그레이드
 
@@ -50,7 +50,7 @@ PhoneFactor Agent v5.x 또는 이전 버전을 Azure Multi-Factor Authentication
 
 2. 웹 서비스 SDK를 이전에 설치한 경우 Multi-Factor Authentication 서버 사용자 인터페이스를 통해 새 웹 서비스 SDK를 설치합니다.
 
-  기본 가상 디렉터리 이름은 이제 **PhoneFactorWebServiceSdk** 대신 **MultiFactorAuthWebServiceSdk**가 됩니다. 이전 이름을 사용하려는 경우 설치하는 동안 가상 디렉터리의 이름을 변경해야 합니다. 그렇지 않은 경우 새 기본 이름을 사용하여 설치할 수 있으면 사용자 포털 및 모바일 앱 웹 서비스 등의 웹 서비스 SDK를 참조하는 모든 응용 프로그램의 URL이 올바른 위치를 가리키도록 변경해야 합니다.
+  기본 가상 디렉터리 이름은 이제 **PhoneFactorWebServiceSdk** 대신 **MultiFactorAuthWebServiceSdk**가 됩니다. 이전 이름을 사용하려는 경우 설치하는 동안 가상 디렉터리의 이름을 변경해야 합니다. 그렇지 않은 경우 새 기본 이름을 사용하여 설치할 수 있으면 사용자 포털 및 모바일 앱 웹 서비스 등의 웹 서비스 SDK를 참조하는 모든 애플리케이션의 URL이 올바른 위치를 가리키도록 변경해야 합니다.
 
 3. 사용자 포털이 이전에 PhoneFactor Agent 서버에 설치된 경우 Multi-Factor Authentication 서버 사용자 인터페이스를 통해 새 Multi-Factor Authentication 사용자 포털을 설치합니다.
 
@@ -73,4 +73,4 @@ PhoneFactor Agent v5.x 또는 이전 버전을 Azure Multi-Factor Authentication
 
 - Azure Multi-Factor Authentication 서버의 [사용자 포털을 설치](howto-mfaserver-deploy-userportal.md)합니다.
 
-- 응용 프로그램에 대한 [Windows 인증](howto-mfaserver-windows.md)을 구성합니다. 
+- 애플리케이션에 대한 [Windows 인증](howto-mfaserver-windows.md)을 구성합니다. 

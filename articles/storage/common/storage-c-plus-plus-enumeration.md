@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
 ms.component: common
-ms.openlocfilehash: 6384af5368fe722d6c9307d56d8a071ebcd17bf0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2f9c7e791bf77c2387dbe9ba58b3ef70abe8fb89
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51226977"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411271"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>C++에서 Azure Storage 리소스 나열
-목록 작업은 Azure Storage를 사용하는 다양한 배포 시나리오에 중요합니다. 이 문서에서는 Microsoft Azure Storage Client Library for C++에서 제공된 API 목록을 사용하여 Microsoft Azure 저장소에서 개체를 보다 효율적으로 열거하는 방법에 대해 설명합니다.
+목록 작업은 Azure Storage를 사용하는 다양한 배포 시나리오에 중요합니다. 이 문서에서는 Microsoft Azure Storage Client Library for C++에서 제공된 API 목록을 사용하여 Microsoft Azure 스토리지에서 개체를 보다 효율적으로 열거하는 방법에 대해 설명합니다.
 
 > [!NOTE]
 > 이 가이드는 [NuGet](http://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/Azure/azure-storage-cpp)를 통해 사용할 수 있는 Azure Storage Client Library for C++ 버전 2.x을(를) 대상으로 합니다.
 > 
 > 
 
-Storage Client Library는 Azure 저장소에서 개체를 나열 또는 쿼리하는 다양한 방법을 제공합니다. 이 문서는 다음과 같은 시나리오를 다룹니다.
+Storage Client Library는 Azure 스토리지에서 개체를 나열 또는 쿼리하는 다양한 방법을 제공합니다. 이 문서는 다음과 같은 시나리오를 다룹니다.
 
 * 계정에서 컨테이너 나열
 * 컨테이너 또는 가상 Blob 디렉터리에서 Blob 나열
@@ -49,7 +49,7 @@ list_blob_item_segment list_blobs_segmented(const continuation_token& token) con
 }
 ```
 
-다중 스레딩 응용 프로그램 또는 서비스로 작업하는 경우, 성능에 상당한 영향을 미치는 동기 API를 호출하는 스레드를 만드는 대신 비동기 API를 직접 사용하는 것이 좋습니다.
+다중 스레딩 애플리케이션 또는 서비스로 작업하는 경우, 성능에 상당한 영향을 미치는 동기 API를 호출하는 스레드를 만드는 대신 비동기 API를 직접 사용하는 것이 좋습니다.
 
 ## <a name="segmented-listing"></a>분할된 목록
 클라우드 저장소의 규모에는 분할된 목록이 필요합니다. 예를 들어, Azure Blob 컨테이너에 수백만 이상의 Blob이 있거나 Azure 테이블에 수십억 이상의 엔터티가 있을 수 있습니다. 이는 이론적인 수치가 아니라 실제 고객 사용 사례입니다.
@@ -77,7 +77,7 @@ do
     }
     else
     {
-        process_diretory(it->as_directory());
+        process_directory(it->as_directory());
     }
 }
 
@@ -98,7 +98,7 @@ list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, boo
 
 또한 Azure Table Storage에 대한 쿼리는 연속 토큰이 비어 있지 않은 경우에도 사용자가 지정한 *max_results* 매개 변수 값보다 더 적은 레코드를 반환하거나 레코드를 반환하지 않을 수 있습니다. 한 가지 이유는 쿼리가 5초 이내에 완료할 수 없기 때문일 수 있습니다. 연속 토큰이 비어 있지 않으면 해당 쿼리가 계속되며 코드가 세그먼트 결과의 크기를 가정하지 않습니다.
 
-거의 모든 시나리오에 대한 권장 코딩 패턴은 목록 또는 쿼리의 명시적 진행을 제공하는 목록 및 서비스가 각 요청에 응답하는 방식을 분할하는 것입니다. 특히 C++ 응용 프로그램 또는 서비스의 경우, 하위 수준의 목록 진행 제어가 메모리 및 성능 제어에 도움이 될 수 있습니다.
+거의 모든 시나리오에 대한 권장 코딩 패턴은 목록 또는 쿼리의 명시적 진행을 제공하는 목록 및 서비스가 각 요청에 응답하는 방식을 분할하는 것입니다. 특히 C++ 애플리케이션 또는 서비스의 경우, 하위 수준의 목록 진행 제어가 메모리 및 성능 제어에 도움이 될 수 있습니다.
 
 ## <a name="greedy-listing"></a>Greedy 목록
 Storage Client Library for C++ 이전 버전(0.5.0 Preview 버전 이하)에는 다음 예시와 같이 테이블 및 큐에 대해 분할되지 않은 API 목록이 포함되었습니다.
@@ -141,7 +141,7 @@ do
 } while (!token.empty());
 ```
 
-세그먼트의 *max_results* 매개 변수를 지정하여 응용 프로그램에 대한 성능 고려 사항을 충족하도록 요청 수와 메모리 사용량 사이의 균형을 조절할 수 있습니다.
+세그먼트의 *max_results* 매개 변수를 지정하여 애플리케이션에 대한 성능 고려 사항을 충족하도록 요청 수와 메모리 사용량 사이의 균형을 조절할 수 있습니다.
 
 또한 분할된 목록 API를 사용하지만 "greedy" 스타일로 로컬 모음에 데이터를 저장하는 경우, 규모별로 주의 깊게 로컬 모음에서 데이터 저장을 처리하도록 코드를 리펙터링하는 것이 좋습니다.
 
@@ -189,7 +189,7 @@ lazy 목록 API는 Storage Client Library for C++ 버전 2.2.0에 포함됩니�
 * greedy 목록은 권장되지 않으며 라이브러리에서 제거되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure 저장소 및 Storage Client Library for C++에 대한 자세한 내용은 다음 리소스를 참조하세요.
+Azure 스토리지 및 Storage Client Library for C++에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 * [C++에서 Blob Storage를 사용하는 방법](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [C++에서 Table Storage를 사용하는 방법](../../cosmos-db/table-storage-how-to-use-c-plus.md)

@@ -14,19 +14,20 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.openlocfilehash: 5af508714b5eae5cdd23c940af0ae21300c0c5b8
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.lastreviewed: 12/11/2018
+ms.openlocfilehash: 331a71d4f807e1e596a91c1463064e3f6dcbd1e1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194690"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247037"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Azure Stack에 Azure Cognitive Services 배포
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 > [!Note]  
-> Azure Stack에서 Aure Cognitive Services 미리 보기입니다.
+> Azure Stack에서 azure Cognitive Services 미리 보기입니다.
 
 Azure Stack에서 컨테이너 지원과 Azure Cognitive Services를 사용할 수 있습니다. Azure Cognitive Services에서 컨테이너 지원 같은 Azure에서 사용할 수 있는 풍부한 Api를 사용할 수 있습니다. 컨테이너 사용 유연성 배포 배달 서비스를 호스트 하는 위치에서 사용 하도록 설정 [Docker 컨테이너](https://www.docker.com/what-container)합니다. 컨테이너 지원은 현재 부분을 포함 하 여 Azure Cognitive Services의 하위 집합에 대 한 미리 보기로 제공 [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)를 [얼굴](https://docs.microsoft.com/azure/cognitive-services/face/overview), 및 [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), 및 [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (LUIS).
 
@@ -41,7 +42,7 @@ Azure Stack에서 컨테이너 지원과 Azure Cognitive Services를 사용할 �
   사용자 버전 및 해당 솔루션에 배포 된 모델의 업데이트를 제공 합니다.
 
 - **이식 가능한 아키텍처**  
-  공용 클라우드는 사설 클라우드 온-프레미스로, 또는 지에 솔루션을 배포할 수 있도록 이식 가능한 앱 아키텍처를 만들 수 있도록 합니다. Azure stack에서 Kubernetes 클러스터 또는 Azure Kubernetes Service, Azure Container Instances에 컨테이너를 배포할 수 있습니다. 자세한 내용은 [Azure Stack에 Kubernetes 배포](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)를 참조하세요.
+  사설, 공용 클라우드로 솔루션을 배포할 수 있도록 하는 이식 가능한 앱 아키텍처를 생성할 수 있도록 클라우드 온-프레미스 또는 지 합니다. Azure stack에서 Kubernetes 클러스터 또는 Azure Kubernetes Service, Azure Container Instances에 컨테이너를 배포할 수 있습니다. 자세한 내용은 [Azure Stack에 Kubernetes 배포](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)를 참조하세요.
 
 - **높은 처리량과 짧은 대기 시간**  
    앱 사용자에 게 높은 처리량과 짧은 대기 시간에 대 한 트래픽 급증을 사용 하 여 크기를 조정 하는 기능을 제공 합니다. 해당 응용 프로그램 논리 및 데이터에 가까운 실제로 Azure Kubernetes Service에서 실행 하는 Cognitive Services를 사용 하도록 설정 합니다.
@@ -66,7 +67,7 @@ Cognitive Services 컨테이너에 대 한 자세한 내용은로 이동 [Azure 
 
 Face, LUIS, 또는 텍스트 인식 컨테이너를 각각 미리 보기에 Azure에서 Cognitive Service 리소스를 만듭니다. Cognitive 서비스 컨테이너를 인스턴스화하는 리소스의 구독 키 및 끝점 URL을 사용 하도록 해야 합니다.
 
-1.  Azure Portal에서 Azure 리소스를 만듭니다. 얼굴 컨테이너를 미리 보려면 하려는 경우 해당 글꼴 리소스를 Azure portal에서 만들어야 합니다. 자세한 내용은 참조 하세요. [빠른 시작: Azure portal에서 Cognitive Services 계정을 만드는](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)합니다.
+1.  Azure Portal에서 Azure 리소스를 만듭니다. 얼굴 컨테이너를 미리 보려면 하려는 경우 해당 글꼴 리소스를 Azure portal에서 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure Portal에서 Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)를 참조하세요.
 
     >  [!Note]  
     >  얼굴 또는 Computer Vision 리소스 F0 가격 책정 계층을 사용 해야 합니다.

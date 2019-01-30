@@ -1,6 +1,6 @@
 ---
-title: Linux에서 Azure IoT Edge를 설치하는 방법 | Microsoft Docs
-description: Linux에서 Azure IoT Edge 설치
+title: Linux에 Azure IoT Edge 설치 | Microsoft Docs
+description: Ubuntu를 실행하는 Linux AMD64 디바이스에서 Azure IoT Edge 설치 지침
 author: kgremban
 manager: philmea
 ms.reviewer: veyalla
@@ -9,12 +9,13 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 08946076add9ab1c0972729fa89cf8aea0968c99
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 9945b0aad32fe9abc6a51132a287da10f1b28daa
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568509"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557753"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Linux(x64)에서 Azure IoT Edge 런타임 설치
 
@@ -82,7 +83,7 @@ sudo apt-get install moby-cli
 
 ## <a name="install-the-azure-iot-edge-security-daemon"></a>Azure IoT Edge 보안 디먼 설치
 
-**IoT Edge 보안 디먼**은 Edge 장치에서 보안 표준을 제공하고 유지 관리합니다. 디먼은 부팅할 때마다 시작되며, 나머지 IoT Edge 런타임을 시작하여 디바이스를 부트스트랩합니다. 
+**IoT Edge 보안 디먼**은 Edge 디바이스에서 보안 표준을 제공하고 유지 관리합니다. 디먼은 부팅할 때마다 시작되며, 나머지 IoT Edge 런타임을 시작하여 디바이스를 부트스트랩합니다. 
 
 또한 이 설치 명령은 iothsmlib가 표시되지 않으면 표준 버전의 **iothsmlib**를 설치합니다.
 
@@ -117,7 +118,7 @@ IoT Hub에서 제공하는 디바이스 연결 문자열을 사용하여 단일 
 sudo nano /etc/iotedge/config.yaml
 ```
 
-파일의 프로비전 섹션을 찾아서 **수동** 프로비전 모드의 주석 처리를 제거합니다. **device_connection_string**의 값을 IoT Edge 장치의 연결 문자열로 업데이트합니다.
+파일의 프로비전 섹션을 찾아서 **수동** 프로비전 모드의 주석 처리를 제거합니다. **device_connection_string**의 값을 IoT Edge 디바이스의 연결 문자열로 업데이트합니다.
 
    ```yaml
    provisioning:
@@ -151,7 +152,7 @@ sudo systemctl restart iotedge
 sudo nano /etc/iotedge/config.yaml
 ```
 
-파일의 프로비전 섹션을 찾아서 **dps** 프로비전 모드의 주석 처리를 제거합니다. **scope_id** 및 **registration_id** 값을 IoT Hub 장치 프로비전 서비스 및 TPM이 있는 IoT Edge 장치의 값으로 업데이트합니다. 
+파일의 프로비전 섹션을 찾아서 **dps** 프로비전 모드의 주석 처리를 제거합니다. **scope_id** 및 **registration_id** 값을 IoT Hub Device Provisioning Service 및 TPM이 있는 IoT Edge 디바이스의 값으로 업데이트합니다. 
 
    ```yaml
    # provisioning:
@@ -177,7 +178,7 @@ sudo systemctl restart iotedge
 
 ## <a name="verify-successful-installation"></a>성공적인 설치 확인
 
-이전 섹션의 **수동 구성** 단계를 사용한 경우 IoT Edge 런타임을 디바이스에 성공적으로 프로비전하고 실행해야 합니다. **자동 구성** 단계를 사용한 경우 사용자를 대신하여 런타임에서 장치를 IoT 허브에 등록할 수 있도록 몇 가지 추가 단계를 수행해야 합니다. 다음 단계는 [Linux 가상 머신에서 시뮬레이션된 TPM 에지 디바이스 만들기 및 프로비전](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm)을 참조하세요.
+이전 섹션의 **수동 구성** 단계를 사용한 경우 IoT Edge 런타임을 디바이스에 성공적으로 프로비전하고 실행해야 합니다. **자동 구성** 단계를 사용한 경우 사용자를 대신하여 런타임에서 디바이스를 IoT 허브에 등록할 수 있도록 몇 가지 추가 단계를 수행해야 합니다. 다음 단계는 [Linux 가상 머신에서 시뮬레이션된 TPM 에지 디바이스 만들기 및 프로비전](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm)을 참조하세요.
 
 다음을 사용하여 IoT Edge 디먼의 상태를 확인할 수 있습니다.
 
@@ -205,7 +206,39 @@ sudo iotedge list
 
 프록시 서버가 있는 네트워크의 경우 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)의 단계를 수행합니다.
 
+## <a name="uninstall-iot-edge"></a>IoT Edge 제거
+
+Linux 디바이스에서 IoT Edge 설치를 제거하려면 명령줄에서 다음 명령을 사용합니다. 
+
+IoT Edge 런타임을 제거합니다. 
+
+```bash
+sudo apt-get remove --purge iotedge
+```
+
+IoT Edge 런타임을 제거하면 만든 컨테이너는 중지되지만 디바이스에는 계속 남아 있습니다. 모든 컨테이너를 보고 남아 있는 항목을 확인합니다. 
+
+```bash
+sudo docker ps -a
+```
+
+두 개의 런타임 컨테이너를 포함하여 디바이스에서 컨테이너를 삭제합니다. 
+
+```bash
+sudo docker rm -f <container name>
+```
+
+마지막으로 디바이스에서 컨테이너 런타임을 제거합니다. 
+
+```bash 
+sudo apt-get remove --purge moby-cli
+sudo apt-get remove --purge moby-engine
+```
+
 ## <a name="next-steps"></a>다음 단계
+
+런타임을 설치하여 IoT Edge 디바이스를 프로비전했으므로 [IoT Edge 모듈을 배포](how-to-deploy-modules-portal.md)할 수 있습니다.
 
 Edge 런타임을 제대로 설치하는 데 문제가 있는 경우 [문제 해결](troubleshoot.md) 페이지를 체크 아웃하세요.
 
+기존 설치를 최신 버전의 IoT Edge로 업데이트하려면 [IoT Edge 보안 디먼 및 런타임 업데이트](how-to-update-iot-edge.md)를 참조하세요.

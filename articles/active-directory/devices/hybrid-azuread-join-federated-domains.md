@@ -1,10 +1,10 @@
 ---
-title: 하이브리드 Azure Active Directory 가입 디바이스 구성 방법 | Microsoft Docs
-description: 하이브리드 Azure Active Directory 가입 디바이스를 구성하는 방법에 대해 알아봅니다.
+title: 페더레이션 도메인용 하이브리드 Azure Active Directory 조인 구성 | Microsoft Docs
+description: 페더레이션된 도메인용 하이브리드 Azure Active Directory 조인을 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/07/2018
+ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: e40c18edadebae1f92cf811ea054503b9cd6b1ae
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: af1495af69255c7daa7de94da6ce0321c13d7599
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277973"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448214"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>자습서: 페더레이션된 도메인용 하이브리드 Azure Active Directory 조인 구성
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>자습서: 페더레이션 도메인용 하이브리드 Azure Active Directory 조인 구성
 
 사용자와 비슷한 방식으로 디바이스는 보호하려는 다른 ID가 되고, 언제 어디서나 리소스를 보호하는 데도 사용됩니다. 다음 방법 중 하나를 사용하여 디바이스의 ID를 Azure AD로 가져와서 이 목표를 달성할 수 있습니다.
 
@@ -50,7 +50,8 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 -  [하이브리드 Azure Active Directory 조인 구현을 계획하는 방법](hybrid-azuread-join-plan.md)
 
--  [장치의 하이브리드 Azure AD 조인을 제어하는 방법](hybrid-azuread-join-control.md)
+-  [디바이스의 하이브리드 Azure AD 조인을 제어하는 방법](hybrid-azuread-join-control.md)
+
 
 
 이 자습서의 시나리오를 구성하려면 다음이 필요합니다.
@@ -72,11 +73,11 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 하이브리드 Azure AD 조인을 위해서는 디바이스가 조직의 네트워크 내에서 다음 Microsoft 리소스에 액세스할 수 있어야 합니다.  
 
-- https://enterpriseregistration.windows.net
-- https://login.microsoftonline.com
-- https://device.login.microsoftonline.com
+- https\://enterpriseregistration.windows.net
+- https\://login.microsoftonline.com
+- https\://device.login.microsoftonline.com
 - 조직의 STS(페더레이션된 도메인)
-- https://autologon.microsoftazuread-sso.com(Seamless SSO를 사용 중이거나 사용할 예정인 경우)
+- https\://autologon.microsoftazuread-sso.com(Seamless SSO를 사용 중이거나 사용할 계획인 경우)
 
 Windows 10 1803부터 AD FS와 같은 페더레이션된 도메인에 대한 즉각적인 하이브리드 Azure AD 조인이 실패하는 경우, Azure AD Connect를 사용하여 Azure AD에서 컴퓨터 개체를 동기화한 다음, 하이브리드 Azure AD 조인에 대한 디바이스 등록을 완료합니다.
 
@@ -150,16 +151,16 @@ Azure AD Connect를 사용하여 하이브리드 Azure AD 조인을 구성하려
 
 ## <a name="enable-windows-down-level-devices"></a>Windows 하위 수준 디바이스 설정
 
-도메인에 가입된 디바이스 중 일부가 Windows 하위 수준 디바이스인 경우 다음을 수행해야 합니다.
+도메인에 가입된 장치 중 일부가 Windows 하위 수준 장치인 경우 다음을 수행해야 합니다.
 
-- 디바이스 설정 업데이트
+- 장치 설정 업데이트
  
 - 디바이스 등록에 대한 로컬 인트라넷 설정 구성
 
 - Windows 하위 수준 디바이스 제어 
 
 
-### <a name="update-device-settings"></a>디바이스 설정 업데이트 
+### <a name="update-device-settings"></a>장치 설정 업데이트 
 
 Windows 하위 수준 디바이스를 등록하려면 사용자가 Azure AD에서 디바이스를 등록할 수 있도록 허용하는 디바이스 설정을 선택해야 합니다. Azure Portal의 다음 위치에서 이러한 값을 확인할 수 있습니다.
 
@@ -167,12 +168,12 @@ Windows 하위 수준 디바이스를 등록하려면 사용자가 Azure AD에�
 
 
     
-**사용자가 장치를 Azure AD에 등록할 수 있습니다.** 정책이 **모두**로 설정되어야 합니다.
+다음 정책을 **모두**: **사용자가 디바이스를 Azure AD에 등록할 수 있습니다.** 로 설정해야 합니다.
 
 ![디바이스 등록](./media/hybrid-azuread-join-federated-domains/23.png)
 
 
-### <a name="configure-the-local-intranet-settings-for-device-registration"></a>디바이스 등록에 대한 로컬 인트라넷 설정 구성
+### <a name="configure-the-local-intranet-settings-for-device-registration"></a>장치 등록에 대한 로컬 인트라넷 설정 구성
 
 Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인을 성공적으로 완료하고 디바이스가 Azure AD를 인증할 때 인증서 프롬프트를 표시하지 않으려면 도메인에 가입된 디바이스에 정책을 푸시하여 Internet Explorer의 로컬 인트라넷 영역에 다음 URL을 추가할 수 있습니다.
 
@@ -188,7 +189,7 @@ Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인을 성공�
 
 ### <a name="control-windows-down-level-devices"></a>Windows 하위 수준 디바이스 제어 
 
-Windows 하위 수준 디바이스를 등록하려면 다운로드 센터에서 Windows Installer 패키지(.msi)를 다운로드하여 설치해야 합니다. 자세한 내용을 보려면 [여기](hybrid-azuread-join-control.md#control-windows-down-level-devices)를 클릭하세요. 
+Windows 하위 수준 장치를 등록하려면 다운로드 센터에서 Windows Installer 패키지(.msi)를 다운로드하여 설치해야 합니다. 자세한 내용은 [여기](hybrid-azuread-join-control.md#control-windows-down-level-devices)를 클릭하세요. 
 
 ## <a name="verify-the-registration"></a>등록 확인
 
@@ -197,8 +198,8 @@ Azure 테넌트에서 디바이스 등록 상태를 확인하려면 **[Azure Act
 **Get-MSolDevice** cmdlet을 사용하여 서비스 세부 정보를 확인하려는 경우 다음이 적용됩니다.
 
 - Windows 클라이언트의 ID와 일치하는 **디바이스 ID**를 갖는 개체가 있어야 합니다.
-- **DeviceTrustType** 값은 **도메인 가입됨**이어야 합니다. 이 값은 Azure AD 포털에서 디바이스 페이지의 **하이브리드 Azure AD 가입**과 같습니다.
-- 조건부 액세스에 사용되는 디바이스의 경우 **Enabled** 값이 **True**이고 **DeviceTrustLevel**이 **Managed**여야 합니다. 
+- **DeviceTrustType** 값은 **도메인 가입됨**이어야 합니다. 이 값은 Azure AD 포털에서 장치 페이지의 **하이브리드 Azure AD 가입**과 같습니다.
+- 조건부 액세스에 사용되는 장치의 경우 **Enabled** 값이 **True**이고 **DeviceTrustLevel**이 **Managed**여야 합니다. 
 
 
 **서비스 세부 정보를 확인하려면**

@@ -244,17 +244,17 @@ ms.locfileid: "49988354"
 
 #### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 
-`AcquireTokenAsync` 메서드를 호출하면 사용자에게 로그인하거나 계정을 선택하라는 메시지를 표시하는 창이 실행됩니다. 일반적으로 응용 프로그램은 사용자에게 초기 조작을 요청해야 하지만 해당 지점부터는 자동으로 작동할 수 있습니다. 
+`AcquireTokenAsync` 메서드를 호출하면 사용자에게 로그인하거나 계정을 선택하라는 메시지를 표시하는 창이 실행됩니다. 일반적으로 애플리케이션은 사용자에게 초기 조작을 요청해야 하지만 해당 지점부터는 자동으로 작동할 수 있습니다. 
 
 #### <a name="get-a-user-token-silently"></a>자동으로 사용자 토큰 가져오기
 
 `AcquireTokenSilentAsync` 메서드는 사용자 조작 없이 토큰을 가져옵니다.  `AcquireTokenSilentAsync`는 최선의 요청으로 처리될 수 있으며, 사용자가 다시 로그인하거나 다단계 인증과 같은 추가 권한 부여를 수행해야 하는 경우 `AcquireTokenAsync`로 대체됩니다. 
 
-`AcquireTokenSilentAsync`가 실패하면 `MsalUiRequiredException`을 생성합니다. 응용 프로그램에서는 이러한 예외를 다음 두 가지 방법으로 처리할 수 있습니다.
+`AcquireTokenSilentAsync`가 실패하면 `MsalUiRequiredException`을 생성합니다. 애플리케이션에서는 이러한 예외를 다음 두 가지 방법으로 처리할 수 있습니다.
 
-* `AcquireTokenAsync`를 즉시 호출합니다. 이 호출로 인해 사용자에게 로그인하라는 메시지가 표시됩니다. 이 패턴은 사용자가 사용할 수 있는 오프라인 콘텐츠가 없는 온라인 응용 프로그램에서 사용됩니다. 이 자습서에서 생성된 샘플은 이 패턴을 사용합니다. 이 패턴은 샘플을 처음 실행할 때 작동되는 항목을 확인할 수 있습니다.
+* `AcquireTokenAsync`를 즉시 호출합니다. 이 호출로 인해 사용자에게 로그인하라는 메시지가 표시됩니다. 이 패턴은 사용자가 사용할 수 있는 오프라인 콘텐츠가 없는 온라인 애플리케이션에서 사용됩니다. 이 자습서에서 생성된 샘플은 이 패턴을 사용합니다. 이 패턴은 샘플을 처음 실행할 때 작동되는 항목을 확인할 수 있습니다.
 * 대화형 로그인이 필요하다는 시각적 표시를 사용자에게 제공합니다. 사용자가 준비되면 `AcquireTokenAsync`를 호출합니다.
-* 나중에 `AcquireTokenSilentAsync`를 다시 시도합니다. 이 패턴은 사용자가 중단 없이 다른 응용 프로그램 기능을 사용할 수 있는 경우(예: 오프라인 콘텐츠를 응용 프로그램에서 사용할 수 있는 경우)에 자주 사용됩니다. 네트워크가 일시적으로 사용할 수 없게 된 후에 복원된 경우 응용 프로그램이 `AcquireTokenSilentAsync`를 다시 시도하도록 결정할 수 있습니다. 
+* 나중에 `AcquireTokenSilentAsync`를 다시 시도합니다. 이 패턴은 사용자가 중단 없이 다른 애플리케이션 기능을 사용할 수 있는 경우(예: 오프라인 콘텐츠를 애플리케이션에서 사용할 수 있는 경우)에 자주 사용됩니다. 네트워크가 일시적으로 사용할 수 없게 된 후에 복원된 경우 애플리케이션이 `AcquireTokenSilentAsync`를 다시 시도하도록 결정할 수 있습니다. 
 <!--end-collapse-->
 
 ## <a name="call-the-microsoft-graph-api"></a>Microsoft Graph API 호출
@@ -319,7 +319,7 @@ private void updateGraphUI(JSONObject graphResponse) {
 <!--start-collapse-->
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>보호되는 API에 대한 REST 호출에 관한 추가 정보
 
-이 응용 프로그램 예제에서 `callGraphAPI()`는 `getAccessToken()`을 사용하여 새 액세스 토큰을 가져옵니다.  앱은 Microsoft Graph API에 대한 HTTP `GET` 요청에 토큰을 사용합니다. 
+이 애플리케이션 예제에서 `callGraphAPI()`는 `getAccessToken()`을 사용하여 새 액세스 토큰을 가져옵니다.  앱은 Microsoft Graph API에 대한 HTTP `GET` 요청에 토큰을 사용합니다. 
 <!--end-collapse-->
 
 ## <a name="set-up-sign-out"></a>로그아웃 설정
@@ -378,7 +378,7 @@ private void updateSignedOutUI() {
 <!--start-collapse-->
 ### <a name="more-information-about-user-sign-out"></a>사용자 로그아웃에 대한 자세한 내용
 
-`onSignOutClicked()` 메서드는 MSAL 캐시에서 사용자를 제거합니다. MSAL에는 로그인한 사용자의 상태가 더 이상 없으며, 응용 프로그램에서 로그아웃됩니다. 
+`onSignOutClicked()` 메서드는 MSAL 캐시에서 사용자를 제거합니다. MSAL에는 로그인한 사용자의 상태가 더 이상 없으며, 애플리케이션에서 로그아웃됩니다. 
 
 ### <a name="more-information-on-multi-account-scenarios"></a>다중 계정 시나리오에 대한 자세한 정보
 

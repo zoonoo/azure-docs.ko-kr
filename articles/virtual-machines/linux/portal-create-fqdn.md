@@ -35,7 +35,7 @@ ms.locfileid: "42144898"
 이제 `ssh azureuser@mydns.westus.cloudapp.azure.com`을 사용하는 경우처럼 이 DNS 이름을 사용하여 원격으로 VM에 연결할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-VM에는 공용 IP 및 DNS 이름이 있으므로 nginx, MongoDB, Docker와 같은 일반적인 응용 프로그램 프레임워크 또는 서비스를 배포할 수 있습니다.
+VM에는 공용 IP 및 DNS 이름이 있으므로 nginx, MongoDB, Docker와 같은 일반적인 애플리케이션 프레임워크 또는 서비스를 배포할 수 있습니다.
 
 또한 Azure 배포 구축에 대한 팁은 [Resource Manager 사용](../../azure-resource-manager/resource-group-overview.md)에서 자세히 읽어볼 수 있습니다.
 

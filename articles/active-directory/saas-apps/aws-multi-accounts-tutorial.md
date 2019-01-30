@@ -32,7 +32,7 @@ AWS(Amazon Web Services)를 Azure AD와 통합하면 다음과 같은 이점이 
 - 사용자가 Azure AD 계정으로 AWS(Amazon Web Services)에 자동으로 로그인(Single Sign-On)할 수 있도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ![결과 목록의 AWS(Amazon Web Services)](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
@@ -43,7 +43,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 * Graph 탐색기 접근 방식을 사용하여 모든 역할을 앱에 패치해야 합니다. 매니페스트 파일 방식은 권장되지 않습니다.
 
-* 단일 AWS 앱에 대해 1,200가지 이내의 앱 역할을 추가한 후에 앱에서 작업을 수행하면 크기와 관련된 오류가 발생한다는 것을 보고하는 고객이 확인되었습니다. 응용 프로그램 개체의 경우 하드 크기 제한이 있습니다.
+* 단일 AWS 앱에 대해 1,200가지 이내의 앱 역할을 추가한 후에 앱에서 작업을 수행하면 크기와 관련된 오류가 발생한다는 것을 보고하는 고객이 확인되었습니다. 애플리케이션 개체의 경우 하드 크기 제한이 있습니다.
 
 * 역할은 추가가 아닌 바꾸기 방식으로 계정에서 추가되므로 역할을 수동으로 업데이트해야 합니다. 또한 계정이 커지는 경우 계정 및 역할과 n x n 관계가 됩니다.
 
@@ -65,7 +65,7 @@ AWS(Amazon Web Services)와 Azure AD를 통합하도록 구성하려면 다음 �
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 AWS(Amazon Web Services) 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -79,11 +79,11 @@ Azure AD에 AWS(Amazon Web Services)를 통합하도록 구성하려면 갤러�
 
     ![이미지](./media/aws-multi-accounts-tutorial/selectazuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![이미지](./media/aws-multi-accounts-tutorial/a_select_app.png)
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![이미지](./media/aws-multi-accounts-tutorial/a_new_app.png)
 
@@ -91,7 +91,7 @@ Azure AD에 AWS(Amazon Web Services)를 통합하도록 구성하려면 갤러�
 
      ![이미지](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_addfromgallery.png)
 
-5. 응용 프로그램이 추가되면 **속성** 페이지로 이동하여 **개체 ID**를 복사합니다.
+5. 애플리케이션이 추가되면 **속성** 페이지로 이동하여 **개체 ID**를 복사합니다.
 
     ![결과 목록의 AWS(Amazon Web Services)](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_properties.png)
 
@@ -110,7 +110,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 AWS(Amazon Web Services) 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 AWS(Amazon Web Services) 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
@@ -130,7 +130,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![이미지](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_url.png)
 
-5. AWS(Amazon Web Services) 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
+5. AWS(Amazon Web Services) 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
 
     ![이미지](./media/aws-multi-accounts-tutorial/i4-attribute.png)
 
@@ -232,7 +232,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![역할 설정](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_listofroles.png)
 
-21. 모든 계정에서 모든 역할에 대해 모든 역할 ARN 및 신뢰할 수 있는 엔터티를 캡처해야 하므로 Azure AD 응용 프로그램에 수동으로 매핑해야 합니다. 
+21. 모든 계정에서 모든 역할에 대해 모든 역할 ARN 및 신뢰할 수 있는 엔터티를 캡처해야 하므로 Azure AD 애플리케이션에 수동으로 매핑해야 합니다. 
 
 22. 역할을 클릭하여 **역할 ARN** 및 **신뢰할 수 있는 엔터티** 값을 복사합니다. Azure AD에서 만들어야 하는 모든 역할에 대해 이 값이 필요합니다.
 
@@ -262,7 +262,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![Graph Explorer 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
 
-    f. 가져온 서비스 사용자 목록에서 수정할 서비스 사용자를 가져옵니다. Ctrl+F를 사용하여 나열된 모든 ServicePrincipals에서 응용 프로그램을 검색할 수도 있습니다. Azure AD 속성 페이지에서 복사한 **개체 ID**를 사용하여 다음 쿼리를 통해 해당하는 서비스 사용자로 이동할 수 있습니다.
+    f. 가져온 서비스 사용자 목록에서 수정할 서비스 사용자를 가져옵니다. Ctrl+F를 사용하여 나열된 모든 ServicePrincipals에서 애플리케이션을 검색할 수도 있습니다. Azure AD 속성 페이지에서 복사한 **개체 ID**를 사용하여 다음 쿼리를 통해 해당하는 서비스 사용자로 이동할 수 있습니다.
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
@@ -272,9 +272,9 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![Graph Explorer 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 
-    h. 이제 응용 프로그램에 대한 새 역할을 생성해야 합니다. 
+    h. 이제 애플리케이션에 대한 새 역할을 생성해야 합니다. 
 
-    i. 다음 JSON은 appRoles 개체의 예입니다. 응용 프로그램에 역할을 추가할 유사한 개체를 만듭니다.
+    i. 다음 JSON은 appRoles 개체의 예입니다. 애플리케이션에 역할을 추가할 유사한 개체를 만듭니다.
 
     ```
     {
@@ -318,15 +318,15 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
     > [!Note]
     > 패치 작업에 대한 **msiam_access** 다음에만 새 역할을 추가할 수 있습니다. 또한 조직 요구에 따라 원하는 만큼의 역할을 추가할 수 있습니다. Azure AD는 SAML 응답의 클레임 값으로 이 역할의 **값**을 보냅니다.
 
-    j. Graph Explorer로 돌아가 메서드를 **GET**에서 **PATCH**로 변경합니다. 위 예제의 것과 유사하게 appRoles 속성을 업데이트하여 원하는 역할을 갖도록 서비스 사용자 개체를 패치합니다. **쿼리 실행**을 클릭하여 패치 작업을 실행합니다. Amazon Web Services 응용 프로그램에 대한 역할이 만들어졌음을 확인하는 성공 메시지가 표시됩니다.
+    j. Graph Explorer로 돌아가 메서드를 **GET**에서 **PATCH**로 변경합니다. 위 예제의 것과 유사하게 appRoles 속성을 업데이트하여 원하는 역할을 갖도록 서비스 사용자 개체를 패치합니다. **쿼리 실행**을 클릭하여 패치 작업을 실행합니다. Amazon Web Services 애플리케이션에 대한 역할이 만들어졌음을 확인하는 성공 메시지가 표시됩니다.
 
     ![Graph Explorer 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
-25. 서비스 사용자에 더 많은 역할이 패치되면 각 역할에 사용자/그룹을 할당할 수 있습니다. 이 작업을 수행하려면 포털로 이동한 후 Amazon Web Services 응용 프로그램으로 이동합니다. 맨 위에서 **사용자 및 그룹** 탭을 클릭합니다. 
+25. 서비스 사용자에 더 많은 역할이 패치되면 각 역할에 사용자/그룹을 할당할 수 있습니다. 이 작업을 수행하려면 포털로 이동한 후 Amazon Web Services 애플리케이션으로 이동합니다. 맨 위에서 **사용자 및 그룹** 탭을 클릭합니다. 
 
 26. 해당 그룹에 특정 역할을 할당할 수 있도록 모든 AWS 역할에 대해 새 그룹을 만드는 것이 좋습니다. 하나의 그룹과 하나의 역할에 대한 일대일 매핑입니다. 그런 다음, 해당 그룹에 속하는 멤버를 추가할 수 있습니다.
 
-27. 그룹을 만든 후에는 그룹을 선택하여 응용 프로그램에 할당합니다.
+27. 그룹을 만든 후에는 그룹을 선택하여 애플리케이션에 할당합니다.
 
     ![Single Sign-On 구성 추가](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
 
@@ -344,7 +344,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 AWS(Amazon Web Services) 타일을 클릭하면 역할 선택 옵션이 없는 AWS(Amazon Web Services) 응용 프로그램 페이지가 나타납니다.
+액세스 패널에서 AWS(Amazon Web Services) 타일을 클릭하면 역할 선택 옵션이 없는 AWS(Amazon Web Services) 애플리케이션 페이지가 나타납니다.
 
 ![Single Sign-On 구성 추가](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_test_screen.png)
 

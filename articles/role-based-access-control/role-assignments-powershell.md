@@ -1,6 +1,6 @@
 ---
 title: RBAC 및 Azure PowerShell을 사용하여 액세스 관리 | Microsoft Docs
-description: RBAC(역할 기반 액세스 제어) 및 Azure PowerShell을 사용하여 사용자, 그룹 및 응용 프로그램의 액세스 권한을 관리하는 방법을 알아봅니다. 여기에는 액세스 권한을 나열, 부여 및 제거하는 방법이 포함됩니다.
+description: RBAC(역할 기반 액세스 제어) 및 Azure PowerShell을 사용하여 사용자, 그룹 및 애플리케이션의 액세스 권한을 관리하는 방법을 알아봅니다. 여기에는 액세스 권한을 나열, 부여 및 제거하는 방법이 포함됩니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,26 +11,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2018
+ms.date: 01/14/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7a27fbb4530f8aca1c45888cdff0fae7dea667e0
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 31fa2b670b6492b7496c147ef72688c3c0121fa5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095031"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429721"
 ---
 # <a name="manage-access-using-rbac-and-azure-powershell"></a>RBAC 및 Azure PowerShell을 사용하여 액세스 관리
 
-[RBAC(역할 기반 액세스 제어)](overview.md)는 Azure에서 리소스에 대한 액세스를 관리하는 방법입니다. 이 문서에서는 RBAC 및 Azure PowerShell을 사용하여 사용자, 그룹 및 응용 프로그램의 액세스 권한을 관리하는 방법을 설명합니다.
+[RBAC(역할 기반 액세스 제어)](overview.md)는 Azure에서 리소스에 대한 액세스를 관리하는 방법입니다. 이 문서에서는 RBAC 및 Azure PowerShell을 사용하여 사용자, 그룹 및 애플리케이션의 액세스 권한을 관리하는 방법을 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 액세스를 관리하려면 다음 중 하나가 필요합니다.
 
 * [Azure Cloud Shell의 PowerShell](/azure/cloud-shell/overview)
-* [Azure PowerShell](/powershell/azure/install-azurerm-ps)
+* [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)
 
 ## <a name="list-roles"></a>역할 나열
 
@@ -175,7 +175,7 @@ Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourc
 지정된 사용자에 할당된 모든 역할을 나열하려면 [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment)를 사용합니다.
 
 ```azurepowershell
-Get-AzureRmRoleAssignment -SignInName <user email>
+Get-AzureRmRoleAssignment -SignInName <email, userprincipalname>
 ```
 
 ```Example
@@ -189,7 +189,7 @@ Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourc
 지정된 사용자에게 할당된 역할 및 사용자가 속한 그룹에 할당된 역할을 모두 나열하려면 [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment)를 사용합니다.
 
 ```azurepowershell
-Get-AzureRmRoleAssignment -SignInName <user email> -ExpandPrincipalGroups
+Get-AzureRmRoleAssignment -SignInName <email, userprincipalname> -ExpandPrincipalGroups
 ```
 
 ```Example
@@ -210,7 +210,7 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 
 ### <a name="search-for-object-ids"></a>개체 ID 검색
 
-역할을 할당하려면 개체(사용자, 그룹 또는 응용 프로그램)와 범위 둘 다를 식별해야 합니다.
+역할을 할당하려면 개체(사용자, 그룹 또는 애플리케이션)와 범위 둘 다를 식별해야 합니다.
 
 구독 ID를 모르는 경우 Azure Portal의 **구독** 블레이드에서 확인하거나 [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription)을 사용할 수 있습니다.
 
@@ -220,15 +220,15 @@ Azure AD 그룹에 대한 개체 ID를 가져오려면 [Get-AzureRmADGroup](/pow
 Get-AzureRmADGroup -SearchString <group name in quotes>
 ```
 
-Azure AD 서비스 주체 또는 응용 프로그램에 대한 개체 ID를 가져오려면 [Get-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal)을 사용합니다.
+Azure AD 서비스 주체 또는 애플리케이션에 대한 개체 ID를 가져오려면 [Get-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/get-azurermadserviceprincipal)을 사용합니다.
 
 ```azurepowershell
 Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
 ```
 
-### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>구독 범위에서 응용 프로그램에 대한 역할 할당 만들기
+### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>구독 범위에서 애플리케이션에 대한 역할 할당 만들기
 
-구독 범위에서 응용 프로그램에 대한 액세스 권한을 부여하려면 [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment)를 사용합니다.
+구독 범위에서 애플리케이션에 대한 액세스 권한을 부여하려면 [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment)를 사용합니다.
 
 ```azurepowershell
 New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope /subscriptions/<subscription id>
@@ -253,7 +253,7 @@ CanDelegate        : False
 리소스 그룹 범위에서 사용자에 대한 액세스 권한을 부여하려면 [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment)를 사용합니다.
 
 ```azurepowershell
-New-AzureRmRoleAssignment -SignInName <email of user> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
+New-AzureRmRoleAssignment -SignInName <email, userprincipalname> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
 ```
 
 ```Example

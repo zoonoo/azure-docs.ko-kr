@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/20/2018
 ms.author: sharadag
-ms.openlocfilehash: c4032f7c33cec7b7a7864ccff07a05b87c945949
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 68da9a0255cde6cbad5c675901c80193888bf255
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988604"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214881"
 ---
 # <a name="how-to-set-up-a-geo-filtering-policy-for-your-front-door"></a>Front Door에 대한 지역 필터링 정책 설정 방법
 이 자습서에서는 Azure PowerShell을 사용하여 간단한 지역 필터링 정책을 만들고 기존 Front Door 프런트 엔드 호스트에 연결하는 방법을 알아봅니다. 이 샘플 지역 필터링 정책은 미국을 제외한 모든 국가로부터의 요청을 차단합니다.
@@ -47,7 +47,7 @@ Install-Module -Name AzureRM.FrontDoor -AllowPrerelease
 ```
 
 ## <a name="2-define-geo-filtering-match-conditions"></a>2. 지역 필터링 일치 조건 정의
-먼저 “미국”에서 오지 않는 요청을 선택하는 샘플 일치 조건을 만듭니다. 일치 조건을 만들 때 매개 변수는 PowerShell [가이드](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoormatchconditionobject)를 참조하세요. 국가와 2자 국가 코드 매핑은 [여기](/Protection/GeoFiltering)에 있습니다.
+먼저 “미국”에서 오지 않는 요청을 선택하는 샘플 일치 조건을 만듭니다. 일치 조건을 만들 때 매개 변수는 PowerShell [가이드](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoormatchconditionobject)를 참조하세요. 국가와 2자 국가 코드 매핑은 [여기](front-door-geo-filtering.md)에 있습니다.
 
 ```
 $nonUSGeoMatchCondition = New-AzureRmFrontDoorMatchConditionObject -MatchVariable RemoteAddr -OperatorProperty GeoMatch -NegateCondition $true -MatchValue "US"
@@ -91,5 +91,5 @@ Set-AzureRmFrontDoor -InputObject $geoFrontDoorObjectExample[0]
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Front Door와 응용 프로그램 계층 보안](front-door-application-security.md)에 대해 알아 보세요.
+- [Front Door와 애플리케이션 계층 보안](front-door-application-security.md)에 대해 알아 보세요.
 - [Front Door를 만드는](quickstart-create-front-door.md) 방법을 알아봅니다.

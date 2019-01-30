@@ -1,23 +1,23 @@
 ---
-title: 자습서 - 포털을 사용하여 Azure Analysis Services 서버에 기본 샘플 모델 추가 | Microsoft Docs
+title: 자습서 - Azure Analysis Services 서버에 샘플 모델 추가 | Microsoft Docs
 description: 이 자습서 단원에서는 Azure Analysis Services에서 샘플 모델을 추가하는 방법을 알아봅니다.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: def7ee54390a716027fcacb433b99826d3650f6f
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 78b309336b21c3b6a58a37b1729f675db111c5d0
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428695"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190547"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>자습서: 포털에서 샘플 모델 추가
 
-이 자습서에서는 샘플 Adventure Works 표 형식 모델 데이터베이스를 서버에 추가합니다. 샘플 모델은 Adventure Works 인터넷 판매(1200) 샘플 데이터 모델의 완성된 버전입니다. 샘플 모델은 모델 관리를 테스트하고, 도구 및 클라이언트 응용 프로그램과 연결하며, 모델 데이터를 쿼리하는 데 유용합니다. 이 자습서에서는 [Azure Portal](https://portal.azure.com) 및 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 사용합니다. 
+이 자습서에서는 샘플 Adventure Works 표 형식 모델 데이터베이스를 서버에 추가합니다. 샘플 모델은 Adventure Works 인터넷 판매(1200) 샘플 데이터 모델의 완성된 버전입니다. 샘플 모델은 모델 관리를 테스트하고, 도구 및 클라이언트 애플리케이션과 연결하며, 모델 데이터를 쿼리하는 데 유용합니다. 이 자습서에서는 [Azure Portal](https://portal.azure.com) 및 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 사용합니다. 
 
 > [!div class="checklist"]
 > * 서버에 완성된 샘플 표 형식 데이터 모델 추가 

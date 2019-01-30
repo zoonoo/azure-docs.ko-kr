@@ -3,22 +3,22 @@ title: 경고를 사용하여 Azure Automation Runbook 트리거
 description: Azure 경고가 발생할 경우 실행할 Runbook을 트리거하는 방법을 알아봅니다.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 98de7a84dc388f74c64d7c265d2ce8ed32995a5a
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 88fe7740170638e9e0d7398a02dcf83ab81f6ffc
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784778"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421686"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>경고를 사용하여 Azure Automation Runbook 트리거
 
-[Azure Monitor](../azure-monitor/overview.md?toc=%2fazure%2fautomation%2ftoc.json)를 사용하여 대부분의 Azure 서비스에 대한 기본 수준의 메트릭과 로그를 모니터링합니다. [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fautomation%2ftoc.json)을 사용하거나 경고에 따라 작업을 자동화하기 위한 클래식 경고를 통해 Azure Automation Runbook을 호출할 수 있습니다. 이 문서에서는 경고를 사용하여 Runbook을 구성하고 실행하는 방법을 보여 줍니다.
+[Azure Monitor](../azure-monitor/overview.md?toc=%2fazure%2fautomation%2ftoc.json)를 사용하여 대부분의 Azure 서비스에 대한 기본 수준의 메트릭과 로그를 모니터링합니다. [작업 그룹](../azure-monitor/platform/action-groups.md?toc=%2fazure%2fautomation%2ftoc.json)을 사용하거나 경고에 따라 작업을 자동화하기 위한 클래식 경고를 통해 Azure Automation Runbook을 호출할 수 있습니다. 이 문서에서는 경고를 사용하여 Runbook을 구성하고 실행하는 방법을 보여 줍니다.
 
 ## <a name="alert-types"></a>경고 유형
 
@@ -31,9 +31,9 @@ ms.locfileid: "48784778"
 
 |경고  |설명|페이로드 스키마  |
 |---------|---------|---------|
-|[클래식 메트릭 경고](../monitoring-and-diagnostics/insights-alerts-portal.md?toc=%2fazure%2fautomation%2ftoc.json)    |모든 플랫폼 수준의 메트릭이 특정 조건을 충족하는 경우 알림을 보냅니다. 예를 들어 VM의 **CPU %** 값이 지난 5분 동안 **90**보다 큰 경우입니다.| [클래스 메트릭 경고 페이로드 스키마](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)         |
-|[활동 로그 경고](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Azure 활동 로그의 새 이벤트가 특정 조건과 일치하는 경우 알림을 보냅니다. 예를 들어 `Delete VM` 작업이 **myProductionResourceGroup**에서 발생하거나 새 Azure Service Health 이벤트가 **활성** 상태로 표시되는 경우입니다.| [활동 로그 경고 페이로드 스키마](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md)        |
-|[근 실시간 메트릭 경고 만들기](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |하나 이상의 플랫폼 수준 메트릭이 지정된 조건을 충족하는 경우 메트릭 경고보다 빠르게 알림을 보냅니다. 예를 들어 VM의 **CPU %** 값이 **90**보다 큰 경우 및 **네트워크 입력**의 값이 지난 5분 동안 **500MB**보다 큰 경우입니다.| [근 실시간 메트릭 경고 페이로드 스키마](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)          |
+|[클래식 메트릭 경고](../monitoring-and-diagnostics/insights-alerts-portal.md?toc=%2fazure%2fautomation%2ftoc.json)    |모든 플랫폼 수준의 메트릭이 특정 조건을 충족하는 경우 알림을 보냅니다. 예를 들어 VM의 **CPU %** 값이 지난 5분 동안 **90**보다 큰 경우입니다.| [클래스 메트릭 경고 페이로드 스키마](../azure-monitor/platform/alerts-webhooks.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)         |
+|[활동 로그 경고](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Azure 활동 로그의 새 이벤트가 특정 조건과 일치하는 경우 알림을 보냅니다. 예를 들어 `Delete VM` 작업이 **myProductionResourceGroup**에서 발생하거나 새 Azure Service Health 이벤트가 **활성** 상태로 표시되는 경우입니다.| [활동 로그 경고 페이로드 스키마](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
+|[근 실시간 메트릭 경고 만들기](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |하나 이상의 플랫폼 수준 메트릭이 지정된 조건을 충족하는 경우 메트릭 경고보다 빠르게 알림을 보냅니다. 예를 들어 VM의 **CPU %** 값이 **90**보다 큰 경우 및 **네트워크 입력**의 값이 지난 5분 동안 **500MB**보다 큰 경우입니다.| [근 실시간 메트릭 경고 페이로드 스키마](../azure-monitor/platform/alerts-webhooks.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)          |
 
 각 유형의 경고에서 제공되는 데이터가 다르기 때문에 각 경고 유형이 다르게 처리됩니다. 다음 섹션에서는 다양한 유형의 경고를 처리하는 Runbook을 만드는 방법에 대해 배웁니다.
 
@@ -211,7 +211,7 @@ Runbook은 **AzureRunAsConnection** [실행 계정](automation-create-runas-acco
    ![작업 그룹 페이지 추가](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 1. 작업 그룹을 만들려면 **확인**을 선택합니다.
 
-만드는 [활동 로그 경고](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) 및 [근 실시간 경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)에서 이 작업 그룹을 사용할 수 있습니다.
+만드는 [활동 로그 경고](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) 및 [근 실시간 경고](../azure-monitor/platform/alerts-overview.md?toc=%2fazure%2fautomation%2ftoc.json)에서 이 작업 그룹을 사용할 수 있습니다.
 
 ## <a name="classic-alert"></a>클래식 경고
 
@@ -230,5 +230,6 @@ Runbook은 **AzureRunAsConnection** [실행 계정](automation-create-runas-acco
 
 * 웹후크를 사용하여 Automation Runbook을 시작하는 방법에 대한 자세한 내용은 [웹후크에서 Runbook 시작](automation-webhooks.md)을 참조하세요.
 * Runbook을 시작하는 다양한 방법에 대한 자세한 내용은 [Runbook 시작](automation-starting-a-runbook.md)을 참조하세요.
-* 활동 로그 경고를 만드는 방법을 알아보려면 [활동 로그 경고 만들기](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)를 참조하세요.
-* 근 실시간 경고를 만드는 방법을 보려면 [Azure Portal에서 경고 규칙 만들기](../monitoring-and-diagnostics/alert-metric.md?toc=/azure/azure-monitor/toc.json)를 참조하세요.
+* 활동 로그 경고를 만드는 방법을 알아보려면 [활동 로그 경고 만들기](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)를 참조하세요.
+* 근 실시간 경고를 만드는 방법을 보려면 [Azure Portal에서 경고 규칙 만들기](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json)를 참조하세요.
+

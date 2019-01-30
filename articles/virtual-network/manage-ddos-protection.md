@@ -1,5 +1,6 @@
 ---
-title: Azure Portal을 사용하여 Azure DDoS Protection 표준 관리 | Microsoft Docs
+title: Azure Portal을 사용하여 Azure DDoS Protection 표준 관리
+titlesuffix: Azure Virtual Network
 description: Azure Monitor에서 Azure DDoS Protection 표준 원격 분석을 사용하여 공격을 완화하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: jdial
-ms.openlocfilehash: 66b2930e06cef1a31602df3d358c78f42c8cd2cf
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 360c0d9a96b8dac2f08b89caa8c1fd36e8a54b3f
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406367"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020424"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure DDoS Protection 표준 관리
 
@@ -114,7 +115,7 @@ Azure Monitor 경고 구성을 사용하면 공격 중에 활성 완화가 있�
 
 DDoS 공격을 시뮬레이션하여 경고의 유효성을 검사하려면 [DDoS 탐지 유효성 검사](#validate-ddos-detection)를 참조하세요.
 
-경고를 만들기 위해 [웹후크 구성](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Logic Apps](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아볼 수도 있습니다.
+경고를 만들기 위해 [웹후크 구성](../azure-monitor/platform/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Logic Apps](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아볼 수도 있습니다.
 
 ## <a name="use-ddos-protection-telemetry"></a>DDoS 보호 원격 분석 사용
 
@@ -156,9 +157,9 @@ Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 �
 5. **리소스 종류**에 대해 **공용 IP 주소**를 선택한 다음, 메트릭을 로깅하려는 특정 공용 IP 주소를 선택합니다.
 6. **DDoSMitigationReports 로그를 수집하도록 진단 켜기**를 선택한 다음, 다음 옵션 중에서 필요한 만큼 선택합니다.
 
-    - **저장소 계정에 보관**: 데이터가 Azure Storage 계정에 기록됩니다. 이 옵션에 대한 자세한 내용은 [진단 로그 보관](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
-    - **이벤트 허브로의 스트림**: 로그 수신기에서 Azure Event Hub를 사용하여 로그를 선택할 수 있도록 합니다. 이벤트 허브는 Splunk 또는 기타 SIEM 시스템과 통합할 수 있습니다. 이 옵션에 대한 자세한 내용은 [이벤트 허브로 진단 로그 스트림](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
-    - **Log Analytics에 보내기**: Azure Log Analytics 서비스에 로그를 기록합니다. 이 옵션에 대한 자세한 내용은 [Log Analytics에서 사용할 로그 수집](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
+    - **스토리지 계정에 보관**: 데이터가 Azure Storage 계정에 기록됩니다. 이 옵션에 대한 자세한 내용은 [진단 로그 보관](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
+    - **이벤트 허브로의 스트림**: 로그 수신기에서 Azure Event Hub를 사용하여 로그를 선택할 수 있도록 합니다. 이벤트 허브는 Splunk 또는 기타 SIEM 시스템과 통합할 수 있습니다. 이 옵션에 대한 자세한 내용은 [이벤트 허브로 진단 로그 스트림](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
+    - **Log Analytics에 보내기**: Azure Log Analytics 서비스에 로그를 기록합니다. 이 옵션에 대한 자세한 내용은 [Log Analytics에서 사용할 로그 수집](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
 
 증분 및 사후 공격 완화 보고서 모두에 포함된 필드는 다음과 같습니다
 - 공격 벡터
@@ -178,9 +179,9 @@ Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 �
 5. **리소스 종류**에 대해 **공용 IP 주소**를 선택한 다음, 메트릭을 로깅하려는 특정 공용 IP 주소를 선택합니다.
 6. **DDoSMitigationFlowLogs 로그를 수집하도록 진단 켜기**를 선택한 다음, 다음 옵션 중에서 필요한 만큼 선택합니다.
 
-    - **저장소 계정에 보관**: 데이터가 Azure Storage 계정에 기록됩니다. 이 옵션에 대한 자세한 내용은 [진단 로그 보관](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
-    - **이벤트 허브로의 스트림**: 로그 수신기에서 Azure Event Hub를 사용하여 로그를 선택할 수 있도록 합니다. 이벤트 허브는 Splunk 또는 기타 SIEM 시스템과 통합할 수 있습니다. 이 옵션에 대한 자세한 내용은 [이벤트 허브로 진단 로그 스트림](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
-    - **Log Analytics에 보내기**: Azure Log Analytics 서비스에 로그를 기록합니다. 이 옵션에 대한 자세한 내용은 [Log Analytics에서 사용할 로그 수집](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
+    - **스토리지 계정에 보관**: 데이터가 Azure Storage 계정에 기록됩니다. 이 옵션에 대한 자세한 내용은 [진단 로그 보관](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
+    - **이벤트 허브로의 스트림**: 로그 수신기에서 Azure Event Hub를 사용하여 로그를 선택할 수 있도록 합니다. 이벤트 허브는 Splunk 또는 기타 SIEM 시스템과 통합할 수 있습니다. 이 옵션에 대한 자세한 내용은 [이벤트 허브로 진단 로그 스트림](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
+    - **Log Analytics에 보내기**: Azure Log Analytics 서비스에 로그를 기록합니다. 이 옵션에 대한 자세한 내용은 [Log Analytics에서 사용할 로그 수집](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
 1. Azure 분석 대시보드에서 흐름 로그 데이터를 보려면 https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip에서 샘플 대시보드를 가져올 수 있습니다.
 
 흐름 로그에 포함된 필드는 다음과 같습니다. 

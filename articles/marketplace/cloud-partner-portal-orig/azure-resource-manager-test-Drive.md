@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager 시험 사용 | Microsoft Docs
-description: Azure Resource Manager를 사용하여 마켓플레이스 시험 사용 빌드
+description: Azure Resource Manager를 사용하여 Marketplace 시험 사용 빌드
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: pbutlerm
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 90c434a37d3209e0c11a04425c337ec6930cfd00
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b7cbd69a4551605b71930a23f837b467177e3cc3
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025262"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451360"
 ---
 <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager 시험 사용
 =================================
@@ -177,7 +177,7 @@ Azure Resource Manager 시험 사용 빌드 시 가장 중요한 부분은 고�
 
 저장소 계정 또는 DNS 이름과 같은 일부 Azure 리소스에는 전역적으로 고유한 이름이 필요합니다.
 
-즉, 시험 사용이 Resource Manager 템플릿을 배포할 때마다 모든 리소스에 대해 **고유 이름이 지정된 새 리소스 그룹**을 만듭니다 **.** 따라서 리소스 그룹 ID의 변수 이름과 연결된 [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) 함수를 사용하여 임의의 고유 값을 생성해야 합니다.
+즉, 시험 사용이 Resource Manager 템플릿을 배포할 때마다 모든\' 리소스에 대해 **고유 이름이 지정된 새 리소스 그룹**을 만듭니다. 따라서 리소스 그룹 ID의 변수 이름과 연결된 [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) 함수를 사용하여 임의의 고유 값을 생성해야 합니다.
 
       "variables": {
       ...
@@ -298,7 +298,7 @@ main-template.json                | [https://\<\...\>.blob.core.windows.net/\<\.
 
 첫 번째 필드이자 가장 중요한 필드는 사용자 제품에 시험 사용을 설정할지 여부를 토글하는 것입니다. **예**를 선택하면 모든 필수 필드가 포함된 양식의 나머지 부분을 작성할 수 있습니다. **아니요**를 선택하면 양식을 사용할 수 없게 되며, 시험 사용을 해제하여 다시 게시하면 프로덕션에서 시험 사용이 제거됩니다.
 
-참고: 사용자가 현재 사용 중인 시험 사용은 세션이 만료될 때까지 계속 실행됩니다.
+참고: 사용자가 현재 사용하는 시험 사용은 세션이 만료될 때까지 계속 실행됩니다.
 
 ### <a name="details"></a>세부 정보
 
@@ -310,7 +310,7 @@ main-template.json                | [https://\<\...\>.blob.core.windows.net/\<\.
 
 **사용자 매뉴얼 -** *필수* 시험 사용 경험의 심층 연습입니다. 고객은 이 매뉴얼을 열어 시험 사용 전반에 걸쳐 필요한 과정을 정확하게 진행할 수 있습니다. 따라서 쉽게 이해하고 진행할 수 있는 내용을 포함해야 합니다. 매뉴얼 파일은 .pdf 형식이어야 합니다.
 
-**시험 사용 데모 동영상 -** *권장* 사용자 매뉴얼과 마찬가지로 시험 사용 경험의 동영상 자습서를 포함하는 것이 가장 좋습니다. 고객은 시험 사용을 시작하기 전에나 진행하는 중에 이 동영상을 시청하고 시험 사용 전반에 걸쳐 필요한 과정을 정확하게 진행할 수 있습니다. 따라서 쉽게 이해하고 진행할 수 있는 내용을 포함해야 합니다.
+**Test Drive 데모 비디오 -** *권장 필드* 사용자 매뉴얼과 마찬가지로 Test Drive 환경의 비디오 자습서를 포함하는 것이 가장 좋습니다. 고객은 Test Drive를 시작하기 전에나 진행하는 중에 이 비디오를 시청하고 Test Drive 전반에 걸쳐 필요한 과정을 정확하게 진행할 수 있습니다. 따라서 쉽게 이해하고 진행할 수 있는 내용을 포함해야 합니다.
 
 - **이름** - 동영상의 제목입니다.
 - **링크** - YouTube 또는 동영상의 포함 URL이어야 합니다. 포함 URL을 가져오는 방법의 예는 다음과 같습니다.
@@ -365,36 +365,34 @@ ID가 없으면 Azure Active Directory에서 새 테넌트를 만듭니다.
 
 ![선택 항목을 확인합니다.](./media/azure-resource-manager-test-drive/subdetails6.png)
 
-**Azure AD 앱 ID -** ‘필수’ 다음 단계에서는 새 응용 프로그램을 만들고 등록합니다. 이 응용 프로그램을 사용하여 시험 사용 인스턴스에 대한 작업을 수행합니다.
+**Azure AD 앱 ID -** ‘필수’ 다음 단계에서는 새 애플리케이션을 만들고 등록합니다. 이 애플리케이션을 사용하여 시험 사용 인스턴스에 대한 작업을 수행합니다.
 
-1. 새로 만든 디렉터리 또는 기존 디렉터리로 이동하여 필터 창에서 Azure Active Directory를 선택합니다.
+1. 새로 만든 디렉터리 또는 이미 있는 디렉터리로 이동하여 필터 창에서 Azure Active Directory를 선택합니다.
 2. “앱 등록”을 검색한 다음, “추가”를 클릭합니다.
-3. 응용 프로그램 이름을 입력합니다.
+3. 애플리케이션 이름을 입력합니다.
 4. 유형으로 “웹앱/API”를 선택합니다.
 5. 로그온 URL에는 아무 값이나 입력합니다. 해당 필드는 사용되지 않습니다.
 6. 만들기를 클릭합니다.
-7. 응용 프로그램을 만든 후 속성 -\> 응용 프로그램을 다중 테넌트로 설정으로 이동하여 저장을 적중합니다.
+7. 애플리케이션을 만든 후 속성 -\> 애플리케이션을 다중 테넌트로 설정으로 이동하여 저장을 클릭합니다.
 
-저장을 클릭합니다. 마지막 단계에서는 등록된 이 앱의 응용 프로그램 ID를 가져와 아래 그림에 표시된 시험 사용 필드에 붙여넣습니다.
+저장을 클릭합니다. 마지막 단계에서는 등록된 이 앱의 애플리케이션 ID를 가져와 아래 그림에 표시된 시험 사용 필드에 붙여넣습니다.
 
-![Azure AD 응용 프로그램 ID 세부 정보](./media/azure-resource-manager-test-drive/subdetails7.png)
+![Azure AD 애플리케이션 ID 세부 정보](./media/azure-resource-manager-test-drive/subdetails7.png)
 
-응용 프로그램을 사용하여 구독을 배포할 것이므로 구독의 참가자로 응용 프로그램을 추가해야 합니다. 이 작업을 수행하는 지침은 다음과 같습니다.
+애플리케이션을 사용하여 구독을 배포할 것이므로 구독의 참가자로 애플리케이션을 추가해야 합니다. 이 작업을 수행하는 지침은 다음과 같습니다.
 
 1. 구독 블레이드로 이동한 다음, 시험 사용 전용으로 사용할 적절한 구독을 선택합니다.
-2. 액세스 제어(IAM)를 클릭합니다.
-3. 새 블레이드에서 + 추가를 클릭합니다.
-4. 역할을 참가자로 설정합니다.
-5. AAD 응용 프로그램의 이름을 입력하고 역할을 할당할 AAD 응용 프로그램을 선택합니다.
-6. 저장을 클릭합니다.
-
-![새 Access Control 보안 주체를 추가합니다.](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
-
-![사용 권한을 추가합니다.](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. **액세스 제어(IAM)** 를 클릭합니다.
+1. **역할 할당** 탭을 클릭합니다.  ![새 Access Control 보안 주체 추가](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. **역할 할당 추가**를 클릭합니다.
+1. 역할을 **기여자**로 설정합니다.
+1. Azure AD 애플리케이션의 이름을 입력하고 역할을 할당할 애플리케이션을 선택합니다.
+    ![사용 권한 추가](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. **저장**을 클릭합니다.
 
 **Azure AD 앱 키 -** ‘필수’ 최종 필드에서는 인증 키를 생성합니다. 키 아래에 키 설명을 추가하고 지속 기간을 사용 기간 제한 없음으로 설정한 다음, 저장을 선택합니다. 만료된 키를 사용해서는 **안 됩니다**. 만료된 키를 사용하면 프로덕션 환경에서 시험 사용이 중단됩니다. 이 값을 복사한 다음, 필요한 시험 사용 필드에 붙여넣습니다.
 
-![Azure AD 응용 프로그램에 대한 키를 표시합니다.](./media/azure-resource-manager-test-drive/subdetails8.png)
+![Azure AD 애플리케이션에 대한 키를 표시합니다.](./media/azure-resource-manager-test-drive/subdetails8.png)
 
 <a name="next-steps"></a>다음 단계
 ----------

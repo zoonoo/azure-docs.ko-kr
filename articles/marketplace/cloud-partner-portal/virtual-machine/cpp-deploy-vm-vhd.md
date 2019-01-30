@@ -3,7 +3,7 @@ title: VHD에서 Azure Marketplace용 VM 배포 | Microsoft Docs
 description: Azure에서 배포한 VHD에서 VM을 등록하는 방법을 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
-author: pbutlerm
+author: v-miclar
 manager: Patrick.Butler
 editor: ''
 ms.assetid: ''
@@ -12,18 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 2771549af29b3e717d117afb42de6db03fbee226
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 3ab98669e01c9cfb2d4f46b8ddd83ff69653337b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639377"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434175"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>VHD에서 VM 배포
 
-이 문서에서는 Azure에서 배포한 VHD(가상 하드 디스크)에서 VM(가상 머신)을 등록하는 방법에 대해 설명합니다.  필요한 도구 및 이 도구를 사용하여 사용자 VM 이미지를 만든 다음, [Microsoft Azure Portal](https://ms.portal.azure.com/) 또는 PowerShell 스크립트 중 하나를 사용하여 Azure에 이를 배포하는 방법을 나열합니다. 
+이 섹션에서는 Azure에서 배포한 VHD(가상 하드 디스크)를 통해 VM(가상 머신)을 배포하는 방법을 설명합니다.  필요한 도구 및 이 도구를 사용하여 사용자 VM 이미지를 만든 다음, PowerShell 스크립트를 사용하여 Azure에 배포하는 방법을 나열합니다.
 
 VHD(가상 하드 디스크), 즉 일반화된 운영 체제 VHD 및 0개 이상의 데이터 디스크 VHD가 Azure 저장소 계정에 업로드되면 사용자 VM 이미지로 등록할 수 있습니다. 그런 다음 해당 이미지를 테스트할 수 있습니다. 운영 체제 VHD는 일반화되므로 VHD URL을 제공하여 VM을 직접 배포할 수 없습니다.
 
@@ -33,48 +33,23 @@ VM 이미지에 대해 자세히 알아보려면 다음 블로그 게시물을 �
 - [VM 이미지 PowerShell '방법'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
 
-## <a name="set-up-the-necessary-tools"></a>필요한 도구 설정
+## <a name="prerequisite-install-the-necessary-tools"></a>필수 조건: 필요한 도구 설치
 
 아직 수행하지 않은 경우 다음 지침에 따라 Azure PowerShell 및 Azure CLI를 설치합니다.
 
-<!-- TD: Change the following URLs (in this entire topic) to relative paths.-->
-
-- [PowerShellGet으로 Azure PowerShell을 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
+- [PowerShellGet으로 Azure PowerShell을 설치](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)
 - [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
-## <a name="create-a-user-vm-image"></a>사용자 VM 이미지 만들기
+## <a name="deployment-steps"></a>배포 단계
 
-다음으로, 일반화된 VHD에서 관리되지 않는 이미지를 만듭니다.
+사용자 VM 이미지를 만들고 배포하려면 다음 단계를 사용합니다.
 
-#### <a name="capture-the-vm-image"></a>VM 이미지 캡처
+1. 사용자 VM 이미지를 만듭니다. 이미지를 캡처하고 일반화하는 작업을 포함합니다. 
+2. 인증서를 만들어 새 Azure Key Vault에 저장합니다. VM에 대한 보안 WinRM 연결을 설정하려면 인증서가 필요합니다.  Azure Resource Manager 템플릿 및 Azure PowerShell 스크립트가 제공됩니다. 
+3. 제공된 템플릿 및 스크립트를 사용하여 사용자 VM 이미지에서 VM을 배포합니다.
 
-액세스 방법에 해당하는 VM 캡처에 대한 다음 문서의 지침을 사용합니다.
-
--  PowerShell: [Azure VM에서 관리되지 않는 VM 이미지를 만드는 방법](../../../virtual-machines/windows/capture-image-resource.md)
--  Azure CLI: [가상 머신 또는 VHD의 이미지를 만드는 방법](../../../virtual-machines/linux/capture-image.md)
--  API: [Virtual Machines - 캡처](https://docs.microsoft.com/rest/api/compute/virtualmachines/capture)
-
-### <a name="generalize-the-vm-image"></a>VM 이미지 일반화
-
-이전에 일반화된 VHD에서 사용자 이미지를 생성했으므로 이를 일반화해야 합니다.  다시 한 번 액세스 메커니즘에 해당하는 다음 문서를 선택합니다.  (디스크를 캡처할 때 이미 디스크를 일반화했을 수 있습니다.)
-
--  PowerShell: [VM 일반화](https://docs.microsoft.com/azure/virtual-machines/windows/sa-copy-generalized#generalize-the-vm)
--  Azure CLI: [2단계: VM 이미지 만들기](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image#step-2-create-vm-image)
--  API: [Virtual Machines - 일반화](https://docs.microsoft.com/rest/api/compute/virtualmachines/generalize)
-
-
-## <a name="deploy-a-vm-from-a-user-vm-image"></a>사용자 VM 이미지에서 VM 배포
-
-다음으로, Azure Portal 또는 PowerShell을 사용하여 사용자 VM 이미지에서 VM을 배포합니다.
-
-<!-- TD: Recapture following hilited images and replace with red-box. -->
-
-### <a name="deploy-a-vm-from-azure-portal"></a>Azure Portal에서 VM 배포
-
-다음 프로세스를 사용하여 Azure Portal에서 사용자 VM을 배포합니다.
-
-1.  [Azure Portal](https://portal.azure.com)에 로그인합니다.
+VM이 배포되면 [VM 이미지를 인증](./cpp-certify-vm.md)할 준비가 되었습니다.
 
 2.  **새로 만들기**를 클릭하고, **템플릿 배포**를 검색한 다음, **편집기에서 사용자 고유의 템플릿 작성**을 선택합니다.  <br/>
   ![Azure Portal에서 VHD 배포 템플릿 작성](./media/publishvm_021.png)
@@ -121,10 +96,8 @@ Azure에서 배포를 시작합니다. 지정된 관리되지 않는 VHD가 있�
     New-AzureVM -ServiceName "VMImageCloudService" -VMs $myVM -Location "West US" -WaitForBoot
 ```
 
-<!-- TD: The following is a marketplace-publishing article and may be out-of-date.  TD: update and move topic.
-For help with issues, see [Troubleshooting common issues encountered during VHD creation](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting) for additional assistance.
--->
 
 ## <a name="next-steps"></a>다음 단계
 
-VM이 배포되면 [VM을 구성](./cpp-configure-vm.md)할 준비가 됩니다.
+다음으로, 솔루션에 대한 [사용자 VM 이미지를 만듭니다](cpp-create-user-image.md).
+

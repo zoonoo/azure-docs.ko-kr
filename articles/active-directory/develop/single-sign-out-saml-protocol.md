@@ -26,7 +26,7 @@ ms.locfileid: "39580661"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Single Sign-Out SAML 프로토콜
 
-Azure AD(Azure Active Directory)에서는 SAML 2.0 웹 브라우저 Single Sign-Out 프로필을 지원합니다. Single Sign-Out이 제대로 작동하려면, 응용 프로그램 등록 중에 응용 프로그램에 대한 **LogoutURL**이 Azure AD에 명시적으로 등록되어야 합니다. Azure AD는 LogoutURL을 사용하여 로그아웃된 사용자를 리디렉션합니다.
+Azure AD(Azure Active Directory)에서는 SAML 2.0 웹 브라우저 Single Sign-Out 프로필을 지원합니다. Single Sign-Out이 제대로 작동하려면, 애플리케이션 등록 중에 애플리케이션에 대한 **LogoutURL**이 Azure AD에 명시적으로 등록되어야 합니다. Azure AD는 LogoutURL을 사용하여 로그아웃된 사용자를 리디렉션합니다.
 
 다음 다이어그램에서는 Azure AD Single Sign-Out 프로세스의 워크플로를 보여 줍니다.
 
@@ -50,7 +50,7 @@ Azure AD로 전송된 `LogoutRequest` 요소에는 다음 특성이 필요합니
 * `IssueInstant` - UTC(Coordinate Universal Time) 값과 [왕복 형식("o")](https://msdn.microsoft.com/library/az4se3k1.aspx)이 포함된 `DateTime` 문자열입니다. Azure AD에는 이 형식의 값이 필요하지만 적용되지는 않습니다.
 
 ### <a name="issuer"></a>발급자
-`LogoutRequest`의 `Issuer` 요소는 Azure AD에서 클라우드 서비스의 **ServicePrincipalNames** 중 하나와 정확히 일치해야 합니다. 일반적으로 응용 프로그램 등록 중에 지정된 **앱 ID URI** 로 설정됩니다.
+`LogoutRequest`의 `Issuer` 요소는 Azure AD에서 클라우드 서비스의 **ServicePrincipalNames** 중 하나와 정확히 일치해야 합니다. 일반적으로 애플리케이션 등록 중에 지정된 **앱 ID URI** 로 설정됩니다.
 
 ### <a name="nameid"></a>NameID
 `NameID` 요소 값은 로그아웃한 사용자의 `NameID`와 정확히 일치해야 합니다.

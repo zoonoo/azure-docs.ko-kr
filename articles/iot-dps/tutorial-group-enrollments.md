@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 3c7a1dd9ba688c5cc9776dbfba0841c9a06065dc
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6447061e79946abf8070daf29eeb57bad7b6fa55
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419693"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184970"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 Java 디바이스 및 서비스 SDK 및 등록 그룹을 사용하여 시뮬레이션된 X.509 디바이스 만들기 및 프로비전
 
@@ -49,20 +49,20 @@ ms.locfileid: "50419693"
             - 방금 만든 **_RootCA.pem_** 파일을 선택합니다.
             - 완료되면 **저장** 단추를 클릭합니다.
 
-        ![인증서 추가](./media/tutorial-group-enrollments/add-certificate.png)
+           ![인증서 추가](./media/tutorial-group-enrollments/add-certificate.png)
 
         1. 새로 만든 인증서를 선택합니다.
             - **확인 코드 생성**을 클릭합니다. 생성된 코드를 복사합니다.
             - 확인 단계를 실행합니다. _확인 코드_를 입력하거나 마우스 오른쪽 단추로 클릭하여 실행 중인 PowerShell 창에 붙여넣습니다.  **Enter** 키를 누릅니다.
             - Azure Portal에서 새로 만든 **_verifyCert4.pem_** 파일을 선택합니다. **확인**을 클릭합니다.
 
-            ![인증서 유효성 검사](./media/tutorial-group-enrollments/validate-certificate.png)
+              ![인증서 유효성 검사](./media/tutorial-group-enrollments/validate-certificate.png)
 
     1. 디바이스 인증서 및 정리 리소스를 만드는 단계를 실행하여 완료합니다.
 
-    > [!NOTE]
-    > 디바이스 인증서를 만들 때 디바이스 이름에 소문자 영숫자와 하이픈만 사용 해야 합니다.
-    >
+       > [!NOTE]
+       > 디바이스 인증서를 만들 때 디바이스 이름에 소문자 영숫자와 하이픈만 사용 해야 합니다.
+       >
 
 
 ## <a name="create-a-device-enrollment-entry"></a>디바이스 등록 항목 만들기
@@ -144,7 +144,7 @@ ms.locfileid: "50419693"
 
     ![성공적인 등록](./media/tutorial-group-enrollments/enrollment.png) 
 
-1. Azure Portal에서 프로비전 서비스로 이동합니다. **등록 관리**를 클릭합니다. **등록 그룹** 탭 아래에 자동 생성된 *그룹 이름*이 있는 X.509 장치 그룹이 표시됩니다. 
+1. Azure Portal에서 프로비전 서비스로 이동합니다. **등록 관리**를 클릭합니다. **등록 그룹** 탭 아래에 자동 생성된 *그룹 이름*이 있는 X.509 디바이스 그룹이 표시됩니다. 
 
 
 ## <a name="simulate-the-device"></a>디바이스 시뮬레이션
@@ -198,7 +198,7 @@ ms.locfileid: "50419693"
 
     ![성공적인 등록](./media/tutorial-group-enrollments/registration.png)
 
-1. 포털에서 프로비전 서비스에 연결된 IoT 허브로 이동하여 **디바이스 탐색기** 블레이드를 엽니다. 시뮬레이션된 X.509 디바이스가 허브에 성공적으로 프로비전되면 디바이스 ID가 **디바이스 탐색기** 블레이드에 표시되고 *상태*가 **사용**으로 표시됩니다. 샘플 디바이스 응용 프로그램을 실행하기 전에 블레이드를 이미 열어 놓은 경우 화면 상단의 **새로 고침** 단추를 클릭해야 합니다. 
+1. 포털에서 프로비전 서비스에 연결된 IoT 허브로 이동하여 **디바이스 탐색기** 블레이드를 엽니다. 시뮬레이션된 X.509 디바이스가 허브에 성공적으로 프로비전되면 디바이스 ID가 **Device Explorer** 블레이드에 표시되고 *상태*가 **사용**으로 표시됩니다. 샘플 디바이스 응용 프로그램을 실행하기 전에 블레이드를 이미 열어 놓은 경우 화면 상단의 **새로 고침** 단추를 클릭해야 합니다. 
 
     ![디바이스가 IoT Hub에 등록됨](./media/tutorial-group-enrollments/hub-registration.png) 
 
@@ -217,4 +217,4 @@ ms.locfileid: "50419693"
 이 자습서에서는 시뮬레이션된 X.509 디바이스를 Windows 머신에 만들고, Azure IoT Hub Device Provisioning Service 및 등록 그룹을 사용하여 IoT Hub에 이 디바이스를 프로비전했습니다. X.509 디바이스에 대한 자세한 내용은 디바이스 개념으로 이어집니다. 
 
 > [!div class="nextstepaction"]
-> [IoT Hub Device Provisioning 서비스 장치 개념](concepts-device.md)
+> [IoT Hub Device Provisioning Service 디바이스 개념](concepts-device.md)

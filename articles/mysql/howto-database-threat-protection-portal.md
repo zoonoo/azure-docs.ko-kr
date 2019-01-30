@@ -1,19 +1,17 @@
 ---
 title: Advanced Threat Protection - Azure Database for MySQL | Microsoft Docs
 description: Threat Protection은 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색합니다.
-services: mysql
 author: bolzmj
-manager: kfile
-ms.service: mysql
-ms.topic: article
-ms.date: 09/20/2018
 ms.author: mbolz
-ms.openlocfilehash: dfb4d104d3dfdb3e6ae7466fa3776dd5e7155aa7
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.service: mysql
+ms.topic: conceptual
+ms.date: 09/20/2018
+ms.openlocfilehash: 12497f6a5173e2e4ea9c919fb6500c34f85749fa
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046718"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53534755"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Azure Database for MySQL용 Advanced Threat Protection
 
@@ -22,7 +20,7 @@ Azure Database for MySQL용 Advanced Threat Protection은 비정상적이며 유
 Advanced Threat Detection은 고급 보안 기능용 통합 패키지인 Advanced Data Security 제품의 일부입니다. [Azure Portal](https://portal.azure.com)을 통해 액세스 및 관리할 수 있는 Advanced Threat Protection은 현재 미리 보기로 제공됩니다.
 
 > [!NOTE]
-> Advanced Threat Protection 기능을 사용할 수 **없는** Azure 정부 및 소버린 클라우드 지역은 US Gov 텍사스, US Gov 애리조나, US Gov 아이오와, US Gov 버지니아, US DoD 동부, US DoD 중부, 독일 중부, 독일 북부, 중국 동부, 중국 동부 2입니다. 전반적인 제품 사용 가능성을 확인하려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 참조하세요.
+> 다음 Azure Government 및 소버린 클라우드 지역에서는 Advanced Threat Protection 기능을 사용할 수 **없습니다**. US Gov 텍사스, US Gov 애리조나, US Gov 아이오와, US Gov 버지니아, US DoD 동부, US DoD 중부, 독일 중부, 독일 북부, 중국 동부, 중국 동부 2. 전반적인 제품 사용 가능성을 확인하려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 참조하세요.
 >
 
 ## <a name="set-up-threat-detection"></a>위협 감지 설정
@@ -37,7 +35,7 @@ Advanced Threat Detection은 고급 보안 기능용 통합 패키지인 Advance
 
 ## <a name="explore-anomalous-database-activities"></a>비정상적인 데이터베이스 활동 살펴보기
 
-비정상적인 데이터베이스 활동이 감지되면 메일 알림을 받습니다. 메일에는 비정상적인 활동의 특징, 데이터베이스 이름, 서버 이름, 응용 프로그램 이름, 이벤트 시간을 비롯한 의심스러운 보안 이벤트에 대한 정보가 제공됩니다. 또한 전자 메일에는 가능한 원인에 대한 정보 및 데이터베이스에 대한 잠재적인 위협을 조사하고 완화시키기 위해 권장되는 조치가 제공됩니다.
+비정상적인 데이터베이스 활동이 감지되면 메일 알림을 받습니다. 메일에는 비정상적인 활동의 특징, 데이터베이스 이름, 서버 이름, 애플리케이션 이름, 이벤트 시간을 비롯한 의심스러운 보안 이벤트에 대한 정보가 제공됩니다. 또한 전자 메일에는 가능한 원인에 대한 정보 및 데이터베이스에 대한 잠재적인 위협을 조사하고 완화시키기 위해 권장되는 조치가 제공됩니다.
  
 1. 이메일에서 **최근 경고 보기** 링크를 클릭하여 Azure Portal을 시작하고, SQL 데이터베이스에서 검색된 활성 SQL 위협을 대략적으로 보여주는 Azure Security Center 경고 페이지를 표시합니다.
     

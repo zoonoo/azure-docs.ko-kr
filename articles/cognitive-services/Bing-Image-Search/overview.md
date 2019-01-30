@@ -1,7 +1,7 @@
 ---
-title: Bing Image Search란?
+title: Bing Image Search API란?
 titleSuffix: Azure Cognitive Services
-description: Bing Image Search API를 사용하면 응용 프로그램에서 Bing의 인지 이미지 검색 기능을 사용할 수 있습니다. API를 사용하여 사용자 검색 쿼리를 보내면 Bing 이미지와 비슷한 관련 고품질 이미지를 가져와서 표시할 수 있습니다.
+description: Bing Image Search API를 사용하면 애플리케이션에서 Bing의 인지 이미지 검색 기능을 사용할 수 있습니다. API를 사용하여 사용자 검색 쿼리를 보내면 Bing 이미지와 비슷한 관련 고품질 이미지를 가져와서 표시할 수 있습니다.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -11,16 +11,17 @@ ms.component: bing-image-search
 ms.topic: overview
 ms.date: 10/11/2017
 ms.author: aahi
-ms.openlocfilehash: 5d5d69eea3a064679cbc5ddc41891a73e77e55ea
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.custom: seodec2018
+ms.openlocfilehash: 71e8e363a02e08a099d9051c7f851e11bbd9b80b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295362"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467284"
 ---
-# <a name="what-is-bing-image-search"></a>Bing Image Search란?
+# <a name="what-is-the-bing-image-search-api"></a>Bing Image Search API란?
 
-Bing Image Search API를 사용하면 응용 프로그램에서 Bing의 인지 이미지 검색 기능을 사용할 수 있습니다. API를 사용하여 사용자 검색 쿼리를 보내면 [Bing 이미지](https://www.bing.com/images)와 비슷한 관련 고품질 이미지를 가져와서 표시할 수 있습니다.
+Bing Image Search API를 사용하면 애플리케이션에서 Bing의 인지 이미지 검색 기능을 사용할 수 있습니다. API를 사용하여 사용자 검색 쿼리를 보내면 [Bing 이미지](https://www.bing.com/images)와 비슷한 관련 고품질 이미지를 가져와서 표시할 수 있습니다.
 
 Bing Image Search API는 이미지 전용 검색 결과를 제공합니다. 다른 형식의 웹 콘텐츠에 대해서는 [Bing Web Search API](../bing-web-search/search-the-web.md), [Video Search API](https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search) 및 [News Search API](https://review.docs.microsoft.com/azure/cognitive-services/bing-news-search)를 사용합니다.
 
@@ -31,7 +32,7 @@ Bing Image Search는 주로 검색 쿼리에서 관련 이미지를 찾아서 �
 
 | 기능                                                                                                                                                                                 | 설명                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [실시간 검색 용어 제안](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries#using-and-suggesting-search-terms) | [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md)를 통해 입력하는 대로 제안되는 검색 용어를 표시하여 응용 프로그램 환경을 향상시킵니다. |
+| [실시간 검색 용어 제안](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) | [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md)를 통해 입력하는 대로 제안되는 검색 용어를 표시하여 응용 프로그램 환경을 향상시킵니다. |
 | [이미지 결과 필터링 및 제한](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#filtering-images)                       | 쿼리 매개 변수를 편집하여 Bing에서 반환하는 이미지를 필터링합니다.                                                                                                       |
 | [썸네일 자르기, 크기 조정 및 표시](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/resize-and-crop-thumbnails)                                                | Bing Image Search에서 반환하는 이미지에 대한 썸네일 미리 보기를 편집하고 표시합니다.                                                                                      |
 | [사용자 검색 쿼리 피벗 및 확장](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries#pivoting-the-query)               | 쿼리에 Bing 제안 검색 용어를 포함시키고 표시하여 검색 기능을 확장합니다.                                                                    |

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 651035430695c0c5082e443dabd998a196e0eefa
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: bc7aa0d71d82c25e72208afe27f66418f6e1434c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158304"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425710"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버와 RADIUS 인증 통합
 
@@ -35,9 +35,9 @@ RADIUS 인증을 구성하려면 Windows 서버에 Azure Multi-Factor Authentica
 2. **RADIUS 인증 사용** 확인란을 선택합니다.
 3. 클라이언트 탭에서 Azure MFA RADIUS 서비스가 비표준 포트에서 RADIUS 요청을 수신해야 하는 경우 인증 및 계정 포트를 변경합니다.
 4. **추가**를 클릭합니다.
-5. Azure Multi-Factor Authentication 서버, 응용 프로그램 이름(옵션) 및 공유 암호를 인증하는 어플라이언스/서버의 IP 주소를 입력합니다.
+5. Azure Multi-Factor Authentication 서버, 애플리케이션 이름(옵션) 및 공유 비밀을 인증하는 어플라이언스/서버의 IP 주소를 입력합니다.
 
-  응용 프로그램 이름이 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
+  애플리케이션 이름이 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
 
   공유 암호는 Azure Multi-Factor Authentication 서버 및 어플라이언스/서버 모두에서 동일해야 합니다.
 

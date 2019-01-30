@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 25fa099bcd6fa3843deadb3dc39d4250624ead06
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 2d83bab3686d274b9f37c0b0f7c92515801dbe70
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274588"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086456"
 ---
 # <a name="tutorial-forecast-future-spending"></a>자습서: 향후 소비 예측
 
@@ -37,11 +37,11 @@ Cloudyn은 시간에 따른 사용량을 기반으로 소비를 예측하는 데
 
 이번 달 예상 비용 보고서에는 서비스의 비용이 표시됩니다. 월 초반 및 이전 달의 비용을 사용하여 예상되는 비용을 보여 줍니다. 포털의 위쪽에 있는 보고서 메뉴에서 **비용** > **예상 및 예산** > **이번 달 예상 비용**을 클릭합니다. 다음 이미지에 예가 나와 있습니다.
 
-![이번 달 예상 비용](./media/tutorial-forecast-spending/project-month01.png)
+![이번 달 예상 비용 보고서에 표시된 예제 정보](./media/tutorial-forecast-spending/project-month01.png)
 
 예제에서 가장 많이 소비된 서비스를 볼 수 있습니다. Azure 비용은 AWS 비용에 비해 더 낮습니다. Azure VM에 대한 비용 예상 세부 정보를 확인하려는 경우 **필터** 목록에서 **Azure/VM**을 선택합니다.
 
-![Azure VM 이번 달 예상 비용](./media/tutorial-forecast-spending/project-month02.png)
+![Azure VM 이번 달 예상 비용을 보여주는 예제](./media/tutorial-forecast-spending/project-month02.png)
 
 위의 동일한 기본 단계를 수행하여 원하는 다른 서비스에 대한 월별 비용 예상을 살펴볼 수 있습니다.
 
@@ -49,11 +49,11 @@ Cloudyn은 시간에 따른 사용량을 기반으로 소비를 예측하는 데
 
 포털의 위쪽에 있는 보고서 메뉴에서 **비용** > **예상 및 예산** > **연간 예상 비용**을 클릭합니다. 다음 이미지에 예가 나와 있습니다.
 
-![연간 예상 비용 보고서](./media/tutorial-forecast-spending/project-annual01.png)
+![연간 예상 비용 보고서를 보여주는 예제](./media/tutorial-forecast-spending/project-annual01.png)
 
 예제에서 가장 많이 소비된 서비스를 볼 수 있습니다. 월별 예제와 같이 Azure 비용은 AWS 비용에 비해 더 낮습니다. Azure VM에 대한 비용 예상 세부 정보를 확인하려는 경우 **필터** 목록에서 **Azure/VM**을 선택합니다.
 
-![VM의 연간 예상 비용](./media/tutorial-forecast-spending/project-annual02.png)
+![연간 예상 VM 비용을 보여주는 예제](./media/tutorial-forecast-spending/project-annual02.png)
 
 위의 이미지에서 Azure VM의 연간 예상 비용은 $28,374입니다.
 

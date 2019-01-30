@@ -27,7 +27,7 @@ ms.locfileid: "46294036"
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-* **Azure Storage 계정**. 이 계정에서 Blob 컨테이너를 사용하여 Stream Analytics 작업에 대한 데이터를 입력합니다. 이 자습서의 경우 **storageforasa**라는 저장소 계정 및 **storageforasacontainer**라는 계정 내의 컨테이너가 있다고 가정합니다. 컨테이너를 만든 후에 샘플 데이터 파일을 거기에 업로드합니다. 
+* **Azure Storage 계정**. 이 계정에서 Blob 컨테이너를 사용하여 Stream Analytics 작업에 대한 데이터를 입력합니다. 이 자습서의 경우 **storageforasa**라는 스토리지 계정 및 **storageforasacontainer**라는 계정 내의 컨테이너가 있다고 가정합니다. 컨테이너를 만든 후에 샘플 데이터 파일을 거기에 업로드합니다. 
   
 * **Data Lake Storage Gen1 계정**. [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다. **myadlsg1**라는 Data Lake Storage Gen1 계정이 있다고 가정합니다. 
 

@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/06/2018
+ms.date: 12/04/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 45b6de7693325b5ccfcb01ad9babc61dd2f6e003
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: cede896e9a2a4c92a495a502fb6cf69805d755ee
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289141"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402135"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Azure에서 SAP HANA 인프라 구성 및 작업
 이 문서에서는 Azure VM(Virtual Machines)에 배포된 SAP HANA 시스템 운영 및 Azure 인프라 구성을 위한 지침을 제공합니다. 또한 M128s VM SKU용 SAP HANA 스케일 아웃을 위한 구성 정보가 포함됩니다. 이 문서는 다음 내용을 포함하는 표준 SAP 설명서를 대체하기 위한 것이 아닙니다.
@@ -93,7 +93,7 @@ IOPS 및 저장소 처리량에서 저장소 유형 및 해당 SLA의 목록을 
 > [!NOTE]
 > Azure Premium과 Standard 저장소는 세 개의 VHD 이미지를 유지하므로 RAID 볼륨을 사용하여 모든 중복 수준을 구성할 필요가 없습니다. RAID 볼륨의 사용법은 순수하게 충분한 I/O 처리량을 제공하는 볼륨을 구성하는 것입니다.
 
-RAID 아래의 Azure VHD 수 누적은 IOPS 및 저장소 처리량 측면의 누적입니다. 따라서 3 x P30 Azure Premium Storage 디스크에 대해 RAID 0을 설정하는 경우 IOPS의 세 배 및 단일 Azure Premium Storage P30 디스크의 저장소 처리량의 세 배를 제공해야 합니다.
+RAID 아래의 Azure VHD 수 누적은 IOPS 및 저장소 처리량 측면의 누적입니다. 따라서 3 x P30 Azure Premium Storage 디스크에 대해 RAID 0을 설정하는 경우 IOPS의 세 배 및 단일 Azure Premium Storage P30 디스크의 스토리지 처리량의 세 배를 제공해야 합니다.
 
 아래 캐싱 권장 사항은 다음과 같이 나열된 SAP HANA에 대한 I/O 특성을 가정하고 있습니다.
 
@@ -161,10 +161,10 @@ Azure Write Accelerator에 대한 세부 정보 및 제한 사항은 동일한 �
 
 | VM SKU | RAM | 최대 VM I/O<br /> 처리량 | /hana/data 및 /hana/log<br /> (LVM 또는 MDADM으로 스트라이프됨) | /hana/shared | /root 볼륨 | /usr/sap | hana/backup |
 | --- | --- | --- | --- | --- | --- | --- | -- |
-| DS14v2 | 128GiB | 768MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
+| DS14v2 | 112GiB | 768MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
 | E16v3 | 128GiB | 384MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
 | E32v3 | 256GiB | 768MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
-| E64v3 | 443GiB | 1200MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| E64v3 | 432GiB | 1200MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
 | GS5 | 448GiB | 2000MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
 | M32ts | 192GiB | 500MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
 | M32ls | 256GiB | 500MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
@@ -175,7 +175,7 @@ Azure Write Accelerator에 대한 세부 정보 및 제한 사항은 동일한 �
 | M128ms | 3800GiB | 2000MB/s | 5 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S50 |
 
 
-3 x P20을 사용하는 작은 VM 유형에 권장되는 디스크는 [SAP TDI Storage Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)(SAP TDI 저장소 백서)에 따른 공간 권장 사항과 관련된 볼륨 크기를 초과합니다. 하지만 이 표에 표시된 항목은 SAP HANA에 필요한 충분한 디스크 처리량을 제공하도록 선택되었습니다. 메모리 볼륨의 두 배인 백업을 유지하기 위해 크기 지정된 **/hana/backup** 볼륨을 변경해야 하는 경우 자유롭게 조정할 수 있습니다.   
+3 x P20을 사용하는 작은 VM 유형에 권장되는 디스크는 [SAP TDI Storage Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)(SAP TDI 스토리지 백서)에 따른 공간 권장 사항과 관련된 볼륨 크기를 초과합니다. 하지만 이 표에 표시된 항목은 SAP HANA에 필요한 충분한 디스크 처리량을 제공하도록 선택되었습니다. 메모리 볼륨의 두 배인 백업을 유지하기 위해 크기 지정된 **/hana/backup** 볼륨을 변경해야 하는 경우 자유롭게 조정할 수 있습니다.   
 제안된 다른 볼륨에 대한 저장소 처리량이 실행하려는 작업을 충족하는지 여부를 확인합니다. 작업에 **/hana/data** 및 **/hana/log**에 대한 더 높은 볼륨이 필요한 경우 Azure Premium Storage VHD의 수를 증가시켜야 합니다. 나열된 것보다 더 많은 VHD로 볼륨을 크기 조정하면 Azure 가상 머신 유형의 한도 내 IOPS 및 I/O 처리량이 증가합니다. 
 
 > [!NOTE]
@@ -187,10 +187,14 @@ Azure Write Accelerator에 대한 세부 정보 및 제한 사항은 동일한 �
 >  
 
 ### <a name="set-up-azure-virtual-networks"></a>Azure 가상 네트워크 설정
-VPN 또는 ExpressRoute를 통해 Azure로의 사이트 간 연결이 있다면 가상 게이트웨이를 통해 VPN 또는 ExpressRoute 회로에 연결된 Azure Virtual Network가 하나 이상 있어야 합니다. 간단한 배포에서는 가상 게이트웨이를 SAP HANA 인스턴스를 호스팅하는 Azure VNet(가상 네트워크)의 서브넷에 배포할 수 있습니다. SAP HANA를 설치하려면 Azure Virtual Network 내에 두 개의 서브넷을 추가로 만듭니다. 한 서브넷은 SAP HANA 인스턴스를 실행하는 VM을 호스트하고, 다른 서브넷은 SAP HANA Studio, 기타 관리 소프트웨어 또는 사용자의 응용 프로그램 소프트웨어를 호스트하는 Jumpbox 또는 관리 VM을 실행합니다.
+VPN 또는 ExpressRoute를 통해 Azure로의 사이트 간 연결이 있다면 가상 게이트웨이를 통해 VPN 또는 ExpressRoute 회로에 연결된 Azure Virtual Network가 하나 이상 있어야 합니다. 간단한 배포에서는 가상 게이트웨이를 SAP HANA 인스턴스를 호스팅하는 Azure VNet(가상 네트워크)의 서브넷에 배포할 수 있습니다. SAP HANA를 설치하려면 Azure Virtual Network 내에 두 개의 서브넷을 추가로 만듭니다. 한 서브넷은 SAP HANA 인스턴스를 실행하는 VM을 호스트하고, 다른 서브넷은 SAP HANA Studio, 기타 관리 소프트웨어 또는 사용자의 애플리케이션 소프트웨어를 호스트하는 Jumpbox 또는 관리 VM을 실행합니다.
 
 > [!IMPORTANT]
-> 기능보다는 더 중요한 성능상 이유에서 NetWeaver, Hybris 또는 S/4HANA 기반 SAP 시스템의 HANA 데이터베이스 인스턴스 및 SAP 애플리케이션 간의 통신 경로에서 [Azure Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances/)를 구성하도록 지원되지 않습니다. NVA를 지원하지 않는 추가 시나리오는 [SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)에 설명된 대로 Linux Pacemaker 클러스터 노드를 나타내는 Azure VM 및 SBD 디바이스 간의 통신 경로에 있거나 [Azure에서 파일 공유를 사용하여 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스 클러스터링](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share)에 설명된 대로 설정된 Windows Server SOFS 및 Azure VM 간의 통신 경로에 있습니다. 통신 경로에서 NVA는 두 통신 파트너 간의 네트워크 대기 시간을 쉽게 두 배로 늘릴 수 있으며, SAP 애플리케이션 계층 및 HANA 데이터베이스 인스턴스 간의 중요한 경로에서 처리량을 제한할 수 있습니다. 고객을 통해 관찰된 일부 시나리오에서 NVA로 인해 Linux Pacemaker 클러스터 노드 간 통신이 NVA를 통해 해당 SBD 디바이스와 통신해야 하는 경우에 Pacemaker Linux 클러스터가 실패할 수 있습니다.   
+> 기능보다는 더 중요한 성능상의 이유로 인해, SAP NetWeaver, Hybris 또는 S/4HANA 기반 SAP 시스템의 DBMS 레이어와 SAP 애플리케이션 간 통신 경로에 [Azure 네트워크 가상 어플라이언스](https://azure.microsoft.com/solutions/network-appliances/)를 구성하는 것이 지원되지 않습니다. SAP 애플리케이션 계층과 DBMS 계층 간의 통신은 직접 통신이어야 합니다. ASG 및 NSG 규칙이 직접 통신을 허용하는 한, 제한에 [Azure ASG 및 NSG 규칙](https://docs.microsoft.com/azure/virtual-network/security-overview)이 포함되지 않습니다. NVA가 지원되지 않는 또 다른 시나리오로는, [SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)에 설명된 Linux Pacemaker 클러스터 노드를 나타내는 Azure VM과 SBD 디바이스 간 통신 경로가 있습니다. [Azure에서 파일 공유를 사용하여 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스 클러스터링](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share)에 설명된 대로 설정된 Windows Server SOFS와 Azure VM 간 통신 경로도 있습니다. 통신 경로에 NVA가 있으면 두 통신 파트너 간 네트워크 대기 시간을 쉽게 두 배로 늘릴 수 있고, SAP 애플리케이션 레이어와 DBMS 레이어 간 중요 경로의 처리량을 제한할 수 있습니다. 고객을 통해 관찰된 일부 시나리오에서 NVA로 인해 Linux Pacemaker 클러스터 노드 간 통신이 NVA를 통해 해당 SBD 디바이스와 통신해야 하는 경우에 Pacemaker Linux 클러스터가 실패할 수 있습니다.  
+> 
+
+> [!IMPORTANT]
+> 지원되지 **않는** 다른 디자인은 SAP 애플리케이션 계층과 DBMS 계층을 서로 [피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)되지 않은 다른 Azure 가상 네트워크로 분리하는 것입니다. 다른 Azure 가상 네트워크를 사용하는 대신, Azure 가상 네트워크 내의 서브넷을 사용하여 SAP 애플리케이션 계층과 DBMS 계층을 분리하는 것이 좋습니다. 권장 사항을 따르지 않고 두 계층을 다른 가상 네트워크로 분리하려는 경우에는 두 가상 네트워크가 [피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)되어야 합니다. [피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)된 두 Azure 가상 네트워크 간의 네트워크 트래픽에는 전송 비용이 부과됩니다. SAP 애플리케이션 계층과 DBMS 계층이 피어링된 두 Azure 가상 네트워크 간에 분리되어 있으면 SAP 애플리케이션 계층과 DBMS 계층 간에 교환되는 수 테라바이트의 거대한 데이터 볼륨으로 인해 상당한 비용이 누적될 수 있습니다. 
 
 SAP HANA를 실행할 VM을 설치할 때 VM에는 다음이 필요합니다.
 
@@ -204,7 +208,7 @@ SAP HANA를 실행할 VM을 설치할 때 VM에는 다음이 필요합니다.
 
 그러나 지속되고 있는 배포의 경우 Azure에서 가상 데이터 센터 네트워크 아키텍처를 만들어야 합니다. 이 아키텍처는 온-프레미스에 연결되어 있는 Azure VNet 게이트웨이를 별도의 Azure VNet으로 분리할 것을 권장합니다. 이 별도의 VNet은 온-프레미스 또는 인터넷 중 하나에 유지되는 모든 트래픽을 호스트해야 합니다. 이 방법을 사용하면 이 별도의 허브 VNet에서 Azure의 가상 데이터 센터로 들어가는 감사 및 로깅 트래픽을 위한 소프트웨어를 배포할 수 있습니다. 따라서 Azure 배포로 들어오고 나가는 트래픽과 관련된 모든 소프트웨어 및 구성을 하나의 VNet이 호스트하도록 해야 합니다.
 
-문서 [Azure Virtual Datacenter: 네트워크 측면](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) 및 [Azure Virtual Datacenter 및 Enterprise Control Plane](https://docs.microsoft.com/azure/architecture/vdc/)에 가상 데이터 센터 방식 및 관련된 Azure VNet 설계에 대한 더 자세한 정보가 나와 있습니다.
+문서 [Azure Virtual Datacenter: 네트워크 측면](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) 및 [Azure Virtual Datacenter 및 Enterprise Control Plane](https://docs.microsoft.com/azure/architecture/vdc/)에 가상 데이터 센터 방식 및 관련된 Azure VNet 설계에 대한 자세한 정보가 있습니다.
 
 
 >[!NOTE]
@@ -215,7 +219,7 @@ IP 주소를 할당하는 다른 방법에 대한 개요는 [IP 주소 유형 �
 
 SAP HANA를 실행하는 VM의 경우 할당된 고정 IP 주소를 사용해야 합니다. HANA에 대한 일부 구성 특성은 IP 주소를 참조하기 때문입니다.
 
-[Azure NSG(네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)는 SAP HANA 인스턴스 또는 Jumpbox로 라우팅된 트래픽을 전달하는 데 사용됩니다. NSG 및 [응용 프로그램 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups)은 SAP HANA 서브넷 및 관리 서브넷에 연결됩니다.
+[Azure NSG(네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)는 SAP HANA 인스턴스 또는 Jumpbox로 라우팅된 트래픽을 전달하는 데 사용됩니다. NSG 및 [애플리케이션 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups)은 SAP HANA 서브넷 및 관리 서브넷에 연결됩니다.
 
 다음 그림은 허브 및 스포크 VNet 아키텍처에 이어 SAP HANA의 대략적인 배포 스키마를 간단하게 보여 줍니다.
 
@@ -345,7 +349,7 @@ Azure VM 인프라가 배포되고 다른 모든 준비 작업이 완료되면 �
 
 Microsoft Azure에서는 Azure M 시리즈 VM에 대한 SAP HANA 인증 외에도 SAP HANA Dynamic Tiering 2.0을 지원합니다(아래의 SAP HANA Dynamic Tiering 설명서 링크 참조). 예를 들어 Azure Virtual Machine 내에서 SAP HANA Cockpit을 통해 제품을 설치하거나 운영하는 데에는 차이가 없지만 공식적인 Azure 지원에 필수적인 몇 가지 중요한 항목이 있습니다. 이러한 중요 사항은 아래에 설명되어 있습니다. 이 문서 전체에서 "DT 2.0"이라는 약어가 Dynamic Tiering 2.0이라는 전체 이름 대신 사용됩니다.
 
-SAP HANA Dynamic Tiering 2.0은 SAP BW 또는 S4HANA에서 지원되지 않습니다. 주요 사용 사례는 현재 원시 HANA 응용 프로그램입니다.
+SAP HANA Dynamic Tiering 2.0은 SAP BW 또는 S4HANA에서 지원되지 않습니다. 주요 사용 사례는 현재 원시 HANA 애플리케이션입니다.
 
 
 ### <a name="overview"></a>개요
@@ -355,7 +359,7 @@ SAP HANA Dynamic Tiering 2.0은 SAP BW 또는 S4HANA에서 지원되지 않습�
 - DT 2.0은 전용 Azure VM에 설치해야 합니다. SAP HANA가 실행되는 동일한 VM에서 실행되지 않을 수 있습니다.
 - SAP HANA 및 DT 2.0 VM은 동일한 Azure Vnet 내에 배포해야 합니다.
 - Azure 가속 네트워킹을 사용하도록 설정된 SAP HANA 및 DT 2.0 VM을 배포해야 합니다.
-- DT 2.0 VM에 대한 저장소 유형은 Azure Premium Storage여야 합니다.
+- DT 2.0 VM에 대한 스토리지 유형은 Azure Premium Storage여야 합니다.
 - DT 2.0 VM에 여러 Azure 디스크를 연결해야 합니다.
 - Azure 디스크에서 스트라이핑을 사용하여 소프트웨어 RAID/스트라이프 볼륨을 만들어야 합니다(lvm 또는 mdadm을 통해).
 
@@ -399,8 +403,8 @@ Azure 가속 네트워킹에 대한 자세한 내용은 [여기](https://docs.mi
 
 DT 2.0 모범 사례 지침에 따라 디스크 IO 처리량은 물리적 코어당 50MB/초 이상이어야 합니다. DT 2.0에 지원되는 두 가지 Azure VM 유형에 대한 사양을 살펴보면 VM에 대한 최대 디스크 IO 처리량 한도가 표시됩니다.
 
-- E32sv3: 물리적 코어당 48MB/초의 속도를 의미하는 768MB/초(캐시되지 않음)
-- M64-32ms: 물리적 코어당 62.5MB/초의 속도를 의미하는 1,000MB/초(캐시되지 않음)
+- E32sv3    :   물리적 코어당 48MB/초의 속도를 의미하는 768MB/초(캐시되지 않음)
+- M64-32ms  :  물리적 코어당 62.5MB/초의 속도를 의미하는 1,000MB/초(캐시되지 않음)
 
 DT 2.0 VM에 여러 Azure 디스크를 연결하고 OS 수준에서 소프트웨어 RAID(스트라이핑)를 만들어 VM당 최대 디스크 처리량 한도를 달성해야 합니다. 이와 관련하여 단일 Azure 디스크는 최대 VM 한도에 도달하는 처리량을 제공할 수 없습니다. DT 2.0을 실행하려면 Azure Premium Storage가 필수적입니다. 
 

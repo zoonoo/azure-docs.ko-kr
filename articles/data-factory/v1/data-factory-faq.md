@@ -9,17 +9,16 @@ ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 414a6042d064a1dece7025dc277533d40ef2aa64
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 81c7c98f29c2e507e165a3943395e36a453cbf06
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781916"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024045"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure 데이터 팩터리 - 질문과 대답
 > [!NOTE]
@@ -55,7 +54,7 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 * **Azure PowerShell** PowerShell을 사용하여 Data Factory를 만드는 자습서는 [Create and monitor Azure Data Factory using Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) (Azure PowerShell을 사용하여 Azure Data Factory 만들기 및 모니터링)을 참조하세요. 데이터 팩터리 cmdlet의 포괄적인 설명서는 MSDN 라이브러리의 [데이터 팩터리 Cmdlet 참조][adf-powershell-reference] 콘텐츠를 참조하세요.
 * **.NET 클래스 라이브러리** Data Factory .NET SDK를 사용하여 프로그래밍 방식으로 데이터 팩터리를 만들 수 있습니다. .NET SDK를 사용하여 데이터 팩터리를 만드는 연습은 [.NET SDK를 사용하여 데이터 팩터리 만들기, 모니터링 및 관리](data-factory-create-data-factories-programmatically.md)를 참조하세요. 데이터 팩터리 .NET SDK의 포괄적인 설명서는 [데이터 팩터리 클래스 라이브러리 참조][msdn-class-library-reference]를 참조하세요.
 * **REST API** Azure Data Factory 서비스에 의해 노출된 REST API를 사용하여 데이터 팩터리를 만들고 배포할 수도 있습니다. 데이터 팩터리 REST API의 포괄적인 설명서는 [데이터 팩터리 REST API 참조][msdn-rest-api-reference]를 참조하세요.
-* **Azure Resource Manager 템플릿** 자세한 내용은 [자습서: Azure Resource Manager 템플릿을 사용하여 첫 번째 Azure Data Factory 빌드](data-factory-build-your-first-pipeline-using-arm.md) 를 참조하세요.
+* **Azure Resource Manager 템플릿** 자세한 내용은 [자습서: Azure Resource Manager 템플릿을 사용하여 첫 번째 Azure Data Factory 빌드](data-factory-build-your-first-pipeline-using-arm.md)를 참조하세요.
 
 ### <a name="can-i-rename-a-data-factory"></a>Data Factory의 이름을 바꿀 수 있나요?
  아니요. 다른 Azure 리소스와 마찬가지로 Azure 데이터 팩터리의 이름을 변경할 수 없습니다.
@@ -72,7 +71,7 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 | --- | --- |
 | [주문형 HDInsight 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 또는 [사용자 고유의 HDInsight 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Machine Learning 작업: Batch 실행 및 업데이트 리소스](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Machine Learning 작업: 일괄 처리 실행 및 리소스 업데이트](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure 데이터 레이크 분석](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[데이터 레이크 분석 U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[저장 프로시저](data-factory-stored-proc-activity.md) |
 
@@ -185,7 +184,7 @@ cmdlet에 대한 자세한 내용은 [Set-AzureRmDataFactorySliceStatus][set-azu
 Azure 포털에서 다음을 수행할 수도 있습니다.  
 
 1. 데이터 팩터리의 **데이터 팩터리** 블레이드에서 **데이터 세트** 타일을 클릭합니다.
-2. **데이터 집합** 블레이드에서 특정 데이터 집합을 클릭합니다.
+2. **데이터 세트** 블레이드에서 특정 데이터 세트를 클릭합니다.
 3. **테이블** 블레이드의 **최근 조각** 목록에서 관심 있는 조각을 선택합니다.
 4. **데이터 조각** 블레이드의 **작업 실행** 목록에서 작업 실행을 클릭합니다.
 5. **작업 실행 세부 정보** 블레이드에서 **속성** 타일을 클릭합니다.

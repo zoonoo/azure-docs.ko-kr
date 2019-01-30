@@ -1,17 +1,19 @@
 ---
-title: Azure CLI 스크립트 - Azure Cosmos DB에 대한 다중 지역 복제 | Microsoft Docs
+title: Azure CLI 스크립트 - Azure Cosmos DB에 대한 다중 지역 복제
 description: Azure CLI 스크립트 샘플 - Azure Cosmos DB에 대한 다중 지역 복제
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: d9f1420b5d2706ed4547e46639739c0f707559ab
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.reviewer: sngun
+ms.openlocfilehash: 268b15fb0f3e185be4c06c5c0ba20668d1635f04
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015208"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039557"
 ---
 # <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Cosmos DB 데이터베이스 계정을 여러 하위 지역에서 복제 및 장애 조치 우선 순위 구성
 

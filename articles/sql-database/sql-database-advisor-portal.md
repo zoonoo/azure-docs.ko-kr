@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
-ms.reviewer: carlrab
+ms.author: danil
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 738e78e608dbd819f24125799a1e8d48859f1aa0
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6bf0310ae69d45858241a21c5207f557034126d5
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043674"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608215"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>성능 권장 사항 찾기 및 적용
 
@@ -105,7 +105,7 @@ Azure SQL Database가 권장 사항을 자동으로 구현하도록 설정할 �
     ![권장된 인덱스](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> **DROP_INDEX** 옵션은 현재 파티션 전환 및 인덱스 힌트를 사용하는 응용 프로그램과 호환되지 않습니다. 
+> **DROP_INDEX** 옵션은 현재 파티션 전환 및 인덱스 힌트를 사용하는 애플리케이션과 호환되지 않습니다. 
 >
 
 원하는 구성을 선택한 후 적용을 클릭합니다.

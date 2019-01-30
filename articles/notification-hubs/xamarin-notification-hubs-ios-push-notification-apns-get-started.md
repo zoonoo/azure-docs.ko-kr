@@ -4,8 +4,8 @@ description: 이 자습서에서 Azure Notification Hubs를 사용하여 Xamarin
 services: notification-hubs
 keywords: ios 푸시 알림, 푸시 메시지, 푸시 알림, 푸시 메시지
 documentationcenter: xamarin
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 4d4dfd42-c5a5-4360-9d70-7812f96924d2
 ms.service: notification-hubs
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/23/2018
-ms.author: dimazaid
-ms.openlocfilehash: 4704d9bb04f6dc69c69df434562c03b868baf045
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: f81066489d09bd6abef3f96ed83bea1108f99b77
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917706"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447448"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Xamarin.iOS 앱에 알림 푸시
 
@@ -29,7 +29,7 @@ ms.locfileid: "42917706"
 
 ## <a name="overview"></a>개요
 
-이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. [APNs(Apple Push Notification service)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html)를 사용하여 푸시 알림을 받는 빈 Xamarin.iOS 앱을 만듭니다.
+이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 애플리케이션에 푸시 알림을 보내는 방법을 보여 줍니다. [APNs(Apple Push Notification service)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html)를 사용하여 푸시 알림을 받는 빈 Xamarin.iOS 앱을 만듭니다.
 
 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 디바이스로 푸시 알림을 브로드캐스트할 수 있습니다. 완성된 코드는 [NotificationHubs 앱][GitHub] 샘플에서 사용할 수 있습니다.
 
@@ -44,14 +44,14 @@ ms.locfileid: "42917706"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-- 최신 버전의 [Xcode][Install Xcode]
-- iOS 10 이상 호환 디바이스
-- [Apple 개발자 프로그램](https://developer.apple.com/programs/) 멤버 자격
-- [Mac용 Visual Studio]
+* **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* 최신 버전의 [Xcode][Install Xcode]
+* iOS 10 이상 호환 디바이스
+* [Apple 개발자 프로그램](https://developer.apple.com/programs/) 멤버 자격
+* [Mac용 Visual Studio]
   
   > [!NOTE]
-  > iOS 푸시 알림에 대한 구성 요구 사항 때문에 시뮬레이터 대신 실제 iOS 디바이스(iPhone 또는 iPad)에서 응용 프로그램 예제를 배포 및 테스트해야 합니다.
+  > iOS 푸시 알림에 대한 구성 요구 사항 때문에 시뮬레이터 대신 실제 iOS 장치(iPhone 또는 iPad)에서 애플리케이션 예제를 배포 및 테스트해야 합니다.
 
 먼저 이 자습서를 완료해야 Xamarin.iOS 앱에 대한 다른 모든 Notification Hubs 자습서를 진행할 수 있습니다.
 
@@ -82,21 +82,21 @@ ms.locfileid: "42917706"
 
 1. Visual Studio에서 새 iOS 프로젝트를 만들고, **단일 뷰 앱** 템플릿을 선택하고, **다음**을 클릭합니다.
 
-     ![Visual Studio - 응용 프로그램 유형 선택][31]
+     ![Visual Studio - 애플리케이션 유형 선택][31]
 
-2. 앱 이름 및 조직 식별자를 입력하고 **다음**, **만들기**를 차례로 누릅니다.
+2. 앱 이름 및 조직 식별자를 입력한 후, **다음**을 클릭한 다음, **만들기**를 클릭합니다.
 
 3. 솔루션 보기에서 *Into.plist*를 두 번 클릭하고, **ID** 아래에서 번들 식별자가 프로비전 프로필을 만들 때 사용한 식별자와 일치하는지 확인합니다. **서명** 아래에서 **팀**에 대해 개발자 계정이 선택되고, "자동으로 서명 관리"가 선택되고, 서명 인증서 및 프로비전 프로필이 자동으로 선택되어 있는지 확인합니다.
 
     ![Visual Studio - iOS 앱 구성][32]
 
-4. 솔루션 보기에서 *Entitlements.plist*를 두 번 클릭하고 **푸시 알림 사용**"**이 선택되어 있는지 확인합니다.
+4. 솔루션 보기에서 `Entitlements.plist`를 두 번 클릭하고 **푸시 알림 사용**"**이 선택되어 있는지 확인합니다.
 
     ![Visual Studio-iOS 자격 구성][33]
 
 5. Azure Messaging 패키지를 추가합니다. [솔루션] 보기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **NuGet 패키지 추가**를 차례로 선택합니다. **Xamarin.Azure.NotificationHubs.iOS**를 검색하고 프로젝트에 이 패키지를 추가합니다.
 
-6. 클래스에 새 파일을 추가하고, 이름을 **Constants.cs**로 지정하고, 다음 변수를 추가하고, 문자열 리터럴 자리 표시자를 *허브 이름* 및 앞에서 언급한 *DefaultListenSharedAccessSignature*로 바꿉니다.
+6. 클래스에 새 파일을 추가하고, 이름을 `Constants.cs`로 지정하고, 다음 변수를 추가하고, 문자열 리터럴 자리 표시자를 `hubname` 및 앞에서 언급한 `DefaultListenSharedAccessSignature`로 바꿉니다.
 
     ```csharp
     // Azure app-specific connection string and hub path
@@ -104,19 +104,19 @@ ms.locfileid: "42917706"
     public const string NotificationHubName = "<Azure Notification Hub Name>";
     ```
 
-7. **AppDelegate.cs**에서 다음 using 문을 추가합니다.
+7. `AppDelegate.cs`에서 다음 using 문을 추가합니다.
 
     ```csharp
     using WindowsAzure.Messaging;
     ```
 
-8. **SBNotificationHub**인스턴스를 선언합니다.
+8. `SBNotificationHub`의 인스턴스를 선언합니다.
 
     ```csharp
     private SBNotificationHub Hub { get; set; }
     ```
 
-9. **AppDelegate.cs**에서 **FinishedLaunching()** 을 다음 코드와 일치하도록 업데이트합니다.
+9. `AppDelegate.cs`에서 다음 코드와 일치하도록 `FinishedLaunching()`을 업데이트합니다.
 
     ```csharp
     public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
@@ -145,7 +145,7 @@ ms.locfileid: "42917706"
     }
     ```
 
-10. **AppDelegate.cs**의 **RegisteredForRemoteNotifications()** 메서드를 재정의합니다.
+10. `AppDelegate.cs`에서 `RegisteredForRemoteNotifications()` 메서드를 재정의합니다.
 
     ```csharp
     public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
@@ -168,7 +168,7 @@ ms.locfileid: "42917706"
     }
     ```
 
-11. **AppDelegate.cs**의 **ReceivedRemoteNotification()** 메서드를 재정의합니다.
+11. `AppDelegate.cs`에서 `ReceivedRemoteNotification()` 메서드를 재정의합니다.
 
     ```csharp
     public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
@@ -177,7 +177,7 @@ ms.locfileid: "42917706"
     }
     ```
 
-12. **AppDelegate.cs**에 다음 **ProcessNotification()** 메서드를 만듭니다.
+12. `AppDelegate.cs`에서 `ProcessNotification()` 메서드를 만듭니다.
 
     ```csharp
     void ProcessNotification(NSDictionary options, bool fromFinishedLaunching)
@@ -216,7 +216,7 @@ ms.locfileid: "42917706"
     ```
 
     > [!NOTE]
-    > 네트워크 연결이 없는 경우를 처리하도록 **FailedToRegisterForRemoteNotifications()** 를 재정의할 수 있습니다. 이는 사용자가 응용 프로그램을 오프라인 모드(예: 비행기)에서 시작할 수 있고 앱에 특정한 푸시 메시지 시나리오를 처리하려는 경우에 특히 중요합니다.
+    > `FailedToRegisterForRemoteNotifications()`를 재정의하도록 선택하여 네트워크 연결이 없는 경우와 같은 상황을 처리할 수 있습니다. 이는 사용자가 애플리케이션을 오프라인 모드(예: 비행기)에서 시작할 수 있고 앱에 특정한 푸시 메시지 시나리오를 처리하려는 경우에 특히 중요합니다.
 
 13. 디바이스에서 앱을 실행합니다.
 
@@ -233,30 +233,25 @@ ms.locfileid: "42917706"
 이 자습서에서는 백 엔드에 등록된 모든 iOS 디바이스로 브로드캐스트 알림을 보냈습니다. 특정 iOS 디바이스로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
->[특정 장치에 알림 푸시](notification-hubs-ios-xplat-segmented-apns-push-notification.md)
+>[특정 디바이스에 알림 푸시](notification-hubs-ios-xplat-segmented-apns-push-notification.md)
 
 <!-- Images. -->
 [6]: ./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png
 [7]: ./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png
 [213]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-console-app.png
-
 [215]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-scheduler1.png
 [216]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-scheduler2.png
-
 [30]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
 [31]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-ios-app.png
 [32]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-app-settings.png
 [33]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-entitlements-settings.png
 
-
 <!-- URLs. -->
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mac용 Visual Studio]: https://visualstudio.microsoft.com/vs/mac/
-
 [Local and Push Notification Programming Guide]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html#//apple_ref/doc/uid/TP40008194-CH6-SW1
 [Apple Push Notification Service]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [Apple Push Notification Service fwlink]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-
 [GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
 [Azure Portal]: https://portal.azure.com

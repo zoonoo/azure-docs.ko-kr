@@ -1,23 +1,24 @@
 ---
-title: LUIS 응용 프로그램에서 의도 추가
-titleSuffix: Azure Cognitive Services
+title: 의도 추가
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS 앱에 의도를 추가하여 동일한 의도가 포함된 질문 또는 명령 그룹을 식별합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.component: language-understanding
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 495b7e99319126b3ee9e655b2d9aa4af940e1d56
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c8bcbe011dc4ff9841a06b914a90ae7f9a14ee74
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139924"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598505"
 ---
-# <a name="add-intents"></a>의도 추가 
+# <a name="add-intents-to-determine-user-intention-of-utterances"></a>의도를 추가하여 발화에 대한 사용자 의도 결정
 
 LUIS 앱에 [의도](luis-concept-intent.md)를 추가하여 동일한 의도가 포함된 질문 또는 명령 그룹을 식별합니다. 
 
@@ -57,7 +58,7 @@ LUIS 앱에 [의도](luis-concept-intent.md)를 추가하여 동일한 의도가
 
 의도의 발화에서 선택한 의도와 예측 점수 간의 의도 예측 불일치가 발생할 수 있습니다. LUIS는 예제 발화 행의 **레이블 지정 의도** 주위에 빨간색 상자를 표시하여 이러한 불일치를 나타냅니다. 
 
-![발언이 강조 표시된 의도 세부 정보 페이지의 스크린샷](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+![발언 예측 불일치 오류가 표시된 의도 세부 정보 페이지의 스크린샷](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
 
 맨 위 탐색에서 **학습**을 선택합니다. 이제 예측 불일치가 사라졌습니다.
 
@@ -106,7 +107,7 @@ LUIS 앱에 [의도](luis-concept-intent.md)를 추가하여 동일한 의도가
 
 * 편집: 발화 텍스트를 변경합니다.
 * 삭제: 의도에서 발화를 제거합니다. 발화를 유지하려는 경우, 더 나은 방법은 **없음** 의도로 이동하는 것입니다. 
-* 패턴 추가: 패턴을 사용하여 일반적인 발화를 만들고 대체 가능한 텍스트 및 무시 가능한 텍스트를 표시하면 의도에 필요한 발화 수를 줄일 수 있습니다. 
+* 패턴 추가: 패턴을 사용하면 일반적인 발언을 만들고 대체 가능한 텍스트 및 무시 가능한 텍스트를 표시할 수 있으므로 의도에 필요한 발화 수를 줄일 수 있습니다. 
 
 **레이블 지정 의도** 열에서 발화의 의도를 변경할 수 있습니다.
 

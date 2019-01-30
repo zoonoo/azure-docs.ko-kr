@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD 도메인 서비스: 네트워킹 지침 | Microsoft Docs'
+title: 'Azure AD Domain Services: 네트워킹 지침 | Microsoft Docs'
 description: Azure Active Directory Domain Services의 네트워킹 고려 사항
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 23a857a5-2720-400a-ab9b-1ba61e7b145a
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/01/2017
 ms.author: ergreenl
-ms.openlocfilehash: eb97e709e18daba3722dc43a869ef034dbe573cf
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: c37dfecf7204f3f8d050c0f36d4c32ea02477f75
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157431"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851873"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD 도메인 서비스의 네트워킹 고려 사항
 ## <a name="how-to-select-an-azure-virtual-network"></a>Azure 가상 네트워크를 선택하는 방법
@@ -37,7 +37,7 @@ ms.locfileid: "50157431"
 * Azure AD 도메인 서비스를 사용할 수 있는 Azure 지역을 알아보려면 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services/) 페이지를 참조하세요.
 
 ### <a name="requirements-for-the-virtual-network"></a>가상 네트워크에 대한 요구 사항
-* **Azure 워크로드에 대한 근접성**: Azure AD 도메인 서비스에 액세스해야 하는 가상 머신을 현재 호스트하거나 호스트할 가상 네트워크를 선택합니다. 워크로드가 관리되는 도메인이 아닌 다른 가상 네트워크에 배포된 경우 가상 네트워크를 연결하도록 선택할 수도 있습니다.
+* **Azure 워크로드에 대한 근접성**: Azure AD Domain Services에 액세스해야 하는 가상 머신을 현재 호스트하거나 호스트할 가상 네트워크를 선택합니다. 워크로드가 관리되는 도메인이 아닌 다른 가상 네트워크에 배포된 경우 가상 네트워크를 연결하도록 선택할 수도 있습니다.
 * **사용자 지정/사용자 DNS 서버 필요**: 가상 네트워크에 대해 구성된 사용자 지정 DNS 서버가 없는지 확인합니다. 사용자 지정 DNS 서버의 예는 가상 네트워크에 배포한 Windows Server VM에서 실행 중인 Windows Server DNS의 인스턴스입니다. Azure AD Domain Services는 가상 네트워크 내에 배포된 사용자 지정 DNS 서버와 통합되지 않습니다.
 * **동일한 도메인 이름의 기존 도메인**: 해당 가상 네트워크에서 동일한 도메인 이름을 사용하는 기존 도메인이 없는지 확인합니다. 예를 들어, 선택한 가상 네트워크에서 'contoso.com'이라는 도메인을 이미 사용한다고 가정합니다. 나중에 해당 가상 네트워크에서 동일한 도메인 이름(즉 'contoso.com')으로 Azure AD 도메인 서비스 관리되는 도메인을 사용하도록 설정하려고 합니다. Azure AD 도메인 서비스를 사용하도록 설정하면 오류가 발생합니다. 이 오류는 해당 가상 네트워크에서 도메인 이름이 충돌하기 때문입니다. 이 경우 다른 이름을 사용하여 Azure AD 도메인 서비스 관리되는 도메인을 설정해야 합니다. 또는 기존 도메인을 프로비전 해제한 후 Azure AD 도메인 서비스를 사용하도록 설정할 수 있습니다.
 
@@ -102,7 +102,7 @@ ms.locfileid: "50157431"
 
 또한 NSG는 인터넷을 통해 보안 LDAP 액세스를 잠그는 방법을 보여 줍니다. 인터넷을 통해 관리되는 도메인에 대한 보안 LDAP 액세스를 비활성화한 경우 이 규칙을 건너뜁니다. 이 NSG에는 지정된 IP 주소 집합에서만 TCP 포트 636을 통해 인바운드 LDAPS 액세스를 허용하는 규칙 집합이 포함되어 있습니다. 지정된 IP 주소에서 인터넷을 통해 LDAPS 액세스를 허용하는 NSG 규칙은 DenyAll NSG 규칙보다 우선 순위가 높습니다.
 
-![인터넷을 통해 LDAPS 액세스를 보안하는 예제 NSG](.\media\active-directory-domain-services-alerts\default-nsg.png)
+![인터넷을 통해 LDAPS 액세스를 보안하는 예제 NSG](./media/active-directory-domain-services-alerts/default-nsg.png)
 
 **자세한 내용** - [네트워크 보안 그룹 만들기](../virtual-network/manage-network-security-group.md)
 

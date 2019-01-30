@@ -4,17 +4,17 @@ description: 이 아티클에서는 Azure Stream Analytics 및 Azure Machine Lea
 services: stream-analytics
 author: dubansal
 ms.author: dubansal
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/09/2018
-ms.openlocfilehash: 3f6d6f700ccf232dacb512f22dd1f9fb5d870740
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: df1010be8c9f41684af806885db7587bfcf1c540
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567046"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091223"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure Stream Analytics의 변칙 검색
 
@@ -95,7 +95,7 @@ AnomalyDetection 연산자를 사용할 때는 **Limit Duration** 절을 지정�
 
 도식적으로 보면, 단계는 다음과 같습니다. 
 
-![모델 학습](media/stream-analytics-machine-learning-anomaly-detection/training_model.png)
+![Machine Learning 학습 모델](media/stream-analytics-machine-learning-anomaly-detection/machine-learning-training-model.png)
 
 |**Model** | **학습 시작 시간** | **점수 사용 시작 시간** |
 |---------|---------|---------|
@@ -115,7 +115,7 @@ Machine Learning 수준에서 변칙 검색 알고리즘은 들어오는 각각�
 
 기묘도(strangeness) 계산을 자세히 살펴보겠습니다(이벤트가 존재하는 일련의 기록 기간이 있다고 가정). 
 
-1. **양방향 수준 변화:** 기록 기간을 기반으로 정상 작동 범위는 [10번째 백분위 수, 90번째 백분위 수]로 계산됩니다. 즉, 하한값은 10번째 백분위 수이고 상한값은 90번째 백분위 수입니다. 현재 이벤트에 대한 기묘도(strangeness) 값은 다음과 같이 계산됩니다.  
+1. **양방향 수준 변화:** 기록 기간을 기반으로 정상 작동 범위는 [10번째 백분위 수, 90번째 백분위 수]로 컴퓨팅됩니다. 즉, 하한값은 10번째 백분위 수이고 상한값은 90번째 백분위 수입니다. 현재 이벤트에 대한 기묘도(strangeness) 값은 다음과 같이 계산됩니다.  
 
    - 0, event_value가 정상 작동 범위 내에 있는 경우  
    - 이벤트 값/90번째 백분위 수, 이벤트 값 > 90번째 백분위 수인 경우  
@@ -145,15 +145,15 @@ Machine Learning 수준에서 변칙 검색 알고리즘은 들어오는 각각�
 
    이 내용은 아래 그림 1과 2에 상한 변화를 사용하여 표시되어 있습니다. (동일한 논리가 하한 변화에 적용됩니다.) 두 그림 모두 파형은 비정상적인 수준 변화입니다. 주황색 세로줄은 홉 경계를 나타내며 홉 크기는 AnomalyDetection 연산자에 지정된 검색 기간과 동일합니다. 녹색 줄은 학습 기간의 크기를 나타냅니다. 그림 1에서 홉 크기는 변칙이 지속되는 시간과 같습니다. 그림 2에서 홉 크기는 변칙이 지속되는 시간의 절반입니다. 모든 경우, 점수 매기기에 사용된 모델이 정상 데이터로 학습되었기 때문에 상향 변화가 검색됩니다. 하지만 양방향 수준 변화 검색기가 작동하는 방식을 기반으로, 정상으로 복귀하는 점수를 얻는 모델에 사용된 학습 기간에서 정상 값을 제외해야 합니다. 그림 1에서 점수 매기기 모델의 학습에는 정상 이벤트가 포함되기 때문에 정상으로 복귀는 검색될 수 없습니다. 하지만 그림 2에서는 학습에 비정상적인 부분만 포함되기 때문에 정상으로 복귀가 검색됩니다. 절반 미만인 경우에는 동일한 이유로 작동하지만, 초과되는 경우에는 약간의 정상적인 이벤트가 포함됩니다. 
 
-   ![기간 크기가 변칙 길이와 동일한 AD](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_anomaly_length.png)
+   ![기간 크기가 변칙 길이와 동일한 AD](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-anomaly-length.png)
 
-   ![기간 크기가 변칙 길이의 절반과 동일한 AD](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_half_anomaly_length.png)
+   ![기간 크기가 변칙 길이의 절반과 동일한 AD](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-half-anomaly-length.png)
 
 2. 변칙 길이를 예측할 수 없는 경우에는 검색기가 최대로 작동됩니다. 하지만 시간 범위를 더 좁게 선택하면 학습 데이터가 제한되고 이로 인해 정상 복귀를 검색할 확률이 증가합니다. 
 
 3. 다음 시나리오에서는 학습 기간에 값이 동일하게 높은 변칙이 이미 포함되어 있기 때문에 긴 변칙이 검색되지 않습니다. 
 
-   ![동일한 크기의 변칙](media/stream-analytics-machine-learning-anomaly-detection/anomalies_with_same_length.png)
+   ![동일한 크기의 변칙이 검색됨](media/stream-analytics-machine-learning-anomaly-detection/anomalies-with-same-length.png)
 
 ## <a name="example-query-to-detect-anomalies"></a>변칙을 검색할 쿼리 예제 
 

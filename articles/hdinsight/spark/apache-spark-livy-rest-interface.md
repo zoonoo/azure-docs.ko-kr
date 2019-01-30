@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6a0a2dec6beeecca3779f4b047d3b5fe6295a1e6
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 62056b27669f334f1d8007d5284979ac4701f9d9
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495310"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650510"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark REST API를 사용하여 HDInsight Spark 클러스터에 원격 작업 제출
 
-Azure HDInsight Spark 클러스터에 원격 작업을 제출하는 데 사용되는 [Apache Livy](https://livy.incubator.apache.org/), [Apache Spark](https://spark.apache.org/) REST API를 사용하는 방법을 알아봅니다. 자세한 설명서는 [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/)를 참조하세요.
+Azure HDInsight Spark 클러스터에 원격 작업을 제출하는 데 사용되는 [Apache Livy](https://livy.incubator.apache.org/), [Apache Spark](https://spark.apache.org/) REST API를 사용하는 방법을 알아봅니다. 자세한 설명서는 [https://livy.incubator.apache.org/](https://livy.incubator.apache.org/)를 참조하세요.
 
 Livy를 사용하여 대화형 Spark 셸을 실행하거나 Spark에서 실행되도록 배치 작업을 제출할 수 있습니다. 이 문서는 Livy를 사용하여 배치 작업을 제출하는 방법에 대해 설명합니다. 이 문서의 코드 조각은 cURL을 사용하여 Livy Spark 엔드포인트에 대한 REST API를 호출합니다.
 
@@ -26,10 +26,10 @@ Livy를 사용하여 대화형 Spark 셸을 실행하거나 Spark에서 실행�
 
 * HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
-* [cURL](http://curl.haxx.se/). 이 문서에서는 cURL을 사용하여 HDInsight Spark 클러스터에 대해 REST API 호출을 수행하는 방법을 보여 줍니다.
+* [cURL](https://curl.haxx.se/). 이 문서에서는 cURL을 사용하여 HDInsight Spark 클러스터에 대해 REST API 호출을 수행하는 방법을 보여 줍니다.
 
 ## <a name="submit-an-apache-livy-spark-batch-job"></a>Apache Livy Spark 일괄 작업 제출
-배치 작업을 제출하기 전에 클러스터와 연결된 클러스터 저장소에 응용 프로그램 jar을 업로드해야 합니다. [**AzCopy**](../../storage/common/storage-use-azcopy.md) 명령줄 유틸리티를 사용하면 이렇게 할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Apache Hadoop 작업용 데이터 업로드](../hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
+배치 작업을 제출하기 전에 클러스터와 연결된 클러스터 스토리지에 애플리케이션 jar을 업로드해야 합니다. [**AzCopy**](../../storage/common/storage-use-azcopy.md) 명령줄 유틸리티를 사용하면 이렇게 할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Apache Hadoop 작업용 데이터 업로드](../hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
 
     curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
 
@@ -68,9 +68,9 @@ Livy는 클러스터에서 실행 중인 Spark 작업에 대해 고가용성을 
 * HDInsight용 Jupyter 노트북은 백 엔드에서 Livy를 통해 구동됩니다. 노트북에서 Spark 작업이 실행되고 있으며 Livy 서비스가 다시 시작되면 해당 노트북은 코드 셀을 계속 실행합니다. 
 
 ## <a name="show-me-an-example"></a>예제 보기
-이 섹션에서는 Livy Spark를 사용하여 배치 작업을 제출하고 작업의 진행 상황을 모니터링한 다음 작업을 삭제하기 위한 예제를 살펴봅니다. 이 예제에서 사용하는 응용 프로그램은 문서 [독립 실행형 Scala 응용 프로그램을 만들고 HDInsight Spark 클러스터에서 실행하기](apache-spark-create-standalone-application.md)에서 개발된 것입니다. 여기에 나오는 단계는 다음 상태로 간주합니다.
+이 섹션에서는 Livy Spark를 사용하여 배치 작업을 제출하고 작업의 진행 상황을 모니터링한 다음 작업을 삭제하기 위한 예제를 살펴봅니다. 이 예제에서 사용하는 애플리케이션은 문서 [독립 실행형 Scala 애플리케이션을 만들고 HDInsight Spark 클러스터에서 실행하기](apache-spark-create-standalone-application.md)에서 개발된 것입니다. 여기에 나오는 단계는 다음 상태로 간주합니다.
 
-* 응용 프로그램 jar를 클러스터와 연결된 저장소 계정에 이미 복사했습니다.
+* 애플리케이션 jar를 클러스터와 연결된 저장소 계정에 이미 복사했습니다.
 * 이 단계를 시도하려는 컴퓨터에 CuRL을 설치했습니다.
 
 다음 단계를 수행합니다.
@@ -172,9 +172,9 @@ Azure Virtual Network 내에서 HDInsight Spark 클러스터에 연결하는 경
 
 ### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>추가 저장소의 외부 jar 사용이 지원되지 않음
 
-**문제:** Livy Spark 작업이 클러스터에 연결된 추가 저장소 계정의 외부 jar를 참조하는 경우 작업이 실패합니다.
+**문제:** Livy Spark 작업이 클러스터에 연결된 추가 스토리지 계정의 외부 jar를 참조하는 경우 작업이 실패합니다.
 
-**해결 방법:** 사용하려는 jar가 HDInsight 클러스터와 연결된 기본 저장소에서 사용 가능한 상태인지 확인합니다.
+**해결 방법:** 사용하려는 jar가 HDInsight 클러스터와 연결된 기본 스토리지에서 사용 가능한 상태인지 확인합니다.
 
 
 
@@ -182,7 +182,7 @@ Azure Virtual Network 내에서 HDInsight Spark 클러스터에 연결하는 경
 
 ## <a name="next-step"></a>다음 단계
 
-* [Apache Livy REST API 설명서](http://livy.incubator.apache.org/docs/latest/rest-api.html)
+* [Apache Livy REST API 설명서](https://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](apache-spark-resource-manager.md)
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](apache-spark-job-debugging.md)
 

@@ -4,7 +4,7 @@ description: Windows 디바이스의 로컬 관리자 그룹에 Azure 역할을 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: 267e398305939048014038b7350b2a10481fdfbd
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 97e20d4c6695001148aa2d97d74288e27c537e46
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238729"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450476"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Azure AD 조인 디바이스에서 로컬 관리자 그룹을 관리하는 방법
 
@@ -53,18 +53,21 @@ Azure AD 역할을 로컬 관리자 그룹에 추가하면 디바이스에서 �
 
 ## <a name="manage-the-device-administrator-role"></a>디바이스 관리자 역할 관리 
 
-Azure Portal에 있는 **디바이스** 페이지에서 디바이스 관리자 역할을 관리할 수 있습니다. **장치** 페이지를 엽니다.
+Azure Portal에 있는 **디바이스** 페이지에서 디바이스 관리자 역할을 관리할 수 있습니다. **디바이스** 페이지를 엽니다.
 
 1. 글로벌 관리자 또는 디바이스 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 탐색 모음에서 **Azure Active Directory**를 클릭합니다. 
-3. **관리** 섹션에서 **장치**를 클릭합니다.
-4. **장치** 페이지에서 **장치 설정**을 클릭합니다.
+3. **관리** 섹션에서 **디바이스**를 클릭합니다.
+4. **디바이스** 페이지에서 **디바이스 설정**을 클릭합니다.
 
 디바이스 관리자 역할을 수정하려면 **Azure AD 조인 디바이스의 추가 로컬 관리자**를 구성합니다.  
 
 ![추가 로컬 관리자](./media/assign-local-admin/10.png)
 
- 
+>[!NOTE]
+> 이 옵션에는 Azure AD Premium 테넌트가 필요합니다. 
+
+
 디바이스 관리자는 모든 Azure AD 조인 디바이스에 할당됩니다. 디바이스 관리자를 특정 디바이스 집합으로 범위를 지정할 수 없습니다. 디바이스 관리자 역할 업데이트가 반드시 영향을 받는 사용자에게 즉각적인 영향을 미치는 것은 아닙니다. 사용자가 이미 로그인되어 있는 디바이스에서는 다음의 경우 권한 업데이트가 수행됩니다.
      
 
@@ -88,7 +91,7 @@ Azure Portal에 있는 **디바이스** 페이지에서 디바이스 관리자 �
 
 Azure AD 조인 프로세스를 사용하는 것 외에, 수동으로 하나의 특정 디바이스에서 일반 사용자를 로컬 관리자로 권한을 상승시킬 수 있습니다. 이 단계를 사용하려면 로컬 관리자 그룹의 구성원이어야 합니다. 
 
-**Windows 10 1709** 릴리스부터 **회사 또는 학교 사용자 추가**를 선택하여 **설정 -> 계정 -> 다른 사용자**에서 이 작업을 수행할 수 있습니다.
+**Windows 10 1709** 릴리스부터 **설정 -> 계정 -> 다른 사용자**에서 이 작업을 수행할 수 있습니다. **회사 또는 학교 사용자 추가**를 선택하고 **사용자 계정** 아래에 사용자의 UPN을 입력한 다음, **계정 유형**에서 ‘관리자’를 선택합니다.  
  
 또한 명령 프롬프트를 사용하여 사용자를 추가할 수 있습니다.
 
@@ -103,7 +106,7 @@ Azure AD 조인 프로세스를 사용하는 것 외에, 수동으로 하나의 
 
 디바이스 관리자는 모든 Azure AD 조인 디바이스에 할당됩니다. 특정 디바이스 집합으로 범위를 지정할 수 없습니다.
 
-디바이스 관리자 역할에서 사용자를 제거하는 경우 로그인되어 있는 한 디바이스에서 로컬 관리자 권한을 계속 가집니다. 권한은 새 기본 새로 고침 토큰이 발급되는 경우 다음 로그인 동안에 또는 4시간 후에 해지됩니다.
+디바이스 관리자 역할에서 사용자를 제거하는 경우 로그인되어 있는 한 디바이스에서 로컬 관리자 권한을 계속 가집니다. 권한은 다음 번에 로그인하는 중에 또는 새 기본 새로 고침 토큰이 발급된 후 4시간이 지나면 철회됩니다.
 
 
 

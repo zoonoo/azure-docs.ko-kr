@@ -1,12 +1,10 @@
 ---
-title: Azure 가상 네트워크에서 리소스에 대한 이름 확인 | Microsoft Docs
+title: Azure 가상 네트워크에서 리소스에 대한 이름 확인
+titlesuffix: Azure Virtual Network
 description: 'Azure IaaS, 하이브리드 솔루션, 서로 다른 클라우드 서비스, Active Directory, 자체 DNS 서버 사용 시의 이름 확인 시나리오 '
 services: virtual-network
 documentationcenter: na
 author: subsarma
-manager: vitinnan
-editor: ''
-ms.assetid: 5d73edde-979a-470a-b28c-e103fcf07e3e
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: subsarma
-ms.openlocfilehash: 53e3a298dd8a3eebca1943d9bade51187f14d722
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 4a4a4c6a37e3c52054d7bc773ef04bf057709fdd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038491"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025099"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 리소스에 대한 이름 확인
 
@@ -74,7 +72,7 @@ Azure 제공 이름 확인을 사용할 때 고려해야 할 사항입니다.
 * 사용자 고유의 레코드를 수동으로 등록할 수 없습니다.
 * WINS 및 NetBIOS는 지원되지 않습니다. Windows 탐색기에 VM은 표시되지 않습니다.
 * 호스트 이름은 DNS와 호환되어야 합니다. 이름에는 0-9, a-z 및 '-'만 사용이 가능하며, '-'로 시작하거나 끝날 수 없습니다.
-* DNS 쿼리 트래픽은 각 VM에 대해 제한됩니다. 이 제한은 대부분의 응용 프로그램에 영향을 주지 않아야 합니다. 요청 제한이 확인되는 경우 클라이언트쪽 캐싱이 사용하도록 설정되었는지 확인합니다. 자세한 내용은 [DNS 클라이언트 구성](#dns-client-configuration)을 참조하세요.
+* DNS 쿼리 트래픽은 각 VM에 대해 제한됩니다. 이 제한은 대부분의 애플리케이션에 영향을 주지 않아야 합니다. 요청 제한이 확인되는 경우 클라이언트쪽 캐싱이 사용하도록 설정되었는지 확인합니다. 자세한 내용은 [DNS 클라이언트 구성](#dns-client-configuration)을 참조하세요.
 * 처음 180개의 클라우드 서비스 내에서 VM만 클래식 배포 모델 내의 가상 네트워크에 대해 등록됩니다. 이 제약은 Azure Resource Manager의 가상 네트워크에는 적용되지 않습니다.
 
 ## <a name="dns-client-configuration"></a>DNS 클라이언트 구성
@@ -125,7 +123,7 @@ options timeout:1 attempts:5
 resolv.conf 파일은 일반적으로 자동으로 생성되며 편집할 수 없습니다. *options* 줄을 추가하는 구체적인 단계는 배포마다 다릅니다.
 
 * **Ubuntu** (resolvconf 사용):
-  1. *options* 줄을 **/etc/resolveconf/resolv.conf.d/head**에 추가합니다.
+  1. *options* 줄을 **/etc/resolvconf/resolv.conf.d/tail**에 추가합니다.
   2. `resolvconf -u`를 실행하여 업데이트합니다.
 * **SUSE** (netconf 사용):
   1. *timeout:1 attempts:5*를 **/etc/sysconfig/network/config**의 **NETCONFIG_DNS_RESOLVER_OPTIONS=""** 매개 변수에 추가합니다. 

@@ -18,7 +18,7 @@ ms.locfileid: "50227430"
 
 ![태그가 포함된 간단한 배포](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
 
-이 템플릿에는 *부서*, *응용 프로그램* 및 *만든 사람* 태그가 포함되어 있습니다. 다른 태그 이름을 사용하려는 경우 템플릿에서 직접 이러한 태그를 추가/편집할 수 있습니다.
+이 템플릿에는 *부서*, *애플리케이션* 및 *만든 사람* 태그가 포함되어 있습니다. 다른 태그 이름을 사용하려는 경우 템플릿에서 직접 이러한 태그를 추가/편집할 수 있습니다.
 
 ![템플릿의 Azure 태그](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
 

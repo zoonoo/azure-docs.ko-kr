@@ -1,24 +1,24 @@
 ---
-title: Azure Active Directory에 조직의 개인 정보 추가 | Microsoft Docs
-description: Azure Active Directory(Azure AD) 속성 영역에 조직의 개인 정보를 추가하는 방법
+title: 조직의 개인 정보 추가 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory 속성 영역에 조직의 개인 정보를 추가하는 방법에 대한 지침입니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: lizross
 ms.reviewer: bpham
-ms.custom: it-pro
-ms.openlocfilehash: f32eeee8f02cee32eb05e14aa98387a20cb2e626
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: bfbb9a035c3f7a00de1610f1240448ff7b0b4abf
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48903986"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452601"
 ---
-# <a name="how-to-add-your-privacy-info-using-azure-active-directory"></a>방법: Azure Active Directory를 사용하여 개인 정보 추가
+# <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Azure Active Directory를 사용하여 조직의 개인 정보 추가
 이 아티클에서는 테넌트 관리자가 Azure Portal을 통해 조직의 Azure AD(Azure Active Directory) 테넌트에 관련 개인 정보를 추가할 수 있는 방법을 설명합니다.
 
 내부 직원 및 외부 게스트가 정책을 검토할 수 있도록 전역 개인 정보 연락처 및 조직의 개인정보처리방침을 모두 추가하는 것이 좋습니다. 개인정보처리방침이 고유하게 생성되고 각 비즈니스에 맞게 조정되기 때문에 도움말은 변호사에게 문의하는 것이 좋습니다.

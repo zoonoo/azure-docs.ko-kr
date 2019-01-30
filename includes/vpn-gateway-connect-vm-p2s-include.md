@@ -8,33 +8,33 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 708098c7ed126705d7b8b561134e2bcf8c7f2fcd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4999868170b73493f601f06e114a233a0f88fa35
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197097"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444250"
 ---
 VM에 원격 데스크톱 연결을 만들어 VNet에 배포된 VM에 연결할 수 있습니다. 처음에 VM에 연결할 수 있는지 확인하는 가장 좋은 방법은 컴퓨터 이름이 아닌 개인 IP 주소를 사용하여 연결하는 것입니다. 이 방법을 사용하면 연결할 수 있는지, 이름 확인이 제대로 구성되었는지 테스트할 수 있습니다.
 
 1. 개인 IP 주소를 찾습니다. Azure Portal에서 VM의 속성을 살펴보거나 PowerShell을 사용하여 VM의 개인 IP 주소를 찾을 수 있습니다.
 
-  - Azure Portal - Azure Portal에서 가상 머신을 찾습니다. VM 속성을 봅니다. 개인 IP 주소가 나열됩니다.
+   - Azure Portal - Azure Portal에서 가상 머신을 찾습니다. VM 속성을 봅니다. 개인 IP 주소가 나열됩니다.
 
-  - PowerShell - 예제를 사용하여 리소스 그룹의 VM 및 개인 IP 주소 목록을 봅니다. 이 예제는 수정하지 않고 그냥 사용하면 됩니다.
+   - PowerShell - 예제를 사용하여 리소스 그룹의 VM 및 개인 IP 주소 목록을 봅니다. 이 예제는 수정하지 않고 그냥 사용하면 됩니다.
 
-    ```powershell
-    $VMs = Get-AzureRmVM
-    $Nics = Get-AzureRmNetworkInterface | Where VirtualMachine -ne $null
+     ```powershell
+     $VMs = Get-AzureRmVM
+     $Nics = Get-AzureRmNetworkInterface | Where VirtualMachine -ne $null
 
-    foreach($Nic in $Nics)
-    {
+     foreach($Nic in $Nics)
+     {
       $VM = $VMs | Where-Object -Property Id -eq $Nic.VirtualMachine.Id
       $Prv = $Nic.IpConfigurations | Select-Object -ExpandProperty PrivateIpAddress
       $Alloc = $Nic.IpConfigurations | Select-Object -ExpandProperty PrivateIpAllocationMethod
       Write-Output "$($VM.Name): $Prv,$Alloc"
-    }
-    ```
+     }
+     ```
 
 2. 지점 및 사이트 간 VPN 연결을 사용하여 VNet에 연결되었는지 확인합니다.
 3. 작업 표시줄에서 검색 상자에 "RDP" 또는 "원격 데스크톱 연결"을 입력하여 **원격 데스크톱 연결**을 열고 원격 데스크톱 연결을 선택합니다. PowerShell에서 'mstsc' 명령을 사용하여 원격 데스크톱 연결을 열 수도 있습니다. 

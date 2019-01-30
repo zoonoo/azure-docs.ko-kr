@@ -1,41 +1,38 @@
 ---
-title: MongoDB에 대한 Azure Cosmos DB 기능 지원 | Microsoft Docs
-description: Azure Cosmos DB MongoDB API가 MongoDB 3.4에 대해 제공하는 기능 지원에 대해 알아봅니다.
-services: cosmos-db
-author: alekseys
-manager: kfile
+title: Azure Cosmos DB의 API for MongoDB 기능 지원 사용
+description: Azure Cosmos DB의 API for MongoDB가 MongoDB 3.4에 제공하는 기능 지원에 대해 알아봅니다.
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
-ms.devlang: na
+ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 11/15/2017
-ms.author: alekseys
-ms.openlocfilehash: d9616f87e76231c3bb587c2018572b7526b471a5
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.date: 12/26/2018
+author: sivethe
+ms.author: sivethe
+ms.openlocfilehash: ed440b5d4a95689c6b6d9f1986dfe35ea47e4298
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050343"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390372"
 ---
-# <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB 기능 및 구문에 대한 MongoDB API 지원
+# <a name="azure-cosmos-dbs-api-for-mongodb-supported-features-and-syntax"></a>Azure Cosmos DB의 API for MongoDB: 지원되는 기능 및 구문
 
-Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. 임의의 오픈 소스 MongoDB 클라이언트 [드라이버](https://docs.mongodb.org/ecosystem/drivers)를 통해 데이터베이스의 MongoDB API와 통신할 수 있습니다. MongoDB API에서는 MongoDB [유선 프로토콜](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)을 준수함으로써 기존 클라이언트 드라이버를 사용할 수 있습니다.
+Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. 아무 오픈 소스 MongoDB 클라이언트 [드라이버](https://docs.mongodb.org/ecosystem/drivers)를 사용하여 Azure Cosmos DB의 API for MongoDB와 통신할 수 있습니다. Azure Cosmos DB의 API for MongoDB를 사용하면 MongoDB [유선 프로토콜](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)에 따라 기존 클라이언트 드라이버를 사용할 수 있습니다.
 
-Azure Cosmos DB MongoDB API를 사용하면 Azure Cosmos DB가 제공하는 모든 엔터프라이즈 기능과 함께 익숙한 MongoDB API의 이점을 누릴 수 있습니다. 이러한 기능에는 [전역 배포](distribute-data-globally.md), [자동 분할](partition-data.md), 가용성 및 대기 시간 보장, 모든 필드의 자동 인덱싱, 휴식 시 암호화, 백업 등이 포함됩니다.
+Azure Cosmos DB의 API for MongoDB를 사용하면 Cosmos DB가 제공하는 모든 엔터프라이즈 기능과 함께 익숙한 MongoDB의 이점을 누릴 수 있습니다. 이러한 기능에는 [글로벌 배포](distribute-data-globally.md), [자동 분할](partition-data.md), 가용성 및 대기 시간 보장, 모든 필드의 자동 인덱싱, 저장 데이터 암호화, 백업 등이 포함됩니다.
 
-## <a name="mongodb-protocol-support"></a>MongoDB 프로토콜 지원
+## <a name="protocol-support"></a>프로토콜 지원
 
-Azure Cosmos DB MongoDB API는 기본적으로 MongoDB 서버 버전 **3.2**와 호환됩니다. 지원되는 연산자 및 제한 사항이나 예외는 다음과 같습니다. MongoDB 버전 **3.4**에 추가된 기능 또는 쿼리 연산자는 현재 미리 보기 기능으로 사용할 수 있습니다. 이러한 프로토콜을 이해하는 모든 클라이언트 드라이버는 MongoDB API를 사용하여 Cosmos DB에 연결할 수 있어야 합니다.
+Azure Cosmos DB의 MongoDB API는 기본적으로 MongoDB 서버 버전 **3.2**와 호환됩니다. 지원되는 연산자 및 제한 사항이나 예외는 다음과 같습니다. MongoDB 버전 **3.4**에 추가된 기능 또는 쿼리 연산자는 현재 미리 보기 기능으로 사용할 수 있습니다. 이러한 프로토콜을 인식하는 모든 클라이언트 드라이버는 Azure Cosmos DB의 API for MongoDB에 연결할 수 있습니다.
 
 [MongoDB 집계 파이프라인](#aggregation-pipeline)은 현재 별도의 미리 보기 기능으로 사용할 수 있습니다.
 
-## <a name="mongodb-query-language-support"></a>MongoDB 쿼리 언어 지원
+## <a name="query-language-support"></a>쿼리 언어 지원
 
-Azure Cosmos DB MongoDB API는 MongoDB 쿼리 언어 구문을 포괄적으로 지원합니다. 아래에서 현재 지원되는 연산, 연산자, 단계, 명령 및 옵션에 대한 자세한 목록을 찾을 수 있습니다.
+Azure Cosmos DB의 API for MongoDB는 MongoDB 쿼리 언어 구문을 포괄적으로 지원합니다. 아래에서 현재 지원되는 연산, 연산자, 단계, 명령 및 옵션에 대한 자세한 목록을 찾을 수 있습니다.
 
 ## <a name="database-commands"></a>데이터베이스 명령
 
-Azure Cosmos DB는 모든 MongoDB API 계정에서 다음 데이터베이스 명령을 지원합니다.
+Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령을 지원합니다.
 
 ### <a name="query-and-write-operation-commands"></a>쿼리 및 쓰기 작업 명령
 - delete
@@ -75,7 +72,7 @@ Azure Cosmos DB는 모든 MongoDB API 계정에서 다음 데이터베이스 명
 
 ## <a name="aggregation-pipelinea"></a>집계 파이프라인</a>
 
-Azure Cosmos DB는 공개 미리 보기에서 집계 파이프라인을 지원합니다. 공개 미리 보기를 이용하는 방법에 대한 지침은 [Azure 블로그](https://aka.ms/mongodb-aggregation)를 참조하세요.
+Cosmos DB는 공개 미리 보기에서 집계 파이프라인을 지원합니다. 공개 미리 보기를 이용하는 방법에 대한 지침은 [Azure 블로그](https://aka.ms/mongodb-aggregation)를 참조하세요.
 
 ### <a name="aggregation-commands"></a>집계 명령
 - aggregate
@@ -310,32 +307,34 @@ cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | 정렬 키가 없는 �
 
 ## <a name="unique-indexes"></a>고유 인덱스
 
-Azure Cosmos DB는 기본적으로 데이터베이스에 기록되는 문서에서 모든 필드를 인덱싱합니다. 고유 인덱스를 사용하면 컬렉션의 모든 문서에서 특정 필드에 중복된 값이 나타나지 않으며, 이는 기본 “_id” 키에서 고유성이 유지되는 방식과 유사합니다. 이제 ‘고유’ 제약 조건을 포함하여 createIndex 명령을 사용하여 Azure Cosmos DB에서 사용자 지정 인덱스를 만들 수 있습니다.
+Cosmos DB는 기본적으로 데이터베이스에 기록되는 문서에서 모든 필드를 인덱싱합니다. 고유 인덱스를 사용하면 컬렉션의 모든 문서에서 특정 필드에 중복된 값이 나타나지 않으며, 이는 기본 “_id” 키에서 고유성이 유지되는 방식과 유사합니다. '고유' 제약 조건을 포함하여 createIndex 명령을 사용하여 Cosmos DB에서 사용자 지정 인덱스를 만들 수 있습니다.
 
-모든 MongoDB API 계정에 대해 고유 인덱스를 사용할 수 있습니다.
+고유 인덱스는 Azure Cosmos DB의 API for MongoDB를 사용하는 모든 Cosmos 계정에 사용할 수 있습니다.
 
 ## <a name="time-to-live-ttl"></a>TTL(Time to Live)
 
-Azure Cosmos DB는 문서의 타임스탬프를 기반으로 상대적 TTL(Time to Live)을 지원합니다. [Azure Portal](https://portal.azure.com)을 통해 MongoDB API 컬렉션에 TTL을 사용할 수 있습니다.
+Cosmos DB는 문서의 타임스탬프를 기반으로 TTL(Time to Live)을 지원합니다. [Azure Portal](https://portal.azure.com)로 이동하여 컬렉션에 TTL을 사용하도록 설정할 수 있습니다.
 
 ## <a name="user-and-role-management"></a>사용자 및 역할 관리
 
-Azure Cosmos DB는 아직 사용자 및 역할을 지원하지 않습니다. Azure Cosmos DB는 [Azure Portal](https://portal.azure.com)(연결 문자열 페이지)을 통해 가져올 수 있는 RBAC(역할 기반 액세스 제어), 그리고 읽기-쓰기 및 읽기 전용 암호/키를 지원합니다.
+Cosmos DB는 아직 사용자 및 역할을 지원하지 않습니다. 그러나 Cosmos DB는 [Azure Portal](https://portal.azure.com)(연결 문자열 페이지)을 통해 가져올 수 있는 RBAC(역할 기반 액세스 제어)와 읽기-쓰기 및 읽기 전용 암호/키를 지원합니다.
 
 ## <a name="replication"></a>복제
 
-Azure Cosmos DB는 가장 낮은 계층에서 자동의 네이티브 복제를 지원합니다. 이 논리는 또한 짧은 대기 시간, 글로벌 복제를 달성하기 위해 확장됩니다. Azure Cosmos DB는 수동 복제 명령을 지원하지 않습니다.
+Cosmos DB는 가장 낮은 계층에서 자동 네이티브 복제를 지원합니다. 이 논리는 또한 짧은 대기 시간, 글로벌 복제를 달성하기 위해 확장됩니다. Cosmos DB는 수동 복제 명령을 지원하지 않습니다.
 
 ## <a name="write-concern"></a>쓰기 문제
 
-특정 MongoDB Api는 쓰기 작업 중 필요한 응답 수를 지정하는 [쓰기 문제](https://docs.mongodb.com/manual/reference/write-concern/)를 지정하는 것을 지원합니다. Cosmos DB가 백그라운드에서 복제를 처리하는 방식 때문에 모든 쓰기는 자동으로 쿼럼(기본값)입니다. 클라이언트 코드로 지정된 모든 쓰기 문제는 무시됩니다. [일관성 수준을 사용하여 가용성 및 성능 최대화](consistency-levels.md)에서 자세히 알아보세요.
+일부 애플리케이션은 쓰기 작업 중에 필요한 응답 수를 지정하는 [쓰기 문제](https://docs.mongodb.com/manual/reference/write-concern/)를 사용합니다. Cosmos DB가 백그라운드에서 복제를 처리하는 방식 때문에 모든 쓰기는 자동으로 쿼럼(기본값)입니다. 클라이언트 코드를 통해 지정된 모든 쓰기 문제는 무시됩니다. [일관성 수준을 사용하여 가용성 및 성능 최대화](consistency-levels.md)에서 자세히 알아보세요.
 
 ## <a name="sharding"></a>분할
 
-Azure Cosmos DB는 서버 측 자동 분할을 지원합니다. Azure Cosmos DB는 수동 분할 명령을 지원하지 않습니다.
+Cosmos DB는 서버 측 자동 분할을 지원합니다. Cosmos DB는 수동 분할 명령을 지원하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- MongoDB 데이터베이스용 API와 함께 [Studio 3T를 사용](mongodb-mongochef.md)하는 방법에 대해 알아봅니다.
-- MongoDB 데이터베이스용 API와 함께 [Robo 3T를 사용](mongodb-robomongo.md)하는 방법에 대해 알아봅니다.
-- MongoDB [샘플](mongodb-samples.md)에 대한 프로토콜 지원을 사용하여 Azure Cosmos DB를 탐색합니다.
+- Azure Cosmos DB의 API for MongoDB와 함께 [Studio 3T를 사용](mongodb-mongochef.md)하는 방법을 알아봅니다.
+- Azure Cosmos DB의 API for MongoDB와 함께 [Robo 3T를 사용](mongodb-robomongo.md)하는 방법을 알아봅니다.
+- Azure Cosmos DB의 API for MongoDB를 사용하여 MongoDB [샘플](mongodb-samples.md)을 살펴봅니다.
+
+<sup>참고: 이 문서에서는 MongoDB 데이터베이스와 유선 프로토콜 호환성을 제공하는 Azure Cosmos DB 기능을 설명합니다. Microsoft는 이 서비스를 제공하기 위해 MongoDB 데이터베이스를 실행하지 않습니다. Azure Cosmos DB는 MongoDB, Inc.와 관련이 없습니다.</sup>

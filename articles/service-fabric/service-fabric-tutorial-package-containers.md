@@ -1,6 +1,6 @@
 ---
 title: Azure에서 Service Fabric 앱으로 컨테이너 패키징 및 배포 | Microsoft Docs
-description: 이 자습서에서는 Yeoman을 사용하여 Azure Service Fabric 응용 프로그램 정의를 생성하고 응용 프로그램을 패키지하는 방법을 알아봅니다.
+description: 이 자습서에서는 Yeoman을 사용하여 Azure Service Fabric 애플리케이션 정의를 생성하고 애플리케이션을 패키지하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: ''
 author: suhuruli
@@ -23,17 +23,17 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51255560"
 ---
-# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>자습서: Yeoman을 사용하여 Service Fabric 응용 프로그램으로 컨테이너 패키징 및 배포
+# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>자습서: Yeoman을 사용하여 Service Fabric 애플리케이션으로 컨테이너 패키징 및 배포
 
-이 자습서는 시리즈의 2부입니다. 이 자습서에서는 Service Fabric 응용 프로그램 정의를 생성하는 데 템플릿 생성기 도구(Yeoman)를 사용합니다. 그런 다음 이 응용 프로그램을 사용하여 Service Fabric에 컨테이너를 배포할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서는 시리즈의 2부입니다. 이 자습서에서는 Service Fabric 애플리케이션 정의를 생성하는 데 템플릿 생성기 도구(Yeoman)를 사용합니다. 그런 다음 이 애플리케이션을 사용하여 Service Fabric에 컨테이너를 배포할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Yeoman 설치
-> * Yeoman을 사용하여 응용 프로그램 패키지 만들기
-> * 응용 프로그램 패키지에서 컨테이너에서 사용할 설정 구성
-> * 응용 프로그램 빌드
-> * 응용 프로그램 배포 및 실행
-> * 응용 프로그램 정리
+> * Yeoman을 사용하여 애플리케이션 패키지 만들기
+> * 애플리케이션 패키지에서 컨테이너에서 사용할 설정 구성
+> * 애플리케이션 빌드
+> * 애플리케이션 배포 및 실행
+> * 애플리케이션 정리
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -42,7 +42,7 @@ ms.locfileid: "51255560"
 
 ## <a name="install-yeoman"></a>Yeoman 설치
 
-Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 응용 프로그램을 만들 수 있는 스캐폴딩 도구를 제공합니다. 아래 단계에 따라 Yeoman 템플릿 생성기가 설치되어 있는지 확인합니다.
+Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 애플리케이션을 만들 수 있는 스캐폴딩 도구를 제공합니다. 아래 단계에 따라 Yeoman 템플릿 생성기가 설치되어 있는지 확인합니다.
 
 1. 컴퓨터에서 Node.js 및 NPM을 설치합니다. Mac OSX 사용자는 Homebrew 패키지 관리자를 사용해야 합니다
 
@@ -63,13 +63,13 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 응
 
 ## <a name="package-a-docker-image-container-with-yeoman"></a>Yeoman에서 Docker 이미지 컨테이너 패키징
 
-1. Service Fabric 컨테이너 응용 프로그램을 만들려면 복제된 리포지토리의 'container-tutorial' 디렉터리에서 다음 명령을 실행합니다.
+1. Service Fabric 컨테이너 애플리케이션을 만들려면 복제된 리포지토리의 'container-tutorial' 디렉터리에서 다음 명령을 실행합니다.
 
     ```bash
     yo azuresfcontainer
     ```
-2. "TestContainer"를 입력하여 응용 프로그램의 이름을 지정하세요.
-3. "azurevotefront"를 입력하여 응용 프로그램 서비스의 이름을 지정하세요.
+2. "TestContainer"를 입력하여 애플리케이션의 이름을 지정하세요.
+3. "azurevotefront"를 입력하여 애플리케이션 서비스의 이름을 지정하세요.
 4. 예를 들어 '\<acrName>.azurecr.io/azure-vote-front:v1'과 같이 프런트 엔드 리포지토리에 대해 ACR의 컨테이너 이미지 경로를 제공합니다. \<acrName> 필드는 이전 자습서에서 사용된 값과 동일해야 합니다.
 5. 명령 섹션을 비어 두려면 Enter 키를 누릅니다.
 6. 1이라는 인스턴스 수를 지정합니다.
@@ -90,7 +90,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 응
    create TestContainer/uninstall.sh
 ```
 
-Yeoman을 사용하여 다른 컨테이너 서비스를 이미 만든 응용 프로그램에 추가하려면 다음 단계를 수행합니다.
+Yeoman을 사용하여 다른 컨테이너 서비스를 이미 만든 애플리케이션에 추가하려면 다음 단계를 수행합니다.
 
 1. 디렉터리를 **TestContainer** 디렉터리로 한 수준 변경(예: *./TestContainer*)
 2. `yo azuresfcontainer:AddService` 실행
@@ -118,7 +118,7 @@ $ ls
 ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 ```
 
-## <a name="configure-the-application-manifest-with-credentials-for-azure-container-registry"></a>Azure Container Registry의 자격 증명으로 응용 프로그램 매니페스트 구성
+## <a name="configure-the-application-manifest-with-credentials-for-azure-container-registry"></a>Azure Container Registry의 자격 증명으로 애플리케이션 매니페스트 구성
 
 Service Fabric이 Azure Container Registry에서 컨테이너 이미지를 끌어오려면 **ApplicationManifest.xml**에서 자격 증명을 제공해야 합니다.
 
@@ -223,13 +223,13 @@ redis_server = os.environ['REDIS']
 r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 ```
 
-자습서의 이 시점에서 서비스 패키지 응용 프로그램의 템플릿은 클러스터에 배포하는 데 사용할 수 있습니다. 이후 자습서에서 이 응용 프로그램을 배포하고 Service Fabric 클러스터에서 실행합니다.
+자습서의 이 시점에서 서비스 패키지 애플리케이션의 템플릿은 클러스터에 배포하는 데 사용할 수 있습니다. 이후 자습서에서 이 애플리케이션을 배포하고 Service Fabric 클러스터에서 실행합니다.
 
 ## <a name="create-a-service-fabric-cluster"></a>Service Fabric 클러스터 만들기
 
-응용 프로그램을 Azure의 클러스터에 배포하려면 고유한 클러스터를 만듭니다.
+애플리케이션을 Azure의 클러스터에 배포하려면 고유한 클러스터를 만듭니다.
 
-파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 누구든지 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있는 Service Fabric 팀에서 실행합니다. 파티 클러스터에 대한 액세스 권한을 얻으려면 [지침에 따릅니다](https://aka.ms/tryservicefabric).
+파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 누구든지 애플리케이션을 배포하고 플랫폼에 대해 알아볼 수 있는 Service Fabric 팀에서 실행합니다. 파티 클러스터에 대한 액세스 권한을 얻으려면 [지침에 따릅니다](https://aka.ms/tryservicefabric).
 
 보안 파티 클러스터에서 관리 작업을 수행하기 위해 Service Fabric Explorer, CLI 또는 Powershell을 사용할 수 있습니다. Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에서 PFX 파일을 다운로드하고, 인증서 저장소(Windows 또는 Mac) 또는 브라우저 자체(Ubuntu)로 인증서를 가져와야 합니다. 파티 클러스터의 자체 서명된 인증서에는 암호가 없습니다.
 
@@ -241,9 +241,9 @@ openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1
 
 자체 클러스터를 만드는 방법은 [Azure에서 Service Fabric 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)를 참조하세요.
 
-## <a name="build-and-deploy-the-application-to-the-cluster"></a>응용 프로그램 빌드 및 클러스터에 배포
+## <a name="build-and-deploy-the-application-to-the-cluster"></a>애플리케이션 빌드 및 클러스터에 배포
 
-Service Fabric CLI를 사용하여 Azure 클러스터에 응용 프로그램을 배포할 수 있습니다. Service Fabric CLI가 컴퓨터에 설치되어 있지 않으면 [여기](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli)의 지침에 따라 설치합니다.
+Service Fabric CLI를 사용하여 Azure 클러스터에 애플리케이션을 배포할 수 있습니다. Service Fabric CLI가 컴퓨터에 설치되어 있지 않으면 [여기](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli)의 지침에 따라 설치합니다.
 
 Azure에서 Service Fabric 클러스터에 연결합니다. 샘플 엔드포인트를 고유한 값으로 대체합니다. 엔드포인트는 아래와 비슷한 전체 URL이어야 합니다.
 
@@ -257,17 +257,17 @@ sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19
 ./install.sh
 ```
 
-브라우저를 열고 http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer에서 Service Fabric Explorer로 이동합니다. 응용 프로그램 노드를 확장하면 응용 프로그램 유형에 대한 항목 및 인스턴스에 대한 다른 항목이 만들어집니다.
+브라우저를 열고 http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer에서 Service Fabric Explorer로 이동합니다. 애플리케이션 노드를 확장하면 애플리케이션 유형에 대한 항목 및 인스턴스에 대한 다른 항목이 만들어집니다.
 
 ![Service Fabric Explorer][sfx]
 
-실행 중인 응용 프로그램에 연결하려면 웹 브라우저를 열고 클러스터 URL(예: http://lin0823ryf2he.cloudapp.azure.com:80 )로 이동합니다. 웹 UI에서 선택 응용 프로그램이 표시됩니다.
+실행 중인 애플리케이션에 연결하려면 웹 브라우저를 열고 클러스터 URL(예: http://lin0823ryf2he.cloudapp.azure.com:80 )로 이동합니다. 웹 UI에서 선택 애플리케이션이 표시됩니다.
 
 ![votingapp][votingapp]
 
 ## <a name="clean-up"></a>정리
 
-템플릿에 제공된 제거 스크립트를 사용하여 클러스터에서 응용 프로그램 인스턴스를 삭제하고 응용 프로그램 유형을 등록 해제합니다. 이 명령은 인스턴스를 정리하는 데 시간이 걸리고 'install.sh' 명령은 이 스크립트 직후에 실행할 수 없습니다.
+템플릿에 제공된 제거 스크립트를 사용하여 클러스터에서 애플리케이션 인스턴스를 삭제하고 애플리케이션 유형을 등록 해제합니다. 이 명령은 인스턴스를 정리하는 데 시간이 걸리고 'install.sh' 명령은 이 스크립트 직후에 실행할 수 없습니다.
 
 ```bash
 ./uninstall.sh
@@ -382,17 +382,17 @@ sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Yeoman을 사용하여 Service Fabric 응용 프로그램에 여러 컨테이너를 패키징했습니다. 그런 다음 이 응용 프로그램을 배포하고 Service Fabric 클러스터에서 실행했습니다. 다음 단계가 완료되었습니다.
+이 자습서에서는 Yeoman을 사용하여 Service Fabric 애플리케이션에 여러 컨테이너를 패키징했습니다. 그런 다음 이 애플리케이션을 배포하고 Service Fabric 클러스터에서 실행했습니다. 다음 단계가 완료되었습니다.
 
 > [!div class="checklist"]
 > * Yeoman 설치
-> * Yeoman을 사용하여 응용 프로그램 패키지 만들기
-> * 응용 프로그램 패키지에서 컨테이너에서 사용할 설정 구성
-> * 응용 프로그램 빌드
-> * 응용 프로그램 배포 및 실행
-> * 응용 프로그램 정리
+> * Yeoman을 사용하여 애플리케이션 패키지 만들기
+> * 애플리케이션 패키지에서 컨테이너에서 사용할 설정 구성
+> * 애플리케이션 빌드
+> * 애플리케이션 배포 및 실행
+> * 애플리케이션 정리
 
-Service Fabric에서 응용 프로그램의 장애 조치 및 크기 조정에 대한 자세한 내용은 다음 자습서를 진행하세요.
+Service Fabric에서 애플리케이션의 장애 조치 및 크기 조정에 대한 자세한 내용은 다음 자습서를 진행하세요.
 
 > [!div class="nextstepaction"]
 > [응용 프로그램 장애 조치 및 크기 조정에 대한 자세한 내용](service-fabric-tutorial-containers-failover.md)

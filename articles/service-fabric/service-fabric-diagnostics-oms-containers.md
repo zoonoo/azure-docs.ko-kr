@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/1/2017
 ms.author: dekapur
-ms.openlocfilehash: aabdae370c28f8fa633372be4505c00c25254408
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: d5fd55ec93ce07e30e4c6f123f9be8492581053c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403253"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972255"
 ---
 # <a name="monitor-containers-with-log-analytics"></a>Log Analytics를 사용하여 컨테이너 모니터링
  
@@ -53,7 +53,7 @@ ms.locfileid: "49403253"
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics 컨테이너 솔루션](../log-analytics/log-analytics-containers.md)에 대해 자세히 알아봅니다.
+* [Log Analytics 컨테이너 솔루션](../azure-monitor/insights/containers.md)에 대해 자세히 알아봅니다.
 * Service Fabric - [Service Fabric 및 컨테이너](service-fabric-containers-overview.md)에서 컨테이너 오케스트레이션에 대해 자세히 알아보세요.
 * Log Analytics의 일부로 제공되는 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) 기능 알아보기
 * 검색 및 진단에 도움이 되는 [자동 경고](../log-analytics/log-analytics-alerts.md) 규칙을 설정하도록 Log Analytics를 구성합니다.

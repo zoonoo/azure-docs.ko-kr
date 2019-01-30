@@ -85,7 +85,7 @@ Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원�
 * 두 번째 저장소 암호화 ContentKey를 저장소 암호화된 Asset에 연결하려는 시도가 있었습니다.
 * 동일한 ContentKey를 Asset에 연결하려는 시도가 있었습니다.
 * 저장소 컨테이너가 누락되었거나 더 이상 해당 Asset과 연결되지 않은 Asset에 로케이터를 만들려는 시도가 있었습니다.
-* 사용 중인 로케이터가 5개 있는 Asset에 로케이터를 만들려는 시도가 있었습니다. (Azure Storage는 한 개의 저장소 컨테이너에 다섯 개의 공유 액세스 정책이란 제한을 적용합니다.)
+* 사용 중인 로케이터가 5개 있는 Asset에 로케이터를 만들려는 시도가 있었습니다. (Azure Storage는 한 개의 스토리지 컨테이너에 다섯 개의 공유 액세스 정책이란 제한을 적용합니다.)
 * Asset을 IngestManifestAsset에 연결하는 저장소 계정은 상위 IngestManifest에서 사용되는 저장소 계정과는 다릅니다.  
 
 ## <a name="500-internal-server-error"></a>500 내부 서버 오류
@@ -96,7 +96,7 @@ Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원�
 * 기타 예기치 않은 오류.
 
 ## <a name="503-service-unavailable"></a>503 서비스를 사용할 수 없음
-서버는 현재 요청을 받을 수 없습니다. 이 오류는 서비스에 요청을 과도하게 해서 발생할 수 있습니다. Media Services 제한 메커니즘은 서비스에 과도한 요청을 보내는 응용 프로그램의 리소스 사용을 제한합니다.
+서버는 현재 요청을 받을 수 없습니다. 이 오류는 서비스에 요청을 과도하게 해서 발생할 수 있습니다. Media Services 제한 메커니즘은 서비스에 과도한 요청을 보내는 애플리케이션의 리소스 사용을 제한합니다.
 
 > [!NOTE]
 > 503 오류가 발생하는 이유에 관한 자세한 정보를 얻기 위해 오류 메시지 및 오류 코드 문자열을 확인합니다. 이 오류가 항상 제한을 의미하지는 않습니다.
@@ -109,7 +109,7 @@ Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원�
 * "서버가 사용 중입니다. 초당 요청이 {0}개보다 많을 경우 제한될 수 있습니다."
 * "서버가 사용 중입니다. {1}초 내에 요청이 {0}개보다 많을 경우 제한될 수 있습니다."
 
-이 오류를 처리하려면 지수적 백오프 재시도 논리를 사용 하는 것이 좋습니다. 연속된 오류 응답에 대해 재시도 간에 점진적으로 더 긴 대기 시간을 두는 것을 의미합니다.  자세한 내용은 [일시적인 오류 처리 응용 프로그램 블록(영문)](https://msdn.microsoft.com/library/hh680905.aspx)을 참조하세요.
+이 오류를 처리하려면 지수적 백오프 재시도 논리를 사용 하는 것이 좋습니다. 연속된 오류 응답에 대해 재시도 간에 점진적으로 더 긴 대기 시간을 두는 것을 의미합니다.  자세한 내용은 [일시적인 오류 처리 애플리케이션 블록(영문)](https://msdn.microsoft.com/library/hh680905.aspx)을 참조하세요.
 
 > [!NOTE]
 > [.Net용 Azure Media Services SDK](https://github.com/Azure/azure-sdk-for-media-services/tree/master)를 사용 중인 경우 503 오류에 대한 재시도 논리는 SDK로 구현되었습니다.  

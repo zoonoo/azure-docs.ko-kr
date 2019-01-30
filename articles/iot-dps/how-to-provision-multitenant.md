@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 73ff58148ac68b7aeb782b77385f9f971e02edb5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9b1d3506c400a3a2d8002feed0181deac39b3821
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457394"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344094"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법 
 
 프로비저닝 서비스에 정의된 할당 정책은 다양한 할당 시나리오를 지원합니다. 가장 일반적인 두 가지 시나리오는 다음과 같습니다.
 
-* **지리적 위치/지리적 대기 시간**: 여러 위치 간에 장치를 이동하면서, 각 위치에 가장 가까운 IoT Hub로 장치를 프로비전하여 네트워크 대기 시간이 짧아집니다. 이 시나리오에서는 지역에 걸쳐 있는 IoT Hub 그룹이 등록을 위해 선택됩니다. 이러한 등록에 대해 **최저 대기 시간** 할당 정책이 선택되었습니다. 이 정책에 따라 Device Provisioning Service는 디바이스 대기 시간을 평가하고 IoT Hub 그룹 중에서 가장 가까운 IoT Hub를 확인합니다. 
+* **지리적 위치/지리적 대기 시간**: 여러 위치 간에 디바이스를 이동하면서, 각 위치에 가장 가까운 IoT 허브로 디바이스를 프로비전하여 네트워크 대기 시간이 짧아집니다. 이 시나리오에서는 지역에 걸쳐 있는 IoT Hub 그룹이 등록을 위해 선택됩니다. 이러한 등록에 대해 **최저 대기 시간** 할당 정책이 선택되었습니다. 이 정책에 따라 Device Provisioning Service는 디바이스 대기 시간을 평가하고 IoT Hub 그룹 중에서 가장 가까운 IoT Hub를 확인합니다. 
 
-* **다중 테넌시**: IoT 솔루션 내에서 사용되는 장치를 특정 IoT Hub 또는 IoT Hub 그룹에 할당해야 할 수 있습니다. 이 솔루션은 특정 테넌트의 모든 디바이스가 특정 IoT Hub 그룹과 통신하도록 요구할 수 있습니다. 일부 경우에는 테넌트가 자신의 IoT Hub를 소유하고 디바이스를 IoT Hub에 할당하도록 요구할 수 있습니다.
+* **다중 테넌트**: IoT 솔루션 내에서 사용되는 디바이스를 특정 IoT 허브 또는 IoT 허브 그룹에 할당해야 할 수 있습니다. 이 솔루션은 특정 테넌트의 모든 디바이스가 특정 IoT Hub 그룹과 통신하도록 요구할 수 있습니다. 일부 경우에는 테넌트가 자신의 IoT Hub를 소유하고 디바이스를 IoT Hub에 할당하도록 요구할 수 있습니다.
 
 이러한 두 시나리오를 결합하는 것이 일반적입니다. 예를 들어 다중 테넌트 IoT 솔루션은 일반적으로 지역에 분산된 IoT Hub 그룹을 사용하여 테넌트 디바이스를 할당합니다. 이러한 테넌트 디바이스는 해당 그룹에서 지리적 위치에 따라 대기 시간이 가장 낮은 IoT Hub에 할당될 수 있습니다.
 
@@ -94,20 +94,20 @@ ms.locfileid: "49457394"
 
     **그룹 이름**: **contoso-us-devices**를 입력합니다.
 
-    **증명 형식**: **대칭 키**를 선택합니다.
+    **증명 유형**: **대칭 키**를 선택합니다.
 
     **키 자동 생성**: 이 확인란은 이미 선택되어 있습니다.
 
-    **허브에 장치를 할당할 방법 선택**: **최저 대기 시간**을 선택합니다.
+    **허브에 디바이스를 할당할 방법 선택**: **최저 대기 시간**을 선택합니다.
 
     ![대칭 키 증명에 대한 다중 테넌트 등록 그룹 추가](./media/how-to-provision-multitenant/create-multitenant-enrollment.png)
 
 
 4. **등록 그룹 추가**에서 **새IoT Hub 연결**을 클릭하여 두 지역별 허브를 연결합니다.
 
-    **구독**: 여러 구독이 있는 경우 지역별 IoT Hub를 만든 구독을 선택합니다.
+    **구독**: 여러 구독이 있는 경우 지역별 IoT 허브를 만든 구독을 선택합니다.
 
-    **IoT Hub**: 직접 만든 부서 허브 중 하나를 선택합니다.
+    **IoT 허브**: 직접 만든 지역별 허브 중 하나를 선택합니다.
 
     **액세스 정책**: **iothubowner**를 선택합니다.
 
@@ -130,16 +130,16 @@ ms.locfileid: "49457394"
 
 1. Azure Cloud Shell에서 다음과 같이 명령 매개 변수를 변경한 후 명령을 실행하여 **미국 동부** 지역 VM을 만듭니다.
 
-    **--name**: **미국 동부** 지역별 장치 VM의 고유한 이름을 입력합니다. 
+    **--name**: **미국 동부** 지역별 디바이스 VM의 고유한 이름을 입력합니다. 
 
     **--admin-username**: 고유한 관리 사용자 이름을 사용합니다.
 
-    **--admin-password**: 고유한 관리 사용자 암호를 사용합니다.
+    **--admin-password**: 고유한 관리자 암호를 사용합니다.
 
     ```azurecli-interactive
     az vm create \
     --resource-group contoso-us-resource-group \
-    --name ContosoSimDeviceEest \
+    --name ContosoSimDeviceEast \
     --location eastus \
     --image Canonical:UbuntuServer:18.04-LTS:18.04.201809110 \
     --admin-username contosoadmin \
@@ -151,11 +151,11 @@ ms.locfileid: "49457394"
 
 1. Azure Cloud Shell에서 다음과 같이 명령 매개 변수를 변경한 후 명령을 실행하여 **미국 서부** 지역 VM을 만듭니다.
 
-    **--name**: **미국 서부** 지역별 장치 VM의 고유한 이름을 입력합니다. 
+    **--name**: **미국 서부** 지역별 디바이스 VM의 고유한 이름을 입력합니다. 
 
     **--admin-username**: 고유한 관리 사용자 이름을 사용합니다.
 
-    **--admin-password**: 고유한 관리 사용자 암호를 사용합니다.
+    **--admin-password**: 고유한 관리자 암호를 사용합니다.
 
     ```azurecli-interactive
     az vm create \
@@ -220,7 +220,7 @@ ms.locfileid: "49457394"
 1. 두 VM에 대해 개발 클라이언트 플랫폼에 특정된 SDK 버전을 빌드하는 다음 명령을 실행합니다. 
 
     ```bash
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
     빌드가 성공되면 마지막 몇몇 출력 줄은 다음 출력과 유사하게 표시됩니다.
@@ -257,9 +257,9 @@ Bash 셸 예제를 사용하여 **openssl**을 통해 각 디바이스에 대해
 
 - **KEY**의 값을 등록을 위해 이전에 적어 둔 **기본 키**로 바꿉니다.
 
-- **REG_ID**의 값을 각 장치에 대한 고유한 등록 ID로 바꿉니다. 소문자 영숫자 및 대시( '-') 문자를 사용하여 두 ID를 정의합니다.
+- **REG_ID**의 값을 각 디바이스에 대한 고유한 등록 ID로 바꿉니다. 소문자 영숫자 및 대시( '-') 문자를 사용하여 두 ID를 정의합니다.
 
-*contoso-simdevice-east*에 대한 장치 키 생성 예제:
+*contoso-simdevice-east*에 대한 디바이스 키 생성 예제:
 
 ```bash
 KEY=rLuyBPpIJ+hOre2SFIP9Ajvdty3j0EwSP/WvTVH9eZAw5HpDuEmf13nziHy5RRXmuTy84FCLpOnhhBPASSbHYg==
@@ -273,7 +273,7 @@ echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | ba
 p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=
 ```
 
-*contoso-simdevice-west*에 대한 장치 키 생성 예제:
+*contoso-simdevice-west*에 대한 디바이스 키 생성 예제:
 
 ```bash
 KEY=rLuyBPpIJ+hOre2SFIP9Ajvdty3j0EwSP/WvTVH9eZAw5HpDuEmf13nziHy5RRXmuTy84FCLpOnhhBPASSbHYg==
@@ -327,28 +327,28 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-
-1. 두 VM에서 **~/azure-iot-sdk-c/provisioning\_client/adapters/hsm\_client\_key.c**를 엽니다. 
-
-    ```bash
-     vi ~/azure-iot-sdk-c/provisioning_client/adapters/hsm_client_key.c
-    ```
-
-1. `REGISTRATION_NAME` 및 `SYMMETRIC_KEY_VALUE` 상수의 선언을 찾습니다. 두 지역별 VM에서 파일을 다음과 같이 변경한 후 저장합니다.
-
-    `REGISTRATION_NAME` 상수의 값을 **장치의 고유 등록 ID**로 업데이트합니다.
-    
-    `SYMMETRIC_KEY_VALUE` 상수의 값을 **파생된 장치 키**로 업데이트합니다.
+1. 두 VM에서 모두 **prov\_dev\_client\_sample.c**에서 주석으로 처리된 `prov_dev_set_symmetric_key_info()` 호출을 찾습니다.
 
     ```c
-    static const char* const REGISTRATION_NAME = "contoso-simdevice-east";
-    static const char* const SYMMETRIC_KEY_VALUE = "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
+    함수 호출의 주석 처리를 제거하고 자리 표시자 값(꺾쇠 괄호 포함)을 각 디바이스의 고유한 등록 ID 및 파생된 디바이스 키로 바꿉니다. 아래 표시된 키는 예제 목적으로만 제공됩니다. 이전에 생성한 키를 사용합니다.
+
+    미국 동부:
     ```c
-    static const char* const REGISTRATION_NAME = "contoso-simdevice-west";
-    static const char* const SYMMETRIC_KEY_VALUE = "J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=";
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("contoso-simdevice-east", "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=");
     ```
+
+    미국 서부:
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("contoso-simdevice-west", "J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=");
+    ```
+
+    파일을 저장합니다.
 
 1. 두 VM에서 아래에 표시된 샘플 폴더로 이동한 후 샘플을 빌드합니다.
 
@@ -358,6 +358,13 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
     ```
 
 1. 빌드가 성공적으로 수행되면 두 VM에서 **prov\_dev\_client\_sample.exe**를 실행하여 각 지역에서 테넌트 디바이스를 시뮬레이트합니다. 각 디바이스는 시뮬레이트된 디바이스 지역에 가장 가까운 테넌트 IoT Hub에 할당됩니다.
+
+    시뮬레이션 실행:
+    ```bash
+    ~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample
+    ```
+
+    미국 동부 VM의 출력 예제:
 
     ```bash
     contosoadmin@ContosoSimDeviceEast:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
@@ -374,6 +381,7 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 
     ```
 
+    미국 서부 VM의 출력 예제:
     ```bash
     contosoadmin@ContosoSimDeviceWest:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
     Provisioning API Version: 1.2.9

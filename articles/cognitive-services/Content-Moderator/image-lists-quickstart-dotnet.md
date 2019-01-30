@@ -32,7 +32,7 @@ ms.locfileid: "49309402"
 > [!NOTE]
 > 최대 **5개 이미지 목록**으로 제한되고, 각 목록은 **10,000개 이미지를 초과하지 않아야** 합니다.
 
-이 빠른 시작에 대한 콘솔 응용 프로그램은 이미지 목록 API로 수행할 수 있는 작업 중 일부를 시뮬레이션합니다.
+이 빠른 시작에 대한 콘솔 애플리케이션은 이미지 목록 API로 수행할 수 있는 작업 중 일부를 시뮬레이션합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
@@ -123,7 +123,7 @@ public static class Clients
 ```
 
 
-### <a name="initialize-application-specific-settings"></a>응용 프로그램 관련 설정 초기화
+### <a name="initialize-application-specific-settings"></a>애플리케이션 관련 설정 초기화
 
 Program.cs의 **Program** 클래스에 다음 클래스 및 정적 필드를 추가합니다.
 
@@ -670,7 +670,7 @@ Console.ReadKey();
 
 ## <a name="run-the-program-and-review-the-output"></a>프로그램 실행 및 출력 검토
 
-목록 ID와 이미지 콘텐츠 ID는 응용 프로그램을 실행할 때마다 다릅니다.
+목록 ID와 이미지 콘텐츠 ID는 애플리케이션을 실행할 때마다 다릅니다.
 프로그램에 의해 기록된 로그 파일에는 다음과 같은 출력이 있습니다.
 
 ```json

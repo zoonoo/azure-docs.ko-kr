@@ -1,6 +1,6 @@
 ---
-title: Azure의 SQL Server에서 데이터 샘플링 | Microsoft Docs
-description: Azure의 SQL Server에서 데이터 샘플링
+title: Azure의 SQL Server에서 샘플 데이터 - Team Data Science Process
+description: SQL 또는 Python 프로그래밍 언어를 사용하여 Azure의 SQL Server에 저장된 데이터를 샘플링한 다음, Azure Machine Learning으로 이동합니다.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 6483ba9f070252f58e0e3706472939dbfab12b59
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 076e2aec249407406d42357df0dc8e74e9362992
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445041"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446666"
 ---
 # <a name="heading"></a>Azure의 SQL Server에서 데이터 샘플링
 
@@ -30,9 +30,9 @@ Python 샘플링은 Azure의 SQL Sever와 [Pandas](http://pandas.pydata.org/) �
 > 
 
 **데이터를 샘플링하는 이유**
-분석할 데이터 세트가 큰 경우 일반적으로 데이터를 다운 샘플링하여 작지만 전형적이고 관리하기 쉬운 크기로 줄이는 것이 좋습니다. 그러면 데이터 이해, 탐색 및 기능 엔지니어링이 용이해집니다. [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 에서는 데이터 처리 기능 및 기계 학습 모델의 빠른 프로토타입 제작을 지원하는 역할을 합니다.
+분석할 데이터 세트가 큰 경우 일반적으로 데이터를 다운 샘플링하여 작지만 전형적이고 관리하기 쉬운 크기로 줄이는 것이 좋습니다. 그러면 데이터 이해, 탐색 및 기능 엔지니어링이 용이해집니다. [TDSP(팀 데이터 과학 프로세스)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) 에서는 데이터 처리 기능 및 기계 학습 모델의 빠른 프로토타입 제작을 지원하는 역할을 합니다.
 
-이 샘플 작업은 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 단계입니다.
+이 샘플 작업은 [TDSP(팀 데이터 과학 프로세스)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)의 단계입니다.
 
 ## <a name="SQL"></a>SQL 사용
 이 섹션에는 SQL을 사용하여 데이터베이스의 데이터에 대해 간단한 무작위 샘플링을 수행하는 몇 가지 방법을 설명합니다. 데이터 크기 및 해당 분포에 따라 방법을 선택하세요.
@@ -76,7 +76,7 @@ Python의 [Pandas](http://pandas.pydata.org/) 라이브러리에서는 Python �
     import pandas as pd
 
     # Query database and load the returned results in pandas data frame
-    data_frame = pd.read_sql('''select column1, cloumn2... from <table_name> tablesample (0.1 percent)''', conn)
+    data_frame = pd.read_sql('''select column1, column2... from <table_name> tablesample (0.1 percent)''', conn)
 
 이제 Pandas 데이터 프레임에서 샘플링된 데이터로 작업할 수 있습니다. 
 

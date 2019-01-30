@@ -40,7 +40,7 @@ Reserved Virtual Machine Instances의 경우 [Azure Reserved VM Instances 할인
 - 시나리오 3: 오후 1시에서 오후 1시 30분까지 하나의 16코어 SQL Database를 실행합니다. 오후 1시 30분에서 오후 2시까지 다른 16코어 SQL Database를 실행합니다. 둘 다 예약 할인에 포함됩니다.
 - 시나리오 4: 오후 1시에서 오후 1시 45분까지 하나의 16코어 SQL Database를 실행합니다. 오후 1시 30분에서 오후 2시까지 다른 16코어 SQL Database를 실행합니다. 15분의 중복에 대한 종량제 가격으로 요금이 청구됩니다. 예약 할인은 나머지 시간에 대한 계산 사용량에 적용됩니다.
 
-청구 사용량 보고서에서 Azure 예약의 응용 프로그램을 이해하고 보려면 [Azure 예약 사용량 이해](https://go.microsoft.com/fwlink/?linkid=862757)를 참조하세요.
+청구 사용량 보고서에서 Azure 예약의 애플리케이션을 이해하고 보려면 [Azure 예약 사용량 이해](https://go.microsoft.com/fwlink/?linkid=862757)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

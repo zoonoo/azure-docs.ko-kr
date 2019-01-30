@@ -1,7 +1,7 @@
 ---
 title: 자습서 - Azure DevOps Services를 사용하여 Jenkins에서 Azure VM으로 CI/CD | Microsoft Docs
 description: 이 자습서에서는 Jenkins를 사용하여 Node.js 앱을 Visual Studio Team Services 또는 Microsoft Team Foundation Server의 Release Management에서 Azure VM으로 CI(연속 통합) 및 CD(연속 배포)를 설정하는 방법을 알아봅니다.
-author: tomarcher
+author: tomarchermsft
 manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 4e91c0287bfe50b297b9a3ef118ececb67909f21
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 651e8505c6d3a3952347bba5e598ec9a0a518e8e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388495"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074770"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>자습서: Jenkins 및 Azure DevOps Services를 사용하여 Azure에서 Linux 가상 머신에 앱 배포
 
@@ -55,7 +55,7 @@ Linux VM(가상 머신)을 포함하는 [배포 그룹](https://docs.microsoft.c
 ## <a name="get-the-sample-app"></a>샘플 앱 가져오기
 
 Git 리포지토리에 저장된 앱을 배포해야 합니다.
-이 자습서에서는 [GitHub에서 제공되는 이 샘플 앱](https://github.com/azooinmyluggage/fabrikam-node)을 사용하는 것이 좋습니다. 이 자습서에는 Node.js와 응용 프로그램을 설치하는 데 사용되는 샘플 스크립트가 포함되어 있습니다. 자신의 리포지토리로 작업하려면 유사한 샘플을 구성해야 합니다.
+이 자습서에서는 [GitHub에서 제공되는 이 샘플 앱](https://github.com/azooinmyluggage/fabrikam-node)을 사용하는 것이 좋습니다. 이 자습서에는 Node.js와 애플리케이션을 설치하는 데 사용되는 샘플 스크립트가 포함되어 있습니다. 자신의 리포지토리로 작업하려면 유사한 샘플을 구성해야 합니다.
 
 이 앱의 포크를 만든 다음, 이 자습서의 이후 단계에서 사용할 수 있도록 해당 위치(URL)를 적어 둡니다. 자세한 내용은 [리포지토리 포크](https://help.github.com/articles/fork-a-repo/)를 참조하세요.    
 
@@ -68,7 +68,7 @@ Git 리포지토리에 저장된 앱을 배포해야 합니다.
 
 ## <a name="configure-jenkins-plug-ins"></a>Jenkins 플러그 인 구성
 
-먼저 두 개의 Jenkins 플러그 인, 즉 **NodeJS**와 **VS Team Services Continuous Deployment**(VS Team Services 연속 배포)를 구성해야 합니다.
+먼저 두 개의 Jenkins 플러그 인 **NodeJS** 및 **VS 팀 서비스 지속적인 배포**를 구성해야 합니다.
 
 1. Jenkins 계정을 열고 **Manage Jenkins**(Jenkins 관리)를 선택합니다.
 2. **Manage Jenkins**(Jenkins 관리) 페이지에서 **Manage Plugins**(플러그 인 관리)를 선택합니다.
@@ -164,7 +164,7 @@ Azure Pipelines에서 릴리스 파이프라인을 만들려면
 
 1. **+ 릴리스**, **릴리스 만들기**를 차례로 선택합니다.
 2. 강조 표시된 드롭다운 목록에서 완성한 빌드를 선택하고 **큐**를 선택합니다.
-3. 팝업 메시지에서 릴리스 링크를 선택합니다. 예를 들어 "**Release-1** 릴리스를 만들었습니다."를 선택합니다.
+3. 팝업 메시지에서 릴리스 링크를 선택합니다. 예:  "**Release-1** 릴리스를 만들었습니다."
 4. **로그** 탭을 열어 릴리스 콘솔 출력을 확인합니다.
 5. 브라우저에서 배포 그룹에 추가한 서버 중 하나의 URL을 엽니다. 예를 들어 **http://{your-server-ip-address}** 를 입력합니다.
 6. 소스 Git 리포지토리로 이동하여 app/views/index.jade 파일의 **h1** 제목 내용을 변경된 텍스트로 수정합니다.

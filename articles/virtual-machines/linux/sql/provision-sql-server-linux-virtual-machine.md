@@ -2,22 +2,23 @@
 title: Azure에서 Linux SQL Server 2017 VM 만들기 | Microsoft Docs
 description: 이 자습서는 Azure Portal에서 Linux SQL Server 2017 가상 머신을 만드는 방법을 보여줍니다.
 services: virtual-machines-linux
-author: rothja
-ms.author: jroth
-manager: jhubbard
-ms.date: 05/11/2018
+author: MashaMSFT
+manager: craigg
+ms.date: 12/5/2018
 ms.topic: hero-article
 tags: azure-service-management
 ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: b86dd47c112c38bc65c045158787d19b470899a0
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 4087cd93b7342958717a20a08832daba1123417f
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071723"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330741"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Linux SQL Server 가상 컴퓨터 프로비전
 
@@ -25,9 +26,9 @@ ms.locfileid: "34071723"
 > * [Linux](provision-sql-server-linux-virtual-machine.md)
 > * [Windows](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)
 
-이 빠른 시작 자습서에서는 Azure Portal을 사용하여 SQL Server 2017이 설치된 Linux 가상 컴퓨터를 만듭니다.
+이 빠른 시작 자습서에서는 Azure Portal을 사용하여 SQL Server 2017이 설치된 Linux 가상 머신을 만듭니다.
 
-이 자습서에서는 다음을 수행합니다.
+이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 * [갤러리에서 Linux SQL VM 만들기](#create)
 * [SSH를 사용하여 새로운 VM에 연결](#connect)
@@ -36,58 +37,75 @@ ms.locfileid: "34071723"
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 
 ## <a id="create"></a>SQL Server가 설치된 Linux VM 만들기
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. 왼쪽 창에서 **리소스 만들기**를 클릭합니다.
+1. 왼쪽 창에서 **리소스 만들기**를 선택합니다.
 
-1. **리소스 만들기** 창에서 **계산**을 클릭합니다.
+1. **리소스 만들기** 창에서 **컴퓨팅**을 선택합니다.
 
-1. **추천** 제목 옆에 있는 **모두 보기**를 클릭합니다.
+1. **추천** 제목 옆에 있는 **모두 보기**를 선택합니다.
 
    ![모든 VM 이미지를 봅니다.](./media/provision-sql-server-linux-virtual-machine/azure-compute-blade.png)
 
-1. 검색 상자에 **SQL Server 2017**을 입력하고 **Enter** 키를 눌러 검색을 시작합니다.
+1. 검색 상자에 **SQL Server 2017**을 입력하고 **Enter**를 선택하여 검색을 시작합니다.
 
-1. **필터** 아이콘을 클릭하고, 검색을 **Linux 기반**, **Microsoft** 이미지로 제한한 후 **완료**를 클릭합니다.
+1. **운영 체제** > **Redhat**을 선택하여 검색 결과를 제한합니다. 그런 다음, **게시자**에서 **Microsoft**를 선택합니다.
 
     ![SQL Server 2017 VM 이미지의 검색 필터](./media/provision-sql-server-linux-virtual-machine/searchfilter.png)
 
-1. 검색 결과에서 SQL Server 2017 Linux 이미지를 선택합니다. 이 자습서에서는 **체험용 SQL Server 라이선스: Red Hat Enterprise Linux 7.4의 SQL Server 2017 Developer**를 사용합니다.
+1. 검색 결과에서 SQL Server 2017 Linux 이미지를 선택합니다. 이 자습서에서는 **평가판 SQL Server 라이선스: SQL Server 2017 Developer on Red Hat Enterprise Linux 7.4**를 사용합니다.
 
    > [!TIP]
-   > Developer edition을 사용하면 SQL Server 라이선스의 비용 없이 Enterprise edition의 기능을 사용하여 테스트하거나 개발할 수 있습니다. Linux VM을 실행하는 비용만을 지불합니다.
+   > Developer 버전을 사용하면 SQL Server 라이선스의 비용 없이 Enterprise 버전의 기능을 사용하여 테스트하거나 개발할 수 있습니다. Linux VM을 실행하는 비용만을 지불합니다.
 
-1. **만들기**를 클릭합니다.
+1. **배포 모델 선택**에서 워크로드 요구 사항에 맞는 배포 모델을 선택합니다.
 
-1. **기본 사항** 창에 Linux VM에 대한 세부 정보를 입력합니다. 
+    > [!Note]
+    > 새 워크로드의 경우 **Resource Manager**를 사용합니다. 기존 가상 네트워크에 연결하려면 워크로드에 대한 가상 네트워크의 배포 방법을 선택합니다. 배포 모델에 대한 자세한 내용은 [Azure Resource Manager 및 클래식 배포 모델](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model)을 참조하세요.
+
+1. **만들기**를 선택합니다.
+
+### <a name="set-up-your-linux-vm"></a>Linux VM 설정
+
+1. **기본** 탭에서 **구독** 및 **리소스 그룹**을 선택합니다. 
 
     ![기본 사항 창](./media/provision-sql-server-linux-virtual-machine/basics.png)
 
-    > [!Note]
-    > 인증을 위해 SSH 공개 키를 사용할지 아니면 암호를 사용할지 선택할 수 있습니다. SSH는 더 안전합니다. SSH 키를 생성하는 방법에 대한 지침은 [Azure의 Linux VM용 Linux 및 Mac에서 SSH 키 만들기](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys)를 참조하세요.
-
-1. **확인**을 클릭합니다.
-
-1. **크기** 창에서 컴퓨터 크기를 선택합니다. VM 컴퓨터 크기에 대한 자세한 내용은 [Linux VM 크기](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes)를 참조하세요.
+1. **가상 머신 이름**에서 새 Linux VM에 사용할 이름을 입력합니다.
+1. 그런 다음, 다음 값을 입력하거나 선택합니다.
+    * **지역**: 적합한 Azure 지역을 선택합니다.
+    * **가용성 옵션**: 앱과 데이터에 가장 적합한 가용성 및 중복성 옵션을 선택합니다.
+    * **크기 변경**: 이 옵션을 선택하여 머신 크기를 고르고 완료하면 **선택**을 누릅니다. VM 컴퓨터 크기에 대한 자세한 내용은 [Linux VM 크기](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes)를 참조하세요.
 
     ![VM 크기 선택](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
    > [!TIP]
-   > 개발 및 기능 테스트에 **DS2** 이상인 VM 크기를 사용하는 것이 좋습니다. 성능 테스트에 **DS13** 이상을 사용하는 것이 좋습니다.
+   > 개발 및 기능 테스트의 경우 **DS2** 이상인 VM 크기를 사용합니다. 성능 테스트에 **DS13** 이상을 사용하는 것이 좋습니다.
 
-1. **선택**을 클릭합니다.
+    * **인증 형식**: **SSH 공개 키**를 선택합니다.
 
-1. **설정** 창의 **공용 인바운드 포트 선택** 목록에서 **SSH(22)** 포트를 선택합니다. 이 빠른 시작에서 SQL Server에 연결하고 구성을 완료하려면 이 작업이 필요합니다. SQL Server에 원격으로 연결하려면 **MS SQL(1433)** 을 선택하여 인터넷 연결을 위한 1433 포트도 열어야 합니다.
+    > [!Note]
+    > 인증을 위해 SSH 공개 키를 사용할지 아니면 암호를 사용할지 선택할 수 있습니다. SSH는 더 안전합니다. SSH 키를 생성하는 방법에 대한 지침은 [Azure의 Linux VM용 Linux 및 Mac에서 SSH 키 만들기](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys)를 참조하세요.
+
+    * **사용자 이름**: VM에 사용할 관리자 이름을 입력합니다.
+    * **SSH 공개 키**: RSA 공개 키를 입력합니다.
+    * **공용 인바운드 포트**: **선택한 포트 허용**을 선택하고 **공용 인바운드 포트 선택** 목록에서 **SSH(22)** 포트를 선택합니다. 이 빠른 시작에서 SQL Server 구성을 연결하고 완료하려면 이 단계가 필요합니다. SQL Server에 원격으로 연결하려면 **MS SQL(1433)** 을 선택하여 인터넷 연결을 위한 1433 포트도 열어야 합니다.
 
    ![인바운드 포트](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
 
-1. 다른 설정으로 변경해도 되고 기본 설정을 그대로 유지해도 됩니다. 그런 후 **OK**를 클릭합니다.
+1. 다음 추가 탭에서 원하는 설정 항목을 변경하거나 기본 설정을 유지합니다.
+    * **디스크**
+    * **네트워킹**
+    * **관리**
+    * **게스트 구성**
+    * **태그**
 
-1. **요약** 페이지에서 **구매**를 클릭하여 VM을 만듭니다.
+1. **검토 + 만들기**를 선택합니다.
+1. **검토 + 만들기** 창에서 **만들기**를 선택합니다.
 
 ## <a id="connect"></a> Linux VM에 연결
 
@@ -101,7 +119,7 @@ Azure Portal에서 VM의 IP 주소를 찾을 수 있습니다.
 
 ![Azure Portal의 IP 주소](./media/provision-sql-server-linux-virtual-machine/vmproperties.png)
 
-Windows에서 실행하고 BASH 셸이 설치되지 않은 경우 PuTTY와 같은 SSH 클라이언트를 설치할 수 있습니다.
+Windows에서 실행 중이고 BASH 셸이 설치되지 않은 경우 PuTTY와 같은 SSH 클라이언트를 설치합니다.
 
 1. [PuTTY 다운로드 및 설치](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
@@ -109,9 +127,12 @@ Windows에서 실행하고 BASH 셸이 설치되지 않은 경우 PuTTY와 같�
 
 1. PuTTY 구성 화면에서 VM의 공용 IP 주소를 입력합니다.
 
-1. 열기를 클릭하고 프롬프트에 사용자 이름 및 암호를 입력합니다.
+1. **열기**를 선택하고 프롬프트에 사용자 이름 및 암호를 입력합니다.
 
 Linux VM에 연결하는 방법에 대한 자세한 내용은 [포털을 사용하여 Azure에서 Linux VM 만들기](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal#ssh-to-the-vm)를 참조하세요.
+
+> [!Note]
+> 레지스트리에서 캐시되지 않은 서버의 호스트 키에 대한 PuTTY 보안 경고가 표시되는 경우 다음 옵션 중에서 선택합니다. 이 호스트를 신뢰하는 경우 **예**를 선택하여 PuTTy의 캐시에 키를 추가하여 연결을 계속합니다. 한 번만 연결을 수행하려는 경우 캐시에 키를 추가하지 않고 **아니요**를 선택합니다. 이 호스트를 신뢰하지 않는 경우 **취소**를 선택하여 연결을 중단합니다.
 
 ## <a id="password"></a> SA 암호 변경
 
@@ -154,10 +175,8 @@ Azure VM의 SQL Server에 원격으로 연결해야 할 경우 네트워크 보�
 > 프로비전하는 동안 설정에서 인바운드 포트 **MS SQL(1433)** 을 선택한 경우 사용자를 대신하여 이러한 설정이 지정됩니다. 방화벽 구성 방법에 대한 그 다음 섹션으로 넘어가도 됩니다.
 
 1. 포털에서 **가상 머신**를 선택한 다음 SQL Server VM을 선택합니다.
-
-1. 속성 목록에서 **네트워킹**을 선택합니다.
-
-1. **네트워킹** 창의 **인바운드 포트 규칙** 아래에서 **추가** 단추를 클릭합니다.
+1. 왼쪽 탐색 메뉴의 **설정**에서 **네트워킹**을 선택합니다.
+1. 네트워킹 창의 **인바운드 포트 규칙**에서 **인바운드 포트 추가**를 선택합니다.
 
    ![인바운드 포트 규칙](./media/provision-sql-server-linux-virtual-machine/networking.png)
 

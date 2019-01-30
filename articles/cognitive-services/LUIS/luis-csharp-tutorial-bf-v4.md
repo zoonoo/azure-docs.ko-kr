@@ -1,23 +1,24 @@
 ---
-title: C#을 사용하는 LUIS 봇 - 자습서 - 웹앱 봇 - Bot Framework SDK 4.0
-titleSuffix: Azure Cognitive Services
+title: 봇 - C# - v4
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합니다. 이 챗봇은 인적 자원 앱을 사용하여 봇 솔루션을 빠르게 구현합니다. 봇은 Bot Framework 버전 4.x 및 Azure 웹앱 봇을 사용하여 빌드되었습니다.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 3ccec4fbd0fd69539e29e2f15f71115444bf0a48
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d233f1df40d9580edfaaeb6b819c014952ad3b0c
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389295"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189278"
 ---
-# <a name="tutorial-luis-bot-in-c"></a>자습서: C#의 LUIS 봇
+# <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>자습서: Bot Framework 4.x 및 Azure 웹앱 봇을 사용하는 C#의 LUIS 봇
 C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드할 수 있습니다. 이 봇은 HomeAutomation 앱을 사용하여 봇 솔루션을 구현합니다. 봇은 [Bot Framework 버전](https://github.com/Microsoft/botbuilder-js) v4 및 Azure [웹앱 봇](https://docs.microsoft.com/azure/bot-service/)을 사용하여 빌드되었습니다.
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
@@ -99,7 +100,7 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드할
 ## <a name="download-the-web-app-bot"></a>웹앱 봇 다운로드 
 웹앱 봇 코드를 개발하기 위해 코드를 다운로드하여 로컬 컴퓨터에서 사용합니다. 
 
-1. 여전히 Azure Portal의 웹앱 봇 리소스에서 **응용 프로그램 설정**을 선택하고 **botFilePath** 및 **botFileSecret**의 값을 복사합니다. 이러한 값은 나중에 환경 파일에 추가해야 합니다. 
+1. 여전히 Azure Portal의 웹앱 봇 리소스에서 **애플리케이션 설정**을 선택하고 **botFilePath** 및 **botFileSecret**의 값을 복사합니다. 이러한 값은 나중에 환경 파일에 추가해야 합니다. 
 
 2. Azure Portal의 **봇 관리** 섹션에서 **빌드**를 선택합니다. 
 
@@ -194,7 +195,7 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드할
     }
     ```
 
-    변수 값을 **[웹앱 봇 다운로드](#download-the-web-app-bot)** 섹션 1 단계의 Azure 봇 서비스 [응용 프로그램 설정]에서 복사한 값으로 설정합니다.
+    변수 값을 **[웹앱 봇 다운로드](#download-the-web-app-bot)** 섹션 1 단계의 Azure 봇 서비스 [애플리케이션 설정]에서 복사한 값으로 설정합니다.
 
 3. Visual Studio에서 봇을 시작합니다. `http://localhost:3978/`에 있는 웹앱 봇의 웹 사이트를 통해 브라우저 창이 열립니다.
 
@@ -206,7 +207,7 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드할
 
     [ ![봇 에뮬레이터 v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png) ](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
 
-3. **[웹앱 봇 다운로드](#download-the-web-app-bot)** 섹션 1 단계의 Azure 봇 서비스 [응용 프로그램 설정]에서 복사한 봇 비밀을 입력합니다. 이렇게 하면 에뮬레이터에서 `.bot` 파일의 암호화된 필드에 액세스할 수 있습니다.
+3. **[웹앱 봇 다운로드](#download-the-web-app-bot)** 섹션 1 단계의 Azure 봇 서비스 [애플리케이션 설정]에서 복사한 봇 비밀을 입력합니다. 이렇게 하면 에뮬레이터에서 `.bot` 파일의 암호화된 필드에 액세스할 수 있습니다.
 
     ![봇 에뮬레이터 비밀 v4](../../../includes/media/cognitive-services-luis/bfv4/bot-secret.png)
 
@@ -300,6 +301,7 @@ Azure Bot Service는 Bot Framework SDK를 사용합니다. SDK 및 봇 프레임
 
 Azure 봇 서비스를 만들고, 봇 비밀 및 `.bot` 파일 경로를 복사하고, 코드의 Zip 파일을 다운로드했습니다. 미리 빌드된 HomeAutomation 도메인을 새 Azure 봇 서비스의 일환으로 만든 LUIS 앱에 추가한 다음, 앱을 다시 학습하고 게시했습니다. 코드 프로젝트를 추출하고, 환경 파일(`.env`)을 만들고, 봇 비밀과 `.bot` 파일 경로를 설정했습니다. 두 개의 새 의도를 처리하는 코드가 bot.js 파일에 추가되었습니다. 그런 다음, 봇 에뮬레이터에서 봇을 테스트하여 새 의도 중 하나의 발화에 대한 LUIS 응답을 확인했습니다. 
 
+대화형 봇을 사용하는 추가 [샘플](https://github.com/Microsoft/AI)을 참조하세요. 
 
 > [!div class="nextstepaction"]
 > [LUIS에서 사용자 지정 도메인 빌드](luis-quickstart-intents-only.md)

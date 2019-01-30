@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD Connect 통과 인증 문제 해결, Active Directory 설치, Azure AD에 필요한 구성 요소, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6172195a9914d841e480cd7ebbf9566616911378
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: db3dfc10d6936b063a225e48fd043b6208f10475
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686197"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472775"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증 문제 해결
 
@@ -95,7 +95,7 @@ ms.locfileid: "51686197"
 
 ### <a name="warning-message-when-uninstalling-azure-ad-connect"></a>Azure AD Connect 제거 시 나타나는 경고 메시지
 
-테넌트에서 통과 인증을 사용하도록 설정했고 Azure AD Connect를 제거하려고 하면 "다른 통과 인증 에이전트가 다른 서버에 설치되어 있지 않으면 사용자가 Azure AD에 로그인할 수 없습니다."라는 경고 메시지가 표시됩니다.
+테넌트에서 통과 인증을 사용하도록 설정했는데 Azure AD Connect를 제거하려고 시도하면 다음과 같은 경고 메시지가 표시됩니다. "다른 서버에 다른 통과 인증 에이전트가 설치되어 있지 않으면 사용자가 Azure AD에 로그인할 수 없습니다."
 
 사용자 로그인이 중단되지 않도록 방지하려면 Azure AD Connect를 제거하기 전에 설정이 [고가용성](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)이어야 합니다.
 
@@ -123,7 +123,7 @@ Azure AD Connect가 설치된 서버가 [여기](how-to-connect-pta-quick-start.
 
 ### <a name="authentication-agent-event-logs"></a>인증 에이전트 이벤트 로그
 
-인증 에이전트 관련 오류의 경우 서버에서 이벤트 뷰어 응용 프로그램을 열고 **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**에서 확인합니다.
+인증 에이전트 관련 오류의 경우 서버에서 이벤트 뷰어 애플리케이션을 열고 **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**에서 확인합니다.
 
 자세한 분석을 위해 "세션" 로그를 활성화합니다(이벤트 뷰어 애플리케이션 내에서 마우스 오른쪽 단추로 클릭하여 이 옵션을 찾습니다). 정상 작동 중에는 이 로그를 활성화한 상태에서 인증 에이전트를 실행하지 마세요. 문제 해결에만 이 로그를 사용하세요. 로그 내용은 로그를 다시 비활성화한 후에만 볼 수 있습니다.
 
@@ -137,7 +137,7 @@ Azure AD Connect가 설치된 서버가 [여기](how-to-connect-pta-quick-start.
         DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
 
-명령 프롬프트를 열고 다음 명령을 실행하면 오류(위 예제의 경우 '1328')에 대한 자세한 설명을 얻을 수 있습니다. 참고: '1328'을 로그에 표시되는 실제 오류 번호로 바꾸세요.
+명령 프롬프트를 열고 다음 명령을 실행하면 오류(이전 예제의 경우 '1328')에 대한 자세한 설명을 볼 수 있습니다(참고: '1328'을 로그에 표시되는 실제 오류 번호로 바꿔야 함).
 
 `Net helpmsg 1328`
 

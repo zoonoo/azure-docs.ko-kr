@@ -1,36 +1,17 @@
 ---
-title: Net# 인공신경망 네트워크 - Azure Machine Learning Studio | Microsoft Docs
-description: Net# 인공신경망 사양 언어 구문과 Net# 및 Azure Machine Learning Studio를 사용하여 사용자 지정 인공신경망 모델을 만드는 방법에 대한 예제입니다.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
-editor: cgronlun
-ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: reference
-ms.date: 03/01/2018
-ms.openlocfilehash: 3aa364e92dd7ce3742d28ac2b36d9a7f16cbebbf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315310"
+제목: 사용자 지정 Net# 신경망 만들기 titleSuffix: Azure Machine Learning Studio 설명: Net# 신경망 사양 언어를 위한 구문 가이드 Azure Machine Learning Studio에서 사용자 지정 신경망 모델을 만드는 방법을 알아봅니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: reference
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/01/2018
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 Net# 인공신경망 사양 언어에 대한 가이드
 
-Net#은 Microsft에서 개발된 언어로 신경망 아키텍처를 정의하기 위해 사용됩니다. Net#을 사용하여 신경망 구조를 정의하면 이미지, 오디오 또는 비디오 같은 데이터에서 학습을 향상하는 것으로 알려진 임의 차원의 나선 또는 DNN(Deep Neural Network) 같은 복잡한 구조를 정의할 수 있습니다.
+Net#은 Microsoft가 개발한 언어로, 심층 신경망 네트워크나 임의 차원의 난해와 같은 복잡한 신경 네트워크 아키텍처를 정의하는 데 사용됩니다. 이미지, 비디오 또는 오디오와 같은 데이터에 대한 학습을 개선하는 데 복잡한 구조체를 사용할 수 있습니다.
 
 Net# 아키텍처 사양은 다음 컨텍스트에서 사용할 수 있습니다.
 
 + Microsoft Azure Machine Learning Studio의 모든 신경망 모듈: [다중 클래스 신경망](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [2클래스 신경망](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network) 및 [신경망 회귀](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ MicrosoftML의 신경망 함수: R 언어의 경우 [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) 및 [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet), Python의 경우 [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network)
++ Microsoft ML Server의 신경망 함수: R 언어의 경우 [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) 및 [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet), Python의 경우 [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network)
 
 
 이 문서에서는 Net#을 사용하여 사용자 지정 신경망을 개발하는 데 필요한 기본 개념과 구문을 설명합니다. 
@@ -39,13 +20,13 @@ Net# 아키텍처 사양은 다음 컨텍스트에서 사용할 수 있습니다
 + Net# 사양 언어의 구문 및 키워드
 + Net#을 사용하여 만든 사용자 지정 신경망의 예 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="neural-network-basics"></a>신경망 기본 사항
 
 신경망 구조는 계층으로 이루어진 노드 및 노드 간의 가중 연결(또는 에지)로 구성됩니다. 연결은 방향성이 있고 각 연결에는 원본 노드와 대상 노드가 있습니다.  
 
-각 학습 가능한 계층(숨겨진 계층 또는 출력 계층)에는 하나 이상의 **연결 번들**이 있습니다. 연결 번들은 원본 계층 및 해당 원본 계층의 연결 지정으로 구성됩니다. 특정 번들의 모든 연결은 같은 원본 계층 및 같은 대상 계층을 공유합니다. Net#에서 연결 번들은 번들의 대상 계층에 속하는 것으로 간주합니다.
+각 학습 가능한 계층(숨겨진 계층 또는 출력 계층)에는 하나 이상의 **연결 번들**이 있습니다. 연결 번들은 원본 계층 및 해당 원본 계층의 연결 지정으로 구성됩니다. 특정 번들의 모든 연결은 원본 및 대상 계층을 공유합니다. Net#에서 연결 번들은 번들의 대상 계층에 속하는 것으로 간주합니다.
 
 Net#에서는 입력이 숨겨진 계층 및 출력에 매핑되는 방법을 사용자 지정할 수 있는 다양한 종류의 연결 번들을 지원합니다.
 
@@ -191,7 +172,7 @@ hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;
 
 학습 데이터에 같은 유형 구조가 있으면 일반적으로 데이터의 높은 수준 기능을 학습하는 데 나선형 연결이 사용됩니다. 예를 들어 이미지, 오디오 또는 비디오 데이터에서 공간 또는 임시 차원은 상당히 균일할 수 있습니다.  
 
-나선형 번들에는 차원을 통해 움직이는 사각형 **커널**이 적용됩니다. 기본적으로 각 커널은 로컬 환경에 적용되는 **커널 응용 프로그램**이라는 가중치 집합을 정의합니다. 각 커널 응용 프로그램은 **중앙 노드**라는 원본 계층의 노드에 해당합니다. 커널의 가중치는 많은 연결에서 공유됩니다. 나선형 번들에서 각 커널은 사각형이고 모든 커널 응용 프로그램은 같은 크기입니다.  
+나선형 번들에는 차원을 통해 움직이는 사각형 **커널**이 적용됩니다. 기본적으로 각 커널은 로컬 환경에 적용되는 **커널 애플리케이션**이라는 가중치 집합을 정의합니다. 각 커널 애플리케이션은 **중앙 노드**라는 원본 계층의 노드에 해당합니다. 커널의 가중치는 많은 연결에서 공유됩니다. 나선형 번들에서 각 커널은 사각형이고 모든 커널 애플리케이션은 같은 크기입니다.  
 
 나선형 번들은 다음 특성을 지원합니다.
 
@@ -215,11 +196,11 @@ hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;
 
     단일 부울 값은 모든 구성 요소가 지정된 값과 같은 올바른 길이의 튜플로 확장됩니다. 
     
-    차원 값이 True이면 추가 커널 응용 프로그램을 지원하도록 해당 차원에서 값이 0인 셀을 사용하여 원본의 안쪽 여백이 논리적으로 지정되므로 해당 차원에 있는 첫 번째 및 마지막 커널의 중앙 노드는 원본 계층에서 해당 차원에 있는 첫 번째 및 마지막 노드입니다. 따라서 각 차원의 "더미" 노드 수는 `(InputShape[d] - 1) / Stride[d] + 1` 커널을 안쪽 여백이 지정된 원본 계층에 정확히 맞추도록 자동으로 결정됩니다. 
+    차원 값이 True이면 추가 커널 애플리케이션을 지원하도록 해당 차원에서 값이 0인 셀을 사용하여 원본의 안쪽 여백이 논리적으로 지정되므로 해당 차원에 있는 첫 번째 및 마지막 커널의 중앙 노드는 원본 계층에서 해당 차원에 있는 첫 번째 및 마지막 노드입니다. 따라서 각 차원의 "더미" 노드 수는 `(InputShape[d] - 1) / Stride[d] + 1` 커널을 안쪽 여백이 지정된 원본 계층에 정확히 맞추도록 자동으로 결정됩니다. 
     
     차원 값이 False이면 커널은 각 측면에 남아 있는 노드 수가 같도록 정의됩니다(최대 차이 1). 이 특성의 기본값은 모든 구성 요소가 False와 같은 튜플입니다.
 
-+ **UpperPad** 및 **LowerPad**: (선택 사항) 사용할 안쪽 여백 크기를 더 구체적으로 제어합니다. **Important:** 위의 **Padding** 속성이 정의되지 ***않은*** 경우에만 이러한 특성을 정의할 수 있습니다. 값은 길이가 번들 인자 수인 정수 값 튜플이어야 합니다. 이러한 특성을 지정하면 "더미" 노드가 입력 계층에 있는 각 차원의 아래쪽 및 위쪽 끝에 추가됩니다. 각 차원의 아래쪽 및 위쪽 끝에 추가되는 노드 수는 각각 **LowerPad**[i] 및 **UpperPad**[i]를 통해 결정됩니다. 
++ **UpperPad** 및 **LowerPad**: (선택 사항) 사용할 안쪽 여백 크기를 더 구체적으로 제어합니다. **중요:** 위의 **Padding** 속성이 정의되지 ***않은*** 경우에만 이러한 특성을 정의할 수 있습니다. 값은 길이가 번들 인자 수인 정수 값 튜플이어야 합니다. 이러한 특성을 지정하면 "더미" 노드가 입력 계층에 있는 각 차원의 아래쪽 및 위쪽 끝에 추가됩니다. 각 차원의 아래쪽 및 위쪽 끝에 추가되는 노드 수는 각각 **LowerPad**[i] 및 **UpperPad**[i]를 통해 결정됩니다. 
 
     커널이 "실제" 노드에만 해당하고 "더미" 노드에 해당하지 않도록 하려면 다음 조건을 충족해야 합니다.
       - **LowerPad**의 각 구성 요소는 `KernelShape[d]/2`보다 작아야 합니다. 
@@ -228,7 +209,7 @@ hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;
 
     **Padding** = true로 설정하면 최대한 많은 안쪽 여백을 사용하여 "실제" 입력 내 커널의 "중심"을 유지할 수 있습니다. 이 경우 출력 크기를 계산하는 수식이 약간 변경됩니다. 일반적으로 출력 크기 *D*는 `D = (I - K) / S + 1`로 계산됩니다. 여기서 `I`는 입력 크기, `K`는 커널 크기, `S`는 진행 속도, `/`는 정수 나누기(0으로 반올림)입니다. UpperPad = [1, 1]로 설정한 경우 입력 크기 `I`는 사실상 29이므로 `D = (29 - 5) / 2 + 1 = 13`입니다. 그러나 **Padding** = true인 경우 기본적으로 `I`는 `K - 1`만큼 증가합니다. 따라서 `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`입니다. **UpperPad** 및 **LowerPad** 값을 지정하면 **Padding** = true로 설정한 경우보다 안쪽 여백을 훨씬 구체적으로 제어할 수 있습니다.
 
-나선형 네트워크 및 해당 응용 프로그램에 대한 자세한 내용은 다음 문서를 참조하세요. 
+나선형 네트워크 및 해당 애플리케이션에 대한 자세한 내용은 다음 문서를 참조하세요. 
 
 + [http://deeplearning.net/tutorial/lenet.html ](http://deeplearning.net/tutorial/lenet.html)
 + [http://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf) 
@@ -264,7 +245,7 @@ hidden P1 [5, 12, 12]
 
 ## <a name="response-normalization-bundles"></a>응답 정규화 번들
 
-**응답 정규화**는 Geoffrey Hinton 외 연구자가 [ImageNet Classiﬁcation with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) 논문에서 처음 도입한 로컬 정규화 체계입니다. 
+**응답 정규화**는 Geoffrey Hinton 외 연구자가 [ImageNet Classification with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) 논문에서 처음 도입한 로컬 정규화 체계입니다. 
 
 응답 정규화는 신경망에서 일반화를 지원하는 데 사용됩니다. 신경 하나가 매우 높은 활성화 수준에서 실행되면 로컬 응답 정규화 계층에서는 주위 신경의 활성화 수준을 억제합니다. 이 작업에는 매개 변수 3개(`α`, `β` 및 `k`)와 나선형 구조(또는 환경 셰이프)를 사용합니다. 대상 계층 **y**의 모든 신경은 원본 계층의 신경 **x**에 해당합니다. **y**의 활성화 수준은 다음 공식으로 제공됩니다. 여기서 `f`는 신경의 활성화 수준이고 `Nx`는 나선형 구조를 통해 정의된 대로 **x**의 환경에 신경이 포함된 집합 또는 커널입니다.  
 
@@ -389,7 +370,7 @@ output Out [10] sigmoid from H all;
 
 + 첫 번째 줄에서는 이름이 `Data`인 입력 계층을 정의합니다. `auto` 키워드를 사용하는 경우 신경망에 입력 예제의 모든 기능 열이 자동으로 포함됩니다. 
 + 두 번째 줄에서는 숨겨진 계층을 만듭니다. 노드 200개가 포함된 숨겨진 계층에 이름 `H`가 할당됩니다. 이 계층은 입력 계층에 완전히 연결됩니다.
-+ 세 번째 줄에서는 이름이 `O`이고 출력 노드 10개가 포함된 출력 계층을 정의합니다. 신경망을 분류에 사용하는 경우 클래스당 하나의 출력 노드가 있습니다. 키워드 **sigmoid**는 출력 계층에 적용된 출력 함수를 나타냅니다.
++ 세 번째 줄에서는 이름이 `Out`이고 출력 노드 10개가 포함된 출력 계층을 정의합니다. 신경망을 분류에 사용하는 경우 클래스당 하나의 출력 노드가 있습니다. 키워드 **sigmoid**는 출력 계층에 적용된 출력 함수를 나타냅니다.
 
 ### <a name="define-multiple-hidden-layers-computer-vision-example"></a>여러 숨겨진 계층 정의: 컴퓨터 비전 예제
 
@@ -469,4 +450,4 @@ output Digit [10] from Hid3 all;
 
 ## <a name="acknowledgements"></a>감사의 말
 
-신경망 아키텍처를 사용자 지정하기 위한 Net# 언어는 Microsoft에서 Shon Katzenberger(설계자, Machine Learning) 및 Alexey Kamenev(소프트웨어 엔지니어, Microsoft Research)에 의해 개발되었습니다. 내부적으로 이미지 검색에서 텍스트 분석에 이르기까지 다양한 기계 학습 프로젝트 및 응용 프로그램에 사용됩니다. 자세한 내용은 [Azure ML의 신경망 - Net# 소개](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)를 참조하세요.
+신경망 아키텍처를 사용자 지정하기 위한 Net# 언어는 Microsoft에서 Shon Katzenberger(설계자, Machine Learning) 및 Alexey Kamenev(소프트웨어 엔지니어, Microsoft Research)에 의해 개발되었습니다. 내부적으로 이미지 검색에서 텍스트 분석에 이르기까지 다양한 기계 학습 프로젝트 및 애플리케이션에 사용됩니다. 자세한 내용은 [Azure ML의 신경망 - Net# 소개](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)를 참조하세요.

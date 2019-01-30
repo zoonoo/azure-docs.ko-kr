@@ -32,7 +32,7 @@ Wrike를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정으로 Wrike에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -66,13 +66,13 @@ Wrike의 Azure AD 통합을 구성하려면 갤러리의 Wrike를 관리되는 S
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
 
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
 4. 검색 상자에 **Wrike**를 입력하고 결과 패널에서 **Wrike**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
@@ -161,7 +161,7 @@ Wrike에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Wrike에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 응용 프로그램**을 선택한 다음, **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 
     ![사용자 할당][201]
 

@@ -15,12 +15,13 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: bee684409b2ef3fffeb9f175c2b469d3736b6484
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.lastreviewed: 10/23/2018
+ms.openlocfilehash: 8587b40bf6963d57fd510aefc17de4385b871590
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993834"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249040"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>자습서: 항상 사용 가능한 MySQL 데이터베이스를 제공 합니다.
 
@@ -77,7 +78,7 @@ Azure Stack marketplace에 항목을 추가 하는 방법에 대 한 자세한 �
    - 응용 프로그램 루트 암호입니다. 사용 하 여 12 자의 영숫자 암호를 제공 **특수 문자가**
    - 응용 프로그램 데이터베이스 이름 (기본값인 bitnami)
    - MySQL 데이터베이스 복제본 만들려는 Vm의 수 (기본값은 2)
-   - 사용할 구독을 선택 합니다.
+   - 사용할 구독 선택
    - 사용 하거나 새로 만들 리소스 그룹 선택
    - 위치 선택 (기본값: ASDK에 대 한 로컬)
 

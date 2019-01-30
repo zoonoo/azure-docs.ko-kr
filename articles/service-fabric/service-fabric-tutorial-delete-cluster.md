@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 70c5fa5de627b69623b1cce6929615f4e99e2a05
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 5174bb696b456a66cfc0666ac5c475437e441d82
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410824"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848855"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>자습서: Azure에서 실행되는 Service Fabric 클러스터를 제거
 
@@ -43,14 +43,14 @@ ms.locfileid: "47410824"
 
 이 자습서를 시작하기 전에:
 
-* Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Azure PowerShell 모듈 버전 4.1 이상](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
+* Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* [Azure PowerShell 모듈 버전 4.1 이상](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
 * Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 또는 [Linux 클러스터](service-fabric-tutorial-create-vnet-and-linux-cluster.md) 만들기
 
 ## <a name="delete-the-resource-group-containing-the-service-fabric-cluster"></a>또한 Service Fabric 클러스터를 포함하는 리소스 그룹 삭제
 클러스터 및 클러스터에서 사용하는 모든 리소스를 삭제하는 가장 간단한 방법은 리소스 그룹을 삭제하는 것입니다.
 
-Azure에 로그인하고 클러스터를 제거할 구독 ID를 선택합니다.  [Azure Portal](http://portal.azure.com)에 로그인하여 구독 ID를 찾을 수 있습니다. [Remove-AzureRMResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) cmdlet 또는 [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete) 명령을 사용하여 리소스 그룹 및 모든 클러스터 리소스를 삭제합니다.
+Azure에 로그인하고 클러스터를 제거할 구독 ID를 선택합니다.  [Azure Portal](http://portal.azure.com)에 로그인하여 구독 ID를 찾을 수 있습니다. [Remove-AzureRMResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) cmdlet 또는 [az group delete](/cli/azure/group?view=azure-cli-latest) 명령을 사용하여 리소스 그룹 및 모든 클러스터 리소스를 삭제합니다.
 
 ```powershell
 Connect-AzureRmAccount

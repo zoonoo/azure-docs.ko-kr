@@ -1,10 +1,10 @@
 ---
-title: '자습서: LinkedIn Elevate와 Azure Active Directory 통합 | Microsoft 문서'
+title: '자습서: LinkedIn Elevate와 Azure Active Directory 통합 | Microsoft Docs'
 description: Azure Active Directory와 LinkedIn Elevate 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2ad9941b-c574-42c3-bd0f-5d6ec68537ef
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8b11b5e3e420577590e95c6839673f54c52d078b
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 209f87a77ff6e18fa08943385d9cf61bbf915089
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116179"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822640"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>자습서: LinkedIn Elevate와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ LinkedIn Elevate를 Azure AD와 통합하면 다음과 같은 이점이 제공�
 - 사용자의 Azure AD 계정으로 LinkedIn Elevate에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure 관리 포털에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -50,7 +50,7 @@ LinkedIn Elevate와 Azure AD 통합을 구성하려면 다음 항목이 필요�
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
-이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+ 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 LinkedIn Elevate 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -64,15 +64,15 @@ LinkedIn Elevate가 Azure AD로 통합되도록 구성하려면 LinkedIn Elevate
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
 
 1. 대화 상자 위쪽에 있는 **추가** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
-1. 검색 상자에서 **LinkedIn Elevate**를 입력합니다. 결과 패널에서 **LinkedIn Elevate**를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에서 **LinkedIn Elevate**를 입력합니다. 결과 패널에서 **LinkedIn Elevate**를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/linkedinelevate-tutorial/tutorial-linkedinElevate_000.png)
 
@@ -93,11 +93,11 @@ LinkedIn Elevate에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure 관리 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 LinkedIn Elevate 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure 관리 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 LinkedIn Elevate 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **LinkedIn Elevate에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure 관리 포털의 **LinkedIn Elevate** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure 관리 포털의 **LinkedIn Elevate** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -129,7 +129,7 @@ LinkedIn Elevate에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![Configure Single Sign-On](./media/linkedinelevate-tutorial/tutorial_linkedin_signon_02.png) 
 
-1. LinkedIn Elevate 응용 프로그램은 특정 형식의 SAML 어설션이 필요하기 때문에 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. **사용자 ID**의 기본값은 **user.userprincipalname**이지만 LinkedIn Elevate에는 이것이 사용자의 전자 메일 주소와 매핑되어야 합니다. 목록에서 **user.mail** 특성을 사용하거나 조직 구성을 기반으로 적절한 특성 값을 사용할 수 있기 위해서입니다.
+1. LinkedIn Elevate 애플리케이션은 특정 형식의 SAML 어설션이 필요하기 때문에 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. **사용자 ID**의 기본값은 **user.userprincipalname**이지만 LinkedIn Elevate에는 이것이 사용자의 전자 메일 주소와 매핑되어야 합니다. 목록에서 **user.mail** 특성을 사용하거나 조직 구성을 기반으로 적절한 특성 값을 사용할 수 있기 위해서입니다.
 
     ![Configure Single Sign-On](./media/linkedinelevate-tutorial/updateusermail.png)
 
@@ -198,7 +198,7 @@ LinkedIn Elevate에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 ### <a name="creating-a-linkedin-elevate-test-user"></a>LinkedIn Elevate 테스트 사용자 만들기
 
-LinkedIn Elevate 응용 프로그램은 이 JIT(Just-in-time) 사용자 프로비저닝을 지원하며, 인증 후에 응용 프로그램에서 사용자가 자동으로 만들어집니다. LinkedIn Elevate 포털의 관리 설정 페이지에서 **자동으로 라이선스 할당** 스위치를 전환하여 JIT 프로비전을 활성화합니다. 이렇게 하면 라이선스도 사용자에게 할당됩니다. 또한 LinkedIn Elevate는 자동 사용자 프로비저닝을 지원합니다. 자동 사용자 프로비저닝을 구성하는 방법에 대한 자세한 내용은 [여기서](linkedinelevate-provisioning-tutorial.md) 확인할 수 있습니다.
+LinkedIn Elevate 애플리케이션은 이 JIT(Just-in-time) 사용자 프로비저닝을 지원하며, 인증 후에 애플리케이션에서 사용자가 자동으로 만들어집니다. LinkedIn Elevate 포털의 관리 설정 페이지에서 **자동으로 라이선스 할당** 스위치를 전환하여 JIT 프로비전을 활성화합니다. 이렇게 하면 라이선스도 사용자에게 할당됩니다. 또한 LinkedIn Elevate는 자동 사용자 프로비저닝을 지원합니다. 자동 사용자 프로비저닝을 구성하는 방법에 대한 자세한 내용은 [여기서](linkedinelevate-provisioning-tutorial.md) 확인할 수 있습니다.
 
    ![Azure AD 테스트 사용자 만들기](./media/linkedinelevate-tutorial/LinkedinUserprovswitch.png)
 
@@ -210,11 +210,11 @@ LinkedIn Elevate 응용 프로그램은 이 JIT(Just-in-time) 사용자 프로�
 
 **Britta Simon을 LinkedIn Elevate에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure 관리 포털에서 응용 프로그램 보기를 열고 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure 관리 포털에서 애플리케이션 보기를 열고 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201]
 
-1. 응용 프로그램 목록에서 **LinkedIn Elevate**를 선택합니다.
+1. 애플리케이션 목록에서 **LinkedIn Elevate**를 선택합니다.
 
     ![Configure Single Sign-On](./media/linkedinelevate-tutorial/tutorial-linkedinElevate_0001.png) 
 
@@ -236,13 +236,13 @@ LinkedIn Elevate 응용 프로그램은 이 JIT(Just-in-time) 사용자 프로�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 LinkedIn Elevate 타일을 클릭하면 Azure 로그온 페이지가 표시되고 로그온이 완료되면 LinkedIn Elevate 응용 프로그램에 로그온됩니다.
+액세스 패널에서 LinkedIn Elevate 타일을 클릭하면 Azure 로그온 페이지가 표시되고 로그온이 완료되면 LinkedIn Elevate 애플리케이션에 로그온됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [자습서: Azure Active Directory를 사용한 자동 사용자 프로비전을 위한 LinkedIn Elevate 구성](linkedinelevate-provisioning-tutorial.md)
+* [자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 LinkedIn Elevate 구성](linkedinelevate-provisioning-tutorial.md)
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 * [사용자 프로비저닝 구성](linkedinelevate-provisioning-tutorial.md)
 
 <!--Image references-->

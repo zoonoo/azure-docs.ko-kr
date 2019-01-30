@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ea372b4363ce506b926a37686b85cb36e51546eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 03b8dd9bd0a7acc63fdae66330904142384429a8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833462"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794212"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>복제된 Hyper-V VM을 Azure로 장애 조치(failover) 및 장애 복구(failback)
 
@@ -39,9 +39,9 @@ VM에서 스냅숏이 없으며 장애 복구(failback) 시 온-프레미스 VM�
 
 장애 조치(failover)및 장애 복구(failback)는 다음 3단계로 진행됩니다.
 
-1. **Azure에 장애 조치(failover)**: Hyper-V VM을 온-프레미스에서 Azure로 장애 조치(failover)합니다.
-2. **온-프레미스로 장애 복구(failback)**: 온-프레미스 사이트를 사용할 수 있는 경우, Azure VM을 온-프레미스 사이트로 장애 조치(failover)합니다. Azure에서 온-프레미스로 데이터 동기화를 시작하고, 완료되면 온-프레미스에서 VM을 실행합니다.  
-3. **온-프레미스 VM에 역방향 복제**: 온-프레미스로 장애 복구(failback)된 후에 온-프레미스 VM을 역방향 복제하여 Azure로 복제를 시작합니다.
+1. **Azure로 장애 조치**: Hyper-V VM을 온-프레미스 사이트에서 Azure로 장애 조치합니다.
+2. **온-프레미스로 장애 복구**: 온-프레미스 사이트를 사용할 수 있는 경우 Azure VM을 온-프레미스 사이트로 장애 조치합니다. Azure에서 온-프레미스로 데이터 동기화를 시작하고, 완료되면 온-프레미스에서 VM을 실행합니다.  
+3. **온-프레미스 VM에 역방향 복제**: 온-프레미스로 장애 복구된 후에 온-프레미스 VM을 역방향으로 복제하여 Azure로 복제를 시작합니다.
 
 ## <a name="verify-vm-properties"></a>VM 속성 확인
 
@@ -65,7 +65,7 @@ VM에서 스냅숏이 없으며 장애 복구(failback) 시 온-프레미스 VM�
 4. 장애 조치(failover)를 확인하고 **커밋**을 클릭합니다. 그러면 사용 가능한 복구 지점이 모두 삭제됩니다.
 
 > [!WARNING]
-> **진행 중인 장애 조치(failover)를 취소하지 마십시오.**: 진행 중에 취소하면 장애 조치(failover)는 중지되지만 VM이 다시 복제되지 않습니다.
+> **진행 중인 장애 조치(failover)는 취소하지 마세요**. 진행 중인 장애 조치(failover)를 취소하면 장애 조치(failover)가 중지되지만 VM은 다시 복제되지 않습니다.
 
 ## <a name="failback-azure-vm-to-on-premises-and-reverse-replicate-the-on-premises-vm"></a>Azure VM을 온-프레미스로 장애 복구(failback)하고 온-프레미스 VM을 역방향 복제
 

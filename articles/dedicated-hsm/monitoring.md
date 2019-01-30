@@ -1,22 +1,23 @@
 ---
-title: Azure Dedicated HSM 모니터링 | Microsoft Docs
-description: Azure Dedicated HSM은 Azure 내에서 FIPS 140-2 수준 3 인증을 충족하는 키 스토리지 기능을 제공합니다.
+title: 모니터링 옵션 - Azure Dedicated HSM | Microsoft Docs
+description: Azure Dedicated HSM 모니터링 옵션 및 모니터링 책임에 대한 개요
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 4e2089c62da5fec1e1cfe96ce27b363cfb35eadf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b577c2c68512c6e7e36f80b75245d9db4f839d9e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319222"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085692"
 ---
 # <a name="azure-dedicated-hsm-monitoring"></a>Azure Dedicated HSM 모니터링
 

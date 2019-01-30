@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 61d3869559d88e14c0b9a3c3e23cd8a1f9c2b6c4
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 701f97a006e7457fcbdcc835f87832b269f986a8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627975"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630345"
 ---
 # <a name="view-system-test-results"></a>시스템 테스트 결과 보기
 
@@ -26,11 +26,11 @@ ms.locfileid: "51627975"
 
 [테스트] 탭에는 다음과 같은 항목이 표시됩니다.
 
-1.  시스템 테스트 결과: 훈련에 포함된 테스트 프로세스의 결과입니다. 테스트 프로세스는 BLEU 점수를 생성합니다.
+1.  **시스템 테스트 결과:** 훈련에 포함된 테스트 프로세스의 결과입니다. 테스트 프로세스는 BLEU 점수를 생성합니다.
 
     **문장 개수:** 테스트 세트에 사용된 병렬 문장의 개수입니다.
 
-     **BLEU 점수:** 훈련 완료 후에 모델에 대해 생성된 BLEU 점수입니다.
+     **BLEU 점수:** 학습 완료 후에 모델에 대해 생성된 BLEU 점수입니다.
 
     **상태:** 테스트 프로세스가 완료되었는지 아니면 진행 중인지 나타냅니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "51627975"
 
     **참조:** 이 문장은 테스트 데이터 세트에 포함된 원본 문장에 대한 참조 번역입니다.
 
-    **MT:** 이 문장은 훈련이 실시된 후에 모델에 의해 수행된 원본 문장에 대한 자동 번역입니다.
+    **MT:** 이 문장은 학습이 실시된 후에 모델에 의해 수행된 원본 문장에 대한 자동 번역입니다.
 
     ![시스템 테스트 결과 비교](media/how-to/how-to-system-test-results-2.png)
 
@@ -54,11 +54,11 @@ ms.locfileid: "51627975"
 
 다운로드한 zip 아카이브에는 파일 3개가 들어 있습니다.
 
-1.  custom.mt.txt: 이 파일에는 사용자 데이터로 훈련된 모델이 원본 언어를 대상 언어로 기계 번역한 결과가 포함되어 있습니다.
+1.  **custom.mt.txt:** 이 파일에는 사용자 데이터로 학습된 모델이 원본 언어를 대상 언어로 기계 번역한 결과가 포함되어 있습니다.
 
-2.  ref.txt: 이 파일에는 사용자가 제공한 원본 언어 문장에 대한 대상 언어 번역이 포함되어 있습니다.
+2.  **ref.txt:** 이 파일에는 사용자가 제공한 원본 언어 문장에 대한 대상 언어 번역이 포함되어 있습니다.
 
-3.  source.txt: 이 파일에는 원본 언어 문장이 포함되어 있습니다.
+3.  **source.txt:** 이 파일에는 원본 언어 문장이 포함되어 있습니다.
 
     ![다운로드한 시스템 테스트 결과](media/how-to/how-to-download-system-test.png)
 
@@ -73,14 +73,29 @@ ms.locfileid: "51627975"
     ![모델 배포](media/how-to/how-to-deploy-model.png)
 
 3.  [배포]를 클릭합니다.
-4.  모델을 배포할 지역을 선택하고 [저장]을 클릭합니다. 여러 개의 지역을 선택할 수 있습니다.
+4.  모델을 배포할 지역에 대해 **배포됨**을 선택하고 [저장]을 클릭합니다. 여러 개의 지역에 대해 **배포됨**을 선택할 수 있습니다.
 
     ![모델 배포](media/how-to/how-to-deploy-model-regions.png)
 
 5.  “상태” 열에서 모델의 상태를 확인할 수 있습니다.
 
+## <a name="update-deployment-settings"></a>배포 설정 업데이트
+
+배포 설정을 업데이트하려면
+
+1.  프로젝트를 선택하고 **모델** 탭으로 이동합니다.
+
+2. 성공적으로 배포된 모델에는 **업데이트** 단추가 표시됩니다.
+
+    ![모델 배포](media/how-to/how-to-update-undeploy-model.png)
+
+3.  **업데이트**를 선택합니다.
+4.  모델을 배포 또는 배포 취소할 지역에 대해 **배포됨** 또는 **배포 취소됨**을 선택하고 **저장**을 클릭합니다.
+
+    ![모델 배포](media/how-to/how-to-undeploy-model.png)
+
 >[!Note]
->이미 배포된 모델에는 “배포 취소” 단추가 표시됩니다. 모델의 배포를 취소하려면 “배포 취소”를 클릭합니다.
+>모든 지역에 대해 **배포 취소됨**을 선택하는 경우 모든 지역에서 모델이 배포 취소되고 배포 취소됨 상태로 전환됩니다. 이제 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

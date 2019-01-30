@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: c05a97dc5a5fe9a0e8a6f1a8598ff82fcf488ab2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7e682850d331770766a9b97c2b4b9102af143f2e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253281"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836273"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>장애 조치(failover) 후 연결할 IP 주소 설정
 
@@ -28,10 +28,10 @@ ms.locfileid: "51253281"
 
 ## <a name="connecting-to-replica-vms"></a>복제본 VM에 연결
 
-복제 및 장애 조치(failover) 전략을 계획할 경우 주요 질문 중 하나는 장애 조치(failover) 후에 Azure VM에 어떻게 연결하는가입니다. 복제본 Azure VM에 대한 네트워크 전략을 설계할 경우 선택 몇 가지 항목이 있습니다.
+복제 및 장애 조치(failover) 전략을 계획할 경우 주요 질문 중 하나는 장애 조치(failover) 후에 Azure VM에 어떻게 연결하는가입니다. 복제본 Azure VM에 대한 네트워크 전략을 설계할 때 몇 가지 선택 항목이 있습니다.
 
-- **다른 IP 주소 사용**: 복제된 Azure VM 네트워크에 다른 IP 주소 범위를 사용하도록 선택할 수 있습니다. 이 시나리오에서 VM은 장애 조치 후에 새 IP 주소를 갖게 되며 DNS 업데이트가 필요합니다.
-- **동일한 IP 주소 유지**: 기본 온-프레미스 사이트에 있는 것과 동일한 IP 주소 범위를 장애 조치(failover) 후 Azure 네트워크에 대해 사용하려고 합니다. 동일한 IP 주소를 유지하면 장애 조치 후에 네트워크 관련 문제를 감소시켜서 복구를 간소화합니다. 그러나 Azure에 복제하는 경우 장애 조치 후에 경로를 IP 주소의 새 위치로 업데이트해야 합니다.
+- **다른 IP 주소 사용**: 복제된 Azure VM 네트워크에 다른 IP 주소 범위를 사용하도록 선택할 수 있습니다. 이 시나리오에서 VM은 장애 조치(failover) 후에 새 IP 주소를 갖게 되며 DNS 업데이트가 필요합니다.
+- **동일한 IP 주소 유지**: 기본 온-프레미스 사이트에 있는 것과 동일한 IP 주소 범위를 장애 조치(failover) 후 Azure 네트워크에 대해 사용할 수도 있습니다. 동일한 IP 주소를 유지하면 장애 조치(failover) 후 네트워크 관련 문제가 줄어들어 복구가 간소화됩니다. 그러나 Azure에 복제하는 경우 장애 조치 후에 경로를 IP 주소의 새 위치로 업데이트해야 합니다.
 
 ## <a name="retaining-ip-addresses"></a>IP 주소 유지
 

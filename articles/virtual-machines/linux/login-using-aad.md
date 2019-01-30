@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 4f86dee539e3cc5a90db828ed11dbd225a00555d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c242d8dd64dc58b0c20b6fb15747f201f85cc482
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334638"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320940"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure에서 Azure Active Directory 인증을 사용하여 Linux 가상 머신에 로그인(미리 보기)
 
@@ -37,7 +37,7 @@ Azure에서 Azure AD 인증을 사용하여 Linux VM에 로그인하는 경우 �
   - Azure 가상 머신에 대한 로그인의 보안을 강화하려면 다단계 인증을 구성하면 됩니다.
   - Azure Active Directory를 사용하여 Linux VM에 로그인하는 기능은 [Federation Services](../../active-directory/hybrid/how-to-connect-fed-whatis.md)를 사용하는 고객에게도 적용됩니다.
 
-- **원활한 공동 작업:** RBAC(역할 기반 액세스 제어)를 사용하여 지정된 VM에 로그인하는 사용자를 일반 사용자로 또는 관리자 권한으로 지정할 수 있습니다. 사용자가 팀에 조인하거나 나가는 경우 적절한 액세스 권한을 부여하도록 VM에 대한 RBAC 정책을 업데이트할 수 있습니다. 이 환경은 불필요한 SSH 공개 키를 제거하기 위해 VM을 삭제하는 것보다 훨씬 더 간단합니다. 직원이 조직을 나가고 해당 사용자 계정을 비활성화하거나 Azure AD에서 제거한 경우 더 이상 리소스에 액세스할 수 없습니다.
+- **원활한 공동 작업:** RBAC(역할 기반 액세스 제어)를 사용하여 지정된 VM에 로그인할 수 있는 사용자를 일반 사용자로 또는 관리자 권한으로 지정할 수 있습니다. 사용자가 팀에 조인하거나 나가는 경우 적절한 액세스 권한을 부여하도록 VM에 대한 RBAC 정책을 업데이트할 수 있습니다. 이 환경은 불필요한 SSH 공개 키를 제거하기 위해 VM을 삭제하는 것보다 훨씬 더 간단합니다. 직원이 조직을 나가고 해당 사용자 계정을 비활성화하거나 Azure AD에서 제거한 경우 더 이상 리소스에 액세스할 수 없습니다.
 
 ## <a name="supported-azure-regions-and-linux-distributions"></a>지원되는 Azure 지역 및 Linux 배포
 
@@ -45,10 +45,13 @@ Azure에서 Azure AD 인증을 사용하여 Linux VM에 로그인하는 경우 �
 
 | 배포 | 버전 |
 | --- | --- |
-| CentOS | CentOS 6.9 및 CentOS 7.4 |
+| CentOS | CentOS 6, CentOS 7 |
 | Debian | Debian 9 |
+| openSUSE | openSUSE Leap 42.3 |
 | RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
+| SUSE Linux Enteprise Server | SLES 12 |
 | Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04, Ubuntu Server 17.10 및 Ubuntu Server 18.04 |
+
 
 현재 이 기능의 미리 보기 기간 동안 다음과 같은 Azure 지역이 지원됩니다.
 
@@ -80,7 +83,7 @@ VM 및 지원 리소스를 만드는 데 몇 분이 걸립니다.
 
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Azure AD 로그인 VM 확장 설치
 
-Azure AD 자격 증명을 사용하여 Linux VM에 로그인하려면 VM 확장에서 Azure Active Directory 로그를 설치합니다. VM 확장은 Azure 가상 머신에서 배포 후 구성 및 Automation 작업을 제공하는 작은 응용 프로그램입니다. [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set)을 사용하여 *myResourceGroup* 리소스 그룹의 *myVM*이라는 VM에 *AADLoginForLinux* 확장을 설치합니다.
+Azure AD 자격 증명을 사용하여 Linux VM에 로그인하려면 VM 확장에서 Azure Active Directory 로그를 설치합니다. VM 확장은 Azure 가상 머신에서 배포 후 구성 및 Automation 작업을 제공하는 작은 애플리케이션입니다. [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set)을 사용하여 *myResourceGroup* 리소스 그룹의 *myVM*이라는 VM에 *AADLoginForLinux* 확장을 설치합니다.
 
 ```azurecli-interactive
 az vm extension set \
@@ -129,7 +132,7 @@ Linux 가상 머신에 로그인하는 특정 사용자에 대해 다단계 인�
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Azure AD 자격 증명을 사용하여 Azure Linux 가상 머신에 로그인합니다. `-l` 매개 변수를 사용하면 고유한 Azure AD 계정 주소를 지정할 수 있습니다. 이전 명령의 출력으로 VM의 공용 IP 주소를 지정합니다.
+Azure AD 자격 증명을 사용하여 Azure Linux 가상 머신에 로그인합니다. `-l` 매개 변수를 사용하면 고유한 Azure AD 계정 주소를 지정할 수 있습니다. 계정 주소는 모두 소문자로 입력해야 합니다. 이전 명령에서 VM의 공용 IP 주소를 사용합니다.
 
 ```azurecli-interactive
 ssh -l azureuser@contoso.onmicrosoft.com publicIps
@@ -150,7 +153,7 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 
 ## <a name="sudo-and-aad-login"></a>Sudo 및 AAD 로그인
 
-sudo를 처음 실행하면 두 번째에는 인증이 요청됩니다. sudo를 실행하기 위해 다시 인증하고 싶지 않다면 sudoer 파일(`/aad/etc/sudoers.d/aad_admins`)을 편집하고 다음 줄로 교체할 수 있습니다.
+sudo를 처음 실행하면 두 번째에는 인증이 요청됩니다. sudo를 실행하기 위해 다시 인증하고 싶지 않다면 sudoer 파일(`/etc/sudoers.d/aad_admins`)을 편집하고 다음 줄로 교체할 수 있습니다.
 
 ```bash
 %aad_admins ALL=(ALL) ALL
@@ -166,7 +169,7 @@ sudo를 처음 실행하면 두 번째에는 인증이 요청됩니다. sudo를 
 
 Azure AD 자격 증명을 사용하여 SSH하려고 할 때 발생하는 몇 가지 일반적인 오류에는 RBAC 역할이 할당되지 않거나 로그인하라는 프롬프트가 반복되는 문제가 있습니다. 이러한 문제를 해결하려면 다음 섹션을 사용합니다.
 
-### <a name="access-denied-rbac-role-not-assigned"></a>액세스 거부: RBAC 역할 할당되지 않음
+### <a name="access-denied-rbac-role-not-assigned"></a>액세스 거부됨: RBAC 역할 할당되지 않음
 
 SSH 프롬프트에서 다음 오류를 표시하는 경우 사용자에게 *가상 머신 관리자 로그인* 또는 *가상 머신 사용자 로그인* 역할을 부여한 VM에서 [RBAC 정책을 구성](#configure-rbac-policy-for-the-virtual-machine)했는지 확인합니다.
 

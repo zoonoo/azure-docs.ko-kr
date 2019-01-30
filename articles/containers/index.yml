@@ -58,7 +58,7 @@ sections:
       image:
         src: /azure/media/index/ContainerService.svg
     - href: https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers
-      title: Service Fabric을 사용하여 Windows 컨테이너 응용 프로그램 배포
+      title: Service Fabric을 사용하여 Windows 컨테이너 애플리케이션 배포
       image:
         src: /azure/media/index/Fabric.svg
     - href: https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go

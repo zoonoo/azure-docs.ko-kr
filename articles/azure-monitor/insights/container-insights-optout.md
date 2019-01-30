@@ -8,22 +8,21 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/04/2018
+ms.date: 12/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 6865fac08b8c607f7053b334c648766cc1e7c291
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: b462a2baecbaf9aaf3634964ca279b320b77dc1b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714262"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330690"
 ---
-# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers-preview"></a>컨테이너용 Azure Monitor를 사용하여 AKS(Azure Kubernetes Service) 모니터링을 중단하는 방법(미리 보기)
+# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 AKS(Azure Kubernetes Service) 모니터링을 중단하는 방법
 
-AKS 클러스터를 모니터링하도록 설정한 후 더 이상 모니터링을 사용하지 않으려면 *옵트아웃*을 사용합니다.  이 문서에서는 Azure CLI 또는 제공된 Azure Resource Manager 템플릿을 사용하여 옵트아웃하는 방법을 보여줍니다.  
+AKS 클러스터를 모니터링하도록 설정한 후 더 이상 모니터링하지 않으려는 경우 클러스터 모니터링을 중지할 수 있습니다. 이 문서에서는 Azure CLI 또는 제공된 Azure Resource Manager 템플릿을 사용하여 옵트아웃하는 방법을 보여줍니다.  
 
 
 ## <a name="azure-cli"></a>Azure CLI
@@ -36,14 +35,14 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
 클러스터에 대한 모니터링을 다시 사용하려면 [Azure CLI를 사용하여 모니터링을 사용하도록 설정](container-insights-onboard.md#enable-monitoring-using-azure-cli)을 참조하세요.
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
-리소스 그룹에서 솔루션 리소스를 일관적이고 반복적인 방법으로 제거할 수 있는 두 가지 Azure Resource Manager 템플릿이 제공됩니다. 하나는 *옵트아웃*할 구성을 지정하는 JSON 템플릿이고, 다른 하나는 AKS 클러스터 리소스 ID 및 클러스터가 배포되는 리소스 그룹을 지정하기 위해 구성하는 매개 변수 값을 포함하고 있습니다. 
+리소스 그룹에서 솔루션 리소스를 일관적이고 반복적인 방법으로 제거할 수 있는 두 가지 Azure Resource Manager 템플릿이 제공됩니다. 하나는 모니터링을 중지할 구성을 지정하는 JSON 템플릿이고, 다른 하나는 AKS 클러스터 리소스 ID 및 클러스터가 배포되는 리소스 그룹을 지정하기 위해 구성하는 매개 변수 값을 포함하고 있습니다. 
 
 템플릿을 사용하여 리소스를 배포하는 개념에 익숙하지 않은 경우 다음을 참조하십시오.
 * [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
 >[!NOTE]
->템플릿을 클러스터와 동일한 리소스 그룹에 배포해야 합니다.
+>템플릿을 클러스터와 동일한 리소스 그룹에 배포해야 합니다. 이 템플릿을 사용할 때 다른 속성이나 추가 기능을 생략하면 해당 항목이 클러스터에서 제거될 수 있습니다. 예를 들면 *enableRBAC*입니다.  
 >
 
 Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.27 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요. 

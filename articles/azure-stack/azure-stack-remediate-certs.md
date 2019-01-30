@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/19/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: d5a7cf597bb19f6c4a180b0dc306c86ae91875cf
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.reviewer: unknown
+ms.lastreviewed: 11/19/2018
+ms.openlocfilehash: 291ecd35947c09f2b50cd8710c90d25960166422
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161670"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242606"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Azure Stack PKI 인증서에 대 한 일반적인 문제 해결
 
@@ -117,7 +118,7 @@ ms.locfileid: "52161670"
 1. 필수 구성 요소를 충족 하는 컴퓨터에서 관리자 PowerShell 프롬프트를 열고 AzsReadinessChecker를 설치 하려면 다음 명령을 실행:
   
    ```powershell
-   Install-Module Microsoft.AzureStack.ReadinessChecker- Force
+   Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
 2. PowerShell 프롬프트에서 PFX 암호를 설정 하려면 다음 cmdlet을 실행 합니다. 바꿉니다 *PFXpassword* 실제 암호를 사용 하 여:
@@ -131,7 +132,7 @@ ms.locfileid: "52161670"
    - 에 대 한 `-ExportPFXPath`, 내보내기에 대 한 PFX 파일의 이름과 위치를 지정 합니다. 다음 예제에서 경로 `.\certificates\ssl_new.pfx`:
 
    ```powershell
-   Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx`
+   Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
    ```  
 
 4. 도구에는 다음이 완료 되 면 성공에 대 한 출력을 검토 합니다.

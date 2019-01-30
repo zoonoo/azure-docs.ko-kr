@@ -1,6 +1,6 @@
 ---
-title: 팀 데이터 과학 프로세스 수명 주기의 비즈니스 이해 단계 - Azure | Microsoft Docs
-description: 데이터 과학 프로젝트의 비즈니스 이해 단계에 대한 목표, 작업 및 결과물입니다.
+title: 팀 데이터 과학 프로세스의 비즈니스 이해
+description: 팀 데이터 과학 프로세스의 데이터 과학 프로젝트에서 비즈니스 이해 단계의 목표, 작업 및 결과물입니다.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 3d2a6bf5a7e4766ca6205c413dd27fa9a69c16b7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: f45d8a83c323689272313314d0f9ac9b79edecd7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446724"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141665"
 ---
-# <a name="business-understanding"></a>비즈니스 이해
+# <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>팀 데이터 과학 프로세스 수명 주기의 비즈니스 이해 단계
 
 이 문서에서는 TDSP(팀 데이터 과학 프로세스)의 비즈니스 이해 단계와 관련된 목표, 작업 및 결과물을 설명합니다. 이 프로세스는 데이터 과학 프로젝트를 구조화하는 데 사용할 수 있는 권장 수명 주기를 제공합니다. 수명 주기는 일반적으로 프로젝트에서 반복적으로 자주 실행하는 주요 단계를 설명합니다.
 
@@ -92,5 +92,3 @@ TDSP의 수명 주기에서 각 단계에 대한 링크는 다음과 같습니�
    5. [고객 승인](lifecycle-acceptance.md)
 
 특정 시나리오 프로세스의 모든 단계를 보여주는 종합적인 전체 연습도 제공됩니다. [예제 연습](walkthroughs.md) 문서는 링크 및 썸네일 설명을 포함하는 시나리오 목록을 제공합니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 설명합니다. 
-
-Azure Machine Learning Studio를 사용하는 TDSP의 단계 실행 방법의 예제를 보려면 [Azure Machine Learning에서 TDSP 사용](https://aka.ms/datascienceprocess)을 참조하세요.

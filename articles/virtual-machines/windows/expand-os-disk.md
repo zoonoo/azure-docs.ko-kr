@@ -15,18 +15,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: kirpas
-ms.openlocfilehash: 097aa128affb6a7ac0770c861ab70ec9d04e2d98
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.component: disks
+ms.openlocfilehash: 1c96f51a49cd21c00f866af0b767ceb3e0a9ce2d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319118"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470018"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>가상 머신의 OS 드라이브 확장 방법
 
-[Azure Marketplace](https://azure.microsoft.com/marketplace/)에서 이미지를 배포하여 리소스 그룹에 새 VM(가상 머신)을 만드는 경우 기본 OS 드라이브는 종종 127GB입니다(일부 이미지의 경우 OS 디스크 크기가 기본적으로 더 작음). VM에 데이터 디스크를 추가할 수 있고(선택한 SKU에 따라 추가할 수 있는 양이 달라짐) 응용 프로그램 및 CPU 사용량이 많은 워크로드는 이러한 추가 디스크에 설치하는 것이 좋지만, 고객이 다음과 같은 특정 시나리오를 지원하기 위해 OS 드라이브를 확장해야 하는 경우가 자주 있습니다.
+[Azure Marketplace](https://azure.microsoft.com/marketplace/)에서 이미지를 배포하여 리소스 그룹에 새 VM(가상 머신)을 만드는 경우 기본 OS 드라이브는 종종 127GB입니다(일부 이미지의 경우 OS 디스크 크기가 기본적으로 더 작음). VM에 데이터 디스크를 추가할 수 있고(선택한 SKU에 따라 추가할 수 있는 양이 달라짐) 애플리케이션 및 CPU 사용량이 많은 워크로드는 이러한 추가 디스크에 설치하는 것이 좋지만, 고객이 다음과 같은 특정 시나리오를 지원하기 위해 OS 드라이브를 확장해야 하는 경우가 자주 있습니다.
 
-- OS 드라이브에 구성 요소를 설치하는 기존 응용 프로그램을 지원하려 합니다.
+- OS 드라이브에 구성 요소를 설치하는 기존 애플리케이션을 지원하려 합니다.
 - OS 드라이브가 더 큰 온-프레미스로 실제 PC 또는 가상 머신을 마이그레이션하려 합니다.
 
 

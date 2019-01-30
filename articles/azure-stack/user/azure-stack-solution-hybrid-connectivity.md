@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: a219ec1797ff74bd1a9ff458e34650d1545f1172
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: 84e952514b88620af565cf7e9775c055476fb530
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585784"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247564"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 하이브리드 클라우드 연결 구성
 
@@ -59,8 +60,8 @@ Azure Stack 운영자 해야 App Service 배포, 계획 및 제품은 테 넌 �
 
 ### <a name="azure"></a>Azure
 
- - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
- - 만들기는 [웹 앱](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts#create-an-azure-web-app-using-the-portal) Azure에서. 이 자습서에 필요 하기 때문에 웹 앱 URL을 기록해 두십시오.
+ - Azure 구독이 아직 없는 경우 시작하기 전에  [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+ - 만들기는 [웹 앱](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts#create-an-azure-web-app-using-the-portal) Azure에서. 이 자습서에 필요 하기 때문에 웹 앱 URL을 기록해 두십시오.
 
 ### <a name="azure-stack"></a>Azure Stack
 
@@ -68,7 +69,7 @@ Azure Stack 운영자 해야 App Service 배포, 계획 및 제품은 테 넌 �
    >[!Note]
    >배포는 ASDK 최대 7 시간까지 걸릴를 적절 하 게 계획 수 있습니다.
 
- - 배포할 [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) Azure Stack에 PaaS 서비스입니다.
+ - 배포할 [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) Azure Stack에 PaaS 서비스입니다.
  - [계획 및 제품은 만들기](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) Azure Stack 환경에서.
  - [테 넌 트 구독 만들기](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) Azure Stack 환경 내에서.
 
@@ -81,17 +82,17 @@ Azure Stack 운영자 해야 App Service 배포, 계획 및 제품은 테 넌 �
 
 #### <a name="tutorial-example-values"></a>자습서의 예제 값
 
-이 자습서의 예제에는 다음 값을 사용 합니다. 테스트 환경을 만들거나 이해를 돕기 위해 예제를 참조 하려면 이러한 값을 사용할 수 있습니다. 특정 게이트웨이 설정에 대한 자세한 내용은 [VPN Gateway 설정 정보](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings)를 참조하세요.
+이 자습서의 예제에는 다음 값을 사용 합니다. 테스트 환경을 만들거나 이해를 돕기 위해 예제를 참조 하려면 이러한 값을 사용할 수 있습니다. VPN Gateway에 대 한 자세한 설정을 일반적으로 참조 [VPN Gateway 설정 정보](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings)합니다.
 
 연결 사양:
 
- - **VPN 유형**: 경로 기반
- - **연결 형식**: 사이트 간 (IPsec)
- - **게이트웨이 유형**: VPN
- - **Azure 연결 이름**: Azure-게이트웨이-azurestack의 경우-S2SGateway (포털은 자동 채우기가이 값)
- - **Azure Stack 연결 이름**: azurestack의 경우-게이트웨이-Azure-S2SGateway (포털은 자동 채우기가이 값)
- - **공유 키**: 모든 연결의 양쪽 모두에 값을 일치 하는 VPN 하드웨어와 호환
- - **구독**: 모든 기본 구독
+ - **VPN 유형**: 경로 기반
+ - **연결 형식**: 사이트 간(IPsec)
+ - **게이트웨이 유형**: VPN
+ - **Azure 연결 이름**: Azure-게이트웨이-azurestack의 경우-S2SGateway (포털은 자동 채우기가이 값)
+ - **Azure Stack 연결 이름**: AzureStack-게이트웨이-Azure-S2SGateway (포털은 자동 채우기가이 값)
+ - **공유 키**: 모든 연결의 양쪽 모두에 값을 일치 하는 VPN 하드웨어와 호환
+ - **구독**: 기본 설정 된 구독
  - **리소스 그룹**: 테스트 인프라
 
 네트워크 및 서브넷 IP 주소:
@@ -102,25 +103,25 @@ Azure Stack 운영자 해야 App Service 배포, 계획 및 제품은 테 넌 �
 |  |  | GatewaySubnet<br>10.100.103.0/24 |  |
 | Azure Stack vNet | ApplicationvNet<br>10.100.100.0/23 | ApplicationSubnet <br>10.100.100.0/24 |  |
 |  |  | GatewaySubnet <br>10.100101.0/24 |  |
-| Azure Virtual Network 게이트웨이 | Azure 게이트웨이 |  |  |
-| Azure Stack Virtual Network 게이트웨이 | Azurestack의 경우 게이트웨이 |  |  |
-| Azure 공용 IP | Azure GatewayPublicIP |  | 생성 시 결정 |
-| Azure Stack 공용 IP | AzureStack GatewayPublicIP |  | 생성 시 결정 |
-| Azure 로컬 네트워크 게이트웨이 | AzureStack S2SGateway<br>   10.100.100.0/23 |  | Azure Stack 공용 IP 값 |
-| Azure Stack 로컬 네트워크 게이트웨이 | Azure S2SGateway<br>10.100.102.0/23 |  | Azure 공용 IP 값 |
+| Azure Virtual Network 게이트웨이 | Azure-Gateway |  |  |
+| Azure Stack Virtual Network 게이트웨이 | AzureStack-Gateway |  |  |
+| Azure 공용 IP | Azure-GatewayPublicIP |  | 생성 시 결정 |
+| Azure Stack 공용 IP | AzureStack-GatewayPublicIP |  | 생성 시 결정 |
+| Azure 로컬 네트워크 게이트웨이 | AzureStack-S2SGateway<br>   10.100.100.0/23 |  | Azure Stack 공용 IP 값 |
+| Azure Stack 로컬 네트워크 게이트웨이 | Azure-S2SGateway<br>10.100.102.0/23 |  | Azure 공용 IP 값 |
 
 ## <a name="create-a-virtual-network-in-global-azure-and-azure-stack"></a>전역 Azure 및 Azure Stack에서 가상 네트워크 만들기
 
-포털을 사용 하 여 가상 네트워크를 만들려면 다음 단계를 사용 합니다. 사용할 수 있습니다 [예제 값](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#values) 자습서와이 문서를 사용 하는 경우. 하지만이 문서에서는 프로덕션 환경을 구성 하려면를 사용 하는 경우 고유한 값을 사용 하 여 예제 설정을 대체 합니다.
+포털을 사용 하 여 가상 네트워크를 만들려면 다음 단계를 사용 합니다. 사용할 수 있습니다 [예제 값](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#values) 자습서와이 문서를 사용 하는 경우. 하지만이 문서에서는 프로덕션 환경을 구성 하려면를 사용 하는 경우 고유한 값을 사용 하 여 예제 설정을 대체 합니다.
 
 > [!IMPORTANT]
 > Azure Stack 또는 Azure vNet 주소 공간에서 IP 주소 중복 없다는 확인 해야 합니다.
 
 Azure에서 vNet을 만들려면:
 
-1. 브라우저를 사용 하 여에 연결 하는 [Azure portal](http://portal.azure.com/) 및 Azure 계정으로 로그인 합니다.
-2. 선택 **리소스 만들기**합니다. 에 **marketplace 검색** 필드에 입력 `virtual network`'. 찾을 **가상 네트워크** 을 선택 하 고 결과 목록에서 **Virtual Network**합니다.
-3. **배포 모델 선택** 목록에서 선택 **Resource Manager**를 선택한 후 **만들기**합니다.
+1. 브라우저를 사용 하 여에 연결 하는 [Azure portal](http://portal.azure.com/) 및 Azure 계정으로 로그인 합니다.
+2. 선택 **리소스 만들기**합니다. 에 **marketplace 검색** 필드에 입력 `virtual network`'. 찾을 **가상 네트워크** 을 선택 하 고 결과 목록에서 **Virtual Network**합니다.
+3. **배포 모델 선택** 목록에서 선택 **Resource Manager**를 선택한 후 **만들기**합니다.
 4. 온 **가상 네트워크 만들기**, VNet 설정을 구성 합니다. 필수 필드 이름은 빨간색 별표가 붙습니다.  유효한 값을 입력 하면 별표 녹색 확인 표시로 변경 합니다.
 
 Azure Stack에서 vNet을 만들려면:
@@ -131,38 +132,38 @@ Azure Stack에서 vNet을 만들려면:
 
 가상 네트워크 게이트웨이에 연결 하기 전에 게이트웨이 서브넷에 연결 하려는 가상 네트워크에 대 한 만들기 해야 합니다. 게이트웨이 서비스는 게이트웨이 서브넷에 지정 된 IP 주소를 사용 합니다.
 
-에 [Azure portal](http://portal.azure.com/), 가상 네트워크 게이트웨이 만들려는 Resource Manager 가상 네트워크로 이동 합니다.
+에 [Azure portal](http://portal.azure.com/), 가상 네트워크 게이트웨이 만들려는 Resource Manager 가상 네트워크로 이동 합니다.
 
 1. 열려는 vNet을 선택 합니다 **가상 네트워크** 페이지입니다.
-2. **설정을**를 선택 **서브넷**합니다.
-3. 에 **서브넷** 페이지에서 **+ 게이트웨이 서브넷** 열려는 합니다 **서브넷 추가** 페이지.
+2.  **설정을**를 선택 **서브넷**합니다.
+3. 에 **서브넷** 페이지에서 **+ 게이트웨이 서브넷** 여는 **서브넷 추가** 페이지.
 
     ![게이트웨이 서브넷 추가](media/azure-stack-solution-hybrid-connectivity/image4.png)
 
-4. 합니다 **이름을** 에 서브넷 'GatewaySubnet' 값에 자동으로 채워집니다. 이 값은 게이트웨이 서브넷으로 인식 하기 위해 Azure에 대 한 필요 합니다.
-5. 변경 된 **주소 범위** 구성 요구 사항에 맞는 선택한 후에 제공 되는 값 **확인**합니다.
+4. 합니다 **이름을** 에 서브넷 'GatewaySubnet' 값에 자동으로 채워집니다. Azure가 서브넷을 게이트웨이 서브넷으로 인식하기 위해 이 값이 필요합니다.
+5. 변경 된 **주소 범위** 구성 요구 사항에 맞는 선택한 후에 제공 되는 값 **확인**합니다.
 
 ## <a name="create-a-virtual-network-gateway-in-azure-and-azure-stack"></a>Azure 및 Azure에서 가상 네트워크 게이트웨이 만들기 스택
 
 Azure에서 가상 네트워크 게이트웨이 만들려면 다음 단계를 사용 합니다.
 
-1. 포털 페이지의 왼쪽에서 선택 **+** 검색 필드에 '가상 네트워크 게이트웨이'를 입력 합니다.
-2. **결과**를 선택 **가상 네트워크 게이트웨이**합니다.
-3. **가상 네트워크 게이트웨이**를 선택 **만들기** 열려는 합니다 **가상 네트워크 게이트웨이 만들기** 페이지입니다.
+1. 포털 페이지의 왼쪽에서 선택 **+**  검색 필드에 '가상 네트워크 게이트웨이'를 입력 합니다.
+2.  **결과**를 선택 **가상 네트워크 게이트웨이**합니다.
+3. **가상 네트워크 게이트웨이**를 선택 **만들기** 열려는 합니다 **가상 네트워크 게이트웨이 만들기** 페이지입니다.
 4. **가상 네트워크 게이트웨이 만들기**에 표시 된 대로 네트워크 게이트웨이에 대 한 값을 지정할 **자습서의 예제 값**, 다음 추가 값:
 
-    - **SKU**: 기본
-    - **가상 네트워크**: 이전에 만든 가상 네트워크를 선택 합니다. 만든 게이트웨이 서브넷을 자동으로 선택 됩니다.
-    - **첫 번째 IP 구성**: 게이트웨이의 공용 IP입니다.
+    - **SKU**: basic
+    - **Virtual Network**: 이전에 만든 가상 네트워크를 선택 합니다. 만든 게이트웨이 서브넷을 자동으로 선택 됩니다.
+    - **첫 번째 IP 구성**:  이것이 게이트웨이의 공용 IP입니다.
         - 선택 **게이트웨이 IP 구성 만들기**를 이동 합니다 **공용 IP 주소 선택** 페이지입니다.
-        - 선택 **+ 새로 만들기** 열려는 합니다 **공용 IP 주소 만들기** 페이지입니다.
-        - 입력 한 **이름을** 공용 IP 주소에 대 한 합니다. SKU로 둡니다 **기본**를 선택한 후 **확인** 변경 내용을 저장 하려면.
+        - 선택 **+ 새로 만들기** 열려는 합니다 **공용 IP 주소 만들기** 페이지입니다.
+        - 입력 한 **이름을** 공용 IP 주소에 대 한 합니다. SKU로 둡니다 **기본**를 선택한 후 **확인** 변경 내용을 저장 하려면.
 
        > [!Note]
        > 현재 VPN Gateway는 동적 공용 IP 주소 할당만 지원합니다. 그러나 VPN gateway에 할당 된 후의 IP 주소가 변경 되는 것은 아닙니다. 게이트웨이가 삭제되고 다시 만들어지는 경우에만 공용 IP 주소가 변경됩니다. 크기 조정, 다시 설정 또는 기타 내부 유지 관리/업그레이드 VPN gateway에는 IP 주소를 변경 하지 마세요.
 
 4. 게이트웨이 설정을 확인 합니다.
-5. 선택 **만들기** VPN 게이트웨이를 만듭니다. 게이트웨이 설정 유효성을 검사 하 고 대시보드에 "가상 네트워크 게이트웨이 배포" 타일이 표시 됩니다.
+5. 선택 **Create** VPN 게이트웨이를 만듭니다. 게이트웨이 설정 유효성을 검사 하 고 대시보드에 "가상 네트워크 게이트웨이 배포" 타일이 표시 됩니다.
 
    >[!Note]
    >하나의 게이트웨이를 만드는 데 최대 45분이 걸릴 수 있습니다. 완료 상태를 확인하기 위해 포털 페이지를 새로 고쳐야 할 수 있습니다.
@@ -181,18 +182,18 @@ Azure에서 가상 네트워크 게이트웨이 만들려면 다음 단계를 �
   >[!Note]
   >에 온-프레미스 네트워크가 변경 되거나 VPN 장치의 공용 IP 주소를 변경 하려면 필요한 경우 쉽게 업데이트할 수 있습니다 이러한 값 이상입니다.
 
-1. 포털에서 선택 **+ 리소스 만들기**합니다.
-2. 검색 상자에서 입력 **로컬 네트워크 게이트웨이**을 선택한 후 **Enter** 검색 합니다. 그러면 결과 목록이 반환됩니다.
-3. 선택 **로컬 네트워크 게이트웨이**을 선택한 후 **만들기** 열려는 합니다 **로컬 네트워크 게이트웨이 만들기** 페이지입니다.
+1. 포털에서 선택 **+ 리소스 만들기**합니다.
+2. 검색 상자에서 입력 **로컬 네트워크 게이트웨이**을 선택한 후 **Enter** 검색 합니다. 그러면 결과 목록이 반환됩니다.
+3. 선택 **로컬 네트워크 게이트웨이**을 선택한 후 **만들기** 열려고 합니다 **로컬 네트워크 게이트웨이 만들기** 페이지.
 4. **로컬 네트워크 게이트웨이 만들기**, 로컬 네트워크 게이트웨이에 대 한 값을 지정를 사용 하 여 당사의 **자습서의 예제 값**합니다. 다음 추가 값을 포함 합니다.
 
-    - **IP 주소**: Azure 또는 Azure Stack에 연결 하려는 VPN 장치의 공용 IP 주소입니다. Azure는 주소에 연결할 수 있도록 NAT 뒤에 없는 유효한 공용 IP 주소를 지정 합니다. IP 주소가 지금 당장 없는, 하는 경우는 자리 표시자로 예제의 값을 사용할 수 있지만 VPN 장치의 공용 IP 주소를 사용 하 여 자리 표시자를 바꾸고 다시 이동 해야 합니다. Azure는 올바른 주소를 제공할 때까지 장치에 연결할 수 없습니다.
-    - **주소 공간**:이 로컬 네트워크가 나타내는 네트워크에 대 한 주소 범위입니다. 주소 공간 범위를 여러 개 추가할 수 있습니다. 지정한 범위가 연결 하려는 다른 네트워크의 범위와 겹치지 않는지 확인 합니다. Azure는 지정한 주소 범위를 온-프레미스 VPN 디바이스 IP 주소에 라우팅합니다. 예제 값이 아닌 온-프레미스 사이트에 연결 하려는 경우 고유한 값을 사용 합니다.
-    - **BGP 설정 구성**: BGP를 구성 하는 경우에 사용 합니다. 그렇지 않으면 이것을 선택하지 마십시오.
-    - **구독**: 올바른 구독이 표시 되어 있는지 확인 합니다.
-    - **리소스 그룹**: 사용 하려는 리소스 그룹을 선택 합니다. 새 리소스 그룹을 만들 수 있습니다 하거나 이미 만든 선택 합니다.
-    - **위치**:이 개체에서 생성 될 위치를 선택 합니다. 에서는 VNet에 있는 동일한 위치를 선택 하는 것이 좋습니다 있지만 수행할 필요가 없습니다.
-5. 필요한 값을 지정 하는 것이 했으면, 선택 **만들기** 로컬 네트워크 게이트웨이를 만듭니다.
+    - **IP 주소**: 이것이 Azure 또는 Azure Stack에 연결 하려는 VPN 장치의 공용 IP 주소입니다. Azure는 주소에 연결할 수 있도록 NAT 뒤에 없는 유효한 공용 IP 주소를 지정 합니다. IP 주소가 지금 당장 없는, 하는 경우는 자리 표시자로 예제의 값을 사용할 수 있지만 VPN 장치의 공용 IP 주소를 사용 하 여 자리 표시자를 바꾸고 다시 이동 해야 합니다. Azure는 올바른 주소를 제공할 때까지 장치에 연결할 수 없습니다.
+    - **주소 공간**: 이 로컬 네트워크가 나타내는 네트워크에 대 한 주소 범위입니다. 주소 공간 범위를 여러 개 추가할 수 있습니다. 지정한 범위가 연결 하려는 다른 네트워크의 범위와 겹치지 않는지 확인 합니다. Azure는 지정한 주소 범위를 온-프레미스 VPN 디바이스 IP 주소에 라우팅합니다. 예제 값이 아닌 온-프레미스 사이트에 연결 하려는 경우 고유한 값을 사용 합니다.
+    - **BGP 설정 구성**: BGP를 구성할 경우에만 사용합니다. 그렇지 않으면 이것을 선택하지 마십시오.
+    - **구독**: 올바른 구독이 표시되는지 확인합니다.
+    - **리소스 그룹**: 사용하려는 리소스 그룹을 선택합니다. 새 리소스 그룹을 만들 수 있습니다 하거나 이미 만든 선택 합니다.
+    - **위치**: 이 개체를 만들 위치를 선택합니다. 에서는 VNet에 있는 동일한 위치를 선택 하는 것이 좋습니다 있지만 수행할 필요가 없습니다.
+5. 필요한 값을 지정 하는 것이 했으면, 선택 **Create** 로컬 네트워크 게이트웨이를 만듭니다.
 6. Azure Stack 배포에서 이러한 단계 (1-5)를 반복 합니다.
 
 ## <a name="configure-your-connection"></a>연결 구성
@@ -204,23 +205,23 @@ Azure에서 가상 네트워크 게이트웨이 만들려면 다음 단계를 �
 
 가상 네트워크 게이트웨이와 온-프레미스 VPN 장치 사이의 사이트 간 VPN 연결을 만들려면 다음 단계를 사용 합니다.
 
-1. Azure portal에서 선택 **+ 리소스 만들기**합니다.
+1. Azure portal에서 선택 **+ 리소스 만들기**합니다.
 2. 검색할 **연결**합니다.
-3. **결과**를 선택 **연결**합니다.
+3. **결과**를 선택 **연결**합니다.
 4. 온 **연결**를 선택 **만들기**합니다.
 5. 온 **대 한 연결 만들기**, 다음 설정을 구성 합니다.
 
-    - **연결 형식**: 사이트 간 (IPSec)를 선택 합니다.
+    - **연결 형식**: 사이트-사이트 간 (IPSec)를 선택 합니다.
     - **리소스 그룹**: 테스트 리소스 그룹을 선택 합니다.
-    - **Virtual Network 게이트웨이**: 사용자가 만든 가상 네트워크 게이트웨이 선택 합니다.
+    - **가상 네트워크 게이트웨이**: 사용자가 만든 가상 네트워크 게이트웨이 선택 합니다.
     - **로컬 네트워크 게이트웨이**: 사용자가 만든 로컬 네트워크 게이트웨이 선택 합니다.
-    - **연결 이름**: 두 게이트웨이가의 값을 사용 하 여 자동으로 채워집니다.
-    - **공유 키**:이 값에는 로컬 온-프레미스 VPN 장치에 사용 하는 값과 일치 해야 합니다. 자습서 예제에서는 'abc123' 사용 하지만 있습니다 수을 사용 하 여 더 복잡 한 항목입니다. 중요 한 점은이 값이 VPN 장치를 구성할 때 지정한 것과 동일한 값이 되도록 합니다.
+    - **연결 이름**: 두 게이트웨이 값을 사용 하 여 자동으로 채워집니다.
+    - **공유 키**: 이 값에는 로컬 온-프레미스 VPN 장치를 사용 하는 값과 일치 해야 합니다. 자습서 예제에서는 'abc123' 사용 하지만 있습니다 수을 사용 하 여 더 복잡 한 항목입니다. 중요 한 점은이 값이 VPN 장치를 구성할 때 지정한 것과 동일한 값이 되도록 합니다.
     - **구독**, **리소스 그룹** 및 **위치**에 대한 값이 고정됩니다.
 
 6. 선택 **확인** 사용자 연결을 만듭니다.
 
-연결을 볼 수는 **연결** 가상 네트워크 게이트웨이 페이지입니다. 상태에서 이동 *알 수 없는* 하 *연결*, 하 고 *성공*합니다.
+연결을 볼 수는 **연결** 가상 네트워크 게이트웨이 페이지입니다. 상태에서 이동 *알 수 없는* 를 *연결*, 한 다음 *성공*합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

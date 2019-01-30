@@ -1,9 +1,9 @@
 ---
-title: Azure Active Directory에 사용자 지정 도메인을 추가하는 방법 | Microsoft Docs
-description: Azure Active Directory 포털을 사용하여 사용자 지정 도메인을 추가하는 방법에 대해 알아봅니다.
+title: 사용자 지정 도메인 추가 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory를 사용하여 사용자 지정 도메인을 추가하는 방법에 대한 지침입니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
-ms.custom: it-pro
-ms.openlocfilehash: 77c2247281fde4aa2b67388464b386b276fe6437
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: fa5649e0e4acb389768ad5038c3e26ee2f3465e1
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233340"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451598"
 ---
-# <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>방법: Azure Active Directory 포털을 사용하여 사용자 지정 도메인 이름 추가
+# <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Azure Active Directory 포털을 사용하여 사용자 지정 도메인 이름 추가
 모든 새로운 Azure AD 테넌트는 *domainname*.onmicrosoft.com이라는 초기 도메인 이름으로 제공됩니다. 초기 도메인 이름을 변경하거나 삭제할 수는 없지만 조직의 이름을 해당 목록에 추가할 수는 있습니다. 사용자 지정 도메인 이름을 추가하면 *alain@contoso.com*과 같이 사용자에게 친숙한 사용자 이름을 만들 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
@@ -63,7 +63,7 @@ ms.locfileid: "51233340"
 ## <a name="add-your-dns-information-to-the-domain-registrar"></a>DNS 정보를 도메인 등록 기관에 추가
 Azure AD에 사용자 지정 도메인 이름을 추가한 후에 해당 도메인 등록 기관으로 돌아가서 복사된 TXT 파일에서 Azure AD DNS 정보를 추가해야 합니다. 도메인에 대해 이 TXT 레코드를 만들면 해당 도메인 이름의 소유권을 "확인합니다".
 
--  도메인 등록 기관으로 돌아가 복사된 DNS 정보에 기반한 도메인에 대해 새 TXT 레코드를 만들고 **TTL**(time to live)을 60분으로 설정한 다음, 해당 정보를 저장합니다.
+-  도메인 등록 기관으로 돌아가서 복사된 DNS 정보에 기반한 도메인에 대해 새 TXT 레코드를 만들고 **TTL**(time to live)을 3600초(60분)로 설정한 다음, 해당 정보를 저장합니다.
 
     >[!Important]
     >원하는 만큼 많은 도메인 이름을 등록할 수 있습니다. 그러나 각 도메인은 Azure AD에서 자체 TXT 레코드를 가져옵니다. 도메인 등록 기관에 TXT 파일 정보를 입력할 때 주의해야 합니다. 실수로 잘못 입력하거나 중복된 정보를 입력한 경우 다시 시도하기 전에 TTL(60분) 시간이 종료될 때까지 기다려야 합니다.

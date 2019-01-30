@@ -1,28 +1,8 @@
 ---
-title: Machine Learning 스튜디오로 데이터 가져오기 - Azure | Microsoft Docs
-description: 다양한 데이터 원본에서 Azure Machine Learning Studio로 데이터를 가져오는 방법. 지원되는 데이터 형식에 대해 알아봅니다.
-keywords: 데이터 가져오기, 데이터 형식, 데이터 유형, 데이터 원본, 학습 데이터
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
-editor: cgronlun
-ms.assetid: c194ee3b-838c-4efe-bb2a-c1d052326216
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
-ms.openlocfilehash: 8f6bc6e1e13de879f81e6fc6f1f447d0c2856ced
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315259"
+제목: Machine Learning Studio로 데이터 가져오기 titleSuffix: Azure Machine Learning Studio 설명: 다양한 데이터 원본에서 Azure Machine Learning Studio로 데이터를 가져오는 방법. 지원되는 데이터 형식에 대해 알아봅니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 11/29/2017
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>다양한 데이터 원본에서 Azure Machine Learning Studio로 학습 데이터를 가져오기
 
@@ -39,10 +19,6 @@ ms.locfileid: "52315259"
 > 
 
 또한 이 소개 문서에서는 Machine Learning Studio에 사용할 준비가 완료된 데이터를 가져오는 방법을 보여 주고 지원되는 데이터 형식과 데이터 유형을 다룹니다.
-
-> [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-> 
-> 
 
 ## <a name="get-data-ready-for-use-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 사용할 준비가 완료된 데이터 가져오기
 Machine Learning Studio는 데이터베이스에서 구분되었거나 구조화된 데이터인 텍스트 데이터 등의 직사각형 또는 테이블 형식 데이터에 대해 작업하도록 설계되어 있습니다. 단, 경우에 따라 직사각형이 아닌 데이터도 사용할 수 있습니다.
@@ -84,7 +60,7 @@ Machine Learning Studio에서 인식하는 **데이터 유형**은 다음과 같
 * Datetime
 * timespan
 
-Machine Learning 스튜디오에서는 ***데이터 테이블***이라는 내부 데이터 형식을 사용하여 모듈 간에 데이터를 전달합니다. [데이터 집합으로 변환][convert-to-dataset] 모듈을 사용하여 명시적으로 데이터를 데이터 테이블 형식으로 변환할 수 있습니다.
+Machine Learning 스튜디오에서는 ***데이터 테이블***이라는 내부 데이터 형식을 사용하여 모듈 간에 데이터를 전달합니다. [데이터 세트로 변환][convert-to-dataset] 모듈을 사용하여 명시적으로 데이터를 데이터 테이블 형식으로 변환할 수 있습니다.
 
 데이터 테이블 이외의 형식을 허용하는 모든 모듈에서는 다음 모듈에 데이터를 전달하기 전에 데이터를 데이터 테이블로 자동 변환합니다.
 

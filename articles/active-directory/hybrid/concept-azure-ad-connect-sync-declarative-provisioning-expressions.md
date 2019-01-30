@@ -4,7 +4,7 @@ description: 선언적 프로비전 식에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 26c835e6c2f658f7ad852fdd02dc8974db33e47b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 488309d9d78834896a939c66ccdc7515310103de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306052"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460502"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect 동기화: 선언적 프로비전 식 이해
 Azure AD Connect 동기화는 Forefront Identity Manager 2010에 처음 도입된 선언적 프로비전을 기반으로 합니다. 컴파일된 코드를 작성할 필요 없이 전체 ID 통합 비즈니스 논리를 구현할 수 있습니다.
@@ -32,13 +32,13 @@ Azure AD Connect 동기화는 Forefront Identity Manager 2010에 처음 도입�
 특성은 강력한 형식입니다. 함수는 올바른 형식의 특성만 허용합니다. 대/소문자를 구분하기도 합니다. 함수 이름과 특성 이름은 모두 적절한 대/소문자를 가지고 있어야 하며 그렇지 않으면 오류가 발생합니다.
 
 ## <a name="language-definitions-and-identifiers"></a>언어 정의 및 식별자
-* 함수는 다음과 같이 이름 뒤에 대괄호로 인수가 붙습니다. FunctionName(인수 1, 인수 N).
+* 함수에는 이름 뒤에 괄호로 묶인 인수가 있습니다(예: FunctionName(인수 1, 인수 N)).
 * 특성은 다음과 같이 대괄호로 식별됩니다. [attributeName]
 * 매개 변수는 다음과 같이 백분율 기호로 식별됩니다. % ParameterName %
-* 문자열 상수는 따옴표를 사용합니다(예: "Contoso"). (참고: 둥근 따옴표 “”가 아닌 직선 따옴표 ""를 사용)
+* 문자열 상수는 따옴표로 묶습니다(예: "Contoso"). (참고: 둥근 따옴표(“”)가 아닌 곧은 따옴표("") 사용).
 * 숫자 값은 따옴표 없이 표현되고 10진수입니다. 16진수 값은 접두사 &H가 붙습니다. 예: 98052, &HFF
-* 부울 값은 다음과 같은 상수로 표시됩니다. True, False
-* 기본 제공 상수 및 리터럴은 자신의 이름으로만 표현됩니다. NULL, CRLF, IgnoreThisFlow
+* 부울 값은 다음과 같은 상수로 표시됩니다(예: True, False).
+* 기본 제공 상수 및 리터럴은 자신의 이름으로만 표현됩니다(예: NULL, CRLF, IgnoreThisFlow).
 
 ### <a name="functions"></a>Functions
 선언적 프로비전은 여러 함수를 사용하여 특성 값을 변환할 수 있도록 합니다. 함수의 결과가 다른 함수로 전달되도록 이러한 함수는 중첩될 수 있습니다.
@@ -98,5 +98,5 @@ Active Directory Connector는 인바운드 동기화 규칙에 대해 다음 매
 
 **참조 항목**
 
-* [Azure AD 동기화 연결: 함수 참조](reference-connect-sync-functions-reference.md)
+* [Azure AD Connect 동기화: 함수 참조](reference-connect-sync-functions-reference.md)
 

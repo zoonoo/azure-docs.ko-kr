@@ -24,7 +24,7 @@ ms.locfileid: "50233534"
 # <a name="media-services-development-with-net"></a>.NET을 사용한 Media Services 개발
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
 
-이 문서에서는 .NET을 사용하여 Media Services 응용 프로그램 개발을 시작하는 방법을 설명합니다.
+이 문서에서는 .NET을 사용하여 Media Services 애플리케이션 개발을 시작하는 방법을 설명합니다.
 
 **Azure Media Services .NET SDK** 라이브러리를 사용하면 .NET을 사용하여 Media Services를 프로그래밍 할 수 있습니다. .NET을 사용한 개발을 더욱 쉽게 도와주는 **Azure Media Services .NET SDK 확장** 라이브러리가 제공 됩니다. 이 라이브러리는 .NET 코드를 단순화하는 일련의 확장 방법 및 도우미 함수를 포함합니다. 두 라이브러리 모두 **NuGet** 및 **GitHub**를 통해 사용할 수 있습니다.
 
@@ -35,13 +35,13 @@ ms.locfileid: "50233534"
 * 있습니다.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
-이 섹션에서는 Visual Studio에서 프로젝트를 생성하고 Media Services 개발에 대해 설정하는 방법을 설명합니다.  이 경우에 프로젝트는 C# Windows 콘솔 응용 프로그램이지만 여기에 설명된 설정 방법은 Media Services 응용 프로그램에 생성할 수 있는 다른 프로젝트 유형에도 그대로 적용됩니다(예: Windows Forms 응용 프로그램 또는 ASP.NET 웹 응용 프로그램).
+이 섹션에서는 Visual Studio에서 프로젝트를 생성하고 Media Services 개발에 대해 설정하는 방법을 설명합니다.  이 경우에 프로젝트는 C# Windows 콘솔 애플리케이션이지만 여기에 설명된 설정 방법은 Media Services 애플리케이션에 생성할 수 있는 다른 프로젝트 유형에도 그대로 적용됩니다(예: Windows Forms 애플리케이션 또는 ASP.NET 웹 애플리케이션).
 
 이 섹션에서는 Media Services .NET SDK 확장 추가를 위한 **NuGet** 을 사용하는 방법과 기타 종속된 라이브러리를 보여 줍니다.
 
 또는 GitHub에서 최신 Media Services .NET SDK 비트를 가져오고([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) 또는 [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)) 솔루션을 빌드하고 클라이언트 프로젝트에 대한 참조를 추가합니다. 필요한 종속성은 모두 자동으로 다운로드되고 추출됩니다.
 
-1. Visual Studio를 사용하여 새 C# 콘솔 응용 프로그램을 만듭니다. **이름**, **위치** 및 **솔루션 이름**을 입력하고 확인을 클릭합니다.
+1. Visual Studio를 사용하여 새 C# 콘솔 애플리케이션을 만듭니다. **이름**, **위치** 및 **솔루션 이름**을 입력하고 확인을 클릭합니다.
 2. 솔루션을 빌드하십시오.
 3. **NuGet**을 사용하여 **Azure Media Services .NET SDK Extensions**(**windowsazure.mediaservices.extensions**)를 설치한 후 추가합니다. 이 패키지를 설치하면 **Media Services .NET SDK** 도 설치되고 다른 모든 필수 종속성이 추가됩니다.
    
@@ -90,7 +90,7 @@ ms.locfileid: "50233534"
             using System.Linq;
     ```
 
-    이제 Media Services 응용 프로그램 개발을 시작할 준비가 되었습니다.    
+    이제 Media Services 애플리케이션 개발을 시작할 준비가 되었습니다.    
 
 ## <a name="example"></a>예
 

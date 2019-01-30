@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: cd2399e25889cdc9c885b76e002e47415c0629e5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 977d40ba6fdb00f47f4ff32e60642ee3ab102da2
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984389"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413637"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Azure Storage에서 Azure CLI 사용
 
@@ -30,8 +30,8 @@ ms.locfileid: "46984389"
 이 가이드에서는 Azure Storage의 기본 개념을 이해하고 있다고 가정합니다. 또한 Azure와 Storage 서비스에 대해 아래에 지정된 계정 만들기 요구 사항을 충족할 수 있다고 가정합니다.
 
 ### <a name="accounts"></a>계정
-* **Azure 계정**: Azure 구독이 아직 없는 경우 [무료 Azure 계정을 만듭니다](https://azure.microsoft.com/free/).
-* **Storage 계정**: [Azure Storage 계정 정보](storage-create-storage-account.md)의 [Storage 계정 만들기](storage-quickstart-create-account.md) 섹션을 참조하세요.
+* **Azure 계정**: Azure 구독이 아직 없는 경우 [무료 Azure 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* **스토리지 계정**: [Azure Storage 계정 정보](storage-create-storage-account.md)에서 [Storage 계정 만들기](storage-quickstart-create-account.md)를 참조하세요.
 
 ### <a name="install-the-azure-cli"></a>Azure CLI 설치
 
@@ -133,8 +133,8 @@ echo "Done"
 
 2. 다음으로 구성 설정을 반영하도록 스크립트의 변수를 업데이트합니다. 다음 값을 지정한 대로 바꿉니다.
 
-   * **\<storage_account_name\>** 저장소 계정의 이름입니다.
-   * **\<storage_account_key\>** 저장소 계정의 기본 또는 보조 액세스 키입니다.
+   * **\<storage_account_name\>** 스토리지 계정의 이름입니다.
+   * **\<storage_account_key\>** 스토리지 계정의 기본 또는 보조 액세스 키입니다.
    * **\<container_name\>** 새로 만들 컨테이너의 이름입니다(예: "azure-cli-sample-container").
    * **\<Blob_name\>** 컨테이너에 있는 대상 Blob의 이름입니다.
    * **\<file_to_upload\>** 로컬 컴퓨터의 작은 파일 경로입니다(예: "~/images/HelloWorld.png").
@@ -173,7 +173,7 @@ Done
 ## <a name="manage-storage-accounts"></a>저장소 계정 관리
 
 ### <a name="create-a-new-storage-account"></a>새 저장소 계정 만들기
-Azure Storage를 사용하려면 저장소 계정이 필요합니다. [구독에 연결](#connect-to-your-azure-subscription)하도록 컴퓨터를 구성한 후 새 Azure Storage 계정을 만들 수 있습니다.
+Azure Storage를 사용하려면 스토리지 계정이 필요합니다. [구독에 연결](#connect-to-your-azure-subscription)하도록 컴퓨터를 구성한 후 새 Azure Storage 계정을 만들 수 있습니다.
 
 ```azurecli
 az storage account create \
@@ -186,7 +186,7 @@ az storage account create \
 * `--location`[필수]: 위치입니다. 예를 들어 "미국 서부"를 선택합니다.
 * `--name`[필수]: 저장소 계정 이름입니다. 이름의 길이는 3-24자여야 하며, 소문자 영숫자만 사용합니다.
 * `--resource-group`[필수]: 리소스 그룹의 이름입니다.
-* `--sku`[필수]: 저장소 계정 SKU입니다. 허용되는 값은 다음과 같습니다.
+* `--sku`[필수]: 스토리지 계정 SKU입니다. 허용되는 값은 다음과 같습니다.
   * `Premium_LRS`
   * `Standard_GRS`
   * `Standard_LRS`
@@ -197,7 +197,7 @@ az storage account create \
 
 Azure 구독에서 여러 저장소 계정을 사용할 수 있습니다. 모든 후속 저장소 명령에 사용하기 위해 이러한 계정 중 하나를 선택하려면 환경 변수를 다음과 같이 설정할 수 있습니다.
 
-먼저, [az storage account keys list](/cli/azure/storage/account/keys#list) 명령을 사용하여 저장소 계정 키를 표시합니다.
+먼저, [az storage account keys list](/cli/azure/storage/account/keys) 명령을 사용하여 스토리지 계정 키를 표시합니다.
 
 ```azurecli-interactive
 az storage account keys list \
@@ -231,7 +231,7 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 > 이 문서의 다음 섹션에 나오는 모든 예제에서는 `AZURE_STORAGE_ACCOUNT` 및 `AZURE_STORAGE_KEY` 환경 변수를 설정했다고 가정합니다.
 
 ## <a name="create-and-manage-blobs"></a>Blob 만들기 및 관리
-Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있는 다량의 구조화되지 않은 데이터(예: 텍스트 또는 이진 데이터)를 저장할 수 있는 서비스입니다. 이 섹션에서는 Azure Blob 저장소 개념에 이미 익숙하다고 가정합니다. 자세한 내용은 [.NET을 사용하여 Azure Blob Storage 시작](../blobs/storage-dotnet-how-to-use-blobs.md) 및 [Blob Service 개념](/rest/api/storageservices/blob-service-concepts)을 참조하세요.
+Azure Blob Storage는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있는 다량의 구조화되지 않은 데이터(예: 텍스트 또는 이진 데이터)를 저장할 수 있는 서비스입니다. 이 섹션에서는 Azure Blob Storage 개념에 이미 익숙하다고 가정합니다. 자세한 내용은 [.NET을 사용하여 Azure Blob Storage 시작](../blobs/storage-dotnet-how-to-use-blobs.md) 및 [Blob Service 개념](/rest/api/storageservices/blob-service-concepts)을 참조하세요.
 
 ### <a name="create-a-container"></a>컨테이너 만들기
 Azure 저장소의 모든 Blob은 컨테이너에 있어야 합니다. `az storage container create` 명령을 사용하면 컨테이너를 만들 수 있습니다.
@@ -249,7 +249,7 @@ az storage container create --name <container_name>
 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](../blobs/storage-manage-access-to-resources.md)를 참조하세요.
 
 ### <a name="upload-a-blob-to-a-container"></a>컨테이너에 Blob 업로드
-Azure Blob 저장소는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. `blob upload` 명령을 사용하여 컨테이너에 Blob을 업로드합니다.
+Azure Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. `blob upload` 명령을 사용하여 컨테이너에 Blob을 업로드합니다.
 
 ```azurecli
 az storage blob upload \
@@ -325,7 +325,7 @@ az storage blob delete --container-name <container_name> --name <blob_name>
 ```
 
 ## <a name="create-and-manage-file-shares"></a>파일 공유 만들기 및 관리
-Azure Files는 SMB(서버 메시지 블록) 프로토콜을 사용하는 응용 프로그램을 위한 공유 저장소를 제공합니다. Microsoft Azure 가상 머신 및 클라우드 서비스 그리고 온-프레미스 응용 프로그램은 탑재된 공유를 통해 파일 데이터를 공유할 수 있습니다. Azure CLI를 통해 파일 공유 및 파일 데이터를 관리할 수 있습니다. Azure Files에 대한 자세한 내용은 [Azure Files 소개](../files/storage-files-introduction.md)를 참조하세요.
+Azure Files는 SMB(서버 메시지 블록) 프로토콜을 사용하는 애플리케이션을 위한 공유 스토리지를 제공합니다. Microsoft Azure 가상 머신 및 클라우드 서비스 그리고 온-프레미스 애플리케이션은 탑재된 공유를 통해 파일 데이터를 공유할 수 있습니다. Azure CLI를 통해 파일 공유 및 파일 데이터를 관리할 수 있습니다. Azure Files에 대한 자세한 내용은 [Azure Files 소개](../files/storage-files-introduction.md)를 참조하세요.
 
 ### <a name="create-a-file-share"></a>파일 공유 만들기
 Azure에서 Azure 파일 공유는 SMB 파일 공유입니다. 모든 디렉터리 및 파일을 파일 공유에서 만들어야 합니다. 계정에 포함할 수 있는 공유 수에는 제한이 없으며, 공유에 저장할 수 있는 파일 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다. 다음 예제에서는 **myshare**라는 파일 공유를 만듭니다.

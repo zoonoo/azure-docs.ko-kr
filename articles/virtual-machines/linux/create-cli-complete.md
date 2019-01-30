@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: e618bce78a3a3ce080b6c24cc34a27c2f5fb39e9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 27cef0287156d4cf76914704b849cb646c21dd7d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977556"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467488"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Azure CLI를 사용하여 완전한 Linux 가상 머신 만들기
 Azure에서 가상 머신(VM)를 신속하게 만들려면 기본 값을 사용하여 모든 필요한 지원 리소스를 생성하는 단일 Azure CLI 명령을 사용할 수 있습니다. 가상 네트워크, 공용 IP 주소 및 네트워크 보안 그룹 규칙 등의 리소스는 자동으로 생성됩니다. 프로덕션 환경에서의 더 높은 제어를 위해 미리 이 리소스를 만들어 VM을 여기에 추가할 수 있습니다. 이 문서에서는 VM을 만들고 지원 리소스를 하나씩 만드는 방법을 안내합니다. 
@@ -210,7 +210,7 @@ az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGro
       "destinationPortRange": "*",
       "direction": "Inbound",
       "etag": "W/\"3371b313-ea9f-4687-a336-a8ebdfd80523\"",
-      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup/defaultSecurityRules/AllowAzureLoadBalancerInBou
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup/defaultSecurityRules/AllowAzureLoadBalancerInBou",
       "name": "AllowAzureLoadBalancerInBound",
       "priority": 65001,
       "protocol": "*",
@@ -333,7 +333,7 @@ az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGro
 ```
 
 ## <a name="create-a-virtual-nic"></a>가상 NIC 만들기
-가상 네트워크 인터페이스 카드(NIC)는 사용할 때 규칙을 적용할 수 있으므로 프로그래밍 방식으로 사용할 수 있습니다. [VM 크기](sizes.md)에 따라 여러 가상 NIC를 VM에 연결할 수 있습니다. 다음 [az network nic create](/cli/azure/network/nic#az_network_nic_create) 명령에서 *myNic*이라는 NIC를 만들고 네트워크 보안 그룹과 연결합니다. 공용 IP 주소 *myPublicIP*도 가상 NIC에 연결됩니다.
+가상 네트워크 인터페이스 카드(NIC)는 사용할 때 규칙을 적용할 수 있으므로 프로그래밍 방식으로 사용할 수 있습니다. [VM 크기](sizes.md)에 따라 여러 가상 NIC를 VM에 연결할 수 있습니다. 다음 [az network nic create](/cli/azure/network/nic) 명령에서 *myNic*이라는 NIC를 만들고 네트워크 보안 그룹과 연결합니다. 공용 IP 주소 *myPublicIP*도 가상 NIC에 연결됩니다.
 
 ```azurecli
 az network nic create \
@@ -578,4 +578,4 @@ az group deployment create \
 [템플릿에서 배포하는 방법에 대해 자세히 읽어볼 수 있습니다](../../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 환경을 점진적으로 업데이트하고, 매개 변수 파일을 사용하고, 단일 저장소 위치에서 템플릿에 액세스하는 방법을 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
-이제 여러 네트워킹 구성 요소 및 VM을 사용할 준비가 되셨습니다. 이 샘플 환경에 사용하여 여기에 소개된 핵심 구성 요소로 응용 프로그램을 빌드할 수 있습니다.
+이제 여러 네트워킹 구성 요소 및 VM을 사용할 준비가 되셨습니다. 이 샘플 환경에 사용하여 여기에 소개된 핵심 구성 요소로 애플리케이션을 빌드할 수 있습니다.

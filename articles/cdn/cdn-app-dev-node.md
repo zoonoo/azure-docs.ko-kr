@@ -1,6 +1,6 @@
 ---
 title: Node.js용 Azure CDN SDK 시작하기 | Microsoft Docs
-description: Node.js 응용 프로그램을 작성하여 Azure CDN을 관리하는 방법에 대해 알아봅니다.
+description: Node.js 애플리케이션을 작성하여 Azure CDN을 관리하는 방법에 대해 알아봅니다.
 services: cdn
 documentationcenter: nodejs
 author: zhangmanling
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 46ae8cd9775432d126cbde856c1fb06ea319297e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 70bae1558860b763d17d04e10d5d926b39300101
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38301568"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321248"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Azure CDN 개발 시작
 > [!div class="op_single_selector"]
@@ -28,9 +28,9 @@ ms.locfileid: "38301568"
 > 
 > 
 
-[Node.js용 Azure CDN SDK](https://www.npmjs.com/package/azure-arm-cdn) 를 사용하여 CDN 프로필과 끝점의 생성 및 관리를 자동화할 수 있습니다.  이 자습서에서는 여러 가지 사용 가능한 작업을 보여주는 간단한 Node.js 콘솔 응용 프로그램을 살펴봅니다.  이 자습서는 Node.js용 Azure CDN SDK의 모든 측면을 상세하게 설명하지 않습니다.
+[Node.js용 Azure CDN SDK](https://www.npmjs.com/package/azure-arm-cdn) 를 사용하여 CDN 프로필과 엔드포인트의 생성 및 관리를 자동화할 수 있습니다.  이 자습서에서는 여러 가지 사용 가능한 작업을 보여주는 간단한 Node.js 콘솔 애플리케이션을 살펴봅니다.  이 자습서는 Node.js용 Azure CDN SDK의 모든 측면을 상세하게 설명하지 않습니다.
 
-이 자습서를 완료하려면 [Node.js](http://www.nodejs.org) **4.x.x** 이상을 설치하고 구성해야 합니다.  원하는 텍스트 편집기를 사용하여 Node.js 응용 프로그램을 만들 수 있습니다.  이 자습서를 작성하려면 [Visual Studio 코드](https://code.visualstudio.com)를 사용합니다.  
+이 자습서를 완료하려면 [Node.js](http://www.nodejs.org) **4.x.x** 이상을 설치하고 구성해야 합니다.  원하는 텍스트 편집기를 사용하여 Node.js 애플리케이션을 만들 수 있습니다.  이 자습서를 작성하려면 [Visual Studio 코드](https://code.visualstudio.com)를 사용합니다.  
 
 > [!TIP]
 > [이 자습서에서 완성된 프로젝트](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) 는 MSDN에서 다운로드할 수 있습니다.
@@ -40,9 +40,9 @@ ms.locfileid: "38301568"
 [!INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
 ## <a name="create-your-project-and-add-npm-dependencies"></a>프로젝트 만들기 및 NPM 종속성 추가
-CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필과 끝점을 관리하기 위한 Azure AD 응용 프로그램 권한을 부여했으므로, 응용 프로그램을 만들 수 있습니다.
+CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필과 엔드포인트를 관리하기 위한 Azure AD 애플리케이션 권한을 부여했으므로, 애플리케이션을 만들 수 있습니다.
 
-응용 프로그램을 저장할 폴더를 만듭니다.  현재 경로에 있는 Node.js 도구를 포함한 콘솔에서 새 폴더에 현재 위치를 설정하고 다음을 실행하여 프로젝트를 초기화합니다.
+애플리케이션을 저장할 폴더를 만듭니다.  현재 경로에 있는 Node.js 도구를 포함한 콘솔에서 새 폴더에 현재 위치를 설정하고 다음을 실행하여 프로젝트를 초기화합니다.
 
     npm init
 
@@ -119,8 +119,8 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
     var cdnClient = new cdnManagementClient(credentials, subscriptionId);
     ```
    
-    올바른 정보로 **&lt;꺾쇠 괄호&gt;** 의 항목을 교체해야 합니다.  `<redirect URI>`의 경우 Azure AD에서 응용 프로그램을 등록할 때 입력한 리디렉션 URI를 사용합니다.
-4. Node.js 콘솔 응용 프로그램에서는 몇 가지 명령줄 매개 변수를 사용하려고 합니다.  적어도 하나의 매개 변수가 전달되었는지 유효성을 검사해 보겠습니다.
+    올바른 정보로 **&lt;꺾쇠 괄호&gt;** 의 항목을 교체해야 합니다.  `<redirect URI>`의 경우 Azure AD에서 애플리케이션을 등록할 때 입력한 리디렉션 URI를 사용합니다.
+4. Node.js 콘솔 애플리케이션에서는 몇 가지 명령줄 매개 변수를 사용하려고 합니다.  적어도 하나의 매개 변수가 전달되었는지 유효성을 검사해 보겠습니다.
    
    ```javascript
    //Collect command-line parameters
@@ -214,8 +214,8 @@ CDN 프로필용 리소스 그룹을 만들고 해당 그룹에서 CDN 프로필
 
 이제 프로그램의 기본 구조가 작성되었으므로 매개 변수에 따라 호출된 함수를 만들어야 합니다.
 
-## <a name="list-cdn-profiles-and-endpoints"></a>CDN 프로필 및 끝점 목록화하기
-기존 프로필 및 끝점을 나열하는 코드부터 살펴 보겠습니다.  나의 코드 주석이 각 매개 변수가 이동할 위치를 알 수 있도록 예상되는 구문을 제공합니다.
+## <a name="list-cdn-profiles-and-endpoints"></a>CDN 프로필 및 엔드포인트 목록화하기
+기존 프로필 및 엔드포인트를 나열하는 코드부터 살펴 보겠습니다.  나의 코드 주석이 각 매개 변수가 이동할 위치를 알 수 있도록 예상되는 구문을 제공합니다.
 
 ```javascript
 // list profiles
@@ -242,8 +242,8 @@ function cdnList(){
 }
 ```
 
-## <a name="create-cdn-profiles-and-endpoints"></a>CDN 프로필 및 끝점 만들기
-다음으로 프로필 및 끝점을 만드는 함수를 작성합니다.
+## <a name="create-cdn-profiles-and-endpoints"></a>CDN 프로필 및 엔드포인트 만들기
+다음으로 프로필 및 엔드포인트를 만드는 함수를 작성합니다.
 
 ```javascript
 function cdnCreate() {
@@ -294,8 +294,8 @@ function cdnCreateEndpoint() {
 }
 ```
 
-## <a name="purge-an-endpoint"></a>끝점 삭제
-끝점을 만들었을 경우, 프로그램에서 흔히 수행하는 작업은 끝점의 콘텐츠를 삭제하는 것입니다.
+## <a name="purge-an-endpoint"></a>엔드포인트 삭제
+엔드포인트를 만들었을 경우, 프로그램에서 흔히 수행하는 작업은 엔드포인트의 콘텐츠를 삭제하는 것입니다.
 
 ```javascript
 // purge <profile name> <endpoint name> <path>
@@ -307,8 +307,8 @@ function cdnPurge() {
 }
 ```
 
-## <a name="delete-cdn-profiles-and-endpoints"></a>CDN 프로필 및 끝점 삭제
-포함된 마지막 함수는 끝점 및 프로필을 삭제합니다.
+## <a name="delete-cdn-profiles-and-endpoints"></a>CDN 프로필 및 엔드포인트 삭제
+포함된 마지막 함수는 엔드포인트 및 프로필을 삭제합니다.
 
 ```javascript
 function cdnDelete() {
@@ -340,7 +340,7 @@ function cdnDelete() {
 이제 선호하는 디버거를 사용하거나 콘솔에서 Node.js 프로그램을 실행할 수 있습니다.
 
 > [!TIP]
-> Visual Studio 코드를 디버거로 사용하는 경우 사용자 환경을 설정하여 명령줄 매개 변수를 전달해야 합니다.  Visual Studio 코드는 **lanuch.json** 파일에서 이를 수행합니다.  **args**라는 속성을 찾고 다음과 유사하게 표시되도록 사용자 매개 변수에 대한 문자열 값의 배열을 추가합니다. `"args": ["list", "profiles"]`.
+> Visual Studio 코드를 디버거로 사용하는 경우 사용자 환경을 설정하여 명령줄 매개 변수를 전달해야 합니다.  Visual Studio Code는 **launch.json** 파일에서 이 작업을 수행합니다.  **args**라는 속성을 찾고 다음과 유사하게 표시되도록 사용자 매개 변수에 대한 문자열 값의 배열을 추가합니다. `"args": ["list", "profiles"]`.
 > 
 > 
 
@@ -352,9 +352,9 @@ function cdnDelete() {
 
 ![프로필 만들기](./media/cdn-app-dev-node/cdn-create-profile.png)
 
-이제 끝점을 추가하겠습니다.
+이제 엔드포인트를 추가하겠습니다.
 
-![끝점 만들기](./media/cdn-app-dev-node/cdn-create-endpoint.png)
+![엔드포인트 만들기](./media/cdn-app-dev-node/cdn-create-endpoint.png)
 
 마지막으로 프로필을 삭제하겠습니다.
 

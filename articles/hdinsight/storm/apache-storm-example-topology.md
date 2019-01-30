@@ -9,20 +9,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: 985bb755e4754d2aa371d7b86594297c16fedd27
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 73a7c2ef80291920a6d19f0c3ab01b45c1d6b22a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583570"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53627727"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm에 대한 Apache Storm 토폴로지 및 구성 요소 예제
 
-HDInsight에서 [Apache Storm](http://storm.apache.org/)과 함께 사용하기 위해 Microsoft에서 만들고 유지 관리하는 예제 목록은 다음과 같습니다. 이러한 예제에서는 기본 C# 및 Java 토폴로지 생성부터 Event Hub, Cosmos DB, SQL Database, HDInsight의 [Apache HBase](http://hbase.apache.org/), Azure Storage 등 Azure 서비스 작업에 이르는 다양한 토픽을 다룹니다. 또한 일부 예제에서는 SignalR 및 Socket.IO와 같은 Azure가 아니거나 Microsoft가 아닌 기술로 작업하는 방법을 보여 줍니다.
+HDInsight에서 [Apache Storm](https://storm.apache.org/)과 함께 사용하기 위해 Microsoft에서 만들고 유지 관리하는 예제 목록은 다음과 같습니다. 이러한 예제에서는 기본 C# 및 Java 토폴로지 생성부터 Event Hub, Cosmos DB, SQL Database, HDInsight의 [Apache HBase](https://hbase.apache.org/), Azure Storage 등 Azure 서비스 작업에 이르는 다양한 토픽을 다룹니다. 또한 일부 예제에서는 SignalR 및 Socket.IO와 같은 Azure가 아니거나 Microsoft가 아닌 기술로 작업하는 방법을 보여 줍니다.
 
 | 설명 | 데모 | 언어/프레임워크 |
 |:--- |:--- |:--- |
-| [Apache Storm에서 Azure 데이터 레이크 저장소에 쓰기](apache-storm-write-data-lake-store.md) |Azure 데이터 레이크 저장소에 쓰기 |자바 |
+| [Apache Storm에서 Azure Data Lake Storage에 쓰기](apache-storm-write-data-lake-store.md) |Azure Data Lake Storage에 쓰기 |자바 |
 | [이벤트 허브 Spout 및 Bolt 원본](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |이벤트 허브 Spout 및 Bolt에 대한 소스 |자바 |
 | [HDInsight에서 Apache Storm에 대한 Java 기반 토폴로지 개발][5797064f] |Maven |자바 |
 | [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발][16fce2d1] |Visual Studio용 HDInsight 도구 |C#, Java |
@@ -35,7 +35,7 @@ HDInsight에서 [Apache Storm](http://storm.apache.org/)과 함께 사용하기 
 | [HDInsight의 Apache Storm에서 Python 사용](apache-storm-develop-python-topology.md) |Flux 토폴로지를 포함하는 Python 구성 요소 |Python |
 | [HDInsight의 Apache Storm에서 Apache Kafka 사용](../hdinsight-apache-storm-with-kafka.md) | Apache Kafka에 Apache Storm 읽기 및 쓰기 | 자바 |
 
-> [!WARNING]
+> [!WARNING]  
 > 이 목록의 C# 예제는 Windows 기반 HDInsight로 작성 및 테스트되었으므로 Linux 기반 HDInsight 클러스터에는 올바르게 작동하지 않을 수 있습니다. Linux 기반 클러스터는 Mono를 사용하여 .NET 코드를 실행하므로 이 예제에서 사용된 프레임워크 및 패키지와 호환성 문제가 있을 수 있습니다.
 >
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다.

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/15/2018
+ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: ee74d4520e867604f50c70f2b6449f12ff3bd8b9
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4bb27959bb57f3d59621e5bbbfaba9aa0c331432
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495984"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200686"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Windows용 NVIDIA GPU 드라이버 확장
 
@@ -37,7 +37,7 @@ ms.locfileid: "52495984"
 
 | 배포 | 버전 |
 |---|---|
-| 윈도우 10 | 코어 |
+| Windows 10(1803 버전까지)| 코어 |
 | Windows Server 2016 | 코어 |
 | Windows Server 2012R2 | 코어 |
 
@@ -78,17 +78,8 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM�
 | 형식 | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
-### <a name="settings"></a>설정
-
-모든 설정은 선택 사항입니다. 기본 동작은 지원되는 해당하는 최신 드라이버를 설치하는 것입니다.
-
-| 이름 | 설명 | 기본값 | 유효한 값 | 데이터 형식 |
-| ---- | ---- | ---- | ---- | ---- |
-| driverVersion | NV: GRID 드라이버 버전<br> NC/ND: CUDA 드라이버 버전 | 최신 | GRID: “411.81”, “391.81”, “391.58”, “391.03”<br> CUDA: “398.75”, “397.44”, “390.85” | string |
-| installGridND | ND 시리즈 VM에 GRID 드라이버 설치 | false | true, false | 부울 |
 
 ## <a name="deployment"></a>배포
-
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿 
 
@@ -135,8 +126,6 @@ Set-AzureRmVMExtension
 
 ### <a name="azure-cli"></a>Azure CLI
 
-다음 예제에서는 위의 ARM 및 PowerShell 예제를 미러링하고 사용자 지정 설정을 기본이 아닌 드라이버 설치의 예제로 추가합니다. 특히 ND 시리즈 VM이 프로비전되는 경우에도 특정 GRID 드라이버를 설치합니다.
-
 ```azurecli
 az vm extension set `
   --resource-group myResourceGroup `
@@ -145,8 +134,6 @@ az vm extension set `
   --publisher Microsoft.HpcCompute `
   --version 1.2 `
   --settings '{ `
-    "driverVersion": "391.03",
-    "installGridND": true
   }'
 ```
 

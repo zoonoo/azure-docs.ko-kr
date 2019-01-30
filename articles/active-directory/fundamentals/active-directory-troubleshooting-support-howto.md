@@ -1,10 +1,10 @@
 ---
-title: Azure Active Directory를 지원하는 방법 | Microsoft Docs
-description: Azure Active Directory 지원을 받는 방법을 알아봅니다.
+title: 도움말 찾기 및 지원 티켓 열기 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory에 대한 도움말을 얻고 지원 티켓을 여는 방법에 대한 지침입니다.
 services: active-directory
 documentationcenter: na
 author: eross-msft
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: d7d499ed43ee2eab03e46e408104eca4af6a2945
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: feecc0b5b8c6bd7cb39a9aa8f40e84b07b242f39
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729396"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447772"
 ---
-# <a name="how-to-get-support-for-azure-active-directory"></a>방법: Azure Active Directory 지원 받기
+# <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Azure Active Directory에 대한 도움말 찾기 및 지원 티켓 열기
 Microsoft는 Azure AD(Azure Active Directory)에 대한 전 세계적인 기술, 사전 판매, 대금 청구 및 구독 지원을 제공합니다. 온라인 및 전화로 Microsoft Azure 유료 및 평가판 구독에 대한 지원이 제공됩니다. 전화 지원 및 온라인 청구 지원은 여러 언어로 제공됩니다. 
 
 ## <a name="find-help-without-opening-a-support-ticket"></a>지원 티켓을 열지 않고 도움 받기

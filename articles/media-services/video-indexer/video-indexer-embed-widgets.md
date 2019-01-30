@@ -7,18 +7,24 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/21/2019
 ms.author: juliako
-ms.openlocfilehash: a051f40cb5586cae58d8e4939f4fcee35438bf69
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: d5ec82decbb441c27fd0c5e8f1132caa126edbc1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292081"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807748"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>애플리케이션에 Video Indexer 위젯 포함
 
 이 문서에서는 애플리케이션에 Video Indexer 위젯을 포함하는 방법에 대해 설명합니다. Video Indexer는 **인지 인사이트** 및 **플레이어**라는 두 가지 유형의 위젯을 애플리케이션에 포함할 수 있도록 지원합니다. 
+
+> [!NOTE]
+> 2018년 2월 1일부터 **인지적 인사이트** 위젯 버전 1은 더 이상 사용되지 않습니다. Embed URL 버전의 기본값은 `version=2`입니다.
+
+버전 2부터 위젯 기본 URL에 계정의 Azure 지역이 포함됩니다. 예를 들어 미국 서부 지역의 계정은 `https://wus2.videoindexer.ai/embed/insights/...`를 생성합니다.
+
 ## <a name="widget-types"></a>위젯 유형
 
 ### <a name="cognitive-insights-widget"></a>인지 인사이트 위젯
@@ -28,7 +34,7 @@ ms.locfileid: "52292081"
 |이름|정의|설명|
 |---|---|---|
 |widgets|쉼표로 구분된 문자열|렌더링하려는 인사이트를 제어할 수 있습니다. <br/>예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`는 사용자 및 브랜드 UI 인사이트만 제공합니다.<br/>사용 가능한 옵션: people, keywords, annotations, brands, sentiments, transcript, search<br/>version=2에서 URL을 통해 지원되지 않습니다.<br/><br/>**참고:** **version=2**를 사용하는 경우 **widgets** URL 매개 변수가 지원되지 않습니다. |
-|버전|**인지 인사이트** 위젯의 버전|최신 인사이트 위젯 업데이트를 가져오려면 포함 URL에 `?version=2` 쿼리 매개 변수를 추가합니다. 예를 들어 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> 이전 버전을 가져오려면 URL에서 `version=2`만 제거하면 됩니다.
+|버전|**인지 인사이트** 위젯의 버전|최신 인사이트 위젯 업데이트를 가져오려면 Embed URL에 `?version=2` 쿼리 매개 변수를 추가합니다. 예를 들어 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> 이전 버전을 가져오려면 URL에서 `version=2`만 제거하면 됩니다.
 
 ### <a name="player-widget"></a>플레이어 위젯
 
@@ -39,7 +45,7 @@ ms.locfileid: "52292081"
 |t|시작 시간(초)|플레이어가 지정된 시점에서 재생을 시작하도록 합니다.<br/>예: t=60|
 |captions|언어 코드|자막 메뉴에서 사용할 수 있도록 위젯을 로드하는 동안 지정된 언어의 자막을 가져옵니다.<br/>예: captions=en-US|
 |showCaptions|부울 값|플레이어가 자막을 사용하도록 설정된 상태로 로드되도록 합니다.<br/>예: showCaptions=true|
-|형식||오디오 플레이어 스킨을 활성화합니다(비디오 부분은 제거됨).<br/>예: type=audio|
+|형식||오디오 플레이어 스킨을 활성화합니다(비디오 부분은 제거됨).<br/>예: type=audio|"
 |autoplay|부울 값|플레이어가 로드되면 비디오 재생을 시작해야 하는지 여부를 나타냅니다(기본값: true).<br/>예: autoplay=false|
 |언어|언어 코드|플레이어 언어를 제어합니다(기본값: en-US).<br/>예: language=de-DE|
 
@@ -65,7 +71,7 @@ ms.locfileid: "52292081"
 
 **개인** 비디오를 포함하려면 **iframe**의 **src** 특성에 액세스 토큰을 전달해야 합니다.
 
-     https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>
+`https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
     
 [**인사이트 가져오기 위젯**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) API를 사용하여 인지 인사이트 위젯 콘텐츠를 가져오거나, 위와 같이 [**비디오 액세스 토큰 가져오기**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?)를 사용하고 URL에 쿼리 매개 변수로 추가합니다. 이 URL을 **iframe**의 **src** 값으로 지정합니다.
 
@@ -90,13 +96,13 @@ Video Indexer 위젯에서 다른 구성 요소와 통신하도록 하려면 Vid
 
 이 섹션에서는 두 개의 Video Indexer 위젯 간의 상호 작용을 수행하는 방법을 보여 주며, 사용자가 애플리케이션에서 인사이트 컨트롤을 클릭하면 플레이어에서 관련 시점으로 이동합니다.
 
-    <script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script> 
+`<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script> `
 
 1. **플레이어** 위젯 포함 코드를 복사합니다.
 2. **인지 인사이트** 포함 코드를 복사합니다.
 3. 두 위젯 간의 통신을 처리하는 [**중재자(mediator) 파일**](https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js)을 추가합니다.
 
-    <script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>
+`<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>`
 
 이제 사용자가 애플리케이션에서 인사이트 컨트롤을 클릭하면 관련 시점으로 이동합니다.
 
@@ -106,11 +112,7 @@ Video Indexer 위젯에서 다른 구성 요소와 통신하도록 하려면 Vid
 
 이 섹션에서는 [AMP 플러그 인](https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js)을 사용하여 **인지 인사이트** 위젯과 Azure Media Player 인스턴스 간의 상호 작용을 수행하는 방법을 보여 줍니다.
  
-1. AMP 플레이어용 Video Indexer 플러그 인을 추가합니다.
-
-        <script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>
-
-
+1. AMP 플레이어용 Video Indexer 플러그 인을 추가합니다.<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
 2. Video Indexer 플러그 인을 사용하여 Azure Media Player를 인스턴스화합니다.
 
         // Init Source
@@ -205,7 +207,6 @@ Video Indexer 위젯에서 다른 구성 요소와 통신하도록 하려면 Vid
         
         </script>
 
-
 자세한 내용은 [이 데모](https://codepen.io/videoindexer/pen/YEyPLd)를 참조하세요.
 
 ## <a name="adding-subtitles"></a>자막 추가
@@ -215,30 +216,41 @@ Video Indexer 위젯에서 다른 구성 요소와 통신하도록 하려면 Vid
 ## <a name="customizing-embeddable-widgets"></a>포함 가능한 위젯 사용자 지정
 
 ### <a name="cognitive-insights-widget"></a>인지 인사이트 위젯
-API 또는 웹 애플리케이션에서 가져온 포함 코드에 추가된 다음 URL 매개 변수의 값으로 지정하여 원하는 인사이트 유형을 선택할 수 있습니다.
 
-**&widgets=** \<원하는 위젯의 목록>
+API 또는 웹 애플리케이션에서 가져온 포함 코드에 추가된 다음 URL 매개 변수의 값으로 지정하여 원하는 인사이트 유형을 선택할 수 있습니다(`&widgets=<list of wanted widgets>`).
 
 가능한 값은 people, keywords, sentiments, transcript, search입니다.
 
-예를 들어 사람과 검색 인사이트만 있는 위젯을 포함하려는 경우 iframe 포함 URL은 https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search와 같습니다.
+예를 들어 사람과 검색 인사이트만 있는 위젯을 포함하려는 경우 iframe 포함 URL은 다음과 같습니다.
 
-iframe 창의 제목도 iframe URL에 **&title=**<YourTitle>을 제공하여 사용자 지정할 수 있습니다. (html \<title> 값을 사용자 지정합니다.)
-예를 들어 iframe 창에 "MyInsights"라는 제목을 지정하려는 경우 URL은 https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?title=MyInsights와 같습니다. 이 옵션은 새 창에서 인사이트를 열어야 하는 경우에만 관련이 있습니다.
+`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`
+
+iframe 창의 제목도 iframe URL에 `&title=<YourTitle>`을 제공하여 사용자 지정할 수 있습니다. (html \<title> 값을 사용자 지정합니다.)
+    
+예를 들어 iframe 창에 "MyInsights"라는 제목을 지정하려는 경우 URL은 다음과 같습니다.
+
+`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?title=MyInsights`
+
+이 옵션은 새 창에서 인사이트를 열어야 하는 경우에만 관련이 있습니다.
 
 ### <a name="player-widget"></a>플레이어 위젯
+
 Video Indexer 플레이어를 포함하는 경우 iframe의 크기를 지정하여 플레이어 크기를 선택할 수 있습니다.
 
 예: 
 
-    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />
+`<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 
 비디오가 업로드되면 Video Indexer 플레이어는 기본적으로 비디오에서 추출된 비디오의 전사에 따라 선택 자막을 선택한 소스 언어로 자동으로 생성합니다.
 
-다른 언어로 포함하려는 경우 **&captions=< Language | "all" | "false" >** 를 포함 플레이어 URL에 추가하거나, 사용 가능한 모든 언어 자막을 사용하려면 값으로 "all"을 지정합니다.
-자막을 기본적으로 표시하려면 **&showCaptions=true**를 전달할 수 있습니다.
+다른 언어로 포함하려는 경우 `&captions=< Language | ”all” | “false” >`를 포함 플레이어 URL에 추가하거나, 사용 가능한 모든 언어 자막을 사용하려면 값으로 "all"을 지정합니다.
+자막을 기본적으로 표시하려면 `&showCaptions=true`를 전달하면 됩니다.
 
-그러면 포함 URL이 https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian과 같습니다. 자막을 사용하지 않도록 설정하려면 captions 매개 변수의 값으로 "false"를 전달할 수 있습니다.
+그러면 포함 URL이 다음과 같습니다. 
+
+`https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian`
+
+자막을 사용하지 않도록 설정하려면 captions 매개 변수의 값으로 "false"를 전달할 수 있습니다.
 
 자동 재생 – 기본적으로 플레이어에서 비디오 재생을 시작합니다. &autoplay=false를 위의 포함 URL에 전달하여 자동 재생을 시작하지 않도록 선택할 수 있습니다.
 

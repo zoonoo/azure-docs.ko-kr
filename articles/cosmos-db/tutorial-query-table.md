@@ -1,20 +1,19 @@
 ---
 title: Azure Cosmos DB에서 테이블 데이터를 쿼리하는 방법
 description: Azure Cosmos DB에서 테이블 데이터를 쿼리하는 방법을 알아봅니다.
-services: cosmos-db
-author: kanshiG
-ms.author: govindk
+author: wmengmsft
+ms.author: wmeng
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.topic: tutorial
-ms.custom: mvc
 ms.date: 11/15/2017
-ms.openlocfilehash: 3d50e51a0d4ccbbd9b21cda87dc457ea1cbe02fd
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.reviewer: sngun
+ms.openlocfilehash: 9a47333c8cd8968c007a2d328e81d8ea8585971c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879199"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037993"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>자습서: Table API를 사용하여 Azure Cosmos DB 쿼리
 
@@ -86,7 +85,7 @@ https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and
 
 ```csharp
 CloudTableClient tableClient = account.CreateCloudTableClient();
-CloudTable table = tableClient.GetTableReference("people");
+CloudTable table = tableClient.GetTableReference("People");
 
 TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>()
     .Where(

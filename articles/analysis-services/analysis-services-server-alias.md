@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dc649379ffc375282b853687573266ded2bf80eb
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 66e6b4713591f099769543a75dcddec34f3d2e2b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093768"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188133"
 ---
 # <a name="alias-server-names"></a>별칭 서버 이름
 
-사용자는 서버 이름 별칭을 사용하여 서버 이름 대신 짧은 *별칭*을 가진 Azure Analysis Services 서버에 연결할 수 있습니다. 클라이언트 응용 프로그램에서 연결할 때 **link://** protocol 프로토콜 형식을 사용하여 별칭을 엔드포인트로 지정합니다. 그러면 엔드포인트가 연결할 실제 서버 이름을 반환합니다.
+사용자는 서버 이름 별칭을 사용하여 서버 이름 대신 짧은 *별칭*을 가진 Azure Analysis Services 서버에 연결할 수 있습니다. 클라이언트 애플리케이션에서 연결할 때 **link://** protocol 프로토콜 형식을 사용하여 별칭을 엔드포인트로 지정합니다. 그러면 엔드포인트가 연결할 실제 서버 이름을 반환합니다.
 
 별칭 서버 이름은 다음과 같은 경우에 유용합니다.
 
@@ -36,9 +36,9 @@ ms.locfileid: "49093768"
 
 ## <a name="create-an-alias"></a>별칭 만들기
 
-별칭 엔드포인트를 만들려면 유효한 Azure Analysis Services 서버 이름을 반환하는 메서드를 사용할 수 있습니다. 예를 들어 실제 서버 이름을 포함하는 Azure Blob Storage에서 파일을 참조하거나, ASP.NET Web Forms 응용 프로그램을 만들고 게시합니다.
+별칭 엔드포인트를 만들려면 유효한 Azure Analysis Services 서버 이름을 반환하는 메서드를 사용할 수 있습니다. 예를 들어 실제 서버 이름을 포함하는 Azure Blob Storage에서 파일을 참조하거나, ASP.NET Web Forms 애플리케이션을 만들고 게시합니다.
 
-이 예제에서 ASP.NET Web Forms 응용 프로그램은 Visual Studio에서 만들어집니다. 마스터 페이지 참조 및 사용자 정의 컨트롤은 Default.aspx 페이지에서 제거됩니다. Default.aspx의 내용은 단순히 다음 페이지 지시문입니다.
+이 예제에서 ASP.NET Web Forms 애플리케이션은 Visual Studio에서 만들어집니다. 마스터 페이지 참조 및 사용자 정의 컨트롤은 Default.aspx 페이지에서 제거됩니다. Default.aspx의 내용은 단순히 다음 페이지 지시문입니다.
 
 ```
 <%@ Page Title="Home Page" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="FriendlyRedirect._Default" %>

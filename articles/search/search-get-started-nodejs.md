@@ -1,6 +1,6 @@
 ---
-title: Node.js에서 Azure Search 시작 | Microsoft Docs
-description: Node.js를 프로그래밍 언어로 사용하여 사용자 지정 Azure에서 호스트된 클라우드 검색 서비스의 검색 응용 프로그램을 빌드하는 과정을 안내합니다.
+title: Node.js에서 Azure Search 시작 - Azure Search
+description: Node.js를 프로그래밍 언어로 사용하여 사용자 지정 Azure에서 호스트된 클라우드 검색 서비스의 검색 애플리케이션을 빌드하는 과정을 안내합니다.
 author: jj09
 manager: jlembicz
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/26/2017
 ms.author: jjed
-ms.openlocfilehash: 713e5304ca54039413f68ebc189dd049e77cdaa0
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.custom: seodec2018
+ms.openlocfilehash: 0b36ee9aa54f0d8dd3d246d6c5a96e767326d2d8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527578"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634680"
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Node.js에서 Azure Search 시작
 > [!div class="op_single_selector"]
@@ -22,16 +23,16 @@ ms.locfileid: "39527578"
 > 
 > 
 
-검색 환경에 Azure Search를 사용하는 사용자 지정 Node.js 검색 응용 프로그램을 빌드하는 방법에 대해 알아봅니다. 이 자습서에서는 [Azure Search 서비스 REST API](https://msdn.microsoft.com/library/dn798935.aspx)를 사용하여 이 연습에서 사용되는 개체 및 작업을 생성합니다.
+검색 환경에 Azure Search를 사용하는 사용자 지정 Node.js 검색 애플리케이션을 빌드하는 방법에 대해 알아봅니다. 이 자습서에서는 [Azure Search 서비스 REST API](https://msdn.microsoft.com/library/dn798935.aspx)를 사용하여 이 연습에서 사용되는 개체 및 작업을 생성합니다.
 
-이 코드를 개발하고 테스트하는 데에는 [Node.js](https://Nodejs.org) 및 NPM, [Sublime Text 3](http://www.sublimetext.com/3) 및 Windows 8.1의 Windows PowerShell이 사용되었습니다.
+이 코드를 개발하고 테스트하는 데에는 [Node.js](https://Nodejs.org) 및 NPM, [Sublime Text 3](https://www.sublimetext.com/3) 및 Windows 8.1의 Windows PowerShell이 사용되었습니다.
 
 이 샘플을 실행하려면 [Azure Portal](https://portal.azure.com)에서 등록할 수 있는 Azure Search 서비스가 있어야 합니다. 단계별 지침은 [포털에서 Azure Search 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 ## <a name="about-the-data"></a>데이터 정보
-이 샘플 응용 프로그램에서는 데이터 세트 크기를 줄이기 위해 Rhode Island 주에 대해 필터링된 [USGS(United States Geological Services)](http://geonames.usgs.gov/domestic/download_data.htm)의 데이터를 사용합니다. 이 데이터를 사용하여 병원 및 학교와 같은 랜드마크 빌딩뿐만 아니라 강, 호수, 산 등의 지질학적 특징을 반환하는 검색 응용 프로그램을 빌드합니다.
+이 샘플 애플리케이션에서는 데이터 집합 크기를 줄이기 위해 Rhode Island 주에 대해 필터링된 [USGS(United States Geological Services)](https://geonames.usgs.gov/domestic/download_data.htm)의 데이터를 사용합니다. 이 데이터를 사용하여 병원 및 학교와 같은 랜드마크 빌딩뿐만 아니라 강, 호수, 산 등의 지질학적 특징을 반환하는 검색 애플리케이션을 빌드합니다.
 
-이 응용 프로그램에서 **DataIndexer** 프로그램은 [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) 구문을 사용하여 인덱스를 빌드 및 로드하며, 이를 통해 Azure SQL Database에서 필터링된 USGS 데이터 세트를 검색합니다. 온라인 데이터 원본에 대한 자격 증명 및 연결 정보는 프로그램 코드에서 제공됩니다. 추가 구성은 필요하지 않습니다.
+이 애플리케이션에서 **DataIndexer** 프로그램은 [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) 구문을 사용하여 인덱스를 빌드 및 로드하며, 이를 통해 Azure SQL Database에서 필터링된 USGS 데이터 집합을 검색합니다. 온라인 데이터 원본에 대한 자격 증명 및 연결 정보는 프로그램 코드에서 제공됩니다. 추가 구성은 필요하지 않습니다.
 
 > [!NOTE]
 > 무료 가격 책정 계층의 문서 제한(10,000개) 미만으로 유지하기 위해 이 데이터 세트에 필터를 적용했습니다. 표준 계층을 사용하는 경우에는 이 제한이 적용되지 않습니다. 각 가격 책정 계층의 용량에 대한 자세한 내용은 [Search 서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
@@ -60,9 +61,9 @@ ms.locfileid: "39527578"
 ## <a name="update-the-configjs-with-your-search-service-url-and-api-key"></a>검색 서비스 URL 및 api-key로 config.js를 업데이트합니다.
 앞에서 복사한 URL 및 api-key를 사용하여 구성 파일에서 URL, admin-key 및 query-key를 지정합니다.
 
-관리 키는 인덱스 만들기 또는 삭제 및 문서 로드를 포함하여 서비스 작업에 대한 모든 권한을 부여합니다. 반면, 쿼리 키는 읽기 전용 작업용이며, 일반적으로 Azure Search에 연결하는 클라이언트 응용 프로그램에서 사용됩니다.
+관리 키는 인덱스 만들기 또는 삭제 및 문서 로드를 포함하여 서비스 작업에 대한 모든 권한을 부여합니다. 반면, 쿼리 키는 읽기 전용 작업용이며, 일반적으로 Azure Search에 연결하는 클라이언트 애플리케이션에서 사용됩니다.
 
-이 샘플에는 클라이언트 응용 프로그램에서 쿼리 키를 사용하는 모범 사례를 보강하는 데 도움이 되는 쿼리 키가 포함되어 있습니다.
+이 샘플에는 클라이언트 애플리케이션에서 쿼리 키를 사용하는 모범 사례를 보강하는 데 도움이 되는 쿼리 키가 포함되어 있습니다.
 
 다음 스크린샷에서는 텍스트 편집기에서 열려 있는 **config.js**를 보여 줍니다. 검색 서비스에 유효한 값으로 파일을 업데이트할 위치를 알 수 있도록 관련 항목이 경계선으로 구분되어 있습니다.
 
@@ -77,7 +78,7 @@ PowerShell 창에서 다음 명령을 실행합니다.
 2. `npm install`을 입력합니다.
 3. `npm install -g http-server`을 입력합니다.
 
-## <a name="build-the-index-and-run-the-application"></a>인덱스 빌드 및 응용 프로그램 실행
+## <a name="build-the-index-and-run-the-application"></a>인덱스 빌드 및 애플리케이션 실행
 1. `npm run indexDocuments`을 입력합니다.
 2. `npm run build`을 입력합니다.
 3. `npm run start_server`을 입력합니다.

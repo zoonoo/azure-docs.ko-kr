@@ -1,6 +1,6 @@
 ---
-title: Service Fabric CLI 스크립트 샘플 - 클러스터에서 응용 프로그램 업데이트
-description: Service Fabric CLI 스크립트 샘플 - 새 버전으로 응용 프로그램 업데이트. 이 예제에서는 배포된 응용 프로그램도 새로운 비트로 업그레이드합니다.
+title: Service Fabric CLI 스크립트 샘플 - 클러스터에서 애플리케이션 업데이트
+description: Service Fabric CLI 스크립트 샘플 - 새 버전으로 애플리케이션 업데이트. 이 예제에서는 배포된 애플리케이션도 새로운 비트로 업그레이드합니다.
 services: service-fabric
 documentationcenter: ''
 author: TylerMSFT
@@ -22,9 +22,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/17/2018
 ms.locfileid: "39071167"
 ---
-# <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 응용 프로그램 인증서 추가
+# <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 애플리케이션 인증서 추가
 
-이 샘플 스크립트에서는 기존 응용 프로그램의 새 버전을 업로드하고 배포된 응용 프로그램을 새로운 비트로 업그레이드합니다.
+이 샘플 스크립트에서는 기존 애플리케이션의 새 버전을 업로드한 다음, 배포된 애플리케이션을 새로운 비트로 업그레이드합니다.
 
 [!INCLUDE [links to azure cli and service fabric cli](../../../includes/service-fabric-sfctl.md)]
 

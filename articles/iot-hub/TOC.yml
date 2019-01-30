@@ -9,41 +9,63 @@ items:
     href: about-iot-hub.md
 - name: 빠른 시작
   items:
-  - name: 원격 분석 보내기(C)
-    href: quickstart-send-telemetry-c.md
-  - name: 원격 분석 보내기(Node.js)
-    href: quickstart-send-telemetry-node.md
-  - name: 원격 분석 보내기(.NET)
-    href: quickstart-send-telemetry-dotnet.md
-  - name: 원격 분석 보내기(Java)
-    href: quickstart-send-telemetry-java.md
-  - name: 원격 분석 보내기(Python)
-    href: quickstart-send-telemetry-python.md
-  - name: 원격 분석 보내기(Android)
-    href: quickstart-send-telemetry-android.md
-  - name: 원격 분석 보내기(iOS)
-    href: quickstart-send-telemetry-ios.md
-  - name: 장치 제어(Node.js)
-    href: quickstart-control-device-node.md
-  - name: 장치 제어(.NET)
-    href: quickstart-control-device-dotnet.md
-  - name: 장치 제어(Java)
-    href: quickstart-control-device-java.md
-  - name: 장치 제어(Python)
-    href: quickstart-control-device-python.md
-  - name: 디바이스 제어(Android)
-    href: quickstart-control-device-android.md
+  - name: 원격 분석 전송
+    items:
+    - name: C
+      href: quickstart-send-telemetry-c.md
+    - name: Node.js
+      href: quickstart-send-telemetry-node.md
+    - name: .NET
+      href: quickstart-send-telemetry-dotnet.md
+    - name: 자바
+      href: quickstart-send-telemetry-java.md
+    - name: Python
+      href: quickstart-send-telemetry-python.md
+    - name: Android
+      href: quickstart-send-telemetry-android.md
+    - name: iOS
+      href: quickstart-send-telemetry-ios.md
+  - name: 디바이스 제어
+    items:
+    - name: Node.js
+      href: quickstart-control-device-node.md
+    - name: .NET
+      href: quickstart-control-device-dotnet.md
+    - name: 자바
+      href: quickstart-control-device-java.md
+    - name: Python
+      href: quickstart-control-device-python.md
+    - name: Android
+      href: quickstart-control-device-android.md
+  - name: 디바이스 스트림을 사용한 통신(미리 보기)
+    items:
+    - name: C#
+      href: quickstart-device-streams-echo-csharp.md
+    - name: Node.js
+      href: quickstart-device-streams-echo-nodejs.md
+    - name: C
+      href: quickstart-device-streams-echo-c.md
+  - name: 디바이스 스트림을 사용한 SSH/RDP(미리 보기)
+    items:
+    - name: C#
+      href: quickstart-device-streams-proxy-csharp.md
+    - name: Node.js
+      href: quickstart-device-streams-proxy-nodejs.md
+    - name: C
+      href: quickstart-device-streams-proxy-c.md
 - name: 자습서
   items:
   - name: 메시지 라우팅
     href: tutorial-routing.md
+  - name: 메트릭 및 진단 로그 사용
+    href: tutorial-use-metrics-and-diags.md
   - name: 수동 장애 조치(failover) 수행
     href: tutorial-manual-failover.md
-  - name: 장치 구성
+  - name: 디바이스 구성
     href: tutorial-device-twins.md
   - name: 펌웨어 업데이트 관리
     href: tutorial-firmware-update.md
-  - name: 장치 연결 테스트
+  - name: 디바이스 연결 테스트
     href: tutorial-connectivity.md
 - name: 개념
   items:
@@ -59,14 +81,16 @@ items:
     href: iot-hub-protocol-gateway.md
   - name: 메시지와 이벤트 라우팅 비교
     href: iot-hub-event-grid-routing-comparison.md
-  - name: 장치 구성 모범 사례
+  - name: 디바이스 구성 모범 사례
     href: iot-hub-configuration-best-practices.md
   - name: Azure IoT SDK 플랫폼 지원
     href: iot-hub-device-sdk-platform-support.md
+  - name: IoT Hub 디바이스 스트림 개요(미리 보기)
+    href: iot-hub-device-streams-overview.md
   - name: 개발자 가이드
     href: iot-hub-devguide.md
     items:
-    - name: 장치-클라우드 기능 가이드
+    - name: 디바이스-클라우드 기능 가이드
       href: iot-hub-devguide-d2c-guidance.md
     - name: 클라우드-장치 기능 가이드
       href: iot-hub-devguide-c2d-guidance.md
@@ -78,9 +102,9 @@ items:
         items:
         - name: IoT Hub 메시지 만들기 및 읽기
           href: iot-hub-devguide-messages-construct.md
-        - name: 기본 제공 엔드포인트에서 장치-클라우드 메시지 읽기
+        - name: 기본 제공 엔드포인트에서 디바이스-클라우드 메시지 읽기
           href: iot-hub-devguide-messages-read-builtin.md
-        - name: 장치-클라우드 메시지에 대한 사용자 지정 엔드포인트 및 라우팅 규칙 사용
+        - name: 디바이스-클라우드 메시지에 대한 사용자 지정 엔드포인트 및 라우팅 규칙 사용
           href: iot-hub-devguide-messages-read-custom.md
         - name: 메시지 경로에 쿼리 추가
           href: iot-hub-devguide-routing-query-syntax.md
@@ -102,7 +126,7 @@ items:
       href: iot-hub-devguide-module-twins.md
     - name: 디바이스에서 직접 메서드 호출
       href: iot-hub-devguide-direct-methods.md
-    - name: 여러 장치에서 작업 예약
+    - name: 여러 디바이스에서 작업 예약
       href: iot-hub-devguide-jobs.md
     - name: IoT Hub 엔드포인트
       href: iot-hub-devguide-endpoints.md
@@ -138,21 +162,21 @@ items:
   items:
   - name: 개발
     items:
-    - name: 장치 및 서비스 SDK 사용
+    - name: 디바이스 및 서비스 SDK 사용
       href: iot-hub-devguide-sdks.md
       items:
       - name: Azure IoT SDK 플랫폼 지원
         href: iot-hub-device-sdk-platform-support.md
-      - name: C용 Azure IoT 장치 SDK 사용
+      - name: C용 IoT 디바이스 SDK 사용
         href: iot-hub-device-sdk-c-intro.md
         items:
         - name: IoTHubClient 사용
           href: iot-hub-device-sdk-c-iothubclient.md
         - name: 직렬 변환기 사용
           href: iot-hub-device-sdk-c-serializer.md
-      - name: 제한된 장치에 대한 개발
+      - name: 제한된 디바이스에 대한 개발
         href: iot-hub-devguide-develop-for-constrained-devices.md
-      - name: 모바일 장치에 대한 개발
+      - name: 모바일 디바이스에 대한 개발
         href: iot-hub-how-to-develop-for-mobile-devices.md
       - name: 연결 및 신뢰할 수 있는 메시징 관리
         href: iot-hub-reliability-features-in-sdks.md
@@ -230,7 +254,7 @@ items:
       items:
       - name: Azure Portal 사용
         href: iot-hub-create-through-portal.md
-      - name: VS Code용 Azure IoT Toolkit 사용
+      - name: VS Code용 Azure IoT Tools 사용
         href: iot-hub-create-use-iot-toolkit.md
       - name: Azure PowerShell 사용
         href: iot-hub-create-using-powershell.md
@@ -265,7 +289,7 @@ items:
       href: iot-hub-metrics.md
     - name: IP 필터링 구성
       href: iot-hub-ip-filtering.md
-    - name: 규모에 맞게 장치 구성
+    - name: 규모에 맞게 디바이스 구성
       items:
       - name: Azure Portal 사용
         href: iot-hub-auto-device-config.md
@@ -273,7 +297,7 @@ items:
         href: iot-hub-auto-device-config-cli.md
     - name: IoT 디바이스 대량 관리
       href: iot-hub-bulk-identity-mgmt.md
-  - name: 실제 장치 사용
+  - name: 실제 디바이스 사용
     items:
     - name: 온라인 시뮬레이터 사용
       href: iot-hub-raspberry-pi-web-simulator-get-started.md
@@ -300,23 +324,27 @@ items:
         href: iot-hub-arduino-iot-devkit-az3166-door-monitor.md
     - name: 확장된 IoT 시나리오
       items:
-      - name: VS Code용 Azure IoT Toolkit으로 클라우드 장치 메시징 관리
+      - name: VS Code용 Azure IoT Tools로 클라우드 디바이스 메시징 관리
         href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
+      - name: Visual studio용 클라우드 탐색기를 사용하여 클라우드 디바이스 메시징 관리
+        href: iot-hub-visual-studio-cloud-device-messaging.md
       - name: Power BI에서 데이터 시각화
         href: iot-hub-live-data-visualization-in-power-bi.md
       - name: Web Apps를 사용하여 데이터 시각화
         href: iot-hub-live-data-visualization-in-web-apps.md
       - name: Azure Machine Learning을 사용하여 날씨 예측
         href: iot-hub-weather-forecast-machine-learning.md
-      - name: VS Code용 Azure IoT Toolkit를 사용하여 장치 관리
+      - name: VS Code용 Azure IoT Tools를 사용하여 디바이스 관리
         href: iot-hub-device-management-iot-toolkit.md
+      - name: Visual studio용 클라우드 탐색기를 사용하여 디바이스 관리
+        href: iot-hub-device-management-visual-studio.md
       - name: Azure CLI용 IoT 확장을 사용하여 디바이스 관리
         href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
       - name: Logic Apps를 사용하여 원격 모니터링 및 알림
         href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
   - name: 문제 해결
     items:
-    - name: 장치 연결 끊김
+    - name: 디바이스 연결 끊김
       href: iot-hub-troubleshoot-connectivity.md
 - name: 참고 자료
   items:
@@ -330,15 +358,15 @@ items:
     href: /java/api/com.microsoft.azure.sdk.iot.service
   - name: Java(디바이스)
     href: /java/api/com.microsoft.azure.sdk.iot.device
-  - name: Node.js(장치)
+  - name: Node.js(디바이스)
     href: https://docs.microsoft.com/javascript/api/azure-iot-device/
   - name: Node.js(서비스)
     href: https://docs.microsoft.com/javascript/api/azure-iothub/
-  - name: C 장치 SDK
+  - name: C 디바이스 SDK
     href: https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/
   - name: Azure IoT Edge
     href: http://azure.github.io/iot-edge/
-  - name: REST(장치)
+  - name: REST(디바이스)
     href: https://docs.microsoft.com/rest/api/iothub/device
   - name: REST(서비스)
     href: https://docs.microsoft.com/rest/api/iothub/service
@@ -346,6 +374,8 @@ items:
     href: https://docs.microsoft.com/rest/api/iothub/iothubresource
   - name: REST(인증서)
     href: https://docs.microsoft.com/rest/api/iothub/certificates
+  - name: Resource Manager 템플릿
+    href: /azure/templates/microsoft.devices/iothub-allversions
 - name: 관련 항목
   items:
   - name: 솔루션
@@ -358,7 +388,7 @@ items:
     items:
     - name: IoT Hub
       href: /azure/iot-hub
-    - name: IoT Hub Device Provisioning Service
+    - name: IoT Hub Device Provisioning 서비스
       href: /azure/iot-dps
     - name: IoT 서비스 SDK
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
@@ -366,7 +396,7 @@ items:
       href: /azure/azure-maps
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: Edge
+  - name: Microsoft Edge
     items:
     - name: IoT Edge
       href: /azure/iot-edge
@@ -384,7 +414,7 @@ items:
     href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
   - name: iOS 플랫폼용 Azure IoT 샘플
     href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
-  - name: IoT용 Azure Certified 디바이스 카탈로그
+  - name: IoT용 Azure Certified 장치 카탈로그
     href: https://catalog.azureiotsuite.com/
   - name: Azure IoT 개발자 센터
     href: https://azure.microsoft.com/develop/iot/
@@ -392,8 +422,8 @@ items:
     href: iot-hub-customer-data-requests.md
   - name: Azure 로드맵
     href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Azure IoT Toolkit
-    href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
+  - name: Azure IoT Tools
+    href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
   - name: DeviceExplorer 도구
     href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
   - name: iothub-diagnostics 도구
@@ -412,9 +442,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 5022e1e8f4e8b8c0464be9391ccf2189079e2819
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 84eae62600f5cb62bfd8941d90140c6150a983f0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422816"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809125"

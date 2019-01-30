@@ -1,6 +1,6 @@
 ---
-title: Linux에서 Azure Service Fabric 컨테이너 응용 프로그램 만들기 | Microsoft Docs
-description: Azure Service Fabric에서 첫 번째 Linux 컨테이너 응용 프로그램을 만듭니다. 응용 프로그램을 사용하여 Docker 이미지를 빌드하고, 이미지를 컨테이너 레지스트리로 푸시하고, Service Fabric 컨테이너 응용 프로그램을 빌드하고 배포합니다.
+title: Linux에서 Azure Service Fabric 컨테이너 애플리케이션 만들기 | Microsoft Docs
+description: Azure Service Fabric에서 첫 번째 Linux 컨테이너 애플리케이션을 만듭니다. 애플리케이션을 사용하여 Docker 이미지를 빌드하고, 이미지를 컨테이너 레지스트리로 푸시하고, Service Fabric 컨테이너 애플리케이션을 빌드하고 배포합니다.
 services: service-fabric
 documentationcenter: .net
 author: TylerMSFT
@@ -12,21 +12,21 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/09/2018
+ms.date: 1/4/2019
 ms.author: twhitney
-ms.openlocfilehash: 07c227c198166254eb130604685a4ba5884b783a
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e02acb0d283257658d4466295e3be323072210b5
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299880"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062369"
 ---
-# <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux에서 첫 번째 Service Fabric 컨테이너 응용 프로그램 만들기
+# <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Service Fabric 클러스터의 Linux 컨테이너에서 기존 응용 프로그램을 실행하더라도 응용 프로그램을 변경할 필요가 없습니다. 이 문서에서는 Python [Flask](http://flask.pocoo.org/) 웹 응용 프로그램을 포함하는 Docker 이미지를 만들어 Service Fabric 클러스터에 배포하는 과정을 안내합니다. 또한 [Azure Container Registry](/azure/container-registry/)를 통해 컨테이너화된 응용 프로그램을 공유할 수도 있습니다. 이 문서에서는 Docker에 대한 기본적으로 이해하고 있다고 가정합니다. [Docker 개요](https://docs.docker.com/engine/understanding-docker/)를 참고하여 Docker에 대해 알아볼 수 있습니다.
+Service Fabric 클러스터의 Linux 컨테이너에서 기존 애플리케이션을 실행하더라도 애플리케이션을 변경할 필요가 없습니다. 이 문서에서는 Python [Flask](http://flask.pocoo.org/) 웹 애플리케이션을 포함하는 Docker 이미지를 만들어 Service Fabric 클러스터에 배포하는 과정을 안내합니다. 또한 [Azure Container Registry](/azure/container-registry/)를 통해 컨테이너화된 애플리케이션을 공유할 수도 있습니다. 이 문서에서는 Docker에 대한 기본적으로 이해하고 있다고 가정합니다. [Docker 개요](https://docs.docker.com/engine/understanding-docker/)를 참고하여 Docker에 대해 알아볼 수 있습니다.
 
 > [!NOTE]
 > 이 문서는 Linux 개발 환경에 적용됩니다.  Service Fabric 클러스터 런타임 및 Docker 런타임이 동일한 OS에서 실행되어야 합니다.  Linux 컨테이너는 Windows 클러스터에서 실행할 수 없습니다.
@@ -42,7 +42,7 @@ Service Fabric 클러스터의 Linux 컨테이너에서 기존 응용 프로그�
 ## <a name="define-the-docker-container"></a>Docker 컨테이너 정의
 Docker 허브에 있는 [Python 이미지](https://hub.docker.com/_/python/)를 기반으로 하는 이미지를 빌드합니다. 
 
-Dockerfile에서 Docker 컨테이너를 지정합니다. Dockerfile은 컨테이너 내부 환경 설정, 실행하려는 응용 프로그램 로드, 포트 매핑에 대한 지침으로 구성됩니다. Dockerfile는 `docker build` 명령에 대한 입력이며 이미지를 만듭니다. 
+Dockerfile에서 Docker 컨테이너를 지정합니다. Dockerfile은 컨테이너 내부 환경 설정, 실행하려는 애플리케이션 로드, 포트 매핑에 대한 지침으로 구성됩니다. Dockerfile는 `docker build` 명령에 대한 입력이며 이미지를 만듭니다. 
 
 빈 디렉터리를 만들고 *Dockerfile* 파일(파일 확장명 없음)을 만듭니다. *Dockerfile*에 다음을 추가하고 변경 내용을 저장합니다.
 
@@ -71,8 +71,8 @@ CMD ["python", "app.py"]
 
 자세한 내용은 [Dockerfile 참조](https://docs.docker.com/engine/reference/builder/)를 참고하세요.
 
-## <a name="create-a-basic-web-application"></a>기본 웹 응용 프로그램 만들기
-"Hello World!"를 반환하는 포트 80에서 수신 대기하는 Flask 웹 응용 프로그램을 만듭니다. 동일한 디렉터리에서 *requirements.txt* 파일을 만듭니다. 다음을 추가하고 변경 내용을 저장합니다.
+## <a name="create-a-basic-web-application"></a>기본 웹 애플리케이션 만들기
+"Hello World!"를 반환하는 포트 80에서 수신 대기하는 Flask 웹 애플리케이션을 만듭니다. 동일한 디렉터리에서 *requirements.txt* 파일을 만듭니다. 다음을 추가하고 변경 내용을 저장합니다.
 ```
 Flask
 ```
@@ -94,13 +94,13 @@ if __name__ == "__main__":
 ```
 
 ## <a name="build-the-image"></a>이미지 빌드
-`docker build` 명령을 실행하여 웹 응용 프로그램을 실행하는 이미지를 만듭니다. PowerShell 창을 열고 *c:\temp\helloworldapp*으로 이동합니다. 다음 명령 실행:
+`docker build` 명령을 실행하여 웹 애플리케이션을 실행하는 이미지를 만듭니다. PowerShell 창을 열고 *c:\temp\helloworldapp*으로 이동합니다. 다음 명령 실행:
 
 ```bash
 docker build -t helloworldapp .
 ```
 
-이 명령은 Dockerfile에 있는 지침을 사용하여 새 이미지를 빌드하며 이미지의 이름을 `helloworldapp`으로 지정(-t 태그 지정)합니다. 컨테이너 이미지를 작성하기 위해 먼저 기본 이미지가 응용 프로그램이 추가된 Docker 허브에서 다운로드됩니다. 
+이 명령은 Dockerfile에 있는 지침을 사용하여 새 이미지를 빌드하며 이미지의 이름을 `helloworldapp`으로 지정(-t 태그 지정)합니다. 컨테이너 이미지를 작성하기 위해 먼저 기본 이미지가 애플리케이션이 추가된 Docker 허브에서 다운로드됩니다. 
 
 빌드 명령이 완료되면 `docker images` 명령을 실행하여 새 이미지에 대한 정보를 확인합니다.
 
@@ -111,10 +111,10 @@ REPOSITORY                    TAG                 IMAGE ID            CREATED   
 helloworldapp                 latest              86838648aab6        2 minutes ago       194 MB
 ```
 
-## <a name="run-the-application-locally"></a>로컬에서 응용 프로그램 실행
-컨테이너화된 응용 프로그램이 컨테이너 레지스트리에 푸시하기 전에 로컬로 실행되는지 확인합니다. 
+## <a name="run-the-application-locally"></a>로컬에서 애플리케이션 실행
+컨테이너화된 애플리케이션이 컨테이너 레지스트리에 푸시하기 전에 로컬로 실행되는지 확인합니다. 
 
-응용 프로그램을 실행하고 컨테이너의 노출되는 포트 80에 컴퓨터의 포트 4000을 매핑합니다.
+애플리케이션을 실행하고 컨테이너의 노출되는 포트 80에 컴퓨터의 포트 4000을 매핑합니다.
 
 ```bash
 docker run -d -p 4000:80 --name my-web-site helloworldapp
@@ -139,7 +139,7 @@ docker rm my-web-site
 ```
 
 ## <a name="push-the-image-to-the-container-registry"></a>컨테이너 레지스트리에 이미지를 푸시합니다.
-Docker에서 응용 프로그램이 실행되는지 확인한 후에 Azure Container Registry에서 이미지를 레지스트리에 푸시합니다.
+Docker에서 애플리케이션이 실행되는지 확인한 후에 Azure Container Registry에서 이미지를 레지스트리에 푸시합니다.
 
 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)을 사용하여 컨테이너 레지스트리에 로그인하려면 `docker login`을 실행합니다.
 
@@ -162,11 +162,11 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ```
 
 ## <a name="package-the-docker-image-with-yeoman"></a>Yeoman을 사용하여 Docker 이미지 패키징
-Linux용 Service Fabric SDK는 쉽게 응용 프로그램을 만들고 컨테이너 이미지를 추가할 수 있는 [Yeoman](http://yeoman.io/) 생성기를 포함합니다. Yeoman을 사용하여 *SimpleContainerApp*이라는 단일 Docker 컨테이너가 있는 응용 프로그램을 만들어 보겠습니다.
+Linux용 Service Fabric SDK는 쉽게 애플리케이션을 만들고 컨테이너 이미지를 추가할 수 있는 [Yeoman](http://yeoman.io/) 생성기를 포함합니다. Yeoman을 사용하여 *SimpleContainerApp*이라는 단일 Docker 컨테이너가 있는 애플리케이션을 만들어 보겠습니다.
 
-Service Fabric 컨테이너 응용 프로그램을 만들려면 터미널 창을 열고 `yo azuresfcontainer`을 실행합니다. 
+Service Fabric 컨테이너 애플리케이션을 만들려면 터미널 창을 열고 `yo azuresfcontainer`을 실행합니다. 
 
-응용 프로그램 이름(예: `mycontainer`)을 지정하고 응용 프로그램 서비스 이름(예: `myservice`)을 지정합니다.
+애플리케이션 이름(예: `mycontainer`)을 지정하고 애플리케이션 서비스 이름(예: `myservice`)을 지정합니다.
 
 이미지 이름에 컨테이너 레지스트리에서 컨테이너 이미지의 URL을 제공합니다(예: "myregistry.azurecr.io/samples/helloworldapp"). 
 
@@ -193,9 +193,14 @@ Service Fabric 컨테이너 응용 프로그램을 만들려면 터미널 창을
    </ServiceManifestImport>
 ``` 
 
+리포지토리 암호를 암호화하는 것이 좋습니다. 지침은 [Service Fabric 애플리케이션에서 암호화된 비밀 관리](service-fabric-application-secret-management.md)를 참조하세요.
+
+### <a name="configure-cluster-wide-credentials"></a>클러스터 전체의 자격 증명 구성
+[여기에 있는 설명서](
+service-fabric-get-started-containers.md#configure-cluster-wide-credentials)를 참조하세요.
 
 ## <a name="configure-isolation-mode"></a>격리 모드 구성
-6.3 런타임 릴리스에서는 Linux 컨테이너에 대해 VM 격리가 지원되므로, 컨테이너에 대한 두 가지 격리 모드(process 및 hyperv)가 지원됩니다. hyperv 격리 모드를 사용하면 커널이 각 컨테이너와 컨테이너 호스트 간에 격리됩니다. hyperv 격리는 [컨테이너 지우기](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker)를 사용하여 구현됩니다. 격리 모드는 응용 프로그램 매니페스트 파일의 `ServicePackageContainerPolicy` 요소에서 Linux 클러스터에 대해 지정됩니다. 지정될 수 있는 격리 모드는 `process`, `hyperv` 및 `default`입니다. 기본값은 process 격리 모드입니다. 다음 코드 조각은 격리 모드가 응용 프로그램 매니페스트 파일에서 지정되는 방법을 보여 줍니다.
+6.3 런타임 릴리스에서는 Linux 컨테이너에 대해 VM 격리가 지원되므로, 컨테이너에 대한 두 가지 격리 모드(process 및 hyperv)가 지원됩니다. hyperv 격리 모드를 사용하면 커널이 각 컨테이너와 컨테이너 호스트 간에 격리됩니다. hyperv 격리는 [컨테이너 지우기](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker)를 사용하여 구현됩니다. 격리 모드는 애플리케이션 매니페스트 파일의 `ServicePackageContainerPolicy` 요소에서 Linux 클러스터에 대해 지정됩니다. 지정될 수 있는 격리 모드는 `process`, `hyperv` 및 `default`입니다. 기본값은 process 격리 모드입니다. 다음 코드 조각은 격리 모드가 애플리케이션 매니페스트 파일에서 지정되는 방법을 보여 줍니다.
 
 ```xml
 <ServiceManifestImport>
@@ -210,7 +215,7 @@ Service Fabric 컨테이너 응용 프로그램을 만들려면 터미널 창을
 
 
 ## <a name="configure-resource-governance"></a>리소스 관리 구성
-[리소스 관리](service-fabric-resource-governance.md)는 호스트에서 사용할 수 있는 리소스를 컨테이너에서 제한합니다. 응용 프로그램 매니페스트에 지정된 `ResourceGovernancePolicy` 요소는 서비스 코드 패키지에 대한 리소스 제한을 선언하는 데 사용됩니다. Memory, MemorySwap, CpuShares(CPU 상대적 가중치), MemoryReservationInMB, BlkioWeight(BlockIO 상대적 가중치) 리소스에 대한 리소스 제한을 설정할 수 있습니다. 이 예제에서는 Guest1Pkg 서비스 패키지가 배치된 클러스터 노드에서 하나의 코어를 가져옵니다. 메모리 제한은 절대값이므로 코드 패키지는 1,024MB의 메모리(및 동일한 값의 소프트 보증 예약)로 제한됩니다. 코드 패키지(컨테이너 또는 프로세스)는 이 제한보다 많은 메모리를 할당할 수 없으며, 할당하려고 하면 메모리 부족 예외가 발생합니다. 리소스 제한 적용이 작동하려면 서비스 패키지 내의 모든 코드 패키지에 메모리 제한이 지정되어 있어야 합니다.
+[리소스 관리](service-fabric-resource-governance.md)는 호스트에서 사용할 수 있는 리소스를 컨테이너에서 제한합니다. 애플리케이션 매니페스트에 지정된 `ResourceGovernancePolicy` 요소는 서비스 코드 패키지에 대한 리소스 제한을 선언하는 데 사용됩니다. 다음 리소스에 대한 리소스 제한을 설정할 수 있습니다. Memory, MemorySwap, CpuShares(CPU 상대적 가중치), MemoryReservationInMB, BlkioWeight(BlockIO 상대적 가중치). 이 예제에서는 Guest1Pkg 서비스 패키지가 배치된 클러스터 노드에서 하나의 코어를 가져옵니다. 메모리 제한은 절대값이므로 코드 패키지는 1,024MB의 메모리(및 동일한 값의 소프트 보증 예약)로 제한됩니다. 코드 패키지(컨테이너 또는 프로세스)는 이 제한보다 많은 메모리를 할당할 수 없으며, 할당하려고 하면 메모리 부족 예외가 발생합니다. 리소스 제한 적용이 작동하려면 서비스 패키지 내의 모든 코드 패키지에 메모리 제한이 지정되어 있어야 합니다.
 
 ```xml
 <ServiceManifestImport>
@@ -250,8 +255,8 @@ ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig*
 
 전체 Service Fabric 클러스터에 대해 **HEALTHCHECK** 통합을 사용하지 않도록 설정하려면 [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md)을 **false**로 설정해야 합니다.
 
-## <a name="deploy-the-application"></a>응용 프로그램 배포
-응용 프로그램이 빌드되면 Service Fabric CLI를 사용하여 로컬 클러스터에 배포할 수 있습니다.
+## <a name="deploy-the-application"></a>애플리케이션 배포
+애플리케이션이 빌드되면 Service Fabric CLI를 사용하여 로컬 클러스터에 배포할 수 있습니다.
 
 로컬 Service Fabric 클러스터에 연결합니다.
 
@@ -259,13 +264,13 @@ ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig*
 sfctl cluster select --endpoint http://localhost:19080
 ```
 
-템플릿에 제공된 설치 스크립트를 사용하여 클러스터의 이미지 저장소에 응용 프로그램 패키지를 복사하고 응용 프로그램 유형을 등록하며 응용 프로그램의 인스턴스를 만듭니다.
+템플릿에 제공된 설치 스크립트를 사용하여 클러스터의 이미지 저장소에 애플리케이션 패키지를 복사하고 애플리케이션 유형을 등록하며 애플리케이션의 인스턴스를 만듭니다.
 
 ```bash
 ./install.sh
 ```
 
-브라우저를 열고 http://localhost:19080/Explorer에서 Service Fabric Explorer로 이동합니다(Mac OS X에서 Vagrant를 사용하는 경우 localhost를 VM의 개인 IP로 바꿈). 응용 프로그램 노드를 확장하면 응용 프로그램 유형에 대한 항목 및 해당 유형의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
+브라우저를 열고 http://localhost:19080/Explorer에서 Service Fabric Explorer로 이동합니다(Mac OS X에서 Vagrant를 사용하는 경우 localhost를 VM의 개인 IP로 바꿈). 애플리케이션 노드를 확장하면 애플리케이션 유형에 대한 항목 및 해당 유형의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
 
 실행 중인 컨테이너에 연결합니다. 포트 4000에서 반환되는 IP 주소(예: " http://localhost:4000 ")를 가리키는 웹 브라우저를 엽니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
@@ -273,7 +278,7 @@ sfctl cluster select --endpoint http://localhost:19080
 
 
 ## <a name="clean-up"></a>정리
-템플릿에 제공된 제거 스크립트를 사용하여 로컬 배포 클러스터에서 응용 프로그램 인스턴스를 삭제하고 응용 프로그램 유형을 등록 해제합니다.
+템플릿에 제공된 제거 스크립트를 사용하여 로컬 배포 클러스터에서 애플리케이션 인스턴스를 삭제하고 애플리케이션 유형을 등록 해제합니다.
 
 ```bash
 ./uninstall.sh
@@ -286,8 +291,8 @@ docker rmi helloworldapp
 docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
-## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Service Fabric 응용 프로그램 및 서비스 매니페스트의 전체 예제
-이 문서에서 사용한 전체 서비스 및 응용 프로그램 매니페스트는 다음과 같습니다.
+## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Service Fabric 애플리케이션 및 서비스 매니페스트의 전체 예제
+이 문서에서 사용한 전체 서비스 및 애플리케이션 매니페스트는 다음과 같습니다.
 
 ### <a name="servicemanifestxml"></a>ServiceManifest.xml
 ```xml
@@ -374,11 +379,11 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
   </DefaultServices>
 </ApplicationManifest>
 ```
-## <a name="adding-more-services-to-an-existing-application"></a>기존 응용 프로그램에 더 많은 서비스 추가
+## <a name="adding-more-services-to-an-existing-application"></a>기존 애플리케이션에 더 많은 서비스 추가
 
-yeoman을 사용하여 다른 컨테이너 서비스를 이미 만든 응용 프로그램에 추가하려면 다음 단계를 수행합니다.
+yeoman을 사용하여 다른 컨테이너 서비스를 이미 만든 애플리케이션에 추가하려면 다음 단계를 수행합니다.
 
-1. 기존 응용 프로그램의 루트로 디렉터리를 변경합니다. 예를 들어 `MyApplication`이 Yeoman에서 만든 응용 프로그램인 경우 `cd ~/YeomanSamples/MyApplication`입니다.
+1. 기존 애플리케이션의 루트로 디렉터리를 변경합니다. 예를 들어 `MyApplication`이 Yeoman에서 만든 애플리케이션인 경우 `cd ~/YeomanSamples/MyApplication`입니다.
 2. `yo azuresfcontainer:AddService` 실행
 
 <a id="manually"></a>
@@ -454,7 +459,7 @@ Service Fabric 런타임은 대부분의 컨테이너 이미지에 대해 작동
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
 ```
 
-**ContainersRetentionCount** 설정은 실패할 때 유지할 컨테이너의 수를 지정합니다. 음수 값을 지정하면 실패한 모든 컨테이너가 유지됩니다. **ContainersRetentionCount** 특성을 지정하지 않으면 컨테이너는 유지되지 않습니다. 또한 **ContainersRetentionCount** 특성은 응용 프로그램 매개 변수도 지원하므로 사용자는 테스트 및 프로덕션 클러스터에 대해 다른 값을 지정할 수 있습니다. 이 기능을 사용하여 컨테이너 서비스가 다른 노드로 이동하지 않도록 방지하려면 배치 제약 조건을 사용하여 특정 노드에 대한 컨테이너 서비스를 대상으로 지정합니다. 이 기능을 사용하여 유지된 컨테이너는 수동으로 제거해야 합니다.
+**ContainersRetentionCount** 설정은 실패할 때 유지할 컨테이너의 수를 지정합니다. 음수 값을 지정하면 실패한 모든 컨테이너가 유지됩니다. **ContainersRetentionCount** 특성을 지정하지 않으면 컨테이너는 유지되지 않습니다. 또한 **ContainersRetentionCount** 특성은 애플리케이션 매개 변수도 지원하므로 사용자는 테스트 및 프로덕션 클러스터에 대해 다른 값을 지정할 수 있습니다. 이 기능을 사용하여 컨테이너 서비스가 다른 노드로 이동하지 않도록 방지하려면 배치 제약 조건을 사용하여 특정 노드에 대한 컨테이너 서비스를 대상으로 지정합니다. 이 기능을 사용하여 유지된 컨테이너는 수동으로 제거해야 합니다.
 
 ## <a name="start-the-docker-daemon-with-custom-arguments"></a>사용자 지정 인수로 Docker 디먼 시작
 
@@ -476,8 +481,8 @@ Service Fabric 런타임은 대부분의 컨테이너 이미지에 대해 작동
 
 ## <a name="next-steps"></a>다음 단계
 * [Service Fabric의 컨테이너](service-fabric-containers-overview.md)를 실행하는 방법에 대해 자세히 알아봅니다.
-* [컨테이너에서 .NET 응용 프로그램 배포](service-fabric-host-app-in-a-container.md) 자습서를 참조합니다.
-* Service Fabric [응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)에 대해 자세히 알아봅니다.
+* [컨테이너에서 .NET 애플리케이션 배포](service-fabric-host-app-in-a-container.md) 자습서를 참조합니다.
+* Service Fabric [애플리케이션 수명 주기](service-fabric-application-lifecycle.md)에 대해 자세히 알아봅니다.
 * GitHub에서 [Service Fabric 컨테이너 코드 샘플](https://github.com/Azure-Samples/service-fabric-containers)을 확인합니다.
 
 [hello-world]: ./media/service-fabric-get-started-containers-linux/HelloWorld.png

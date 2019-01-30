@@ -1,5 +1,5 @@
 ---
-title: Speech Service 지역
+title: 지역 - 음성 서비스
 titlesuffix: Azure Cognitive Services
 description: Speech 서비스의 지역에 대한 참조입니다.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 01/14/2019
 ms.author: mahilleb
-ms.openlocfilehash: 8d36036332e939075ffac8763bec9c23d8e4a3f7
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec18
+ms.openlocfilehash: e33bf7cd98cdd5862af6f4d68d3d73de1a07d229
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712894"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413161"
 ---
 # <a name="speech-service-supported-regions"></a>Speech Service 지원 지역
 
@@ -45,11 +46,24 @@ ms.locfileid: "51712894"
 
 ### <a name="intent-recognition"></a>의도 인식
 
-음성 SDK에 대한 **의도 인식**은 LUIS와 영역 지원을 공유합니다. 사용 가능한 영역의 전체 목록은 [영역 및 엔드포인트 게시 - LUIS](https://docs.microsoft.comazure/cognitive-services/luis/luis-reference-regions)를 참조하세요.
+Speech SDK를 통해 **의도 인식**을 사용할 수 있는 지역은 다음과 같습니다.
 
-음성 SDK를 통해 **의도 인식**에 사용할 수 있는 지역은 [Language Understanding 서비스 지역 페이지](/azure/cognitive-services/luis/luis-reference-regions)에 표시됩니다.
+ 글로벌 지역 | 지역 | 음성 SDK 매개 변수
+ ------|-------|--------
+ 아시아 | 동아시아 | `eastasia`
+ 아시아 | 동남아시아 | `southeastasia`
+ 오스트레일리아 | 오스트레일리아 동부 | `australiaeast`
+ 유럽 | 북유럽 | `northeurope`
+ 유럽 | 서유럽 | `westeurope`
+ 북아메리카 | 미국 동부 | `eastus`
+ 북아메리카 | 미국 동부 2 | `eastus2`
+ 북아메리카 | 미국 중남부 | `southcentralus`
+ 북아메리카 | 미국 중서부 | `westcentralus`
+ 북아메리카 | 미국 서부 | `westus`
+ 북아메리카 | 미국 서부 2 | `westus2`
+ 남미 | 브라질 남부 | `brazilsouth`
 
-나열된 각 게시 영역의 경우 제공된 **API 영역 이름**을 사용합니다. 예를 들어 미국 서부에 `westus`를 사용합니다.
+[LUIS(Language Understanding Service)](/azure/cognitive-services/luis/luis-reference-regions)에서 지원하는 게시 지역의 하위 집합입니다.
 
 ## <a name="rest-apis"></a>REST API
 
@@ -57,12 +71,12 @@ ms.locfileid: "51712894"
 
 ### <a name="speech-to-text"></a>음성 텍스트 변환
 
-음성-텍스트 변환 참조 설명서는 [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#speech-to-text)를 참조하세요.
+음성-텍스트 변환 참조 설명서는 [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)를 참조하세요.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 ### <a name="text-to-speech"></a>텍스트 음성 변환
 
-텍스트-음성 변환 참조 설명서는 [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#speech-to-text)를 참조하세요.
+텍스트-음성 변환 참조 설명서는 [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)를 참조하세요.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

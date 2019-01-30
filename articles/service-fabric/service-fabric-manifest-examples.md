@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric 컨테이너 응용 프로그램 매니페스트 예제 | Microsoft Docs
-description: Service Fabric 응용 프로그램에 대한 응용 프로그램 및 서비스 매니페스트 설정을 구성하는 방법을 알아봅니다.
+title: Azure Service Fabric 컨테이너 애플리케이션 매니페스트 예제 | Microsoft Docs
+description: Service Fabric 애플리케이션에 대한 애플리케이션 및 서비스 매니페스트 설정을 구성하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: na
 author: rwike77
@@ -21,8 +21,8 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2018
 ms.locfileid: "47095582"
 ---
-# <a name="service-fabric-application-and-service-manifest-examples"></a>Service Fabric 응용 프로그램 및 서비스 매니페스트 예제
-이 섹션에는 응용 프로그램 및 서비스 매니페스트 예제가 포함되어 있습니다. 이러한 예제의 목적은 중요한 시나리오를 보여주는 것아 아니라 사용 가능한 다양한 설정과 사용 방법을 보여주는 것입니다. 
+# <a name="service-fabric-application-and-service-manifest-examples"></a>Service Fabric 애플리케이션 및 서비스 매니페스트 예제
+이 섹션에는 애플리케이션 및 서비스 매니페스트 예제가 포함되어 있습니다. 이러한 예제의 목적은 중요한 시나리오를 보여주는 것아 아니라 사용 가능한 다양한 설정과 사용 방법을 보여주는 것입니다. 
 
 다음은 표시되는 기능의 인덱스와 기능이 포함된 예제 매니페스트입니다.
 

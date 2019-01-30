@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: reference
-ms.date: 06/25/2018
+ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6c648a9cb6b8d8dbfb60f1a5a6ebc386c57460b0
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 9e7683883963db2cf1911405225fcdbf289de2bb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887249"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187541"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>PowerShell을 사용하여 Azure Analysis Services 관리
 
@@ -22,11 +22,13 @@ ms.locfileid: "42887249"
 서버 만들기 또는 삭제, 서버 작업 일시 중단 또는 다시 시작 또는 서비스 수준(계층) 변경과 같은 서버 관리 작업은 Azure Resource Manager(리소스) 및 Analysis Services(서버) cmdlet을 사용합니다. 역할 멤버 추가 또는 제거, 처리 또는 분할과 같은 기타 데이터베이스 관리 작업에서는 SQL Server Analysis Services와 동일한 SqlServer 모듈에 포함된 cmdlet을 사용합니다.
 
 ## <a name="permissions"></a>권한
-대부분의 PowerShell 작업에는 관리하는 Analysis Services 서버에 대해 관리자 권한이 있어야 합니다. 예약된 PowerShell 작업은 무인 작업입니다. 스케줄러를 실행하는 계정 또는 서비스 사용자에게는 Analysis Services 서버에 대해 관리자 권한이 있어야 합니다. 
+
+대부분의 PowerShell 작업에는 관리하는 Analysis Services 서버에 대해 관리자 권한이 있어야 합니다. 예약된 PowerShell 작업은 무인 작업입니다. 스케줄러를 실행하는 계정 또는 서비스 주체에게는 Analysis Services 서버에 대해 관리자 권한이 있어야 합니다. 
 
 AzureRm cmdlet을 사용하여 서버를 운영하려면 사용자의 계정 또는 스케줄러를 실행하는 계정이 [Azure 역할 기반 Access Control(RBAC)](../role-based-access-control/overview.md)의 리소스에 대한 소유자 역할에도 속해야 합니다. 
 
 ## <a name="resource-management-operations"></a>리소스 관리 작업 
+
 모듈 - [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)
 
 |Cmdlet|설명| 
@@ -54,7 +56,7 @@ AzureRm cmdlet을 사용하여 서버를 운영하려면 사용자의 계정 또
 
 ## <a name="database-operations"></a>데이터베이스 작업
 
-Azure Analysis Services 데이터베이스 작업에서는 SQL Server Analysis Services와 동일한 [SqlServer 모듈](https://www.powershellgallery.com/packages/SqlServer)을 사용합니다. 그러나 모든 cmdlet이 Azure Analysis Services에서 지원되는 것은 아닙니다. 자세한 내용은 [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell)을 참조합니다.
+Azure Analysis Services 데이터베이스 작업에서는 SQL Server Analysis Services와 동일한 [SqlServer 모듈](https://www.powershellgallery.com/packages/SqlServer)을 사용합니다. 그러나 모든 cmdlet이 Azure Analysis Services에서 지원되는 것은 아닙니다. 자세한 내용은 [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell)을 참조하세요.
 
 SqlServer 모듈은 TMSL(테이블 형식 모델 스크립트 언어) 쿼리 또는 스크립트를 허용하는 범용 Invoke-ASCmd cmdlet뿐만 아니라 작업 관련 데이터베이스 관리 cmdlet도 제공합니다. SqlServer 모듈의 다음 cmdlet은 Azure Analysis Services에서 지원됩니다.
 

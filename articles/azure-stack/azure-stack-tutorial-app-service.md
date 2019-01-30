@@ -16,12 +16,13 @@ ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.custom: mvc
-ms.openlocfilehash: f8a54436a61889e6d39c7e491e45c25e3b38236f
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: e3ac94c91742f4a90f9ddd8c975d946bb918ac64
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036789"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244745"
 ---
 # <a name="tutorial-make-web-and-api-apps-available-to-your-azure-stack-users"></a>자습서: 사용자에 게 웹 및 API apps에 Azure Stack
 
@@ -73,7 +74,7 @@ App Service 리소스 공급자를 배포 하 고 제품을 생성, 했으므로
     - **데이터베이스 이름**: DNNdb
     - **최대 크기 (mb)**: 100
     - **구독**: TestAppServiceOffer
-    - **리소스 그룹**: DNN RG
+    - **리소스 그룹**: DNN-RG
 
 3. 선택 **로그인 설정**데이터베이스에 대 한 자격 증명을 입력 하 고 선택한 **확인**합니다. 이 자습서의 뒷부분에서 이러한 자격 증명을 사용 합니다.
 4. 아래 **SKU** > SQL 호스팅 서버에 대해 만든 SQL SKU 선택 > 선택한 후 **확인**합니다.

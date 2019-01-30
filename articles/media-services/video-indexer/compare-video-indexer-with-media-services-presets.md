@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: juliako
-ms.openlocfilehash: 758a3b30717e3bf516c1bceb5c255c397a6072cc
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 968614d183fe6857336ea92791ba4f1d279a5016
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291394"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198102"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Azure Media Services v3 미리 설정 및 Video Indexer 비교 
 
@@ -33,7 +33,7 @@ ms.locfileid: "52291394"
 |미디어 인사이트|[향상된 기능](video-indexer-output-json-v2.md) |[기본 사항](../latest/intelligence-concept.md)|
 |환경|지원되는 기능의 전체 목록 보기: <br/> [개요](video-indexer-overview.md)|비디오 인사이트만 반환합니다.|
 |결제|[Media Services 가격](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Media Services 가격](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
-|규정 준수|TBD|Media Services는 많은 인증을 준수합니다. [Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf)를 살펴보고, "Media Services"를 검색하여 관심 인증서를 준수하는지 확인합니다.|
+|규정 준수|[Azure 규정 준수](https://aka.ms/AzureCompliance)|Media Services는 많은 인증을 준수합니다. [Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf)를 살펴보고, "Media Services"를 검색하여 관심 인증서를 준수하는지 확인합니다.|
 |평가판|미국 동부|사용할 수 없음|
 |가용성 |미국 서부, 동아시아, 북유럽|[Azure 상태](https://azure.microsoft.com/global-infrastructure/services/?products=media-services) 참조|
 

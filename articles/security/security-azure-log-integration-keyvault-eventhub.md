@@ -8,30 +8,30 @@ editor: TomShinder
 ms.assetid: ''
 ms.service: security
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: b91d405b8ada1446a477dc10a116b5dfdf349131
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f9eb4489894632502b7df97cd1149bd027164d19
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440049"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437422"
 ---
-# <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure 로그 통합 자습서: Event Hubs를 사용하여 Azure Key Vault 이벤트 처리
+# <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure Log Integration 자습서: Event Hubs를 사용하여 Azure Key Vault 이벤트 처리
 
 >[!IMPORTANT]
-> Azure Log Integration 기능은 2019년 6월 1일에 사용 중지될 예정입니다. AzLog 다운로드는 2018년 6월 27일에 비활성화됩니다. 향후 작업 진행 방향에 대한 지침은 게시물 [Azure Monitor를 사용하여 SIEM 도구와 통합](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)을 검토하세요. 
+> Azure Log Integration 기능은 2019년 6월 1일에 사용 중지될 예정입니다. AzLog 다운로드는 2018년 6월 27일부로 사용할 수 없습니다. 향후 작업 진행 방향에 대한 지침은 게시물 [Azure Monitor를 사용하여 SIEM 도구와 통합](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)을 검토하세요. 
 
 Azure 로그 통합을 사용하여 기록된 이벤트를 검색하고 SIEM(보안 정보 및 이벤트 관리) 시스템에 제공할 수 있습니다. 이 자습서는 Azure 로그 통합을 사용하여 Azure Event Hubs를 통해 획득한 로그를 처리하는 방법의 예제를 보여 줍니다.
 
-Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure Monitor 커넥터를 사용하고 다음 [지침](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)을 따르는 것입니다. 하지만, SIEM 공급업체에서 Azure Monitor에 대한 커넥터를 제공하지 않은 경우에는 해당 커넥터를 사용할 수 있을 때까지 임시 해결책으로 Azure Log Integration을 사용할 수 있습니다(Azure Log Integration에서 해당 SIEM이 지원되는 경우).
+Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure Monitor 커넥터를 사용하고 다음 [지침](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)을 따르는 것입니다. 하지만, SIEM 공급업체에서 Azure Monitor에 대한 커넥터를 제공하지 않는 경우에는 해당 커넥터를 사용할 수 있을 때까지 임시 해결책으로 Azure Log Integration을 사용할 수 있습니다(Azure Log Integration에서 해당 SIEM이 지원되는 경우).
 
  
-이 자습서를 사용하여 예제 단계를 따르고 각 단계가 솔루션을 어떻게 지원하는지 이해하면 Azure 로그 통합 및 Event Hubs가 연동하는 방식에 익숙해질 수 있습니다. 그런 다음 여기서 학습한 내용을 바탕으로 회사 고유의 요구 사항을 지원하기 위한 자신만의 단계를 만들 수 있습니다.
+이 자습서를 사용하여 예제 단계를 따르고 각 단계가 솔루션을 어떻게 지원하는지 이해하면 Azure 로그 통합 및 Event Hubs가 연동하는 방식에 익숙해질 수 있습니다. 그런 다음, 여기서 학습한 내용을 바탕으로 회사 고유의 요구 사항을 지원하는 자체 단계를 만들 수 있습니다.
 
 >[!WARNING]
-이 자습서의 단계와 명령은 복사하여 붙여넣을 수 없습니다. 예제일 뿐입니다. PowerShell 명령을 라이브 환경에 “있는 그대로” 사용하지 마세요. 이러한 명령은 고유 환경에 맞게 사용자 지정해야 합니다.
+이 자습서의 단계와 명령은 복사하여 붙여넣을 수 없습니다. 예제일 뿐입니다. PowerShell 명령을 라이브 환경에서 "있는 그대로" 사용하지 마세요. 이러한 명령은 고유 환경에 맞게 사용자 지정해야 합니다.
 
 
 이 자습서에서는 Azure Key Vault 활동이 이벤트 허브에 기록되도록 하고 JSON 파일로 SIEM 시스템에 제공하는 프로세스를 안내합니다. 그런 다음 JSON 파일을 처리하도록 SIEM 시스템을 구성할 수 있습니다.
@@ -56,31 +56,31 @@ Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure 
  
 1. Azure 로그 통합을 설치하기 위한 요구 사항을 충족하는, 인터넷에 액세스할 수 있는 시스템. 시스템은 클라우드 서비스에 있거나 온-프레미스에 호스트될 수 있습니다.
 
-1. [Azure 로그 통합](https://www.microsoft.com/download/details.aspx?id=53324) 설치됨. 설치하려면:
+1. Azure Log Integration이 설치되어 있어야 합니다. 설치하려면:
 
    a. 원격 데스크톱을 사용하여 2단계에서 언급한 시스템에 연결합니다.   
-   나. Azure 로그 통합 설치 관리자를 시스템에 복사합니다. [설치 파일을 다운로드](https://www.microsoft.com/download/details.aspx?id=53324)할 수 있습니다.   
-   다. 설치 관리자를 시작하고 Microsoft 소프트웨어 사용 조건에 동의합니다.   
-   d. 원격 분석 정보를 입력하는 경우 확인란을 선택한 상태로 둡니다. 사용 정보를 Microsoft로 보내지 않으려면 확인란의 선택을 취소합니다.
-   
+   b. Azure 로그 통합 설치 관리자를 시스템에 복사합니다. 다. 설치 관리자를 시작하고 Microsoft 소프트웨어 사용 조건에 동의합니다.
+
+1. 원격 분석 정보를 입력하는 경우 확인란을 선택한 상태로 둡니다. 사용 정보를 Microsoft로 보내지 않으려면 확인란의 선택을 취소합니다.
+
    Azure 로그 통합 및 설치 방법에 대한 자세한 내용은 [Azure 로그 통합, Azure 진단 로깅 및 Windows 이벤트 전달](security-azure-log-integration-get-started.md)을 참조하세요.
 
 1. 최신 PowerShell 버전입니다.
- 
+
    Windows Server 2016이 설치되어 있는 경우 PowerShell 5.0 이상이 설치되어 있는 것입니다. 다른 버전의 Windows Server를 사용 중인 경우 이전 버전의 PowerShell이 설치되어 있을 수 있습니다. PowerShell 창에서 ```get-host```를 입력하면 버전을 확인할 수 있습니다. PowerShell 5.0이 설치되어 있지 않으면 [다운로드](https://www.microsoft.com/download/details.aspx?id=50395)할 수 있습니다.
 
    PowerShell 5.0 이상이 있는 경우 최신 버전 설치를 진행할 수 있습니다.
-   
-   a. PowerShell 창에서 ```Install-Module Azure``` 명령을 입력합니다. 설치 단계를 완료합니다.    
-   나. ```Install-Module AzureRM``` 명령을 입력합니다. 설치 단계를 완료합니다.
 
-   자세한 내용은 [Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0)를 참조하세요.
+   a. PowerShell 창에서 ```Install-Module Azure``` 명령을 입력합니다. 설치 단계를 완료합니다.    
+   b. ```Install-Module AzureRM``` 명령을 입력합니다. 설치 단계를 완료합니다.
+
+   자세한 내용은 [Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.0.0)를 참조하세요.
 
 
 ## <a name="create-supporting-infrastructure-elements"></a>지원 인프라 요소 만들기
 
 1. 관리자 권한 PowerShell 창을 열고 **C\Program Files\Microsoft Azure Log Integration**으로 이동합니다.
-1. LoadAzLogModule.ps1 스크립트를 실행하여 AzLog cmdlet을 가져옵니다. `.\LoadAzLogModule.ps1` 명령을 입력합니다. (해당 명령에서 “.\” 확인) 다음과 유사한 결과가 표시됩니다.</br>
+1. LoadAzLogModule.ps1 스크립트를 실행하여 AzLog cmdlet을 가져옵니다. `.\LoadAzLogModule.ps1` 명령을 입력합니다. (해당 명령에서 ".\" 확인) 다음과 유사한 결과가 표시됩니다.</br>
 
    ![로드된 모듈 목록](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
@@ -93,7 +93,7 @@ Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure 
 
    ![PowerShell 창](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 1. 나중에 사용할 값을 저장하는 변수를 만듭니다. 다음 각 PowerShell 줄을 입력합니다. 환경에 맞게 값을 조정해야 할 수도 있습니다.
-    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’```(구독 이름은 다를 수 있습니다. 이는 이전 명령의 출력에서 볼 수 있습니다.)
+    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'```(구독 이름은 다를 수 있습니다. 이는 이전 명령의 출력에서 볼 수 있습니다.)
     - ```$location = 'West US'```(이 변수는 리소스를 만들 위치를 전달하는 데 사용됩니다. 이 변수를 선택한 위치로 변경할 수 있습니다.)
     - ```$random = Get-Random```
     - ``` $name = 'azlogtest' + $random```(이름은 임의로 지정할 수 있지만 소문자와 숫자만 포함해야 합니다.)
@@ -122,14 +122,14 @@ Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure 
 1. 가능한 모든 Azure 위치를 가져오고 이후 단계에서 사용할 수 있는 변수에 이름을 추가합니다.
     
     a. ```$locationObjects = Get-AzureRMLocation```    
-    나. ```$locations = @('global') + $locationobjects.location```
+    b. ```$locations = @('global') + $locationobjects.location```
     
     이때 `$locations`를 입력하고 Get-AzureRmLocation에서 반환되는 추가 정보 없이 위치 이름이 표시됩니다.
 1. Azure Resource Manager 로그 프로필을 만듭니다. 
     
     ```Add-AzureRmLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
     
-    Azure 로그 프로필에 대한 자세한 내용은 [Azure 활동 로그 개요](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)를 참조하세요.
+    Azure 로그 프로필에 대한 자세한 내용은 [Azure 활동 로그 개요](../azure-monitor/platform/activity-logs-overview.md)를 참조하세요.
 
 > [!NOTE]
 > 로그 프로필을 만들려고 할 때 오류 메시지가 표시될 수도 있습니다. 그러면 Get-AzureRmLogProfile 및 Remove-AzureRmLogProfile에 대한 설명서를 검토하면 됩니다. Get-AzureRmLogProfile을 실행하는 경우 로그 프로필에 대한 정보가 표시됩니다. ```Remove-AzureRmLogProfile -name 'Log Profile Name' ``` 명령을 입력하면 기존 로그 프로필을 삭제할 수 있습니다.

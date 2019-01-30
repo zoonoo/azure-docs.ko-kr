@@ -3,17 +3,15 @@ title: Azure Database for MariaDB에서 서버를 복원하는 방법
 description: 이 문서에서는 Azure Portal을 사용하여 Azure Database for MariaDB에서 서버를 복원하는 방법을 설명합니다.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 899f0bfa3075c92ac31e2b4f5fab9093a1dc6806
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cf6d0399c790a42eaf74b3ec339bf8cf67495fb3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999049"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548764"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB에서 서버를 백업 및 복원하는 방법
 
@@ -52,7 +50,7 @@ Azure Portal을 통해 서버를 만드는 중에 **가격 책정 계층** 창�
 백업 보존 기간은 사용 가능한 백업을 기반으로 하기 때문에 특정 시점 복원을 검색할 수 있는 시간을 제어합니다. 특정 시점 복원은 다음 섹션에서 자세히 설명합니다. 
 
 ## <a name="point-in-time-restore"></a>지정 시간 복원
-Azure Database for MariaDB를 사용하면 특정 시점의 서버를 서버의 새 복사본으로 다시 복원할 수 있습니다. 이 새 서버를 사용하여 데이터를 복구하거나 클라이언트 응용 프로그램에서 이 새 서버를 가리키도록 할 수 있습니다.
+Azure Database for MariaDB를 사용하면 특정 시점의 서버를 서버의 새 복사본으로 다시 복원할 수 있습니다. 이 새 서버를 사용하여 데이터를 복구하거나 클라이언트 애플리케이션에서 이 새 서버를 가리키도록 할 수 있습니다.
 
 예를 들어 오늘 정오에 실수로 테이블을 삭제한 경우 정오 바로 전으로 복원하고 누락된 테이블과 데이터를 서버의 새로운 복사본에서 검색할 수 있습니다. 특정 시점 복원은 데이터베이스 수준이 아닌 서버 수준에 있습니다.
 
@@ -68,7 +66,7 @@ Azure Database for MariaDB를 사용하면 특정 시점의 서버를 서버의 
    ![Azure Database for MariaDB - 복원 정보 ](./media/howto-restore-server-portal/3-restore.png)
   - **복원 지점**: 복원하려는 특정 시점을 선택합니다.
   - **대상 서버**: 새 서버에 대한 이름을 제공합니다.
-  - **위치**: 하위 지역을 선택할 수 없습니다. 기본적으로 원본 서버와 동일합니다.
+  - **위치**: 지역을 선택할 수 없습니다. 기본적으로 원본 서버와 동일합니다.
   - **가격 책정 계층**: 특정 시점 복원을 수행할 때 이러한 매개 변수는 변경할 수 없습니다. 원본 서버와 동일합니다. 
 
 4. **확인**을 클릭하여 특정 시점으로 복원할 서버를 복원합니다. 

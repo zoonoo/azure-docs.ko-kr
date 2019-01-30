@@ -1,19 +1,19 @@
 ---
-title: Azure CLI를 사용하여 Azure ExpressRoute Global Reach 구성 | Microsoft Docs
+title: 'ExpressRoute Global Reach 구성: Azure CLI | Microsoft Docs'
 description: 이 문서는 온-프레미스 네트워크 간의 사설 네트워크를 설정하고 Global Reach를 사용하도록 설정하기 위해 ExpressRoute 회로를 함께 연결하는 데 유용합니다.
-documentationcenter: na
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 12/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9d41ab26876d464187466f566bbfafc4861c799d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 9a8e0a5df9383d8e3d7159aa916b0e4fbfeea948
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333265"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384061"
 ---
 # <a name="configure-expressroute-global-reach-using-azure-cli-preview"></a>Azure CLI를 사용하여 ExpressRoute Global Reach 구성(미리 보기)
 이 문서는 Azure CLI를 사용하여 ExpressRoute Global Reach를 구성하는 데 도움이 됩니다. 자세한 내용은 [ExpressRoute Global Reach](expressroute-global-reach.md)를 참조하세요.
@@ -55,24 +55,22 @@ az account set --subscription <your subscription ID>
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>온-프레미스 네트워크 간 연결 사용
 
-다음 CLI를 실행하여 두 개의 ExpressRoute 회로를 연결합니다.
+이 명령을 실행하여 연결을 사용하도록 설정할 경우 다음 값을 고려하세요.
 
-> [!NOTE]
-> *peer-circuit*은 전체 리소스 ID여야 합니다. 예를 들어 다음과 같습니다.
-> ```
-> */subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}*
-> ```
-> 
+* *peer-circuit*은 전체 리소스 ID여야 합니다. 예:  
+
+  ```
+  /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
+  ```
+* *-AddressPrefix*는 /29 IPv4 서브넷이어야 합니다. 예를 들어, 다음과 같습니다. “10.0.0.0/29”입니다. 두 ExpressRoute 회로 간의 연결을 설정하는 데 이 서브넷의 IP 주소가 사용됩니다. Azure VNet 또는 온-프레미스 네트워크에서는 이 서브넷의 주소를 사용하지 말아야 합니다.
+
+다음 CLI를 실행하여 두 개의 ExpressRoute 회로를 연결합니다. 다음 예제 명령을 사용합니다.
 
 ```azurecli
 az network express-route peering connection create -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName> --peer-circuit <Circuit2ResourceID> --address-prefix <__.__.__.__/29>
 ```
 
-> [!IMPORTANT]
-> *-AddressPrefix*는 /29 IPv4 서브넷이어야 합니다. 예를 들어, 다음과 같습니다. “10.0.0.0/29”입니다. 두 ExpressRoute 회로 간의 연결을 설정하는 데 이 서브넷의 IP 주소가 사용됩니다. Azure VNet 또는 온-프레미스 네트워크에서는 이 서브넷의 주소를 사용하지 말아야 합니다.
-> 
-
-CLI 출력은 다음과 같이 표시됩니다.
+CLI 출력은 다음 예제와 유사합니다.
 
 ```azurecli
 {

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6ca819b20bd033cc4081fb98a0c22c23aed05a28
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 403f1cee04da17086a55adfbaed28388afd24d29
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264241"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54211877"
 ---
 # <a name="azure-managed-disks-overview"></a>Azure Managed Disks 개요
 
@@ -33,11 +33,11 @@ Managed Disks를 사용하면 지역당 구독에 특정 유형의 VM **디스�
 
 ### <a name="better-reliability-for-availability-sets"></a>가용성 집합에 대한 안정성 향상
 
-Managed Disks는 단일 실패 지점을 피할 만큼 [가용성 집합의 VM](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 디스크를 서로 충분히 격리시켜서 가용성 집합에 대해 향상된 안정성을 제공합니다. 디스크는 다른 저장소 배율 단위(스탬프)에 자동으로 배치됩니다. 스탬프가 하드웨어 또는 소프트웨어 오류로 인해 실패하는 경우 해당 스탬프의 디스크가 있는 VM 인스턴스만 실패합니다. 예를 들어 응용 프로그램을 5개의 VM에서 실행 중이고 VM이 가용성 집합 내에 있다고 가정해 보겠습니다. 이러한 VM의 디스크는 동일한 스탬프에 저장되지 않습니다. 따라서 스탬프 하나가 작동이 중단되면 다른 응용 프로그램 인스턴스가 계속해서 실행됩니다.
+Managed Disks는 단일 실패 지점을 피할 만큼 [가용성 집합의 VM](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 디스크를 서로 충분히 격리시켜서 가용성 집합에 대해 향상된 안정성을 제공합니다. 디스크는 다른 저장소 배율 단위(스탬프)에 자동으로 배치됩니다. 스탬프가 하드웨어 또는 소프트웨어 오류로 인해 실패하는 경우 해당 스탬프의 디스크가 있는 VM 인스턴스만 실패합니다. 예를 들어 애플리케이션을 5개의 VM에서 실행 중이고 VM이 가용성 집합 내에 있다고 가정해 보겠습니다. 이러한 VM의 디스크는 동일한 스탬프에 저장되지 않습니다. 따라서 스탬프 하나가 작동이 중단되면 다른 애플리케이션 인스턴스가 계속해서 실행됩니다.
 
 ### <a name="highly-durable-and-available"></a>뛰어난 내구성 및 가용성
 
-Azure 디스크는 99.999% 가용성을 위해 설계되었습니다. 데이터 복제본을 3개 만들어 내구성이 뛰어나므로 데이터에 대해 안심하셔도 됩니다. 즉, 하나 또는 두 개의 복제본에서 문제가 발생하는 경우 나머지 복제본을 사용하면 데이터의 지속성과 우수한 내결함성을 확보할 수 있습니다. 이러한 아키텍처를 통해 Azure는 IaaS 디스크에 엔터프라이즈급 내구성을 지속적으로 제공할 뿐만 아니라 연간 실패율 0%로 업계 최고를 자랑합니다. 
+Azure 디스크는 99.999% 가용성을 위해 설계되었습니다. 데이터 복제본을 3개 만들어 내구성이 뛰어나므로 데이터에 대해 안심하셔도 됩니다. 즉, 하나 또는 두 개의 복제본에서 문제가 발생하는 경우 나머지 복제본을 사용하면 데이터의 지속성과 우수한 내결함성을 확보할 수 있습니다. 이러한 아키텍처를 통해 Azure는 IaaS 디스크에 엔터프라이즈급 내구성을 지속적으로 제공할 뿐만 아니라 연간 실패율 0%로 업계 최고를 자랑합니다.
 
 ### <a name="granular-access-control"></a>세부적인 액세스 제어
 
@@ -45,7 +45,7 @@ Azure 디스크는 99.999% 가용성을 위해 설계되었습니다. 데이터 
 
 ### <a name="azure-backup-service-support"></a>Azure Backup 서비스 지원
 
-Azure Backup 서비스를 Managed Disks와 함께 사용하여 시간 기반 백업, 손쉬운 VM 복원 및 백업 보존 정책을 사용하여 백업 작업을 만들 수 있습니다. Managed Disks는 복제 옵션으로 LRS(로컬 중복 저장소)만 지원합니다. 데이터의 3개 사본이 단일 지역 내에 유지됩니다. 지역적 재해 복구를 위해 [Azure Backup 서비스](../articles/backup/backup-introduction-to-azure-backup.md) 및 GRS 저장소 계정을 백업 자격 증명 모음으로 사용하여 VM 디스크를 다른 지역에 백업해야 합니다. 현재, Azure Backup은 최대 4TB의 디스크 크기를 지원합니다. 4TB 디스크를 지원하려면 [VM 백업 스택을 V2로 업그레이드](../articles/backup/backup-upgrade-to-vm-backup-stack-v2.md)해야 합니다. 자세한 내용은 [Managed Disks로 VM에 Azure Backup 서비스 사용](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)을 참조하세요.
+Azure Backup 서비스를 Managed Disks와 함께 사용하여 시간 기반 백업, 손쉬운 VM 복원 및 백업 보존 정책을 사용하여 백업 작업을 만들 수 있습니다. Managed Disks는 복제 옵션으로 LRS(로컬 중복 저장소)만 지원합니다. 데이터의 3개 사본이 단일 지역 내에 유지됩니다. 지역적 재해 복구를 위해 [Azure Backup 서비스](../articles/backup/backup-introduction-to-azure-backup.md) 및 GRS 저장소 계정을 백업 자격 증명 모음으로 사용하여 VM 디스크를 다른 지역에 백업해야 합니다. 현재 Azure Backup에서는 최대 4TB의 디스크 크기를 지원합니다. 4TB 디스크 지원 관련 정보는 [즉시 복원](../articles/backup/backup-instant-restore-capability.md)을 참조하세요. 자세한 내용은 [Managed Disks로 VM에 Azure Backup 서비스 사용](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)을 참조하세요.
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 
@@ -63,9 +63,9 @@ Managed Disks를 사용하는 경우 다음과 같은 청구 고려 사항이 �
 
 이러한 옵션을 좀 더 자세히 살펴보겠습니다.
 
-**저장소 유형:** Managed Disks는 3개의 성능 계층인 [표준 HDD](../articles/virtual-machines/windows/standard-storage.md), [표준 SSD](../articles/virtual-machines/windows/disks-standard-ssd.md) 및 [프리미엄](../articles/virtual-machines/windows/premium-storage.md)을 제공합니다. 관리 디스크에 대한 요금 청구는 디스크에 어떤 유형의 저장소를 선택했는지에 따라 달라집니다.
+**스토리지 유형:** Managed Disks에서는 [표준 HDD](../articles/virtual-machines/windows/standard-storage.md), [표준 SSD](../articles/virtual-machines/windows/disks-standard-ssd.md) 및 [프리미엄](../articles/virtual-machines/windows/premium-storage.md)의 3개 성능 계층을 제공합니다. 관리 디스크에 대한 요금 청구는 디스크에 어떤 유형의 저장소를 선택했는지에 따라 달라집니다.
 
-**디스크 크기**: 관리 디스크에 대한 요금 청구는 프로비전된 디스크 크기에 따라 달라집니다. Azure는 프로비전된 크기(올림)를 아래 테이블에 지정된 대로 가장 가까운 Managed Disks 옵션에 매핑합니다. 각각의 관리 디스크는 지원되는 프로비전된 크기 중 하나에 매핑되고 그에 따라 요금이 청구됩니다. 예를 들어 표준 관리 디스크를 만들고 프로비전된 크기를 200GB로 지정하면 S15 디스크 유형의 가격에 따라 요금이 청구됩니다.
+**디스크 크기**: 관리형 디스크에 청구되는 요금은 프로비전된 디스크 크기에 따라 달라집니다. Azure는 프로비전된 크기(올림)를 아래 테이블에 지정된 대로 가장 가까운 Managed Disks 옵션에 매핑합니다. 각각의 관리 디스크는 지원되는 프로비전된 크기 중 하나에 매핑되고 그에 따라 요금이 청구됩니다. 예를 들어 표준 관리 디스크를 만들고 프로비전된 크기를 200GB로 지정하면 S15 디스크 유형의 가격에 따라 요금이 청구됩니다.
 
 다음은 프리미엄 관리 디스크에 사용 가능한 디스크 크기이며, 별표가 표시된 크기는 현재 미리 보기로 제공됩니다.
 
@@ -85,7 +85,7 @@ Managed Disks를 사용하는 경우 다음과 같은 청구 고려 사항이 �
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | 디스크 크기        | 32GiB  | 64GiB  | 128GiB | 256GiB | 512GiB | 1,024GiB(1TiB) | 2,048GiB(2TiB) | 4,095GiB(4TiB) | 8,192GiB(8TiB) | 16,384GiB(16TiB) | 32,767GiB(TiB) |
 
-**트랜잭션 수**: 표준 관리 디스크에서 수행하는 트랜잭션 수에 따라 요금이 청구됩니다.
+**트랜잭션 수**: 표준 관리형 디스크에서 수행하는 트랜잭션 수에 따라 요금이 청구됩니다.
 
 표준 SSD 디스크는 256KB의 IO 단위 크기를 사용합니다. 전송되는 데이터가 256KB 미만일 경우 하나의 I/O 단위로 간주됩니다. 더 큰 I/O 크기는 256KB 크기의 여러 I/O로 계산됩니다. 예를 들어, 1,100KB I/O는 I/O 단위 5개로 계산됩니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Ruby on Rails 앱을 만들고 Linux의 App Service에 배포 | Microsoft Docs
+title: Linux에서 Ruby 웹앱 만들기 - Azure App Service | Microsoft Docs
 description: Linux의 App Service로 Ruby on Rails 앱을 만드는 방법을 알아봅니다.
 keywords: azure app service, linux, oss, ruby, rails
 services: app-service
@@ -13,22 +13,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 01/23/2019
 ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: 04025998f78843b1cc69acd663681b9563a531bc
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.custom: seodec18
+ms.openlocfilehash: 3ddf98abf0c52d3bc1fb0a6ce43755d5adcf87fa
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431230"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848634"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Linux의 App Service에서 Ruby on Rails 앱 만들기
 
-[Linux의 Azure App Service](app-service-linux-intro.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 기본 [Ruby on Rails](https://rubyonrails.org/) 응용 프로그램을 만든 다음, Linux의 웹앱으로 Azure에 배포하는 방법을 보여 줍니다.
+[Linux의 Azure App Service](app-service-linux-intro.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 기본 [Ruby on Rails](https://rubyonrails.org/) 애플리케이션을 만든 다음, Linux의 웹앱으로 Azure에 배포하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> Ruby 개발 스택은 현재 Ruby on Rails만 지원합니다. Sinatra 같은 다른 플랫폼을 사용하려면 [Web App for Containers](https://docs.microsoft.com/azure/app-service/containers/)를 참조하세요.
+> Ruby 개발 스택은 현재 Ruby on Rails만 지원합니다. Sinatra와 같은 다른 플랫폼을 사용하려는 경우 또는 [지원되지 않는 Ruby 버전](app-service-linux-intro.md)을 사용하려는 경우 [Web App for Containers](https://docs.microsoft.com/azure/app-service/containers/)의 빠른 시작을 참조하세요.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -47,9 +47,9 @@ ms.locfileid: "47431230"
 git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 ```
 
-## <a name="run-the-application-locally"></a>로컬에서 응용 프로그램 실행
+## <a name="run-the-application-locally"></a>로컬에서 애플리케이션 실행
 
-응용 프로그램을 로컬로 실행하여 Azure에 응용 프로그램을 배포할 때 표시되는 모양을 확인합니다. 터미널 창을 열고, `hello-world` 디렉터리로 변경하고, `rails server` 명령을 사용하여 서버를 시작합니다.
+애플리케이션을 로컬로 실행하여 Azure에 애플리케이션을 배포할 때 표시되는 모양을 확인합니다. 터미널 창을 열고, `hello-world` 디렉터리로 변경하고, `rails server` 명령을 사용하여 서버를 시작합니다.
 
 첫 번째 단계는 필요한 Gem을 설치하는 것입니다. 샘플에 `Gemfile`이 포함되어 있으므로 설치할 Gem을 지정하지 않아도 됩니다. 이를 위해 번들러를 사용합니다.
 
@@ -89,9 +89,9 @@ http://<app_name>.azurewebsites.net
 
 ![시작 페이지](./media/quickstart-ruby/splash-page.png)
 
-## <a name="deploy-your-application"></a>응용 프로그램 배포
+## <a name="deploy-your-application"></a>애플리케이션 배포
 
-다음 명령을 실행하여 Azure 웹 사이트에 로컬 응용 프로그램을 배포합니다.
+다음 명령을 실행하여 Azure 웹 사이트에 로컬 애플리케이션을 배포합니다.
 
 ```bash
 git remote add azure <Git deployment URL from above>

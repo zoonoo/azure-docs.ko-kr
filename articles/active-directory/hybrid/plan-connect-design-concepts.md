@@ -4,7 +4,7 @@ description: 이 항목에서는 특정 구현 설계 영역을 자세히 설명
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4114a6c0-f96a-493c-be74-1153666ce6c9
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.workload: Identity
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bf5384333504df023e98650934c77192f23f9f71
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 3d6141ac1fabe1a0391e6ad23276e5bc5ea1afb6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945997"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471789"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: 설계 개념
 이 문서에서는 Azure AD Connect의 설계를 구현하는 중에 고려해야 할 영역을 설명합니다. 이 문서는 특정 영역을 심층 분석하고 이 개념을 다른 문서에서처럼 간단히 설명합니다.
@@ -104,7 +104,7 @@ Azure AD Connect를 기본 모드로 설치하는 경우 Azure AD Connect 마법
   >[!NOTE]
   > 최신 버전의 Azure AD Connect(1.1.524.0 이상)만 설치하는 동안 사용된 sourceAnchor 특성에 대한 정보를 Azure AD 테넌트에 저장합니다. 이전 버전의 Azure AD Connect는 그렇지 않습니다.
 
-* 사용되는 sourceAnchor 특성에 대한 정보를 사용할 수 없는 경우 마법사는 온-프레미스 Active Directory의 ms-DS-ConsistencyGuid 특성의 상태를 확인합니다. 특성이 디렉터리에 있는 모든 개체에 구성되어 있지 않으면, 마법사는 ms-DS-ConsistencyGuid를 sourceAnchor 특성으로 사용합니다. 특성이 디렉터리에 있는 하나 이상의 개체에 구성되어 있으면, 마법사에서 특성이 다른 응용 프로그램에서 사용되고 있으며 sourceAnchor 특성으로 적합하지 않다고 결정합니다.
+* 사용되는 sourceAnchor 특성에 대한 정보를 사용할 수 없는 경우 마법사는 온-프레미스 Active Directory의 ms-DS-ConsistencyGuid 특성의 상태를 확인합니다. 특성이 디렉터리에 있는 모든 개체에 구성되어 있지 않으면, 마법사는 ms-DS-ConsistencyGuid를 sourceAnchor 특성으로 사용합니다. 특성이 디렉터리에 있는 하나 이상의 개체에 구성되어 있으면, 마법사에서 특성이 다른 애플리케이션에서 사용되고 있으며 sourceAnchor 특성으로 적합하지 않다고 결정합니다.
 
 * 이 경우 마법사는 objectGUID를 sourceAnchor 특성으로 사용합니다.
 
@@ -140,7 +140,7 @@ Source Anchor 특성으로 objectGUID에서 ConsistencyGuid로 전환하려면:
 
 3. Azure AD 관리자 자격 증명을 입력하고 **다음**을 클릭합니다.
 
-4. Azure AD Connect 마법사는 온-프레미스 Active Directory의 ms-DS-ConsistencyGuid 특성 상태를 분석합니다. 특성이 디렉터리의 개체에서 구성되지 않는 경우 Azure AD Connect는 다른 응용 프로그램이 현재 특성을 사용하지 않고 있으며 Source Anchor 특성으로 사용하는 데 안전하다고 판단합니다. **다음**을 클릭하여 계속합니다.
+4. Azure AD Connect 마법사는 온-프레미스 Active Directory의 ms-DS-ConsistencyGuid 특성 상태를 분석합니다. 특성이 디렉터리의 개체에서 구성되지 않는 경우 Azure AD Connect는 다른 애플리케이션이 현재 특성을 사용하지 않고 있으며 Source Anchor 특성으로 사용하는 데 안전하다고 판단합니다. **다음**을 클릭하여 계속합니다.
 
    ![기존 배포에 대해 ConsistencyGuid 사용 - 4단계](./media/plan-connect-design-concepts/consistencyguidexistingdeployment02.png)
 
@@ -152,11 +152,11 @@ Source Anchor 특성으로 objectGUID에서 ConsistencyGuid로 전환하려면:
 
    ![기존 배포에 대해 ConsistencyGuid 사용 - 6단계](./media/plan-connect-design-concepts/consistencyguidexistingdeployment04.png)
 
-분석하는 동안(4단계) 특성이 디렉터리에 있는 하나 이상의 개체에 구성되어 있으면, 마법사에서 특성이 다른 응용 프로그램에서 사용되고 있다고 결정하고 아래 그림과 같은 오류를 반환합니다. 주 Azure AD Connect 서버에서 ConsistencyGuid 기능을 이전에 설정하고 준비 서버에서 동일한 작업을 수행하려고 하는 경우 이 오류가 발생할 수 있습니다.
+분석하는 동안(4단계) 특성이 디렉터리에 있는 하나 이상의 개체에 구성되어 있으면, 마법사에서 특성이 다른 애플리케이션에서 사용되고 있다고 결정하고 아래 그림과 같은 오류를 반환합니다. 주 Azure AD Connect 서버에서 ConsistencyGuid 기능을 이전에 설정하고 준비 서버에서 동일한 작업을 수행하려고 하는 경우 이 오류가 발생할 수 있습니다.
 
 ![기존 배포에 대해 ConsistencyGuid 사용 - 오류](./media/plan-connect-design-concepts/consistencyguidexistingdeploymenterror.png)
 
- 특성이 다른 기존 응용 프로그램에서 사용되지 않는다고 확신하는 경우 **/SkipLdapSearchcontact**를 지정한 Azure AD Connect 마법사를 다시 시작하여 오류를 무시할 수 있습니다. 이렇게 하려면 명령 프롬프트 창에서 다음 명령을 실행합니다.
+ 특성이 다른 기존 애플리케이션에서 사용되지 않는다고 확신하는 경우 **/SkipLdapSearchcontact**를 지정한 Azure AD Connect 마법사를 다시 시작하여 오류를 무시할 수 있습니다. 이렇게 하려면 명령 프롬프트 창에서 다음 명령을 실행합니다.
 
 ```
 "c:\Program Files\Microsoft Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch
@@ -170,7 +170,7 @@ Azure AD Connect 외부에서 AD FS를 관리하거나 타사 페더레이션 �
 ![타사 페더레이션 구성](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>기존 배포에 새 디렉터리 추가
-활성화된 ConsistencyGuid 기능으로 Azure AD Connect를 배포한 후에 이제 다른 디렉터리를 배포에 추가하려고 한다고 가정합니다. 디렉터리를 추가하려고 하는 경우 Azure AD Connect 마법사에서 디렉터리의 ms-DS-ConsistencyGuid 특성 상태를 확인합니다. 특성이 디렉터리에 있는 하나 이상의 개체에 구성되어 있으면, 마법사에서 특성이 다른 응용 프로그램에서 사용되고 있다고 결정하고 아래 그림과 같은 오류를 반환합니다. 기존 응용 프로그램에서 특성을 사용하지 않는다고 확신하는 경우, 오류를 표시하지 않는 방법에 대한 정보를 얻기 위해 지원에 문의해야 합니다.
+활성화된 ConsistencyGuid 기능으로 Azure AD Connect를 배포한 후에 이제 다른 디렉터리를 배포에 추가하려고 한다고 가정합니다. 디렉터리를 추가하려고 하는 경우 Azure AD Connect 마법사에서 디렉터리의 ms-DS-ConsistencyGuid 특성 상태를 확인합니다. 특성이 디렉터리에 있는 하나 이상의 개체에 구성되어 있으면, 마법사에서 특성이 다른 애플리케이션에서 사용되고 있다고 결정하고 아래 그림과 같은 오류를 반환합니다. 기존 애플리케이션에서 특성을 사용하지 않는다고 확신하는 경우, 오류를 표시하지 않는 방법에 대한 정보를 얻기 위해 지원에 문의해야 합니다.
 
 ![기존 배포에 새 디렉터리 추가](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 

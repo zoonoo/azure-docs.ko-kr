@@ -1,6 +1,6 @@
 ---
-title: Azure 클라우드에서 Docker 컨테이너 호스팅
-description: Azure 컨테이너 서비스는 컨테이너화된 응용 프로그램을 실행하는 미리 구성된 가상 머신의 클러스터를 간단히 만들고 구성하고 관리하는 방법을 제공합니다.
+title: (사용되지 않음) Azure 클라우드에서 Docker 컨테이너 호스팅
+description: Azure 컨테이너 서비스는 컨테이너화된 애플리케이션을 실행하는 미리 구성된 가상 머신의 클러스터를 간단히 만들고 구성하고 관리하는 방법을 제공합니다.
 services: container-service
 author: rgardler
 manager: jeconnoc
@@ -9,20 +9,22 @@ ms.topic: overview
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 6bb13ad19f9b0b6137cdb2b4a9afbb2f325b9d36
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 348bde94bc01e00777603af8ac078d5e319d732c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975059"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001993"
 ---
-# <a name="introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>Azure Container Service를 사용한 Docker 컨테이너 호스팅 소개 
+# <a name="deprecated-introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>(사용되지 않음) Azure Container Service를 사용한 Docker 컨테이너 호스팅 솔루션 소개 
 
-Azure 컨테이너 서비스를 사용하면 컨테이너화된 응용 프로그램을 실행하는 미리 구성된 가상 머신의 클러스터를 보다 간편하게 만들고 구성하고 관리할 수 있습니다. Azure 컨테이너 서비스는 일반적인 오픈 소스 예약 및 오케스트레이션 도구의 최적화된 구성을 사용합니다. 이를 통해 기존 기술을 사용하거나 크고 확장된 커뮤니티 전문 지식의 본문을 이용하여 Microsoft Azure의 컨테이너 기반 응용 프로그램을 배포하고 관리할 수 있습니다.
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
+
+Azure 컨테이너 서비스를 사용하면 컨테이너화된 응용 프로그램을 실행하는 미리 구성된 가상 머신의 클러스터를 보다 간편하게 만들고 구성하고 관리할 수 있습니다. Azure 컨테이너 서비스는 일반적인 오픈 소스 예약 및 오케스트레이션 도구의 최적화된 구성을 사용합니다. 이를 통해 기존 기술을 사용하거나 크고 확장된 커뮤니티 전문 지식의 본문을 이용하여 Microsoft Azure의 컨테이너 기반 애플리케이션을 배포하고 관리할 수 있습니다.
 
 ![Azure 컨테이너 서비스는 Azure의 여러 호스트에서 컨테이너화된 응용 프로그램을 관리하는 방법을 제공합니다.](./media/acs-intro/acs-cluster-new.png)
 
-Azure 컨테이너 서비스는 Docker 컨테이너 형식을 활용하여 응용 프로그램 컨테이너가 완전히 이식 가능한지 확인합니다. 또한 Marathon 및 DC/OS, Docker Swarm 또는 Kubernetes 중에서 선택하여 이러한 응용 프로그램을 수천 또는 수만 개의 컨테이너로 확장할 수 있습니다.
+Azure 컨테이너 서비스는 Docker 컨테이너 형식을 활용하여 응용 프로그램 컨테이너가 완전히 이식 가능한지 확인합니다. 또한 Marathon 및 DC/OS, Docker Swarm 또는 Kubernetes 중에서 선택하여 이러한 애플리케이션을 수천 또는 수만 개의 컨테이너로 확장할 수 있습니다.
 
 Azure 컨테이너 서비스를 사용하면 오케스트레이션 계층의 이식성을 포함하여 응용 프로그램 이식성을 유지하면서 Azure의 엔터프라이즈급 기능을 활용할 수 있습니다.
 
@@ -33,7 +35,7 @@ Azure 컨테이너 서비스를 사용하는 우리의 목표는 현재 우리 �
 Azure Container Service를 사용하기 시작하려면 포털을 통해(**Azure Container Service**에 대한 Marketplace 검색) Azure Resource Manager 템플릿([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm), [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) 또는 [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes))을 사용하거나 [Azure CLI](container-service-create-acs-cluster-cli.md)를 사용하여 Azure Container Service 클러스터를 배포합니다. 추가 또는 고급 Azure 구성을 포함하도록 제공된 빠른 시작 템플릿을 수정할 수 있습니다. 자세한 내용은 [Azure Container Service 클러스터 배포](container-service-deployment.md)를 참조하세요.
 
 ## <a name="deploying-an-application"></a>응용 프로그램 배포
-Azure Container Service는 오케스트레이션을 위해 Docker Swarm, DC/OS 또는 Kubernetes 옵션을 제공합니다. 응용 프로그램을 배포하는 방법은 선택한 Orchestrator에 따라 달라집니다.
+Azure Container Service는 오케스트레이션을 위해 Docker Swarm, DC/OS 또는 Kubernetes 옵션을 제공합니다. 애플리케이션을 배포하는 방법은 선택한 Orchestrator에 따라 달라집니다.
 
 ### <a name="using-dcos"></a>DC/OS 사용
 DC/OS는 Apache Mesos 분산 시스템 커널을 기반으로 운영 체제를 배포합니다. Apache Mesos는 Apache Software Foundation에 들어있고 [IT 업계에서 가장 유명한 기업](http://mesos.apache.org/documentation/latest/powered-by-mesos/) 일부를 사용자 및 참가자로 나열합니다.

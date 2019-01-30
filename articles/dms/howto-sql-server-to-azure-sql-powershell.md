@@ -4,19 +4,19 @@ description: Azure PowerShell을 사용하여 온-프레미스 SQL Server에서 
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/10/2018
-ms.openlocfilehash: 771b89fda4e37d9e8ba47df95f7fd57b41f792a3
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.date: 01/15/2019
+ms.openlocfilehash: cab1e47d6d0b40fab881d7948381b6294f52546d
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515542"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303380"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>Azure PowerShell을 사용하여 SQL Server 온-프레미스를 Azure SQL Database로 마이그레이션
 이 문서에서는 Microsoft Azure PowerShell을 사용하여 SQL Server 2016 이상의 온-프레미스 인스턴스로 복원된 **Adventureworks2012** 데이터베이스를 Azure SQL Database로 마이그레이션합니다. Microsoft Azure PowerShell에서 `AzureRM.DataMigration` 모듈을 사용하여 온-프레미스 SQL Server 인스턴스의 데이터베이스를 Azure SQL Database로 마이그레이션할 수 있습니다.
@@ -204,6 +204,13 @@ if (($mytask.ProjectTask.Properties.State -eq "Running") -or ($mytask.ProjectTas
 {
   write-host "migration task running"
 }
+```
+
+## <a name="deleting-the-dms-instance"></a>DMS 인스턴스 삭제
+마이그레이션이 완료된 후에는 Azure DMS 인스턴스를 삭제할 수 있습니다.
+
+```powershell
+Remove-AzureRmDms -ResourceGroupName myResourceGroup -ServiceName MyDMS
 ```
 
 ## <a name="next-steps"></a>다음 단계

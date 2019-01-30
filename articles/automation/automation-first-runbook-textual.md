@@ -4,18 +4,18 @@ description: PowerShell 워크플로를 사용하여 간단한 텍스트 Runbook
 keywords: Powershell 워크플로, Powershell 워크플로 예제, 워크플로 Powershell
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/24/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90d2dcb81a6b54d1a8437f0d3ae01aa96cdac3db
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 137518aadaf2f1cd38dd18184992c8723a7da5c0
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165402"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435231"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>내 첫 번째 PowerShell 워크플로 Runbook
 
@@ -205,3 +205,4 @@ Runbook은 현재 Runbook에 하드 코딩된 가상 머신을 시작하지만, 
 * PowerShell Runbook을 시작하려면 [내 첫 번째 PowerShell Runbook](automation-first-runbook-textual-powershell.md)
 * Runbook 형식, 해당 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure Automation Runbook 형식](automation-runbook-types.md)
 * PowerShell 스크립트 지원 기능에 대한 자세한 내용은 [Azure Automation에서 네이티브 PowerShell 스크립트 지원](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+

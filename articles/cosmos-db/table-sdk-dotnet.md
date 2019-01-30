@@ -1,23 +1,21 @@
 ---
-title: Azure Cosmos DB Table API .NET SDK 및 리소스 | Microsoft Docs
+title: Azure Cosmos DB Table API .NET SDK 및 리소스
 description: 릴리스 날짜, 사용 중지 날짜 및 각 버전의 변경 내용을 포함하여 Azure Cosmos DB Table API에 대해 자세히 알아봅니다.
-services: cosmos-db
-author: rnagpal
-manager: kfile
+author: wmengmsft
+ms.author: wmeng
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.author: rnagpal
-ms.openlocfilehash: 6d2ede88e9e218ddbdfed0add48e7df8bfae0b60
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 469faeee4706c33b09f89bfbed1bb229a6aea20e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466463"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848379"
 ---
-# <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET API: 다운로드 및 릴리스 정보
+# <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB 테이블 .NET API: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
@@ -38,6 +36,9 @@ ms.locfileid: "49466463"
 >
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* 버그 수정
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
 * 다중 지역 쓰기 지원이 추가되었습니다.
@@ -74,6 +75,8 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |2019년 1월 22일|--- |
+| [2.0.0](#2.0.0) |2018년 9월 26일|--- |
 | [1.1.3](#1.1.3) |2018년 7월 17일|--- |
 | [1.1.1](#1.1.1) |2018년 3월 26일|--- |
 | [1.1.0](#1.1.0) |2018년 2월 21일|--- |

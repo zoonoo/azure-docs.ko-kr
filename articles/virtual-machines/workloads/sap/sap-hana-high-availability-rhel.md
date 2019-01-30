@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 77f4eeec1aa87f42c90d4e93f98f460a8b54b9a9
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 503e056a3fa87e48f61d26661110b9bb89456a51
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167413"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338525"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux의 Azure VM에 있는 SAP HANA의 고가용성
 
@@ -45,7 +45,7 @@ ms.locfileid: "49167413"
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
 
 온-프레미스 개발에서 HANA 시스템 복제를 사용하거나 공유 저장소를 사용하여 SAP HANA의 고가용성을 설정할 수 있습니다.
-Azure VM(Virtual Machines)에서 Azure의 HANA 시스템 복제는 현재 지원되는 유일한 고가용성 함수입니다.
+Azure VM(Virtual Machines)에서 Azure의 HANA 시스템 복제는 현재 지원되는 유일한 고가용성 기능입니다.
 SAP HANA 복제는 하나의 기본 노드와 하나 이상의 보조 노드로 구성됩니다. 기본 노드의 데이터를 변경하면 보조 노드에 동기적 또는 비동기적으로 복제됩니다.
 
 이 문서에서는 가상 머신을 배포 및 구성하며, 클러스터 프레임워크를 설치하고, SAP HANA 시스템 복제를 설치 및 구성하는 방법을 설명합니다.
@@ -87,7 +87,7 @@ SAP HANA 복제는 하나의 기본 노드와 하나 이상의 보조 노드로 
 
 SAP HANA 시스템 복제 설정은 전용 가상 호스트 이름과 가상 IP 주소를 사용합니다. Azure에서는 가상 IP 주소를 사용하려면 부하 분산 장치가 필요합니다. 다음 목록에는 부하 분산 장치의 구성이 나와 있습니다.
 
-* 프런트 엔드 구성: hn1-db에 대한 IP 주소 10.0.0.13
+* 프런트 엔드 구성: hn1-db의 IP 주소 10.0.0.13
 * 백 엔드 구성: HANA 시스템 복제의 일부분이어야 하는 모든 가상 머신의 주 네트워크 인터페이스에 연결됨
 * 프로브 포트: 포트 62503
 * 부하 분산 규칙: 30313 TCP, 30315 TCP, 30317 TCP, 30340 TCP, 30341 TCP, 30342 TCP
@@ -105,24 +105,24 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 1. 다음 매개 변수를 입력합니다.
     * **SAP 시스템 ID**: 설치하려는 SAP 시스템의 SAP 시스템 ID를 입력합니다. 이 ID는 배포되는 리소스의 접두사로 사용됩니다.
     * **OS 유형**: Linux 배포판 중 하나를 선택합니다. 이 예에서는 **RHEL 7**을 선택합니다.
-    * **DB 유형**: **HANA**를 선택합니다.
+    * **Db 형식**: **HANA**를 선택합니다.
     * **SAP 시스템 크기**: 새 시스템에서 제공할 SAP의 수를 입력합니다. 시스템에 필요한 SAP의 수를 모를 경우 SAP 기술 파트너 또는 시스템 통합자에 문의하세요.
     * **시스템 가용성**: **HA**를 선택합니다.
-    * **관리자 사용자 이름, 관리자 암호 또는 SSH 키**: 머신에 로그인하는 데 사용할 수 있는 새 사용자가 만들어집니다.
-    * **서브넷 ID**: VM을 할당하도록 서브넷이 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 대개 **/subscriptions/\<구독 ID>/resourceGroups/\<리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/\<가상 네트워크 이름>/subnets/\<서브넷 이름>** 과 같은 형식입니다. 새 가상 네트워크를 만들려면 공백으로 두세요.
+    * **관리자 사용자 이름, 관리자 암호 또는 SSH 키**: 컴퓨터에 로그온하는 데 사용할 수 있게 만들어진 새 사용자입니다.
+    * **서브넷 ID**: 서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 대개 **/subscriptions/\<구독 ID>/resourceGroups/\<리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/\<가상 네트워크 이름>/subnets/\<서브넷 이름>** 과 같은 형식입니다. 새 가상 네트워크를 만들려면 공백으로 두세요.
 
 ### <a name="manual-deployment"></a>수동 배포
 
 1. 리소스 그룹을 만듭니다.
 1. 가상 네트워크를 만듭니다.
 1. 가용성 집합을 만듭니다.  
-   최대 업데이트 도메인을 설정합니다.
+   업데이트 도메인의 최대 수를 설정합니다.
 1. 부하 분산 장치(내부)를 만듭니다.
    * 2단계에서 만든 가상 네트워크를 선택합니다.
 1. 가상 머신 1을 만듭니다.  
-   최소한 Red Hat Enterprise Linux 7.4 for SAP HANA를 사용합니다. 이 예제에서는 Red Hat Enterprise Linux 7.4 for SAP HANA 이미지(<https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74forSAPHANA-ARM>)를 사용합니다. 3단계에서 만든 가용성 집합을 선택합니다.
+   최소한 Red Hat Enterprise Linux 7.4 for SAP HANA를 사용합니다. 이 예제에서는 Red Hat Enterprise Linux 7.4 for SAP HANA 이미지(<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM>)를 사용합니다. 3단계에서 만든 가용성 집합을 선택합니다.
 1. 가상 머신 2를 만듭니다.  
-   최소한 Red Hat Enterprise Linux 7.4 for SAP HANA를 사용합니다. 이 예제에서는 Red Hat Enterprise Linux 7.4 for SAP HANA 이미지(<https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74forSAPHANA-ARM>)를 사용합니다. 3단계에서 만든 가용성 집합을 선택합니다.
+   최소한 Red Hat Enterprise Linux 7.4 for SAP HANA를 사용합니다. 이 예제에서는 Red Hat Enterprise Linux 7.4 for SAP HANA 이미지(<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM>)를 사용합니다. 3단계에서 만든 가용성 집합을 선택합니다.
 1. 데이터 디스크를 추가합니다.
 1. 부하 분산 장치를 구성합니다. 먼저 프런트 엔드 IP 풀을 만듭니다.
 
@@ -306,16 +306,16 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
    * 설치 선택: **1**을 입력합니다.
    * 설치할 추가 구성 요소 선택: **1**을 입력합니다.
    * 설치 경로 [/hana/shared] 입력: Enter 키를 선택합니다.
-   * 로컬 호스트 이름 [..] 입력: Enter 키를 선택합니다.
+   * 로컬 호스트 이름 입력 [..]: Enter 키를 선택합니다.
    * 시스템에 호스트를 추가할까요? (y/n) [n]: Enter 키를 선택합니다.
-   * SAP HANA 시스템 ID 입력: HANA의 SID를 입력합니다(예: **HN1**).
+   * SAP HANA 시스템 ID 입력: HANA의 SID를 입력합니다. 예: **HN1**.
    * 인스턴스 번호 [00] 입력: HANA 인스턴스 번호를 입력합니다. Azure 템플릿을 사용하거나 이 문서의 수동 배포 섹션을 수행한 경우 **03**을 입력합니다.
    * 데이터베이스 모드 선택/인덱스 [1] 입력: Enter 키를 선택합니다.
-   * 시스템 사용량 선택/인덱스 [4] 입력: 시스템 사용량 값을 선택합니다.
+   * 시스템 사용량 선택 / 인덱스 [4] 입력: 시스템 사용량 값을 선택합니다.
    * 데이터 볼륨의 위치 [/hana/data/HN1] 입력: Enter 키를 선택합니다.
    * 로그 볼륨의 위치 [/hana/log/HN1] 입력: Enter 키를 선택합니다.
    * 최대 메모리 할당 제한? [n]: Enter 키를 선택합니다.
-   * 호스트의 인증서 호스트 이름 ‘...’ [...] 입력: Enter 키를 선택합니다.
+   * '...' [...] 호스트의 인증서 호스트 이름 입력: Enter 키를 선택합니다.
    * SAP 호스트 에이전트 사용자(sapadm) 암호 입력: 호스트 에이전트 사용자 암호를 입력합니다.
    * SAP 호스트 에이전트 사용자(sapadm) 암호 확인: 호스트 에이전트 사용자 암호를 다시 입력하여 확인합니다.
    * 시스템 관리자(hdbadm) 암호 입력: 시스템 관리자 암호를 입력합니다.
@@ -323,7 +323,7 @@ SAP HANA에 필요한 포트에 대한 자세한 내용은 [SAP HANA 테넌트 �
    * 시스템 관리자 홈 디렉터리 [/usr/sap/HN1/home] 입력: Enter 키를 선택합니다.
    * 시스템 관리자 로그인 셸 [/bin/sh] 입력: Enter 키를 선택합니다.
    * 시스템 관리자 사용자 ID [1001] 입력: Enter 키를 선택합니다.
-   * 사용자 그룹(sapsys)의 ID [79] 입력: Enter 키를 선택합니다.
+   * 사용자 그룹 ID(sapsys) [79] 입력: Enter 키를 선택합니다.
    * 데이터베이스 사용자(SYSTEM) 암호 입력: 데이터베이스 사용자 암호를 입력합니다.
    * 데이터베이스 사용자(SYSTEM) 암호 확인: 데이터베이스 사용자 암호를 다시 입력하여 확인합니다.
    * 컴퓨터를 다시 부팅한 다음 시스템 다시 시작? [n]: Enter 키를 선택합니다.

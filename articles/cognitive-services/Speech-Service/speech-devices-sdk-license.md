@@ -1,5 +1,5 @@
 ---
-title: 음성 디바이스 SDK 라이선스 계약
+title: 음성 디바이스 SDK 라이선스 계약 - Speech Services
 titleSuffix: Azure Cognitive Services
 description: 음성 디바이스 SDK 라이선스 계약입니다.
 services: cognitive-services
@@ -8,18 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: dea27d7363210580d5f040de7ea1db770701d9c9
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: b1605337a810c635bfa40cd05e2f9b15d2e5a7e1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466123"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078517"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>음성 디바이스 SDK 라이선스 계약
 
-## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>MICROSOFT 소프트웨어 사용 조건<br>음성 디바이스 SDK(소프트웨어 개발 키트) 
+## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>MICROSOFT 소프트웨어 사용 조건<br>음성 디바이스 SDK(소프트웨어 개발 키트)
 
 > 거주지(또는 비즈니스 본거지)가 미국인 경우 아래 “의무 중재 및 등급 조치 면책” 섹션을 참조하세요. 분쟁의 해결 방법에 적용됩니다.
 
@@ -57,7 +58,7 @@ f)  Microsoft Azure Cognitive Services, 음성 서비스를 통해서만 소프�
 
 **5\. 피드백.** Microsoft에 소프트웨어에 대한 피드백을 제공하는 경우 귀하는 피드백을 어떠한 방식과 목적으로든 체험으로 사용, 공유 및 상품화할 수 있는 권리를 Microsoft에 제공하는 것입니다. Microsoft가 귀하의 피드백을 포함함으로써 제3자에게 소프트웨어 또는 문서의 사용을 허가해야 하는 라이선스가 적용되는 피드백을 제공하지 않습니다. 이러한 권리는 이 계약에서 효력을 유지합니다.
 
-**6\. 기간.** 이 계약은 귀하가 동의할 때 적용되며, 언제든지 귀하나 Microsoft가 종료할 수 있습니다. 
+**6\. 기간.** 이 계약은 귀하가 동의할 때 적용되며, 언제든지 귀하나 Microsoft가 종료할 수 있습니다.
 
 **7\. 종료.** 귀하가 본 사용 약관을 준수하지 않는 경우, Microsoft는 여타 권리에 영향을 미치지 않고 이 계약을 종료할 수 있습니다. 이러한 경우 소프트웨어의 모든 사본과 해당 구성 요소 파트를 모두 삭제해야 합니다.
 
@@ -69,7 +70,7 @@ f)  Microsoft Azure Cognitive Services, 음성 서비스를 통해서만 소프�
 
 **11\. 의무 중재 및 등급 조치 면책.** 이 섹션은 거주지(또는 비즈니스 본거지)가 미국인 경우에 적용됩니다.  귀하와 Microsoft 간 분쟁이 있을 경우 귀하와 Microsoft는 60일 동안 비공식적으로 해결하려고 시도하는 것에 동의합니다. 해결할 수 없는 경우 귀하와 Microsoft는 “FAA”(연방중재법)에 따라 미국상사중재협회의 개별 의무 중재를 신청하고 판사나 배심원이 배석하는 소송을 제기하지 않는 것에 동의합니다. 대신 중립 중재자가 결정합니다. 집단 소송, 집단 중재, 대리인 일반 소송 및 다른 사람이 대리인 역할을 하는 다른 모든 법적 절차는 허용되지 않으며 쌍방의 동의 없이 개별 소송을 결합하는 것도 허용되지 않습니다. 전체 중재 계약은 더 많은 조건을 포함하며 aka.ms/arb-agreement-1에 있습니다. 귀하와 Microsoft는 이러한 조건에 동의합니다.
 
-**12\. 완전 합의.** 본 계약 및 Microsoft가 추가 구성 요소, 업데이트 또는 타사 응용 프로그램에서 제공하는 다른 모든 조건은 소프트웨어에 대한 전면 합의입니다.
+**12\. 완전 합의.** 본 계약 및 Microsoft가 추가 구성 요소, 업데이트 또는 타사 애플리케이션에서 제공하는 다른 모든 조건은 소프트웨어에 대한 전면 합의입니다.
 
 **13\. 관련 법률 및 분쟁 해결 장소.** 소프트웨어를 미국 또는 캐나다에서 구입한 경우 본 계약의 해석, 계약 위반에 따른 청구, 소비자 보호법, 불공정거래법 및 기타 불법 행위에 따른 청구를 포함하여 다른 모든 청구에는 법 조항의 상충 여부에 관계없이 거주하거나 비즈니스 주요 본거지가 있는 주나 지방의 법률이 적용됩니다. 단, 중재와 관련된 모든 사항에는 FAA가 적용됩니다. 다른 국가에서 소프트웨어를 구입한 경우에는 해당 국가 법률이 적용됩니다. 단, 중재와 관련된 모든 사항에는 FAA가 적용됩니다. 미연방 관할이 존재하는 경우 귀하와 Microsoft는 법정 심리 대상인 모든 분쟁에 대해 워싱턴 주 킹 카운티의 연방 법원이 단독 관할권 및 관할지가 됨에 동의합니다(중재 제외). 그렇지 않은 경우 귀하와 Microsoft는 법정 심리 대상인 모든 분쟁에 대해 워싱턴 주 킹 카운티의 고등법원이 단독 관할권 및 관할지가 됨에 동의합니다(중재 제외).
 

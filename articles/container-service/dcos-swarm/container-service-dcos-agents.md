@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service의 DC/OS 에이전트 풀
+title: (사용되지 않음) Azure Container Service의 DC/OS 에이전트 풀
 description: 공용 및 사용자 에이전트 풀이 Azure Container Service 클러스터와 함께 작동하는 방식
 services: container-service
 author: iainfoulds
@@ -9,18 +9,21 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9c614d18b96c182fa166a4bc43fb1bb2f8d5d6f5
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: ee1a2a75d6a003a6bc53c5216dd01d379193ea77
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976737"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994947"
 ---
-# <a name="dcos-agent-pools-for-azure-container-service"></a>Azure Container Service의 DC/OS 에이전트 풀
+# <a name="deprecated-dcos-agent-pools-for-azure-container-service"></a>(사용되지 않음) Azure Container Service의 DC/OS 에이전트 풀
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
+
 Azure Container Service의 DC/OS 클러스터는 2개의 풀, 즉 공용 풀과 개인 풀에 에이전트 노드를 포함합니다. 응용 프로그램을 이러한 두 풀 중 하나에 배포할 수 있으며 이는 컨테이너 서비스의 컴퓨터 간의 액세스 가능성에 영향을 줍니다. 컴퓨터는 인터넷(공용)에 노출되거나 내부(개인)로 유지될 수 있습니다. 이 문서에서는 공용 및 개인 풀이 있는 이유에 대한 간략한 개요를 제공합니다.
 
 
-* **개인 에이전트**: 개인 에이전트 노드는 라우팅할 수 없는 네트워크를 통해 실행됩니다. 이 네트워크는 관리 영역에서나 공용 영역 에지 라우터를 통해서만 액세스할 수 있습니다. 기본적으로 DC/OS는 사용자 에이전트 노드에서 앱을 시작합니다. 
+* **사용자 에이전트**: 사용자 에이전트 노드는 라우팅할 수 없는 네트워크를 통해 실행됩니다. 이 네트워크는 관리 영역에서나 공용 영역 에지 라우터를 통해서만 액세스할 수 있습니다. 기본적으로 DC/OS는 사용자 에이전트 노드에서 앱을 시작합니다. 
 
 * **공용 에이전트**: 공용 에이전트 노드는 공개적으로 액세스 가능한 네트워크를 통해 DC/OS 앱과 서비스를 실행합니다. 
 

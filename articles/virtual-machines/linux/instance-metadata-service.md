@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 77b19b708b32003edc4555745a233a01d6f60b71
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: eab9f13ad41d4109bb44ae196a7f8e2177886532
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026282"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994201"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -409,6 +409,50 @@ Azure에는 [Azure Government](https://azure.microsoft.com/overview/clouds/gover
   echo $environment
 ```
 
+### <a name="failover-clustering-in-windows-server"></a>Windows Server의 장애 조치(failover) 클러스터링
+
+특정 시나리오에서 장애 조치(failover) 클러스터링을 사용하여 Instance Metadata Service를 쿼리할 때 라우팅 테이블에 경로를 추가해야 합니다.
+
+1. 관리자 권한으로 명령 프롬프트를 엽니다.
+
+2. 다음 명령을 실행하고 IPv4 경로 테이블에 네트워크 대상의 인터페이스 주소(`0.0.0.0`)를 기록합니다.
+
+```bat
+route print
+```
+
+> [!NOTE] 
+> 장애 조치(failover) 클러스터를 사용하는 Windows Server VM의 다음 예제 출력에는 간단히 나타내기 위해 IPv4 경로 테이블만 포함되어 있습니다.
+
+```bat
+IPv4 Route Table
+===========================================================================
+Active Routes:
+Network Destination        Netmask          Gateway       Interface  Metric
+          0.0.0.0          0.0.0.0         10.0.1.1        10.0.1.10    266
+         10.0.1.0  255.255.255.192         On-link         10.0.1.10    266
+        10.0.1.10  255.255.255.255         On-link         10.0.1.10    266
+        10.0.1.15  255.255.255.255         On-link         10.0.1.10    266
+        10.0.1.63  255.255.255.255         On-link         10.0.1.10    266
+        127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
+        127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
+  127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+      169.254.0.0      255.255.0.0         On-link     169.254.1.156    271
+    169.254.1.156  255.255.255.255         On-link     169.254.1.156    271
+  169.254.255.255  255.255.255.255         On-link     169.254.1.156    271
+        224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
+        224.0.0.0        240.0.0.0         On-link     169.254.1.156    271
+        224.0.0.0        240.0.0.0         On-link         10.0.1.10    266
+  255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+  255.255.255.255  255.255.255.255         On-link     169.254.1.156    271
+  255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
+```
+
+3. 다음 명령을 실행하고 네트워크 대상의 인터페이스 주소(`0.0.0.0`)를 사용합니다(이 예제에서는 `10.0.1.10`).
+
+```bat
+route add 169.254.169.254/32 10.0.1.10 metric 1 -p
+```
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>VM 내의 서로 다른 언어를 사용하여 메타데이터 서비스를 호출하는 예 
 

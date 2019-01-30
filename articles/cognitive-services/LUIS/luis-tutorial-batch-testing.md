@@ -1,23 +1,24 @@
 ---
-title: '자습서 2: 1000개 발언 집합을 사용하여 일괄 처리 테스트 '
+title: 테스트 일괄 처리
 titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 일괄 처리 테스트를 사용하여 앱의 발언 예측 문제를 찾아 수정하는 방법을 보여줍니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: e5155caa26669cd98b679eec611334ee5c048fca
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 2c8d4486b235534db2bb7d06206d5767c1496fbd
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162544"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754393"
 ---
-# <a name="tutorial-2-batch-test-data-sets"></a>자습서 2: 일괄 처리 테스트 데이터 집합
+# <a name="tutorial-batch-test-data-sets"></a>자습서: 일괄 처리 테스트 데이터 세트
 
 이 자습서에서는 일괄 처리 테스트를 사용하여 앱의 발언 예측 문제를 찾아 수정하는 방법을 보여줍니다.  
 
@@ -31,11 +32,11 @@ ms.locfileid: "47162544"
 
 이 자습서 이외의 앱을 사용할 때에는 의도에 이미 추가된 발언 예제를 사용하지 *마세요*. 
 
-**이 자습서에서는 다음 방법에 대해 알아봅니다.**
+**이 자습서에서 학습할 내용은 다음과 같습니다.**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * 기존 자습서 앱 사용
+> * 예제 앱 가져오기
 > * 일괄 테스트 파일 만들기 
 > * 일괄 테스트 실행
 > * 테스트 결과 검토
@@ -44,13 +45,13 @@ ms.locfileid: "47162544"
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>기존 앱 사용
+## <a name="import-example-app"></a>예제 앱 가져오기
 
 마지막 자습서에서 만든 **HumanResources**라는 앱을 사용하여 계속 진행합니다. 
 
-이전 자습서의 HumanResources 앱이 없으면 다음 단계를 사용합니다.
+다음 단계를 사용하세요.
 
-1.  [앱 JSON 파일](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json)을 다운로드하고 저장합니다.
+1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json)을 다운로드하고 저장합니다.
 
 2. JSON을 새 앱으로 가져옵니다.
 
@@ -60,7 +61,7 @@ ms.locfileid: "47162544"
 
 ## <a name="batch-file"></a>일괄 처리 파일
 
-1. 텍스트 편집기에서 `HumanResources-jobs-batch.json`을 만들거나 [다운로드](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json)합니다. 
+1. 텍스트 편집기에서 `HumanResources-jobs-batch.json`을 만들거나 [다운로드](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json)합니다. 
 
 2. JSON 형식의 일괄 처리 파일에서 테스트에서 예측할 **의도**가 포함된 발언을 추가합니다. 
 
@@ -74,9 +75,9 @@ ms.locfileid: "47162544"
 
     [![일괄 테스트 패널이 강조 표시된 LUIS 앱의 스크린샷](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
 
-3. **데이터 집합 가져오기**를 선택합니다.
+3. **데이터 세트 가져오기**를 선택합니다.
 
-    [![데이터 집합 가져오기가 강조 표시된 LUIS 앱의 스크린샷](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
+    [![데이터 세트 가져오기가 강조 표시된 LUIS 앱의 스크린샷](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
 
 4. `HumanResources-jobs-batch.json` 파일의 파일 위치를 선택합니다.
 
@@ -176,7 +177,7 @@ ms.locfileid: "47162544"
 
 테스트 발언에 제공된 **Job** 엔터티의 값은 일반적으로 하나 또는 두 개의 단어로 되어 있지만 더 많은 단어를 포함하는 예제도 일부 있습니다. _직접 만든_ Human Resources 앱에 여러 단어의 작업 이름이 있는 경우 이 앱에서 **Job** 엔터티 레이블이 지정된 예제 발언은 잘 작동하지 않습니다.
 
-1. [VSCode](https://code.visualstudio.com/) 같은 텍스트 편집기에서 `HumanResources-entities-batch.json`을 만들거나 [다운로드](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json)합니다.
+1. [VSCode](https://code.visualstudio.com/) 같은 텍스트 편집기에서 `HumanResources-entities-batch.json`을 만들거나 [다운로드](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json)합니다.
 
 
 2. JSON 형식의 일괄 처리 파일에서 발언에서 엔터티의 위치 뿐만 아니라 테스트에서 예측하려는 **의도**가 있는 발언을 포함하는 개체 배열을 추가합니다. 엔터티는 토큰 기반이므로 한 문자에서 각 엔터티를 시작 및 중지해야 합니다. 발언 앞뒤에 공백을 포함하지 않도록 합니다. 공백이 있으면 일괄 처리 파일을 가져올 때 오류가 발생합니다.  
@@ -190,7 +191,7 @@ ms.locfileid: "47162544"
 
 2. 오른쪽 패널에서 **Batch testing panel**(일괄 테스트 패널)을 선택합니다. 
 
-3. **데이터 집합 가져오기**를 선택합니다.
+3. **데이터 세트 가져오기**를 선택합니다.
 
 4. `HumanResources-entities-batch.json` 파일의 파일 시스템 위치를 선택합니다.
 

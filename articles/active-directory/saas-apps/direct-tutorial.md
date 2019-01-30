@@ -4,7 +4,7 @@ description: Azure Active Directory와 Direct 간에 Single Sign-On을 구성하
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 7c2cd1f0-d14c-42f0-94a8-9b800008b285
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 7e693a721e5556970607fafd8ff187d3b06c913e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6bb197b820b9f4262eb5c93665c46c14f9497d0f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092889"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822657"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-direct"></a>자습서: Direct와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ Direct를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정으로 Direct에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -51,7 +51,7 @@ Direct와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
-이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+ 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Direct 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -66,13 +66,13 @@ Direct의 Azure AD 통합을 구성하려면 갤러리의 Direct를 관리되는
 
     ![Active Directory][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
 
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
 4. 검색 상자에 **Direct**를 입력합니다. 결과 패널에서 **Direct**를 선택한 다음, **추가** 단추를 선택하여 응용 프로그램을 추가합니다.
 
@@ -114,11 +114,11 @@ Direct에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     **식별자** 텍스트 상자에 URL `https://direct4b.com/`을 입력합니다.
 
-4. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 선택하세요.
+4. **SP** 시작 모드에서 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 선택하세요.
 
     ![Configure Single Sign-On](./media/direct-tutorial/tutorial_direct_url1.png)
 
-     **로그온 URL** 텍스트 상자에서 URL `https://direct4b.com/sso`를 입력합니다. 
+     **로그온 URL** 텍스트 상자에서 URL `https://direct4b.com/sso`를 입력합니다. 
 
 5. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
@@ -164,7 +164,7 @@ Direct에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 ### <a name="creating-a-direct-test-user"></a>Direct 테스트 사용자 만들기
 
-이 섹션에서는 Direct에서 Britta Simon이라는 사용자를 만듭니다. Direct 플랫폼에서 사용자를 추가하려면 [Direct 지원 팀](https://direct4b.com/ja/support.html#inquiry)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
+이 섹션에서는 Direct에서 Britta Simon이라는 사용자를 만듭니다. Direct 플랫폼에 사용자를 추가하려면 [Direct 지원 팀](https://direct4b.com/ja/support.html#inquiry)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -174,7 +174,7 @@ Direct에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 **Britta Simon을 Direct에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 
@@ -208,14 +208,14 @@ Direct에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. 액세스 패널에서 **Direct** 타일을 클릭하면 응용 프로그램 로그온 페이지로 리디렉션됩니다.
 
-    b. 표시되는 텍스트 상자에 `subdomain`을 입력하고 ‘다음’을 누르면 **Direct** 응용 프로그램에 자동으로 로그온됩니다.
+    b. 표시되는 텍스트 상자에 `subdomain`을 입력하고 ‘다음’을 누르면 **Direct** 애플리케이션에 자동으로 로그온됩니다.
 
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

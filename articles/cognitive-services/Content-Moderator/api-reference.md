@@ -1,7 +1,7 @@
 ---
 title: API 참조 - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Content Moderator에 대한 콘텐츠 수정 및 review API에 대해 알아봅니다.
+description: Content Moderator에 대한 다양한 콘텐츠 수정 및 검토 API에 대해 알아봅니다.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
@@ -10,19 +10,19 @@ ms.component: content-moderator
 ms.topic: reference
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: ecc22b097c14fc7597d8ee0e31f9691098a2211d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4a64b2f7ce54d5ace26ad18c0ca1a9facb66245e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229750"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266964"
 ---
 # <a name="content-moderator-api-reference"></a>Content Moderator API 참조
 
-다음과 같은 방법으로 Azure Content Moderator API를 시작합니다([자격 증명 관리](review-tool-user-guide/credentials.md)도 참조).
+다음과 같은 방법으로 Azure Content Moderator API를 시작합니다. 또한 [자격 증명 관리](review-tool-user-guide/credentials.md)도 참조하세요.
 
 - Azure Portal에서 [Content Moderator API를 구독](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)합니다.
-- [Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/)를 등록합니다. [빠른 시작](quick-start.md)을 참조하세요.
+- [Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/)를 등록합니다. [웹에서 Content Moderator 사용해 보기](quick-start.md)를 참조하세요.
 
 ## <a name="moderation-apis"></a>중재 API
 

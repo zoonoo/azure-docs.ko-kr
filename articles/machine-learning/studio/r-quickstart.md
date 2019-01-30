@@ -1,28 +1,8 @@
 ---
-title: Machine Learning Studio용 R 언어에 대한 빠른 시작 자습서 - Azure | Microsoft Docs
-description: 이 R 프로그래밍 자습서를 사용하여 신속하게 Azure Machine Learning Studio에서 R 언어를 사용하여 예측 솔루션을 만듭니다.
-keywords: 빠른 시작, r 언어, r 프로그래밍 언어, r 프로그래밍 자습서
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
-editor: cgronlun
-ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/06/2017
-ms.openlocfilehash: eea61419e76f4363a286f796e6df28a4e90a9ed7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317673"
+제목: R 언어의 빠른 시작 자습서 titleSuffix: Azure Machine Learning Studio 설명: 이 R 프로그래밍 자습서를 사용하여 신속하게 Azure Machine Learning Studio에서 R 언어를 사용하여 예측 솔루션을 만듭니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/06/2017
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 R 프로그래밍 언어에 대한 빠른 시작 자습서
 
@@ -33,7 +13,7 @@ ms.locfileid: "52317673"
 
 Microsoft Azure Machine Learning에는 강력한 기계 학습 및 데이터 조작 모듈이 많이 포함되어 있습니다. 강력한 R 언어는 분석의 대표 언어라고 표현되어 왔습니다. R을 사용하여 Azure Machine Learning의 분석 및 데이터 조작을 확장할 수 있습니다. 이렇게 하면 R의 유연성 및 심층 분석을 통해 쉽게 Azure Machine Learning을 배포하고 확장할 수 있습니다.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ### <a name="forecasting-and-the-dataset"></a>예측 및 데이터 세트
 예측은 널리 활용되고 매우 유용한 분석 방법입니다. 이는 계절성 품목의 매출 예측 및 최적의 재고 수준 결정에서부터 거시 경제 변수 예측에 이르기까지 일반적으로 사용됩니다. 일반적으로 예측은 시계열 모델을 통해 수행됩니다.
@@ -61,7 +41,7 @@ Microsoft Azure Machine Learning에는 강력한 기계 학습 및 데이터 조
 ### <a name="the-execute-r-script-module"></a>R 스크립트 실행 모듈
 Machine Learning Studio에서 R 스크립트는 [R 스크립트 실행][execute-r-script] 모듈 내에서 실행됩니다. 그림 1에서는 Machine Learning Studio에서의 [R 스크립트 실행 모듈][execute-r-script] 예를 보여 줍니다.
 
- ![R 프로그래밍 언어: R 스크립트 실행 모듈이 Machine Learning Studio에서 선택됩니다.][1]
+ ![R 프로그래밍 언어: Machine Learning Studio에서 선택된 R 스크립트 실행 모듈][1]
 
 *그림 1. 선택된 R 스크립트 실행 모듈을 보여 주는 Machine Learning Studio 환경*
 
@@ -140,13 +120,13 @@ RStudio에 대한 자습서 소개는 https://support.rstudio.com/hc/sections/20
 이 섹션의 전체 코드는 앞서 다운로드한 zip 파일에 들어 있습니다.
 
 ### <a name="load-and-check-data-in-machine-learning-studio"></a>Machine Learning Studio에서 데이터 로드 및 확인
-#### <a id="loading"></a>데이터 집합 로드
+#### <a id="loading"></a>데이터 세트 로드
 **csdairydata.csv** 파일을 Azure Machine Learning Studio로 로드하여 시작합니다.
 
 * Azure Machine Learning Studio 환경을 시작합니다.
 * 화면의 왼쪽 아래에 있는 **+ 새로 만들기**를 클릭하고 **데이터 세트**를 선택합니다.
 * **로컬 파일에서**를 선택한 다음 **찾아보기**를 선택하여 파일을 선택합니다.
-* **Generic CSV file with header (.csv)(헤더가 포함된 일반 CSV 파일(.csv))** 를 데이터 집합 형식으로 선택했는지 확인합니다.
+* **Generic CSV file with header (.csv)(헤더가 포함된 일반 CSV 파일(.csv))** 를 데이터 세트 형식으로 선택했는지 확인합니다.
 * 확인 표시를 클릭합니다.
 * 데이터 세트를 업로드한 후 **데이터 세트** 탭을 클릭하여 새 데이터 세트를 확인해야 합니다.  
 
@@ -156,10 +136,10 @@ RStudio에 대한 자습서 소개는 https://support.rstudio.com/hc/sections/20
 * 왼쪽 아래에 있는 **+ 새로 만들기**를 클릭하고 **실험**, **빈 실험**을 차례로 선택합니다.
 * 페이지 위쪽에 있는 **Experiment created on ...(...에서 만든 실험)** 을 선택하고 수정하여 실험의 이름을 지정할 수 있습니다. 예를 들어 **CA Dairy Analysis**로 변경합니다.
 * 실험 페이지의 왼쪽에서 **저장된 데이터 세트**, **내 데이터 세트**를 차례로 확장합니다. 이전에 업로드한 **cadairydata.csv**가 표시되어야 합니다.
-* **csdairydata.csv 데이터 집합**을 실험에 끌어다 놓습니다.
+* **csdairydata.csv 데이터 세트**를 실험에 끌어다 놓습니다.
 * 왼쪽 창 맨 위의 **실험 항목 검색** 상자에 [R 스크립트 실행][execute-r-script]을 입력합니다. 검색 목록에 모듈이 표시됩니다.
 * [R 스크립트 실행][execute-r-script] 모듈을 팔레트에 끌어다 놓습니다.  
-* **csdairydata.csv 데이터 집합**의 출력을 [R 스크립트 실행][execute-r-script]의 가장 왼쪽에 있는 입력(**Dataset1**)에 연결합니다.
+* **csdairydata.csv 데이터 세트**의 출력을 [R 스크립트 실행][execute-r-script]의 가장 왼쪽에 있는 입력(**Dataset1**)에 연결합니다.
 * **반드시 '저장'을 클릭하세요.**  
 
 이때 실험이 그림 3과 같이 표시됩니다.
@@ -196,7 +176,7 @@ Azure Machine Learning Studio에서 실험할 간단한 첫 번째 R 스크립�
 ### <a name="data-input-to-the-execute-r-script-module"></a>R 스크립트 실행 모듈에 데이터 입력
 [R 스크립트 실행][execute-r-script] 모듈에 대한 입력을 살펴보겠습니다. 이 예제에서는 캘리포니아 유제품 데이터를 [R 스크립트 실행][execute-r-script] 모듈로 읽어옵니다.  
 
-[R 스크립트 실행][execute-r-script] 모듈에 대해 사용 가능한 입력에는 세 가지가 있습니다. 응용 프로그램에 따라 이러한 입력을 하나만 사용하거나 모두 사용할 수 있습니다. 또한 입력이 전혀 없는 R 스크립트를 사용하는 것도 합리적일 수 있습니다.  
+[R 스크립트 실행][execute-r-script] 모듈에 대해 사용 가능한 입력에는 세 가지가 있습니다. 애플리케이션에 따라 이러한 입력을 하나만 사용하거나 모두 사용할 수 있습니다. 또한 입력이 전혀 없는 R 스크립트를 사용하는 것도 합리적일 수 있습니다.  
 
 이 입력을 각각 왼쪽에서 오른쪽으로 살펴보겠습니다. 입력 위에 커서를 놓고 도구 설명을 읽어 각 입력의 이름을 볼 수 있습니다.  
 
@@ -290,7 +270,7 @@ Dataset2 입력의 동작은 Dataset1과 동일합니다. 이 입력을 사용�
 
 ### <a name="execute-r-script-outputs"></a>R 스크립트 실행 출력
 #### <a name="output-a-dataframe"></a>데이터 프레임 출력
-`maml.mapOutputPort()` 함수를 사용하여 결과 데이터 집합 1 포트를 통해 R 데이터 프레임의 내용을 사각형 테이블처럼 출력할 수 있습니다. 간단한 이 R 스크립트에서는 다음 줄을 통해 이를 수행할 수 있습니다.
+`maml.mapOutputPort()` 함수를 사용하여 결과 데이터 세트 1 포트를 통해 R 데이터 프레임의 내용을 사각형 테이블처럼 출력할 수 있습니다. 간단한 이 R 스크립트에서는 다음 줄을 통해 이를 수행할 수 있습니다.
 
     maml.mapOutputPort('cadairydata')
 
@@ -303,9 +283,9 @@ Dataset2 입력의 동작은 Dataset1과 동일합니다. 이 입력을 사용�
 이 출력은 예상대로 입력과 같아 보입니다.  
 
 ### <a name="r-device-output"></a>R 디바이스 출력
-[R 스크립트 실행][execute-r-script] 모듈의 장치 출력은 메시지 및 그래픽 출력을 포함합니다. R의 표준 출력 및 표준 오류 메시지는 둘 다 R 디바이스 출력 포트로 전송됩니다.  
+[R 스크립트 실행][execute-r-script] 모듈의 디바이스 출력은 메시지 및 그래픽 출력을 포함합니다. R의 표준 출력 및 표준 오류 메시지는 둘 다 R 디바이스 출력 포트로 전송됩니다.  
 
-R 디바이스 출력을 보려면 해당 포트를 클릭한 다음, **시각화**를 클릭하세요. 그림 7에서 R 스크립트의 표준 출력 및 표준 오류를 볼 수 있습니다.
+R 디바이스 출력을 보려면 해당 포트를 클릭한 다음 **시각화**를 클릭하세요. 그림 7에서 R 스크립트의 표준 출력 및 표준 오류를 볼 수 있습니다.
 
 ![R 디바이스 포트의 표준 출력 및 표준 오류][8]
 
@@ -1211,7 +1191,7 @@ RMS 오차를 측정하는 함수를 사용하여 RMS 오차가 포함된 데이
 
 이러한 결과를 통해 모델에 계절 요소를 추가하면 RMS 오차가 현저히 감소한다는 사실을 알 수 있습니다. 별로 놀랍지는 않지만 학습 데이터의 RMS 오차는 예측의 RMS 오차보다 약간 적습니다.
 
-## <a id="appendixa"></a>부록 A - RStudio 가이드
+## <a id="appendixa"></a>부록 A: RStudio 가이드
 RStudio는 문서화된 관련 증거가 많으므로 이 부록에서는 시작할 수 있도록 RStudio 설명서의 주요 섹션에 대한 일부 링크를 제공합니다.
 
 1. 프로젝트 만들기
@@ -1228,7 +1208,7 @@ RStudio는 문서화된 관련 증거가 많으므로 이 부록에서는 시작
    
    중단점 문제 해결 기능은 https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting에 설명되어 있습니다.
 
-## <a id="appendixb"></a>부록 B - 추가 정보
+## <a id="appendixb"></a>부록 B: 추가 참고 자료
 이 R 프로그래밍 자습서는 Azure Machine Learning Studio에서 R 언어를 사용해야 하는 기본 사항을 소개합니다. R에 익숙하지 않은 경우 CRAN에서 두 가지 소개 자료를 사용할 수 있습니다.
 
 * Emmanuel Paradis의 초보자를 위한 R은 http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf에서 시작하기에 좋은 위치입니다.  
@@ -1236,7 +1216,7 @@ RStudio는 문서화된 관련 증거가 많으므로 이 부록에서는 시작
 
 R을 시작하는 데 도움을 되는 서적이 많이 있습니다. 몇 가지 유용한 서적은 다음과 같습니다.
 
-* 'The Art of R Programming: A Tour of Statistical Software Design'(저자: Norman Matloff)(영문)은 훌륭한 R 프로그래밍 입문서입니다.  
+* The Art of R Programming: A Tour of Statistical Software Design(저자: Norman Matloff)(영문)은 훌륭한 R 프로그래밍 입문서입니다.  
 * 'R Cookbook'(저자: Paul Teetor)(영문)은 R을 사용한 문제 및 해결 접근 방식을 제공합니다.  
 * 'R in Action'(저자: Robert Kabacoff)(영문)도 유용한 입문서입니다. Quick R 동반 웹 사이트도 유용한 리소스이며 http://www.statmethods.net/에서 확인할 수 있습니다.
 * 'R Inferno'(저자: Patrick Burns)는 R로 프로그래밍할 때 발생할 수 있는 많은 까다롭고 어려운 문제를 놀랍도록 유쾌하게 다룹니다. 이 책은 http://www.burns-stat.com/documents/books/the-r-inferno/에서 무료로 사용할 수 있습니다.
@@ -1248,7 +1228,7 @@ R 시계열 패키지 카탈로그는 CRAN Task View for time series analysis(ht
 
 다음은 유용한 인터넷 리소스입니다.
 
-* DataCamp: 브라우저에서 편안하게 비디오 레슨 및 코드 연습을 배울 수 있습니다. 최신 R 기술 및 패키지에 대한 대화형 자습서가 제공됩니다. https://www.datacamp.com/courses/introduction-to-r에서 무료 대화형 R 자습서 사용
+* DataCamp: 브라우저에서 편안하게 비디오 강좌 및 코드 연습을 사용하여 R을 배울 수 있습니다. 최신 R 기술 및 패키지에 대한 대화형 자습서가 제공됩니다. https://www.datacamp.com/courses/introduction-to-r에서 무료 대화형 R 자습서 사용
 * Programiz에서 R을 시작하는 가이드 https://www.programiz.com/r-programming
 * 클라크슨 대학교의 Kelly Black이 제공하는 빠른 R 자습서 http://www.cyclismo.org/tutorial/R/
 * http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html에 나열된 60+R 리소스

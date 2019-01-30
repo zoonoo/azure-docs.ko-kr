@@ -3,18 +3,18 @@ title: Azure Automation에서 원본 제어 통합
 description: 이 문서에서는 Azure Automation에서 GitHub를 사용하는 원본 제어 통합을 설명합니다.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/26/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5778c38d5a0c44e42b83fd139078be1f0bb45f7f
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 400cf53172fbd1ce5803cf3de298749afbf45cd4
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023750"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430197"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Automation에서 원본 제어 통합
 
@@ -50,7 +50,7 @@ Automation 계정 내에서 **소스 제어(미리 보기)** 를 선택하고 **
 |자산  |설명  |
 |---------|---------|
 |소스 제어 이름     | 소스 제어의 친숙한 이름        |
-|소스 제어 형식     | 소스 제어 소스의 형식입니다. 사용 가능한 옵션은 다음과 같습니다.</br> Github</br>Azure DevOps(Git)</br> Azure DevOps(TFVC)        |
+|소스 제어 형식     | 소스 제어 소스의 형식입니다. 사용 가능한 옵션은 다음과 같습니다.</br> GitHub</br>Azure DevOps(Git)</br> Azure DevOps(TFVC)        |
 |리포지토리     | 리포지토리 또는 프로젝트의 이름입니다. 이 값은 소스 제어 리포지토리에서 끌어옵니다. 예: $/ContosoFinanceTFVCExample         |
 |Branch     | 소스 파일을 끌어올 분기입니다. 분기 대상 지정은 TFVC 소스 제어 형식에는 사용할 수 없습니다.          |
 |폴더 경로     | 동기화할 Runbook이 포함된 폴더입니다. 예: /Runbooks         |
@@ -60,9 +60,12 @@ Automation 계정 내에서 **소스 제어(미리 보기)** 를 선택하고 **
 
 ![소스 제어 요약](./media/source-control-integration/source-control-summary.png)
 
+> [!NOTE]
+> 소스 제어를 구성할 때는 올바른 계정을 사용하여 로그인해야 합니다. 계정이 올바른지 확실치 않으면 브라우저에서 새 탭을 열고 visualstudio.com 또는 github.com에서 로그아웃한 다음 소스 제어를 다시 연결해 봅니다.
+
 ## <a name="syncing"></a>동기화 중
 
-소스 제어 통합을 구성할 때 자동 동기화를 구성하면 초기 동기화가 자동으로 시작됩니다. 자동 동기화가 설정되지 않은 경우 **소스 제어(미리 보기)** 페이지의 표에서 소스를 선택합니다. **동기화 시작**을 클릭하여 동기화 프로세스를 시작합니다.  
+소스 제어 통합을 구성할 때 자동 동기화를 구성하면 초기 동기화가 자동으로 시작됩니다. 자동 동기화가 설정되지 않은 경우 **소스 제어(미리 보기)** 페이지의 표에서 소스를 선택합니다. **동기화 시작**을 클릭하여 동기화 프로세스를 시작합니다.
 
 **동기화 작업** 탭을 클릭하여 현재 동기화 작업 또는 이전 작업의 상태를 볼 수 있습니다. **소스 제어** 드롭다운 목록에서 소스 제어를 선택합니다.
 
@@ -141,3 +144,4 @@ Source Control Sync Summary:
 ## <a name="next-steps"></a>다음 단계
 
 Runbook 형식, 해당 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure Automation Runbook 형식](automation-runbook-types.md)
+

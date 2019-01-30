@@ -4,7 +4,7 @@ description: 전체 업그레이드와 스윙 마이그레이션을 포함하여
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.workload: Identity
 ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 17333f6a5e78fb6da607e93cf696bfc766daf3ae
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 4ca1fc4677f0d9a5391973a965faae4e283c4710
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309942"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462541"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드
 이 항목에서는 Azure Active Directory(Azure AD) Connect 설치를 최신 릴리스로 업그레이드하는 데 사용할 수 있는 여러 가지 방법을 설명합니다. Azure AD Connect 릴리스를 최신 상태로 유지하는 것이 좋습니다. [스윙 마이그레이션](#swing-migration) 섹션에 설명된 단계는 상당한 구성 변경을 수행하는 경우에도 사용할 수 있습니다.
@@ -50,7 +50,7 @@ Azure AD Connect를 업그레이드하는 데 사용할 수 있는 몇 가지 �
 
 현재 위치 업그레이드 중 도입된 변경 내용으로 인해 업그레이드가 완료된 후 특정 동기화 작업(전체 가져오기 단계 및 전체 동기화 단계 포함)이 실행되어야 할 수도 있습니다. 이러한 작업을 연기하려면 [업그레이드 후 전체 동기화를 연기하는 방법](#how-to-defer-full-synchronization-after-upgrade) 섹션을 참조하세요.
 
-Azure AD Connect를 비표준 커넥터(예: 일반 LDAP 커넥터 및 일반 SQL 커넥터)와 함께 사용하는 경우 현재 위치 업그레이드 후 [Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors)에서 해당 커넥터 구성을 새로 고쳐야 합니다. 커넥터 구성을 새로 고치는 방법에 대한 자세한 내용은 [커넥터 버전 릴리스 내역 - 문제 해결](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting) 문서 섹션을 참조하세요. 구성을 새로 고치지 않으면 커넥터에 대해 가져오기 및 내보내기 실행 단계가 올바르게 작동하지 않습니다. 응용 프로그램 이벤트 로그에 *"Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll"*("AAD 커넥터 구성의 어셈블리 버전("XXXXX.X")이 C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll의 실제 버전("X.X.XXX.X")보다 이전 버전입니다")라는 오류 메시지가 표시됩니다.
+Azure AD Connect를 비표준 커넥터(예: 일반 LDAP 커넥터 및 일반 SQL 커넥터)와 함께 사용하는 경우 현재 위치 업그레이드 후 [Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors)에서 해당 커넥터 구성을 새로 고쳐야 합니다. 커넥터 구성을 새로 고치는 방법에 대한 자세한 내용은 [커넥터 버전 릴리스 내역 - 문제 해결](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting) 문서 섹션을 참조하세요. 구성을 새로 고치지 않으면 커넥터에 대해 가져오기 및 내보내기 실행 단계가 올바르게 작동하지 않습니다. 애플리케이션 이벤트 로그에 *"Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll"*("AAD 커넥터 구성의 어셈블리 버전("XXXXX.X")이 C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll의 실제 버전("X.X.XXX.X")보다 이전 버전입니다")라는 오류 메시지가 표시됩니다.
 
 ## <a name="swing-migration"></a>스윙 마이그레이션
 배포가 복잡하거나 개체가 많은 경우에는 라이브 시스템에서 전체 업그레이드를 수행하는 것이 적절하지 않을 수 있습니다. 일부 고객의 경우 처리하는 데 며칠이 걸리고 이 시간 동안 델타 변경이 처리되지 않습니다. 이 방법은 구성을 크게 변경하고 클라우드로 푸시하기 전에 시도하려는 경우에도 사용할 수 있습니다.

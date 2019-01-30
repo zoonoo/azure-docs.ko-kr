@@ -54,9 +54,9 @@ Azure BizTalk Services에는 Backup 및 복원 기능이 포함되어 있습니�
 ### <a name="postrestore"></a>백업을 복원한 후
 BizTalk 서비스는 항상 **일시 중단** 상태로 복원됩니다. 이 상태에서는 새 환경을 작동하기 전에 다음을 비롯한 구성 변경을 적용할 수 있습니다.
 
-* Azure BizTalk Services SDK를 사용하여 BizTalk 서비스 응용 프로그램을 만든 경우 복원된 환경에서 작동할 응용 프로그램에서 ACS(Access Control) 자격 증명을 업데이트해야 할 수도 있습니다.
+* Azure BizTalk Services SDK를 사용하여 BizTalk 서비스 애플리케이션을 만든 경우 복원된 환경에서 작동할 애플리케이션에서 ACS(Access Control) 자격 증명을 업데이트해야 할 수도 있습니다.
 * 기존 BizTalk 서비스 환경을 복제하도록 BizTalk 서비스를 복원할 수 있습니다. 이 경우 원래 BizTalk Services 포털에 원본 FTP 폴더를 사용하는 계약이 구성되어 있으면 새로 복원한 환경에서 다른 원본 FTP 폴더를 사용하도록 계약을 업데이트해야 할 수도 있습니다. 그렇지 않으면 두 가지 계약에서 동일한 메시지를 가져오려고 할 수 있습니다.
-* 여러 BizTalk 서비스 환경을 유지하도록 복원한 경우 Visual Studio 응용 프로그램, PowerShell cmdlet, REST API 또는 거래 업체 관리 도구 OM API에서 올바른 환경을 대상으로 하는지 확인합니다.
+* 여러 BizTalk 서비스 환경을 유지하도록 복원한 경우 Visual Studio 애플리케이션, PowerShell cmdlet, REST API 또는 거래 업체 관리 도구 OM API에서 올바른 환경을 대상으로 하는지 확인합니다.
 * 새로 복원한 BizTalk 서비스 환경에서 자동 백업을 구성하는 것이 좋습니다.
 
 ## <a name="what-gets-backed-up"></a>백업 대상
@@ -132,7 +132,7 @@ BizTalk 서비스는 항상 **일시 중단** 상태로 복원됩니다. 이 상
 </table>
 
 ## <a name="next"></a>다음
-Azure BizTalk Services를 만들려면 [BizTalk Services: 프로비전](https://go.microsoft.com/fwlink/p/?LinkID=302280)으로 이동합니다. 응용 프로그램을 만들려면 [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동하십시오.
+Azure BizTalk Services를 만들려면 [BizTalk Services: 프로비전](https://go.microsoft.com/fwlink/p/?LinkID=302280)으로 이동합니다. 애플리케이션을 만들려면 [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동합니다.
 
 ## <a name="see-also"></a>참고 항목
 * [BizTalk 서비스 Backup](https://go.microsoft.com/fwlink/p/?LinkID=325584)

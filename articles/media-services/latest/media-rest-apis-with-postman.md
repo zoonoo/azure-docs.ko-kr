@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: b110a57526d6e23ba53afce0a91d735fad6d247c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 06ecdf31c2627eda5bf651667703ddcf39c9d307
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215905"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604102"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Media Services REST API 호출에 대해 Postman 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "50215905"
 - [API에 액세스](access-api-cli-how-to.md)하는 데 필요한 정보 가져오기
 - [Postman](https://www.getpostman.com/) REST 클라이언트를 설치하여 일부 AMS REST 자습서에 표시되는 REST API를 실행합니다. 
 
-    지금은 **Postman**을 사용하고 있지만 어떤 REST 도구도 괜찮습니다. **Visual Studio Code**와 REST 플러그 인을 함께 사용하거나, **Telerik Fiddler**를 사용할 수도 있습니다. 
+    지금은 **Postman**을 사용하고 있지만 어떤 REST 도구도 괜찮습니다. 또는 **Visual Studio Code**와 REST 플러그 인을 함께 사용하거나, **Telerik Fiddler**를 사용할 수도 있습니다. 
 
 ## <a name="download-postman-files"></a>Postman 파일 다운로드
 
@@ -85,7 +85,7 @@ AMS v3 리소스 조작을 시작하려면 먼저 서비스 주체 인증을 위
     https://login.microsoftonline.com/:tenantId/oauth2/token
     ```
 
-4. 응답은 토큰과 함께 반환되며 "AccessToken" 환경 변수를 토큰 값으로 설정합니다. "AccessToken"을 설정하는 코드를 보려면 **테스트** 탭을 클릭합니다. 
+4. 응답은 토큰과 함께 반환되며 "AccessToken" 환경 변수를 토큰 값으로 설정합니다.  
 
     ![AAD 토큰 가져오기](./media/develop-with-postman/postman-get-aad-auth-token.png)
 

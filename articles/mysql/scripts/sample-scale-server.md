@@ -1,22 +1,19 @@
 ---
 title: Azure CLI 스크립트 - Azure Database for MySQL 서버 크기 조정
 description: 이 샘플 CLI 스크립트는 메트릭을 쿼리한 후에 MySQL 서버용 Azure Database를 다양한 성능 수준으로 확장합니다.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 04/05/2018
-ms.openlocfilehash: 8c06237090a8ab6c09336833e7771e64bfe6ae90
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 8de0d123af7aedd456ffb6dad9d9dfec499fc8ca
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583510"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538791"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mysql-server-using-azure-cli"></a>Azure CLI를 사용하여 MySQL용 Azure Database 모니터링 및 확장
 이 샘플 CLI 스크립트는 메트릭을 쿼리한 후에 MySQL 서버용 단일 Azure Database를 다양한 성능 수준으로 확장합니다.
@@ -43,6 +40,6 @@ CLI를 로컬로 실행하도록 선택한 경우 이 문서에 Azure CLI 버전
 | [az group delete](/cli/azure/group#az-group-delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
-- Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
-- 추가 스크립트 시도: [MySQL용 Azure 데이터베이스 대한 Azure CLI 샘플](../sample-scripts-azure-cli.md)
+- Azure CLI에 대한 자세한 내용: [Azure CLI 설명서](/cli/azure)
+- 추가 스크립트 시도: [MySQL용 Azure Database에 대한 Azure CLI 샘플](../sample-scripts-azure-cli.md)
 - 확장에 대한 자세한 내용은 [서비스 계층](../concepts-service-tiers.md) 및 [Compute 단위 및 저장 단위](../concepts-compute-unit-and-storage.md)를 참조하세요.

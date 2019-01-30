@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - 저장소 계정 만들기 - Azure Storage
+title: '빠른 시작: 스토리지 계정 만들기 - Azure Storage'
 description: 이 빠른 시작에서는 Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하여 저장소 계정을 만드는 것에 대해 알아봅니다. Azure Storage 계정은 Azure Storage에서 만든 데이터 개체의 저장 및 액세스를 위해 Microsoft Azure의 고유한 네임스페이스를 제공합니다.
 services: storage
 author: tamram
@@ -9,28 +9,30 @@ ms.topic: quickstart
 ms.date: 09/18/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: a695e333f48ed0bbf1ad5656c20964232feff4d7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5086c0758e7c535b65c877917dc790dafa46f763
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990130"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994725"
 ---
 # <a name="create-a-storage-account"></a>저장소 계정 만들기
 
 이 빠른 시작에서는 [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)를 사용하여 저장소 계정을 만드는 것에 대해 알아봅니다.  
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-# <a name="portaltabportal"></a>[포털](#tab/portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
 없음.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-이 빠른 시작에서는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 현재 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+이 빠른 시작에서는 Azure PowerShell 모듈 Az 버전 0.7 이상이 필요합니다. `Get-Module -ListAvailable Az`을 실행하여 현재 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요.
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -57,23 +59,23 @@ Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 빠른
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-# <a name="portaltabportal"></a>[포털](#tab/portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-`Connect-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시에 따라 인증합니다.
+`Connect-AzAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시에 따라 인증합니다.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Azure Cloud Shell을 시작하려면 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-CLI의 로컬 설치에 로그인하려면 로그인 명령을 실행합니다.
+CLI의 로컬 설치를 사용해 로그인하려면 로그인 명령을 실행합니다.
 
 ```cli
 az login
@@ -89,32 +91,32 @@ az login
 
 **범용 v2** 저장소 계정은 모든 Azure Storage 서비스(Blob, 파일, 큐, 테이블 및 디스크)에 대한 액세스를 제공합니다. 빠른 시작에서는 범용 v2 저장소 계정을 만들지만 모든 유형의 저장소 계정을 만드는 단계는 비슷합니다.   
 
-# <a name="portaltabportal"></a>[포털](#tab/portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-먼저 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 명령을 사용하여 PowerShell을 통해 새 리소스 그룹을 만듭니다. 
+먼저 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 PowerShell을 통해 새 리소스 그룹을 만듭니다. 
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
 # without hardcoding it repeatedly
 $resourceGroup = "storage-quickstart-resource-group"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
+New-AzResourceGroup -Name $resourceGroup -Location $location 
 ```
 
-`-Location` 매개 변수에 어떤 지역을 지정할지 확실하지 않으면 [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) 명령을 사용하여 해당 구독에 대해 지원되는 지역 목록을 검색할 수 있습니다.
+`-Location` 매개 변수에 어떤 지역을 지정할지 확실하지 않으면 [Get-AzLocation](/powershell/module/az.resources/get-azlocation) 명령을 사용하여 해당 구독에 대해 지원되는 지역 목록을 검색할 수 있습니다.
 
 ```powershell
-Get-AzureRmLocation | select Location 
+Get-AzLocation | select Location 
 $location = "westus"
 ```
 
-다음으로, LRS(로컬 중복 저장소)를 사용하여 범용 v2 저장소 계정을 만듭니다. [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 명령을 사용합니다. 
+다음으로, LRS(로컬 중복 저장소)를 사용하여 범용 v2 저장소 계정을 만듭니다. [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) 명령 사용: 
 
 ```powershell
-New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
   -Location $location `
   -SkuName Standard_LRS `
@@ -176,7 +178,7 @@ az storage account create \
 
 이 빠른 시작에서 만든 리소스를 정리하려면 간단히 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 연결된 저장소 계정과 기타 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다.
 
-# <a name="portaltabportal"></a>[포털](#tab/portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
 Azure Portal을 사용하여 리소스 그룹을 제거하려면
 
@@ -184,12 +186,12 @@ Azure Portal을 사용하여 리소스 그룹을 제거하려면
 2. 삭제할 리소스 그룹을 찾아 목록 오른쪽에 있는 **자세히** 단추(**...** )를 마우스 오른쪽 단추로 클릭합니다.
 3. **리소스 그룹 삭제**를 선택하고 확인합니다.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-새 저장소 계정을 포함하여 리소스 그룹과 관련 리소스를 제거하려면 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 명령을 사용합니다. 
+새 스토리지 계정을 포함하여 리소스 그룹 및 관련 리소스를 제거하려면 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 명령을 사용합니다. 
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -197,21 +199,21 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 새 저장소 계정을 포함하여 리소스 그룹과 관련 리소스를 제거하려면 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용합니다.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name storage-quickstart-resource-group
 ```
 
 ---
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 범용 표준 저장소 계정을 만들었습니다. 저장소 계정에서 Blob을 업로드 및 다운로드하는 방법을 알아보려면 계속해서 Blob 저장소 빠른 시작을 진행합니다.
+이 빠른 시작에서는 범용 v2 표준 스토리지 계정을 만들었습니다. 저장소 계정에서 Blob을 업로드 및 다운로드하는 방법을 알아보려면 계속해서 Blob 저장소 빠른 시작을 진행합니다.
 
-# <a name="portaltabportal"></a>[포털](#tab/portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
 > [!div class="nextstepaction"]
 > [Azure Portal을 통한 Blob 사용](../blobs/storage-quickstart-blobs-portal.md)
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!div class="nextstepaction"]
 > [PowerShell을 통한 Blob 사용](../blobs/storage-quickstart-blobs-powershell.md)
@@ -219,6 +221,6 @@ az group delete --name myResourceGroup
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!div class="nextstepaction"]
-> [Azure CLI를 통한 Blob Storage 사용](../blobs/storage-quickstart-blobs-cli.md)
+> [Azure CLI를 통한 Blob 사용](../blobs/storage-quickstart-blobs-cli.md)
 
 ---

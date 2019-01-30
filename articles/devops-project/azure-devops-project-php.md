@@ -42,7 +42,7 @@ Azure 구독이 없으면 [Visual Studio Dev Essentials](https://visualstudio.mi
 
     ![지속적인 업데이트 구성 시작](_img/azure-devops-project-php/fullbrowser.png)
 
-## <a name="select-a-sample-application-and-azure-service"></a>샘플 응용 프로그램 및 Azure 서비스 선택
+## <a name="select-a-sample-application-and-azure-service"></a>샘플 애플리케이션 및 Azure 서비스 선택
 
 1. PHP 샘플 애플리케이션을 선택합니다.  
         PHP 샘플에는 여러 애플리케이션 프레임워크 선택이 포함됩니다. 기본 샘플 프레임워크는 Laravel입니다. 

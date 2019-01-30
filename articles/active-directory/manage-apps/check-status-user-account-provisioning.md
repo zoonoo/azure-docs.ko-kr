@@ -1,10 +1,10 @@
 ---
-title: SaaS 응용 프로그램에 대한 Azure Active Directory 자동 사용자 계정 프로비전 보고 | Microsoft Docs
+title: SaaS 애플리케이션에 대한 Azure Active Directory 자동 사용자 계정 프로비전 보고 | Microsoft Docs
 description: 자동 사용자 계정 프로비전 작업의 상태를 확인하는 방법과 개별 사용자의 프로비전 문제를 해결하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -14,25 +14,25 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: af5d7174a2726a6ff8a62477149606ec5d43e94e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: def3c6aea7b915e8665367d4da27c1314374000c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355929"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463069"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>자습서: 자동 사용자 계정 프로비전에 대한 보고
 
 
-Azure Active Directory에는 종단 간 ID 수명 주기 관리를 위해 SaaS 앱 및 기타 시스템에서 사용자 계정을 자동으로 프로비전하거나 프로비전 해제하는 데 유용한 [사용자 계정 프로비전 서비스](user-provisioning.md)가 포함되어 있습니다. Azure AD는 [Azure AD 응용 프로그램 갤러리](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)의 "추천 앱" 섹션에 있는 모든 응용 프로그램 및 시스템에 대해 사전 통합된 사용자 프로비전 커넥터를 지원합니다.
+Azure Active Directory에는 종단 간 ID 수명 주기 관리를 위해 SaaS 앱 및 기타 시스템에서 사용자 계정을 자동으로 프로비전하거나 프로비전 해제하는 데 유용한 [사용자 계정 프로비전 서비스](user-provisioning.md)가 포함되어 있습니다. Azure AD는 [Azure AD 애플리케이션 갤러리](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)의 "추천 앱" 섹션에 있는 모든 애플리케이션 및 시스템에 대해 사전 통합된 사용자 프로비전 커넥터를 지원합니다.
 
 이 문서에서는 프로비전 작업을 설정한 후 해당 상태를 확인하는 방법과 개별 사용자 및 그룹의 프로비전 문제를 해결하는 방법에 대해 설명합니다.
 
 ## <a name="overview"></a>개요
 
-프로비전 커넥터는 지원되는 응용 프로그램에 [제공된 설명서](../saas-apps/tutorial-list.md)에 따라 [Azure Portal](https://portal.azure.com)을 사용하여 설정하고 구성합니다. 일단 구성되고 실행된 후에는 다음 두 가지 방법 중 하나를 사용하여 프로비전 작업을 보고할 수 있습니다.
+프로비전 커넥터는 지원되는 애플리케이션에 [제공된 설명서](../saas-apps/tutorial-list.md)에 따라 [Azure Portal](https://portal.azure.com)을 사용하여 설정하고 구성합니다. 일단 구성되고 실행된 후에는 다음 두 가지 방법 중 하나를 사용하여 프로비전 작업을 보고할 수 있습니다.
 
-* **Azure 관리 포털** - 이 문서에서는 주로 지정된 응용 프로그램에 대한 프로비전 요약 보고서와 자세한 프로비전 감사 로그를 제공하는 [Azure Portal](https://portal.azure.com)에서 보고서 정보를 검색하는 방법에 대해 설명합니다.
+* **Azure 관리 포털** - 이 문서에서는 주로 지정된 애플리케이션에 대한 프로비전 요약 보고서와 자세한 프로비전 감사 로그를 제공하는 [Azure Portal](https://portal.azure.com)에서 보고서 정보를 검색하는 방법에 대해 설명합니다.
 
 * **감사 API** - Azure Active Directory는 자세한 프로비전 감사 로그를 프로그래밍 방식으로 검색할 수 있게 해주는 감사 API도 제공합니다. 이 API의 사용과 관련하여 [Azure Active Directory 감사 API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 문서를 참조하세요. 이 문서에서는 API를 사용하는 방법을 구체적으로 다루지 않지만, 감사 로그에 기록되는 프로비전 이벤트 유형에 대해서는 자세히 설명합니다.
 
@@ -40,23 +40,23 @@ Azure Active Directory에는 종단 간 ID 수명 주기 관리를 위해 SaaS �
 
 이 문서에서 사용하는 용어는 다음과 같이 정의됩니다.
 
-* **원본 시스템** - Azure AD 프로비전 서비스에서 동기화하기 위해 원본이 되는 사용자의 리포지토리입니다. Azure Active Directory는 대부분의 사전 통합된 프로비전 커넥터를 위한 원본 시스템이지만, Workday 인바운드 동기화와 같이 일부 예외가 있습니다.
+* **원본 시스템** - Azure AD 프로비전 서비스에서 동기화하기 위해 원본이 되는 사용자의 리포지토리입니다. Azure Active Directory는 대부분의 사전 통합된 프로비전 커넥터를 위한 원본 시스템이지만, 몇 가지 예외(예: Workday 인바운드 동기화)가 있습니다.
 
-* **대상 시스템** - Azure AD 프로비전 서비스에서 동기화하기 위해 대상이 되는 사용자의 리포지토리입니다. 이 시스템은 일반적으로 SaaS 응용 프로그램(예: Salesforce, ServiceNow, Google Apps, Dropbox for Business)이지만, Active Directory와 같은 온-프레미스 시스템일 수도 있습니다(예: Active Directory에 대한 Workday 인바운드 동기화).
+* **대상 시스템** - Azure AD 프로비전 서비스에서 동기화하기 위해 대상이 되는 사용자의 리포지토리입니다. 이 시스템은 일반적으로 SaaS 애플리케이션(예: Salesforce, ServiceNow, Google Apps, Dropbox for Business)이지만, 경우에 따라 Active Directory와 같은 온-프레미스 시스템(예: Active Directory에 대한 Workday 인바운드 동기화)일 수도 있습니다.
 
 
 ## <a name="getting-provisioning-reports-from-the-azure-management-portal"></a>Azure 관리 포털에서 프로비전 보고서 가져오기
 
-지정된 응용 프로그램에 대한 프로비전 보고서 정보를 가져오려면 [Azure 관리 포털](https://portal.azure.com)을 시작하고 프로비전이 구성된 엔터프라이즈 응용 프로그램을 검색합니다. 예를 들어 사용자를 LinkedIn Elevate로 프로비전하는 경우 응용 프로그램 세부 정보의 탐색 경로는 다음과 같습니다.
+지정된 애플리케이션에 대한 프로비전 보고서 정보를 가져오려면 [Azure 관리 포털](https://portal.azure.com)을 시작하고 프로비전이 구성된 엔터프라이즈 애플리케이션을 검색합니다. 예를 들어 사용자를 LinkedIn Elevate로 프로비전하는 경우 애플리케이션 세부 정보의 탐색 경로는 다음과 같습니다.
 
-**Azure Active Directory > 엔터프라이즈 응용 프로그램 > 모든 응용 프로그램 > LinkedIn Elevate**
+**Azure Active Directory &gt; 엔터프라이즈 애플리케이션 &gt; 모든 애플리케이션 &gt; LinkedIn Elevate**
 
 여기서는 아래에서 설명하는 프로비전 요약 보고서와 프로비전 감사 로그에 모두 액세스할 수 있습니다.
 
 
 ## <a name="provisioning-summary-report"></a>요약 보고서 프로비전
 
-프로비전 요약 보고서는 지정된 응용 프로그램에 대한 **프로비전** 탭에 표시됩니다. **설정** 아래의 **동기화 세부 정보** 섹션에 있으며, 제공되는 정보는 다음과 같습니다.
+프로비전 요약 보고서는 지정된 애플리케이션에 대한 **프로비전** 탭에 표시됩니다. **설정** 아래의 **동기화 세부 정보** 섹션에 있으며, 제공되는 정보는 다음과 같습니다.
 
 * 동기화되어 현재의 원본 시스템과 대상 시스템 간 프로비전에 해당하는 범위에 포함된 총 사용자 및/또는 그룹 수
 
@@ -68,7 +68,7 @@ Azure Active Directory에는 종단 간 ID 수명 주기 관리를 위해 SaaS �
 
 프로비전 요약 보고서는 프로비전 작업의 작동 상태를 확인하기 위해 관리자가 먼저 확인해야 합니다.
 
- ![요약 보고서](./media/check-status-user-account-provisioning/summary_report.PNG)
+ ![요약 보고서](./media/check-status-user-account-provisioning/summary_report.PNG)
 
 ## <a name="provisioning-audit-logs"></a>감사 로그 프로비전
 프로비전 서비스에서 수행되는 모든 활동은 Azure AD 감사 로그에 기록되며, **계정 프로비전** 범주 아래의 **감사 로그** 탭에서 볼 수 있습니다. 기록되는 활동 이벤트 유형은 다음과 같습니다.
@@ -83,13 +83,13 @@ Azure Active Directory에는 종단 간 ID 수명 주기 관리를 위해 SaaS �
 
 개별 사용자에 대한 프로비전 이벤트를 볼 때 일반적으로 다음과 같은 순서로 이벤트가 발생합니다.
 
-1. 가져오기 이벤트: 원본 시스템의 사용자를 검색합니다.
+1. 가져오기 이벤트: 원본 시스템에서 사용자를 검색합니다.
 
 2. 가져오기 이벤트: 검색된 사용자의 존재 여부를 확인하기 위해 대상 시스템을 쿼리합니다.
 
-3. 동기화 규칙 이벤트: 원본 및 대상 시스템의 사용자 데이터를 구성된 특성 매핑 규칙 및 범위 지정 필터로 평가하여 수행해야 할 작업(있는 경우)을 결정합니다.
+3. 동기화 규칙 이벤트: 구성된 특성 매핑 규칙 및 범위 지정 필터를 통해 원본 및 대상 시스템의 사용자 데이터를 평가하여 수행해야 할 작업(있는 경우)을 결정합니다.
 
-4. 내보내기 이벤트: 동기화 규칙 이벤트에서 수행해야 할 작업(예: 추가, 업데이트, 삭제)을 지시하면 해당 작업 결과를 내보내기 이벤트에 기록합니다.
+4. 내보내기 이벤트: 동기화 규칙 이벤트에서 수행해야 할 작업(추가, 업데이트, 삭제)을 지시하면 해당 작업 결과를 내보내기 이벤트에 기록합니다.
 
 ![Azure AD 테스트 사용자 만들기](./media/check-status-user-account-provisioning/audit_logs.PNG)
 
@@ -131,10 +131,10 @@ Azure Portal에서 최상의 가독성을 얻으려면 **열** 단추를 선택�
 
 프로비전 요약 보고서 및 감사 로그는 관리자가 다양한 사용자 계정 프로비전 문제를 해결하는 데 중요한 역할을 합니다.
 
-자동 사용자 프로비전 문제를 해결하는 방법에 대한 시나리오 기반 지침은 [응용 프로그램에 사용자를 구성 및 프로비전하는 문제](application-provisioning-config-problem.md)를 참조하세요.
+자동 사용자 프로비전 문제를 해결하는 방법에 대한 시나리오 기반 지침은 [애플리케이션에 사용자를 구성 및 프로비전하는 문제](application-provisioning-config-problem.md)를 참조하세요.
 
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](what-is-single-sign-on.md)

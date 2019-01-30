@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 3b9e6a59b44db9295d86e3bc8a8dda9ec9761f38
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e6148a35540b08916a4f0468af39e0f088453286
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009211"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958869"
 ---
 # <a name="create-a-new-device-template-version"></a>새 디바이스 템플릿 버전 만들기
 
@@ -50,7 +50,7 @@ Azure IoT Central을 사용하여 IoT 애플리케이션을 신속하게 개발�
 
 **규칙**은 속성에 종속된 조건을 포함할 수 있습니다. 이러한 속성 중 하나 이상을 제거하면 새 디바이스 템플릿 버전에서 규칙이 손상될 수 있습니다. 이러한 특정 규칙으로 이동한 후 조건을 업데이트하여 규칙을 수정할 수 있습니다. 이전 버전에 대한 규칙은 영향을 받지 않고 작동합니다.
 
-**장치 대시보드**는 여러 가지 타일 형식을 포함할 수 있습니다. 타일 중 일부는 설정 및 속성을 포함할 수 있습니다. 타일에 사용되는 속성 또는 설정을 제거하면 타일이 완전히 또는 부분적으로 손상됩니다. 타일로 이동한 후 타일을 제거하거나 타일의 콘텐츠를 업데이트하여 문제를 해결할 수 있습니다.
+**디바이스 대시보드**는 여러 가지 타일 형식을 포함할 수 있습니다. 타일 중 일부는 설정 및 속성을 포함할 수 있습니다. 타일에 사용되는 속성 또는 설정을 제거하면 타일이 완전히 또는 부분적으로 손상됩니다. 타일로 이동한 후 타일을 제거하거나 타일의 콘텐츠를 업데이트하여 문제를 해결할 수 있습니다.
 
 ## <a name="migrate-a-device-across-device-template-versions"></a>디바이스 템플릿 버전 간에 디바이스 마이그레이션
 
@@ -58,10 +58,10 @@ Azure IoT Central을 사용하여 IoT 애플리케이션을 신속하게 개발�
 
 1. **Explorer** 페이지로 이동합니다.
 1. 다른 버전으로 마이그레이션할 디바이스를 선택합니다.
-1. **장치 마이그레이션**을 선택합니다.
+1. **디바이스 마이그레이션**을 선택합니다.
 1. 디바이스를 마이그레이션할 버전 번호를 선택하고 **마이그레이션**을 선택합니다.
 
-![디바이스를 마이그레이션하는 방법](media\howto-version-devicetemplate\pick-version.png)
+![디바이스를 마이그레이션하는 방법](media/howto-version-devicetemplate/pick-version.png)
 
 ## <a name="next-steps"></a>다음 단계
 

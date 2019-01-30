@@ -4,7 +4,7 @@ description: AD FS 및 동기화를 위한 에이전트 설치에 관해 설명�
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 1cc8ae90-607d-4925-9c30-6770a4bd1b4e
 ms.service: active-directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: cb3ecff394aa8f2f80c61499e848d7d63806b37d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: bf86a1d50b8c63b90a05d0b05bc6a1a037d300d5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279775"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468737"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Agent 설치
 이 문서는 Azure AD Connect Health Agent를 설치하고 구성하는 단계를 안내합니다. [여기](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent)에서 에이전트를 다운로드할 수 있습니다.
@@ -29,26 +29,26 @@ ms.locfileid: "51279775"
 
 | 요구 사항 | 설명 |
 | --- | --- |
-| Azure AD Premium |Azure AD Connect Health는 Azure AD Premium 기능이기 때문에 Azure AD Premium이 필요합니다. </br></br>자세한 내용은 [Azure AD Premium 시작](../fundamentals/active-directory-get-started-premium.md)을 참조하세요. </br>30일 무료 평가판을 시작하려면 [평가판 시작](https://azure.microsoft.com/trial/get-started-active-directory/)을 참조하세요. |
-| 사용자는 Azure AD Connect Health를 시작할 수 있는 Azure AD의 전역 관리자여야 합니다. |기본적으로 전역 관리자만 Health Agent를 설치할 수 있고, 이것을 시작하고 포털에 액세스하고 Azure AD Connect Health 내에서 작업을 수행하도록 구성할 수 있습니다. 자세한 내용은 [Azure AD 디렉터리 관리](../fundamentals/active-directory-administer.md)를 참조하세요. <br><br> 역할 기반 Access Control를 사용하여 조직의 다른 사용자에게 Azure AD Connect Health에 대한 액세스를 허용할 수 있습니다. 자세한 내용은 [Azure AD Connect Health용 역할 기반 Access Control](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)을 참조하세요. </br></br>**중요:** 에이전트를 설치할 때 사용하는 계정은 직장 또는 학교 계정이어야 합니다. Microsoft 계정은 사용할 수 없습니다. 자세한 내용은 [조직으로 Azure 등록](../fundamentals/sign-up-organization.md)을 참조하세요. |
-| Azure AD Connect Health Agent는 각 대상 서버에 설치됩니다. | Azure AD Connect Health가 데이터를 수신하고 모니터링 및 분석 기능을 제공하려면 Health Agents가 대상 서버에 설치되고 구성되어야 합니다. </br></br>예를 들어, AD FS 인프라에서 데이터를 가져오려면 AD FS 및 웹 응용 프로그램 프록시 서버에 에이전트가 설치되어야 합니다. 마찬가지로 온-프레미스 AD DS 인프라에 대한 데이터를 가져오려면 에이전트는 도메인 컨트롤러에 설치되어야 합니다. </br></br> |
-| Azure 서비스 엔드포인트에 대한 아웃바운드 연결 | 에이전트는 설치 및 런타임 중에 Azure AD Connect Health 서비스 엔드포인트에 연결되어야 합니다. 방화벽을 사용하여 아웃바운드 연결을 차단하는 경우 다음 엔드포인트가 허용 목록에 추가되어 있는지 확인합니다. [아웃바운드 연결 엔드포인트](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints)를 참조하세요. | 
+| Azure AD Premium |Azure AD Connect Health는 Azure AD Premium 기능이기 때문에 Azure AD Premium이 필요합니다. <br /><br />자세한 내용은 [Azure AD Premium 시작](../fundamentals/active-directory-get-started-premium.md)을 참조하세요. <br />30일 무료 평가판을 시작하려면 [평가판 시작](https://azure.microsoft.com/trial/get-started-active-directory/)을 참조하세요. |
+| 사용자는 Azure AD Connect Health를 시작할 수 있는 Azure AD의 전역 관리자여야 합니다. |기본적으로 전역 관리자만 Health Agent를 설치할 수 있고, 이것을 시작하고 포털에 액세스하고 Azure AD Connect Health 내에서 작업을 수행하도록 구성할 수 있습니다. 자세한 내용은 [Azure AD 디렉터리 관리](../fundamentals/active-directory-administer.md)를 참조하세요. <br /><br /> 역할 기반 Access Control를 사용하여 조직의 다른 사용자에게 Azure AD Connect Health에 대한 액세스를 허용할 수 있습니다. 자세한 내용은 [Azure AD Connect Health용 역할 기반 Access Control](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)을 참조하세요. <br /><br />**중요:** 에이전트를 설치할 때 사용하는 계정은 직장 또는 학교 계정이어야 합니다. Microsoft 계정은 사용할 수 없습니다. 자세한 내용은 [조직으로 Azure 등록](../fundamentals/sign-up-organization.md)을 참조하세요. |
+| Azure AD Connect Health Agent는 각 대상 서버에 설치됩니다. | Azure AD Connect Health가 데이터를 수신하고 모니터링 및 분석 기능을 제공하려면 Health Agents가 대상 서버에 설치되고 구성되어야 합니다. <br /><br />예를 들어, AD FS 인프라에서 데이터를 가져오려면 AD FS 및 웹 애플리케이션 프록시 서버에 에이전트가 설치되어야 합니다. 마찬가지로 온-프레미스 AD DS 인프라에 대한 데이터를 가져오려면 에이전트는 도메인 컨트롤러에 설치되어야 합니다. <br /><br /> |
+| Azure 서비스 엔드포인트에 대한 아웃바운드 연결 | 에이전트는 설치 및 런타임 중에 Azure AD Connect Health 서비스 엔드포인트에 연결되어야 합니다. 방화벽을 사용하여 아웃바운드 연결을 차단하는 경우 다음 엔드포인트가 허용 목록에 추가되어 있는지 확인합니다. [아웃바운드 연결 엔드포인트](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints)를 참조하세요. |
 |IP 주소를 기반으로 하는 아웃바운드 연결 | 방화벽의 IP 주소 기반 필터링은 [Azure IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 참조하세요.|
 | 아웃바운드 트래픽에 대한 SSL 조사가 필터링 또는 해제됨 | 네트워크 계층에 아웃바운드 트래픽에 대한 종료 또는 SSL 조사가 있으면 에이전트 등록 단계 또는 데이터 업로드 작업이 실패할 수 있습니다. [SSL 검사를 설정하는 방법](https://technet.microsoft.com/library/ee796230.aspx)에 대해 자세히 알아보기 |
-| 에이전트를 실행하는 서버의 방화벽 포트 |에이전트가 Azure AD Health 서비스 엔드포인트와 통신하기 위해 다음 방화벽 포트를 열어놓아야 합니다.</br></br><li>TCP 포트 443</li><li>TCP 포트 5671</li> </br>[방화벽 포트 사용](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx)에 대해 자세히 알아보기 |
-| IE 보안 강화를 사용하는 경우 다음 웹 사이트 허용 |에이전트가 설치될 서버에서 IE 보안 강화를 사용하도록 설정되어 있는 경우 다음 웹 사이트를 허용해야 합니다.</br></br><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>Azure Active Directory에 의해 신뢰할 수 있는 조직의 페더레이션 서버입니다. 예: https:\//sts.contoso.com</li> [IE를 구성하는 방법](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing)에 대해 자세히 알아보기 |
-| PowerShell v4.0 이상이 설치되어 있는지 확인합니다. | <li>Windows Server 2008 R2는 에이전트에 충분하지 않은 PowerShell v2.0과 함께 제공됩니다.  [Windows Server 2008 R2 서버에 에이전트 설치](#agent-installation-on-windows-server-2008-r2-servers)에 설명된 대로 PowerShell을 업데이트합니다.</li><li>Windows Server 2012는 에이전트에 충분하지 않은 PowerShell v3.0과 함께 제공됩니다.  Windows Management Framework를 [업데이트](https://www.microsoft.com/download/details.aspx?id=40855)합니다.</li><li>Windows Server 2012 R2 이상은 PowerShell 최신 버전과 함께 제공됩니다.</li>|
+| 에이전트를 실행하는 서버의 방화벽 포트 |에이전트가 Azure AD Health 서비스 엔드포인트와 통신하기 위해 다음 방화벽 포트를 열어놓아야 합니다.<br /><br /><li>TCP 포트 443</li><li>TCP 포트 5671</li> <br />[방화벽 포트 사용](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx)에 대해 자세히 알아보기 |
+| IE 보안 강화를 사용하는 경우 다음 웹 사이트 허용 |에이전트가 설치될 서버에서 IE 보안 강화를 사용하도록 설정되어 있는 경우 다음 웹 사이트를 허용해야 합니다.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>Azure Active Directory에 의해 신뢰할 수 있는 조직의 페더레이션 서버입니다. 예: https:\//sts.contoso.com</li> [IE를 구성하는 방법](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing)에 대해 자세히 알아보기 |
+| PowerShell v4.0 이상이 설치되어 있는지 확인합니다. | <li>Windows Server 2008 R2는 에이전트에 충분하지 않은 PowerShell v2.0과 함께 제공됩니다. [Windows Server 2008 R2 서버에 에이전트 설치](#agent-installation-on-windows-server-2008-r2-servers)에 설명된 대로 PowerShell을 업데이트합니다.</li><li>Windows Server 2012는 에이전트에 충분하지 않은 PowerShell v3.0과 함께 제공됩니다.  Windows Management Framework를 [업데이트](https://www.microsoft.com/download/details.aspx?id=40855)합니다.</li><li>Windows Server 2012 R2 이상은 PowerShell 최신 버전과 함께 제공됩니다.</li>|
 |FIPS 사용 안 함|FIPS는 Azure AD Connect Health 에이전트에서 지원되지 않습니다.|
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Azure 서비스 엔드포인트에 대한 아웃바운드 연결
- 에이전트는 설치 및 런타임 중에 Azure AD Connect Health 서비스 엔드포인트에 연결되어야 합니다. 방화벽을 사용하여 아웃바운드 연결을 차단하는 경우 다음 엔드포인트가 허용 목록에 추가되어 있는지 확인합니다. [아웃바운드 연결 확인](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)에 대해 자세히 알아보기  
- 
+ 에이전트는 설치 및 런타임 중에 Azure AD Connect Health 서비스 엔드포인트에 연결되어야 합니다. 방화벽을 사용하여 아웃바운드 연결을 차단하는 경우 다음 엔드포인트가 허용 목록에 추가되어 있는지 확인합니다. [아웃바운드 연결 확인](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)에 대해 자세히 알아보기
+
 | 도메인 환경 | 필수 Azure 서비스 엔드포인트 |
 | --- | --- |
-| 일반 공개 | <li>&#42;.blob.core.windows.net </li><li>&#42;.aadconnecthealth.azure.com </li><li>&#42;.queue.core.windows.net </li><li>&#42;.servicebus.windows.net - Port: 5671 </li><li>&#42;.table.core.windows.net </li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *이 엔드포인트는 등록하는 동안 검색 용도로만 사용합니다.</li> | 
-| Azure Germany | <li>&#42;.blob.core.cloudapi.de </li><li>&#42;.queue.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li><li>&#42;.table.core.cloudapi.de </li><li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https:\//management.microsoftazure.de </li><li>https:\//policykeyservice.aadcdi.microsoftazure.de </li><li>https:\//login.microsoftonline.de </li><li>https:\//secure.aadcdn.microsoftonline-p.de </li><li>https:\//www.office.de *이 엔드포인트는 등록하는 동안 검색 용도로만 사용합니다.</li> |
-| Azure Government | <li>&#42;.blob.core.usgovcloudapi.net </li><li>&#42;.queue.core.usgovcloudapi.net </li> <li>&#42;.servicebus.usgovcloudapi.net </li> <li>&#42;.table.core.usgovcloudapi.net </li><li>&#42;.aadconnecthealth.microsoftazure.us </li> <li>https:\//management.usgovcloudapi.net </li><li>https:\//policykeyservice.aadcdi.azure.us </li><li>https:\//login.microsoftonline.us </li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *이 엔드포인트는 등록하는 동안 검색 용도로만 사용합니다.</li> |  
- 
+| 일반 공개 | <li>&#42;.blob.core.windows.net </li><li>&#42;.aadconnecthealth.azure.com </li><li>&#42;.servicebus.windows.net - 포트: 5671 </li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *이 엔드포인트는 등록하는 동안 검색 용도로만 사용합니다.</li> |
+| Azure Germany | <li>&#42;.blob.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li> <li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https:\//management.microsoftazure.de </li><li>https:\//policykeyservice.aadcdi.microsoftazure.de </li><li>https:\//login.microsoftonline.de </li><li>https:\//secure.aadcdn.microsoftonline-p.de </li><li>https:\//www.office.de *이 엔드포인트는 등록하는 동안 검색 용도로만 사용합니다.</li> |
+| Azure Government | <li>&#42;.blob.core.usgovcloudapi.net </li> <li>&#42;.servicebus.usgovcloudapi.net </li> <li>&#42;.aadconnecthealth.microsoftazure.us </li> <li>https:\//management.usgovcloudapi.net </li><li>https:\//policykeyservice.aadcdi.azure.us </li><li>https:\//login.microsoftonline.us </li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *이 엔드포인트는 등록하는 동안 검색 용도로만 사용합니다.</li> |
+
 
 ## <a name="download-and-install-the-azure-ad-connect-health-agent"></a>Azure AD Connect Health Agent 다운로드 및 설치
 * Azure AD Connect Health에 대한 [요구 사항을 충족](how-to-connect-health-agent-install.md#requirements)해야 합니다.
@@ -65,8 +65,8 @@ ms.locfileid: "51279775"
 > [!NOTE]
 > AD FS 서버는 Sync 서버와 다릅니다. Sync 서버에 AD FS 에이전트를 설치하지 마세요.
 >
-  
-설치하기 전에 AD FS 서버 호스트 이름이 고유하고 AD FS 서비스에 없는지 확인합니다.   
+
+설치하기 전에 AD FS 서버 호스트 이름이 고유하고 AD FS 서비스에 없는지 확인합니다.
 에이전트 설치를 시작하려면 다운로드한 .exe 파일을 두 번 클릭합니다. 첫 번째 화면에서 설치를 클릭합니다.
 
 ![Azure AD Connect Health 확인](./media/how-to-connect-health-agent-install/install1.png)
@@ -103,13 +103,13 @@ Windows Server 2008 R2 서버에 대한 단계:
 3. AD Health Agent를 설치하기 전에 각 서버에 Windows PowerShell 4.0을 설치합니다. Windows PowerShell 4.0을 설치하려면
    * 오프라인 설치 관리자를 다운로드하려면 다음 링크를 사용하여 [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=40779)를 설치합니다.
    * Windows 기능에서 PowerShell ISE를 설치합니다.
-   * [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)
+   *  [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)
    * 서버에서 Internet Explorer 버전 10 이상을 설치합니다. (Health Service에서 Azure 관리자 자격 증명을 사용하여 인증하는 데 필요합니다.)
 4. Windows Server 2008 R2에서 Windows PowerShell 4.0을 설치하는 방법에 대한 자세한 내용은 [여기](https://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx)에서 wiki 문서를 참조하세요.
 
 ### <a name="enable-auditing-for-ad-fs"></a>AD FS 감사 사용
 > [!NOTE]
-> 이 섹션은 AD FS 서버에만 해당됩니다. 웹 응용 프로그램 프록시 서버에서는 이 단계를 수행할 필요가 없습니다.
+> 이 섹션은 AD FS 서버에만 해당됩니다. 웹 애플리케이션 프록시 서버에서는 이 단계를 수행할 필요가 없습니다.
 >
 
 사용 현황 분석 기능을 통해 데이터를 수집하고 분석하려면 Azure AD Connect Health Agent에 AD FS 감사 로그의 정보가 필요합니다. 이러한 로그는 기본적으로 사용하도록 설정되어 있지 않습니다. AD FS 서버에서 AD FS 감사를 사용하도록 설정하고 AD FS 감사 로그를 찾으려면 다음 절차를 따르세요.
@@ -120,7 +120,7 @@ Windows Server 2008 R2 서버에 대한 단계:
 3. **로컬 보안 설정** 탭에서 AD FS 2.0 서비스 계정이 나열되어 있는지 확인합니다. 계정이 없는 경우 **사용자 또는 그룹 추가**를 클릭하여 목록에 추가하고 **확인**을 클릭합니다.
 4. 감사를 사용하려면 상승된 권한으로 명령 프롬프트를 열고 <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code> 명령을 실행합니다.
 5. **로컬 보안 정책**을 닫습니다.
-<br>   -- **다음 단계는 기본 AD FS 서버에만 필요합니다.** -- </br>
+<br />   -- **다음 단계는 기본 AD FS 서버에만 필요합니다.** -- <br />
 6. **AD FS 관리** 스냅인을 엽니다. AD FS 관리 스냅인을 열려면 **시작**을 클릭하고 **프로그램**, **관리 도구** 순으로 가리킨 다음 **AD FS 2.0 관리**를 클릭합니다.
 7. **작업** 창에서 **페더레이션 서비스 속성 편집**을 클릭합니다.
 8. **페더레이션 서비스 속성** 대화 상자에서 **이벤트** 탭을 클릭합니다.
@@ -133,7 +133,7 @@ Windows Server 2008 R2 서버에 대한 단계:
 3. **로컬 보안 설정** 탭에서 AD FS 서비스 계정이 나열되어 있는지 확인합니다. 계정이 없는 경우 **사용자 또는 그룹 추가**를 클릭하여 목록에 추가하고 **확인**을 클릭합니다.
 4. 감사를 사용하려면 상승된 권한으로 명령 프롬프트를 열고 다음 명령을 실행합니다. ```auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable```.
 5. **로컬 보안 정책**을 닫습니다.
-<br>   -- **다음 단계는 기본 AD FS 서버에만 필요합니다.** -- </br>
+<br />   -- **다음 단계는 기본 AD FS 서버에만 필요합니다.** -- <br />
 6. **AD FS 관리** 스냅인을 엽니다(서버 관리자에서 도구를 클릭한 다음 AD FS 관리 선택).
 7. **작업** 창에서 **페더레이션 서비스 속성 편집**을 클릭합니다.
 8. **페더레이션 서비스 속성** 대화 상자에서 **이벤트** 탭을 클릭합니다.
@@ -145,7 +145,7 @@ Windows Server 2008 R2 서버에 대한 단계:
 3. **로컬 보안 설정** 탭에서 AD FS 서비스 계정이 나열되어 있는지 확인합니다. 없는 경우 **사용자 또는 그룹 추가**를 클릭하여 AD FS 서비스 계정을 목록에 추가한 다음 **확인**을 클릭합니다.
 4. 감사를 사용하려면 상승된 권한으로 명령 프롬프트를 열고 <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code> 명령을 실행합니다.
 5. **로컬 보안 정책**을 닫습니다.
-<br>   -- **다음 단계는 기본 AD FS 서버에만 필요합니다.** -- </br>
+<br />   -- **다음 단계는 기본 AD FS 서버에만 필요합니다.** -- <br />
 6. **AD FS 관리** 스냅인을 엽니다(서버 관리자에서 도구를 클릭한 다음 AD FS 관리 선택).
 7. **작업** 창에서 **페더레이션 서비스 속성 편집**을 클릭합니다.
 8. **페더레이션 서비스 속성** 대화 상자에서 **이벤트** 탭을 클릭합니다.
@@ -274,8 +274,8 @@ HTTP 프록시와 작동하도록 Azure AD Connect Health Agent를 구성할 수
 HTTP 프록시를 사용하도록 Azure AD Connect Health Agent를 구성하는 옵션은 다음과 같습니다.
 
 > [!NOTE]
-> 프록시 설정이 업데이트되도록 하려면 모든 Azure AD Connect Health Agent 서비스를 다시 시작해야 합니다. 다음 명령 실행:<br>
-> Restart-Service AdHealth*
+> 프록시 설정이 업데이트되도록 하려면 모든 Azure AD Connect Health Agent 서비스를 다시 시작해야 합니다. 다음 명령 실행:<br />
+>  Restart-Service AdHealth*
 >
 >
 
@@ -295,7 +295,7 @@ WinHTTP 프록시 설정을 가져와서 Azure AD Connect Health Agent에서 사
 
     Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
 
-예: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver: 443*
+예제: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver: 443*
 
 * "address"는 DNS 확인 가능 서버 이름 또는 IPv4 주소일 수 있습니다.
 * "port"는 생략할 수 있습니다. 생략하면 443이 기본 포트로 선택됩니다.
@@ -315,7 +315,7 @@ WinHTTP 프록시 설정을 가져와서 Azure AD Connect Health Agent에서 사
 ## <a name="test-connectivity-to-azure-ad-connect-health-service"></a>Azure AD Connect Health 서비스에 대한 테스트 연결
 Azure AD Connect Health 에이전트에서 Azure AD Connect Health 서비스와의 연결이 끊어지게 하는 문제가 발생할 수 있습니다. 여기에는 네트워크 문제, 권한 문제 또는 기타 다양한 이유가 포함됩니다.
 
-에이전트에서 2시간 넘게 Azure AD Connect Health 서비스에 데이터를 보낼 수 없으면 "상태 서비스 데이터가 최신 상태가 아닙니다."라는 경고가 포털에 표시됩니다. 다음 PowerShell 명령을 실행하면 영향을 받는 Azure AD Connect Health Agent가 Azure AD Connect Health 서비스에 데이터를 업로드할 수 있는지 확인할 수 있습니다.
+에이전트에서 2시간 넘게 Azure AD Connect Health 서비스에 데이터를 보낼 수 없으면 “상태 서비스 데이터가 최신 상태가 아닙니다.”라는 경고가 포털에 표시됩니다. 다음 PowerShell 명령을 실행하면 영향을 받는 Azure AD Connect Health Agent가 Azure AD Connect Health 서비스에 데이터를 업로드할 수 있는지 확인할 수 있습니다.
 
     Test-AzureADConnectHealthConnectivity -Role ADFS
 

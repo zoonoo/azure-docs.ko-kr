@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 6796ecd272c7a1ed1d29c89fbe06c87dc2d4601b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5dc39d2f64aa2cd895cbf57d95100d831a6f4432
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242809"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159794"
 ---
 # <a name="api-management-transformation-policies"></a>API Management 변환 정책
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](https://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.
@@ -72,13 +72,13 @@ ms.locfileid: "51242809"
 
 |이름|설명|필수|
 |----------|-----------------|--------------|
-|json-to-xml|루트 요소입니다.|yes|
+|json-to-xml|루트 요소입니다.|예|
 
 ### <a name="attributes"></a>특성
 
 |이름|설명|필수|기본값|
 |----------|-----------------|--------------|-------------|
-|apply|속성은 다음 값 중 하나로 설정해야 합니다.<br /><br /> - always: 항상 전환을 적용합니다.<br />- content-type-json: 응답 Content-Type 헤더에서 JSON의 존재를 나타내는 경우에만 변환합니다.|yes|해당 없음|
+|apply|속성은 다음 값 중 하나로 설정해야 합니다.<br /><br /> - always: 항상 전환을 적용합니다.<br />- content-type-json: 응답 Content-Type 헤더에서 JSON의 존재를 나타내는 경우에만 변환합니다.|예|해당 없음|
 |consider-accept-header|속성은 다음 값 중 하나로 설정해야 합니다.<br /><br /> - true: 요청 Accept 헤더에서 JSON을 요청하는 경우 변환을 적용합니다.<br />- false: 항상 전환을 적용합니다.|아니요|true|
 |parse-date|`false`로 설정하면 변환 중에 날짜 값이 복사됩니다.|아니요|true|
 
@@ -116,14 +116,14 @@ ms.locfileid: "51242809"
 
 |이름|설명|필수|
 |----------|-----------------|--------------|
-|xml-to-json|루트 요소입니다.|yes|
+|xml-to-json|루트 요소입니다.|예|
 
 ### <a name="attributes"></a>특성
 
 |이름|설명|필수|기본값|
 |----------|-----------------|--------------|-------------|
-|kind|속성은 다음 값 중 하나로 설정해야 합니다.<br /><br /> - javascript-friendly: 변환된 JSON에는 JavaScript 개발자에게 익숙한 양식이 있습니다.<br />- direct: 변환된 JSON은 원래 XML 문서의 구조를 반영합니다.|yes|해당 없음|
-|apply|속성은 다음 값 중 하나로 설정해야 합니다.<br /><br /> - always: 항상 변환합니다.<br />- content-type-xml: 응답 Content-Type 헤더에서 XML의 존재를 나타내는 경우에만 변환합니다.|yes|해당 없음|
+|kind|속성은 다음 값 중 하나로 설정해야 합니다.<br /><br /> - javascript-friendly: 변환된 JSON에는 JavaScript 개발자에게 익숙한 양식이 있습니다.<br />- direct: 변환된 JSON은 원래 XML 문서의 구조를 반영합니다.|예|해당 없음|
+|apply|속성은 다음 값 중 하나로 설정해야 합니다.<br /><br /> - always: 항상 변환합니다.<br />- content-type-xml: 응답 Content-Type 헤더에서 XML의 존재를 나타내는 경우에만 변환합니다.|예|해당 없음|
 |consider-accept-header|속성은 다음 값 중 하나로 설정해야 합니다.<br /><br /> - true: 요청 Accept 헤더에서 XML을 요청하는 경우 변환을 적용합니다.<br />- false: 항상 전환을 적용합니다.|아니요|true|
 
 ### <a name="usage"></a>사용 현황
@@ -152,14 +152,14 @@ ms.locfileid: "51242809"
 
 |이름|설명|필수|
 |----------|-----------------|--------------|
-|find-and-replace|루트 요소입니다.|yes|
+|find-and-replace|루트 요소입니다.|예|
 
 ### <a name="attributes"></a>특성
 
 |이름|설명|필수|기본값|
 |----------|-----------------|--------------|-------------|
-|from|검색할 문자열|yes|해당 없음|
-|to|대체 문자열입니다. 검색 문자열을 제거하려면 길이가 0인 대체 문자열을 지정합니다.|yes|해당 없음|
+|from|검색할 문자열|예|해당 없음|
+|to|대체 문자열입니다. 검색 문자열을 제거하려면 길이가 0인 대체 문자열을 지정합니다.|예|해당 없음|
 
 ### <a name="usage"></a>사용 현황
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
@@ -190,7 +190,7 @@ ms.locfileid: "51242809"
 
 |이름|설명|필수|
 |----------|-----------------|--------------|
-|redirect-content-urls|루트 요소입니다.|yes|
+|redirect-content-urls|루트 요소입니다.|예|
 
 ### <a name="usage"></a>사용 현황
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
@@ -254,7 +254,7 @@ ms.locfileid: "51242809"
 
 |이름|설명|필수|
 |----------|-----------------|--------------|
-|set-backend-service|루트 요소입니다.|yes|
+|set-backend-service|루트 요소입니다.|예|
 
 ### <a name="attributes"></a>특성
 
@@ -318,7 +318,7 @@ ms.locfileid: "51242809"
 </set-body>
 ```
 
-#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accesing-it-later-in-the-pipeline-will-result-in-an-exception"></a>JObject로 본문에 액세스하는 예제 원래 요청 본문을 보존하지 않으므로 파이프라인에서 나중에 액세스하면 예외가 발생합니다.
+#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accessing-it-later-in-the-pipeline-will-result-in-an-exception"></a>JObject로 본문에 액세스하는 예제 원래 요청 본문을 보존하지 않으므로 파이프라인에서 나중에 액세스하면 예외가 발생합니다.
 
 ```xml
 <set-body> 
@@ -334,7 +334,7 @@ ms.locfileid: "51242809"
 ```
 
 #### <a name="filter-response-based-on-product"></a>제품 기준 응답 필터링
- 이 예제에서는 `Starter` 제품을 사용할 때 백 엔드 서비스에서 받은 응답의 데이터 요소를 제거하여 콘텐츠 필터링을 수행하는 방법을 보여 줍니다. 이 정책을 구성하고 사용하는 데모는 [클라우드 표지 에피소드 177: Vlad Vinogradsky와 함께 하는 추가 API Management 기능](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)(영문)에서 34분 30초 재생 시점까지 빨리 진행하면서 참조하세요. 31분 50초 재생 시점에서 시작하는 [Dark Sky Forecast API](https://developer.forecast.io/)(영문) 개요를 확인하세요.
+ 이 예제에서는 `Starter` 제품을 사용할 때 백 엔드 서비스에서 받은 응답의 데이터 요소를 제거하여 콘텐츠 필터링을 수행하는 방법을 보여 줍니다. 이 정책을 구성하고 사용하는 데모는 [클라우드 표지 에피소드 177: Vlad Vinogradsky를 사용하는 추가 API Management 기능](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)을 참조하고 34분 30초로 빠르게 돌리세요. 31분 50초 재생 시점에서 시작하는 [Dark Sky Forecast API](https://developer.forecast.io/)(영문) 개요를 확인하세요.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -390,7 +390,7 @@ ms.locfileid: "51242809"
 
 |이름|설명|필수|
 |----------|-----------------|--------------|
-|set-body|루트 요소입니다. 본문 텍스트 또는 본문을 반환하는 식을 포함합니다.|yes|
+|set-body|루트 요소입니다. 본문 텍스트 또는 본문을 반환하는 식을 포함합니다.|예|
 
 ### <a name="properties"></a>properties
 
@@ -469,7 +469,7 @@ OriginalUrl.
 ```
 
 #### <a name="forward-context-information-to-the-backend-service"></a>컨텍스트 정보를 백 엔드 서비스로 전달
- 이 예제에서는 백 엔드 서비스에 컨텍스트 정보를 제공하기 위해 API 수준에서 정책을 적용하는 방법을 보여 줍니다. 이 정책을 구성하고 사용하는 데모는 [클라우드 표지 에피소드 177: Vlad Vinogradsky와 함께 하는 추가 API Management 기능](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)(영문)에서 10분 30초 재생 시점까지 빨리 진행하면서 참조하세요. 12분 10초 재생 시점에는 개발자 포털에서 작업을 호출하는 데모가 있으며, 여기서 작동 중인 정책을 볼 수 있습니다.
+ 이 예제에서는 백 엔드 서비스에 컨텍스트 정보를 제공하기 위해 API 수준에서 정책을 적용하는 방법을 보여 줍니다. 이 정책을 구성하고 사용하는 데모는 [클라우드 표지 에피소드 177: Vlad Vinogradsky를 사용하는 추가 API Management 기능](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)을 참조하고 10분 30초로 빠르게 돌리세요. 12분 10초 재생 시점에는 개발자 포털에서 작업을 호출하는 데모가 있으며, 여기서 작동 중인 정책을 볼 수 있습니다.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward some context information, user id and the region the gateway is hosted in, to the backend service for logging or evaluation -->
@@ -499,15 +499,15 @@ OriginalUrl.
 
 |이름|설명|필수|
 |----------|-----------------|--------------|
-|set-header|루트 요소입니다.|yes|
-|값|설정할 헤더의 값을 지정합니다. 동일한 이름을 가진 여러 헤더에 대해서는 추가 `value` 요소를 추가합니다.|yes|
+|set-header|루트 요소입니다.|예|
+|값|설정할 헤더의 값을 지정합니다. 동일한 이름을 가진 여러 헤더에 대해서는 추가 `value` 요소를 추가합니다.|예|
 
 ### <a name="properties"></a>properties
 
 |이름|설명|필수|기본값|
 |----------|-----------------|--------------|-------------|
 |exists-action|헤더가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> - override: 기존 헤더 값을 바꿉니다.<br />- skip: 기존 헤더 값을 바꾸지 않습니다.<br />- append: 기존 헤더 값에 값을 추가합니다.<br />- delete: 요청에서 헤더를 제거합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 헤더가 설정되며, 나열된 값만 결과에 설정됩니다.|아니요|override|
-|이름|설정할 헤더의 이름을 지정합니다.|yes|해당 없음|
+|이름|설정할 헤더의 이름을 지정합니다.|예|해당 없음|
 
 ### <a name="usage"></a>사용 현황
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
@@ -543,7 +543,7 @@ OriginalUrl.
 ```
 
 #### <a name="forward-context-information-to-the-backend-service"></a>컨텍스트 정보를 백 엔드 서비스로 전달
- 이 예제에서는 백 엔드 서비스에 컨텍스트 정보를 제공하기 위해 API 수준에서 정책을 적용하는 방법을 보여 줍니다. 이 정책을 구성하고 사용하는 데모는 [클라우드 표지 에피소드 177: Vlad Vinogradsky와 함께 하는 추가 API Management 기능](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)(영문)에서 10분 30초 재생 시점까지 빨리 진행하면서 참조하세요. 12분 10초 재생 시점에는 개발자 포털에서 작업을 호출하는 데모가 있으며, 여기서 작동 중인 정책을 볼 수 있습니다.
+ 이 예제에서는 백 엔드 서비스에 컨텍스트 정보를 제공하기 위해 API 수준에서 정책을 적용하는 방법을 보여 줍니다. 이 정책을 구성하고 사용하는 데모는 [클라우드 표지 에피소드 177: Vlad Vinogradsky를 사용하는 추가 API Management 기능](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)을 참조하고 10분 30초로 빠르게 돌리세요. 12분 10초 재생 시점에는 개발자 포털에서 작업을 호출하는 데모가 있으며, 여기서 작동 중인 정책을 볼 수 있습니다.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward a piece of context, product name in this example, to the backend service for logging or evaluation -->
@@ -559,15 +559,15 @@ OriginalUrl.
 
 |이름|설명|필수|
 |----------|-----------------|--------------|
-|set-query-parameter|루트 요소입니다.|yes|
-|값|설정할 쿼리 매개 변수의 값을 지정합니다. 동일한 이름을 가진 여러 쿼리 매개 변수에 대해서는 추가 `value` 요소를 추가합니다.|yes|
+|set-query-parameter|루트 요소입니다.|예|
+|값|설정할 쿼리 매개 변수의 값을 지정합니다. 동일한 이름을 가진 여러 쿼리 매개 변수에 대해서는 추가 `value` 요소를 추가합니다.|예|
 
 ### <a name="properties"></a>properties
 
 |이름|설명|필수|기본값|
 |----------|-----------------|--------------|-------------|
 |exists-action|쿼리 매개 변수가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> - override: 기존 쿼리 매개 변수 값을 바꿉니다.<br />- skip: 기존 쿼리 매개 변수 값을 바꾸지 않습니다.<br />- append: 기존 쿼리 매개 변수 값에 값을 추가합니다.<br />- delete: 요청에서 쿼리 매개 변수를 제거합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 쿼리 매개 변수가 설정되며, 나열된 값만 결과에 설정됩니다.|아니요|override|
-|이름|설정할 쿼리 매개 변수의 이름을 지정합니다.|yes|해당 없음|
+|이름|설정할 쿼리 매개 변수의 이름을 지정합니다.|예|해당 없음|
 
 ### <a name="usage"></a>사용 현황
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.
@@ -638,13 +638,13 @@ OriginalUrl.
 
 |이름|설명|필수|
 |----------|-----------------|--------------|
-|rewrite-uri|루트 요소입니다.|yes|
+|rewrite-uri|루트 요소입니다.|예|
 
 ### <a name="attributes"></a>특성
 
 |특성|설명|필수|기본값|
 |---------------|-----------------|--------------|-------------|
-|template|모든 쿼리 문자열 매개 변수가 포함된 실제 웹 서비스 URL입니다. 식을 사용하는 경우 전체 값이 식이어야 합니다.|yes|해당 없음|
+|template|모든 쿼리 문자열 매개 변수가 포함된 실제 웹 서비스 URL입니다. 식을 사용하는 경우 전체 값이 식이어야 합니다.|예|해당 없음|
 |copy-unmatched-params|원본 URL 템플릿에 없는 들어오는 요청의 쿼리 매개 변수가 re-write 템플릿에 의해 정의된 URL에 추가되는지 여부를 지정합니다.|아니요|true|
 
 ### <a name="usage"></a>사용 현황
@@ -707,9 +707,9 @@ OriginalUrl.
 
 |이름|설명|필수|
 |----------|-----------------|--------------|
-|xsl-transform|루트 요소입니다.|yes|
+|xsl-transform|루트 요소입니다.|예|
 |매개 변수|변환에 사용되는 변수를 정의하는 데 사용됩니다.|아니요|
-|xsl:stylesheet|루트 스타일시트 요소입니다. 표준 [XSLT 사양](http://www.w3.org/TR/xslt)(영문)에 정의된 모든 요소와 특성입니다.|yes|
+|xsl:stylesheet|루트 스타일시트 요소입니다. 표준 [XSLT 사양](https://www.w3.org/TR/xslt)(영문)에 정의된 모든 요소와 특성입니다.|예|
 
 ### <a name="usage"></a>사용 현황
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.

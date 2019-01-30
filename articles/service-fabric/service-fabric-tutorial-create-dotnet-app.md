@@ -1,6 +1,6 @@
 ---
 title: Azure의 Service Fabric에서 .NET 앱 만들기 | Microsoft Docs
-description: 이 자습서에서는 ASP.NET Core 프런트 엔드 및 신뢰할 수 있는 서비스 상태 저장 백 엔드를 사용하여 응용 프로그램을 만들고 클러스터에 배포하는 방법을 알아봅니다.
+description: 이 자습서에서는 ASP.NET Core 프런트 엔드 및 신뢰할 수 있는 서비스 상태 저장 백 엔드를 사용하여 애플리케이션을 만들고 클러스터에 배포하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,55 +12,55 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2018
+ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 1af74cc44391c95fba781cbce14e9118ca36c14b
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 038a70f5cce5b78f6c0e95316e66de42fa529954
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078497"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321741"
 ---
-# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>자습서: ASP.NET Core Web API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 응용 프로그램 만들기 및 배포
+# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>자습서: ASP.NET Core Web API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 애플리케이션 만들기 및 배포
 
-이 자습서는 시리즈의 1부입니다.  ASP.NET Core Web API 프런트 엔드 및 상태 저장 백 엔드 서비스에서 Azure Service Fabric 응용 프로그램을 만들어 데이터를 저장하는 방법을 알아봅니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 ASP.NET Core 웹 프런트 엔드가 있는 투표 응용 프로그램이 생깁니다. 수동으로 투표 응용 프로그램을 만들지 않으려면 완성된 응용 프로그램에서 [소스 코드를 다운로드](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)하고 [투표 샘플 응용 프로그램을 설명](#walkthrough_anchor)하기 위해 바로 건너뛸 수 있습니다.  원하는 경우 이 자습서의 [비디오 연습](https://channel9.msdn.com/Events/Connect/2017/E100)도 시청할 수 있습니다.
+이 자습서는 시리즈의 1부입니다.  ASP.NET Core Web API 프런트 엔드 및 상태 저장 백 엔드 서비스에서 Azure Service Fabric 애플리케이션을 만들어 데이터를 저장하는 방법을 알아봅니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 ASP.NET Core 웹 프런트 엔드가 있는 투표 애플리케이션이 생깁니다. 수동으로 투표 애플리케이션을 만들지 않으려면 완성된 애플리케이션에서 [소스 코드를 다운로드](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)하고 [투표 샘플 애플리케이션을 설명](#walkthrough_anchor)하기 위해 바로 건너뛸 수 있습니다.  원하는 경우 이 자습서의 [비디오 연습](https://channel9.msdn.com/Events/Connect/2017/E100)도 시청할 수 있습니다.
 
-![응용 프로그램 다이어그램](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+![애플리케이션 다이어그램](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 시리즈 1부에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * ASP.NET Core Web API 서비스를 상태 저장 Reliable Service로 만들기
-> * ASP.NET Core Web 응용 프로그램 서비스를 상태 비저장 웹 서비스로 만들기
+> * ASP.NET Core Web 애플리케이션 서비스를 상태 비저장 웹 서비스로 만들기
 > * 역방향 프록시를 사용하여 상태 저장 서비스와 통신
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * .NET Service Fabric 응용 프로그램 빌드
-> * [응용 프로그램을 원격 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * .NET Service Fabric 애플리케이션 빌드
+> * [애플리케이션을 원격 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [ASP.NET Core 프런트 엔드 서비스에 HTTPS 엔드포인트 추가](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * [Azure Pipelines를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-> * [응용 프로그램에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
+> * [애플리케이션에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에:
-* Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드가 포함된 [Visual Studio 2017 버전 15.5 이상을 설치](https://www.visualstudio.com/)합니다.
 * [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>ASP.NET Web API 서비스를 신뢰할 수 있는 서비스로 만들기
 
-먼저 ASP.NET Core를 사용하여 투표 응용 프로그램의 웹 프런트 엔드를 만듭니다. ASP.NET Core는 최신 웹 UI 및 Web API를 만드는 데 사용할 수 있는 가벼운 크로스 플랫폼 웹 개발 프레임워크입니다. ASP.NET Core가 Service Fabric과 통합되는 방식을 완전히 이해하려면 [Service Fabric Reliable Services의 ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) 문서를 읽어보는 것이 좋습니다. 지금은 이 가이드를 따라 작업하여 빠르게 시작할 수 있습니다. ASP.NET Core에 대한 자세한 내용은 [ASP.NET Core 설명서](https://docs.microsoft.com/aspnet/core/)를 참조하세요.
+먼저 ASP.NET Core를 사용하여 투표 애플리케이션의 웹 프런트 엔드를 만듭니다. ASP.NET Core는 최신 웹 UI 및 Web API를 만드는 데 사용할 수 있는 가벼운 크로스 플랫폼 웹 개발 프레임워크입니다. ASP.NET Core가 Service Fabric과 통합되는 방식을 완전히 이해하려면 [Service Fabric Reliable Services의 ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) 문서를 읽어보는 것이 좋습니다. 지금은 이 가이드를 따라 작업하여 빠르게 시작할 수 있습니다. ASP.NET Core에 대한 자세한 내용은 [ASP.NET Core 설명서](https://docs.microsoft.com/aspnet/core/)를 참조하세요.
 
 1. **관리자** 권한으로 Visual Studio를 시작합니다.
 
 2. **파일**->**새로 만들기**->**프로젝트**로 프로젝트를 만듭니다.
 
-3. **새 프로젝트** 대화 상자에서 **클라우드 > Service Fabric 응용 프로그램**을 선택합니다.
+3. **새 프로젝트** 대화 상자에서 **클라우드 &gt; Service Fabric 애플리케이션**을 선택합니다.
 
-4. 응용 프로그램의 이름을 **Voting**으로 지정하고 **확인**을 클릭합니다.
+4. 애플리케이션의 이름을 **Voting**으로 지정하고 **확인**을 클릭합니다.
 
    ![Visual Studio의 새 프로젝트 대화 상자](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog.png)
 
@@ -68,13 +68,13 @@ ms.locfileid: "49078497"
    
    ![새 서비스 대화 상자에서 ASP.NET 웹 서비스 선택](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. 다음 페이지에서는 ASP.NET Core 프로젝트 템플릿 집합을 제공합니다. 이 자습서에서는 **웹 응용 프로그램(모델-뷰-컨트롤러)** 을 선택한 다음, **확인**을 클릭합니다.
+6. 다음 페이지에서는 ASP.NET Core 프로젝트 템플릿 집합을 제공합니다. 이 자습서에서는 **웹 애플리케이션(모델-뷰-컨트롤러)** 을 선택한 다음, **확인**을 클릭합니다.
    
    ![ASP.NET 프로젝트 형식 선택](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
-   Visual Studio는 응용 프로그램 및 서비스 프로젝트를 만들고 솔루션 탐색기에 표시합니다.
+   Visual Studio는 애플리케이션 및 서비스 프로젝트를 만들고 솔루션 탐색기에 표시합니다.
 
-   ![ASP.NET core Web API 서비스를 사용하여 응용 프로그램 만들기를 수행하는 솔루션 탐색기]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
+   ![ASP.NET core Web API 서비스를 사용하여 애플리케이션 만들기를 수행하는 솔루션 탐색기]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
 ### <a name="update-the-sitejs-file"></a>site.js 파일 업데이트
 **wwwroot/js/site.js**를 엽니다.  해당 콘텐츠를 홈 보기에서 사용한 다음 JavaScript로 바꾼 다음, 변경 내용을 저장합니다.
@@ -309,9 +309,9 @@ namespace VotingWeb.Controllers
 
 ### <a name="configure-the-listening-port"></a>수신 대기 포트 구성
 
-VotingWeb 프런트 엔드 서비스를 만들면 Visual Studio에서는 수신할 서비스에 대한 포트를 임의로 선택합니다.  VotingWeb 서비스는 이 응용 프로그램에 대한 프런트 엔드로 작동하고 외부 트래픽을 허용하므로 이 서비스를 고정된 잘 알려진 포트에 바인딩하겠습니다.  [서비스 매니페스트](service-fabric-application-and-service-manifests.md)가 서비스 엔드포인트를 선언합니다.
+VotingWeb 프런트 엔드 서비스를 만들면 Visual Studio에서는 수신할 서비스에 대한 포트를 임의로 선택합니다.  VotingWeb 서비스는 이 애플리케이션에 대한 프런트 엔드로 작동하고 외부 트래픽을 허용하므로 이 서비스를 고정된 잘 알려진 포트에 바인딩하겠습니다.  [서비스 매니페스트](service-fabric-application-and-service-manifests.md)가 서비스 엔드포인트를 선언합니다.
 
-솔루션 탐색기에서 *VotingWeb/PackageRoot/ServiceManifest.xml*을 엽니다.  **리소스** 섹션에서 **Endpoint** 요소를 찾아서 **포트** 값을 **8080**으로 변경합니다. 응용 프로그램을 로컬로 배포하고 실행하려면 응용 프로그램 수신 대기 포트가 열려 있고 컴퓨터에서 사용할 수 있어야 합니다.
+솔루션 탐색기에서 *VotingWeb/PackageRoot/ServiceManifest.xml*을 엽니다.  **리소스** 섹션에서 **Endpoint** 요소를 찾아서 **포트** 값을 **8080**으로 변경합니다. 애플리케이션을 로컬로 배포하고 실행하려면 애플리케이션 수신 대기 포트가 열려 있고 컴퓨터에서 사용할 수 있어야 합니다.
 
 ```xml
 <Resources>
@@ -324,35 +324,33 @@ VotingWeb 프런트 엔드 서비스를 만들면 Visual Studio에서는 수신�
   </Resources>
 ```
 
-응용 프로그램을 디버그할 때 올바른 포트에 웹 브라우저가 열리도록 투표 프로젝트에서 응용 프로그램 URL 속성 값도 업데이트합니다.  솔루션 탐색기에서 **투표** 프로젝트를 선택하고 **응용 프로그램 URL** 속성을 **8080**으로 업데이트합니다.
+애플리케이션을 디버그할 때 올바른 포트에 웹 브라우저가 열리도록 투표 프로젝트에서 애플리케이션 URL 속성 값도 업데이트합니다.  솔루션 탐색기에서 **투표** 프로젝트를 선택하고 **애플리케이션 URL** 속성을 **8080**으로 업데이트합니다.
 
-![응용 프로그램 URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
-
-### <a name="deploy-and-run-the-voting-application-locally"></a>Voting 응용 프로그램을 로컬로 배포하고 실행
-이제 Voting 응용 프로그램을 실행하고 디버깅할 수 있습니다. Visual Studio에서 **F5** 키를 눌러 디버그 모드에서 응용 프로그램을 로컬 Service Fabric 클러스터에 배포합니다. 이전에 **관리자** 권한으로 Visual Studio를 열지 않은 경우 응용 프로그램이 실패합니다.
+### <a name="deploy-and-run-the-voting-application-locally"></a>Voting 애플리케이션을 로컬로 배포하고 실행
+이제 Voting 애플리케이션을 실행하고 디버깅할 수 있습니다. Visual Studio에서 **F5** 키를 눌러 디버그 모드에서 애플리케이션을 로컬 Service Fabric 클러스터에 배포합니다. 이전에 **관리자** 권한으로 Visual Studio를 열지 않은 경우 애플리케이션이 실패합니다.
 
 > [!NOTE]
-> 로컬에서 처음으로 응용 프로그램을 배포하고 실행할 때 Visual Studio는 디버깅을 위한 로컬 Service Fabric 클러스터를 만듭니다.  클러스터 생성에는 다소 시간이 걸릴 수 있습니다. Visual Studio 출력 창에 클러스터 생성 상태가 표시됩니다.
+> 로컬에서 처음으로 애플리케이션을 배포하고 실행할 때 Visual Studio는 디버깅을 위한 로컬 Service Fabric 클러스터를 만듭니다.  클러스터 생성에는 다소 시간이 걸릴 수 있습니다. Visual Studio 출력 창에 클러스터 생성 상태가 표시됩니다.
 
-로컬 Service Fabric 클러스터에 Voting 응용 프로그램을 배포한 후에는 웹앱이 자동으로 브라우저 탭에서 열리고 다음과 비슷하게 보입니다.
+로컬 Service Fabric 클러스터에 Voting 애플리케이션을 배포한 후에는 웹앱이 자동으로 브라우저 탭에서 열리고 다음과 비슷하게 보입니다.
 
 ![ASP.NET Core 프런트 엔드](./media/service-fabric-tutorial-create-dotnet-app/debug-front-end.png)
 
-응용 프로그램 디버깅을 중지하려면 Visual Studio로 돌아가 **Shift+F5** 키를 누릅니다.
+애플리케이션 디버깅을 중지하려면 Visual Studio로 돌아가 **Shift+F5** 키를 누릅니다.
 
-## <a name="add-a-stateful-back-end-service-to-your-application"></a>상태 저장 백 엔드 서비스를 응용 프로그램에 추가
+## <a name="add-a-stateful-back-end-service-to-your-application"></a>상태 저장 백 엔드 서비스를 애플리케이션에 추가
 
-이제 응용 프로그램에서 ASP.NET Web API 서비스가 실행되므로, 계속해서 응용 프로그램에 일부 데이터를 저장하는 상태 저장 신뢰할 수 있는 서비스를 추가하겠습니다.
+이제 애플리케이션에서 ASP.NET Web API 서비스가 실행되므로, 계속해서 애플리케이션에 일부 데이터를 저장하는 상태 저장 신뢰할 수 있는 서비스를 추가하겠습니다.
 
 Service Fabric을 통해 신뢰할 수 있는 컬렉션을 사용하여 일관되고 안정적으로 서비스 내에 데이터를 바로 저장할 수 있습니다. 신뢰할 수 있는 컬렉션은 C# 컬렉션을 사용해본 적이 있는 사람에게 친숙한 신뢰할 수 있는 고가용성 컬렉션 클래스의 집합입니다.
 
 이 자습서에서는 신뢰할 수 있는 컬렉션에 카운터 값을 저장하는 서비스를 만듭니다.
 
-1. 솔루션 탐색기에서 Voting 응용 프로그램 프로젝트 내부의 **서비스**를 마우스 오른쪽 단추로 클릭하고 **추가 -> 새 Service Fabric 서비스...** 를 선택합니다.
+1. 솔루션 탐색기에서 Voting 애플리케이션 프로젝트 내부의 **서비스**를 마우스 오른쪽 단추로 클릭하고 **추가 -&gt; 새 Service Fabric 서비스...** 를 선택합니다.
     
 2. **새 Service Fabric 서비스** 대화 상자에서 **상태 저장 ASP.NET Core**를 선택하고, 서비스 이름을 **VotingData**로 지정한 다음, **확인**을 누릅니다.
 
-    서비스 프로젝트를 만들었으면 응용 프로그램에 두 개의 서비스가 있을 것입니다. 계속해서 응용 프로그램을 빌드하는 동안 같은 방법으로 더 많은 서비스를 추가할 수 있습니다. 각 서비스를 독립적으로 버전 지정 및 업그레이드할 수 있습니다.
+    서비스 프로젝트를 만들었으면 애플리케이션에 두 개의 서비스가 있을 것입니다. 계속해서 애플리케이션을 빌드하는 동안 같은 방법으로 더 많은 서비스를 추가할 수 있습니다. 각 서비스를 독립적으로 버전 지정 및 업그레이드할 수 있습니다.
 
 3. 다음 페이지에서는 ASP.NET Core 프로젝트 템플릿 집합을 제공합니다. 이 자습서에서는 **API**를 선택합니다.
 
@@ -450,16 +448,11 @@ namespace VotingData.Controllers
 
 ## <a name="connect-the-services"></a>서비스 연결
 
-다음 단계에서는 두 서비스를 연결하고 프런트 엔드 웹 응용 프로그램이 백 엔드 서비스에서 투표 정보를 가져와 설정하도록 합니다.
+다음 단계에서는 두 서비스를 연결하고 프런트 엔드 웹 애플리케이션이 백 엔드 서비스에서 투표 정보를 가져와 설정하도록 합니다.
 
-서비스 패브릭은 신뢰할 수 있는 서비스와 유연하게 통신할 수 있는 방법을 제공합니다. 단일 응용 프로그램 내에는 TCP를 통해 액세스할 수 있는 서비스가 있을 수 있습니다. HTTP REST API 및 다른 서비스를 통해 액세스할 수 있는 기타 서비스는 웹 소켓을 통해 액세스할 수 있습니다. 제공되는 옵션 및 관련 장단점에 대한 배경 정보는 [서비스와의 통신](service-fabric-connect-and-communicate-with-services.md)을 참조하세요.
+서비스 패브릭은 신뢰할 수 있는 서비스와 유연하게 통신할 수 있는 방법을 제공합니다. 단일 애플리케이션 내에는 TCP를 통해 액세스할 수 있는 서비스가 있을 수 있습니다. HTTP REST API 및 다른 서비스를 통해 액세스할 수 있는 기타 서비스는 웹 소켓을 통해 액세스할 수 있습니다. 제공되는 옵션 및 관련 장단점에 대한 배경 정보는 [서비스와의 통신](service-fabric-connect-and-communicate-with-services.md)을 참조하세요.
 
-VotingWeb 프런트 엔드 웹 서비스가 VotingData 백 엔드 데이터 서비스와 통신할 수 있도록 이 자습서에서는 [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) 및 [Service Fabric 역방향 프록시](service-fabric-reverseproxy.md)를 사용합니다. 역방향 프록시는 기본적으로 19081 포트를 사용하도록 구성되며 이 자습서에서 정상적으로 작동합니다. 이 포트는 클러스터 설정에 사용되도록 ARM 템플릿에서 설정됩니다. 사용되는 포트를 찾으려면 **Microsoft.ServiceFabric/clusters** 리소스에서 클러스터 템플릿을 확인하거나 클러스터 매니페스트에서 HttpApplicationGatewayEndpoint 요소를 확인합니다.
-
-> [!NOTE]
-> 역방향 프록시는 Windows 8 이상 또는 Windows Server 2012 이상을 실행하는 클러스터에서만 지원됩니다.
-
-<u>Microsoft.ServiceFabric/clusters reverseProxyEndpointPort 리소스</u>
+VotingWeb 프런트 엔드 웹 서비스가 VotingData 백 엔드 데이터 서비스와 통신할 수 있도록 이 자습서에서는 [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) 및 [Service Fabric 역방향 프록시](service-fabric-reverseproxy.md)를 사용합니다. 역방향 프록시는 기본적으로 19081 포트를 사용하도록 구성되며 이 자습서에서 정상적으로 작동합니다. 역방향 프록시 포트는 클러스터를 설정하는 데 사용되는 Azure Resource Manager 템플릿에서 설정됩니다. 어떤 포트가 사용되는지 찾아보려면 **Microsoft.ServiceFabric/clusters** 리소스에서 클러스터 템플릿을 살펴보세요. 
 
 ```json
 "nodeTypes": [
@@ -472,13 +465,10 @@ VotingWeb 프런트 엔드 웹 서비스가 VotingData 백 엔드 데이터 서�
           }
         ],
 ```
-로컬 Service Fabric 클러스터 매니페스트에서 HttpApplicationGatewayEndpoint 요소를 보려면:
-1. 브라우저 창을 열고 http://localhost:19080으로 이동합니다.
-2. **매니페스트**를 클릭합니다.
+로컬 개발 클러스터에서 사용되는 역방향 프록시 포트를 찾아보려면 로컬 Service Fabric 클러스터 매니페스트에서 **HttpApplicationGatewayEndpoint** 요소를 확인하세요.
+1. 브라우저 창을 열고 http://localhost:19080으로 이동하여 Service Fabric Explorer 도구를 엽니다.
+2. **클러스터 -> 매니페스트**를 선택합니다.
 3. HttpApplicationGatewayEndpoint 요소 포트를 기록해 둡니다. 기본적으로 19081이어야 합니다. 19081이 아닌 경우 다음 VotesController.cs 코드의 GetProxyAddress 메서드에서 포트를 변경해야 합니다.
-
-
-
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
@@ -599,34 +589,34 @@ public class VotesController : Controller
 
 <a id="walkthrough" name="walkthrough_anchor"></a>
 
-## <a name="walk-through-the-voting-sample-application"></a>투표 응용 프로그램 예제 연습
+## <a name="walk-through-the-voting-sample-application"></a>투표 애플리케이션 예제 연습
 
-투표 응용 프로그램은 두 가지 서비스로 구성됩니다.
+투표 애플리케이션은 두 가지 서비스로 구성됩니다.
 
 * 웹 프런트 엔드 서비스(VotingWeb) - ASP.NET Core 웹 프런트 엔드 서비스로, 웹 페이지를 제공하며 백 엔드 서비스와 통신하기 위한 Web API를 공개합니다.
 * 백 엔드 서비스(VotingData) - ASP.NET Core 웹 서비스로, 투표 결과를 디스크에 보관된 신뢰할 수 있는 사전에 저장하기 위한 API를 공개합니다.
 
-![응용 프로그램 다이어그램](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+![애플리케이션 다이어그램](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
-응용 프로그램에 투표하는 경우 다음 이벤트가 발생합니다.
+애플리케이션에 투표하는 경우 다음 이벤트가 발생합니다.
 
 1. JavaScript가 투표 요청을 웹 프런트 엔드 서비스의 Web API에 HTTP PUT 요청으로 보냅니다.
 
 2. 웹 프런트 엔드 서비스는 프록시를 사용하여 HTTP PUT 요청을 찾아 백 엔드 서비스에 전달합니다.
 
-3. 백 엔드 서비스는 들어오는 요청을 받고 업데이트된 결과를, 클러스터 내의 여러 노드에 복제되고 디스크에 보관된 신뢰할 수 있는 사전에 저장합니다. 응용 프로그램의 모든 데이터가 클러스터에 저장되므로 데이터베이스가 필요하지 않습니다.
+3. 백 엔드 서비스는 들어오는 요청을 받고 업데이트된 결과를, 클러스터 내의 여러 노드에 복제되고 디스크에 보관된 신뢰할 수 있는 사전에 저장합니다. 애플리케이션의 모든 데이터가 클러스터에 저장되므로 데이터베이스가 필요하지 않습니다.
 
 ## <a name="debug-in-visual-studio"></a>Visual Studio에서 디버그
 
-Visual Studio에서 응용 프로그램을 디버깅할 때 로컬 Service Fabric 개발 클러스터를 사용합니다. 사용자 시나리오에 대해 디버깅 환경을 조정하는 옵션이 있습니다. 이 응용 프로그램에서는 신뢰할 수 있는 사전을 사용하여 데이터를 백 엔드 서비스에 저장합니다. Visual Studio는 디버거를 중지하는 경우 기본값에 대해 응용 프로그램을 제거합니다. 응용 프로그램을 제거하면 백 엔드 서비스의 데이터도 제거됩니다. 디버깅 세션 간에 데이터를 유지하려면 **응용 프로그램 디버그 모드**를 Visual Studio에서 **Voting** 프로젝트의 속성으로 변경할 수 있습니다.
+Visual Studio에서 애플리케이션을 디버깅할 때 로컬 Service Fabric 개발 클러스터를 사용합니다. 사용자 시나리오에 대해 디버깅 환경을 조정하는 옵션이 있습니다. 이 애플리케이션에서는 신뢰할 수 있는 사전을 사용하여 데이터를 백 엔드 서비스에 저장합니다. Visual Studio는 디버거를 중지하는 경우 기본값에 대해 애플리케이션을 제거합니다. 애플리케이션을 제거하면 백 엔드 서비스의 데이터도 제거됩니다. 디버깅 세션 간에 데이터를 유지하려면 **애플리케이션 디버그 모드**를 Visual Studio에서 **Voting** 프로젝트의 속성으로 변경할 수 있습니다.
 
 코드에서 수행되는 작업을 살펴보려면 다음 단계를 완료합니다.
 
-1. **VotingWeb\VotesController.cs** 파일을 열고 Web API의 **Put** 메서드(63줄)에서 중단점을 설정합니다.
+1. **VotingWeb\VotesController.cs** 파일을 열고 Web API의 **Put** 메서드(72줄)에서 중단점을 설정합니다.
 
-2. **VotingData\VoteDataController.cs** 파일을 열고 Web API의 **Put** 메서드(53줄)에서 중단점을 설정합니다.
+2. **VotingData\VoteDataController.cs** 파일을 열고 Web API의 **Put** 메서드(54줄)에서 중단점을 설정합니다.
 
-3. **F5** 키를 눌러 디버그 모드에서 응용 프로그램을 시작합니다.
+3. **F5** 키를 눌러 디버그 모드에서 애플리케이션을 시작합니다.
 
 4. 브라우저로 돌아가서 투표 옵션을 클릭하거나 새 투표 옵션을 추가합니다. 웹 프런트 엔드의 api 컨트롤러에서 첫 번째 중단점에 도달합니다.
     
@@ -657,9 +647,9 @@ Visual Studio에서 응용 프로그램을 디버깅할 때 로컬 Service Fabri
 
 > [!div class="checklist"]
 > * ASP.NET Core Web API 서비스를 상태 저장 Reliable Service로 만들기
-> * ASP.NET Core Web 응용 프로그램 서비스를 상태 비저장 웹 서비스로 만들기
+> * ASP.NET Core Web 애플리케이션 서비스를 상태 비저장 웹 서비스로 만들기
 > * 역방향 프록시를 사용하여 상태 저장 서비스와 통신
 
 다음 자습서를 진행합니다.
 > [!div class="nextstepaction"]
-> [Azure에 응용 프로그램 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> [Azure에 애플리케이션 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)

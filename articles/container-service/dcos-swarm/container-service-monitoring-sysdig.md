@@ -1,5 +1,5 @@
 ---
-title: Sysdig을 사용하여 Azure 컨테이너 서비스 클러스터를 모니터링합니다.
+title: (사용되지 않음) Sysdig을 사용하여 Azure Container Service 클러스터 모니터링
 description: Sysdig을 사용하여 Azure 컨테이너 서비스 클러스터를 모니터링합니다.
 services: container-service
 author: sauryadas
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 0c0f4fd1f3a8242061e198d7b5447656f9008e96
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3b6781a6b87f9f11b341cf3cf2bcf6668b640c2b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162139"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992189"
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-sysdig"></a>Sysdig을 사용하여 Azure 컨테이너 서비스 클러스터를 모니터링합니다.
+# <a name="deprecated-monitor-an-azure-container-service-cluster-with-sysdig"></a>(사용되지 않음) Sysdig을 사용하여 Azure Container Service 클러스터 모니터링
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 이 문서에서는 Azure 컨테이너 서비스 클러스터의 모든 노드에 Sysdig 에이전트를 배포하는 방법을 설명합니다. 이러한 구성을 위해서는 Sysdig 계정이 필요합니다. 
 
@@ -29,7 +31,7 @@ Sysdig은 클러스터 내에서 컨테이너를 모니터링할 수 있는 모�
 ![Sysdig UI](./media/container-service-monitoring-sysdig/sysdig6.png) 
 
 ## <a name="configure-a-sysdig-deployment-with-marathon"></a>Marathon으로 Sysdig 배포 구성
-이러한 단계는 Marathon으로 클러스터에 Sysdig 응용 프로그램을 배포 및 구성하는 방법을 보여줍니다. 
+이러한 단계는 Marathon으로 클러스터에 Sysdig 애플리케이션을 배포 및 구성하는 방법을 보여줍니다. 
 
 [http://localhost:80/](http://localhost:80/)을 통해 DC/OS UI에 액세스 DC/OS UI에 들어가면 왼쪽 아래에 있는 "Universe"로 이동한 다음, "Sysdig"를 검색합니다.
 

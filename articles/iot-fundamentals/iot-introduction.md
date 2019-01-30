@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: ca99f9ac36281ecddf41bcc228440adcad90412b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e1cb588d68153a88d8b55b2696b376c4eb8704f5
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582431"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199283"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Azure IoT(사물 인터넷)란?
 
@@ -34,6 +34,8 @@ IoT 솔루션의 주요 구성 요소는 디바이스, 백 엔드 서비스 및 
 * 방의 감지 센서
 
 프로토타입 생성에 자주 사용되는 두 디바이스는 Microsoft와 Raspberry PI 디바이스의 기본 MX Chip IoT DevKit입니다. MX Chip DevKit에는 온도, 압력, 습도뿐만 아니라 자이로스코프, 가속도계, 자기계 및 Wi-Fi 칩에 기본 제공되는 센서가 있습니다. Raspberry PI는 다양한 종류의 센서를 부착할 수 있는 IoT 디바이스이므로 시나리오에 필요한 것을 정확히 선택할 수 있습니다. 
+
+사용 가능한 IoT 디바이스에 대한 자세한 내용은 업계 최대의 [IoT용 Certified 디바이스 카탈로그](https://catalog.azureiotsolutions.com/alldevices)를 확인하세요.
 
 [IoT 디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하면 디바이스에서 실행되는 애플리케이션을 구축하여 필요한 작업을 수행할 수 있습니다. SDK를 통해 원격 분석 데이터를 IoT Hub로 보내고, IoT Hub에서 메시지 및 업데이트를 받을 수 있습니다.
 
@@ -67,7 +69,7 @@ IoT 솔루션의 주요 구성 요소는 디바이스, 백 엔드 서비스 및 
 
 * 일시적이거나 느리거나 비용이 많이 드는 네트워크 연결이 있을 수 있습니다.
 
-* 독점, 사용자 지정 또는 업계 특정 응용 프로그램 프로토콜을 사용해야 할 수 있습니다.
+* 독점, 사용자 지정 또는 업계 특정 애플리케이션 프로토콜을 사용해야 할 수 있습니다.
 
 ### <a name="back-end-services"></a>백 엔드 서비스 
 
@@ -105,7 +107,7 @@ Azure에는 몇 가지 IoT 관련 서비스가 있으며, 어떤 서비스를 �
 
 1. [**IoT Central**](../iot-central/overview-iot-central.md): IoT 디바이스를 연결, 모니터링 및 관리하는 데 도움이 되는 SaaS 솔루션입니다. 시작하려면 디바이스 유형에 맞는 템플릿을 선택하고, 디바이스 운영자가 사용할 기본 IoT Central 애플리케이션을 만들고 테스트합니다. 또한 IoT Central 애플리케이션을 사용하면 디바이스를 모니터링하고 새 디바이스를 프로비전할 수 있습니다. 이 서비스는 자세히 사용자 지정할 필요가 없는 간단한 솔루션입니다. 
 
-2. [**IoT 솔루션 가속기**](/azure/iot-suite): IoT 솔루션 개발을 가속화하는 데 사용할 수 있는 PaaS 솔루션의 모음입니다. 먼저 제공된 IoT 솔루션으로 시작한 다음, 요구 사항에 맞게 해당 솔루션을 완벽하게 사용자 지정합니다. 백 엔드를 사용자 지정하려면 Java 또는 .NET 기술이 필요하고, 시각화를 사용자 지정하려면 JavaScript 기술이 필요합니다. 
+2. [**IoT 솔루션 가속기**](/azure/iot-suite): IoT 솔루션 개발을 가속화하는 데 사용할 수 있는 PaaS 솔루션 컬렉션입니다. 먼저 제공된 IoT 솔루션으로 시작한 다음, 요구 사항에 맞게 해당 솔루션을 완벽하게 사용자 지정합니다. 백 엔드를 사용자 지정하려면 Java 또는 .NET 기술이 필요하고, 시각화를 사용자 지정하려면 JavaScript 기술이 필요합니다. 
 
 3. [**IoT Hub**](/azure/iot-hub/): 이 서비스를 통해 디바이스에서 IoT Hub에 연결하고, 수십억 개의 IoT 디바이스를 모니터링하고 제어할 수 있습니다. 이 서비스는 IoT 디바이스와 백 엔드 간에 양방향 통신이 필요한 경우에 특히 유용합니다. IoT Central 및 IoT 솔루션 가속기에 대한 기본 서비스입니다. 
 

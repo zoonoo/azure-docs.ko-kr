@@ -4,18 +4,18 @@ title: 인증, 앱 및 디바이스 관리에 대한 사용자 도움말 - Azure
 description: 사용자 도움말은 보안 정보, 2단계 인증, 셀프 서비스 암호 재설정, 디바이스 관리, Microsoft Authenticator 앱 및 My Apps 포털 등의 설정 및 사용에 도움이 필요한 사람들을 위한 것입니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 3ee8834a2ff8b9126fea38b19df115474c36a9e9
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 510ecfc217c5e3b3e1ac6cd285fcaf7001199aa4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41928415"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55149717"
 ---
 # <a name="user-help-for-authentication-apps-and-device-management"></a>인증, 앱 및 디바이스 관리에 대한 사용자 도움말
 
@@ -86,7 +86,10 @@ ms.locfileid: "41928415"
                     <div class="cardText">
                         <h3>Microsoft Authenticator 앱 도움말</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">시작</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-overview">개요</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">앱 다운로드 및 설치</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-add-accounts-overview">계정 추가</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq">앱을 사용하여 로그인</a><br/>
                         <a href="/azure/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery">계정 자격 증명 백업 및 복구</a>
                         </p>
                     </div>
@@ -117,7 +120,7 @@ ms.locfileid: "41928415"
                         <h3>내 디바이스 관리 도움말</h3>
                         <p>
                         <a href="/azure/active-directory/user-help/user-help-join-device-on-network">작업 장치 조인</a><br/>
-                        <a href="/azure/active-directory/user-help/user-help-register-device-on-network">작업할 개인 장치 등록</a>
+                        <a href="/azure/active-directory/user-help/user-help-register-device-on-network">작업할 개인 디바이스 등록</a>
                         </p>
                     </div>
                 </div>

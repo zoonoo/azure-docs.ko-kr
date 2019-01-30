@@ -10,17 +10,15 @@ ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: e66f74edf93688a2793b3f24516f8b14328a8bb9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 2e20623c015f8bc80b61f07e28c49d49df73887b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634951"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189441"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Log Analytics에서 SQL Server Health Check 솔루션을 사용하여 사용자 SQL 환경 최적화
 
@@ -55,7 +53,7 @@ SQL Server 서버에 대해 상태 검사를 수행하려면 에이전트와, �
 
 1. 서버를 아직 System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2에서 모니터링하지 않는 경우 [MMA(Microsoft Monitoring Agent)](../../azure-monitor/platform/agent-windows.md)를 설치합니다.
 2. System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2로 모니터링되며 관리 그룹이 Log Analytics 서비스와 통합되지 않은 경우, 서버는 Log Analytics와 멀티 홈으로 구성되어 데이터를 수집하고 서비스로 전달할 수 있으며 Operations Manager를 통해 모니터링할 수 있습니다.  
-3. 그렇지 않고 Operations Manager 관리 그룹이 서비스와 통합된 경우, 작업 영역에서 솔루션을 활성화한 후 [에이전트 관리 컴퓨터 추가](../../log-analytics/log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics)의 단계에 따라 데이터 수집을 위한 도메인 컨트롤러를 추가해야 합니다.  
+3. 그렇지 않고 Operations Manager 관리 그룹이 서비스와 통합된 경우, 작업 영역에서 솔루션을 활성화한 후 [에이전트 관리 컴퓨터 추가](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics)의 단계에 따라 데이터 수집을 위한 도메인 컨트롤러를 추가해야 합니다.  
 
 Operations Manager 관리 그룹에 보고하는 에이전트는 데이터를 수집하여 할당된 관리 서버로 전달한 다음 관리 서버에서 Log Analytics 서비스로 직접 보냅니다.  이 데이터는 Operations Manager 데이터베이스에 기록되지 않습니다.  
 
@@ -184,7 +182,7 @@ Log Analytics에서 평가 솔루션을 사용하려면 먼저 솔루션이 설�
     ```
 
     >[!NOTE]
-    > 작업 영역을 [새 Log Analytics 쿼리 언어](../../log-analytics/log-analytics-queries.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
+    > 작업 영역을 [새 Log Analytics 쿼리 언어](../../azure-monitor/log-query/log-query-overview.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -209,7 +207,7 @@ Log Analytics에서 평가 솔루션을 사용하려면 먼저 솔루션이 설�
     ```
 
     >[!NOTE]
-    > 작업 영역을 [새 Log Analytics 쿼리 언어](../../log-analytics/log-analytics-queries.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
+    > 작업 영역을 [새 Log Analytics 쿼리 언어](../../azure-monitor/log-query/log-query-overview.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -265,4 +263,4 @@ Log Analytics에서 평가 솔루션을 사용하려면 먼저 솔루션이 설�
 * 예, 위의 [권장 사항 무시](#ignore-recommendations) 섹션을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [로그를 검색하여](../../log-analytics/log-analytics-queries.md) 상세 SQL Health Check 데이터 및 권장 사항의 분석 방법을 알아봅니다.
+* [로그를 검색하여](../../azure-monitor/log-query/log-query-overview.md) 상세 SQL Health Check 데이터 및 권장 사항의 분석 방법을 알아봅니다.

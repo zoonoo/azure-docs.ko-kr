@@ -14,14 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: adsolank
-ms.openlocfilehash: 268e679bb052bce4c972c940333147edc5c7d721
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3b361202d2d80f879ae6d23ec29782bc6f837f96
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242588"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632877"
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Hyperlapse 미디어 파일 및 Azure 미디어 Hyperlapse
+
+> [!NOTE]
+> Azure Media Services의 이 미리 보기 기능은 곧 사용 중지됩니다. 2018년 12월 19일부터 Media Services는 Media Hyperlapse를 더 이상 변경하거나 개선하지 않습니다. 2019년 3월 29일에 사용 중지되며 더 이상 사용할 수 없습니다.
+
 Azure 미디어 Hyperlapse는 1인칭 또는 액션 카메라 콘텐츠에서 부드러운 시간 경과 비디오를 만드는 미디어 프로세서(MP)입니다.  [Microsoft Research의 데스크톱 Hyperlapse Pro 및 전화 기반 Hyperlapse 모바일](https://aka.ms/hyperlapse)에 대한 클라우드 기반 형제 제품인 Azure Media Services용 Microsoft Hyperlapse는 Azure Media Services 미디어 처리 플랫폼의 상당 부분을 활용하여 대량의 Hyperlapse 처리를 수평적으로 확장하고 병렬 처리합니다.
 
 > [!IMPORTANT]

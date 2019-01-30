@@ -4,7 +4,7 @@ items:
 - name: 개요
   items:
   - name: Azure Backup이란?
-    href: backup-introduction-to-azure-backup.md
+    href: backup-overview.md
 - name: 빠른 시작
   items:
   - name: VM 백업 - 포털
@@ -34,6 +34,10 @@ items:
     href: backup-rm-template-samples.md
 - name: 개념
   items:
+  - name: 백업 아키텍처
+    href: backup-architecture.md
+  - name: 백업 지원 매트릭스
+    href: backup-support-matrix.md
   - name: FAQ
     items:
     - name: Recovery Services 자격 증명 모음에 대한 FAQ
@@ -90,7 +94,7 @@ items:
     items:
     - name: Azure Backup Server 설치
       href: backup-mabs-install-azure-stack.md
-    - name: 파일 및 응용 프로그램 보호
+    - name: 파일 및 애플리케이션 보호
       href: backup-mabs-files-applications-azure-stack.md
     - name: SharePoint 팜 보호
       href: backup-mabs-sharepoint-azure-stack.md
@@ -108,7 +112,7 @@ items:
       items:
       - name: 리소스 관리자 배포 VM 준비
         href: backup-azure-arm-vms-prepare.md
-      - name: Linux VM의 응용 프로그램 일치 백업
+      - name: Linux VM의 애플리케이션 일치 백업
         href: backup-azure-linux-app-consistent.md
     - name: 환경 계획
       items:
@@ -122,8 +126,6 @@ items:
         href: backup-azure-vms-encryption.md
       - name: VM을 만드는 동안 VM 백업 사용
         href: backup-during-vm-creation.md
-      - name: VM 백업 스택 V2로 업그레이드
-        href: backup-upgrade-to-vm-backup-stack-v2.md
     - name: VM 관리 및 모니터링
       items:
       - name: Azure Portal에서 Azure VM 백업 관리
@@ -136,6 +138,8 @@ items:
         href: backup-azure-restore-files-from-vm.md
       - name: Azure Portal에서 VM 복원
         href: backup-azure-arm-restore-vms.md
+      - name: 인스턴트 복원 기능
+        href: backup-instant-restore-capability.md
       - name: 암호화된 VM 복원
         href: backup-azure-vms-encryption.md
       - name: 암호화된 VM의 Key Vault 키 및 비밀 복원
@@ -238,6 +242,8 @@ items:
     href: /rest/api/backup/
   - name: REST - Recovery Services 자격 증명 모음
     href: /rest/api/recoveryservices/
+  - name: Resource Manager 템플릿
+    href: /azure/templates/microsoft.recoveryservices/allversions
 - name: 리소스
   items:
   - name: Azure 로드맵
@@ -252,9 +258,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=backup
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-ms.openlocfilehash: f7da3f333fa2757a6c040a7dcda7d18170ca1de5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d104835e4324e1f066d0ad4942a64511d3f2492b
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312241"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883792"

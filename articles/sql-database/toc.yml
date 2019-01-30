@@ -9,6 +9,10 @@ items:
     href: sql-database-paas-vs-sql-server-iaas.md
 - name: 빠른 시작
   items:
+  - name: Single Database 빠른 시작 가이드
+    href: sql-database-quickstart-guide.md
+  - name: Managed Instance 빠른 시작 가이드
+    href: sql-database-managed-instance-quickstart-guide.md
   - name: 생성
     items:
     - name: 단일 데이터베이스
@@ -25,7 +29,7 @@ items:
       href: sql-database-managed-instance-configure-p2s.md
   - name: 데이터 로드
     items:
-    - name: 단일 데이터베이스로 BACPAC 가져오기
+    - name: 새 데이터베이스로 BACPAC 가져오기
       href: sql-database-import.md
     - name: 데이터베이스 백업을 Managed Instance로 복원
       href: sql-database-managed-instance-get-started-restore.md
@@ -101,6 +105,8 @@ items:
       href: sql-database-service-tiers-dtu.md
     - name: 예약된 용량 선불
       href: sql-database-reserved-capacity.md
+    - name: 프리미엄 RS 서버 계층에서 마이그레이션
+      href: sql-database-service-tiers-prs.md
   - name: 컴퓨팅 및 스토리지
     items:
     - name: 개요
@@ -115,9 +121,9 @@ items:
       href: sql-database-service-tier-hyperscale-faq.md
   - name: 단일 데이터베이스
     items:
-    - name: 단일 데이터베이스
+    - name: 단일 데이터베이스 개요
       href: sql-database-single-index.yml
-    - name: 만들기 및 관리
+    - name: 관리 API 참조
       href: sql-database-single-databases-manage.md
     - name: 논리 서버
       items:
@@ -127,8 +133,6 @@ items:
         href: sql-database-resource-limits-logical-server.md
       - name: 연결 아키텍처
         href: sql-database-connectivity-architecture.md
-      - name: T-SQL 차이점
-        href: sql-database-transact-sql-information.md
     - name: 탄력적 풀
       items:
       - name: 탄력적 풀
@@ -147,29 +151,25 @@ items:
       href: sql-database-dtu-resource-limits-single-databases.md
     - name: 리소스 크기 조정
       href: sql-database-single-database-scale.md
+    - name: T-SQL 차이점
+      href: sql-database-transact-sql-information.md
   - name: 관리되는 인스턴스
     items:
-    - name: 관리되는 인스턴스
+    - name: 관리되는 인스턴스 개요
       href: sql-database-managed-instance-index.yml
-    - name: Managed Instance 개요
+    - name: 관리되는 인스턴스 기능
       href: sql-database-managed-instance.md
     - name: 관리 API 참조
       href: sql-database-managed-instance-create-manage.md
     - name: 리소스 한계
       href: sql-database-managed-instance-resource-limits.md
-    - name: VNet 구성
-      items:
-      - name: VNet 구성
-        href: sql-database-managed-instance-vnet-configuration.md
-      - name: 연결 아키텍처
-        href: sql-database-managed-instance-connectivity-architecture.md
-      - name: 관리 엔드포인트
-        href: sql-database-managed-instance-management-endpoint.md
+    - name: 연결 아키텍처
+      href: sql-database-managed-instance-connectivity-architecture.md
     - name: T-SQL 차이점
       href: sql-database-managed-instance-transact-sql-information.md
   - name: 서비스로서의 플랫폼
     items:
-    - name: 서비스로서의 플랫폼
+    - name: 서비스로서의 플랫폼 개요
       href: sql-database-paas.yml
     - name: 비즈니스 연속성
       href: sql-database-business-continuity.md
@@ -201,9 +201,9 @@ items:
         href: sql-database-disaster-recovery-drills.md
   - name: 보안
     items:
-    - name: 보안
-      href: sql-database-security-index.yml
     - name: 보안 개요
+      href: sql-database-security-index.yml
+    - name: 보안 기능
       href: sql-database-security-overview.md
     - name: 고급 위협 보호
       items:
@@ -255,7 +255,7 @@ items:
         href: transparent-data-encryption-byok-azure-sql.md
   - name: 확장성
     items:
-    - name: 확장성
+    - name: 확장성 개요
       href: sql-database-scalability-index.yml
     - name: 강화/축소
       href: sql-database-scale-resources.md
@@ -283,68 +283,78 @@ items:
       href: sql-database-elastic-query-overview.md
     - name: 탄력적 트랜잭션
       href: sql-database-elastic-transactions-overview.md
-    - name: 탄력적 데이터베이스 작업
-      href: elastic-jobs-overview.md
   - name: SQL 기능 비교
     href: sql-database-features.md
-  - name: 모니터링 및 성능 튜닝
+  - name: 모니터링 및 튜닝
     items:
     - name: 모니터링 및 튜닝 개요
+      href: sql-database-monitoring-tuning-index.yml
+    - name: 모니터링 및 성능 튜닝
       href: sql-database-monitor-tune-overview.md
-    - name: 지능형 성능
+    - name: 성능 모니터링
       items:
-      - name: 튜닝 작업 및 권장 사항
-        href: sql-database-performance.md
       - name: 쿼리
         href: sql-database-query-performance.md
-      - name: 데이터베이스 관리자 성능 권장 사항
-        href: sql-database-advisor.md
-    - name: 고급 모니터링
-      items:
       - name: Azure SQL 분석 모니터링
         href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql
       - name: 진단 원격 분석 로깅
         href: sql-database-metrics-diag-logging.md
-    - name: 성능에 대한 Intelligent Insights
-      href: sql-database-intelligent-insights.md
-    - name: 자동 조정
-      href: sql-database-automatic-tuning.md
-    - name: 인텔리전트 쿼리 처리
+    - name: 지능형 성능
       items:
-      - name: 인텔리전트 쿼리 처리
-        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
-      - name: 적응 쿼리 처리
-        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
+      - name: 자동 조정
+        href: sql-database-automatic-tuning.md
+      - name: 성능에 대한 Intelligent Insights
+        href: sql-database-intelligent-insights.md
+      - name: 튜닝 작업 및 권장 사항
+        href: sql-database-performance.md
+      - name: 데이터베이스 관리자 성능 권장 사항
+        href: sql-database-advisor.md
+  - name: 데이터 로드 및 이동
+    items:
+    - name: SQL 데이터 동기화
+      href: sql-database-sync-data.md
+    - name: 트랜잭션 복제
+      href: sql-database-managed-instance-transactional-replication.md
   - name: 데이터베이스 기능
     items:
     - name: 데이터베이스 기능
       href: sql-database-develop-overview.md
-    - name: JSON 데이터
-      href: sql-database-json-features.md
+    - name: 다중 모델 기능
+      href: sql-database-multi-model-features.md
     - name: 메모리 내
       href: sql-database-in-memory.md
     - name: 임시 테이블
       href: sql-database-temporal-tables.md
+    - name: 작업 자동화
+      href: sql-database-job-automation-overview.md
 - name: 방법 가이드
   items:
+  - name: 개요
+    href: sql-database-howto.md
   - name: 단일 데이터베이스
     items:
+    - name: 개요
+      href: sql-database-howto-single-database.md
     - name: SQL Database로 마이그레이션
       href: sql-database-cloud-migrate.md
     - name: 마이그레이션 후 SQL Database 관리
       href: sql-database-manage-after-migration.md
-    - name: 트랜잭션 복제 구성
+    - name: 복제 구성
       href: replication-to-sql-database.md
     - name: 위협 감지 구성
       href: sql-database-threat-detection.md
     - name: Azure Blob Storage를 사용하여 백업 보존 구성
       href: sql-database-long-term-backup-retention-configure.md
+    - name: Elastic Database 작업 구성
+      href: elastic-jobs-overview.md
     - name: 동적 데이터 마스킹 구성
       href: sql-database-dynamic-data-masking-get-started-portal.md
     - name: 지역에서 복제 구성 - 포털
       href: sql-database-geo-replication-portal.md
     - name: 지역 복제를 위한 보안 구성
       href: sql-database-geo-replication-security-config.md
+    - name: 메모리 내 기능 사용해보기
+      href: sql-database-in-memory-sample.md
     - name: 자동 조정 사용
       href: sql-database-automatic-tuning-enable.md
     - name: 자동 조정을 위한 이메일 알림 사용
@@ -405,19 +415,31 @@ items:
         href: elastic-jobs-migrate.md
   - name: Managed Instance
     items:
+    - name: 개요
+      href: sql-database-howto-managed-instance.md
     - name: Managed Instance로 마이그레이션
       href: sql-database-managed-instance-migrate.md
     - name: Managed Instance로 TDE 인증서 마이그레이션
       href: sql-database-managed-instance-migrate-tde-certificate.md
+    - name: Managed Instance 서브넷의 크기 결정
+      href: sql-database-managed-instance-determine-size-vnet-subnet.md
+    - name: Managed Instance용 신규 VNet 및 서브넷 만들기
+      href: sql-database-managed-instance-create-vnet-subnet.md
+    - name: Managed Instance용 기존 VNet 및 서브넷 구성
+      href: sql-database-managed-instance-configure-vnet-subnet.md
     - name: 사용자 지정 DNS 구성
       href: sql-database-managed-instance-custom-dns.md
     - name: 네트워크 구성 동기화
       href: sql-database-managed-instance-sync-network-configuration.md
+    - name: 관리 엔드포인트 IP 주소 찾기
+      href: sql-database-managed-instance-find-management-endpoint-ip-address.md
+    - name: 기본 제공 방화벽 보호 확인
+      href: sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md
     - name: 트랜잭션 복제
       href: replication-with-sql-database-managed-instance.md
     - name: 위협 감지 구성
       href: sql-database-managed-instance-threat-detection.md
-    - name: 응용 프로그램 연결
+    - name: 애플리케이션 연결
       href: sql-database-managed-instance-connect-app.md
   - name: 데이터 로드 및 이동
     items:
@@ -429,8 +451,6 @@ items:
       href: sql-database-export.md
     - name: 데이터 동기화
       items:
-      - name: SQL 데이터 동기화
-        href: sql-database-sync-data.md
       - name: 데이터 동기화 에이전트
         href: sql-database-data-sync-agent.md
       - name: 스키마 변경 내용 복제
@@ -493,6 +513,8 @@ items:
     items:
     - name: 연결
       href: sql-database-libraries.md
+    - name: JSON 데이터 작업
+      href: sql-database-json-features.md
     - name: Spark 커넥터 사용
       href: sql-database-spark-connector.md
     - name: 앱 인증
@@ -529,7 +551,7 @@ items:
         href: saas-tenancy-video-index-wingtip-brk3120-20171011.md
       - name: SaaS 앱 보안
         href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
-      - name: 다중 테넌트 SaaS 응용 프로그램 예제
+      - name: 다중 테넌트 SaaS 애플리케이션 예제
         items:
         - name: Wingtip Tickets 샘플
           href: saas-tenancy-welcome-wingtip-tickets-app.md
@@ -605,6 +627,8 @@ items:
     href: /sql/t-sql/language-reference
   - name: REST (영문)
     href: /rest/api/sql/
+  - name: SQL용 Resource Manager 템플릿
+    href: /azure/templates/microsoft.sql/allversions
   - name: SQL Server 도구
     href: /sql/tools/overview-sql-tools
   - name: SSMS(SQL Server Management Studio)
@@ -668,9 +692,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: 탄력적 작업 제거(사용되지 않음)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: bb051db62acda98e40be09c174216208578afccc
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 7d7e85b3a7934b03395960d5dcbdc1141f0effd8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320968"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101094"

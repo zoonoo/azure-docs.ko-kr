@@ -1,25 +1,19 @@
 ---
-title: Azure ExpressRoute 도입을 위한 필수 구성 요소 | Microsoft Docs
-description: 이 페이지에서는 Azure ExpressRoute 회로를 주문하기 전에 충족해야 하는 요구 사항 목록을 제공합니다.
-documentationcenter: na
+title: '필수 구성 요소 - ExpressRoute: Azure | Microsoft Docs'
+description: 이 페이지에서는 Azure ExpressRoute 회로를 주문하기 전에 충족해야 하는 요구 사항 목록을 제공합니다. 검사 목록을 포함합니다.
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-ms.assetid: f872d25e-acfd-405d-9d1b-dcb9f323a2ff
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mialdrid
-ms.openlocfilehash: 3e597e4f8be0af6e42f8ccc09c058cda619764a7
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec18
+ms.openlocfilehash: c44eb4bbf4945973e075ff88bccde19053b812be
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713438"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133485"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 필수 구성 요소 및 검사 목록
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 다음 섹션에 나열된 다음 요구 사항을 충족하는지 확인해야 합니다.

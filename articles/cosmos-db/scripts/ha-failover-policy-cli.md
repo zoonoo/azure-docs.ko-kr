@@ -1,17 +1,19 @@
 ---
-title: Azure CLI 스크립트-고가용성을 위한 장애 조치 정책 만들기 | Microsoft Docs
+title: Azure CLI 스크립트 - 고가용성을 위한 장애 조치 정책 만들기
 description: Azure CLI 스크립트 샘플 - 고가용성을 위한 장애 조치 정책 만들기
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: abfe386c438e943cbe481168daaa4c58a39ed44f
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.reviewer: sngun
+ms.openlocfilehash: dc7a8030faf649e36136f6b1da366b4745f617b3
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014318"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042872"
 ---
 # <a name="create-a-failover-policy-for-high-availability-using-the-azure-cli"></a>Azure CLI를 사용하여 고가용성을 위한 장애 조치 정책 만들기
 

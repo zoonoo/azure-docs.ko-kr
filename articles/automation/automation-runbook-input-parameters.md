@@ -3,18 +3,18 @@ title: Runbook 입력 매개 변수
 description: Runbook 입력 매개 변수는 Runbook이 시작될 때 Runbook에 데이터를 전달할 수 있도록 하여 Runbook의 유용성을 늘립니다. 이 문서에서는 입력 매개 변수가 사용되는 Runbook의 다양한 시나리오를 설명합니다.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 650effed388dde4419e2ff6aede2f0468551a959
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: d22a2de29e170979d9ab5d61c7f21a47d6aee99c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276689"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433444"
 ---
 # <a name="runbook-input-parameters"></a>Runbook 입력 매개 변수
 
@@ -151,7 +151,7 @@ Runbook은 Azure 포털, webhook, PowerShell cmdlet, REST API 또는 SDK 등 여
 
 #### <a name="start-a-published-runbook-by-using-powershell-cmdlets-and-assign-parameters"></a>PowerShell cmdlet을 사용하여 게시된 Runbook 시작 및 매개 변수 할당
 
-* **Azure Resource Manager cmdlet:**[Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook)을 사용하여 리소스 그룹에 생성된 자동화 Runbook을 시작할 수 있습니다
+* **Azure Resource Manager cmdlet:** [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook)을 사용하여 리소스 그룹에 생성된 자동화 Runbook을 시작할 수 있습니다.
   
   **예제:**
   
@@ -160,7 +160,7 @@ Runbook은 Azure 포털, webhook, PowerShell cmdlet, REST API 또는 SDK 등 여
   
   Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” –ResourceGroupName $resourceGroupName -Parameters $params
   ```
-* **Azure 클래식 배포 모델 cmdlet:** [Start-AzureAutomationRunbook](https://docs.microsoft.com/powershell/module/servicemanagement/azure/start-azureautomationrunbook)을 사용하여 기본 리소스 그룹에 생성된 자동화 Runbook을 시작할 수 있습니다
+* **Azure 클래식 배포 모델 cmdlet:** [Start-AzureAutomationRunbook](https://docs.microsoft.com/powershell/module/servicemanagement/azure/start-azureautomationrunbook)을 사용하여 기본 리소스 그룹에 생성된 자동화 Runbook을 시작할 수 있습니다.
   
   **예제:**
   
@@ -238,11 +238,11 @@ Runbook은 Azure 포털, webhook, PowerShell cmdlet, REST API 또는 SDK 등 여
 * **subscription-id:** Azure 구독 ID입니다.  
 * **cloud-service-name:** 요청을 보낼 클라우드 서비스의 이름입니다.  
 * **automation-account-name:** 지정된 클라우드 서비스 내에 호스트되는 자동화 계정의 이름입니다.  
-* **job-id:** 작업에 대한 GUID입니다. **[GUID]::NewGuid().ToString()** 명령을 사용하여 PowerShell에서 GUID를 만들 수 있습니다.
+* **job-id:** 작업의 GUID입니다. **[GUID]::NewGuid().ToString()** 명령을 사용하여 PowerShell에서 GUID를 만들 수 있습니다.
 
 Runbook 작업에 매개 변수를 전달하기 위해 요청 본문을 사용합니다. JSON 형식으로 제공되는 다음 두 가지 속성을 사용합니다.
 
-* **Runbook 이름:** 필수입니다. 시작할 작업 시작에 대한 Runbook의 이름입니다.  
+* **Runbook 이름:** 필수 사항입니다. 시작할 작업 시작에 대한 Runbook의 이름입니다.  
 * **Runbook 매개 변수:** 선택 사항입니다. 이름이 문자열 형식이어야 하고 값은 유효한 JSON 값일 수 있는 (이름, 값) 형식인 매개 변수 목록의 사전입니다.
 
 이전에 **VMName** 및 **resourceGroupName**을 매개 변수로 만든 **Get-AzureVMTextual** Runbook을 시작하려는 경우 요청 본문에 다음 JSON 형식을 사용합니다.
@@ -285,4 +285,5 @@ Runbook에 대한 [webhook](automation-webhooks.md) 을 만들고 Runbook 입력
 * Runbook을 시작하는 다양한 방법에 대한 자세한 내용은 [Runbook 시작](automation-starting-a-runbook.md)을 참조하세요.
 * 텍스트 Runbook을 편집하려면 [텍스트 Runbook 편집](automation-edit-textual-runbook.md)을 참조하세요.
 * 그래픽 Runbook을 편집하려면 [Azure Automation에서 그래픽 작성](automation-graphical-authoring-intro.md)을 참조하세요.
+
 

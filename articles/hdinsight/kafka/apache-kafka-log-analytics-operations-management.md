@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: bd8bfb8775bc9c988bb7484ac25f189c3ff46991
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 69eaa0028f1115cafbd1ed28b66940d7faaed062
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317282"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608548"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka에 대한 로그 분석
 
@@ -30,7 +30,7 @@ Log Analytics for HDInsight를 사용하도록 설정하는 단계는 모든 HDI
 
 3. Log Analytics를 사용하도록 Kafka 클러스터를 구성합니다. 자세한 내용은 [Log Analytics를 사용하여 HDInsight 모니터링](../hdinsight-hadoop-oms-log-analytics-tutorial.md) 문서를 참조하세요.
 
-    > [!NOTE]
+    > [!NOTE]  
     > `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet을 통해 Log Analytics를 사용하도록 클러스터를 구성할 수도 있습니다. 이 cmdlet을 사용하려면 다음과 같은 정보가 필요합니다.
     >
     > * HDInsight 클러스터 이름.
@@ -38,7 +38,7 @@ Log Analytics for HDInsight를 사용하도록 설정하는 단계는 모든 HDI
     > * Log Analytics 연결의 기본 키. 기본 키를 찾으려면 Azure Portal에서 작업 영역을 열고, 왼쪽 메뉴에서 __고급 설정__을 선택합니다. 고급 설정에서 __연결된 원본__>__Linux 서버__를 선택합니다.
 
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Log Analytics에 데이터를 사용할 수 있을 때까지 약 20분 정도 걸릴 수 있습니다.
 
 ## <a name="query-logs"></a>쿼리 로그
@@ -57,7 +57,7 @@ Log Analytics for HDInsight를 사용하도록 설정하는 단계는 모든 HDI
 
     * 초당 나가는 바이트: `metrics_kafka_CL | where ClusterName_s == "your_kafka_cluster_name" and InstanceName_s == "kafka-BrokerTopicMetrics-BytesOutPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) by bin(TimeGenerated, 1h)`
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 쿼리 값을 클러스터 관련 정보로 바꿉니다. 예를 들어 `ClusterName_s`를 클러스터의 이름으로 설정해야 합니다. `HostName_s`는 클러스터의 작업자 노드 도메인 이름으로 설정해야 합니다.
 
     `*`를 입력하여 기록된 모든 종류를 검색할 수도 있습니다. 현재 다음 로그를 쿼리에 사용할 수 있습니다.

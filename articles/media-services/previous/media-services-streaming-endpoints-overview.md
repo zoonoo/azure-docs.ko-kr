@@ -7,41 +7,46 @@ author: Juliako
 writer: juliako
 manager: femila
 editor: ''
-ms.assetid: 097ab5e5-24e1-4e8e-b112-be74172c2701
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/16/2019
 ms.author: juliako
-ms.openlocfilehash: 06f219b9cf7d17e80699aebc1082b14e2de45c8b
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6b4acf2a8effaef6d9572a4ca36b29af19f2970d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240225"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359990"
 ---
 # <a name="streaming-endpoints-overview"></a>스트리밍 엔드포인트 개요 
 
 ## <a name="overview"></a>개요
 
-Microsoft AMS(Azure Media Services)에서 **스트리밍 엔드포인트**는 추가 배포를 위해 CDN(Content Delivery Network) 또는 클라이언트 플레이어 응용 프로그램에 직접 콘텐츠를 배달할 수 있는 스트리밍 서비스를 나타냅니다. Media Services는 매끄러운 Azure CDN 통합도 제공합니다. StreamingEndpoint 서비스의 아웃바운드 스트림은 Media Services 계정에서 자산의 라이브 스트림, 주문형 비디오 또는 점진적 다운로드일 수 있습니다. 각 Azure Media Services 계정에는 기본 StreamingEndpoint 포함됩니다. 계정에서 추가 StreamingEndpoints를 만들 수 있습니다. StreamingEndpoints 1.0 및 2.0이라는 두 가지 버전이 있습니다. 2017년 1월 10일부터 새로 만든 AMS 계정은 **기본** StreamingEndpoint 버전 2.0을 포함합니다. 이 계정에 추가하는 추가 스트리밍 엔드포인트도 버전 2.0입니다. 이 변경 사항은 기존 계정에 영향을 주지 않습니다. 기존 StreamingEndpoints는 1.0 버전이며 2.0 버전으로 업그레이드할 수 있습니다. 이 변경 사항으로 인해 동작, 청구 및 기능이 변경됩니다(자세한 내용은 아래에서 설명한 **스트리밍 형식 및 버전** 섹션 참조).
+Microsoft AMS(Azure Media Services)에서 **스트리밍 엔드포인트**는 추가 배포를 위해 CDN(Content Delivery Network) 또는 클라이언트 플레이어 애플리케이션에 직접 콘텐츠를 배달할 수 있는 스트리밍 서비스를 나타냅니다. Media Services는 매끄러운 Azure CDN 통합도 제공합니다. StreamingEndpoint 서비스의 아웃바운드 스트림은 Media Services 계정에서 자산의 라이브 스트림, 주문형 비디오 또는 점진적 다운로드일 수 있습니다. 각 Azure Media Services 계정에는 기본 StreamingEndpoint 포함됩니다. 계정에서 추가 StreamingEndpoints를 만들 수 있습니다. StreamingEndpoints 1.0 및 2.0이라는 두 가지 버전이 있습니다. 2017년 1월 10일부터 새로 만든 AMS 계정은 **기본** StreamingEndpoint 버전 2.0을 포함합니다. 이 계정에 추가하는 추가 스트리밍 엔드포인트도 버전 2.0입니다. 이 변경 사항은 기존 계정에 영향을 주지 않습니다. 기존 StreamingEndpoints는 1.0 버전이며 2.0 버전으로 업그레이드할 수 있습니다. 이 변경 사항으로 인해 동작, 청구 및 기능이 변경됩니다(자세한 내용은 아래에서 설명한 **스트리밍 형식 및 버전** 섹션 참조).
 
-또한 Azure Media Services 2.15 버전(2017년 1월에 릴리스됨)부터 스트리밍 엔드포인트 엔터티에 **CdnProvider**, **CdnProfile**, **FreeTrialEndTime**, **StreamingEndpointVersion** 속성이 추가되었습니다. 이러한 속성의 자세한 개요는 [여기](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)를 참조하세요. 
+Azure Media Services는 Streaming Endpoint 엔터티에 다음과 같은 속성을 추가했습니다. **CdnProvider**, **CdnProfile**, **FreeTrialEndTime**, **StreamingEndpointVersion**. 이러한 속성의 자세한 개요는 [여기](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)를 참조하세요. 
 
 Azure Media Services 계정을 만들 경우 기본 표준 스트리밍 엔드포인트가 **중지됨** 상태로 만들어집니다. 기본 스트리밍 엔드포인트를 삭제할 수 없습니다. 기본적으로 대상 지역에서 Azure CDN 사용 가능성에 따라 새로 만든 기본 스트리밍 엔드포인트도 "StandardVerizon" CDN 공급자 통합을 포함합니다. 
-
->[!NOTE]
->스트리밍 엔드포인트를 시작하기 전에 Azure CDN 통합을 비활성화할 수 있습니다.
+                
+> [!NOTE]
+> 스트리밍 엔드포인트를 시작하기 전에 Azure CDN 통합을 비활성화할 수 있습니다. `hostname` 및 스트리밍 URL은 CDN을 사용하도록 설정하는지 여부에 관계없이 동일하게 유지됩니다.
 
 이 항목에서는 스트리밍 엔드포인트가 제공하는 기본 기능을 간략하게 설명합니다.
+
+## <a name="naming-conventions"></a>명명 규칙
+
+기본 엔드포인트: `{AccountName}.streaming.mediaservices.windows.net`
+
+추가 엔드포인트: `{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
 
 ## <a name="streaming-types-and-versions"></a>스트리밍 형식 및 버전
 
 ### <a name="standardpremium-types-version-20"></a>표준/프리미엄 유형(버전 2.0)
 
-Media Services의 2017년 1월 릴리스가 시작되면 **표준** 및 **프리미엄**이라는 두 가지 스트리밍 유형이 지원됩니다. 이러한 유형은 스트리밍 엔드포인트 버전 "2.0"의 일부입니다.
+Media Services의 2017년 1월 릴리스부터 다음 두 가지 스트리밍 유형을 사용할 수 있습니다. **표준** 및 **프리미엄** 두 가지가 있습니다. 이러한 유형은 스트리밍 엔드포인트 버전 "2.0"의 일부입니다.
 
 type|설명
 ---|---
@@ -69,24 +74,24 @@ type|설명
 |type|StreamingEndpointVersion|ScaleUnits|CDN|결제|SLA| 
 |--------------|----------|-----------------|-----------------|-----------------|-----------------|    
 |클래식|1.0|0|해당 없음|무료|해당 없음|
-|표준 스트리밍 엔드포인트|2.0|0|yes|유료|yes|
-|프리미엄 스트리밍 단위|1.0|>0|yes|유료|yes|
-|프리미엄 스트리밍 단위|2.0|>0|yes|유료|yes|
+|표준 스트리밍 엔드포인트|2.0|0|예|유료|예|
+|프리미엄 스트리밍 단위|1.0|>0|예|유료|예|
+|프리미엄 스트리밍 단위|2.0|>0|예|유료|예|
 
 ### <a name="features"></a>기능
 
 기능|Standard|Premium
 ---|---|---
-처음 15일 무료| yes |아니요
+처음 15일 무료| 예 |아니요
 처리량 |Azure CDN을 사용하지 않는 경우 최대 600Mbps입니다. CDN을 사용하여 크기를 조정합니다.|SU(스트리밍 단위)당 200Mbps CDN을 사용하여 크기를 조정합니다.
 SLA | 99.9|99.9(SU당 200Mbps)입니다.
 CDN|Azure CDN, 타사 CDN 또는 CDN 없음.|Azure CDN, 타사 CDN 또는 CDN 없음.
 청구를 계산합니다.| 매일|매일
-동적 암호화|yes|yes
-동적 패키징|yes|yes
+동적 암호화|예|예
+동적 패키징|예|예
 확장|대상 처리량까지 자동으로 확장합니다.|추가 스트리밍 단위
-IP 필터링/G20/사용자 지정 호스트|yes|yes
-점진적 다운로드|yes|yes
+IP 필터링/G20/사용자 지정 호스트|예|예
+점진적 다운로드|예|예
 권장 사용량 |대부분의 스트리밍 시나리오에 권장됩니다.|전문 사용량입니다.<br/>필요한 경우 표준 이상이 필요할 수 있습니다. 동시 뷰어의 규모가 50,000명을 초과할 것으로 예상되는 경우 문의하세요(amsstreaming@microsoft.com).
 
 

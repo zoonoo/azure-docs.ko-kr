@@ -100,7 +100,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-[az storage account create](/cli/azure/storage/account#az-storageaccount-create)를 사용하여 사용자 지정 디스크 및 VM에 대한 저장소 계정을 만듭니다. 다음 예제에서는 이전에 만든 리소스 그룹에 *mystorageaccount*라는 저장소 계정을 만듭니다.
+[az storage account create](/cli/azure/storage/account#az-storageaccount-create)를 사용하여 사용자 지정 디스크 및 VM에 대한 저장소 계정을 만듭니다. 다음 예제에서는 이전에 만든 리소스 그룹에 *mystorageaccount*라는 스토리지 계정을 만듭니다.
 
 ```azurecli
 az storage account create \
@@ -224,4 +224,4 @@ az vm create \
 원본 VM의 자격 증명을 사용하여 SSH를 통해 VM에 연결할 수 있어야 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-사용자 지정 가상 디스크를 준비하고 업로드한 후 [Resource Manager 및 템플릿 사용하기](../../azure-resource-manager/resource-group-overview.md)에 관해 자세히 알아볼 수 있습니다. 또한 새 Vm에 [데이터 디스크 추가](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 를 고려할 수도 있습니다. 응용 프로그램이 액세스해야 할 Vm에서 실행되고 있다면 반드시 [포트 및 엔드포인트 열기](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 해야 합니다.
+사용자 지정 가상 디스크를 준비하고 업로드한 후 [Resource Manager 및 템플릿 사용하기](../../azure-resource-manager/resource-group-overview.md)에 관해 자세히 알아볼 수 있습니다. 또한 새 Vm에 [데이터 디스크 추가](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 를 고려할 수도 있습니다. 애플리케이션이 액세스해야 할 Vm에서 실행되고 있다면 반드시 [포트 및 엔드포인트 열기](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 해야 합니다.

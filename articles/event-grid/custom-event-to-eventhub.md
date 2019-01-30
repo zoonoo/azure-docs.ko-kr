@@ -1,21 +1,22 @@
 ---
-title: Event Hubs에 Azure Event Grid에 대한 사용자 지정 이벤트 보내기 | Microsoft Docs
+title: Event Hubs에 사용자 지정 이벤트 보내기 - Event Grid, Azure CLI
 description: Azure Event Grid 및 Azure CLI를 사용하여 토픽을 게시하고 해당 이벤트를 구독합니다. Event Hub는 엔드포인트에 사용됩니다.
 services: event-grid
 keywords: ''
-author: tfitzmac
-ms.author: tomfitz
+author: spelluru
+ms.author: spelluru
 ms.date: 10/09/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 0d8504dc002fa43c25f689b4c5b3f78c822cf5b0
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.custom: seodec18
+ms.openlocfilehash: fd087c2afe50870289b008906b28605fdd558311
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069423"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475189"
 ---
-# <a name="route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Azure CLI 및 Event Grid를 사용하여 Azure Event Hubs로 사용자 지정 이벤트 라우팅
+# <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Event Hubs로 사용자 지정 이벤트 라우팅
 
 Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. Azure Event Hubs는 지원되는 이벤트 처리기 중 하나입니다. 이 문서에서는 Azure CLI를 사용하여 사용자 지정 항목을 만들고 사용자 지정 항목을 구독하며 이벤트를 트리거하여 결과를 확인합니다. Event Hub로 이벤트를 보냅니다.
 
@@ -86,7 +87,7 @@ endpoint=$(az eventgrid topic show --name $topicname -g gridResourceGroup --quer
 key=$(az eventgrid topic key list --name $topicname -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-이 문서를 간소화하기 위해 사용자 지정 항목에 보낼 샘플 이벤트 데이터를 사용합니다. 일반적으로 응용 프로그램 또는 Azure 서비스는 이벤트 데이터를 보냅니다. CURL은 HTTP 요청을 보내는 유틸리티입니다. 이 문서에서는 CURL을 사용하여 사용자 지정 항목에 이벤트를 보냅니다.  다음 예제는 세 개의 이벤트를 Event Grid 토픽으로 보냅니다.
+이 문서를 간소화하기 위해 사용자 지정 항목에 보낼 샘플 이벤트 데이터를 사용합니다. 일반적으로 애플리케이션 또는 Azure 서비스는 이벤트 데이터를 보냅니다. CURL은 HTTP 요청을 보내는 유틸리티입니다. 이 문서에서는 CURL을 사용하여 사용자 지정 항목에 이벤트를 보냅니다.  다음 예제는 세 개의 이벤트를 Event Grid 토픽으로 보냅니다.
 
 ```azurecli-interactive
 for i in 1 2 3
@@ -100,7 +101,7 @@ done
 
 ![메시지 표시](./media/custom-event-to-eventhub/show-result.png)
 
-일반적으로 Event Hub에서 이벤트를 검색하는 응용 프로그램을 만듭니다. Event Hub에서 메시지를 가져오는 응용 프로그램을 만들려면 다음을 참조하세요.
+일반적으로 Event Hub에서 이벤트를 검색하는 애플리케이션을 만듭니다. Event Hub에서 메시지를 가져오는 애플리케이션을 만들려면 다음을 참조하세요.
 
 * [.NET Standard에서 이벤트 프로세서 호스트를 사용하여 메시지 수신 시작](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
 * [Java를 사용하여 Azure Event Hubs에서 이벤트 수신](../event-hubs/event-hubs-java-get-started-receive-eph.md)

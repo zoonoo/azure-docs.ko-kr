@@ -3,16 +3,15 @@ title: Azure Cosmos DB 계정에 대한 가상 네트워크 및 서브넷 기반
 description: 이 문서에서는 Azure Cosmos DB의 가상 네트워크 서비스 엔드포인트에 필요한 단계를 설명합니다.
 author: kanshiG
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 4e8891302346fa2655a4b1280b65fdd969f12909
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: ac5dd4d43ec6e0248a5a9939015a344bad421280
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620594"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438986"
 ---
 # <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>가상 네트워크에서 Azure Cosmos DB 리소스에 액세스
 
@@ -50,8 +49,8 @@ Azure 가상 네트워크의 특정 서브넷에서만 액세스할 수 있도�
 
 > [!NOTE]
 > 가상 네트워크 서비스 엔드포인트를 사용하도록 설정하려면 다음 구독 사용 권한이 필요합니다.
-  * 가상 네트워크를 포함한 구독: 네트워크 기여자
-  * Azure Cosmos DB 계정을 포함한 구독: DocumentDB 계정 기여자
+  * 가상 네트워크를 사용한 구독: 네트워크 기여자
+  * Azure Cosmos DB 계정을 사용한 구독: DocumentDB 계정 기여자
 
 ### <a name="configure-a-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>새로운 Azure 가상 네트워크 및 서브넷에 대한 서비스 엔드포인트 구성
 
@@ -88,7 +87,7 @@ Azure Cosmos DB 계정이 Azure Search와 같은 다른 Azure 서비스에서 �
 
 Azure PowerShell을 사용하여 Azure Cosmos DB 계정에 서비스 엔드포인트를 구성하려면 다음 단계를 사용합니다.  
 
-1. [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) 설치 및 [로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)  
+1. [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 설치 및 [로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)  
 
 1. 가상 네트워크의 기존 서브넷에 대한 서비스 엔드포인트를 사용하도록 설정합니다.  
 

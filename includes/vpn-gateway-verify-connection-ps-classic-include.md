@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 03dc6d8bb95a952a77be31f79df36a2c1ddc8ffc
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: c1b5560e16b68565c37365ac9c2cba217d9b1b90
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458642"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444259"
 ---
 'Get-AzureVNetConnection' cmdlet을 사용하여 연결이 성공했는지 확인할 수 있습니다.
 
 1. 일치하는 값을 구성하는 데 다음 cmdlet 예제를 사용합니다. 공백이 포함된 가상 네트워크의 이름은 따옴표로 묶어야 합니다.
 
-  ```azurepowershell
-  Get-AzureVNetConnection "Group ClassicRG ClassicVNet"
-  ```
+   ```azurepowershell
+   Get-AzureVNetConnection "Group ClassicRG ClassicVNet"
+   ```
 2. cmdlet이 완료되면 값을 봅니다. 아래 예제에서는 [연결 상태]가 '연결됨'으로 표시되고 송/수신 바이트를 볼 수 있습니다.
 
         ConnectivityState         : Connected

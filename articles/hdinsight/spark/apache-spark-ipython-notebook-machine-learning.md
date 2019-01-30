@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure HDInsight에서 Spark 기계 학습 응용 프로그램 빌드'
-description: Jupyter Notebook을 사용하여 HDInsight Spark 클러스터에서 Apache Spark Machine Learning 응용 프로그램을 빌드하는 방법에 대한 단계별 지침입니다.
+title: '자습서: Azure HDInsight에서 Spark Machine Learning 애플리케이션 빌드'
+description: Jupyter Notebook을 사용하여 HDInsight Spark 클러스터에서 Apache Spark Machine Learning 애플리케이션을 빌드하는 방법에 대한 단계별 지침입니다.
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: a730f6ccba9f935855b233ca804a8180aa7f504b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 0a0712e4985414263d1e90299d78d5e30fe78a3e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580573"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608514"
 ---
-# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>자습서: HDInsight에서 Apache Spark 기계 학습 애플리케이션 빌드 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>자습서: HDInsight에서 Apache Spark Machine Learning 애플리케이션 빌드 
 
 이 자습서에서는 [Jupyter Notebook](https://jupyter.org/)을 사용하여 Azure HDInsight에 대한 [Apache Spark](https://spark.apache.org/) 기계 학습 애플리케이션을 빌드하는 방법을 알아봅니다. 
 
@@ -36,13 +36,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="understand-the-data-set"></a>데이터 집합 이해
 
-응용 프로그램은 기본적으로 모든 클러스터에서 사용할 수 있는 샘플 HVAC.csv 데이터를 사용합니다. 이 파일은 **\HdiSamples\HdiSamples\SensorSampleData\hvac**에 있습니다. 이 데이터는 HVAC 시스템이 설치된 일부 건물의 목표 온도 및 실제 온도를 보여줍니다. **System** 열은 시스템 ID를 나타내고 **SystemAge** 열은 HVAC 시스템이 건물의 적절한 위치에 있었던 연수를 나타냅니다. 이 데이터를 사용하여 시스템 ID 및 시스템 연수가 지정된 상태에서 대상 온도를 기반으로 건물이 더 덥거나 추운지를 예측할 수 있습니다.
+애플리케이션은 기본적으로 모든 클러스터에서 사용할 수 있는 샘플 HVAC.csv 데이터를 사용합니다. 이 파일은 **\HdiSamples\HdiSamples\SensorSampleData\hvac**에 있습니다. 이 데이터는 HVAC 시스템이 설치된 일부 건물의 목표 온도 및 실제 온도를 보여줍니다. **System** 열은 시스템 ID를 나타내고 **SystemAge** 열은 HVAC 시스템이 건물의 적절한 위치에 있었던 연수를 나타냅니다. 이 데이터를 사용하여 시스템 ID 및 시스템 연수가 지정된 상태에서 대상 온도를 기반으로 건물이 더 덥거나 추운지를 예측할 수 있습니다.
 
 ![Spark 기계 학습 예제에 사용되는 데이터의 스냅숏](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Spark 기계 학습 예제에 사용되는 데이터의 스냅숏")
 
-## <a name="develop-a-spark-machine-learning-application-using-spark-mllib"></a>Spark MLlib를 사용하여 Spark Machine Learning 응용 프로그램 개발
+## <a name="develop-a-spark-machine-learning-application-using-spark-mllib"></a>Spark MLlib를 사용하여 Spark Machine Learning 애플리케이션 개발
 
-이 응용 프로그램에서는 문서 분류를 수행하는 데 Spark [ML 파이프라인](https://spark.apache.org/docs/2.2.0/ml-pipeline.html)을 사용합니다. ML 파이프라인은 사용자가 실제 기계 학습 파이프라인을 만들고 조정하는 데 도움이 되는 DataFrame을 기반으로 빌드된 균일한 상위 수준 API 집합을 제공합니다. 파이프라인에서 기능 벡터 및 레이블을 사용하여 문서를 단어로 분할하고, 단어를 숫자 기능 벡터로 변환하며, 마지막으로 예측 모델을 빌드합니다. 다음 단계에 따라 응용 프로그램을 만듭니다.
+이 애플리케이션에서는 문서 분류를 수행하는 데 Spark [ML 파이프라인](https://spark.apache.org/docs/2.2.0/ml-pipeline.html)을 사용합니다. ML 파이프라인은 사용자가 실제 기계 학습 파이프라인을 만들고 조정하는 데 도움이 되는 DataFrame을 기반으로 빌드된 균일한 상위 수준 API 집합을 제공합니다. 파이프라인에서 기능 벡터 및 레이블을 사용하여 문서를 단어로 분할하고, 단어를 숫자 기능 벡터로 변환하며, 마지막으로 예측 모델을 빌드합니다. 다음 단계에 따라 애플리케이션을 만듭니다.
 
 1. PySpark 커널을 사용하여 Jupyter 노트북을 만듭니다. 자세한 지침은 [Jupyter 노트북 만들기](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook)를 참조하세요.
 2. 이 시나리오에 필요한 형식을 가져옵니다. 빈 셀에 다음 코드 조각을 붙여넣은 다음 **SHIFT + ENTER**를 누릅니다. 
@@ -97,7 +97,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
     ```
 
-    파이프라인 및 작동 방법에 대한 자세한 내용은 <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark Machine Learning 파이프라인</a>을 참조하세요.
+    파이프라인 및 작동 방법에 대한 자세한 내용은 <a href="https://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Apache Spark Machine Learning 파이프라인</a>을 참조하세요.
 
 5. 학습 문서에 파이프라인을 맞춥니다.
    
@@ -105,7 +105,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     model = pipeline.fit(training)
     ```
 
-6. 학습 문서를 확인하여 응용 프로그램 진행 상태의 검사점을 설정합니다.
+6. 학습 문서를 확인하여 애플리케이션 진행 상태의 검사점을 설정합니다.
    
     ```PySpark
     training.show()
@@ -184,7 +184,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 10. Notebook을 종료하여 리소스를 해제합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 선택합니다. 그러면 Notebook이 종료된 후 닫힙니다.
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>Spark Machine Learning에 대한 Anaconda scikit-learn 라이브러리 사용
-HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포함되어 있습니다. Machine Learning에 대한 **scikit-learn** 라이브러리도 있습니다. 또한 라이브러리에는 Jupyter 노트북에서 직접 샘플 응용 프로그램을 빌드하는 데 사용할 수 있는 다양한 데이터 집합이 포함되어 있습니다. scikit-learn 라이브러리 사용에 대한 예제는 [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html)을 참조하세요.
+HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포함되어 있습니다. Machine Learning에 대한 **scikit-learn** 라이브러리도 있습니다. 또한 라이브러리에는 Jupyter 노트북에서 직접 샘플 애플리케이션을 빌드하는 데 사용할 수 있는 다양한 데이터 집합이 포함되어 있습니다. scikit-learn 라이브러리 사용에 대한 예제는 [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

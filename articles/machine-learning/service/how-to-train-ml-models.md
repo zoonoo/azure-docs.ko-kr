@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning과 Estimator 클래스를 사용하여 Machine Learning 모델 학습
+title: 추정기를 사용하여 ML 모델 학습
+titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning 서비스 Estimator 클래스를 사용하여 일반적인 Machine Learning 및 딥 러닝 모델의 단일 노드 분산 학습을 수행하는 방법을 알아봅니다.
 ms.author: minxia
 author: mx-iao
@@ -8,19 +9,20 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: c47761c184d0e6c091ff49b3eca2fdf89574b49d
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 0ebb12df835cf1c32e02419989b21684e9884c18
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114862"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184358"
 ---
-# <a name="how-to-train-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델을 학습하는 방법
+# <a name="train-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 학습
 
 기계 학습 모델, 특히 심층 신경망을 학습하는 것은 종종 시간 및 계산 집약적 작업입니다. 학습 스크립트를 작성하고 로컬 머신의 작은 데이터 하위 집합에서 실행을 마친 후에는 워크로드를 강화하려고 할 수도 있습니다.
 
-학습을 용이하게 하기 위해 Azure Machine Learning Python SDK는 사용자가 Azure 에코시스템에서 모델을 쉽게 학습할 수 있게 하는 높은 수준의 추상화인 Estimator(추정기) 클래스를 제공합니다. `Estimator` 개체를 만들고 사용하여 GPU 클러스터 전체에서 단일 노드 실행이든 분산 학습이든 관계없이 원격 계산에서 실행하려는 모든 학습 코드를 제출할 수 있습니다. PyTorch 및 TensorFlow 작업의 경우 Azure Machine Learning은 이러한 프레임워크 사용을 간소화할 수 있도록 각각의 사용자 지정 `PyTorch` 및 `TensorFlow` 추정기를 제공합니다.
+학습을 용이하게 하기 위해 Azure Machine Learning Python SDK는 사용자가 Azure 에코시스템에서 모델을 쉽게 학습할 수 있게 하는 높은 수준의 추상화인 Estimator(추정기) 클래스를 제공합니다. [`Estimator` 개체](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py)를 만들고 사용하여 GPU 클러스터 전체에서 단일 노드 실행이든 분산 학습이든 관계없이 원격 컴퓨팅에서 실행하려는 모든 학습 코드를 제출할 수 있습니다. PyTorch 및 TensorFlow 작업의 경우 Azure Machine Learning은 이러한 프레임워크 사용을 간소화할 수 있도록 각각의 사용자 지정 `PyTorch` 및 `TensorFlow` 추정기를 제공합니다.
 
 ## <a name="train-with-an-estimator"></a>추정기를 사용하여 학습
 
@@ -35,7 +37,7 @@ ms.locfileid: "49114862"
 
 ### <a name="single-node-training"></a>단일 노드 학습
 
-scikit-learn 모델을 위해 Azure의 원격 계산에서 실행되는 단일 노드 학습에 `Estimator`를 사용합니다. `compute_target` [계산 대상](how-to-set-up-training-targets.md#batch) 개체와 `ds` [데이터 저장소](how-to-access-data.md) 개체는 이미 만들어져 있어야 합니다.
+scikit-learn 모델을 위해 Azure의 원격 계산에서 실행되는 단일 노드 학습에 `Estimator`를 사용합니다. `compute_target` [계산 대상](how-to-set-up-training-targets.md#amlcompute) 개체와 `ds` [데이터 저장소](how-to-access-data.md) 개체는 이미 만들어져 있어야 합니다.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -58,7 +60,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 --|--
 `source_directory`| 학습 작업에 필요한 모든 코드가 포함된 로컬 디렉터리입니다. 이 폴더는 로컬 컴퓨터에서 원격 컴퓨터로 복사됩니다. 
 `script_params`| <명령줄 인수, 값> 쌍 형식으로 학습 스크립트 `entry_script`에 대한 명령줄 인수를 지정하는 사전입니다.
-`compute_target`| 학습 스크립트가 실행될 원격 계산(여기서는 [Batch AI](how-to-set-up-training-targets.md#batch) 클러스터)입니다.
+`compute_target`| 이 경우 학습 스크립트가 Azure Machine Learning 컴퓨팅([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) 클러스터에서 실행되는 원격 컴퓨팅 대상
 `entry_script`| 원격 계산에서 실행할 학습 스크립트의 파일 경로(`source_directory` 기준)입니다. 이 파일 및 이 파일이 의존하는 추가 파일은 이 폴더에 있어야 합니다.
 `conda_packages`| conda를 통해 설치할 학습 스크립트에 필요한 Python 패키지의 목록입니다.  
 생성자에는 필요한 모든 pip 패키지에 사용하는 `pip_packages`라는 매개 변수도 있습니다.
@@ -87,7 +89,7 @@ print(run.get_details().status)
 
 다음 코드에서는 CNTK 모델에 대한 분산 학습을 수행하는 방법을 보여 줍니다. 또한 기본 Azure Machine Learning 이미지를 사용하는 대신, 학습에 사용자 고유의 사용자 지정 Docker 이미지를 사용하고 있다고 가정합니다.
 
-[계산 대상](how-to-set-up-training-targets.md#batch) 개체 `compute_target`는 이미 만들어져 있어야 합니다. 추정기는 다음과 같이 만듭니다.
+[계산 대상](how-to-set-up-training-targets.md#amlcompute) 개체 `compute_target`는 이미 만들어져 있어야 합니다. 추정기는 다음과 같이 만듭니다.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -117,13 +119,11 @@ run = experiment.submit(cntk_est)
 ```
 
 ## <a name="examples"></a>예
-sklearn 모델 학습에 대한 자습서는 다음을 참조하세요.
-* [tutorials/01.train-models.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)
+sklearn 모델을 학습하는 Notebook은 다음을 참조하세요.
+* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
-사용자 지정 Docker를 사용하는 분산 CNTK에 대한 자습서는 다음을 참조하세요.
-* [training/06.distributed-cntk-with-custom-docker](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/06.distributed-cntk-with-custom-docker)
-
-다음 Notebook을 다운로드합니다.
+분산형 딥러닝에서 Notebook은 다음을 참조하세요.
+* [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

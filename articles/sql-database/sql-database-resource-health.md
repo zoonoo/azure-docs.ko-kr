@@ -3,21 +3,21 @@ title: Azure Resource Health를 사용하여 SQL Database 상태 모니터링 | 
 description: Azure Resource Health를 사용하여 SQL Database 상태를 모니터링하면 Azure 문제가 SQL 리소스에 영향을 줄 때 문제를 진단하고 지원을 받는 데 도움이 됩니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 11/14/2018
-ms.openlocfilehash: 9cbe88a44ba598a22fab628ae01605ac9d63bece
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.date: 01/03/2019
+ms.openlocfilehash: 36a448a861bdfdcd85e532578383b14e56f54b1a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632631"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039098"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Resource Health를 사용하여 Azure SQL Database 연결 문제 해결
 
@@ -67,16 +67,16 @@ SQL Database에 가동 중지 시간이 발생하면 이유를 확인하기 위�
 
 #### <a name="planned-maintenance"></a>계획된 유지 보수
 
-Azure 인프라는 정기적으로 계획된 유지 관리(데이터 센터의 하드웨어 또는 소프트웨어 구성 요소 업그레이드)를 수행합니다. 데이터베이스에서 유지 관리를 수행하는 동안 SQL은 일부 기존 연결을 종료하고 새 연결을 거부할 수 있습니다. 계획된 유지 관리를 수행하는 동안 발생하는 로그인 실패는 일반적으로 일시적이며 다시 시도 논리로 그 영향을 줄일 수 있습니다. 로그인 오류가 계속 발생하면 고객 지원팀에 문의하세요.
+Azure 인프라는 정기적으로 계획된 유지 관리(데이터 센터의 하드웨어 또는 소프트웨어 구성 요소 업그레이드)를 수행합니다. 데이터베이스에서 유지 관리를 수행하는 동안 SQL은 일부 기존 연결을 종료하고 새 연결을 거부할 수 있습니다. 계획된 유지 관리를 수행하는 동안 발생하는 로그인 실패는 일반적으로 일시적이며 [다시 시도 논리](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)로 그 영향을 줄일 수 있습니다. 로그인 오류가 계속 발생하면 고객 지원팀에 문의하세요.
 
 #### <a name="reconfiguration"></a>Reconfiguration
 
-재구성은 일시적인 조건으로 간주되며 때때로 필요합니다. 이러한 이벤트는 부하 분산 또는 소프트웨어/하드웨어 실패에 의해 트리거될 수 있습니다. 클라우드 데이터베이스 서비스에 연결하는 클라이언트 프로덕션 애플리케이션은 이러한 상황을 완화하기 때문에 백오프 논리와 함께 강력한 연결 재시도 논리를 구현해야 하며 일반적으로 오류를 최종 사용자에게 투명하게 해야 합니다.
+재구성은 일시적인 조건으로 간주되며 때때로 필요합니다. 이러한 이벤트는 부하 분산 또는 소프트웨어/하드웨어 실패에 의해 트리거될 수 있습니다. 클라우드 데이터베이스에 연결하는 모든 클라이언트 프로덕션 애플리케이션은 이러한 상황을 완화하므로 강력한 연결 [재시도 논리](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)를 구현해야 하며 일반적으로 오류를 최종 사용자에게 투명하게 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [일시적인 오류에 대한 재시도 논리](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)에 대한 자세한 정보
 - [문제 해결, 진단 및 SQL 연결 오류 방지](./sql-database-connectivity-issues.md)
-- [Resource Health 경고 구성](/articles/service-health/resource-health-alert-arm-template-guide.md)에 대한 자세한 정보
-- [Resource Health](/articles/service-health/resource-health-overview.md)의 개요 보기
-- [Resource Health FAQ](/articles/service-health/resource-health-faq.md)
+- [Resource Health 경고 구성](../service-health/resource-health-alert-arm-template-guide.md)에 대한 자세한 정보
+- [Resource Health](../service-health/resource-health-overview.md)의 개요 보기
+- [Resource Health FAQ](../service-health/resource-health-faq.md)

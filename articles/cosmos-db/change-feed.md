@@ -2,16 +2,18 @@
 title: Azure Cosmos DB에서 변경 피드 지원 사용
 description: Azure Cosmos DB의 변경 피드 지원을 사용하여 문서에서 변경 내용을 추적하고 트리거와 마찬가지로 이벤트 기반 처리를 수행하고 캐시 및 분석 시스템을 최신 상태로 유지합니다.
 author: rafats
+ms.author: rafats
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.author: rafats
-ms.openlocfilehash: 4edf637d97070416c0dc2970f4bed483e5f4f34d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.reviewer: sngun
+ms.custom: seodec18
+ms.openlocfilehash: 011bb74a10b12c5170579d3b4c507fcfe0fc01b1
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621312"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040730"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드
 
@@ -31,12 +33,12 @@ Azure Cosmos DB의 변경 피드를 사용하면 다음 그림과 같이 이러�
 
 이 기능은 현재 다음 Azure Cosmos DB API 및 클라이언트 SDK에서 지원됩니다.
 
-| **클라이언트 드라이버** | **Azure CLI** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API**|**Table API** |
+| **클라이언트 드라이버** | **Azure CLI** | **SQL API** | **Cassandra API** | **Azure Cosmos DB의 MongoDB API** | **Gremlin API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | 해당 없음 | yes | 아니요 | 아니요 | yes | 아니요 |
-|자바|해당 없음|yes|아니요|아니요|yes|아니요|
-|Python|해당 없음|yes|아니요|아니요|yes|아니요|
-|Node/JS|해당 없음|yes|아니요|아니요|yes|아니요|
+| .NET | 해당 없음 | 예 | 아니요 | 아니요 | 예 | 아니요 |
+|자바|해당 없음|예|아니요|아니요|예|아니요|
+|Python|해당 없음|예|아니요|아니요|예|아니요|
+|Node/JS|해당 없음|예|아니요|아니요|예|아니요|
 
 ## <a name="change-feed-and-different-operations"></a>변경 피드 및 다양한 작업
 
@@ -82,7 +84,7 @@ _etag 형식은 내부적이며 언제든지 변경될 수 있으므로 의존�
 
 다음은 변경 피드를 사용하여 쉽게 구현할 수 있는 일부 시나리오입니다.
 
-* [서버를 사용하지 않는](http://azure.com/serverless) 웹 또는 모바일 앱 내에서는 고객의 프로필, 기본 설정 또는 해당 위치에 대한 모든 변경 내용과 같은 이벤트를 추적하고 특정 작업(예: [Azure Functions](#azure-functions)를 사용하여 해당 디바이스에 푸시 알림 보내기)을 트리거할 수 있습니다. 
+* [서버를 사용하지 않는](https://azure.microsoft.com/en-us/solutions/serverless/) 웹 또는 모바일 앱 내에서는 고객의 프로필, 기본 설정 또는 해당 위치에 대한 모든 변경 내용과 같은 이벤트를 추적하고 특정 작업(예: [Azure Functions](change-feed-functions.md)를 사용하여 해당 디바이스에 푸시 알림 보내기)을 트리거할 수 있습니다.
 
 * 예를 들어, Azure Cosmos DB를 사용하여 게임을 빌드하는 경우 변경 피드를 사용하여 완료된 게임의 점수에 따라 실시간 순위표를 구현할 수 있습니다.
 

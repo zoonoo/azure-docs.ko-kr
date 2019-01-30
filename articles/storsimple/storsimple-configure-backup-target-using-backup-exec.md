@@ -25,7 +25,7 @@ ms.locfileid: "51248731"
 
 ## <a name="overview"></a>개요
 
-Azure StorSimple은 Microsoft의 하이브리드 클라우드 저장소 솔루션입니다. StorSimple은 Azure Storage 계정을 온-프레미스 솔루션의 확장으로 사용하고 온-프레미스 저장소 및 클라우드 저장소 전반에 걸쳐 데이터를 자동으로 계층화하여 지수 데이터 증가의 복잡성을 해결합니다.
+Azure StorSimple은 Microsoft의 하이브리드 클라우드 저장소 솔루션입니다. StorSimple은 Azure Storage 계정을 온-프레미스 솔루션의 확장으로 사용하고 온-프레미스 스토리지 및 클라우드 스토리지 전반에 걸쳐 데이터를 자동으로 계층화하여 지수 데이터 증가의 복잡성을 해결합니다.
 
 이 문서에서는 Veritas Backup Exec과 StorSimple의 통합 및 두 솔루션을 통합하는 모범 사례에 대해 설명합니다. 또한 StorSimple과 가장 잘 통합되도록 Backup Exec을 설정하는 방법에 대한 권장 사항을 제공합니다. 개별 백업 요구 사항 및 SLA(서비스 수준 약정)를 충족하도록 Backup Exec을 설정하는 가장 좋은 방법은 Veritas 모범 사례, 백업 설계자 및 관리자에게 맡기는 것입니다.
 
@@ -45,15 +45,15 @@ Azure StorSimple은 Microsoft의 하이브리드 클라우드 저장소 솔루�
 
 StorSimple이 백업 대상으로 적합한 이유는 다음과 같습니다.
 
--   변경 없이 빠른 백업 대상으로 사용할 백업 응용 프로그램용 표준 로컬 저장소를 제공합니다. StorSimple을 사용하여 최근 백업을 빠르게 복원할 수도 있습니다.
--   클라우드 계층화는 비용 효율적인 Azure Storage를 사용할 수 있도록 Azure 클라우드 저장소 계정과 완벽하게 통합됩니다.
+-   변경 없이 빠른 백업 대상으로 사용할 백업 애플리케이션용 표준 로컬 저장소를 제공합니다. StorSimple을 사용하여 최근 백업을 빠르게 복원할 수도 있습니다.
+-   클라우드 계층화는 비용 효율적인 Azure Storage를 사용할 수 있도록 Azure 클라우드 스토리지 계정과 완벽하게 통합됩니다.
 -   재해 복구를 위해 오프사이트 저장소를 자동으로 제공합니다.
 
 ## <a name="key-concepts"></a>주요 개념
 
 모든 저장소 솔루션과 마찬가지로 중요한 성공 요소로서 솔루션의 저장소 성능, SLA, 변경률 및 용량 증가 요구 사항을 신중하게 평가해야 합니다. 기본 아이디어는 해당 작업을 수행하기 위해 클라우드 계층, 액세스 시간 및 처리량을 클라우드에 도입하여 StorSimple의 기능에서 중심적인 역할을 수행하는 것입니다.
 
-StorSimple은 잘 정의된 데이터(핫 데이터)의 작업 집합에서 작동하는 응용 프로그램에 대한 저장소를 제공하도록 설계되었습니다. 이 모델에서 데이터의 작업 집합은 로컬 계층에 저장되고 데이터의 나머지 비작업/콜드/보관 집합은 클라우드에서 계층화됩니다. 다음 그림에서 이 모델을 나타냅니다. 평평한 녹색선은 StorSimple 디바이스의 로컬 계층에 저장된 데이터를 나타냅니다. 빨간색 선은 모든 계층에서 StorSimple 솔루션에 저장된 총 데이터 양을 나타냅니다. 평편한 녹색선과 빨강색 지수 곡선 사이의 간격은 클라우드에 저장된 데이터의 총량을 나타냅니다.
+StorSimple은 잘 정의된 데이터(핫 데이터)의 작업 집합에서 작동하는 애플리케이션에 대한 저장소를 제공하도록 설계되었습니다. 이 모델에서 데이터의 작업 집합은 로컬 계층에 저장되고 데이터의 나머지 비작업/콜드/보관 집합은 클라우드에서 계층화됩니다. 다음 그림에서 이 모델을 나타냅니다. 평평한 녹색선은 StorSimple 디바이스의 로컬 계층에 저장된 데이터를 나타냅니다. 빨간색 선은 모든 계층에서 StorSimple 솔루션에 저장된 총 데이터 양을 나타냅니다. 평편한 녹색선과 빨강색 지수 곡선 사이의 간격은 클라우드에 저장된 데이터의 총량을 나타냅니다.
 
 **StorSimple 계층화**
 ![StorSimple 계층화 다이어그램](./media/storsimple-configure-backup-target-using-backup-exec/image1.jpg)
@@ -77,7 +77,7 @@ StorSimple은 다음과 같은 이점을 제공합니다.
 -   클라우드의 데이터 암호화
 -   향상된 재해 복구 및 규정 준수
 
-StorSimple은 기본 백업 대상과 보조 백업 대상이라는 두 가지 주요 배포 시나리오를 제공하지만 기본적으로는 일반 블록 저장소 디바이스입니다. StorSimple은 모든 압축 및 중복 제거를 수행합니다. 클라우드와 응용 프로그램 및 파일 시스템 간에 데이터를 원활하게 전송하고 검색합니다.
+StorSimple은 기본 백업 대상과 보조 백업 대상이라는 두 가지 주요 배포 시나리오를 제공하지만 기본적으로는 일반 블록 저장소 디바이스입니다. StorSimple은 모든 압축 및 중복 제거를 수행합니다. 클라우드와 애플리케이션 및 파일 시스템 간에 데이터를 원활하게 전송하고 검색합니다.
 
 StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브리드 클라우드 저장소 솔루션](storsimple-overview.md)을 참조하세요. 또한 [StorSimple 8000 시리즈 기술 사양](storsimple-technical-specifications-and-compliance.md)도 검토할 수 있습니다.
 
@@ -105,7 +105,7 @@ StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브�
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>기본 백업 대상인 StorSimple
 
-이 시나리오에서 StorSimple 볼륨은 백업을 위한 유일한 리포지토리로서 백업 응용 프로그램에 제공됩니다. 다음 그림에서는 모든 백업이 백업 및 복원을 위해 계층화된 StorSimple 볼륨을 사용하는 솔루션 아키텍처를 보여 줍니다.
+이 시나리오에서 StorSimple 볼륨은 백업을 위한 유일한 리포지토리로서 백업 애플리케이션에 제공됩니다. 다음 그림에서는 모든 백업이 백업 및 복원을 위해 계층화된 StorSimple 볼륨을 사용하는 솔루션 아키텍처를 보여 줍니다.
 
 ![기본 백업 대상 논리 다이어그램인 StorSimple](./media/storsimple-configure-backup-target-using-backup-exec/primarybackuptargetlogicaldiagram.png)
 
@@ -456,7 +456,7 @@ StorSimple 클라우드 스냅숏은 StorSimple 디바이스에 있는 데이터
     ![Backup Exec 콘솔 - 백업 옵션, 전처리 및 후처리 명령 탭](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
 
 > [!NOTE]
-> 매일 백업 작업의 끝에서 StorSimple 클라우드 스냅숏 백업 정책을 후처리 스크립트로 실행하는 것이 좋습니다. RPO 및 RTO를 충족할 수 있도록 백업 응용 프로그램 환경을 백업 및 복원하는 방법에 대한 자세한 내용은 백업 설계자에게 문의하세요.
+> 매일 백업 작업의 끝에서 StorSimple 클라우드 스냅숏 백업 정책을 후처리 스크립트로 실행하는 것이 좋습니다. RPO 및 RTO를 충족할 수 있도록 백업 애플리케이션 환경을 백업 및 복원하는 방법에 대한 자세한 내용은 백업 설계자에게 문의하세요.
 
 ## <a name="storsimple-as-a-restore-source"></a>복원 원본인 StorSimple
 

@@ -2,10 +2,10 @@
 title: Azure AD Connect - AD FS 팜에 대한 SSL 인증서 업데이트 | Microsoft Docs
 description: 이 문서에서는 Azure AD Connect를 사용하여 AD FS 팜의 SSL 인증서를 업데이트하는 단계를 자세히 설명합니다.
 services: active-directory
-manager: mtillman
+manager: daveba
 editor: billmath
 ms.assetid: 7c781f61-848a-48ad-9863-eb29da78f53c
-ms.service: active-directory
+ms.service: active-directory  
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,19 +15,19 @@ ms.component: hybrid
 author: billmath
 ms.custom: seohack1
 ms.author: billmath
-ms.openlocfilehash: 8320eae9e1c12123a4379887124dee810998c4e3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cd9d20065c0be580c415100fae470b362b19a3de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309532"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474611"
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>AD FS(Active Directory Federation Services) 팜에 대한 SSL 인증서 업데이트
 
 ## <a name="overview"></a>개요
 이 문서에서는 Azure AD Connect를 사용하여 AD FS(Active Directory Federation Services) 팜에 대한 SSL 인증서를 업데이트하는 방법을 설명합니다. 선택된 사용자 로그인 방법이 AD FS가 아닌 경우에도 Azure AD Connect 도구를 사용하여 AD FS 팜의 SSL 인증서를 쉽게 업데이트할 수 있습니다.
 
-간단한 3단계에 따라 모든 페더레이션 및 WAP(웹 응용 프로그램 프록시) 서버 간에 AD FS 팜의 SSL 인증서를 업데이트하는 전체 작업을 수행할 수 있습니다.
+간단한 3단계에 따라 모든 페더레이션 및 WAP(웹 애플리케이션 프록시) 서버 간에 AD FS 팜의 SSL 인증서를 업데이트하는 전체 작업을 수행할 수 있습니다.
 
 ![3단계](./media/how-to-connect-fed-ssl-update/threesteps.png)
 

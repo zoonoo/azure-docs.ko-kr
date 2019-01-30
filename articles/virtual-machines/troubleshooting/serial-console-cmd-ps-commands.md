@@ -166,15 +166,15 @@ Windows 방화벽을 일시적으로 제외하는 문제를 해결하려면 이 
 `604800000`을 사용하여 24시간 대신 7일을 되돌아봅니다.
 ### <a name="query-event-log-by-event-id-provider-and-eventdata-in-the-last-7-days"></a>지난 7 일 이내 이벤트 ID, 공급자 및 EventData로 이벤트 로그 쿼리
 `wevtutil qe security /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windows-Security-Auditing'] and EventID=4624 and TimeCreated[timediff(@SystemTime) <= 604800000]] and EventData[Data[@Name='TargetUserName']='<username>']]" | more`
-## <a name="view-or-remove-installed-applications"></a>설치된 응용 프로그램 보기 또는 제거
-### <a name="list-installed-applications"></a>설치된 응용 프로그램 나열
+## <a name="view-or-remove-installed-applications"></a>설치된 애플리케이션 보기 또는 제거
+### <a name="list-installed-applications"></a>설치된 애플리케이션 나열
 `wmic product get Name,InstallDate | sort /r | more`
 
 `sort /r`은 설치 날짜를 기준으로 내림차순으로 정렬해 최근에 설치된 것을 쉽게 알 수 있습니다. `<spacebar>`를 사용하여 출력의 다음 페이지로 이동하거나 `<enter>`를 사용하여 한 줄씩 이동합니다.
-### <a name="uninstall-an-application"></a>응용 프로그램 제거
+### <a name="uninstall-an-application"></a>애플리케이션 제거
 `wmic path win32_product where name="<name>" call uninstall`
 
-제거하려는 응용 프로그램에 대해 위의 명령에서 반환된 이름으로 `<name>`을 대체합니다.
+제거하려는 애플리케이션에 대해 위의 명령에서 반환된 이름으로 `<name>`을 대체합니다.
 
 ## <a name="file-system-management"></a>파일 시스템 관리
 ### <a name="get-file-version"></a>파일 버전 가져오기
@@ -399,7 +399,7 @@ SAC에서 PowerShell을 실행하려면 CMD 프롬프트가 표시된 후 다음
 `604800000`을 사용하여 24시간 대신 7일을 되돌아봅니다. |
 ### <a name="query-event-log-by-event-id-provider-and-eventdata-in-the-last-7-days"></a>지난 7 일 이내 이벤트 ID, 공급자 및 EventData로 이벤트 로그 쿼리
 `get-winevent -logname system -maxevents 1 -filterxpath "*[System[Provider[@Name='Microsoft-Windows-Security-Auditing'] and EventID=4624 and TimeCreated[timediff(@SystemTime) <= 604800000]] and EventData[Data[@Name='TargetUserName']='<username>']]" | more`
-## <a name="view-or-remove-installed-applications"></a>설치된 응용 프로그램 보기 또는 제거
+## <a name="view-or-remove-installed-applications"></a>설치된 애플리케이션 보기 또는 제거
 ### <a name="list-installed-software"></a>설치된 소프트웨어 나열하기
 `get-wmiobject win32_product | select installdate,name | sort installdate -descending | more`
 ### <a name="uninstall-software"></a>소프트웨어 제거

@@ -8,13 +8,13 @@ ms.author: maxluk
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.openlocfilehash: dc1fe8a3d9a1f0da0a190275b4fbb8bd18fff610
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.date: 01/08/2019
+ms.openlocfilehash: d1eeedfd91dfe1d4a174a3cbed2c0db826a8d5ab
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499138"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117863"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Apache Spark 작업 최적화
 
@@ -24,7 +24,7 @@ ms.locfileid: "52499138"
 
 ## <a name="choose-the-data-abstraction"></a>데이터 추상화 선택
 
-Spark 1.x는 RDD를 사용하여 데이터를 추상화한 다음, Spark 2.x에서 데이터 프레임 및 데이터 세트를 도입했습니다. 다음 상대적인 장점을 고려합니다.
+초기 Spark 버전에서는 RDD를 사용하여 데이터를 추상화하며, Spark 1.3과 1.6에서는 각각 데이터 프레임과 데이터 세트가 도입되었습니다. 다음 상대적인 장점을 고려합니다.
 
 * **데이터 프레임**
     * 대부분의 상황에서 최선의 선택
@@ -33,7 +33,7 @@ Spark 1.x는 RDD를 사용하여 데이터를 추상화한 다음, Spark 2.x에�
     * 직접 메모리 액세스
     * 낮은 GC(가비지 수집) 오버헤드
     * 컴파일 시간 검사나 도메인 개체 프로그래밍이 없으므로 데이터 세트처럼 개발자에게 친숙하지 않음
-* **데이터 집합**
+* **데이터 세트**
     * 성능에 미치는 영향이 허용되는 복잡한 ETL 파이프라인에서 우수함
     * 성능에 미치는 영향이 큰 집계에서는 좋지 않음
     * Catalyst를 통해 쿼리 최적화 제공
@@ -42,7 +42,7 @@ Spark 1.x는 RDD를 사용하여 데이터를 추상화한 다음, Spark 2.x에�
     * 높은 GC 오버헤드
     * 전체 단계 코드 생성 중단
 * **RDD**
-    * Spark 2.x에서는 새 사용자 지정 RDD를 빌드할 필요가 없는 경우 RDD를 사용할 필요가 없음
+    * 새 사용자 지정 RDD를 빌드할 필요가 없는 경우 RDD를 사용할 필요가 없습니다.
     * Catalyst를 통해 쿼리 최적화 안 함
     * 전체 단계 코드 생성 안 함
     * 높은 GC 오버헤드
@@ -50,18 +50,18 @@ Spark 1.x는 RDD를 사용하여 데이터를 추상화한 다음, Spark 2.x에�
 
 ## <a name="use-optimal-data-format"></a>최적의 데이터 형식 사용
 
-Spark는 csv, json, xml, parquet, orc, avro 등의 여러 가지 형식을 지원합니다. Spark는 외부 데이터 소스를 사용하여 더 많은 형식을 지원하도록 확장될 수 있습니다. 자세한 내용은 [Spark 패키지](https://spark-packages.org)를 참조하세요.
+Spark는 csv, json, xml, parquet, orc, avro 등의 여러 가지 형식을 지원합니다. Spark는 외부 데이터 소스를 사용하여 더 많은 형식을 지원하도록 확장될 수 있습니다. 자세한 내용은 [Apache Spark 패키지](https://spark-packages.org)를 참조하세요.
 
 성능에 가장 적합한 형식은 *snappy 압축*을 사용하는 parquet으로, Spark 2.x의 기본값입니다. Parquet은 데이터를 열 형식으로 저장하며 Spark에서 매우 최적화되어 있습니다.
 
 ## <a name="select-default-storage"></a>기본 저장소 선택
 
-새 Spark 클러스터를 만들 때 Azure Blob Storage 또는 Azure Data Lake Store를 클러스터의 기본 저장소로 선택할 수 있습니다. 두 옵션 모두 임시 클러스터의 장기간 저장소의 이점을 제공하므로 클러스터를 삭제할 때 데이터가 자동으로 삭제되지 않습니다. 임시 클러스터를 다시 만들고 해당 데이터에 계속 액세스할 수 있습니다.
+새 Spark 클러스터를 만들 때 Azure Blob Storage 또는 Azure Data Lake Storage를 클러스터의 기본 스토리지로 선택할 수 있습니다. 두 옵션 모두 임시 클러스터의 장기간 저장소의 이점을 제공하므로 클러스터를 삭제할 때 데이터가 자동으로 삭제되지 않습니다. 임시 클러스터를 다시 만들고 해당 데이터에 계속 액세스할 수 있습니다.
 
 | 저장소 유형 | 파일 시스템 | 속도 | 임시 | 사용 사례 |
 | --- | --- | --- | --- | --- |
-| Azure Blob Storage | **wasb:**//url/ | **Standard** | yes | 임시 클러스터 |
-| Azure Data Lake Store | **adl:**//url/ | **보다 빠름** | yes | 임시 클러스터 |
+| Azure Blob Storage | **wasb:**//url/ | **Standard** | 예 | 임시 클러스터 |
+| Azure Data Lake 저장소 | **adl:**//url/ | **보다 빠름** | 예 | 임시 클러스터 |
 | 로컬 HDFS | **hdfs:**//url/ | **가장 빠름** | 아니요 | 대화형 24/7 클러스터 |
 
 ## <a name="use-the-cache"></a>캐시 사용
@@ -73,7 +73,7 @@ Spark는 `.persist()`, `.cache()`, `CACHE TABLE`과 같은 다양한 방법을 �
     * 분할에서는 작동하지 않으며 향후 Spark 릴리스에서 변경될 수 있음
 
 * 저장소 수준 캐싱(권장)
-    * [Alluxio](http://www.alluxio.org/)를 사용하여 구현될 수 있음
+    * [Alluxio](https://www.alluxio.org/)를 사용하여 구현될 수 있음
     * 메모리 내 캐싱 및 SSD 캐싱 사용
 
 * 로컬 HDFS(권장)
@@ -187,11 +187,11 @@ Spark 클러스터 워크로드에 따라 기본이 아닌 Spark 구성을 사�
 동시 쿼리를 실행할 때는 다음 사항을 고려합니다.
 
 1. 실행기당 30GB와 모든 컴퓨터 코어를 사용하여 시작합니다.
-2. CPU를 초과 구독하여(약 30%의 대기 시간 개선) 여러 병렬 Spark 응용 프로그램을 만듭니다.
-3. 병렬 응용 프로그램에서 쿼리를 배포합니다.
+2. CPU를 초과 구독하여(약 30%의 대기 시간 개선) 여러 병렬 Spark 애플리케이션을 만듭니다.
+3. 병렬 애플리케이션에서 쿼리를 배포합니다.
 4. 평가판 실행과 GC 오버헤드와 같은 이전 요인을 모두 고려하여 크기를 늘리거나 줄입니다.
 
-타임라인 보기, SQL 그래프, 작업 통계 등을 확인하여 이상값 또는 다른 성능 문제의 쿼리 성능을 모니터링합니다. 경우에 따라 하나 또는 몇 개의 실행기가 다른 실행기보다 느린 경우 작업을 실행하는 데 훨씬 많은 시간이 소요될 수 있습니다. 이러한 현상은 대규모 클러스터(30개가 넘는 노드)에서 자주 발생합니다. 이 경우 스케줄러가 느린 작업을 보정할 수 있도록 작업을 더 많은 수로 나눕니다. 예를 들어 응용 프로그램에서 실행기 코어의 수보다 최소한 두 배의 작업이 있어야 합니다. `conf: spark.speculation = true`를 사용하면 작업을 추측에 근거하여 실행해 볼 수 있습니다.
+타임라인 보기, SQL 그래프, 작업 통계 등을 확인하여 이상값 또는 다른 성능 문제의 쿼리 성능을 모니터링합니다. 경우에 따라 하나 또는 몇 개의 실행기가 다른 실행기보다 느린 경우 작업을 실행하는 데 훨씬 많은 시간이 소요될 수 있습니다. 이러한 현상은 대규모 클러스터(30개가 넘는 노드)에서 자주 발생합니다. 이 경우 스케줄러가 느린 작업을 보정할 수 있도록 작업을 더 많은 수로 나눕니다. 예를 들어 애플리케이션에서 실행기 코어의 수보다 최소한 두 배의 작업이 있어야 합니다. `conf: spark.speculation = true`를 사용하면 작업을 추측에 근거하여 실행해 볼 수 있습니다.
 
 ## <a name="optimize-job-execution"></a>작업 실행 최적화
 
@@ -202,7 +202,7 @@ Spark 클러스터 워크로드에 따라 기본이 아닌 Spark 구성을 사�
 성능 문제에 대해 정기적으로 실행 중인 작업을 모니터링합니다. 특정 문제에 대한 자세한 통찰력이 필요한 경우 다음과 같은 성능 프로파일링 도구 중 하나를 고려합니다.
 
 * [Intel PAL 도구](https://github.com/intel-hadoop/PAT)는 CPU, 저장소 및 네트워크 대역폭 사용률을 모니터링합니다.
-* [Oracle Java 8 Mission Control](http://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html)은 Spark 및 실행기 코드를 프로파일링합니다.
+* [Oracle Java 8 Mission Control](https://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html)은 Spark 및 실행기 코드를 프로파일링합니다.
 
 Spark 2.x 쿼리 성능의 핵심은 텅스텐 엔진으로, 전단계 코드 생성에 따라 달라집니다. 경우에 따라 전단계 코드 생성이 사용하지 않도록 설정될 수 있습니다. 예를 들어 집계식에서 변경이 불가능한 유형(`string`)을 사용하면 `HashAggregate` 대신 `SortAggregate`이 표시됩니다. 예를 들어 성능을 향상시키려면 다음을 시도한 다음 코드 생성을 다시 사용하도록 설정합니다.
 

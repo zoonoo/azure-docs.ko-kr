@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: jerskine
-ms.openlocfilehash: 43f30989fa09e711fc71941e7722dcd195212472
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.lastreviewed: 01/28/2019
+ms.openlocfilehash: 0755f9d60bee8a57f9259a51cf54e8cda566175e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416242"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247020"
 ---
 # <a name="validate-graph-integration-for-azure-stack"></a>Azure Stack에 대 한 그래프 통합 유효성 검사
 
@@ -107,7 +108,7 @@ Azure Stack 데이터 센터 통합에 대 한 자세한 내용은 참조 하세
 사용:
 
 * **-OutputPath**: 합니다 *경로* 끝 다른 보고서 위치를 지정 하려면 실행된 명령에 매개 변수입니다.
-* **-CleanReport**: 제거할 실행 명령의 끝에 있는 매개 변수 *AzsReadinessCheckerReport.json* 이전 보고서 정보입니다. 자세한 내용은 [Azure Stack 유효성 검사 보고서](azure-stack-validation-report.md)합니다.
+* **-CleanReport**: 선택을 실행 명령의 끝에 있는 매개 변수 *AzsReadinessCheckerReport.json* 이전 보고서 정보입니다. 자세한 내용은 [Azure Stack 유효성 검사 보고서](azure-stack-validation-report.md)합니다.
 
 ## <a name="validation-failures"></a>유효성 검사 실패
 

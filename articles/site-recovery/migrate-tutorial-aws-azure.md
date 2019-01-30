@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cd3229773b19b9f6c4d9ff76402f1841a4810bc7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4674428cf96562670b0e24e5ac93a2f2979128da
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851131"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042056"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services)에서 Azure로 VM 마이그레이션
 
@@ -33,12 +33,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 - 마이그레이션할 VM이 지원되는 OS 버전을 실행하고 있는지 확인합니다. 지원되는 버전은 다음과 같습니다. 
-  - Windows Server 2016 
-  - Windows Server 2012 R2
-  - Windows Server 2012 
-  - 64비트 버전의 Windows Server 2008 R2 SP1 이상
-  - Red Hat Enterprise Linux 6.7(HVM 가상화된 인스턴스만 해당)(Citrix PV 또는 AWS PV 드라이버 포함). RedHat PV 드라이버를 실행하는 인스턴스는 지원되지 *않습니다*.
- - 복제하려는 각 VM에 모바일 서비스가 설치되어야 합니다. 
+      - Windows Server 2016 
+      - Windows Server 2012 R2
+      - Windows Server 2012 
+      - 64비트 버전의 Windows Server 2008 R2 SP1 이상
+      - Red Hat Enterprise Linux 6.4~6.10, 7.1~7.6(HVM 가상화된 인스턴스만 해당) *(RedHat PV 드라이버를 실행하는 인스턴스는 지원되지 않음)*
+      - CentOS 6.4~6.10, 7.1~7.6(HVM 가상화된 인스턴스만 해당)
+ 
+- 복제하려는 각 VM에 모바일 서비스가 설치되어야 합니다. 
 
     > [!IMPORTANT]
     > Site Recovery에서 VM에 대한 복제를 사용하도록 설정하면 이 서비스를 자동으로 설치합니다. 자동 설치가 되려면 Site Recovery가 VM에 액세스하는 데 사용할 EC2 인스턴스 계정을 준비해야 합니다. 도메인 또는 로컬 계정을 사용할 수 있습니다. 
@@ -138,7 +140,7 @@ Azure Portal의 자격 증명 모음 페이지에 있는 **시작** 섹션에서
 
 구성 서버 설정을 마치면 포털로 돌아가서 **구성 서버** 에 대해 방금 만든 서버를 선택합니다. **확인**을 선택하여 3: 대상 준비로 이동합니다.
 
-### <a name="3-prepare-target"></a>3. 대상 준비
+### <a name="3-prepare-target"></a>3: 대상 준비
 
 이 섹션에서는 이 자습서 앞부분의 [Azure 리소스 준비](#prepare-azure-resources)에서 만든 리소스에 대한 정보를 입력합니다.
 
@@ -169,7 +171,7 @@ Azure Portal의 자격 증명 모음 페이지에 있는 **시작** 섹션에서
 
 1. [Azure 포털](htts://portal.azure.com)로 이동합니다.
 1. 자격 증명 모음에 대한 페이지의 **시작**에서 **사이트 복구**를 선택합니다.
-2. **온-프레미스 컴퓨터 및 Azure VM의 경우**에서 **1단계: 응용 프로그램 복제**를 선택합니다. 다음 정보로 마법사 페이지를 완성합니다. 완료될 때마다 각 페이지에서 **확인**을 선택합니다.
+2. **온-프레미스 머신 및 Azure VM의 경우**에서 **1단계: 애플리케이션 복제**를 선택합니다. 다음 정보로 마법사 페이지를 완성합니다. 완료될 때마다 각 페이지에서 **확인**을 선택합니다.
     - 1: 원본 구성
 
     |  |  |
@@ -192,7 +194,7 @@ Azure Portal의 자격 증명 모음 페이지에 있는 **시작** 섹션에서
     | 사후 장애 조치(failover) Azure 네트워크: | [Azure 리소스 준비](#prepare-azure-resources)에서 만든 네트워크를 선택합니다.|
     | 서브넷: | 드롭다운 목록에서 **기본값**을 선택합니다.|
 
-    - 3: 물리적 컴퓨터 선택
+    - 3: 물리적 머신 선택
 
       **물리적 컴퓨터**를 선택한 다음, 마이그레이션할 EC2 인스턴스의 **이름**, **IP 주소** 및 **OS 유형**을 입력합니다. **확인**을 선택합니다.
 

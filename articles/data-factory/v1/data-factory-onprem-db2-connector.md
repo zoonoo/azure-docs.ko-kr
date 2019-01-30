@@ -9,17 +9,16 @@ ms.assetid: c1644e17-4560-46bb-bf3c-b923126671f1
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 88e56f522545f9c1f38bf0d0fdbcebdc171c294b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c7a3893c35031d05ea8aade0ad5d30b5a56176fd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046533"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015137"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory 복사 활동을 사용하여 DB2에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +57,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 
 > [!TIP]
 > "SQL 문 실행 요청에 해당하는 패키지가 없습니다. SQLSTATE=51002 SQLCODE=-805"라는 오류 메시지가 표시되면 OS에 일반 사용자에게 필요한 패키지가 만들어지지 않은 것입니다. 이 문제를 해결하려면 DB2 서버 유형에 대한 다음 지침을 따릅니다.
-> - i(AS400)용 DB2: 복사 활동을 실행하기 전에 고급 사용자가 일반 사용자에 대한 컬렉션을 만들 수 있도록 합니다. 컬렉션을 만들려면 `create collection <username>` 명령을 사용합니다.
+> - i용 DB2(AS400): 복사 활동을 실행하기 전에 고급 사용자가 일반 사용자에 대한 컬렉션을 만들 수 있도록 합니다. 컬렉션을 만들려면 `create collection <username>` 명령을 사용합니다.
 > - z/OS 또는 LUW용 DB2: 높은 권한 계정(패키지 권한 및 BIND, BINDADD, GRANT EXECUTE TO PUBLIC 권한이 있는 고급 사용자 또는 관리자)을 사용하여 복사를 한 번 실행합니다. 필요한 패키지는 복사 중에 자동으로 만들어집니다. 나중에 후속 복사 실행을 위해 일반 사용자로 다시 전환할 수 있습니다.
 
 ## <a name="getting-started"></a>시작
@@ -73,7 +72,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 2. 복사 활동의 입력 및 출력 데이터를 나타내는 데이터 세트를 만듭니다. 
 3. 입력과 출력으로 각각의 데이터 세트를 사용하는 복사 활동이 포함된 파이프라인을 만듭니다. 
 
-복사 마법사를 사용하는 경우 Data Factory 연결된 서비스, 데이터 세트 및 파이프라인 엔터티에 대한 JSON 정의가 자동으로 만들어집니다. 도구 또는 API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 Data Factory 엔터티를 정의합니다. [JSON 예제: DB2에서 Azure Blob 저장소로 데이터 복사](#json-example-copy-data-from-db2-to-azure-blob)에서는 온-프레미스 DB2 데이터 저장소에서 데이터를 복사하는 데 사용되는 Data Factory 엔터티에 대한 JSON 정의를 보여 줍니다.
+복사 마법사를 사용하는 경우 Data Factory 연결된 서비스, 데이터 세트 및 파이프라인 엔터티에 대한 JSON 정의가 자동으로 만들어집니다. 도구 또는 API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 Data Factory 엔터티를 정의합니다. [JSON 예제: DB2에서 Azure Blob Storage로 데이터 복사](#json-example-copy-data-from-db2-to-azure-blob)에서는 온-프레미스 DB2 데이터 스토리지에서 데이터를 복사하는 데 사용되는 Data Factory 엔터티에 대한 JSON 정의를 보여 줍니다.
 
 다음 섹션에서는 DB2 데이터 저장소와 관련된 Data Factory 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다.
 
@@ -85,16 +84,16 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | **type** |이 속성을 **OnPremisesDb2**로 설정해야 합니다. |예 |
 | **server** |DB2 서버의 이름입니다. |예 |
 | **database** |DB2 데이터베이스의 이름입니다. |예 |
-| **schema** |DB2 데이터베이스의 스키마 이름입니다. 대/소문자를 구분합니다. |아니오 |
-| **authenticationType** |DB2 데이터베이스에 연결하는 데 사용되는 인증 유형입니다. 가능한 값은 Anonymous, Basic 및 Windows입니다. |예 |
-| **사용자 이름** |Basic 또는 Windows 인증을 사용하는 경우 사용자 계정의 이름입니다. |아니오 |
-| **암호** |사용자 계정의 암호입니다. |아니오 |
+| **schema** |DB2 데이터베이스의 스키마 이름입니다. 대/소문자를 구분합니다. |아니요 |
+| **authenticationType** |DB2 데이터베이스에 연결하는 데 사용되는 인증 유형입니다. 사용 가능한 값은 익명, 기본 및 Windows입니다. |예 |
+| **사용자 이름** |Basic 또는 Windows 인증을 사용하는 경우 사용자 계정의 이름입니다. |아니요 |
+| **암호** |사용자 계정의 암호입니다. |아니요 |
 | **gatewayName** |Data Factory 서비스에서 온-프레미스 DB2 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 데이터 세트를 정의하는 데 사용할 수 있는 섹션 및 속성 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. JSON 데이터 세트에 대한 **structure**, **availability** 및 **policy**과 같은 섹션은 모든 데이터 세트 유형(Azure SQL, Azure Blob 저장소, Azure Table 저장소 등)에서 비슷합니다.
 
-**typeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. DB2 데이터 세트를 포함하는 **RelationalTable** 형식의 데이터 세트에 대한 **typeProperties** 섹션에는 다음과 같은 속성이 있습니다.
+**typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. DB2 데이터 세트를 포함하는 **RelationalTable** 형식의 데이터 세트에 대한 **typeProperties** 섹션에는 다음과 같은 속성이 있습니다.
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
@@ -112,15 +111,15 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 > [!NOTE]
 > 스키마 및 테이블 이름은 대/소문자를 구분합니다. 쿼리 문에서 ""(큰 따옴표)를 사용하여 속성 이름을 묶습니다.
 
-## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>JSON 예제: DB2에서 Azure Blob 저장소로 데이터 복사
+## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>JSON 예제: DB2에서 Azure Blob Storage로 데이터 복사
 이 예제에서는 [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. DB2 데이터베이스에서 Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory 복사 활동을 사용하여 [지원되는 데이터 저장소 싱크 형식](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 데이터를 복사할 수 있습니다.
 
 샘플에 포함된 Data Factory 엔터티는 다음과 같습니다.
 
 - [OnPremisesDb2](data-factory-onprem-db2-connector.md#linked-service-properties) 형식의 DB2 연결된 서비스
-- [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 Azure Blob 저장소 연결된 서비스
-- [RelationalTable](data-factory-onprem-db2-connector.md#dataset-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)
-- [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
+- [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 Azure Blob 스토리지 연결된 서비스
+- [RelationalTable](data-factory-onprem-db2-connector.md#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)
+- [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
 - [RelationalSource](data-factory-onprem-db2-connector.md#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) 속성을 사용하는 복사 활동이 있는 [파이프라인](data-factory-create-pipelines.md)
 
 샘플은 DB2 데이터베이스의 쿼리 결과에서 Azure Blob에 매시간 데이터를 복사합니다. 샘플에 사용된 JSON 속성은 엔터티 정의 뒤에 나오는 섹션에서 설명됩니다.
@@ -161,7 +160,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 }
 ```
 
-**DB2 입력 데이터 집합**
+**DB2 입력 데이터 세트**
 
 샘플에서는 시계열 데이터에 대한 "timestamp"라는 열이 있는 "MyTable"이라는 DB2 테이블을 만들었다고 가정합니다.
 
@@ -191,7 +190,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 }
 ```
 
-**Azure Blob 출력 데이터 집합**
+**Azure Blob 출력 데이터 세트**
 
 **frequency** 속성을 "Hour"로 설정하고 **interval** 속성을 1로 설정하여 매시간 새 Blob에 데이터를 씁니다. Blob에 대한 **folderPath** 속성은 처리 중인 조각의 시작 시간에 따라 동적으로 평가됩니다. 폴더 경로는 시작 시간의 년, 월, 일 및 시 부분을 사용합니다.
 

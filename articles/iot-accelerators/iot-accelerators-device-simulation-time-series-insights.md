@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights로 디바이스 시뮬레이션 원격 분석 시각화 | Microsoft Docs
+title: Time Series Insights로 디바이스 시뮬레이션 원격 분석 시각화 - Azure | Microsoft Docs
 description: 디바이스 시뮬레이션 솔루션 가속기에서 생성된 원격 분석을 탐색하고 분석하도록 Time Series Insights 환경을 구성하는 방법을 알아봅니다.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 49cecca4e5ebef9f43fdda16cfa1fdc2ad7b6f94
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: aea02cbde32d9485bd49ec39a6f300021c6ef927
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43383042"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597701"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Time Series Insights를 사용하여 디바이스 시뮬레이션 솔루션 가속기에서 보낸 원격 분석 시각화
 

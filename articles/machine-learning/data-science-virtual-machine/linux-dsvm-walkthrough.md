@@ -1,11 +1,13 @@
 ---
-title: Azure에서 Linux 데이터 과학 Virtual Machine을 사용하여 데이터 과학 | Microsoft Docs
+title: Linux Data Science Virtual Machine을 사용하는 방법 알아보기
+titleSuffix: Azure
 description: Linux 데이터 과학 VM을 사용하여 몇 가지 일반적인 데이터 과학 작업을 수행하는 방법입니다.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
 editor: cgronlun
+ms.custom: seodec18
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,17 +17,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 49956234c00129508254b96d7d63a4b30af3ad55
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: d6e4cc585c1239d6a1b81b371f39fc19e3ff37ea
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037586"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157176"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Azure에서 Linux 데이터 과학 Virtual Machine을 사용하여 데이터 과학
 이 연습에서는 Linux 데이터 과학 VM을 사용하여 몇 가지 일반 데이터 과학 작업을 수행하는 방법을 보여 줍니다. Linux DSVM(데이터 과학 Virtual Machine)은 데이터 분석 및 기계 학습에 흔히 사용되는 도구 모음과 함께 미리 설치된, Azure에서 사용 가능한 가상 머신 이미지입니다. 주요 소프트웨어 구성 요소는 [Linux 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md) 항목에 항목별로 나와 있습니다. VM 이미지를 사용하면 각 도구를 개별적으로 설치하고 구성할 필요 없이 몇 분 내에 데이터 과학 작업을 쉽게 시작할 수 있습니다. 필요한 경우 VM을 쉽게 확장하고 사용하지 않을 때 중지할 수 있습니다. 따라서 이 리소스는 탄력적이고 비용 효율적입니다.
 
-이 연습에 설명된 데이터 과학 작업은 [팀 데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview)에 설명된 단계를 따릅니다. 이 프로세스는 데이터 과학자 팀이 지능적인 응용 프로그램을 빌드하는 전체 수명 주기를 효율적으로 공동 작업할 수 있도록 데이터 과학에 대한 체계적인 접근 방법을 제공합니다. 또한 데이터 과학 프로세스는 개별 사용자가 수행할 수 있는 데이터 과학을 위한 반복되는 프레임워크를 제공합니다.
+이 연습에 설명된 데이터 과학 작업은 [팀 데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview)에 설명된 단계를 따릅니다. 이 프로세스는 데이터 과학자 팀이 지능적인 애플리케이션을 빌드하는 전체 수명 주기를 효율적으로 공동 작업할 수 있도록 데이터 과학에 대한 체계적인 접근 방법을 제공합니다. 또한 데이터 과학 프로세스는 개별 사용자가 수행할 수 있는 데이터 과학을 위한 반복되는 프레임워크를 제공합니다.
 
 이 연습에서는 [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 데이터 세트를 분석합니다. 이는 스팸 또는 햄(스팸이 아니라는 의미)으로 표시되는 메일 집합이며 메일의 내용에 대한 일부 통계도 포함합니다. 포함되어 있는 통계는 다음 한 섹션에만 설명되어 있습니다.
 
@@ -39,7 +41,7 @@ Linux 데이터 과학 Virtual Machine을 사용하려면 먼저 다음이 있�
 * **AzureML 계정**. 아직 없을 경우 [AzureML 홈 페이지](https://studio.azureml.net/)에서 새 계정을 등록합니다. 시작할 수 있도록 무료 사용 계층을 제공합니다.
 
 ## <a name="download-the-spambase-dataset"></a>spambase 데이터 세트 다운로드
-[spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 데이터 집합은 4601개의 예제만 포함하는 비교적 작은 데이터 집합입니다. 이 데이터 집합은 리소스 요구 사항을 적절하게 유지하도록 하므로 데이터 과학 VM의 몇 가지 주요 기능을 보여 줄 때 사용하기 적합한 크기입니다.
+[spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 데이터 세트는 4601개의 예제만 포함하는 비교적 작은 데이터 세트입니다. 이 데이터 집합은 리소스 요구 사항을 적절하게 유지하도록 하므로 데이터 과학 VM의 몇 가지 주요 기능을 보여 줄 때 사용하기 적합한 크기입니다.
 
 > [!NOTE]
 > 이 연습은 D2 v2 크기의 Linux Data Science Virtual Machine(CentOS Edition)에서 만들었습니다. 이 크기의 DSVM은 이 연습의 절차를 처리할 수 있습니다.
@@ -99,7 +101,7 @@ R을 사용하여 데이터를 검사하고 몇 가지 기본 Machine Learning�
 
     data$spam <- as.factor(data$spam)
 
-일부 예비 분석을 수행하려면 VM에 이미 설치되어 있는 R에 대한 인기 있는 그래프 작성 라이브러리인 [ggplot2](http://ggplot2.org/) 패키지를 사용합니다. 앞에서 표시된 요약 데이터에서 느낌표 문자의 빈도에 대한 요약 통계가 있습니다. 다음 명령을 사용하여 해당 빈도를 도표로 나타내 보겠습니다.
+일부 예비 분석을 수행하려면 VM에 이미 설치되어 있는 R에 대한 인기 있는 그래프 작성 라이브러리인 [ggplot2](https://ggplot2.tidyverse.org/) 패키지를 사용합니다. 앞에서 표시된 요약 데이터에서 느낌표 문자의 빈도에 대한 요약 통계가 있습니다. 다음 명령을 사용하여 해당 빈도를 도표로 나타내 보겠습니다.
 
     library(ggplot2)
     ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
@@ -316,19 +318,19 @@ DSVM에서 Anaconda 배포에는 Jupyter 노트북, Python R을 공유하는 플
 
 > [!NOTE]
 > 현재 커널의 Jupyter Notebook에서 (`pip` 명령을 통해) Python 패키지 관리자를 사용하려면 다음과 같이 코드 셀에 다음 명령을 사용합니다.
-```python
+  ```python
    import sys
    ! {sys.executable} -m pip install numpy -y
-```
+  ```
 >
 >
 
 > [!NOTE]
 > 현재 커널의 Jupyter Notebook에서 (`conda` 명령을 통해) Conda 설치 관리자를 사용하려면 다음과 같이 코드 셀에 다음 명령을 사용합니다.
-```python
+  ```python
    import sys
    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
-```
+  ```
 >
 >
 
@@ -344,7 +346,7 @@ DSVM에서 Anaconda 배포에는 Jupyter 노트북, Python R을 공유하는 플
 >
 
 ## <a name="rattle"></a>Rattle
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (R Analytical Tool To Learn Easily)은 데이터 마이닝을 위한 그래픽 R 도구입니다. 손쉽게 데이터를 로드, 탐색 및 변환하고 모델을 빌드 및 평가할 수 있는 직관적인 인터페이스가 있습니다.  문서 [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) (Rattle: R에 대한 데이터 마이닝 GUI)은 해당 기능을 보여 주는 연습을 제공합니다.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (R Analytical Tool To Learn Easily)은 데이터 마이닝을 위한 그래픽 R 도구입니다. 손쉽게 데이터를 로드, 탐색 및 변환하고 모델을 빌드 및 평가할 수 있는 직관적인 인터페이스가 있습니다.  문서 [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf)(Rattle: R용 데이터 마이닝 GUI)은 해당 기능을 보여 주는 연습을 제공합니다.
 
 다음 명령을 사용하여 Rattle을 설치하고 시작합니다.
 
@@ -357,7 +359,7 @@ DSVM에서 Anaconda 배포에는 Jupyter 노트북, Python R을 공유하는 플
 >
 >
 
-Rattle은 탭 기반 인터페이스를 사용합니다. 대부분의 탭은 데이터를 로드하거나 탐색하는 등 [데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/data-science-process/)의 단계에 해당합니다. 데이터 과학 프로세스는 탭을 통해 왼쪽에서 오른쪽으로 진행됩니다. 하지만 마지막 탭에는 Rattle에서 실행하는 R 명령의 로그가 있습니다.
+Rattle은 탭 기반 인터페이스를 사용합니다. 대부분의 탭은 데이터를 로드하거나 탐색하는 등 [데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)의 단계에 해당합니다. 데이터 과학 프로세스는 탭을 통해 왼쪽에서 오른쪽으로 진행됩니다. 하지만 마지막 탭에는 Rattle에서 실행하는 R 명령의 로그가 있습니다.
 
 데이터 세트를 로드하고 구성하려면
 
@@ -477,7 +479,7 @@ PostgreSQL용 대화형 터미널인 psql을 기본 제공 postgres 사용자로
 
 이제 JDBC 드라이버를 통해 데이터베이스와 상호 작용할 수 있는 그래픽 도구인 **Squirrel SQL**을 사용하여 데이터를 탐색하고 일부 쿼리를 실행하겠습니다.
 
-시작하려면 응용 프로그램 메뉴에서 Squirrel SQL을 실행합니다. 드라이버를 설정하려면
+시작하려면 애플리케이션 메뉴에서 Squirrel SQL을 실행합니다. 드라이버를 설정하려면
 
 * **Windows**를 선택한 다음 **드라이버 보기**를 선택합니다.
 * **PostgreSQL**을 마우스 오른쪽 단추로 클릭하고 **드라이버 수정**을 선택합니다.
@@ -546,4 +548,4 @@ Squirrel SQL을 사용하여 쿼리할 수도 있습니다. ***/usr/share/java/j
 ## <a name="next-steps"></a>다음 단계
 Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는 항목에 대한 개요는 [팀 데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview)를 참조하세요.
 
-특정 시나리오에 대한 팀 데이터 과학 프로세스의 단계를 보여 주는 다른 종단 간 연습에 대한 설명은 [팀 데이터 과학 프로세스 연습](../team-data-science-process/walkthroughs.md)을 참조하세요. 또한 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 설명합니다.
+특정 시나리오에 대한 팀 데이터 과학 프로세스의 단계를 보여 주는 다른 종단 간 연습에 대한 설명은 [팀 데이터 과학 프로세스 연습](../team-data-science-process/walkthroughs.md)을 참조하세요. 또한 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 애플리케이션을 만드는 방법을 설명합니다.

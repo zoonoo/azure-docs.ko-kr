@@ -32,7 +32,7 @@ HeyBuddy를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정으로 HeyBuddy에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -66,13 +66,13 @@ HeyBuddy의 Azure AD 통합을 구성하려면 갤러리의 HeyBuddy를 관리�
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
 
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
 4. 검색 상자에 **HeyBuddy**를 입력하고 결과 패널에서 **HeyBuddy**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
@@ -121,12 +121,12 @@ HeyBuddy에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자(엔터티 ID)로 이러한 값을 업데이트합니다. 로그온 URL의 `Entity ID`는 각 조직에 대해 자동으로 생성됩니다. 이러한 값을 얻으려면 [HeyBuddy 클라이언트 지원 팀](mailto:support@heybuddy.com)에 문의하세요.
 
-5. HeyBuddy 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
+5. HeyBuddy 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
 
     ![이미지](./media/heybuddy-tutorial/tutorial_heybuddy_attribute.png)
 
     >[!NOTE]
-    >응용 프로그램에 대한 역할을 구성 및 설정하는 방법은 이 [링크](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)를 참조하세요.
+    >애플리케이션에 대한 역할을 구성 및 설정하는 방법은 이 [링크](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)를 참조하세요.
 
 6. **사용자 특성 및 클레임** 대화 상자의 **사용자 클레임** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
     
@@ -191,7 +191,7 @@ HeyBuddy에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 HeyBuddy에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 응용 프로그램**을 선택한 다음, **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 
     ![사용자 할당][201]
 

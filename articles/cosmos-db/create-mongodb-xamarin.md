@@ -1,24 +1,21 @@
 ---
-title: 'Azure Cosmos DB: .NET 및 MongoDB API에서 Xamarin.Forms 앱 빌드 | Microsoft Docs'
-description: Azure Cosmos DB MongoDB API에 연결 및 쿼리하는 데 사용할 수 있는 Xamarin 코드 샘플을 제시합니다.
-services: cosmos-db
+title: .NET 및 Azure Cosmos DB의 MongoDB API를 사용하여 Xamarin.Forms 앱 빌드
+description: Azure Cosmos DB의 MongoDB API를 사용하여 연결하고 쿼리할 수 있는 Xamarin 코드 샘플을 제공합니다.
 author: codemillmatt
-manager: kfile
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
-ms.custom: quickstart, xamarin
+ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: 45d299e2d5e1f9c9c454e6b2f77df7cdf8295e5f
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 9236a340c05bc5e342b9fc2c377d6d8eacb94f7d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568712"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036432"
 ---
-# <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>빠른 시작: .NET 및 Azure Portal에서 MongoDB API Xamarin.Forms 앱 빌드
+# <a name="quickstart-quickstart-build-a-xamarinforms-app-with-net-and-azure-cosmos-dbs-api-for-mongodb"></a>빠른 시작: 빠른 시작: .NET 및 Azure Cosmos DB의 MongoDB API를 사용하여 Xamarin.Forms 앱 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -31,7 +28,7 @@ ms.locfileid: "51568712"
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다.
 
-이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 계정, 문서 데이터베이스 및 컬렉션을 만드는 방법을 보여줍니다. 그런 다음, [MongoDB.NET 드라이버](https://docs.mongodb.com/ecosystem/drivers/csharp/)를 사용하여 todo 앱 Xamarin.Forms 앱을 빌드합니다.
+이 빠른 시작에서는 Azure Portal을 사용하여 [Azure Cosmos DB의 MongoDB API로 구성된 Cosmos 계정](mongodb-introduction.md), 문서 데이터베이스 및 컬렉션을 만드는 방법을 보여 줍니다. 그런 다음, [MongoDB .NET 드라이버](https://docs.mongodb.com/ecosystem/drivers/csharp/)를 사용하여 todo 앱인 Xamarin.Forms 앱을 빌드합니다.
 
 ## <a name="prerequisites-to-run-the-sample-app"></a>샘플 앱을 실행하기 위한 필수 구성 요소
 
@@ -53,7 +50,7 @@ Mac에서 작업하려는 경우 [Mac용 Visual Studio](https://visualstudio.mic
 
 ## <a name="clone-the-sample-app"></a>샘플 앱 복제
 
-먼저 GitHub에서 샘플 MongoDB API 앱을 다운로드 합니다. 이 앱은 MongoDB의 문서 저장소 모델을 사용하여 todo 앱을 구현합니다.
+먼저 GitHub에서 샘플 앱을 다운로드합니다. 이 앱은 MongoDB의 문서 저장소 모델을 사용하여 todo 앱을 구현합니다.
 
 1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
@@ -127,7 +124,7 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
     }
     ```
 
-* 작업을 만들어 MongoDB 컬렉션에 삽입합니다.
+* 작업을 만들어 컬렉션에 삽입합니다.
     ```cs
     public async Task CreateTask(MyTask task)
     {
@@ -135,7 +132,7 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
     }
     ```
 
-* MongoDB 컬렉션에서 작업을 업데이트합니다.
+* 컬렉션에서 작업을 업데이트합니다.
     ```cs
     public async Task UpdateTask(MyTask task)
     {
@@ -143,7 +140,7 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
     }
     ```
 
-* MongoDB 컬렉션에서 작업을 삭제합니다.
+* 컬렉션에서 작업을 삭제합니다.
     ```cs
     public async Task DeleteTask(MyTask task)
     {
@@ -157,7 +154,7 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다.
 
-1. [Azure Portal](http://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **연결 문자열**을 클릭한 다음 **읽기-쓰기 키**를 클릭합니다. 화면의 오른쪽에서 복사 단추를 사용하여 다음 단계에서 기본 연결 문자열을 복사합니다.
+1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **연결 문자열**을 클릭한 다음 **읽기-쓰기 키**를 클릭합니다. 화면의 오른쪽에서 복사 단추를 사용하여 다음 단계에서 기본 연결 문자열을 복사합니다.
 
 2. **TaskList.Core** 프로젝트의 **Helpers** 디렉터리에서 **APIKeys.cs** 파일을 엽니다.
 
@@ -172,7 +169,7 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
 1. Visual Studio의 **솔루션 탐색기**에서 각 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
 2. **모든 NuGet 패키지 복원**을 클릭합니다.
 3. **TaskList.Android**를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다.
-4. F5 키를 눌러 응용 프로그램 디버깅을 시작합니다.
+4. F5 키를 눌러 애플리케이션 디버깅을 시작합니다.
 5. iOS에서 실행하려는 경우 먼저 컴퓨터는 Mac에 연결됩니다(수행하는 방법에 대한 [지침](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio)은 다음과 같음).
 6. **TaskList.iOS** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다.
 7. F5 키를 클릭하여 응용 프로그램 디버깅을 시작합니다.
@@ -195,4 +192,4 @@ git을 사용하지 않으려면 [프로젝트를 ZIP 파일로 다운로드](ht
 이 빠른 시작에서는 Azure Cosmos DB 계정을 만들고, MongoDB의 API를 사용하여 Xamarin.Forms 앱을 실행하는 방법을 알아보았습니다. 이제 사용자의 Cosmos DB 계정에 추가 데이터를 가져올 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [MongoDB API용 Azure Cosmos DB로 데이터 가져오기](mongodb-migrate.md)
+> [Azure Cosmos DB의 MongoDB API로 구성된 Azure Cosmos DB로 데이터 가져오기](mongodb-migrate.md)

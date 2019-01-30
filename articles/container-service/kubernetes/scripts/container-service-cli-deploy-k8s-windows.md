@@ -3,7 +3,7 @@ title: Azure CLI 스크립트 샘플 - ACS Windows Kubernetes 클러스터 만�
 description: Azure CLI 스크립트 샘플 - ACS Windows Kubernetes 클러스터 만들기
 services: container-service
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 tags: acs, azure-container-service
@@ -15,15 +15,17 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: nepeters
-ms.openlocfilehash: 7078b79685cbb8c593de4832377e841914082abe
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: iainfou
+ms.openlocfilehash: 1f24f036858f9c77ed6b07af27617d3e3706bba2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447261"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001583"
 ---
-# <a name="create-an-azure-container-service-kubernetes-windows-cluster"></a>Azure Container Service Kubernetes Windows 클러스터 만들기
+# <a name="deprecated-create-an-azure-container-service-kubernetes-windows-cluster"></a>(사용되지 않음) Azure Container Service Kubernetes Windows 클러스터 만들기
+
+[!INCLUDE [ACS deprecation](../../../../includes/container-service-kubernetes-deprecation.md)]
 
 이 샘플에서는 Windows 기반 컨테이너에서 Kubernetes를 실행하는 Azure Container Service 클러스터를 만듭니다.
 

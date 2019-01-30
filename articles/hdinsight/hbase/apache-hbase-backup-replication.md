@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 00402b7ba6004d382693d5f6f82c1108a254fba8
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: d7be248e49baf4e7fd10d6b37df1473e92ccfce7
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283573"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651727"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>HDInsight에서 Apache HBase 및 Apache Phoenix에 대한 백업 및 복제 설정
 
@@ -26,7 +26,7 @@ Apache HBase는 데이터 손실을 방지하기 위한 몇 가지 방법을 지
 * 스냅숏
 * 복제
 
-> [!NOTE]
+> [!NOTE]  
 > Apache Phoenix는 메타데이터를 HBase 테이블에 저장하므로, HBase 시스템 카탈로그 테이블을 백업할 때 메타데이터가 백업됩니다.
 
 다음 섹션에서는 이러한 방법 각각에 대한 사용 시나리오를 설명합니다.
@@ -35,7 +35,7 @@ Apache HBase는 데이터 손실을 방지하기 위한 몇 가지 방법을 지
 
 이 방법을 사용하면 테이블 또는 열 패밀리의 하위 집합을 선택할 수 없어도 모든 HBase 데이터를 복사할 수 있습니다. 이후의 방법은 더 많은 제어를 제공합니다.
 
-HDInsight의 HBase는 클러스터를 만들 때 선택한 기본 저장소인 Azure Storage Blob 또는 Azure Data Lake Store를 사용합니다. 두 경우 모두 HBase는 데이터 및 메타데이터 파일을 다음 경로 아래에 저장합니다.
+HDInsight의 HBase는 클러스터를 만들 때 선택한 기본 스토리지인 Azure Storage Blob 또는 Azure Data Lake Storage를 사용합니다. 두 경우 모두 HBase는 데이터 및 메타데이터 파일을 다음 경로 아래에 저장합니다.
 
     /hbase
 
@@ -45,7 +45,7 @@ HDInsight의 HBase는 클러스터를 만들 때 선택한 기본 저장소인 A
     wasbs://<containername>@<accountname>.blob.core.windows.net/hbase
     ```
 
-* Azure Data Lake Store에서 `hbase` 폴더는 클러스터를 프로비전할 때 지정한 루트 경로 아래에 있습니다. 이 루트 경로에는 일반적으로 `clusters` 폴더가 있으며, 여기에는 HDInsight 클러스터 뒤에 이름이 지정된 하위 폴더가 있습니다.
+* Azure Data Lake Storage에서 `hbase` 폴더는 클러스터를 프로비전할 때 지정한 루트 경로 아래에 있습니다. 이 루트 경로에는 일반적으로 `clusters` 폴더가 있으며, 여기에는 HDInsight 클러스터 뒤에 이름이 지정된 하위 폴더가 있습니다.
 
     ```
     /clusters/<clusterName>/hbase
@@ -57,7 +57,7 @@ HDInsight의 HBase는 클러스터를 만들 때 선택한 기본 저장소인 A
 
 * 현재 저장소 위치를 가리키는 새 HDInsight 인스턴스를 만듭니다. 새 인스턴스는 기존의 모든 데이터로 만들어집니다.
 
-* `hbase` 폴더를 다른 Azure Storage Blob 컨테이너 또는 Data Lake Store 위치에 복사한 다음, 해당 데이터로 새 클러스터를 시작합니다. Azure Storage의 경우 [AzCopy](../../storage/common/storage-use-azcopy.md)를 사용하고, Data Lake Store의 경우 [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)를 사용합니다.
+* `hbase` 폴더를 다른 Azure Storage Blob 컨테이너 또는 Data Lake Storage 위치에 복사한 다음, 해당 데이터로 새 클러스터를 시작합니다. Azure Storage의 경우 [AzCopy](../../storage/common/storage-use-azcopy.md)를 사용하고, Data Lake Storage의 경우 [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)를 사용합니다.
 
 ## <a name="export-then-import"></a>내보낸 후 가져오기
 
@@ -75,7 +75,7 @@ HDInsight의 HBase는 클러스터를 만들 때 선택한 기본 저장소인 A
 
     wasbs://<containername>@<accountname>.blob.core.windows.net/<path>
 
-Azure Data Lake Store에서 구문은 다음과 같습니다.
+Azure Data Lake Storage에서 구문은 다음과 같습니다.
 
     adl://<accountName>.azuredatalakestore.net:443/<path>
 
@@ -117,7 +117,7 @@ HDInsight 클러스터에 대해 이러한 값을 검색하는 방법에 대한 
 
 CopyTable은 대상 테이블에 복사될 원본 테이블 내용 전체를 스캔합니다. 이렇게 하면 CopyTable이 실행되는 동안 HBase 클러스터의 성능이 저하될 수 있습니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 테이블 간의 데이터 복사를 자동화하려면 GitHub의 [Azure HBase Utils](https://github.com/Azure/hbase-utils/tree/master/replication) 리포지토리에 있는 `hdi_copy_table.sh` 스크립트를 참조하세요.
 
 ### <a name="manually-collect-the-apache-zookeeper-quorum-list"></a>수동으로 Apache ZooKeeper 쿼럼 목록 수집

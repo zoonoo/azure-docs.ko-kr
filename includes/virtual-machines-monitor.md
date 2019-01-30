@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 109f4621af3e3ca617dfe521575d9352f22c5917
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b9fa5fff46fa330a55125053b831c780f21f6e8f
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227285"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54404694"
 ---
-진단 및 로그 데이터를 수집, 보기 및 분석하여 VM을 모니터링하는 데 많은 기회를 활용할 수 있습니다. VM의 간단한 [모니터링](../articles/azure-monitor/overview.md)을 수행하려면 Azure Portal에서 VM에 대한 개요 화면을 사용할 수 있습니다. [확장](../articles/virtual-machines/windows/extensions-features.md)을 사용하여 추가 메트릭 데이터를 수집하도록 VM에서 진단을 구성할 수 있습니다. [Application Insights](../articles/application-insights/app-insights-overview.md) 및 [Log Analytics](../articles/log-analytics/log-analytics-queries.md)와 같은 더 많은 고급 모니터링 옵션을 사용할 수도 있습니다.
+진단 및 로그 데이터를 수집, 보기 및 분석하여 VM을 모니터링하는 데 많은 기회를 활용할 수 있습니다. VM의 간단한 [모니터링](../articles/azure-monitor/overview.md)을 수행하려면 Azure Portal에서 VM에 대한 개요 화면을 사용할 수 있습니다. [확장](../articles/virtual-machines/windows/extensions-features.md)을 사용하여 추가 메트릭 데이터를 수집하도록 VM에서 진단을 구성할 수 있습니다. [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) 및 [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md)와 같은 더 많은 고급 모니터링 옵션을 사용할 수도 있습니다.
 
 ## <a name="diagnostics-and-metrics"></a>진단 및 메트릭 
 
-Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(응용 프로그램 프로그래밍 인터페이스)에서 [메트릭](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md)을 사용하여 [진단 데이터](https://docs.microsoft.com/cli/azure/vm/diagnostics)의 컬렉션을 설정하고 모니터링할 수 있습니다. 예를 들어 다음을 수행할 수 있습니다.
+Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(애플리케이션 프로그래밍 인터페이스)에서 [메트릭](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md)을 사용하여 [진단 데이터](https://docs.microsoft.com/cli/azure/vm/diagnostics)의 컬렉션을 설정하고 모니터링할 수 있습니다. 예를 들어 다음을 수행할 수 있습니다.
 
 - **VM에 대한 기본 메트릭을 관찰합니다.** Azure Portal의 개요 화면에서 표시된 기본 메트릭은 CPU 사용량, 네트워크 사용량, 총 디스크 바이트 및 초당 디스크 작업을 포함합니다.
 
@@ -31,7 +31,7 @@ Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(응용 프로�
 
 ## <a name="alerts"></a>경고
 
-특정 성능 메트릭을 기반으로 하는 [경고](../articles/monitoring-and-diagnostics/monitoring-overview-alerts.md)를 만들 수 있습니다. 경고를 받을 수 있는 경우의 예는 평균 CPU 사용량이 특정 임계값을 초과하거나 사용 가능한 디스크 공간이 일정량 이하로 떨어지는 경우를 포함합니다. [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md) 또는 [Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md)를 사용하여 [Azure Portal](../articles/monitoring-and-diagnostics/insights-alerts-portal.md)에서 경고를 구성할 수 있습니다.
+특정 성능 메트릭을 기반으로 하는 [경고](../articles/azure-monitor/platform/alerts-overview.md)를 만들 수 있습니다. 경고를 받을 수 있는 경우의 예는 평균 CPU 사용량이 특정 임계값을 초과하거나 사용 가능한 디스크 공간이 일정량 이하로 떨어지는 경우를 포함합니다. [Azure PowerShell](../articles/azure-monitor/platform/alerts-classic-portal.md#with-powershell) 또는 [Azure CLI](../articles/azure-monitor/platform/alerts-classic-portal.md#with-azure-cli)를 사용하여 [Azure Portal](../articles/azure-monitor/platform/alerts-classic-portal.md)에서 경고를 구성할 수 있습니다.
 
 ## <a name="azure-service-health"></a>Azure Service Health
 
@@ -43,30 +43,28 @@ Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(응용 프로�
 
 ## <a name="logs"></a>로그
 
-[Azure 활동 로그](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)는 Azure에서 발생한 구독 수준 이벤트에 대한 정보를 제공하는 구독 로그입니다. 로그에는 Azure Resource Manager 작동 데이터에서 서비스 상태 이벤트 업데이트에 이르기까지 광범위한 데이터가 포함됩니다. Azure Portal에서 활동 로그를 클릭하여 VM에 대한 로그를 확인할 수 있습니다.
+[Azure 활동 로그](../articles/azure-monitor/platform/activity-logs-overview.md)는 Azure에서 발생한 구독 수준 이벤트에 대한 정보를 제공하는 구독 로그입니다. 로그에는 Azure Resource Manager 작동 데이터에서 서비스 상태 이벤트 업데이트에 이르기까지 광범위한 데이터가 포함됩니다. Azure Portal에서 활동 로그를 클릭하여 VM에 대한 로그를 확인할 수 있습니다.
 
 활동 로그를 통해 수행할 수 있는 몇 가지 작업은 다음과 같습니다.
 
-- [활동 로그 이벤트에서 경고](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)를 만듭니다.
-- 타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)에서 수집하도록 [Event Hub로 스트리밍합니다](../articles/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md).
+- [활동 로그 이벤트에서 경고](../articles/azure-monitor/platform/activity-logs-overview.md)를 만듭니다.
+- 타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)에서 수집하도록 [Event Hub로 스트리밍합니다](../articles/azure-monitor/platform/activity-logs-stream-event-hubs.md).
 - [PowerBI 콘텐츠 팩](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 PowerBI에서 분석합니다.
-- 보관 또는 수동 검사를 위해 [저장소 계정에 저장합니다](../articles/monitoring-and-diagnostics/monitoring-archive-activity-log.md). 로그 프로필을 사용하여 보존 기간(일)을 지정할 수 있습니다.
+- 보관 또는 수동 검사를 위해 [저장소 계정에 저장합니다](../articles/azure-monitor/platform/archive-activity-log.md). 로그 프로필을 사용하여 보존 기간(일)을 지정할 수 있습니다.
 
 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor) 또는 [REST API 모니터](https://docs.microsoft.com/rest/api/monitor/)를 사용하여 활동 로그 데이터에 액세스할 수도 있습니다.
 
-[Azure 진단 로그](../articles/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)는 해당 작업에 대한 풍부하고 빈번한 데이터를 제공하는 VM에서 내보낸 로그입니다. 진단 로그는 VM 내에서 수행된 작업에 대한 정보를 제공하여 활동 로그에서 다릅니다.
+[Azure 진단 로그](../articles/azure-monitor/platform/diagnostic-logs-overview.md)는 해당 작업에 대한 풍부하고 빈번한 데이터를 제공하는 VM에서 내보낸 로그입니다. 진단 로그는 VM 내에서 수행된 작업에 대한 정보를 제공하여 활동 로그에서 다릅니다.
 
 진단 로그를 통해 수행할 수 있는 몇 가지 작업은 다음과 같습니다.
 
-- 감사 또는 수동 검사를 위해 [저장소 계정에 저장합니다](../articles/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md). 리소스 진단 설정을 사용하여 보존 기간(일)을 지정할 수 있습니다.
-- 타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)으로 수집을 위해 [Event Hubs로 스트림](../articles/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)합니다.
-- [OMS Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md)를 사용하여 분석합니다.
+- 감사 또는 수동 검사를 위해 [저장소 계정에 저장합니다](../articles/azure-monitor/platform/archive-diagnostic-logs.md). 리소스 진단 설정을 사용하여 보존 기간(일)을 지정할 수 있습니다.
+- 타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)으로 수집을 위해 [Event Hubs로 스트림](../articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)합니다.
+- [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md)를 사용하여 분석합니다.
 
 ## <a name="advanced-monitoring"></a>고급 모니터링
 
-- [OMS(Operations Management Suite)](https://docs.microsoft.com/azure/operations-management-suite/)는 클라우드와 온-프레미스 자산에서 모니터링, 경고 및 경고 수정 기능을 제공합니다. [Linux VM](../articles/virtual-machines/linux/extensions-oms.md) 또는 [Windows VM](../articles/virtual-machines/windows/extensions-oms.md)에 OMS 에이전트를 설치하고 기존 OMS 작업 영역에 VM을 등록하는 확장을 설치할 수 있습니다.
-
-- [Log Analytics](../articles/log-analytics/log-analytics-overview.md)는 클라우드 및 온-프레미스 환경을 모니터링하여 해당 가용성 및 성능을 유지하는 OMS의 서비스입니다. 이 서비스는 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성되고 여러 원본에 대한 분석을 제공하는 다른 모니터링 도구에서 생성된 데이터를 수집합니다.
+- [Log Analytics](../articles/log-analytics/log-analytics-overview.md)는 클라우드 및 온-프레미스 환경을 모니터링하여 해당 가용성 및 성능을 유지하는 서비스입니다. 이 서비스는 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성되고 여러 원본에 대한 분석을 제공하는 다른 모니터링 도구에서 생성된 데이터를 수집합니다. [Linux VM](../articles/virtual-machines/linux/extensions-oms.md) 또는 [Windows VM](../articles/virtual-machines/windows/extensions-oms.md)에 Log Analytics 에이전트를 설치하고 기존 Log Analytics 작업 영역에 VM을 등록하는 확장을 설치할 수 있습니다.
 
     Windows 및 Linux VM의 경우 로그 및 메트릭을 수집하는 좋은 방법은 Log Analytics로 에이전트를 설치하는 것입니다. VM에 Log Analytics 에이전트를 설치하는 가장 쉬운 방법은 [Log Analytics VM 확장](../articles/log-analytics/log-analytics-azure-vm-extension.md)을 사용하는 것입니다. 이 확장을 사용하면 설치 프로세스가 간소화되고 지정한 Log Analytics 작업 영역에 데이터를 전송하도록 에이전트가 자동으로 구성됩니다. 에이전트도 자동으로 업그레이드되므로 최신 기능 및 수정 사항을 받아볼 수 있습니다.
 

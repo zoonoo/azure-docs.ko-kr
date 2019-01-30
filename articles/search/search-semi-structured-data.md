@@ -1,5 +1,5 @@
 ---
-title: Azure Search의 Azure 클라우드 저장소에서 반구조화된 데이터 검색을 위한 자습서 | Microsoft Docs
+title: Azure Blob Storage에서 JSON 검색에 관한 자습서 - Azure Search
 description: 이 자습서에서는 Azure Search를 사용하여 반구조화된 Azure Blob 데이터를 검색하는 방법을 알아봅니다.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/12/2018
 ms.author: heidist
-ms.openlocfilehash: a7b006bd8469ddce1415ab6cb7c52c0171ae11cd
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.custom: seodec2018
+ms.openlocfilehash: ba9b34dbd9d0959e79c755abc8dad9fe1d358a50
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005080"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632945"
 ---
 # <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>자습서: Azure 클라우드 저장소에서 반구조화된 데이터 검색
 
@@ -28,7 +29,7 @@ ms.locfileid: "39005080"
 > * 컨테이너를 크롤링하고 검색 가능한 콘텐츠를 추출하는 Azure Search 인덱스 및 인덱서를 만들고 채우기
 > * 방금 만든 인덱스 검색
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -59,7 +60,7 @@ Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[Azure 포털](http://portal.azure.com)에 로그인합니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 ## <a name="upload-the-sample-data"></a>샘플 파일 업로드
 
@@ -83,7 +84,7 @@ REST 클라이언트에서 다음 세 가지 API 호출을 실행합니다.
 
 데이터 원본은 인덱스할 데이터를 지정합니다.
 
-이 호출의 끝점은 `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`입니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다.
+이 호출의 엔드포인트는 `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`입니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다.
 
 이 호출의 경우 스토리지 계정의 이름과 스토리지 계정 키가 필요합니다. 스토리지 계정 키는 Azure Portal에서 스토리지 계정의 **액세스 키** 내에서 찾을 수 있습니다. 위치가 다음 그림에 표시됩니다.
 

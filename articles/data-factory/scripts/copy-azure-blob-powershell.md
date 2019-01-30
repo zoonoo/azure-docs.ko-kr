@@ -8,16 +8,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: jingwang
-ms.openlocfilehash: 1fbf09968c6dc3dfc60b27656691504a363a5a6b
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: e36887e755d772a408fd31d05ed10a9a7c678bd9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127040"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021512"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-in-the-cloud"></a>PowerShell을 사용하여 데이터 팩터리 파이프라인을 만들어 클라우드의 데이터 복사
 
@@ -26,7 +25,7 @@ ms.locfileid: "43127040"
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="prerequisites"></a>필수 조건
-* **Azure Storage 계정**. Blob 저장소를 **원본** 및 **싱크** 데이터 저장소 모두로 사용합니다. Azure Storage 계정이 없는 경우 [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md)를 참조하여 하나 만듭니다. 
+* **Azure Storage 계정**. Blob 저장소를 **원본** 및 **싱크** 데이터 저장소 모두로 사용합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md)를 참조하여 하나 만듭니다. 
 * Blob Storage에 **Blob 컨테이너**를 만들고 컨테이너에 입력 **폴더**를 만들고 폴더에 일부 파일을 업로드합니다. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용하여 Azure Blob Storage에 연결, Blob 컨테이너 만들기, 입력 파일 업로드 및 출력 파일 확인을 수행할 수 있습니다.
 
 ## <a name="sample-script"></a>샘플 스크립트

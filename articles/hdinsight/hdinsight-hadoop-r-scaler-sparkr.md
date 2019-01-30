@@ -8,20 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: da486b25a9a35cb4f00d6e5a4689d5be3d270e36
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c92a55ec1d56b83457167fc2db0bd7897a447852
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013278"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974848"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>HDInsight에서 ScaleR과 SparkR 결합
 
 이 문서에서는 **ScaleR** 로지스틱 회귀 모델을 사용하여 항공편 도착 지연을 예측하는 방법을 보여 줍니다. 이 예제에서는 **SparkR**을 사용하여 연결되는 항공편 지연과 날씨 데이터를 사용합니다.
 
-두 패키지 모두 Hadoop의 Spark 실행 엔진에서 실행되지만 각각 고유한 각 Spark 세션이 필요하므로 메모리 내 데이터 공유에서 차단됩니다. ML Server의 향후 버전에서 이 문제를 해결할 때까지는 겹치지 않는 Spark 세션을 유지하고 중간 파일을 통해 데이터를 교환하는 것이 해결 방법입니다. 아래 지침은 이러한 요구 사항을 간단하게 달성할 수 있음을 보여줍니다.
+두 패키지 모두 Apache Hadoop의 Spark 실행 엔진에서 실행되지만 각각 고유한 각 Spark 세션이 필요하므로 메모리 내 데이터 공유에서 차단됩니다. ML Server의 향후 버전에서 이 문제를 해결할 때까지는 겹치지 않는 Spark 세션을 유지하고 중간 파일을 통해 데이터를 교환하는 것이 해결 방법입니다. 아래 지침은 이러한 요구 사항을 간단하게 달성할 수 있음을 보여줍니다.
 
-이 예제는 Mario Inchiosa와 Roni Burd가 Strata 2016에서 나눈 대화에서 처음 공유되었습니다. 이 대화는 [R을 사용하여 확장 가능한 데이터 과학 플랫폼 빌드](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio)에서 찾을 수 있습니다.
+이 예제는 Mario Inchiosa와 Roni Burd가 Strata 2016에서 나눈 대화에서 처음 공유되었습니다. 이 대화는 [R을 사용하여 확장 가능한 데이터 과학 플랫폼 빌드](https://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio)에서 찾을 수 있습니다.
 
 이 코드는 원래 Azure HDInsight 클러스터의 Spark에서 실행 중인 ML Server용으로 작성된 것입니다. 하지만 하나의 스크립트에서 SparkR과 ScaleR을 혼합하여 사용하는 개념도 온-프레미스 환경의 컨텍스트에서 유효합니다.
 
@@ -29,9 +29,9 @@ ms.locfileid: "51013278"
 
 ## <a name="the-airline-and-weather-datasets"></a>항공사 및 날씨 데이터 세트
 
-항공편 데이터는 [미국 정부 아카이브](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236)에서 사용할 수 있습니다. [AirOnTimeCSV.zip](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip)에서 zip 파일로도 사용 가능합니다.
+항공편 데이터는 [미국 정부 아카이브](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236)에서 사용할 수 있습니다. [AirOnTimeCSV.zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip)에서 zip 파일로도 사용 가능합니다.
 
-날씨 데이터는 [National Oceanic and Atmospheric Administration(미국해양대기관리처) 리포지토리](http://www.ncdc.noaa.gov/orders/qclcd/)에서 월별로 원시 형식의 zip 파일로 다운로드할 수 있습니다. 이 예제의 경우 2007년 5월 – 2012년 12월에 대한 데이터를 다운로드하세요. 시간별 데이터 파일과 각 zip 내에 포함된 `YYYYMMMstation.txt` 파일을 사용하세요. 
+날씨 데이터는 [National Oceanic and Atmospheric Administration(미국해양대기관리처) 리포지토리](https://www.ncdc.noaa.gov/orders/qclcd/)에서 월별로 원시 형식의 zip 파일로 다운로드할 수 있습니다. 이 예제의 경우 2007년 5월 – 2012년 12월에 대한 데이터를 다운로드하세요. 시간별 데이터 파일과 각 zip 내에 포함된 `YYYYMMMstation.txt` 파일을 사용하세요. 
 
 ## <a name="setting-up-the-spark-environment"></a>Spark 환경 설정
 
@@ -41,7 +41,7 @@ ms.locfileid: "51013278"
 workDir        <- '~'  
 myNameNode     <- 'default' 
 myPort         <- 0
-inputDataDir   <- 'wasb://hdfs@myAzureAcccount.blob.core.windows.net'
+inputDataDir   <- 'wasb://hdfs@myAzureAccount.blob.core.windows.net'
 hdfsFS         <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 
 # create a persistent Spark session to reduce startup times 
@@ -506,7 +506,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>다른 곳에서 점수 매기기
 
-또한, 다른 플랫폼의 데이터에 점수를 매기기 위해 이 모델을 사용할 수도 있습니다. RDS 파일로 저장한 다음 전송하여 해당 RDS를 SQL Server R 서비스 등의 대상 점수 매기기 환경으로 가져옵니다. 모델이 빌드된 요소 수준과 점수를 매길 데이터의 요소 수준이 일치하는지 확인하는 것이 중요합니다. 이러한 일치는 ScaleR의 `rxCreateColInfo()` 함수를 통해 모델링 데이터와 관련된 열 정보를 추출하고 저장한 다음, 해당 열 정보를 입력 데이터 원본에 적용하여 예측함으로써 구현할 수 있습니다. 다음 예제에서는 테스트 데이터 세트의 몇 개 행만 저장하고 예측 스크립트에서 이 샘플의 열 정보를 추출하여 사용합니다.
+또한, 다른 플랫폼의 데이터에 점수를 매기기 위해 이 모델을 사용할 수도 있습니다. RDS 파일로 저장한 다음 전송하여 해당 RDS를 Microsoft SQL Server R Services 등의 대상 점수 매기기 환경으로 가져옵니다. 모델이 빌드된 요소 수준과 점수를 매길 데이터의 요소 수준이 일치하는지 확인하는 것이 중요합니다. 이러한 일치는 ScaleR의 `rxCreateColInfo()` 함수를 통해 모델링 데이터와 관련된 열 정보를 추출하고 저장한 다음, 해당 열 정보를 입력 데이터 원본에 적용하여 예측함으로써 구현할 수 있습니다. 다음 예제에서는 테스트 데이터 세트의 몇 개 행만 저장하고 예측 스크립트에서 이 샘플의 열 정보를 추출하여 사용합니다.
 
 ```
 # save the model and a sample of the test dataset 
@@ -535,7 +535,7 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 ## <a name="next-steps-and-more-information"></a>다음 단계 및 자세한 정보
 
-- Spark에서 ML Server 사용에 대한 자세한 내용은 [시작 가이드](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)를 참조하세요.
+- Apache Spark에서 ML Server 사용에 대한 자세한 내용은 [시작 가이드](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)를 참조하세요.
 
 - ML Server에 대한 일반 정보는 [R 시작](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node)(영문)을 참조하세요.
 

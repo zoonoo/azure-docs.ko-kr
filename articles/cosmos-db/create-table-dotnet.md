@@ -1,29 +1,26 @@
 ---
-title: '빠른 시작: Table API와 .NET - Azure Cosmos DB | Microsoft Docs'
-description: 이 빠른 시작은 Azure Portal 및 .NET과 함께 Azure Cosmos DB Table API를 사용하여 응용 프로그램을 만드는 방법을 보여줍니다.
-services: cosmos-db
+title: '빠른 시작: Table API와 .NET - Azure Cosmos DB'
+description: 이 빠른 시작은 Azure Portal 및 .NET과 함께 Azure Cosmos DB Table API를 사용하여 애플리케이션을 만드는 방법을 보여줍니다.
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.component: cosmosdb-table
-ms.custom: quickstart connect, mvc
+ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: 9cda2c165d7d00ebb92907d54217a30d62df6c18
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 453c3ce2d813093e087bea67056036f9125941c6
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700048"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038605"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>빠른 시작: .NET 및 Azure Cosmos DB를 사용하여 Table API 앱 빌드 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
 > * [Java](create-table-java.md)
-> * [Node.js](create-table-nodejs.md)
+> * [Node.JS](create-table-nodejs.md)
 > * [Python](create-table-python.md)
 >  
 
@@ -80,7 +77,7 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
    ![솔루션 열기](media/create-table-dotnet/azure-cosmosdb-open-solution.png) 
 
-2. 샘플 응용 프로그램을 복제한 폴더로 이동한 다음 TableStorage.sln 파일을 엽니다.
+2. 샘플 애플리케이션을 복제한 폴더로 이동한 다음, TableStorage.sln 파일을 엽니다.
 
    ![복제된 응용 프로그램 열기](media/create-table-dotnet/azure-cosmos-db-open-clone.png) 
 
@@ -88,7 +85,7 @@ Visual Studio 2017이 아직 설치되지 않은 경우 **체험판** [Visual St
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다. 이를 통해 앱이 호스팅된 데이터베이스와 통신할 수 있게 됩니다. 
 
-1. [Azure Portal](http://portal.azure.com/)에서 **연결 문자열**을 클릭합니다. 
+1. [Azure Portal](https://portal.azure.com/)에서 **연결 문자열**을 클릭합니다. 
 
     창의 오른쪽에서 복사 단추를 사용하여 **기본 연결 문자열**을 복사합니다.
 

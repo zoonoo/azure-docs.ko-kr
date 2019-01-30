@@ -1,21 +1,22 @@
 ---
-title: 언어 지원 - LUIS
+title: 언어 지원
 titleSuffix: Azure Cognitive Services
 description: LUIS는 서비스 내에 다양한 기능을 포함합니다. 모든 기능이 동일한 언어 패리티에 있는 것은 아닙니다. 관심 있는 기능이 사용자가 원하는 언어 문화권에서 지원되는지 확인합니다. LUIS 앱은 문화권에 관련되며 설정된 후에는 변경할 수 없습니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: a26fa1f64f1ef8ecef8140b1feab89fdd57875fe
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 83c293fe93cd67aca5ef5a3ed766545d2b6d4938
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569202"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970171"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS에 대한 언어 및 지역 지원
 
@@ -23,7 +24,7 @@ LUIS는 서비스 내에 다양한 기능을 포함합니다. 모든 기능이 �
 
 ## <a name="multi-language-luis-apps"></a>다국어 LUIS 앱
 
-챗봇과 같은 다국어 LUIS 클라이언트 응용 프로그램이 필요한 경우, 몇 가지 옵션이 있습니다. LUIS가 모든 언어를 지원하는 경우에는 언어별로 LUIS 앱을 개발합니다. 각 LUIS 앱에는 고유한 앱 ID와 엔드포인트 로그가 있습니다. 지원되지 않는 언어 LUIS에 대한 Language Understanding을 제공해야 하는 경우, [Microsoft Translator API](../Translator/translator-info-overview.md)를 사용하여 발화를 지원되는 언어로 번역하고, 발화를 LUIS 엔드포인트에 제출하고, 결과 점수를 받을 수 있습니다.
+챗봇과 같은 다국어 LUIS 클라이언트 애플리케이션이 필요한 경우, 몇 가지 옵션이 있습니다. LUIS가 모든 언어를 지원하는 경우에는 언어별로 LUIS 앱을 개발합니다. 각 LUIS 앱에는 고유한 앱 ID와 엔드포인트 로그가 있습니다. 지원되지 않는 언어 LUIS에 대한 Language Understanding을 제공해야 하는 경우, [Microsoft Translator API](../Translator/translator-info-overview.md)를 사용하여 발화를 지원되는 언어로 번역하고, 발화를 LUIS 엔드포인트에 제출하고, 결과 점수를 받을 수 있습니다.
 
 ## <a name="languages-supported"></a>지원되는 언어
 
@@ -43,6 +44,7 @@ LUIS는 발화를 다음 언어로 이해합니다.
 | 포르투갈어(브라질) |`pt-BR` |-| ✔ |✔ |일부 하위 문화권은 아님|
 | 스페인어(스페인) |`es-ES` |-| ✔ |✔|✔|
 | 스페인어(멕시코)|`es-MX` |-|  -   |✔|✔|
+| 터키어 | `tr-TR` |-|-|-|감정만|
 
 
 언어 지원은 [미리 빌드된 엔터티](luis-reference-prebuilt-entities.md) 및 [미리 빌드된 도메인](luis-reference-prebuilt-domains.md)에 따라 다릅니다.
@@ -56,7 +58,7 @@ LUIS는 발화를 다음 언어로 이해합니다.
 
 ### <a name="japanese-support-notes"></a>*일본어 지원 참고
 
- - LUIS는 구문 분석을 제공하지 않으며 Keigo와 비공식 일본어 간의 차이를 이해하지 못하므로 여러 수준의 형식을 응용 프로그램의 학습 예제로 통합해야 합니다.
+ - LUIS는 구문 분석을 제공하지 않으며 Keigo와 비공식 일본어 간의 차이를 이해하지 못하므로 여러 수준의 형식을 애플리케이션의 학습 예제로 통합해야 합니다.
      - でございます는 です와 같지 않습니다.
      - です는 だ와 같지 않습니다.
 
@@ -69,8 +71,8 @@ Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](h
 ### <a name="bing-spell-check-supported-languages"></a>Bing Spell Check 지원되는 언어
 지원되는 언어 및 상태 목록은 Bing Spell Check [지원되는 언어](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages)를 참조하세요.
 
-## <a name="rare-or-foreign-words-in-an-application"></a>응용 프로그램의 희귀 또는 외래 단어
-`en-us` 문화권에서 LUIS는 은어를 포함하여 대부분의 영어 단어를 구분하도록 학습됩니다. `zh-cn` 문화권에서 LUIS는 대부분의 중국어 문자를 구분하도록 학습됩니다. `en-us`의 희귀 단어 또는 `zh-cn`의 문자를 사용할 때 LUIS가 해당 단어나 문자를 구분할 수 없는 것으로 보이면 해당 단어나 문자를 [구문 목록 기능](luis-how-to-add-features.md)에 추가할 수 있습니다. 예를 들어, 응용 프로그램 문화권 외부의 단어(외래 단어)는 구문 목록 기능에 추가해야 합니다. 희귀 단어 집합이 LUIS가 인식하도록 학습되어야 하는 클래스를 구성하지만 희귀 단어가 동의어가 아니고 서로 교환할 수 없음을 나타내기 위해 이 구문 목록을 서로 교환할 수 없는 것으로 표시해야 합니다.
+## <a name="rare-or-foreign-words-in-an-application"></a>애플리케이션의 희귀 또는 외래 단어
+`en-us` 문화권에서 LUIS는 은어를 포함하여 대부분의 영어 단어를 구분하도록 학습됩니다. `zh-cn` 문화권에서 LUIS는 대부분의 중국어 문자를 구분하도록 학습됩니다. `en-us`의 희귀 단어 또는 `zh-cn`의 문자를 사용할 때 LUIS가 해당 단어나 문자를 구분할 수 없는 것으로 보이면 해당 단어나 문자를 [구문 목록 기능](luis-how-to-add-features.md)에 추가할 수 있습니다. 예를 들어, 애플리케이션 문화권 외부의 단어(외래 단어)는 구문 목록 기능에 추가해야 합니다. 희귀 단어 집합이 LUIS가 인식하도록 학습되어야 하는 클래스를 구성하지만 희귀 단어가 동의어가 아니고 서로 교환할 수 없음을 나타내기 위해 이 구문 목록을 서로 교환할 수 없는 것으로 표시해야 합니다.
 
 ### <a name="hybrid-languages"></a>하이브리드 언어
 하이브리드 언어는 영어 및 중국어와 같은 두 문화권의 단어를 결합합니다. 앱은 단일 문화권을 기반으로 하므로 이러한 언어는 LUIS에서 지원되지 않습니다.

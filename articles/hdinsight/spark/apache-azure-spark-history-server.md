@@ -1,6 +1,6 @@
 ---
-title: 확장된 Spark 기록 서버를 사용하여 Spark 응용 프로그램 디버그 및 진단 - Azure HDInsight
-description: 확장된 Spark 기록 서버를 사용하여 Spark 응용 프로그램 디버그 및 진단 - Azure HDInsight.
+title: 확장된 Spark 기록 서버를 사용하여 Spark 애플리케이션 디버그 및 진단 - Azure HDInsight
+description: 확장된 Spark 기록 서버를 사용하여 Spark 애플리케이션 디버그 및 진단 - Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
 author: jejiang
@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 349298ba30de5540d5c86c81f483a1bd344dba9c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a896c949e1f05a5d9ee179fa475150ad8da34283
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497266"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792784"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>확장된 Apache Spark 기록 서버를 사용하여 Apache Spark 애플리케이션 디버그 및 진단
 
@@ -26,7 +26,7 @@ Apache Spark 기록 서버는 완료되고 실행되는 Spark 애플리케이션
 
 ### <a name="open-the-apache-spark-history-server-web-ui-from-azure-portal"></a>Azure Portal에서 Apache Spark 기록 서버 웹 UI 열기
 
-1. [Azure Portal](https://portal.azure.com/)에서 Spark 클러스터를 엽니다. 자세한 내용은 [클러스터 나열 및 표시](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters)를 참조하세요.
+1. [Azure Portal](https://portal.azure.com/)에서 Spark 클러스터를 엽니다. 자세한 내용은 [클러스터 나열 및 표시](../hdinsight-administer-use-portal-linux.md#showClusters)를 참조하세요.
 2. **빠른 링크**에서 **클러스터 대시보드**를 클릭한 다음, **Spark 기록 서버**를 클릭합니다. 메시지가 표시되면 Spark 클러스터에 대한 관리자 자격 증명을 입력합니다. 
 
     ![Spark 기록 서버](./media/apache-azure-spark-history-server/launch-history-server.png "Spark 기록 서버")
@@ -106,11 +106,11 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 
 + **재생** 단추를 클릭하여 작업을 재생하고 중지 단추를 클릭하여 언제든 중지할 수 있습니다. 재생 시 다른 상태를 표시하기 위한 컬러판 작업 표시입니다.
 
-    + 성공의 경우 녹색: 작업이 완료되었습니다.
+    + 성공인 경우 녹색: 작업이 완료되었습니다.
     + 다시 시도의 경우 주황색: 실패했지만 작업의 최종 결과에는 영향을 미치지 않는 작업의 인스턴스입니다. 이러한 작업은 나중에 성공할 수 있는 인스턴스를 복제하거나 다시 시도합니다.
-    + 실행의 경우 파란색: 작업이 실행 중입니다.
-    + 대기 중이거나 건너뛴 경우 흰색: 작업이 실행을 위해 대기 중이거나 단계를 건너뛰었습니다.
-    + 실패의 경우 빨간색: 작업이 실패했습니다.
+    + 실행 중인 경우 파란색: 작업이 실행 중입니다.
+    + 건너뜀 또는 대기 중인 경우 흰색: 작업이 실행을 위해 대기 중이거나 단계를 건너뛰었습니다.
+    + 실패인 경우 빨간색: 작업이 실패했습니다.
 
     ![실행 중인 그래프 색 샘플](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
@@ -119,7 +119,7 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 
     ![실패한 그래프 색 샘플](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
  
-    > [!NOTE]
+    > [!NOTE]  
     > 각 작업에 대한 재생이 허용됩니다. 불완전한 작업의 경우 재생이 지원되지 않습니다.
 
 
@@ -147,10 +147,10 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
     + 행 개수: 입력 레코드, 출력 레코드, 순서 섞기 읽기 레코드 및 순서 섞기 쓰기 레코드의 합계입니다.
     + 진행률.
 
-    > [!NOTE]
+    > [!NOTE]  
     > 기본적으로 작업 그래프 노드는 각 단계(스테이지 실행 시간 제외)의 마지막 시도에서 정보를 표시하지만 재생 중 노드 그래프는 각 시도에 대한 정보를 표시합니다.
 
-    > [!NOTE]
+    > [!NOTE]  
     > 읽기 및 쓰기의 데이터 크기에 대해 1MB = 1000 KB = 1000 * 1000바이트를 사용합니다.
 
 + **피드백 제공**을 클릭하여 문제와 함께 피드백을 보냅니다.

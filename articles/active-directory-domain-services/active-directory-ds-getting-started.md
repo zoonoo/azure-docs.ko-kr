@@ -4,7 +4,7 @@ description: Azure Portal을 사용하여 Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
-ms.openlocfilehash: a795691959c744f5358966d62449882e514eb8eb
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 07dbc96e94c736b4e4c80dd212f0674bfeffce45
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155085"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850419"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화
 이 문서에서는 Azure Portal을 사용하여 Azure AD DS(Azure Active Directory Domain Services)를 사용하도록 설정하는 방법을 설명합니다.
@@ -62,10 +62,10 @@ ms.locfileid: "50155085"
    > [!NOTE]
    > **DNS 도메인 이름 선택 지침**
    > * **기본 제공 도메인 이름:** 마법사에서 기본적으로 디렉터리의 기본/기본 제공 도메인 이름(**.onmicrosoft.com** 접미사 포함)을 지정합니다. 인터넷을 통해 관리되는 도메인에 보안 LDAP 액세스를 사용하도록 선택하는 경우 공용 DNS 레코드를 만들거나 이 도메인 이름에 대한 공용 CA에서 보안 LDAP 인증서를 가져오는 데 문제가 있을 수 있습니다. Microsoft는 *.onmicrosoft.com* 도메인을 소유하고 있으며, CA는 이 도메인에 대해 보증하는 인증서를 발급하지 않습니다.
-   * **사용자 지정 도메인 이름:** 사용자 지정 도메인 이름을 입력할 수도 있습니다. 이 예에서 사용자 지정 도메인 이름은 *contoso100.com*입니다.
+   * **사용자 지정 도메인 이름:** 사용자 지정 도메인 이름도 입력할 수 있습니다. 이 예에서 사용자 지정 도메인 이름은 *contoso100.com*입니다.
    * **라우팅할 수 없는 도메인 접미사:** 일반적으로 라우팅할 수 없는 도메인 이름 접미사는 사용하지 않는 것이 좋습니다. 예를 들어 'contoso.local' DNS 도메인 이름을 사용하여 도메인을 만들지 않는 것이 좋습니다. '.local' DNS 접미사는 라우팅할 수 없으며, DNS 확인에서 문제가 발생할 수 있습니다.
-   * **도메인 접두사 제한:** 지정한 도메인 이름의 접두사(예: *contoso100.com* 도메인 이름의 *contoso100*)는 15자 이하의 문자를 포함해야 합니다. 15자보다 긴 접두사로 관리되는 도메인을 만들 수 없습니다.
-   * **네트워크 이름 충돌:** 관리되는 도메인에 대해 선택한 DNS 도메인 이름이 가상 네트워크에 아직 존재하지 않는지 확인합니다. 특히,
+   * **도메인 접두사 제한:** 지정한 도메인 이름의 접두사(예: *contoso100.com* 도메인 이름의 *contoso100*)는 15자 이내의 문자를 포함해야 합니다. 15자보다 긴 접두사로 관리되는 도메인을 만들 수 없습니다.
+   * **네트워크 이름 충돌:** 관리되는 도메인에서 선택한 DNS 도메인 이름은 가상 네트워크에 존재하지 않도록 합니다. 특히,
        * 가상 네트워크에 동일한 DNS 도메인 이름을 가진 Active Directory 도메인이 이미 있습니다.
        * 관리되는 도메인을 사용하도록 설정할 가상 네트워크에 온-프레미스 네트워크와의 VPN 연결이 있는지 확인합니다. 이 시나리오에서는 온-프레미스 네트워크에 동일한 DNS 도메인 이름을 가진 도메인이 없는지 확인합니다.
        * 가상 네트워크에 해당 이름을 가진 기존 클라우드 서비스가 있는 경우

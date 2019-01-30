@@ -1,9 +1,9 @@
 ---
-title: Azure Active Directory 아키텍처란? | Microsoft Docs
-description: Azure Active Directory 테넌트의 정의와 Azure Active Directory를 통해 Azure를 관리하는 방법에 대해 알아봅니다.
+title: 아키텍처 개요 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory 테넌트의 정의와 Azure Active Directory를 사용하여 Azure를 관리하는 방법에 대해 알아봅니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-custom: it-pro
-ms.openlocfilehash: 62ade1318b670b4eecf1be1a9255fe497d094a1a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 7667f7b52f9130c9793a86a185a15f8dec1ae063
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733216"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452159"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Azure Active Directory 아키텍처란?
-Azure AD(Azure Active Directory)를 사용하면 사용자를 위한 Azure 서비스 및 리소스에 대한 액세스를 안전하게 관리할 수 있습니다. Azure AD에는 전체 ID 관리 기능이 포함됩니다. Azure AD 기능에 대한 정보는 [Azure Active Directory란?](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)을 참조하세요.
+Azure AD(Azure Active Directory)를 사용하면 사용자를 위한 Azure 서비스 및 리소스에 대한 액세스를 안전하게 관리할 수 있습니다. Azure AD에는 전체 ID 관리 기능이 포함됩니다. Azure AD 기능에 대한 정보는 [Azure Active Directory란?](active-directory-whatis.md)을 참조하세요.
 
-Azure AD에서는 사용자 및 그룹을 만들고 관리하며 사용 권한을 사용하여 엔터프라이즈 리소스에 대한 액세스를 허용 및 거부합니다. ID 관리에 대한 정보는 [Azure ID 관리의 기본 항목](https://docs.microsoft.com/azure/active-directory/fundamentals-identity)을 참조하세요.
+Azure AD에서는 사용자 및 그룹을 만들고 관리하며 사용 권한을 사용하여 엔터프라이즈 리소스에 대한 액세스를 허용 및 거부합니다. ID 관리에 대한 정보는 [Azure ID 관리의 기본 항목](active-directory-whatis.md)을 참조하세요.
 
 ## <a name="azure-ad-architecture"></a>Azure AD 아키텍처
 Azure AD의 지리적으로 분산된 아키텍처에는 광범위한 모니터링, 자동화된 재라우팅, 장애 조치(failover) 및 복구 기능이 결합되어 있으므로 회사 전체에서 가용성이 유지되며 고객에게는 뛰어난 성능을 제공할 수 있습니다.
@@ -34,7 +34,7 @@ Azure AD의 지리적으로 분산된 아키텍처에는 광범위한 모니터�
  *  데이터 센터
 
 ### <a name="service-architecture-design"></a>서비스 아키텍처 디자인
-액세스 및 사용 가능하며 다양한 데이터를 제공하는 시스템을 빌드하는 가장 일반적인 방법은 Azure AD 데이터 계층용으로 독립 구성 요소(배율 단위)를 사용하는 것입니다. 이러한 배율 단위를 *파티션*이라고 합니다. 
+액세스 및 사용 가능하며 다양한 데이터를 제공하는 시스템을 빌드하는 가장 일반적인 방법은 독립 구성 요소(배율 단위)를 사용하는 것입니다. Azure AD 데이터 계층에서는 이러한 배율 단위를 *파티션*이라고 합니다. 
 
 데이터 계층에는 읽기 쓰기 기능을 제공하는 몇 가지 프런트 엔드 서비스가 있습니다. 아래 다이어그램에서는 지리적으로 분산된 데이터 센터 전반에 걸쳐 단일 디렉터리 파티션의 구성 요소가 제공되는 방식을 보여 줍니다. 
 
@@ -54,9 +54,9 @@ Azure AD 아키텍처의 구성 요소는 주 복제본과 보조 복제본을 �
 
 확장성은 증가하는 성능 요구에 맞게 확장하는 서비스의 기능입니다. 데이터를 분할하여 쓰기 확장성을 달성합니다. 하나의 파티션에서 전 세계에 걸쳐 분포된 여러 보조 복제본으로 데이터를 복제하여 읽기 확장성을 달성합니다.
 
-디렉터리 응용 프로그램의 요청은 실제 거리가 가장 가까운 데이터 센터로 라우팅됩니다. 쓰기는 주 복제본에 투명하게 리디렉션되어 읽기 쓰기 일관성을 제공합니다. 디렉터리가 일반적으로 대부분의 읽기를 처리하기 때문에 보조 복제본은 파티션 규모를 상당히 확장하게 됩니다.
+디렉터리 애플리케이션의 요청은 실제 거리가 가장 가까운 데이터 센터로 라우팅됩니다. 쓰기는 주 복제본에 투명하게 리디렉션되어 읽기 쓰기 일관성을 제공합니다. 디렉터리가 일반적으로 대부분의 읽기를 처리하기 때문에 보조 복제본은 파티션 규모를 상당히 확장하게 됩니다.
 
-디렉터리 응용 프로그램은 가장 가까운 데이터 센터에 연결됩니다. 이러한 연결로 인해 성능이 향상되며, 따라서 규모 확장이 가능해집니다. 디렉터리 파티션에 여러 개의 보조 복제본이 있으므로 보조 복제본은 디렉터리 클라이언트에 가깝게 배치될 수 있습니다. 쓰기를 많이 사용하는 내부 디렉터리 서비스 구성 요소만이 활성 주 복제본을 직접 대상으로 합니다.
+디렉터리 애플리케이션은 가장 가까운 데이터 센터에 연결됩니다. 이러한 연결로 인해 성능이 향상되며, 따라서 규모 확장이 가능해집니다. 디렉터리 파티션에 여러 개의 보조 복제본이 있으므로 보조 복제본은 디렉터리 클라이언트에 가깝게 배치될 수 있습니다. 쓰기를 많이 사용하는 내부 디렉터리 서비스 구성 요소만이 활성 주 복제본을 직접 대상으로 합니다.
 
 ### <a name="continuous-availability"></a>지속적인 가용성
 
@@ -92,9 +92,9 @@ Azure AD는 다음 특성을 가진 데이터 센터에서 작동합니다.
 
 디렉터리 모델에는 일관성 있게 생성된 최종 데이터 중 한 가지가 반영됩니다. 비동기적으로 분산된 복제 시스템의 한 가지 일반적인 문제는 "특정" 복제본에서 반환된 데이터가 최신이 아닐 수도 있다는 점입니다. 
 
-Azure AD는 주 복제본에는 쓰기를 라우팅하고 보조 복제본에 쓰기를 다시 동기적으로 풀링하여 보조 복제본을 대상으로 하는 응용 프로그램의 읽기 쓰기 일관성을 제공합니다.
+Azure AD는 주 복제본에는 쓰기를 라우팅하고 보조 복제본에 쓰기를 다시 동기적으로 풀링하여 보조 복제본을 대상으로 하는 애플리케이션의 읽기 쓰기 일관성을 제공합니다.
 
-Azure AD의 Graph API를 사용하는 응용 프로그램은 읽기 쓰기 일관성을 위해 유지 관리 선호도에서 디렉터리 복제본으로 추상화됩니다. Azure AD Graph 서비스는 논리 세션을 유지 관리하며 여기에는 읽기에 사용되는 보조 복제본에 대한 선호도가 있습니다. 선호도는 논리적 읽기에 사용 되는 보조 복제본 선호도는 그래프 서비스가 분산된 캐시를 사용하여 캐시하는 "복제본 토큰"에 캡처됩니다. 이 토큰은 동일한 논리 세션의 후속 작업에 사용됩니다. 
+Azure AD의 Graph API를 사용하는 애플리케이션은 읽기 쓰기 일관성을 위해 유지 관리 선호도에서 디렉터리 복제본으로 추상화됩니다. Azure AD Graph 서비스는 논리 세션을 유지 관리하며 여기에는 읽기에 사용되는 보조 복제본에 대한 선호도가 있습니다. 선호도는 논리적 읽기에 사용 되는 보조 복제본 선호도는 그래프 서비스가 분산된 캐시를 사용하여 캐시하는 "복제본 토큰"에 캡처됩니다. 이 토큰은 동일한 논리 세션의 후속 작업에 사용됩니다. 
 
  >[!NOTE]
  >쓰기는 논리 세션의 읽기가 실행된 보조 복제본으로 즉시 복제됩니다.

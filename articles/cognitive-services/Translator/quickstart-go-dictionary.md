@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 대체 번역 찾기, Go - Translator Text API'
+title: '빠른 시작: 이중 언어 사전이 있는 단어 조회, Go - Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Go와 함께 Translator Text API를 사용하여 컨텍스트의 용어를 대체하는 번역과 예제를 찾아봅니다.
 services: cognitive-services
@@ -8,273 +8,218 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/29/2018
+ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: 0c4872aaf222110a0044095040db08d0180e37c4
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: c1a75a32e60e337d07bda9d6f6d39efa58c679e2
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649638"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158570"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-go"></a>빠른 시작: Translator Text REST API(Go)로 대체 번역 찾기
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>빠른 시작: Go를 사용하여 이중 언어 사전이 있는 단어 조회
 
-이 빠른 시작에서는 Translator Text API를 사용하여 용어를 대신할 수 있는 대체 번역의 상세 정보와 대체 번역의 사용 예제를 찾아봅니다.
+이 빠른 시작에서는 Go 및 Translator Text REST API를 사용하여 지정된 텍스트에 대한 대체 번역 및 사용 예제를 찾는 방법을 알아봅니다.
+
+이 빠른 시작에는Translator Text 리소스와 함께 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 코드를 실행하려면 [Go 배포판](https://golang.org/doc/install)을 설치해야 합니다. 샘플 코드는 **핵심** 라이브러리만 사용하므로 외부 종속성이 없습니다.
+이 빠른 시작에는 다음이 필요합니다.
 
-Translator Text API를 사용하려면 구독 키도 필요합니다. [Translator Text API에 등록하는 방법](translator-text-how-to-signup.md)을 참조하세요.
+* [Go](https://golang.org/doc/install)
+* Translator Text에 대한 Azure 구독 키
 
-## <a name="dictionary-lookup-request"></a>사전 조회 요청
+## <a name="create-a-project-and-import-required-modules"></a>프로젝트 만들기 및 필요한 모듈 가져오기
 
-다음은 [Dictionary Lookup](./reference/v3-0-dictionary-lookup.md) 메서드를 사용하여 단어의 대체 번역을 가져옵니다.
+선호하는 IDE 또는 편집기를 사용하여 새 Go 프로젝트를 만듭니다. 그런 다음, 아래 코드 조각을 `alt-translations.go`라는 파일의 프로젝트에 복사합니다.
 
-1. 원하는 코드 편집기에서 Go 프로젝트를 새로 만듭니다.
-2. 아래 제공된 코드를 추가합니다.
-3. `subscriptionKey` 값을 구독에 유효한 액세스 키로 바꿉니다.
-4. '.go' 확장명으로 파일을 저장합니다.
-5. Go가 설치된 컴퓨터에서 명령 프롬프트를 엽니다.
-6. 파일을 빌드합니다(예: 'go build quickstart-lookup.go').
-7. 파일을 실행합니다(예: 'quickstart-lookup').
-
-```golang
+```go
 package main
 
 import (
+    "bytes"
     "encoding/json"
     "fmt"
-    "io/ioutil"
+    "log"
     "net/http"
-    "strconv"
-    "strings"
-    "time"
+    "net/url"
+    "os"
 )
+```
 
+## <a name="create-the-main-function"></a>main 함수 만들기
+
+이 샘플에서는 환경 변수 `TRANSLATOR_TEXT_KEY`에서 Translator Text 구독 키를 읽으려고 합니다. 환경 변수를 잘 모르는 경우에는 `subscriptionKey`를 문자열로 설정하고 조건문을 주석으로 처리할 수 있습니다.
+
+이 코드를 프로젝트에 복사합니다.
+
+```go
 func main() {
-    // Replace the subscriptionKey string value with your valid subscription key
-    const subscriptionKey = "<Subscription Key>"
-
-    const uriBase = "https://api.cognitive.microsofttranslator.com"
-    const uriPath = "/dictionary/lookup?api-version=3.0"
-
-    // From English to French
-    const params = "&from=en&to=fr"
-
-    const uri = uriBase + uriPath + params
-
-    const text = "great"
-
-    r := strings.NewReader("[{\"Text\" : \"" + text + "\"}]")
-
-    client := &http.Client{
-        Timeout: time.Second * 2,
+    /*
+     * Read your subscription key from an env variable.
+     * Please note: You can replace this code block with
+     * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
+     * want to use env variables.
+     */
+    subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
+    if subscriptionKey == "" {
+       log.Fatal("Environment variable TRANSLATOR_TEXT_KEY is not set.")
     }
-
-    req, err := http.NewRequest("POST", uri, r)
-    if err != nil {
-        fmt.Printf("Error creating request: %v\n", err)
-        return
-    }
-
-    req.Header.Add("Content-Type", "application/json")
-    req.Header.Add("Content-Length", strconv.FormatInt(req.ContentLength, 10))
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-
-    resp, err := client.Do(req)
-    if err != nil {
-        fmt.Printf("Error on request: %v\n", err)
-        return
-    }
-    defer resp.Body.Close()
-
-    body, err := ioutil.ReadAll(resp.Body)
-    if err != nil {
-        fmt.Printf("Error reading response body: %v\n", err)
-        return
-    }
-
-    var f interface{}
-    json.Unmarshal(body, &f)
-
-    jsonFormatted, err := json.MarshalIndent(f, "", "  ")
-    if err != nil {
-        fmt.Printf("Error producing JSON: %v\n", err)
-        return
-    }
-    fmt.Println(string(jsonFormatted))
+    /*
+     * This calls our altTranslations function, which we'll
+     * create in the next section. It takes a single argument,
+     * the subscription key.
+     */
+    altTranslations(subscriptionKey)
 }
 ```
 
-## <a name="dictionary-lookup-response"></a>사전 조회 응답
+## <a name="create-a-function-to-get-alternate-translations"></a>대체 번역을 가져오는 함수 만들기
 
-성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다.
+대체 번역을 가져오는 함수를 만들겠습니다. 이 함수는 단일 인수인 Translator Text 구독 키를 사용합니다.
+
+```go
+func altTranslations(subscriptionKey string) {
+    /*  
+     * In the next few sections, we'll add code to this
+     * function to make a request and handle the response.
+     */
+}
+```
+
+그런 다음, URL을 생성하겠습니다. URL은 `Parse()` 및 `Query()` 메서드를 사용하여 빌드됩니다. 매개 변수는 `Add()` 메서드와 함께 추가됩니다. 이 샘플에서는 영어를 스페인어로 번역합니다.
+
+이 코드를 `altTranslations` 함수에 복사합니다.
+
+```go
+// Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+u, _ := url.Parse("https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0")
+q := u.Query()
+q.Add("from", "en")
+q.Add("to", "es")
+u.RawQuery = q.Encode()
+```
+
+>[!NOTE]
+> 엔드포인트, 루트 및 요청 매개 변수에 대한 자세한 내용은 [Translator Text API 3.0: 사전 조회](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup)를 참조하세요.
+
+## <a name="create-a-struct-for-your-request-body"></a>요청 본문의 구조체 만들기
+
+그런 다음, 요청 본문의 익명 구조체를 만들고 `json.Marshal()`을 사용하여 JSON으로 인코딩합니다. 이 코드를 `altTranslations` 함수에 추가합니다.
+
+```go
+// Create an anonymous struct for your request body and encode it to JSON
+body := []struct {
+    Text string
+}{
+    {Text: "Pineapples"},
+}
+b, _ := json.Marshal(body)
+```
+
+## <a name="build-the-request"></a>요청 빌드
+
+이제 요청 본문을 JSON으로 인코딩했으므로 POST 요청을 빌드하고 Translator Text API를 호출할 수 있습니다.
+
+```go
+// Build the HTTP POST request
+req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
+if err != nil {
+    log.Fatal(err)
+}
+// Add required headers to the request
+req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+req.Header.Add("Content-Type", "application/json")
+
+// Call the Translator Text API
+res, err := http.DefaultClient.Do(req)
+if err != nil {
+    log.Fatal(err)
+}
+```
+
+## <a name="handle-and-print-the-response"></a>응답 처리 및 인쇄
+
+이 코드를 `altTranslations` 함수에 추가하여 JSON 응답을 디코딩한 다음, 결과에 형식을 지정하고 결과를 인쇄합니다.
+
+```go
+// Decode the JSON response
+var result interface{}
+if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
+    log.Fatal(err)
+}
+// Format and print the response to terminal
+prettyJSON, _ := json.MarshalIndent(result, "", "  ")
+fmt.Printf("%s\n", prettyJSON)
+```
+
+## <a name="put-it-all-together"></a>모든 요소 결합
+
+이것으로, Translator Text API를 호출하여 JSON 응답을 반환하는 간단한 프로그램이 만들어집니다. 이제 프로그램을 실행해 보겠습니다.
+
+```console
+go run alt-translations.go
+```
+
+코드를 우리 것과 비교하고 싶다면 전체 샘플은 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go)에 있습니다.
+
+## <a name="sample-response"></a>샘플 응답
 
 ```json
 [
   {
-    "normalizedSource": "great",
-    "displaySource": "great",
+    "displaySource": "pineapples",
+    "normalizedSource": "pineapples",
     "translations": [
       {
-        "normalizedTarget": "grand",
-        "displayTarget": "grand",
-        "posTag": "ADJ",
-        "confidence": 0.2783,
-        "prefixWord": "",
         "backTranslations": [
           {
-            "normalizedText": "great",
-            "displayText": "great",
-            "numExamples": 15,
-            "frequencyCount": 34358
+            "displayText": "pineapples",
+            "frequencyCount": 158,
+            "normalizedText": "pineapples",
+            "numExamples": 5
           },
           {
-            "normalizedText": "big",
-            "displayText": "big",
-            "numExamples": 15,
-            "frequencyCount": 21770
+            "displayText": "cones",
+            "frequencyCount": 13,
+            "normalizedText": "cones",
+            "numExamples": 5
           },
-...
-        ]
+          {
+            "displayText": "piña",
+            "frequencyCount": 5,
+            "normalizedText": "piña",
+            "numExamples": 3
+          },
+          {
+            "displayText": "ganks",
+            "frequencyCount": 3,
+            "normalizedText": "ganks",
+            "numExamples": 2
+          }
+        ],
+        "confidence": 0.7016,
+        "displayTarget": "piñas",
+        "normalizedTarget": "piñas",
+        "posTag": "NOUN",
+        "prefixWord": ""
       },
       {
-        "normalizedTarget": "super",
-        "displayTarget": "super",
-        "posTag": "ADJ",
-        "confidence": 0.1514,
-        "prefixWord": "",
         "backTranslations": [
           {
-            "normalizedText": "super",
-            "displayText": "super",
-            "numExamples": 15,
-            "frequencyCount": 12023
-          },
-          {
-            "normalizedText": "great",
-            "displayText": "great",
-            "numExamples": 15,
-            "frequencyCount": 10931
-          },
-...
-        ]
-      },
-...
-    ]
-  }
-]
-```
-
-## <a name="dictionary-examples-request"></a>사전 예제 요청
-
-다음은 [Dictionary Examples](./reference/v3-0-dictionary-examples.md) 메서드를 사용하여 사전의 용어를 사용하는 방법에 대한 컨텍스트 예제를 가져옵니다.
-
-1. 원하는 코드 편집기에서 Go 프로젝트를 새로 만듭니다.
-2. 아래 제공된 코드를 추가합니다.
-3. `subscriptionKey` 값을 구독에 유효한 액세스 키로 바꿉니다.
-4. '.go' 확장명으로 파일을 저장합니다.
-5. Go가 설치된 컴퓨터에서 명령 프롬프트를 엽니다.
-6. 파일을 빌드합니다(예: 'go build quickstart-examples.go').
-7. 파일을 실행합니다(예: 'quickstart-examples').
-
-```golang
-package main
-
-import (
-    "encoding/json"
-    "fmt"
-    "io/ioutil"
-    "net/http"
-    "strconv"
-    "strings"
-    "time"
-)
-
-func main() {
-    // Replace the subscriptionKey string value with your valid subscription key
-    const subscriptionKey = "<Subscription Key>"
-
-    const uriBase = "https://api.cognitive.microsofttranslator.com"
-    const uriPath = "/dictionary/examples?api-version=3.0"
-
-    // From English to French
-    const params = "&from=en&to=fr"
-
-    const uri = uriBase + uriPath + params
-
-    const text = "great"
-    const translation = "formidable"
-
-    r := strings.NewReader("[{\"Text\" : \"" + text + "\", \"Translation\" : \"" + translation + "\"}]")
-
-    client := &http.Client{
-        Timeout: time.Second * 2,
-    }
-
-    req, err := http.NewRequest("POST", uri, r)
-    if err != nil {
-        fmt.Printf("Error creating request: %v\n", err)
-        return
-    }
-
-    req.Header.Add("Content-Type", "application/json")
-    req.Header.Add("Content-Length", strconv.FormatInt(req.ContentLength, 10))
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-
-    resp, err := client.Do(req)
-    if err != nil {
-        fmt.Printf("Error on request: %v\n", err)
-        return
-    }
-    defer resp.Body.Close()
-
-    body, err := ioutil.ReadAll(resp.Body)
-    if err != nil {
-        fmt.Printf("Error reading response body: %v\n", err)
-        return
-    }
-
-    var f interface{}
-    json.Unmarshal(body, &f)
-
-    jsonFormatted, err := json.MarshalIndent(f, "", "  ")
-    if err != nil {
-        fmt.Printf("Error producing JSON: %v\n", err)
-        return
-    }
-    fmt.Println(string(jsonFormatted))
-}
-```
-
-## <a name="dictionary-examples-response"></a>사전 예제 응답
-
-성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다.
-
-```json
-[
-  {
-    "normalizedSource": "great",
-    "normalizedTarget": "formidable",
-    "examples": [
-      {
-        "sourcePrefix": "You have a ",
-        "sourceTerm": "great",
-        "sourceSuffix": " expression there.",
-        "targetPrefix": "Vous avez une expression ",
-        "targetTerm": "formidable",
-        "targetSuffix": "."
-      },
-      {
-        "sourcePrefix": "You played a ",
-        "sourceTerm": "great",
-        "sourceSuffix": " game today.",
-        "targetPrefix": "Vous avez été ",
-        "targetTerm": "formidable",
-        "targetSuffix": "."
-      },
-...
+            "displayText": "pineapples",
+            "frequencyCount": 16,
+            "normalizedText": "pineapples",
+            "numExamples": 2
+          }
+        ],
+        "confidence": 0.2984,
+        "displayTarget": "ananás",
+        "normalizedTarget": "ananás",
+        "posTag": "NOUN",
+        "prefixWord": ""
+      }
     ]
   }
 ]
@@ -286,3 +231,13 @@ GitHub의 [Go용 Azure SDK](https://github.com/Azure/azure-sdk-for-go)에서 Cog
 
 > [!div class="nextstepaction"]
 > [GitHub에서 Go 패키지 살펴보기](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+
+## <a name="see-also"></a>참고 항목
+
+Translator Text API를 사용하여 다음을 수행하는 방법을 알아봅니다.
+
+* [텍스트 번역](quickstart-go-translate.md)
+* [텍스트 음역](quickstart-go-transliterate.md)
+* [입력으로 언어 식별](quickstart-go-detect.md)
+* [지원되는 언어 목록 가져오기](quickstart-go-languages.md)
+* [입력으로 문장 길이 확인](quickstart-go-sentences.md)

@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 REST API 클레임 교환을 오케스�
 description: API와 통합하는 Azure Active Directory B2C 사용자 지정 정책에 대한 항목
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dddb42f53d4bb59113df937799bd4de10d31491c
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7d62e0044d91af72ac8fea0271d7fc131e9c0a03
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338782"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852527"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 오케스트레이션 단계로 통합
 
@@ -33,28 +33,28 @@ IEF는 클레임으로 데이터를 보내고 다시 클레임으로 데이터�
 
 받은 클레임은 나중에 실행 흐름을 변경하는 데 사용할 수 있습니다.
 
-또한 상호 작용은 유효성 검사 프로필로 설계할 수 있습니다. 자세한 내용은 [연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력에 대한 유효성 검사로 통합](active-directory-b2c-rest-api-validation-custom.md)을 참조하세요.
+또한 상호 작용은 유효성 검사 프로필로 설계할 수 있습니다. 자세한 내용은 [연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력의 유효성 검사로 통합](active-directory-b2c-rest-api-validation-custom.md)을 참조하세요.
 
 시나리오는 사용자가 프로필 편집을 수행할 때 다음을 수행하려고 한다는 것입니다.
 
 1. 외부 시스템에서 사용자를 찾습니다.
 2. 해당 사용자를 등록한 도시를 가져옵니다.
-3. 해당 특성을 클레임으로 응용 프로그램에 반환합니다.
+3. 해당 특성을 클레임으로 애플리케이션에 반환합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 - [시작](active-directory-b2c-get-started-custom.md)에서 설명한 대로 로컬 계정 등록/로그인을 완료하도록 구성된 Azure AD B2C 테넌트
 - 상호 작용할 REST API 엔드포인트 이 연습에서는 간단한 웹후크 Azure 함수 앱을 예제로 사용합니다.
-- *권장*: [유효성 검증 단계로 REST API 클레임 교환을](active-directory-b2c-rest-api-validation-custom.md) 완료
+- *권장*: [유효성 검사 단계로 REST API 클레임 교환](active-directory-b2c-rest-api-validation-custom.md)을 완료합니다.
 
-## <a name="step-1-prepare-the-rest-api-function"></a>1단계 - REST API 함수 준비
+## <a name="step-1-prepare-the-rest-api-function"></a>1단계: REST API 함수 준비
 
 > [!NOTE]
 > REST API 함수 설정은 이 문서의 범위를 벗어납니다. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference)는 클라우드에서 RESTful 서비스를 만들 수 있는 뛰어난 도구 키트를 제공합니다.
 
 `email`이라는 클레임을 받고 할당된 `Redmond` 값이 포함된 `city` 클레임을 반환하는 Azure 함수를 설정했습니다. 샘플 Azure 함수는 [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples)에 있습니다.
 
-Azure 함수에서 반환하는 `userMessage` 클레임은 이 컨텍스트에서 선택 사항이며 IEF에서 무시됩니다. 이 클레임은 잠재적으로 응용 프로그램에 전달되고 나중에 사용자에게 표시되는 메시지로 사용될 수 있습니다.
+Azure 함수에서 반환하는 `userMessage` 클레임은 이 컨텍스트에서 선택 사항이며 IEF에서 무시됩니다. 이 클레임은 잠재적으로 애플리케이션에 전달되고 나중에 사용자에게 표시되는 메시지로 사용될 수 있습니다.
 
 ```csharp
 if (requestContentAsJObject.email == null)
@@ -79,7 +79,7 @@ return request.CreateResponse<ResponseContent>(
 
 Azure 함수 앱을 사용하면 특정 함수의 식별자를 포함하여 함수 URL을 쉽게 가져올 수 있습니다. 이 경우에 URL은 https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==입니다. 테스트 용도로 사용할 수 있습니다.
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>2단계 - TrustFrameworkExtensions.xml 파일에서 RESTful API 클레임 교환을 기술 프로필로 구성
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>2단계: TrustFrameworkExtensions.xml 파일에서 RESTful API 클레임 교환을 기술 프로필로 구성
 
 기술적 프로필은 RESTful 서비스에서 원하는 교환의 전체 구성입니다. TrustFrameworkExtensions.xml 파일을 열고 `<ClaimsProvider>` 요소 내에 다음 XML 코드 조각을 추가합니다.
 
@@ -97,6 +97,7 @@ Azure 함수 앱을 사용하면 특정 함수의 식별자를 포함하여 함�
                 <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==</Item>
                 <Item Key="AuthenticationType">None</Item>
                 <Item Key="SendClaimsIn">Body</Item>
+                <Item Key="AllowInsecureAuthInProduction">true</Item>
             </Metadata>
             <InputClaims>
                 <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="email" />
@@ -114,7 +115,7 @@ Azure 함수 앱을 사용하면 특정 함수의 식별자를 포함하여 함�
 
 `<OutputClaims>` 요소는 IEF가 REST 서비스에서 예상하는 클레임을 정의합니다. 받은 클레임 수에 관계 없이 IEF에서는 여기서 식별된 클레임만 사용합니다. 이 예제에서는 `city`로 받은 클레임이 `city`라는 IEF 클레임에 매핑됩니다.
 
-## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>3단계 - TrustFrameworkExtensions.xml 파일의 스키마에 새 `city` 클레임 추가
+## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>3단계: TrustFrameworkExtensions.xml 파일의 스키마에 새 `city` 클레임 추가
 
 `city` 클레임은 아직 스키마의 어디에서도 정의되지 않습니다. 따라서 `<BuildingBlocks>` 요소 내에 정의를 추가합니다. 이 요소는 TrustFrameworkExtensions.xml 파일의 시작 부분에서 찾을 수 있습니다.
 
@@ -133,12 +134,12 @@ Azure 함수 앱을 사용하면 특정 함수의 식별자를 포함하여 함�
 </BuildingBlocks>
 ```
 
-## <a name="step-4-include-the-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>4단계 - TrustFrameworkExtensions.xml에서 REST 서비스 클레임 교환을 프로필 편집 사용자 경험의 오케스트레이션 단계로 포함
+## <a name="step-4-include-the-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>4단계: TrustFrameworkExtensions.xml에서 REST 서비스 클레임 교환을 프로필 편집 사용자 경험의 오케스트레이션 단계로 포함
 
 사용자가 인증되고(다음 XML의 1-4 오케스트레이션 단계) 업데이트된 프로필 정보를 제공하면(5단계) 프로필 편집 사용자 경험에 단계를 추가합니다.
 
 > [!NOTE]
-> REST API 호출을 오케스트레이션 단계로 사용할 수 있는 사용 사례가 많이 있습니다. 오케스트레이션 단계로서 사용자가 첫 번째 등록과 같은 태스크를 성공적으로 완료한 후 외부 시스템에 대한 업데이트로 사용하거나 동기화된 정보 상태로 유지하기 위한 프로필 업데이트로 사용할 수 있습니다. 이 경우 프로필 편집 후에 응용 프로그램에 제공된 정보를 보강하는 데 사용됩니다.
+> REST API 호출을 오케스트레이션 단계로 사용할 수 있는 사용 사례가 많이 있습니다. 오케스트레이션 단계로서 사용자가 첫 번째 등록과 같은 태스크를 성공적으로 완료한 후 외부 시스템에 대한 업데이트로 사용하거나 동기화된 정보 상태로 유지하기 위한 프로필 업데이트로 사용할 수 있습니다. 이 경우 프로필 편집 후에 애플리케이션에 제공된 정보를 보강하는 데 사용됩니다.
 
 TrustFrameworkBase.xml 파일의 프로필 편집 사용자 경험 XML 코드를 `<UserJourneys>` 요소의 TrustFrameworkExtensions.xml 파일로 복사합니다. 그런 다음 6단계에서 수정합니다.
 
@@ -211,7 +212,7 @@ TrustFrameworkBase.xml 파일의 프로필 편집 사용자 경험 XML 코드를
 </UserJourney>
 ```
 
-## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>5단계 - `city` 클레임을 신뢰 당사자 정책 파일에 추가하여 응용 프로그램에 해당 클레임을 보냄
+## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>5단계: `city` 클레임을 신뢰 당사자 정책 파일에 추가하여 애플리케이션에 해당 클레임을 보냄
 
 ProfileEdit.xml RP(신뢰 당사자) 파일을 편집하고 `<TechnicalProfile Id="PolicyProfile">` 요소를 수정하여 `<OutputClaim ClaimTypeReferenceId="city" />`를 추가합니다.
 
@@ -228,15 +229,15 @@ ProfileEdit.xml RP(신뢰 당사자) 파일을 편집하고 `<TechnicalProfile I
 </TechnicalProfile>
 ```
 
-## <a name="step-6-upload-your-changes-and-test"></a>6단계 - 변경 내용 업로드 및 테스트
+## <a name="step-6-upload-your-changes-and-test"></a>6단계: 변경 내용 업로드 및 테스트
 
 기존 버전의 정책을 덮어씁니다.
 
 1.  (선택 사항) 계속하기 전에 기존 버전의 확장 파일을 다운로드하여 저장합니다. 초기 복잡성을 낮추려면 여러 버전의 확장 파일을 업로드하지 않는 것이 좋습니다.
-2.  (선택 사항) `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`를 변경하여 정책 편집 파일에 대한 새 버전의 정책 ID의 이름을 바꿉니다.
+2.  (선택 사항) `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`을 변경하여 정책 편집 파일에 대한 새 버전의 정책 ID 이름을 바꿉니다.
 3.  확장 파일을 업로드합니다.
 4.  정책 편집 RP 파일을 업로드 합니다.
-5.  **지금 실행**을 사용하여 정책을 테스트합니다. IEF에서 응용 프로그램에 반환하는 토큰을 검토합니다.
+5.  **지금 실행**을 사용하여 정책을 테스트합니다. IEF에서 애플리케이션에 반환하는 토큰을 검토합니다.
 
 모든 항목이 올바르게 설정되면 토큰에는 `Redmond` 값의 새 클레임 `city`가 포함됩니다.
 

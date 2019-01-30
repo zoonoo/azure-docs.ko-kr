@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 스크립트 샘플 - 스냅숏을 VHD로 다른 지역의 저장소 계정으로 내보내기/복사 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - 스냅숏을 VHD로 동일한 구독 또는 다른 구독의 저장소 계정으로 내보내기/복사
+title: Azure CLI 샘플 - 스냅숏을 다른 지역의 스토리지 계정에 복사 | Microsoft Docs
+description: Azure CLI 스크립트 샘플 - 스냅숏을 VHD로 동일한 지역 또는 다른 지역의 스토리지 계정으로 내보내기/복사합니다.
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
-ms.custom: mvc
-ms.openlocfilehash: cd555cfea6a84a0bdf0d0c4c9b9b68ae079fbc7b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: mvc,seodec18
+ms.openlocfilehash: 631e20f44ab0cd2c35df459695af0de6059e6788
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852622"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582289"
 ---
-# <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-cli"></a>CLI를 사용하여 관리 스냅숏을 VHD로 다른 지역의 저장소 계정으로 내보내기/복사
+# <a name="exportcopy-a-snapshot-to-a-storage-account-in-different-region-with-cli"></a>CLI를 사용하여 스냅숏을 다른 지역의 스토리지 계정으로 내보내기/복사
 
 이 스크립트는 관리 스냅숏을 다른 지역의 저장소 계정으로 내보냅니다. 먼저 스냅숏의 SAS URI를 생성한 다음 이를 사용하여 다른 지역의 저장소 계정으로 스냅숏을 복사합니다. 이 스크립트를 사용하여 재해 복구를 위해 다른 지역에서 관리 디스크의 백업을 유지 관리합니다. 
 
@@ -54,4 +54,4 @@ ms.locfileid: "29852622"
 
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
 
-추가 가상 머신 및 관리 디스크 CLI 스크립트 샘플은 [Azure Linux VM 설명서](../../app-service/app-service-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 확인할 수 있습니다.
+추가 가상 머신 및 관리 디스크 CLI 스크립트 샘플은 [Azure Linux VM 설명서](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 확인할 수 있습니다.

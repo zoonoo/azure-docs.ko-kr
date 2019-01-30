@@ -1,5 +1,5 @@
 ---
-title: '온-프레미스 네트워크를 Azure Virtual Network에 연결: 사이트 간 VPN: PowerShell | Microsoft Docs'
+title: 'Azure 가상 네트워크에 온-프레미스 네트워크 연결: 사이트 간 VPN: PowerShell | Microsoft Docs'
 description: 공용 인터넷을 통해 온-프레미스 네트워크에서 Azure Virtual Network에 IPsec을 만드는 단계입니다. 이 단계는 PowerShell을 사용하여 크로스-프레미스 사이트 간 VPN Gateway 연결을 만드는 데 도움이 됩니다.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4df7353016f33e4525c27536ba862f0412ebf82f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 1501ebe2df1ff6fa3505bf637896f6f3e7c827aa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953572"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427732"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>PowerShell을 사용하여 사이트 간 VPN 연결로 VNet 만들기
 
@@ -44,7 +44,7 @@ ms.locfileid: "49953572"
 
 로컬로 PowerShell을 설치하여 사용하려는 경우 최신 버전의 Azure Resource Manager PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet은 자주 업데이트되며, 일반적으로 PowerShell cmdlet을 업데이트하여 최신 기능을 가져와야 합니다. PowerShell cmdlet을 업데이트하지 않으면 지정된 값이 실패할 수 있습니다. 
 
-사용 중인 버전을 찾으려면 'Get-Module -ListAvailable AzureRM'을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
+사용 중인 버전을 찾으려면 'Get-Module -ListAvailable AzureRM'을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
 PowerShell을 로컬에서 실행하는 경우 'Connect-AzureRmAccount'를 실행하여 Azure와의 연결을 만들어야 합니다.
 
 
@@ -57,19 +57,19 @@ PowerShell을 로컬에서 실행하는 경우 'Connect-AzureRmAccount'를 실�
 
 VnetName                = VNet1
 ResourceGroup           = TestRG1
-Location                = East US 
-AddressSpace            = 10.1.0.0/16 
-SubnetName              = Frontend 
-Subnet                  = 10.1.0.0/24 
+Location                = East US 
+AddressSpace            = 10.1.0.0/16 
+SubnetName              = Frontend 
+Subnet                  = 10.1.0.0/24 
 GatewaySubnet           = 10.1.255.0/27
 LocalNetworkGatewayName = Site1
-LNG Public IP           = <On-premises VPN device IP address> 
+LNG Public IP           = <On-premises VPN device IP address> 
 Local Address Prefixes  = 10.101.0.0/24, 10.101.1.0/24
 Gateway Name            = VNet1GW
 PublicIP                = VNet1GWPIP
-Gateway IP Config       = gwipconfig1 
-VPNType                 = RouteBased 
-GatewayType             = Vpn 
+Gateway IP Config       = gwipconfig1 
+VPNType                 = RouteBased 
+GatewayType             = Vpn 
 ConnectionName          = VNet1toSite1
 
 ```
@@ -140,7 +140,7 @@ New-AzureRmResourceGroup -Name TestRG1 -Location 'East US'
 
 다음 값을 사용합니다.
 
-* *GatewayIPAddress*는 온-프레미스 VPN 장치의 IP 주소입니다. VPN 디바이스는 NAT 뒤에 배치할 수 없습니다.
+* *GatewayIPAddress*는 온-프레미스 VPN 디바이스의 IP 주소입니다. VPN 디바이스는 NAT 뒤에 배치할 수 없습니다.
 * *AddressPrefix*는 온-프레미스 주소 공간입니다.
 
 로컬 네트워크 게이트웨이에 단일 주소 접두사를 추가하려면:

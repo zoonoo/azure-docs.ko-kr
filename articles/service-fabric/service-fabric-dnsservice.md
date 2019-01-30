@@ -119,7 +119,7 @@ ApplicationManifest.xml 파일에서 기본 서비스에 대해 선언적으로 
 
 서비스의 DNS 이름은 클러스터 전체에서 확인할 수 있으므로 클러스터에서 DNS 이름의 고유성을 확인하는 것이 중요합니다. 
 
-`<ServiceDnsName>.<AppInstanceName>`의 이름 지정 체계를 사용하는 것이 좋습니다(예: `service1.application1`). 응용 프로그램이 Docker Compose를 사용하여 배포되는 경우 서비스는 이 이름 지정 체계를 사용하여 DNS 이름이 자동으로 할당됩니다.
+`<ServiceDnsName>.<AppInstanceName>`의 이름 지정 체계를 사용하는 것이 좋습니다(예: `service1.application1`). 애플리케이션이 Docker Compose를 사용하여 배포되는 경우 서비스는 이 이름 지정 체계를 사용하여 DNS 이름이 자동으로 할당됩니다.
 
 ### <a name="setting-the-dns-name-for-a-default-service-in-the-applicationmanifestxml"></a>ApplicationManifest.xml에서 기본 서비스에 대한 DNS 이름 설정
 Visual Studio 또는 원하는 편집기에서 프로젝트를 연 다음 ApplicationManifest.xml 파일을 엽니다. 기본 서비스 섹션으로 이동한 다음 각 서비스에 대해 `ServiceDnsName` 특성을 추가합니다. 다음 예제에서는 서비스의 DNS 이름을 `service1.application1`로 설정하는 방법을 보여 줍니다.
@@ -131,7 +131,7 @@ Visual Studio 또는 원하는 편집기에서 프로젝트를 연 다음 Applic
       </StatelessService>
     </Service>
 ```
-응용 프로그램을 배포한 후 Service Fabric Explorer의 서비스 인스턴스에는 다음 그림에 나와 있는 것처럼 이 인스턴스에 대한 DNS 이름이 표시됩니다. 
+애플리케이션을 배포한 후 Service Fabric Explorer의 서비스 인스턴스에는 다음 그림에 나와 있는 것처럼 이 인스턴스에 대한 DNS 이름이 표시됩니다. 
 
 ![서비스 엔드포인트](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 

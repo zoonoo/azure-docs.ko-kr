@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: fca56453d931588fdb5e509237ac538f0de9d0ec
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4885be7547d404505b50c563036f260166cbc2cc
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214395"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833825"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>Azure Site Recovery에서 네트워크 보안 그룹 사용
 
@@ -35,7 +35,7 @@ Resource Manager 배포 모델에서 NSG는 서브넷 또는 개별 네트워크
 
 이 예의 경우 인바운드 트래픽에서는 서브넷 NSG가 먼저 평가됩니다. 서브넷 NSG를 통해 허용되는 모든 트래픽이 VM NSG에서 평가됩니다. 아웃바운드 트래픽의 경우 반대 방향으로 적용되어 VM NSG가 먼저 평가됩니다. VM NSG를 통해 허용되는 모든 트래픽이 NSG 서브넷에서 평가됩니다.
 
-이렇게 하면 세부적인 보안 규칙을 적용할 수 있습니다. 예를 들어 서브넷에 속한 일부 응용 프로그램 VM(예: 프런트 엔드 VM)에 대한 인바운드 인터넷 액세스는 허용하고, 다른 VM(예: 데이터베이스 및 다른 백 엔드 VM)에 대한 인바운드 인터넷 액세스는 제한할 수 있습니다. 이 경우 서브넷 NSG에 더 완화된 규칙을 적용하여 인터넷 트래픽을 허용하고, VM NSG에서 액세스를 거부하여 특정 VM에 대한 액세스를 제한할 수 있습니다. 아웃바운드 트래픽에도 동일하게 적용할 수 있습니다.
+이렇게 하면 세부적인 보안 규칙을 적용할 수 있습니다. 예를 들어 서브넷에 속한 일부 애플리케이션 VM(예: 프런트 엔드 VM)에 대한 인바운드 인터넷 액세스는 허용하고, 다른 VM(예: 데이터베이스 및 다른 백 엔드 VM)에 대한 인바운드 인터넷 액세스는 제한할 수 있습니다. 이 경우 서브넷 NSG에 더 완화된 규칙을 적용하여 인터넷 트래픽을 허용하고, VM NSG에서 액세스를 거부하여 특정 VM에 대한 액세스를 제한할 수 있습니다. 아웃바운드 트래픽에도 동일하게 적용할 수 있습니다.
 
 이러한 NSG 구성을 설정하는 경우 올바른 우선 순위가 [보안 규칙](../virtual-network/security-overview.md#security-rules)에 적용되는지 확인합니다. 낮은 번호의 우선 순위가 더 높기 때문에 규칙은 낮은 번호가 높은 번호보다 먼저 처리되는 우선 순위 순서로 처리됩니다. 트래픽이 규칙과 일치하면 처리가 중지됩니다. 따라서 우선 순위가 높은 규칙과 동일한 특성을 가진 우선 순위가 낮은 규칙(높은 번호)은 처리되지 않습니다.
 
@@ -75,4 +75,4 @@ NSG를 만들고 구성한 경우 [테스트 장애 조치](azure-to-azure-tutor
 -   [네트워크 보안 그룹](../virtual-network/security-overview.md#network-security-groups)에 대해 자세히 알아보세요.
 -   NSG [보안 규칙](../virtual-network/security-overview.md#security-rules)에 대해 자세히 알아보세요.
 -   NSG에 대한 [효과적인 보안 규칙](../virtual-network/diagnose-network-traffic-filter-problem.md)에 대해 자세히 알아보세요.
--   응용 프로그램 장애 조치(failover)를 자동화하는 [복구 계획](site-recovery-create-recovery-plans.md)에 대해 자세히 알아봅니다.
+-   애플리케이션 장애 조치(failover)를 자동화하는 [복구 계획](site-recovery-create-recovery-plans.md)에 대해 자세히 알아봅니다.

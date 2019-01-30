@@ -16,7 +16,7 @@ ms.locfileid: "48249471"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응
 
-Azure IoT Hub는 이벤트 알림을 다른 서비스에 보내고 다운스트림 프로세스를 트리거할 수 있도록 Azure Event Grid와 통합됩니다. 안전하고 안정적이며 확장성 있는 방식으로 중요한 이벤트에 대응할 수 있도록 IoT Hub 이벤트를 수신 대기 할 수 있게 비즈니스 응용 프로그램을 구성합니다. 예를 들어 새 IoT 디바이스가 IoT 허브에 등록될 때마다 데이터베이스를 업데이트하고, 티켓을 만들고, 이메일 알림을 전달하는 것과 같은 여러 작업을 수행하는 응용 프로그램을 빌드합니다. 
+Azure IoT Hub는 이벤트 알림을 다른 서비스에 보내고 다운스트림 프로세스를 트리거할 수 있도록 Azure Event Grid와 통합됩니다. 안전하고 안정적이며 확장성 있는 방식으로 중요한 이벤트에 대응할 수 있도록 IoT Hub 이벤트를 수신 대기 할 수 있게 비즈니스 애플리케이션을 구성합니다. 예를 들어 새 IoT 디바이스가 IoT 허브에 등록될 때마다 데이터베이스를 업데이트하고, 티켓을 만들고, 이메일 알림을 전달하는 것과 같은 여러 작업을 수행하는 응용 프로그램을 빌드합니다. 
 
 [Azure Event Grid](../event-grid/overview.md)는 게시-구독 모델을 사용하여 완전히 관리되는 이벤트 라우팅 서비스입니다. Event Grid에는 [Azure Functions](../azure-functions/functions-overview.md) 및 [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)와 같은 Azure 서비스에 대한 기본 제공 지원이 있어 웹후크를 사용하여 외부 Azure 서비스에 이벤트 경고를 제공할 수 있습니다. Azure Event Grid가 지원하는 이벤트 처리기의 전체 목록은 [Azure Event Grid 소개](../event-grid/overview.md)를 참조하세요. 
 
@@ -137,7 +137,7 @@ devices/{deviceId}
 
 ## <a name="tips-for-consuming-events"></a>이벤트 사용하기 위한 팁
 
-IoT Hub 이벤트를 처리하는 응용 프로그램은 다음 권장 사항을 따라야 합니다.
+IoT Hub 이벤트를 처리하는 애플리케이션은 다음 권장 사항을 따라야 합니다.
 
 * 동일한 이벤트 처리기에 이벤트를 라우팅하도록 여러 구독을 구성할 수 있습니다. 따라서 이벤트가 특정 소스에서 온 것으로 가정하지 않는 것이 중요합니다. 항상 메시지 항목을 확인하여 예상한 IoT 허브에서 온 개체인지 확인합니다. 
 

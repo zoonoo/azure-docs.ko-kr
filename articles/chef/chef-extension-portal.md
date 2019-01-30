@@ -3,28 +3,29 @@ title: Azure Portal에서 Chef 클라이언트 설치
 description: Azure Portal에서 Chef 클라이언트를 배포 및 구성하는 방법 알아보기
 keywords: azure, chef, devops, client, install, portal
 ms.service: virtual-machines-linux
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: e121cd038b8becee1e9c4c12659dbbee0696a9f1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 336ac6b81a56797ad1c1254322dbeec3e36914f3
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378655"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358153"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Azure Portal에서 Chef 클라이언트 설치
-Azure Portal에서 Linux 또는 Windows 가상 머신을 만들거나 수정하는 경우 가상 머신에 Chef 확장을 추가할 수 있습니다. 이 문서에서는 새 Linux 가상 머신을 사용하여 해당 프로세스를 안내합니다.
+Azure Portal에서 Linux 또는 Windows 머신에 직접 Chef 클라이언트 확장을 추가할 수 있습니다. 이 문서에서는 새 Linux 가상 머신을 사용하여 해당 프로세스를 안내합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
-- **Chef**: 활성 Chef 계정이 없는 경우 [호스트된 Chef의 체험 평가판](https://manage.chef.io/signup)에 등록합니다. 이 문서의 지침을 따르려면 Chef 계정에서 다음 값이 필요합니다. 
-    - organization_validation 키
-    - rb
-    - run_list
+- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 을 만듭니다.
+
+- **Chef**: 활성 Chef 계정이 없는 경우 [호스트된 Chef의 평가판](https://manage.chef.io/signup)에 등록합니다. 이 문서의 지침을 따르려면 Chef 계정에서 다음 값이 필요합니다.
+  - organization_validation 키
+  - rb
+  - run_list
 
 ## <a name="install-the-chef-extension-on-a-new-linux-virtual-machine"></a>새 Linux 가상 머신에 Chef 확장 설치
 이 섹션에서는 먼저 Azure Portal을 사용하여 Linux 컴퓨터를 만듭니다. 프로세스 중 새 가상 머신에 Chef 확장을 설치하는 방법도 알게 됩니다.
@@ -81,13 +82,13 @@ Azure Portal에서 Linux 또는 Windows 가상 머신을 만들거나 수정하�
 
 1. **확장 설치** 탭에서 다음 값을 지정한 다음, **확인**을 선택합니다.
 
-    - **Chef 서버 URL** - 조직 이름을 포함하는 Chef 서버 URL을 입력합니다(예: *https://api.chef.io/organization/hessco*).
+    - **Chef 서버 URL** - 조직 이름을 포함하는 Chef 서버 URL을 입력합니다(예: *https://api.chef.io/organization/mycompany*).
     - **Chef 노드 이름** - Chef 노드 이름을 입력합니다. 모든 값이 될 수 있습니다.
     - **실행 목록** - 컴퓨터에 추가되는 Chef 실행 목록을 입력합니다. 비워 둘 수 있습니다.
     - **유효성 검사 클라이언트 이름** - Chef 유효성 검사 클라이언트 이름을 입력합니다. 예: *tarcher-validator*.
-    - **유효성 검사 키** - 컴퓨터를 부트스트래핑할 때 사용되는 유효성 검사 키를 포함하는 파일을 선택합니다. 
+    - **유효성 검사 키** - 컴퓨터를 부트스트래핑할 때 사용되는 유효성 검사 키를 포함하는 파일을 선택합니다.
     - **클라이언트 구성 파일** - chef 클라이언트에 대한 구성 파일을 선택합니다. 비워 둘 수 있습니다.
-    - **Chef 클라이언트 버전** - 설치할 chef 클라이언트의 버전을 입력합니다. 비워 둘 수 있습니다. 빈 값으로 두면 최신 버전이 설치됩니다. 
+    - **Chef 클라이언트 버전** - 설치할 chef 클라이언트의 버전을 입력합니다. 비워 둘 수 있습니다. 값을 비워 두면 최신 버전이 설치됩니다.
     - **SSL 확인 모드** - **없음** 또는 **피어**를 선택합니다. 데모에 ‘없음’이 선택되었습니다.
     - **Chef 환경** - 이 노드가 구성원이어야 하는 Chef 환경을 입력합니다. 비워 둘 수 있습니다.
     - **암호화된 Databag 비밀** - 이 컴퓨터에 액세스 권한이 있어야 하는 암호화된 Databag에 대한 비밀을 포함하는 파일을 선택합니다. 비워 둘 수 있습니다.
@@ -106,4 +107,5 @@ Chef 확장을 사용하여 가상 머신을 만들고 배포하는 프로세스
 ![Linux 가상 머신에 Chef 서버 설치](./media/chef-extension-portal/resource-created.png)
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure에서 Chef를 사용하여 Windows 가상 머신 만들기](/azure/virtual-machines/windows/chef-automation)
+
+- [Azure에서 Chef를 사용하여 Windows 가상 머신 만들기](/azure/virtual-machines/windows/chef-automation)

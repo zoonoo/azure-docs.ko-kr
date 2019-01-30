@@ -10,21 +10,20 @@ ms.assetid: b1718024-84d6-4f5c-a912-3a99edb3f632
 ms.service: sql-server-stretch-database
 ms.workload: sql-server-stretch-database
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: DouglasL
-ms.openlocfilehash: 33f23d324a843165d7fe6016ee626e369acfc958
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82a8e6e6660bd7ee31a78ccc458d105d393610f4
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23055528"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742714"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Azure SQL Server Stretch Database 서비스에 대한 모든 토픽
 이 토픽에서는 Azure의 **SQL Server Stretch Database** 서비스에 직접 적용되는 모든 항목을 나열합니다. 이 웹 페이지에서 **Ctrl+F**를 사용해 키워드를 검색하여 현재 관심 있는 항목을 찾을 수 있습니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 | &nbsp; | 제목 | 설명 |
 | ---:|:--- |:--- |
 | 1 |[Stretch Database 관리자를 실행하여 Stretch Database에 대한 데이터베이스 및 테이블 식별](sql-server-stretch-database-identify-databases.md) |Stretch Database의 후보인 데이터베이스 및 테이블을 식별하는 방법에 대해 알아봅니다. |
@@ -53,7 +52,7 @@ ms.locfileid: "23055528"
 | 12 |[Azure에서 Stretch Database에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정](sql-server-stretch-database-encryption-tde.md) |Azure에서 SQL Server Stretch Database에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정 |
 | 13 |[Azure에서 Stretch Database에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정(Transact-SQL)](sql-server-stretch-database-tde-tsql.md) |Azure TSQL에서 SQL Server Stretch Database에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정 |
 
-## <a name="backup-and-recovery"></a>백업 및 복구
+## <a name="backup-and-recovery"></a>Backup 및 복구
 | &nbsp; | 제목 | 설명 |
 | ---:|:--- |:--- |
 | 14 |[스트레치 지원 데이터베이스 백업](sql-server-stretch-database-backup.md) |스트레치\-지원 데이터베이스를 백업하는 방법을 알아봅니다. |

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/01/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 807453d6af67fd2dccf06a1b4a2beaca47dc865a
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 97c33a5dc2eb43644081579b5d1c0172ce953906
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913823"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449353"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>자습서: Azure Data Box Disk에 데이터 복사 및 확인
 
@@ -148,19 +148,32 @@ ms.locfileid: "50913823"
     C:\Users>
     ```
  
+    성능을 최적화하기 위해, 데이터를 복사할 때 다음 robocopy 매개 변수를 사용하세요.
+
+    |    플랫폼    |    대부분 512KB 미만의 작은 파일                           |    대부분 512KB-1MB의 중간 파일                      |    대부분 1MB를 초과하는 큰 파일                             |   
+    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
+    |    Data Box Disk        |    Robocopy 세션 4개* <br> 세션당 16스레드    |    Robocopy 세션 2개* <br> 세션당 16스레드    |    Robocopy 세션 2개* <br> 세션당 16스레드    |  |
     
-7. 대상 폴더를 열어 복사된 파일을 보고 확인합니다. 복사 프로세스 중 오류가 있는 경우 문제 해결을 위해 로그 파일을 다운로드합니다. 로그 파일은 robobopy 명령에 지정된 위치에 있습니다.
+    **각 Robocopy 세션의 제한은 디렉터리 7,000개 및 파일 1억 5000만 개입니다.*
+    
+    >[!NOTE]
+    > 위에서 권장하는 매개 변수는 내부 테스트에 사용된 환경을 기준으로 작성되었습니다.
+    
+    Robocopy 명령에 대한 자세한 내용은 [Robocopy 및 몇 가지 예제](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx)를 참조하세요.
+
+6. 대상 폴더를 열어 복사된 파일을 보고 확인합니다. 복사 프로세스 중 오류가 있는 경우 문제 해결을 위해 로그 파일을 다운로드합니다. 로그 파일은 robocopy 명령에 지정된 위치에 있습니다.
  
-
-
 > [!IMPORTANT]
 > - 적절한 데이터 형식에 해당하는 폴더에 데이터를 복사하는지 확인해야 합니다. 예를 들어 블록 Blob에 대한 폴더에 블록 Blob 데이터를 복사합니다. 데이터 형식이 적절한 폴더(저장소 형식)와 일치하지 않는 경우 이후 단계에서 Azure에 대한 데이터 업로드가 실패합니다.
-> -  데이터를 복사하는 동안 데이터 크기가 [Azure 저장소 및 Data Box Disk 제한](data-box-disk-limits.md)에 설명된 크기 제한을 준수하는지 확인합니다. 
-> - Data Box Disk에 의해 업로드되는 데이터가 Data Box Disk 외부의 다른 응용 프로그램에 의해 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터 손상이 발생할 수 있습니다.
+> -  데이터를 복사하는 동안 데이터 크기가 [Azure 저장소 및 Data Box Disk 제한](data-box-disk-limits.md)에 설명된 크기 제한을 준수하는지 확인합니다.
+> - Data Box Disk에 의해 업로드되는 데이터가 Data Box Disk 외부의 다른 애플리케이션에 의해 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터 손상이 발생할 수 있습니다.
 
 ### <a name="split-and-copy-data-to-disks"></a>데이터 분할 및 디스크에 복사
 
 이 선택적인 절차는 여러 디스크를 사용 중이고 데이터를 분할하여 모든 디스크에 복사해야 하는 대용량 데이터 세트가 있는 경우에 사용할 수 있습니다. Data Box 분할 복사 도구는 Windows 컴퓨터에서 데이터를 분할하여 복사하는 데 도움이 됩니다.
+
+>[!IMPORTANT]
+> Data Box 분할 복사 도구 또한 데이터의 유효성을 검사합니다. Data Box 분할 복사 도구를 사용하여 데이터를 복사하는 경우 [유효성 검사 단계](#validate-data)를 건너뜁니다.
 
 1. Windows 컴퓨터에서 Data Box 분할 복사 도구가 다운로드되어 로컬 폴더에 추출되어 있는지 확인합니다. 이 도구는 Windows용 Data Box Disk 도구 집합을 다운로드할 때 다운로드됩니다.
 2. 파일 탐색기를 엽니다. 데이터 원본 드라이브 및 Data Box Disk에 할당된 드라이브 문자를 적어둡니다. 
@@ -176,26 +189,26 @@ ms.locfileid: "50913823"
 
          ![데이터 분할 복사 ](media/data-box-disk-deploy-copy-data/split-copy-3.png)
  
-4. 소프트웨어를 추출한 폴더로 이동합니다. 이 폴더에서 SampleConfig.json 파일을 찾습니다. 이 파일은 수정하여 저장할 수 있는 읽기 전용 파일입니다.
+4. 소프트웨어를 추출한 폴더로 이동합니다. 해당 폴더에서 `SampleConfig.json` 파일을 찾습니다. 이 파일은 수정하여 저장할 수 있는 읽기 전용 파일입니다.
 
    ![데이터 분할 복사 ](media/data-box-disk-deploy-copy-data/split-copy-4.png)
  
-5. SampleConfig.json 파일을 수정합니다.
+5. `SampleConfig.json` 파일을 수정합니다.
  
     - 작업 이름을 제공합니다. Data Box Disk에 폴더가 만들어지고 이 디스크와 연결된 Azure 저장소 계정의 컨테이너가 됩니다. 작업 이름은 Azure 컨테이너 명명 규칙을 따라야 합니다. 
-    - SampleConfigFile.json에서 경로 형식을 기록하는 소스 경로를 제공합니다. 
+    - `SampleConfigFile.json`에서 경로 형식을 기록하는 소스 경로를 제공합니다. 
     - 대상 디스크에 해당하는 드라이브 문자를 입력합니다. 소스 경로의 데이터를 가져다가 여러 디스크에 복사됩니다.
-    - 로그 파일에 대한 경로를 제공합니다. 기본적으로 .exe 파일이 있는 현재 디렉터리로 전송됩니다.
+    - 로그 파일에 대한 경로를 제공합니다. 기본적으로 `.exe` 파일이 있는 현재 디렉터리로 전송됩니다.
 
      ![데이터 분할 복사 ](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
-6. 파일 형식의 유효성을 검사하려면 JSONlint로 이동합니다. ConfigFile.json으로 파일을 저장합니다. 
+6. 파일 형식의 유효성을 검사하려면 `JSONlint`로 이동합니다. 파일을 `ConfigFile.json`(으)로 저장합니다. 
 
      ![데이터 분할 복사 ](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
 7. 명령 프롬프트 창을 엽니다. 
 
-8. DataBoxDiskSplitCopy.exe 파일을 실행합니다. type
+8. `DataBoxDiskSplitCopy.exe`를 실행합니다. type
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
@@ -214,7 +227,7 @@ ms.locfileid: "50913823"
     ![데이터 분할 복사 ](media/data-box-disk-deploy-copy-data/split-copy-10.png)
     ![데이터 분할 복사 ](media/data-box-disk-deploy-copy-data/split-copy-11.png)
      
-    n: 드라이브의 내용을 자세히 살펴보면 블록 Blob 및 페이지 Blob 형식 데이터에 해당하는 두 개의 하위 폴더가 만들어져 있는 것이 보입니다.
+    `n:` 드라이브의 내용을 자세히 살펴보면 블록 Blob 및 페이지 Blob 형식 데이터에 해당하는 두 개의 하위 폴더가 생성된 것이 보입니다.
     
      ![데이터 분할 복사 ](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
@@ -222,15 +235,14 @@ ms.locfileid: "50913823"
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
 
+데이터 복사가 완료되면 데이터 유효성을 검사할 수 있습니다. 분할 복사 도구를 사용한 경우 유효성 검사를 건너뛰고(분할 복사 도구도 유효성 검사를 수행하므로) 다음 자습서로 이동합니다.
 
-데이터 복사가 완료된 후 다음 단계는 데이터의 유효성을 검사하는 것입니다. 
 
+## <a name="validate-data"></a>데이터 유효성 검사
 
-## <a name="validate-data"></a>데이터 유효성 검사 
+데이터를 복사할 때 분할 복사 도구를 사용하지 않은 경우 데이터의 유효성을 검사해야 합니다. 데이터의 유효성을 검사하려면 다음 단계를 수행합니다.
 
-데이터의 유효성을 검사하려면 다음 단계를 수행합니다.
-
-1. 드라이브의 *DataBoxDiskImport* 폴더에서 체크섬 유효성 검사를 위해 `DataBoxDiskValidation.cmd`를 실행합니다. 
+1. 드라이브의 *DataBoxDiskImport* 폴더에서 체크섬 유효성 검사를 위해 `DataBoxDiskValidation.cmd`를 실행합니다.
     
     ![Data Box Disk 유효성 검사 도구 출력](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
@@ -240,7 +252,7 @@ ms.locfileid: "50913823"
 
     > [!TIP]
     > - 두 실행 간에 도구를 다시 설정합니다.
-    > - 옵션 1을 사용하여 작은 파일(KB 이하 크기)이 포함된 큰 데이터 집합만 처리하는 파일의 유효성만 검사합니다. 이러한 경우 체크섬 생성에 시간이 오래 걸릴 수 있으며 성능이 매우 느려질 수 있습니다.
+    > - 작은 파일(KB 이하)이 포함된 대형 데이터 세트를 처리하는 경우 옵션 1을 사용합니다. 체크섬 생성에 시간이 오래 걸릴 수 있고 성능이 매우 느려질 수 있으므로 이 옵션은 파일의 유효성만 검사합니다.
 
 3. 여러 디스크를 사용하는 경우 각 디스크에 대해 명령을 실행합니다.
 
@@ -256,4 +268,3 @@ Data Box Disk를 반환하고 Azure에 대한 데이터 업로드를 확인하�
 
 > [!div class="nextstepaction"]
 > [Microsoft로 Azure Data Box 반송](./data-box-disk-deploy-picked-up.md)
-

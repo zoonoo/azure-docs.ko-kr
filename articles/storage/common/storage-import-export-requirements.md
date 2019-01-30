@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/07/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 3a42f09967ec42b47947823025f2f0dcd081d1b1
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 5f6908a80a467e1a8a12d61be2f67cbe70cce8a0
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "49352240"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275641"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export에 대한 시스템 요구 사항
 
@@ -26,7 +26,7 @@ WAImportExport 도구를 사용하여 하드 드라이브를 준비하기 위해
 
 |플랫폼 |버전 |
 |---------|---------|
-|Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> 윈도우 10        |
+| Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> 윈도우 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Windows 클라이언트에 필요한 다른 소프트웨어
@@ -41,10 +41,11 @@ WAImportExport 도구를 사용하여 하드 드라이브를 준비하기 위해
 
 Azure Import/Export 서비스는 다음과 같은 유형의 저장소 계정을 지원합니다.
 
-- 범용 v1 저장소 계정(클래식 또는 Azure Resource Manager 모두)
+- 범용 v2 스토리지 계정(대부분의 시나리오에 권장됨)
 - Blob Storage 계정
+- 범용 v1 스토리지 계정(클래식 또는 Azure Resource Manager 배포 모두), 
 
-저장소 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요.
+스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요.
 
 각 작업은 하나의 저장소 계정에서만 데이터 전송에 사용될 수 있습니다. 다시 말해, 하나의 가져오기/내보내기 작업이 여러 저장소 계정에서 사용될 수 없습니다. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-quickstart-create-account.md)(영문)을 참조하세요.
 

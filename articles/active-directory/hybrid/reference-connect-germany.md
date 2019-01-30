@@ -1,11 +1,11 @@
 ---
 title: Microsoft Cloud 독일의 Azure AD Connect
-description: Azure AD Connect는 온-프레미스 디렉터리와 Azure Active Directory를 통합니다. 이렇게 하면 Azure AD와 통합된 Office 365, Azure, 및 SaaS 응용 프로그램에 대한 공통 ID를 제공할 수 있습니다.
+description: Azure AD Connect는 온-프레미스 디렉터리와 Azure Active Directory를 통합니다. 이렇게 하면 Azure AD와 통합된 Office 365, Azure, 및 SaaS 애플리케이션에 대한 공통 ID를 제공할 수 있습니다.
 keywords: Azure AD Connect 소개, Azure AD Connect 개요, Azure AD Connect 정의, Active Directory 설치, 독일, Black Forest
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2bcb0caf-5d97-46cb-8c32-bda66cc22dad
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 545ec1d4f5cd817b1fa02a135d305b997c9945bc
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 9ea28e1215c989e7cb64c54dde7eac5363699089
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705398"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464241"
 ---
 # <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Microsoft Cloud 독일의 Azure AD Connect - 공개 미리 보기
 ## <a name="introduction"></a>소개

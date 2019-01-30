@@ -3,23 +3,23 @@ title: Azure Resource Manager 템플릿을 사용하여 Service Bus 권한 부�
 description: Azure Resource Manager 템플릿을 사용하여 네임스페이스 및 큐에 대한 Service Bus 권한 부여 규칙 만들기
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 7f1443a0-5fa8-4d90-8637-1a977ef0b1f0
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 09/11/2018
-ms.author: spelluru
-ms.openlocfilehash: 1250851386b9423b66bdbfd03292de56fd38850d
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 491c9f83767867daeef78138f52d815203b4290a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410105"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855842"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 네임스페이스 및 큐에 대한 Service Bus 권한 부여 규칙 만들기
 
@@ -45,7 +45,7 @@ ms.locfileid: "47410105"
 
 이 템플릿을 사용하여 네임스페이스 및 메시징 엔터티(이 경우에는 큐)에 대한 Service Bus 권한 부여 규칙을 배포합니다.
 
-이 템플릿은 인증에 [SAS(공유 액세스 서명)](service-bus-sas.md)를 사용합니다. SAS를 사용하면 응용 프로그램을 네임스페이스 또는 특정 권한이 연관된 메시징 엔터티(큐 또는 토픽)에서 구성된 액세스 키를 사용하여 Service Bus에 인증할 수 있습니다. 그런 다음 이 키를 사용하여 클라이언트가 Service Bus를 인증하는 데 차례로 사용할 수 있는 SAS 토큰을 생성할 수 있습니다.
+이 템플릿은 인증에 [SAS(공유 액세스 서명)](service-bus-sas.md)를 사용합니다. SAS를 사용하면 애플리케이션을 네임스페이스 또는 특정 권한이 연관된 메시징 엔터티(큐 또는 토픽)에서 구성된 액세스 키를 사용하여 Service Bus에 인증할 수 있습니다. 그런 다음 이 키를 사용하여 클라이언트가 Service Bus를 인증하는 데 차례로 사용할 수 있는 SAS 토큰을 생성할 수 있습니다.
 
 배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
 
@@ -148,6 +148,8 @@ Service Bus 네임스페이스에 있는 큐의 이름입니다.
         }
     ]
 ```
+
+JSON 구문 및 속성의 경우 [네임스페이스](/azure/templates/microsoft.servicebus/namespaces), [큐](/azure/templates/microsoft.servicebus/namespaces/queues) 및 [AuthorizationRules](/azure/templates/microsoft.servicebus/namespaces/authorizationrules)를 참조하세요.
 
 ## <a name="commands-to-run-deployment"></a>배포 실행 명령
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]

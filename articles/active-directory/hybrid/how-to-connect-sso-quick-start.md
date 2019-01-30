@@ -5,28 +5,28 @@ services: active-directory
 keywords: Azure AD Connect의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/10/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d6b8d2bddcd3ac622a2a5f51ebe78cbecc29c29
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: aea83029ea5576886ab3eefd065c3f6db62ddc5f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687336"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465576"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
 ## <a name="deploy-seamless-single-sign-on"></a>Seamless Single Sign-On 배포
 
-Azure AD(Active Directory) Seamless SSO(Seamless Single Sign-On)는 회사 네트워크에 연결된 회사 데스크톱에 있을 때 사용자를 자동으로 서명합니다. Seamless SSO는 추가 온-프레미스 구성 요소가 없어도 사용자가 클라우드 기반 응용 프로그램에 쉽게 액세스할 수 있습니다.
+Azure AD(Active Directory) Seamless SSO(Seamless Single Sign-On)는 회사 네트워크에 연결된 회사 데스크톱에 있을 때 사용자를 자동으로 서명합니다. Seamless SSO는 추가 온-프레미스 구성 요소가 없어도 사용자가 클라우드 기반 애플리케이션에 쉽게 액세스할 수 있습니다.
 
 Seamless SSO를 배포하려면 다음 단계를 수행합니다.
 
@@ -50,11 +50,11 @@ Seamless SSO를 배포하려면 다음 단계를 수행합니다.
     * Azure AD Connect를 통해 Azure AD에 동기화합니다.
     * Seamless SSO를 사용하도록 설정할 사용자를 포함합니다.
     
-* **최신 인증 사용하도록 설정**: 이 기능에 대한 테넌트에서 [최신 인증](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016)을 사용하도록 설정해야 합니다.
+* **최신 인증 사용**: 이 기능에 대한 테넌트에서 [최신 인증](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016)을 사용하도록 설정해야 합니다.
 
 * **최신 버전의 Office 365 클라이언트 사용**: Office 365 클라이언트(Outlook, Word, Excel 등)를 사용하여 자동 로그온 환경을 가져오려면 버전 16.0.8730.xxxx 이상을 사용해야 합니다.
 
-## <a name="step-2-enable-the-feature"></a>2단계: 기능 활성화
+## <a name="step-2-enable-the-feature"></a>2단계: 기능 사용
 
 [Azure AD Connect](whatis-hybrid-identity.md)를 통해 Seamless SSO를 사용하도록 설정합니다.
 
@@ -97,7 +97,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
 아래 제공된 지침을 사용하여 사용자에게 원활한 SSO를 점진적으로 롤아웃할 수 있습니다. Active Directory의 그룹 정책을 사용하여 모든 또는 선택된 사용자의 인트라넷 영역 설정에 다음 Azure AD URL을 추가하기 시작합니다.
 
-- https://autologon.microsoftazuread-sso.com
+- `https://autologon.microsoftazuread-sso.com`
 
 또한 그룹 정책을 통해 **스크립트를 통해 상태 표시줄에 대한 업데이트 허용**이라는 인트라넷 영역 정책 설정을 활성화해야 합니다. 
 
@@ -106,7 +106,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>사용자의 인트라넷 영역 설정을 수정해야 하는 이유
 
-기본적으로 브라우저는 특정 URL에서 올바른 영역(인터넷 또는 인트라넷)을 자동으로 계산합니다. 예를 들어 “http://contoso/” 은 인트라넷 영역에 매핑되지만, "http://intranet.contoso.com/" 는 인터넷 영역에 매핑됩니다(URL에 마침표가 포함되어 있기 때문). 브라우저는 URL이 브라우저의 인트라넷 영역에 명시적으로 추가되지 않는 한 클라우드 엔드포인트(예: Azure AD URL)에 Kerberos 티켓을 보내지 않습니다.
+기본적으로 브라우저는 특정 URL에서 올바른 영역(인터넷 또는 인트라넷)을 자동으로 계산합니다. 예를 들어 `http://contoso/`은 인트라넷 영역에 매핑되지만, `http://intranet.contoso.com/`은 인터넷 영역에 매핑됩니다(URL에 마침표가 포함되어 있기 때문). 브라우저는 URL이 브라우저의 인트라넷 영역에 명시적으로 추가되지 않는 한 클라우드 엔드포인트(예: Azure AD URL)에 Kerberos 티켓을 보내지 않습니다.
 
 사용자의 인트라넷 영역 설정을 수정하는 두 가지 방법이 있습니다.
 
@@ -127,7 +127,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
     결과는 다음과 유사하게 표시됩니다.
 
-    값 이름: https://autologon.microsoftazuread-sso.com
+    값 이름: `https://autologon.microsoftazuread-sso.com`
   
     값(데이터): 1
 
@@ -158,8 +158,8 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 4. 적절한 필드에서 다음 값을 입력하고 **확인**을 클릭합니다.
    - **키 경로**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
    - **값 이름**: ***https***
-   - **값 형식**: ***REG_DWORD***
-   - **값 데이터**: ***00000001***
+   - **값 형식**: ***REG_DWORD***.
+   - **값 데이터**: ***00000001***.
  
     ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso16.png)
  
@@ -181,7 +181,7 @@ Mozilla Firefox는 Kerberos 인증을 자동으로 사용하지 않습니다. �
 1. Firefox를 실행하고 주소 표시줄에 `about:config` 를 입력합니다. 표시되는 모든 알림을 해제합니다.
 2. **network.negotiate-auth.trusted-uris** 기본 설정을 검색합니다. 이 기본 설정은 Firefox의 신뢰할 수 있는 Kerberos 인증 사이트를 나열합니다.
 3. 마우스 오른쪽 단추로 클릭하고 **수정**을 선택합니다.
-4. 필드에 https://autologon.microsoftazuread-sso.com 을 입력합니다.
+4. 필드에 `https://autologon.microsoftazuread-sso.com` 을 입력합니다.
 5. **확인**을 선택한 다음, 브라우저를 다시 엽니다.
 
 #### <a name="safari-macos"></a>Safari(macOS)
@@ -190,9 +190,9 @@ macOS를 실행하는 머신이 AD에 가입되어 있는지 확인합니다. ma
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome(모든 플랫폼)
 
-환경에서 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) 또는 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) 정책 설정을 재정의한 경우 Azure AD의 URL(https://autologon.microsoftazuread-sso.com))도 해당 정책 설정에 추가해야 합니다.
+환경에서 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) 또는 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) 정책 설정을 재정의한 경우 Azure AD의 URL(`https://autologon.microsoftazuread-sso.com`)도 해당 정책 설정에 추가해야 합니다.
 
-#### <a name="google-chrome-macos-only"></a>Google Chrome(macOS에만 해당)
+#### <a name="google-chrome-macos-and-other-non-windows-platforms"></a>Google Chrome(macOS 및 기타 Windows 이외 플랫폼)
 
 Mac OS 및 기타 Windows가 아닌 플랫폼에서 Google Chrome의 경우 통합 인증을 위해 Azure AD URL을 허용 목록에 추가하는 방법은 [Chromium 프로젝트 정책 목록](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist)을 참조하세요.
 
@@ -211,11 +211,11 @@ Firefox 및 Microsoft Edge 브라우저의 개인 검색 모드에서는 Seamles
   - 그룹 정책을 통해 해당 사용자에게 [기능을 롤아웃](##step-3-roll-out-the-feature)했습니다.
 
 사용자가 암호가 아니라 사용자 이름만 입력하는 시나리오를 테스트하려면 다음을 수행합니다.
-   - 새 개인 브라우저 세션에서 https://myapps.microsoft.com/ 에 로그인합니다.
+   - 새 개인 브라우저 세션에서 `https://myapps.microsoft.com/` 에 로그인합니다.
 
 사용자가 사용자 이름이나 암호를 입력할 필요가 없는 시나리오를 테스트하려면 다음 중 하나를 수행합니다. 
-   - 새 개인 브라우저 세션에서 https://myapps.microsoft.com/contoso.onmicrosoft.com 에 로그인합니다. *contoso*를 테넌트의 이름으로 바꿉니다.
-   - 새 개인 브라우저 세션에서 https://myapps.microsoft.com/contoso.com 에 로그인합니다. *contoso.com*을 테넌트에서 확인된 도메인(페더레이션 도메인이 아님)으로 바꿉니다.
+   - 새 개인 브라우저 세션에서 `https://myapps.microsoft.com/contoso.onmicrosoft.com` 에 로그인합니다. *contoso*를 테넌트의 이름으로 바꿉니다.
+   - 새 개인 브라우저 세션에서 `https://myapps.microsoft.com/contoso.com` 에 로그인합니다. *contoso.com*을 테넌트에서 확인된 도메인(페더레이션 도메인이 아님)으로 바꿉니다.
 
 ## <a name="step-5-roll-over-keys"></a>5단계: 키 롤오버
 

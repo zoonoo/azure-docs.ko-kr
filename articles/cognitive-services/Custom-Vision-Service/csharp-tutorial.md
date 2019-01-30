@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: quickstart
 ms.date: 10/31/2018
 ms.author: anroth
-ms.openlocfilehash: 6f92201e1c7222bed5d59066798d7eb6844ecd76
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: aaffd5e47c8465d44c2dbcdde3f40cf6e6995e55
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279435"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079088"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>빠른 시작: Custom Vision .NET SDK를 사용하여 이미지 분류 프로젝트 만들기
 
@@ -42,6 +42,10 @@ Custom Vision을 사용하는 .NET 앱을 작성하려면 Custom Vision NuGet �
 _Program.cs_ 파일을 열고 코드를 검사합니다. **Main** 메서드의 적절한 정의에 구독 키를 삽입합니다.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=21-30)]
+
+엔드포인트 매개 변수는 Custom Vision 리소스를 포함하는 Azure 리소스 그룹이 생성된 위치를 가리켜야 합니다. 이 예제에서는 미국 중남부 지역이라고 가정하고 다음 항목을 사용하겠습니다.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=14-14)]
 
 다음 코드 줄은 프로젝트의 기본 기능을 실행합니다.
 
@@ -79,7 +83,7 @@ _Program.cs_ 파일을 열고 코드를 검사합니다. **Main** 메서드의 �
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=84-92)]
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
 응용 프로그램이 실행되면 콘솔 창이 열리고 다음 출력이 기록됩니다.
 
@@ -94,7 +98,7 @@ Making a prediction:
         Japanese Cherry: 0.0%
 ```
 
-그러면 테스트 이미지(**Images/Test/** 에 있음)에 태그가 적절하게 지정되는지 확인할 수 있습니다. 응용 프로그램을 종료하려면 아무 키나 누릅니다. [Custom Vision 웹 사이트](https://customvision.ai)로 돌아가서 새로 만든 프로젝트의 현재 상태를 살펴볼 수도 있습니다.
+그러면 테스트 이미지(**Images/Test/** 에 있음)에 태그가 적절하게 지정되는지 확인할 수 있습니다. 애플리케이션을 종료하려면 아무 키나 누릅니다. [Custom Vision 웹 사이트](https://customvision.ai)로 돌아가서 새로 만든 프로젝트의 현재 상태를 살펴볼 수도 있습니다.
 
 [!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
 

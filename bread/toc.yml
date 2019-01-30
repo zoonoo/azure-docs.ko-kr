@@ -16,7 +16,7 @@ items:
     - name: ID 보호
       tocHref: /azure/active-directory/identity-protection/
       topicHref: /azure/active-directory/identity-protection/
-    - name: 디바이스
+    - name: 장치
       tocHref: /azure/active-directory/devices/
       topicHref: /azure/active-directory/devices/
     - name: 조건부 액세스
@@ -106,18 +106,18 @@ items:
   - name: Azure Data Explorer
     tocHref: /azure/data-explorer/
     topicHref: /azure/data-explorer/
-  - name: Azure Monitor
-    tocHref: /azure/application-insights/
-    topicHref: /azure/azure-monitor/
-  - name: Azure Monitor
-    tocHref: /azure/log-analytics/
-    topicHref: /azure/azure-monitor/
-  - name: Azure Monitor
-    tocHref: /azure/monitoring/
-    topicHref: /azure/azure-monitor/
-  - name: Azure Monitor
-    tocHref: /azure/monitoring-and-diagnostics/
-    topicHref: /azure/azure-monitor/
+  - name: Application Insights
+    tocHref: /azure/azure-monitor/
+    topicHref: /azure/application-insights/
+  - name: Log Analytics
+    tocHref: /azure/azure-monitor/
+    topicHref: /azure/log-analytics/
+  - name: 모니터링
+    tocHref: /azure/azure-monitor/
+    topicHref: /azure/monitoring/
+  - name: 모니터링 및 진단
+    tocHref: /azure/azure-monitor/
+    topicHref: /azure/monitoring-and-diagnostics/
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
@@ -129,8 +129,8 @@ items:
     topicHref: /azure/azure-functions/
     items:
     - name: 지속성 함수
+      tocHref: /azure/azure-functions/durable/
       topicHref: /azure/azure-functions/durable/durable-functions-overview
-      tocHRef: /azure/azure-functions/durable/
   - name: Azure Government
     tocHref: /azure/azure-government/
     topicHref: /azure/azure-government/
@@ -227,7 +227,7 @@ items:
       topicHref: /azure/cognitive-services/computer-vision/
     - name: Content Moderator
       tocHref: /azure/cognitive-services/content-moderator/
-      topicHref: /azure/cognitive-services/content-moderator/overview
+      topicHref: /azure/cognitive-services/content-moderator/
     - name: 사용자 지정 의사 결정 서비스
       tocHref: /azure/cognitive-services/custom-decision-service/
       topicHref: /azure/cognitive-services/custom-decision-service/custom-decision-service-overview
@@ -428,7 +428,7 @@ items:
     - name: IoT Hub
       tocHref: /azure/iot-hub/
       topicHref: /azure/iot-hub/
-    - name: IoT Hub Device Provisioning Service
+    - name: IoT Hub Device Provisioning 서비스
       tocHref: /azure/iot-dps/
       topicHref: /azure/iot-dps/
     - name: IoT 솔루션 가속기
@@ -512,7 +512,7 @@ items:
   - name: 네트워킹
     tocHref: /azure/networking/
     topicHref: /azure/networking/networking-overview
-  - name: 노트북
+  - name: Notebooks
     tocHref: /azure/notebooks/
     topicHref: /azure/notebooks/azure-notebooks-overview
   - name: Notification Hubs
@@ -569,6 +569,9 @@ items:
   - name: Service Fabric
     tocHref: /azure/service-fabric/
     topicHref: /azure/service-fabric/
+  - name: Service Fabric Mesh
+    tocHref: /azure/service-fabric-mesh/
+    topicHref: /azure/service-fabric-mesh/
   - name: Site Recovery
     tocHref: /azure/site-recovery/
     topicHref: /azure/site-recovery/
@@ -646,9 +649,9 @@ items:
   - name: VPN Gateway
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
-ms.openlocfilehash: ecaa54a99ba226b92267b6e44bc8b4a60678938a
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 6114b5830c0e1779db1fef9cde3554ae1c6f0992
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012507"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209174"

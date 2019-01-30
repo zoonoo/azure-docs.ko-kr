@@ -8,18 +8,18 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 12/18/2018
 ms.author: tulasim88
-ms.openlocfilehash: eef26cf1f5a11d7dcd1fdc41747aac675e0bc528
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 004f09eb77d1bc32e44e1940186e8a631c45846d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031087"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608480"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>메타데이터 및 GenerateAnswer API 사용
 
-QnA Maker는 메타데이터를 키/값 쌍의 형태로 질문/응답 집합에 추가할 수 있습니다. 이 정보는 사용자 쿼리에 대한 결과를 필터링하고 후속 대화에 사용할 수 있는 추가 정보를 저장하는 데 사용할 수 있습니다. 자세한 내용은 [기술 자료](../Concepts/knowledge-base.md)를 참조하세요.
+QnA Maker는 메타데이터를 키 및 값 쌍의 형태로 질문/응답 집합에 추가할 수 있습니다. 이 정보는 사용자 쿼리에 대한 결과를 필터링하고 후속 대화에 사용할 수 있는 추가 정보를 저장하는 데 사용할 수 있습니다. 자세한 내용은 [기술 자료](../Concepts/knowledge-base.md)를 참조하세요.
 
 ## <a name="qna-entity"></a>QnA 엔터티
 
@@ -31,7 +31,7 @@ QnA 엔터티마다 고유한 영구 ID가 있습니다. 이 ID는 특정 QnA �
 
 ## <a name="generateanswer-api"></a>GenerateAnswer API
 
-봇 또는 응용 프로그램에서 GenerateAnswer API를 사용하여 사용자 질문으로 기술 자료를 쿼리하면 질문/응답 집합에서 최적의 일치 항목을 가져올 수 있습니다.
+봇 또는 애플리케이션에서 GenerateAnswer API를 사용하여 사용자 질문으로 기술 자료를 쿼리하면 질문/응답 집합에서 최적의 일치 항목을 가져올 수 있습니다.
 
 ### <a name="generateanswer-endpoint"></a>GenerateAnswer 엔드포인트
 
@@ -54,11 +54,11 @@ HTTP POST 요청을 사용하여 GenerateAnswer를 호출합니다. GenerateAnsw
 - **요청 URL**: https://{QnA Maker endpoint}/knowledgebases/{기술 자료 ID}/generateAnswer
 
 - **요청 매개 변수**: 
-    - **기술 자료 ID**(문자열): 기술 자료의 GUID입니다.
+    - **기술 자료 ID**(문자열): 기술 자료를 위한 GUID입니다.
     - **QnAMaker 엔드포인트**(문자열): Azure 구독에 배포된 엔드포인트의 호스트 이름입니다.
 - **요청 헤더**
-    - **콘텐츠 형식**(문자열): API로 전송되는 본문의 미디어 형식입니다.
-    - **권한 부여**(문자열): 끝점 키(EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
+    - **Content-Type**(문자열): API로 전송되는 본문의 미디어 유형입니다.
+    - **권한 부여**(문자열): 엔드포인트 키(EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)입니다.
 - **요청 본문**
     - **질문**(문자열): 기술 자료에 대해 쿼리할 사용자 질문입니다.
     - **top**(선택 사항, 정수): 출력에 포함할 순위에 오른 결과의 수입니다. 기본값은 1입니다.
@@ -83,12 +83,12 @@ HTTP POST 요청을 사용하여 GenerateAnswer를 호출합니다. GenerateAnsw
     - **답변** - 사용자 쿼리에 대한 답변 목록으로, 순위 점수 기준 내림차순으로 정렬됩니다.
         - **점수**: 0~100 사이의 순위 점수입니다.
         - **질문**: 사용자가 제공한 질문입니다.
-        - **답변**: 질문에 대한 답변입니다.
+        - **대답**: 질문에 대한 답변입니다.
         - **원본**: 기술 자료에서 답변을 추출하거나 저장한 원본 이름입니다.
         - **메타데이터**: 답변과 연결된 메타데이터입니다.
             - 이름: 메타데이터 이름입니다. (문자열, 최대 길이: 100자, 필수)
             - 값: 메타데이터 값입니다. (문자열, 최대 길이: 100자, 필수)
-        - **Id**: 답변에 할당된 고유 ID입니다.
+        - **ID**: 답변에 할당된 고유 ID입니다.
     ```json
     {
         "answers": [
@@ -113,11 +113,11 @@ HTTP POST 요청을 사용하여 GenerateAnswer를 호출합니다. GenerateAnsw
 
 ## <a name="metadata-example"></a>메타데이터 예제
 
-하이데라바드의 레스토랑에 대한 아래 FAQ 데이터를 잘 살펴봅니다. 기어 아이콘을 클릭하여 기술 자료에 메타데이터를 추가합니다.
+아래 FAQ 데이터를 고려하세요. 메타데이터 아이콘을 클릭하여 기술 자료에 메타데이터를 추가합니다.
 
 ![메타데이터 추가](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
-### <a name="filter-results-with-strictfilters"></a>strictFilters를 사용하여 결과 필터링
+### <a name="filter-results-with-strictfilters-for-metadata-tags"></a>메타데이터 태그에 대한 strictFilters로 결과 필터링
 
 "이 호텔의 영업 종료 시간은 언제입니까?"라는 사용자 질문을 음미합니다. 이 질문의 의도는 "Paradise" 레스토랑입니다.
 
@@ -167,6 +167,8 @@ GenerateAnswer에 대한 응답에는 다음과 같이 일치하는 질문/답�
 이 정보를 사용하여 이전 대화의 컨텍스트를 기록해 두었다가 나중에 대화에 사용할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
+
+게시 페이지에서는 [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) 및 [cURL](../Quickstarts/get-answer-from-kb-using-curl.md)과 함께 대답을 생성하기 위한 정보를 제공합니다. 
 
 > [!div class="nextstepaction"]
 > [기술 자료 만들기](./create-knowledge-base.md)

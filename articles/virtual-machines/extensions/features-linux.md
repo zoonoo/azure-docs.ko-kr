@@ -24,7 +24,7 @@ ms.locfileid: "51037001"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Linux용 가상 머신 확장 및 기능
 
-Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 Automation 작업을 제공하는 작은 응용 프로그램입니다. 예를 들어 가상 머신에서 소프트웨어 설치, 바이러스 백신 보호 또는 내부의 스크립트 실행을 요구하는 경우 VM 확장을 사용할 수 있습니다. Azure CLI, PowerShell, Azure Resource Manager 템플릿 및 Azure Portal을 사용하여 Azure VM 확장을 실행할 수 있습니다. 확장을 새 VM 배포와 번들로 제공하거나 기존 시스템에 대해 실행할 수 있습니다.
+Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 Automation 작업을 제공하는 작은 애플리케이션입니다. 예를 들어 가상 머신에서 소프트웨어 설치, 바이러스 백신 보호 또는 내부의 스크립트 실행을 요구하는 경우 VM 확장을 사용할 수 있습니다. Azure CLI, PowerShell, Azure Resource Manager 템플릿 및 Azure Portal을 사용하여 Azure VM 확장을 실행할 수 있습니다. 확장을 새 VM 배포와 번들로 제공하거나 기존 시스템에 대해 실행할 수 있습니다.
 
 이 아티클에서는 VM 확장의 개요, Azure VM 확장 사용을 위한 필수 구성 요소, VM 확장을 검색, 관리 및 제거하는 방법에 대한 지침을 제공합니다. 많은 VM 확장 각각을 고유한 구성으로 사용할 수 있으므로 여기서는 일반적인 정보를 제공합니다. 확장 관련 세부 정보는 개별 확장과 관련된 각 문서에서 찾을 수 있습니다.
 
@@ -66,7 +66,7 @@ Linux 에이전트는 여러 OS에서 실행되지만 확장 프레임워크는 
 > [!IMPORTANT]
 > 게스트 방화벽을 사용하여 *168.63.129.16*에 대한 액세스를 차단한 경우 확장은 위와 관계 없이 실패합니다.
 
-에이전트는 확장 패키지 및 보고 상태를 다운로드하는 데 사용할 수 있습니다. 예를 들어 확장을 설치하는 데 GitHub에서 스크립트(사용자 지정 스크립트)를 다운로드해야 하거나 Azure Storage(Azure Backup)에 대한 액세스 권한이 필요한 경우 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 확장마다 고유한 권한의 응용 프로그램이므로 요구 사항이 다릅니다. Azure Storage에 대한 액세스 권한이 필요한 확장의 경우 [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)에 Azure NSG 서비스 태그를 사용하여 액세스할 수 있습니다.
+에이전트는 확장 패키지 및 보고 상태를 다운로드하는 데 사용할 수 있습니다. 예를 들어 확장을 설치하는 데 GitHub에서 스크립트(사용자 지정 스크립트)를 다운로드해야 하거나 Azure Storage(Azure Backup)에 대한 액세스 권한이 필요한 경우 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 확장마다 고유한 권한의 애플리케이션이므로 요구 사항이 다릅니다. Azure Storage에 대한 액세스 권한이 필요한 확장의 경우 [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)에 Azure NSG 서비스 태그를 사용하여 액세스할 수 있습니다.
 
 Linux 에이전트에는 에이전트 트래픽 요청을 리디렉션하기 위한 프록시 서버 지원이 있습니다. 단, 이 프록시 서버 지원은 확장을 적용하지 않습니다. 프록시로 작동하려면 각 개별 확장을 구성해야 합니다.
 
@@ -116,7 +116,7 @@ Azure Portal을 통해 기존 VM에 VM 확장을 적용할 수 있습니다. 포
 
 ### <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
 
-Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포를 통해 실행할 수 있습니다. 템플릿을 사용하여 확장을 배포할 때 완전히 구성된 Azure 배포를 만들 수 있습니다. 예를 들어 다음 JSON은 부하 분산된 VM 집합 및 Azure SQL Database를 배포한 후 각 VM에 .NET Core 응용 프로그램을 설치하는 Resource Manager 템플릿에서 가져옵니다. VM 확장은 소프트웨어 설치를 관리합니다.
+Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포를 통해 실행할 수 있습니다. 템플릿을 사용하여 확장을 배포할 때 완전히 구성된 Azure 배포를 만들 수 있습니다. 예를 들어 다음 JSON은 부하 분산된 VM 집합 및 Azure SQL Database를 배포한 후 각 VM에 .NET Core 애플리케이션을 설치하는 Resource Manager 템플릿에서 가져옵니다. VM 확장은 소프트웨어 설치를 관리합니다.
 
 자세한 내용은 전체 [Resource Manager 템플릿](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)을 참조하세요.
 
@@ -341,7 +341,7 @@ INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Launch command:diagnost
 
 3. 오류 코드, 알려진 문제 등에 대한 확장 관련 설명서 문제 해결 섹션을 확인합니다.
 
-3. 시스템 로그를 확인합니다. 단독 패키지 관리자 액세스가 필요한 다른 응용 프로그램의 장기 실행 설치 등 확장을 방해할 수 있는 다른 작업을 확인합니다.
+3. 시스템 로그를 확인합니다. 단독 패키지 관리자 액세스가 필요한 다른 애플리케이션의 장기 실행 설치 등 확장을 방해할 수 있는 다른 작업을 확인합니다.
 
 ### <a name="common-reasons-for-extension-failures"></a>확장 오류에 대한 일반적인 이유
 

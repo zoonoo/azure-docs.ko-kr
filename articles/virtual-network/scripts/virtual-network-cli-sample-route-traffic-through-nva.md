@@ -15,16 +15,16 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: jdial
-ms.openlocfilehash: 64ae0a0ae50575138086c071ec74f2cf965df455
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0f4b5e5605ed88aac2ffb979e2c009e0f0b99a98
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947006"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411427"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance-script-sample"></a>네트워크 가상 어플라이언스를 통한 트래픽 라우팅 스크립트 샘플
 
-이 스크립트 샘플은 프런트 엔드 및 백 엔드 서브넷이 있는 가상 네트워크를 만듭니다. 또한 두 서브넷 간에 트래픽을 라우팅할 수 있게 하는 IP 전달을 사용하여 VM을 만듭니다. 스크립트를 실행한 후에 방화벽 응용 프로그램과 같은 네트워크 소프트웨어를 VM에 배포할 수 있습니다.
+이 스크립트 샘플은 프런트 엔드 및 백 엔드 서브넷이 있는 가상 네트워크를 만듭니다. 또한 두 서브넷 간에 트래픽을 라우팅할 수 있게 하는 IP 전달을 사용하여 VM을 만듭니다. 스크립트를 실행한 후에 방화벽 애플리케이션과 같은 네트워크 소프트웨어를 VM에 배포할 수 있습니다.
 
 Azure [Cloud Shell](https://shell.azure.com/bash) 또는 로컬 Azure CLI 설치에서 스크립트를 실행할 수 있습니다. CLI를 로컬로 사용하는 경우 이 스크립트는 2.0.28 이상 버전을 실행해야 합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 또한 CLI를 로컬로 실행하는 경우 `az login`를 실행하여 Azure와 연결해야 합니다.
 
@@ -55,12 +55,12 @@ az group delete --name MyResourceGroup --yes
 | [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | 인터넷에서 VM에 액세스하기 위한 공용 IP 주소를 만듭니다. |
 | [az network nic create](/cli/azure/network/nic#az_network_nic_create) | 가상 네트워크 인터페이스를 만들고 이 인터페이스를 위해 IP 전달을 사용하도록 설정합니다. |
 | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | NSG(네트워크 보안 그룹)을 만듭니다. |
-| [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | VM에 대한 인바운드 HTTP 및 HTTPS 포트를 허용하는 NSG 규칙을 만듭니다. |
+| [az network nsg rule create](/cli/azure/network/nsg/rule) | VM에 대한 인바운드 HTTP 및 HTTPS 포트를 허용하는 NSG 규칙을 만듭니다. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)| NSG 및 경로 테이블을 서브넷에 연결합니다. |
 | [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)| 모든 경로에 대한 경로 테이블을 만듭니다. |
 | [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)| VM을 통해 서브넷과 인터넷 간 트래픽을 라우팅하는 경로를 만듭니다. |
 | [az vm create](/cli/azure/vm#az_vm_create) | 가상 머신을 만들고 NIC를 이 가상 머신에 연결합니다. 또한 이 명령은 사용할 가상 머신 이미지와 관리 자격 증명을 지정합니다. |
-| [az group delete](/cli/azure/group#az_group_delete) | 리소스 그룹 및 이 그룹에 속한 모든 리소스를 삭제합니다. |
+| [az group delete](/cli/azure/group) | 리소스 그룹 및 이 그룹에 속한 모든 리소스를 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,78 +1,79 @@
 ---
-title: '빠른 시작: Bing News Search API, Python'
+title: '빠른 시작: Python을 사용하여 뉴스 검색 수행 - Bing News Search REST API'
 titlesuffix: Azure Cognitive Services
-description: Bing News Search API를 사용하여 빠르게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
+description: 이 빠른 시작을 사용하여 Python을 통해 Bing News Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 9/21/2017
+ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: 738b139cb2070f2244442311d3670757caac6541
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 6d5f21bd2ddcc08296551f061f02d792a5a545a7
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308820"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260672"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-python"></a>Python을 사용하여 Bing News Search API에 대한 빠른 시작
-이 연습에서는 Bing News Search API를 호출하고 결과 JSON 개체를 사후 처리하는 간단한 예를 보여 줍니다. 자세한 내용은 [Bing News Search 설명서](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)를 참조하세요.  
+# <a name="quickstart-perform-a-news-search-using-python-and-the-bing-news-search-rest-api"></a>빠른 시작: Python 및 Bing News Search REST API를 사용하여 뉴스 검색 수행
 
-바인더 배지 시작을 클릭하여 [MyBinder](https://mybinder.org)에서 Jupyter 노트북으로 이 예제를 실행할 수 있습니다. 
+이 빠른 시작을 사용하여 Bing News Search API를 처음 호출하고 JSON 응답을 받습니다. 이 간단한 JavaScript 애플리케이션은 검색 쿼리를 API에 보내고 결과를 처리합니다. 이 애플리케이션은 Python에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
+
+바인더 배지 시작을 클릭하여 [MyBinder](https://mybinder.org)에서 Jupyter 노트북으로 이 코드 샘플을 실행할 수 있습니다. 
 
 [![바인더](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingNewsSearchAPI.ipynb)
 
+이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingNewsSearchv7.py)에서도 제공됩니다.
+
 ## <a name="prerequisites"></a>필수 조건
 
-**Bing Search API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요합니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-## <a name="running-the-walkthrough"></a>연습 실행
-먼저 Bing API 서비스에 대한 API 키에 `subscription_key`를 설정합니다.
+[Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
+## <a name="create-and-initialize-the-application"></a>애플리케이션 만들기 및 초기화
 
-```python
-subscription_key = None
-assert subscription_key
-```
-
-다음으로, `search_url` 엔드포인트가 올바른지 확인합니다. 이 문서 작성 시 Bing Search API에 대해 하나의 엔드포인트만 사용됩니다. 권한 부여 오류가 발생하는 경우 Azure 대시보드에서 Bing 검색 엔드포인트에 대해 이 값을 다시 확인합니다.
-
-
-```python
-search_url = "https://api.cognitive.microsoft.com/bing/v7.0/news/search"
-```
-
-Microsoft에 대한 뉴스 기사를 찾아보려면 `search_term`을 설정합니다.
-
-
-```python
-search_term = "Microsoft"
-```
-
-다음 블록은 Python에서 `requests` 라이브러리를 사용하여 Bing 검색 API를 호출하고 JSON 개체로 결과를 반환합니다. `headers` 사전을 통해 API 키를 전달하고 `params` 사전을 통해 검색 용어를 전달합니다. 검색 결과를 필터링하는 데 사용할 수 있는 옵션의 전체 목록을 보려면 [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) 설명서를 참조합니다.
-
+1. 선호하는 IDE 또는 편집기에서 새 Python 파일을 만들고, 요청 모듈을 가져옵니다. 구독 키, 엔드포인트 및 검색 용어에 대한 변수를 만듭니다. Azure 대시보드에서 엔드포인트를 찾을 수 있습니다.
 
 ```python
 import requests
 
-headers = {"Ocp-Apim-Subscription-Key" : subscription_key}
-params  = {"q": search_term, "textDecorations": True, "textFormat": "HTML"}
-response = requests.get(search_url, headers=headers, params=params)
-response.raise_for_status()
-search_results = response.json()
+subscription_key = "your subscription key"
+search_term = "Microsoft"
+search_url = "https://api.cognitive.microsoft.com/bing/v7.0/news/search"
 ```
 
-`search_results` 개체에는 풍부한 메타데이터와 함께 관련 뉴스 기사가 포함됩니다. 예를 들어 다음 코드 줄은 기사에 대한 설명을 추출합니다.
+### <a name="create-parameters-for-the-request"></a>요청에 대한 매개 변수 만들기
 
+1. 키로 `"Ocp-Apim-Subscription-Key"`를 사용하여 구독 키를 새 사전에 추가합니다. 검색 매개 변수에 대해 동일한 작업을 수행합니다.
 
-```python
-descriptions = [article["description"] for article in search_results["value"]]
-```
+    ```python
+    headers = {"Ocp-Apim-Subscription-Key" : subscription_key}
+    params  = {"q": search_term, "textDecorations": True, "textFormat": "HTML"}
+    ```
+
+## <a name="send-a-request-and-get-a-response"></a>요청 보내기 및 응답 받기
+
+1. 요청 라이브러리를 사용하여 사용자의 구독 키 및 마지막 단계에서 만든 사전 개체를 통해 Bing Visual Search API를 호출합니다.
+
+    ```python
+    response = requests.get(search_url, headers=headers, params=params)
+    response.raise_for_status()
+    search_results = response.json()
+    ```
+
+2. `search_results`는 JSON 개체로 API의 응답을 포함합니다. 응답에 포함된 문서의 설명에 액세스합니다.
+    
+    ```python
+    descriptions = [article["description"] for article in search_results["value"]]
+    ```
+
+## <a name="displaying-the-results"></a>결과 표시
 
 이러한 설명은 **굵게** 강조 표시된 검색 키워드를 사용하여 테이블로 렌더링될 수 있습니다.
-
 
 ```python
 from IPython.display import HTML
@@ -83,10 +84,4 @@ HTML("<table>"+rows+"</table>")
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [뉴스 페이징](paging-news.md)
-> [장식 표식을 사용하여 텍스트 강조 표시](hit-highlighting.md)
-
-## <a name="see-also"></a>참고 항목 
-
- [웹에서 뉴스 검색](search-the-web.md)  
- [사용해 보세요](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
+[단일 페이지 웹앱 만들기](tutorial-bing-news-search-single-page-app.md)

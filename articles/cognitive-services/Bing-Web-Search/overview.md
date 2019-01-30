@@ -1,5 +1,5 @@
 ---
-title: Bing Web Search란?
+title: Bing Web Search API란?
 titleSuffix: Azure Cognitive Services
 description: Bing Web Search API는 사용자 쿼리에 즉각적인 답변을 제공하는 RESTful 서비스입니다. 검색 결과는 웹 페이지, 이미지, 비디오, 뉴스, 번역 등을 포함하도록 쉽게 구성됩니다. 결과는 JSON으로 제공되며, 검색 관련성 및 Bing Web Search 구독을 기반으로 합니다.
 services: cognitive-services
@@ -10,18 +10,19 @@ ms.component: bing-web-search
 ms.topic: overview
 ms.date: 08/14/2018
 ms.author: aahi
-ms.openlocfilehash: 738941afadbad318d383a119967e3f98c098a9c1
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec2018
+ms.openlocfilehash: b11e7117143dea6db71b1c60d89054477e94227d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160718"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255995"
 ---
-# <a name="what-is-bing-web-search"></a>Bing Web Search란?
+# <a name="what-is-the-bing-web-search-api"></a>Bing Web Search API란?
 
 Bing Web Search API는 사용자 쿼리에 즉각적인 답변을 제공하는 RESTful 서비스입니다. 검색 결과는 웹 페이지, 이미지, 비디오, 뉴스, 번역 등을 포함하도록 쉽게 구성됩니다. 결과는 JSON으로 제공되며, 검색 관련성 및 Bing Web Search 구독을 기반으로 합니다.
 
-이 API는 사용자의 검색 쿼리와 관련된 모든 콘텐츠에 액세스해야 하는 응용 프로그램에 가장 적합합니다. 특정 유형의 결과만 필요한 응용 프로그램을 빌드하는 경우 [Bing Image Search API](../Bing-Image-Search/overview.md), [Bing Video Search API](../Bing-Video-Search/search-the-web.md) 또는 [Bing News Search API](../Bing-News-Search/search-the-web.md)를 사용하는 것이 좋습니다. Bing Search API의 전체 목록은 [Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services#cognitive-services-apis)를 참조하세요.
+이 API는 사용자의 검색 쿼리와 관련된 모든 콘텐츠에 액세스해야 하는 애플리케이션에 가장 적합합니다. 특정 유형의 결과만 필요한 애플리케이션을 빌드하는 경우 [Bing Image Search API](../Bing-Image-Search/overview.md), [Bing Video Search API](../Bing-Video-Search/search-the-web.md) 또는 [Bing News Search API](../Bing-News-Search/search-the-web.md)를 사용하는 것이 좋습니다. Bing Search API의 전체 목록은 [Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services#cognitive-services-apis)를 참조하세요.
 
 작동 방식에 대해 알고 싶은가요? [Bing Web Search API 데모](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)를 사용해 보세요.
 
@@ -31,7 +32,7 @@ Bing Web Search는 즉각적인 답변 외에도 사용자의 검색 결과를 �
 
 | 기능 | 설명 |
 |---------|-------------|
-| [실시간 검색 용어 제안](../bing-autosuggest/get-suggested-search-terms.md) | Bing Autosuggest API를 통해 입력하는 대로 제안되는 검색 용어를 표시하여 응용 프로그램 환경을 향상시킵니다. |
+| [실시간 검색 용어 제안](../bing-autosuggest/get-suggested-search-terms.md) | Bing Autosuggest API를 통해 입력하는 대로 제안되는 검색 용어를 표시하여 애플리케이션 환경을 향상시킵니다. |
 | [콘텐츠 형식별 결과 필터링 및 제한](filter-answers.md) | 웹 페이지, 이미지, 비디오, 안전 검색 등에 대한 필터 및 쿼리 매개 변수를 사용하여 검색 결과를 사용자 지정하고 구체화합니다. |
 | [유니코드 문자 강조 표시](hit-highlighting.md) | 검색 결과에서 원하지 않는 유니코드 문자를 식별하고 제거한 다음, 적중 항목 강조 표시가 있는 검색 결과를 사용자에게 표시합니다. |
 | [국가, 지역 및/또는 시장별 검색 결과 지역화](supported-countries-markets.md) | Bing Web Search는 36개가 넘는 국가 또는 지역을 지원합니다. 이 기능을 사용하여 특정 국가/지역 또는 시장에 대한 검색 결과를 구체화할 수 있습니다. |

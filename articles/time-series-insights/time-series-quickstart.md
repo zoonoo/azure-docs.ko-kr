@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure Time Series Insights 탐색기 | Microsoft Docs
+title: '빠른 시작: Azure Time Series Insights 탐색기 | Microsoft Docs'
 description: 이 빠른 시작에서는 웹 브라우저에서 간편하게 Azure Time Series Insights 탐색기를 시작하여 다량의 IoT 데이터를 시각화하는 방법을 설명합니다. 데모 환경에서 주요 기능을 둘러봅니다.
 ms.service: time-series-insights
 services: time-series-insights
@@ -9,19 +9,19 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: quickstart
 ms.workload: big-data
-ms.custom: mvc
+ms.custom: mvc seodec18
 ms.date: 11/15/2017
-ms.openlocfilehash: 6d1e5951ed8cdd9542463ffc57be81e55e4b9194
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 32ed0ec178f7a0064fae88357011197e71604885
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629636"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555543"
 ---
-# <a name="quickstart-explore-azure-time-series-insights"></a>빠른 시작: Azure Time Series Insights 탐색하기
+# <a name="quickstart-explore-azure-time-series-insights"></a>빠른 시작: Azure Time Series Insights 탐색
 이 빠른 시작에서는 무료 데모 환경에서 Azure Time Series Insights 탐색기를 시작하는 방법을 설명합니다. 웹 브라우저를 사용하여 많은 양의 IoT 데이터를 시각화하는 방법을 알아보고, Time Series Insights 탐색기의 주요 기능을 둘러봅니다. 
 
-Azure Time Series Insights는 완전히 관리되는 분석, 저장 및 시각화 서비스이며 수십억 개의 IoT 이벤트를 동시에 간편하게 탐색 및 분석할 수 있습니다. 데이터에 대한 글로벌 보기를 제공하므로 사용자는 IoT 솔루션의 유효성을 빠르게 검사할 수 있으며, 숨겨진 동향을 찾고, 문제를 찾아내고, 거의 실시간으로 근본 원인 분석을 수행할 수 있도록 지원하는 기능을 통해, 큰 비용이 수반되는 중요 업무용 디바이스의 가동 중지 시간을 방지할 수 있습니다.  시계열 데이터를 저장하거나 쿼리해야 하는 응용 프로그램을 개발할 때는 Time Series Insights REST API를 사용할 수 있습니다.
+Azure Time Series Insights는 완전히 관리되는 분석, 저장 및 시각화 서비스이며 수십억 개의 IoT 이벤트를 동시에 간편하게 탐색 및 분석할 수 있습니다. 데이터에 대한 글로벌 보기를 제공하므로 사용자는 IoT 솔루션의 유효성을 빠르게 검사할 수 있으며, 숨겨진 동향을 찾고, 문제를 찾아내고, 거의 실시간으로 근본 원인 분석을 수행할 수 있도록 지원하는 기능을 통해, 큰 비용이 수반되는 중요 업무용 디바이스의 가동 중지 시간을 방지할 수 있습니다.  시계열 데이터를 저장하거나 쿼리해야 하는 애플리케이션을 개발할 때는 Time Series Insights REST API를 사용할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 

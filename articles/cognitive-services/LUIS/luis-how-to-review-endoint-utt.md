@@ -1,23 +1,24 @@
 ---
-title: LUIS(Language Understanding)에 대한 엔드포인트 발언 검토
-titleSuffix: Azure Cognitive Services
+title: 사용자 발언 검토
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS의 혁신적인 기능은 활성 학습의 개념입니다. LUIS에 엔드포인트 쿼리가 생기면 활성 학습은 확실하지 않은 발화를 선택하여 결과의 품질을 개선합니다. 이러한 발화에 레이블을 지정하고, 발화를 학습 및 게시하면 LUIS는 발화를 더 정확하게 식별합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: a5e0dabe251d14389923df3efe41f6ba80f41bdd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7175463001eac118d2939d3479e61a01b80ba86b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030798"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106552"
 ---
-# <a name="review-endpoint-utterances"></a>엔드포인트 utterances 검토
+# <a name="how-to-review-endpoint-utterances-in-luis-portal"></a>LUIS 포털에서 엔드포인트 발언 검토 방법
 
 LUIS의 혁신적인 기능은 활성 학습의 [개념](luis-concept-review-endpoint-utterances.md)입니다. LUIS에 엔드포인트 쿼리가 포함되면 LUIS는 활성 학습을 사용하여 결과의 품질을 향상시킵니다. 활성 학습 프로세스에서 LUIS는 모든 엔드포인트 발화를 검사하고 확실하지 않은 발화를 선택합니다. 이러한 발화에 레이블을 지정하고, 발화를 학습 및 게시하면 LUIS는 발화를 더 정확하게 식별합니다. 
 

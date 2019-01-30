@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/17/2018
 ms.author: erhopf
-ms.openlocfilehash: 3ba8064a6d13cfe9d2a2ae2ac496cfa8302989cd
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: db2328d09f9e06ccabdc2408327a342fe94fefe0
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085991"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999579"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python 사용 문자열 번역
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python을 통해 문자열 번역
 
 이 빠른 시작에서는 Python 및 Translator Text REST API를 사용하여 텍스트 문자열을 영어에서 이탈리아어 및 독일어로 번역하는 방법을 알아봅니다.
 
@@ -161,7 +161,7 @@ python translate-text.py
 
 ## <a name="see-also"></a>참고 항목
 
-텍스트 번역뿐만 아니라 다음과 같은 Translator Text API 사용 방법을 알아봅니다.
+Translator Text API를 사용하여 다음을 수행하는 방법을 알아봅니다.
 
 * [텍스트 음역](quickstart-python-transliterate.md)
 * [입력으로 언어 식별](quickstart-python-detect.md)

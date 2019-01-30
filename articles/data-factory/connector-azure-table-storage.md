@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 0399836191050996ac3eaf0fbe59496e10e2b426
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b1f4ad523f84616391d4121dbf7eaabb2dfde060
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146725"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018622"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Table 저장소 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -47,8 +46,8 @@ ms.locfileid: "42146725"
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **AzureTableStorage**로 설정되어야 합니다. |yes |
-| connectionString | connectionString 속성에 대한 Storage에 연결하는 데 필요한 정보를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |yes |
+| 형식 | 형식 속성은 **AzureTableStorage**로 설정되어야 합니다. |예 |
+| connectionString | connectionString 속성에 대한 Storage에 연결하는 데 필요한 정보를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 >[!NOTE]
@@ -93,8 +92,8 @@ ms.locfileid: "42146725"
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **AzureTableStorage**로 설정되어야 합니다. |yes |
-| sasUri | Blob, 컨테이너 또는 테이블과 같은 Storage 리소스에 대한 공유 액세스 서명 URI를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |yes |
+| 형식 | 형식 속성은 **AzureTableStorage**로 설정되어야 합니다. |예 |
+| sasUri | Blob, 컨테이너 또는 테이블과 같은 Storage 리소스에 대한 공유 액세스 서명 URI를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime(데이터 저장소가 사설망에 있는 경우)을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 >[!NOTE]
@@ -135,8 +134,8 @@ Azure Table 간에 데이터를 복사하려면 데이터 세트의 type 속성�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 type 속성은 **AzureTable**로 설정해야 합니다. |yes |
-| tableName |연결된 서비스에서 참조하는 Table 저장소 데이터베이스 인스턴스의 테이블 이름입니다. |yes |
+| 형식 | 데이터 세트의 type 속성은 **AzureTable**로 설정해야 합니다. |예 |
+| tableName |연결된 서비스에서 참조하는 Table 저장소 데이터베이스 인스턴스의 테이블 이름입니다. |예 |
 
 **예제:**
 
@@ -176,7 +175,7 @@ Azure Table에서 데이터를 복사하려면 복사 작업의 원본 형식을
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 활동 source의 type 속성은 **AzureTableSource**로 설정해야 합니다. |yes |
+| 형식 | 복사 활동 source의 type 속성은 **AzureTableSource**로 설정해야 합니다. |예 |
 | AzureTableSourceQuery |사용자 지정 Table 저장소 쿼리를 사용하여 데이터를 읽습니다. 다음 섹션의 예제를 참조하세요. |아니요 |
 | azureTableSourceIgnoreTableNotFound |테이블의 예외가 존재하지 않도록 허용할지 여부를 나타냅니다.<br/>허용되는 값은 **True** 및 **False**(기본값)입니다. |아니요 |
 
@@ -202,7 +201,7 @@ Azure 테이블로 데이터를 복사하려면 복사 작업의 싱크 형식�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 활동 sink의 type 속성은 **AzureTableSink**로 설정해야 합니다. |yes |
+| 형식 | 복사 활동 sink의 type 속성은 **AzureTableSink**로 설정해야 합니다. |예 |
 | azureTableDefaultPartitionKeyValue |싱크에서 사용할 수 있는 기본 파티션 키 값입니다. |아니요 |
 | azureTablePartitionKeyName |값이 파티션 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 "AzureTableDefaultPartitionKeyValue"가 파티션 키로 사용됩니다. |아니요 |
 | azureTableRowKeyName |열 값이 행 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 각 행에 GUID를 사용합니다. |아니요 |

@@ -27,4 +27,4 @@ ms.locfileid: "50413029"
 ## <a name="next-steps"></a>다음 단계
 VM에 연결하는 데 문제가 있는 경우 [Azure VM에 RDP 연결 문제 해결](../troubleshoot-rdp-connection.md)을 참조하세요. 
 
-VM에서 실행 중인 응용 프로그램에 액세스하는 데 문제가 있는 경우 [Windows VM에서 응용 프로그램 연결 문제 해결](../troubleshoot-app-connection.md)을 참조하세요.
+VM에서 실행 중인 애플리케이션에 액세스하는 데 문제가 있는 경우 [Windows VM에서 애플리케이션 연결 문제 해결](../troubleshoot-app-connection.md)을 참조하세요.

@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: d1d65d02059f312b116cfb33b13fb98471b3b2f6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/11/2017
+ms.locfileid: "23068409"
 documentType: LandingData
 title: DC/OS 및 Swarm을 사용한 Azure Container Service 설명서
 metadata:
@@ -14,12 +20,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
-  ms.openlocfilehash: d1d65d02059f312b116cfb33b13fb98471b3b2f6
-  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-  ms.translationtype: HT
-  ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/11/2017
-  ms.locfileid: "23068409"
 abstract:
   description: Azure Container Service를 사용하면 프로덕션 준비 DC/OS 또는 Docker Swarm 클러스터를 빠르게 배포할 수 있습니다. 이러한 빠른 시작, 자습서 및 샘플을 통해 Azure Container Service를 사용하는 방법을 알아보세요.
 sections:

@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 140c92d260ac6423127e478e304cbebcf9c42124
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: d607c75bc451774e6bf269eb658236d93a85021f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42146474"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854380"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Azure Logic Apps에서 Liquid 템플릿을 사용하여 고급 JSON 변환 수행
 
@@ -31,10 +31,12 @@ ms.locfileid: "42146474"
 
 * 기본 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
+* [Liquid 템플릿 언어](https://shopify.github.io/liquid/)에 대한 기본 지식입니다.
+
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>통합 계정에 대한 Liquid 템플릿 또는 맵 만들기
 
 1. 이 예제에서는 이 단계에 설명된 샘플 Liquid 템플릿을 만듭니다.
-Liquid 템플릿의 필터를 사용하려는 경우 해당 필터를 대문자로 시작해야 합니다. [Liquid 필터](https://shopify.github.io/liquid/basics/introduction/#filters)에 대해 자세히 알아봅니다. 
+Liquid 템플릿의 필터를 사용하려는 경우 해당 필터를 대문자로 시작해야 합니다. [DotLiquid](https://dotliquidmarkup.org/) 및 C# 명명 규칙을 사용하는 [Liquid 필터](https://shopify.github.io/liquid/basics/introduction/#filters)에 대해 자세히 알아보세요.
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -80,7 +82,7 @@ Liquid 템플릿의 필터를 사용하려는 경우 해당 필터를 대문자�
 
 2. Logic Apps 디자이너에서 논리 앱에 [요청 트리거](../connectors/connectors-native-reqres.md#use-the-http-request-trigger)를 추가합니다.
 
-3. 트리거 아래에서 **새 단계**를 선택합니다. 검색 상자에 필터로 "liquid"를 입력하고 **JSON을 JSON으로 변환 - Liquid** 작업을 선택합니다.
+3. 트리거 아래에서 **새 단계**를 선택합니다. 검색 상자에서 필터로 "liquid"를 입력하고, **JSON을 JSON으로 변환 - Liquid** 작업을 선택합니다.
 
    ![Liquid 작업 찾기 및 선택](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
@@ -117,7 +119,7 @@ Liquid는 JSON 변환으로만 제한되지 않습니다. 다음은 Liquid를 �
    ``` json
    {{content.firstName | Append: ' ' | Append: content.lastName}}
    ```
-   다음은 샘플 입력 및 출력입니다.
+   샘플 입력 및 출력은 다음과 같습니다.
   
    ![JSON에서 텍스트로 예제 출력](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
 
@@ -130,7 +132,7 @@ Liquid는 JSON 변환으로만 제한되지 않습니다. 다음은 Liquid를 �
         {{item}}
     {% endJSONArrayFor -%}]
    ```
-   다음은 샘플 입력 및 출력입니다.
+   샘플 입력 및 출력은 다음과 같습니다.
 
    ![XML에서 JSON으로 예제 출력](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
 
@@ -142,7 +144,7 @@ Liquid는 JSON 변환으로만 제한되지 않습니다. 다음은 Liquid를 �
    {{content.firstName | Append: ' ' | Append: content.lastName}}
    ```
 
-   다음은 샘플 입력 및 출력입니다.
+   샘플 입력 및 출력은 다음과 같습니다.
 
    ![XML에서 텍스트로 예제 출력](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 

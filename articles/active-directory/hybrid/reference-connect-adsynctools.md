@@ -2,20 +2,20 @@
 title: 'Azure AD Connect: ADSyncTools PowerShell 참조 | Microsoft Docs'
 description: 이 문서에서는 ADSyncTools.psm1 PowerShell 모듈에 대한 참조 정보를 제공합니다.
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 586f3c81fad79f49b3506b0bd84a4f7b218d8605
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 3b98686730a0fbd65cd5fd64fe91d8c6fa06286e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426488"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478215"
 ---
-# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools PowerShell 참조
+# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect:  ADSyncTools PowerShell 참조
 이 설명서에서는 Azure AD Connect에 포함된 ADSyncTools.psm1 PowerShell 모듈에 대해 다음과 같은 참조 정보를 제공합니다.
 
 ## <a name="clear-adsynctoolsconsistencyguid"></a>Clear-ADSyncToolsConsistencyGuid
@@ -338,7 +338,7 @@ Get-ADSyncToolsADuser [-User] <Object> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>설명
-AD 개체(TO DO: 다중 포리스트 지원)를 반환합니다.
+AD 개체 TO DO: 다중 포리스트 지원을 반환합니다.
 
 ### <a name="examples"></a>예제
 
@@ -526,7 +526,7 @@ Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object>
 ```
 
 ### <a name="description"></a>설명
-함수는 AAD Connnect 실행 기록을 쿼리하고, "SourceAnchor 특성이 변경되었습니다." 오류를 보고하는 모든 사용자를 내보냅니다.
+함수는 AAD Connect 실행 기록을 쿼리하고, 다음 오류를 보고하는 모든 사용자를 내보냅니다. "SourceAnchor 특성이 변경되었습니다."
 
 ### <a name="examples"></a>예제
 
@@ -719,7 +719,7 @@ Remove-ADSyncToolsExpiredCertificates [-TargetOU] <String> [[-BackupOnly] <Boole
 이 스크립트는 Active Directory 도메인의 대상 조직 구성 단위에서 모든 개체를 가져와서 개체 클래스(User/Computer)를 기준으로 필터링하고, UserCertificate 특성에 있는 만료된 인증서를 모두 삭제합니다.
 기본적으로(BackupOnly 모드) 만료된 인증서만 파일에 백업하고, AD에서는 변경하지 않습니다.
 -BackupOnly $false를 사용하면 이러한 개체에 대한 UserCertificate 특성에 있는 만료된 인증서가 파일로 복사된 후 AD에서 제거됩니다.
-각 인증서는 별도의 파일 이름(ObjectClass_ObjectGUID_CertThumprint.cer)으로 백업됩니다. 또한 스크립트는 실제로 수행된 작업(건너뜀/내보냄/삭제됨)을 포함하여 유효하거나 만료된 인증서가 있는 모든 사용자를 표시하는 CSV 형식의 로그 파일을 만듭니다.
+각 인증서는 별도의 파일 이름: ObjectClass_ObjectGUID_CertThumprint.cer로 백업됩니다. 또한 스크립트는 실제로 수행된 작업(건너뜀/내보냄/삭제됨)을 포함하여 유효하거나 만료된 인증서가 있는 모든 사용자를 표시하는 CSV 형식의 로그 파일을 만듭니다.
 
 ### <a name="examples"></a>예제
 

@@ -13,12 +13,14 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: c4a4b70e39731b3a78fd42078bfa1b7340343f9a
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.lastreviewed: 11/26/2018
+ROBOTS: NOINDEX
+ms.openlocfilehash: 04756481b676ed198120b67ca4368093ca8acead
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334374"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250877"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>모니터링 및 VaaS 포털에서 테스트를 관리 합니다.
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 2934eadce9e3e0d5e0375dff4eec359a33bd4479
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 91d1369b9197f6ef941d981aa9cf7539b4554d0c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420101"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065803"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
@@ -34,7 +34,7 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
 *   MySQL
 *   Oracle 데이터베이스
 *   PostgreSQL
-*   SAP 응용 프로그램 서버 
+*   SAP 애플리케이션 서버 
 *   SAP 메시지 서버
 *   SharePoint Server
 *   SQL Server
@@ -234,7 +234,7 @@ TcpTestSucceeded       : True
 
 ## <a name="configure-ports"></a>포트 구성
 
-게이트웨이는 [Azure Service Bus](https://azure.microsoft.com/services/service-bus/)에 대한 아웃바운드 연결을 만들고 아웃바운드 포트인 TCP 443(기본값), 5671, 5672, 9350~9354에서 통신합니다. 게이트웨이에 인바운드 포트가 필요하지 않습니다. [Azure Service Bus 및 하이브리드 솔루션](../service-bus-messaging/service-bus-messaging-overview.md)에 대해 자세히 알아봅니다.
+게이트웨이는 [Azure Service Bus](https://azure.microsoft.com/services/service-bus/)에 대한 아웃바운드 연결을 만들고 아웃바운드 포트: TCP 443(기본값), 5671, 5672, 9350~9354에서 통신합니다. 게이트웨이에 인바운드 포트가 필요하지 않습니다. [Azure Service Bus 및 하이브리드 솔루션](../service-bus-messaging/service-bus-messaging-overview.md)에 대해 자세히 알아봅니다.
 
 게이트웨이는 다음과 같은 정규화된 도메인 이름을 사용합니다.
 
@@ -262,7 +262,7 @@ TcpTestSucceeded       : True
 
    그렇지 않고 클라이언트 위치를 찾으려면 동일한 컴퓨터에서 서비스 콘솔을 열고, **온-프레미스 데이터 게이트웨이 서비스**를 찾은 후 **실행 파일 경로** 속성을 확인합니다.
 
-2. *구성* 파일 **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**를 엽니다.
+2. 이 *구성 파일*을 엽니다. **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
 
 3. **ServiceBusSystemConnectivityModeString** 값을 **AutoDetect**에서 **Https**로 변경합니다.
 
@@ -276,10 +276,9 @@ TcpTestSucceeded       : True
 
 ## <a name="windows-service-account"></a>Windows 서비스 계정
 
-온-프레미스 데이터 게이트웨이는 "온-프레미스 데이터 게이트웨이 서비스"라는 Windows 서비스로 실행되지만 해당 "다음 계정으로 로그온" 계정 자격 증명으로 "NT SERVICE\PBIEgwService"를 사용합니다. 기본적으로 온-프레미스 데이터 게이트웨이에는 게이트웨이를 설치하는 컴퓨터에 대한 "서비스로 로그온" 권한이 있습니다. Azure Portal에서 게이트웨이를 만들고 유지 관리하려면 Windows 서비스 계정에 적어도 **참가자** 권한이 있어야 합니다. 
+온-프레미스 데이터 게이트웨이를 설치할 컴퓨터에서 게이트웨이는 “온-프레미스 데이터 게이트웨이 서비스”라는 Windows 서비스 계정으로 실행됩니다. 그러나 게이트웨이는 해당 “다음으로 로그온” 계정 자격 증명에 대해 “NT SERVICE\PBIEgwService” 이름을 사용합니다. 기본적으로 게이트웨이에는 게이트웨이를 설치하는 컴퓨터에서 “서비스로 로그온” 권한이 있습니다. 게이트웨이에 대한 Windows 서비스 계정은 온-프레미스 데이터 원본에 연결하는 데 사용하는 계정 및 클라우드 서비스에 로그인하는 데 사용하는 회사 또는 학교 계정과는 다릅니다.
 
-> [!NOTE]
-> Windows 서비스 계정은 온-프레미스 데이터 원본에 연결하는 데 사용되는 동일한 계정 및 클라우드 서비스에 로그인하는 데 사용되는 회사 또는 학교 계정과 다릅니다.
+Azure Portal에서 게이트웨이를 만들고 유지 관리하려면 Windows 서비스 계정에 적어도 **기여자** 권한이 있어야 합니다. 이러한 사용 권한을 확인하려면 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요. 
 
 <a name="restart-gateway"></a>
 
@@ -329,15 +328,15 @@ TcpTestSucceeded       : True
 
 ### <a name="general"></a>일반
 
-**Q**: Azure SQL Database와 같은 클라우드에서 데이터 원본에 대한 게이트웨이가 필요하나요? <br/>
+**Q**: Azure SQL Database와 같은 클라우드에서 데이터 원본에 대한 게이트웨이가 필요한가요? <br/>
 **A**: 아니요. 게이트웨이는 온-프레미스 데이터 원본에만 연결됩니다.
 
-**Q**: 데이터 원본과 동일한 컴퓨터에 게이트웨이를 설치해야 하나요? <br/>
-**A**: 아니요. 게이트웨이는 제공된 연결 정보를 사용하여 데이터 원본에 연결됩니다. 이러한 의미에서 게이트웨이를 클라이언트 응용 프로그램이라고 생각할 수 있습니다. 게이트웨이는 제공된 서버 이름에 연결할 수 있는 기능이 필요합니다.
+**Q**: 데이터 원본과 동일한 머신에 게이트웨이를 설치해야 하나요? <br/>
+**A**: 아니요. 게이트웨이는 제공된 연결 정보를 사용하여 데이터 원본에 연결됩니다. 이러한 의미에서 게이트웨이를 클라이언트 애플리케이션이라고 생각할 수 있습니다. 게이트웨이는 제공된 서버 이름에 연결할 수 있는 기능이 필요합니다.
 
 <a name="why-azure-work-school-account"></a>
 
-**Q:**: 회사 또는 학교 계정을 사용하여 로그인해야 하는 이유는 무엇인가요? <br/>
+**Q**: 회사 또는 학교 계정을 사용하여 로그인해야 하는 이유는 무엇인가요? <br/>
 **A**: 온-프레미스 데이터 게이트웨이를 설치할 때만 회사 또는 학교 계정을 사용할 수 있습니다. 로그인 계정은 Azure AD(Azure Active Directory)에서 관리하는 테넌트에 저장됩니다. 일반적으로 Azure AD 계정의 UPN(사용자 계정 이름)은 이메일 주소와 일치합니다.
 
 **Q**: 자격 증명은 어디에 저장되나요? <br/>
@@ -346,11 +345,11 @@ TcpTestSucceeded       : True
 **Q**: 네트워크 대역폭에 대한 요구 사항이 있나요? <br/>
 **A**: 네트워크 연결의 처리량이 높은지 확인합니다. 모든 환경은 다르며 전송되는 데이터의 양은 결과에 영향을 미칠 수 있습니다. 온-프레미스 데이터 원본과 Azure 데이터 센터 간의 처리량 수준을 보장하려면 [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)를 사용해보세요. 처리량 측정하기 위해 Azure Speed Test와 같은 외부 도구를 사용합니다.
 
-**Q**: 게이트웨이에서 데이터 원본으로의 쿼리를 실행할 때 나타나는 대기 시간은 얼마나 되나요? 최선의 아키텍처는 무엇인가요? <br/>
+**Q**: 게이트웨이에서 데이터 원본으로의 쿼리를 실행할 때 나타나는 대기 시간은 어느 정도인가요? 최선의 아키텍처는 무엇인가요? <br/>
 **A**: 네트워크 대기 시간을 줄이려면 게이트웨이를 데이터 원본에 최대한 가깝게 설치합니다. 실제 데이터 원본에 게이트웨이를 설치할 수 있는 경우 이 근접성으로 인해 발생하는 대기 시간이 최소화됩니다. 또한 Azure 데이터 센터와의 근접성을 고려합니다. 예를 들어, 서비스에서 미국 서부 데이터 센터를 사용하고 Azure VM에서 SQL Server가 호스트되는 경우 Azure VM도 미국 서부 지역에 있는 것이 좋을 수 있습니다. 이 근접성으로 인해 대기 시간이 최소화되고 Azure VM에서 송신 요금이 발생하지 않습니다.
 
 **Q**: 결과가 클라우드로 어떻게 다시 전송되나요? <br/>
-**A**: Azure Service Bus를 통해 결과가 전송됩니다.
+**A**: 결과는 Azure Service Bus를 통해 전송됩니다.
 
 **Q**: 클라우드에서 게이트웨이로의 인바운드 연결이 있나요? <br/>
 **A**: 아니요. 게이트웨이는 Azure Service Bus에 대해 아웃바운드 연결을 사용합니다.
@@ -358,8 +357,8 @@ TcpTestSucceeded       : True
 **Q**: 아웃바운드 연결을 차단하면 어떻게 되나요? 이러한 연결을 열려면 무엇이 필요한가요? <br/>
 **A**: 게이트웨이가 사용하는 포트 및 호스트를 참조하세요.
 
-**Q**: 실제 Windows 서비스를 어떻게 지칭하나요? <br/>
-**A**: 작업 관리자의 서비스 탭에서 서비스 이름이 "PBIEgwService" 또는 Power BI Enterprise Gateway Service로 표시됩니다. 서비스 콘솔에서는 서비스 이름이 "On-premises data gateway service"입니다. Windows 서비스는 "NT SERVICE\PBIEgwService"를 SSID(서비스 SID)로 사용합니다.
+**Q**: 실제 Windows 서비스를 무엇이라고 하나요? <br/>
+**A**: 작업 관리자의 서비스 탭에서 서비스 이름이 “PBIEgwService” 또는 Power BI Enterprise Gateway Service로 표시됩니다. 서비스 콘솔에서는 서비스 이름이 "On-premises data gateway service"입니다. Windows 서비스는 "NT SERVICE\PBIEgwService"를 SSID(서비스 SID)로 사용합니다.
 
 **Q**: Azure Active Directory 계정으로 게이트웨이 Windows 서비스를 실행할 수 있나요? <br/>
 **A**: 아니요. Windows 서비스에는 유효한 Windows 계정이 있어야 합니다.
@@ -370,16 +369,16 @@ TcpTestSucceeded       : True
 **A**: 복구 키를 사용하여 게이트웨이를 복원하거나 이동할 수 있습니다. 게이트웨이를 설치할 때 복구 키를 지정합니다.
 
 **Q**: 복구 키를 사용할 경우의 이점은 무엇인가요? <br/>
-**A**: 복구 키는 재해 발생 후 게이트웨이 설정을 마이그레이션하거나 복구할 수 있는 방법을 제공합니다.
+**A**: 복구 키를 사용하면 재해 발생 후에 게이트웨이 설정을 마이그레이션하거나 복구할 수 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
 이 섹션에서는 온-프레미스 데이터 게이트웨이를 설정 및 사용하는 동안 발생할 수 있는 몇 가지 일반적인 문제에 대해 설명합니다.
 
-**Q:**: 내 게이트웨이 설치가 실패한 이유는 무엇인가요? <br/>
-**A**: 대상 컴퓨터의 바이러스 백신 소프트웨어가 오래된 경우 이 문제가 발생할 수 있습니다. 바이러스 백신 소프트웨어를 업데이트하거나 게이트웨이 설치 중에만 바이러스 백신 소프트웨어를 사용하지 않도록 설정했다가 다시 사용하도록 설정할 수 있습니다.
+**Q**: 내 게이트웨이 설치가 실패한 이유는 무엇인가요? <br/>
+**A**: 대상 컴퓨터의 바이러스 백신 소프트웨어가 만료된 경우 이 문제가 발생할 수 있습니다. 바이러스 백신 소프트웨어를 업데이트하거나 게이트웨이 설치 중에만 바이러스 백신 소프트웨어를 사용하지 않도록 설정했다가 다시 사용하도록 설정할 수 있습니다.
 
-**Q:**: Azure에서 게이트웨이 리소스를 만들 때 게이트웨이 설치가 보이지 않는 이유는 무엇인가요? <br/>
+**Q**: Azure에서 게이트웨이 리소스를 만들 때 내 게이트웨이 설치가 보이지 않는 이유는 무엇인가요? <br/>
 **A**: 이 문제는 다음과 같은 이유 때문에 발생할 수 있습니다.
 
 * 게이트웨이 설치가 Azure의 다른 게이트웨이 리소스에 의해 이미 등록되고 클레임되었습니다. 게이트웨이 설치는 게이트웨이 리소스가 만들어진 후에 인스턴스 목록에 나타나지 않습니다.
@@ -393,7 +392,7 @@ Azure Portal에서 게이트웨이 등록을 확인하려면 *모든* Azure 구�
 **A**: 이 문서의 뒷부분에 나오는 [**로그** 섹션](#logs)을 참조하세요.
 
 **Q**: 온-프레미스 데이터 원본으로 어떤 쿼리가 전송되고 있는지를 어떻게 알 수 있나요? <br/>
-**A**: 전송 중인 쿼리를 포함하는 쿼리 추적을 사용하도록 설정할 수 있습니다. 문제 해결이 끝나면 쿼리 추적을 원래 값으로 다시 변경해야 합니다. 쿼리 추적 기능을 그대로 두면 큰 로그가 만들어집니다.
+**A**: 전송되는 쿼리를 포함하는 쿼리 추적을 사용하도록 설정할 수 있습니다. 문제 해결이 끝나면 쿼리 추적을 원래 값으로 다시 변경해야 합니다. 쿼리 추적 기능을 그대로 두면 큰 로그가 만들어집니다.
 
 또한 추적 쿼리를 위해 데이터 원본이 포함하는 도구를 살펴볼 수도 있습니다. 예를 들어 SQL Server 및 Analysis Services의 경우 확장 이벤트 또는 SQL 프로파일러를 사용할 수 있습니다.
 
@@ -444,7 +443,7 @@ Azure Portal에서 게이트웨이 등록을 확인하려면 *모든* Azure 구�
 
    그렇지 않고 클라이언트 위치를 찾으려면 동일한 컴퓨터에서 서비스 콘솔을 열고, **온-프레미스 데이터 게이트웨이 서비스**를 찾은 후 **실행 파일 경로** 속성을 확인합니다.
 
-2. *구성* 파일 **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**를 엽니다.
+2. 이 *구성 파일*을 엽니다. **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
 
 3. **SendTelemetry** 값을 **true**로 변경합니다.
 

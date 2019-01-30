@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights 쿼리에서 JSON을 셰이핑하는 방법에 대한 모범 사례입니다.
-description: Time Series Insights 쿼리 효율성을 개선하는 방법을 알아봅니다.
+title: Azure Time Series Insights 쿼리에서 JSON을 셰이핑하는 방법 모범 사례 | Microsoft Docs
+description: Azure Time Series Insights 쿼리 효율성을 개선하는 방법을 알아봅니다.
 services: time-series-insights
 author: ashannon7
 manager: cshankar
@@ -8,12 +8,13 @@ ms.service: time-series-insights
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: anshan
-ms.openlocfilehash: b9d5e922a9a0a5f50e2ced896f5957fbc90d7eb4
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: c076d425a7740bd0eb6398e6b8720fa873f2fc30
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364370"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201264"
 ---
 # <a name="how-to-shape-json-to-maximize-query-performance"></a>JSON을 셰이핑하여 쿼리 성능을 극대화하는 방법 
 
@@ -104,7 +105,7 @@ Time Series Insights 이벤트 테이블(평면화 이후):
 
 이전 예제를 따라 다음을 수행합니다.
 
-- **deviceId** 열은 다수의 다양한 장치에서 열 헤더로 사용합니다. deviceId 값을 고유한 속성 이름으로 만들려고 시도하면 다른 5개의 열을 포함하여 총 디바이스를 595개(S1 환경) 또는 795개(S2 환경)로 제한합니다.
+- **deviceId** 열은 다수의 다양한 디바이스에서 열 헤더로 사용합니다. deviceId 값을 고유한 속성 이름으로 만들려고 시도하면 다른 5개의 열을 포함하여 총 디바이스를 595개(S1 환경) 또는 795개(S2 환경)로 제한합니다.
 
 - 제조업체 및 모델 정보 등 불필요한 속성이 방지됩니다. 해당 속성이 나중에 쿼리될 수 없으므로 제거하여 네트워크 및 저장소 효율성을 개선할 수 있습니다.
 
@@ -183,7 +184,7 @@ Time Series Insights 이벤트 테이블(평면화 이후):
 
 이전 예제를 따르면 첫 번째 예제와 비합니다.
 
-- **deviceId** 및 **series.tagId** 열은 다수의 다양한 장치 및 태그에 대한 열 헤더로 사용합니다. 각각을 고유 특성으로 사용하면 6개의 열이 포함된 594(S1 환경)개 또는 794(S2 환경)개의 총 디바이스로 쿼리가 제한됩니다.
+- **deviceId** 및 **series.tagId** 열은 다수의 다양한 디바이스 및 태그에 대한 열 헤더로 사용합니다. 각각을 고유 특성으로 사용하면 6개의 열이 포함된 594(S1 환경)개 또는 794(S2 환경)개의 총 디바이스로 쿼리가 제한됩니다.
 
 - 첫 번째 예제에서 설명한 이유로 인해 불필요한 속성이 방지되었습니다.
 
@@ -199,4 +200,4 @@ Time Series Insights 이벤트 테이블(평면화 이후):
 
 ## <a name="next-steps"></a>다음 단계
 
-이러한 지침을 사용하려면 [Azure Time Series Insights 쿼리 구문](/rest/api/time-series-insights/time-series-insights-reference-query-syntax)을 참조하여 TSI 데이터 액세스 REST API의 쿼리 구문에 대해 자세히 알아봅니다.
+이러한 지침을 사용하려면 [Azure Time Series Insights 쿼리 구문](/rest/api/time-series-insights/ga-query-syntax)을 참조하여 TSI 데이터 액세스 REST API의 쿼리 구문에 대해 자세히 알아봅니다.

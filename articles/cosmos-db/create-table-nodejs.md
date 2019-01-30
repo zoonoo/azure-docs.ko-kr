@@ -1,29 +1,26 @@
 ---
-title: '빠른 시작: Node.js가 있는 Table API - Azure Cosmos DB | Microsoft Docs'
-description: 이 빠른 시작은 Azure Cosmos DB Table API를 사용하여 Azure Portal과 Node.js를 통해 응용 프로그램을 만드는 방법을 보여 줍니다.
-services: cosmos-db
+title: '빠른 시작: Table API와 Node.js - Azure Cosmos DB'
+description: 이 빠른 시작은 Azure Cosmos DB Table API를 사용하여 Azure Portal과 Node.js를 통해 애플리케이션을 만드는 방법을 보여 줍니다.
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.component: cosmosdb-table
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: d8d1ae9e95f76ff9e03dc5a54b6f00ffac8f2b39
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 57da4fcb6fb1a91477b6c31387ab06205be8138c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702615"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044657"
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>빠른 시작: Node.js 및 Azure Cosmos DB를 사용하여 Table API 앱 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
 > * [Java](create-table-java.md)
-> * [Node.js](create-table-nodejs.md)
+> * [Node.JS](create-table-nodejs.md)
 > * [Python](create-table-python.md)
 > 
 
@@ -39,7 +36,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 또한,
 
 * [Node.js](https://nodejs.org/en/) 버전 v0.10.29 이상
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 
@@ -59,7 +56,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
-이제 github에서 Table 앱을 복제하고 연결 문자열을 설정한 다음 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
+이제 GitHub에서 Table 앱을 복제하고 연결 문자열을 설정한 다음 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
 1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
@@ -83,7 +80,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다. 이를 통해 앱이 호스팅된 데이터베이스와 통신할 수 있게 됩니다. 
 
-1. [Azure Portal](http://portal.azure.com/)에서 **연결 문자열**을 클릭합니다. 
+1. [Azure Portal](https://portal.azure.com/)에서 **연결 문자열**을 클릭합니다. 
 
     ![[연결 문자열] 창에서 필요한 연결 문자열 정보 보기 및 복사](./media/create-table-nodejs/connection-string.png)
 

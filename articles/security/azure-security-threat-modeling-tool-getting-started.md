@@ -3,9 +3,9 @@ title: 시작 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
 description: 작업에서 위협 모델링 도구를 강조 표시하는 자세한 개요입니다.
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 340c92d2830069a9d957f4ece79416a707062629
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.author: jegeib
+ms.openlocfilehash: 6315e6d39a3b68854beb6563d075e3c79ca93a69
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096777"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359479"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>위협 모델링 도구 시작
 
-클라우드 및 엔터프라이즈 보안 도구 팀은 올해 초 **[클릭하여 다운로드](https://aka.ms/tmtpreview)** 로 위협 모델링 도구 미리 보기를 발표했습니다. 전달 메커니즘의 변경을 통해 고객이 도구를 열 때마다 고객에게 최신 기능 향상 및 버그 수정을 푸시하여 유지 관리 및 사용이 쉽도록 할 수 있습니다.
+Microsoft Threat Modeling Tool 2018은 2018년 9월에 무료 **[다운로드하여 클릭](https://aka.ms/threatmodelingtool)** 형태로 GA 버전으로 릴리스되었습니다. 전달 메커니즘의 변경을 통해 고객이 도구를 열 때마다 고객에게 최신 기능 향상 및 버그 수정을 푸시하여 유지 관리 및 사용이 쉽도록 할 수 있습니다.
 이 문서는 Microsoft SDL 위협 모델링 접근 방식을 시작하는 과정을 안내하고 도구를 사용하여 보안 프로세스의 핵심으로 위협 모델을 개발하는 방법을 보여 줍니다.
 
-이 문서는 SDL 위협 모델링 접근 방식의 기존 지식을 기반으로 합니다. 빠른 검토는 **[위협 모델링 웹 응용 프로그램](https://msdn.microsoft.com/library/ms978516.aspx)** 및 2006년에 게시된 보관된 **[STRIDE 접근 방식을 사용하여 보안 결함 파악](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** 버전의 MSDN 문서를 참조하세요.
+이 문서는 SDL 위협 모델링 접근 방식의 기존 지식을 기반으로 합니다. 빠른 검토는 **[위협 모델링 웹 애플리케이션](https://msdn.microsoft.com/library/ms978516.aspx)** 및 2006년에 게시된 보관된 **[STRIDE 접근 방식을 사용하여 보안 결함 파악](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** 버전의 MSDN 문서를 참조하세요.
 
 신속하게 요약하기 위해 접근 방식은 다이어그램 만들기, 위협 식별, 완화 및 각 완화의 유효성 검사를 포함합니다. 이 프로세스를 강조 표시하는 다이어그램은 다음과 같습니다.
 
@@ -68,13 +68,13 @@ ms.locfileid: "47096777"
 첫 번째 위협 모델 개발 과정을 살펴볼 예정입니다.
 
 > Ricardo: 안녕하세요, Cristina, 저는 위협 모델 다이어그램을 작업했고 세부 정보가 올바른지 확인하고 싶습니다. 살펴보는 데 도움을 주실 수 있으세요?
-> Cristina: 물론입니다. 살펴보겠습니다.
+> Cristina: 그렇습니다. 살펴보겠습니다.
 > Ricardo는 도구를 열고 Cristina와 화면을 공유합니다.
 
 ![기본 위협 모델](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
-> Cristina: 네, 간단해 보이지만 단계별로 확인해 볼 수 있을까요?
-> Ricardo: 물론입니다! 분석은 다음과 같습니다.
+> Cristina: 간단해 보이지만 단계별로 확인해 볼 수 있을까요?
+> Ricardo: 물론입니다. 분석은 다음과 같습니다.
 > - 이 사용자는 엔터티 외부로 그려집니다. - 사각형
 > - 웹 서버에 명령을 전송합니다. - 원
 > - 웹 서버는 데이터베이스를 컨설팅합니다(두 개의 병렬 선).
@@ -143,4 +143,4 @@ Ricardo가 OneDrive를 사용하여 그의 동료에게 그의 위협 모델을 
 
 ## <a name="next-steps"></a>다음 단계
 
-질문, 의견 및 문제를 tmtextsupport@microsoft.com에 보냅니다. 시작하려면 위협 모델링 도구를 **[다운로드](https://aka.ms/tmtpreview)** 하세요.
+질문, 의견 및 문제를 tmtextsupport@microsoft.com에 보냅니다. 시작하려면 위협 모델링 도구를 **[다운로드](https://aka.ms/threatmodelingtool)** 하세요.

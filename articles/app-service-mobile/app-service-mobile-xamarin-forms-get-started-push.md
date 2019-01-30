@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: 2658dcb0d206086aad1443e2dc720b6f1f55906f
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 99f2d9fb7c9a74e57eff3cd0b007fcee459cab88
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818161"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000209"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Xamarin.Forms 앱에 푸시 알림 추가
 
@@ -118,7 +118,7 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
     }
     ```
 
-    `FirebaseRegistrationService` 클래스는 FCM에 액세스하는 응용 프로그램을 인증하는 보안 토큰 생성을 담당합니다. 응용 프로그램이 FCM에서 등록 토큰을 수신하는 경우 `OnTokenRefresh` 메서드가 호출됩니다. 메서드는 FCM에서 비동기적으로 업데이트되는 `FirebaseInstanceId.Instance.Token` 속성에서 토큰을 검색합니다. 토큰은 응용 프로그램을 설치하거나 제거할 때, 사용자가 응용 프로그램 데이터를 삭제할 때, 응용 프로그램이 인스턴스 ID를 지울 때 또는 토큰의 보안이 손상되었을 때만 업데이트되므로 `OnTokenRefresh` 메서드는 드물게 호출됩니다. 또한 FCM 인스턴스 ID 서비스는 응용 프로그램에서 해당 토큰을 정기적으로, 일반적으로 6개월마다 새로 고치도록 요청합니다.
+    `FirebaseRegistrationService` 클래스는 FCM에 액세스하는 응용 프로그램을 인증하는 보안 토큰 생성을 담당합니다. 애플리케이션이 FCM에서 등록 토큰을 수신하는 경우 `OnTokenRefresh` 메서드가 호출됩니다. 메서드는 FCM에서 비동기적으로 업데이트되는 `FirebaseInstanceId.Instance.Token` 속성에서 토큰을 검색합니다. 토큰은 애플리케이션을 설치하거나 제거할 때, 사용자가 애플리케이션 데이터를 삭제할 때, 애플리케이션이 인스턴스 ID를 지울 때 또는 토큰의 보안이 손상되었을 때만 업데이트되므로 `OnTokenRefresh` 메서드는 드물게 호출됩니다. 또한 FCM 인스턴스 ID 서비스는 애플리케이션에서 해당 토큰을 정기적으로, 일반적으로 6개월마다 새로 고치도록 요청합니다.
 
     `OnTokenRefresh` 메서드는 또한 사용자의 등록 토큰을 Azure 알림 허브에 연결하는 데 사용되는 `SendRegistrationTokenToAzureNotificationHub` 메서드를 호출합니다.
 
@@ -220,7 +220,7 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
     }
     ```
 
-    응용 프로그램이 FCM에서 알림을 받을 때 호출되는 `OnMessageReceived` 메서드는 메시지 콘텐츠를 추출하고 `SendNotification` 메서드를 호출합니다. 이 메서드는 메시지 콘텐츠를 알림 영역에 표시되는 알림과 함께 응용 프로그램이 실행되는 동안 시작되는 로컬 알림으로 변환합니다.
+    애플리케이션이 FCM에서 알림을 받을 때 호출되는 `OnMessageReceived` 메서드는 메시지 콘텐츠를 추출하고 `SendNotification` 메서드를 호출합니다. 이 메서드는 메시지 콘텐츠를 알림 영역에 표시되는 알림과 함께 애플리케이션이 실행되는 동안 시작되는 로컬 알림으로 변환합니다.
 
 이제 Android 디바이스 또는 에뮬레이터에서 실행 중인 앱에서 푸시 알림을 테스트할 준비가 되었습니다.
 
@@ -228,10 +228,10 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
 
 처음 두 단계는 에뮬레이터에서 테스트할 때만 필요합니다.
 
-1. Google Play 서비스를 사용하여 구성된 디바이스 또는 에뮬레이터에서 배포하거나 디버깅하는지를 확인합니다. **재생** 앱이 장치 또는 에뮬레이터에 설치되었는지 보고 확인할 수 있습니다.
-2. **앱** > **설정** > **계정 추가**를 클릭하여 Android 장치에 Google 계정을 추가합니다. 그런 후 화면 지시에 따라 디바이스에 기존 Google 계정을 추가하거나 새 계정을 만듭니다.
+1. Google Play 서비스를 사용하여 구성된 디바이스 또는 에뮬레이터에서 배포하거나 디버깅하는지를 확인합니다. **재생** 앱이 디바이스 또는 에뮬레이터에 설치되었는지 보고 확인할 수 있습니다.
+2. **앱** > **설정** > **계정 추가**를 클릭하여 Android 디바이스에 Google 계정을 추가합니다. 그런 후 화면 지시에 따라 디바이스에 기존 Google 계정을 추가하거나 새 계정을 만듭니다.
 3. Visual Studio 또는 Xamarin Studio에서 **Droid** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭합니다.
-4. **실행**을 클릭하여 프로젝트를 빌드하고 Android 장치 또는 에뮬레이터에서 앱을 시작합니다.
+4. **실행**을 클릭하여 프로젝트를 빌드하고 Android 디바이스 또는 에뮬레이터에서 앱을 시작합니다.
 5. 앱에서 작업을 입력한 다음 더하기(**+**) 아이콘을 클릭합니다.
 6. 항목이 추가될 때 알림을 받았는지 확인합니다.
 
@@ -423,4 +423,4 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
 <!-- URLs. -->
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
-[apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
+[apns object]: https://go.microsoft.com/fwlink/p/?LinkId=272333

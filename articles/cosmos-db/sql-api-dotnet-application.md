@@ -1,26 +1,21 @@
 ---
-title: 'Azure Cosmos DB용 ASP.NET MVC 자습서: 웹 응용 프로그램 개발 | Microsoft Docs'
-description: Azure Cosmos DB를 사용하여 MVC 웹 응용 프로그램을 만드는 ASP.NET MVC 자습서 JSON을 저장하고 Azure Websites - ASP NET MVC 단계별 자습서에서 호스팅하는 todo 앱에서 데이터에 액세스합니다.
-keywords: ASP.NET MVC 자습서, 웹 응용 프로그램 개발, MVC 웹 응용 프로그램, ASP NET MVC 단계별 자습서
-services: cosmos-db
+title: 'Azure Cosmos DB용 ASP.NET MVC 자습서: 웹 애플리케이션 개발'
+description: Azure Cosmos DB를 사용하여 MVC 웹 애플리케이션을 만드는 ASP.NET MVC 자습서 JSON을 저장하고 Azure Websites - ASP NET MVC 단계별 자습서에서 호스팅하는 todo 앱에서 데이터에 액세스합니다.
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
-ms.workload: azure-vs
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
-ms.custom: devcenter, vs-azure
-ms.openlocfilehash: 22856b6e9b543504db66bce074d32d9ad70f5238
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 138df4aa0a0e23bd97bca960573cc0971b66b869
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247673"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041410"
 ---
-# <a name="_Toc395809351"></a>ASP.NET MVC 자습서: Azure Cosmos DB를 사용한 웹 응용 프로그램 개발
+# <a name="_Toc395809351"></a>ASP.NET MVC 자습서: Azure Cosmos DB를 사용한 웹 애플리케이션 개발
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -32,9 +27,9 @@ ms.locfileid: "51247673"
 
 Azure Cosmos DB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼리할 수 있는 방법을 강조하기 위해 이 문서에서는 Azure Cosmos DB를 사용하여 todo 앱을 빌드하는 방법을 보여 주는 종합적인 연습을 제공합니다. 작업은 Azure Cosmos DB에 JSON 문서로 저장됩니다.
 
-![이 자습서에서 만든 할 일 모음 MVC 웹 응용 프로그램의 스크린샷 - ASP NET MVC 단계별 자습서](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png)
+![이 자습서에서 만든 할 일 모음 MVC 웹 애플리케이션의 스크린샷 - ASP NET MVC 단계별 자습서](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png)
 
-이 연습에서는 Azure Cosmos DB 서비스를 사용하여 Azure에서 호스트되는 ASP.NET MVC 웹 응용 프로그램의 데이터를 저장하고 액세스하는 방법을 보여 줍니다. ASP.NET MVC 구성 요소가 아닌 Azure Cosmos DB에만 집중하는 자습서를 찾는 경우 [Azure Cosmos DB C# 콘솔 응용 프로그램 빌드](sql-api-get-started.md)를 참조하세요.
+이 연습에서는 Azure Cosmos DB 서비스를 사용하여 Azure에서 호스트되는 ASP.NET MVC 웹 애플리케이션의 데이터를 저장하고 액세스하는 방법을 보여 줍니다. ASP.NET MVC 구성 요소가 아닌 Azure Cosmos DB에만 집중하는 자습서를 찾는 경우 [Azure Cosmos DB C# 콘솔 응용 프로그램 빌드](sql-api-get-started.md)를 참조하세요.
 
 > [!TIP]
 > 이 자습서에서는 이전에 ASP.NET MVC 및 Azure Websites를 사용해 본 경험이 있다고 가정합니다. ASP.NET 또는 [필수 도구](#_Toc395637760)를 처음 사용하는 경우 [GitHub][GitHub]에서 전체 샘플 프로젝트를 다운로드하고 이 샘플의 지침을 따르는 것이 좋습니다. 프로젝트를 빌드하고 나면 이 문서를 검토하여 프로젝트의 컨텍스트에서 코드를 이해할 수 있습니다.
@@ -61,9 +56,9 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB�
 [!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
 
 <br/>
-이제 새 ASP.NET MVC 응용 프로그램을 처음부터 만드는 방법을 살펴보겠습니다. 
+이제 새 ASP.NET MVC 애플리케이션을 처음부터 만드는 방법을 살펴보겠습니다. 
 
-## <a name="_Toc395637762"></a>2단계: 새 ASP.NET MVC 응용 프로그램 만들기
+## <a name="_Toc395637762"></a>2단계: 새 ASP.NET MVC 애플리케이션 만들기
 
 1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**를 가리킨 후 **프로젝트**를 클릭합니다. **새 프로젝트** 대화 상자가 나타납니다.
 
@@ -76,22 +71,22 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB�
    
       **새 ASP.NET 웹 응용 프로그램** 대화 상자가 나타납니다.
    
-    ![새 ASP.NET 웹 응용 프로그램 대화 상자 스크린샷(MVC 응용 프로그램 템플릿이 강조 표시됨)](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-MVC.png)
+    ![새 ASP.NET 웹 애플리케이션 대화 상자 스크린샷(MVC 애플리케이션 템플릿이 강조 표시됨)](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-MVC.png)
 5. 템플릿 창에서 **MVC**를 선택합니다.
 
 6. **확인** 을 클릭하면 Visual Studio에서 빈 ASP.NET MVC 템플릿을 스캐폴딩합니다. 
 
           
-7. Visual Studio에서 상용구 MVC 응용 프로그램을 만들면 로컬에서 실행할 수 있는 빈 ASP.NET 응용 프로그램을 갖게 됩니다.
+7. Visual Studio에서 상용구 MVC 애플리케이션을 만들면 로컬에서 실행할 수 있는 빈 ASP.NET 애플리케이션을 갖게 됩니다.
    
-    모두 ASP.NET "Hello World" 응용 프로그램을 본 적이 있다고 확신하므로 프로젝트 로컬 실행은 건너뛰겠습니다. 바로 이 프로젝트에 Azure Cosmos DB를 추가하고 응용 프로그램을 작성하겠습니다.
+    모두 ASP.NET "Hello World" 애플리케이션을 본 적이 있다고 확신하므로 프로젝트 로컬 실행은 건너뛰겠습니다. 바로 이 프로젝트에 Azure Cosmos DB를 추가하고 애플리케이션을 작성하겠습니다.
 
-## <a name="_Toc395637767"></a>3단계: MVC 웹 응용 프로그램 프로젝트에 Azure Cosmos DB 추가
-이 솔루션에 필요한 대부분의 ASP.NET MVC 배관을 만들었으므로 이제 이 자습서의 실제 목적으로 돌아가 MVC 웹 응용 프로그램에 Azure Cosmos DB를 추가해 보겠습니다.
+## <a name="_Toc395637767"></a>3단계: MVC 웹 애플리케이션 프로젝트에 Azure Cosmos DB 추가
+이 솔루션에 필요한 대부분의 ASP.NET MVC 배관을 만들었으므로 이제 이 자습서의 실제 목적으로 돌아가 MVC 웹 애플리케이션에 Azure Cosmos DB를 추가해 보겠습니다.
 
 1. Azure Cosmos DB .NET SDK는 패키지되어 NuGet 패키지로 배포되며, Visual Studio에서 NuGet 패키지를 다운로드하려면 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭하여 Visual Studio에서 NuGet 패키지 관리자를 사용합니다.
    
-    ![NuGet 패키지 관리가 강조 표시된 솔루션 탐색기 내 웹 응용 프로그램 프로젝트에 대한 마우스 오른쪽 클릭 옵션의 스크린샷](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
+    ![NuGet 패키지 관리가 강조 표시된 솔루션 탐색기 내 웹 애플리케이션 프로젝트에 대한 마우스 오른쪽 클릭 옵션의 스크린샷](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
    
     **NuGet 패키지 관리** 대화 상자가 나타납니다.
 2. NuGet **찾아보기** 상자에 ***Azure DocumentDB***를 입력합니다. (패키지 이름은 Azure Cosmos DB로 업데이트되지 않았습니다.)
@@ -108,8 +103,8 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB�
    
     ![솔루션 탐색기에서 JSON 데이터 프로젝트에 추가된 두 참조의 스크린샷](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-added-references.png)
 
-## <a name="_Toc395637763"></a>4단계: ASP.NET MVC 응용 프로그램 설정
-이제 이 MVC 응용 프로그램에 모델, 뷰 및 컨트롤러를 추가합니다.
+## <a name="_Toc395637763"></a>4단계: ASP.NET MVC 애플리케이션 설정
+이제 이 MVC 애플리케이션에 모델, 뷰 및 컨트롤러를 추가합니다.
 
 * [모델 추가](#_Toc395637764).
 * [컨트롤러 추가](#_Toc395637765).
@@ -313,9 +308,9 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB�
         <add key="collection" value="Items"/>
 4. 이제 Azure Portal의 키 블레이드를 사용하여 *엔드포인트* 및 *authKey* 값을 업데이트합니다. 키 블레이드의 **URI**를 엔드포인트 설정 값으로 사용하고 키 블레이드의 **기본 키** 또는 **보조 키**를 authKey 설정 값으로 사용합니다.
 
-    Azure Cosmos DB 리포지토리의 연결을 완료했으므로 이제 응용 프로그램 논리를 추가해 보겠습니다.
+    Azure Cosmos DB 리포지토리의 연결을 완료했으므로 이제 애플리케이션 논리를 추가해 보겠습니다.
 
-1. todo 모음 응용 프로그램으로 가장 먼저 할 일은 완료되지 않은 항목을 표시하는 것입니다.  다음 코드 조각을 **DocumentDBRepository** 클래스 내의 아무 곳에나 복사하여 붙여 넣습니다.
+1. todo 모음 애플리케이션으로 가장 먼저 할 일은 완료되지 않은 항목을 표시하는 것입니다.  다음 코드 조각을 **DocumentDBRepository** 클래스 내의 아무 곳에나 복사하여 붙여 넣습니다.
    
         public static async Task<IEnumerable<T>> GetItemsAsync(Expression<Func<T, bool>> predicate)
         {
@@ -362,7 +357,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB�
 
 이때 오류 없이 솔루션을 작성할 수 있어야 합니다.
 
-지금 응용 프로그램을 실행하면 **HomeController** 및 해당 컨트롤러의 **인덱스** 뷰로 이동합니다. 이것은 시작할 때 선택한 MVC 템플릿 프로젝트에 대한 기본 동작이지만 여기서는 사용하지 않습니다. 이 동작을 변경하기 위해 이 MVC 응용 프로그램의 라우팅을 변경하겠습니다.
+지금 애플리케이션을 실행하면 **HomeController** 및 해당 컨트롤러의 **인덱스** 뷰로 이동합니다. 이것은 시작할 때 선택한 MVC 템플릿 프로젝트에 대한 기본 동작이지만 여기서는 사용하지 않습니다. 이 동작을 변경하기 위해 이 MVC 응용 프로그램의 라우팅을 변경하겠습니다.
 
 ***App\_Start\RouteConfig.cs***를 열고 "defaults:"로 시작하는 줄을 찾은 후 다음과 같이 변경합니다.
 
@@ -370,11 +365,11 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB�
 
 이 구문은 이제 ASP.NET MVC에 라우팅 동작을 제어하기 위한 URL에 값이 지정되지 않은 경우 **홈** 대신 **항목**을 컨트롤러로 사용하고 사용자 **인덱스**를 뷰로 사용하라고 지시합니다.
 
-이제 응용 프로그램을 실행하면 응용 프로그램에서 리포지토리 클래스를 호출하는 **ItemController**를 호출하며 GetItems 메서드를 사용하여 완료되지 않은 모든 항목을 **Views**\\**Item**\\**Index** 뷰로 반환합니다. 
+이제 애플리케이션을 실행하면 애플리케이션에서 리포지토리 클래스를 호출하는 **ItemController**를 호출하며 GetItems 메서드를 사용하여 완료되지 않은 모든 항목을 **Views**\\**Item**\\**Index** 뷰로 반환합니다. 
 
 이 프로젝트를 지금 빌드하여 실행하면 이제 다음과 같이 표시됩니다.    
 
-![이 데이터베이스 자습서에서 만든 할 일 모음 웹 응용 프로그램의 스크린샷](./media/sql-api-dotnet-application/build-and-run-the-project-now.png)
+![이 데이터베이스 자습서에서 만든 할 일 모음 웹 애플리케이션의 스크린샷](./media/sql-api-dotnet-application/build-and-run-the-project-now.png)
 
 ### <a name="_Toc395637771"></a>항목 추가
 빈 그리드 외에 확인할 항목이 있도록 데이터베이스에 일부 항목을 추가하겠습니다.
@@ -416,7 +411,7 @@ Azure Cosmos DB에 레코드를 저장하기 위해 Azure Cosmos DBRepository �
    
     이 코드는 DocumentDBRepository를 호출하고 CreateItemAsync 메서드를 사용하여 새로운 todo 항목을 데이터베이스에 유지합니다. 
    
-    **보안 정보**: **ValidateAntiForgeryToken** 특성은 여기서 교차 사이트 요청 위조 공격으로부터 이 응용 프로그램을 보호하는 데 사용됩니다. 이 특성을 추가하는 것 외에 뷰가 이 위조 방지 토큰과 작동하도록 해야 합니다. 이 주제에 대한 자세한 내용과 이를 올바르게 구현하는 방법의 예는 [교차 사이트 요청 위조 방지(영문)][Preventing Cross-Site Request Forgery]를 참조하세요. [GitHub][GitHub]에서 제공하는 소스 코드에는 완벽하게 구현되어 있습니다.
+    **보안 정보**: **ValidateAntiForgeryToken** 특성은 여기서 교차 사이트 요청 위조 공격으로부터 이 애플리케이션을 보호하는 데 사용됩니다. 이 특성을 추가하는 것 외에 뷰가 이 위조 방지 토큰과 작동하도록 해야 합니다. 이 주제에 대한 자세한 내용과 이를 올바르게 구현하는 방법의 예는 [교차 사이트 요청 위조 방지(영문)][Preventing Cross-Site Request Forgery]를 참조하세요. [GitHub][GitHub]에서 제공하는 소스 코드에는 완벽하게 구현되어 있습니다.
    
     **보안 정보**: 또한 메서드 매개 변수에 **Bind** 특성을 사용하여 과도한 게시 공격으로부터 보호할 수 있습니다. 자세한 내용은 [ASP.NET MVC의 기본 CRUD 작업(영문)][Basic CRUD Operations in ASP.NET MVC]을 참조하세요.
 
@@ -494,14 +489,14 @@ Azure Cosmos DB에 레코드를 저장하기 위해 Azure Cosmos DBRepository �
    
     추가한 두 번째 메서드는 데이터베이스에 저장되도록 업데이트된 개체를 Azure Cosmos DB에 전달하는 작업을 처리합니다.
 
-응용 프로그램을 실행하는 데 필요한 모든 작업(완료되지 않은 **항목** 나열, 새 **항목** 추가 및 **항목** 편집)이 완료되었습니다.
+애플리케이션을 실행하는 데 필요한 모든 작업(완료되지 않은 **항목** 나열, 새 **항목** 추가 및 **항목** 편집)이 완료되었습니다.
 
-## <a name="_Toc395637773"></a>6단계: 로컬에서 응용 프로그램 실행
-로컬 컴퓨터에서 응용 프로그램을 테스트하려면 다음을 수행합니다.
+## <a name="_Toc395637773"></a>6단계: 로컬에서 애플리케이션 실행
+로컬 컴퓨터에서 애플리케이션을 테스트하려면 다음을 수행합니다.
 
-1. 디버그 모드에서 응용 프로그램을 빌드하려면 Visual Studio에서 F5 키를 누릅니다. 응용 프로그램이 빌드되고 앞에서 본 것처럼 빈 그리드 페이지가 포함된 상태로 브라우저가 시작되어야 합니다.
+1. 디버그 모드에서 응용 프로그램을 빌드하려면 Visual Studio에서 F5 키를 누릅니다. 애플리케이션이 빌드되고 앞에서 본 것처럼 빈 그리드 페이지가 포함된 상태로 브라우저가 시작되어야 합니다.
    
-    ![이 데이터베이스 자습서에서 만든 할 일 모음 웹 응용 프로그램의 스크린샷](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
+    ![이 데이터베이스 자습서에서 만든 할 일 모음 웹 애플리케이션의 스크린샷](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
    
      
 2. **새로 만들기** 링크를 클릭하고 **이름** 및 **설명** 필드에 값을 추가합니다. **완료** 확인란을 선택 취소된 상태로 둡니다. 그렇지 않으면 새 **항목**이 완료 상태로 추가되며 초기 목록에 나타나지 않습니다.
@@ -518,10 +513,10 @@ Azure Cosmos DB에 레코드를 저장하기 위해 Azure Cosmos DBRepository �
     ![완료 상자가 선택된 인덱스 뷰의 스크린샷](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
 5. 앱을 테스트하고 나면 Ctrl+F5를 눌러 앱 디버깅을 중지합니다. 배포할 준비가 되었습니다!
 
-## <a name="_Toc395637774"></a>7단계: Azure App Service에 응용 프로그램 배포 
-이제 전체 응용 프로그램이 Azure Cosmos DB와 올바르게 작동하므로 Azure App Service에 이 웹앱을 배포하겠습니다.  
+## <a name="_Toc395637774"></a>7단계: Azure App Service에 애플리케이션 배포 
+이제 전체 애플리케이션이 Azure Cosmos DB와 올바르게 작동하므로 Azure App Service에 이 웹앱을 배포하겠습니다.  
 
-1. 이 응용 프로그램을 게시하기 위해 할 일은 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭하는 것뿐입니다.
+1. 이 애플리케이션을 게시하기 위해 할 일은 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭하는 것뿐입니다.
    
     ![솔루션 탐색기 내 게시 옵션의 스크린샷](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-publish.png)
 
@@ -537,18 +532,18 @@ Azure Cosmos DB에 레코드를 저장하기 위해 Azure Cosmos DBRepository �
 
     ![Visual Studio의 App Service 만들기 대화 상자](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service.png)
 
-몇 초 후에 Visual Studio에서 웹 응용 프로그램 게시를 완료하고 브라우저를 시작하며, Azure에서 실행되는 작업 내용을 확인할 수 있습니다.
+몇 초 후에 Visual Studio에서 웹 애플리케이션 게시를 완료하고 브라우저를 시작하며, Azure에서 실행되는 작업 내용을 확인할 수 있습니다.
 
 
 
 ## <a name="_Toc395637775"></a>다음 단계
-축하합니다! 지금까지 Azure Cosmos DB를 사용하여 첫 ASP.NET MVC 웹 응용 프로그램을 빌드하고 Azure에 게시했습니다. 이 자습서에 포함되지 않은 세부 정보 및 삭제 기능을 비롯한 전체 응용 프로그램 소스 코드는 [GitHub][GitHub]에서 다운로드하거나 복제할 수 있습니다. 따라서 이 내용을 앱에 추가하려는 경우 코드를 끌어와서 이 앱에 추가하면 됩니다.
+축하합니다! 지금까지 Azure Cosmos DB를 사용하여 첫 ASP.NET MVC 웹 애플리케이션을 빌드하고 Azure에 게시했습니다. 이 자습서에 포함되지 않은 세부 정보 및 삭제 기능을 비롯한 전체 애플리케이션 소스 코드는 [GitHub][GitHub]에서 다운로드하거나 복제할 수 있습니다. 따라서 이 내용을 앱에 추가하려는 경우 코드를 끌어와서 이 앱에 추가하면 됩니다.
 
-응용 프로그램에 기능을 더 추가하려면 [Azure Cosmos DB .NET 라이브러리](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)에서 사용 가능한 API를 검토하고 [GitHub][GitHub]의 Azure Cosmos DB .NET 라이브러리에 자유롭게 기여하세요. 
+애플리케이션에 기능을 더 추가하려면 [Azure Cosmos DB .NET 라이브러리](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)에서 사용 가능한 API를 검토하고 [GitHub][GitHub]의 Azure Cosmos DB .NET 라이브러리에 자유롭게 기여하세요. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
-[Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
-[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
+[Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
+[Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
+[Preventing Cross-Site Request Forgery]: https://go.microsoft.com/fwlink/?LinkID=517254
+[Basic CRUD Operations in ASP.NET MVC]: https://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app

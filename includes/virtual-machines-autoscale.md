@@ -4,14 +4,14 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0e46caf855bca184ff8a714d2c93d573b910fea8
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0ccb502cd5ae21468e52bdc4d56202a595cd19ef
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227247"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594375"
 ---
-[가상 머신 확장 집합](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)과 [Azure Monitor의 자동 조정 기능](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md)을 사용하면 [VM(가상 머신)](../articles/virtual-machines/windows/overview.md)을 쉽게 [자동으로 크기 조정](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md)할 수 있습니다. VM은 자동으로 크기 조정되도록 설정된 확장 집합의 멤버여야 합니다. 이 문서에서는 자동 및 수동 방법을 사용하여 VM을 수직 및 수평으로 확장하는 방법을 더 잘 이해할 수 있는 정보를 제공합니다.
+[가상 머신 확장 집합](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)과 [Azure Monitor의 자동 조정 기능](../articles/azure-monitor/platform/autoscale-overview.md)을 사용하면 [VM(가상 머신)](../articles/virtual-machines/windows/overview.md)을 쉽게 [자동으로 크기 조정](../articles/azure-monitor/platform/autoscale-best-practices.md)할 수 있습니다. VM은 자동으로 크기 조정되도록 설정된 확장 집합의 멤버여야 합니다. 이 문서에서는 자동 및 수동 방법을 사용하여 VM을 수직 및 수평으로 확장하는 방법을 더 잘 이해할 수 있는 정보를 제공합니다.
 
 ## <a name="horizontal-or-vertical-scaling"></a>수평 또는 수직적 크기 조정
 
@@ -27,19 +27,19 @@ Azure Monitor의 자동 크기 조정 기능은 수평으로만 확장하며, �
 
 ## <a name="configure-autoscale-for-a-scale-set"></a>확장 집합에 대한 자동 크기 조정 구성
 
-자동 크기 조정에서는 응용 프로그램의 부하를 처리하는 데 적절한 VM 수를 제공합니다. 이렇게 하면 VM을 추가하여 늘어난 부하를 처리하고, 유휴 상태로 있는 VM을 제거하여 비용을 절약할 수 있습니다. 규칙 집합에 따라 실행할 VM의 최소 및 최대 수를 지정합니다. 최소값을 설정하면 응용 프로그램이 항상 부하가 적은 상태에서 실행될 수 있습니다. 최대값을 설정하면 시간당 가능한 총 비용이 제한됩니다.
+자동 크기 조정에서는 애플리케이션의 부하를 처리하는 데 적절한 VM 수를 제공합니다. 이렇게 하면 VM을 추가하여 늘어난 부하를 처리하고, 유휴 상태로 있는 VM을 제거하여 비용을 절약할 수 있습니다. 규칙 집합에 따라 실행할 VM의 최소 및 최대 수를 지정합니다. 최소값을 설정하면 애플리케이션이 항상 부하가 적은 상태에서 실행될 수 있습니다. 최대값을 설정하면 시간당 가능한 총 비용이 제한됩니다.
 
-[Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings)를 사용하여 확장 집합을 만들 때 자동 크기 조정을 사용하도록 설정할 수 있습니다. 확장 집합을 만든 후에도 이와 같이 설정할 수 있습니다. [Azure Resource Manager 템플릿](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)을 사용하여 확장 집합을 만들고, 확장을 설치하고, 자동 크기 조정을 구성할 수 있습니다. Azure Portal에서 Azure Monitor를 통해 자동 크기 조정을 사용하도록 설정하거나, 확장 집합 설정에서 자동 크기 조정을 사용하도록 설정합니다.
+[Azure PowerShell](../articles/azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings)를 사용하여 확장 집합을 만들 때 자동 크기 조정을 사용하도록 설정할 수 있습니다. 확장 집합을 만든 후에도 이와 같이 설정할 수 있습니다. [Azure Resource Manager 템플릿](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)을 사용하여 확장 집합을 만들고, 확장을 설치하고, 자동 크기 조정을 구성할 수 있습니다. Azure Portal에서 Azure Monitor를 통해 자동 크기 조정을 사용하도록 설정하거나, 확장 집합 설정에서 자동 크기 조정을 사용하도록 설정합니다.
 
 ![자동 크기 조정 사용](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
  
 ### <a name="metrics"></a>메트릭
 
-Azure Monitor의 자동 크기 조정 기능을 사용하면 [메트릭](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md)에 따라 실행 중인 VM 수를 크기 조정할 수 있습니다. 기본적으로 VM은 디스크, 네트워크 및 CPU 사용량에 대한 기본 호스트 수준 메트릭을 제공합니다. 진단 확장을 사용하여 진단 데이터 컬렉션을 구성하면 디스크, CPU 및 메모리에 대한 추가 게스트 OS 성능 카운터를 사용할 수 있게 됩니다.
+Azure Monitor의 자동 크기 조정 기능을 사용하면 [메트릭](../articles/azure-monitor/platform/autoscale-common-metrics.md)에 따라 실행 중인 VM 수를 크기 조정할 수 있습니다. 기본적으로 VM은 디스크, 네트워크 및 CPU 사용량에 대한 기본 호스트 수준 메트릭을 제공합니다. 진단 확장을 사용하여 진단 데이터 컬렉션을 구성하면 디스크, CPU 및 메모리에 대한 추가 게스트 OS 성능 카운터를 사용할 수 있게 됩니다.
 
 ![메트릭 조건](./media/virtual-machines-autoscale/virtual-machines-autoscale-criteria.png)
 
-응용 프로그램에서 호스트를 통해 사용할 수 없는 메트릭에 기반하여 크기 조정해야 하는 경우 확장 집합의 VM에는 [Linux 진단 확장](../articles/virtual-machines/linux/diagnostic-extension.md) 또는 [Windows 진단 확장](../articles/virtual-machines/windows/ps-extensions-diagnostics.md)이 설치되어 있어야 합니다. Azure Portal을 사용하여 확장 집합을 만드는 경우 Azure PowerShell 또는 Azure CLI를 사용하여 필요한 진단 구성으로 확장을 설치해야 합니다.
+애플리케이션에서 호스트를 통해 사용할 수 없는 메트릭에 기반하여 크기 조정해야 하는 경우 확장 세트의 VM에는 [Linux 진단 확장](../articles/virtual-machines/linux/diagnostic-extension.md) 또는 [Windows 진단 확장](../articles/virtual-machines/windows/ps-extensions-diagnostics.md)이 설치되어 있어야 합니다. Azure Portal을 사용하여 확장 집합을 만드는 경우 Azure PowerShell 또는 Azure CLI를 사용하여 필요한 진단 구성으로 확장을 설치해야 합니다.
  
 ### <a name="rules"></a>규칙
 
@@ -49,7 +49,7 @@ Azure Monitor의 자동 크기 조정 기능을 사용하면 [메트릭](../arti
  
 ### <a name="notifications"></a>공지
 
-[트리거를 설정](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)하여 특정 웹 URL을 호출하거나 만든 자동 크기 조정 규칙에 따라 전자 메일을 보낼 수 있습니다. Webhook를 사용하면 사후 처리 또는 사용자 지정 알림을 위해 Azure 경고 알림을 다른 시스템으로 라우팅할 수 있습니다.
+[트리거를 설정](../articles/azure-monitor/platform/autoscale-webhook-email.md)하여 특정 웹 URL을 호출하거나 만든 자동 크기 조정 규칙에 따라 전자 메일을 보낼 수 있습니다. Webhook를 사용하면 사후 처리 또는 사용자 지정 알림을 위해 Azure 경고 알림을 다른 시스템으로 라우팅할 수 있습니다.
 
 ## <a name="manually-scale-vms-in-a-scale-set"></a>확장 집합에서 VM 크기를 수동으로 조정
 

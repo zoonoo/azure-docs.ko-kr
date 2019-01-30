@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8b2d49d9df2cc8db98004ad9c186511d8d5e2b87
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f6ae69c04d83e1ce1540267fb7932b80cca1013c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156649"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087213"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 Node.js 디바이스 SDK를 사용하여 시뮬레이션된 TPM 디바이스 만들기 및 프로비전
 
@@ -25,8 +25,8 @@ ms.locfileid: "50156649"
 자동 프로비전 프로세스에 익숙하지 않은 경우 [자동 프로비전 개념](concepts-auto-provisioning.md)도 검토하세요. 계속하기 전에 [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md)의 단계를 완료해야 합니다. 
 
 Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을 지원합니다.
-- [등록 그룹](concepts-service.md#enrollment-group): 여러 관련 장치를 등록하는 데 사용됩니다.
-- [개별 등록](concepts-service.md#individual-enrollment): 단일 장치를 등록하는 데 사용됩니다.
+- [등록 그룹](concepts-service.md#enrollment-group): 여러 관련 디바이스를 등록하는 데 사용됩니다.
+- [개별 등록](concepts-service.md#individual-enrollment): 단일 디바이스를 등록하는 데 사용됩니다.
 
 이 문서에서는 개별 등록을 설명합니다.
 
@@ -44,7 +44,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 1. 명령 프롬프트 또는 Git Bash를 엽니다. `azure-utpm-c` GitHub 리포지토리를 복제합니다.
     
     ```cmd/sh
-    git clone https://github.com/Azure/azure-utpm-c.git
+    git clone https://github.com/Azure/azure-utpm-c.git --recursive
     ```
 
 1. GitHub 루트 폴더로 이동하고 [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) 시뮬레이터를 실행합니다. 포트 2321 및 2322에서 소켓을 수신 대기합니다. 이 명령 창을 닫지 마세요. 이 빠른 시작 가이드가 끝날 때까지 이 시뮬레이터를 계속 실행하고 있어야 합니다. 
@@ -179,7 +179,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
     > **Node.js용 Azure IoT SDK**는 _AMQ_, _AMQP WS_ 및 _MQTT WS_와 같은 추가 프로토콜을 지원합니다.  더 많은 예제는 [Node.js 샘플용 Device Provisioning Service SDK](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device/samples)를 참조하세요.
     > 
 
-1. **globalDeviceEndpoint** 및 **idScope** 변수를 추가하고, 이러한 변수를 사용하여 **ProvisioningDeviceClient** 인스턴스를 만듭니다. **{globalDeviceEndpoint}** 및 **{idScope}** 를 **1단계**의 **_전역 장치 엔드포인트_** 및 **_ID 범위_** 값으로 바꿉니다.
+1. **globalDeviceEndpoint** 및 **idScope** 변수를 추가하고, 이러한 변수를 사용하여 **ProvisioningDeviceClient** 인스턴스를 만듭니다. **{globalDeviceEndpoint}** 및 **{idScope}** 를 **1단계**의 **_전역 디바이스 엔드포인트_** 및 **_ID 범위_** 값으로 바꿉니다.
    
     ```
     var provisioningHost = '{globalDeviceEndpoint}';
@@ -257,4 +257,4 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 이 빠른 시작에서는 시뮬레이션된 TPM 디바이스를 머신에 만들고, IoT Hub Device Provisioning Service를 사용하여 IoT Hub에 이 디바이스를 프로비전했습니다. 프로그래밍 방식으로 TPM 디바이스를 등록하는 방법을 알아보려면 프로그래밍 방식으로 TPM 디바이스를 등록하는 빠른 시작으로 계속 진행하세요. 
 
 > [!div class="nextstepaction"]
-> [Azure 빠른 시작 - Azure IoT Hub Device Provisioning Service에 TPM 장치 등록](quick-enroll-device-tpm-node.md)
+> [Azure 빠른 시작 - Azure IoT Hub Device Provisioning Service에 TPM 디바이스 등록](quick-enroll-device-tpm-node.md)

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 썸네일 생성 - REST, Go - Computer Vision'
+title: '빠른 시작: 썸네일 생성 - REST, Go'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Go와 함께 Computer Vision API를 사용하여 이미지에서 썸네일을 생성합니다.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: f2b3296385cd11fc37d15b536ea02773802bdba1
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: 9abd34266c5ee109d836484a9e7eb9d95c082296
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854240"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580912"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-go-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Go를 사용하여 썸네일 생성
 

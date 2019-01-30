@@ -1,20 +1,17 @@
 ---
 title: PostgreSQL용 Azure 데이터베이스의 제한 사항
 description: 이 문서는 Azure Database for PostgreSQL에 대한 연결 수 및 저장소 엔진 옵션과 같은 제한 사항을 설명합니다.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
-ms.date: 06/30/2018
-ms.openlocfilehash: f24f15134bf189097f20f75ff0b23b72a3e48363
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.topic: conceptual
+ms.date: 1/22/2019
+ms.openlocfilehash: 843107b8d251c2073ba9e02beacb16ab7615eca6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299609"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470735"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스의 제한 사항
 다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다.
@@ -31,10 +28,12 @@ ms.locfileid: "51299609"
 |범용| 8| 480|
 |범용| 16| 950|
 |범용| 32| 1500|
+|범용| 64| 1900|
 |메모리 최적화| 2| 300|
 |메모리 최적화| 4| 500|
 |메모리 최적화| 8| 960|
 |메모리 최적화| 16| 1900|
+|메모리 최적화| 32| 1900|
 
 연결 한도를 초과하면 다음과 같은 오류가 발생할 수 있습니다.
 > 오류: 너무 많은 클라이언트가 이미 연결되어 있습니다.
@@ -56,6 +55,9 @@ Azure 시스템에는 Azure Database for PostgreSQL 서버를 모니터링하기
 - PITR 기능을 사용하면 기반으로 하는 서버와 동일한 가격 책정 계층 구성을 사용하여 새 서버가 만들어집니다.
 - 복원 동안 만든 새 서버에는 원래 서버에 존재했던 방화벽 규칙이 없습니다. 방화벽 규칙은 새 서버에 대해 개별적으로 설정돼야 합니다.
 - 삭제된 서버 복원은 지원되지 않습니다.
+
+### <a name="utf-8-characters-on-windows"></a>Windows의 UTF-8 문자
+- 일부 시나리오에서는 UTF-8 문자가 Windows의 오픈 소스 PostgreSQL에서 완전히 지원되지 않으며, Azure Database for PostgreSQL에 영향을 줍니다. 자세한 내용은 [postgresql-archive의 버그 #15476](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html)에 대한 스레드를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - [각 가격 책정 계층에서 사용할 수 있는 기능](concepts-pricing-tiers.md) 이해

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 87df752f62956cffd455358059a3ab7b275b6a5d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 9704002a30556c76c65ddcad1cb576fbf4502b55
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090499"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014304"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 소개 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,7 +36,7 @@ ms.locfileid: "43090499"
 
 Azure Data Factory는 그러한 데이터 시나리오를 해결하는 플랫폼입니다. *데이터 이동 및 데이터 변환을 오케스트레이션하고 자동화하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스*입니다. Azure Data Factory를 사용하여 서로 다른 데이터 저장소의 데이터를 수집할 수 있는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 예약할 수 있습니다. Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics 및 Azure Machine Learning과 같은 계산 서비스를 사용하여 데이터를 처리하고 변환할 수 있습니다. 
 
-또한 사용할 BI(비즈니스 인텔리전스) 응용 프로그램용 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시할 수도 있습니다. 궁극적으로, Azure Data Factory를 통해 원시 데이터를 더 나은 비즈니스 결정에 의미 있는 데이터 저장소 및 데이터 레이크로 구성할 수 있습니다.
+또한 사용할 BI(비즈니스 인텔리전스) 애플리케이션용 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시할 수도 있습니다. 궁극적으로, Azure Data Factory를 통해 원시 데이터를 더 나은 비즈니스 결정에 의미 있는 데이터 저장소 및 데이터 레이크로 구성할 수 있습니다.
 
 ![데이터 팩터리의 최상위 수준 보기](media/introduction/big-picture.png)
 
@@ -107,13 +106,13 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 데�
 
 Data Factory 개념에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [데이터 집합 및 연결된 서비스](concepts-datasets-linked-services.md)
+- [데이터 세트 및 연결된 서비스](concepts-datasets-linked-services.md)
 - [파이프라인 및 활동](concepts-pipelines-activities.md)
 - [통합 런타임](concepts-integration-runtime.md)
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 그러나 데이터 팩터리는 계산 서비스를 사용하여 데이터 저장소 간에 데이터를 이동하고 데이터를 처리하도록 다른 Azure 지역에서 데이터 저장소 및 계산 서비스에 액세스할 수 있습니다.
+현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 그러나 데이터 팩터리는 계산 서비스를 사용하여 데이터 저장소 간에 데이터를 이동하고 데이터를 처리하도록 다른 Azure 지역에서 데이터 저장소 및 계산 서비스에 액세스할 수 있습니다.
 
 Azure 데이터 팩터리 자체는 데이터를 저장하지 않습니다. 데이터 기반 워크플로를 만들어서 지원되는 데이터 저장소 간의 데이터 이동을 조율하고 다른 지역 또는 온-프레미스 환경에서 계산 서비스를 사용하여 데이터의 처리를 조율할 수 있습니다. 또한 프로그래밍 방식 및 UI 메커니즘을 모두 사용하여 워크플로를 모니터링하고 관리할 수 있습니다.
 
@@ -136,6 +135,6 @@ Data Factory 서비스 버전 1과 현재 버전 사이의 차이점 목록은 [
 - [PowerShell](quickstart-create-data-factory-powershell.md)
 - [.NET](quickstart-create-data-factory-dot-net.md)
 - [Python](quickstart-create-data-factory-python.md)
-- [REST](quickstart-create-data-factory-rest-api.md)
+- [REST (영문)](quickstart-create-data-factory-rest-api.md)
 - [Azure Resource Manager 템플릿](quickstart-create-data-factory-resource-manager-template.md)
  

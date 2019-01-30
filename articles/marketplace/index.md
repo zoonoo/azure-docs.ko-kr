@@ -22,7 +22,7 @@ ms.locfileid: "48830025"
 ---
 # <a name="azure-marketplace-documentation"></a>Azure Marketplace 설명서
 
-신생 기업에서 기존 기업까지 ISV가 전 세계 고객에게 자사의 솔루션을 제공할 수 있도록 하는 온라인 응용 프로그램 및 서비스인 Azure Marketplace에 대해 알아봅니다.
+신생 기업에서 기존 기업까지 ISV가 전 세계 고객에게 자사의 솔루션을 제공할 수 있도록 하는 온라인 애플리케이션 및 서비스인 Azure Marketplace에 대해 알아봅니다.
 
 <ul class="panelContent cardsFTitle">
     <li>

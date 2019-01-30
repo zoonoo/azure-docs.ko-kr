@@ -1,23 +1,26 @@
 ---
-title: Node.js 빠른 시작 - 의도 예측 - LUIS
-titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 사용 가능한 공용 LUIS 앱을 통해 대화형 텍스트에서 사용자의 의도를 판단합니다. Node.js를 사용하여 공용 앱의 HTTP 예측 엔드포인트에 사용자의 의도를 텍스트로 보냅니다. 엔드포인트에서 LUIS는 공용 앱의 모델을 적용하여 자연어 텍스트의 의미를 분석하고 전반적인 의도를 판단하여 앱의 주체 도메인에 적절한 데이터를 추출합니다.
+title: 의도 가져오기, Node.js
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: 이 빠른 시작에서는 사용 가능한 공용 LUIS 앱을 통해 대화형 텍스트에서 사용자의 의도를 판단합니다. Node.js를 사용하여 공용 앱의 HTTP 예측 엔드포인트에 사용자의 의도를 텍스트로 보냅니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/17/2019
 ms.author: diberry
-ms.openlocfilehash: 37a94b217e2b9c0d417ad0bdd7678b13e333305d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a60528aba88b2bef10c5a4962507e72907f76509
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038921"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382347"
 ---
 # <a name="quickstart-get-intent-using-nodejs"></a>빠른 시작: Node.js를 사용하여 의도 가져오기
+
+이 빠른 시작에서는 발언을 LUIS 엔드포인트로 전달하고 의도와 엔터티를 다시 가져옵니다.
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -31,7 +34,7 @@ ms.locfileid: "47038921"
 
 
 > [!NOTE] 
-> 전체 Node.js 솔루션은 [**LUIS-Samples** Github 리포지토리](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/node)에서 사용할 수 있습니다.
+> 전체 Node.js 솔루션은 [**Azure-Samples** GitHub 리포지토리](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/analyze-text/node)에서 사용할 수 있습니다.
 
 ## <a name="get-luis-key"></a>LUIS 키 가져오기
 

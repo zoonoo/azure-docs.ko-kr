@@ -10,15 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 4cb8ffe218ef1cd64b93201eddbbd09bb16026db
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: 607356bb59550626c9fe5f71d4609b9c3e2b2fe0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087392"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251302"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>인프라 백업 서비스를 사용 하 여 Azure Stack에 대 한 백업 및 데이터 복구
 
@@ -47,7 +48,7 @@ ms.locfileid: "50087392"
 
 ## <a name="verify-requirements-for-the-infrastructure-backup-service"></a>인프라 Backup 서비스에 대 한 요구 사항 확인
 
-- **저장소 위치**  
+- **스토리지 위치**  
   필요한 파일 공유 7 백업을 포함할 수 있는 Azure Stack에서 액세스할 수 있습니다. 각 백업은 약 10GB입니다. 공유에 백업 140 GB를 저장할 수 있어야 합니다. Azure Stack 인프라 백업 서비스에 대 한 저장소 위치를 선택 하는 방법에 대 한 자세한 내용은 참조 하십시오 [백업 컨트롤러 요구 사항](azure-stack-backup-reference.md#backup-controller-requirements)합니다.
 - **자격 증명**  
   도메인 사용자 계정 및 자격 증명 필요, 예를 들어, Azure Stack 관리자 자격 증명을 사용할 수 있습니다.

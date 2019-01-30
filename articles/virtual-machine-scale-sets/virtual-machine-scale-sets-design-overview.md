@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: 1c99b7a3eecdd7938b4813647afb9e48fb0173a0
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 67bbad7e73f33d73d4c3f1d4f7e5599d2ef914e3
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739280"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791050"
 ---
 # <a name="design-considerations-for-scale-sets"></a>확장 집합 디자인 고려 사항
 이 문서에서는 Virtual Machine Scale Sets를 설계할 때 고려할 사항에 대해 논의합니다. Virtual Machine Scale Sets에 대한 자세한 내용은 [Virtual Machine Scale Sets 개요](virtual-machine-scale-sets-overview.md)를 참조하세요.
@@ -62,7 +62,7 @@ Azure Managed Disks로 정의되지 않은 확장 집합은 사용자가 생성�
 ## <a name="overprovisioning"></a>오버프로비전
 확장 집합은 현재 VM을 “오버프로비전”하도록 기본적으로 설정되어 있습니다. 오버프로비전을 켜면 확장 집합은 실제로 사용자가 요청한 것보다 더 많은 VM을 작동한 다음 요청된 VM 수가 성공적으로 프로비전되면 추가 VM을 삭제합니다. 오버프로비전은 프로비전 성공률을 높이고 배포 시간을 절약합니다. 추가 VM에 대한 추가 비용은 청구되지 않으며 할당량 한도에 포함되지 않습니다.
 
-오버프로비전을 사용하면 프로비전 성공률이 향상되지만 나타난 다음 사라지는 추가 VM을 처리하도록 설계되지 않은 응용 프로그램에서 동작이 혼란스러워질 수 있습니다. 오버프로비전을 해제하려면 템플릿에 `"overprovision": "false"` 문자열이 있어야 합니다. 자세한 내용은 [확장 집합 REST API 설명서](/rest/api/virtualmachinescalesets/create-or-update-a-set)에서 찾을 수 있습니다.
+오버프로비전을 사용하면 프로비전 성공률이 향상되지만 나타난 다음, 사라지는 추가 VM을 처리하도록 설계되지 않은 애플리케이션에서 동작이 혼란스러워질 수 있습니다. 오버프로비전을 해제하려면 템플릿에 `"overprovision": "false"` 문자열이 있어야 합니다. 자세한 내용은 [확장 집합 REST API 설명서](/rest/api/virtualmachinescalesets/create-or-update-a-set)에서 찾을 수 있습니다.
 
 확장 집합이 사용자 관리 저장소를 사용하고 오버프로비전을 해제하는 경우 저장소 계정당 20개 이상의 VM을 가질 수 있지만 IO 성능상의 이유로 40개 이상은 권장되지 않습니다. 
 
@@ -71,7 +71,7 @@ Marketplace 이미지에 구축되고(플랫폼 이미지라고도 함) Azure Ma
 
 사용자 관리 저장소 계정으로 구성된 확장 집합은 현재 100개의 VM으로 제한되어 있습니다(5개의 저장소 계정이 이 규모에 권장됨).
 
-사용자 지정 이미지에 구축된 확장 집합은 Azure Managed Disks로 구성된 경우 최대 300개의 VM 용량을 가질 수 있습니다. 확장 집합이 사용자 관리 저장소 계정으로 구성된 경우 하나의 저장소 계정 내에서 모든 OS 디스크 VHD를 만들어야 합니다. 그 결과 사용자 지정 이미지 및 사용자 관리 저장소에 구축하는 확장 집합의 최대 추천 VM 수는 20개입니다. 오버프로비전을 해제할 경우 40개를 초과할 수 있습니다.
+사용자 지정 이미지에 구축된 확장 집합은 Azure Managed Disks로 구성된 경우 최대 600개의 VM 용량을 가질 수 있습니다. 확장 집합이 사용자 관리 저장소 계정으로 구성된 경우 하나의 저장소 계정 내에서 모든 OS 디스크 VHD를 만들어야 합니다. 그 결과 사용자 지정 이미지 및 사용자 관리 저장소에 구축하는 확장 집합의 최대 추천 VM 수는 20개입니다. 오버프로비전을 해제할 경우 40개를 초과할 수 있습니다.
 
 이러한 한도보다 더 많은 VM이 있는 경우 [이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale)에 나오는 것처럼 여러 확장 집합을 배포해야 합니다.
 

@@ -16,16 +16,17 @@ ms.workload: infrastructure
 ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 69ffd2dd4df8ca0a64036f7a96c88d5c83353211
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.component: disks
+ms.openlocfilehash: 86bf01674e208446de8826c3deb0d11e9fd6576e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685381"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464074"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>자습서 - Azure CLI를 사용하여 Azure 디스크 관리
 
-Azure VM(가상 머신)은 디스크를 사용하여 운영 체제, 응용 프로그램 및 데이터를 저장합니다. VM을 만들 때 예상되는 워크로드에 적합한 디스크 크기와 구성을 선택하는 것이 중요합니다. 이 자습서에서는 VM 디스크를 배포하고 관리하는 방법을 보여줍니다. 다음에 대해 알아봅니다.
+Azure VM(가상 머신)은 디스크를 사용하여 운영 체제, 애플리케이션 및 데이터를 저장합니다. VM을 만들 때 예상되는 워크로드에 적합한 디스크 크기와 구성을 선택하는 것이 중요합니다. 이 자습서에서는 VM 디스크를 배포하고 관리하는 방법을 보여줍니다. 다음에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * OS 디스크 및 임시 디스크
@@ -41,14 +42,14 @@ Azure VM(가상 머신)은 디스크를 사용하여 운영 체제, 응용 프�
 
 Azure Virtual Machine을 만들면 두 개의 디스크가 자동으로 가상 머신에 연결됩니다.
 
-**운영 체제 디스크** - 운영 체제 디스크는 최대 2TB까지 크기를 조정할 수 있고 VM 운영 체제를 호스트합니다. OS 디스크는 기본적으로 */dev/sda*로 레이블이 지정됩니다. OS 디스크의 디스크 캐싱 구성은 OS 성능에 맞게 최적화됩니다. 이 구성으로 인해 OS 디스크는 응용 프로그램 또는 데이터에 사용되지 **않아야 합니다**. 응용 프로그램 및 데이터는 데이터 디스크를 사용하며 여기에 대해서는 이 자습서의 뒷부분에서 자세히 설명합니다.
+**운영 체제 디스크** - 운영 체제 디스크는 최대 2TB까지 크기를 조정할 수 있고 VM 운영 체제를 호스트합니다. OS 디스크는 기본적으로 */dev/sda*로 레이블이 지정됩니다. OS 디스크의 디스크 캐싱 구성은 OS 성능에 맞게 최적화됩니다. 이 구성으로 인해 OS 디스크는 애플리케이션 또는 데이터에 사용되지 **않아야 합니다**. 애플리케이션 및 데이터는 데이터 디스크를 사용하며 여기에 대해서는 이 자습서의 뒷부분에서 자세히 설명합니다.
 
 **임시 디스크** - 임시 디스크는 VM과 같은 Azure 호스트에 있는 반도체 드라이브를 사용합니다. 임시 디스크는 성능이 높고 임시 데이터 처리 등의 작업에 사용할 수 있습니다. 그러나 VM이 새 호스트로 이동되면 임시 디스크에 저장된 모든 데이터는 제거됩니다. 임시 디스크의 크기는 VM 크기에 따라 결정됩니다. 임시 디스크는 */dev/sdb*로 레이블이 지정되고 탑재 지점은 */mnt*입니다.
 
 
 ## <a name="azure-data-disks"></a>Azure 데이터 디스크
 
-응용 프로그램을 설치하고 데이터를 저장하기 위해 추가 데이터 디스크를 추가할 수 있습니다. 데이터 디스크는 지속형 및 반응형 데이터 저장소가 필요한 상황에 사용해야 합니다. 각 데이터 디스크의 최대 용량은 4TB입니다. 가상 컴퓨터의 크기에 따라 VM에 연결할 수 있는 데이터 디스크 수가 결정됩니다. 각 VM vCPU에 대해 네 개의 데이터 디스크를 연결할 수 있습니다.
+애플리케이션을 설치하고 데이터를 저장하기 위해 추가 데이터 디스크를 추가할 수 있습니다. 데이터 디스크는 지속형 및 반응형 데이터 저장소가 필요한 상황에 사용해야 합니다. 각 데이터 디스크의 최대 용량은 4TB입니다. 가상 컴퓨터의 크기에 따라 VM에 연결할 수 있는 데이터 디스크 수가 결정됩니다. 각 VM vCPU에 대해 네 개의 데이터 디스크를 연결할 수 있습니다.
 
 
 ## <a name="vm-disk-types"></a>VM 디스크 유형
@@ -57,7 +58,7 @@ Azure는 표준과 프리미엄의 두 가지 디스크를 제공합니다.
 
 ### <a name="standard-disk"></a>표준 디스크
 
-Standard Storage는 HDD에 의해 지원되며 성능은 그대로이면서 비용 효율적인 저장소를 제공합니다. 표준 디스크는 비용 효율적인 개발 및 테스트 워크로드에 적합합니다.
+Standard Storage는 HDD에 의해 지원되며 성능은 그대로이면서 비용 효율적인 스토리지를 제공합니다. 표준 디스크는 비용 효율적인 개발 및 테스트 워크로드에 적합합니다.
 
 ### <a name="premium-disk"></a>프리미엄 디스크
 
@@ -126,7 +127,7 @@ az vm disk attach \
 가상 머신과 SSH 연결 만들기 예제 IP 주소를 가상 머신의 공용 IP로 바꿉니다.
 
 ```azurecli-interactive
-ssh azureuser@52.174.34.95
+ssh 10.101.10.10
 ```
 
 `fdisk`를 사용하여 디스크를 분할합니다.
@@ -189,19 +190,23 @@ exit
 
 ## <a name="snapshot-a-disk"></a>디스크 스냅숏
 
-디스크 스냅숏을 생성하면 Azure에서는 디스크의 읽기 전용, 지정 시간 복사본을 만듭니다. Azure VM 스냅숏은 구성을 변경하기 전에 VM의 상태를 신속하게 저장하는 데 유용합니다. 문제 또는 오류 발생 시 스냅숏을 사용하여 VM을 복원할 수 있습니다. VM에 둘 이상의 디스크가 있는 경우 각 디스크의 스냅숏은 다른 디스크의 스냅숏과 독립적으로 생성됩니다. 응용 프로그램 일치 백업을 만들려면 디스크 스냅숏을 만들기 전에 VM을 중지하는 것이 좋습니다. 또는 [Azure Backup 서비스](/azure/backup/)를 사용하면 VM을 실행하는 동안 자동화된 백업을 수행할 수 있습니다.
+디스크 스냅숏을 생성하면 Azure에서는 디스크의 읽기 전용, 지정 시간 복사본을 만듭니다. Azure VM 스냅숏은 구성을 변경하기 전에 VM의 상태를 신속하게 저장하는 데 유용합니다. 문제 또는 오류 발생 시 스냅숏을 사용하여 VM을 복원할 수 있습니다. VM에 둘 이상의 디스크가 있는 경우 각 디스크의 스냅숏은 다른 디스크의 스냅숏과 독립적으로 생성됩니다. 애플리케이션 일치 백업을 만들려면 디스크 스냅숏을 만들기 전에 VM을 중지하는 것이 좋습니다. 또는 [Azure Backup 서비스](/azure/backup/)를 사용하면 VM을 실행하는 동안 자동화된 백업을 수행할 수 있습니다.
 
 ### <a name="create-snapshot"></a>스냅숏 만들기
 
 가상 머신 디스크 스냅숏을 만들려면 디스크의 ID 또는 이름이 필요합니다. [az vm show](/cli/azure/vm#az-vm-show) 명령을 사용하여 디스크 ID를 가져옵니다. 이 예제에서는 디스크 ID가 변수에 저장되고 이후 단계에서 사용될 수 있습니다.
 
 ```azurecli-interactive
-osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+osdiskid=$(az vm show \
+   -g myResourceGroupDisk \
+   -n myVM \
+   --query "storageProfile.osDisk.managedDisk.id" \
+   -o tsv)
 ```
 
 이제 가상 머신의 ID를 알고 있으므로 다음 명령을 실행하여 디스크 스냅숏을 만듭니다.
 
-```azurcli
+```azurecli-interactive
 az snapshot create \
     --resource-group myResourceGroupDisk \
     --source "$osdiskid" \
@@ -213,7 +218,10 @@ az snapshot create \
 그런 다음 스냅숏을 디스크로 복원하여 가상 머신을 다시 만드는 데 사용할 수 있습니다.
 
 ```azurecli-interactive
-az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --source osDisk-backup
+az disk create \
+   --resource-group myResourceGroupDisk \
+   --name mySnapshotDisk \
+   --source osDisk-backup
 ```
 
 ### <a name="restore-virtual-machine-from-snapshot"></a>스냅숏에서 가상 머신 복원
@@ -221,7 +229,9 @@ az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --sour
 가상 머신 복구를 보여 주기 위해 기존 가상 머신을 삭제합니다.
 
 ```azurecli-interactive
-az vm delete --resource-group myResourceGroupDisk --name myVM
+az vm delete \
+--resource-group myResourceGroupDisk \
+--name myVM
 ```
 
 스냅숏 디스크에서 새 가상 머신을 만듭니다.
@@ -241,13 +251,19 @@ az vm create \
 먼저 [az disk list](/cli/azure/disk#az-disk-list) 명령을 사용하여 데이터 디스크 이름을 찾습니다. 이 예제에서는 *datadisk*라는 변수에 디스크의 이름을 추가합니다. 이 변수는 다음 단계에서 사용됩니다.
 
 ```azurecli-interactive
-datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
+datadisk=$(az disk list \
+   -g myResourceGroupDisk \
+   --query "[?contains(name,'myVM')].[id]" \
+   -o tsv)
 ```
 
 [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach) 명령을 사용하여 디스크를 연결합니다.
 
 ```azurecli-interactive
-az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
+az vm disk attach \
+   –g myResourceGroupDisk \
+   --vm-name myVM \
+   --disk $datadisk
 ```
 
 ## <a name="next-steps"></a>다음 단계

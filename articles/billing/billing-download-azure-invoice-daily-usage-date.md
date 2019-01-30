@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2018
 ms.author: cwatson
-ms.openlocfilehash: 80721fc82a54c62c982298cb8eabb999caaf1dfb
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: fe3cb2d15602407b54ff47763d409c2e77614f0a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583111"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311136"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Azure 청구서 및 일간 사용 현황 데이터 다운로드 또는 보기
 
@@ -122,7 +122,7 @@ Azure 청구서를 전자 메일로 받을 추가 수취인을 옵트인하고 �
 
 EA 고객으로 사용량 데이터를 보고 다운로드하려면 엔터프라이즈 관리자이거나 요금 보기 정책이 사용으로 설정된 계정 소유자 또는 부서 관리자여야 합니다.
 
-1. [Azure Portal]( http://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **Cost Management + 청구**에서 검색합니다.
 
     ![Azure Portal 검색을 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)
@@ -130,6 +130,6 @@ EA 고객으로 사용량 데이터를 보고 다운로드하려면 엔터프라
 1. **사용량 + 요금**을 선택합니다.
 1. 다운로드하려는 월의 **다운로드**를 선택합니다.
 
-## <a name="need-help-contact-us"></a>도움 필요 시 문의처
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

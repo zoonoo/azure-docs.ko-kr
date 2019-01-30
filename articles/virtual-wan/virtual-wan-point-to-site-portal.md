@@ -2,18 +2,18 @@
 title: Azure Virtual WAN을 사용하여 Azure에 지점 및 사이트 간 연결 만들기 | Microsoft Docs
 description: 이 자습서에서는 Azure Virtual WAN을 사용하여 Azure에 지점 및 사이트 간 VPN 연결을 만드는 방법을 알아봅니다.
 services: virtual-wan
-author: cherylmc
+author: anzaman
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/29/2018
-ms.author: cherylmc
+ms.date: 01/07/2019
+ms.author: alzam
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: e3d1a79dc7dd775cea71df2f36a5f34d85f3e240
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 87b8543d8cb658b46ab5e589a310a17a69508a47
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261811"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411393"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>자습서: Azure Virtual WAN을 사용하여 지점 및 사이트 간 연결 만들기(미리 보기)
 
@@ -42,7 +42,7 @@ ms.locfileid: "51261811"
 
 ## <a name="register"></a>이 기능 등록
 
-**TryIt**을 클릭하고 Azure Cloud Shell을 사용하여 간편하게 이 기능을 등록하세요.
+**TryIt**을 클릭하고 Azure Cloud Shell을 사용하여 간편하게 이 기능을 등록하세요. PowerShell을 로컬로 실행하려면 최신 버전인지 확인하고 **Connect-AzureRmAccount** 및 **Select-AzureRmSubscription** 명령을 사용하여 로그인합니다.
 
 >[!NOTE]
 >이 기능을 등록하지 않으면 사용할 수 없거나 포털에서 표시되지 않습니다.
@@ -174,7 +174,7 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
 5.  base64에서 P2S 클라이언트 인증서 개인 키를 사용하여 개인 키 섹션을 채웁니다. 개인 키를 추출하는 방법은 여기를 참조하세요.
 6.  다른 필드를 변경하지 마십시오. 클라이언트 입력의 채워진 구성을 사용하여 VPN에 연결합니다.
 7.  프로필 파일을 두 번 클릭하여 tunnelblik에서 프로필 만들기
-8.  응용 프로그램 폴더에서 Tunnelblik 시작
+8.  애플리케이션 폴더에서 Tunnelblik 시작
 9.  시스템 트레이에서 Tunneblik 아이콘을 클릭하고 연결 선택
 
 #### <a name="ikev2"></a>IKEv2

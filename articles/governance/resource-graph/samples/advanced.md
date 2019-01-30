@@ -1,20 +1,20 @@
 ---
-title: 고급 Azure Resource Graph 쿼리
+title: 고급 쿼리 샘플
 description: Azure Resource Graph를 사용하여 일부 고급 쿼리를 실행합니다.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/22/2018
+ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 43cf9f5ec0f9c265efa0e59eadbf6c9bbe4f7c3f
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: cb2755384f8b87c74aa283af0c75f9f869fb31cd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51682882"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854669"
 ---
 # <a name="advanced-resource-graph-queries"></a>고급 Resource Graph 쿼리
 
@@ -28,6 +28,8 @@ Azure Resource Graph를 사용하는 쿼리를 이해하는 첫 번째 단계는
 > - [정규식과 일치하는 가상 머신](#vm-regex)
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="language-support"></a>언어 지원
 
@@ -49,7 +51,7 @@ az graph query -q "where type=~ 'microsoft.compute/virtualmachinescalesets' | wh
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
+Search-AzGraph -Query "where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
 ```
 
 ## <a name="list-all-tags"></a>모든 태그 이름 나열
@@ -66,7 +68,7 @@ az graph query -q "project tags | summarize buildschema(tags)"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "project tags | summarize buildschema(tags)"
+Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 ```
 
 ## <a name="vm-regex"></a>정규식과 일치하는 가상 머신
@@ -96,7 +98,7 @@ az graph query -q "where type =~ 'microsoft.compute/virtualmachines' and name ma
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
+Search-AzGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
 
 ## <a name="next-steps"></a>다음 단계

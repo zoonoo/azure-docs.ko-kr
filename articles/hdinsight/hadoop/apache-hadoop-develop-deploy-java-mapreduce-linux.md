@@ -1,6 +1,6 @@
 ---
 title: Apache Hadoop용 Java MapReduce 만들기 - Azure HDInsight
-description: Apache Maven을 사용하여 Java 기반 MapReduce 응용 프로그램을 만든 다음 Azure HDInsight의 Hadoop과 함께 실행하는 방법을 알아봅니다.
+description: Apache Maven을 사용하여 Java 기반 MapReduce 애플리케이션을 만든 다음 Azure HDInsight의 Hadoop과 함께 실행하는 방법을 알아봅니다.
 services: hdinsight
 ms.reviewer: jasonh
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3c16d85479399d7988be18f9b852563617bb824b
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: e1b4681bc8e42294be6b47a04a24e28f81703e6f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632655"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436860"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>HDInsight에서 Apache Hadoop용 Java MapReduce 프로그램 개발
 
@@ -25,12 +25,12 @@ Apache Maven을 사용하여 Java 기반 MapReduce 애플리케이션을 만든 
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 이상(또는 OpenJDK와 같은 이와 동등한 프로그램).
+* [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/) 8 이상(또는 OpenJDK와 같은 이와 동등한 프로그램).
     
     > [!NOTE]
     > HDInsight 버전 3.4 이전은 Java 7을 사용합니다. HDInsight 3.5 이상은 Java 8을 사용합니다.
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 ## <a name="configure-development-environment"></a>개발 환경 구성
 
@@ -63,7 +63,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
     이 명령은 `artifactID` 매개 변수(이 예제에서는 **wordcountjava**)로 지정된 이름으로 디렉터리를 만듭니다. 이 디렉터리에는 다음과 같은 항목이 포함됩니다.
 
-   * `pom.xml` - [프로젝트 개체 모델(POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)은 프로젝트를 빌드하는 데 사용된 정보 및 구성 세부 정보를 포함합니다.
+   * `pom.xml` - [프로젝트 개체 모델(POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)은 프로젝트를 빌드하는 데 사용된 정보 및 구성 세부 정보를 포함합니다.
 
    * `src` - 응용 프로그램을 포함하는 디렉터리입니다.
 
@@ -94,7 +94,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
     </dependency>
    ```
 
-    이 항목은 특정 버전(&lt;version\>에 나열됨)을 사용하는 필수 라이브러리(&lt;artifactId\> 내에 나열됨)를 정의합니다. 컴파일 시 이러한 종속성이 기본 Maven 리포지토리에서 다운로드됩니다. [Maven 리포지토리 검색](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) 을 사용하여 자세한 정보를 볼 수 있습니다.
+    이 항목은 특정 버전(&lt;version\>에 나열됨)을 사용하는 필수 라이브러리(&lt;artifactId\> 내에 나열됨)를 정의합니다. 컴파일 시 이러한 종속성이 기본 Maven 리포지토리에서 다운로드됩니다. [Maven 리포지토리 검색](https://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) 을 사용하여 자세한 정보를 볼 수 있습니다.
    
     `<scope>provided</scope>`는 이러한 종속성은 런타임에 HDInsight 클러스터에서 제공되므로 응용 프로그램과 함께 패키징해서는 안 된다는 점을 Maven에 알려 줍니다.
 
@@ -138,7 +138,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
     </build>
    ```
 
-    첫 번째 플러그 인은 응용 프로그램에 필요한 종속성을 포함하는 uberjar(fatjar이라고도 함)을 빌드하는 데 사용되는 [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/)을 구성합니다. 또한 일부 시스템에서 문제를 일으킬 수 있는 jar 패키지 내 라이선스 중복을 방지합니다.
+    첫 번째 플러그 인은 애플리케이션에 필요한 종속성을 포함하는 uberjar(fatjar이라고도 함)을 빌드하는 데 사용되는 [Maven Shade Plugin](https://maven.apache.org/plugins/maven-shade-plugin/)을 구성합니다. 또한 일부 시스템에서 문제를 일으킬 수 있는 jar 패키지 내 라이선스 중복을 방지합니다.
 
     두 번째 플러그 인은 대상 Java 버전을 구성합니다.
 
@@ -147,7 +147,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 3. `pom.xml` 파일을 저장합니다.
 
-## <a name="create-the-mapreduce-application"></a>MapReduce 응용 프로그램 만들기
+## <a name="create-the-mapreduce-application"></a>MapReduce 애플리케이션 만들기
 
 1. `wordcountjava/src/main/java/org/apache/hadoop/examples` 디렉터리로 이동하여 `App.java` 파일의 이름을 `WordCount.java`으로 지정합니다.
 
@@ -228,17 +228,17 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 3. 파일을 저장합니다.
 
-## <a name="build-the-application"></a>응용 프로그램 빌드
+## <a name="build-the-application"></a>애플리케이션 빌드
 
 1. 아직 이동하지 않은 경우 `wordcountjava` 디렉터리로 변경합니다.
 
-2. 다음 명령을 사용하여 응용 프로그램을 포함하는 JAR 파일을 빌드합니다.
+2. 다음 명령을 사용하여 애플리케이션을 포함하는 JAR 파일을 빌드합니다.
 
    ```
    mvn clean package
    ```
 
-    이 명령은 이전 빌드 아티팩트를 정리하고, 아직 설치되지 않은 모든 종속성을 다운로드한 후 응용 프로그램을 빌드 및 패키지화합니다.
+    이 명령은 이전 빌드 아티팩트를 정리하고, 아직 설치되지 않은 모든 종속성을 다운로드한 후 애플리케이션을 빌드 및 패키지화합니다.
 
 3. 명령이 마무리되면 `wordcountjava/target` 디렉터리는 `wordcountjava-1.0-SNAPSHOT.jar` 파일을 포함합니다.
    
@@ -261,13 +261,13 @@ __USERNAME__을 클러스터의 SSH 사용자 이름으로 바꿉니다. __CLUST
 
 1. SSH를 사용하여 HDInsight에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-2. SSH 세션에서 다음 명령을 사용하여 MapReduce 응용 프로그램을 실행합니다.
+2. SSH 세션에서 다음 명령을 사용하여 MapReduce 애플리케이션을 실행합니다.
    
    ```bash
    yarn jar wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /example/data/gutenberg/davinci.txt /example/data/wordcountout
    ```
    
-    이 명령은 WordCount MapReduce 응용 프로그램을 시작합니다. 입력된 파일은 `/example/data/gutenberg/davinci.txt`이며 출력 디렉터리는 `/example/data/wordcountout`입니다. 입력 파일과 출력 모두 클러스터의 기본 저장소에 저장됩니다.
+    이 명령은 WordCount MapReduce 애플리케이션을 시작합니다. 입력된 파일은 `/example/data/gutenberg/davinci.txt`이며 출력 디렉터리는 `/example/data/wordcountout`입니다. 입력 파일과 출력 모두 클러스터의 기본 저장소에 저장됩니다.
 
 3. 작업이 완료되면 다음 명령을 사용하여 결과를 확인합니다.
    
@@ -285,15 +285,15 @@ __USERNAME__을 클러스터의 SSH 사용자 이름으로 바꿉니다. __CLUST
 
 이 문서에서는 Java MapReduce 작업을 개발하는 방법에 대해 알아보았습니다. HDInsight로 작업하는 다른 방법은 다음 문서를 참조하세요.
 
-* [HDInsight에서 하이브 사용](hdinsight-use-hive.md)
-* [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 Apache Hive 사용](hdinsight-use-hive.md)
+* [HDInsight에서 Apache Pig 사용](hdinsight-use-pig.md)
 * [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
 
 자세한 내용은 [Java 개발자 센터](https://azure.microsoft.com/develop/java/)를 참조하세요.
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 [hdinsight-use-sqoop]:hdinsight-use-sqoop.md
 [hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
@@ -303,5 +303,5 @@ __USERNAME__을 클러스터의 SSH 사용자 이름으로 바꿉니다. __CLUST
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-power-query]:apache-hadoop-connect-excel-power-query.md
 
-[powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
+[powershell-PSCredential]: https://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 

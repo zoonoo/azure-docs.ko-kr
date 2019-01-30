@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD Connect 통과 인증의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 899aeeb994ca5c9bf30dfca876dff61c1ccf3ea7
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 4705690c2cf0c6e2ba3867d74d40e0678784d967
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637582"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478045"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증으로 사용자 로그인
 
 ## <a name="what-is-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증이란?
 
-Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-프레미스와 클라우드 기반 응용 프로그램 둘 다에서 동일한 암호로 로그인할 수 있습니다. 이 기능은 하나 적은 기억할 암호로 사용자에게 더 나은 환경을 제공하고 사용자는 로그인하는 방법을 잊을 가능성이 적기 때문에 IT 기술 지원팀 비용을 줄입니다. 사용자가 Azure AD를 사용하여 로그인할 때 이 기능은 온-프레미스 Active Directory에 대해 직접 사용자 암호의 유효성을 검사합니다.
+Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-프레미스와 클라우드 기반 애플리케이션 둘 다에서 동일한 암호로 로그인할 수 있습니다. 이 기능은 하나 적은 기억할 암호로 사용자에게 더 나은 환경을 제공하고 사용자는 로그인하는 방법을 잊을 가능성이 적기 때문에 IT 기술 지원팀 비용을 줄입니다. 사용자가 Azure AD를 사용하여 로그인할 때 이 기능은 온-프레미스 Active Directory에 대해 직접 사용자 암호의 유효성을 검사합니다.
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
@@ -34,12 +34,12 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 
 ![Azure AD 통과 인증](./media/how-to-connect-pta/pta1.png)
 
-통과 인증을 [Seamless Single Sign-On](how-to-connect-sso.md) 기능에 결합할 수 있습니다. 이러한 방식으로 사용자가 회사 네트워크 내부에서 회사 컴퓨터의 응용 프로그램에 액세스할 때 로그인하기 위해 암호를 입력할 필요가 없습니다.
+통과 인증을 [Seamless Single Sign-On](how-to-connect-sso.md) 기능에 결합할 수 있습니다. 이러한 방식으로 사용자가 회사 네트워크 내부에서 회사 컴퓨터의 애플리케이션에 액세스할 때 로그인하기 위해 암호를 입력할 필요가 없습니다.
 
 ## <a name="key-benefits-of-using-azure-ad-pass-through-authentication"></a>Azure AD 통과 인증 사용의 주요 혜택
 
 - *멋진 사용자 환경*
-  - 사용자는 온-프레미스와 클라우드 기반 응용 프로그램에 로그인하는 데 동일한 암호를 사용합니다.
+  - 사용자는 온-프레미스와 클라우드 기반 애플리케이션에 로그인하는 데 동일한 암호를 사용합니다.
   - 사용자는 암호 관련 문제를 해결하기 위해 IT 기술 지원팀과 소통하는 데 더 적은 시간을 보냅니다.
   - 사용자는 클라우드에서 [셀프 서비스 암호 관리](../authentication/active-directory-passwords-overview.md) 작업을 완료할 수 있습니다.
 - *손쉬운 배포 및 관리*
@@ -56,7 +56,7 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 
 ## <a name="feature-highlights"></a>주요 기능
 
-- 모든 웹 브라우저 기반 응용 프로그램 및 [최신 인증](https://aka.ms/modernauthga)을 사용하는 Microsoft Office 클라이언트 응용 프로그램에 사용자 로그인을 지원합니다.
+- 모든 웹 브라우저 기반 애플리케이션 및 [최신 인증](https://aka.ms/modernauthga)을 사용하는 Microsoft Office 클라이언트 애플리케이션에 사용자 로그인을 지원합니다.
 - 로그인 사용자 이름은 온-프레미스 기본 사용자 이름(`userPrincipalName`) 또는 Azure AD Connect에 구성된 다른 특성(`Alternate ID`라고 함) 중 하나일 수 있습니다.
 - 기능은 MFA(Multi-Factor Authentication)와 같은 [조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 사용하여 원활하게 작동하여 사용자를 보호합니다.
 - 온-프레미스 Active Directory에 대한 암호 쓰기 저장 및 일반적으로 사용되는 암호 금지에 의한 암호 보호를 포함하여 클라우드 기반 [셀프 서비스 암호 관리](../authentication/active-directory-passwords-overview.md)와 통합되었습니다.

@@ -78,7 +78,7 @@ X-EC-Debug 헤더는 캐시 상태 코드 정보를 다음과 같은 형식으�
     ------| --------
     ECAcc | HTTP Large
     ECS   | HTTP Small
-    ECD   | ADN(응용 프로그램 전달 네트워크)
+    ECD   | ADN(애플리케이션 전달 네트워크)
 
 - POP: 요청을 처리한 [POP](cdn-pop-abbreviations.md)를 나타냅니다. 
 

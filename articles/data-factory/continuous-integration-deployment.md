@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 01/17/2019
 ms.author: douglasl
-ms.openlocfilehash: 60c715e97f6b1d2046fb4050ae41b27146c0610a
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 80b594eb8d926465f37771e2e6911f9ab3e63f1f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623796"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423819"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Azure Data Factory의 CI/CD(지속적인 통합 및 지속적인 업데이트)
 
@@ -162,7 +161,7 @@ Azure Resource Manager 템플릿에 전달할 비밀이 있는 경우 Azure Pipe
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Azure Pipelines 에이전트에 권한 부여
-Azure Key Vault 작업은 액세스 거부 오류를 표시하며 처음으로 실패할 수 있습니다. 릴리스에 대한 로그를 다운로드하고, Azure Pipelines 에이전트에 권한을 부여하는 명령을 사용하여 `.ps1` 파일을 찾습니다. 직접 명령을 실행할 수 있습니다. 또는 파일에서 보안 주체 ID를 복사하고 Azure Portal에 액세스 정책을 수동으로 추가할 수 있습니다. (*가져오기* 및 *나열*은 필요한 최소 권한입니다.)
+Azure Key Vault 작업에서 액세스 거부 오류가 표시되며 통합 런타임이 실패할 수 있습니다. 릴리스에 대한 로그를 다운로드하고, Azure Pipelines 에이전트에 권한을 부여하는 명령을 사용하여 `.ps1` 파일을 찾습니다. 직접 명령을 실행할 수 있습니다. 또는 파일에서 보안 주체 ID를 복사하고 Azure Portal에 액세스 정책을 수동으로 추가할 수 있습니다. (*가져오기* 및 *나열*은 필요한 최소 권한입니다.)
 
 ### <a name="update-active-triggers"></a>활성 트리거 업데이트
 활성 트리거를 업데이트하려고 하면 배포에 실패할 수 있습니다. 활성 트리거를 업데이트하려면 수동으로 중단하고 배포 후에 시작해야 합니다. 다음 예제와 같이 이를 위해 Azure PowerShell 작업을 추가할 수 있습니다.
@@ -184,7 +183,7 @@ Azure Key Vault 작업은 액세스 거부 오류를 표시하며 처음으로 �
 비슷한 단계를 수행하고 유사한 코드(`Start-AzureRmDataFactoryV2Trigger` 함수 포함)를 사용하여 배포 후에 트리거를 다시 시작할 수 있습니다.
 
 > [!IMPORTANT]
-> 지속적인 통합 및 지속적인 배포 시나리오에서는 서로 다른 환경 간의 Integration Runtime 유형이 동일해야 합니다. 예를 들어 개발 환경에 *자체 호스팅* IR(Integration Runtime)이 있는 경우 테스트 및 프로덕션과 같은 다른 환경에서도 동일한 IR이 *자체 호스팅* 유형이어야 합니다. 마찬가지로 여러 단계에서 통합 런타임을 공유하는 경우 개발, 테스트 및 프로덕션과 같은 모든 환경에서 IR을 *연결된 자체 호스팅*으로 구성해야 합니다.
+> 지속적인 통합 및 지속적인 배포 시나리오에서는 서로 다른 환경 간의 Integration Runtime 유형이 동일해야 합니다. 예를 들어 개발 환경에 *자체 호스팅* IR(Integration Runtime)이 있는 경우 테스트 및 프로덕션과 같은 다른 환경에서도 동일한 IR이 *자체 호스팅* 유형이어야 합니다. 마찬가지로 여러 단계에서 통합 런타임을 공유하는 경우 개발, 테스트 및 프로덕션과 같은 모든 환경에서 통합 런타임을 *연결된 자체 호스팅*으로 구성해야 합니다.
 
 ## <a name="sample-deployment-template"></a>샘플 배포 템플릿
 
@@ -728,17 +727,17 @@ Azure Pipelines에서 가져올 수 있는 샘플 배포 템플릿은 다음과 
 
 ## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>트리거를 중지 및 다시 시작하고 정리하는 샘플 스크립트
 
-배포하기 전에 트리거를 중지하고 나중에 트리거를 다시 시작하는 샘플 스크립트는 다음과 같습니다. 스크립트에는 제거된 리소스를 삭제하는 코드도 포함됩니다. 최신 버전의 Azure PowerShell을 설치하려면 [PowerShellGet으로 Windows에 Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.9.0)를 참조하세요.
+배포하기 전에 트리거를 중지하고 나중에 트리거를 다시 시작하는 샘플 스크립트는 다음과 같습니다. 스크립트에는 제거된 리소스를 삭제하는 코드도 포함됩니다. 최신 버전의 Azure PowerShell을 설치하려면 [PowerShellGet으로 Windows에 Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.9.0)를 참조하세요.
 
 ```powershell
 param
 (
-    [parameter(Mandatory = $false)] [String] $rootFolder="$(env:System.DefaultWorkingDirectory)/Dev/",
-    [parameter(Mandatory = $false)] [String] $armTemplate="$rootFolder\arm_template.json",
-    [parameter(Mandatory = $false)] [String] $ResourceGroupName="sampleuser-datafactory",
-    [parameter(Mandatory = $false)] [String] $DataFactoryName="sampleuserdemo2",
-    [parameter(Mandatory = $false)] [Bool] $predeployment=$true
-
+    [parameter(Mandatory = $false)] [String] $rootFolder,
+    [parameter(Mandatory = $false)] [String] $armTemplate,
+    [parameter(Mandatory = $false)] [String] $ResourceGroupName,
+    [parameter(Mandatory = $false)] [String] $DataFactoryName,
+    [parameter(Mandatory = $false)] [Bool] $predeployment=$true,
+    [parameter(Mandatory = $false)] [Bool] $deleteDeployment=$false
 )
 
 $templateJson = Get-Content $armTemplate | ConvertFrom-Json
@@ -749,7 +748,7 @@ Write-Host "Getting triggers"
 $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
 $triggersTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/triggers" }
 $triggerNames = $triggersTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
-$activeTriggerNames = $triggersTemplate | Where-Object { $_.properties.runtimeState -eq "Started" -and $_.properties.pipelines.Count -gt 0} | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
+$activeTriggerNames = $triggersTemplate | Where-Object { $_.properties.runtimeState -eq "Started" -and ($_.properties.pipelines.Count -gt 0 -or $_.properties.pipeline.pipelineReference -ne $null)} | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
 $deletedtriggers = $triggersADF | Where-Object { $triggerNames -notcontains $_.Name }
 $triggerstostop = $triggerNames | where { ($triggersADF | Select-Object name).name -contains $_ }
 
@@ -762,7 +761,6 @@ if ($predeployment -eq $true) {
     }
 }
 else {
-
     #Deleted resources
     #pipelines
     Write-Host "Getting pipelines"
@@ -789,7 +787,7 @@ else {
     $integrationruntimesNames = $integrationruntimesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
     $deletedintegrationruntimes = $integrationruntimesADF | Where-Object { $integrationruntimesNames -notcontains $_.Name }
 
-    #delte resources
+    #Delete resources
     Write-Host "Deleting triggers"
     $deletedtriggers | ForEach-Object { 
         Write-Host "Deleting trigger "  $_.Name
@@ -820,7 +818,25 @@ else {
         Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
 
-    #Start Active triggers - After cleanup efforts (moved code on 10/18/2018)
+    if ($deleteDeployment -eq $true) {
+        Write-Host "Deleting ARM deployment ... under resource group: " $ResourceGroupName
+        $deployments = Get-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName
+        $deploymentsToConsider = $deployments | Where { $_.DeploymentName -like "ArmTemplate_master*" -or $_.DeploymentName -like "ArmTemplateForFactory*" } | Sort-Object -Property Timestamp -Descending
+        $deploymentName = $deploymentsToConsider[0].DeploymentName
+
+       Write-Host "Deployment to be deleted: " $deploymentName
+        $deploymentOperations = Get-AzureRmResourceGroupDeploymentOperation -DeploymentName $deploymentName -ResourceGroupName $ResourceGroupName
+        $deploymentsToDelete = $deploymentOperations | Where { $_.properties.targetResource.id -like "*Microsoft.Resources/deployments*" }
+
+        $deploymentsToDelete | ForEach-Object { 
+            Write-host "Deleting inner deployment: " $_.properties.targetResource.id
+            Remove-AzureRmResourceGroupDeployment -Id $_.properties.targetResource.id
+        }
+        Write-Host "Deleting deployment: " $deploymentName
+        Remove-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -Name $deploymentName
+    }
+
+    #Start Active triggers - After cleanup efforts
     Write-Host "Starting active triggers"
     $activeTriggerNames | ForEach-Object { 
         Write-host "Enabling trigger " $_
@@ -837,7 +853,7 @@ Resource Manager 템플릿에 대한 사용자 지정 매개 변수를 정의할
 
 사용자 지정 매개 변수 파일을 작성할 때 사용할 몇 가지 지침은 다음과 같습니다. 이 구문의 예제를 보려면 다음 섹션, [샘플 사용자 지정 매개 변수 파일](#sample)을 참조하세요.
 
-1. 정의 파일에서 배열을 지정할 때 템플릿의 일치하는 속성이 배열임을 나타냅니다. Data Factory는 배열의 첫 번째 개체에 지정된 정의를 사용하여 배열에 있는 모든 개체를 반복합니다. 두 번째 개체, 문자열은 각 반복에 대한 매개 변수의 이름으로 사용되는 속성의 이름이 됩니다.
+1. 정의 파일에서 배열을 지정할 때 템플릿의 일치하는 속성이 배열임을 나타냅니다. Data Factory는 배열의 통합 런타임 개체에 지정된 정의를 사용하여 배열에 있는 모든 개체를 반복합니다. 두 번째 개체, 문자열은 각 반복에 대한 매개 변수의 이름으로 사용되는 속성의 이름이 됩니다.
 
     ```json
     ...
@@ -958,3 +974,37 @@ Resource Manager 템플릿에 대한 사용자 지정 매개 변수를 정의할
     }
 }
 ```
+
+## <a name="linked-resource-manager-templates"></a>연결된 Resource Manager 템플릿
+
+Data Factory에 대해 지속적인 통합 및 배포(CI/CD)를 설정한 경우 팩터리가 커질수록 Resource Manager 템플릿에서 최대 리소스 수 또는 최대 페이로드와 같은 Resource Manager 템플릿 제한 문제가 발생합니다. 이와 같은 시나리오의 경우, Data Factory는 팩터리에 대한 전체 Resource Manager 템플릿 생성과 함께 연결된 Resource Manager 템플릿도 생성합니다. 따라서 팩터리 전체 페이로드가 여러 파일로 분류되어 위에서 말한 제한 문제가 발생하지 않습니다.
+
+Git을 구성한 경우 연결된 템플릿이 생성되고 `adf_publish` 분기에서 `linkedTemplates`라는 새 폴더 아래에 전체 Resource Manager 템플릿과 함께 저장됩니다.
+
+![연결된 Resource Manager 템플릿 폴더](media/continuous-integration-deployment/linked-resource-manager-templates.png)
+
+연결된 Resource Manager 템플릿은 일반적으로 마스터 템플릿과 마스터에 연결된 자식 템플릿 세트를 포함합니다. 부모 템플릿은 `ArmTemplate_master.json`이라고 하고 자식 템플릿은 `ArmTemplate_0.json`, `ArmTemplate_1.json` 등의 패턴으로 이름이 지정됩니다. 전체 Resource Manager 템플릿을 사용하는 것에서 연결된 템플릿을 사용하는 것으로 전환하려면 CI/CD 작업이 `ArmTemplateForFactory.json`(즉, 전체 Resource Manager 템플릿) 대신 `ArmTemplate_master.json`을 가리키도록 업데이트합니다. 또한 Resource Manager에서는 연결된 템플릿을 스토리지 계정에 업로드해야 배포 시 Azure에서 액세스할 수 있습니다. 자세한 내용은 [VSTS를 사용하여 연결된 ARM 템플릿 배포](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/)를 참조하세요.
+
+배포 작업 전후에 CI/CD 파이프라인에 Data Factory 스크립트를 추가해야 합니다.
+
+Git을 구성하지 않은 경우 연결된 템플릿은 **ARM 템플릿 내보내기** 제스처를 통해 액세스할 수 있습니다.
+
+## <a name="best-practices-for-cicd"></a>CI/CD에 대한 모범 사례
+
+데이터 팩터리를 통해 Git 통합을 사용할 때 개발에서 테스트, 프로덕션 순서로 변경 내용을 이동하는 CI/CD 파이프라인이 있는 경우 다음 모범 사례를 적용하는 것이 좋습니다.
+
+-   **Git 통합**. Git 통합을 사용해 개발 데이터 팩터리만 구성하면 됩니다. 테스트 및 프로덕션에 대한 변경 내용은 CI/CD를 통해 배포되므로 Git 통합이 필요 없습니다.
+
+-   **Data Factory CI/CD 스크립트**. CI/CD에서의 Resource Manager 배포 단계 전에 트리거 중지 및 다른 종류의 팩터리 정리와 같은 작업을 처리해야 합니다. 이러한 모든 작업을 처리해 주는 [이 스크립트](#sample-script-to-stop-and-restart-triggers-and-clean-up)를 사용하는 것이 좋습니다. 배포 전과 후에 한 번씩 적절한 플래그를 사용하여 스크립트를 실행합니다.
+
+-   **통합 런타임 및 공유**. 통합 런타임은 데이터 팩터리의 인프라 구성 요소 중 하나로, 자주 변경이 되지 않으며 CI/CD의 모든 단계에서 유사합니다. 따라서 Data Factory에서는 CI/CD의 모든 단계에서 동일한 이름 및 동일한 유형의 통합 런타임을 사용해야 합니다. 모든 단계에서 통합 런타임을 공유하려는 경우(예: 셀프 호스팅 통합 런타임), 한 가지 공유 방법은 공유 통합 런타임을 포함하기 위해 3개로 구성된 팩터리에 셀프 호스팅 IR을 호스팅하는 것입니다. 그런 다음 연결된 IR 유형으로 개발/테스트/프로덕션에서 통합 런타임을 사용할 수 있습니다.
+
+-   **Key Vault**. 권장 Azure Key Vault 기반 연결된 서비스를 사용하는 경우 잠재적으로 개발/테스트/프로덕션에 대한 개별 키 자격 증명 모음을 유지함으로써 해당 서비스를 한층 더 효과적으로 활용할 수 있습니다. 또한 각각에 대해 개별 권한 수준을 구성할 수도 있습니다. 팀원이 프로덕션 비밀에 대한 권한을 갖지 않도록 할 수도 있습니다. 또한 모든 단계에서 동일한 비밀 이름을 유지하는 것이 좋습니다. 동일한 이름을 유지할 경우 Resource Manager 템플릿 매개 변수 중 하나인 키 자격 증명 모음 이름만 변경하면 되므로 CI/CD에서 Resource Manager 템플릿을 변경할 필요가 없습니다.
+
+## <a name="unsupported-features"></a>지원되지 않는 기능
+
+-   데이터 팩터리 엔터티는 서로 종속되어 있으므로 개별 리소스를 게시할 수 없습니다. 예를 들어, 트리거는 파이프라인에 종속되고, 파이프라인은 데이터 세트 및 다른 파이프라인 등에 종속됩니다. 변경 종속성을 추적하는 것은 어렵습니다. 수동으로 게시할 리소스를 선택할 수 있으면 전체 변경 내용 집합의 하위 집합만 선택할 수 있으며, 이는 게시 후 예기치 않은 동작으로 이어질 수 있습니다.
+
+-   개인 분기에서 게시할 수 없습니다.
+
+-   Bitbucket에서 프로젝트를 호스팅할 수 없습니다.

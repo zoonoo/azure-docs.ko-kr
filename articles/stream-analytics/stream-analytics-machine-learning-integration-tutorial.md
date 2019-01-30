@@ -2,19 +2,19 @@
 title: Azure Machine Learning과 Azure Stream Analytics 통합
 description: 이 아티클에서는 사용자 정의 함수를 사용하여 Azure Machine Learning을 통합하는 간단한 Azure Stream Analytics 작업을 신속하게 설정하는 방법을 설명합니다.
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/16/2018
-ms.openlocfilehash: 2169c3a41991b0b49a4324c16ea079f5943fad0b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: d90439e498e8812551d9e2994165f1714d3bdaab
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685755"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093338"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Azure Stream Analytics 및 Azure Machine Learning을 사용한 감정 분석 수행
 이 문서에서는 Azure Machine Learning을 통합하는 간단한 Azure Stream Analytics 작업을 신속하게 설정하는 방법을 설명합니다. Cortana Intelligence 갤러리의 Machine Learning 감정 분석 모델을 사용하여 실시간으로 스트리밍 텍스트 데이터를 분석하고 감정 점수를 확인합니다. Cortana Intelligence Suite를 사용하면 감정 분석 모델 빌드에 대한 걱정없이 이 작업을 수행할 수 있습니다.
@@ -28,7 +28,7 @@ ms.locfileid: "51685755"
 
 실제 시나리오에서는 Twitter 데이터 스트림에서 직접 데이터를 가져옵니다. 자습서를 간소화하기 Stream Analytics 작업이 Azure Blob Storage에서 CSV 파일의 트윗을 가져오도록 작성했습니다. 고유한 CSV 파일을 만들거나 다음 이미지에 나와 있는 것처럼 샘플 CSV 파일을 사용할 수 있습니다.
 
-![CSV 파일에서 샘플 트윗](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
+![CSV 파일에 표시된 샘플 트윗](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
 
 사용자가 만든 Stream Analytics 작업은 감정 분석 모델을 Blob Storage의 샘플 텍스트에 UDF(사용자 정의 함수)로 적용합니다. 출력(감정 분석의 결과)은 다른 CSV 파일에 있는 동일한 Blob Storage에 기록됩니다. 
 
@@ -58,15 +58,15 @@ ms.locfileid: "51685755"
 
 3. 기존 리소스 그룹을 지정하고 위치를 지정합니다. 위치의 경우 이 자습서에서 만든 모든 리소스가 동일한 위치를 사용하는 것이 좋습니다.
 
-    ![저장소 계정 세부 정보 입력](./media/stream-analytics-machine-learning-integration-tutorial/create-sa1.png)
+    ![저장소 계정 세부 정보 입력](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account1.png)
 
-4. Azure Portal에서 저장소 계정을 선택합니다. 저장소 계정 블레이드에서 **컨테이너**를 클릭하고 **+&nbsp;컨테이너**를 클릭하여 Blob Storage를 만듭니다.
+4. Azure Portal에서 저장소 계정을 선택합니다. 스토리지 계정 블레이드에서 **컨테이너**를 클릭하고 **+&nbsp;컨테이너**를 클릭하여 Blob Storage를 만듭니다.
 
-    ![Blob 컨테이너 만들기](./media/stream-analytics-machine-learning-integration-tutorial/create-sa2.png)
+    ![입력에 대한 Blob Storage 컨테이너 만들기](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
 5. 컨테이너에 이름(이 예에서 `azuresamldemoblob`)을 입력하고 **액세스 형식**이 **Blob**으로 설정되었는지 확인합니다. 완료되면 **확인**을 클릭합니다.
 
-    ![Blob 컨테이너 정보 지정](./media/stream-analytics-machine-learning-integration-tutorial/create-sa3.png)
+    ![Blob 컨테이너 정보 지정](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account3.png)
 
 6. **컨테이너** 블레이드에서 새 컨테이너를 선택합니다. 그러면 해당 컨테이너의 블레이드가 열립니다.
 
@@ -123,7 +123,7 @@ ms.locfileid: "51685755"
 
 3. `azure-sa-ml-demo`의 작업 이름을 지정하고, 구독을 지정하고, 기존 리소스 그룹을 지정하거나 새 리소스 그룹을 만들고, 작업의 위치를 선택합니다.
 
-   ![새 Stream Analytics 작업의 설정 지정](./media/stream-analytics-machine-learning-integration-tutorial/create-job-1.png)
+   ![새 Stream Analytics 작업의 설정 지정](./media/stream-analytics-machine-learning-integration-tutorial/create-stream-analytics-job-1.png)
    
 
 ### <a name="configure-the-job-input"></a>작업 입력 구성
@@ -143,7 +143,7 @@ ms.locfileid: "51685755"
    |**컨테이너**  | 앞에서 만든 컨테이너를 선택합니다(`azuresamldemoblob`).        |
    |**이벤트 직렬화 형식**  |  **CSV**를 선택합니다.       |
 
-   ![새 작업 입력의 설정](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
+   ![새 Stream Analytics 작업 입력에 대한 설정](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
 4. **저장**을 클릭합니다.
 
@@ -163,7 +163,7 @@ ms.locfileid: "51685755"
    |**컨테이너**  | 앞에서 만든 컨테이너를 선택합니다(`azuresamldemoblob`).        |
    |**이벤트 직렬화 형식**  |  **CSV**를 선택합니다.       |
 
-   ![새 작업 출력의 설정](./media/stream-analytics-machine-learning-integration-tutorial/create-output2.png) 
+   ![새 Stream Analytics 작업 출력에 대한 설정](./media/stream-analytics-machine-learning-integration-tutorial/create-stream-analytics-output.png) 
 
 4. **저장**을 클릭합니다.   
 
@@ -185,7 +185,7 @@ ms.locfileid: "51685755"
    | **URL**| 웹 서비스 URL을 붙여넣습니다.|
    |**키** | API 키를 붙여넣습니다. |
   
-   ![Stream Analytics 작업에 Machine Learning 함수를 추가하는 설정](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
+   ![Stream Analytics 작업에 Machine Learning 함수를 추가하는 설정](./media/stream-analytics-machine-learning-integration-tutorial/add-machine-learning-function.png)  
     
 4. **저장**을 클릭합니다.
 

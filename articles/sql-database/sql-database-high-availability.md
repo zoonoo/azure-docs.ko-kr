@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 0b2fa1541eafa3acf28690005a6d40fac76deba6
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 9d80f4e7422d881393c8e626ddfc75c4067ef1e2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353478"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250351"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>고가용성 및 Azure SQL Database
 
@@ -55,7 +55,7 @@ Azure는 사용자의 가동 중단 시간을 최소화하면서 운영 체제, 
 
 ![데이터베이스 엔진 노드의 클러스터](media/sql-database-managed-instance/business-critical-service-tier.png)
 
-SQL 데이터베이스 엔진 프로세스와 기본 mdf/ldf 파일이 SSD 저장소가 로컬에 연결되어 있는 동일한 노드에 배치되기 때문에 워크로드에 대한 대기 시간이 짧습니다. SQL Server [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)과 유사한 기술을 사용하여 고가용성이 구현됩니다. 모든 데이터베이스는 고객 워크로드에 액세스할 수 있는 주 데이터베이스 하나와 데이터 복사본을 포함하는 보조 프로세스 세 개가 있는 데이터베이스 노드의 클러스터입니다. 주 노드는 어떤 이유로든 주 노드의 작동이 중단되는 경우 보조 복제본의 데이터를 사용할 수 있도록 하기 위해 변경 내용을 보조 노드로 지속적으로 푸시합니다 장애 조치(failover)는 SQL Server 데이터베이스 엔진에 의해 처리됩니다. 보조 복제본 하나가 주 노드가 되고 클러스터에 충분한 노드를 보장하기 위해 새로운 보조 복제본이 만들어집니다. 워크로드는 새로운 주 노드에 자동으로 리디렉션됩니다.
+SQL 데이터베이스 엔진 프로세스와 기본 mdf/ldf 파일이 SSD 저장소가 로컬에 연결되어 있는 동일한 노드에 배치되기 때문에 워크로드에 대한 대기 시간이 짧습니다. SQL Server [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)과 유사한 기술을 사용하여 고가용성이 구현됩니다. 모든 데이터베이스는 고객 워크로드에 액세스할 수 있는 주 데이터베이스 하나와 데이터 복사본을 포함하는 보조 프로세스 세 개가 있는 데이터베이스 노드의 클러스터입니다. 주 노드는 어떤 이유로든 주 노드의 작동이 중단되는 경우 보조 복제본의 데이터를 사용할 수 있도록 하기 위해 변경 내용을 보조 노드로 지속적으로 푸시합니다 장애 조치(failover)는 Azure Service Fabric에서 처리됩니다. 보조 복제본 하나가 주 노드가 되고 클러스터에 충분한 노드를 보장하기 위해 새로운 보조 복제본이 만들어집니다. 워크로드는 새로운 주 노드에 자동으로 리디렉션됩니다.
 
 또한 중요 비즈니스용 클러스터에는 기본 워크로드의 성능에 영향을 주면 안 되는 읽기 전용 쿼리(예: 보고서)를 실행하는 데 사용될 수 있는 기본 읽기 전용 노드를 무료로 제공하는 [읽기 확장](sql-database-read-scale-out.md) 기능이 기본으로 제공됩니다.
 
@@ -78,7 +78,7 @@ SQL 데이터베이스 엔진 프로세스와 기본 mdf/ldf 파일이 SSD 저�
 
 ## <a name="conclusion"></a>결론
 
-Azure SQL Database는 Azure 플랫폼과 긴밀하게 통합되어 있으며, Azure Storage Blob(데이터 보호용) 및 가용성 영역(높은 내결함성용)에 대한 장애 검색 및 복구를 위한 Service Fabric에 따라 크게 달라집니다. 동시에 Azure SQL Database는 복제 및 장애 조치(failover)를 위해 SQL Server 제품군의 Always On 가용성 그룹 기술을 최대한 활용합니다. 이러한 기술의 조합을 통해 응용 프로그램은 혼합 저장소 모델의 이점을 완전히 실현하고 가장 까다로운 SLA를 지원할 수 있습니다.
+Azure SQL Database는 Azure 플랫폼과 긴밀하게 통합되어 있으며, Azure Storage Blob(데이터 보호용) 및 가용성 영역(높은 내결함성용)에 대한 장애 검색 및 복구를 위한 Service Fabric에 따라 크게 달라집니다. 동시에 Azure SQL Database는 복제 및 장애 조치(failover)를 위해 SQL Server 제품군의 Always On 가용성 그룹 기술을 최대한 활용합니다. 이러한 기술의 조합을 통해 애플리케이션은 혼합 저장소 모델의 이점을 완전히 실현하고 가장 까다로운 SLA를 지원할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

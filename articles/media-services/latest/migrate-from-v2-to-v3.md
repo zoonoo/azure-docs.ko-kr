@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/21/2018
+ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 73d4ecec2665e238236de4a778d6cdd43642c87b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 017de43074d4b68c69526ddcc96f98ae826dcd65
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310398"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808734"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침
 
@@ -43,15 +43,16 @@ ms.locfileid: "52310398"
 
 ### <a name="new-features"></a>새로운 기능
 
-* 파일 기반 작업 처리의 경우 HTTP(S) URL을 입력으로 사용할 수 있습니다.
-    아직 콘텐츠를 Azure에 저장하거나 자산을 만들 필요가 없습니다.
+* 파일 기반 작업 처리의 경우 HTTP(S) URL을 입력으로 사용할 수 있습니다.<br/>아직 콘텐츠를 Azure에 저장하거나 자산을 만들 필요가 없습니다.
 * 파일 기반 작업 처리를 위한 [변환](transforms-jobs-concept.md) 개념을 도입합니다. 변환을 사용하여 재사용 가능한 구성을 빌드하고, Azure Resource Manager 템플릿을 만들고, 여러 고객 또는 테넌트 간에 처리 설정을 격리할 수 있습니다.
 * 동적 패키징 및 동적 암호화 설정이 서로 다른 [여러 개의 StreamingLocator](streaming-locators-concept.md)가 자산에 있을 수 있습니다.
 * [콘텐츠 보호](content-key-policy-concept.md)에서 다중 키 기능을 지원합니다.
 * 단일 비트 전송률 기여 피드를 다중 비트 전송률이 있는 출력 스트림으로 코드 변환하기 위해 Media Services를 사용할 때 최대 24시간 분량의 라이브 이벤트를 스트리밍할 수 있습니다.
-* 대기 시간이 짧은 새 라이브 스트리밍이 LiveEvents에서 지원됩니다.
+* 대기 시간이 짧은 새 라이브 스트리밍이 LiveEvents에서 지원됩니다. 자세한 내용은 [대기 시간](live-event-latency.md)을 참조하세요.
 * LiveEvent 미리 보기는 동적 패키징 및 동적 암호화를 지원합니다. 이렇게 하면 DASH 및 HLS 패키징뿐만 아니라 미리 보기에서도 콘텐츠 보호가 가능합니다.
 * LiveOutput은 v2 API의 Program 엔터티보다 사용 방법이 간단합니다. 
+* RTMP 지원 향상(향상된 안정성 및 더 많은 소스 인코더 지원)
+* RTMPS 보안 수집<br/>LiveEvent를 만들면 수집 URL이 4개 생성됩니다. 4개의 수집 URL은 거의 동일하며 스트리밍 토큰(AppId)이 동일하고 포트 번호 부분만 다릅니다. URL 중 두 개는 RTMPS에 대한 기본 및 백업용입니다.   
 * 엔터티에 대한 RBAC(역할 기반 Access Control)를 갖습니다. 
 
 ## <a name="changes-from-v2"></a>v2에서 변경된 내용
@@ -83,11 +84,11 @@ v3 API는 v2 API와 관련하여 다음과 같은 기능 격차가 있습니다.
     * 오버레이
     * 자르기
     * 썸네일 스프라이트
-* 코드 변환을 사용하는 LiveEvents는 현재 슬레이트 삽입 중간 스트림, 사용자 지정 프리셋 또는 API 호출을 통한 광고 표시기 삽입을 지원하지 않습니다. 
+* 코드 변환을 사용하는 LiveEvents는 현재 슬레이트 삽입 중간 스트림 및 API 호출을 통한 광고 표시기 삽입을 지원하지 않습니다. 
 
 > [!NOTE]
 > 이 문서에 책갈피를 지정하고 업데이트를 계속 확인하세요.
-
+ 
 ## <a name="code-differences"></a>코드 차이점
 
 다음 표는 일반적인 시나리오에서 v2와 v3의 코드가 어떻게 다른지 보여줍니다.
@@ -108,7 +109,7 @@ v3 API는 v2 API와 관련하여 다음과 같은 기능 격차가 있습니다.
     * v2로 만든 채널 및 프로그램(v3에서는 LiveEvents 및 LiveOutput으로 매핑)은 v3를 사용하여 계속 관리할 수 없습니다. 편리한 채널 중지점에서 v3 LiveEvents 및 LiveOutputs으로 전환하는 것이 좋습니다.<br/>현재는 지속적으로 실행 중인 채널을 마이그레이션할 수 없습니다.  
 
 > [!NOTE]
-> 이 문서에 책갈피를 지정하고 업데이트를 계속 확인하세요.
+> Media Services 팀이 지속적으로 v3 API를 개선하고 버전 간 차이를 해결하고 있으므로 이 페이지는 계속 유지됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

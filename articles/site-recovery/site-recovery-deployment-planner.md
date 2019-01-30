@@ -1,18 +1,18 @@
 ---
 title: Azure로 VMware VM 재해 복구를 위한 Azure Site Recovery Deployment Planner 정보 | Microsoft Docs
 description: Azure로 VMware VM 재해 복구를 위한 Azure Site Recovery Deployment Planner에 대해 알아봅니다.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.author: nisoneji
-ms.openlocfilehash: 5aade5a2ad0b0f51c5bd7f53ed0ee191950aa7c4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 11/27/2018
+ms.author: mayg
+ms.openlocfilehash: 9a9129d376c0a39c54f297fcae883f8d90016970
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213324"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320568"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>VMware에서 Azure로의 Azure Site Recovery Deployment Planner 정보
 이 문서는 VMware에서 Azure로의 프로덕션 배포를 위한 Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
@@ -21,7 +21,7 @@ ms.locfileid: "50213324"
 
 Azure Site Recovery를 사용하여 VMware VM(가상 머신) 보호를 시작하기 전에 원하는 RPO(복구 지점 목표)를 충족하도록 일별 데이터 변경률에 따라 충분한 대역폭을 할당합니다. 적절한 수의 구성 서버와 프로세스 서버를 온-프레미스에 배포해야 합니다.
 
-또한 올바른 유형 및 수의 대상 Azure Storage 계정도 만들어야 합니다. 시간이 지남에 따라 사용량이 증가하므로 원본 프로덕션 서버상의 증가를 고려하여 표준 또는 프리미엄 저장소 계정을 만듭니다. 작업 특성(예: 초당 읽기/쓰기 I/O 작업 수[IOPS] 또는 데이터 변동) 및 Site Recovery에 따라 VM별로 저장소 유형을 선택합니다.
+또한 올바른 유형 및 수의 대상 Azure Storage 계정도 만들어야 합니다. 시간이 지남에 따라 사용량이 증가하므로 원본 프로덕션 서버상의 증가를 고려하여 표준 또는 Premium Storage 계정을 만듭니다. 작업 특성(예: 초당 읽기/쓰기 I/O 작업 수[IOPS] 또는 데이터 변동) 및 Site Recovery에 따라 VM별로 저장소 유형을 선택합니다.
 
  Site Recovery Deployment Planner는 Hyper-V에서 Azure로 및 VMware에서 Azure로의 재해 복구 시나리오를 위한 명령줄 도구입니다. 이 도구를 통해 VMware VM을 원격으로 프로파일링하여(프로덕션에 전혀 영향을 미치지 않음) 성공적인 복제 및 테스트 장애 조치를 위한 대역폭 및 저장소 요구 사항을 파악할 수 있습니다. Site Recovery 구성 요소를 온-프레미스에 설치하지 않고도 도구를 실행할 수 있습니다. 달성된 처리량에 대한 정확한 결과를 얻으려면 프로덕션 배포의 첫 번째 단계 중 하나로 배포해야 하는 Site Recovery 구성 서버의 최소 요구 사항이 충족되는 Windows Server에서 Deployment Planner를 실행합니다.
 
@@ -41,9 +41,9 @@ Azure Site Recovery를 사용하여 VMware VM(가상 머신) 보호를 시작하
 
 **Azure 인프라 요구 사항**
 
-* 각 VM에 대한 저장소 유형(표준 또는 프리미엄 저장소 계정) 요구 사항
-* 복제를 위해 설정할 표준 및 프리미엄 저장소 계정의 총 수
-* Storage 지침에 따른 저장소 계정 명명 제안
+* 각 VM에 대한 스토리지 유형(표준 또는 Premium Storage 계정) 요구 사항
+* 복제를 위해 설정할 표준 및 Premium Storage 계정의 총 수
+* Storage 지침에 따른 스토리지 계정 명명 제안
 * 모든 VM에 대한 저장소 계정 배치
 * 구독에 대한 테스트 장애 조치 또는 장애 조치 이전에 설정할 Azure 코어의 수
 * 각 온-프레미스 VM에 대한 Azure VM 권장 크기
@@ -65,7 +65,7 @@ Azure Site Recovery를 사용하여 VMware VM(가상 머신) 보호를 시작하
 
 | | **VMware에서 Azure로** |**Hyper-V에서 Azure로**|**Azure 간**|**Hyper-V에서 보조 사이트로**|**VMware에서 보조 사이트로**
 --|--|--|--|--|--
-지원되는 시나리오 |yes|yes|아니요|예*|아니요
+지원되는 시나리오 |예|예|아니요|예*|아니요
 지원되는 버전 | vCenter 6.5, 6.0 또는 5.5| Windows Server 2016, Windows Server 2012 R2 | 해당 없음 |Windows Server 2016, Windows Server 2012 R2|해당 없음
 지원되는 구성|vCenter, ESXi| Hyper-V 클러스터, Hyper-V 호스트|해당 없음|Hyper-V 클러스터, Hyper-V 호스트|해당 없음|
 Site Recovery Deployment Planner의 실행 인스턴스당 프로파일링할 수 있는 서버 수 |한 개(하나의 vCenter Server 또는 하나의 ESXi 서버에 속하는 VM을 한 번에 프로파일링할 수 있습니다.)|여러 개(여러 호스트 또는 호스트 클러스터 간에 VM을 한 번에 프로파일링할 수 있음)| 해당 없음 |여러 개(여러 호스트 또는 호스트 클러스터 간에 VM을 한 번에 프로파일링할 수 있음)| 해당 없음
@@ -77,7 +77,7 @@ Site Recovery Deployment Planner의 실행 인스턴스당 프로파일링할 �
 
 | 서버 요구 사항 | 설명|
 |---|---|
-|프로파일링 및 처리량 측정| <ul><li>운영 체제: Windows Server 2016 또는 Windows Server 2012 R2<br>(적어도 [구성 서버에 대한 크기 권장 사항](https://aka.ms/asr-v2a-on-prem-components)을 일치하는 것이 이상적)</li><li>컴퓨터 구성: 8개 vCPus, 16GB RAM, 300GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual Studio 2012용 Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>이 서버에서 Azure에 대한 인터넷 액세스</li><li>Azure Storage 계정</li><li>서버에 대한 관리자 액세스</li><li>최소 100GB의 사용 가능한 디스크 공간(각각 평균 3개의 디스크가 있는 1,000개의 VM 가정하에 30일 동안 프로파일링)</li><li>VMware vCenter 통계 수준 설정은 1 이상일 수 있습니다.</li><li>vCenter 포트 허용(기본 443): Site Recovery Deployment Planner는 이 포트를 사용하여 vCenter 서버/ESXi 호스트에 연결합니다.</ul></ul>|
+|프로파일링 및 처리량 측정| <ul><li>운영 체제: Windows Server 2016 또는 Windows Server 2012 R2<br>(적어도 [구성 서버에 대한 크기 권장 사항](https://aka.ms/asr-v2a-on-prem-components)을 일치하는 것이 이상적)</li><li>머신 구성: 8개 vCPU, 16GB RAM, 300GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual Studio 2012용 Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>이 서버에서 Azure에 대한 인터넷 액세스</li><li>Azure Storage 계정</li><li>서버에 대한 관리자 액세스</li><li>최소 100GB의 사용 가능한 디스크 공간(각각 평균 3개의 디스크가 있는 1,000개의 VM 가정하에 30일 동안 프로파일링)</li><li>VMware vCenter 통계 수준 설정은 1 이상일 수 있습니다.</li><li>VCenter 포트 허용(기본값 443): Site Recovery Deployment Planner는 이 포트를 사용하여 vCenter 서버/ESXi 호스트에 연결합니다.</ul></ul>|
 | 보고서 생성 | Excel 2013 이상이 설치된 Windows PC 또는 Windows Server<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual Studio 2012용 Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)은 VM의 최신 VM 구성 정보를 가져오기 위해 보고서 생성 명령에 사용자 옵션을 전달하는 경우에만 필요합니다. Depolyment Planner는 vCenter 서버에 연결됩니다. vCenter 포트(기본값 443)를 vCenter 서버에 연결하도록 허용합니다.</li>|
 | 사용자 권한 | 프로파일링 중에 VMware vCenter 서버/VMware vSphere ESXi 호스트에 액세스하는 데 사용되는 사용자 계정에 대한 읽기 전용 권한 |
 
@@ -99,9 +99,9 @@ Site Recovery Deployment Planner의 실행 인스턴스당 프로파일링할 �
 폴더에 여러 개의 파일과 하위 폴더가 있습니다. 실행 파일은 부모 폴더에 있는 ASRDeploymentPlanner.exe입니다.
 
     예: .zip 파일을 E:\ 드라이브에 복사하고 압축을 풉니다.
-    E:\ASR Deployment Planner_v2.2.zip
+    E:\ASR Deployment Planner_v2.3.zip
 
-    E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>최신 버전의 Deployment Planner로 업데이트
 이전 버전의 Deployment Planner가 있는 경우 다음 중 하나를 수행합니다.
@@ -117,7 +117,7 @@ Site Recovery Deployment Planner의 실행 인스턴스당 프로파일링할 �
 
 
 ## <a name="version-history"></a>버전 기록
-Site Recovery Deployment Planner 도구의 최신 버전은 2.2입니다.
+Site Recovery Deployment Planner 도구의 최신 버전은 2.3입니다.
 각 업데이트에 추가된 수정 사항은 [Site Recovery Deployment Planner 버전 기록](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) 페이지를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계

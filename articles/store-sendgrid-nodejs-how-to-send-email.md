@@ -34,7 +34,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 * 차단된 전자 메일, 고객 응답 같은 항목의 실시간 메트릭 수집
 * 경향을 식별하는 데 도움이 되도록 보고서 생성
 * 고객 문의 전달
-* 응용 프로그램의 전자 메일 알림
+* 애플리케이션의 전자 메일 알림
 
 자세한 내용은 [https://sendgrid.com](https://sendgrid.com)을 참조하세요.
 
@@ -50,7 +50,7 @@ Node.js용 SendGrid 모듈은 다음 명령을 사용하여 NPM(Node Package Man
 npm install sendgrid
 ```
 
-설치 후에는 다음 코드를 사용하여 응용 프로그램에서 이 모듈을 요청할 수 있습니다.
+설치 후에는 다음 코드를 사용하여 애플리케이션에서 이 모듈을 요청할 수 있습니다.
 
 ```javascript
 var sendgrid = require('sendgrid')(sendgrid_username, sendgrid_password);
@@ -131,7 +131,7 @@ sendgrid.send({
 ```
 
 > [!NOTE]
-> **files** 속성을 사용할 경우, 해당 파일은 [fs.readFile](https://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile)을 통해 액세스할 수 있어야 합니다. 첨부하려는 파일이 Blob 컨테이너 등의 Azure Storage에서 호스트되는 경우, 먼저 파일을 로컬 저장소 또는 Azure 드라이브에 복사해야 **files** 속성을 사용하여 해당 파일을 첨부 파일로 보낼 수 있습니다.
+> **files** 속성을 사용할 경우, 해당 파일은 [fs.readFile](https://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile)을 통해 액세스할 수 있어야 합니다. 첨부하려는 파일이 Blob 컨테이너 등의 Azure Storage에서 호스트되는 경우, 먼저 파일을 로컬 스토리지 또는 Azure 드라이브에 복사해야 **files** 속성을 사용하여 해당 파일을 첨부 파일로 보낼 수 있습니다.
 > 
 > 
 
@@ -205,7 +205,7 @@ email.addFilter('footer', 'text/html', '<strong>boo</strong>');
 
 ## <a name="how-to-use-additional-sendgrid-services"></a>방법: 추가 SendGrid 서비스 사용
 
-SendGrid는 Azure 응용 프로그램에서 추가 SendGrid 기능을 활용하는 데 사용할 수 있는 웹 기반 API를 제공합니다. 자세한 내용은 [SendGrid API 설명서][SendGrid API documentation](영문)를 참조하십시오.
+SendGrid는 Azure 애플리케이션에서 추가 SendGrid 기능을 활용하는 데 사용할 수 있는 웹 기반 API를 제공합니다. 자세한 내용은 [SendGrid API 설명서][SendGrid API documentation](영문)를 참조하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

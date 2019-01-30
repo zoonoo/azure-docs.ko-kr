@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: tutorial
 author: johnpaulkee
 ms.author: joke
-ms.reviwer: ''
+ms.reviwer: sstein
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 9b38e1b6ba55fab46965fdc7a73ab608e1e6b754
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 08571ac8b7e13bc0f414b481a481132793ba865d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877805"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452754"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>PowerShell을 사용하여 탄력적 작업 에이전트 만들기
 
-[탄력적 작업](elastic-jobs-overview.md)을 사용하면 여러 데이터페이스에 병렬적으로 하나 이상의 T-SQL(Transact-SQL) 스크립트를 실행할 수 있습니다.
+[탄력적 작업](sql-database-job-automation-overview.md#elastic-database-jobs)을 사용하면 여러 데이터페이스에 병렬적으로 하나 이상의 T-SQL(Transact-SQL) 스크립트를 실행할 수 있습니다.
 
 이 자습서에서는 여러 데이터베이스에서 쿼리를 실행하는 데 필요한 단계를 알아봅니다.
 
@@ -39,30 +39,33 @@ ms.locfileid: "52877805"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-**AzureRM.Sql** 4.8.1-미리 보기 모듈을 설치하여 최신 탄력적 작업 cmdlet을 가져옵니다. 관리자 권한으로 PowerShell에서 다음 명령을 실행합니다.
+- **AzureRM.Sql** 4.8.1-미리 보기 모듈을 설치하여 최신 탄력적 작업 cmdlet을 가져옵니다. 관리자 권한으로 PowerShell에서 다음 명령을 실행합니다.
 
-```powershell
-# Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
-Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
+  ```powershell
+  # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
+  Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
+  
+  # Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
+  Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
+  
+  # Restart your powershell session with administrative access
+  
+  # Places AzureRM.Sql preview cmdlets side by side with existing AzureRM.Sql version
+  Install-Module -Name AzureRM.Sql -AllowPrerelease -RequiredVersion 4.8.1-preview -Force
+  
+  # Import the AzureRM.Sql 4.8.1 module
+  Import-Module AzureRM.Sql -RequiredVersion 4.8.1
+  
+  # Confirm if module successfully imported - if the imported version is 4.8.1, then continue
+  Get-Module AzureRM.Sql
+  ```
 
-# Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
-Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
+- **AzureRM.Sql** 4.8.1-preview 모듈 외에도 이 자습서에는 *sqlserver* PowerShell 모듈도 필요합니다. 자세한 내용은 [SQL Server PowerShell 모듈 설치](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module)를 참조하세요.
 
-# Restart your powershell session with administrative access
-
-# Places AzureRM.Sql preview cmdlets side by side with existing AzureRM.Sql version
-Install-Module -Name AzureRM.Sql -AllowPrerelease -RequiredVersion 4.8.1-preview -Force
-
-# Import the AzureRM.Sql 4.8.1 module
-Import-Module AzureRM.Sql -RequiredVersion 4.8.1
-
-# Confirm if module successfully imported - if the imported version is 4.8.1, then continue
-Get-Module AzureRM.Sql
-```
 
 ## <a name="create-required-resources"></a>필수 리소스 만들기
 
-탄력적 작업 에이전트를 만들려면 [작업 데이터베이스](elastic-jobs-overview.md#job-database)로 사용할 데이터베이스(S0 이상)가 필요합니다. 
+탄력적 작업 에이전트를 만들려면 [작업 데이터베이스](sql-database-job-automation-overview.md#job-database)로 사용할 데이터베이스(S0 이상)가 필요합니다. 
 
 *아래 스크립트에서는 작업 데이터베이스로 사용할 새 리소스 그룹, 서버 및 데이터베이스를 만듭니다. 아래 스크립트에서는 작업을 실행하기 위해 2개의 비어 있는 데이터베이스를 포함한 두 번째 서버도 만듭니다.*
 
@@ -207,9 +210,9 @@ $JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "jobuser" -Crede
 
 ## <a name="define-the-target-databases-you-want-to-run-the-job-against"></a>작업을 실행하려는 대상 데이터베이스 정의
 
-[대상 그룹](elastic-jobs-overview.md#target-group)은 작업 단계에서 실행될 데이터베이스 중 하나 이상의 집합을 정의합니다. 
+[대상 그룹](sql-database-job-automation-overview.md#target-group)은 작업 단계에서 실행될 데이터베이스 중 하나 이상의 집합을 정의합니다. 
 
-다음 코드 조각은 *ServerGroup* 및 *ServerGroupExcludingDb2*라는 두 개의 대상 그룹을 만듭니다. *ServerGroup*은 실행 시 서버에 존재하는 모든 데이터베이스를 대상으로 지정하고 *ServerGroupExcludingDb2*는 *TargetDb2*를 제외한 서버의 모든 데이터베이스를 대상으로 지정합니다.
+다음 코드 조각은 다음과 같은 두 개의 대상 그룹을 만듭니다. *ServerGroup* 및 *ServerGroupExcludingDb2*. *ServerGroup*은 실행 시 서버에 존재하는 모든 데이터베이스를 대상으로 지정하고 *ServerGroupExcludingDb2*는 *TargetDb2*를 제외한 서버의 모든 데이터베이스를 대상으로 지정합니다.
 
 ```powershell
 Write-Output "Creating test target groups..."

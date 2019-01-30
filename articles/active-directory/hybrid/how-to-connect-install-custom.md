@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD Connect의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a1cdf332e34df5f0b3d2058ba5980b67582f14a2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 394f61f9fca06f5471edc62e99be8fa6bb415e40
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248829"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471636"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect의 사용자 지정 설치
 설치에 더 많은 옵션이 필요한 경우 Azure AD Connect **사용자 지정 설정**을 사용합니다. 여러 포리스트가 있는 경우 또한 빠른 설치에서 다루지 않는 선택적 기능을 구성하려는 경우에 사용합니다. [**빠른 설치**](how-to-connect-install-express.md) 옵션이 배포 또는 토폴로지 옵션을 충족하지 않는 경우에 사용합니다.
 
-Azure AD Connect 설치를 시작하기 전에 [Azure AD Connect를 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771)하고 [Azure AD Connect: 하드웨어 및 필수 구성 요소](how-to-connect-install-prerequisites.md)의 필수 구성 요소 단계를 완료하도록 합니다. 또한 [Azure AD Connect 계정 및 사용 권한](reference-connect-accounts-permissions.md)에 설명된 대로 사용할 수 있는 계정이 있어야 합니다.
+Azure AD Connect 설치를 시작하기 전에 [Azure AD Connect를 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771)하고 [Azure AD Connect: 하드웨어 및 필수 구성 요소](how-to-connect-install-prerequisites.md)의 필수 구성 요소 단계를 완료해야 합니다. 또한 [Azure AD Connect 계정 및 사용 권한](reference-connect-accounts-permissions.md)에 설명된 대로 사용할 수 있는 계정이 있어야 합니다.
 
 DirSync를 업그레이드하는 등 사용자 지정된 설정이 토폴로지와 일치하지 않는 경우 다른 시나리오는 [관련 설명서](#related-documentation)를 참조하세요.
 
@@ -42,7 +42,7 @@ DirSync를 업그레이드하는 등 사용자 지정된 설정이 토폴로지�
 | --- | --- |
 | 기존 SQL Server 사용 |SQL Server 이름 및 인스턴스 이름을 지정할 수 있습니다. 사용하려는 데이터베이스 서버가 이미 있는 경우 이 옵션을 선택합니다. SQL Server에서 찾아보기를 사용하도록 설정하지 않은 경우 **인스턴스 이름**에 인스턴스 이름, 쉼표 및 포트 번호를 차례로 입력합니다. |
 | 기존 서비스 계정 사용 |기본적으로 Azure AD Connect에서는 사용할 동기화 서비스에 대한 가상 서비스 계정을 사용합니다. 원격 SQL Server를 사용하거나 인증이 필요한 프록시를 사용하는 경우 **관리 서비스 계정** 또는 도메인의 서비스 계정을 사용하고 암호를 알고 있어야 합니다. 이러한 경우에 사용할 계정을 입력합니다. 설치를 실행하는 사용자가 SQL에서 SA이므로 서비스 계정에 대한 로그인을 만들 수 있도록 합니다.  [Azure AD Connect 계정 및 권한](reference-connect-accounts-permissions.md#adsync-service-account)을 참조하세요. </br></br>최신 빌드를 사용하면 이제는 SQL 관리자가 대역 외에서 데이터베이스를 프로비전한 후 데이터베이스 소유권이 있는 Azure AD Connect 관리자가 설치할 수 있습니다.  자세한 내용은 [SQL 위임된 관리자 권한을 사용하여 Azure AD Connect 설치](how-to-connect-install-sql-delegation.md)를 참조하세요.|
-| 사용자 지정 동기화 그룹 지정 |기본적으로 Azure AD Connect에서는 동기화 서비스를 설치할 때 서버에 로컬 그룹 4개를 만듭니다. 이 그룹은 Administrators 그룹, Operators 그룹, Browse 그룹, Password Reset 그룹입니다. 여기서 사용자의 고유한 그룹을 지정할 수 있습니다. 그룹은 서버에서 로컬이어야 하며 도메인에서 찾을 수 없습니다. |
+| 사용자 지정 동기화 그룹 지정 |기본적으로 Azure AD Connect에서는 동기화 서비스를 설치할 때 서버에 로컬 그룹 4개를 만듭니다. 이러한 그룹은 Administrators 그룹, Operators 그룹, Browse 그룹 및 Password Reset 그룹입니다. 여기서 사용자의 고유한 그룹을 지정할 수 있습니다. 그룹은 서버에서 로컬이어야 하며 도메인에서 찾을 수 없습니다. |
 
 ### <a name="user-sign-in"></a>사용자 로그인
 필수 구성 요소를 설치한 후 사용자가 Single Sign-On 방법을 선택하라는 메시지가 표시됩니다. 다음 테이블에서 사용 가능한 옵션에 대한 간략한 설명을 제공합니다. 로그인 메서드에 대한 전체 설명은 [사용자 로그인](plan-connect-user-signin.md)을 참조하세요.
@@ -114,7 +114,7 @@ Azure AD Connect 버전 1.1.524.0 미만에서 OU 기반 필터링을 사용하�
 
 일부 도메인은 방화벽 제한으로 인해 연결할 수 없을 수도 있습니다. 이러한 도메인은 기본적으로 선택 취소되며 경고가 표시됩니다.  
 ![연결할 수 없는 도메인](./media/how-to-connect-install-custom/unreachable.png)  
- 이 경고가 표시된 경우 이러한 도메인에 실제로 연결할 수 없는지 그리고 경고가 예상되는지 확인합니다.
+이 경고가 표시된 경우 이러한 도메인에 실제로 연결할 수 없는지 그리고 경고가 예상되는지 확인합니다.
 
 ### <a name="uniquely-identifying-your-users"></a>사용자를 고유하게 식별
 
@@ -129,14 +129,14 @@ Azure AD Connect 버전 1.1.524.0 미만에서 OU 기반 필터링을 사용하�
 | [Mail 특성](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |메일 특성에 다른 포리스트의 동일한 값이 있는 경우 이 옵션은 사용자 및 연락처를 연결합니다. 연락처가 GALSync를 사용하여 생성 된 경우 이 옵션을 사용합니다. 이 옵션을 선택하면 Mail 특성이 채워지지 않은 사용자 개체는 Azure AD와 동기화되지 않습니다. |
 | [ObjectSID 및 msExchangeMasterAccountSID/ msRTCSIP-OriginatorSid](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |이 옵션은 계정 포리스트에서 활성화된 사용자를 리소스 포리스트에서 비활성화된 사용자와 조인합니다. Exchange의 경우 이 구성을 연결된 된 사서함이라고 합니다. 이 옵션은 Lync만 사용하며 Exchange는 리소스 포리스트에 없는 경우에도 사용할 수 있습니다. |
 | sAMAccountName 및 MailNickName |이 옵션은 사용자에 대한 로그인 ID를 찾을 수 있을 것으로 예상되는 특성에 조인합니다. |
-| 특정 특성 |이 옵션을 사용하면 고유한 특성을 선택할 수 있습니다. 이 옵션을 선택하면 (선택한) 특성이 채워지지 않은 User 개체가 Azure AD와 동기화되지 않습니다. **제한:** 메타버스에서 이미 찾을 수 있는 특성을 선택해야 합니다. 사용자 지정 특성(메타버스에 없는)을 선택하면 마법사를 완료할 수 없습니다. |
+| 특정 특성 |이 옵션을 사용하면 고유한 특성을 선택할 수 있습니다. 이 옵션을 선택하면 (선택한) 특성이 채워지지 않은 User 개체가 Azure AD와 동기화되지 않습니다. **제한 사항:** 메타버스에서 이미 찾을 수 있는 특성을 선택해야 합니다. 사용자 지정 특성(메타버스에 없는)을 선택하면 마법사를 완료할 수 없습니다. |
 
 #### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Azure AD로 사용자를 식별하는 방법 선택 - 원본 앵커
 sourceAnchor 특성은 사용자 개체의 수명 동안 변경할 수 없는 특성입니다. Azure AD에서 사용자와 온-프레미스 사용자를 연결하는 기본 키입니다.
 
 | 설정 | 설명 |
 | --- | --- |
-| Let Azure manage the source anchor for me(Azure에서 원본 앵커를 대신 관리) | Azure AD에서 이 특성을 선택하게 하려면 이 옵션을 선택합니다. 이 옵션을 선택하면 Azure AD Connect 마법사에서 [Azure AD Connect: 설계 개념 - ms-DS-ConsistencyGuid를 sourceAnchor로 사용](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) 문서 섹션에서 설명하는 sourceAnchor 특성 선택 논리를 적용합니다. 마법사에서 사용자 지정 설치가 완료된 후 원본 앵커 특성으로 선택된 속성을 알려줍니다. |
+| Let Azure manage the source anchor for me(Azure에서 원본 앵커를 대신 관리) | Azure AD에서 이 특성을 선택하게 하려면 이 옵션을 선택합니다. 이 옵션을 선택하면 Azure AD Connect 마법사에서 sourceAnchor 특성 선택 논리를 적용합니다. 해당 내용은 [Azure AD Connect: 설계 개념 - ms-DS-ConsistencyGuid를 sourceAnchor로 사용](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) 문서 섹션을 참조하세요. 마법사에서 사용자 지정 설치가 완료된 후 원본 앵커 특성으로 선택된 속성을 알려줍니다. |
 | 특정 특성 | 기존 AD 특성을 sourceAnchor 특성으로 지정하려면 이 옵션을 선택합니다. |
 
 특성을 변경할 수 없으므로, 좋은 특성을 사용해야 합니다. 좋은 후보는 objectGUID입니다. 사용자 계정이 포리스트/도메인 간에 이동하지 않은 한 이 특성이 변경되지 않습니다. 결혼을 하거나 할당이 변경될 때 바뀔 수 있는 특성을 피하십시오. @-sign와 함께 특성을 사용할 수 없으므로 email 및 userPrincipalName을 사용할 수 없습니다. 또한 이 특성은 대소문자를 구분하므로 포리스트 간에 개체를 이동하는 경우 대/소문자를 유지해야 합니다. 이진 특성은 Base64로 인코딩되지만 다른 특성 유형은 인코딩되지 않은 상태로 남아 있습니다. 페더레이션 시나리오 및 일부 Azure AD 인터페이스에서는 이 특성을 immutableID라고도 합니다. 원본 앵커에 대한 자세한 정보는 [디자인 개념](plan-connect-design-concepts.md#sourceanchor)에서 찾을 수 있습니다.
@@ -159,7 +159,7 @@ sourceAnchor 특성은 사용자 개체의 수명 동안 변경할 수 없는 �
 >[!WARNING]
 >Azure AD Connect 버전 **1.0.8641.0** 이상에서는 비밀번호 쓰기 저장을 위해 Azure Access Control 서비스를 사용합니다.  이 서비스는 **2018년 11월 7일**에 사용이 중지됩니다.  이러한 버전의 Azure AD Connect 중 하나를 사용하고 있고 비밀번호 쓰기 저장을 사용하도록 설정한 경우 서비스의 사용이 중지되면 사용자가 암호를 변경하거나 다시 설정할 수 없게 됩니다. 이러한 버전의 Azure AD Connect를 통한 비밀번호 쓰기 저장이 지원되지 않습니다.
 >
->Azure Access Control 서비스에 대한 자세한 내용은 [방법: Azure Access Control 서비스에서 마이그레이션](../develop/active-directory-acs-migration.md)을 참조하세요.
+>Azure Access Control Service에 대한 자세한 내용은 [방법: Azure Access Control Service에서 마이그레이션](../develop/active-directory-acs-migration.md)을 참조하세요.
 >
 >최신 버전의 Azure AD Connect를 다운로드하려면 [여기](https://www.microsoft.com/en-us/download/details.aspx?id=47594)를 클릭하세요.
 
@@ -178,7 +178,7 @@ sourceAnchor 특성은 사용자 개체의 수명 동안 변경할 수 없는 �
 | 암호 해시 동기화 |페더레이션을 로그인 솔루션으로 선택한 경우 이 옵션을 사용하도록 설정할 수 있습니다. 그럼 다음, 암호 해시 동기화는 백업 옵션으로 사용할 수 있습니다. 자세한 내용은 [암호 해시 동기화](how-to-connect-password-hash-synchronization.md)를 참조하세요. </br></br>통과 인증을 선택한 경우 이 옵션을 또한 백업 옵션으로 레거시 클라이언트 지원을 보장하도록 사용할 수 있습니다. 자세한 내용은 [암호 해시 동기화](how-to-connect-password-hash-synchronization.md)를 참조하세요.|
 | 비밀번호 쓰기 저장 |비밀번호 쓰기 저장을 사용하도록 설정하면 Azure AD에서 이루어지는 암호 변경 사항이 온-프레미스 디렉터리에 다시 기록됩니다. 자세한 내용은 [암호 관리 시작](../authentication/quickstart-sspr.md)을 참조하세요. |
 | 그룹 쓰기 저장 |**Office 365 그룹** 기능을 사용하는 경우 이 그룹을 온-프레미스 Active Directory에 표시할 수 있습니다. 이 옵션은 Exchange가 온-프레미스 Active Directory에 있는 경우 사용할 수 있습니다. 자세한 내용은 [그룹 쓰기 저장](how-to-connect-preview.md#group-writeback)을 참조하세요. |
-| 장치 쓰기 저장 |Azure AD의 디바이스 개체를 조건부 액세스 시나리오에 대한 온-프레미스 Active Directory에 쓰기 저장할 수 있습니다. 자세한 내용은 [Azure AD Connect에서 디바이스 쓰기 저장 사용](how-to-connect-device-writeback.md)을 참조하세요. |
+| 디바이스 쓰기 저장 |Azure AD의 디바이스 개체를 조건부 액세스 시나리오에 대한 온-프레미스 Active Directory에 쓰기 저장할 수 있습니다. 자세한 내용은 [Azure AD Connect에서 디바이스 쓰기 저장 사용](how-to-connect-device-writeback.md)을 참조하세요. |
 | 디렉터리 확장 특성 동기화 |디렉터리 확장 특성 동기화를 사용하도록 설정하면 지정된 특성이 Azure AD에 동기화됩니다. 자세한 내용은 [디렉터리 확장](how-to-connect-sync-feature-directory-extensions.md)을 참조하세요. |
 
 ### <a name="azure-ad-app-and-attribute-filtering"></a>Azure AD 앱 및 특성 필터링
@@ -241,7 +241,7 @@ Azure AD Connect 도구에서 추가한 각 포리스트에 대해 도메인 관
 Azure AD Connect에서 AD FS를 구성하는 것은 간단히 몇 번의 클릭으로 가능합니다. 구성하기 전에 다음 사항이 필요합니다.
 
 * 원격 관리가 사용 가능한 페더레이션 서버용 Windows Server 2012 R2 이상 서버
-* 원격 관리가 사용 가능한 웹 응용 프로그램 프록시 서버용 Windows Server 2012 R2 이상 서버
+* 원격 관리가 사용 가능한 웹 애플리케이션 프록시 서버용 Windows Server 2012 R2 이상 서버
 * 사용할 페더레이션 서비스 이름에 대한 SSL 인증서(예: sts.contoso.com)
 
 >[!NOTE]
@@ -270,18 +270,18 @@ AD FS를 설치하려는 서버를 입력합니다. 용량 계획 요구 사항�
 
 ![AD FS 서버](./media/how-to-connect-install-custom/adfs2.png)
 
-### <a name="specify-the-web-application-proxy-servers"></a>웹 응용 프로그램 프록시 서버 지정
-웹 응용 프로그램 프록시 서버로 사용할 서버를 입력합니다. 웹 응용 프로그램 프록시 서버는 DMZ(엑스트라넷 연결)에 배포되며 엑스트라넷에서 인증 요청을 지원합니다. 용량 계획 요구 사항에 따라 하나 이상의 서버를 추가할 수 있습니다. Microsoft에서는 테스트 및 파일럿 배포를 위해 단일 웹 응용 프로그램 프록시 서버를 설치하는 것이 좋습니다. 그런 다음 초기 구성 후 Azure AD Connect를 다시 실행하여 규모 필요에 맞게 더 많은 서버를 추가 및 배포합니다. 인트라넷에서 인증을 충족하기 위해 동일한 수의 프록시 서버를 두는 것이 좋습니다.
+### <a name="specify-the-web-application-proxy-servers"></a>웹 애플리케이션 프록시 서버 지정
+웹 애플리케이션 프록시 서버로 사용할 서버를 입력합니다. 웹 애플리케이션 프록시 서버는 DMZ(엑스트라넷 연결)에 배포되며 엑스트라넷에서 인증 요청을 지원합니다. 용량 계획 요구 사항에 따라 하나 이상의 서버를 추가할 수 있습니다. Microsoft에서는 테스트 및 파일럿 배포를 위해 단일 웹 애플리케이션 프록시 서버를 설치하는 것이 좋습니다. 그런 다음 초기 구성 후 Azure AD Connect를 다시 실행하여 규모 필요에 맞게 더 많은 서버를 추가 및 배포합니다. 인트라넷에서 인증을 충족하기 위해 동일한 수의 프록시 서버를 두는 것이 좋습니다.
 
 > [!NOTE]
 > <li> 사용할 계정이 WAP 서버의 로컬 관리자가 아닌 경우 관리자 자격 증명을 요구하는 메시지가 표시됩니다.</li>
-> <li> 이 단계를 실행하기 전에 Azure AD Connect 서버와 웹 응용 프로그램 프록시 서버 간에 HTTP/HTTPS 연결이 되어 있는지 확인합니다.</li>
-> <li> 인증 요청이 진행될 수 있도록 웹 응용 프로그램 서버와 AD FS 서버 간에 HTTP/HTTPS 연결이 되어 있는지 확인합니다.</li>
+> <li> 이 단계를 실행하기 전에 Azure AD Connect 서버와 웹 애플리케이션 프록시 서버 간에 HTTP/HTTPS 연결이 되어 있는지 확인합니다.</li>
+> <li> 인증 요청이 진행될 수 있도록 웹 애플리케이션 서버와 AD FS 서버 간에 HTTP/HTTPS 연결이 되어 있는지 확인합니다.</li>
 >
 
 ![웹앱](./media/how-to-connect-install-custom/adfs3.png)
 
-웹 응용 프로그램 서버가 AD FS 서버에 보안 연결을 설정할 수 있도록 자격 증명을 입력하라는 메시지가 표시됩니다. 이러한 자격 증명에서 로컬 관리자는 AD FS 서버에 있어야 합니다.
+웹 애플리케이션 서버가 AD FS 서버에 보안 연결을 설정할 수 있도록 자격 증명을 입력하라는 메시지가 표시됩니다. 이러한 자격 증명에서 로컬 관리자는 AD FS 서버에 있어야 합니다.
 
 ![Proxy](./media/how-to-connect-install-custom/adfs4.png)
 
@@ -385,8 +385,8 @@ Azure AD Connect는 이전 단계에서 PingFederate 메타데이터에서 검�
 통합형 인증의 유효성 검사가 성공하려면 다음 테스트 중 하나 이상을 수동으로 수행해야 합니다.
 
 * 동기화가 완료되면 Azure AD Connect에서 페더레이션 로그인 확인 추가 작업을 사용하여 원하는 온-프레미스 사용자 계정에 대한 인증을 확인합니다.
-* 인트라넷의 도메인 가입된 컴퓨터에서, 브라우저에서 로그인할 수 있는지 유효성 검사: https://myapps.microsoft.com에 연결하고 로그인된 계정으로 로그인을 확인합니다. 기본 제공 AD DS 관리자 계정은 동기화되지 않으며 확인을 위해 사용할 수 없습니다.
-* 엑스트라넷에서, 디바이스에서 로그인 할 수 있는지 유효성을 검사합니다. 홈 컴퓨터 또는 모바일 장치에서 https://myapps.microsoft.com에 연결하고 자격 증명을 제공합니다.
+* 인트라넷의 도메인에 가입된 머신에서 브라우저에서 로그인할 수 있는지 확인합니다. https://myapps.microsoft.com에 연결하고 로그인된 계정을 사용하여 로그인했는지 확인합니다. 기본 제공 AD DS 관리자 계정은 동기화되지 않으며 확인을 위해 사용할 수 없습니다.
+* 엑스트라넷에서, 디바이스에서 로그인 할 수 있는지 유효성을 검사합니다. 홈 컴퓨터 또는 모바일 디바이스에서 https://myapps.microsoft.com에 연결하고 자격 증명을 제공합니다.
 * 리치 클라이언트 로그인 유효성을 검사합니다. https://testconnectivity.microsoft.com에 연결하고 **Office 365** 탭 및 **Office 365 Single Sign-on 테스트**를 선택합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
@@ -416,7 +416,7 @@ SQL 서버의 SQL 인스턴스에 **ADSync**라고 하는 기존 데이터베이
 
 Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 할당](how-to-connect-post-installation.md)할 수 있습니다.
 
-[실수로 인한 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md) 및 [Azure AD Connect Health](how-to-connect-health-sync.md)를 설치하여 사용할 수 있는 이러한 기능에 대해 자세히 알아봅니다.
+다음을 설치하여 사용할 수 있는 이러한 기능에 대해 알아봅니다. [실수로 인한 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md) 및 [Azure AD Connect Health](how-to-connect-health-sync.md).
 
 공통 항목인 [스케줄러 및 동기화를 트리거하는 방법](how-to-connect-sync-feature-scheduler.md)에 대해 자세히 알아봅니다.
 

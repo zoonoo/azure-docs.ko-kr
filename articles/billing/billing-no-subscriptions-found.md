@@ -1,5 +1,5 @@
 ---
-title: Azure Portal 또는 Azure 계정 센터에 로그인을 시도할 때 구독을 찾을 수 없음 오류 발생 | Microsoft Docs
+title: 구독을 찾을 수 없음 오류 - Azure Portal 로그인 | Microsoft Docs
 description: Azure Portal 또는 Azure 계정 센터에 로그인할 때 구독을 찾을 수 없음 오류가 발생하는 문제에 대한 해결 방법을 제공합니다.
 services: ''
 documentationcenter: ''
@@ -15,20 +15,21 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 584342b3dd223c45495db36ad49d83dece858137
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: cef34d4e22732c2d718daf7ce10c23b25ff4649d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581785"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081305"
 ---
-# <a name="no-subscriptions-found-error-in-azure-portal-or-azure-account-center"></a>Azure Portal 또는 Azure 계정 센터에 로그인을 시도할 때 구독을 찾을 수 없음 오류 발생
+# <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Azure Portal 또는 Azure 계정 센터에 대한 구독을 찾을 수 없음 로그인 오류
 
 [Azure Portal](https://portal.azure.com/) 또는 [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에 로그인을 시도할 때 “구독을 찾을 수 없음” 오류 메시지가 표시될 수 있습니다. 본 문서는 이 문제에 대한 해결 방법을 제공합니다.
 
 ## <a name="symptom"></a>증상
 
-[Azure Portal](https://portal.azure.com/) 또는 [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에 로그인을 시도할 때 “구독을 찾을 수 없음” 오류 메시지가 표시됩니다.
+[Azure Portal](https://portal.azure.com/) 또는 [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에 로그인을 시도할 때 다음의 오류 메시지가 표시됩니다. "구독을 찾을 수 없음"
 
 ## <a name="cause"></a>원인
 

@@ -1,17 +1,18 @@
 ---
 title: Azure Site Recovery를 사용하여 Azure로 VMware VM 재해 복구 중에 Azure에서 장애 복구(Failback) | Microsoft Docs
 description: Azure로 VMware VM 및 물리적 서버의 재해 복구 중에 Azure로 장애 조치(Failover)한 후 온-프레미스 사이트로 장애 복구(Failback)하는 방법을 알아봅니다.
-author: nsoneji
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
-ms.date: 10/11/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
-ms.author: nisoneji
-ms.openlocfilehash: becf0b8c9f14d81b0a25fb1727b69452c3ff690c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.author: mayg
+ms.openlocfilehash: 7773a2f43eb076075be484d92fde31094a2b584b
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215177"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320041"
 ---
 # <a name="fail-back-vmware-vms-and-physical-servers-from-azure-to-an-on-premises-site"></a>Azure에서 온-프레미스 사이트로 VMWare VM 및 물리적 서버 장애 복구(Failback)
 
@@ -79,8 +80,8 @@ Azure로 장애 조치(failover)한 후 다음 단계를 실행하여 온-프레
   > [!NOTE]
   > 최신 복구 지점은 크래시 일관성 복구 지점입니다.
 
-- 응용 프로그램 일치 복구 지점을 선택하면 단일 가상 머신 장애 복구(failback)가 사용 가능한 최신 응용 프로그램 일치 복구 지점으로 복구됩니다. 복제 그룹이 있는 복구 계획의 경우 각 복제 그룹은 사용 가능한 일반 복구 지점으로 복구됩니다.
-응용 프로그램 일치 복구 지점의 경우 복구가 지연될 수 있고 데이터가 손실될 수 있습니다.
+- 애플리케이션 일치 복구 지점을 선택하면 단일 가상 머신 장애 복구(failback)가 사용 가능한 최신 애플리케이션 일치 복구 지점으로 복구됩니다. 복제 그룹이 있는 복구 계획의 경우 각 복제 그룹은 사용 가능한 일반 복구 지점으로 복구됩니다.
+애플리케이션 일치 복구 지점의 경우 복구가 지연될 수 있고 데이터가 손실될 수 있습니다.
 
 ## <a name="what-happens-to-vmware-tools-post-failback"></a>장애 복구 후 VMware 도구는 어떻게 되나요?
 

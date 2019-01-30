@@ -1,6 +1,6 @@
 ---
-title: 여러 응용 프로그램에 Azure Key Vault 액세스 권한 부여 | Microsoft Docs
-description: 여러 응용 프로그램에 Key Vault 액세스 권한을 부여하는 방법을 알아봅니다.
+title: 여러 애플리케이션에 Azure Key Vault에 대한 액세스 권한 부여 - Azure Key Vault | Microsoft Docs
+description: 여러 애플리케이션에 Key Vault 액세스 권한을 부여하는 방법을 알아봅니다.
 services: key-vault
 documentationcenter: ''
 author: amitbapat
@@ -10,23 +10,22 @@ ms.assetid: 785d4e40-fb7b-485a-8cbc-d9c8c87708e6
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2018
+ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 4ad6a18f9937fcc7d24bebc3ac197e23990ff59e
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: cd680f24eafe61bc73fa6eb91df4b4dfa5f5399b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309249"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073432"
 ---
-# <a name="grant-several-applications-access-to-a-key-vault"></a>키 자격 증명 모음에 여러 응용 프로그램 액세스 권한 부여
+# <a name="grant-several-applications-access-to-a-key-vault"></a>키 자격 증명 모음에 여러 애플리케이션 액세스 권한 부여
 
-액세스 제어 정책을 사용하여 키 자격 증명 모음에 다수의 응용 프로그램 액세스 권한을 부여할 수 있습니다. 액세스 제어 정책은 최대 1024개 응용 프로그램을 지원할 수 있으며 다음과 같이 구성됩니다.
+액세스 제어 정책을 사용하여 키 자격 증명 모음에 다수의 애플리케이션 액세스 권한을 부여할 수 있습니다. 액세스 제어 정책은 최대 1024개 애플리케이션을 지원할 수 있으며 다음과 같이 구성됩니다.
 
 1. Azure Active Directory 보안 그룹을 만듭니다. 
-2. 모든 응용 프로그램의 연관된 서비스 주체를 보안 그룹에 추가합니다.
+2. 모든 애플리케이션의 연관된 서비스 주체를 보안 그룹에 추가합니다.
 3. Key Vault에 보안 그룹 액세스 권한을 부여합니다.
 
 다음은 필수 조건입니다.
@@ -37,29 +36,29 @@ ms.locfileid: "49309249"
 이제 PowerShell에서 다음 명령을 실행합니다.
 
 ```powershell
-# Connect to Azure AD 
-Connect-AzureAD 
- 
-# Create Azure Active Directory Security Group 
-$aadGroup = New-AzureADGroup -Description "Contoso App Group" -DisplayName "ContosoAppGroup" -MailEnabled 0 -MailNickName none -SecurityEnabled 1 
- 
-# Find and add your applications (ServicePrincipal ObjectID) as members to this group 
-$spn = Get-AzureADServicePrincipal –SearchString "ContosoApp1" 
-Add-AzureADGroupMember –ObjectId $aadGroup.ObjectId -RefObjectId $spn.ObjectId 
- 
-# You can add several members to this group, in this fashion. 
- 
-# Set the Key Vault ACLs 
+# Connect to Azure AD 
+Connect-AzureAD 
+ 
+# Create Azure Active Directory Security Group 
+$aadGroup = New-AzureADGroup -Description "Contoso App Group" -DisplayName "ContosoAppGroup" -MailEnabled 0 -MailNickName none -SecurityEnabled 1 
+ 
+# Find and add your applications (ServicePrincipal ObjectID) as members to this group 
+$spn = Get-AzureADServicePrincipal –SearchString "ContosoApp1" 
+Add-AzureADGroupMember –ObjectId $aadGroup.ObjectId -RefObjectId $spn.ObjectId 
+ 
+# You can add several members to this group, in this fashion. 
+ 
+# Set the Key Vault ACLs 
 Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.ObjectId `
 -PermissionsToKeys decrypt,encrypt,unwrapKey,wrapKey,verify,sign,get,list,update,create,import,delete,backup,restore,recover,purge `
 –PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge `
 –PermissionsToCertificates get,list,delete,create,import,update,managecontacts,getissuers,listissuers,setissuers,deleteissuers,manageissuers,recover,purge,backup,restore `
--PermissionsToStorage get,list,delete,set,update,regeneratekey,getsas,listsas,deletesas,setsas,recover,backup,restore,purge 
- 
-# Of course you can adjust the permissions as required 
+-PermissionsToStorage get,list,delete,set,update,regeneratekey,getsas,listsas,deletesas,setsas,recover,backup,restore,purge 
+ 
+# Of course you can adjust the permissions as required 
 ```
 
-응용 프로그램 그룹에 다른 권한 집합을 부여해야 할 경우 이러한 응용 프로그램에 대해 별도의 Azure Active Directory 보안 그룹을 만듭니다.
+애플리케이션 그룹에 다른 권한 집합을 부여해야 할 경우 이러한 애플리케이션에 대해 별도의 Azure Active Directory 보안 그룹을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 

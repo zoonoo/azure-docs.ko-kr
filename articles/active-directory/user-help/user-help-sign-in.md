@@ -3,7 +3,7 @@ title: 2단계 인증 또는 보안 정보를 사용하여 로그인하는 방�
 description: 보안 정보의 다양한 신원 확인 방법을 사용하여 로그인하는 방법을 알아봅니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 9f7f06df2ab54e7ccb947362b6824097158166ce
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 4bd1ceb03ddce572e0571afb87ec2f0c36a49443
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347833"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810417"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>2단계 인증 또는 보안 정보를 사용하여 로그인
 
@@ -61,6 +61,6 @@ ms.locfileid: "39347833"
 
 - [2단계 인증 개요](user-help-two-step-verification-overview.md) 문서에서 2단계 인증에 대해 알아봅니다. 
 
-- 분실했거나 잊어버린 경우 [암호 재설정 포털](https://passwordreset.microsoftonline.com/)에서 암호를 다시 설정합니다.
+- 암호를 분실했거나 잊어버린 경우 [암호 재설정 포털](https://passwordreset.microsoftonline.com/)에서 암호를 다시 설정합니다.
 
 - [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) 문서에서 로그인 문제에 대한 문제 해결 팁 및 도움말을 확인합니다.

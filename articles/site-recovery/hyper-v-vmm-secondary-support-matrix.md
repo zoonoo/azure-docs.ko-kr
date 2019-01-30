@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 5fb618c0b4923b811f90f931649ca36de113eb55
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: cd26eef236063eff72d909c0cd86c7f9485bfc4d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496527"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793294"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Hyper-V VM을 보조 사이트로 재해 복구하기 위한 지원 매트릭스
 
@@ -55,15 +55,15 @@ Windows Server 2012 R2 | Windows Server 2012 R2에서 [Hyper-V가 지원하는](
 
 **구성** | **지원됨**  
 --- | --- 
-호스트 - NIC 팀 | yes 
-호스트 - VLAN | yes 
-호스트 - IPv4 | yes 
+호스트 - NIC 팀 | 예 
+호스트 - VLAN | 예 
+호스트 - IPv4 | 예 
 호스트 - IPv6 | 아니요 
 게스트 VM - NIC 팀 | 아니요
-게스트 VM - IPv4 | yes
+게스트 VM - IPv4 | 예
 게스트 VM - IPv6 | 아니요
-게스트 VM - Windows/Linux - 고정 IP 주소 | yes
-게스트 VM - 다중 NIC | yes
+게스트 VM - Windows/Linux - 고정 IP 주소 | 예
+게스트 VM - 다중 NIC | 예
 
 
 ## <a name="storage"></a>Storage
@@ -73,9 +73,9 @@ Windows Server 2012 R2 | Windows Server 2012 R2에서 [Hyper-V가 지원하는](
 **Storage(호스트)** | **지원됨**
 --- | --- 
 NFS | 해당 없음
-SMB 3.0 |  yes
-SAN(ISCSI) | yes
-다중 경로(MPIO) | yes
+SMB 3.0 |  예
+SAN(ISCSI) | 예
+다중 경로(MPIO) | 예
 
 ### <a name="guest-or-physical-server-storage"></a>게스트 또는 물리적 서버 저장소
 
@@ -83,19 +83,19 @@ SAN(ISCSI) | yes
 --- | --- | 
 VMDK |  해당 없음
 VHD/VHDX | 예(최대 16개 디스크)
-2세대 VM | yes
+2세대 VM | 예
 공유 클러스터 디스크 | 아니요
 암호화된 디스크 | 아니요
 UEFI| 해당 없음
 NFS | 아니요
 SMB 3.0 | 아니요
 RDM | 해당 없음
-디스크 > 1TB | yes
-스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM | yes
-저장소 공간 | yes
+디스크 > 1TB | 예
+스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM | 예
+저장소 공간 | 예
 디스크 핫 추가/제거 | 아니요
-디스크 제외 | yes
-다중 경로(MPIO) | yes
+디스크 제외 | 예
+다중 경로(MPIO) | 예
 
 ## <a name="vaults"></a>자격 증명 모음
 

@@ -4,7 +4,7 @@ description: Azure AD Domain Services 관리되는 도메인에 대해 보안 LD
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: 74d6748a4d595e330103497dcc97ac57e01db250
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: e2831d6e6d95ba3d1162336ab8756ae40da99f94
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158621"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847070"
 ---
 # <a name="enable-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP(LDAPS) 사용하도록 설정
 
@@ -28,7 +28,7 @@ ms.locfileid: "50158621"
 [작업 2 - 보안 LDAP 인증서를 .PFX 파일로 내보내기](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)를 완료합니다.
 
 
-## <a name="task-3-enable-secure-ldap-for-the-managed-domain-using-the-azure-portal"></a>작업 3: Azure Portal을 사용하여 관리되는 도메인에 대해 보안 LDAP를 사용하도록 설정
+## <a name="task-3-enable-secure-ldap-for-the-managed-domain-using-the-azure-portal"></a>작업 3: Azure Portal을 사용하여 관리형 도메인에 보안 LDAP를 사용하도록 설정
 보안 LDAP를 사용하도록 설정하려면 다음 구성 단계를 수행합니다.
 
 1. **[Azure Portal](https://portal.azure.com)** 로 이동합니다.
@@ -51,7 +51,7 @@ ms.locfileid: "50158621"
 5. 기본적으로 인터넷에서 관리되는 도메인에 대한 보안 LDAP 액세스는 사용하지 않도록 설정되어 있습니다. 필요한 경우 **인터넷을 통한 보안 LDAP 액세스 허용**을 **사용**으로 토글합니다.
 
     > [!WARNING]
-    > 인터넷을 통해 보안 LDAP 액세스를 사용하도록 설정하면 도메인이 인터넷을 통한 무차별 암호 대입 공격(brute force attack)에 취약해질 수 있습니다. 따라서 필요한 원본 IP 주소 범위에 대한 액세스를 잠그도록 NSG를 설정하는 것이 좋습니다. [인터넷을 통해 관리되는 도메인에 대한 LDAPS 액세스 잠금](#task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet)에 대한 지침을 참조하세요.
+    > 인터넷을 통해 보안 LDAP 액세스를 사용하도록 설정하면 도메인이 인터넷을 통한 무차별 암호 대입 공격(brute force attack)에 취약해질 수 있습니다. 따라서 필요한 원본 IP 주소 범위에 대한 액세스를 잠그도록 NSG를 설정하는 것이 좋습니다. [인터넷을 통해 관리되는 도메인에 대한 LDAPS 액세스 잠금](active-directory-ds-ldaps-bind-lockdown.md#task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet)에 대한 지침을 참조하세요.
     >
 
 6. **보안 LDAP 인증서가 포함된 .PFX 파일** 뒤의 폴더 아이콘을 클릭합니다. 관리되는 도메인에 대한 보안 LDAP 액세스를 위해 인증서를 사용하여 PFX 파일의 경로를 지정합니다.

@@ -1,21 +1,18 @@
 ---
 title: Azure Database for PostgreSQL에서 서비스 매개 변수 구성
 description: 이 문서에서는 Azure CLI 명령줄을 사용하여 PostgreSQL용 Azure 데이터베이스에서 서비스 매개 변수를 구성하는 방법을 설명합니다.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 5520c08d2bf5dba85ece1de0bca7329286625911
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fb9123d792c3b522debb3b1c8d539cbd6cd24f59
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968053"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843638"
 ---
 # <a name="customize-server-configuration-parameters-using-azure-cli"></a>Azure CLI를 사용하여 서버 구성 매개 변수 사용자 지정
 Azure CLI(명령줄 인터페이스)를 사용하여 Azure PostgreSQL 서버의 구성 매개 변수를 나열하고, 표시하며, 업데이트할 수 있습니다. 엔진 구성의 하위 집합은 서버 수준에서 노출되고 수정할 수 있습니다. 
@@ -33,7 +30,7 @@ Azure CLI(명령줄 인터페이스)를 사용하여 Azure PostgreSQL 서버의 
 az postgres server configuration list --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="show-server-configuration-parameter-details"></a>서버 구성 매개 변수 세부 정보 표시
-서버에 대한 특정 구성 매개 변수의 세부 정보를 표시하려면 [az postgres server configuration show](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_show) 명령을 실행합니다.
+서버에 대한 특정 구성 매개 변수의 세부 정보를 표시하려면 [az postgres server configuration show](/cli/azure/postgres/server/configuration) 명령을 실행합니다.
 
 이 예에서는 **myresourcegroup** 리소스 그룹에 있는 **mydemoserver.postgres.database.azure.com** 서버에 대한 **log\_min\_messages** 서버 구성 매개 변수의 세부 정보를 보여줍니다.
 ```azurecli-interactive

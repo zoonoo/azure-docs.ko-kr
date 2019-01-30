@@ -3,17 +3,17 @@ title: Azure에서 Ansible을 사용하여 Linux 가상 머신 만들기
 description: Azure에서 Ansible을 사용하여 Linux 가상 머신을 만드는 방법 알아보기
 ms.service: ansible
 keywords: ansible, azure, devops, 가상 머신
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/22/2018
-ms.openlocfilehash: 99822fc1d99d914327a64cfb9fe8e18189f30a4f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1f7f4809e064de15bb0a18c404f0df81307b1b9a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251241"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073988"
 ---
 # <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>Azure에서 Ansible을 사용하여 Linux 가상 머신 만들기
 선언적 언어인 Ansible을 사용하면 Ansible *플레이북*을 통해 자동으로 Azure 리소스를 만들고, 구성하고, 배포할 수 있습니다. 이 문서의 각 섹션에서는 Ansible 플레이북의 각 섹션이 Linux 가상 머신의 여러 측면을 만들고 구성하기 위해 어떻게 사용되는지 보여줍니다. [전체 Ansible 플레이북](#complete-sample-ansible-playbook)은 이 문서의 마지막 부분에 나열되어 있습니다.

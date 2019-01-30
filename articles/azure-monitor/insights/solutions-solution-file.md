@@ -8,19 +8,18 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 34161251ac52323bc3eff66cfe30f3de34bdf60c
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 6511eb7a4651f0b95b7821e1959ba7e4130c2d6e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714309"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105800"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Azure에서 관리 솔루션 파일 만들기(Preview)
 > [!NOTE]
@@ -43,7 +42,7 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
 관리 솔루션 파일의 기본 구조는 다음과 같은 [Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md#template-format)과 동일합니다.  아래의 각 섹션에서는 솔루션의 최상위 수준 요소와 해당 콘텐츠에 대해 설명합니다.  
 
     {
-       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
        "contentVersion": "1.0",
        "parameters": {  },
        "variables": {  },
@@ -169,7 +168,7 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
 **dependsOn** 요소는 다른 리소스에 대한 [종속성](../../azure-resource-manager/resource-group-define-dependencies.md)을 지정합니다.  솔루션이 설치될 때 모든 리소스의 종속성이 만들어진 후에야 리소스가 만들어지지 않습니다.  예를 들어 솔루션이 [작업 리소스](solutions-resources-automation.md#automation-jobs)를 사용하여 설치될 경우 솔루션에서 [Runbook을 시작](solutions-resources-automation.md#runbooks)할 수 있습니다.  작업이 만들어지기 전에 runbook이 만들어지도록 작업 리소스는 runbook 리소스에 종속됩니다.
 
 ### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics 작업 영역 및 Automation 계정
-관리 솔루션은 뷰를 포함하는 [Log Analytics 작업 영역](../../log-analytics/log-analytics-manage-access.md)과 Runbook 및 관련 리소스를 포함하는 [Automation 계정](../../automation/automation-security-overview.md#automation-account-overview)이 필요합니다.  이러한 항목은 솔루션의 리소스가 만들어지기 전에 제공되어야 하며 솔루션 자체에 정의될 수 없습니다.  사용자는 솔루션을 배포할 때 [작업 영역과 계정을 지정](solutions.md#log-analytics-workspace-and-automation-account)하지만, 작성자는 다음 사항을 고려해야 합니다.
+관리 솔루션은 뷰를 포함하는 [Log Analytics 작업 영역](../../azure-monitor/platform/manage-access.md)과 Runbook 및 관련 리소스를 포함하는 [Automation 계정](../../automation/automation-security-overview.md#automation-account-overview)이 필요합니다.  이러한 항목은 솔루션의 리소스가 만들어지기 전에 제공되어야 하며 솔루션 자체에 정의될 수 없습니다.  사용자는 솔루션을 배포할 때 [작업 영역과 계정을 지정](solutions.md#log-analytics-workspace-and-automation-account)하지만, 작성자는 다음 사항을 고려해야 합니다.
 
 
 ## <a name="solution-resource"></a>솔루션 리소스

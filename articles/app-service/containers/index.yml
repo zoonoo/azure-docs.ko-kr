@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0c706130cfa60e0710373b2214e6834789a1b484
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 8b10892a087572f2e66a73539827601410e9aca2
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160922"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155051"
 documentType: LandingData
 title: Linux의 App Service 설명서
 metadata:
@@ -62,15 +62,15 @@ sections:
     - image:
         src: ../media/index/zip.svg
       text: ZIP/WAR
-      href: ../app-service-deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../deploy-zip.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - image:
         src: ../media/index/ftp.svg
       text: FTP
-      href: ../app-service-deploy-ftp.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../deploy-ftp.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - image:
         src: ../media/index/git-icon.svg
       text: 로컬 Git
-      href: ../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - image:
         src: https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg
       text: Azure DevOps
@@ -78,30 +78,30 @@ sections:
     - image:
         src: ../media/index/github-octicons.svg
       text: GitHub
-      href: ../app-service-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../deploy-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - image:
         src: ../media/index/bitbucket.svg
       text: Bitbucket
-      href: ../app-service-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../deploy-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - image:
         src: ../media/index/dropbox.svg
       text: DropBox 동기화
-      href: ../app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../deploy-content-sync.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - image:
         src: ../media/index/onedrive.svg
       text: OneDrive 동기화
-      href: ../app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../deploy-content-sync.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
 - title: 단계별 자습서
   items:
   - type: paragraph
-    text: Linux의 App Service에서 보안 웹 응용 프로그램을 배포, 관리 및 모니터링하는 방법을 알아봅니다.
+    text: Linux의 App Service에서 보안 웹 애플리케이션을 배포, 관리 및 모니터링하는 방법을 알아봅니다.
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/app-service/containers/tutorial-dotnetcore-sqldb-app">Azure SQL DB를 사용하는 .NET Core</a>, <a href="/azure/app-service/containers/tutorial-java-enterprise-postgresql-app">PostgreSQL을 사용하는 Java Enterpise</a> 또는 <a href="/azure/app-service/containers/tutorial-nodejs-mongodb-app">MongoDB를 사용하는 Node.js</a>로 애플리케이션 만들기
-    - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">기존 사용자 지정 도메인을 응용 프로그램에 매핑</a>
-    - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">기존 SSL 인증서를 응용 프로그램에 바인딩</a>
-    - html: <a href="/azure/cdn/cdn-add-to-web-app">응용 프로그램에 CDN 추가</a>
+    - html: <a href="/azure/app-service/containers/tutorial-dotnetcore-sqldb-app">Azure SQL DB를 사용하는 .NET Core</a>, <a href="/azure/app-service/containers/tutorial-java-enterprise-postgresql-app">PostgreSQL을 사용하는 Java Enterprise</a> 또는 <a href="/azure/app-service/containers/tutorial-nodejs-mongodb-app">MongoDB를 사용하는 Node.js</a>로 애플리케이션 만들기
+    - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">기존 사용자 지정 도메인을 애플리케이션에 매핑</a>
+    - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">기존 SSL 인증서를 애플리케이션에 바인딩</a>
+    - html: <a href="/azure/cdn/cdn-add-to-web-app">애플리케이션에 CDN 추가</a>
 - title: 샘플
   items:
   - type: paragraph

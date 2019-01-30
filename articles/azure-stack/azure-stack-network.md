@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 9b1eb6878dcafba68c230255f3b3f43e005421ab
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.lastreviewed: 08/30/2018
+ms.openlocfilehash: a4e04bc9071f4f677230d112a7baa708e9e8dc34
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340191"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243235"
 ---
 # <a name="network-connectivity"></a>네트워크 연결
 이 문서에서는 Azure Stack 기존 네트워킹 환경에 통합 하는 방법을 결정 하는 데 Azure Stack 네트워크 인프라 정보를 제공 합니다. 
@@ -29,7 +30,7 @@ ms.locfileid: "43340191"
 > 외부 DNS 이름 (예를 들어 www.bing.com) Azure Stack에서를 해결 하려면 DNS 요청을 전달 하도록 DNS 서버를 제공 해야 합니다. Azure Stack의 DNS 요구 사항에 대 한 자세한 내용은 참조 하세요. [Azure Stack 데이터 센터 통합-DNS](azure-stack-integrate-dns.md)합니다.
 
 ## <a name="physical-network-design"></a>실제 네트워크 디자인
-Azure Stack 솔루션에는 작업 및 서비스를 지원 하기 위해 복원 력이 있고 항상 사용 가능한 물리적 인프라에 필요 합니다. 테두리 스위치에 ToR에서 업링크 SFP + SFP28 미디어 및 1GB에서 10GB 또는 25GB 속도 제한 됩니다. 가용성에 대 한 원래 장비 제조업체 (OEM) 하드웨어 공급 업체를 사용 하 여 확인 합니다. 다음 다이어그램에서는 권장 되는 디자인을 제공합니다.
+Azure Stack 솔루션에는 운영 및 서비스를 지원하기 위해 복원력이 있고 가용성이 높은 물리적 인프라가 필요합니다. 테두리 스위치에 ToR에서 업링크 SFP + SFP28 미디어 및 1GB에서 10GB 또는 25GB 속도 제한 됩니다. 가용성에 대 한 원래 장비 제조업체 (OEM) 하드웨어 공급 업체를 사용 하 여 확인 합니다. 다음 다이어그램에서는 권장 되는 디자인을 제공합니다.
 
 ![권장 되는 Azure Stack 네트워크 디자인](media/azure-stack-network/recommended-design.png)
 
@@ -39,7 +40,7 @@ Azure Stack 솔루션에는 작업 및 서비스를 지원 하기 위해 복원 
 
 다음 표에서 논리 네트워크와 연결 된 IPv4 서브넷 범위에 대 한 계획 해야 합니다를 보여 줍니다.
 
-| 논리적 네트워크 | 설명 | 크기 | 
+| 논리 네트워크 | 설명 | 크기 | 
 | -------- | ------------- | ------------ | 
 | 공용 VIP | Azure Stack이이 네트워크에서 31 주소의 합계를 사용합니다. 소수의 Azure Stack 서비스에 대 한 8 공용 IP 주소는 사용 하 고 나머지 테 넌 트 가상 컴퓨터에서 사용 됩니다. App Service 및 SQL 리소스 공급자를 사용 하려는 경우에 7 더 많은 주소가 사용 됩니다. 나머지 15 Ip는 향후 Azure 서비스에 대 한 예약 되어 있습니다. | / 26 (62 호스트)-롤아웃의 경우/22 (1022 호스트)<br><br>권장 되 는/24 (254 명의 호스트) = | 
 | 스위치 인프라 | 지점 간 라우팅 목적으로 전용된 IP 주소 관리 인터페이스 및 스위치에 할당 된 루프백 주소를 전환 합니다. | /26 | 

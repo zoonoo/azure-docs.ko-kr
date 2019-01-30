@@ -1,6 +1,6 @@
 ---
 title: Visual Studio에서 Azure VM에 웹앱 게시
-description: Visual Studio에서 Azure Virtual Machine으로 ASP.NET 웹 응용 프로그램 게시
+description: Visual Studio에서 Azure Virtual Machine으로 ASP.NET 웹 애플리케이션 게시
 services: virtual-machines-windows
 author: ghogen
 manager: douge
@@ -22,17 +22,17 @@ ms.locfileid: "44304102"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Visual Studio에서 Azure Virtual Machine으로 ASP.NET 웹앱 게시
 
-이 문서에서는 Visual Studio 2017에서 **Microsoft Azure Virtual Machines** 게시 기능을 사용하여 ASP.NET 웹 응용 프로그램을 Azure VM(Virtual Machine)에 게시하는 방법을 설명합니다.  
+이 문서에서는 Visual Studio 2017에서 **Microsoft Azure Virtual Machines** 게시 기능을 사용하여 ASP.NET 웹 애플리케이션을 Azure VM(Virtual Machine)에 게시하는 방법을 설명합니다.  
 
 ## <a name="prerequisites"></a>필수 조건
 Visual Studio를 사용하여 Azure VM에 ASP.NET 프로젝트를 게시하려면 VM 을 올바르게 설정해야 합니다.
 
-- 컴퓨터를 ASP.NET 웹 응용 프로그램을 실행하도록 구성하고 WebDeploy를 컴퓨터에 설치해야 합니다.
+- 컴퓨터를 ASP.NET 웹 애플리케이션을 실행하도록 구성하고 WebDeploy를 컴퓨터에 설치해야 합니다.
 
 - VM에 구성된 DNS 이름이 있어야 합니다. 자세한 내용은 [Azure Portal에서 Windows VM에 대한 정규화된 도메인 이름 만들기](portal-create-fqdn.md)를 참조하세요.
 
 ## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>Visual Studio를 사용하여 Azure VM에 ASP.NET 웹앱 게시
-다음 섹션에서는 Azure Virtual Machine에 기존 ASP.NET 웹 응용 프로그램을 게시하는 방법을 설명합니다.
+다음 섹션에서는 Azure Virtual Machine에 기존 ASP.NET 웹 애플리케이션을 게시하는 방법을 설명합니다.
 
 1. Visual Studio 2017에서 웹앱 솔루션을 엽니다.
 2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택합니다.
@@ -82,7 +82,7 @@ Visual Studio를 사용하여 Azure VM에 ASP.NET 프로젝트를 게시하려�
 
 ### <a name="re-publish"></a>다시 게시
 
-웹 응용 프로그램에 대한 업데이트를 게시하려면 게시 페이지에서 **게시** 단추를 선택합니다.  
+웹 애플리케이션에 대한 업데이트를 게시하려면 게시 페이지에서 **게시** 단추를 선택합니다.  
 - 메시지가 표시되면 사용자 이름 및 암호를 입력합니다.  
 - 게시는 즉시 시작됩니다.
 
@@ -104,7 +104,7 @@ Visual Studio를 사용하여 Azure VM에 ASP.NET 프로젝트를 게시하려�
 
 #### <a name="deploy-to-clean-web-server"></a>깨끗한 웹 서버에 배포
 
-- 각각의 업로드 후 웹 응용 프로그램의 깨끗한 사본이 웹 서버에 있는지 확인하려면(이전 배포와 관련하여 다른 파일이 남아 있지 않음) **설정** 탭에서 **대상의 추가 파일 제거** 탭을 선택합니다.
+- 각각의 업로드 후 웹 애플리케이션의 깨끗한 사본이 웹 서버에 있는지 확인하려면(이전 배포와 관련하여 다른 파일이 남아 있지 않음) **설정** 탭에서 **대상의 추가 파일 제거** 탭을 선택합니다.
 
 - 경고: 이 설정으로 게시하면 웹 서버의 모든 파일이 삭제됩니다(wwwroot 디렉터리). 이 옵션을 사용하여 게시하기 전에 컴퓨터의 상태를 알고 있어야 합니다. 
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Stack에서 할당량 유형은 | Microsoft Docs
-description: Azure Stack에서 서비스 및 리소스에 대 한 사용 가능한 다른 할당량 유형을 검토 합니다.
+description: 보기 및 Azure Stack에서 서비스 및 리소스에 대 한 사용 가능한 다른 할당량 유형을 편집 합니다.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/15/2018
+ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 17326fa60160e084d4c30347b1a765d1f80d01f5
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.lastreviewed: 12/07/2018
+ms.openlocfilehash: 88cbfc895d188162d0f242a5aceaab721a6c877f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711534"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239106"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack에서 할당량 유형
 
@@ -29,6 +30,7 @@ ms.locfileid: "51711534"
 [할당량](azure-stack-plan-offer-quota-overview.md#plans) 사용자 구독 프로 비전 하거나 사용할 수 있는 리소스의 한계를 정의 합니다. 예를 들어 할당량 사용자 최대 5 개의 Vm을 만들 수 있습니다. 각 리소스에는 자체 할당량 유형을 가질 수 있습니다.
 
 ## <a name="compute-quota-types"></a>계산 할당량 형식 
+
 | **형식** | **기본값** | **설명** |
 | --- | --- | --- |
 | 가상 컴퓨터의 최대 수 | 50 | 이 위치에서 구독을 만들 수 있는 가상 머신의 최대 수입니다. |
@@ -39,6 +41,7 @@ ms.locfileid: "51711534"
 | 프리미엄 관리 디스크의 최대 용량 (GB)의 | 2048 | Premium의 최대 용량이이 위치에 만든 디스크를 관리 합니다. |
 
 ## <a name="storage-quota-types"></a>저장소 할당량 유형 
+
 | **항목** | **기본값** | **설명** |
 | --- | --- | --- |
 | 최대 용량 (GB) |2048 |이 위치에 구독에서 사용할 수 있는 총 저장소 용량입니다. |
@@ -49,6 +52,7 @@ ms.locfileid: "51711534"
 
 
 ## <a name="network-quota-types"></a>네트워크 할당량 유형
+
 | **항목** | **기본값** | **설명** |
 | --- | --- | --- |
 | 최대 공용 Ip |50 |이 위치에서 구독을 만들 수 있는 공용 Ip의 최대 수입니다. |
@@ -60,23 +64,51 @@ ms.locfileid: "51711534"
 | 최대 네트워크 보안 그룹 |50 |이 위치에서 구독을 만들 수 있는 네트워크 보안 그룹의 최대 수입니다. |
 
 ## <a name="view-an-existing-quota"></a>기존 할당량을 보려면
+
+두 가지 다른 기존 할당량을 보려면:
+
+### <a name="plans"></a>요금제
+
+1.  관리자 포털의 왼쪽된 탐색 창에서 선택 **계획**합니다.
+2.  해당 이름을 클릭 하 여에 대 한 세부 정보를 확인 하려는 계획을 선택 합니다.
+3.  열리는 블레이드에서 선택 **서비스 및 할당량**합니다.
+4.  클릭 하 여 확인 하려는 할당량을 선택 합니다 **이름을** 열입니다.
+
+    [ ![할당량](media/azure-stack-quota-types/quotas1sm.png "할당량 보기") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+
+### <a name="resource-providers"></a>리소스 공급자
+
 1. 관리 포털의 기본 대시보드에서 찾을 합니다 **리소스 공급자** 바둑판식으로 배열 합니다.
-2. 보려는 같은 원하는 할당량을 사용 하 여 서비스를 선택 **계산** 하거나 **저장소**합니다.
+2. 보려는 같은 원하는 할당량을 사용 하 여 서비스를 선택 **계산**를 **네트워크**, 또는 **저장소**합니다.
 3. 선택 **할당량**, 한 다음 확인 하려는 할당량을 선택 합니다.
 
+## <a name="edit-a-quota"></a>할당량 편집
 
-## <a name="edit-a-quota"></a>할당량 편집  
-대신 할당량의 원래 구성 편집 하도록 선택할 수 있습니다 [는 추가 요금제를 사용 하 여](create-add-on-plan.md)입니다. 할당량을 편집할 때 새 구성이 자동으로 적용 전역적으로 해당 할당량을 사용 하는 모든 계획 및 이러한 계획을 사용 하는 모든 기존 구독에 있습니다. 할당량 편집 하는 것은 사용자가 구독할 수 있는 수정 된 할당량을 제공 하는 추가 요금제를 사용 하면 다릅니다. 
+두 가지 다른 할당량을 편집 하려면:
 
-### <a name="to-edit-a-quota"></a>할당량을 편집 하려면  
-1. 관리 포털의 기본 대시보드에서 찾을 합니다 **리소스 공급자** 바둑판식으로 배열 합니다.
+### <a name="edit-a-plan"></a>계획을 편집 합니다.
+
+1.  관리자 포털의 왼쪽된 탐색 창에서 선택 **계획**합니다.
+2.  해당 이름을 클릭 하 여 할당량을 편집 하려는 계획을 선택 합니다.
+3.  열리는 블레이드에서 선택 **서비스 및 할당량**합니다.
+4.  클릭 하 여 편집 하려는 할당량을 선택 합니다 **이름을** 열입니다.
+    [ ![할당량](media/azure-stack-quota-types/quotas1sm.png "할당량 보기") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+
+5.  열리는 블레이드에서 선택 **계산에서 편집**를 **네트워크에서 편집**, 또는 **저장소에서 편집**합니다.
+    ![할당량](media/azure-stack-quota-types/quotas3.png "할당량 보기")    
+
+또는 할당량을 편집 하는이 절차를 따를 수 있습니다.
+
+1. 관리자 포털의 기본 대시보드에서 찾을 합니다 **리소스 공급자** 바둑판식으로 배열 합니다.
 2. 예: 수정 하려는 할당량을 사용 하 여 서비스를 선택 **계산**를 **네트워크**, 또는 **저장소**합니다.
 3. 다음으로, 선택 **할당량**, 한 다음 변경 하려는 할당량을 선택 합니다.
-4. 에 **할당량을 설정할** 창 값을 편집 하 고 선택한 **저장**합니다. 
+4. 에 **설정 저장소 할당량**를 **설정 계산 할당량**, 또는 **집합 네트워크 할당량** 창 (유형에 따라 편집 하 여 선택한 할당량) 값을 편집 및 선택 **저장할**합니다.
+
+### <a name="edit-original-configuration"></a>원래 구성 편집
+  
+대신 할당량의 원래 구성 편집 하도록 선택할 수 있습니다 [는 추가 요금제를 사용 하 여](create-add-on-plan.md)입니다. 할당량을 편집할 때 새 구성이 자동으로 적용 전역적으로 해당 할당량을 사용 하는 모든 계획 및 이러한 계획을 사용 하는 모든 기존 구독에 있습니다. 할당량 편집 하는 것은 사용자가 구독할 수 있는 수정 된 할당량을 제공 하는 추가 요금제를 사용 하면 다릅니다. 
 
 할당량에 대 한 새 값의 수정 된 할당량을 사용 하는 모든 계획 및 이러한 계획을 사용 하는 모든 기존 구독에 전역적으로 적용 합니다. 
-
-
 
 ## <a name="next-steps"></a>다음 단계
 

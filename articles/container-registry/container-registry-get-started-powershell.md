@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - PowerShell을 사용하여 Azure에서 개인 Docker 레지스트리 만들기
+title: 빠른 시작 - Azure에서 개인 Docker 레지스트리 만들기 - PowerShell
 description: Azure에서 PowerShell을 사용하여 개인 Docker 컨테이너 레지스트리를 만드는 방법을 빠르게 알아봅니다.
 services: container-registry
 author: dlepow
@@ -7,21 +7,21 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 05/08/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: fe21ab3e29b7a4cbf204be82246d37a4b91128e4
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: fa6b4de9282eec75747ca87b26058a47320f2fd3
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856686"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428140"
 ---
-# <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Container Registry 만들기
+# <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 개인 컨테이너 레지스트리 만들기
 
 Azure Container Registry는 관리되는 Docker 컨테이너 레지스트리 서비스로, Docker 컨테이너 이미지를 빌드, 저장 및 제공하는 데 사용됩니다. 이 빠른 시작에서는 PowerShell을 사용하여 Azure 컨테이너 레지스트리를 만드는 방법을 알아봅니다. 레지스트리를 만든 후에는 컨테이너 이미지를 레지스트리에 푸시하고, 레지스트리의 컨테이너를 ACI(Azure Container Instances)에 배포합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작에서는 Azure PowerShell 모듈 버전 5.7.0 이상이 필요합니다. 설치된 버전을 확인하려면 `Get-Module -ListAvailable AzureRM` 명령을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+이 빠른 시작에서는 Azure PowerShell 모듈 버전 5.7.0 이상이 필요합니다. 설치된 버전을 확인하려면 `Get-Module -ListAvailable AzureRM` 명령을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요.
 
 또한 Docker가 로컬에 설치되어 있어야 합니다. Docker는 [macOS][docker-mac], [Windows][docker-windows] 및 [Linux][docker-linux] 시스템용 패키지를 제공합니다.
 
@@ -76,7 +76,7 @@ Login Succeeded
 
 ## <a name="push-image-to-registry"></a>레지스트리에 이미지 푸시
 
-레지스트리에 로그인했으니, 이제 컨테이너 이미지를 레지스트리로 푸시할 수 있습니다. 레지스트리로 푸시할 수 있는 이미지를 가져오려면 Docker 허브에서 공용 [aci-helloworld][aci-helloworld-image] 이미지를 끌어옵니다. [aci-helloworld][aci-helloworld-github] 이미지는 Azure Container Instances 로고를 표시하는 정적 HTML 페이지를 제공하는 작은 Node.js 응용 프로그램입니다.
+레지스트리에 로그인했으니, 이제 컨테이너 이미지를 레지스트리로 푸시할 수 있습니다. 레지스트리로 푸시할 수 있는 이미지를 가져오려면 Docker 허브에서 공용 [aci-helloworld][aci-helloworld-image] 이미지를 끌어옵니다. [aci-helloworld][aci-helloworld-github] 이미지는 Azure Container Instances 로고를 표시하는 정적 HTML 페이지를 제공하는 작은 Node.js 애플리케이션입니다.
 
 ```powershell
 docker pull microsoft/aci-helloworld
@@ -196,7 +196,7 @@ PS Azure:\> (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name 
 Succeeded
 ```
 
-## <a name="view-running-application"></a>실행 중인 응용 프로그램 보기
+## <a name="view-running-application"></a>실행 중인 애플리케이션 보기
 
 ACI에 배포가 성공하고 컨테이너가 작동되면 브라우저에서 FQDN(정규화된 도메인 이름)으로 이동하여 Azure에서 실행 중인 앱을 살펴봅니다.
 
@@ -218,7 +218,7 @@ FQDN을 얻었으면 브라우저에서 해당 FQDN으로 이동합니다.
 
 ![브라우저의 Hello World 앱][qs-psh-01-running-app]
 
-축하합니다! Azure에서 응용 프로그램을 실행하는 컨테이너를 만들고, 개인 Azure 컨테이너 레지스트리의 컨테이너 이미지에서 직접 배포하였습니다.
+축하합니다! Azure에서 애플리케이션을 실행하는 컨테이너를 만들고, 개인 Azure 컨테이너 레지스트리의 컨테이너 이미지에서 직접 배포하였습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: b14a98ce22979182ec27ba5dc849f9535fa2b387
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 16876a7831ab374637e28165c44d47e0ab059712
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824305"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976367"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Windows Azure 가상 컴퓨터 정품 인증 문제 해결
 
@@ -37,10 +37,10 @@ Azure는 VM이 상주하는 클라우드 영역에 따라 KMS 정품 인증에 �
 
 Windows Azure VM을 활성화하려고 할 때 다음 샘플과 유사한 오류 메시지가 표시됩니다.
 
-**오류: 0xC004F074 보고된 소프트웨어 라이센싱 서비스를 컴퓨터에서 활성화할 수 없습니다. KMS(Key Management Service)를 연결할 수 없습니다. 추가 정보는 응용 프로그램 이벤트 로그를 참조하세요.**
+**오류: 0xC004F074 소프트웨어 라이선싱 서비스에서 컴퓨터를 정품 인증할 수 없다고 보고되었습니다. KMS(Key Management Service)를 연결할 수 없습니다. 추가 정보는 애플리케이션 이벤트 로그를 참조하세요.**
 
 ## <a name="cause"></a>원인
-일반적으로 Azure VM 정품 인증 문제는 Windows VM이 적절한 KMS 클라이언트 설정 키를 사용하여 구성되어 있지 않거나 Windows VM에 Azure KMS 서비스(kms.core.windows.net, 포트 1668)에 대한 연결 문제가 있는 경우에 발생합니다. 
+일반적으로 Azure VM 정품 인증 문제는 Windows VM이 적절한 KMS 클라이언트 설정 키를 사용하여 구성되어 있지 않거나 Windows VM에 Azure KMS 서비스(kms.core.windows.net, 포트 1688)에 대한 연결 문제가 있는 경우에 발생합니다. 
 
 ## <a name="solution"></a>해결 방법
 
@@ -86,7 +86,7 @@ Windows Server 2016 또는 Windows Server 2012 R2의 사용자 지정 이미지�
     ```
     iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
-    명령이 다음을 반환해야 합니다. 키 관리 서비스 컴퓨터 이름을 kms.core.windows.net:1688으로 성공적으로 설정합니다.
+    명령은 다음과 같은 내용을 반환합니다. Key Management Service 머신 이름이 kms.core.windows.net:1688로 설정되었습니다.
 
 4. KMS 서버에 연결한 Psping을 사용하여 확인합니다. Pstools.zip 다운로드를 추출한 폴더로 전환하고 다음을 실행합니다.
   
@@ -94,7 +94,7 @@ Windows Server 2016 또는 Windows Server 2012 R2의 사용자 지정 이미지�
     \psping.exe kms.core.windows.net:1688
     ```
   
-  출력의 마지막 두 번째 줄에서 전송 = 4, 수신 = 4, 손실 = 0 (0% 손실)이 표시되어야 합니다.
+  출력의 끝에서 두 번째 줄에 전송 = 4, 수신 = 4, 손실 = 0(0% 손실)이 표시되어야 합니다.
 
   손실이 0(영)보다 큰 경우 VM은 KMS 서버에 연결되어 있지 않습니다. 이 경우에 VM이 가상 네트워크에 있고 사용자 지정 DNS 서버를 지정하면 해당 DNS 서버가 kms.core.windows.net을 확인할 수 있어야 합니다. 또는 DNS 서버가 kms.core.windows.net을 확인할 수 있도록 변경합니다.
 

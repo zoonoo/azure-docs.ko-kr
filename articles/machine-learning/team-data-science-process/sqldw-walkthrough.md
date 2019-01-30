@@ -1,6 +1,6 @@
 ---
-title: '실행 중인 팀 데이터 과학 프로세스: SQL Data Warehouse 사용 | Microsoft Docs'
-description: 활성 중인 고급 분석 프로세스 및 기술
+title: SQL Data Warehouse를 사용하여 모델 빌드 및 배포 - Team Data Science Process
+description: 공개적으로 사용 가능한 데이터 세트가 있는 SQL Data Warehouse를 사용하여 기계 학습 모델을 빌드하고 배포합니다.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,20 +10,20 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 87c3b0b597a401041b8bf1b6f3997431d8816e92
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: ed3731db88d7f829634a03c55e5ec033c03e4b0f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445714"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139133"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>실행 중인 팀 데이터 과학 프로세스: SQL Data Warehouse 사용
 이 자습서에서는 공개적으로 사용 가능한 데이터 세트인 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 세트에 SQL Data Warehouse(SQL DW)를 사용하여 기계 학습 모델을 구축 및 배포하는 방법을 안내합니다. 생성된 이진 분류 모델을 통해 여정에 대해 팁이 지불되었는지 여부를 예측하며 지불된 팁 금액의 분배를 예측하는 다중 클래스 분류 및 회귀에 대한 모델도 설명됩니다.
 
 이 절차에서는 [TDSP(팀 데이터 과학 프로세스)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) 워크플로를 따릅니다. 데이터 과학 환경을 설정하는 방법, SQL DW에 데이터를 로드하는 방법 및 SQL DW 또는 IPython Notebook을 사용하여 모델링할 데이터와 엔지니어링 기능을 탐색하는 방법을 보여 줍니다. 그런 다음 Azure Machine Learning으로 모델을 빌드하고 배포하는 방법을 보여 줍니다.
 
-## <a name="dataset"></a>NYC Taxi Trips 데이터 집합
+## <a name="dataset"></a>NYC Taxi Trips 데이터 세트
 NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여정의 요금으로 기록된 약 20GB의 압축된 CSV 파일(압축되지 않은 경우 약 48GB)로 구성됩니다. 각 여정 레코드는 승차 및 하차 위치, 익명 처리된 hack(기사) 면허증 번호 및 medallion(택시의 고유 ID) 번호를 포함합니다. 데이터는 2013년의 모든 여정을 포괄하며, 매월 다음 두 개의 데이터 세트로 제공됩니다.
 
 1. **trip_data.csv** 파일에는 승객 수, 승차 및 하차 지점, 여정 기간, 여정 거리 등 여정 세부 정보가 포함됩니다. 다음은 몇 가지 샘플 레코드입니다.
@@ -52,15 +52,15 @@ trip\_data 및 trip\_fare를 조인하는 데 사용된 **고유 키**는 다음
 ## <a name="mltasks"></a>세 가지 유형의 예측 작업 처리
 *tip\_amount*를 기반으로 예측 문제를 작성하여 세 종류의 모델링 작업을 보여 줍니다.
 
-1. **이진 분류**: 여정에 대해 팁이 지불되었는지 여부를 예측하려면 *tip\_amount*가 $0보다 크면 지불된 것이고 *tip\_amount*가 $0이면 지불되지 않은 것입니다.
-2. **다중 클래스 분류**: 여정에 대해 지불된 팁의 범위를 예측합니다. *tip\_amount*를 5개의 bin 또는 클래스로 나눕니다.
+1. **이진 분류**: 운행 등에 대해 팁이 지불되었는지 여부를 예측하려는 경우, *tip\_amount*가 $0보다 크면 지불된 것이고 *tip\_amount*가 $0이면 지불되지 않은 것입니다.
+2. **다중 클래스 분류**: 운행에 대해 지불된 팁의 범위를 예측합니다. *tip\_amount*를 5개의 bin 또는 클래스로 나눕니다.
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. **회귀 작업**: 여정에 대해 지불된 팁의 금액을 예측합니다.  
+3. **회귀 작업**: 운행에 대해 지불된 팁의 액수를 예측합니다.  
 
 ## <a name="setup"></a>고급 분석을 위한 Azure 데이터 과학 환경 설정
 Azure 데이터 과학 환경을 설정하려면 다음 단계를 수행합니다.
@@ -117,7 +117,7 @@ Windows PowerShell 명령 콘솔을 엽니다. 다음 PowerShell 명령을 실�
 
 성공적으로 실행된 후에 현재 작업 디렉터리를 *-DestDir*로 변경합니다. 아래와 같은 화면을 볼 수 있어야 합니다.
 
-![][19]
+![현재 작업 디렉터리 변경 내용][19]
 
 *-DestDir*의 관리자 모드에서 다음 PowerShell 스크립트를 실행합니다.
 
@@ -321,12 +321,12 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
 > 
 > 
 
-![그림 #21][21]
+![AzCopy의 출력][21]
 
-사용자 고유의 데이터를 사용할 수 있습니다. 데이터가 실제 응용 프로그램의 온-프레미스 컴퓨터에 있으면 AzCopy을 사용하여 개인 Azure Blob 저장소에 온-프레미스 데이터를 업로드할 수 있습니다. PowerShell 스크립트 파일의 AzCopy 명령에서 **원본** 위치인 `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`를 데이터가 있는 로컬 디렉터리로 변경해야만 합니다.
+사용자 고유의 데이터를 사용할 수 있습니다. 데이터가 실제 애플리케이션의 온-프레미스 컴퓨터에 있으면 AzCopy을 사용하여 개인 Azure Blob 저장소에 온-프레미스 데이터를 업로드할 수 있습니다. PowerShell 스크립트 파일의 AzCopy 명령에서 **원본** 위치인 `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`를 데이터가 있는 로컬 디렉터리로 변경해야만 합니다.
 
 > [!TIP]
-> 데이터가 실제 응용 프로그램의 개인 Azure Blob 저장소에 이미 있으면 PowerShell 스크립트에서 AzCopy 단계를 건너뛰고 직접 Azure SQL DW에 데이터를 업로드할 수 있습니다. 데이터 형식에 맞추려면 스크립트를 추가로 편집해야 합니다.
+> 데이터가 실제 애플리케이션의 개인 Azure Blob 저장소에 이미 있으면 PowerShell 스크립트에서 AzCopy 단계를 건너뛰고 직접 Azure SQL DW에 데이터를 업로드할 수 있습니다. 데이터 형식에 맞추려면 스크립트를 추가로 편집해야 합니다.
 > 
 > 
 
@@ -334,7 +334,7 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
 
 성공적으로 실행한 후에 다음과 같이 화면에 표시됩니다.
 
-![][20]
+![성공적인 스크립트 실행의 출력][20]
 
 ## <a name="dbexplore"></a>Azure SQL Data Warehouse에서 데이터 탐색 및 기능 엔지니어링
 이 섹션에서는 **Visual Studio Data Tools**에서 바로 Azure SQL DW에 대해 SQL 쿼리를 실행하여 데이터를 탐색하고 기능을 생성합니다. 이 섹션에서 사용되는 모든 SQL 쿼리는 *SQLDW_Explorations.sql*이라는 샘플 스크립트에서 찾을 수 있습니다. 이 파일은 이미 PowerShell 스크립트에 의해 로컬 디렉터리에 다운로드되었습니다. 또한 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql)에서 검색할 수 있습니다. 하지만 GitHub의 파일은 플러그 인된 Azure SQL DW 정보를 갖지 않습니다.
@@ -363,9 +363,9 @@ Visual Studio에서 SQL DW 로그인 이름 및 암호를 사용하여 Azure SQL
     -- Report number of columns in table <nyctaxi_trip>
     SELECT COUNT(*) FROM information_schema.columns WHERE table_name = '<nyctaxi_trip>' AND table_schema = '<schemaname>'
 
-**출력:** 173,179,759행과 14개의 열이 표시됩니다.
+**출력:** 173,179,759개 행과 14개 열이 출력됩니다.
 
-### <a name="exploration-trip-distribution-by-medallion"></a>탐색: medallion별 여정 분포
+### <a name="exploration-trip-distribution-by-medallion"></a>탐색: medallion별 운행 분포
 이 예제 쿼리에서는 지정된 기간 내의 100개가 넘는 여정을 완료한 medallion(택시 번호)을 식별합니다. 쿼리는 **pickup\_datetime** 파티션 구성표를 조건으로 하므로 분할된 테이블 액세스를 활용합니다. 전체 데이터 세트를 쿼리할 때도 분할된 테이블 및/또는 인덱스 검색을 사용합니다.
 
     SELECT medallion, COUNT(*)
@@ -374,9 +374,9 @@ Visual Studio에서 SQL DW 로그인 이름 및 암호를 사용하여 Azure SQL
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-**출력:** 쿼리는 13,369medallion(택시)을 지정하는 행과 2013년에 이를 통해 완료된 여정 수가 있는 테이블을 반환합니다. 마지막 열에는 완료된 여정 수가 포함됩니다.
+**출력:** 쿼리는 13,369개 medallion(택시)과 2013년에 이를 통해 완료된 운행 수를 지정하는 행이 있는 테이블을 반환합니다. 마지막 열에는 완료된 여정 수가 포함됩니다.
 
-### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>탐색: medallion 및 hack_license별 여정 분포
+### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>탐색: medallion 및 hack_license별 운행 분포
 이 예제에서는 지정된 기간 내의 100개가 넘는 여정을 완료한 medallion(택시 번호) 및 hack_license 번호(드라이버)를 식별합니다.
 
     SELECT medallion, hack_license, COUNT(*)
@@ -385,7 +385,7 @@ Visual Studio에서 SQL DW 로그인 이름 및 암호를 사용하여 Azure SQL
     GROUP BY medallion, hack_license
     HAVING COUNT(*) > 100
 
-**출력:** 쿼리는 2013년에 100개가 넘는 여정을 완료한 13,369개의 차/드라이버 ID가 지정된 13,369개 행의 테이블을 반환합니다. 마지막 열에는 완료된 여정 수가 포함됩니다.
+**출력:** 쿼리는 2013년에 100건이 넘는 운행을 완료한 13,369개의 차량/드라이버 ID가 지정된 행이 13,369개 포함된 테이블을 반환합니다. 마지막 열에는 완료된 여정 수가 포함됩니다.
 
 ### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>데이터 품질 평가: 경도 및/또는 위도가 잘못된 레코드 확인
 이 예제에서는 경도 및/또는 위도 필드에 유효하지 않은 값(라디안이 -90도~90도에 속해야 함)이 포함되거나 (0, 0) 좌표가 있는지 조사합니다.
@@ -399,9 +399,9 @@ Visual Studio에서 SQL DW 로그인 이름 및 암호를 사용하여 Azure SQL
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-**출력:** 쿼리는 잘못된 경도 및/또는 위도 필드가 있는 837,467개의 여정을 반환합니다.
+**출력:** 쿼리는 잘못된 경도 및/또는 위도 필드가 있는 837,467건의 운행을 반환합니다.
 
-### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>탐색: 왕복 여정과 비왕복 여정 분포
+### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>탐색: 팁 지불 및 팁 미지불 운행 분포
 이 예제에서는 지정된 기간 동안(또는 여기 설정된 대로 전체 연도를 포함하는 경우 전체 데이터 세트에서) 왕복 여정 수와 비왕복 여정 수를 확인합니다. 이 분포는 나중에 이진 분류 모델링에 사용할 이진 레이블 분포를 반영합니다.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
@@ -410,7 +410,7 @@ Visual Studio에서 SQL DW 로그인 이름 및 암호를 사용하여 Azure SQL
       WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tipped
 
-**출력:** 쿼리는 2013년 팁 빈도(왕복 여정 90,447,622 및 비왕복 여정 82,264,709)를 반환합니다.
+**출력:** 쿼리는 2013년에 대해 다음과 같은 팁 빈도를 반환합니다. 팁 지불 90,447,622건 및 팁 미지불 82,264,709건.
 
 ### <a name="exploration-tip-classrange-distribution"></a>탐색: 팁 클래스/범위 분포
 이 예제에서는 지정된 기간 동안(또는 전체 연도를 포괄하는 경우 전체 데이터 세트에서) 팁 범위 분포를 계산합니다. 이는 나중에 다중 클래스 분류 모델링에 사용할 레이블 클래스의 분포입니다.
@@ -437,7 +437,7 @@ Visual Studio에서 SQL DW 로그인 이름 및 암호를 사용하여 Azure SQL
 | 0 |82264625 |
 | 4 |85765 |
 
-### <a name="exploration-compute-and-compare-trip-distance"></a>탐색: 여정 거리 계산 및 비교
+### <a name="exploration-compute-and-compare-trip-distance"></a>탐색: 운행 거리 컴퓨팅 및 비교
 이 예제에서는 승차 및 하차 경도/위도를 SQL 지리 지점으로 변환하고, SQL 지리 지점 차이를 사용하여 여정 거리를 계산한 다음, 비교를 위해 무작위 결과 샘플을 반환합니다. 앞서 설명한 데이터 품질 평가 쿼리를 사용하여 유효한 좌표로만 결과가 제한됩니다.
 
     /****** Object:  UserDefinedFunction [dbo].[fnCalculateDistance] ******/
@@ -571,16 +571,16 @@ AzureML 작업 영역을 이미 설정한 경우 샘플 IPython Notebook을 Azur
 
 1. AzureML 작업 영역에 로그인하고 맨 위에 있는 "Studio"를 클릭한 다음 웹 페이지의 왼쪽에서 "NOTEBOOKS"를 클릭합니다.
    
-    ![그림 #22][22]
+    ![Studio를 클릭한 다음, NOTEBOOKS 클릭][22]
 2. 웹 페이지의 왼쪽 아래 모서리에서 "새로 만들기"를 클릭하고 "Python 2"를 선택합니다. 그런 다음 노트북에 이름을 제공하고 확인 표시를 클릭하여 새 비어 있는 IPython Notebook을 만듭니다.
    
-    ![그림 #23][23]
+    ![NEW를 클릭한 다음, Python 2 클릭][23]
 3. 새 IPython Notebook의 왼쪽 위 모서리에서 "Jupyter" 기호를 클릭합니다.
    
-    ![그림 #24][24]
+    ![Jupyter 기호 클릭][24]
 4. 샘플 IPython Notebook을 AzureML IPython Notebook 서비스의 **트리** 페이지로 끌어서 놓고 **업로드**를 클릭합니다. 그런 다음 샘플 IPython Notebook은 AzureML IPython Notebook 서비스에 업로드됩니다.
    
-    ![그림 #25][25]
+    ![[업로드] 클릭][25]
 
 이 샘플 IPython Notebook 또는 Python 스크립트 파일을 실행하기 위해 다음 Python 패키지가 필요합니다. AzureML IPython Notebook 서비스를 사용하는 경우 이러한 패키지는 미리 설치되었습니다.
 
@@ -684,7 +684,7 @@ AzureML 작업 영역을 이미 설정한 경우 샘플 IPython Notebook을 Azur
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
-![그릴 #1][1]
+![상자 그림 출력][1]
 
 ### <a name="visualization-distribution-plot-example"></a>시각화: 분포 그림 예제
 샘플링된 여정 거리에 대한 분포 및 히스토그램을 시각화하는 그림입니다.
@@ -695,9 +695,9 @@ AzureML 작업 영역을 이미 설정한 경우 샘플 IPython Notebook을 Azur
     df1['trip_distance'].plot(ax=ax1,kind='kde', style='b-')
     df1['trip_distance'].hist(ax=ax2, bins=100, color='k')
 
-![그릴 #2][2]
+![분포 그림 출력][2]
 
-### <a name="visualization-bar-and-line-plots"></a>시각화: 가로 막대형 차트 및 꺾은선형 그림
+### <a name="visualization-bar-and-line-plots"></a>시각화: 가로 막대형 또는 꺾은선형 그림
 이 예에서는 여정 거리를 5개의 bin으로 범주화하고 범주화 결과를 시각화합니다.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
@@ -709,38 +709,38 @@ AzureML 작업 영역을 이미 설정한 경우 샘플 IPython Notebook을 Azur
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
 
-![그릴 #3][3]
+![가로 막대형 그림 출력][3]
 
 and
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
-![그릴 #4][4]
+![꺾은선형 그림 출력][4]
 
 ### <a name="visualization-scatterplot-examples"></a>시각화: 산점도 예제
 **trip\_time\_in\_secs** 및 **trip\_distance** 사이의 산점도를 표시하여 상관관계가 있는지 확인합니다.
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
-![그릴 #6][6]
+![시간과 거리의 사이의 관계에 대한 산점도 출력][6]
 
 마찬가지로 **rate\_code** 및 **trip\_distance** 간의 관계를 확인할 수 있습니다.
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
-![그릴 #8][8]
+![코드와 거리의 사이의 관계에 대한 산점도 출력][8]
 
 ### <a name="data-exploration-on-sampled-data-using-sql-queries-in-ipython-notebook"></a>IPython Notebook에서 SQL 쿼리를 사용하여 샘플링된 데이터에서 데이터 탐색
 이 섹션에서는 위에서 만든 새 테이블에 유지되는 샘플링된 데이터를 사용하여 데이터 분포를 탐색합니다. 원래 테이블을 사용하여 유사한 탐색을 수행할 수 있습니다.
 
-#### <a name="exploration-report-number-of-rows-and-columns-in-the-sampled-table"></a>탐색: 샘플링된 테이블의 행과 열 개수를 보고합니다.
+#### <a name="exploration-report-number-of-rows-and-columns-in-the-sampled-table"></a>탐색: 샘플링된 테이블의 행과 열 개수 보고
     nrows = pd.read_sql('''SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_sample>')''', conn)
     print 'Number of rows in sample = %d' % nrows.iloc[0,0]
 
     ncols = pd.read_sql('''SELECT count(*) FROM information_schema.columns WHERE table_name = ('<nyctaxi_sample>') AND table_schema = '<schemaname>'''', conn)
     print 'Number of columns in sample = %d' % ncols.iloc[0,0]
 
-#### <a name="exploration-tippednot-tripped-distribution"></a>탐색: 왕복/비왕복 분포
+#### <a name="exploration-tippednot-tripped-distribution"></a>탐색: 팁 지불/미운행 분포
     query = '''
         SELECT tipped, count(*) AS tip_freq
         FROM <schemaname>.<nyctaxi_sample>
@@ -758,12 +758,12 @@ and
 
     tip_class_dist = pd.read_sql(query, conn)
 
-#### <a name="exploration-plot-the-tip-distribution-by-class"></a>탐색: 클래스에 의해 팁 분포 그리기
+#### <a name="exploration-plot-the-tip-distribution-by-class"></a>탐색: 클래스별 팁 분포 그림
     tip_class_dist['tip_freq'].plot(kind='bar')
 
 ![그림 #26][26]
 
-#### <a name="exploration-daily-distribution-of-trips"></a>탐색: 일일 여정 분포
+#### <a name="exploration-daily-distribution-of-trips"></a>탐색: 일일 운행 분포
     query = '''
         SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
         FROM <schemaname>.<nyctaxi_sample>
@@ -772,7 +772,7 @@ and
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-per-medallion"></a>탐색: medallion당 여정 분포
+#### <a name="exploration-trip-distribution-per-medallion"></a>탐색: medallion당 운행 분포
     query = '''
         SELECT medallion,count(*) AS c
         FROM <schemaname>.<nyctaxi_sample>
@@ -781,20 +781,20 @@ and
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>탐색: medallion 및 hack license별 여정 분포
+#### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>탐색: medallion 및 hack 라이선스별 운행 분포
     query = '''select medallion, hack_license,count(*) from <schemaname>.<nyctaxi_sample> group by medallion, hack_license'''
     pd.read_sql(query,conn)
 
 
-#### <a name="exploration-trip-time-distribution"></a>탐색: 여정 시간 분포
+#### <a name="exploration-trip-time-distribution"></a>탐색: 운행 시간 분포
     query = '''select trip_time_in_secs, count(*) from <schemaname>.<nyctaxi_sample> group by trip_time_in_secs order by count(*) desc'''
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distance-distribution"></a>탐색: 여정 거리 분포
+#### <a name="exploration-trip-distance-distribution"></a>탐색: 운행 거리 분포
     query = '''select floor(trip_distance/5)*5 as tripbin, count(*) from <schemaname>.<nyctaxi_sample> group by floor(trip_distance/5)*5 order by count(*) desc'''
     pd.read_sql(query,conn)
 
-#### <a name="exploration-payment-type-distribution"></a>탐색: 지불 형식 분포
+#### <a name="exploration-payment-type-distribution"></a>탐색: 결제 유형 분포
     query = '''select payment_type,count(*) from <schemaname>.<nyctaxi_sample> group by payment_type'''
     pd.read_sql(query,conn)
 
@@ -805,9 +805,9 @@ and
 ## <a name="mlmodel"></a>Azure 기계 학습에서 모델 빌드
 이제 [Azure Machine Learning](https://studio.azureml.net)에서 모델 빌드 및 모델 배포를 진행할 준비가 완료되었습니다. 이전에 식별된 다음과 같은 예측 문제에 데이터를 사용할 준비가 되었습니다.
 
-1. **이진 분류**: 여정에 대해 팁이 지불되었는지 여부를 예측합니다.
+1. **이진 분류**: 운행에 대해 팁이 지불되었는지 여부를 예측합니다.
 2. **다중 클래스 분류**: 이전에 정의한 클래스에 따라 지불된 팁의 범위를 예측합니다.
-3. **회귀 작업**: 여정에 대해 지불된 팁의 금액을 예측합니다.  
+3. **회귀 작업**: 운행에 대해 지불된 팁의 액수를 예측합니다.  
 
 모델링 연습을 시작하려면 **Azure Machine Learning** 작업 영역에 로그인합니다. 기계 학습 작업 영역을 아직 만들지 않은 경우 [Azure ML 작업 영역 만들기](../studio/create-workspace.md)를 참조하세요.
 

@@ -30,7 +30,7 @@ ms.locfileid: "48809003"
 <a name="create-a-service-principal-in-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에서 서비스 주체 만들기
 ----------------------------------------------------------------
 
-먼저 Azure AD 테넌트에서 서비스 주체를 만들어야 합니다. 이 테넌트에는 클라우드 파트너 포털의 자체 권한 집합이 할당됩니다. 코드는 개인 자격 증명을 사용하는 대신 이 테넌트를 사용하여 API를 호출합니다.  서비스 주체를 만드는 방법의 전체 설명은 [포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)를 참조하세요.
+먼저 Azure AD 테넌트에서 서비스 주체를 만들어야 합니다. 이 테넌트에는 클라우드 파트너 포털의 자체 권한 집합이 할당됩니다. 코드는 개인 자격 증명을 사용하는 대신 이 테넌트를 사용하여 API를 호출합니다.  서비스 주체를 만드는 방법의 전체 설명은 [포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)를 참조하세요.
 
 
 <a name="add-the-service-principal-to-your-account"></a>계정에 서비스 주체 추가
@@ -50,7 +50,7 @@ ms.locfileid: "48809003"
 -   서비스 주체의 **표시 이름**(예: `spAccount`)
 -   **응용 프로그램 ID**. 이 식별자를 확인하려면 [Azure Portal](https://portal.azure.com)로 이동하여 **Azure Active Directory**를 클릭하고 **앱 등록**을 선택한 후에 앱을 클릭합니다.
 -   Azure AD 테넌트의 **테넌트 ID**(**디렉터리 ID**)라고도 함. 이 식별자는 [Azure Portal](https://portal.azure.com)의 Azure Active Directory 페이지 내 **속성** 아래에서 확인할 수 있습니다.
--   서비스 주체 개체의 **개체 ID**. Azure Portal에서 이 식별자를 가져올 수 있습니다. **Azure Active Directory**로 이동하여 **앱 등록**을 선택하고 앱을 클릭한 후에 **로컬 디렉터리의 관리되는 응용 프로그램** 아래에서 앱 이름을 클릭합니다. 그런 다음 **속성** 페이지로 이동하여 개체 ID를 확인합니다. 앱에 표시되는 초기 개체 ID가 아니라 관리되는 응용 프로그램의 개체 ID를 가져와야 합니다.
+-   서비스 주체 개체의 **개체 ID**. Azure Portal에서 이 식별자를 가져올 수 있습니다. **Azure Active Directory**로 이동하여 **앱 등록**을 선택하고 앱을 클릭한 후에 **로컬 디렉터리의 관리되는 응용 프로그램** 아래에서 앱 이름을 클릭합니다. 그런 다음 **속성** 페이지로 이동하여 개체 ID를 확인합니다. 앱에 표시되는 초기 개체 ID가 아니라 관리되는 애플리케이션의 개체 ID를 가져와야 합니다.
 -   계정과 연결된 **역할**(RBAC에 사용됨)
 
      ![포털에 관리되는 앱 추가](./media/cloud-partner-portal-api-prerequisites/managedapp.png)

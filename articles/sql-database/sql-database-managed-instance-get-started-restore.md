@@ -11,42 +11,46 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: bc27ece2eddc842a81698aaa685cbe6d63c6a1df
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/14/2018
+ms.openlocfilehash: 40d07827cbd856fe3be3d797dde793b1a7f50207
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912257"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653241"
 ---
-# <a name="quickstart-restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database Managed Instance에 데이터베이스 백업 복원
+# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>빠른 시작: 데이터베이스를 Managed Instance로 복원 
 
-이 빠른 시작에서는 Wide World Importers - 표준 백업 파일을 사용하여 Azure Blob 저장소에 저장된 데이터베이스의 백업을 Managed Instance로 복원하는 방법을 설명합니다. 이 메서드는 가동 중지 시간이 필요합니다. 
+이 빠른 시작에서는 SSMS(SQL Server Management Studio)를 사용하여 Azure Blob Storage에서 Azure SQL Database [Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)로 데이터베이스(Wide World Importers - Standard 백업 파일)를 복원합니다. 
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
-Azure DMS(Database Migration Service)를 사용하여 마이그레이션하는 방법에 대한 자습서는 [DMS를 사용하여 Managed Instance 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요. 다양한 마이그레이션 방법에 대한 설명은 [SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션](sql-database-managed-instance-migrate.md)을 참조하세요.
+> [!NOTE]
+> * Azure DMS(Database Migration Service)를 사용하여 마이그레이션하는 방법에 대한 자세한 내용은 [DMS를 사용한 Managed Instance 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요. 
+> * 다양한 마이그레이션 방법에 대한 자세한 내용은 [SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션](sql-database-managed-instance-migrate.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 빠른 시작의 특징은 다음과 같습니다.
-- [Managed Instance 만들기](sql-database-managed-instance-get-started.md) 빠른 시작에서 만든 리소스를 시작 지점으로 사용합니다.
-- 온-프레미스 클라이언트 컴퓨터에 최신 버전의 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)가 필요합니다.
-- SQL Server Management Studio를 사용하여 Managed Instance에 연결해야 합니다. 연결 옵션에 대해서는 다음 빠른 시작을 참조하세요.
-  - [Azure VM에서 Azure SQL Database Managed Instance에 연결](sql-database-managed-instance-configure-vm.md)
-  - [지점 및 사이트 간 연결을 사용하여 온-프레미스에서 Azure SQL Database Managed Instance에 연결](sql-database-managed-instance-configure-p2s.md).
-- Wide World Importers - 표준 백업 파일(https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak)에서 다운로드)을 포함하여 미리 구성된 Azure Blob 저장소 계정을 사용합니다.
+- [Managed Instance 만들기](sql-database-managed-instance-get-started.md) 빠른 시작의 리소스를 사용합니다.
+- 컴퓨터에 최신 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)가 설치되어 있어야 합니다.
+- SSMS를 사용하여 Managed Instance에 연결해야 합니다. 다음과 같이 연결하는 방법에 대한 빠른 시작을 참조하세요.
+  * [Azure VM에서 Azure SQL Database Managed Instance에 연결](sql-database-managed-instance-configure-vm.md)
+  * [온-프레미스에서 Azure SQL Database Managed Instance로의 지점 및 사이트 간 연결 구성](sql-database-managed-instance-configure-p2s.md).
+
 
 > [!NOTE]
-> Azure Blob 저장소와 SAS(공유 액세스 서명)를 사용하여 SQL Server 데이터베이스를 백업하고 복원하는 방법에 대한 자세한 내용은 [URL에 SQL Server 백업 복원](sql-database-managed-instance-get-started-restore.md)을 참조하세요.
+> Azure Blob Storage와 [SAS(공유 액세스 서명) 키](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)를 사용하여 SQL Server Database를 백업하고 복원하는 데 관한 자세한 내용은 [URL에 SQL Server 백업](sql-database-managed-instance-get-started-restore.md)을 참조하세요.
 
-## <a name="restore-the-wide-world-importers-database-from-a-backup-file"></a>백업 파일에서 Wide World Importers 데이터베이스 복원
+## <a name="restore-the-database-from-a-backup-file"></a>백업 파일에서 데이터베이스 복원
 
-SSMS를 사용하면 다음 단계를 사용하여 백업 파일에서 Managed Instance로 Wide World Importers 데이터베이스를 복원합니다.
+SSMS에서 이러한 단계를 사용하여 Managed Instance로 Wide World Importers 데이터베이스를 복원합니다. 데이터베이스 백업 파일은 미리 구성된 Azure Blob Storage 계정에 저장됩니다.
 
-1. SSMS(SQL Server Management Studio)를 열고 Managed Instance에 연결합니다.
-2. SSMS에서 새 쿼리 창을 엽니다.
-3. 다음 스크립트를 사용하여 미리 구성된 저장소 계정과 SAS 키를 통해 Managed Instance에 자격 증명을 만듭니다.
+1. SMSS를 열고 Managed Instance에 연결합니다.
+
+2. 왼쪽 메뉴에서 Managed Instance를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택하여 새 쿼리 창을 엽니다.
+
+3. 미리 구성된 스토리지 계정과 SAS 키를 사용하여 Managed Instance에 [자격 증명을 만드는](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017) 다음 SQL 스크립트를 실행합니다.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases] 
@@ -56,10 +60,8 @@ SSMS를 사용하면 다음 단계를 사용하여 백업 파일에서 Managed I
 
     ![자격 증명 만들기](./media/sql-database-managed-instance-get-started-restore/credential.png)
 
-    > [!NOTE]
-    > 항상 생성된 SAS 키에서 앞에 나오는 **?** 를 제거해 주세요.
   
-3. 다음 스크립트를 사용하여 SAS 자격 증명 및 백업 유효성을 검사합니다. 백업 파일이 있는 컨테이너에 대한 URL을 제공합니다.
+3. 자격 증명을 확인하려면 [컨테이너](https://azure.microsoft.com/services/container-instances/) URL을 사용하여 백업 파일 목록을 가져오는 다음 스크립트를 실행합니다.
 
    ```sql
    RESTORE FILELISTONLY FROM URL = 
@@ -68,7 +70,7 @@ SSMS를 사용하면 다음 단계를 사용하여 백업 파일에서 Managed I
 
     ![파일 목록](./media/sql-database-managed-instance-get-started-restore/file-list.png)
 
-4. 다음 스크립트를 사용하여 백업 파일에서 Wide World Importers 데이터베이스를 복원합니다. 백업 파일이 있는 컨테이너에 대한 URL을 제공합니다.
+4. Wide World Importers 데이터베이스를 복원하려면 다음 스크립트를 실행합니다.
 
    ```sql
    RESTORE DATABASE [Wide World Importers] FROM URL =
@@ -77,20 +79,20 @@ SSMS를 사용하면 다음 단계를 사용하여 백업 파일에서 Managed I
 
     ![복원](./media/sql-database-managed-instance-get-started-restore/restore.png)
 
-5. 복원 상태를 추적하려면 새 쿼리 세션에서 다음 쿼리를 실행합니다.
+5. 복원의 상태를 추적하려면 다음 스크립트를 실행합니다.
 
    ```sql
    SELECT session_id as SPID, command, a.text AS Query, start_time, percent_complete
       , dateadd(second,estimated_completion_time/1000, getdate()) as estimated_completion_time 
    FROM sys.dm_exec_requests r 
    CROSS APPLY sys.dm_exec_sql_text(r.sql_handle) a 
-   WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')`
+   WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
 6. 복원이 완료되면 개체 탐색기에서 봅니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-- URL에 대한 백업 복원과 관련된 문제를 해결하려면 [URL에 대한 SQL Server 백업 - 최상의 방법 및 문제 해결](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting)을 참조하세요.
-- 응용 프로그램 연결 옵션에 대한 개요는 [응용 프로그램을 Managed Instance에 연결](sql-database-managed-instance-connect-app.md)을 참조하세요.
-- 즐겨찾는 도구 또는 언어 중 하나를 사용하여 쿼리하려면 [연결 및 쿼리](sql-database-connect-query.md)를 참조하세요.
+- URL에 대한 백업과 관련된 문제를 해결하려면 [URL에 대한 SQL Server 백업 - 모범 사례 및 문제 해결](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting)을 참조하세요.
+- 앱 연결 옵션의 개요는 [애플리케이션을 Managed Instance에 연결](sql-database-managed-instance-connect-app.md)을 참조하세요.
+- 즐겨찾는 도구 또는 언어를 사용하여 쿼리하려면 [빠른 시작: Azure SQL Database 연결 및 쿼리](sql-database-connect-query.md)를 참조하세요.

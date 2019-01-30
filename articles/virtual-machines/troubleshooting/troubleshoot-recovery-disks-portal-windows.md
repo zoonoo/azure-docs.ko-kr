@@ -13,15 +13,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/013/2018
 ms.author: genli
-ms.openlocfilehash: 42494ef538fa9840afe5f489074934da3965d56f
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 0b6ade7a6031b957f2405e525d61c9ca1d2dac3d
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412130"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809100"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Azure Portal을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결
-Azure에서 Windows VM(가상 머신)에 부팅 또는 디스크 오류가 발생하는 경우 가상 하드 디스크에서 바로 문제 해결 단계를 수행해야 합니다. 일반적인 예로는 응용 프로그램 업데이트가 실패하여 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에는 가상 하드 디스크를 다른 Windows VM에 연결하여 모든 오류를 수정한 후 원래 VM을 다시 만들기 위해 Azure Portal을 사용하는 방법을 자세히 설명합니다.
+Azure에서 Windows VM(가상 머신)에 부팅 또는 디스크 오류가 발생하는 경우 가상 하드 디스크에서 바로 문제 해결 단계를 수행해야 합니다. 일반적인 예로는 애플리케이션 업데이트가 실패하여 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에는 가상 하드 디스크를 다른 Windows VM에 연결하여 모든 오류를 수정한 후 원래 VM을 다시 만들기 위해 Azure Portal을 사용하는 방법을 자세히 설명합니다.
 
 ## <a name="recovery-process-overview"></a>복구 프로세스 개요
 문제 해결 프로세스는 다음과 같습니다.
@@ -35,7 +35,7 @@ Azure에서 Windows VM(가상 머신)에 부팅 또는 디스크 오류가 발�
 관리되는 디스크를 사용하는 VM의 경우, 이제 Azure PowerShell을 사용하여 VM용 OS 디스크를 변경할 수 있습니다. 더 이상 VM을 삭제하고 다시 만들 필요가 없습니다. 자세한 내용은 [Azure Portal을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결](troubleshoot-recovery-disks-windows.md)을 참조하세요.
 
 ## <a name="determine-boot-issues"></a>부팅 문제 확인
-VM이 올바르게 부팅할 수 없는 원인을 확인하려면 부팅 진단 VM 스크린샷을 검사합니다. 일반적인 예로는 응용 프로그램 업데이트가 실패하거나 기본 가상 하드 디스크를 삭제 또는 이동하는 것입니다.
+VM이 올바르게 부팅할 수 없는 원인을 확인하려면 부팅 진단 VM 스크린샷을 검사합니다. 일반적인 예로는 애플리케이션 업데이트가 실패하거나 기본 가상 하드 디스크를 삭제 또는 이동하는 것입니다.
 
 포털에서 VM을 선택하고 **지원+문제 해결** 섹션까지 아래로 스크롤합니다. 스크린샷을 보려면 **부팅 진단**을 클릭합니다. VM에서 문제가 발생하는 이유를 확인하는 데 도움이 되는 특정 오류 메시지 또는 오류 코드를 기록해 둡니다. 다음 예는 VM이 서비스가 중지되기를 기다리는 상태를 보여 줍니다.
 
@@ -61,7 +61,7 @@ VM이 올바르게 부팅할 수 없는 원인을 확인하려면 부팅 진단 
 
 
 ## <a name="delete-existing-vm"></a>기존 VM 삭제
-가상 하드 디스크와 VM은 Azure의 두 가지 별개의 리소스입니다. 가상 하드 디스크에는 운영 체제 자체, 응용 프로그램 및 구성이 저장됩니다. VM 자체는 크기 또는 위치를 정의하고 가상 하드 디스크 또는 가상 네트워크 인터페이스 카드(NIC)와 같은 리소스를 참조하는 메타데이터일 뿐입니다. 각 가상 하드 디스크에는 VM에 연결할 때 할당된 임대가 있습니다. VM을 실행하는 동안에도 데이터 디스크를 연결하고 분리할 수 있지만, VM 리소스를 삭제하지 않는 한 OS 디스크를 분리할 수 없습니다. 해당 VM이 중지 및 할당 취소된 상태에 있을 때에도 임대는 OS 디스크와 VM을 계속 연결합니다.
+가상 하드 디스크와 VM은 Azure의 두 가지 별개의 리소스입니다. 가상 하드 디스크에는 운영 체제 자체, 애플리케이션 및 구성이 저장됩니다. VM 자체는 크기 또는 위치를 정의하고 가상 하드 디스크 또는 가상 네트워크 인터페이스 카드(NIC)와 같은 리소스를 참조하는 메타데이터일 뿐입니다. 각 가상 하드 디스크에는 VM에 연결할 때 할당된 임대가 있습니다. VM을 실행하는 동안에도 데이터 디스크를 연결하고 분리할 수 있지만, VM 리소스를 삭제하지 않는 한 OS 디스크를 분리할 수 없습니다. 해당 VM이 중지 및 할당 취소된 상태에 있을 때에도 임대는 OS 디스크와 VM을 계속 연결합니다.
 
 VM을 복구하는 첫 번째 단계는 자체 VM 리소스를 삭제하는 것입니다. VM을 삭제하면 가상 하드 디스크는 저장소 계정에 남게 됩니다. VM을 삭제한 후 가상 하드 디스크를 다른 VM에 연결하여 문제와 오류를 해결합니다.
 
@@ -73,7 +73,7 @@ VM을 복구하는 첫 번째 단계는 자체 VM 리소스를 삭제하는 것�
 
 
 ## <a name="attach-existing-virtual-hard-disk-to-another-vm"></a>기존 가상 하드 디스크를 다른 VM에 연결
-다음 몇 단계에서는 문제 해결을 위해 다른 VM을 사용합니다. 기존 가상 하드 디스크를 이 문제 해결 VM에 연결하여 디스크의 콘텐츠를 찾아 편집할 수 있습니다. 예를 들어 이 프로세스를 사용하면 구성 오류를 수정하거나 추가 응용 프로그램 또는 시스템 로그 파일을 검토할 수 있습니다. 다른 VM을 선택하거나 만들어 문제 해결에 사용합니다.
+다음 몇 단계에서는 문제 해결을 위해 다른 VM을 사용합니다. 기존 가상 하드 디스크를 이 문제 해결 VM에 연결하여 디스크의 콘텐츠를 찾아 편집할 수 있습니다. 예를 들어 이 프로세스를 사용하면 구성 오류를 수정하거나 추가 애플리케이션 또는 시스템 로그 파일을 검토할 수 있습니다. 다른 VM을 선택하거나 만들어 문제 해결에 사용합니다.
 
 1. 포털에서 리소스 그룹을 선택하고 문제를 해결하는 VM을 선택합니다. **디스크**를 선택한 다음 **기존 연결**을 클릭합니다.
 
@@ -133,7 +133,7 @@ VM을 복구하는 첫 번째 단계는 자체 VM 리소스를 삭제하는 것�
     계속하기 전에 VM이 데이터 디스크를 성공적으로 분리할 때까지 기다립니다.
 
 ## <a name="create-vm-from-original-hard-disk"></a>원래 하드 디스크에서 VM 만들기
-원래 가상 하드 디스크에서 VM을 만들려면 [이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet)을 사용합니다. 템플릿은 이전 명령의 VHD URL을 사용하여 VM을 기존 가상 네트워크에 배포합니다. 다음과 같이 **Azure에 배포** 단추를 클릭합니다.
+원래 가상 하드 디스크에서 VM을 만들려면 [이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet)을 사용합니다. 템플릿은 이전 명령의 VHD URL을 사용하여 VM을 기존 또는 새 가상 네트워크에 배포합니다. 다음과 같이 **Azure에 배포** 단추를 클릭합니다.
 
 ![GitHub의 템플릿에서 VM 배포](./media/troubleshoot-recovery-disks-portal-windows/deploy-template-from-github.png)
 
@@ -148,7 +148,7 @@ VM을 복구하는 첫 번째 단계는 자체 VM 리소스를 삭제하는 것�
 ![부팅 진단 설정 업데이트](./media/troubleshoot-recovery-disks-portal-windows/reenable-boot-diagnostics.png)
 
 ## <a name="next-steps"></a>다음 단계
-VM에 연결하는 데 문제가 있는 경우 [Azure VM에 RDP 연결 문제 해결](troubleshoot-rdp-connection.md)을 참조하세요. VM에서 실행 중인 응용 프로그램에 액세스하는 데 문제가 있는 경우 [Windows VM에서 응용 프로그램 연결 문제 해결](troubleshoot-app-connection.md)을 참조하세요.
+VM에 연결하는 데 문제가 있는 경우 [Azure VM에 RDP 연결 문제 해결](troubleshoot-rdp-connection.md)을 참조하세요. VM에서 실행 중인 애플리케이션에 액세스하는 데 문제가 있는 경우 [Windows VM에서 애플리케이션 연결 문제 해결](troubleshoot-app-connection.md)을 참조하세요.
 
 Resource Manager를 사용하는 방법에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)를 참조하세요.
 

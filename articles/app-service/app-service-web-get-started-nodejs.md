@@ -1,5 +1,5 @@
 ---
-title: Azure에서 Node.js 웹앱 만들기 | Microsoft Docs
+title: Node.js 웹앱 만들기 - Azure App Service | Microsoft Docs
 description: 몇 분 안에 Azure App Service Web Apps에서 첫 번째 Node.js Hello World를 배포합니다.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/30/2018
 ms.author: cephalin;msangapu
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 6d3f367ce21e9574282805737f2eff6c83ea6157
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.custom: seodec18
+ms.openlocfilehash: 5223a60663e05747b58aa04e7a102f1d350badd4
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248199"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632300"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure에서 Node.js 웹앱 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "50248199"
 > 이 문서에서는 Windows의 App Service에 앱을 배포합니다. _Linux_의 App Service에 배포하려면 [Linux의 Azure App Service에서 Node.js 웹앱 만들기](./containers/quickstart-nodejs.md)를 참조하세요.
 >
 
-[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작에서는 Node.js 앱을 Azure Web Apps에 배포하는 방법을 보여 줍니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 ZipDeploy를 사용하여 웹앱에 샘플 Node.js 코드를 배포합니다.
+[Azure App Service](overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작에서는 Node.js 앱을 Azure App Service에 배포하는 방법을 보여줍니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 ZipDeploy를 사용하여 웹앱에 샘플 Node.js 코드를 배포합니다.
 
 ![Azure에서 실행되는 샘플 앱](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
@@ -52,13 +52,13 @@ _index.js_를 열어서 다음 줄을 찾습니다.
 var port = process.env.PORT || 1337;
 ```
 
-App Service가 process.env.PORT를 응용 프로그램에 삽입하기 때문에 코드가 변수를 사용하여 수신할 포트를 파악합니다. 
+App Service가 process.env.PORT를 애플리케이션에 삽입하기 때문에 코드가 변수를 사용하여 수신할 포트를 파악합니다. 
 
 터미널 창에서 샘플 Node.js 프로젝트의 루트 디렉터리(_index.js_ 포함)로 이동합니다.
 
 ## <a name="run-the-app-locally"></a>로컬에서 앱 실행하기
 
-응용 프로그램을 로컬로 실행하여 Azure에 응용 프로그램을 배포할 때 표시되는 모양을 확인합니다. 터미널 창을 열고 `npm start` 스크립트를 사용하여 기본 제공 Node.js HTTP 서버를 시작합니다.
+애플리케이션을 로컬로 실행하여 Azure에 애플리케이션을 배포할 때 표시되는 모양을 확인합니다. 터미널 창을 열고 `npm start` 스크립트를 사용하여 기본 제공 Node.js HTTP 서버를 시작합니다.
 
 ```bash
 npm start
@@ -119,10 +119,10 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
 
-새로 만든 웹앱으로 이동합니다. _&lt;앱 이름>_ 을 고유한 앱 이름으로 바꿉니다.
+새로 만든 웹앱으로 이동합니다. `<app_name>`을 고유한 앱 이름으로 바꿉니다.
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app_name>.azurewebsites.net
 ```
 
 새로운 웹앱은 다음과 같아야 합니다.
@@ -133,7 +133,7 @@ http://<app name>.azurewebsites.net
 
 ## <a name="browse-to-the-app"></a>앱으로 이동
 
-웹 브라우저를 사용하여 배포된 응용 프로그램으로 이동합니다.
+웹 브라우저를 사용하여 배포된 애플리케이션으로 이동합니다.
 
 ```
 http://<app_name>.azurewebsites.net
@@ -153,7 +153,7 @@ Node.js 샘플 코드는 Azure App Service 웹앱에서 실행 중입니다.
 response.end("Hello Azure!");
 ```
 
-로컬 터미널 창에서 응용 프로그램의 루트 디렉터리로 이동하고, 업데이트된 프로젝트에 대한 새 ZIP 파일을 만듭니다.
+로컬 터미널 창에서 애플리케이션의 루트 디렉터리로 이동하고, 업데이트된 프로젝트에 대한 새 ZIP 파일을 만듭니다.
 
 ```
 # Bash
@@ -169,13 +169,13 @@ Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
 
 ![Azure에서 실행되는 업데이트된 샘플 앱](media/app-service-web-get-started-nodejs-poc/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>새로운 Azure 웹앱 관리
+## <a name="manage-your-new-azure-app"></a>새 Azure 앱 관리
 
 만든 웹앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다.
 
-왼쪽 메뉴에서 **App Services**를 클릭한 다음 Azure 웹앱의 이름을 클릭합니다.
+왼쪽 메뉴에서 **App Services**를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
 
-![Azure 웹앱에 대한 포털 탐색](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
+![Azure 앱에 대한 포털 탐색](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 
 웹앱의 개요 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 
 

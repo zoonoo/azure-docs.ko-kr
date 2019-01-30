@@ -14,16 +14,17 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 3d608843ef31a1ed665fcb1fd90b822f34f77fdd
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.lastreviewed: 10/25/2018
+ms.openlocfilehash: 7183cae491287042c778c2e56be8a1451c8c71a2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086355"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247768"
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Microsoft Azure Stack에 SQL 데이터베이스 사용
 
-SQL Server 리소스 공급자 어댑터를 사용 하 여 SQL database의 서비스로 제공 [Azure Stack](azure-stack-poc.md)합니다. 리소스 공급자를 설치 하 고 하나 이상의 SQL Server 인스턴스에 연결 후 하 고 사용자가 만들 수 있습니다.
+SQL Server 리소스 공급자 어댑터를 사용 하 여 SQL database의 서비스로 제공 [Azure Stack](azure-stack-poc.md)합니다. 리소스 공급자를 설치하여 하나 이상의 SQL Server 인스턴스에 연결한 후에는 귀하와 사용자가 다음 항목을 만들 수 있습니다.
 
 - 클라우드 네이티브 앱에 대 한 데이터베이스입니다.
 - SQL을 사용 하는 웹 사이트입니다.

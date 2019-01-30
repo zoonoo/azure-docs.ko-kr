@@ -1,24 +1,24 @@
 ---
-title: Azure Cosmos DB Cassandra API 계정에서 데이터 쿼리
-description: 이 문서에서는 Java 응용 프로그램을 사용하여 Azure Cosmos DB Cassandra API 계정에서 사용자 데이터를 쿼리하는 방법을 보여줍니다.
-services: cosmos-db
+title: '자습서: Azure Cosmos DB의 Cassandra API 계정에서 데이터 쿼리'
+description: 이 자습서에서는 Java 애플리케이션을 사용하여 Azure Cosmos DB Cassandra API 계정에서 사용자 데이터를 쿼리하는 방법을 보여줍니다.
 ms.service: cosmos-db
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
-ms.component: cosmosdb-cassandra
+ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: a06e7e6159953bfeffa966759d29b91bbcbafd37
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+Customer intent: As a developer, I want to build a Java application to query data stored in a Cassandra API account of Azure Cosmos DB so that customers can manage the key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
+ms.openlocfilehash: 69a9bc912f2cd52e52ca6403187f993413539ecd
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739212"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038180"
 ---
-# <a name="tutorial-query-data-from-an-azure-cosmos-db-cassandra-api-account"></a>자습서: Azure Cosmos DB Cassandra API 계정에서 데이터 쿼리
+# <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>자습서: Azure Cosmos DB의 Cassandra API 계정에서 데이터 쿼리
 
-이 자습서에서는 Java 응용 프로그램을 사용하여 Azure Cosmos DB Cassandra API 계정에서 사용자 데이터를 쿼리하는 방법을 보여줍니다. Java 응용 프로그램은 [Java 드라이버](https://github.com/datastax/java-driver)를 사용하며 사용자 ID, 사용자 이름, 사용자 도시와 같은 사용자 데이터를 쿼리합니다. 
+개발자는 키/값 쌍을 사용하는 애플리케이션을 가질 수도 있습니다. Azure Cosmos DB에서 Cassandra API 계정을 사용하여 키/값 데이터를 저장 및 쿼리할 수 있습니다. 이 자습서에서는 Java 애플리케이션을 사용하여 Azure Cosmos DB의 Cassandra API 계정에서 사용자 데이터를 쿼리하는 방법을 보여줍니다. Java 애플리케이션은 [Java 드라이버](https://github.com/datastax/java-driver)를 사용하며 사용자 ID, 사용자 이름, 사용자 도시와 같은 사용자 데이터를 쿼리합니다. 
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -26,9 +26,11 @@ ms.locfileid: "50739212"
 > * Cassandra 테이블에서 데이터 쿼리
 > * 앱 실행
 
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+
 ## <a name="prerequisites"></a>필수 조건
 
-* 이 문서는 여러 부분으로 구성된 자습서의 일부분입니다. 시작하기 전에 [Cassandra API 계정, 키스페이스, 테이블을 만들고] [테이블에 샘플 데이터를 로드](cassandra-api-load-data.md)하는 이전 단계를 완료해야 합니다. 
+* 이 문서는 여러 부분으로 구성된 자습서의 일부분입니다. 시작하기 전에 Cassandra API 계정, 키스페이스, 테이블을 만들고, [테이블에 샘플 데이터를 로드](cassandra-api-load-data.md)하는 이전 단계를 완료해야 합니다. 
 
 ## <a name="query-data"></a>쿼리 데이터
 
@@ -103,9 +105,13 @@ ms.locfileid: "50739212"
 
 2. 이제 Azure Portal에서 **데이터 탐색기**를 열고 사용자 테이블이 삭제되었는지 확인합니다.
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+더 이상 필요 없는 경우 리소스 그룹, Azure Cosmos 계정 및 모든 관련 리소스를 삭제해도 됩니다. 삭제하려면 가상 머신의 리소스 그룹을 선택하고, **삭제**를 선택한 다음, 삭제할 리소스 그룹의 이름을 확인합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-* 이 자습서에서는 Azure Cosmos DB Cassandra API 계정에서 데이터를 쿼리하는 방법을 알아보았습니다. 이제 다음 문서로 진행할 수 있습니다.
+이 자습서에서는 Azure Cosmos DB의 Cassandra API 계정에서 데이터를 쿼리하는 방법을 알아보았습니다. 이제 다음 문서로 진행할 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [Cassandra API 계정으로 데이터 마이그레이션](cassandra-import-data.md)

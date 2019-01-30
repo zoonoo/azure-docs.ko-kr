@@ -1,21 +1,22 @@
 ---
-title: Java 빠른 시작 - 모델 변경 및 LUIS 앱 학습
-titleSuffix: Azure Cognitive Services
-description: Java 빠른 시작에서는 Home Automation 앱에 예제 발언을 추가하여 앱을 학습시킵니다. 예제 발언은 의도에 매핑된 대화형 사용자 텍스트입니다. 의도에 대한 예제 발언을 제공하여, 사용자가 제공한 텍스트의 종류가 어떤 의도에 속하는지 LUIS에 알려줍니다.
+title: 변경, 학습 앱, Java
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Java 빠른 시작에서는 Home Automation 앱에 예제 발언을 추가하여 앱을 학습시킵니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: bfe4aae25a34799370e52c8677871a62935ab5c2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e8bf2c2e7f4f37325fa741d190d99b617e1bcc0c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419744"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847920"
 ---
 # <a name="quickstart-change-model-using-java"></a>빠른 시작: Java를 사용하여 모델 변경 
 
@@ -47,7 +48,7 @@ ms.locfileid: "50419744"
     }
     ```
 
-3. LUIS 상수를 클래스에 추가합니다. 다음 코드를 복사하고, 제작 키, 응용 프로그램 ID 및 버전 ID로 변경합니다.
+3. LUIS 상수를 클래스에 추가합니다. 다음 코드를 복사하고, 제작 키, 애플리케이션 ID 및 버전 ID로 변경합니다.
 
    [!code-java[LUIS-based IDs](~/samples-luis/documentation-samples/quickstarts/change-model/java/AddUtterances.java?range=33-44 "LUIS-based IDs")]
 
@@ -71,14 +72,14 @@ ms.locfileid: "50419744"
 
 종속성이 있는 AddUtterance를 컴파일합니다.
 
-```CMD
+```console
 > javac -classpath gson-2.8.2.jar AddUtterances.java
 ```
 
 ## <a name="run-code"></a>코드 실행
 인수 없이 `AddUtterance`를 호출하면 LUIS 발화가 학습되지 않고 앱에 추가됩니다.
 
-```CMD
+```console
 > java -classpath .;gson-2.8.2.jar AddUtterances
 ```
 

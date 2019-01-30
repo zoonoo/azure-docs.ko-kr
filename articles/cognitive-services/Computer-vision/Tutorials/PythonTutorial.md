@@ -1,5 +1,5 @@
 ---
-title: '자습서: Computer Vision API Python'
+title: '자습서: 이미지 작업 수행 - Python'
 titlesuffix: Azure Cognitive Services
 description: Jupyter 노트북을 사용하여 Computer Vision API Python을 사용하는 방법을 알아봅니다. 유명 라이브러리를 사용하여 결과를 시각화합니다.
 services: cognitive-services
@@ -8,24 +8,25 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: tutorial
-ms.date: 11/6/2018
+ms.date: 11/06/2018
 ms.author: kefre
-ms.openlocfilehash: 16054d19c1ce6f211ebd3e2f0bbc4d152a255dda
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.custom: seodec18
+ms.openlocfilehash: 55e5168c36eb16944142c2deaae9bc94d60d2fe4
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51276970"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582017"
 ---
 # <a name="tutorial-computer-vision-api-python"></a>자습서: Computer Vision API Python
 
-이 자습서는 Python에서 Computer Vision API를 사용하는 방법 및 인기 있는 라이브러리를 사용하여 결과를 시각화하는 방법을 보여줍니다. Jupyter를 사용하여 자습서를 실행할 것입니다. 대화형 Jupyter Notebook을 시작하는 방법을 알아보려면 [Jupyter 설명서](http://jupyter.readthedocs.io/en/latest/index.html)를 참조하세요.
+이 자습서는 Python에서 Computer Vision API를 사용하는 방법 및 인기 있는 라이브러리를 사용하여 결과를 시각화하는 방법을 보여줍니다. Jupyter를 사용하여 자습서를 실행할 것입니다. 대화형 Jupyter Notebook을 시작하는 방법을 알아보려면 [Jupyter 설명서](https://jupyter.readthedocs.io/en/latest/index.html)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
 - [Python 2.7+ 또는 3.5+](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installing/) 도구
-- [Jupyter Notebook](http://jupyter.org/install) 설치
+- [Jupyter Notebook](https://jupyter.org/install) 설치
 
 ## <a name="open-the-tutorial-notebook-in-jupyter"></a>Jupyter에서 자습서 Notebook 열기 
 

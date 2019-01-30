@@ -1,6 +1,6 @@
 ---
 title: Azure Table Storage 및 Visual Studio 연결 서비스 시작(ASP.NET) | Microsoft Docs
-description: Visual Studio 연결 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio ASP.NET 프로젝트에서 Azure Table Storage 사용을 시작하는 방법입니다.
+description: Visual Studio 연결 서비스를 사용하여 스토리지 계정에 연결한 후 Visual Studio ASP.NET 프로젝트에서 Azure Table Storage 사용을 시작하는 방법입니다.
 services: storage
 author: ghogen
 manager: douge
@@ -169,7 +169,7 @@ Azure 테이블 저장소를 사용하면 많은 양의 구조화된 데이터�
     <li>@Html.ActionLink("Create table", "CreateTable", "Tables")</li>
     ```
 
-1. 응용 프로그램을 실행하고 **테이블 만들기**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
+1. 애플리케이션을 실행하고 **테이블 만들기**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
   
     ![테이블 만들기](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
@@ -271,7 +271,7 @@ Azure 테이블 저장소를 사용하면 많은 양의 구조화된 데이터�
     <li>@Html.ActionLink("Add entity", "AddEntity", "Tables")</li>
     ```
 
-1. 응용 프로그램을 실행하고 **엔터티 추가**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
+1. 애플리케이션을 실행하고 **엔터티 추가**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
   
     ![엔터티 추가](./media/vs-storage-aspnet-getting-started-tables/add-entity-results.png)
 
@@ -391,7 +391,7 @@ Azure 테이블 저장소를 사용하면 많은 양의 구조화된 데이터�
     <li>@Html.ActionLink("Add entities", "AddEntities", "Tables")</li>
     ```
 
-1. 응용 프로그램을 실행하고 **엔터티 추가**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
+1. 애플리케이션을 실행하고 **엔터티 추가**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
   
     ![엔터티 추가](./media/vs-storage-aspnet-getting-started-tables/add-entities-results.png)
 
@@ -493,7 +493,7 @@ Azure 테이블 저장소를 사용하면 많은 양의 구조화된 데이터�
     <li>@Html.ActionLink("Get single", "GetSingle", "Tables")</li>
     ```
 
-1. 응용 프로그램을 실행하고 **단일 가져오기**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
+1. 애플리케이션을 실행하고 **단일 가져오기**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
   
     ![단일 가져오기](./media/vs-storage-aspnet-getting-started-tables/get-single-results.png)
 
@@ -603,7 +603,7 @@ Azure 테이블 저장소를 사용하면 많은 양의 구조화된 데이터�
     <li>@Html.ActionLink("Get partition", "GetPartition", "Tables")</li>
     ```
 
-1. 응용 프로그램을 실행하고 **파티션 가져오기**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
+1. 애플리케이션을 실행하고 **파티션 가져오기**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
   
     ![파티션 가져오기](./media/vs-storage-aspnet-getting-started-tables/get-partition-results.png)
 
@@ -703,7 +703,7 @@ Azure 테이블 저장소를 사용하면 많은 양의 구조화된 데이터�
     <li>@Html.ActionLink("Delete entity", "DeleteEntity", "Tables")</li>
     ```
 
-1. 응용 프로그램을 실행하고 **엔터티 삭제**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
+1. 애플리케이션을 실행하고 **엔터티 삭제**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
   
     ![단일 가져오기](./media/vs-storage-aspnet-getting-started-tables/delete-entity-results.png)
 

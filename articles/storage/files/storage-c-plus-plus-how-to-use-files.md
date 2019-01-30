@@ -1,6 +1,6 @@
 ---
 title: C++를 사용하여 Azure Files 개발 | Microsoft Docs
-description: Azure Files를 사용하여 파일 데이터를 저장하는 C++ 응용 프로그램 및 서비스를 개발하는 방법을 알아봅니다.
+description: Azure Files를 사용하여 파일 데이터를 저장하는 C++ 애플리케이션 및 서비스를 개발하는 방법을 알아봅니다.
 services: storage
 author: renashahmsft
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
 ms.component: files
-ms.openlocfilehash: f2b6a03ce4e2c03f148fda67cfad1c4d51636b7a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a904e7ba269b1fbe03878b23ed35280b6d592f57
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234972"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412991"
 ---
 # <a name="develop-for-azure-files-with-c"></a>C++를 사용하여 Azure Files 개발
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -31,21 +31,21 @@ ms.locfileid: "51234972"
 * 공유에 정의된 공유 액세스 정책을 사용하는 파일에 대해 공유 액세스 서명(SAS 키) 만들기
 
 > [!Note]  
-> Azure Files는 SMB를 통해 액세스할 수 있기 때문에 표준 C++ I/O 클래스 및 함수를 사용하여 Azure 파일 공유에 액세스하는 간단한 응용 프로그램을 작성할 수 있습니다. 이 문서에서는 [File REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api)를 사용하여 Azure Files와 통신하는 Azure Storage C++ SDK를 사용하는 응용 프로그램을 작성하는 방법에 대해 설명합니다.
+> Azure Files는 SMB를 통해 액세스할 수 있기 때문에 표준 C++ I/O 클래스 및 함수를 사용하여 Azure 파일 공유에 액세스하는 간단한 애플리케이션을 작성할 수 있습니다. 이 문서에서는 [File REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api)를 사용하여 Azure Files와 통신하는 Azure Storage C++ SDK를 사용하는 애플리케이션을 작성하는 방법에 대해 설명합니다.
 
-## <a name="create-a-c-application"></a>C++ 응용 프로그램 만들기
+## <a name="create-a-c-application"></a>C++ 애플리케이션 만들기
 샘플을 빌드하려면 Azure Storage Client Library 2.4.0 for C++를 설치해야 합니다. Azure 저장소 계정도 만들었어야 합니다.
 
 Azure Storage Client 2.4.0 for C++를 설치하려면 다음 방법 중 하나를 사용할 수 있습니다.
 
-* **Linux:**[Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 페이지의 지침을 따릅니다.
-* **Windows:** Visual Studio에서 **도구 &gt; NuGet 패키지 관리자 &gt; 패키지 관리자 콘솔**을 클릭합니다. [NuGet 패키지 관리자 콘솔](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 에 다음 명령을 입력하고 **ENTER**를 누릅니다.
+* **Linux:** [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 페이지의 지침을 따릅니다.
+* **Windows:** Visual Studio에서 **도구&gt; NuGet 패키지 관리자 &gt; 패키지 관리자 콘솔**을 클릭합니다. [NuGet 패키지 관리자 콘솔](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 에 다음 명령을 입력하고 **ENTER**를 누릅니다.
   
 ```
 Install-Package wastorage
 ```
 
-## <a name="set-up-your-application-to-use-azure-files"></a>Azure Files를 사용하도록 응용 프로그램 설정
+## <a name="set-up-your-application-to-use-azure-files"></a>Azure Files를 사용하도록 애플리케이션 설정
 Azure Files를 조작하려는 C++ 소스 파일의 맨 위에 다음 include 문을 추가합니다.
 
 ```cpp
@@ -54,7 +54,7 @@ Azure Files를 조작하려는 C++ 소스 파일의 맨 위에 다음 include �
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Azure 저장소 연결 문자열 설정
-파일 저장소를 사용하려면 Azure 저장소 계정에 연결해야 합니다. 첫 번째 단계는 저장소 계정에 연결하는 데 사용할 연결 문자열을 구성하는 것입니다. 이를 위해 정적 변수를 정의해 보겠습니다.
+File Storage를 사용하려면 Azure 스토리지 계정에 연결해야 합니다. 첫 번째 단계는 저장소 계정에 연결하는 데 사용할 연결 문자열을 구성하는 것입니다. 이를 위해 정적 변수를 정의해 보겠습니다.
 
 ```cpp
 // Define the connection-string with your values.
@@ -159,7 +159,7 @@ azure::storage::cloud_file_directory root_dir =
   share.get_root_directory_reference();
 
 // Output URI of each item.
-azure::storage::list_file_and_diretory_result_iterator end_of_results;
+azure::storage::list_file_and_directory_result_iterator end_of_results;
 
 for (auto it = directory.list_files_and_directories(); it != end_of_results; ++it)
 {

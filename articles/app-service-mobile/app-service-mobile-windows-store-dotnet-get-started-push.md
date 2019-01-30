@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: c137f6cfdff9d043a656783f38ec9b894e644338
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 7efd853e7b66933cac811625d7510139864f41f3
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913022"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001843"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>Windows 앱에 푸시 알림 추가
 
@@ -44,9 +44,9 @@ Microsoft Store에 앱을 제출한 다음, 푸시를 전송하는 [WNS(Windows 
     ![Microsoft Store와 앱 연결](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
 
 2. 마법사에서 **다음**을 클릭하고, Microsoft 계정으로 로그인하고, **새로운 앱 이름 예약**에서 앱 이름을 입력한 후 **예약**을 클릭합니다.
-3. 앱을 성공적으로 등록한 후에 새로운 앱 이름을 선택하고 **다음** 및 **연결**을 차례로 클릭합니다. 이렇게 하면 필요한 Microsoft Store 등록 정보가 응용 프로그램 매니페스트에 추가됩니다.
+3. 앱을 성공적으로 등록한 후에 새로운 앱 이름을 선택하고 **다음** 및 **연결**을 차례로 클릭합니다. 이렇게 하면 필요한 Microsoft Store 등록 정보가 애플리케이션 매니페스트에 추가됩니다.
 4. [애플리케이션 등록 포털](https://apps.dev.microsoft.com/)로 이동하고 Microsoft 계정으로 로그인합니다. 이전 단계에서 연결된 Windows 스토어 앱을 클릭합니다.
-5. 등록 페이지에서 **응용 프로그램 암호** 및 **패키지 SID**에 있는 값을 기록합니다. 이 값은 모바일 앱 백 엔드를 구성하는 데 사용합니다.
+5. 등록 페이지에서 **애플리케이션 암호** 및 **패키지 SID**에 있는 값을 기록합니다. 이 값은 모바일 앱 백 엔드를 구성하는 데 사용합니다.
 
     ![Microsoft Store와 앱 연결](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
 
@@ -127,7 +127,7 @@ Microsoft Store에 앱을 제출한 다음, 푸시를 전송하는 [WNS(Windows 
 
     table.insert(function (context) {
     // For more information about the Notification Hubs JavaScript SDK,
-    // see http://aka.ms/nodejshubs
+    // see https://aka.ms/nodejshubs
     logger.info('Running TodoItem.insert');
 
     // Define the WNS payload that contains the new item Text.
@@ -201,7 +201,7 @@ Microsoft Store에 앱을 제출한 다음, 푸시를 전송하는 [WNS(Windows 
     }
     ```
 
-    이제 응용 프로그램을 시작할 때마다 단기 ChannelURI가 등록됩니다.
+    이제 애플리케이션을 시작할 때마다 단기 ChannelURI가 등록됩니다.
 
 4. UWP 앱 프로젝트를 다시 빌드합니다. 이제 앱에서 알림을 받을 수 있습니다.
 
@@ -214,7 +214,7 @@ Microsoft Store에 앱을 제출한 다음, 푸시를 전송하는 [WNS(Windows 
 푸시 알림에 대해 자세히 알아봅니다.
 
 * [Azure Mobile Apps에 관리되는 클라이언트를 사용하는 방법](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications) 템플릿은 유연성을 제공하여 플랫폼간 푸시 및 지역화된 푸시를 보냅니다. 템플릿을 등록하는 방법에 대해 자세히 알아봅니다.
-* [푸시 알림 문제 진단](../notification-hubs/notification-hubs-push-notification-fixer.md) 장치에서 알림이 삭제되거나 끝나지 않는 다양한 이유가 있습니다. 이 항목에서는 푸시 알림 실패의 근본 원인을 분석 및 파악하는 방법을 보여 줍니다.
+* [푸시 알림 문제 진단](../notification-hubs/notification-hubs-push-notification-fixer.md) 디바이스에서 알림이 삭제되거나 끝나지 않는 다양한 이유가 있습니다. 이 항목에서는 푸시 알림 실패의 근본 원인을 분석 및 파악하는 방법을 보여 줍니다.
 
 다음 자습서 중 하나를 진행하는 것이 좋습니다.
 

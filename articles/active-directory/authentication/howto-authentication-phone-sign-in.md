@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: librown
-ms.openlocfilehash: 3a9fba644bd379f3f54cf07cf35c0a54029756da
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 0179f87787c91a90edb54a1956a6f10d1dffc4b1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287186"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434192"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Microsoft Authenticator 앱(공개 미리 보기)에서 암호 없이 휴대폰에 로그인
 
-암호를 사용하지 않고 Microsoft Authenticator 앱을 사용하여 모든 Azure AD 계정에 로그인할 수 있습니다. [비즈니스용 Windows Hello](/windows/security/identity-protection/hello-for-business/hello-identity-verification) 기술과 마찬가지로 Microsoft Authenticator는 키 기반 인증을 사용하여 장치에 연결되고 생체 인식 또는 PIN을 사용하는 사용자 자격 증명을 사용하도록 설정합니다.
+암호를 사용하지 않고 Microsoft Authenticator 앱을 사용하여 모든 Azure AD 계정에 로그인할 수 있습니다. [비즈니스용 Windows Hello](/windows/security/identity-protection/hello-for-business/hello-identity-verification) 기술과 마찬가지로 Microsoft Authenticator는 키 기반 인증을 사용하여 디바이스에 연결되고 생체 인식 또는 PIN을 사용하는 사용자 자격 증명을 사용하도록 설정합니다.
 
 ![사용자가 Microsoft Authenticator 앱에서 로그인 시도를 승인하도록 요청하는 브라우저 로그인의 예제](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
 
@@ -37,20 +37,25 @@ Microsoft Authenticator 앱에서 휴대폰 로그인을 사용하도록 설정�
 
 ### <a name="steps-to-enable"></a>사용하도록 설정하는 단계
 
-Azure Active Directory V2 PowerShell 모듈 공개 미리 보기 릴리스의 최신 버전이 있어야 합니다. 이를 확실히 하기 위해 다음 명령을 실행하여 설치를 제거한 후 다시 설치할 수도 있습니다.
+1. Azure Active Directory V2 PowerShell 모듈 공개 미리 보기 릴리스의 최신 버전이 있어야 합니다. 이를 확실히 하기 위해 다음 명령을 실행하여 설치를 제거한 후 다시 설치할 수도 있습니다.
+    ```powershell
+    Uninstall-Module -Name AzureADPreview
+    Install-Module -Name AzureADPreview
+    ```
 
-1. `Uninstall-Module -Name AzureADPreview`
-2. `Install-Module -Name AzureADPreview`
+2. Azure AD V2 PowerShell 모듈을 사용하도록 Azure AD 테넌트에 대해 인증합니다. 사용된 계정은 보안 관리자나 글로벌 관리자여야 합니다.
+    ```powershell
+    Connect-AzureAD
+    ```
 
-다음 PowerShell 명령을 사용하여 암호 없는 휴대폰 로그인 미리 보기를 사용하도록 설정할 수 있습니다.
-
-1. `Connect-AzureAD`
-   1. 인증 대화 상자에서 테넌트의 계정으로 로그인합니다. 계정은 보안 관리자나 글로벌 관리자여야 합니다.
-1. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
+3. 인증자 로그인 정책 만들기:
+    ```powershell
+    New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
+    ```
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>최종 사용자가 휴대폰 로그인을 사용할 수 있도록 하려면 어떻게 하나요?
 
-공개 미리 보기의 경우 사용자가 이 새 자격 증명을 만들거나 사용할 수 있도록 하는 방법은 없습니다. 관리자가 테넌트를 사용하도록 설정한 상태에서 휴대폰 로그인을 사용하도록 사용자가 Microsoft Authenticator 앱을 업데이트하면 최종 사용자에게 암호 없는 로그인만 발생합니다.
+공개 미리 보기의 경우 사용자가 이 새 자격 증명을 만들거나 사용할 수 있도록 하는 방법은 없습니다. 관리자가 테넌트를 사용하도록 설정한 상태에서 사용자가 Microsoft Authenticator 앱을 업데이트하여 휴대폰 로그인을 사용하도록 설정하면 최종 사용자는 암호 없는 로그인만 가능합니다.
 
 > [!NOTE]
 > 이 기능은 2017년 3월부터 앱에 포함되었으므로 정책이 테넌트에 대해 활성화되면 사용자에게 이 흐름이 즉시 발생할 가능성이 있습니다. 이러한 변화를 인지하고 사용자가 대비하도록 하세요.
@@ -78,6 +83,6 @@ Azure Active Directory V2 PowerShell 모듈 공개 미리 보기 릴리스의 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[장치 등록에 대한 자세한 정보](../devices/overview.md#getting-devices-under-the-control-of-azure-ad)
+[디바이스 등록에 대한 자세한 정보](../devices/overview.md#getting-devices-under-the-control-of-azure-ad)
 
 [Azure Multi-Factor Authentication에 대한 자세한 정보](../authentication/howto-mfa-getstarted.md)

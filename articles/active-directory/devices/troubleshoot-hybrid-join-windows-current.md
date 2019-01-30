@@ -4,7 +4,7 @@ description: Windows 10 및 Windows Server 2016 디바이스에 조인된 하이
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.component: devices
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1d96c1e8adee55127a50b2d7c374418c22bfec4c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f9a32058bb9d9cb2f1fa2d04c8002f06fa80edeb
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050568"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446105"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>Windows 10 및 Windows Server 2016 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결 
 
@@ -69,7 +69,7 @@ Windows 10 및 Windows Server 2016의 경우 하이브리드 Azure Active Direct
                NgcKeyId: {C7A9AEDC-780E-4FDA-B200-1AE15561A46B}
         WorkplaceJoined: NO
           WamDefaultSet: YES
-    WamDefaultAuthority: organizations         WamDefaultId: https://login.microsoft.com       WamDefaultGUID: {B16898C6-A148-4967-9171-64D755DA8520} (AzureAd)           AzureAdPrt: YES
+    WamDefaultAuthority: organizations         WamDefaultId: https://login.microsoft.com       WamDefaultGUID: {B16898C6-A148-4967-9171-64D755DA8520} (AzureAd)           AzureAdPrt: 예
 
 
 
@@ -77,7 +77,7 @@ Windows 10 및 Windows Server 2016의 경우 하이브리드 Azure Active Direct
 
 다음 필드를 검토하고 예상 값을 갖는지 확인합니다.
 
-### <a name="azureadjoined--yes"></a>AzureAdJoined : YES  
+### <a name="azureadjoined--yes"></a>AzureAdJoined : 예  
 
 이 필드는 디바이스가 Azure AD에 조인되어 있는지 여부를 나타냅니다. 값이 **아니요**인 경우 Azure AD에 대한 조인은 아직 완료되지 않았습니다. 
 
@@ -103,19 +103,19 @@ Windows 10 및 Windows Server 2016의 경우 하이브리드 Azure Active Direct
 
 ---
 
-### <a name="domainjoined--yes"></a>DomainJoined : YES  
+### <a name="domainjoined--yes"></a>DomainJoined : 예  
 
 이 필드는 디바이스가 온-프레미스 Active Directory에 조인되는지 여부를 나타냅니다. 값이 **아니요**인 경우 디바이스는 하이브리드 Azure AD 조인을 수행할 수 없습니다.  
 
 ---
 
-### <a name="workplacejoined--no"></a>WorkplaceJoined : NO  
+### <a name="workplacejoined--no"></a>WorkplaceJoined : 아니요  
 
 이 필드는 디바이스가 Azure AD에 개인 디바이스로 등록되어 있는지 여부를 나타냅니다(*작업 영역 조인*으로 표시). 이 값은 하이브리드 Azure AD 조인된 도메인에 가입된 컴퓨터에 대해 **아니요**이어야 합니다. 값이 **예**인 경우 하이브리드 Azure AD 조인을 완료하기 전에 회사 또는 학교 계정이 추가되었습니다. 이 경우 Windows 10 버전의 1주년 업데이트(1607)를 사용하는 경우 계정은 무시됩니다.
 
 ---
 
-### <a name="wamdefaultset--yes-and-azureadprt--yes"></a>WamDefaultSet : YES 및 AzureADPrt : YES
+### <a name="wamdefaultset--yes-and-azureadprt--yes"></a>WamDefaultSet : 예 및 AzureADPrt: 예
   
 이러한 필드는 사용자가 디바이스에 로그인 시 Azure AD에서 성공적으로 인증되었는지 여부를 나타냅니다. 값이 **아니요**인 경우 다음의 원인 때문일 수 있습니다.
 

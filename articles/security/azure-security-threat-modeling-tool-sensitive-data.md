@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7f1bb400650a223a9f0b4249c33f7c480a1bc009
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7f90fccd062826493b7add1a90406fa9244e00b2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262372"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002058"
 ---
-# <a name="security-frame-sensitive-data--mitigations"></a>보안 프레임: 중요한 데이터 | Mitigations 
+# <a name="security-frame-sensitive-data--mitigations"></a>보안 프레임: 중요한 데이터 | 위험 완화 
 | 제품/서비스 | 문서 |
 | --------------- | ------- |
 | **컴퓨터 신뢰 경계** | <ul><li>[중요한 정보가 포함된 경우 바이너리는 난독 처리되었는지 확인](#binaries-info)</li><li>[EFS(암호화 파일 시스템)를 사용하여 비밀 사용자 지정 데이터를 보호함](#efs-user)</li><li>[파일 시스템의 응용 프로그램에서 저장한 중요한 데이터가 암호화되었는지 확인](#filesystem)</li></ul> | 
@@ -130,7 +130,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [방법: DPAPI를 사용하여 ASP.NET 2.0에서 구성 섹션 암호화](https://msdn.microsoft.com/library/ff647398.aspx), [보호되는 구성 공급자 지정](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Azure Key Vault를 사용하여 응용 프로그램 암호 보호](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
+| **참조**              | [방법: DPAPI를 사용하여 ASP.NET 2.0에서 구성 섹션 암호화](https://msdn.microsoft.com/library/ff647398.aspx), [보호되는 구성 공급자 지정](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Azure Key Vault를 사용하여 애플리케이션 비밀 보호](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
 | **단계** | Web.config, appsettings.json과 같은 구성 파일은 사용자 이름, 암호, 데이터베이스 연결 문자열 및 암호화 키를 포함하여 중요한 정보를 저장하는 데 자주 사용됩니다. 이러한 정보를 보호하지 않으면 응용 프로그램은 계정 사용자 이름과 암호, 데이터베이스 이름과 서버 이름 등과 같은 중요한 정보를 얻는 공격자 또는 악의적인 사용자에 대해 취약해집니다. 배포 유형(azure/on-prem)에 따라 DPAPI 또는 Azure Key Vault와 같은 서비스를 사용하여 구성 파일의 중요한 섹션을 암호화합니다. |
 
 ## <a id="autocomplete-input"></a>중요한 양식 및 입력에서 자동 완성 HTML 특성 명시적으로 사용 중지
@@ -193,7 +193,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | SQL 버전 - 모두 |
-| **참조**              | [SQL Server에서 중요한 데이터 암호화](https://technet.microsoft.com/library/ff848751(v=sql.105).aspx), [방법: SQL Server에서 데이터 열 암호화](https://msdn.microsoft.com/library/ms179331), [인증서별 암호화](https://msdn.microsoft.com/library/ms188061) |
+| **참조**              | [SQL 서버에서 중요한 데이터 암호화](https://technet.microsoft.com/library/ff848751(v=sql.105).aspx), [방법: SQL Server에서 데이터의 열 암호화](https://msdn.microsoft.com/library/ms179331), [인증서로 암호화](https://msdn.microsoft.com/library/ms188061) |
 | **단계** | 신용 카드 번호와 같은 중요한 데이터는 데이터베이스에서 암호화되어야 합니다. 데이터는 열 수준 암호화를 사용하거나 암호화 기능을 사용하는 응용 프로그램 기능에 의해 암호화될 수 있습니다. |
 
 ## <a id="tde-enabled"></a>TDE(데이터베이스 수준 암호화)가 활성화되어 있는지 확인
@@ -251,7 +251,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
-| **단계** | 문서 DB에서 저장하기 전에 응용 프로그램 수준에서 중요한 데이터를 암호화하거나 Azure Storage 또는 Azure SQL과 같은 다른 저장소 솔루션에서 중요한 데이터를 저장합니다.| 
+| **단계** | 문서 DB에서 저장하기 전에 응용 프로그램 수준에서 중요한 데이터를 암호화하거나 Azure Storage 또는 Azure SQL과 같은 다른 스토리지 솔루션에서 중요한 데이터를 저장합니다.| 
 
 ## <a id="disk-vm"></a>Azure Disk Encryption을 사용하여 Virtual Machines에 사용되는 디스크 암호화
 
@@ -328,7 +328,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **적용 가능한 기술** | 일반 |
 | **특성**              | StorageType - Blob |
 | **참조**              | [미사용 데이터에 대한 Azure Storage 서비스 암호화(미리 보기)](https://azure.microsoft.com/documentation/articles/storage-service-encryption/) |
-| **단계** | <p>미사용 데이터에 대한 Azure Storage 서비스 암호화(SSE)를 사용하면 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. 이 기능을 통해 Azure Storage는 저장소를 유지하기 전에 데이터를 자동으로 암호화하고 검색하기 전에 암호를 해독합니다. 암호화, 암호 해독 및 키 관리는 사용자에게 완전히 투명하게 처리됩니다. SSE는 블록 Blob, 페이지 Blob 및 추가 Blob에만 적용됩니다. 테이블, 큐 및 파일을 비롯한 다른 유형의 데이터는 암호화되지 않습니다.</p><p>워크플로 암호화 및 암호 해독:</p><ul><li>고객이 저장소 계정에 대해 암호화를 설정합니다.</li><li>고객이 새 데이터(PUT Blob, PUT 블록, PUT 페이지 등)를 Blob Storage에 기록할 경우 모든 기록 내용이 가장 강력한 블록 암호화 중 하나인 256비트 AES 암호화를 사용하여 암호화됩니다.</li><li>고객이 데이터(GET Blob 등)에 액세스해야 하는 경우 사용자에게 반환되기 전에 데이터가 자동으로 해독됩니다.</li><li>암호화를 사용하지 않도록 설정하면 새로운 기록 내용은 더 이상 암호화되지 않으며 기존 암호화된 데이터는 사용자가 다시 작성할 때까지 암호화된 상태로 유지됩니다. 암호화를 사용하는 동안 Blob 저장소에 기록된 내용이 암호화됩니다. 저장소 계정에 대해 암호화를 사용/사용하지 않는 것으로 사용자 전환하는 것으로 데이터의 상태는 변경되지 않습니다.</li><li>모든 암호화 키는 Microsoft에서 저장하고 암호화하며 관리합니다.</li></ul><p>현재 암호화에 사용되는 키는 Microsoft에서 관리합니다. Microsoft에서는 처음에 키를 생성한 후에, 내부 Microsoft 정책에 정의된 대로 키의 정기적인 순환뿐 아니라 보안 저장도 관리합니다. 나중에 고객은 고유한 암호화 키를 관리하는 기능을 사용할 수 있게 되며 Microsoft에서 관리하는 키에서 고객이 관리하는 키로 마이그레이션 경로를 제공할 예정입니다.</p>| 
+| **단계** | <p>미사용 데이터에 대한 Azure Storage 서비스 암호화(SSE)를 사용하면 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. 이 기능을 통해 Azure Storage는 스토리지를 유지하기 전에 데이터를 자동으로 암호화하고 검색하기 전에 암호를 해독합니다. 암호화, 암호 해독 및 키 관리는 사용자에게 완전히 투명하게 처리됩니다. SSE는 블록 Blob, 페이지 Blob 및 추가 Blob에만 적용됩니다. 테이블, 큐 및 파일을 비롯한 다른 유형의 데이터는 암호화되지 않습니다.</p><p>워크플로 암호화 및 암호 해독:</p><ul><li>고객이 저장소 계정에 대해 암호화를 설정합니다.</li><li>고객이 새 데이터(PUT Blob, PUT 블록, PUT 페이지 등)를 Blob Storage에 기록할 경우 모든 기록 내용이 가장 강력한 블록 암호화 중 하나인 256비트 AES 암호화를 사용하여 암호화됩니다.</li><li>고객이 데이터(GET Blob 등)에 액세스해야 하는 경우 사용자에게 반환되기 전에 데이터가 자동으로 해독됩니다.</li><li>암호화를 사용하지 않도록 설정하면 새로운 기록 내용은 더 이상 암호화되지 않으며 기존 암호화된 데이터는 사용자가 다시 작성할 때까지 암호화된 상태로 유지됩니다. 암호화를 사용하는 동안 Blob 저장소에 기록된 내용이 암호화됩니다. 저장소 계정에 대해 암호화를 사용/사용하지 않는 것으로 사용자 전환하는 것으로 데이터의 상태는 변경되지 않습니다.</li><li>모든 암호화 키는 Microsoft에서 저장하고 암호화하며 관리합니다.</li></ul><p>현재 암호화에 사용되는 키는 Microsoft에서 관리합니다. Microsoft에서는 처음에 키를 생성한 후에, 내부 Microsoft 정책에 정의된 대로 키의 정기적인 순환뿐 아니라 보안 저장도 관리합니다. 나중에 고객은 고유한 암호화 키를 관리하는 기능을 사용할 수 있게 되며 Microsoft에서 관리하는 키에서 고객이 관리하는 키로 마이그레이션 경로를 제공할 예정입니다.</p>| 
 
 ## <a id="client-storage"></a>클라이언트 쪽 암호화를 사용하여 Azure Storage에 중요한 데이터 저장
 
@@ -338,7 +338,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [Microsoft Azure Storage에 대한 클라이언트 쪽 암호화 및 Azure Key Vault](https://azure.microsoft.com/documentation/articles/storage-client-side-encryption/), [자습서: Azure Key Vault를 사용하여 Microsoft Azure Storage에서 Blob 암호화 및 해독](https://azure.microsoft.com/documentation/articles/storage-encrypt-decrypt-blobs-key-vault/), [Azure 암호화 확장을 사용하여 Azure Blob Storage에서 데이터 안전하게 저장](https://blogs.msdn.microsoft.com/partnercatalystteam/2015/06/17/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions/) |
+| **참조**              | [Microsoft Azure Storage용 클라이언트 쪽 암호화 및 Azure Key Vault](https://azure.microsoft.com/documentation/articles/storage-client-side-encryption/), [자습서: Azure Key Vault를 사용하여 Microsoft Azure Storage에서 Blob 암호화 및 해독](https://azure.microsoft.com/documentation/articles/storage-encrypt-decrypt-blobs-key-vault/), [Azure 암호화 확장을 사용하여 Azure Blob Storage에서 데이터 안전하게 저장](https://blogs.msdn.microsoft.com/partnercatalystteam/2015/06/17/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions/) |
 | **단계** | <p>.NET용 Azure Storage 클라이언트 라이브러리 Nuget 패키지는 Azure Storage에 업로드하기 전에 클라이언트 응용 프로그램 내에서 데이터를 암호화하고 클라이언트로 다운로드하는 동안 데이터를 해독하는 기능을 지원합니다. 라이브러리 또한 저장소 계정 키 관리를 위해 Azure Key Vault와의 통합을 지원합니다. 클라이언트 쪽 암호화의 작동 원리에 대한 간단한 설명은 다음과 같습니다.</p><ul><li>Azure Storage 클라이언트 SDK는 1회용 대칭 키인 CEK(콘텐츠 암호화 키)를 생성합니다.</li><li>고객 데이터는 이 CEK를 사용하여 암호화됩니다.</li><li>그런 다음 키 암호화 KEK를 사용하여 CEK를 래핑(암호화)합니다. KEK는 키 식별자로 식별되고 비대칭 키 쌍 또는 대칭 키일 수 있으며 로컬로 관리되거나 Azure Key Vault에 저장됩니다. Storage 클라이언트 자체는 KEK에 액세스할 수 없습니다. 단지 키 자격 증명 모음에서 제공되는 키 래핑 알고리즘을 호출할 뿐입니다. 고객은 원하는 경우 키 래핑/래핑 해제를 위해 사용자 지정 공급자를 사용하도록 선택할 수 있습니다.</li><li>그런 다음 암호화된 데이터를 Azure Storage 서비스에 업로드합니다. 자세한 구현 세부 정보는 참조 섹션의 링크를 확인하세요.</li></ul>|
 
 ## <a id="pii-phones"></a>휴대폰 로컬 저장소에 기록된 중요한 PII 데이터 암호화
@@ -349,7 +349,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반, Xamarin  |
 | **특성**              | 해당 없음  |
-| **참조**              | [Microsoft Intune 정책을 사용하여 장치에서 설정 및 기능 관리](https://docs.microsoft.com/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies#create-a-configuration-policy), [키 집합 Valet](https://components.xamarin.com/view/square.valet) |
+| **참조**              | [Microsoft Intune 정책을 사용하여 디바이스에서 설정 및 기능 관리](https://docs.microsoft.com/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies#create-a-configuration-policy), [키 집합 Valet](https://components.xamarin.com/view/square.valet) |
 | **단계** | <p>응용 프로그램이 모바일의 파일 시스템에 사용자의 PII(전자 메일, 전화 번호, 이름, 성, 선호도 등)와 같은 중요한 정보를 기록하는 경우 로컬 파일 시스템에 쓰기 전에 암호화되어야 합니다. 엔터프라이즈 응용 프로그램인 응용 프로그램을 사용하는 경우 Windows Intune을 사용하여 응용 프로그램을 게시하는 가능성을 탐색합니다.</p>|
 
 ### <a name="example"></a>예
@@ -429,7 +429,7 @@ clientCredentialType을 인증서 또는 Windows로 설정
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반, .NET Framework 3 |
 | **특성**              | 보안 모드 - 전송, 보안 모드 - 메시지 |
-| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [보안 강화](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_security_not_enabled), [WCF 보안 CoDe Magazine의 기본 사항](http://www.codemag.com/article/0611051) |
+| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [보안 강화](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [WCF 보안 CoDe Magazine의 기본 사항](http://www.codemag.com/article/0611051) |
 | **단계** | 전송 또는 메시지 보안이 거부되지 않았습니다. 전송 또는 메시지 보안 없이 메시지를 전송하는 응용 프로그램은 메시지의 무결성이나 기밀성을 보장할 수 없습니다. WCF 보안 바인딩이 없음으로 설정되면 전송 및 메시지 보안이 모두 비활성화됩니다. |
 
 ### <a name="example"></a>예

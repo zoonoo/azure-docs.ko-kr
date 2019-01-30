@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 스크립트 예제 - Batch로 응용 프로그램 추가 | Microsoft Docs
-description: Azure CLI 스크립트 예제 - Batch로 응용 프로그램 추가
+title: Azure CLI 스크립트 예제 - Batch로 애플리케이션 추가 | Microsoft Docs
+description: Azure CLI 스크립트 예제 - Batch로 애플리케이션 추가
 services: batch
 documentationcenter: ''
 author: dlepow
@@ -21,9 +21,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
 ms.locfileid: "46968733"
 ---
-# <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>CLI 예제: Azure Batch 계정에 응용 프로그램 추가
+# <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>CLI 예제: Azure Batch 계정에 애플리케이션 추가
 
-이 스크립트는 Azure Batch 풀 또는 작업에 사용할 응용 프로그램을 추가하는 방법을 보여줍니다. Batch 계정에 추가할 응용 프로그램을 설정하려면 실행 파일을 해당 종속성과 함께 zip 파일로 패키지로 만듭니다. 
+이 스크립트는 Azure Batch 풀 또는 작업에 사용할 애플리케이션을 추가하는 방법을 보여줍니다. Batch 계정에 추가할 애플리케이션을 설정하려면 실행 파일을 해당 종속성과 함께 zip 파일로 패키지로 만듭니다. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -52,9 +52,9 @@ az group delete --name myResourceGroup
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | 저장소 계정을 만듭니다. |
 | [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Batch 계정을 만듭니다. |
 | [az batch account login](/cli/azure/batch/account#az-batch-account-login) | 추가 CLI 상호 작용을 위해 지정된 Batch 계정에 대해 인증합니다.  |
-| [az batch application create](/cli/azure/batch/application#az-batch-application-create) | 응용 프로그램을 만듭니다.  |
-| [az batch application package create](/cli/azure/batch/application/package#az-batch-application-package-create) | 지정된 응용 프로그램에 응용 프로그램 패키지를 추가합니다.  |
-| [az batch application set](/cli/azure/batch/application#az-batch-application-set) | 응용 프로그램의 속성을 업데이트합니다.  |
+| [az batch application create](/cli/azure/batch/application#az-batch-application-create) | 애플리케이션을 만듭니다.  |
+| [az batch application package create](/cli/azure/batch/application/package#az-batch-application-package-create) | 지정된 애플리케이션에 애플리케이션 패키지를 추가합니다.  |
+| [az batch application set](/cli/azure/batch/application#az-batch-application-set) | 애플리케이션의 속성을 업데이트합니다.  |
 | [az group delete](/cli/azure/group#az-group-delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계

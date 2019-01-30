@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/17/2018
 ms.author: crdun
-ms.openlocfilehash: 28a741393fd4b7b4076449c90575f8a4ab30e0fc
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: c8bd6430b362fde81c3133c2c16cf369aa050103
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41920913"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999387"
 ---
 # <a name="create-a-windows-app"></a>Windows 앱 만들기
 
@@ -46,7 +46,7 @@ ms.locfileid: "41920913"
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-이제 모바일 클라이언트 응용 프로그램에서 사용할 수 있는 Azure 모바일 앱 백 엔드를 프로비저닝했습니다. 다음으로, 간단한 “할 일 목록” 백 엔드에 대한 서버 프로젝트를 다운로드하고 Azure에 게시합니다.
+이제 모바일 클라이언트 애플리케이션에서 사용할 수 있는 Azure 모바일 앱 백 엔드를 프로비저닝했습니다. 다음으로, 간단한 “할 일 목록” 백 엔드에 대한 서버 프로젝트를 다운로드하고 Azure에 게시합니다.
 
 ## <a name="configure-the-server-project"></a>서버 프로젝트 구성
 
@@ -73,15 +73,15 @@ ms.locfileid: "41920913"
 ## <a name="next-steps"></a>다음 단계
 
 * [앱에 인증 추가](app-service-mobile-windows-store-dotnet-get-started-users.md)  
-  ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
+   ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 * [앱에 푸시 알림 추가](app-service-mobile-windows-store-dotnet-get-started-push.md)  
-  앱에 푸시 알림 지원을 추가하고 모바일 앱 백 엔드를 구성하여 푸시 알림을 보내는 Azure Notification Hubs를 사용하는 방법을 알아봅니다.
+   앱에 푸시 알림 지원을 추가하고 모바일 앱 백 엔드를 구성하여 푸시 알림을 보내는 Azure Notification Hubs를 사용하는 방법을 알아봅니다.
 * [앱에 오프라인 동기화 사용](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
   모바일 앱 백 엔드를 사용하여 앱에 오프라인 지원을 추가하는 방법을 알아봅니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱&mdash;데이터 보기, 추가 또는 수정&mdash;과 같은 상호 작용을 수행할 수 있습니다.
 
 <!-- Anchors. -->
 <!-- Images. -->
 <!-- URLs. -->
-[Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
+[Mobile App SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2017]: https://go.microsoft.com/fwLink/p/?LinkID=534203

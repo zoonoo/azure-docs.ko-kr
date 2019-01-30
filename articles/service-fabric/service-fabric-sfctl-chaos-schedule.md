@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 176b04b9bb16b5f183298c75f16bceb5e885e293
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 665fbbc8668e465c78d93b134f6a314d58791490
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492243"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276454"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 chaos schedule을 가져오고 설정합니다.
@@ -29,7 +29,7 @@ chaos schedule을 가져오고 설정합니다.
 |명령|설명|
 | --- | --- |
 | get | Chaos를 실행하는 시기 및 방법을 정의하는 Chaos Schedule을 가져옵니다. |
-| set | Chaos에서 사용할 Chaos Schedule을 설정합니다. |
+| set | Chaos에서 사용되는 일정을 설정합니다. |
 
 ## <a name="sfctl-chaos-schedule-get"></a>sfctl chaos schedule get
 Chaos를 실행하는 시기 및 방법을 정의하는 Chaos Schedule을 가져옵니다.
@@ -53,9 +53,9 @@ Chaos를 실행하는 시기 및 방법을 정의하는 Chaos Schedule을 가져
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
 
 ## <a name="sfctl-chaos-schedule-set"></a>sfctl chaos schedule set
-Chaos에서 사용할 Chaos Schedule을 설정합니다.
+Chaos에서 사용되는 일정을 설정합니다.
 
-Chaos에서 현재 사용 중인 Chaos Schedule을 설정합니다. Chaos는 Chaos Schedule에 따라 실행을 자동으로 예약합니다. 제공된 입력 일정의 버전은 서버의 Chaos Schedule 버전과 일치해야 합니다. 제공된 버전이 서버의 버전과 일치하지 않는 경우 Chaos Schedule은 업데이트되지 않습니다. 제공된 버전이 서버의 버전과 일치하는 경우 Chaos Schedule이 업데이트되고 서버의 Chaos Schedule 버전은 1단위로 증분하고 2,147,483,647 다음에 0으로 다시 래핑합니다. 이 호출이 만들어질 때 Chaos가 실행되는 경우 호출에 실패합니다.
+Chaos는 Chaos Schedule에 따라 실행을 자동으로 예약합니다. 제공된 입력 일정의 버전은 서버의 Chaos Schedule 버전과 일치해야 합니다. 제공된 버전이 서버의 버전과 일치하지 않는 경우 Chaos Schedule은 업데이트되지 않습니다. 제공된 버전이 서버의 버전과 일치하는 경우 Chaos Schedule이 업데이트되고 서버의 Chaos Schedule 버전은 1단위로 증분하고 2,147,483,647 다음에 0으로 다시 래핑합니다. 이 호출이 만들어질 때 Chaos가 실행되는 경우 호출에 실패합니다.
 
 ### <a name="arguments"></a>인수
 
@@ -143,6 +143,7 @@ Chaos에서 현재 사용 중인 Chaos Schedule을 설정합니다. Chaos는 Cha
         ]
     }
     ]
+
 
 ## <a name="next-steps"></a>다음 단계
 - Service Fabric CLI [설정](service-fabric-cli.md)

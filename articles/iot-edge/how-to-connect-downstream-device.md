@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge를 사용하여 다운스트림 디바이스 구성 | Microsoft Docs
+title: 다운스트림 디바이스 연결 - Azure IoT Edge | Microsoft Docs
 description: Azure IoT Edge 게이트웨이 디바이스를 통해 연결하도록 다운스트림 또는 리프 디바이스를 구성하는 방법입니다.
 author: kgremban
 manager: philmea
@@ -8,12 +8,13 @@ ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bd9d8c4a75df0d9070476fb72d2b60f5cb182a87
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 0797952641efb9fe876d72f2dce0418ff5771d40
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566230"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083337"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결
 

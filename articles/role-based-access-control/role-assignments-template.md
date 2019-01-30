@@ -1,6 +1,6 @@
 ---
 title: RBAC 및 Azure Resource Manager 템플릿을 사용하여 액세스 관리 | Microsoft Docs
-description: RBAC(역할 기반 액세스 제어) 및 Azure Resource Manager 템플릿을 사용하여 사용자, 그룹 및 응용 프로그램의 액세스 권한을 관리하는 방법을 알아봅니다.
+description: RBAC(역할 기반 액세스 제어) 및 Azure Resource Manager 템플릿을 사용하여 사용자, 그룹 및 애플리케이션의 액세스 권한을 관리하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -27,12 +27,12 @@ ms.locfileid: "39206696"
 ## <a name="example-template-to-create-a-role-assignment"></a>역할 할당을 만드는 예제 템플릿
 
 RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다. 다음 템플릿은 다음을 보여줍니다.
-- 리소스 그룹 범위에서 사용자, 그룹 또는 응용 프로그램에 역할을 할당하는 방법
+- 리소스 그룹 범위에서 사용자, 그룹 또는 애플리케이션에 역할을 할당하는 방법
 - 매개 변수로 소유자, 기여자 및 읽기 권한자 역할 지정하는 방법
 
 템플릿을 사용하려면 다음 입력을 지정해야 합니다.
 - 리소스 그룹의 이름
-- 역할을 할당하기 위한 사용자, 그룹 또는 응용 프로그램의 고유 식별자
+- 역할을 할당하기 위한 사용자, 그룹 또는 애플리케이션의 고유 식별자
 - 할당할 역할
 - 역할 할당에 사용할 고유 식별자
 
@@ -98,7 +98,7 @@ Azure PowerShell을 사용하여 이전 템플릿을 배포하려면 다음 단�
 
 1. [Azure PowerShell](/powershell/azure/authenticate-azureps)에 로그인합니다.
 
-1. 사용자, 그룹 또는 응용 프로그램의 고유 식별자를 가져옵니다. 예를 들어 [Get-AzureRmADUser](/powershell/module/azurerm.resources/get-azurermaduser) 명령을 사용하여 Azure AD 사용자를 나열할 수 있습니다.
+1. 사용자, 그룹 또는 애플리케이션의 고유 식별자를 가져옵니다. 예를 들어 [Get-AzureRmADUser](/powershell/module/azurerm.resources/get-azurermaduser) 명령을 사용하여 Azure AD 사용자를 나열할 수 있습니다.
 
     ```azurepowershell
     Get-AzureRmADUser
@@ -155,7 +155,7 @@ Azure CLI를 사용하여 이전 템플릿을 배포하려면 다음 단계를 �
 
 1. [Azure CLI](/cli/azure/authenticate-azure-cli)에 로그인합니다.
 
-1. 사용자, 그룹 또는 응용 프로그램의 고유 식별자를 가져옵니다. 예를 들어 [az ad user list](/cli/azure/ad/user#az-ad-user-list) 명령을 사용하여 Azure AD 사용자를 나열할 수 있습니다.
+1. 사용자, 그룹 또는 애플리케이션의 고유 식별자를 가져옵니다. 예를 들어 [az ad user list](/cli/azure/ad/user#az-ad-user-list) 명령을 사용하여 Azure AD 사용자를 나열할 수 있습니다.
 
     ```azurecli
     az ad user list

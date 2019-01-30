@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 56616ff01ff70230a591285014ed291a2fdc7b34
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: bd85214efc3c8f67d41563e3ca46a1e2278c4868
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250991"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062676"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Table Storage 바인딩
 
@@ -26,7 +26,7 @@ ms.locfileid: "50250991"
 
 ## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 
-Table Storage 바인딩은 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지 버전 2.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub 리포지토리에 있습니다.
+Table Storage 바인딩은 [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지 버전 2.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -489,7 +489,7 @@ public int run(
 * `Table` 특성과 동일한 매개 변수에 적용된 `StorageAccount` 특성
 * 함수에 적용된 `StorageAccount` 특성
 * 클래스에 적용된 `StorageAccount` 특성
-* 함수 앱의 기본 저장소 계정("AzureWebJobsStorage" 앱 설정)
+* 함수 앱의 기본 스토리지 계정("AzureWebJobsStorage" 앱 설정)
 
 ## <a name="input---java-annotations"></a>입력 - Java 주석
 
@@ -779,7 +779,7 @@ Table Storage 출력 바인딩은 다음과 같은 시나리오를 지원합니�
 
   C# 및 C# 스크립트에서 `out T paramName` 또는 함수 반환 값과 같은 메서드 매개 변수를 사용하여 출력 테이블 엔터티에 액세스합니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. *function.json* 파일 또는 `Table` 특성에서 파티션 키 및 행 키를 제공하는 경우 `T`는 직렬화 가능 형식일 수 있습니다. 그렇지 않으면 `T`는 `PartitionKey` 및 `RowKey` 속성을 포함하는 형식이어야입니다. 이 시나리오에서 `T`는 `ITableEntity`를 구현하거나 `TableEntity`에서 파생되지만 반드시 그런 것은 아닙니다.
 
-* **C# 또는 C#에서 하나 이상의 행 쓰기**
+* **C# 또는 C# 스크립트에서 하나 이상의 행 쓰기**
 
   C# 또는 C# 스크립트에서 `ICollector<T> paramName` 또는 `IAsyncCollector<T> paramName` 메서드 매개 변수를 사용하여 출력 테이블 엔터티에 액세스합니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. `T`는 추가하려는 엔터티의 스키마를 지정합니다. 일반적으로 `T`는 `TableEntity`에서 파생되거나 `ITableEntity`을 구현하지만 반드시 그런 것은 아닙니다. *function.json* 또는 `Table` 특성 생성자의 파티션 키와 행 키의 값은 이 시나리오에서 사용되지 않습니다.
 

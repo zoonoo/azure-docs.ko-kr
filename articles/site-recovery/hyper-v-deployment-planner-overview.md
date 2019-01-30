@@ -5,14 +5,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: ae93611bfe5dd11bea8bc0327868c2865b36b713
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 7c5a5cddca2aa8e459bde711465425bdd32c669e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210672"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964019"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Hyper-V와 Azure 간 재해 복구를 위한 Azure Site Recovery Deployment Planner 정보
 
@@ -42,13 +42,13 @@ Azure Site Recovery Deployment Planner는 Hyper-V에서 Azure로 및 VMware에�
 
 * 각 VM에 대한 저장소 유형(표준 또는 프리미엄 저장소 계정) 요구 사항
 * 복제를 위해 설정해야 할 표준 및 프리미엄 저장소 계정의 총 수
-* Azure Storage 지침에 따른 저장소 계정 명명 제안
+* Azure Storage 지침에 따른 스토리지 계정 명명 제안
 * 모든 VM에 대한 저장소 계정 위치
 * 테스트 장애 조치 또는 구독에 대한 장애 조치 이전에 설정해야 할 Azure 코어의 수
 * 각 온-프레미스 VM에 대한 Azure VM 권장 크기
 
 **온-프레미스 인프라 요구 사항**
-* 성공적인 초기 복제 및 델타 복제를 위해 Hyper-V 저장소의 각 볼륨에 필요한 사용 가능한 저장소 공간이며, VM 복제로 인해 프로덕션 응용 프로그램에 바람직하지 않은 가동 중지 시간이 발생하지 않도록 합니다.
+* 성공적인 초기 복제 및 델타 복제를 위해 Hyper-V 스토리지의 각 볼륨에 필요한 사용 가능한 스토리지 공간이며, VM 복제로 인해 프로덕션 애플리케이션에 바람직하지 않은 가동 중지 시간이 발생하지 않도록 합니다.
 * Hyper-V 복제에 설정할 최대 복사 빈도
 
 **초기 복제 일괄 처리 지침** 
@@ -84,7 +84,7 @@ Azure Site Recovery Deployment Planner 실행 인스턴스당 프로파일링할
 
 | 서버 요구 사항 | 설명 |
 |---|---|
-|VM 목록 가져오기, 프로파일링 및 처리량 측정 |<ul><li>운영 체제: Microsoft Windows Server 2016 또는 Microsoft Windows Server 2012 R2 </li><li>컴퓨터 구성: 8개 vCPus, 16GB RAM, 300GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual Studio 2012용 Microsoft Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>이 서버에서 Azure에 대한 인터넷 액세스</li><li>Azure Storage 계정</li><li>서버에 대한 관리자 액세스</li><li>최소 100GB의 사용 가능한 디스크 공간(각각 디스크 3개의 평균을 포함한 VM 1000개를 가정, 30일 동안 프로파일링)</li><li>Azure Site Recovery Deployment Planner 도구를 실행 중인 곳의 VM이 모든 Hyper-V 서버의 TrustedHosts 목록에 반드시 추가되어야 합니다.</li><li>프로파일링할 모든 Hyper-V 서버의 VM이 도구가 실행되는 클라이언트 VM의 TrustedHosts 목록에 추가되어야 합니다. [서버를 TrustedHosts 목록에 추가하는 내용을 자세히 알아봅니다](#steps-to-add-servers-into-trustedhosts-list). </li><li> 도구는 PowerShell의 관리자 권한 또는 클라이언트의 명령줄 콘솔에서 실행되어야 합니다.</ul></ul>|
+|VM 목록 가져오기, 프로파일링 및 처리량 측정 |<ul><li>운영 체제: Microsoft Windows Server 2016 또는 Microsoft Windows Server 2012 R2 </li><li>머신 구성: 8개 vCPU, 16GB RAM, 300GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual Studio 2012용 Microsoft Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>이 서버에서 Azure에 대한 인터넷 액세스</li><li>Azure Storage 계정</li><li>서버에 대한 관리자 액세스</li><li>최소 100GB의 사용 가능한 디스크 공간(각각 디스크 3개의 평균을 포함한 VM 1000개를 가정, 30일 동안 프로파일링)</li><li>Azure Site Recovery Deployment Planner 도구를 실행 중인 곳의 VM이 모든 Hyper-V 서버의 TrustedHosts 목록에 반드시 추가되어야 합니다.</li><li>프로파일링할 모든 Hyper-V 서버의 VM이 도구가 실행되는 클라이언트 VM의 TrustedHosts 목록에 추가되어야 합니다. [서버를 TrustedHosts 목록에 추가하는 내용을 자세히 알아봅니다](#steps-to-add-servers-into-trustedhosts-list). </li><li> 도구는 PowerShell의 관리자 권한 또는 클라이언트의 명령줄 콘솔에서 실행되어야 합니다.</ul></ul>|
 | 보고서 생성 | Microsoft Excel 2013 이상을 포함한 모든 Windows PC 또는 Windows Server |
 | 사용자 권한 | VM 목록 가져오기 및 프로파일링 작업을 수행하는 동안 Hyper-V 클러스터/Hyper-V 호스트에 액세스하기 위한 관리자 계정입니다.<br>프로파일링해야 하는 모든 호스트에는 자격 증명(예: 사용자 이름 및 암호)이 동일한 도메인 관리자 계정이 있어야 합니다.
  |
@@ -110,14 +110,14 @@ Azure Site Recovery Deployment Planner 실행 인스턴스당 프로파일링할
 이 도구는 .zip 폴더에 패키지되어 있습니다. 동일한 도구가 VMware에서 Azure로 및 Hyper-V에서 Azure로 재해 복구 시나리오를 모두 지원합니다. 이 도구를 Hyper-V에서 보조 사이트로 재해 복구 시나리오에도 사용할 수 있지만 보고서의 Azure 인프라 권장 사항은 무시합니다.
 
 1.  .zip 폴더를 도구를 실행할 Windows Server에 복사합니다. 도구는 Windows Server 2012 R2 또는 Windows Server 2016에서 실행할 수 있습니다. 프로파일링할 VM을 보유하고 있는 Hyper-V 클러스터 또는 Hyper-V 호스트에 연결하려면 서버에 네트워크 액세스 권한이 있어야 합니다. 보호할 Hyper-V 서버와 도구를 실행할 VM의 하드웨어 구성이 동일한 것이 좋습니다. 이렇게 구성하면 도구가 보고하는 달성된 처리량이 Azure Site Recovery에서 복제 중에 달성할 수 있는 실제 처리량과 확실히 일치합니다. 처리량 계산은 서버의 사용 가능한 네트워크 대역폭 및 서버의 하드웨어 구성(CPU, 저장소 등)에 따라 달라집니다. 처리량은 도구가 Azure로 실행되는 서버에서 계산됩니다. 서버의 하드웨어 구성이 Hyper-V 서버와 다른 경우 도구가 보고하는 처리량이 정확하지 않습니다.
-권장되는 VM 구성: vCPU 8개, 16GB RAM, 300GB HDD.
+권장되는 VM 구성: 8개 vCPU, 16GB RAM, 300GB HDD.
 
 1.  .zip 폴더의 압축을 풉니다.
 폴더에 여러 개의 파일과 하위 폴더가 있습니다. 실행 파일은 부모 폴더에 있는 ASRDeploymentPlanner.exe입니다.
 
-예: .zip 파일을 E:\ 드라이브에 복사하고 압축을 풉니다. E:\ASR Deployment Planner_v2.2.zip
+예: .zip 파일을 E:\ 드라이브에 복사하고 압축을 풉니다. E:\ASR Deployment Planner_v2.3.zip
 
-E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>최신 버전의 Deployment Planner로 업데이트
 이전 버전의 Deployment Planner가 있는 경우 다음 중 하나를 수행합니다.
@@ -132,7 +132,7 @@ E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
   >각 새 Deployment Planner는 .zip 파일의 누적 업데이트입니다. 최신 파일을 이전 폴더로 복사할 필요가 없습니다. 새 폴더를 만들어 사용할 수 있습니다.
 
 ## <a name="version-history"></a>버전 기록
-최신 ASR Deployment Planner 도구 버전은 2.2입니다.
+최신 ASR Deployment Planner 도구 버전은 2.3입니다.
 각 업데이트에 추가된 수정 사항은 [ASR Deployment Planner 버전 기록](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) 페이지를 참조하세요.
 
 

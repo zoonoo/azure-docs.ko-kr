@@ -3,21 +3,22 @@ title: Azure Linux Virtual Machines에서 SQL Server 개요 | Microsoft Docs
 description: Azure Linux Virtual Machines에서 전체 SQL Server 버전을 실행하는 방법을 알아봅니다. 모든 Linux SQL Server VM 이미지 및 관련된 내용에 대한 직접 링크를 가져옵니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: rothja
-manager: jhubbard
+author: MashaMSFT
+manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: get-started-article
 ms.workload: iaas-sql-server
 ms.date: 04/10/2018
-ms.author: jroth
-ms.openlocfilehash: 9c24536d8d5647e4a2c19afa17c35050e1f11c20
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 18f9dd5318c6aecff8819178168469d9334e5e29
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31424127"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332407"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Azure Virtual Machines에서 SQL Server 개요(Linux)
 
@@ -69,7 +70,7 @@ Linux에서 SQL Server를 구성하는 경우 요구 사항에 따라 데이터�
 
 * [Virtual Network 개요](../../../virtual-network/virtual-networks-overview.md)
 * [Azure의 IP 주소](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-* [Azure Portal에서 정규화된 도메인 이름 만들기](../portal-create-fqdn.md)
+* [Azure 포털에서 정규화된 도메인 이름 만들기](../portal-create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 

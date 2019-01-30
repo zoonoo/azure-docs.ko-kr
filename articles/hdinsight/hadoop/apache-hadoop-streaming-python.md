@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: d6a9de293d62ec6f25bd3a665d5ced5a1ac671ae
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: e8cf8de25a35909cb2a0fc94237bfa517c72e685
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634025"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410349"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>HDInsight용 Python 스트리밍 MapReduce 프로그램 개발
 
@@ -49,7 +49,7 @@ Hadoop을 사용하면 작업에서 사용되는 map 및 reduce 논리를 포함
 
 * **입력**: map 및 reduce 구성 요소는 STDIN에서 입력 데이터를 읽어야 합니다.
 * **출력**: map 및 reduce 구성 요소는 STDOUT에 출력 데이터를 작성해야 합니다.
-* **데이터 형식**: 소비되고 생성되는 데이터는 탭 문자로 구분하는 키/값 쌍이어야 합니다
+* **데이터 형식**: 소비되고 생성되는 데이터는 탭 문자로 구분하는 키/값 쌍이어야 합니다.
 
 Python은 STDIN에서 읽을 수 있는 `sys` 모듈 및 STDOUT에 출력하는 `print`를 사용하여 이러한 요구 사항을 쉽게 처리할 수 있습니다. 나머지 작업은 키와 값 사이에 탭(`\t`) 문자를 사용하여 데이터 서식을 지정하기만 하면 됩니다.
 
@@ -144,7 +144,7 @@ Python은 STDIN에서 읽을 수 있는 `sys` 모듈 및 STDOUT에 출력하는 
 
     이 명령은 로컬 시스템에서 헤드 노드로 파일을 복사합니다.
 
-    > [!NOTE]
+    > [!NOTE]  
     > SSH 계정을 보호하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. SSH 키를 사용한 경우 `-i` 매개 변수 및 개인 키에 대한 경로를 사용해야 합니다. 예: `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`
 
 2. SSH를 사용하여 클러스터에 연결합니다.
@@ -199,6 +199,6 @@ Python은 STDIN에서 읽을 수 있는 `sys` 모듈 및 STDOUT에 출력하는 
 
 HDInsight에서 스트리밍 MapRedcue 작업을 사용하는 방법을 배웠으므로 이제 아래 링크를 사용하여 Azure HDInsight에서 작업하는 다른 방법을 살펴봅니다.
 
-* [HDInsight에서 하이브 사용](hdinsight-use-hive.md)
-* [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 Apache Hive 사용](hdinsight-use-hive.md)
+* [HDInsight에서 Apache Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)

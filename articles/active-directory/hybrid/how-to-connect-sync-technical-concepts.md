@@ -4,7 +4,7 @@ description: Azure AD Connect 동기화의 기술 개념에 대해 설명합니�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df3f244b70b52b6145b664c4e575c66542ada5b9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2bf9876fc551b9ab0eb24c03a17f3d789c00530e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309582"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463493"
 ---
-# <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect Sync: 기술 개념
+# <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect 동기화: 기술 개념
 이 문서에서는 [아키텍처 이해](how-to-connect-sync-technical-concepts.md)항목을 요약합니다.
 
 Azure AD Connect 동기화는 견고한 메타 디렉터리 동기화 플랫폼상에 빌드됩니다.
@@ -42,7 +42,7 @@ MIIS, ILM 및 FIM을 바탕으로 구성된 Azure Active Directory 동기화 서
 ## <a name="connector"></a>커넥터
 연결된 디렉터리와 통신하는 데 사용되는 코드 모듈을 커넥터(이전의 MA(관리 에이전트))라고 합니다.
 
-이러한 작업은 Azure AD Connect 동기화를 실행하는 컴퓨터에 설치됩니다. 커넥터는 특수 에이전트의 배포에 의존하지 않고 원격 시스템 프로토콜을 사용하여 대화할 수 있는 에이전트 없는 기능을 제공합니다. 따라서 특히 중요한 응용 프로그램 및 시스템을 다룰 때 위험성과 배포 시간이 감소합니다.
+이러한 작업은 Azure AD Connect 동기화를 실행하는 컴퓨터에 설치됩니다. 커넥터는 특수 에이전트의 배포에 의존하지 않고 원격 시스템 프로토콜을 사용하여 대화할 수 있는 에이전트 없는 기능을 제공합니다. 따라서 특히 중요한 애플리케이션 및 시스템을 다룰 때 위험성과 배포 시간이 감소합니다.
 
 위 그림에서 커넥터는 커넥터 공간와 동의어 이지만 외부 시스템과의 모든 통신을 포함합니다.
 
@@ -86,7 +86,7 @@ ID가 서로 연결되어 있고 가져오기 흐름 매핑을 통해 기관이 
 규칙이 새 커넥터 공간 개체를 만들어야 한다고 결정할 때마다 프로버전이라고 부릅니다. 그러나 이 작업은 커넥터 공간 내에서만 발생하기 때문에 내보내기가 실행될 때까지 연결된 데이터 원본으로 전달되지 않습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
-* [Azure AD Connect Sync: 사용자 지정 동기화 옵션](how-to-connect-sync-whatis.md)
+* [Azure AD Connect 동기화: 동기화 옵션 사용자 지정](how-to-connect-sync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)
 
 <!--Image references-->

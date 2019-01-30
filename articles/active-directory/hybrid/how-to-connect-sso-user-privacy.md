@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD Connect의 정의, GDPR, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c7fc6146db93938ed861c6302d2cd8f40b894977
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5035fb8d8d144114835fb1202dc9c639b9e5a8e3
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310392"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461131"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>사용자 개인 정보 및 Azure AD 원활한 Single Sign-On
 
@@ -67,5 +67,5 @@ Foreach ($file in $Files) {
 
 ## <a name="next-steps"></a>다음 단계
 * [보안 센터에서 Microsoft 개인 정보 취급 방침을 검토합니다.](https://www.microsoft.com/trustcenter)
-- [**문제 해결**](tshoot-connect-sso.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 새로운 기능 요청을 제출합니다.
+  - [**문제 해결**](tshoot-connect-sso.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
+  - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 새로운 기능 요청을 제출합니다.

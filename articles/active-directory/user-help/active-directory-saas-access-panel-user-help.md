@@ -3,7 +3,7 @@ title: Azure Active Directory에서 MyApps 포털 액세스 및 사용에 대한
 description: 액세스 패널에서 로그인하고 일반적인 작업을 수행할 수 있도록 도움을 받습니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 ms.service: active-directory
 ms.component: user-help
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: b4229ca7ff96a9806ac82cf9452de496d858f6b4
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 4af0b9cf50d643fda2341e791753e3bdfc8166b1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705687"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812574"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>MyApps 포털 액세스 및 사용과 관련된 문제 해결
 
@@ -45,11 +45,11 @@ SSPR(셀프 서비스 암호 재설정)을 사용하여 다른 사람에게 문�
 
 ## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>내 앱 보안 로그인 확장을 설치하는 데 문제가 있습니다.
 
-MyApps 포털에는 JavaScript를 지원하고 CSS를 사용하도록 설정된 브라우저가 필요합니다. 암호 기반 Single Sign-On 앱을 사용하는 경우 포함되는 확장도 설치해야 합니다. 이 확장은 암호 기반 Single Sign-On 앱에 구성된 응용 프로그램을 시작할 때 자동으로 다운로드됩니다.
+MyApps 포털에는 JavaScript를 지원하고 CSS를 사용하도록 설정된 브라우저가 필요합니다. 암호 기반 Single Sign-On 앱을 사용하는 경우 포함되는 확장도 설치해야 합니다. 이 확장은 암호 기반 Single Sign-On 앱에 구성된 애플리케이션을 시작할 때 자동으로 다운로드됩니다.
 
 다음 브라우저 요구 사항을 충족하는지 확인합니다.
 
-- **Edge**: Windows 10 Anniversary Edition 이상
+- **Microsoft Edge**: Windows 10 Anniversary Edition 이상
 - **Chrome**: Windows 7 이상 및 Mac OS X 이상
 - **Firefox 26.0 이상**: Windows XP SP2 이상 및 Mac OS X 10.6 이상
 - **Internet Explorer 11**: Windows 7 이상(제한적 지원)
@@ -90,7 +90,7 @@ MyApps 포털에는 JavaScript를 지원하고 CSS를 사용하도록 설정된 
        마지막으로 사용한 세 개의 앱이 **최근에 사용한 항목** 바로 가기 목록에 표시됩니다.
 
 > [!NOTE]
-> 이러한 옵션은 Edge, Chrome 및 Firefox에서만 사용할 수 있습니다.
+> 이러한 옵션은 Microsoft Edge, Chrome 및 Firefox에서만 사용할 수 있습니다.
 
 ## <a name="how-do-i-add-a-new-app"></a>새 앱을 추가하려면 어떻게 할까요?
 

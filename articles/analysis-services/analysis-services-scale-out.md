@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/13/2018
+ms.date: 01/18/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8cfbc72e239a7a5b38cee6752803e79735e2adc9
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 213a695d99c50cea5962237c6210e6efcdbc5f6a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321277"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411682"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 규모 확장
 
@@ -74,15 +74,19 @@ ms.locfileid: "49321277"
 ![규모 확장 슬라이더](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>REST API
+
 **동기화** 작업을 사용합니다.
 
 #### <a name="synchronize-a-model"></a>모델 동기화   
+
 `POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 #### <a name="get-sync-status"></a>동기화 상태 가져오기  
+
 `GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
+
 PowerShell을 사용하기 전에 [최신 AzureRM 모듈을 설치하거나 업데이트합니다](https://github.com/Azure/azure-powershell/releases). 
 
 쿼리 복제본 수를 설정하려면 [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)를 사용합니다. 선택적 `-ReadonlyReplicaCount` 매개 변수를 지정합니다.
@@ -103,7 +107,7 @@ SSMS, SSDT, PowerShell의 연결 문자열, Azure Function 앱 및 AMO의 경우
 
 **문제:** 사용자는 **연결 모드 'ReadOnly'에서 '\<서버 이름>' 서버 인스턴스를 찾을 수 없습니다.** 라는 오류를 받게 됩니다.
 
-**솔루션:** **쿼리 풀에서 처리 서버 분리** 옵션을 선택하면 기본 연결 문자열을 사용하는 클라이언트 연결(:rw 없이)은 쿼리 풀 복제본으로 리디렉션됩니다. 동기화가 완료되지 않았기 때문에 쿼리 풀의 복제본이 아직 온라인 상태가 아니면 리디렉션된 클라이언트 연결이 실패할 수 있습니다. 연결이 실패하지 않도록 방지하려면 스케일 아웃 및 동기화 작업이 완료될 때까지 쿼리 풀에서 처리 서버를 구분하지 않도록 선택합니다. 메모리 및 QPU 메트릭을 사용하여 동기화 상태를 모니터링할 수 있습니다.
+**해결 방법:** **쿼리 풀에서 처리 서버 분리** 옵션을 선택하면 기본 연결 문자열을 사용하는 클라이언트 연결(:rw 없이)은 쿼리 풀 복제본으로 리디렉션됩니다. 동기화가 완료되지 않았기 때문에 쿼리 풀의 복제본이 아직 온라인 상태가 아니면 리디렉션된 클라이언트 연결이 실패할 수 있습니다. 연결 실패를 방지하려면 동기화를 수행할 때 쿼리 풀에 두 개 이상의 서버가 있어야 합니다. 다른 서버가 온라인 상태로 유지되는 동안 각 서버는 개별적으로 동기화됩니다. 처리 중에 쿼리 풀에 처리 서버가 없도록 선택한 경우 처리를 위한 풀에서 처리 서버를 제거한 다음, 처리가 완료된 후 동기화되기 전, 다시 풀에 추가하도록 선택할 수 있습니다. 메모리 및 QPU 메트릭을 사용하여 동기화 상태를 모니터링할 수 있습니다.
 
 ## <a name="related-information"></a>관련 정보
 

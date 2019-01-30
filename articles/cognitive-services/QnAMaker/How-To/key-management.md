@@ -10,22 +10,23 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: tulasim
-ms.openlocfilehash: 1fe39cf9e4a1e58a0d37cc8ebf9fe02c6ad7eed5
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 2b199e10b1a70bc44065d422d32acd3bea182721
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334621"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302054"
 ---
-# <a name="key-management"></a>키 관리
+# <a name="how-to-manage-keys-in-qna-maker"></a>QnA Maker에서 키를 관리하는 방법
 
 QnA Maker 서비스는 **구독 키**와 **엔드포인트 키**의 두 종류 키를 사용합니다.
 
 ![키 관리](../media/qnamaker-how-to-key-management/key-management.png)
 
-1. **구독 키**: 이러한 키는 [QnA Maker 관리 서비스 API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)에 액세스하는 데 사용됩니다. 이 API를 사용하면 기술 자료에 대해 다양한 CRUD 작업을 수행할 수 있습니다.  
+1. **구독 키**: 이러한 키는 [QnA Maker 관리 서비스 API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)에 액세스하는 데 사용됩니다. 이러한 API를 통해 기술 자료를 편집할 수 있습니다.  
 
-2. **엔드포인트 키**: 이러한 키는 사용자 질문에 대한 응답을 가져오기 위해 기술 자료 엔드포인트에 액세스하는 데 사용됩니다. 일반적으로 QnA Maker 서비스를 이용하는 챗봇/앱 코드에서 이 엔드포인트를 사용합니다.
+2. **엔드포인트 키**: 이러한 키는 사용자 질문에 대한 응답을 가져오기 위해 기술 자료 엔드포인트에 액세스하는 데 사용됩니다. 일반적으로 QnA Maker 서비스를 이용하는 클라이언트 애플리케이션 코드 또는 챗봇에서 이 엔드포인트를 사용합니다.
  
 ## <a name="subscription-keys"></a>구독 키
 QnA Maker 리소스를 만든 Azure Portal에서 구독 키를 보고 다시 설정할 수 있습니다. 
@@ -41,7 +42,7 @@ QnA Maker 리소스를 만든 Azure Portal에서 구독 키를 보고 다시 설
 
 엔드포인트 키는 [QnA Maker 포털](https://qnamaker.ai)에서 관리할 수 있습니다.
 
-1. [QnA Maker 포털](https://qnamaker.ai)에 로그인하고 **키 관리**로 이동합니다.
+1. [QnA Maker 포털](https://qnamaker.ai)에 로그인하고 프로필로 이동한 후 **서비스 설정**을 클릭합니다.
 
     ![엔드포인트 키](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 
@@ -50,7 +51,7 @@ QnA Maker 리소스를 만든 Azure Portal에서 구독 키를 보고 다시 설
     ![엔드포인트 키 관리자](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
 
     >[!NOTE]
-    >손상된 것처럼 보이면 키를 새로 고칩니다. 앱/봇 코드에 해당 변경 내용을 적용해야 할 수도 있습니다.
+    >손상된 것처럼 보이면 키를 새로 고칩니다. 클라이언트 애플리케이션 또는 봇 코드에 해당 변경 내용을 적용해야 할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

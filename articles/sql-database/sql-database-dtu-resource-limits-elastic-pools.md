@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
 ms.openlocfilehash: e3b46620d15f8c08d0da69aef3d8c0920e5ad4ec
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830075"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653054"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>DTU를 기반 구매 모델을 사용한 탄력적 풀에 대한 리소스 제한 
 
@@ -28,7 +28,7 @@ ms.locfileid: "48830075"
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
 
-## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>탄력적 풀: 저장소 크기 및 계산 크기
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>탄력적 풀: 스토리지 크기 및 컴퓨팅 크기
 
 SQL Database 탄력적 풀과 관련된 다음 표는 각 서비스 계층 및 계산 크기에 제공되는 리소스를 보여줍니다. [Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 또는 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases)를 사용하여 서비스 계층, 계산 크기 및 저장소 용량을 설정할 수 있습니다.
 
@@ -111,7 +111,7 @@ SQL Database 탄력적 풀과 관련된 다음 표는 각 서비스 계층 및 �
 ||||||||
 
 > [!IMPORTANT]
-> 현재 미국 중서부, 중국 동부, USDoDCentral, 독일 중부, USDoDEast, US Gov 남서부, 독일 북동부, USGov 아이오와, 중국 북부를 제외한 모든 지역에서 1TB를 초과하는 저장소를 프리미엄 계층에 사용할 수 있습니다. 다른 지역에서 프리미엄 계층 저장소 크기는 1TB로 제한됩니다. [P11-P15 현재 제한 사항](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
+> 다음을 제외한 모든 지역에서 프리미엄 계층의 스토리지 1TB 이상을 사용할 수 있습니다. 미국 중서부, 중국 동부, US DoD 중부, 독일 중부, US DoD 동부, US Gov 남서부, 독일 북동부, US Gov 아이오와, 중국 북부. 다른 지역에서 프리미엄 계층 저장소 크기는 1TB로 제한됩니다. [P11-P15 현재 제한 사항](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
 
 탄력적 풀의 모든 DTU가 사용되었다면 풀에 있는 각 데이터베이스는 쿼리를 처리할 같은 크기의 리소스를 받습니다. SQL Database 서비스는 같은 분량의 계산 시간을 보장하여 데이터베이스 간의 공정성을 공유할 리소스를 제공합니다. 탄력적 풀 리소스 공유 공정성은 데이터베이스당 DTU 최소값이 0이 아닌 값으로 설정될 때 각 데이터베이스에 보장된 리소스에 적용됩니다.
 

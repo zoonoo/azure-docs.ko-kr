@@ -39,7 +39,7 @@ ms.locfileid: "43695900"
 이 섹션에서는 Relay 가격 책정 구조에 대해 자주 묻는 일부 질문에 답변합니다. 또한 일반적인 Azure 가격 책정 정보는 [Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하면 됩니다. Relay 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 세부 정보][Pricing overview]를 참조하세요.
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>하이브리드 연결 및 WCF 릴레이의 요금은 어떻게 청구되나요?
-릴레이 가격 책정에 대한 자세한 내용은 Service Bus 가격 책정 세부 정보 페이지의 [하이브리드 연결 및 WCF 릴레이][Pricing overview] 표를 참조하세요. 페이지에 언급된 가격 외에도 응용 프로그램이 프로비전되는 데이터 센터의 외부에서 송신을 위해 연결된 데이터 전송에 요금이 부과됩니다.
+릴레이 가격 책정에 대한 자세한 내용은 Service Bus 가격 책정 세부 정보 페이지의 [하이브리드 연결 및 WCF 릴레이][Pricing overview] 표를 참조하세요. 페이지에 언급된 가격 외에도 애플리케이션이 프로비전되는 데이터 센터의 외부에서 송신을 위해 연결된 데이터 전송에 요금이 부과됩니다.
 
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>하이브리드 연결의 요금은 어떻게 청구되나요?
 하이브리드 연결에 대한 세 가지 예제 청구 시나리오는 다음과 같습니다.

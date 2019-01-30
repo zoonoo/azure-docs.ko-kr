@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: patricka
-ms.reviewer: ''
-ms.openlocfilehash: 70641084d2213b50803800a64000611d139facec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.reviewer: unknown
+ms.lastreviewed: 12/06/2018
+ms.openlocfilehash: 03c1879c34a00bb09b5a4dee6af7da7b984045fc
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075779"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241188"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Azure Stack Role-Based Access Control을 사용한 리소스에 대 한 액세스 관리
 
@@ -51,7 +52,7 @@ Azure Stack에는 다음과 같은 리소스 계층 구조에 있습니다.
 부모 범위에서 부여 되는 액세스 자식 범위에서 상속 됩니다. 예: 
 
 * 구독 범위에서 Azure AD 그룹에 읽기 권한자 역할을 할당합니다. 해당 그룹의 멤버는 구독에서 모든 리소스 그룹 및 리소스를 볼 수 있습니다.
-* 리소스 그룹 범위에서 응용 프로그램에 참가자 역할을 할당합니다. 응용 프로그램에서 해당 리소스 그룹에 있지만 구독에서 다른 리소스 그룹이 아닌 모든 종류의 리소스를 관리할 수 있습니다.
+* 리소스 그룹 범위에서 애플리케이션에 참가자 역할을 할당합니다. 응용 프로그램에서 해당 리소스 그룹에 있지만 구독에서 다른 리소스 그룹이 아닌 모든 종류의 리소스를 관리할 수 있습니다.
 
 ### <a name="assigning-roles"></a>역할 할당
 
@@ -97,7 +98,7 @@ Azure [역할 할당](https://docs.microsoft.com/azure/role-based-access-control
 
    * 할당 하려는 역할을 선택 합니다 **역할** 드롭 다운 목록.
    * 할당 하려는 리소스를 선택 합니다 **에 대 한 액세스 할당** 드롭 다운 목록.
-   * 액세스 권한을 부여할 디렉터리에서 사용자, 그룹 또는 응용 프로그램을 선택합니다. 표시 이름, 전자 메일 주소 및 개체 식별자를 사용하여 디렉터리를 검색할 수 있습니다.
+   * 액세스 권한을 부여할 디렉터리에서 사용자, 그룹 또는 애플리케이션을 선택합니다. 표시 이름, 전자 메일 주소 및 개체 식별자를 사용하여 디렉터리를 검색할 수 있습니다.
 
 7. **저장**을 선택합니다.
 

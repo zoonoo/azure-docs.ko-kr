@@ -1,23 +1,19 @@
 ---
-title: Table API의 Azure Cosmos DB 전역 배포 자습서 | Microsoft Docs
+title: Table API의 Azure Cosmos DB 글로벌 배포 자습서
 description: Table API를 사용하여 Azure Cosmos DB 전역 배포를 설정하는 방법을 알아봅니다.
-services: cosmos-db
-keywords: 전역 배포, Table
-author: SnehaGunda
-manager: kfile
+author: wmengmsft
+ms.author: wmeng
 ms.service: cosmos-db
-ms.component: cosmosdb-table
-ms.devlang: na
+ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 12/13/2017
-ms.author: sngun
-ms.custom: mvc
-ms.openlocfilehash: 7baa1e5b4b50d1f420b514854fa4d4c9ef786c99
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.reviewer: sngun
+ms.openlocfilehash: d7d68c2dbdf5ca32fb2936e92daafac838c97a06
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582138"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042533"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Table API를 사용하여 Azure Cosmos DB 전역 배포 설정
 
@@ -32,7 +28,7 @@ ms.locfileid: "38582138"
 
 ## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Table API를 사용하여 기본 설정 지역에 연결
 
-[전역 배포](distribute-data-globally.md)를 활용하기 위해 클라이언트 응용 프로그램은 문서 작업을 수행하는 데 사용할 정렬된 기본 지역 목록을 지정할 수 있습니다. [TableConnectionPolicy.PreferredLocations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.table.tableconnectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_CosmosDB_Table_TableConnectionPolicy_PreferredLocations) 속성을 설정하여 이 작업을 수행할 수 있습니다. Azure Cosmos DB Table API SDK는 계정 구성, 현재 가용성 및 제공된 기본 설정 목록에 따라 최상의 끝점을 선택하여 통신합니다.
+[전역 배포](distribute-data-globally.md)를 활용하기 위해 클라이언트 응용 프로그램은 문서 작업을 수행하는 데 사용할 정렬된 기본 지역 목록을 지정할 수 있습니다. [TableConnectionPolicy.PreferredLocations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.table.tableconnectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_CosmosDB_Table_TableConnectionPolicy_PreferredLocations) 속성을 설정하여 이 작업을 수행할 수 있습니다. Azure Cosmos DB Table API SDK는 계정 구성, 현재 가용성 및 제공된 기본 설정 목록에 따라 최상의 엔드포인트를 선택하여 통신합니다.
 
 PreferredLocations에는 읽기에 대해 기본 설정된(멀티 홈) 위치를 쉼표로 구분한 목록이 있어야 합니다. 각 클라이언트 인스턴스는 대기 시간이 짧은 읽기에 대해 기본 설정된 순서대로 이러한 지역의 하위 집합을 지정할 수 있습니다. 지역 이름은 [표시 이름](https://msdn.microsoft.com/library/azure/gg441293.aspx)(예: `West US`)을 사용하여 지정해야 합니다.
 

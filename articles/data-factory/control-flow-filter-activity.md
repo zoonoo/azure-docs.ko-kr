@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: shlo
-ms.openlocfilehash: b3b26869a84b8519ced19a4c93a6d39d6ed20f9b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 787c9393e2700bd7ed349b501e70abc4a0687b9c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050355"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021835"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Azure Data Factory의 필터 작업
 입력 배열에 필터 식을 적용하려면 파이프라인에서 필터 작업을 사용할 수 있습니다. 
@@ -47,7 +46,7 @@ items | 필터를 적용해야 하는 입력 배열입니다. | 식 | 예
 
 ## <a name="example"></a>예
 
-이 예제에서 파이프라인에는 **필터** 및 **ForEach**라는 두 개의 작업이 있습니다. 필터 작업은 3보다 큰 값의 항목에 대한 입력 배열을 필터링하도록 구성됩니다. 그런 다음, ForEach 작업은 필터링된 값에 대해 반복하고 현재 값으로 지정된 몇 초를 기다립니다.
+이 예제에서 파이프라인에는 두 개의 활동인 **Filter** 및 **ForEach**가 있습니다. 필터 작업은 3보다 큰 값의 항목에 대한 입력 배열을 필터링하도록 구성됩니다. 그런 다음, ForEach 작업은 필터링된 값에 대해 반복하고 현재 값으로 지정된 몇 초를 기다립니다.
 
 ```json
 {

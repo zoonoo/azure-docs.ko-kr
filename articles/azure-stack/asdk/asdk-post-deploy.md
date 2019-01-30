@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: cfc191830ddadbbe3258fc1b61fcd4bcc45fdd8c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.lastreviewed: 10/10/2018
+ms.openlocfilehash: 7e052c8d1674cc95a376de5ba6e20ca63b4dd72c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186755"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245527"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK 설치 후 구성 작업
 
@@ -44,6 +45,19 @@ ASDK 호스트 컴퓨터에 인터넷 연결 없이 최신 Azure Stack PowerShel
 > 필요한 버전을 설치 하기 전에 확인 하면 [기존 Azure PowerShell 모듈을 제거](../azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules)합니다.
 
 - **인터넷에 연결 된** ASDK 호스트 컴퓨터에서. 개발 키트 설치에서 이러한 모듈을 설치 하려면 다음 PowerShell 스크립트를 실행 합니다.
+
+  - Azure Stack 1811 이상:
+
+    ``` PowerShell
+    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
+    Install-Module -Name AzureRm.BootStrapper
+
+    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
+
+    # Install Azure Stack Module Version 1.6.0.
+    Install-Module -Name AzureStack -RequiredVersion 1.6.0
+    ```
 
   - Azure Stack 1808 이상:
 
@@ -95,7 +109,7 @@ ASDK 호스트 컴퓨터에 인터넷 연결 없이 최신 Azure Stack PowerShel
   Save-Package `
     -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
   
-  # AzureStack requries 1.5.0 for version 1808, 1.4.0 for versions after 1803, and 1.2.11 for versions before 1803
+  # AzureStack requires 1.5.0 for version 1808, 1.4.0 for versions after 1803, and 1.2.11 for versions before 1803
   Save-Package `
     -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
   ```

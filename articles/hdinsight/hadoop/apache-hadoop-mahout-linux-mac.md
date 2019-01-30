@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 1025b004eb49f82532d3815be3536dbc1f336273
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: adc85514c0f4e2f7245a7db6dffbe6b9dc5e6d42
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634620"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435194"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>HDInsight(SSH)의 Linux 기반 Apache Hadoop와 함께 Apache Mahout를 사용하여 영화 추천 생성
 
 [!INCLUDE [mahout-selector](../../../includes/hdinsight-selector-mahout.md)]
 
-Azure HDInsight에서 [Apache Mahout](http://mahout.apache.org) 기계 학습 라이브러리를 사용하여 영화 추천을 생성하는 방법에 대해 알아봅니다.
+Azure HDInsight에서 [Apache Mahout](https://mahout.apache.org) 기계 학습 라이브러리를 사용하여 영화 추천을 생성하는 방법에 대해 알아봅니다.
 
 Mahout은 Apache Hadoop용 [Machine Learning][ml] 라이브러리입니다. Mahout에는 필터링, 분류 및 클러스터링과 같은 데이터 처리를 위한 알고리즘이 포함됩니다. 이 문서에서는 권장 엔진을 사용하여 친구가 본 영화를 기준으로 영화 권장을 생성합니다.
 
@@ -28,14 +28,14 @@ Mahout은 Apache Hadoop용 [Machine Learning][ml] 라이브러리입니다. Maho
 
 * Linux 기반 HDInsight 클러스터입니다. HDInsight 클러스터 만들기에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 사용 시작][getstarted]을 참조하세요.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 * SSH 클라이언트. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md) 문서를 참조하세요.
 
-## <a name="mahout-versioning"></a>Mahout 버전 관리
+## <a name="apache-mahout-versioning"></a>Apache Mahout 버전 관리
 
-HDInsight 클러스터의 Mahout 버전에 대한 자세한 내용은 [HDInsight 버전 및 Hadoop 구성 요소](../hdinsight-component-versioning.md)를 참조하세요.
+HDInsight 클러스터의 Mahout 버전에 대한 자세한 내용은 [HDInsight 버전 및 Apache Hadoop 구성 요소](../hdinsight-component-versioning.md)를 참조하세요.
 
 ## <a name="recommendations"></a>이해 권장 사항
 
@@ -59,8 +59,8 @@ user-ratings.txt에 포함된 데이터의 구조는 `userID`, `movieID`, `userR
 
     196    242    3    881250949
     186    302    3    891717742
-    22    377    1    878887116
-    244    51    2    880606923
+    22     377    1    878887116
+    244    51     2    880606923
     166    346    1    886397596
 
 ## <a name="run-the-analysis"></a>분석 실행
@@ -71,7 +71,7 @@ user-ratings.txt에 포함된 데이터의 구조는 `userID`, `movieID`, `userR
 mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt -o /example/data/mahoutout --tempDir /temp/mahouttemp
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 작업을 완료하려면 몇 분정도 걸릴 수 있으며 여러 MapReduce 작업을 실행할 수 있습니다.
 
 ## <a name="view-the-output"></a>출력 보기
@@ -188,7 +188,7 @@ Mahout 작업은 작업을 처리하는 동안 생성된 임시 데이터를 제
 hdfs dfs -rm -f -r /temp/mahouttemp
 ```
 
-> [!WARNING]
+> [!WARNING]  
 > 명령을 다시 실행하려는 경우 출력 디렉터리도 삭제해야 합니다. 이 디렉터리를 삭제하려면 다음을 사용합니다.
 >
 > `hdfs dfs -rm -f -r /example/data/mahoutout`
@@ -198,17 +198,17 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 
 이제 Mahout을 사용하는 방법을 배웠으므로 HDInsight에서 데이터로 작업하는 다른 방법을 검색합니다.
 
-* [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
-* [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
+* [HDInsight의 Apache Hive](hdinsight-use-hive.md)
+* [HDInsight의 Apache Pig](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-[build]: http://mahout.apache.org/developers/buildingmahout.html
-[movielens]: http://grouplens.org/datasets/movielens/
-[100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
+[build]: https://mahout.apache.org/developers/buildingmahout.html
+[movielens]: https://grouplens.org/datasets/movielens/
+[100k]: https://files.grouplens.org/datasets/movielens/ml-100k.zip
 [getstarted]:apache-hadoop-linux-tutorial-get-started.md
 [upload]: hdinsight-upload-data.md
-[ml]: http://en.wikipedia.org/wiki/Machine_learning
-[forest]: http://en.wikipedia.org/wiki/Random_forest
+[ml]: https://en.wikipedia.org/wiki/Machine_learning
+[forest]: https://en.wikipedia.org/wiki/Random_forest
 [enableremote]: ./media/hdinsight-mahout/enableremote.png
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png

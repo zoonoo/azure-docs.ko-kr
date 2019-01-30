@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: 8690ffdca606bf45f306f9273441aaac52b385c8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8b46839d26130f37f4f4ba5559f5699498b0e60f
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241364"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599402"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Azure Traffic Manager의 성능 저하 상태 문제 해결
 
@@ -33,8 +33,8 @@ Traffic Manager의 상태가 **비활성** 상태를 표시하는 경우 두 끝
 * Traffic Manager는 프로브가 프로브 경로에서 다시 HTTP 200 응답을 수신하는 경우에만 엔드포인트를 온라인 상태로 변경할 것을 고려합니다. 다른 200 이외의 응답은 오류입니다.
 * 리디렉션된 URL이 200을 반환하더라도 30x 리디렉션은 실패합니다.
 * HTTP 검색의 경우 인증서 오류는 무시됩니다.
-* 200가 반환되면 검색 경로의 실제 콘텐츠는 문제가 되지 않습니다. "/favicon.ico"와 같은 정적 콘텐츠에 대한 URL을 검색하는 작업은 일반적인 기술입니다. 응용 프로그램이 정상적인 경우더라도 ASP 페이지와 같은 동적 콘텐츠는 항상 200을 반환하지 않을 수 있습니다.
-* 모범 사례는 사이트 가동 또는 중지를 결정하기 위한 충분한 논리가 있는 경로로 검색 경로를 설정하는 것입니다. 이전 예제에서는 "/favicon.ico"로 경로를 설정하여 w3wp.exe가 응답하는지 테스트합니다. 이 검색에서는 웹 응용 프로그램 상태가 정상인지 나타낼 수 있습니다. 사이트의 상태를 확인하는 논리를 포함하는 "/Probe.aspx"와 같이 경로를 설정하는 것이 더 좋습니다. 예를 들어, CPU 사용률에 성능 카운터를 사용하거나 실패한 요청 수를 측정할 수 있습니다. 또는 데이터베이스 리소스 또는 세션 상태에 액세스하여 웹 응용 프로그램이 작동하는지 확인할 수 있습니다.
+* 200가 반환되면 검색 경로의 실제 콘텐츠는 문제가 되지 않습니다. "/favicon.ico"와 같은 정적 콘텐츠에 대한 URL을 검색하는 작업은 일반적인 기술입니다. 애플리케이션이 정상적인 경우더라도 ASP 페이지와 같은 동적 콘텐츠는 항상 200을 반환하지 않을 수 있습니다.
+* 모범 사례는 사이트 가동 또는 중지를 결정하기 위한 충분한 논리가 있는 경로로 검색 경로를 설정하는 것입니다. 이전 예제에서는 "/favicon.ico"로 경로를 설정하여 w3wp.exe가 응답하는지 테스트합니다. 이 검색에서는 웹 애플리케이션 상태가 정상인지 나타낼 수 있습니다. 사이트의 상태를 확인하는 논리를 포함하는 "/Probe.aspx"와 같이 경로를 설정하는 것이 더 좋습니다. 예를 들어, CPU 사용률에 성능 카운터를 사용하거나 실패한 요청 수를 측정할 수 있습니다. 또는 데이터베이스 리소스 또는 세션 상태에 액세스하여 웹 애플리케이션이 작동하는지 확인할 수 있습니다.
 * 프로필의 모든 엔드포인트의 성능이 저하된 경우 Traffic Manager는 모든 엔드포인트를 정상으로 처리하고 트래픽을 모든 엔드포인트로 라우팅합니다. 이 동작을 통해 검색 메커니즘과 관련된 문제가 서비스의 전체 가동 중단을 일으키지 않도록 합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
@@ -86,7 +86,7 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [Cloud Services](https://go.microsoft.com/fwlink/?LinkId=314074)
 
-[Azure Web Apps](https://azure.microsoft.com/documentation/services/app-service/web/)
+[Azure App Service](https://azure.microsoft.com/documentation/services/app-service/web/)
 
 [Traffic Manager 작업(REST API 참조)](https://go.microsoft.com/fwlink/?LinkId=313584)
 

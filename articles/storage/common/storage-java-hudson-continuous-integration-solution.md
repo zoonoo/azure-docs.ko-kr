@@ -81,7 +81,7 @@ Hudson으로 Blob service를 사용하려면 Azure Storage 플러그 인을 설�
    
     d. **Validate storage credentials** 를 클릭하여 저장소 계정의 유효성을 검사합니다.
    
-    e. [옵션] Hudson CI에 사용할 수 있는 추가 저장소 계정이 있으면 **Add more storage accounts**를 클릭합니다.
+    e. [옵션] Hudson CI에 사용할 수 있는 추가 스토리지 계정이 있으면 **Add more storage accounts**를 클릭합니다.
    
     f. **Save** 를 클릭하여 설정을 저장합니다.
 

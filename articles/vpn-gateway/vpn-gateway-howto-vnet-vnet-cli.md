@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2fc25235325db8a403c2b258dd5e4b3effc46ace
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dda4f68046b81d96cfe92d5e8b09eab23df0003b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971963"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846315"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Azure CLI를 사용하여 VNet 간 VPN 게이트웨이 연결 구성
 
@@ -62,9 +62,9 @@ VNet-VNet 연결을 사용하여 가상 네트워크에 연결하면 좋은 이�
 
   * 인터넷 연결 엔드포인트로 이동하지 않고도 보안 연결을 통해 지역에서 복제 또는 동기화를 직접 설정할 수 있습니다.
   * Azure Traffic Manager 및 부하 분산 장치를 사용하여 여러 Azure 지역 간의 지리적 중복을 통해 워크로드의 가용성을 높게 설정할 수 있습니다. 이러한 작업의 한 가지 주요 예는 여러 Azure 지역에 분산된 가용성 그룹을 사용하여 SQL AlwaysOn을 설정하는 것입니다.
-* **분리 또는 관리 경계를 가진 지역별 다중 계층 응용 프로그램**
+* **분리 또는 관리 경계를 가진 지역별 다중 계층 애플리케이션**
 
-  * 같은 지역 내에서 분리 또는 관리 요구 사항 때문에 여러 가상 네트워크가 함께 연결된 다중 계층 응용 프로그램을 설정할 수 있습니다.
+  * 같은 지역 내에서 분리 또는 관리 요구 사항 때문에 여러 가상 네트워크가 함께 연결된 다중 계층 애플리케이션을 설정할 수 있습니다.
 
 VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이렇게 하면 프레미스 간 연결을 가상 네트워크 간 연결과 결합하는 네트워크 토폴로지를 설정할 수 있습니다.
 
@@ -74,11 +74,11 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
 이 연습에서는 구성을 결합해도 좋고, 사용할 구성만 선택해도 좋습니다. 모든 구성은 VNet-VNet 연결 형식을 사용합니다. 네트워크 트래픽은 서로 직접 연결된 VNet 사이를 흐릅니다. 이 연습에서는 TestVNet4의 트래픽이 TestVNet5로 라우팅되지 않습니다.
 
-* [동일한 구독에 상주하는 VNet](#samesub): 이 구성에 대한 단계에서는 TestVNet1 및 TestVNet4를 사용합니다.
+* [동일한 구독에 있는 VNet:](#samesub) 이 구성에 대한 단계는 TestVNet1 및 TestVNet4를 사용합니다.
 
   ![v2v 다이어그램](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
-* [서로 다른 구독에 상주하는 VNet](#difsub): 이 구성에 대한 단계에서는 TestVNet1 및 TestVNet5를 사용합니다.
+* [다른 구독에 있는 VNet:](#difsub) 이 구성에 대한 단계는 TestVNet1 및 TestVNet5를 사용합니다.
 
   ![v2v 다이어그램](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
@@ -100,20 +100,20 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 * VNet 이름: TestVNet1
 * 리소스 그룹: TestRG1
 * 위치: 미국 동부
-* TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
+* TestVNet1: 10.11.0.0/16 및 10.12.0.0/16
 * 프런트 엔드: 10.11.0.0/24
 * 백 엔드: 10.12.0.0/24
-* 게이트웨이 서브넷 = 10.12.255.0/27
+* 게이트웨이 서브넷: 10.12.255.0/27
 * 게이트웨이 이름: VNet1GW
 * 공용 IP: VNet1GWIP
-* VpnType: 경로 기반
+* VPNType: 경로 기반
 * 연결(1 대 4): VNet1 대 VNet4
 * 연결(1 대 5): VNet1 대 VNet5(예: 다른 구독의 VNet)
 
 **TestVNet4에 대한 값:**
 
 * VNet 이름: TestVNet4
-* TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
+* TestVNet2: 10.41.0.0/16 및 10.42.0.0/16
 * 프런트 엔드: 10.41.0.0/24
 * 백 엔드: 10.42.0.0/24
 * 게이트웨이 서브넷: 10.42.255.0/27
@@ -121,7 +121,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 * 위치: 미국 서부
 * 게이트웨이 이름: VNet4GW
 * 공용 IP: VNet4GWIP
-* VpnType: 경로 기반
+* VPNType: 경로 기반
 * 연결: VNet4 대 VNet1
 
 ### <a name="Connect"></a>1단계 - 구독에 연결
@@ -133,7 +133,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 1. 리소스 그룹을 만듭니다.
 
   ```azurecli
-  az group create -n TestRG1  -l eastus
+  az group create -n TestRG1  -l eastus
   ```
 2. TestVNet1 및 TestVNet1의 서브넷을 만듭니다. 이 예제에서는 TestVNet1이라는 가상 네트워크와 FrontEnd라는 서브넷을 만듭니다.
 
@@ -148,11 +148,11 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 4. 백 엔드 서브넷을 만듭니다.
   
   ```azurecli
-  az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestRG1 --address-prefix 10.12.0.0/24 
+  az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestRG1 --address-prefix 10.12.0.0/24 
   ```
 5. 게이트웨이 서브넷을 만듭니다. 게이트웨이 서브넷의 이름은 'GatewaySubnet'입니다. 이 이름은 필수입니다. 이 예제에서 게이트웨이 서브넷은 /27을 사용합니다. 게이트웨이 서브넷을 /29만큼 작게 만들 수 있지만 적어도 /28 또는 /27을 선택하여 더 많은 주소를 포함하는 큰 서브넷을 만드는 것이 좋습니다. 이렇게 하면 나중에 필요할 수도 있는 추가 구성에 맞게 충분히 주소를 사용할 수 있습니다.
 
-  ```azurecli 
+  ```azurecli 
   az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestRG1 --address-prefix 10.12.255.0/27
   ```
 6. VNet용으로 만들 게이트웨이에 할당할 공용 IP 주소를 요청합니다. AllocationMethod가 동적인지 확인합니다. 사용할 IP 주소를 지정할 수는 없습니다. IP 주소는 게이트웨이에 동적으로 할당됩니다.
@@ -171,7 +171,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 1. 리소스 그룹을 만듭니다.
 
   ```azurecli
-  az group create -n TestRG4  -l westus
+  az group create -n TestRG4  -l westus
   ```
 2. TestVNet4 만들기.
 
@@ -182,13 +182,13 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 3. TestVNet4의 추가 서브넷을 만듭니다.
 
   ```azurecli
-  az network vnet update -n TestVNet4 --address-prefixes 10.41.0.0/16 10.42.0.0/16 -g TestRG4 
-  az network vnet subnet create --vnet-name TestVNet4 -n BackEnd -g TestRG4 --address-prefix 10.42.0.0/24 
+  az network vnet update -n TestVNet4 --address-prefixes 10.41.0.0/16 10.42.0.0/16 -g TestRG4 
+  az network vnet subnet create --vnet-name TestVNet4 -n BackEnd -g TestRG4 --address-prefix 10.42.0.0/24 
   ```
 4. 게이트웨이 서브넷을 만듭니다.
 
   ```azurecli
-   az network vnet subnet create --vnet-name TestVNet4 -n GatewaySubnet -g TestRG4 --address-prefix 10.42.255.0/27
+   az network vnet subnet create --vnet-name TestVNet4 -n GatewaySubnet -g TestRG4 --address-prefix 10.42.255.0/27
   ```
 5. 공용 IP 주소를 요청합니다.
 
@@ -213,23 +213,23 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
   az network vnet-gateway show -n VNet1GW -g TestRG1
   ```
 
-  출력에서 "id:" 줄을 찾습니다. 따옴표 안의 값은 다음 섹션에서 연결을 만드는 데 필요합니다. 연결을 만들 때 쉽게 붙여넣을 수 있도록 이 값을 텍스트 편집기(예: 메모장)에 복사합니다.
+  출력에서 "id:" 줄을 찾습니다. 따옴표 안의 값은 다음 섹션에서 연결을 만드는 데 필요합니다. 연결을 만들 때 쉽게 붙여 넣을 수 있도록 이 값을 텍스트 편집기(예: 메모장)에 복사합니다.
 
   예제 출력:
 
   ```
-  "activeActive": false, 
-  "bgpSettings": { 
-    "asn": 65515, 
-    "bgpPeeringAddress": "10.12.255.30", 
-    "peerWeight": 0 
-   }, 
-  "enableBgp": false, 
-  "etag": "W/\"ecb42bc5-c176-44e1-802f-b0ce2962ac04\"", 
-  "gatewayDefaultSite": null, 
-  "gatewayType": "Vpn", 
-  "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW", 
-  "ipConfigurations":
+  "activeActive": false, 
+  "bgpSettings": { 
+    "asn": 65515, 
+    "bgpPeeringAddress": "10.12.255.30", 
+    "peerWeight": 0 
+   }, 
+  "enableBgp": false, 
+  "etag": "W/\"ecb42bc5-c176-44e1-802f-b0ce2962ac04\"", 
+  "gatewayDefaultSite": null, 
+  "gatewayType": "Vpn", 
+  "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW", 
+  "ipConfigurations":
   ```
 
   따옴표 안에 있는 **"id":** 뒤의 값을 복사합니다.
@@ -247,7 +247,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 3. TestVNet1 대 TestVNet4 연결을 만듭니다. 이 단계에서는 TestVNet1에서 TestVNet4까지 연결을 만듭니다. 예제에 참조된 공유 키가 있습니다. 공유 키에 대해 고유한 값을 사용할 수 있습니다. 중요한 점은 두 연결에서 모두 공유 키가 일치해야 한다는 것입니다. 연결을 만드는 데는 시간이 걸립니다.
 
   ```azurecli
-  az network vpn-connection create -n VNet1ToVNet4 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "aabbcc" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG4/providers/Microsoft.Network/virtualNetworkGateways/VNet4GW 
+  az network vpn-connection create -n VNet1ToVNet4 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "aabbcc" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG4/providers/Microsoft.Network/virtualNetworkGateways/VNet4GW 
   ```
 4. TestVNet4 대 TestVNet1 연결을 만듭니다. 이 단계는 TestVNet4에서 TestVNet1까지 연결을 만드는 점을 제외하면 위의 비슷합니다. 공유된 키가 일치하는지 확인합니다. 연결을 설정하는 데 몇 분이 소요됩니다.
 
@@ -287,15 +287,15 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 * VNet 이름: TestVNet5
 * 리소스 그룹: TestRG5
 * 위치: 일본 동부
-* TestVNet5: 10.51.0.0/16 & 10.52.0.0/16
+* TestVNet5: 10.51.0.0/16 및 10.52.0.0/16
 * 프런트 엔드: 10.51.0.0/24
 * 백 엔드: 10.52.0.0/24
 * 게이트웨이 서브넷: 10.52.255.0.0/27
 * 게이트웨이 이름: VNet5GW
 * 공용 IP: VNet5GWIP
-* VpnType: 경로 기반
+* VPNType: 경로 기반
 * 연결: VNet5 대 VNet1
-* 연결 유형: VNet 간
+* ConnectionType: VNet2VNet
 
 ### <a name="TestVNet5"></a>7단계 - TestVNet5 만들기 및 구성
 
@@ -304,7 +304,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 1. 구독 5에 연결되어 있는지 확인한 다음 리소스 그룹을 만듭니다.
 
   ```azurecli
-  az group create -n TestRG5  -l japaneast
+  az group create -n TestRG5  -l japaneast
   ```
 2. TestVNet5 만들기.
 
@@ -362,7 +362,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
   "id:"에 대한 출력을 복사합니다. 전자 메일 또는 다른 방법을 통해 VNet 게이트웨이(VNet5GW)의 ID와 이름을 구독 1 관리자에게 보냅니다.
 
-3. **[구독 1]** 이 단계에서는 TestVNet1에서 TestVNet5까지 연결을 만듭니다. 공유 키에 대해 고유한 값을 사용할 수 있지만 공유 키는 두 연결에 모두 일치해야 합니다. 연결 만들기는 완료하는 데 꽤 오래 걸릴 수 있습니다. 구독 1에 연결해야 합니다.
+3. **[구독 1]** 이 단계에서는 TestVNet1에서 TestVNet5까지 연결을 만듭니다. 공유 키에 대해 고유한 값을 사용할 수 있지만 공유 키는 두 연결에 모두 일치해야 합니다. 연결 만들기는 완료하는 데 꽤 오래 걸릴 수 있습니다. 구독 1에 연결해야 합니다.
 
   ```azurecli
   az network vpn-connection create -n VNet1ToVNet5 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "eeffgg" --vnet-gateway2 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW

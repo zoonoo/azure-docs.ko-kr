@@ -1,6 +1,6 @@
 ---
 title: '자습서: Apache Kafka 생산자 및 소비자 API 사용 - Azure HDInsight '
-description: HDInsight의 Kafka에서 Apache Kafka 생산자 및 소비자 API를 사용하는 방법에 대해 알아봅니다. 이 자습서에서는 Java 응용 프로그램에서 HDInsight의 Kafka와 함께 이러한 API를 사용하는 방법을 알아봅니다.
+description: HDInsight의 Kafka에서 Apache Kafka 생산자 및 소비자 API를 사용하는 방법에 대해 알아봅니다. 이 자습서에서는 Java 애플리케이션에서 HDInsight의 Kafka와 함께 이러한 API를 사용하는 방법을 알아봅니다.
 services: hdinsight
 author: dhgoelmsft
 ms.author: dhgoel
@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 947eb76f84f865135e87803b53fa94e20eecb78c
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 23a676c64ec2788ec4a9b3d61f86529fa437079f
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313826"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580385"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>자습서: Apache Kafka 생산자 및 소비자 API 사용
 
 HDInsight의 Kafka에서 Apache Kafka 생산자 및 소비자 API를 사용하는 방법에 대해 알아봅니다.
 
-Kafka 생산자 API를 통해 Kafka 클러스터에 데이터 스트림을 보낼 수 있습니다. Kafka 소비자 API를 통해 클러스터에서 데이터 스트림을 읽을 수 있습니다.
+애플리케이션에서 Kafka 생산자 API를 통해 Kafka 클러스터에 데이터 스트림을 보낼 수 있습니다. 애플리케이션에서 Kafka 소비자 API를 통해 클러스터에서 데이터 스트림을 읽을 수 있습니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -28,8 +28,8 @@ Kafka 생산자 API를 통해 Kafka 클러스터에 데이터 스트림을 보�
 > * 개발 환경 설정
 > * 배포 환경 설정
 > * 코드 이해
-> * 응용 프로그램 빌드 및 배포
-> * 클러스터에서 응용 프로그램 실행
+> * 애플리케이션 빌드 및 배포
+> * 클러스터에서 애플리케이션 실행
 
 API에 대한 자세한 내용은 [생산자 API](https://kafka.apache.org/documentation/#producerapi) 및 [소비자 API](https://kafka.apache.org/documentation/#consumerapi)에서 Apache 설명서를 참조하세요.
 
@@ -39,7 +39,7 @@ API에 대한 자세한 내용은 [생산자 API](https://kafka.apache.org/docum
 
 * [Java JDK 8](https://aka.ms/azure-jdks) 또는 이와 동등한 프로그램(예: OpenJDK)
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * SSH 클라이언트 및 `scp` 명령입니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md) 문서를 참조하세요.
 
@@ -49,7 +49,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 
 * `JAVA_HOME` - JDK가 설치된 디렉터리를 가리켜야 합니다.
 * `PATH` - 다음 경로를 포함해야 합니다.
-  
+
     * `JAVA_HOME`(또는 이와 동등한 경로)
     * `JAVA_HOME\bin`(또는 이와 동등한 경로)
     * Maven이 설치된 디렉터리
@@ -60,7 +60,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 
 ## <a name="understand-the-code"></a>코드 이해
 
-예제 응용 프로그램은 `Producer-Consumer` 하위 디렉터리의 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)에 있습니다. 응용 프로그램은 주로 4개의 파일로 구성됩니다.
+예제 애플리케이션은 `Producer-Consumer` 하위 디렉터리의 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)에 있습니다. 애플리케이션은 주로 4개의 파일로 구성됩니다.
 
 * `pom.xml`: 이 파일은 프로젝트 종속성, Java 버전 및 패키징 메서드를 정의합니다.
 * `Producer.java`: 이 파일은 생산자 API를 사용하여 Kafka에 임의의 문장을 보냅니다.
@@ -82,17 +82,17 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
     </dependency>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > `${kafka.version}` 항목은 `pom.xml`의 `<properties>..</properties>` 섹션에서 선언되며, HDInsight 클러스터의 Kafka 버전으로 구성됩니다.
 
 * 플러그 인: Maven 플러그 인은 다양한 기능을 제공합니다. 이 프로젝트에서는 다음 플러그 인이 사용됩니다.
 
     * `maven-compiler-plugin`: 프로젝트에서 사용하는 Java 버전을 8로 설정하는 데 사용됩니다. HDInsight 3.6에서 사용하는 Java 버전입니다.
-    * `maven-shade-plugin`: 이 응용 프로그램 및 모든 종속성을 포함하는 uber jar를 생성하는 데 사용됩니다. 또한 기본 클래스를 지정하지 않고 Jar 파일을 직접 실행할 수 있도록 응용 프로그램의 진입점을 설정하는 데 사용됩니다.
+    * `maven-shade-plugin`: 이 애플리케이션 및 모든 종속성을 포함하는 uber jar를 생성하는 데 사용됩니다. 또한 기본 클래스를 지정하지 않고 Jar 파일을 직접 실행할 수 있도록 애플리케이션의 진입점을 설정하는 데 사용됩니다.
 
 ### <a name="producerjava"></a>Producer.java
 
-생산자는 Kafka broker 호스트(작업자 노드)와 통신하고 Kafka 토픽에 데이터를 보냅니다. 다음 코드 조각은 [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) 파일 및 [github 리포지토리](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)에서 가져온 것이며 프로시저 속성을 설정하는 방법을 보여줍니다.
+생산자는 Kafka broker 호스트(작업자 노드)와 통신하고 Kafka 토픽에 데이터를 보냅니다. 다음 코드 조각은 [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) 파일 및 [GitHub 리포지토리](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)에서 가져온 것이며 프로시저 속성을 설정하는 방법을 보여줍니다.
 
 ```java
 Properties properties = new Properties();
@@ -145,11 +145,11 @@ consumer = new KafkaConsumer<>(properties);
     이 명령은 `kafka-producer-consumer-1.0-SNAPSHOT.jar`라는 파일이 포함된 `target`이라는 디렉터리를 만듭니다.
 
 3. 다음 명령을 사용하여 `kafka-producer-consumer-1.0-SNAPSHOT.jar` 파일을 HDInsight 클러스터에 복사합니다.
-   
+
     ```bash
     scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
     ```
-   
+
     **SSHUSER**는 클러스터의 SSH 사용자로 바꾸고, **CLUSTERNAME**은 클러스터 이름으로 바꿉니다. 메시지가 표시되면 SSH 사용자의 암호를 입력합니다.
 
 ## <a id="run"></a> 예제 실행
@@ -190,11 +190,11 @@ consumer = new KafkaConsumer<>(properties);
     ```
 
 4. 생산자가 완료되면 다음 명령을 사용하여 토픽에서 읽습니다.
-   
+
     ```bash
     java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS
     ```
-   
+
     레코드 수와 함께 읽은 레코드가 표시됩니다.
 
 5. __Ctrl+C__를 사용하여 소비자를 종료합니다.
@@ -203,8 +203,8 @@ consumer = new KafkaConsumer<>(properties);
 
 Kafka 소비자는 레코드를 읽을 때 소비자 그룹을 사용합니다. 여러 소비자와 같은 그룹을 사용하면 부하가 분산되어 토픽에서 읽습니다. 그룹의 각 소비자는 레코드의 일부를 받습니다.
 
-소비자 응용 프로그램은 그룹 ID로 사용되는 매개 변수를 허용합니다. 예를 들어, 다음 명령은 그룹 ID `mygroup`을 사용하여 소비자를 시작합니다.
-   
+소비자 애플리케이션은 그룹 ID로 사용되는 매개 변수를 허용합니다. 예를 들어, 다음 명령은 그룹 ID `mygroup`을 사용하여 소비자를 시작합니다.
+
 ```bash
 java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup
 ```
@@ -220,7 +220,7 @@ indow -h 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygr
 
 동일한 그룹 내에서 클라이언트에 의한 소비는 토픽에 대한 파티션을 통해 처리됩니다. 이 코드 샘플에서, 앞에서 만든 `test` 토픽에는 8개의 파티션이 있습니다. 8명의 소비자를 시작하는 경우 각 소비자는 토픽에 대한 단일 파티션에서 레코드를 읽습니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 소비자 그룹에는 파티션보다 더 많은 소비자 인스턴스가 있을 수 없습니다. 이 예제에서 하나의 소비자 그룹은 토픽의 파티션 수이기 때문에 최대 8개 소비자를 포함할 수 있습니다. 또는 소비자가 8개 이하인 소비자 그룹이 여러 개 있을 수 있습니다.
 
 Kafka에 저장된 레코드는 파티션에서 받은 순서대로 저장됩니다. *파티션 내의* 레코드에 대해 순서대로 전달하려면 파티션 수와 일치하는 소비자 인스턴스가 있는 소비자 그룹을 만듭니다. *토픽 내의* 레코드에 대해 순서대로 전달하려면 하나의 소비자 인스턴스만 사용하는 소비자 그룹을 만듭니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure 솔루션에서 IoT 디바이스 모니터링 자습서 | Microsoft Docs
+title: Azure 솔루션에서 IoT 디바이스 모니터링 자습서 - Azure | Microsoft Docs
 description: 이 자습서에서는 원격 모니터링 솔루션 가속기를 사용하여 IoT 디바이스를 모니터링하는 방법을 알아봅니다.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d8afe474f88f0881de5b0e7b132009c6e03ac2af
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7dd7612817f83fe713759965fc28f6f86a0d624a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824747"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602531"
 ---
 # <a name="tutorial-monitor-your-iot-devices"></a>자습서: IoT 디바이스 모니터링
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="choose-the-devices-to-display"></a>표시할 디바이스 선택
 
-**대시보드** 페이지에 표시할 연결된 장치를 선택하려면 필터를 사용합니다. **트럭** 장치만 표시하려면 필터 드롭다운 목록에서 기본 제공 **트럭** 필터를 선택합니다.
+**대시보드** 페이지에 표시할 연결된 디바이스를 선택하려면 필터를 사용합니다. **트럭** 디바이스만 표시하려면 필터 드롭다운 목록에서 기본 제공 **트럭** 필터를 선택합니다.
 
 [![대시보드의 트럭에 대한 필터](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-expanded.png#lightbox)
 
@@ -67,13 +67,13 @@ truck-02의 세부 정보를 보려면 맵을 이동하고 확대/축소하여 t
 * 디바이스에서 지원하는 메서드
 * 디바이스 속성
 
-[![대시보드에서 장치 세부 정보 보기](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail-expanded.png#lightbox)
+[![대시보드에서 디바이스 세부 정보 보기](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail-expanded.png#lightbox)
 
 ## <a name="view-alerts"></a>경고 보기
 
-**경고** 패널은 장치에서 가장 최근의 경고에 대한 자세한 정보를 표시합니다. truck-02의 경고를 보면 정상적인 화물 온도보다 높다고 표시됩니다.
+**경고** 패널은 디바이스에서 가장 최근의 경고에 대한 자세한 정보를 표시합니다. truck-02의 경고를 보면 정상적인 화물 온도보다 높다고 표시됩니다.
 
-[![대시보드에서 장치 경고 보기](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-expanded.png#lightbox)
+[![대시보드에서 디바이스 경고 보기](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-expanded.png#lightbox)
 
 필터를 사용하여 최근 경고에 대한 시간 범위를 조정할 수 있습니다. 기본적으로 패널은 지난 1시간 동안의 경고를 표시합니다.
 
@@ -100,4 +100,4 @@ truck-02의 경우 모든 경고가 정상적인 화물 온도보다 높다는 �
 이 자습서에서는 원격 모니터링 솔루션 가속기에서 **대시보드** 페이지를 사용하여 시뮬레이션된 트럭을 필터링하고 모니터링하는 방법을 보여줬습니다. 솔루션 가속기를 사용하여 연결된 디바이스의 문제를 감지하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [모니터링 솔루션에 연결된 장치를 사용하여 문제 검색](iot-accelerators-remote-monitoring-automate.md)
+> [모니터링 솔루션에 연결된 디바이스를 사용하여 문제 검색](iot-accelerators-remote-monitoring-automate.md)

@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 94269056a7bf0a89c3d1b2f4968ad9ff90abbc82
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: e643dc2167457b9dc3183e101e816b3a1eb8f052
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106647"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422460"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 작업을 사용하여 Azure Virtual Network에서 데이터 변환
 이 자습서에서는 Azure PowerShell을 사용하여 Azure VNet(Virtual Network)에 있는 HDInsight 클러스터에서 Hive 작업을 통해 데이터를 변환하는 Data Factory 파이프라인을 만듭니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
@@ -34,14 +33,14 @@ ms.locfileid: "43106647"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
-- **Azure Storage 계정**. Hive 스크립트를 만들어 Azure 저장소에 업로드합니다. Hive 스크립트의 출력은 이 저장소 계정에 저장됩니다. 이 샘플에서 HDInsight 클러스터는 이 Azure Storage 계정을 기본 저장소로 사용합니다. 
+- **Azure Storage 계정**. Hive 스크립트를 만들어 Azure 저장소에 업로드합니다. Hive 스크립트의 출력은 이 저장소 계정에 저장됩니다. 이 샘플에서 HDInsight 클러스터는 이 Azure Storage 계정을 기본 스토리지로 사용합니다. 
 - **Azure Virtual Network** - 아직 없는 경우 [이 지침](../virtual-network/quick-create-portal.md)에 따라 Azure Virtual Network를 만듭니다. 이 샘플에서 HDInsight는 Azure Virtual Network에 있습니다. 다음은 Azure Virtual Network의 샘플 구성입니다. 
 
     ![가상 네트워크 만들기](media/tutorial-transform-data-using-hive-in-vnet/create-virtual-network.png)
-- **HDInsight 클러스터** - [Azure Virtual Network를 사용하여 Azure HDInsight 확장](../hdinsight/hdinsight-extend-hadoop-virtual-network.md) 문서에 따라 HDInsight 클러스터를 만들고 이전 단계에서 만든 가상 네트워크에 조인합니다. 다음은 가상 네트워크에 속한 HDInsight의 샘플 구성입니다. 
+- **HDInsight 클러스터** - 다음 문서에 따라 HDInsight 클러스터를 만들고 이전 단계에서 만든 가상 네트워크에 조인합니다. [Azure Virtual Network를 사용하여 Azure HDInsight 확장](../hdinsight/hdinsight-extend-hadoop-virtual-network.md) 다음은 가상 네트워크에 속한 HDInsight의 샘플 구성입니다. 
 
     ![가상 네트워크의 HDInsight](media/tutorial-transform-data-using-hive-in-vnet/hdinsight-in-vnet-configuration.png)
-- **Azure PowerShell**. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-azurerm-ps)의 지침을 따르세요.
+- **Azure PowerShell**. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/azurerm/install-azurerm-ps)의 지침을 따르세요.
 
 ### <a name="upload-hive-script-to-your-blob-storage-account"></a>Blob Storage 계정에 Hive 스크립트 업로드
 
@@ -89,7 +88,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```powershell
     $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" 
     ```
-2. **PowerShell**을 시작합니다. 이 빠른 시작을 완료할 때까지 Azure PowerShell을 열어 둡니다. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다. Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+2. **PowerShell**을 시작합니다. 이 빠른 시작을 완료할 때까지 Azure PowerShell을 열어 둡니다. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다. 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
     다음 명령을 실행하고 Azure Portal에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
         
@@ -106,7 +105,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"    
     ```  
-3. 구독에 아직 없는 경우 ADFTutorialResourceGroup 리소스 그룹을 만듭니다. 
+3. 리소스 그룹을 만듭니다. 구독에 아직 없는 경우 ADFTutorialResourceGroup 리소스 그룹을 만듭니다. 
 
     ```powershell
     New-AzureRmResourceGroup -Name $resourceGroupName -Location "East Us" 
@@ -152,7 +151,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    ![통합 런타임 등록](media/tutorial-transform-data-using-hive-in-vnet/register-integration-runtime.png)
 
-   자체 호스팅 통합 런타임이 성공적으로 등록되면 다음 메시지가 표시됩니다. ![성공적으로 등록되었습니다.](media/tutorial-transform-data-using-hive-in-vnet/registered-successfully.png)
+   자체 호스팅 통합 런타임이 성공적으로 등록되면 다음 메시지가 표시됩니다. ![성공적으로 등록됨](media/tutorial-transform-data-using-hive-in-vnet/registered-successfully.png)
 
    노드가 클라우드 서비스에 연결되면 다음 페이지가 표시됩니다. ![노드가 연결됨](media/tutorial-transform-data-using-hive-in-vnet/node-is-connected.png)
 

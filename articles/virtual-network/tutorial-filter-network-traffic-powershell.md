@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: a37ed044275abfca23c83e7d17012b9afdc78f6c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: dfeff34de882602711ed375d81977ae501ec51cf
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906459"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428400"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>PowerShell을 사용하여 네트워크 보안 그룹을 통해 네트워크 트래픽 필터링
 
@@ -33,17 +33,17 @@ ms.locfileid: "37906459"
 * 서브넷에 VM(가상 머신) 배포
 * 트래픽 필터 테스트
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우, 이 문서에는 Azure PowerShell 모듈 버전 6.2.1 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우, 이 문서에는 Azure PowerShell 모듈 버전 6.2.1 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
-네트워크 보안 그룹은 보안 규칙을 포함합니다. 보안 규칙은 원본 및 대상을 지정합니다. 원본 및 대상은 응용 프로그램 보안 그룹이 될 수 있습니다.
+네트워크 보안 그룹은 보안 규칙을 포함합니다. 보안 규칙은 원본 및 대상을 지정합니다. 원본 및 대상은 애플리케이션 보안 그룹이 될 수 있습니다.
 
-### <a name="create-application-security-groups"></a>응용 프로그램 보안 그룹 만들기
+### <a name="create-application-security-groups"></a>애플리케이션 보안 그룹 만들기
 
 먼저 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)으로 이 문서에서 만든 모든 리소스에 대한 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 리소스 그룹을 만듭니다. 
 
@@ -52,7 +52,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우, 이 �
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-[New-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/new-azurermapplicationsecuritygroup)으로 응용 프로그램 보안 그룹을 만듭니다. 응용 프로그램 보안 그룹을 사용하면 유사한 포트 필터링 요구 사항을 갖는 서버를 그룹화할 수 있습니다. 다음 예제에서는 두 응용 프로그램 보안 그룹을 만듭니다.
+[New-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/new-azurermapplicationsecuritygroup)으로 애플리케이션 보안 그룹을 만듭니다. 애플리케이션 보안 그룹을 사용하면 유사한 포트 필터링 요구 사항을 갖는 서버를 그룹화할 수 있습니다. 다음 예제에서는 두 애플리케이션 보안 그룹을 만듭니다.
 
 ```azurepowershell-interactive
 $webAsg = New-AzureRmApplicationSecurityGroup `
@@ -68,7 +68,7 @@ $mgmtAsg = New-AzureRmApplicationSecurityGroup `
 
 ### <a name="create-security-rules"></a>보안 규칙 만들기
 
-[New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)를 통해 보안 규칙을 만듭니다. 다음 예제에서는 포트 80 및 443을 통해 인터넷에서 *myWebServers* 응용 프로그램 보안 그룹으로 가는 트래픽을 허용하는 규칙을 만듭니다.
+[New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)를 통해 보안 규칙을 만듭니다. 다음 예제에서는 포트 80 및 443을 통해 인터넷에서 *myWebServers* 애플리케이션 보안 그룹으로 가는 트래픽을 허용하는 규칙을 만듭니다.
 
 ```azurepowershell-interactive
 $webRule = New-AzureRmNetworkSecurityRuleConfig `
@@ -158,7 +158,7 @@ $publicIpMgmt = New-AzureRmPublicIpAddress `
   -Name myVmMgmt
 ```
 
-[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)를 통해 두 네트워크 인터페이스를 만들고 공용 IP 주소를 네트워크 인터페이스에 할당합니다. 다음 예제에서는 네트워크 인터페이스를 만들어 *myVmWeb* 공용 IP 주소를 연결하고, *myAsgWebServers* 응용 프로그램 보안 그룹의 멤버로 지정합니다.
+[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)를 통해 두 네트워크 인터페이스를 만들고 공용 IP 주소를 네트워크 인터페이스에 할당합니다. 다음 예제에서는 네트워크 인터페이스를 만들어 *myVmWeb* 공용 IP 주소를 연결하고, *myAsgWebServers* 애플리케이션 보안 그룹의 멤버로 지정합니다.
 
 ```powershell-interactive
 $webNic = New-AzureRmNetworkInterface `
@@ -170,7 +170,7 @@ $webNic = New-AzureRmNetworkInterface `
   -PublicIpAddressId $publicIpWeb.Id
 ```
 
-다음 예제에서는 네트워크 인터페이스를 만들어 *myVmMgmt* 공용 IP 주소를 연결하고, *myAsgMgmtServers* 응용 프로그램 보안 그룹의 멤버로 지정합니다.
+다음 예제에서는 네트워크 인터페이스를 만들어 *myVmMgmt* 공용 IP 주소를 연결하고, *myAsgMgmtServers* 애플리케이션 보안 그룹의 멤버로 지정합니다.
 
 ```powershell-interactive
 $mgmtNic = New-AzureRmNetworkInterface `
@@ -259,7 +259,7 @@ mstsc /v:<publicIpAddress>
 
 VM을 만들 때 지정한 사용자 이름과 암호를 입력(VM을 만들 때 입력한 자격 증명을 지정하기 위해 **다른 옵션 선택**을 선택한 다음, **다른 계정 사용**을 선택해야 할 수도 있음)한 다음, **확인**을 선택합니다. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. **예**를 선택하여 연결을 진행합니다. 
    
-포트 3389는 *myAsgMgmtServers* VM에 연결된 네트워크 인터페이스가 In인 *myVmMgmt* 응용 프로그램 보안 그룹으로 가는 인터넷의 인바운드 트래픽을 허용하기 때문에 연결에 성공합니다.
+포트 3389는 *myAsgMgmtServers* VM에 연결된 네트워크 인터페이스가 In인 *myVmMgmt* 애플리케이션 보안 그룹으로 가는 인터넷의 인바운드 트래픽을 허용하기 때문에 연결에 성공합니다.
 
 다음 명령을 사용하여 PowerShell에서 *myVmMgmt* VM으로부터의 *myVmWeb* VM에 대한 원격 데스크톱 연결을 만듭니다.
 
@@ -288,7 +288,7 @@ Get-AzureRmPublicIpAddress `
   | Select IpAddress
 ```
 
-Azure 외부에서 *myVmWeb* 웹 서버에 액세스할 수 있는지 확인하기 위해 컴퓨터에서 인터넷 브라우저를 열고 `http://<public-ip-address-from-previous-step>` 로 이동합니다. 포트 80은 *myVmWeb* VM에 연결된 네트워크 인터페이스가 In인 *myAsgWebServers* 응용 프로그램 보안 그룹으로 가는 인터넷의 인바운드 트래픽을 허용하기 때문에 연결에 성공합니다.
+Azure 외부에서 *myVmWeb* 웹 서버에 액세스할 수 있는지 확인하기 위해 컴퓨터에서 인터넷 브라우저를 열고 `http://<public-ip-address-from-previous-step>` 로 이동합니다. 포트 80은 *myVmWeb* VM에 연결된 네트워크 인터페이스가 In인 *myAsgWebServers* 애플리케이션 보안 그룹으로 가는 인터넷의 인바운드 트래픽을 허용하기 때문에 연결에 성공합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -302,4 +302,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 이 문서에서는 네트워크 보안 그룹을 만들어 가상 네트워크 서브넷에 연결했습니다. 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹 개요](security-overview.md) 및 [네트워크 보안 그룹 관리](manage-network-security-group.md)를 참조하세요.
 
-기본적으로 Azure는 서브넷 간에 트래픽을 라우팅합니다. 그 대신 방화벽 역할을 하는 VM 등을 통해 서브넷 간에 트래픽을 라우팅하도록 선택할 수 있습니다. 기본적으로 Azure는 서브넷 간에 트래픽을 라우팅합니다. 그 대신 방화벽 역할을 하는 VM 등을 통해 서브넷 간에 트래픽을 라우팅하도록 선택할 수 있습니다. 자세한 내용은 [경로 테이블 만들기](tutorial-create-route-table-powershell.md)를 참조하세요.
+기본적으로 Azure는 서브넷 간에 트래픽을 라우팅합니다. 그 대신 방화벽 역할을 하는 VM 등을 통해 서브넷 간에 트래픽을 라우팅하도록 선택할 수 있습니다. 자세한 내용은 [경로 테이블 만들기](tutorial-create-route-table-powershell.md)를 참조하세요.

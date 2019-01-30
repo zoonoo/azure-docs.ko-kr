@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 0907739bc0e67228f9f7f12594df7b9067e32578
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 5f85f0a6b1869571a8db29586e5fe113e0f47433
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984981"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304842"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>스트리밍 단위 이해 및 조정
 
@@ -22,7 +22,7 @@ SU(스트리밍 단위)는 작업을 실행하도록 할당된 컴퓨팅 리소�
 
 Azure Stream Analytics 작업은 대기 시간이 짧은 스트리밍 처리를 위해 모든 처리를 메모리 안에서 수행합니다. 메모리가 부족하면 스트리밍 작업이 실패합니다. 결과적으로, 프로덕션 작업의 경우 스트리밍 작업의 리소스 사용을 모니터링하고 작업을 중단 없이 실행하기에 충분한 리소스가 할당되도록 확인해야 합니다.
 
-0%에서 100% 범위의 SU % 사용률 메트릭은 워크로드의 메모리 사용량을 설명합니다. 최소 사용되는 스트리밍 작업의 경우 이 메트릭은 보통 10~20% 범위입니다. SU % 사용률이 낮고 입력 이벤트가 백로그되면, 워크로드에 더 많은 계산 리소스가 필요할 수 있으므로 SU 수를 늘려야 합니다. 경우에 따른 사용량 급증을 대비하여 SU 메트릭을 80% 이하로 유지하는 것이 가장 좋습니다. 리소스 소진을 방지하기 위해 80% SU 사용률 메트릭에 대한 경고를 설정하는 것이 좋습니다. 자세한 내용은 [자습서: Azure Stream Analytics 작업에 대한 경고 설정](stream-analytics-set-up-alerts.md)을 참조하세요.
+0%에서 100% 범위의 SU % 사용률 메트릭은 워크로드의 메모리 사용량을 설명합니다. 최소 사용되는 스트리밍 작업의 경우 이 메트릭은 보통 10~20% 범위입니다. SU % 사용률이 낮고 입력 이벤트가 백로그되면, 워크로드에 더 많은 계산 리소스가 필요할 수 있으므로 SU 수를 늘려야 합니다. 경우에 따른 사용량 급증을 대비하여 SU 메트릭을 80% 이하로 유지하는 것이 가장 좋습니다. 리소스 소진을 방지하기 위해 80% SU 사용률 메트릭에 대한 경고를 설정하는 것이 좋습니다. 자세한 내용은 [자습서: Azure Stream Analytics 작업에 대한 경고 설정](stream-analytics-set-up-alerts.md)
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Stream Analytics 스트리밍 단위(SU) 구성
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
@@ -48,7 +48,7 @@ Azure Portal을 사용하여 작업 처리량을 추적할 수 있습니다.
 
 일반적으로 **파티션 기준**을 사용하지 않는 쿼리에 대해 6 SU로 시작하는 것이 좋습니다. 그런 다음 대표적인 데이터 양을 전달하고 SU % 사용률 메트릭을 시험한 후 SU 수를 수정하는 평가판 및 오류 메서드를 사용하여 가장 적절한 부분을 판단합니다. Stream Analytics 작업에 사용될 수 있는 최대 스트리밍 단위 수는 작업에 대해 정의된 쿼리의 단계 수와 각 단계에 대한 파티션 수에 따라 결정됩니다. 이러한 제한에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job)에서 확인할 수 있습니다.
 
-올바른 SU 수 선택에 대한 자세한 내용은 [처리량을 높이기 위한 Azure Stream Analytic 작업 비율 크기 조정](stream-analytics-scale-jobs.md) 페이지를 참조하세요.
+적절한 SU 수를 선택하는 방법에 대한 자세한 내용은 다음 페이지를 참조하세요. [처리량을 높이기 위한 Azure Stream Analytics 작업 비율 크기 조정](stream-analytics-scale-jobs.md)
 
 > [!Note]
 > 특정 작업에 필요한 SU 수 선택은 입력에 대한 파티션 구성 및 작업에 정의된 쿼리에 따라 달라집니다. 작업에 대해 SU의 할당량까지 선택할 수 있습니다. 기본적으로 각 Azure 구독에는 특정 지역의 모든 분석 작업에 대해 최대 200개의 SU 할당량이 있습니다. 구독의 SU를 이 할당량을 초과하여 늘리려면 [Microsoft 지원](https://support.microsoft.com)에 문의하세요. 작업당 SU에 대한 유효한 값은 1, 3, 6이며 6 단위로 증가합니다.
@@ -56,6 +56,10 @@ Azure Portal을 사용하여 작업 처리량을 추적할 수 있습니다.
 ## <a name="factors-that-increase-su-utilization"></a>SU% 사용률이 증가하는 요인 
 
 temporal(시간 지향적인) 쿼리 요소는 Stream Analytics에서 제공하는 상태 저장 연산자의 핵심 집합입니다. Stream Analytics는 서비스 업그레이드 중 메모리 소비, 복원력 검사점 및 상태 복구를 관리하여 사용자 대신 내부적으로 이러한 작업의 상태를 관리합니다. Stream Analytics가 상태를 완벽하게 관리하더라도, 사용자가 고려해야 할 몇 가지 모범 사례 권장 사항이 있습니다.
+
+복잡한 쿼리 논리를 사용하는 작업은 입력 이벤트를 지속적으로 수신하지 않더라도 높은 SU% 사용률을 나타낼 수 있습니다. 입력 및 출력 이벤트가 급격히 증가한 후에 이러한 현상이 발생할 수 있습니다. 쿼리가 복잡한 경우 작업은 메모리의 상태를 계속 유지할 수 있습니다.
+
+SU% 사용률은 잠시 동안 갑자기 0으로 떨어졌다가 정상 수준으로 돌아올 수도 있습니다. 이러한 현상은 일시적인 오류 또는 시스템에서 시작한 업그레이드로 인해 발생합니다.
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>temporal 요소의 상태 저장 쿼리 논리
 Azure Stream Analytics 작업의 고유한 기능 중 하나는 기간 이동 집계, 임시 조인 및 임시 분석 함수 등과 같은 상태 저장 처리를 수행하는 것입니다. 이러한 연산자마다 상태 정보를 유지합니다. 이러한 쿼리 요소의 최대 시간 범위는 7일입니다. 

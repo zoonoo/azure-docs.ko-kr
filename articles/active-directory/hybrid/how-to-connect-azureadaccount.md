@@ -5,7 +5,7 @@ services: active-directory
 keywords: AADSTS70002, AADSTS50054, Azure AD Connect 동기화 커넥터 서비스 계정의 암호를 재설정하는 방법
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6077043a-27f1-4304-a44b-81dc46620f24
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 93dcbe5ceac87d84db9638de6d5fe120de8c2d36
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8fd8667484284fba8ba30e2f078538e7ed1888ef
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308312"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461369"
 ---
 # <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Azure AD Connect 동기화: Azure AD 서비스 계정을 관리하는 방법
 Azure AD Connector가 사용하는 서비스 계정은 무료입니다. 자격 증명을 재설정해야 할 경우 이 항목을 참조하세요. 예를 들어 전역 관리자가 PowerShell을 사용하여 실수로 서비스 계정의 암호를 재설정한 경우입니다.
@@ -42,12 +42,12 @@ Azure AD Connector가 사용하는 서비스 계정은 무료입니다. 자격 �
 - - -
 이벤트 6900  
 서버가 암호 변경 알림을 처리하는 동안 예기치 않은 오류가 발생했습니다.  
-AADSTS70002: 자격 증명의 유효성 검사 오류. AADSTS70002: 자격 증명의 유효성 검사 오류 AADSTS50054: 이전 암호가 인증에 사용되었습니다.
+AADSTS70002: 자격 증명의 유효성 검사 오류. AADSTS50054: 이전 암호가 인증에 사용되었습니다.
 
 - - -
 이벤트 659  
 암호 정책 동기화 구성을 검색하는 도중 오류 발생. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException:  
-AADSTS70002: 자격 증명의 유효성 검사 오류. AADSTS70002: 자격 증명의 유효성 검사 오류 AADSTS50054: 이전 암호가 인증에 사용되었습니다.
+AADSTS70002: 자격 증명의 유효성 검사 오류. AADSTS50054: 이전 암호가 인증에 사용되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 **개요 항목**

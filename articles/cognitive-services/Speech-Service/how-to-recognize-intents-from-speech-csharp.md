@@ -24,7 +24,7 @@ ms.locfileid: "49466480"
 Cognitive Services [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)는 [LUIS(Language Understanding) 서비스](https://www.luis.ai/home)와 통합되어 **의도를 인식**합니다. 의도란 항공권 예약, 날씨 확인, 호출 등 사용자가 수행하려는 것을 말합니다. 사용자는 편한 용어를 사용할 수 있습니다. 기계 학습을 사용하면 LUIS는 사용자 요청을 개발자가 정의한 의도에 매핑합니다.
 
 > [!NOTE]
-> LUIS 응용 프로그램은 인식할 의도와 엔터티를 정의합니다. 음성 서비스를 사용하는 C# 응용 프로그램과는 다릅니다. 이 문서에서 "앱"은 LUIS 앱을 의미하고, "응용 프로그램"은 C# 코드를 의미합니다.
+> LUIS 애플리케이션은 인식할 의도와 엔터티를 정의합니다. 음성 서비스를 사용하는 C# 애플리케이션과는 다릅니다. 이 문서에서 "앱"은 LUIS 앱을 의미하고, "애플리케이션"은 C# 코드를 의미합니다.
 
 이 자습서에서는 Speech SDK를 사용하여 디바이스의 마이크를 통해 사용자의 말에서 의도를 추론하는 C# 콘솔 애플리케이션을 개발합니다. 이 문서에서 배울 내용은 다음과 같습니다.
 
@@ -58,7 +58,7 @@ LUIS는 다음과 같은 두 종류의 키를 사용합니다.
 
 LUIS 앱을 만들 때 텍스트 쿼리를 사용하여 앱을 테스트할 수 있도록 시작 키가 자동으로 생성됩니다. 이 키는 음성 서비스 통합을 사용하지 않으며 이 자습서에서는 작동하지 않습니다. Azure 대시보드에서 LUIS 리소스를 만들고 LUIS 앱에 할당해야 합니다. 이 자습서에서는 체험 구독 계층을 사용해도 됩니다. 
 
-Azure 대시보드에서 LUIS 리소스를 만든 후에는 [LUIS 포털](https://www.luis.ai/home)에 로그인하고, [내 앱] 페이지에서 응용 프로그램을 선택한 다음, 앱의 [관리] 페이지로 전환합니다. 마지막으로, 사이드바에서 **키 및 엔드포인트**를 클릭합니다.
+Azure 대시보드에서 LUIS 리소스를 만든 후에는 [LUIS 포털](https://www.luis.ai/home)에 로그인하고, [내 앱] 페이지에서 애플리케이션을 선택한 다음, 앱의 [관리] 페이지로 전환합니다. 마지막으로, 사이드바에서 **키 및 엔드포인트**를 클릭합니다.
 
 ![LUIS 포털 키 및 엔드포인트 설정](media/sdk/luis-keys-endpoints-page.png)
 
@@ -113,7 +113,7 @@ static async Task RecognizeIntentAsync()
 |`YourLanguageUnderstandingServiceRegion`|LUIS 구독이 있는 지역의 짧은 식별자(예: 미국 서부를 의미하는 `westus`). [지역](regions.md)을 참조하세요.|
 |`YourLanguageUnderstandingAppId`|LUIS 앱 ID [LUIS 포털](https://www.luis.ai/home)의 앱 [설정] 페이지에서 찾을 수 있습니다.|
 
-이렇게 변경하여 자습서 응용 프로그램을 빌드(Control-Shift-B)하고 실행(F5)할 수 있습니다. 메시지가 표시되면 PC의 마이크에 대고 "조명 끄기"라고 말합니다. 콘솔 창에 결과가 표시됩니다.
+이렇게 변경하여 자습서 애플리케이션을 빌드(Control-Shift-B)하고 실행(F5)할 수 있습니다. 메시지가 표시되면 PC의 마이크에 대고 "조명 끄기"라고 말합니다. 콘솔 창에 결과가 표시됩니다.
 
 다음 섹션에는 코드 설명이 포함되어 있습니다.
 
@@ -129,7 +129,7 @@ static async Task RecognizeIntentAsync()
 
 ## <a name="import-a-luis-model-and-add-intents"></a>LUIS 모델을 가져오고 의도 추가
 
-이제 `LanguageUnderstandingModel.FromAppId()`를 사용하여 LUIS 앱에서 모델을 가져오고, 인식기의 `AddIntent()` 메서드를 통해 인식하려는 LUIS 의도를 추가합니다. 이러한 두 단계는 사용자가 요청에서 사용할 가능성이 높은 단어를 지정하여 음성 인식의 정확도를 높입니다. 앱의 모든 의도를 응용 프로그램에서 인식해야 하는 것이 아니라면 반드시 모든 앱의 의도를 추가할 필요는 없습니다.
+이제 `LanguageUnderstandingModel.FromAppId()`를 사용하여 LUIS 앱에서 모델을 가져오고, 인식기의 `AddIntent()` 메서드를 통해 인식하려는 LUIS 의도를 추가합니다. 이러한 두 단계는 사용자가 요청에서 사용할 가능성이 높은 단어를 지정하여 음성 인식의 정확도를 높입니다. 앱의 모든 의도를 애플리케이션에서 인식해야 하는 것이 아니라면 반드시 모든 앱의 의도를 추가할 필요는 없습니다.
 
 의도를 추가하려면 LUIS 모델(방금 만들어서 `model`이라고 이름을 지정한 모델), 의도 이름, 의도 ID라는 세 가지 인수가 필요합니다. ID와 이름의 차이는 다음과 같습니다.
 
@@ -154,19 +154,19 @@ recognizer.AddIntent(model, "HomeAutomation.TurnOn", "on");
 |1단계|`RecognizeOnceAsync()`|한 번의 발언 후에 의도를 인식하고, 인식된 의도가 있으면 반환합니다.|
 |연속|`StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()`|여러 발언을 인식합니다. 결과가 있으면 이벤트(예: `IntermediateResultReceived`)를 내보냅니다.|
 
-자습서 응용 프로그램은 1단계 모드를 사용하므로 `RecognizeOnceAsync()`를 호출하여 인식을 시작합니다. 결과는 인식된 의도에 대한 정보를 포함하는 `IntentRecognitionResult` 개체입니다. LUIS JSON 응답은 다음 식을 통해 추출됩니다.
+자습서 애플리케이션은 1단계 모드를 사용하므로 `RecognizeOnceAsync()`를 호출하여 인식을 시작합니다. 결과는 인식된 의도에 대한 정보를 포함하는 `IntentRecognitionResult` 개체입니다. LUIS JSON 응답은 다음 식을 통해 추출됩니다.
 
 ```csharp
 result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_JsonResult)
 ```
 
-자습서 응용 프로그램은 JSON 결과를 구문 분석하지 않고 콘솔 창에 표시하기만 합니다.
+자습서 애플리케이션은 JSON 결과를 구문 분석하지 않고 콘솔 창에 표시하기만 합니다.
 
 ![LUIS 인식 결과](media/sdk/luis-results.png)
 
 ## <a name="specify-recognition-language"></a>인식 언어 지정
 
-기본적으로 LUIS는 미국 영어(`en-us`)로 의도를 인식합니다. 음성 구성의 `SpeechRecognitionLanguage` 속성에 로캘 코드를 할당하여 다른 언어로 의도를 인식할 수 있습니다. 예를 들어 독일어로 의도를 인식하는 인식기를 만들려면 먼저 자습서 응용 프로그램에서 `config.SpeechRecognitionLanguage = "de-de";`를 추가합니다. [지원되는 언어](language-support.md#speech-to-text)를 참조하세요.
+기본적으로 LUIS는 미국 영어(`en-us`)로 의도를 인식합니다. 음성 구성의 `SpeechRecognitionLanguage` 속성에 로캘 코드를 할당하여 다른 언어로 의도를 인식할 수 있습니다. 예를 들어 독일어로 의도를 인식하는 인식기를 만들려면 먼저 자습서 애플리케이션에서 `config.SpeechRecognitionLanguage = "de-de";`를 추가합니다. [지원되는 언어](language-support.md#speech-to-text)를 참조하세요.
 
 ## <a name="continuous-recognition-from-a-file"></a>파일에서 연속 인식
 

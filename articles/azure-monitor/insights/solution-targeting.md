@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1f054a4e-6243-4a66-a62a-0031adb750d8
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: e4e0ff288b9d5539a0110fb157e32b4f23d06bb6
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: d82c42fa734932655f536d4fc04a50b4d6904ac5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714254"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192756"
 ---
 # <a name="targeting-management-solutions-in-azure-preview"></a>Azure에서 관리 솔루션 대상 지정(미리 보기)
 관리 솔루션을 구독에 추가하면 기본적으로 Log Analytics 작업 영역에 연결된 모든 Windows 및 Linux 에이전트에 의해 배포됩니다.  특정 에이전트 집합으로 제한하여 비용을 관리하고 솔루션에 대해 수집되는 데이터 양을 제한할 수 있습니다.  이 문서에서는 솔루션에 범위를 적용할 수 있는 기능인 **솔루션 대상 지정**을 사용하는 방법을 설명합니다.
@@ -29,7 +28,7 @@ ms.locfileid: "51714254"
 
 
 ### <a name="1-create-a-computer-group"></a>1. 컴퓨터 그룹 만들기
-Log Analytics에서 [컴퓨터 그룹](../../log-analytics/log-analytics-computer-groups.md)을 만들어 범위에 포함하려는 컴퓨터를 지정합니다.  컴퓨터 그룹은 로그 검색을 기준으로 하거나 Active Directory 또는 WSUS 그룹 등의 다른 원본에서 가져올 수 있습니다. [아래에 설명된](#solutions-and-agents-that-cant-be-targeted) 것처럼 Log Analytics에 직접 연결된 컴퓨터만 범위에 포함됩니다.
+Log Analytics에서 [컴퓨터 그룹](../../azure-monitor/platform/computer-groups.md)을 만들어 범위에 포함하려는 컴퓨터를 지정합니다.  컴퓨터 그룹은 로그 검색을 기준으로 하거나 Active Directory 또는 WSUS 그룹 등의 다른 원본에서 가져올 수 있습니다. [아래에 설명된](#solutions-and-agents-that-cant-be-targeted) 것처럼 Log Analytics에 직접 연결된 컴퓨터만 범위에 포함됩니다.
 
 작업 영역에서 컴퓨터 그룹을 만든 후에는 하나 이상의 솔루션에 적용될 수 있는 범위 구성에 포함합니다.
  
@@ -75,4 +74,4 @@ Log Analytics에서 [컴퓨터 그룹](../../log-analytics/log-analytics-compute
 
 ## <a name="next-steps"></a>다음 단계
 - [작업 영역에 Azure Log Analytics 관리 솔루션 추가](solutions.md)에서 사용 주인 환경에 설치할 수 있는 솔루션을 비롯한 관리 솔루션에 대해 자세히 알아보세요.
-- [Log Analytics 로그 검색의 컴퓨터 그룹](../../log-analytics/log-analytics-computer-groups.md)에서 컴퓨터 그룹 생성에 대해 자세히 알아보세요.
+- [Log Analytics 로그 검색의 컴퓨터 그룹](../../azure-monitor/platform/computer-groups.md)에서 컴퓨터 그룹 생성에 대해 자세히 알아보세요.

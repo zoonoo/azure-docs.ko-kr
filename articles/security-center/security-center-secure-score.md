@@ -3,7 +3,7 @@ title: Azure Security Center의 보안 점수 | Microsoft Docs
 description: " Azure Security Center에서 보안 점수를 사용하여 보안 권장 사항의 우선 순위를 지정하세요. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
@@ -12,21 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/5/2018
-ms.author: rkarlin
-ms.openlocfilehash: 3a377441758fcd7dd91deefb5cae91579e881498
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.date: 1/15/2019
+ms.author: monhaber
+ms.openlocfilehash: 4c7f272cbf98fefbf70e917634fb623c9e1b6a3b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007058"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425896"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수 개선
 
 
 보안 혜택을 제공하는 서비스는 매우 많으므로 워크로드를 보호하고 강화하기 위해 먼저 수행할 단계를 아는 것은 종종 어려운 일입니다. Azure 보안 점수는 사용자의 보안 권장 사항을 검토하고 순위를 지정하므로 사용자는 먼저 수행할 권장 사항을 파악할 수 있습니다. 이를 통해 가장 심각한 보안 취약점을 찾아내 조사의 순위를 지정할 수 있습니다. 보안 점수는 워크로드 보안에 대한 사용자의 대비 상태를 평가할 수 있는 도구입니다.
-
-![보안 점수 대시보드](./media/security-center-secure-score/secure-score-dashboard.png)
 
 ## <a name="secure-score-calculation"></a>보안 점수 계산
 
@@ -43,11 +41,25 @@ Security Center에서는 **전체 보안 점수**도 제공합니다.
 
 전체 보안 점수를 보려면
 
-1. Azure 대시보드에서 **Security Center**를 클릭한 다음, **권장 사항**을 클릭합니다.
-2. 맨 위에서는 선택한 구독에 대한 정책당 점수를 나타내는 보안 점수를 볼 수 있습니다. 
-2. 권장 사항을 나열하는 아래의 표에서는 각 권장 사항에 대해 **보안 점수 영향**을 나타내는 열이 있는 것을 확인할 수 있습니다. 이 숫자는 권장 사항을 따르는 경우 전체 보안 점수가 향상되는 정도를 나타냅니다. 예를 들어, 아래 화면에서 **컨테이너 보안 구성에서 취약성 수정**을 수행하는 경우 보안 점수가 35포인트만큼 증가합니다.
+1. Azure 대시보드에서 **Security Center**, **보안 점수**를 차례로 클릭합니다.
+2. 화면 위쪽에 보안 점수 관련 주요 정보가 표시됩니다.
+   - **전체 보안 점수**는 선택한 구독별 정책당 점수를 나타냅니다.
+   - **범주별 보안 점수**에는 가장 시급하게 확인해야 하는 리소스가 표시됩니다.
+   - **보안 점수별 상위 권장 사항**에서는 구현 시 보안 점수를 가장 많이 높일 수 있는 권장 사항 목록이 제공됩니다.
+ 
+   ![보안 점수](./media/security-center-secure-score/secure-score-dashboard.png)
+
+3. 점수 아래쪽의 표에서는 각 구독과 구독별 전체 보안 점수를 확인할 수 있습니다.
+
+   > [!NOTE]
+   > 각 구독의 보안 점수 합이 전체 보안 점수와 같지는 않습니다. 보안 점수는 권장 사항별 정상 리소스와 총 리소스의 비율을 기준으로 계산되므로 전체 구독의 보안 점수를 합한 값이 아닙니다. 
+   >
+4. **권장 사항 보기**를 클릭하면 해당 구독에서 보안 점수를 높이기 위해 교정할 수 있는 권장 사항을 확인할 수 있습니다.
+4. 권장 사항 목록에서 각 권장 사항에는 **보안 점수 영향**을 나타내는 열이 있습니다. 이 숫자는 권장 사항을 따르는 경우 전체 보안 점수가 향상되는 정도를 나타냅니다. 예를 들어, 아래 화면에서 **컨테이너 보안 구성에서 취약성 수정**을 수행하는 경우 보안 점수가 35포인트만큼 증가합니다.
 
    ![보안 점수](./media/security-center-secure-score/security-center-secure-score1.png)
+
+
 
 ## <a name="individual-secure-score"></a>개별 보안 점수
 
@@ -60,6 +72,12 @@ Security Center에서는 **전체 보안 점수**도 제공합니다.
 권장 사항은 수정 절차가 수행되지 않는 경우 워크로드가 노출되는 위협을 보여 줍니다.
 
 ![개별 권장 사항 보안 점수](./media/security-center-secure-score/indiv-recommendation-secure-score.png)
+
+
+
+
+
+
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Security Center의 **보안 점수**를 사용하여 보안 태세를 개선하는 방법을 설명했습니다. Security Center에 대해 자세히 알아보려면 다음 항목을 참조하세요.

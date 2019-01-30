@@ -4,7 +4,7 @@ description: 사용자 지정 설정을 위한 Azure AD Connect 사용자 로그
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 38086d0e975956aefe4fcde4eda67d939d58f617
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 57f1879e79dfdfe8eff421deb466b3098f5a5c60
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365845"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463459"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 사용자 로그인 옵션
 Azure Active Directory(Azure AD) Connect를 사용하면 사용자가 동일한 암호를 사용하여 온-프레미스 및 클라우드 리소스 모두에 로그인할 수 있습니다. 이 문서에서는 Azure AD에 로그인할 때 사용하려는 ID 선택에 도움이 되도록 모든 ID 모델의 주요 개념에 대해 설명합니다.
@@ -46,7 +46,7 @@ Azure AD에서는 다음과 같은 인증 방법을 지원합니다.
    * **PTA(통과 인증)** - 이 옵션은 암호 해시 동기화와 유사하지만 강력한 보안 및 준수 정책을 통해 조직의 온-프레미스 소프트웨어 에이전트를 사용하여 간단한 암호 검증을 제공합니다.
 * **페더레이션 인증** - 이 인증 방법을 선택하면 Azure AD가 인증 프로세스를 별도의 신뢰할 수 있는 인증 시스템(예: AD FS 또는 타사 페더레이션 시스템)으로 넘겨서 사용자의 로그인이 확인됩니다. 
 
-Office 365, SaaS 응용 프로그램 및 기타 Azure AD 기반 리소스에 사용자가 로그인할 수 있도록 하려는 대부분의 조직의 경우, 기본 암호 해시 동기화 옵션이 좋습니다.
+Office 365, SaaS 애플리케이션 및 기타 Azure AD 기반 리소스에 사용자가 로그인할 수 있도록 하려는 대부분의 조직의 경우, 기본 암호 해시 동기화 옵션이 좋습니다.
  
 인증 방법을 선택하는 방법에 대한 자세한 내용은 [Azure Active Directory 하이브리드 ID 솔루션에 대한 올바른 인증 방법 선택](../../security/azure-ad-choose-authn.md)을 참조하세요.
 
@@ -81,14 +81,14 @@ Office 365, SaaS 응용 프로그램 및 기타 Azure AD 기반 리소스에 사
 새 팜을 배포하는 경우 필수 요건은 다음과 같습니다.
 
 * 페더레이션 서버용 Windows Server 2012 R2 서버
-* 웹 응용 프로그램 프록시용 Windows Server 2012 R2 서버
+* 웹 애플리케이션 프록시용 Windows Server 2012 R2 서버
 * 원하는 페더레이션 서비스 이름에 대한 하나의 SSL 인증서가 있는 .pfx 파일 예: fs.contoso.com
 
 새 팜을 배포 하거나 기존 팜을 사용하는 경우 필수 요건은 다음과 같습니다.
 
 * 페더레이션 서버에 대한 로컬 관리자 자격 증명.
-* 웹 응용 프로그램 프록시 역할을 배포하려는 임의의 작업 그룹 서버(도메인에 가입되지 않음)에 대한 로컬 관리자 자격 증명
-* 마법사를 실행하는 컴퓨터는 Windows 원격 관리를 통해 AD FS나 웹 응용 프로그램 프록시를 설치하려는 다른 컴퓨터에 연결할 수 있는 컴퓨터
+* 웹 애플리케이션 프록시 역할을 배포하려는 임의의 작업 그룹 서버(도메인에 가입되지 않음)에 대한 로컬 관리자 자격 증명
+* 마법사를 실행하는 컴퓨터는 Windows 원격 관리를 통해 AD FS나 웹 애플리케이션 프록시를 설치하려는 다른 컴퓨터에 연결할 수 있는 컴퓨터
 
 자세한 내용은 참조 [AD FS로 SSO 구성](how-to-connect-install-custom.md#configuring-federation-with-ad-fs)을 참조하세요.
 

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: rogoya
-ms.openlocfilehash: 34011144d4f960413e78f13c999dfddf6d2660bf
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: bc41f8b80719bcc1fee77fd40e4f50df1ebf1a99
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50742948"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428599"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>사용자 지정 금지 암호 목록 구성
 
@@ -36,7 +36,7 @@ ms.locfileid: "50742948"
    * 사용자 지정 금지 암호 목록에는 단어를 1000개까지 포함할 수 있습니다.
    * 사용자 지정 금지 암호 목록에서는 대/소문자가 구별됩니다.
    * 사용자 지정 금지 암호 목록에는 일반적인 문자 대체가 고려됩니다.
-      * 예: "o"과 "0" 또는 "a"와 "\@\"
+      * 예: "o"와 "0" 또는 "a"와 "\@"
    * 문자열 최소 길이는 4자이고 최대 길이는 16자입니다.
 1. 문자열을 모두 추가했으면 **저장**을 클릭합니다.
 

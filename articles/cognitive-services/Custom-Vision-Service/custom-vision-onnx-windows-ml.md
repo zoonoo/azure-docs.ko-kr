@@ -21,7 +21,7 @@ ms.locfileid: "49362975"
 
 Windows ML을 사용하여 Custom Vision Service에서 내보낸 ONNX 모델을 사용하는 방법을 알아봅니다(미리 보기).
 
-이 문서의 정보는 Windows ML을 통해 Custom Vision Service에서 내보낸 ONNX 파일을 사용하는 방법을 설명합니다. 예제 Windows UWP 응용 프로그램이 제공됩니다. 인식할 수 있도록 학습된 모델이 예제에 포함되어 있습니다. 또한 사용자가 이 예제로 사용자 고유의 모델을 사용할 수 있는 방법에 대한 단계가 제공됩니다.
+이 문서의 정보는 Windows ML을 통해 Custom Vision Service에서 내보낸 ONNX 파일을 사용하는 방법을 설명합니다. 예제 Windows UWP 애플리케이션이 제공됩니다. 인식할 수 있도록 학습된 모델이 예제에 포함되어 있습니다. 또한 사용자가 이 예제로 사용자 고유의 모델을 사용할 수 있는 방법에 대한 단계가 제공됩니다.
 
 > [!div class="checklist"]
 > * 예제 앱 정보
@@ -41,17 +41,17 @@ Windows ML을 사용하여 Custom Vision Service에서 내보낸 ONNX 모델을 
 
 ## <a name="about-the-example-app"></a>예제 앱 정보
 
-응용 프로그램은 일반 Windows UWP 응용 프로그램입니다. 응용 프로그램을 사용하여 컴퓨터에서 이미지를 선택한 다음, 모델로 보낼 수 있습니다. 모델에서 반환되는 태그 및 점수는 이미지 옆에 표시됩니다.
+애플리케이션은 일반 Windows UWP 애플리케이션입니다. 응용 프로그램을 사용하여 컴퓨터에서 이미지를 선택한 다음, 모델로 보낼 수 있습니다. 모델에서 반환되는 태그 및 점수는 이미지 옆에 표시됩니다.
 
 ## <a name="get-the-example-code"></a>예제 코드 가져오기
 
-예제 응용 프로그램은 [https://github.com/Azure-Samples/cognitive-services-onnx12-customvision-sample/](https://github.com/Azure-Samples/cognitive-services-onnx12-customvision-sample/)에서 사용할 수 있습니다.
+예제 애플리케이션은 [https://github.com/Azure-Samples/cognitive-services-onnx12-customvision-sample/](https://github.com/Azure-Samples/cognitive-services-onnx12-customvision-sample/)에서 사용할 수 있습니다.
 
 ## <a name="run-the-example"></a>예제 실행
 
 1. `F5` 키를 사용하여 Visual Studio에서 응용 프로그램을 시작합니다. 개발자 모드를 사용하도록 설정하라는 메시지가 표시될 수 있습니다. 자세한 내용은 [개발을 위해 디바이스를 사용하도록 설정](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) 문서를 참조하세요.
 
-2. 응용 프로그램이 시작되면 단추를 사용하여 채점할 이미지를 선택합니다.
+2. 애플리케이션이 시작되면 단추를 사용하여 채점할 이미지를 선택합니다.
 
 ## <a name="use-your-own-model"></a>사용자 고유의 모델 사용
 

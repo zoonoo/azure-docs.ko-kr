@@ -31,7 +31,7 @@ Figma를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정으로 Figma에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -50,7 +50,7 @@ Figma와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Figma 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -65,15 +65,15 @@ Figma와 Azure AD의 통합을 구성하려면 갤러리의 Figma를 관리되�
 
     ![Active Directory][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
 
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
-4. 검색 상자에 **Figma**를 입력합니다. 결과 패널에서 **Figma**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에 **Figma**를 입력합니다. 결과 패널에서 **Figma**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Figma](./media/figma-tutorial/tutorial_figma_addfromgallery.png)
 
@@ -92,11 +92,11 @@ Single Sign-On이 작동하려면 Azure AD를 Figma를 연결할 수 있어야 �
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Figma 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Figma 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Figma에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Figma** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Figma** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -129,7 +129,7 @@ Single Sign-On이 작동하려면 Azure AD를 Figma를 연결할 수 있어야 �
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [Figma 지원 팀](mailto:support@figma.com?subject=SAML+Config)에 문의하세요.
 
-7. Figma 응용 프로그램에 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
+7. Figma 애플리케이션에 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
     ![특성 섹션](./media/figma-tutorial/edit_attribute.png)
 
@@ -202,11 +202,11 @@ Single Sign-On이 작동하려면 Azure AD를 Figma를 연결할 수 있어야 �
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 HubSpot SAML에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 응용 프로그램**을 선택한 다음, **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 
     ![사용자 할당][201]
 
-2. 응용 프로그램 목록에서 **HubSpot SAML**을 선택합니다.
+2. 애플리케이션 목록에서 **HubSpot SAML**을 선택합니다.
 
     ![Configure Single Sign-On](./media/figma-tutorial/tutorial_figma_app.png) 
 
@@ -226,7 +226,7 @@ Single Sign-On이 작동하려면 Azure AD를 Figma를 연결할 수 있어야 �
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Figma 타일을 클릭하면 Figma 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Figma 타일을 클릭하면 Figma 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스

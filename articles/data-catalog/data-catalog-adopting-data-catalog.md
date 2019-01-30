@@ -8,12 +8,12 @@ ms.assetid: 0c771e7a-6fcd-417f-9247-897177719567
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 07323f1b0541555ef71919e026ecaf2494056dad
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ec646ad1e9e1330a7e0b3f3f0576cee9d58c08e1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406501"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353263"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Azure Data Catalog 채택을 위한 접근 방식 및 프로세스
 이 문서는 조직에서 **Azure Data Catalog** 도입을 시작하는 데 도움이 됩니다. **Azure Data Catalog**를 성공적으로 도입하려면 사용자의 비전 정의, 조직 내의 주요 업무 사용 사례 식별, 파일럿 프로젝트 선택 등 세 가지 주요 항목에 초점을 맞춥니다.

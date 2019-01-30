@@ -4,7 +4,7 @@ description: 이 항목에서는 Azure AD Connect에 사용할 설치 유형을 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e4185b6b30bdd01492d9aae7ac38e18aaba7eef5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6082d583432e246ba3d45f3e97f4b104710e8727
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306022"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473693"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Azure AD Connect에 사용할 설치 유형 선택
-Azure AD Connect에서는 새 설치에 대해 기본 및 사용자 지정의 두 가지 설치 유형을 제공합니다. 이 항목은 설치 중에 사용할 옵션을 결정하는 데 도움이 됩니다.
+Azure AD Connect는 새 설치 유형으로 기본 및 사용자 지정의 두 가지 설치 유형을 제공합니다. 이 항목은 설치 중에 사용할 옵션을 결정하는 데 도움이 됩니다.
 
 ## <a name="express"></a>Express
 기본은 가장 일반적인 옵션으로, 약 90%의 새 설치에서 사용됩니다. 이 옵션은 가장 일반적인 고객 시나리오에 적합한 구성을 제공하기 위해 고안되었습니다.

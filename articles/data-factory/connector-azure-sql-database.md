@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: cd137462235431f0a0c1562e15a32951fe2a41c5
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: fcf5b5d0064292c11abeb361b0c046b5a3388457
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346713"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025694"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Database 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -33,7 +32,7 @@ Azure SQL Database에서 지원되는 싱크 데이터 저장소로 데이터를
 
 특히 이 Azure SQL Database 커넥터는 다음 함수를 지원합니다.
 
-- Azure 리소스용 관리 ID 또는 서비스 주체를 통해 SQL 인증 및 Azure AD(Azure Active Directory) 응용 프로그램 토큰 인증을 사용하여 데이터를 복사합니다.
+- 서비스 주체 또는 Azure 리소스에 대한 관리 ID를 통해 SQL 인증 및 Azure AD(Azure Active Directory) 애플리케이션 토큰 인증을 사용하여 데이터를 복사합니다.
 - 원본으로 SQL 쿼리 또는 저장 프로시저를 사용하여 데이터를 검색합니다.
 - 싱크로, 대상 테이블에 데이터를 추가하거나 복사하는 동안 사용자 지정 논리로 저장 프로시저를 호출합니다.
 
@@ -53,18 +52,18 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | **type** 속성은 **AzureSqlDatabase**로 설정해야 합니다. | yes |
+| 형식 | **type** 속성은 **AzureSqlDatabase**로 설정해야 합니다. | 예 |
 | connectionString | Azure SQL Database 인스턴스에 연결하는 데 필요한 정보를 **connectionString** 속성에 대해 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| servicePrincipalId | 응용 프로그램의 클라이언트 ID를 지정합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
-| servicePrincipalKey | 응용 프로그램의 키를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
-| tenant | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
+| servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
+| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
+| tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 개인 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니오 |
 
 다른 인증 형식의 경우, 각각의 필수 조건 및 JSON 샘플에 대한 다음 섹션을 참조하세요.
 
 - [SQL 인증](#sql-authentication)
-- [Azure AD 응용 프로그램 토큰 인증: 서비스 주체](#service-principal-authentication)
-- [Azure AD 응용 프로그램 토큰 인증: Azure 리소스용 관리 ID](#managed-identity)
+- [Azure AD 애플리케이션 토큰 인증: 서비스 주체](#service-principal-authentication)
+- [Azure AD 애플리케이션 토큰 인증: Azure 리소스에 대한 관리 ID](#managed-identity)
 
 >[!TIP]
 >"UserErrorFailedToConnectToSqlServer" 오류 코드 및 "데이터베이스에 대한 세션 제한이 XXX이고 이에 도달했습니다."와 같은 메시지가 있는 오류가 발생하면 연결 문자열에 `Pooling=false`를 추가하고 다시 시도하세요.
@@ -94,12 +93,12 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
 
 ### <a name="service-principal-authentication"></a>서비스 주체 인증
 
-서비스 주체 기반의 Azure AD 응용 프로그램 토큰 인증을 사용하려면 다음 단계를 따르세요.
+서비스 주체 기반의 Azure AD 애플리케이션 토큰 인증을 사용하려면 다음 단계를 따르세요.
 
-1. Azure Portal에서 **[Azure Active Directory 응용 프로그램을 만듭니다](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**. 응용 프로그램 이름 및 연결된 서비스를 정의하는 다음 값을 적어 둡니다.
+1. Azure Portal에서 **[Azure Active Directory 애플리케이션을 만듭니다](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**. 애플리케이션 이름 및 연결된 서비스를 정의하는 다음 값을 적어 둡니다.
 
-    - 응용 프로그램 UI
-    - 응용 프로그램 키
+    - 애플리케이션 UI
+    - 애플리케이션 키
     - 테넌트 ID
 
 1. Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**(아직 하지 않은 경우)합니다. Azure AD 관리자는 Azure AD 사용자 또는 Azure AD 그룹이어야 하지만 서비스 주체일 수는 없습니다. 이 단계가 수행되면, 이후 단계에서 Azure AD ID를 사용하여 서비스 주체에 대한 포함된 데이터베이스 사용자를 만들 수 있습니다.
@@ -150,7 +149,7 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
 
 특정 데이터 팩터리를 나타내는 [Azure 리소스용 관리 ID](data-factory-service-identity.md)와 데이터 팩터리를 연결할 수 있습니다. Azure SQL Database 인증에 이 서비스 ID를 사용할 수 있습니다. 지정된 팩터리는 이 ID를 사용하여 데이터베이스의 데이터에 액세스하고 복사할 수 있습니다.
 
-MSI 기반 Azure AD 응용 프로그램 토큰 인증을 사용하려면 다음 단계를 따르세요.
+MSI 기반 Azure AD 애플리케이션 토큰 인증을 사용하려면 다음 단계를 따르세요.
 
 1. **Azure AD에서 그룹을 만듭니다.** 팩터리 MSI를 그룹의 구성원으로 지정합니다.
     
@@ -207,7 +206,7 @@ Azure SQL Database에서 데이터를 복사하려면 데이터 세트의 **type
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 **type** 속성을 **AzureSqlTable**로 설정해야 합니다. | yes |
+| 형식 | 데이터 세트의 **type** 속성을 **AzureSqlTable**로 설정해야 합니다. | 예 |
 | tableName | 연결된 서비스가 참조하는 Azure SQL Database 인스턴스의 테이블 또는 뷰 이름입니다. | 원본에는 아니요이고 싱크에는 예입니다 |
 
 #### <a name="dataset-properties-example"></a>데이터 세트 속성 예제
@@ -239,7 +238,7 @@ Azure SQL Database에서 데이터를 복사하려면 복사 작업 원본의 **
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 **type** 속성을 **SqlSource**로 설정해야 합니다. | yes |
+| 형식 | 복사 작업 원본의 **type** 속성을 **SqlSource**로 설정해야 합니다. | 예 |
 | SqlReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. | 아니오 |
 | sqlReaderStoredProcedureName | 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. | 아니오 |
 | storedProcedureParameters | 저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니오 |
@@ -247,7 +246,7 @@ Azure SQL Database에서 데이터를 복사하려면 복사 작업 원본의 **
 ### <a name="points-to-note"></a>주의할 사항
 
 - **sqlReaderQuery**가 **SqlSource**에 대해 지정된 경우, 복사 작업은 Azure SQL Database 원본에 대해 이 쿼리를 실행하여 데이터를 가져옵니다. 또는 저장 프로시저를 지정할 수 있습니다. 저장 프로시저가 매개 변수를 사용하는 경우, **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정합니다.
-- **sqlReaderQuery** 또는 **sqlReaderStoredProcedureName** 중 하나를 지정하지 않는 경우, 데이터 집합 JSON의 **structure** 섹션에 정의된 열이 쿼리()를 생성하는 데 사용됩니다. `select column1, column2 from mytable`은 Azure SQL Database에 대해 실행됩니다. 데이터 세트 정의에 **structure**가 없는 경우, 테이블에서 모든 열이 선택됩니다.
+- **sqlReaderQuery** 또는 **sqlReaderStoredProcedureName** 중 하나를 지정하지 않는 경우, 데이터 세트 JSON의 **structure** 섹션에 정의된 열이 쿼리()를 생성하는 데 사용됩니다. `select column1, column2 from mytable`은 Azure SQL Database에 대해 실행됩니다. 데이터 세트 정의에 **structure**가 없는 경우, 테이블에서 모든 열이 선택됩니다.
 
 #### <a name="sql-query-example"></a>SQL 쿼리 예제
 
@@ -342,9 +341,9 @@ Azure SQL Database에 데이터를 복사하려면 복사 작업 싱크의 **typ
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 싱크의 **type** 속성은 **SqlSink**로 설정해야 합니다. | yes |
+| 형식 | 복사 작업 싱크의 **type** 속성은 **SqlSink**로 설정해야 합니다. | 예 |
 | writeBatchSize | 버퍼 크기가 **writeBatchSize**에 도달하면 SQL 테이블에 데이터를 삽입합니다.<br/> 허용되는 값은 **정수**(행 수)입니다. | 아니요. 기본값은 10000입니다. |
-| writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다.<br/> 허용되는 값은 **시간 범위**입니다. 예: “00:30:00”(30분). | 아니오 |
+| writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다.<br/> 허용되는 값은 **시간 범위**입니다. 예제: “00:30:00”(30분) | 아니요 |
 | preCopyScript | Azure SQL Database에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 아니요 |
 | sqlWriterStoredProcedureName | 원본 데이터를 대상 테이블에 적용하는 방법을 정의하는 저장 프로시저의 이름입니다. 예를 들어, 고유한 비즈니스 논리를 사용하여 upsert(업데이트/삽입) 또는 변환을 수행한다고 가정합니다. <br/><br/>이 저장 프로시저는 **배치마다 호출**됩니다. 한 번만 실행되고 원본 데이터와 관련이 없는 작업의 경우, `preCopyScript` 속성을 사용합니다. 이러한 작업의 예로 삭제와 자르기가 있습니다. | 아니요 |
 | storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 및 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니요 |
@@ -503,7 +502,7 @@ create table dbo.TargetTbl
 
 기본 제공 복사 메커니즘이 용도에 적합하지 않은 경우, 저장 프로시저를 사용할 수 있습니다. 일반적으로 원본 데이터를 대상 테이블에 최종 삽입하기 전에 upsert(업데이트/삽입) 또는 추가 처리를 수행해야 하는 경우에 사용됩니다. 몇 가지 추가 처리 예제로 열 병합, 추가 값 조회, 두 개 이상의 테이블에 삽입 등이 있습니다.
 
-다음 샘플에서는 저장 프로시저를 사용하여 Azure SQL Database의 테이블에 upsert(업데이트/삽입)를 수행하는 방법을 보여 줍니다. 입력 데이터와 싱크 **Marketing** 테이블에 각기 **ProfileID**, **State** 및 **Category**의 세 열이 있다고 가정합니다. **ProfileID** 열을 기준으로 upsert(업데이트/삽입)를 수행하고 특정 범주에 대해서만 적용합니다.
+다음 샘플에서는 저장 프로시저를 사용하여 Azure SQL Database의 테이블에 upsert(업데이트/삽입)를 수행하는 방법을 보여 줍니다. 각기 다음과 같은 세 개 열을 갖는 입력 데이터와 싱크 **Marketing** 테이블을 가정해 보겠습니다. **ProfileID**, **State** 및 **Category**. **ProfileID** 열을 기준으로 upsert(업데이트/삽입)를 수행하고 특정 범주에 대해서만 적용합니다.
 
 #### <a name="output-dataset"></a>출력 데이터 세트
 

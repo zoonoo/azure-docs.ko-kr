@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 280c646a3265ff7ab9a3d32412a2be2e3989e22e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bb17916fb4d9b9b3ae1481ead7508214f5956c70
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297472"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464275"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Bing Image Search API를 사용하여 이미지 정보 가져오기
 
@@ -408,7 +408,7 @@ Host: api.cognitive.microsoft.com
 }
 ```
 
-온라인으로 제품을 제공하는 소매상 목록을 가져오려면([offerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#offer-offercount) 필드 참조) API를 다시 호출하고 `modules`를 ShoppingSources로 설정합니다. 그런 다음, `insightsToken` 쿼리 매개 변수를 제품 요약 이미지에서 찾은 토큰으로 설정합니다.  
+온라인으로 제품을 제공하는 소매상 목록을 가져오려면([offerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) 필드 참조) API를 다시 호출하고 `modules`를 ShoppingSources로 설정합니다. 그런 다음, `insightsToken` 쿼리 매개 변수를 제품 요약 이미지에서 찾은 토큰으로 설정합니다.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?modules=ShoppingSources&insightsToken=ccid_hb3uRvUk*mid_BF5C252A47F2C765...&mkt=en-us HTTP/1.1    

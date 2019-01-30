@@ -1,5 +1,5 @@
 ---
-title: Azure App Service에서 CORS를 사용한 RESTful API | Microsoft Docs
+title: CORS를 사용하여 RESTful API 호스트 | Microsoft Docs
 description: Azure App Service에서 CORS 지원을 통해 RESTful API를 호스팅하는 방법을 알아봅니다.
 services: app-service\api
 documentationcenter: dotnet
@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/21/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 4d8a95ee4afc844868cfda78087773a6a37c07c2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: b8c1130a45f60b9caaacd365cd1c256f50ed7675
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445432"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629572"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>자습서: Azure App Service에서 CORS를 통해 RESTful API 호스팅
 
-[Azure App Service](app-service-web-overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 또한 App Service에는 RESTful API에 대한 [CORS(Cross-Origin Resource Sharing)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing)의 지원이 기본적으로 제공됩니다. 이 자습서에서는 CORS 지원을 사용하여 ASP.NET Core API 앱을 App Service에 배포하는 방법을 보여 줍니다. 명령줄 도구를 사용하여 앱을 구성하고, Git을 사용하여 앱을 배포합니다. 
+[Azure App Service](overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 또한 App Service에는 RESTful API에 대한 [CORS(Cross-Origin Resource Sharing)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing)의 지원이 기본적으로 제공됩니다. 이 자습서에서는 CORS 지원을 사용하여 ASP.NET Core API 앱을 App Service에 배포하는 방법을 보여 줍니다. 명령줄 도구를 사용하여 앱을 구성하고, Git을 사용하여 앱을 배포합니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "52445432"
 
 이 단계에서는 로컬 ASP.NET Core 프로젝트를 설정합니다. App Service는 다른 언어로 작성된 API에 대해 동일한 워크플로를 지원합니다.
 
-### <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+### <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
 터미널 창에서 `cd`를 사용하여 작업 디렉터리로 이동합니다.  
 
@@ -58,11 +58,11 @@ ms.locfileid: "52445432"
 git clone https://github.com/Azure-Samples/dotnet-core-api
 ```
 
-이 리포지토리에는 [Swagger를 사용한 ASP.NET Core Web API 도움말 페이지](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio) 자습서에 따라 만든 응용 프로그램이 포함되어 있으며, Swagger 생성기를 사용하여 [Swagger UI](https://swagger.io/swagger-ui/)와 Swagger JSON 엔드포인트를 제공합니다.
+이 리포지토리에는 자습서: [Swagger를 사용한 ASP.NET Core Web API 도움말 페이지](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio)에 따라 만든 앱이 포함되어 있으며, Swagger 생성기를 사용하여 [Swagger UI](https://swagger.io/swagger-ui/)와 Swagger JSON 엔드포인트를 제공합니다.
 
-### <a name="run-the-application"></a>응용 프로그램 실행
+### <a name="run-the-application"></a>애플리케이션 실행
 
-다음 명령을 실행하여 필요한 패키지를 설치하고 데이터베이스 마이그레이션을 실행하고 응용 프로그램을 시작합니다.
+다음 명령을 실행하여 필요한 패키지를 설치하고 데이터베이스 마이그레이션을 실행하고 애플리케이션을 시작합니다.
 
 ```bash
 cd dotnet-core-api
@@ -84,7 +84,7 @@ dotnet run
 
 ## <a name="deploy-app-to-azure"></a>Azure에 앱 배포
 
-이 단계에서는 SQL Database 연결 .NET Core 응용 프로그램을 App Service에 배포합니다.
+이 단계에서는 SQL Database 연결 .NET Core 애플리케이션을 App Service에 배포합니다.
 
 ### <a name="configure-local-git-deployment"></a>로컬 Git 배포 구성
 
@@ -132,7 +132,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-### <a name="browse-to-the-azure-web-app"></a>Azure 웹앱 찾아보기
+### <a name="browse-to-the-azure-app"></a>Azure 앱 찾아보기
 
 브라우저에서 `http://<app_name>.azurewebsites.net/swagger`로 이동하여 Swagger UI를 실행해 봅니다.
 
@@ -211,4 +211,4 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 사용자를 인증하고 사용자 권한을 부여하는 방법에 대해 알아보려면 다음 자습서를 진행합니다.
 
 > [!div class="nextstepaction"]
-> [자습서: 종단 간 사용자 인증 및 권한 부여](app-service-web-tutorial-auth-aad.md)
+> [자습서: 엔드투엔드 사용자 인증 및 권한 부여](app-service-web-tutorial-auth-aad.md)

@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 37db2dd5908b231b9f04a5c009052d91724f6333
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: f48283222f5c5d3b18d3dba17c2856801856fb94
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976251"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992125"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Azure 간 복제의 네트워킹 정보
 
@@ -27,7 +27,7 @@ Site Recovery가 [이 시나리오](azure-to-azure-architecture.md)에 재해 �
 
 ## <a name="typical-network-infrastructure"></a>일반적인 네트워크 인프라
 
-다음 다이어그램에서는 Azure VM에서 실행되는 응용 프로그램에 대한 일반적인 Azure 환경을 보여 줍니다.
+다음 다이어그램에서는 Azure VM에서 실행되는 애플리케이션에 대한 일반적인 Azure 환경을 보여 줍니다.
 
 ![고객 환경](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
@@ -114,7 +114,10 @@ Site Recovery IP 주소 범위는 다음과 같습니다.
 
       ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
 
-2. Office 365 [인증 및 ID IP V4 엔드포인트](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)에 해당하는 모든 IP 주소 범위에 대한 아웃바운드 HTTPS(443) 규칙을 만듭니다.
+2. 아래 스크린샷에 표시된 것처럼 NSG에서 “AzureActiveDirectory”에 대한 아웃바운드 HTTPS(443) 보안 규칙을 만듭니다.
+
+      ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
+
 3. 대상 위치에 해당하는 Site Recovery IP에 대한 아웃바운드 HTTPS(443) 규칙을 만듭니다.
 
    **위치**: | **Site Recovery IP 주소** |  **Site Recovery 모니터링 IP 주소**
@@ -127,7 +130,7 @@ Site Recovery IP 주소 범위는 다음과 같습니다.
 
 1. NSG에서 "Storage.CentralUS"에 대한 아웃바운드 HTTPS(443) 보안 규칙을 만듭니다.
 
-2. Office 365 [인증 및 ID IP V4 엔드포인트](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)에 해당하는 모든 IP 주소 범위에 대한 아웃바운드 HTTPS(443) 규칙을 만듭니다.
+2. NSG에서 “AzureActiveDirectory”에 대한 아웃바운드 HTTPS(443) 보안 규칙을 만듭니다.
 
 3. 원본 위치에 해당하는 Site Recovery IP에 대한 아웃바운드 HTTPS(443) 규칙을 만듭니다.
 

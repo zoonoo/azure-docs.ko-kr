@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/19/2018
-ms.author: ramamill
-ms.openlocfilehash: 50d1170f64ae199f4a1bf4b852c1ed3232df4d42
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.date: 12/11/2018
+ms.author: mayg
+ms.openlocfilehash: f2d8d070a8adbe7992795b06722427da2830cb50
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974806"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253683"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>추가 프로세스 서버를 사용한 장애 복구(failback)를 위한 확장
 
@@ -23,6 +23,9 @@ ms.locfileid: "51974806"
 ### <a name="capacity-planning"></a>용량 계획
 
 VMware 복제에 대해 [용량 계획](site-recovery-plan-capacity-vmware.md)을 수행했는지 확인합니다. 추가 프로세스 서버를 배포해야 시기와 방법을 식별하도록 도와줍니다.
+
+>[!NOTE]
+복제된 프로세스 서버 구성 요소를 사용하는 것은 지원되지 않습니다. 각 PS 스케일 아웃에서 이 문서의 단계를 수행할 수 있습니다.
 
 ### <a name="sizing-requirements"></a>크기 조정 요구 사항 
 

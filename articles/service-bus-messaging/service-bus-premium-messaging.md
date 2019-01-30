@@ -3,9 +3,9 @@ title: Azure Service Bus 프리미엄 및 표준 메시지 가격 책정 계층 
 description: Service Bus 프리미엄 및 표준 메시징 계층
 services: service-bus-messaging
 documentationcenter: .net
-author: djrosanova
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: e211774d-821c-4d79-8563-57472d746c58
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/30/2018
-ms.author: spelluru
-ms.openlocfilehash: 33dda074bd1aeb6b6187ca01347f31219ac86e91
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: aschhab
+ms.openlocfilehash: ae35f73e601cfa83fc960c5331f9956863677941
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250206"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855298"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus 프리미엄 및 표준 메시징 계층
 
 큐 및 토픽과 같은 엔터티를 포함하는 Service Bus 메시징은 클라우드 규모로 엔터프라이즈 메시징 기능을 풍부한 게시-구독 의미 체계와 결합합니다. Service Bus 메시징은 정교한 여러 클라우드 솔루션의 통신 백본으로 사용됩니다.
 
-Service Bus 메시징의 *프리미엄* 계층은 중요 업무용 응용 프로그램에 대한 확장성, 성능 및 가용성에 관한 일반적인 고객의 요청을 해결합니다. 프리미엄 계층은 프로덕션 시나리오에 사용하는 것이 좋습니다. 기능 집합은 거의 동일하지만 이러한 Service Bus 메시징의 두 계층은 다른 용도로 사용하도록 고안되었습니다.
+Service Bus 메시징의 *프리미엄* 계층은 중요 업무용 애플리케이션에 대한 확장성, 성능 및 가용성에 관한 일반적인 고객의 요청을 해결합니다. 프리미엄 계층은 프로덕션 시나리오에 사용하는 것이 좋습니다. 기능 집합은 거의 동일하지만 이러한 Service Bus 메시징의 두 계층은 다른 용도로 사용하도록 고안되었습니다.
 
 다음 테이블에는 차이가 자세히 설명되어 있습니다.
 

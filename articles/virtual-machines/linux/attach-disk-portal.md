@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 2823772787adf56dfbe216a68161f633eadba255
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.component: disks
+ms.openlocfilehash: 668f14d491fe3e47a445e6d80efda69c017024e2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001619"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470922"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>포털을 사용하여 데이터 디스크를 Linux VM에 연결 
 이 문서에서는 Azure 포털을 통해 신규 및 기존 디스크를 Linux 가상 머신에 연결하는 방법을 보여줍니다. 또한 [Azure Portal에서 Windows VM에 데이터 디스크를 연결](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 수도 있습니다. 
@@ -28,13 +29,13 @@ ms.locfileid: "39001619"
 VM에 디스크를 연결하기 전에 다음 팁을 검토합니다.
 
 * 가상 머신의 크기로 연결할 수 있는 디스크 개수가 제어됩니다. 자세한 내용은 [가상 머신의 크기](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
-* 프리미엄 저장소를 사용하려면 DS 시리즈 또는 GS 시리즈 가상 머신이 필요합니다. 이러한 가상 머신과 함께 프리미엄 및 표준 디스크를 모두 사용할 수 있습니다. 프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 [Premium Storage: Azure Virtual Machine 작업을 위한 고성능 저장소](../windows/premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+* Premium Storage를 사용하려면 DS 시리즈 또는 GS 시리즈 가상 머신이 필요합니다. 이러한 가상 머신과 함께 프리미엄 및 표준 디스크를 모두 사용할 수 있습니다. Premium Storage는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 스토리지](../windows/premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서를 참조하세요.
 * 가상 머신에 연결된 디스크는 실제로 Azure에 저장된 .vhd 파일입니다. 자세한 내용은 [가상 머신용 디스크 및 VHD 정보](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 * 디스크를 연결한 후 [Linux VM에 연결하여 새 디스크를 탑재](#connect-to-the-linux-vm-to-mount-the-new-disk)해야 합니다.
 
 
 ## <a name="find-the-virtual-machine"></a>가상 머신 찾기
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **Virtual Machines**를 클릭합니다.
 3. 목록에서 가상 머신을 선택합니다.
 4. 가상 머신 페이지의 **Essentials**에서 **디스크**를 클릭합니다.
@@ -96,7 +97,12 @@ dmesg | grep SCSI
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-여기서 *sdc*는 원하는 디스크입니다. `fdisk`로 디스크를 분할하고 파티션 1에 기본 디스크를 작성한 후 다른 기본값을 적용합니다. 다음 예제에서는 */dev/sdc*에서 `fdisk` 프로세스를 시작합니다.
+여기서 *sdc*는 원하는 디스크입니다. 
+
+### <a name="partion-a-new-disk"></a>새 디스크 분할
+데이터가 포함된 기존 디스크를 사용 중이라면 디스크 탑재 단계로 건너뜁니다. 새 디스크를 연결하는 경우에는 디스크를 분할해야 합니다.
+
+`fdisk`를 사용하여 디스크를 분할하고 파티션 1의 주 디스크로 지정한 다음 기타 기본값은 그대로 적용합니다. 다음 예제에서는 */dev/sdc*에서 `fdisk` 프로세스를 시작합니다.
 
 ```bash
 sudo fdisk /dev/sdc
@@ -176,8 +182,8 @@ Writing inode tables: done
 Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
-
-이제 `mkdir`을 사용하여 파일 시스템을 탑재할 디렉터리를 만듭니다. 다음 예제에서는 */datadrive*에 디렉터리를 만듭니다.
+### <a name="mount-the-disk"></a>디스크 탑재
+`mkdir`을 사용하여 파일 시스템을 탑재할 디렉터리를 만듭니다. 다음 예제에서는 */datadrive*에 디렉터리를 만듭니다.
 
 ```bash
 sudo mkdir /datadrive

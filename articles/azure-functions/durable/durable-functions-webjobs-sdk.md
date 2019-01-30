@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 427c3601d6a4ca65407a98d54b0206cde9af4235
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c1a778a006c7743b6ea19062d79cff3cfeaba3d8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638398"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713272"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>WebJobs로 지속성 함수를 실행하는 방법
 
-[Azure Functions](../functions-overview.md) 및 [지속성 함수](durable-functions-overview.md) 확장은 [WebJobs SDK](../../app-service/web-sites-create-web-jobs.md)에 기본 제공됩니다. WebJobs SDK의 `JobHost`는 Azure Functions에서 런타임입니다. Azure Functions에서 지원하지 않는 방법으로 `JobHost` 동작을 제어하는 경우 사용자가 직접 WebJobs SDK를 사용하여 지속성 함수를 개발하고 실행할 수 있습니다. 그러면 Azure WebJob 또는 콘솔 응용 프로그램을 실행하는 어디서나 지속성 함수를 실행할 수 있습니다.
+[Azure Functions](../functions-overview.md) 및 [지속성 함수](durable-functions-overview.md) 확장은 [WebJobs SDK](../../app-service/webjobs-create.md)에 기본 제공됩니다. WebJobs SDK의 `JobHost`는 Azure Functions에서 런타임입니다. Azure Functions에서 지원하지 않는 방법으로 `JobHost` 동작을 제어하는 경우 사용자가 직접 WebJobs SDK를 사용하여 지속성 함수를 개발하고 실행할 수 있습니다. 그러면 Azure WebJob 또는 콘솔 애플리케이션을 실행하는 어디서나 지속성 함수를 실행할 수 있습니다.
 
 체이닝 지속성 함수 샘플은 WebJobs SDK 버전에서 사용할 수 있습니다. [지속성 함수 리포지토리](https://github.com/azure/azure-functions-durable-extension/)를 다운로드하거나 복제하고 *samples\\webjobssdk\\chaining* 폴더로 이동합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "52638398"
 
 * **Azure 개발** 워크로드를 통해 [Visual Studio 2017 버전 15.6 이상을 설치](https://docs.microsoft.com/visualstudio/install/)합니다.
 
-  Visual Studio는 있지만 해당 워크로드가 없는 경우 **도구 > 도구 및 기능 가져오기**를 선택하여 워크로드를 추가합니다. 
+  Visual Studio는 있지만 해당 워크로드가 없는 경우 **도구 > 도구 및 기능 가져오기**를 선택하여 워크로드를 추가합니다.
 
   (대신 [Visual Studio Code](https://code.visualstudio.com/)를 사용할 수 있지만 지침 중 일부는 Visual Studio에 국한됩니다.)
 
@@ -43,7 +43,7 @@ ms.locfileid: "52638398"
 
 ## <a name="webjobs-sdk-versions"></a>WebJobs SDK 버전
 
-이 문서에서는 WebJobs SDK 2.x 프로젝트를 개발하는 방법에 대해 설명합니다(Azure Functions 버전 1.x와 동일). 버전 3.x에 대한 내용은 이 문서의 뒷부분에 나오는 [WebJobs SDK 3.x](#webjobs-sdk-3x)를 참조하세요. 
+이 문서에서는 WebJobs SDK 2.x 프로젝트를 개발하는 방법에 대해 설명합니다(Azure Functions 버전 1.x와 동일). 버전 3.x에 대한 내용은 이 문서의 뒷부분에 나오는 [WebJobs SDK 3.x](#webjobs-sdk-3x)를 참조하세요.
 
 ## <a name="create-console-app"></a>콘솔 앱 만들기
 
@@ -190,9 +190,9 @@ while (true)
 
 1. 로컬로 실행하는 경우 Application Insights에서 로그를 확인하려면 다음을 수행합니다.
 
-  a. 앱 유형이 **일반**인 Application Insights 리소스를 만듭니다.
+    a. 앱 유형이 **일반**인 Application Insights 리소스를 만듭니다.
 
-  b. *App.config* 파일에 계측 키를 저장합니다.
+    b. *App.config* 파일에 계측 키를 저장합니다.
 
 1. 프로젝트를 실행합니다.
 
@@ -200,7 +200,7 @@ while (true)
 
 1. 웹앱 및 저장소 계정을 만듭니다.
 
-1. 웹앱에서 AzureWebJobsStorage라는 앱 설정에 저장소 연결 문자열을 저장합니다.
+1. 웹앱에서 AzureWebJobsStorage라는 앱 설정에 스토리지 연결 문자열을 저장합니다.
 
 1. 앱 유형이 **일반**인 Application Insights 리소스를 만듭니다.
 
@@ -216,8 +216,8 @@ while (true)
 
 1. 다음 패키지의 시험판 버전 3.x를 선택합니다.
 
-  * `Microsoft.Azure.WebJobs.Extensions`
-  * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
+    * `Microsoft.Azure.WebJobs.Extensions`
+    * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
 1. .NET Core 구성 프레임워크를 사용하여 *appsettings.json* 파일에서 저장소 연결 문자열 및 Application Insights 계측 키를 가져오도록 `Main` 메서드 코드를 변경합니다.  예를 들면 다음과 같습니다.
 
@@ -235,7 +235,7 @@ while (true)
            var config = new JobHostConfiguration();
 
            config.DashboardConnectionString = "";
-           config.StorageConnectionString = 
+           config.StorageConnectionString =
                appSettingsConfig.GetConnectionString("AzureWebJobsStorage");
            var instrumentationKey =
                appSettingsConfig["APPINSIGHTS_INSTRUMENTATIONKEY"];
@@ -258,4 +258,3 @@ while (true)
 ## <a name="next-steps"></a>다음 단계
 
 WebJobs SDK에 대한 자세한 내용은 [WebJobs SDK를 사용하는 방법](../../app-service/webjobs-sdk-how-to.md)을 참조하세요.
-

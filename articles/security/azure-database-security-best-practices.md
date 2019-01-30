@@ -36,7 +36,7 @@ ms.locfileid: "51281628"
 이 Azure 데이터베이스 보안 모범 사례 문서는 이 문서가 작성된 당시에 있었던 합의된 의견과 Azure 플랫폼 기능 및 특징 집합을 기반으로 합니다. 이 문서는 시간이 지남에 따라 변화하는 의견 및 기술을 반영하도록 주기적으로 업데이트 됩니다.
 
 ## <a name="use-firewall-rules-to-restrict-database-access"></a>방화벽 규칙을 사용하여 데이터베이스 액세스 제한
-Microsoft Azure SQL Database는 Azure 및 기타 인터넷 기반 응용 프로그램의 관계형 데이터베이스 서비스를 제공합니다. 액세스 보안을 제공하기 위해 SQL Database는 다음을 사용하여 액세스를 제어합니다.
+Microsoft Azure SQL Database는 Azure 및 기타 인터넷 기반 애플리케이션의 관계형 데이터베이스 서비스를 제공합니다. 액세스 보안을 제공하기 위해 SQL Database는 다음을 사용하여 액세스를 제어합니다.
 
 - IP 주소를 통해 연결을 제한하는 방화벽 규칙
 - 사용자에게 자신의 ID를 증명하도록 요구하는 인증 메커니즘
@@ -48,7 +48,7 @@ Microsoft Azure SQL Database는 Azure 및 기타 인터넷 기반 응용 프로�
 
 ![방화벽 규칙](./media/azure-database-security-best-practices/azure-database-security-best-practices-Fig1.png)
 
-Azure SQL Database 서비스는 TCP 포트 1433을 통해서만 사용할 수 있습니다. 사용자의 컴퓨터에서 SQL Database에 액세스하려면 클라이언트 컴퓨터 방화벽이 TCP 포트 1433을 통해 나가는 TCP 통신을 허용해야 합니다. 다른 응용 프로그램에서는 이러한 연결이 필요하지 않은 경우 방화벽 규칙을 사용하여 TCP 포트 1433에서 인바운드 연결을 차단합니다.
+Azure SQL Database 서비스는 TCP 포트 1433을 통해서만 사용할 수 있습니다. 사용자의 컴퓨터에서 SQL Database에 액세스하려면 클라이언트 컴퓨터 방화벽이 TCP 포트 1433을 통해 나가는 TCP 통신을 허용해야 합니다. 다른 애플리케이션에서는 이러한 연결이 필요하지 않은 경우 방화벽 규칙을 사용하여 TCP 포트 1433에서 인바운드 연결을 차단합니다.
 
 연결 프로세스의 일환으로, Azure 가상 머신의 연결은 각 작업자 역할에 대해 고유한 IP 주소 및 포트로 리디렉션됩니다. 포트 번호의 범위는 11000~11999입니다. TCP 포트에 대한 자세한 내용은 [1433을 제외한 ADO.NET 4.5용 포트](../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
 
@@ -65,10 +65,10 @@ SQL Database는 두 가지 인증 유형, 즉 SQL Server 인증 및 Azure AD 인
 이점은 다음과 같습니다.
 
 - SQL Database에서 모든 사용자가 Windows 도메인을 통해 인증되지 않는 혼합 운영 체제 환경을 지원할 수 있습니다.
-- SQL Database에서 SQL Server 인증이 필요한 이전 응용 프로그램 및 파트너 제공 응용 프로그램을 지원할 수 있습니다.
-- 사용자가 알 수 없거나 신뢰할 수 없는 도메인에서 연결합니다. 기존 고객이 할당된 SQL Server 로그인을 사용해 연결하여 주문 상태를 수신하는 응용 프로그램을 예로 들 수 있습니다.
-- SQL Database에서 사용자가 자신의 ID를 만드는 웹 기반 응용 프로그램을 지원할 수 있습니다.
-- 소프트웨어 개발자가 미리 설정된 SQL Server 로그인을 기반으로 복잡한 권한 계층 구조를 사용하여 응용 프로그램을 배포합니다.
+- SQL Database에서 SQL Server 인증이 필요한 이전 애플리케이션 및 파트너 제공 애플리케이션을 지원할 수 있습니다.
+- 사용자가 알 수 없거나 신뢰할 수 없는 도메인에서 연결합니다. 기존 고객이 할당된 SQL Server 로그인을 사용해 연결하여 주문 상태를 수신하는 애플리케이션을 예로 들 수 있습니다.
+- SQL Database에서 사용자가 자신의 ID를 만드는 웹 기반 애플리케이션을 지원할 수 있습니다.
+- 소프트웨어 개발자가 미리 설정된 SQL Server 로그인을 기반으로 복잡한 권한 계층 구조를 사용하여 애플리케이션을 배포합니다.
 
 > [!NOTE]
 > SQL Server 인증에서는 Kerberos 보안 프로토콜을 사용할 수 없습니다.
@@ -93,7 +93,7 @@ Azure AD 인증은 Azure AD의 ID를 사용하여 Azure SQL Database 및 [SQL Da
 - 고객이 외부(Azure AD) 그룹을 사용하여 데이터베이스 권한을 관리할 수 있습니다.
 - Windows 통합 인증 또는 Azure Active Directory에서 지원하는 기타 인증을 사용하여 암호 저장을 제거할 수 있습니다.
 - 포함된 데이터베이스 사용자를 통해 데이터베이스 수준에서 ID를 인증합니다.
-- SQL Database에 연결되는 응용 프로그램에 대한 토큰 기반 인증을 지원합니다.
+- SQL Database에 연결되는 애플리케이션에 대한 토큰 기반 인증을 지원합니다.
 - 도메인 동기화 없이 로컬 Azure Active Directory 인스턴스에 대한 AD FS(도메인 페더레이션) 또는 기본 사용자/암호 인증을 지원합니다.
 - Azure AD는 Multi-Factor Authentication을 비롯한 Active Directory 유니버설 인증을 사용하는 SQL Server Management Studio를 통해 연결하도록 지원합니다. Multi-Factor Authentication은 전화 통화, 문자 메시지, PIN을 사용하는 스마트 카드, 모바일 앱 알림 등의 폭넓은 확인 옵션이 포함된 강력한 인증 기능을 제공합니다. 자세한 내용은 [SQL Database 및 SQL Data Warehouse를 사용한 Azure AD Multi-Factor Authentication에 대한 SSMS 지원](../sql-database/sql-database-ssms-mfa-authentication.md)을 참조하세요.
 
@@ -109,7 +109,7 @@ Azure AD 인증은 Azure AD의 ID를 사용하여 Azure SQL Database 및 [SQL Da
 자세한 내용은 [SQL Database, Managed Instance 및 SQL Data Warehouse에서 인증을 위해 Azure Active Directory 인증 사용](../sql-database/sql-database-aad-authentication.md)에서 확인할 수 있습니다.
 
 ## <a name="protect-your-data-by-using-encryption-and-row-level-security"></a>암호화 및 행 수준 보안을 사용하여 데이터 보호
-[Azure SQL Database 투명한 데이터 암호화](../sql-database/transparent-data-encryption-azure-sql.md)를 사용하면 디스크의 데이터를 보호하고 하드웨어 무단 액세스를 방지할 수 있습니다. 응용 프로그램에 대한 변경 없이 미사용 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행합니다. 투명한 데이터 암호화는 데이터베이스 암호화 키라는 대칭 키를 사용하여 전체 데이터베이스의 저장소를 암호화합니다.
+[Azure SQL Database 투명한 데이터 암호화](../sql-database/transparent-data-encryption-azure-sql.md)를 사용하면 디스크의 데이터를 보호하고 하드웨어 무단 액세스를 방지할 수 있습니다. 애플리케이션에 대한 변경 없이 미사용 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행합니다. 투명한 데이터 암호화는 데이터베이스 암호화 키라는 대칭 키를 사용하여 전체 데이터베이스의 저장소를 암호화합니다.
 
 저장소 전체를 암호화하는 경우에도 데이터베이스 자체까지 암호화해야 합니다. 이렇게 하면 데이터를 철저하게 보호할 수 있습니다. Azure SQL Database를 사용하고 있고 신용 카드 또는 주민 등록 번호와 같은 중요한 데이터를 보호하려는 경우 FIPS 140-2 검증 256비트 AES 암호화를 사용하여 데이터베이스를 암호화할 수 있습니다. 이 암호화는 HIPAA, PCI 등 여러 업계 표준의 요구 사항을 충족합니다.
 
@@ -119,8 +119,8 @@ Azure AD 인증은 Azure AD의 ID를 사용하여 Azure SQL Database 및 [SQL Da
 
 - 데이터베이스 수준에서 SQL Server 인증을 사용해야 합니다.
 - [RBAC 역할](../role-based-access-control/overview.md)을 통해 Azure AD 인증을 사용해야 합니다.
-- 사용자와 응용 프로그램이 인증에 별도의 계정을 사용하도록 해야 합니다. 이렇게 하면 사용자와 응용 프로그램에 부여되는 사용 권한을 제한하고 악의적인 활동의 위험을 줄일 수 있습니다.
-- db_datareader 또는 db_datawriter와 같은 고정된 데이터베이스 역할을 사용하여 데이터베이스 수준 보안을 구현해야 합니다. 응용 프로그램용 사용자 지정 역할을 만들어 선택한 데이터베이스 개체에 대한 명시적 권한을 부여할 수도 있습니다.
+- 사용자와 애플리케이션이 인증에 별도의 계정을 사용하도록 해야 합니다. 이렇게 하면 사용자와 애플리케이션에 부여되는 사용 권한을 제한하고 악의적인 활동의 위험을 줄일 수 있습니다.
+- db_datareader 또는 db_datawriter와 같은 고정된 데이터베이스 역할을 사용하여 데이터베이스 수준 보안을 구현해야 합니다. 애플리케이션용 사용자 지정 역할을 만들어 선택한 데이터베이스 개체에 대한 명시적 권한을 부여할 수도 있습니다.
 
 데이터를 보호하는 다른 방법으로 다음을 사용해보세요.
 

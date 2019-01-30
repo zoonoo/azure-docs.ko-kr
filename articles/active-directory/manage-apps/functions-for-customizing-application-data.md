@@ -4,40 +4,40 @@ description: Azure Active Directory에서 SaaS 앱 개체의 자동화된 프로
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
-ms.author: barbkess
-ms.openlocfilehash: 7a7f959f54281dcce5b8d1349f5d6607f0e5da30
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.date: 01/21/2019
+ms.author: chmutali
+ms.openlocfilehash: 05be48817334dacac803eeccf2dc08e5a4bbd407
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345796"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823679"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory의 특성 매핑에 대한 식 작성
-SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할 수 있는 특성 매핑의 유형 중 하나입니다. 이러한 경우, 사용자의 데이터를 SaaS 응용 프로그램에 대해 사용하는 형식으로 변환할 수 있는 스크립트 방식의 식을 작성해야 합니다.
+SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 수 있는 특성 매핑의 유형 중 하나입니다. 이러한 경우, 사용자의 데이터를 SaaS 애플리케이션에 대해 사용하는 형식으로 변환할 수 있는 스크립트 방식의 식을 작성해야 합니다.
 
 ## <a name="syntax-overview"></a>구문 개요
 특성 매핑을 위한 식의 구문은 VBA(Visual Basic Applications) 함수를 연상시킵니다.
 
 * 전체 식은  <br>
-  *FunctionName(<<argument 1>>,<<argument N>>)*
-* 서로 함수를 중첩할 수 있습니다. 예:  <br> *FunctionOne(FunctionTwo(<<argument1>>))*
+  *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
+* 서로 함수를 중첩할 수 있습니다. 예:  <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * 함수에 3가지 다른 유형의 인수를 전달할 수 있습니다.
   
   1. 특성은 대괄호로 묶어야 합니다. 예: [attributeName]
-  2. 문자열 상수는 큰따옴표로 묶어야 합니다. 예: "미국"
-  3. 기타 함수 예: FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
-* 문자열 상수의 경우, 백슬래시 (\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\) 기호로 이스케이프되어야 합니다. 예: "회사 이름: \"Contoso\""
+  2. 문자열 상수는 큰따옴표로 묶어야 합니다. 예:  "미국"
+  3. 기타 함수 예:  FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
+* 문자열 상수의 경우, 백슬래시 (\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\) 기호로 이스케이프되어야 합니다. 예:  "회사 이름: \"Contoso\""
 
 ## <a name="list-of-functions"></a>함수 목록
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
 
 - - -
 ### <a name="append"></a>추가
@@ -63,7 +63,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 | 이름 | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
 | **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름입니다. |
-| **inputFormat** |필수 |문자열 |원본 값의 예상된 형식입니다. 지원되는 형식은 [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)를 참조하세요. |
+| **inputFormat** |필수 |문자열 |원본 값의 예상된 형식입니다. 지원되는 형식은 [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)를 참조하세요. |
 | **outputFormat** |필수 |문자열 |출력 날짜의 형식입니다. |
 
 - - -
@@ -79,7 +79,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 | 이름 | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
 | **구분 기호** |필수 |문자열 |문자열이 하나의 문자열로 연결되면 원본 값을 구분하는데 문자열을 사용합니다. 구분 기호가 필요하지 않은 경우 ""일 수 있습니다. |
-| **source1  … sourceN ** |필수, 시간 변수 |문자열 |값이 함께 조인될 문자열입니다. |
+| **source1  … sourceN** |필수, 시간 변수 |문자열 |값이 함께 조인될 문자열입니다. |
 
 - - -
 ### <a name="mid"></a>Mid
@@ -141,6 +141,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
   * **source**에 값이 있는 경우 **regexPattern** 및 **regexGroupName**을 사용하여 **replacementPropertyName**으로 속성에서 대체 값을 추출합니다. 대체 값이 결과로 반환됩니다.
 
 **매개 변수:**<br> 
+
 | 이름 | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
 | **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름입니다. |
@@ -166,7 +167,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 | 이름 | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN ** |2개 이상 필요, 상한 없음 |문자열 | 평가할 고유한 값 생성 규칙 목록 |
+| **uniqueValueRule1  … uniqueValueRuleN** |2개 이상 필요, 상한 없음 |문자열 | 평가할 고유한 값 생성 규칙 목록 |
 
 
 - - -
@@ -208,6 +209,32 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 | **key** |필수 |문자열 |**원본** 값과 비교할 **Key**입니다. |
 | **값** |필수 |문자열 |키와 일치하는 **원본** 의 대체 값입니다. |
 
+- - -
+### <a name="tolower"></a>ToLower
+**함수:**<br> ToLower(source, culture)
+
+**설명:**<br> *원본* 문자열 값을 가져와서 지정된 문화권 규칙을 사용하여 소문자로 변환합니다. 지정된 *문화권* 정보가 없는 경우 고정 문화권을 사용합니다.
+
+**매개 변수:**<br> 
+
+| 이름 | 필수/ 반복 | type | 메모 |
+| --- | --- | --- | --- |
+| **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름 |
+| **문화권** |옵션 |문자열 |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
+
+- - -
+### <a name="toupper"></a>ToUpper
+**함수:**<br> ToUpper(source, culture)
+
+**설명:**<br> *원본* 문자열 값을 가져와서 지정된 문화권 규칙을 사용하여 대문자로 변환합니다. 지정된 *문화권* 정보가 없는 경우 고정 문화권을 사용합니다.
+
+**매개 변수:**<br> 
+
+| 이름 | 필수/ 반복 | type | 메모 |
+| --- | --- | --- | --- |
+| **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름 |
+| **문화권** |옵션 |문자열 |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
+
 ## <a name="examples"></a>예
 ### <a name="strip-known-domain-name"></a>알려진 도메인 이름 제거
 사용자 이름을 가져오려면 사용자의 전자 메일에서 알려진 도메인 이름을 제거해야 합니다. <br>
@@ -240,9 +267,9 @@ Salesforce 샌드박스를 사용하는 경우 동기화하기 전에 모든 사
 
 **샘플 입/출력:** <br>
 
-* **입력** (givenName): "John"
-* **입력** (surname): "Doe"
-* **출력**: "JohDoe"
+* **입력**(givenName): "John"
+* **입력**(surname): "Doe"
+* **출력**:  "JohDoe"
 
 ### <a name="remove-diacritics-from-a-string"></a>문자열에서 분음 부호 제거
 악센트 기호를 포함하지 않는 해당 문자로 악센트 기호를 포함하는 문자를 바꿔야 합니다.
@@ -252,12 +279,12 @@ NormalizeDiacritics([givenName])
 
 **샘플 입/출력:** <br>
 
-* **입력** (givenName): "Zoë"
+* **입력**(givenName): "Zoë"
 * **출력**:  "Zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>특정 형식에서 문자열로 출력 날짜
 
-SaaS 응용 프로그램에 특정 형식의 날짜를 전송하려고 합니다. <br>
+SaaS 애플리케이션에 특정 형식의 날짜를 전송하려고 합니다. <br>
  예를 들어 ServiceNow에 대한 날짜 형식을 지정하려고 할 수 있습니다.
 
 **식:** <br>
@@ -266,8 +293,8 @@ SaaS 응용 프로그램에 특정 형식의 날짜를 전송하려고 합니다
 
 **샘플 입/출력:**
 
-* **입력** (extensionAttribute1): "20150123105347.1Z"
-* **출력**: “2015-01-23”
+* **입력**(extensionAttribute1): "20150123105347.1Z"
+* **출력**:  "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>미리 정의된 옵션 집합을 기반으로 값 바꾸기
 
@@ -280,8 +307,20 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
 
 **샘플 입/출력:**
 
-* **입력** (상태): "QLD"
+* **입력**(상태): "QLD"
 * **출력**: "오스트레일리아/브리즈번"
+
+### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>생성된 userPrincipalName(UPN) 값을 소문자로 변환
+
+아래 예에서 UPN 값은 PreferredFirstName 및 PreferredLastName 원본 필드를 연결하여 생성되고, ToLower 함수는 생성된 문자열에서 작동하여 모든 문자를 소문자로 변환합니다. 
+
+`ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
+
+**샘플 입/출력:**
+
+* **입력**(PreferredFirstName): "John"
+* **입력**(PreferredLastName): "Smith"
+* **출력**: "john.smith@contoso.com"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>UPN(userPrincipalName) 특성의 고유한 값 생성
 
@@ -297,8 +336,8 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
 
 **샘플 입/출력:**
 
-* (PreferredFirstName) **입력**: “John”
-* (PreferredLastName) **입력**: “Smith”
+* **입력**(PreferredFirstName): "John"
+* **입력**(PreferredLastName): "Smith"
 * **출력**: John.Smith@contoso.com의 UPN 값이 디렉터리에 아직 없는 경우 “John.Smith@contoso.com”
 * **출력**: John.Smith@contoso.com의 UPN 값이 디렉터리에 이미 있는 경우 “J.Smith@contoso.com”
 * **출력**: 위의 두 UPN 값이 디렉터리에 이미 있는 경우 “Jo.Smith@contoso.com”
@@ -307,7 +346,7 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
 * [SaaS 앱에 자동화된 사용자 프로비전/프로비전 해제](user-provisioning.md)
 * [사용자 프로비저닝에 대한 특성 매핑 사용자 지정](customize-application-attributes.md)
 * [사용자 프로 비전에 대 한 필터 범위 지정](define-conditional-rules-for-provisioning-user-accounts.md)
-* [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](use-scim-to-provision-users-and-groups.md)
+* [SCIM를 사용하여 Azure Active Directory으로부터 애플리케이션에 사용자 및 그룹의 자동 프로비전 사용](use-scim-to-provision-users-and-groups.md)
 * [계정 프로비전 알림](user-provisioning.md)
 * [SaaS App을 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
 

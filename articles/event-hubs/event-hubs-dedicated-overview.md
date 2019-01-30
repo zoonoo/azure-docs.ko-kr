@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs Dedicated 용량 개요 | Microsoft Docs
-description: Azure Event Hubs Dedicated 용량에 대한 개요입니다.
+title: 전용 이벤트 허브 개요 - Azure Event Hubs | Microsoft Docs
+description: 이 문서에서는 이벤트 허브의 단일 테넌트 배포를 제공하는 전용 Azure Event Hubs에 대한 개요를 제공합니다.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 68a55d8a16e55e2f5e4b48153f045daa40c9a68c
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: d418715ab651721d03b67bd411eb90607391bf10
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145640"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402339"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Event Hubs Dedicated의 개요
 
-
-  *Event Hubs Dedicated* 용량은 요구 사항이 가장 까다로운 고객을 위해 단일 테넌트 배포를 제공합니다. 전체 규모 Azure Event Hubs는 초당 2백만 개 이상의 이벤트 또는 초당 최대 2GB의 원격 분석을 수신할 수 있으며 완벽한 내구성의 저장소와 1초 미만의 대기 시간을 제공합니다. 또한 동일한 시스템에서 실시간 및 배치를 처리하여 통합 솔루션을 사용할 수 있습니다. 제품에 [Event Hubs 캡처](event-hubs-capture-overview.md)가 포함되어 있기 때문에 단일 스트림으로 실시간 및 배치 기반 파이프라인을 모두 지원하여 솔루션의 복잡성을 줄일 수 있습니다.
+*Event Hubs Dedicated* 용량은 요구 사항이 가장 까다로운 고객을 위해 단일 테넌트 배포를 제공합니다. 전체 규모 Azure Event Hubs는 초당 2백만 개 이상의 이벤트 또는 초당 최대 2GB의 원격 분석을 수신할 수 있으며 완벽한 내구성의 저장소와 1초 미만의 대기 시간을 제공합니다. 또한 동일한 시스템에서 실시간 및 배치를 처리하여 통합 솔루션을 사용할 수 있습니다. 제품에 [Event Hubs 캡처](event-hubs-capture-overview.md)가 포함되어 있기 때문에 단일 스트림으로 실시간 및 배치 기반 파이프라인을 모두 지원하여 솔루션의 복잡성을 줄일 수 있습니다.
 
 다음은 Event Hubs에 제공되는 서비스 계층을 비교한 표입니다. Standard는 대부분의 기능이 사용량에 따라 요금이 부과되는 반면 Event Hubs Dedicated 제품은 혼합 방식의 월 요금제가 적용됩니다. Dedicated 계층은 표준 요금제의 모든 기능을 제공합니다. 하지만 워크로드가 까다로운 고객을 위해 엔터프라이즈급 용량을 제공합니다. 
 
@@ -32,13 +32,13 @@ ms.locfileid: "42145640"
 | --- |:---:|:---:|:---:|
 | 수신 이벤트 | 100만 이벤트당 요금 부과 | 포함 |
 | 처리량 단위(1MB/초 수신, 2MB/초 송신) | 시간당 요금 부과 | 포함됨 |
-| 메시지 크기 | 256 KB | 1MB |
-| 게시자 정책 | yes | yes |   
+| 메시지 크기 | 1MB | 1MB |
+| 게시자 정책 | 예 | 예 |   
 | 소비자 그룹 | 20 | 20 |
-| 메시지 재생 | yes | yes |
+| 메시지 재생 | 예 | 예 |
 | 최대 처리량 단위 | 20(100까지 유연하게 구성 가능)   | 1 CU(용량 단위) ≈ 50 |
 | 조정된 연결 | 1,000개 포함 | 100,000개 포함 |
-| 추가 조정된 연결 | yes | yes |
+| 추가 조정된 연결 | 예 | 예 |
 | 메시지 보존 | 1일 포함 | 최대 7일 포함 |
 | 캡처 | 시간당 요금 부과 | 포함 |
 
@@ -47,7 +47,6 @@ ms.locfileid: "42145640"
 Event Hubs Dedicated를 사용하는 경우 다음과 같은 이점이 제공됩니다.
 
 * 다른 테넌트의 노이즈가 없는 단일 테넌트 호스팅
-* 메시지 크기가 256KB인 Standard에 비해 1MB로 증가
 * 매번 반복 가능한 성능
 * 폭발적인 요구를 충족하는 보장된 용량
 * 마이크로 일괄 처리 및 장기 보존 통합을 제공하기 위해 Event Hubs의 [캡처](event-hubs-capture-overview.md) 기능을 포함합니다.

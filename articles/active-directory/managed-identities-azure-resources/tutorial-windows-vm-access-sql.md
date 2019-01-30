@@ -4,7 +4,7 @@ description: Windows VM 시스템 할당 관리 ID를 사용하여 Azure SQL에 
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: bryanla
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/07/2018
 ms.author: daveba
-ms.openlocfilehash: 5d67d25912df5040665b3a04858be0f3807e8112
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 938bbd62ba6e27359b909eda3d2dbc2b91ae539b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623828"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436521"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure SQL에 액세스
 
@@ -63,6 +63,8 @@ VM에 데이터베이스에 대한 액세스 권한을 부여하는 과정은 �
 
 - [SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)](/azure/sql-database/sql-database-ssms-mfa-authentication)
 - [SQL Database 또는 SQL Data Warehouse에서의 Azure Active Directory 인증 구성 및 관리](/azure/sql-database/sql-database-aad-authentication-configure)
+
+SQL DB에는 고유한 AAD 표시 이름이 필요합니다. 이를 통해 사용자, 그룹 및 서비스 주체(애플리케이션)와 같은 AAD 계정 및 관리 ID에 사용하도록 설정된 VM 이름은 해당 표시 이름과 관련하여 AAD에서 고유하게 정의되어야 합니다. SQL DB는 이러한 사용자의 T-SQL을 만드는 중에 AAD 표시 이름을 확인하고, 고유하지 않은 경우 지정된 계정에 고유한 AAD 표시 이름을 제공하도록 요청하는 데 실패합니다.
 
 1.  SQL Server Management Studio를 시작합니다.
 2.  **서버에 연결** 대화 상자의 **서버 이름** 필드에 SQL Server 이름을 입력합니다.

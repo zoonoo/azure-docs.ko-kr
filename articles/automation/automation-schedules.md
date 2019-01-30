@@ -3,18 +3,18 @@ title: Azure Automation의 일정
 description: Automation 일정은 Azure Automation에서 Runbook이 자동으로 시작되도록 예약하는 데 사용됩니다. 특정 시간 또는 되풀이 일정에 따라 Runbook을 자동으로 시작할 수 있도록 일정을 만들고 관리하는 방법을 설명합니다.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3d8492d2a8982c9c85bfc91867f7eb6c2da04e58
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c1c36736e9d023ab1bd2ed607638b600bc468f2c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294767"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437219"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Azure Automation에서 Runbook 예약
 
@@ -129,3 +129,4 @@ Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Automation에서 Runbook을 시작하려면 [Azure Automation에서 Runbook 시작](automation-starting-a-runbook.md)
+

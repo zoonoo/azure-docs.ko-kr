@@ -1,5 +1,5 @@
 ---
-title: Azure DC/OS 클러스터 모니터링 - 운영 관리
+title: (사용되지 않음) Azure DC/OS 클러스터 모니터링 - 운영 관리
 description: Log Analytics를 사용하여 Azure Container Service DC/OS 클러스터를 모니터링합니다.
 services: container-service
 author: keikhara
@@ -9,20 +9,22 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: 4576d9decc6ba1e01ef39abdb8a3ef89461196e8
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b5c1596066b02d5ad4f59ed553408d263acc825c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407795"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993565"
 ---
-# <a name="monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>Log Analytics를 사용하여 Azure Container Service DC/OS 클러스터 모니터링
+# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>(사용되지 않음) Log Analytics를 사용하여 Azure Container Service DC/OS 클러스터 모니터링
 
-Log Analytics는 온-프레미스 및 클라우드 인프라를 관리하고 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다. Container Solution은 컨테이너 인벤토리, 성능 및 로그를 단일 위치에서 볼 수 있는 Log Analytics의 솔루션입니다. 중앙 위치에서 로그를 확인하여 컨테이너를 감사하고 문제를 해결하며 호스트에서 매우 과도하게 사용되는 컨테이너를 찾을 수 있습니다.
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
+
+Log Analytics는 온-프레미스 및 클라우드 인프라를 관리하고 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다. Container Solution은 컨테이너 인벤토리, 성능 및 로그를 단일 위치에서 볼 수 있는 Log Analytics의 솔루션입니다. 중앙 위치에서 로그를 확인하여 컨테이너를 감사하고 문제를 해결하며 호스트에서 매우 과도하게 사용되는 컨테이너를 찾을 수 있습니다.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
-Container Solution에 대한 자세한 내용은 [Container Solution Log Analytics](../../log-analytics/log-analytics-containers.md)를 참조하세요.
+Container Solution에 대한 자세한 내용은 [Container Solution Log Analytics](../../azure-monitor/insights/containers.md)를 참조하세요.
 
 ## <a name="setting-up-log-analytics-from-the-dcos-universe"></a>DC/OS Universe에서 Log Analytics 설정
 
@@ -74,7 +76,7 @@ VM에 Linux용 Log Analytics 에이전트를 설치했으면 다음 단계는 Lo
 
 ![](media/container-service-monitoring-oms/image11.png)
 
-Log Analytics Container Solution에 대한 자세한 내용은 [Container Solution Log Analytics](../../log-analytics/log-analytics-containers.md)를 참조하세요.
+Log Analytics Container Solution에 대한 자세한 내용은 [Container Solution Log Analytics](../../azure-monitor/insights/containers.md)를 참조하세요.
 
 ### <a name="how-to-scale-log-analytics-agent-with-acs-dcos"></a>ACS DC/OS로 Log Analytics 에이전트를 확장하는 방법 
 
@@ -99,4 +101,4 @@ $ dcos package uninstall msoms
 
 ## <a name="next-steps"></a>다음 단계
 
- 이제 컨테이너를 모니터링하도록 Log Analytics를 설정했으므로 [컨테이너 대시보드를 참조하세요](../../log-analytics/log-analytics-containers.md).
+ 이제 컨테이너를 모니터링하도록 Log Analytics를 설정했으므로 [컨테이너 대시보드를 참조하세요](../../azure-monitor/insights/containers.md).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 31bd3d54b085922de0ec822731eae79fe9a9943b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e2a856dbc3bdf72ad03601618a9d48bb54665f7b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262100"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812066"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>프리미엄 인코더로 여러 입력 파일 및 구성 요소 속성 사용
 ## <a name="overview"></a>개요
@@ -268,13 +268,13 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
   </transcodeRequest>
 ```
 
-## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>예 1: 비디오 위에 이미지 오버레이
+## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>예제 1: 비디오 위에 이미지 오버레이
 
 ### <a name="presentation"></a>프레젠테이션
 비디오를 인코딩하는 동안 로고 이미지를 입력 비디오에 오버레이하는 예를 살펴보겠습니다. 이 예제에서 입력 비디오의 이름은 "Microsoft_HoloLens_Possibilities_816p24.mp4", 로고 이름은 "logo.png"로 지정합니다. 다음 단계를 수행해야 합니다.
 
 * 워크플로 파일로 워크플로 자산 만들기(아래 예제 참조)
-* 두 파일(기본 파일로 MyInputVideo.mp4 및 MyLogo.png)을 포함하는 미디어 자산 만들기
+* 다음 두 파일을 포함하는 미디어 자산 만들기: MyInputVideo.mp4(기본 파일) 및 MyLogo.png.
 * 위의 입력 자산과 함께 미디어 인코더 Premium 워크플로 미디어 프로세서에 작업 보내기 및 다음 구성 문자열 지정
 
 구성:
@@ -351,7 +351,7 @@ XML 값이 예상되는 속성을 설정하려면 `<![CDATA[ and ]]>`를 사용�
 *오버레이 위치*
 
 비디오 스트림을 H.264로 인코딩하려면 AVC 비디오 인코더 및 AAC 인코더 구성 요소를 디자이너 화면에 추가합니다. 핀을 연결합니다.
-AAC 인코더를 설정하고 오디오 형식 변환/사전 설정 : 2.0 (L, R)을 선택합니다.
+AAC 인코더를 설정하고 오디오 형식 변환/사전 설정 선택: 2.0(L, R)을 선택합니다.
 
 ![오디오 및 비디오 인코더](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture15_encoders.png)
 
@@ -428,7 +428,7 @@ public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string conf
 
 [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/)에서 샘플 워크플로를 다운로드할 수 있습니다.
 
-## <a name="example-2--multiple-audio-language-encoding"></a>예 2: 다중 오디오 언어 인코딩
+## <a name="example-2--multiple-audio-language-encoding"></a>예제 2: 다중 오디오 언어 인코딩
 
 다중 오디오 언어 인코딩 워크플로의 예는 [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding)에서 제공합니다.
 

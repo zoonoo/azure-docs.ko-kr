@@ -18,7 +18,7 @@ ms.lasthandoff: 10/19/2018
 ms.locfileid: "49465919"
 ---
 # <a name="what-is-project-answer-search"></a>Project Answer Search란?
-Project Answer Search API는 Bing v7 엔드포인트를 사용하여 질문 형태의 쿼리에 대한 답변을 가져옵니다. “What is the circumference of the earth?”와 같은 질문은 팩트 정보가 포함된 답변을 반환합니다.  사람, 장소 또는 사물에 대한 쿼리는 쿼리에 의해 식별된 엔터티에 대한 정보를 반환합니다. 대화 봇, 메시징 앱, 리더 등과 같은 응용 프로그램에서는 이러한 시나리오가 유용할 수 있습니다.  
+Project Answer Search API는 Bing v7 엔드포인트를 사용하여 질문 형태의 쿼리에 대한 답변을 가져옵니다. “What is the circumference of the earth?”와 같은 질문은 팩트 정보가 포함된 답변을 반환합니다.  사람, 장소 또는 사물에 대한 쿼리는 쿼리에 의해 식별된 엔터티에 대한 정보를 반환합니다. 대화 봇, 메시징 앱, 리더 등과 같은 애플리케이션에서는 이러한 시나리오가 유용할 수 있습니다.  
 
 쿼리는 쿼리 시나리오에 종속된 응답을 반환합니다. 웹 페이지는 항상 반환되는 반면, [팩트](fact-queries.md) 및/또는 [엔터티](entity-queries.md)는 관련된 경우에 반환됩니다.
 

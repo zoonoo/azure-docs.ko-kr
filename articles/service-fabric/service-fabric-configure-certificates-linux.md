@@ -1,5 +1,5 @@
 ---
-title: Linux에서 Azure Service Fabric 응용 프로그램에 대한 인증서 구성 | Microsoft Docs
+title: Linux에서 Azure Service Fabric 애플리케이션에 대한 인증서 구성 | Microsoft Docs
 description: Linux 클러스터에서 Service Fabric 런타임을 사용하여 앱에 대한 인증서 구성
 services: service-fabric
 documentationcenter: NA
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2018
 ms.author: v-jamebr
-ms.openlocfilehash: aa84dc4cb23a0fa2fa854e1f3d6da1234ec00bd6
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 503b0dffa00c6cba973f4bc51d8e3b2f3a7b8c57
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386640"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200414"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Linux 클러스터의 인증서 및 보안
 
@@ -27,15 +27,15 @@ ms.locfileid: "49386640"
 
 ## <a name="location-and-format-of-x509-certificates-on-linux-nodes"></a>Linux 노드에서 X.509 인증서의 위치 및 형식
 
-Service Fabric은 일반적으로 X.509 인증서가 Linux 클러스터 노드의 */var/lib/sfcerts* 디렉터리에 존재할 것으로 예상합니다. 클러스터 인증서, 클라이언트 인증서 등의 경우에 그렇습니다. 경우에 따라 인증서에 대해 *var/lib/sfcerts* 폴더 이외의 위치를 지정할 수 있습니다. 예를 들어 Service Fabric Java SDK를 사용하여 빌드된 Reliable Services를 사용하면 일부 응용 프로그램 특정 인증서에 대한 구성 패키지(Settings.xml)를 통해 다른 위치를 지정할 수 있습니다. 자세히 알아보려면 [구성 패키지(Settings.xml)에서 참조되는 인증서](#certificates-referenced-in-the-configuration-package-settingsxml)를 참조하세요.
+Service Fabric은 일반적으로 X.509 인증서가 Linux 클러스터 노드의 */var/lib/sfcerts* 디렉터리에 존재할 것으로 예상합니다. 클러스터 인증서, 클라이언트 인증서 등의 경우에 그렇습니다. 경우에 따라 인증서에 대해 *var/lib/sfcerts* 폴더 이외의 위치를 지정할 수 있습니다. 예를 들어 Service Fabric Java SDK를 사용하여 빌드된 Reliable Services를 사용하면 일부 애플리케이션 특정 인증서에 대한 구성 패키지(Settings.xml)를 통해 다른 위치를 지정할 수 있습니다. 자세히 알아보려면 [구성 패키지(Settings.xml)에서 참조되는 인증서](#certificates-referenced-in-the-configuration-package-settingsxml)를 참조하세요.
 
 Linux 클러스터의 경우 Service Fabric은 인증서가 인증서와 개인 키를 포함하는 .pem 파일 또는 인증서를 포함하는 .crt 파일 및 개인 키를 포함하는 .key 파일로 존재할 것으로 예상합니다. 모든 파일은 PEM 형식이어야 합니다. 
 
 [Resource Manager 템플릿](./service-fabric-cluster-creation-create-template.md) 또는 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/?view=latest#service_fabric) 명령을 사용하여 Azure Key Vault에서 인증서를 설치하는 경우 인증서는 각 노드의 */var/ lib/sfcerts* 디렉터리에 올바른 형식으로 설치됩니다. 다른 방법을 통해 인증서를 설치하는 경우 클러스터 노드에 인증서가 올바르게 설치되어 있는지 확인해야 합니다.
 
-## <a name="certificates-referenced-in-the-application-manifest"></a>응용 프로그램 매니페스트에서 참조되는 인증서
+## <a name="certificates-referenced-in-the-application-manifest"></a>애플리케이션 매니페스트에서 참조되는 인증서
 
-응용 프로그램 매니페스트에서 지정된 인증서(예: [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) 또는 [**EndpointCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#endpointcertificate-element) 요소를 통해)는 */var/lib/sfcerts* 디렉터리에 존재해야 합니다. 응용 프로그램 매니페스트에서 인증서를 지정하는 데 사용되는 요소는 경로 특성을 사용하지 않으므로 인증서는 기본 디렉터리에 존재해야 합니다. 이러한 요소는 선택적 **X509StoreName** 특성을 사용합니다. 기본값은 Linux 노드에서 */var/lib/sfcerts* 디렉터리를 가리키는 "My"입니다. Linux 클러스터에서 다른 값은 정의되지 않았습니다. Linux 클러스터에서 실행되는 앱에 대해 **X509StoreName** 특성을 생략하는 것이 좋습니다. 
+애플리케이션 매니페스트에서 지정된 인증서(예: [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) 또는 [**EndpointCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#endpointcertificate-element) 요소를 통해)는 */var/lib/sfcerts* 디렉터리에 존재해야 합니다. 애플리케이션 매니페스트에서 인증서를 지정하는 데 사용되는 요소는 경로 특성을 사용하지 않으므로 인증서는 기본 디렉터리에 존재해야 합니다. 이러한 요소는 선택적 **X509StoreName** 특성을 사용합니다. 기본값은 Linux 노드에서 */var/lib/sfcerts* 디렉터리를 가리키는 "My"입니다. Linux 클러스터에서 다른 값은 정의되지 않았습니다. Linux 클러스터에서 실행되는 앱에 대해 **X509StoreName** 특성을 생략하는 것이 좋습니다. 
 
 ## <a name="certificates-referenced-in-the-configuration-package-settingsxml"></a>구성 패키지(Settings.xml)에서 참조되는 인증서
 
@@ -43,7 +43,7 @@ Linux 클러스터의 경우 Service Fabric은 인증서가 인증서와 개인 
 
 ### <a name="using-x509-securitycredentialstype"></a>X509 SecurityCredentialsType 사용
 
-.NET 또는 Java SDK를 사용하여 **SecurityCredentialsType**에 대해 **X509**를 지정할 수 있습니다. 이는 `SecurityCredentials`([.NET](https://msdn.microsoft.com/library/system.fabric.securitycredentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric._security_credentials))의 `X509Credentials`([.NET](https://msdn.microsoft.com/library/system.fabric.x509credentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric._x509_credentials)) 형식에 해당합니다.
+.NET 또는 Java SDK를 사용하여 **SecurityCredentialsType**에 대해 **X509**를 지정할 수 있습니다. 이는 `SecurityCredentials`([.NET](https://msdn.microsoft.com/library/system.fabric.securitycredentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials))의 `X509Credentials`([.NET](https://msdn.microsoft.com/library/system.fabric.x509credentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials)) 형식에 해당합니다.
 
 **X509** 참조는 인증서 저장소에서 인증서를 찾습니다. 다음 XML은 인증서의 위치를 지정하는 데 사용되는 매개 변수를 보여줍니다.
 
@@ -74,7 +74,7 @@ Linux에서 실행되는 서비스의 경우 **LocalMachine**/**My**는 인증�
 
 ### <a name="using-x5092-securitycredentialstype"></a>X509_2 SecurityCredentialsType 사용
 
-Java SDK를 사용하여 **SecurityCredentialsType**에 대해 **X509_2**를 지정할 수 있습니다. 이는 `SecurityCredentials`([Java](https://docs.microsoft.com/java/api/system.fabric._security_credentials))의 `X509Credentials2`([Java](https://docs.microsoft.com/java/api/system.fabric._x509_credentials2)) 형식에 해당합니다. 
+Java SDK를 사용하여 **SecurityCredentialsType**에 대해 **X509_2**를 지정할 수 있습니다. 이는 `SecurityCredentials`([Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials))의 `X509Credentials2`([Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials2)) 형식에 해당합니다. 
 
 **X509_2** 참조를 사용하여 경로 매개 변수를 지정하므로 */var/lib/sfcerts* 이외의 디렉터리에서 인증서를 찾을 수 있습니다.  다음 XML은 인증서의 위치를 지정하는 데 사용되는 매개 변수를 보여줍니다. 
 
@@ -102,9 +102,9 @@ Java SDK를 사용하여 **SecurityCredentialsType**에 대해 **X509_2**를 지
 
 ## <a name="configure-a-reliable-services-app-to-run-on-linux-clusters"></a>Linux 클러스터에서 실행하도록 Reliable Services 앱 구성
 
-Service Fabric SDK를 사용하면 Service Fabric 런타임 API와 통신하여 플랫폼을 활용할 수 있습니다. 보안 Linux 클러스터에서 이 기능을 사용하는 모든 응용 프로그램을 실행할 때 Service Fabric 런타임으로 유효성을 검사하는 데 사용할 수 있는 인증서로 응용 프로그램을 구성해야 합니다. .NET Core 또는 Java SDK를 사용하여 작성된 Service Fabric Reliable Service 서비스를 포함하는 응용 프로그램에는 이 구성이 필요합니다. 
+Service Fabric SDK를 사용하면 Service Fabric 런타임 API와 통신하여 플랫폼을 활용할 수 있습니다. 보안 Linux 클러스터에서 이 기능을 사용하는 모든 애플리케이션을 실행할 때 Service Fabric 런타임으로 유효성을 검사하는 데 사용할 수 있는 인증서로 애플리케이션을 구성해야 합니다. .NET Core 또는 Java SDK를 사용하여 작성된 Service Fabric Reliable Service 서비스를 포함하는 애플리케이션에는 이 구성이 필요합니다. 
 
-응용 프로그램을 구성하려면 *ApplicationManifest.xml* 파일의 **ApplicationManifest** 태그 아래에 있는 **Certificates** 태그 아래의 [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) 요소를 추가합니다. 다음 XML은 해당 지문으로 참조되는 인증서를 보여줍니다. 
+애플리케이션을 구성하려면 *ApplicationManifest.xml* 파일의 **ApplicationManifest** 태그 아래에 있는 **Certificates** 태그 아래의 [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) 요소를 추가합니다. 다음 XML은 해당 지문으로 참조되는 인증서를 보여줍니다. 
 
 ```xml
    <Certificates>

@@ -26,7 +26,7 @@ ms.locfileid: "50156377"
 디바이스는 Azure IoT Central 응용 프로그램과 데이터를 교환합니다. 디바이스는 다음을 수행할 수 있습니다.
 
 - 원격 분석 데이터 같은 측정값을 보냅니다.
-- 응용 프로그램과 설정을 동기화합니다.
+- 애플리케이션과 설정을 동기화합니다.
 
 Azure IoT Central에서, 디바이스가 응용 프로그램과 교환할 수 있는 데이터는 디바이스 템플릿에 지정됩니다. 디바이스 템플릿에 대한 자세한 내용은 [메타데이터 관리](#metadata-management)를 참조하세요.
 
@@ -46,7 +46,7 @@ Azure IoT Central의 디바이스 연결에 대한 자세한 내용은 [디바�
 
 ## <a name="data-stores"></a>데이터 저장소
 
-Azure IoT Central은 응용 프로그램 데이터를 클라우드에 저장합니다. 다음과 같은 응용 프로그램 데이터가 저장됩니다.
+Azure IoT Central은 애플리케이션 데이터를 클라우드에 저장합니다. 다음과 같은 애플리케이션 데이터가 저장됩니다.
 
 - 디바이스 템플릿.
 - 디바이스 ID.
@@ -57,7 +57,7 @@ Azure IoT Central은 디바이스에서 보낸 측정값 데이터에 시계열 
 
 ## <a name="analytics"></a>분석
 
-분석 서비스는 응용 프로그램에서 표시하는 사용자 지정 보고 데이터를 생성합니다. 운영자는 응용 프로그램에 표시되는 [분석을 사용자 지정](howto-create-analytics.md)할 수 있습니다. 분석 서비스는 [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) 위에 빌드되며, 디바이스에서 보낸 측정값 데이터를 처리합니다.
+분석 서비스는 애플리케이션에서 표시하는 사용자 지정 보고 데이터를 생성합니다. 운영자는 애플리케이션에 표시되는 [분석을 사용자 지정](howto-create-analytics.md)할 수 있습니다. 분석 서비스는 [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) 위에 빌드되며, 디바이스에서 보낸 측정값 데이터를 처리합니다.
 
 ## <a name="rules-and-actions"></a>규칙 및 동작
 
@@ -81,7 +81,7 @@ Azure IoT Central 응용 프로그램에서 디바이스 템플릿은 디바이�
 
 ## <a name="role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)
 
-관리자는 미리 정의된 역할을 사용하여 Azure IoT Central 응용 프로그램에 대한 [액세스 규칙을 정의](howto-administer.md)할 수 있습니다. 관리자는 사용자가 액세스할 수 있는 응용 프로그램 영역을 결정하는 역할을 사용자에게 할당할 수 있습니다.
+관리자는 미리 정의된 역할을 사용하여 Azure IoT Central 애플리케이션에 대한 [액세스 규칙을 정의](howto-administer.md)할 수 있습니다. 관리자는 사용자가 액세스할 수 있는 애플리케이션 영역을 결정하는 역할을 사용자에게 할당할 수 있습니다.
 
 ## <a name="security"></a>보안
 
@@ -94,7 +94,7 @@ Azure IoT Central에는 다음과 같은 보안 기능이 있습니다.
 
 ## <a name="ui-shell"></a>UI 셸
 
-UI 셸은 응답성이 우수한 최신 HTML5 브라우저 기반 응용 프로그램입니다.
+UI 셸은 응답성이 우수한 최신 HTML5 브라우저 기반 애플리케이션입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 인쇄 텍스트 추출(OCR) - REST, JavaScript - Computer Vision'
+title: '빠른 시작: 인쇄된 텍스트 추출 - REST, JavaScript'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 JavaScript와 함께 Computer Vision API를 사용하여 이미지의 인쇄 텍스트를 추출합니다.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
-ms.openlocfilehash: da7f35efb72e0c40aeb4432df26bc7130da83a97
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: 68ef788cf991bb79bf62eabf52119962cfcf87c0
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51851996"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581218"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-javascript-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 JavaScript를 사용하여 인쇄 텍스트 추출(OCR)
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-javascript-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 JavaScript를 사용하여 인쇄된 텍스트 추출(OCR)
 
 이 빠른 시작에서는 Computer Vision의 REST API를 사용하여 이미지에서 OCR(광학 문자 인식)이 포함된 인쇄 텍스트를 추출합니다. [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 메서드를 사용하여 이미지의 인쇄 텍스트를 감지하고, 인식된 문자를 머신에서 사용 가능한 문자 스트림으로 추출할 수 있습니다.
 
@@ -249,7 +250,7 @@ Image to read:
 
 ## <a name="next-steps"></a>다음 단계
 
-Computer Vision을 사용하는 JavaScript 응용 프로그램을 탐색합니다. 이 프로그램은 OCR(광학 문자 인식)을 수행하고, 스마트하게 자른 썸네일을 만들고, 이미지에서 얼굴을 비롯한 시각적 특징을 감지하고, 분류하고, 태그를 지정하고, 설명합니다. Computer Vision API를 사용하여 신속하게 실험하려면 [API 테스트 콘솔 열기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console)를 사용하세요.
+Computer Vision을 사용하여 OCR(광학 문자 인식)을 수행하고, 스마트하게 잘리는 썸네일을 만들고, 이미지에서 얼굴을 비롯한 시각적 기능을 검색하고, 분류하고, 태그를 지정하고, 설명하는 JavaScript 애플리케이션을 탐색합니다. Computer Vision API를 사용하여 신속하게 실험하려면 [API 테스트 콘솔 열기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console)를 사용하세요.
 
 > [!div class="nextstepaction"]
 > [Computer Vision API JavaScript 자습서](../Tutorials/javascript-tutorial.md)

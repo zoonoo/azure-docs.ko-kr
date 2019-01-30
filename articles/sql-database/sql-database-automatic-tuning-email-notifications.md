@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
-ms.reviewer: carlrab
+ms.author: danil
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: eaeb0d7f77b6d8ab6a3e12febba33c995a10ec3f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 04bee54439309e44dfacb84836597c986f357444
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466555"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601069"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>자동 조정에 대한 전자 메일 알림
 

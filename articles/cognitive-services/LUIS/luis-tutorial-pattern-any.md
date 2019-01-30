@@ -1,25 +1,40 @@
 ---
-title: '자습서 5: 자유 형식 텍스트에 대한 pattern.any 엔터티'
+title: Pattern.any 엔터티
 titleSuffix: Azure Cognitive Services
 description: pattern.any 엔터티를 사용하여 발화가 올바른 형식이고 데이터의 끝이 발화의 나머지 단어와 쉽게 혼동될 수 있는 발화에서 데이터를 추출합니다.
 services: cognitive-services
+ms.custom: seodec18
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: ee5ba6783a50ad50489a20aa662f17af2ca4ae6a
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 58a62a5a882c6883c6fed31a7b95d949247e1bf1
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422000"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752608"
 ---
-# <a name="tutorial-5-extract-free-form-data"></a>자습서 5: 자유 형식 데이터 추출
+# <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>자습서: Pattern.any 엔터티를 사용하여 자유 형식 데이터 추출
 
 이 자습서에서는 pattern.any 엔터티를 사용하여 발화가 올바른 형식이고 데이터의 끝이 발화의 나머지 단어와 쉽게 혼동될 수 있는 발화에서 데이터를 추출합니다. 
+
+**이 자습서에서 학습할 내용은 다음과 같습니다.**
+
+> [!div class="checklist"]
+> * 앱 가져오기 예제
+> * 기존 엔터티에 발화 예제 추가
+> * pattern.any 엔터티 만들기
+> * 패턴 만들기
+> * 학습
+> * 새 패턴 테스트
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="using-patternany-entity"></a>Pattern.any 엔터티 사용
 
 pattern.any 엔터티를 사용하면 엔터티의 표현이 발화의 나머지 부분에서 엔터티의 끝을 확인하기 어렵게 만드는 자유 형식 데이터를 찾을 수 있습니다. 
 
@@ -49,24 +64,12 @@ pattern.any 엔터티를 사용하면 엔터티의 표현이 발화의 나머지
 |Who authored {FormName}[?]|
 |{FormName} is published in French[?]|
 
-**이 자습서에서 학습할 내용은 다음과 같습니다.**
-
-> [!div class="checklist"]
-> * 기존 자습서 앱 사용
-> * 기존 엔터티에 발화 예제 추가
-> * pattern.any 엔터티 만들기
-> * 패턴 만들기
-> * 학습
-> * 새 패턴 테스트
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="use-existing-app"></a>기존 앱 사용
+## <a name="import-example-app"></a>앱 가져오기 예제
 마지막 자습서에서 만든 **HumanResources**라는 앱을 사용하여 계속 진행합니다. 
 
-이전 자습서의 HumanResources 앱이 없으면 다음 단계를 사용합니다.
+다음 단계를 사용하세요.
 
-1.  [앱 JSON 파일](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-roles-HumanResources.json)을 다운로드하고 저장합니다.
+1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json)을 다운로드하고 저장합니다.
 
 2. JSON을 새 앱으로 가져옵니다.
 

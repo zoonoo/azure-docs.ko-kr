@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/23/2018
+ms.date: 01/15/2019
 ms.author: jingwang
-ms.openlocfilehash: bb3179f1db077aacc7e36acf16486ee77a7f36e7
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c14bf7c108251a4ec00f5e2f0b1254f83121866e
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051266"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321112"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MySQL에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,7 +30,7 @@ ms.locfileid: "37051266"
 
 MySQL 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
-특히 이 MySQL 커넥터는 MySQL **버전 5.1 이상**을 지원합니다.
+특히 이 MySQL 커넥터는 MySQL **버전 5.6 및 5.7**을 지원합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -51,16 +50,16 @@ MySQL 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **MySql**로 설정해야 합니다. | 예 |
+| 형식 | type 속성을 다음으로 설정해야 합니다. **MySql** | 예 |
 | connectionString | Azure Database for MySQL 인스턴스에 연결하는 데 필요한 정보를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니오 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 일반적인 연결 문자열은 `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`입니다. 사례에 따라 다음과 같은 더 많은 속성을 설정할 수 있습니다.
 
 | 자산 | 설명 | 옵션 | 필수 |
 |:--- |:--- |:--- |:--- |:--- |
-| SSLMode | 이 옵션은 MySQL에 연결할 때 드라이버에서 SSL 암호화 및 확인을 사용하는지 여부를 지정합니다. 예: `SSLMode=<0/1/2/3/4>`| 사용 안 함(0) / 기본 설정(1) **(기본값)** / 필요(2) / VERIFY_CA(3) / VERIFY_IDENTITY(4) | 아니오 |
-| UseSystemTrustStore | 이 옵션은 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 예: `UseSystemTrustStore=<0/1>;`| 사용(1) / 사용 안 함(0)**(기본값)** | 아니오 |
+| SSLMode | 이 옵션은 MySQL에 연결할 때 드라이버에서 SSL 암호화 및 확인을 사용하는지 여부를 지정합니다. 예: `SSLMode=<0/1/2/3/4>`| 사용 안 함(0) / 기본 설정(1) **(기본값)** / 필요(2) / VERIFY_CA(3) / VERIFY_IDENTITY(4) | 아니요 |
+| UseSystemTrustStore | 이 옵션은 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 예: `UseSystemTrustStore=<0/1>;`| 사용(1) / 사용 안 함(0)**(기본값)** | 아니요 |
 
 **예제:**
 
@@ -71,8 +70,8 @@ MySQL 연결된 서비스에 다음 속성이 지원됩니다.
         "type": "MySql",
         "typeProperties": {
             "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
+                "type": "SecureString",
+                "value": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
             }
         },
         "connectVia": {
@@ -115,9 +114,9 @@ MySQL 연결된 서비스에 다음 속성이 지원됩니다.
 
 MySQL에서 데이터를 복사하려면 데이터 세트의 type 속성을 **RelationalTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 세트의 type 속성을 **RelationalTable**로 설정해야 합니다. | 예 |
+| 형식 | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **RelationalTable** | 예 |
 | tableName | MySQL 데이터베이스의 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -147,7 +146,7 @@ MySQL에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Rel
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 형식 속성을 **RelationalSource**로 설정해야 합니다. | 예 |
+| 형식 | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **RelationalSource** | 예 |
 | 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
@@ -228,7 +227,6 @@ MySQL에서 데이터를 복사하는 경우 MySQL 데이터 형식에서 Azure 
 | `tinytext` |`String` |
 | `varchar` |`String` |
 | `year` |`Int` |
-
 
 ## <a name="next-steps"></a>다음 단계
 Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

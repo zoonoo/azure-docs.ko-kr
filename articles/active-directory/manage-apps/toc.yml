@@ -1,9 +1,9 @@
 items:
-- name: 응용 프로그램 관리 설명서
+- name: 애플리케이션 관리 설명서
   href: index.yml
 - name: 개요
   items:
-  - name: 응용 프로그램 관리 정보
+  - name: 애플리케이션 관리 정보
     href: what-is-application-management.md
 - name: 빠른 시작
   items:
@@ -28,7 +28,7 @@ items:
       href: developer-guidance-for-integrating-applications.md
   - name: 온-프레미스 앱 통합 계획
     items:
-    - name: 응용 프로그램 프록시
+    - name: 애플리케이션 프록시
       href: application-proxy.md
     - name: 커넥터
       href: application-proxy-connectors.md
@@ -48,7 +48,7 @@ items:
       href: user-provisioning.md
     - name: SCIM 사용 앱
       href: use-scim-to-provision-users-and-groups.md
-    - name: 응용 프로그램 특성 사용자 지정
+    - name: 애플리케이션 특성 사용자 지정
       href: Customize-application-attributes.md
     - name: 특성 매핑 식 작성
       href: functions-for-customizing-application-data.md
@@ -58,7 +58,7 @@ items:
       href: check-status-user-account-provisioning.md
     - name: 사용자 프로비전 문제 해결
       href: application-provisioning-config-problem.md
-  - name: 응용 프로그램 보안
+  - name: 애플리케이션 보안
     items:
     - name: 앱 액세스 옵션
       href: what-is-access-management.md
@@ -100,6 +100,8 @@ items:
       href: application-proxy-configure-custom-home-page.md
     - name: 인라인 링크 변환
       href: application-proxy-configure-hard-coded-link-translation.md
+    - name: 쿠키 설정 구성
+      href: application-proxy-configure-cookie-settings.md
     - name: 와일드 카드를 사용하여 게시
       href: application-proxy-wildcard.md
     - name: 개인 데이터 제거
@@ -110,9 +112,11 @@ items:
       href: application-proxy-troubleshoot.md
     - name: 게시 연습
       items:
+      - name: Cloud App Security와 통합
+        href: application-proxy-integrate-with-microsoft-cloud-application-security.md
       - name: 원격 데스크톱과 통합
         href: application-proxy-integrate-with-remote-desktop-services.md
-      - name: Sharepoint와 통합
+      - name: SharePoint와 통합
         href: application-proxy-integrate-with-sharepoint-server.md
       - name: Teams와 통합
         href: application-proxy-integrate-with-teams.md
@@ -120,13 +124,13 @@ items:
         href: application-proxy-integrate-with-tableau.md
       - name: Qlik와 통합
         href: application-proxy-qlik.md
-    - name: 응용 프로그램 프록시 문제 해결
+    - name: 애플리케이션 프록시 문제 해결
       items:
       - name: 앱 페이지를 표시할 때 문제
         href: application-proxy-page-appearance-broken-problem.md
-      - name: 너무 긴 응용 프로그램 로드
+      - name: 너무 긴 애플리케이션 로드
         href: application-proxy-page-load-speed-problem.md
-      - name: 응용 프로그램 페이지에서 링크가 작동하지 않음
+      - name: 애플리케이션 페이지에서 링크가 작동하지 않음
         href: application-proxy-page-links-broken-problem.md
       - name: 내 앱에 대해 열 포트
         href: application-proxy-connectivity-ports-how-to.md
@@ -142,9 +146,9 @@ items:
         href: application-proxy-back-end-kerberos-constrained-delegation-how-to.md
       - name: PingAccess를 사용하여 구성
         href: application-proxy-back-end-ping-access-how-to.md
-      - name: 회사 응용 프로그램에 액세스할 수 없음 오류
+      - name: 회사 애플리케이션에 액세스할 수 없음 오류
         href: application-proxy-sign-in-bad-gateway-timeout-error.md
-      - name: 응용 프로그램 프록시 에이전트 커넥터를 설치할 때 문제 발생
+      - name: 애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생
         href: application-proxy-connector-installation-problem.md
       - name: 로그인 문제
         href: application-sign-in-problem-on-premises-application-proxy.md
@@ -164,9 +168,9 @@ items:
       href: application-provisioning-config-problem-no-users-provisioned.md
     - name: 잘못 프로비전된 사용자 - 갤러리 앱
       href: application-provisioning-config-problem-wrong-users-provisioned.md
-  - name: 응용 프로그램 액세스
+  - name: 애플리케이션 액세스
     items:
-    - name: 응용 프로그램 형식
+    - name: 애플리케이션 형식
       href: application-types.md
     - name: 사용자 동의 구성
       href: configure-user-consent.md
@@ -208,7 +212,7 @@ items:
       href: configure-password-single-sign-on-non-gallery-applications.md
     - name: 암호 구성 일반적인 문제 - 비갤러리 앱
       href: configure-password-single-sign-on-non-gallery-applications-problems.md
-    - name: 응용 프로그램 프록시
+    - name: 애플리케이션 프록시
       items:
       - name: KCD(Kerberos 제한 위임)
         href: application-proxy-configure-single-sign-on-with-kcd.md
@@ -248,7 +252,7 @@ items:
       href: application-sign-in-other-problem-deeplink.md
     - name: 액세스 패널에서 로그인하는 문제
       href: application-sign-in-other-problem-access-panel.md
-    - name: 응용 프로그램 로그인 페이지의 오류
+    - name: 애플리케이션 로그인 페이지의 오류
       href: application-sign-in-problem-application-error.md
     - name: 암호 Single Sign-On 관련 문제 - 비갤러리 앱
       href: application-sign-in-problem-password-sso-non-gallery.md
@@ -282,9 +286,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-active-directory
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: 0d2f830cd3f5e66c69ae5f839c8f536747ce4d36
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 28319f3c529491a7ae994ba9d323b66181d7486b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141903"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473336"

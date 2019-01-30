@@ -15,13 +15,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 11/13/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 35b3e6d59cdb1edc59aa211954b8a69a3ce51bc5
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.reviewer: unknown
+ms.lastreviewed: 11/13/2018
+ms.openlocfilehash: 4cc2adc334ede3f2377722137d4a6c84544bf425
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632208"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251482"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>자습서: 만들기 및 구독 테스트
 

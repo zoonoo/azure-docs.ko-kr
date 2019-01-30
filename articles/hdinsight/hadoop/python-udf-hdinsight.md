@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 021ec3919e061010265ff3a2f30fde0ffb59e7b0
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 92221e5aaebbaebb2af17ea211e38a3665a2b04f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632614"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652476"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>HDInsight의 Apache Hive 및 Apache Pig에서 Python UDF(사용자 정의 함수) 사용
 
@@ -26,7 +26,7 @@ Python2.7은 기본적으로 HDInsight 3.0 이상에 설치됩니다. 스트림 
 
 HDInsight에는 Java로 작성된 Python 구현인 Jython도 포함되어 있습니다. Jython은 Java Virtual Machine에서 직접 실행되며 스트리밍을 사용하지 않습니다. Jython는 Pig와 함께 Python을 사용할 때 권장되는 Python 인터프리터입니다.
 
-> [!WARNING]
+> [!WARNING]  
 > 이 문서의 단계에서는 다음과 같이 가정합니다. 
 >
 > * 로컬 개발 환경에서 Python 스크립트를 만듭니다.
@@ -38,7 +38,7 @@ HDInsight에는 Java로 작성된 Python 구현인 Jython도 포함되어 있습
 > * `scp`를 사용하여 Cloud Shell에서 HDInsight로 파일을 업로드합니다.
 > * Cloud Shell에서 `ssh`를 사용하여 HDInsight에 연결하고 예제를 실행합니다.
 
-## <a name="hivepython"></a>Hive UDF
+## <a name="hivepython"></a>Apache Hive UDF
 
 Python은 HiveQL `TRANSFORM` 문을 통해 Hive의 UDF로 사용할 수 있습니다. 예를 들어 다음 HiveQL은 클러스터의 기본 Azure Storage 계정에 저장된 `hiveudf.py` 파일을 호출합니다.
 
@@ -66,7 +66,7 @@ FROM hivesampletable
 ORDER BY clientid LIMIT 50;
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Windows 기반 HDInsight 클러스터에서는 `USING` 절에서 python.exe의 전체 경로를 지정해야 합니다.
 
 다음은 이 예제에서 수행하는 작업입니다.
@@ -111,7 +111,7 @@ while True:
 
 HDInsight 클러스터에서 이 예제를 실행하는 방법에 대해서는 [예제 실행](#running) 을 참조하세요.
 
-## <a name="pigpython"></a>Pig UDF
+## <a name="pigpython"></a>Apache Pig UDF
 
 `GENERATE` 문을 통해 Python 스크립트를 Pig의 UDF로 사용할 수 있습니다. Jython 또는 C Python을 사용하여 스크립트를 실행할 수 있습니다.
 
@@ -123,7 +123,7 @@ Python 인터프리터를 지정하려면 Python 스크립트를 참조할 때 `
 * **Jython 사용**: `register '/path/to/pigudf.py' using jython as myfuncs;`
 * **C Python 사용**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Jython을 사용할 경우 pig_jython 파일에 대한 경로는 로컬 경로 또는 WASB:// 경로입니다. 그러나 C Python을 사용할 경우에는 Pig 작업을 제출하는 데 사용하는 노드의 로컬 파일 시스템에 있는 파일을 참조해야 합니다.
 
 등록하기 전이라면 두 경우에 대한 이 예제의 Pig Latin은 다음과 같이 모두 동일합니다.
@@ -182,7 +182,7 @@ Pig Latin 예제에서는 입력에 대한 일관된 스키마가 없으므로 `
 
 ## <a name="running"></a>예제 업로드 및 실행
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > **SSH** 단계는 Linux 기반 HDInsight 클러스터에만 작동합니다. **PowerShell** 단계는 Linux 또는 Windows 기반 HDInsight 클러스터에서 작동하지만 Windows 클라이언트가 필요합니다.
 
 ### <a name="ssh"></a>SSH
@@ -303,7 +303,7 @@ SSH를 사용하는 방법에 대한 자세한 내용은 [HDInsight와 함께 SS
 
 PowerShell을 사용하여 HDInsight 서버에 파일을 업로드할 수 있습니다. 다음 스크립트를 사용하여 Python 파일을 업로드합니다.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]   
 > 이 섹션의 단계에서는 Azure PowerShell을 사용합니다. Azure PowerShell 사용에 관한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=5-41)]
@@ -313,14 +313,14 @@ PowerShell을 사용하여 HDInsight 서버에 파일을 업로드할 수 있습
 
 이 스크립트는 HDInsight 클러스터의 정보를 검색한 후 계정 및 기본 저장소 계정의 키를 추출하고 컨테이너의 루트에 파일을 업로드합니다.
 
-> [!NOTE]
-> 파일 업로드에 대한 자세한 내용은 [HDInsight에서 Hadoop 작업용 데이터 업로드](../hdinsight-upload-data.md) 문서를 참조하세요.
+> [!NOTE]  
+> 파일 업로드에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop 작업용 데이터 업로드](../hdinsight-upload-data.md) 문서를 참조하세요.
 
 #### <a name="powershell-use-the-hive-udf"></a>PowerShell: Hive UDF 사용
 
 PowerShell을 사용하여 Hive 쿼리를 원격으로 실행할 수도 있습니다. 다음 PowerShell 스크립트를 사용하여 **hiveudf.py** 스크립트를 사용하는 Hive 쿼리를 실행합니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 실행하기 전에 스크립트에서 HDInsight 클러스터의 HTTPs/관리자 계정 정보를 입력하라는 메시지를 표시합니다.
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=45-94)]
@@ -337,7 +337,7 @@ PowerShell을 사용하여 Hive 쿼리를 원격으로 실행할 수도 있습�
 
 PowerShell을 사용하여 Pig Latin 작업을 실행할 수도 있습니다. **pigudf.py** 스크립트를 사용하는 Pig Latin 작업을 실행하려면 다음 PowerShell 스크립트를 사용합니다.
 
-> [!NOTE]
+> [!NOTE]  
 > PowerShell을 사용하는 작업을 원격으로 제출하는 경우 C Python을 인터프리터로사용할 수 없습니다.
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=98-144)]
@@ -358,7 +358,7 @@ PowerShell을 사용하여 Pig Latin 작업을 실행할 수도 있습니다. **
 
     Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
 
-이 문제는 Python 파일의 줄 끝 때문에 발생할 수 있습니다. 많은 Windows 편집기에서는 기본적으로 CRLF를 줄 끝으로 사용하지만 Linux 응용 프로그램에서는 보통 LF를 사용합니다.
+이 문제는 Python 파일의 줄 끝 때문에 발생할 수 있습니다. 많은 Windows 편집기에서는 기본적으로 CRLF를 줄 끝으로 사용하지만 Linux 애플리케이션에서는 보통 LF를 사용합니다.
 
 파일을 HDInsight로 업로드하기 전에 CR 문자를 제거하기 위해 다음 PowerShell 문을 사용할 수 있습니다.
 
@@ -383,6 +383,6 @@ PowerShell을 사용하여 Pig Latin 작업을 실행할 수도 있습니다. **
 
 Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법은 다음 문서를 참조하세요.
 
-* [HDInsight에서 하이브 사용](hdinsight-use-hive.md)
-* [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 Apache Hive 사용](hdinsight-use-hive.md)
+* [HDInsight에서 Apache Pig 사용](hdinsight-use-pig.md)
 * [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)

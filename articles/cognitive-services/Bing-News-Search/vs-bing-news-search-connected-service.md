@@ -1,7 +1,7 @@
 ---
-title: '자습서: Bing News Search, C#'
+title: Visual Studio의 연결된 서비스 및 C#을 사용하여 Bing News Search API에 연결
 titleSuffix: Azure Cognitive Services
-description: ASP.NET Core 웹 응용 프로그램에서 Bing News Search에 연결합니다.
+description: ASP.NET Core 웹 애플리케이션에서 Bing News Search에 연결합니다.
 services: cognitive-services
 author: ghogen
 manager: cgronlun
@@ -10,14 +10,14 @@ ms.component: bing-news-search
 ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: f1f5c590216975ce6b0813da6d9d98279d591454
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6d08250c060184ceb49e5ab263e229ddaa08b6ec
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804347"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257763"
 ---
-# <a name="tutorial-connect-to-bing-news-search-api-by-using-connected-services-in-visual-studio"></a>자습서: Visual Studio에서 연결된 서비스를 사용하여 Bing News Search API에 연결
+# <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>자습서: Visual Studio의 연결된 서비스 및 C#을 사용하여 Bing News Search API에 연결
 
 Bing News Search를 사용하여 앱 및 서비스가 웹까지 적용되는 광고 없는 검색 엔진을 활용하도록 할 수 있습니다. Bing News Search는 Cognitive Services에서 사용할 수 있는 검색 서비스 중 하나입니다.
 
@@ -32,7 +32,7 @@ Bing News Search를 사용하여 앱 및 서비스가 웹까지 적용되는 광
 
 ## <a name="add-support-to-your-project-for-bing-news-search-api"></a>프로젝트에 Bing News Search API에 대한 지원 추가
 
-1. MyWebApplication이라는 새 ASP.NET Core 웹 프로젝트를 만듭니다. 모든 기본 설정을 사용하여 **웹 응용 프로그램(Model-View-Controller)** 프로젝트 템플릿을 사용합니다. 프로젝트에 코드를 복사할 때 네임스페이스가 일치하도록 프로젝트 이름을 MyWebApplication으로 지정하는 것이 중요합니다. 
+1. MyWebApplication이라는 새 ASP.NET Core 웹 프로젝트를 만듭니다. 모든 기본 설정을 사용하여 **웹 애플리케이션(Model-View-Controller)** 프로젝트 템플릿을 사용합니다. 프로젝트에 코드를 복사할 때 네임스페이스가 일치하도록 프로젝트 이름을 MyWebApplication으로 지정하는 것이 중요합니다. 
 
 1. **솔루션 탐색기**에서 **추가** > **연결된 서비스**를 선택합니다.
    연결된 서비스 페이지가 프로젝트에 추가할 수 있는 서비스와 함께 표시됩니다.
@@ -254,7 +254,7 @@ Bing News Search를 사용하여 앱 및 서비스가 웹까지 적용되는 광
     </div>
     ```
 
-1. 로컬에서 웹 응용 프로그램을 시작하고 방금 만든 페이지의 URL(IntelligentSearch/BingSearchResult)을 입력한 후 검색 단추를 사용하여 검색 요청을 게시합니다.
+1. 로컬에서 웹 애플리케이션을 시작하고 방금 만든 페이지의 URL(IntelligentSearch/BingSearchResult)을 입력한 후 검색 단추를 사용하여 검색 요청을 게시합니다.
 
    ![Bing News Search 결과 스크린샷](media/vs-bing-news-search-connected-service/Cog-News-Search-Results.PNG)
            

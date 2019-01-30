@@ -38,7 +38,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |yes |부울 |true인지 확인할 첫 번째 값입니다. |
 | arg2 |yes |부울 |true인지 확인할 두 번째 값입니다. |
@@ -100,7 +100,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |yes |문자열 또는 int |부울로 변환할 값입니다. |
 
@@ -165,7 +165,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | condition |yes |부울 |true인지 확인할 값입니다. |
 | trueValue |yes | 문자열, 정수, 개체 또는 배열 |조건이 true이면 반환할 값입니다. |
@@ -275,7 +275,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |yes |부울 |변환할 값입니다. |
 
@@ -370,7 +370,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+|  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |yes |부울 |true인지 확인할 첫 번째 값입니다. |
 | arg2 |yes |부울 |true인지 확인할 두 번째 값입니다. |
@@ -429,5 +429,5 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 * Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 * 여러 템플릿을 병합하려면 [Azure Resource Manager에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.
 * 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
-* 만든 템플릿을 배포하는 방법을 보려면 [Azure Resource Manager 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
+* 만든 템플릿을 배포하는 방법을 보려면 [Azure Resource Manager 템플릿을 사용하여 애플리케이션 배포](resource-group-template-deploy.md)를 참조하세요.
 

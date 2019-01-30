@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 382027782044a5a1011976560b7460047544f521
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a882ad2bbb700c7d1a1c812d7a05aa14b8038f9a
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237967"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359938"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성
 
@@ -46,7 +46,7 @@ ms.locfileid: "51237967"
 
 S2D에 대한 자세한 내용은 [Windows Server 2016 Datacenter 버전 저장소 공간 다이렉트 \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)를 참조하세요.
 
-S2D는 두 가지 유형의 아키텍처 수렴형 및 하이퍼 수렴형을 지원합니다. 이 문서의 아키텍처는 하이퍼 수렴형입니다. 하이퍼 수렴형 인프라는 클러스터형 응용 프로그램을 호스트하는 동일한 서버에 저장소를 배치합니다. 이 아키텍처에서 저장소는 각 SQL Server FCI 노드에 있습니다.
+S2D는 두 가지 유형의 아키텍처 수렴형 및 하이퍼 수렴형을 지원합니다. 이 문서의 아키텍처는 하이퍼 수렴형입니다. 하이퍼 수렴형 인프라는 클러스터형 애플리케이션을 호스트하는 동일한 서버에 저장소를 배치합니다. 이 아키텍처에서 저장소는 각 SQL Server FCI 노드에 있습니다.
 
 ## <a name="licensing-and-pricing"></a>라이선싱 및 가격 책정
 
@@ -71,8 +71,10 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
 ### <a name="what-to-know"></a>알아야 할 사항
 다음 기술의 작동을 이해해야 합니다.
 
-- [Windows 클러스터 기술](https://technet.microsoft.com/library/hh831579.aspx)
-- [SQL Server 장애 조치(Failover) 클러스터 인스턴스](https://msdn.microsoft.com/library/ms189134.aspx)
+- [Windows 클러스터 기술](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
+- [SQL Server 장애 조치(Failover) 클러스터 인스턴스](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+
+중요한 한 가지 차이점은 Azure IaaS VM 게스트 장애 조치(failover) 클러스터에서는 서버(클러스터 노드)당 단일 NIC 및 단일 서브넷이 권장된다는 것입니다. Azure 네트워킹에는 Azure IaaS VM 게스트 클러스터에서 추가 NIC 및 서브넷을 불필요하게 만드는 물리적 중복성이 있습니다. 클러스터 유효성 검사 보고서는 노드가 단일 네트워크에서만 연결 가능하다는 경고를 표시하지만, Azure IaaS VM 게스트 장애 조치(failover) 클러스터에서는 이 경고를 무시해도 됩니다. 
 
 또한 다음 기술에 대한 기본적인 지식이 있어야 합니다.
 
@@ -103,7 +105,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
 
 1. [Azure 가용성 집합을 만듭니다](../tutorial-availability-sets.md).
 
-   가용성 집합은 장애 도메인 및 업데이트 도메인에 대해 가상 머신을 그룹화합니다. 가용성 집합을 사용하면 응용 프로그램은 네트워크 스위치 또는 서버 랙의 전원 장치와 같은 단일 지점의 오류에 영향을 받지 않습니다.
+   가용성 집합은 장애 도메인 및 업데이트 도메인에 대해 가상 머신을 그룹화합니다. 가용성 집합을 사용하면 애플리케이션은 네트워크 스위치 또는 서버 랙의 전원 장치와 같은 단일 지점의 오류에 영향을 받지 않습니다.
 
    가상 머신에 대한 리소스 그룹을 만들지 않은 경우 Azure 가용성 집합을 만들 때 만듭니다. 가용성 집합을 만드는 데 Azure Portal을 사용하는 경우 다음 단계를 수행합니다.
 
@@ -111,12 +113,12 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
    - **가용성 집합**을 클릭합니다.
    - **만들기**를 클릭합니다.
    - **가용성 집합 만들기** 블레이드에서 다음 값을 설정합니다.
-      - **이름**: 가용성 집합에 대한 이름입니다.
-      - **구독:** 사용자의 Azure 구독입니다.
+      - **이름**: 가용성 집합의 이름입니다.
+      - **구독**: Azure 구독.
       - **리소스 그룹**: 기존 그룹을 사용하려는 경우 **기존 항목 사용**을 클릭하고 드롭다운 목록에서 그룹을 선택합니다. 그렇지 않으면 **새로 만들기**를 선택하고 그룹에 대한 이름을 입력합니다.
       - **위치**: 가상 머신을 만들 위치를 설정합니다.
-      - **장애 도메인**: 기본 (3)을 사용합니다.
-      - **업데이트 도메인**: 기본 (5)를 사용합니다.
+      - **장애 도메인**: 기본값(3)을 사용하세요.
+      - **업데이트 도메인**: 기본값(5)을 사용하세요.
    - **만들기**를 클릭하여 가용성 집합을 만듭니다.
 
 1. 가용성 집합에 가상 머신을 만듭니다.
@@ -312,7 +314,7 @@ S2D용 디스크는 비어 있고 파티션 또는 기타 데이터가 없어야
 
    ![ClusterSharedVolume](./media/virtual-machines-windows-portal-sql-create-failover-cluster/15-cluster-shared-volume.png)
 
-## <a name="step-3-test-failover-cluster-failover"></a>3단계: 장애 조치 클러스터의 장애 조치 테스트
+## <a name="step-3-test-failover-cluster-failover"></a>3단계: 장애 조치(failover) 클러스터의 장애 조치(failover) 테스트
 
 장애 조치(Failover) 클러스터 관리자에서 저장소 리소스를 다른 클러스터 노드로 이동할 수 있는지 확인합니다. **장애 조치(Failover) 클러스터 관리자**를 사용하여 장애 조치 클러스터에 연결하고 한 노드에서 다른 노드로 저장소를 이동할 수 있는 경우 이제 FCI를 구성할 준비가 되었습니다.
 
@@ -364,11 +366,11 @@ Azure 가상 머신에서 클러스터는 한 번에 하나의 클러스터 노�
 1. 다음으로 부하 분산 장치를 구성합니다.
 
    - **이름**: 부하 분산 장치를 식별하는 이름입니다.
-   - **형식**: 부하 분산 장치는 공개 또는 개인일 수 있습니다. 동일한 VNET 내에서 개인 부하 분산 장치에 액세스할 수 있습니다. 대부분의 Azure 응용 프로그램은 개인 부하 분산 장치를 사용할 수 있습니다. 응용 프로그램에 인터넷을 통해 직접 SQL Server에 대한 액세스가 필요한 경우 공개 부하 분산 장치를 사용합니다.
+   - **유형**: 부하 분산 장치는 공개 또는 개인일 수 있습니다. 동일한 VNET 내에서 개인 부하 분산 장치에 액세스할 수 있습니다. 대부분의 Azure 애플리케이션은 개인 부하 분산 장치를 사용할 수 있습니다. 애플리케이션에 인터넷을 통해 직접 SQL Server에 대한 액세스가 필요한 경우 공개 부하 분산 장치를 사용합니다.
    - **Virtual Network**: 가상 머신과 동일한 네트워크입니다.
    - **서브넷**: 가상 머신과 동일한 서브넷입니다.
    - **개인 IP 주소**: SQL Server FCI 클러스터 네트워크 리소스에 할당한 동일한 IP 주소입니다.
-   - **구독:** 사용자의 Azure 구독입니다.
+   - **구독**: Azure 구독.
    - **리소스 그룹**: 가상 머신과 동일한 리소스 그룹을 사용합니다.
    - **위치**: 가상 머신과 동일한 Azure 위치를 사용합니다.
    다음 그림을 참조하세요.
@@ -399,7 +401,7 @@ Azure 가상 머신에서 클러스터는 한 번에 하나의 클러스터 노�
    - **프로토콜**: TCP입니다.
    - **포트**: 사용 가능한 TCP 포트로 설정합니다. 이 포트에는 공개 방화벽 포트가 필요합니다. 방화벽에서 상태 프로브에 대해 설정한 [동일한 포트](#ports)를 사용합니다.
    - **간격**: 5초입니다.
-   - **비정상 임계값**: 두 번 연속 실패입니다.
+   - **비정상 임계값**: 2번 연속 실패입니다.
 
 1. 확인을 클릭합니다.
 
@@ -442,7 +444,7 @@ PowerShell에서 클러스터 프로브 포트 매개 변수를 설정합니다.
 
 이전 스크립트에서 사용자 환경에 대한 값을 설정합니다. 다음 목록에서는 값을 설명합니다.
 
-   - `<Cluster Network Name>`: 네트워크에 대한 Windows Server 장애 조치(failover) 클러스터 이름입니다. **장애 조치(Failover) 클러스터 관리자** > **네트워크**에서 네트워크를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다. 
+   - `<Cluster Network Name>`: 네트워크의 Windows Server 장애 조치(failover) 클러스터 이름입니다. **장애 조치(Failover) 클러스터 관리자** > **네트워크**에서 네트워크를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다. 
 
    - `<SQL Server FCI IP Address Resource Name>`: SQL Server FCI IP 주소 리소스 이름입니다. **장애 조치(Failover) 클러스터 관리자** > **역할**의 SQL Server FCI 역할 아래에 있는 **서버 이름**에서 IP 주소 리소스를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다. 
 

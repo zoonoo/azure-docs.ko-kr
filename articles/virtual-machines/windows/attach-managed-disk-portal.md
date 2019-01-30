@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 8d83af114ebb5e5ff78372897d3e08ed592d4012
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.component: disks
+ms.openlocfilehash: a8378e2d22bbd361d6adb80fabf2819ad226ff19
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093904"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471976"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Windows VM에 관리되는 데이터 디스크 연결
 
@@ -53,31 +54,7 @@ ms.locfileid: "49093904"
 9. 디스크를 포맷하면 모든 데이터가 지워짐을 알리는 경고가 나타납니다. **확인**을 선택합니다.
 10. 포맷이 완료되면 **확인**을 선택합니다.
 
-## <a name="use-trim-with-standard-storage"></a>표준 저장소와 TRIM 사용
-
-표준 저장소(HDD)를 사용하는 경우 **TRIM** 명령을 사용하도록 설정해야 합니다. **TRIM** 명령은 디스크에서 사용되지 않는 블록을 삭제하므로 실제로 사용 중인 저장소의 요금만 청구됩니다. **TRIM**을 사용하면 큰 파일을 만든 후 나중에 삭제하는 경우 비용을 절감할 수 있습니다. 
-
-**TRIM** 설정을 확인하려면 Windows VM에서 명령 프롬프트를 열고 다음 명령을 입력합니다.
-
-```
-fsutil behavior query DisableDeleteNotify
-```
-
-명령이 0을 반환하는 경우 **TRIM**이 올바르게 활성화됩니다. 1을 반환하는 경우에는 다음 명령을 실행하여 **TRIM**을 사용하도록 설정합니다.
-
-```
-fsutil behavior set DisableDeleteNotify 0
-```
-
-디스크에서 데이터를 삭제한 후 **TRIM**으로 조각 모음을 실행하여 **TRIM** 작업이 제대로 플러시되는지 확인할 수 있습니다.
-
-```
-defrag.exe <volume:> -l
-```
-
-볼륨을 포맷하여 전체 볼륨이 잘리는지도 확인할 수 있습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 - 또한 [PowerShell을 사용하여 데이터 디스크를 연결](attach-disk-ps.md)할 수 있습니다.
-- 응용 프로그램이 데이터를 저장하는 데 *D:* 드라이브를 사용해야 하면 [Windows 임시 디스크의 드라이브 문자를 변경](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)할 수 있습니다.
+- 애플리케이션이 데이터를 저장하는 데 *D:* 드라이브를 사용해야 하면 [Windows 임시 디스크의 드라이브 문자를 변경](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)할 수 있습니다.

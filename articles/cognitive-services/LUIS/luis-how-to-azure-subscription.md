@@ -1,61 +1,191 @@
 ---
-title: LUIS의 엔드포인트 구독 관리
-titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 요금제에 따라 엔드포인트에 대한 무제한 트래픽을 제공하기 위해 LUIS 계정에 대한 엔드포인트 키 요금제를 만듭니다.
+title: 구독 키
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: 사용 가능한 처음 1,000개 엔드포인트 쿼리를 사용하기 위해서는 구독 키를 만들 필요가 없습니다. HTTP 403 및 429 형식의 _할당량 초과_ 오류가 발생하면 키를 만든 후 앱에 할당해야 합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: c7c6009d9fec14e8633a37e5384dd203f2f5fa60
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7662d58c1686dfa4e545246eb897af134a67144c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040383"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473387"
 ---
-# <a name="manage-azure-endpoint-subscription-keys"></a>Azure 엔드포인트 구독 키 관리
+# <a name="using-subscription-keys-with-your-luis-app"></a>LUIS 앱에서 구독 키 사용
 
-테스트 및 프로토타입에 대해서만 무료(F0) 계층을 사용합니다. 프로덕션 시스템의 경우 [유료](https://aka.ms/luis-price-tier) 계층을 사용합니다. 
+사용 가능한 처음 1,000개 엔드포인트 쿼리를 사용하기 위해서는 구독 키를 만들 필요가 없습니다. 이러한 엔드포인트 쿼리가 사용되면 [Azure Portal](http://portal.azure.com)에서 Azure 리소스를 만들고 해당 리소스를 [LUIS 포털](https://www.luis.ai)의 LUIS 앱에 할당합니다.
 
-> [!NOTE]
-> 프로덕션의 엔드포인트 쿼리에 [작성 키](luis-concept-keys.md#authoring-key)를 사용하지 마세요.
+HTTP 403 및 429 형식의 _할당량 초과_ 오류가 발생하면 키를 만든 후 앱에 할당해야 합니다. 
+
+테스트 및 프로토타입에 대해서만 무료(F0) 계층을 사용합니다. 프로덕션 시스템의 경우 [유료](https://aka.ms/luis-price-tier) 계층을 사용합니다. 프로덕션의 엔드포인트 쿼리에 [작성 키](luis-concept-keys.md#authoring-key)를 사용하지 마세요.
 
 <a name="create-luis-service"></a>
-## <a name="create-luis-endpoint-key"></a>LUIS 엔드포인트 키 만들기
 
-1. **[Microsoft Azure](https://ms.portal.azure.com/)** 에 로그인합니다. 
-2. 왼쪽 위 패널에서 녹색 **+** 기호를 클릭하고, 마켓플레이스에서 “LUIS”를 검색한 다음, **Language Understanding**을 클릭하고, **환경 만들기**를 수행하여 LUIS 구독 계정을 만듭니다. 
+## <a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>Azure Portal에서 Language Understanding 엔드포인트 키 만들기
+
+이 절차에서는 **Language Understanding** 리소스를 만듭니다. Cognitive Services에서 사용할 수 있는 리소스를 원할 경우 Language Understanding 리소스 대신, 일체형 키 **[Cognitive Service](../cognitive-services-apis-create-account.md)** 를 만듭니다. 
+
+이 키는 엔드포인트 예측 쿼리에만 사용해야 합니다. 모델 또는 앱을 변경할 때는 이 키를 사용하지 않도록 합니다. 
+
+1. **[Azure Portal](https://ms.portal.azure.com/)** 에 로그인합니다. 
+1. 왼쪽 위 패널에서 녹색 **+** 기호를 선택하고, 마켓플레이스에서 `Language Understanding`을 검색한 다음, **Language Understanding**을 선택하고, **환경 만들기**를 수행하여 LUIS 구독 계정을 만듭니다. 
 
     ![Azure Search](./media/luis-azure-subscription/azure-search.png) 
 
-3. 계정 이름, 가격 책정 계층 등을 포함한 설정을 사용하여 구독을 구성합니다. 
+1. 계정 이름, 가격 책정 계층 등을 포함한 설정을 사용하여 구독을 구성합니다. 
 
     ![Azure API 선택](./media/luis-azure-subscription/azure-api-choice.png) 
 
-4. LUIS 서비스를 만든 후 **리소스 관리 -> 키**에서 생성된 액세스 키를 볼 수 있습니다.  
+1. Language Understanding 리소스를 만든 후 **리소스 관리 -> 키**에서 생성된 액세스 키를 볼 수 있습니다. 키를 사용하지는 마세요. 다음 섹션에서는 LUIS 포털에서 LUIS 앱에 이 새 리소스를 연결하는 방법을 보여 줍니다. 3단계의 LUIS 리소스 이름이 필요합니다.
 
     ![Azure 키](./media/luis-azure-subscription/azure-keys.png)
 
-    > [!Note] 
-    > 해당 지역의 [LUIS](luis-reference-regions.md) 웹 사이트에 로그인하여 [새로운 LUIS 엔드포인트 키를 할당](luis-how-to-manage-keys.md#assign-endpoint-key)합니다. 3단계의 LUIS 구독 이름이 필요합니다.
+<a name="programmatic-key" ></a>
+<a name="authoring-key" ></a>
+<a name="endpoint-key" ></a>
+<a name="use-endpoint-key-in-query" ></a>
+<a name="api-usage-of-ocp-apim-subscription-key" ></a>
+<a name="key-limits" ></a>
+<a name="key-limit-errors" ></a>
+<a name="key-concepts"></a>
+<a name="authoring-key"></a>
+<a name="create-and-use-an-endpoint-key"></a>
+<a name="assign-endpoint-key"></a>
+<a name="assign-resource"></a>
 
-## <a name="change-luis-pricing-tier"></a>LUIS 가격 책정 계층 변경
 
-1.  [Azure](https://portal.azure.com)에서 LUIS 구독을 찾습니다. LUIS 구독을 클릭합니다.
+## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>LUIS 포털의 LUIS 앱에 리소스 키 할당
+
+1. LUIS 포털에 로그인하고, 새 키를 추가할 앱을 선택한 후 오른쪽 위 메뉴에서 **관리**를 선택하고 **키 및 엔드포인트**를 선택합니다.
+
+    [ ![키 및 엔드포인트 페이지](./media/luis-manage-keys/keys-and-endpoints.png) ](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
+
+1. LUIS를 추가하려면 **리소스 할당 +** 을 선택합니다.
+
+    ![앱에 리소스 할당](./media/luis-manage-keys/assign-key.png)
+
+1. LUIS 웹 사이트에 로그인한 이메일 주소와 연결된 대화 상자에서 테넌트를 선택합니다.  
+
+1. 추가할 Azure 리소스와 연결된 **구독 이름**을 선택합니다.
+
+1. **LUIS 리소스 이름**을 선택합니다. 
+
+1. **리소스 할당**을 선택합니다. 
+
+1. 표에서 새 행을 찾고 엔드포인트 URL을 복사합니다. 예측을 위해 LUIS 엔드포인트에 HTTP GET 요청을 할 수 있도록 올바르게 구성되어 있습니다. 
+
+<!-- content moved to luis-reference-regions.md, need replacement links-->
+<a name="regions-and-keys"></a>
+<a name="publishing-to-europe"></a>
+<a name="publishing-to-australia"></a>
+
+### <a name="unassign-resource"></a>리소스 할당 해제
+엔드포인트 키를 할당 해제할 경우 Azure에서 삭제되지 않습니다. LUIS에서만 할당 해제됩니다. 
+
+엔드포인트가 할당 해제되었거나, 앱에 할당되지 않은 경우 엔드포인트 URL에 대한 모든 요청은 오류 `401 This application cannot be accessed with the current subscription`을 반환합니다. 
+
+### <a name="include-all-predicted-intent-scores"></a>예측된 모든 의도 점수 포함
+**예측된 모든 의도 점수 포함** 확인란을 사용하여 엔드포인트 쿼리 응답에 각 의도의 예측 점수를 포함할 수 있습니다. 
+
+이 설정을 사용하면 챗봇 또는 LUIS 호출 애플리케이션이 반환된 의도의 점수에 따라 프로그래밍 방식으로 의사 결정을 내릴 수 있습니다. 일반적으로 상위 두 의도가 가장 흥미롭습니다. 상위 점수가 없음 의도이면, 챗봇은 없음 의도 및 기타 고득점 의도 간을 명확히 구분할 수 있는 후속 질문을 수행하도록 선택할 수 있습니다. 
+
+의도 및 해당 점수도 엔드포인트 로그에 포함됩니다. 해당 로그를 [내보내고](luis-how-to-start-new-app.md#export-app) 점수를 분석할 수 있습니다. 
+
+```JSON
+{
+  "query": "book a flight to Cairo",
+  "topScoringIntent": {
+    "intent": "None",
+    "score": 0.5223427
+  },
+  "intents": [
+    {
+      "intent": "None",
+      "score": 0.5223427
+    },
+    {
+      "intent": "BookFlight",
+      "score": 0.372391433
+    }
+  ],
+  "entities": []
+}
+```
+
+### <a name="enable-bing-spell-checker"></a>Bing spell checker 사용 
+**엔드포인트 URL 설정**에서 **Bing Spell Checker** 토글을 통해 LUIS에서 예측 전에 철자가 잘못된 단어를 수정할 수 있습니다. **[Bing Spell Check 키](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)** 를 만듭니다. 
+
+**spellCheck=true** 쿼리 문자열 매개 변수 및 **bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}** 를 추가합니다. `{YOUR_BING_KEY_HERE}`를 Bing Spell Checker 키로 바꿉니다.
+
+```JSON
+{
+  "query": "Book a flite to London?",
+  "alteredQuery": "Book a flight to London?",
+  "topScoringIntent": {
+    "intent": "BookFlight",
+    "score": 0.780123
+  },
+  "entities": []
+}
+```
+
+### <a name="publishing-regions"></a>게시 지역
+
+[유럽](luis-reference-regions.md#publishing-to-europe) 및 [오스트레일리아](luis-reference-regions.md#publishing-to-australia)의 게시를 포함하여 게시 [지역](luis-reference-regions.md)을 자세히 알아봅니다. 게시 지역은 작성 지역과 다릅니다. 쿼리 엔드포인트에 원하는 게시 지역에 해당하는 작성 지역에서 앱을 만듭니다.
+
+## <a name="assign-resource-without-luis-portal"></a>LUIS 포털 없이 리소스 할당
+
+CI/CD 파이프라인과 같은 자동화 용도로 LUIS 리소스의 LUIS 앱 할당을 자동화하려고 할 수 있습니다. 이를 위해 다음 단계를 수행해야 합니다.
+
+1. 이 [웹 사이트](https://resources.azure.com/api/token?plaintext=true)에서 Azure Resource Manager 토큰을 가져옵니다. 이 토큰은 만료되므로 즉시 사용합니다. 요청은 Azure Resource Manager 토큰을 반환합니다.
+
+    ![Azure Resource Manager 토큰 요청 및 Azure Resource Manager 토큰 받기](./media/luis-manage-keys/get-arm-token.png)
+
+1. 사용자 계정으로 액세스할 수 있는 [LUIS azure 계정 받기 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c)에서 토큰을 사용하여 구독 간에 LUIS 리소스를 요청합니다. 
+
+    이 POST API에는 다음 설정이 필요합니다.
+
+    |헤더|값|
+    |--|--|
+    |`Authorization`|`Authorization`의 값은 `Bearer {token}`입니다. 토큰 값 앞에 단어 `Bearer`와 공백이 와야 합니다.| 
+    |`Ocp-Apim-Subscription-Key`|[작성 키](luis-how-to-account-settings.md)|
+
+    이 API는 계정 이름으로 반환된 리소스 이름, 리소스 그룹 및 구독 ID를 포함하여 LUIS 구독의 JSON 개체 배열을 반환합니다. LUIS 앱에 할당할 LUIS 리소스인 배열에서 항목 하나를 찾습니다. 
+
+1. [애플리케이션에 LUIS azure 계정 할당](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515) API를 사용하여 LUIS 리소스에 토큰을 할당합니다. 
+
+    이 POST API에는 다음 설정이 필요합니다.
+
+    |type|설정|값|
+    |--|--|--|
+    |헤더|`Authorization`|`Authorization`의 값은 `Bearer {token}`입니다. 토큰 값 앞에 단어 `Bearer`와 공백이 와야 합니다.|
+    |헤더|`Ocp-Apim-Subscription-Key`|[작성 키](luis-how-to-account-settings.md)|
+    |헤더|`Content-type`|`application/json`|
+    |쿼리 문자열|`appid`|LUIS 앱 ID 
+    |본문||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
+
+    이 API가 성공하면 201 - 생성된 상태를 반환합니다. 
+
+## <a name="change-pricing-tier"></a>가격 책정 계층 변경
+
+1.  [Azure](https://portal.azure.com)에서 LUIS 구독을 찾습니다. LUIS 구독을 선택합니다.
     ![LUIS 구독 찾기](./media/luis-usage-tiers/find.png)
-2.  사용 가능한 가격 책정 계층을 보려면 **가격 책정 계층**을 클릭합니다. 
+1.  사용 가능한 가격 책정 계층을 보려면 **가격 책정 계층**을 선택합니다. 
     ![가격 책정 계층 보기](./media/luis-usage-tiers/subscription.png)
-3.  가격 책정 계층을 클릭하고 **선택**을 클릭하여 변경 내용을 저장합니다. 
+1.  가격 책정 계층을 선택하고 **선택**을 선택하여 변경 내용을 저장합니다. 
     ![LUIS 결제 계층 변경](./media/luis-usage-tiers/plans.png)
-4.  가격 변경이 완료되면 팝업 창에서 새로운 가격 책정 계층을 확인합니다. 
+1.  가격 변경이 완료되면 팝업 창에서 새로운 가격 책정 계층을 확인합니다. 
     ![LUIS 결제 계층 확인](./media/luis-usage-tiers/updated.png)
-5. **게시** 페이지에서 [이 엔드포인트 키를 할당](luis-how-to-manage-keys.md#assign-endpoint-key)하고 모든 엔드포인트 쿼리에서 이 엔드포인트 키를 사용해야 합니다. 
+1. **게시** 페이지에서 [이 엔드포인트 키를 할당](#assign-endpoint-key)하고 모든 엔드포인트 쿼리에서 이 엔드포인트 키를 사용해야 합니다. 
 
-## <a name="exceed-pricing-tier-usage"></a>가격 책정 계층 사용량 초과
+## <a name="how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage"></a>키가 가격 책정 계층 사용량을 초과할 때 발생하는 할당량 초과 오류를 해결하는 방법
 각 계층은 특정 요금으로 LUIS 계정에 대한 엔드포인트 요청을 허용합니다. 요청 요금이 분당 또는 월별 계정 요금제의 허용된 요금보다 높은 경우 요청은 HTTP 오류 “429: 요청이 너무 많음”을 수신합니다.
 
 각 계층은 월별 누적 요청을 허용합니다. 총 요청이 허용된 요금보다 높은 경우 요청은 HTTP 오류 “403: 금지됨”을 수신합니다.  

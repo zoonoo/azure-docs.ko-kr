@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: d2d4957e7fa3114c1d5e8fa7696366fcb7c77002
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: ff1d873b44f91f64a114a6da01091bbd3aa01663
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615707"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424815"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>자습서: 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터 복사
 이 자습서에서는 Azure PowerShell을 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 Data Factory 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다. 
@@ -68,7 +67,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 1. 트리 뷰에서 생성한 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 
 ### <a name="azure-storage-account"></a>Azure Storage 계정
-이 자습서에서는 범용 Azure Storage 계정(특히 Blob Storage)을 대상/싱크 데이터 저장소로 사용합니다. 범용 Azure Storage 계정이 없는 경우 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. 이 자습서에서 만든 데이터 팩터리의 파이프라인은 온-프레미스 SQL Server 데이터베이스(원본)에서 이 Azure Blob Storage(싱크)로 데이터를 복사합니다. 
+이 자습서에서는 범용 Azure Storage 계정(특히 Blob Storage)을 대상/싱크 데이터 저장소로 사용합니다. 범용 Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. 이 자습서에서 만든 데이터 팩터리의 파이프라인은 온-프레미스 SQL Server 데이터베이스(원본)에서 이 Azure Blob Storage(싱크)로 데이터를 복사합니다. 
 
 #### <a name="get-storage-account-name-and-account-key"></a>저장소 계정 이름 및 계정 키 가져오기
 이 자습서에서 Azure Storage 계정 이름 및 키를 사용합니다. 다음을 수행하여 저장소 계정의 이름 및 키를 가져옵니다. 
@@ -121,7 +120,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
 1. Azure PowerShell을 설치하려면 MSI 파일을 실행합니다. 
 
-자세한 지침은 [Azure PoweShell 설치 및 구성 방법](/powershell/azure/install-azurerm-ps)을 참조하세요. 
+자세한 지침은 [Azure PoweShell 설치 및 구성 방법](/powershell/azure/azurerm/install-azurerm-ps)을 참조하세요. 
 
 #### <a name="log-in-to-powershell"></a>PowerShell에 로그인
 
@@ -185,7 +184,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 >    The specified data factory name 'ADFv2TutorialDataFactory' is already in use. Data factory names must be globally unique.
 >    ```
 > * Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정은 *참여자* 또는 *소유자* 역할로 할당되거나 Azure 구독의 *관리자*여야 합니다.
-> * Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(Azure HDInsight 등)은 다른 지역에 있을 수 있습니다.
+> * 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(Azure HDInsight 등)은 다른 지역에 있을 수 있습니다.
 > 
 > 
 
@@ -425,7 +424,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
     > - 백슬래시(\\)를 사용자 계정 또는 서버 이름에 사용해야 하는 경우 앞에 이스케이프 문자(\\)를 사용합니다. 예를 들어 *mydomain\\\\myuser*를 사용합니다. 
 
 1. 중요한 데이터(사용자 이름, 암호 등)를 암호화하려면 `New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential` cmdlet을 실행합니다.  
-    이 암호화를 사용하면 DPAPI(데이터 보호 응용 프로그램 프로그래밍 인터페이스)를 사용하여 자격 증명을 암호화합니다. 암호화된 자격 증명은 자체 호스팅 통합 런타임 노드(로컬 컴퓨터)에 로컬로 저장됩니다. 출력 페이로드는 암호화된 자격 증명을 포함하는 다른 JSON 파일(이 경우 *encryptedLinkedService.json*)로 리디렉션될 수 있습니다.
+    이 암호화를 사용하면 DPAPI(데이터 보호 애플리케이션 프로그래밍 인터페이스)를 사용하여 자격 증명을 암호화합니다. 암호화된 자격 증명은 자체 호스팅 통합 런타임 노드(로컬 컴퓨터)에 로컬로 저장됩니다. 출력 페이로드는 암호화된 자격 증명을 포함하는 다른 JSON 파일(이 경우 *encryptedLinkedService.json*)로 리디렉션될 수 있습니다.
     
    ```powershell
    New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName $integrationRuntimeName -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json

@@ -22,7 +22,7 @@ ms.lasthandoff: 11/27/2018
 ms.locfileid: "52421950"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Azure 배포에서 Java의 SendGrid를 사용하여 메일을 보내는 방법
-다음 예제는 Azure에 호스트된 웹 페이지에서 SendGrid를 사용하여 전자 메일을 보내는 방법을 보여 줍니다. 다음 스크린샷에 표시된 것처럼, 응용 프로그램에서 사용자에게 전자 메일 값을 묻습니다.
+다음 예제는 Azure에 호스트된 웹 페이지에서 SendGrid를 사용하여 전자 메일을 보내는 방법을 보여 줍니다. 다음 스크린샷에 표시된 것처럼, 애플리케이션에서 사용자에게 전자 메일 값을 묻습니다.
 
 ![전자 메일 양식][emailform]
 
@@ -34,11 +34,11 @@ ms.locfileid: "52421950"
 
 1. 예를 들어 <https://www.oracle.com/technetwork/java/javamail/index.html>에서 javax.mail JAR을 가져옵니다.
 2. Java 빌드 경로에 JAR을 추가합니다.
-3. Eclipse를 사용하여 이 Java 응용 프로그램을 만드는 경우, Eclipse의 배포 어셈블리 기능을 사용하여 응용 프로그램 배포 파일(WAR)에 SendGrid 라이브러리를 포함시킵니다. Eclipse를 사용하지 않고 이 Java 응용 프로그램을 만드는 경우, 같은 Azure 역할 내에 이 라이브러리가 Java 응용 프로그램으로 포함되어 있으며 응용 프로그램의 클래스 경로에 추가되어 있는지 확인합니다.
+3. Eclipse를 사용하여 이 Java 애플리케이션을 만드는 경우, Eclipse의 배포 어셈블리 기능을 사용하여 애플리케이션 배포 파일(WAR)에 SendGrid 라이브러리를 포함시킵니다. Eclipse를 사용하지 않고 이 Java 애플리케이션을 만드는 경우, 같은 Azure 역할 내에 이 라이브러리가 Java 애플리케이션으로 포함되어 있으며 애플리케이션의 클래스 경로에 추가되어 있는지 확인합니다.
 
 또한 고유한 SendGrid 사용자 이름 및 암호가 있어야 전자 메일을 보낼 수 있습니다. SendGrid를 시작하려면 [Java의 SendGrid를 사용하여 전자 메일을 보내는 방법](store-sendgrid-java-how-to-send-email.md)을 참조하십시오.
 
-또한 [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기](https://msdn.microsoft.com/library/windowsazure/hh690944)(영문)에 나온 정보나 Eclipse를 사용하지 않는 경우 Azure에서 Java 응용 프로그램을 호스트하는 다른 기술을 익히는 것이 좋습니다.
+또한 [Eclipse에서 Azure용 Hello World 애플리케이션 만들기](https://msdn.microsoft.com/library/windowsazure/hh690944)(영문)에 나온 정보나 Eclipse를 사용하지 않는 경우 Azure에서 Java 애플리케이션을 호스트하는 다른 기술을 익히는 것이 좋습니다.
 
 ## <a name="create-a-web-form-for-sending-email"></a>전자 메일을 보내기 위한 웹 양식 만들기
 다음 코드는 전자 메일을 보내기 위해 웹 양식을 만들고 사용자 데이터를 검색하는 방법을 보여 줍니다. 이 내용에서 JSP 파일의 이름은 **emailform.jsp**입니다.
@@ -209,7 +209,7 @@ emailform.jsp는 전자 메일을 보낼 뿐만 아니라 사용자에게 결과
 ![메일 보내기 결과][emailresult]
 
 ## <a name="next-steps"></a>다음 단계
-계산 에뮬레이터에 응용 프로그램을 배포하고 브라우저 내에서 emailform.jsp를 실행한 후, 양식에 값을 입력하고 **Send this email**클릭한 다음 sendemail.jsp의 결과를 표시합니다.
+계산 에뮬레이터에 애플리케이션을 배포하고 브라우저 내에서 emailform.jsp를 실행한 후, 양식에 값을 입력하고 **Send this email**클릭한 다음, sendemail.jsp의 결과를 표시합니다.
 
 이 코드는 Azure의 Java에서 SendGrid를 사용하는 방법을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예:  
 

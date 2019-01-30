@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: ed29fb99025dbc69b9dae6a996f444954a7d88d1
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 5d0c887587028fe877cb7b5afd65968bde038d03
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123422"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014372"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Impala에서 데이터 복사(미리 보기)
 
@@ -45,10 +44,10 @@ Impala에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **Impala**로 설정됩니다. | yes |
-| host | Impala 서버의 IP 주소 또는 호스트 이름입니다(즉, 192.168.222.160).  | yes |
+| 형식 | 형식 속성은 **Impala**로 설정됩니다. | 예 |
+| host | Impala 서버의 IP 주소 또는 호스트 이름입니다(즉, 192.168.222.160).  | 예 |
 | 포트 | Impala 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. 기본값은 21050입니다.  | 아니요 |
-| authenticationType | 사용할 인증 유형입니다. <br/>허용되는 값은 **Anonymous**, **SASLUsername** 및 **UsernameAndPassword**입니다. | yes |
+| authenticationType | 사용할 인증 유형입니다. <br/>허용되는 값은 **Anonymous**, **SASLUsername** 및 **UsernameAndPassword**입니다. | 예 |
 | 사용자 이름 | Impala 서버에 액세스하는 데 사용되는 사용자 이름입니다. SASLUsername을 사용하는 경우 기본값은 익명입니다.  | 아니요 |
 | 암호 | UsernameAndPassword를 사용할 때 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |
 | enableSsl | 서버에 대한 연결이 SSL을 사용하여 암호화되는지 여부를 지정합니다. 기본값은 **false**입니다.  | 아니요 |
@@ -87,7 +86,12 @@ Impala에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복�
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Impala 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Impala에서 데이터를 복사하려면 데이터 세트의 type 속성을 **ImpalaObject**로 설정합니다. 이 형식의 데이터 세트에는 추가적인 형식별 속성이 없습니다.
+Impala에서 데이터를 복사하려면 데이터 세트의 type 속성을 **ImpalaObject**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+
+| 속성 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| 형식 | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **ImpalaObject** | 예 |
+| tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
 
@@ -99,7 +103,8 @@ Impala에서 데이터를 복사하려면 데이터 세트의 type 속성을 **I
         "linkedServiceName": {
             "referenceName": "<Impala linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -114,8 +119,8 @@ Impala에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Im
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 형식 속성은 **ImpalaSource**로 설정되어야 합니다. | yes |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예는 `"SELECT * FROM MyTable"`입니다. | yes |
+| 형식 | 복사 작업 원본의 형식 속성은 **ImpalaSource**로 설정되어야 합니다. | 예 |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예는 `"SELECT * FROM MyTable"`입니다. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
 

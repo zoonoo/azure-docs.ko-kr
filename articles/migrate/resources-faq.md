@@ -4,14 +4,14 @@ description: Azure Migrate에 대한 질문과 대답 해결
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 2f04fe103d010a64a77b7d80730cf80007c3c126
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cc71aba3e884214b054e0ac4e888a52e38b1c390
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256378"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812542"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - FAQ(질문과 대답)
 
@@ -46,9 +46,16 @@ Azure Migrate는 마이그레이션 계획 도구이며 Azure Site Recovery Depl
 
 **VMware/Hyper-V에서 Azure로의 재해 복구**: Azure Site Recovery(Site Recovery)를 사용하여 Azure에서 DR(재해 복구)을 수행하려는 경우 DR 계획에 Site Recovery Deployment Planner를 사용합니다. Site Recovery Deployment Planner는 온-프레미스 환경에 대한 심도 있는 ASR 특정 평가를 수행합니다. 가상 머신의 복제, 장애 조치(failover) 등 성공적인 DR 작업을 위해 Site Recovery에 필요한 권장 사항을 제공합니다.  
 
-### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Azure Migrate에서 지원되는 Azure 지역은 어디인가요?
+### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Azure Migrate에서 지원되는 Azure 지역은 어디인가요?
 
-Azure Migrate는 현재 마이그레이션 프로젝트 위치로 미국 동부 및 미국 중서부를 지원합니다. 미국 중서부 및 미국 동부에서만 마이그레이션 프로젝트를 만들 수 있더라도 [여러 대상 위치](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties)에 대해 여전히 컴퓨터를 평가할 수 있습니다. 프로젝트 위치는 검색된 데이터를 저장하는 데에만 사용됩니다.
+Azure Migrate는 현재 유럽, 미국 및 Azure Government를 프로젝트 지역으로 지원합니다. 이러한 지역에서만 마이그레이션 프로젝트를 만들 수 있더라도 여전히 [여러 대상 위치](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties)에 대해 머신을 평가할 수 있습니다. 프로젝트 지역은 검색된 메타데이터를 저장하는 데만 사용됩니다.
+
+**지리** | **메타데이터 스토리지 위치**
+--- | ---
+Azure Government | 미국 정부 버지니아
+아시아 | 동남아시아
+유럽 | 북유럽 또는 유럽 서부
+미국 | 미국 동부 또는 미국 중서부
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>온-프레미스 사이트에서 Azure Migrate로 연결하려면 어떻게 하나요?
 
@@ -57,6 +64,17 @@ Azure Migrate는 현재 마이그레이션 프로젝트 위치로 미국 동부 
 ### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>OVA 템플릿으로 VM 설정을 강화할 수 있나요?
 
 Azure Migrate 어플라이언스가 작동하는 데 필요한 통신 및 방화벽 규칙이 그대로 유지되기만 하면 추가 구성 요소(예: 바이러스 백신)를 OVA 템플릿에 추가할 수 있습니다.   
+
+### <a name="to-harden-the-azure-migrate-appliance-what-are-the-recommended-antivirus-av-exclusions"></a>Azure Migrate 어플라이언스를 강화하기 위해 권장되는 AV(바이러스 백신) 예외는 무엇인가요?
+
+바이러스 백신 검사를 위해 어플라이언스에서 다음 폴더를 제외해야 합니다.
+
+- Azure Migrate 서비스용 이진 파일이 있는 폴더. 모든 하위 폴더를 제외합니다.
+  %ProgramFiles%\ProfilerService  
+- Azure Migrate 웹 애플리케이션. 모든 하위 폴더를 제외합니다.
+  %SystemDrive%\inetpub\wwwroot
+- 데이터베이스 및 로그 파일의 로컬 캐시. Azure Migrate Service에는 이 폴더에 대한 RW 권한이 필요합니다.
+  %SystemDrive%\Profiler
 
 ## <a name="discovery"></a>검색
 
@@ -102,7 +120,7 @@ Azure Migrate는 어플라이언스 기반 검색 및 에이전트 기반 검색
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>데이터는 미사용 및 전송 중에 암호화되나요?
 
-예, 수집된 데이터는 미사용 및 전송 중 모두에서 암호화됩니다. 어플라이언스에서 수집된 메타데이터는 Azure Migrate 서비스로 https를 통해 인터넷으로 안전하게 전송됩니다. 수집된 메타데이터는 [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) 및 Microsoft 구독의 [Azure blob 저장소](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)에 저장되고 미사용 암호화됩니다.
+예, 수집된 데이터는 미사용 및 전송 중 모두에서 암호화됩니다. 어플라이언스에서 수집된 메타데이터는 Azure Migrate 서비스로 https를 통해 인터넷으로 안전하게 전송됩니다. 수집된 메타데이터는 [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) 및 Microsoft 구독의 [Azure Blob Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)에 저장되고 미사용 암호화됩니다.
 
 종속성 에이전트에서 수집된 데이터도 전송 중에 암호화(보안 https 채널)되며, 사용자의 구독에서 Log Analytics 작업 영역에 저장됩니다. 또한 미사용 시에도 암호화됩니다.
 
@@ -130,6 +148,7 @@ Azure Migrate는 어플라이언스 기반 검색 및 에이전트 기반 검색
 
 단일 마이그레이션 프로젝트에서는 1500대의 가상 머신을 검색할 수 있습니다. 온-프레미스 환경에 더 많은 컴퓨터가 있는 경우 Azure Migrate에서 대규모 환경을 검색하는 방법에 대해 [자세히 알아보세요](how-to-scale-assessment.md).
 
+
 ## <a name="assessment"></a>평가
 
 ### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Azure Migrate가 EA(기업 계약) 기반 예측 비용을 지원하나요?
@@ -137,9 +156,19 @@ Azure Migrate는 어플라이언스 기반 검색 및 에이전트 기반 검색
 Azure Migrate는 현재 [기업 계약 제품](https://azure.microsoft.com/offers/enterprise-agreement-support/)에 대해 비용 예측을 지원하지 않습니다. 해결 방법은 종량제를 제품에 지정하고 평가 속성의 ‘할인’ 필드에 할인율(구독에 적용)을 수동으로 지정하는 것입니다.
 
   ![할인](./media/resources-faq/discount.png)
-  
+
+### <a name="what-is-the-difference-between-as-on-premises-sizing-and-performance-based-sizing"></a>as-on-premises 크기 조정과 성능 기반 크기 조정의 차이점은 무엇인가요?
+
+크기 조정 기준을 as-on-premises 크기 조정으로 지정하면 Azure Migrate에서는 VM의 성능 데이터를 고려하지 않고 온-프레미스 구성을 기준으로 하여 VM의 크기를 조정합니다. 성능 기반 크기 조정 기준을 사용하는 경우에는 사용률 데이터를 기준으로 크기를 조정합니다. 예를 들어 4코어 8GB 메모리를 사용하고 CPU 사용률이 50%, 메모리 사용률이 50%인 온-프레미스 VM이 있다고 가정해 봅니다. 크기를 추천할 때 사용률을 고려하므로 크기 조정 기준이 온-프레미스 크기 조정인 경우 4코어 8GB 메모리의 Azure VM SKU를 권장하지만, 크기 조정 기준이 성능 기반인 경우 2코어 4GB의 VM SKU를 권장합니다. 마찬가지로 디스크 크기 조정 결과는 크기 조정 기준과 스토리지 유형의 두 가지 평가 속성에 따라 달라집니다. 크기 조정 기준이 성능 기반이고 스토리지 유형이 자동이면 디스크의 IOPS 및 처리량 값을 고려하여 대상 디스크 유형(표준 또는 프리미엄)을 결정합니다. 크기 조정 기준이 성능 기반이고 스토리지 유형이 프리미엄이면 프리미엄 디스크를 사용하는 것이 좋습니다. 따라서 온-프레미스 디스크의 크기를 기준으로 하여 Azure의 프리미엄 디스크 SKU가 선택됩니다. 크기 조정 기준이 as-on-premises 크기 조정이고 스토리지 유형이 표준 또는 프리미엄일 때도 동일한 논리를 사용하여 디스크 크기를 조정합니다.
+
+### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>성능 기록 및 백분위수 활용률이 크기 추천에 어떤 영향을 주나요?
+
+이러한 속성은 성능 기반 크기 조정에만 적용됩니다. Azure Migrate는 온-프레미스 머신의 성능 기록을 수집하여 Azure에서 VM 크기 및 디스크 유형을 추천하는 데 사용합니다. 수집기 어플라이언스는 20초마다 온-프레미스 환경을 지속적으로 프로파일링하여 실시간 사용률 데이터를 수집합니다. 이 어플라이언스는 20초 샘플을 롤업하고 15분마다 데이터 요소를 하나씩 만듭니다. 단일 데이터 요소를 만들기 위해, 이 어플라이언스는 20초 샘플에서 최고 값을 선택하여 Azure로 전송합니다. Azure에서 성능 기간 및 성능 기록 백분위 값을 기준으로 평가를 작성할 때 Azure Migrate는 효과적인 사용률 값을 계산하여 크기 조정에 사용합니다. 예를 들어 성능 기간을 1일로 설정하고 백분위 값을 95로 설정한 경우 Azure Migrate는 지난 하루 동안 수집기에서 보낸 15분 샘플 포인트를 사용하여 데이터를 오름차순으로 정렬하고, 95번째 백분위 값을 효율적인 사용률로 선택합니다. 95번째 백분위 값은 99번째 백분위 값을 선택할 때 발생할 수 있는 모든 이상값을 무시합니다. 해당 기간의 최대 사용량을 선택하고 이상값을 누락하지 않으려면 99번째 백분위 수를 선택해야 합니다.
 
 ## <a name="dependency-visualization"></a>종속성 시각화
+
+> [!NOTE]
+> Azure Government에서는 종속성 시각화 기능을 사용할 수 없습니다.
 
 ### <a name="what-is-dependency-visualization"></a>종속성 시각화란?
 
@@ -147,11 +176,11 @@ Azure Migrate는 현재 [기업 계약 제품](https://azure.microsoft.com/offer
 
 ### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>종속성 시각화 기능을 사용하면 비용을 지불해야 하나요?
 
-아니요. [여기](https://azure.microsoft.com/pricing/details/azure-migrate/)에서 Azure Migrate 가격 책정에 대해 자세히 알아보세요.
+ 아니요. [여기](https://azure.microsoft.com/pricing/details/azure-migrate/)에서 Azure Migrate 가격 책정에 대해 자세히 알아보세요.
 
 ### <a name="do-i-need-to-install-anything-for-dependency-visualization"></a>종속성 시각화를 사용하려면 무엇을 설치해야 하나요?
 
-종속성 시각화를 사용하려면 평가할 각 온-프레미스 머신에 에이전트를 다운로드하여 설치해야 합니다. 
+종속성 시각화를 사용하려면 평가할 각 온-프레미스 머신에 에이전트를 다운로드하여 설치해야 합니다.
 
 - 각 머신에 [MMA(Microsoft Monitoring Agent)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)를 설치해야 합니다.
 - 각 머신에 [종속성 에이전트](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure)를 설치해야 합니다.

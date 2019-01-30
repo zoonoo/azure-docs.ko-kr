@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 408d43f07179f9f18c05f22fdd4ea36a3a90cb49
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 26159c4b563d5f60c40cce9b0b805abe0a7195fd
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075620"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436640"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Azure VM에서 SAP MaxDB, liveCache 및 Content Server 배포
 
@@ -235,7 +235,7 @@ ms.locfileid: "39075620"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -331,7 +331,7 @@ SAP Note [767598]
 
 ### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Azure VM의 SAP 설치에 대한 SAP MaxDB 구성 지침
 #### <a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>저장소 구성
-SAP MaxDB에 대한 Azure Storage 모범 사례는 [RDBMS 배포 구조][dbms-guide-2] 챕터에서 설명한 일반 권장 사항을 따릅니다.
+SAP MaxDB에 대한 Azure 스토리지 모범 사례는 [RDBMS 배포를 위한 VM의 스토리지 구조](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64) 챕터에서 설명한 일반 추천을 따릅니다.
 
 > [!IMPORTANT]
 > 다른 데이터베이스처럼 SAP MaxDB에도 데이터 및 로그 파일이 있습니다. 그러나 SAP MaxDB 용어에서 올바른 용어는 "볼륨"("파일" 아님)입니다. 예를 들어 SAP MaxDB 데이터 볼륨 및 로그 볼륨이 있습니다. 운영 체제 디스크 볼륨과 혼동하지 마세요. 
@@ -351,7 +351,7 @@ SAP MaxDB에 대한 Azure Storage 모범 사례는 [RDBMS 배포 구조][dbms-gu
 
 
 #### <a name="23c78d3b-ca5a-4e72-8a24-645d141a3f5d"></a>Backup 및 복원
-Azure에 SAP MaxDB를 배포하는 경우 백업 방법을 검토해야 합니다. 생산성이 높은 시스템이 아니더라도 SAP MaxDB에서 호스트하는 SAP 데이터베이스를 정기적으로 백업해야 합니다. Azure Storage에는 세 개의 이미지가 유지되므로 저장소 오류 및 더 중요한 작동 또는 관리 오류에 대한 시스템 보호 면에서 백업의 중요성이 줄어들었습니다. 적절한 백업 및 복원 계획 유지 관리가 중요한 이유는 지정 시간 복구 기능을 제공하여 논리 또는 수동 오류를 보완할 수 있기 때문입니다. 따라서 목표는 백업을 사용하여 데이터베이스를 특정 시점으로 복원하거나 기존 데이터베이스를 복사하여 Azure의 백업을 다른 시스템에 시딩하는 데 Azure의 백업을 사용하는 것입니다. 
+Azure에 SAP MaxDB를 배포하는 경우 백업 방법을 검토해야 합니다. 생산성이 높은 시스템이 아니더라도 SAP MaxDB에서 호스트하는 SAP 데이터베이스를 정기적으로 백업해야 합니다. Azure Storage에는 세 개의 이미지가 유지되므로 스토리지 오류 및 더 중요한 작동 또는 관리 오류에 대한 시스템 보호 면에서 백업의 중요성이 줄어들었습니다. 적절한 백업 및 복원 계획 유지 관리가 중요한 이유는 지정 시간 복구 기능을 제공하여 논리 또는 수동 오류를 보완할 수 있기 때문입니다. 따라서 목표는 백업을 사용하여 데이터베이스를 특정 시점으로 복원하거나 기존 데이터베이스를 복사하여 Azure의 백업을 다른 시스템에 시딩하는 데 Azure의 백업을 사용하는 것입니다. 
 
 Azure에서의 데이터베이스 백업 및 복원 방법은 온-프레미스 시스템에서와 동일합니다. 그러므로 SAP Note [767598]에 나열된 SAP MaxDB 설명서 중 하나에서 설명한 표준 SAP MaxDB 백업/복원 도구를 사용할 수 있습니다. 
 
@@ -394,7 +394,7 @@ Azure에서 지원되는 SAP liveCache용 Microsoft Windows 버전을 찾으려�
 
 ### <a name="sap-livecache-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Azure VM의 SAP 설치에 대한 SAP liveCache 구성 지침
 #### <a name="recommended-azure-vm-types-for-livecache"></a>liveCache에 권장되는 Azure VM 유형
-SAP liveCache는 많은 계산을 수행하는 응용 프로그램이므로 RAM과 CPU의 양 및 속도가 SAP liveCache 성능에 큰 영향을 줍니다. 
+SAP liveCache는 많은 계산을 수행하는 애플리케이션이므로 RAM과 CPU의 양 및 속도가 SAP liveCache 성능에 큰 영향을 줍니다. 
 
 SAP에서 지원하는 Azure VM 형식(SAP Note [1928533])의 경우, VM에 할당된 모든 가상 CPU 리소스가 하이퍼바이저의 전용 물리적 CPU 리소스에 의해 지원됩니다. 오버프로비저닝이 발생되지 않습니다(따라서 CPU 리소스에 대한 경쟁 없음).
 
@@ -418,7 +418,7 @@ SAP liveCache는 컴퓨팅 기능을 집중적으로 사용하므로 생산적�
 다른 모든 일반 영역은 이미 SAP MaxDB 관련 챕터에서 설명하고 있습니다. 
 
 ## <a name="specifics-for-the-sap-content-server-deployment-on-windows-in-azure"></a>Azure의 Windows에서의 SAP Content Server 배포에 세부 정보
-SAP Content Server는 다양한 형식의 전자 문서와 같은 콘텐츠를 저장하기 위한 별도의 서버 기반 구성 요소입니다. SAP Content Server는 기술 개발을 통해 제공되며 SAP 응용 프로그램의 응용 프로그램 간에 사용됩니다. 별도의 시스템에 설치됩니다. 일반적인 콘텐츠는 기술 웨어하우스 설명서 또는 mySAP PLM 문서 관리 시스템의 기술 드로잉 및 교육 자료입니다. 
+SAP Content Server는 다양한 형식의 전자 문서와 같은 콘텐츠를 저장하기 위한 별도의 서버 기반 구성 요소입니다. SAP Content Server는 기술 개발을 통해 제공되며 SAP 애플리케이션의 애플리케이션 간에 사용됩니다. 별도의 시스템에 설치됩니다. 일반적인 콘텐츠는 기술 웨어하우스 설명서 또는 mySAP PLM 문서 관리 시스템의 기술 드로잉 및 교육 자료입니다. 
 
 ### <a name="sap-content-server-version-support-for-azure-vms"></a>Azure VM용 SAP Content Server 버전 지원
 SAP에서 현재 다음을 지원합니다.
@@ -458,7 +458,7 @@ SAP Cache Server는 로컬에 있는 (캐시된) 문서에 대한 액세스를 �
 
 1. **클라이언트가 백 엔드 SAP 시스템인 경우** SAP Content Server에 액세스하도록 백 엔드 SAP 시스템이 구성된 경우 해당 SAP 시스템은 클라이언트입니다. SAP 시스템과 SAP Content Server는 모두 같은 Azure 지역, 즉 동일한 Azure 데이터 센터에 배포되므로 물리적으로 서로 가깝습니다. 따라서 전용 SAP Cache Server를 사용할 필요가 없습니다. SAP UI 클라이언트(SAP GUI 또는 웹 브라우저)는 SAP 시스템에 직접 액세스하고 SAP 시스템은 SAP Content Server에서 문서를 검색합니다.
 2. **클라이언트가 온-프레미스 웹 브라우저인 경우** 웹 브라우저에서 직접 액세스하도록 SAP Content Server를 구성할 수 있습니다. 이 경우 온-프레미스에서 실행하는 웹 브라우저는 SAP Content Server의 클라이언트입니다. 온-프레미스 데이터 센터와 Azure 데이터 센터는 서로 다른 물리적 위치에 있습니다(이상적으로는 서로 가까워야 함). 온-프레미스 데이터 센터는 Azure 사이트 간 VPN 또는 ExpressRoute를 통해 Azure에 연결됩니다. 두 옵션 모두 Azure에 대한 보안 VPN 네트워크 연결을 제공하지만 사이트 간 네트워크 연결은 온-프레미스 데이터 센터와 Azure 데이터 센터 간의 네트워크 대역폭 및 대기 시간 SLA를 제공하지 않습니다. 문서에 대한 액세스 속도를 향상시키기 위해 다음 중 하나를 수행할 수 있습니다.
-   1. 온-프레미스 웹 브라우저 근처에 온-프레미스 SAP Cache Server를 설치합니다([이][dbms-guide-900-sap-cache-server-on-premises] 그림의 옵션).
+   1. 온-프레미스 웹 브라우저 근처에 온-프레미스 SAP Cache Server를 설치합니다(아래 그림의 옵션).
    2. 빠른 속도와 짧은 대기 시간의 온-프레미스 데이터 센터와 Azure 데이터 센터 간 전용 네트워크 연결을 제공하는 Azure ExpressRoute를 구성합니다.
 
 ![SAP Cache Server 온-프레미스 설치 옵션](./media/dbms_maxdb_deployment_guide/900-sap-cache-server-on-premises.png)

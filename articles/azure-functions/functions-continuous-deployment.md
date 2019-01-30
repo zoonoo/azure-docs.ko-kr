@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: 7529d20535eedab92d164df5a0435efeda83fca2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a0d697438c1265b8c4e6802dc2dad62a33f51855
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301551"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548598"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Azure Functions에 대한 연속 배포
 Azure Functions를 사용하면 App Service 연속 통합을 사용하여 함수 앱을 쉽게 배포할 수 있습니다. Functions는 BitBucket, Dropbox, GitHub 및 Azure DevOps와 통합됩니다. 따라서 Azure에사 이러한 통합된 서비스 트리거 배포 중 하나를 사용하여 함수 코드가 업데이트된 워크플로를 구현할 수 있습니다. Azure Functions를 처음 접하는 경우 [Azure 함수 개요](functions-overview.md)로 시작합니다.
@@ -26,7 +26,7 @@ Azure Functions를 사용하면 App Service 연속 통합을 사용하여 함수
 * [Bitbucket](https://bitbucket.org/)
 * [Dropbox](https://www.dropbox.com/)
 * 외부 리포지토리(Git 또는 Mercurial)
-* [Git 로컬 리포지토리](../app-service/app-service-deploy-local-git.md)
+* [Git 로컬 리포지토리](../app-service/deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
 * [Azure DevOps Services](https://www.visualstudio.com/team-services/)
@@ -52,7 +52,7 @@ Azure DevOps에서 배포할 수 있으려면 먼저 Azure 구독과 Azure DevOp
  
     ![연속 배포 설정](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-2. **배포 원본** 블레이드에서 **원본 선택**을 클릭한 다음 선택한 배포 원본에 대한 정보를 입력하고 **확인**을 클릭합니다.
+3. **배포 원본** 블레이드에서 **원본 선택**을 클릭한 다음 선택한 배포 원본에 대한 정보를 입력하고 **확인**을 클릭합니다.
    
     ![배포 원본 선택](./media/functions-continuous-deployment/choose-deployment-source.png)
 

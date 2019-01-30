@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: 974ef7a51736c2e2b0a0de3c13d23ddc37fa13b7
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 68691430621c0055b3465b9428a8206c6a544a97
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855020"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412532"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대해 CI/CD 파이프라인을 설정하는 방법  
 
@@ -99,7 +99,7 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
     ![U-SQL 프로젝트에 대한 CI/CD MSBuild 변수 정의](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables.png) 
 
     ```
-    /p:USQLSDKPath=/p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime /p:USQLTargetType=SyntaxCheck /p:DataRoot=$(Build.SourcesDirectory) /p:EnableDeployment=true
+    /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime /p:USQLTargetType=SyntaxCheck /p:DataRoot=$(Build.SourcesDirectory) /p:EnableDeployment=true
     ```
 
 ### <a name="u-sql-project-build-output"></a>U-SQL 프로젝트 빌드 출력
@@ -246,7 +246,7 @@ Azure Pipelines에서 다음 샘플 PowerShell 스크립트와 함께 [Azure Pow
 param(
     [Parameter(Mandatory=$true)][string]$ADLSName, # ADLS account name to upload U-SQL scripts
     [Parameter(Mandatory=$true)][string]$ArtifactsRoot, # Root folder of U-SQL project build output
-    [Parameter(Mandatory=$false)][string]$DesitinationFolder = "USQLScriptSource" # Desitination folder in ADLS
+    [Parameter(Mandatory=$false)][string]$DestinationFolder = "USQLScriptSource" # Destination folder in ADLS
 )
 
 Function UploadResources()
@@ -261,7 +261,7 @@ Function UploadResources()
     foreach($file in $files)
     {
         Write-Host "Uploading file: $($file.Name)"
-        Import-AzureRmDataLakeStoreItem -AccountName $ADLSName -Path $file.FullName -Destination "/$(Join-Path $DesitinationFolder $file)" -Force
+        Import-AzureRmDataLakeStoreItem -AccountName $ADLSName -Path $file.FullName -Destination "/$(Join-Path $DestinationFolder $file)" -Force
     }
 }
 
@@ -335,7 +335,7 @@ msbuild DatabaseProject.usqldbproj /p:USQLSDKPath=packages\Microsoft.Azure.DataL
    ![U-SQL 데이터베이스 프로젝트에 대한 CI/CD MSBuild 변수 정의](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png) 
 
     ```
-    /p:USQLSDKPath=/p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime
+    /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime
     ```
  
 ### <a name="u-sql-database-project-build-output"></a>U-SQL 데이터베이스 프로젝트 빌드 출력
@@ -475,7 +475,7 @@ Azure Pipelines에서 데이터베이스 배포 작업을 설정하려면 다음
 |테넌트|테넌트 이름은 Azure AD(Azure Active Directory) 도메인 이름입니다. Azure Portal의 구독 관리 페이지에서 찾을 수 있습니다.|null|true|
 |AzureSDKPath|Azure SDK에서 종속 어셈블리를 검색하기 위한 경로입니다.|null|true|
 |대화형|인증에 대화형 모드를 사용할지 여부입니다.|false|false|
-|clientid|비대화형 인증을 위해 필요한 Azure AD 응용 프로그램 ID입니다.|null|비대화형 인증에 필요합니다.|
+|clientid|비대화형 인증을 위해 필요한 Azure AD 애플리케이션 ID입니다.|null|비대화형 인증에 필요합니다.|
 |Secrete|비대화형 인증을 위한 비밀 또는 암호입니다. 신뢰할 수 있고 안전한 환경에서만 사용해야 합니다.|null|비대화형 인증에서 필수입니다. 그렇지 않으면 SecreteFile을 사용합니다.|
 |SecreteFile|비대화형 인증을 위한 비밀 또는 암호를 저장하는 파일입니다. 현재 사용자만 읽을 수 있도록 유지해야 합니다.|null|비대화형 인증에서 필수입니다. 그렇지 않으면 비밀을 사용합니다.|
 |CertFile|비대화형 인증을 위한 X.509 인증서를 저장하는 파일입니다. 기본값은 클라이언트 비밀 인증을 사용하는 것입니다.|null|false|

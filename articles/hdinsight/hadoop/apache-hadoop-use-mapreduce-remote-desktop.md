@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b8cd389bee98058e5362a217268fb53d6aaf3424
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 43daae3f3cb8a2b95413983464e41a69e69fcf36
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634484"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120566"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight-with-remote-desktop"></a>HDInsight의 Apache Hadoop에서 원격 데스크톱과 MapReduce 사용
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
 이 문서에서는 원격 데스크톱을 사용하여 HDInsight 클러스터에서 Apache Hadoop에 연결한 다음, Hadoop 명령을 사용하여 MapReduce 작업을 실행하는 방법을 알아봅니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 원격 데스크톱은 Windows 기반 HDInsight 클러스터에서만 사용할 수 있습니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 >
 > HDInsight 3.4 이상의 경우 HDInsight 클러스터에 연결 및 MapReduce 작업 실행에 대한 자세한 내용은 [SSH로 MapReduce 사용](apache-hadoop-use-mapreduce-ssh.md)을 참좋세요.
@@ -40,7 +40,7 @@ HDInsight 클러스터에 대한 데스크톱에 연결된 후 Hadoop 명령을 
 
 1. HDInsight 데스크톱에서 **Hadoop 명령줄**을 시작합니다. **c:\apps\dist\hadoop-&lt;version number>** 디렉터리에서 새 명령 프롬프트가 열립니다.
 
-   > [!NOTE]
+   > [!NOTE]  
    > 버전 번호는 Hadoop를 업데이트할 때 변경됩니다. 해당 경로를 찾으려면 **HADOOP_HOME** 환경 변수를 사용할 수 있습니다. 예를 들어 `cd %HADOOP_HOME%` 은 버전 번호를 알 필요 없이 디렉터리를 Hadoop 디렉터리로 변경합니다.
    >
    >
@@ -94,5 +94,5 @@ HDInsight의 MapReduce 작업에 대한 일반적인 정보:
 
 HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
-* [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
-* [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Hive 사용](hdinsight-use-hive.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용](hdinsight-use-pig.md)

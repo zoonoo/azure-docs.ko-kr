@@ -5,21 +5,22 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 11/27/2018
+ms.date: 01/25/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: 8de810e689a00f081df82365eca00131453a6db5
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: 840c230ae3b2fc167c0d59a4a9a0155fe5deb661
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447116"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238260"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Azure Stack에 대 한 확장 호스트 준비
 
-확장 호스트 필요한 TCP/IP 포트의 수를 줄여 Azure Stack을 보호 합니다. 이 문서에서는 Azure Stack 1808 업데이트 후 Azure Stack 업데이트 패키지를 통해 자동으로 사용할 수 있는 확장 호스트에 대 한 준비 살펴봅니다.
+확장 호스트 필요한 TCP/IP 포트의 수를 줄여 Azure Stack을 보호 합니다. 이 문서에서는 Azure Stack 1808 업데이트 후 Azure Stack 업데이트 패키지를 통해 자동으로 사용할 수 있는 확장 호스트에 대 한 준비 살펴봅니다. 이 문서에서는 Azure Stack 업데이트 1808, 1809, 및 1811에 적용 됩니다.
 
 ## <a name="certificate-requirements"></a>인증서 요구 사항
 
@@ -29,8 +30,8 @@ ms.locfileid: "52447116"
 
 | 배포 폴더 | 필요한 인증서 주체 및 주체 대체 이름 (SAN) | 범위 (지역당) | 하위 네임 스페이스 |
 |-----------------------|------------------------------------------------------------------|-----------------------|------------------------------|
-| 관리 확장 호스트 | *.adminhosting 합니다. \<지역 >. \<fqdn > (와일드 카드 SSL 인증서) | 관리 확장 호스트 | adminhosting 합니다. \<지역 >. \<fqdn > |
-| 공용 확장 호스트 | *.hosting 합니다. \<지역 >. \<fqdn > (와일드 카드 SSL 인증서) | 공용 확장 호스트 | 호스팅. \<지역 >. \<fqdn > |
+| 관리 확장 호스트 | *.adminhosting 합니다. \<지역 >. \<fqdn > (와일드 카드 SSL 인증서) | 관리 확장 호스트 | adminhosting.\<region>.\<fqdn> |
+| 공용 확장 호스트 | *.hosting 합니다. \<지역 >. \<fqdn > (와일드 카드 SSL 인증서) | 공용 확장 호스트 | hosting.\<region>.\<fqdn> |
 
 자세한 인증서 요구 사항에서 찾을 수 있습니다 합니다 [Azure Stack 공개 키 인프라 인증서 요구 사항](azure-stack-pki-certs.md) 문서.
 
@@ -127,10 +128,10 @@ Azure Stack 준비 검사 도구를 두 개의 새, 필요한 SSL 인증서에 �
 > DNS 통합에 대 한 Dns 위임을 사용 하는 경우에이 단계가 필요 하지 않습니다.
 Azure Stack 끝점을 게시 하려면 개별 호스트 A 레코드를 구성한 경우에 두 개의 추가 호스트 A 레코드를 만들 해야 합니다.
 
-| IP | 호스트 이름 | type |
+| IP | 호스트 이름 | Type |
 |----|------------------------------|------|
-| \<IP &GT; | *. Adminhosting 합니다. \<지역 >. \<FQDN > | A |
-| \<IP &GT; | *. 호스팅. \<지역 >. \<FQDN > | A |
+| \<IP> | *.Adminhosting.\<Region>.\<FQDN> | A |
+| \<IP> | *.Hosting.\<Region>.\<FQDN> | A |
 
 Cmdlet을 실행 하 여 권한 있는 끝점을 사용 하 여 할당 된 Ip를 검색할 수 있습니다 **Get AzureStackStampInformation**합니다.
 
@@ -140,7 +141,46 @@ Cmdlet을 실행 하 여 권한 있는 끝점을 사용 하 여 할당 된 Ip를
 
 ### <a name="publish-new-endpoints"></a>새 끝점을 게시
 
-방화벽을 통해 게시 하는 데 필요한 두 개의 새로운 끝점 있습니다. Cmdlet을 사용 하 여 공용 VIP 풀에서 할당 된 Ip를 검색할 수 있습니다 **Get AzureStackStampInformation**합니다.
+방화벽을 통해 게시 하는 데 필요한 두 개의 새로운 끝점 있습니다. 에 Azure Stack을 통해 실행 해야 하는 다음 코드를 사용 하 여 공용 VIP 풀에서 할당 된 Ip를 검색할 수 있습니다 [환경에는 끝점 권한 있는](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-privileged-endpoint)합니다.
+
+```PowerShell
+# Create a PEP Session
+winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
+$PEPCreds = Get-Credential
+$PEPSession = New-PSSession -ComputerName <IpOfERCSMachine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
+
+# Obtain DNS Servers and Extension Host information from Azure Stack Stamp Information and find the IPs for the Host Extension Endpoints
+$StampInformation = Invoke-Command $PEPSession {Get-AzureStackStampInformation} | Select-Object -Property ExternalDNSIPAddress01, ExternalDNSIPAddress02, @{n="TenantHosting";e={($_.TenantExternalEndpoints.TenantHosting) -replace "https://*.","testdnsentry"-replace "/"}},  @{n="AdminHosting";e={($_.AdminExternalEndpoints.AdminHosting)-replace "https://*.","testdnsentry"-replace "/"}},@{n="TenantHostingDNS";e={($_.TenantExternalEndpoints.TenantHosting) -replace "https://",""-replace "/"}},  @{n="AdminHostingDNS";e={($_.AdminExternalEndpoints.AdminHosting)-replace "https://",""-replace "/"}}
+If (Resolve-DnsName -Server $StampInformation.ExternalDNSIPAddress01 -Name $StampInformation.TenantHosting -ErrorAction SilentlyContinue) {
+    Write-Host "Can access AZS DNS" -ForegroundColor Green
+    $AdminIP = (Resolve-DnsName -Server $StampInformation.ExternalDNSIPAddress02 -Name $StampInformation.AdminHosting).IPAddress
+    Write-Host "The IP for the Admin Extension Host is: $($StampInformation.AdminHostingDNS) - is: $($AdminIP)" -ForegroundColor Yellow
+    Write-Host "The Record to be added in the DNS zone: Type A, Name: $($StampInformation.AdminHostingDNS), Value: $($AdminIP)" -ForegroundColor Green
+    $TenantIP = (Resolve-DnsName -Server $StampInformation.ExternalDNSIPAddress01 -Name $StampInformation.TenantHosting).IPAddress
+    Write-Host "The IP address for the Tenant Extension Host is $($StampInformation.TenantHostingDNS) - is: $($TenantIP)" -ForegroundColor Yellow
+    Write-Host "The Record to be added in the DNS zone: Type A, Name: $($StampInformation.TenantHostingDNS), Value: $($TenantIP)" -ForegroundColor Green
+}
+Else {
+    Write-Host "Cannot access AZS DNS" -ForegroundColor Yellow
+    $AdminIP = (Resolve-DnsName -Name $StampInformation.AdminHosting).IPAddress
+    Write-Host "The IP for the Admin Extension Host is: $($StampInformation.AdminHostingDNS) - is: $($AdminIP)" -ForegroundColor Yellow
+    Write-Host "The Record to be added in the DNS zone: Type A, Name: $($StampInformation.AdminHostingDNS), Value: $($AdminIP)" -ForegroundColor Green
+    $TenantIP = (Resolve-DnsName -Name $StampInformation.TenantHosting).IPAddress
+    Write-Host "The IP address for the Tenant Extension Host is $($StampInformation.TenantHostingDNS) - is: $($TenantIP)" -ForegroundColor Yellow
+    Write-Host "The Record to be added in the DNS zone: Type A, Name: $($StampInformation.TenantHostingDNS), Value: $($TenantIP)" -ForegroundColor Green
+}
+Remove-PSSession -Session $PEPSession
+```
+
+#### <a name="sample-output"></a>샘플 출력
+
+```PowerShell
+Can access AZS DNS
+The IP for the Admin Extension Host is: *.adminhosting.\<region>.\<fqdn> - is: xxx.xxx.xxx.xxx
+The Record to be added in the DNS zone: Type A, Name: *.adminhosting.\<region>.\<fqdn>, Value: xxx.xxx.xxx.xxx
+The IP address for the Tenant Extension Host is *.hosting.\<region>.\<fqdn> - is: xxx.xxx.xxx.xxx
+The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn>, Value: xxx.xxx.xxx.xxx
+```
 
 > [!Note]  
 > 확장 호스트를 사용 하도록 설정 하기 전에이 변경을 확인 합니다. 이렇게 하면 Azure Stack 포털에 계속 액세스할 수 있습니다.
@@ -162,8 +202,8 @@ Cmdlet을 실행 하 여 권한 있는 끝점을 사용 하 여 할당 된 Ip를
 
 | 끝점 (VIP) | 프로토콜 | 포트 |
 |----------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------|
-| 포털 (관리자) | HTTPS | 12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015 |
-| 포털 (사용자) | HTTPS | 12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003 |
+| 포털 (관리자) | HTTPS | 12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015 |
+| 포털 (사용자) | HTTPS | 12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003 |
 | Azure 리소스 관리자 (관리자) | HTTPS | 30024 |
 | Azure Resource Manager (사용자) | HTTPS | 30024 |
 

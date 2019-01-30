@@ -1,21 +1,21 @@
 ---
 title: .NET을 사용하여 비디오 검토 만들기 - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: .NET용 Content Moderator SDK를 사용하여 비디오 검토를 만드는 방법
+description: 이 문서에서 제공하는 정보 및 코드 샘플을 통해 C#과 함께 Content Moderator SDK 사용을 빠르게 시작하여 비디오 검토를 만들 수 있습니다.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/18/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 284ee24bbb0a15d107acf85e2d58072a0ecbbc6e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e9fb82c864c721a9df2e3b31d04e68c824404f81
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219043"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262514"
 ---
 # <a name="create-video-reviews-using-net"></a>.NET을 사용하여 비디오 검토 만들기
 
@@ -35,8 +35,7 @@ ms.locfileid: "47219043"
 
 ## <a name="sign-up-for-content-moderator"></a>Content Moderator 등록
 
-REST API 또는 SDK를 통해 Content Moderator 서비스를 사용하려면 먼저 구독 키가 필요합니다.
-키를 획득하는 방법은 [빠른 시작](quick-start.md)을 참조하세요.
+REST API 또는 SDK를 통해 Content Moderator 서비스를 사용하려면 먼저 구독 키가 필요합니다. [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Content Moderator를 구독하고 키를 가져옵니다.
 
 ## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>이전 단계에서 완료되지 않은 경우 검토 도구 계정에 등록
 
@@ -46,7 +45,7 @@ Azure Portal에서 Content Moderator를 가져온 경우 [검토 도구 계정�
 
 이전 단계를 완료한 후 Azure Portal에서 시작한 경우 두 개의 Content Moderator 키가 생성됩니다. 
 
-SDK 샘플에서 Azure가 제공한 API 키를 사용하려는 경우 [검토 API를 사용하여 Azure 키 사용](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) 섹션에서 언급된 단계를 수행하여 응용 프로그램에서 검토 API를 호출하고 검토를 만들도록 허용합니다.
+SDK 샘플에서 Azure가 제공한 API 키를 사용하려는 경우 [검토 API를 사용하여 Azure 키 사용](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) 섹션에서 언급된 단계를 수행하여 애플리케이션에서 검토 API를 호출하고 검토를 만들도록 허용합니다.
 
 검토 도구에서 생성된 평가판 키를 사용하는 경우 검토 도구 계정은 키에 대해 이미 알고 있으므로 추가 단계가 필요하지 않습니다.
 
@@ -240,10 +239,10 @@ VideoReviews 네임스페이스, Program 클래스에 다음 메서드 정의를
 - **a**. 비디오가 성인 콘텐츠를 포함하는 경우 True입니다.
 - **racyScore**. 비디오 프레임에서 외설 콘텐츠의 심각도 등급을 지정하는 0~1의 값입니다.
 - **r**. 비디오 프레임이 외설 콘텐츠를 포함하는 경우 True입니다.
-- **ReviewerResultTags**. IList<VideoFrameBodyItemReviewerResultTagsItem>입니다. **VideoFrameBodyItemReviewerResultTagsItem**은 단순히 키/값 쌍입니다. 응용 프로그램은 이러한 태그를 사용하여 비디오 프레임을 구성할 수 있습니다.
+- **ReviewerResultTags**. IList<VideoFrameBodyItemReviewerResultTagsItem>입니다. **VideoFrameBodyItemReviewerResultTagsItem**은 단순히 키/값 쌍입니다. 애플리케이션은 이러한 태그를 사용하여 비디오 프레임을 구성할 수 있습니다.
 
 > [!NOTE]
-> 이 빠른 시작은 **adultScore** 및 **racyScore** 속성에 대한 임의 값을 생성합니다. 프로덕션 응용 프로그램에서 Azure 미디어 서비스로 배포된 [비디오 조정 서비스](video-moderation-api.md)에서 이러한 값을 가져옵니다.
+> 이 빠른 시작은 **adultScore** 및 **racyScore** 속성에 대한 임의 값을 생성합니다. 프로덕션 애플리케이션에서 Azure 미디어 서비스로 배포된 [비디오 조정 서비스](video-moderation-api.md)에서 이러한 값을 가져옵니다.
 
 VideoReviews 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다.
 
@@ -408,7 +407,7 @@ VideoReviews 네임스페이스, Program 클래스에 **Main** 메서드 정의�
     }
 
 ## <a name="run-the-program-and-review-the-output"></a>프로그램 실행 및 출력 검토
-응용 프로그램을 실행하면 다음 줄에 출력이 표시됩니다.
+애플리케이션을 실행하면 다음 줄에 출력이 표시됩니다.
 
     Creating a video review.
     Adding a frame to the review with ID 201801v3212bda70ced4928b2cd7459c290c7dc.

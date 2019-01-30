@@ -252,7 +252,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 
 ## <a name="additional-resources"></a>추가 리소스
 * 후속 단계를 수행한 후에도 VM에 대해 SSH를 사용할 수 없는 경우 [자세한 문제 해결 단계](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하여 단계를 검토하고 문제를 해결할 수 있습니다.
-* 응용 프로그램 액세스 문제를 해결하는 방법에 대한 자세한 내용은 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
+* 애플리케이션 액세스 문제를 해결하는 방법에 대한 자세한 내용은 [Azure 가상 컴퓨터에서 실행 중인 애플리케이션에 대한 액세스 문제 해결](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * 클래식 배포 모델을 사용하여 만든 가상 머신의 문제 해결 방법에 대한 자세한 내용은 [Linux 기반 가상 머신의 암호 또는 SSH를 다시 설정하는 방법](../linux/classic/reset-access-classic.md)을 참조하세요.
 
 

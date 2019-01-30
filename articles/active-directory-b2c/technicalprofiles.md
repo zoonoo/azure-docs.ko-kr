@@ -3,19 +3,19 @@ title: TechnicalProfiles | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책의 TechnicalProfiles 요소를 지정합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 45ea2a28b4b2fb3d55d7ae949152e6f51b5d3162
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c17159e1fa901e8219d1727769d234719c4321c6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566536"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856556"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -76,7 +76,7 @@ ms.locfileid: "51566536"
 
 | 특성 | 필수 | 설명 |
 |---------|---------|---------|
-| Id | yes | 기술 프로필의 고유 식별자입니다. 정책 파일의 다른 요소에서 이 식별자를 사용하여 기술 프로필을 참조할 수 있습니다. 예를 들어 **OrchestrationSteps** 및 **ValidationTechnicalProfile**입니다. |
+| Id | 예 | 기술 프로필의 고유 식별자입니다. 정책 파일의 다른 요소에서 이 식별자를 사용하여 기술 프로필을 참조할 수 있습니다. 예를 들어 **OrchestrationSteps** 및 **ValidationTechnicalProfile**입니다. |
 
 **TechnicalProfile**에는 다음 요소가 포함됩니다.
 
@@ -108,7 +108,7 @@ ms.locfileid: "51566536"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 이름 | yes | 기술 프로필의 일부로 사용되는 Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `WsFed`, `WsTrust`, `Proprietary`, `session management`, `self-asserted` 또는 `None`입니다. |
+| 이름 | 예 | 기술 프로필의 일부로 사용되는 Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `WsFed`, `WsTrust`, `Proprietary`, `session management`, `self-asserted` 또는 `None`입니다. |
 | Handler | 아니요 | 프로토콜 이름이 `Proprietary`로 설정된 경우 Azure AD B2C에서 프로토콜 처리기를 확인하는 데 사용하는 어셈블리의 정규화된 이름을 지정합니다. |
 
 ### <a name="metadata"></a>Metadata
@@ -125,7 +125,7 @@ ms.locfileid: "51566536"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 키 | yes | 메타데이터 키입니다. 메타데이터 항목 목록은 각 기술 프로필 유형을 참조하세요. |
+| 키 | 예 | 메타데이터 키입니다. 메타데이터 항목 목록은 각 기술 프로필 유형을 참조하세요. |
 
 ### <a name="cryptographickeys"></a>CryptographicKeys
 
@@ -142,7 +142,7 @@ ms.locfileid: "51566536"
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 아니요 | 정책 파일의 다른 요소에서 참조되는 특정 키 쌍의 고유 식별자입니다. |
-| StorageReferenceId | yes | 정책 파일의 다른 요소에서 참조되는 저장소 키 컨테이너의 식별자입니다. |
+| StorageReferenceId | 예 | 정책 파일의 다른 요소에서 참조되는 저장소 키 컨테이너의 식별자입니다. |
 
 ### <a name="inputclaimstransformations"></a>InputClaimsTransformations
 
@@ -158,7 +158,7 @@ ms.locfileid: "51566536"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ReferenceId | yes | 정책 파일 또는 부모 정책 파일에 이미 정의된 클레임 변환의 식별자입니다. |
+| ReferenceId | 예 | 정책 파일 또는 부모 정책 파일에 이미 정의된 클레임 변환의 식별자입니다. |
 
 ### <a name="inputclaims"></a>InputClaims
 
@@ -174,7 +174,7 @@ ms.locfileid: "51566536"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | yes | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
+| ClaimTypeReferenceId | 예 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
 | DefaultValue | 아니요 | ClaimTypeReferenceId로 표시된 클레임이 없는 경우 결과 클레임이 기술 프로필에서 InputClaim로 사용될 수 있도록 클레임을 만드는 데 사용할 기본값입니다. |
 | PartnerClaimType | 아니요 | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. PartnerClaimType 특성이 지정되지 않은 경우 지정한 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
 
@@ -192,7 +192,7 @@ ms.locfileid: "51566536"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | yes | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
+| ClaimTypeReferenceId | 예 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
 | DefaultValue | 아니요 | ClaimTypeReferenceId로 표시된 클레임이 없는 경우 결과 클레임이 기술 프로필에서 InputClaim로 사용될 수 있도록 클레임을 만드는 데 사용할 기본값입니다. |
 | PartnerClaimType | 아니요 | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. PartnerClaimType 특성이 지정되지 않은 경우 지정한 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
 
@@ -210,7 +210,7 @@ ms.locfileid: "51566536"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | yes | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
+| ClaimTypeReferenceId | 예 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
 | DefaultValue | 아니요 | ClaimTypeReferenceId로 표시된 클레임이 없는 경우 결과 클레임이 기술 프로필에서 InputClaim로 사용될 수 있도록 클레임을 만드는 데 사용할 기본값입니다. |
 |AlwaysUseDefaultValue |아니요 |기본값을 강제로 사용합니다.  |
 | PartnerClaimType | 아니요 | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. PartnerClaimType 특성이 지정되지 않은 경우 지정한 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
@@ -229,7 +229,7 @@ ms.locfileid: "51566536"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ReferenceId | yes | 정책 파일 또는 부모 정책 파일에 이미 정의된 클레임 변환의 식별자입니다. |
+| ReferenceId | 예 | 정책 파일 또는 부모 정책 파일에 이미 정의된 클레임 변환의 식별자입니다. |
 
 ### <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 
@@ -245,7 +245,7 @@ ms.locfileid: "51566536"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ReferenceId | yes | 정책 파일 또는 부모 정책 파일에 이미 정의된 기술 프로필의 식별자입니다. |
+| ReferenceId | 예 | 정책 파일 또는 부모 정책 파일에 이미 정의된 기술 프로필의 식별자입니다. |
 
 ###  <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
@@ -253,7 +253,7 @@ ms.locfileid: "51566536"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ClaimType | yes | 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
+| ClaimType | 예 | 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
 
 ### <a name="includetechnicalprofile"></a>IncludeTechnicalProfile
 
@@ -261,7 +261,7 @@ ms.locfileid: "51566536"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ReferenceId | yes | 정책 파일 또는 부모 정책 파일에 이미 정의된 기술 프로필의 식별자입니다. |
+| ReferenceId | 예 | 정책 파일 또는 부모 정책 파일에 이미 정의된 기술 프로필의 식별자입니다. |
 
 ### <a name="usetechnicalprofileforsessionmanagement"></a>UseTechnicalProfileForSessionManagement
 
@@ -269,7 +269,7 @@ ms.locfileid: "51566536"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ReferenceId | yes | 정책 파일 또는 부모 정책 파일에 이미 정의된 기술 프로필의 식별자입니다. |
+| ReferenceId | 예 | 정책 파일 또는 부모 정책 파일에 이미 정의된 기술 프로필의 식별자입니다. |
 
 ### <a name="enabledforuserjourneys"></a>EnabledForUserJourneys
 사용자 경험의 **ClaimsProviderSelections**는 클레임 공급자 선택 옵션과 해당 순서를 정의합니다. **EnabledForUserJourneys** 요소를 사용하여 사용자에게 제공되는 클레임 공급자를 필터링합니다. **EnabledForUserJourneys** 요소에는 다음 값 중 하나가 포함됩니다.
@@ -280,7 +280,7 @@ ms.locfileid: "51566536"
 - **OnItemExistenceInStringCollectionClaim** - 문자열 컬렉션 클레임에 항목이 있는 경우에만 실행합니다. 
 - **OnItemAbsenceInStringCollectionClaim** - 문자열 컬렉션 클레임에 항목이 없는 경우에만 실행합니다.
 
-**OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** 또는 **OnItemAbsenceInStringCollectionClaim**을 사용하려면 다음 메타데이터를 제공해야 합니다. **ClaimTypeOnWhichToEnable**은 평가할 클레임 유형을 지정하고, **ClaimValueOnWhichToEnable**은 비교할 값을 지정합니다.
+**OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** 또는 **OnItemAbsenceInStringCollectionClaim**을 사용하여 다음 메타데이터를 제공해야 합니다. **ClaimTypeOnWhichToEnable**은 평가할 클레임의 형식을 지정하고, **ClaimValueOnWhichToEnable**은 비교할 값을 지정합니다.
 
 다음 기술 프로필은 **identityProviders** 문자열 컬렉션에 `facebook.com` 값이 포함된 경우에만 실행됩니다.
 

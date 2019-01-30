@@ -1,6 +1,6 @@
 ---
 title: Azure에서 Linux VM의 가용성 관리 | Microsoft Docs
-description: Azure에서 여러 가상 머신을 사용하여 Linux 응용 프로그램의 고가용성을 유지하는 방법에 대해 알아봅니다.
+description: Azure에서 여러 가상 머신을 사용하여 Linux 애플리케이션의 고가용성을 유지하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: zr-msft
@@ -25,7 +25,7 @@ ms.locfileid: "49464700"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Linux 가상 머신의 가용성 관리
 
-Azure에서 여러 가상 머신을 설정하고 관리하여 Linux 응용 프로그램의 고가용성을 유지하는 방법에 대해 알아봅니다. [Windows 가상 머신의 가용성을 관리](../windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 수도 있습니다.
+Azure에서 여러 가상 머신을 설정하고 관리하여 Linux 애플리케이션의 고가용성을 유지하는 방법에 대해 알아봅니다. [Windows 가상 머신의 가용성을 관리](../windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 수도 있습니다.
 
 Resource Manager 배포 모델에서 CLI를 사용하여 가용성 집합을 만들기 위한 지침은 [azure availset: 가용성 집합을 관리하는 명령](../azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets)을 참조하세요.
 

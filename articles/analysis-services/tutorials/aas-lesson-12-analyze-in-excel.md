@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 425c3a351c75c63cb07df66d6122f4d900b4932e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e5ac04c7bd8174f823cacc67401af8a98b3d8170
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429765"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186484"
 ---
 # <a name="analyze-in-excel"></a>Excel에서 분석
 
@@ -24,7 +24,7 @@ ms.locfileid: "49429765"
 이 단원을 완료하기 위한 예상 시간: **5분**  
   
 ## <a name="prerequisites"></a>필수 조건  
-이 항목은 테이블 형식 모델링 자습서에 포함되며 순서대로 완료해야 합니다. 이 단원의 작업을 수행하기 전에 이전 단원인 [단원 11: 역할 만들기](../tutorials/aas-lesson-11-create-roles.md)를 완료해야 합니다.  
+이 항목은 테이블 형식 모델링 자습서에 포함되며 순서대로 완료해야 합니다. 이 단원의 작업을 수행하기 전에 이전 단원인 [단원 11: 역할 만들기](../tutorials/aas-lesson-11-create-roles.md)  
   
 ## <a name="browse-using-the-default-and-internet-sales-perspectives"></a>기본 및 인터넷 판매 큐브 뷰를 사용하여 찾아보기  
 다음 첫 번째 작업에서는 모든 모델 개체를 포함하는 기본 큐브 뷰와 이전의 인터넷 판매 큐브 뷰를 모두 사용하여 모델을 찾아봅니다. 인터넷 판매 큐브 뷰에는 고객 테이블 개체가 제외됩니다.  
@@ -69,7 +69,7 @@ ms.locfileid: "49429765"
 3.  통합 문서를 저장하지 않고 Excel을 닫습니다.  
   
 ## <a name="whats-next"></a>다음 작업
-다음 단원인 [단원 13: 배포](../tutorials/aas-lesson-13-deploy.md)로 이동합니다.
+다음 단원: [단원 13: 배포](../tutorials/aas-lesson-13-deploy.md)로 이동합니다.
 
   
   

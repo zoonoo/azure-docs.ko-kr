@@ -12,11 +12,11 @@ items:
   items:
   - name: Service Bus 큐
     items:
-    - name: 메시지 보내기 및 받기 - PowerShell
-      href: service-bus-quickstart-powershell.md
-    - name: 메시지 보내기 및 받기 - Portal
+    - name: Service Bus 큐 만들기 - 포털
       href: service-bus-quickstart-portal.md
-    - name: 메시지 보내기 및 받기 - CLI
+    - name: Service Bus 큐 만들기 - PowerShell
+      href: service-bus-quickstart-powershell.md
+    - name: Service Bus 큐 만들기 - CLI
       href: service-bus-quickstart-cli.md
     - name: 메시지 보내기 및 받기 - .NET
       href: service-bus-dotnet-get-started-with-queues.md
@@ -147,7 +147,7 @@ items:
         href: service-bus-paired-namespaces.md
     - name: 종단 간 추적 및 진단
       href: service-bus-end-to-end-tracing.md
-    - name: 다중 계층 Service Bus 응용 프로그램 빌드
+    - name: 다중 계층 Service Bus 애플리케이션 빌드
       href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
   - name: 관리
     items:
@@ -194,6 +194,8 @@ items:
     href: /powershell/module/azurerm.servicebus
   - name: REST (영문)
     href: /rest/api/servicebus
+  - name: Resource Manager 템플릿
+    href: /azure/templates/microsoft.servicebus/allversions
   - name: 할당량
     href: service-bus-quotas.md
   - name: SQLFilter 구문
@@ -228,9 +230,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azureservicebus
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-bus
-ms.openlocfilehash: be2f26200cc998f8053bcfe349afc6271557d095
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6fd3d46596380360332366f600b84c82e0c75937
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271961"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260321"

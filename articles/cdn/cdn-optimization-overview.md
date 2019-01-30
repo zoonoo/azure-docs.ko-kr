@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: magattus
-ms.openlocfilehash: 54979bdaab3d3d49ab3d3a08868dd28e27423e7e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 526f3522bff05618189ad4f8205fbb61afc47fdc
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091745"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320314"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>콘텐츠 전송 형식에 맞게 Azure CDN 최적화
 
@@ -78,7 +78,7 @@ CDN 엔드포인트를 만들 때 엔드포인트를 전송하려는 시나리�
 
 ### <a name="general-web-delivery"></a>일반 웹 배달
 
-일반 웹 배달은 가장 일반적인 최적화 옵션입니다. 웹 페이지 및 웹 응용 프로그램과 같은 일반 웹 콘텐츠 최적화를 위해 설계되었습니다. 이 최적화는 파일 및 비디오 다운로드에도 사용할 수 있습니다.
+일반 웹 배달은 가장 일반적인 최적화 옵션입니다. 웹 페이지 및 웹 애플리케이션과 같은 일반 웹 콘텐츠 최적화를 위해 설계되었습니다. 이 최적화는 파일 및 비디오 다운로드에도 사용할 수 있습니다.
 
 일반적인 웹 사이트에는 정적 및 동적 콘텐츠가 포함되어 있습니다. 정적 콘텐츠는 캐시되고 다른 사용자에게 배달될 수 있는 이미지, JavaScript 라이브러리 및 스타일시트를 포함합니다. 동적 콘텐츠는 사용자 프로필에 맞게 조정된 뉴스 항목과 같이 개별 사용자에 맞게 개인 설정됩니다. 장바구니 콘텐츠 같은 동적 콘텐츠는 각 사용자에게 고유하기 때문에 캐시되지 않습니다. 일반 웹 배달은 전체 웹 사이트를 최적화할 수 있습니다. 
 

@@ -1,9 +1,9 @@
 ---
-title: Azure Active Directory를 사용하여 그룹을 삭제하는 방법 | Microsoft Docs
-description: Azure Active Directory를 사용하여 그룹을 삭제하는 방법을 알아봅니다.
+title: 그룹 삭제 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory를 사용하여 그룹을 삭제하는 방법에 대한 지침입니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: 014fe487d23a6c75e94ca2708ed15044bd6cf53b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 0e50abb4c7aa5641d92bf0a9f5c4516fc29125e2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574334"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452576"
 ---
-# <a name="how-to-delete-a-group-using-azure-active-directory"></a>방법: Azure Active Directory를 사용하여 그룹 삭제
-여러 가지 이유로 그룹을 삭제할 수 있지만, 일반적으로 이유는 다음과 같습니다.
+# <a name="delete-a-group-using-azure-active-directory"></a>Azure Active Directory를 사용하여 그룹 삭제
+여러 가지 이유로 Azure AD(Azure Active Directory)그룹을 삭제할 수 있지만, 일반적으로 이유는 다음과 같습니다.
 
 - **그룹 유형**을 잘못된 옵션으로 설정함
 

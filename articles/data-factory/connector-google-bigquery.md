@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: ca12c7a3fe8a5ade8cf0e4ce00977bdcc9a300a6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1e0cb556bf2b36ec2b6ebee7163ec44e459f35ab
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007657"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023688"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Google BigQuery에서 데이터 복사
 
@@ -45,11 +44,11 @@ Google BigQuery에서 지원되는 모든 싱크 데이터 저장소로 데이�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성은 **GoogleBigQuery**로 설정해야 합니다. | yes |
-| project | 쿼리할 기본 BigQuery 프로젝트의 프로젝트 ID입니다.  | yes |
+| 형식 | type 속성은 **GoogleBigQuery**로 설정해야 합니다. | 예 |
+| project | 쿼리할 기본 BigQuery 프로젝트의 프로젝트 ID입니다.  | 예 |
 | additionalProjects | 액세스할 공용 BigQuery 프로젝트의 쉼표로 구분된 프로젝트 ID의 목록입니다.  | 아니요 |
 | requestGoogleDriveScope | Google Drive에 대한 액세스를 요청할지 여부입니다. Google Drive 액세스를 허용하면 BigQuery 데이터를 Google Drive의 데이터와 결합하는 페더레이션된 테이블을 지원할 수 있습니다. 기본값은 **false**입니다.  | 아니요 |
-| authenticationType | 인증에 사용되는 OAuth 2.0 인증 메커니즘입니다. ServiceAuthentication은 자체 호스팅 통합 런타임에서만 사용할 수 있습니다. <br/>허용되는 값은 **UserAuthentication**과 **ServiceAuthentication**입니다. 각 인증 형식에 대한 더 많은 속성 및 JSON 샘플은 표 아래 섹션을 참조하세요. | yes |
+| authenticationType | 인증에 사용되는 OAuth 2.0 인증 메커니즘입니다. ServiceAuthentication은 자체 호스팅 통합 런타임에서만 사용할 수 있습니다. <br/>허용되는 값은 **UserAuthentication**과 **ServiceAuthentication**입니다. 각 인증 형식에 대한 더 많은 속성 및 JSON 샘플은 표 아래 섹션을 참조하세요. | 예 |
 
 ### <a name="using-user-authentication"></a>사용자 인증 사용
 
@@ -57,8 +56,8 @@ Google BigQuery에서 지원되는 모든 싱크 데이터 저장소로 데이�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| clientId | 새로 고침 토큰을 생성하는 데 사용되는 응용 프로그램의 ID입니다. | 아니요 |
-| clientSecret | 새로 고침 토큰을 생성하는 데 사용되는 응용 프로그램의 비밀입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |
+| clientId | 새로 고침 토큰을 생성하는 데 사용되는 애플리케이션의 ID입니다. | 아니요 |
+| clientSecret | 새로 고침 토큰을 생성하는 데 사용되는 애플리케이션의 비밀입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |
 | refreshToken | BigQuery에 대한 액세스 권한을 부여하는 데 사용되는 Google에서 가져온 새로 고침 토큰입니다. [OAuth 2.0 액세스 토큰 가져오기](https://developers.google.com/identity/protocols/OAuth2WebServer#obtainingaccesstokens) 및 [이 커뮤니티 블로그](https://jpd.ms/getting-your-bigquery-refresh-token-for-azure-datafactory-f884ff815a59)에서 토큰을 가져오는 방법을 알아보세요. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |
 
 **예제:**
@@ -124,7 +123,12 @@ Google BigQuery에서 지원되는 모든 싱크 데이터 저장소로 데이�
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Google BigQuery 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Google BigQuery에서 데이터를 복사하려면 데이터 세트의 type 속성을 **GoogleBigQueryObject**로 설정합니다. 이 형식의 데이터 세트에는 추가적인 형식별 속성이 없습니다.
+Google BigQuery에서 데이터를 복사하려면 데이터 세트의 type 속성을 **GoogleBigQueryObject**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+
+| 속성 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| 형식 | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **GoogleBigQueryObject** | 예 |
+| tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
 
@@ -136,7 +140,8 @@ Google BigQuery에서 데이터를 복사하려면 데이터 세트의 type 속�
         "linkedServiceName": {
             "referenceName": "<GoogleBigQuery linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -151,8 +156,8 @@ Google BigQuery에서 데이터를 복사하려면 복사 작업의 원본 형�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성은 **GoogleBigQuerySource**로 설정해야 합니다. | yes |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예는 `"SELECT * FROM MyTable"`입니다. | yes |
+| 형식 | 복사 작업 원본의 type 속성은 **GoogleBigQuerySource**로 설정해야 합니다. | 예 |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예는 `"SELECT * FROM MyTable"`입니다. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
 

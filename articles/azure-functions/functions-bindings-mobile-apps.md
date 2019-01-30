@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: eb77046c6e673012209f0db452b20bf25046cd67
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: f61a00e3ea243dfdf777af88b5f211580f35d8a0
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250974"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001654"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure Functions의 Mobile Apps 바인딩 
 
@@ -31,7 +31,7 @@ Mobile Apps 바인딩을 사용하면 모바일 앱에서 데이터 테이블을
 
 ## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 
-Mobile Apps는 [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet 패키지 버전 1.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) GitHub 리포지토리에 있습니다.
+Mobile Apps는 [Microsoft.Azure.WebJobs.Extensions.MobileApps](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet 패키지 버전 1.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -157,7 +157,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---usage"></a>입력 - 사용
 
-C# 함수에서 지정된 ID가 있는 레코드를 찾으면 명명된 [JObject](http://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) 매개 변수로 전달됩니다. 레코드를 찾을 수 없는 경우 매개 변수 값은 `null`입니다. 
+C# 함수에서 지정된 ID가 있는 레코드를 찾으면 명명된 [JObject](https://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) 매개 변수로 전달됩니다. 레코드를 찾을 수 없는 경우 매개 변수 값은 `null`입니다. 
 
 JavaScript 함수에서는 레코드가 `context.bindings.<name>` 개체로 전달됩니다. 레코드를 찾을 수 없는 경우 매개 변수 값은 `null`입니다. 
 

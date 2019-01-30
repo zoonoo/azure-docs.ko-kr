@@ -218,7 +218,7 @@
 ##### [일반적인 문제 - 갤러리 앱](manage-apps/adding-gallery-app-common-problems.md)
 ##### [일반적인 문제 - 비갤러리 앱](manage-apps/adding-non-gallery-app-common-problems.md)
 
-#### 응용 프로그램 프록시
+#### 애플리케이션 프록시
 ##### [앱 페이지를 표시할 때 문제](manage-apps/application-proxy-page-appearance-broken-problem.md)
 ##### [너무 긴 응용 프로그램 로드](manage-apps/application-proxy-page-load-speed-problem.md)
 ##### [응용 프로그램 페이지에서 링크가 작동하지 않음](manage-apps/application-proxy-page-links-broken-problem.md)
@@ -233,7 +233,7 @@
 ##### [응용 프로그램 프록시 에이전트 커넥터 설치 시 문제](manage-apps/application-proxy-connector-installation-problem.md)
 
 
-#### 응용 프로그램 등록
+#### 애플리케이션 등록
 ##### [응용 프로그램 개체에 대한 필드 입력](develop/registration-config-specific-application-property-how-to.md)
 ##### [토큰 수명 기본값 변경](develop/registration-config-change-token-lifetime-how-to.md)
 
@@ -241,11 +241,11 @@
 ##### [엔드포인트 구성](develop/registration-config-how-to.md)
 
 #### 조건부 액세스
-##### [고객이 장치 등록 사전 요구 사항을 충족시키지 못함](active-directory-conditional-access.md)
+##### [고객이 디바이스 등록 사전 요구 사항을 충족시키지 못함](active-directory-conditional-access.md)
 ##### [회사 네트워크 규칙이 적용되는 방법 및 시기](https://aka.ms/calocation)
-##### [사용자가 Azure AD에 등록할 수 있는 장치 수를 늘리는 방법](active-directory-azureadjoin-setup.md)
+##### [사용자가 Azure AD에 등록할 수 있는 디바이스 수를 늘리는 방법](active-directory-azureadjoin-setup.md)
 ##### [Exchange Online에 대한 조건부 액세스를 설정하는 방법](https://aka.ms/csforexchange)
-##### [Windows 7 장치에 대한 조건부 액세스를 설정하는 방법](active-directory-conditional-access.md#device-based-conditional-access)
+##### [Windows 7 디바이스에 대한 조건부 액세스를 설정하는 방법](active-directory-conditional-access.md#device-based-conditional-access)
 ##### [조건부 액세스가 지원되는 응용 프로그램](active-directory-conditional-access-supported-apps.md)
 
 #### API 찾기
@@ -275,6 +275,7 @@
 ##### [사용자가 갤러리 앱에 프로비전을 구성하는 동안 관리자 자격 증명 저장 시 문제](manage-apps/application-provisioning-config-problem-storage-limit.md)
 ##### [프로비전되지 않은 사용자 - 갤러리 앱](manage-apps/application-provisioning-config-problem-no-users-provisioned.md)
 ##### [잘못 프로비전된 사용자 - 갤러리 앱](manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md)
+##### [SCIM 호환성 문제 - 비 갤러리 앱](manage-apps/application-provisioning-config-problem-scim-compatibility.md)
 
 #### SSO(Single sign-on)
 ##### [메서드 선택](manage-apps/single-sign-on-modes.md)
@@ -321,10 +322,10 @@
 ## [문제 해결](fundamentals/active-directory-troubleshooting-support-howto.md)
 
 ## Azure AD 개념 증명(PoC) 배포
-### [PoC 플레이 북: 소개](active-directory-playbook-intro.md)
-### [PoC 플레이 북: 재료](active-directory-playbook-ingredients.md)
-### [PoC 플레이 북: 구현](active-directory-playbook-implementation.md)
-### [PoC 플레이 북: 구성 요소](active-directory-playbook-building-blocks.md)
+### [PoC 플레이북: 소개](active-directory-playbook-intro.md)
+### [PoC 플레이북: 구성 요소](active-directory-playbook-ingredients.md)
+### [PoC 플레이북: 구현](active-directory-playbook-implementation.md)
+### [PoC 플레이북: 빌딩 블록](active-directory-playbook-building-blocks.md)
 
 # 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=active-directory)

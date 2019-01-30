@@ -1,23 +1,24 @@
 ---
-title: LUIS 앱에서 버전 관리
-titleSuffix: Azure Cognitive Services
+title: 버전 관리
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 버전을 통해 다양한 모델을 빌드하고 게시할 수 있습니다. 모델에 변경 사항을 적용하기 전에 현재 활성 모델을 앱의 다른 버전에 을 복제하는 것이 좋습니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: db461191b70aabc322e570ecc814a076c21206f2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f5f31ddee58d1d609d0ff4b2901aa38abf3147a0
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033790"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599103"
 ---
-# <a name="manage-versions"></a>버전 관리
+# <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>스테이징 또는 프로덕션 앱에 영향을 주지 않고 버전을 사용하여 편집 및 테스트
 
 버전을 통해 다양한 모델을 빌드하고 게시할 수 있습니다. 모델에 변경 사항을 적용하기 전에 현재 활성 모델을 앱의 다른 [버전](luis-concept-version.md)에 복제하는 것이 좋습니다. 
 
@@ -25,7 +26,7 @@ ms.locfileid: "47033790"
 
 버전 목록은 게시된 버전, 게시 위치 및 현재 활성 버전을 보여 줍니다. 
 
-[![](./media/luis-how-to-manage-versions/versions-import.png "섹션, 버전 페이지 관리")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
+[![관리 섹션, 버전 페이지](./media/luis-how-to-manage-versions/versions-import.png "관리 섹션, 버전 페이지")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
 ## <a name="clone-a-version"></a>버전 복제
 
@@ -44,7 +45,7 @@ ms.locfileid: "47033790"
 
 목록에서 버전을 선택한 다음, 도구 모음에서 **활성화**를 선택합니다. 
 
-[![](./media/luis-how-to-manage-versions/versions-other.png "섹션, 버전 페이지 관리")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
+[![관리 섹션, 버전 페이지, 버전 작업 수행](./media/luis-how-to-manage-versions/versions-other.png "관리 섹션, 버전 페이지, 버전 작업 수행")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## <a name="import-version"></a>버전 가져오기
 
@@ -52,7 +53,7 @@ ms.locfileid: "47033790"
 
 2. **새 버전 가져오기** 팝업 창에서 10자의 새 버전 이름을 입력합니다. JSON 파일에 있는 버전이 이미 앱에 있는 경우 버전 ID를 설정하기만 하면 됩니다.
 
-    ![섹션, 버전 페이지 관리](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
+    ![관리 섹션, 버전 페이지, 새 버전 가져오기](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
     버전을 가져오면 새 버전이 활성 버전이 됩니다.
 

@@ -1,6 +1,6 @@
 ---
-title: 컨테이너 설치 및 실행 방법
-titlesuffix: Computer Vision - Cognitive Services - Azure
+title: 컨테이너 설치 및 실행 방법 - Computer Vision
+titlesuffix: Azure Cognitive Services
 description: 이 단계별 자습서에서 Computer Vision용 컨테이너를 다운로드, 설치 및 실행하는 방법입니다.
 services: cognitive-services
 author: diberry
@@ -8,16 +8,17 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 67dbf3bdf6631785fc876283847e36349e857a77
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.custom: seodec18
+ms.openlocfilehash: f344bb893a453a5f0b00f5cb1d87528b5943f779
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634645"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462949"
 ---
-# <a name="install-and-run-containers"></a>컨테이너 설치 및 실행
+# <a name="install-and-run-recognize-text-containers"></a>텍스트 인식 컨테이너 설치 및 구성
 
 컨테이너화는 애플리케이션 또는 서비스를 컨테이너 이미지로 패키지하는 소프트웨어 배포 방법입니다. 애플리케이션 또는 서비스에 대한 구성 및 종속성이 컨테이너 이미지에 포함됩니다. 그런 다음, 컨테이너 이미지를 거의 또는 전혀 수정하지 않고 컨테이너 호스트에 배포할 수 있습니다. 컨테이너는 가상 머신보다 더 작은 공간을 사용하여 서로 간에 또는 기본 운영 체제로부터 격리됩니다. 컨테이너는 단기 작업을 위해 컨테이너 이미지에서 인스턴스화할 수 있으며 더 이상 필요하지 않을 때 제거할 수 있습니다.
 
@@ -31,15 +32,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 텍스트 인식 컨테이너를 사용하려면 먼저 다음 필수 조건을 충족해야 합니다.
 
-**Docker 엔진** : Docker 엔진이 로컬로 설치되어 있어야 합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 및 [Windows](https://docs.docker.com/docker-for-windows/)에 Docker 환경을 구성하는 패키지를 제공합니다. Windows에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다. Docker 컨테이너는 [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/) 또는 [Azure Stack](/azure/azure-stack/)에 배포된 [Kubernetes](https://kubernetes.io/) 클러스터에 직접 배포할 수도 있습니다. Kubernets를 Azure Stack에 배포하는 방법에 대한 자세한 내용은 [Azure Stack에 Kubernet 배포](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)를 참조하세요.
+**Docker 엔진**: Docker 엔진이 로컬로 설치되어 있어야 합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 및 [Windows](https://docs.docker.com/docker-for-windows/)에 Docker 환경을 구성하는 패키지를 제공합니다. Windows에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다. Docker 컨테이너는 [Azure Kubernetes Service](../../aks/index.yml), [Azure Container Instances](../../container-instances/index.yml) 또는 [Azure Stack](../../azure-stack/index.yml)에 배포된 [Kubernetes](https://kubernetes.io/) 클러스터에 직접 배포할 수도 있습니다. Kubernets를 Azure Stack에 배포하는 방법에 대한 자세한 내용은 [Azure Stack에 Kubernet 배포](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md)를 참조하세요.
 
 Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다.
 
-**Microsoft Container Registry 및 Docker에 대한 숙지**: 기본적으로 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지는 물론 기본 `docker` 명령에 대한 지식과 같이 Microsoft Container Registry와 Docker 모두에 대한 개념을 이해해야 합니다.  
+**Microsoft Container Registry 및 Docker 숙지**: 기본적으로 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지는 물론 기본 `docker` 명령에 대한 지식과 같이 Microsoft Container Registry와 Docker 모두에 대한 개념을 이해해야 합니다.  
 
 Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.
 
-### <a name="server-requirements-and-recommendations"></a>서버 요구 사항 및 권장 사항
+### <a name="container-requirements-and-recommendations"></a>컨테이너 요구 사항 및 추천
 
 텍스트 인식 컨테이너에는 최소한 하나의 CPU 코어(2.6GHz 이상) 및 8GB의 할당된 메모리 메모리가 필요하지만, 2개 이상의 CPU 코어와 8GB의 할당된 메모리를 사용하는 것이 좋습니다.
 
@@ -162,7 +163,9 @@ Computer Vision 서비스에서 해당하는 REST 작업을 사용하는 방법�
 * 컨테이너 이미지는 Docker에서 실행됩니다.
 * REST API 또는 SDK를 사용하여 컨테이너의 호스트 URI를 지정함으로써 Computer Vision 컨테이너에서 작업을 호출할 수 있습니다.
 * 컨테이너를 인스턴스화할 때 청구 정보를 지정해야 합니다.
-* ** Cognitive Services 컨테이너에는 계량을 위해 Azure에 연결하지 않고 실행할 수 있는 라이선스가 없습니다. 고객은 컨테이너에서 항상 계량 서비스와 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터(예: 분석 중인 이미지 또는 텍스트)를 Microsoft에 보내지 않습니다.  
+
+> [!IMPORTANT]
+> Cognitive Services 컨테이너는 측광을 위해 Azure에 연결되지 않은 상태에서 실행할 수 있는 권한이 없습니다. 고객은 컨테이너에서 항상 계량 서비스와 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터(예: 분석 중인 이미지 또는 텍스트)를 Microsoft에 보내지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -170,3 +173,4 @@ Computer Vision 서비스에서 해당하는 REST 작업을 사용하는 방법�
 * [Computer Vision 개요](Home.md)를 검토하여 인쇄 및 필기 텍스트를 인식하는 방법을 자세히 알아봅니다.  
 * [Computer Vision API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)를 참조하여 컨테이너에서 지원하는 방법을 자세히 알아봅니다.
 * [FAQ(질문과 대답)](FAQ.md)를 참조하여 Computer Vision 기능과 관련된 문제를 해결합니다.
+* 더 많은 [Cognitive Services 컨테이너](../cognitive-services-container-support.md)를 사용합니다.

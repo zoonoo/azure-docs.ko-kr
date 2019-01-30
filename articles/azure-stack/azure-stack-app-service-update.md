@@ -11,23 +11,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 01/16/2019
 ms.author: anwestg
-ms.openlocfilehash: e8a75afe2c7dbe91c7c98d0d35c319088f40748f
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.lastreviewed: 01/16/2019
+ms.openlocfilehash: 7a273dc9267c276ba587d98c86b02c824a1b1b5a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612681"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250081"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Azure Stack의 Azure App Service를 업데이트 합니다.
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 > [!IMPORTANT]  
-> Azure Stack 통합 시스템 1809 업데이트를 적용 하거나 Azure 앱 서비스 1.4를 배포 하기 전에 최신 Azure Stack 개발 키트를 배포 합니다.
->
->
+> 1809 업데이트 적용 또는 나중에 Azure Stack 통합 시스템 또는 Azure 앱 서비스 1.4를 배포 하기 전에 최신 Azure Stack 개발 키트를 배포 합니다. 리소스 공급자를 업데이트 하기 전에 새로운 기능, 수정 및 배포에 영향을 줄 수 있는 알려진된 문제에 대 한 자세한 릴리스 정보를 검토 합니다.
 
 이 문서의 지침에 따라 업그레이드할 수 있습니다 합니다 [App Service 리소스 공급자](azure-stack-app-service-overview.md) 인터넷에 연결 된 Azure Stack 환경에 배포 합니다.
 

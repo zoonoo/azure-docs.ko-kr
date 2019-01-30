@@ -10,12 +10,13 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: e265a66b841530d1133d760ebdcdf56046d1aee1
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: c44b09e15a227e11426d2798fc071778ca47ebd3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364133"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557466"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>Time Series Insights의 데이터 보존 기간 이해
 
@@ -47,7 +48,7 @@ ms.locfileid: "46364133"
 - 가장 오래 전에 수집된 데이터부터 먼저 삭제됩니다(FIFO 방식).
 
 ### <a name="example-1"></a>예제 1:
-보존 동작이 **수신을 계속하고 이전 데이터 삭제**로 구성된 예제 환경을 생각해 보세요. 이 예제에서는 **데이터 보존 시간**이 400일로 설정됩니다. **용량**은 30GB의 총 용량을 포함하는 S1 단위로 설정됩니다.   인바운드 데이터가 매일 평균 500MB 누적된다고 가정하겠습니다. 인바운드 데이터의 속도에 따르면 60일째에 최대 용량에 도달하므로 이 환경은 데이터를 60일만 보존할 수 있습니다. 이 기간 동안 인바운드 데이터의 누적량을 계산해 보면 다음과 같습니다. 500MB x 60일 = 30GB. 
+보존 동작 **수신을 계속하고 이전 데이터 삭제**가 지정된 예제 환경을 고려해 보세요. 이 예제에서 **데이터 보존 시간**은 400일로 설정되어 있습니다. **용량**은 30GB의 총 용량을 포함하는 S1 단위로 설정됩니다.   인바운드 데이터가 매일 평균 500MB 누적된다고 가정하겠습니다. 인바운드 데이터의 속도에 따르면 60일째에 최대 용량에 도달하므로 이 환경은 데이터를 60일만 보존할 수 있습니다. 인바운드 데이터 누적: 매일 500MB x 60일 = 30GB 
 
 이 예제에서는 61일째에 가장 최신 데이터를 보여주지만 60일보다 오래된 데이터는 삭제됩니다. 삭제를 통해 스트리밍되는 새 데이터를 위한 공간을 확보하여 새 데이터를 계속 탐색할 수 있습니다. 
 

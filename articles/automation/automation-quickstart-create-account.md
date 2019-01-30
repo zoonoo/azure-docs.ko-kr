@@ -4,17 +4,17 @@ description: Azure Automation 계정을 만들고 Runbook을 실행하는 방법
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 10/18/2018
+ms.date: 01/15/2019
 ms.topic: quickstart
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 6d473d8874208297e905a5d90a08ffd870ffa8a6
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: d15b3859d5eccbd58d7f5b7902be84c94ec16b73
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091827"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429245"
 ---
 # <a name="create-an-azure-automation-account"></a>Azure Automation 계정 만들기
 
@@ -32,14 +32,14 @@ https://portal.azure.com에서 Azure에 로그인
 
 1. **관리 도구**를 선택한 다음, **Automation**을 선택합니다.
 
-1. 계정 정보를 입력합니다. Azure에 대한 인증을 간소화하는 아티팩트를 자동으로 사용하도록 설정하기 위해 **Azure 실행 계정 만들기**에서 **예**를 선택합니다. Automation 계정을 만들 때 이름을 선택한 후에는 변경할 수 없습니다. 하나의 Automation 계정으로 해당 테넌트의 모든 영역과 구독 전반의 리소스를 관리할 수 있습니다. 완료되면 **만들기**를 클릭하여 Automation 계정 배포를 시작합니다.
+1. 계정 정보를 입력합니다. Azure에 대한 인증을 간소화하는 아티팩트를 자동으로 사용하도록 설정하기 위해 **Azure 실행 계정 만들기**에서 **예**를 선택합니다. Automation 계정을 만들 때 이름을 선택한 후에는 변경할 수 없습니다. *Automation 계정 이름은 하위 지역 및 리소스 그룹별로 고유합니다. 삭제된 Automation 계정에 대한 이름을 즉시 사용할 수 있습니다.* 하나의 Automation 계정으로 해당 테넌트의 모든 영역과 구독 전반의 리소스를 관리할 수 있습니다. 완료되면 **만들기**를 클릭하여 Automation 계정 배포를 시작합니다.
 
     ![페이지에서 Automation 계정에 대한 정보 입력](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
     > [!NOTE]
     > Automation Account를 배포할 수 있는 위치의 업데이트된 목록을 보려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=automation&regions=all)을 참조하세요.
 
-1. 배포가 완료되면 ****모든 서비스**를 클릭하고, **Automation 계정**을 선택하고, 만든 Automation 계정을 선택합니다.
+1. 배포가 완료되면 ** **모든 서비스**를 클릭하고, **Automation 계정**을 선택하고, 만든 Automation 계정을 선택합니다.
 
     ![Automation 계정 개요](./media/automation-quickstart-create-account/automation-account-overview.png)
 
@@ -63,7 +63,7 @@ https://portal.azure.com에서 Azure에 로그인
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 빠른 시작에서는 Automation 계정을 만들었으며 Runbook 작업을 시작하고, 작업 결과를 확인했습니다. Azure Automation에 대한 자세한 내용을 알아보려면 다음의 **Automation 빠른 시작 - Runbook 만들기** 링크를 클릭해 계속 진행하세요.
+이 빠른 시작에서는 Automation 계정을 만들었으며 Runbook 작업을 시작하고, 작업 결과를 확인했습니다. 이렇게 하려면 Automation 계정이 있는 리소스 그룹을 선택하고 **삭제**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -71,3 +71,4 @@ https://portal.azure.com에서 Azure에 로그인
 
 > [!div class="nextstepaction"]
 > [Automation 빠른 시작 - Runbook 만들기](./automation-quickstart-create-runbook.md)
+

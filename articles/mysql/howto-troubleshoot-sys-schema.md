@@ -1,20 +1,17 @@
 ---
 title: Azure Database for MySQL에서 성능 튜닝 및 데이터베이스 유지 관리를 위해 sys_schema를 사용하는 방법
 description: 이 문서에서는 Azure Database for MySQL에서 sys_schema를 사용하여 성능 문제를 찾고 데이터베이스를 유지 관리하는 방법을 설명합니다.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/01/2018
-ms.openlocfilehash: 1e10e3b1b5f4518732408f254eb5767acb8485c6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 993c77056c09c1dc21d5317ddbfe8e937341718d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446910"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542852"
 ---
 # <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Azure Database for MySQL에서 성능 튜닝 및 데이터베이스 유지 관리를 위해 sys_schema를 사용하는 방법
 
@@ -26,13 +23,13 @@ sys_schema에는 52개의 보기가 있고 각 보기에는 다음 접두사 중
 
 - Host_summary 또는 IO: I/O 관련 대기 시간.
 - InnoDB: InnoDB 버퍼 상태 및 잠금.
-- Memory: 호스트 및 사용자별 메모리 사용량.
-- Schema: 스키마 관련 정보(예: 자동 증분, 인덱스 등).
-- Statement: SQL 문에 대한 정보; 전체 테이블 스캔 또는 긴 쿼리 시간을 유발하는 명령문이 될 수 있습니다.
-- User: 사용자별로 소비되고 그룹화된 리소스. 예: 파일 I/O, 연결 및 메모리.
+- 메모리: 호스트 및 사용자별 메모리 사용량.
+- 스키마: 스키마 관련 정보(예: 자동 증분, 인덱스 등).
+- Statement: SQL 문에 대한 정보. 전체 테이블 검색 또는 긴 쿼리 시간을 유발하는 명령문이 될 수 있습니다.
+- 사용자: 사용자별로 소비되고 그룹화된 리소스. 예: 파일 I/O, 연결 및 메모리.
 - Wait: 호스트 또는 사용자별로 그룹화된 대기 이벤트.
 
-이제 sys_schema의 몇 가지 일반적인 사용량 패턴을 살펴보겠습니다. 우선, 사용량 패턴을 **성능 튜닝** 및 **데이터베이스 유지 관리**라는 두 가지 범주로 그룹화하겠습니다.
+이제 sys_schema의 몇 가지 일반적인 사용량 패턴을 살펴보겠습니다. 우선, 사용량 패턴을 다음 두 가지 범주로 그룹화하겠습니다. **성능 튜닝** 및 **데이터베이스 유지 관리**.
 
 ## <a name="performance-tuning"></a>성능 튜닝
 
@@ -48,7 +45,7 @@ Azure Database for MySQL에서 저장소와 관련된 IO 크기를 조정하기 
 
 ### <a name="sysschematableswithfulltablescans"></a>*sys.schema_tables_with_full_table_scans*
 
-신중한 계획에도 불구하고 전체 테이블 검색을 유발하는 쿼리가 여전히 많습니다. 인덱스 유형을 최적화하는 방법과 인덱스 유형에 대한 자세한 정보는 [쿼리 성능 문제를 해결하는 방법](./howto-troubleshoot-query-performance.md) 문서를 참조하세요. 전체 테이블 검색에는 리소스가 많이 사용되기 때문에 데이터베이스 성능이 저하됩니다. 전체 테이블 검색으로 테이블을 찾는 가장 빠른 방법은 *sys.schema_tables_with_full_table_scans*보기를 쿼리하는 것입니다.
+신중한 계획에도 불구하고 전체 테이블 검색을 유발하는 쿼리가 여전히 많습니다. 인덱스 유형을 최적화하는 방법과 인덱스 유형에 대한 자세한 정보는 다음 문서를 참조하세요. [쿼리 성능 문제를 해결하는 방법](./howto-troubleshoot-query-performance.md). 전체 테이블 검색에는 리소스가 많이 사용되기 때문에 데이터베이스 성능이 저하됩니다. 전체 테이블 검색으로 테이블을 찾는 가장 빠른 방법은 *sys.schema_tables_with_full_table_scans*보기를 쿼리하는 것입니다.
 
 ![전체 테이블 검색](./media/howto-troubleshoot-sys-schema/full-table-scans.png)
 

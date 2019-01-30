@@ -1,13 +1,10 @@
 ---
-title: Azure CLI를 사용하여 여러 IP 주소가 있는 VM | Microsoft Docs
+title: Azure CLI를 사용해 여러 IP 주소가 있는 VM
+titlesuffix: Azure Virtual Network
 description: Azure CLI(명령줄 인터페이스)를 사용하여 가상 머신에 여러 IP 주소를 할당하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: jimdial
-ms.openlocfilehash: 8f82a7d5d9c9f3b85856154973be4ec3fb961f6c
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: c51ac79ce1ee6835b8ce125c5f7a5f227e428668
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287562"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449047"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신에 여러 IP 주소 할당
 
@@ -49,7 +46,7 @@ az group create --name $RgName --location $Location
     
 # Create a public IP address resource with a static IP address using the `--allocation-method Static` option. If you
 # do not specify this option, the address is allocated dynamically. The address is assigned to the resource from a pool
-# of IP adresses unique to each Azure region. Download and view the file from
+# of IP addresses unique to each Azure region. Download and view the file from
 # https://www.microsoft.com/en-us/download/details.aspx?id=41653 that lists the ranges for each region.
 
 PipName="myPublicIP"

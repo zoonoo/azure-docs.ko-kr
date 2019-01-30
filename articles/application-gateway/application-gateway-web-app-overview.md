@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/1/2018
 ms.author: victorh
-ms.openlocfilehash: c0084580a2e4860f24aecd37232f38da2e55ccc8
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 8e5f48e42a2a677622dae0b733f9d5af484d1c51
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578435"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605809"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>Application Gateway는 다중 테넌트 백 엔드를 지원합니다.
 
-Azure Application Gateway는 가상 머신 확장 집합, 네트워크 인터페이스, 공개/개인 IP 또는 FQDN(정규화된 도메인 이름)을 백 엔드 풀의 일부로 지원합니다. 기본적으로 응용 프로그램 게이트웨이는 클라이언트에서 들어오는 HTTP 호스트 헤더를 변경하지 않으며 변경되지 않은 헤더를 백 엔드로 보냅니다. [Azure Web Apps](../app-service/app-service-web-overview.md)처럼 기본적으로 다중 테넌트이고 특정 호스트 헤더 또는 SNI 확장을 사용하여 올바른 끝점을 확인하는 여러 서비스가 있습니다. 이제 Application Gateway는 사용자가 백 엔드 HTTP 설정에 따라 들어오는 HTTP 호스트 헤더를 덮어쓰는 기능을 지원합니다. 이 기능을 사용하면 다중 테넌트 백 엔드 Azure 웹앱 및 API 관리를 지원할 수 있습니다. 이 기능은 표준 및 WAF SKU에 모두 제공됩니다. 다중 테넌트 백 엔드 지원은 SSL 종료 및 종단 간 SSL 시나리오에서도 작동합니다.
+Azure Application Gateway는 가상 머신 확장 집합, 네트워크 인터페이스, 공개/개인 IP 또는 FQDN(정규화된 도메인 이름)을 백 엔드 풀의 일부로 지원합니다. 기본적으로 애플리케이션 게이트웨이는 클라이언트에서 들어오는 HTTP 호스트 헤더를 변경하지 않으며 변경되지 않은 헤더를 백 엔드로 보냅니다. [Azure App Service](../app-service/overview.md)처럼 기본적으로 다중 테넌트이고 특정 호스트 헤더 또는 SNI 확장을 사용하여 올바른 엔드포인트를 확인하는 여러 서비스가 있습니다. 이제 Application Gateway는 사용자가 백 엔드 HTTP 설정에 따라 들어오는 HTTP 호스트 헤더를 덮어쓰는 기능을 지원합니다. 이 기능을 사용하면 다중 테넌트 백 엔드 Azure 웹앱 및 API 관리를 지원할 수 있습니다. 이 기능은 표준 및 WAF SKU에 모두 제공됩니다. 다중 테넌트 백 엔드 지원은 SSL 종료 및 종단 간 SSL 시나리오에서도 작동합니다.
 
 > [!NOTE]
 > 인증 인증서 설정은 Azure Web Apps와 같은 신뢰할 수 있는 Azure 서비스에 필요하지 않습니다.
@@ -36,4 +36,4 @@ Azure Application Gateway는 가상 머신 확장 집합, 네트워크 인터페
 
 ## <a name="next-steps"></a>다음 단계
 
-[Application Gateway를 사용하여 App Service Web Apps 구성](application-gateway-web-app-powershell.md)을 방문하여 웹앱을 백 엔드 풀 멤버로 사용하여 응용 프로그램 게이트웨이를 설정하는 방법을 알아봅니다.
+다음을 방문하여 웹앱을 백 엔드 풀 멤버로 사용하여 애플리케이션 게이트웨이를 설정하는 방법을 알아봅니다. [Application Gateway를 사용하여 App Service Web Apps 구성](application-gateway-web-app-powershell.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: 53b78231dba4f525410f53dc1ae60901c67f043d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d3442710e1e1327dcafc1b4ed6617aeb7ff1bf0f
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634509"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322433"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Samanage 구성
 
@@ -76,7 +76,9 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 ### <a name="important-tips-for-assigning-users-to-samanage"></a>Samanage에 사용자를 할당하기 위한 주요 팁
 
-*   단일 Azure AD 사용자를 Samanage에 할당하여 자동 사용자 프로비전 구성을 테스트하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
+*    Samanage 역할은 현재 Azure Portal UI에 자동으로 동적으로 채워집니다. 사용자에게 Samanage 역할을 할당하기 전에 Samanage 테넌트에서 최신 역할을 검색하기 위해 Samanage에 대해 초기 동기화가 완료되었는지 확인합니다.
+
+*    단일 Azure AD 사용자를 Samanage에 할당하여 초기 자동 사용자 프로비전 구성을 테스트하는 것이 좋습니다. 테스트가 성공적으로 완료되면 추가 사용자 및/또는 그룹이 나중에 할당될 수 있습니다.
 
 *   사용자를 Samanage에 할당할 때 할당 대화 상자에서 유효한 응용 프로그램별 역할(사용 가능한 경우)을 선택해야 합니다. **기본 액세스** 역할이 있는 사용자는 프로비전에서 제외됩니다.
 

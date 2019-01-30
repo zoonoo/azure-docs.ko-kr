@@ -1,20 +1,21 @@
 ---
-title: Go를 사용하여 Azure Event Hubs에서 이벤트 수신 | Microsoft Docs
-description: Go를 사용하여 Event Hubs에서 이벤트 수신 시작
+title: Go를 사용하여 이벤트 수신 - Azure Event Hubs | Microsoft Docs
+description: 이 문서에서는 Azure Event Hubs에 이벤트를 받는 Go 애플리케이션을 만드는 연습을 할 수 있습니다.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/23/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 0a8cb349be0ffefecb07bc705391684dc57f1b96
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: db952b82172928e42e951563d98bb32b275e8af7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239494"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084994"
 ---
 # <a name="receive-events-from-event-hubs-using-go"></a>Go를 사용하여 Event Hubs에서 이벤트 수신
 
@@ -22,9 +23,9 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 처리할 수 있는 �
 
 Event Hubs에 대한 자세한 내용은 [Event Hubs 개요][Event Hubs overview]를 참조하세요.
 
-이 자습서에서는 Go 응용 프로그램의 이벤트 허브에서 이벤트를 수신하는 방법을 설명합니다. 이벤트를 전송하는 방법을 알아보려면 [해당 보내기 문서](event-hubs-go-get-started-send.md)를 참조하세요.
+이 자습서에서는 Go 애플리케이션의 이벤트 허브에서 이벤트를 수신하는 방법을 설명합니다. 이벤트를 전송하는 방법을 알아보려면 [해당 보내기 문서](event-hubs-go-get-started-send.md)를 참조하세요.
 
-이 자습서의 코드는 [이 GitHub 샘플](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs)에서 가져온 것으로, 이 코드를 검사하면 가져온 명령문 및 변수 선언을 포함하여 온전하게 작동하는 응용 프로그램을 볼 수 있습니다.
+이 자습서의 코드는 [이 GitHub 샘플](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs)에서 가져온 것으로, 이 코드를 검사하면 가져온 명령문 및 변수 선언을 포함하여 온전하게 작동하는 애플리케이션을 볼 수 있습니다.
 
 다른 예는 [Event Hubs 패키지 리포지토리](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples)에 제공됩니다.
 
@@ -80,7 +81,7 @@ import (
 
 ## <a name="create-service-principal"></a>서비스 주체 만들기
 
-[Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli)의 지침에 따라 새 서비스 주체를 만듭니다. 제공된 자격 증명을 사용자 환경에 다음 이름으로 저장합니다. Go용 Azure SDK 및 Event Hubs 패키지는 이러한 변수 이름을 찾도록 미리 구성되어 있습니다.
+[Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli)의 지침에 따라 새 서비스 주체를 만듭니다. 제공된 자격 증명을 다음 이름으로 현재 환경에 저장합니다. Go용 Azure SDK 및 Event Hubs 패키지는 다음 변수 이름을 찾도록 미리 구성됩니다.
 
 ```bash
 export AZURE_CLIENT_ID=
@@ -197,7 +198,7 @@ if err != nil {
 이 자습서에서는 **EventProcessorHost**의 단일 인스턴스를 사용합니다. 처리량과 안정성을 높이려면 여러 시스템에서 여러 **EventProcessorHost** 인스턴스를 실행해야 합니다. Leaser 시스템은 하나의 수신기만 연결하고, 지정된 시간에 지정된 파티션에서 메시지를 수신합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 이벤트 허브에서 메시지를 받는 Go 응용 프로그램을 만들었습니다. Go를 사용하여 이벤트 허브에 이벤트를 보내는 방법을 알아보려면 [이벤트 허브에서 이벤트 보내기 - Go](event-hubs-go-get-started-send.md)를 참조하세요.
+이 빠른 시작에서는 이벤트 허브에서 메시지를 받는 Go 애플리케이션을 만들었습니다. Go를 사용하여 이벤트 허브에 이벤트를 보내는 방법을 알아보려면 [이벤트 허브에서 이벤트 보내기 - Go](event-hubs-go-get-started-send.md)를 참조하세요.
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md

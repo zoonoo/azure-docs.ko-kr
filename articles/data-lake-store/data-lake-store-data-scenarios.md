@@ -36,7 +36,7 @@ ms.locfileid: "46984282"
 ![Data Lake Storage Gen1에 데이터 수집](./media/data-lake-store-data-scenarios/ingest-data.png "Data Lake Storage Gen1에 데이터 수집")
 
 ### <a name="ad-hoc-data"></a>임시 데이터
-빅 데이터 응용 프로그램의 프로토타입 제작에 사용되는 작은 데이터 집합을 나타냅니다. 데이터 원본에 따라 임시 데이터를 수집하는 여러 가지 방법이 있습니다.
+빅 데이터 애플리케이션의 프로토타입 제작에 사용되는 작은 데이터 집합을 나타냅니다. 데이터 원본에 따라 임시 데이터를 수집하는 여러 가지 방법이 있습니다.
 
 | 데이터 원본 | 로컬 컴퓨터를 사용하여 |
 | --- | --- |
@@ -58,18 +58,18 @@ ms.locfileid: "46984282"
 * [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 * [Azure 데이터 팩터리](../data-factory/copy-activity-overview.md)
 
-### <a name="web-server-log-data-upload-using-custom-applications"></a>웹 서버 로그 데이터(사용자 지정 응용 프로그램을 사용하여 업로드)
-웹 서버 로그 데이터 분석은 빅 데이터 응용 프로그램에 대한 일반적인 사용 사례이며 대용량 로그 파일을 Data Lake Storage Gen1에 업로드해야 하므로 이러한 유형의 데이터 세트가 특별히 호출됩니다. 다음 중 아무 도구를 사용하여 이러한 데이터를 업로드하는 고유의 스크립트 또는 응용 프로그램을 작성할 수 있습니다.
+### <a name="web-server-log-data-upload-using-custom-applications"></a>웹 서버 로그 데이터(사용자 지정 애플리케이션을 사용하여 업로드)
+웹 서버 로그 데이터 분석은 빅 데이터 응용 프로그램에 대한 일반적인 사용 사례이며 대용량 로그 파일을 Data Lake Storage Gen1에 업로드해야 하므로 이러한 유형의 데이터 세트가 특별히 호출됩니다. 다음 중 아무 도구를 사용하여 이러한 데이터를 업로드하는 고유의 스크립트 또는 애플리케이션을 작성할 수 있습니다.
 
 * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [Azure Data Lake Storage Gen1 .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Azure 데이터 팩터리](../data-factory/copy-activity-overview.md)
 
-웹 서버 로그 데이터를 업로드하고 다른 종류의 데이터 (예: 소셜 정서 데이터)를 업로드하려는 경우 고유의 사용자 지정 스크립트/응용 프로그램을 작성하는 것이 좋습니다. 데이터 업로드 구성 요소를 더 큰 빅 데이터 응용 프로그램의 일부로 유연하게 포함할 수 있기 때문입니다. 어떤 경우에는 이 코드가 스크립트 형태 또는 간단한 명령줄 유틸리티의 형태를 취할 수 있습니다. 또 어떤 경우에는 빅 데이터 처리를 비즈니스 응용 프로그램 또는 솔루션에 통합하는 데 이 코드가 사용될 수 있습니다.
+웹 서버 로그 데이터를 업로드하고 다른 종류의 데이터 (예: 소셜 정서 데이터)를 업로드하려는 경우 고유의 사용자 지정 스크립트/애플리케이션을 작성하는 것이 좋습니다. 데이터 업로드 구성 요소를 더 큰 빅 데이터 애플리케이션의 일부로 유연하게 포함할 수 있기 때문입니다. 어떤 경우에는 이 코드가 스크립트 형태 또는 간단한 명령줄 유틸리티의 형태를 취할 수 있습니다. 또 어떤 경우에는 빅 데이터 처리를 비즈니스 애플리케이션 또는 솔루션에 통합하는 데 이 코드가 사용될 수 있습니다.
 
 ### <a name="data-associated-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터와 연결된 데이터
-대부분의 HDInsight 클러스터 유형(Hadoop, HBase, Storm)은 Data Lake Storage Gen1을 데이터 저장소 리포지토리로 지원합니다. HDInsight 클러스터는 Azure Storage Blob(WASB)에서 데이터에 액세스합니다. WASB의 데이터를 클러스터와 연결된 Data Lake Storage Gen1 계정에 복사하면 성능을 향상시킬 수 있습니다. 다음 도구를 사용하여 데이터를 복사할 수 있습니다.
+대부분의 HDInsight 클러스터 유형(Hadoop, HBase, Storm)은 Data Lake Storage Gen1을 데이터 스토리지 리포지토리로 지원합니다. HDInsight 클러스터는 Azure Storage Blob(WASB)에서 데이터에 액세스합니다. WASB의 데이터를 클러스터와 연결된 Data Lake Storage Gen1 계정에 복사하면 성능을 향상시킬 수 있습니다. 다음 도구를 사용하여 데이터를 복사할 수 있습니다.
 
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
 * [AdlCopy Service](data-lake-store-copy-data-azure-storage-blob.md)
@@ -96,7 +96,7 @@ HDFS를 사용하여 로컬 컴퓨터의 기존 Hadoop 클러스터에 대량의
   >
 
 ## <a name="process-data-stored-in-data-lake-storage-gen1"></a>Data Lake Storage Gen1에 저장된 데이터 처리
-Data Lake Storage Gen1의 데이터를 사용할 수 있게 되면 지원되는 빅 데이터 응용 프로그램을 사용하여 해당 데이터에 대한 분석을 실행할 수 있습니다. 현재 Azure HDInsight 및 Azure Data Lake Analytics를 사용하여 Azure Data Lake Storage Gen1에 저장된 데이터에 대한 데이터 분석 작업을 실행할 수 있습니다.
+Data Lake Storage Gen1의 데이터를 사용할 수 있게 되면 지원되는 빅 데이터 애플리케이션을 사용하여 해당 데이터에 대한 분석을 실행할 수 있습니다. 현재 Azure HDInsight 및 Azure Data Lake Analytics를 사용하여 Azure Data Lake Storage Gen1에 저장된 데이터에 대한 데이터 분석 작업을 실행할 수 있습니다.
 
 ![Data Lake Storage Gen1의 데이터 분석](./media/data-lake-store-data-scenarios/analyze-data.png "Data Lake Storage Gen1의 데이터 분석")
 
@@ -109,7 +109,7 @@ Data Lake Storage Gen1의 데이터를 사용할 수 있게 되면 지원되는 
 다음과 같은 시나리오를 위해 Azure Data Lake Storage Gen1에서 데이터를 다운로드하거나 이동할 수도 있습니다.
 
 * 기존 데이터 처리 파이프라인과 상호 작용하기 위해 다른 리포지토리로 데이터를 이동합니다. 예를 들어 Data Lake Storage Gen1에서 Azure SQL Database 또는 온-프레미스 SQL Server로 데이터를 이동하려는 경우가 있습니다.
-* 응용 프로그램 프로토타입을 빌드하는 동안 IDE 환경에서 데이터를 처리하기 위해 로컬 컴퓨터에 데이터를 다운로드 합니다.
+* 애플리케이션 프로토타입을 빌드하는 동안 IDE 환경에서 데이터를 처리하기 위해 로컬 컴퓨터에 데이터를 다운로드 합니다.
 
 ![Data Lake Storage Gen1에서 데이터 송신](./media/data-lake-store-data-scenarios/egress-data.png "Data Lake Storage Gen1에서 데이터 송신")
 

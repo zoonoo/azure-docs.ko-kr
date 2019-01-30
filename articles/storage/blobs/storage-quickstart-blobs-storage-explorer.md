@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure Storage 탐색기를 사용하여 개체 저장소에 Blob 만들기'
+title: '빠른 시작: Azure Storage 탐색기를 사용하여 개체 스토리지에 Blob 만들기'
 description: 이 빠른 시작에서는 Azure Storage 탐색기를 사용하여 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 보는 방법을 알아봅니다. 또한 Blob의 스냅숏을 만들고, 컨테이너 액세스 정책을 관리하고, 공유 액세스 서명을 만드는 방법을 알아봅니다.
 services: storage
 author: tamram
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/15/2018
 ms.locfileid: "51711194"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>빠른 시작: Azure Storage 탐색기를 사용하여 개체 저장소에 Blob 만들기
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>빠른 시작: Azure Storage 탐색기를 사용하여 개체 스토리지에 Blob 만들기
 
 이 빠른 시작에서는 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 보는 방법을 알아봅니다. 또한 Blob의 스냅숏을 만들고, 컨테이너 액세스 정책을 관리하고, 공유 액세스 서명을 만드는 방법을 알아봅니다.
 
@@ -33,13 +33,13 @@ ms.locfileid: "51711194"
 |---|---|
 |Azure 계정 추가 | Azure에 인증하기 위해 조직 로그인 페이지로 리디렉션합니다. |
 |연결 문자열 또는 공유 액세스 서명 URI 사용 | SAS 토큰 또는 공유 연결 문자열이 있는 컨테이너 또는 저장소 계정에 직접 액세스하는 데 사용할 수 있습니다. |
-|저장소 계정 이름 및 키 사용| 저장소 계정 이름과 저장소 계정 키를 사용하여 Azure Storage에 연결합니다.|
+|저장소 계정 이름 및 키 사용| 스토리지 계정 이름과 스토리지 계정 키를 사용하여 Azure Storage에 연결합니다.|
 
 **Azure 계정 추가**를 선택하고 **로그인..** 을 클릭합니다. 화면 상의 메시지에 따라 Azure 계정에 로그인합니다.
 
 ![Microsoft Azure Storage 탐색기 - 연결 창](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
-작업이 완료되면 Azure Storage 탐색기는 표시된 **탐색기** 탭을 로드합니다. 이 보기는 [Azure Storage 에뮬레이터](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 계정 또는 [Azure Stack](../../azure-stack/user/azure-stack-storage-connect-se.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 환경을 통해 구성된 로컬 저장소뿐만 아니라 모든 Azure Storage 계정에 대한 정보를 제공합니다.
+작업이 완료되면 Azure Storage 탐색기는 표시된 **탐색기** 탭을 로드합니다. 이 보기는 [Azure Storage 에뮬레이터](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 계정 또는 [Azure Stack](../../azure-stack/user/azure-stack-storage-connect-se.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 환경을 통해 구성된 로컬 스토리지뿐만 아니라 모든 Azure Storage 계정에 대한 정보를 제공합니다.
 
 ![Microsoft Azure Storage 탐색기 - 연결 창](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 

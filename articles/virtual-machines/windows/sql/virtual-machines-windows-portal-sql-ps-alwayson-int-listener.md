@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: ee7b403c2ebdc590bd428eff880769ae83632585
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 76ebdc85db2c65b1ad99c1e7abe5e697f1c1284c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228218"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064001"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>하나 이상의 Always On 가용성 그룹 수신기 구성 - Resource Manager
 이 문서에서는 다음을 수행하는 방법을 보여 줍니다.
@@ -104,7 +104,7 @@ foreach($VMName in $VMNames)
 ## <a name="Add-IP"></a> 예제 스크립트: PowerShell을 사용하여 기존 부하 분산 장치에 IP 주소 추가
 둘 이상의 가용성 그룹을 사용하려면 추가 IP 주소를 부하 분산 장치에 추가합니다. 각 IP 주소에는 자체 부하 분산 규칙, 프로브 포트 및 프런트 엔드 포트가 필요합니다.
 
-프런트 엔드 포트는 응용 프로그램이 SQL Server 인스턴스에 연결하는 데 사용하는 포트입니다. 다른 가용성 그룹에 대한 IP 주소는 동일한 프런트 엔드 포트를 사용할 수 있습니다.
+프런트 엔드 포트는 애플리케이션이 SQL Server 인스턴스에 연결하는 데 사용하는 포트입니다. 다른 가용성 그룹에 대한 IP 주소는 동일한 프런트 엔드 포트를 사용할 수 있습니다.
 
 > [!NOTE]
 > SQL Server 가용성 그룹의 경우 각 IP 주소에 특정 프로브 포트가 필요합니다. 예를 들어 부하 분산 장치에 있는 하나의 IP 주소가 프로브 포트 59999를 사용하는 경우 해당 부하 분산 장치의 다른 IP 주소는 프로브 포트 59999를 사용할 수 없습니다.
@@ -176,7 +176,7 @@ $ILB | Add-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConf
 1. **sqlcmd** 유틸리티를 사용하여 연결을 테스트합니다. 예를 들어 다음 스크립트는 Windows 인증을 사용하는 수신기를 통해 주 복제본에 대한 **sqlcmd** 연결을 설정합니다.
    
     ```
-    sqlmd -S <listenerName> -E
+    sqlcmd -S <listenerName> -E
     ```
    
     수신기가 기본 포트(1433) 이외의 포트를 사용하는 경우 연결 문자열에서 포트를 지정합니다. 예를 들어 다음 sqlcmd 명령은 포트 1435에서 수신기에 연결합니다. 

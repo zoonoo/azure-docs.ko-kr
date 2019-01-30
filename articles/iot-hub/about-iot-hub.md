@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub 소개 | Microsoft Docs
-description: Azure IoT Hub에 대해 알아봅니다. 이 IoT 서비스는 확장성 있는 데이터 수집, 장치 관리 및 보안을 위해 구축되었습니다.
+description: Azure IoT Hub에 대해 알아봅니다. 이 IoT 서비스는 확장성 있는 데이터 수집, 디바이스 관리 및 보안을 위해 구축되었습니다.
 author: nberdy
 ms.author: nberdy
 ms.date: 07/04/2018
@@ -18,7 +18,7 @@ ms.locfileid: "39343630"
 ---
 # <a name="what-is-azure-iot-hub"></a>Azure IoT Hub란?
 
-IoT Hub는 클라우드에서 호스팅되는 관리 서비스이며, IoT 응용 프로그램과 이를 통해 관리하는 장치 간의 양방향 통신을 위한 중앙 메시지 허브 역할을 합니다. Azure IoT Hub를 사용하여 수백만 개의 IoT 디바이스와 클라우드 호스팅 솔루션 백 엔드 간에 안정적이고 안전한 통신을 통해 IoT 솔루션을 구축할 수 있습니다. 거의 모든 디바이스를 IoT Hub에 연결할 수 있습니다.
+IoT Hub는 클라우드에서 호스팅되는 관리 서비스이며, IoT 응용 프로그램과 이를 통해 관리하는 디바이스 간의 양방향 통신을 위한 중앙 메시지 허브 역할을 합니다. Azure IoT Hub를 사용하여 수백만 개의 IoT 디바이스와 클라우드 호스팅 솔루션 백 엔드 간에 안정적이고 안전한 통신을 통해 IoT 솔루션을 구축할 수 있습니다. 거의 모든 디바이스를 IoT Hub에 연결할 수 있습니다.
 
 IoT Hub는 디바이스에서 클라우드로, 클라우드에서 디바이스로의 통신을 모두 지원합니다. IoT Hub는 디바이스-클라우드 원격 분석, 디바이스에서 파일 업로드 및 클라우드에서 디바이스를 제어하는 요청-회신 방법과 같은 여러 메시징 패턴을 지원합니다. IoT Hub 모니터링을 사용하면 디바이스 만들기, 디바이스 오류 및 디바이스 연결과 같은 이벤트를 추적하여 솔루션의 상태를 유지 관리할 수 있습니다.
 
@@ -26,7 +26,7 @@ IoT Hub의 기능을 사용하면 제조에 사용된 산업 장비 관리, 의�
 
 ## <a name="scale-your-solution"></a>솔루션 확장
 
-IoT Hub는 수백만 개의 동시 연결 장치와 초당 수백만 개의 이벤트까지 확장하여 IoT 작업을 지원합니다. IoT Hub는 확장성 요구 사항에 가장 적합한 여러 계층의 서비스를 제공합니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-hub/)에서 알아보세요.
+IoT Hub는 수백만 개의 동시 연결 디바이스와 초당 수백만 개의 이벤트까지 확장하여 IoT 작업을 지원합니다. IoT Hub는 확장성 요구 사항에 가장 적합한 여러 계층의 서비스를 제공합니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-hub/)에서 알아보세요.
 
 ## <a name="secure-your-communications"></a>통신 보안
 
@@ -36,7 +36,7 @@ IoT Hub는 디바이스에서 데이터를 보낼 수 있도록 안전한 통신
 
 * 디바이스 액세스를 완벽하게 제어하고, 디바이스별 수준에서 연결을 제어할 수 있습니다.
 
-* 장치가 처음 부팅될 때 [IoT Hub Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)에서 해당 장치를 올바른 IoT Hub에 자동으로 프로비전합니다.
+* 디바이스가 처음 부팅될 때 [IoT Hub Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)에서 해당 디바이스를 올바른 IoT Hub에 자동으로 프로비전합니다.
 
 * 여러 인증 유형을 통해 다양한 디바이스 기능을 지원합니다.
 
@@ -82,7 +82,7 @@ IoT Hub를 다른 Azure 서비스와 통합하여 완전한 종단 간 솔루션
 
 [IoT Hub에 대한 99.9% 서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/iot-hub/)이 있습니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
 
-## <a name="connect-your-devices"></a>사용자 장치 연결
+## <a name="connect-your-devices"></a>사용자 디바이스 연결
 
 [Azure IoT 장치 SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) 라이브러리를 사용하여 장치에서 실행되고 IoT Hub와 상호 작용하는 응용 프로그램을 빌드합니다. 지원되는 플랫폼에는 여러 Linux 배포판, Windows 및 실시간 운영 체제가 포함됩니다. 지원되는 언어는 다음과 같습니다.
 
@@ -92,7 +92,7 @@ IoT Hub를 다른 Azure 서비스와 통합하여 완전한 종단 간 솔루션
 * 파이썬
 * Node.js
 
-장치 연결을 위해 IoT Hub 및 장치 SDK에서 지원하는 프로토콜은 다음과 같습니다.
+디바이스 연결을 위해 IoT Hub 및 디바이스 SDK에서 지원하는 프로토콜은 다음과 같습니다.
 
 * HTTPS
 * AMQP
@@ -100,7 +100,7 @@ IoT Hub를 다른 Azure 서비스와 통합하여 완전한 종단 간 솔루션
 * MQTT
 * WebSocket을 통한 MQTT
 
-솔루션에서 장치 라이브러리를 사용할 수 없는 경우 장치에서 기본적으로 MQTT v3.1.1, HTTPS 1.1 또는 AMQP 1.0 프로토콜을 사용하여 허브에 연결할 수 있습니다.
+솔루션에서 디바이스 라이브러리를 사용할 수 없는 경우 디바이스에서 기본적으로 MQTT v3.1.1, HTTPS 1.1 또는 AMQP 1.0 프로토콜을 사용하여 허브에 연결할 수 있습니다.
 
 솔루션에서 지원되는 프로토콜 중 하나를 사용할 수 없는 경우 사용자 지정 프로토콜을 지원하도록 IoT Hub를 확장할 수 있습니다.
 

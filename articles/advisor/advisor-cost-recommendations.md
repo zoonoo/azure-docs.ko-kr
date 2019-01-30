@@ -3,29 +3,28 @@ title: Azure Advisor 비용 권장 사항 | Microsoft Docs
 description: Azure Advisor를 사용하여 Azure 배포 비용을 최적화합니다.
 services: advisor
 documentationcenter: NA
-author: manbeenkohli
+author: kasparks
 manager: ''
 ms.assetid: ''
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: makohli
-ms.openlocfilehash: 71c380a1caae730b6b01615ce3047c2e22bd6dfb
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.author: kasparks
+ms.openlocfilehash: a4de50e3dc17d9c9543bf1ec8cabb04c5d60070b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42140325"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832890"
 ---
 # <a name="advisor-cost-recommendations"></a>Advisor 비용 권장 사항
 
-Advisor는 유휴 및 사용 미달 리소스를 식별하여 전체적인 Azure 사용을 최적화하고 줄이는 데 도움을 줍니다. Advisor 대시보드의 **비용** 탭에서 비용 관련 권장 지침을 얻을 수 있습니다.
+Advisor는 유휴 및 사용 미달 리소스를 식별하여 전체적인 Azure 사용을 최적화하고 줄이는 데 도움을 줍니다. Advisor 대시보드의 **비용** 탭에서 비용 관련 권장 지침을 얻을 수 있습니다.
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>사용량이 낮은 인스턴스의 크기를 조정하거나 종료하여 가상 머신 소비 최적화 
-특정 응용 프로그램 시나리오에서는 기본적으로 사용률이 낮을 수 있으나 가상 머신의 크기와 수를 관리하여 비용을 절감할 수도 있습니다. Advisor는 14일 동안 가상 머신 사용량을 모니터링하고 사용률이 낮은 가상 머신을 식별합니다. 4일 이상 CPU 사용률이 5% 이하이고 네트워크 사용량이 7MB 이하인 가상 머신은 사용률이 낮은 가상 머신으로 간주됩니다.
+특정 애플리케이션 시나리오에서는 기본적으로 사용률이 낮을 수 있으나 가상 머신의 크기와 수를 관리하여 비용을 절감할 수도 있습니다. Advisor는 14일 동안 가상 머신 사용량을 모니터링하고 사용률이 낮은 가상 머신을 식별합니다. 4일 이상 CPU 사용률이 5% 이하이고 네트워크 사용량이 7MB 이하인 가상 머신은 사용률이 낮은 가상 머신으로 간주됩니다.
 
 Advisor에는 가상 머신을 계속 실행할 때의 예상 비용이 표시되므로 해당 가상 머신을 종료하거나 크기를 조정하도록 선택할 수 있습니다.
 

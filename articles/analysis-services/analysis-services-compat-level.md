@@ -5,21 +5,24 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 87e6c19268ad8aeb486ce32cf8bfb668e4538a2a
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 31ca6deef6d81ca7beb08f6df1a15d52ef381a46
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428218"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190394"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Analysis Services 테이블 형식 모델에 대한 호환성 수준
 
 *호환성 수준*은 Analysis Services 엔진의 릴리스 관련 동작을 가리킵니다. 호환성 수준에 대한 변경은 일반적으로 주요 버전의 SQL Server와 일치합니다. 이러한 변경은 두 플랫폼 간의 패리티를 유지하기 위해 Azure Analysis Services에도 구현됩니다. 호환성 수준 변경은 테이블 형식 모델에서 사용할 수 있는 기능에도 영향을 줍니다. 예를 들어 DirectQuery 및 테이블 형식 개체 메타데이터는 호환성 수준에 따라 서로 다른 구현을 갖습니다. 호환성 수준은 Visual Studio(SSDT)에서 테이블 형식 모델 프로젝트로 지정됩니다. Power BI Desktop에서 만들어 가져온 테이블 형식 모델은 1400 호환성 수준만 적용됩니다.
 
 Azure Analysis Services는 1200 및 1400 호환성 수준의 테이블 형식 모델을 지원합니다. 
+
+> [!NOTE]
+> Power BI Desktop 2018년 9월 이상 릴리스의 .pbix 호환성 수준은 1465입니다. 이 호환성 수준은 Azure Analysis Services에서 지원됩니다. 그러나 프로덕션 환경에서는 Power BI Desktop 파일을 가져오는 것이 권장되지 않습니다. 자세한 내용은 [Power BI Desktop 파일 가져오기](analysis-services-import-pbix.md)를 참조하세요.
 
 최신 호환성 수준은 1400입니다. 이 수준은 SQL Server 2017 Analysis Services와 일치합니다. 1400 호환성 수준에서 주요 기능은 다음과 같습니다.
 
@@ -29,8 +32,9 @@ Azure Analysis Services는 1200 및 1400 호환성 수준의 테이블 형식 �
 *  해당 항목 내의 데이터 외의 테이블 및 열 이름에 대한 개체 수준 보안.
 *  불균형 계층 구조에 대한 향상된 지원.
 *  성능 및 모니터링 향상.
-  
-## <a name="set-compatibility-level"></a>호환성 수준 설정 
+ 
+## <a name="set-compatibility-level"></a>호환성 수준 설정
+
  SSDT에서 새 테이블 형식 모델 프로젝트를 만들 때 **테이블 형식 모델 디자이너** 대화 상자에서 호환성 수준을 지정할 수 있습니다. 
   
  ![ssas_tabularproject_compat1200](./media/analysis-services-compat-level/aas-tabularproject-compat.png)  
@@ -40,13 +44,16 @@ Azure Analysis Services는 1200 및 1400 호환성 수준의 테이블 형식 �
  SSDT에서 기존 테이블 형식 모델 프로젝트를 업그레이드하려면 모델 **속성** 창에서 **호환성 수준** 속성을 설정합니다. 호환성 수준 업그레이드는 취소할 수 없습니다.
   
 ## <a name="check-compatibility-level-for-a-tabular-model-database-in-sql-server-management-studio"></a>SQL Server Management Studio에서 테이블 형식 모델 데이터베이스에 대한 호환성 수준 확인 
+
  SSMS에서 데이터베이스 이름 > **속성** > **호환성 수준**을 마우스 오른쪽 단추로 클릭합니다.  
   
 ## <a name="check-supported-compatibility-level-for-a-server-in-ssms"></a>SSMS에서 서버에 대해 지원되는 호환성 수준 확인  
+
  SSMS에서 서버 이름 > **속성** > **지원되는 호환성 수준**을 마우스 오른쪽 단추로 클릭합니다.  
   
  이 속성을 서버에서 실행되는 데이터베이스의 가장 높은 호환성 수준을 지정합니다(미리 보기 제외). 지원되는 호환성 수준을 변경할 수 없습니다.  
 
 ## <a name="next-steps"></a>다음 단계
+
   [Azure Portal에서 모델 만들기](analysis-services-create-model-portal.md)   
   [Analysis Services 관리](analysis-services-manage.md)  

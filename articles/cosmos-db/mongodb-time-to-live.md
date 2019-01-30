@@ -1,25 +1,22 @@
 ---
-title: 일정 기간 후 자동으로 시스템에서 삭제하도록 MongoDB API를 통해 만든 Azure Cosmos DB 문서의 TTL(Time to Live) 값을 설정하는 방법을 알아봅니다.
-description: MongoDB 문서별 TTL 기능에 대한 설명서입니다.
-services: cosmos-db
-author: orestis-ms
-manager: kfile
-editor: ''
+title: Azure Cosmos DB의 MongoDB 문서별 TTL 기능
+description: Azure Cosmos DB의 API for MongoDB를 사용하여 일정 기간이 지나면 자동으로 시스템에서 문서를 삭제하도록 TTL(Time to Live) 값을 설정하는 방법을 알아봅니다.
+author: sivethe
+ms.author: sivethe
 ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 08/10/2018
-ms.author: orkostak
-ms.openlocfilehash: 8679da0dfe92b1d611fd0b61b9f7404256b2b688
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.date: 12/26/2018
+ms.openlocfilehash: 390cd17d667785c7bf9531d86dab00bc922a2df5
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239868"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351729"
 ---
-# <a name="expire-data-in-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB MongoDB API의 데이터 만료
+# <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 데이터 만료
 
-TTL(Time to Live) 기능을 통해 자동으로 데이터를 만료시킬 수 있습니다. MongoDB API는 Azure Cosmos DB의 TTL 기능을 활용합니다. 전체 컬렉션에 기본 TTL 값을 설정하는 모드와 각 문서의 개별 TTL 값을 설정하는 두 가지 모드가 지원됩니다. MongoDB API의의 TTL 인덱스 및 문서별 TTL 값을 제어하는 논리는 [Azure Cosmos DB와 동일합니다](../cosmos-db/mongodb-indexing.md).
+TTL(Time to Live) 기능을 통해 자동으로 데이터를 만료시킬 수 있습니다. Azure Cosmos DB의 API for MongoDB는 Cosmos DB의 핵심 TTL 기능을 활용합니다. 전체 컬렉션에 기본 TTL 값을 설정하는 모드와 각 문서의 개별 TTL 값을 설정하는 두 가지 모드가 지원됩니다. Cosmos DB의 API for MongoDB에서 TTL 인덱스 및 문서별 TTL 값을 제어하는 논리는 [Cosmos DB와 동일합니다](../cosmos-db/mongodb-indexing.md).
 
 ## <a name="ttl-indexes"></a>TTL 인덱스
 컬렉션 전체에서 TTL을 사용하려면 ["TTL index"(Time to Live 인덱스)](../cosmos-db/mongodb-indexing.md)를 만들어야 합니다. TTL 인덱스는 "expireAfterSeconds" 값을 가진 _ts 필드의 인덱스입니다.
@@ -58,7 +55,7 @@ TTL 값은 int32여야 합니다. 또는 int32에 맞는 int64 또는 int32에 �
 
 문서의 TTL 값은 선택 사항입니다. TTL 값이 없는 문서는 컬렉션에 삽입할 수 있습니다.  이 경우 컬렉션의 TTL 값이 적용됩니다. 
 
-다음 문서는 TTL 값이 유효합니다. 문서가 삽입되면 문서 TTL 값이 컬렉션의 TTL 값을 재정의합니다. 따라서 문서가 20초 후 제거됩니다.  
+다음 문서는 TTL 값이 유효합니다. 문서가 삽입되면 문서 TTL 값이 컬렉션의 TTL 값을 재정의합니다. 따라서 문서가 20초 후 제거됩니다.   
 
 ```JavaScript 
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: 20.0}) 
@@ -74,10 +71,11 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(21474
 ``` 
 
 ## <a name="how-to-activate-the-per-document-ttl-feature"></a>문서별 TTL이 기능을 활성화하는 방법
-Azure Portal에서 MongoDB API 계정의 "미리 보기 기능" 탭을 통해 문서별 TTL 기능을 활성화할 수 있습니다.
+
+문서별 TTL 기능은 Azure Cosmos DB의 API for MongoDB로 활성화할 수 있습니다.
 
 ![포털에서 문서별 TTL 기능을 활성화하는 스크린샷](./media/mongodb-ttl/mongodb_portal_ttl.png) 
 
 ## <a name="next-steps"></a>다음 단계
-* [TTL(Time To Live)을 사용하여 자동으로 Azure Cosmos DB 컬렉션의 데이터 만료](../cosmos-db/time-to-live.md)
-* [Azure Cosmos DB MongoDB API에서 인덱싱](../cosmos-db/mongodb-indexing.md)
+* [TTL(Time To Live)을 사용하여 자동으로 Azure Cosmos DB의 데이터 만료](../cosmos-db/time-to-live.md)
+* [Azure Cosmos DB의 API for MongoDB를 사용하여 구성된 Cosmos DB 인덱싱](../cosmos-db/mongodb-indexing.md)

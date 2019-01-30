@@ -8,26 +8,27 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 12/18/2018
 ms.author: tulasim
-ms.openlocfilehash: cb3426a960a6644b3ae149f02055cdb083febca7
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.custom: seodec18
+ms.openlocfilehash: 62478eed2eb647a2f29e488e60e41dd9ae501273
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040764"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605843"
 ---
-# <a name="knowledge-base"></a>기술 자료
+# <a name="what-is-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료란?
 
 QnA Maker 기술 자료는 질문/답변(QnA) 쌍, 각 QnA 쌍과 연결된 선택적 메타데이터의 집합으로 구성됩니다.
 
 ## <a name="key-knowledge-base-concepts"></a>주요 기술 자료 개념
 
-* **질문** - 질문은 사용자 쿼리를 가장 잘 나타내는 텍스트를 포함합니다. 
+* **질문** - 사용자 쿼리를 가장 잘 나타내는 텍스트를 포함하는 질문입니다. 
 * **답변** - 답변은 사용자 쿼리가 관련 질문과 일치할 경우 반환되는 응답입니다.  
-* **메타데이터** - 메타데이터는 QnA 쌍과 연결된 태그이며 키-값 쌍으로 표현됩니다. 메타데이터는 QnA 쌍을 필터링하고 쿼리 매칭이 수행되는 집합을 제한하는 데 사용됩니다.
+* **메타데이터** - 메타데이터는 QnA 쌍과 연결된 태그이며 키-값 쌍으로 표현됩니다. 메타데이터 태그는 QnA 쌍을 필터링하고 쿼리 매칭이 수행되는 집합을 제한하는 데 사용됩니다.
 
-숫자 QnA ID로 표현되는 단일 QnA에는 여러 가지 변형된 질문(대체 질문)이 있으며, 모두 단일 답변으로 매핑됩니다. 또한 이러한 각 쌍에는 여러 메타데이터 필드가 연결될 수 있습니다.
+숫자 QnA ID로 표현되는 단일 QnA에는 모두 단일 답변에 매핑되는 질문의 여러 변형(대체 질문)이 있습니다. 또한 이러한 각 쌍에는 연결된 메타데이터 필드가 여러 개 있을 수 있습니다.
 
 ![QnA Maker 기술 자료](../media/qnamaker-concepts-knowledgebase/knowledgebase.png) 
 

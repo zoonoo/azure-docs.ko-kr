@@ -23,6 +23,9 @@ items:
   - name: Azure 정책 만들기 및 관리
     displayName: assign, definition, compliance, exempt, exclusion
     href: ./tutorials/create-and-manage.md
+  - name: 실습 랩 - Azure Policy 탐색
+    displayName: create, policy, training, learn
+    href: https://handsonlabs.microsoft.com/handsonlabs/SelfPacedLabs?storyId=story://content-private/content/sp-azuregovernance/1-azpolicy/a-policy
 - name: 샘플
   items:
   - name: 인덱스
@@ -108,6 +111,11 @@ items:
     - name: Data Lake Store 암호화 적용
       displayName: deny
       href: samples/enforce-data-lake-store-encryption.md
+  - name: Key Vault
+    items:
+    - name: 가상 네트워크 엔드포인트에 대한 자격 증명 모음 감사 없음
+      displayName: audit, KeyVault, indexed
+      href: samples/keyvault-no-vnet-rules.md
   - name: 모니터링
     items:
     - name: 진단 설정 감사
@@ -128,7 +136,7 @@ items:
         href: samples/use-approved-vnet-vm-nics.md
     - name: 가상 네트워크
       items:
-      - name: 허용되는 응용 프로그램 게이트웨이 SKU
+      - name: 허용되는 애플리케이션 게이트웨이 SKU
         displayName: deny
         href: samples/allowed-app-gateway-sku.md
       - name: 허용되는 vNet 게이트웨이 SKU
@@ -176,9 +184,9 @@ items:
       - name: Network Watcher를 지역에 대해 사용하도록 설정되지 않은 경우 감사
         displayName: auditIfNotExists, Location
         href: samples/network-watcher-not-enabled.md
-    - name: 응용 프로그램 게이트웨이
+    - name: 애플리케이션 게이트웨이
       items:
-      - name: 허용되는 응용 프로그램 게이트웨이 SKU
+      - name: 허용되는 애플리케이션 게이트웨이 SKU
         displayName: deny
         href: samples/allowed-app-gateway-sku.md
   - name: SQL
@@ -263,7 +271,7 @@ items:
   - name: Azure PowerShell
     items:
     - name: 정책
-      href: /powershell/module/azurerm.resources/#policies
+      href: /powershell/module/az.resources/#policies
     - name: 게스트 구성(미리 보기)
       href: https://www.powershellgallery.com/packages/AzureRM.GuestConfiguration
   - name: REST API
@@ -284,14 +292,22 @@ items:
       href: /rest/api/policy-insights/remediations
     - name: 게스트 구성(미리 보기)
       href: /rest/api/guestconfiguration/
+  - name: 리소스 관리자 템플릿
+    items:
+    - name: 할당
+      href: /azure/templates/microsoft.authorization/policyassignments
+    - name: 정책 정의
+      href: /azure/templates/microsoft.authorization/policydefinitions
+    - name: 이니셔티브 정의
+      href: /azure/templates/microsoft.authorization/policysetdefinitions
 - name: 리소스
   items:
   - name: GitHub - Azure Policy 샘플
     href: https://github.com/Azure/azure-policy
   - name: 동영상 - 빌드 2018
     href: https://channel9.msdn.com/events/Build/2018/THR2030
-  - name: 동영상 - Ignite 2017
-    href: https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK2238
+  - name: 거버넌스 YouTube 채널
+    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
   - name: 게스트 구성 비디오
     items:
     - name: 시작하기
@@ -308,9 +324,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice
     href: https://feedback.azure.com/forums/915958-azure-governance
-ms.openlocfilehash: 6b71365c05180db643bfc9a693f40db97dd89729
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 75d384a6e8a7e5592b2b5d37948d7863a41d5f78
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312547"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102654"

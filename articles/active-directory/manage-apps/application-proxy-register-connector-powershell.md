@@ -1,10 +1,10 @@
 ---
 title: Azure AD 앱 프록시 커넥터 자동 설치 | Microsoft Docs
-description: Azure AD 응용 프로그램 프록시 커넥터를 무인으로 설치하여 온-프레미스 앱에 대한 보안된 원격 액세스를 제공하는 방법에 대해 설명합니다.
+description: Azure AD 애플리케이션 프록시 커넥터를 무인으로 설치하여 온-프레미스 앱에 대한 보안된 원격 액세스를 제공하는 방법에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,16 +15,16 @@ ms.date: 05/17/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 3f8ef9ea3a46dde77ac27e7105148ac886f9212d
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 2b0d81a6afb754f03f49b72592f4e04106d2a088
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39362940"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467961"
 ---
-# <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Azure AD 응용 프로그램 프록시 커넥터에 대한 무인 설치 스크립트 만들기
+# <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Azure AD 애플리케이션 프록시 커넥터에 대한 무인 설치 스크립트 만들기
 
-이 토픽은 Azure AD 응용 프로그램 프록시 커넥터에 대한 무인 설치 및 등록을 수행할 수 있도록 Windows PowerShell 스크립트를 만드는 데 도움이 됩니다.
+이 토픽은 Azure AD 애플리케이션 프록시 커넥터에 대한 무인 설치 및 등록을 수행할 수 있도록 Windows PowerShell 스크립트를 만드는 데 도움이 됩니다.
 
 이 기능은 다음을 수행하는 데 유용 합니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "39362940"
 * 커넥터 설치 및 등록을 다른 절차의 일부분으로 통합합니다.
 * 커넥터 비트를 포함하지만 등록되지 않은 표준 서버 이미지를 만듭니다.
 
-[응용 프로그램 프록시 커넥터](application-proxy-connectors.md)가 작동하려면 전역 관리자 및 암호를 사용하여 Azure AD 디렉터리에 등록되어야 합니다. 일반적으로 이러한 정보는 커넥터 설치 중에 팝업 대화 상자에서 입력되지만, 대신 PowerShell을 사용하여 이 프로세스를 자동화할 수도 있습니다.
+[애플리케이션 프록시 커넥터](application-proxy-connectors.md)가 작동하려면 글로벌 관리자 및 암호를 사용하여 Azure AD 디렉터리에 등록되어야 합니다. 일반적으로 이러한 정보는 커넥터 설치 중에 팝업 대화 상자에서 입력되지만, 대신 PowerShell을 사용하여 이 프로세스를 자동화할 수도 있습니다.
 
 무인 설치를 위한 두 단계가 있습니다. 먼저 커넥터를 설치합니다. 두 번째, Azure AD에 커넥터를 등록합니다. 
 
@@ -179,8 +179,8 @@ ms.locfileid: "39362940"
    `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy`
 
 ## <a name="next-steps"></a>다음 단계 
-* [고유한 도메인 이름을 사용하여 응용 프로그램 게시](application-proxy-configure-custom-domain.md)
+* [고유한 도메인 이름을 사용하여 애플리케이션 게시](application-proxy-configure-custom-domain.md)
 * [Single Sign-On 사용](application-proxy-configure-single-sign-on-with-kcd.md)
-* [응용 프로그램 프록시에서 발생한 문제 해결](application-proxy-troubleshoot.md)
+* [애플리케이션 프록시에서 발생한 문제 해결](application-proxy-troubleshoot.md)
 
 

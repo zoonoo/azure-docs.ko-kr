@@ -1,37 +1,31 @@
 ---
-title: Azure Storage 탐색기에서 Azure Cosmos DB 관리
-description: Azure Storage 탐색기에서 Azure Cosmos DB를 관리하는 방법을 알아봅니다.
-Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
-services: cosmos-db
-author: Jejiang
-manager: kfile
-editor: ''
-tags: Azure Cosmos DB
+title: Azure Storage Explorer를 사용하여 Azure Cosmos DB 리소스 관리
+description: Azure Storage 탐색기를 사용하여 Azure Cosmos DB에 연결하고 리소스를 관리하는 방법을 알아봅니다.
+author: deborahc
 ms.service: cosmos-db
-ms.custom: Azure Cosmos DB active
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2018
-ms.author: jejiang
-ms.openlocfilehash: 4a50809c48ba03b7a12689d905e704d3f820ca8a
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.date: 12/07/2018
+ms.author: dech
+ms.custom: seodec18
+ms.openlocfilehash: 24df1cb5b7a9cc1209940bbaaa1217a80ea74918
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162469"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259651"
 ---
-# <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Azure Storage 탐색기에서 Azure Cosmos DB 관리
+# <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Azure Storage Explorer를 사용하여 Azure Cosmos DB 리소스 관리
 
-Azure Storage 탐색기에서 Azure Cosmos DB를 사용하면 사용자는 Azure Cosmos DB 엔터티를 관리하고, 데이터를 조작하고, Storage Blob 및 큐와 같은 다른 Azure 엔터티와 함께 저장 프로시저 및 트리거를 업데이트할 수 있게 됩니다. 이제 동일한 도구를 사용하여 다양한 Azure 엔터티를 한 곳에서 관리할 수 있습니다. 현재 Azure Storage 탐색기는 SQL, MongoDB, Graph 및 Table 계정을 지원합니다.
+Azure Storage 탐색기에서 Azure Cosmos DB를 사용하면 사용자는 Azure Cosmos DB 엔터티를 관리하고, 데이터를 조작하고, Storage Blob 및 큐와 같은 다른 Azure 엔터티와 함께 저장 프로시저 및 트리거를 업데이트할 수 있게 됩니다. 이제 동일한 도구를 사용하여 다양한 Azure 엔터티를 한 곳에서 관리할 수 있습니다. 현재 Azure Storage 탐색기는 SQL, MongoDB, Graph 및 Table API용으로 구성된 Cosmos 계정을 지원합니다.
 
 
 ## <a name="prerequisites"></a>필수 조건
 
-SQL API <!--or MongoDB API-->에 대한 Azure Cosmos DB 계정. 계정이 없는 경우 [Azure Cosmos DB: .NET 및 Azure Portal을 사용하여 SQL API 웹앱 빌드](create-sql-api-dotnet.md)의 설명에 따라 Azure Portal에서 계정을 만들 수 있습니다.
+SQL API 또는 Azure Cosmos DB의 MongoDB API가 있는 Cosmos 계정 계정이 없는 경우 Azure Portal에서 계정을 만들 수 있습니다. 설명은 [Azure Cosmos DB: .NET 및 Azure Portal을 사용하여 SQL API 웹앱 빌드](create-sql-api-dotnet.md)를 참조하세요.
 
 ## <a name="installation"></a>설치
 
-[Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)에서 최신 Azure Storage 탐색기 비트를 설치하세요. 이제 Windows, Linux 및 MAC 버전이 지원됩니다.
+다음 위치에서 최신 Azure Storage 탐색기 비트를 설치하세요. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/). 이제 Windows, Linux 및 MAC 버전이 지원됩니다.
 
 ## <a name="connect-to-an-azure-subscription"></a>Azure 구독에 연결
 
@@ -213,7 +207,7 @@ Storage 탐색기의 Azure Cosmos DB에서 나타나는 일반적인 문제에 �
 
 ### <a name="sign-in-issues"></a>로그인 문제
 
-계속하기 전에 응용 프로그램을 다시 시작하고 문제가 해결될 수 있는지 확인합니다.
+계속하기 전에 애플리케이션을 다시 시작하고 문제가 해결될 수 있는지 확인합니다.
 
 #### <a name="self-signed-certificate-in-certificate-chain"></a>인증서 체인의 자체 서명된 인증서
 
@@ -242,11 +236,11 @@ Storage 탐색기가 이러한 “자체 서명된 인증서” 중 하나를 �
 
 성공적으로 로그인한 후 구독을 검색할 수 없습니다.
 
-- [Azure Portal](http://portal.azure.com/)에 로그인하여 계정이 구독에 액세스할 수 있는지 확인합니다.
-- 올바른 환경([Azure](http://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Germany](https://portal.microsoftazure.de/), [Azure US Government](http://portal.azure.us/) 또는 사용자 지정 환경/Azure Stack)을 사용하여 로그인했는지 확인합니다.
+- [Azure Portal](https://portal.azure.com/)에 로그인하여 계정이 구독에 액세스할 수 있는지 확인합니다.
+- 올바른 환경([Azure](https://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Germany](https://portal.microsoftazure.de/), [Azure US Government](https://portal.azure.us/) 또는 사용자 지정 환경/Azure Stack)을 사용하여 로그인했는지 확인합니다.
 - 프록시 뒤에 있는 경우 Storage 탐색기 프록시를 제대로 구성했는지 확인합니다.
 - 계정을 제거하고 다시 추가해 봅니다.
-- 홈 디렉터리(즉, C:\Users\ContosoUser)에서 다음 파일을 삭제한 다음, 계정을 다시 추가합니다.
+- 홈 디렉터리(예: C:\Users\ContosoUser)에서 다음 파일을 삭제한 다음, 계정을 다시 추가합니다.
   - .adalcache
   - .devaccounts
   - .extaccounts
@@ -272,7 +266,7 @@ Storage 탐색기가 이러한 “자체 서명된 인증서” 중 하나를 �
   - .extaccounts
 - SAS 연결 Storage 리소스를 제거하려면 다음을 삭제합니다.
   - Windows - %AppData%/StorageExplorer 폴더
-  - Mac - Users/<your_name>/Library/Applicaiton SUpport/StorageExplorer
+  - Mac - /Users/<your_name>/Library/Application SUpport/StorageExplorer
   - Linux - ~/.config/StorageExplorer
   - 이러한 파일을 삭제하면 **모든 자격 증명을 다시 입력해야 합니다**.
 
@@ -310,6 +304,6 @@ ASE에서 http/https 프록시를 구성할 때 왼쪽 트리에서 Azure Cosmos
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Storage 탐색기에서 Azure Cosmos DB를 사용하는 방법에 대해 설명하는 다음 비디오를 시청하세요. [Use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be)(Azure Storage 탐색기에서 Azure Cosmos DB 사용)
+* Azure Storage 탐색기에서 Azure Cosmos DB를 사용하는 방법을 보려면 다음 비디오를 시청하세요. [Use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be)(Azure Storage 탐색기에서 Azure Cosmos DB 사용)
 * [Storage 탐색기 시작](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)에서 Storage 탐색기에 대해 자세히 알아보고 더 많은 서비스에 연결합니다.
 

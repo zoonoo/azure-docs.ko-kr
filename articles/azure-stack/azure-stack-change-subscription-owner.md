@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: shnatara
-ms.openlocfilehash: 46dd9c786fddb2f6ce9fb8a761a1b9f135a82d74
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/19/2018
+ms.openlocfilehash: c9288d47dc9df8604c7eb676ba5d93f91a6b0063
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959199"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245687"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Azure Stack 사용자 구독에 대 한 소유자를 변경 합니다.
 
@@ -45,10 +46,10 @@ Azure Stack 운영자 PowerShell을 사용 하 여 사용자 구독의 청구 �
 
 실행 하기 전에 스크립트에서 다음 값을 바꿉니다. 
  
-- **$ArmEndpoint**: 환경에 대 한 Resource Manager 끝점을 지정 합니다.  
+- **$ArmEndpoint**: 사용자 환경에 대 한 Resource Manager 끝점을 지정 합니다.  
 - **$TenantId**: 테 넌 트 ID를 지정 합니다. 
 - **$SubscriptionId**: 구독 ID를 지정 합니다.
-- **$OwnerUpn**:으로 계정을 지정 **user@example.com** 새 청구 소유자로 추가 합니다.  
+- **$OwnerUpn**: 으로 계정을 지정 **user@example.com** 새 청구 소유자로 추가 합니다.  
 
 ```PowerShell   
 # Set up Azure Stack admin environment

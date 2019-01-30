@@ -68,7 +68,7 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 이 섹션에서는 솔루션 백 엔드에서 호출한 직접 메서드에 응답하는 .NET 콘솔 앱을 만듭니다.
 
-1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. 프로젝트 이름을 **SimulateDeviceMethods**로 지정합니다.
+1. Visual Studio에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. 프로젝트 이름을 **SimulateDeviceMethods**로 지정합니다.
    
     ![새 Visual C# Windows 클래식 디바이스 앱](./media/iot-hub-csharp-csharp-schedule-jobs/create-device-app.png)
     
@@ -155,7 +155,7 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 이 섹션에서는 작업을 사용하여 **LockDoor** 직접 메서드를 호출하고 원하는 속성 업데이트를 여러 디바이스에 전송하는 .NET 콘솔 앱(C# 사용)을 만듭니다.
 
-1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. 프로젝트 이름을 **ScheduleJob**으로 지정합니다.
+1. Visual Studio에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. 프로젝트 이름을 **ScheduleJob**으로 지정합니다.
 
     ![새 Visual C# Windows 클래식 데스크톱 프로젝트](./media/iot-hub-csharp-csharp-schedule-jobs/createnetapp.png)
 

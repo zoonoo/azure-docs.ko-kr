@@ -1,6 +1,6 @@
 ---
 title: Azure Logic Apps를 사용한 엔터프라이즈 통합 | Microsoft Docs
-description: 이 개요에서는 기업 및 조직의 앱, 데이터, 서비스, 시스템을 통합하는 작업, 워크플로 및 비즈니스 프로세스를 자동화하여 엔터프라이즈 통합 솔루션을 빌드하는 방법을 설명합니다. 데이터 통합, 시스템 통합, EAI(엔터프라이즈 응용 프로그램 통합) 및 오케스트레이션 시나리오에 대한 솔루션을 만듭니다.
+description: 이 개요에서는 기업 및 조직의 앱, 데이터, 서비스, 시스템을 통합하는 작업, 워크플로 및 비즈니스 프로세스를 자동화하여 엔터프라이즈 통합 솔루션을 빌드하는 방법을 설명합니다. 데이터 통합, 시스템 통합, EAI(엔터프라이즈 애플리케이션 통합) 및 오케스트레이션 시나리오에 대한 솔루션을 만듭니다.
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -11,16 +11,16 @@ ms.custom: mvc
 ms.date: 6/29/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: f5b39b428b894fcf5dddc0a7435353d174d83b78
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d9f3bb33ab0638fddfcf64e61642c236a03d6293
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231205"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065274"
 ---
 # <a name="what-is-azure-logic-apps"></a>Azure Logic Apps란?
 
-[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps)는 회사 또는 조직에서 앱, 데이터, 시스템 및 서비스를 통합해야 할 때 작업, 비즈니스 프로세스, [워크플로](#logic-app-concepts)의 자동화 및 오케스트레이션을 도와주는 클라우드 서비스입니다. Logic Apps를 사용하면 클라우드에서, 프레미스에서 또는 둘 모두에서 앱 통합, 데이터 통합, 시스템 통합, EAI(엔터프라이즈 응용 프로그램 통합), B2B(기업 간) 통신을 위한 확장성 있는 솔루션을 간편하게 디자인하고 빌드할 수 있습니다.
+[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps)는 회사 또는 조직에서 앱, 데이터, 시스템 및 서비스를 통합해야 할 때 작업, 비즈니스 프로세스, [워크플로](#logic-app-concepts)의 자동화 및 오케스트레이션을 도와주는 클라우드 서비스입니다. Logic Apps는 클라우드, 온-프레미스 또는 둘 모두 중 어디에 있든 간에 앱 [통합](https://azure.microsoft.com/product-categories/integration/), 데이터 통합, 시스템 통합, EAI(엔터프라이즈 애플리케이션 통합), B2B(기업 간) 통신을 위한 확장성 있는 솔루션을 설계하고 구축하는 방법을 간소화합니다.
 
 예를 들어 다음은 논리 앱으로 자동화할 수 있는 몇 가지 워크로드의 예입니다.
 
@@ -41,7 +41,7 @@ Azure Logic Apps을 사용하여 엔터프라이즈 통합 솔루션을 빌드�
 
 ![Logic Apps 디자이너 - 예제 논리 앱](./media/logic-apps-overview/overview.png)
 
-브라우저를 통해 Azure Portal 에서 또는 Visual Studio에서 사용할 수 있는 Logic Apps 디자이너를 사용하여 논리 앱을 시각적으로 빌드할 수 있습니다. 더 많은 사용자 지정 논리 앱을 원하는 경우 "코드 보기" 편집기에서 작업하여 JSON(JavaScript Object Notation)에서 논리 앱 정의를 만들거나 편집하면 됩니다. 선별된 작업에 Azure PowerShell 명령 및 Azure Resource Manager 템플릿을 사용할 수도 있습니다. 논리 앱은 Azure의 클라우드에 배포되어 실행됩니다. 자세한 내용은 [Azure Enterprise Integration Services를 사용하여 규모에 따라 클라우드 앱 실행](https://channel9.msdn.com/Events/Connect/2017/T119/) 비디오를 시청하세요.
+브라우저를 통해 Azure Portal 에서 또는 Visual Studio에서 사용할 수 있는 Logic Apps 디자이너를 사용하여 논리 앱을 시각적으로 빌드할 수 있습니다. 더 많은 사용자 지정 논리 앱을 원하는 경우 "코드 보기" 편집기에서 작업하여 JSON(JavaScript Object Notation)에서 논리 앱 정의를 만들거나 편집하면 됩니다. 선별된 작업에 Azure PowerShell 명령 및 Azure Resource Manager 템플릿을 사용할 수도 있습니다. 논리 앱은 Azure의 클라우드에 배포되어 실행됩니다. 자세한 소개는 [Azure Enterprise Integration Services를 사용하여 규모에 맞는 클라우드 애플리케이션 실행](https://channel9.msdn.com/Events/Connect/2017/T119/) 비디오를 시청하세요.
 
 ## <a name="why-use-logic-apps"></a>Logic Apps를 사용하는 이유
 
@@ -77,7 +77,7 @@ Logic Apps의 기능 및 장점에 대한 자세한 내용은 다음과 같습�
 
   * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server)
   * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
-  * [Azure 기능](../azure-functions/functions-overview.md)
+  * [Azure Functions](../azure-functions/functions-overview.md)
   * [Azure API Management](../api-management/api-management-key-concepts.md)
 
 * [XML 메시지](../logic-apps/logic-apps-enterprise-integration-xml.md) 처리
@@ -116,15 +116,15 @@ Logic Apps의 기능 및 장점에 대한 자세한 내용은 다음과 같습�
 
 ## <a name="key-terms"></a>주요 용어
 
-* **워크플로**: 일련의 단계로 비즈니스 프로세스를 시각화, 디자인, 빌드, 자동화 및 배포합니다.
+* **워크플로**: 비즈니스 프로세스를 일련의 단계로 시각화, 디자인, 빌드, 자동화 및 배포합니다.
 
-* **관리 커넥터**: 논리 앱은 데이터, 서비스 및 시스템에 액세스해야 합니다. 데이터에 연결, 액세스 및 작업하도록 디자인된 미리 빌드된 Microsoft 관리 커넥터를 사용할 수 있습니다. [Azure Logic Apps용 커넥터](../connectors/apis-list.md)를 참조하세요.
+* **관리형 커넥터**: 논리 앱에서 데이터, 서비스 및 시스템에 액세스해야 합니다. 데이터에 연결, 액세스 및 작업하도록 디자인된 미리 빌드된 Microsoft 관리 커넥터를 사용할 수 있습니다. [Azure Logic Apps용 커넥터](../connectors/apis-list.md)를 참조하세요.
 
-* **트리거**: 여러 Microsoft 관리 커넥터는 이벤트 또는 새 데이터가 지정된 조건을 충족할 때 실행되는 트리거를 제공합니다. 예를 들어 이벤트가 이메일을 받거나 Azure Storage 계정에서 변경 내용을 감지할 수 있습니다. 트리거가 실행될 때마다 Logic Apps 엔진은 워크플로를 실행하는 논리 앱 인스턴스를 만듭니다.
+* **트리거**: 다양한 Microsoft 관리형 커넥터에서 이벤트 또는 새 데이터가 지정된 조건을 충족할 때 실행되는 트리거를 제공합니다. 예를 들어 이벤트가 이메일을 받거나 Azure Storage 계정에서 변경 내용을 감지할 수 있습니다. 트리거가 실행될 때마다 Logic Apps 엔진은 워크플로를 실행하는 논리 앱 인스턴스를 만듭니다.
 
-* **작업**: 트리거 후 발생하는 모든 단계가 작업입니다. 각 작업은 일반적으로 관리 커넥터, 사용자 지정 API 또는 사용자 지정 커넥터에 의해 정의된 작업에 매핑됩니다.
+* **작업**: 작업은 트리거 후 발생하는 모든 단계입니다. 각 작업은 일반적으로 관리 커넥터, 사용자 지정 API 또는 사용자 지정 커넥터에 의해 정의된 작업에 매핑됩니다.
 
-* **엔터프라이즈 통합 팩**: 고급 통합 시나리오를 위해 Logic Apps에는 BizTalk Server의 기능이 포함됩니다. 엔터프라이즈 통합 팩은 논리 앱이 유효성 검사, 변환 등을 쉽게 수행할 수 있도록 도와주는 커넥터를 제공합니다.
+* **엔터프라이즈 통합 팩**: 고급 통합 시나리오를 위해 BizTalk Server의 기능이 Logic Apps에 포함됩니다. 엔터프라이즈 통합 팩은 논리 앱이 유효성 검사, 변환 등을 쉽게 수행할 수 있도록 도와주는 커넥터를 제공합니다.
 
 ## <a name="how-does-logic-apps-differ-from-functions-webjobs-and-flow"></a>Logic Apps가 Functions, WebJobs 및 Flow와 다른 점은 무엇일까요?
 

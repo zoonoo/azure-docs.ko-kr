@@ -1,26 +1,18 @@
 ---
-title: 'Azure ExpressRoute Microsoft 피어링에 대한 경로 필터 구성: CLI | Microsoft Docs'
+title: 'Microsoft 피어링에 대한 경로 필터 구성 - ExpressRoute: Azure CLI | Microsoft Docs'
 description: 이 문서에서는 Azure CLI를 사용하여 Microsoft 피어링에 대한 경로 필터를 구성하는 방법을 설명합니다.
-documentationcenter: na
 services: expressroute
 author: anzaman
-manager: ganesr
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: anzaman
-ms.openlocfilehash: 29cbe1686888a87fca6ddde957a1cbd35ba3df26
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 94bdd4819d750f4c26c93a88cc6982a60583171c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968696"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079299"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Microsoft 피어링에 대한 경로 필터 구성: Azure CLI
 
@@ -80,7 +72,7 @@ Microsoft 피어링을 통해 서비스에 성공적으로 연결할 수 있으�
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Azure 계정에 로그인하고 구독을 선택합니다.
 
-구성을 시작하려면, Azure 계정에 로그인합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
+구성을 시작하려면, Azure 계정에 로그인합니다. "사용해 보세요"를 사용하는 경우 자동으로 로그인되며 로그인 단계를 건너뛸 수 있습니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
 
 ```azurecli
 az login
@@ -88,13 +80,13 @@ az login
 
 계정에 대한 구독을 확인합니다.
 
-```azurecli
+```azurecli-interactive
 az account list
 ```
 
 ExpressRoute 회로를 만들려는 구독을 선택합니다.
 
-```azurecli
+```azurecli-interactive
 az account set --subscription "<subscription ID>"
 ```
 
@@ -104,7 +96,7 @@ az account set --subscription "<subscription ID>"
 
 다음 cmdlet을 사용하여 Microsoft 피어링을 통해 액세스할 수 있는 서비스와 관련된 BGP 커뮤니티 값의 목록 및 관련된 접두사 목록을 가져옵니다.
 
-```azurecli
+```azurecli-interactive
 az network route-filter rule list-service-communities
 ```
 ### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. 사용하려는 값의 목록 확인
@@ -119,7 +111,7 @@ az network route-filter rule list-service-communities
 
 먼저, 경로 필터를 만듭니다. 'az network route-filter create' 명령은 경로 필터 리소스만 만듭니다. 리소스를 만든 후에 규칙을 만들고 경로 필터 개체에 연결해야 합니다. 다음 명령을 실행하여 경로 필터 리소스를 만듭니다.
 
-```azurecli
+```azurecli-interactive
 az network route-filter create -n MyRouteFilter -g MyResourceGroup
 ```
 
@@ -127,15 +119,15 @@ az network route-filter create -n MyRouteFilter -g MyResourceGroup
 
 다음 명령을 실행하여 새 규칙을 만듭니다.
  
-```azurecli
+```azurecli-interactive
 az network route-filter rule create --filter-name MyRouteFilter -n CRM --communities 12076:5040 --access Allow -g MyResourceGroup
 ```
 
-## <a name="attach"></a>3단계: 경로 필터를 ExpressRoute 회로에 연결
+## <a name="attach"></a>3단계: 경로 필터를 ExpressRoute 회로에 연결합니다.
 
 다음 명령을 실행하여 경로 필터를 ExpressRoute 회로에 연결합니다.
 
-```azurecli
+```azurecli-interactive
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --route-filter MyRouteFilter
 ```
 
@@ -145,7 +137,7 @@ az network express-route peering update --circuit-name MyCircuit -g ExpressRoute
 
 경로 필터의 속성을 가져오려면 다음 명령을 사용합니다.
 
-```azurecli
+```azurecli-interactive
 az network route-filter show -g ExpressRouteResourceGroupName --name MyRouteFilter 
 ```
 
@@ -153,7 +145,7 @@ az network route-filter show -g ExpressRouteResourceGroupName --name MyRouteFilt
 
 경로 필터가 이미 회로에 연결된 경우 BGP 커뮤니티 목록에 대한 업데이트로 인해 설정된 BGP 세션을 통해 적절한 접두사 보급 변경 내용을 자동으로 전파합니다. 다음 명령을 사용하여 경로 필터의 BGP 커뮤니티 목록을 업데이트할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az network route-filter rule update --filter-name MyRouteFilter -n CRM -g ExpressRouteResourceGroupName --add communities '12076:5040' --add communities '12076:5010'
 ```
 
@@ -161,7 +153,7 @@ az network route-filter rule update --filter-name MyRouteFilter -n CRM -g Expres
 
 경로 필터를 ExpressRoute 회로에서 분리하면 접두사가 BGP 세션을 통해 보급되지 않습니다. 다음 명령을 사용하여 ExpressRoute 회로에서 경로 필터를 분리할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --remove routeFilter
 ```
 
@@ -169,7 +161,7 @@ az network express-route peering update --circuit-name MyCircuit -g ExpressRoute
 
 회로에 연결되지 않은 경우에만 필터를 삭제할 수 있습니다. 경로 필터를 삭제하기 전에 회로에 연결되지 않았는지 확인합니다. 다음 명령을 사용하여 경로 필터를 삭제할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az network route-filter delete -n MyRouteFilter -g MyResourceGroup
 ```
 

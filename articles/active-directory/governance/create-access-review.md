@@ -1,6 +1,6 @@
 ---
-title: Azure AD에서 응용 프로그램에 대한 액세스 권한이 있는 그룹 구성원 또는 사용자의 액세스 검토 만들기 | Microsoft Docs
-description: 그룹 구성원이나 응용 프로그램에 대한 액세스 권한이 있는 사용자의 액세스 검토를 만드는 방법을 알아봅니다.
+title: Azure AD에서 애플리케이션에 대한 액세스 권한이 있는 그룹 구성원 또는 사용자의 액세스 검토 만들기 | Microsoft Docs
+description: 그룹 구성원이나 애플리케이션에 대한 액세스 권한이 있는 사용자의 액세스 검토를 만드는 방법을 알아봅니다.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/26/2018
 ms.locfileid: "52307851"
 ---
-# <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Azure AD에서 그룹 구성원 또는 응용 프로그램 액세스에 대한 액세스 검토 만들기
+# <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Azure AD에서 그룹 구성원 또는 애플리케이션 액세스에 대한 액세스 검토 만들기
 
 직원 및 게스트용 그룹과 애플리케이션에 대한 액세스는 시간이 지나면 변합니다. 관리자는 Azure AD(Azure Active Directory)를 사용하여 그룹 구성원 또는 애플리케이션 액세스에 대한 액세스 검토를 만들면 상태 액세스 할당과 관련된 위험을 줄일 수 있습니다. 일상적으로 액세스를 검토해야 하는 경우 되풀이 액세스 검토를 만들 수도 있습니다. 이러한 시나리오에 대한 자세한 내용은 [사용자 액세스 관리](manage-user-access-with-access-reviews.md) 및 [게스트 액세스 관리](manage-guest-access-with-access-reviews.md)를 참조하세요.
 
@@ -54,7 +54,7 @@ ms.locfileid: "52307851"
 
 1. **종료** 설정을 사용하여 되풀이 액세스 검토 시리즈를 종료하는 방법을 지정합니다. 이 시리즈는 세 가지 방법으로 종료할 수 있습니다. 무기한으로, 특정 날짜까지, 또는 정의된 되풀이 횟수가 완료된 이후에 검토를 시작하도록 연속적으로 실행됩니다. 사용자, 다른 사용자 계정 관리자 또는 다른 글로벌 관리자는 해당 날짜에 종료되도록 **설정**에서 날짜를 변경하여 생성 후 시리즈를 중지할 수 있습니다.
 
-1. **사용자** 섹션에서 액세스 검토가 적용되는 사용자를 지정합니다. 액세스 검토는 응용 프로그램에 할당된 그룹 구성원이거나 사용자일 수 있습니다. 구성원이거나 애플리케이션에 대한 액세스 권한이 있는 모든 사용자를 검토하는 대신, 액세스 검토 범위를 자세히 지정하여 구성원이거나 앱에 할당된 게스트 사용자로만 제한하여 검토할 수 있습니다.
+1. **사용자** 섹션에서 액세스 검토가 적용되는 사용자를 지정합니다. 액세스 검토는 애플리케이션에 할당된 그룹 구성원이거나 사용자일 수 있습니다. 구성원이거나 애플리케이션에 대한 액세스 권한이 있는 모든 사용자를 검토하는 대신, 액세스 검토 범위를 자세히 지정하여 구성원이거나 앱에 할당된 게스트 사용자로만 제한하여 검토할 수 있습니다.
 
     ![액세스 검토 만들기 - 사용자](./media/create-access-review/users.png)
 

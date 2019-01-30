@@ -1,6 +1,6 @@
 ---
 title: Azure Blob Storage를 사용하여 SAS(공유 액세스 서명) 만들기 및 사용 | Microsoft Docs
-description: 이 자습서에서는 Blob Storage에서 사용할 공유 액세스 서명을 만드는 방법과 클라이언트 응용 프로그램에서 이를 사용하는 방법을 보여 줍니다.
+description: 이 자습서에서는 Blob Storage에서 사용할 공유 액세스 서명을 만드는 방법과 클라이언트 애플리케이션에서 이를 사용하는 방법을 보여 줍니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -23,19 +23,19 @@ ms.locfileid: "51240701"
 * 컨테이너에서 공유 액세스 서명 생성
 * Blob에서 공유 액세스 서명 생성
 * 컨테이너의 리소스에서 서명을 관리하는 저장된 액세스 정책 만들기
-* 클라이언트 응용 프로그램에서 공유 액세스 서명 테스트
+* 클라이언트 애플리케이션에서 공유 액세스 서명 테스트
 
 ## <a name="about-this-tutorial"></a>이 자습서 정보
-이 자습서에서는 두 개의 콘솔 응용 프로그램을 만들어 컨테이너 및 Blob에 대한 공유 액세스 서명을 만들고 사용하는 방법을 설명합니다.
+이 자습서에서는 두 개의 콘솔 애플리케이션을 만들어 컨테이너 및 Blob에 대한 공유 액세스 서명을 만들고 사용하는 방법을 설명합니다.
 
 **응용 프로그램 1**: 관리 응용 프로그램입니다. 컨테이너 및 Blob에 대한 공유 액세스 서명을 생성합니다. 소스 코드에 있는 저장소 계정 액세스 키를 포함합니다.
 
-**응용 프로그램 2**: 클라이언트 응용 프로그램입니다. 첫 번째 응용 프로그램에서 만든 공유 액세스 서명을 사용하여 컨테이너 및 Blob 리소스에 액세스합니다. 공유 액세스 서명을 사용하여 컨테이너 및 Blob 리소스에 액세스합니다. 저장소 계정 액세스 키를 포함하지 *않습니다*.
+**응용 프로그램 2**: 클라이언트 응용 프로그램입니다. 첫 번째 애플리케이션에서 만든 공유 액세스 서명을 사용하여 컨테이너 및 Blob 리소스에 액세스합니다. 공유 액세스 서명을 사용하여 컨테이너 및 Blob 리소스에 액세스합니다. 저장소 계정 액세스 키를 포함하지 *않습니다*.
 
-## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>1부: 공유 액세스 서명을 생성하는 콘솔 응용 프로그램 만들기
+## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>1부: 공유 액세스 서명을 생성하는 콘솔 애플리케이션 만들기
 먼저 Azure Storage Client Library for .NET을 설치했는지 확인합니다. 클라이언트 라이브러리에 대한 최신 어셈블리가 포함된 [NuGet 패키지](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet 패키지")를 설치할 수 있습니다. 최신 수정 사항이 있는지를 확인하는 권장되는 방법입니다. 클라이언트 라이브러리를 최신 버전 [.NET용 Azure SDK](https://azure.microsoft.com/downloads/)의 일부로 다운로드할 수도 있습니다.
 
-Visual Studio에서 새 Windows 콘솔 응용 프로그램을 만들고 이름을 **GenerateSharedAccessSignatures**로 지정합니다. 다음 중 한 가지 방법을 사용하여 [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) 및 [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/)에 대한 참조를 추가합니다.
+Visual Studio에서 새 Windows 콘솔 애플리케이션을 만들고 이름을 **GenerateSharedAccessSignatures**로 지정합니다. 다음 중 한 가지 방법을 사용하여 [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) 및 [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/)에 대한 참조를 추가합니다.
 
 * Visual Studio에서 [NuGet 패키지 관리자](https://docs.nuget.org/consume/installing-nuget)를 사용합니다. **프로젝트** > **NuGet 패키지 관리**를 선택하여 각 패키지(Microsoft.WindowsAzure.ConfigurationManager 및 WindowsAzure.Storage)를 온라인으로 검색하고 설치합니다.
 * 또는 Azure SDK 설치에서 이러한 어셈블리를 찾은 다음 참조를 추가합니다.
@@ -325,7 +325,7 @@ static void Main(string[] args)
 }
 ```
 
-GenerateSharedAccessSignatures 콘솔 응용 프로그램을 실행하면 다음과 비슷한 출력이 표시됩니다. 이는 자습서의 2부에서 사용할 공유 액세스 서명입니다.
+GenerateSharedAccessSignatures 콘솔 애플리케이션을 실행하면 다음과 비슷한 출력이 표시됩니다. 이는 자습서의 2부에서 사용할 공유 액세스 서명입니다.
 
 ```
 Container SAS URI: https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&sig=pFlEZD%2F6sJTNLxD%2FQ26Hh85j%2FzYPxZav6mP1KJwnvJE%3D&se=2017-05-16T16%3A16%3A47Z&sp=wl
@@ -337,14 +337,14 @@ Container SAS URI using stored access policy: https://storagesample.blob.core.wi
 Blob SAS URI using stored access policy: https://storagesample.blob.core.windows.net/sascontainer/sasblobpolicy.txt?sv=2016-05-31&sr=b&si=tutorialpolicy&sig=%2FkTWkT23SS45%2FoF4bK2mqXkN%2BPKs%2FyHuzkfQ4GFoZVU%3D
 ```
 
-## <a name="part-2-create-a-console-application-to-test-the-shared-access-signatures"></a>2부: 공유 액세스 서명을 테스트하는 콘솔 응용 프로그램 만들기
-이전 예제에서 만든 공유 액세스 서명을 테스트하려면 서명을 사용하여 컨테이너 및 Blob에서 작업을 수행하는 두 번째 콘솔 응용 프로그램을 만듭니다.
+## <a name="part-2-create-a-console-application-to-test-the-shared-access-signatures"></a>2부: 공유 액세스 서명을 테스트하는 콘솔 애플리케이션 만들기
+이전 예제에서 만든 공유 액세스 서명을 테스트하려면 서명을 사용하여 컨테이너 및 Blob에서 작업을 수행하는 두 번째 콘솔 애플리케이션을 만듭니다.
 
 > [!NOTE]
-> 자습서의 1부를 완료한 후 24시간이 초과된 경우 생성된 서명은 더 이상 유효하지 않습니다. 이 경우, 첫 번째 콘솔 응용 프로그램에서 코드를 실행하여 자습서의 2부에서 사용할 공유 액세스 서명을 다시 생성해야 합니다.
+> 자습서의 1부를 완료한 후 24시간이 초과된 경우 생성된 서명은 더 이상 유효하지 않습니다. 이 경우, 첫 번째 콘솔 애플리케이션에서 코드를 실행하여 자습서의 2부에서 사용할 공유 액세스 서명을 다시 생성해야 합니다.
 >
 
-Visual Studio에서 새 Windows 콘솔 응용 프로그램을 만들고 이름을 **ConsumeSharedAccessSignatures**로 지정합니다. 앞에서 수행한 것과 같은 방법으로 [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) 및 [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/)에 참조를 추가합니다.
+Visual Studio에서 새 Windows 콘솔 애플리케이션을 만들고 이름을 **ConsumeSharedAccessSignatures**로 지정합니다. 앞에서 수행한 것과 같은 방법으로 [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) 및 [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/)에 참조를 추가합니다.
 
 Program.cs 파일의 맨 위에 다음 **using** 지시문을 추가합니다.
 
@@ -571,7 +571,7 @@ static void Main(string[] args)
 }
 ```
 
-콘솔 응용 프로그램을 실행하고 출력을 관찰하여 서명별로 허용되는 작업을 확인합니다. 콘솔 창의 출력은 다음과 비슷합니다.
+콘솔 애플리케이션을 실행하고 출력을 관찰하여 서명별로 허용되는 작업을 확인합니다. 콘솔 창의 출력은 다음과 비슷합니다.
 
 ```
 Write operation succeeded for SAS https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&sig=32EaQGuFyDMb3yOAey3wq%2B%2FLwgPQxAgSo7UhzLdyIDU%3D&se=2017-05-16T15%3A41%3A20Z&sp=wl

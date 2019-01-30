@@ -1,11 +1,11 @@
 ---
-title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Cerner Central 구성 | Microsoft Docs'
+title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 Cerner Central 구성 | Microsoft Docs'
 description: 사용자를 Cerner Central의 명단으로 자동으로 프로비전하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: bc215061d5f2f139c5912f29f709346cb681ee86
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: eb34a6e7ded4c31c623031104aabbee16b5c4f1c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346634"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819478"
 ---
-# <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>자습서: 동 사용자 프로비전을 위한 Cerner Central 구성
+# <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Cerner Central 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 Cerner Central의 사용자 명단으로 자동으로 프로비전 및 프로비전 해제하도록 Cerner Central 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다. 
 
@@ -39,7 +39,7 @@ ms.locfileid: "44346634"
 
 ## <a name="assigning-users-to-cerner-central"></a>Cerner Central에 사용자 지정
 
-Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 "할당된" 사용자 및 그룹만 동기화됩니다. 
+Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 애플리케이션에 "할당된" 사용자 및 그룹만 동기화됩니다. 
 
 프로비전 서비스를 구성하고 사용하도록 설정하기 전에 Cerner Central에 대한 액세스가 필요한 사용자를 대표하는 Azure AD의 사용자 및/또는 그룹을 결정해야 합니다. 결정했으면 다음 지시에 따라 이러한 사용자를 Cerner Central에 할당할 수 있습니다.
 
@@ -91,9 +91,9 @@ Cerner Central으로 사용자 계정을 프로비전하기 위해 Cerner에서 
 
 4. 마지막으로, 구성을 완료하려면 Cerner에서 샌드박스와 프로덕션 환경에 대한 사용자 명단 영역 ID를 획득해야 합니다. 이를 획득하는 방법에 대한 정보는 https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM을 참조하세요. 
 
-5. 이제 Cerner로 사용자 계정을 프로비전하도록 Azure AD를 구성할 수 있습니다. [Azure Portal](https://portal.azure.com)에 로그인하고 **Azure Active Directory > 엔터프라이즈 앱 > 모든 응용 프로그램** 섹션으로 이동합니다.
+5. 이제 Cerner로 사용자 계정을 프로비전하도록 Azure AD를 구성할 수 있습니다. [Azure Portal](https://portal.azure.com)에 로그인하고 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; 모든 애플리케이션** 섹션으로 이동합니다.
 
-6. Single Sign-On에 대한 Cerner Central을 이미 구성한 경우 검색 필드를 사용하여 Cerner Central의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 응용 프로그램 갤러리에서 **Cerner Central**을 검색합니다. 검색 결과에서 Cerner Central을 선택하고 응용 프로그램의 목록에 추가합니다.
+6. Single Sign-On에 대한 Cerner Central을 이미 구성한 경우 검색 필드를 사용하여 Cerner Central의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 애플리케이션 갤러리에서 **Cerner Central**을 검색합니다. 검색 결과에서 Cerner Central을 선택하고 애플리케이션의 목록에 추가합니다.
 
 7.  Cerner Central의 인스턴스를 선택한 다음, **프로비전** 탭을 선택합니다.
 
@@ -129,10 +129,10 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [Cerner Central: Azure AD를 사용하여 ID 데이터 게시](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
+* [Cerner Central: Publishing identity data using Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)(Cerner Central: Azure AD를 사용하여 ID 데이터 게시)
 * [자습서: Azure Active Directory를 사용한 Single Sign-On에 대한 Cerner Central 구성](cernercentral-tutorial.md)
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 * [프로비저닝 활동에 대한 로그를 검토하고 보고서를 확인하는 방법을 알아봅니다](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).

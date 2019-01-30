@@ -1,6 +1,6 @@
 ---
-title: SSL 종료를 사용하여 응용 프로그램 게이트웨이 만들기 - Azure CLI
-description: Azure CLI를 사용하여 응용 프로그램 게이트웨이를 만들고 SSL 종료를 위한 인증서를 추가하는 방법을 알아봅니다.
+title: SSL 종료를 사용하여 애플리케이션 게이트웨이 만들기 - Azure CLI
+description: Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들고 SSL 종료를 위한 인증서를 추가하는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -10,23 +10,23 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 3364df360926f2065af8650076e129de75934c1a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 7efb2a419b5efc69e734d190245247db3588868e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741017"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846768"
 ---
-# <a name="tutorial-create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 SSL 종료로 응용 프로그램 게이트웨이 만들기
+# <a name="tutorial-create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 SSL 종료로 애플리케이션 게이트웨이 만들기
 
-Azure CLI를 사용하여 백엔드 서버에 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하는 [SSL 종료](ssl-overview.md)용 인증서가 있는 [응용 프로그램 게이트웨이](overview.md)를 만들 수 있습니다. 이 예제의 확장 집합에는 응용 프로그램 게이트웨이의 기본 백 엔드 풀에 추가된 두 개의 가상 머신 인스턴스가 있습니다.
+Azure CLI를 사용하여 백엔드 서버에 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하는 [SSL 종료](ssl-overview.md)용 인증서가 있는 [애플리케이션 게이트웨이](overview.md)를 만들 수 있습니다. 이 예제에서 확장 집합은 애플리케이션 게이트웨이의 기본 백 엔드 풀에 추가되는 두 개의 가상 머신 인스턴스를 포함합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 자체 서명된 인증서 만들기
 > * 네트워크 설정
-> * 인증서가 있는 응용 프로그램 게이트웨이 만들기
+> * 인증서가 있는 애플리케이션 게이트웨이 만들기
 > * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
 
 원하는 경우 [Azure PowerShell](tutorial-ssl-powershell.md)을 사용하여 이 자습서를 완료할 수 있습니다.
@@ -65,7 +65,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
 
-[az network vnet create](/cli/azure/network/vnet#az-net)를 사용하여 *myVNet*이라는 가상 네트워크와 *myAGSubnet*이라는 서브넷을 만듭니다. 그런 후 [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create)를 사용하여 백 엔드 서버에 필요한 *myBackendSubnet*이라는 서브넷을 추가할 수 있습니다. [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create)를 사용하여 *myAGPublicIPAddress*라는 IP 주소를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet#az-net)를 사용하여 *myVNet*이라는 가상 네트워크와 *myAGSubnet*이라는 서브넷을 만듭니다. 그런 후 [az network vnet subnet create](/cli/azure/network/vnet/subnet)를 사용하여 백 엔드 서버에 필요한 *myBackendSubnet*이라는 서브넷을 추가할 수 있습니다. [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create)를 사용하여 *myAGPublicIPAddress*라는 IP 주소를 만듭니다.
 
 ```azurecli-interactive
 az network vnet create \
@@ -89,9 +89,9 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
-[az network application-gateway create](/cli/azure/network/application-gateway#create)를 사용하여 응용 프로그램 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 응용 프로그램 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 
+[az network application-gateway create](/cli/azure/network/application-gateway#create)를 사용하여 애플리케이션 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 
 
-응용 프로그램 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myAGPublicIPAddress*에 할당됩니다. 이 예제에서는 응용 프로그램 게이트웨이 만들 때 사용자가 만든 인증서 및 해당 암호를 연결합니다. 
+애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myAGPublicIPAddress*에 할당됩니다. 이 예제에서는 애플리케이션 게이트웨이 만들 때 사용자가 만든 인증서 및 해당 암호를 연결합니다. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -112,9 +112,9 @@ az network application-gateway create \
 
 ```
 
- 응용 프로그램 게이트웨이가 생성될 때까지 몇 분 정도 걸릴 수 있습니다. 응용 프로그램 게이트웨이가 생성되면 다음과 같은 새 기능을 볼 수 있습니다.
+ 애플리케이션 게이트웨이가 생성될 때까지 몇 분 정도 걸릴 수 있습니다. 애플리케이션 게이트웨이가 생성되면 다음과 같은 새 기능을 볼 수 있습니다.
 
-- *appGatewayBackendPool* - 응용 프로그램 게이트웨이에 백 엔드 주소 풀이 하나 이상 있어야 합니다.
+- *appGatewayBackendPool* - 애플리케이션 게이트웨이에 백 엔드 주소 풀이 하나 이상 있어야 합니다.
 - *appGatewayBackendHttpSettings* - 포트 80 및 HTTP 프로토콜을 통신에 사용하도록 지정합니다.
 - *appGatewayHttpListener* - *appGatewayBackendPool*에 연결되는 기본 수신기입니다.
 - *appGatewayFrontendIP* - *myAGPublicIPAddress*를 *appGatewayHttpListener*에 할당합니다.
@@ -122,7 +122,7 @@ az network application-gateway create \
 
 ## <a name="create-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 만들기
 
-이 예제에서는 응용 프로그램 게이트웨이의 기본 백 엔드 풀에 대한 서버를 제공하는 가상 머신 확장 집합을 만듭니다. 확장 집합의 가상 머신은 *myBackendSubnet* 및 *appGatewayBackendPool*에 연결됩니다. 확장 집합을 만들려면 [az vmss create](/cli/azure/vmss#az-vmss-create)를 사용합니다.
+이 예제에서는 애플리케이션 게이트웨이의 기본 백 엔드 풀에 대한 서버를 제공하는 가상 머신 확장 집합을 만듭니다. 확장 집합의 가상 머신은 *myBackendSubnet* 및 *appGatewayBackendPool*에 연결됩니다. 확장 집합을 만들려면 [az vmss create](/cli/azure/vmss#az-vmss-create)를 사용합니다.
 
 ```azurecli-interactive
 az vmss create \
@@ -153,9 +153,9 @@ az vmss extension set \
   "commandToExecute": "./install_nginx.sh" }'
 ```
 
-## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
+## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-응용 프로그램 게이트웨이의 공용 IP 주소를 가져오려면 [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show)를 사용합니다.
+애플리케이션 게이트웨이의 공용 IP 주소를 가져오려면 [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show)를 사용합니다.
 
 ```azurecli-interactive
 az network public-ip show \
@@ -171,11 +171,11 @@ az network public-ip show \
 
 자체 서명된 인증서를 사용하는 경우 보안 경고를 받으려면 **세부 정보**, **웹 페이지로 이동**을 차례로 선택합니다. 그러면 보안 NGINX 사이트가 다음 예제와 같이 표시됩니다.
 
-![응용 프로그램 게이트웨이의 기준 URL 테스트](./media/tutorial-ssl-cli/application-gateway-nginx.png)
+![애플리케이션 게이트웨이의 기준 URL 테스트](./media/tutorial-ssl-cli/application-gateway-nginx.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요 없는 리소스 그룹, 응용 프로그램 게이트웨이 및 모든 관련 리소스를 제거합니다.
+더 이상 필요 없는 리소스 그룹, 애플리케이션 게이트웨이 및 모든 관련 리소스를 제거합니다.
 
 ```azurecli-interactive
 az group delete --name myResourceGroupAG --location eastus
@@ -184,4 +184,4 @@ az group delete --name myResourceGroupAG --location eastus
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [여러 웹 사이트를 호스트하는 응용 프로그램 게이트웨이 만들기](./tutorial-multiple-sites-cli.md)
+> [여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 만들기](./tutorial-multiple-sites-cli.md)

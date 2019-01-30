@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: d47109d541a3df93d9234e27e53d1538f6bc4c6e
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 7e35aa8120c455b8cc0d0881a9ceb5120c57deff
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
-ms.locfileid: "24879061"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969671"
 ---
 # <a name="available-regions-for-your-storsimple"></a>StorSimple을 사용할 수 있는 지역
 
@@ -47,7 +47,7 @@ Azure 공용 클라우드에서 StorSimple Device Manager 서비스를 사용할
 
 ![storsimple-device-manager-service-regions](./media/storsimple-region/storsimple-device-manager-service-regions.png)
 
-Azure Government 클라우드의 경우 StorSimple Device Manager 서비스는 미국 아이오와 주 정부 및 버지니아 주 정부 데이터 센터에서 사용할 수 있습니다.
+Azure Government 클라우드의 경우 StorSimple Device Manager 서비스는 미국 아이오와 주 정부 및 미국 버지니아 주 정부 데이터 센터에서 사용할 수 있습니다.
 
 ## <a name="region-availability-for-data-stored-in-storsimple"></a>StorSimple에 저장된 데이터에 대한 지역 가용성
 
@@ -85,7 +85,7 @@ StorSimple 8100 또는 8600 물리적 디바이스를 사용하는 경우 다음
 | 14 | 독일        | 29 | 멕시코      | 44 | 슬로바키아     | 59 | 베트남              |
 | 15 | 그리스         | 30 | 네덜란드 | 45 | 슬로베니아     | 60 | 크로아티아              |
 
-이 목록은 국가가 추가될 때 변경됩니다. 최신 지리적 위치 목록에 대해서는 [제품 약관](https://www.microsoft.com/en-us/Licensing/product-licensing)의 저장소 배열 약관 부록을 참조하세요.
+이 목록은 국가가 추가될 때 변경됩니다. 최신 지리적 위치 목록에 대해서는 [제품 약관](https://www.microsoft.com/en-us/licensing/product-licensing/products)의 저장소 배열 약관 부록을 참조하세요.
 
 Microsoft는 물리적 하드웨어를 제공하며 앞의 목록에 있는 지역에 StorSimple에 대한 교체용 하드웨어 예비 부품을 제공할 수 있습니다.
 
@@ -106,4 +106,4 @@ StorSimple Cloud Appliance 8010 또는 8020을 사용하는 경우 해당 디바
 
 * [다양한 StorSimple 모델의 가격 책정](https://azure.microsoft.com/pricing/calculator/#storsimple2)에 대해 자세히 알아봅니다.
 * [StorSimple 저장소 계정 관리](storsimple-8000-manage-storage-accounts.md)에 대해 자세히 알아봅니다.
-* [StorSimple 장치 관리자 서비스를 사용하여 StorSimple 장치를 관리](storsimple-8000-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
+* [StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스를 관리](storsimple-8000-manager-service-administration.md)하는 방법을 자세히 알아봅니다.

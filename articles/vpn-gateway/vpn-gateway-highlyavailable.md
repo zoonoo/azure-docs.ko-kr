@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
-ms.openlocfilehash: c510bb060d5c0dc866c3802fab751c1cbeff3745
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 623ed10e155012780f039bf7b9148be34143454d
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42145784"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353280"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>항상 사용 가능한 크로스-프레미스 및 VNet 간 연결
 이 문서에서는 Azure VPN Gateway를 사용하여 크로스-프레미스 및 VNet 간 연결에 대해 항상 사용 가능한 구성 옵션의 개요를 제공합니다.
@@ -37,7 +37,7 @@ ms.locfileid: "42145784"
 * 활성-활성 Azure VPN Gateway
 * 둘의 조합
 
-### <a name = "activeactiveonprem"></a>다중 온-프레미스 VPN 장치
+### <a name = "activeactiveonprem"></a>다중 온-프레미스 VPN 디바이스
 다음 다이어그램에 표시된 대로 다중 VPN 디바이스를 사용하여 온-프레미스 네트워크에서 Azure VPN Gateway에 연결할 수 있습니다.
 
 ![다중 온-프레미스 VPN](./media/vpn-gateway-highlyavailable/multiple-onprem-vpns.png)
@@ -49,7 +49,8 @@ ms.locfileid: "42145784"
 3. BGP가 이 구성에 필요합니다. VPN 디바이스를 나타내는 각 로컬 네트워크 게이트웨이에는 "BgpPeerIpAddress" 속성에 지정된 고유한 BGP 피어링 IP 주소가 있어야 합니다.
 4. 각 로컬 네트워크 게이트웨이에서 AddressPrefix 속성 필드는 겹치지 않아야 합니다. AddressPrefix 필드에서 /32 CIDR 형식인 "BgpPeerIpAddress"를 10.200.200.254/32와 같이 지정해야 합니다.
 5. BGP를 사용하여 Azure VPN Gateway에 대한 온-프레미스 네트워크 접두사와 동일한 접두사를 보급해야 합니다. 그러면 동시에 이러한 터널을 통해 트래픽이 전달됩니다.
-6. 각 연결은 Azure VPN Gateway에 대한 터널의 최대 수를 계산합니다. 기본 및 표준 SKU에 대해 10개, HighPerformance SKU에 대해 30개입니다. 
+6. ECMP(같은 비용 다중 경로 라우팅)를 사용해야 합니다.
+7. 각 연결은 Azure VPN Gateway에 대한 터널의 최대 수를 계산합니다. 기본 및 표준 SKU에 대해 10개, HighPerformance SKU에 대해 30개입니다. 
 
 이 구성에서 Azure VPN Gateway는 활성-대기 모드이므로 [위에](#activestandby)설명된 대로 동일한 장애 조치 동작 및 짧은 중단이 발생합니다. 하지만 이 설정을 통해 온-프레미스 네트워크 및 VPN 디바이스에서 실패 또는 중단되지 않도록 보호합니다.
 
@@ -71,7 +72,7 @@ Azure 게이트웨이 인스턴스가 활성-활성 구성이기 때문에 온-�
 
 위에 설명한 대로 활성-활성 구성에서 Azure VPN Gateway를 만들고 설정하며 두 개의 온-프레미스 VPN 디바이스에 두 개의 로컬 네트워크 게이트웨이 및 두 개의 연결을 만듭니다. 그 결과, Azure 가상 네트워크 및 온-프레미스 네트워크 간에 4개 IPsec 터널의 전체 메시 연결이 생성됩니다.
 
-각 TCP 또는 UDP 흐름은 다시 동일한 터널 또는 Azure 측의 경로를 따르지만 트래픽이 4개의 터널에 동시에 분산되도록 모든 게이트웨이 및 터널은 Azure 측에서 활성화됩니다. 트래픽을 분산하더라도 IPsec 터널을 통한 처리량은 조금 더 나아진 것으로 표시됩니다. 이 구성의 주요 목표는 고가용성임을 기억하세요. 또한 분산이라는 통계 특성으로 인해 응용 프로그램 트래픽 조건이 집계 처리량에 어떤 영향을 주는지에 대한 측정값을 제공하기가 어렵습니다.
+각 TCP 또는 UDP 흐름은 다시 동일한 터널 또는 Azure 측의 경로를 따르지만 트래픽이 4개의 터널에 동시에 분산되도록 모든 게이트웨이 및 터널은 Azure 측에서 활성화됩니다. 트래픽을 분산하더라도 IPsec 터널을 통한 처리량은 조금 더 나아진 것으로 표시됩니다. 이 구성의 주요 목표는 고가용성임을 기억하세요. 또한 분산이라는 통계 특성으로 인해 애플리케이션 트래픽 조건이 집계 처리량에 어떤 영향을 주는지에 대한 측정값을 제공하기가 어렵습니다.
 
 이 토폴로지에는 두 개의 온-프레미스 VPN 디바이스를 지원하기 위해 두 개의 로컬 네트워크 게이트웨이 및 두 개의 연결이 필요합니다. 동일한 온-프레미스 네트워크에 두 개의 연결을 허용하려면 BGP가 필요합니다. 이러한 요구 사항은 [위와](#activeactiveonprem) 동일합니다. 
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Backup Server 문제 해결
-description: Azure Backup Server 설치, 등록 및 응용 프로그램 워크로드의 백업 및 복원 문제를 해결합니다.
+description: Azure Backup Server 설치, 등록 및 애플리케이션 워크로드의 백업 및 복원 문제를 해결합니다.
 services: backup
 author: pvrk
 manager: shreeshd
@@ -53,7 +53,7 @@ ms.locfileid: "51260519"
 ## <a name="configuring-protection-group"></a>보호 그룹 구성
 | 작업 | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-| 보호 그룹 구성 | DPM은 보호된 컴퓨터(보호된 컴퓨터 이름)에 응용 프로그램 구성 요소를 열거할 수 없습니다. | 관련 데이터 원본/구성 요소 수준의 보호 그룹 구성 UI 화면에서 **새로 고침**을 선택합니다. |
+| 보호 그룹 구성 | DPM은 보호된 컴퓨터(보호된 컴퓨터 이름)에 애플리케이션 구성 요소를 열거할 수 없습니다. | 관련 데이터 원본/구성 요소 수준의 보호 그룹 구성 UI 화면에서 **새로 고침**을 선택합니다. |
 | 보호 그룹 구성 | 보호를 구성할 수 없음 | 보호된 서버가 SQL Server인 경우 [이 문서](https://technet.microsoft.com/library/hh757977(v=sc.12).aspx)에 설명된 대로 보호된 컴퓨터에 대한 시스템 계정(NTAuthority\System)에 sysadmin 역할 권한이 제공되었는지 확인합니다.
 | 보호 그룹 구성 | 이 보호 그룹에 대한 저장소 풀에 여유 공간이 부족합니다. | 저장소 풀에 추가된 디스크는 [파티션을 포함하지 않아야 합니다](https://technet.microsoft.com/library/hh758075(v=sc.12).aspx). 디스크에 있는 기존 볼륨을 모두 삭제합니다. 그런 다음, 저장소 풀에 추가합니다.|
 | 정책 변경 |백업 정책을 수정할 수 없습니다. 오류: 내부 서비스 오류 [0x29834]로 인해 현재 작업이 실패했습니다. 잠시 후 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. |**원인:**<br/>이 오류는 보안 설정이 활성화된 경우, 위에서 지정된 최소값 미만으로 보존 범위를 줄이려고 하는 경우 및 지원되지 않는 버전을 사용하는 경우 등 세 가지 조건에서 발생합니다. (지원되지 않는 버전은 Microsoft Azure Backup Server 버전 2.0.9052 및 Azure Backup Server 업데이트 1 미만입니다.) <br/>**권장 작업:**<br/> 정책 관련 업데이트를 계속하려면 보존 기간을 지정된 최소 보존 기간을 초과하도록 설정합니다. (최소 보존 기간은 일별 백업의 경우 7일, 주별 백업의 경우 4주, 월별 백업의 경우 3개월, 연도별 백업의 경우 1년입니다.) <br><br>그 외에도 권장되는 방법은 백업 에이전트 및 Azure Backup Server를 업데이트하여 모든 보안 업데이트를 적용하는 것입니다. |
@@ -67,7 +67,7 @@ ms.locfileid: "51260519"
 | Backup | 온라인 복구 지점 생성 실패 | “Microsoft Azure Backup Agent에서 선택한 볼륨의 스냅숏을 만들 수 없습니다.” 오류 메시지가 표시되면 복제본 및 복구 지점 볼륨에서 공간을 늘려 봅니다.
 | Backup | 온라인 복구 지점 생성 실패 | “Windows Azure Backup Agent에서 OBEngine 서비스에 연결할 수 없습니다.” 오류 메시지가 나타나면 컴퓨터에서 실행 중인 서비스 목록에 OBEngine이 있는지 확인합니다. OBEngine 서비스가 실행 중이 아닌 경우 “net start OBEngine” 명령을 사용하여 OBEngine 서비스를 시작합니다.
 | Backup | 온라인 복구 지점 생성 실패 | “이 서버의 암호화에 사용할 암호가 설정되어 있지 않습니다. 암호화의 암호를 구성하십시오.” 오류 메시지가 표시되면 암호화에 사용할 암호를 구성합니다. 실패하면 다음 단계를 수행합니다. <br> <ol><li>스크래치 위치가 있는지 확인합니다. 레지스트리 **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config**에 언급된 위치에 **ScratchLocation** 이름이 있어야 합니다.</li><li> 스크래치 위치가 존재하는 경우 이전 암호를 사용하여 다시 등록합니다. *암호화에 사용할 암호를 구성할 때마다 안전한 위치에 보관합니다.*</li><ol>
-| Backup | BMR에 대한 백업 실패 | BMR 크기가 크면 일부 응용 프로그램 파일을 OS 드라이브로 이동한 후 다시 시도합니다. |
+| Backup | BMR에 대한 백업 실패 | BMR 크기가 크면 일부 애플리케이션 파일을 OS 드라이브로 이동한 후 다시 시도합니다. |
 | Backup | 새 Microsoft Azure Backup Server에서 VMware VM을 다시 보호하는 옵션이 추가할 수 있는 것으로 표시되지 않습니다. | VMware 속성이 더 이상 사용되지 않는 이전 Microsoft Azure Backup Server 인스턴스에 지정되어 있습니다. 이 문제를 해결하려면:<br><ol><li>VCenter(SC-VMM에 해당)에서 **요약** 탭, **사용자 지정 특성**으로 이동합니다.</li>  <li>**DPMServer** 값에서 이전 Microsoft Azure Backup Server 이름을 삭제합니다.</li>  <li>새 Microsoft Azure Backup Server로 돌아가서 PG를 수정합니다.  **새로 고침** 단추를 선택하면 VM을 보호에 추가할 수 있도록 확인란이 표시됩니다.</li></ol> |
 | Backup | 파일/공유 폴더에 액세스하는 동안 오류가 발생했습니다. | TechNet 문서[DPM 서버에서 바이러스 백신 소프트웨어 실행](https://technet.microsoft.com/library/hh757911.aspx)에 제안된 대로 바이러스 백신 설정을 수정합니다.|
 | Backup | VMware VM에 대한 온라인 복구 지점 생성 작업이 실패합니다. DPM이 ChangeTracking 정보를 가져오는 동안 VMware에서 오류가 발생했습니다. ErrorCode - FileFaultFault(ID 33621) |  <ol><li> 영향을 받는 VM에 대해 VMWare에서 CTK를 다시 설정합니다.</li> <li>독립 디스크가 VMware에 준비되어 있지 않은지 확인합니다.</li> <li>영향을 받는 VM에 대한 보호를 중지하고 **새로 고침** 단추로 다시 보호합니다. </li><li>영향을 받는 VM에 대해 CC를 실행합니다.</li></ol>|

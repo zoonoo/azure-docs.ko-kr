@@ -1,28 +1,27 @@
 ---
-title: 'Azure Cosmos DB: JavaScript SDK를 사용하여 Node.js 앱을 빌드하여 Azure Cosmos DB SQL API 데이터 관리 | Microsoft Docs'
+title: Azure Cosmos DB는 JavaScript SDK를 사용하여 Azure Cosmos DB SQL API 데이터를 관리하는 Node.js 앱 빌드
 description: Azure Cosmos DB SQL API에 연결하고 쿼리하는 데 사용할 수 있는 Node.js 코드 샘플을 제공합니다.
-services: cosmos-db
 author: deborahc
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: a8a81556002bec82325bf4cf53b68ff49b8b6917
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f0c342eb673902f0855ba1ceb482aed10dc01a56
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982327"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034916"
 ---
-# <a name="azure-cosmos-db-build-a-nodejs-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Azure Cosmos DB: JavaScript SDK를 사용하여 Node.js 앱을 빌드하여 Azure Cosmos DB SQL API 데이터 관리
+# <a name="azure-cosmos-db-build-a-nodejs-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Azure Cosmos DB는 JavaScript SDK를 사용하여 Azure Cosmos DB SQL API 데이터를 관리하는 Node.js 앱 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
+> * [.NET(미리 보기)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
-> * [Node.js](create-sql-api-nodejs.md)
+> * [Node.JS](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
@@ -38,7 +37,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 * 또한,
     * [Node.js](https://nodejs.org/en/) 버전 v6.0.0 이상
-    * [Git](http://git-scm.com/)
+    * [Git](https://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 
@@ -58,7 +57,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
-이제 Github에서 SQL API 앱을 복제하고 연결 문자열을 설정한 다음, 실행해보겠습니다.
+이제 GitHub에서 SQL API 앱을 복제하고, 연결 문자열을 설정하고, 실행해보겠습니다.
 
 1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
@@ -134,7 +133,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다.
 
-1. [Azure Portal](http://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **키**를 클릭한 다음 **읽기-쓰기 키**를 클릭합니다. 다음 단계에서 화면 오른쪽의 복사 단추를 사용하여 URI 및 기본 키를 `config.js` 파일에 복사하게 됩니다.
+1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **키**를 클릭한 다음 **읽기-쓰기 키**를 클릭합니다. 다음 단계에서 화면 오른쪽의 복사 단추를 사용하여 URI 및 기본 키를 `config.js` 파일에 복사하게 됩니다.
 
     ![Azure Portal에서 선택 키 보기 및 복사, 키 블레이드](./media/create-sql-api-dotnet/keys.png)
 
@@ -151,7 +150,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 ## <a name="run-the-app"></a>앱 실행
 1. 터미널에서 `npm install`를 실행하여 필요한 npm 모듈을 설치합니다.
 
-2. 터미널에서 `node app.js`을 실행하여 노드 응용 프로그램을 시작합니다.
+2. 터미널에서 `node app.js`을 실행하여 노드 애플리케이션을 시작합니다.
 
 이제 데이터 탐색기로 돌아가서 이 새 데이터를 쿼리 및 수정하고 작업에 사용할 수 있습니다. 
 

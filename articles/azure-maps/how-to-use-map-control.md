@@ -17,7 +17,7 @@ ms.locfileid: "49166034"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤 사용
 
-맵 컨트롤 클라이언트 쪽 Javascript 라이브러리를 사용하면 맵 및 포함된 Azure Maps 기능을 웹 또는 모바일 응용 프로그램에 렌더링할 수 있습니다.
+맵 컨트롤 클라이언트 쪽 Javascript 라이브러리를 사용하면 맵 및 포함된 Azure Maps 기능을 웹 또는 모바일 애플리케이션에 렌더링할 수 있습니다.
 
 ## <a name="create-a-new-map-in-a-web-page"></a>웹 페이지에 새 맵 만들기
 

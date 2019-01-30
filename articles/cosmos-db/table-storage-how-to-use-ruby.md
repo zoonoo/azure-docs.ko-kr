@@ -1,20 +1,20 @@
 ---
 title: Ruby에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 description: Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
-services: cosmos-db
-author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: ruby
 ms.topic: sample
 ms.date: 04/05/2018
-ms.author: sngun
-ms.openlocfilehash: 7ddf9c3ef848537cb68dce043bb22680439e9cd5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+author: wmengmsft
+ms.author: wmeng
+ms.reviewer: sngun
+ms.openlocfilehash: 3603455674485a505a7dbc969554a881947940ae
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877932"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036259"
 ---
 # <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Ruby에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -83,7 +83,7 @@ end
 ```
 
 ## <a name="add-an-entity-to-a-table"></a>테이블에 엔터티 추가
-엔터티를 추가하려면 먼저 엔터티 속성을 정의하는 해시 개체를 만듭니다. 모든 엔터티에 대해 **PartitionKey** 및 **RowKey**를 지정해야 합니다. 이 두 키는 엔터티의 고유한 식별자이며, 다른 속성보다 훨씬 더 빠르게 쿼리할 수 있는 값입니다. Azure Storage는 **PartitionKey** 를 사용하여 여러 저장소 노드를 통해 테이블의 엔터티를 자동으로 분산합니다. **PartitionKey** 가 동일한 엔터티는 동일한 노드에 저장됩니다. **RowKey** 는 엔터티가 속하는 파티션 내에서 엔터티의 고유한 ID입니다.
+엔터티를 추가하려면 먼저 엔터티 속성을 정의하는 해시 개체를 만듭니다. 모든 엔터티에 대해 **PartitionKey** 및 **RowKey**를 지정해야 합니다. 이 두 키는 엔터티의 고유한 식별자이며, 다른 속성보다 훨씬 더 빠르게 쿼리할 수 있는 값입니다. Azure Storage는 **PartitionKey** 를 사용하여 여러 스토리지 노드를 통해 테이블의 엔터티를 자동으로 분산합니다. **PartitionKey** 가 동일한 엔터티는 동일한 노드에 저장됩니다. **RowKey** 는 엔터티가 속하는 파티션 내에서 엔터티의 고유한 ID입니다.
 
 ```ruby
 entity = { "content" => "test entity",
@@ -96,7 +96,7 @@ azure_table_service.insert_entity("testtable", entity)
 
 * **update_entity():** 기존 엔터티를 바꿔서 업데이트합니다.
 * **merge_entity():** 새 속성 값을 기존 엔터티에 병합하여 기존 엔터티를 업데이트합니다.
-* **insert_or_merge_entity():** 기존 엔터티를 바꿔서 업데이트합니다. 엔터티가 없는 경우 새 엔터티를 삽입합니다.
+* **insert_or_merge_entity():** 기존 엔터티를 바꾸어서 업데이트합니다. 엔터티가 없는 경우 새 엔터티를 삽입합니다.
 * **insert_or_replace_entity():** 새 속성 값을 기존 엔터티에 병합하여 기존 엔터티를 업데이트합니다. 엔터티가 없는 경우 새 엔터티를 삽입합니다.
 
 다음 예제에서는 **update_entity()** 를 사용하여 엔터티를 업데이트하는 방법을 보여 줍니다.

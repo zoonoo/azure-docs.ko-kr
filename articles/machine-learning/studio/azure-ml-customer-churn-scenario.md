@@ -1,29 +1,23 @@
 ---
-title: Azure Machine Learning Studio를 사용하여 고객 이탈 분석 | Microsoft Docs
+title: 고객 이탈 분석
+titleSuffix: Azure Machine Learning Studio
 description: Azure Machine Learning Studio를 사용하여 고객 이탈을 분석하고 채점하는 통합 모델 개발에 대한 사례 연구입니다.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
-editor: cgronlun
-ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning
 ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 0ab398cc87472e3ede361f48f8e755ef294746da
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 153ddcc1ba0da6171963ec91511fafe84023ecf8
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314987"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401972"
 ---
-# <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Azure Machine Learning Studio를 사용하여 고객 이탈 분석
+# <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Azure Machine Learning Studio를 사용하여 고객 이탈 분석
 ## <a name="overview"></a>개요
 이 문서에서는 Azure Machine Learning을 사용하여 빌드된 고객 이탈 분석 프로젝트의 참조 구현을 제공합니다. 이 문서에서는 산업 고객 이탈 문제를 전체적으로 해결하기 위한 관련된 일반 모델을 알아봅니다. 또한 Machine Learning을 사용하여 빌드된 모델의 정확도를 측정하고 향후 배포를 위한 방향을 평가합니다.  
 
@@ -35,7 +29,7 @@ ms.locfileid: "52314987"
 > 
 > 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="the-problem-of-customer-churn"></a>고객 이탈 문제
 고객 시장과 모든 기업 부문의 비즈니스에서는 이탈을 처리해야 합니다. 때때로 이탈이 지나치고 정책 의사 결정에 영향을 미칠 수도 있습니다. 기존 솔루션에서는 이탈 가능성이 큰 고객을 예측하고 안내자 서비스, 마케팅 캠페인 또는 특별 관리 적용을 통해 해당 고객의 요구를 해결합니다. 이러한 접근 방식은 업계에 따라 달라질 수 있습니다. 또한 한 업계(예: 통신) 내의 특정 고객 클러스터에 따라 달라질 수 있습니다.
@@ -217,7 +211,7 @@ Azure Machine Learning에서 제공되는 또 다른 흥미로운 기능은 이�
  
 
 ## <a name="references"></a>참조
-[1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, July/August 2011, p.18-20.  
+[1] 예측 분석: Beyond the Predictions, W. McKnight, Information Management, July/August 2011, p.18-20.  
 
 [2] Wikipedia 문서: [Accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 

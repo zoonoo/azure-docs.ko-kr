@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: ae039573cf202059114f23cca86207c117a35ead
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9daf0f0d1c7ca94308bfb0d894366b457a045770
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970404"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470650"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Power BI를 사용하여 원격 모니터링 데이터 시각화
 
@@ -28,7 +28,7 @@ ms.locfileid: "38970404"
 
 ## <a name="information-needed-from-azure-portal"></a>Azure Portal에서 필요한 정보
 
-1. [Azure Portal](https://portal.azure.com)로 이동하여 로그인이 필요하면 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동하고 필요한 경우 로그인합니다.
 
 2. 왼쪽 패널에서 리소스 그룹을 클릭합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "38970404"
 
     ![리소스 그룹](./media/iot-accelerators-integrate-data-powerbi/resource_groups.png)
 
-5. 왼쪽 패널에서 "키" 섹션을 클릭하고 PowerBi에서 사용할 다음 값을 적어둡니다.
+5. 왼쪽 패널에서 "키" 섹션을 클릭하고 Power BI에서 사용할 다음 값을 적어 둡니다.
 
     - URI
     - 기본 키
@@ -49,7 +49,7 @@ ms.locfileid: "38970404"
 
 ## <a name="setting-up-the-stream-in-power-bi"></a>Power BI에서 스트림 설정
   
-1. Power BI 데스크톱 앱을 열고 왼쪽 위 모서리에서 "데이터 가져오기"를 클릭합니다. 
+1. Power BI Desktop 앱을 열고 왼쪽 위 모서리에서 "데이터 가져오기"를 클릭합니다. 
 
     ![데이터 가져오기](./media/iot-accelerators-integrate-data-powerbi/get_data.png)
 
@@ -84,11 +84,11 @@ ms.locfileid: "38970404"
 
 ## <a name="creating-a-dashboard"></a>대시보드 만들기
 
-스트림이 연결되고 나면 개인 설정 대시보드를 만들 준비가 됩니다. 아래 대시보드는 시뮬레이션된 디바이스에서 내보낸 원격 분석 데이터를 가져와서 다음과 같이 다양한 피벗을 보여주는 예입니다. 
+스트림이 연결되고 나면 개인 설정 대시보드를 만들 준비가 됩니다. 아래의 대시보드는 시뮬레이션된 디바이스에서 내보낸 원격 분석 데이터를 가져와서 다음과 같이 다양한 피벗을 보여 주는 예입니다. 
 
 * 지도에 디바이스 위치 표시(오른쪽)
 * 디바이스와 함께 상태 및 심각도 표시 (왼쪽 위)
-* 규칙이 적용되는 디바이스 및 해당 디바이스에 대한 경보 발생 여부(왼쪽 맨 아래)
+* 규칙이 적용되는 디바이스 및 해당 디바이스에 대한 경고 발생 여부(왼쪽 아래)
 
 ![PowerBI 시각화](./media/iot-accelerators-integrate-data-powerbi/visual_data.png)
 

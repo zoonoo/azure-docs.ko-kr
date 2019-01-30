@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 78f34183b30f8ea9fe44ddaf2b57b237cbb09749
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: efec0feae3ea15868290756ea1b34b2f52784e1d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985765"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423632"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>B2B 공동 작업을 위한 SaaS 앱 구성
 
@@ -34,13 +34,13 @@ Azure AD(Azure Active Directory) B2B 공동 작업은 Azure AD와 통합되는 �
 
 사용자가 조직 계정을 사용하여 로그인할 수 있게 하려면 SAML(Security Assertion Markup Language) ID 공급자로 Azure AD를 사용하도록 수동으로 Dropbox Business를 구성해야 합니다. Dropbox Business가 그렇게 구성되지 않으면 프롬프트를 표시할 수 없거나 사용자가 Azure AD를 사용하여 로그인할 수 없게 됩니다.
 
-1. Azure AD에 Dropbox Business를 추가하려면 왼쪽 창에서 **엔터프라이즈 응용 프로그램**을 선택한 다음 **추가**를 클릭합니다.
+1. Azure AD에 Dropbox Business를 추가하려면 왼쪽 창에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **추가**를 클릭합니다.
 
-  ![엔터프라이즈 응용 프로그램 페이지의 "추가" 단추](media/configure-saas-apps/add-dropbox.png)
+  ![엔터프라이즈 애플리케이션 페이지의 "추가" 단추](media/configure-saas-apps/add-dropbox.png)
 
-2. **응용 프로그램 추가** 창의 검색 상자에 **dropbox**를 입력한 다음 결과 목록에서 **Dropbox for Business**를 선택합니다.
+2. **애플리케이션 추가** 창의 검색 상자에 **dropbox**를 입력한 다음, 결과 목록에서 **Dropbox for Business**를 선택합니다.
 
-  ![응용 프로그램 추가 페이지에서 "dropbox" 검색](media/configure-saas-apps/add-app-dialog.png)
+  ![애플리케이션 추가 페이지에서 "dropbox" 검색](media/configure-saas-apps/add-app-dialog.png)
 
 3. **Single Sign-On** 페이지의 왼쪽 창에서 **Single Sign-On**을 선택한 다음 **사용자 식별자** 상자에 **user.mail**을 입력합니다. (기본적으로 UPN으로 설정됩니다.)
 

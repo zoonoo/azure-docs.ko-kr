@@ -34,7 +34,7 @@ Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가 또는 업
 * **System.Spatial**
 
 ## <a name="connection-string-for-azure-storage-added"></a>추가된 Azure Storage에 대한 연결 문자열
-프로젝트의 App.config 파일에서 **AzureWebJobsStorage** 및 **AzureWebJobsDashboard** 항목이 선택한 저장소 계정의 연결 문자열과 키로 업데이트되었습니다.
+프로젝트의 App.config 파일에서 **AzureWebJobsStorage** 및 **AzureWebJobsDashboard** 항목이 선택한 스토리지 계정의 연결 문자열과 키로 업데이트되었습니다.
 
 자세한 내용은 [Azure WebJob 설명서 리소스](https://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
 

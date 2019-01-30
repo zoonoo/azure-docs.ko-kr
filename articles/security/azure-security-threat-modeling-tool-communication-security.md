@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bc724f57a25e2ca12d334192d2171899345e72de
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: be0dd7147e3864befa90434ade86b4032cd45cc3
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247384"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013188"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>보안 프레임: 통신 보안 | 완화 
 | 제품/서비스 | 문서 |
@@ -34,9 +34,9 @@ ms.locfileid: "51247384"
 | **모바일 클라이언트** | <ul><li>[인증서 고정 구현](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[HTTPS 사용 설정 - 보안 전송 채널](#https-transport)</li><li>[WCF: 메시지 보안 보호 수준을 EncryptAndSign으로 설정](#message-protection)</li><li>[WCF: 최소 권한 계정을 사용하여 WCF 서비스 실행](#least-account-wcf)</li></ul> |
 | **앱 API** | <ul><li>[Web API에 대한 모든 트래픽이 HTTPS 연결을 통과하도록 강제 적용](#webapi-https)</li></ul> |
-| **Azure Redis 캐시(영문)** | <ul><li>[Azure Redis Cache에 대한 통신이 SSL을 통과하는지 확인](#redis-ssl)</li></ul> |
-| **IoT 필드 게이트웨이** | <ul><li>[장치-필드 게이트웨이 통신 보안](#device-field)</li></ul> |
-| **IoT 클라우드 게이트웨이** | <ul><li>[SSL/TLS를 사용하여 장치-클라우드 게이트웨이 통신 보안](#device-cloud)</li></ul> |
+| **Azure Cache for Redis** | <ul><li>[Azure Cache for Redis에 대한 통신이 SSL을 통과하는지 확인](#redis-ssl)</li></ul> |
+| **IoT 필드 게이트웨이** | <ul><li>[디바이스-필드 게이트웨이 통신 보안](#device-field)</li></ul> |
+| **IoT 클라우드 게이트웨이** | <ul><li>[SSL/TLS를 사용하여 디바이스-클라우드 게이트웨이 통신 보안](#device-cloud)</li></ul> |
 
 ## <a id="comm-ssltls"></a>SSL/TLS를 사용하여 이벤트 허브 통신 보안
 
@@ -146,7 +146,7 @@ ms.locfileid: "51247384"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [OWASP HSTS(HTTP 엄격한 전송 보안) 참고 자료](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet)(영문) |
-| **단계** | <p>HSTS는 특수 응답 헤더를 사용하여 웹 응용 프로그램에서 지정하는 옵트인 보안 고급 기능입니다. 지원되는 브라우저에서 이 헤더를 받으면 브라우저는 HTTP를 통해 지정된 도메인으로 보내는 모든 통신을 차단하고 대신 HTTPS를 통해 모든 통신을 보냅니다. 또한 브라우저에서 프롬프트를 통해 HTTPS를 클릭하지 않도록 방지합니다.</p><p>HSTS를 구현하려면 코드 또는 구성에서 웹 사이트에 대해 다음 응답 헤더를 전역적으로 구성해야 합니다. Strict-Transport-Security: max-age=300; includeSubDomains HSTS는 다음과 같은 위협을 해결합니다.</p><ul><li>사용자가 책갈피를 설정하거나 수동으로 http://example.com을 입력하고 메시지 가로채기(man-in-the-middle) 공격자가 될 수 있습니다. HSTS는 대상 도메인에 대한 HTTP 요청을 HTTPS로 자동으로 리디렉션합니다.</li><li>순전히 HTTPS로 의도된 웹 응용 프로그램은 실수로 HTTP 링크를 포함하거나 HTTP를 통해 콘텐츠를 제공합니다. HSTS는 대상 도메인에 대한 HTTP 요청을 HTTPS로 자동으로 리디렉션합니다.</li><li>메시지 가로채기 공격자가 잘못된 인증서를 사용하여 공격 대상 사용자의 트래픽을 가로채려고 시도하고 사용자가 잘못된 인증서를 받아들이기를 기대합니다. HSTS는 사용자가 잘못된 인증서 메시지를 재정의하도록 허용하지 않습니다.</li></ul>|
+| **단계** | <p>HSTS는 특수 응답 헤더를 사용하여 웹 응용 프로그램에서 지정하는 옵트인 보안 고급 기능입니다. 지원되는 브라우저에서 이 헤더를 받으면 브라우저는 HTTP를 통해 지정된 도메인으로 보내는 모든 통신을 차단하고 대신 HTTPS를 통해 모든 통신을 보냅니다. 또한 브라우저에서 프롬프트를 통해 HTTPS를 클릭하지 않도록 방지합니다.</p><p>HSTS를 구현하려면 코드 또는 구성에서 웹 사이트에 대해 다음 응답 헤더를 전역적으로 구성해야 합니다. Strict-Transport-Security: max-age=300; includeSubDomains HSTS는 다음과 같은 위협을 해결합니다.</p><ul><li>사용자가 책갈피를 설정하거나 수동으로 http://example.com을 입력하고 메시지 가로채기(man-in-the-middle) 공격자의 영향을 받을 수 있습니다. HSTS는 대상 도메인에 대한 HTTP 요청을 HTTPS로 자동으로 리디렉션합니다.</li><li>순전히 HTTPS로 의도된 웹 애플리케이션은 실수로 HTTP 링크를 포함하거나 HTTP를 통해 콘텐츠를 제공합니다. HSTS는 대상 도메인에 대한 HTTP 요청을 HTTPS로 자동으로 리디렉션합니다.</li><li>메시지 가로채기 공격자가 잘못된 인증서를 사용하여 희생자 사용자의 트래픽을 가로채려고 시도하고 사용자가 잘못된 인증서를 받아들이기를 기대합니다. HSTS는 사용자가 잘못된 인증서 메시지를 재정의하도록 허용하지 않습니다.</li></ul>|
 
 ## <a id="sqlserver-validation"></a>SQL 서버 연결 암호화 및 인증서 유효성 검사 확인
 
@@ -179,7 +179,7 @@ ms.locfileid: "51247384"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [Azure Storage 전송 수준 암호화 - HTTPS 사용](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_encryption-in-transit) |
-| **단계** | 전송 중인 Azure Storage 데이터의 보안을 유지하려면 REST API를 호출하거나 저장소의 개체에 액세스할 때 항상 HTTPS 프로토콜을 사용합니다. 또한 Azure Storage 개체에 대한 액세스를 위임하는 데 사용할 수 있는 공유 액세스 서명에는 공유 액세스 서명을 사용할 때 HTTPS 프로토콜만 사용할 수 있도록 지정하여 SAS 토큰이 있는 링크를 보내는 사용자는 모두 적절한 프로토콜을 사용할 수 있도록 하는 옵션이 포함되어 있습니다.|
+| **단계** | 전송 중인 Azure Storage 데이터의 보안을 유지하려면 REST API를 호출하거나 스토리지의 개체에 액세스할 때 항상 HTTPS 프로토콜을 사용합니다. 또한 Azure Storage 개체에 대한 액세스를 위임하는 데 사용할 수 있는 공유 액세스 서명에는 공유 액세스 서명을 사용할 때 HTTPS 프로토콜만 사용할 수 있도록 지정하여 SAS 토큰이 있는 링크를 보내는 사용자는 모두 적절한 프로토콜을 사용할 수 있도록 하는 옵션이 포함되어 있습니다.|
 
 ## <a id="md5-https"></a>HTTPS를 사용할 수 없는 경우 Blob을 다운로드한 후 MD5 해시 유효성 검사
 
@@ -289,7 +289,7 @@ namespace CertificatePinningExample
 | **적용 가능한 기술** | NET Framework 3 |
 | **특성**              | 해당 없음  |
 | **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_transport_security_enabled) |
-| **단계** | 응용 프로그램 구성에서 중요한 정보에 대한 모든 액세스에 HTTPS가 사용되는지 확인해야 합니다.<ul><li>**설명:** 응용 프로그램이 중요한 정보를 처리하고 메시지 수준 암호화를 사용하지 않으면 암호화된 전송 채널을 통해서만 통신할 수 있어야 합니다.</li><li>**권장 사항:** HTTP 전송을 사용하지 않는 대신 HTTPS 전송을 사용하도록 설정합니다. 예를 들어 `<httpTransport/>`를 `<httpsTransport/>` 태그로 바꿉니다. 보안 채널을 통해서만 응용 프로그램에 액세스할 수 있도록 하려면 네트워크 구성(방화벽)을 사용하면 안됩니다. 철학적 관점에서 응용 프로그램은 보안을 위해 네트워크를 신뢰하지 않아야 합니다.</li></ul><p>실용적 관점에서 네트워크 보안 책임자는 진화하는 응용 프로그램의 보안 요구 사항을 항상 추적하지는 않습니다.</p>|
+| **단계** | 응용 프로그램 구성에서 중요한 정보에 대한 모든 액세스에 HTTPS가 사용되는지 확인해야 합니다.<ul><li>**설명:** 애플리케이션 중요한 정보를 처리하고 메시지 수준 암호화를 사용하지 않는 경우에는 암호화된 전송 채널을 통해서만 통신할 수 있어야 합니다.</li><li>**권장 사항:** HTTP 전송을 사용하지 않는 대신 HTTPS 전송을 사용하도록 설정합니다. 예를 들어 `<httpTransport/>`를 `<httpsTransport/>` 태그로 바꿉니다. 보안 채널을 통해서만 응용 프로그램에 액세스할 수 있도록 하려면 네트워크 구성(방화벽)을 사용하면 안됩니다. 철학적 관점에서 응용 프로그램은 보안을 위해 네트워크를 신뢰하지 않아야 합니다.</li></ul><p>실용적 관점에서 네트워크 보안 책임자는 진화하는 응용 프로그램의 보안 요구 사항을 항상 추적하지는 않습니다.</p>|
 
 ## <a id="message-protection"></a>WCF: 메시지 보안 보호 수준을 EncryptAndSign으로 설정
 
@@ -303,7 +303,7 @@ namespace CertificatePinningExample
 | **단계** | <ul><li>**설명:** 보호 수준을 "none"으로 설정하면 메시지 보호를 사용하지 않도록 설정됩니다. 적절한 수준의 설정을 통해 기밀성과 무결성을 보장합니다.</li><li>**권장 사항:**<ul><li>`Mode=None`인 경우 - 메시지 보호를 사용하지 않도록 설정</li><li>`Mode=Sign`인 경우 - 메시지를 서명하지만 암호화하지 않습니다. 데이터 무결성이 중요한 경우에 사용해야 합니다.</li><li>`Mode=EncryptAndSign`인 경우 - 메시지를 서명하고 암호화합니다.</li></ul></li></ul><p>기밀성에 대한 우려 없이 정보 무결성의 유효성을 검사하기만 하면 암호화를 해제하고 메시지에 서명하는 것이 좋습니다. 이렇게 하면 원래 보낸 사람의 유효성을 검사해야 하지만 중요한 데이터는 전송되지 않는 작업 또는 서비스 계약에 유용할 수 있습니다. 보호 수준을 낮출 때는 메시지에 PII(개인 식별이 가능한 정보)가 포함되지 않도록 주의합니다.</p>|
 
 ### <a name="example"></a>예
-다음 예제에서는 메시지 서명만 수행하도록 서비스와 작업을 구성합니다. `ProtectionLevel.Sign`의 서비스 계약 예제: 다음은 서비스 계약 수준에서 ProtectionLevel.Sign을 사용합니다. 
+다음 예제에서는 메시지 서명만 수행하도록 서비스와 작업을 구성합니다. `ProtectionLevel.Sign`의 서비스 계약 예제: 다음은 서비스 계약 수준에서 ProtectionLevel.Sign을 사용하는 예입니다. 
 ```
 [ServiceContract(Protection Level=ProtectionLevel.Sign] 
 public interface IService 
@@ -313,7 +313,7 @@ public interface IService
 ```
 
 ### <a name="example"></a>예
-`ProtectionLevel.Sign`의 작업 계약 예제(세부적 제어의 경우): 다음은 OperationContract 수준에서 `ProtectionLevel.Sign`을 사용합니다.
+`ProtectionLevel.Sign`의 작업 계약 예제(세부적 제어의 경우): 다음은 OperationContract 수준에서 `ProtectionLevel.Sign`을 사용하는 예입니다.
 
 ```
 [OperationContract(ProtectionLevel=ProtectionLevel.Sign] 
@@ -329,7 +329,7 @@ string GetData(int value);
 | **적용 가능한 기술** | .NET Framework 3 |
 | **특성**              | 해당 없음  |
 | **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648826.aspx ) |
-| **단계** | <ul><li>**설명:** 관리자 또는 권한이 높은 계정으로 WCF 서비스를 실행하면 안됩니다. 서비스가 손상된 경우 중대한 영향을 미칩니다.</li><li>**권장 사항:** 최소 권한 계정을 사용하여 WCF 서비스를 호스팅하면 응용 프로그램의 공격 취약 영역이 줄어들고 공격을 받을 때의 잠재적 손상을 줄일 수 있습니다. 서비스 계정에 MSMQ, 이벤트 로그, 성능 카운터 및 파일 시스템과 같은 인프라 리소스에 대한 추가 액세스 권한이 필요한 경우 WCF 서비스가 성공적으로 실행될 수 있도록 이러한 리소스에 적절한 권한을 부여해야 합니다.</li></ul><p>서비스가 원래 호출자를 대신하여 특정 리소스에 액세스해야 하는 경우 가장 및 위임을 사용하여 다운스트림 권한 부여 확인을 위해 호출자의 ID를 전달합니다. 개발 시나리오에서는 권한이 제한된 특별한 기본 제공 계정인 로컬 네트워크 서비스 계정을 사용합니다. 프로덕션 시나리오에서는 최소 권한의 사용자 지정 도메인 서비스 계정을 만듭니다.</p>|
+| **단계** | <ul><li>**설명:** 관리자 또는 권한이 높은 계정으로 WCF 서비스를 실행하면 안됩니다. 서비스가 손상된 경우 중대한 영향을 미칩니다.</li><li>**권장 사항:** 최소 권한 계정을 사용하여 WCF 서비스를 호스팅하면 애플리케이션의 공격에 대한 취약성이 줄어들고 공격을 받을 경우 잠재적 손상을 줄일 수 있습니다. 서비스 계정에 MSMQ, 이벤트 로그, 성능 카운터 및 파일 시스템과 같은 인프라 리소스에 대한 추가 액세스 권한이 필요한 경우 WCF 서비스가 성공적으로 실행될 수 있도록 이러한 리소스에 적절한 권한을 부여해야 합니다.</li></ul><p>서비스가 원래 호출자를 대신하여 특정 리소스에 액세스해야 하는 경우 가장 및 위임을 사용하여 다운스트림 권한 부여 확인을 위해 호출자의 ID를 전달합니다. 개발 시나리오에서는 권한이 제한된 특별한 기본 제공 계정인 로컬 네트워크 서비스 계정을 사용합니다. 프로덕션 시나리오에서는 최소 권한의 사용자 지정 도메인 서비스 계정을 만듭니다.</p>|
 
 ## <a id="webapi-https"></a>Web API에 대한 모든 트래픽이 HTTPS 연결을 통과하도록 강제 적용
 
@@ -372,20 +372,20 @@ public class ValuesController : ApiController
 }
 ```
  
-## <a id="redis-ssl"></a>Azure Redis Cache에 대한 통신이 SSL을 통과하는지 확인
+## <a id="redis-ssl"></a>Azure Cache for Redis에 대한 통신이 SSL을 통과하는지 확인
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Azure Redis 캐시(영문) | 
+| **구성 요소**               | Azure Cache for Redis | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [Azure Redis SSL 지원](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
-| **단계** | Redis 서버는 기본적으로 SSL을 지원하지 않지만 Azure Redis Cache는 지원합니다. Azure Redis Cache에 연결 중이며 StackExchange.Redis처럼 클라이언트가 SSL을 지원하는 경우 SSL을 사용해야 합니다. 기본적으로 비SSL 포트는 새 Azure Redis Cache 인스턴스에 대해 사용하지 않도록 설정됩니다. Redis 클라이언트에 대한 SSL 지원에 대한 종속성이 없으면 보안 기본값이 변경되지 않도록 합니다. |
+| **단계** | Redis 서버는 기본적으로 SSL을 지원하지 않지만 Azure Cache for Redis는 지원합니다. Azure Cache for Redis에 연결 중이며 StackExchange.Redis처럼 클라이언트가 SSL을 지원하는 경우에는 SSL을 사용해야 합니다. 기본적으로 비SSL 포트는 새 Azure Cache for Redis 인스턴스에 대해 사용하지 않도록 설정됩니다. Redis 클라이언트에 대한 SSL 지원에 대한 종속성이 없으면 보안 기본값이 변경되지 않도록 합니다. |
 
 Redis는 신뢰할 수 있는 환경 내에서 신뢰할 수 있는 클라이언트가 액세스할 수 있도록 설계되었습니다. 즉 일반적으로 Redis 인스턴스를 인터넷에 직접 노출하거나 일반적으로 신뢰할 수 없는 클라이언트를 Redis TCP 포트 또는 UNIX 소켓에 직접 액세스할 수 있는 환경에 직접 노출하지 않는 것이 좋습니다. 
 
-## <a id="device-field"></a>장치-필드 게이트웨이 통신 보안
+## <a id="device-field"></a>디바이스-필드 게이트웨이 통신 보안
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -396,7 +396,7 @@ Redis는 신뢰할 수 있는 환경 내에서 신뢰할 수 있는 클라이언
 | **참조**              | 해당 없음  |
 | **단계** | IP 기반 디바이스의 경우 통신 프로토콜은 일반적으로 전송 중인 데이터를 보호하기 위해 SSL/TLS 채널에 캡슐화될 수 있습니다. SSL/TLS를 지원하지 않는 다른 프로토콜의 경우 전송 계층 또는 메시지 계층에서 보안을 제공하는 보안 버전의 프로토콜이 있는지 조사합니다. |
 
-## <a id="device-cloud"></a>SSL/TLS를 사용하여 장치-클라우드 게이트웨이 통신 보안
+## <a id="device-cloud"></a>SSL/TLS를 사용하여 디바이스-클라우드 게이트웨이 통신 보안
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |

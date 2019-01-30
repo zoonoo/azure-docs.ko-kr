@@ -1,5 +1,5 @@
 ---
-title: 'Azure Data Lake를 사용한 확장성 있는 데이터 과학: 종단 간 연습 | Microsoft Docs'
+title: Azure Data Lake를 사용한 확장성 있는 데이터 과학 - Team Data Science Process
 description: Azure Data Lake를 사용하여 데이터 세트에 대해 데이터 탐색 및 이진 분류 작업을 수행하는 방법입니다.
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 52518f8c9295f00b93dee0ea356513605450aed7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 9c6e88eb2e3f3e1b6e6ce2b7f8984799397af582
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443562"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451616"
 ---
-# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake를 사용한 확장성 있는 데이터 과학: 종단 간 연습
+# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake를 사용한 확장성 있는 데이터 과학 엔드 투 엔드 연습
 이 연습에서는 팁을 요금으로 지급할지 여부를 예측하기 위해 NYC Taxi Trip 및 요금 데이터 세트 샘플에서 데이터 탐색 및 이진 분류 작업을 수행하는 데 Azure Data Lake를 사용하는 방법을 보여줍니다. [팀 데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), 종단 간, 데이터 획득에서 모델 학습 후 모델을 게시하는 웹 서비스 배포 단계까지 안내합니다.
 
 ### <a name="azure-data-lake-analytics"></a>Azure 데이터 레이크 분석
@@ -57,7 +57,7 @@ Azure Machine Learning Studio는 예측 모델을 빌드 및 배포하는 데 �
 
 * Azure Data Lake 저장소(ADLS) 
 * Azure Data Lake 분석(ADLA)
-* Azure Blob 저장소 계정
+* Azure Blob Storage 계정
 * Azure Machine Learning Studio 계정
 * Visual Studio용 Azure Data Lake 도구(권장)
 
@@ -65,7 +65,7 @@ Azure Machine Learning Studio는 예측 모델을 빌드 및 배포하는 데 �
 
 
 > [!NOTE]
-> **Azure Data Lake Store**는 별도로 만들거나 **Azure Data Lake Analytics**을 만들 때 기본 저장소로 만들 수 있습니다. 이러한 각 리소스를 만들기 위한 지침이 별도로 참조되지만 Data Lake 저장소 계정을 별도의 단계로 만들지 않아도 됩니다.
+> **Azure Data Lake Store**는 별도로 만들거나 **Azure Data Lake Analytics**을 만들 때 기본 저장소로 만들 수 있습니다. 이러한 각 리소스를 만들기 위한 지침이 별도로 참조되지만 Data Lake 스토리지 계정을 별도의 단계로 만들지 않아도 됩니다.
 >
 > 
 
@@ -81,7 +81,7 @@ Azure Machine Learning Studio는 예측 모델을 빌드 및 배포하는 데 �
 
  ![4](./media/data-lake-walkthrough/4-create-ADLA-new.PNG)
 
-### <a name="create-an-azure-blob-storage-account"></a>Azure Blob 저장소 계정 만들기
+### <a name="create-an-azure-blob-storage-account"></a>Azure Blob Storage 계정 만들기
 [Azure Portal](http://portal.azure.com)에서 Azure Blob Storage 계정을 만듭니다. 자세한 내용은 [Azure 저장소 계정 정보](../../storage/common/storage-create-storage-account.md)의 저장소 계정 만들기 섹션을 참조하세요.
 
  ![5](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
@@ -147,7 +147,7 @@ U-SQL을 실행하려면 Visual Studio를 열고 **파일 --> 새로 만들기 -
 ![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
 ### <a name="ingest"></a>데이터 수집: 공용 Blob에서 데이터 읽기
-Azure Blob에서 데이터 위치는 **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**으로 참조되고 **Extractors.Csv()** 를 사용하여 추출할 수 있습니다. 다음 스크립트에서 wasb 주소의 container_name@blob_storage_account_name에 대한 사용자 고유 컨테이너 이름과 저장소 계정 이름을 대체합니다. 파일 이름은 같은 형식이므로 12개 trip 파일을 모두 읽는 데 **trip\_data_{\*\}.csv**를 사용할 수 있습니다. 
+Azure Blob에서 데이터 위치는 **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**으로 참조되고 **Extractors.Csv()** 를 사용하여 추출할 수 있습니다. 다음 스크립트에서 wasb 주소의 container_name@blob_storage_account_name에 대한 사용자 고유 컨테이너 이름과 저장소 계정 이름을 대체합니다. 파일 이름은 같은 형식이므로 12개 trip 파일을 모두 읽는 데 **trip\_data_{\*\}.csv\** 를 사용할 수 있습니다. 
 
     ///Read in Trip data
     @trip0 =
@@ -209,7 +209,7 @@ Azure Blob에서 데이터 위치는 **wasb://container_name@blob_storage_accoun
  ![11](./media/data-lake-walkthrough/11-data-in-ADL.PNG)
 
 ### <a name="quality"></a>데이터 품질 검사
-Trip 및 fare 테이블을 읽은 후 다음과 같은 방식으로 데이터 품질 검사를 수행할 수 있습니다. 결과 CSV 파일은 Azure Blob 저장소 또는 Azure Data Lake 저장소에 출력할 수 있습니다. 
+Trip 및 fare 테이블을 읽은 후 다음과 같은 방식으로 데이터 품질 검사를 수행할 수 있습니다. 결과 CSV 파일은 Azure Blob Storage 또는 Azure Data Lake 스토리지에 출력할 수 있습니다. 
 
 medallion 수와 medallion의 고유 번호를 찾습니다.
 
@@ -374,7 +374,7 @@ medallion, hack_license 및 pickup_time으로 trip 및 fare 테이블을 조인�
 
 각 승객 수 수준에 대해 레코드 수, 평균 팁 금액, 팁 금액의 분산, 왕복 여정의 백분율을 계산합니다.
 
-    // contigency table
+    // contingency table
     @trip_summary8 =
         SELECT passenger_count,
                COUNT(*) AS cnt,

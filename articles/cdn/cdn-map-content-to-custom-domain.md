@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 67621cb95cbf5072ab7b72770f43c0b68785c78e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: b9bcba78600e90c28f95c4ea842bf4b25b1c0da7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092103"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722791"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>자습서: Azure CDN 엔드포인트에 사용자 지정 도메인 추가
 이 자습서에서는 Azure CDN(Content Delivery Network) 엔드포인트에 사용자 지정 도메인을 추가하는 방법을 보여줍니다. CDN 엔드포인트를 사용하여 콘텐츠를 제공할 때 고유한 도메인 이름을 CDN URL에 표시하려는 경우 사용자 지정 도메인이 필요합니다. 볼 수 있는 도메인 이름이 있다면 고객에게 편리하고 브랜딩 목적상 유용합니다. 
@@ -38,7 +38,7 @@ ms.locfileid: "49092103"
 
 이 자습서에서 단계를 완료하기 전에 먼저 CDN 프로필 및 하나 이상의 CDN 엔드포인트를 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기](cdn-create-new-endpoint.md)를 참조하세요.
 
-사용자 지정 도메인이 없으면 먼저 도메인 공급자를 통해 구매해야 합니다. 예를 들어 [사용자 지정 도메인 이름 구매](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app)를 참조하세요.
+사용자 지정 도메인이 없으면 먼저 도메인 공급자를 통해 구매해야 합니다. 예를 들어 [사용자 지정 도메인 이름 구매](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain)를 참조하세요.
 
 Azure를 사용하여 [DNS 도메인](https://docs.microsoft.com/azure/dns/dns-overview)을 호스트하는 경우 도메인 공급자의 DNS(Domain Name System)를 Azure DNS에 위임해야 합니다. 자세한 내용은 [Azure DNS에 도메인 위임](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns)을 참조하세요. 그렇지 않으면, 도메인 공급자를 사용하여 DNS 도메인을 처리하는 경우 [CNAME DNS 레코드 만들기](#create-a-cname-dns-record)로 계속 진행합니다.
 

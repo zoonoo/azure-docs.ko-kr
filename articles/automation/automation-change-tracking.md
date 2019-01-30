@@ -3,19 +3,19 @@ title: Azure Automation으로 변경 내용 추적
 description: 변경 내용 추적 솔루션을 사용하면 사용자 환경에서 발생하는 소프트웨어 및 Windows 서비스의 변경 내용을 식별할 수 있습니다.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/12/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2678b9a1b80b1c9de6f1b554ce43bcd4f2dd5d50
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: d29a2020d7e7a16e0bac0802a887a28e12630f03
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167004"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433019"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적
 
@@ -51,19 +51,18 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 * Debian GNU/Linux 8 및 9
 * Ubuntu Linux 14.04 LTS 및 16.04 LTS
 
-## <a name="enable-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 사용
+## <a name="onboard"></a>변경 내용 추적 및 인벤토리 사용
 
-변경 내용 추적을 시작하려면 Automation 계정에 대한 변경 내용 추적 및 인벤토리 솔루션을 사용하도록 설정해야 합니다.
+변경 내용 추적을 시작하려면 변경 내용 추적 및 인벤토리 솔루션을 사용하도록 설정해야 합니다. 다양한 방법으로 변경 내용 추적 및 인벤토리에 컴퓨터를 등록할 수 있습니다. 아래에는 권장/지원되는 솔루션 등록 방법이 나와 있습니다.
 
-1. Azure Portal에서 Automation 계정으로 이동합니다.
-2. **구성** 아래에서 **변경 내용 추적**을 선택합니다.
-3. 기존 Log Analytics 작업 영역을 선택하거나 **새 작업 영역 만들기**를 클릭하고 **사용**을 클릭합니다.
-
-이렇게 하면 Automation 계정에 대한 솔루션을 사용할 수 있습니다. 솔루션을 사용하도록 설정하는 데 최대 15분이 걸릴 수 있습니다. 솔루션을 사용하도록 설정되면 파란색 배너에서 알려줍니다. **변경 내용 추적** 페이지로 다시 이동하여 솔루션을 관리합니다.
+* [가상 머신에서 등록](automation-onboard-solutions-from-vm.md)
+* [여러 컴퓨터에서 찾아보기](automation-onboard-solutions-from-browse.md)
+* [Automation 계정에서 등록](automation-onboard-solutions-from-automation-account.md)
+* [Azure Automation Runbook 사용](automation-onboard-solutions.md)
 
 ## <a name="configuring-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 구성
 
-솔루션에 컴퓨터를 등록하는 방법을 알아보려면 [Automation 솔루션 온보드](automation-onboard-solutions-from-automation-account.md)를 방문하세요. 변경 내용 추적과 인벤토리 솔루션을 컴퓨터에 탑재한 후 추적할 항목을 구성할 수 있습니다. 새 파일 또는 레지스트리 키를 추적하도록 설정하면 변경 내용 추적 및 인벤토리가 모두 활성화됩니다.
+솔루션에 컴퓨터를 등록하는 방법을 알아보려면 [Automation 솔루션 온보딩](automation-onboard-solutions-from-automation-account.md)을 방문하세요. 변경 내용 추적과 인벤토리 솔루션을 컴퓨터에 탑재한 후 추적할 항목을 구성할 수 있습니다. 새 파일 또는 레지스트리 키를 추적하도록 설정하면 변경 내용 추적 및 인벤토리가 모두 활성화됩니다.
 
 Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일의 MD5 해시를 사용합니다. 그런 다음, 이 해시를 사용하여 마지막 인벤토리 이후 변경이 있는지 검색합니다.
 
@@ -85,7 +84,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 |재귀     | 추적할 항목을 찾을 때 재귀가 사용되는지 결정합니다.        |
 |sudo 사용     | 항목을 확인할 때 sudo가 사용되는지 여부를 결정합니다.         |
 |링크     | 디렉터리를 트래버스할 때 기호화된 링크에서 처리하는 방법을 결정합니다.<br> **Ignore** - 기호화된 링크가 무시되고 참조된 파일/디렉터리를 포함하지 않습니다.<br>**Follow** - 재귀 중에 기호화된 링크를 따르고 참조된 파일/디렉터리도 포함합니다.<br>**관리** - 기호화된 링크를 따르고 반환된 콘텐츠를 변경할 수 있도록 허용합니다.     |
-|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션: **True** 또는 **False**입니다.|
+|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션은 **True** 또는 **False**입니다.|
 
 > [!NOTE]
 > "Manage" 링크 옵션은 권장되지 않습니다. 파일 콘텐츠 검색은 지원되지 않습니다.
@@ -105,7 +104,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 |그룹     | 논리적으로 파일을 그룹화하는 그룹 이름입니다.        |
 |경로 입력     | 파일을 확인할 경로입니다(예: "c:\temp\\\*.txt").<br>"%winDir%\System32\\\*.*"와 같은 환경 변수도 사용할 수 있습니다.       |
 |재귀     | 추적할 항목을 찾을 때 재귀가 사용되는지 결정합니다.        |
-|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션: **True** 또는 **False**입니다.|
+|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션은 **True** 또는 **False**입니다.|
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>와일드 카드, 재귀 및 환경 설정
 
@@ -135,7 +134,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 |사용     | 설정이 적용되는지 여부를 결정합니다.        |
 |Item Name     | 추적할 파일의 이름입니다.        |
 |그룹     | 논리적으로 파일을 그룹화하는 그룹 이름입니다.        |
-|Windows 레지스트리 키   | 파일을 확인할 경로입니다. 예: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Windows 레지스트리 키   | 파일을 확인할 경로입니다. 예:  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>제한 사항
 
@@ -167,10 +166,21 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 | Windows 레지스트리 | 50분 |
 | Windows 파일 | 30분 |
 | Linux 파일 | 15분 |
-| Windows 서비스 | 10초에서 30분</br> 기본값: 30분 |
+| Windows 서비스 | 10초에서 30분</br> Default: 30분 |
 | Linux 데몬 | 5분 |
 | Windows 소프트웨어 | 30분 |
 | Linux 소프트웨어 | 5분 |
+
+다음 표는 변경 내용 추적에 대한 머신당 추적된 항목 한도를 보여 줍니다.
+
+| **리소스** | **제한**| **참고 사항** |
+|---|---|---|
+|파일|500||
+|레지스트리|250||
+|Windows 소프트웨어|250|소프트웨어 업데이트를 포함하지 않음|
+|Linux 패키지|1250||
+|Services|250||
+|디먼|250||
 
 ### <a name="windows-service-tracking"></a>Windows 서비스 추적
 
@@ -199,7 +209,7 @@ Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를
 > |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run**     |
 |&nbsp;&nbsp;&nbsp;&nbsp;사용자가 Windows 계정에 로그인하기 전에 로드되는 키를 모니터링합니다. 키는 64비트 컴퓨터에서 실행되는 32비트 프로그램에 사용됩니다.    |
 > |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components**     |
-|&nbsp;&nbsp;&nbsp;&nbsp;응용 프로그램 설정의 변경 내용을 모니터링합니다.     |
+|&nbsp;&nbsp;&nbsp;&nbsp;애플리케이션 설정의 변경 내용을 모니터링합니다.     |
 > |**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Windows 탐색기에 직접 연결되고 일반적으로 Explorer.exe를 사용하여 프로세스 내에서 실행되는 일반적인 자동 시작 항목을 모니터링합니다.|
 > |**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers**|
@@ -221,7 +231,7 @@ Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를
 > |**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32**|
 |&nbsp;&nbsp;&nbsp;&nbsp;64비트 컴퓨터에서 실행되는 32비트 프로그램에 대한 wavemapper, wave1 and wave2, msacm.imaadpcm, .msadpcm, .msgsm610 및 vidc와 관련된 32비트 드라이버를 모니터링합니다. SYSTEM.INI 파일의 [drivers] 섹션과 유사합니다.|
 > |**HKEY\_LOCAL\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls**|
-|&nbsp;&nbsp;&nbsp;&nbsp;알려졌거나 일반적으로 사용되는 시스템 DLL 목록을 모니터링합니다. 이 시스템은 시스템 DLL의 트로이 목마 버전을 삭제하여 사용자가 취약한 응용 프로그램 디렉터리에 대한 권한을 악용하지 못하게 합니다.|
+|&nbsp;&nbsp;&nbsp;&nbsp;알려졌거나 일반적으로 사용되는 시스템 DLL 목록을 모니터링합니다. 이 시스템은 시스템 DLL의 트로이 목마 버전을 삭제하여 사용자가 취약한 애플리케이션 디렉터리에 대한 권한을 악용하지 못하게 합니다.|
 > |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Windows 운영 체제에 대한 대화형 로그온 지원 모델인 Winlogon에서 이벤트 알림을 받을 수 있는 패키지 목록을 모니터링합니다.|
 
@@ -269,3 +279,4 @@ Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를
 > [환경 변경 문제 해결](automation-tutorial-troubleshoot-changes.md)
 
 * [Log Analytics에서 로그 검색](../log-analytics/log-analytics-log-searches.md) 을 사용하여 자세한 변경 내용 추적 데이터를 볼 수 있습니다.
+

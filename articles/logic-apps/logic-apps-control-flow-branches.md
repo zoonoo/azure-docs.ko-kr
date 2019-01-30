@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 68f7df2ab004477fae5df1d200fcd44929465e93
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2e1c155a371fa96e4f772f632a9585948b012e54
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233126"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232246"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 작업에 대한 병렬 분기 만들기 또는 조인
 
@@ -37,7 +37,7 @@ ms.locfileid: "50233126"
 
 ![병렬로 단계 실행](media/logic-apps-control-flow-branches/parallel.png)
 
-논리 앱은 워크플로를 계속하기 전에 모든 분기가 완료될 때까지 기다립니다. `runAfter` 속성 값이 완료된 부모 단계의 상태와 일치할 때만 병렬 분기가 실행됩니다. 예를 들어 `branchAction1`과 `branchAction2`는 모두 `parentAction`이 `Succeded` 상태로 완료될 때만 실행되도록 설정됩니다.
+논리 앱은 워크플로를 계속하기 전에 모든 분기가 완료될 때까지 기다립니다. `runAfter` 속성 값이 완료된 부모 단계의 상태와 일치할 때만 병렬 분기가 실행됩니다. 예를 들어 `branchAction1`과 `branchAction2`는 모두 `parentAction`이 `Succeeded` 상태로 완료될 때만 실행되도록 설정됩니다.
 
 > [!NOTE]
 > 시작하기 전에 논리 앱에 병렬 분기를 추가할 수 있는 단계가 이미 있어야 합니다.

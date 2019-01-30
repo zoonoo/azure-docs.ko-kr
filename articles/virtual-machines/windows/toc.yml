@@ -30,16 +30,16 @@ items:
     href: tutorial-create-vmss.md
   - name: 7 - VM 부하 분산
     href: tutorial-load-balancer.md
-  - name: 8 - VM의 네트워킹
+  - name: 8 - 네트워킹 관리
     href: tutorial-virtual-network.md
   - name: 9 - 가상 머신 Backup
     href: tutorial-backup-vms.md
-  - name: 10 - VM 관리
+  - name: 10 - VM 제어
     displayName: scope policy RBAC lock tag
     href: tutorial-govern-resources.md
   - name: 11 - VM 모니터링 및 업데이트
     href: tutorial-monitoring.md
-  - name: 12 - VM의 Security Center
+  - name: 12 - VM 보안 관리
     href: tutorial-azure-security.md
   - name: 13 - SQL\IIS 설치\.NET 스택
     href: tutorial-iis-sql.md
@@ -107,7 +107,7 @@ items:
       href: disks-standard-ssd.md
     - name: Ultra SSD
       href: disks-ultra-ssd.md
-    - name: 프리미엄 저장소 성능
+    - name: Premium Storage 성능
       href: premium-storage-performance.md
     - name: Standard Storage
       href: standard-storage.md
@@ -117,7 +117,7 @@ items:
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
   - name: 네트워킹
     href: network-overview.md
-  - name: 자동 크기 조정 응용 프로그램
+  - name: 자동 크기 조정 애플리케이션
     href: autoscale.md
   - name: 인프라 자동화
     href: infrastructure-automation.md
@@ -179,16 +179,29 @@ items:
     - name: 주요 자격 증명 모음 만들기
       href: key-vault-setup.md
   - name: VM 보호
-    href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     items:
-    - name: 단일 VM 백업
+    - name: VM 백업
+      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       items:
-      - name: Azure portal
-        href: ../../backup/quick-backup-vm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-      - name: Azure PowerShell
-        href: ../../backup/quick-backup-vm-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: 여러 VM 백업
-      href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      - name: 단일 VM 백업
+        href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: 여러 VM 백업
+        href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: 디스크 복원
+        href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: 개별 파일 복원
+        href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: VM에 대한 재해 복구 설정
+      href: ../../site-recovery/site-recovery-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      items:
+      - name: VM에 재해 복구 사용
+        href: ../../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: VM에 대한 재해 복구 훈련 실행
+        href: ../../site-recovery/azure-to-azure-tutorial-dr-drill.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: VM을 다른 Azure 지역으로 장애 조치(failover)
+        href: ../../site-recovery/azure-to-azure-tutorial-failover-failback.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: VM을 다른 Azure 지역으로 이동
+      href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: VM 관리
     items:
     - name: VM 사용량
@@ -244,6 +257,8 @@ items:
       items:
       - name: 개요
         href: shared-image-galleries.md
+      - name: PowerShell을 사용하여 공유 이미지 만들기
+        href: shared-images.md
       - name: CLI를 사용하여 공유 이미지 만들기
         href: ../linux/shared-images.md
       - name: 공유 이미지 문제 해결
@@ -282,7 +297,7 @@ items:
       href: chef-automation.md
     - name: Visual Studio에서 웹앱 게시
       href: publish-web-app-from-visual-studio.md
-  - name: 응용 프로그램 실행
+  - name: 애플리케이션 실행
     items:
     - name: SQL Server
       href: sql/virtual-machines-windows-sql-server-iaas-overview.md
@@ -327,11 +342,11 @@ items:
       href: incremental-snapshots.md
     - name: 디스크를 표준 또는 프리미엄으로 변환
       href: convert-disk-storage.md
-    - name: Azure Site Recovery를 사용하여 프리미엄 저장소로 마이그레이션
+    - name: Azure Site Recovery를 사용하여 Premium Storage로 마이그레이션
       href: migrate-to-premium-storage-using-azure-site-recovery.md
     - name: 연결되지 않은 디스크 찾기
       href: find-unattached-disks.md
-    - name: 파일 저장소 사용
+    - name: File Storage 사용
       href: mount-azure-file-storage.md
     - name: 템플릿을 사용하여 디스크 배포
       href: using-managed-disks-template-deployments.md
@@ -344,8 +359,6 @@ items:
       items:
       - name: 관리되지 않는 VM - Managed Disks
         href: convert-unmanaged-to-managed-disks.md
-      - name: 단일 클래식 VM - 리소스 관리자
-        href: migrate-single-classic-to-resource-manager.md
   - name: 네트워킹 관리
     href: ps-common-network-ref.md
     items:
@@ -409,6 +422,8 @@ items:
         href: migration-classic-resource-manager-community-tools.md
       - name: FAQ
         href: migration-classic-resource-manager-faq.md
+- name: 문제 해결
+  href: ../troubleshooting/index.md
 - name: 참고 자료
   items:
   - name: Azure CLI
@@ -427,6 +442,8 @@ items:
     href: /rest/api/compute
   - name: Managed Disks REST
     href: /rest/api/compute/disks
+  - name: Resource Manager 템플릿
+    href: /azure/templates/microsoft.compute/allversions
 - name: 리소스
   items:
   - name: 작성자 템플릿
@@ -447,11 +464,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: FAQ
     href: faq.md
-- name: 문제 해결
-  href: ../troubleshooting/index.md
-ms.openlocfilehash: bb8bf3fdd1b49987013fbb6b2f508019cedc811e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b930dcd0e1c396425d5656787fd5f3b9203de8ce
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958255"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181676"

@@ -11,20 +11,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/16/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 2a8a00ab034016e7121e4601b3ff5a16d8c721ac
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: seodec18
+ms.openlocfilehash: 84bdc560a135f8f1eb7d6c86fe4f3749135ff7e1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395082"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139047"
 ---
 # <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>DRM 동적 암호화 및 라이선스 배달 서비스 사용
 
 Azure Media Services를 사용하여 [PlayReady DRM(디지털 권한 관리)](https://www.microsoft.com/playready/overview/)으로 보호되는 MPEG-DASH, 부드러운 스트리밍 및 HLS(HTTP 라이브 스트리밍) 스트림을 배달할 수 있습니다. Media Services를 사용하여 **Google Widevine** DRM 라이선스로 암호화된 DASH 스트림을 배달할 수도 있습니다. PlayReady와 Widevine은 모두 일반 암호화(ISO/IEC 23001-7 CENC) 사양에 따라 암호화됩니다. Media Services를 사용하면 **Apple FairPlay**(AES-128 CBC)로 HLS 콘텐츠를 암호화할 수도 있습니다. 
 
-또한 Media Services는 PlayReady, Widevine 및 FairPlay DRM 라이선스를 배달하는 서비스를 제공합니다. 사용자가 DRM으로 보호된 콘텐츠를 요청하면 플레이어 응용 프로그램이 Media Services 라이선스 서비스에서 라이선스를 요청합니다. 플레이어 응용 프로그램에 권한이 있으면 Media Services 라이선스 서비스에서 플레이어에 라이선스를 발급합니다. 라이선스에는 클라이언트 플레이어가 콘텐츠를 해독하고 스트림하는 데 사용할 수 있는 해독 키가 포함됩니다.
+또한 Media Services는 PlayReady, Widevine 및 FairPlay DRM 라이선스를 배달하는 서비스를 제공합니다. 사용자가 DRM으로 보호된 콘텐츠를 요청하면 플레이어 애플리케이션이 Media Services 라이선스 서비스에서 라이선스를 요청합니다. 플레이어 애플리케이션에 권한이 있으면 Media Services 라이선스 서비스에서 플레이어에 라이선스를 발급합니다. 라이선스에는 클라이언트 플레이어가 콘텐츠를 해독하고 스트림하는 데 사용할 수 있는 해독 키가 포함됩니다.
 
 이 아티클은 [DRM으로 암호화](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM) 샘플에 기반합니다. 무엇보다도 샘플은 다음과 같은 방법을 보여줍니다.
 
@@ -40,7 +41,7 @@ Azure Media Services를 사용하여 [PlayReady DRM(디지털 권한 관리)](ht
 
         앱은 정책에 대한 JWT 토큰 형식 제한을 설정합니다.
 
-* 지정된스트리밍 정책 이름을 사용하여 지정된 자산에 대한 StreamingLocator를 만듭니다. 이 경우에 미리 정의된 정책이 사용됩니다. StreamingLocator에 대해 AES-128(봉투) 및 CENC(PlayReady 및 Widevine)라는 두 가지 콘텐츠 키를 설정합니다.  
+* 지정된스트리밍 정책 이름을 사용하여 지정된 자산에 대한 StreamingLocator를 만듭니다. 이 경우에 미리 정의된 정책이 사용됩니다. StreamingLocator에 AES-128(봉투)과 CENC(PlayReady 및 Widevine)의 두 가지 콘텐츠 키를 설정합니다.  
     
     StreamingLocator가 생성되면 출력 자산이 게시되고 재생용 클라이언트에 지원됩니다.
 
@@ -58,7 +59,7 @@ Azure Media Services를 사용하여 [PlayReady DRM(디지털 권한 관리)](ht
 
 이 아티클에서 설명된 샘플에서는 다음과 같은 결과를 생성합니다.
 
-![DRM으로 보호](./media/protect-with-drm/ams_player.png)
+![DRM으로 보호된 비디오가 있는 AMS](./media/protect-with-drm/ams_player.png)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -69,7 +70,7 @@ Azure Media Services를 사용하여 [PlayReady DRM(디지털 권한 관리)](ht
 * Visual Studio Code 또는 Visual Studio 설치
 * [이 빠른 시작](create-account-cli-quickstart.md)에서 설명된 대로 새로운 Azure Media Services 계정을 만듭니다.
 * [액세스 API](access-api-cli-how-to.md)를 수행하여 Media Services API를 사용하는 데 필요한 자격 증명 가져오기
-* 응용 프로그램 구성 파일(appsettings.json)에서 적절한 값을 설정합니다.
+* 애플리케이션 구성 파일(appsettings.json)에서 적절한 값을 설정합니다.
 
 ## <a name="download-code"></a>코드 다운로드
 
@@ -82,7 +83,7 @@ Azure Media Services를 사용하여 [PlayReady DRM(디지털 권한 관리)](ht
 "DRM으로 암호화" 샘플은 [EncryptWithDRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM) 폴더에 있습니다.
 
 > [!NOTE]
-> 샘플은 응용 프로그램을 실행할 때마다 고유한 리소스를 만듭니다. 일반적으로 변환 및 정책 등 기존 리소스를 다시 사용합니다(기존 리소스가 구성이 필요한 경우). 
+> 샘플은 애플리케이션을 실행할 때마다 고유한 리소스를 만듭니다. 일반적으로 변환 및 정책 등 기존 리소스를 다시 사용합니다(기존 리소스가 구성이 필요한 경우). 
 
 ## <a name="start-using-media-services-apis-with-net-sdk"></a>.NET SDK로 Media Services API 사용하기
 
@@ -114,9 +115,9 @@ Azure Media Services를 사용하여 [PlayReady DRM(디지털 권한 관리)](ht
 
 ## <a name="wait-for-the-job-to-complete"></a>작업이 완료될 때까지 대기
 
-작업을 완료하는 데 시간이 다소 걸리기 때문에 완료되면 알림을 받는 것이 좋습니다. 아래 코드 샘플은 [Job](https://docs.microsoft.com/rest/api/media/jobs)의 상태에 대한 서비스를 폴링하는 방법을 보여줍니다. 폴링은 잠재적인 대기 시간 때문에 프로덕션 응용 프로그램에는 권장되지 않습니다. 폴링이 계정에서 초과 사용되면 정체될 수 있습니다. 대신 Event Grid를 사용해야 합니다. [이벤트를 사용자 지정 웹 엔드포인트로 라우팅](job-state-events-cli-how-to.md)을 참조하세요.
+작업을 완료하는 데 시간이 다소 걸리기 때문에 완료되면 알림을 받는 것이 좋습니다. 아래 코드 샘플은 [Job](https://docs.microsoft.com/rest/api/media/jobs)의 상태에 대한 서비스를 폴링하는 방법을 보여줍니다. 폴링은 잠재적인 대기 시간 때문에 프로덕션 애플리케이션에는 권장되지 않습니다. 폴링이 계정에서 초과 사용되면 정체될 수 있습니다. 대신 Event Grid를 사용해야 합니다. [이벤트를 사용자 지정 웹 엔드포인트로 라우팅](job-state-events-cli-how-to.md)을 참조하세요.
 
-**작업**은 일반적으로 **예약됨**, **큐에 대기됨**, **처리 중**, **마침**(최종 상태) 상태를 거칩니다. 작업에서 오류가 발생하면 **오류** 상태가 표시됩니다. 작업을 취소 중인 경우 **취소 중**이 표시되고 완료되면 **취소됨**이 표시됩니다.
+**작업**은 일반적으로 **예약됨**, **대기**, **처리 중**, **마침**(최종 상태) 상태를 거칩니다. 작업에서 오류가 발생하면 **오류** 상태가 표시됩니다. 작업을 취소 중인 경우 **취소 중**이 표시되고 완료되면 **취소됨**이 표시됩니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#WaitForJobToFinish)]
 

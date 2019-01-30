@@ -1,14 +1,12 @@
 ---
-title: '자습서: 인터넷 트래픽 부하를 여러 VM에 분산 - Azure Portal | Microsoft Docs'
+title: '자습서: VM에 내부 트래픽 부하 분산 - Azure Portal'
+titlesuffix: Azure Load Balancer
 description: 이 자습서에서는 Azure Portal을 사용하여 표준 Load Balancer를 만들고 관리하는 방법을 보여줍니다.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
+manager: twooley
 Customer intent: I want to create and Standard Load balancer so that I can load balance internet traffic to VMs and add and remove VMs from the load-balanced set.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/18
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: ef021a89cb1cba5a3240ade5ba67141940413cdc
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: c22f69764447ffd4f8b67e9162fd8b45b40b175b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687316"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230036"
 ---
-# <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 인터넷 트래픽 부하를 여러 VM에 분산
+# <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 인터넷 트래픽 부하를 VM에 분산
 
 부하를 분산하면 들어오는 요청이 여러 가상 머신에 분산되어 가용성 및 확장성이 향상됩니다. 이 자습서에서는 인터넷 트래픽을 여러 VM에 분산하여 고가용성을 제공하는 Azure 표준 Load Balancer의 여러 가지 구성 요소에 대해 알아봅니다. 다음 방법에 대해 알아봅니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Logic Apps를 사용하여 정기적으로 실행되는 작업 및 워크플로 만들기 | Microsoft Docs
-description: Azure Logic Apps에서 되풀이 커넥터를 사용하여 일정에 따라 실행되는 작업 및 워크플로 자동화
+title: Azure Logic Apps를 사용하여 자동화된 작업 및 워크플로 예약 및 실행 | Microsoft Docs
+description: Azure Logic Apps에서 되풀이 커넥터를 사용하여 예약 및 되풀이 작업 자동화
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,21 +10,21 @@ ms.reviewer: klam, LADocs
 ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 tags: connectors
 ms.topic: article
-ms.date: 09/25/2017
-ms.openlocfilehash: 905157ab530ae042318de520f9d6fe24cb9d59ce
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.date: 01/08/2019
+ms.openlocfilehash: a1f89ca6e9dc2d05180df14ff0f4dc52729a7e03
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127057"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107840"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 되풀이 작업 및 워크플로를 만들고 실행
 
-정기적으로 실행하는 작업, 워크로드 또는 프로세스를 예약하기 위해 **예약 - 되풀이** [트리거](../logic-apps/logic-apps-overview.md#logic-app-concepts)로 시작하는 논리 앱 워크플로를 만들 수 있습니다. 이 트리거를 사용하면 되풀이를 시작할 날짜 및 시간과 다음 예제 등의 작업을 수행할 되풀이 일정을 설정할 수 있습니다.
+정기적으로 실행하는 작업, 워크로드 또는 프로세스를 예약하기 위해 **예약 - 되풀이** [트리거](../logic-apps/logic-apps-overview.md#logic-app-concepts)로 시작하는 논리 앱 워크플로를 만듭니다. 워크플로를 시작할 날짜 및 시간과 다음 예제 등의 작업을 수행할 되풀이 일정을 설정할 수 있습니다.
 
 * 내부 데이터 가져오기: 매일 [SQL 저장 프로시저를 실행합니다](../connectors/connectors-create-api-sqlazure.md).
 * 외부 데이터 가져오기: 15분마다 NOAA에서 날씨 보고서를 가져옵니다.
-* 데이터 보고: 지난 주에 특정 값보다 큰 모든 주문에 대한 요약을 전자 메일로 보냅니다.
+* 데이터 보고: 지난 주에 특정 값보다 큰 모든 주문에 대한 요약을 이메일로 보냅니다.
 * 데이터 처리: 매주 사용량이 적은 시간에 오늘 업로드된 이미지를 압축합니다.
 * 데이터 정리: 3개월보다 오래된 모든 트윗을 삭제합니다.
 * 데이터 보관: 매달 백업 서비스에 대한 청구서를 보냅니다.
@@ -37,7 +37,9 @@ ms.locfileid: "43127057"
 * 매주 실행하고 반복하되, 토요일 및 일요일과 같이 특정 요일에만 적용합니다.
 * 매주 실행하고 반복하되, 월요일부터 금요일까지 8:00 AM 및 5:00 PM과 같이 특정 날짜 및 시간에만 적용합니다.
 
-되풀이 트리거가 발생할 때마다 Logic Apps는 논리 앱 워크플로의 새로운 인스턴스를 만들고 실행합니다.
+되풀이 트리거가 발생할 때마다 Logic Apps는 논리 앱 워크플로의 새로운 인스턴스를 만들고 실행합니다. 
+
+논리 앱을 트리거하고 나중에 한 번만 실행하려면 이 항목의 뒷부분에 나오는 [한 번만 작업 실행](#run-once)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -49,9 +51,9 @@ ms.locfileid: "43127057"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 빈 논리를 만들거나 [빈 논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 알아봅니다.
 
-2. Logic Apps 디자이너가 표시되면 검색 상자에 필터로 “되풀이”를 입력합니다. **예약 - 되풀이** 트리거를 선택합니다. 
+2. Logic Apps 디자이너가 나타나면 검색 상자에서 **모두**를 선택합니다. 검색 상자에서 필터로 “되풀이”를 입력합니다. 트리거 목록에서 다음 트리거를 선택합니다. **되풀이 - 일정** 
 
-   ![예약 - 되풀이 트리거](./media/connectors-native-recurrence/add-recurrence-trigger.png)
+   !["되풀이 - 일정" 트리거 선택](./media/connectors-native-recurrence/add-recurrence-trigger.png)
 
    이제 이 트리거가 논리 앱에서 첫 번째 단계입니다.
 
@@ -93,13 +95,13 @@ ms.locfileid: "43127057"
 
 되풀이 트리거에 대한 이러한 속성을 구성할 수 있습니다.
 
-| Name | 필수 | 속성 이름 | type | 설명 | 
+| 이름 | 필수 | 속성 이름 | type | 설명 | 
 |----- | -------- | ------------- | ---- | ----------- | 
-| **Frequency(빈도)** | yes | frequency | 문자열 | 되풀이 시간 단위: **초**, **분**, **시간**, **일**, **주** 또는 **월** | 
-| **간격** | yes | interval | 정수  | 빈도에 따라 워크플로가 얼마나 자주 실행되는지를 설명하는 양의 정수입니다. <p>기본 간격은 1입니다. 다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. | 
+| **Frequency(빈도)** | 예 | frequency | 문자열 | 되풀이에 대한 시간 단위: **초**, **분**, **시간**, **일**, **주** 또는 **월** | 
+| **간격** | 예 | interval | 정수  | 빈도에 따라 워크플로가 얼마나 자주 실행되는지를 설명하는 양의 정수입니다. <p>기본 간격은 1입니다. 다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. | 
 | **표준 시간대** | 아니요 | timeZone | 문자열 | 이 트리거는 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset)을 허용하지 않으므로 시작 시간을 지정할 때만 적용됩니다. 적용하려는 표준 시간대를 선택합니다. | 
 | **시작 시간** | 아니요 | startTime | 문자열 | 시작 시간을 다음 형식으로 입력합니다. <p>표준 시간대를 선택하는 경우 YYYY-MM-DDThh:mm:ss <p>또는 <p>표준 시간대를 선택하지 않은 경우 YYYY-MM-DDThh:mm:ssZ <p>예를 들어 2017년 9월 18일, 2:00 PM을 원할 경우 “2017-09-18T14:00:00”을 지정하고 태평양 표준시와 같은 표준 시간대를 선택합니다. 또는 표준 시간대 없이 “2017-09-18T14:00:00Z”를 지정합니다. <p>**참고:** 이 시작 시간은 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset) 없이 [UTC 날짜 시간 형식](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)의 [ISO 8601 날짜 시간 사양](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 따라야 합니다. 표준 시간대를 선택하지 않으면 공백 없이 맨 끝에 문자 “Z”를 추가해야 합니다. 이 “Z”는 해당 [항해 시간](https://en.wikipedia.org/wiki/Nautical_time)을 나타냅니다. <p>단순 일정의 경우 시작 시간은 첫 번째 발생이지만 복잡한 일정의 경우 트리거는 시작 시간보다 더 일찍 발생하지 않습니다. [*시작 날짜 및 시간을 사용할 수 있는 방법에는 무엇이 있나요?*](#start-time) | 
-| **요일 선택** | 아니요 | weekDays | 문자열 또는 문자열 배열 | “주”를 선택하는 경우 워크플로를 실행하려는 요일을 하나 이상 선택할 수 있습니다.**월요일**, **화요일**, **수요일**, **목요일**, **금요일**, **토요일** 및 **일요일** | 
+| **요일 선택** | 아니요 | weekDays | 문자열 또는 문자열 배열 | "주"를 선택하는 경우 워크플로 실행하려고 할 때 하나 이상의 요일을 선택할 수 있습니다. **Monday**, **Tuesday**, **Wednesday**, **Thursday**, **Friday**, **Saturday** 및 **Sunday** | 
 | **시간 선택** | 아니요 | hours | 정수 또는 정수 배열 | “일” 또는 “주”를 선택하는 경우 워크플로를 실행하려는 하루 시간으로 0~23 사이의 정수를 하나 이상 선택할 수 있습니다. <p>예를 들어 “10”, “12” 및 “14”를 지정하면 10 AM, 12 PM 및 2 PM이 시간 표시로 제공됩니다. | 
 | **분 선택** | 아니요 | minutes | 정수 또는 정수 배열 | “일” 또는 “주”를 선택하는 경우 워크플로를 실행하려는 시간의 분으로 0~59 사이의 정수를 하나 이상 선택할 수 있습니다. <p>예를 들어 분 표시로 “30”을 지정하고, 앞에 나온 하루 시간 예제를 사용하면 10:30 AM, 12:30 PM 및 2:30 PM이 표시됩니다. | 
 ||||| 
@@ -109,35 +111,42 @@ ms.locfileid: "43127057"
 예제 [되풀이 트리거 정의](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger)는 다음과 같습니다.
 
 ``` json
-{
-    "triggers": {
-        "Recurrence": {
-            "type": "Recurrence",
-            "recurrence": {
-                "frequency": "Week",
-                "interval": 1,
-                "schedule": {
-                    "hours": [
-                        10,
-                        12,
-                        14
-                    ],
-                    "minutes": [
-                        30
-                    ],
-                    "weekDays": [
-                        "Monday"
-                    ]
-                },
-               "startTime": "2017-09-07T14:00:00",
-               "timeZone": "Pacific Standard Time"
-            }
-        }
-    }
+"triggers": {
+   "Recurrence": {
+      "type": "Recurrence",
+      "recurrence": {
+         "frequency": "Week",
+         "interval": 1,
+         "schedule": {
+            "hours": [
+               10,
+               12,
+               14
+            ],
+            "minutes": [
+               30
+            ],
+            "weekDays": [
+               "Monday"
+            ]
+         },
+         "startTime": "2017-09-07T14:00:00",
+         "timeZone": "Pacific Standard Time"
+      }
+   }
 }
 ```
 
 ## <a name="faq"></a>FAQ
+
+<a name="run-once"></a>
+
+**Q:** 나중에 논리 앱을 한 번만 실행하려는 경우 어떻게 해야 하나요? </br>
+**A:** 논리 앱을 트리거하고 되풀이하지 않고 한 번만 실행하려면 **Scheduler: 작업 한 번 실행** 템플릿을 사용할 수 있습니다. 새 논리 앱을 만든 후 Logic Apps 디자이너를 열기 전에 **템플릿** 섹션의 **범주** 목록에서 **일정**을 선택한 다음, 템플릿을 선택합니다.
+
+!["Scheduler: 작업 한 번 실행" 템플릿 선택](./media/connectors-native-recurrence/choose-run-once-template.png)
+
+또는 빈 논리 앱 템플릿을 사용하는 경우 **HTTP 요청을 수신하는 경우 - 요청** 트리거를 사용하여 논리 앱을 시작합니다. 트리거의 시작 시간을 매개 변수로 전달합니다. 다음 단계는 **다음 기간까지 지연 - 일정** 작업을 추가하고, 다음 작업 실행을 시작할 때의 시간을 제공합니다.
 
 <a name="example-recurrences"></a>
 
@@ -172,7 +181,7 @@ ms.locfileid: "43127057"
 <a name="start-time"></a>
 
 **Q:** 시작 날짜 및 시간을 사용할 수 있는 방법에는 무엇이 있나요? </br>
-**A:** 시작 날짜와 시간으로 되풀이를 제어하는 방법 및 Logic Apps 엔진이 이러한 되풀이를 어떻게 실행하는지를 보여 주는 몇 가지 패턴이 있습니다.
+**A:** 시작 날짜와 시간으로 되풀이를 제어하는 방법 및 Logic Apps 엔진이 이러한 되풀이를 어떻게 실행하는지를 보여주는 몇 가지 패턴이 있습니다.
 
 | 시작 시간 | 일정 없이 되풀이 | 일정대로 되풀이 | 
 | ---------- | --------------------------- | ------------------------ | 

@@ -143,12 +143,16 @@ items:
       href: connector-amazon-simple-storage-service.md
     - name: Azure Blob Storage
       href: connector-azure-blob-storage.md
-    - name: Azure Cosmos DB
+    - name: Azure Cosmos DB SQL API
       href: connector-azure-cosmos-db.md
+    - name: Azure Cosmos DB MongDB API
+      href: connector-azure-cosmos-db-mongodb-api.md
     - name: Azure Data Lake Storage Gen1
       href: connector-azure-data-lake-store.md
     - name: Azure Data Lake Storage Gen2
       href: connector-azure-data-lake-storage.md
+    - name: Azure Database for MariaDB
+      href: connector-azure-database-for-mariadb.md
     - name: Azure Database for MySQL
       href: connector-azure-database-for-mysql.md
     - name: Azure Database for PostgreSQL
@@ -191,6 +195,8 @@ items:
       href: connector-google-adwords.md
     - name: Google BigQuery
       href: connector-google-bigquery.md
+    - name: Google Cloud Storage
+      href: connector-google-cloud-storage.md
     - name: Greenplum
       href: connector-greenplum.md
     - name: HBase
@@ -219,6 +225,9 @@ items:
       href: connector-odbc.md#microsoft-access-source
     - name: MongoDB
       href: connector-mongodb.md
+      items:
+      - name: MongoDB(레거시)
+        href: connector-mongodb-legacy.md
     - name: MySQL
       href: connector-mysql.md
     - name: Netezza
@@ -247,13 +256,17 @@ items:
       href: connector-presto.md
     - name: QuickBooks Online
       href: connector-quickbooks.md
+    - name: REST (영문)
+      href: connector-rest.md
     - name: Salesforce
       href: connector-salesforce.md
     - name: Salesforce 서비스 클라우드
       href: connector-salesforce.md
     - name: Salesforce 마케팅 클라우드
       href: connector-salesforce-marketing-cloud.md
-    - name: SAP Business Warehouse
+    - name: SAP Business Warehouse 개방형 허브
+      href: connector-sap-business-warehouse-open-hub.md
+    - name: SAP Business Warehouse MDX
       href: connector-sap-business-warehouse.md
     - name: SAP Cloud for Customer
       href: connector-sap-cloud-for-customer.md
@@ -401,6 +414,8 @@ items:
       href: monitor-integration-runtime.md#azure-ssis-integration-runtime
     - name: Azure-SSIS 통합 런타임 다시 구성
       href: manage-azure-ssis-integration-runtime.md
+    - name: 데이터 팩터리 복사 또는 복제
+      href: copy-clone-data-factory.md
   - name: 통합 런타임 만들기
     items:
     - name: Azure 통합 런타임
@@ -451,6 +466,8 @@ items:
     href: /powershell/module/azurerm.datafactoryv2/
   - name: REST API
     href: /rest/api/datafactory
+  - name: Resource Manager 템플릿
+    href: /azure/templates/microsoft.datafactory/allversions
   - name: Python
     href: /python/api/overview/azure/datafactory?view=azure-python
 - name: 리소스
@@ -471,9 +488,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: 지원 옵션
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: eb6bdf7d9665e46012f7edc1acb558bf7edbe717
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: bdee914a5ceaf1a0ac265c8827d95baf63f9f91e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840489"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188536"

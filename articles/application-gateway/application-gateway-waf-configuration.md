@@ -1,34 +1,31 @@
 ---
-title: Azure Application Gateway의 웹 응용 프로그램 방화벽 요청 크기 제한 및 제외 목록 - Azure Portal
-description: 이 문서에서는 Azure Portal을 사용하는 Application Gateway의 웹 응용 프로그램 방화벽 요청 크기 제한 및 제외 목록 구성에 대해 설명합니다.
+title: Azure Application Gateway의 웹 애플리케이션 방화벽 요청 크기 제한 및 제외 목록 - Azure Portal
+description: 이 문서에서는 Azure Portal을 사용하는 Application Gateway의 웹 애플리케이션 방화벽 요청 크기 제한 및 제외 목록 구성에 대해 설명합니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.workload: infrastructure-services
 ms.date: 11/6/2018
 ms.author: victorh
-ms.openlocfilehash: f89841c7712737d2d55601c6525e975274b4a103
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 6ea72c2caebeeb46b0973ba700d40670340204d7
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036720"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353195"
 ---
-# <a name="web-application-firewall-request-size-limits-and-exclusion-lists-public-preview"></a>웹 응용 프로그램 방화벽 요청 크기 제한 및 제외 목록(공개 미리 보기)
+# <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>웹 애플리케이션 방화벽 요청 크기 제한 및 제외 목록
 
-Azure Application Gateway WAF(웹 응용 프로그램 방화벽)는 웹 응용 프로그램을 보호합니다. 이 문서에서는 WAF 요청 크기 제한 및 제외 목록 구성에 대해 설명합니다.
-
-> [!IMPORTANT]
-> WAF 요청 크기 제한 및 제외 목록의 구성은 현재 공개 미리 보기로 제공됩니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+Azure Application Gateway WAF(웹 애플리케이션 방화벽)는 웹 애플리케이션을 보호합니다. 이 문서에서는 WAF 요청 크기 제한 및 제외 목록 구성에 대해 설명합니다.
 
 ## <a name="waf-request-size-limits"></a>WAF 요청 크기 제한
 
 ![요청 크기 제한](media/application-gateway-waf-configuration/waf-requestsizelimit.png)
 
-사용자는 웹 응용 프로그램 방화벽을 통해 상한과 하한 사이의 범위에서 요청 크기 제한을 구성할 수 있습니다. 사용 가능한 크기 제한 구성은 다음의 두 가지입니다.
+웹 애플리케이션 방화벽을 통해 상한과 하한 사이의 범위에서 요청 크기 제한을 구성할 수 있습니다. 사용 가능한 크기 제한 구성은 다음의 두 가지입니다.
 
 - KB 단위로 지정되는 최대 요청 본문 크기 필드는 파일 업로드를 제외한 전체 요청 크기 제한을 제어합니다. 이 필드에는 1KB~128KB 사이의 값을 지정할 수 있습니다. 요청 본문 크기의 기본값은 128KB입니다.
-- MB 단위로 지정되는 파일 업로드 제한 필드는 허용되는 최대 파일 업로드 크기를 제어합니다. 이 필드에는 1MB~500MB 사이의 값을 지정할 수 있습니다. 파일 업로드 제한의 기본값은 100MB입니다.
+- MB 단위로 지정되는 파일 업로드 제한 필드는 허용되는 최대 파일 업로드 크기를 제어합니다. 중간 SKU의 최대값이 100MB일 때 이 필드에는 대규모 SKU 인스턴스의 최소값으로 1MB를, 최대값으로 500MB를 지정할 수 있습니다. 파일 업로드 제한의 기본값은 100MB입니다.
 
 WAF는 요청 본문 검사를 설정하거나 해제할 수 있는 구성 가능한 노브도 제공합니다. 요청 본문 검사는 기본적으로 사용됩니다. 요청 본문 검사를 해제하면 WAF는 HTTP 메시지 본문의 내용을 평가하지 않습니다. 이러한 경우에도 헤더, 쿠키 및 URI에는 WAF 규칙이 계속 적용됩니다. 요청 본문 검사를 해제하는 경우에는 최대 요청 본문 크기 필드가 적용되지 않으며 설정할 수 없습니다. 요청 본문 검사를 해제하면 128KB보다 큰 메시지를 WAF로 전송할 수 있지만 메시지 본문에서 취약성을 검사하지는 않습니다.
 
@@ -36,7 +33,7 @@ WAF는 요청 본문 검사를 설정하거나 해제할 수 있는 구성 가�
 
 ![waf-exclusion.png](media/application-gateway-waf-configuration/waf-exclusion.png)
 
-사용자는 WAF 제외 목록을 통해 WAF 평가에서 특정 요청 특성을 생략할 수 있습니다. 일반적인 예로는 인증 또는 암호 필드에 사용되는 Active Directory 삽입 토큰이 있습니다. 이러한 특성은 WAF 규칙에서 가양성을 트리거할 수 있는 특수 문자를 포함하는 경우가 많습니다. WAF 제외 목록에 추가된 특성은 구성된 활성 WAF 규칙에서 고려되지 않습니다. 제외 목록의 범위는 전역입니다.
+WAF 제외 목록을 통해 WAF 평가에서 특정 요청 특성을 생략할 수 있습니다. 일반적인 예로는 인증 또는 암호 필드에 사용되는 Active Directory 삽입 토큰이 있습니다. 이러한 특성은 WAF 규칙에서 가양성을 트리거할 수 있는 특수 문자를 포함하는 경우가 많습니다. WAF 제외 목록에 추가된 특성은 구성된 활성 WAF 규칙에서 고려되지 않습니다. 제외 목록의 범위는 전역입니다.
 
 제외 목록에 다음 특성을 추가할 수 있습니다.
 
@@ -52,12 +49,46 @@ WAF는 요청 본문 검사를 설정하거나 해제할 수 있는 구성 가�
 
 지원되는 일치 기준 연산자는 다음과 같습니다.
 
-- **equals**: 정확한 일치에 사용됩니다. 예를 들어 **bearerToken**이라는 헤더를 선택하는 경우 선택기가 **bearerToken**으로 설정된 equals 연산자를 사용합니다.
-- **starts with**: 이 연산자는 지정된 선택기 값으로 시작하는 모든 필드와 일치합니다.
-- **ends with**: 이 연산자는 지정된 선택기 값으로 끝나는 모든 요청 필드와 일치합니다.
-- **contains**: 이 연산자는 지정된 선택기 값을 포함하는 모든 요청 필드와 일치합니다.
+- **Equals**:  이 연산자는 정확한 일치에 사용됩니다. 예를 들어 **bearerToken**이라는 헤더를 선택하는 경우 선택기가 **bearerToken**으로 설정된 equals 연산자를 사용합니다.
+- **시작**: 이 연산자는 지정된 선택기 값으로 시작하는 모든 필드와 일치합니다.
+- **다음으로 끝**:  이 연산자는 지정된 선택기 값으로 끝나는 모든 요청 필드와 일치합니다.
+- **포함**: 이 연산자는 지정된 선택기 값을 포함하는 모든 요청 필드와 일치합니다.
 
 어떤 경우에서든 일치는 대/소문자를 구분하지 않으며, 정규식은 선택기로 사용할 수 없습니다.
+
+### <a name="examples"></a>예
+
+다음 Azure PowerShell 코드 조각은 제외 사용 경우를 보여 줍니다.
+
+```azurepowershell
+// exclusion 1: exclude request head start with xyz
+// exclusion 2: exclude request args equals a
+
+$exclusion1 = New-AzureRmApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestHeaderNames" -SelectorMatchOperator "StartsWith" -Selector "xyz"
+
+$exclusion2 = New-AzureRmApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestArgNames" -SelectorMatchOperator "Equals" -Selector "a"
+
+// add exclusion lists to the firewall config
+
+$firewallConfig = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention -RuleSetType "OWASP" -RuleSetVersion "2.2.9" -DisabledRuleGroups $disabledRuleGroup1,$disabledRuleGroup2 -RequestBodyCheck $true -MaxRequestBodySizeInKb 80 -FileUploadLimitInMb 70 -Exclusions $exclusion1,$exclusion2
+```
+
+다음 json 코드 조각은 제외 사용 경우를 보여 줍니다.
+
+```json
+"webApplicationFirewallConfiguration": {
+          "enabled": "[parameters('wafEnabled')]",
+          "firewallMode": "[parameters('wafMode')]",
+          "ruleSetType": "[parameters('wafRuleSetType')]",
+          "ruleSetVersion": "[parameters('wafRuleSetVersion')]",
+          "disabledRuleGroups": [],
+          "exclusions": [
+            {
+                "matchVariable": "RequestArgNames",
+                "selectorMatchOperator": "StartsWith",
+                "selector": "a^bc"
+            }
+```
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 40af55e48e0097f1ad6cb52a76b78fab40c2074c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 6b470bfbb97cb14ccb1f63b34218575b64e686de
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447183"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812593"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
 
@@ -31,7 +31,7 @@ Azure의 가상 머신 확장 집합에 대한 FAQ(질문과 대답)에 대해 �
 
 **Q.** 크기 집합에 포함할 수 있는 VM 수는 몇 개인가요?
 
-**A.** 확장 집합에는 플랫폼 이미지 기준으로 0~1,000대의 VM, 사용자 지정 이미지 기준으로 0~300대의 VM을 포함시킬 수 있습니다.
+**A.** 확장 집합에는 플랫폼 이미지에 기반하여 0~1,000대의 VM, 사용자 지정 이미지에 기반하여 0~600대의 VM을 포함할 수 있습니다.
 
 **Q.** 크기 집합 내에서 데이터 디스크가 지원되나요?
 
@@ -109,9 +109,9 @@ Service Bus 큐를 모니터링하려면 다음 JSON을 수행합니다.
 
 VM에 자동 크기 조정 설정을 만들면 호스트 수준 메트릭 또는 게스트 OS 기반 메트릭을 사용할 수 있습니다.
 
-지원되는 메트릭 목록에 대해서는 [Azure Monitor 자동 크기 조정 공용 메트릭](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics)을 참조하세요. 
+지원되는 메트릭 목록에 대해서는 [Azure Monitor 자동 크기 조정 공용 메트릭](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics)을 참조하세요.
 
-가상 머신 확장 집합의 전체 샘플을 보려면 [가상 머신 확장 집합에 대해 Resource Manager 템플릿을 사용하여 고급 자동 크기 조정 구성](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets)을 참조하세요. 
+가상 머신 확장 집합의 전체 샘플을 보려면 [가상 머신 확장 집합에 대해 Resource Manager 템플릿을 사용하여 고급 자동 크기 조정 구성](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets)을 참조하세요.
 
 샘플에서는 호스트 수준의 CPU 메트릭 및 메시지 개수 메트릭을 사용합니다.
 
@@ -140,7 +140,7 @@ PowerShell을 사용하여 가상 머신 확장 집합에 대해 자동 크기 �
 
 ## <a name="certificates"></a>인증서
 
-### <a name="how-do-i-securely-ship-a-certificate-to-the-vm-how-do-i-provision-a-virtual-machine-scale-set-to-run-a-website-where-the-ssl-for-the-website-is-shipped-securely-from-a-certificate-configuration-the-common-certificate-rotation-operation-would-be-almost-the-same-as-a-configuration-update-operation-do-you-have-an-example-of-how-to-do-this"></a>VM에 인증서를 안전하게 배달하려면 어떻게 해야 하나요? 인증서 구성에서 가상 머신 확장 집합을 프로비전하여 웹 사이트의 SSL이 안전하게 배달되는 웹 사이트를 실행하려면 어떻게 해야 하나요? (일반적인 인증서 순환 작업은 구성 업데이트 작업과 거의 동일합니다.) 이 작업을 수행하는 방법을 보여 주는 예제가 있나요? 
+### <a name="how-do-i-securely-ship-a-certificate-to-the-vm-how-do-i-provision-a-virtual-machine-scale-set-to-run-a-website-where-the-ssl-for-the-website-is-shipped-securely-from-a-certificate-configuration-the-common-certificate-rotation-operation-would-be-almost-the-same-as-a-configuration-update-operation-do-you-have-an-example-of-how-to-do-this"></a>VM에 인증서를 안전하게 배달하려면 어떻게 해야 하나요? 인증서 구성에서 가상 머신 확장 집합을 프로비전하여 웹 사이트의 SSL이 안전하게 배달되는 웹 사이트를 실행하려면 어떻게 해야 하나요? (일반적인 인증서 순환 작업은 구성 업데이트 작업과 거의 동일합니다.) 이 작업을 수행하는 방법을 보여 주는 예제가 있나요?
 
 VM에 인증서를 안전하게 전달하기 위해 고객의 Key Vault에서 Windows 인증서 저장소로 직접 고객 인증서를 설치할 수 있습니다.
 
@@ -167,57 +167,24 @@ VM에 인증서를 안전하게 전달하기 위해 고객의 Key Vault에서 Wi
 자세한 내용은 [가상 머신 확장 집합 만들기 또는 업데이트](https://msdn.microsoft.com/library/mt589035.aspx)를 참조하세요.
 
 
-### <a name="example-of-self-signed-certificate"></a>자체 서명된 인증서 예제
+### <a name="example-of-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Azure Service Fabric 클러스터용으로 프로비전된 자체 서명 인증서 예제입니다.
+최신 예제의 경우 azure shell에서 다음 azure CLI 문을 사용하고, stdout으로 출력되는 Service Fabric CLI 모듈 예제 설명서를 읽어보세요.
 
-1.  Key Vault에서 자체 서명된 인증서를 만듭니다.
+```bash
+az sf cluster create -h
+```
 
-    다음 PowerShell 명령을 사용합니다.
+Azure의 최신 API 지원 인증서 작업에 대해서는 keyvaults 설명서를 검토하세요.
 
-    ```powershell
-    Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
+자체 서명 인증서는 인증 기관에서 제공하는 분산 트러스트에 사용할 수 없으며, 엔터프라이즈 프로덕션 솔루션을 호스트하기 위한 어떤 Service Fabric 클러스터에도 사용하지 말아야 합니다. 추가 Service Fabric 보안 지침에 대해서는 [Azure Service Fabric 보안 모범 사례](https://docs.microsoft.com/en-us/azure/security/azure-service-fabric-security-best-practices) 및 [Service Fabric 클러스터 보안 시나리오](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)를 검토하세요.
 
-    Connect-AzureRmAccount
+### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Resource Manager 템플릿에서 Linux 가상 머신 확장 집합으로 SSH 인증에 사용하려는 SSH 키 쌍을 지정할 수 있나요?
 
-    Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
-    ```
-
-    이 명령은 Azure Resource Manager 템플릿에 대한 입력을 제공합니다.
-
-    Key Vault에서 자체 서명된 인증서를 만드는 방법에 대한 예제를 보려면 [Service Fabric 클러스터 보안 시나리오](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)를 참조하세요.
-
-2.  Resource Manager 템플릿을 변경합니다.
-
-    가상 머신 확장 집합 리소스의 일부로 **virtualMachineProfile**에 다음 속성을 추가합니다.
-
-    ```json 
-    "osProfile": {
-        "computerNamePrefix": "[variables('namingInfix')]",
-        "adminUsername": "[parameters('adminUsername')]",
-        "adminPassword": "[parameters('adminPassword')]",
-        "secrets": [
-            {
-                "sourceVault": {
-                    "id": "[resourceId('KeyVault', 'Microsoft.KeyVault/vaults', 'MikhegnVault')]"
-                },
-                "vaultCertificates": [
-                    {
-                        "certificateUrl": "https://mikhegnvault.vault.azure.net:443/secrets/VMSSCert/20709ca8faee4abb84bc6f4611b088a4",
-                        "certificateStore": "My"
-                    }
-                ]
-            }
-        ]
-    }
-    ```
-  
-
-### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Resource Manager 템플릿에서 Linux 가상 머신 확장 집합으로 SSH 인증에 사용하려는 SSH 키 쌍을 지정할 수 있나요?  
-
-예. **osProfile**에 대한 REST API는 표준 VM REST API와 비슷합니다. 
+예. **osProfile**에 대한 REST API는 표준 VM REST API와 비슷합니다.
 
 템플릿에 **osProfile**을 포함합니다.
 
-```json 
+```json
 "osProfile": {
     "computerName": "[variables('vmName')]",
     "adminUsername": "[parameters('adminUserName')]",
@@ -234,24 +201,23 @@ VM에 인증서를 안전하게 전달하기 위해 고객의 Key Vault에서 Wi
     }
 }
 ```
- 
+
 이 JSON 블록은 [101-vm-sshkey GitHub 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json)에서 사용됩니다.
- 
+
 또한 OS 프로필은 [grelayhost.json GitHub 빠른 시작 템플릿](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json)에서도 사용됩니다.
 
 자세한 내용은 [가상 머신 확장 집합 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration)를 참조하세요.
-  
 
-### <a name="how-do-i-remove-deprecated-certificates"></a>사용되지 않는 인증서를 제거하려면 어떻게 합니까? 
+### <a name="how-do-i-remove-deprecated-certificates"></a>사용되지 않는 인증서를 제거하려면 어떻게 합니까?
 
-사용되지 않는 인증서를 제거하려면 자격 증명 모음 인증서 목록에서 이전 인증서를 제거합니다. 목록에서 컴퓨터에 유지하려는 모든 인증서를 그대로 둡니다. 이렇게 하면 모든 VM에서 인증서가 제거되지 않습니다. 또한 가상 머신 확장 집합에서 만들어진 새 VM에 인증서가 추가되지 않습니다. 
+사용되지 않는 인증서를 제거하려면 자격 증명 모음 인증서 목록에서 이전 인증서를 제거합니다. 목록에서 컴퓨터에 유지하려는 모든 인증서를 그대로 둡니다. 이렇게 하면 모든 VM에서 인증서가 제거되지 않습니다. 또한 가상 머신 확장 집합에서 만들어진 새 VM에 인증서가 추가되지 않습니다.
 
 기존 VM에서 인증서를 제거하려면 인증서 저장소에서 인증서를 수동으로 제거하는 사용자 지정 스크립트 확장을 작성합니다.
- 
+
 ### <a name="how-do-i-inject-an-existing-ssh-public-key-into-the-virtual-machine-scale-set-ssh-layer-during-provisioning-i-want-to-store-the-ssh-public-key-values-in-azure-key-vault-and-then-use-them-in-my-resource-manager-template"></a>프로비전하는 동안 기존 SSH 공개 키를 가상 머신 확장 집합 SSH 계층에 삽입하려면 어떻게 하나요? SSH 공개 키 값을 Azure Key Vault에 저장하고 이를 내 Resource Manager 템플릿에서 활용하고 싶습니다.
 
 VM에 공개 SSH 키만 프로비전하는 경우 Key Vault에 공개 키를 적용할 필요가 없습니다. 공개 키는 비밀이 아닙니다.
- 
+
 Linux VM을 만들 때 일반 텍스트로 SSH 공개 키를 제공할 수 있습니다.
 
 ```json
@@ -265,88 +231,87 @@ Linux VM을 만들 때 일반 텍스트로 SSH 공개 키를 제공할 수 있�
         ]
     }
 ```
- 
+
 linuxConfiguration 요소 이름 | 필수 | 형식 | 설명
 --- | --- | --- | --- |  ---
 ssh | 아니요 | 컬렉션 | Linux OS용 SSH 키 구성을 지정합니다.
-경로 | yes | 문자열 | SSH 키 또는 인증서를 배치해야 하는 Linux 파일 경로를 지정합니다.
-keyData | yes | 문자열 | base64로 인코딩된 SSH 공개 키를 지정합니다.
+경로 | 예 | 문자열 | SSH 키 또는 인증서를 배치해야 하는 Linux 파일 경로를 지정합니다.
+keyData | 예 | 문자열 | base64로 인코딩된 SSH 공개 키를 지정합니다.
 
 예제는 [101-vm-sshkey GitHub 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json)을 참조하세요.
 
- 
 ### <a name="when-i-run-update-azurermvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>동일한 Key Vault에서 둘 이상의 인증서를 추가한 후에 `Update-AzureRmVmss`를 실행하면 다음과 같은 메시지가 나타납니다.
- 
->Update-AzureRmVmss: 허용되지 않는 /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev의 반복된 인스턴스를 포함하고 있는 비밀을 나열합니다.
- 
+
+>Update-AzureRmVmss: 허용되지 않는 /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev의 반복 인스턴스가 포함된 비밀을 나열합니다.
+
 이 기존 원본 자격 증명 모음에 대해 새 자격 증명 모음 인증서를 사용하는 대신, 동일한 자격 증명 모음을 다시 추가하려고 하면 이러한 현상이 발생할 수 있습니다. 다른 비밀을 더 추가하는 경우 `Add-AzureRmVmssSecret` 명령은 제대로 작동하지 않습니다.
- 
+
 동일한 키 자격 증명 모음에서 더 많은 비밀을 추가하려면 $vmss.properties.osProfile.secrets[0].vaultCertificates 목록을 업데이트해야 합니다.
- 
+
 필요한 입력 구조에 대한 자세한 내용은 [가상 컴퓨터 설정 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt589035.aspx)를 참조하세요.
- 
+
 Key Vault에 있는 가상 머신 확장 집합 개체에서 암호를 찾습니다. 그런 다음 인증서 참조(비밀 저장소 이름 및 URL)를 자격 증명 모음과 관련된 목록에 추가합니다.
 
-> [!NOTE] 
+> [!NOTE]
 > 현재 가상 머신 확장 집합 API를 사용하여 VM에서 인증서를 제거할 수 없습니다.
 >
 
 새 VM은 이전 인증서를 갖지 않게 됩니다. 그러나 인증서가 있는 있고 이미 배포된 VM은 이전 인증서를 갖게 됩니다.
- 
+
 ### <a name="can-i-push-certificates-to-the-virtual-machine-scale-set-without-providing-the-password-when-the-certificate-is-in-the-secret-store"></a>인증서가 현재 SecretStore에 있을 때 암호를 제공하지 않고 인증서를 가상 머신 확장 집합에 푸시할 수 있나요?
 
 스크립트에 하드 코드된 암호를 포함할 필요는 없습니다. 배포 스크립트를 실행하는 데 사용하는 권한으로 암호를 동적으로 검색할 수 있습니다. 인증서를 비밀 저장소에서 Key Vault로 이동하는 스크립트가 있는 경우 secret store `get certificate` 명령을 실행하면 .pfx 파일의 암호도 출력됩니다.
- 
-### <a name="how-does-the-secrets-property-of-virtualmachineprofileosprofile-for-a-virtual-machine-scale-set-work-why-do-i-need-the-sourcevault-value-when-i-have-to-specify-the-absolute-uri-for-a-certificate-by-using-the-certificateurl-property"></a>가상 머신 확장 집합에 대한 virtualMachineProfile.osProfile의 Secrets 속성은 어떻게 작동합니까? certificateUrl 속성을 사용하여 인증서에 대한 절대 URI를 지정해야 하는 경우 sourceVault 값이 필요한 이유는 무엇인가요? 
 
-Win RM(Windows 원격 관리) 인증서 참조는 OS 프로필의 Secrets 속성에 있어야 합니다. 
+### <a name="how-does-the-secrets-property-of-virtualmachineprofileosprofile-for-a-virtual-machine-scale-set-work-why-do-i-need-the-sourcevault-value-when-i-have-to-specify-the-absolute-uri-for-a-certificate-by-using-the-certificateurl-property"></a>가상 머신 확장 집합에 대한 virtualMachineProfile.osProfile의 Secrets 속성은 어떻게 작동합니까? certificateUrl 속성을 사용하여 인증서에 대한 절대 URI를 지정해야 하는 경우 sourceVault 값이 필요한 이유는 무엇인가요?
+
+Win RM(Windows 원격 관리) 인증서 참조는 OS 프로필의 Secrets 속성에 있어야 합니다.
 
 원본 자격 증명 모음을 지정하는 이유는 사용자의 Azure 클라우드 서비스 모델에 존재하는 ACL(액세스 제어 목록) 정책을 적용한다는 것입니다. 원본 자격 증명 모음을 지정하지 않으면 키 자격 증명 모음에 비밀을 배포하고 액세스할 수 있는 권한이 없는 사용자는 CRP(Compute 리소스 공급자)를 통해 배포하고 액세스할 수 있습니다. ACL은 존재하지 않는 리소스에 대해서도 존재합니다.
 
 잘못된 sourceVault ID를 제공했지만 유효한 Key Vault URL을 제공한 경우 작업을 폴링할 때 오류가 보고됩니다.
- 
-### <a name="if-i-add-secrets-to-an-existing-virtual-machine-scale-set-are-the-secrets-injected-into-existing-vms-or-only-into-new-ones"></a>기존 가상 머신 확장 집합에 비밀을 추가하면 비밀이 기존 VM에 삽입되나요? 아니면 새 VM에만 삽입되나요? 
+
+### <a name="if-i-add-secrets-to-an-existing-virtual-machine-scale-set-are-the-secrets-injected-into-existing-vms-or-only-into-new-ones"></a>기존 가상 머신 확장 집합에 비밀을 추가하면 비밀이 기존 VM에 삽입되나요? 아니면 새 VM에만 삽입되나요?
 
 인증서는 기존 VM을 포함하여 모든 VM에 추가됩니다. 가상 머신 확장 집합 upgradePolicy 속성을 **manual**로 설정하면 VM에서 수동 업데이트를 수행할 때 인증서가 해당 VM에 추가됩니다.
- 
+
 ### <a name="where-do-i-put-certificates-for-linux-vms"></a>Linux VM에 대한 인증서는 어디에서 추가하나요?
 
 Linux VM에 대한 인증서를 배포하는 방법을 알아보려면 [고객이 관리하는 Key Vault에서 VM에 인증서 배포](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/)를 참조하세요.
-  
+
 ### <a name="how-do-i-add-a-new-vault-certificate-to-a-new-certificate-object"></a>새 자격 증명 모음 인증서는 새 인증서 개체에 추가하려면 어떻게 하나요?
 
 기존 비밀에 자격 증명 모음 인증서를 추가하려면 다음 PowerShell 예제를 참조하세요. 비밀 개체를 하나만 사용합니다.
- 
+
 ```powershell
 $newVaultCertificate = New-AzureRmVmssVaultCertificateConfig -CertificateStore MY -CertificateUrl https://sansunallapps1.vault.azure.net:443/secrets/dg-private-enc/55fa0332edc44a84ad655298905f1809
- 
+
 $vmss.VirtualMachineProfile.OsProfile.Secrets[0].VaultCertificates.Add($newVaultCertificate)
- 
+
 Update-AzureRmVmss -VirtualMachineScaleSet $vmss -ResourceGroup $rg -Name $vmssName
 ```
- 
+
 ### <a name="what-happens-to-certificates-if-you-reimage-a-vm"></a>VM을 이미지로 다시 설치하면 인증서는 어떻게 됩니까?
 
-VM을 이미지로 다시 설치할 경우 인증서는 삭제됩니다. 이미지로 다시 설치하면 전체 OS 디스크가 삭제됩니다. 
- 
+VM을 이미지로 다시 설치할 경우 인증서는 삭제됩니다. 이미지로 다시 설치하면 전체 OS 디스크가 삭제됩니다.
+
 ### <a name="what-happens-if-you-delete-a-certificate-from-the-key-vault"></a>키 자격 증명 모음에서 인증서를 삭제하면 어떻게 됩니까?
 
-키 자격 증명 모음에서 비밀을 삭제하고 모든 VM의 `stop deallocate`를 실행한 다음, 다시 시작하면 오류가 발생합니다. 이 오류는 CRP가 Key Vault에서 비밀을 검색해야 하기 때문에 발생합니다. 이 시나리오에서는 가상 머신 확장 집합 모델에서 인증서를 삭제할 수 있습니다. 
+키 자격 증명 모음에서 비밀을 삭제하고 모든 VM의 `stop deallocate`를 실행한 다음, 다시 시작하면 오류가 발생합니다. 이 오류는 CRP가 Key Vault에서 비밀을 검색해야 하기 때문에 발생합니다. 이 시나리오에서는 가상 머신 확장 집합 모델에서 인증서를 삭제할 수 있습니다.
 
 CRP 구성 요소는 고객 비밀을 유지하지 않습니다. 가상 머신 확장 집합의 모든 VM에 대해 `stop deallocate`를 실행하면 캐시가 삭제됩니다. 이 시나리오에서는 Key Vault에서 비밀이 검색됩니다.
 
 Azure Service Fabric에 비밀의 캐시 복사본이 있으므로 확장할 때 이 문제가 발생하지 않습니다(단일 패브릭 테넌트 모델).
- 
+
 ### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurenet443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenarioshttpsazuremicrosoftcomdocumentationarticlesservice-fabric-cluster-security"></a>[Service Fabric 클러스터 보안 시나리오](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)에 나오는 것처럼 인증서 URL(https://<name of the vault>.vault.azure.net:443/secrets/<exact location>)에 대한 정확한 위치를 지정해야 하는 이유는 무엇인가요?
- 
+
 Azure Key Vault 설명서에 따르면, 버전이 지정되지 않은 경우 Get Secret REST API는 최신 버전의 암호를 반환해야 합니다.
- 
+
 방법 | URL
 --- | ---
 GET | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
 
 {*secret-name*}을 검색하려는 비밀의 이름으로 바꾸고 {*secret-version*}을 해당 버전으로 바꿉니다. 암호 버전은 제외할 수도 있습니다. 이 경우 현재 버전이 검색됩니다.
-  
+
 ### <a name="why-do-i-have-to-specify-the-certificate-version-when-i-use-key-vault"></a>Key Vault를 사용할 때 인증서 버전을 지정해야 하는 이유는 무엇입니까?
 
 Key Vault에서 인증서 버전을 지정하도록 요구하는 이유는 해당 VM에 배포된 인증서를 사용자에게 명확히 알리기 위한 것입니다.
@@ -355,7 +320,7 @@ VM을 만든 다음 Key Vault에서 비밀을 업데이트하면 새 인증서�
 
 ### <a name="my-team-works-with-several-certificates-that-are-distributed-to-us-as-cer-public-keys-what-is-the-recommended-approach-for-deploying-these-certificates-to-a-virtual-machine-scale-set"></a>여기서는 .cer 공개 키로 배포되는 여러 인증서로 작업합니다. 가상 머신 확장 집합에 이러한 인증서를 배포하는 권장 방법은 무엇인가요?
 
-.cer 공개 키를 가상 머신 확장 집합에 배포하려면 .cer 파일만 포함하는 .pfx 파일을 생성할 수 있습니다. 이렇게 하려면 `X509ContentType = Pfx`를 사용합니다. 예를 들어 C# 또는 PowerShell에서 .cer 파일을 x509Certificate2 개체로 로드하고 이 메서드를 호출합니다. 
+.cer 공개 키를 가상 머신 확장 집합에 배포하려면 .cer 파일만 포함하는 .pfx 파일을 생성할 수 있습니다. 이렇게 하려면 `X509ContentType = Pfx`를 사용합니다. 예를 들어 C# 또는 PowerShell에서 .cer 파일을 x509Certificate2 개체로 로드하고 이 메서드를 호출합니다.
 
 자세한 내용은 [X509Certificate.Export 메서드(X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx))를 참조하세요.
 
@@ -363,16 +328,16 @@ VM을 만든 다음 Key Vault에서 비밀을 업데이트하면 새 인증서�
 
 인증서를 base64 문자열로 전달하는 것을 에뮬레이트하려면 Resource Manager 템플릿에서 최신 버전이 지정된 URL을 추출할 수 있습니다. Resource Manager 템플릿에 다음 JSON 속성을 포함합니다.
 
-```json 
+```json
 "certificateUrl": "[reference(resourceId(parameters('vaultResourceGroup'), 'Microsoft.KeyVault/vaults/secrets', parameters('vaultName'), parameters('secretName')), '2015-06-01').secretUriWithVersion]"
 ```
- 
+
 ### <a name="do-i-have-to-wrap-certificates-in-json-objects-in-key-vaults"></a>Key Vault의 JSON 개체에서 인증서를 래핑해야 하나요?
 
-가상 머신 확장 집합 및 VM에서 인증서가 JSON 개체에 래핑되어야 합니다. 
+가상 머신 확장 집합 및 VM에서 인증서가 JSON 개체에 래핑되어야 합니다.
 
-또한 콘텐츠 형식 application/x-pkcs12도 지원됩니다. 
- 
+또한 콘텐츠 형식 application/x-pkcs12도 지원됩니다.
+
 현재 .cer 파일은 지원하지 않습니다. .cer 파일을 사용하려면 .pfx 컨테이너로 내보냅니다.
 
 
@@ -389,7 +354,7 @@ VM을 만든 다음 Key Vault에서 비밀을 업데이트하면 새 인증서�
 
 ### <a name="does-managed-identities-for-azure-resourceshttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>[Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/active-directory/msi-overview)는 가상 머신 확장 집합과 함께 작동하나요?
 
-예. Azure 빠른 시작 템플릿에서 일부 예제 MSI 템플릿을 확인할 수 있습니다. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
+예. Azure 빠른 시작 템플릿에서 일부 예제 MSI 템플릿을 확인할 수 있습니다. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
 
 ## <a name="extensions"></a>확장
@@ -399,31 +364,30 @@ VM을 만든 다음 Key Vault에서 비밀을 업데이트하면 새 인증서�
 가상 머신 확장 집합 확장을 삭제하려면 다음 PowerShell 예제를 사용합니다.
 
 ```powershell
-$vmss = Get-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName" 
+$vmss = Get-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName"
 
 $vmss=Remove-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name "extensionName"
 
 Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName" -VirtualMacineScaleSet $vmss
 ```
- 
+
 `$vmss`에서 extensionName 값을 찾을 수 있습니다.
-   
+
 ### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>Log Analytics와 통합되는 가상 머신 확장 집합 템플릿 예제가 있나요?
 
 Log Analytics와 통합되는 가상 머신 확장 집합 템플릿 예제의 경우 [Log Analytics를 사용하여 Azure Service Fabric 클러스터 배포 및 모니터링 사용](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric)의 두 번째 예제를 참조하세요.
-   
+
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>여러 확장이 가상 머신 확장 집합에서 병렬로 실행되는 것 같습니다. 이로 인해 사용자 지정 스크립트 확장이 실패합니다. 이 문제를 해결하려면 어떻게 해야 하나요?
 
 가상 머신 확장 집합에서 확장 시퀀싱에 대한 자세한 내용은 [Azure Virtual Machine Scale Sets의 확장 시퀀싱](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)을 참조하세요.
- 
- 
+
 ### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>가상 머신 확장 집합에서 VM에 대한 암호를 다시 설정하려면 어떻게 하나요?
 
 확장 집합에서 VM의 암호를 변경하는 두 가지 기본 방법이 있습니다.
 
 - 가상 머신 확장 집합 모델을 직접 변경합니다. Compute API 2017-12-01 이상에서 사용할 수 있습니다.
 
-    확장 집합 모델에서(예: Azure Resource Explorer, PowerShell 또는 CLI 사용) 직접 관리 자격 증명을 업데이트합니다. 확장 집합이 업데이트되면 모든 새 VM에 새 자격 증명이 포함됩니다. 기존 VM은 이미지로 다시 설치되는 경우에만 새 자격 증명이 포함됩니다. 
+    확장 집합 모델에서(예: Azure Resource Explorer, PowerShell 또는 CLI 사용) 직접 관리 자격 증명을 업데이트합니다. 확장 집합이 업데이트되면 모든 새 VM에 새 자격 증명이 포함됩니다. 기존 VM은 이미지로 다시 설치되는 경우에만 새 자격 증명이 포함됩니다.
 
 - VM 액세스 확장을 사용하여 암호를 다시 설정합니다.
 
@@ -434,7 +398,7 @@ Log Analytics와 통합되는 가상 머신 확장 집합 템플릿 예제의 �
     $vmssResourceGroup = "myvmssrg"
     $publicConfig = @{"UserName" = "newuser"}
     $privateConfig = @{"Password" = "********"}
-     
+    
     $extName = "VMAccessAgent"
     $publisher = "Microsoft.Compute"
     $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
@@ -442,23 +406,21 @@ Log Analytics와 통합되는 가상 머신 확장 집합 템플릿 예제의 �
     Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
     ```
 
-
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>가상 머신 확장 집합의 모든 VM에 확장을 추가하려면 어떻게 하나요?
 
 업데이트 정책이 **자동**으로 설정된 경우 템플릿을 새 확장 속성으로 다시 배포하면 모든 VM이 업데이트됩니다.
 
 업데이트 정책이 **수동**으로 설정된 경우 먼저 확장을 업데이트한 다음 VM의 모든 인스턴스를 수동으로 업데이트합니다.
 
-  
 ### <a name="if-the-extensions-associated-with-an-existing-virtual-machine-scale-set-are-updated-are-existing-vms-affected-that-is-will-the-vms-not-match-the-virtual-machine-scale-set-model-or-are-they-ignored-when-an-existing-machine-is-service-healed-or-reimaged-are-the-scripts-that-are-currently-configured-on-the-virtual-machine-scale-set-executed-or-are-the-scripts-that-were-configured-when-the-vm-was-first-created-used"></a>기존 가상 머신 확장 집합과 연결된 확장이 업데이트되면 기존 VM에 영향을 주나요? (즉, VM이 가상 머신 확장 집합 모델과 일치하지 *않나요*?) 또는 무시되나요? 기존 컴퓨터에 대해 서비스 복구, 이미지로 다시 설치 등을 수행할 때 현재 가상 머신 확장 집합에 구성된 스크립트를 실행하나요? 아니면 VM에서 처음 만들었을 때 구성된 스크립트를 사용하나요?
 
-가상 머신 확장 집합 모델의 확장 정의가 업데이트되고 upgradePolicy 속성이 **자동**으로 설정되면 VM이 업데이트됩니다. UpgradePolicy 속성을 **수동**으로 설정하면 확장은 모델과 일치하지 않는 것으로 플래그가 지정됩니다. 
+가상 머신 확장 집합 모델의 확장 정의가 업데이트되고 upgradePolicy 속성이 **자동**으로 설정되면 VM이 업데이트됩니다. UpgradePolicy 속성을 **수동**으로 설정하면 확장은 모델과 일치하지 않는 것으로 플래그가 지정됩니다.
 
 기존 VM이 서비스 복구되면 다시 부팅하는 것처럼 보이며 확장이 다시 실행되지 않습니다. 이미지로 다시 설치되는 경우 OS 드라이브를 원본 이미지로 바꾸는 것과 같습니다. 확장과 같은 최신 모델의 모든 특수화가 실행됩니다.
- 
+
 ### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>가상 머신 확장 집합을 Active Directory 도메인에 가입하려면 어떻게 하나요?
 
-가상 머신 확장 집합을 AD(Active Directory) 도메인에 가입하려면 확장을 정의할 수 있습니다. 
+가상 머신 확장 집합을 AD(Active Directory) 도메인에 가입하려면 확장을 정의할 수 있습니다.
 
 확장을 정의하려면 JsonADDomainExtension 속성을 사용합니다.
 
@@ -486,11 +448,11 @@ Log Analytics와 통합되는 가상 머신 확장 집합 템플릿 예제의 �
     ]
 }
 ```
- 
+
 ### <a name="my-virtual-machine-scale-set-extension-is-trying-to-install-something-that-requires-a-reboot-for-example-commandtoexecute-powershellexe--executionpolicy-unrestricted-install-windowsfeature-name-fs-resource-manager-includemanagementtools"></a>내 가상 머신 확장 집합은 설치를 시도하며 이로 인해 재부팅이 필요합니다. 예: "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted Install-WindowsFeature –Name FS-Resource-Manager –IncludeManagementTools"
 
-가상 머신 확장 집합 확장이 설치를 시도하며 이로 인해 재부팅이 필요한 경우 Azure Automation DSC(필요한 상태 구성) 확장을 사용할 수 있습니다. 운영 체제가 Windows Server 2012 R2인 경우 Azure는 WMF(Windows Management Framework) 5.0 설치를 시작하고, 재부팅한 후 구성을 계속 진행합니다. 
- 
+가상 머신 확장 집합 확장이 설치를 시도하며 이로 인해 재부팅이 필요한 경우 Azure Automation DSC(필요한 상태 구성) 확장을 사용할 수 있습니다. 운영 체제가 Windows Server 2012 R2인 경우 Azure는 WMF(Windows Management Framework) 5.0 설치를 시작하고, 재부팅한 후 구성을 계속 진행합니다.
+
 ### <a name="how-do-i-turn-on-antimalware-in-my-virtual-machine-scale-set"></a>가상 머신 확장 집합에 대해 맬웨어 방지를 설정하려면 어떻게 해야 하나요?
 
 가상 머신 확장 집합에 대해 맬웨어 방지를 설정하려면 다음 PowerShell 예제를 사용합니다.
@@ -499,24 +461,23 @@ Log Analytics와 통합되는 가상 머신 확장 집합 템플릿 예제의 �
 $rgname = 'autolap'
 $vmssname = 'autolapbr'
 $location = 'eastus'
- 
+
 # Retrieve the most recent version number of the extension.
 $allVersions= (Get-AzureRmVMExtensionImage -Location $location -PublisherName "Microsoft.Azure.Security" -Type "IaaSAntimalware").Version
 $versionString = $allVersions[($allVersions.count)-1].Split(".")[0] + "." + $allVersions[($allVersions.count)-1].Split(".")[1]
- 
+
 $VMSS = Get-AzureRmVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname
 echo $VMSS
 Add-AzureRmVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -Publisher "Microsoft.Azure.Security" -Type "IaaSAntimalware" -TypeHandlerVersion $versionString
-Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS 
+Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS
 ```
 
-### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>개인 저장소 계정에서 호스트되는 사용자 지정 스크립트를 실행해야 합니다. 이 스크립트는 저장소가 공용일 때 성공적으로 실행되지만 SAS(공유 액세스 서명)을 사용하려고 하면 실패합니다. “올바른 공유 액세스 서명에 대한 필수 매개 변수가 없음” 메시지가 표시됩니다. Link+SAS는 로컬 브라우저에서 잘 작동합니다.
+### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>개인 저장소 계정에서 호스트되는 사용자 지정 스크립트를 실행해야 합니다. 이 스크립트는 저장소가 공용일 때 성공적으로 실행되지만 SAS(공유 액세스 서명)을 사용하려고 하면 실패합니다. 다음 메시지가 표시됩니다. “올바른 공유 액세스 서명에 대한 필수 매개 변수가 없음”. Link+SAS는 로컬 브라우저에서 잘 작동합니다.
 
 개인 저장소 계정에 호스트되는 사용자 지정 스크립트를 실행하려면 저장소 계정 키 및 이름을 사용하여 보호 설정을 지정합니다. 자세한 내용은 [Windows용 사용자 지정 스크립트 확장](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings)을 참조하세요.
 
-
 ## <a name="networking"></a>네트워킹
- 
+
 ### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>집합의 모든 VM NIC에 적용되도록 확장 집합에 NSG(네트워크 보안 그룹)를 할당할 수 있나요?
 
 예. 네트워크 프로필의 networkInterfaceConfigurations 섹션에서 참조하여 네트워크 보안 그룹을 확장 집합에 직접 적용할 수 있습니다. 예제:
@@ -534,8 +495,8 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
                         "properties": {
                             "subnet": {
                                 "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', variables('vnetName'), '/subnets/subnet1')]"
-                            }
-                "loadBalancerInboundNatPools": [
+                            },
+                            "loadBalancerInboundNatPools": [
                                 {
                                     "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/inboundNatPools/natPool1')]"
                                 }
@@ -543,7 +504,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
                             "loadBalancerBackendAddressPools": [
                                 {
                                     "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/backendAddressPools/addressPool1')]"
-                                 }
+                                }
                             ]
                         }
                     }
@@ -559,17 +520,17 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>동일한 구독 및 동일한 지역에서 가상 머신 확장 집합에 대해 VIP 교환을 수행하려면 어떻게 합니까?
 
-Azure Load Balancer 프런트 엔드가 포함된 두 개의 가상 머신 확장 집합이 있고 해당 항목이 동일한 구독 및 지역에 있는 경우 각 항목의 공용 IP 주소 할당을 취소하고 다른 항목에 할당할 수 있습니다. 예제는 [VIP 교체: Azure Resource Manager에서 청록색 배포](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/)를 참조하세요. 리소스가 네트워크 수준에서 할당 취소/할당되지만 지연되지는 않습니다. 더 빠른 옵션은 두 개의 백 엔드 풀 및 라우팅 규칙과 함께 Azure Application Gateway를 사용하는 것입니다. 또는 스테이징 및 프로덕션 슬롯 간의 빠른 전환을 지원하는 [Azure App service](https://azure.microsoft.com/services/app-service/)를 사용하여 응용 프로그램을 호스트할 수도 있습니다.
- 
+Azure Load Balancer 프런트 엔드가 포함된 두 개의 가상 머신 확장 집합이 있고 해당 항목이 동일한 구독 및 지역에 있는 경우 각 항목의 공용 IP 주소 할당을 취소하고 다른 항목에 할당할 수 있습니다. [VIP 교체: Azure Resource Manager에서 청록색 배포](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/)에서 예제를 참조하세요. 리소스가 네트워크 수준에서 할당 취소/할당되지만 지연되지는 않습니다. 더 빠른 옵션은 두 개의 백 엔드 풀 및 회람 규칙과 함께 Azure Application Gateway를 사용하는 것입니다. 또는 스테이징 및 프로덕션 슬롯 간의 빠른 전환을 지원하는 [Azure App service](https://azure.microsoft.com/services/app-service/)를 사용하여 애플리케이션을 호스트할 수도 있습니다.
+
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>정적 개인 IP 주소를 할당하는 데 사용할 개인 IP 주소의 범위를 지정하려면 어떻게 하나요?
 
-IP 주소는 사용자가 지정한 서브넷에서 선택됩니다. 
+IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
 
-가상 머신 확장 집합 설정 IP 주소를 할당하는 방법은 항상 "동적"이지만 이러한 IP 주소를 변경할 수 있다는 뜻은 아닙니다. 이 경우 "동적"은 PUT 요청에서 IP 주소를 지정하지 않는다는 것을 의미할 뿐입니다. 서브넷을 사용하여 정적 집합을 지정합니다. 
-    
-### <a name="how-do-i-deploy-a-virtual-machine-scale-set-to-an-existing-azure-virtual-network"></a>기존 Azure Virtual Network에 가상 머신 확장 집합을 배포하려면 어떻게 하나요? 
+가상 머신 확장 집합 설정 IP 주소를 할당하는 방법은 항상 "동적"이지만 이러한 IP 주소를 변경할 수 있다는 뜻은 아닙니다. 이 경우 "동적"은 PUT 요청에서 IP 주소를 지정하지 않는다는 것을 의미할 뿐입니다. 서브넷을 사용하여 정적 집합을 지정합니다.
 
-기존 Azure Virtual Network에 가상 머신 확장 집합을 배포하려면 [기존 가상 네트워크에 가상 머신 확장 집합 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet)를 참조하세요. 
+### <a name="how-do-i-deploy-a-virtual-machine-scale-set-to-an-existing-azure-virtual-network"></a>기존 Azure Virtual Network에 가상 머신 확장 집합을 배포하려면 어떻게 하나요?
+
+기존 Azure Virtual Network에 가상 머신 확장 집합을 배포하려면 [기존 가상 네트워크에 가상 머신 확장 집합 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet)를 참조하세요.
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>가상 머신 확장 집합에 포함된 첫 번째 VM의 IP 주소를 템플릿의 출력에 추가하려면 어떻게 하나요?
 
@@ -581,18 +542,15 @@ IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
-    {
-        "name": "niconfig1",
-        "properties": {
-        "primary": true,
-        "enableAcceleratedNetworking" : true,
-        "ipConfigurations": [
+        {
+            "name": "niconfig1",
+            "properties": {
+                "primary": true,
+                "enableAcceleratedNetworking" : true,
+                "ipConfigurations": [
                 ]
             }
-            }
-        ]
         }
-    }
     ]
 }
 ```
@@ -619,9 +577,9 @@ IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
     }
 ```
 
-### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>여러 Application Gateway를 사용하도록 확장 집합을 구성할 수 있나요?
+### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>여러 Application Gateway를 사용하도록 확장 세트을 구성할 수 있나요?
 
-예. 여러 Application Gateway 백 엔드 주소 풀에 대한 리소스 ID를 확장 집합 네트워크 프로필의 _ipConfigurations_ 섹션에 있는 _applicationGatewayBackendAddressPools_ 목록에 추가할 수 있습니다.
+예. 여러 Application Gateway 백 엔드 주소 풀에 대한 리소스 ID를 확장 세트 네트워크 프로필의 _ipConfigurations_ 섹션에 있는 _applicationGatewayBackendAddressPools_ 목록에 추가할 수 있습니다.
 
 ## <a name="scale"></a>확장
 
@@ -650,7 +608,7 @@ Azure Portal의 가상 머신 확장 집합에서 VM 수를 변경하려면 가�
     ],
     "properties": {
         "name": "autoscale",
-        "targetResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/',  resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
+        "targetResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
         "enabled": true,
         "notifications": [
             {
@@ -676,8 +634,6 @@ Azure Portal의 가상 머신 확장 집합에서 VM 수를 변경하려면 가�
 ```
 
 이 예제에서는 임계값에 도달될 경우 경고가 Pagerduty.com으로 이동됩니다.
-
-
 
 ## <a name="patching-and-operations"></a>패치 및 작업
 
@@ -725,14 +681,13 @@ Azure Portal의 Log Analytics 작업 영역에서 workspaceId 및 workspaceKey�
 ```
 
 새 VM이 만들어지면 VM의 InstanceView 속성에 스크린샷 등에 대한 세부 정보가 표시됩니다. 예를 들면 다음과 같습니다.
- 
+
 ```json
 "bootDiagnostics": {
     "consoleScreenshotBlobUri": "https://o0sz3nhtbmkg6geswarm5.blob.core.windows.net/bootdiagnostics-swarmagen-4157d838-8335-4f78-bf0e-b616a99bc8bd/swarm-agent-9574AE92vmss-0_2.4157d838-8335-4f78-bf0e-b616a99bc8bd.screenshot.bmp",
     "serialConsoleLogBlobUri": "https://o0sz3nhtbmkg6geswarm5.blob.core.windows.net/bootdiagnostics-swarmagen-4157d838-8335-4f78-bf0e-b616a99bc8bd/swarm-agent-9574AE92vmss-0_2.4157d838-8335-4f78-bf0e-b616a99bc8bd.serialconsole.log"
-  }
+}
 ```
-
 
 ## <a name="virtual-machine-properties"></a>가상 머신 속성
 
@@ -746,9 +701,9 @@ Azure Portal의 Log Analytics 작업 영역에서 workspaceId 및 workspaceKey�
 
 아니요. 가상 머신 확장 집합의 다른 VM에 다른 확장 인수를 전달할 수 없습니다. 그렇지만 확장은 컴퓨터 이름과 같이 실행 중인 VM의 고유한 속성에 따라 작동할 수 있습니다. 또한 확장은 http://169.254.169.254에 있는 인스턴스 메타데이터를 쿼리하여 VM에 대한 자세한 정보를 가져올 수 있습니다.
 
-### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>가상 머신 확장 집합 VM 컴퓨터 이름과 VM ID 간에 차이가 발생하는 이유는 무엇인가요? 예를 들어 0, 1, 3...입니다.
+### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>가상 머신 확장 집합 VM 컴퓨터 이름과 VM ID 간에 차이가 발생하는 이유는 무엇인가요? 예:  0, 1, 3...
 
-가상 머신 확장 집합 **overprovision** 속성은 기본값인 **true**로 설정되어 있으므로 가상 머신 확장 집합 VM 컴퓨터 이름 간에는 차이가 있습니다. 과도 프로비저닝이 **true**로 설정되면 요청된 것보다 더 많은 VM이 생성됩니다. 그런 후에 추가 VM은 삭제됩니다. 이 경우 배포 안정성은 향상되지만 연속된 이름 지정 및 연속된 NAT(Network Address Translation) 규칙은 준수되지 못합니다. 
+가상 머신 확장 집합 **overprovision** 속성은 기본값인 **true**로 설정되어 있으므로 가상 머신 확장 집합 VM 컴퓨터 이름 간에는 차이가 있습니다. 과도 프로비저닝이 **true**로 설정되면 요청된 것보다 더 많은 VM이 생성됩니다. 그런 후에 추가 VM은 삭제됩니다. 이 경우 배포 안정성은 향상되지만 연속된 이름 지정 및 연속된 NAT(Network Address Translation) 규칙은 준수되지 못합니다.
 
 이 속성을 **false**로 설정할 수 있습니다. 소규모 가상 머신 확장 집합의 경우 이렇게 해도 배포 안정성에 큰 영향을 주지는 않습니다.
 
@@ -760,4 +715,3 @@ Azure Portal의 Log Analytics 작업 영역에서 workspaceId 및 workspaceKey�
 - 가상 머신 확장 집합을 확장하는 것보다 더 빠르게 VM 집합을 시작하려고 합니다.
   - 이 시나리오와 관련하여 사용자 고유의 자동 크기 조정 엔진을 만들고 더 빠른 종단 간 확장을 원했을 수 있습니다.
 - 장애 도메인이나 업데이트 도메인 간에 고르게 분산되지 않은 가상 머신 확장 집합이 있습니다. 이러한 상황은 과도한 프로비저닝 후에 선택적으로 VM을 삭제했거나 VM이 삭제되었기 때문에 발생할 수 있습니다. 가상 머신 확장 집합에 대해 `stop deallocate`를 실행한 후 `start`를 실행하면 장애 도메인 또는 업데이트 도메인 간에 VM이 균일하게 분산됩니다.
-

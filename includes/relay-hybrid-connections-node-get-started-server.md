@@ -11,7 +11,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/12/2018
 ms.locfileid: "51572416"
 ---
-### <a name="create-a-nodejs-application"></a>Node.js 응용 프로그램 만들기
+### <a name="create-a-nodejs-application"></a>Node.js 애플리케이션 만들기
 
 `listener.js`라는 새 JavaScript 파일을 만듭니다.
 

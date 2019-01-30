@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 67bfde828287d9892ad404f3d950dbe373503a56
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 5172ba9881f80e202bdc69689e67befb79101dc0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51827538"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450663"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에 IoT Edge 디바이스 추가
 
@@ -42,7 +42,7 @@ IoT Edge 디바이스를 원격 모니터링 솔루션 가속기에 추가하려
 
 ## <a name="install-the-iot-edge-runtime"></a>IoT Edge 런타임 설치
 
-Edge 디바이스에 모듈을 배포하려면, 먼저 실제 디바이스에서 IoT Edge 런타임을 설치해야 합니다. 다음 방법 가이드는 일반적인 디바이스 플랫폼에 런타임을 설치하는 방법을 보여 줍니다.
+Edge 디바이스에 모듈을 배포하려면 먼저 IoT Edge 런타임을 실제 디바이스에 설치해야 합니다. 다음 방법 가이드는 일반적인 디바이스 플랫폼에 런타임을 설치하는 방법을 보여 줍니다.
 
 - [Linux(x64)에서 Azure IoT Edge 런타임 설치](../iot-edge/how-to-install-iot-edge-linux.md)
 - [Linux(ARM32v7/armhf)에 Azure IoT Edge 런타임 설치](../iot-edge/how-to-install-iot-edge-linux-arm.md)

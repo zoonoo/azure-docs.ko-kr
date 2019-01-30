@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: ac15b95c19fb0184e902ebb43146a76b6ba2faaf
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 78290f6d1b31788c3f2de99996739cc8e7b20419
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283736"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810937"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions의 Event Grid 트리거
 
 이 문서에서는 Azure Functions에서 [Event Grid](../event-grid/overview.md) 이벤트를 처리하는 방법을 설명합니다.
 
-Event Grid는 *게시자*에서 발생하는 이벤트를 알리기 위해 HTTP 요청을 전송하는 Azure 서비스입니다. 게시자는 이벤트를 시작하는 서비스 또는 리소스입니다. 예를 들어, Azure Blob 저장소 계정은 게시자이고 [Blob 업로드 또는 삭제는 이벤트](../storage/blobs/storage-blob-event-overview.md)입니다. 일부 [Azure 서비스에는 Event Grid에 이벤트를 게시하는 방식을 기본적으로 지원합니다](../event-grid/overview.md#event-sources). 
+Event Grid는 *게시자*에서 발생하는 이벤트를 알리기 위해 HTTP 요청을 전송하는 Azure 서비스입니다. 게시자는 이벤트를 시작하는 서비스 또는 리소스입니다. 예를 들어, Azure Blob 저장소 계정은 게시자이고 [Blob 업로드 또는 삭제는 이벤트](../storage/blobs/storage-blob-event-overview.md)입니다. 일부 [Azure 서비스에는 Event Grid에 이벤트를 게시하는 방식을 기본적으로 지원합니다](../event-grid/overview.md#event-sources).
 
 이벤트 *처리기*는 이벤트를 수신하고 처리합니다. Azure Functions는 [Event Grid 이벤트를 처리를 기본적으로 지원하는 Azure 서비스](../event-grid/overview.md#event-handlers) 중 하나입니다. 이 문서에서는 Event Grid에서 이벤트가 수신될 때 Event Grid 트리거를 사용하여 함수를 호출하는 방법을 알아봅니다.
 
@@ -48,8 +48,9 @@ Event Grid 트리거에 대한 다음과 같은 언어별 예제를 참조하세
 
 * [C#](#c-example)
 * [C# 스크립트(.csx)](#c-script-example)
+* [Java](#trigger---java-examples)
 * [JavaScript](#javascript-example)
-* [Java](#trigger---java-example)
+* [Python](#python-example)
 
 HTTP 트리거 예제에 대해서는 이 문서 뒷부분에 나오는 [HTTP 트리거 사용 방법](#use-an-http-trigger-as-an-event-grid-trigger)을 참조하세요.
 
@@ -187,9 +188,47 @@ module.exports = function (context, eventGridEvent) {
 };
 ```
 
-### <a name="trigger---java-example"></a>트리거 - Java 예제
+### <a name="python-example"></a>Python 예제
 
-다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하고 이벤트를 출력하는 [Java 함수](functions-reference-java.md)를 보여줍니다.
+다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](functions-reference-python.md)를 보여줍니다.
+
+*function.json* 파일의 바인딩 데이터는 다음과 같습니다.
+
+```json
+{
+  "bindings": [
+    {
+      "type": "eventGridTrigger",
+      "name": "event",
+      "direction": "in"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "__init__.py"
+}
+```
+
+다음은 Python 코드입니다.
+
+```python
+import logging
+import azure.functions as func
+
+def main(event: func.EventGridEvent):
+    logging.info("Python Event Grid function processed a request.")
+    logging.info("  Subject: %s", event.subject)
+    logging.info("  Time: %s", event.event_time)
+    logging.info("  Data: %s", event.get_json())
+```
+
+### <a name="trigger---java-examples"></a>트리거 - Java 예제
+
+이 섹션에는 다음 예제가 포함되어 있습니다.
+
+* [Event Grid 트리거, 문자열 매개 변수](#event-grid-trigger-string-parameter-java)
+* [Event Grid 트리거, POJO 매개 변수](#event-grid-trigger-pojo-parameter-java)
+
+다음 예제에서는 *function.json* 파일의 트리거 바인딩과 이 바인딩을 사용하고 이벤트를 출력한 후 처음에는 이 이벤트를 ```String```으로 수신하고, 두 번째로는 POJO로 수신하는 [Java 함수](functions-reference-java.md)를 보여 줍니다.
 
 ```json
 {
@@ -203,19 +242,63 @@ module.exports = function (context, eventGridEvent) {
 }
 ```
 
-Java 코드는 다음과 같습니다.
+#### <a name="event-grid-trigger-string-parameter-java"></a>Event Grid 트리거, 문자열 매개 변수(Java)
 
 ```java
-@FunctionName("eventGridMonitor")
+  @FunctionName("eventGridMonitorString")
   public void logEvent(
-     @EventGridTrigger(name = "event") String content,
-      final ExecutionContext context
-  ) { 
-      context.getLogger().info(content);
-    }
+    @EventGridTrigger(
+      name = "event"
+    ) 
+    String content, 
+    final ExecutionContext context) {
+      // log 
+      context.getLogger().info("Event content: " + content);      
+  }
 ```
 
-[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 EventGrid에서 제공되는 매개 변수에 대한 `EventGridTrigger` 주석을 사용합니다. 이러한 주석을 사용하는 매개 변수로 인해 이벤트 도착 시 함수가 실행될 수 있습니다.  `Optional<T>`을 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다. 
+#### <a name="event-grid-trigger-pojo-parameter-java"></a>Event Grid 트리거, POJO 매개 변수(Java)
+
+이 예제에서는 다음 POJO를 사용하여 Event Grid 이벤트의 최상위 속성을 나타냅니다.
+
+```java
+import java.util.Date;
+import java.util.Map;
+
+public class EventSchema {
+
+  public String topic;
+  public String subject;
+  public String eventType;
+  public Date eventTime;
+  public String id;
+  public String dataVersion;
+  public String metadataVersion;
+  public Map<String, Object> data;
+
+}
+```
+
+도착 시, 이벤트의 JSON 페이로드가 함수에서 사용될 수 있게 ```EventSchema``` POJO로 역직렬화됩니다. 이를 통해 함수는 개체 지향 방식으로 이벤트의 속성에 액세스할 수 있습니다.
+
+```java
+  @FunctionName("eventGridMonitor")
+  public void logEvent(
+    @EventGridTrigger(
+      name = "event"
+    ) 
+    EventSchema event, 
+    final ExecutionContext context) {
+      // log 
+      context.getLogger().info("Event content: ");
+      context.getLogger().info("Subject: " + event.subject);
+      context.getLogger().info("Time: " + event.eventTime); // automatically converted to Date by the runtime
+      context.getLogger().info("Id: " + event.id);
+      context.getLogger().info("Data: " + event.data);
+  }
+```
+
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 EventGrid에서 제공되는 매개 변수에 대한 `EventGridTrigger` 주석을 사용합니다. 이러한 주석을 사용하는 매개 변수로 인해 이벤트 도착 시 함수가 실행될 수 있습니다.  `Optional<T>`을 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다.
 
 ## <a name="attributes"></a>특성
 
@@ -295,7 +378,7 @@ Event Grid 이벤트의 데이터는 HTTP 요청 본문에 JSON 개체로 수신
 
 공통 및 이벤트별 속성에 대한 설명을 보려면 Event Grid 설명서에서 [이벤트 속성](../event-grid/event-schema.md#event-properties)을 참조하세요.
 
-`EventGridEvent` 형식은 최상위 속성만 정의하며, `Data` 속성은 `JObject`입니다. 
+`EventGridEvent` 형식은 최상위 속성만 정의하며, `Data` 속성은 `JObject`입니다.
 
 ## <a name="create-a-subscription"></a>구독 만들기
 
@@ -391,7 +474,7 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextens
 포털의 **함수 앱 설정** 탭에서 함수 앱에 대한 마스터 키를 가져올 수 있습니다.
 
 > [!IMPORTANT]
-> 마스터 키는 함수 앱에 대한 관리자 액세스를 제공합니다. 이 키를 타사와 공유하거나 네이티브 클라이언트 응용 프로그램에 배포하지 마십시오.
+> 마스터 키는 함수 앱에 대한 관리자 액세스를 제공합니다. 이 키를 타사와 공유하거나 네이티브 클라이언트 애플리케이션에 배포하지 마십시오.
 
 자세한 내용은 HTTP 트리거 참조 문서에서 [인증 키](functions-bindings-http-webhook.md#authorization-keys)를 참조하세요.
 
@@ -414,7 +497,7 @@ Event Grid 트리거를 로컬로 테스트하려면 클라우드의 원본에�
 
 **Azure에 배포**를 선택하여 구독에 솔루션을 배포합니다. Azure Portal에서 매개 변수에 대한 값을 제공합니다.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 배포가 완료될 때까지 몇 분 정도 걸릴 수 있습니다. 배포가 성공된 후 실행하는지 확인하려면 웹앱을 봅니다. 웹 브라우저에서 `https://<your-site-name>.azurewebsites.net`으로 이동합니다.
 
@@ -444,7 +527,7 @@ Event Grid 함수를 로컬로 실행합니다.
 
 * `Content-Type: application/json` 헤더를 설정합니다.
 * `aeg-event-type: Notification` 헤더를 설정합니다.
-* 요청 본문에 RequestBin 데이터를 붙여 넣습니다. 
+* 요청 본문에 RequestBin 데이터를 붙여 넣습니다.
 * 다음 패턴을 사용하여 Event Grid 트리거 함수의 URL에 게시합니다.
 
 ```
@@ -509,19 +592,23 @@ ngrok URL은 Event Grid에서 특수하게 처리되지 않으므로, 구독이 
 테스트하려는 유형의 Event Grid 구독을 만들고 ngrok 엔드포인트에 제공합니다.
 
 Functions 1.x에 대해 이 엔드포인트 패턴을 사용합니다.
+
 ```
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ```
+
 Functions 2.x에 대해 이 엔드포인트 패턴을 사용합니다.
+
 ```
 https://{subdomain}.ngrok.io/runtime/webhooks/eventgrid?functionName={functionName}
 ```
+
 `functionName` 매개 변수는 `FunctionName` 특성에 지정된 이름이어야 합니다.
 
 다음은 Azure CLI 사용 예입니다.
 
-```
-az eventgrid event-subscription create --resource-id /subscriptions/aeb4b7cb-b7cb-b7cb-b7cb-b7cbb6607f30/resourceGroups/eg0122/providers/Microsoft.Storage/storageAccounts/egblobstor0122 --name egblobsub0126 --endpoint https://263db807.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName=EventGridTrigger
+```azurecli
+az eventgrid event-subscription create --resource-id /subscriptions/aeb4b7cb-b7cb-b7cb-b7cb-b7cbb6607f30/resourceGroups/eg0122/providers/Microsoft.Storage/storageAccounts/egblobstor0122 --name egblobsub0126 --endpoint https://263db807.ngrok.io/runtime/webhooks/eventgrid?functionName=EventGridTrigger
 ```
 
 구독을 만드는 방법에 대한 내용은 이 문서 앞부분에 나오는 [구독 만들기](#create-a-subscription)를 참조하세요.
@@ -560,8 +647,8 @@ public static async Task<HttpResponseMessage> Run(
     var messages = await req.Content.ReadAsAsync<JArray>();
 
     // If the request is for subscription validation, send back the validation code.
-    if (messages.Count > 0 && string.Equals((string)messages[0]["eventType"], 
-        "Microsoft.EventGrid.SubscriptionValidationEvent", 
+    if (messages.Count > 0 && string.Equals((string)messages[0]["eventType"],
+        "Microsoft.EventGrid.SubscriptionValidationEvent",
         System.StringComparison.OrdinalIgnoreCase))
     {
         log.LogInformation("Validate request received");

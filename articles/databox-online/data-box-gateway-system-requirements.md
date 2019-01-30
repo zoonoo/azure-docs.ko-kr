@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 6978360769ba350d85a06116bfee6db9f80b0607
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: da22c09a227069af0eeb42ab67a59189ae494185
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157363"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256675"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Azure Data Box Gateway 시스템 요구 사항(미리 보기)
 
@@ -21,11 +21,24 @@ ms.locfileid: "50157363"
 
 Data Box Gateway 가상 디바이스의 시스템 요구 사항은 다음과 같습니다.
 
-- **호스트의 소프트웨어 요구 사항** - 지원되는 플랫폼, 로컬 구성 UI용 브라우저, SMB 클라이언트 및 장치에 연결하는 호스트에 대한 추가 요구 사항을 설명합니다.
-- **장치의 네트워킹 요구 사항** - 가상 장치가 작동하기 위한 네트워킹 요구 사항에 관한 정보를 제공합니다.
+- **호스트의 소프트웨어 요구 사항** - 지원되는 플랫폼, 로컬 구성 UI용 브라우저, SMB 클라이언트 및 디바이스에 연결하는 호스트에 대한 추가 요구 사항을 설명합니다.
+- **디바이스의 네트워킹 요구 사항** - 가상 디바이스가 작동하기 위한 네트워킹 요구 사항에 관한 정보를 제공합니다.
 
 > [!IMPORTANT]
 > Data Box Gateway는 미리 보기로 제공되고 있습니다. 이 솔루션을 배포하기 전에 [미리 보기에 대한 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요. 
+
+## <a name="specifications-for-the-virtual-device"></a>가상 디바이스의 사양
+
+Data Box Gateway용 기본 호스트 시스템은 다음 리소스를 전용으로 사용하여 다음과 같은 가상 디바이스를 프로비전할 수 있습니다.
+
+| 사양                                          | 설명              |
+|---------------------------------------------------------|--------------------------|
+| 가상 프로세서(코어)   | 최소 4개 |            
+| 메모리  | 최소 8GB|
+| 가용성|단일 노드|
+| 디스크| OS 디스크: 250GB <br> 데이터 디스크: 최소 2TB, 씬 프로비저닝 및 SSD를 통해 지원해야 함|
+| 네트워크 인터페이스|가상 네트워크 인터페이스 하나 이상|
+
 
 ## <a name="supported-os-for-clients-connected-to-device"></a>디바이스에 연결된 클라이언트에 지원되는 OS
 
@@ -88,7 +101,7 @@ Data Box Gateway에 대해 지원되는 저장소 형식의 목록은 다음과 
 
 ## <a name="networking-requirements"></a>네트워킹 요구 사항
 
-다음 테이블에는 SMB, 클라우드 또는 관리 트래픽을 고려하여 방화벽에서 열려야 하는 포트가 나열되어 있습니다. 이 테이블에서 *인* 또는 *인바운드*는 디바이스에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드*는 배포 후 데이터를 외부로 보내는 Data Box Gateway 장치에서 방향을 참조합니다.
+다음 테이블에는 SMB, 클라우드 또는 관리 트래픽을 고려하여 방화벽에서 열려야 하는 포트가 나열되어 있습니다. 이 테이블에서 *인* 또는 *인바운드*는 디바이스에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드*는 배포 후 데이터를 외부로 보내는 Data Box Gateway 디바이스에서 방향을 참조합니다.
 
 | 포트 번호| 인 또는 아웃 | 포트 범위| 필수|   메모                                                             |                                                                                     |
 |--------|---------|----------|--------------|----------------------|---------------|
@@ -102,7 +115,7 @@ Data Box Gateway에 대해 지원되는 저장소 형식의 목록은 다음과 
 
 ## <a name="url-patterns-for-firewall-rules"></a>방화벽 규칙에 대한 URL 패턴
 
-네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. Data Box Gateway 디바이스 및 Data Box Gateway 서비스는 Azure Service Bus, Azure Active Directory Access Control, 저장소 계정 및 Microsoft 업데이트 서버 등의 다른 Microsoft 애플리케이션에 의존합니다. 이러한 응용 프로그램과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 응용 프로그램과 연결된 URL 패턴은 달라질 수 있습니다. 따라서 네트워크 관리자는 Data Box Gateway에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다.
+네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. Data Box Gateway 디바이스 및 Data Box Gateway 서비스는 Azure Service Bus, Azure Active Directory Access Control, 저장소 계정 및 Microsoft 업데이트 서버 등의 다른 Microsoft 애플리케이션에 의존합니다. 이러한 애플리케이션과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 애플리케이션과 연결된 URL 패턴은 달라질 수 있습니다. 따라서 네트워크 관리자는 Data Box Gateway에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다.
 
 Data Box Gateway 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아웃바운드 트래픽에 대한 방화벽 규칙을 설정하는 것이 좋습니다. 그러나 보안 환경을 만드는 데 필요한 고급 방화벽 규칙을 설정하려면 아래 정보를 사용할 수 있습니다.
 
@@ -128,7 +141,7 @@ Data Box Gateway 고정 IP 주소에 따라 대부분의 경우에서 자유롭�
 
 다음 요구 사항은 Data Box Gateway 디바이스에 사용할 수 있는 최소 인터넷 대역폭에 적용됩니다.
 
-- Data Box Gateway에는 항상 사용 가능한 전용 20MB 인터넷 대역폭(또는 이상)이 있습니다. 이 대역폭은 다른 응용 프로그램과 공유하면 안됩니다. 
+- Data Box Gateway에는 항상 사용 가능한 전용 20MB 인터넷 대역폭(또는 이상)이 있습니다. 이 대역폭은 다른 애플리케이션과 공유하면 안됩니다. 
 - Data Box Gateway에는 네트워크 조절을 사용할 때 사용할 수 있는 전용 32Mbps 인터넷 대역폭이 있습니다.
 
 ## <a name="next-step"></a>다음 단계

@@ -1,6 +1,6 @@
 ---
-title: 인덱스 쿼리(.NET API - Azure Search) | Microsoft Docs
-description: Azure 검색에서 검색 쿼리를 작성하고 검색 매개 변수를 사용하여 검색 결과를 필터링하고 정렬합니다.
+title: .NET SDK를 사용하여 코드에서 인덱스 쿼리 - Azure Search
+description: Azure Search에서 검색 쿼리를 작성하기 위한 C# 코드 예제입니다. 검색 매개 변수를 추가하여 검색 결과를 필터링하고 정렬합니다.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -9,12 +9,13 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/19/2017
-ms.openlocfilehash: 5b7f454fed6206ac57799d6f1e86152cd52dc9e9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 5c89902da5e773c60c8e2694159ddeed874ecab2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254420"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317001"
 ---
 # <a name="query-your-azure-search-index-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Search 인덱스 쿼리
 > [!div class="op_single_selector"]
@@ -33,7 +34,7 @@ ms.locfileid: "51254420"
 > 이 문서의 모든 샘플 코드는 C#으로 작성되었습니다. 전체 소스 코드는 [GitHub](https://aka.ms/search-dotnet-howto)를 참조하세요. 좀 더 구체적인 샘플 코드 연습은 [Azure Search .NET SDK](search-howto-dotnet-sdk.md)를 참조하세요.
 
 ## <a name="identify-your-azure-search-services-query-api-key"></a>Azure Search 서비스의 쿼리 API 키 식별
-Azure Search 인덱스를 만들었으므로 .NET SDK를 사용하여 쿼리를 발급할 준비가 되었습니다. 먼저 프로비전한 검색 서비스에 대해 생성된 쿼리 API 키 중 하나가 있어야 합니다. .NET SDK는 서비스에 대한 모든 요청에 대해 이 API 키를 전송합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 응용 프로그램과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
+Azure Search 인덱스를 만들었으므로 .NET SDK를 사용하여 쿼리를 발급할 준비가 되었습니다. 먼저 프로비전한 검색 서비스에 대해 생성된 쿼리 API 키 중 하나가 있어야 합니다. .NET SDK는 서비스에 대한 모든 요청에 대해 이 API 키를 전송합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하면 서비스의 API 키를 찾을 수 있습니다.
 2. Azure Search 서비스의 블레이드로 이동합니다.
@@ -44,12 +45,12 @@ Azure Search 인덱스를 만들었으므로 .NET SDK를 사용하여 쿼리를 
 * 기본 및 보조 *관리 키* 는 서비스를 관리하며 인덱스, 인덱서 및 데이터 원본을 만들고 삭제하는 기능을 비롯한 모든 작업에 전체 권한을 부여합니다. 두 개의 키가 있으므로 기본 키를 다시 생성하려는 경우 보조 키를 사용하여 계속할 수 있고 반대도 가능합니다.
 * *쿼리 키* 는 인덱스 및 문서에 대한 읽기 전용 액세스를 부여하며 일반적으로 검색 요청을 실행하는 클라이언트 응용 프로그램에 배포됩니다.
 
-인덱스를 쿼리하기 위해 쿼리 키 중 하나를 사용할 수 있습니다. 또한 쿼리에 관리 키를 사용할 수 있지만 [최소 권한의 원칙](https://en.wikipedia.org/wiki/Principle_of_least_privilege)에 따라 응용 프로그램 코드에 쿼리 키를 사용해야 합니다.
+인덱스를 쿼리하기 위해 쿼리 키 중 하나를 사용할 수 있습니다. 또한 쿼리에 관리 키를 사용할 수 있지만 [최소 권한의 원칙](https://en.wikipedia.org/wiki/Principle_of_least_privilege)에 따라 애플리케이션 코드에 쿼리 키를 사용해야 합니다.
 
 ## <a name="create-an-instance-of-the-searchindexclient-class"></a>SearchIndexClient 클래스의 인스턴스 만들기
 Azure Search .NET SDK로 쿼리를 발급하려면 `SearchIndexClient` 클래스의 인스턴스를 만들어야 합니다. 이 클래스에는 몇 가지 생성자가 있습니다. 그 중에 하나는 검색 서비스 이름, 인덱스 이름 및 `SearchCredentials` 개체를 매개 변수로 사용합니다. `SearchCredentials` 는 API 키를 래핑합니다.
 
-아래 코드에서는 응용 프로그램의 구성 파일([샘플 응용 프로그램](https://aka.ms/search-dotnet-howto)의 경우 `appsettings.json`)에 저장된 검색 서비스 이름 및 API 키에 대한 값을 사용하여 ([.NET SDK를 사용하여 Azure Search 인덱스 만들기](search-create-index-dotnet.md)에서 만든) "호텔" 인덱스에 새로운 `SearchIndexClient`을 만듭니다.
+아래 코드에서는 애플리케이션의 구성 파일([샘플 애플리케이션](https://aka.ms/search-dotnet-howto)의 경우 `appsettings.json`)에 저장된 검색 서비스 이름 및 API 키에 대한 값을 사용하여 ([.NET SDK를 사용하여 Azure Search 인덱스 만들기](search-create-index-dotnet.md)에서 만든) "호텔" 인덱스에 새로운 `SearchIndexClient`을 만듭니다.
 
 ```csharp
 private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
@@ -166,5 +167,5 @@ Search the entire index for the term 'motel':
 ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
 ```
 
-위의 샘플 코드는 콘솔을 사용하여 검색 결과를 출력합니다. 마찬가지로 고유한 응용 프로그램에 검색 결과를 표시해야 합니다. ASP.NET MVC 기반 웹 응용 프로그램에서 검색 결과를 렌더링하는 방법의 예는 [GitHub에서 이 샘플](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample) 을 참조하세요.
+위의 샘플 코드는 콘솔을 사용하여 검색 결과를 출력합니다. 마찬가지로 고유한 애플리케이션에 검색 결과를 표시해야 합니다. ASP.NET MVC 기반 웹 애플리케이션에서 검색 결과를 렌더링하는 방법의 예는 [GitHub에서 이 샘플](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample) 을 참조하세요.
 

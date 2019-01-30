@@ -1,28 +1,8 @@
 ---
-title: Machine Learning Studio용 PowerShell 모듈 - Azure | Microsoft Docs
-description: Azure Machine Learning용 PowerShell 모듈은 공개 미리 보기 모드로 사용할 수 있습니다. PowerShell을 사용하여 작업 영역, 실험, 웹 서비스 등을 만들고 관리합니다.
-keywords: 실험, 선형 회귀, 기계 학습 알고리즘, 기계 학습 자습서, 예측 모델링 기술, 데이터 과학 실험
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=haining, author=hning86)
-ms.author: amlstudiodocs
-manager: mwinkle
-editor: cgronlun
-ms.assetid: a9001cc2-3aa0-47e1-b175-1f76408ba1d1
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/15/2017
-ms.openlocfilehash: 3191ff845f72c87b85fdd414716ed9a00b022d06
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312030"
+제목: Machine Learning Studio용 PowerShell 모듈 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning용 PowerShell 모듈은 공개 미리 보기 모드로 사용할 수 있습니다. PowerShell을 사용하여 작업 영역, 실험, 웹 서비스 등을 만들고 관리합니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=haining, previous-author=hning86 ms.date: 2017/03/15
 ---
 # <a name="powershell-module-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 PowerShell 모듈
 Azure Machine Learning용 PowerShell 모듈은 Windows PowerShell을 사용하여 작업 영역, 실험, 데이터 세트, 기존 웹 서비스 등을 관리할 수 있는 강력한 도구입니다.
@@ -45,7 +25,7 @@ Machine Learning PowerShell 모듈은 Windows PowerShell에서 Azure Machine Lea
 * 실험 실행([Start-AmlExperiment](https://github.com/hning86/azuremlps#start-amlexperiment))
 * 예측 실험에서 웹 서비스 만들기([New-AmlWebService](https://github.com/hning86/azuremlps#new-amlwebservice))
 * 게시된 웹 서비스에 엔드포인트 만들기([Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint))
-* RRS 또는 BES 웹 서비스 엔드포인트 호출([Invoke-AmlWebServiceRRSEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) 및 [Invoke-AmlWebServicBESEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint))
+* RRS 또는 BES 웹 서비스 엔드포인트 호출([Invoke-AmlWebServiceRRSEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) 및 [Invoke-AmlWebServiceBESEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint))
 
 기존 실험을 실행하기 위해 PowerShell을 사용하는 간단한 예는 다음과 같습니다.
 
@@ -54,7 +34,7 @@ Machine Learning PowerShell 모듈은 Windows PowerShell에서 Azure Machine Lea
         #Run the Experiment
         Start-AmlExperiment -ExperimentId $exp.ExperimentId 
 
-일반적으로 요청된 작업을 자동화하도록 PowerShell 모듈을 사용하는 방법에 대한 자세한 사용 사례는 [PowerShell을 사용하여 한 실험에서 여러 Machine Learning 모델 및 웹 서비스 엔드포인트 만들기](create-models-and-endpoints-with-powershell.md)문서를 참조하세요.
+자세한 내용은 PowerShell 모듈을 사용하여 일반적으로 요청되는 작업을 자동화하는 방법에 대한 문서인 [PowerShell을 사용하여 한 실험에서 여러 Machine Learning 모델 및 웹 서비스 엔드포인트 만들기](create-models-and-endpoints-with-powershell.md)를 참조하세요.
 
 ## <a name="how-do-i-get-started"></a>어떻게 시작하나요?
 Machine Learning PowerShell을 시작하려면 GitHub에서 [릴리스 패키지](https://github.com/hning86/azuremlps/releases)를 다운로드하고 [설치에 대한 지침](https://github.com/hning86/azuremlps/blob/master/README.md)을 따릅니다. 지침은 다운로드/압축 해제된 DLL의 차단을 해제한 다음 PowerShell 환경으로 가져오는 방법을 설명합니다. 대부분의 cmdlet에는 작업 영역 ID, 작업 영역 권한 부여 토큰 및 작업 영역이 위치한 Azure 지역을 제공해야 합니다. 값을 제공하는 가장 간단한 방법은 기본 config.json 파일을 통하는 것입니다. 지침은 또한 이 파일을 구성하는 방법을 설명합니다. 

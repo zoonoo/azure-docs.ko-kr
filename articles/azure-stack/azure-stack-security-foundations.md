@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/9/2018
+ms.date: 01/14/2019
 ms.author: patricka
-ms.openlocfilehash: 32c268c1e4a0ff4d17c5b03f0ffd33b0ddf5b927
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.reviewer: fiseraci
+ms.openlocfilehash: fba4020c5e947c135d9e17cfb1d0b2a79ad8a502
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901484"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819342"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack 인프라의 보안 상태
 
@@ -40,7 +41,7 @@ Azure Stack에 대 한 보안 태세는 최신 위협 으로부터 보호 하도
 Azure Stack 통합된 시스템으로 배달 되기, 때문에 Azure Stack 인프라의 보안 태세는 Microsoft에서 정의 됩니다. Azure에서와 마찬가지로 테 넌 트는 테 넌 트 워크 로드의 보안 태세를 정의 하는 일을 담당 합니다. 이 문서는 Azure Stack 인프라의 보안 상태에 기본 기술 자료를 제공합니다.
 
 ## <a name="data-at-rest-encryption"></a>암호화 미사용 데이터
-모든 Azure Stack 인프라 및 테 넌 트 데이터는 Bitlocker를 사용 하 여 미사용 암호화 됩니다. 이 암호화에 대해 물리적 손실이 나 도난 Azure Stack 저장소 구성 요소 보호합니다. 
+모든 Azure Stack 인프라 및 테 넌 트 데이터는 BitLocker를 사용 하 여 미사용 암호화 됩니다. 이 암호화에 대해 물리적 손실이 나 도난 Azure Stack 저장소 구성 요소 보호합니다. 자세한 내용은 [Azure Stack에서 암호화 된 미사용 데이터](azure-stack-security-bitlocker.md)입니다.
 
 ## <a name="data-in-transit-encryption"></a>데이터 전송 암호화
 Azure Stack 인프라 구성 요소는 TLS 1.2를 사용 하 여 암호화 된 채널을 사용 하 여 통신 합니다. 암호화 인증서는 자체 인프라에 의해 관리 됩니다. 
@@ -70,12 +71,12 @@ Azure Stack (Hyper-v 호스트 및 가상 머신)에서 모든 구성 요소는 
 연결 된 시나리오에서 바이러스 백신 정 및 엔진 업데이트에는 하루에 여러 번 적용 됩니다. 연결이 끊긴된 시나리오에서 맬웨어 방지 업데이트는 월별 Azure Stack 업데이트의 일부로 적용 됩니다. 자세한 내용은 [Azure Stack에 Windows Defender 바이러스 백신 업데이트](azure-stack-security-av.md)합니다.
 
 ## <a name="constrained-administration-model"></a>제한 된 관리 모델
-Azure Stack의 관리는 세 가지 진입점, 특정 목적을 사용 하 여 각각 사용 하 여 제어 됩니다. 
+진입점을 통해 세 가지, 특정 목적으로 각 Azure Stack에 대 한 관리 제어 됩니다. 
 1. 합니다 [관리자 포털](azure-stack-manage-portals.md) 일상적인 관리 작업에 대 한 포인트 클릭 환경을 제공 합니다.
 2. Azure Resource Manager PowerShell 및 Azure CLI에서 사용 하는 REST API를 통해 관리자 포털의 모든 관리 작업을 노출 합니다. 
 3. 특정 하위 수준 작업에 대 한 데이터 센터 통합 또는 시나리오를 지원 합니다. 예를 들어, 라는 PowerShell 끝점을 노출 하는 Azure Stack [Privileged 끝점](azure-stack-privileged-endpoint.md)합니다. 이 끝점 집합에만 허용 목록에 cmdlet 노출 하 고 감사할 과도 하 게 합니다.
 
-## <a name="network-controls"></a>네트워크 컨트롤
+## <a name="network-controls"></a>네트워크 제어
 Azure Stack 인프라는 여러 계층의 네트워크 액세스 제어 목록 (ACL)를 사용 하 여 제공 됩니다. Acl은 인프라 구성 요소에 대 한 무단된 액세스를 방지 하 고 인프라 통신 기능을 위해 필요한 경로만을 제한 합니다. 
 
 네트워크 Acl은 세 가지 계층에 적용 됩니다.

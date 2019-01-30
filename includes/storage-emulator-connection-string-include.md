@@ -25,7 +25,7 @@ Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZ
 > 
 
 #### <a name="connect-to-the-emulator-account-using-a-shortcut"></a>바로 가기를 사용하여 에뮬레이터 계정에 연결
-응용 프로그램에서 저장소 에뮬레이터에 연결하는 가장 쉬운 방법은 바로 가기를 참조하는 응용 프로그램의 구성 파일에서 연결 문자열을 구성하는 것입니다.`UseDevelopmentStorage=true` 예를 들어 *app.config* 파일의 저장소 에뮬레이터에 대한 연결 문자열은 다음과 같습니다. 
+애플리케이션에서 스토리지 에뮬레이터에 연결하는 가장 쉬운 방법은 바로 가기를 참조하는 애플리케이션의 구성 파일에서 연결 문자열을 구성하는 것입니다.`UseDevelopmentStorage=true` 예를 들어 *app.config* 파일의 저장소 에뮬레이터에 대한 연결 문자열은 다음과 같습니다. 
 
 ```xml
 <appSettings>

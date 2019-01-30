@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 79a44e3f5303aaf0d337333b482c2df670e0b3da
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 954a57bb9253e4f18d61c3a699b6e721568da292
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144641"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157414"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>MXChip IoT DevKit를 Azure IoT 원격 모니터링 솔루션 가속기에 연결
 
@@ -50,19 +50,19 @@ ms.locfileid: "42144641"
   
    ![솔루션 만들기](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution.png)
 
-4. 프로비전을 완료한 후 **시작**을 클릭합니다. 프로비전 프로세스 도중에 솔루션에 대해 시뮬레이션된 일부 디바이스가 생성됩니다. **장치**를 클릭하여 체크 아웃합니다.
+4. 프로비전을 완료한 후 **시작**을 클릭합니다. 프로비전 프로세스 도중에 솔루션에 대해 시뮬레이션된 일부 디바이스가 생성됩니다. **디바이스**를 클릭하여 체크 아웃합니다.
 
    ![대시보드](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
   
    ![콘솔](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
 
-5. **장치 추가**를 클릭합니다.
+5. **디바이스 추가**를 클릭합니다.
 
-6. **사용자 지정 장치**에 **새로 추가**를 클릭합니다.
+6. **사용자 지정 디바이스**에 **새로 추가**를 클릭합니다.
   
    ![새 디바이스 추가](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-add-new-device.png)
 
-7. **직접 나만의 장치 ID 정의**를 클릭하고 `AZ3166`을 입력한 다음, **만들기**를 클릭합니다.
+7. **직접 나만의 디바이스 ID 정의**를 클릭하고 `AZ3166`을 입력한 다음, **만들기**를 클릭합니다.
   
    ![ID가 있는 디바이스 만들기](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-device-configuration.png)
 
@@ -82,7 +82,7 @@ ms.locfileid: "42144641"
 4. 왼쪽의 **ARDUINO 예제** 섹션을 확장하고 **MXCHIP AZ3166에 대한 예제 > AzureIoT**로 이동하여 **RemoteMonitoring**을 선택합니다. 프로젝트 폴더가 있는 새 VS Code 창이 열립니다.
 
    > [!NOTE]
-   > 창을 닫은 경우 다시 열면 됩니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음 **Arduino: 예제**를 찾아서 선택합니다.
+   > 창을 닫은 경우 다시 열면 됩니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음, **Arduino: 예제**를 찾아서 선택합니다.
 
 ## <a name="provision-required-azure-services"></a>필요한 Azure 서비스 프로비전
 
@@ -127,7 +127,7 @@ DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
 문제가 발생하면 [IoT 개발자 키트 FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)를 참조하거나 다음 지원 채널을 사용하여 문의해주세요.
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [스택 오버플로](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -135,6 +135,6 @@ DevKit 디바이스를 Azure IoT 원격 모니터션 솔루션 가속기에 연�
 
 * [Azure IoT 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
 
-* [Azure IoT Central 응용 프로그램에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
 
 * [IoT 개발자 키트](https://microsoft.github.io/azure-iot-developer-kit/) 

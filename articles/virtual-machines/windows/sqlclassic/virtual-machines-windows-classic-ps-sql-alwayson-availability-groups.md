@@ -101,7 +101,7 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
         Set-AzureVNetConfig `
             -ConfigurationPath $networkConfigPath
 
-    구성 파일은 다음 XML 문서를 포함합니다. 간단히 말해 **ContosoAG**라는 선호도 그룹에 **ContosoNET**이라는 가상 네트워크를 지정합니다. 주소 공간은 **10.10.0.0/16**이고 서브넷 두 개 즉, **10.10.1.0/24** 및**10.10.2.0/24**있으며, 각각 프런트 서브넷 및 백 서브넷입니다. 프런트 서브넷은 Microsoft SharePoint와 같은 클라이언트 응용 프로그램을 배치하는 곳입니다. 백 서브넷은 SQL Server VM을 배치할 곳입니다. **$affinityGroupName** 및 **$virtualNetworkName** 변수를 앞에서 변경할 경우 아래의 해당하는 이름도 함께 변경해야 합니다.
+    구성 파일은 다음 XML 문서를 포함합니다. 간단히 말해 **ContosoAG**라는 선호도 그룹에 **ContosoNET**이라는 가상 네트워크를 지정합니다. 주소 공간은 **10.10.0.0/16**이고 서브넷 두 개 즉, **10.10.1.0/24** 및**10.10.2.0/24**있으며, 각각 프런트 서브넷 및 백 서브넷입니다. 프런트 서브넷은 Microsoft SharePoint와 같은 클라이언트 애플리케이션을 배치하는 곳입니다. 백 서브넷은 SQL Server VM을 배치할 곳입니다. **$affinityGroupName** 및 **$virtualNetworkName** 변수를 앞에서 변경할 경우 아래의 해당하는 이름도 함께 변경해야 합니다.
 
         <NetworkConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>

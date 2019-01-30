@@ -1,5 +1,5 @@
 ---
-title: Azure App Service 하이브리드 연결 | Microsoft Docs
+title: 하이브리드 연결 - Azure App Service | Microsoft Docs
 description: 하이브리드 연결을 만들고 사용하여 서로 다른 네트워크의 리소스에 액세스하는 방법
 services: app-service
 documentationcenter: ''
@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: ccompy
-ms.openlocfilehash: 69897e288a90a731d95db82d0ff978d776c12580
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.custom: seodec18
+ms.openlocfilehash: 40ff05e9fbc00747145c653878010ad9da0c37ec
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42145595"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653393"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service 하이브리드 연결 #
 
 하이브리드 연결은 Azure의 서비스인 동시에 Azure App Service의 기능입니다. 서비스로서, App Service에서 사용되는 것 이상의 기능과 용도가 있습니다. 하이브리드 연결 및 App Service 외부에서의 사용법을 자세히 알아보려면 [Azure Relay 하이브리드 연결][HCService]을 참조하세요.
 
-App Service 내에서 하이브리드 연결은 다른 네트워크의 응용 프로그램 리소스에 액세스하는 데 사용될 수 있습니다. 이를 통해 앱에서 응용 프로그램 엔드포인트에 액세스할 수 있습니다. 응용 프로그램에 액세스하는 대체 기능으로는 사용되지 않습니다. App Service에서 사용되는 것처럼 각 하이브리드 연결은 단일 TCP 호스트 및 포트 조합에 상호 연결됩니다. 즉, TCP 수신 대기 포트에 액세스하는 한, 하이브리드 연결 엔드포인트는 모든 운영 체제 및 모든 응용 프로그램에 있을 수 있습니다. 하이브리드 연결 기능은 응용 프로그램 프로토콜이 무엇인지 또는 사용자가 무엇에 액세스하고 있는지 인식하거나 상관하지 않습니다. 단지 네트워크 액세스를 제공합니다.  
+App Service 내에서 하이브리드 연결은 다른 네트워크의 애플리케이션 리소스에 액세스하는 데 사용될 수 있습니다. 이를 통해 앱에서 애플리케이션 엔드포인트에 액세스할 수 있습니다. 애플리케이션에 액세스하는 대체 기능으로는 사용되지 않습니다. App Service에서 사용되는 것처럼 각 하이브리드 연결은 단일 TCP 호스트 및 포트 조합에 상호 연결됩니다. 즉, TCP 수신 대기 포트에 액세스하는 한, 하이브리드 연결 엔드포인트는 모든 운영 체제 및 모든 애플리케이션에 있을 수 있습니다. 하이브리드 연결 기능은 애플리케이션 프로토콜이 무엇인지 또는 사용자가 무엇에 액세스하고 있는지 인식하거나 상관하지 않습니다. 단지 네트워크 액세스를 제공합니다.  
 
 
 ## <a name="how-it-works"></a>작동 방법 ##
@@ -136,7 +137,7 @@ HCM UI를 시작하면 가장 먼저 이 HCM 인스턴스로 구성된 하이브
 HCM에 하나 이상의 하이브리드 연결을 추가하려면 다음을 수행합니다.
 
 1. HCM UI를 시작합니다.
-1. **Configure another Hybrid Connection**(다른 하이브리드 연결 구성)을 클릭합니다.
+2. **Configure another Hybrid Connection**(다른 하이브리드 연결 구성)을 클릭합니다.
 ![새 하이브리드 연결 구성 스크린샷][8]
 
 1. Azure 계정으로 로그인합니다.
@@ -176,7 +177,7 @@ HCM에 하나 이상의 하이브리드 연결을 추가하려면 다음을 수�
 
 ## <a name="adding-a-hybrid-connection-to-your-app-programmatically"></a>프로그래밍 방식으로 앱에 하이브리드 연결 추가 ##
 
-아래 설명된 API를 사용하여 웹앱에 연결된 하이브리드 연결을 직접 관리할 수 있습니다. 
+아래 설명된 API를 사용하여 앱에 연결된 하이브리드 연결을 직접 관리할 수 있습니다. 
 
     /subscriptions/[subscription name]/resourceGroups/[resource group name]/providers/Microsoft.Web/sites/[app name]/hybridConnectionNamespaces/[relay namespace name]/relays/[hybrid connection name]?api-version=2016-08-01
 
@@ -197,7 +198,7 @@ HCM에 하나 이상의 하이브리드 연결을 추가하려면 다음을 수�
       }
     }
 
-이 정보를 사용하는 한 가지 방법은 [ARMClient][armclient] github 프로젝트에서 가져올 수 있는 armclient를 사용하는 것입니다. 웹앱에 기존 하이브리드 연결을 적용하는 예제는 다음과 같습니다. 다음과 같이 위 스키마에 따라 JSON 파일을 만듭니다.
+이 정보를 사용하는 한 가지 방법은 [ARMClient][armclient] GitHub 프로젝트에서 가져올 수 있는 armclient를 사용하는 것입니다. 앱에 기존 하이브리드 연결을 적용하는 예제는 다음과 같습니다. 다음과 같이 위 스키마에 따라 JSON 파일을 만듭니다.
 
     {
       "name": "relay-demo-hc",
@@ -229,7 +230,7 @@ App Service에서 tcpping 도구는 고급 도구(Kudu) 콘솔에서 호출할 �
 
 ## <a name="biztalk-hybrid-connections"></a>BizTalk 하이브리드 연결 ##
 
-이 기능의 초기 형식을 BizTalk 하이브리드 연결이라고 지칭했습니다. 이 기능은 2018년 5월 31일에 지원이 종료되었으며 작동이 중단되었습니다. BizTalk 하이브리드 연결이 모든 웹앱에서 제거되었으므로 포털 또는 API를 통해 액세스할 수 없습니다. 이러한 이전 연결이 하이브리드 연결 관리자에 여전히 구성되어 있는 경우 중단됨 상태가 표시되고, 아래쪽에 수명 종료 설명이 표시됩니다.
+이 기능의 초기 형식을 BizTalk 하이브리드 연결이라고 지칭했습니다. 이 기능은 2018년 5월 31일에 지원이 종료되었으며 작동이 중단되었습니다. BizTalk 하이브리드 연결이 모든 앱에서 제거되었으므로 포털 또는 API를 통해 액세스할 수 없습니다. 이러한 이전 연결이 하이브리드 연결 관리자에 여전히 구성되어 있는 경우 중단됨 상태가 표시되고, 아래쪽에 수명 종료 설명이 표시됩니다.
 
 ![HCM의 BizTalk 하이브리드 연결][12]
 
@@ -249,8 +250,8 @@ App Service에서 tcpping 도구는 고급 도구(Kudu) 콘솔에서 호출할 �
 [12]: ./media/app-service-hybrid-connections/hybridconn-bt.png
 
 <!--Links-->
-[HCService]: http://docs.microsoft.com/azure/service-bus-relay/relay-hybrid-connections-protocol/
-[portal]: http://portal.azure.com/
-[oldhc]: http://docs.microsoft.com/azure/biztalk-services/integration-hybrid-connection-overview/
-[sbpricing]: http://azure.microsoft.com/pricing/details/service-bus/
+[HCService]: https://docs.microsoft.com/azure/service-bus-relay/relay-hybrid-connections-protocol/
+[portal]: https://portal.azure.com/
+[oldhc]: https://docs.microsoft.com/azure/biztalk-services/integration-hybrid-connection-overview/
+[sbpricing]: https://azure.microsoft.com/pricing/details/service-bus/
 [armclient]: https://github.com/projectkudu/ARMClient/

@@ -1,6 +1,6 @@
 ---
 title: Azure API Managment 정책 샘플 - 응답 콘텐츠 필터링 | Microsoft Docs
-description: Azure API Managment 정책 샘플 - 요청과 연결된 제품에 따라 응답 페이로드에서 데이터 요소를 필터링하는 방법을 보여 줍니다.
+description: Azure API Managment 정책 샘플 - 요청과 연결된 제품에 따라 응답 페이로드에서 데이터 요소를 필터링하는 방법을 보여줍니다.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: af362ac51fb8b7d1689451d49f2ed831c5f9ee2e
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 26829dfc04acdac2a25fe0d4fdc3e95e4d219057
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284430"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869180"
 ---
 # <a name="filter-response-content"></a>응답 콘텐츠 필터링
 

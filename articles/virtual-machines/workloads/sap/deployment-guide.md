@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: 8a552356163e9c585ce9fea18e8cd5208c26a8be
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: dc44394bda1208eb2dab0a02dd73152e51788d4c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956360"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424903"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 배포
 
@@ -183,7 +183,7 @@ ms.locfileid: "49956360"
 [planning-guide]:planning-guide.md (SAP용 Azure Virtual Machines 계획 및 구현)
 [planning-guide-1.2]:planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (리소스)
 [planning-guide-11]:planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058 (Azure Virtual Machines에서 실행되는 SAP NetWeaver의 고가용성 및 재해 복구)
-[planning-guide-11.4.1]:planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 (SAP 응용 프로그램 서버의 고가용성)
+[planning-guide-11.4.1]:planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 (SAP 애플리케이션 서버의 고가용성)
 [planning-guide-11.5]:planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f (SAP 인스턴스에 대해 자동 시작 사용)
 [planning-guide-2.1]:planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 (클라우드 전용 - 온-프레미스 고객 네트워크에 의존하지 않고 Azure에 가상 컴퓨터 배포)
 [planning-guide-2.2]:planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 (크로스 프레미스 - 온-프레미스 네트워크에 완전히 통합된 Azure에서 단일 또는 다중 SAP VM 배포)
@@ -232,9 +232,9 @@ ms.locfileid: "49956360"
 [planning-guide-figure-700]:media/virtual-machines-shared-sap-planning-guide/700-decision-tree-deploy-to-azure.png
 [planning-guide-figure-800]:media/virtual-machines-shared-sap-planning-guide/800-portal-vm-overview.png
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd (Microsoft Azure 네트워킹)
-[planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (저장소: Microsoft Azure Storage 및 데이터 디스크)
+[planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (스토리지: Microsoft Azure Storage 및 데이터 디스크)
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/network-overview.md
@@ -313,9 +313,9 @@ ms.locfileid: "49956360"
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 계산 및 저장소 리소스를 필요로 하는 조직을 위한 솔루션입니다. Azure Virtual Machines를 사용하여 Azure에서 SAP NetWeaver 기반 응용 프로그램 같은 기존 응용 프로그램을 배포할 수 있습니다. 추가 온-프레미스 리소스 없이도 응용 프로그램의 안정성과 가용성을 확장할 수 있습니다. Azure Virtual Machines는 크로스-프레미스 연결을 지원하므로 Azure Virtual Machines를 조직의 온-프레미스 도메인, 사설 클라우드 및 SAP 시스템 지형에 통합할 수 있습니다.
+Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 계산 및 저장소 리소스를 필요로 하는 조직을 위한 솔루션입니다. Azure Virtual Machines를 사용하여 Azure에서 SAP NetWeaver 기반 애플리케이션 같은 기존 애플리케이션을 배포할 수 있습니다. 추가 온-프레미스 리소스 없이도 애플리케이션의 안정성과 가용성을 확장할 수 있습니다. Azure Virtual Machines는 크로스-프레미스 연결을 지원하므로 Azure Virtual Machines를 조직의 온-프레미스 도메인, 사설 클라우드 및 SAP 시스템 지형에 통합할 수 있습니다.
 
-이 문서에서는 대체 배포 옵션과 문제 해결 등 Azure에서 VM(가상 머신)에 SAP 응용 프로그램을 배포하는 단계를 설명합니다. 이 문서는 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]의 정보를 기반으로 합니다. 또한 SAP 소프트웨어를 설치 및 배포하기 위한 기본 리소스인 SAP 설치 설명서 및 SAP Note를 보완합니다.
+이 문서에서는 대체 배포 옵션과 문제 해결 등 Azure에서 VM(가상 머신)에 SAP 애플리케이션을 배포하는 단계를 설명합니다. 이 문서는 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]의 정보를 기반으로 합니다. 또한 SAP 소프트웨어를 설치 및 배포하기 위한 기본 리소스인 SAP 설치 설명서 및 SAP Note를 보완합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -359,7 +359,7 @@ SAP 크기 조정을 위해 다음 정보를 알고 있어야 합니다.
 
 ### <a name="resource-groups"></a>리소스 그룹
 
-Azure Resource Manager에서 리소스 그룹을 사용하여 Azure 구독에서 모든 응용 프로그램 리소스를 관리할 수 있습니다. 자세한 내용은 [Azure Resource Manager 개요][resource-group-overview]를 참조하세요.
+Azure Resource Manager에서 리소스 그룹을 사용하여 Azure 구독에서 모든 애플리케이션 리소스를 관리할 수 있습니다. 자세한 내용은 [Azure Resource Manager 개요][resource-group-overview]를 참조하세요.
 
 ## <a name="resources"></a>리소스
 
@@ -423,19 +423,19 @@ Azure Marketplace에서 이미지를 사용하여 새 가상 머신을 만드는
 1. **기본 사항**:
  * **이름**: 리소스 이름(가상 머신 이름)입니다.
  * **VM 디스크 유형**: OS 디스크의 디스크 유형을 선택합니다. 데이터 디스크로 Premium Storage를 사용하려는 경우 OS 디스크에도 Premium Storage를 사용하는 것이 좋습니다.
- * **사용자 이름 및 암호** 또는 **SSH 공개 키**: 프로비전 중에 만든 사용자의 사용자 이름과 암호를 입력합니다. Linux 가상 컴퓨터의 경우 컴퓨터에 로그인하는 데 사용하는 공용 SSH(Secure Shell) 키를 입력할 수 있습니다.
+ * **사용자 이름 및 암호** 또는 **SSH 공개 키**: 사용자 이름과 프로비전 중에 만든 사용자 암호를 입력합니다. Linux 가상 컴퓨터의 경우 컴퓨터에 로그인하는 데 사용하는 공용 SSH(Secure Shell) 키를 입력할 수 있습니다.
  * **구독**: 새 가상 머신을 프로비전하는 데 사용할 구독을 선택합니다.
- * **리소스 그룹**: VM에 대한 리소스 그룹의 이름입니다. 새 리소스 그룹의 이름 또는 기존 리소스 그룹의 이름을 입력할 수 있습니다.
- * **위치**: 새 가상 머신을 배포할 위치입니다. 온-프레미스 네트워크에 가상 컴퓨터를 연결하려는 경우 온-프레미스 네트워크에 Azure를 연결하는 가상 네트워크의 위치를 선택해야 합니다. 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]의 [Microsoft Azure 네트워킹][planning-guide-microsoft-azure-networking]을 참조하세요.
+ * **리소스 그룹**: VM의 리소스 그룹 이름입니다. 새 리소스 그룹의 이름 또는 기존 리소스 그룹의 이름을 입력할 수 있습니다.
+ * **위치**: 새 가상 머신을 배포할 위치입니다. 온-프레미스 네트워크에 가상 머신을 연결하려는 경우 온-프레미스 네트워크에 Azure를 연결하는 가상 네트워크의 위치를 선택해야 합니다. 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]의 [Microsoft Azure 네트워킹][planning-guide-microsoft-azure-networking]을 참조하세요.
 1. **크기**:
 
-     지원되는 VM 유형 목록은 SAP Note [1928533]을 참조하세요. Azure Premium Storage를 사용하려면 올바른 VM 유형을 선택해야 합니다. 모든 VM 유형이 Premium Storage를 지원하지는 않습니다. 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]의 [Storage: Microsoft Azure Storage 및 데이터 링크][planning-guide-storage-microsoft-azure-storage-and-data-disks] 및 [Azure Premium Storage][planning-guide-azure-premium-storage]를 참조하세요.
+     지원되는 VM 유형 목록은 SAP Note [1928533]을 참조하세요. Azure Premium Storage를 사용하려면 올바른 VM 유형을 선택해야 합니다. 모든 VM 유형이 Premium Storage를 지원하지는 않습니다. 자세한 내용은 [스토리지: Microsoft Azure Storage 및 데이터 링크][planning-guide-storage-microsoft-azure-storage-and-data-disks] 및 [Azure Premium Storage][planning-guide-azure-premium-storage]를 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]에서 참조하세요.
 
 1. **설정**:
   * **Storage**
     * **디스크 유형**: OS 디스크의 디스크 유형을 선택합니다. 데이터 디스크로 Premium Storage를 사용하려는 경우 OS 디스크에도 Premium Storage를 사용하는 것이 좋습니다.
-    * **관리 디스크 사용**: Managed Disks를 사용하려는 경우 [예]를 선택합니다. Managed Disks에 대한 자세한 내용은 이 계획 가이드의 [Managed Disks][planning-guide-managed-disks] 챕터를 참조하세요.
-    * **Storage 계정**: 기존 Storage 계정을 선택하거나 새 Storage 계정을 만듭니다. 모든 저장소 유형이 SAP 응용 프로그램 실행을 위해 작동하지는 않습니다. 저장소 유형에 대한 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포][dbms-guide]의 [Microsoft Azure Storage][dbms-guide-2.3]를 참조하세요.
+    * **Managed Disks 사용**: Managed Disks를 사용하려는 경우 예를 선택합니다. Managed Disks에 대한 자세한 내용은 이 계획 가이드의 [Managed Disks][planning-guide-managed-disks] 챕터를 참조하세요.
+    * **스토리지 계정**: 기존 스토리지 계정을 선택하거나 새 스토리지 계정을 만듭니다. 모든 저장소 유형이 SAP 애플리케이션 실행을 위해 작동하지는 않습니다. 스토리지 유형에 대한 자세한 내용은 [RDBMS 배포의 VM 스토리지 구조](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)를 참조하세요.
   * **네트워크**
     * **가상 네트워크** 및 **서브넷**: 인트라넷에 가상 머신을 통합하려면 온-프레미스 네트워크에 연결된 가상 네트워크를 선택합니다.
     * **공용 IP 주소**: 사용하려는 공용 IP 주소를 선택하거나 매개 변수를 입력하여 새 공용 IP 주소를 만듭니다. 인터넷에서 가상 머신에 액세스하는 공용 IP 주소를 사용할 수 있습니다. 또한 가상 머신에 안전하게 액세스하려면 네트워크 보안 그룹을 만들어야 합니다.
@@ -444,7 +444,7 @@ Azure Marketplace에서 이미지를 사용하여 새 가상 머신을 만드는
   * **고가용성**: 가용성 집합을 선택하거나 매개 변수를 입력하여 새 가용성 집합을 만듭니다. 자세한 내용은 [Azure 가용성 집합][planning-guide-3.2.3]을 참조하세요.
   * **모니터링**
     * **부팅 진단**: 부팅 진단을 **사용 안 함**으로 선택할 수 있습니다.
-    * **게스트 OS 진단**: 모니터링 진단을 **사용 안 함**으로 선택할 수 있습니다.
+    * **게스트 OS 진단**: 진단 모니터링에 대해 **사용 안 함**을 선택할 수 있습니다.
 
 1. **요약**:
 
@@ -477,8 +477,8 @@ Azure Portal에서 템플릿에 대한 다음 매개 변수를 입력합니다.
   * **위치**: 템플릿을 배포할 위치입니다. 기존 리소스 그룹을 선택한 경우 해당 리소스 그룹의 위치가 사용됩니다.
 
 1. **설정**:
-  * **SAP 시스템 ID**: SAP 시스템 ID(SID)입니다.
-  * **OS 형식**: 배포할 운영 체제, 예를 들어 Windows Server 2012 R2, SUSE Linux Enterprise Server 12(SLES 12) 또는 Red Hat Enterprise Linux 7.2(RHEL 7.2) 또는 Oracle Linux 7.2입니다.
+  * **SAP 시스템 ID**: SID(SAP 시스템 ID)입니다.
+  * **OS 유형**: 배포할 운영 체제, 예를 들어 Windows Server 2012 R2, SUSE Linux Enterprise Server 12(SLES 12) 또는 Red Hat Enterprise Linux 7.2(RHEL 7.2) 또는 Oracle Linux 7.2입니다.
 
     목록 보기에는 지원되는 일부 운영 체제가 표시되지 않을 수도 있습니다. SAP 소프트웨어 배포를 위한 지원되는 운영 체제에 대한 자세한 내용은 SAP Note [1928533]을 참조하세요.
   * **SAP 시스템 크기**: SAP 시스템의 크기입니다.
@@ -487,17 +487,17 @@ Azure Portal에서 템플릿에 대한 다음 매개 변수를 입력합니다.
   * **시스템 가용성**(3계층 템플릿만 해당): 시스템 가용성입니다.
 
     고가용성 설치에 적합한 구성의 경우 **HA**를 선택합니다. 두 데이터베이스 서버와 ABAP SAP 중앙 서비스(ASCS)에 대한 두 서버가 만들어집니다.
-  * **저장소 유형**(2계층 템플릿에만 해당): 사용하는 저장소 유형입니다.
+  * **스토리지 유형**(2계층 템플릿만 해당): 사용할 스토리지 유형입니다.
 
     더 큰 시스템의 경우 Azure Premium Storage를 사용하는 것이 좋습니다. 저장소 유형에 대한 자세한 내용은 다음 리소스를 참조하세요.
       * [SAP DBMS 인스턴스에 Azure Premium SSD Storage 사용][2367194]
-      * [SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포][dbms-guide]의 [Microsoft Azure Storage][dbms-guide-2.3]
-      * [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 저장소][storage-premium-storage-preview-portal]
+      * [RDBMS 배포를 위한 VM의 스토리지 구조](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 스토리지][storage-premium-storage-preview-portal]
       * [Microsoft Azure Storage 소개][storage-introduction]
-  * **관리 사용자 이름** 및 **관리 암호**: 사용자 이름 및 암호입니다.
+  * **관리자 사용자 이름** 및 **관리자 암호**: 사용자 이름 및 암호입니다.
     가상 머신에 로그인하기 위한 새 사용자가 만들어집니다.
-  * **새로운 또는 기존 서브넷**: 새 가상 네트워크 및 서브넷을 만들어야 하는지 또는 기존 서브넷을 사용해야 하는지 결정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 **기존**을 선택합니다.
-  * **서브넷 ID**: VM을 할당하도록 서브넷이 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로 다음과 같이 표시합니다. /subscriptions/&lt;구독 id>/resourceGroups/&lt;리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/&lt;가상 네트워크 이름>/subnets/&lt;서브넷 이름>
+  * **새 서브넷 또는 기존 서브넷**: 새 가상 네트워크 및 서브넷을 만들어야 하는지 또는 기존 서브넷을 사용해야 하는지를 결정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 **기존**을 선택합니다.
+  * **서브넷 ID**: 서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로 다음과 같이 표시합니다. /subscriptions/&lt;구독 id>/resourceGroups/&lt;리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/&lt;가상 네트워크 이름>/subnets/&lt;서브넷 이름>
 
 1. **사용 약관**:  
     약관을 검토하고 동의합니다.
@@ -563,18 +563,18 @@ Managed Disk 이미지에서 새 가상 머신을 만드는 가장 쉬운 방법
 1. **기본 사항**:
  * **이름**: 리소스 이름(가상 머신 이름)입니다.
  * **VM 디스크 유형**: OS 디스크의 디스크 유형을 선택합니다. 데이터 디스크로 Premium Storage를 사용하려는 경우 OS 디스크에도 Premium Storage를 사용하는 것이 좋습니다.
- * **사용자 이름 및 암호** 또는 **SSH 공개 키**: 프로비전 중에 만든 사용자의 사용자 이름과 암호를 입력합니다. Linux 가상 컴퓨터의 경우 컴퓨터에 로그인하는 데 사용하는 공용 SSH(Secure Shell) 키를 입력할 수 있습니다.
+ * **사용자 이름 및 암호** 또는 **SSH 공개 키**: 사용자 이름과 프로비전 중에 만든 사용자 암호를 입력합니다. Linux 가상 컴퓨터의 경우 컴퓨터에 로그인하는 데 사용하는 공용 SSH(Secure Shell) 키를 입력할 수 있습니다.
  * **구독**: 새 가상 머신을 프로비전하는 데 사용할 구독을 선택합니다.
- * **리소스 그룹**: VM에 대한 리소스 그룹의 이름입니다. 새 리소스 그룹의 이름 또는 기존 리소스 그룹의 이름을 입력할 수 있습니다.
- * **위치**: 새 가상 머신을 배포할 위치입니다. 온-프레미스 네트워크에 가상 컴퓨터를 연결하려는 경우 온-프레미스 네트워크에 Azure를 연결하는 가상 네트워크의 위치를 선택해야 합니다. 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]의 [Microsoft Azure 네트워킹][planning-guide-microsoft-azure-networking]을 참조하세요.
+ * **리소스 그룹**: VM의 리소스 그룹 이름입니다. 새 리소스 그룹의 이름 또는 기존 리소스 그룹의 이름을 입력할 수 있습니다.
+ * **위치**: 새 가상 머신을 배포할 위치입니다. 온-프레미스 네트워크에 가상 머신을 연결하려는 경우 온-프레미스 네트워크에 Azure를 연결하는 가상 네트워크의 위치를 선택해야 합니다. 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]의 [Microsoft Azure 네트워킹][planning-guide-microsoft-azure-networking]을 참조하세요.
 1. **크기**:
 
-     지원되는 VM 유형 목록은 SAP Note [1928533]을 참조하세요. Azure Premium Storage를 사용하려면 올바른 VM 유형을 선택해야 합니다. 모든 VM 유형이 Premium Storage를 지원하지는 않습니다. 자세한 내용은 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]의 [Storage: Microsoft Azure Storage 및 데이터 링크][planning-guide-storage-microsoft-azure-storage-and-data-disks] 및 [Azure Premium Storage][planning-guide-azure-premium-storage]를 참조하세요.
+     지원되는 VM 유형 목록은 SAP Note [1928533]을 참조하세요. Azure Premium Storage를 사용하려면 올바른 VM 유형을 선택해야 합니다. 모든 VM 유형이 Premium Storage를 지원하지는 않습니다. 자세한 내용은 [스토리지: Microsoft Azure Storage 및 데이터 링크][planning-guide-storage-microsoft-azure-storage-and-data-disks] 및 [Azure Premium Storage][planning-guide-azure-premium-storage]를 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현][planning-guide]에서 참조하세요.
 
 1. **설정**:
   * **Storage**
     * **디스크 유형**: OS 디스크의 디스크 유형을 선택합니다. 데이터 디스크로 Premium Storage를 사용하려는 경우 OS 디스크에도 Premium Storage를 사용하는 것이 좋습니다.
-    * **관리 디스크 사용**: Managed Disks를 사용하려는 경우 [예]를 선택합니다. Managed Disks에 대한 자세한 내용은 이 계획 가이드의 [Managed Disks][planning-guide-managed-disks] 챕터를 참조하세요.
+    * **Managed Disks 사용**: Managed Disks를 사용하려는 경우 예를 선택합니다. Managed Disks에 대한 자세한 내용은 이 계획 가이드의 [Managed Disks][planning-guide-managed-disks] 챕터를 참조하세요.
   * **네트워크**
     * **가상 네트워크** 및 **서브넷**: 인트라넷에 가상 머신을 통합하려면 온-프레미스 네트워크에 연결된 가상 네트워크를 선택합니다.
     * **공용 IP 주소**: 사용하려는 공용 IP 주소를 선택하거나 매개 변수를 입력하여 새 공용 IP 주소를 만듭니다. 인터넷에서 가상 머신에 액세스하는 공용 IP 주소를 사용할 수 있습니다. 또한 가상 머신에 안전하게 액세스하려면 네트워크 보안 그룹을 만들어야 합니다.
@@ -583,7 +583,7 @@ Managed Disk 이미지에서 새 가상 머신을 만드는 가장 쉬운 방법
   * **고가용성**: 가용성 집합을 선택하거나 매개 변수를 입력하여 새 가용성 집합을 만듭니다. 자세한 내용은 [Azure 가용성 집합][planning-guide-3.2.3]을 참조하세요.
   * **모니터링**
     * **부팅 진단**: 부팅 진단을 **사용 안 함**으로 선택할 수 있습니다.
-    * **게스트 OS 진단**: 모니터링 진단을 **사용 안 함**으로 선택할 수 있습니다.
+    * **게스트 OS 진단**: 진단 모니터링에 대해 **사용 안 함**을 선택할 수 있습니다.
 
 1. **요약**:
 
@@ -616,28 +616,28 @@ Azure Portal에서 템플릿에 대한 다음 매개 변수를 입력합니다.
   * **위치**: 템플릿을 배포할 위치입니다. 기존 리소스 그룹을 선택한 경우 해당 리소스 그룹의 위치가 사용됩니다.
 1. **설정**:
   * **SAP 시스템 ID**: SAP 시스템 ID입니다.
-  * **OS 형식**: 배포하려는 운영 체제 형식(예: Windows 또는 Linux)입니다.
+  * **OS 유형**: 배포하려는 운영 체제 형식(Windows 또는 Linux)
   * **SAP 시스템 크기**: SAP 시스템의 크기입니다.
 
     새 시스템에서 제공하는 SAP의 수입니다. 시스템에 필요한 SAP의 수를 모를 경우 SAP 기술 파트너 또는 시스템 통합자에 문의하세요.
   * **시스템 가용성**(3계층 템플릿만 해당): 시스템 가용성입니다.
 
     고가용성 설치에 적합한 구성의 경우 **HA**를 선택합니다. ASCS용 2개의 데이터베이스 서버 및 2개의 서버가 생성됩니다.
-  * **저장소 유형**(2계층 템플릿에만 해당): 사용하는 저장소 유형입니다.
+  * **스토리지 유형**(2계층 템플릿만 해당): 사용할 스토리지 유형입니다.
 
     더 큰 시스템의 경우 Azure Premium Storage를 사용하는 것이 좋습니다. 저장소 유형에 대한 자세한 내용은 다음 리소스를 참조하세요.
       * [SAP DBMS 인스턴스에 Azure Premium SSD Storage 사용][2367194]
-      * [SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포][dbms-guide]의 [Microsoft Azure Storage][dbms-guide-2.3]
-      * [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 저장소][storage-premium-storage-preview-portal]
+      * [RDBMS 배포를 위한 VM의 스토리지 구조](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 스토리지][storage-premium-storage-preview-portal]
       * [Microsoft Azure Storage 소개][storage-introduction]
-  * **사용자 이미지 VHD URI(관리되지 않는 디스크 이미지 템플릿만)**: 개인 OS 이미지 VHD의 URI(예: https://&lt;accountname>.blob.core.windows.net/vhds/userimage.vhd)입니다.
-  * **사용자 이미지 저장소 계정(관리되지 않는 디스크 이미지 템플릿만)**: 개인 OS 이미지가 저장된 저장소 계정의 이름(예: https://&lt;accountname>.blob.core.windows.net/vhds/userimage.vhd의 &lt;accountname>)입니다.
-  * **userImageId**(관리 디스크 이미지 템플릿만): 사용하려는 Managed Disk 이미지의 ID
-  * **관리 사용자 이름** 및 **관리 암호**: 사용자 이름 및 암호입니다.
+  * **사용자 이미지 VHD URI**(관리되지 않는 디스크 이미지 템플릿만 해당): 개인 OS 이미지 VHD의 URI(예: https://&lt;accountname>.blob.core.windows.net/vhds/userimage.vhd)입니다.
+  * **사용자 이미지 스토리지 계정**(관리되지 않는 디스크 이미지 템플릿만 해당): 개인 OS 이미지가 저장된 스토리지 계정의 이름(예: https://&lt;accountname>.blob.core.windows.net/vhds/userimage.vhd)의 &lt;accountname>)입니다.
+  * **userImageId**(Managed Disks 이미지 템플릿만 해당): 사용하려는 Managed Disks 이미지의 ID입니다.
+  * **관리자 사용자 이름** 및 **관리자 암호**: 사용자 이름 및 암호입니다.
 
-    가상 컴퓨터에 로그인하기 위한 새 사용자가 만들어집니다.
-  * **새로운 또는 기존 서브넷**: 새 가상 네트워크 및 서브넷을 만들어야 하는지 또는 기존 서브넷을 사용해야 하는지 결정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 **기존**을 선택합니다.
-  * **서브넷 ID**: VM을 할당하도록 서브넷이 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로 다음과 같이 표시합니다. /subscriptions/&lt;구독 id>/resourceGroups/&lt;리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/&lt;가상 네트워크 이름>/subnets/&lt;서브넷 이름>
+    가상 머신에 로그인하기 위한 새 사용자가 만들어집니다.
+  * **새 서브넷 또는 기존 서브넷**: 새 가상 네트워크 및 서브넷을 만들어야 하는지 또는 기존 서브넷을 사용해야 하는지를 결정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 **기존**을 선택합니다.
+  * **서브넷 ID**: 서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로 다음과 같이 표시합니다. /subscriptions/&lt;구독 id>/resourceGroups/&lt;리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/&lt;가상 네트워크 이름>/subnets/&lt;서브넷 이름>
 
 1. **사용 약관**:  
     약관을 검토하고 동의합니다.
@@ -711,21 +711,21 @@ Azure Portal에서 템플릿에 대한 다음 매개 변수를 입력합니다.
   * **위치**: 템플릿을 배포할 위치입니다. 기존 리소스 그룹을 선택한 경우 해당 리소스 그룹의 위치가 사용됩니다.
 1. **설정**:
   * **SAP 시스템 ID**: SAP 시스템 ID입니다.
-  * **OS 형식**: 배포하려는 운영 체제 형식(예: Windows 또는 Linux)입니다.
+  * **OS 유형**: 배포하려는 운영 체제 형식(Windows 또는 Linux)
   * **SAP 시스템 크기**: SAP 시스템의 크기입니다.
 
     새 시스템에서 제공하는 SAP의 수입니다. 시스템에 필요한 SAP의 수를 모를 경우 SAP 기술 파트너 또는 시스템 통합자에 문의하세요.
-  * **저장소 유형**(2계층 템플릿에만 해당): 사용하는 저장소 유형입니다.
+  * **스토리지 유형**(2계층 템플릿만 해당): 사용할 스토리지 유형입니다.
 
     더 큰 시스템의 경우 Azure Premium Storage를 사용하는 것이 좋습니다. 저장소 유형에 대한 자세한 내용은 다음 리소스를 참조하세요.
       * [SAP DBMS 인스턴스에 Azure Premium SSD Storage 사용][2367194]
-      * [SAP NetWeaver에 대한 Azure Virtual Machine DBMS 배포][dbms-guide]의 [Microsoft Azure Storage][dbms-guide-2.3]
-      * [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 저장소][storage-premium-storage-preview-portal]
+      * [RDBMS 배포를 위한 VM의 스토리지 구조](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 스토리지][storage-premium-storage-preview-portal]
       * [Microsoft Azure Storage 소개][storage-introduction]
-  * **OS 디스크 VHD URI(관리되지 않는 디스크 템플릿만)**: 개인 OS 디스크의 URI(예: https://&lt;accountname>.blob.core.windows.net/vhds/osdisk.vhd)입니다.
-  * **OS 디스크 Managed Disk ID(관리 디스크 템플릿만)**: Managed Disk OS 디스크의 ID, /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
-  * **새로운 또는 기존 서브넷**: 새 가상 네트워크 및 서브넷을 만들어야 하는지 또는 기존 서브넷을 사용해야 하는지 결정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 **기존**을 선택합니다.
-  * **서브넷 ID**: VM을 할당하도록 서브넷이 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로 다음과 같이 표시합니다. /subscriptions/&lt;구독 id>/resourceGroups/&lt;리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/&lt;가상 네트워크 이름>/subnets/&lt;서브넷 이름>
+  * **OS 디스크 VHD URI**(관리되지 않는 디스크 템플릿만 해당): 개인 OS 디스크의 URI(예: https://&lt;accountname>.blob.core.windows.net/vhds/osdisk.vhd)입니다.
+  * **OS 디스크 Managed Disks ID**(Managed Disks 템플릿만 해당): Managed Disks OS 디스크의 ID입니다(/subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN).
+  * **새 서브넷 또는 기존 서브넷**: 새 가상 네트워크 및 서브넷을 만들어야 하는지 또는 기존 서브넷을 사용해야 하는지를 결정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 **기존**을 선택합니다.
+  * **서브넷 ID**: 서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로 다음과 같이 표시합니다. /subscriptions/&lt;구독 id>/resourceGroups/&lt;리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/&lt;가상 네트워크 이름>/subnets/&lt;서브넷 이름>
 
 1. **사용 약관**:  
     약관을 검토하고 동의합니다.
@@ -1030,13 +1030,13 @@ Azure VM을 배포하고 관련 Azure 모니터링 인프라를 설정한 후 Az
 
 ### <a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>SAP용 Azure 고급 모니터링 확장에 대한 준비 검사
 
-이 검사에서는 SAP 응용 프로그램 내부에 나타나는 모든 성능 메트릭이 기반 Azure 모니터링 인프라에서 제공되는지 확인합니다.
+이 검사에서는 SAP 애플리케이션 내부에 나타나는 모든 성능 메트릭이 기반 Azure 모니터링 인프라에서 제공되는지 확인합니다.
 
 #### <a name="run-the-readiness-check-on-a-windows-vm"></a>Windows VM에서 준비 검사 실행
 
 1.  Azure Virtual Machine에 로그인합니다(관리자 계정 사용은 필요하지 않음).
 1.  명령 프롬프트 창을 엽니다.
-1.  명령 프롬프트에서 디렉터리를 SAP용 Azure 모니터링 확장의 설치 폴더: C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;version>\\drop으로 변경합니다.
+1.  명령 프롬프트에서 디렉터리를 SAP용 Azure 고급 모니터링 확장의 설치 폴더( C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;버전>\\drop)로 변경합니다.
 
   모니터링 확장에 대한 경로의 *버전*이 다를 수 있습니다. 설치 폴더에 여러 모니터링 확장 버전의 폴더가 표시되는 경우 AzureEnhancedMonitoring Windows 서비스의 구성을 확인한 다음 *실행 파일 경로*로 나타난 폴더로 전환합니다.
 
@@ -1087,7 +1087,7 @@ Azperflib.exe 출력은 SAP용 Azure 성능 카운터가 모두 채워진 상태
 
  b. `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error` 실행
 
-   **예상 결과**: 오류가 **없는** 한 줄을 반환합니다. 예: **3;config;Error;;0;0;none;0;1456416792;tst-servercs;**
+   **예상 결과**: 오류가 **없는** 한 줄을 반환합니다(예: **3;config;Error;;0;0;none;0;1456416792;tst-servercs;**).
 
   다. `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord` 실행
 
@@ -1103,7 +1103,7 @@ Azperflib.exe 출력은 SAP용 Azure 성능 카운터가 모두 채워진 상태
 
   b.  `ps -ax | grep waagent` 실행
 
-   **예상 결과**: 다음과 유사한 한 항목을 표시합니다. `python /usr/sbin/waagent -daemon`
+   **예상 결과**: `python /usr/sbin/waagent -daemon`과 유사한 하나의 항목을 표시합니다.
 
 1.   Azure 고급 모니터링 확장이 설치되고 실행되고 있는지 확인합니다.
 
@@ -1113,7 +1113,7 @@ Azperflib.exe 출력은 SAP용 Azure 성능 카운터가 모두 채워진 상태
 
   b. `ps -ax | grep AzureEnhanced` 실행
 
-     **예상 결과**: 다음과 유사한 한 항목을 표시합니다. `python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
+     **예상 결과**: `python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`과 유사한 하나의 항목을 표시합니다.
 
 1. SAP Note [1031096] 에 설명된 대로 SAP 호스트 에이전트를 설치하고 `saposcol`의 출력을 확인합니다.
 
@@ -1123,7 +1123,7 @@ Azperflib.exe 출력은 SAP용 Azure 성능 카운터가 모두 채워진 상태
 
   다.  **Virtualization_Configuration\Enhanced Monitoring Access** 메트릭이 **true**인지 여부를 확인합니다.
 
-SAP NetWeaver ABAP 응용 프로그램 서버가 이미 설치된 경우 트랜잭션 ST06을 열고 고급 모니터링이 사용하도록 설정되어 있는지 여부를 확인합니다.
+SAP NetWeaver ABAP 애플리케이션 서버가 이미 설치된 경우 트랜잭션 ST06을 열고 고급 모니터링이 사용하도록 설정되어 있는지 여부를 확인합니다.
 
 이 검사 중 하나 이상에 실패한 경우 확장을 배포하는 방법에 대한 자세한 내용은 [SAP용 Azure 모니터링 인프라 문제 해결][deployment-guide-5.3]을 참조하세요.
 
@@ -1191,7 +1191,7 @@ Azperflib.exe 출력에 오류가 발생합니다.
 
 ###### <a name="issue"></a>문제
 
-AzureEnhancedMonitoring Windows 서비스가 존재하고 사용하도록 설정되었지만 시작할 수 없습니다. 자세한 내용은 응용 프로그램 이벤트 로그를 확인합니다.
+AzureEnhancedMonitoring Windows 서비스가 존재하고 사용하도록 설정되었지만 시작할 수 없습니다. 자세한 내용은 애플리케이션 이벤트 로그를 확인합니다.
 
 ###### <a name="solution"></a>해결 방법
 

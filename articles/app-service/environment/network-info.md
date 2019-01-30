@@ -1,5 +1,5 @@
 ---
-title: Azure App Service Environment에 대한 네트워킹 고려 사항
+title: App Service Environment에 대한 네트워킹 고려 사항 - Azure
 description: ASE 네트워크 트래픽 및 ASE를 사용하여 NSG 및 UDR을 설정하는 방법을 설명합니다.
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 535f70658593ff5a9ae1642ae7a97646e3fefb63
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.custom: seodec18
+ms.openlocfilehash: d22b181baa9b9e6d01fb92a3644078ecbd6af7be
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288257"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191601"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment에 대한 네트워킹 고려 사항 #
 
@@ -26,10 +27,10 @@ ms.locfileid: "51288257"
 
  Azure [App Service Environment][Intro]는 Azure App Service를 Azure VNet(Virtual Network) 내 서브넷에 배포한 것입니다. ASE(App Service Environment)에는 두 가지 배포 유형이 있습니다.
 
-- **외부 ASE** - ASE에서 호스트되는 앱을 인터넷 액세스가 가능한 IP 주소에 표시합니다. 자세한 내용은 [외부 ASE 만들기][MakeExternalASE]를 참조하세요.
-- **ILB ASE** - ASE에서 호스트되는 앱을 VNet 내부의 IP 주소에 표시합니다. 내부 엔드포인트는 ILB(내부 부하 분산 장치)이므로 ILB ASE라고 합니다. 자세한 내용은 [ILB ASE 만들기 및 사용][MakeILBASE]을 참조하세요.
+- **외부 ASE**: ASE에서 호스트되는 앱을 인터넷 액세스가 가능한 IP 주소에 표시합니다. 자세한 내용은 [외부 ASE 만들기][MakeExternalASE]를 참조하세요.
+- **ILB ASE**: ASE에서 호스트되는 앱을 VNet 내부의 IP 주소에 표시합니다. 내부 엔드포인트는 ILB(내부 부하 분산 장치)이므로 ILB ASE라고 합니다. 자세한 내용은 [ILB ASE 만들기 및 사용][MakeILBASE]을 참조하세요.
 
-App Service Environment에는 두 가지 버전(ASEv1 및 ASEv2)이 있습니다. ASEv1에 대한 자세한 내용은 [App Service Environment v1 소개][ASEv1Intro]를 참조하세요. ASEv1은 클래식 또는 Resource Manager VNet에서 배포할 수 있습니다. ASEv2는 Resource Manager VNet에만 배포할 수 있습니다.
+App Service Environment에는 ASEv1 및 ASEv2라는 두 가지 버전이 있습니다. ASEv1에 대한 자세한 내용은 [App Service Environment v1 소개][ASEv1Intro]를 참조하세요. ASEv1은 클래식 또는 Resource Manager VNet에서 배포할 수 있습니다. ASEv2는 Resource Manager VNet에만 배포할 수 있습니다.
 
 인터넷으로 이동하는 ASE의 모든 호출은 VNet을 출발하여 ASE에 할당된 VIP로 갑니다. 이 VIP의 공용 IP는 인터넷으로 이동하는 ASE의 모든 호출에 대한 원본 IP입니다. 사용자의 ASE에 있는 앱이 VNet 또는 VPN의 리소스를 호출하는 경우 원본 IP는 ASE에서 사용되는 서브넷의 IP 중 하나가 됩니다. ASE가 VNet 내에 있으므로 추가 구성 없이 VNet 내 리소스에 액세스할 수 있습니다. VNet이 온-프레미스 네트워크에 연결되어 있으면 ASE의 앱도 추가 구성 없이 해당 네트워크의 리소스에 액세스할 수 있습니다.
 
@@ -130,7 +131,7 @@ ILB ASE 도메인 이름이 *contoso.net*이고 앱 이름이 *testapp*이면 *t
 
 ## <a name="functions-and-web-jobs"></a>함수 및 웹 작업 ##
 
-함수 및 웹 작업은 SCM 사이트에 따라 다르지만, 브라우저가 SCM 사이트에 연결될 수 있는 한, 앱이 ILB ASE에 있더라도 포털에서 사용할 수 있도록 지원됩니다.  ILB ASE에 자체 서명된 인증서를 사용하는 경우 브라우저에서 해당 인증서를 신뢰하도록 설정해야 합니다.  IE와 Edge의 경우 인증서가 컴퓨터의 신뢰 저장소에 있어야 함을 의미합니다.  크롬을 사용하는 경우 브라우저에서 scm 사이트를 이미 직접 방문하여 이전에 인증서를 수락했음을 의미합니다.  가장 좋은 방법은 브라우저의 신뢰 체인에 있는 상용 인증서를 사용하는 것입니다.  
+함수 및 웹 작업은 SCM 사이트에 따라 다르지만, 브라우저가 SCM 사이트에 연결될 수 있는 한, 앱이 ILB ASE에 있더라도 포털에서 사용할 수 있도록 지원됩니다.  ILB ASE에 자체 서명된 인증서를 사용하는 경우 브라우저에서 해당 인증서를 신뢰하도록 설정해야 합니다.  IE와 Microsoft Edge의 경우 인증서가 컴퓨터의 신뢰 저장소에 있어야 함을 의미합니다.  크롬을 사용하는 경우 브라우저에서 scm 사이트를 이미 직접 방문하여 이전에 인증서를 수락했음을 의미합니다.  가장 좋은 방법은 브라우저의 신뢰 체인에 있는 상용 인증서를 사용하는 것입니다.  
 
 ## <a name="ase-ip-addresses"></a>ASE IP 주소 ##
 
@@ -138,7 +139,7 @@ ASE에는 알고 있어야 할 몇 가지 IP 주소가 있습니다. 아래에 �
 
 - **공용 인바운드 IP 주소**: 외부 ASE의 앱 트래픽 및 외부 ASE와 ILB ASE 둘 다의 관리 트래픽에 사용됩니다.
 - **아웃바운드 공용 IP**: VNet에서 시작되는 ASE로부터의 아웃바운드 연결(VPN으로 라우팅되지 않음)의 "시작" IP로 사용됩니다.
-- **ILB IP 주소**: ILB ASE를 사용하는 경우 사용됩니다.
+- **ILB IP 주소**: ILB ASE를 사용하는 경우
 - **앱에 할당된 IP 기반 SSL 주소**: 외부 ASE를 사용하며 IP 기반 SSL이 구성되어 있을 때만 사용 가능합니다.
 
 이러한 모든 IP 주소는 ASE UI에서 Azure Portal의 ASEv2에 쉽게 확인할 수 있습니다. ILB ASE를 사용하는 경우 ILB용 IP가 나열됩니다.
@@ -150,7 +151,7 @@ ASE에는 알고 있어야 할 몇 가지 IP 주소가 있습니다. 아래에 �
 
 ### <a name="app-assigned-ip-addresses"></a>앱에 할당된 IP 주소 ###
 
-외부 ASE를 사용하면 IP 주소를 개별 앱에 할당할 수 있습니다. ILB ASE에서는 IP 주소를 할당할 수 없습니다. 앱용으로 고유한 IP 주소를 구성하는 방법에 대한 자세한 내용은 [Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩](../app-service-web-tutorial-custom-ssl.md)을 참조하세요.
+외부 ASE를 사용하면 IP 주소를 개별 앱에 할당할 수 있습니다. ILB ASE에서는 IP 주소를 할당할 수 없습니다. 앱용으로 고유한 IP 주소를 구성하는 방법에 대한 자세한 내용은 [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](../app-service-web-tutorial-custom-ssl.md)을 참조하세요.
 
 앱에 고유한 IP 기반 SSL 주소가 있는 경우 ASE는 해당 IP 주소에 매핑하도록 두 개의 포트를 예약합니다. 한 포트는 HTTP 트래픽용이고, 다른 포트는 HTTPS용입니다. 이러한 포트는 IP 주소 섹션의 ASE UI에 나열됩니다. 트래픽은 VIP에서 해당 포트에 연결할 수 있어야 합니다. 그렇지 않으면 앱에 액세스할 수 없습니다. NSG(네트워크 보안 그룹)를 구성할 때는 이 요구 사항을 고려해야 합니다.
 
@@ -164,7 +165,7 @@ NSG는 Azure Portal 또는 PowerShell을 통해 구성할 수 있습니다. 이 
 
 인바운드 및 아웃바운드 요구 사항을 고려할 때, NSG는 이 예제에 나와 있는 NSG와 비슷하게 표시되어야 합니다. VNet 주소 범위는 _192.168.250.0/23_이고 ASE가 있는 서브넷은 _192.168.251.128/25_입니다.
 
-ASE가 작동하기 위한 가장 우선적인 인바운드 요구 사항 두 가지가 이 예제의 목록 맨 위에 나와 있습니다. 이는 ASE 관리를 가능케 하고 ASE가 자체적으로 통신할 수 있도록 합니다. 다른 항목은 모두 테넌트에서 구성할 수 있으며, ASE에서 호스트되는 응용 프로그램에 대한 네트워크 액세스를 관리하는 데 사용할 수 있습니다. 
+ASE가 작동하기 위한 가장 우선적인 인바운드 요구 사항 두 가지가 이 예제의 목록 맨 위에 나와 있습니다. 이는 ASE 관리를 가능케 하고 ASE가 자체적으로 통신할 수 있도록 합니다. 다른 항목은 모두 테넌트에서 구성할 수 있으며, ASE에서 호스트되는 애플리케이션에 대한 네트워크 액세스를 관리하는 데 사용할 수 있습니다. 
 
 ![인바운드 보안 규칙][4]
 
@@ -234,10 +235,10 @@ Azure SQL 인스턴스를 통해 서브넷에서 서비스 엔드포인트가 �
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ASEManagement]: ./management-addresses.md

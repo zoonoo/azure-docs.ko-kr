@@ -1,7 +1,7 @@
 ---
 title: 이미지 형식 검색 - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Computer Vision API를 사용하여 이미지 형식을 검색하는 데 관련된 개념입니다.
+description: Computer Vision API의 이미지 형식 검색 기능과 관련된 개념입니다.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: ecdbdd60af41ee14070f2f45dfe50875e38ac3b3
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 04062d5625126712c5f14c41d610d55caf4c28b5
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342010"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583105"
 ---
-# <a name="detecting-image-types"></a>이미지 형식 검색
+# <a name="detecting-image-types-with-computer-vision"></a>Computer Vision으로 이미지 형식 검색
 
 Computer Vision은 이미지가 클립 아트인지 또는 선 그리기인지 가능성을 평가하여 이미지의 콘텐츠 형식을 분석할 수 있습니다.
 
@@ -36,7 +37,7 @@ Computer Vision은 다음 표에 설명된 대로 이미지를 분석하고, 이
 
 다음 JSON 응답에서는 예제 이미지가 클립 아트일 가능성을 평가할 때 Computer Vision이 반환하는 내용을 보여줍니다.
 
-![비전 분석 치즈 클립 아트](./Images/cheese_clipart.png)
+![치즈 조각의 클립 아트 이미지](./Images/cheese_clipart.png)
 
 ```json
 {
@@ -53,7 +54,7 @@ Computer Vision은 다음 표에 설명된 대로 이미지를 분석하고, 이
 }
 ```
 
-![비전 분석 주택 야드](./Images/house_yard.png)
+![파란색 집 및 앞 마당](./Images/house_yard.png)
 
 ```json
 {
@@ -78,7 +79,7 @@ Computer Vision는 이미지를 분석하고 이미지가 선 그리기인지 �
 
 다음 JSON 응답에서는 예제 이미지가 선 그리기인지 나타낼 때 Computer Vision이 반환하는 내용을 보여줍니다.
 
-![비전 분석 사자 그리기](./Images/lion_drawing.png)
+![사자의 선 그리기 이미지](./Images/lion_drawing.png)
 
 ```json
 {
@@ -95,7 +96,7 @@ Computer Vision는 이미지를 분석하고 이미지가 선 그리기인지 �
 }
 ```
 
-![비전 분석 꽃](./Images/flower.png)
+![녹색 배경의 흰색 꽃](./Images/flower.png)
 
 ```json
 {

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 56a36e61bb9938ceb7e3cdaf2676c24c037b1d16
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: edf99f57fe2166e5ea7f91817dde978015af9348
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585776"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54841436"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -85,9 +85,9 @@ VM 진단을 위한 개인 저장소 계정을 설정할 수 있습니다.
 
 Managed Disks에서는 세 가지 주요 기본 역할을 지원합니다.
 
-* 소유자: 액세스를 포함한 모든 것을 관리할 수 있음
-* 참여자: 액세스를 제외한 모든 것을 관리할 수 있음
-* 읽기 권한자: 모든 항목을 볼 수 있지만 변경할 수 없음
+* 소유자: 액세스를 제외한 모든 것을 관리할 수 있음
+* Contributor: 액세스를 제외한 모든 것을 관리할 수 있음
+* 읽기 권한자: 모든 항목을 볼 수 있지만 변경할 수는 없음
 
 **개인 저장소 계정에 Managed Disk를 복사하거나 내보낼 수 있는 방법이 있나요?**
 
@@ -100,6 +100,10 @@ Managed Disks에서는 세 가지 주요 기본 역할을 지원합니다.
 **관리되지 않는 디스크도 계속 지원되나요?**
 
 예. 관리되지 않는 디스크와 Managed Disks가 모두 지원됩니다. 새 워크로드에 대해 Managed Disks를 사용하고 현재 워크로드를 Managed Disks로 마이그레이션하는 것이 좋습니다.
+
+**비관리 및 관리 디스크를 동일한 VM에 함께 배치할 수 있나요?**
+
+ 아니요.
 
 **128GB 디스크를 만든 후 130GiB로 크기를 증가시키려는 경우 다음 디스크 크기(256GiB)에 대한 요금이 부과되나요?**
 
@@ -125,10 +129,6 @@ Azure Managed Disks에서는 현재 로컬 중복 저장소 Managed Disks만 지
 * [Managed Disks를 사용하는 템플릿 목록](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
-**비관리 및 관리 디스크를 동일한 VM에 함께 배치할 수 있나요?**
-
- 아니요.
-
 **BLOB에서 디스크를 만들 때 해당 원본 BLOB와 지속적으로 유지되는 관계가 있습니까?**
 
 아니요. 새로 생성되는 디스크는 그 당시의 완전 독립형 BLOB 복사본이며, 둘 사이에는 연결 관계가 없습니다. 원할 경우 디스크를 만들면 새로 생성되는 디스크에 어떤 식으로든 영향을 주지 않고 원본 BLOB가 삭제될 수 있습니다.
@@ -137,9 +137,9 @@ Azure Managed Disks에서는 현재 로컬 중복 저장소 Managed Disks만 지
 
 관리 디스크의 이름은 변경할 수 없습니다. 하지만 현재 VHD 또는 VM에 연결되어 있지 않은 경우에 한해 비관리 디스크의 이름은 변경할 수 있습니다.
 
-**Azure 디스크에서 GBT 분할을 사용할 수 있나요?**
+**Azure 디스크에서 GPT 분할을 사용할 수 있나요?**
 
-GBT 분할은 OS 디스크가 아닌 데이터 디스크에서만 사용할 수 있습니다. OS 디스크는 MBR 파티션 스타일을 사용해야 합니다.
+GPT 분할은 OS 디스크가 아닌 데이터 디스크에서만 사용할 수 있습니다. OS 디스크는 MBR 파티션 스타일을 사용해야 합니다.
 
 ## <a name="standard-ssd-disks"></a>표준 SSD 디스크
 
@@ -179,7 +179,7 @@ Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용하여 표
 -AccountType StandardSSD_LRS
 
 **HDD 대신 표준 SSD 디스크를 사용할 경우의 이점은 무엇입니까?**
-표준 SSD 디스크는 HDD 디스크에 비해 더 빠른 대기 시간과 더 나은 일관성, 가용성 및 안정성을 제공합니다. 따라서 응용 프로그램 워크로드가 표준 SSD에서 훨씬 더 원활하게 실행됩니다. 프리미엄 SSD 디스크는 가장 IO 사용량이 많은 프로덕션 워크로드에 권장되는 솔루션입니다. 
+표준 SSD 디스크는 HDD 디스크에 비해 더 빠른 대기 시간과 더 나은 일관성, 가용성 및 안정성을 제공합니다. 따라서 애플리케이션 워크로드가 표준 SSD에서 훨씬 더 원활하게 실행됩니다. 프리미엄 SSD 디스크는 가장 IO 사용량이 많은 프로덕션 워크로드에 권장되는 솔루션입니다. 
 
 **표준 SSD를 관리되지 않는 디스크로 사용할 수 있나요?**
 아니요. 표준 SSD 디스크는 Managed Disks로만 사용할 수 있습니다.
@@ -188,6 +188,10 @@ Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용하여 표
 아니요. 표준 SSD에는 단일 인스턴스 VM SLA가 없습니다. 단일 인스턴스 VM SLA에는 프리미엄 SSD 디스크를 사용합니다.
 
 ## <a name="migrate-to-managed-disks"></a>Managed Disks로 마이그레이션
+
+**마이그레이션이 Managed Disks 성능에 영향을 주나요?**
+
+마이그레이션에는 스토리지 위치 간 디스크 이동이 포함됩니다. 이는 완료하는 데 몇 시간(일반적으로 디스크의 데이터 양에 따라 24시간 미만)이 걸릴 수 있는 데이터의 백그라운드 복사를 통해 오케스트레이션됩니다. 이 기간 동안 일부 읽기가 원래 위치로 리디렉션될 수 있어 완료하는 데 더 오래 걸릴 수 있으므로 애플리케이션의 읽기 대기 시간이 일반적인 읽기 대기 시간보다 길어질 수 있습니다. 이 기간 동안 쓰기 대기 시간에는 영향이 없습니다.  
 
 **Managed Disks로 마이그레이션하기 전/후에 기존 Azure Backup 서비스 구성에 어떤 변경이 필요한가요?**
 
@@ -219,7 +223,7 @@ Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용하여 표
 
 **Managed Disks에 이전에 암호화된 저장소 계정에 있는 관리되지 않는 디스크가 있는 VM을 마이그레이션할 수 있나요?**
 
-yes
+예
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks 및 Storage 서비스 암호화
 
@@ -256,13 +260,13 @@ Azure Portal, Azure CLI 및 PowerShell에서 Managed Disk를 만든 시간을 �
 
 **Managed Disks에 이전에 암호화된 저장소 계정에 있는 관리되지 않는 디스크가 있는 VM을 변환할 수 있나요?**
 
-yes
+예
 
 **Managed Disk 또는 스냅숏에서 내보낸 VHD도 암호화되나요?**
 
  아니요. 하지만 암호화된 Managed Disk 또는 스냅숏의 암호화된 저장소 계정에 VHD를 내보낼 경우 암호화됩니다. 
 
-## <a name="premium-disks-managed-and-unmanaged"></a>프리미엄 디스크: 관리 및 관리되지 않는 디스크
+## <a name="premium-disks-managed-and-unmanaged"></a>프리미엄 디스크: 관리형 및 비관리형
 
 **VM에서 DSv2와 같이 프리미엄 SD 디스크를 지원하는 크기를 사용하는 경우 프리미엄 및 표준 데이터 디스크를 모두 연결할 수 있나요?** 
 
@@ -286,13 +290,13 @@ DS 시리즈의 캐시 및 로컬 SSD에 대한 결합 제한은 코어당 4,000
 
 **Managed Disks VM에 로컬 SSD가 지원되나요?**
 
-로컬 SSD는 Managed Disks VM에 포함되어 있는 임시 저장소입니다. 이 임시 저장소에 대한 추가 비용은 없습니다. 이 로컬 SSD가 Azure Blob Storage에 보존되지 않기 때문에 응용 프로그램 데이터를 저장하는 데 사용하지 않는 것이 좋습니다.
+로컬 SSD는 Managed Disks VM에 포함되어 있는 임시 저장소입니다. 이 임시 저장소에 대한 추가 비용은 없습니다. 이 로컬 SSD가 Azure Blob Storage에 보존되지 않기 때문에 애플리케이션 데이터를 저장하는 데 사용하지 않는 것이 좋습니다.
 
 **프리미엄 디스크에서 TRIM의 사용에 대한 영향이 있나요?**
 
 프리미엄 또는 표준 디스크의 Azure 디스크에서 TRIM을 사용해도 문제는 없습니다.
 
-## <a name="new-disk-sizes-managed-and-unmanaged"></a>새 디스크 크기: 관리 및 관리되지 않는 디스크
+## <a name="new-disk-sizes-managed-and-unmanaged"></a>새 디스크 크기: 관리형 및 비관리형
 
 **운영 체제 및 데이터 디스크에 지원되는 가장 큰 관리 디스크 크기는 어떻게 되나요?**
 

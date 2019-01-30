@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 236859cca623643b9bc7a4484f6ce4e6aa11aad6
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 943f3a4739e5dffb2a7d218bf3a82a4e882538a6
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579788"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075671"
 ---
 # <a name="office-365-dynamics-365-power-apps-and-power-bi-offer-publishing-guide"></a>Office 365, Dynamics 365, Power Apps 및 Power BI 제품 게시 가이드
 
@@ -35,7 +35,7 @@ AppSource에는 "연락처" 또는 "지금 사용해 보기"에 대한 호출을
 
 ### <a name="power-apps"></a>Power Apps
 
-고객이 [AppSource에서 앱을 시험 사용](https://powerapps.microsoft.com/en-us/blog/appsource-test-drive/)하는 방법에 대해 알아봅니다.
+고객이 [AppSource에서 앱을 시험 사용](https://powerapps.microsoft.com/blog/appsource-test-drive/)하는 방법에 대해 알아봅니다.
 
 ### <a name="power-bi"></a>Power BI
 
@@ -46,15 +46,19 @@ AppSource에는 "연락처" 또는 "지금 사용해 보기"에 대한 호출을
 #### <a name="dynamics-365-for-finance-and-operations"></a>재무 및 운영을 위한 Dynamics 365
 엔터프라이즈 버전을 빌드하는 경우 [게시 프로세스 및 지침](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)을 검토합니다.
 
+Cloud 파트너 포털에서 제품을 게시하는 방법에 관한 [Dynamics 365 for Finance and Operations 제품](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)을 참조하세요.
+
 ### <a name="dynamics-365-for-customer-engagement"></a>Dynamics 365 for Customer Engagement
 [게시 프로세스 및 지침](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource)을 검토합니다.
+
+Cloud 파트너 포털에서 제품을 게시하는 방법에 관한 [Dynamics 365 for Customer Engagement 제품](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-customer-engagement-offer)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 아직 수행하지 않았다면 
 
-- Marketplace에서 [등록](https://azuremarketplace.microsoft.com/sell)
+- Marketplace에 [등록](https://azuremarketplace.microsoft.com/sell).
 
 등록하고 Cloud 파트너 포털에서 작업 중이라면 
 
-- 제품을 만들거나 완료하기 위해 [Cloud 파트너 포털에 로그인](https://cloudpartner.azure.com)
+- 제품을 만들거나 완료하기 위해 [Cloud 파트너 포털에 로그인](https://cloudpartner.azure.com).

@@ -54,7 +54,7 @@ ms.locfileid: "34811791"
 * **사용자 이름**: AZURE\\\<storageaccountname\>, 예: AZURE\\*mystorageaccountname*
 * **암호**: <StorageAccountKeyWhichEnds in==>, 예: *XXXXXXXXXXXXXXXXXXXXX==*
 
-다음 명령은 저장소 계정 *mystorageaccountname*에서 파일 공유 *myfileshare*를 *S:* 드라이브로 탑재합니다.
+다음 명령은 스토리지 계정 *mystorageaccountname*에서 파일 공유 *myfileshare*를 *S:* 드라이브로 탑재합니다.
 
 ```
 net use S: \\mystorageaccountname.file.core.windows.net\myfileshare /user:AZURE\mystorageaccountname XXXXXXXXXXXXXXXXXXXXX==
@@ -131,7 +131,7 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 * **사용자 이름**: \<storageaccountname\>, 예: *mystorageaccountname*
 * **암호**: <StorageAccountKeyWhichEnds in==>, 예: *XXXXXXXXXXXXXXXXXXXXX==*
 
-다음 명령은 저장소 계정 *mystorageaccountname*에서 파일 공유 *myfileshare*를 */mnt/MyAzureFileShare*에 탑재합니다. 
+다음 명령은 스토리지 계정 *mystorageaccountname*에서 파일 공유 *myfileshare*를 */mnt/MyAzureFileShare*에 탑재합니다. 
 
 ```
 mount -t cifs //mystorageaccountname.file.core.windows.net/myfileshare /mnt/MyAzureFileShare -o vers=3.0,username=mystorageaccountname,password=XXXXXXXXXXXXXXXXXXXXX==,dir_mode=0777,file_mode=0777,serverino && ls /mnt/MyAzureFileShare

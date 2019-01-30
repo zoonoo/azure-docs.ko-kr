@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/10/2018
 ms.author: douglasl
-ms.openlocfilehash: 64dacb33a8cd235e155a640d57d868f384f93d76
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: be9ed1d840eab5478dee4d212705211c0967bdbd
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959012"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427970"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Azure Data Factory에서 Spark 작업을 사용하여 클라우드의 데이터 변환
 이 자습서에서는 Azure Portal을 사용하여 Azure Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Spark 활동 및 주문형 HDInsight 연결된 서비스를 사용하여 데이터를 변환합니다. 
@@ -38,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 > [!NOTE]
 > HdInsight는 표준 계층을 포함하는 범용 저장소 계정만 지원합니다. 계정이 프리미엄 또는 BLOB 전용 저장소 계정인지 확인합니다.
 
-* **Azure PowerShell**. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-azurerm-ps)의 지침을 따르세요.
+* **Azure PowerShell**. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/azurerm/install-azurerm-ps)의 지침을 따르세요.
 
 
 ### <a name="upload-the-python-script-to-your-blob-storage-account"></a>Blob Storage 계정에 Python 스크립트 업로드
@@ -102,11 +101,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **버전**에서 **V2**를 선택합니다.
 1. **위치**에 데이터 팩터리의 위치를 선택합니다. 
 
-   Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용하는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+   현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용하는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
 1. **만들기**를 선택합니다.
 
-1. 만들기가 완료되면 **데이터 팩터리** 페이지가 표시됩니다. **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 Data Factory UI 응용 프로그램을 시작합니다.
+1. 만들기가 완료되면 **데이터 팩터리** 페이지가 표시됩니다. **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 Data Factory UI 애플리케이션을 시작합니다.
 
     !["작성 및 모니터링" 타일이 있는 데이터 팩터리에 대한 홈페이지](./media/tutorial-transform-data-spark-portal/data-factory-home-page.png)
 
@@ -125,7 +124,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 창의 아래쪽에서 **연결**, **+ 새로 만들기**를 차례로 클릭합니다. 
 
    ![새 연결 만들기에 대한 단추](./media/tutorial-transform-data-spark-portal/new-connection.png)
-1. **새 연결된 서비스** 창에서 **데이터 저장소** > **Azure Blob Storage**를 선택한 다음 **계속**을 선택합니다. 
+1. **새 연결된 서비스** 창에서 **데이터 저장소** > **Azure Blob Storage**를 선택한 다음, **계속**을 선택합니다. 
 
    !["Azure Blob Storage" 타일 선택](./media/tutorial-transform-data-spark-portal/select-azure-storage.png)
 1. **저장소 계정 이름**의 목록에서 이름을 선택한 후 **저장**을 선택합니다. 
@@ -151,7 +150,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    
    e. **서비스 주체 ID**에는 HDInsight 클러스터를 만들 수 있는 권한이 있는 서비스 주체의 ID를 입력합니다. 
    
-      이 서비스 주체는 클러스터를 만든 구독 또는 리소스 그룹의 참가자 역할의 구성원이어야 합니다. 자세한 내용은 [Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
+      이 서비스 주체는 클러스터를 만든 구독 또는 리소스 그룹의 참가자 역할의 구성원이어야 합니다. 자세한 내용은 [Azure Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
    
    f. **서비스 주체 키**에 키를 입력합니다. 
    
@@ -168,7 +167,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    ![HDInsight 연결된 서비스 설정](./media/tutorial-transform-data-spark-portal/azure-hdinsight-linked-service-settings.png)
 
 > [!NOTE]
-> Azure HDInsight는 지원하는 각 Azure 지역에서 사용할 수 있는 총 코어 수를 제한합니다. 주문형 HDInsight 연결된 서비스의 경우 HDInsight 클러스터는 기본 저장소로 사용되는 Azure Storage와 동일한 위치에 만들어집니다. 클러스터를 성공적으로 만드는 데 충분한 코어 할당량이 있는지 확인합니다. 자세한 내용은 [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터 설정](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요. 
+> Azure HDInsight는 지원하는 각 Azure 지역에서 사용할 수 있는 총 코어 수를 제한합니다. 주문형 HDInsight 연결된 서비스의 경우 HDInsight 클러스터는 기본 스토리지로 사용되는 Azure Storage와 동일한 위치에 만들어집니다. 클러스터를 성공적으로 만드는 데 충분한 코어 할당량이 있는지 확인합니다. 자세한 내용은 [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터 설정](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요. 
 
 ## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
 
@@ -251,7 +250,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 가상 네트워크에 있는 Azure HDInsight 클러스터에서 Hive 스크립트를 실행하여 데이터를 변환하는 방법을 알아보려면 다음 자습서로 진행하세요. 
 
 > [!div class="nextstepaction"]
-> [자습서: Azure Virtual Network에서 Hive를 사용하여 데이터 변환](tutorial-transform-data-hive-virtual-network-portal.md).
+> [자습서: Azure Virtual Network에서 Hive를 사용하여 데이터 변환](tutorial-transform-data-hive-virtual-network-portal.md)
 
 
 

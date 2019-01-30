@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 4020500e20973e8818320424833815c1b5224f6c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 0d806491c58c4b1881adc2fd830de7c7b9f0859d
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242035"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331931"
 ---
 # <a name="get-information-about-your-azure-blockchain-workbench-database"></a>Azure Blockchain Workbench 데이터베이스에 대한 정보 가져오기
 
@@ -23,7 +23,7 @@ ms.locfileid: "48242035"
 
 ## <a name="overview"></a>개요
 
-응용 프로그램, 워크플로 및 스마트 계약 실행에 대한 정보는 Blockchain Workbench SQL DB의 데이터베이스 보기를 사용하여 제공됩니다. 개발자는 Microsoft Excel, PowerBI, Visual Studio 및 SQL Server Management Studio 같은 도구를 사용할 때 이 정보를 사용할 수 있습니다.
+애플리케이션, 워크플로 및 스마트 계약 실행에 대한 정보는 Blockchain Workbench SQL DB의 데이터베이스 보기를 사용하여 제공됩니다. 개발자는 Microsoft Excel, Power BI, Visual Studio 및 SQL Server Management Studio 같은 도구를 사용할 때 이 정보를 사용할 수 있습니다.
 
 개발자는 데이터베이스에 연결하려면 다음이 필요합니다.
 

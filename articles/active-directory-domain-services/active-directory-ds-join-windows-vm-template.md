@@ -4,7 +4,7 @@ description: Azure Resource Manager 템플릿을 사용하여 Windows Server 가
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: a083bd2fe730f9723330abf9bce03d760b7442d8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 32b670a4b51c2dc60fe89bc2b9ad0ef18b0ac263
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157261"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856641"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 관리되는 도메인에 Windows Server 가상 머신 조인
 이 문서에서는 Resource Manager 템플릿을 사용하여 Azure AD Domain Services 관리되는 도메인에 Windows Server 가상 머신을 조인하는 방법에 대해 설명합니다.
@@ -59,7 +59,7 @@ Windows Server 가상 컴퓨터를 배포하고 관리되는 도메인에 조인
 11. **조인할 도메인**에서 관리되는 도메인의 DNS 도메인 이름을 지정합니다.
 12. **도메인 사용자 이름**에서 관리되는 도메인에 VM을 조인하는 데 사용해야 하는 관리되는 도메인의 사용자 계정 이름을 지정합니다.
 13. **도메인 암호**에서 'domainUsername' 매개 변수에서 참조하는 도메인 사용자 계정의 암호를 지정합니다.
-14. 선택 사항: 가상 머신을 추가할 사용자 지정 OU에 대한 **OU 경로**를 지정할 수 있습니다. 이 매개 변수에 대한 값을 지정하지 않으면 가상 컴퓨터가 관리되는 도메인의 기본 **AAD DC 컴퓨터** OU에 추가됩니다.
+14. 선택 사항: 가상 머신을 추가할 사용자 지정 OU에 대한 **OU 경로**를 지정할 수 있습니다. 이 매개 변수에 대한 값을 지정하지 않으면 가상 머신이 관리되는 도메인의 기본 **AAD DC 컴퓨터** OU에 추가됩니다.
 15. **VM Admin Username** 필드에서 가상 머신에 대한 로컬 관리자 계정 이름을 지정합니다.
 16. **VM 관리자 암호** 필드에서 가상 머신에 대한 로컬 관리자 암호를 지정합니다. 가상 머신에 대한 강력한 로컬 관리자 암호를 제공하여 해당 암호가 무차별 암호 대입 공격으로부터 보호되도록 합니다.
 17. **위에 명시된 사용 약관에 동의함**을 클릭합니다.

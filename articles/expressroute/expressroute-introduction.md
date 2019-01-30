@@ -1,5 +1,5 @@
 ---
-title: 'ExpressRoute 개요: 개인 연결을 통해 온-프레미스 네트워크를 Azure로 확장 | Microsoft Docs'
+title: '개인 연결을 통해 온-프레미스 네트워크를 Azure로 확장 - ExpressRoute 개요: Azure | Microsoft Docs'
 description: ExpressRoute 기술 개요에서는 개인 연결을 통해 온-프레미스 네트워크를 Azure로 확장하기 위해 ExpressRoute 연결이 작동하는 방식에 대해 설명합니다.
 services: expressroute
 author: mialdrid
@@ -7,19 +7,20 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 10/18/2018
 ms.author: mialdrid
-ms.openlocfilehash: fb3e7ac449934fe9fa36b1683bda20ff3e07f0f4
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.custom: seodec18
+ms.openlocfilehash: 56baabb95a7873b48a27943a58b8e26c56efb6b7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429408"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139557"
 ---
 # <a name="expressroute-overview"></a>ExpressRoute 개요
-Microsoft Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처리된 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure, Office 365 및 Dynamics 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.
+ExpressRoute를 사용하면 연결 공급자가 지원하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure, Office 365 및 Dynamics 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.
 
 공동 배치 시설에서 연결 공급자를 통해 임의의(IP VPN) 네트워크, 지점간 이더넷 네트워크 또는 가상 간 연결에서 연결할 수 있습니다. ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 이 기능을 사용하면 ExpressRoute 연결은 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다. ExpressRoute를 사용하여 네트워크를 Microsoft에 연결하는 방법에 대한 내용은 [ExpressRoute 연결 모델](expressroute-connectivity-models.md)을 참조하세요.
 
-![](./media/expressroute-introduction/expressroute-connection-overview.png)
+![ExpressRoute 연결 개요](./media/expressroute-introduction/expressroute-connection-overview.png)
 
 ## <a name="key-benefits"></a>주요 이점
 
@@ -77,7 +78,7 @@ ExpressRoute Direct는 고객에게 전 세계에 전략적으로 분산된 피�
 ExpressRoute Direct가 제공하는 주요 기능은 다음을 포함하지만 제한되지 않습니다.
 
 * Storage 및 Cosmos DB와 같은 서비스로의 대규모 데이터 수집
-* 은행, 정부, 소매업체 등 규제가 적용되며 전용 격리 연결을 사용해야 하는 업계의 물리적 격리
+* 다음과 같이 규제가 적용되며 전용 격리 연결을 사용해야 하는 업계의 물리적 격리 은행, 정부 및 소매업체
 * 비즈니스 단위에 따라 세부적으로 회로 배포 제어
 
 자세한 내용은 [ExpressRoute Direct 정보](https://go.microsoft.com/fwlink/?linkid=2022973)를 참조하세요.

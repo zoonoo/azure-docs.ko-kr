@@ -62,7 +62,7 @@ java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
 7. 메시지가 표시되면 필요에 따라 인증서에 대해 _일반 이름_을 입력할 수 있습니다.
 8. 이 도구는 **클라이언트 인증서**, **클라이언트 인증서 개인 키**, **중간 인증서** 및 **루트 인증서**를 로컬로 생성합니다.
 
-**클라이언트 인증서**는 장치에 대한 리프 인증서입니다.  **클라이언트 인증서** 및 연결된 **클라이언트 인증서 개인 키**는 장치 클라이언트에 필요합니다. 선택한 언어에 따라 클라이언트 응용 프로그램에 이를 배치하는 메커니즘은 달라질 수 있습니다.  자세한 내용은 X.509를 사용하여 시뮬레이션된 디바이스 만들기에서 [빠른 시작](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509)을 참조하세요.
+**클라이언트 인증서**는 장치에 대한 리프 인증서입니다.  **클라이언트 인증서** 및 연결된 **클라이언트 인증서 개인 키**는 장치 클라이언트에 필요합니다. 선택한 언어에 따라 클라이언트 애플리케이션에 이를 배치하는 메커니즘은 달라질 수 있습니다.  자세한 내용은 X.509를 사용하여 시뮬레이션된 디바이스 만들기에서 [빠른 시작](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509)을 참조하세요.
 
 루트 인증서 또는 중간 인증서는 [프로그래밍 방식으로](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments-sdks) 또는 [포털](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments)을 사용하여 등록 그룹 또는 개별 등록을 만드는 데 사용합니다.
 

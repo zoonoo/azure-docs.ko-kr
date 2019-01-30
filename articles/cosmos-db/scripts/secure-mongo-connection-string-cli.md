@@ -1,18 +1,19 @@
 ---
-title: Azure CLI 스크립트 - MongoDB 앱에 대한 Azure Cosmos DB 연결 문자열 가져오기 | Microsoft Docs
+title: Azure CLI 스크립트 - MongoDB 앱에 대한 Azure Cosmos DB 연결 문자열 가져오기
 description: Azure CLI 스크립트 샘플 - MongoDB에 대한 Azure Cosmos DB 연결 문자열 가져오기
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: e2b28a370da96484c4731c9ac3867b1d86d6adab
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.reviewer: sngun
+ms.openlocfilehash: 73039c92e73570101299c4f8cecd27d2c28c1030
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009422"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035511"
 ---
 # <a name="get-an-azure-cosmos-db-connection-string-for-mongodb-using-the-azure-cli"></a>Azure CLI를 사용하여 MongoDB에 대한 Azure Cosmos DB 연결 문자열 가져오기
 

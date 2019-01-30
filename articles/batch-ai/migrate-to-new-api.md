@@ -15,14 +15,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
-ms.openlocfilehash: c5e4c1569464d2e204edf13fe7534d80780524e8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ROBOTS: NOINDEX
+ms.openlocfilehash: 75a9a5e9bafd62b320397c00ef6574b7536d9e09
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294962"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407783"
 ---
 # <a name="migrate-to-the-updated-batch-ai-api"></a>업데이트된 Batch AI API로 마이그레이션
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Batch AI REST API 2018-05-01 버전 및 관련 Batch AI SDK 및 도구에서 주요 변경 사항 및 새로운 기능이 도입되었습니다.
 
@@ -183,4 +186,4 @@ _ = client.jobs.create(resource_group_name, workspace_name, experiment_name, job
 
 ## <a name="next-steps"></a>다음 단계
 
-* Batch AI API 참조 확인: [CLI](/cli/azure/batchai), [.NET](/dotnet/api/overview/azure/batchai), [Java](/java/api/overview/azure/batchai), [Node.js](/javascript/api/overview/azure/batchai), [Python](/python/api/overview/azure/batchai) 및 [REST](/rest/api/batchai)
+* 다음 Batch AI API 참조를 참조하세요. [CLI](/cli/azure/batchai), [.NET](/dotnet/api/overview/azure/batchai), [Java](/java/api/overview/azure/batchai), [Node.js](/javascript/api/overview/azure/batchai), [Python](/python/api/overview/azure/batchai), [REST](/rest/api/batchai)

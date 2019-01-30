@@ -7,26 +7,26 @@ items:
     href: service-fabric-overview.md
 - name: 빠른 시작
   items:
-  - name: .NET 응용 프로그램 만들기
+  - name: .NET 애플리케이션 만들기
     href: service-fabric-quickstart-dotnet.md
-  - name: Linux 컨테이너 응용 프로그램 배포
+  - name: Linux 컨테이너 애플리케이션 배포
     href: service-fabric-quickstart-containers-linux.md
-  - name: Windows 컨테이너 응용 프로그램 배포
+  - name: Windows 컨테이너 애플리케이션 배포
     href: service-fabric-quickstart-containers.md
   - name: Java 빠른 시작
     items:
-    - name: Spring Boot 응용 프로그램 배포
+    - name: Spring Boot 애플리케이션 배포
       href: service-fabric-quickstart-java-spring-boot.md
-    - name: Reliable Services 응용 프로그램 배포
+    - name: Reliable Services 애플리케이션 배포
       href: service-fabric-quickstart-java-reliable-services.md
   expanded: true
 - name: 자습서
   items:
   - name: .NET 앱 배포
     items:
-    - name: 1- .NET 응용 프로그램 빌드
+    - name: 1- .NET 애플리케이션 빌드
       href: service-fabric-tutorial-create-dotnet-app.md
-    - name: 2- 응용 프로그램 배포
+    - name: 2- 애플리케이션 배포
       href: service-fabric-tutorial-deploy-app-to-party-cluster.md
     - name: 3- HTTPS 활성화
       href: service-fabric-tutorial-dotnet-app-enable-https-endpoint.md
@@ -36,11 +36,11 @@ items:
       href: service-fabric-tutorial-monitoring-aspnet.md
   - name: Java 앱 배포
     items:
-    - name: 1- Java 응용 프로그램 빌드
+    - name: 1- Java 애플리케이션 빌드
       href: service-fabric-tutorial-create-java-app.md
-    - name: 2- 응용 프로그램 디버그
+    - name: 2- 애플리케이션 디버그
       href: service-fabric-tutorial-debug-log-local-cluster.md
-    - name: 3- 응용 프로그램 배포
+    - name: 3- 애플리케이션 배포
       href: service-fabric-tutorial-java-deploy-azure.md
     - name: 4- 모니터링 및 진단
       href: service-fabric-tutorial-java-elk.md
@@ -50,7 +50,7 @@ items:
     items:
     - name: 1- Docker Compose를 사용하여 .NET 앱 배포
       href: service-fabric-host-app-in-a-container.md
-    - name: 2- CI/CD를 사용하여 컨테이너 응용 프로그램 배포
+    - name: 2- CI/CD를 사용하여 컨테이너 애플리케이션 배포
       href: service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md
     - name: 3- 컨테이너 모니터링
       href: service-fabric-tutorial-monitoring-wincontainers.md
@@ -82,10 +82,26 @@ items:
       href: service-fabric-tutorial-standalone-create-infrastructure.md
     - name: 2 - Service Fabric 설정
       href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
-    - name: 3 - 클러스터에 응용 프로그램 배포
+    - name: 3 - 클러스터에 애플리케이션 배포
       href: service-fabric-tutorial-standalone-install-an-application.md
     - name: 4 - 클러스터 정리 및 인프라 삭제
       href: service-fabric-tutorial-standalone-clean-up.md
+- name: 모범 사례
+  items:
+  - name: Service Fabric 모범 사례 개요
+    href: service-fabric-best-practices-overview.md
+  - name: 보안
+    href: service-fabric-best-practices-security.md
+  - name: 네트워킹
+    href: service-fabric-best-practices-networking.md
+  - name: 컴퓨팅 계획 및 크기 조정
+    href: service-fabric-best-practices-capacity-scaling.md
+  - name: 코드 제공 인프라(Infrastructure as code)
+    href: service-fabric-best-practices-infrastructure-as-code.md
+  - name: 모니터링 및 진단
+    href: service-fabric-best-practices-monitoring.md
+  - name: 프로덕션 준비 검사 목록
+    href: service-fabric-production-readiness-checklist.md
 - name: 샘플
   items:
   - name: 코드 샘플
@@ -100,15 +116,15 @@ items:
     href: service-fabric-overview-microservices.md
   - name: 큰 그림
     href: service-fabric-content-roadmap.md
-  - name: 응용 프로그램 시나리오
+  - name: 애플리케이션 시나리오
     href: service-fabric-application-scenarios.md
   - name: 아키텍처
     href: service-fabric-architecture.md
   - name: 용어
     href: service-fabric-technical-overview.md
-  - name: 응용 프로그램 빌드
+  - name: 애플리케이션 빌드
     items:
-    - name: 응용 프로그램 빌드 개요
+    - name: 애플리케이션 빌드 개요
       href: service-fabric-choose-framework.md
     - name: 컨테이너
       items:
@@ -164,26 +180,26 @@ items:
         href: service-fabric-reliable-actors-notes-on-actor-type-serialization.md
     - name: 게스트 실행 파일
       href: service-fabric-guest-executables-introduction.md
-  - name: 응용 프로그램 및 서비스
+  - name: 애플리케이션 및 서비스
     items:
-    - name: 응용 프로그램 모델
+    - name: 애플리케이션 모델
       href: service-fabric-application-model.md
-    - name: 응용 프로그램 및 서비스 매니페스트
+    - name: 애플리케이션 및 서비스 매니페스트
       href: service-fabric-application-and-service-manifests.md
-    - name: 응용 프로그램 및 서비스 매니페스트 예제
+    - name: 애플리케이션 및 서비스 매니페스트 예제
       href: service-fabric-manifest-examples.md
       items:
-      - name: Reliable Services 응용 프로그램 및 서비스 매니페스트 예제
+      - name: Reliable Services 애플리케이션 및 서비스 매니페스트 예제
         href: service-fabric-manifest-example-reliable-services-app.md
-      - name: 다중 컨테이너 응용 프로그램 및 서비스 매니페스트 예제
+      - name: 다중 컨테이너 애플리케이션 및 서비스 매니페스트 예제
         href: service-fabric-manifest-example-container-app.md
     - name: 호스팅 모델
       href: service-fabric-hosting-model.md
-    - name: 응용 프로그램 보안
+    - name: 애플리케이션 보안
       href: service-fabric-application-and-service-security.md
     - name: 서비스 상태
       href: service-fabric-concepts-state.md
-    - name: 응용 프로그램 확장성
+    - name: 애플리케이션 확장성
       href: service-fabric-concepts-scalability.md
     - name: 서비스 가용성
       href: service-fabric-availability-services.md
@@ -197,25 +213,25 @@ items:
         href: service-fabric-reverseproxy.md
       - name: ASP.NET Core
         href: service-fabric-reliable-services-communication-aspnetcore.md
-    - name: 응용 프로그램 수명 주기
+    - name: 애플리케이션 수명 주기
       items:
-      - name: 응용 프로그램 수명 주기 개요
+      - name: 애플리케이션 수명 주기 개요
         href: service-fabric-application-lifecycle.md
-      - name: 응용 프로그램 업그레이드
+      - name: 애플리케이션 업그레이드
         items:
-        - name: 응용 프로그램 업그레이드 개요
+        - name: 애플리케이션 업그레이드 개요
           href: service-fabric-application-upgrade.md
         - name: 구성
           href: service-fabric-visualstudio-configure-upgrade.md
-        - name: 응용 프로그램 업그레이드 매개 변수
+        - name: 애플리케이션 업그레이드 매개 변수
           href: service-fabric-application-upgrade-parameters.md
-        - name: 응용 프로그램 업그레이드에서 데이터 직렬화
+        - name: 애플리케이션 업그레이드에서 데이터 직렬화
           href: service-fabric-application-upgrade-data-serialization.md
-        - name: 응용 프로그램 업그레이드 고급 항목
+        - name: 애플리케이션 업그레이드 고급 항목
           href: service-fabric-application-upgrade-advanced.md
-      - name: 여러 환경에 대한 응용 프로그램 관리
+      - name: 여러 환경에 대한 애플리케이션 관리
         href: service-fabric-manage-multiple-environment-app-configuration.md
-      - name: 응용 프로그램 테스트
+      - name: 애플리케이션 테스트
         items:
         - name: 단위 테스트 상태 저장 서비스
           href: service-fabric-concepts-unit-testing.md
@@ -265,7 +281,7 @@ items:
         href: service-fabric-cluster-resource-manager-architecture.md
       - name: 클러스터 설명
         href: service-fabric-cluster-resource-manager-cluster-description.md
-      - name: 응용 프로그램 그룹 개요
+      - name: 애플리케이션 그룹 개요
         href: service-fabric-cluster-resource-manager-application-groups.md
       - name: 클러스터 리소스 관리자 설정 구성
         href: service-fabric-cluster-resource-manager-configure-services.md
@@ -291,7 +307,7 @@ items:
     items:
     - name: 모니터링 개요
       href: service-fabric-diagnostics-overview.md
-    - name: 응용 프로그램 모니터링
+    - name: 애플리케이션 모니터링
       href: service-fabric-diagnostics-event-generation-app.md
     - name: 클러스터 모니터링
       items:
@@ -337,29 +353,27 @@ items:
       href: service-fabric-cluster-standalone-deployment-preparation.md
     - name: 재해 복구 준비
       href: service-fabric-disaster-recovery.md
-    - name: 응용 프로그램 용량 계획
+    - name: 애플리케이션 용량 계획
       href: service-fabric-capacity-planning.md
   - name: 첫 번째 항목 만들기...
     items:
-    - name: Visual Studio에서 C# 응용 프로그램
-      href: service-fabric-create-your-first-application-in-visual-studio.md
-    - name: Windows 컨테이너 응용 프로그램
+    - name: Windows 컨테이너 애플리케이션
       href: service-fabric-get-started-containers.md
-    - name: Linux 컨테이너 응용 프로그램
+    - name: Linux 컨테이너 애플리케이션
       href: service-fabric-get-started-containers-linux.md
-    - name: Windows의 C# Reliable Services 응용 프로그램
+    - name: Windows의 C# Reliable Services 애플리케이션
       href: service-fabric-reliable-services-quick-start.md
-    - name: Linux의 Java Reliable Services 응용 프로그램
+    - name: Linux의 Java Reliable Services 애플리케이션
       href: service-fabric-reliable-services-quick-start-java.md
-    - name: Linux의 C# Reliable Services 응용 프로그램
+    - name: Linux의 C# Reliable Services 애플리케이션
       href: service-fabric-create-your-first-linux-application-with-csharp.md
-    - name: Windows의 C# Reliable Actors 응용 프로그램
+    - name: Windows의 C# Reliable Actors 애플리케이션
       href: service-fabric-reliable-actors-get-started.md
-    - name: Linux의 Java Reliable Actors 응용 프로그램
+    - name: Linux의 Java Reliable Actors 애플리케이션
       href: service-fabric-create-your-first-linux-application-with-java.md
-    - name: Windows의 게스트 실행 가능 응용 프로그램
+    - name: Windows의 게스트 실행 가능 애플리케이션
       href: quickstart-guest-app.md
-  - name: 응용 프로그램 빌드
+  - name: 애플리케이션 빌드
     items:
     - name: 게스트 실행 가능한 서비스 빌드
       items:
@@ -441,8 +455,13 @@ items:
       items:
       - name: API Management와 통합
         href: service-fabric-tutorial-deploy-api-management.md
-      - name: 응용 프로그램 비밀 관리
+      - name: 애플리케이션 비밀 관리
         href: service-fabric-application-secret-management.md
+        items:
+        - name: 암호화 인증서 설정 및 Windows에서 비밀 암호화
+          href: service-fabric-application-secret-management-windows.md
+        - name: 암호화 인증서 설정 및 Linux에서 비밀 암호화
+          href: service-fabric-application-secret-management-linux.md
       - name: 보안 통신에 대한 역방향 프록시 구성
         href: service-fabric-reverseproxy-configure-secure-communication.md
       - name: 로컬 사용자 또는 시스템 계정으로 서비스 시작 스크립트 실행
@@ -465,13 +484,13 @@ items:
       href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
     - name: 정기적으로 백업 구성(독립 실행형 클러스터)
       href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
-    - name: 이전 Java 응용 프로그램을 마이그레이션하여 Maven 지원
+    - name: 이전 Java 애플리케이션을 마이그레이션하여 Maven 지원
       href: service-fabric-migrate-old-javaapp-to-use-maven.md
   - name: IDE에서 작업
     items:
     - name: Windows/VS 개발 환경에서 작업
       items:
-      - name: Visual Studio에서 응용 프로그램 관리
+      - name: Visual Studio에서 애플리케이션 관리
         href: service-fabric-manage-application-in-visual-studio.md
       - name: Visual Studio에서 보안 연결 구성
         href: service-fabric-visualstudio-configure-secure-connections.md
@@ -497,9 +516,9 @@ items:
       items:
       - name: VS Code 시작
         href: service-fabric-get-started-vs-code.md
-      - name: VS Code를 통해 C# Service Fabric 응용 프로그램 개발
+      - name: VS Code를 통해 C# Service Fabric 애플리케이션 개발
         href: service-fabric-develop-csharp-applications-with-vs-code.md
-      - name: VS Code를 통해 Java Service Fabric 응용 프로그램 개발
+      - name: VS Code를 통해 Java Service Fabric 애플리케이션 개발
         href: service-fabric-develop-java-applications-with-vs-code.md
   - name: Cloud Services에서 마이그레이션
     items:
@@ -511,9 +530,9 @@ items:
       href: /azure/architecture/service-fabric/migrate-from-cloud-services
     - name: 마이그레이션된 앱 리팩터링
       href: /azure/architecture/service-fabric/refactor-migrated-app
-  - name: 응용 프로그램 수명 주기 관리
+  - name: 애플리케이션 수명 주기 관리
     items:
-    - name: 응용 프로그램 패키지 작성
+    - name: 애플리케이션 패키지 작성
       href: service-fabric-package-apps.md
     - name: 구성 파일과 매개 변수 사용
       href: service-fabric-how-to-parameterize-configuration-files.md
@@ -521,10 +540,10 @@ items:
       href: service-fabric-how-to-specify-port-number-using-parameters.md
     - name: 환경 변수 지정
       href: service-fabric-how-to-specify-environment-variables.md
-    - name: 응용 프로그램 배포 또는 제거
+    - name: 애플리케이션 배포 또는 제거
       items:
-      - name: 로컬 클러스터에 응용 프로그램 배포
-        href: service-fabric-get-started-with-a-local-cluster.md
+      - name: 노드 형식 제거
+        href: service-fabric-how-to-remove-node-type.md
       - name: Azure 리소스 관리자
         href: service-fabric-application-arm-resource.md
       - name: Azure PowerShell
@@ -533,15 +552,15 @@ items:
         href: service-fabric-application-lifecycle-sfctl.md
       - name: FabricClient API
         href: service-fabric-deploy-remove-applications-fabricclient.md
-    - name: 응용 프로그램 업그레이드
+    - name: 애플리케이션 업그레이드
       items:
       - name: Azure Powershell을 사용하여 업그레이드
         href: service-fabric-application-upgrade-tutorial-powershell.md
       - name: Visual Studio를 사용하여 업그레이드
         href: service-fabric-application-upgrade-tutorial.md
-      - name: 응용 프로그램 업그레이드 문제 해결
+      - name: 애플리케이션 업그레이드 문제 해결
         href: service-fabric-application-upgrade-troubleshooting.md
-    - name: 응용 프로그램 및 서비스 테스트
+    - name: 애플리케이션 및 서비스 테스트
       items:
       - name: 단위 테스트 상태 저장 서비스
         href: service-fabric-how-to-unit-test-stateful-services.md
@@ -563,7 +582,7 @@ items:
       items:
       - name: Azure Pipelines를 사용하여 지속적인 통합 설정
         href: service-fabric-set-up-continuous-integration.md
-      - name: Jenkins를 사용하여 Linux 응용 프로그램 배포
+      - name: Jenkins를 사용하여 Linux 애플리케이션 배포
         href: service-fabric-cicd-your-linux-applications-with-jenkins.md
   - name: 역방향 프록시 설정 및 구성
     items:
@@ -651,9 +670,9 @@ items:
     items:
     - name: 일반적인 시나리오 진단
       href: service-fabric-diagnostics-common-scenarios.md
-    - name: 응용 프로그램 모니터링
+    - name: 애플리케이션 모니터링
       items:
-      - name: 응용 프로그램에 로깅 추가
+      - name: 애플리케이션에 로깅 추가
         href: service-fabric-how-to-diagnostics-log.md
       - name: Application Insights를 사용하여 분석
         href: service-fabric-diagnostics-event-analysis-appinsights.md
@@ -695,10 +714,6 @@ items:
       href: service-fabric-reverse-proxy-diagnostics.md
     - name: 로컬 클러스터 문제 해결
       href: service-fabric-troubleshoot-local-cluster-setup.md
-  - name: 모범 사례
-    items:
-    - name: 프로덕션 준비 검사 목록
-      href: service-fabric-production-readiness-checklist.md
 - name: 참고 자료
   items:
   - name: Azure PowerShell
@@ -775,6 +790,8 @@ items:
     href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
   - name: REST (영문)
     href: /rest/api/servicefabric
+  - name: Resource Manager 템플릿
+    href: /azure/templates/microsoft.servicefabric/clusters
   - name: Service Fabric 이벤트
     href: service-fabric-diagnostics-event-generation-operational.md
   - name: 클러스터 설정 및 패브릭 업그레이드 정책 구성
@@ -800,8 +817,6 @@ items:
     href: https://azure.microsoft.com/roadmap/
   - name: 일반적인 질문
     href: service-fabric-common-questions.md
-  - name: 학습 경로
-    href: https://azure.microsoft.com/documentation/learning-paths/service-fabric/
   - name: MSDN 포럼
     href: https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric
   - name: 가격
@@ -820,9 +835,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: 5a4a98066e4a7d222b00b0d319f7eb49b84438df
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: a4337e82a5703b3ccfde9f77e4494ca042a79b64
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323493"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163917"

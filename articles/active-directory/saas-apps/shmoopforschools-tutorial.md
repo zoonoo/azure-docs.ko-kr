@@ -4,7 +4,7 @@ description: Azure Active Directory와 Shmoop For Schools 간에 Single Sign-On�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 1d75560a-55b3-42e9-bda1-92b01c572d8e
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: b5826fd3067ac337808b9e27040dee808cd6a01c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5c1dbf6429387c02f226e4005164e8824abdc102
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045960"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818951"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>자습서: Shmoop For Schools와 Azure Active Directory 통합
 
@@ -32,7 +32,7 @@ Shmoop For Schools를 Azure AD와 통합하면 다음과 같은 이점이 제공
 - 사용자가 자신의 Azure AD 계정으로 Shmoop For Schools에 자동으로 로그인되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -64,15 +64,15 @@ Shmoop For Schools의 Azure AD 통합을 구성하려면 갤러리의 Shmoop For
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 선택합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 선택합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
-4. 검색 상자에 **Shmoop For Schools**를 입력합니다. 결과 패널에서 **Shmoop For Schools**를 선택한 다음 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에 **Shmoop For Schools**를 입력합니다. 결과 패널에서 **Shmoop For Schools**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록에서 Shmoop For Schools](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_addfromgallery.png)
 
@@ -92,11 +92,11 @@ Shmoop For Schools에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Shmoop For Schools 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Shmoop For Schools 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Shmoop For Schools에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Shmoop For Schools** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. Azure Portal의 **Shmoop For Schools** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -110,17 +110,17 @@ Shmoop For Schools에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
     a. **로그온 URL** 텍스트 상자에 다음과 같은 패턴을 사용하여 URL을 입력합니다. `https://schools.shmoop.com/public-api/saml2/start/<uniqueid>`
 
-    나. **식별자** 상자에 다음과 같은 패턴을 사용하여 URL을 입력합니다. `https://schools.shmoop.com/<uniqueid>`
+    b. **식별자** 상자에 다음과 같은 패턴을 사용하여 URL을 입력합니다. `https://schools.shmoop.com/<uniqueid>`
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Shmoop For Schools 클라이언트 지원 팀](mailto:support@shmoop.com)에 문의하세요. 
  
-4. Shmoop For Schools 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 어설션을 구성하는 방법을 보여줍니다.
+4. Shmoop For Schools 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 어설션을 구성하는 방법을 보여줍니다.
 
     ![Single Sign-On 구성](./media/shmoopforschools-tutorial/tutorial_attribute.png)
 
     > [!NOTE]
-    > Shmoop For Schools는 사용자에게 **교사** 및 **학생**이라는 두 가지 역할을 지원합니다. 사용자가 적절한 역할을 할당 받을 수 있도록 Azure AD에서 이러한 역할을 설정합니다. Azure AD에서 역할을 구성하는 방법을 알아보려면 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+    > Shmoop For Schools는 사용자에게 다음과 같은 두 가지 역할을 지원합니다. **교사** 및 **학생**. 사용자가 적절한 역할을 할당 받을 수 있도록 Azure AD에서 이러한 역할을 설정합니다. Azure AD에서 역할을 구성하는 방법을 알아보려면 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
     
 5. **Single Sign-On** 대화 상자의 **사용자 특성** 섹션에서 이전 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성합니다.  다음 단계를 수행합니다.
 
@@ -134,7 +134,7 @@ Shmoop For Schools에서 Azure AD Single Sign-On을 구성하고 테스트하려
     
     ![Single Sign-On 구성](./media/shmoopforschools-tutorial/tutorial_attribute_05.png)
     
-    나. **이름** 텍스트 상자에 해당 행에 표시되는 특성 이름을 입력합니다.
+    b. **이름** 텍스트 상자에 해당 행에 표시되는 특성 이름을 입력합니다.
     
     다. **값** 목록에서 해당 행에 표시되는 특성 값을 선택합니다.
 
@@ -146,7 +146,7 @@ Shmoop For Schools에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
     ![Single Sign-On 구성](./media/shmoopforschools-tutorial/tutorial_general_400.png)
 
-7. **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사하고 메모장에 붙여넣습니다.
+7.  **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사하고 메모장에 붙여넣습니다.
 
     ![인증서 다운로드 링크](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_certificate.png)
 
@@ -199,13 +199,13 @@ Shmoop For Schools에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 **Britta Simon을 Shmoop For Schools에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 엽니다. 그런 다음 디렉터리 창에서 **엔터프라이즈 응용 프로그램**으로 이동합니다.  다음으로 **모든 응용 프로그램**을 선택합니다.
+1. Azure Portal에서 애플리케이션 보기를 엽니다. 그런 다음, 디렉터리 창에서 **엔터프라이즈 애플리케이션**으로 이동합니다.  다음으로 **모든 애플리케이션**을 선택합니다.
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **Shmoop For Schools**를 선택합니다.
+2. 애플리케이션 목록에서 **Shmoop For Schools**를 선택합니다.
 
-    ![응용 프로그램 목록의 Shmoop For Schools 링크](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_app.png)  
+    ![애플리케이션 목록의 Shmoop For Schools 링크](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_app.png)  
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
 
@@ -225,14 +225,14 @@ Shmoop For Schools에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 **Shmoop For Schools** 타일을 클릭하면 Shmoop For Schools 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 **Shmoop For Schools** 타일을 클릭하면 Shmoop For Schools 애플리케이션에 자동으로 로그온됩니다.
 
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

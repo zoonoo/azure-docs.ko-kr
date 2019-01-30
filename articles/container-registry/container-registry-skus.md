@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: danlep
-ms.openlocfilehash: 80ee1033ef7a5fee849126ab2b614de18b71e051
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 3f058a68057d6b84cbbb2dfdb08ea8c2cb12b0b9
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855853"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322097"
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry SKU
 
@@ -81,6 +81,8 @@ Classic 레지스트리가 있는 경우 Azure Portal 내에서 관리되는 SKU
 ## <a name="pricing"></a>가격
 
 각 Azure Container Registry SKU에 대한 가격 책정 정보는 [컨테이너 레지스트리 가격 책정][container-registry-pricing]을 참조하세요.
+
+데이터 전송 가격 책정에 대한 자세한 내용은 [대역폭 가격 정보](https://azure.microsoft.com/pricing/details/bandwidth/)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

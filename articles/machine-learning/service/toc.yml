@@ -1,5 +1,5 @@
 items:
-- name: Azure Machine Learning 설명서
+- name: Azure Machine Learning Service 설명서
   href: index.yml
 - name: 개요
   items:
@@ -9,8 +9,8 @@ items:
   - name: 서비스의 작동 방식
     displayName: architecture concepts definitions
     href: concept-azure-machine-learning-architecture.md
-  - name: Workbench에 대한 새로운 소식
-    displayName: desktop ui
+  - name: Workbench의 변경된 내용
+    displayName: desktop ui Workbench upgrade update transfer
     href: overview-what-happened-to-workbench.md
   - name: 릴리스 정보
     displayName: what's new issues bugs
@@ -107,30 +107,30 @@ items:
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
   - name: ONNX 모델
-    items:
-    - name: 만들기 및 배포
-      href: how-to-build-deploy-onnx.md
+    href: how-to-build-deploy-onnx.md
   - name: 모델 배포
     items:
-    - name: 모델 배포 위치
+    - name: 배포 위치 및 방법
       displayName: publish azure kubernetes azure container instances
       href: how-to-deploy-and-where.md
     - name: FPGA
       href: how-to-deploy-fpga-web-service.md
     - name: 문제 해결
       href: how-to-troubleshoot-deployment.md
-    - name: SSL을 통한 보안
+    - name: SSL로 웹 서비스 보호
       href: how-to-secure-web-service.md
   - name: 웹 서비스 사용
     items:
     - name: 실시간 사용
-      displayName: create client consume
+      displayName: create client consume request response synchronous
       href: how-to-consume-web-service.md
     - name: 일괄 처리 예측 실행
+      displayName: score scoring asynchronous consume pipeline
       href: how-to-run-batch-predictions.md
   - name: 웹 서비스 모니터링
     items:
     - name: 모델 데이터 수집 및 평가
+      displayName: track production
       href: how-to-enable-data-collection.md
     - name: Application Insights로 모니터링
       href: how-to-enable-app-insights.md
@@ -139,9 +139,15 @@ items:
   - name: 리소스 할당량 관리
     displayName: limits
     href: how-to-manage-quotas.md
+  - name: 가상 네트워크로 보호
+    displayName: vnet
+    href: how-to-enable-virtual-network.md
   - name: Machine Learning CLI 사용
-    displayName: cli command line command-line az ci/cd automate automated
+    displayName: cli extension command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
+  - name: 데이터 내보내기 및 삭제
+    displayName: gdpr
+    href: how-to-export-delete-data.md
 - name: 참고 자료
   items:
   - name: Machine Learning SDK
@@ -153,6 +159,8 @@ items:
   - name: 모니터링 SDK
     displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk
+  - name: Resource Manager 템플릿
+    href: /azure/templates/microsoft.machinelearningservices/allversions
 - name: 리소스
   items:
   - name: Azure 로드맵
@@ -166,213 +174,11 @@ items:
     href: resource-known-issues.md
   - name: 지원 받기
     href: support-for-aml-services.md
-  - name: 데이터 내보내기 및 삭제
-    displayName: gdpr
-    href: how-to-export-delete-data.md
-  - name: 사용되지 않는 문서
-    items:
-    - name: Workbench에서 마이그레이션
-      displayName: Workbench upgrade update transfer
-      href: how-to-migrate.md
-    - name: 계정 데이터 내보내기 또는 삭제(사용되지 않음)
-      href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
-    - name: Workbench 빠른 시작(사용되지 않음)
-      href: ../desktop-workbench/quickstart-installation.md
-    - name: '자습서 1: 데이터 준비'
-      href: ../desktop-workbench/tutorial-classifying-iris-part-1.md
-    - name: '자습서 2: 모델 빌드'
-      href: ../desktop-workbench/tutorial-classifying-iris-part-2.md
-    - name: '자습서 3: 모델 배포'
-      href: ../desktop-workbench/tutorial-classifying-iris-part-3.md
-    - name: '자습서 4: 고급 데이터 준비'
-      href: ../desktop-workbench/tutorial-bikeshare-dataprep.md
-    - name: 모델 관리 개요
-      href: ../desktop-workbench/model-management-overview.md
-    - name: 상위 CLI 작업
-      href: ../desktop-workbench/cli-for-azure-machine-learning.md
-    - name: 워크벤치 사용
-      items:
-      - name: Python IDE 사용
-        href: ../desktop-workbench/how-to-configure-your-IDE.md
-      - name: Jupyter Notebook 사용
-        href: ../desktop-workbench/how-to-use-jupyter-notebooks.md
-      - name: Git 리포지토리와 통합
-        href: ../desktop-workbench/using-git-ml-project.md
-      - name: TDSP로 프로젝트 구조화
-        href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
-      - name: 로밍 및 공동 작업
-        href: ../desktop-workbench/roaming-and-collaboration.md
-    - name: IDE 확장 사용
-      items:
-      - name: AI용 Visual Studio Tools 사용
-        href: ../desktop-workbench/quickstart-visual-studio-tools.md
-      - name: AI용 Visual Studio Code 도구 사용
-        href: ../desktop-workbench/quickstart-visual-studio-code-tools.md
-    - name: Azure IoT Edge AI 도구 키트 사용
-      href: ../desktop-workbench/use-azure-iot-edge-ai-toolkit.md
-    - name: 계산 환경 구성
-      items:
-      - name: 실험 구성
-        href: ../desktop-workbench/experimentation-service-configuration.md
-      - name: DSVM 및 HDI Spark 클러스터 만들기
-        href: ../desktop-workbench/how-to-create-dsvm-hdi.md
-      - name: GPU를 통한 학습
-        href: ../desktop-workbench/how-to-use-gpu.md
-    - name: 데이터 획득 및 이해
-      items:
-      - name: 데이터 원본 추가
-        href: ../desktop-workbench/data-source-wizard.md
-      - name: 데이터 준비 가이드
-        href: ../desktop-workbench/data-prep-getting-started.md
-      - name: 고급 데이터 준비
-        href: ../desktop-workbench/data-prep-user-guide.md
-      - name: 데이터 준비 변환
-        href: ../desktop-workbench/data-prep-appendix3-supported-transforms.md
-        items:
-        - name: 예제별 열 결합
-          href: ../desktop-workbench/data-prep-combine-columns-by-example.md
-        - name: 예제별 열 파생
-          href: ../desktop-workbench/data-prep-derive-column-by-example.md
-        - name: 예제별 열 분할
-          href: ../desktop-workbench/data-prep-split-column-by-example.md
-        - name: JSON 확장
-          href: ../desktop-workbench/data-prep-expand-json.md
-    - name: 모델 개발
-      items:
-      - name: CLI를 사용하여 Iris 분류
-        href: ../desktop-workbench/tutorial-iris-azure-cli.md
-      - name: 실행 기록 및 모델 메트릭 추적
-        href: ../desktop-workbench/how-to-use-run-history-model-metrics.md
-      - name: 가장 높은 정확도의 실행 찾기
-        href: ../desktop-workbench/how-to-find-best-accuracy-cli.md
-      - name: 파일 읽기 및 쓰기
-        href: ../desktop-workbench/how-to-read-write-files.md
-      - name: MMLSpark 라이브러리 사용
-        href: ../desktop-workbench/how-to-use-mmlspark.md
-    - name: 모델 배포 및 사용
-      items:
-      - name: 모델 관리 설정
-        href: ../desktop-workbench/deployment-setup-configuration.md
-      - name: 클러스터 및 서비스 크기 조정
-        href: ../desktop-workbench/how-to-scale-clusters.md
-      - name: MLC 클러스터에서 SSL 사용
-        href: ../desktop-workbench/how-to-setup-ssl-on-mlc.md
-      - name: 웹 서비스 배포
-        href: ../desktop-workbench/model-management-service-deploy.md
-      - name: 컨테이너 사용자 지정
-        href: ../desktop-workbench/model-management-custom-container.md
-      - name: IoT Edge 장치에 배포
-        href: ../desktop-workbench/deploy-to-iot-edge-device.md
-      - name: 웹 서비스 사용
-        href: ../desktop-workbench/model-management-consumption.md
-      - name: 모델 데이터 수집
-        href: ../desktop-workbench/how-to-use-model-data-collection.md
-      - name: 배포 문제 해결 가이드
-        href: ../desktop-workbench/how-to-deploy-troubleshooting-guide.md
-    - name: 이전 예제
-      items:
-      - name: 문서 컬렉션 분석
-        href: ../desktop-workbench/scenario-document-collection-analysis.md
-      - name: Q & A(질문과 대답) 일치
-        href: ../desktop-workbench/scenario-qna-matching.md
-      - name: 예측 유지 관리
-        href: ../desktop-workbench/scenario-predictive-maintenance.md
-      - name: 항공 이미지 분류
-        href: ../desktop-workbench/scenario-aerial-image-classification.md
-      - name: TB 단위의 데이터에 대한 서버 작업 예측
-        href: ../desktop-workbench/scenario-big-data.md
-      - name: 에너지 요청 시계열 예측
-        href: ../desktop-workbench/scenario-time-series-forecasting.md
-      - name: 하이퍼 매개 변수의 분산 튜닝
-        href: ../desktop-workbench/scenario-distributed-tuning-of-hyperparameters.md
-      - name: 고객 변동 예측
-        href: ../desktop-workbench/scenario-churn-prediction.md
-      - name: 심층 학습을 통한 감정 분석
-        href: ../desktop-workbench/scenario-sentiment-analysis-deep-learning.md
-      - name: 생명 공학 엔터티 인식-TDSP 프로젝트
-        href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
-      - name: 미국 소득 분류 - TDSP 프로젝트
-        href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
-      - name: CNTK를 사용하여 이미지 분류
-        href: ../desktop-workbench/scenario-image-classification-using-cntk.md
-      - name: 예측 유지 관리에 대한 딥 러닝
-        href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
-    - name: 이전 참조
-      items:
-      - name: 데이터 준비용 Python 확장
-        href: ../desktop-workbench/data-prep-python-extensibility-overview.md
-      - name: 지원되는 데이터 원본
-        href: ../desktop-workbench/data-prep-appendix2-supported-data-sources.md
-      - name: Azure Cosmos DB를 데이터 원본으로 로드
-        href: ../desktop-workbench/data-prep-load-azure-cosmos-db.md
-      - name: 지원되는 검사기
-        href: ../desktop-workbench/data-prep-appendix4-supported-inspectors.md
-      - name: 지원되는 데이터 대상
-        href: ../desktop-workbench/data-prep-appendix5-supported-destinations.md
-      - name: 지원되는 실행 및 데이터 환경 조합
-        href: ../desktop-workbench/data-prep-supported-runtime-data-environments.md
-      - name: Python 필터 식 샘플
-        href: ../desktop-workbench/data-prep-appendix6-sample-filter-expressions-python.md
-      - name: Python에서 사용자 지정 데이터 흐름 변환 예제
-        href: ../desktop-workbench/data-prep-appendix7-sample-transform-data-flow-python.md
-      - name: Python 원본 연결 샘플
-        href: ../desktop-workbench/data-prep-appendix8-sample-source-connections-python.md
-      - name: Python 대상 연결 샘플
-        href: ../desktop-workbench/data-prep-appendix9-sample-destination-connections-python.md
-      - name: Python 열 변환 샘플
-        href: ../desktop-workbench/data-prep-appendix10-sample-custom-column-transforms-python.md
-      - name: 데이터 준비 실행 API
-        href: ../desktop-workbench/data-prep-python-execution-api.md
-      - name: 실험 서비스 구성
-        href: ../desktop-workbench/experimentation-service-configuration-reference.md
-      - name: 로깅 API
-        href: ../desktop-workbench/reference-logging-api.md
-      - name: 실험 서비스 템플릿
-        href: ../desktop-workbench/experimentation-service-template.md
-      - name: 모델 관리 API
-        href: ../desktop-workbench/model-management-api-reference.md
-      - name: 모델 관리 CLI
-        href: ../desktop-workbench/model-management-cli-reference.md
-      - name: 모델 데이터 수집 API
-        href: ../desktop-workbench/model-data-collection-api-reference.md
-    - name: 도메인 패키지
-      href: ../desktop-workbench/reference-python-package-overview.md
-      items:
-      - name: Computer Vision 패키지 사용되지 않음
-        items:
-        - name: 패키지 설치
-          href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision
-        - name: 모델링 및 배포
-          items:
-          - name: 이미지 분류
-            href: ../desktop-workbench/how-to-build-deploy-image-classification-models.md
-          - name: 개체 감지
-            href: ../desktop-workbench/how-to-build-deploy-object-detection-models.md
-          - name: 이미지 유사성
-            href: ../desktop-workbench/how-to-build-deploy-image-similarity-models.md
-          - name: 모델 정확도 개선
-            href: ../desktop-workbench/how-to-improve-accuracy-for-computer-vision-models.md
-      - name: 예측 패키지 사용되지 않음
-        items:
-        - name: 개요 및 설치
-          href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting-overview
-        - name: 예측 모델 빌드 및 배포
-          href: ../desktop-workbench/how-to-build-deploy-forecast-models.md
-      - name: FPGA 가속 패키지
-        href: reference-fpga-package-overview.md
-      - name: 텍스트 분석 패키지
-        items:
-        - name: 개요 및 설치 사용되지 않음
-          href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
-        - name: 텍스트 분류 모델 빌드 및 배포
-          href: ../desktop-workbench/how-to-build-deploy-text-classification-models.md
-    - name: FAQ
-      href: ../desktop-workbench/frequently-asked-questions.md
-    - name: 이전 문제
-      href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: cf7216271dea4bcdda7bea91c1b386a4ba612f8f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+  - name: ML 제품 비교
+    href: overview-more-machine-learning.md
+ms.openlocfilehash: d83028246e884cff2a91dc3839893f7584caf9a1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310514"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099059"

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/22/2018
+ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: eea12a0a31d11065ebdc2cbef556b84df1ace750
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 5a2b38e5d627341b3684ee55d13ee06881fbae55
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945198"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728366"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 리소스 섹션
 
@@ -84,9 +84,9 @@ ms.locfileid: "49945198"
 | 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
 | condition | 아니요 | 리소스가 이 배포 중 프로비전되는지 여부를 나타내는 부울 값입니다. `true`인 경우 리소스는 배포하는 동안 만들어집니다. `false`인 경우 리소스는 이 배포에 대해 건너뛰어집니다. |
-| apiVersion |yes |리소스를 만들 때 사용하는 REST API의 버전입니다. |
-| 형식 |yes |리소스 유형입니다. 이 값은 리소스 공급자의 네임스페이스와 리소스 형식을 조합한 값입니다(예: **Microsoft.Storage/storageAccounts**). |
-| 이름 |yes |리소스의 이름입니다. 이 이름은 RFC3986에 정의된 URI 구성 요소 제한을 따라야 합니다. 또한 리소스 이름을 외부에 노출하는 Azure 서비스는 다른 ID를 스푸핑하려는 시도가 아님을 확인하기 위해 이름의 유효성을 검사합니다. |
+| apiVersion |예 |리소스를 만들 때 사용하는 REST API의 버전입니다. |
+| 형식 |예 |리소스 유형입니다. 이 값은 리소스 공급자의 네임스페이스와 리소스 형식을 조합한 값입니다(예: **Microsoft.Storage/storageAccounts**). |
+| 이름 |예 |리소스의 이름입니다. 이 이름은 RFC3986에 정의된 URI 구성 요소 제한을 따라야 합니다. 또한 리소스 이름을 외부에 노출하는 Azure 서비스는 다른 ID를 스푸핑하려는 시도가 아님을 확인하기 위해 이름의 유효성을 검사합니다. |
 | location |다름 |제공된 리소스의 지역적 위치를 지원합니다. 사용 가능한 위치 중 하나를 선택할 수 있지만 대개는 사용자에게 가까운 하나를 선택하는 것이 좋습니다. 일반적으로 동일한 지역에서 서로 상호 작용하도록 리소스를 배치하는 것도 좋습니다. 대부분의 리소스 종류에는 위치가 필요하지만 일부 종류(예: 역할 할당)에는 위치가 필요하지 않습니다. |
 | tags |아니요 |리소스와 연결된 태그입니다. 태그를 적용하여 구독에서 리소스를 논리적으로 구성합니다. |
 | 설명 |아니요 |템플릿에서 리소스를 문서화하는 내용에 대한 참고 |
@@ -141,7 +141,7 @@ ms.locfileid: "49945198"
 * Azure App Service의 Web Apps 기능
 * SQL Server
 * Azure Key Vault
-* Azure Redis 캐시(영문)
+* Azure Cache for Redis
 * Azure Batch
 * Azure Traffic Manager
 * Azure Search
@@ -289,7 +289,7 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 자식 리소스 이름의 형식은 다음과 같습니다. `{parent-resource-name}/{child-resource-name}`
 
-그러나 서버 내에서 데이터베이스를 정의할 필요는 없습니다. 최상위 수준에 자식 리소스를 정의할 수 있습니다. 부모 리소스가 동일한 템플릿에서 배포되지 않는 경우 또는 `copy`를 사용하여 여러 자식 리소스를 만들려는 경우, 이 방법을 사용할 수 있습니다. 이 방법을 사용하는 경우 전체 리소스 유형을 입력하고 자식 리소스 이름에 부모 리소스 이름을 포함해야 합니다.
+그러나 서버 내에서 데이터베이스를 정의할 필요는 없습니다. 최상위 수준에 자식 리소스를 정의할 수 있습니다. 부모 리소스가 동일한 템플릿에서 배포되지 않는 경우 또는 `copy`를 사용하여 둘 이상의 자식 리소스를 만들려는 경우, 이 방법을 사용할 수 있습니다. 이 방법을 사용하는 경우 전체 리소스 유형을 입력하고 자식 리소스 이름에 부모 리소스 이름을 포함해야 합니다.
 
 ```json
 {
@@ -318,122 +318,11 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt`는 올바릅니다. `Microsoft.Compute/virtualMachines/extensions/myVM/myExt`는 올바르지 않습니다.
 
-## <a name="recommendations"></a>권장 사항
-다음 정보는 리소스로 작업하는 경우 도움이 될 수 있습니다.
-
-* 다른 참가자들이 리소스의 용도를 이해하도록 하려면 템플릿에 각 리소스에 대한 **설명**을 지정합니다.
-   
-   ```json
-   "resources": [
-     {
-         "name": "[variables('storageAccountName')]",
-         "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-01-01",
-         "location": "[resourceGroup().location]",
-         "comments": "This storage account is used to store the VM disks.",
-         ...
-     }
-   ]
-   ```
-
-* 템플릿에서 *공용 엔드포인트*(예: Azure Blob Storage 공용 엔드포인트)를 사용하는 경우 네임스페이스를 *하드 코딩하지 마세요*. **reference** 함수를 사용하여 네임스페이스를 동적으로 검색합니다. 이 방법을 사용하면 템플릿의 엔드포인트를 수동으로 변경하지 않고 다른 공용 네임스페이스 환경에 템플릿을 배포할 수 있습니다. 템플릿에서 저장소 계정에 사용하는 것과 동일한 버전으로 API 버전을 설정합니다.
-   
-   ```json
-   "osDisk": {
-       "name": "osdisk",
-       "vhd": {
-           "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
-       }
-   }
-   ```
-   
-   저장소 계정이 생성 중인 동일한 템플릿에서 배포되는 경우에는 리소스를 참조할 때 공급자 네임스페이스를 지정할 필요가 없습니다. 다음 예제에서는 간소화된 구문을 보여 줍니다.
-   
-   ```json
-   "osDisk": {
-       "name": "osdisk",
-       "vhd": {
-           "uri": "[concat(reference(variables('storageAccountName'), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
-       }
-   }
-   ```
-   
-   템플릿의 다른 값을 공용 네임스페이스를 사용하도록 구성한 경우 동일한 **reference** 함수를 반영하도록 이러한 값을 변경합니다. 가상 머신 진단 프로필의 **storageUri** 속성을 설정할 수 있습니다.
-   
-   ```json
-   "diagnosticsProfile": {
-       "bootDiagnostics": {
-           "enabled": "true",
-           "storageUri": "[reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob]"
-       }
-   }
-   ```
-   
-   다른 리소스 그룹에서 기존 저장소 계정을 참조할 수도 있습니다.
-
-   ```json
-   "osDisk": {
-       "name": "osdisk", 
-       "vhd": {
-           "uri":"[concat(reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts/', parameters('existingStorageAccountName')), '2016-01-01').primaryEndpoints.blob,  variables('vmStorageAccountContainerName'), '/', variables('OSDiskName'),'.vhd')]"
-       }
-   }
-   ```
-
-* 응용 프로그램에 필요한 경우에만 공용 IP 주소를 가상 머신에 할당합니다. 디버깅, 관리 또는 관리 목적으로 가상 컴퓨터(VM)에 연결하려면 인바운드 NAT 규칙, 가상 네트워크 게이트웨이 또는 Jumpbox를 사용합니다.
-   
-     가상 머신에 연결하는 방법에 대한 자세한 내용은 다음을 참조하세요.
-   
-   * [Azure에서 N 계층 아키텍처에 대한 VM 실행](../guidance/guidance-compute-n-tier-vm.md)
-   * [Azure Resource Manager에서 VM에 대한 WinRM 액세스 설정](../virtual-machines/windows/winrm.md)
-   * [Azure Portal을 사용하여 VM에 대한 외부 액세스 허용](../virtual-machines/windows/nsg-quickstart-portal.md)
-   * [PowerShell을 사용하여 VM에 대한 외부 액세스 허용](../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Azure CLI를 사용하여 Linux VM에 대한 외부 액세스 허용](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
-* 공용 IP 주소에 대한 **domainNameLabel** 속성은 고유해야 합니다. **domainNameLabel** 값은 3~63자 사이여야 하고 `^[a-z][a-z0-9-]{1,61}[a-z0-9]$` 정규식으로 지정된 규칙을 따라야 합니다. **uniqueString** 함수는 13자 길이의 문자열을 생성하고, **dnsPrefixString** 매개 변수는 50자로 제한됩니다.
-
-   ```json
-   "parameters": {
-       "dnsPrefixString": {
-           "type": "string",
-           "maxLength": 50,
-           "metadata": {
-               "description": "The DNS label for the public IP address. It must be lowercase. It should match the following regular expression, or it will raise an error: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$"
-           }
-       }
-   },
-   "variables": {
-       "dnsPrefix": "[concat(parameters('dnsPrefixString'),uniquestring(resourceGroup().id))]"
-   }
-   ```
-
-* 사용자 지정 스크립트 확장에 암호를 추가하는 경우 **protectedSettings** 속성에서 **commandToExecute** 속성을 사용합니다.
-   
-   ```json
-   "properties": {
-       "publisher": "Microsoft.Azure.Extensions",
-       "type": "CustomScript",
-       "typeHandlerVersion": "2.0",
-       "autoUpgradeMinorVersion": true,
-       "settings": {
-           "fileUris": [
-               "[concat(variables('template').assets, '/lamp-app/install_lamp.sh')]"
-           ]
-       },
-       "protectedSettings": {
-           "commandToExecute": "[concat('sh install_lamp.sh ', parameters('mySqlPassword'))]"
-       }
-   }
-   ```
-   
-   > [!NOTE]
-   > VM 및 확장에 매개 변수로 전달되는 비밀이 암호화되도록 하려면 관련 확장의 **protectedSettings** 속성을 사용합니다.
-   > 
-   > 
 
 
 ## <a name="next-steps"></a>다음 단계
 * 다양한 유형의 솔루션에 대한 전체 템플릿을 보려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 참조하세요.
 * 템플릿 내에서 사용할 수 있는 함수에 대한 자세한 내용은 [Azure Resource Manager 템플릿 함수](resource-group-template-functions.md)를 참조하세요.
-* 배포 중에 둘 이상의 템플릿을 사용하려면 [Azure Resource Manager에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.
+* 템플릿을 만드는 방법에 대한 권장 사항은 [Azure Resource Manager 템플릿 모범 사례](template-best-practices.md)를 참조하세요.
 * 다른 리소스 그룹 내에 있는 리소스를 사용해야 할 수도 있습니다. 이 시나리오는 여러 리소스 그룹 간에 공유되는 저장소 계정 또는 가상 네트워크로 작업할 때 일반적입니다. 자세한 내용은 [resourceId 함수](resource-group-template-functions-resource.md#resourceid)를 참조하세요.
 * 리소스 이름 제한에 대한 자세한 내용은 [Azure 리소스에 대한 권장 명명 규칙](../guidance/guidance-naming-conventions.md)을 참조하세요.

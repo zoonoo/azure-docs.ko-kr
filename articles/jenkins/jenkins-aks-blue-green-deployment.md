@@ -3,21 +3,21 @@ title: Jenkins와 파란색/녹색 배포 패턴을 사용하여 AKS(Azure Kuber
 description: Jenkins와 파란색/녹색 배포 패턴을 사용하여 AKS(Azure Kubernetes Service) 배포하는 방법에 대해 알아봅니다.
 ms.service: jenkins
 keywords: Jenkins, Azure, DevOps, Kubernetes, k8s, AKS, 파란색/녹색 배포, 지속적인 업데이트, CD
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/11/2018
-ms.openlocfilehash: 6cd3938844d7f6977c7b0912acffbfb1679dc42e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 9bd601aee87ab0776069c80bfdeffb70b06c3c86
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387389"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073886"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Jenkins와 파란색/녹색 배포 패턴을 사용하여 AKS(Azure Kubernetes Service) 배포
 
-AKS(Azure Kubernetes Service)는 호스팅된 Kubernetes 환경을 관리하므로 컨테이너화된 응용 프로그램을 빠르고 쉽게 배포하고 관리할 수 있습니다. 컨테이너 오케스트레이션에 대한 전문 지식이 없어도 됩니다. AKS는 또한 주문형 리소스를 프로비전하고, 업그레이드하고, 크기 조정하여 진행 중인 작업 및 유지 관리 부담을 제거합니다. 응용 프로그램을 오프라인으로 변경할 필요가 없습니다. AKS에 대한 자세한 내용은 [AKS 설명서](/azure/aks/)를 참조하세요.
+AKS(Azure Kubernetes Service)는 호스팅된 Kubernetes 환경을 관리하므로 컨테이너화된 애플리케이션을 빠르고 쉽게 배포하고 관리할 수 있습니다. 컨테이너 오케스트레이션에 대한 전문 지식이 없어도 됩니다. AKS는 또한 주문형 리소스를 프로비전하고, 업그레이드하고, 크기 조정하여 진행 중인 작업 및 유지 관리 부담을 제거합니다. 애플리케이션을 오프라인으로 변경할 필요가 없습니다. AKS에 대한 자세한 내용은 [AKS 설명서](/azure/aks/)를 참조하세요.
 
 파란색/녹색 배포는 새로운(녹색) 버전이 배포되는 동안 기존(파란색) 버전을 유지하도록 하는 Azure DevOps 지속적인 업데이트 패턴입니다. 일반적으로 이 패턴은 부하 분산을 사용하여 증가하는 트래픽 양을 녹색 배포로 전달합니다. 모니터링을 통해 인시던트가 발견되면 트래픽은 계속 실행 중인 파란색 배포로 경로 전환될 수 있습니다. 지속적인 업데이트에 대한 자세한 내용은 [지속적인 업데이트란](/azure/devops/what-is-continuous-delivery)을 참조하세요.
 
@@ -259,7 +259,7 @@ GitHub의 Microsoft 리포지토리에서 Jenkins와 파란색/녹색 배포 패
 
 ## <a name="run-the-job"></a>작업 실행
 
-1. 로컬 환경에서 프로젝트를 성공적으로 실행할 수 있는지 확인합니다. 방법은 다음과 같습니다: [로컬 머신에서 프로젝트를 실행합니다](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
+1. 로컬 환경에서 프로젝트를 성공적으로 실행할 수 있는지 확인합니다. 방법은 다음과 같습니다. [로컬 머신에서 프로젝트를 실행합니다](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
 
 1. Jenkins 작업을 실행합니다. 작업을 처음 실행할 때 Jenkins는 기본적으로 비활성 환경인 파란색 환경에 할 일 앱을 배포합니다. 
 
@@ -270,7 +270,7 @@ GitHub의 Microsoft 리포지토리에서 Jenkins와 파란색/녹색 배포 패
 
 공용 및 파란색 테스트 엔드포인트는 녹색 엔드포인트가 기본 tomcat 이미지를 표시하는 동안 동일한 업데이트를 포함합니다. 
 
-빌드를 한 번을 초과하여 실행하는 경우 파란색 및 녹색 배포가 순환 실행됩니다. 즉, 현재 환경이 파란색인 경우 작업은 녹색 환경에 배포 및 테스트합니다. 그런 다음, 테스트가 적합한 경우 작업은 응용 프로그램 공용 엔드포인트를 업데이트하여 트래픽을 녹색 환경으로 라우팅합니다.
+빌드를 한 번을 초과하여 실행하는 경우 파란색 및 녹색 배포가 순환 실행됩니다. 즉, 현재 환경이 파란색인 경우 작업은 녹색 환경에 배포 및 테스트합니다. 그런 다음, 테스트가 적합한 경우 작업은 애플리케이션 공용 엔드포인트를 업데이트하여 트래픽을 녹색 환경으로 라우팅합니다.
 
 ## <a name="additional-information"></a>추가 정보
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Stack VM에서 파일 백업
-description: Azure Backup을 사용하여 Azure Stack 환경에 Azure Stack 파일과 응용 프로그램을 백업하고 복구합니다.
+description: Azure Backup을 사용하여 Azure Stack 환경에 Azure Stack 파일과 애플리케이션을 백업하고 복구합니다.
 services: backup
 author: adiganmsft
 manager: shivamg
@@ -16,7 +16,7 @@ ms.lasthandoff: 09/14/2018
 ms.locfileid: "45579206"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Azure Stack에서 파일 백업
-Azure Backup을 사용하여 Azure Stack의 파일 및 응용 프로그램을 보호(또는 백업)합니다. 파일 및 응용 프로그램을 백업하려면 Microsoft Azure Backup Server를 Azure Stack에서 실행되는 가상 머신으로 설치합니다. 동일한 가상 네트워크의 Azure Stack 서버에서 파일을 보호할 수 있습니다. Azure Backup Server를 설치하면 Azure 디스크를 추가하여 단기 백업 데이터에 사용할 수 있는 로컬 저장소를 증가시킵니다. Azure Backup Server는 장기 보존을 위해 Azure Storage를 사용합니다.
+Azure Backup을 사용하여 Azure Stack의 파일 및 애플리케이션을 보호(또는 백업)합니다. 파일 및 애플리케이션을 백업하려면 Microsoft Azure Backup Server를 Azure Stack에서 실행되는 가상 머신으로 설치합니다. 동일한 가상 네트워크의 Azure Stack 서버에서 파일을 보호할 수 있습니다. Azure Backup Server를 설치하면 Azure 디스크를 추가하여 단기 백업 데이터에 사용할 수 있는 로컬 저장소를 증가시킵니다. Azure Backup Server는 장기 보존을 위해 Azure Storage를 사용합니다.
 
 > [!NOTE]
 > Azure Backup Server 및 System Center DPM(Data Protection Manager)은 유사하지만 DPM은 Azure Stack에서 사용하도록 지원되지 않습니다.
@@ -65,7 +65,7 @@ Azure Stack 가상 머신에서 파일을 보호하도록 Azure Backup Server를
 
     ![새 보호 그룹 마법사가 열립니다.](./media/backup-mabs-files-applications-azure-stack/7-select-short-term-goals.png) 
 
-    증분 백업의 간격을 선택하는 대신, 예약된 각 복구 지점 직전에 고속 전체 백업을 실행하려면 **복구 지점 직전**을 클릭합니다. 응용 프로그램 워크로드를 보호하는 경우 Azure Backup Server는 동기화 빈도 일정에 따라(응용 프로그램에서 증분 백업을 지원하는 경우) 복구 지점을 만듭니다. 응용 프로그램에서 증분 백업을 지원하지 않는 경우 Azure Backup Server가 고속 전체 백업을 실행합니다.
+    증분 백업의 간격을 선택하는 대신, 예약된 각 복구 지점 직전에 고속 전체 백업을 실행하려면 **복구 지점 직전**을 클릭합니다. 애플리케이션 워크로드를 보호하는 경우 Azure Backup Server는 동기화 빈도 일정에 따라(애플리케이션에서 증분 백업을 지원하는 경우) 복구 지점을 만듭니다. 애플리케이션에서 증분 백업을 지원하지 않는 경우 Azure Backup Server가 고속 전체 백업을 실행합니다.
 
     **파일 복구 지점**에 대해 복구 지점을 만들 시기를 지정합니다. 복구 지점을 만드는 시간 및 요일을 설정하려면 **수정**을 클릭합니다.
 

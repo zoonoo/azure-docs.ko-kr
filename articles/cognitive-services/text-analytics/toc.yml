@@ -24,6 +24,9 @@ items:
     href: quickstarts/ruby.md
 - name: 자습서
   items:
+  - name: Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석
+    href: ../../azure-databricks/databricks-sentiment-analysis-cognitive-services.md
+    maintainContext: true
   - name: Power BI로 텍스트 분석
     href: Tutorials/tutorial-power-bi-key-phrases.md
   - name: PowerApps에서 텍스트 분석
@@ -50,6 +53,8 @@ items:
       href: how-tos/text-analytics-how-to-install-containers.md
     - name: 컨테이너 구성
       href: text-analytics-resource-container-config.md
+    - name: Azure Kubernetes Service에서 실행하는 방법
+      href: How-tos/text-analytics-how-to-use-container-instance.md
   - name: 텍스트 분석 연결된 서비스 사용
     href: vs-text-connected-service.md
 - name: 참고 자료
@@ -60,6 +65,18 @@ items:
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: Text Analytics API
     href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7
+  - name: SDK
+    items:
+    - name: .NET
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet
+    - name: 자바
+      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python
+    - name: Node.js
+      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/textanalytics?view=azure-node-latest
+    - name: Go
+      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/textanalytics
 - name: 리소스
   items:
   - name: 외부 및 커뮤니티 콘텐츠
@@ -80,9 +97,9 @@ items:
     href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/555922-text-analytics
-ms.openlocfilehash: 42fbfd8aa66ca59fd689e7d3d1656b912da84700
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1759bee73caeb18ac96a228bb3a81e697aa62089
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51631340"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475631"

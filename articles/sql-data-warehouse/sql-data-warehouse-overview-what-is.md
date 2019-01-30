@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: igorstan
 ms.reviewer: igorstan
-ms.openlocfilehash: 7ba1cb75b7e7c5a93438ea4f17bb563477837099
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d9fdbb1a13c2184809c1d6548e5d878ed7080b13
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301936"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318602"
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse란?
 
@@ -31,7 +31,7 @@ SQL Data Warehouse는 클라우드에서 종단 간 빅 데이터 솔루션의 �
  
 SQL Data Warehouse는 열 형식 저장소를 사용하여 관계 테이블에 데이터를 저장합니다. 이 형식으로 인해 데이터 저장소 비용이 상당히 감소하고 쿼리 성능이 향상됩니다. SQL Data Warehouse에 데이터가 저장되면 대규모로 분석을 실행할 수 있습니다. 기존 데이터베이스 시스템에 비해 분석 쿼리는 몇 분이 아닌 몇 초, 몇 일이 아닌 몇 시간 안에 완료됩니다. 
 
-분석 결과는 전 세계 보고 데이터베이스 또는 응용 프로그램으로 이동할 수 있습니다. 그러면 비즈니스 분석가가 합리적인 비즈니스 결정을 내리기 위한 정보를 파악할 수 있습니다.
+분석 결과는 전 세계 보고 데이터베이스 또는 애플리케이션으로 이동할 수 있습니다. 그러면 비즈니스 분석가가 합리적인 비즈니스 결정을 내리기 위한 정보를 파악할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -68,9 +68,9 @@ SQL 데이터 웨어하우스에 대한 내용을 파악했으므로 [SQL Data W
 [고객 자문 팀 블로그]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [기능 요청]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [MSDN 포럼]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSQLDataWarehouse
-[Stack Overflow 포럼]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow 포럼]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [비디오]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [SLA for SQL Data Warehouse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
-[Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
+[Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ffcf483b2852ec87c263573a97b4508d5b5d39c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a6e217194508feae3b227b5ef65b02d0305a22a7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997474"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852901"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신에 대한 개인 IP 주소 구성
 
@@ -44,7 +44,7 @@ ms.locfileid: "46997474"
 
 1. 아직 설치하지 않은 경우 최신 [Azure CLI](/cli/azure/install-azure-cli)를 설치 및 구성하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인합니다.
 
-2. [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) 명령을 사용하여 VM의 공용 IP를 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
+2. [az network public-ip create](/cli/azure/network/public-ip) 명령을 사용하여 VM의 공용 IP를 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 
     > [!NOTE]
     > 사용자 환경에 따라 이 단계 및 이후 단계에 다른 값을 사용할 수 있습니다.
@@ -123,9 +123,9 @@ ms.locfileid: "46997474"
     
     매개 변수
 
-    * `--private-ip-address`: NIC에 대한 고정 개인 IP 주소입니다.
-    * `--vnet-name`: NIC가 만들어질 VNet의 이름입니다.
-    * `--subnet`: NIC가 만들어질 서브넷의 이름입니다.
+    * `--private-ip-address`: NIC에 대한 정적 개인 IP 주소입니다.
+    * `--vnet-name`: NIC를 만들 VNet 이름입니다.
+    * `--subnet`: NIC를 만들 서브넷 이름입니다.
 
 4. [azure vm create](/cli/azure/vm/nic#az_vm_nic_create) 명령을 실행하여 이전에 만든 공용 IP 및 NIC를 사용하여 VM을 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
    

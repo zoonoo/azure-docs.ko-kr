@@ -1,24 +1,25 @@
 ---
-title: LUIS 키에 대한 이해
-titleSuffix: Azure Cognitive Services
-description: LUIS는 작성 및 엔드포인트라는 두 가지 키를 사용합니다. 작성 키는 LUIS 계정을 만들 때 자동으로 생성됩니다. LUIS 앱을 게시할 준비가 되면 엔드포인트 키를 만들고, LUIS 앱에 할당하고, 엔드포인트 쿼리에서 사용해야 합니다.
+title: 구독 키
+titleSuffix: Language Understadning - Azure Cognitive Services
+description: LUIS는 사용자의 모델을 만드는 평가판 작성 키 및 사용자 발언으로 예측 엔드포인트를 쿼리하기 위한 계량된 엔드포인트 키와 같이 두 개의 키를 사용합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: f7c1753e71025d3ce39b1b6e3fb7362f2df212f5
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: ff7f25a9c1ac73c53587bb320ef3889a5bfa9dc5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637834"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439122"
 ---
-# <a name="keys-in-luis"></a>LUIS의 키
-LUIS는 두 가지 키인 [작성](#programmatic-key) 및 [엔드포인트](#endpoint-key)를 사용합니다. 작성 키는 LUIS 계정을 만들 때 자동으로 생성됩니다. LUIS 앱을 게시할 준비가 되면 [엔드포인트 키를 만들고](luis-how-to-azure-subscription.md#create-luis-endpoint-key), LUIS 앱에 [할당](luis-how-to-manage-keys.md#assign-endpoint-key)하고, [엔드포인트 쿼리에서 사용](#use-endpoint-key-in-query)해야 합니다. 
+# <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>LUIS의 작성 및 쿼리 예측 엔드포인트 키
+LUIS는 두 가지 키인 [작성](#programmatic-key) 및 [엔드포인트](#endpoint-key)를 사용합니다. 작성 키는 LUIS 계정을 만들 때 자동으로 생성됩니다. LUIS 앱을 게시할 준비가 되면 [엔드포인트 키를 만들고](luis-how-to-azure-subscription.md), LUIS 앱에 [할당](luis-how-to-azure-subscription.md)하고, [엔드포인트 쿼리에서 사용](#use-endpoint-key-in-query)해야 합니다. 
 
 |키|목적|
 |--|--|
@@ -42,15 +43,17 @@ LUIS는 두 가지 키인 [작성](#programmatic-key) 및 [엔드포인트](#end
 > 몇몇 엔드포인트 호출이 [할당량](luis-boundaries.md#key-limits)으로 제공되므로 편의상 많은 샘플에서 작성 키를 사용합니다.  
 
 ## <a name="endpoint-key"></a>엔드포인트 키
- **프로덕션 엔드포인트 쿼리**가 필요한 경우, Azure Portal에서 [LUIS 키](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)를 만듭니다. 키를 만드는 데 사용되는 이름을 기억하세요. 키를 앱에 추가할 때 필요합니다.
+**프로덕션 엔드포인트 쿼리**,가 필요한 경우 Azure 리소스를 만든 다음, LUIS 앱에 할당합니다. 
 
-LUIS 구독 프로세스가 완료되면 앱에 [키를 할당](luis-how-to-manage-keys.md#assign-endpoint-key)합니다. 
+[!INCLUDE [Azure resource creation for Language Understanding and Cognitive Service resources](../../../includes/cognitive-services-luis-azure-resource-instructions.md)]
 
-엔드포인트 키는 키를 만들 때 지정한 사용 플랜에 따라 엔드포인트 적중 할당량을 허용합니다. 가격 정보는 [Cognitive Services 가격](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h)을 참조하세요.
+Azure 리소스 만들기 프로세스가 완료되면 앱에 [키를 할당](luis-how-to-azure-subscription.md)합니다. 
 
-엔드포인트 키는 모든 LUIS 앱 또는 특정 LUIS 앱에 사용할 수 있습니다. 
+    * 엔드포인트 키는 키를 만들 때 지정한 사용 플랜에 따라 엔드포인트 적중 할당량을 허용합니다. 가격 정보는 [Cognitive Services 가격](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h)을 참조하세요.
 
-LUIS 앱 작성에는 엔드포인트 키를 사용하지 마세요. 
+    * 엔드포인트 키는 모든 LUIS 앱 또는 특정 LUIS 앱에 사용할 수 있습니다. 
+
+    * LUIS 앱 작성에는 엔드포인트 키를 사용하지 마세요. 
 
 ## <a name="use-endpoint-key-in-query"></a>쿼리에 엔드포인트 키 사용
 LUIS 엔드포인트는 두 가지 쿼리를 허용하고, 두 가지 쿼리는 모두 엔드포인트 키를 사용하지만, 서로 다른 위치에서 사용합니다.
@@ -73,12 +76,13 @@ LUIS API는 `Ocp-Apim-Subscription-Key` 헤더를 사용합니다. 헤더 이름
 게시 지역은 작성 지역과 다릅니다. 원하는 게시 지역에 해당하는 작성 지역에서 앱을 만들어야 합니다.
 
 ## <a name="key-limit-errors"></a>키 제한 오류
-초당 할당량을 초과하는 경우, HTTP 429 오류가 표시됩니다. 월별 할당량을 초과하는 경우, HTTP 403 오류가 표시됩니다. LUIS [끝점](#endpoint-key) 키를 가져오고 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 **게시** 페이지에서 앱에 키를 [할당](luis-how-to-manage-keys.md#assign-endpoint-key)하여 이러한 오류를 수정합니다.
+초당 할당량을 초과하는 경우, HTTP 429 오류가 표시됩니다. 월별 할당량을 초과하는 경우, HTTP 403 오류가 표시됩니다. LUIS [끝점](#endpoint-key) 키를 가져오고 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 **게시** 페이지에서 앱에 키를 [할당](luis-how-to-azure-subscription.md)하여 이러한 오류를 수정합니다.
 
-## <a name="automating-assignment-of-the-endpoint-key"></a>엔드포인트 키 할당 자동화
+## <a name="assignment-of-the-endpoint-key"></a>엔드포인트 키 할당
 
-엔드포인트 키를 LUIS 앱에 할당하기 위해 올바른 제작 및 게시 [지역](luis-reference-regions.md)에 대해 LUIS 웹 사이트를 사용해야 합니다. Azure Resource Manager 스크립트, Azure CLI, 프로그래밍 방식 SDK 또는 API를 사용하는 것과 같은 메커니즘에 관계 없이 이 작업을 수행하는 자동화된 메서드가 **없습니다**.
+[LUIS 포털](https://www.luis.ai) 또는 해당 API를 통해 엔드포인트 키를 [할당](luis-how-to-azure-subscription.md)할 수 있습니다. 
+
 
 ## <a name="next-steps"></a>다음 단계
 
-* 작성 및 엔드포인트 키의 [개념](luis-how-to-manage-keys.md#assign-endpoint-key)을 알아봅니다.
+* 작성 및 엔드포인트 키의 [개념](luis-how-to-azure-subscription.md)을 알아봅니다.

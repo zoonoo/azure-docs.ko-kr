@@ -2,18 +2,18 @@
 title: Azure Site Recovery를 사용하여 재해 복구 중 장애 복구(failback) | Microsoft Docs
 description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 재해 복구 중 온-프레미스로 장애 복구(failback)하는 동안 고려해야 할 주의 사항과 다양한 장애 복구(failback) 유형에 대해 간략하게 설명합니다.
 services: site-recovery
-author: rajani-janaki-ram
-manager: guaravd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: rajanki
-ms.openlocfilehash: e97d736e7e117e0ccce6dc021a9de2ea15ac5484
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.topic: conceptual
+ms.date: 01/17/2019
+ms.author: raynew
+ms.openlocfilehash: 16233c9013e97a7db7ef799b79526abac4741612
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210145"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318443"
 ---
 # <a name="overview-of-failback"></a>장애 복구 개요
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 23c8098927a051da48c7da2bac0c96173da1d2f2
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 2af68c0b9deb9d5b065f5fae42cf4bf927f0c671
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713302"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386457"
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics를 사용하여 HDInsight 클러스터 모니터링
 
@@ -26,7 +26,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **Log Analytics 작업 영역** - 이 작업 영역은 자체의 데이터 리포지토리, 데이터 원본 및 솔루션을 포함한 고유한 Log Analytics 환경으로 생각할 수 있습니다. 지침은 [Log Analytics 작업 영역 만들기](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace)를 참조하세요.
+* **Log Analytics 작업 영역** - 이 작업 영역은 자체의 데이터 리포지토리, 데이터 원본 및 솔루션을 포함한 고유한 Log Analytics 환경으로 생각할 수 있습니다. 지침은 [Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace)를 참조하세요.
 
 * **Azure HDInsight 클러스터**. Log Analytics는 현재 다음 HDInsight 클러스터 유형에서 사용할 수 있습니다.
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
   HDInsight 클러스터를 만드는 방법에 대한 지침은 [Azure HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
-> [!NOTE]
+> [!NOTE]  
 > 성능 향상을 위해 동일한 지역에 HDInsight 클러스터와 Log Analytics 작업 영역을 모두 배치하는 것이 좋습니다. Azure Log Analytics를 모든 Azure 지역에서 사용할 수 있는 것은 아닙니다.
 
 ## <a name="enable-log-analytics-by-using-the-portal"></a>포털을 사용하여 Log Analytics 사용

@@ -2,19 +2,19 @@
 title: Azure Stream Analytics를 사용하여 IoT 솔루션 빌드
 description: 요금 창구 시나리오의 Stream Analytics IoT 솔루션 시작하기 자습서
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
-ms.reviewer: jasonh, sngun
+ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/21/2018
-ms.openlocfilehash: e70a1210d44e5bfec914006afaf18eff772cac47
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: f372c2a85a9a03c7ead779bd4db64722891c9a4c
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978794"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321571"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Stream Analytics를 사용하여 IoT 솔루션 빌드
 
@@ -36,7 +36,7 @@ ms.locfileid: "50978794"
 ## <a name="scenario-introduction-hello-toll"></a>시나리오 소개: “Hello, Toll!”
 톨게이트 요금소는 일반적인 현상입니다. 전 세계의 많은 고속도로, 다리 및 터널에서 이러한 요금소를 만날 수 있습니다. 각 요금소에는 여러 개의 요금 창구가 있습니다. 유인 창구에서는 직원에게 요금을 지불하기 위해 멈춰야 합니다. 무인 창구에서는 차량이 톨게이트 창구를 통과할 때 각 창구 상단의 센서가 차량의 윈드쉴드에 부착된 RFID 카드를 검색합니다. 이러한 요금소를 통과하는 차량 흐름을 흥미로운 작업을 수행할 수 있는 이벤트 스트림으로 쉽게 시각화할 수 있습니다.
 
-![요금 창구에 서 있는 자동차 사진](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
+![요금 창구에 서 있는 자동차 사진](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth.jpg)
 
 ## <a name="incoming-data"></a>들어오는 데이터
 이 솔루션에서는 두 가지 데이터 스트림을 사용합니다. 톨게이트 요금소의 입구 및 출구에 설치된 센서가 첫 번째 스트림을 생성합니다. 두 번째 스트림은 차량 등록 데이터가 포함된 정적 조회 데이터 세트입니다.
@@ -113,8 +113,8 @@ ms.locfileid: "50978794"
 
 이 문서 끝에 나오는 “Azure 계정 정리” 섹션의 단계를 수행해야 Azure 크레딧을 최대한 활용할 수 있습니다.
 
-## <a name="deploy-the-sample"></a>샘플 배포 
-몇 번 클릭하여 리소스 그룹에 쉽게 배포할 수 있는 몇 가지 리소스가 있습니다. 솔루션 정의는 GitHub 리포지토리([https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp))에서 호스팅됩니다.
+## <a name="deploy-the-sample"></a>샘플 배포
+몇 번 클릭하여 리소스 그룹에 쉽게 배포할 수 있는 몇 가지 리소스가 있습니다. 솔루션 정의는 GitHub 리포지토리([https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp))에서 호스트됩니다.
 
 ### <a name="deploy-the-tollapp-template-in-the-azure-portal"></a>Azure Portal에서 TollApp 템플릿 배포
 1. TollApp 환경을 Azure에 배포하려면 [TollApp Azure 템플릿 배포](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json)에 대한 이 링크를 사용하세요.
@@ -123,11 +123,11 @@ ms.locfileid: "50978794"
 
 3. 다양한 리소스가 청구되는 구독을 선택합니다.
 
-4. 고유한 이름의 새 리소스 그룹을 지정합니다(예: `MyTollBooth`). 
+4. 고유한 이름의 새 리소스 그룹을 지정합니다(예: `MyTollBooth`).
 
 5. Azure 위치를 선택합니다.
 
-6. **간격**을 몇 초로 지정합니다. 이 값은 샘플 웹앱에서 Event Hub로 데이터를 전송하는 빈도에 사용됩니다. 
+6. **간격**을 몇 초로 지정합니다. 이 값은 샘플 웹앱에서 Event Hub로 데이터를 전송하는 빈도에 사용됩니다.
 
 7. 사용 약관에 동의하려면 **확인**을 누릅니다.
 
@@ -149,7 +149,7 @@ ms.locfileid: "50978794"
    - 하나의 Azure Event Hub
    - 두 개의 Web Apps
 
-## <a name="examine-the-sample-tollapp-job"></a>샘플 TollApp 작업 검사 
+## <a name="examine-the-sample-tollapp-job"></a>샘플 TollApp 작업 검사
 1. 이전 섹션의 리소스 그룹에서 시작하여 **tollapp**으로 시작하는 Stream Analytics 스트리밍 작업을 선택합니다(고유한 이름을 만들기 위해 임의 문자 포함).
 
 2. 작업의 **개요** 페이지에서 쿼리 구문을 보는 **쿼리** 상자가 표시됩니다.
@@ -185,7 +185,7 @@ ms.locfileid: "50978794"
 ## <a name="review-the-cosmosdb-output-data"></a>CosmosDB 출력 데이터 검토
 1. TollApp 리소스를 포함하는 리소스 그룹을 찾습니다.
 
-2. **tollapp<random>-cosmos** 이름 패턴을 가진 Azure Cosmos DB 계정을 선택합니다.
+2. **tollapp\<random\>-cosmos** 이름 패턴을 가진 Azure Cosmos DB 계정을 선택합니다.
 
 3. **데이터 탐색기** 제목을 선택하여 데이터 탐색기 페이지를 엽니다.
 
@@ -195,7 +195,7 @@ ms.locfileid: "50978794"
 
 6. JSON 문서를 검토하려는 각 ID를 선택합니다. 각각 tollid, windowend 시간 및 해당 창에서 자동차 대수입니다.
 
-7. 추가로 3분 후에 다른 4개의 문서 집합이 지원됩니다(tollid당 문서 하나). 
+7. 추가로 3분 후에 다른 4개의 문서 집합이 지원됩니다(tollid당 문서 하나).
 
 
 ## <a name="report-total-time-for-each-car"></a>각 자동차에 대한 총 시간 보고
@@ -229,9 +229,9 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 7. **시작 작업** 창에서 **지금**을 선택합니다.
 
 ### <a name="review-the-total-time-in-the-output"></a>출력에서 총 시간 검토
-스트리밍 작업에서 CosmosDB 출력 데이터를 검토하려면 이전 섹션의 단계를 반복합니다. 최신 JSON 문서 검토 
+스트리밍 작업에서 CosmosDB 출력 데이터를 검토하려면 이전 섹션의 단계를 반복합니다. 최신 JSON 문서 검토
 
-예를 들어 이 문서에서는 2분으로 요금소 기간을 보여주는 특정 번호판, 진입 시간과 퇴출 시간 및 DATEDIFF 계산 시간(분) 필드를 포함한 예제 자동차를 보여줍니다. 
+예를 들어 이 문서에서는 2분으로 요금소 기간을 보여주는 특정 번호판, 진입 시간과 퇴출 시간 및 DATEDIFF 계산 시간(분) 필드를 포함한 예제 자동차를 보여줍니다.
 ```JSON
 {
     "tollid": 4,
@@ -249,7 +249,7 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 ```
 
 ## <a name="report-vehicles-with-expired-registration"></a>등록이 만료된 차량 보고
-Azure Stream Analytics는 참조 데이터의 고정 스냅숏을 사용하여 임시(temporal) 데이터 스트림과 조인할 수 있습니다. 이 기능을 보여 주기 위해 다음 샘플 질문을 사용하겠습니다. 등록 입력은 라이선스 태그의 만료를 나열하는 고정 Blob json 파일입니다. 번호판에 조인하여 요금소를 통과하는 각 자동차에 참조 데이터를 비교합니다. 
+Azure Stream Analytics는 참조 데이터의 고정 스냅숏을 사용하여 임시(temporal) 데이터 스트림과 조인할 수 있습니다. 이 기능을 보여 주기 위해 다음 샘플 질문을 사용하겠습니다. 등록 입력은 라이선스 태그의 만료를 나열하는 고정 Blob json 파일입니다. 번호판에 조인하여 요금소를 통과하는 각 자동차에 참조 데이터를 비교합니다.
 
 화물 차량이 요금 회사에 등록된 경우 검사받기 위해 정차하지 않고 요금 창구를 통과할 수 있습니다. 등록 조회 표를 사용하여 등록 기간이 만료된 모든 화물 차량을 식별합니다.
 
@@ -264,7 +264,7 @@ WHERE Registration.Expired = '1'
 
 1. TollApp 스트리밍 작업 쿼리 구문을 업데이트하는 이전 섹션의 단계를 반복합니다.
 
-2. 스트리밍 작업에서 CosmosDB 출력 데이터를 검토하려면 이전 섹션의 단계를 반복합니다. 
+2. 스트리밍 작업에서 CosmosDB 출력 데이터를 검토하려면 이전 섹션의 단계를 반복합니다.
 
 예제 출력:
 ```json
@@ -289,28 +289,28 @@ Azure Stream Analytics는 대량의 데이터 처리를 위해 탄력적으로 �
 ```sql
 SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
 INTO CosmosDB
-FROM EntryStream 
-TIMESTAMP BY EntryTime 
+FROM EntryStream
+TIMESTAMP BY EntryTime
 PARTITION BY PartitionId
 GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 ```
 
 더 큰 스트리밍 단위로 스트리밍 작업 규모를 확장하려면:
 
-1. 현재 작업을 **중지**합니다. 
+1. 현재 작업을 **중지**합니다.
 
 2. **< > 쿼리** 페이지에서 쿼리 구문을 업데이트하고 변경 내용을 저장합니다.
 
 3. 스트리밍 작업의 CONFIGURE 제목 아래에서 **크기 조정**을 선택합니다.
-   
+
 4. **스트리밍 단위** 슬라이더를 1에서 6으로 조정합니다. 스트리밍 단위는 작업이 사용할 수 있는 계산 능력의 크기를 정의합니다. **저장**을 선택합니다.
 
-5. 추가 규모 조정을 보여주는 스트리밍 작업을 **시작**합니다. Azure Stream Analytics에서는 추가 계산 리소스에 작업을 분산하고 더 많은 처리량을 달성할 뿐만 아니라 PARTITION BY 절에 지정된 열을 사용하여 리소스에 작업을 분할합니다. 
+5. 추가 규모 조정을 보여주는 스트리밍 작업을 **시작**합니다. Azure Stream Analytics에서는 추가 계산 리소스에 작업을 분산하고 더 많은 처리량을 달성할 뿐만 아니라 PARTITION BY 절에 지정된 열을 사용하여 리소스에 작업을 분할합니다.
 
 ## <a name="monitor-the-job"></a>작업 모니터링
-**모니터링** 영역에는 실행 중인 작업에 대한 통계가 들어 있습니다. 동일한 지역에서 저장소 계정을 사용하는 데 처음으로 구성이 필요합니다(이 문서의 나머지 부분과 같은 이름 toll).   
+**모니터링** 영역에는 실행 중인 작업에 대한 통계가 들어 있습니다. 동일한 지역에서 저장소 계정을 사용하는 데 처음으로 구성이 필요합니다(이 문서의 나머지 부분과 같은 이름 toll).
 
-![모니터링 스크린샷](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)
+![Azure Stream Analytics 작업 모니터링](media/stream-analytics-build-an-iot-solution-using-stream-analytics/stream-analytics-job-monitoring.png)
 
 작업 대시보드에서 **설정** 영역에서도 **작업 로그**에 액세스할 수 있습니다.
 

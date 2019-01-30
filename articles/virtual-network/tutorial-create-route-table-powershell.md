@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 2aca1de567dbd4d37daf7f9dd7c407b669396a47
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d077f64081ff7ca53a0ec569ea99658d29654cda
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630328"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429347"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>PowerShell을 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -36,11 +36,11 @@ ms.locfileid: "38630328"
 * 다른 서브넷에 VM(가상 머신) 배포
 * NVA를 통해 한 서브넷에서 다른 서브넷으로 트래픽 라우팅
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 문서에는 Azure PowerShell 모듈 버전 5.4.1 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다. 
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 문서에는 Azure PowerShell 모듈 버전 5.4.1 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다. 
 
 ## <a name="create-a-route-table"></a>경로 테이블 만들기
 
@@ -248,7 +248,7 @@ New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 
 이 문서에서는 라우팅을 테스트하는 데 경로 추적이 사용되지만, 프로덕션 배포에 Windows 방화벽을 통한 ICMP를 허용하지 않는 것이 좋습니다.
 
-[IP 전달을 사용하도록 설정](#enable-ip-forwarding)에서 VM의 네트워크 인터페이스에 대해 Azure 내에서 IP 전달을 사용하도록 설정했습니다. VM 내 운영 체제 또는 VM 내에서 실행 중인 응용 프로그램도 네트워크 트래픽을 전달할 수 있어야 합니다. *myVmNva*의 운영 체제 내에서 IP 전달을 사용하도록 설정합니다.
+[IP 전달을 사용하도록 설정](#enable-ip-forwarding)에서 VM의 네트워크 인터페이스에 대해 Azure 내에서 IP 전달을 사용하도록 설정했습니다. VM 내 운영 체제 또는 VM 내에서 실행 중인 애플리케이션도 네트워크 트래픽을 전달할 수 있어야 합니다. *myVmNva*의 운영 체제 내에서 IP 전달을 사용하도록 설정합니다.
 
 *myVmPrivate* VM의 명령 프롬프트에서 다음과 같이 *myVmNva*에 대한 원격 데스크톱 연결을 만듭니다.
 

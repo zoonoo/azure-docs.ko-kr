@@ -3,19 +3,19 @@ title: TrustFrameworkPolicy - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책의 TrustFrameworkPolicy 요소를 지정합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 16e98811b65e215d8688e030ea8dcbb1f9446a5b
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 820e98b200071c95dc3d9506dd0cd0bbe86e2aae
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44383068"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849688"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -25,8 +25,8 @@ ms.locfileid: "44383068"
 
 ```XML
 <TrustFrameworkPolicy
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="https://www.w3.org/2001/XMLSchema"
   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
   PolicySchemaVersion="0.3.0.0"
   TenantId="mytenant.onmicrosoft.com"
@@ -40,11 +40,11 @@ ms.locfileid: "44383068"
 
 | 특성 | 필수 | 설명 |
 |---------- | -------- | ----------- |
-| PolicySchemaVersion | yes | 정책을 실행하는 데 사용할 스키마 버전입니다. 값은 `0.3.0.0`이어야 합니다. |
+| PolicySchemaVersion | 예 | 정책을 실행하는 데 사용할 스키마 버전입니다. 값은 `0.3.0.0`이어야 합니다. |
 | TenantObjectId | 아니요 | Azure AD(Azure Active Directory) B2C 테넌트의 고유한 개체 식별자입니다. |
-| TenantId | yes | 이 정책이 속한 테넌트의 고유 식별자입니다. |
-| PolicyId | yes | 정책의 고유 식별자입니다. 이 식별자 앞에는 *B2C_1A_* 가 접두사로 추가되어야 합니다. |
-| PublicPolicyUri | yes | 테넌트 ID와 정책 ID의 조합인 정책 URI입니다. |
+| TenantId | 예 | 이 정책이 속한 테넌트의 고유 식별자입니다. |
+| PolicyId | 예 | 정책의 고유 식별자입니다. 이 식별자 앞에는 *B2C_1A_* 가 접두사로 추가되어야 합니다. |
+| PublicPolicyUri | 예 | 테넌트 ID와 정책 ID의 조합인 정책 URI입니다. |
 | DeploymentMode | 아니요 | 가능한 값은 `Production`, `Debugging` 또는 `Development`입니다. 기본값은 `Production`입니다. 정책을 디버그하려면 이 특성을 사용하세요. 자세한 내용은 [로그 수집](active-directory-b2c-troubleshoot-custom.md)을 참조하세요. |
 | UserJourneyRecorderEndpoint | 아니요 | **DeploymentMode**를 `Development`로 설정한 경우 사용되는 엔드포인트입니다. 값은 `urn:journeyrecorder:applicationinsights`여야 합니다. 자세한 내용은 [로그 수집](active-directory-b2c-troubleshoot-custom.md)을 참조하세요. |
 
@@ -53,8 +53,8 @@ ms.locfileid: "44383068"
 
 ``` XML
 <TrustFrameworkPolicy
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+   xmlns:xsd="https://www.w3.org/2001/XMLSchema"
    xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
    PolicySchemaVersion="0.3.0.0"
    TenantId="mytenant.onmicrosoft.com"
@@ -68,9 +68,9 @@ ms.locfileid: "44383068"
 
 - **기본 파일** - 대부분의 정의를 포함합니다. 문제 해결 및 정책의 장기적인 유지 관리에 도움이 되도록 이 파일의 변경 횟수를 최소화하는 것이 좋습니다.
 - **확장 파일** - 테넌트에 대한 고유한 구성 변경 내용을 포함합니다. 이 정책 파일은 기본 파일에서 파생됩니다. 이 파일을 사용하여 새 기능을 추가하거나 기존 기능을 재정의할 수 있습니다. 예를 들어 이 파일을 사용하여 새 ID 공급자와 페더레이션합니다.
-- **RP(신뢰 당사자)** 파일 - 웹, 모바일 또는 데스크톱 응용 프로그램과 같은 신뢰 당사자 응용 프로그램이 직접 호출하는 단일 작업 중심 파일입니다. 등록 또는 로그인, 암호 재설정 또는 프로필 편집과 같은 고유한 작업마다 자체 RP 정책 파일이 필요합니다. 이 정책 파일은 확장 파일에서 파생됩니다. 
+- **RP(신뢰 당사자)** 파일 - 웹, 모바일 또는 데스크톱 애플리케이션과 같은 신뢰 당사자 애플리케이션이 직접 호출하는 단일 작업 중심 파일입니다. 등록 또는 로그인, 암호 재설정 또는 프로필 편집과 같은 고유한 작업마다 자체 RP 정책 파일이 필요합니다. 이 정책 파일은 확장 파일에서 파생됩니다. 
 
-신뢰 당사자 응용 프로그램은 RP 정책 파일을 호출하여 특정 작업을 실행합니다. 예를 들어 로그인 흐름을 시작합니다. Azure AD B2C의 ID 경험 프레임워크는 기본 파일, 확장 파일, RP 정책 파일의 모든 요소를 차례로 추가하여 현재 적용 중인 정책을 어셈블합니다. RP 파일에 있는 동일한 형식 및 이름의 요소가 확장에 있는 요소를 재정의하고, 확장이 기본을 재정의합니다. 다음 다이어그램은 정책 파일과 신뢰 당사자 응용 프로그램 간의 관계를 보여 줍니다.
+신뢰 당사자 애플리케이션은 RP 정책 파일을 호출하여 특정 작업을 실행합니다. 예를 들어 로그인 흐름을 시작합니다. Azure AD B2C의 ID 경험 프레임워크는 기본 파일, 확장 파일, RP 정책 파일의 모든 요소를 차례로 추가하여 현재 적용 중인 정책을 어셈블합니다. RP 파일에 있는 동일한 형식 및 이름의 요소가 확장에 있는 요소를 재정의하고, 확장이 기본을 재정의합니다. 다음 다이어그램은 정책 파일과 신뢰 당사자 애플리케이션 간의 관계를 보여 줍니다.
 
 ![상속 모델](./media/trustframeworkpolicy/custom-policy-Inheritance-model.png)
 
@@ -88,7 +88,7 @@ ms.locfileid: "44383068"
 
 **BasePolicy** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | Azure AD B2C 테넌트의 식별자입니다. |
 | PolicyId | 1:1 | 부모 정책의 식별자입니다. |
@@ -98,8 +98,8 @@ ms.locfileid: "44383068"
 
 ``` XML
 <TrustFrameworkPolicy
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+   xmlns:xsd="https://www.w3.org/2001/XMLSchema"
    xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
    PolicySchemaVersion="0.3.0.0"
    TenantId="mytenant.onmicrosoft.com"
@@ -116,7 +116,7 @@ ms.locfileid: "44383068"
 
 ## <a name="policy-execution"></a>정책 실행
 
-웹, 모바일 또는 데스크톱 응용 프로그램과 같은 신뢰 당사자 응용 프로그램은 [RP(신뢰 당사자) 정책](relyingparty.md)을 호출합니다. RP 정책 파일은 로그인, 암호 재설정 또는 프로필 편집과 같은 특정 작업을 실행합니다. RP 정책은 신뢰 당사자 응용 프로그램이 발급된 토큰의 일부로 수신하는 클레임 목록을 구성합니다. 여러 응용 프로그램이 동일한 정책을 사용할 수 있습니다. 모든 응용 프로그램은 클레임이 포함된 동일한 토큰을 수신하며 사용자가 동일한 사용자 경험을 진행합니다. 단일 응용 프로그램이 여러 개의 정책을 사용할 수 있습니다.
+웹, 모바일 또는 데스크톱 애플리케이션과 같은 신뢰 당사자 애플리케이션은 [RP(신뢰 당사자) 정책](relyingparty.md)을 호출합니다. RP 정책 파일은 로그인, 암호 재설정 또는 프로필 편집과 같은 특정 작업을 실행합니다. RP 정책은 신뢰 당사자 애플리케이션이 발급된 토큰의 일부로 수신하는 클레임 목록을 구성합니다. 여러 애플리케이션이 동일한 정책을 사용할 수 있습니다. 모든 애플리케이션은 클레임이 포함된 동일한 토큰을 수신하며 사용자가 동일한 사용자 경험을 진행합니다. 단일 애플리케이션이 여러 개의 정책을 사용할 수 있습니다.
 
 RP 정책 파일 내에서 [UserJourney](userjourneys.md)를 가리키는 **DefaultUserJourney** 요소를 지정합니다. 일반적으로 사용자 경험은 기본 또는 확장 정책에서 정의됩니다.
 

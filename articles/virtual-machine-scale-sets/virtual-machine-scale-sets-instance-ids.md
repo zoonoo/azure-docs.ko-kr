@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: manayar
-ms.openlocfilehash: f15b2154c1bac4d699af91980a4bc2a7192bb0c9
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 5d92aa78b132b661af3cdc53b47c0340a0758dd8
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740878"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855315"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Azure VM 확장 집합 VM의 인스턴스 ID 이해
 이 문서에서는 확장 집합의 인스턴스 ID와 이것이 노출되는 다양한 방식을 설명합니다.
@@ -41,7 +41,7 @@ REST API: `GET https://management.azure.com/subscriptions/{subscriptionId}/resou
 
 Powershell: `Get-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}`(자세한 내용은 [Powershell 설명서](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm) 참조)
 
-CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}`(자세한 내용은 [CLI 설명서](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_list_instances) 참조)
+CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}`(자세한 내용은 [CLI 설명서](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest) 참조)
 
 [resources.azure.com](https://resources.azure.com) 또는 [Azure SDK](https://azure.microsoft.com/downloads/)를 사용하여 확장 집합의 VM을 나열할 수도 있습니다.
 

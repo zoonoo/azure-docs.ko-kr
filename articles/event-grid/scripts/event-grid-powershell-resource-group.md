@@ -10,14 +10,14 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2018
+ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1a3a32003c76c0132ee0503af996e3f323a08577
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: fe36336bb1bcc3b0d1cc718724ca05f6d23110c7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425997"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270538"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-with-powershell"></a>PowerShell을 사용하여 리소스 그룹에 대한 이벤트 구독
 
@@ -25,9 +25,15 @@ ms.locfileid: "31425997"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>샘플 스크립트
+미리 보기 샘플 스크립트를 사용하려면 Event Grid 모듈이 필요합니다. 설치하려면 `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`를 실행합니다.
+
+## <a name="sample-script---stable"></a>샘플 스크립트 - 안정적
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-resource-group/subscribe-to-resource-group.ps1 "Subscribe to resource group")]
+
+## <a name="sample-script---preview-module"></a>샘플 스크립트 - 미리 보기 모듈
+
+[!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-resource-group-preview/subscribe-to-resource-group-preview.ps1 "Subscribe to resource group")]
 
 ## <a name="script-explanation"></a>스크립트 설명
 
@@ -39,5 +45,5 @@ ms.locfileid: "31425997"
 
 ## <a name="next-steps"></a>다음 단계
 
-* 관리되는 응용 프로그램에 대한 소개는 [Azure Managed Application 개요](../overview.md)를 참조하세요.
+* 관리되는 애플리케이션에 대한 소개는 [Azure Managed Application 개요](../overview.md)를 참조하세요.
 * PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/get-started-azureps)를 참조하세요.

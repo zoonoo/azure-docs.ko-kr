@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 26ee51da0065b15191c6a02bcd10597c1190dd0a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: f8b479f55ea5ee22ae2510fad6279cac0aaa9c0d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497289"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608803"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>HDInsight에서 Apache Spark 클러스터와 함께 사용자 지정 Python 라이브러리를 사용하여 웹 사이트 로그 분석
 
 이 노트북에서는 HDInsight의 Apache Spark와 함께 사용자 지정 라이브러리를 사용하여 로그 데이터를 분석하는 방법을 보여줍니다. 사용하는 사용자 지정 라이브러리는 **iislogparser.py**라는 Python 라이브입니다.
 
-> [!TIP]
+> [!TIP]  
 > 이 자습서는 HDInsight에서 만드는 Spark(Linux) 클러스터에서 Jupyter 노트북으로 사용할 수도 있습니다. Notebook 환경을 통해 Notebook 자체에서 Python 코드 조각을 실행할 수 있습니다. Notebook 내에서 자습서를 수행하려면 Spark 클러스터를 만들고 Jupyter Notebook(`https://CLUSTERNAME.azurehdinsight.net/jupyter`)을 시작한 다음 **PySpark** 폴더 아래의 **사용자 지정 library.ipynb를 사용하여 Spark에서 로그 분석** Notebook을 실행합니다.
 >
 >
@@ -176,7 +176,7 @@ ms.locfileid: "52497289"
        %%sql -o averagetime
        SELECT * FROM AverageTime
 
-   `-o averagetime` 앞의 `%%sql` 매직은 쿼리 출력이 Jupyter 서버(일반적으로 클러스터의 헤드 노드)에서 로컬로 유지되도록 합니다. 출력은 [averagetime](http://pandas.pydata.org/) 이라는 이름이 지정된 **Pandas**데이터 프레임으로 유지됩니다.
+   `-o averagetime` 앞의 `%%sql` 매직은 쿼리 출력이 Jupyter 서버(일반적으로 클러스터의 헤드 노드)에서 로컬로 유지되도록 합니다. 출력은 [averagetime](https://pandas.pydata.org/) 이라는 이름이 지정된 **Pandas**데이터 프레임으로 유지됩니다.
 
    다음과 유사한 출력이 표시됩니다.
 
@@ -196,19 +196,19 @@ ms.locfileid: "52497289"
    다음과 유사한 출력이 표시됩니다.
 
    ![Matplotlib 출력](./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Matplotlib 출력")
-8. 응용 프로그램 실행을 완료한 후 리소스를 해제하도록 Notebook을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 클릭합니다. 그러면 Notebook이 종료되고 닫힙니다.
+8. 애플리케이션 실행을 완료한 후 리소스를 해제하도록 노트북을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 클릭합니다. 그러면 Notebook이 종료되고 닫힙니다.
 
 ## <a name="seealso"></a>참고 항목
-* [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
+* [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
 * [BI와 Apache Spark: BI 도구와 함께 HDInsight의 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 HVAC 데이터로 건물 온도 분석](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Apache Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
 
-### <a name="create-and-run-applications"></a>응용 프로그램 만들기 및 실행
-* [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](apache-spark-create-standalone-application.md)
-* [Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
+### <a name="create-and-run-applications"></a>애플리케이션 만들기 및 실행
+* [Scala를 사용하여 독립 실행형 애플리케이션 만들기](apache-spark-create-standalone-application.md)
+* [Apache Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>도구 및 확장
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Apache Spark Scala 애플리케이션 생성 및 제출](apache-spark-intellij-tool-plugin.md)

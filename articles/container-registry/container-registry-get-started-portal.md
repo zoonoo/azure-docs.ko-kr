@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure Portal을 사용하여 Azure에서 개인 Docker 레지스트리 만들기
+title: 빠른 시작 - Azure에서 개인 Docker 레지스트리 만들기 - Azure Portal
 description: Azure Portal을 사용한 개인 Docker 컨테이너 레지스트리 만들기에 대해 빠르게 알아봅니다.
 services: container-registry
 author: dlepow
@@ -7,15 +7,15 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 1e039c465bf37e0ee5ca1db5837798680e27463d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 865c53fdda60f6a0384157ec68042b4b8b243a7a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278670"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255366"
 ---
-# <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 컨테이너 레지스트리 만들기
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 개인 컨테이너 레지스트리 만들기
 
 Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하고 관리할 수 있는 Azure의 개인 Docker 레지스트리입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 컨테이너 레지스트리를 만들고, 컨테이너 이미지를 레지스트리로 푸시하고, 마지막으로 레지스트리의 컨테이너를 ACI(Azure Container Instances)로 배포합니다.
 
@@ -23,7 +23,7 @@ Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하고
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
@@ -126,9 +126,9 @@ mycontainer 컨테이너 그룹을 선택하여 컨테이너 그룹 속성을 �
 
 ![ACI 컨테이너 세부 정보][qs-portal-14]
 
-## <a name="view-the-application"></a>응용 프로그램 보기
+## <a name="view-the-application"></a>애플리케이션 보기
 
-컨테이너가 **실행** 상태가 되면 선호하는 브라우저를 사용하여 이전 단계에서 기록해 둔 IP 주소로 이동하여 응용 프로그램을 표시합니다.
+컨테이너가 **실행** 상태가 되면 선호하는 브라우저를 사용하여 이전 단계에서 기록해 둔 IP 주소로 이동하여 애플리케이션을 표시합니다.
 
 ![브라우저의 Hello World 앱][qs-portal-15]
 

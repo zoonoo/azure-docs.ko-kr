@@ -1,21 +1,18 @@
 ---
 title: Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하여 CI/CD 파이프라인 설정
 description: Cosmos DB 에뮬레이터 빌드 작업을 사용하여 Azure DevOps에서 빌드 및 릴리스 워크플로를 설정하는 방법에 대한 자습서
-services: cosmos-db
-keywords: Azure Cosmos DB 에뮬레이터
 author: deborahc
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: 782975cfa548d214515761e45b8f79a2219831e2
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.reviewer: sngun
+ms.openlocfilehash: 58b97dd2df29a829b843d20c14cdb15644357653
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036974"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053707"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하여 Azure DevOps에서 CI/CD 파이프라인 설정
 
@@ -23,7 +20,7 @@ Azure Cosmos DB 에뮬레이터는 개발 목적으로 Azure Cosmos DB 서비스
 
 Azure DevOps에 대한 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하면 CI 환경에서와 동일한 작업을 수행할 수 있습니다. 빌드 작업을 사용하면 빌드 및 릴리스 워크플로의 일부로 에뮬레이터에 대한 테스트를 실행할 수 있습니다. 이 작업은 에뮬레이터가 이미 실행 중인 Docker 컨테이너를 스핀업하고, 빌드 정의의 나머지 부분에서 사용할 수 있는 엔드포인트를 제공합니다. 별도 컨테이너에서 실행되는 필요한 만큼 많은 에뮬레이터의 인스턴스를 만들고 시작할 수 있습니다. 
 
-이 문서에서는 Cosmos DB 에뮬레이터 빌드 작업을 사용하여 테스트를 실행하는 ASP.NET 응용 프로그램에 대해 Azure DevOps에서 CI 파이프라인을 설정하는 방법을 설명합니다. 
+이 문서에서는 Cosmos DB 에뮬레이터 빌드 작업을 사용하여 테스트를 실행하는 ASP.NET 응용 프로그램에 대해 Azure DevOps에서 CI 파이프라인을 설정하는 방법을 설명합니다. 유사한 방법을 사용하여 Node.js 또는 Python 애플리케이션에 대한 CI 파이프라인을 설정할 수 있습니다. 
 
 ## <a name="install-the-emulator-build-task"></a>에뮬레이터 빌드 작업 설치
 
@@ -68,9 +65,9 @@ Azure DevOps에 대한 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용�
 
 이제 에뮬레이터를 사용하도록 테스트를 구성합니다. 에뮬레이터 빌드 작업은 빌드 파이프라인의 모든 작업이 요청을 발급할 수 있는 'CosmosDbEmulator.Endpoint' 환경 변수를 내보냅니다. 
 
-이 자습서에서는 [Visual Studio 테스트 작업](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md)을 사용하여 **.runsettings** 파일을 통해 구성된 단위 테스트를 실행합니다. 단위 테스트 설정에 대한 자세한 내용은 [설명서](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017)를 참조하세요.
+이 자습서에서는 [Visual Studio 테스트 작업](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md)을 사용하여 **.runsettings** 파일을 통해 구성된 단위 테스트를 실행합니다. 단위 테스트 설정에 대한 자세한 내용은 [설명서](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017)를 참조하세요. 이 문서에서 사용하는 Todo 애플리케이션 코드에 대한 완전한 샘플은 [Github](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)에서 사용할 수 있습니다.
 
-응용 프로그램의 단위 테스트에 전달할 매개 변수를 정의하는 **.runsettings** 파일의 예제는 다음과 같습니다. 사용된 `authKey` 변수는 에뮬레이터에 대해 [잘 알려진 키](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests)입니다. 이 `authKey`는 에뮬레이터 빌드 작업에서 예상되는 키이며, **.runsettings** 파일에서 정의되어야 합니다.
+애플리케이션의 단위 테스트에 전달할 매개 변수를 정의하는 **.runsettings** 파일의 예제는 다음과 같습니다. 사용된 `authKey` 변수는 에뮬레이터에 대해 [잘 알려진 키](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests)입니다. 이 `authKey`는 에뮬레이터 빌드 작업에서 예상되는 키이며, **.runsettings** 파일에서 정의되어야 합니다.
 
 ```csharp
 <RunSettings>
@@ -83,7 +80,9 @@ Azure DevOps에 대한 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용�
 </RunSettings>
 ```
 
-이러한 매개 변수 `TestRunParameters`는 응용 프로그램 테스트 프로젝트의 `TestContext` 속성을 통해 참조됩니다. Cosmos DB에 대해 실행되는 테스트의 예제는 다음과 같습니다.
+Azure Cosmos DB의 MongoDB API를 사용하는 애플리케이션에 대한 CI/CD 파이프라인을 설정하는 경우 기본적으로 10255 포트 번호가 연결 문자열에 포함됩니다. 그러나 이 포트는 현재 열려 있지 않아 대안으로 포트 10250을 사용하여 연결을 설정합니다. 지원되는 포트 번호가 10255 대신 10250이라는 점을 제외하고는 Azure Cosmos DB의 MongoDB API 연결 문자열이 동일하게 유지됩니다.
+
+이러한 매개 변수 `TestRunParameters`는 애플리케이션 테스트 프로젝트의 `TestContext` 속성을 통해 참조됩니다. Cosmos DB에 대해 실행되는 테스트의 예제는 다음과 같습니다.
 
 ```csharp
 namespace todo.Tests

@@ -23,7 +23,7 @@ ms.locfileid: "52290776"
 ---
 # <a name="performance-metrics"></a>성능 메트릭
 
-클러스터의 성능 및 클러스터에서 실행 중인 응용 프로그램을 이해하기 위해 메트릭을 수집해야 합니다. Service Fabric 클러스터의 경우 다음과 같은 성능 카운터를 수집하는 것이 좋습니다.
+클러스터의 성능 및 클러스터에서 실행 중인 애플리케이션을 이해하기 위해 메트릭을 수집해야 합니다. Service Fabric 클러스터의 경우 다음과 같은 성능 카운터를 수집하는 것이 좋습니다.
 
 ## <a name="nodes"></a>노드
 
@@ -59,7 +59,7 @@ ms.locfileid: "52290776"
 | 네트워크 인터페이스(모든 인스턴스) | Packets Outbound Errors |
 | 네트워크 인터페이스(모든 인스턴스) | Packets Received Errors |
 
-## <a name="net-applications-and-services"></a>.NET 응용 프로그램 및 서비스
+## <a name="net-applications-and-services"></a>.NET 애플리케이션 및 서비스
 
 .NET 서비스를 클러스터에 배포하는 경우 다음과 같은 카운터를 수집합니다. 
 
@@ -80,7 +80,7 @@ ms.locfileid: "52290776"
 
 Service Fabric은 상당한 양의 사용자 지정 성능 카운터를 생성합니다. SDK가 설치되어 있는 경우 성능 모니터 응용 프로그램에서 Windows 컴퓨터의 포괄적인 목록을 볼 수 있습니다(시작 > 성능 모니터). 
 
-클러스터에 배포하는 응용 프로그램에서 Reliable Actors를 사용하는 경우 `Service Fabric Actor` 및 `Service Fabric Actor Method` 범주에서 카운터를 추가합니다([Service Fabric Reliable Actors 진단](service-fabric-reliable-actors-diagnostics.md) 참조).
+클러스터에 배포하는 애플리케이션에서 Reliable Actors를 사용하는 경우 `Service Fabric Actor` 및 `Service Fabric Actor Method` 범주에서 카운터를 추가합니다([Service Fabric Reliable Actors 진단](service-fabric-reliable-actors-diagnostics.md) 참조).
 
 Reliable Services 또는 Service Remoting을 사용하는 경우에도 마찬가지로 카운터를 수집해야 하는 `Service Fabric Service` 및 `Service Fabric Service Method` 카운터 범주가 있습니다. [Service Remoting을 사용하여 모니터링](service-fabric-reliable-serviceremoting-diagnostics.md) 및 [Reliable Services 성능 카운터](service-fabric-reliable-services-diagnostics.md#performance-counters)를 참조하세요. 
 

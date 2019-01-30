@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 클라이언트 인증서를 사용하�
 description: 클라이언트 인증서를 사용하여 Azure AD B2C에서 사용자 지정 REST API 클레임 교환 보호
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7bf7add75f60bf64f64119979e5eee81be0f6e7b
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: c0a8ef9600406e94c1077436861d6578847b5ade
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344968"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845039"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>클라이언트 인증서를 사용하여 RESTful 서비스 보호
 
@@ -41,7 +41,7 @@ ms.locfileid: "43344968"
 **Azure App Service**가 클라이언트 인증서를 요구하도록 설정하려면 웹앱 `clientCertEnabled` 사이트를 *true*로 설정합니다. 이 변경 내용을 적용하려면 Azure Portal에서 웹앱 페이지를 엽니다. 왼쪽 탐색 메뉴의 **설정** 아래에서 **SSL 설정**을 선택합니다. **클라이언트 인증서** 섹션에서 **들어오는 클라이언트 인증서** 옵션을 설정합니다.
 
 >[!NOTE]
->Azure App Service 계획이 표준 이상이어야 합니다. 자세한 내용은 [Azure App Service 계획 심층 개요](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)를 참조하세요.
+>Azure App Service 계획이 표준 이상이어야 합니다. 자세한 내용은 [Azure App Service 계획 심층 개요](https://docs.microsoft.com/azure/app-service/overview-hosting-plans)를 참조하세요.
 
 >[!NOTE]
 >**clientCertEnabled** 속성을 설정하는 방법에 대한 자세한 내용은 [웹앱에 TLS 상호 인증 구성](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)을 참조하세요.
@@ -115,7 +115,7 @@ ms.locfileid: "43344968"
 1. **Azure AD B2C 설정**을 연 다음 **ID 경험 프레임워크**를 선택합니다.
 
     >[!NOTE]
-    >지금 실행을 사용하려면 하나 이상의 응용 프로그램이 테넌트에 미리 등록되어 있어야 합니다. 응용 프로그램을 등록하는 방법은 Azure AD B2C [시작](active-directory-b2c-get-started.md) 문서 또는 [응용 프로그램 등록](active-directory-b2c-app-registration.md) 문서를 참조하세요.
+    >지금 실행을 사용하려면 하나 이상의 애플리케이션이 테넌트에 미리 등록되어 있어야 합니다. 애플리케이션을 등록하는 방법은 Azure AD B2C [시작](active-directory-b2c-get-started.md) 문서 또는 [애플리케이션 등록](active-directory-b2c-app-registration.md) 문서를 참조하세요.
 
 2. 업로드한 RP(신뢰 당사자) 사용자 지정 정책인 **B2C_1A_signup_signin**을 연 다음 **지금 실행**을 선택합니다.
 
@@ -125,7 +125,7 @@ ms.locfileid: "43344968"
     ![ID API 테스트](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
 
 4. **지정된 이름** 상자에서 ("Test" 이외의) 이름을 입력합니다.  
-    Azure AD B2C는 사용자를 등록한 후 전용 번호를 응용 프로그램에 보냅니다. 이 JWT 예제의 번호를 적어둡니다.
+    Azure AD B2C는 사용자를 등록한 후 전용 번호를 애플리케이션에 보냅니다. 이 JWT 예제의 번호를 적어둡니다.
 
    ```
    {
@@ -152,15 +152,15 @@ ms.locfileid: "43344968"
    >*이름이 유효하지 않습니다. 유효한 이름을 입력하세요.* 라는 오류 메시지가 표시되면 Azure AD B2C에서 클라이언트 인증서를 제공하는 동안 성공적으로 RESTful 서비스를 호출했음을 의미합니다. 다음 단계에서는 인증서의 유효성을 검사합니다.
 
 ## <a name="step-6-add-certificate-validation"></a>6단계: 인증서 유효성 검사 추가
-Azure AD B2C에서 RESTful 서비스에 전송한 클라이언트 인증서는 인증서가 있는지를 확인하는 것을 제외하고 Azure Web Apps 플랫폼에 의한 유효성 검사를 거치지 않습니다. 인증서의 유효성을 검사하는 작업은 웹앱에서 담당합니다. 
+Azure AD B2C에서 RESTful 서비스에 전송한 클라이언트 인증서는 인증서가 있는지를 확인하는 것을 제외하고 Azure App Service 플랫폼에 의한 유효성 검사를 거치지 않습니다. 인증서의 유효성을 검사하는 작업은 웹앱에서 담당합니다. 
 
 이 섹션에서는 인증을 위해 인증서 속성의 유효성을 검사하는 샘플 ASP.NET 코드를 추가합니다.
 
 > [!NOTE]
 >클라이언트 인증서 인증을 위해 Azure App Service를 구성하는 방법에 대한 자세한 내용은 [웹앱에 TLS 상호 인증 구성](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)을 참조하세요.
 
-### <a name="61-add-application-settings-to-your-projects-webconfig-file"></a>6.1 프로젝트의 web.config 파일에 응용 프로그램 설정 추가
-앞서 만든 Visual Studio 프로젝트에서 `appSettings` 요소 뒤에 *web.config* 파일에 다음 응용 프로그램 설정을 추가합니다.
+### <a name="61-add-application-settings-to-your-projects-webconfig-file"></a>6.1 프로젝트의 web.config 파일에 애플리케이션 설정 추가
+앞서 만든 Visual Studio 프로젝트에서 `appSettings` 요소 뒤에 *web.config* 파일에 다음 애플리케이션 설정을 추가합니다.
 
 ```XML
 <add key="ClientCertificate:Subject" value="CN=Subject name" />
@@ -265,9 +265,9 @@ private bool IsValidClientCertificate()
 
 위의 샘플 코드에서 다음 조건이 모두 충족되는 경우에만 인증서를 유효한 것으로 수락합니다.
 * 인증서가 만료되지 않고 현재 서버에서 활성화되어 있습니다.
-* 인증서의 `Subject` 이름은 `ClientCertificate:Subject` 응용 프로그램 설정 값과 같습니다.
-* 인증서의 `Issuer` 이름은 `ClientCertificate:Issuer` 응용 프로그램 설정 값과 같습니다.
-* 인증서의 `thumbprint`는 `ClientCertificate:Thumbprint` 응용 프로그램 설정 값과 같습니다.
+* 인증서의 `Subject` 이름은 `ClientCertificate:Subject` 애플리케이션 설정 값과 같습니다.
+* 인증서의 `Issuer` 이름은 `ClientCertificate:Issuer` 애플리케이션 설정 값과 같습니다.
+* 인증서의 `thumbprint`는 `ClientCertificate:Thumbprint` 애플리케이션 설정 값과 같습니다.
 
 >[!IMPORTANT]
 >서비스의 중요도에 따라 더 많은 유효성 검사를 추가해야 합니다. 예를 들어 인증서가 신뢰할 수 있는 루트 인증 기관, 발급자 조직 이름 유효성 검사 등에 연결되었는지 테스트해야 합니다.

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6e382e57473cd1461b97e742546a3b621f2fd4c8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: b88660548feaa1d3a8e83e633f798212c80ac6dc
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426705"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190309"
 ---
 # <a name="backup-and-restore"></a>Backup 및 복원
 
@@ -76,7 +76,7 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet) cmdlet을 사용합니다.
 
 ## <a name="restore"></a>복원
-복원할 때 백업 파일은 서버용으로 구성한 저장소 계정에 있어야 합니다. 온-프레미스 위치에서 저장소 계정으로 백업 파일을 이동해야 하는 경우 [Microsoft Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) 또는 [AzCopy](../storage/common/storage-use-azcopy.md) 명령줄 유틸리티를 사용합니다. 
+복원할 때 백업 파일은 서버용으로 구성한 저장소 계정에 있어야 합니다. 온-프레미스 위치에서 스토리지 계정으로 백업 파일을 이동해야 하는 경우 [Microsoft Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) 또는 [AzCopy](../storage/common/storage-use-azcopy.md) 명령줄 유틸리티를 사용합니다. 
 
 
 

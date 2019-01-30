@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7a059cd5c22306c42adc4c7c8fcc4e52c3ebcd00
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c4fff902614b3979fcc28833c5352afe2bdd84b0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313574"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341500"
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>Azure Security Center에서 VM 에이전트 사용
 [데이터 컬렉션을 사용하도록 설정](security-center-enable-data-collection.md)하려면 VM(가상 머신)에 VM 에이전트를 설치해야 합니다.  Azure Security Center에서 VM 에이전트가 필요한 VM을 확인하고 해당 VM에서 VM 에이전트를 사용하는 것이 좋습니다.
@@ -40,7 +40,7 @@ Azure Marketplace에서 배포된 VM에 VM 에이전트가 기본적으로 설�
 ## <a name="see-also"></a>참고 항목
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure Security Center에서 보안 정책 설정](security-center-azure-policy.md)-- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
+* [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md)-- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md)-- 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아봅니다.
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md)--Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)--보안 경고를 관리하고 대응하는 방법을 알아봅니다.

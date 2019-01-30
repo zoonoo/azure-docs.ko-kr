@@ -4,7 +4,7 @@ description: 기존 Azure AD Domain Services로 관리되는 도메인의 디렉
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: ergreenl
-ms.openlocfilehash: 12611c9a4016b634cb865bbf609b1c7a6961abb7
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7f69214304161c091a4550aff770b6333656972c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155068"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844214"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>기존 Azure AD Domain Services로 관리되는 도메인의 디렉터리 불일치 문제 해결
 기존 Azure AD Domain Services 관리되는 도메인이 있습니다. Azure Portal로 이동하여 관리되는 도메인을 확인할 때 다음 오류 메시지가 표시됩니다.
 
-![디렉터리 불일치 오류](.\media\getting-started\mismatched-tenant-error.png)
+![디렉터리 불일치 오류](./media/getting-started/mismatched-tenant-error.png)
 
 오류가 해결될 때까지 이 관리되는 도메인을 관리할 수 없습니다.
 

@@ -4,17 +4,17 @@ description: Marketplace 이미지를 사용하여 관리 ID 및 원격 상태 �
 services: terraform
 ms.service: terraform
 keywords: Terraform, DevOps, MSI, 가상 머신, 원격 상태, Azure
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: a162d0c19bef28e6e4566d39c2dc3b82a87a4aa9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3f10e5dfd0a4aac859c1a946b5f0a680899e0888
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242095"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852544"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Azure Marketplace 이미지를 사용하여 관리 ID가 있는 Azure 리소스용 Terraform Linux 가상 머신 만들기
 
@@ -37,7 +37,7 @@ Linux Terraform 가상 머신의 인스턴스를 만드는 단계는 다음과 �
 
 3. 오른쪽 아래의 Terraform 세부 정보 탭에서 **만들기** 단추를 선택합니다.
 
-    ![Terraform 가상 머신 만들기](media\terraformmsi.png)
+    ![Terraform 가상 머신 만들기](media/terraformmsi.png)
 
 4. 다음 섹션에서는 Terraform Linux 가상 머신을 만들기 위해 마법사의 각 단계에 대한 입력을 제공합니다. 다음 섹션에서는 이러한 각 단계를 구성하는 데 필요한 입력을 나열합니다.
 
@@ -48,9 +48,9 @@ Linux Terraform 가상 머신의 인스턴스를 만드는 단계는 다음과 �
 1. **기본 사항**
     
    * **이름**: Terraform 가상 머신의 이름입니다.
-   * **사용자 이름**: 첫 번째 계정 로그인 ID입니다.
-   * **암호**: 첫 번째 계정 암호입니다. (암호 대신 SSH 공개 키를 사용할 수 있습니다.)
-   * **구독**: 컴퓨터가 만들어지고 청구되는 구독입니다. 이 구독에 대한 리소스 만들기 권한이 있어야 합니다.
+   * **사용자 이름**: 첫 번째 계정의 로그인 ID입니다.
+   * **암호**: 첫 번째 계정의 암호입니다. (암호 대신 SSH 공개 키를 사용할 수 있습니다.)
+   * **구독**: 머신이 만들어지고 청구되는 구독입니다. 이 구독에 대한 리소스 만들기 권한이 있어야 합니다.
    * **리소스 그룹**: 새 또는 기존 리소스 그룹입니다.
    * **위치**: 가장 적합한 데이터 센터입니다. 이 위치는 대개 대부분의 데이터가 저장되어 있는 위치이거나 사용자의 실제 위치에 가장 가까운 위치(이 경우 네트워크에 가장 빠르게 액세스할 수 있음)입니다.
 
@@ -85,7 +85,7 @@ SSH를 사용하여 가상 머신에 연결한 후 가상 머신에서 전체 �
 
 `. ~/tfEnv.sh`
 
-이전 스크립트는 [AZ CLI v 2.0 대화형 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) 메커니즘을 사용하여 Azure에서 인증하고 전체 구독에 대한 관리 ID 기여자 권한을 가상 머신에 할당합니다. 
+이전 스크립트는 [AZ CLI v 2.0 대화형 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) 메커니즘을 사용하여 Azure에서 인증하고 전체 구독에 대한 관리 ID 기여자 권한을 가상 머신에 할당합니다. 
 
  VM에는 Terraform 원격 상태 백 엔드가 있습니다. Terraform 배포에서 이를 사용하려면 tfTemplate 디렉터리의 remoteState.tf 파일을 Terraform 스크립트의 루트에 복사합니다.  
 

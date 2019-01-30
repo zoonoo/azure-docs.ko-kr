@@ -1,21 +1,19 @@
 ---
-title: C++에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법 | Microsoft Docs
+title: C++로 Azure Table Storage 및 Azure Cosmos DB Table API를 사용하는 방법
 description: Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
-services: cosmos-db
-author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: cpp
 ms.topic: sample
 ms.date: 04/05/2018
-ms.author: sngun
-ms.openlocfilehash: 520c0868e51f1212ee1beca8967d3c08f1d6e869
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+author: wmengmsft
+ms.author: wmeng
+ms.openlocfilehash: 40b84a56f93ad670a26eb876a18820e0d4037f63
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797916"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033980"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>C++로 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -25,7 +23,7 @@ ms.locfileid: "34797916"
 이 가이드에서는 Azure Table Storage 서비스 또는 Azure Cosmos DB Table API를 사용하여 일반 시나리오를 수행하는 방법을 보여줍니다. 샘플은 C++로 작성되었으며 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)를 사용합니다. 여기서 다루는 시나리오에는 **테이블 만들기 및 삭제**와 **테이블 엔터티 작업**이 포함됩니다.
 
 > [!NOTE]
-> 이 가이드는 Azure Storage Client Library for C++ 버전 1.0.0 이상을 대상으로 합니다. 권장되는 버전은 Storage Client Library 2.2.0이며, [NuGet](http://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/Azure/azure-storage-cpp/)를 통해 사용 가능합니다.
+> 이 가이드는 Azure Storage Client Library for C++ 버전 1.0.0 이상을 대상으로 합니다. 권장되는 버전은 Storage Client Library 2.2.0이며, [NuGet](https://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/Azure/azure-storage-cpp/)를 통해 사용 가능합니다.
 > 
 
 ## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
@@ -38,12 +36,12 @@ ms.locfileid: "34797916"
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="create-a-c-application"></a>C++ 응용 프로그램 만들기
-이 가이드에서는 C++ 응용 프로그램 내에서 실행할 수 있는 저장소 기능을 사용합니다. 이 기능을 사용하려면, Azure Storage Client Library for C++를 설치하고 Azure 구독에서 Azure 저장소 계정을 만들어야 합니다.  
+이 가이드에서는 C++ 애플리케이션 내에서 실행할 수 있는 저장소 기능을 사용합니다. 이 기능을 사용하려면, Azure Storage Client Library for C++를 설치하고 Azure 구독에서 Azure 저장소 계정을 만들어야 합니다.  
 
 Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사용할 수 있습니다.
 
-* **Linux:**[Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 페이지의 지침을 따릅니다.  
-* **Windows:** Visual Studio에서 **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔**을 클릭합니다. [NuGet 패키지 관리자 콘솔](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 에 다음 명령을 입력하고 Enter 키를 누릅니다.  
+* **Linux:** [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)(C++용 Azure Storage 클라이언트 라이브러리 추가 정보) 페이지의 지침을 따릅니다.  
+* **Windows:** Visual Studio에서 **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔**을 클릭합니다. [NuGet 패키지 관리자 콘솔](/nuget/tools/package-manager-console) 에 다음 명령을 입력하고 Enter 키를 누릅니다.  
   
      Install-Package wastorage
 
@@ -55,7 +53,7 @@ Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사�
 #include <was/table.h>
 ```
 
-Azure Storage 클라이언트 또는 Cosmos DB 클라이언트는 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 끝점 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램을 실행할 때 적절한 형식의 저장소 연결 문자열 또는 Azure Cosmos DB 연결 문자열을 제공해야 합니다.
+Azure Storage 클라이언트 또는 Cosmos DB 클라이언트는 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램을 실행할 때 적절한 형식의 저장소 연결 문자열 또는 Azure Cosmos DB 연결 문자열을 제공해야 합니다.
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Azure Storage 연결 문자열 설정
  *AccountName* 및 *AccountKey* 값에 대해 [Azure Portal](https://portal.azure.com)에 나열된 Storage 계정에서 Storage 계정 이름 및 액세스 키를 사용합니다. Storage 계정 및 액세스 키에 대한 자세한 내용은 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요. 이 예제에서는 고정 필드가 Azure Storage 연결 문자열을 보유하도록 선언하는 방법을 보여줍니다.  
@@ -66,7 +64,7 @@ const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=ht
 ```
 
 ## <a name="set-up-an-azure-cosmos-db-connection-string"></a>Azure Cosmos DB 연결 문자열 설정
-*계정 이름*, *기본 키* 및 *끝점* 값에 [Azure Portal](https://portal.azure.com)에 나열된 Azure Cosmos DB 계정 이름, 기본 키 및 끝점을 사용합니다. 이 예제에서는 고정 필드가 Azure Cosmos DB 연결 문자열을 보유하도록 선언하는 방법을 보여줍니다.
+*계정 이름*, *기본 키* 및 *엔드포인트* 값에 [Azure Portal](https://portal.azure.com)에 나열된 Azure Cosmos DB 계정 이름, 기본 키 및 엔드포인트를 사용합니다. 이 예제에서는 고정 필드가 Azure Cosmos DB 연결 문자열을 보유하도록 선언하는 방법을 보여줍니다.
 
 ```cpp
 // Define the Azure Cosmos DB connection string with your values.
@@ -81,7 +79,7 @@ const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=ht
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 클릭하거나 Windows 키를 누릅니다. **Azure Storage 에뮬레이터** 입력을 시작한 다음 응용 프로그램 목록에서 **Microsoft Azure Storage 에뮬레이터**를 선택합니다.  
+Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 클릭하거나 Windows 키를 누릅니다. **Azure Storage 에뮬레이터** 입력을 시작한 다음, 애플리케이션 목록에서 **Microsoft Azure Storage 에뮬레이터**를 선택합니다.  
 
 다음 샘플에서는 저장소 연결 문자열을 가져오기 위해 위의 두 메서드 중 하나를 사용한 것으로 가정합니다.  
 
@@ -479,5 +477,5 @@ Azure Storage 및 Azure Cosmos DB의 Table API에 대한 자세한 내용을 보
 * [Table API 소개](table-introduction.md)
 * [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, MacOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 * [C++에서 Azure Storage 리소스 나열](../storage/common/storage-c-plus-plus-enumeration.md)
-* [C++용 Storage Client Library 참조(영문)](http://azure.github.io/azure-storage-cpp)
+* [C++용 Storage Client Library 참조(영문)](https://azure.github.io/azure-storage-cpp)
 * [Azure Storage 설명서](https://azure.microsoft.com/documentation/services/storage/)

@@ -3,21 +3,21 @@ title: 자습서 - Azure Active Directory B2C를 사용하여 데스크톱 앱�
 description: Active Directory B2C를 사용하여 Node.js web api를 보호하고 .NET 데스크톱 앱에서 호출하는 방법에 대한 자습서입니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
 ms.date: 3/01/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: b8cdf6cb07215f4c1e2a472f60513aff765dcfb5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 8e99e8501a19bac977d5d9488077b809b2c6dde7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603197"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856981"
 ---
-# <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 데스크톱 앱에서 Node.js Web API로의 액세스 권한 부여
+# <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 데스크톱 앱에서 Node.js Web API에 대한 액세스 권한 부여
 
 이 자습서에서는 WPF(Windows Presentation Foundation)에서 Azure AD(Azure Active Directory) B2C로 보호되는 Node.js Web API 리소스를 호출하는 방법을 보여줍니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "45603197"
 
 ## <a name="register-web-api"></a>웹 API 등록
 
-Azure Active Directory에서 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)을 제공하는 [클라이언트 응용 프로그램](../active-directory/develop/developer-glossary.md#client-application)을 통해 [보호된 리소스 요청](../active-directory/develop/developer-glossary.md#resource-server)을 수락하고 이에 응답하려면, 먼저 웹 API 리소스를 테넌트에 등록해야 합니다. 등록하면 [응용 프로그램 및 서비스 사용자 개체](../active-directory/develop/developer-glossary.md#application-object)가 테넌트에 설정됩니다. 
+Azure Active Directory에서 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)을 제공하는 [클라이언트 애플리케이션](../active-directory/develop/developer-glossary.md#client-application)을 통해 [보호된 리소스 요청](../active-directory/develop/developer-glossary.md#resource-server)을 수락하고 이에 응답하려면, 먼저 웹 API 리소스를 테넌트에 등록해야 합니다. 등록하면 [응용 프로그램 및 서비스 사용자 개체](../active-directory/develop/developer-glossary.md#application-object)가 테넌트에 설정됩니다. 
 
 Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -47,7 +47,7 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
 
 1. Azure Portal의 서비스 목록에서 **Azure AD B2C**를 선택합니다.
 
-2. B2C 설정에서 **응용 프로그램**, **추가**를 차례로 클릭합니다.
+2. B2C 설정에서 **애플리케이션**, **추가**를 차례로 클릭합니다.
 
     샘플 웹 API를 테넌트에 등록하려면 다음 설정을 사용합니다.
     
@@ -70,7 +70,7 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
 
 **응용 프로그램 클라이언트 ID**를 적어 둡니다. ID는 API를 고유하게 식별하며 자습서의 뒷부분에서 API를 구성할 때 필요합니다.
 
-Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정의됩니다. API가 B2C에 등록되어 있으므로 이제 API는 다른 응용 프로그램에서 받은 B2C 액세스 토큰을 신뢰할 수 있습니다.
+Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정의됩니다. API가 B2C에 등록되어 있으므로 이제 API는 다른 애플리케이션에서 받은 B2C 액세스 토큰을 신뢰할 수 있습니다.
 
 ## <a name="define-and-configure-scopes"></a>범위 정의 및 구성
 
@@ -98,7 +98,7 @@ Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정�
 
 앱에서 보호된 웹 API를 호출하려면 앱 사용 권한을 API에 부여해야 합니다. 이 자습서에서는 [데스크톱 앱에서 Azure Active Directory B2C를 사용하여 사용자 인증 자습서](active-directory-b2c-tutorials-desktop-app.md)에서 만든 데스크톱 앱을 사용합니다.
 
-1. Azure Portal의 서비스 목록에서 **Azure AD B2C**를 선택하고, **응용 프로그램**을 클릭하여 등록된 앱 목록을 봅니다.
+1. Azure Portal의 서비스 목록에서 **Azure AD B2C**를 선택하고, **애플리케이션**을 클릭하여 등록된 앱 목록을 봅니다.
 
 2. 앱 목록에서 **내 샘플 WPF 앱**을 선택하고 **API 액세스(미리 보기)**, **추가**를 차례로 클릭합니다.
 
@@ -110,7 +110,7 @@ Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정�
 
 5. **확인**을 클릭합니다.
 
-**내 샘플 WPF 앱**은 보호되는 **내 샘플 Node.js Web API**를 호출하도록 등록되었습니다. 사용자는 Azure AD B2C로 [인증](../active-directory/develop/developer-glossary.md#authentication)하여 WPF 데스크톱 응용 프로그램을 사용합니다. 데스크톱 응용 프로그램은 Azure AD B2C에서 [권한 부여](../active-directory/develop/developer-glossary.md#authorization-grant)를 받아 보호되는 웹 API에 액세스합니다.
+**내 샘플 WPF 앱**은 보호되는 **내 샘플 Node.js Web API**를 호출하도록 등록되었습니다. 사용자는 Azure AD B2C로 [인증](../active-directory/develop/developer-glossary.md#authentication)하여 WPF 데스크톱 애플리케이션을 사용합니다. 데스크톱 애플리케이션은 Azure AD B2C에서 [권한 부여](../active-directory/develop/developer-glossary.md#authorization-grant)를 받아 보호되는 웹 API에 액세스합니다.
 
 ## <a name="update-web-api-code"></a>웹 API 코드 업데이트
 
@@ -125,7 +125,7 @@ Node.js Web API 샘플에서는 Passport.js 라이브러리를 사용하여 Azur
 
 ### <a name="configure-the-web-api"></a>Web API 구성
 
-1. Node.js Web API 샘플에서 `index.html` 파일을 엽니다.
+1. Node.js Web API 샘플에서 `index.js` 파일을 엽니다.
 2. Azure AD B2C 테넌트 등록 정보를 사용하여 샘플을 구성합니다. 다음 코드 줄을 변경합니다.
 
 ```nodejs

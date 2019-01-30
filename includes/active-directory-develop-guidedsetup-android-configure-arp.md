@@ -21,9 +21,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/26/2018
 ms.locfileid: "50142888"
 ---
-## <a name="add-the-applications-registration-to-your-code"></a>코드에 응용 프로그램 등록 추가
+## <a name="add-the-applications-registration-to-your-code"></a>코드에 애플리케이션 등록 추가
 
-이 단계에서는 프로젝트에 응용 프로그램/클라이언트 ID를 추가해야 합니다.
+이 단계에서는 프로젝트에 애플리케이션/클라이언트 ID를 추가해야 합니다.
 
 1. (`app` > `java` > *`{host}.{namespace}`* 에서) `MainActivity`를 엽니다.
 2. `final static String CLIENT_ID`로 시작하는 줄을 다음으로 바꿉니다.

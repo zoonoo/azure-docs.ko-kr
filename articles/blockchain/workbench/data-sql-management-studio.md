@@ -5,21 +5,21 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 405104554b4ee8e773b6d2e39966a262f98beb6d
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 32606f988152b061fa1923c409207b2a650e64ba
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242095"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332458"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>SQL Server Management Studio에 Azure Blockchain Workbench 데이터 사용
 
-Microsoft SQL Server Management Studio는 Azure Blockhain Workbench의 SQL DB에 대한 쿼리를 신속하게 작성하고 테스트할 수 있는 기능을 제공합니다. 이 섹션에서는 SQL Server Management Studio 내에서 Azure Blockchain Workbench의 SQL Database에 연결하는 방법을 단계별로 안내합니다.
+Microsoft SQL Server Management Studio는 Azure Blockchain Workbench의 SQL DB에 대한 쿼리를 신속하게 작성하고 테스트할 수 있는 기능을 제공합니다. 이 섹션에서는 SQL Server Management Studio 내에서 Azure Blockchain Workbench의 SQL Database에 연결하는 방법을 단계별로 안내합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -34,7 +34,7 @@ Microsoft SQL Server Management Studio는 Azure Blockhain Workbench의 SQL DB에
 
 3. **서버에 연결** 대화 상자에서 서버 이름 및 데이터베이스 자격 증명을 입력합니다.
 
-    Azure Blockchain Workbench 배포 프로세스에서 생성된 자격 증명을 사용하는 경우 사용자 이름은 **dbadmin**, 암호는 배포 중에 사용자가 입력한 암호입니다.
+    Azure Blockchain Workbench 배포 프로세스에서 생성된 자격 증명을 사용하는 경우 사용자 이름은 **dbadmin**이고 암호는 배포 중에 사용자가 입력한 암호입니다.
 
     ![SQL 자격 증명 입력](./media/data-sql-management-studio/sql-creds.png)
 

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: manayar
-ms.openlocfilehash: be56fd80229010090216413a7c1833d94e8bac25
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: b2d1738b85799079b3af7ab39c5cb1799a38d382
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739569"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339878"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>확장 집합 템플릿을 변환하여 관리되는 디스크 확장 집합 템플릿 사용
 
@@ -126,7 +126,7 @@ ms.locfileid: "50739569"
 
 ## <a name="data-disks"></a>데이터 디스크
 
-위의 변경 내용으로 확장 집합은 OS 디스크에 관리되는 디스크를 사용하지만 데이터 디스크의 경우는 어떻습니까? 데이터 디스크를 추가하려면 "osDisk"와 같은 수준인 "storageProfile" 아래에 "dataDisks" 속성을 추가합니다. 속성의 값은 다음 예제와 같이 개체의 JSON 목록이며 각각에는 "lun"(VM에서 데이터 디스크마다 고유해야 함), "createOption"("empty"는 현재 지원되는 유일한 옵션임) 및 "diskSizeGB"(기가바이트 단위의 디스크 크기, 0보다 크고 1024보다 작아야 함) 속성이 있습니다. 
+위의 변경 내용으로 확장 집합은 OS 디스크에 관리되는 디스크를 사용하지만 데이터 디스크의 경우는 어떻습니까? 데이터 디스크를 추가하려면 "osDisk"와 같은 수준인 "storageProfile" 아래에 "dataDisks" 속성을 추가합니다. 속성의 값은 다음 예제와 같이 개체의 JSON 목록이며 각각에는 "lun"(VM에서 데이터 디스크마다 고유해야 함), "createOption"("empty"는 현재 지원되는 유일한 옵션임) 및 "diskSizeGB"(기가바이트 단위의 디스크 크기, 0보다 크고 1024보다 작아야 함) 속성이 있습니다.
 
 ```
 "dataDisks": [
@@ -144,7 +144,7 @@ ms.locfileid: "50739569"
 
 
 ## <a name="next-steps"></a>다음 단계
-확장 집합을 사용하는 예제 리소스 관리자 템플릿은 [Azure 빠른 시작 템플릿 github 리포지토리](https://github.com/Azure/azure-quickstart-templates)에서 "vmss"를 검색하세요.
+확장 집합을 사용하는 예제 리소스 관리자 템플릿은 [Azure 빠른 시작 템플릿 GitHub 리포지토리](https://github.com/Azure/azure-quickstart-templates)에서 “vmss”를 검색하세요.
 
-일반적인 정보는 [크기 집합에 대한 주 방문 페이지](https://azure.microsoft.com/services/virtual-machine-scale-sets/)를 확인하세요.
+일반적인 정보는 [확장 집합에 대한 주 방문 페이지](https://azure.microsoft.com/services/virtual-machine-scale-sets/)를 확인하세요.
 

@@ -3,17 +3,17 @@ title: Azure HDInsight를 사용한 HBase 문제 해결
 description: HBase 및 Azure HDInsight 작업에 대한 일반적인 질문에 답합니다.
 services: hdinsight
 ms.service: hdinsight
-author: nitinver
-ms.author: nitinver
-ms.custom: hdinsightactive
+author: hrasheed-msft
+ms.author: hrasheed
+ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
-ms.date: 7/7/2017
-ms.openlocfilehash: 771f01f18c5cb54a0458d624a65ec1a69345cadd
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/06/2018
+ms.openlocfilehash: 4f6f6042eaacc809b9d413ef01883987bd558507
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317231"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651608"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache HBase 문제 해결
 
@@ -288,7 +288,7 @@ xxx 영역에 대한 서버 주소가 *hbase: meta*에 나열되지 않습니다
 
 ### <a name="detailed-description"></a>자세한 설명
 
-Linux 클러스터에 *hbase:meta* 테이블이 온라인 상태가 아님을 나타내는 메시지가 표시될 수 있습니다. `hbck`를 실행하면 "모든 영역에서 replicaId 0 hbase: meta 테이블을 찾을 없습니다."라고 보고할 수 있습니다. HBase를 다시 시작한 후에 HMaster를 초기화하지 못하여 이 문제가 발생할 수 있습니다. HMaster 로그에서 "hbase: backup \<영역 이름\>에 대한 서버 주소가 나열되지 않습니다."라는 메시지가 표시될 수 있습니다.  
+Linux 클러스터에 *hbase:meta* 테이블이 온라인 상태가 아님을 나타내는 메시지가 표시될 수 있습니다. `hbck`를 실행하면 "모든 영역에서 replicaId 0 hbase: meta 테이블을 찾을 없습니다."라고 보고할 수 있습니다. HBase를 다시 시작한 후에 HMaster를 초기화하지 못하여 이 문제가 발생할 수 있습니다. HMaster 로그에 다음 메시지가 표시될 수 있습니다. "hbase: backup \<영역 이름\>에 대해 hbase: meta에 나열된 서버 주소가 없습니다."  
 
 ### <a name="resolution-steps"></a>해결 단계:
 
@@ -314,12 +314,12 @@ Linux 클러스터에 *hbase:meta* 테이블이 온라인 상태가 아님을 �
 
 ### <a name="additional-reading"></a>추가 참조 자료
 
-[HBase 테이블을 처리할 수 없음](http://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
+[HBase 테이블을 처리할 수 없음](https://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
 
 
 ### <a name="error"></a>오류
 
-"java.io.IOException: 네임스페이스 테이블이 할당될 때까지 기다리는 시간(300000ms)을 초과했습니다."와 같은 심각한 예외로 인해 HMaster에서 시간을 초과했습니다.
+다음과 유사한 심각한 예외로 인해 HMaster 시간이 초과되었습니다. "java.io.IOException: 네임스페이스 테이블이 할당되기를 기다리다가 시간이 300000ms 초과되었습니다."
 
 ### <a name="detailed-description"></a>자세한 설명
 
@@ -344,7 +344,7 @@ HMaster 서비스의 알려진 문제입니다. 일반 클러스터 시작 작�
 
 ### <a name="issue"></a>문제
 
-영역 서버의 다시 시작 실패는 다음의 모범 사례를 통해 방지할 수 있습니다. HBase 영역 서버를 다시 시작하려는 경우 과도한 워크로드 활동을 일시 중지하는 것이 좋습니다. 종료가 진행 중일 때 응용 프로그램이 영역 서버와 계속 연결되면 영역 서버 재시작 작업이 몇 분 정도 더 느려집니다. 또한 먼저 모든 테이블을 플러시하는 것이 좋습니다. 테이블을 플러시하는 방법에 대한 참조는 [HDInsight HBase: 테이블을 플러시하여 Apache HBase 클러스터 다시 시작 시간을 개선하는 방법](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/)을 참조하세요.
+영역 서버의 다시 시작 실패는 다음의 모범 사례를 통해 방지할 수 있습니다. HBase 영역 서버를 다시 시작하려는 경우 과도한 워크로드 활동을 일시 중지하는 것이 좋습니다. 종료가 진행 중일 때 애플리케이션이 영역 서버와 계속 연결되면 영역 서버 재시작 작업이 몇 분 정도 더 느려집니다. 또한 먼저 모든 테이블을 플러시하는 것이 좋습니다. 테이블을 플러시하는 방법에 대한 참조는 [HDInsight HBase: 테이블을 플러시하여 Apache HBase 클러스터 다시 시작 시간을 개선하는 방법](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/)을 참조하세요.
 
 Apache Ambari UI에서 HBase 영역 서버에 대한 다시 시작 작업을 시작하면 영역 서버가 다운되지만 바로 다시 시작되지 않는 것을 보게 됩니다. 
 
@@ -352,7 +352,7 @@ Apache Ambari UI에서 HBase 영역 서버에 대한 다시 시작 작업을 시
 
 1. Ambari 에이전트가 영역 서버에 중지 요청을 보냅니다.
 2. Ambari 에이전트에서 영역 서버가 정상적으로 종료될 때까지 30초 동안 대기합니다. 
-3. 응용 프로그램이 영역 서버에 계속 연결될 경우 서버는 즉시 종료되지 않습니다. 종료되기 전에 30초 제한 시간에 만료됩니다. 
+3. 애플리케이션이 영역 서버에 계속 연결될 경우 서버는 즉시 종료되지 않습니다. 종료되기 전에 30초 제한 시간에 만료됩니다. 
 4. 30초 후 Ambari 에이전트는 영역 서버에 강제 종료(`kill -9`) 명령을 전송합니다. 이 사항은 ambari-agent 로그(해당 작업자 노드의 /var/log/ 디렉터리)에서 확인할 수 있습니다.
 
    ```apache

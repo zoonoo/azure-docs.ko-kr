@@ -1,12 +1,11 @@
 ---
-title: DMZ에 사용할 Azure 샘플 응용 프로그램 | Microsoft Docs
-description: 트래픽 흐름 시나리오를 테스트하기 위해 DMZ을 만든 다음 이 간단한 웹 응용 프로그램을 배포합니다.
+title: DMZ에 사용할 Azure 샘플 애플리케이션
+titlesuffix: Azure Virtual Network
+description: 트래픽 흐름 시나리오를 테스트하기 위해 DMZ을 만든 다음 이 간단한 웹 애플리케이션을 배포합니다.
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-ms.assetid: 60340ab7-b82b-40e0-bd87-83e41fe4519c
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 7a0f1313f8b22aba0a153563bd804435c3ef53f2
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: f299665168e1dfca223c5cab7ba0e0f2767a50ba
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52159868"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021427"
 ---
-# <a name="sample-application-for-use-with-dmzs"></a>DMZ에 사용할 샘플 응용 프로그램
+# <a name="sample-application-for-use-with-dmzs"></a>DMZ에 사용할 샘플 애플리케이션
 [보안 경계 모범 사례 페이지로 돌아가기][HOME]
 
-이러한 PowerShell 스크립트는 IIS01 및 AppVM01 서버에서 로컬로 실행하여 프런트 엔드 IIS01 서버에서 백 엔드 AppVM01 서버의 콘텐츠가 포함된 html 페이지를 표시하는 간단한 웹 응용 프로그램을 설치 및 설정할 수 있습니다.
+이러한 PowerShell 스크립트는 IIS01 및 AppVM01 서버에서 로컬로 실행하여 프런트 엔드 IIS01 서버에서 백 엔드 AppVM01 서버의 콘텐츠가 포함된 html 페이지를 표시하는 간단한 웹 애플리케이션을 설치 및 설정할 수 있습니다.
 
 그러면 다양한 DMZ 예제를 위한 간단한 테스트 환경을 제공하고 엔드포인트, NSG, UDR, 방화벽 규칙을 변경할 경우 트래픽 흐름에 어떤 영향을 미치는지 확인할 수 있습니다.
 
@@ -39,13 +38,13 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
 
 다음 스크립트를 사용하는 경우 이 방화벽 규칙 추가가 첫 번째 문입니다.
 
-## <a name="iis01---web-application-installation-script"></a>IIS01 - 웹 응용 프로그램 설치 스크립트
+## <a name="iis01---web-application-installation-script"></a>IIS01 - 웹 애플리케이션 설치 스크립트
 이 스크립트는 다음과 같은 기능을 수행합니다.
 
 1. 손쉬운 테스트를 위해 로컬 서버 Windows 방화벽에서 IMCPv4(Ping)를 엽니다.
 2. IIS 및 .Net Framework v4.5를 설치합니다.
 3. ASP.NET 웹 페이지와 Web.config 파일을 만듭니다.
-4. 파일에 쉽게 액세스할 수 있도록 기본 응용 프로그램 풀을 변경합니다.
+4. 파일에 쉽게 액세스할 수 있도록 기본 애플리케이션 풀을 변경합니다.
 5. 관리자 계정과 암호에 익명 사용자를 설정합니다.
 
 이 PowerShell 스크립트는 IIS01에 RDP 처리된 동안 로컬로 실행해야 합니다.
@@ -142,12 +141,12 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
     Restart-Service -Name W3SVC
 
     Write-Host
-    Write-Host "Web App Creation Successfull!" -ForegroundColor Green
+    Write-Host "Web App Creation Successful!" -ForegroundColor Green
     Write-Host
 ```
 
 ## <a name="appvm01---file-server-installation-script"></a>AppVM01 - 파일 서버 설치 스크립트
-이 스크립트는 이 간단한 응용 프로그램의 백 엔드를 설정합니다. 이 스크립트는 다음과 같은 기능을 수행합니다.
+이 스크립트는 이 간단한 애플리케이션의 백 엔드를 설정합니다. 이 스크립트는 다음과 같은 기능을 수행합니다.
 
 1. 손쉬운 테스트를 위해 방화벽에서 IMCPv4(Ping)를 엽니다.
 2. 웹 사이트에 대한 디렉터리를 만듭니다.
@@ -156,7 +155,7 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
 5. 이 서버에서 쉽게 탐색할 수 있도록 IE의 강화된 보안을 해제합니다. 
 
 > [!IMPORTANT]
-> **모범 사례**: 프로덕션 서버에서 IE의 강화된 보안을 해제하지 마십시오. 프로덕션 서버에서 웹을 탐색하는 것도 좋지 않습니다. 또한 익명 액세스를 위해 파일 공유를 여는 것도 바람직하지 않지만 여기서는 간단한 설명을 위해 사용합니다.
+> **모범 사례**: 프로덕션 서버에서 IE의 보안 강화를 해제하지 마십시오. 프로덕션 서버에서 웹을 탐색하는 것도 좋지 않습니다. 또한 익명 액세스를 위해 파일 공유를 여는 것도 바람직하지 않지만 여기서는 간단한 설명을 위해 사용합니다.
 > 
 > 
 
@@ -189,12 +188,12 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0
 
     Write-Host
-    Write-Host "File Server Set up Successfull!" -ForegroundColor Green
+    Write-Host "File Server Set up Successful!" -ForegroundColor Green
     Write-Host
 ```
 
 ## <a name="dns01---dns-server-installation-script"></a>DNS01 - DNS 서버 설치 스크립트
-이 샘플 응용 프로그램에는 DNS 서버를 설치할 스크립트가 포함되어 있지 않습니다. 방화벽 규칙을 테스트하는 경우 NSG 또는 UDR에서 DNS 트래픽을 포함해야 하며 DNS01 서버를 수동으로 설정해야 합니다. 두 예제의 네트워크 구성 xml 파일 및 Resource Manager 템플릿에는 기본 DNS 서버로 DNS01이 포함되어 있으며 수준 3에서 호스팅하는 공용 DNS 서버는 백업 DNS 서버로 포함되어 있습니다. 수준 3 DNS 서버가 비로컬 트래픽에 사용되는 실제 DNS 서버가 되며, DNS01이 설정되지 않은 경우 로컬 네트워크 DNS가 발생하지 않습니다.
+이 샘플 애플리케이션에는 DNS 서버를 설치할 스크립트가 포함되어 있지 않습니다. 방화벽 규칙을 테스트하는 경우 NSG 또는 UDR에서 DNS 트래픽을 포함해야 하며 DNS01 서버를 수동으로 설정해야 합니다. 두 예제의 네트워크 구성 xml 파일 및 Resource Manager 템플릿에는 기본 DNS 서버로 DNS01이 포함되어 있으며 수준 3에서 호스팅하는 공용 DNS 서버는 백업 DNS 서버로 포함되어 있습니다. 수준 3 DNS 서버가 비로컬 트래픽에 사용되는 실제 DNS 서버가 되며, DNS01이 설정되지 않은 경우 로컬 네트워크 DNS가 발생하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * IIS 서버에서 IIS01 스크립트 실행

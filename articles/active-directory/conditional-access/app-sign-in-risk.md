@@ -5,7 +5,7 @@ services: active-directory
 keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: conditional-access
@@ -13,17 +13,17 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: a3c5c26f43fddf5d23df3bee0b0511e865b7e71b
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 899fc10d4b5a4c9bdbfd46cc1ff71f5232cffbc6
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705925"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450288"
 ---
-# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>빠른 시작: Azure Active Directory 조건부 액세스를 사용하여 세션 위험이 감지되면 액세스 차단  
+# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>빠른 시작: Azure Active Directory 조건부 액세스에서 세션 위험이 감지되면 액세스 차단  
 
 환경을 보호하려면 로그인 작업으로부터 의심스러운 사용자를 차단하는 것이 좋습니다. [Azure AD(Azure Active Directory) Identity Protection](../active-directory-identityprotection.md)은 각 로그인을 분석하고 사용자 계정의 합법적인 소유자가 수행하지 않은 로그인 시도 가능성을 계산합니다. 가능성(낮음, 중간, 높음)은 [로그인 위험 수준](conditions.md#sign-in-risk)이라는 계산된 값의 양식으로 나타납니다. 로그인 위험 조건을 설정하여 특정 로그인 위험 수준에 응답하도록 조건부 액세스 정책을 구성할 수 있습니다. 
 
@@ -87,7 +87,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     ![Azure Active Directory](./media/app-sign-in-risk/02.png)
 
-3. **Azure Active Directory** 페이지의 **관리** 섹션에서 **조건부 액세스**를 클릭합니다.
+3. **Azure Active Directory** 페이지의 **보안** 섹션에서 **조건부 액세스**를 클릭합니다.
 
     ![조건부 액세스](./media/app-sign-in-risk/03.png)
  

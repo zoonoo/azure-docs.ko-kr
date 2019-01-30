@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: b429f9dab0411dba599fd696dff3d424916007e0
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e24c5b2be1df41d84fa4461250f51cb009f77529
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635172"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331220"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Azure Functions 2.x에 대한 host.json 참조  
 
@@ -96,7 +96,26 @@ ms.locfileid: "52635172"
 
 이 설정은 [logging](#logging)의 자식입니다.
 
-[!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
+[Application Insights에서 샘플링 기능](./functions-monitoring.md#configure-sampling)을 제어합니다.
+
+```json
+{
+    "applicationInsights": {
+        "samplingSettings": {
+          "isEnabled": true,
+          "maxTelemetryItemsPerSecond" : 5
+        }
+    }
+}
+```
+
+> [!NOTE]
+> 로그 샘플링으로 인해 Application Insights 모니터 블레이드에 일부 실행이 표시되지 않을 수 있습니다.
+
+|자산  |기본값 | 설명 |
+|---------|---------|---------| 
+|isEnabled|true|샘플링을 사용 여부를 설정합니다.| 
+|maxTelemetryItemsPerSecond|5|샘플링이 시작되는 임계값입니다.| 
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -185,7 +204,28 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|활성화할 파일 로깅의 수준을 정의합니다.  옵션은 `never`, `always`, `debugOnly`입니다. |
 |logLevel|해당 없음|앱의 함수에 대한 로그 범주 필터링을 정의하는 개체입니다. 버전 2.x는 로그 범주 필터링용 ASP.NET Core 레이아웃을 따릅니다. 따라서 특정 함수의 로깅을 필터링할 수 있습니다. 자세한 내용은 ASP.NET Core 설명서의 [로그 필터링](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)을 참조하세요. |
+|console|해당 없음| [콘솔](#console) 로깅 설정입니다. |
 |applicationInsights|해당 없음| [applicationInsights](#applicationinsights) 설정입니다. |
+
+## <a name="console"></a>console
+
+이 설정은 [logging](#logging)의 자식입니다. 디버깅 모드가 아닌 경우 콘솔 로깅을 제어합니다.
+
+```json
+{
+    "logging": {
+    ...
+        "console": {
+          "isEnabled": "false"
+        },
+    ...
+    }
+}
+```
+
+|자산  |기본값 | 설명 |
+|---------|---------|---------| 
+|isEnabled|false|콘솔 로깅을 사용하거나 사용하지 않도록 설정합니다.| 
 
 ## <a name="queues"></a>queues
 

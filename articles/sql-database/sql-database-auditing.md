@@ -7,17 +7,17 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: ronitr
-ms.author: ronitr
+author: vainolo
+ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/25/2018
-ms.openlocfilehash: fc82fa592a513d735d4adc602bedaf8e492af13b
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.date: 01/03/2019
+ms.openlocfilehash: 598d2b86e7aeeac9525f37b1ab9422d854e75392
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092954"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034032"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 
@@ -39,8 +39,6 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 - **유지** 합니다. 감사할 데이터베이스 동작의 범주를 정의할 수 있습니다.
 - **보고** 합니다. 미리 구성된 보고서 및 대시보드를 사용하여 활동 및 이벤트 보고를 빠르게 시작할 수 있습니다.
 - **분석** 합니다. 의심스러운 이벤트, 특별한 활동 및 추세를 찾을 수 있습니다.
-
-[데이터베이스에 대한 감사 설정](#subheading-2) 섹션에 설명된 대로 여러 이벤트 범주 유형에 대해 감사를 구성할 수 있습니다.
 
 > [!IMPORTANT]
 > 감사 로그는 Azure 구독의 Azure Blob Storage에 있는 **Blob 추가**에 기록됩니다.
@@ -184,6 +182,8 @@ Azure 저장소 계정에 감사 로그를 작성하도록 선택한 경우 로�
 
     >[!IMPORTANT]
     >데이터베이스 수준 감사에서 보조 데이터베이스의 저장소 설정은 주 데이터베이스와 동일하기 때문에 지역 간 트래픽이 발생합니다. 서버 수준 감사만 활성화하고 모든 데이터베이스에 대해 데이터베이스 수준 감사를 비활성화로 유지하는 것이 좋습니다.
+    > [!WARNING]
+    > 서버 수준에서 감사 로드의 대상으로 이벤트 허브 또는 로그 분석을 사용하는 기능은 현재 보조 지역 복제 데이터베이스에 지원되지 않습니다.
 
 ### <a id="subheading-6">저장소 키 다시 생성</a>
 
@@ -222,12 +222,12 @@ Azure 저장소 계정에 감사 로그를 작성하도록 선택한 경우 로�
 
 ## <a id="subheading-7"></a>Azure PowerShell을 사용하여 SQL Database 감사 관리
 
-**PowerShell cmdlet**:
+**PowerShell cmdlet(추가 필터링을 위한 WHERE 절 지원 포함)**:
 
-- [데이터베이스 Blob 감사 정책 만들기 또는 업데이트(Set-AzureRMSqlDatabaseAuditing)][105]
-- [서버 Blob 감사 정책 만들기 또는 업데이트(Set-AzureRMSqlServerAuditing)][106]
-- [데이터베이스 감사 정책 가져오기(Get-AzureRMSqlDatabaseAuditing)][101]
-- [서버 Blob 감사 정책 가져오기(Get-AzureRMSqlServerAuditing)][102]
+- [데이터베이스 Blob 감사 정책 만들기 또는 업데이트(Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
+- [서버 Blob 감사 정책 만들기 또는 업데이트(Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
+- [데이터베이스 감사 정책 가져오기(Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
+- [서버 Blob 감사 정책 가져오기(Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
 
 스크립트 예제는 [PowerShell을 사용하여 감사 및 위협 감지 구성](scripts/sql-database-auditing-and-threat-detection-powershell.md)을 참조하세요.
 
@@ -247,6 +247,14 @@ WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입�
 - [데이터베이스 *확장된* Blob 감사 정책 가져오기](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [서버 *확장된* Blob 감사 정책 가져오기](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
+## <a id="subheading-10"></a>ARM 템플릿을 사용하여 SQL 데이터베이스 감사 관리
+
+다음 예제처럼 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 템플릿을 사용하여 Azure SQL 데이터베이스 감사를 관리할 수 있습니다.
+
+- [감사가 설정된 Azure SQL Server를 배포하여 Azure Blob 스토리지 계정에 감사 로그 쓰기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+- [감사가 설정된 Azure SQL Server를 배포하여 Log Analytics에 감사 로그 쓰기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [감사가 설정된 Azure SQL Server를 배포하여 Event Hubs에 감사 로그 쓰기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1
 [Set up auditing for your database]: #subheading-2
@@ -256,6 +264,7 @@ WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입�
 [Manage SQL database auditing using Azure PowerShell]: #subheading-7
 [Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
 [Manage SQL database auditing using REST API]: #subheading-9
+[Manage SQL database auditing using ARM templates]: #subheading-10
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
@@ -268,10 +277,3 @@ WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입�
 [8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
 [10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
-
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditing
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditing
-[103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
-[104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing

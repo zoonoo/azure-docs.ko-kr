@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 3a65b66619351462fcd9c77c3fb9b935cf99ebcc
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 46791468e094ffb17a6dc9993b2cf8623a72b9b3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496463"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53968811"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 시작
 
@@ -31,14 +31,14 @@ Azure HDInsight를 사용하면 ML 서비스 클러스터를 만들 수 있습�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **리소스 만들기** > **데이터 + 분석** > **HDInsight**를 클릭합니다.
+2. **+ 리소스 만들기** > **Analytics** > **HDInsight**로 이동합니다.
 
 3. **기본**에서 다음 정보를 입력합니다.
 
     * **클러스터 이름**: HDInsight 클러스터의 이름입니다.
     * **구독**: 사용할 구독을 선택합니다.
-    * **클러스터 로그인 사용자 이름** 및 **클러스터 로그인 암호**: HTTPS를 통해 클러스터에 액세스할 때 로그인입니다. 이러한 자격 증명을 사용하여 Apache Ambari Web UI 또는 REST API와 같은 서비스에 액세스합니다.
-    * **SSH(보안 셸) 사용자 이름**: SSH를 통해 클러스터에 액세스할 때 사용되는 로그인입니다. 기본적으로 암호는 클러스터 로그인 암호와 동일합니다.
+    * **클러스터 로그인 사용자 이름** 및 **클러스터 로그인 암호**: HTTPS를 통해 클러스터에 액세스할 때의 로그인입니다. 이러한 자격 증명을 사용하여 Apache Ambari Web UI 또는 REST API와 같은 서비스에 액세스합니다.
+    * **SSH(Secure Shell) 사용자 이름**: SSH를 통해 클러스터에 액세스할 때 사용되는 로그인입니다. 기본적으로 암호는 클러스터 로그인 암호와 동일합니다.
     * **리소스 그룹**: 클러스터를 만들어 놓은 리소스 그룹입니다.
     * **위치**: 클러스터를 만들어 놓은 Azure 지역입니다.
 
@@ -46,13 +46,13 @@ Azure HDInsight를 사용하면 ML 서비스 클러스터를 만들 수 있습�
 
 4. **클러스터 유형**을 선택한 다음 **클러스터 구성** 섹션에서 다음 값을 설정합니다.
 
-    * **클러스터 형식**: ML 서비스
+    * **클러스터 유형**: ML 서비스
 
     * **운영 체제**: Linux
 
     * **버전**: ML Server 9.3(HDI 3.6) ML Server 9.3에 대한 릴리스 정보는 [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-machine-learning-server)에서 지원됩니다.
 
-    * **ML Server용 R Studio 커뮤니티 버전**: 기본적으로 에지 노드에 설치되는 브라우저 기반 IDE입니다. 설치하지 않으려면 확인란의 선택을 취소합니다. 설치를 선택하면 만들어진 클러스터의 포털 응용 프로그램 블레이드에서 RStudio Server 로그인에 액세스하기 위한 URL을 사용할 수 있습니다.
+    * **ML Server용 R Studio 커뮤니티 버전**: 기본적으로 에지 노드에 설치되는 브라우저 기반 IDE입니다. 설치하지 않으려면 확인란의 선택을 취소합니다. 설치를 선택하면 만들어진 클러스터의 포털 애플리케이션 블레이드에서 RStudio Server 로그인에 액세스하기 위한 URL을 사용할 수 있습니다.
 
         ![클러스터 기본 세부 정보](./media/r-server-get-started/clustertypeconfig.png)
 
@@ -66,7 +66,7 @@ Azure HDInsight를 사용하면 ML 서비스 클러스터를 만들 수 있습�
 
     ![HDInsight에 대한 저장소 계정 설정 지정](./media/r-server-get-started/clustersummary.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > 클러스터를 만드는 데 최대 20분이 걸릴 수 있습니다.
 
 <a name="connect-to-rstudio-server"></a>
@@ -78,15 +78,16 @@ HDInsight 클러스터의 일부로 R Studio Server Community Edition을 설치�
 
         https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
-* **옵션 2** - Azure Portal에서 ML 서비스 클러스터를 열고 **빠른 링크**에서 **ML 서비스 대시보드**를 클릭합니다.
-
-     ![HDInsight에 대한 저장소 계정 설정 지정](./media/r-server-get-started/dashboard-quick-links.png)
-
-    **클러스터 대시보드**에서 **R Studio Server**를 클릭합니다.
+* **옵션 2** - Azure Portal을 사용합니다.
+포털에서 다음을 수행합니다.
+  1. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다.
+  2. **ANALYTICS** 아래에서 **HDInsight 클러스터**를 선택합니다.
+  3. **HDInsight 클러스터** 페이지에서 클러스터 이름을 선택합니다.
+  4. **ML Services 대시보드**에서 **R Studio 서버**를 선택합니다. 
 
     ![HDInsight에 대한 저장소 계정 설정 지정](./media/r-server-get-started/r-studio-server-dashboard.png)
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > 사용한 방법과 관계 없이 처음 로그인할 때는 두 번 인증해야 합니다.  첫 번째 인증 메시지의 경우 *클러스터 관리자 사용자 ID*와 *암호*를 입력합니다. 두 번째 인증 메시지의 경우 *SSH 사용자 ID*와 *암호*를 입력합니다. 후속 로그인에서는 SSH 자격 증명만 필요합니다.
 
 연결되면 다음 스크린샷과 유사한 화면이 표시됩니다.
@@ -221,11 +222,11 @@ SDK 및 PowerShell을 사용하여 HDInsight에서 ML 서비스 클러스터의 
 
 ## <a name="troubleshoot"></a>문제 해결
 
-HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스 제어 요구 사항](../hdinsight-administer-use-portal-linux.md#create-clusters)을 참조하세요.
+HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스 제어 요구 사항](../hdinsight-hadoop-create-linux-clusters-portal.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 아티클에서는 Azure HDInsight에서 새로운 ML 서비스 클러스터를 만드는 방법 및 SSH 세션에서 R 콘솔을 사용하는 기본 사항에 대해 알아보았습니다. 다음 아티클에서는 HDInsight에서 ML 서비스를 관리하고 작업하는 다른 방법에 대해 설명합니다.
+이 문서에서는 Azure HDInsight에서 새로운 ML 서비스 클러스터를 만드는 방법 및 SSH 세션에서 R 콘솔을 사용하는 기본 사항에 대해 알아보았습니다. 다음 아티클에서는 HDInsight에서 ML 서비스를 관리하고 작업하는 다른 방법에 대해 설명합니다.
 
 * [Visual Studio용 R 도구에서 작업 제출](r-server-submit-jobs-r-tools-vs.md)
 * [HDInsight에서 ML 서비스 클러스터 관리](r-server-hdinsight-manage.md)

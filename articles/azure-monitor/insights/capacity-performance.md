@@ -10,17 +10,15 @@ ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 7902a4fb747a53b26b6f100291c77e6fec4c8d05
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 41508a1d99ed243d377cc72c0accc005c5ca737d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633438"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189203"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>용량 및 성능 솔루션으로 Hyper-V 가상 머신 용량 계획(미리 보기)
 
@@ -51,9 +49,9 @@ Log Analytics의 용량 및 성능 솔루션을 사용하면 Hyper-V 서버의 �
 | 연결된 소스 | 지원 | 설명 |
 |---|---|---|
 | [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | yes | 솔루션에서 Windows 에이전트의 용량 및 성능 데이터 정보를 수집합니다. |
-| [Linux 에이전트](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | 아니요    | 솔루션에서 Linux 에이전트의 용량 및 성능 데이터 정보를 직접 수집하지 않습니다.|
-| [SCOM 관리 그룹](../../log-analytics/log-analytics-om-agents.md) | yes |솔루션에서 연결된 SCOM 관리 그룹에 있는 에이전트의 용량 및 성능 데이터를 수집합니다. SCOM에서 Log Analytics로 직접 연결은 필요하지 않습니다.|
-| [Azure 저장소 계정](../../log-analytics/log-analytics-azure-storage.md) | 아니요 | Azure 저장소는 용량 및 성능 데이터를 포함하지 않습니다.|
+| [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 아니요    | 솔루션에서 Linux 에이전트의 용량 및 성능 데이터 정보를 직접 수집하지 않습니다.|
+| [SCOM 관리 그룹](../../azure-monitor/platform/om-agents.md) | yes |솔루션에서 연결된 SCOM 관리 그룹에 있는 에이전트의 용량 및 성능 데이터를 수집합니다. SCOM에서 Log Analytics로 직접 연결은 필요하지 않습니다.|
+| [Azure 저장소 계정](../../azure-monitor/platform/collect-azure-metrics-logs.md) | 아니요 | Azure 저장소는 용량 및 성능 데이터를 포함하지 않습니다.|
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -81,7 +79,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 용량 및 성능 솔루션을 업데이트하면 버전 번호가 변경됩니다.
 
-솔루션 관리 팩이 업데이트되는 방법에 대한 자세한 내용은 [Log Analytics에 Operations Manager 연결](../../log-analytics/log-analytics-om-agents.md)을 참조하세요.
+솔루션 관리 팩이 업데이트되는 방법에 대한 자세한 내용은 [Log Analytics에 Operations Manager 연결](../../azure-monitor/platform/om-agents.md)을 참조하세요.
 
 ## <a name="using-the-solution"></a>솔루션 사용
 
@@ -138,4 +136,4 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics의 로그 검색](../../log-analytics/log-analytics-queries.md)을 사용하여 자세한 용량 및 성능 데이터를 확인합니다.
+* [Log Analytics의 로그 검색](../../azure-monitor/log-query/log-query-overview.md)을 사용하여 자세한 용량 및 성능 데이터를 확인합니다.

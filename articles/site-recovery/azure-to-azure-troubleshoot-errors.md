@@ -5,16 +5,15 @@ services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 7d11460fd1db5ba92725567a41aaaeab9e752adb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 44801663165b85edc988dab8ae2b668ef0e613b7
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308127"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381596"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 간 VM 복제 문제 해결
 
@@ -61,37 +60,37 @@ SuSE Linux는 symlink를 사용하여 인증서 목록을 유지 관리하므로
 
       ``# cd /etc/ssl/certs``
 
-3. Symantec 루트 CA 인증서가 있는지 확인합니다.
+1. Symantec 루트 CA 인증서가 있는지 확인합니다.
 
       ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-4. Symantec 루트 CA 인증서를 찾을 수 없으면 다음 명령을 실행하여 파일을 다운로드합니다. 모든 오류를 확인하고 네트워크 오류에 대한 권장 조치를 수행합니다.
+2. Symantec 루트 CA 인증서를 찾을 수 없으면 다음 명령을 실행하여 파일을 다운로드합니다. 모든 오류를 확인하고 네트워크 오류에 대한 권장 조치를 수행합니다.
 
       ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-5. Baltimore 루트 CA 인증서가 있는지 확인합니다.
+3. Baltimore 루트 CA 인증서가 있는지 확인합니다.
 
       ``# ls Baltimore_CyberTrust_Root.pem``
 
-6. Baltimore 루트 CA 인증서를 찾을 수 없으면 인증서를 다운로드합니다.  
+4. Baltimore 루트 CA 인증서를 찾을 수 없으면 인증서를 다운로드합니다.  
 
     ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-7. DigiCert_Global_Root_CA 인증서가 있는지 확인합니다.
+5. DigiCert_Global_Root_CA 인증서가 있는지 확인합니다.
 
     ``# ls DigiCert_Global_Root_CA.pem``
 
-8. DigiCert_Global_Root_CA 인증서를 찾을 수 없으면 다음 명령을 실행하여 인증서를 다운로드합니다.
+6. DigiCert_Global_Root_CA 인증서를 찾을 수 없으면 다음 명령을 실행하여 인증서를 다운로드합니다.
 
     ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
 
     ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
 
-9. 다시 해시 스크립트를 실행하여 새로 다운로드한 인증서에 대한 인증서 주체 해시를 업데이트합니다.
+7. 다시 해시 스크립트를 실행하여 새로 다운로드한 인증서에 대한 인증서 주체 해시를 업데이트합니다.
 
     ``# c_rehash``
 
-10. 인증서에 대한 주체 해시가 symlink로 생성되는지 확인합니다.
+8.  인증서에 대한 주체 해시가 symlink로 생성되는지 확인합니다.
 
     - 명령
 
@@ -120,11 +119,11 @@ SuSE Linux는 symlink를 사용하여 인증서 목록을 유지 관리하므로
       ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
       -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
 
-11. 파일 이름을 b204d74a.0으로 하여 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem 파일 복사본 만들기
+9.  파일 이름을 b204d74a.0으로 하여 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem 파일 복사본 만들기
 
     ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
 
-12. 파일 이름을 653b494a.0으로 하여 Baltimore_CyberTrust_Root.pem 파일 복사본 만들기
+10. 파일 이름을 653b494a.0으로 하여 Baltimore_CyberTrust_Root.pem 파일 복사본 만들기
 
     ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
 
@@ -185,15 +184,16 @@ Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 
 
 
  - **해결 방법**
-  1.    Mobility Service 에이전트는 Windows의 경우 IE에서 Linux의 경우 /etc/environment에서 프록시 설정을 검색합니다.
-  2.  ASR Mobility Service에 대해서만 프록시를 설정하려는 경우 다음 위치에 있는 ProxyInfo.conf에서 프록시 세부 정보를 제공할 수 있습니다.</br>
-      - ***Linux***에서 ``/usr/local/InMage/config/``
-      - ***Windows***에서 ``C:\ProgramData\Microsoft Azure Site Recovery\Config``
-  3.    ProxyInfo.conf에는 다음 INI 형식의 프록시 설정이 있어야 합니다. </br>
+   1.   Mobility Service 에이전트는 Windows의 경우 IE에서 Linux의 경우 /etc/environment에서 프록시 설정을 검색합니다.
+   2.  ASR Mobility Service에 대해서만 프록시를 설정하려는 경우 다음 위치에 있는 ProxyInfo.conf에서 프록시 세부 정보를 제공할 수 있습니다.</br>
+       - ***Linux***에서 ``/usr/local/InMage/config/``
+       - ***Windows***에서 ``C:\ProgramData\Microsoft Azure Site Recovery\Config``
+   3.   ProxyInfo.conf에는 다음 INI 형식의 프록시 설정이 있어야 합니다.</br>
                    *[proxy]*</br>
                    *Address=http://1.2.3.4*</br>
                    *Port=567*</br>
-  4. ASR Mobility Service 에이전트는 ***인증되지 않은 프록시***만 지원합니다.
+   4. ASR Mobility Service 에이전트는 ***인증되지 않은 프록시***만 지원합니다.
+ 
 
 ### <a name="fix-the-problem"></a>문제 해결
 [필요한 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 또는 [필요한 IP 범위](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)가 허용 목록에 있도록 하려면 [네트워킹 지침 문서](site-recovery-azure-to-azure-networking-guidance.md)의 단계에 따릅니다.
@@ -204,12 +204,12 @@ VM에 연결된 새 디스크는 초기화되어야 합니다.
 
 **오류 코드** | **가능한 원인** | **권장 사항**
 --- | --- | ---
-150039<br></br>**메시지**: LUN(논리 단위 번호)이 (LUNValue)인 Azure 데이터 디스크(DiskName) (DiskURI)이(가) LUN 값이 동일한 VM 내에서 보고되는 해당 디스크에 매핑되지 않았습니다. | - 새 데이터 디스크가 VM에 연결되었지만 초기화되지 않았습니다.</br></br>- VM 내의 데이터 디스크는 디스크가 VM에 연결된 LUN 값을 올바르게 보고하지 않습니다.| 데이터 디스크가 초기화되었는지 확인하고 작업을 다시 시도합니다.</br></br>Windows의 경우: [새 디스크 연결 및 초기화](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)를 수행합니다.</br></br>Linux의 경우: [Linux에서 새 데이터 디스크 초기화](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk)를 수행합니다.
+150039<br></br>**메시지**: LUN(논리 단위 번호)이 (LUNValue)인 Azure 데이터 디스크(DiskName) (DiskURI)이(가) LUN 값이 동일한 VM 내에서 보고되는 해당 디스크에 매핑되지 않았습니다. | - 새 데이터 디스크가 VM에 연결되었지만 초기화되지 않았습니다.</br></br>- VM 내의 데이터 디스크는 디스크가 VM에 연결된 LUN 값을 올바르게 보고하지 않습니다.| 데이터 디스크가 초기화되었는지 확인하고 작업을 다시 시도합니다.</br></br>Windows의 경우: [새 디스크를 연결하고 초기화](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)합니다.</br></br>Linux의 경우: [Linux에서 새 데이터 디스크를 초기화](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk)합니다.
 
 ### <a name="fix-the-problem"></a>문제 해결
 데이터 디스크가 초기화되었는지 확인하고 작업을 다시 시도합니다.
 
-- Windows의 경우: [새 디스크 연결 및 초기화](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)를 수행합니다.
+- Windows의 경우: [새 디스크를 연결하고 초기화](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)합니다.
 - Linux의 경우: [Linux에 새 데이터 디스크를 추가](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk)합니다.
 
 문제가 계속되면 지원에 문의하세요.
@@ -217,7 +217,7 @@ VM에 연결된 새 디스크는 초기화되어야 합니다.
 
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>"복제를 사용하도록 설정"에서 선택할 Azure VM을 표시할 수 없음
 
- **원인 1: 리소스 그룹 및 원본 가상 머신이 서로 다른 위치에 있음** <br>
+ **원인 1:  리소스 그룹 및 원본 가상 머신이 서로 다른 위치에 있음** <br>
 현재 Azure Site Recovery에서는 원본 지역 리소스 그룹과 가상 머신이 같은 위치에 있어야 합니다. 같은 위치에 있지 않으면 보호 기간에 가상 머신을 찾을 수 없습니다.
 
 **원인 2: 리소스 그룹이 선택한 구독에 포함되지 않음** <br>
@@ -231,12 +231,16 @@ VM에 연결된 새 디스크는 초기화되어야 합니다.
 
 ### <a name="fix-the-problem"></a>문제 해결
 
+>[!NOTE] 
+>
+>아래 스크립트를 사용하기 전에 ""AzureRM.Resources"" 모듈을 업데이트해야 합니다. 
+
 [부실 ASR 구성 스크립트를 제거](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412)하고 Azure VM의 부실 Site Recovery 구성을 제거할 수 있습니다. 부실 구성을 제거하면 VM이 보일 것입니다.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>보호를 위해 가상 머신을 선택할 수 없음 
- **원인 1: 가상 머신의 일부 확장이 실패하거나 응답하지 않는 상태로 설치됨** <br>
+ **원인 1:  가상 머신의 일부 확장이 실패하거나 응답하지 않는 상태로 설치됨** <br>
  [가상 머신] > [설정] > [확장]으로 이동하여 실패한 상태의 확장자가 있는지 확인합니다. 실패한 확장을 제거하고 가상 머신 보호를 다시 시도합니다.<br>
- **원인 2: [VM의 프로비저닝 상태가 잘못됨](#vms-provisioning-state-is-not-valid-error-code-150019)**
+ **원인 2:  [VM의 프로비저닝 상태가 잘못됨](#vms-provisioning-state-is-not-valid-error-code-150019)**
 
 ## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>VM의 프로비전 상태가 잘못되었습니다(오류 코드 150019).
 
@@ -272,12 +276,53 @@ VM에서 복제를 사용하도록 설정하려면 프로비전 상태가 **성�
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM+/볼륨 섀도 복사본 서비스 오류(오류 코드 151025)
 **오류 코드** | **가능한 원인** | **권장 사항**
 --- | --- | ---
-151025<br></br>**메시지**: 사이트 복구 확장 설치 실패 | - 'COM+ 시스템 응용 프로그램' 서비스가 비활성화되었습니다.</br></br>- '볼륨 섀도 복사본' 서비스가 비활성화되었습니다.| 'COM+ 시스템 응용 프로그램' 및 '볼륨 섀도 복사본' 서비스를 자동 또는 수동 시작 모드로 설정하세요.
+151025<br></br>**메시지**: 사이트 복구 확장 설치 실패 | - 'COM+ 시스템 애플리케이션' 서비스가 비활성화되었습니다.</br></br>- '볼륨 섀도 복사본' 서비스가 비활성화되었습니다.| 'COM+ 시스템 애플리케이션' 및 '볼륨 섀도 복사본' 서비스를 자동 또는 수동 시작 모드로 설정하세요.
 
 ### <a name="fix-the-problem"></a>문제 해결
 
-'서비스' 콘솔을 열고, 'COM+ 시스템 응용 프로그램' 및 '볼륨 섀도 복사본'이 '시작 유형'에 대해 '사용 안 함'으로 설정되지 않았는지 확인합니다.
+'서비스' 콘솔을 열고, 'COM+ 시스템 애플리케이션' 및 '볼륨 섀도 복사본'이 '시작 유형'에 대해 '사용 안 함'으로 설정되지 않았는지 확인합니다.
   ![com-error](./media/azure-to-azure-troubleshoot-errors/com-error.png)
 
-## <a name="next-steps"></a>다음 단계
-[Azure 가상 머신 복제](site-recovery-replicate-azure-to-azure.md)
+## <a name="unsupported-managed-disk-size-error-code-150172"></a>지원되지 않는 Managed Disks 크기(오류 코드 150172)
+
+
+**오류 코드** | **가능한 원인** | **권장 사항**
+--- | --- | ---
+150172<br></br>**메시지**: 가상 머신에 포함된 (DiskName)의 크기가 (DiskSize)이며 지원되는 최소 크기인 10GB보다 작기 때문에 가상 머신에 대한 보호를 사용하도록 설정할 수 없습니다. | - 디스크가 지원되는 크기(1024MB)보다 작습니다.| 디스크 크기가 지원되는 크기 범위 내에 있는지 확인하고 작업을 다시 시도하십시오. 
+
+## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>UUID가 아닌 GRUB 구성에 나와 있는 값이 디바이스 이름으로 포함되어 있어 보호를 사용하도 설정하지 못함(오류 코드 151126)
+
+**가능한 원인:** </br>
+GRUB 구성 파일("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" 또는 "/etc/default/grub")에는 **root** 및 **resume** 매개 변수의 값이 UUID가 아닌 실제 디바이스 이름으로 포함되어 있을 수 있습니다. Site Recovery에서는 UUID를 사용해야 합니다. 디바이스 이름은 VM을 다시 부팅하면 변경될 수 있는데, 장애 조치(failover) 시에 VM 이름이 달라지면 문제가 발생하기 때문입니다. 예:  </br>
+
+
+- 아래에는 이러한 오류의 원인이 되는 GRUB 파일 **/boot/grub2/grub.cfg**에서 발췌한 줄이 나와 있습니다. <br>
+*linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+
+
+- 아래에는 GRUB 파일 **/boot/grub/menu.lst**에서 발췌한 줄이 나와 있습니다.
+*kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2** **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+
+위에서 굵게 표시된 문자열을 살펴보면 GRUB의 "root" 및 "resume" 매개 변수의 값이 UUID가 아닌 실제 디바이스 이름임을 확인할 수 있습니다.
+ 
+**해결 방법:**<br>
+디바이스 이름을 해당 UUID로 바꿔야 합니다.<br>
+
+
+1. 다음 "blkid <device name>" 명령을 실행하여 디바이스의 UUID를 확인합니다. 예: <br>
+```
+blkid /dev/sda1 
+```<br>
+```/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap" ```<br>
+```blkid /dev/sda2```<br> 
+```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+```<br>
+
+
+
+1. Now replace the device name with its UUID in the format like "root=UUID=<UUID>". For example, if we replace the device names with UUID for root and resume parameter mentioned above in the files "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub: then the lines in the files looks like. <br>
+*kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+
+
+## Next steps
+[Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)

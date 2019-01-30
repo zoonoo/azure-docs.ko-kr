@@ -3,7 +3,7 @@ title: 탄력적 풀 만들기 및 관리 - Azure SQL database | Microsoft Docs
 description: Azure SQL 탄력적 풀을 만들고 관리합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pool
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/29/2018
-ms.openlocfilehash: acf17533ee73313937c2edb9badaef9007309373
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.date: 01/17/2019
+ms.openlocfilehash: 93b7fb0cd303f34d4afadf461f8886aaac52e4c3
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243098"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388571"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Azure SQL Database에서 탄력적 풀 만들기 및 관리
 
@@ -39,7 +39,7 @@ ms.locfileid: "50243098"
 
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: 탄력적 풀 및 풀링된 데이터베이스 관리
 
-Azure PowerShell을 사용하여 SQL Database 탄력적 풀 및 풀링된 데이터베이스를 만들고 관리하려면 다음 PowerShell cmdlet을 사용합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 탄력적 풀을 위한 논리 서버를 만들고 관리하려면 [논리 서버 만들기 및 관리](sql-database-logical-servers.md)를 참조하세요. 방화벽 규칙을 만들고 관리하려면 [PowerShell을 사용하여 방화벽 규칙 만들기 및 관리](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell)를 참조하세요.
+Azure PowerShell을 사용하여 SQL Database 탄력적 풀 및 풀링된 데이터베이스를 만들고 관리하려면 다음 PowerShell cmdlet을 사용합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 탄력적 풀을 위한 논리 서버를 만들고 관리하려면 [논리 서버 만들기 및 관리](sql-database-logical-servers.md)를 참조하세요. 방화벽 규칙을 만들고 관리하려면 [PowerShell을 사용하여 방화벽 규칙 만들기 및 관리](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell)를 참조하세요.
 
 > [!TIP]
 > PowerShell 예제 스크립트의 경우 [PowerShell을 사용하여 탄력적 풀 만들기 및 풀 간에 데이터베이스 이동](scripts/sql-database-move-database-between-pools-powershell.md) 및 [PowerShell을 사용하여 Azure SQL Database에서 SQL 탄력적 풀 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-pool-powershell.md)을 참조하세요.
@@ -49,7 +49,7 @@ Azure PowerShell을 사용하여 SQL Database 탄력적 풀 및 풀링된 데이
 | --- | --- |
 |[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|논리 SQL Server에서 Elastic Database 풀을 만듭니다.|
 |[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|논리 SQL Server에서 탄력적 풀과 해당 속성 값을 가져옵니다.|
-|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|논리 SQL Server에서 Elastic Database 풀의 속성을 수정합니다. 예를 들어 **StorageMB** 속성을 사용하여 탄력적 풀의 최대 저장소를 수정합니다.|
+|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|논리 SQL Server에서 Elastic Database 풀의 속성을 수정합니다. 예를 들어 **StorageMB** 속성을 사용하여 탄력적 풀의 최대 스토리지를 수정합니다.|
 |[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|논리 SQL Server에서 Elastic Database 풀을 삭제합니다.|
 |[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|논리 SQL Server에서 탄력적 풀에 대한 작업 상태를 가져옵니다.|
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|기존 풀 또는 단일 데이터베이스에서 새 데이터베이스를 만듭니다. |
@@ -115,5 +115,5 @@ SQL Database 탄력적 풀 및 풀링된 데이터베이스를 만들고 관리�
 ## <a name="next-steps"></a>다음 단계
 
 * 비디오는 [Azure SQL Database 탄력적 기능에 대한 Microsoft Virtual Academy 비디오 과정](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)을 참조하세요.
-* 탄력적 풀을 사용한 SaaS 응용 프로그램의 디자인 패턴에 대해 자세히 알아보려면 [Azure SQL Database를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
-* 탄력적 풀을 사용하는 SaaS 자습서의 경우 [Wingtip SaaS 응용 프로그램 소개](sql-database-wtp-overview.md)를 참조하세요.
+* 탄력적 풀을 사용한 SaaS 애플리케이션의 디자인 패턴에 대해 자세히 알아보려면 [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
+* 탄력적 풀을 사용하는 SaaS 자습서의 경우 [Wingtip SaaS 애플리케이션 소개](sql-database-wtp-overview.md)를 참조하세요.

@@ -1,11 +1,13 @@
 ---
-title: 지리적 인공 지능 데이터 과학 가상 머신 소개 - Azure | Microsoft Docs
-description: 지리적 AI 데이터 과학 VM 및 구성 요소에 대해 설명합니다.
+title: 지리적 AI Data Science Virtual Machine 개요
+titleSuffix: Azure
+description: 지리적 AI Data Science Virtual Machine은 지리적 데이터로 작업하기 위한 ArcGIS Pro를 제공합니다. 또한 Machine Learning 및 AI 작업을 위한 Python, R 및 데이터 과학 도구 키트를 제공합니다.
 keywords: 심화 학습, AI, 데이터 과학 도구, 데이터 과학 가상 머신, 지리 공간적 분석
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 2fb49212b8480fa550558e14e890cbf7395406da
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b0152056dcb8716a407e022d2b30c48e6b534b2a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407455"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074573"
 ---
 # <a name="introduction-to-the-geo-artificial-intelligence-data-science-virtual-machine"></a>지리적 인공 지능 데이터 과학 가상 머신 소개
 

@@ -1,6 +1,6 @@
 ---
 title: 부드러운 스트리밍 Windows 스토어 앱 자습서 | Microsoft 문서
-description: Azure Media Services를 사용하여 부드러운 스트림 콘텐츠를 재생하기 위해 XML MediaElement 컨트롤이 포함된 C# Windows 스토어 응용 프로그램을 만드는 방법에 대해 알아봅니다.
+description: Azure Media Services를 사용하여 부드러운 스트림 콘텐츠를 재생하기 위해 XML MediaElement 컨트롤이 포함된 C# Windows 스토어 애플리케이션을 만드는 방법에 대해 알아봅니다.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.openlocfilehash: 953cd536c390e571ee4c40dc670316197718eff2
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9558a924ee151f47033178b0762a39e2d1e1f538
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279197"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828318"
 ---
-# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>부드러운 스트리밍 Windows 스토어 응용 프로그램을 빌드하는 방법
+# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>부드러운 스트리밍 Windows 스토어 애플리케이션을 빌드하는 방법
 
-Smooth Streaming Client SDK for Windows 8을 사용하면 개발자가 주문형 및 Live Smooth Streaming 콘텐츠를 재생할 수 있는 Windows 스토어 응용 프로그램을 빌드할 수 있습니다. 부드러운 스트리밍 콘텐츠의 기본 재생뿐 아니라 SDK는 Microsoft PlayReady 보호, 품질 수준 제한, Live DVR, 오디오 스트림 전환, 상태 업데이트(예: 품질 수준 변경) 수신 대기, 오류 이벤트 등의 풍부한 기능도 제공합니다. 지원되는 기능에 대한 자세한 내용은 [릴리스 정보](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes)를 참조하십시오. 자세한 내용은 [Windows 8용 플레이어 프레임워크](http://playerframework.codeplex.com/)를 참조하세요. 
+Smooth Streaming Client SDK for Windows 8을 사용하면 개발자가 주문형 및 Live Smooth Streaming 콘텐츠를 재생할 수 있는 Windows 스토어 애플리케이션을 빌드할 수 있습니다. 부드러운 스트리밍 콘텐츠의 기본 재생뿐 아니라 SDK는 Microsoft PlayReady 보호, 품질 수준 제한, Live DVR, 오디오 스트림 전환, 상태 업데이트(예: 품질 수준 변경) 수신 대기, 오류 이벤트 등의 풍부한 기능도 제공합니다. 지원되는 기능에 대한 자세한 내용은 [릴리스 정보](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes)를 참조하십시오. 자세한 내용은 [Windows 8용 플레이어 프레임워크](http://playerframework.codeplex.com/)를 참조하세요. 
 
 이 자습서에는 4개 단원이 포함되어 있습니다.
 
-1. 기본 부드러운 스트리밍 스토어 응용 프로그램 만들기
+1. 기본 부드러운 스트리밍 스토어 애플리케이션 만들기
 2. 미디어 진행을 제어하는 슬라이더 막대 추가
 3. 부드러운 스트리밍 스트림 선택
 4. 부드러운 스트리밍 트랙 선택
@@ -47,18 +47,18 @@ Smooth Streaming Client SDK for Windows 8을 사용하면 개발자가 주문형
 * [단원 3](https://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) - 스트림 선택 항목이 있는 Windows 8 부드러운 스트리밍 Media Player  
 * [단원 4](https://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) - 트랙 선택 항목이 있는 Windows 8 부드러운 스트리밍 Media Player
 
-## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>단원 1: 기본 부드러운 스트리밍 스토어 응용 프로그램 만들기
+## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>단원 1: 기본 부드러운 스트리밍 스토어 애플리케이션 만들기
 
-이 단원에서는 부드러운 스트림 콘텐츠를 재생하기 위해 MediaElement 컨트롤이 포함된 Windows 스토어 응용 프로그램을 만듭니다.  실행 중인 응용 프로그램은 다음과 같이 표시됩니다.
+이 단원에서는 부드러운 스트림 콘텐츠를 재생하기 위해 MediaElement 컨트롤이 포함된 Windows 스토어 애플리케이션을 만듭니다.  실행 중인 애플리케이션은 다음과 같이 표시됩니다.
 
-![부드러운 스트리밍 Windows 스토어 응용 프로그램 예][PlayerApplication]
+![부드러운 스트리밍 Windows 스토어 애플리케이션 예][PlayerApplication]
 
-Windows 스토어 응용 프로그램 개발에 대한 자세한 내용은 [유용한 Windows 8용 앱 개발](https://msdn.microsoft.com/windows/apps/br229512.aspx)을 참조하십시오. 이 단원에는 다음 절차가 포함되어 있습니다.
+Windows 스토어 애플리케이션 개발에 대한 자세한 내용은 [유용한 Windows 8용 앱 개발](https://msdn.microsoft.com/windows/apps/br229512.aspx)을 참조하십시오. 이 단원에는 다음 절차가 포함되어 있습니다.
 
 1. Windows 스토어 프로젝트 만들기
 2. 사용자 인터페이스 디자인(XAML)
 3. 코드 숨김 파일 수정
-4. 응용 프로그램 컴파일 및 테스트
+4. 애플리케이션 컴파일 및 테스트
 
 **Windows 스토어 프로젝트를 만들려면**
 
@@ -95,7 +95,7 @@ Windows 스토어 응용 프로그램 개발에 대한 자세한 내용은 [유�
 
 1. 솔루션 탐색기에서 **MainPage.xaml** 을 두 번 클릭하여 디자인 보기에서 엽니다.
 2. XAML 파일에서 **&lt;Grid&gt;** 및 **&lt;/Grid&gt;** 태그를 찾아 두 태그 사이에 다음 코드를 붙여넣습니다.
-```xml
+   ```xml
          <Grid.RowDefinitions>
 
             <RowDefinition Height="20"/>    <!-- spacer -->
@@ -138,11 +138,11 @@ Windows 스토어 응용 프로그램 개발에 대한 자세한 내용은 [유�
                FontSize="16" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
             <TextBox x:Name="txtStatus" FontSize="10" Width="700" VerticalAlignment="Center"/>
          </StackPanel>
-```
+   ```
    MediaElement 컨트롤은 미디어를 재생하는 데 사용됩니다. sliderProgress라는 슬라이더 컨트롤은 다음 단원에서 미디어 진행을 제어하는 데 사용됩니다.
 3. **Ctrl+S** 를 눌러 파일을 저장합니다.
 
-MediaElement 컨트롤은 기본적으로 부드러운 스트리밍 콘텐츠를 지원하지 않습니다. 부드러운 스트리밍 지원을 사용하도록 설정하려면 파일 이름 확장명과 MIME 형식으로 부드러운 스트리밍 바이트 스트림 처리기를 등록해야 합니다.  등록하려면 Windows.Media 네임스페이스의 MediaExtensionManager.RegisterByteStremHandler 메서드를 사용합니다.
+MediaElement 컨트롤은 기본적으로 부드러운 스트리밍 콘텐츠를 지원하지 않습니다. 부드러운 스트리밍 지원을 사용하도록 설정하려면 파일 이름 확장명과 MIME 형식으로 부드러운 스트리밍 바이트 스트림 처리기를 등록해야 합니다.  등록하려면 Windows.Media 네임스페이스의 MediaExtensionManager.RegisterByteStreamHandler 메서드를 사용합니다.
 
 이 XAML 파일에서는 일부 이벤트 처리기가 컨트롤과 연결되어 있습니다.  해당 이벤트 처리기를 정의해야 합니다.
 
@@ -160,7 +160,7 @@ MediaElement 컨트롤은 기본적으로 부드러운 스트리밍 콘텐츠를
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
 5. **MainPage** 클래스의 끝에 다음 코드를 붙여 넣습니다.
-```csharp
+   ```csharp
          # region UI Button Click Events
          private void btnPlay_Click(object sender, RoutedEventArgs e)
          {
@@ -202,32 +202,32 @@ MediaElement 컨트롤은 기본적으로 부드러운 스트리밍 콘텐츠를
          mediaElement.Position = new TimeSpan(0, 0, (int)(sliderProgress.Value));
          }
          # endregion
-```
+   ```
 여기에는 sliderProgress_PointerPressed 이벤트 처리기가 정의되어 있습니다.  작동하는 데 필요한 추가 작업이 있으며, 이 자습서의 다음 단원에서 설명합니다.
 6. **Ctrl+S** 를 눌러 파일을 저장합니다.
 
 완성된 코드 숨김 파일은 다음과 같이 표시됩니다.
 
-![부드러운 스트리밍 Windows 스토어 응용 프로그램에 대한 Visual Studio의 Codeview][CodeViewPic]
+![부드러운 스트리밍 Windows 스토어 애플리케이션에 대한 Visual Studio의 Codeview][CodeViewPic]
 
-**응용 프로그램을 컴파일 및 테스트하려면**
+**애플리케이션을 컴파일 및 테스트하려면**
 
 1. **빌드** 메뉴에서 **구성 관리자**를 클릭합니다.
 2. 개발 플랫폼과 일치하도록 **활성 솔루션 플랫폼** 을 변경합니다.
 3. **F6** 키를 눌러 프로젝트를 컴파일합니다. 
-4. **F5** 키를 눌러 응용 프로그램을 실행합니다.
-5. 응용 프로그램 맨 위에 기본 부드러운 스트리밍 URL을 사용하거나 다른 URL을 입력할 수 있습니다. 
+4. **F5** 키를 눌러 애플리케이션을 실행합니다.
+5. 애플리케이션 맨 위에 기본 부드러운 스트리밍 URL을 사용하거나 다른 URL을 입력할 수 있습니다. 
 6. **원본 설정**을 클릭합니다. 기본적으로 **자동 재생** 이 사용되기 때문에 미디어가 자동으로 재생됩니다.  **재생**, **일시 중지** 및 **중지** 단추를 사용하여 미디어를 제어할 수 있습니다.  세로 슬라이더를 사용하여 미디어 볼륨을 제어할 수 있습니다.  그러나 미디어 진행을 제어하기 위한 가로 슬라이더는 아직 완전히 구현되지 않았습니다. 
 
 lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 사용하여 부드러운 스트리밍 콘텐츠를 재생합니다.  다음 단원에서는 부드러운 스트리밍 콘텐츠 진행을 제어하는 슬라이더를 추가합니다.
 
 ## <a name="lesson-2-add-a-slider-bar-to-control-the-media-progress"></a>단원 2: 미디어 진행을 제어하는 슬라이더 막대 추가
 
-단원 1에서는 부드러운 스트리밍 미디어 콘텐츠를 재생하기 위해 MediaElement XAML 컨트롤이 포함된 Windows 스토어 응용 프로그램을 만들었습니다.  시작, 중지, 일시 중지 등의 기본 미디어 기능이 제공됩니다.  이 단원에서는 응용 프로그램에 슬라이더 막대 컨트롤을 추가합니다.
+단원 1에서는 부드러운 스트리밍 미디어 콘텐츠를 재생하기 위해 MediaElement XAML 컨트롤이 포함된 Windows 스토어 애플리케이션을 만들었습니다.  시작, 중지, 일시 중지 등의 기본 미디어 기능이 제공됩니다.  이 단원에서는 애플리케이션에 슬라이더 막대 컨트롤을 추가합니다.
 
 이 자습서에서는 타이머를 사용하여 MediaElement 컨트롤의 현재 위치에 따라 슬라이더 위치를 업데이트합니다.  라이브 콘텐츠의 경우 슬라이더 시작 및 종료 시간도 업데이트해야 합니다.  이 작업은 적응 원본 업데이트 이벤트를 통해 더 효율적으로 처리할 수 있습니다.
 
-미디어 원본은 미디어 데이터를 생성하는 개체입니다.  원본 확인자는 URL 또는 바이트 스트림을 사용하고 해당 콘텐츠에 적합한 미디어 원본을 만듭니다.  원본 확인자는 응용 프로그램에서 미디어 원본을 만드는 표준 방법입니다. 
+미디어 원본은 미디어 데이터를 생성하는 개체입니다.  원본 확인자는 URL 또는 바이트 스트림을 사용하고 해당 콘텐츠에 적합한 미디어 원본을 만듭니다.  원본 확인자는 애플리케이션에서 미디어 원본을 만드는 표준 방법입니다. 
 
 이 단원에는 다음 절차가 포함되어 있습니다.
 
@@ -236,31 +236,35 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
 3. 적응 원본 수준 이벤트 처리기 추가
 4. MediaElement 이벤트 처리기 추가
 5. 슬라이더 막대 관련 코드 추가
-6. 응용 프로그램 컴파일 및 테스트
+6. 애플리케이션 컴파일 및 테스트
 
 **부드러운 스트리밍 바이트 스트림 처리기를 등록하고 propertyset를 전달하려면**
 
 1. [솔루션 탐색기]에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
 2. 파일의 시작 부분에 다음 using 문을 추가합니다.
-```csharp
+
+   ```csharp
         using Microsoft.Media.AdaptiveStreaming;
-```
+   ```
 3. MainPage 클래스의 시작 부분에 다음 데이터 멤버를 추가합니다.
-```csharp
+
+   ```csharp
          private Windows.Foundation.Collections.PropertySet propertySet = new Windows.Foundation.Collections.PropertySet();             
          private IAdaptiveSourceManager adaptiveSourceManager;
-```
+   ```
 4. **MainPage** 생성자 내에서 **this.Initialize Components();** 줄과 이전 단원에서 작성한 등록 코드 줄 뒤에 다음 코드를 추가합니다.
-```csharp
+
+   ```csharp
         // Gets the default instance of AdaptiveSourceManager which manages Smooth 
         //Streaming media sources.
         adaptiveSourceManager = AdaptiveSourceManager.GetDefault();
         // Sets property key value to AdaptiveSourceManager default instance.
         // {A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}" must be hardcoded.
         propertySet["{A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}"] = adaptiveSourceManager;
-```
+   ```
 5. **MainPage** 생성자 내에서 RegisterByteStreamHandler 메서드 두 개를 수정하여 네 번째 매개 변수를 추가합니다.
-```csharp
+
+   ```csharp
          // Registers Smooth Streaming byte-stream handler for ".ism" extension and, 
          // "text/xml" and "application/vnd.ms-ss" mime-types and pass the propertyset. 
          // http://*.ism/manifest URI resources will be resolved by Byte-stream handler.
@@ -276,18 +280,20 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
             ".ism", 
             "application/vnd.ms-sstr+xml", 
          propertySet);
-```
+   ```
 6. **Ctrl+S** 를 눌러 파일을 저장합니다.
 
 **적응 원본 관리자 수준 이벤트 처리기를 추가하려면**
 
 1. [솔루션 탐색기]에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
 2. **MainPage** 클래스 내에 다음 데이터 멤버를 추가합니다.
-```csharp
+
+   ```csharp
      private AdaptiveSource adaptiveSource = null;
-```
+   ```
 3. **MainPage** 클래스의 끝에 다음 이벤트 처리기를 추가합니다.
-```csharp
+
+   ```csharp
          # region Adaptive Source Manager Level Events
          private void mediaElement_AdaptiveSourceOpened(AdaptiveSource sender, AdaptiveSourceOpenedEventArgs args)
          {
@@ -296,24 +302,27 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
          }
 
          # endregion Adaptive Source Manager Level Events
-```
+   ```
 4. **MainPage** 생성자의 끝에 다음 줄을 추가하여 적응 원본 열기 이벤트를 구독합니다.
-```csharp
+
+   ```csharp
          adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
            new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
-```
+   ```
 5. **Ctrl+S** 를 눌러 파일을 저장합니다.
 
 **적응 원본 수준 이벤트 처리기를 추가하려면**
 
 1. [솔루션 탐색기]에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
 2. **MainPage** 클래스 내에 다음 데이터 멤버를 추가합니다.
-```csharp
+
+   ```csharp
      private AdaptiveSourceStatusUpdatedEventArgs adaptiveSourceStatusUpdate; 
      private Manifest manifestObject;
-```
+   ```
 3. **MainPage** 클래스의 끝에 다음 이벤트 처리기를 추가합니다.
-```csharp
+
+   ```csharp
          # region Adaptive Source Level Events
          private void mediaElement_ManifestReady(AdaptiveSource sender, ManifestReadyEventArgs args)
          {
@@ -335,8 +344,10 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
          }
 
          # endregion Adaptive Source Level Events
-4. At the end of the **mediaElement AdaptiveSourceOpened** method, add the following code to subscribe to the events:
-   
+   ```
+4. **mediaElement AdaptiveSourceOpened** 메서드의 끝에 다음 코드를 추가하여 이벤트를 구독합니다.
+
+   ```csharp
          adaptiveSource.ManifestReadyEvent +=
 
                     mediaElement_ManifestReady;
@@ -346,7 +357,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
          adaptiveSource.AdaptiveSourceFailedEvent += 
 
             mediaElement_AdaptiveSourceFailed;
-```
+   ```
 5. **Ctrl+S** 를 눌러 파일을 저장합니다.
 
 앱의 모든 미디어 요소에 공통된 기능을 처리하는 데 사용할 수 있는 적응 원본 관리자 수준에서도 동일한 이벤트를 사용할 수 있습니다. 각 AdaptiveSource에는 고유한 이벤트가 포함되어 있으며 모든 AdaptiveSource 이벤트가 AdaptiveSourceManager 아래에 계단식으로 표시됩니다.
@@ -355,7 +366,8 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
 
 1. [솔루션 탐색기]에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
 2. **MainPage** 클래스의 끝에 다음 이벤트 처리기를 추가합니다.
-```csharp
+
+   ```csharp
          # region Media Element Event Handlers
          private void MediaOpened(object sender, RoutedEventArgs e)
          {
@@ -376,35 +388,40 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
          }
 
          # endregion Media Element Event Handlers
-```
+   ```
 3. **MainPage** 생성자의 끝에 다음 코드를 추가하여 이벤트를 구독합니다.
-```csharp
+
+   ```csharp
          mediaElement.MediaOpened += MediaOpened;
          mediaElement.MediaEnded += MediaEnded;
          mediaElement.MediaFailed += MediaFailed;
-```
+   ```
 4. **Ctrl+S** 를 눌러 파일을 저장합니다.
 
 **슬라이더 막대 관련 코드를 추가하려면**
 
 1. [솔루션 탐색기]에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
 2. 파일의 시작 부분에 다음 using 문을 추가합니다.
-```csharp
+
+   ```csharp
         using Windows.UI.Core;
-```
+   ```
 3. **MainPage** 클래스 내에 다음 데이터 멤버를 추가합니다.
-```csharp
+
+   ```csharp
          public static CoreDispatcher _dispatcher;
          private DispatcherTimer sliderPositionUpdateDispatcher;
-```
+   ```
 4. **MainPage** 생성자의 끝에 다음 코드를 추가합니다.
-```csharp
+
+   ```csharp
          _dispatcher = Window.Current.Dispatcher;
          PointerEventHandler pointerpressedhandler = new PointerEventHandler(sliderProgress_PointerPressed);
          sliderProgress.AddHandler(Control.PointerPressedEvent, pointerpressedhandler, true);    
-```
+   ```
 5. **MainPage** 클래스의 끝에 다음 코드를 추가합니다.
-```csharp
+
+   ```csharp
          # region sliderMediaPlayer
          private double SliderFrequency(TimeSpan timevalue)
          {
@@ -486,54 +503,57 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
          }
 
          # endregion sliderMediaPlayer
-```
+   ```
 
->[!NOTE]
->CoreDispatcher는 비UI 스레드에서 UI 스레드를 변경하는 데 사용됩니다. 디스패처 스레드에서 병목이 발생할 경우 개발자는 업데이트하려는 UI 요소에서 제공하는 디스패처를 사용할 수 있습니다.  예: 
+   > [!NOTE]
+   > CoreDispatcher는 비UI 스레드에서 UI 스레드를 변경하는 데 사용됩니다. 디스패처 스레드에서 병목이 발생할 경우 개발자는 업데이트하려는 UI 요소에서 제공하는 디스패처를 사용할 수 있습니다.  예: 
 
-```csharp
+   ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
 
          timespan = new TimeSpan(adaptiveSourceStatusUpdate.EndTime); 
          double absvalue  = (int)Math.Round(timespan.TotalSeconds, MidpointRounding.AwayFromZero); 
 
          sliderProgress.Maximum = absvalue; }); 
-```
+   ```
 6. **mediaElement_AdaptiveSourceStatusUpdated** 메서드의 끝에 다음 코드를 추가합니다.
-```csharp
+
+   ```csharp
          setSliderStartTime(args.StartTime);
          setSliderEndTime(args.EndTime);
-```
+   ```
 7. **MediaOpened** 메서드의 끝에 다음 코드를 추가합니다.
-```csharp
+
+   ```csharp
          sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan);
          sliderProgress.Width = mediaElement.Width;
          setupTimer();
-```
+   ```
 8. **Ctrl+S** 를 눌러 파일을 저장합니다.
 
-**응용 프로그램을 컴파일 및 테스트하려면**
+**애플리케이션을 컴파일 및 테스트하려면**
 
 1. **F6** 키를 눌러 프로젝트를 컴파일합니다. 
-2. **F5** 키를 눌러 응용 프로그램을 실행합니다.
-3. 응용 프로그램 맨 위에 기본 부드러운 스트리밍 URL을 사용하거나 다른 URL을 입력할 수 있습니다. 
+2. **F5** 키를 눌러 애플리케이션을 실행합니다.
+3. 애플리케이션 맨 위에 기본 부드러운 스트리밍 URL을 사용하거나 다른 URL을 입력할 수 있습니다. 
 4. **원본 설정**을 클릭합니다. 
 5. 슬라이더 막대를 테스트합니다.
 
-단원 2를 완료했습니다.  이 단원에서는 응용 프로그램에 슬라이더를 추가했습니다. 
+단원 2를 완료했습니다.  이 단원에서는 애플리케이션에 슬라이더를 추가했습니다. 
 
 ## <a name="lesson-3-select-smooth-streaming-streams"></a>단원 3: 부드러운 스트리밍 스트림 선택
 부드러운 스트리밍은 사용자가 선택할 수 있는 여러 언어 오디오 트랙으로 콘텐츠를 스트림할 수 있습니다.  이 단원에서는 사용자가 스트림을 선택할 수 있도록 설정합니다. 이 단원에는 다음 절차가 포함되어 있습니다.
 
 1. XAML 파일 수정
 2. 코드 숨김 파일 수정
-3. 응용 프로그램 컴파일 및 테스트
+3. 애플리케이션 컴파일 및 테스트
 
 **XAML 파일을 수정하려면**
 
 1. 솔루션 탐색기에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **디자이너 보기**를 클릭합니다.
 2. &lt;Grid.RowDefinitions&gt;를 찾아 RowDefinitions를 다음과 같이 수정합니다.
-```xml
+
+   ```xml
          <Grid.RowDefinitions>            
             <RowDefinition Height="20"/>
             <RowDefinition Height="50"/>
@@ -541,9 +561,10 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
             <RowDefinition Height="80"/>
             <RowDefinition Height="50"/>
          </Grid.RowDefinitions>
-```
+   ```
 3. 사용 가능한 스트림 목록을 보고 스트림을 선택할 수 있도록 &lt;Grid&gt;&lt;/Grid&gt; 태그 안에 다음 코드를 추가하여 목록 상자 컨트롤을 정의합니다.
-```xml
+
+   ```xml
          <Grid Name="gridStreamAndBitrateSelection" Grid.Row="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="300"/>
@@ -567,14 +588,15 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
                 </ListBox>
             </StackPanel>
          </Grid>
-```
+   ```
 4. **Ctrl+S** 를 눌러 변경 내용을 저장합니다.
 
 **코드 숨김 파일을 수정하려면**
 
 1. [솔루션 탐색기]에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
 2. SSPlayer 네임스페이스 내에 새 클래스를 추가합니다.
-```csharp
+
+   ```csharp
         #region class Stream
    
         public class Stream
@@ -619,16 +641,17 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
             }
         }
         #endregion class Stream
-```
+   ```
 3. MainPage 클래스의 시작 부분에 다음 변수 정의를 추가합니다.
-```csharp
+
+   ```csharp
          private List<Stream> availableStreams;
          private List<Stream> availableAudioStreams;
          private List<Stream> availableTextStreams;
          private List<Stream> availableVideoStreams;
-```
+   ```
 4. MainPage 클래스 내에 다음 지역을 추가합니다.
-```csharp
+   ```csharp
         #region stream selection
         ///<summary>
         ///Functionality to select streams from IManifestStream available streams
@@ -764,15 +787,15 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
             }
         }
         #endregion stream selection
-```
+   ```
 5. mediaElement_ManifestReady 메서드를 찾은 후 함수의 끝에 다음 코드를 추가합니다.
-```csharp
+   ```csharp
         getStreams(manifestObject);
         refreshAvailableStreamsListBoxItemSource();
-```
-    So when MediaElement manifest is ready, the code gets a list of the available streams, and populates the UI list box with the list.
+   ```
+    따라서 MediaElement 매니페스트가 준비되면 코드가 사용 가능한 스트림 목록을 가져오고 UI 목록 상자에 목록을 채웁니다.
 6. MainPage 클래스 내에서 UI 단추 클릭 이벤트 지역을 찾은 후 다음 함수 정의를 추가합니다.
-```csharp
+   ```csharp
         private void btnChangeStream_Click(object sender, RoutedEventArgs e)
         {
             List<IManifestStream> selectedStreams = new List<IManifestStream>();
@@ -783,12 +806,12 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
             // Change streams on the presentation
             changeStreams(selectedStreams);
         }
-```
-**응용 프로그램을 컴파일 및 테스트하려면**
+   ```
+**애플리케이션을 컴파일 및 테스트하려면**
 
 1. **F6** 키를 눌러 프로젝트를 컴파일합니다. 
-2. **F5** 키를 눌러 응용 프로그램을 실행합니다.
-3. 응용 프로그램 맨 위에 기본 부드러운 스트리밍 URL을 사용하거나 다른 URL을 입력할 수 있습니다. 
+2. **F5** 키를 눌러 애플리케이션을 실행합니다.
+3. 애플리케이션 맨 위에 기본 부드러운 스트리밍 URL을 사용하거나 다른 URL을 입력할 수 있습니다. 
 4. **원본 설정**을 클릭합니다. 
 5. 기본 언어는 audio_eng입니다. audio_eng와 audio_es 간에 전환해 보세요. 새 스트림을 선택할 때마다 제출 단추를 클릭해야 합니다.
 
@@ -799,13 +822,13 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
 
 1. XAML 파일 수정
 2. 코드 숨김 파일 수정
-3. 응용 프로그램 컴파일 및 테스트
+3. 애플리케이션 컴파일 및 테스트
 
 **XAML 파일을 수정하려면**
 
 1. 솔루션 탐색기에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **디자이너 보기**를 클릭합니다.
 2. 이름이 **gridStreamAndBitrateSelection**인 &lt;Grid&gt; 태그를 찾아 그 끝에 다음 코드를 추가합니다.
-```xml
+   ```xml
          <StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
          <StackPanel Orientation="Horizontal">
              <TextBlock Name="tbBitRate" Text="Available Bitrates:" FontSize="16" VerticalAlignment="Center"/>
@@ -820,14 +843,14 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
              </ListBox.ItemTemplate>
          </ListBox>
          </StackPanel>
-```
+   ```
 3. **Ctrl+S** 를 눌러 변경 내용을 저장합니다.
 
 **코드 숨김 파일을 수정하려면**
 
 1. [솔루션 탐색기]에서 **MainPage.xaml**을 마우스 오른쪽 단추로 클릭하고 **코드 보기**를 클릭합니다.
 2. SSPlayer 네임스페이스 내에 새 클래스를 추가합니다.
-```csharp
+   ```csharp
         #region class Track
         public class Track
         {
@@ -864,13 +887,13 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
             //public Track() { }
         }
         #endregion class Track
-```
+   ```
 3. MainPage 클래스의 시작 부분에 다음 변수 정의를 추가합니다.
-```csharp
+   ```csharp
         private List<Track> availableTracks;
-```
+   ```
 4. MainPage 클래스 내에 다음 지역을 추가합니다.
-```csharp
+   ```csharp
         #region track selection
         /// <summary>
         /// Functionality to select video streams
@@ -967,14 +990,14 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
             }
         }
         #endregion track selection
-```
+   ```
 5. mediaElement_ManifestReady 메서드를 찾은 후 함수의 끝에 다음 코드를 추가합니다.
-```csharp
+   ```csharp
          getTracks(manifestObject);
          refreshAvailableTracksListBoxItemSource();
-```
+   ```
 6. MainPage 클래스 내에서 UI 단추 클릭 이벤트 지역을 찾은 후 다음 함수 정의를 추가합니다.
-```csharp
+   ```csharp
          private void btnChangeStream_Click(object sender, RoutedEventArgs e)
          {
             List<IManifestStream> selectedStreams = new List<IManifestStream>();
@@ -985,12 +1008,12 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
             // Change streams on the presentation
             changeStreams(selectedStreams);
          }
-```
-**응용 프로그램을 컴파일 및 테스트하려면**
+   ```
+**애플리케이션을 컴파일 및 테스트하려면**
 
 1. **F6** 키를 눌러 프로젝트를 컴파일합니다. 
-2. **F5** 키를 눌러 응용 프로그램을 실행합니다.
-3. 응용 프로그램 맨 위에 기본 부드러운 스트리밍 URL을 사용하거나 다른 URL을 입력할 수 있습니다. 
+2. **F5** 키를 눌러 애플리케이션을 실행합니다.
+3. 애플리케이션 맨 위에 기본 부드러운 스트리밍 URL을 사용하거나 다른 URL을 입력할 수 있습니다. 
 4. **원본 설정**을 클릭합니다. 
 5. 기본적으로 비디오 스트림의 모든 트랙이 선택됩니다. 비트 전송률 변경을 실험하려면 사용 가능한 가장 낮은 비트 전송률을 선택한 후 사용 가능한 가장 높은 비트 전송률을 선택합니다. 각 변경 후에 제출을 클릭해야 합니다.  비디오 품질 변경을 확인할 수 있습니다.
 
@@ -1003,7 +1026,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="other-resources"></a>기타 리소스:
-* [고급 기능이 포함된 부드러운 스트리밍 Windows 8 JavaScript 응용 프로그램을 빌드하는 방법](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
+* [고급 기능이 포함된 부드러운 스트리밍 Windows 8 JavaScript 애플리케이션을 빌드하는 방법](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
 * [부드러운 스트리밍 기술 개요](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png

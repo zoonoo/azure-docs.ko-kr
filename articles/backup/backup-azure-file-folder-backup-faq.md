@@ -8,13 +8,13 @@ keywords: 백업 및 재해 복구; 백업 서비스
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.author: saurse;trinadhk
-ms.openlocfilehash: cf27848b6ca63f06c7d452ac67908cb85dbafd47
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: trinadhk
+ms.openlocfilehash: f5695da01752d701e1b688700580982f2d2e6154
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239845"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827417"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Azure Backup 에이전트에 대한 질문
 이 문서에서는 Azure Backup 에이전트 구성 요소를 빨리 이해하는 데 도움이 되는 일반적인 질문에 대한 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -33,8 +33,8 @@ Windows Server, System Center DPM 또는 Windows 클라이언트를 백업하기
 * 읽기 전용 볼륨: VSS(볼륨 섀도 복사본 서비스)가 작동하려면 볼륨에 데이터 쓰기가 가능해야 합니다.
 * 오프라인 볼륨: VSS가 작동하려면 볼륨이 온라인 상태여야 합니다.
 * 네트워크 공유: 온라인 백업을 사용하여 백업할 서버의 로컬 볼륨이어야 합니다.
-* Bitlocker로 보호된 볼륨: 볼륨의 잠금을 해제해야 백업이 실행될 수 있습니다.
-* 파일 시스템 식별: NTFS가 유일하게 지원되는 파일 시스템입니다.
+* BitLocker로 보호된 볼륨: 볼륨의 잠금을 해제해야 백업이 실행될 수 있습니다.
+* 파일 시스템 식별: NTFS는 지원되는 유일한 파일 시스템입니다.
 
 ### <a name="what-file-and-folder-types-can-i-back-up-from-my-serverbr"></a>내 서버에서 어떤 파일 및 폴더 형식을 백업할 수 있나요?<br/>
 다음과 같은 형식이 지원됩니다.
@@ -45,8 +45,8 @@ Windows Server, System Center DPM 또는 Windows 클라이언트를 백업하기
 * 압축 + 스파스
 * 하드 링크: 지원되지 않음, 건너뜀
 * 재분석 지점: 지원되지 않음, 건너뜀
-* 암호화 + 스파스: 지원되지 않음, 건너뜀
-* 압축 스트림: 지원되지 않음, 건너뜀
+* 암호화됨 + 스파스: 지원되지 않음, 건너뜀
+* 압축된 스트림: 지원되지 않음, 건너뜀
 * 스파스 스트림: 지원되지 않음, 건너뜀
 
 ### <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension-br"></a>VM 확장을 사용하여 Azure Backup 서비스에서 이미 지원하는 Azure VM에 Azure Backup 에이전트를 설치할 수 있나요? <br/>

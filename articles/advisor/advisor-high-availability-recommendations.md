@@ -3,53 +3,48 @@ title: Azure Advisor 고가용성 권장 사항 | Microsoft Docs
 description: Azure Advisor를 사용하여 Azure 배포의 가용성을 향상시킵니다.
 services: advisor
 documentationcenter: NA
-author: manbeenkohli
+author: kasparks
 manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: makohli
-ms.openlocfilehash: 2216b915c47ea05d3303ca02e51e976490ea36c6
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.author: kasparks
+ms.openlocfilehash: 928fb5421297fedbffabc45db35a89a74026477e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068358"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305074"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Advisor 고가용성 권장 사항
 
-Azure Advisor는 업무상 중요한 응용 프로그램의 연속성을 보장하고 향상시키는 데 도움이 됩니다. Advisor 대시보드의 **고가용성** 탭에서 Advisor의 고가용성 권장 사항을 가져올 수 있습니다.
+Azure Advisor는 업무상 중요한 애플리케이션의 연속성을 보장하고 향상시키는 데 도움이 됩니다. Advisor 대시보드의 **고가용성** 탭에서 Advisor의 고가용성 권장 사항을 가져올 수 있습니다.
 
 ## <a name="ensure-virtual-machine-fault-tolerance"></a>가상 머신 내결함성 보장
 
-응용 프로그램에 중복성을 제공하기 위해 여러 개의 가상 머신을 가용성 집합으로 그룹화하는 것이 좋습니다. Advisor는 가용성 집합에 속하지 않는 가상 머신을 식별하고 이러한 가상 머신을 가용성 집합으로 이동할 것을 권장합니다. 이 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 가상 머신을 사용할 수 있고 Azure 가상 머신 SLA가 충족되도록 합니다. 가상 머신에 대한 가용성 집합을 만들거나 기존 가용성 집합에 가상 머신을 추가할 수도 있습니다.
+애플리케이션에 중복성을 제공하기 위해 여러 개의 가상 머신을 가용성 집합으로 그룹화하는 것이 좋습니다. Advisor는 가용성 집합에 속하지 않는 가상 머신을 식별하고 이러한 가상 머신을 가용성 집합으로 이동할 것을 권장합니다. 이 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 가상 머신을 사용할 수 있고 Azure 가상 머신 SLA가 충족되도록 합니다. 가상 머신에 대한 가용성 집합을 만들거나 기존 가용성 집합에 가상 머신을 추가할 수도 있습니다.
 
 > [!NOTE]
 > 가용성 집합을 만들도록 선택한 경우 해당 가용성 집합에 적어도 하나 이상의 가상 컴퓨터를 추가해야 합니다. 중단 시간 동안 하나 이상의 컴퓨터를 사용할 수 있도록 하기 위해 가용성 집합에 둘 이상의 가상 머신을 그룹화하는 것이 좋습니다.
 
 ## <a name="ensure-availability-set-fault-tolerance"></a>가용성 집합 내결함성 보장 
 
-응용 프로그램에 중복성을 제공하기 위해 여러 개의 가상 머신을 가용성 집합으로 그룹화하는 것이 좋습니다. Advisor는 단일 가상 머신을 포함하는 가용성 집합을 식별하고 여기에 하나 이상의 가상 머신을 추가할 것을 권장합니다. 이 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 가상 머신을 사용할 수 있고 Azure 가상 머신 SLA가 충족되도록 합니다. 가상 머신을 만들거나 기존 가상 머신을 가용성 집합에 추가할 수 있습니다.  
+애플리케이션에 중복성을 제공하기 위해 여러 개의 가상 머신을 가용성 집합으로 그룹화하는 것이 좋습니다. Advisor는 단일 가상 머신을 포함하는 가용성 집합을 식별하고 여기에 하나 이상의 가상 머신을 추가할 것을 권장합니다. 이 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 가상 머신을 사용할 수 있고 Azure 가상 머신 SLA가 충족되도록 합니다. 가상 머신을 만들거나 기존 가상 머신을 가용성 집합에 추가할 수 있습니다.  
 
-## <a name="ensure-application-gateway-fault-tolerance"></a>응용 프로그램 게이트웨이 내결함성 보장
-응용 프로그램 게이트웨이에서 구동되는 중요 업무용 응용 프로그램의 비즈니스 연속성을 위해 Advisor는 내결함성에 대해 구성되지 않은 응용 프로그램 게이트웨이 인스턴스를 식별하고 수행할 수 있는 수정 작업을 제안합니다. Advisor는 중간 규모 또는 대규모 단일 인스턴스 응용 프로그램 게이트웨이를 식별하고 하나 이상의 인스턴스 추가를 권장합니다. 또한 단일 또는 다중 인스턴스 소규모 응용 프로그램 게이트웨이를 식별하고 중간 규모 또는 대규모 SKU로 마이그레이션을 권장합니다. Advisor는 응용 프로그램 게이트웨이 인스턴스가 이러한 리소스에 대한 현재 SLA 요구 사항을 만족하도록 구성되어 있는지 확인하는 데 이러한 작업을 권장합니다.
+## <a name="use-managed-disks-to-improve-data-reliability"></a>Managed Disks를 사용하여 데이터 안정성 개선
+여러 디스크가 스토리지 계정 또는 스토리지 배율 단위를 공유하는 가용성 세트의 가상 머신은 중단 시 단일 스토리지 배율 단위 오류에서 복원되지 않습니다. Advisor는 이러한 가용성 세트를 식별하여 Azure Managed Disks로 마이그레이션하는 것이 좋다는 메시지를 표시합니다. 따라서 단일 실패 지점이 발생하지 않도록 가용성 세트의 서로 다른 가상 머신을 포함하는 디스크를 충분히 격리해야 합니다. 
 
-## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks"></a>가상 머신 디스크의 성능 및 안정성 향상
+## <a name="ensure-application-gateway-fault-tolerance"></a>애플리케이션 게이트웨이 내결함성 보장
 
-Advisor는 표준 디스크를 포함하는 가상 머신을 식별하고 프리미엄 디스크로 업그레이드할 것을 권장합니다.
- 
-Azure Premium Storage는 I/O 사용량이 많은 작업을 실행하는 가상 머신에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. 프리미엄 저장소 계정을 사용하는 가상 머신 디스크는 SSD(솔리드 스테이트 드라이브)에 데이터를 저장합니다. 응용 프로그램이 최고 성능을 낼 수 있도록 높은 IOPS가 필요한 모든 가상 머신 디스크를 프리미엄 저장소로 마이그레이션하는 것이 좋습니다. 
-
-디스크에 높은 IOPS가 필요하지 않으면 표준 저장소에 유지 관리하여 비용을 제한할 수 있습니다. 표준 저장소는 SSD 대신 HDD(하드 디스크 드라이브)에 가상 머신 디스크 데이터를 저장합니다. 가상 컴퓨터 디스크를 프리미엄 디스크로 마이그레이션하도록 선택할 수 있습니다. 프리미엄 디스크는 대부분의 가상 머신 SKU에서 지원됩니다. 그러나 일부 경우에 프리미엄 디스크를 사용하려는 경우 가상 머신 SKU도 업그레이드해야 할 수 있습니다.
+애플리케이션 게이트웨이에서 구동되는 중요 업무용 애플리케이션의 비즈니스 연속성을 위해 Advisor는 내결함성에 대해 구성되지 않은 애플리케이션 게이트웨이 인스턴스를 식별하고 수행할 수 있는 수정 작업을 제안합니다. Advisor는 중간 규모 또는 대규모 단일 인스턴스 애플리케이션 게이트웨이를 식별하고 하나 이상의 인스턴스 추가를 권장합니다. 또한 단일 또는 다중 인스턴스 소규모 애플리케이션 게이트웨이를 식별하고 중간 규모 또는 대규모 SKU로 마이그레이션을 권장합니다. Advisor는 애플리케이션 게이트웨이 인스턴스가 이러한 리소스에 대한 현재 SLA 요구 사항을 만족하도록 구성되어 있는지 확인하는 데 이러한 작업을 권장합니다.
 
 ## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>가상 머신 데이터를 실수로 삭제되지 않도록 보호
 
-가상 머신 백업 설정은 비즈니스에 중요한 데이터의 가용성을 보장하고 실수로 인한 삭제 또는 손상에 대한 보호를 제공합니다.  Advisor는 백업이 활성화되지 않은 가상 머신을 식별하고 백업을 활성화할 것을 권장합니다. 
+가상 머신 백업 설정은 비즈니스에 중요한 데이터의 가용성을 보장하고 실수로 인한 삭제 또는 손상에 대한 보호를 제공합니다. Advisor는 백업이 활성화되지 않은 가상 머신을 식별하고 백업을 활성화할 것을 권장합니다. 
 
 ## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>필요할 때 Azure 클라우드 전문가에 대한 액세스 권한이 있는지 확인
 
@@ -70,6 +65,10 @@ Traffic Manager 프로필이 지리적 라우팅에 대해 구성된 경우 트�
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-in-the-event-of-accidental-overwrite-or-deletion"></a>데이터를 저장하고 실수로 덮어쓰거나 삭제하는 경우 복구할 수 있도록 Azure 저장소 계정에 대해 일시 삭제 기능 사용
 
 삭제한 Blob가 영구적으로 삭제되지 않고 일시 삭제된 상태로 전환되도록 저장소 계정에 대해 [일시 삭제](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)를 사용하도록 설정합니다. 데이터를 덮어쓰는 경우 덮어쓴 데이터의 상태를 저장하기 위해 일시 삭제된 스냅숏이 생성됩니다. 그러므로 실수로 삭제하거나 덮어쓴 데이터를 복구할 수 있습니다. Advisor는 일시 삭제가 사용하도록 설정되지 않은 Azure 저장소 계정을 확인하여 해당 기능을 사용하도록 설정하라는 제안을 표시합니다.
+
+## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>연결 복원을 위해 VPN 게이트웨이를 활성-활성으로 구성
+
+활성-활성 구성에서 두 VPN 게이트웨이 인스턴스는 모두 온-프레미스 VPN 디바이스에 대한 S2S VPN 터널을 설정합니다. 게이트웨이 인스턴스 하나에서 계획된 유지 관리 이벤트 또는 계획되지 않은 이벤트가 발생하면 트래픽이 다른 활성 IPsec 터널로 전송되도록 자동 전환됩니다. Azure Advisor는 활성-활성으로 구성되지 않은 VPN 게이트웨이를 식별하여 고가용성을 유지할 수 있도록 해당 게이트웨이를 구성하라는 제안 메시지를 표시합니다.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Advisor의 고가용성 권장 사항에 액세스하는 방법
 

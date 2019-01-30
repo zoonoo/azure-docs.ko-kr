@@ -7,18 +7,17 @@ editor: tysonn
 services: azure-monitor
 documentationcenter: azure-monitor
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: bwren
-ms.openlocfilehash: f85f0785f180bf333477bd45508f8c670349669e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 68986b3d60566ee190a92c6ccf8cda767824350f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980477"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000144"
 ---
 # <a name="azure-monitor-branding-changes"></a>Azure Monitor 브랜딩 변경 사항
 이 문서에서는 Azure 관리 서비스에 대한 최신 브랜딩 및 이름 변경 사항을 설명합니다. 
@@ -29,7 +28,7 @@ Azure 리소스와 하이브리드 환경을 모니터링하는 단일 통합 �
 각 서비스의 문서는 Azure Monitor용 단일 콘텐츠 집합으로 통합되었습니다. 따라서 여러 콘텐츠 집합을 참조할 필요 없이 한 위치에서 특정 모니터링 시나리오의 모든 콘텐츠를 찾을 수 있습니다. 통합 서비스가 진행됨에 따라 콘텐츠가 더 많이 통합됩니다.
 
 ## <a name="log-analytics-redefinition"></a>Log Analytics 재정의
-Log Analytics는 다양한 원본에서 원격 분석 및 기타 데이터를 수집하고 응용 프로그램 및 리소스의 작업에 대한 통찰력을 제공하는 쿼리 언어 및 분석 엔진을 제공하여 Azure 관리에서 중심적인 역할을 수행합니다. 이 기능은 Azure Monitor의 이 중요한 역할을 계속 수행합니다. 에이전트 및 솔루션과 같은 Log Analytics의 일부로 간주되는 다른 기능은 Azure Monitor의 기능으로 재배치됩니다. Azure Portal에서 기능이 잠재적으로 향상되는 것 이외에 이 기능은 변경되지 않았습니다.
+Log Analytics는 다양한 원본에서 원격 분석 및 기타 데이터를 수집하고 애플리케이션 및 리소스의 작업에 대한 통찰력을 제공하는 쿼리 언어 및 분석 엔진을 제공하여 Azure 관리에서 중심적인 역할을 수행합니다. 이 기능은 Azure Monitor의 이 중요한 역할을 계속 수행합니다. 에이전트 및 솔루션과 같은 Log Analytics의 일부로 간주되는 다른 기능은 Azure Monitor의 기능으로 재배치됩니다. Azure Portal에서 기능이 잠재적으로 향상되는 것 이외에 이 기능은 변경되지 않았습니다.
 
 ## <a name="retirement-of-operations-management-suite-brand"></a>Operations Management Suite 브랜드 만료
 OMS(Operations Management Suite)는 라이센스 부여에 사용되는 다음 Azure 관리 서비스를 번들한 것입니다.
@@ -47,4 +46,4 @@ OMS(Operations Management Suite)는 라이센스 부여에 사용되는 다음 A
 ## <a name="next-steps"></a>다음 단계
 
 - 여러 다른 구성 요소와 기능을 설명하는 [Azure Monitor 개요](overview.md)를 읽어 보세요.
-- [OMS 포털 상태 전환](../log-analytics/log-analytics-oms-portal-transition.md)에 관해 알아보세요.
+- [OMS 포털 상태 전환](../azure-monitor/platform/oms-portal-transition.md)에 관해 알아보세요.

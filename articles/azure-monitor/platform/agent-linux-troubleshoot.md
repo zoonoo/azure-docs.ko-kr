@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: c9445793061b84a1bd1632d00b64ea99800bc2d1
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b95a9b2243dda83be7de67802a8b6678419e335f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638008"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102587"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트의 문제를 해결하는 방법 
 
@@ -32,7 +30,7 @@ ms.locfileid: "52638008"
 * Azure 지원 계약을 맺은 고객은 [Azure Portal](https://manage.windowsazure.com/?getsupport=true)에서 지원 요청을 열 수 있습니다.
 * [OMI 문제 해결 가이드](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md)를 사용하여 OMI 문제를 진단합니다.
 * [GitHub 문제](https://github.com/Microsoft/OMS-Agent-for-Linux/issues)를 제출합니다.
-* 제출된 아이디어와 버그를 검토하거나 새로운 아이디어를 제출하려면 Log Analytics 피드백 페이지([http://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback))를 방문하세요.  
+* 제출된 아이디어와 버그를 검토하거나 새로운 아이디어를 제출하려면 Log Analytics 피드백 페이지([https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback))를 방문하세요.  
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>중요한 로그 위치 및 로그 수집기 도구
 
@@ -62,7 +60,7 @@ ms.locfileid: "52638008"
 | NOT_DEFINED | 필요한 종속성이 설치되지 않아 auoms auditd 플러그 인이 설치되지 않습니다. | auoms 설치가 실패했습니다. 패키지 auditd를 설치하세요. |
 | 2 | 셸 번들에 잘못된 옵션이 제공되었습니다. `sudo sh ./omsagent-*.universal*.sh --help` 명령을 실행하여 사용 방법을 확인하세요. |
 | 3 | 셸 번들에 옵션이 제공되지 않았습니다. `sudo sh ./omsagent-*.universal*.sh --help` 명령을 실행하여 사용 방법을 확인하세요. |
-| 4 | 패키지 형식 또는 프록시 설정이 잘못되었습니다. omsagent-*rpm*.sh 패키지는 RPM 기반 시스템에만 설치할 수 있고, omsagent-*deb*.sh 패키지는 Debian 기반 시스템에만 설치할 수 있습니다. [최신 릴리스](../../log-analytics/log-analytics-quick-collect-linux-computer.md#install-the-agent-for-linux)의 유니버설 설치 관리자를 사용하는 것이 좋습니다. 또한 프록시 설정을 [검토](#issue:-unable-to-connect-through-proxy-to-log-analytics)하세요. |
+| 4 | 패키지 형식 또는 프록시 설정이 잘못되었습니다. omsagent-*rpm*.sh 패키지는 RPM 기반 시스템에만 설치할 수 있고, omsagent-*deb*.sh 패키지는 Debian 기반 시스템에만 설치할 수 있습니다. [최신 릴리스](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux)의 유니버설 설치 관리자를 사용하는 것이 좋습니다. 또한 프록시 설정을 [검토](#issue:-unable-to-connect-through-proxy-to-log-analytics)하세요. |
 | 5 | 셸 번들을 루트로 실행하지 않았거나 온보딩 중에 403 오류가 반환되었습니다. `sudo`를 사용하여 명령을 실행하세요. |
 | 6 | 패키지 아키텍처가 잘못되었거나 온보딩 중에 200 오류가 반환되었습니다. omsagent-*x64.sh 패키지는 64비트 시스템에만 설치할 수 있고, omsagent-* x86.sh 패키지는 32비트 시스템에만 설치할 수 있습니다. [최신 릴리스](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest)에서 아키텍처에 적합한 패키지를 다운로드하세요. |
 | 17 | OMS 패키지 설치가 실패했습니다. 명령 출력을 살펴보고 근본 원인을 파악하세요. |
@@ -190,7 +188,7 @@ OMS 출력 플러그 인을 사용하는 대신 데이터 항목을 `stdout`으�
 ## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>문제: 등록 직후에 로그 파일에 500 및 404 오류가 표시됨
 이 문제는 알려진 문제이며 Linux 데이터를 Log Analytics 작업 영역으로 처음 업로드할 때 발생합니다. 이 문제는 전송되는 데이터 또는 서비스 환경에 영향을 미치지 않습니다.
 
-## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>문제: Azure Portal에서 데이터가 보이지 않습니다.
+## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>문제: Azure Portal에서 데이터가 보이지 않음
 
 ### <a name="probable-causes"></a>가능한 원인
 
@@ -410,7 +408,7 @@ sudo sh ./onboard_agent.sh --purge
 ### <a name="resolution"></a>해결 방법 
 다음 단계에 따라 문제를 해결합니다.
 1. Azure Portal에서 확장을 제거합니다.
-2. [지침](../../log-analytics/log-analytics-quick-collect-linux-computer.md)에 따라 에이전트를 설치합니다.
+2. [지침](../../azure-monitor/learn/quick-collect-linux-computer.md)에 따라 에이전트를 설치합니다.
 3. `sudo /opt/microsoft/omsagent/bin/service_control restart` 명령을 실행하여 에이전트를 다시 시작합니다.
 * 몇 분 정도 기다리면 프로비전 상태가 **프로비전 성공**으로 변경됩니다.
 

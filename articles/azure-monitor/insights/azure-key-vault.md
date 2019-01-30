@@ -10,17 +10,15 @@ ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.component: ''
-ms.openlocfilehash: 72c7febe48c89041aad3c2e127eeb4e2d33d5eca
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 785ccba6766b6a4f7400f3fdacf7ac24a234adf5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430558"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192773"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Log Analytics의 Azure Key Vault Analytics 솔루션
 
@@ -138,7 +136,7 @@ Azure Key Vault 솔루션은 Azure Diagnostics에서 [AuditEvent logs](../../key
 1. [Key Vault에서 Log Analytics로 직접 보내도록 진단을 구성합니다](#enable-key-vault-diagnostics-in-the-portal).  
 2. [솔루션 갤러리에서 Log Analytics 솔루션 추가](../../azure-monitor/insights/solutions.md)에서 설명한 프로세스를 사용하여 Azure Key Vault 솔루션을 사용하도록 설정합니다.
 3. 새 데이터 형식을 사용하도록 저장된 쿼리, 대시보드 또는 경고를 업데이트합니다.
-  + KeyVaults에서 AzureDiagnostics로 형식을 변경합니다. ResourceType을 사용하여 Key Vault 로그로 필터링할 수 있습니다.
+  + 형식은 KeyVaults에서 AzureDiagnostics로 변경됩니다. ResourceType을 사용하여 Key Vault 로그로 필터링할 수 있습니다.
   - `KeyVaults` 대신 `AzureDiagnostics | where ResourceType'=="VAULTS"`를 사용합니다.
   + 필드: (필드 이름은 대/소문자를 구분함)
   - 이름에 \_s, \_d 또는 \_g 접미사가 있는 필드의 경우 첫 번째 문자를 소문자로 변경합니다.
@@ -153,4 +151,4 @@ Azure Key Vault 솔루션은 Azure Diagnostics에서 [AuditEvent logs](../../key
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics의 로그 검색](../../log-analytics/log-analytics-queries.md)을 사용하여 자세한 Azure Key Vault 데이터를 확인합니다.
+* [Log Analytics의 로그 검색](../../azure-monitor/log-query/log-query-overview.md)을 사용하여 자세한 Azure Key Vault 데이터를 확인합니다.

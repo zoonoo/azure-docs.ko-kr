@@ -1,26 +1,19 @@
 ---
-title: Azure CLI 스크립트 샘플 - SignalR Service 만들기 | Microsoft Docs
+title: Azure CLI 스크립트 샘플 - SignalR Service 만들기
 description: Azure CLI 스크립트 샘플 - SignalR Service 만들기
-services: signalr
-documentationcenter: signalr
 author: sffamily
-manager: cfowler
-editor: ''
-tags: azure-service-management
 ms.service: signalr
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: signalr
 ms.date: 04/20/2018
 ms.author: zhshang
 ms.custom: mvc
-ms.openlocfilehash: d64e43ad6dc021676fb9483574e0d710cd0a766f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8653d8da8b180fb657169523e83a651d822343e4
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998647"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605043"
 ---
 # <a name="create-a-signalr-service"></a>SignalR Service 만들기 
 
@@ -55,8 +48,8 @@ az extension add -n signalr
 | 명령 | 메모 |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az signalr create](/cli/azure/group#az-group-create) | Azure SignalR Service 리소스를 만듭니다. |
-| [az signalr key list](/cli/azure/ext/signalr/signalr/key#ext-signalr-az-signalr-key-list) | SignalR을 통해 실시간 콘텐츠 업데이트를 푸시할 때 응용 프로그램에서 사용할 키를 나열합니다. |
+| [az signalr create](/cli/azure/ext/signalr/signalr#ext-signalr-az-signalr-create) | Azure SignalR Service 리소스를 만듭니다. |
+| [az signalr key list](/cli/azure/ext/signalr/signalr/key#ext-signalr-az-signalr-key-list) | SignalR을 통해 실시간 콘텐츠 업데이트를 푸시할 때 애플리케이션에서 사용할 키를 나열합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

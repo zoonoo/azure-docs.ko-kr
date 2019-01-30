@@ -1,23 +1,24 @@
 ---
-title: LUIS 앱 일괄 처리 테스트 - Language Understanding
-titleSuffix: Azure Cognitive Services
-description: 일괄 처리 테스트를 사용하여 응용 프로그램을 지속적으로 개선하고 해당 언어에 대한 이해를 향상합니다.
+title: 일괄 테스트
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: 일괄 처리 테스트를 사용하여 애플리케이션을 지속적으로 개선하고 해당 언어에 대한 이해를 향상합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 44abadc653c4679f37152e6592c882475b139bdd
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: b0b2c8d0e3484538ca5c988a7fad56fb82b97902
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333907"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993166"
 ---
-# <a name="batch-testing-in-luis"></a>LUIS의 일괄 처리 테스트
+# <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>LUIS 포털에서 1000개 발언을 사용한 일괄 처리 테스트
 
 일괄 처리 테스트는 [활성](luis-concept-version.md#active-version) 학습 모델의 유효성을 검사하여 예측 정확도를 측정합니다. 일괄 처리 테스트는 차트의 현재 학습 모델에 있는 각 의도와 엔터티의 정확도를 확인하는 데 도움이 됩니다. 일괄 처리 테스트 결과를 검토하여 앱이 올바른 의도를 자주 식별하지 못하는 경우 의도에 예제 발언 추가 등의 적절한 조치를 취해 정확도를 향상합니다.
 
@@ -47,7 +48,7 @@ ms.locfileid: "52333907"
 
 배치 파일은 발언으로 구성됩니다. 각 발언에는 감지될 것으로 예상하는 모든 [Machine Learning 엔터티](luis-concept-entity-types.md#types-of-entities)와 함께 예상된 의도 예측이 있어야 합니다. 
 
-## <a name="batch-syntax-template"></a>일괄 처리 구문 템플릿
+## <a name="batch-syntax-template-for-intents-with-entities"></a>엔터티를 사용한 의도에 대한 일괄 처리 구문 템플릿
 
 다음 템플릿을 사용하여 일괄 처리 파일을 시작합니다.
 
@@ -74,6 +75,22 @@ ms.locfileid: "52333907"
 ```
 
 일괄 처리 파일은 **startPos** 및 **endPos** 속성을 사용하여 엔터티의 시작과 끝을 나타냅니다. 값은 0부터 시작하고 공백으로 시작하거나 끝나면 안 됩니다. 이 파일은 startIndex 및 endIndex 속성을 사용하는 쿼리 로그와 다릅니다. 
+
+## <a name="batch-syntax-template-for-intents-without-entities"></a>엔터티를 사용하지 않은 의도에 대한 일괄 처리 구문 템플릿
+
+다음 템플릿을 사용하여 엔터티를 사용하지 않고 일괄 처리 파일을 시작합니다.
+
+```JSON
+[
+  {
+    "text": "example utterance goes here",
+    "intent": "intent name goes here",
+    "entities": []
+  }
+]
+```
+
+엔터티를 테스트하지 않는 경우 `entities` 속성을 포함하여 빈 배열 `[]`와 같이 값을 정합니다.
 
 
 ## <a name="common-errors-importing-a-batch"></a>배치를 가져오는 중 발생하는 일반적인 오류

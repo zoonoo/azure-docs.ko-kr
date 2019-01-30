@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory 테넌트 만들기 | Microsoft Docs
-description: Azure AD 테넌트를 만들어 응용 프로그램 등록 및 빌드에 사용하는 방법을 알아봅니다.
+description: Azure AD 테넌트를 만들어 애플리케이션 등록 및 빌드에 사용하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -17,20 +17,20 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 731b68e3f7dbb46f2fa51a18cb5b3da6b4626fa6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 57c207af3a48eb03b9d526197aed85d7755ad370
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963937"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975953"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>빠른 시작: 개발 환경 설정
 
-Microsoft ID 플랫폼을 통해 개발자는 다양한 사용자 지정 Microsoft 365 환경 및 ID를 대상으로 하는 앱을 빌드할 수 있습니다. Microsoft ID 플랫폼 사용을 시작하려면 앱을 등록 및 관리하고, Microsoft 365 데이터에 액세스하고, 사용자 지정 조건부 액세스 및 테넌트 제한을 배포할 수 있는 Azure AD 테넌트라고도 하는 환경에 액세스합니다. 
+Microsoft ID 플랫폼을 통해 개발자는 다양한 사용자 지정 Microsoft 365 환경 및 ID를 대상으로 하는 앱을 빌드할 수 있습니다. Microsoft ID 플랫폼 사용을 시작하려면 앱을 등록 및 관리하고, Microsoft 365 데이터에 액세스하고, 사용자 지정 조건부 액세스 및 테넌트 제한을 배포할 수 있는 Azure AD 테넌트라고도 하는 환경에 액세스해야 합니다.
 
-테넌트는 조직의 표현입니다. 조직 또는 앱 개발자가 Microsoft와의 관계를 만들 때(예: Azure, Microsoft Intune 또는 Microsoft 365에 등록) 조직 또는 앱 개발자가 받는 Azure AD의 전용 인스턴스입니다. 
+테넌트는 조직의 표현입니다. 조직 또는 앱 개발자가 Microsoft와의 관계를 만들 때(예: Azure, Microsoft Intune 또는 Microsoft 365에 등록) 조직 또는 앱 개발자가 받는 Azure AD의 전용 인스턴스입니다.
 
-각 Azure AD 테넌트는 고유하고 다른 Azure AD 테넌트와 별도이며 회사 및 학교 ID, 고객 ID(Azure AD B2C 테넌트인 경우) 및 앱 등록의 고유한 표현을 갖습니다. 테넌트 내의 앱 등록은 오직 테넌트 또는 모든 테넌트 내의 계정의 인증을 허용할 수 있습니다. 
+각 Azure AD 테넌트는 고유하고 다른 Azure AD 테넌트와 별도이며 회사 및 학교 ID, 고객 ID(Azure AD B2C 테넌트인 경우) 및 앱 등록의 고유한 표현을 갖습니다. 테넌트 내의 앱 등록은 오직 테넌트 또는 모든 테넌트 내의 계정의 인증을 허용할 수 있습니다.
 
 ## <a name="determining-environment-type"></a>환경 유형 결정
 
@@ -47,7 +47,7 @@ Microsoft ID 플랫폼을 통해 개발자는 다양한 사용자 지정 Microso
 
 대부분의 개발자는 이미 Azure AD 테넌트(예: Microsoft 365 또는 Azure 구독)와 연결된 서비스 또는 구독을 통해 테넌트를 확보하고 있습니다.
 
-1. 테넌트를 확인하려면 응용 프로그램을 관리하는 데 사용하려는 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 테넌트를 확인하려면 애플리케이션을 관리하는 데 사용하려는 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 오른쪽 위 모서리를 확인합니다. 테넌트가 있으면 자동으로 로그인되고 계정 이름 바로 아래에 테넌트 이름이 표시됩니다.
    * Azure Portal의 오른쪽 위에 있는 사용자의 계정 이름을 가리켜 사용자의 이름, 이메일, 디렉터리/테넌트 ID(GUID) 및 사용자의 도메인을 표시합니다.
    * 계정이 여러 테넌트와 연결되어 있으면, 계정 이름을 선택하여 테넌트 간에 전환할 수 있는 메뉴를 열 수 있습니다. 각 테넌트가 자기만의 ID를 가지고 있습니다.
@@ -69,7 +69,7 @@ Azure AD 테넌트가 없거나 개발을 위한 새 테넌트를 만들려는 �
 
 ## <a name="social-and-local-accounts"></a>소셜 및 로컬 계정
 
-소셜 및 로컬 계정에 로그인하는 앱 빌드를 시작하려면 Azure AD B2C 테넌트를 만들어야 합니다. 시작하려면 [Azure AD B2C 테넌트 만들기](../../active-directory-b2c/tutorial-create-tenant.md)를 따릅니다. 
+소셜 및 로컬 계정에 로그인하는 앱 빌드를 시작하려면 Azure AD B2C 테넌트를 만들어야 합니다. 시작하려면 [Azure AD B2C 테넌트 만들기](../../active-directory-b2c/tutorial-create-tenant.md)를 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

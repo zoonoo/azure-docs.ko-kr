@@ -19,7 +19,7 @@ ms.locfileid: "52874943"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>빠른 시작: Custom Vision Python SDK를 사용하여 개체 검색 프로젝트 만들기
 
-이 문서에서는 Python과 함께 Custom Vision SDK를 사용하여 개체 검색 모델 빌드를 시작할 수 있도록 도와주는 정보와 샘플 코드를 제공합니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. Python 응용 프로그램을 빌드하기 위한 템플릿으로 이 예제를 사용하세요.
+이 문서에서는 Python과 함께 Custom Vision SDK를 사용하여 개체 검색 모델 빌드를 시작할 수 있도록 도와주는 정보와 샘플 코드를 제공합니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. Python 애플리케이션을 빌드하기 위한 템플릿으로 이 예제를 사용하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -195,7 +195,7 @@ for prediction in results.predictions:
     print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100), prediction.bounding_box.left, prediction.bounding_box.top, prediction.bounding_box.width, prediction.bounding_box.height)
 ```
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
 *sample.py* 파일을 실행합니다.
 
@@ -203,7 +203,7 @@ for prediction in results.predictions:
 python sample.py
 ```
 
-응용 프로그램의 출력이 콘솔에 표시됩니다. 그러면 테스트 이미지(**samples/vision/images/Test**에 있음)에 태그가 적절하게 지정되는지, 검색 지역이 올바른지 확인할 수 있습니다.
+애플리케이션의 출력이 콘솔에 표시됩니다. 그러면 테스트 이미지(**samples/vision/images/Test**에 있음)에 태그가 적절하게 지정되는지, 검색 지역이 올바른지 확인할 수 있습니다.
 
 [!INCLUDE [clean-od-project](includes/clean-od-project.md)]
 

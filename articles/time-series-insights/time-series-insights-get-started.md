@@ -10,12 +10,13 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 909d8a921e46f0f935bb8a059714b1c0170ddee4
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 74cd56f5a8bfe8717927c13e6bf30eb27b43fbc9
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627664"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558535"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Azure Portal에서 Time Series Insights 환경 만들기
 이 문서에서는 Azure Portal을 사용하여 새로운 Time Series Insights 환경을 만드는 방법을 설명합니다.

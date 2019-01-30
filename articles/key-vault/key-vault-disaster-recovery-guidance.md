@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업 | Microsoft Docs
+title: Azure Key Vault에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업 - Azure Key Vault | Microsoft Docs
 description: Azure Key Vault에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업에 대해 알아봅니다.
 services: key-vault
 documentationcenter: ''
@@ -10,19 +10,19 @@ ms.assetid: 19a9af63-3032-447b-9d1a-b0125f384edb
 ms.service: key-vault
 ms.workload: key-vault
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/07/2017
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 5ab6fc207d8a7732062a51a6215c25a4a0fac006
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: a8f9b1a9ac72498e2e8374926ba3ae47a3eaff09
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465846"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078340"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure Key Vault 가용성 및 중복성
-Azure Key Vault에는 서비스의 개별 구성 요소가 실패해도 응용 프로그램에서 키 및 암호를 사용할 수 있도록 해주는 여러 계층의 중복성이 있습니다.
+
+Azure Key Vault에는 서비스의 개별 구성 요소가 실패해도 애플리케이션에서 키 및 암호를 사용할 수 있도록 해주는 여러 계층의 중복성이 있습니다.
 
 주요 자격 증명 모음의 내용은 지역 내에는 물론 동일한 지리 내에 150마일 이상 떨어진 보조 지역에도 복제됩니다. 따라서 키와 암호의 내구성이 매우 높습니다. 특정 지역 쌍에 대한 자세한 내용은 [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) 문서를 참조하세요.
 

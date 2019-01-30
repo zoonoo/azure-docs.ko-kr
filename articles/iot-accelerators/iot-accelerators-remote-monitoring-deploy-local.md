@@ -6,20 +6,20 @@ manager: hegate
 ms.author: avneet723
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/25/2018
+ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5068f0277726b7c468aa24d0629c4350b60b78b5
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: e4a48312dc516010b7a7fe1471ba7e555a2f92f2
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287611"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382247"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>로컬에 원격 모니터링 솔루션 가속기 배포 - Visual Studio
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-이 문서에서는 테스트 및 개발을 위해 원격 모니터링 솔루션 가속기를 로컬 컴퓨터에 배포하는 방법을 보여줍니다. Visual Studio에서 마이크로 서비스를 실행하는 방법에 대해 알아봅니다. 로컬 마이크로 서비스 배포는 클라우드에서 IoT Hub, Cosmos DB, Azure Streaming Analytics 및 Azure Time Series Insights 서비스와 같은 클라우드 서비스를 사용합니다.
+이 문서에서는 테스트 및 개발을 위해 원격 모니터링 솔루션 가속기를 로컬 컴퓨터에 배포하는 방법을 보여줍니다. Visual Studio에서 마이크로 서비스를 실행하는 방법에 대해 알아봅니다. 로컬 마이크로 서비스 배포는 클라우드에서 IoT Hub, Cosmos DB, Azure Streaming Analytics, 클라우드의 Azure Time Series Insights 서비스 등과 같은 클라우드 서비스를 사용합니다.
 
 로컬 머신의 Docker에서 원격 모니터링 솔루션 가속기를 실행하려면 [로컬로 원격 모니터링 솔루션 가속기 배포 - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md)를 참조하세요.
 
@@ -36,7 +36,7 @@ ms.locfileid: "51287611"
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
 * [Visual Studio](https://visualstudio.microsoft.com/)
-* [Nginx](http://nginx.org/en/download.html)
+* [Nginx](https://nginx.org/en/download.html)
 * [Node.js v8](https://nodejs.org/) - 이 소프트웨어는 스크립트에서 Azure 리소스를 만드는 데 사용하는 PCS CLI에 대한 필수 구성 요소입니다. Node.js v10은 사용하지 마세요.
 
 > [!NOTE]
@@ -48,16 +48,9 @@ ms.locfileid: "51287611"
 
 이 섹션에서는 원격 모니터링 마이크로 서비스를 실행합니다. 웹 UI를 고유하게 실행하고, Docker에서 디바이스 시뮬레이션 서비스를 실행하고, Visual Studio에서 마이크로 서비스를 실행합니다.
 
-### <a name="run-the-web-ui"></a>웹 UI 실행
-
-이 단계에서는 웹 UI를 시작합니다. 리포지토리의 로컬 복사본에서 **webui** 폴더로 이동하여 다음 명령을 실행합니다.
-
-```cmd
-npm install
-npm start
-```
-
 ### <a name="run-the-device-simulation-service"></a>디바이스 시뮬레이션 서비스 실행
+
+이전 섹션에 **start.cmd** 스크립트에서 설정한 환경 변수에 액세스할 수 있는지 확인하려면 새 명령 프롬프트 창을 엽니다.
 
 디바이스 시뮬레이션 서비스용 Docker 컨테이너를 시작하려면 다음 명령을 실행합니다. 이 서비스를 원격 모니터링 솔루션에 사용되는 디바이스를 시뮬레이션합니다.
 
@@ -92,16 +85,27 @@ npm start
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 1. 솔루션에 대해 만든 **리소스 그룹**으로 이동합니다. 리소스 그룹의 이름은 **start.cmd** 스크립트**를 실행할 때 선택한 솔루션의 이름입니다.
 1. 리소스 목록에서 **Stream Analytics 작업**을 클릭합니다.
-1. Stream Analytics 작업 **개요** 페이지에서 **시작** 단추를 클릭합니다. 이제 **시작**을 클릭하여 작업을 시작합니다.
+1. Stream Analytics 작업 **개요** 페이지에서 **시작** 단추를 클릭합니다. 그런 다음, **시작**을 클릭하여 지금 작업을 시작합니다.
+
+### <a name="run-the-web-ui"></a>웹 UI 실행
+
+이 단계에서는 웹 UI를 시작합니다. **start.cmd** 스크립트에서 설정한 환경 변수에 액세스할 수 있는지 확인하려면 새 명령 프롬프트 창을 엽니다. 리포지토리의 로컬 복사본에서 **webui** 폴더로 이동하여 다음 명령을 실행합니다.
+
+```cmd
+npm install
+npm start
+```
+
+시작이 완료되면 브라우저에 **http://localhost:3000/dashboard** 페이지가 표시됩니다. 이 페이지의 오류는 예상된 것입니다. 애플리케이션을 오류 없이 표시하려면 다음 단계를 완료합니다.
 
 ### <a name="configure-and-run-nginx"></a>NGINX 구성 및 실행
 
 로컬 머신에서 실행되는 웹 애플리케이션 및 마이크로 서비스를 연결하는 역방향 프록시 서버를 설정합니다.
 
-* **webui\scripts\localhost** 폴더의 **nginx.conf** 파일을 **nginx\conf** 설치 디렉터리에 복사합니다.
+* 리포지토리의 로컬 복사본에 있는 **webui\scripts\localhost** 폴더의 **nginx.conf** 파일을 **nginx\conf** 설치 디렉터리에 복사합니다.
 * **nginx**를 실행합니다.
 
-**nginx** 실행에 대한 자세한 내용은 [Windows용 nginx](http://nginx.org/en/docs/windows.html)를 참조하세요.
+**nginx** 실행에 대한 자세한 내용은 [Windows용 nginx](https://nginx.org/en/docs/windows.html)를 참조하세요.
 
 ### <a name="connect-to-the-dashboard"></a>대시보드에 연결
 

@@ -1,31 +1,25 @@
 ---
-title: ExpressRoute 고객 라우터 구성 샘플 | Microsoft 문서
+title: 라우터 구성 샘플 - Azure ExpressRoute | Microsoft Docs
 description: 이 페이지는 Cisco 및 Juniper 라우터에 대한 라우터 구성 샘플을 제공합니다.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
-ms.assetid: 564826bc-017a-4683-a385-37c9fa814948
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 032e584dc5abf59e9e3e8d80673b402f1fbf721b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: 2d7fb060896de8df266489451a11ba343760c747
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23013108"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079962"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>라우팅 설정 및 관리를 위한 라우터 구성 샘플
-이 페이지는 Cisco IOS-XE 및 Juniper MX 시리즈 라우터에 대한 인터페이스 및 라우팅 구성 샘플을 제공합니다. 이러한 샘플은 참조용이므로 그대로 사용해서는 안 됩니다. 사용 중인 네트워크에 적절하게 구성하려면 공급업체와 작업하면 됩니다. 
+이 페이지는 ExpressRoute를 사용하여 작업할 때 Cisco IOS-XE 및 Juniper MX 시리즈 라우터에 대한 인터페이스 및 라우팅 구성 샘플을 제공합니다. 이러한 샘플은 참조용이므로 그대로 사용해서는 안 됩니다. 사용 중인 네트워크에 적절하게 구성하려면 공급업체와 작업하면 됩니다. 
 
 > [!IMPORTANT]
-> 이 페이지에 있는 샘플은 참조용입니다. 공급업체의 영업/기술 팀 및 네트워킹 팀과 함께 작업하면서 필요에 맞게 적절히 구성해야 합니다. Microsoft는 이 페이지에 나열된 구성과 관련된 문제를 지원하지 않습니다. 지원 문제는 장치 공급업체에 문의해야 합니다.
+> 이 페이지에 있는 샘플은 참조용입니다. 공급업체의 영업/기술 팀 및 네트워킹 팀과 함께 작업하면서 필요에 맞게 적절히 구성해야 합니다. Microsoft는 이 페이지에 나열된 구성과 관련된 문제를 지원하지 않습니다. 지원 문제는 디바이스 공급업체에 문의해야 합니다.
 > 
 > 
 
@@ -211,5 +205,5 @@ Microsoft에 연결하는 모든 라우터에서 피어링별로 하위 인터�
     }
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md) 를 참조하세요.
+자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md) 를 참조하세요.
 

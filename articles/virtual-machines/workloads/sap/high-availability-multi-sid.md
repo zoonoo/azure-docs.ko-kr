@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9d7fb03cf5dbcd7455f0d4e8f4a69bb1c6d23a83
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0440d1b0c3045feb6d670dae2645590febfa5bc6
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497082"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320160"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>SAP NetWeaver 다중 SID 구성 만들기
 
@@ -471,7 +471,7 @@ SAP 배포가 있는 경우 [Windows VM에서 고가용성 SAP NetWeaver 가이�
 >하나의 WSFC 클러스터에서 SAP ASCS/SCS 인스턴스의 최대수는 각 Azure 내부 부하 분산 장치에 대한 개인 프런트 엔드 IP의 최대수와 같습니다.
 >
 
-부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한 - Azure Resource Manager][networking-limits-azure-resource-manager]에서 “부하 분산 장치당 개인 프런트 엔드 IP”를 참조하세요.
+부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한: Azure Resource Manager][networking-limits-azure-resource-manager]의 "부하 분산 장치당 개인 프런트 엔드 IP"를 참조하세요.
 
 두 가지 고가용성 SAP 시스템을 포함한 전체 그림은 다음과 같습니다.
 
@@ -481,7 +481,7 @@ SAP 배포가 있는 경우 [Windows VM에서 고가용성 SAP NetWeaver 가이�
 > 설치 프로그램은 다음 조건을 충족해야 합니다.
 > - SAP ASCS/SCS 인스턴스는 동일한 WSFC 클러스터를 공유해야 합니다.
 > - 각 DBMS SID에는 해당하는 고유한 전용 WSFC 클러스터가 있어야 합니다.
-> - 하나의 SAP 시스템 SID에 속하는 SAP 응용 프로그램 서버에는 고유한 전용 VM이 있어야 합니다.
+> - 하나의 SAP 시스템 SID에 속하는 SAP 애플리케이션 서버에는 고유한 전용 VM이 있어야 합니다.
 
 
 ## <a name="prepare-the-infrastructure"></a>인프라 준비
@@ -607,7 +607,7 @@ foreach ($Port in $Ports) {
 
 $ILB | Set-AzureRmLoadBalancer
 
-Write-Host "Succesfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
+Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
 
 ```
 스크립트를 실행한 후 다음 스크린샷에 표시된 것처럼 결과가 Azure Portal에 표시됩니다.
@@ -626,11 +626,11 @@ Write-Host "Succesfully added new IP '$ILBIP' to the internal load balancer '$IL
 
 ![새 SAP ASCS/SCS 공유 디스크에 대한 DataKeeper 동기 미러링][sap-ha-guide-figure-6006]
 
-### <a name="deploy-vms-for-sap-application-servers-and-dbms-cluster"></a>SAP 응용 프로그램 서버 및 DBMS 클러스터에 대한 VM 배포
+### <a name="deploy-vms-for-sap-application-servers-and-dbms-cluster"></a>SAP 애플리케이션 서버 및 DBMS 클러스터에 대한 VM 배포
 
 두 번째 SAP 시스템에 대한 인프라 준비를 완료하려면 다음을 수행합니다.
 
-1. SAP 응용 프로그램 서버에 대한 전용 VM을 배포하고 고유한 전용 가용성 그룹에 배치합니다.
+1. SAP 애플리케이션 서버에 대한 전용 VM을 배포하고 고유한 전용 가용성 그룹에 배치합니다.
 2. DBMS 클러스터에 대한 전용 VM을 배포하고 고유한 전용 가용성 그룹에 배치합니다.
 
 
@@ -660,9 +660,9 @@ Write-Host "Succesfully added new IP '$ILBIP' to the internal load balancer '$IL
 
 7. [SAP ERS Windows 서비스 인스턴스의 시작 유형 변경][sap-ha-guide-9.4].
 
-8. 새 전용 VM에서 [SAP 기본 응용 프로그램 서버 설치][sap-ha-guide-9.5].
+8. 새 전용 VM에서 [SAP 기본 애플리케이션 서버 설치][sap-ha-guide-9.5].
 
-9. 새 전용 VM에서 [SAP 추가 응용 프로그램 서버 설치][sap-ha-guide-9.6].
+9. 새 전용 VM에서 [SAP 추가 애플리케이션 서버 설치][sap-ha-guide-9.6].
 
 10. [SAP ASCS/SCS 인스턴스 장애 조치 및 SIOS 복제 테스트][sap-ha-guide-10].
 

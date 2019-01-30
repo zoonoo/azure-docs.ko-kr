@@ -1,84 +1,105 @@
 ---
 title: AKS(Azure Kubernetes Service) 클러스터 크기 조정
-description: AKS(Azure Kubernetes Service) 클러스터의 크기를 조정합니다.
+description: AKS(Azure Kubernetes Service) 클러스터의 노드 수를 조정하는 방법을 알아봅니다.
 services: container-service
-author: gabrtv
-manager: jeconnoc
+author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 11/15/2017
-ms.author: gamonroy
-ms.custom: mvc
-ms.openlocfilehash: 577fff2e659759647ffc7e96158ebcbe5a88ab25
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.date: 01/10/2019
+ms.author: iainfoulds
+ms.openlocfilehash: 558a3b6dc15293ab9a0895aa4f9f709ba2d0a51f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934696"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214626"
 ---
-# <a name="scale-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 크기 조정
+# <a name="scale-the-node-count-in-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터의 노드 수 조정
 
-서로 다른 노드 수로 AKS 클러스터의 크기를 조정하는 것은 쉽습니다.  원하는 노드 수를 선택하고 `az aks scale` 명령을 실행합니다.  축소하는 경우 노드를 신중하게 [통제하고 드레이닝][kubernetes-drain]하여 실행 중인 응용 프로그램의 중단을 최소화합니다.  확장하는 경우 `az` 명령은 노드가 `Ready` Kubernetes 클러스터에 의해 표시될 때까지 대기합니다.
+애플리케이션의 리소스 요구량이 변경되면 AKS 클러스터의 크기를 수동으로 조정하여 실행되는 노드 수를 변경할 수 있습니다. 클러스터를 축소하면 실행 중인 애플리케이션의 중단을 최소화하기 위해 노드 수가 적절하게 [제한 및 감소][kubernetes-drain]됩니다. 반면 클러스터를 확장하면 Kubernetes 클러스터에서 노드를 `Ready`로 표시할 때까지 `az` 명령이 대기합니다.
 
 ## <a name="scale-the-cluster-nodes"></a>클러스터 노드 크기 조정
 
-`az aks scale` 명령을 사용하여 클러스터 노드의 크기를 조정합니다. 다음 예제에서는 *myAKSCluster*라는 클러스터를 단일 노드로 크기 조정합니다.
+먼저 [az aks show][az-aks-show] 명령을 사용하여 노드 풀의 *name*을 가져옵니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에서 *myAKSCluster* 클러스터의 노드 풀 이름을 가져옵니다.
 
 ```azurecli-interactive
-az aks scale --name myAKSCluster --resource-group myResourceGroup --node-count 1
+az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPoolProfiles
 ```
 
-출력
+다음 예제 출력에는 *name*이 *nodepool1*로 표시되어 있습니다.
+
+```console
+$ az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPoolProfiles
+
+[
+  {
+    "count": 1,
+    "maxPods": 110,
+    "name": "nodepool1",
+    "osDiskSizeGb": 30,
+    "osType": "Linux",
+    "storageProfile": "ManagedDisks",
+    "vmSize": "Standard_DS2_v2"
+  }
+]
+```
+
+`az aks scale` 명령을 사용하여 클러스터 노드의 크기를 조정합니다. 다음 예제에서는 *myAKSCluster*라는 클러스터를 단일 노드로 크기 조정합니다. 위 명령에서 *nodepool1*과 같은 실제 *--nodepool-name*을 입력합니다.
+
+```azurecli-interactive
+az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1 --nodepool-name <your node pool name>
+```
+
+다음 예제 출력에는 *agentPoolProfiles* 섹션에 나와 있는 것처럼 클러스터의 크기가 노드 하나로 올바르게 조정되었음이 표시됩니다.
 
 ```json
 {
-  "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
-  "location": "eastus",
-  "name": "myAKSCluster",
-  "properties": {
-    "accessProfiles": {
-      "clusterAdmin": {
-        "kubeConfig": "..."
-      },
-      "clusterUser": {
-        "kubeConfig": "..."
-      }
-    },
-    "agentPoolProfiles": [
-      {
-        "count": 1,
-        "dnsPrefix": null,
-        "fqdn": null,
-        "name": "myAKSCluster",
-        "osDiskSizeGb": null,
-        "osType": "Linux",
-        "ports": null,
-        "storageProfile": "ManagedDisks",
-        "vmSize": "Standard_D2_v2",
-        "vnetSubnetId": null
-      }
-    ],
-    "dnsPrefix": "myK8sClust-myResourceGroup-4f48ee",
-    "fqdn": "myk8sclust-myresourcegroup-4f48ee-406cc140.hcp.eastus.azmk8s.io",
-    "kubernetesVersion": "1.7.7",
-    "linuxProfile": {
-      "adminUsername": "azureuser",
-      "ssh": {
-        "publicKeys": [
-          {
-            "keyData": "..."
-          }
-        ]
-      }
-    },
-    "provisioningState": "Succeeded",
-    "servicePrincipalProfile": {
-      "clientId": "e70c1c1c-0ca4-4e0a-be5e-aea5225af017",
-      "keyVaultSecretRef": null,
-      "secret": null
+  "aadProfile": null,
+  "addonProfiles": null,
+  "agentPoolProfiles": [
+    {
+      "count": 1,
+      "maxPods": 110,
+      "name": "nodepool1",
+      "osDiskSizeGb": 30,
+      "osType": "Linux",
+      "storageProfile": "ManagedDisks",
+      "vmSize": "Standard_DS2_v2",
+      "vnetSubnetId": null
+    }
+  ],
+  "dnsPrefix": "myAKSClust-myResourceGroup-19da35",
+  "enableRbac": true,
+  "fqdn": "myaksclust-myresourcegroup-19da35-0d60b16a.hcp.eastus.azmk8s.io",
+  "id": "/subscriptions/<guid>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
+  "kubernetesVersion": "1.9.11",
+  "linuxProfile": {
+    "adminUsername": "azureuser",
+    "ssh": {
+      "publicKeys": [
+        {
+          "keyData": "[...]"
+        }
+      ]
     }
   },
+  "location": "eastus",
+  "name": "myAKSCluster",
+  "networkProfile": {
+    "dnsServiceIp": "10.0.0.10",
+    "dockerBridgeCidr": "172.17.0.1/16",
+    "networkPlugin": "kubenet",
+    "networkPolicy": null,
+    "podCidr": "10.244.0.0/16",
+    "serviceCidr": "10.0.0.0/16"
+  },
+  "nodeResourceGroup": "MC_myResourceGroup_myAKSCluster_eastus",
+  "provisioningState": "Succeeded",
   "resourceGroup": "myResourceGroup",
+  "servicePrincipalProfile": {
+    "clientId": "[...]",
+    "secret": null
+  },
   "tags": null,
   "type": "Microsoft.ContainerService/ManagedClusters"
 }
@@ -96,3 +117,4 @@ AKS 자습서를 통한 AKS 배포 및 관리에 대해 자세히 알아봅니�
 
 <!-- LINKS - internal -->
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
+[az-aks-show]: /cli/azure/aks#az-aks-show

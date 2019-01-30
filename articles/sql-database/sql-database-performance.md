@@ -7,16 +7,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
-ms.reviewer: carlrab
+ms.author: danil
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 35af3a926ab3c3a3046eab921e86b6610edc309c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 3629215dc1f6dfcb28194c487358adb058af3e8e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162960"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602922"
 ---
 # <a name="monitor-and-improve-performance"></a>성능 모니터링 및 향상
 Azure SQL Database는 데이터베이스의 잠재적 문제를 파악하고 지능형 튜닝 작업 및 권장 사항을 제공하여 워크로드 성능을 높일 수 있는 작업을 권장합니다.

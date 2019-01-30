@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 16e3e73e00af1cc6c2c531575345f12c288f1b69
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: c73c846db4b22d8c19ccdaa2ec99a3fe7fdadf78
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853696"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076708"
 ---
 # <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>'Azure Marketplace' 및 'AppSource' 게시자 프로필 관리
 
@@ -27,7 +27,7 @@ ms.locfileid: "51853696"
 
 이전 문서에서 Azure Marketplace 및 AppSource 게시자로 등록하는 단계를 완료했습니다. 파트너 요청이 승인되면 **[클라우드 파트너 포털](https://cloudpartner.azure.com/)** 에 게시자 프로필이 등록됩니다. 게시자 프로필은 파트너 등록 중에 사용한 계정에서 게시하는 모든 제품과 SKU에 적용됩니다.
 
-클라우드 파트너로 회사를 등록하지 않은 경우 [클라우드 파트너 포털 시작](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal)을 참조하세요.
+클라우드 파트너로 회사를 등록하지 않은 경우 [클라우드 파트너 포털 시작](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal)을 참조하세요.
 
 **게시자 프로필**: 게시자 프로필은 Azure Marketplace 및 AppSource에서 회사를 구분하는 데 사용됩니다. 이 프로필은 게시자 ID, 표시 이름 및 소유자 전자 메일로 구성됩니다. 프로필을 잘 관리하면 귀하를 잘 알릴 수 있으며 Marketplace 사용자가 적절한 제품을 쉽게 식별하고 선택할 수 있습니다.
 
@@ -51,6 +51,6 @@ ms.locfileid: "51853696"
 >[!NOTE]
 >개발자 센터 계정 등록은 유료 Marketplace SKU를 게시할 때 반드시 필요합니다.
 
-[개발자 센터 계정](~/articles/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md)이 없는 경우 계정을 만들 수 있습니다. 그런 다음, 제품에 대한 Cloud 파트너 포털에서 소유자로 등록된 이메일 주소를 추가합니다. 소유자만 **사용자** 섹션에서 게시 프로필에 등록된 전자 메일 주소를 추가할 수 있습니다. 그런 후 동일한 전자 메일 주소를 사용하여 포털에 로그인하고 개발자 센터 계정을 연결합니다.
+[개발자 센터 계정](./cloud-partner-portal-dev-center-accounts-registration.md)이 없는 경우 계정을 만들 수 있습니다. 그런 다음, 제품에 대한 Cloud 파트너 포털에서 소유자로 등록된 이메일 주소를 추가합니다. 소유자만 **사용자** 섹션에서 게시 프로필에 등록된 전자 메일 주소를 추가할 수 있습니다. 그런 후 동일한 전자 메일 주소를 사용하여 포털에 로그인하고 개발자 센터 계정을 연결합니다.
 
 ![게시자 프로필 세부 정보 - 게시자 프로필 설명](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofiledescription.png)

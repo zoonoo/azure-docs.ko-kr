@@ -11,20 +11,20 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 11/27/2018
-ms.openlocfilehash: 4d71e54beac6e4816d8bcc9097219b2e7b7cabb7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.date: 01/08/2019
+ms.openlocfilehash: 6b5ff7294735048347c500d64b411f16bda5422f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441862"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212941"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore 서비스 계층, Azure 하이브리드 혜택 및 마이그레이션
 
 vCore 기반 구매 모델을 사용하면 계산 및 저장소 리소스의 크기를 독립적으로 조정하고, 온-프레미스 성능에 맞추고, 가격을 최적화할 수 있습니다. 또한 다음과 같은 하드웨어 생성을 선택할 수 있습니다.
 
 - 4세대 - 최대 24개 논리적 CPU(Intel E5-2673 v3(Haswell) 2.4GHz 프로세서 기반), vCore = 1PP(물리적 코어), 코어당 7GB, SSD 연결
-- 5세대 - 최대 80개 논리적 CPU(Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서 기반), vCore = 1LP(하이퍼스레드), 코어당 5.5GB, 고속 eNVM SSD
+- 5세대 - 논리 CPU 최대 80개(Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서 기반), vCore = 1LP(하이퍼스레드), 코어당 5.1GB, 고속 eNVM SSD
 
 vCore 모델을 사용하면 [SQL Server용 Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하여 비용을 절약할 수도 있습니다.
 
@@ -33,17 +33,17 @@ vCore 모델을 사용하면 [SQL Server용 Azure 하이브리드 혜택](https:
 
 ## <a name="service-tier-characteristics"></a>서비스 계층 특성
 
-vCore 모델은 범용 및 중요 비즈니스용이라는 두 가지 서비스 계층을 제공합니다. 서비스 계층은 다양한 컴퓨터 크기, 고가용성 설계, 오류 격리, 저장소 유형 및 IO 범위로 구분됩니다. 고객은 백업에 필요한 저장소와 보존 기간을 개별적으로 구성해야 합니다. 백업에 필요한 저장소와 보존 기간을 개별적으로 구성해야 합니다. Azure Portal에서 서버(데이터베이스 아님) > 관리되는 백업 > 정책 구성 > 특정 시점 복원 구성 > 7 - 35일로 이동합니다.
+vCore 모델은 범용, 하이퍼스케일 및 중요 비즈니스용이라는 세 가지 서비스 계층을 제공합니다. 서비스 계층은 다양한 컴퓨터 크기, 고가용성 설계, 오류 격리, 스토리지의 유형과 크기, IO 범위로 구분됩니다. 백업에 필요한 저장소와 보존 기간을 개별적으로 구성해야 합니다. Azure Portal에서 서버(데이터베이스 아님) > 관리되는 백업 > 정책 구성 > 특정 시점 복원 구성 > 7 - 35일로 이동합니다.
 
-다음 표는 이러한 두 계층 간의 차이점을 이해하는 데 도움이 됩니다.
+다음 표는 이러한 세 계층 간의 차이점을 이해하는 데 도움이 됩니다.
 
 ||**범용**|**중요 비즈니스**|**하이퍼스케일(미리 보기)**|
 |---|---|---|---|
-|적합한 대상|대부분의 비즈니스 워크로드. 예산 중심의 균형 잡히고 확장 가능한 계산 및 저장소 옵션을 제공합니다.|IO 요구 사항이 높은 비즈니스 응용 프로그램입니다. 여러 개의 격리된 복제본을 사용하여 실패에 대한 최고 수준의 복원력을 제공합니다.|확장성이 우수한 저장소 및 읽기 크기 조정 요구 사항이 포함된 대부분의 비즈니스 워크로드|
-|컴퓨팅|4세대: 1-24개 vCore<br/>5세대: 1-80개 vCore|4세대: 1-24개 vCore<br/>5세대: 1-80개 vCore|4세대: 1-24개 vCore<br/>5세대: 1-80개 vCore|
+|적합한 대상|대부분의 비즈니스 워크로드. 예산 중심의 균형 잡히고 확장 가능한 계산 및 저장소 옵션을 제공합니다.|IO 요구 사항이 높은 비즈니스 애플리케이션입니다. 여러 개의 격리된 복제본을 사용하여 실패에 대한 최고 수준의 복원력을 제공합니다.|확장성이 우수한 저장소 및 읽기 크기 조정 요구 사항이 포함된 대부분의 비즈니스 워크로드|
+|컴퓨팅|Gen4: 1-24개 vCore<br/>Gen5: 1-80개 vCore|Gen4: 1-24개 vCore<br/>Gen5: 1-80개 vCore|Gen4: 1-24개 vCore<br/>Gen5: 1-80개 vCore|
 |메모리|Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB | Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB |Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB|
-|Storage|[프리미엄 원격 스토리지](../virtual-machines/windows/premium-storage.md)를 사용합니다.<br/>단일 데이터베이스: 5GB – 4TB<br/>Managed Instance: 32GB - 8TB |로컬 SSD 스토리지를 사용합니다.<br/>단일 데이터베이스: 5GB – 1TB<br/>Managed Instance: 32GB - 4TB |필요에 따라 자동으로 증가하는 유연한 저장소. 최대 100TB 이상의 저장소를 지원합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 대한 로컬 SSD 저장소. 마지막 장기 데이터 저장소인 Azure 원격 저장소. |
-|IO 처리량(근사치)|단일 데이터베이스: vCore당 500 IOPS(최대 7,000 IOPS)</br>Managed Instance: [파일 크기](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)에 따라 다름|vCore당 5000 IOPS(최대 200,000 IOPS)|TBD|
+|Storage|[프리미엄 원격 스토리지](../virtual-machines/windows/premium-storage.md)를 사용합니다.<br/>단일 데이터베이스: 5GB~4TB<br/>Managed Instance: 32GB~8TB |로컬 SSD 스토리지를 사용합니다.<br/>단일 데이터베이스: 5GB~4TB<br/>Managed Instance: 32GB~4TB |필요에 따라 자동으로 증가하는 유연한 저장소. 최대 100TB 이상의 저장소를 지원합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 대한 로컬 SSD 저장소. 마지막 장기 데이터 저장소인 Azure 원격 저장소. |
+|IO 처리량(근사치)|단일 데이터베이스: vCore당 500 IOPS(최대 7,000 IOPS)</br>Managed Instance: [파일의 크기](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)에 따라 다름|vCore당 5000 IOPS(최대 200,000 IOPS)|TBD|
 |가용성|1개 복제본, 읽기 크기 조정 없음|3개 복제본, 1개 [읽기 크기 조정 복제본](sql-database-read-scale-out.md),<br/>영역 중복 HA|?|
 |Backup|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35일(기본값: 7일)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35일(기본값: 7일)|Azure 원격 저장소의 스냅숏 기반 백업 및 복원은 빠른 복구를 위한 이러한 스냅숏을 사용합니다. 백업은 즉각적이며 IO 계산 성능에 영향을 주지 않습니다. 데이터 작업의 크기가 아닙니다(몇 시간 또는 며칠 대신 몇 분이 소요됨).|
 |메모리 내|지원되지 않음|지원됨|지원되지 않음|
@@ -63,9 +63,32 @@ vCore 모델은 범용 및 중요 비즈니스용이라는 두 가지 서비스 
 
 ## <a name="azure-hybrid-benefit"></a>Azure 하이브리드 혜택
 
-vCore 기반 구매 모델에서 [SQL Server에 대한 Azure 하이브리드 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 사용하여 기존 라이선스를 SQL Database의 할인된 가격으로 교환할 수 있습니다. 이 Azure 혜택에서는 온-프레미스 SQL Server 라이선스를 통해 Software Assurance가 있는 온-프레미스 SQL Server 라이선스를 사용하여 Azure SQL Database에서 최대 30%까지 절약할 수 있습니다.
+vCore 기반 구매 모델에서 [SQL Server에 대한 Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하여 기존 라이선스를 SQL Database의 할인된 가격으로 교환할 수 있습니다. 이 Azure 혜택에서는 온-프레미스 SQL Server 라이선스를 통해 Software Assurance가 있는 온-프레미스 SQL Server 라이선스를 사용하여 Azure SQL Database에서 최대 30%까지 절약할 수 있습니다.
 
 ![가격 책정](./media/sql-database-service-tiers/pricing.png)
+
+Azure 하이브리드 혜택을 사용하여 SQL Database 엔진 자체에 대해 기존 SQL Server 라이선스(**BasePrice**)를 사용하여 기존 Azure 인프라에 대해서만 비용을 지불하거나 기본 인프라 및 SQL Server 라이선스(**LicenseIncluded**) 둘 다에 대해 비용을 지불할지를 선택할 수 있습니다. Azure Portal을 사용하거나 다음 API 중 하나를 사용하여 라이선스 모델을 선택하거나 변경할 수 있습니다.
+
+- PowerShell을 사용하여 라이선스 형식을 설정하거나 업데이트하려면
+
+  - [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase):
+  - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql)
+  - [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
+  - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql)
+
+- Azure CLI를 사용하여 라이선스 형식을 설정하거나 업데이트하려면
+
+  - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
+  - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
+  - [az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
+  - [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
+
+- REST API를 사용하여 라이선스 형식을 설정하거나 업데이트하려면
+
+  - [데이터베이스 - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
+  - [데이터베이스 - Update](https://docs.microsoft.com/rest/api/sql/databases/update)
+  - [Managed Instances - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
+  - [Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
 
 ## <a name="migration-from-dtu-model-to-vcore-model"></a>DTU 모델에서 vCore 모델로 마이그레이션
 

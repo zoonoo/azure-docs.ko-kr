@@ -28,7 +28,7 @@ ms.locfileid: "48807650"
 
 특성을 정의하려면 개발자 센터에서 등록하는 데 사용한 Microsoft 계정으로 Microsoft [Cloud 파트너 포털](http://cloudpartner.azure.com/)에 로그인합니다.
 
-1.  Cloud 파트너 포털의 왼쪽 탐색 모음에서 **+ 새 제품**을 클릭하고 응용 프로그램 목록에서 **Dynamics 365 Business Central**을 선택합니다.
+1.  Cloud 파트너 포털의 왼쪽 탐색 모음에서 **+ 새 제품**을 클릭하고 애플리케이션 목록에서 **Dynamics 365 Business Central**을 선택합니다.
 
    ![새 제품 만들기](./media/d365-financials/image003.png)
 

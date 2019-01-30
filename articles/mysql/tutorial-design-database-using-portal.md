@@ -1,21 +1,18 @@
 ---
-title: '자습서: Azure CLI를 사용하여 Azure Database for MySQL 디자인'
+title: '자습서: Azure Portal를 사용하여 Azure Database for MySQL 디자인'
 description: 이 자습서에서는 Azure Portal을 사용하여 Azure Database for MySQL 서버 및 데이터베이스를 만들고 관리하는 방법에 대해 설명합니다.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 395ebbe3879660ce31abd570e936a010536db4de
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: bf46b047af69dcd1a751661a701b1eb9b7f75563
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266536"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537741"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Database for MySQL 데이터베이스 디자인
 Azure Database for MySQL은 클라우드에서 항상 사용 가능한 MySQL 데이터베이스를 실행, 관리 및 크기 조정할 수 있게 하는 관리 서비스입니다. Azure Portal을 사용하면 쉽게 서버를 관리하고 데이터베이스를 디자인할 수 있습니다.
@@ -52,9 +49,9 @@ Azure Database for MySQL 서버는 정의된 [계산 및 저장소 리소스](./
     리소스 그룹 | *myresourcegroup* | 새 또는 기존 리소스 그룹 이름을 제공합니다.    리소스 그룹|*myresourcegroup*| 새 리소스 그룹 이름 또는 구독의 기존 이름입니다.
     원본 선택 | *비어 있음* | 새 서버를 처음부터 만들려면 *비어 있음*을 선택합니다. (기존 Azure Database for MySQL 서버의 지역 백업에서 서버를 만드는 경우 *백업*을 선택합니다).
     서버 관리자 로그인 | myadmin | 서버에 연결할 때 사용할 로그인 계정입니다. 관리자 로그인 이름은 **azure_superuser**, **admin**, **administrator**, **root**, **guest** 또는 **public**일 수 없습니다.
-    암호 | *사용자 선택* | 서버 관리자 계정의 새 암호를 제공합니다. 8-128자여야 합니다. 암호는 영어 대문자, 영어 소문자, 숫자(0-9), 특수 문자(!, $, #, % 등) 중 세 가지 범주의 문자를 포함해야 합니다.
+    암호 | *사용자 선택* | 서버 관리자 계정의 새 암호를 제공합니다. 8-128자여야 합니다. 사용자 암호는 다음 범주 중 세 개의 문자를 포함해야 합니다. 영문 대문자, 영문 소문자, 숫자(0-9) 및 영숫자가 아닌 문자(!, $, #, % 등).
     암호 확인 | *사용자 선택*| 관리자 계정 암호를 확인합니다.
-    위치 | *사용자와 가장 가까운 지역*| 사용자 또는 다른 Azure 응용 프로그램에 가장 가까운 위치를 선택합니다.
+    위치 | *사용자와 가장 가까운 지역*| 사용자 또는 다른 Azure 애플리케이션에 가장 가까운 위치를 선택합니다.
     버전 | *최신 버전*| 최신 버전입니다(다른 버전이 필요한 특정 요구 사항이 없는 경우).
     가격 책정 계층  | **범용**, **4세대**, **2개 vCore**, **5GB**, **7일**, **지역 중복** | 새 서버에 대한 계산, 저장소 및 백업 구성입니다. **가격 책정 계층**을 선택합니다. 그런 다음, **범용** 탭을 선택합니다. *4세대*, *2개 vCore*, *5GB* 및 *7일*은 **세대 계산**, **vCore**, **저장소** 및 **백업 보존 기간**에 대한 기본 값입니다. 해당 슬라이더를 그대로 둘 수 있습니다. 지역 중복 저장소에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션**에서 **지역 중복**을 선택합니다. 이 가격 책정 계층 선택을 저장하려면 **확인**을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
     
@@ -152,7 +149,7 @@ SELECT * FROM inventory;
    ![10-2 복원 양식](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
    - **복원 지점**: 나열된 기간 내에서 복원하려는 지정 시간을 선택합니다. 현지 표준 시간대를 UTC로 변환해야 합니다.
-   - **새 서버로 복원**: 복원하려는 새 서버 이름을 제공합니다.
+   - **새 서버로 복원**: 복원해 두려는 새 서버의 이름을 제공합니다.
    - **위치**: 지역은 원본 서버와 같으며 변경할 수 없습니다.
    - **가격 책정 계층**: 가격 책정 계층은 원본 서버와 같으며 변경할 수 없습니다.
    
@@ -171,4 +168,4 @@ SELECT * FROM inventory;
 > * 데이터 복원
 
 > [!div class="nextstepaction"]
-> [MySQL용 Azure Database에 응용 프로그램을 연결하는 방법](./howto-connection-string.md)
+> [MySQL용 Azure Database에 애플리케이션을 연결하는 방법](./howto-connection-string.md)

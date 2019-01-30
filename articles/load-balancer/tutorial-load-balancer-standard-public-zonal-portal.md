@@ -1,14 +1,12 @@
 ---
-title: '자습서: 영역 내부의 Load Balancer VM--Azure Portal | Microsoft Docs'
+title: '자습서: 영역 내부의 Load Balancer VM - Azure Portal'
+titlesuffix: Azure Load Balancer
 description: 이 자습서는 Azure Portal을 사용하여 가용성 영역 내부의 VM 부하 분산을 위한 영역 프런트 엔드가 있는 표준 Load Balancer를 만드는 방법을 설명합니다.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
+manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 580015b7f8b1f894c69ddec0f26daeb524932e4b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.custom: seodec18
+ms.openlocfilehash: 76e55c643378e689f12d485100a81ccefa4196f4
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637296"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229815"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>자습서: Azure Portal에서 표준 Load Balancer를 사용하여 가용성 영역 내부의 VM 부하 분산
 
@@ -53,7 +51,7 @@ ms.locfileid: "34637296"
 2. **부하 분산 장치 만들기** 페이지에서 부하 분산 장치에 다음 값을 입력합니다.
     - **myLoadBalancer** - 부하 분산 장치의 이름
     - **공용** - 부하 분산 장치의 유형
-     - **myPublicIPZonal** - 새로 만드는 공용 IP 주소 **공용 IP 주소 선택**을 선택합니다. 그런 다음, **새로 만들기**를 선택합니다. 이름에 **myPublicIP**를 입력합니다. SKU는 기본적으로 표준입니다. **가용성 영역**에 **영역 1**을 선택합니다.
+      - **myPublicIPZonal** - 새로 만드는 공용 IP 주소 **공용 IP 주소 선택**을 선택합니다. 그런 다음, **새로 만들기**를 선택합니다. 이름에 **myPublicIP**를 입력합니다. SKU는 기본적으로 표준입니다. **가용성 영역**에 **영역 1**을 선택합니다.
     - **myResourceGroupZLB** - 새로 만드는 리소스 그룹의 이름
     - **westeurope** - 위치
 3. **만들기**를 선택하여 부하 분산 장치를 만듭니다.
@@ -81,7 +79,7 @@ ms.locfileid: "34637296"
     - **myNetworkSecurityGroup** - 네트워크 보안 그룹의 이름
     - **myResourceGroupLBAZ** - 기존 리소스 그룹의 이름
    
-    ![네트워크 보안 그룹 만들기](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
+     ![네트워크 보안 그룹 만들기](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
 
 ### <a name="create-nsg-rules"></a>NSG 규칙 만들기
 
@@ -100,7 +98,7 @@ ms.locfileid: "34637296"
     - **HTTP 허용** - **설명**
 4. **확인**을 선택합니다.
  
- ![NSG 규칙 만들기](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![NSG 규칙 만들기](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 
 5. 2~4단계를 반복하여 **myRDPRule**이라는 다른 규칙을 만듭니다. 이 규칙은 다음 값으로 포트 3389를 사용하는 인바운드 RDP 연결을 허용합니다.
     - **서비스 태그** - **소스**
@@ -112,7 +110,7 @@ ms.locfileid: "34637296"
     - **myRDPRule** - **이름**
     - **RDP 허용** - **설명**
 
-    ![RDP 규칙 만들기](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
+      ![RDP 규칙 만들기](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
 
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
 

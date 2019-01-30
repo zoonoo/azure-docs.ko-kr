@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: ebbb12a6454a093ad0ac3b3cc30eb489eeef21ec
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 57e23c55342ee397ecb8590dd6da639ba766f351
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687217"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385434"
 ---
-# <a name="optimize-hive-queries-in-azure-hdinsight"></a>Azure HDInsight에서 Hive 쿼리를 최적화
+# <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive 쿼리를 최적화
 
 Azure HDInsight에는 Apache Hive 쿼리를 실행할 수 있는 여러 클러스터 유형과 기술이 있습니다. HDInsight 클러스터를 만들 때 워크로드 요구 사항에 맞게 성능을 최적화할 수 있도록 적절한 클러스터 유형을 선택해야 합니다. 
 
@@ -38,9 +38,9 @@ HDInsight 클러스터의 작업자 노드 수를 늘리면 작업에 더 많은
 
 HDInsight 크기 조정에 대한 자세한 내용은 [HDInsight 클러스터 크기 조정](hdinsight-scaling-best-practices.md)을 참조하세요.
 
-## <a name="use-tez-instead-of-map-reduce"></a>Map Reduce 대신 Tez 사용
+## <a name="use-apache-tez-instead-of-map-reduce"></a>Map Reduce 대신 Apache Tez 사용
 
-[Apache Tez](http://hortonworks.com/hadoop/tez/)는 MapReduce 엔진을 대신하는 실행 엔진입니다. Linux 기반 HDInsight 클러스터는 Tez를 기본적으로 사용합니다.
+[Apache Tez](https://hortonworks.com/hadoop/tez/)는 MapReduce 엔진을 대신하는 실행 엔진입니다. Linux 기반 HDInsight 클러스터는 Tez를 기본적으로 사용합니다.
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
@@ -52,7 +52,7 @@ HDInsight 크기 조정에 대한 자세한 내용은 [HDInsight 클러스터 �
 * **컨테이너를 다시 사용**합니다. 가능할 때마다 Tez가 컨테이너를 다시 시작하여 컨테이너 시작으로 인한 대기 시간이 줄어듭니다.
 * **연속 최적화 기술**. 일반적으로 최적화는 컴파일 단계 중에 수행됩니다. 런타임 중 더 나은 최적화를 허용하는 입력에 대한 자세한 정보를 제공합니다. Tez는 계획을 런타임 단계로 추가로 최적화할 수 있는 연속 최적화 기법을 사용합니다.
 
-이러한 개념에 대한 자세한 내용은 [Apache TEZ](http://hortonworks.com/hadoop/tez/)를 참조하세요.
+이러한 개념에 대한 자세한 내용은 [Apache TEZ](https://hortonworks.com/hadoop/tez/)를 참조하세요.
 
 다음 설정 명령을 사용하여 쿼리를 접두사로 지정하면 Tez가 사용되는 Hive 쿼리를 원하는 대로 만들 수 있습니다.
 
@@ -130,7 +130,7 @@ Hive는 다양한 파일 형식을 지원합니다. 예:
 
 ORC(최적화된 행 칼럼 형식) 형식은 Hive 데이터를 저장하는 매우 효율적인 방법입니다. 다른 형식에 비해, ORC는 다음과 같은 이점이 있습니다.
 
-* DateTime 및 복잡 및 반구조화된 형식을 포함하는 복합 형식 지원
+* DateTime 및 복합 및 반정형 형식을 포함하는 복합 형식 지원
 * 최대 70% 압축
 * 행을 건너뛸 수 있는 10,000행마다 인덱스
 * 런타임 실행 시 현저하게 감소
@@ -171,7 +171,7 @@ ORC 형식을 사용하려면 먼저 *Stored as ORC*절로 테이블을 만듭�
     FROM lineitem;
    ```
    
-[Hive 언어 설명서](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC)에서 ORC 형식에 대해 자세히 알아볼 수 있습니다.
+[Apache Hive 언어 설명서](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC)에서 ORC 형식에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="vectorization"></a>벡터화
 
@@ -196,10 +196,10 @@ ORC 형식을 사용하려면 먼저 *Stored as ORC*절로 테이블을 만듭�
 이 기사에서는 몇가지 일반적인 하이브 쿼리 최적화 방법을 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)
-* [HDInsight의 Hive를 사용하여 비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data.md)
-* [HDInsight에서 Hive를 사용하여 Twitter 데이터 분석](hdinsight-analyze-twitter-data.md)
-* [HDInsight의 Hadoop에서 Hive 쿼리 콘솔을 사용하여 센서 데이터 분석](hadoop/apache-hive-analyze-sensor-data.md)
-* [HDInsight와 함께 Hive를 사용하여 웹 사이트의 로그 분석](hadoop/apache-hive-analyze-website-log.md)
+* [HDInsight의 Apache Hive를 사용하여 비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data.md)
+* [HDInsight에서 Apache Hive를 사용하여 Twitter 데이터 분석](hdinsight-analyze-twitter-data.md)
+* [HDInsight의 Apache Hadoop에서 Apache Hive 쿼리 콘솔을 사용하여 센서 데이터 분석](hadoop/apache-hive-analyze-sensor-data.md)
+* [HDInsight와 함께 Apache Hive를 사용하여 웹 사이트의 로그 분석](hadoop/apache-hive-analyze-website-log.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

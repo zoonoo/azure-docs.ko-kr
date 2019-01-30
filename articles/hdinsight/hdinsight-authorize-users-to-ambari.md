@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: d2e7077e1196ab862d9f610f242fe30dde18ded4
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 976bb44ae81a6c002d2503407a4d74d513a76042
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496890"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725272"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>사용자에게 Apache Ambari Views에 대한 권한 부여
 
 [ESP(Enterprise Security Package) 사용 HDInsight 클러스터](./domain-joined/apache-domain-joined-introduction.md)는 Azure Active Directory 기반 인증을 비롯한 엔터프라이즈급 기능을 제공합니다. 클러스터에 대한 액세스를 제공 받은 Azure AD 그룹에 추가된 [새 사용자를 동기화](hdinsight-sync-aad-users-to-cluster.md)하여 특정 사용자가 특정 작업을 수행할 수 있게 할 수 있습니다. [Apache Ambari](https://ambari.apache.org/)의 사용자, 그룹, 권한 작업은 ESP HDInsight 클러스터와 표준 HDInsight 클러스터 모두에 대해 지원됩니다.
 
-Active Directory 사용자는 자신의 도메인 자격 증명을 사용하여 클러스터 노드에 로그온할 수 있습니다. 또한 자체 도메인 자격 증명을 사용하여 [Hue](http://gethue.com/), Ambari 보기, ODBC, JDBC, PowerShell, REST API 등의 승인된 다른 엔드포인트와 클러스터의 상호 작용을 인증할 수 있습니다.
+Active Directory 사용자는 자신의 도메인 자격 증명을 사용하여 클러스터 노드에 로그온할 수 있습니다. 또한 자체 도메인 자격 증명을 사용하여 [Hue](https://gethue.com/), Ambari 보기, ODBC, JDBC, PowerShell, REST API 등의 승인된 다른 엔드포인트와 클러스터의 상호 작용을 인증할 수 있습니다.
 
-> [!WARNING]
+> [!WARNING]  
 > Linux 기반 HDInsight 클러스터에서 Ambari watchdog(hdinsightwatchdog)의 암호는 변경하지 마세요. 암호를 변경하면 스크립트 동작을 사용하거나 클러스터에서 크기 조정 작업을 수행하는 기능이 중단됩니다.
 
 새 ESP 클러스터를 아직 프로비전하지 않은 경우 [다음 지침](./domain-joined/apache-domain-joined-configure.md)에 따라 프로비전하세요.
@@ -100,7 +100,7 @@ Tez 보기 인스턴스에 사용자 및 그룹을 할당하려면 앞서 설명
 
 ![역할 메뉴 연결](./media/hdinsight-authorize-users-to-ambari/roles-permissions.png)
 
-이 페이지에는 사용자 및 그룹에 대한 역할을 관리하는 데 사용할 수 있는 두 가지 보기인 블록과 목록이 있습니다.
+이 페이지에는 사용자 및 그룹에 대한 역할을 관리하는 데 사용할 수 있는 두 가지 보기가 있습니다. 블록 및 목록
 
 ### <a name="block-view"></a>블록 보기
 
@@ -110,7 +110,7 @@ Tez 보기 인스턴스에 사용자 및 그룹을 할당하려면 앞서 설명
 
 ### <a name="list-view"></a>목록 보기
 
-목록 보기는 사용자 및 그룹 범주에서 신속한 편집 기능을 제공합니다.
+목록 보기는 두 개의 범주에서 신속한 편집 기능을 제공합니다. 사용자 및 그룹
 
 * 목록 보기의 사용자 범주에는 모든 사용자 목록이 표시되므로 드롭다운 목록에서 각 사용자의 역할을 선택할 수 있습니다.
 

@@ -1,21 +1,22 @@
 ---
-title: Azure의 LUIS 앱에서 다른 참가자와 공동 작업
-titleSuffix: Azure Cognitive Services
+title: 다른 사람과 공동 작업
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 앱 소유자는 앱에 협력자를 추가할 수 있습니다. 이러한 협력자는 모델을 수정하고, 앱을 학습시키고, 게시할 수 있습니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b7d108bfc0c4283e7856b93daba3f4f92af4cc5b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d1db8974ce134b50340db500c9ea1b00126fe10a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042196"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086422"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>작성자 및 협력자를 관리하는 방법 
 
@@ -31,7 +32,7 @@ ms.locfileid: "47042196"
 
 2. 도구 모음에서 **협력자 추가**를 선택합니다.
 
-    [![](./media/luis-how-to-collaborate/add-collaborator.png "협력자 추가")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
+    [![협력자 추가](./media/luis-how-to-collaborate/add-collaborator.png "협력자 추가")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
 
 3. 협력자가 LUIS 포털에 로그인할 때 사용하는 이메일 주소를 입력합니다.
 

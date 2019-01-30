@@ -1,18 +1,19 @@
 ---
-title: 설치된 Azure Digital Twins에서 이벤트 분석 | Microsoft Docs
+title: '자습서: 설치된 Azure Digital Twins에서 이벤트 분석 | Microsoft Docs'
 description: 이 자습서의 단계에 따라 Azure Time Series Insights를 사용하여 Azure Digital Twins 공간의 이벤트를 시각화하고 분석하는 방법을 알아봅니다.
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: b7c44184d0a0d8d5a8f1fbd80b053230f2c1ae84
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f233efc93fa07cc7fc7c904336f01348f4da3f82
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582023"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554523"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>자습서: Time Series Insights를 사용하여 Azure Digital Twins 공간의 이벤트 시각화 및 분석
 

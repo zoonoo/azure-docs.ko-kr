@@ -10,17 +10,16 @@ ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ce344292577dd286abcd7fbf9e067800da0e0b3
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 8b12df3e31b46fa29f5726946be1d7509018fcbf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958995"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025847"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>자습서: REST API를 사용하여 데이터를 복사하는 Azure Data Factory 파이프라인 만들기 
 > [!div class="op_single_selector"]
@@ -40,23 +39,23 @@ ms.locfileid: "49958995"
 
 이 문서에서는 REST API를 사용하여 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 파이프라인이 있는 데이터 팩터리를 만드는 방법에 대해 알아봅니다. Azure Data Factory를 처음 사용하는 경우 이 자습서를 수행하기 전에 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 참조하세요.   
 
-이 자습서에는 한 가지 작업 즉, 복사 작업이 포함된 파이프라인을 만듭니다. 복사 작업은 지원되는 데이터 저장소에서 지원되는 싱크 데이터 저장소로 데이터를 복사합니다. 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고 안정적이며 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md)을 참조하세요.
+이 자습서에는 다음 한 가지 작업이 포함된 파이프라인을 만듭니다. 복사 작업 복사 작업은 지원되는 데이터 저장소에서 지원되는 싱크 데이터 저장소로 데이터를 복사합니다. 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고 안정적이며 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md)을 참조하세요.
 
 파이프라인 하나에는 활동이 둘 이상 있을 수 있습니다. 한 활동의 출력 데이터 세트를 다른 활동의 입력 데이터 세트로 설정함으로써 두 활동을 연결하여 활동을 하나씩 차례로 실행할 수 있습니다. 자세한 내용은 [파이프라인의 여러 작업](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)을 참조하세요.
 
 > [!NOTE]
 > 이 문서는 모든 데이터 팩터리 REST API를 다루지 않습니다. 데이터 팩터리 REST API에 대한 포괄적인 설명서는 [데이터 팩터리 Cmdlet 참조](/rest/api/datafactory/) (영문)를 참조하세요.
 >  
-> 이 자습서에서 데이터 파이프라인은 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사합니다. Azure Data Factory를 사용하여 데이터를 변환하는 방법에 대한 자습서는 [자습서: Hadoop 클러스터를 사용하여 데이터를 변환하도록 파이프라인 빌드](data-factory-build-your-first-pipeline.md)를 참조하세요.
+> 이 자습서에서 데이터 파이프라인은 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사합니다. Azure Data Factory를 사용하여 데이터를 변환하는 방법에 대한 자습서는 [자습서: Hadoop 클러스터를 사용하여 데이터를 변환하는 파이프라인 빌드](data-factory-build-your-first-pipeline.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 * [자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 살펴보고 **필수 구성 요소** 단계를 완료합니다.
 * 컴퓨터에 [Curl](https://curl.haxx.se/dlwiz/) 을 설치합니다. REST 명령과 함께 Curl 도구를 사용하여 데이터 팩터리를 만듭니다. 
 * [이 문서](../../active-directory/develop/howto-create-service-principal-portal.md) 의 지침에 따라 다음 작업을 수행합니다. 
-  1. Azure Active Directory에서 **ADFCopyTutorialApp** 이라는 웹 응용 프로그램을 만듭니다.
+  1. Azure Active Directory에서 **ADFCopyTutorialApp** 이라는 웹 애플리케이션을 만듭니다.
   2. **클라이언트 ID** 및 **암호 키**를 가져옵니다. 
   3. **테넌트 ID**를 가져옵니다. 
-  4. **ADFCopyTutorialApp** 응용 프로그램을 **데이터 팩터리 참가자** 역할에 할당합니다.  
+  4. **ADFCopyTutorialApp** 애플리케이션을 **데이터 팩터리 기여자** 역할에 할당합니다.  
 * [Azure PowerShell](/powershell/azure/overview)을 설치합니다.  
 * **PowerShell**을 시작하고 다음 단계를 수행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다.
   
@@ -285,7 +284,7 @@ JSON 속성에 대한 자세한 내용은 [Azure SQL 연결된 서비스](data-f
  
 **시작** 속성 값을 현재 날짜로 바꾸고 **종료** 값을 다음 날짜로 바꿉니다. 날짜 부분만 지정하고 날짜/시간의 시간 부분은 건너뛸 수 있습니다. 예를 들어, "2017-02-03"은 "2017-02-03T00:00:00Z"와 동일합니다.
  
-start 및 end 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예를 들어 2016-10-14T16:32:41Z입니다. **종료** 시간은 선택 사항이지만 이 자습서에서는 사용합니다. 
+start 및 end 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예:  2016-10-14T16:32:41Z. **종료** 시간은 선택 사항이지만 이 자습서에서는 사용합니다. 
  
 **종료** 속성 값을 지정하지 않는 경우 "**시작 + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9999-09-09**를 지정합니다.
  
@@ -351,7 +350,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 
 다음 사항에 유의하세요.
 
-* Azure Data Factory 이름은 전역적으로 고유해야 합니다. 결과에 **데이터 팩터리 이름 "ADFCopyTutorialDF"를 사용할 수 없습니다**라는 오류가 발생한 경우 다음 단계를 수행합니다.  
+* Azure Data Factory 이름은 전역적으로 고유해야 합니다. 결과에 **데이터 팩터리 이름 “ADFCopyTutorialDF”를 사용할 수 없습니다**라는 오류가 표시되는 경우 다음 단계를 수행합니다.  
   
   1. **datafactory.json** 파일에서 이름(예: yournameADFCopyTutorialDF)을 변경합니다.
   2. **$cmd** 변수가 값을 할당한 첫 번째 명령에서 ADFCopyTutorialDF를 새 이름으로 바꾸고 명령을 실행합니다. 
@@ -360,7 +359,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
      데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
 * 데이터 팩터리 인스턴스를 만들려면 Azure 구독의 참가자/관리자여야 합니다.
 * 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
-* "**구독이 Microsoft.DataFactory 네임스페이스를 사용하도록 등록되어 있지 않습니다.**" 오류를 수신하는 경우 다음 중 하나를 수행하고 다시 게시하세요. 
+* 만약 “**이 구독이 Microsoft.DataFactory 네임스페이스를 사용하도록 등록되어 있지 않습니다.**”라는 오류를 수신하는 경우 다음 중 하나를 수행하고 다시 게시하세요. 
   
   * Azure PowerShell에서 다음 명령을 실행하여 데이터 팩터리 공급자를 등록합니다. 
 
@@ -379,7 +378,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 계산 서비스를 데이터 팩터리에 연결합니다. 이 자습서에서는 Azure HDInsight 또는 Azure Data Lake Analytics와 같은 계산 서비스를 사용하지 않습니다. Azure Storage(원본) 및 Azure SQL Database(대상) 유형의 두 데이터 저장소를 사용합니다. 이에 따라 두 개의 연결된 서비스, 즉 AzureStorage와 AzureSqlDatabase 유형의 AzureStorageLinkedService와 AzureSqlLinkedService를 만듭니다.  
 
-AzureStorageLinkedService는 Azure 저장소 계정을 데이터 팩터리에 연결합니다. 이 저장소 계정은 컨테이너를 만들고 [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 데이터를 업로드한 계정입니다.   
+AzureStorageLinkedService는 Azure 스토리지 계정을 데이터 팩터리에 연결합니다. 이 저장소 계정은 컨테이너를 만들고 [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 데이터를 업로드한 계정입니다.   
 
 AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. Blob 저장소에서 복사된 데이터는 이 데이터베이스에 저장됩니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 이 데이터베이스에서 emp 테이블을 만들었습니다.  
 

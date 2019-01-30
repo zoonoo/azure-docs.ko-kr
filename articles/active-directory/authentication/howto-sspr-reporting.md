@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 7d7de02c96b9a17144b446b9ed86ebcbacd51162
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: a936626301c8e1a866817264342cc2c84130e158
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025008"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425913"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 암호 관리에 대한 보고 옵션
 
@@ -74,21 +74,21 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 
 | 열 | 허용되는 값과 해당 의미 |
 | --- | --- |
-| 등록된 데이터 |**대체 전자 메일**: 인증하는 데 사용자가 사용한 대체 전자 메일 또는 인증 전자 메일입니다.<p><p>**사무실 전화**: 인증하는 데 사용자가 사용한 사무실 전화입니다.<p>**휴대폰**: 인증하는 데 사용자가 사용한 휴대폰 또는 인증 전화입니다.<p>**보안 질문**: 인증하는 데 사용자가 사용한 보안 질문입니다.<p>**이전 방법 조합(예: 대체 전자 메일 + 휴대폰)**: 2개의 게이트 정책이 지정되고 암호 재설정 요청을 인증하는 데 사용자가 사용한 두 방법을 표시합니다. |
+| 등록된 데이터 |**대체 이메일**: 인증하는 데 사용자가 사용한 대체 이메일 또는 인증 이메일입니다.<p><p>**사무실 전화**: 인증하는 데 사용자가 사용한 사무실 전화입니다.<p>**휴대폰**: 인증하는 데 사용자가 사용한 휴대폰 또는 인증 전화입니다.<p>**보안 질문**: 인증하는 데 사용자가 사용한 보안 질문입니다.<p>**이전 방법 조합(예: 대체 이메일 + 휴대폰)**: 2개의 게이트 정책이 지정되고 암호 재설정 요청을 인증하는 데 사용자가 사용한 두 방법을 표시합니다. |
 
 ## <a name="self-service-password-management-activity-types"></a>셀프 서비스 암호 관리 활동 유형
 
 다음 활동 유형은 **셀프 서비스 암호 관리** 감사 이벤트 범주에 표시됩니다.
 
-* [셀프 서비스 암호 다시 설정에서 차단](#activity-type-blocked-from-self-service-password-reset): 사용자가 암호를 다시 설정하거나 특정 게이트를 사용하거나 24시간 이내에 총 6회 이상 전화 번호의 유효성을 검사하려고 했음을 나타냅니다.
+* [셀프 서비스 암호 재설정에서 차단](#activity-type-blocked-from-self-service-password-reset): 사용자가 암호를 다시 설정하거나 특정 게이트를 사용하거나 24시간 이내에 총 6회 이상 전화 번호의 유효성을 검사하려고 했음을 나타냅니다.
 * [암호 변경(셀프 서비스)](#activity-type-change-password-self-service): 사용자가 자발적으로 또는 강제로(만료로 인해) 암호 변경을 수행했음을 나타냅니다.
 * [암호 재설정(관리자)](#activity-type-reset-password-by-admin): 관리자가 Azure Portal에서 사용자를 대신하여 암호를 재설정했음을 나타냅니다.
 * [암호 재설정(셀프 서비스)](#activity-type-reset-password-self-service): 사용자가 [Azure AD 암호 재설정 포털](https://passwordreset.microsoftonline.com)에서 자신의 암호를 성공적으로 재설정했음을 나타냅니다.
-* [셀프 서비스 암호 재설정 흐름 활동 진행률](#activity-type-self-serve-password-reset-flow-activity-progress): 암호 재설정 프로세스의 일부로 사용자가 진행하는 각각의 특정 단계(예: 특정 암호 재설정 인증 게이트 전달)를 나타냅니다.
+* [셀프 서비스 암호 재설정 흐름 작업 진행률](#activity-type-self-serve-password-reset-flow-activity-progress): 암호 다시 설정 프로세스의 일부로 사용자가 진행하는 각각의 특정 단계(예: 특정 암호 다시 설정 인증 게이트 전달)를 나타냅니다.
 * [사용자 계정 잠금 해제(셀프 서비스)](#activity-type-unlock-user-account-self-service): 사용자가 재설정 없이 Active Directory 계정 잠금 해제 기능을 사용하여 [Azure AD 암호 재설정 포털](https://passwordreset.microsoftonline.com)에서 자신의 암호를 재설정하지 않고 Active Directory 계정을 성공적으로 잠금 해제했음을 나타냅니다.
 * [사용자가 셀프 서비스 암호 재설정 등록](#activity-type-user-registered-for-self-service-password-reset): 사용자가 현재 지정된 테넌트 암호 재설정 정책에 따라 자신의 암호를 재설정하는 데 필요한 모든 정보를 등록했음을 나타냅니다.
 
-### <a name="activity-type-blocked-from-self-service-password-reset"></a>활동 유형: 셀프 서비스 암호 다시 설정에서 차단
+### <a name="activity-type-blocked-from-self-service-password-reset"></a>작업 유형: 셀프 서비스 암호 재설정에서 차단
 
 다음 목록에서는 이 활동에 대해 자세히 설명합니다.
 
@@ -97,9 +97,9 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 * **활동 대상**: 추가 다시 설정 작업을 수행할 수 없도록 제한된 사용자입니다. 사용자는 최종 사용자 또는 관리자일 수 있습니다.
 * **활동 상태**:
   * _성공_: 사용자가 추가 다시 설정을 수행하거나 추가 인증 방법을 시도하거나 다음 24시간 동안 전화 번호의 유효성을 추가로 검사할 수 없도록 제한되었음을 나타냅니다.
-* **활동 상태 실패 이유**: 해당되지 않습니다.
+* **활동 상태 실패 이유**: 사용할 수 없습니다.
 
-### <a name="activity-type-change-password-self-service"></a>활동 유형: 암호 변경(셀프 서비스)
+### <a name="activity-type-change-password-self-service"></a>작업 유형: 암호 변경(셀프 서비스)
 
 다음 목록에서는 이 활동에 대해 자세히 설명합니다.
 
@@ -112,7 +112,7 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 * **활동 상태 실패 이유**: 
   * _FuzzyPolicyViolationInvalidPassword_: 사용자가 Microsoft의 차단 암호 검색 기능으로 인해 너무 흔하거나 특히 약한 것으로 식별되어 자동으로 차단되는 암호를 선택했습니다.
 
-### <a name="activity-type-reset-password-by-admin"></a>활동 유형: 암호 다시 설정(관리자)
+### <a name="activity-type-reset-password-by-admin"></a>작업 유형: 암호 재설정(관리자)
 
 다음 목록에서는 이 활동에 대해 자세히 설명합니다.
 
@@ -123,11 +123,11 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
   * _성공_: 관리자가 사용자의 암호를 성공적으로 다시 설정했음을 나타냅니다.
   * _실패_: 관리자가 사용자의 암호를 변경하지 못했음을 나타냅니다. 행을 선택하여 **활동 상태 이유** 범주에서 실패한 원인에 대해 자세히 알아볼 수 있습니다.
 
-### <a name="activity-type-reset-password-self-service"></a>활동 유형: 암호 다시 설정(셀프 서비스)
+### <a name="activity-type-reset-password-self-service"></a>작업 유형: 암호 재설정(셀프 서비스)
 
 다음 목록에서는 이 활동에 대해 자세히 설명합니다.
 
-* **활동 설명** – 사용자가 [Azure AD 암호 재설정 포털](https://passwordreset.microsoftonline.com)에서 자신의 암호를 성공적으로 재설정했음을 나타냅니다.
+* **활동 설명**: 사용자가 [Azure AD 암호 재설정 포털](https://passwordreset.microsoftonline.com)에서 자신의 암호를 성공적으로 재설정했음을 나타냅니다.
 * **활동 행위자**: 자신의 암호를 재설정한 사용자입니다. 사용자는 최종 사용자 또는 관리자일 수 있습니다.
 * **활동 대상**: 자신의 암호를 재설정한 사용자입니다. 사용자는 최종 사용자 또는 관리자일 수 있습니다.
 * **활동 상태**:
@@ -136,7 +136,7 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 * **활동 상태 실패 이유**: 
   * _FuzzyPolicyViolationInvalidPassword_: 관리자가 Microsoft의 차단 암호 검색 기능으로 인해 너무 흔하거나 특히 약한 것으로 식별되어 자동으로 차단되는 암호를 선택했습니다.
 
-### <a name="activity-type-self-serve-password-reset-flow-activity-progress"></a>활동 유형: 셀프 서비스 암호 다시 설정 흐름 활동 진행률
+### <a name="activity-type-self-serve-password-reset-flow-activity-progress"></a>작업 유형: 셀프 서비스 암호 재설정 흐름 작업 진행률
 
 다음 목록에서는 이 활동에 대해 자세히 설명합니다.
 
@@ -146,9 +146,9 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 * **활동 상태**:
   * _성공_: 사용자가 암호 다시 설정 흐름의 특정 단계를 성공적으로 완료했음을 나타냅니다.
   * _실패_: 암호 다시 설정 흐름의 특정 단계가 실패했음을 나타냅니다. 행을 선택하여 **활동 상태 이유** 범주에서 실패한 원인에 대해 자세히 알아볼 수 있습니다.
-* **활동 상태 이유**: [모든 허용되는 다시 설정 활동 상태 이유](#allowed-values-for-details-column)에 대해서는 다음 표를 참조하세요.
+* **활동 상태 이유**:   [모든 허용되는 다시 설정 활동 상태 이유](#allowed-values-for-details-column)에 대해서는 다음 표를 참조하세요.
 
-### <a name="activity-type-unlock-a-user-account-self-service"></a>활동 유형: 사용자 계정 잠금 해제(셀프 서비스)
+### <a name="activity-type-unlock-a-user-account-self-service"></a>작업 유형: 사용자 계정 잠금 해제(셀프 서비스)
 
 다음 목록에서는 이 활동에 대해 자세히 설명합니다.
 
@@ -159,7 +159,7 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
   * _성공_: 사용자가 자신의 계정을 성공적으로 잠금 해제했음을 나타냅니다.
   * _실패_: 사용자가 자신의 계정을 잠금 해제하지 못했음을 나타냅니다. 행을 선택하여 **활동 상태 이유** 범주에서 실패한 원인에 대해 자세히 알아볼 수 있습니다.
 
-### <a name="activity-type-user-registered-for-self-service-password-reset"></a>활동 유형: 사용자가 셀프 서비스 암호 다시 설정 등록
+### <a name="activity-type-user-registered-for-self-service-password-reset"></a>작업 유형: 사용자가 셀프 서비스 암호 재설정 등록
 
 다음 목록에서는 이 활동에 대해 자세히 설명합니다.
 

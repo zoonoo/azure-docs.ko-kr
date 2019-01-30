@@ -1,6 +1,6 @@
 ---
 title: Node.js에서 원격 모니터링으로 Raspberry Pi 프로비전 - Azure | Microsoft Docs
-description: Node.js에 작성된 응용 프로그램을 사용하여 원격 모니터링 솔루션 가속기에 Raspberry Pi 디바이스를 연결하는 방법을 설명합니다.
+description: Node.js에 작성된 애플리케이션을 사용하여 원격 모니터링 솔루션 가속기에 Raspberry Pi 장치를 연결하는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,18 +8,20 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: 696bd6ec80f39e8a9f3418426a754ffc038171e2
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 75869de67d006b2053e9c3f9eed2fd8166a0e8e1
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325085"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200992"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>원격 모니터링 솔루션 가속기에 Raspberry Pi 디바이스 연결(Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-이 자습서에서는 원격 모니터링 솔루션 가속기에 물리적 디바이스를 연결하는 방법을 보여줍니다. 이 자습서에서는 최소한의 리소스 제약 조건으로 환경에 적합한 옵션인 Node.js를 사용합니다.
+이 자습서는 원격 모니터링 솔루션 가속기에 실제 디바이스를 연결하는 방법을 보여 줍니다. 이 자습서에서는 최소한의 리소스 제약 조건으로 환경에 적합한 옵션인 Node.js를 사용합니다.
+
+디바이스를 시뮬레이션하려면 [새 시뮬레이션된 디바이스 만들기 및 테스트](iot-accelerators-remote-monitoring-create-simulated-device.md)를 참조하세요.
 
 ### <a name="required-hardware"></a>필수 하드웨어
 
@@ -36,7 +38,7 @@ Raspberry Pi의 명령줄에 원격으로 연결할 수 있는 데스크톱 컴�
 
 Raspberry Pi의 명령줄에 원격으로 액세스할 수 있도록 데스크톱 컴퓨터에 SSH 클라이언트가 필요합니다.
 
-- Windows에서는 SSH 클라이언트를 포함하지 않습니다. [PuTTY](http://www.putty.org/)를 사용하는 것이 좋습니다.
+- Windows에서는 SSH 클라이언트를 포함하지 않습니다. [PuTTY](https://www.putty.org/)를 사용하는 것이 좋습니다.
 - 대부분의 Linux 배포판 및 Mac OS는 명령줄 SSH 유틸리티를 포함합니다. 자세한 내용은 [Linux 또는 Mac OS를 사용하는 SSH](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md)를 참조하세요.
 
 ### <a name="required-raspberry-pi-software"></a>필수 Raspberry Pi 소프트웨어
@@ -97,7 +99,6 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
     ```nodejs
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     var Client = require('azure-iot-device').Client;
-    var ConnectionString = require('azure-iot-device').ConnectionString;
     var Message = require('azure-iot-device').Message;
     var async = require('async');
     ```
@@ -106,7 +107,6 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
 
     ```nodejs
     var connectionString = '{device connection string}';
-    var deviceId = ConnectionString.parse(connectionString).DeviceId;
     ```
 
 1. 기본 원격 분석 데이터를 정의하려면 다음 변수를 추가합니다.
@@ -123,11 +123,8 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
 1. 속성 값을 정의하려면 다음 변수를 추가합니다.
 
     ```nodejs
-    var temperatureSchema = 'chiller-temperature;v1';
-    var humiditySchema = 'chiller-humidity;v1';
-    var pressureSchema = 'chiller-pressure;v1';
-    var interval = "00:00:05";
-    var deviceType = "Chiller";
+    var schema = "real-chiller;v1";
+    var deviceType = "RealChiller";
     var deviceFirmware = "1.0.0";
     var deviceFirmwareUpdateStatus = "";
     var deviceLocation = "Building 44";
@@ -136,49 +133,13 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
     var deviceOnline = true;
     ```
 
-1. 다음 변수를 추가하여 솔루션에 보내는 reported 속성을 정의합니다. 이러한 속성은 디바이스에서 사용하는 메서드 및 원격 분석을 설명하는 메타데이터를 포함합니다.
+1. 다음 변수를 추가하여 솔루션에 보내는 reported 속성을 정의합니다. 이러한 속성에는 웹 UI에 표시할 메타데이터가 포함됩니다.
 
     ```nodejs
     var reportedProperties = {
-      "Protocol": "MQTT",
       "SupportedMethods": "Reboot,FirmwareUpdate,EmergencyValveRelease,IncreasePressure",
       "Telemetry": {
-        "TemperatureSchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"temperature\":${temperature},\"temperature_unit\":\"${temperature_unit}\"}",
-          "MessageSchema": {
-            "Name": temperatureSchema,
-            "Format": "JSON",
-            "Fields": {
-              "temperature": "Double",
-              "temperature_unit": "Text"
-            }
-          }
-        },
-        "HumiditySchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"humidity\":${humidity},\"humidity_unit\":\"${humidity_unit}\"}",
-          "MessageSchema": {
-            "Name": humiditySchema,
-            "Format": "JSON",
-            "Fields": {
-              "humidity": "Double",
-              "humidity_unit": "Text"
-            }
-          }
-        },
-        "PressureSchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"pressure\":${pressure},\"pressure_unit\":\"${pressure_unit}\"}",
-          "MessageSchema": {
-            "Name": pressureSchema,
-            "Format": "JSON",
-            "Fields": {
-              "pressure": "Double",
-              "pressure_unit": "Text"
-            }
-          }
-        }
+        [schema]: ""
       },
       "Type": deviceType,
       "Firmware": deviceFirmware,
@@ -225,7 +186,7 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
 
 1. 다음 함수를 추가하여 솔루션에서 **FirmwareUpdate** 직접 메서드 호출을 처리합니다. 함수는 직접 메서드 페이로드에 전달된 매개 변수를 확인한 다음, 펌웨어 업데이트 시뮬레이션을 비동기적으로 실행합니다.
 
-    ```node.js
+    ```nodejs
     function onFirmwareUpdate(request, response) {
       // Get the requested firmware version from the JSON request body
       var firmwareVersion = request.payload.Firmware;
@@ -254,7 +215,7 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
 
 1. 다음 함수를 추가하여 진행 상태를 솔루션에 다시 보고하는 장기 실행 펌웨어 업데이트 흐름을 시뮬레이션합니다.
 
-    ```node.js
+    ```nodejs
     // Simulated firmwareUpdate flow
     function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
       console.log('Simulating firmware update flow...');
@@ -332,15 +293,14 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
 
 1. 다음 코드를 추가하여 솔루션에 원격 분석 데이터를 보냅니다. 클라이언트 앱은 메시지 스키마를 식별하기 위해 메시지에 속성을 추가합니다.
 
-    ```node.js
+    ```nodejs
     function sendTelemetry(data, schema) {
       if (deviceOnline) {
         var d = new Date();
         var payload = JSON.stringify(data);
         var message = new Message(payload);
-        message.properties.add('$$CreationTimeUtc', d.toISOString());
-        message.properties.add('$$MessageSchema', schema);
-        message.properties.add('$$ContentType', 'JSON');
+        message.properties.add('iothub-creation-time-utc', d.toISOString());
+        message.properties.add('iothub-message-schema', schema);
 
         console.log('Sending device message data:\n' + payload);
         client.sendEvent(message, printErrorFor('send event'));
@@ -398,31 +358,19 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
         });
 
         // Start sending telemetry
-        var sendTemperatureInterval = setInterval(function () {
+        var sendDeviceTelemetry = setInterval(function () {
           temperature += generateRandomIncrement();
-          var data = {
-            'temperature': temperature,
-            'temperature_unit': temperatureUnit
-          };
-          sendTelemetry(data, temperatureSchema)
-        }, 5000);
-
-        var sendHumidityInterval = setInterval(function () {
+          pressure += generateRandomIncrement();
           humidity += generateRandomIncrement();
           var data = {
+            'temperature': temperature,
+            'temperature_unit': temperatureUnit,
             'humidity': humidity,
-            'humidity_unit': humidityUnit
-          };
-          sendTelemetry(data, humiditySchema)
-        }, 5000);
-
-        var sendPressureInterval = setInterval(function () {
-          pressure += generateRandomIncrement();
-          var data = {
+            'humidity_unit': humidityUnit,
             'pressure': pressure,
             'pressure_unit': pressureUnit
           };
-          sendTelemetry(data, pressureSchema)
+          sendTelemetry(data, schema)
         }, 5000);
 
         client.on('error', function (err) {
@@ -438,7 +386,7 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
 
 1. **remote_monitoring.js** 파일에 변경 내용을 저장합니다.
 
-1. 샘플 응용 프로그램을 시작하려면 Raspberry Pi의 명령 프롬프트에서 다음 명령을 실행합니다.
+1. 샘플 애플리케이션을 시작하려면 Raspberry Pi의 명령 프롬프트에서 다음 명령을 실행합니다.
 
     ```sh
     node remote_monitoring.js

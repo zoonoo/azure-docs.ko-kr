@@ -183,7 +183,7 @@ Azure 함수를 만들려면 다음 단계를 수행합니다.
 
         ```
 
-    2. 11번 줄에서 **STORAGE_CONNECTIONNAME**을 사용자의 저장소 계정 연결로 바꿉니다(7c단계 참조).
+    2. 11번 줄에서 **STORAGE_CONNECTIONNAME**을 사용자의 스토리지 계정 연결로 바꿉니다(7c단계 참조).
 
         ![저장소 연결 이름 복사](./media/storsimple-data-manager-change-default-blob-path/new-function-storage-connection-name.png)
 

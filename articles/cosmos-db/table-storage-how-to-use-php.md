@@ -1,20 +1,19 @@
 ---
 title: PHP에서 Azure Storage Table 서비스 또는 Azure Cosmos DB Table API를 사용하는 방법
 description: Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
-services: cosmos-db
-author: SnehaGunda
+author: wmengmsft
+ms.author: wmeng
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: php
 ms.topic: sample
 ms.date: 04/05/2018
-ms.author: sngun
-ms.openlocfilehash: 14cb684b0cc3e93992c6ed78c53e8794214c85a8
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 3ec91b564647e4eda4696a249c77739daff2ece3
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879734"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044232"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>PHP에서 Azure Storage Table 서비스 또는 Azure Cosmos DB Table API를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -36,11 +35,11 @@ ms.locfileid: "52879734"
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
-## <a name="create-a-php-application"></a>PHP 응용 프로그램 만들기
+## <a name="create-a-php-application"></a>PHP 애플리케이션 만들기
 
-Storage Table service 또는 Azure Cosmos DB Table API에 액세스하는 PHP 응용 프로그램을 만들기 위한 유일한 요구 사항은 코드 내에서 PHP에 대한 azure-storage-table SDK의 클래스를 참조하는 것입니다. 응용 프로그램을 만드는 데는 메모장을 포함한 어떠한 개발 도구도 사용할 수 있습니다.
+Storage Table service 또는 Azure Cosmos DB Table API에 액세스하는 PHP 애플리케이션을 만들기 위한 유일한 요구 사항은 코드 내에서 PHP에 대한 azure-storage-table SDK의 클래스를 참조하는 것입니다. 애플리케이션을 만드는 데는 메모장을 포함한 어떠한 개발 도구도 사용할 수 있습니다.
 
-이 가이드에서는 PHP 응용 프로그램 내에서 로컬로 또는 Azure 웹 역할, 작업자 역할 또는 웹 사이트 내에서 실행되는 코드에서 호출할 수 있는 Storage Table service 또는 Azure Cosmos DB 기능을 사용합니다.
+이 가이드에서는 PHP 애플리케이션 내에서 로컬로 또는 Azure 웹 역할, 작업자 역할 또는 웹 사이트 내에서 실행되는 코드에서 호출할 수 있는 Storage Table service 또는 Azure Cosmos DB 기능을 사용합니다.
 
 ## <a name="get-the-client-library"></a>클라이언트 라이브러리 가져오기
 
@@ -52,7 +51,7 @@ Storage Table service 또는 Azure Cosmos DB Table API에 액세스하는 PHP �
   }
 }
 ```
-2. 루트에 [composer.phar](http://getcomposer.org/composer.phar)을 다운로드합니다. 
+2. 루트에 [composer.phar](https://getcomposer.org/composer.phar)을 다운로드합니다. 
 3. 명령 프롬프트를 열고 프로젝트 루트에서 다음 명령을 실행합니다.
 ```
 php composer.phar install
@@ -509,7 +508,7 @@ catch(ServiceException $e){
 * [PHP 개발자 센터](https://azure.microsoft.com/develop/php/)
 
 [download]: https://packagist.org/packages/microsoft/azure-storage-table
-[require_once]: http://php.net/require_once
+[require_once]: https://php.net/require_once
 [table-service-timeouts]: https://docs.microsoft.com/rest/api/storageservices/setting-timeouts-for-table-service-operations
 
 [table-data-model]: https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model

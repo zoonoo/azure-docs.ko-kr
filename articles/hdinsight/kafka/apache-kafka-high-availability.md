@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: e39829d4fa08e466f98930becc831c6f4b551aed
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3d048618fef04b630366b3f575e420b329f102cb
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315837"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597667"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka를 통한 데이터 고가용성
 
@@ -26,7 +26,7 @@ ms.locfileid: "52315837"
 
 Azure 지역마다 특정 수의 장애 도메인이 있습니다. 도메인 목록과 해당 도메인에 포함된 장애 도메인의 수에 대한 내용은 [가용성 집합](../../virtual-machines/windows/regions-and-availability.md#availability-sets) 설명서를 참조하세요.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Kafka는 장애 도메인을 인식하지 않습니다. Kafka에서 토픽을 만들 때 모든 파티션 복제본을 동일한 장애 도메인에 저장할 수 있습니다. 이 문제를 해결하기 위해 HDInsight는 [Kafka 파티션 리밸런스 도구](https://github.com/hdinsight/hdinsight-kafka-tools)(영문)를 제공합니다.
 
 ## <a name="when-to-rebalance-partition-replicas"></a>파티션 복제본의 부하를 다시 조정해야 하는 경우
@@ -39,7 +39,7 @@ Azure 지역마다 특정 수의 장애 도메인이 있습니다. 도메인 목
 
 ## <a name="replication-factor"></a>복제 계수
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 3개의 장애 도메인을 포함하는 Azure 지역을 사용하고 복제 계수로 3을 사용하는 것이 좋습니다.
 
 2개의 장애 도메인만 포함하는 지역을 사용해야 하는 경우 복제 계수로 4를 사용하여 두 장애 도메인에 복제본을 동일하게 분산합니다.

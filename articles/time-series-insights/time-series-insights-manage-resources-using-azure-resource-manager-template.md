@@ -10,12 +10,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 3ca9af8c2c504f75322e00fdaaeac9a3e727a820
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 282a20beb11172aa3a1d2c7326dc38ce8a7acfcf
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627130"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062658"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Time Series Insights 리소스 만들기
 
@@ -33,6 +34,7 @@ Resource Manager 템플릿은 리소스 그룹에서 리소스의 인프라 및 
 
 - [Azure Resource Manager 개요 - 템플릿 배포](../azure-resource-manager/resource-group-overview.md#template-deployment)
 - [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../azure-resource-manager/resource-group-template-deploy.md)
+- [Microsoft.TimeSeriesInsights 리소스 종류](/azure/templates/microsoft.timeseriesinsights/allversions)
 
 [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) 빠른 시작 템플릿은 GitHub에 게시됩니다. 이 템플릿은 Time Series Insights 환경, Event Hub의 이벤트를 사용하도록 구성된 자식 이벤트 원본 및 환경의 데이터에 대한 액세스 권한을 부여하는 액세스 정책을 만듭니다. 기존 Event Hub를 지정하지 않으면 배포에서 만들어집니다.
 
@@ -91,7 +93,7 @@ GitHub에서 [201-timeseriesinsights-environment-with-eventhub](https://raw.gith
    | --- | --- |
    | eventHubNamespaceName | 원본 Event Hub의 네임스페이스입니다. |
    | eventHubName | 원본 Event Hub의 이름입니다. |
-   | consumerGroupName | Time Series Insights 서비스가 Event Hub에서 데이터를 읽는 데 사용하는 소비자 그룹의 이름입니다. **참고:** 리소스 경합을 방지하려면 이 소비자 그룹은 Time Series Insights 서비스 전용이며, 다른 판독기와 공유되지 않아야 합니다. |
+   | consumerGroupName | Time Series Insights 서비스가 Event Hub에서 데이터를 읽는 데 사용하는 소비자 그룹의 이름입니다. **참고:** 리소스 경합을 방지하려면 이 소비자 그룹이 Time Series Insights 서비스 전용이어야 하고, 다른 판독기와 공유되지 않아야 합니다. |
    | environmentName | 환경의 이름입니다. 이름은 '<', '>', '%', '&', ':', '\\', '?', '/' 및 제어 문자를 포함할 수 없습니다. 다른 문자를 모두 허용합니다.|
    | eventSourceName | 이벤트 원본 자식 리소스의 이름입니다. 이름은 '<', '>', '%', '&', ':', '\\', '?', '/' 및 제어 문자를 포함할 수 없습니다. 다른 문자를 모두 허용합니다. |
 
@@ -107,8 +109,8 @@ GitHub에서 [201-timeseriesinsights-environment-with-eventhub](https://raw.gith
    | eventSourceDisplayName | 이벤트 원본 이름 대신 도구 또는 사용자 인터페이스에 표시할 선택적 이름입니다. |
    | eventSourceTimestampPropertyName | 이벤트 원본의 타임스탬프로 사용될 이벤트 속성입니다. timestampPropertyName에 대한 값을 지정하지 않은 경우 또는 null 또는 빈 문자열을 지정하는 경우 이벤트 생성 시간이 사용됩니다. |
    | eventSourceKeyName | Time Series Insights 서비스가 Event Hub에 연결하는 데 사용하는 공유 액세스 키의 이름입니다. |
-   | accessPolicyReaderObjectIds | Azure AD에서 환경에 대한 판독기 액세스 권한이 있어야 하는 사용자 또는 응용 프로그램의 개체 ID 목록입니다. **Get-AzureRMADUser** 또는 **Get-AzureRMADServicePrincipal** cmdlet을 호출하여 서비스 주체 objectId를 가져올 수 있습니다. Azure AD 그룹에 대한 액세스 정책을 만드는 작업은 아직 지원되지 않습니다. |
-   | accessPolicyContributorObjectIds | Azure AD에서 환경에 대한 참가자 액세스 권한이 있어야 하는 사용자 또는 응용 프로그램의 개체 ID 목록입니다. **Get-AzureRMADUser** 또는 **Get-AzureRMADServicePrincipal** cmdlet을 호출하여 서비스 주체 objectId를 가져올 수 있습니다. Azure AD 그룹에 대한 액세스 정책을 만드는 작업은 아직 지원되지 않습니다. |
+   | accessPolicyReaderObjectIds | Azure AD에서 환경에 대한 판독기 액세스 권한이 있어야 하는 사용자 또는 애플리케이션의 개체 ID 목록입니다. **Get-AzureRMADUser** 또는 **Get-AzureRMADServicePrincipal** cmdlet을 호출하여 서비스 주체 objectId를 가져올 수 있습니다. Azure AD 그룹에 대한 액세스 정책을 만드는 작업은 아직 지원되지 않습니다. |
+   | accessPolicyContributorObjectIds | Azure AD에서 환경에 대한 참가자 액세스 권한이 있어야 하는 사용자 또는 애플리케이션의 개체 ID 목록입니다. **Get-AzureRMADUser** 또는 **Get-AzureRMADServicePrincipal** cmdlet을 호출하여 서비스 주체 objectId를 가져올 수 있습니다. Azure AD 그룹에 대한 액세스 정책을 만드는 작업은 아직 지원되지 않습니다. |
 
 예를 들어, 다음 매개 변수 파일은 기존 Event Hub의 이벤트를 읽는 환경 및 이벤트 원본을 만드는 데 사용할 수 있습니다. 또한 환경에 대한 참가자 액세스 권한을 부여하는 두 개의 액세스 정책을 만듭니다.
 

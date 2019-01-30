@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 00e5a77bdf8554d473194b2e84947d7adb10df90
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 5e24ec6124b6a5f7dea66e33018dffc753966075
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955262"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141971"
 ---
 # <a name="dtu-based-service-tiers"></a>DTU 기반 서비스 계층
 
@@ -31,6 +31,7 @@ DTU 기반 서비스 계층은 포함된 저장소의 고정된 양, 고정된 �
 ## <a name="compare-the-dtu-based-service-tiers"></a>DTU 기반 서비스 계층 비교
 
 서비스 계층을 선택하는 작업은 주로 비즈니스 연속성, 저장소 및 성능 요구 사항에 따라 다릅니다.
+
 ||Basic|Standard|Premium|
 | :-- | --: |--:| --:| --:|
 |대상 워크로드|개발 및 프로덕션|개발 및 프로덕션|개발 및 프로덕션||
@@ -71,7 +72,7 @@ DTU 기반 서비스 계층은 포함된 저장소의 고정된 양, 고정된 �
 ||||||
 
 > [!IMPORTANT]
-> 현재 미국 중서부, 중국 동부, USDoDCentral, 독일 중부, USDoDEast, US Gov 남서부, US Gov 아이오와, 독일 북동부, 중국 북부를 제외한 모든 지역에서 1TB를 초과하는 저장소를 프리미엄 계층에 사용할 수 있습니다. 다른 지역에서 프리미엄 계층 저장소 크기는 1TB로 제한됩니다. [P11-P15 현재 제한 사항](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
+> 현재 다음 지역을 제외한 모든 지역에서 프리미엄 계층의 스토리지 1TB 이상을 사용할 수 있습니다. 미국 중서부, 중국 동부, US DoD 중부, 독일 중부, US DoD 동부, US Gov 남서부, 미국 아이오와 주 정부, 독일 북동부, 중국 북부. 다른 지역에서 프리미엄 계층 저장소 크기는 1TB로 제한됩니다. [P11-P15 현재 제한 사항](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
 
@@ -81,7 +82,7 @@ DTU 기반 서비스 계층은 포함된 저장소의 고정된 양, 고정된 �
 
 ### <a name="correlating-benchmark-results-to-real-world-database-performance"></a>벤치마크 결과와 실제 데이터베이스 성능 간 상관 관계 분석
 
-모든 벤치마크는 대표적, 암시적 수치임을 이해하는 것이 중요합니다. 벤치마크 응용 프로그램에서 달성한 트랜잭션 속도는 다른 응용 프로그램에서 달성할 수 있는 속도와 동일하지 않습니다. 벤치마크는 다양한 테이블 및 데이터 유형이 포함된 스키마에 대해 실행되는 다양한 트랜잭션 유형의 컬렉션으로 구성되어 있습니다. 벤치마크는 모든 OLTP 워크로드에 공통적이고 동일한 기본 작업을 실행하며 특정 클래스의 데이터베이스 또는 응용 프로그램을 나타내지 않습니다. 벤치마크의 목표는 계산 크기를 확장 또는 축소할 경우 예상할 수 있는 데이터베이스의 상대적 성능에 대한 합리적 지침을 제공하는 것입니다. 실제로, 각 데이터베이스는 크기와 복잡성이 다르고 다양하게 혼합된 워크로드를 처리할 수 있으며 각각 다른 방식으로 대응합니다. 예를 들어, IO를 많이 사용하는 응용 프로그램은 IO 임계값에 빠르게 도달할 수 있고 CPU를 많이 사용하는 응용 프로그램은 CPU 한도에 빠르게 도달할 수 있습니다. 부하가 증가할 때 특정 데이터베이스가 벤치마크와 동일하게 확장된다는 보장이 없습니다.
+모든 벤치마크는 대표적, 암시적 수치임을 이해하는 것이 중요합니다. 벤치마크 애플리케이션에서 달성한 트랜잭션 속도는 다른 애플리케이션에서 달성할 수 있는 속도와 동일하지 않습니다. 벤치마크는 다양한 테이블 및 데이터 유형이 포함된 스키마에 대해 실행되는 다양한 트랜잭션 유형의 컬렉션으로 구성되어 있습니다. 벤치마크는 모든 OLTP 워크로드에 공통적이고 동일한 기본 작업을 실행하며 특정 클래스의 데이터베이스 또는 애플리케이션을 나타내지 않습니다. 벤치마크의 목표는 계산 크기를 확장 또는 축소할 경우 예상할 수 있는 데이터베이스의 상대적 성능에 대한 합리적 지침을 제공하는 것입니다. 실제로, 각 데이터베이스는 크기와 복잡성이 다르고 다양하게 혼합된 워크로드를 처리할 수 있으며 각각 다른 방식으로 대응합니다. 예를 들어, IO를 많이 사용하는 애플리케이션은 IO 임계값에 빠르게 도달할 수 있고 CPU를 많이 사용하는 애플리케이션은 CPU 한도에 빠르게 도달할 수 있습니다. 부하가 증가할 때 특정 데이터베이스가 벤치마크와 동일하게 확장된다는 보장이 없습니다.
 
 벤치마크와 그 방법론은 아래에서 더 자세히 설명합니다.
 

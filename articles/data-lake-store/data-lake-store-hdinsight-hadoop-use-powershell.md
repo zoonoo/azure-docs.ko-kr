@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Azure Data Lake Storage Gen1을 추가 기능 저장소로 사용하는 Azure HDInsight 클러스터 | Microsoft Docs'
+title: 'PowerShell: Azure Data Lake Storage Gen1을 추가 기능 스토리지로 사용하는 Azure HDInsight 클러스터 | Microsoft Docs'
 services: data-lake-store,hdinsight
 documentationcenter: ''
 author: nitinme
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 0fa4a4c1586957dabf1c849fdb897a479c4f8db3
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 3de675adf7364e8281a03a46c5eeeaa1b74249b5
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957417"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969287"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Azure PowerShell을 사용하여 Azure Data Lake Storage Gen1을 (추가 저장소로) 사용하는 HDInsight 클러스터 만들기
 
@@ -123,12 +123,12 @@ PowerShell을 사용하여 Data Lake Storage Gen1과 함께 작동하도록 HDIn
 
 ## <a name="set-up-authentication-for-role-based-access-to-data-lake-storage-gen1"></a>Data Lake Storage Gen1에 대한 역할 기반 액세스를 위한 인증 설정
 
-모든 Azure 구독은 Azure Active Directory와 연결됩니다. Azure Portal 또는 Azure Resource Manager API를 사용하여 구독 리소스에 액세스하는 사용자와 서비스는 먼저 해당 Azure Active Directory에 인증해야 합니다. Azure 리소스에 대한 적절한 역할을 할당하여 Azure 구독과 서비스에 액세스 권한을 부여합니다.  서비스의 경우 서비스 주체는 Azure Active Directory(AAD)의 서비스를 식별합니다. 이 섹션에서는 응용 프로그램에 대한 서비스 주체를 만들고 Azure PowerShell을 통해 역할을 할당하여 HDInsight와 같은 응용 프로그램 서비스에 Azure 리소스(이전에 만든 Data Lake Storage Gen1)에 대한 액세스 권한을 할당하는 방법을 설명합니다.
+모든 Azure 구독은 Azure Active Directory와 연결됩니다. Azure Portal 또는 Azure Resource Manager API를 사용하여 구독 리소스에 액세스하는 사용자와 서비스는 먼저 해당 Azure Active Directory에 인증해야 합니다. Azure 리소스에 대한 적절한 역할을 할당하여 Azure 구독과 서비스에 액세스 권한을 부여합니다.  서비스의 경우 서비스 주체는 Azure Active Directory(AAD)의 서비스를 식별합니다. 이 섹션에서는 애플리케이션에 대한 서비스 주체를 만들고 Azure PowerShell을 통해 역할을 할당하여 HDInsight와 같은 애플리케이션 서비스에 Azure 리소스(이전에 만든 Data Lake Storage Gen1)에 대한 액세스 권한을 할당하는 방법을 설명합니다.
 
 Data Lake Storage Gen1에 대한 Active Directory 인증을 설정하려면 다음 작업을 수행해야 합니다.
 
 * 자체 서명된 인증서 만들기
-* Azure Active Directory 및 서비스 주체의 응용 프로그램 만들기
+* Azure Active Directory 및 서비스 주체의 애플리케이션 만들기
 
 ### <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 
@@ -150,7 +150,7 @@ Data Lake Storage Gen1에 대한 Active Directory 인증을 설정하려면 다�
 
 ### <a name="create-an-azure-active-directory-and-a-service-principal"></a>Azure Active Directory 및 서비스 주체 만들기
 
-이 섹션에서는 Azure Active Directory 응용 프로그램용 서비스 주체를 만들고, 서비스 주체에 역할을 할당하고, 인증서를 제공하여 서비스 주체로 인증하는 단계를 수행합니다. 다음 명령을 실행하여 Azure Active Directory에서 응용 프로그램을 만듭니다.
+이 섹션에서는 Azure Active Directory 애플리케이션용 서비스 주체를 만들고, 서비스 주체에 역할을 할당하고, 인증서를 제공하여 서비스 주체로 인증하는 단계를 수행합니다. 다음 명령을 실행하여 Azure Active Directory에서 애플리케이션을 만듭니다.
 
 1. PowerShell 콘솔 창에 다음 cmdlet을 붙여 넣습니다. **-DisplayName** 속성에 대해 지정한 값이 고유한지 확인합니다. 또한 **-HomePage** 및 **-IdentiferUris**에 대한 값은 자리 표시자이며 확인되지 않습니다.
 
@@ -173,7 +173,7 @@ Data Lake Storage Gen1에 대한 Active Directory 인증을 설정하려면 다�
             -EndDate $certificatePFX.NotAfter
 
         $applicationId = $application.ApplicationId
-2. 응용 프로그램 ID를 사용하여 서비스 주체를 만듭니다.
+2. 애플리케이션 ID를 사용하여 서비스 주체를 만듭니다.
 
         $servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $applicationId
 
@@ -194,7 +194,7 @@ Data Lake Storage Gen1에 대한 Active Directory 인증을 설정하려면 다�
 
         # Create an Azure storage account
         $location = "East US 2"
-        $storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
+        $storageAccountName = "<StorageAccountName>"   # Provide a Storage account name
 
         New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
 

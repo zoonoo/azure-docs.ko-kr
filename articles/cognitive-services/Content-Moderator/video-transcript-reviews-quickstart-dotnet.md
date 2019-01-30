@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 4e862a8b74339bc8dd1de6c0b231ddb15425974c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 672d801b9a6c45a8ab3eb9964b6e061eeee11f59
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220944"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266827"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>.NET을 사용하여 비디오 대본 검토 만들기
 
@@ -33,8 +33,7 @@ ms.locfileid: "47220944"
 
 ## <a name="sign-up-for-content-moderator"></a>Content Moderator 등록
 
-REST API 또는 SDK를 통해 Content Moderator 서비스를 사용하려면 먼저 구독 키가 필요합니다.
-키를 획득하는 방법은 [빠른 시작](quick-start.md)을 참조하세요.
+REST API 또는 SDK를 통해 Content Moderator 서비스를 사용하려면 먼저 구독 키가 필요합니다. [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Content Moderator를 구독하고 키를 가져옵니다.
 
 ## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>이전 단계에서 완료되지 않은 경우 검토 도구 계정에 등록
 
@@ -44,7 +43,7 @@ Azure Portal에서 Content Moderator를 가져온 경우 [검토 도구 계정�
 
 이전 단계를 완료한 후 Azure Portal에서 시작한 경우 두 개의 Content Moderator 키가 생성됩니다. 
 
-SDK 샘플에서 Azure가 제공한 API 키를 사용하려는 경우 [검토 API를 사용하여 Azure 키 사용](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) 섹션에서 언급된 단계를 수행하여 응용 프로그램에서 검토 API를 호출하고 검토를 만들도록 허용합니다.
+SDK 샘플에서 Azure가 제공한 API 키를 사용하려는 경우 [검토 API를 사용하여 Azure 키 사용](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) 섹션에서 언급된 단계를 수행하여 애플리케이션에서 검토 API를 호출하고 검토를 만들도록 허용합니다.
 
 검토 도구에서 생성된 평가판 키를 사용하는 경우 검토 도구 계정은 키에 대해 이미 알고 있으므로 추가 단계가 필요하지 않습니다.
 
@@ -215,7 +214,7 @@ VideoReviews 네임스페이스, Program 클래스에 다음 메서드 정의를
 1. **CreateVideoReviews**에서 반환된 비디오 검토 ID입니다.
 1. 대본을 포함하는 **Stream** 개체입니다.
 
-대본은 WebVTT 형식이어야 합니다. 자세한 내용은 [WebVTT: Web Video Text Tracks 형식](https://www.w3.org/TR/webvtt1/)을 참조하세요.
+대본은 WebVTT 형식이어야 합니다. 자세한 내용은 [WebVTT: 웹 비디오 텍스트 트랙 형식](https://www.w3.org/TR/webvtt1/)을 참조하세요.
 
 > [!NOTE]
 > 프로그램은 VTT 형식의 샘플 대본을 사용합니다. 실제 솔루션에서는 Azure Media Indexer 서비스를 사용하여 비디오에서 [대본을 생성](https://docs.microsoft.com/azure/media-services/media-services-index-content)합니다.
@@ -252,7 +251,7 @@ VideotranscriptReviews 네임스페이스, Program 클래스에 다음 메서드
 - **Term**. 용어를 포함하는 문자열입니다.
 - **Timestamp**. 대본에서 용어가 발견된 시간(초)을 포함하는 문자열입니다.
 
-대본은 WebVTT 형식이어야 합니다. 자세한 내용은 [WebVTT: Web Video Text Tracks 형식](https://www.w3.org/TR/webvtt1/)을 참조하세요.
+대본은 WebVTT 형식이어야 합니다. 자세한 내용은 [WebVTT: 웹 비디오 텍스트 트랙 형식](https://www.w3.org/TR/webvtt1/)을 참조하세요.
 
 VideoTranscriptReviews 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다. 이 메서드는 **ContentModeratorClient.TextModeration.ScreenText** 메서드에 대본을 제출합니다. 또한 결과를 IList<TranscriptModerationBodyItem>로 변환하고 **AddVideoTranscriptModerationResult**에 제출합니다.
 
@@ -360,7 +359,7 @@ VideoTranscriptReviews 네임스페이스, Program 클래스에 **Main** 메서�
 
 ## <a name="run-the-program-and-review-the-output"></a>프로그램 실행 및 출력 검토
 
-응용 프로그램을 실행하면 다음 줄에 출력이 표시됩니다.
+애플리케이션을 실행하면 다음 줄에 출력이 표시됩니다.
 
     Creating a video review.
     Adding a transcript to the review with ID 201801v5b08eefa0d2d4d64a1942aec7f5cacc3.

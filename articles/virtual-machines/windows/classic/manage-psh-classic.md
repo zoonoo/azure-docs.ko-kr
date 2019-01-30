@@ -16,16 +16,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2016
 ms.author: kasing
-ms.openlocfilehash: 942141fad09e6233efc7f850212a73f8a39c163c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b7fafa148417ba1667ec0277b414105f95e428ce
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30918308"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971787"
 ---
 # <a name="manage-your-virtual-machines-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 가상 머신 관리
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 모델을 사용하여 일반적인 PowerShell 명령은 [여기](../../virtual-machines-windows-ps-common-ref.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 참조하세요.
+> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../../resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. Resource Manager 모델을 사용하여 일반적인 PowerShell 명령은 [여기](../../virtual-machines-windows-ps-common-ref.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 참조하세요.
 
 Azure PowerShell cmdlet을 사용하여 매일 VM을 관리하기 위해 수행하는 많은 작업을 자동화할 수 있습니다. 이 문서에서는 더 간단한 작업에 대한 예제 명령과 보다 복잡한 작업에 대한 명령을 보여 주는 문서에 대한 링크를 제공합니다.
 
@@ -42,7 +42,7 @@ Azure PowerShell cmdlet을 사용하여 매일 VM을 관리하기 위해 수행�
 
 VM에 대한 정보를 가져오려면 이 명령을 실행하고 < 및 > 문자를 포함하여 따옴표 안의 모든 항목을 바꿉니다.
 
-     Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+    Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 출력을 $vm 변수에 저장하려면 다음을 실행합니다.
 
@@ -54,7 +54,7 @@ VM에 대한 정보를 가져오려면 이 명령을 실행하고 < 및 > 문자
 > [!NOTE]
 > **Get-AzureVM** 명령 표시에서 가상 머신 및 클라우드 서비스 이름을 가져올 수 있습니다.
 > 
-> $svcName = "<cloud service name>" $vmName = "<virtual machine name>" $localPath = "<다운로드한 RDP 파일을 저장할 드라이브 및 폴더 위치, 예: c:\temp >" $localFile = $localPath + "\" + $vmname + ".rdp" Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
+> $svcName = `"<cloud service name>"` $vmName = `"<virtual machine name>"` $localPath = `"<drive and folder location to store the downloaded RDP file, example: c:\temp >"` $localFile = $localPath + "\" + $vmname + ".rdp" Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
 > 
 > 
 
@@ -64,7 +64,7 @@ VM에 대한 정보를 가져오려면 이 명령을 실행하고 < 및 > 문자
     Stop-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 > [!IMPORTANT]
-> 해당 클라우드 서비스의 마지막 VM인 경우 이 매개 변수를 사용하여 클라우드 서비스의 VIP(가상 IP)를 유지합니다. <br><br> StayProvisioned 매개 변수를 사용하는 경우 VM에 대한 요금이 청구됩니다.
+> 해당 클라우드 서비스의 마지막 VM인 경우 이 매개 변수를 사용하여 클라우드 서비스의 VIP(가상 IP)를 유지합니다. <br><br>  StayProvisioned 매개 변수를 사용하는 경우 VM에 대한 요금이 청구됩니다.
 > 
 > 
 

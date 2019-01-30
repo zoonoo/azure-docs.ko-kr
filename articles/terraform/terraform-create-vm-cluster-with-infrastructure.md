@@ -4,17 +4,17 @@ description: Terraform 및 HCL(HashiCorp Configuration Language)을 사용하여
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, 가상 머신, 네트워크, 모듈
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/13/2017
-ms.openlocfilehash: fffaf275a98791885b87ee8ffdc275e911b26341
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: a53fee8ee492de4d9eaa8b45a8d4a88e692da02d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667603"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410373"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Terraform 및 HCL을 사용하여 VM 클러스터 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "43667603"
 ## <a name="1-set-up-azure-authentication"></a>1. 인증 설정
 
 > [!NOTE]
-> [Terraform 환경 변수를 사용](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables)하거나 [Azure Cloud Shell](terraform-cloud-shell.md)에서 자습서를 실행하는 경우 이 섹션을 건너뜁니다.
+> [Terraform 환경 변수를 사용](/azure/virtual-machines/linux/terraform-install-configure)하거나 [Azure Cloud Shell](terraform-cloud-shell.md)에서 자습서를 실행하는 경우 이 섹션을 건너뜁니다.
 
 이 섹션에서는 Azure 서비스 보안 주체와, 보안 주체의 자격 증명을 포함하는 Terraform 구성 파일을 두 개를 생성합니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "43667603"
 
 6. Terraform 변수에 대한 값이 담긴 새 파일을 만듭니다. Terraform이 이름이 `terraform.tfvars`인(또는 `*.auto.tfvars` 패턴을 따르는) 파일이 현재 디렉터리에 있으면 자동으로 로드하기 때문에 일반적으로 Terraform 변수 파일의 이름은 `terraform.tfvars`로 명명됩니다. 
 
-7. 변수 파일에 다음 코드를 복사합니다. 자리 표시자를 다음과 같이 바꿉니다. `subscription_id`에는 `az account set` 실행 시 지정한 Azure 구독 ID를 사용합니다. `tenant_id`에는 `az ad sp create-for-rbac`에서 반환된 `tenant` 값을 사용합니다. `client_id`에는 `az ad sp create-for-rbac`에서 반환된 `appId` 값을 사용합니다. `client_secret`에는 `az ad sp create-for-rbac`에서 반환된 `password` 값을 사용합니다.
+7. 변수 파일에 다음 코드를 복사합니다. 다음과 같이 자리 표시자를 바꿉니다. `subscription_id`에는 `az account set`을 실행할 때 지정한 Azure 구독 ID를 사용합니다. `tenant_id`에는 `az ad sp create-for-rbac`에서 반환된 `tenant` 값을 사용합니다. `client_id`에는 `az ad sp create-for-rbac`에서 반환된 `appId` 값을 사용합니다. `client_secret`에는 `az ad sp create-for-rbac`에서 반환된 `password` 값을 사용합니다.
 
   ```tf
   subscription_id = "<azure-subscription-id>"

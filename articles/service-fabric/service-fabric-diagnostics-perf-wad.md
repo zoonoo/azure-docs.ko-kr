@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 0675e06564fcacf5f7d14ef6986762f36df18b1b
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: a6941e28bdfd922a68ff484c57031326a9aa5c0b
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290325"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452635"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Windows Azure 진단 확장을 사용하여 성능 모니터링
 
@@ -43,7 +43,7 @@ WAD를 통해 성능 카운터를 수집하려면 클러스터의 Resource Manag
     }
     ```
 
-    `scheduledTransferPeriod`는 카운터의 값이 Azure 저장소 테이블 및 모든 구성된 싱크에 수집되고 전송되는 빈도를 정의합니다. 
+    `scheduledTransferPeriod`는 수집된 카운터의 값이 Azure 스토리지 테이블 및 구성된 싱크로 전송되는 빈도를 정의합니다. 
 
 3. 이전 단계에서 선언된 `PerformanceCounterConfiguration`에 수집하려는 성능 카운터를 추가합니다. 수집하려는 각 카운터는 `counterSpecifier`, `sampleRate`, `unit`, `annotation` 및 관련 `sinks`로 정의됩니다.
 

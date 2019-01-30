@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 71ddbc2363075b721bfbd418bd29e5154baba866
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 929ce0d984e53586c46f15f21b9e5c90c6a34771
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391490"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402305"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>.NET SDK를 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
@@ -38,18 +38,18 @@ ms.locfileid: "44391490"
 
 * **Azure Data Lake Storage Gen1 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요.
 
-## <a name="create-a-net-application"></a>.NET 응용 프로그램 만들기
+## <a name="create-a-net-application"></a>.NET 애플리케이션 만들기
 [GitHub에서](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) 사용 가능한 코드 샘플은 저장소에서 파일 만들기, 파일 연결, 파일 다운로드 및 저장소에서 파일 삭제와 같은 프로세스를 설명합니다. 문서의 이 섹션은 코드의 주요 부분을 설명합니다.
 
-1. Visual Studio를 열고 콘솔 응용 프로그램을 만듭니다.
+1. Visual Studio를 열고 콘솔 애플리케이션을 만듭니다.
 2. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
 3. **새 프로젝트**에서 다음 값을 입력하거나 선택합니다.
 
    | 자산 | 값 |
    | --- | --- |
    | Category |Templates/Visual C#/Windows |
-   | Template |콘솔 응용 프로그램 |
-   | Name |CreateADLApplication |
+   | Template |콘솔 애플리케이션 |
+   | 이름 |CreateADLApplication |
 
 4. **확인**을 클릭하여 프로젝트를 만듭니다.
 
@@ -103,7 +103,7 @@ ms.locfileid: "44391490"
     AdlsClient client = AdlsClient.CreateClient(_adlsg1AccountName, adlCreds);
 
 ## <a name="create-a-file-and-directory"></a>파일 및 디렉터리 만들기
-응용 프로그램에 다음 코드 조각을 추가합니다. 이 코드 조각은 파일을 추가할 뿐만 아니라 존재하지 않는 모든 부모 디렉터리도 추가합니다.
+애플리케이션에 다음 코드 조각을 추가합니다. 이 코드 조각은 파일을 추가할 뿐만 아니라 존재하지 않는 모든 부모 디렉터리도 추가합니다.
 
     // Create a file - automatically creates any parent directories that don't exist
     // The AdlsOutputStream preserves record boundaries - it does not break records while writing to the store
@@ -146,7 +146,7 @@ ms.locfileid: "44391490"
     var directoryEntry = client.GetDirectoryEntry(fileName);
     PrintDirectoryEntry(directoryEntry);
 
-`PrintDirectoryEntry` 메서드의 정의는 [Github에서](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) 샘플의 일부로 사용할 수 있습니다. 
+`PrintDirectoryEntry` 메서드의 정의는 [GitHub에서](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) 샘플의 일부로 사용할 수 있습니다. 
 
 ## <a name="rename-a-file"></a>파일 이름 바꾸기
 다음 코드 조각은 Data Lake Storage Gen1 계정의 기존 파일 이름을 바꿉니다.
@@ -164,7 +164,7 @@ ms.locfileid: "44391490"
         PrintDirectoryEntry(entry);
     }
 
-`PrintDirectoryEntry` 메서드의 정의는 [Github에서](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) 샘플의 일부로 사용할 수 있습니다.
+`PrintDirectoryEntry` 메서드의 정의는 [GitHub에서](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) 샘플의 일부로 사용할 수 있습니다.
 
 ## <a name="delete-directories-recursively"></a>디렉터리를 재귀적으로 삭제
 다음 코드 조각은 디렉터리 및 모든 해당 하위 디렉터리를 재귀적으로 삭제합니다.
@@ -178,7 +178,7 @@ Data Lake Storage Gen1 파일 시스템 SDK를 사용하는 방법에 대한 몇
 * [GitHub의 고급 샘플](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
 ## <a name="see-also"></a>참고 항목
-* [.NET SDK를 사용한 Data Lake Storage Gen1에서의 계정 관리 작업](data-lake-store-get-started-net-sdk.md)
+* [.NET SDK를 사용한 Data Lake Storage Gen1의 계정 관리 작업](data-lake-store-get-started-net-sdk.md)
 * [Data Lake Storage Gen1 .NET SDK 참조](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>다음 단계

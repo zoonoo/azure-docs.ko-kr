@@ -5,14 +5,14 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 12/17/2018
 ms.author: rajanaki
-ms.openlocfilehash: 3f661ab5ff2a127ba7507a64bb4520cbad740473
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 06337e205c472d26024289222dc8876d23b4184f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213290"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791883"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Azure로 장애 조치(failover) 후에 머신을 온-프레미스 사이트로 다시 보호 및 장애 복구(failback)
 
@@ -61,8 +61,8 @@ Azure에서 프로세스 서버를 배포하려면:
 
 마스터 대상 서버는 장애 복구(Failback) 데이터를 받습니다. 기본적으로 마스터 대상 서버는 온-프레미스 구성 서버에서 실행됩니다. 그러나 장애 복구된 트래픽의 양에 따라 장애 복구를 위한 별도의 마스터 대상 서버를 만들어야 할 수도 있습니다. 만드는 방법은 다음과 같습니다.
 
-* Linux VM의 장애 복구(failback)를 위해 [Linux 마스터 대상 서버를 만듭니다](vmware-azure-install-linux-master-target.md). 이것은 필수입니다.
-* 필요에 따라 Windows VM 장애 복구(failback)에 대한 별도의 마스터 대상 서버를 만듭니다. 이 작업을 수행하려면 통합 설치를 다시 실행하고 마스터 대상 서버를 만들도록 선택합니다. [자세히 알아보기](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers).
+* Linux VM의 장애 복구(failback)를 위해 [Linux 마스터 대상 서버를 만듭니다](vmware-azure-install-linux-master-target.md). 이것은 필수입니다. LVM의 마스터 대상 서버는 지원되지 않습니다.
+* 필요에 따라 Windows VM 장애 복구(failback)에 대한 별도의 마스터 대상 서버를 만듭니다. 이 작업을 수행하려면 통합 설치를 다시 실행하고 마스터 대상 서버를 만들도록 선택합니다. [자세히 알아보기](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers). 
 
 마스터 대상 서버를 만든 후에 다음과 같은 작업을 수행합니다.
 
@@ -132,6 +132,6 @@ Azure에서 가상 머신을 부팅한 후 에이전트에서 구성 서버에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-가상 머신이 보호된 상태가 되면 [장애 복구를 시작](vmware-azure-failback.md)할 수 있습니다. 장애 복구는 Azure에서 가상 머신을 종료하고 온-프레미스 가상 머신을 부팅합니다. 응용 프로그램에 약간의 가동 중지 시간이 예상됩니다. 응용 프로그램에서 가동 중지 시간을 허용할 수 있는 경우 장애 복구 시간을 선택합니다.
+가상 머신이 보호된 상태가 되면 [장애 복구를 시작](vmware-azure-failback.md)할 수 있습니다. 장애 복구는 Azure에서 가상 머신을 종료하고 온-프레미스 가상 머신을 부팅합니다. 애플리케이션에 약간의 가동 중지 시간이 예상됩니다. 애플리케이션에서 가동 중지 시간을 허용할 수 있는 경우 장애 복구 시간을 선택합니다.
 
 

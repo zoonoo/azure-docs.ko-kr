@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: ab52206230c4dfe2d92c97f1e291ee00a086c570
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: b5abb8d4aad7c58bf673aa578255efe12d32ad4b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470866"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422901"
 ---
-# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>자습서: Azure DevTest Labs에서 랩에 액세스
-이 자습서에서는 [ 자습서: Azure DevTest Labs에서 랩 만들기](tutorial-create-custom-lab.md)에서 만들어진 랩을 사용합니다.
+# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>자습서: Azure DevTest Labs에서 랩 액세스
+이 자습서에서는 [자습서: Azure DevTest Labs에서 랩 만들기](tutorial-create-custom-lab.md)에서 만들어진 랩을 사용합니다.
 
 이 자습서에서는 다음 작업을 수행합니다.
 
@@ -68,10 +68,12 @@ VM 사용을 마친 후에는 다음 단계에 따라 VM을 클레임 취소합�
 1. 가상 머신 페이지에서 도구 모음의 **Unclaim**을 선택합니다. 
 
     ![VM 클레임 취소](./media/tutorial-use-custom-lab/unclaim-vm-menu.png)
-1. VM은 클레임 취소되기 전에 종료됩니다. 
+1. VM은 클레임 취소되기 전에 종료됩니다. 알림에서 이 작업의 상태를 볼 수 있습니다.  
+3. 맨 위의 이동 경로 탐색 메뉴에서 랩 이름을 클릭하여 DevTest Lab 페이지로 다시 이동합니다. 
+    
+    ![랩으로 다시 이동](./media/tutorial-use-custom-lab/breadcrumb-to-lab.png)
+1. 하단의 **클레임할 수 있는 가상 머신** 목록에 VM이 표시되는지 확인합니다.
 
-    ![클레임 취소 상태](./media/tutorial-use-custom-lab/unclaim-status.png) 
-1. 클레임 취소 작업이 완료되면 하단의 **Claimable virtual machines** 목록에 VM이 표시됩니다. 
     
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 Azure DevTest Labs를 사용하여 작성된 랩에 액세스하여 사용하는 방법을 배웠습니다. 랩에서 VM 액세스 및 사용에 대한 자세한 내용은 다음을 참조하세요. 

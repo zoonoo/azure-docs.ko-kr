@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: zarhoads
-ms.openlocfilehash: 5510c46a134ccec1fdc76a6bcea46de21750e969
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 300391d9a5079eefc90ba06ba819fc6d8a91ca05
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467194"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851694"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>여러 네트워크 인터페이스 카드를 사용하여 Azure에서 Linux 가상 머신을 만드는 방법
 
@@ -67,7 +67,7 @@ az network nsg create \
 ```
 
 ## <a name="create-and-configure-multiple-nics"></a>여러 NIC 만들기 및 구성
-[az network nic create](/cli/azure/network/nic#az_network_nic_create)를 사용하여 두 개의 NIC를 만듭니다. 다음 예제는 네트워크 보안 그룹에 연결된 *myNic1* 및 *myNic2*라는 2개의 NIC를 만들며 하나의 NIC가 각 서브넷에 연결됩니다.
+[az network nic create](/cli/azure/network/nic)를 사용하여 두 개의 NIC를 만듭니다. 다음 예제는 네트워크 보안 그룹에 연결된 *myNic1* 및 *myNic2*라는 2개의 NIC를 만들며 하나의 NIC가 각 서브넷에 연결됩니다.
 
 ```azurecli
 az network nic create \
@@ -105,7 +105,7 @@ az vm create \
 ## <a name="add-a-nic-to-a-vm"></a>VM에 NIC 추가
 이전 단계에서는 여러 NIC가 있는 VM을 만들었습니다. Azure CLI를 사용해서 기존 VM에 NIC를 추가할 수도 있습니다. [VM 크기](sizes.md) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다. 필요한 경우 [VM의 크기를 조정](change-vm-size.md)할 수 있습니다.
 
-[az network nic create](/cli/azure/network/nic#az_network_nic_create)를 사용하여 다른 NIC를 만듭니다. 다음 예제에서는 이전 단계에서 만든 백 엔드 서브넷 및 네트워크 보안 그룹에 연결된 *myNic3*라는 NIC를 만듭니다.
+[az network nic create](/cli/azure/network/nic)를 사용하여 다른 NIC를 만듭니다. 다음 예제에서는 이전 단계에서 만든 백 엔드 서브넷 및 네트워크 보안 그룹에 연결된 *myNic3*라는 NIC를 만듭니다.
 
 ```azurecli
 az network nic create \
@@ -132,7 +132,7 @@ az vm nic add \
     --nics myNic3
 ```
 
-[az vm start](/cli/azure/vm#az_vm_start)를 사용하여 VM을 시작합니다.
+[az vm start](/cli/azure/vm)를 사용하여 VM을 시작합니다.
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
@@ -156,7 +156,7 @@ az vm nic remove \
     --nics myNic3
 ```
 
-[az vm start](/cli/azure/vm#az_vm_start)를 사용하여 VM을 시작합니다.
+[az vm start](/cli/azure/vm)를 사용하여 VM을 시작합니다.
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
@@ -203,13 +203,13 @@ az network nsg rule create \
 [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)를 사용하여 공용 IP 주소를 만들고 [az network nic ip-config update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update)를 사용하여 첫 번째 NIC에 할당합니다.
 
 ```azurecli
-az network public-ip-address create --resource-group myResourceGroup --name myPublicIP
+az network public-ip create --resource-group myResourceGroup --name myPublicIP
 
 az network nic ip-config update \
     --resource-group myResourceGroup \
     --nic-name myNic1 \
     --name ipconfig1 \
-    --public-ip-addres myPublicIP
+    --public-ip myPublicIP
 ```
 
 VM의 공용 IP 주소를 보려면 다음과 같이 [az vm show](/cli/azure/vm#az-vm-show)를 사용합니다.

@@ -2,20 +2,20 @@
 title: 병렬 워크로드 실행 - Azure Batch Python
 description: 자습서 - Batch Python 클라이언트 라이브러리를 사용하여 Azure Batch의 ffmpeg로 미디어 파일 병렬 처리
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.author: danlep
+ms.date: 11/29/2018
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 3636faa9478555b64bb94f7dcfb1f3f587ecdca9
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b5b6f1a1cbd4c06106b7817f9fc28d8d4a9cfc06
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814171"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306338"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>자습서: Python API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
@@ -24,7 +24,7 @@ ms.locfileid: "48814171"
 > [!div class="checklist"]
 > * Batch 및 Storage 계정 인증
 > * 입력 파일을 Storage에 업로드
-> * 계산 노드 풀을 만들어 응용 프로그램 실행
+> * 계산 노드 풀을 만들어 애플리케이션 실행
 > * 작업 및 태스크를 만들어 입력 파일 처리
 > * 태스크 실행 모니터링
 > * 출력 파일 검색
@@ -65,7 +65,7 @@ Python 환경에서 `pip`를 사용하는 데 필요한 패키지를 설치합�
 pip install -r requirements.txt
 ```
 
-`batch_python_tutorial_ffmpeg.py`파일을 엽니다. Batch 및 Storage 계정 자격 증명 문자열을 계정에 고유한 값으로 업데이트합니다. 예: 
+`config.py`파일을 엽니다. Batch 및 Storage 계정 자격 증명 문자열을 계정에 고유한 값으로 업데이트합니다. 예: 
 
 
 ```Python
@@ -75,8 +75,6 @@ _BATCH_ACCOUNT_URL = 'https://mybatchaccount.mybatchregion.batch.azure.com'
 _STORAGE_ACCOUNT_NAME = 'mystorageaccount'
 _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ=='
 ```
-
-[!INCLUDE [batch-credentials-include](../../includes/batch-credentials-include.md)]
 
 ### <a name="run-the-app"></a>앱 실행
 
@@ -89,7 +87,7 @@ python batch_python_tutorial_ffmpeg.py
 샘플 응용 프로그램을 실행하는 경우 콘솔 출력은 다음과 비슷합니다. 실행 중에 풀의 계산 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 
    
 ```
-Sample start: 12/12/2017 3:20:21 PM
+Sample start: 11/28/2018 3:20:21 PM
 
 Container [input] created.
 Container [output] created.
@@ -105,7 +103,7 @@ Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
 Success! All tasks completed successfully within the specified timeout period.
 Deleting container [input]....
 
-Sample end: 12/12/2017 3:29:36 PM
+Sample end: 11/28/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
 
@@ -115,7 +113,7 @@ Azure Portal에서 Batch 계정으로 가서 풀, 계산 노드, 작업 및 태�
 
 ![풀 열 지도](./media/tutorial-parallel-python/pool.png)
 
-기본 구성에서 응용 프로그램을 실행하는 경우 일반적인 실행 시간은 **약 5분**입니다. 풀을 만드는 데 가장 많은 시간이 걸립니다. 
+기본 구성에서 애플리케이션을 실행하는 경우 일반적인 실행 시간은 **약 5분**입니다. 풀을 만드는 데 가장 많은 시간이 걸립니다. 
 
 [!INCLUDE [batch-common-tutorial-download](../../includes/batch-common-tutorial-download.md)]
 
@@ -133,7 +131,7 @@ blob_client = azureblob.BlockBlobService(
     account_key=_STORAGE_ACCOUNT_KEY)
 ```
 
-이 앱은 [BatchServiceClient](/python/api/azure.batch.batchserviceclient) 개체를 만들어 Batch 서비스의 풀, 작업 및 태스크를 만들고 관리합니다. 샘플의 Batch 클라이언트는 공유 키 인증을 사용합니다. 또한 Batch는 [Azure Active Directory](batch-aad-auth.md)를 통한 인증도 지원하여 개별 사용자 또는 무인 응용 프로그램을 인증합니다.
+이 앱은 [BatchServiceClient](/python/api/azure.batch.batchserviceclient) 개체를 만들어 Batch 서비스의 풀, 작업 및 태스크를 만들고 관리합니다. 샘플의 Batch 클라이언트는 공유 키 인증을 사용합니다. 또한 Batch는 [Azure Active Directory](batch-aad-auth.md)를 통한 인증도 지원하여 개별 사용자 또는 무인 애플리케이션을 인증합니다.
 
 ```python
 credentials = batchauth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
@@ -166,7 +164,7 @@ input_files = [
 
 ### <a name="create-a-pool-of-compute-nodes"></a>계산 노드 풀 만들기
 
-그런 다음, 샘플이 `create_pool`에 대한 호출을 통해 Batch 계정에 계산 노드의 풀을 만듭니다. 이 정의된 함수는 Batch [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) 클래스를 사용하여 노드 수, VM 크기 및 풀 구성을 설정합니다. 여기서 [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) 개체는 Azure Marketplace에 게시된 Ubuntu Server 16.04 LTS 이미지에 대한 [ImageReference](/python/api/azure.batch.models.imagereference)를 지정합니다. Batch는 Azure Marketplace의 광범위한 VM 이미지뿐만 아니라 사용자 지정 VM 이미지도 지원합니다.
+그런 다음, 샘플이 `create_pool`에 대한 호출을 통해 Batch 계정에 계산 노드의 풀을 만듭니다. 이 정의된 함수는 Batch [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) 클래스를 사용하여 노드 수, VM 크기 및 풀 구성을 설정합니다. 여기서 [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) 개체는 Azure Marketplace에 게시된 Ubuntu Server 18.04 LTS 이미지에 대한 [ImageReference](/python/api/azure.batch.models.imagereference)를 지정합니다. Batch는 Azure Marketplace의 광범위한 VM 이미지뿐만 아니라 사용자 지정 VM 이미지도 지원합니다.
 
 노드 수 및 VM 크기는 정의된 상수를 사용하여 설정됩니다. Batch는 전용 노드와 [우선 순위가 낮은](batch-low-pri-vms.md) 노드를 지원하며, 풀에서 하나 또는 둘 다 사용할 수 있습니다. 전용 노드는 풀에 예약되어 있습니다. 우선 순위가 낮은 노드는 Azure의 잔여 VM 용량에서 할인된 가격으로 제공됩니다. Azure에 충분한 용량이 없으면 우선 순위가 낮은 노드는 사용할 수 없게 됩니다. 이 샘플은 기본적으로 *Standard_A1_v2* 크기의 우선 순위가 낮은 노드 5개만 포함된 풀을 만듭니다. 
 
@@ -181,10 +179,10 @@ new_pool = batch.models.PoolAddParameter(
         image_reference=batchmodels.ImageReference(
             publisher="Canonical",
             offer="UbuntuServer",
-            sku="16.04-LTS",
+            sku="18.04-LTS",
             version="latest"
             ),
-        node_agent_sku_id="batch.node.ubuntu 16.04"),
+        node_agent_sku_id="batch.node.ubuntu 18.04"),
     vm_size=_POOL_VM_SIZE,
     target_dedicated_nodes=_DEDICATED_POOL_NODE_COUNT,
     target_low_priority_nodes=_LOW_PRIORITY_POOL_NODE_COUNT,
@@ -278,7 +276,7 @@ while datetime.datetime.now() < timeout_expiration:
 > [!div class="checklist"]
 > * Batch 및 Storage 계정 인증
 > * 입력 파일을 Storage에 업로드
-> * 계산 노드 풀을 만들어 응용 프로그램 실행
+> * 계산 노드 풀을 만들어 애플리케이션 실행
 > * 작업 및 태스크를 만들어 입력 파일 처리
 > * 태스크 실행 모니터링
 > * 출력 파일 검색

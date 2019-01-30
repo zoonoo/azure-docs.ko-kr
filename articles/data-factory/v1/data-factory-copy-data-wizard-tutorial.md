@@ -9,19 +9,18 @@ ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 85cea4bea0b1cff65464a2ad692e500efdc50c10
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ace2ffdacf775a3c0c5a579e9a4208641c20f661
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095377"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025762"
 ---
-# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>자습서: 데이터 팩터리 복사 마법사를 사용하여 복사 작업이 있는 파이프라인 만들기
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>자습서: Data Factory 복사 마법사를 사용하여 복사 작업이 있는 파이프라인 만들기
 > [!div class="op_single_selector"]
 > * [개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
@@ -64,7 +63,7 @@ Azure Data Factory **복사 마법사**를 사용하면 지원되는 원본 데�
       - **기존 항목 사용**을 선택하고 기존 리소스 그룹을 선택합니다.
       - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.
           
-        이 자습서의 일부 단계에서는 리소스 그룹에 **ADFTutorialResourceGroup** 이라는 이름을 사용한다고 가정합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../../azure-resource-manager/resource-group-overview.md)를 참조하세요.
+        이 자습서의 단계 중 일부에서는 리소스 그룹에 대해 **ADFTutorialResourceGroup**이라는 이름을 사용한다고 가정합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../../azure-resource-manager/resource-group-overview.md)를 참조하세요.
    4. Data Factory의 **위치**를 선택합니다.
    5. 블레이드 하단에서 **대시보드에 고정** 확인란을 선택합니다.  
    6. **만들기**를 클릭합니다.
@@ -136,11 +135,11 @@ Azure Data Factory **복사 마법사**를 사용하면 지원되는 원본 데�
     
     ![복사 도구 - 성능 설정](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
-## <a name="launch-monitor-and-manage-application"></a>응용 프로그램 모니터링 및 관리 시작
+## <a name="launch-monitor-and-manage-application"></a>애플리케이션 모니터링 및 관리 시작
 1. **배포** 페이지에서 `Click here to monitor copy pipeline` 링크를 클릭합니다.
    
    ![복사 도구 - 배포 성공 페이지](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
-2. 모니터링 응용 프로그램이 웹 브라우저의 별도 탭에서 시작됩니다.   
+2. 모니터링 애플리케이션이 웹 브라우저의 별도 탭에서 시작됩니다.   
    
    ![모니터링 앱](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)   
 3. 매시간 조각의 최신 상태를 보려면 아래쪽의 **활동 창** 목록에서 **새로 고침** 단추를 클릭합니다. 파이프라인의 시작 시간과 종료 시간 사이의 5일 동안 5개의 활동 창이 표시됩니다. 목록을 자동으로 새로 고치지 않으므로 [준비] 상태의 모든 활동 창을 표시하려면 [새로 고침] 단추를 몇 번 클릭해야 할 수도 있습니다. 
@@ -150,7 +149,7 @@ Azure Data Factory **복사 마법사**를 사용하면 지원되는 원본 데�
 
     11, 12, 13, 14 및 15에 해당하는 날짜가 녹색으로 표시되어 있습니다. 즉 이러한 날짜에 대해 이미 출력 조각이 매일 생성되었음을 의미합니다. 또한 다이어그램 보기에서도 파이프라인과 출력 데이터 세트에 대한 이러한 색 구분이 표시됩니다. 이전 단계에서 색 구분을 기반으로 하여 두 조각이 이미 생성되었고, 하나의 조각이 현재 처리 중이며, 다른 두 조각이 처리 대기 중임을 알 수 있습니다. 
 
-    이 응용 프로그램을 사용하는 방법에 대한 자세한 내용은 [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) 문서를 참조하세요.
+    이 애플리케이션을 사용하는 방법에 대한 자세한 내용은 [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 Azure Blob 저장소를 원본 데이터 저장소로 사용하고 Azure SQL 데이터베이스를 복사 작업의 대상 데이터 저장소로 사용했습니다. 다음 표에서는 복사 활동에서 원본 및 싱크로 지원되는 데이터 저장소의 목록을 제공합니다. 

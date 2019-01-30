@@ -248,11 +248,11 @@ EXIT /B %errorlevel%
 ```
 
 ## <a name="create-files-in-local-storage-from-a-startup-task"></a>시작 작업에서 로컬 저장소에 파일을 만듭니다.
-로컬 저장소 리소스를 사용하여 응용 프로그램에 의해 나중에 액세스하는 시작 태스크에서 만든 파일을 저장할 수 있습니다.
+로컬 저장소 리소스를 사용하여 애플리케이션에 의해 나중에 액세스하는 시작 태스크에서 만든 파일을 저장할 수 있습니다.
 
-로컬 저장소 리소스를 만들려면 [LocalResources] 섹션을 [ServiceDefinition.csdef] 파일에 추가한 다음 [LocalStorage] 자식 요소를 추가합니다. 로컬 저장소 리소스에 고유한 이름을 부여하고 시작 작업에 대한 적절한 크기를 부여합니다.
+로컬 스토리지 리소스를 만들려면 [LocalResources] 섹션을 [ServiceDefinition.csdef] 파일에 추가한 다음 [LocalStorage] 자식 요소를 추가합니다. 로컬 저장소 리소스에 고유한 이름을 부여하고 시작 작업에 대한 적절한 크기를 부여합니다.
 
-시작 작업에서 로컬 저장소 리소스를 사용하려면 로컬 저장소 리소스 위치를 참조하는 환경 변수를 만들어야 합니다. 그러면 시작 태스크 및 응용 프로그램이 로컬 저장소 리소스에 파일을 읽고 쓸 수 있게 됩니다.
+시작 작업에서 로컬 저장소 리소스를 사용하려면 로컬 저장소 리소스 위치를 참조하는 환경 변수를 만들어야 합니다. 그러면 시작 태스크 및 애플리케이션이 로컬 저장소 리소스에 파일을 읽고 쓸 수 있게 됩니다.
 
 **ServiceDefinition.csdef** 파일의 관련 섹션은 다음과 같습니다.
 
@@ -278,7 +278,7 @@ EXIT /B %errorlevel%
 </ServiceDefinition>
 ```
 
-한 예로 이 **Startup.cmd** 배치 파일은 **PathToStartupStorage** 환경 변수를 사용하여 로컬 저장소 위치에 파일 **MyTest.txt**를 만듭니다.
+한 예로 이 **Startup.cmd** 배치 파일은 **PathToStartupStorage** 환경 변수를 사용하여 로컬 스토리지 위치에 파일 **MyTest.txt**를 만듭니다.
 
 ```cmd
 REM   Create a simple text file.
@@ -472,7 +472,7 @@ EXIT %ERRORLEVEL%
 ### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>시작 작업에 적절하게 executionContext 설정
 시작 작업에 대한 권한을 적절하게 설정합니다. 경우에 따라 역할이 일반 권한으로 실행되더라도 시작 작업을 상승된 권한으로 실행해야 합니다.
 
-[상승된][task] 특성은 시작 작업의 권한 수준을 설정합니다. `executionContext="limited"`을 사용하는 것은 시작 태스크가 역할과 동일한 권한 수준을 갖는 것을 의미합니다. `executionContext="elevated"`을 사용하면 시작 태스크가 관리자 권한을 갖게 되므로 역할에 관리자 권한을 부여하지 않고 시작 태스크가 관리자 태스크를 수행하도록 하는 것을 의미합니다.
+ [상승된][task] 특성은 시작 작업의 권한 수준을 설정합니다. `executionContext="limited"`을 사용하는 것은 시작 태스크가 역할과 동일한 권한 수준을 갖는 것을 의미합니다. `executionContext="elevated"`을 사용하면 시작 태스크가 관리자 권한을 갖게 되므로 역할에 관리자 권한을 부여하지 않고 시작 태스크가 관리자 태스크를 수행하도록 하는 것을 의미합니다.
 
 상승된 권한이 필요한 시작 작업의 예로 **AppCmd.exe** 를 사용하여 IIS를 구성하는 시작 작업을 들 수 있습니다. **AppCmd.exe**는 `executionContext="elevated"`이(가) 필요합니다.
 

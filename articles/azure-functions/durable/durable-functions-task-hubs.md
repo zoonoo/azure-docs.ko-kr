@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 7a6346e594c5a7cc4cf02f3ea658aac4977e641a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4e48956e42942761abec0143ba2849601dbb1cf4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637458"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336903"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>지속성 함수의 작업 허브(Azure Functions)
 
@@ -27,7 +27,7 @@ ms.locfileid: "52637458"
 
 ## <a name="azure-storage-resources"></a>Azure Storage 리소스
 
-작업 허브는 다음과 같은 저장소 리소스로 구성됩니다. 
+작업 허브는 다음과 같은 저장소 리소스로 구성됩니다.
 
 * 하나 이상의 제어 큐
 * 하나의 작업 항목 큐
@@ -41,7 +41,8 @@ ms.locfileid: "52637458"
 
 작업 허브는 다음 예제와 같이 *host.json*에 선언된 이름으로 식별됩니다.
 
-### <a name="hostjson-functions-v1"></a>host.json(Functions v1)
+### <a name="hostjson-functions-1x"></a>host.json(Functions 1.x)
+
 ```json
 {
   "durableTask": {
@@ -49,7 +50,9 @@ ms.locfileid: "52637458"
   }
 }
 ```
-### <a name="hostjson-functions-v2"></a>host.json(Functions v2)
+
+### <a name="hostjson-functions-2x"></a>host.json(Functions 2.x)
+
 ```json
 {
   "version": "2.0",
@@ -60,9 +63,11 @@ ms.locfileid: "52637458"
   }
 }
 ```
+
 다음 *host.json* 예제 파일과 같이 앱 설정을 사용하여 작업 허브를 구성할 수도 있습니다.
 
-### <a name="hostjson-functions-v1"></a>host.json(Functions v1)
+### <a name="hostjson-functions-1x"></a>host.json(Functions 1.x)
+
 ```json
 {
   "durableTask": {
@@ -70,7 +75,9 @@ ms.locfileid: "52637458"
   }
 }
 ```
-### <a name="hostjson-functions-v2"></a>host.json(Functions v2)
+
+### <a name="hostjson-functions-2x"></a>host.json(Functions 2.x)
+
 ```json
 {
   "version": "2.0",
@@ -81,14 +88,46 @@ ms.locfileid: "52637458"
   }
 }
 ```
+
 작업 허브 이름은 `MyTaskHub` 앱 설정의 값으로 설정됩니다. 다음 `local.settings.json`은 `MyTaskHub` 설정을 `samplehubname`으로 정의하는 방법을 보여 줍니다.
 
 ```json
 {
   "IsEncrypted": false,
   "Values": {
-    "MyTaskHub" :  "samplehubname" 
+    "MyTaskHub" : "samplehubname"
   }
+}
+```
+
+[OrchestrationClientBinding](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html)을 사용하여 앱 설정으로 구성된 작업 허브에서 작업하는 함수를 작성하는 방법의 미리 컴파일된 C# 예제는 다음과 같습니다.
+
+```csharp
+[FunctionName("HttpStart")]
+public static async Task<HttpResponseMessage> Run(
+    [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
+    [OrchestrationClient(TaskHub = "%MyTaskHub%")] DurableOrchestrationClientBase starter,
+    string functionName,
+    ILogger log)
+{
+    // Function input comes from the request content.
+    dynamic eventData = await req.Content.ReadAsAsync<object>();
+    string instanceId = await starter.StartNewAsync(functionName, eventData);
+
+    log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
+
+    return starter.CreateCheckStatusResponse(req, instanceId);
+}
+```
+
+또한 JavaScript에 필요한 구성은 다음과 같습니다. `function.json` 파일의 작업 허브 속성은 앱 설정을 통해 설정됩니다.
+
+```json
+{
+    "name": "input",
+    "taskHub": "%MyTaskHub%",
+    "type": "orchestrationClient",
+    "direction": "in"
 }
 ```
 

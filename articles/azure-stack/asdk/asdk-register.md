@@ -11,18 +11,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 84924900403a4aa2a65143c65a0b26f2c95a1e5b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 01/16/2019
+ms.openlocfilehash: 8f27eb7ad9d2442c777ddee35ac61e449a520f26
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962650"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249768"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack 등록
-Azure에서 마켓플레이스 항목을 다운로드 하 고 Microsoft에 다시 보고 하는 전자 상거래 데이터를 설정 하는 Azure를 사용 하 여 Azure Stack 개발 키트 ASDK () 설치를 등록할 수 있습니다. 마켓플레이스 배포를 포함 하 여 전체 Azure Stack 기능을 지원 하려면 등록이 필요 합니다. 마켓플레이스 배포 및 사용 보고와 같은 중요 한 Azure Stack 기능을 테스트할 수 있기 때문에 등록을 사용 하는 것이 좋습니다. Azure Stack 등록 한 후 Azure 상거래에 사용량이 보고 됩니다. 등록에 사용한 구독에서 볼 수 있습니다. 그러나 ASDK 사용자가 보고 하는 사용량에 대 한 요금이 청구 되지 않습니다.
+Azure에서 마켓플레이스 항목을 다운로드 하 고 Microsoft에 다시 보고 하는 전자 상거래 데이터를 설정 하는 Azure를 사용 하 여 Azure Stack 개발 키트 ASDK () 설치를 등록할 수 있습니다. 마켓플레이스 배포를 포함 하 여 전체 Azure Stack 기능을 지원 하려면 등록이 필요 합니다. 마켓플레이스 배포 및 사용 보고와 같은 중요 한 Azure Stack 기능을 테스트할 수 있도록 하려면 등록이 필요 합니다. Azure Stack 등록 한 후 Azure 상거래에 사용량이 보고 됩니다. 등록에 사용한 구독에서 볼 수 있습니다. 그러나 ASDK 사용자가 보고 하는 사용량에 대 한 요금이 청구 되지 않습니다.
 
 ASDK 프로그램을 등록 하지 않은 경우 발생할 수 있습니다는 **활성화 필요** Azure Stack 개발 키트를 등록 해야 한다는 경고 합니다. 이는 정상적인 동작입니다.
 
@@ -37,6 +38,8 @@ $ExecutionContext.SessionState.LanguageMode
 
 출력 반환 **FullLanguageMode**합니다. 다른 언어 모드 반환, 다른 컴퓨터에서 실행 해야 등록 되거나 언어 모드 설정 해야 합니다 **FullLanguageMode** 계속 하기 전에 합니다.
 
+Azure AD 데 사용한 계정이 등록 요구 사항에 대 한 Azure 구독에 액세스할 수 있으며 해당 구독과 연결 된 디렉터리에 id 응용 프로그램 및 서비스 주체를 만들 수 있는 권한이 있어야 합니다. 권장 Azure를 사용 하 여 Azure Stack 등록 하는 최소 권한 관리를 사용 하 여 [등록에 사용할 서비스 계정을 만드는](..\azure-stack-registration-role.md) 전역 관리자 자격 증명을 사용 하는 대신 합니다.
+
 ## <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 Azure는 ASDK 등록 하려면 다음이 단계를 따릅니다.
 
@@ -45,7 +48,7 @@ Azure는 ASDK 등록 하려면 다음이 단계를 따릅니다.
 
 1. 관리자 권한으로 PowerShell 콘솔을 엽니다.  
 
-2. Azure를 사용 하 여 ASDK 설치를 등록 하려면 다음 PowerShell 명령을 실행 합니다. Azure 구독 및 로컬 ASDK 설치 모두에 로그인 해야 합니다. 아직 Azure 구독이 없는 할 수 있습니다 [여기서 무료 Azure 계정을 만들](https://azure.microsoft.com/free/?b=17.06)합니다. Azure Stack 등록 비용 없이 Azure 구독에서 발생 합니다.<br><br>실행 하는 경우 등록 스크립트를 Azure Stack의 둘 이상의 인스턴스에서 동일한 Azure 구독 ID를 사용 하 여를 실행 하는 경우 등록에 대 한 고유한 이름을 설정 합니다 **집합 AzsRegistration** cmdlet. 합니다 **RegistrationName** 매개 변수는 기본값인 **AzureStackRegistration**합니다. 그러나 Azure Stack의 둘 이상의 인스턴스에서 같은 이름을 사용할 경우 스크립트가 실패 합니다.
+2. Azure를 사용 하 여 ASDK 설치를 등록 하려면 다음 PowerShell 명령을 실행 합니다. Azure 구독 및 로컬 ASDK 설치 모두에 로그인 해야 합니다. 아직 Azure 구독이 없는 할 수 있습니다 [여기서 무료 Azure 계정을 만들](https://azure.microsoft.com/free/?b=17.06)합니다. Azure Stack 등록 비용 없이 Azure 구독에서 발생 합니다.<br><br>실행 하는 경우 등록에 대 한 고유 이름을 설정 합니다 **집합 AzsRegistration** cmdlet. 합니다 **RegistrationName** 매개 변수는 기본값인 **AzureStackRegistration**합니다. 그러나 Azure Stack의 둘 이상의 인스턴스에서 같은 이름을 사용할 경우 스크립트가 실패 합니다.
 
     ```PowerShell  
     # Add the Azure cloud subscription environment name. 
@@ -69,7 +72,7 @@ Azure는 ASDK 등록 하려면 다음이 단계를 따릅니다.
     -RegistrationName $RegistrationName `
     -UsageReportingEnabled:$true
     ```
-3. 스크립트가 완료 되 면이 메시지가 표시 됩니다: **환경의 이제 등록 되 고 제공된 된 매개 변수를 사용 하 여 활성화 합니다.**
+3. 스크립트가 완료 되 면이 메시지가 표시 됩니다. **이제 등록 된 환경과 제공된 된 매개 변수를 사용 하 여 활성화 합니다.**
 
     ![환경의 지금 등록](media/asdk-register/1.PNG)
 
@@ -201,21 +204,21 @@ ASDK 호스트 컴퓨터에서 관리자 권한으로 PowerShell을 시작 하 �
 유사한 메시지가 표시 활성화가 완료 되 면 **환경의 등록 및 정품 인증 프로세스를 완료 합니다.**
 
 ## <a name="verify-the-registration-was-successful"></a>등록이 성공 했는지 확인 합니다.
-Azure 사용 하 여 ASDK 등록 되어 있는지 확인 하려면 다음이 단계를 따릅니다 **연결 된 환경에서** 성공 했습니다.
+
+사용할 수는 **지역 관리** 타일 Azure Stack 등록에 성공 했음을 확인 합니다. 이 타일은 관리자 포털에서 기본 대시보드에서 사용할 수 있습니다.
 
 1. 에 로그인 합니다 [Azure Stack 관리 포털](https://adminportal.local.azurestack.external)합니다.
 
-2. 클릭 **Marketplace Management** > **Azure에서 추가**합니다.
+2. 대시보드에서 선택 **하위 지역 관리**합니다.
 
-    ![](media/asdk-register/2.PNG)
+    [ ![지역 관리 타일](media/asdk-register/admin1sm.png "지역 관리 타일") ](media/asdk-register/admin1.png#lightbox)
 
-3. Azure에서 사용할 수 있는 항목의 목록을 표시를 활성화가 했습니다.
-
-    ![](media/asdk-register/3.PNG)
+3. **속성**을 선택합니다. 이 블레이드는 상태 및 사용자 환경의 세부 정보를 보여 줍니다. 상태 수 있습니다 **Registered** 또는 **등록 되지 않은**합니다. 등록 하는 경우 또한 보여줍니다 Azure 구독 ID를 사용 하 여 Azure Stack에 등록 리소스 그룹 및 이름과 함께 등록를.
 
 ## <a name="move-a-registration-resource"></a>등록 리소스 이동
 동일한 구독에서 리소스 그룹을 사용 하 여 등록 리소스를 이동할 **는** 지원 합니다. 새 리소스 그룹에 리소스를 이동 하는 방법에 대 한 자세한 내용은 참조 하세요. [새 리소스 그룹 또는 구독으로 리소스 이동](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Stack marketplace 항목 추가](../azure-stack-marketplace.md)
+
+- [Azure Stack marketplace 항목 추가](../azure-stack-marketplace.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.component: files
-ms.openlocfilehash: 3a1cc0a28ef5a4861d86373ce39258936639baab
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: aa01ffc196ba6ece41fac9a95db04b58ad962060
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333353"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259821"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure 파일 동기화 프록시 및 방화벽 설정
 Azure 파일 동기화는 온-프레미스 서버를 Azure Files에 연결하여, 다중 사이트 동기화 및 클라우드 계층화 기능을 사용하도록 설정합니다. 따라서 온-프레미스 서버가 인터넷에 연결되어야 합니다. IT 관리자는 서버가 Azure 클라우드 서비스에 연결하는 최상의 경로를 결정해야 합니다.
@@ -57,7 +57,7 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 
 머신 수준 프록시 설정을 구성하려면 다음 단계를 수행합니다. 
 
-1. .NET 응용 프로그램에 대한 프록시 설정을 구성합니다. 
+1. .NET 애플리케이션에 대한 프록시 설정을 구성합니다. 
 
   - 다음 두 파일을 편집합니다.  
     C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
@@ -100,7 +100,7 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 | **Azure Active Directory** | https://graph.windows.net/ | Azure 파일 동기화 배포의 일부로, 구독의 Azure Active Directory에 서비스 주체가 만들어집니다. 이 URL이 해당 작업에 사용됩니다. 이 보안 주체는 Azure 파일 동기화 서비스에 대한 최소한의 권한 집합을 위임하는 데 사용됩니다. Azure 파일 동기화의 초기 설정을 수행하는 사용자는 구독 소유자 권한이 있는 인증된 사용자여야 합니다. |
 | **Azure Storage** | &ast;.core.windows.net | 서버는 파일을 다운로드할 때 저장소 계정의 Azure 파일 공유와 직접 소통하면서 데이터 이동을 보다 효율적으로 수행합니다. 서버에는 대상으로 지정된 파일 공유 액세스만 허용하는 SAS 키가 있습니다. |
 | **Azure 파일 동기화** | &ast;.one.microsoft.com | 초기 서버 등록 후 서버는 해당 지역에서 Azure 파일 동기화 서비스 인스턴스에 대한 지역별 URL을 수신합니다. 서버는 이 URL을 사용하여 동기화를 처리하는 인스턴스와 직접 효율적으로 통신할 수 있습니다. |
-| **Microsoft PKI** | http://www.microsoft.com/pki/mscorp  http://ocsp.msocsp.com | Azure 파일 동기화 에이전트가 설치되면 PKI URL을 사용하여 Azure 파일 동기화 서비스 및 Azure 파일 공유와 통신하는 데 필요한 중간 인증서를 다운로드합니다. OCSP URL은 인증서의 상태를 확인하는 데 사용됩니다. |
+| **Microsoft PKI** | http://ocsp.msocsp.com | Azure 파일 동기화 에이전트가 설치되면 PKI URL을 사용하여 Azure 파일 동기화 서비스 및 Azure 파일 공유와 통신하는 데 필요한 중간 인증서를 다운로드합니다. OCSP URL은 인증서의 상태를 확인하는 데 사용됩니다. |
 
 > [!Important]
 > &ast;.one.microsoft.com에 대한 트래픽을 허용할 때 서버에서 동기화 서비스 이외의 위치로 트래픽이 전달될 수 있습니다. 하위 도메인에서 더 많은 Microsoft 서비스를 사용할 수 있습니다.
@@ -130,11 +130,11 @@ BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 저�
 
 - GRS(전역 중복 저장소) 저장소 계정을 사용하는 경우 세 URL을 사용하도록 설정합니다.
 
-**예:** `"West US"`에 저장소 동기화 서비스를 배포하고 서버를 등록합니다. 여기서 서버가 통신할 수 있는 URL은 다음과 같습니다.
+**예제:** `"West US"`에 저장소 동기화 서비스를 배포하고 서버를 서비스에 등록합니다. 여기서 서버가 통신할 수 있는 URL은 다음과 같습니다.
 
 > - https://kailani.one.microsoft.com(기본 엔드포인트: 미국 서부)
-> - https://kailani1.one.microsoft.com(쌍을 이루는 장애 조치 지역: 미국 동부)
-> - https://tm-kailani.one.microsoft.com(주 지역의 검색 URL)
+> - https://kailani1.one.microsoft.com(쌍을 이루는 장애 조치(failover) 지역: 미국 동부)
+> - https://tm-kailani.one.microsoft.com (주 지역의 검색 URL)
 
 ## <a name="summary-and-risk-limitation"></a>요약 및 위험 제한
 이 문서의 앞부분에 나오는 목록에는 Azure 파일 동기화가 현재 통신하는 URL이 포함되어 있습니다. 방화벽은 이러한 도메인의 아웃바운드 트래픽을 허용할 수 있어야 합니다. Microsoft는 이 목록을 업데이트 상태로 유지하려고 합니다.

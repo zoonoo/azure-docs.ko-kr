@@ -1,6 +1,7 @@
 ---
-title: 작업 영역 데이터 내보내기 또는 삭제 - Azure Machine Learning | Microsoft Docs
-description: Azure Machine Learning에서는 Azure Portal, CLI, SDK 및 인증된 REST API를 사용하여 작업 영역을 내보내거나 삭제할 수 있습니다. 이 문서는 방법을 안내합니다.
+title: 작업 영역 데이터 내보내기 또는 삭제
+titleSuffix: Azure Machine Learning service
+description: Azure Portal, CLI, SDK 및 인증된 REST API를 사용하여 작업 영역을 내보내거나 삭제하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,12 +10,13 @@ ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
 ms.date: 09/24/2018
-ms.openlocfilehash: 20c75b55e9b02f30e90ad40ea11383b91ae0a247
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.custom: seodec18
+ms.openlocfilehash: 81215058095acfeedd320025457feec73d3b0d23
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267316"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192348"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Machine Learning 서비스 작업 영역 데이터 내보내기 또는 삭제 
 

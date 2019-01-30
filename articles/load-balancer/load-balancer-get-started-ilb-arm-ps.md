@@ -1,5 +1,6 @@
 ---
-title: PowerShell을 사용하여 Azure 내부 부하 분산 장치 만들기 | Microsoft Docs
+title: PowerShell을 사용하여 Azure 내부 부하 분산 장치 만들기
+titlesuffix: Azure Load Balancer
 description: Azure Resource Manager로 Azure PowerShell 모듈을 사용하여 내부 부하 분산 장치를 만드는 방법 알아보기
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 4e99411ec56f25e249429e4e65bae4a8e7071cc1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0a85c5e90be465b324248f961fd297b15c008d02
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412689"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075872"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Azure PowerShell 모듈을 사용하여 내부 부하 분산 장치 만들기
 
@@ -39,11 +41,11 @@ ms.locfileid: "50412689"
 
 부하 분산 장치를 배포하려면 다음 개체를 만들어야 합니다.
 
-* 프런트 엔드 IP 구성 – 들어오는 모든 네트워크 트래픽에 대한 개인 IP 주소.
-* 백 엔드 주소 풀: 프런트 엔드 IP 주소의 부하가 분산된 트래픽을 수신하기 위한 네트워크 인터페이스.
-* 부하 분산 규칙: 부하 분산 장치의 포트(원본 및 로컬) 구성.
-* 프로브 구성: 가상 머신에 대한 상태 프로브.
-* 인바운드 NAT 규칙: 가상 머신에 직접 액세스를 위한 포트 규칙.
+* 프런트 엔드 IP 풀: 들어오는 모든 네트워크 트래픽에 대한 사설 IP 주소
+* 백 엔드 주소 풀: 프런트 엔드 IP 주소의 부하가 분산된 트래픽을 수신하기 위한 네트워크 인터페이스
+* 부하 분산 규칙: 부하 분산 장치의 포트(원본 및 로컬) 구성
+* 프로브 구성: 가상 머신에 대한 상태 프로브
+* 인바운드 NAT 규칙: 가상 머신에 직접 액세스를 위한 포트 규칙
 
 부하 분산 장치 구성 요소에 대한 자세한 내용은 [부하 분산 장치에 대한 Azure Resource Manager 지원](load-balancer-arm.md)을 참조하세요.
 
@@ -135,10 +137,10 @@ $beaddresspool= New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backen
 
 이 예제에서는 다음 네 가지 규칙 개체를 만듭니다.
 
-* RDP(원격 데스크톱 프로토콜)에 대한 인바운드 NAT 규칙: 포트 3441의 모든 들어오는 트래픽을 포트 3389로 리디렉션합니다.
-* RDP에 대한 두 번째 인바운드 NAT 규칙: 포트 3442의 모든 들어오는 트래픽을 포트 3389로 리디렉션합니다.
-* 상태 프로브 규칙: HealthProbe.aspx 경로의 상태를 확인합니다.
-* 부하 분산 장치 규칙: 공용 포트 80의 들어오는 모든 트래픽을 백 엔드 주소 풀의 로컬 포트 80으로 부하 분산합니다.
+* RDP(원격 데스크톱 프로토콜)에 대한 인바운드 NAT 규칙: 포트 3441~포트 3389에서 들어오는 모든 트래픽 리디렉션
+* RDP에 대한 두 번째 인바운드 NAT 규칙: 포트 3442~포트 3389에서 들어오는 모든 트래픽 리디렉션
+* 상태 프로브 규칙: HealthProbe.aspx 경로의 상태 확인
+* 부하 분산 장치 규칙: 공용 포트 80의 들어오는 모든 트래픽을 백 엔드 주소 풀의 로컬 포트 80으로 부하 분산
 
 ```powershell
 $inboundNATRule1= New-AzureRmLoadBalancerInboundNatRuleConfig -Name "RDP1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389

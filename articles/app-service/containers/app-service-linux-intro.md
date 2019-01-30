@@ -1,11 +1,11 @@
 ---
-title: Linux의 App Service 소개 | Microsoft Docs
+title: Linux의 App Service 소개 - Azure | Microsoft Docs
 description: Linux의 Azure App Service에 대해 알아봅니다.
 keywords: azure app service, linux, oss
 services: app-service
 documentationcenter: ''
-author: naziml
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
 ms.service: app-service
@@ -13,30 +13,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/09/2018
-ms.author: wesmc
-ms.custom: mvc
-ms.openlocfilehash: 3910e13900ec1774e5a1fe449b4f510a661f1f53
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.date: 1/11/2019
+ms.author: msangapu;yili
+ms.custom: seodec18
+ms.openlocfilehash: 898d663f3ef9a71944d96b0978947d10a3e26b06
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165325"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232790"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux의 Azure App Service 소개
 
-[Web App](../app-service-web-overview.md)은 웹 사이트와 웹 응용 프로그램 호스팅을 위해 최적화된 완전히 관리되는 계산 플랫폼입니다. 고객은 지원되는 응용 프로그램 스택에 대해 Linux의 App Service를 사용하여 Linux에서 웹앱을 호스트할 수 있습니다. 다음 섹션에는 현재 지원되는 응용 프로그램 스택이 나와 있습니다.
+[Web App](../overview.md)은 웹 사이트와 웹 애플리케이션 호스팅을 위해 최적화된 전체 관리형 계산 플랫폼입니다. 고객은 지원되는 애플리케이션 스택에 대해 Linux의 App Service를 사용하여 Linux에서 웹앱을 호스트할 수 있습니다. 다음 섹션에는 현재 지원되는 애플리케이션 스택이 나와 있습니다.
 
 ## <a name="languages"></a>언어
 
-Linux의 App Service는 개발자의 생산성을 향상시키기 위해 수많은 기본 제공 이미지를 지원합니다. 응용 프로그램에 필요한 런타임이 기본 제공 이미지에 지원되지 않는 경우 [자체 Docker 이미지를 빌드](tutorial-custom-docker-image.md)하여 Web App for Containers에 배포하는 방법에 대한 지침이 있습니다.
+Linux의 App Service는 개발자의 생산성을 향상시키기 위해 수많은 기본 제공 이미지를 지원합니다. 애플리케이션에 필요한 런타임이 기본 제공 이미지에 지원되지 않는 경우 [자체 Docker 이미지를 빌드](tutorial-custom-docker-image.md)하여 Web App for Containers에 배포하는 방법에 대한 지침이 있습니다.
 
 | 언어 | 지원되는 버전 |
 |---|---|
 | Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1,10.10 |
 | Java * | Tomcat 8.5, 9.0, Java SE, WildFly 14(모두 JRE 8 실행) |
 | PHP | 5.6, 7.0, 7.2 |
-| Python(미리 보기) | 3.6, 3.7 |
+| Python(미리 보기) | 2.7, 3.6, 3.7 |
 | .NET Core | 1.0, 1.1, 2.0, 2.1 |
 | Ruby | 2.3 |
 
@@ -63,7 +63,7 @@ Linux의 App Service는 개발자의 생산성을 향상시키기 위해 수많�
 
 ## <a name="scaling"></a>확장
 
-* 고객은 [App Service 계획](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview?toc=%2fazure%2fapp-service-web%2ftoc.json)의 계층을 변경하여 웹앱을 확장 및 축소할 수 있습니다.
+* 고객은 [App Service 계획](https://docs.microsoft.com/azure/app-service/overview-hosting-plans?toc=%2fazure%2fapp-service-web%2ftoc.json)의 계층을 변경하여 웹앱을 확장 및 축소할 수 있습니다.
 
 ## <a name="locations"></a>위치
 
@@ -79,7 +79,7 @@ Linux의 App Service는 [기본, 표준 및 프리미엄](https://azure.microsof
 
 ## <a name="troubleshooting"></a>문제 해결
 
-응용 프로그램이 시작되지 못하거나 앱에서 로깅을 확인하려는 경우 LogFiles 디렉터리에서 Docker 로그를 확인합니다. SCM 사이트 또는 FTP를 통해 이 디렉터리에 액세스할 수 있습니다.
+애플리케이션이 시작되지 못하거나 앱에서 로깅을 확인하려는 경우 LogFiles 디렉터리에서 Docker 로그를 확인합니다. SCM 사이트 또는 FTP를 통해 이 디렉터리에 액세스할 수 있습니다.
 컨테이너에서 `stdout` 및 `stderr`을 로그하려면 **진단 로그** 아래에서 **Docker 컨테이너 로깅**을 활성화해야 합니다.
 
 ![로깅 사용][2]
@@ -93,7 +93,7 @@ Linux의 App Service는 [기본, 표준 및 프리미엄](https://azure.microsof
 다음 문서에서는 다양한 언어로 작성된 웹앱을 사용하여 Linux의 App Service를 시작합니다.
 
 * [.NET Core](quickstart-dotnetcore.md)
-* [PHP](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-php)
+* [PHP](https://docs.microsoft.com/azure/app-service/containers/quickstart-php)
 * [Node.JS](quickstart-nodejs.md)
 * [Java](quickstart-java.md)
 * [Python](quickstart-python.md)
@@ -105,7 +105,7 @@ Linux의 App Service는 [기본, 표준 및 프리미엄](https://azure.microsof
 
 * [Linux의 App Service FAQ](app-service-linux-faq.md)
 * [Linux의 App Service에 대한 SSH 지원](app-service-linux-ssh-support.md)
-* [App Service에서 스테이징 환경 설정](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [App Service에서 스테이징 환경 설정](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Docker 허브 지속적인 배포](app-service-linux-ci-cd.md)
 
 [당사 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)에 질문 및 문제를 게시할 수 있습니다.

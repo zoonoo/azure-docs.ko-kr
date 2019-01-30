@@ -5,20 +5,20 @@ services: database-migration
 author: pochiraju
 ms.author: rajpo
 manager: craigg
-ms.reviewer: ''
-ms.service: database-migration
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/09/2018
-ms.openlocfilehash: 7df19efc52f0771a10535c10625dd959a6edc90a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 2b3ec4a09fb2baee7d532f348fc18cb3d428d092
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958018"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53711825"
 ---
-# <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Database Migration Service 인스턴스 만들기
+# <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Database Migration Service 인스턴스를 만듭니다.
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Database Migration Service의 인스턴스를 만듭니다.  서비스를 만든 후에는 이 서비스를 사용하여 SQL Server 온-프레미스에서 Azure SQL Database로 데이터를 마이그레이션할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
@@ -56,7 +56,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
         Azure Portal에서 VNET을 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 가상 네트워크 만들기](https://aka.ms/vnet) 문서를 참조하세요.
 
-    - **가격 책정 계층**에 대해 기본: 1 vCore를 선택합니다.
+    - 기본: 1 vCore를 **가격 책정 계층**에 대해 선택합니다.
 
         ![마이그레이션 서비스 만들기](media/quickstart-create-data-migration-service-portal/dms-create-service1.png)
 

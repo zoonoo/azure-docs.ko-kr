@@ -1,5 +1,5 @@
 ---
-title: Resource Manager 템플릿을 사용하여 Azure App Service Environment 만들기
+title: Resource Manager 템플릿을 사용하여 App Service Environment 만들기 - Azure
 description: Resource Manager 템플릿을 사용하여 외부 또는 ILB Azure App Service Environment를 만드는 방법을 설명합니다.
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 62eecaba261ac2478ab6d1c7d47067f43a58d976
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.custom: seodec18
+ms.openlocfilehash: 9056abdd57640026d04779a3c5c3a201095ea045
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231358"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277474"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 ASE 만들기
 
@@ -104,7 +105,7 @@ SSL 인증서가 생성되고 Base64 인코딩 문자열로 변환되면 GitHub�
 *azuredeploy.parameters.json* 파일의 매개 변수는 다음과 같습니다.
 
 * *appServiceEnvironmentName*: 구성하는 ILB ASE의 이름입니다.
-* *existingAseLocation*: ILB ASE가 배포된 Azure 지역을 포함하는 텍스트 문자열입니다.  예를 들어 "미국 중남부"입니다.
+* *existingAseLocation*: ILB ASE가 배포된 Azure 지역을 포함하는 텍스트 문자열입니다.  예:  "미국 중남부".
 * *pfxBlobString*: .pfx 파일의 Base64 인코딩 문자열 표현입니다. 위에 나와 있는 코드 조각을 사용하여 "exportedcert.pfx.b64"에 포함된 문자열을 복사합니다. 이 문자열을 *pfxBlobString* 특성의 값으로 붙여넣습니다.
 * *password*: .pfx 파일을 보호하는 데 사용되는 암호입니다.
 * *certificateThumbprint*: 인증서의 지문입니다. PowerShell에서 이 값을 검색하는 경우(예: 이전 코드 조각의 *$certificate.Thumbprint*) 값을 있는 그대로 사용할 수 있습니다. Windows 인증서 대화 상자의 값을 복사하는 경우 불필요한 공백을 제거해야 합니다. *certificateThumbprint* 는 AF3143EB61D43F6727842115BB7F17BBCECAECAE와 같이 나타납니다.
@@ -114,7 +115,7 @@ SSL 인증서가 생성되고 Base64 인코딩 문자열로 변환되면 GitHub�
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "appServiceEnvironmentName": {
@@ -150,12 +151,12 @@ New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-
 
 변경 내용이 적용되려면 ASE 프런트 엔드당 약 40분이 걸립니다. 예를 들어 두 개의 프런트 엔드를 사용하는 기본 크기 ASE의 경우 템플릿을 완료하는 데 약 1시간 20분이 소요됩니다. 템플릿이 실행되는 동안에는 ASE 크기를 조정할 수 없습니다.  
 
-템플릿이 완료되면 HTTPS를 통해 ILB ASE의 앱에 액세스할 수 있습니다. 연결은 기본 SSL 인증서를 통해 보호됩니다. 응용 프로그램 이름과 기본 호스트 이름의 조합을 사용하여 ILB ASE의 앱에 주소를 지정할 때 기본 SSL 인증서가 사용됩니다. 예를 들어 https://mycustomapp.internal-contoso.com은 **.internal-contoso.com*에 기본 SSL 인증서를 사용합니다.
+템플릿이 완료되면 HTTPS를 통해 ILB ASE의 앱에 액세스할 수 있습니다. 연결은 기본 SSL 인증서를 통해 보호됩니다. 애플리케이션 이름과 기본 호스트 이름의 조합을 사용하여 ILB ASE의 앱에 주소를 지정할 때 기본 SSL 인증서가 사용됩니다. 예를 들어 https://mycustomapp.internal-contoso.com은 **.internal-contoso.com*에 기본 SSL 인증서를 사용합니다.
 
 그러나 개발자는 공용 다중 테넌트 서비스에서 실행되는 앱과 마찬가지로 개별 앱에 대해 사용자 지정 호스트 이름을 구성할 수 있습니다. 또한 개별 앱에 대해 고유한 SNI SSL 인증서 바인딩을 구성할 수도 있습니다.
 
 ## <a name="app-service-environment-v1"></a>App Service 환경 v1 ##
-App Service Environment에는 두 가지 버전(ASEv1 및 ASEv2)이 있습니다. 위의 정보는 ASEv2를 기준으로 작성된 것입니다. 이 섹션은 ASEv1과 ASEv2의 차이를 보여줍니다.
+App Service Environment에는 ASEv1 및 ASEv2라는 두 가지 버전이 있습니다. 위의 정보는 ASEv2를 기준으로 작성된 것입니다. 이 섹션은 ASEv1과 ASEv2의 차이를 보여줍니다.
 
 ASEv1에서는 모든 리소스를 수동으로 관리합니다. 여기에는 IP 기반 SSL에 사용되는 프런트 엔드, 작업자 및 IP 주소가 포함됩니다. App Service 계획을 규모 확장하려면 먼저 해당 App Service를 호스트할 작업자 풀을 규모 확장해야 합니다.
 
@@ -165,11 +166,11 @@ Resource Manager 템플릿을 사용하여 ASEv1을 만들려는 경우 [Resourc
 
 
 <!--Links-->
-[quickstartilbasecreate]: http://azure.microsoft.com/documentation/templates/201-web-app-asev2-ilb-create
-[quickstartasev2create]: http://azure.microsoft.com/documentation/templates/201-web-app-asev2-create
-[quickstartconfiguressl]: http://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl
-[quickstartwebapponasev2create]: http://azure.microsoft.com/documentation/templates/201-web-app-asp-app-on-asev2-create
-[examplebase64encoding]: http://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
+[quickstartilbasecreate]: https://azure.microsoft.com/documentation/templates/201-web-app-asev2-ilb-create
+[quickstartasev2create]: https://azure.microsoft.com/documentation/templates/201-web-app-asev2-create
+[quickstartconfiguressl]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl
+[quickstartwebapponasev2create]: https://azure.microsoft.com/documentation/templates/201-web-app-asp-app-on-asev2-create
+[examplebase64encoding]: https://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
 [configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/
 [Intro]: ./intro.md
 [MakeExternalASE]: ./create-external-ase.md
@@ -183,10 +184,10 @@ Resource Manager 템플릿을 사용하여 ASEv1을 만들려는 경우 [Resourc
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../../app-service/web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ILBASEv1Template]: app-service-app-service-environment-create-ilb-ase-resourcemanager.md

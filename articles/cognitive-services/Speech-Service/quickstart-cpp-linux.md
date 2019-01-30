@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Speech Service SDK를 사용하여 Linux 기반 C++에서 음성 인식'
+title: '빠른 시작: 음성 인식, C++(Linux) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Speech Service SDK를 사용하여 Linux 기반 C++에서 음성을 인식하는 방법 알아보기
 services: cognitive-services
@@ -8,20 +8,20 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/18/2018
 ms.author: wolfma
-ms.openlocfilehash: bfb71c000eea56e705b33fb97827aead23de8cbb
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: d741550fc64ef7544e33304f8608ad6e6ee3426e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219276"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723651"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Linux 기반 C++에서 음성 인식
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-이 문서에서는 Ubuntu Linux 16.04용 C++ 콘솔 응용 프로그램을 만듭니다. Cognitive Services [Speech SDK](speech-sdk.md)를 사용하여 실시간으로 PC의 마이크로 음성을 텍스트로 변환할 수 있습니다. 응용 프로그램은 [Linux용 Speech SDK](https://aka.ms/csspeech/linuxbinary) 및 Linux 배포판의 C++ 컴파일러(예: `g++`)를 사용하여 빌드됩니다.
+이 문서에서는 Ubuntu Linux 16.04 또는 18.04용 C++ 콘솔 애플리케이션을 만듭니다. Cognitive Services [Speech SDK](speech-sdk.md)를 사용하여 실시간으로 PC의 마이크로 음성을 텍스트로 변환할 수 있습니다. 애플리케이션은 [Linux용 Speech SDK](https://aka.ms/csspeech/linuxbinary) 및 Linux 배포판의 C++ 컴파일러(예: `g++`)를 사용하여 빌드됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -31,9 +31,9 @@ ms.locfileid: "51219276"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Cognitive Services 음성 SDK의 현재 버전은 `1.1.0`입니다.
+Cognitive Services 음성 SDK의 현재 버전은 `1.2.0`입니다.
 
-Linux용 Speech SDK는 64비트 및 32비트 응용 프로그램을 빌드하는 데 사용할 수 있습니다. 필요한 라이브러리 및 헤더 파일은 https://aka.ms/csspeech/linuxbinary에서 tarfile로 다운로드할 수 있습니다.
+Linux용 Speech SDK는 64비트 및 32비트 애플리케이션을 빌드하는 데 사용할 수 있습니다. 필요한 라이브러리 및 헤더 파일은 https://aka.ms/csspeech/linuxbinary에서 tar 파일로 다운로드할 수 있습니다.
 
 SDK를 다음과 같이 다운로드하고 설치합니다.
 
@@ -88,13 +88,13 @@ SDK를 다음과 같이 다운로드하고 설치합니다.
 > [!NOTE]
 > 아래 명령을 _단일 명령줄_로 입력합니다. 이 작업을 수행하는 가장 쉬운 방법은 각 명령 옆에 있는 **복사** 단추를 누른 다음, 셸 프롬프트에 붙여넣는 것입니다.
 
-* **x64**(64비트) 시스템에서 다음 명령을 실행하여 응용 프로그램을 빌드합니다.
+* **x64**(64비트) 시스템에서 다음 명령을 실행하여 애플리케이션을 빌드합니다.
 
   ```sh
   g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x64" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
   ```
 
-* **x86**(32비트) 시스템에서 다음 명령을 실행하여 응용 프로그램을 빌드합니다.
+* **x86**(32비트) 시스템에서 다음 명령을 실행하여 애플리케이션을 빌드합니다.
 
   ```sh
   g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
@@ -116,7 +116,7 @@ SDK를 다음과 같이 다운로드하고 설치합니다.
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x86"
      ```
 
-1. 응용 프로그램을 실행합니다.
+1. 애플리케이션을 실행합니다.
 
    ```sh
    ./helloworld
@@ -129,16 +129,12 @@ SDK를 다음과 같이 다운로드하고 설치합니다.
    We recognized: What's the weather like?
    ```
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-이 예제를 `quickstart/cpp-linux` 폴더에서 찾을 수 있습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [C++용 Speech SDK를 사용하여 음성에서 의도 인식](how-to-recognize-intents-from-speech-cpp.md)
+> [GitHub에서 C++ 샘플 살펴보기](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>참고 항목
 
-- [음성 번역](how-to-translate-speech-csharp.md)
 - [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
 - [언어 모델 사용자 지정](how-to-customize-language-model.md)

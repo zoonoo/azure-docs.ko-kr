@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 6f679536d69f700fd6678eb3bbbb869e42439cde
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 5c952370908919deb6531e0b175063dc2657ae98
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853356"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870406"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -31,20 +31,41 @@ Translator Text API 버전 3은 최신 JSON 기반 Web API를 제공합니다. �
 
 ## <a name="base-urls"></a>기준 URL
 
-Text API v3.0은 다음 클라우드에서 사용할 수 있습니다.
+Microsoft Translator는 여러 데이터 센터 위치에서 제공됩니다. 현재 6개 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions)에 있습니다.
 
-| 설명 | 지역 | 기준 URL                                        |
-|-------------|--------|-------------------------------------------------|
-| Azure       | 전역 | api.cognitive.microsofttranslator.com           |
+* **아메리카:** 미국 서부 2 및 미국 중서부 
+* **아시아 태평양:** 동남 아시아 및 대한민국
+* **유럽:** 유럽 북부 및 유럽 서부
+
+Microsoft Translator Text API에 대한 요청은 대부분 요청이 시작된 위치와 가장 가까운 데이터 센터에서 처리됩니다. 데이터 센터 오류가 발생한 경우 요청은 지역 외부로 라우팅될 수 있습니다.
+
+요청을 특정 데이터 센터에서 처리되도록 하려면 API 요청의 글로벌 엔드포인트를 원하는 지역 엔드포인트로 변경합니다.
+
+|설명|지역|기준 URL|
+|:--|:--|:--|
+|Azure|전역|  api.cognitive.microsofttranslator.com|
+|Azure|북아메리카|   api-nam.cognitive.microsofttranslator.com|
+|Azure|유럽|  api-eur.cognitive.microsofttranslator.com|
+|Azure|아시아 태평양|    api-apc.cognitive.microsofttranslator.com|
 
 
 ## <a name="authentication"></a>인증
 
-Microsoft Cognitive Services의 Translator Text API를 구독하고 구독 키(Azure Portal에서 확인할 수 있음)를 사용하여 인증합니다. 
+Microsoft Cognitive Services의 Translator Text API 또는 [Cognitive Services All-In-One](https://azure.microsoft.com/pricing/details/cognitive-services/)을 구독하고 구독 키(Azure Portal에서 확인할 수 있음)를 사용하여 인증합니다. 
 
-가장 간단한 방법은 요청 헤더 `Ocp-Apim-Subscription-Key`를 사용하여 Translator 서비스에 Azure 비밀 키를 전달하는 것입니다.
+구독을 인증하는 데 사용할 수 있는 헤더는 세 개가 있습니다. 이 표에 각 사용 방법이 설명되어 있습니다.
 
-또는 비밀 키를 사용하여 토큰 서비스에서 인증 토큰을 받을 수 있습니다. 그런 다음, `Authorization` 요청 헤더를 사용하여 Translator 서비스에 인증 토큰을 전달합니다. 인증 토큰을 받으려면 다음 URL에 대해 `POST` 요청을 수행합니다.
+|헤더|설명|
+|:----|:----|
+|Ocp-Apim-Subscription-Key|*비밀 키를 전달하는 경우 Cognitive Services 구독에 사용합니다*.<br/>값은 Translator Text API 구독에 대한 Azure 비밀 키입니다.|
+|권한 부여|*인증 토큰을 전달하는 경우 Cognitive Services 구독에 사용합니다*.<br/>값은 전달자 토큰인 `Bearer <token>`입니다.|
+|Ocp-Apim-Subscription-Region|*통합 비밀 키를 전달하는 경우 Cognitive Services 통합 구독에 사용합니다.*<br/>값은 통합 구독의 지역입니다. 통합 구독을 사용하지 않는 경우 이 값은 선택 사항입니다.|
+
+###  <a name="secret-key"></a>비밀 키
+첫 번째 옵션은 `Ocp-Apim-Subscription-Key` 헤더를 사용하여 인증하는 것입니다. `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` 헤더를 요청에 추가하면 됩니다.
+
+### <a name="authorization-token"></a>권한 부여 토큰
+또는 액세스 토큰에 대한 비밀 키를 교환할 수 있습니다. 이 토큰은 각 요청에 `Authorization` 헤더로 포함됩니다. 인증 토큰을 받으려면 다음 URL에 대해 `POST` 요청을 수행합니다.
 
 | Environment     | 인증 서비스 URL                                |
 |-----------------|-----------------------------------------------------------|
@@ -55,6 +76,7 @@ Microsoft Cognitive Services의 Translator Text API를 구독하고 구독 키(A
 ```
 // Pass secret key using header
 curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
+
 // Pass secret key using query string parameter
 curl --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscription-Key=<your-key>'
 ```
@@ -67,20 +89,21 @@ Authorization: Bearer <Base64-access_token>
 
 인증 토큰은 10분 동안 유효합니다. Translator API를 여러 번 호출할 때는 토큰을 다시 사용해야 합니다. 그러나 프로그램이 확장된 기간 동안 Translator API에 대한 요청을 수행하는 경우 프로그램은 일정한 간격(예: 8분마다)으로 새 액세스 토큰을 요청해야 합니다.
 
-요약하면, Translator API에 대한 클라이언트 요청에는 다음 표에 있는 인증 헤더 중 하나가 포함됩니다.
+### <a name="all-in-one-subscription"></a>통합 구독
 
-<table width="100%">
-  <th width="30%">헤더</th>
-  <th>설명</th>
-  <tr>
-    <td>Ocp-Apim-Subscription-Key</td>
-    <td>*비밀 키를 전달하는 경우 Cognitive Services 구독에 사용합니다*.<br/>값은 Translator Text API 구독에 대한 Azure 비밀 키입니다.</td>
-  </tr>
-  <tr>
-    <td>권한 부여</td>
-    <td>*인증 토큰을 전달하는 경우 Cognitive Services 구독에 사용합니다*.<br/>값은 전달자 토큰인 `Bearer <token>`입니다.</td>
-  </tr>
-</table> 
+마지막 인증 옵션은 Cognitive Service의 통합 구독을 사용하는 것입니다. 그러면 단일 비밀 키를 사용하여 여러 서비스에 대한 요청을 인증할 수 있습니다. 
+
+통합 비밀 키를 사용하는 경우 요청에 두 개의 인증 헤더를 포함시켜야 합니다. 첫 번째는 비밀 키를 전달하고, 두 번째는 구독과 관련된 지역을 지정합니다. 
+* `Ocp-Api-Subscription-Key`
+* `Ocp-Apim-Subscription-Region`
+
+`Subscription-Key` 매개 변수를 사용한 쿼리 문자열에 비밀 키를 전달하는 경우 `Subscription-Region` 쿼리 매개 변수를 사용하여 지역을 지정해야 합니다.
+
+전달자 토큰을 사용하는 경우 지역 엔드포인트에서 `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken` 토큰을 가져와야 합니다.
+
+사용 가능한 지역은 `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus` 및 `westus2`입니다.
+
+지역은 통합 Text API 구독에 필요합니다.
 
 ## <a name="errors"></a>오류
 

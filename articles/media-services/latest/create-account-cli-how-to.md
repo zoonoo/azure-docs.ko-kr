@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 사용하여 Azure Media Services 계정 만들기 | Microsoft Docs
+title: Azure CLI를 사용하여 Media Services 계정 만들기 - Azure | Microsoft Docs
 description: Azure Media Services 계정을 만들려면 빠른 시작의 단계를 수행합니다.
 services: media-services
 documentationcenter: ''
@@ -9,19 +9,21 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.custom: ''
-ms.date: 11/11/2018
+ms.custom: seodec18
+ms.date: 01/15/2019
 ms.author: juliako
-ms.openlocfilehash: cb49b642137517c0ceef7d2fa01994a554db1f4e
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 9c026eb9a74cbba2ff188a3f08be625043ede474
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613162"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352056"
 ---
 # <a name="create-an-azure-media-services-account"></a>Azure Media Services 계정 만들기
 
-Azure에서 암호화, 인코딩, 분석, 관리 및 스트리밍을 시작하려면 Media Services 계정을 만들어야 합니다. Media Services 계정을 만들 때 Media Services 계정과 동일한 지역에 관련 저장소 계정도 만들거나 기존 저장소 계정을 사용합니다.
+Azure에서 암호화, 인코딩, 분석, 관리 및 스트리밍을 시작하려면 Media Services 계정을 만들어야 합니다. Media Services 계정을 만들 때 연결된 스토리지 계정도 만들거나 기존 스토리지 계정을 사용합니다.  
+
+Media Services 계정 및 이 계정에 연결된 스토리지 계정은 같은 데이터 센터 및 리소스 그룹에 포함되어 있어야 합니다.
 
 이 문서에서는 Azure CLI를 사용하여 새로운 Azure Media Services 계정을 만드는 단계를 설명합니다.  
 

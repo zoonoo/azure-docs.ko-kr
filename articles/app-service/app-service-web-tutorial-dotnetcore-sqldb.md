@@ -1,5 +1,5 @@
 ---
-title: Azure App Service에서 .NET Core 및 SQL Database 웹앱 빌드 | Microsoft Docs
+title: SQL Database를 사용하여 .NET Core 앱 빌드 - Azure App Service | Microsoft Docs
 description: SQL Database에 연결하여 Azure App Service에서 .NET Core 앱이 작동하도록 하는 방법에 대해 알아봅니다.
 services: app-service\web
 documentationcenter: dotnet
@@ -13,21 +13,21 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: f870902e5bd5ef92d12d1e5e846696c4b26362a3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: 0b4549323b64b0f6210a228ea6cb5ca301839ec8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425105"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721855"
 ---
-# <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>자습서: Azure App Service에서 .NET Core 및 SQL Database 웹앱 빌드
+# <a name="tutorial-build-a-net-core-and-sql-database-app-in-azure-app-service"></a>자습서: Azure App Service에서 .NET Core 및 SQL Database 앱 빌드
 
 > [!NOTE]
-> 이 문서에서는 Windows의 App Service에 앱을 배포합니다. _Linux_에서 App Service를 배포하려면 [Linux의 Azure App Service에서 .NET Core 및 SQL Database 웹앱 빌드](./containers/tutorial-dotnetcore-sqldb-app.md)를 참조하세요.
+> 이 문서에서는 Windows의 App Service에 앱을 배포합니다. _Linux_에서 App Service를 배포하려면 [Linux의 Azure App Service에서 .NET Core 및 SQL Database 앱 빌드](./containers/tutorial-dotnetcore-sqldb-app.md)를 참조하세요.
 >
 
-[App Service](app-service-web-overview.md)는 Azure에서 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 .NET Core 웹앱을 만들고 SQL Database에 연결하는 방법을 보여줍니다. 완료되면 .NET Core MVC 앱이 App Service에서 실행됩니다.
+[App Service](overview.md)는 Azure에서 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 .NET Core 앱을 만들고 SQL Database에 연결하는 방법을 보여줍니다. 완료되면 .NET Core MVC 앱이 App Service에서 실행됩니다.
 
 ![App Service에서 실행 중인 앱](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
@@ -99,7 +99,7 @@ SQL Database의 경우 이 자습서에서는 [Azure SQL Database](/azure/sql-da
 
 Cloud Shell에서 [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) 명령을 사용하여 SQL Database 논리 서버를 만듭니다.
 
-*\<server_name>* 자리 표시자를 고유한 SQL Database 이름으로 바꿉니다. 이 이름은 SQL Database 끝점(`<server_name>.database.windows.net`)의 일부로 사용되므로 Azure의 모든 논리 서버에서 고유해야 합니다. 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-50자 사이여야 합니다. 또한 *\<db_username>* 및 *\<db_password>* 를 선택한 사용자 이름 및 암호로 바꿉니다. 
+*\<server_name>* 자리 표시자를 고유한 SQL Database 이름으로 바꿉니다. 이 이름은 SQL Database 엔드포인트(`<server_name>.database.windows.net`)의 일부로 사용되므로 Azure의 모든 논리 서버에서 고유해야 합니다. 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-50자 사이여야 합니다. 또한 *\<db_username>* 및 *\<db_password>* 를 선택한 사용자 이름 및 암호로 바꿉니다. 
 
 
 ```azurecli-interactive
@@ -135,7 +135,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 ```
 
 > [!TIP] 
-> [앱이 사용하는 아웃바운드 IP 주소만 사용](app-service-ip-addresses.md#find-outbound-ips)으로 방화벽 규칙을 훨씬 더 엄격하게 제한할 수 있습니다.
+> [앱이 사용하는 아웃바운드 IP 주소만 사용](overview-inbound-outbound-ips.md#find-outbound-ips)으로 방화벽 규칙을 훨씬 더 엄격하게 제한할 수 있습니다.
 >
 
 ### <a name="create-a-database"></a>데이터베이스 만들기
@@ -158,7 +158,7 @@ Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_u
 
 ## <a name="deploy-app-to-azure"></a>Azure에 앱 배포
 
-이 단계에서는 SQL Database 연결 .NET Core 응용 프로그램을 App Service에 배포합니다.
+이 단계에서는 SQL Database 연결 .NET Core 애플리케이션을 App Service에 배포합니다.
 
 ### <a name="configure-local-git-deployment"></a>로컬 Git 배포 구성
 
@@ -182,7 +182,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 다음으로 `ASPNETCORE_ENVIRONMENT` 앱 설정을 _프로덕션_으로 지정합니다. 로컬 개발 환경에 SQLite를 사용하고 Azure 환경에 SQL Database를 사용하기 때문에 이 설정을 통해 Azure에서 실행 중인지 여부를 알 수 있습니다.
 
-다음 예제에서는 Azure 웹앱에 `ASPNETCORE_ENVIRONMENT` 앱 설정을 구성합니다. *\<app_name>* 자리 표시자를 바꿉니다.
+다음 예제에서는 Azure 앱에 `ASPNETCORE_ENVIRONMENT` 앱 설정을 구성합니다. *\<app_name>* 자리 표시자를 바꿉니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
@@ -215,6 +215,10 @@ services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate
 이코드가 프로덕션(즉, Azure 환경)에서 실행되고 있다고 감지되는 경우 구성한 연결 문자열을 사용하여 SQL Database에 연결합니다.
 
 Azure에서 실행되는 경우 `Database.Migrate()` 호출이 해당 마이그레이션 구성에 따라 .NET Core 앱이 필요한 데이터베이스를 자동으로 생성하기 때문에 도움을 받을 수 있습니다. 
+
+> [!IMPORTANT]
+> 확장해야 하는 프로덕션 앱의 경우 [프로덕션에서 마이그레이션 적용](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production)의 모범 사례를 따르세요.
+> 
 
 변경 내용을 저장한 후 Git 리포지토리로 커밋합니다. 
 
@@ -253,9 +257,9 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-### <a name="browse-to-the-azure-web-app"></a>Azure 웹앱 찾아보기
+### <a name="browse-to-the-azure-app"></a>Azure 앱 찾아보기
 
-웹 브라우저를 사용하여 배포된 웹앱으로 이동합니다.
+웹 브라우저를 사용하여 배포된 앱으로 이동합니다.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -357,21 +361,21 @@ git commit -m "added done field"
 git push azure master
 ```
 
-`git push`가 완료되면 Azure 웹앱으로 이동하여 새 기능을 테스트해 봅니다.
+`git push`가 완료되면 App Service 앱으로 이동하여 새 기능을 테스트해 봅니다.
 
-![Code First 마이그레이션 후 Azure 웹앱](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
+![Code First 마이그레이션 후 Azure 앱](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
 
 기존의 모든 할 일 항목이 계속 표시됩니다. .NET Core 앱을 다시 게시해도 SQL Database의 기존 데이터가 손실되지 않습니다. 또한 Entity Framework Core 마이그레이션은 데이터 스키마만 변경하고 기존 데이터는 그대로 유지합니다.
 
-## <a name="manage-your-azure-web-app"></a>Azure Web App 관리
+## <a name="manage-your-azure-app"></a>Azure 앱 관리
 
-[Azure Portal](https://portal.azure.com)로 이동하여 만든 웹앱을 확인합니다.
+[Azure Portal](https://portal.azure.com)로 이동하여 만든 앱을 확인합니다.
 
-왼쪽 메뉴에서 **App Services**를 클릭한 다음 Azure 웹앱의 이름을 클릭합니다.
+왼쪽 메뉴에서 **App Services**를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
 
-![Azure 웹앱에 대한 포털 탐색](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
+![Azure 앱에 대한 포털 탐색](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
 
-기본적으로 포털에는 웹앱의 **개요** 페이지가 표시됩니다. 이 페이지에서는 앱이 어떻게 작동하고 있는지를 보여 줍니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 페이지의 왼쪽에 있는 탭에서는 열 수 있는 여러 구성 페이지를 보여 줍니다.
+기본적으로 포털에 앱의 **개요** 페이지가 표시됩니다. 이 페이지에서는 앱이 어떻게 작동하고 있는지를 보여 줍니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 페이지의 왼쪽에 있는 탭에서는 열 수 있는 여러 구성 페이지를 보여 줍니다.
 
 ![Azure Portal의 App Service 페이지](./media/app-service-web-tutorial-dotnetcore-sqldb/web-app-blade.png)
 
@@ -390,7 +394,7 @@ git push azure master
 > * Azure에서 터미널로 로그 스트림
 > * Azure Portal에서 앱 관리
 
-다음 자습서로 이동하여 사용자 지정 DNS 이름을 웹앱에 매핑하는 방법을 알아봅니다.
+다음 자습서로 이동하여 사용자 지정 DNS 이름을 앱에 매핑하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)
+> [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)

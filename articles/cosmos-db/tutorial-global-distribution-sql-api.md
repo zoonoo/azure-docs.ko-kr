@@ -1,22 +1,18 @@
 ---
-title: SQL API의 Azure Cosmos DB 전역 배포 자습서 | Microsoft Docs
+title: SQL API의 Azure Cosmos DB 글로벌 배포 자습서
 description: SQL API를 사용하여 Azure Cosmos DB 전역 배포를 설정하는 방법에 대해 알아봅니다.
-services: cosmos-db
-keywords: 전역 배포
-author: rafats
-manager: kfile
+author: rimman
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: rafats
-ms.custom: mvc
-ms.openlocfilehash: 624c5e78287fac57b06f6b5112d2523e31256ae0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.author: rimman
+ms.reviewer: sngun
+ms.openlocfilehash: 19e0dd8a60155272f2e338c760db409d20a9f755
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049771"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157244"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>SQL API를 사용하여 Azure Cosmos DB 전역 배포 설정
 
@@ -96,7 +92,7 @@ SDK는 코드 변경 없이 사용할 수 있습니다. 이 경우 SDK는 읽기
 
 다음은 NodeJS/Javascript의 코드 예제입니다. Python과 Java도 같은 패턴을 따릅니다.
 
-```java
+```JavaScript
 // Creating a ConnectionPolicy object
 var connectionPolicy = new DocumentBase.ConnectionPolicy();
 

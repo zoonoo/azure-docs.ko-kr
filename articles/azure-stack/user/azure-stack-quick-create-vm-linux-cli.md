@@ -11,15 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 6fa68fcc4732241b30609f476a09643e458065db
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: bb0eac4f7de11c2b80412319227a00d5dbe6d8c6
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377363"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243405"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>빠른 시작: Azure Stack에서 Azure CLI를 사용 하 여 Linux 서버 가상 머신 만들기
 
@@ -73,7 +74,7 @@ az vm create \
 
 ## <a name="open-port-80-for-web-traffic"></a>웹 트래픽에 대해 포트 80 열기
 
-이 가상 머신에 IIS 웹 서버를 실행 하려는, 때문에 인터넷 트래픽에 포트 80을 열려면 해야 합니다. [az vm open-port](/cli/azure/vm#open-port) 명령을 사용하여 원하는 포트를 엽니다.
+이 가상 머신에 IIS 웹 서버를 실행 하려는, 때문에 인터넷 트래픽에 포트 80을 열려면 해야 합니다. [az vm open-port](/cli/azure/vm) 명령을 사용하여 원하는 포트를 엽니다.
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM

@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 12880c3aada46b1656cf37b0cb539292cce930ef
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 76281113c0d1e7b3943e137accf7aa93c2863fe6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625711"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435382"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>자습서: Azure 가상 네트워크에 Service Fabric Windows 클러스터 배포
 
 이 자습서는 시리즈의 1부입니다. PowerShell 및 템플릿을 사용하여 [Azure VNET(가상 네트워크)](../virtual-network/virtual-networks-overview.md) 및 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)에 Windows를 실행 중인 Service Fabric 클러스터를 배포하는 방법을 알아봅니다. 작업이 완료되면 응용 프로그램을 배포할 수 있는, 클라우드에서 실행되는 클러스터가 생깁니다.  Azure CLI를 사용하여 Linux 클러스터를 만들려면 [Azure에서 보안 Linux 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)를 참조하세요.
 
-이 자습서는 프로덕션 시나리오를 설명합니다.  테스트 목적으로 작은 클러스터를 신속하게 만들려는 경우 [3개의 노드 테스트 클러스터 만들기](./scripts/service-fabric-powershell-create-test-cluster.md)를 참조하세요.
+이 자습서는 프로덕션 시나리오를 설명합니다.  테스트 목적으로 더 작은 클러스터를 빠르게 만들려면 [테스트 클러스터 만들기](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)를 참조하세요.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "51625711"
 
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * [Service Fabric SDK 및 PowerShell 모듈](service-fabric-get-started.md)을 설치합니다.
-* [Azure PowerShell 모듈 버전 4.1 이상](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)을 설치합니다.
+* [Azure PowerShell 모듈 버전 4.1 이상](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)을 설치합니다.
 
 다음 절차에서는 5노드 Service Fabric 클러스터를 만듭니다. Azure에서 Service Fabric 클러스터를 실행할 때 발생하는 비용을 계산하려면 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용합니다.
 
@@ -99,19 +99,19 @@ Azure Key Vault는 Azure에서 서비스 패브릭 클러스터에 대한 인증
 * 브론즈의 [내구성 수준](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster)(템플릿 매개 변수에서 구성 가능)
 * 실버의 [안정성 수준](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster)(템플릿 매개 변수에서 구성 가능)
 * 클라이언트 연결 엔드포인트: 19000(템플릿 매개 변수에서 구성 가능)
-* 클라이언트 연결 엔드포인트: 19080(템플릿 매개 변수에서 구성 가능)
+* HTTP 게이트웨이 엔드포인트: 19080(템플릿 매개 변수에서 구성 가능)
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 
 **Microsoft.Network/loadBalancers** 리소스에서 부하 분산 장치가 구성되고 다음 포트에 대한 프로브 및 규칙이 설정됩니다.
 
 * 클라이언트 연결 엔드포인트: 19000
-* HTTP 게이트웨이 엔드포인트 19080
-* 응용 프로그램 포트: 80
-* 응용 프로그램 포트: 443
+* HTTP 게이트웨이 엔드포인트: 19080
+* 애플리케이션 포트: 80
+* 애플리케이션 포트: 443
 * Service Fabric 역방향 프록시: 19081
 
-다른 응용 프로그램 포트가 필요한 경우 트래픽을 허용하도록 **Microsoft.Network/loadBalancers** 리소스 및 **Microsoft.Network/networkSecurityGroups** 리소스를 조정해야 합니다.
+다른 애플리케이션 포트가 필요한 경우 트래픽을 허용하도록 **Microsoft.Network/loadBalancers** 리소스 및 **Microsoft.Network/networkSecurityGroups** 리소스를 조정해야 합니다.
 
 ### <a name="virtual-network-subnet-and-network-security-group"></a>가상 네트워크, 서브넷 및 네트워크 보안 그룹
 
@@ -127,8 +127,8 @@ Azure Key Vault는 Azure에서 서비스 패브릭 클러스터에 대한 인증
 * SMB: 445
 * Internodecommunication - 1025, 1026, 1027
 * 임시 포트 범위 – 49152~65534(최소 256 포트 필요)
-* 응용 프로그램 사용에 대한 포트: 80 및 443
-* 응용 프로그램 포트 범위 – 49152~65534(서비스 간 통신에 사용되며 부하 분산 장치에서 열리지 않음)
+* 애플리케이션 사용에 대한 포트: 80 및 443
+* 애플리케이션 포트 범위 – 49152~65534(서비스 간 통신에 사용되며 부하 분산 장치에서 열리지 않음)
 * 다른 모든 포트 차단
 
 다른 응용 프로그램 포트가 필요한 경우 트래픽을 허용하도록 **Microsoft.Network/loadBalancers** 리소스 및 **Microsoft.Network/networkSecurityGroups** 리소스를 조정해야 합니다.

@@ -27,7 +27,7 @@ ms.locfileid: "30841490"
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
-Microsoft HPC 팩에서는 MPI 응용 프로그램을 포함한 다양한 대규모 HPC 및 병렬 응용 프로그램을 Microsoft Azure 가상 머신의 클러스터에서 실행하는 기능을 제공합니다. HPC 팩은 HPC 팩 클러스터에 배포된 Linux 계산 노드 VM에서 Linux HPC 응용 프로그램의 실행도 지원합니다. HPC 팩으로 Linux 계산 노드 사용에 대한 소개는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](hpcpack-cluster.md)을 참조하세요.
+Microsoft HPC 팩에서는 MPI 애플리케이션을 포함한 다양한 대규모 HPC 및 병렬 애플리케이션을 Microsoft Azure 가상 머신의 클러스터에서 실행하는 기능을 제공합니다. HPC 팩은 HPC 팩 클러스터에 배포된 Linux 계산 노드 VM에서 Linux HPC 애플리케이션의 실행도 지원합니다. HPC 팩으로 Linux 계산 노드 사용에 대한 소개는 [Azure에서 HPC 팩 클러스터의 Linux 계산 노드 시작](hpcpack-cluster.md)을 참조하세요.
 
 ## <a name="set-up-an-hpc-pack-cluster"></a>HPC 팩 클러스터 설정
 [다운로드 센터](https://www.microsoft.com/en-us/download/details.aspx?id=44949)에서 HPC 팩 IaaS 배포 스크립트를 다운로드하고 로컬로 추출합니다.
@@ -117,7 +117,7 @@ HPC 팩 클러스터 관리자 도구를 엽니다. 몇 분 후에 클러스터 
 이제 모든 노드가 클러스터에서 실행 중이며 추가 인프라 설정을 수행해야 합니다.
 
 ## <a name="set-up-an-azure-file-share-for-windows-and-linux-nodes"></a>Windows 및 Linux 노드에 대한 Azure 파일 공유 설정
-Azure 파일 서비스를 사용하여 스크립트, 응용 프로그램 패키지, 데이터 파일을 저장할 수 있습니다. Azure 파일은 Azure Blob 저장소를 영구 저장소로 사용하면서 CIFS 기능을 제공합니다. 이것이 가장 확장성 있는 솔루션은 아니지만 가장 간단하며 전용 VM이 필요하지 않습니다.
+Azure 파일 서비스를 사용하여 스크립트, 애플리케이션 패키지, 데이터 파일을 저장할 수 있습니다. Azure 파일은 Azure Blob 저장소를 영구 저장소로 사용하면서 CIFS 기능을 제공합니다. 이것이 가장 확장성 있는 솔루션은 아니지만 가장 간단하며 전용 VM이 필요하지 않습니다.
 
 [Windows에서 Azure File storage 시작](../../../storage/files/storage-dotnet-how-to-use-files.md) 문서의 지침에 따라 Azure 파일 공유를 만듭니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Blob Storage에서 데이터 샘플링 | Microsoft Docs
-description: Azure Blob Storage에서 데이터 샘플링
+title: Azure Blob 스토리지의 샘플 데이터 - Team Data Science Process
+description: 프로그래밍 방식으로 다운로드한 다음, Python으로 작성된 절차에 따라 샘플링하여 Azure Blob 스토리지에 저장된 데이터를 샘플링합니다.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 5fe7c11bd21e9c2f432f443a6a8dd5880646a1a2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 0f9795e6a9a451ab1492e62fd54faea5894d99ae
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444191"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136498"
 ---
 # <a name="heading"></a>Azure Blob 저장소에서 데이터 샘플링
 
@@ -25,7 +25,7 @@ ms.locfileid: "52444191"
 **데이터를 샘플링하는 이유**
 분석할 데이터 세트가 큰 경우 일반적으로 데이터를 다운 샘플링하여 작지만 전형적이고 관리하기 쉬운 크기로 줄이는 것이 좋습니다. 그러면 데이터 이해, 탐색 및 기능 엔지니어링이 용이해집니다. Cortana 분석 프로세스에서는 데이터 처리 기능 및 기계 학습 모델의 빠른 프로토타입 제작을 지원하는 역할을 합니다.
 
-이 샘플 작업은 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 단계입니다.
+이 샘플 작업은 [TDSP(팀 데이터 과학 프로세스)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)의 단계입니다.
 
 ## <a name="download-and-down-sample-data"></a>데이터 다운로드 및 저해상도로 처리
 1. 다음 샘플 Python 코드에서 Blob 서비스를 사용하여 Azure Blob 저장소에서 데이터를 다운로드합니다. 

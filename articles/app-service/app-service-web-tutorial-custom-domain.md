@@ -1,5 +1,5 @@
 ---
-title: Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑 | Microsoft Docs
+title: 기존 사용자 지정 DNS 이름 매핑 - Azure App Service | Microsoft Docs
 description: Azure App Service의 웹앱, 모바일 앱 백 엔드 또는 API 앱에 기존 사용자 지정 DNS 도메인 이름(베니티 도메인)을 추가하는 방법을 알아봅니다.
 keywords: App Service, Azure App Service, 도메인 매핑, 도메인 이름, 기존 도메인, 호스트 이름
 services: app-service\web
@@ -15,17 +15,17 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 30199005db93f9a43a37d2c72bb34dd772265419
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.custom: seodec18
+ms.openlocfilehash: 89852e30929cc26aa0cbe63ed4e334c4e878b90b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43664890"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714341"
 ---
-# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>자습서: Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 DNS 이름 매핑
 
-[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 기존 사용자 지정 DNS 이름을 Azure Web Apps에 매핑하는 방법을 보여 줍니다.
+[Azure App Service](overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 기존 사용자 지정 DNS 이름을 Azure App Service에 매핑하는 방법을 보여줍니다.
 
 ![Azure 앱에 대한 포털 탐색](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
@@ -48,11 +48,11 @@ ms.locfileid: "43664890"
   예를 들어 `contoso.com` 및 `www.contoso.com`에 대한 DNS 항목을 추가하려면 `contoso.com` 루트 도메인에 대한 DNS 설정을 구성할 수 있어야 합니다.
 
   > [!NOTE]
-  > 기존 도메인 이름이 없으면 [Azure Portal을 사용하여 도메인을 구입](custom-dns-web-site-buydomains-web-app.md)하는 것이 좋습니다. 
+  > 기존 도메인 이름이 없으면 [Azure Portal을 사용하여 도메인을 구입](manage-custom-dns-buy-domain.md)하는 것이 좋습니다. 
 
 ## <a name="prepare-the-app"></a>앱 준비
 
-사용자 지정 DNS 이름을 웹앱에 매핑하려면 [App Service 계획](https://azure.microsoft.com/pricing/details/app-service/)이 유료 계층(**공유**, **기본**, **표준** 또는 **프리미엄**)이어야 합니다. 이 단계에서는 App Service 앱이 지원되는 가격 책정 계층에 속하는지 확인해야 합니다.
+사용자 지정 DNS 이름을 웹앱에 매핑하려면 웹앱의 [App Service 계획](https://azure.microsoft.com/pricing/details/app-service/)이 유료 계층(**공유**, **기본**, **표준**, **프리미엄** 또는 Azure Functions의 경우 **사용량**)이어야 합니다. 이 단계에서는 App Service 앱이 지원되는 가격 책정 계층에 속하는지 확인해야 합니다.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -156,7 +156,7 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 ![추가된 CNAME 레코드](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> SSL 바인딩을 추가하려면 [Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
+> SSL 바인딩을 추가하려면 [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
 
 이전에 단계를 잊었거나 철자를 잘못 입력한 경우에는 페이지 아래쪽에 확인 오류가 표시됩니다.
 
@@ -231,7 +231,7 @@ Azure Portal에서 해당 앱의 **사용자 지정 도메인** 페이지로 돌
 ![추가된 A 레코드](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> SSL 바인딩을 추가하려면 [Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
+> SSL 바인딩을 추가하려면 [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
 
 이전에 단계를 잊었거나 철자를 잘못 입력한 경우에는 페이지 아래쪽에 확인 오류가 표시됩니다.
 
@@ -286,7 +286,7 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 ![추가된 CNAME 레코드](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> SSL 바인딩을 추가하려면 [Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
+> SSL 바인딩을 추가하려면 [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
 
 ## <a name="test-in-browser"></a>브라우저에서 테스트
 
@@ -305,13 +305,13 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 
 ## <a name="migrate-an-active-domain"></a>활성 도메인 마이그레이션
 
-라이브 사이트 및 해당 DNS 도메인 이름을 가동 중지 시간 없이 App Service로 마이그레이션하려면 [활성 DNS 이름을 Azure App Service로 마이그레이션](app-service-custom-domain-name-migrate.md)을 참조하세요.
+라이브 사이트 및 해당 DNS 도메인 이름을 가동 중지 시간 없이 App Service로 마이그레이션하려면 [활성 DNS 이름을 Azure App Service로 마이그레이션](manage-custom-dns-migrate-domain.md)을 참조하세요.
 
 ## <a name="redirect-to-a-custom-directory"></a>사용자 지정 디렉터리로 리디렉션
 
 App Service는 기본적으로 웹 요청을 앱 코드의 루트 디렉터리로 보냅니다. 그러나 특정 웹 프레임워크는 루트 디렉터리에 시작하지 않습니다. 예를 들어 [Laravel](https://laravel.com/)은 `public` 하위 디렉터리에서 시작합니다. `contoso.com` DNS 예제를 계속하려면 그러한 앱은 `http://contoso.com/public`에서 액세스할 수도 있지만, 대신 실제로 `http://contoso.com`을 `public` 디렉터리로 전달할 수 있습니다. 이 단계는 DNS 확인을 포함하지는 않으나, 가상 디렉터리를 사용자 지정합니다.
 
-이를 수행하려면 웹앱 페이지의 왼쪽 탐색에서 **응용 프로그램 설정**을 선택합니다. 
+이를 수행하려면 웹앱 페이지의 왼쪽 탐색에서 **애플리케이션 설정**을 선택합니다. 
 
 페이지의 하단에서 기본적으로 루트 가상 디렉터리`/`는 앱 코드의 루트 디렉터리인 `site\wwwroot`를 가리킵니다. 예를 들어 대신 `site\wwwroot\public`을 가리키도록 변경하고 변경 내용을 저장합니다. 
 
@@ -334,7 +334,7 @@ az webapp config hostname add \
     --hostname <fully_qualified_domain_name> 
 ``` 
 
-자세한 내용은 [웹앱에 사용자 지정 도메인 매핑](scripts/app-service-cli-configure-custom-domain.md)을 참조하세요. 
+자세한 내용은 [웹앱에 사용자 지정 도메인 매핑](scripts/cli-configure-custom-domain.md)을 참조하세요. 
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 
@@ -347,7 +347,7 @@ Set-AzureRmWebApp `
     -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
 ```
 
-자세한 내용은 [Web App에 사용자 지정 도메인 할당](scripts/app-service-powershell-configure-custom-domain.md)을 참조하세요.
+자세한 내용은 [Web App에 사용자 지정 도메인 할당](scripts/powershell-configure-custom-domain.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -363,4 +363,4 @@ Set-AzureRmWebApp `
 다음 자습서로 이동하여 사용자 지정 SSL 인증서를 웹앱에 바인딩하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)
+> [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)

@@ -1,18 +1,17 @@
 ---
 title: Azure Cosmos DB에서 컨테이너 처리량 프로비전
 description: Azure Cosmos DB의 컨테이너 수준에서 처리량을 프로비전하는 방법 알아보기
-services: cosmos-db
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 3b766cfa339e6cbb568cf57383667d270153401f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: eb34385087118614f8d7057c2229bc3c9e8d1ae4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262423"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039489"
 ---
 # <a name="provision-throughput-for-an-azure-cosmos-db-container"></a>Azure Cosmos DB 컨테이너의 처리량 프로비전
 
@@ -28,6 +27,7 @@ ms.locfileid: "51262423"
 
    * 새 데이터베이스를 만들거나 기존 데이터베이스를 사용합니다.
    * 컬렉션 ID(또는 테이블, 그래프)를 입력합니다.
+   * 파티션 키 값을 입력합니다(예: `/userid`).
    * 처리량을 입력합니다(예: 1000RU).
    * **확인**을 선택합니다.
 
@@ -46,7 +46,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-MongoDB API 계정의 처리량을 프로비전하는 경우 파티션 키 경로로 '/myShardKey'를 사용하고, Cassandra API 계정의 처리량을 프로비전할 때에는 파티션 키 경로로 '/myPrimaryKey'를 사용합니다.
+Azure Cosmos DB의 MongoDB API로 구성된 Cosmos 계정에 대한 처리량을 프로비전하는 경우 파티션 키 경로에 '/myShardKey'를 사용하고, Cassandra API에 대해 구성된 Cosmos 계정에 대한 처리량을 프로비전하는 경우 파티션 키 경로에 '/myPrimaryKey'를 사용합니다.
 
 ## <a name="provision-throughput-using-net-sdk"></a>.NET SDK를 사용하여 처리량 프로비전
 

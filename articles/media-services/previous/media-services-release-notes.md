@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 41376448095a5dd760fae594fdfe2d2b57e4440a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: aa2a059dd470e671aa3483f2259bcf91796c070d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231654"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631671"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 Azure Media Services에 대한 이 릴리스 정보에는 이전 릴리스 이후의 변경 내용과 알려진 문제가 요약되어 있습니다.
@@ -33,10 +33,10 @@ Azure Media Services에 대한 이 릴리스 정보에는 이전 릴리스 이�
 
 | 문제 | 설명 |
 | --- | --- |
-| REST API에 다양한 일반 HTTP 헤더가 제공되지 않습니다. |REST API를 사용하여 Media Services 응용 프로그램을 개발하는 경우 CLIENT-REQUEST-ID, REQUEST-ID, RETURN-CLIENT-REQUEST-ID를 비롯한 몇 가지 일반 HTTP 헤더 필드가 지원되지 않습니다. 이 헤더는 이후 업데이트에서 추가될 예정입니다. |
+| REST API에 다양한 일반 HTTP 헤더가 제공되지 않습니다. |REST API를 사용하여 Media Services 애플리케이션을 개발하는 경우 CLIENT-REQUEST-ID, REQUEST-ID, RETURN-CLIENT-REQUEST-ID를 비롯한 몇 가지 일반 HTTP 헤더 필드가 지원되지 않습니다. 이 헤더는 이후 업데이트에서 추가될 예정입니다. |
 | 퍼센트 인코딩은 허용되지 않습니다. |Media Services는 스트리밍 콘텐츠의 URL을 작성할 때 속성의 값을 사용합니다(예: `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. 이름 속성 값에는 !* '();:@&=+$,/?%#[]"와 같은 [퍼센트 인코딩 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 "." 하나만 사용할 수 있습니다. |
 | Azure Storage SDK 버전 3.x의 일부분인 ListBlobs 메서드에서 오류가 발생합니다. |Media Services에서는 [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) 버전을 기반으로 SAS URL을 생성합니다. Storage SDK를 사용하여 Blob 컨테이너의 Blob을 나열하려는 경우 Storage SDK 버전 2.x에 포함된 [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) 메서드를 사용합니다. |
-| Media Services 제한 메커니즘은 서비스에 과도한 요청을 보내는 응용 프로그램의 리소스 사용을 제한합니다. 해당 서비스에서 "서비스를 사용할 수 없음" 503 HTTP 상태 코드를 반환할 수 있습니다. |자세한 내용은 [Media Services 오류 코드](media-services-encoding-error-codes.md)에서 503 HTTP 상태 코드 설명을 참조하세요. |
+| Media Services 제한 메커니즘은 서비스에 과도한 요청을 보내는 애플리케이션의 리소스 사용을 제한합니다. 해당 서비스에서 "서비스를 사용할 수 없음" 503 HTTP 상태 코드를 반환할 수 있습니다. |자세한 내용은 [Media Services 오류 코드](media-services-encoding-error-codes.md)에서 503 HTTP 상태 코드 설명을 참조하세요. |
 | 엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수의 제한은 1,000개입니다. 공용 REST 버전 2에서는 쿼리 결과를 1,000개로 제한하기 때문입니다. |[이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 건너뛰기 및 포함(.NET)/top(REST)을 사용합니다. |
 | 일부 클라이언트에 부드러운 스트리밍 매니페스트의 반복 태그 문제가 발생할 수 있습니다. |자세한 내용은 [이 섹션](media-services-deliver-content-overview.md#known-issues)을 참조하세요. |
 | Media Services .NET SDK 개체는 직렬화할 수 없으며 따라서 Azure Redis Cache에서 작동하지 않습니다. |SDK AssetCollection 개체를 직렬화하여 Azure Redis Cache에 추가하려는 경우 예외가 throw됩니다. |
@@ -44,6 +44,10 @@ Azure Media Services에 대한 이 릴리스 정보에는 이전 릴리스 이�
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API 버전 기록
 Media Services REST API 버전 기록에 대한 자세한 내용은 [Azure Media Services REST API 참조]를 참조하세요.
+
+## <a name="december-2018"></a>2018년 12월
+
+Azure Media Services의 [Media Hyperlapse 미리 보기](media-services-hyperlapse-content.md) 기능은 곧 사용 중지됩니다. 2018년 12월 19일부터 Media Services는 Media Hyperlapse를 더 이상 변경하거나 개선하지 않습니다. 2019년 3월 29일에 사용 중지되며 더 이상 사용할 수 없습니다.
 
 ## <a name="october-2018"></a>2018년 10월
 
@@ -111,7 +115,7 @@ Azure Media Redactor의 일반 공급: 이 미디어 프로세서는 선택한 �
 
 ## <a name="january-2017-release"></a>2017년 1월 릴리스
 
-Media Services에서 스트리밍 엔드포인트는 추가 배포를 위해 CDN(Content Delivery Network) 또는 클라이언트 플레이어 응용 프로그램에 직접 콘텐츠를 배달할 수 있는 스트리밍 서비스를 나타냅니다. Media Services는 매끄러운 Azure Content Delivery Network 통합도 제공합니다. StreamingEndpoint 서비스의 아웃바운드 스트림은 Media Services 계정에서 자산의 라이브 스트림, 주문형 비디오 또는 점진적 다운로드일 수 있습니다. 각 Media Services 계정에는 기본 스트리밍 엔드포인트가 포함됩니다. 계정에서 추가 스트리밍 엔드포인트를 만들 수 있습니다. 
+Media Services에서 스트리밍 엔드포인트는 추가 배포를 위해 CDN(Content Delivery Network) 또는 클라이언트 플레이어 애플리케이션에 직접 콘텐츠를 배달할 수 있는 스트리밍 서비스를 나타냅니다. Media Services는 매끄러운 Azure Content Delivery Network 통합도 제공합니다. StreamingEndpoint 서비스의 아웃바운드 스트림은 Media Services 계정에서 자산의 라이브 스트림, 주문형 비디오 또는 점진적 다운로드일 수 있습니다. 각 Media Services 계정에는 기본 스트리밍 엔드포인트가 포함됩니다. 계정에서 추가 스트리밍 엔드포인트를 만들 수 있습니다. 
 
 스트리밍 엔드포인트 1.0 및 2.0이라는 두 가지 버전이 있습니다. 2017년 1월 10일부터 새로 만든 모든 Media Services 계정에는 버전 2.0 기본 스트리밍 엔드포인트가 포함됩니다. 이 계정에 추가하는 추가 스트리밍 엔드포인트도 버전 2.0입니다. 이 변경은 기존 계정에 영향을 주지 않습니다. 기존 스트리밍 엔드포인트인 버전 1.0을 2.0 버전으로 업그레이드할 수 있습니다. 이러한 변경으로 인한 동작, 청구 및 기능 변경 내용이 있습니다. 자세한 내용은 [스트리밍 엔드포인트 개요](media-services-streaming-endpoints-overview.md)를 참조하세요.
 
@@ -194,10 +198,10 @@ Azure SDK 팀은 Media Services에 대한 업데이트 및 새 기능을 포함�
 Media Services에서 제공하는 Widevine 라이선스 배달 서비스는 미리 보기로 제공됩니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)를 참조하세요.
 
 ## <a id="oct_changes_15"></a>2015년 10월 릴리스
-Media Services는 이제 브라질 남부, 인도 서부, 인도 남부 및 인도 중부 데이터 센터에서도 사용 가능합니다. 이제 Azure Portal을 사용하여 [Media Service 계정을 만들고](media-services-portal-create-account.md) [Media Services 설명서 웹 페이지](https://azure.microsoft.com/documentation/services/media-services/)에서 설명한 다양한 작업을 수행할 수 있습니다. Live Encoding은 이러한 데이터 센터에서 활성화되지 않습니다. 또한 일부 유형의 인코딩 예약 단위를 이러한 데이터 센터에서 사용할 수 없습니다.
+Media Services는 이제 다음과 같은 데이터 센터에서 사용할 수 있습니다. 브라질 남부, 인도 서부, 인도 남부 및 인도 중부. 이제 Azure Portal을 사용하여 [Media Service 계정을 만들고](media-services-portal-create-account.md) [Media Services 설명서 웹 페이지](https://azure.microsoft.com/documentation/services/media-services/)에서 설명한 다양한 작업을 수행할 수 있습니다. Live Encoding은 이러한 데이터 센터에서 활성화되지 않습니다. 또한 일부 유형의 인코딩 예약 단위를 이러한 데이터 센터에서 사용할 수 없습니다.
 
-* 브라질 남부: 표준 및 기본 인코딩 예약 단위만 사용 가능합니다.
-* 인도 서부, 인도 남부 및 인도 중부: 기본 인코딩 예약 단위만 사용 가능합니다.
+* 브라질 남부:                                          표준 및 기본 인코딩 예약 단위만 사용 가능합니다.
+* 인도 서부, 인도 남부 및 인도 중부:             기본 인코딩 예약 단위만 사용 가능합니다.
 
 ## <a id="september_changes_15"></a>2015년 9월 릴리스
 이제 Media Services에서는 Widevine 모듈식 DRM 기술을 사용하여 주문형 비디오와 라이브 스트림 둘 다를 보호하는 기능을 제공합니다. 다음과 같은 배달 서비스 파트너를 사용하여 Widevine 라이선스를 배달할 수 있습니다.
@@ -270,7 +274,7 @@ OpenID Connect 검색 문서를 노출하는 ID 공급자(Azure AD, Google 및 S
 ### <a name="media-services-net-sdk-updates"></a>Media Services .NET SDK 업데이트
 Media Services .NET SDK의 현재 버전은 3.2.0.0입니다. 다음이 업데이트되었습니다.
 
-* 주요 변경 내용: TokenRestrictionTemplate.Issuer 및 TokenRestrictionTemplate.Audience가 문자열 형식으로 변경되었습니다.
+* 호환성이 손상되는 변경 내용: TokenRestrictionTemplate.Issuer 및 TokenRestrictionTemplate.Audience가 문자열 형식으로 변경되었습니다.
 * 사용자 지정 다시 시도 정책 만들기 관련 업데이트가 수행되었습니다.
 * 파일 업로드 및 다운로드 관련 버그가 수정되었습니다.
 * 이제 MediaServicesCredentials 클래스에서는 기본 및 보조 액세스 제어 엔드포인트에 대한 인증을 허용합니다.
@@ -374,8 +378,8 @@ Media Services REST 메타데이터의 현재 버전은 2.7입니다. 최신 RES
 ## <a id="july_changes_14"></a>2014년 7월 릴리스
 Azure Media Services 패키지 작성 도구 및 암호기에 대한 다음 버그가 수정되었습니다.
 
-* 라이브 보관 자산을 HLS로 전송할 때 오디오만 다시 재생됩니다. 이 문제가 수정되어 이제 오디오와 비디오를 둘 다 재생할 수 있습니다.
-* HLS 및 AES 128비트 봉투 암호화에 자산을 패키지한 경우 Android 디바이스에서 패키지 스트림이 다시 재생되지 않습니다. 이 버그가 수정되어 HLS를 지원하는 Android 디바이스에서 패키지 스트림을 재생할 수 있습니다.
+* 라이브 보관 자산을 HLS로 전송할 때 오디오만 다시 재생합니다. 이 문제가 수정되어 현재 오디오와 비디오를 모두 재생할 수 있습니다.
+* 자산을 HLS 및 AES 128비트 봉투 암호화로 패키지하는 경우 Android 디바이스에서 패키지된 스트림이 다시 재생되지 않습니다. 이 버그가 수정되어 HLS를 지원하는 Android 디바이스에서 패키지된 스트림이 다시 재생됩니다.
 
 ## <a id="may_changes_14"></a>2014년 5월 릴리스
 ### <a id="may_14_changes"></a>일반 Media Services 업데이트
@@ -476,7 +480,7 @@ Media Services SDK 버전 3.0.0.0부터 [Azure AD Access Control Service](https:
     * StorageAccount 속성
     * StorageAccountName 속성
   
-    자세한 내용은 [여러 Storage 계정에서 Media Services 자산 관리](https://msdn.microsoft.com/library/azure/dn271889.aspx)를 참조하세요.
+      자세한 내용은 [여러 Storage 계정에서 Media Services 자산 관리](https://msdn.microsoft.com/library/azure/dn271889.aspx)를 참조하세요.
 * 알림 관련 API입니다. 버전 2.2.0.0부터는 Azure Queue Storage 알림을 수신 대기할 수 있습니다. 자세한 내용은 [Media Services 작업 알림 처리](https://msdn.microsoft.com/library/azure/dn261241.aspx)를 참조하세요.
   
     * Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions 속성
@@ -494,16 +498,16 @@ Media Services SDK 버전 3.0.0.0부터 [Azure AD Access Control Service](https:
 
 2012년 11월 SDK에서 확인되어 수정된 문제:
 
-* IAsset.Locators.Count: 이제 모든 로케이터가 삭제된 후 이 수가 새로운 IAsset 인터페이스에서 올바르게 보고됩니다.
-* IAssetFile.ContentFileSize: 이제 IAssetFile.Upload(filepath)에서 업로드한 후 이 값이 올바르게 설정됩니다.
-* IAssetFile.ContentFileSize: 이제 자산 파일을 만들 때 이 속성을 설정할 수 있습니다. 이전에는 읽기 전용이었습니다.
+* IAsset.Locators.Count: 이제 이 수는 모든 로케이터가 삭제된 후 새로운 IAsset 인터페이스에서 올바르게 보고됩니다.
+* IAssetFile.ContentFileSize: 이제 이 값은 IAssetFile.Upload(filepath)에서 업로드한 후 올바르게 설정됩니다.
+* IAssetFile.ContentFileSize: 이제 이 속성은 자산 파일을 만들 때 설정할 수 있습니다. 이전에는 읽기 전용이었습니다.
 * IAssetFile.Upload(filepath): 자산에 여러 파일을 업로드할 때 이 동기식 업로드 메서드가 "서버가 요청을 인증하지 못했습니다. 서명을 비롯한 권한 부여 헤더 값이 올바르게 구성되어 있는지 확인하세요." 오류를 Throw하는 문제를 해결합니다.
-* IAssetFile.UploadAsync: 5개의 파일로 파일의 동시 업로드를 제한하는 문제가 수정되었습니다.
-* IAssetFile.UploadProgressChanged: 이제 SDK에서 이 이벤트가 제공됩니다.
+* IAssetFile.UploadAsync: 파일의 동시 업로드를 5개의 파일로 제한하는 문제가 수정되었습니다.
+* IAssetFile.UploadProgressChanged: 이 이벤트는 이제 SDK에서 제공됩니다.
 * IAssetFile.DownloadAsync(string, BlobTransferClient, ILocator, CancellationToken): 이제 이 메서드 오버로드가 제공됩니다.
-* IAssetFile.DownloadAsync: 5개의 파일로 파일의 동시 다운로드를 제한하는 문제가 수정되었습니다.
+* IAssetFile.DownloadAsync: 파일의 동시 다운로드를 5개의 파일로 제한하는 문제가 수정되었습니다.
 * IAssetFile.Delete(): IAssetFile로 업로드된 파일이 없는 경우 delete를 호출하면 예외가 throw되는 문제가 수정되었습니다.
-* Jobs: 작업 템플릿을 사용하여 "MP4를 부드러운 스트림으로 변환 작업"과 "PlayReady Protection 작업"을 연결해도 작업이 전혀 만들어지지 않는 문제가 수정되었습니다.
+* 작업: 작업 템플릿을 사용하여 “MP4를 부드러운 스트림으로 변환 작업”과 “PlayReady Protection 작업”을 연결해도 작업이 전혀 만들어지지 않는 문제가 수정되었습니다.
 * EncryptionUtils.GetCertificateFromStore(): 이 메서드는 인증서 구성 문제로 인해 인증서를 찾지 못하여 발생하는 Null 참조 예외를 더 이상 Throw하지 않습니다.
 
 ## <a id="november_changes_12"></a>2012년 11월 릴리스
@@ -522,7 +526,7 @@ Media Services SDK 버전 3.0.0.0부터 [Azure AD Access Control Service](https:
     * IAssetFile은 FileInfo를 대체하며 동작이 다릅니다. 이를 사용하려면 IAssetFiles 개체를 인스턴스화한 후 Media Services SDK 또는 Storage SDK를 사용하여 파일을 업로드합니다. 사용할 수 있는 IAssetFile.Upload 오버로드는 다음과 같습니다.
   
         * IAssetFile.Upload(filePath): 스레드를 차단하는 동기 메서드로, 단일 파일을 업로드할 때만 권장됩니다.
-        * IAssetFile.UploadAsync(filePath, blobTransferClient, locator, cancellationToken): 비동기 메서드로 기본 설정된 업로드 메커니즘입니다. 
+        * IAssetFile.UploadAsync(filePath, blobTransferClient, locator, cancellationToken): 이 비동기 메서드는 기본 설정된 업로드 메커니즘입니다. 
     
             알려진 버그: 취소 토큰을 사용하는 경우 업로드가 취소됩니다. 작업에 취소 상태가 여러 번 발생할 수 있습니다. 예외를 올바르게 파악하여 처리해야 합니다.
 * 로케이터
@@ -538,7 +542,7 @@ Media Services SDK 버전 3.0.0.0부터 [Azure AD Access Control Service](https:
 * 로케이터
   
     * 이제 로케이터는 CreateLocator 메서드를 사용하여 만들어야 합니다. LocatorType.SAS 또는 LocatorType.OnDemandOrigin 열거 값을 만들려는 특정 로케이터 유형에 대한 인수로 사용해야 합니다.
-    * 로케이터에 새로운 속성이 추가되었으므로 콘텐츠에 사용할 수 있는 URI를 더욱 쉽게 얻을 수 있습니다. 이렇게 로케이터를 새롭게 디자인함으로써 향후 타사 제품으로 보다 유연하게 확장할 수 있으며 미디어 클라이언트 응용 프로그램의 사용 편의를 높일 수 있습니다.
+    * 로케이터에 새로운 속성이 추가되었으므로 콘텐츠에 사용할 수 있는 URI를 더욱 쉽게 얻을 수 있습니다. 이렇게 로케이터를 새롭게 디자인함으로써 향후 타사 제품으로 보다 유연하게 확장할 수 있으며 미디어 클라이언트 애플리케이션의 사용 편의를 높일 수 있습니다.
 * 비동기 메서드 지원
   
     * 모든 메서드에 비동기 지원이 추가되었습니다.

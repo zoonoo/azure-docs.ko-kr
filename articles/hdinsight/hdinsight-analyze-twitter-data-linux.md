@@ -9,27 +9,27 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 41b9d295837d377df98208d43c9cd4699f380b86
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a3687a4b8bb4e0d900ee96f52c40352db4e96df6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494376"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635564"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>HDInsight에서 Apache Hive 및 Apache Hadoop을 사용하여 Twitter 데이터 분석
 
 [Apache Hive](https://hive.apache.org/)를 사용하여 Twitter 데이터를 처리하는 방법을 알아봅니다. 결과는 특정 단어가 포함된 많은 트윗을 보낸 Twitter 사용자의 목록이 됩니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이 문서의 단계는 HDInsight 3.6에서 테스트했습니다.
 >
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 ## <a name="get-the-data"></a>데이터 가져오기
 
-Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSON(JavaScript Notation) 문서로서 검색할 수 있습니다. [OAuth](http://oauth.net) 는 API에 대한 인증을 필요로 합니다.
+Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSON(JavaScript Notation) 문서로서 검색할 수 있습니다. [OAuth](https://oauth.net) 는 API에 대한 인증을 필요로 합니다.
 
-### <a name="create-a-twitter-application"></a>Twitter 응용 프로그램 만들기
+### <a name="create-a-twitter-application"></a>Twitter 애플리케이션 만들기
 
 1. 웹 브라우저에서 [https://apps.twitter.com/](https://apps.twitter.com/)에 로그인합니다. Twitter 계정이 없는 경우 **지금 로그인** 링크를 클릭합니다.
 
@@ -41,9 +41,9 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
    |:--- |:--- |
    | 이름 |MyHDInsightApp |
    | 설명 |MyHDInsightApp |
-   | Website |http://www.myhdinsightapp.com |
+   | Website |https://www.myhdinsightapp.com |
 
-4. **Yes, I agree**를 선택한 후 **Create your Twitter application**을 클릭합니다.
+4. **Yes, I agree**를 선택한 후 **Twitter 애플리케이션 만들기**를 클릭합니다.
 
 5. **Permissions** 탭을 클릭합니다. 기본 권한은 **Read only**입니다.
 
@@ -59,7 +59,7 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
 
 다음 Python 코드는 Twitter에서 10,000개의 트윗을 다운로드하고 **tweets.txt**라는 파일에 저장합니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 다음 단계는 Python이 이미 설치되어 있으므로 HDInsight 클러스터에서 수행됩니다.
 
 1. SSH를 사용하여 HDInsight 클러스터에 연결합니다.
@@ -70,7 +70,7 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
 
     자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-3. 다음 명령을 사용하여 [Tweepy](http://www.tweepy.org/), [Progressbar](https://pypi.python.org/pypi/progressbar/2.2) 및 기타 필요한 패키지를 설치합니다.
+3. 다음 명령을 사용하여 [Tweepy](https://www.tweepy.org/), [Progressbar](https://pypi.python.org/pypi/progressbar/2.2) 및 기타 필요한 패키지를 설치합니다.
 
    ```bash
    sudo apt install python-dev libffi-dev libssl-dev
@@ -145,15 +145,15 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
    twitterStream.filter(track=["azure","cloud","hdinsight"])
    ```
 
-    > [!IMPORTANT]
-    > 다음 항목에 대한 자리 표시자 텍스트를 Twitter 응용 프로그램의 정보로 대체합니다.
+    > [!IMPORTANT]  
+    > 다음 항목에 대한 자리 표시자 텍스트를 Twitter 애플리케이션의 정보로 대체합니다.
     >
     > * `consumer_secret`
     > * `consumer_key`
     > * `access_token`
     > * `access_token_secret`
 
-    > [!TIP]
+    > [!TIP]  
     > 마지막 줄에서 토픽 필터를 조정하여 인기 키워드를 추적합니다. 스크립트를 실행할 때 인기 키워드를 사용하면 데이터를 더 빨리 캡처할 수 있습니다.
 
 6. **Ctrl + X**, **Y**를 차례로 사용하여 파일을 저장합니다.
@@ -166,7 +166,7 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
 
     진행률 표시기가 나타납니다. 진행률 표시기는 트윗이 다운로드되면서 100%까지 올라갑니다.
 
-   > [!NOTE]
+   > [!NOTE]  
    > 진행률 표시줄이 앞으로 이동하는 데 시간이 오래 걸리는 경우 추세 항목을 추적하는 필터를 변경해야 합니다. 필터에서 항목에 대한 트윗이 많을 경우 필요하면 10,000개의 트윗을 신속하게 가져올 수 있습니다.
 
 ### <a name="upload-the-data"></a>데이터 업로드
@@ -317,7 +317,7 @@ hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
 
     이 쿼리는 메시지 텍스트에 단어 **Azure**를 포함하는 최대 10개의 트윗을 반환합니다.
 
-    > [!NOTE]
+    > [!NOTE]  
     > `gettweets.py` 스크립트에서 필터를 변경한 경우 **Azure**를 사용한 필터 중 하나로 대체합니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -327,8 +327,8 @@ hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
 * [HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [HDInsight를 사용하여 비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data-linux.md)
 
-[curl]: http://curl.haxx.se
-[curl-download]: http://curl.haxx.se/download.html
+[curl]: https://curl.haxx.se
+[curl-download]: https://curl.haxx.se/download.html
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial
 

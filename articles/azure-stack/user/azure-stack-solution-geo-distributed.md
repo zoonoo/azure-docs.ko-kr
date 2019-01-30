@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 632393696274eaf6f876ea717b5fccf7d4fbea3f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: anajod
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: 7c7279f1895764c2a3ed73e824d44c2eed68240c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965396"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244584"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 지역 분산 앱 솔루션 만들기
 
@@ -41,7 +42,7 @@ ms.locfileid: "52965396"
 
 #### <a name="scalability-considerations"></a>확장성 고려 사항
 
-이 자습서를 사용 하 여 빌드됩니다 해결책은 확장성을 수용 합니다. 그러나 다른 Azure 및 온-프레미스 기술과 솔루션을 함께 사용 하는 경우 확장성 요구를 수용할 수 있습니다. 관리자 트래픽을 통해 자동 크기 조정을 통해 hyrbid 솔루션을 만드는 방법은 [Azure를 사용 하 여 클라우드 간 크기 조정 솔루션을 만드는](azure-stack-solution-cloud-burst.md)합니다.
+이 자습서를 사용 하 여 빌드됩니다 해결책은 확장성을 수용 합니다. 그러나 다른 Azure 및 온-프레미스 기술과 솔루션을 함께 사용 하는 경우 확장성 요구를 수용할 수 있습니다. 관리자 트래픽을 통해 자동 크기 조정을 사용 하 여 하이브리드 솔루션을 만드는 방법은 [Azure를 사용 하 여 클라우드 간 크기 조정 솔루션을 만드는](azure-stack-solution-cloud-burst.md)합니다.
 
 #### <a name="availability-considerations"></a>가용성 고려 사항
 
@@ -59,15 +60,15 @@ ms.locfileid: "52965396"
 
 분산된 된 앱 공간을 빌드하기 전에 도움이 될 수 있습니다 다음 기술 자료:
 
--   **앱에 대한 사용자 지정 도메인:** 고객이 앱에 액세스하는 데 사용할 사용자 지정 도메인 이름은 무엇입니까? 샘플 앱에 대 한 사용자 지정 도메인 이름은 *www.scalableasedemo.com 합니다.*
+-   **앱의 사용자 지정 도메인:** 고객이 앱에 액세스하는 데 사용할 사용자 지정 도메인 이름은 무엇인가요? 샘플 앱에 대 한 사용자 지정 도메인 이름은 *www.scalableasedemo.com 합니다.*
 
--   **Traffic Manager 도메인:** 도메인 이름을 만들 때 선택 해야 하는 [Azure Traffic Manager 프로필](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-profiles)합니다. 이 이름은 *trafficmanager.net* 접미사와 결합하여 Traffic Manager에서 관리되는 도메인 항목을 등록합니다. 샘플 앱의 경우 선택한 이름은 *scalable-ase-demo*입니다. 결과적으로, Traffic Manager에서 관리 되는 전체 도메인 이름은 됩니다 *확장 가능한 ase 가리킵니다*합니다.
+-   **트래픽 관리자 도메인:** 도메인 이름을 만들 때 선택 해야는 [Azure Traffic Manager 프로필](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-profiles)합니다. 이 이름은 *trafficmanager.net* 접미사와 결합하여 Traffic Manager에서 관리되는 도메인 항목을 등록합니다. 샘플 앱의 경우 선택한 이름은 *scalable-ase-demo*입니다. 결과적으로, Traffic Manager에서 관리 되는 전체 도메인 이름은 됩니다 *확장 가능한 ase 가리킵니다*합니다.
 
--   **앱 공간을 크기 조정하는 전략:** 응용 프로그램 공간은 단일 지역의 여러 App Service Environment에 걸쳐 분산됩니까? 여러 영역? 두 방법의 혼합? 결정은 고객 트래픽이 생성되는 기대치 뿐만 아니라 백 엔드 인프라를 지원하는 앱의 나머지 부분이 확장할 수 있는 방법에 기반해야 합니다. 예를 들어 100% 상태 비저장 응용 프로그램의 경우 Azure 지역 마다 여러 App Service Environment의 조합을 사용하여 앱을 크게 확장할 수 있으며 여러 Azure 지역에 걸쳐 배포된 App Service Environment로 곱해집니다. 15 + 글로벌 Azure 지역에서 선택할 수 있는 고객은 전세계 하이퍼 규모의 응용 프로그램 사용 공간을 진정으로 구축할 수 있습니다. 이 문서에 사용되는 샘플 앱의 경우 세 가지 App Service Environment를 단일 Azure 지역(미국 중남부)에서 만들었습니다.
+-   **앱 공간을 크기 조정하는 전략:** 애플리케이션 공간이 단일 Azure 지역의 여러 App Service Environment에 분산되나요? 여러 영역? 두 방법의 혼합? 결정은 고객 트래픽이 생성되는 기대치 뿐만 아니라 백 엔드 인프라를 지원하는 앱의 나머지 부분이 확장할 수 있는 방법에 기반해야 합니다. 예를 들어 100% 상태 비저장 애플리케이션의 경우 Azure 지역 마다 여러 App Service Environment의 조합을 사용하여 앱을 크게 확장할 수 있으며 여러 Azure 지역에 걸쳐 배포된 App Service Environment로 곱해집니다. 15 + 글로벌 Azure 지역에서 선택할 수 있는 고객은 전세계 하이퍼 규모의 응용 프로그램 사용 공간을 진정으로 구축할 수 있습니다. 이 문서에 사용되는 샘플 앱의 경우 세 가지 App Service Environment를 단일 Azure 지역(미국 중남부)에서 만들었습니다.
 
--   **App Service Environment에 대한 명명 규칙:** 각 App Service Environment에는 고유한 이름이 있어야 합니다. 하나 또는 두 개의 App Service Environment 외 각 App Service Environment를 식별 하는 데 명명 규칙에 유용 합니다. 샘플 앱의 경우 간단한 명명 규칙을 사용했습니다. 세 가지 App Service Environment의 이름은 *fe1ase*, *fe2ase*, 및 *fe3ase*입니다.
+-   **App Service Environment에 대한 명명 규칙:** 각 App Service Environment에 고유한 이름이 필요합니다. 하나 또는 두 개의 App Service Environment 외 각 App Service Environment를 식별 하는 데 명명 규칙에 유용 합니다. 샘플 앱의 경우 간단한 명명 규칙을 사용했습니다. 세 가지 App Service Environment의 이름은 *fe1ase*, *fe2ase*, 및 *fe3ase*입니다.
 
--   **앱에 대 한 명명 규칙:** 배포 된 앱의 각 인스턴스에 대해은 이름을 앱의 여러 인스턴스 배포 하므로 필요 합니다. App Service Environment를 사용 하 여 동일한 앱 이름은 여러 App Service Environment에 걸쳐 사용할 수 있습니다. 각 App Service Environment에 고유한 도메인 접미사가 있으므로 개발자는 각 환경에서 정확히 동일한 앱 이름을 다시 선택할 수 있습니다. 예를 들어, 개발자 같이 이름이 지정 된 앱을 가질 수: *myapp.foo1.p.azurewebsites.net*를 *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*등입니다. 이 시나리오에서는 앱에 대 한 각 앱 인스턴스는 고유한 이름을 갖습니다. 앱 인스턴스에 사용되는 이름은 *webfrontend1*, *webfrontend2* 및 *webfrontend3*입니다.
+-   **앱에 대한 명명 규칙:** 앱의 여러 인스턴스가 배포되기 때문에 배포된 앱의 인스턴스마다 이름이 필요합니다. App Service Environment를 사용 하 여 동일한 앱 이름은 여러 App Service Environment에 걸쳐 사용할 수 있습니다. 각 App Service Environment에 고유한 도메인 접미사가 있으므로 개발자는 각 환경에서 정확히 동일한 앱 이름을 다시 선택할 수 있습니다. 예를 들어, 개발자 같이 이름이 지정 된 앱을 가질 수: *myapp.foo1.p.azurewebsites.net*를 *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*등입니다. 이 시나리오에서는 앱에 대 한 각 앱 인스턴스는 고유한 이름을 갖습니다. 앱 인스턴스에 사용되는 이름은 *webfrontend1*, *webfrontend2* 및 *webfrontend3*입니다.
 
 > [!Tip]  
 > ![하이브리드 pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
@@ -75,7 +76,7 @@ ms.locfileid: "52965396"
 > 
 > 백서 [하이브리드 응용 프로그램에 대 한 디자인 고려 사항](https://aka.ms/hybrid-cloud-applications-pillars) (배치, 확장성, 가용성, 복원 력, 관리 효율성 및 보안) 소프트웨어 품질 핵심 요소를 디자인, 배포 및 운영에 대 한 검토 하이브리드 응용 프로그램입니다. 디자인 고려 사항을 프로덕션 환경에서 문제를 최소화 되는 하이브리드 응용 프로그램 디자인을 최적화 하는 데 도움이 됩니다.
 
-## <a name="part-1-create-a-geo-distributed-app"></a>1 부: 지리적으로 분산 된 앱 만들기
+## <a name="part-1-create-a-geo-distributed-app"></a>1부: 지리적으로 분산 된 앱 만들기
 
 이 부분에서는 웹 앱을 만들게 됩니다.
 
@@ -93,7 +94,7 @@ Azure 구독 및 Azure Stack 설치는 필요 합니다.
 
 ### <a name="obtain-a-custom-domain-and-configure-dns"></a>사용자 지정 도메인을 가져오고 DNS 구성
 
-DNS 영역 파일 foCreate 웹 앱 및 publishr 도메인을 업데이트 합니다. Azure AD는 사용자 지정 도메인 이름의 소유권을 확인할 수 있습니다. 사용 하 여 [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) Azure 내에서 Azure/Office 365/외부 DNS 레코드에서 DNS 항목을 추가 하거나 [다른 DNS 등록 기관](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)합니다.
+도메인에 대 한 DNS 영역 파일을 업데이트 합니다. Azure AD는 사용자 지정 도메인 이름의 소유권을 확인할 수 있습니다. 사용 하 여 [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) Azure 내에서 Azure/Office 365/외부 DNS 레코드에서 DNS 항목을 추가 하거나 [다른 DNS 등록 기관](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)합니다.
 
 1. 공용 등록을 사용 하 여 사용자 지정 도메인을 등록 합니다.
 
@@ -106,7 +107,7 @@ DNS 영역 파일 foCreate 웹 앱 및 publishr 도메인을 업데이트 합니
 하이브리드 Azure Stack 및 Azure에 웹 앱을 배포 하 고 두 클라우드 모두에 변경 내용 푸시 auto에 CI/CD를 설정 합니다.
 
 > [!Note]  
-> 신디케이티드 실행 (Windows Server 및 SQL) 및 App Service 배포에 적절 한 이미지를 사용 하 여 azure Stack가 필요 합니다. App Service 설명서를 검토 합니다. "[App Service on Azure Stack을 사용 하 여 시작 하기 전에](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" Azure Stack 운영자에 대 한 섹션입니다.
+> 신디케이티드 실행 (Windows Server 및 SQL) 및 App Service 배포에 적절 한 이미지를 사용 하 여 azure Stack가 필요 합니다. App Service 설명서를 검토 [App Service on Azure Stack을 사용 하 여 시작 하기 전에](../azure-stack-app-service-before-you-get-started.md) Azure Stack 운영자에 대 한 섹션입니다.
 
 #### <a name="add-code-to-azure-repos"></a>코드를 Azure 리포지토리 추가
 
@@ -240,9 +241,9 @@ Azure DevOps 및 Azure DevOps 서버 제공 항상 구성 및 관리 가능한 �
 > [!Note]  
 >  작업에 대 한 일부 설정을 수 자동으로 정의 된 [환경 변수](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) 템플릿에서 릴리스 정의 만들 때. 작업 설정;에서 이러한 설정은 수정할 수 없습니다. 대신 이러한 설정을 편집 하려면 부모 환경 항목을 선택 해야 합니다.
 
-## <a name="part-2-update-web-app-options"></a>2 부: 업데이트 웹 응용 프로그램 옵션
+## <a name="part-2-update-web-app-options"></a>2부: 웹 앱 옵션 업데이트
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 
+[Azure App Service](https://docs.microsoft.com/azure/app-service/overview)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 
 
 ![대체 텍스트](media/azure-stack-solution-geo-distributed/image27.png)
 
@@ -255,7 +256,7 @@ Azure DevOps 및 Azure DevOps 서버 제공 항상 구성 및 관리 가능한 �
 > [!Note]  
 >  모든 사용자 지정 DNS 이름에 루트 도메인을 제외 하 고 (example,northwind.com)에 대 한 CNAME을 사용 합니다.
 
-라이브 사이트 및 해당 DNS 도메인 이름을 App Service로 마이그레이션하려면 [활성 DNS 이름을 Azure App Service로 마이그레이션](https://docs.microsoft.com/azure/app-service/app-service-custom-domain-name-migrate)을 참조하세요.
+라이브 사이트 및 해당 DNS 도메인 이름을 App Service로 마이그레이션하려면 [활성 DNS 이름을 Azure App Service로 마이그레이션](https://docs.microsoft.com/azure/app-service/manage-custom-dns-migrate-domain)을 참조하세요.
 
 ### <a name="prerequisites"></a>필수 조건
 
@@ -273,10 +274,10 @@ Azure DevOps 및 Azure DevOps 서버 제공 항상 구성 및 관리 가능한 �
 
 -   Azure AD가 제공한 DNS 항목을 추가 하 여 도메인에 대 한 DNS 영역 파일을 업데이트 합니다.
 
-예를 들어, DNS 항목 fornorthwindcloud.comand www.northwindcloud.com 추가할 thenorthwindcloud.com 루트 도메인에 대 한 DNS 설정을 구성 합니다.
+예를 들어 northwindcloud.com 및 www.northwindcloud.com에 대 한 DNS 항목을 추가 하려면 northwindcloud.com 루트 도메인에 대 한 DNS 설정을 구성 합니다.
 
 > [!Note]  
->  사용 하 여 도메인 이름을 구입할 수는 [Azure portal](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app)합니다.  
+>  사용 하 여 도메인 이름을 구입할 수는 [Azure portal](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain)합니다.  
 > 사용자 지정 DNS 이름을 웹앱에 매핑하려면 [App Service 계획](https://azure.microsoft.com/pricing/details/app-service/)이 유료 계층(**공유**, **기본**, **표준** 또는 **프리미엄**)이어야 합니다.
 
 
@@ -302,7 +303,7 @@ DNS 레코드 페이지를 볼 수 있습니다 **내 도메인**합니다. 명�
 
 2.  하위 도메인을 앱의 기본 호스트 이름에 매핑할 CNAME 레코드를 추가 합니다.
 
-  namewwwto 매핑하는 CNAME 레코드를 추가 www.northwindcloud.comdomain 예를 들어 < 앱\_이름 >. azurewebsites.net입니다.
+  Www.northwindcloud.com 도메인 예제의 경우 이름을 매핑하는 CNAME 레코드를 추가 < 앱\_이름 >. azurewebsites.net입니다.
 
 CNAME을 추가한 후 DNS 레코드 페이지가 다음 예제와 같이 표시 됩니다.
 
@@ -359,7 +360,7 @@ CNAME을 추가한 후 DNS 레코드 페이지가 다음 예제와 같이 표시
 
 이전에 구성한 DNS 이름 찾습니다 (예를 들어 `northwindcloud.com`, www.northwindcloud.com 합니다.
 
-## <a name="part-3-bind-a-custom-ssl-cert"></a>3 부: 사용자 지정 SSL 인증서 바인딩
+## <a name="part-3-bind-a-custom-ssl-cert"></a>3부. 사용자 지정 SSL 인증서 바인딩
 
 이 부분:
 

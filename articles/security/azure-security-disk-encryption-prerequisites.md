@@ -1,26 +1,29 @@
 ---
-title: Azure Disk Encryption 필수 구성 요소 | Microsoft Docs
+title: 필수 구성 요소 - IaaS VM용 Azure Disk Encryption | Microsoft Docs
 description: 이 문서에서는 IaaS VM용 Microsoft Azure Disk Encryption을 사용하기 위한 필수 구성 요소를 설명합니다.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/14/2018
-ms.openlocfilehash: ad8bf0217dcd07a7272a220f2d91ed6bc40523bc
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.date: 01/14/2019
+ms.custom: seodec18
+ms.openlocfilehash: 5e4a3a1fd450cf855e0ced142e6bc93d4536f2a8
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498592"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827723"
 ---
-# <a name="azure-disk-encryption-prerequisites"></a>Azure Disk Encryption 필수 구성 요소 
+# <a name="azure-disk-encryption-prerequisites"></a>Azure Disk Encryption 필수 구성 요소
+
  'Azure Disk Encryption 필수 구성 요소'라는 이 문서에서는 Azure Disk Encryption을 사용하기 전에 필요한 항목에 대해 설명합니다. Azure Disk Encryption은 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)와 통합되어 암호화 키를 관리하는 데 도움이 됩니다. [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure Disk Encryption을 구성할 수 있습니다.
 
 [Azure Disk Encryption 개요](azure-security-disk-encryption-overview.md) 문서에서 설명한 지원되는 시나리오에 대해 Azure IaaS VM에서 Azure Disk Encryption을 사용하도록 설정하려면 먼저 필수 구성 요소가 준비되어 있어야 합니다. 
 
-> [!NOTE]
-> 특정 권장 사항으로 인해 데이터, 네트워크 또는 계산 리소스 사용량이 증가할 수 있으며 이로 인해 라이선스 또는 구독 비용이 발생합니다. 사용자는 유효한 활성 Azure 구독을 포함하여 지원되는 지역에서 Azure에 리소스를 만들어야 합니다.
+> [!WARNING]
+> - 이전에 [Azure AD 앱에서 Azure Disk Encryption](azure-security-disk-encryption-prerequisites-aad.md)를 사용하여 이 VM을 암호화한 경우에는 VM을 암호화하는 데 이 옵션을 계속 사용해야 합니다. 이는 지원되는 시나리오가 아니므로 이 암호화된 VM에서는 [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md)을 사용할 수 없습니다. 즉, 이 암호화된 VM을 위해 AAD 애플리케이션에서 전환하는 기능은 아직 지원되지 않습니다.
+> - 특정 권장 사항으로 인해 데이터, 네트워크 또는 계산 리소스 사용량이 증가할 수 있으며 이로 인해 라이선스 또는 구독 비용이 발생합니다. 사용자는 유효한 활성 Azure 구독을 포함하여 지원되는 지역에서 Azure에 리소스를 만들어야 합니다.
 
 
 ## <a name="bkmk_OSs"></a> 지원되는 운영 체제
@@ -56,7 +59,7 @@ Azure Disk Encryption이 지원되는 운영 체제는 다음과 같습니다.
 **그룹 정책:**
  - Azure Disk Encryption 솔루션은 Windows IaaS VM에 대해 BitLocker 외부 키 보호기를 사용합니다. 도메인 가입 VM의 경우 TPM 보호기를 적용하는 그룹 정책을 푸시하지 않습니다. "호환되는 TPM이 없이 BitLocker 허용"에 대한 그룹 정책 정보는 [BitLocker 그룹 정책 참조](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup)를 참조하세요.
 
--  사용자 지정 그룹 정책을 사용하는 도메인 가입 가상 머신의 Bitlocker 정책에는 [Bitlocker 복구 정보의 사용자 저장소 구성 -> 256비트 복구 키 허용](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings) 설정이 포함되어야 합니다. Bitlocker에 대한 사용자 지정 그룹 정책 설정이 호환되지 않으면 Azure Disk Encryption이 실패합니다. 올바른 정책 설정이 없는 머신에서 새 정책을 적용하고, 새 정책을 강제로 업데이트한(gpupdate.exe /force) 다음, 다시 시작해야 할 수 있습니다.  
+-  사용자 지정 그룹 정책을 사용하는 도메인 가입 가상 머신의 BitLocker 정책은 다음 설정을 포함해야 합니다. [bitlocker 복구 정보의 사용자 스토리지 구성 -> 256비트 복구 키 허용](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). BitLocker에 대한 사용자 지정 그룹 정책 설정이 호환되지 않으면 Azure Disk Encryption이 실패합니다. 올바른 정책 설정이 없는 머신에서 새 정책을 적용하고, 새 정책을 강제로 업데이트한(gpupdate.exe /force) 다음, 다시 시작해야 할 수 있습니다.  
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
@@ -64,12 +67,10 @@ Azure Disk Encryption이 지원되는 운영 체제는 다음과 같습니다.
 
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>로컬 머신에서 사용할 Azure PowerShell 설치(선택 사항): 
 1. 운영 체제에 대한 링크의 지침을 수행한 다음, 아래의 나머지 단계를 계속 진행합니다.      
-    - [Windows용 Azure PowerShell 설치 및 구성](/powershell/azure/install-azurerm-ps). 
+    - [Windows용 Azure PowerShell 설치 및 구성](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0). 
         - PowerShellGet, Azure PowerShell을 설치하고 AzureRM 모듈을 로드합니다. 
-    - [macOS 및 Linux에서 Azure PowerShell 설치 및 구성](/powershell/azure/install-azurermps-maclinux)
-        -  PowerShell Core, .NET Core용 Azure PowerShell을 설치하고 Az 모듈을 로드합니다.
 
-2. 설치된 AzureRM 모듈 버전을 확인합니다. 필요한 경우 [Azure PowerShell 모듈을 업데이트](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module)합니다.
+2. 설치된 AzureRM 모듈 버전을 확인합니다. 필요한 경우 [Azure PowerShell 모듈을 업데이트](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0#update-the-azure-powershell-module)합니다.
     -  AzureRM 모듈 버전은 6.0.0 이상이어야 합니다.
     - 최신 AzureRM 모듈 버전을 사용하는 것이 좋습니다.
 
@@ -122,7 +123,7 @@ Azure Disk Encryption이 지원되는 운영 체제는 다음과 같습니다.
 
 
 ## <a name="prerequisite-workflow-for-key-vault"></a>Key Vault에 대한 필수 구성 요소 워크플로
-Azure Disk Encryption에 대한 Key Vault 및 Azure AD 필수 구성 요소에 이미 익숙한 경우 [Azure Disk Encryption 필수 구성 요소 PowerShell 스크립트](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 )를 사용할 수 있습니다. 필수 구성 요소 스크립트 사용에 대한 자세한 내용은 [VM 암호화 빠른 시작](quick-encrypt-vm-powershell.md) 및 [Azure Disk Encryption 부록](azure-security-disk-encryption-appendix.md#bkmk_prereq-script)을 참조하세요. 
+Azure Disk Encryption에 대한 Key Vault 및 Azure AD 필수 구성 요소에 이미 익숙한 경우 [Azure Disk Encryption 필수 구성 요소 PowerShell 스크립트](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 )를 사용할 수 있습니다. 필수 구성 요소 스크립트 사용에 대한 자세한 내용은 [VM 암호화 빠른 시작](quick-encrypt-vm-powershell.md) 및 [Azure Disk Encryption 부록](azure-security-disk-encryption-appendix.md#bkmk_prereq-script)을 참조하세요. 
 
 1. 필요한 경우 리소스 그룹을 만듭니다.
 2. 키 자격 증명 모음을 만듭니다. 
@@ -208,7 +209,7 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
   - **필요한 경우 템플릿 배포에 Key Vault 사용:** 이 키 자격 증명 모음이 템플릿 배포에서 참조되는 경우 Azure Resource Manager에서 이 키 자격 증명 모음으로부터 비밀을 가져올 수 있도록 합니다.
 
      ```azurepowershell-interactive             
-     Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForTemplateDeployment`
+     Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForTemplateDeployment
      ```
 
 ### <a name="bkmk_KVperCLI"></a> Azure CLI를 사용하여 키 자격 증명 모음에 대한 고급 액세스 정책 설정
@@ -226,7 +227,7 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
      az keyvault update --name "MySecureVault" --resource-group "MySecureRG" --enabled-for-deployment "true"
      ``` 
 
- - **필요한 경우 템플릿 배포에 Key Vault 사용:** Resource Manager에서 자격 증명 모음으로부터 비밀을 검색할 수 있도록 허용합니다.
+ - **필요한 경우 템플릿 배포에 Key Vault 사용:** Resource Manager가 자격 증명 모음에서 비밀을 검색할 수 있습니다.
      ```azurecli-interactive  
      az keyvault update --name "MySecureVault" --resource-group "MySecureRG" --enabled-for-template-deployment "true"
      ```

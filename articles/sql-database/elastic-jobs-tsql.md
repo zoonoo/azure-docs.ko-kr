@@ -3,27 +3,27 @@ title: T-SQL(Transact-SQL)을 사용하여 Azure SQL Elastic Database 작업 만
 description: T-SQL(Transact-SQL)을 사용하여 Elastic Database 작업 에이전트가 있는 여러 데이터베이스에서 스크립트를 실행합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 ms.author: jaredmoo
 author: jaredmoo
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 49fe1fc79ac94b798cb257b961c36a6258fb00d9
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: e00722259abaa02d3dce6ca26c8cd0ea7c42db29
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056790"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449404"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>T-SQL(Transact-SQL)을 사용하여 Elastic Database 작업 만들기 및 관리
 
 이 문서에서는 T-SQL을 사용하여 탄력적 작업을 시작할 수 있는 다양한 예제 시나리오를 제공합니다.
 
-예제에서는 [*작업 데이터베이스*](elastic-jobs-overview.md#job-database)에서 사용할 수 있는 [저장 프로시저](#job-stored-procedures)와 [보기](#job-views)를 사용합니다.
+예제에서는 [*작업 데이터베이스*](sql-database-job-automation-overview.md#job-database)에서 사용할 수 있는 [저장 프로시저](#job-stored-procedures)와 [보기](#job-views)를 사용합니다.
 
 T-SQL(Transact-SQL)은 작업을 생성, 구성, 실행 및 관리하는 데 사용됩니다. 탄력적 작업 에이전트 만들기는 T-SQL에서 지원되지 않으므로, 먼저 포털 또는 [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent)을 사용하여 *탄력적 작업 에이전트*를 만들어야 합니다.
 
@@ -53,7 +53,7 @@ GO
 ## <a name="create-a-target-group-servers"></a>대상 그룹(서버) 만들기
 
 다음 예제에서는 서버의 모든 데이터베이스에 대해 작업을 실행하는 방법을 보여 줍니다.  
-[*작업 데이터베이스*](elastic-jobs-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](sql-database-job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
 
 
 ```sql
@@ -78,7 +78,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ## <a name="exclude-a-single-database"></a>단일 데이터베이스 제외
 
 다음 예제에서는 *MappingDB*라는 데이터베이스를 제외한 서버의 모든 데이터베이스에 대해 작업을 실행하는 방법을 보여 줍니다.  
-[*작업 데이터베이스*](elastic-jobs-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](sql-database-job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -121,7 +121,7 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name = N'ServerGrou
 ## <a name="create-a-target-group-pools"></a>대상 그룹(풀) 만들기
 
 다음 예제에서는 하나 이상의 탄력적 풀에 있는 모든 데이터베이스를 대상으로 지정하는 방법을 보여 줍니다.  
-[*작업 데이터베이스*](elastic-jobs-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](sql-database-job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -146,7 +146,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name = N'PoolGroup';
 ## <a name="deploy-new-schema-to-many-databases"></a>여러 데이터베이스에 새 스키마 배포
 
 다음 예제에서는 새 스키마를 모든 데이터베이스에 배포하는 방법을 보여 줍니다.  
-[*작업 데이터베이스*](elastic-jobs-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](sql-database-job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
 
 
 ```sql
@@ -195,7 +195,7 @@ CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
 2. 고유 식별자의 데이터 형식을 사용하는 internal_execution_id에 대한 추가 열입니다.
 3. internal_execution_id 열에서 “IX_<TableName>_Internal_Execution_ID”로 명명된 비클러스터형 인덱스입니다.
 
-[*작업 데이터베이스*](elastic-jobs-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](sql-database-job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -210,9 +210,9 @@ EXEC jobs.sp_add_jobstep
 @credential_name='myjobcred',
 @target_group_name='PoolGroup',
 @output_type='SqlDatabase',
-@output_credential_name=’myjobcred’,
-@output_server_name=’server1.database.windows.net',
-@output_database_name=’<resultsdb>',
+@output_credential_name='myjobcred',
+@output_server_name='server1.database.windows.net',
+@output_database_name='<resultsdb>',
 @output_table_name='<resutlstable>'
 Create a job to monitor pool performance
 --Connect to the job database specified when creating the job agent
@@ -257,8 +257,8 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
 @target_group_name='MasterGroup',
 @output_type='SqlDatabase',
 @output_credential_name='myjobcred',
-@output_server_name=’server1.database.windows.net',
-@output_database_name=’resultsdb',
+@output_server_name='server1.database.windows.net',
+@output_database_name='resultsdb',
 @output_table_name='resutlstable'
 ```
 
@@ -266,7 +266,7 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
 ## <a name="view-job-definitions"></a>작업 정의 보기
 
 다음 예제에서는 현재 작업 정의를 보는 방법을 보여 줍니다.  
-[*작업 데이터베이스*](elastic-jobs-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](sql-database-job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -287,7 +287,7 @@ select * from jobs.jobsteps
 ## <a name="begin-ad-hoc-execution-of-a-job"></a>작업 임시 실행 시작
 
 다음 예제에서는 작업을 즉시 시작하는 방법을 보여 줍니다.  
-[*작업 데이터베이스*](elastic-jobs-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](sql-database-job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -310,7 +310,7 @@ exec jobs.sp_start_job 'CreateTableTest', 1
 ## <a name="schedule-execution-of-a-job"></a>작업 실행 예약
 
 다음 예제에서는 나중에 실행하도록 작업을 예약하는 방법을 보여 줍니다.  
-[*작업 데이터베이스*](elastic-jobs-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](sql-database-job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -325,12 +325,12 @@ EXEC jobs.sp_update_job
 ## <a name="monitor-job-execution-status"></a>작업 실행 상태 모니터링
 
 다음 예제에서는 모든 작업에 대한 실행 상태 세부 정보를 보는 방법을 보여 줍니다.  
-[*작업 데이터베이스*](elastic-jobs-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](sql-database-job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
---View top-level execution status for the job named ‘ResultsPoolJob’
+--View top-level execution status for the job named 'ResultsPoolJob'
 SELECT * FROM jobs.job_executions 
 WHERE job_name = 'ResultsPoolsJob' and step_id IS NULL
 ORDER BY start_time DESC
@@ -339,7 +339,7 @@ ORDER BY start_time DESC
 SELECT * FROM jobs.job_executions WHERE step_id IS NULL
 ORDER BY start_time DESC
 
---View all execution statuses for job named ‘ResultsPoolsJob’
+--View all execution statuses for job named 'ResultsPoolsJob'
 SELECT * FROM jobs.job_executions 
 WHERE job_name = 'ResultsPoolsJob' 
 ORDER BY start_time DESC
@@ -354,7 +354,7 @@ ORDER BY start_time DESC
 ## <a name="cancel-a-job"></a>작업 취소
 
 다음 예제에서는 작업을 취소하는 방법을 보여 줍니다.  
-[*작업 데이터베이스*](elastic-jobs-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](sql-database-job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -373,7 +373,7 @@ EXEC jobs.sp_stop_job '01234567-89ab-cdef-0123-456789abcdef'
 ## <a name="delete-old-job-history"></a>이전 작업 기록 삭제
 
 다음 예제에서는 특정 날짜 이전의 작업 기록을 삭제하는 방법을 보여 줍니다.  
-[*작업 데이터베이스*](elastic-jobs-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](sql-database-job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -387,7 +387,7 @@ EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-
 ## <a name="delete-a-job-and-all-its-job-history"></a>작업 및 관련된 모든 작업 기록 삭제
 
 다음 예제에서는 작업 및 관련된 모든 작업 기록을 삭제하는 방법을 보여 줍니다.  
-[*작업 데이터베이스*](elastic-jobs-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](sql-database-job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -402,7 +402,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 ## <a name="job-stored-procedures"></a>작업 저장 프로시저
 
-[작업 데이터베이스](elastic-jobs-overview.md#job-database)에 있는 저장 프로시저는 다음과 같습니다.
+[작업 데이터베이스](sql-database-job-automation-overview.md#job-database)에 있는 저장 프로시저는 다음과 같습니다.
 
 
 
@@ -644,10 +644,10 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 [ **@command =** ] 'command'  
 명령은 유효한 T-SQL 스크립트여야 하며, 이 작업 단계에서 실행됩니다. 명령은 nvarchar(max) 형식이며, 기본값은 NULL입니다.
 
-[ **@credential_name =** ] 'credential_name'  
+[ **@credential_name =** ] ‘credential_name’  
 이 단계를 실행할 때 대상 그룹 내의 각 대상 데이터베이스에 연결하는 데 사용되는 이 작업 제어 데이터베이스에 저장된 데이터베이스 범위 자격 증명의 이름입니다. credential_name은 nvarchar(128) 형식입니다.
 
-[ **@target_group_name =** ] 'target-group_name'  
+[ **@target_group_name =** ] ‘target-group_name’  
 작업 단계를 실행할 대상 데이터베이스가 포함된 대상 그룹의 이름입니다. target_group_name은 nvarchar(128) 형식입니다.
 
 [ **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
@@ -774,10 +774,10 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 [ **@command =** ] 'command'  
 명령은 유효한 T-SQL 스크립트여야 하며, 이 작업 단계에서 실행됩니다. 명령은 nvarchar(max) 형식이며, 기본값은 NULL입니다.
 
-[ **@credential_name =** ] 'credential_name'  
+[ **@credential_name =** ] ‘credential_name’  
 이 단계를 실행할 때 대상 그룹 내의 각 대상 데이터베이스에 연결하는 데 사용되는 이 작업 제어 데이터베이스에 저장된 데이터베이스 범위 자격 증명의 이름입니다. credential_name은 nvarchar(128) 형식입니다.
 
-[ **@target_group_name =** ] 'target-group_name'  
+[ **@target_group_name =** ] ‘target-group_name’  
 작업 단계를 실행할 대상 데이터베이스가 포함된 대상 그룹의 이름입니다. target_group_name은 nvarchar(128) 형식입니다.
 
 [ **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
@@ -1011,14 +1011,14 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 ```sql
 [jobs].sp_add_target_group_member [ @target_group_name = ] 'target_group_name'
-         [ @membership_type = ] ‘membership_type’ ]   
-        [ , [ @target_type = ] ‘target_type’ ]   
-        [ , [ @refresh_credential_name = ] ‘refresh_credential_name’ ]   
-        [ , [ @server_name = ] ‘server_name’ ]   
-        [ , [ @database_name = ] ‘database_name’ ]   
-        [ , [ @elastic_pool_name = ] ‘elastic_pool_name’ ]   
-        [ , [ @shard_map_name = ] ‘shard_map_name’ ]   
-        [ , [ @target_id = ] ‘target_id’ OUTPUT ]
+         [ @membership_type = ] 'membership_type' ]   
+        [ , [ @target_type = ] 'target_type' ]   
+        [ , [ @refresh_credential_name = ] 'refresh_credential_name' ]   
+        [ , [ @server_name = ] 'server_name' ]   
+        [ , [ @database_name = ] 'database_name' ]   
+        [ , [ @elastic_pool_name = ] 'elastic_pool_name' ]   
+        [ , [ @shard_map_name = ] 'shard_map_name' ]   
+        [ , [ @target_id = ] 'target_id' OUTPUT ]
 ```
 
 #### <a name="arguments"></a>인수
@@ -1040,10 +1040,10 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 [ **@database_name =** ] 'database_name'  
 지정된 대상 그룹에 추가해야 하는 데이터베이스의 이름입니다. target_type이 'SqlDatabase'이면 database_name을 지정해야 합니다. database_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
-[ **@elastic_pool_name =** ] 'elastic_pool_name'  
+[ **@elastic_pool_name =** ] ‘elastic_pool_name’  
 지정된 대상 그룹에 추가해야 하는 탄력적 풀의 이름입니다. target_type이 'SqlElasticPool'이면 elastic_pool_name을 지정해야 합니다. elastic_pool_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
-[ **@shard_map_name =** ] 'shard_map_name'  
+[ **@shard_map_name =** ] ‘shard_map_name’  
 지정된 대상 그룹에 추가해야 하는 분할된 맵 풀의 이름입니다. target_type이 'SqlSqlShardMap'이면 elastic_pool_name을 지정해야 합니다. shard_map_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
 [ **@target_id =** ] target_group_id OUTPUT  
@@ -1101,7 +1101,7 @@ GO
 
 ```sql
 [jobs].sp_delete_target_group_member [ @target_group_name = ] 'target_group_name'
-        [ , [ @target_id = ] ‘target_id’]
+        [ , [ @target_id = ] 'target_id']
 ```
 
 
@@ -1190,7 +1190,7 @@ GO
 
 ## <a name="job-views"></a>작업 보기
 
-[작업 데이터베이스](elastic-jobs-overview.md#job-database)에서 사용할 수 있는 보기는 다음과 같습니다.
+[작업 데이터베이스](sql-database-job-automation-overview.md#job-database)에서 사용할 수 있는 보기는 다음과 같습니다.
 
 
 |보기  |설명  |
@@ -1219,7 +1219,7 @@ GO
 |**job_version**    |int    |작업 버전입니다(작업이 수정될 때마다 자동으로 업데이트됨).
 |**step_id**    |int|   이 작업의 단계에 대한 고유 ID입니다. NULL은 부모 작업 실행임을 나타냅니다.
 |**is_active**| bit |정보가 활성 또는 비활성 상태인지 여부를 나타냅니다. 1은 활성 작업을 나타내고, 0은 비활성 작업을 나타냅니다.
-|**lifecycle**| nvarchar(50)|작업 상태를 나타내는 값: 'Created', 'In Progress', 'Failed', 'Succeeded', 'Skipped', 'SucceededWithSkipped'|
+|**lifecycle**| nvarchar(50)|작업 상태를 나타내는 값: ‘Created’, ‘In Progress’, ‘Failed’, ‘Succeeded’, ‘Skipped’, ‘SucceededWithSkipped’|
 |**create_time**|   datetime2(7)|   작업을 만든 날짜 및 시간입니다.
 |**start_time** |datetime2(7)|  작업 실행을 시작한 날짜 및 시간입니다. 작업이 아직 실행되지 않은 경우 NULL입니다.
 |**end_time**|  datetime2(7)    |작업 실행을 완료한 날짜 및 시간입니다. 작업이 아직 실행되지 않았거나 실행이 아직 완료되지 않은 경우 NULL입니다.

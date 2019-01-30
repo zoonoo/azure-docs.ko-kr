@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 텍스트 추출 - SDK, C# - Computer Vision'
+title: '빠른 시작: 필기 텍스트 추출 - SDK, C#'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Computer Vision Windows C# 클라이언트 라이브러리를 사용하여 이미지에서 텍스트를 추출합니다.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/27/2018
 ms.author: pafarley
-ms.openlocfilehash: c1b25db440023618d3d633f9a2b2ebcd5c0a6293
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: 7ed33290a9c5cede6fd80058d8557eae65c11b28
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852489"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53578600"
 ---
 # <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>빠른 시작: Computer Vision SDK 및 C#을 사용하여 텍스트를 추출
 
@@ -30,7 +31,7 @@ ms.locfileid: "51852489"
 ## <a name="recognizetextasync-method"></a>RecognizeTextAsync 메서드
 
 > [!TIP]
-> [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)에서 최신 코드를 Visual Studio 솔루션으로 가져옵니다.
+> [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)에서 최신 코드를 Visual Studio 솔루션으로 가져옵니다.
 
 `RecognizeTextAsync` 및 `RecognizeTextInStreamAsync` 메서드는 원격 및 로컬 이미지 각각에 대해 [텍스트 인식 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200)를 래핑합니다. `GetTextOperationResultAsync` 메서드는 [텍스트 인식 작업 결과 가져오기 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201)를 래핑합니다.  이 메서드를 사용하여 이미지의 텍스트를 감지하고 인식된 문자를 머신에서 사용 가능한 문자 스트림으로 추출할 수 있습니다.
 

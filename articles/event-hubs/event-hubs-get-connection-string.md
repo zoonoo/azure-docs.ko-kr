@@ -1,20 +1,21 @@
 ---
-title: Azure Event Hubs 연결 문자열 가져오기 | Microsoft Docs
-description: Azure Event Hubs 연결 문자열을 가져옵니다.
+title: 연결 문자열 가져오기 - Azure Event Hubs | Microsoft Docs
+description: 이 문서에서는 클라이언트가 Azure Event Hubs에 연결하는 데 사용할 수 있는 연결 문자열을 가져오기 위한 지침을 제공합니다.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.date: 10/15/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: bfc82f2dc280c3528f38c9cb466473a76328e552
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 31220002f8529fd31407470e7650a4c97b62f2b4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285385"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53535277"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Event Hubs 연결 문자열 가져오기
 
@@ -50,7 +51,7 @@ Event Hubs 네임스페이스가 있으면 아래와 같이 포털의 개요 섹
 ![Event Hubs에서 연결 문자열 가져오기](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
 
 ## <a name="getting-the-connection-string-with-azure-powershell"></a>Azure PowerShell을 사용하여 연결 문자열 가져오기
-Get-AzureRmEventHubNamespaceKey를 사용하여 아래와 같이 지정된 정책/규칙 이름에 대한 연결 문자열을 가져올 수 있습니다.
+Get-AzureRmEventHubNamespaceKey를 사용하여 아래와 같이 특정 정책/규칙 이름에 대한 연결 문자열을 가져올 수 있습니다.
 
 ```azurepowershell-interactive
 Get-AzureRmEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey

@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 34ca5667b5bf47bec8c48a7e5836b7d51ad08724
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 88225ee7aeefd9030e754f2b1abc66e4c05e5c6b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986820"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431181"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>자습서: B2B 게스트 사용자에 다단계 인증 적용
 
@@ -25,10 +25,10 @@ ms.locfileid: "45986820"
 
 ![MFA가 필요한 B2B 앱](media/tutorial-mfa/aad-b2b-mfa-example.png)
 
-1.  회사 A 초대장의 관리자 또는 직원은 액세스에 MFA가 필요하도록 구성된 클라우드 또는 온-프레미스 응용 프로그램을 사용하도록 게스트 사용자를 초대합니다.
+1.  회사 A 초대장의 관리자 또는 직원은 액세스에 MFA가 필요하도록 구성된 클라우드 또는 온-프레미스 애플리케이션을 사용하도록 게스트 사용자를 초대합니다.
 2.  게스트 사용자는 자신의 회사, 학교 또는 소셜 ID로 로그인합니다. 
 3.  사용자는 MFA 인증 질문을 완료해야 합니다. 
-4.  사용자는 회사 A와 함께 MFA를 설정하고 해당 MFA 옵션을 선택합니다. 사용자는 응용 프로그램에 액세스할 수 있습니다.
+4.  사용자는 회사 A와 함께 MFA를 설정하고 해당 MFA 옵션을 선택합니다. 사용자는 애플리케이션에 액세스할 수 있습니다.
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -112,7 +112,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     ![Azure Active Directory 선택](media/tutorial-mfa/tutorial-mfa-whatif-2.png)
 
 3.  **클라우드 앱**을 선택합니다.
-4.  **클라우드 앱** 페이지에서 **앱 선택**을 선택한 후 **선택**을 클릭합니다. 응용 프로그램 목록에서 **Microsoft Azure 관리**를 선택한 후 **선택**을 클릭합니다. 
+4.  **클라우드 앱** 페이지에서 **앱 선택**을 선택한 후 **선택**을 클릭합니다. 애플리케이션 목록에서 **Microsoft Azure 관리**를 선택한 후 **선택**을 클릭합니다. 
 
     ![Azure Active Directory 선택](media/tutorial-mfa/tutorial-mfa-whatif-3.png)
 

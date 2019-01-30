@@ -10,17 +10,15 @@ ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: d0156ccc3caea2f47296740d57422ccc706f84f1
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c8cc6ccae59b8ee530ad679c492419a348423553
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634237"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184121"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Log Analytics를 사용하여 Active Directory 복제 상태 모니터링
 
@@ -33,7 +31,7 @@ AD 복제 상태 솔루션 팩은 Active Directory 환경에서 복제 실패가
 ## <a name="installing-and-configuring-the-solution"></a>솔루션 설치 및 구성
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
-* 평가할 도메인의 구성원인 도메인 컨트롤러에 에이전트를 설치해야 합니다. 또는 구성원 서버에 에이전트를 설치하고 Log Analytics에 AD 복제 데이터를 보내도록 에이전트를 구성해야 합니다. Windows 컴퓨터를 Log Analytics에 연결하는 방법을 알아보려면 [Log Analytics에 Windows 컴퓨터 연결](../../azure-monitor/platform/agent-windows.md)을 참조하세요. 도메인 컨트롤러가 Log Analytics에 연결하려는 기존 System Center Operations Manager 환경에 이미 속하는 경우 [Log Analytics에 Operations Manager 연결](../../log-analytics/log-analytics-om-agents.md)을 참조하세요.
+* 평가할 도메인의 구성원인 도메인 컨트롤러에 에이전트를 설치해야 합니다. 또는 구성원 서버에 에이전트를 설치하고 Log Analytics에 AD 복제 데이터를 보내도록 에이전트를 구성해야 합니다. Windows 컴퓨터를 Log Analytics에 연결하는 방법을 알아보려면 [Log Analytics에 Windows 컴퓨터 연결](../../azure-monitor/platform/agent-windows.md)을 참조하세요. 도메인 컨트롤러가 Log Analytics에 연결하려는 기존 System Center Operations Manager 환경에 이미 속하는 경우 [Log Analytics에 Operations Manager 연결](../../azure-monitor/platform/om-agents.md)을 참조하세요.
 * [솔루션 갤러리에서 Log Analytics 솔루션 추가](../../azure-monitor/insights/solutions.md)에 설명된 프로세스를 사용하여 Log Analytics 작업 영역에 Active Directory 복제 상태 솔루션을 추가합니다.  추가 구성은 필요 없습니다.
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD 복제 상태 데이터 컬렉션 세부 정보
@@ -48,7 +46,7 @@ Log Analytics에 도메인 컨트롤러를 직접 연결하지 않으려면 Log 
 
 ### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>비 도메인 컨트롤러가 AD 데이터를 Log Analytics에 보내도록 하려면
 1. AD 복제 상태 솔루션을 사용하여 컴퓨터가 모니터링하려는 도메인의 구성원인지 확인합니다.
-2. 연결되어 있지 않으면 [Log Analytics에 Windows 컴퓨터를 연결](../../log-analytics/log-analytics-om-agents.md)하거나 [기존 Operations Manager 환경을 사용하여 Log Analytics에 연결](../../log-analytics/log-analytics-om-agents.md)합니다.
+2. 연결되어 있지 않으면 [Log Analytics에 Windows 컴퓨터를 연결](../../azure-monitor/platform/om-agents.md)하거나 [기존 Operations Manager 환경을 사용하여 Log Analytics에 연결](../../azure-monitor/platform/om-agents.md)합니다.
 3. 해당 컴퓨터에서 다음 레지스트리 키를 설정합니다.
 
    * 키: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
@@ -110,7 +108,7 @@ AD 복제 상태 데이터를 Log Analytics에 전송하면 Log Analytics 대시
 
 ![검색 결과에서 AD 복제 상태 오류](./media/ad-replication-status/oms-ad-replication-search-details.png)
 
-여기에서 추가로 필터링하고 검색 쿼리 등을 수정할 수 있습니다. 로그 검색 사용에 대한 자세한 내용은 [로그 검색](../../log-analytics/log-analytics-queries.md)을 참조하세요.
+여기에서 추가로 필터링하고 검색 쿼리 등을 수정할 수 있습니다. 로그 검색 사용에 대한 자세한 내용은 [로그 검색](../../azure-monitor/log-query/log-query-overview.md)을 참조하세요.
 
 **HelpLink** 필드는 해당 특정 오류에 대한 추가 세부 정보로 TechNet 페이지의 URL을 표시합니다. 이 링크를 브라우저 창에 복사하여 붙여넣고 문제 해결 및 오류 해결에 대한 정보를 볼 수 있습니다.
 
@@ -123,25 +121,25 @@ AD 복제 상태 데이터를 Log Analytics에 전송하면 Log Analytics 대시
 A: 정보는 5일마다 업데이트됩니다.
 
 **Q: 이 데이터가 업데이트되는 빈도를 구성하는 방법이 있나요?**
- A: 지금은 없습니다.
+A: 지금은 없습니다.
 
 **Q: 복제 상태를 보려면 내 Log Analytics 작업 영역에 내 도메인 컨트롤러를 모두 추가해야 하나요?**
- A: 아니요, 단일 도메인 컨트롤러만 추가되어야 합니다. Log Analytics 작업 영역에 도메인 컨트롤러가 여러 개 있는 경우 모든 데이터는 Log Analytics에 전송됩니다.
+A: 아니요, 단일 도메인 컨트롤러만 추가되어야 합니다. Log Analytics 작업 영역에 도메인 컨트롤러가 여러 개 있는 경우 모든 데이터는 Log Analytics에 전송됩니다.
 
 **Q: 내 Log Analytics 작업 영역에 도메인 컨트롤러를 추가하고 싶지 않습니다. 여전히 AD 복제 상태 솔루션을 사용할 수 있습니까?**
 A: 예. 이 기능을 활성화하도록 레지스트리 키의 값을 설정할 수 있습니다. [비 도메인 컨트롤러가 AD 데이터를 Log Analytics에 보내도록 하려면](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms)을 참조하세요.
 
 **Q: 데이터 수집을 수행하는 프로세스의 이름은 무엇인가요?**
- A: AdvisorAssessment.exe
+A: AdvisorAssessment.exe
 
 **Q: 데이터를 수집하려면 시간이 얼마나 걸리나요?**
- A: 데이터 수집 시간은 Active Directory 환경의 크기에 따라 달라지지만 일반적으로 약 15분 미만이 소요됩니다.
+A: 데이터 수집 시간은 Active Directory 환경의 크기에 따라 달라지지만 일반적으로 약 15분 미만이 소요됩니다.
 
 **Q: 어떤 유형의 데이터를 수집하나요?**
- A: 복제 정보는 LDAP를 통해 수집됩니다.
+A: 복제 정보는 LDAP를 통해 수집됩니다.
 
 **Q: 데이터를 수집하는 경우 구성하는 방법이 있나요?**
- A: 지금은 없습니다.
+A: 지금은 없습니다.
 
 **Q: 데이터를 수집하려면 어떤 권한이 필요합니까?**
 A: Active Directory에 대한 일반 사용자 권한으로 충분합니다.
@@ -149,9 +147,9 @@ A: Active Directory에 대한 일반 사용자 권한으로 충분합니다.
 ## <a name="troubleshoot-data-collection-problems"></a>데이터 수집 문제 해결
 데이터를 수집하려면 AD 복제 상태 솔루션 팩에 하나 이상의 도메인 컨트롤러가 Log Analytics 작업 영역에 연결되어 있어야 합니다. 도메인 컨트롤러에 연결할 때까지 **데이터가 여전히 수집되고 있다고** 표시하는 메시지가 표시됩니다.
 
-도메인 컨트롤러 중 하나를 연결하는 데 도움이 필요한 경우 [Log Analytics에 Windows 컴퓨터 연결](../../log-analytics/log-analytics-om-agents.md)에서 설명서를 볼 수 있습니다. 또는 도메인 컨트롤러가 이미 기존 System Center Operations Manager 환경에 연결된 경우 [Log Analytics에 System Center Operations Manager 연결](../../log-analytics/log-analytics-om-agents.md)에서 설명서를 볼 수 있습니다.
+도메인 컨트롤러 중 하나를 연결하는 데 도움이 필요한 경우 [Log Analytics에 Windows 컴퓨터 연결](../../azure-monitor/platform/om-agents.md)에서 설명서를 볼 수 있습니다. 또는 도메인 컨트롤러가 이미 기존 System Center Operations Manager 환경에 연결된 경우 [Log Analytics에 System Center Operations Manager 연결](../../azure-monitor/platform/om-agents.md)에서 설명서를 볼 수 있습니다.
 
 Log Analytics나 System Center Operations Manager에 도메인 컨트롤러를 직접 연결하지 않으려면 [비 도메인 컨트롤러가 AD 데이터를 Log Analytics에 보내도록 하려면](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics의 로그 검색](../../log-analytics/log-analytics-queries.md) 을 사용하여 자세한 Active Directory 복제 상태 데이터를 봅니다.
+* [Log Analytics의 로그 검색](../../azure-monitor/log-query/log-query-overview.md) 을 사용하여 자세한 Active Directory 복제 상태 데이터를 봅니다.

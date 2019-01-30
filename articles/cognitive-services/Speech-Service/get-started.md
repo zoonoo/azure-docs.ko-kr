@@ -1,7 +1,7 @@
 ---
-title: Speech Service 체험해 보기
+title: Speech Service 평가판 사용해 보기
 titleSuffix: Azure Cognitive Services
-description: Speech Service를 체험해 보는 방법을 알아봅니다.
+description: Speech Service는 쉽고 저렴하게 시작할 수 있습니다. 30일 평가판을 통해 서비스 기능을 확인하고 서비스가 응용 프로그램 요구 사항에 적합한지 판단할 수 있습니다.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 4e29f2e77ad2b4e993fbe6a39b90325a0738f538
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 69e2c094e1fca57d0dddc662cc1dae6453897c38
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471393"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079112"
 ---
 # <a name="try-the-speech-service-for-free"></a>Speech Service 체험해 보기
 
@@ -23,7 +24,7 @@ Speech Service는 쉽고 저렴하게 시작할 수 있습니다. 30일 평가�
 
 시간이 더 필요하면 Microsoft Azure 계정에 등록하세요. 그러면 최대 30일 동안 유료 Speech Service에 적용할 수 있는 $200의 서비스 크레딧이 제공됩니다.
 
-마지막으로 Speech Service는 응용 프로그램 개발에 적합한 작은 용량의 체험 계층을 제공합니다. 서비스 크레딧이 만료된 후에도 이 무료 구독을 유지할 수 있습니다.
+마지막으로 Speech Service는 애플리케이션 개발에 적합한 작은 용량의 체험 계층을 제공합니다. 서비스 크레딧이 만료된 후에도 이 무료 구독을 유지할 수 있습니다.
 
 ## <a name="free-trial"></a>평가판
 
@@ -36,7 +37,7 @@ Speech Service는 쉽고 저렴하게 시작할 수 있습니다. 30일 평가�
 1. **Speech API** 탭을 선택합니다.
 
    ![Speech Services 탭](media/index/try-speech-api-free-trial1.png)
-   
+
 1. **Speech Services** 아래에서 **API 키 가져오기** 단추를 선택합니다.
 
    ![API 키](media/index/try-speech-api-free-trial2.png)
@@ -49,14 +50,14 @@ Speech Service는 쉽고 저렴하게 시작할 수 있습니다. 30일 평가�
 
     [Microsoft 계정 포털](https://account.microsoft.com/account)에서 체험 Microsoft 계정을 등록할 수 있습니다. 시작하려면 **Microsoft에 로그인**을 클릭한 다음, 로그인하라는 메시지가 표시되면 **계정 만들기**를 클릭합니다. 단계에 따라 새 Microsoft 계정을 만들고 확인합니다.
 
-[Cognitive Services 체험하기]에 로그인하면 체험 평가판이 시작됩니다. 표시되는 웹 페이지에는 현재 평가판 구독이 있는 모든 Azure Cognitive Services가 나열됩니다. 두 개의 구독 키가 **Speech Services** 옆에 나열됩니다. 응용 프로그램에서 두 키 중 하나를 사용할 수 있습니다.
+[Cognitive Services 체험하기]에 로그인하면 체험 평가판이 시작됩니다. 표시되는 웹 페이지에는 현재 평가판 구독이 있는 모든 Azure Cognitive Services가 나열됩니다. 두 개의 구독 키가 **Speech Services** 옆에 나열됩니다. 애플리케이션에서 두 키 중 하나를 사용할 수 있습니다.
 
 > [!NOTE]
 > 미국 서부 지역에서는 모든 평가판 구독을 사용할 수 있습니다. 요청 시 `westus` 엔드포인트를 사용해야 합니다.
 
 ## <a name="new-azure-account"></a>새 Azure 계정
 
-새 Azure 계정에는 최대 30일 동안 사용할 수 있는 200달러 상당의 서비스 크레딧이 제공됩니다. 이 크레딧을 사용하여 Speech 서비스를 더 자세히 살펴보거나 응용 프로그램 개발을 시작할 수 있습니다.
+새 Azure 계정에는 최대 30일 동안 사용할 수 있는 200달러 상당의 서비스 크레딧이 제공됩니다. 이 크레딧을 사용하여 Speech 서비스를 더 자세히 살펴보거나 애플리케이션 개발을 시작할 수 있습니다.
 
 새 Azure 계정을 등록하려면 [Azure 등록 페이지](https://azure.microsoft.com/free/ai/)로 이동하여 **체험 시작하기**를 클릭하고, Microsoft 계정을 사용하여 새 Azure 계정을 만듭니다.
 
@@ -100,20 +101,20 @@ Speech 서비스 리소스(체험 또는 유료 계층)를 Azure 계정에 추�
 
     ![빠른 시작 패널](media/index/try-speech-api-create-speech5.png)
 
-1. **빠른 시작** 아래의 1단계에서 **키** 링크를 클릭하여 구독 키를 표시합니다. 각 구독에는 두 개의 키가 있으며, 응용 프로그램에서 두 키 중 하나를 사용할 수 있습니다. 코드에 붙여넣기 위해 클립보드에 복사하려면 각 키 옆에 있는 단추를 선택합니다.
+1. **빠른 시작** 아래의 1단계에서 **키** 링크를 클릭하여 구독 키를 표시합니다. 각 구독에는 두 개의 키가 있으며, 애플리케이션에서 두 키 중 하나를 사용할 수 있습니다. 코드에 붙여넣기 위해 클립보드에 복사하려면 각 키 옆에 있는 단추를 선택합니다.
 
 > [!NOTE]
 > 표준 계층 구독은 하나 이상의 지역에서 무제한으로 만들 수 있지만, 체험 계층 구독은 하나만 만들 수 있습니다. 7일 동안 사용하지 않은 상태로 유지되는 체험 계층에 대한 모델 배포는 자동으로 해제됩니다.
 
 ## <a name="switch-to-a-new-subscription"></a>새 구독으로 전환
 
-평가판이 만료되거나 응용 프로그램을 게시할 때와 같이 한 구독에서 다른 구독으로 전환하려면 코드의 지역과 구독 키를 새 Azure 리소스의 지역과 구독 키로 바꿉니다.
+평가판이 만료되거나 애플리케이션을 게시할 때와 같이 한 구독에서 다른 구독으로 전환하려면 코드의 지역과 구독 키를 새 Azure 리소스의 지역과 구독 키로 바꿉니다.
 
 > [!NOTE]
 > 평가판 키는 미국 서부(`westus`) 지역에서 만들어집니다. Azure 대시보드를 통해 만든 구독을 선택하면 다른 지역에 있을 수 있습니다.
 
-* 응용 프로그램에서 [Speech SDK](speech-sdk.md)를 사용하는 경우 Speech 구성을 만들 때 `westus`와 같은 지역 코드를 제공합니다.
-* 응용 프로그램에서 Speech 서비스의 [REST API](rest-apis.md) 중 하나를 사용하는 경우 지역은 요청 시 사용하는 엔드포인트 URI의 일부가 됩니다.
+* 애플리케이션에서 [Speech SDK](speech-sdk.md)를 사용하는 경우 Speech 구성을 만들 때 `westus`와 같은 지역 코드를 제공합니다.
+* 애플리케이션에서 Speech 서비스의 [REST API](rest-apis.md) 중 하나를 사용하는 경우 지역은 요청 시 사용하는 엔드포인트 URI의 일부가 됩니다.
 
 지역에 대해 만든 키는 해당 지역에서만 유효합니다. 다른 지역에서 사용하려고 하면 인증 오류가 발생합니다.
 

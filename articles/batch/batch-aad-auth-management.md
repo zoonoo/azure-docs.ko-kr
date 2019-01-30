@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: danlep
-ms.openlocfilehash: a52dbdad3842760c447e22f4274ab944750840e7
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b2ab2ad1c31337e006b613ad7f17b4ad22495893
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816789"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870422"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch Management 솔루션 인증
 
@@ -28,7 +28,7 @@ Azure Batch Management 서비스를 호출하는 응용 프로그램은 [Azure A
 
 Batch 관리 .NET 라이브러리는 배치 계정, 계정 키, 응용 프로그램 및 응용 프로그램 패키지를 사용하기 위한 종류를 표시합니다. Batch 관리 .NET 라이브러리는 Azure 리소스 공급자 클라이언트이며 [Azure Resource Manager][resman_overview]와 함께 프로그래밍 방식으로 해당 리소스를 관리하는 데 사용됩니다. Azure AD는 Batch 관리 .NET 라이브러리를 비롯한 Azure 리소스 공급자 클라이언트 및 [Azure Resource Manager][resman_overview]를 통해 만들어지는 요청을 인증하는 데 필요합니다.
 
-이 문서에서는 Batch Management .NET 라이브러리를 사용하는 응용 프로그램에서 Azure AD를 사용하여 인증하는 방법을 살펴봅니다. Azure AD를 사용하여 통합 인증을 통해 구독 관리자 또는 공동 관리자를 인증하는 방법을 보여 줍니다. GitHub에서 사용할 수 있는 [AccountManagment][acct_mgmt_sample] 샘플 프로젝트에서 Batch Management .NET 라이브러리와 함께 Azure AD를 사용하도록 단계별로 안내합니다.
+이 문서에서는 Batch Management .NET 라이브러리를 사용하는 응용 프로그램에서 Azure AD를 사용하여 인증하는 방법을 살펴봅니다. Azure AD를 사용하여 통합 인증을 통해 구독 관리자 또는 공동 관리자를 인증하는 방법을 보여 줍니다. GitHub에서 사용할 수 있는 [AccountManagement][acct_mgmt_sample] 샘플 프로젝트에서 Batch Management .NET 라이브러리와 함께 Azure AD를 사용하도록 단계별로 안내합니다.
 
 Batch 관리 .NET 라이브러리 및 AccountManagement 샘플을 사용하는 방법에 대한 자세한 내용은 [.NET용 Batch 관리 클라이언트 라이브러리를 사용하여 배치 계정 및 할당량 관리](batch-management-dotnet.md)를 참조하세요.
 

@@ -1,21 +1,18 @@
 ---
 title: '빠른 시작: Azure Database for MySQL 서버 만들기 - Azure Portal'
 description: 이 문서에서는 Azure Portal을 사용하여 약 5분 안에 Azure Database for MySQL 서버 샘플을 만드는 과정을 안내합니다.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 11/01/2018
-ms.openlocfilehash: b413636f173a682ed74bf92688126d33d429839e
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.date: 01/09/2019
+ms.openlocfilehash: ce4feefa1b83f81fa1160ddc93a53da56c24fd7e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959225"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189884"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL 서버 만들기
 
@@ -48,15 +45,15 @@ Azure Database for MySQL 서버는 정의된 [계산 및 저장소 리소스](./
     리소스 그룹 | *myresourcegroup* | 새 또는 기존 리소스 그룹 이름을 제공합니다.    리소스 그룹|*myresourcegroup*| 새 리소스 그룹 이름 또는 구독의 기존 이름입니다.
     원본 선택 | *비어 있음* | 새 서버를 처음부터 만들려면 *비어 있음*을 선택합니다. (기존 Azure Database for MySQL 서버의 지역 백업에서 서버를 만드는 경우 *백업*을 선택합니다).
     서버 관리자 로그인 | myadmin | 서버에 연결할 때 사용할 로그인 계정입니다. 관리자 로그인 이름은 **azure_superuser**, **admin**, **administrator**, **root**, **guest** 또는 **public**일 수 없습니다.
-    암호 | *사용자 선택* | 서버 관리자 계정의 새 암호를 제공합니다. 8-128자여야 합니다. 암호는 영어 대문자, 영어 소문자, 숫자(0-9), 특수 문자(!, $, #, % 등) 중 세 가지 범주의 문자를 포함해야 합니다.
+    암호 | *사용자 선택* | 서버 관리자 계정의 새 암호를 제공합니다. 8-128자여야 합니다. 사용자 암호는 다음 범주 중 세 개의 문자를 포함해야 합니다. 영문 대문자, 영문 소문자, 숫자(0-9) 및 영숫자가 아닌 문자(!, $, #, % 등).
     암호 확인 | *사용자 선택*| 관리자 계정 암호를 확인합니다.
-    위치 | *사용자와 가장 가까운 지역*| 사용자 또는 다른 Azure 응용 프로그램에 가장 가까운 위치를 선택합니다.
+    위치 | *사용자와 가장 가까운 지역*| 사용자 또는 다른 Azure 애플리케이션에 가장 가까운 위치를 선택합니다.
     버전 | *최신 주 버전*| 최신 주 버전입니다(다른 버전이 필요한 특정 요구 사항이 없는 경우).
     가격 책정 계층  | **범용**, **4세대**, **2개 vCore**, **5GB**, **7일**, **지역 중복** | 새 서버에 대한 계산, 저장소 및 백업 구성입니다. **가격 책정 계층**을 선택합니다. 그런 다음, **범용** 탭을 선택합니다. *4세대*, *2개 vCore*, *5GB* 및 *7일*은 **세대 계산**, **vCore**, **저장소** 및 **백업 보존 기간**에 대한 기본 값입니다. 해당 슬라이더를 그대로 둘 수 있습니다. 지역 중복 저장소에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션**에서 **지역 중복**을 선택합니다. 이 가격 책정 계층 선택을 저장하려면 **확인**을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
   
-    > [!IMPORTANT]
-    > 여기에 지정하는 서버 관리자 로그인 및 암호는 이 빠른 시작의 뒷부분에서 서버 및 해당 데이터베이스에 로그인하는 데 필요합니다. 나중에 사용하기 위해 이 정보를 기억하거나 기록합니다.
-    > 
+   > [!NOTE]
+   > 워크로드에 가벼운 컴퓨팅 및 I/O가 적합한 경우 기본 가격 책정 계층을 고려합니다. 기본 가격 책정 계층에서 만든 서버는 나중에 범용으로 또는 메모리 최적화되도록 확장할 수 없습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/mysql/)를 참조하세요.
+   > 
 
    ![서버 만들기 - 가격 책정 계층 창](./media/quickstart-create-mysql-server-database-using-azure-portal/3-pricing-tier.png)
 
@@ -68,13 +65,13 @@ Azure Database for MySQL 서버는 정의된 [계산 및 저장소 리소스](./
 
 ## <a name="configure-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 구성
 
-Azure Database for MySQL 서비스는 서버 수준에서 방화벽을 만듭니다. 그러면 외부 응용 프로그램 및 도구에서 서버 또는 서버의 모든 데이터베이스에 대한 연결이 허용되지 않습니다. 단, 특정 IP 주소에 대해 방화벽을 여는 방화벽 규칙을 만든 경우는 예외입니다. 
+Azure Database for MySQL 서비스는 서버 수준에서 방화벽을 만듭니다. 그러면 외부 애플리케이션 및 도구에서 서버 또는 서버의 모든 데이터베이스에 대한 연결이 허용되지 않습니다. 단, 특정 IP 주소에 대해 방화벽을 여는 방화벽 규칙을 만든 경우는 예외입니다. 
 
 1.   배포가 완료되면 서버를 찾습니다. 필요한 경우 검색할 수 있습니다. 예를 들어 왼쪽 메뉴에서 **모든 리소스**를 선택합니다. 그런 다음, 서버 이름(예: **mydemoserver**)을 입력하여 새로 만든 서버를 검색합니다. 검색 결과 목록에서 서버 이름을 선택합니다. 서버에 대한 **개요** 페이지가 열리고 추가 구성을 위한 옵션이 제공됩니다.
 
 2. 서버 페이지에서 **연결 보안**을 선택합니다.
 
-3.  **방화벽 규칙** 제목 아래에서 **규칙 이름** 열의 빈 텍스트 상자를 선택하여 방화벽 규칙을 만들기 시작합니다. 이 서버에 액세스되는 클라이언트의 정확한 IP 범위를 입력합니다.
+3.  **방화벽 규칙** 제목 아래에서 **규칙 이름** 열의 빈 텍스트 상자를 선택하여 방화벽 규칙을 만들기 시작합니다. 이 서버에 액세스할 클라이언트의 정확한 IP 범위를 입력합니다.
    
    ![연결 보안 - 방화벽 규칙](./media/quickstart-create-mysql-server-database-using-azure-portal/5-firewall-2.png)
 
@@ -174,7 +171,7 @@ Azure Database for MySQL 서비스는 서버 수준에서 방화벽을 만듭니
 ## <a name="connect-to-the-server-by-using-the-mysql-workbench-gui-tool"></a>MySQL Workbench GUI 도구를 사용하여 서버에 연결
 MySQL Workbench GUI 도구를 사용하여 서버에 연결하려면 다음 단계를 수행합니다.
 
-1.  클라이언트 컴퓨터에서 MySQL Workbench 응용 프로그램을 엽니다. [MySQL Workbench 다운로드](https://dev.mysql.com/downloads/workbench/)에서 MySQL Workbench를 다운로드하고 설치할 수 있습니다.
+1.  클라이언트 컴퓨터에서 MySQL Workbench 애플리케이션을 엽니다. [MySQL Workbench 다운로드](https://dev.mysql.com/downloads/workbench/)에서 MySQL Workbench를 다운로드하고 설치할 수 있습니다.
 
 2. 새 연결을 만듭니다. **MySQL 연결** 제목 옆에 있는 더하기 (+) 아이콘을 클릭합니다.
 
@@ -194,7 +191,7 @@ MySQL Workbench GUI 도구를 사용하여 서버에 연결하려면 다음 단�
 4. **연결 테스트**를 선택하여 모든 매개 변수가 올바르게 구성되었는지 테스트합니다. 그런 다음 **확인**을 클릭하여 해당 연결을 저장합니다. 
 
     > [!NOTE]
-    > SSL은 서버에서 기본적으로 적용되며 성공적으로 연결하려면 추가 구성이 필요합니다. 자세한 내용은 [MySQL용 Azure 데이터베이스에 안전하게 연결하기 위한 사용자 응용 프로그램의 SSL 연결 구성](./howto-configure-ssl.md)을 참조하세요. 이 빠른 시작에서 SSL을 사용하지 않도록 설정하려면 Azure Portal로 이동합니다. 그런 다음, [연결 보안] 페이지를 선택하여 **SSL 적용** 연결 토글 단추를 비활성화합니다.
+    > SSL은 서버에서 기본적으로 적용되며 성공적으로 연결하려면 추가 구성이 필요합니다. 자세한 내용은 [MySQL용 Azure 데이터베이스에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성](./howto-configure-ssl.md)을 참조하세요. 이 빠른 시작에서 SSL을 사용하지 않도록 설정하려면 Azure Portal로 이동합니다. 그런 다음, [연결 보안] 페이지를 선택하여 **SSL 적용** 연결 토글 단추를 비활성화합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 빠른 시작에서 만든 리소스는 두 가지 방법으로 정리할 수 있습니다. 리소스 그룹의 모든 리소스를 포함하고 있는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 삭제할 수 있습니다. 다른 리소스를 그대로 유지하려면 하나의 서버 리소스만 삭제합니다.

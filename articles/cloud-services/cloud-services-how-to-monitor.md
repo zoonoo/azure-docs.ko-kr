@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: jeconnoc
-ms.openlocfilehash: e9fbe59c40fe55218429a3b479ddbbec7220c66a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 844fef9a87c1db06c6415c59d4be26caf928382b
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42146522"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789470"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>클라우드 서비스 모니터링 소개
 
-클라우드 서비스의 주요 성능 메트릭을 모니터링할 수 있습니다. 모든 클라우드 서비스 역할은 최소 데이터에 해당하는 CPU 사용량, 네트워크 사용량 및 디스크 사용률을 수집합니다. `Microsoft.Azure.Diagnostics` 확장이 적용된 클라우드 서비스 역할은 추가 데이터 요소를 수집할 수 있습니다. 이 문서에서는 Cloud Services용 Azure 진단 기능을 소개합니다.
+클라우드 서비스의 주요 성능 메트릭을 모니터링할 수 있습니다. 모든 클라우드 서비스 역할은 CPU 사용량, 네트워크 사용량, 디스크 사용률 등의 최소 데이터를 수집합니다. `Microsoft.Azure.Diagnostics` 확장이 적용된 클라우드 서비스 역할은 추가 데이터 요소를 수집할 수 있습니다. 이 문서에서는 Cloud Services용 Azure 진단 기능을 소개합니다.
 
 기본 모니터링을 사용할 경우 역할 인스턴스의 성능 카운터 데이터는 3분 간격으로 샘플링되고 수집됩니다. 이 기본 모니터링 데이터는 저장소 계정에 저장되지 않으며, 추가 비용도 부과되지 않습니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "42146522"
 각 역할을 만들 때 Visual Studio는 역할에 Azure 진단 확장을 추가합니다. 이 진단 확장은 다음과 같은 유형의 정보를 수집할 수 있습니다.
 
 * 사용자 지정 성능 카운터
-* 응용 프로그램 로그
+* 애플리케이션 로그 전송 사용
 * Windows 이벤트 로그
 * .NET 이벤트 원본
 * IIS 로그
@@ -54,7 +54,7 @@ ms.locfileid: "42146522"
 * 고객 오류 로그
 
 > [!IMPORTANT]
-> 이러한 모든 데이터가 저장소 계정에 집계되지만, 포털은 데이터를 차트로 작성하는 기본적인 방법을 제공하지 **않습니다**. 응용 프로그램에 Application Insights와 같은 다른 서비스를 통합하는 것이 좋습니다.
+> 이러한 모든 데이터가 저장소 계정에 집계되지만, 포털은 데이터를 차트로 작성하는 기본적인 방법을 제공하지 **않습니다**. 애플리케이션에 Application Insights와 같은 다른 서비스를 통합하는 것이 좋습니다.
 
 ## <a name="setup-diagnostics-extension"></a>진단 확장 설정
 
@@ -93,13 +93,13 @@ Azure에 배포하기 위한 **ServiceConfiguration.cloud.cscfg** 및 에뮬레�
 
 ## <a name="use-application-insights"></a>Application Insights 사용
 
-Visual Studio에서 클라우드 서비스를 게시할 때는 Application Insights로 진단 데이터를 보내는 옵션이 제공됩니다. 이때 Application Insights Azure 리소스를 만들거나 기존 Azure 리소스에 데이터를 보낼 수도 있습니다. Application Insights를 사용하여 클라우드 서비스의 가용성, 성능, 실패 및 사용 현황을 모니터링할 수 있습니다. 사용자 지정 차트를 Application Insights에 추가하여 가장 중요한 데이터를 볼 수 있습니다. Application Insights SDK를 사용하여 클라우드 서비스 프로젝트에서 역할 인스턴스 데이터를 수집할 수 있습니다. Application Insights를 통합하는 방법에 대한 자세한 내용은 [클라우드 서비스와 Application Insights](../application-insights/app-insights-cloudservices.md)를 참조하세요.
+Visual Studio에서 클라우드 서비스를 게시할 때는 Application Insights로 진단 데이터를 보내는 옵션이 제공됩니다. 이때 Application Insights Azure 리소스를 만들거나 기존 Azure 리소스에 데이터를 보낼 수도 있습니다. Application Insights를 사용하여 클라우드 서비스의 가용성, 성능, 실패 및 사용 현황을 모니터링할 수 있습니다. 사용자 지정 차트를 Application Insights에 추가하여 가장 중요한 데이터를 볼 수 있습니다. Application Insights SDK를 사용하여 클라우드 서비스 프로젝트에서 역할 인스턴스 데이터를 수집할 수 있습니다. Application Insights를 통합하는 방법에 대한 자세한 내용은 [클라우드 서비스와 Application Insights](../azure-monitor/app/cloudservices.md)를 참조하세요.
 
 Application Insights를 사용하여 Microsoft Azure 진단 확장을 통해 지정한 성능 카운터(및 기타 설정)를 표시할 수 있지만, Application Insights SDK를 작업자 및 웹 역할에 통합해야만 보다 풍부한 환경을 사용할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Application Insights 및 Cloud Services에 대한 자세한 정보](../application-insights/app-insights-cloudservices.md)
+- [Application Insights 및 Cloud Services에 대한 자세한 정보](../azure-monitor/app/cloudservices.md)
 - [성능 카운터 설정](diagnostics-performance-counters.md)
 

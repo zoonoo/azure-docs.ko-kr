@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: cc86a18b0db67bf968006c42f5791e1ad7a093f0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 60fe7296d95a7746fd703c3a45349faf294e5bbd
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016701"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320602"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric에 대해 자주 묻는 질문
 
@@ -29,7 +29,7 @@ Service Fabric으로 수행할 수 있는 작업 및 사용 방법에 대한 여
 
 ### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Service Fabric 클러스터 인증서를 롤백하려면 어떻게 해야 하나요?
 
-응용 프로그램 업그레이드를 롤백하려면 Service Fabric 클러스터 쿼럼에서 변경 내용을 커밋하기 전에 상태 오류를 감지해야 합니다. 감지된 변경 내용만 롤포워드할 수 있습니다. 모니터링되지 않은 주요 인증서 변경 내용이 있는 경우 고객 지원 서비스의 에스컬레이션 엔지니어가 클러스터를 복구해야 할 수도 있습니다.  [Service Fabric의 응용 프로그램 업그레이드](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master)는 [응용 프로그램 업그레이드 매개 변수](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master)를 적용하고, 가동 중지 시간 0이라는 약속을 이행합니다.  Microsoft의 권장 응용 프로그램 업그레이드 모니터링 모드에 따라, 업데이트 도메인을 통한 자동 진행은 상태 검사 통과를 기반으로 하며, 기본 서비스 업데이트가 실패하는 경우 자동으로 롤백됩니다.
+애플리케이션 업그레이드를 롤백하려면 Service Fabric 클러스터 쿼럼에서 변경 내용을 커밋하기 전에 상태 오류를 감지해야 합니다. 감지된 변경 내용만 롤포워드할 수 있습니다. 모니터링되지 않은 주요 인증서 변경 내용이 있는 경우 고객 지원 서비스의 에스컬레이션 엔지니어가 클러스터를 복구해야 할 수도 있습니다.  [Service Fabric의 애플리케이션 업그레이드](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master)는 [애플리케이션 업그레이드 매개 변수](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master)를 적용하고, 가동 중지 시간 0이라는 약속을 이행합니다.  Microsoft의 권장 애플리케이션 업그레이드 모니터링 모드에 따라, 업데이트 도메인을 통한 자동 진행은 상태 검사 통과를 기반으로 하며, 기본 서비스 업데이트가 실패하는 경우 자동으로 롤백됩니다.
  
 클러스터에서 여전히 Resource Manager 템플릿의 클래식 인증서 지문 속성을 사용하는 경우 최신 비밀 관리 기능을 활용할 수 있도록 [클러스터를 인증서 지문에서 일반 이름으로 변경](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn)하는 것이 좋습니다.
 
@@ -39,12 +39,12 @@ Service Fabric으로 수행할 수 있는 작업 및 사용 방법에 대한 여
 
 코어 Service Fabric 클러스터링 기술은 서로 네트워크로 연결되어 있기만 한다면 전 세계 어디서나 실행되는 컴퓨터를 결합하는 데 사용할 수 있습니다. 그러나 이러한 클러스터를 구축하고 실행하는 것은 복잡할 수 있습니다.
 
-이 시나리오에 관심이 있는 경우 [Service Fabric Github 문제 목록](https://github.com/azure/service-fabric-issues)을 확인하거나 지원 담당자를 통해 추가 지침을 얻는 것이 좋습니다. Service Fabric 팀은 이 시나리오에 대해 추가적인 설명, 지침 및 권장 사항을 제공하기 위해 작업 중입니다. 
+이 시나리오에 관심이 있는 경우 [Service Fabric GitHub 문제 목록](https://github.com/azure/service-fabric-issues)을 확인하거나 지원 담당자를 통해 추가 지침을 얻는 것이 좋습니다. Service Fabric 팀은 이 시나리오에 대해 추가적인 설명, 지침 및 권장 사항을 제공하기 위해 작업 중입니다. 
 
 고려할 사항은 다음과 같습니다. 
 
-1. 현재 Azure에서 Service Fabric 클러스터 리소스는 클러스터가 작성된 가상 머신 확장 집합이므로 지역에 국한됩니다. 즉, 하위 지역에서 오류가 발생할 경우 Azure Resource Manager 또는 Azure Portal을 통해 클러스터를 관리하지 못하게 될 수 있습니다. 클러스터는 계속 실행되는데도 이러한 문제가 발생할 수도 있으며, 이 경우 직접 개입하는 것이 나을 수 있습니다. 또한 현재 Azure에서는 하위 지역에 걸쳐 사용할 수 있는 단일 가상 네트워크를 유지하는 기능을 제공하지 않습니다. 즉, Azure의 다중 지역 클러스터에는 [VM Scale Sets의 각 VM에 대한 공용 IP 주소](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) 또는 [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)가 필요합니다. 이러한 네트워킹 선택 항목은 비용, 성능 및 응용 프로그램 디자인에 어느 정도 다르게 영향을 미치므로 이러한 환경을 구성하기 전에 신중하게 분석하고 계획해야 합니다.
-2. 이러한 컴퓨터의 유지 관리, 관리, 모니터링은 복잡할 수 있으며 다른 클라우드 공급자 간 또는 온-프레미스 리소스와 Azure 간 등, 여러 환경 _유형_ 간에 걸쳐 있는 경우에는 특히 복잡할 수 있습니다. 이러한 환경에서 프로덕션 워크로드를 실행하기 전에 클러스터 및 응용 프로그램 둘 다에 대해 업그레이드, 모니터링, 관리 및 진단을 파악하도록 해야 합니다. Azure 또는 자체 데이터 센터에서 이러한 문제를 이미 해결한 경험이 있으면 Service Fabric 클러스터를 빌드하거나 실행할 때도 이러한 동일한 해결 방법을 적용할 수 있습니다. 
+1. 현재 Azure에서 Service Fabric 클러스터 리소스는 클러스터가 작성된 가상 머신 확장 집합이므로 지역에 국한됩니다. 즉, 하위 지역에서 오류가 발생할 경우 Azure Resource Manager 또는 Azure Portal을 통해 클러스터를 관리하지 못하게 될 수 있습니다. 클러스터는 계속 실행되는데도 이러한 문제가 발생할 수도 있으며, 이 경우 직접 개입하는 것이 나을 수 있습니다. 또한 현재 Azure에서는 하위 지역에 걸쳐 사용할 수 있는 단일 가상 네트워크를 유지하는 기능을 제공하지 않습니다. 즉, Azure의 다중 지역 클러스터에는 [VM Scale Sets의 각 VM에 대한 공용 IP 주소](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) 또는 [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)가 필요합니다. 이러한 네트워킹 선택 항목은 비용, 성능 및 애플리케이션 디자인에 어느 정도 다르게 영향을 미치므로 이러한 환경을 구성하기 전에 신중하게 분석하고 계획해야 합니다.
+2. 이러한 컴퓨터의 유지 관리, 관리, 모니터링은 복잡할 수 있으며 다른 클라우드 공급자 간 또는 온-프레미스 리소스와 Azure 간 등, 여러 환경 _유형_ 간에 걸쳐 있는 경우에는 특히 복잡할 수 있습니다. 이러한 환경에서 프로덕션 워크로드를 실행하기 전에 클러스터 및 애플리케이션 둘 다에 대해 업그레이드, 모니터링, 관리 및 진단을 파악하도록 해야 합니다. Azure 또는 자체 데이터 센터에서 이러한 문제를 이미 해결한 경험이 있으면 Service Fabric 클러스터를 빌드하거나 실행할 때도 이러한 동일한 해결 방법을 적용할 수 있습니다. 
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Service Fabric 노드에서 OS 업데이트를 자동으로 수신하나요?
 
@@ -56,7 +56,7 @@ Azure에서 실행되지 않는 클러스터의 경우 Service Fabric 노드 아
 
 **간단한 대답** - 아니요 
 
-**자세한 대답** - 큰 가상 머신 확장 집합은 최대 1000개 VM 인스턴스까지 가상 머신 확장 집합을 확장하도록 허용하지만 PG(배치 그룹)를 사용하여 이 작업을 수행합니다. FD(장애 도메인) 및 UD(업그레이드 도메인)는 Service Fabric이 서비스 복제본/서비스 인스턴스의 배치 결정을 내리는 데 사용하는 배치 그룹 내에서만 일관됩니다. FD 및 UD는 배치 그룹 내에서만 비교할 수 있으므로 SF에서 사용할 수 없습니다. 예를 들어 PG1의 VM1에 FD=0 토폴로지가 있고 PG2의 VM9에 FD=4 토폴로지가 있는 경우 VM1과 VM2가 두 개의 다른 하드웨어 랙에 있다는 의미는 아니므로 이 경우 SF에서 FD 값을 사용하여 배치 결정을 내릴 수 없습니다.
+**자세한 대답** - 대형 Virtual Machine Scale Sets에서는 가상 머신 확장 세트 하나가 최대 1000개의 VM 인스턴스를 포함하도록 크기를 조정할 수 있지만, 이 과정에는 PG(배치 그룹)가 사용됩니다. FD(장애 도메인) 및 UD(업그레이드 도메인)는 Service Fabric이 서비스 복제본/서비스 인스턴스의 배치 결정을 내리는 데 사용하는 배치 그룹 내에서만 일관됩니다. FD 및 UD는 배치 그룹 내에서만 비교할 수 있으므로 SF에서 사용할 수 없습니다. 예를 들어 PG1의 VM1에 FD=0 토폴로지가 있고 PG2의 VM9에 FD=4 토폴로지가 있는 경우 VM1과 VM2가 두 개의 다른 하드웨어 랙에 있다는 의미는 아니므로 이 경우 SF에서 FD 값을 사용하여 배치 결정을 내릴 수 없습니다.
 
 현재 큰 가상 머신 확장 집합에는 수준 4 부하 분산 지원 부족과 같은 기타 문제가 있습니다. [큰 크기 집합에 대한 세부 정보](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)를 참조하세요.
 
@@ -64,9 +64,16 @@ Azure에서 실행되지 않는 클러스터의 경우 Service Fabric 노드 아
 
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Service Fabric 클러스터의 최소 크기는 어떻게 되나요? 작으면 안되는 이유는 무엇인가요?
 
-프로덕션 워크로드를 시행하는 Service Fabric 클러스터에 지원되는 최소 크기는 5개 노드입니다. 개발/테스트 시나리오에 대해 3개의 노드 클러스터를 지원합니다.
+프로덕션 워크로드를 시행하는 Service Fabric 클러스터에 지원되는 최소 크기는 5개 노드입니다. 개발 시나리오의 경우 노드 1개(Visual Studio에서 빠른 개발 환경에 최적화됨) 및 노드 클러스터 5개를 지원합니다.
 
-Service Fabric 클러스터는 이름 지정 서비스 및 장애 조치(Failover) 관리자를 포함한 일련의 상태 저장 시스템 서비스를 실행하므로 이러한 최소 크기가 존재합니다. 이러한 클러스터에 어떤 서비스가 배포되었고 현재 호스트되는 위치를 추적하며 강력한 일관성을 따릅니다. 한편 강력한 일관성은 해당 서비스 상태로 특정 업데이트를 위해 *쿼럼*을 획득하는 기능에 의존하는데, 여기서 쿼럼은 지정된 서비스에 대한 복제본(N/2 +1)의 엄격한 다수성을 나타냅니다.
+다음 세 가지 이유로 인해 프로덕션 클러스터에는 5개의 이상의 노드가 있어야 합니다.
+1. 실행 중인 사용자 서비스가 없는 경우에도 Service Fabric 클러스터는 Naming Service 및 장애 조치(Failover) 관리자 서비스를 포함한 일련의 상태 저장 시스템 서비스를 실행합니다. 클러스터가 계속 작동하려면 이러한 시스템 서비스가 필수입니다.
+2. 항상 노드당 하나의 서비스 복제본이 배치되므로 클러스터 크기는 서비스(실제로는 파티션)에 포함될 수 있는 최대 복제본 수입니다.
+3. 클러스터 업그레이드는 하나 이상의 노드를 중지시키기 때문에 노드 하나 이상의 버퍼를 포함하려고 하므로 프로덕션 클러스터에 최솟값 ‘이외에’ 두 개 이상의 노드를 포함하려고 합니다. 최솟값은 아래 설명된 대로 시스템 서비스의 쿼럼 크기입니다.  
+
+두 개의 노드가 동시에 실패하는 경우 클러스터를 사용 가능하게 하려고 합니다. Service Fabric 클러스터가 사용 가능하려면 시스템 서비스를 사용할 수 있어야 합니다. Naming Service 및 장애 조치(Failover) 관리자 서비스 같은 상태 저장 시스템 서비스는 클러스터에 어떤 서비스가 배포되었고 현재 호스트되는 위치를 추적하며 강력한 일관성을 따릅니다. 한편 강력한 일관성은 해당 서비스 상태로 특정 업데이트를 위해 *쿼럼*을 획득하는 기능에 의존하는데, 여기서 쿼럼은 지정된 서비스에 대한 복제본(N/2 +1)의 엄격한 다수성을 나타냅니다. 따라서 두 개의 노드가 동시에 손실되어 시스템 서비스의 복제본 두 개가 동시에 손실되는 경우 탄력적으로 대응하려면 ClusterSize에서 QuorumSize를 뺀 값이 2보다 크거나 같아야(ClusterSize - QuorumSize >= 2) 합니다. 이 경우 최솟값이 5가 됩니다. 이를 확인하기 위해 클러스터에 N개 노드가 있고 각 노드에 하나씩 시스템 서비스의 N개 복제본이 있는 경우를 살펴보겠습니다. 시스템 서비스의 쿼럼 크기는 (N/2 + 1)입니다. 위의 부등식은 N - (N/2 + 1) >= 2 같이 표시됩니다. N이 짝수인 경우와 N이 홀수인 경우를 고려해야 합니다. N이 짝수인 경우 N = 2\*m이라고 합니다. 여기서 m >= 1입니다. 부등식은 2\*m - (2\*m/2 + 1) >= 2 또는 m >= 3 같이 표시됩니다. N의 최솟값은 6이고 이 값은 m = 3인 경우 달성됩니다. 한편, N이 홀수인 경우 N = 2\*m+1이라고 합니다. 여기서 m >= 1입니다. 부등식은 2\*m+1 - ( (2\*m+1)/2 + 1 ) >= 2, 2\*m+1 - (m+1) >= 2 또는 m >= 2 같이 표시됩니다. N의 최솟값은 5이고 이 값은 m = 2인 경우 달성됩니다. 따라서 부등식 ClusterSize - QuorumSize >= 2를 충족하는 N의 모든 값 중에 최솟값은 5입니다.
+
+위의 인수에서는 모든 노드에 시스템 서비스의 복제본이 있다고 가정하므로 쿼럼 크기는 클러스터의 노드 수에 따라 계산됩니다. 그러나 *TargetReplicaSetSize*를 변경하여 쿼리 크기를 (N/2+1)보다 작게 설정하면 5개 노드보다 더 작은 클러스터가 있고 쿼럼 크기 외에 두 개의 추가 노드가 있다는 느낌을 줄 수 있습니다. 예를 들어 4개 노드가 포함된 클러스터에서 TargetReplicaSetSize를 3으로 설정하는 경우 TargetReplicaSetSize를 기반으로 하는 쿼럼 크기는 (3/2 + 1) 또는 2이므로 CluserSize - QuorumSize = 4-2 >= 2입니다. 그러나 노드 쌍이 동시에 손실되는 경우 시스템 서비스가 쿼럼보다 작거나 같을 것이라고 보장할 수 없습니다. 손실된 두 개의 노드가 두 개의 복제본을 호스트 중이어서 시스템 서비스가 쿼럼 손실 상태(단일 복제본만 남아 있음)가 되고 사용할 수 없게 될 수 있습니다.
 
 배경 정보로 몇 가지 가능한 클러스터 구성을 살펴보겠습니다.
 
@@ -74,15 +81,19 @@ Service Fabric 클러스터는 이름 지정 서비스 및 장애 조치(Failove
 
 **두 개 노드**: 두 노드(N = 2) 간에 배포된 서비스의 쿼럼은 2(2/2 + 1 = 2)입니다. 단일 복제본이 손실되면 쿼럼을 만들 수 없습니다. 서비스 업그레이드를 수행하려면 복제본을 일시적으로 종료해야 하므로 유용한 구성이 아닙니다.
 
-**세 개 노드**: 세 개 노드(N=3)를 사용하며 쿼럼을 만들기 위한 요건은 계속해서 두 개 노드입니다(3/2 + 1 = 2). 따라서 개별 노드를 손실하고 쿼럼을 계속 유지할 수 있습니다.
+**세 개 노드**: 세 개 노드(N=3)를 사용하며 쿼럼을 만들기 위한 요건은 계속해서 두 개 노드입니다(3/2 + 1 = 2). 이는 개별 노드가 손실되어도 쿼럼을 유지할 수 있지만, 노드 두 개가 동시에 실패하면 시스템 서비스가 쿼럼 손실 상태가 되므로 클러스터를 사용할 수 없게 됩니다.
 
-업그레이드를 안전하게 수행하고 개별 노드 오류에도 대응 가능하므로(동시에 발생하지만 않는다면) 개발/테스트에 대해 세 개 노드 클러스터 구성이 지원됩니다. 프로덕션 워크로드를 위해 이러한 동시 오류에 대해 복원력이 있어야 하므로 5개의 노드가 필요합니다.
+**네 개 노드**: 네 개 노드(N=4)를 사용하면 쿼럼을 만들기 위한 요구 사항은 세 개 노드입니다(4/2 + 1 = 3). 이는 개별 노드가 손실되어도 쿼럼을 유지할 수 있지만, 노드 두 개가 동시에 실패하면 시스템 서비스가 쿼럼 손실 상태가 되므로 클러스터를 사용할 수 없게 됩니다.
+
+**5개 노드**: 5개 노드(N=5)를 사용하면 쿼럼을 만들기 위한 요구 사항은 계속해서 세 개 노드입니다(5/2 + 1 = 3). 이는 두 개 노드가 동시에 손실되어도 시스템 서비스의 쿼럼을 유지할 수 있음을 의미합니다.
+
+프로덕션 워크로드의 경우 두 개 이상의 노드가 동시에 실패하는 경우(예: 클러스터 업그레이드로 인해 하나, 다른 이유로 인해 하나)에 탄력적으로 대응해야 하므로 5개 노드가 필요합니다.
 
 ### <a name="can-i-turn-off-my-cluster-at-nightweekends-to-save-costs"></a>비용 절감을 위해 야간/주말에 내 클러스터를 해제할 수 있나요?
 
 일반적으로 그렇지 않습니다. Service Fabric은 임시 로컬 디스크에 상태를 저장하므로 가상 머신이 다른 호스트로 이동하는 경우 데이터가 이동하지 않습니다. 정상 작동 시에는 새 노드가 다른 노드에 의해 최신 상태가 되므로 문제가 되지 않습니다. 그러나 모든 노드를 중지하고 나중에 다시 시작하는 경우 대부분의 노드가 새 호스트에서 실행되고 시스템을 복구할 수 없을 가능성이 높습니다.
 
-배포하기 전 응용 프로그램 테스트를 위해 클러스트를 만드는 경우 해당 클러스터를 [연속 통합/연속 배포 파이프라인](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)의 일부로 동적으로 만드는 것이 좋습니다.
+배포하기 전 애플리케이션 테스트를 위해 클러스트를 만드는 경우 해당 클러스터를 [연속 통합/연속 배포 파이프라인](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)의 일부로 동적으로 만드는 것이 좋습니다.
 
 
 ### <a name="how-do-i-upgrade-my-operating-system-for-example-from-windows-server-2012-to-windows-server-2016"></a>운영 체제를 업그레이드(예: Windows Server 2012를 Windows Server 2016으로)하려면 어떻게 해야 하나요?
@@ -118,13 +129,13 @@ Microsoft는 환경 개선을 위해 노력하고 있지만 업그레이드에 �
 | FabricRM.exe |
 | FileStoreService.exe |
  
-### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>비밀을 가져오도록 내 응용 프로그램을 KeyVault로 어떻게 인증하나요?
-다음은 응용 프로그램을 keyVault로 인증하기 위해 자격 증명을 얻기 위한 방법입니다.
+### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>비밀을 가져오도록 내 애플리케이션을 KeyVault로 어떻게 인증하나요?
+다음은 애플리케이션을 keyVault로 인증하기 위해 자격 증명을 얻기 위한 방법입니다.
 
-a. 응용 프로그램 빌드/압축 작업을 하는 동안 인증서를 SF 앱의 데이터 패키지로 가져오고, 이를 사용하여 KeyVault에 인증할 수 있습니다.
+a. 애플리케이션 빌드/압축 작업을 하는 동안 인증서를 SF 앱의 데이터 패키지로 가져오고, 이를 사용하여 KeyVault에 인증할 수 있습니다.
 B. 가상 머신 확장 집합 MSI가 활성화된 호스트의 경우 SF 앱에 대한 간단한 PowerShell SetupEntryPoint를 개발하여 [MSI 엔드포인트에서 액세스 토큰](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)을 가져온 다음, [keyVault에서 비밀을 검색](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0)할 수 있습니다.
 
-## <a name="application-design"></a>응용 프로그램 설계
+## <a name="application-design"></a>애플리케이션 설계
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Reliable Collection의 파티션에 대해 데이터를 쿼리하는 가장 좋은 방법은 무엇인가요?
 

@@ -1,6 +1,7 @@
 ---
-title: Azure Machine Learning 서비스에 대한 Application Insights 사용
-description: Azure Machine Learning 서비스를 통해 배포된 서비스에 대한 Application Insights를 설정하는 방법 알아보기
+title: Application Insights로 모델 모니터링
+titleSuffix: Azure Machine Learning service
+description: Application Insights를 사용하여 Azure Machine Learning 서비스를 통해 배포된 웹 서비스 모니터링
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,12 +10,13 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: 9e0f07e744aaf5f1c35666b40285937dce6dd4de
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 385f829002d65335c8039e478c148b6140148ad8
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275057"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117251"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Application Insights를 사용하여 Azure Machine Learning 모델 모니터링
 
@@ -23,14 +25,13 @@ ms.locfileid: "52275057"
 * 종속성 비율, 응답 시간 및 실패율
 * 예외.
 
-[Application Insights에 대해 자세히 알아봅니다](../../application-insights/app-insights-overview.md). 
-
->[!NOTE]
-> 이 문서의 코드는 Azure Machine Learning SDK 버전 0.1.74에서 테스트됨
+[Application Insights에 대해 자세히 알아봅니다](../../azure-monitor/app/app-insights-overview.md). 
 
 
 ## <a name="prerequisites"></a>필수 조건
-* Azure 구독. 구독이 없으면 시작하기 전에 [계정](https://aka.ms/AMLfree)을 만드세요.
+
+* Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](http://aka.ms/AMLFree)을 지금 사용해 보세요.
+
 * Azure Machine Learning 작업 영역, 스크립트가 포함된 로컬 디렉터리 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. 이러한 필수 구성 요소를 충족하는 방법을 알아보려면 [개발 환경 구성 방법](how-to-configure-environment.md)을 참조하세요.
 * AKS(Azure Kubernetes Service) 또는 ACI(Azure Container Instances)에 배포할 학습된 Machine Learning 모델. 이러한 모델이 없으면 [이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 자습서를 참조하세요.
 
@@ -51,7 +52,7 @@ ms.locfileid: "52275057"
     ```
 
 ### <a name="log-custom-traces-in-your-service"></a>서비스에서 사용자 지정 추적 로그
-사용자 지정 추적을 기록하려는 경우 [AKS](how-to-deploy-to-aks.md) 또는 [ACI](how-to-deploy-to-aci.md)에 대한 표준 배포 프로세스를 수행합니다. 그렇다면
+사용자 지정 추적을 기록하려는 경우 [배포 방법 및 위치](how-to-deploy-and-where.md) 문서에서 AKS 또는 ACI에 대한 표준 배포 프로세스를 수행합니다. 그런 후 다음 단계를 사용하세요.
 
 1. 인쇄 문을 추가하여 점수 매기기 파일을 업데이트합니다.
     
@@ -100,7 +101,7 @@ Azure Portal에서 Application Insights를 사용하거나 사용하지 않도�
 1. [Azure Portal](https://portal.azure.com)에서 작업 영역을 엽니다.
 1. **배포**를 선택하고 서비스를 선택한 후 **편집**을 선택합니다.
 
-   [![편집 단추](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![편집 단추 사용](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. **고급 설정**에서 **AppInsights 진단 사용** 확인란을 선택 취소합니다. 
 
@@ -125,12 +126,12 @@ Azure Portal에서 Application Insights를 사용하거나 사용하지 않도�
 
    [![사용자 지정 추적](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
-Application Insights 사용 방법에 대한 자세한 내용은 [Application Insights란?](../../application-insights/app-insights-overview.md)을 참조하세요.
+Application Insights 사용 방법에 대한 자세한 내용은 [Application Insights란?](../../azure-monitor/app/app-insights-overview.md)을 참조하세요.
     
 
 ## <a name="example-notebook"></a>예제 Notebook
 
-[00.Getting Started/13.enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/13.enable-app-insights) Notebook에서는 이 문서의 개념을 설명합니다.  이 Notebook을 다운로드하려면 다음 단계를 수행합니다.
+[how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) 노트는 이 문서의 개념을 보여 줍니다. 
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

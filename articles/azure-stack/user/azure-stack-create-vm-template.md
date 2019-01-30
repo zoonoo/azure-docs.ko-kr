@@ -15,13 +15,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 11/13/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 7780cfde52cb429503e57216e2543807d3fb1d1d
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.reviewer: unknown
+ms.lastreviewed: 11/13/2018
+ms.openlocfilehash: 9ccdea6ca0bf46bbc19e5a7e19ac2d3527138345
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632461"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241783"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>자습서: 커뮤니티 템플릿을 사용 하 여 VM 만들기
 

@@ -26,7 +26,7 @@ ms.locfileid: "46363652"
 
 ## <a name="get-the-url-and-prediction-key"></a>URL 및 예측 키 가져오기
 
-[Custom Vision 웹 페이지](https://customvision.ai)에서 프로젝트를 선택하고 __성능__ 탭을 선택합니다. __예측 키__를 포함하여 예측 API 사용에 대한 정보를 표시하려면 __예측 URL__을 선택합니다. Azure 리소스에 연결된 프로젝트의 경우 __예측 키__는 __키__ 아래의 연결된 Azure 리소스에 대한 [Azure Portal](https://portal.azure.com) 페이지에서 찾을 수도 있습니다. 응용 프로그램에서 사용하기 위해 다음 정보를 복사합니다.
+[Custom Vision 웹 페이지](https://customvision.ai)에서 프로젝트를 선택하고 __성능__ 탭을 선택합니다. __예측 키__를 포함하여 예측 API 사용에 대한 정보를 표시하려면 __예측 URL__을 선택합니다. Azure 리소스에 연결된 프로젝트의 경우 __예측 키__는 __키__ 아래의 연결된 Azure 리소스에 대한 [Azure Portal](https://portal.azure.com) 페이지에서 찾을 수도 있습니다. 애플리케이션에서 사용하기 위해 다음 정보를 복사합니다.
 
 * __이미지 파일__을 사용하기 위한 __URL__.
 * __Prediction-key__ 값.
@@ -36,9 +36,9 @@ ms.locfileid: "46363652"
 
 ![예측 URL이 빨간색 사각형으로 둘러싸인 성능 탭이 표시됩니다.](./media/use-prediction-api/prediction-url.png)
 
-## <a name="create-the-application"></a>응용 프로그램 만들기
+## <a name="create-the-application"></a>애플리케이션 만들기
 
-1. Visual Studio에서 새 C# 콘솔 응용 프로그램을 만듭니다.
+1. Visual Studio에서 새 C# 콘솔 애플리케이션을 만듭니다.
 
 2. 다음 코드를 __Program.cs__ 파일의 본문으로 사용합니다.
 
@@ -104,9 +104,9 @@ ms.locfileid: "46363652"
     }
     ```
 
-## <a name="use-the-application"></a>응용 프로그램 사용
+## <a name="use-the-application"></a>애플리케이션 사용
 
-응용 프로그램을 실행하는 경우 이미지 파일의 경로를 입력합니다. 이미지가 API에 제출되고 결과가 JSON 문서로 반환됩니다. 다음 JSON은 응답의 예입니다.
+애플리케이션을 실행하는 경우 이미지 파일의 경로를 입력합니다. 이미지가 API에 제출되고 결과가 JSON 문서로 반환됩니다. 다음 JSON은 응답의 예입니다.
 
 ```json
 {

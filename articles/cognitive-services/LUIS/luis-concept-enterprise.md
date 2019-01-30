@@ -1,21 +1,22 @@
 ---
-title: LUIS 앱의 엔터프라이즈 개념 - Language Understanding
-titleSuffix: Azure Cognitive Services
-description: 대형 LUIS 앱의 디자인 개념을 이해합니다.
+title: 엔터프라이즈 개념
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: 규모가 큰 LUIS 앱 또는 LUIS 및 QnA Maker를 함께 포함하는 여러 앱에 대한 디자인 개념을 이해합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: bb4078c9131488e5077795df792de259d7c789dc
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 7c12118d0be939f63a2a11fa4dcdd45b87bcd3aa
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638276"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263172"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>LUIS 앱의 엔터프라이즈 전략
 엔터프라이즈 앱의 이러한 디자인 전략을 검토합니다.
@@ -58,7 +59,7 @@ LUIS 앱이 단일 키 할당량이 허용하는 것보다 많은 엔드포인�
 이 호출 계층 구조가 Bot Builder v4 [dispatcher-application-tutorial][dispatcher-application-tutorial]에서 만들어지는 방식을 이해합니다.  
 
 ### <a name="intent-limits-in-dispatch-model"></a>디스패치 모델의 의도 제한
-디스패치 응용 프로그램에는 최댓값으로 500개 의도에 해당하는 500개 디스패치 원본이 있습니다. 
+디스패치 애플리케이션에는 최댓값으로 500개 의도에 해당하는 500개 디스패치 원본이 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

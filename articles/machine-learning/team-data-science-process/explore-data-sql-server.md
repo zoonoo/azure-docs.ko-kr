@@ -1,6 +1,6 @@
 ---
-title: Azure의 SQL Server Virtual Machine에서 데이터 탐색 | Microsoft Docs
-description: Azure에서 SQL Server VM에 저장된 데이터를 탐색하는 방법입니다.
+title: SQL Server 가상 머신에서 데이터 탐색 - Team Data Science Process
+description: SQL 또는 Python과 같은 프로그래밍 언어를 사용하여 Azure에서 SQL Server VM에 저장된 데이터를 탐색하는 방법입니다.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: da01a1a386e1ffc590f4cbbb85d9d50a180d4973
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5bca079afb929afef20e3c2448d9a928195d7780
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442933"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452805"
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Azure의 SQL Server Virtual Machine에서 데이터 탐색
 
@@ -62,7 +62,7 @@ SQL Server에서 데이터 저장소를 탐색하는 데 사용할 수 있는 �
 Python의 [Pandas 라이브러리](http://pandas.pydata.org/) 에서는 Python 프로그래밍용 데이터 조작을 위한 다양한 데이터 구조 및 데이터 분석 도구 집합을 제공합니다. 다음 코드는 SQL Server 데이터베이스에서 Pandas 데이터 프레임으로 반환되는 결과를 읽습니다.
 
     # Query database and load the returned results in pandas data frame
-    data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
+    data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 
 이제 [데이터 과학 환경에서 Azure Blob 데이터 처리](data-blob.md)토픽에 설명된 대로 Pandas DataFrame으로 작업할 수 있습니다.
 

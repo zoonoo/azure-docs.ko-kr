@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: df6a96d8bbf1c77d279806e69e7aa7f65387dd4b
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: bce79aed49b94071b4e83524de2d599fca182256
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632529"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438574"
 ---
 # <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>SSH를 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 사용
 
@@ -63,7 +63,7 @@ HDInsight에서의 SSH 사용에 대한 자세한 내용은 [HDInsight에서 SSH
     이 명령은 `hadoop-mapreduce-examples.jar` 파일에 포함되어 있는 `wordcount` 클래스를 시작합니다. 입력으로 `/example/data/gutenberg/davinci.txt` 문서를 사용하고 출력은 `/example/data/WordCountOutput`에 저장됩니다.
 
     > [!NOTE]
-    > 이 MapReduce 작업 및 예 데이터에 대한 자세한 내용은 [HDInsight Hadoop에서 MapReduce 사용](hdinsight-use-mapreduce.md)을 참조하세요.
+    > 이 MapReduce 작업 및 예 데이터에 대한 자세한 내용은 [HDInsight의 Apache Hadoop에서 MapReduce 사용](hdinsight-use-mapreduce.md)을 참조하세요.
 
 2. 작업이 처리되는 동안 세부 정보를 내보내며 작업이 완료될 때 다음 텍스트와 유사한 정보를 반환합니다.
 
@@ -80,7 +80,7 @@ HDInsight에서의 SSH 사용에 대한 자세한 내용은 [HDInsight에서 SSH
 
     이 명령은 `_SUCCESS` 및 `part-r-00000`의 두 개의 파일을 표시합니다. `part-r-00000` 파일은 이 작업에 대한 출력을 포함합니다.
 
-    > [!NOTE]
+    > [!NOTE]  
     > 일부 MapReduce 작업은 여러 **part-r-#####** 파일로 결과를 분할할 수 있습니다. 그럴 경우 ##### 접미사가 파일의 순서를 나타냅니다.
 
 4. 출력을 보려면 다음 명령을 사용합니다.
@@ -111,5 +111,5 @@ HDInsight의 MapReduce 작업에 대한 일반적인 정보:
 
 HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
-* [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
-* [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Hive 사용](hdinsight-use-hive.md)
+* [HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용](hdinsight-use-pig.md)

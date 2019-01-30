@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 4491be6df8716585e5e2095db5656e16a029bbed
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 76fc2c9a0864417e380471f8de59d148e0fbf7b4
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499274"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651830"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Azure HDInsight Spark 클러스터에서 Microsoft Cognitive 도구 키트 심층 학습 모델 사용
 
@@ -42,7 +42,7 @@ ms.locfileid: "52499274"
 - Spark RDD(Resilient Distributed Dataset)에 샘플 이미지 로드
    - 모듈 로드 및 사전 설정 정의
    - Spark 클러스터에서 로컬로 데이터 세트 다운로드
-   - 데이터 를 RDD로 변환
+   - 데이터 세트를 RDD로 변환
 - 학습된 Cognitive 도구 키트 모델을 사용하여 이미지 점수 매기기
    - Spark 클러스터에 학습된 Cognitive 도구 키트 모델 다운로드
    - 작업자 노드에서 사용할 함수 정의
@@ -87,21 +87,21 @@ Azure HDInsight Spark 클러스터에서 Microsoft Cognitive 도구 키트를 �
 5. 노트북을 업로드한 후 노트북의 이름을 클릭한 다음, 데이터 집합을 로드하고 자습서를 수행하는 방법에 대한 노트북 자체의 지침을 따릅니다.
 
 ## <a name="see-also"></a>참고 항목
-* [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
+* [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
 * [BI와 Apache Spark: BI 도구와 함께 HDInsight의 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning과 Apache Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 HVAC 데이터로 건물 온도 분석](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 * [HDInsight의 Apache Spark를 사용한 Application Insight 원격 분석 데이터 분석](apache-spark-analyze-application-insight-logs.md)
 
-### <a name="create-and-run-applications"></a>응용 프로그램 만들기 및 실행
-* [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](apache-spark-create-standalone-application.md)
-* [Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
+### <a name="create-and-run-applications"></a>애플리케이션 만들기 및 실행
+* [Scala를 사용하여 독립 실행형 애플리케이션 만들기](apache-spark-create-standalone-application.md)
+* [Apache Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>도구 및 확장
-* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](apache-spark-intellij-tool-plugin.md)
+* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 애플리케이션 만들기 및 제출](apache-spark-intellij-tool-plugin.md)
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Apache Spark 애플리케이션을 원격으로 디버그](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md)
 * [HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)
@@ -116,7 +116,7 @@ Azure HDInsight Spark 클러스터에서 Microsoft Cognitive 도구 키트를 �
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [azure-create-storageaccount]:../../storage/common/storage-create-storage-account.md

@@ -3,18 +3,18 @@ title: Azure Automation에 대한 PowerShell 워크플로 학습
 description: 이 문서는 PowerShell에 익숙한 작성자가 PowerShell과 PowerShell 워크플로 간의 중대한 차이와 Automation Runbook에 적용되는 개념을 빠르게 이해하도록 하기 위해 제공됩니다.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/04/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 00f6f84a2065a67e999149e4b0f9e28f18e5e297
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7ab6b387a28df06758e5e0c1ce197781fc4be3c5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239426"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436810"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Automation runbook에 대한 주요 Windows PowerShell 워크플로 개념 학습
 
@@ -193,10 +193,10 @@ Workflow Copy-Files
 }
 ```
 
-**ForEach -Parallel** 구문을 사용하여 컬렉션의 각 항목에 대한 명령을 동시에 처리할 수 있습니다. 이 경우 컬렉션의 항목은 병렬로 처리되지만 스크립트 블록의 명령은 순차적으로 실행됩니다. 여기서는 아래 표시된 구문이 사용됩니다. 이 예제에서 Activity1은 컬렉션의 모든 항목에 대해 동시에 시작됩니다. 각 항목에 대해 Activity2는 Activity1이 완료된 후에 시작됩니다. Activity3는 모든 항목에 대해 Activity1과 Activity2가 모두 완료된 후에만 시작됩니다.
+**ForEach -Parallel** 구문을 사용하여 컬렉션의 각 항목에 대한 명령을 동시에 처리할 수 있습니다. 이 경우 컬렉션의 항목은 병렬로 처리되지만 스크립트 블록의 명령은 순차적으로 실행됩니다. 여기서는 아래 표시된 구문이 사용됩니다. 이 예제에서 Activity1은 컬렉션의 모든 항목에 대해 동시에 시작됩니다. 각 항목에 대해 Activity2는 Activity1이 완료된 후에 시작됩니다. Activity3는 모든 항목에 대해 Activity1과 Activity2가 모두 완료된 후에만 시작됩니다. `ThrottleLimit` 매개 변수를 사용하여 병렬 처리를 제한합니다. `ThrottleLimit`이 너무 크면 문제가 발생할 수 있습니다. `ThrottleLimit` 매개 변수의 적절한 값은 사용자 환경의 여러 요인에 따라 달라집니다. 특정 상황에서 적합한 값을 찾을 때까지 낮은 값부터 서서히 늘려가면서 시도해보세요.
 
 ```powershell
-ForEach -Parallel ($<item> in $<collection>)
+ForEach -Parallel -ThrottleLimit 10 ($<item> in $<collection>)
 {
     <Activity1>
     <Activity2>
@@ -211,7 +211,7 @@ Workflow Copy-Files
 {
     $files = @("C:\LocalPath\File1.txt","C:\LocalPath\File2.txt","C:\LocalPath\File3.txt")
 
-    ForEach -Parallel ($File in $Files)
+    ForEach -Parallel -ThrottleLimit 10 ($File in $Files)
     {
         Copy-Item -Path $File -Destination \\NetworkPath
         Write-Output "$File copied."
@@ -258,7 +258,7 @@ Workflow Copy-Files
 }
 ```
 
-[Suspend-workflow](https://technet.microsoft.com/library/jj733586.aspx) 작업을 호출한 후 또는 마지막 검사점 이후에 사용자 이름 자격 증명을 유지하지 않기 때문에 자격 증명을 null로 설정하고 **Suspend-workflow** 또는 검사점을 호출한 후에 자산 저장소에서 다시 검색해야 합니다.  그렇지 않으면 다음과 같은 오류 메시지가 나타날 수 있습니다. *지속성 데이터를 완전히 저장할 수 없거나 저장된 지속성 데이터가 손상되었기 때문에 워크플로 작업을 다시 시작할 수 없습니다. 워크플로를 다시 시작해야 합니다.*
+[Suspend-workflow](https://technet.microsoft.com/library/jj733586.aspx) 작업을 호출한 후 또는 마지막 검사점 이후에 사용자 이름 자격 증명을 유지하지 않기 때문에 자격 증명을 null로 설정하고 **Suspend-workflow** 또는 검사점을 호출한 후에 자산 저장소에서 다시 검색해야 합니다.  그렇지 않으면 다음 오류 메시지가 표시될 수 있습니다. *지속성 데이터를 완전히 저장할 수 없거나 저장된 지속성 데이터가 손상되었기 때문에 워크플로 작업을 다시 시작할 수 없습니다. 워크플로를 다시 시작해야 합니다.*
 
 다음과 같은 코드에서는 PowerShell 워크플로 runbook에서 이를 처리하는 방법을 보여 줍니다.
 
@@ -296,3 +296,4 @@ workflow CreateTestVms
 ## <a name="next-steps"></a>다음 단계
 
 * PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)
+

@@ -1,27 +1,8 @@
 ---
-title: Machine Learning Studio 웹 서비스 배포 - Azure | Microsoft Docs
-description: 학습 실험을 예측 실험으로 변환하고 배포할 준비를 한 다음 Azure Machine Learning Studio 웹 서비스로 배포하는 방법입니다.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
-ms.author: amlstudiodocs
-manager: hjerez
-editor: cgronlun
-ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/06/2017
-ms.openlocfilehash: d96755f00aa5023d57c9c4c2b2457902c337e29d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314271"
+제목: Machine Learning Studio 웹 서비스 배포 titleSuffix: Azure Machine Learning Studio 설명: 학습 실험을 예측 실험으로 변환하고 배포할 준비를 한 다음 Azure Machine Learning Studio 웹 서비스로 배포하는 방법입니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 01/06/2017
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Azure Machine Learning Studio 웹 서비스 배포
 Azure Machine Learning을 사용하면 예측 분석 솔루션을 빌드, 테스트 및 배포할 수 있습니다.
@@ -32,7 +13,7 @@ Azure Machine Learning을 사용하면 예측 분석 솔루션을 빌드, 테스
 * **[예측 실험으로 변환]** - 기존 데이터로 모델을 학습시키고 새 데이터의 점수를 매기는 데 사용할 준비가 되면, 예측을 위해 실험을 준비하고 간소화합니다.
 * **[앱 서비스로 배포]** - 예측 실험을 [신규] 또는 [기존] Azure 웹 서비스로 배포할 수 있습니다. 사용자 모델에 데이터를 보내고 모델의 예측을 받을 수 있습니다.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="create-a-training-experiment"></a>학습 실험 만들기
 예측 분석 모델을 학습시키려면 Azure Machine Learning Studio에서 학습 데이터를 로드하고, 필요한 대로 데이터를 준비하며, 기계 학습 알고리즘을 적용하고 결과를 평가하는 다양한 모듈을 포함하는 학습 실험을 만듭니다. 실험은 반복할 수 있으며 여러 다른 기계 학습 알고리즘을 시도하여 결과를 비교하고 평가할 수 있습니다.

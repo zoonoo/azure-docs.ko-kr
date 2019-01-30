@@ -3,9 +3,9 @@ title: Azure에서 SQLRuleAction 구문 참조 | Microsoft Docs
 description: SQLRuleAction 문법에 대한 세부 정보입니다.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
-ms.author: spelluru
-ms.openlocfilehash: cd5bc1fb959872cfb98236feb5c32517ac7472ac
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: 0f9365b72da1cec81eed82756097d32b1d72ca71
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394185"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847733"
 ---
 # <a name="sqlruleaction-syntax"></a>SQLRuleAction 구문
 
@@ -123,7 +123,7 @@ ms.locfileid: "47394185"
   
  `<pattern>`은 문자열로 평가할 식이어야 합니다. LIKE 연산자에 대한 패턴으로 사용됩니다.      다음 와일드 카드 문자를 포함할 수 있습니다.  
   
--   `%`: 0개 이상의 문자입니다.  
+-   `%`:  0개 이상의 문자로 된 문자열입니다.  
   
 -   `_`: 단일 문자입니다.  
   

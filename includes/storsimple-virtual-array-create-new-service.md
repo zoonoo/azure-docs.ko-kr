@@ -35,7 +35,7 @@ ms.locfileid: "45979068"
 
         -   Azure에 StorSimple 디바이스에 배포하려는 기존 워크로드가 있는 경우에는 해당 데이터 센터를 사용하는 것이 좋습니다.
 
-        -   StorSimple 디바이스 관리자 및 Azure Storage는 두 곳의 다른 위치에 있을 수 있습니다. 이 경우, StorSimple 디바이스 관리자 및 Azure Storage 계정을 별도로 만들어야 합니다. Azure Storage 계정을 만들려면 Azure Portal의 Azure Storage로 이동하고, [저장소 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)에서 설명된 단계를 수행합니다. 이 계정을 만든 후에 [서비스에 대한 새 저장소 계정 구성](https://azure.microsoft.com/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service)의 단계를 수행하여 StorSimple 디바이스 관리자 서비스에 추가합니다.
+        -   StorSimple 디바이스 관리자 및 Azure Storage는 두 곳의 다른 위치에 있을 수 있습니다. 이 경우, StorSimple 디바이스 관리자 및 Azure Storage 계정을 별도로 만들어야 합니다. Azure Storage 계정을 만들려면 Azure Portal의 Azure Storage로 이동하고, [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)에서 설명된 단계를 수행합니다. 이 계정을 만든 후에 [서비스에 대한 새 저장소 계정 구성](https://azure.microsoft.com/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service)의 단계를 수행하여 StorSimple 디바이스 관리자 서비스에 추가합니다.
 
         -   정부 포털에서 가상 디바이스를 배포하는 경우 미국 아이오와 및 미국 버지니아 위치에서 StorSimple 디바이스 관리자 서비스를 사용할 수 있습니다.
 

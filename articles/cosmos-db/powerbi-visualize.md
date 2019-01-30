@@ -1,21 +1,17 @@
 ---
-title: Azure Cosmos DB 커넥터에 대한 Power BI 자습서 | Microsoft Docs
+title: Azure Cosmos DB 커넥터에 대한 Power BI 자습서
 description: 이 Power BI 자습서를 사용하여 JSON을 가져오고, 통찰력 있는 보고서를 만들고, Azure Cosmos DB 및 Power BI 커넥터를 사용하여 데이터를 시각화할 수 있습니다.
-keywords: power bi 자습서, 데이터 시각화, power bi 커넥터
-services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: 782de7dc6e099fade0d2f1099ac19b9398562023
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: f6ba66aa37b4a1902f98d2a1fcf5f542fa6476d7
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622094"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043654"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Power BI 커넥터를 사용하여 Azure Cosmos DB 데이터 시각화
 
@@ -36,7 +32,19 @@ ms.locfileid: "51622094"
 
 * GitHub에서 [샘플 화산 데이터](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json)를 다운로드합니다.
 
-* [Azure Cosmos DB 데이터 마이그레이션 도구](import-data.md)를 사용하여 [Azure Cosmos DB 데이터베이스 계정을 만들고](https://azure.microsoft.com/documentation/articles/create-account/) 화산 데이터를 가져옵니다.
+* [Azure Cosmos DB 데이터 마이그레이션 도구](import-data.md)를 사용하여 [Azure Cosmos DB 데이터베이스 계정을 만들고](https://azure.microsoft.com/documentation/articles/create-account/) 화산 데이터를 가져옵니다. 데이터를 가져올 때 데이터 마이그레이션 도구의 원본 및 대상에 대한 다음 설정을 고려합니다.
+
+   * **원본 매개 변수** 
+
+       * **가져올 위치:**: JSON 파일
+
+   * **대상 매개 변수** 
+
+      * **연결 문자열:** `AccountEndpoint=<Your_account_endpoint>;AccountKey=<Your_primary_or_secondary_key>;Database= <Your_database_name>` 
+
+      * **파티션 키:** /Country 
+
+      * **컬렉션 처리량:** 1000 
 
 PowerBI.com에서 보고서를 공유하려면 PowerBI.com에 계정이 있어야 합니다.  Power BI 및 Power BI Pro에 대한 자세한 내용은 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)을 참조하세요.
 

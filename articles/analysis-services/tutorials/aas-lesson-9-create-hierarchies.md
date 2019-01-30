@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2e6591dc25ab498b496f6abff1041e448240896d
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: f34b2fd2ba5f6e3e1433fb8dac04d931a36920d0
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426065"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188966"
 ---
 # <a name="create-hierarchies"></a>계층 구조 만들기
 
-이 단원에서는 계층 구조를 만듭니다. 계층은 수준별로 정렬된 열 그룹입니다. 예를 들어 Geography 계층 구조는 Country, State, County 및 City에 대한 하위 수준을 포함할 수 있습니다. 계층 구조는 보고 클라이언트 응용 프로그램 필드 목록에서 다른 열과 별도로 표시될 수 있으므로 클라이언트 사용자가 보고서에서 쉽게 탐색 및 포함할 수 있습니다. 자세한 내용은 [계층 구조](https://docs.microsoft.com/sql/analysis-services/tabular-models/hierarchies-ssas-tabular)를 참조하세요.
+이 단원에서는 계층 구조를 만듭니다. 계층은 수준별로 정렬된 열 그룹입니다. 예를 들어 Geography 계층 구조는 Country, State, County 및 City에 대한 하위 수준을 포함할 수 있습니다. 계층 구조는 보고 클라이언트 애플리케이션 필드 목록에서 다른 열과 별도로 표시될 수 있으므로 클라이언트 사용자가 보고서에서 쉽게 탐색 및 포함할 수 있습니다. 자세한 내용은 [계층 구조](https://docs.microsoft.com/sql/analysis-services/tabular-models/hierarchies-ssas-tabular)를 참조하세요.
   
 계층 구조를 만들려면 *다이어그램 뷰*에서 모델 디자이너를 사용합니다. 데이터 뷰에서 계층 구조 만들기 및 관리는 지원되지 않습니다.  
   

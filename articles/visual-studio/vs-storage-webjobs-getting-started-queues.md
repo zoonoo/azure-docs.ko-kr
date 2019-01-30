@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 899792be583f3b2e2a16e42472fcdf87bf751893
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 74aea3ad4c3dda8abc69275ad4d683fbcf485ccc
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635495"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722909"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -117,7 +117,7 @@ SDK는 무작위 지수 백오프 알고리즘을 구현하여 유휴 큐 폴링
 
 Azure 저장소 API에서 직접 작업하려면 **CloudStorageAccount** 매개 변수를 추가하면 됩니다.
 
-다음 예제에서는 이러한 모든 메타데이터를 INFO 응용 프로그램 로그에 씁니다. 예제에서 logMessage와 queueTrigger에는 둘 다 큐 메시지의 내용이 포함됩니다.
+다음 예제에서는 이러한 모든 메타데이터를 INFO 애플리케이션 로그에 씁니다. 예제에서 logMessage와 queueTrigger에는 둘 다 큐 메시지의 내용이 포함됩니다.
 
 ```csharp
 public static void WriteLog([QueueTrigger("logqueue")] string logMessage,
@@ -477,7 +477,7 @@ static void Main(string[] args)
 }
 ```
 
-**참고:** 큐, 테이블 및 Blob 이름은 함수가 호출될 때마다 확인되지만 Blob 컨테이너 이름은 응용 프로그램이 시작될 때만 확인됩니다. 작업이 실행되는 동안에는 Blob 컨테이너 이름을 변경할 수 없습니다.
+**참고:** 큐, 테이블 및 Blob 이름은 함수가 호출될 때마다 확인되지만 Blob 컨테이너 이름은 애플리케이션이 시작될 때만 확인됩니다. 작업이 실행되는 동안에는 Blob 컨테이너 이름을 변경할 수 없습니다.
 
 ## <a name="how-to-trigger-a-function-manually"></a>수동으로 함수를 트리거하는 방법
 수동으로 함수를 트리거하려면 다음 예제와 같이 **JobHost** 개체의 **Call** 또는 **CallAsync** 메서드와 함수의 **NoAutomaticTrigger** 특성을 사용합니다.
@@ -514,7 +514,7 @@ public class Program
 
 많은 작업 기능이 동시에 실행될 수 있지만 콘솔은 단일 스레드이므로 콘솔 출력을 특정 메서드 호출에 연결할 수 없습니다. 따라서 SDK에서는 각 함수 호출에 고유한 로그 작성기 개체를 제공합니다.
 
-[응용 프로그램 추적 로그](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview)를 기록하려면 INFO로 표시되는 로그를 만드는 **Console.Out** 및 ERROR로 표시되는 로그를 만드는 **Console.Error**를 사용합니다. 그렇지 않으면 Info 및 Error 외에 Verbose, Warning 및 Critical 수준을 제공하는 [추적 또는 TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)를 사용합니다. 응용 프로그램 추적 로그는 Azure 웹 앱을 구성한 방식에 따라 웹 앱 로그 파일, Azure 테이블 또는 Azure Blob에 표시됩니다. 모든 콘솔 출력과 마찬가지로 가장 최근 100개의 응용 프로그램 로그도 함수 호출에 대한 페이지가 아니라 WebJob에 대한 대시보드 페이지에 표시됩니다.
+[애플리케이션 추적 로그](../app-service/troubleshoot-dotnet-visual-studio.md#logsoverview)를 기록하려면 INFO로 표시되는 로그를 만드는 **Console.Out** 및 ERROR로 표시되는 로그를 만드는 **Console.Error**를 사용합니다. 그렇지 않으면 Info 및 Error 외에 Verbose, Warning 및 Critical 수준을 제공하는 [추적 또는 TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)를 사용합니다. 애플리케이션 추적 로그는 Azure 웹앱을 구성한 방식에 따라 웹앱 로그 파일, Azure 테이블 또는 Azure Blob에 표시됩니다. 모든 콘솔 출력과 마찬가지로 가장 최근 100개의 애플리케이션 로그도 함수 호출에 대한 페이지가 아니라 WebJob에 대한 대시보드 페이지에 표시됩니다.
 
 콘솔 출력은 프로그램이 Azure WebJob에서 실행되는 경우에만 대시보드에 표시되고, 프로그램이 로컬로 실행되거나 다른 환경에서 실행되는 경우에는 표시되지 않습니다.
 
@@ -544,13 +544,13 @@ WebJobs SDK 대시보드에서 콘솔 출력의 최근 100줄은 함수 호출�
 
 ![Toggle Output](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-연속 WebJob에서는 응용 프로그램 로그가 웹앱 파일 시스템의 /data/jobs/continuous/*{webjobname}*/job_log.txt에 표시됩니다.
+연속 WebJob에서는 애플리케이션 로그가 웹앱 파일 시스템의 /data/jobs/continuous/*{webjobname}*/job_log.txt에 표시됩니다.
 
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
-Azure Blob에서 응용 프로그램 로그는 다음과 같습니다. 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!, 2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,
+Azure Blob에서 애플리케이션 로그는 다음과 같습니다. 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!, 2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,
 
 Azure 테이블에서 **Console.Out** 및 **Console.Error** 로그는 다음과 같이 표시됩니다.
 

@@ -3,19 +3,19 @@ title: 'Azure AD Connect: ADConnectivityTool PowerShell 모듈이란? | Microsof
 description: 이 문서에서는 새 ADConnectivity PowerShell 모듈을 소개합니다.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4020d754bd8c7728b43ef583aa7e7d8dbddcebec
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 537fc7a6e0a68281ae190db5ec7fef65e413bcbe
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669800"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475886"
 ---
 # <a name="what-is-the-adconnectivitytool-powershell-module"></a>ADConnectivityTool PowerShell 모듈이란?
 
@@ -24,7 +24,7 @@ ADConnectivity 도구는 다음 중 하나에서 사용되는 PowerShell 모듈�
 - 설치하는 동안 네트워크 연결 문제로 인해 마법사에서 사용자가 제공한 Active Directory 자격 증명에 대한 유효성 검사가 제대로 수행되지 않습니다.
 - PowerShell 세션에서 함수를 호출한 사용자가 사후 설치합니다.
 
-이 도구는 **C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ ADConnectivityTool.psm1** 위치에 있습니다. 
+도구는 **C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ ADConnectivityTool.psm1**에 있습니다. 
 
 ## <a name="adconnectivitytool-during-installation"></a>설치 중의 ADConnectivityTool 작업
 
@@ -40,7 +40,7 @@ Azure AD Connect 마법사의 **디렉터리 연결** 페이지에서 네트워�
 이러한 문제가 발견될 때마다 관련 오류 메시지가 AADConnect 마법사에 표시됩니다.
 
 
-![오류](media\how-to-connect-adconnectivitytools\error1.png)
+![오류](media/how-to-connect-adconnectivitytools/error1.png)
 
 예를 들어 **디렉터리 연결** 화면에 디렉터리를 추가하려고 하면 Azure AD Connect에서 이를 확인하고 389 포트를 통해 도메인 컨트롤러와 통신할 수 있어야 합니다.  그렇지 않으면 위의 스크린샷에서 보여 주는 오류가 표시됩니다.  
 

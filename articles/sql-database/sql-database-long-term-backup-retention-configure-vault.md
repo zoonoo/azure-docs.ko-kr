@@ -3,21 +3,21 @@ title: 장기 백업 보존 구성 - Azure SQL Database | Microsoft Docs
 description: 이 자습서에서는 Azure Recovery Services 자격 증명 모음에 자동화된 백업을 저장하고 Azure Recovery Services 자격 증명 모음에서 복원하는 방법을 설명합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: mathoma,carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 499689e4d36f368746e5e0ea9e6bc3f3bf0ec0d9
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: d8ff07d43d1efbadf1ddd397b6690c93c54c4f27
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868235"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603551"
 ---
 # <a name="configure-long-term-backup-retention-using-azure-recovery-services-vault"></a>Azure Recovery Services 자격 증명 모음을 사용하여 장기 백업 보존 구성
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 1f5984f8f28832c33d3a5a844fde72e7286ad251
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c1de3a914e3505e46ab0a4eeae4f3b2c8fe84790
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433792"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158366"
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>ServiceNow를 사용하여 서비스 상태 경고 구성
 
@@ -78,7 +78,7 @@ ms.locfileid: "39433792"
                     short_description += " - Service Issue - ";
                 } else if (event.data.context.activityLog.properties.incidentType == "Maintenance") {
                     short_description += " - Planned Maintenance - ";
-                } else if (event.data.context.activityLog.properties.incidentType == "Information" || event.data.context.activityLog.properties.incidentType == "ActionRequired") {
+                } else if (event.data.context.activityLog.properties.incidentType == "Informational" || event.data.context.activityLog.properties.incidentType == "ActionRequired") {
                     short_description += " - Health Advisory - ";
                 }
                 short_description += event.data.context.activityLog.properties.title;
@@ -154,13 +154,13 @@ ms.locfileid: "39433792"
 
 ## <a name="create-an-alert-using-servicenow-in-the-azure-portal"></a>Azure Portal에서 ServiceNow를 사용하여 경고 만들기
 ### <a name="for-a-new-action-group"></a>새 작업 그룹의 경우:
-1. [이 문서](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)의 1~8단계를 수행하여 새 작업 그룹으로 경고를 만듭니다.
+1. [이 문서](../azure-monitor/platform/alerts-activity-log-service-notifications.md)의 1~8단계를 수행하여 새 작업 그룹으로 경고를 만듭니다.
 
 1. **작업** 목록에서 다음을 정의합니다.
 
     a. **작업 유형:** *웹후크*
 
-    나. **세부 정보:** 이전에 저장한 ServiceNow **통합 URL**입니다.
+    b. **세부 정보:** 이전에 저장한 ServiceNow **통합 URL**입니다.
 
     다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
@@ -177,14 +177,14 @@ ms.locfileid: "39433792"
 
     a. **작업 유형:** *웹후크*
 
-    나. **세부 정보:** 이전에 저장한 ServiceNow **통합 URL**입니다.
+    b. **세부 정보:** 이전에 저장한 ServiceNow **통합 URL**입니다.
 
     다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
 1. 작업 그룹 업데이트가 완료되면 **저장**을 선택합니다.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>HTTP POST 요청을 통해 웹후크 통합 테스트
-1. 보낼 서비스 상태 페이로드를 만듭니다. [Azure 활동 로그 경고에 대한 웹후크](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md)에서 예제 서비스 상태 웹후크 페이로드를 찾을 수 있습니다.
+1. 보낼 서비스 상태 페이로드를 만듭니다. [Azure 활동 로그 경고에 대한 웹후크](../azure-monitor/platform/activity-log-alerts-webhook.md)에서 예제 서비스 상태 웹후크 페이로드를 찾을 수 있습니다.
 
 1. 다음과 같이 HTTP POST 요청을 만듭니다.
 
@@ -201,6 +201,6 @@ ms.locfileid: "39433792"
 
 ## <a name="next-steps"></a>다음 단계
 - [기존 문제 관리 시스템에 대한 웹후크 알림 구성](service-health-alert-webhook-guide.md) 방법에 대해 알아봅니다.
-- [활동 로그 경고 웹후크 스키마](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md)를 검토하세요. 
-- [서비스 상태 알림](../monitoring-and-diagnostics/monitoring-service-notifications.md)에 대해 자세히 알아보세요.
-- [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md)에 대해 자세히 알아보세요.
+- [활동 로그 경고 웹후크 스키마](../azure-monitor/platform/activity-log-alerts-webhook.md)를 검토하세요. 
+- [서비스 상태 알림](../azure-monitor/platform/service-notifications.md)에 대해 자세히 알아보세요.
+- [작업 그룹](../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보세요.

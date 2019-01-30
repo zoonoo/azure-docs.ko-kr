@@ -23,7 +23,7 @@ ms.locfileid: "46127147"
 Azure Data Lake Storage Gen1을 다른 Azure 서비스와 함께 사용하여 광범위한 시나리오를 활용할 수 있습니다. 다음 문서에는 Data Lake Storage Gen1과 통합될 수 있는 서비스가 나열되어 있습니다.
 
 ## <a name="use-data-lake-storage-gen1-with-azure-hdinsight"></a>Azure HDInsight와 함께 Data Lake Storage Gen1 사용
-Data Lake Storage Gen1을 사용하는 [Azure HDInsight](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/) 클러스터를 HDFS 규격 저장소로 프로비전할 수 있습니다. 이 릴리스에서 Windows 및 Linux의 Hadoop 및 Storm 클러스터의 경우 Data Lake Storage Gen1을 추가 저장소로만 사용할 수 있습니다. 이러한 클러스트는 여전히 Azure Storage(WASB)를 기본 저장소로 사용합니다. 그러나 Windows 및 Linux의 HBase 클러스터의 경우에는 Data Lake Storage Gen1을 기본 저장소나 추가 저장소 또는 둘 다로 사용할 수 있습니다.
+Data Lake Storage Gen1을 사용하는 [Azure HDInsight](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/) 클러스터를 HDFS 규격 스토리지로 프로비전할 수 있습니다. 이 릴리스에서 Windows 및 Linux의 Hadoop 및 Storm 클러스터의 경우 Data Lake Storage Gen1을 추가 스토리지로만 사용할 수 있습니다. 이러한 클러스트는 여전히 Azure Storage(WASB)를 기본 스토리지로 사용합니다. 그러나 Windows 및 Linux의 HBase 클러스터의 경우에는 Data Lake Storage Gen1을 기본 스토리지나 추가 스토리지 또는 둘 다로 사용할 수 있습니다.
 
 Data Lake Storage Gen1을 사용하는 HDInsight 클러스터를 프로비전하는 방법에 대한 지침은 다음을 참조하세요.
 

@@ -3,7 +3,7 @@ title: Azure CLI 스크립트 샘플 - ACS Linux Kubernetes 클러스터 만들�
 description: Azure CLI 스크립트 샘플 - ACS Linux Kubernetes 클러스터 만들기
 services: container-service
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 tags: acs, azure-container-service
@@ -15,15 +15,17 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: nepeters
-ms.openlocfilehash: 938990e0c39e96d909c07bef05d2630a01e3076a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: iainfou
+ms.openlocfilehash: 11549e730e38c72e09ed2e94a72113c6e7e5bbb9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423762"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996264"
 ---
-# <a name="create-an-azure-container-service-kubernetes-linux-cluster"></a>Azure Container Service Kubernetes Linux 클러스터 만들기
+# <a name="deprecated-create-an-azure-container-service-kubernetes-linux-cluster"></a>(사용되지 않음) Azure Container Service Kubernetes Linux 클러스터 만들기
+
+[!INCLUDE [ACS deprecation](../../../../includes/container-service-kubernetes-deprecation.md)]
 
 이 샘플에서는 Linux 기반 컨테이너에서 Kubernetes를 실행하는 Azure Container Service 클러스터를 만듭니다.
 

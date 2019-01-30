@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure Service Fabric Mesh에 앱 배포 | Microsoft Docs
-description: 이 자습서에서는 템플릿을 사용하여 Service Fabric Mesh에 응용 프로그램을 배포하는 방법을 알아봅니다.
+description: 이 자습서에서는 템플릿을 사용하여 Service Fabric Mesh에 애플리케이션을 배포하는 방법을 알아봅니다.
 services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cca18b2aa5cb6f27df45e4b63e55251bea058625
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 97b1efbcb02277028782764ca1018b195ab21277
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968852"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246367"
 ---
-# <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>자습서: 템플릿을 사용하여 Service Fabric Mesh에 응용 프로그램 배포
+# <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>자습서: 템플릿을 사용하여 Service Fabric Mesh에 애플리케이션 배포
 
-이 자습서는 시리즈의 1부입니다. 여기서는 템플릿을 사용하여 Azure Service Fabric Mesh 응용 프로그램을 배포하는 방법을 알아봅니다.  응용 프로그램은 ASP.NET 웹 프런트 엔드 서비스와 ASP.NET Core Web API 백 엔드 서비스(Docker Hub에서 제공됨)로 구성되어 있습니다.  Docker Hub에서 두 컨테이너 이미지를 끌어온 다음 개인 레지스트리로 푸시합니다. 그런 다음 응용 프로그램용 Azure RM 템플릿을 만들고 컨테이너 레지스트리에서 Service Fabric Mesh로 응용 프로그램을 배포합니다. 이 작업을 완료하면 Service Fabric Mesh에서 실행되는 간단한 할 일 목록 응용 프로그램이 완성됩니다.
+이 자습서는 시리즈의 1부입니다. 여기서는 템플릿을 사용하여 Azure Service Fabric Mesh 응용 프로그램을 배포하는 방법을 알아봅니다.  애플리케이션은 ASP.NET 웹 프런트 엔드 서비스와 ASP.NET Core Web API 백 엔드 서비스(Docker Hub에서 제공됨)로 구성되어 있습니다.  Docker Hub에서 두 컨테이너 이미지를 끌어온 다음 개인 레지스트리로 푸시합니다. 그런 다음, 애플리케이션용 Azure RM 템플릿을 만들고 컨테이너 레지스트리에서 Service Fabric Mesh로 애플리케이션을 배포합니다. 이 작업을 완료하면 Service Fabric Mesh에서 실행되는 간단한 할 일 목록 응용 프로그램이 완성됩니다.
 
 시리즈 1부에서는 다음 방법에 대해 알아봅니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "46968852"
 > [!div class="checklist"]
 > * 템플릿을 사용하여 Service Fabric Mesh에 응용 프로그램 배포
 > * [Service Fabric Mesh에서 실행되는 응용 프로그램에서 서비스 확장](service-fabric-mesh-tutorial-template-scale-services.md)
-> * [Service Fabric Mesh에서 실행되는 응용 프로그램 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)
+> * [Service Fabric Mesh에서 실행 중인 응용 프로그램 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)
 > * [응용 프로그램 제거](service-fabric-mesh-tutorial-template-remove-app.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
@@ -51,7 +51,7 @@ ms.locfileid: "46968852"
 
 * [Docker 설치](service-fabric-mesh-howto-setup-developer-environment-sdk.md#install-docker)
 
-* [로컬에 Azure CLI 및 Service Fabric Mesh CLI를 설치합니다](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally).
+* [로컬에 Azure CLI 및 Service Fabric Mesh CLI를 설치합니다](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli).
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
@@ -109,7 +109,7 @@ az acr create --resource-group myResourceGroup --name myContainerRegistry --sku 
 
 ## <a name="push-the-images-to-azure-container-registry"></a>Azure Container Registry로 이미지 푸시
 
-이 자습서에서는 To Do List 샘플 응용 프로그램을 예제로 사용합니다.  [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) 및 [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) 서비스용 컨테이너 이미지는 Docker Hub에서 확인할 수 있습니다. Visual Studio에서 응용 프로그램을 빌드하는 방법에 대한 정보는 [Servic Fabric Mesh 웹 앱 빌드](service-fabric-mesh-tutorial-create-dotnetcore.md)를 참조하세요. Service Fabric Mesh는 Windows 또는 Linux Docker 컨테이너를 실행할 수 있습니다.  Linux 컨테이너를 사용 중이라면 Docker에서 **Linux 컨테이너로 전환**을 선택합니다.  Windows 컨테이너를 사용 중이라면 Docker에서 **Windows 컨테이너로 전환**을 선택합니다.
+이 자습서에서는 To Do List 샘플 애플리케이션을 예제로 사용합니다.  [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) 및 [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) 서비스용 컨테이너 이미지는 Docker Hub에서 확인할 수 있습니다. Visual Studio에서 애플리케이션을 빌드하는 방법에 대한 정보는 [Servic Fabric Mesh 웹 앱 빌드](service-fabric-mesh-tutorial-create-dotnetcore.md)를 참조하세요. Service Fabric Mesh는 Windows 또는 Linux Docker 컨테이너를 실행할 수 있습니다.  Linux 컨테이너를 사용 중이라면 Docker에서 **Linux 컨테이너로 전환**을 선택합니다.  Windows 컨테이너를 사용 중이라면 Docker에서 **Windows 컨테이너로 전환**을 선택합니다.
 
 ACR 인스턴스로 이미지를 푸시하려면 컨테이너 이미지가 있어야 합니다. 로컬 컨테이너 이미지가 아직 없으면 [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용하여 Docker Hub에서 [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) 및 [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) 이미지를 끌어옵니다.
 
@@ -200,12 +200,12 @@ az acr credential show --name myContainerRegistry --query "passwords[0].value"
 
 ## <a name="download-and-explore-the-template-and-parameters-files"></a>템플릿 및 parameters 파일 다운로드/탐색
 
-Service Fabric Mesh 응용 프로그램은 Azure RM(Resource Manager) 템플릿을 사용하여 배포하고 관리할 수 있는 Azure 리소스입니다. Azure 솔루션 배포 및 관리와 관련된 개념이 익숙하지 않은 경우 [Azure Resource Manager 개요](/azure/azure-resource-manager/resource-group-overview) 및 [RM 템플릿의 구조와 구문 이해](/azure/azure-resource-manager/resource-group-authoring-templates)를 참조하세요.
+Service Fabric Mesh 애플리케이션은 Azure RM(Resource Manager) 템플릿을 사용하여 배포하고 관리할 수 있는 Azure 리소스입니다. Azure 솔루션 배포 및 관리와 관련된 개념이 익숙하지 않은 경우 [Azure Resource Manager 개요](/azure/azure-resource-manager/resource-group-overview) 및 [RM 템플릿의 구조와 구문 이해](/azure/azure-resource-manager/resource-group-authoring-templates)를 참조하세요.
 
 이 자습서에서는 To Do List 샘플을 예제로 사용합니다.  새 템플릿 및 parameters 파일을 작성하는 대신 [mesh_rp.windows.json deployment template](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) and [mesh_rp.windows.parameter.json parameters](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) 파일을 다운로드하세요.
 
 ### <a name="parameters"></a>매개 변수
-응용 프로그램을 배포한 후에 템플릿의 값이 변경될 것으로 예상되거나 배포별로 값을 변경하는 옵션을 포함하려는 경우(다른 배포에 이 템플릿을 다시 사용하려는 경우)에는 값을 매개 변수화하는 것이 가장 좋습니다. 이렇게 하려면 배포 템플릿 맨 위에 “parameters” 섹션을 만들고 여기서 매개 변수 이름과 속성을 지정합니다. 그러면 나중에 배포 템플릿에서 해당 이름과 속성이 참조됩니다. 각 매개 변수 정의는 *type*, *defaultValue* 및 *description*이 있는 선택적 *metadata* 섹션을 포함합니다.
+응용 프로그램을 배포한 후에 템플릿의 값이 변경될 것으로 예상되거나 배포별로 값을 변경하는 옵션을 포함하려는 경우(다른 배포에 이 템플릿을 다시 사용하려는 경우) 가장 좋은 방법은 값을 매개 변수화하는 것입니다. 이렇게 하려면 배포 템플릿 맨 위에 “parameters” 섹션을 만들고 여기서 매개 변수 이름과 속성을 지정합니다. 그러면 나중에 배포 템플릿에서 해당 이름과 속성이 참조됩니다. 각 매개 변수 정의는 *type*, *defaultValue* 및 *description*이 있는 선택적 *metadata* 섹션을 포함합니다.
 
 parameters 섹션은 배포 템플릿 맨 위의 *resources* 섹션 바로 앞에 정의됩니다.
 
@@ -223,9 +223,9 @@ parameters 섹션은 배포 템플릿 맨 위의 *resources* 섹션 바로 앞�
 
 이러한 매개 변수는 [mesh_rp.windows.parameter.json parameters](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) 파일에서 사용됩니다.  별도의 parameters 파일을 사용하는 경우 배포 템플릿 자체를 업데이트하지 않고도 배포 간에 매개 변수 값을 변경할 수 있습니다.
 
-### <a name="overview-of-the-application-and-services"></a>응용 프로그램 및 서비스 개요
+### <a name="overview-of-the-application-and-services"></a>애플리케이션 및 서비스 개요
 
-서비스는 템플릿에서 응용 프로그램 리소스의 속성으로 지정됩니다.  응용 프로그램은 템플릿에서 리소스로 선언되는 개인 네트워크에 배포됩니다.  서비스는 볼륨을 사용하여 데이터를 유지할 수 있습니다. 이러한 볼륨은 템플릿에서 리소스로 선언됩니다.  각 서비스에 대해 OS 유형, 코드 패키지, 복제본 수 및 네트워크가 서비스 속성으로 지정됩니다.  각 코드 패키지에 대해 컨테이너 이미지, 엔드포인트, 메모리 및 CPU 리소스와 이미지 리포지토리 자격 증명을 지정합니다. 여러 서비스가 포함된 Service Fabric Mesh 응용 프로그램용 템플릿은 대략적으로 다음과 같습니다.
+서비스는 템플릿에서 애플리케이션 리소스의 속성으로 지정됩니다.  애플리케이션은 템플릿에서 리소스로 선언되는 개인 네트워크에 배포됩니다.  서비스는 볼륨을 사용하여 데이터를 유지할 수 있습니다. 이러한 볼륨은 템플릿에서 리소스로 선언됩니다.  각 서비스에 대해 OS 유형, 코드 패키지, 복제본 수 및 네트워크가 서비스 속성으로 지정됩니다.  각 코드 패키지에 대해 컨테이너 이미지, 엔드포인트, 메모리 및 CPU 리소스와 이미지 리포지토리 자격 증명을 지정합니다. 여러 서비스가 포함된 Service Fabric Mesh 애플리케이션용 템플릿은 대략적으로 다음과 같습니다.
 
 ```json
 {
@@ -236,7 +236,7 @@ parameters 섹션은 배포 템플릿 맨 위의 *resources* 섹션 바로 앞�
   },
   "resources": [
     {
-      "apiVersion": "2018-07-01-preview",
+      "apiVersion": "2018-09-01-preview",
       "name": "MyMeshApplication",
       "type": "Microsoft.ServiceFabricMesh/applications",
       "location": "[parameters('location')]",
@@ -319,7 +319,7 @@ parameters 섹션은 배포 템플릿 맨 위의 *resources* 섹션 바로 앞�
       }
     },
     {
-      "apiVersion": "2018-07-01-preview",
+      "apiVersion": "2018-09-01-preview",
       "name": "ServiceAVolume",
       "type": "Microsoft.ServiceFabricMesh/volumes",
       "location": "[parameters('location')]",
@@ -338,10 +338,10 @@ parameters 섹션은 배포 템플릿 맨 위의 *resources* 섹션 바로 앞�
 }
 ```
 
-To Do List 응용 프로그램의 구체적인 정보는 [mesh_rp.windows.json deployment template](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) 파일을 참조하세요.
+To Do List 애플리케이션의 구체적인 정보는 [mesh_rp.windows.json deployment template](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) 파일을 참조하세요.
 
-## <a name="deploy-the-application-to-service-fabric-mesh"></a>Service Fabric Mesh에 응용 프로그램 배포
-다음 명령을 사용하여 응용 프로그램 및 관련 리소스를 만들고 이전 [레지스트리의 자격 증명 검색](#retrieve-credentials-for-the-registry) 단계의 자격 증명을 제공합니다.
+## <a name="deploy-the-application-to-service-fabric-mesh"></a>Service Fabric Mesh에 애플리케이션 배포
+다음 명령을 사용하여 애플리케이션 및 관련 리소스를 만들고 이전 [레지스트리의 자격 증명 검색](#retrieve-credentials-for-the-registry) 단계의 자격 증명을 제공합니다.
 
 parameters 파일에서 다음 매개 변수 값을 업데이트합니다.
 |매개 변수|값|
@@ -353,29 +353,47 @@ parameters 파일에서 다음 매개 변수 값을 업데이트합니다.
 |frontEndImage|프런트 엔드 서비스용 컨테이너 이미지입니다.  예를 들면 "<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709"와 같습니다.|
 |serviceImage|백 엔드 서비스용 컨테이너 이미지입니다.  예를 들면 "<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709"와 같습니다.|
 
-응용 프로그램을 배포하려면 다음 명령을 실행합니다.
+애플리케이션을 배포하려면 다음 명령을 실행합니다.
 
 ```azurecli
 az mesh deployment create --resource-group myResourceGroup --template-file c:\temp\mesh_rp.windows.json --parameters c:\temp\mesh_rp.windows.parameters.json
 ```
 
-몇 분이 지나면 다음 출력이 표시됩니다.
+이 명령은 아래 표시되는 JSON 코드 조각을 생성합니다. JSON 출력의 ```outputs``` 섹션에서 ```publicIPAddress``` 속성을 복사합니다.
 
-`todolistappNetwork has been deployed successfully on todolistappNetwork with public ip address <IP Address>`
+```json
+"outputs": {
+    "publicIPAddress": {
+    "type": "String",
+    "value": "40.83.78.216"
+    }
+}
+```
+
+이 정보는 ARM 템플릿의 ```outputs``` 섹션에서 제공됩니다. 아래와 같이 이 섹션에서는 공용 IP 주소를 가져올 게이트웨이 리소스를 참조합니다. 
+
+```json
+  "outputs": {
+    "publicIPAddress": {
+      "value": "[reference('todolistappGateway').ipAddress]",
+      "type": "string"
+    }
+  }
+```
 
 ## <a name="open-the-application"></a>응용 프로그램 열기
 
 응용 프로그램이 정상적으로 배포되고 나면 서비스 엔드포인트의 공용 IP 주소를 가져옵니다. 배포 명령은 서비스 엔드포인트의 공용 IP 주소를 반환합니다. 필요한 경우, 네트워크 리소스를 쿼리하여 서비스 엔드포인트의 공용 IP 주소를 찾을 수도 있습니다. 이 응용 프로그램의 네트워크 리소스 이름은 `todolistappNetwork`입니다. 다음 명령을 사용하여 이 정보를 페치합니다. 
 
 ```azurecli
-az mesh network show --resource-group myResourceGroup --name todolistappNetwork
+az mesh gateway show --resource-group myResourceGroup --name todolistappGateway
 ```
 
 웹 브라우저에서 IP 주소로 이동합니다.
 
-## <a name="check-application-status"></a>응용 프로그램 상태 확인
+## <a name="check-application-status"></a>애플리케이션 상태 확인
 
-app show 명령을 사용하여 응용 프로그램 상태를 확인할 수 있습니다. 배포된 응용 프로그램의 응용 프로그램 이름은 “todolistapp”이므로 다음과 같이 해당 정보를 가져옵니다.
+app show 명령을 사용하여 애플리케이션 상태를 확인할 수 있습니다. 배포된 응용 프로그램의 응용 프로그램 이름은 “todolistapp”이므로 다음과 같이 해당 정보를 가져옵니다.
 
 ```azurecli
 az mesh app show --resource-group myResourceGroup --name todolistapp
@@ -398,4 +416,4 @@ az mesh code-package-log get --resource-group myResourceGroup --application-name
 
 다음 자습서를 진행합니다.
 > [!div class="nextstepaction"]
-> [Service Fabric Mesh에서 실행되는 응용 프로그램 확장](service-fabric-mesh-tutorial-template-scale-services.md)
+> [Service Fabric Mesh에서 실행되는 응용 프로그램 크기 조정](service-fabric-mesh-tutorial-template-scale-services.md)

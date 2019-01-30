@@ -1,28 +1,28 @@
 ---
-title: Azure Storage 소개 - Azure의 클라우드 저장소 | Microsoft Docs
-description: Azure Storage는 Microsoft의 클라우드 저장소 솔루션입니다. Azure Storage는 고가용성, 보안, 지속형, 확장성이 뛰어난 중복된 데이터 개체에 대한 저장소를 제공합니다.
+title: Azure Storage 소개 - Azure의 클라우드 스토리지 | Microsoft Docs
+description: Azure Storage는 Microsoft의 클라우드 스토리지 솔루션입니다. Azure Storage는 고가용성, 보안, 지속형, 확장성이 뛰어난 중복된 데이터 개체에 대한 스토리지를 제공합니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: get-started-article
-ms.date: 07/11/2018
+ms.date: 01/02/2019
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: b1fb9be6c05edbd85a709632a001fe1c1b8b4c6c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dc7932f197931a0fbf1dde924eb70ca18f6f9748
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247792"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065548"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Storage 소개
 
-Azure Storage는 최신 데이터 저장소 시나리오를 위한 Microsoft의 클라우드 저장소 솔루션입니다. Azure Storage는 데이터 개체에 대한 확장성 있는 개체 저장소, 클라우드에 대한 파일 시스템 서비스, 신뢰할 수 있는 메시징을 위한 메시징 저장소 및 NoSQL 저장소를 제공합니다. Azure Storage는:
+Azure Storage는 최신 데이터 스토리지 시나리오를 위한 Microsoft의 클라우드 스토리지 솔루션입니다. Azure Storage는 데이터 개체에 대한 확장성 있는 개체 저장소, 클라우드에 대한 파일 시스템 서비스, 신뢰할 수 있는 메시징을 위한 메시징 저장소 및 NoSQL 저장소를 제공합니다. Azure Storage는:
 
 - **내구성 및 고가용성** 중복성을 통해 일시적인 하드웨어 오류가 발생할 경우 데이터를 안전하게 보호합니다. 또한 로컬 재해 또는 자연 재해로부터 추가 보호를 위해 데이터 센터 또는 지리적 영역에서 데이터를 복제하도록 선택할 수도 있습니다. 이러한 방식으로 복제된 데이터는 예기치 않은 중단이 발생할 경우 항상 사용 가능한 상태로 유지됩니다. 
 - **보안** Azure Storage에 기록된 모든 데이터는 서비스에 의해 암호화됩니다. Azure Storage는 데이터에 액세스할 수 있는 사용자에 대한 세분화된 제어를 제공합니다.
-- **확장성** Azure Storage는 오늘날의 응용 프로그램의 데이터 저장소 및 성능 요구 사항을 충족하기 위해 확장성이 매우 뛰어나도록 설계되었습니다. 
-- **관리** Microsoft Azure는 유지 관리 및 사용자에 대한 중요한 문제를 처리합니다.
+- **확장성** Azure Storage는 오늘날의 응용 프로그램의 데이터 스토리지 및 성능 요구 사항을 충족하기 위해 확장성이 매우 뛰어나도록 설계되었습니다. 
+- **관리** Microsoft Azure에서 하드웨어 유지 관리, 업데이트 및 중요한 문제를 처리합니다.
 - **액세스 가능** Azure Storage의 데이터는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있습니다. Microsoft는 완성도 높은 REST API 뿐만 아니라 .NET, Java, Node.js, Python, PHP, Ruby, Go 및 기타 다양한 언어로 Azure Storage용 SDK를 제공합니다. Azure Storage는 Azure PowerShell 또는 Azure CLI에서 스크립트를 지원합니다. 또한 Azure Portal 및 Azure Storage 탐색기는 데이터 작업을 위한 쉬운 시각적 솔루션을 제공합니다.  
 
 ## <a name="azure-storage-services"></a>Azure Storage 서비스
@@ -30,9 +30,9 @@ Azure Storage는 최신 데이터 저장소 시나리오를 위한 Microsoft의 
 Azure Storage는 이러한 데이터 서비스를 포함합니다. 
 
 - [Azure Blob](../blobs/storage-blobs-introduction.md): 텍스트 및 이진 데이터에 대한 확장성이 뛰어난 개체 저장소입니다.
-- [Azure Files](../files/storage-files-introduction.md): 클라우드 또는 온-프레미스 배포에 대한 관리되는 파일 공유입니다.
-- [Azure 큐](../queues/storage-queues-introduction.md): 응용 프로그램 구성 요소 간에 안정적인 메시징을 위한 메시징 저장소입니다. 
-- [Azure 테이블](../tables/table-storage-overview.md): 구조화된 데이터의 스키마 없는 저장소를 위한 NoSQL 저장소입니다.
+- [Azure 파일](../files/storage-files-introduction.md): 클라우드 또는 온-프레미스 배포에 대한 관리형 파일 공유입니다.
+- [Azure 큐](../queues/storage-queues-introduction.md): 애플리케이션 구성 요소 간에 안정적인 메시지를 위한 메시지 저장소입니다. 
+- [Azure 테이블](../tables/table-storage-overview.md): 정형 데이터의 스키마 없는 스토리지를 위한 NoSQL 저장소입니다.
 
 각 서비스는 저장소 계정을 통해 액세스됩니다. 시작하려면 [저장소 계정 만들기](storage-quickstart-create-account.md)를 참조하세요.
 
@@ -48,9 +48,9 @@ Blob 저장소는 다음에 이상적입니다.
 * 백업/복원, 재해 복구 및 보관용 데이터 저장
 * 온-프레미스 또는 Azure 호스티드 서비스에 의한 분석용 데이터 저장
 
-Blob 저장소의 개체는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있습니다. 사용자 또는 클라이언트 응용 프로그램은 URL, [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage) 또는 Azure Storage 클라이언트 라이브러리를 통해 Blob에 액세스할 수 있습니다. 저장소 클라이언트 라이브러리는 [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](http://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](http://azure.github.io/azure-storage-php/) 및 [Ruby](http://azure.github.io/azure-storage-ruby)를 비롯한 여러 언어에서 사용할 수 있습니다.
+Blob 저장소의 개체는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있습니다. 사용자 또는 클라이언트 애플리케이션은 URL, [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage) 또는 Azure Storage 클라이언트 라이브러리를 통해 Blob에 액세스할 수 있습니다. 저장소 클라이언트 라이브러리는 [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](http://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](http://azure.github.io/azure-storage-php/) 및 [Ruby](http://azure.github.io/azure-storage-ruby)를 비롯한 여러 언어에서 사용할 수 있습니다.
 
-Blob 저장소에 대한 자세한 내용은 [Azure에서 개체 저장소 소개](../blobs/storage-blobs-introduction.md)를 참조하세요.
+Blob 스토리지에 대한 자세한 내용은 [Blob 스토리지 소개](../blobs/storage-blobs-introduction.md)를 참조하세요.
 
 ## <a name="azure-files"></a>Azure 파일
 [Azure Files](../files/storage-files-introduction.md)를 사용하면 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 액세스할 수 있는 고가용성 네트워크 파일 공유를 설정할 수 있습니다. 즉, 여러 VM이 읽기 및 쓰기 권한을 모두 사용하여 동일한 파일을 공유할 수 있습니다. 또한 REST 인터페이스 또는 저장소 클라이언트 라이브러리를 사용하여 파일을 읽을 수 있습니다.
@@ -59,7 +59,7 @@ Azure Files가 회사 파일 공유의 파일과 다른 점 한 가지는 파일
 
 파일 공유는 다음과 같은 여러 가지 일반적인 시나리오에 사용할 수 있습니다.
 
-* 여러 온-프레미스 응용 프로그램에서 파일 공유를 사용합니다. 이 기능을 사용하면 데이터를 공유하는 응용 프로그램을 Azure로 보다 쉽게 마이그레이션할 수 있습니다. 파일 공유를 온-프레미스 응용 프로그램에서 사용하는 것과 동일한 드라이브 문자에 탑재하면 파일 공유에 액세스하는 응용 프로그램의 일부가 최소한의 변경 내용(있는 경우)으로 작동해야 합니다.
+* 여러 온-프레미스 애플리케이션에서 파일 공유를 사용합니다. 이 기능을 사용하면 데이터를 공유하는 애플리케이션을 Azure로 보다 쉽게 마이그레이션할 수 있습니다. 파일 공유를 온-프레미스 애플리케이션에서 사용하는 것과 동일한 드라이브 문자에 탑재하면 파일 공유에 액세스하는 애플리케이션의 일부가 최소한의 변경 내용(있는 경우)으로 작동해야 합니다.
 
 * 구성 파일을 파일 공유에 저장하고 여러 VM에서 액세스할 수 있습니다. 그룹의 여러 개발자가 사용하는 도구 및 유틸리티를 파일 공유에 저장할 수 있으며, 이렇게 하면 모든 사람이 찾아서 동일한 버전을 사용할 수 있습니다.
 
@@ -89,40 +89,19 @@ Table 저장소에 대한 자세한 내용은 [Azure Table 저장소 개요](../
 
 ## <a name="types-of-storage-accounts"></a>저장소 계정 유형
 
-이 표에서는 개체에서 사용할 수 있는 다양한 종류의 저장소 계정을 보여줍니다.
+[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
-|**저장소 계정의 유형**|**범용 표준**|**범용 프리미엄**|**Blob Storage, 핫 및 쿨 액세스 계층**|
-|-----|-----|-----|-----|
-|**지원되는 서비스**| Blob, File, Queue 및 Table 서비스 | Blob Service | Blob Service|
-|**지원되는 Blob 유형**|블록 Blob, 페이지 Blob 및 추가 Blob | 페이지 Blob | 블록 Blob 및 추가 Blob|
-
-### <a name="general-purpose-storage-accounts"></a>범용 저장소 계정
-
-범용 저장소 계정에는 두 가지가 있습니다.
-
-#### <a name="standard-storage"></a>Standard Storage
-
-가장 널리 사용되는 저장소 계정은 모든 유형의 데이터에 사용할 수 있는 표준 저장소 계정입니다. 표준 저장소 계정은 자기 미디어를 사용하여 데이터를 저장합니다.
-
-#### <a name="premium-storage"></a>Premium Storage
-
-프리미엄 저장소는 VHD 파일에 주로 사용되는 페이지 Blob에 고성능 저장소를 제공합니다. 프리미엄 저장소 계정은 SSD를 사용하여 데이터를 저장합니다. 모든 VM에 Premium Storage를 사용하는 것이 좋습니다.
-
-### <a name="blob-storage-accounts"></a>Blob Storage 계정
-
-Blob Storage 계정은 블록 Blob 및 추가 Blob을 저장하는 데 사용되는 특별한 저장소 계정입니다. 이러한 계정에 페이지 Blob을 저장할 수 없습니다. 따라서 VHD 파일을 저장할 수 없습니다. 이러한 계정을 사용하면 액세스 계층을 핫 또는 쿨로 설정할 수 있습니다. 계층은 언제든지 변경할 수 있습니다.
-
-핫 액세스 계층은 자주 액세스 하는 파일에 대해 사용합니다. 저장소의 경우 비용이 많이 들지만 Blob에 액세스하는 비용이 훨씬 낮습니다. 쿨 액세스 계층에 저장된 Blob의 경우 Blob에 액세스하기 위한 비용이 많이 들지만 저장소 비용이 훨씬 낮습니다.
+애플리케이션 계정 유형에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요. 
 
 ## <a name="accessing-your-blobs-files-and-queues"></a>Blob, 파일 및 큐에 액세스
 
 각 저장소 계정에는 모든 작업에 사용할 수 있는 두 개의 인증 키가 있습니다. 경우에 따라 보안을 강화하기 위해 키를 롤백할 수 있도록 구 개의 키가 있습니다. 키 소유권과 계정 이름이 있으면 저장소 계정의 모든 데이터에 무제한 액세스할 수 있으므로 이러한 키를 안전하게 보관하는 것이 중요합니다.
 
-이 섹션에서는 저장소 계정 및 해당 데이터를 보호하는 두 가지 방법을 알아봅니다. 저장소 계정 및 데이터를 보호하는 방법에 대한 자세한 내용은 [Azure Storage 보안 가이드](storage-security-guide.md)를 참조하세요.
+이 섹션에서는 저장소 계정 및 해당 데이터를 보호하는 두 가지 방법을 알아봅니다. 스토리지 계정 및 데이터를 보호하는 방법에 대한 자세한 내용은[Azure Storage 보안 가이드](storage-security-guide.md)를 참조하세요.
 
 ### <a name="securing-access-to-storage-accounts-using-azure-ad"></a>Azure AD를 사용하여 저장소 계정에 대한 액세스 보호
 
-저장소 데이터에 대한 액세스를 보호하는 한 가지 방법은 저장소 계정 키에 대한 액세스를 제어하는 것입니다. 리소스 관리자 RBAC(역할 기반 Access Control)를 사용하여 사용자, 그룹 또는 응용 프로그램에 역할을 할당할 수 있습니다. 이러한 역할은 허용되거나 허용되지 않는 작업의 특정 집합에 연결됩니다. RBAC를 사용하여 저장소 계정에 대한 액세스 권한을 부여하는 경우 액세스 계층을 변경하는 등 해당 저장소 계정에 대한 관리 작업만을 처리합니다. RBAC를 사용하여 특정 컨테이너 또는 파일 공유와 같은 데이터 개체에 대한 액세스 권한을 부여할 수 없습니다. 그러나 RBAC를 사용하여 저장소 계정 키에 대한 액세스 권한을 부여할 수 있습니다. 그러면 데이터 개체를 읽는 데 사용할 수 있습니다.
+저장소 데이터에 대한 액세스를 보호하는 한 가지 방법은 저장소 계정 키에 대한 액세스를 제어하는 것입니다. 리소스 관리자 RBAC(역할 기반 Access Control)를 사용하여 사용자, 그룹 또는 애플리케이션에 역할을 할당할 수 있습니다. 이러한 역할은 허용되거나 허용되지 않는 작업의 특정 집합에 연결됩니다. RBAC를 사용하여 저장소 계정에 대한 액세스 권한을 부여하는 경우 액세스 계층을 변경하는 등 해당 저장소 계정에 대한 관리 작업만을 처리합니다. RBAC를 사용하여 특정 컨테이너 또는 파일 공유와 같은 데이터 개체에 대한 액세스 권한을 부여할 수 없습니다. 그러나 RBAC를 사용하여 저장소 계정 키에 대한 액세스 권한을 부여할 수 있습니다. 그러면 데이터 개체를 읽는 데 사용할 수 있습니다.
 
 ### <a name="securing-access-using-shared-access-signatures"></a>공유 액세스 서명을 사용하여 액세스 보호
 
@@ -138,7 +117,7 @@ Storage 서비스에 사용할 수 있는 기본적인 종류의 두 가지 암�
 
 ### <a name="encryption-at-rest"></a>휴지 상태의 암호화
 
-미사용 Azure SSE(저장소 서비스 암호화)를 사용하면 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. 이 기능을 통해 Azure Storage는 저장소를 유지하기 전에 데이터를 자동으로 암호화하고 검색하기 전에 암호를 해독합니다. 암호화, 암호 해독 및 키 관리는 사용자에게 완전히 투명하게 처리됩니다.
+미사용 Azure SSE(저장소 서비스 암호화)를 사용하면 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. 이 기능을 통해 Azure Storage는 스토리지를 유지하기 전에 데이터를 자동으로 암호화하고 검색하기 전에 암호를 해독합니다. 암호화, 암호 해독 및 키 관리는 사용자에게 완전히 투명하게 처리됩니다.
 
 
 SSE는 모든 성능 계층(표준 및 프리미엄), 모든 배포 모델(Azure Resource Manager 및 클래식) 및 모든 Azure Storage 서비스(Blob, 큐, 테이블 및 파일)의 데이터를 자동으로 암호화합니다. SSE는 Azure Storage 성능에 영향을 주지 않습니다.
@@ -161,16 +140,7 @@ SSE는 모든 성능 계층(표준 및 프리미엄), 모든 배포 모델(Azure
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>Azure Storage 간에 데이터 전송
 
-AzCopy 명령줄 유틸리티를 사용하여 저장소 계정 내에서 또는 저장소 계정 간에 Blob 및 파일 데이터를 복사할 수 있습니다. 도움말은 다음 문서 중 하나를 참조하세요.
-
-* [Windows에서 AzCopy를 사용하여 데이터 전송](storage-use-azcopy.md)
-* [Linux에서 AzCopy를 사용하여 데이터 전송](storage-use-azcopy-linux.md)
-
-AzCopy는 [Azure 데이터 이동 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)를 기반으로 구축되며 현재 미리 보기에서 사용할 수 있습니다.
-
-Azure Import/Export 서비스는 저장소 계정 간에 대량의 Blob 데이터를 가져오거나 내보내는 데 사용할 수 있습니다. 여러 하드 드라이브를 준비하고 Azure 데이터 센터에 전자 메일로 보내면 여기에서 하드 드라이브 간에 데이터를 전송하고 하드 드라이브를 다시 사용자에게 보냅니다. Import/Export 서비스에 대한 자세한 내용은 [Microsoft Azure Import/Export 서비스를 사용하여 Blob Storage에 데이터 전송](../storage-import-export-service.md)을 참조하세요.
-
-빠르고 저렴하고 신뢰할 수 있는 방법으로 저장소 계정에 대량의 Blob 데이터를 가져오려면 Azure Data Box 디스크를 사용할 수도 있습니다. Microsoft는 40TB 용량의 암호화된 SSD(solid-state disk)를 5개까지 지역 이동 통신 사업자를 통해 데이터 센터에 제공합니다. 신속하게 디스크를 구성하고, USB 연결을 통해 디스크에 데이터를 복사하고, Azure에 다시 디스크를 제공합니다. Azure 데이터 센터에서 데이터는 자동으로 드라이브에서 클라우드로 업로드됩니다. 이 솔루션에 대한 자세한 내용은 [Azure Data Box 디스크 개요](https://docs.microsoft.com/azure/databox/data-box-disk-overview)로 이동합니다.
+Azure Storage에서 데이터를 이동하는 몇 가지 옵션이 있습니다. 선택하는 옵션은 데이터 세트의 크기와 네트워크 대역폭에 따라 달라집니다. 자세한 내용은 [데이터 전송을 위한 Azure 솔루션 선택](storage-choose-data-transfer-solution.md)을 참조하세요.
 
 ## <a name="pricing"></a>가격
 
@@ -208,4 +178,4 @@ Azure Storage 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Storage를 사용하여 가동하고 실행하려면 [저장소 계정 만들기](storage-quickstart-create-account.md)를 참조하세요.
+Azure Storage를 사용하여 가동하고 실행하려면 [스토리지 계정 만들기](storage-quickstart-create-account.md)를 참조하세요.

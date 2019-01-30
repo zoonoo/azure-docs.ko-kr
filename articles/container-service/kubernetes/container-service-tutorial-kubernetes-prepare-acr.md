@@ -1,24 +1,27 @@
 ---
-title: Azure Container Service 자습서 - ACR 준비
+title: (사용되지 않음) Azure Container Service 자습서 - ACR 준비
 description: Azure Container Service 자습서 - ACR 준비
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 735aca5509373f840c56e28887088f7a696ca137
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: c3e5e7c4fb46b3f68013ac857dcad2e5434a978d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024089"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998306"
 ---
-# <a name="deploy-and-use-azure-container-registry"></a>Azure Container Registry 배포 및 사용
+# <a name="deprecated-deploy-and-use-azure-container-registry"></a>(사용되지 않음) Azure Container Registry 배포 및 사용
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Azure Kubernetes Service를 사용하는 이 자습서의 업데이트된 버전은 [자습서: Azure Container Registry 배포 및 사용](../../aks/tutorial-kubernetes-prepare-acr.md)을 참조하세요.
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ACR(Azure Container Registry)은 Docker 컨테이너 이미지를 위한 Azure 기반의 개인 레지스트리입니다. 일곱 가지 중에 두 번째인 이 자습서에서는 Azure Container Registry 인스턴스를 배포하고 컨테이너 이미지를 이 인스턴스에 밀어넣는 과정을 안내합니다. 완료되는 단계는 다음과 같습니다.
 

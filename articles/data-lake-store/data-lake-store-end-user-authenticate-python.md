@@ -58,9 +58,9 @@ pip install azure-mgmt-datalake-store
 pip install azure-datalake-store
 ```
 
-## <a name="create-a-new-python-application"></a>새 Python 응용 프로그램 만들기
+## <a name="create-a-new-python-application"></a>새 Python 애플리케이션 만들기
 
-1. 원하는 IDE에서 **mysample.py**와 같이 새 Python 응용 프로그램을 만듭니다.
+1. 원하는 IDE에서 **mysample.py**와 같이 새 Python 애플리케이션을 만듭니다.
 
 2. 다음 코드 조각을 추가하여 필요한 모듈 가져오기
 
@@ -90,7 +90,7 @@ pip install azure-datalake-store
 
 ### <a name="for-account-management"></a>계정 관리의 경우
 
-Data Lake Storage Gen1 계정에 대한 계정 관리 작업을 수행할 수 있도록 다음 코드 조각을 사용하여 Azure AD에 인증합니다. 다음 코드 조각은 Multi-Factor Authentication을 사용하여 응용 프로그램을 인증하는 데 사용할 수 있습니다. 기존 Microsoft Azure Active Directory **네이티브** 응용 프로그램에 아래 값을 제공합니다.
+Data Lake Storage Gen1 계정에 대한 계정 관리 작업을 수행할 수 있도록 다음 코드 조각을 사용하여 Azure AD에 인증합니다. 다음 코드 조각은 Multi-Factor Authentication을 사용하여 애플리케이션을 인증하는 데 사용할 수 있습니다. 기존 Microsoft Azure Active Directory **네이티브** 애플리케이션에 아래 값을 제공합니다.
 
     authority_host_url = "https://login.microsoftonline.com"
     tenant = "FILL-IN-HERE"
@@ -107,7 +107,7 @@ Data Lake Storage Gen1 계정에 대한 계정 관리 작업을 수행할 수 �
 
 ### <a name="for-filesystem-operations"></a>파일 시스템 작업의 경우
 
-Data Lake Storage Gen1 계정에 대한 파일 시스템 작업을 수행할 수 있도록 다음 코드 조각을 사용하여 Azure AD에 인증합니다. 다음 코드 조각은 Multi-Factor Authentication을 사용하여 응용 프로그램을 인증하는 데 사용할 수 있습니다. 기존 Microsoft Azure Active Directory **네이티브** 응용 프로그램에 아래 값을 제공합니다.
+Data Lake Storage Gen1 계정에 대한 파일 시스템 작업을 수행할 수 있도록 다음 코드 조각을 사용하여 Azure AD에 인증합니다. 다음 코드 조각은 Multi-Factor Authentication을 사용하여 애플리케이션을 인증하는 데 사용할 수 있습니다. 기존 Microsoft Azure Active Directory **네이티브** 애플리케이션에 아래 값을 제공합니다.
 
     adlCreds = lib.auth(tenant_id='FILL-IN-HERE', resource = 'https://datalake.azure.net/')
 

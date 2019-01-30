@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 042d2ee0f615ce5216fc11152f0f65518ff9bd5c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 5fe1739fa341a5e3bd2f4d26ef1e94d725b74a61
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376382"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001230"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 통해 내부 부하 분산 장치 사용
 
 AKS(Azure Kubernetes Service)에서 응용 프로그램에 대한 액세스를 제한하기 위해 내부 부하 분산 장치를 만들고 사용할 수 있습니다. 내부 부하 분산 장치는 Kubernetes 서비스가 Kubernetes 클러스터와 동일한 가상 네트워크에서 실행되는 응용 프로그램에만 액세스할 수 있게 합니다. 이 문서에서는 AKS(Azure Kubernetes Service)를 통해 내부 부하 분산 장치를 만들고 사용하는 방법을 보여줍니다.
 
 > [!NOTE]
-> Azure Load Balancer는 ‘기본’ 및 ‘표준’이라는 두 SKU에서 사용할 수 있습니다. 자세한 내용은 [Azure Load Balancer SKU 비교][azure-lb-comparison]를 참조하세요. AKS는 현재 ‘기본’ SKU를 지원합니다. ‘표준’ SKU를 사용하려면 업스트림 [acs-engine][acs-engine]을 사용할 수 있습니다.
+> Azure Load Balancer는 ‘기본’ 및 ‘표준’이라는 두 SKU에서 사용할 수 있습니다. 자세한 내용은 [Azure Load Balancer SKU 비교][azure-lb-comparison]를 참조하세요. AKS는 현재 ‘기본’ SKU를 지원합니다. *표준* SKU를 사용하려면 업스트림 [aks-engine][aks-engine]을 사용할 수 있습니다.
 
 ## <a name="create-an-internal-load-balancer"></a>내부 부하 분산 장치 만들기
 
@@ -128,7 +128,7 @@ spec:
 
 <!-- LINKS - External -->
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 
 <!-- LINKS - Internal -->
 [advanced-networking]: configure-advanced-networking.md

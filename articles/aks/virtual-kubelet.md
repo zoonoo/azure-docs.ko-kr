@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: cd41fba675a0814e6f2a1b17576add7811a803eb
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: a6a2fb246e407d6ea240ff40f4d2fa2b1b780931
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233483"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054015"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Virtual Kubelet 사용
 
@@ -22,9 +22,9 @@ ACI(Azure Container Instances)는 Azure에서 실행 중인 컨테이너에 호�
 Azure Container Instances에 Virtual Kubelet 공급자를 사용할 때 표준 Kubernetes 노드의 경우처럼 Linux 및 Windows 컨테이너를 컨테이너 인스턴스에서 예약할 수 있습니다. 이 구성을 사용하면 Kubernetes의 기능 및 컨테이너 인스턴스의 관리 및 비용 혜택을 모두 활용할 수 있습니다.
 
 > [!NOTE]
+> AKS에는 ACI에서 컨테이너를 예약하기 위해 *가상 노드*라고 하는 기본 제공 기능이 있습니다. 이러한 가상 노드는 현재 Linux 컨테이너 인스턴스를 지원합니다. Windows 컨테이너 인스턴스를 예약해야 하는 경우 Virtual Kubelet을 사용하여 계속할 수 있습니다. 그렇지 않으면 이 문서에서 언급된 수동 Virtual Kubelet 지침 대신 가상 노드를 사용해야 합니다. [Azure CLI][virtual-nodes-cli] 또는 [Azure Portal][virtual-nodes-portal]을 사용하여 가상 노드를 시작할 수 있습니다.
+>
 > Virtual Kubelet은 실험적 오픈 소스 프로젝트이며 그렇게 사용해야 합니다. Virtual Kubelet에 참여하고, 문제를 파일링하고, 자세히 알아보려면 [Virtual Kubelet GitHub 프로젝트][vk-github]를 참조하세요.
-
-이 문서에서는 AKS의 컨테이너 인스턴스에 대해 Virtual Kubelet을 구성하는 방법을 자세히 설명합니다.
 
 ## <a name="prerequisite"></a>필수 요소
 
@@ -87,10 +87,10 @@ az aks install-connector --resource-group myAKSCluster --name myAKSCluster --con
 
 | 인수: | 설명 | 필수 |
 |---|---|:---:|
-| `--connector-name` | ACI 커넥터의 이름입니다.| yes |
-| `--name` `-n` | 관리되는 클러스터의 이름입니다. | yes |
-| `--resource-group` `-g` | 리소스 그룹의 이름입니다. | yes |
-| `--os-type` | 컨테이너 인스턴스 운영 체제 형식입니다. 허용되는 값: Linux 및 Windows 모두입니다. 기본값: Linux입니다. | 아니요 |
+| `--connector-name` | ACI 커넥터의 이름입니다.| 예 |
+| `--name` `-n` | 관리되는 클러스터의 이름입니다. | 예 |
+| `--resource-group` `-g` | 리소스 그룹의 이름입니다. | 예 |
+| `--os-type` | 컨테이너 인스턴스 운영 체제 형식입니다. 허용되는 값은 다음과 같습니다. 둘 다, Linux, Windows. Default: Linux. | 아니요 |
 | `--aci-resource-group` | ACI 컨테이너 그룹을 만들 리소스 그룹입니다. | 아니요 |
 | `--location` `-l` | ACI 컨테이너 그룹을 만들 위치입니다. | 아니요 |
 | `--service-principal` | Azure API에 대한 인증에 사용되는 서비스 사용자입니다. | 아니요 |
@@ -148,7 +148,7 @@ spec:
         effect: NoSchedule
 ```
 
-[kubectl create][kubectl-create] 명령을 사용하여 응용 프로그램을 실행합니다.
+[kubectl create][kubectl-create] 명령을 사용하여 애플리케이션을 실행합니다.
 
 ```console
 kubectl create -f virtual-kubelet-linux.yaml
@@ -198,7 +198,7 @@ spec:
         effect: NoSchedule
 ```
 
-[kubectl create][kubectl-create] 명령을 사용하여 응용 프로그램을 실행합니다.
+[kubectl create][kubectl-create] 명령을 사용하여 애플리케이션을 실행합니다.
 
 ```console
 kubectl create -f virtual-kubelet-windows.yaml
@@ -228,17 +228,19 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 
 Virtual Kubelet에서 발생할 수 있는 문제는 [알려진 단점 및 해결 방법][vk-troubleshooting]을 참조하세요. Virtual Kubelet의 문제를 보고하려면 [GitHub 문제를 개설][vk-issues]하세요.
 
-Virtual Kubelet에 대한 자세한 내용은 [Virtual Kubelet Github 프로젝트][vk-github]를 참조하세요.
+Virtual Kubelet에 대한 자세한 내용은 [Virtual Kubelet GitHub 프로젝트][vk-github]를 참조하세요.
 
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md
 [aks-remove-connector]: /cli/azure/aks#az-aks-remove-connector
 [az-container-list]: /cli/azure/aks#az-aks-list
 [aks-install-connector]: /cli/azure/aks#az-aks-install-connector
+[virtual-nodes-cli]: virtual-nodes-cli.md
+[virtual-nodes-portal]: virtual-nodes-portal.md
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
-[kubectl-get]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#get
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [vk-github]: https://github.com/virtual-kubelet/virtual-kubelet

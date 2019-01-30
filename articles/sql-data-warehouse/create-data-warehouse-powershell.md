@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure SQL Data Warehouse 만들기 - Azure PowerShell | Microsoft Docs'
+title: '빠른 시작: Azure SQL Data Warehouse 만들기 - Azure Powershell | Microsoft Docs'
 description: Azure Powershell을 사용하여 SQL Database 논리 서버, 서버 수준 방화벽 규칙 및 데이터 웨어하우스를 빠르게 만듭니다.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,20 +10,20 @@ ms.component: manage
 ms.date: 11/15/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 60bd7cc2084ce64477cf89a5fd28d9a505fbfbfb
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 22ccc11d1eb74fd868fd740f02311baeb5ac5987
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852642"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433614"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure SQL Data Warehouse 만들기 및 쿼리
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure SQL 데이터 웨어하우스 만들기 및 쿼리
 
 Azure PowerShell을 사용하여 Azure SQL Data Warehouse를 빠르게 만듭니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-이 자습서에는 Azure PowerShell 모듈 버전 5.1.1 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 현재 사용 중인 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 
+이 자습서에는 Azure PowerShell 모듈 버전 5.1.1 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 현재 사용 중인 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 
 
 
 > [!NOTE]
@@ -93,7 +93,7 @@ New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-firewall-rule"></a>서버 방화벽 규칙 구성
 
-[New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) 명령을 사용하여 [Azure SQL 서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다. 서버 수준 방화벽 규칙을 통해 외부 응용 프로그램(예: SQL Server Management Studio 또는 SQLCMD 유틸리티)이 SQL Data Warehouse 서비스 방화벽을 통해 SQL Data Warehouse에 연결되도록 할 수 있습니다. 다음 예제에서 방화벽은 다른 Azure 리소스에 대해서만 열립니다. 외부 연결을 사용하려면 IP 주소를 사용자 환경에 적절한 주소로 변경합니다. 모든 IP 주소를 열려면 시작 IP 주소로 0.0.0.0을, 끝나는 IP 주소로 255.255.255.255를 사용합니다.
+[New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) 명령을 사용하여 [Azure SQL 서버 수준 방화벽 규칙](../sql-database/sql-database-firewall-configure.md)을 만듭니다. 서버 수준 방화벽 규칙을 통해 외부 애플리케이션(예: SQL Server Management Studio 또는 SQLCMD 유틸리티)이 SQL Data Warehouse 서비스 방화벽을 통해 SQL Data Warehouse에 연결되도록 할 수 있습니다. 다음 예제에서 방화벽은 다른 Azure 리소스에 대해서만 열립니다. 외부 연결을 사용하려면 IP 주소를 사용자 환경에 적절한 주소로 변경합니다. 모든 IP 주소를 열려면 시작 IP 주소로 0.0.0.0을, 끝나는 IP 주소로 255.255.255.255를 사용합니다.
 
 ```powershell
 New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `

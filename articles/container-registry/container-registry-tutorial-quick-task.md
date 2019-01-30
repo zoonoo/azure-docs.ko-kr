@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure Container Registry 작업을 사용하여 클라우드에 컨테이너 이미지 빌드
+title: 자습서 - 클라우드에 컨테이너 이미지 빌드 - Azure Container Registry 작업
 description: 이 자습서에서는 ACR 작업(Azure Container Registry 작업)을 사용하여 Azure에서 Docker 컨테이너 이미지를 빌드한 다음, Azure Container Instances에 배포하는 방법을 알아봅니다.
 services: container-registry
 author: dlepow
@@ -7,26 +7,26 @@ ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 7ac4fb62c6832920634de96c3e5befb15ce3b3a4
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 9d3b1c14ce872cd02fc8d4a8c2596d7d1e270895
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854731"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754376"
 ---
-# <a name="tutorial-build-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>자습서: Azure Container Registry 작업을 사용하여 클라우드에 컨테이너 이미지 빌드
+# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>자습서: Azure Container Registry 작업을 사용하여 클라우드에 컨테이너 이미지 빌드 및 배포
 
 **ACR 작업**은 Azure에서 간편하고 효율적인 Docker 컨테이너 이미지 빌드를 제공하는 Azure Container Registry 내의 기능 모음입니다. 이 문서에서는 ACR 작업의 *빠른 작업* 기능을 사용하는 방법에 대해 알아봅니다.
 
-"내부 루프" 개발 주기는 소스 제어를 커밋하기 전에 응용 프로그램 코드를 작성, 빌드 및 테스트하는 반복적인 프로세스입니다. 빠른 작업은 내부 루프를 클라우드로 확장하여 빌드 성공 유효성 검사 및 성공적으로 빌드된 이미지를 컨테이너 레지스트리에 자동으로 푸시하는 기능을 제공합니다. 사용자의 이미지는 기본적으로 레지스트리에 가까운 클라우드에 빌드되므로 더 빠르게 배포할 수 있습니다.
+"내부 루프" 개발 주기는 소스 제어를 커밋하기 전에 애플리케이션 코드를 작성, 빌드 및 테스트하는 반복적인 프로세스입니다. 빠른 작업은 내부 루프를 클라우드로 확장하여 빌드 성공 유효성 검사 및 성공적으로 빌드된 이미지를 컨테이너 레지스트리에 자동으로 푸시하는 기능을 제공합니다. 사용자의 이미지는 기본적으로 레지스트리에 가까운 클라우드에 빌드되므로 더 빠르게 배포할 수 있습니다.
 
 모든 Dockerfile 전문 지식은 ACR 작업으로 직접 전송할 수 있습니다. Dockerfile을 변경하여 ACR 작업을 통해 클라우드에 빌드할 필요 없이 실행할 명령만 변경하면 됩니다.
 
 이 자습서는 시리즈의 1부입니다.
 
 > [!div class="checklist"]
-> * 샘플 응용 프로그램 소스 코드 가져오기
+> * 샘플 애플리케이션 소스 코드 가져오기
 > * Azure에서 컨테이너 이미지 빌드
 > * Azure Container Instances에 컨테이너 배포
 
@@ -201,12 +201,12 @@ az keyvault secret set \
   --value $(az ad sp create-for-rbac \
                 --name $ACR_NAME-pull \
                 --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
-                --role reader \
+                --role acrpull \
                 --query password \
                 --output tsv)
 ```
 
-이전 명령의 `--role` 인수는 *읽기 권한자* 역할을 사용해서 서비스 주체를 구성하고, 레지스트리에 대해 끌어오기 전용 액세스 권한을 부여합니다. 밀어넣기 및 끌어오기 액세스 권한을 부여하려면 `--role` 인수를 *contributor*로 변경합니다.
+이전 명령의 `--role` 인수는 *acrpull* 역할을 사용하여 서비스 주체를 구성하고, 레지스트리에 대해 끌어오기 전용 액세스 권한을 부여합니다. 밀어넣기 및 끌어오기 액세스 권한을 모두 부여하려면 `--role` 인수를 *acrpush*로 변경합니다.
 
 다음으로, 인증을 위해 Azure Container Registry에 전달하는 **username**인 서비스 주체의 *appId*를 자격 증명 모음에 저장합니다.
 
@@ -220,14 +220,14 @@ az keyvault secret set \
 
 Azure Key Vault을 만들고 다음 두 암호를 저장했습니다.
 
-* `$ACR_NAME-pull-usr`: 서비스 주체 ID로, 컨테이너 레지스트리 **username**으로 사용됩니다.
-* `$ACR_NAME-pull-pwd`: 서비스 주체 암호로, 컨테이너 레지스트리 **password**로 사용됩니다.
+* `$ACR_NAME-pull-usr`: **username** 컨테이너 레지스트리로 사용할 서비스 주체 ID입니다.
+* `$ACR_NAME-pull-pwd`: **password** 컨테이너 레지스트리로 사용할 서비스 주체 암호입니다.
 
-이제 사용자나 응용 프로그램 및 서비스가 레지스트리에서 이미지를 끌어올 때 이러한 암호를 이름으로 참조할 수 있습니다.
+이제 사용자나 애플리케이션 및 서비스가 레지스트리에서 이미지를 끌어올 때 이러한 암호를 이름으로 참조할 수 있습니다.
 
 ### <a name="deploy-a-container-with-azure-cli"></a>Azure CLI를 사용하여 컨테이너 배포
 
-서비스 주체 자격 증명이 Azure Key Vault 비밀로 저장되므로, 응용 프로그램 및 서비스에서 해당 자격 증명을 사용하여 개인 레지스트리에 액세스할 수 있습니다.
+서비스 주체 자격 증명이 Azure Key Vault 비밀로 저장되므로, 애플리케이션 및 서비스에서 해당 자격 증명을 사용하여 개인 레지스트리에 액세스할 수 있습니다.
 
 다음 [az container create][az-container-create] 명령을 실행하여 컨테이너 인스턴스를 배포합니다. 이 명령은 Azure Key Vault에 저장된 서비스 주체의 자격 증명을 사용하여 컨테이너 레지스트리를 인증합니다.
 
@@ -286,9 +286,9 @@ Start streaming logs:
 Server running at http://localhost:80
 ```
 
-`Server running at http://localhost:80`이 표시되면 브라우저에서 컨테이너의 FQDN으로 이동하여 실행 중인 응용 프로그램을 확인합니다. FQDN은 이전 섹션에서 실행한 `az container create` 명령의 출력에 표시되었어야 합니다.
+`Server running at http://localhost:80`이 표시되면 브라우저에서 컨테이너의 FQDN으로 이동하여 실행 중인 애플리케이션을 확인합니다. FQDN은 이전 섹션에서 실행한 `az container create` 명령의 출력에 표시되었어야 합니다.
 
-![브라우저에서 렌더링된 샘플 응용 프로그램의 스크린샷][quick-build-02-browser]
+![브라우저에서 렌더링된 샘플 애플리케이션의 스크린샷][quick-build-02-browser]
 
 콘솔에서 콘솔을 분리하려면 `Control+C`를 누릅니다.
 

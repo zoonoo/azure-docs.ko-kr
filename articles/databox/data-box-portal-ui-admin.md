@@ -6,24 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 08/28/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: f4ea5e282e9b915cffeac7daff07f5934be1a424
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 6b6d0d1a7e14035f7a1b7998ec4b3e68761539f5
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974992"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158111"
 ---
-# <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>Azure Portal을 사용하여 Data Box Disk 관리(미리 보기)
+# <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Azure Portal을 사용하여 Data Box 관리
 
 이 문서의 자습서는 미리 보기 기간 동안 Microsoft Azure Data Box Disk에 적용됩니다. 이 문서는 Data Box Disk에서 수행할 수 있는 복잡한 워크플로 및 관리 작업 중 일부를 설명합니다. 
 
 Azure Portal을 통해 Data Box Disk를 관리할 수 있습니다. 이 문서는 Azure Portal을 사용하여 수행할 수 있는 작업에 중점을 둡니다. Azure Portal을 사용하여 주문을 관리하고, 디스크를 관리하고, 터미널 단계로 진행될 때 주문의 상태를 추적합니다.
-
-> [!IMPORTANT]
-> Data Box Disk는 미리 보기로 제공됩니다. 이 솔루션을 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요.
-
 
 ## <a name="cancel-an-order"></a>주문 취소
 

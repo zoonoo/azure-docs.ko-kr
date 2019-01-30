@@ -4,7 +4,7 @@ description: PowerShell을 사용하여 Azure Active Directory Domain Services �
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
 ms.service: active-directory
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: ergreenl
-ms.openlocfilehash: b58df5ebf5332688424ac6ed2eeb9679487bcdc4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 5ebb9f706d2e59b9c1227cec6fcc0e0619374069
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240259"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855009"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>PowerShell을 사용하여 Azure Active Directory Domain Services 사용
 이 문서에서는 PowerShell을 사용하여 Azure AD(Azure Active Directory) Domain Services를 사용하도록 설정하는 방법을 보여 줍니다.
 
-## <a name="task-1-install-the-required-powershell-modules"></a>작업 1: 필요한 PowerShell 모듈 설치
+## <a name="task-1-install-the-required-powershell-modules"></a>작업 1: 필수 PowerShell 모듈 설치
 
 ### <a name="install-and-configure-azure-ad-powershell"></a>Azure AD PowerShell 설치 및 구성
 이 문서의 지침에 따라 [Azure AD PowerShell 모듈을 설치하고 Azure AD에 연결](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json)합니다.
 
 ### <a name="install-and-configure-azure-powershell"></a>Azure PowerShell 설치 및 구성
-이 문서의 지침에 따라 [Azure PowerShell 모듈을 설치하고 Azure 구독에 연결](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json)합니다.
+이 문서의 지침에 따라 [Azure PowerShell 모듈을 설치하고 Azure 구독에 연결](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json)합니다.
 
 
 ## <a name="task-2-create-the-required-service-principal-in-your-azure-ad-directory"></a>작업 2: Azure AD 디렉터리에서 필요한 서비스 주체 만들기
@@ -41,7 +41,7 @@ ms.locfileid: "50240259"
 New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 ```
 
-## <a name="task-3-create-and-configure-the-aad-dc-administrators-group"></a>작업 3: 'AAD DC Administrators' 그룹 만들기 및 구성
+## <a name="task-3-create-and-configure-the-aad-dc-administrators-group"></a>작업 3: ‘AAD DC Administrators’ 그룹 만들기 및 구성
 다음 작업은 관리되는 도메인에서 관리 작업을 위임하는 데 사용할 관리자 그룹을 만드는 것입니다.
 ```powershell
 # Create the delegated administration group for AAD Domain Services.

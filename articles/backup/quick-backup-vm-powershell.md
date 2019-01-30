@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 2/14/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7971c1399cc905353e271e8774c0e7ad36ca79a9
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 873c6f8b815b99425efb578e5129099493e8c657
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869267"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437881"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>PowerShell을 사용하여 Azure에서 가상 머신 백업
 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다. 정기적으로 백업을 수행하여 데이터를 보호할 수 있습니다. Azure Backup은 지역 중복 복구 자격 증명 모음에 저장될 수 있는 복구 지점을 만듭니다. 이 문서에서는 Azure PowerShell 모듈에서 VM(가상 머신)을 백업하는 방법을 자세히 설명합니다. [Azure CLI](quick-backup-vm-cli.md) 또는 [Azure Portal](quick-backup-vm-portal.md)에서 이러한 단계를 수행할 수도 있습니다.
 
 이 빠른 시작을 사용하면 기존 Azure VM에서 백업할 수 있습니다. VM을 생성해야 하는 경우 [Azure PowerShell을 사용하여 VM을 만들](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) 수 있습니다.
 
-이 빠른 시작에서는 Azure PowerShell 모듈 버전 4.4 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+이 빠른 시작에서는 Azure PowerShell 모듈 버전 4.4 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요.
 
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인

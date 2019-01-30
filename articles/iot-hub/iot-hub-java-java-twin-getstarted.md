@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: dobett
-ms.openlocfilehash: b2adb2e69475b79324cad2d11a420cbefdf8b059
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: a938e5d872d2c1602f7ce898f0d14e3e04feb759
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514488"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312570"
 ---
 # <a name="get-started-with-device-twins-java"></a>디바이스 쌍 시작(Java)
 
@@ -21,11 +21,11 @@ ms.locfileid: "51514488"
 
 이 자습서에서는 다음 두 개의 Java 콘솔 앱을 만듭니다.
 
-* **add-tags-query**, 태그를 추가하고 장치 쌍을 쿼리하는 Java 백 엔드 앱입니다.
-* **simulated-device**, IoT Hub에 연결하고 reported 속성을 사용하여 해당 연결 조건을 보고하는 Java 장치 앱입니다.
+* **add-tags-query**, 태그를 추가하고 디바이스 쌍을 쿼리하는 Java 백 엔드 앱입니다.
+* **simulated-device**, IoT Hub에 연결하고 reported 속성을 사용하여 해당 연결 조건을 보고하는 Java 디바이스 앱입니다.
 
 > [!NOTE]
-> [Azure IoT SDK](iot-hub-devguide-sdks.md) 문서는 장치 및 백 엔드 앱을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 대한 정보를 제공합니다.
+> [Azure IoT SDK](iot-hub-devguide-sdks.md) 문서는 디바이스 및 백 엔드 앱을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 대한 정보를 제공합니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "51514488"
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>IoT 허브에 대한 연결 문자열 검색
+### <a name="retrieve-connection-string-for-iot-hub"></a>IoT Hub에 대한 연결 문자열 검색
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -124,7 +124,7 @@ ms.locfileid: "51514488"
     public static void main( String[] args ) throws IOException
     ```
 
-11. 다음 코드를 **main** 메서드에 추가하여 **DeviceTwin** 및 **DeviceTwinDevice** 개체를 만듭니다. **DeviceTwin** 개체는 IoT 허브와의 통신을 처리합니다. **DeviceTwinDevice** 개체는 해당 속성 및 태그로 장치 쌍을 나타냅니다.
+11. 다음 코드를 **main** 메서드에 추가하여 **DeviceTwin** 및 **DeviceTwinDevice** 개체를 만듭니다. **DeviceTwin** 개체는 IoT 허브와의 통신을 처리합니다. **DeviceTwinDevice** 개체는 해당 속성 및 태그로 디바이스 쌍을 나타냅니다.
 
     ```java
     // Get the DeviceTwin and DeviceTwinDevice objects
@@ -228,7 +228,7 @@ ms.locfileid: "51514488"
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.32</version>
+      <version>1.14.2</version>
     </dependency>
     ```
 
@@ -268,7 +268,7 @@ ms.locfileid: "51514488"
     import java.util.Scanner;
     ```
 
-8. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. `{youriothubname}`을 IoT 허브 이름으로 바꾸고 `{yourdevicekey}`를 *장치 ID 만들기* 섹션에서 만든 장치 키 값으로 바꿉니다.
+8. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. `{youriothubname}`을 IoT 허브 이름으로 바꾸고 `{yourdevicekey}`를 *디바이스 ID 만들기* 섹션에서 만든 디바이스 키 값으로 바꿉니다.
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
@@ -278,9 +278,20 @@ ms.locfileid: "51514488"
 
     이 샘플 앱은 **DeviceClient** 개체를 인스턴스화할 때 **프로토콜** 변수를 사용합니다. 
 
+1. 쌍 업데이트에 대한 정보를 인쇄하려면 **App** 클래스에 다음 메서드를 추가합니다.
+
+    ```java
+    protected static class DeviceTwinStatusCallBack implements IotHubEventCallback {
+        @Override
+        public void execute(IotHubStatusCode status, Object context) {
+          System.out.println("IoT Hub responded to device twin operation with status " + status.name());
+        }
+      }
+    ```
+
 9. **main** 메서드에 다음 코드를 추가합니다.
     * IoT Hub와 통신하는 디바이스 클라이언트를 만듭니다.
-    * **Device** 개체를 만들어 장치 쌍 속성을 저장합니다.
+    * **Device** 개체를 만들어 디바이스 쌍 속성을 저장합니다.
 
     ```java
     DeviceClient client = new DeviceClient(connString, protocol);
@@ -310,12 +321,12 @@ ms.locfileid: "51514488"
     catch (Exception e) {
       System.out.println("On exception, shutting down \n" + " Cause: " + e.getCause() + " \n" + e.getMessage());
       dataCollector.clean();
-      client.close();
+      client.closeNow();
       System.out.println("Shutting down...");
     }
     ```
 
-11. **main** 메서드의 끝에 다음 코드를 추가합니다. **Enter** 키를 기다리면 IoT Hub가 장치 쌍 작업의 상태를 보고하는 시간을 허용합니다.
+11. **main** 메서드의 끝에 다음 코드를 추가합니다. **Enter** 키를 기다리면 IoT Hub가 디바이스 쌍 작업의 상태를 보고하는 시간을 허용합니다.
 
     ```java
     System.out.println("Press any key to exit...");
@@ -327,7 +338,13 @@ ms.locfileid: "51514488"
     client.close();
     ```
 
-12. `simulated-device\src\main\java\com\mycompany\app\App.java` 파일을 저장하고 닫습니다.
+1. **main** 메서드의 서명을 수정하여 다음과 같은 예외를 포함합니다.
+
+    ```java
+    public static void main(String[] args) throws URISyntaxException, IOException
+    ```
+
+1. `simulated-device\src\main\java\com\mycompany\app\App.java` 파일을 저장하고 닫습니다.
 
 13. **simulated-device** 앱을 빌드하고 오류를 수정합니다. 명령 프롬프트에서 `simulated-device` 폴더로 이동하고 다음 명령을 실행합니다.
 
@@ -373,6 +390,6 @@ ms.locfileid: "51514488"
 
 아래와 같이 실행할 방법을 알아보려면 다음 리소스를 참조하세요.
 
-* [IoT Hub 시작](quickstart-send-telemetry-java.md) 자습서를 참조하여 장치에서 원격 분석을 보냅니다.
+* [IoT Hub 시작](quickstart-send-telemetry-java.md) 자습서를 참조하여 디바이스에서 원격 분석을 보냅니다.
 
-* [직접 메서드 사용](quickstart-control-device-java.md) 자습서를 참조하여 대화형으로(예: 사용자 제어 앱에서 팬 작동) 장치를 제어합니다.
+* [직접 메서드 사용](quickstart-control-device-java.md) 자습서를 참조하여 대화형으로(예: 사용자 제어 앱에서 팬 작동) 디바이스를 제어합니다.

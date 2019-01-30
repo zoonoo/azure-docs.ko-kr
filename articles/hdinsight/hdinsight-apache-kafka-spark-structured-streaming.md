@@ -1,26 +1,26 @@
 ---
-title: '자습서: Apache Kafka의 Apache Spark 구조적 스트림 - Azure HDInsight '
+title: '자습서: Apache Kafka의 Apache Spark 구조적 스트림 - Azure HDInsight'
 description: Apache Spark 스트림을 사용하여 Apache Kafka 간에 데이터를 이동하는 방법을 알아봅니다. 이 자습서에서는 HDInsight의 Spark에서 Jupyter Notebook을 사용하여 데이터를 스트리밍합니다.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5f59f14f93b5bfc79c07b096a07ac109be0bedb6
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4dcf482e02d38e18b7b86fc57565a47510627d44
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499089"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652867"
 ---
-# <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Kafka의 Apache Spark 구조적 스트림 사용
+# <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Kafka의 Apache Spark 정형 스트림 사용
 
 이 자습서에서는 Azure HDInsight에서 [Apache Kafka](https://kafka.apache.org/)를 사용하여 [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)을 통해 데이터를 읽고 쓰는 방법을 보여줍니다.
 
-Spark 구조적 스트림은 Spark SQL에서 작성된 스트림 처리 엔진입니다. 정적 데이터에 대한 일괄 처리 계산과 동일하게 스트리밍 계산을 표현할 수 있습니다. 
+Spark 구조적 스트림은 Spark SQL에서 작성된 스트림 처리 엔진입니다. 정적 데이터에 대한 일괄 처리 계산과 동일하게 스트리밍 계산을 표현할 수 있습니다.  
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -41,7 +41,7 @@ Spark 구조적 스트림은 Spark SQL에서 작성된 스트림 처리 엔진�
 
 * Kafka 토픽 생성 방법 이해. 자세한 내용은 [HDInsight의 Apache Kafka 빠른 시작](kafka/apache-kafka-get-started.md) 문서를 참조하세요.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이 문서의 단계를 수행하려면 HDInsight의 Spark와 HDInsight의 Kafka 클러스터를 모두 포함하는 Azure 리소스 그룹이 필요합니다. 이러한 클러스터는 모두 Azure Virtual Network에 있으며, 여기서는 Spark 클러스터와 Kafka 클러스터 간에 직접 통신할 수 있습니다.
 > 
 > 사용자의 편의를 위해, 이 문서는 필요한 모든 Azure 리소스를 만들 수 있는 템플릿에 연결되어 있습니다. 
@@ -118,7 +118,7 @@ HDInsight의 Apache Kafka는 공용 인터넷을 통한 액세스를 Kafka broke
 
 ![Azure 가상 네트워크에 있는 Spark 및 Kafka 클러스터 다이어그램](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Kafka 서비스는 가상 네트워크 내에서 통신으로 제한됩니다. SSH 및 Ambari와 같은 클러스터의 다른 서비스는 인터넷을 통해 액세스할 수 있습니다. HDInsight에서 사용할 수 있는 공용 포트에 대한 자세한 내용은 [HDInsight에서 사용하는 포트 및 URI](hdinsight-hadoop-port-settings-for-services.md)를 참조하세요.
 
 Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 만들려면 다음 단계를 사용합니다.
@@ -135,7 +135,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
     * HDInsight 3.6 클러스터의 Spark 2.2.0
     * HDInsight 클러스터를 포함하는 Azure Virtual Network
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 이 자습서에서 사용된 구조적 스트림 Notebook에는 HDInsight 3.6의 Spark 2.2.0가 필요합니다. HDInsight에서 이전 버전의 Spark를 사용하면 Notebook을 사용하는 경우 발생하는 오류가 발생합니다.
 
 2. 다음 정보를 사용하여 **사용자 지정된 템플릿** 섹션의 항목을 채웁니다.
@@ -158,7 +158,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Spark 클러스터를 �
 
 4. 마지막으로 **대시보드에 고정**을 선택한 다음 **구매**를 선택합니다. 
 
-> [!NOTE]
+> [!NOTE]  
 > 클러스터를 만드는 데 최대 20분이 걸릴 수 있습니다.
 
 ## <a name="upload-the-notebook"></a>Notebook 업로드
@@ -198,7 +198,7 @@ Azure Portal을 사용하여 리소스 그룹을 제거하려면:
 2. 삭제할 리소스 그룹을 찾은 다음 목록 오른쪽에 있는 __자세히__ 단추(...)를 마우스 오른쪽 단추로 클릭합니다.
 3. __리소스 그룹 삭제__를 선택한 다음 확인합니다.
 
-> [!WARNING]
+> [!WARNING]  
 > 클러스터가 만들어지면 HDInsight 클러스터 청구가 시작되고 클러스터가 삭제되면 중지됩니다. 분 단위로 청구되므로 더 이상 사용하지 않으면 항상 클러스터를 삭제해야 합니다.
 > 
 > HDInsight 클러스터의 Kafka를 삭제하면 Kafka에 저장된 데이터가 모두 삭제됩니다.

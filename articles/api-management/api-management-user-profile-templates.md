@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 341c689616e85b148790df092f238449e1d72075
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 77b704e9359e582664bad8e08e9389cfac8eaca7
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442696"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121399"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Azure API Management의 사용자 프로필 템플릿
 Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사용하여 개발자 포털 페이지의 콘텐츠를 사용자 지정하는 기능을 제공합니다. 이러한 템플릿에서 [DotLiquid](http://dotliquidmarkup.org/) 구문 및 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) 및 제공된 지역화 [String 리소스](api-management-template-resources.md#strings), [Glyph 리소스](api-management-template-resources.md#glyphs) 및 [Page 컨트롤](api-management-page-controls.md)의 집합과 같은 선택한 편집기를 사용하여 필요에 따라 페이지 콘텐츠를 유연하게 구성할 수 있습니다.  
@@ -30,7 +30,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 -   [구독](#Subscriptions)  
   
--   [응용 프로그램](#Applications)  
+-   [애플리케이션](#Applications)  
   
 -   [계정 정보 업데이트](#UpdateAccountInfo)  
   
@@ -102,7 +102,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ### <a name="data-model"></a>데이터 모델  
   
 > [!NOTE]
->  [프로필](#Profile), [응용 프로그램](#Applications) 및 [구독](#Subscriptions) 템플릿은 동일한 데이터 모델을 공유하며 동일한 템플릿 데이터를 수신합니다.  
+>  [프로필](#Profile), [애플리케이션](#Applications) 및 [구독](#Subscriptions) 템플릿은 동일한 데이터 모델을 공유하며 동일한 템플릿 데이터를 수신합니다.  
   
 |자산|type|설명|  
 |--------------|----------|-----------------|  
@@ -112,7 +112,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 |addresserEmail|string|현재 사용의 전자 메일 주소입니다.|  
 |developersUsageStatisticsLinkk|string|현재 사용자에 대한 분석을 볼 상대적 URL입니다.|  
 |구독|[구독](api-management-template-data-model-reference.md#Subscription) 엔터티의 컬렉션입니다.|현재 사용자에 대한 구독입니다.|  
-|응용 프로그램|[응용 프로그램](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자의 응용 프로그램입니다.|  
+|애플리케이션|[애플리케이션](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자의 애플리케이션입니다.|  
 |changePasswordUrl|string|현재 사용자의 암호를 변경할 상대적 URL입니다.|  
 |changeNameOrEmailUrl|string|현재 사용자에 대한 이름 및 전자 메일을 변경할 상대적 URL입니다.|  
 |canChangePassword|부울|현재 사용자가 암호를 변경할 수 있는지 여부입니다.|  
@@ -323,7 +323,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ### <a name="data-model"></a>데이터 모델  
   
 > [!NOTE]
->  [프로필](#Profile), [응용 프로그램](#Applications) 및 [구독](#Subscriptions) 템플릿은 동일한 데이터 모델을 공유하며 동일한 템플릿 데이터를 수신합니다.  
+>  [프로필](#Profile), [애플리케이션](#Applications) 및 [구독](#Subscriptions) 템플릿은 동일한 데이터 모델을 공유하며 동일한 템플릿 데이터를 수신합니다.  
   
 |자산|type|설명|  
 |--------------|----------|-----------------|  
@@ -333,7 +333,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 |addresserEmail|string|현재 사용의 전자 메일 주소입니다.|  
 |developersUsageStatisticsLinkk|string|현재 사용자에 대한 분석을 볼 상대적 URL입니다.|  
 |구독|[구독](api-management-template-data-model-reference.md#Subscription) 엔터티의 컬렉션입니다.|현재 사용자에 대한 구독입니다.|  
-|응용 프로그램|[응용 프로그램](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자의 응용 프로그램입니다.|  
+|애플리케이션|[애플리케이션](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자의 애플리케이션입니다.|  
 |changePasswordUrl|string|현재 사용자의 암호를 변경할 상대적 URL입니다.|  
 |changeNameOrEmailUrl|string|현재 사용자에 대한 이름 및 전자 메일을 변경할 상대적 URL입니다.|  
 |canChangePassword|부울|현재 사용자가 암호를 변경할 수 있는지 여부입니다.|  
@@ -405,10 +405,10 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 }  
 ```  
   
-##  <a name="Applications"></a> 응용 프로그램  
- **응용 프로그램** 템플릿을 사용하여 개발자 포털에서 사용자 프로필 페이지의 구독 섹션을 사용자 지정할 수 있습니다.  
+##  <a name="Applications"></a> 애플리케이션  
+ **애플리케이션** 템플릿을 사용하여 개발자 포털에서 사용자 프로필 페이지의 구독 섹션을 사용자 지정할 수 있습니다.  
   
- ![사용자 계정 응용 프로그램 페이지](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "APIM 사용자 계정 응용 프로그램 페이지")  
+ ![사용자 계정 애플리케이션 페이지](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "APIM 사용자 계정 애플리케이션 페이지")  
   
 ### <a name="default-template"></a>기본 템플릿  
   
@@ -452,7 +452,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
           <strong>  
             {% case app.state %}  
             {% when ApplicationStateModel.Registered %}  
-            {% localized "ApplicationListStrings|WebDevelopersAppNotSubminted" %}  
+            {% localized "ApplicationListStrings|WebDevelopersAppNotSubmitted" %}  
   
             {% when ApplicationStateModel.Unpublished %}  
             {% localized "ApplicationListStrings|WebDevelopersAppNotPublished" %}  
@@ -486,7 +486,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ### <a name="data-model"></a>데이터 모델  
   
 > [!NOTE]
->  [프로필](#Profile), [응용 프로그램](#Applications) 및 [구독](#Subscriptions) 템플릿은 동일한 데이터 모델을 공유하며 동일한 템플릿 데이터를 수신합니다.  
+>  [프로필](#Profile), [애플리케이션](#Applications) 및 [구독](#Subscriptions) 템플릿은 동일한 데이터 모델을 공유하며 동일한 템플릿 데이터를 수신합니다.  
   
 |자산|type|설명|  
 |--------------|----------|-----------------|  
@@ -496,7 +496,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 |addresserEmail|string|현재 사용의 전자 메일 주소입니다.|  
 |developersUsageStatisticsLinkk|string|현재 사용자에 대한 분석을 볼 상대적 URL입니다.|  
 |구독|[구독](api-management-template-data-model-reference.md#Subscription) 엔터티의 컬렉션입니다.|현재 사용자에 대한 구독입니다.|  
-|응용 프로그램|[응용 프로그램](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자의 응용 프로그램입니다.|  
+|애플리케이션|[애플리케이션](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자의 애플리케이션입니다.|  
 |changePasswordUrl|string|현재 사용자의 암호를 변경할 상대적 URL입니다.|  
 |changeNameOrEmailUrl|string|현재 사용자에 대한 이름 및 전자 메일을 변경할 상대적 URL입니다.|  
 |canChangePassword|부울|현재 사용자가 암호를 변경할 수 있는지 여부입니다.|  

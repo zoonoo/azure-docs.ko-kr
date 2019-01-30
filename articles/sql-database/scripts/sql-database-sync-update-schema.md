@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 01/10/2018
-ms.openlocfilehash: 952e34f70e245866589e4bce56bfbee7cf61fb88
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 01/17/2019
+ms.openlocfilehash: 7a83153d4439fe25d92f149b7efe5231151b4dc4
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685840"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390734"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>PowerShell을 사용하여 기존 동기화 그룹의 동기화 스키마 업데이트
 
@@ -26,10 +26,12 @@ ms.locfileid: "51685840"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure PowerShell 모듈 버전이 5.7.0 이상이어야 합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
-
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure PowerShell 모듈 버전이 5.7.0 이상이어야 합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
 SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](../sql-database-sync-data.md)를 참조하세요.
+
+> [!IMPORTANT]
+> 현재 Azure SQL 데이터 동기화는 Azure SQL Database Managed Instance를 지원하지 **않습니다**.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -91,11 +93,11 @@ SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
 
 -   개요 - [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](../sql-database-sync-data.md)
 -   데이터 동기화 설정
-    - 포털 사용 - [자습서: Azure SQL Database와 SQL Server 온-프레미스 간에 데이터를 동기화하도록 SQL 데이터 동기화 설정](../sql-database-get-started-sql-data-sync.md)
+    - 포털에서 - [자습서: Azure SQL Database와 SQL Server 온-프레미스 간에 데이터를 동기화하도록 SQL 데이터 동기화 설정](../sql-database-get-started-sql-data-sync.md)
     - PowerShell 사용
         -  [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](sql-database-sync-data-between-sql-databases.md)
         -  [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](sql-database-sync-data-between-azure-onprem.md)
--   데이터 동기화 에이전트 - [Azure SQL 데이터 동기화용 데이터 동기화 에이전트](../sql-database-data-sync-agent.md)
+-   데이터 동기화 에이전트 - [Azure SQL 데이타 동기화용 데이터 동기화 에이전트](../sql-database-data-sync-agent.md)
 -   모범 사례 - [Azure SQL 데이터 동기화에 대한 모범 사례](../sql-database-best-practices-data-sync.md)
 -   모니터 - [Log Analytics를 사용하여 SQL 데이터 동기화 모니터링](../sql-database-sync-monitor-oms.md)
 -   문제 해결 - [Azure SQL 데이터 동기화 문제 해결](../sql-database-troubleshoot-data-sync.md)

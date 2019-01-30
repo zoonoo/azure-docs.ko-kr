@@ -4,7 +4,7 @@ description: 그룹 정책을 사용하여 My Apps 포털용 Internet Explorer �
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a21a21f40e731e8bc1d20e01d3671c372df65d84
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3a48b2ce4689490b3a38917edfb776a6ea28c478
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622043"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463442"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법
 이 자습서에서는 그룹 정책을 사용하여 사용자의 컴퓨터에 Internet Explorer용 액세스 패널 확장을 원격 설치하는 방법을 보여줍니다. 이 확장은 [암호 기반 Single Sign-On](what-is-single-sign-on.md#password-based-sso)을 사용하여 구성된 앱에 로그인하는 Internet Explorer 사용자에게 필요합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "51622043"
 
 ## <a name="prerequisites"></a>필수 조건
 * [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)를 설정하고, 사용자 컴퓨터를 도메인에 가입시킨 상태여야 합니다.
-* 그룹 정책 개체(GPO)를 편집하는 "설정 편집" 사용 권한이 있어야 합니다. 기본적으로 도메인 관리자, 엔터프라이즈 관리자 및 그룹 정책 작성자/소유자 보안 그룹의 멤버에게 이 권한이 있습니다. [자세한 정보](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
+* 그룹 정책 개체(GPO)를 편집하는 "설정 편집" 사용 권한이 있어야 합니다. 기본적으로 다음 보안 그룹의 구성원에게는 이 권한이 있습니다: 도메인 관리자, 엔터프라이즈 관리자 및 그룹 정책 작성 소유자. [자세한 정보](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
 ## <a name="step-1-create-the-distribution-point"></a>1단계: 배포 지점 만들기
 먼저 원격으로 확장을 설치할 컴퓨터에서 액세스할 수 있는 네트워크 위치에 설치 관리자 패키지를 배치해야 합니다. 이렇게 하려면 다음 단계를 수행하세요.
@@ -40,11 +40,11 @@ ms.locfileid: "51622043"
 2. **서버 관리자** 창에서 **파일 및 Storage 서비스**로 이동합니다.
    
     ![파일 및 Storage 서비스 열기](./media/deploy-access-panel-browser-extension/files-services.png)
-3. **공유** 탭으로 이동합니다. 그런 다음 태스크****새 공유...** 를 클릭합니다.
+3. **공유** 탭으로 이동합니다. 그런 다음 **태스크** > **새 공유...** 를 클릭합니다.
    
     ![파일 및 Storage 서비스 열기](./media/deploy-access-panel-browser-extension/shares.png)
 4. **새 공유 마법사** 를 완료하고 사용자의 컴퓨터에서 액세스할 수 있게 권한을 설정합니다. [공유에 대해 알아봅니다.](https://technet.microsoft.com/library/cc753175.aspx)
-5. Windows Installer 패키지(.msi 파일)[Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)를 다운로드합니다.
+5. Microsoft Windows Installer 패키지(.msi 파일) [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)를 다운로드합니다.
 6. 설치 관리자 패키지를 공유의 원하는 위치에 복사합니다.
    
     ![.msi 파일을 공유에 복사합니다.](./media/deploy-access-panel-browser-extension/copy-package.png)
@@ -71,7 +71,7 @@ ms.locfileid: "51622043"
    
     ![새 GPO 편집](./media/deploy-access-panel-browser-extension/edit-gpo.png)
 
-## <a name="step-3-assign-the-installation-package"></a>3단계: 설치 패키지를 할당합니다.
+## <a name="step-3-assign-the-installation-package"></a>3단계: 설치 패키지 할당
 1. 확장을 **컴퓨터 구성** 또는 **사용자 구성**을 기준으로 배포할지 결정합니다. [컴퓨터 구성](https://technet.microsoft.com/library/cc736413%28v=ws.10%29.aspx)을 사용할 경우 사용자가 로그인했는지와 관계없이 컴퓨터에 확장이 설치됩니다. [사용자 구성](https://technet.microsoft.com/library/cc781953%28v=ws.10%29.aspx)의 경우 사용자가 로그온한 컴퓨터인지와 관계없이 사용자에게 확장이 설치됩니다.
 2. **그룹 정책 관리 편집기** 창의 왼쪽에서 선택한 구성의 유형에 따라 다음 폴더 경로 중 하나로 이동합니다.
    
@@ -80,7 +80,7 @@ ms.locfileid: "51622043"
 3. **소프트웨어 설치**를 마우스 오른쪽 단추로 클릭한 다음 **새로 만들기** > **패키지...** 를 선택합니다.
    
     ![새 소프트웨어 설치 패키지 만들기](./media/deploy-access-panel-browser-extension/new-package.png)
-4. [1단계: 배포 지점 만들기](#step-1-create-the-distribution-point)에서 만든 설치 관리자 패키지가 들어 있는 공유  폴더로 이동하고 .msi 파일을 선택한 다음 **열기**를 클릭합니다.
+4. [1단계: 배포 지점 만들기](#step-1-create-the-distribution-point)에서 설치 관리자 패키지를 포함하는 공유 폴더로 이동하여 .msi 파일을 선택하 고 **열기**를 클릭합니다.
    
    > [!IMPORTANT]
    > 공유가 같은 서버에 있는 경우 로컬 파일 경로가 아닌 네트워크 파일 경로를 통해 .msi에 액세스하고 있는지 확인합니다.
@@ -97,7 +97,7 @@ ms.locfileid: "51622043"
 ## <a name="step-4-auto-enable-the-extension-for-internet-explorer"></a>4단계: Internet Explorer용 확장 자동 활성화
 설치 프로그램을 실행하는 것 외에도 모든 Internet Explorer용 확장을 명시적으로 활성화해야 사용할 수 있습니다. 다음 단계에 따라 그룹 정책을 사용하여 액세스 패널 확장을 활성화합니다.
 
-1. **그룹 정책 관리 편집기** 창에서, [3단계: 설치 패키지](#step-3-assign-the-installation-package)에서 선택한 구성 유형에 따라 다음 폴더 경로 중 하나로 이동합니다.
+1. **그룹 정책 관리 편집기** 창의 [Step 3: 설치 패키지 할당](#step-3-assign-the-installation-package)에서 선택한 구성의 유형에 따라 다음 경로 중 하나로 이동합니다.
    
    * `Computer Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
@@ -117,7 +117,7 @@ ms.locfileid: "51622043"
 
 이제 선택한 OU의 컴퓨터에서 확장이 활성화되어야 합니다. [그룹 정책을 사용하여 Internet Explorer 추가 기능을 활성화 또는 비활성화하는 방법에 대해 자세히 알아봅니다.](https://technet.microsoft.com/library/dn454941.aspx)
 
-## <a name="step-5-optional-disable-remember-password-prompt"></a>5단계(선택 사항): “암호 저장" 프롬프트 비활성화
+## <a name="step-5-optional-disable-remember-password-prompt"></a>5단계(선택 사항): "암호 저장" 프롬프트 비활성화
 사용자가 액세스 패널 확장을 사용하여 웹 사이트에 로그인하면 Internet Explorer에 “암호를 저장하시겠습니까?”라고 묻는 프롬프트가 다음과 같이 표시될 수 있습니다.
 
 ![암호 프롬프트](./media/deploy-access-panel-browser-extension/remember-password-prompt.png)
@@ -151,7 +151,7 @@ ms.locfileid: "51622043"
 ## <a name="step-6-testing-the-deployment"></a>6단계: 배포 테스트
 다음 단계에 따라 확장 배포가 성공적으로 이루어졌는지 확인합니다.
 
-1. **컴퓨터 구성**을 사용하여 배포한 경우 [2단계: 그룹 정책 개체 만들기](#step-2-create-the-group-policy-object)에서 선택한 OU에 속한 클라이언트 컴퓨터에 로그인합니다. **사용자 구성**을 사용하여 배포한 경우 해당 OU에 속한 사용자로 로그인해야 합니다.
+1. **컴퓨터 구성**을 사용하여 배포한 경우 [2단계: 그룹 정책 개체 만들기](#step-2-create-the-group-policy-object)에서 선택한 OU에 속한 클라이언트 머신에 로그인합니다. **사용자 구성**을 사용하여 배포한 경우 해당 OU에 속한 사용자로 로그인해야 합니다.
 2. 그룹 정책 변경 내용이 해당 컴퓨터를 완전히 업데이트하기 위해 몇 번의 로그인이 필요할 수 있습니다. 업데이트를 강제 실행하려면 **명령 프롬프트** 창을 열고 터미널 창을 열고 `gpupdate /force` 명령을 실행합니다.
 3. 설치를 적용하려면 컴퓨터를 다시 시작해야 합니다. 확장 설치 중에는 부팅 시간이 상대적으로 더 오래 소요될 수 있습니다.
 4. 다시 시작한 후 **Internet Explorer**를 엽니다. 창의 오른쪽 위 모퉁이에서 **도구**(기어 아이콘)를 클릭한 다음 **추가 기능 관리**를 선택합니다.
@@ -162,6 +162,6 @@ ms.locfileid: "51622043"
     ![액세스 패널 확장이 설치되었으며 활성화되었는지 확인합니다.](./media/deploy-access-panel-browser-extension/verify-install.png)
 
 ## <a name="related-articles"></a>관련 문서
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On](what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On](what-is-single-sign-on.md)
 * [Internet Explorer용 액세스 패널 확장 문제 해결](manage-access-panel-browser-extension.md)
 

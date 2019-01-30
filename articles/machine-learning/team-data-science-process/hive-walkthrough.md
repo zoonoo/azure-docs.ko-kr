@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning에서 Hadoop 클러스터 데이터 탐색 및 모델 만들기 | Microsoft Docs
+title: Hadoop 클러스터에서 데이터 탐색 - Team Data Science Process
 description: HDInsight Hadoop 클러스터를 사용하는 종단 간 시나리오에 팀 데이터 과학 프로세스를 사용하여 모델을 빌드 및 배포합니다.
 services: machine-learning
 author: marktab
@@ -10,22 +10,22 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 1b494f78998a03d39b18d4f9bba80642c04c483e
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: e6adbe5a0e5ce88db12637889e201b5a15a0556f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444208"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139625"
 ---
-# <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>실행 중인 팀 데이터 과학 프로세스: Azure HDInsight Hadoop 클러스터 사용
-이 연습에서는 종단 간 시나리오에 [TDSP(Team Data Science Process)](overview.md)를 사용합니다. [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)를 사용하여 공개적으로 사용 가능한 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합에서 데이터를 저장, 탐색, 기능 설계, 다운 샘플링합니다. 이진/다중 클래스 분류 및 회귀 예측 작업을 처리하기 위해 데이터의 모델을 Azure Machine Learning으로 빌드합니다. 
+# <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>팀 데이터 과학 프로세스 작동: Azure HDInsight Hadoop 클러스터 사용
+이 연습에서는 종단 간 시나리오에 [TDSP(Team Data Science Process)](overview.md)를 사용합니다. [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)를 사용하여 공개적으로 사용 가능한 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 세트에서 데이터를 저장, 탐색, 기능 설계, 다운 샘플링합니다. 이진/다중 클래스 분류 및 회귀 예측 작업을 처리하기 위해 데이터의 모델을 Azure Machine Learning으로 빌드합니다. 
 
 더 큰 데이터 세트를 처리하는 방법을 보여 주는 연습은 [팀 데이터 과학 프로세스 - 1TB 데이터 세트에서 Azure HDInsight Hadoop 클러스터 사용](hive-criteo-walkthrough.md)을 참조하세요.
 
 IPython 노트북에서 1TB 데이터 세트를 사용하는 연습의 작업을 수행할 수도 있습니다. 자세한 내용은 [Hive ODBC 연결을 사용하여 Criteo 연습](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb)을 참조하세요.
 
-## <a name="dataset"></a>NYC Taxi Trips 데이터 집합 설명
+## <a name="dataset"></a>NYC Taxi Trips 데이터 세트 설명
 NYC Taxi Trip 데이터는 20GB의 압축된 CSV(쉼표로 구분된 값) 파일입니다(압축되지 않은 경우 ~48GB). 1억 7300만 개가 넘는 개별 여정이 있으며 각 여정의 요금을 포함합니다. 각 여정 레코드는 승차 및 하차 위치와 시간, 익명 처리된 hack(기사) 면허증 번호 및 medallion 번호(택시의 고유 ID)를 포함합니다. 데이터는 2013년의 모든 여정을 포괄하며, 매월 다음 두 개의 데이터 세트로 제공됩니다.
 
 - trip_data CSV 파일에는 여정 정보가 들어 있습니다. 여기에는 승객 수, 승하차 지점, 여정 기간 및 여정 거리가 포함됩니다. 다음은 몇 가지 샘플 레코드입니다.
@@ -50,18 +50,18 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_license 및
 ## <a name="mltasks"></a>예측 작업의 예제
 데이터 분석을 기반으로 만들려는 예측의 종류를 결정합니다. 이렇게 하면 프로세스에 포함해야 하는 작업을 명확하게 합니다. 다음은 이 연습에서 우리가 해결할 예측 문제에 대한 3가지 예제입니다. *tip\_amount*를 기반으로 합니다.
 
-- **이진 분류**: 여정에 대해 팁이 지불되었는지 여부를 예측합니다. 즉, $0보다 큰 *팁\_금액*은 양수 예이고, $0의 *팁\_금액*은 음수 예입니다.
+- **이진 분류**: 운행에 대해 팁이 지불되었는지 여부를 예측합니다. 즉, $0보다 큰 *팁\_금액*은 양수 예이고, $0의 *팁\_금액*은 음수 예입니다.
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0
-- **다중 클래스 분류**: 여정에 대해 지불된 팁 금액의 범위를 예측합니다. *tip\_amount*를 5개의 클래스로 나눕니다.
+- **다중 클래스 분류**: 운행에 대해 지불된 팁 액수의 범위를 예측합니다. *tip\_amount*를 5개의 클래스로 나눕니다.
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0 and tip_amount <= $5
         Class 2: tip_amount > $5 and tip_amount <= $10
         Class 3: tip_amount > $10 and tip_amount <= $20
         Class 4: tip_amount > $20
-- **회귀 작업**: 여정에 대해 지불된 팁의 금액을 예측합니다.  
+- **회귀 작업**: 운행에 대해 지불된 팁의 액수를 예측합니다.  
 
 ## <a name="setup"></a>고급 분석용 HDInsight Hadoop 클러스터 설정
 > [!NOTE]
@@ -71,7 +71,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_license 및
 
 다음 세 단계를 통해 HDInsight 클러스터를 사용하는 고급 분석용 Azure 환경을 설정할 수 있습니다.
 
-1. [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md):이 저장소 계정은 Azure Blob 저장소에 데이터를 저장하는 데 사용됩니다. HDInsight 클러스터에 사용되는 데이터도 여기에 상주합니다.
+1. [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md): 이 스토리지 계정은 Azure Blob Storage에 데이터를 저장하는 데 사용됩니다. HDInsight 클러스터에 사용되는 데이터도 여기에 상주합니다.
 2. [고급 분석 프로세스 및 기술을 위한 Azure HDInsight Hadoop 클러스터 사용자 지정](customize-hadoop-cluster.md). 이 단계에서는 모든 노드에 64비트 Anaconda Python 2.7이 설치된 HDInsight Hadoop 클러스터를 만듭니다. HDInsight 클러스터 사용자 지정하는 동안 기억해야 할 중요한 두 단계가 있습니다.
    
    * HDInsight 클러스터를 만들 때 1단계에서 만든 저장소 계정을 연결해야 합니다. 이 저장소 계정은 클러스터 내에서 처리되는 데이터에 액세스합니다.
@@ -306,7 +306,7 @@ Hive 쿼리를 사용하여 Hive 테이블에 로드된 데이터에 대한 데�
 
     hive -e "select * from nyctaxidb.fare where month=1 limit 10;" > C:\temp\testoutput
 
-### <a name="exploration-view-the-number-of-records-in-each-of-the-12-partitions"></a>탐색: 각 12개 파티션의 각 레코드 수 보기
+### <a name="exploration-view-the-number-of-records-in-each-of-the-12-partitions"></a>탐색: 12개 파티션의 각 레코드 수 보기
 > [!NOTE]
 > 이는 일반적으로 데이터 과학자 작업입니다.
 > 
@@ -376,7 +376,7 @@ Hive 디렉터리 프롬프트에서 다음 명령을 사용하여 fare 데이�
 
 두 테이블 모두의 총 레코드 수가 동일합니다. 이는 데이터가 올바르게 로드되었는지 확인하는 두 번째 유효성 검사를 제공합니다.
 
-### <a name="exploration-trip-distribution-by-medallion"></a>탐색: medallion별 여정 분포
+### <a name="exploration-trip-distribution-by-medallion"></a>탐색: medallion별 운행 분포
 > [!NOTE]
 > 이는 일반적으로 데이터 과학자 작업입니다.
 > 
@@ -410,15 +410,15 @@ Hive 디렉터리 프롬프트에서 다음 명령을 실행합니다.
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
-### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>탐색: medallion 및 hack license별 여정 분포
+### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>탐색: medallion 및 hack 라이선스별 운행 분포
 > [!NOTE]
 > 이는 일반적으로 데이터 과학자 작업입니다.
 > 
 > 
 
-데이터 세트를 탐색할 때 값 그룹의 동시 발생 횟수를 조사하는 경우가 많습니다. 이 섹션에서는 택시와 운전 기사에 대해 이 작업을 수행하는 방법에 대한 예제를 제공합니다.
+데이터 세트를 탐색할 때 값 그룹의 동시 발생 횟수를 조사하려는 경우가 많습니다. 이 섹션에서는 택시와 운전 기사에 대해 이 작업을 수행하는 방법에 대한 예제를 제공합니다.
 
-**sample\_hive\_trip\_count\_by\_medallion\_license.hql** 파일은 **medallion** 및 **hack_license**에서 fare 데이터 집합을 그룹화하고 각 조합의 개수를 반환합니다. 파일 내용은 다음과 같습니다.
+**sample\_hive\_trip\_count\_by\_medallion\_license.hql** 파일은 **medallion** 및 **hack_license**에서 fare 데이터 세트를 그룹화하고 각 조합의 개수를 반환합니다. 파일 내용은 다음과 같습니다.
 
     SELECT medallion, hack_license, COUNT(*) as trip_count
     FROM nyctaxidb.fare
@@ -459,7 +459,7 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 
 이 명령에 포함된 *-S* 인수는 Hive 맵/감소 작업의 상태 화면 인쇄를 표시하지 않습니다. 이렇게 하면 Hive 쿼리 출력의 화면 인쇄를 좀 더 쉽게 읽을 수 있으므로 유용합니다.
 
-### <a name="exploration-binary-class-distributions-of-trip-tips"></a>탐색: 여정 팁의 이진 클래스 분포
+### <a name="exploration-binary-class-distributions-of-trip-tips"></a>탐색: 운행 팁의 이진 클래스 분포
 > [!NOTE]
 > 이는 일반적으로 데이터 과학자 작업입니다.
 > 
@@ -491,7 +491,7 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 > 
 > 
 
-[예측 작업의 예](hive-walkthrough.md#mltasks) 섹션에 설명된 다중 클래스 분류 문제를 위해 이 데이터 집합은 운전 기사가 받은 팁 금액을 예측하는 자연 분류에도 적합합니다. bin을 사용하여 쿼리에서 팁 범위를 정의할 수 있습니다. 여러 팁 범위에 대한 클래스 분포를 가져오려면 **sample\_hive\_tip\_range\_frequencies.hql** 파일을 사용합니다. 파일 내용은 다음과 같습니다.
+[예측 작업의 예](hive-walkthrough.md#mltasks) 섹션에 설명된 다중 클래스 분류 문제를 위해 이 데이터 세트는 운전 기사가 받은 팁 금액을 예측하는 자연 분류에도 적합합니다. bin을 사용하여 쿼리에서 팁 범위를 정의할 수 있습니다. 여러 팁 범위에 대한 클래스 분포를 가져오려면 **sample\_hive\_tip\_range\_frequencies.hql** 파일을 사용합니다. 파일 내용은 다음과 같습니다.
 
     SELECT tip_class, COUNT(*) AS tip_freq
     FROM
@@ -508,7 +508,7 @@ Hadoop 명령줄 콘솔에서 다음 명령을 실행합니다.
 
     hive -f "C:\temp\sample_hive_tip_range_frequencies.hql"
 
-### <a name="exploration-compute-the-direct-distance-between-two-longitude-latitude-locations"></a>탐색: 두 경도-위도 위치 간의 직접 거리 계산
+### <a name="exploration-compute-the-direct-distance-between-two-longitude-latitude-locations"></a>탐색: 두 경도-위도 위치 간의 직접 거리 컴퓨팅
 > [!NOTE]
 > 이는 일반적으로 데이터 과학자 작업입니다.
 > 
@@ -721,17 +721,17 @@ Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼�
 
 [데이터 가져오기][import-data] 모듈 및 입력할 매개 변수에 대한 세부 정보 중 일부는 다음과 같습니다.
 
-**HCatalog server URI**: 클러스터 이름이 **abc123**인 경우, 간단히 https://abc123.azurehdinsight.net입니다.
+**HCatalog 서버 URI**: 클러스터 이름이 **abc123**인 경우, 간단히 https://abc123.azurehdinsight.net입니다.
 
-**Hadoop user account name**: 클러스터에 대해 선택한 사용자 이름입니다(원격 액세스 사용자 이름이 아님).
+**Hadoop 사용자 계정 이름**: 클러스터에 대해 선택한 사용자 이름입니다(원격 액세스 사용자 이름 아님).
 
-**Hadoop ser account password**: 클러스터에 대해 선택한 암호입니다(원격 액세스 암호가 아님).
+**Hadoop ser 계정 암호**: 클러스터에 대해 선택한 암호입니다(원격 액세스 암호 아님).
 
-**Location of output data**: Azure로 선택됩니다.
+**출력 데이터의 위치**: Azure로 선택됩니다.
 
-**Azure storage account name**: 클러스터와 연결된 기본 저장소 계정의 이름입니다.
+**Azure 스토리지 계정 이름**: 클러스터와 연결된 기본 스토리지 계정의 이름입니다.
 
-**Azure container name**: 클러스터의 기본 컨테이너 이름이며, 일반적으로 클러스터 이름과 동일합니다. **abc123**이라는 클러스터의 경우 abc123입니다.
+**Azure 컨테이너 이름**: 클러스터의 기본 컨테이너 이름이며, 일반적으로 클러스터 이름과 동일합니다. **abc123**이라는 클러스터의 경우 abc123입니다.
 
 > [!IMPORTANT]
 > Machine Learning의 [데이터 가져오기][import-data] 모듈을 사용하여 쿼리할 모든 테이블은 내부 테이블이어야 합니다.
@@ -757,15 +757,15 @@ Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼�
 ### <a name="mlmodel"></a>Machine Learning에서 모델 빌드
 이제 [Machine Learning](https://studio.azureml.net)에서 모델 빌드 및 모델 배포를 진행할 수 있습니다. 이전에 파악된 다음과 같은 예측 문제를 해결하는 데 데이터를 사용할 수 있습니다.
 
-- **이진 분류**: 여정에 대해 팁이 지불되었는지 여부를 예측합니다.
+- **이진 분류**: 운행에 대해 팁이 지불되었는지 여부를 예측합니다.
 
   **사용된 학습자:** 2클래스 로지스틱 회귀
 
-  a. 이 문제의 경우 대상(또는 클래스) 레이블은 **tipped**입니다. 다운 샘플링된 원래 데이터 세트에는 이 분류 실험의 대상 누수인 몇 가지 열이 있습니다. 특히 **tip\_class**, **tip\_amount** 및 **total\_amount**는 테스트 시 사용할 수 없는 대상 레이블에 대한 정보를 표시합니다. [데이터 집합의 열 선택][select-columns] 모듈을 사용하여 이러한 열을 고려 대상에서 제거합니다.
+  a. 이 문제의 경우 대상(또는 클래스) 레이블은 **tipped**입니다. 다운 샘플링된 원래 데이터 세트에는 이 분류 실험의 대상 누수인 몇 가지 열이 있습니다. 특히 **tip\_class**, **tip\_amount** 및 **total\_amount**는 테스트 시 사용할 수 없는 대상 레이블에 대한 정보를 표시합니다. [데이터 세트의 열 선택][select-columns] 모듈을 사용하여 이러한 열을 고려 대상에서 제거합니다.
 
   다음 다이어그램은 지정된 여정에 대해 팁이 지불되었는지 여부를 예측하는 실험을 보여 줍니다.
 
-  ![실험의 다이어그램](./media/hive-walkthrough/QGxRz5A.png)
+  ![팁 지불 여부를 예측하는 실험 다이어그램](./media/hive-walkthrough/QGxRz5A.png)
 
   b. 이 실험의 경우 대상 레이블 분포는 약 1:1입니다.
 
@@ -777,15 +777,15 @@ Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼�
 
   ![AUC 값의 차트](./media/hive-walkthrough/8JDT0F8.png)
 
-- **다중 클래스 분류**: 이전에 정의된 클래스를 사용하여 여정에 대해 지불된 팁 금액 범위를 예측합니다.
+- **다중 클래스 분류**: 이전에 정의된 클래스를 사용하여 운행에 대해 지불된 팁 액수 범위를 예측합니다.
 
   **사용된 학습자:** 다중 클래스 로지스틱 회귀
 
-  a. 이 문제의 경우 대상(또는 클래스) 레이블은 5개 값(0, 1, 2, 3, 4) 중 하나일 수 있는 **tip\_class**입니다. 이진 분류와 마찬가지로 이 실험에 대한 대상 누수인 몇 개 열이 있습니다. 특히 **tipped**, **tip\_amount** 및 **total\_amount**는 테스트 시 사용할 수 없는 대상 레이블에 대한 정보를 표시합니다. [데이터 집합의 열 선택][select-columns] 모듈을 사용하여 이러한 열을 제거합니다.
+  a. 이 문제의 경우 대상(또는 클래스) 레이블은 5개 값(0, 1, 2, 3, 4) 중 하나일 수 있는 **tip\_class**입니다. 이진 분류와 마찬가지로 이 실험에 대한 대상 누수인 몇 개 열이 있습니다. 특히 **tipped**, **tip\_amount** 및 **total\_amount**는 테스트 시 사용할 수 없는 대상 레이블에 대한 정보를 표시합니다. [데이터 세트의 열 선택][select-columns] 모듈을 사용하여 이러한 열을 제거합니다.
 
-  다음 다이어그램에서는 팁이 대체될 가능성이 높은 bin을 예측하는 실험을 보여 줍니다. bin은 Class 0: tip = $0, Class 1: tip > $0, tip <= $5, Class 2: tip > $5, tip <= $10, Class 3: tip > $10, tip <= $20 및 Class 4: tip > $20입니다.
+  다음 다이어그램에서는 팁이 대체될 가능성이 높은 bin을 예측하는 실험을 보여 줍니다. bin은: Class 0: tip = $0, Class 1: tip > $0, tip <= $5, Class 2: tip > $5, tip <= $10, Class 3: tip > $10, tip <= $20 및 Class 4: tip > $20입니다.
 
-  ![실험의 다이어그램](./media/hive-walkthrough/5ztv0n0.png)
+  ![팁에 대한 bin을 예측하는 실험 다이어그램](./media/hive-walkthrough/5ztv0n0.png)
 
   실제 테스트 클래스 분포는 다음과 같습니다. Class 0과 Class 1은 우세한 반면, 다른 클래스는 희박합니다.
 
@@ -797,15 +797,15 @@ Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼�
 
   많이 사용되는 클래스의 클래스 정확도는 비교적 높지만, 드물게 사용되는 클래스에서는 모델의 "학습" 작업 성능이 좋지 않습니다.
 
-- **회귀 작업**: 여정에 대해 지불된 팁의 금액을 예측합니다.
+- **회귀 작업**: 운행에 대해 지불된 팁의 액수를 예측합니다.
 
   **사용된 학습자:** 향상된 의사 결정 트리
 
-  a. 이 문제의 대상(또는 클래스) 레이블은 **tip\_amount**입니다. 이 경우 대상 누수는 **tipped**, **tip\_class** 및 **total\_amount**입니다. 이러한 모든 변수는 테스트 시 일반적으로 사용할 수 없는 팁 크기에 대한 정보를 표시합니다. [데이터 집합의 열 선택][select-columns] 모듈을 사용하여 이러한 열을 제거합니다.
+  a. 이 문제의 대상(또는 클래스) 레이블은 **tip\_amount**입니다. 이 경우 대상 누수는 **tipped**, **tip\_class** 및 **total\_amount**입니다. 이러한 모든 변수는 테스트 시 일반적으로 사용할 수 없는 팁 크기에 대한 정보를 표시합니다. [데이터 세트의 열 선택][select-columns] 모듈을 사용하여 이러한 열을 제거합니다.
 
   다음 다이어그램은 운전 기사가 받은 팁 금액을 예측하는 실험을 보여 줍니다.
 
-  ![실험의 다이어그램](./media/hive-walkthrough/11TZWgV.png)
+  ![팁 액수를 예측하는 실험 다이어그램](./media/hive-walkthrough/11TZWgV.png)
 
   b. 회귀 문제의 경우 예측의 제곱된 오류, 결정 계수를 확인하여 예측 정확도를 측정합니다.
 

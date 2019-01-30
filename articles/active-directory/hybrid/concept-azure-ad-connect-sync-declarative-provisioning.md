@@ -4,7 +4,7 @@ description: Azure AD connect에서 선언적 프로비전 구성 모델을 설�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9242ffc0c87ee9f314745463b8287ad7531a982d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 45b145d9a8922bc3da50cef7d9fa7aacf260417d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310292"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471781"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect 동기화: 선언적 프로비전 이해
 이 항목에서는 Azure AD Connect에서 구성 모델을 설명합니다. 이 모델은 선언적 프로비전이라고 하고 구성을 쉽게 변경할 수 있습니다. 이 항목에서 설명하는 여러 가지 항목은 고급이며 대부분의 고객 시나리오에 필요하지 않습니다.
@@ -48,7 +48,7 @@ ms.locfileid: "46310292"
 범위는 그룹 및 절로 정의됩니다. 절은 그룹 내에 있습니다. 논리적 AND는 그룹의 모든 절 간에 사용됩니다. 예를 들어 (부서 = IT AND 국가 = 덴마크). 논리 OR은 그룹 간에 사용됩니다.
 
 ![범위](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
-이 그림의 범위는 (부서 = IT AND 국가 = 덴마크) OR (국가 = 스웨덴)으로 읽혀야 합니다. 그룹 1 또는 그룹 2가 true로 평가되는 경우 규칙은 범위 내에 있습니다.
+ 이 그림의 범위는 (부서 = IT AND 국가 = 덴마크) OR (국가 = 스웨덴)으로 읽혀야 합니다. 그룹 1 또는 그룹 2가 true로 평가되는 경우 규칙은 범위 내에 있습니다.
 
 범위 모듈은 다음 작업을 지원합니다.
 
@@ -74,7 +74,7 @@ ms.locfileid: "46310292"
 
 조인은 하나 이상의 그룹으로 정의됩니다. 그룹 내에 절이 있습니다. 논리적 AND는 그룹의 모든 절 간에 사용됩니다. 논리 OR은 그룹 간에 사용됩니다. 그룹은 위에서 아래의 순서로 처리됩니다. 하나의 그룹이 대상의 개체와 정확히 일치하는 하나의 개체를 찾는 경우 다른 조인 규칙은 평가되지 않습니다. 0개 이상의 개체를 찾을 수 있는 경우 처리는 규칙의 다음 그룹으로 계속됩니다. 이러한 이유로 규칙은 가장 명시적인 것이 앞서고 더 유사한 것이 끝으로 보내는 순서대로 만들어져야 합니다.  
 ![조인 정의](./media/concept-azure-ad-connect-sync-declarative-provisioning/join2.png)  
-이 그림에서 조인은 위쪽에서 아래쪽으로 처리됩니다. 먼저 동기화 파이프라인은 employeeID에 대해 일치하는지 확인합니다. 그렇지 않으면 두 번째 규칙은 계정 이름이 객체를 조인하는 데 사용되는지 확인합니다. 일치하지 않는 경우 세 번째이자 마지막 규칙은 사용자의 이름을 사용하여 더 유사한 일치를 확인합니다.
+ 이 그림에서 조인은 위쪽에서 아래쪽으로 처리됩니다. 먼저 동기화 파이프라인은 employeeID에 대해 일치하는지 확인합니다. 그렇지 않으면 두 번째 규칙은 계정 이름이 객체를 조인하는 데 사용되는지 확인합니다. 일치하지 않는 경우 세 번째이자 마지막 규칙은 사용자의 이름을 사용하여 더 유사한 일치를 확인합니다.
 
 모든 조인 규칙이 평가되며 일치 항목이 없는 경우 **설명** 페이지의 **링크 형식**이 사용됩니다. 이 옵션이 **프로비전**에 설정된 경우 대상에서 새 개체가 만들어집니다.  
 ![프로비전 또는 조인](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
@@ -91,7 +91,7 @@ ms.locfileid: "46310292"
 메타버스 개체가 삭제되면 **프로비전** 되도록 표시된 아웃바운드 동기화 규칙과 연결된 모든 개체는 삭제되도록 표시됩니다.
 
 ## <a name="transformations"></a>변환
-변환은 특성이 원본에서 대상에 흐르는 방식을 정의하는 데 사용됩니다. 흐름은 직접, 상수 또는 식과 같은 **흐름 유형**중 하나를 가질 수 있습니다. 직접 흐름은 추가 변환 없이 그대로 특성 값을 사용합니다. 상수 값은 지정된 값을 설정합니다. 식은 선언적 프로비전 식 언어를 사용하여 변환이 어떻게 되어야 하는지를 표현합니다. 식 언어에 대한 세부 정보는 [선언적 프로비전 식 언어 이해](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) 항목에서 찾을 수 있습니다.
+변환은 특성이 원본에서 대상에 흐르는 방식을 정의하는 데 사용됩니다. 흐름에는 Direct, Constant 또는 Expression **흐름 유형** 중 하나가 있을 수 있습니다. 직접 흐름은 추가 변환 없이 그대로 특성 값을 사용합니다. 상수 값은 지정된 값을 설정합니다. 식은 선언적 프로비전 식 언어를 사용하여 변환이 어떻게 되어야 하는지를 표현합니다. 식 언어에 대한 세부 정보는 [선언적 프로비전 식 언어 이해](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) 항목에서 찾을 수 있습니다.
 
 ![프로비전 또는 조인](./media/concept-azure-ad-connect-sync-declarative-provisioning/transformations1.png)  
 
@@ -127,7 +127,7 @@ ms.locfileid: "46310292"
 
 ### <a name="importedvalue"></a>ImportedValue
 ImportedValue 함수는 특성 이름을 대괄호 대신 따옴표로 묶어야 하므로 다른 모든 함수와 다릅니다.  
-`ImportedValue("proxyAddresses")`
+`ImportedValue("proxyAddresses")`.
 
 일반적으로 동기화 중에는 내보내는 동안("타워 최상위")에 오류가 발생하거나 아직 내보내지 않았어도 특성이 예상 값을 사용합니다. 인바운드 동기화는 연결된 디렉터리에 아직 도달하지 않은 특성도 결국 도달할 것으로 가정합니다. 일부 경우에는 연결된 디렉터리에서 확인한 값만 동기화한다는 것이 중요합니다("홀로그램 및 델타 가져오기 타워").
 
@@ -163,4 +163,4 @@ ImportedValue 함수는 특성 이름을 대괄호 대신 따옴표로 묶어야
 
 **참조 항목**
 
-* [Azure AD 동기화 연결: 함수 참조](reference-connect-sync-functions-reference.md)
+* [Azure AD Connect 동기화: 함수 참조](reference-connect-sync-functions-reference.md)

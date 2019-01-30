@@ -4,17 +4,17 @@ description: Visual Studio Code에서 Azure Terraform 확장을 설치하고 사
 services: terraform
 ms.service: terraform
 keywords: terraform, azure, devops, visual studio code, 확장
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: be0140606302335884d62ba60c875a049949b495
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 137a57638207a05f797692b25a5d5a31bd66ce3d
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353053"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074583"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Azure Terraform Visual Studio Code 확장 설치 및 사용
 
@@ -27,11 +27,11 @@ Microsoft Azure Terraform Visual Studio Code 확장은 Azure에서 Terraform을 
 > * Visual Studio Code를 사용하여 Terraform 계획 작성, 계획 및 실행
 
 ## <a name="prerequisites"></a>필수 조건
-- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
+- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 을 만듭니다.
 
-- **Terraform**: [Terraform을 설치 및 구성](/azure/virtual-machines/linux/terraform-install-configure)합니다.
+- **Terraform**: [Terraform을 설치 및 구성합니다](/azure/virtual-machines/linux/terraform-install-configure).
 
-- **Visual Studio Code**: 사용자의 환경에 적합한 [Visual Studio Code](https://code.visualstudio.com/download)의 버전을 설치합니다.
+- **Visual Studio Code**: 환경에 적합한 [Visual Studio Code](https://code.visualstudio.com/download) 버전을 설치합니다.
 
 ## <a name="prepare-your-dev-environment"></a>개발 환경 준비
 
@@ -144,7 +144,7 @@ Azure Terraform 확장이 설치된 확장 목록에 표시됩니다.
 
     ![Do you want to open Cloud Shell?(Cloud Shell을 열까요?)](media/terraform-vscode-extension/tf-do-you-want-to-open-cloud-shell.png)
 
-1. 새 폴더에서 Cloud Shell을 처음 시작하면 웹 응용 프로그램을 설정하라는 메시지가 표시됩니다. **열기**를 선택합니다.
+1. 새 폴더에서 Cloud Shell을 처음 시작하면 웹 애플리케이션을 설정하라는 메시지가 표시됩니다. **열기**를 선택합니다.
 
     ![Cloud Shell 처음 시작](media/terraform-vscode-extension/tf-first-launch-of-cloud-shell.png)
 
@@ -173,7 +173,7 @@ Azure Terraform 확장이 설치된 확장 목록에 표시됩니다.
 
 이 자습서의 앞부분에서 GraphViz를 설치했습니다. Terraform은 GraphViz를 사용하여 구성 또는 실행 계획의 시각적 표현을 생성할 수 있습니다. Azure Terraform Visual Studio Code 확장은 *visualize* 명령을 통해 이 기능을 구현합니다.
 
-- 메뉴 모음에서 **보기 > 명령 팔레트 > Azure Terraform: Visualize**를 선택합니다.
+- 메뉴 모음에서 **보기 > 명령 팔레트 > Azure Terraform: 시각화**를 선택합니다.
 
     ![계획 시각화](media/terraform-vscode-extension/tf-graph.png)
 
@@ -196,7 +196,7 @@ Terraform *plan*의 결과가 만족스러우면 *apply* 명령을 실행할 수
 
     ![Terraform Apply](media/terraform-vscode-extension/tf-terraform-apply.png)
 
-1. `yes`을 입력합니다.
+1. `yes` 을 입력합니다.
 
     ![Terraform apply yes](media/terraform-vscode-extension/tf-terraform-apply-yes.png)
 
@@ -270,7 +270,7 @@ Visual Studio Code 내에서 Terraform 명령을 사용하려면 먼저 두 Azur
 
 ### <a name="module-test-lint"></a>모듈 테스트: *lint*
 
-1. 메뉴 모음에서 **보기 > 명령 팔레트 > Azure Terraform: Execute Test**를 선택합니다.
+1. 메뉴 모음에서 **보기 > 명령 팔레트 > Azure Terraform: 테스트 실행**을 선택합니다.
 
 1. 테스트 형식 옵션 목록에서 **lint**를 선택합니다.
 
@@ -289,7 +289,7 @@ Visual Studio Code 내에서 Terraform 명령을 사용하려면 먼저 두 Azur
 
 ### <a name="module-test-end-to-end"></a>모듈 테스트: *end-to-end*
 
-1. 메뉴 모음에서 **보기 > 명령 팔레트 > Azure Terraform: Execute Test**를 선택합니다.
+1. 메뉴 모음에서 **보기 > 명령 팔레트 > Azure Terraform: 테스트 실행**을 선택합니다.
 
 1. 테스트 형식 옵션 목록에서 **end to end**를 선택합니다.
 

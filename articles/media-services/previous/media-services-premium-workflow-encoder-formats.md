@@ -6,22 +6,22 @@ documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-ms.assetid: b197fce8-3b9b-4189-8d08-486810c0426f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 01/15/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 337ee0edc3d6e644415b2b3f7524d829d0e3c692
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c38ca56bc71215ed7fb64d346571ca517a79914f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50246469"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450203"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>미디어 인코더 Premium 워크플로 형식 및 코덱
+
 > [!NOTE]
 > 프리미엄 인코더 관련 질문은 mepd@microsoft.com으로 문의하세요.
 > 
@@ -31,16 +31,18 @@ ms.locfileid: "50246469"
 
 이 문서에는 **미디어 인코더 Premium 워크플로** 인코더의 공개 미리 보기 버전에서 지원하는 입력 및 출력 파일 형식과 코덱 목록이 포함되어 있습니다.
 
-[미디어 인코더 Premium 워크플로 입력 형식 및 코덱](#input_formats)
+[Media Encoder Premium Workflow 입력 형식 및 코덱](#input_formats)
 
-[미디어 인코더 Premium 워크플로 출력 형식 및 코덱](#output_formats)
+[Media Encoder Premium Workflow 출력 형식 및 코덱](#output_formats)
 
 **미디어 인코더 Premium 워크플로** 는 [이](#closed_captioning) 섹션에 설명된 선택 캡션을 지원합니다. 
 
 ## <a id="input_formats"></a>미디어 인코더 Premium 워크플로 입력 형식 및 코덱
+
 다음 섹션에는 이 미디어 프로세서에서 입력으로 지원되는 코덱 및 파일 형식이 나열되어 있습니다.
 
 ### <a name="input-containerfile-formats"></a>입력 컨테이너/파일 형식
+
 * Adobe® Flash® F4V
 * MXF/SMPTE 377M
 * GXF
@@ -51,6 +53,7 @@ ms.locfileid: "50246469"
 * AVI(압축되지 않은 8비트/10비트)
 
 ### <a name="input-video-codecs"></a>입력 비디오 코덱
+
 * AVC 8비트/10비트, 최대 4:2:2, AVCIntra 포함
 * Avid DNxHD(MXF)
 * DVCPro/DVCProHD(MXF)
@@ -61,6 +64,7 @@ ms.locfileid: "50246469"
 * Windows Media 비디오/VC-1
 
 ### <a name="input-audio-codecs"></a>입력 오디오 코덱
+
 * AES(SMPTE 331M 및 302M, AES3-2003)
 * Dolby® E
 * Dolby® Digital(AC3)
@@ -71,9 +75,11 @@ ms.locfileid: "50246469"
 * WAV/PCM
 
 ## <a id="output_format"></a>미디어 인코더 Premium 워크플로 출력 형식 및 코덱
+
 다음 섹션에는 이 미디어 프로세서에서 출력으로 지원되는 코덱 및 파일 형식이 나열되어 있습니다.
 
 ### <a name="output-containerfile-formats"></a>출력 컨테이너/파일 형식
+
 * Adobe® Flash® F4V
 * MXF(OP1a, XDCAM 및 AS02)
 * DPP(AS11 포함)
@@ -85,6 +91,7 @@ ms.locfileid: "50246469"
 * MPEG-TS 
 
 ### <a name="output-video-codecs"></a>출력 비디오 코덱
+
 * AVC(H.264, 8비트, 최대 High Profile, 수준 5.2, 4K Ultra HD, AVC Intra)
 * Avid DNxHD(MXF)
 * DVCPro/DVCProHD(MXF)
@@ -92,8 +99,13 @@ ms.locfileid: "50246469"
 * MPEG-1
 * Windows Media 비디오/VC-1
 * JPEG 축소판 그림 만들기
+* HEVC(H.265, 8비트 및 10비트, 기본 및 기본 10 프로필)
+
+  HDR 10은 특정 시나리오에서 지원됩니다. 자세한 내용은 mepd@microsoft.com에 문의하세요.
+
 
 ### <a name="output-audio-codecs"></a>출력 오디오 코덱
+
 * AES(SMPTE 331M 및 302M, AES3-2003)
 * Dolby® Digital(AC3)
 * Dolby® Digital Plus(E-AC3) 최대 7.1
@@ -106,6 +118,7 @@ ms.locfileid: "50246469"
 >Dolby® Digital(AC3)로 인코딩하면 출력은 ISO MP4 파일에만 쓸 수 있습니다.
 
 ## <a id="closed_captioning"></a>선택 캡션 지원
+
 수집 시 **미디어 인코더 Premium 워크플로** 는 다음을 지원합니다.
 
 1. SCC 파일
@@ -122,14 +135,18 @@ ms.locfileid: "50246469"
 5. SRT 자막 파일
 6. DVB 자막 스트림
 
-참고: 위의 출력 형식 중 일부는 Azure Media Services에서 스트리밍을 통해 배달되지 않습니다.
+> [!NOTE]
+> 위의 출력 형식 중 일부는 Azure Media Services에서 스트리밍을 통해 배달되지 않습니다.
 
 ## <a name="known-issues"></a>알려진 문제
+
 입력된 비디오에 자막이 없는 경우, 출력 자산은 빈 TTML 파일을 포함합니다. 
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
+
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: 비공개 SKU | Microsoft Docs
+title: 비공개 SKU 및 플랜 | Microsoft Docs
 description: 비공개 SKU를 사용하여 제품 가용성을 관리하는 방법입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 28fe85c6443701d5fb40d4f90dbec9ba445a234d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 519f0354f2a19e106ca1072170721b27357d173e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230243"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849210"
 ---
-<a name="private-skus"></a>비공개 SKU
+<a name="private-skus-and-plans"></a>비공개 SKU 및 플랜
 ============
 
 비공개 SKU를 사용하면 SKU의 가용성을 특정 고객으로 제한할 수 있습니다. SKU가 비공개로 표시되는 경우 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Azure Portal](http://portal.azure.com)을 포함한 공용 카탈로그에서는 사용할 수 없습니다. Azure Portal에서 해당 SKU에 대한 액세스 권한이 있는 고객만 SKU를 볼 수 있습니다. 또한 비공개 제품에 대한 액세스 권한이 있다는 메시지가 표시됩니다.
@@ -90,6 +90,11 @@ SKU가 다른 SKU의 이미지를 재사용함을 확인한 후 이미지 원본
             SubscriptionId,7738d703-3135-4e8d-8b81-1e70379abd9d,Private Customer
 
 수동 입력에서 CSV 업로드 뷰로 전환하거나 CSV에서 수동 입력으로 전환할 때 SKU에 대한 액세스 권한이 있는 이전 구독 ID 목록은 유지되지 않습니다. 경고가 표시되며, 제품을 저장하는 경우에만 목록을 덮어씁니다.
+
+<a name="sync-private-subscriptions"></a>비공개 구독 동기화
+-------------------------
+
+개인 SKU 또는 플랜을 사용하여 게시된 제품에 구독을 추가하는 경우 제품을 다시 게시하여 대상 그룹 정보를 추가할 필요가 없습니다. 단순히 Azure 구독 ID(플랜 및 SKU) 또는 테넌트 ID(플랜 전용)를 사용하여 대상 그룹을 추가합니다.
 
 <a name="previewing-private-offers"></a>비공개 제품 미리 보기
 -------------------------

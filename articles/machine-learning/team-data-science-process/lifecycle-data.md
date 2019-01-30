@@ -1,5 +1,5 @@
 ---
-title: 팀 데이터 과학 프로세스 수명 주기의 데이터 취득 및 이해 단계 - Azure | Microsoft Docs
+title: Team Data Science Process의 데이터 취득 및 이해
 description: 데이터 과학 프로젝트의 데이터 취득 및 이해 단계에 대한 목표, 작업 및 결과물입니다.
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 13cbcead381257c87f17dc8ed6666a1b8964d81a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 77c67c491b3157103b267864417678c83326814c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441583"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141155"
 ---
-# <a name="data-acquisition-and-understanding"></a>데이터 취득 및 이해
+# <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Team Data Science Process의 데이터 취득 및 이해 단계
 
 이 문서에서는 TDSP(팀 데이터 과학 프로세스)의 데이터 취득 및 이해 단계와 관련된 목표, 작업 및 결과물을 설명합니다. 이 프로세스는 데이터 과학 프로젝트를 구조화하는 데 사용할 수 있는 권장 수명 주기를 제공합니다. 수명 주기는 일반적으로 프로젝트에서 반복적으로 자주 실행하는 주요 단계를 설명합니다.
 

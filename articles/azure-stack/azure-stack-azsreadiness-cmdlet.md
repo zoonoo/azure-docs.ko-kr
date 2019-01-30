@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 1dbfd668c2d233d299ee673da92ca203e72942fe
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: unknown
+ms.lastreviewed: 12/04/2018
+ms.openlocfilehash: 861784a2d22d15253c61884bfab62667c0560bcd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957425"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250651"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>시작-AzsReadinessChecker cmdlet 참조
 
@@ -169,7 +170,7 @@ Start-AzsReadinessChecker
 
 ## <a name="examples"></a>예
 
-### <a name="example-generate-certificate-signing-request"></a>예제: 인증서 서명 요청 생성
+### <a name="example-generate-certificate-signing-request"></a>예제: 인증서 서명 요청을 생성 합니다.
 
 ```PowerShell
 $regionName = 'east'
@@ -189,7 +190,7 @@ Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $passwor
 
 이 예제에서는 PFX 암호를 묻는 메시지가 안전 하 게 하 고 시작 AzsReadinessChecker "동부" 및 "azurestack.contoso.com" 외부 FQDN으로 지역 이름과 AAD 배포를 위한 올바른 인증서에 대 한 상대 폴더 "인증서"를 확인 합니다.
 
-### <a name="example-validate-certificates-with-deployment-data-deployment-and-support"></a>예: 배포 데이터 (배포 및 지원)를 사용 하 여 인증서의 유효성을 검사합니다
+### <a name="example-validate-certificates-with-deployment-data-deployment-and-support"></a>예제: 배포 데이터 (배포 및 지원)를 사용 하 여 인증서 유효성 검사
 
 ```PowerShell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
@@ -198,7 +199,7 @@ Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $passwor
 
 이 예에서 배포 및 지원 PFX 암호를 묻는 안전 하 게 하 고 시작 AzsReadinessChecker id, 지역 및 외부 FQDN에서 읽기는 배포에 대 한 올바른 인증서에 대 한 상대 폴더 "인증서"를 확인 합니다 배포에 대해 생성 된 배포 데이터 JSON 파일입니다. 
 
-### <a name="example-validate-paas-certificates"></a>예: PaaS 인증서의 유효성 검사
+### <a name="example-validate-paas-certificates"></a>예제: PaaS 인증서의 유효성 검사
 
 ```PowerShell
 $PaaSCertificates = @{
@@ -213,7 +214,7 @@ Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates – RegionName eas
 
 이 예제에서는 해시 테이블은 경로 및 각 PaaS 인증서 암호를 사용 하 여 생성 됩니다. 인증서를 생략할 수 있습니다. 시작-AzsReadinessChecker 각 PFX 경로 존재 확인 '동부' 영역을 사용 하 고 외부 FQDN 'azurestack.contoso.com'의 유효성을 검사 합니다.
 
-### <a name="example-validate-paas-certificates-with-deployment-data"></a>예: 배포 데이터를 사용 하 여 PaaS 인증서의 유효성을 검사합니다
+### <a name="example-validate-paas-certificates-with-deployment-data"></a>예제: 배포 데이터를 사용 하 여 PaaS 인증서의 유효성 검사
 
 ```PowerShell
 $PaaSCertificates = @{
@@ -228,7 +229,7 @@ Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -DeploymentDataJSO
 
 이 예제에서는 해시 테이블은 경로 및 각 PaaS 인증서 암호를 사용 하 여 생성 됩니다. 인증서를 생략할 수 있습니다. 시작-AzsReadinessChecker 외부 FQDN에서 배포에 대해 생성 된 배포 데이터 JSON 파일 읽고 각 PFX 경로가 있는지와 지역을 사용 하 여 유효성을 검사를 확인 합니다. 
 
-### <a name="example-validate-azure-identity"></a>예: Azure id의 유효성을 검사합니다
+### <a name="example-validate-azure-identity"></a>예제: Azure id의 유효성을 검사합니다
 
 ```PowerShell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
@@ -238,7 +239,7 @@ Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -Azur
 
 이 예제에서는 서비스 관리자 계정 자격 증명을 묻는 메시지가 안전 하 게 하 고 시작 AzsReadinessChecker Azure 계정 및 Azure Active Directory 유효성 검사 "azurestack.contoso.com" 테 넌 트 디렉터리 이름으로 AAD 배포
 
-### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>예: 배포 데이터 (배포 지원)를 사용 하 여 Azure id의 유효성을 검사합니다
+### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>예제: 배포 데이터 (배포 지원)를 사용 하 여 Azure id의 유효성을 검사합니다
 
 ```PowerSHell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
@@ -247,7 +248,7 @@ Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -Depl
 
 이 예제에서는 서비스 관리자 계정 자격 증명을 묻는 메시지가 안전 하 게 하 고 시작 AzsReadinessChecker Azure 계정 및 Azure Active Directory 유효성 검사는 AAD 배포용 AzureCloud 및 TenantName 배포 데이터에서 읽기는 배포에 대해 생성 된 JSON 파일입니다.
 
-### <a name="example-validate-azure-registration"></a>예: Azure 등록의 유효성을 검사합니다
+### <a name="example-validate-azure-registration"></a>예제: Azure 등록 유효성 검사
 
 ```PowerShell
 $registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
@@ -258,7 +259,7 @@ Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -Registra
 
 이 예제에서는 구독 소유자 자격 증명을 묻는 메시지가 안전 하 게 시작 AzsReadinessChecker 다음 지정된 된 계정에 대 한 유효성 검사를 수행 하 고 Azure Stack 등록에 확인 하기 위해 구독을 사용할 수 있습니다. 
 
-### <a name="example-validate-azure-registration-with-deployment-data-deployment-team"></a>예: 배포 데이터 (배포 팀)를 사용 하 여 Azure 등록의 유효성을 검사합니다
+### <a name="example-validate-azure-registration-with-deployment-data-deployment-team"></a>예제: 배포 데이터 (배포 팀)를 사용 하 여 Azure 등록 유효성 검사
 
 ```PowerShell
 $registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
@@ -268,7 +269,7 @@ Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -Registra
 
 이 예제에서는 구독 소유자 자격 증명을 묻는 메시지가 안전 하 게 시작 AzsReadinessChecker 다음 지정된 된 계정에 대 한 유효성 검사를 수행 및 확인 하기 위해 구독 추가 세부 정보는 여기서 하는 Azure Stack 등록에 사용할 수 있습니다. 배포에 대해 생성 된 배포 데이터 JSON 파일에서 읽습니다.
 
-### <a name="example-importexport-pfx-package"></a>예: Import/Export PFX 패키지
+### <a name="example-importexport-pfx-package"></a>예제: Import/Export PFX 패키지
 
 ```PowerShell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
@@ -277,7 +278,7 @@ Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx
 
 이 예제에서는 PFX 암호가 입력에 대 한 안전 하 게 합니다. Ssl.pfx 파일을 로컬 컴퓨터 인증서 저장소로 가져올 및 동일한 암호를 사용 하 여 다시 내보낸 되며 ssl_new.pfx로 저장 합니다.  이 절차는 개인 키를 로컬 컴퓨터 특성 집합, 인증서 체인이 끊어집니다, 관련이 없는 인증서는 PFX에 없거나 잘못 된 순서로 인증서 체인을 인증서 유효성 검사에 플래그가 지정 된 경우 사용 하 여입니다.
 
-### <a name="example-view-validation-report-deployment-support"></a>예: 보기 유효성 검사 보고서 (배포 지원)
+### <a name="example-view-validation-report-deployment-support"></a>예제: 유효성 검사 보고서 보기 (배포 지원)
 
 ```PowerShell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json
@@ -285,7 +286,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json
 
 이 예제에서는 배포 또는 지원 팀 고객 (Contoso)에서 준비 보고서를을 받고 시작 AzsReadinessChecker를 사용 하 여 Contoso 수행 된 유효성 검사 실행의 상태를 확인 합니다.
 
-### <a name="example-view-validation-report-summary-for-certificate-validation-only-deployment-and-support"></a>예제: 인증서 유효성 검사 전용 (배포 및 지원)에 대 한 요약 유효성 검사 보고서를 보려면
+### <a name="example-view-validation-report-summary-for-certificate-validation-only-deployment-and-support"></a>예제: 인증서 유효성 검사 전용 (배포 및 지원)에 대 한 요약 유효성 검사 보고서 보기
 
 ```PowerShell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSections Certificate -Summary
@@ -384,7 +385,7 @@ Azure Stack 배포 데이터 JSON 구성 파일을 지정합니다. 이 파일�
 |파이프라인 입력 허용:      |False    |
 |와일드 카드 문자를 허용 합니다. |False    |
 
-> -제목
+> -Subject
 
 인증서 요청 생성에 대 한 정렬된 된 사전을 주체를 지정합니다.
 |  |  |
@@ -407,7 +408,7 @@ Azure Stack 배포 데이터 JSON 구성 파일을 지정합니다. 이 파일�
 |형식:                       |문자열   |
 |위치:                   |named    |
 |기본값:              |없음     |
-|유효한 값:                |' MultipleCSR', 'SingleCSR' |
+|유효한 값:                |'MultipleCSR','SingleCSR' |
 |파이프라인 입력 허용:      |False    |
 |와일드 카드 문자를 허용 합니다. |False    |
 
@@ -452,7 +453,7 @@ Azure Stack 배포 및 등록에 사용할 계정, 디렉터리 및 구독에 �
 |형식:                       |문자열   |
 |위치:                   |named    |
 |기본값:              |없음     |
-|유효한 값:                |' AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment' |
+|유효한 값:                |'AzureCloud','AzureChinaCloud','AzureUSGovernment' |
 |파이프라인 입력 허용:      |False    |
 |와일드 카드 문자를 허용 합니다. |False    |
 
@@ -501,7 +502,7 @@ ACSBlob ACSQueue, ACSTable, 관리 포털, ARM 관리자 ARM 공용, KeyVault Ke
 
 Active Directory Federation Services id 시스템을 사용 하 여 배포 된 Azure Stack에 대 한 폴더를 해야 합니다.
 
-ACSBlob, ACSQueue, ACSTable, ADFS, 관리 포털, ARM 관리, ARM 공용, Graph, KeyVault, KeyVaultInternal, 공용 포털
+ACSBlob, ACSQueue, ACSTable, ADFS, Admin Portal, ARM Admin, ARM Public, Graph, KeyVault, KeyVaultInternal, Public Portal
 
 |  |  |
 |----------------------------|---------|
@@ -531,7 +532,7 @@ PaaS 서비스/호스트 이름이 인증서 요청에 추가 해야 하는 경�
 |형식:                       |문자열   |
 |위치:                   |named    |
 |기본값:              |모두      |
-|유효한 값:                |'Certificate', 'AzureRegistration', 'AzureIdentity', '작업'을 'All' |
+|유효한 값:                |'Certificate','AzureRegistration','AzureIdentity','Jobs','All' |
 |파이프라인 입력 허용:      |False    |
 |와일드 카드 문자를 허용 합니다. |False    |
 
@@ -566,7 +567,7 @@ PaaS 서비스/호스트 이름이 인증서 요청에 추가 해야 하는 경�
 |----------------------------|------------------|
 |형식:                       |문자열            |
 |위치:                   |named             |
-|기본값:              |$ENV: TEMP\AzsReadinessChecker  |
+|기본값:              |$ENV:TEMP\AzsReadinessChecker  |
 |파이프라인 입력 허용:      |False             |
 |와일드 카드 문자를 허용 합니다. |False             |
 

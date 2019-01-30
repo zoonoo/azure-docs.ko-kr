@@ -1,18 +1,18 @@
 ---
 title: Azure로 Hyper-V 재해 복구를 위해 Azure Site Recovery Deployment Planner 실행 | Microsoft Docs
 description: 이 문서에서는 Azure로 Hyper-V 재해 복구를 위해 Azure Site Recovery Deployment Planner를 실행하는 방법을 설명합니다.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.author: nisoneji
-ms.openlocfilehash: 1df8f7025787eb864b7e9ad6f41105df8fb2cc8a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 11/27/2018
+ms.author: mayg
+ms.openlocfilehash: b5f0a2a418c53a5049ebff9bba9188219a9aeb13
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213341"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321180"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Azure로 Hyper-V 재해 복구를 위해 Azure Site Recovery Deployment Planner 실행
 
@@ -38,14 +38,14 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 |---|---|
 | -Operation | GetVMList |
 | -User | Hyper-V 호스트 또는 Hyper-V 클러스터에 연결할 사용자 이름입니다. 사용자에게 관리 액세스 권한이 필요합니다.|
-| -ServerListFile | 프로파일링할 VM이 포함된 서버 목록이 있는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. 이 파일의 각 행에 다음 중 하나를 포함해야 합니다.<ul><li>Hyper-V 호스트 이름 또는 IP 주소</li><li>Hyper-V 클러스터 이름 또는 IP 주소</li></ul><br>**예:** ServerList.txt에는 다음 서버가 포함됩니다.<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
+| -ServerListFile | 프로파일링할 VM이 포함된 서버 목록이 있는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. 이 파일의 각 행에 다음 중 하나를 포함해야 합니다.<ul><li>Hyper-V 호스트 이름 또는 IP 주소</li><li>Hyper-V 클러스터 이름 또는 IP 주소</li></ul><br>**예제:** ServerList.txt에는 다음 서버가 포함됩니다.<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
 | -Directory|(선택 사항) 이 작업 중에 생성된 데이터를 저장하기 위한 UNC(범용 명명 규칙) 또는 로컬 디렉터리 경로입니다. 이름을 지정하지 않으면 현재 경로 아래에 ProfiledData라는 디렉터리가 기본 디렉터리로 사용됩니다.|
 |-OutputFile| (선택 사항) Hyper-V 서버에서 가져온 VM 목록이 들어 있는 파일이 저장됩니다. 이름이 언급되지 않으면 세부 정보는 VMList.txt에 저장됩니다.  프로파일링할 필요가 없는 VM을 제거한 후 파일을 사용하여 프로파일링을 시작합니다.|
 |-Password|(선택 사항) Hyper-V 호스트에 연결하기 위한 암호입니다. 매개 변수로 지정하지 않으면 명령을 실행하는 경우 메시지가 표시됩니다.|
 
 ### <a name="getvmlist-discovery"></a>GetVMList 검색
 
-- **Hyper-V 클러스터**: Hyper-V 클러스터 이름이 서버 목록 파일에 주어지면 도구가 클러스터의 Hyper-V 노드를 모두 찾아서 각 Hyper-V 호스트에 있는 VM을 가져옵니다.
+- **Hyper-V 클러스터**: Hyper-V 클러스터 이름이 서버의 목록 파일에 주어지면 도구가 클러스터의 Hyper-V 노드를 모두 찾아서 각 Hyper-V 호스트에 있는 VM을 가져옵니다.
 **Hyper-V 호스트**: Hyper-V 호스트 이름이 주어지면 도구는 우선 해당 이름이 클러스터에 속하는지 확인합니다. 속하는 경우 도구는 클러스터에 포함되는 노드를 페치합니다. 그런 다음 각 Hyper-V 호스트에서 VM을 가져옵니다. 
 
 수동으로 프로파일링하려는 VM의 이름이나 IP 주소를 파일에 나열하도록 선택할 수도 있습니다.
@@ -87,7 +87,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |---|---|
 | -Operation | StartProfiling |
 | -User | Hyper-V 호스트 또는 Hyper-V 클러스터에 연결할 사용자 이름입니다. 사용자에게 관리 액세스 권한이 필요합니다.|
-| -VMListFile | 프로파일링할 VM 목록을 포함하는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. Hyper-V의 경우 이 파일은 GetVMList 작업의 출력 파일입니다. 수동으로 준비하는 경우 파일에 뒤에 VM 이름이 붙는 서버 이름이나 IP 주소가 포함되어야 합니다(줄마다 \ 로 구분). 파일에 지정된 VM 이름은 Hyper-V 호스트의 VM 이름과 동일해야 합니다.<br><br>**예:** VMList.txt에는 다음과 같은 VM이 포함됩니다.<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
+| -VMListFile | 프로파일링할 VM 목록을 포함하는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. Hyper-V의 경우 이 파일은 GetVMList 작업의 출력 파일입니다. 수동으로 준비하는 경우 파일에 뒤에 VM 이름이 붙는 서버 이름이나 IP 주소가 포함되어야 합니다(줄마다 \ 로 구분). 파일에 지정된 VM 이름은 Hyper-V 호스트의 VM 이름과 동일해야 합니다.<br><br>**예제:** VMList.txt에는 다음과 같은 VM이 포함됩니다.<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-NoOfMinutesToProfile|프로파일링을 실행할 시간(분)입니다. 최소값은 30분입니다.|
 |-NoOfHoursToProfile|프로파일링을 실행할 시간(시간)입니다.|
 |-NoOfDaysToProfile |프로파일링을 실행할 시간(일)입니다. 7일 이상 프로파일링하는 것이 좋습니다. 지정된 기간 동안 사용자 환경에서 워크로드 패턴을 관찰하고 정확한 권장 사항을 제공하는 데 사용하도록 하는 것이 좋습니다.|
@@ -96,7 +96,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Password|(선택 사항) Hyper-V 호스트에 연결하기 위한 암호입니다. 매개 변수로 지정하지 않으면 명령을 실행하는 경우 메시지가 표시됩니다.|
 |-StorageAccountName|(선택 사항) 온-프레미스 환경에서 Azure로의 데이터 복제에서 달성할 수 있는 처리량을 확인하기 위해 사용되는 저장소 계정 이름입니다. 도구에서 이 저장소 계정에 테스트 데이터를 업로드하여 처리량을 계산합니다. 저장소 계정은 GPv1(범용 v1) 형식이어야 합니다.|
 |-StorageAccountKey|(선택 사항) 저장소 계정에 액세스하는 데 사용되는 키입니다. Azure Portal > **저장소 계정** > *저장소-계정 이름* > **설정** > **액세스 키** > **키1**(또는 클래식 저장소 계정용 기본 액세스 키)로 이동합니다.|
-|-Environment|(선택 사항) Azure Storage 계정을 위한 대상 환경입니다. AzureCloud, AzureUSGovernment 또는 AzureChinaCloud의 3가지 값 중 하나일 수 있습니다. 기본값은 AzureCloud입니다. 대상 지역이 Azure 미국 정부 또는 Azure 중국 중 하나인 경우 매개 변수를 사용하세요.|
+|-Environment|(선택 사항) Azure Storage 계정을 위한 대상 환경입니다. 다음 세 값 중 하나일 수 있습니다. AzureCloud, AzureUSGovernment 또는 AzureChinaCloud. 기본값은 AzureCloud입니다. 대상 지역이 Azure 미국 정부 또는 Azure 중국 중 하나인 경우 매개 변수를 사용하세요.|
 
 VM을 7일 이상 프로파일링하는 것이 좋습니다. 한 달 내에 변동 패턴이 다양한 경우, 변동폭이 최대인 주에 프로파일링하는 것이 좋습니다. 가장 좋은 방법은 31일 동안 프로파일링하여 보다 나은 권장 사항을 확보하는 것입니다. 
 
@@ -167,7 +167,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 | 매개 변수 이름 | 설명 |
 |---|---|
 | -Operation | GenerateReport |
-|-VMListFile | 그에 대한 보고서가 생성될 프로파일링된 VM의 목록을 포함하고 있는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. Hyper-V의 경우 이 파일은 GetVMList 작업의 출력 파일입니다. 수동으로 준비하는 경우 파일에 뒤에 VM 이름이 붙는 서버 이름이나 IP 주소가 포함되어야 합니다(줄마다 \ 로 구분). 파일에 지정된 VM 이름은 Hyper-V 호스트의 VM 이름과 동일해야 합니다.<br><br>**예:** VMList.txt에는 다음과 같은 VM이 포함됩니다.<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
+|-VMListFile | 그에 대한 보고서가 생성될 프로파일링된 VM의 목록을 포함하고 있는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. Hyper-V의 경우 이 파일은 GetVMList 작업의 출력 파일입니다. 수동으로 준비하는 경우 파일에 뒤에 VM 이름이 붙는 서버 이름이나 IP 주소가 포함되어야 합니다(줄마다 \ 로 구분). 파일에 지정된 VM 이름은 Hyper-V 호스트의 VM 이름과 동일해야 합니다.<br><br>**예제:** VMList.txt에는 다음과 같은 VM이 포함됩니다.<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Virtualization|가상화 유형(VMware 또는 Hyper-V)입니다.|
 |-Directory|(선택 사항) 프로파일링된 데이터(프로파일링 중에 생성된 파일)가 저장되는 UNC 또는 로컬 디렉터리 경로입니다. 이 데이터는 보고서를 생성하는 데 필요합니다. 이름을 지정하지 않으면 현재 경로 아래에 ProfiledData라는 디렉터리가 기본 디렉터리로 사용됩니다.|
 | -User | (선택 사항) Hyper-V 호스트 또는 Hyper-V 클러스터에 연결할 사용자 이름입니다. 사용자에게 관리 액세스 권한이 필요합니다. 사용자 및 암호는 보고서에 사용할 디스크 수, 코어 수, NIC 수 등과 같은 VM의 최신 구성 정보를 페치하는 데 사용됩니다. 이 값이 제공되지 않으면 프로파일링 중에 수집된 구성 정보가 사용됩니다.|
@@ -178,9 +178,9 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 | -EndDate | (선택 사항) MM-DD-YYYY:HH:MM(24시간) 형식의 종료 날짜 및 시간입니다. EndDate는 StartDate와 함께 지정해야 합니다. EndDate를 지정한 경우 StartDate와 EndDate 사이에 수집한 프로파일링된 데이터에 대한 보고서가 생성됩니다. |
 | -GrowthFactor | (선택 사항) 백분율로 표시된 증가율입니다. 기본값은 30%입니다. |
 | -UseManagedDisks | (선택 사항) UseManagedDisks: 예/아니요. 기본값은 Yes입니다. 단일 저장소 계정에 배치할 수 있는 가상 머신의 수는 가상 머신의 장애 조치(failover)/테스트 장애 조치가 관리되지 않는 디스크가 아닌 관리 디스크에서 수행되었음을 고려하여 계산됩니다. |
-|-SubscriptionId |(선택 사항) 구독 GUID입니다. 구독, 구독과 연결된 제안 및 특정 대상 Azure 지역의 제안에 기반한 최신 가격과 지정된 통화로 비용 예측 보고서를 생성하려면 이 매개 변수를 사용합니다.|
+|-SubscriptionId |(선택 사항) 구독 GUID입니다. 구독, 구독과 연결된 제품 및 특정 대상 Azure 지역의 제품에 기반한 최신 가격과 지정된 통화로 비용 예측 보고서를 생성하려면 이 매개 변수를 사용합니다.|
 |-TargetRegion|(선택 사항) 복제 대상이 되는 Azure 지역입니다. Azure는 지역마다 비용이 다르기 때문에 특정 대상 Azure 지역으로 보고서를 생성하려면 이 매개 변수를 사용합니다. 기본값은 WestUS2 또는 마지막으로 사용된 대상 지역입니다. [지원되는 대상 지역](hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) 목록을 참조하세요.|
-|-OfferId|(선택 사항) 구독과 연결된 제안입니다. 기본값은 MS-AZR-0003P(종량제)입니다.|
+|-OfferId|(선택 사항) 구독과 연결된 제품입니다. 기본값은 MS-AZR-0003P(종량제)입니다.|
 |-Currency|(선택 사항) 생성된 보고서의 비용 표시에 사용되는 통화입니다. 기본값은 미국 달러($) 또는 마지막 사용한 통화입니다. [지원되는 통화](hyper-v-deployment-planner-cost-estimation.md#supported-currencies) 목록을 참조하세요.|
 
 기본적으로 이 도구는 최대 1,000개의 VM에 대한 보고서를 프로파일링하고 생성하도록 구성됩니다. ASRDeploymentPlanner.exe.config 파일에서 MaxVMsSupported 키 값을 변경하여 제한을 변경할 수 있습니다.
@@ -243,11 +243,11 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Dire
 
 예를 들어 현재 VM이 표준 저장소 복제 계정에 적합하다고 가정해 보겠습니다. 다음 3개월 동안 다음과 같은 변경 사항이 발생할 가능성이 있습니다.
 
-1. VM에서 실행되는 응용 프로그램의 사용자 수가 증가합니다.
+1. VM에서 실행되는 애플리케이션의 사용자 수가 증가합니다.
 2. VM에서 변동이 증가하므로 Azure Site Recovery 복제가 일어날 수 있도록 VM을 프리미엄 저장소로 이동해야 합니다.
 3. 따라서 프리미엄 저장소 계정에 대한 보호를 해제하고 다시 사용하도록 설정해야 합니다.
 
-배포 계획 중에 증가에 대해 계획할 것을 적극 권장합니다. 기본값이 30%여도 응용 프로그램 사용 패턴 및 증가 프로젝션의 전문가입니다. 보고서를 생성하는 동안 이 숫자를 적절하게 변경할 수 있습니다. 또한 프로파일링된 동일한 데이터로 다양한 성장 요소를 사용하여 여러 보고서를 생성할 수 있습니다. 그러면 가장 적합한 대상 저장소 및 소스 대역폭 권장 사항을 확인할 수 있습니다. 
+배포 계획 중에 증가에 대해 계획할 것을 적극 권장합니다. 기본값이 30%여도 애플리케이션 사용 패턴 및 증가 프로젝션의 전문가입니다. 보고서를 생성하는 동안 이 숫자를 적절하게 변경할 수 있습니다. 또한 프로파일링된 동일한 데이터로 다양한 성장 요소를 사용하여 여러 보고서를 생성할 수 있습니다. 그러면 가장 적합한 대상 저장소 및 소스 대역폭 권장 사항을 확인할 수 있습니다. 
 
 생성된 Microsoft Excel 보고서에는 다음과 같은 정보가 포함되어 있습니다.
 
@@ -278,8 +278,8 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 |-Directory|(선택 사항) 프로파일링된 데이터(프로파일링 중에 생성된 파일)가 저장되는 UNC 또는 로컬 디렉터리 경로입니다. 이 데이터는 보고서를 생성하는 데 필요합니다. 이름을 지정하지 않으면 현재 경로 아래에 ProfiledData라는 디렉터리가 기본 디렉터리로 사용됩니다.|
 | -StorageAccountName | 온-프레미스 환경에서 Azure로의 데이터 복제에서 사용되는 대역폭을 확인하기 위해 사용하는 저장소 계정 이름입니다. 도구에서 이 저장소 계정에 테스트 데이터를 업로드하여 사용되는 대역폭을 찾습니다. 저장소 계정은 GPv1(범용 v1) 형식이어야 합니다.|
 | -StorageAccountKey | 저장소 계정에 액세스하는 데 사용되는 저장소 계정 키입니다. Azure Portal > **저장소 계정** > *저장소-계정 이름* > **설정** > **액세스 키** > **키1**로 이동합니다.|
-| -VMListFile | 사용되는 대역폭을 계산하기 위해 프로파일링할 VM의 목록을 포함하고 있는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. Hyper-V의 경우 이 파일은 GetVMList 작업의 출력 파일입니다. 수동으로 준비하는 경우 파일에 뒤에 VM 이름이 붙는 서버 이름이나 IP 주소가 포함되어야 합니다(줄마다 \ 로 구분). 파일에 지정된 VM 이름은 Hyper-V 호스트의 VM 이름과 동일해야 합니다.<br><br>**예:** VMList.txt에는 다음과 같은 VM이 포함됩니다.<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
-|-Environment|(선택 사항) Azure Storage 계정을 위한 대상 환경입니다. AzureCloud, AzureUSGovernment 또는 AzureChinaCloud의 3가지 값 중 하나일 수 있습니다. 기본값은 AzureCloud입니다. 대상 Azure 지역이 Azure 미국 정부 또는 Azure 중국인 경우 매개 변수를 사용합니다.|
+| -VMListFile | 사용되는 대역폭을 계산하기 위해 프로파일링할 VM의 목록을 포함하고 있는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. Hyper-V의 경우 이 파일은 GetVMList 작업의 출력 파일입니다. 수동으로 준비하는 경우 파일에 뒤에 VM 이름이 붙는 서버 이름이나 IP 주소가 포함되어야 합니다(줄마다 \ 로 구분). 파일에 지정된 VM 이름은 Hyper-V 호스트의 VM 이름과 동일해야 합니다.<br><br>**예제:** VMList.txt에는 다음과 같은 VM이 포함됩니다.<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
+|-Environment|(선택 사항) Azure Storage 계정을 위한 대상 환경입니다. 다음 세 값 중 하나일 수 있습니다. AzureCloud, AzureUSGovernment 또는 AzureChinaCloud. 기본값은 AzureCloud입니다. 대상 Azure 지역이 Azure 미국 정부 또는 Azure 중국인 경우 매개 변수를 사용합니다.|
 
 ### <a name="example"></a>예
 ```
@@ -290,7 +290,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Direc
 
 이 도구는 지정된 디렉터리에 여러 개의 asrvhdfile*number*.vhd(여기서 *number*는 파일 수) 64MB 파일을 만듭니다. 도구에서 처리량을 확인하기 위해 저장소 계정에 파일을 업로드합니다. 처리량이 측정된 후 저장소 계정과 로컬 서버에서 이러한 파일을 모두 삭제합니다. 도구가 처리량을 계산하는 동안 어떤 이유로든 종료되는 경우에는 저장소 계정 또는 로컬 서버에서 파일을 삭제하지 않습니다. 직접 삭제해야 합니다.
 
-처리량은 지정된 기간의 시간 단위로 측정됩니다. 기타 모든 요소가 동일하게 유지되는 경우 Azure Site Recovery가 복제 시 얻을 수 있는 최대 처리량입니다. 예를 들어 응용 프로그램이 동일한 네트워크에서 더 많은 대역폭을 사용하기 시작하면 복제 중에 실제 처리량이 달라집니다. VM에 높은 데이터 변동이 있을 때 GetThroughput 작업이 실행되는 경우 측정된 처리량의 결과가 다릅니다. 
+처리량은 지정된 기간의 시간 단위로 측정됩니다. 기타 모든 요소가 동일하게 유지되는 경우 Azure Site Recovery가 복제 시 얻을 수 있는 최대 처리량입니다. 예를 들어 애플리케이션이 동일한 네트워크에서 더 많은 대역폭을 사용하기 시작하면 복제 중에 실제 처리량이 달라집니다. VM에 높은 데이터 변동이 있을 때 GetThroughput 작업이 실행되는 경우 측정된 처리량의 결과가 다릅니다. 
 
 다양한 시간에서 어떤 처리량 수준을 달성할 수 있는지 이해하려면 프로파일링 중에 여러 시점에서 도구를 실행하는 것이 좋습니다. 보고서에는 도구에서 마지막으로 측정한 처리량이 표시됩니다.
 

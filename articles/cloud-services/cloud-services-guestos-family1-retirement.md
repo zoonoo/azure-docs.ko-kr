@@ -56,17 +56,17 @@ foreach($subscription in Get-AzureSubscription) {
 
 **게스트 OS 제품군 4.x** -Windows Server 2012 R2 *(권장)*
 
-1. 응용 프로그램이.NET framework 4.0, 4.5 또는 4.5.1과 함께 SDK 2.1 이상을 사용 중이어야 합니다.
+1. 애플리케이션이.NET framework 4.0, 4.5 또는 4.5.1과 함께 SDK 2.1 이상을 사용 중이어야 합니다.
 2. ServiceConfiguration.cscfg 파일에서 osFamily 특성을 "4"으로 설정하고 클라우드 서비스를 다시 배포합니다.
 
 **게스트 OS 제품군 3.x** -Windows Server 2012
 
-1. 응용 프로그램이.NET framework 4.0 또는 4.5와 함께 SDK 1.8 이상을 사용 중이어야 합니다.
+1. 애플리케이션이.NET framework 4.0 또는 4.5와 함께 SDK 1.8 이상을 사용 중이어야 합니다.
 2. ServiceConfiguration.cscfg 파일에서 osFamily 특성을 "3"으로 설정하고 클라우드 서비스를 다시 배포합니다.
 
 **게스트 OS 제품군 2.x** -Windows Server 2008 R2
 
-1. 응용 프로그램이.NET framework 3.5 또는 4.0과 함께 SDK 1.3 이상을 사용 중이어야 합니다.
+1. 애플리케이션이.NET framework 3.5 또는 4.0과 함께 SDK 1.3 이상을 사용 중이어야 합니다.
 2. ServiceConfiguration.cscfg 파일에서 osFamily 특성을 "2"로 설정하고 클라우드 서비스를 다시 배포합니다.
 
 ## <a name="extended-support-for-guest-os-family-1-ended-nov-3-2014"></a>게스트 OS 제품군 1에 대한 연장된 지원이 2014년 11월 3일에 종료되었습니다.

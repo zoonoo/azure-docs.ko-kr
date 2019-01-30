@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 704bbe5cc566833ef1279e84f0fab9f363dfaa11
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 97dffa4952354864f90f75ffb909228eb4202e77
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841631"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382807"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해
 
@@ -32,7 +32,7 @@ ms.locfileid: "43841631"
 Resource Manager를 새로이 경험하는 경우 먼저 [Azure Resource Manager 개요](resource-group-overview.md)에 정의된 용어를 검토할 수도 있습니다.
 
 ## <a name="history-of-the-deployment-models"></a>배포 모델 내역
-Azure에서는 원래 클래식 배포 모델만 제공했습니다. 이 모델에서는 각 리소스가 독립적으로 존재하며 관련 리소스를 함께 그룹화할 방법이 없습니다. 대신, 어떤 리소스로 솔루션 또는 응용 프로그램이 구성되었는지를 수동으로 추적하고 통합된 방식으로 이를 관리해야 했습니다. 솔루션을 배포하기 위해 포털을 통해 각 리소스를 개별적으로 만들거나 모든 리소스를 정확한 순서로 배포하는 스크립트를 만들어야 했습니다. 솔루션을 삭제하려면 각 리소스를 개별적으로 삭제해야 했습니다. 관련 리소스에 대한 액세스 제어 정책을 쉽게 적용 및 업데이트할 수 없었습니다. 마지막으로 리소스를 모니터링하고 청구를 관리하는 데 도움이 되는 조건으로 레이블을 지정하기 위한 태그를 리소스에 적용할 수 없었습니다.
+Azure에서는 원래 클래식 배포 모델만 제공했습니다. 이 모델에서는 각 리소스가 독립적으로 존재하며 관련 리소스를 함께 그룹화할 방법이 없습니다. 대신, 어떤 리소스로 솔루션 또는 애플리케이션이 구성되었는지를 수동으로 추적하고 통합된 방식으로 이를 관리해야 했습니다. 솔루션을 배포하기 위해 포털을 통해 각 리소스를 개별적으로 만들거나 모든 리소스를 정확한 순서로 배포하는 스크립트를 만들어야 했습니다. 솔루션을 삭제하려면 각 리소스를 개별적으로 삭제해야 했습니다. 관련 리소스에 대한 액세스 제어 정책을 쉽게 적용 및 업데이트할 수 없었습니다. 마지막으로 리소스를 모니터링하고 청구를 관리하는 데 도움이 되는 조건으로 레이블을 지정하기 위한 태그를 리소스에 적용할 수 없었습니다.
 
 2014년에 Azure에서 리소스 그룹의 개념을 추가한 Resource Manager를 소개했습니다. 리소스 그룹은 공통 수명 주기를 공유하는 리소스의 컨테이너입니다. 리소스 관리자 배포 모델에는 여러 이점을 제공합니다.
 
@@ -88,7 +88,7 @@ Get-AzureRmVM -ResourceGroupName ExampleGroup
 리소스 간의 관계는 다음과 같습니다.
 
 * 모든 리소스는 리소스 그룹 내에 존재합니다.
-* 가상 컴퓨터는 SRP(저장소 리소스 공급자)에서 Blob 저장소(필수)에 디스크를 저장하도록 정의된 특정 Storage 계정에 따라 달라집니다.
+* 가상 컴퓨터는 SRP(스토리지 리소스 공급자)에서 Blob 스토리지(필수)에 디스크를 저장하도록 정의된 특정 Storage 계정에 따라 달라집니다.
 * 가상 머신은 NRP(네트워크 리소스 공급)(필수)에서 정의된 특정 NIC 및 CRP(Compute 리소스 공급자)(선택)에서 정의된 가용성 집합을 참조합니다.
 * NIC는 가상 머신의 할당된 IP 주소(필수), 가상 머신에 대한 가상 네트워크의 서브넷(필수) 및 NSG(네트워크 보안 그룹)(선택)를 참조합니다.
 * 가상 네트워크의 서브넷은 NSG(선택)를 참조합니다.
@@ -110,7 +110,7 @@ Get-AzureRmVM -ResourceGroupName ExampleGroup
 | --- | --- | --- |
 | Virtual Machines용 클라우드 서비스 |클라우드 서비스는 플랫폼 가용성 및 부하 분산이 필요한 가상 머신을 유지하는 컨테이너였습니다. |클라우드 서비스는 더 이상 새 모델을 사용하여 Virtual Machine을 만드는 데 필요한 개체가 아닙니다. |
 | Virtual Network |가상 머신의 가상 네트워크는 선택 사항입니다. 포함되는 경우 Resource Manager에서 가상 네트워크를 배포할 수 없습니다. |가상 머신에 Resource Manager에서 배포한 가상 네트워크가 필요합니다. |
-| Storage 계정 |가상 머신에 운영 체제, 임시 및 추가 데이터 디스크용 VHD를 저장하는 데 필요한 저장소 계정이 필요합니다. |가상 머신에 blob 저장소에서 해당 디스크를 저장하는 저장소 계정이 필요합니다. |
+| Storage 계정 |가상 머신에 운영 체제, 임시 및 추가 데이터 디스크용 VHD를 저장하는 데 필요한 저장소 계정이 필요합니다. |가상 머신에 Blob Storage에서 해당 디스크를 저장하는 스토리지 계정이 필요합니다. |
 | 가용성 집합 |Virtual Machines에서 동일한 “AvailabilitySetName”을 구성하여 플랫폼 가용성을 표시했습니다. 최대 장애 도메인 수는 2개였습니다. |가용성 집합은 Microsoft.Compute 공급자가 표시하는 리소스입니다. 고가용성이 필요한 Virtual Machines는 가용성 집합에 포함되어야 합니다. 최대 장애 도메인 수는 이제 3개입니다. |
 | 선호도 그룹 |선호도 그룹은 Virtual Network를 만드는 데 필요했습니다. 그러나 지역 Virtual Network의 도입으로 더 이상 필요하지 않게 되었습니다. |간단히 말해, Azure 리소스 관리자를 통해 표시되는 API에는 선호도 그룹 개념이 존재하지 않습니다. |
 | 부하 분산 |클라우드 서비스를 만들면 배포된 Virtual Machines에 대한 암시적 부하 분산 장치가 제공됩니다. |부하 분산 장치는 Microsoft.Network 공급자가 표시하는 리소스입니다. 부하 분산이 필요한 Virtual Machines의 기본 네트워크 인터페이스는 부하 분산 장치를 참조해야 합니다. 부하 분산 장치는 내부 또는 외부에 있을 수 있습니다. 부하 분산 장치 인스턴스는 가상 머신의 NIC(옵션)를 포함하는 IP 주소의 백 엔드 풀을 참조하며 로드 분산 장치 공용 또는 개인 IP 주소(옵션)를 참조합니다. |
@@ -153,6 +153,7 @@ Azure Resource Manager를 사용하여 만든 가상 머신, 가상 네트워크
 [Azure Resource Manager 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)에서 포괄적인 시작 템플릿 집합을 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 * 가상 머신, 가상 네트워크 및 저장소 계정을 정의하는 템플릿을 만들기 위해 연습하려면 [Resource Manager 템플릿 연습](resource-manager-template-walkthrough.md)을 참조하세요.
-* 템플릿 배포에 대한 명령을 보려면 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
+* 템플릿 배포에 대한 명령을 보려면 [Azure 리소스 관리자 템플릿으로 애플리케이션 배포](resource-group-template-deploy.md)를 참조하세요.
 

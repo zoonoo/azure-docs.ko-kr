@@ -11,12 +11,13 @@ ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
-ms.openlocfilehash: 1d0e04e4fbc964400e8b5c1544344864f7e757a7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.lastreviewed: 11/02/2018
+ms.openlocfilehash: 844c81d71734ab17c93f60cb802686c209e04014
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019517"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239233"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Ethereum 블록 체인 네트워크를 사용 하 여 Azure Stack에 배포
 
@@ -72,7 +73,7 @@ Ethereum 솔루션 템플릿에 쉽고 빠르게 배포 하 고 한 지식이 �
     NAMEPREFIX | 배포 된 리소스 이름 지정에 대 한 기준으로 사용 하는 문자열입니다. | 길이가 1 ~ 6 영숫자 문자 | eth
     인증 유형 | 가상 머신을 인증하는 방법. | 암호 또는 SSH 공개 키 | 암호
     ADMINUSERNAME | 각 배포 된 VM의 관리자 사용자 이름 | 1-64자 | gethadmin
-    ADMINPASSWORD (인증 유형 = 암호)| 배포된 각 가상 머신의 관리자 계정 암호. 암호는 다음 요구 사항 중 3 가지를 포함해야 합니다. 대문자 1자, 소문자 1자, 숫자 1개 및 특수 문자 1자. <br />처음에는 모든 VM이 같은 암호를 갖지만, 프로비전 후 암호를 변경할 수 있습니다.|12-72자|
+    ADMINPASSWORD (인증 유형 = 암호)| 배포된 각 가상 머신의 관리자 계정 암호. 암호는 다음 요구 사항 중 3가지를 포함해야 합니다. 대문자 1개, 소문자 1개, 숫자 1개, 특수 문자 1개. <br />처음에는 모든 VM의 암호가 동일하지만, 프로비전 후 암호를 변경할 수 있습니다.|12-72자|
     ADMINSSHKEY (인증 유형을 sshPublicKey =) | 원격 로그인에 사용하는 보안 셸 키. | |
     GENESISBLOCK | 사용자 지정 최초 블록을 나타내는 JSON 문자열입니다.  이 매개 변수 값을 지정 하는 것은 선택 사항입니다. | |
     ETHEREUMACCOUNTPSSWD | Ethereum 계정을 보호 하는 데 관리자 암호입니다. | |
@@ -122,7 +123,7 @@ Ethereum 솔루션 템플릿에 쉽고 빠르게 배포 하 고 한 지식이 �
     NAMEPREFIX | 배포 된 리소스 이름 지정에 대 한 기준으로 사용 하는 문자열입니다. | 길이가 1 ~ 6 영숫자 문자 | eth
     인증 유형 | 가상 머신을 인증하는 방법. | 암호 또는 SSH 공개 키 | 암호
     ADMINUSERNAME | 각 배포 된 VM의 관리자 사용자 이름 | 1-64자 | gethadmin
-    ADMINPASSWORD (인증 유형 = 암호)| 배포된 각 가상 머신의 관리자 계정 암호. 암호는 다음 요구 사항 중 3 가지를 포함해야 합니다. 대문자 1자, 소문자 1자, 숫자 1개 및 특수 문자 1자. <br />처음에는 모든 VM이 같은 암호를 갖지만, 프로비전 후 암호를 변경할 수 있습니다.|12-72자|
+    ADMINPASSWORD (인증 유형 = 암호)| 배포된 각 가상 머신의 관리자 계정 암호. 암호는 다음 요구 사항 중 3가지를 포함해야 합니다. 대문자 1개, 소문자 1개, 숫자 1개, 특수 문자 1개. <br />처음에는 모든 VM의 암호가 동일하지만, 프로비전 후 암호를 변경할 수 있습니다.|12-72자|
     ADMINSSHKEY (인증 유형을 sshPublicKey =) | 원격 로그인에 사용하는 보안 셸 키. | |
     CONSORTIUMMEMBERID | 컨소시엄 네트워크의 각 멤버와 연결 된 ID입니다.   | 이 ID는 네트워크에서 고유 해야 합니다. | 0
     NUMMININGNODES | 마이닝 노드 수입니다. | 2 월 15 일 까지의 합니다. | 2

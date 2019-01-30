@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/06/2018
+ms.date: 12/05/2018
 ms.author: genli
-ms.openlocfilehash: 937d0be2e86adf00ac2707d5fd57eb905dcea3fb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f600dbf27fec036b9a80a5a6fb11c5bc50cc915
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238326"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994172"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>문제 해결: Azure 지점 및 사이트 간 연결 문제
 
 이 문서에서는 발생할 수 있는 일반적인 지점 및 사이트 간 연결 문제를 나열합니다. 또한 이러한 문제의 가능한 원인과 해결 방법을 설명합니다.
 
-## <a name="vpn-client-error-a-certificate-could-not-be-found"></a>VPN 클라이언트 오류: 인증서를 찾을 수 없습니다.
+## <a name="vpn-client-error-a-certificate-could-not-be-found"></a>VPN 클라이언트 오류: 인증서를 찾을 수 없음
 
 ### <a name="symptom"></a>증상
 
@@ -81,7 +81,7 @@ VPN 클라이언트를 사용하여 Azure 가상 네트워크에 연결하려고
 1. 게이트웨이 서브넷에서 UDR를 제거합니다. UDR이 모든 트래픽을 제대로 전달하는지 확인합니다.
 2. Azure Portal에서 루트 인증서의 상태를 검사하여 인증서가 해지되었는지 여부를 확인합니다. 해지되지 않은 경우 루트 인증서를 삭제하고 다시 업로드합니다. 자세한 내용은 [인증서 만들기](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts)를 참조하세요.
 
-## <a name="vpn-client-error-a-certificate-chain-processed-but-terminated"></a>VPN 클라이언트 오류: 인증서 체인이 처리되었지만 종료되었습니다. 
+## <a name="vpn-client-error-a-certificate-chain-processed-but-terminated"></a>VPN 클라이언트 오류: 인증서 체인이 처리되었지만 종료됨 
 
 ### <a name="symptom"></a>증상 
 
@@ -101,7 +101,7 @@ VPN 클라이언트를 사용하여 Azure 가상 네트워크에 연결하려고
 
 2. 인증서가 이미 있으면 해당 인증서를 삭제하고 다시 설치하려고 합니다. **azuregateway-*GUID*.cloudapp.net** 인증서는 Azure Portal에서 다운로드한 VPN 클라이언트 구성 패키지에 있습니다. 패키지에서 파일을 추출하려면 파일 실행자를 사용할 수 있습니다.
 
-## <a name="file-download-error-target-uri-is-not-specified"></a>파일 다운로드 오류: 대상 URI를 지정하지 않았습니다.
+## <a name="file-download-error-target-uri-is-not-specified"></a>파일 다운로드 오류: 대상 URI를 지정하지 않음
 
 ### <a name="symptom"></a>증상
 
@@ -117,7 +117,7 @@ VPN 클라이언트를 사용하여 Azure 가상 네트워크에 연결하려고
 
 VPN 게이트웨이 형식은 **VPN**이어야 하고 VPN 형식은 **경로 기반**이어야 합니다.
 
-## <a name="vpn-client-error-azure-vpn-custom-script-failed"></a>VPN 클라이언트 오류: Azure VPN 사용자 지정 스크립트가 실패했습니다. 
+## <a name="vpn-client-error-azure-vpn-custom-script-failed"></a>VPN 클라이언트 오류: Azure VPN 사용자 지정 스크립트 실패 
 
 ### <a name="symptom"></a>증상
 
@@ -150,7 +150,7 @@ VPN 클라이언트 구성 패키지를 추출하고 .cer 파일을 찾습니다
 5. 컴퓨터를 다시 시작합니다. 
 6. VPN 클라이언트를 설치해봅니다.
 
-## <a name="azure-portal-error-failed-to-save-the-vpn-gateway-and-the-data-is-invalid"></a>Azure Portal 오류: VPN 게이트웨이를 저장하지 못했으며 데이터가 유효하지 않습니다.
+## <a name="azure-portal-error-failed-to-save-the-vpn-gateway-and-the-data-is-invalid"></a>Azure Portal 오류: VPN 게이트웨이를 저장하지 못했으며 데이터가 유효하지 않음
 
 ### <a name="symptom"></a>증상
 
@@ -185,7 +185,7 @@ Azure Portal에서 VPN Gateway에 변경 내용을 저장하려고 할 때 다�
     e8Jcej7mzunzyjz4chN0/WVF94MtxbUkLkqP
     -----END CERTIFICATE-----
 
-## <a name="azure-portal-error-failed-to-save-the-vpn-gateway-and-the-resource-name-is-invalid"></a>Azure Portal 오류: VPN 게이트웨이를 저장하지 못했으며 리소스 이름이 유효하지 않습니다.
+## <a name="azure-portal-error-failed-to-save-the-vpn-gateway-and-the-resource-name-is-invalid"></a>Azure Portal 오류: VPN 게이트웨이를 저장하지 못했으며 리소스 이름이 유효하지 않음
 
 ### <a name="symptom"></a>증상
 
@@ -209,7 +209,7 @@ VPN 클라이언트 구성 패키지를 다운로드하려고 할 때 다음과 
 
 이 오류는 임시 네트워크 문제로 인해 발생할 수 있습니다. VPN 패키지를 몇 분 후에 다시 다운로드해봅니다.
 
-## <a name="azure-vpn-gateway-upgrade-all-point-to-site-clients-are-unable-to-connect"></a>Azure VPN Gateway 업그레이드: 모든 지점 및 사이트 간 클라이언트를 연결할 수 없습니다.
+## <a name="azure-vpn-gateway-upgrade-all-point-to-site-clients-are-unable-to-connect"></a>Azure VPN Gateway 업그레이드: 모든 지점 및 사이트 간 클라이언트를 연결할 수 없음
 
 ### <a name="cause"></a>원인
 
@@ -300,9 +300,9 @@ SMB 프로토콜은 파일 공유 액세스에 사용됩니다. 연결을 시작
 
 ### <a name="solution"></a>해결 방법
 
-이 문제를 해결하려면 [Azure VPN 게이트웨이를 다시 설정](vpn-gateway-resetgw-classic.md)합니다.
+이 문제를 해결하려면 [Azure VPN 게이트웨이를 다시 설정](vpn-gateway-resetgw-classic.md)합니다. 새 경로가 사용되는지 확인하려면 가상 네트워크 피어링이 성공적으로 구성된 후 지점 간 VPN 클라이언트를 다시 다운로드해야 합니다.
 
-## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>오류: “해지 서버가 오프라인 상태이므로 해지 함수가 해지를 확인할 수 없습니다(오류 0x80092013).”
+## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>오류: "해지 서버가 오프라인 상태이므로 해지 함수가 해지를 확인할 수 없습니다(오류 0x80092013)."
 
 ### <a name="causes"></a>원인
 이 오류 메시지는 클라이언트가 http://crl3.digicert.com/ssca-sha2-g1.crl 및 http://crl4.digicert.com/ssca-sha2-g1.crl에 액세스할 수 없는 경우 발생합니다.  해지 검사를 수행하려면 이러한 두 사이트에 액세스해야 합니다.  이 문제는 일반적으로 프록시 서버가 구성된 클라이언트에서 발생합니다. 일부 환경에서 요청이 프록시 서버를 거치지 않을 경우 Edge 방화벽에서 거부됩니다.
@@ -337,13 +337,13 @@ NIC 드라이버가 오래되었습니다.
 
 NIC 드라이버를 업데이트합니다.
 
-1. **시작**을 클릭하고 **장치 관리자**를 입력한 다음, 결과 목록에서 선택합니다. 관리자 암호를 입력하거나 확인하라는 메시지가 표시되면 암호를 입력하거나 확인을 제공합니다.
+1. **시작**을 클릭하고 **디바이스 관리자**를 입력한 다음, 결과 목록에서 선택합니다. 관리자 암호를 입력하거나 확인하라는 메시지가 표시되면 암호를 입력하거나 확인을 제공합니다.
 2. **네트워크 어댑터** 범주에서 업데이트하려는 NIC를 찾습니다.  
 3. 디바이스 이름을 두 번 클릭하고 **드라이버 업데이트**를 선택한 다음, **업데이트된 드라이버 소프트웨어 자동 검색**을 선택합니다.
 4. Windows에서 새 드라이버를 찾지 못하는 경우 디바이스 제조업체의 웹 사이트에서 드라이버를 찾은 다음 해당 지침을 따를 수 있습니다.
 5. 컴퓨터를 다시 시작하고 연결을 다시 시도합니다.
 
-## <a name="error-file-download-error-target-uri-is-not-specified"></a>오류: ‘파일 다운로드 오류. 대상 URI를 지정하지 않았습니다.’
+## <a name="error-file-download-error-target-uri-is-not-specified"></a>오류: '파일 다운로드 오류: 대상 URI를 지정하지 않음'
 
 ### <a name="cause"></a>원인
 

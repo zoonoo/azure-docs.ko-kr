@@ -21,9 +21,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/26/2018
 ms.locfileid: "50142921"
 ---
-## <a name="configure-your-aspnet-web-app-with-the-applications-registration-information"></a>응용 프로그램의 등록 정보를 사용하여 ASP.NET 웹앱 구성
+## <a name="configure-your-aspnet-web-app-with-the-applications-registration-information"></a>애플리케이션의 등록 정보를 사용하여 ASP.NET 웹앱 구성
 
-이 단계에서는 SSL을 사용한 다음 SSL URL을 사용하여 응용 프로그램 등록 정보를 구성하도록 프로젝트를 구성합니다. 그런 다음 *web.config*를 통해 솔루션에 응용 프로그램 등록 정보를 추가합니다.
+이 단계에서는 SSL을 사용한 다음 SSL URL을 사용하여 애플리케이션 등록 정보를 구성하도록 프로젝트를 구성합니다. 그런 다음 *web.config*를 통해 솔루션에 애플리케이션 등록 정보를 추가합니다.
 
 1. 솔루션 탐색기에서 프로젝트를 선택하고 `Properties` 창을 확인합니다([속성] 창이 보이지 않으면 F4 누르기).
 2. `SSL Enabled`를 `True`로 변경

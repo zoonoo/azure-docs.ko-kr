@@ -1,6 +1,6 @@
 ---
 title: PowerShell을 사용하여 Azure Cloud Services의 역할에 대해 원격 데스크톱 연결 사용
-description: 원격 데스크톱 연결을 허용하기 위해 PowerShell을 사용하여 Azure 클라우드 서비스 응용 프로그램을 구성하는 방법
+description: 원격 데스크톱 연결을 허용하기 위해 PowerShell을 사용하여 Azure 클라우드 서비스 애플리케이션을 구성하는 방법
 services: cloud-services
 documentationcenter: ''
 author: jpconnock
@@ -28,9 +28,9 @@ ms.locfileid: "40038446"
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
-원격 데스크톱을 사용하면 Azure에서 실행 중인 역할의 데스크톱에 액세스할 수 있습니다. 원격 데스크톱 연결을 사용하여 응용 프로그램 실행 중에 응용 프로그램 문제를 진단하고 해결할 수 있습니다.
+원격 데스크톱을 사용하면 Azure에서 실행 중인 역할의 데스크톱에 액세스할 수 있습니다. 원격 데스크톱 연결을 사용하여 애플리케이션 실행 중에 애플리케이션 문제를 진단하고 해결할 수 있습니다.
 
-이 문서에서는 PowerShell을 사용하여 클라우드 서비스 역할에 대해 원격 데스크톱을 사용하는 방법을 설명합니다. 이 문서에 필요한 필수 조건은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하세요. PowerShell에서는 응용 프로그램이 배포된 후 원격 데스크톱을 사용 가능하게 설정할 수 있도록 원격 데스크톱 확장을 사용합니다.
+이 문서에서는 PowerShell을 사용하여 클라우드 서비스 역할에 대해 원격 데스크톱을 사용하는 방법을 설명합니다. 이 문서에 필요한 필수 조건은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하세요. PowerShell에서는 애플리케이션이 배포된 후 원격 데스크톱을 사용 가능하게 설정할 수 있도록 원격 데스크톱 확장을 사용합니다.
 
 ## <a name="configure-remote-desktop-from-powershell"></a>PowerShell에서 원격 데스크톱 구성
 

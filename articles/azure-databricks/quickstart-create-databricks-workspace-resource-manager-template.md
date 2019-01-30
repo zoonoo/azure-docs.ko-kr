@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/12/2018
-ms.openlocfilehash: 87aaf7108fabe0e4d96c4a2edd15db8531f1a828
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 88538aa9528059458f6e73485f4839693caa943b
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578335"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054497"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure Databricks에서 Spark 작업 실행
 
@@ -80,7 +80,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이 섹션을 시작하기 전에 다음 필수 구성 요소를 완료해야 합니다.
 
 * [Azure Blob Storage 계정을 만듭니다](../storage/common/storage-quickstart-create-account.md).
-* [Github에서](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) 샘플 JSON 파일을 다운로드합니다.
+* [GitHub에서](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) 샘플 JSON 파일을 다운로드합니다.
 * 사용자가 만든 Azure Blob Storage 계정에 샘플 JSON 파일을 업로드합니다. [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 파일을 업로드할 수 있습니다.
 
 다음 작업을 수행하여 Databricks에서 노트북을 만들고, Azure Blob 저장소 계정에서 데이터를 읽는 노트북을 구성한 다음, 이 데이터에 대해 Spark SQL 작업을 실행합니다.
@@ -95,10 +95,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    **만들기**를 클릭합니다.
 
-3. 이 단계에서 Azure Storage 계정을 Databricks Spark 클러스터와 연결합니다. 이 연결을 수행하는 데는 두 가지 방법이 있습니다. Azure Storage 계정을 DBFS(Databricks 파일 시스템)에 탑재하거나 만든 응용 프로그램에서 Azure Storage 계정에 직접 액세스할 수 있습니다.
+3. 이 단계에서 Azure Storage 계정을 Databricks Spark 클러스터와 연결합니다. 이 연결을 수행하는 데는 두 가지 방법이 있습니다. Azure Storage 계정을 DBFS(Databricks 파일 시스템)에 탑재하거나 만든 애플리케이션에서 Azure Storage 계정에 직접 액세스할 수 있습니다.
 
    > [!IMPORTANT]
-   >이 문서에서는 **DBFS를 사용하여 저장소를 탑재**하는 방법을 사용합니다. 이 방법을 사용하면 탑재된 저장소가 클러스터 파일 시스템 자체와 연결됩니다. 따라서 클러스터에 액세스하는 모든 응용 프로그램에서도 연결된 저장소를 사용할 수 있습니다. 직접 액세스 방식은 액세스를 구성한 응용 프로그램으로 제한됩니다.
+   >이 문서에서는 **DBFS를 사용하여 저장소를 탑재**하는 방법을 사용합니다. 이 방법을 사용하면 탑재된 저장소가 클러스터 파일 시스템 자체와 연결됩니다. 따라서 클러스터에 액세스하는 모든 애플리케이션에서도 연결된 스토리지를 사용할 수 있습니다. 직접 액세스 방식은 액세스를 구성한 애플리케이션으로 제한됩니다.
    >
    > 탑재 방법을 사용하려면 이 문서에서 선택한 Databricks 런타임 버전 **4.0**을 사용하여 Spark 클러스터를 만들어야 합니다.
 
@@ -174,11 +174,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ![Databricks 클러스터 중지](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Databricks 클러스터 중지")
 
-클러스터를 수동으로 종료하지 않은 경우 클러스터를 만드는 중에 **Terminate after \_\_ minutes of inactivity**(비활성 __분 후 종료) 확인란을 선택하면 자동으로 중지됩니다. 이 경우 지정한 시간 동안 클러스터가 비활성 상태이면 클러스터가 자동으로 중지됩니다.
+클러스터를 수동으로 종료하지 않은 경우 클러스터를 만드는 중에 **비활성 \_\_분 후 종료** 확인란을 선택하면 자동으로 중지됩니다. 이 경우 지정한 시간 동안 클러스터가 비활성 상태이면 클러스터가 자동으로 중지됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Databricks에서 Spark 클러스터를 만들고 Azure 저장소의 데이터를 사용하여 Spark 작업을 실행했습니다. 또한 [Spark 데이터 소스](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html)를 보고 다른 데이터 소스의 데이터를 Azure Databricks로 가져오는 방법을 배울 수 있습니다. 또한 Resource Manager 템플릿을 살펴보고 [사용자 지정 VNET 주소로 Azure Databricks 작업 영역을 만들](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address) 수 있습니다.
+이 문서에서는 Azure Databricks에서 Spark 클러스터를 만들고 Azure 저장소의 데이터를 사용하여 Spark 작업을 실행했습니다. 또한 [Spark 데이터 소스](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html)를 보고 다른 데이터 소스의 데이터를 Azure Databricks로 가져오는 방법을 배울 수 있습니다. 또한 Resource Manager 템플릿을 살펴보고 [사용자 지정 VNET 주소로 Azure Databricks 작업 영역을 만들](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address) 수 있습니다. 템플릿에서 사용할 JSON 구문 및 속성은 [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces) 템플릿 참조를 참조하세요.
 
 Azure Databricks를 사용하여 ETL 작업(데이터 추출, 변환 및 로드)을 수행하는 방법을 알아보려면 다음 문서로 이동합니다.
 

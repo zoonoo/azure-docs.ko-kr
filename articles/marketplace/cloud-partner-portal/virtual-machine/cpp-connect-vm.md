@@ -46,7 +46,7 @@ Linux 기반 VM을 연결하려면 SSH(Secure Shell 프로토콜) 클라이언�
 
    ![VM 개요 설정](./media/publishvm_019.png)
  
-5. PuTTY 응용 프로그램을 엽니다.  
+5. PuTTY 애플리케이션을 엽니다.  
 6. [PuTTY 구성] 대화 상자에서 VM의 IP 주소 또는 DNS 이름을 입력합니다. 
 
    ![PuTTY 터미널 설정](./media/publishvm_020.png)

@@ -5,21 +5,21 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 1792fdc6ee167a74e65b5740680e8e68555abb17
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 0b8d5ac13b6c4b327a03eb85032a13407601c1ee
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241835"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330180"
 ---
 # <a name="configure-the-azure-blockchain-workbench-database-firewall"></a>Azure Blockchain Workbench 데이터베이스 방화벽 구성
 
-이 문서에서는 Azure Portal을 사용하여 방화벽 규칙을 구성하는 방법을 보여줍니다. 방화벽 규칙을 사용하여 외부 클라이언트 또는 응용 프로그램이 Azure Blockchain Workbench 데이터베이스에 연결하도록 허용할 수 있습니다.
+이 문서에서는 Azure Portal을 사용하여 방화벽 규칙을 구성하는 방법을 보여줍니다. 방화벽 규칙을 사용하여 외부 클라이언트 또는 애플리케이션이 Azure Blockchain Workbench 데이터베이스에 연결하도록 허용할 수 있습니다.
 
 ## <a name="connect-to-the-blockchain-workbench-database"></a>Blockchain Workbench 데이터베이스에 연결
 
@@ -54,7 +54,7 @@ ms.locfileid: "48241835"
     > 컴퓨터의 IP 주소만 추가하려면 **+ 클라이언트 IP 추가**를 선택합니다.
         
 1. 방화벽 구성을 저장하려면 **저장**을 선택합니다.
-2. 응용 프로그램 또는 도구에서 연결하여 데이터베이스에 대해 구성한 IP 주소 범위를 테스트합니다. SQL Server Management Studio를 예로 들 수 있습니다.
+2. 애플리케이션 또는 도구에서 연결하여 데이터베이스에 대해 구성한 IP 주소 범위를 테스트합니다. SQL Server Management Studio를 예로 들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

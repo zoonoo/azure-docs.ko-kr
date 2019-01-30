@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: operations-management-suite
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: e5011dbaad5e5935f3aa792bd3a3ed2b271f23bc
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d6d2414935bb5d1f095ad2b200acafa97b3b9b32
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632436"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192705"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Azure에서 관리 솔루션을 만들기 위한 모범 사례(미리 보기)
 > [!NOTE]
@@ -28,7 +27,7 @@ ms.locfileid: "52632436"
 이 문서에서는 Azure에서 [관리 솔루션 파일을 만드는](solutions-solution-file.md) 모범 사례를 제공합니다.  이 정보는 추가 모범 사례가 있으면 업데이트됩니다.
 
 ## <a name="data-sources"></a>데이터 원본
-- 데이터 원본은 [Resource Manager 템플릿을 사용하여 구성](../../log-analytics/log-analytics-template-workspace-configuration.md)할 수 있으나 솔루션 파일에 포함되지 않아야 합니다.  그 이유는 데이터 원본을 구성하는 것이 현재 idempotent가 아니어서 솔루션이 사용자의 작업 영역에서 기존 구성을 덮어쓸 수 있기 때문입니다.<br><br>예를 들어 솔루션에 응용 프로그램 이벤트 로그의 경고 및 오류 이벤트가 필요할 수 있습니다.  이것을 솔루션에서 데이터 원본으로 지정하면 사용자가 해당 작업 영역에서 이 데이터 원본을 구성한 경우 정보 이벤트가 제거될 위험이 있습니다.  모든 이벤트를 포함하는 경우 사용자의 작업 영역에서 과도한 정보 이벤트를 수집하게 될 수 있습니다.
+- 데이터 원본은 [Resource Manager 템플릿을 사용하여 구성](../../azure-monitor/platform/template-workspace-configuration.md)할 수 있으나 솔루션 파일에 포함되지 않아야 합니다.  그 이유는 데이터 원본을 구성하는 것이 현재 idempotent가 아니어서 솔루션이 사용자의 작업 영역에서 기존 구성을 덮어쓸 수 있기 때문입니다.<br><br>예를 들어 솔루션에 애플리케이션 이벤트 로그의 경고 및 오류 이벤트가 필요할 수 있습니다.  이것을 솔루션에서 데이터 원본으로 지정하면 사용자가 해당 작업 영역에서 이 데이터 원본을 구성한 경우 정보 이벤트가 제거될 위험이 있습니다.  모든 이벤트를 포함하는 경우 사용자의 작업 영역에서 과도한 정보 이벤트를 수집하게 될 수 있습니다.
 
 - 솔루션에 표준 데이터 원본 중 하나의 데이터가 필요한 경우 다음 필수 구성 요소로 정의해야 합니다.  설명서에 따르면 고객은 자체적으로 데이터 원본을 구성해야 합니다.  
 - 솔루션의 모든 보기에 [데이터 흐름 확인](../../azure-monitor/platform/view-designer-tiles.md) 메시지를 추가하여 필요한 데이터를 수집하기 위해 구성해야 하는 데이터 원본을 사용자에게 지시합니다.  이 메시지는 필요한 데이터를 찾을 수 없을 경우 보기의 타일에 표시됩니다.

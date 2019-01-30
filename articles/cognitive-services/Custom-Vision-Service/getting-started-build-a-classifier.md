@@ -1,60 +1,52 @@
 ---
 title: 분류자 빌드 - Custom Vision Service
 titlesuffix: Azure Cognitive Services
-description: Custom Vision Service를 사용하여 사진에서 개체를 구별할 수 있는 분류자를 만드는 방법을 알아봅니다.
+description: Custom Vision 웹 사이트를 사용하여 이미지 분류 모델을 만드는 방법을 알아봅니다.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: conceptual
-ms.date: 05/02/2018
+ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: 998900e72511a95336e4a94289c794e2a8e59feb
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: f6ab2d8bcf1ae02df95b0cf36eacffa90964d43e
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364249"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243257"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Custom Vision을 사용하여 분류자를 빌드하는 방법
 
-Custom Vision Service를 사용하려면 먼저 분류자를 빌드해야 합니다. 이 문서에서는 웹 브라우저를 통해 분류자를 빌드하는 방법을 알아봅니다.
+이미지 분류에 Custom Vision Service를 사용하려면 먼저 분류자 모델을 빌드해야 합니다. 이 가이드에서는 Custom Vision 웹 사이트를 통해 분류자를 빌드하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-분류자를 빌드하려면 먼저 다음이 있어야 합니다.
-
-- 유효한 [Microsoft 계정](https://account.microsoft.com/account) 또는 Azure Active Directory OrgID(“회사 또는 학교 계정”). customvision.ai에 로그인하여 시작하는 데 필요합니다.
+- 유효한 [Microsoft 계정](https://account.microsoft.com/account) 또는 AAD(Azure Active Directory) 계정("회사 또는 학교 계정")
 
     > [!IMPORTANT] 
-    > [국가별 클라우드](https://www.microsoft.com/en-us/trustcenter/cloudservices/nationalcloud)의 Azure AD(Azure Active Directory) 사용자에 대한 OrgID 로그인은 현재 지원되지 않습니다.
-
-- 분류자를 학습하기 위한 일련의 이미지(태그당 최소 30개 이미지).
-
-- 분류자가 학습된 후에 분류자를 테스트하기 위한 몇 개의 이미지.
-
-- 선택 사항: Microsoft 계정 또는 OrgID와 연결된 Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만들 수 있습니다.
-
-    > [!IMPORTANT]
-    > Azure 구독이 없으면 __제한된 평가판__ 프로젝트만 만들 수 있습니다. Azure 구독이 있는 경우 프로젝트를 만드는 동안 [Azure Portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision)에서 Custom Vision Service 학습 및 예측 리소스를 만들라는 메시지가 표시됩니다.   
+    > [Microsoft 국가별 클라우드](https://www.microsoft.com/en-us/trustcenter/cloudservices/nationalcloud)의 AAD 사용자용 로그인은 현재 지원되지 않습니다.
+- 분류자를 학습시키는 데 사용할 이미지 세트. 이미지 선택 팁은 아래 설명을 참조하세요.
+- 선택 사항: Microsoft 계정 또는 AAD 계정과 연결된 Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만들 수 있습니다. Azure 구독이 없으면 __제한된 평가판__ 프로젝트 2개만 만들 수 있습니다.
 
 ## <a name="create-a-new-project"></a>새 프로젝트 만들기
 
-새 프로젝트를 만들려면 다음 단계를 사용합니다.
+웹 브라우저에서 [Custom Vision 웹 페이지](https://customvision.ai)로 이동하여 __로그인__을 선택합니다.
 
-1. 웹 브라우저에서 [Custom Vision 웹 페이지](https://customvision.ai)로 이동합니다. 서비스 사용을 시작하려면 __로그인__을 선택합니다.
+![로그인 페이지 이미지](./media/browser-home.png)
 
-    ![로그인 페이지 이미지](./media/getting-started-build-a-classifier/custom-vision-web-ui.png)
+Azure 계정이 있는 경우 프로젝트를 만드는 동안 [Azure Portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision)에서 Custom Vision Service 학습 및 예측 리소스를 만들라는 메시지가 표시됩니다.
 
-    > [!NOTE]
-    > Custom Vision Service에 로그인하면 프로젝트 목록이 표시됩니다. 테스트를 위한 두 개의 “제한된 평가판” 프로젝트 이외의 프로젝트는 Azure 리소스와 연결됩니다. Azure 사용자인 경우 액세스 권한이 있는 [Azure 리소스](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#grant-access-to-resources)와 연결된 모든 프로젝트를 볼 수 있습니다. 
-
-2. 첫 번째 프로젝트를 만들려면 **새 프로젝트**를 선택합니다. 첫 번째 프로젝트의 경우 서비스 약관에 동의해야 합니다. 확인란을 선택하고 **동의함** 단추를 선택합니다. **새 프로젝트** 대화 상자가 나타납니다.
+1. 첫 번째 프로젝트를 만들려면 **새 프로젝트**를 선택합니다. **새 프로젝트 만들기** 대화 상자가 표시됩니다.
 
     ![새 프로젝트 대화 상자에는 이름, 설명 및 도메인 필드가 있습니다.](./media/getting-started-build-a-classifier/new-project.png)
 
-3. 프로젝트에 대한 이름과 설명을 입력합니다. 그런 다음, 사용 가능한 도메인 중 하나를 선택합니다. 각 도메인은 다음 표에 설명된 대로 특정 유형의 이미지에 대해 분류자를 최적화합니다.
+1. 프로젝트에 대한 이름과 설명을 입력합니다. 그런 다음 리소스 그룹을 선택합니다. 로그인한 계정이 Azure 계정과 연결되어 있으면 리소스 그룹 드롭다운에는 Custom Vision Service 리소스를 포함하는 모든 Azure 리소스 그룹이 표시됩니다. 두 경우 모두 이 드롭다운에서 __제한된 평가판__을 선택할 수도 있습니다.
+
+1. __프로젝트 형식__ 아래에서 __분류__를 선택합니다. 그런 다음 __분류 유형__ 아래에서 사용 사례에 따라 **다중 레이블** 또는 **다중 클래스**를 선택합니다. 다중 레이블 분류에서는 0개 이상의 태그가 이미지에 적용되는 반면 다중 클래스 분류에서는 이미지가 단일 범주로 정렬됩니다. 즉, 제출하는 모든 이미지가 가장 적합한 태그로 정렬됩니다. 원하는 경우 나중에 분류 유형을 변경할 수 있습니다.
+
+1. 다음으로 사용 가능한 도메인 중 하나를 선택합니다. 각 도메인은 다음 표에 설명된 대로 특정 이미지 유형에 맞게 분류자를 최적화합니다. 원하는 경우 나중에 도메인을 변경할 수 있습니다.
 
     |도메인|목적|
     |---|---|
@@ -64,70 +56,80 @@ Custom Vision Service를 사용하려면 먼저 분류자를 빌드해야 합니
     |__소매__|쇼핑 카탈로그 또는 쇼핑 웹 사이트에 있는 이미지에 최적화되었습니다. 드레스, 바지 및 셔츠를 높은 정밀도로 분류하려는 경우 이 도메인을 사용합니다.|
     |__성인__|성인 콘텐츠와 비성인 콘텐츠 정의 향상에 최적화되었습니다. 예를 들어 수영복을 입은 사람의 이미지를 차단하려는 경우 이 도메인을 사용하여 해당 작업을 수행하는 사용자 지정 분류자를 빌드할 수 있습니다.|
     |__압축 도메인__| 모바일 디바이스의 실시간 분류 제약 조건에 최적화되었습니다. 압축 도메인에서 생성된 모델을 로컬에서 실행하기 위해 내보낼 수 있습니다.|
+    
+1. 마지막으로 __프로젝트 만들기__를 선택합니다.
 
-    원하는 경우 나중에 도메인을 변경할 수 있습니다.
+## <a name="choose-training-images"></a>학습 이미지 선택
 
-4. 리소스 그룹을 선택합니다. 리소스 그룹 드롭다운에는 Custom Vision Service 리소스를 포함하는 모든 Azure 리소스 그룹이 표시됩니다. __제한된 평가판__을 만들 수도 있습니다. 제한된 평가판 항목은 비 Azure 사용자가 선택할 수 있는 유일한 리소스 그룹입니다.
+최소한 초기 학습 세트에서는 태그당 이미지 30개 이상을 사용하는 것이 좋습니다. 학습된 모델을 테스트하기 위해 이미지 몇 개를 추가로 수집할 수도 있습니다.
 
-    프로젝트를 만들려면 __프로젝트 만들기__를 선택합니다.
+모델을 효과적으로 학습시키려면 다양한 시각적 이미지를 사용합니다. 다음과 같은 요소가 각기 다른 이미지를 선택합니다.
+* 카메라 각도
+* 조명
+* background
+* 표시 스타일
+* 개별/그룹화된 피사체
+* size
+* 형식
+
+또한 모든 학습 이미지가 다음 기준을 충족하는지 확인합니다.
+* .jpg, .png, .bmp 형식
+* 크기 6MB 이하(예측 이미지의 경우 4MB)
+* 가장 짧은 가장자리가 256픽셀 이상. 256픽셀보다 짧은 이미지는 Custom Vision Service에서 자동으로 확장됩니다.
 
 ## <a name="upload-and-tag-images"></a>이미지 업로드 및 태그 지정
 
-1. 분류자에 이미지를 추가하려면 __이미지 추가__ 단추를 사용하고 __로컬 파일 찾아보기__를 선택합니다. __열기__를 선택하여 태그 지정으로 이동합니다.
+이 섹션에서는 분류자 학습을 지원하기 위해 이미지를 업로드하고 수동으로 태그를 지정합니다. 
 
-    > [!TIP]
-    > 이미지를 선택한 후 태그를 지정해야 합니다. 이 태그는 업로드하도록 선택한 이미지 그룹에 적용되므로 사용하려는 이미지를 태그로 쉽게 업로드할 수 있습니다. 태그를 지정하고 업로드한 후 선택한 이미지의 태그를 변경할 수도 있습니다.
-
-    > [!TIP]
-    > 다양한 카메라 각도, 조명, 배경, 형식, 스타일, 그룹, 크기 등을 사용하는 이미지를 업로드합니다. 다양한 사진 형식을 사용하여 분류자가 편향되지 않고 잘 일반화될 수 있도록 합니다.
-
-    Custom Vision Service는 이미지당 최대 6MB까지 .jpg, .png 및 .bmp 형식의 학습 이미지를 허용합니다. 예측 이미지는 이미지당 최대 4MB까지 가능합니다. 가장 짧은 가장자리가 256픽셀인 이미지를 사용하는 것이 좋습니다. 가장 짧은 가장자리가 256픽셀보다 짧은 이미지는 Custom Vision Service에서 확장됩니다.
+1. 이미지를 추가하려면 __이미지 추가__ 단추를 클릭하고 __로컬 파일 찾아보기__를 선택합니다. __열기__를 선택하여 태그 지정으로 이동합니다. 선택한 태그는 업로드하도록 선택한 전체 이미지 그룹에 적용되므로 원하는 태그에 따라 개별 그룹으로 이미지를 업로드하는 것이 더 쉽습니다. 개별 이미지를 업로드한 후에 태그를 변경할 수도 있습니다.
 
     ![이미지 추가 컨트롤은 왼쪽 위와 맨 아래 가운데 단추로 표시됩니다.](./media/getting-started-build-a-classifier/add-images01.png)
 
-    >[!NOTE] 
-    > REST API를 사용하여 URL에서 학습 이미지를 로드할 수 있습니다.
 
-2. 태그를 설정하려면 __내 태그__ 필드에 텍스트를 입력하고 __+__ 단추를 사용합니다. 이미지를 업로드하고 태그를 지정하려면 __[number]개 파일 업로드__ 단추를 사용합니다. 이미지에 둘 이상의 태그를 추가할 수 있습니다. 
-
-    > [!NOTE]
-    > 업로드 시간은 선택한 이미지 수와 크기에 따라 다릅니다.
+1. 태그를 만들려면 __내 태그__ 필드에 텍스트를 입력하고 Enter 키를 누릅니다. 태그가 이미 있는 경우 드롭다운 메뉴에 표시됩니다. 다중 레이블 프로젝트에서는 이미지에 태그를 여러 개 추가할 수 있지만 다중 클래스 프로젝트에서는 태그를 하나만 추가할 수 있습니다. 이미지 업로드를 완료하려면 __[number]개 파일 업로드__ 단추를 사용합니다. 
 
     ![태그 및 업로드 페이지 이미지](./media/getting-started-build-a-classifier/add-images03.png)
 
-3. 이미지가 업로드되면 __완료__를 선택합니다.
+1. 이미지가 업로드되면 __완료__를 선택합니다.
 
     ![진행 표시줄에 완료된 작업이 모두 표시됩니다.](./media/getting-started-build-a-classifier/add-images04.png)
 
-4. 다른 이미지 집합을 업로드하려면 1단계로 돌아갑니다. 예를 들어 개와 망아지를 구분하려면 망아지 이미지를 업로드하고 태그를 지정합니다.
+다른 이미지 세트를 업로드하려면 이 섹션의 맨 위로 돌아가서 해당 단계를 반복합니다. 프로젝트에서 일정 시점이 되면 분류자의 정확도를 높이기 위해 _부정 샘플_을 추가해야 할 수도 있습니다. 부정 샘플은 다른 어떤 태그와도 일치하지 않는 샘플입니다. 이러한 이미지를 업로드할 때는 특수 **부정** 레이블을 적용합니다.
 
-## <a name="train-and-evaluate-the-classifier"></a>분류자 학습 및 평가
+## <a name="train-the-classifier"></a>분류자 학습
 
-분류자를 학습하려면 **학습** 단추를 선택합니다.
+분류자를 학습하려면 **학습** 단추를 선택합니다. 분류자는 현재 이미지를 모두 사용하여 각 태그의 시각적 품질을 식별하는 모델을 만듭니다.
 
-![학습 단추는 브라우저 창의 오른쪽 맨 위에 있습니다.](./media/getting-started-build-a-classifier/train01.png)
+![웹 페이지 헤더 도구 모음 오른쪽 상단의 학습 단추](./media/getting-started-build-a-classifier/train01.png)
 
-분류자를 학습하는 데 몇 분 정도면 됩니다. 이 시간 동안에는 학습 프로세스에 대한 정보가 표시됩니다.
+학습 프로세스는 몇 분밖에 안 걸립니다. 이 시간 동안에는 학습 프로세스에 대한 정보가 **성능** 탭에 표시됩니다.
 
-![학습 단추는 브라우저 창의 오른쪽 맨 위에 있습니다.](./media/getting-started-build-a-classifier/train02.png)
+![주 섹션에 학습 대화 상자가 표시된 브라우저 창](./media/getting-started-build-a-classifier/train02.png)
 
-학습 후에는 __성능__이 표시됩니다. 정밀도 및 재현율 표시기는 자동 테스트를 기준으로 분류자의 성능을 알려 줍니다. Custom Vision Service는 학습용으로 제출된 이미지를 사용하여 [k-겹 교차 유효성 검사](https://en.wikipedia.org/wiki/Cross-validation_(statistics))라는 프로세스를 통해 이러한 수치를 계산합니다.
+## <a name="evaluate-the-classifier"></a>분류자 평가
+
+학습이 완료되고 나면 모델의 예상 성능이 계산되어 표시됩니다. Custom Vision Service는 학습용으로 제출된 이미지를 사용하여 [k중 교차 유효성 검사](https://en.wikipedia.org/wiki/Cross-validation_(statistics))라는 프로세스를 통해 정밀도와 재현율을 계산합니다. 정밀도와 재현율은 분류자의 효율성을 나타내는 각기 다른 두 측정값입니다.
+
+- **정밀도**는 정확한 것으로 식별된 분류 부분을 나타냅니다. 예를 들어 모델에서 100개 이미지를 강아지로 식별했는데 그중 99개가 실제로 강아지 이미지였다면 정밀도는 99%입니다.
+- **재현율**은 정확하게 식별된 실제 분류 부분을 나타냅니다. 예를 들어 실제 사과 이미지가 100개인데 모델이 80개를 사과로 식별했다면 재현율은 80%입니다.
 
 ![학습 결과는 전체 정밀도 및 재현율과 분류자의 각 태그에 대한 정밀도 및 재현율을 보여 줍니다.](./media/getting-started-build-a-classifier/train03.png)
 
-> [!NOTE] 
-> **학습** 단추를 선택할 때마다 분류자의 새 반복이 생성됩니다. **성능** 탭에서 이전 반복을 모두 볼 수 있으며 사용되지 않을 수 있는 모든 반복을 삭제할 수 있습니다. 반복을 삭제하면 고유하게 연결된 이미지도 모두 삭제됩니다.
+### <a name="probability-threshold"></a>확률 임계값
 
-분류자는 모든 이미지를 사용하여 각 태그를 식별하는 모델을 만듭니다. 모델의 품질을 테스트하기 위해 분류자는 모델에서 각 이미지를 시도하여 모델이 찾는 내용을 확인합니다.
+**성능** 탭의 왼쪽 창에는 **확률 임계값** 슬라이더가 있습니다. 이 슬라이더는 정밀도와 재현율을 계산할 때 정확한 것으로 간주할 예측 확률의 임계값입니다.
 
-분류자 결과의 품질이 표시됩니다.
+높은 확률 임계값을 사용해 예측 호출을 해석하면 반환되는 결과의 정밀도는 높은 대신 재현율은 낮아지는 경향이 있습니다(발견된 분류는 정확하지만 발견되지 않은 항목이 많음). 반면 낮은 확률 임계값을 사용하는 경우에는 실제 분류가 대부분 발견되기는 하지만 세트 내에 가양성이 많아집니다. 이 점을 고려하여 프로젝트의 구체적인 요구에 따라 예측 임계값을 설정해야 합니다. 나중에 클라이언트 쪽에서 모델의 예측 결과를 수신할 때도 같은 예측 임계값을 필터로 사용해야 합니다.
 
-|용어|정의|
-|---|---|
-|__자릿수__|이미지를 분류할 때 분류자가 이미지를 올바르게 분류할 가능성은 어느 정도인가요? 분류자(개와 망아지)를 학습하는 데 사용되는 모든 이미지 중에서 모델이 맞은 백분율은 어느 정도인가요? 100개 이미지 중 올바른 태그가 99개이면 정밀도는 99%가 됩니다.|
-|__재현율__|올바르게 분류되었어야 하는 모든 이미지 중에서 분류자가 올바르게 식별한 이미지는 몇 개였나요? 재현율이 100%이면 분류자를 학습하는 데 사용된 이미지 중 개 이미지가 38개인 경우 분류자가 38개를 찾은 것입니다.|
+## <a name="manage-training-iterations"></a>학습 반복 관리
+
+분류자를 학습시킬 때마다 업데이트된 고유 성능 메트릭을 사용하여 새로운 _반복_이 생성됩니다. **성능** 탭의 왼쪽 창에서 모든 반복을 확인할 수 있습니다. 반복 하나를 선택한 다음 위쪽의 **기본값으로** 단추를 클릭하여 해당 반복을 _기본 반복_으로 지정할 수 있습니다. _기본 반복_은 예를 들어 앱에서 예측 API를 통해 모델을 쿼리하면 기본적으로 사용되는 모델입니다. _기본 반복_을 업데이트하지 않으려는 경우에는 앱의 현재 동작을 그대로 유지하면서 모델을 계속 학습시킬 수 있습니다. 그런 후에 모델이 원하는 수준으로 개선되면 기본값을 업데이트할 수 있습니다.
+
+왼쪽 창에는 사용하지 않는 반복을 삭제하는 데 사용할 수 있는 **삭제** 단추도 있습니다. 반복을 삭제하면 해당 반복에 고유하게 연결된 이미지도 모두 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[모델 테스트 및 유지](test-your-model.md)
+이 가이드에서는 Custom Vision 웹 사이트를 사용하여 이미지 분류 모델을 만들고 학습시키는 방법을 알아보았습니다. 다음으로는 모델을 개선하는 반복 프로세스에 대해 자세히 알아봅니다.
+
+[모델 테스트 및 재교육](test-your-model.md)
 

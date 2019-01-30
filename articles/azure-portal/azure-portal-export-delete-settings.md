@@ -10,12 +10,12 @@ ms.service: azure-portal
 ms.custom: ''
 manager: dougeby
 ms.author: cwatson
-ms.openlocfilehash: b2bf674dbb253c7ec698b18776d8752ed6a4c1c8
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 8bbba504f95233db7cf65556b57148771962f507
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394083"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308586"
 ---
 # <a name="export-or-delete-settings-in-the-azure-portal"></a>Azure Portal에서 설정 내보내기 또는 삭제
 Azure Portal 설정 메뉴에서 다음 설정을 내보내고 삭제할 수 있습니다.
@@ -29,7 +29,7 @@ Azure Portal 설정 메뉴에서 다음 설정을 내보내고 삭제할 수 있
 
 **포털 설정 내보내기 또는 삭제**
 
-1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Portal의 오른쪽 위에서 **설정**을 선택합니다.
 
     ![포털 설정 기어를 보여주는 스크린샷](media/azure-portal-export-delete-settings/azure-portal-settings-icon.png)

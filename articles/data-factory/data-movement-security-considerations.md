@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 3c2b44455b417d1bc764337d91a5535d7ffa34a5
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 0113fc3112fa0fa911d6609684357d01cd9adf30
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783375"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015715"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,7 +42,7 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 
 이 문서에서는 다음 두 가지 데이터 이동 시나리오에서 보안 고려 사항을 검토합니다. 
 
-- **클라우드 시나리오**: 이 시나리오에서는 원본과 대상 모두 인터넷을 통해 공개적으로 액세스할 수 있습니다. 여기에는 Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, Salesforce와 같은 SaaS 서비스, FTP 및 OData와 같은 웹 프로토콜과 같은 관리 클라우드 저장소 서비스가 포함됩니다. 지원되는 데이터 원본의 전체 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)에서 확인하세요.
+- **클라우드 시나리오**: 이 시나리오에서는 원본과 대상 모두 인터넷을 통해 공개적으로 액세스할 수 있습니다. 여기에는 Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, Salesforce와 같은 SaaS 서비스, FTP 및 OData와 같은 웹 프로토콜과 같은 관리 클라우드 스토리지 서비스가 포함됩니다. 지원되는 데이터 원본의 전체 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)에서 확인하세요.
 - **하이브리드 시나리오**: 이 시나리오에서는 원본 또는 대상 중 하나는 온-프레미스 회사 네트워크 내부 또는 방화벽 뒤에 있습니다. 또는 데이터 저장소는 개인 네트워크 또는 가상 네트워크(가장 자주 원본)에 있으며 공개적으로 액세스할 수 없습니다. 가상 머신에서 호스팅되는 데이터베이스 서버도 이 시나리오에 해당합니다.
 
 ## <a name="cloud-scenarios"></a>클라우드 시나리오
@@ -74,7 +73,7 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 Azure SQL Data Warehouse의 TDE(투명한 데이터 암호화)는 미사용 데이터에 대한 실시간 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 데 도움을 줍니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [SQL Data Warehouse에서 데이터베이스 보호](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)를 참조하세요.
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
-Azure SQL Database는 응용 프로그램을 변경할 필요 없이 실시간으로 데이터 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 TDE(투명한 데이터 암호화)도 지원합니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [SQL Database 및 Data Warehouse를 위한 투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 참조하세요.
+Azure SQL Database는 애플리케이션을 변경할 필요 없이 실시간으로 데이터 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 TDE(투명한 데이터 암호화)도 지원합니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [SQL Database 및 Data Warehouse를 위한 투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 참조하세요.
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 또한 Azure Data Lake Store는 계정에 저장된 데이터에 대한 암호화를 제공합니다. 사용할 경우 Data Lake Store는 자동으로 데이터를 영구 저장하기 전에 데이터를 암호화하고, 검색하기 전에 데이터를 해독하므로 데이터에 액세스하는 클라이언트는 투명합니다. 자세한 내용은 [Azure Data Lake Store의 데이터 보안](../data-lake-store/data-lake-store-security-overview.md)을 참조하세요. 
@@ -165,9 +164,9 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 
 | 인바운드 포트 | 설명                              |
 | ------------- | ---------------------------------------- |
-| 8050(TCP)    | 자체 호스팅 통합 런타임에서 온-프레미스 데이터 저장소에 대한 자격 증명을 안전하게 설정하기 위해 [Azure Data Factory의 온-프레미스 데이터 저장소에 대한 자격 증명 암호화](encrypt-credentials-self-hosted-integration-runtime.md)에 설명된 대로 PowerShell Encryption cmdlet에서, 그리고 자격 증명 관리자 응용 프로그램에서 필요합니다. |
+| 8050(TCP)    | 자체 호스팅 통합 런타임에서 온-프레미스 데이터 저장소에 대한 자격 증명을 안전하게 설정하기 위해 [Azure Data Factory의 온-프레미스 데이터 저장소에 대한 자격 증명 암호화](encrypt-credentials-self-hosted-integration-runtime.md)에 설명된 대로 PowerShell Encryption cmdlet에서, 그리고 자격 증명 관리자 애플리케이션에서 필요합니다. |
 
-![게이트웨이 포트 요구 사항](media\data-movement-security-considerations/gateway-port-requirements.png) 
+![게이트웨이 포트 요구 사항](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
 #### <a name="ip-configurations-and-whitelisting-in-data-stores"></a>데이터 저장소의 IP 구성 및 허용 목록 포함
 클라우드의 일부 데이터 저장소는 저장소에 액세스하는 컴퓨터의 IP 주소를 허용 목록에 포함해야 합니다. 자체 호스팅 통합 런타임 컴퓨터의 IP 주소가 방화벽에서 제대로 허용 목록에 추가되거나 구성되어 있는지 확인합니다.
@@ -188,7 +187,7 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 
 **자체 호스팅 통합 런타임 작동에 필요한 포트 요구 사항은 무엇입니까?**
 
-자체 호스팅 통합 런타임은 HTTP 기반 연결을 만들어서 인터넷에 액세스하게 합니다. 자체 호스팅 통합 런타임에서 이 연결을 만들려면 아웃바운드 포트 443이 열려야 합니다. 자격 증명 관리자 응용 프로그램의 경우 컴퓨터 수준(회사 방화벽 수준이 아님)에서만 인바운드 포트 8050을 엽니다. Azure SQL Database 또는 Azure SQL Data Warehouse가 원본 또는 대상으로 사용되는 경우 포트 1433도 열어야 합니다. 자세한 내용은 [방화벽 구성 및 허용 목록 IP 주소](#firewall-configurations-and-whitelisting-ip-address-of-gateway) 섹션을 참조하세요. 
+자체 호스팅 통합 런타임은 HTTP 기반 연결을 만들어서 인터넷에 액세스하게 합니다. 자체 호스팅 통합 런타임에서 이 연결을 만들려면 아웃바운드 포트 443이 열려야 합니다. 자격 증명 관리자 애플리케이션의 경우 컴퓨터 수준(회사 방화벽 수준이 아님)에서만 인바운드 포트 8050을 엽니다. Azure SQL Database 또는 Azure SQL Data Warehouse가 원본 또는 대상으로 사용되는 경우 포트 1433도 열어야 합니다. 자세한 내용은 [방화벽 구성 및 허용 목록 IP 주소](#firewall-configurations-and-whitelisting-ip-address-of-gateway) 섹션을 참조하세요. 
 
 
 ## <a name="next-steps"></a>다음 단계

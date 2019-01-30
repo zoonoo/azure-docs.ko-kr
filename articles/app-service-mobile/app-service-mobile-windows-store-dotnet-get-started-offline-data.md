@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 3df6951129f7beda7970e394ffdd32c7e02304dd
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 69ee9e7101a2b7337e1e42ff5ae09954fbfd50b2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060310"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994933"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>Windows 앱에 대해 오프라인 동기화 사용
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -42,7 +42,7 @@ ms.locfileid: "37060310"
 ## <a name="update-the-client-app-to-support-offline-features"></a>오프라인 기능을 지원하도록 클라이언트 앱 업데이트
 Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리오에서 로컬 데이터베이스를 조작할 수 있습니다. 앱에서 이러한 기능을 사용하려면 로컬 저장소에서 [SyncContext][synccontext]를 초기화합니다. 그런 다음 [IMobileServiceSyncTable][IMobileServiceSyncTable] 인터페이스를 통해 테이블을 참조합니다. SQLite는 디바이스의 로컬 저장소로 사용됩니다.
 
-1. [유니버설 Windows 플랫폼용 SQLite 런타임](http://sqlite.org/2016/sqlite-uwp-3120200.vsix)을 설치합니다.
+1. [유니버설 Windows 플랫폼용 SQLite 런타임](https://sqlite.org/2016/sqlite-uwp-3120200.vsix)을 설치합니다.
 2. Visual Studio에서 [Windows 앱 만들기] 자습서에서 완료한 UWP 앱용 NuGet 패키지 관리자 프로젝트를 엽니다.
     **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 패키지를 검색하고 설치합니다.
 3. 솔루션 탐색기에서 마우스 오른쪽 단추로 **참조** > **참조 추가...** > **유니버설 Windows** > **확장**을 클릭하고 **유니버설 Windows 플랫폼용 SQLite** 및 **유니버설 Windows 플랫폼 앱용 Visual C++ 2015 런타임**을 둘 다 사용하도록 설정합니다.
@@ -68,7 +68,7 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 ## <a name="update-online-app"></a>모바일 앱 백 엔드를 다시 연결하도록 앱 업데이트
 이 섹션에서는 앱을 Mobile App 백 엔드에 다시 연결합니다. 이렇게 변경하면 앱의 네트워크 다시 연결이 시뮬레이트됩니다.
 
-응용 프로그램을 처음 실행하는 경우 `OnNavigatedTo` 이벤트 처리기는 `InitLocalStoreAsync`를 호출합니다. 차례로 `SyncAsync`를 호출하여 백 엔드 데이터베이스와 로컬 저장소를 동기화합니다. 앱은 시작 시 동기화를 시도합니다.
+애플리케이션을 처음 실행하는 경우 `OnNavigatedTo` 이벤트 처리기는 `InitLocalStoreAsync`를 호출합니다. 차례로 `SyncAsync`를 호출하여 백 엔드 데이터베이스와 로컬 저장소를 동기화합니다. 앱은 시작 시 동기화를 시도합니다.
 
 1. 공유 프로젝트에서 App.xaml.cs를 열고 `MobileServiceClient` 의 이전 초기화에서 주석 처리를 제거하여 올바른 모바일 앱 URL을 사용합니다.
 2. **F5** 를 눌러 앱을 다시 빌드하고 실행합니다. 앱은 푸시 및 끌어오기 작업을 사용하여 `OnNavigatedTo` 이벤트 처리기가 실행되면 로컬 변경 내용을 Azure Mobile App 백 엔드와 동기화합니다.
@@ -107,9 +107,9 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 <!-- URLs. -->
 [Azure Mobile Apps에서 오프라인 데이터 동기화]: app-service-mobile-offline-data-sync.md
 [Windows 앱 만들기]: app-service-mobile-windows-store-dotnet-get-started.md
-[SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
-[SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
-[SQLite for Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
+[SQLite for Windows 8.1]: https://go.microsoft.com/fwlink/?LinkID=716919
+[SQLite for Windows Phone 8.1]: https://go.microsoft.com/fwlink/?LinkID=716920
+[SQLite for Windows 10]: https://go.microsoft.com/fwlink/?LinkID=716921
 [synccontext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
 [sqlite store nuget]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
 [IMobileServiceSyncTable]: https://msdn.microsoft.com/library/azure/mt691742(v=azure.10).aspx

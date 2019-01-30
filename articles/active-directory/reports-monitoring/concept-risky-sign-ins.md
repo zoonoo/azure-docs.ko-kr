@@ -3,7 +3,7 @@ title: Azure Active Directory 포털의 위험한 로그인 보고서 | Microsof
 description: Azure Active Directory 포털의 위험한 로그인 보고서에 대해 알아보기
 services: active-directory
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
 ms.service: active-directory
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2e4406a75ea1d9f1968d994ae2294b39ca7613d5
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 402aae15ae4fe8e6961fbc76a4ddaa470b8c797a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623862"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807765"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 위험한 로그인 보고서
 
@@ -43,7 +43,7 @@ Azure Active Directory(Azure AD)는 사용자 계정과 관련된 의심스러�
 
 - 보안 관리자
 - 전역 관리자
-- 보안 읽기 권한자
+- 보안 판독기
 
 Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방법을 알아보려면 [Azure Active Directory에서 관리자 역할 보기 및 할당](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal)을 참조하세요.
 
@@ -61,9 +61,9 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 Azure AD Free 및 Basic 버전에서는 사용자에 대해 감지된 위험한 로그인 목록이 제공됩니다. 각 레코드는 다음과 같은 특성을 포함합니다.
 
-- **사용자** - 로그인 작업 중에 사용한 사용자의 이름
-- **IP** - Azure Active Directory에 연결하는 데 사용한 장치의 IP 주소
-- **위치** - Azure Active Directory에 연결하는 데 사용한 위치
+- **사용자** - 로그인 작업 중에 사용한 사용자의 이름.
+- **IP** - Azure Active Directory에 연결하는 데 사용한 디바이스의 IP 주소.
+- **위치** - Azure Active Directory에 연결하는 데 사용한 위치. 추적, 레지스트리 데이터, 역방향 조회 및 기타 정보를 기반으로 한 최상의 근사값입니다.
 - **로그인 시간** - 로그인을 수행한 시간
 - **상태** - 로그인의 상태
 
@@ -85,12 +85,11 @@ Azure AD Free 및 Basic 버전에서는 사용자에 대해 감지된 위험한 
 
 ![위험한 로그인](./media/concept-risky-sign-ins/93.png)
 
-
 ## <a name="risky-sign-ins-report-for-azure-ad-premium-editions"></a>Azure AD Premium 버전의 위험한 로그인 보고서
 
 Azure AD Premium 버전의 위험한 로그인 보고서에서는 다음과 같은 사항이 제공됩니다.
 
-- 감지된 [위험 이벤트 유형](concept-risk-events.md)에 대해 집계된 정보
+- 검색된 [위험 이벤트 유형](concept-risk-events.md)에 대해 집계된 정보 **Azure AD Premium P1 버전**에서 라이선스가 적용되지 않는 검색 항목이 **추가 위험이 있는 로그인이 감지됨**이라는 위험 이벤트로 표시됩니다. **Azure AD Premium P2 버전**에서 모든 기본 감지에 대한 가장 자세한 정보를 가져옵니다.
 
 - 보고서를 다운로드할 수 있는 옵션
 
@@ -107,6 +106,9 @@ Azure AD Premium 버전의 위험한 로그인 보고서에서는 다음과 같�
 - 위험 이벤트를 수동으로 닫습니다. 
 
 ![위험한 로그인](./media/concept-risky-sign-ins/457.png)
+
+> [!IMPORTANT]
+> [로그인 보고서](concept-sign-ins.md)에서 해당 로그인 항목이 없는 위험 이벤트가 발견되는 경우도 있습니다. entity Protection은 **대화형** 및 **비 대화형** 로그인의 위험을 모두 평가하는 반면, 로그인 보고서는 대화형 로그인만 보여주기 때문입니다.
 
 사용자를 선택하면 사용자에 대한 자세한 보고서 보기가 제공되고 다음과 같은 작업이 가능합니다.
 

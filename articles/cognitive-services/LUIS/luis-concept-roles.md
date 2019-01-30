@@ -1,21 +1,22 @@
 ---
-title: 패턴 기반 엔터티에서 역할을 사용하는 방법 이해
+title: 엔터티에 대한 역할
 titleSuffix: Azure Cognitive Services
-description: 역할은 패턴에서만 사용되는 엔터티의 명명된 컨텍스트 하위 형식입니다. 예를 들어, 발화에서 뉴욕에서 런던까지 티켓을 구매하고 뉴욕과 런던은 둘 다 도시이지만 각각은 문장에서 의미가 서로 다릅니다. New York은 출발 도시이고 London은 도착 도시입니다.
+description: 역할은 패턴에서만 사용되는 엔터티의 명명된 컨텍스트 하위 형식입니다. 예를 들어, 발화 `buy a ticket from New York to London`(뉴욕에서 런던까지 티켓 구매)에서 New York과 London은 둘 다 도시이지만 각각은 문장에서 의미가 서로 다릅니다. New York은 출발 도시이고 London은 도착 도시입니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: f5f790d4cdba8b6ebc1ed2694cb4552cb565f676
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: cb155486365ffa1beb4657e2d9cc56fcf143b624
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427219"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547748"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>패턴의 엔터티 역할은 컨텍스트 하위 형식입니다.
 역할은 [패턴](luis-concept-patterns.md)에서만 사용되는 엔터티의 명명된 컨텍스트 하위 형식입니다.
@@ -44,6 +45,16 @@ ms.locfileid: "52427219"
 
 
 [!INCLUDE [H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
+
+## <a name="example-role-for-entities"></a>엔터티에 대한 역할 예제
+
+역할은 발화 내에서 문맥상 학습된 엔터티의 위치입니다. 발화에 포함된 엔터티 형식이 한 개를 초과하는 경우 가장 효과적입니다. 엔터티 형식에 대한 가장 쉬운 예는 시작과 끝 위치를 구분하는 것입니다. 위치는 수많은 엔터티 형식으로 표현할 수 있습니다. 
+
+사용 사례의 예는 한 부서의 직원을 각 부서가 목록에 항목으로 있는 다른 부서로 이동하는 것입니다. 예:  
+
+`Move [PersonName] from [Department:from] to [Department:to]`. 
+
+반환된 예측에서 두 부서 엔터티는 JSON 응답으로 반환되고 각각 역할 이름을 포함합니다. 
 
 ## <a name="roles-with-prebuilt-entities"></a>미리 작성된 엔터티와 역할
 

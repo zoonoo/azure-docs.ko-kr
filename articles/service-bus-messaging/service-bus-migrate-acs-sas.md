@@ -1,34 +1,34 @@
 ---
 title: Azure Active Directory Access Control Service에서 공유 액세스 서명 권한 부여로 마이그레이션 | Microsoft Docs
-description: Access Control Service에서 SAS로 응용 프로그램 마이그레이션
+description: Access Control Service에서 SAS로 애플리케이션 마이그레이션
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
-ms.author: spelluru
-ms.openlocfilehash: 7045172fcd3c64cb0d979f5e3e8381c49579f1d2
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.author: aschhab
+ms.openlocfilehash: 746b19062c3014caa37c6668e6c41df054a47e25
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855258"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846960"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Azure Active Directory Access Control Service에서 공유 액세스 서명 권한 부여로 마이그레이션
 
-기존에는 Service Bus 응용 프로그램에서 두 가지 권한 부여 모델 중 하나를 선택하여 사용할 수 있었습니다. 그 중 하나는 Service Bus에서 직접 제공되는 [SAS(공유 액세스 서명)](service-bus-sas.md) 토큰 모델이고, 다른 하나는 페더레이션 모델입니다. 페더레이션 모델에서는 권한 부여 규칙 관리 작업이 [Azure Active Directory](/azure/active-directory/) ACS(Access Control Service)를 통해 내부에서 관리되며, 원하는 기능에 대한 액세스 권한을 부여하기 위해 ACS에서 가져온 토큰이 Service Bus로 전달됩니다.
+기존에는 Service Bus 애플리케이션에서 두 가지 권한 부여 모델 중 하나를 선택하여 사용할 수 있었습니다. 그 중 하나는 Service Bus에서 직접 제공되는 [SAS(공유 액세스 서명)](service-bus-sas.md) 토큰 모델이고, 다른 하나는 페더레이션 모델입니다. 페더레이션 모델에서는 권한 부여 규칙 관리 작업이 [Azure Active Directory](/azure/active-directory/) ACS(Access Control Service)를 통해 내부에서 관리되며, 원하는 기능에 대한 액세스 권한을 부여하기 위해 ACS에서 가져온 토큰이 Service Bus로 전달됩니다.
 
 ACS 권한 부여 모델은 [SAS 권한 부여](service-bus-authentication-and-authorization.md)가 기본 모델로 사용되면서 이미 오래전에 교체되었으며 현재는 모든 설명서, 지침 및 샘플에서 SAS만 사용되고 있습니다. 또한 ACS와 쌍으로 지정된 새 Service Bus 네임스페이스도 더 이상 만들 수 없습니다.
 
-SAS는 다른 서비스를 직접적으로 사용하지 않으며, SAS 규칙 이름과 규칙 키 액세스 권한을 클라이언트에 제공하는 방식으로 별도의 매개체 없이도 클라이언트에서 바로 사용할 수 있다는 장점이 있습니다. 또한 SAS는 클라이언트가 다른 서비스에 대한 권한 부여 확인을 통과해야 토큰이 발급되는 방식과도 쉽게 통합할 수 있습니다. 두 번째 방식은 ACS 사용 패턴과 비슷하지만, ACS에서는 표현하기가 어려운 응용 프로그램 관련 조건에 따라 액세스 토큰을 발급할 수 있습니다.
+SAS는 다른 서비스를 직접적으로 사용하지 않으며, SAS 규칙 이름과 규칙 키 액세스 권한을 클라이언트에 제공하는 방식으로 별도의 매개체 없이도 클라이언트에서 바로 사용할 수 있다는 장점이 있습니다. 또한 SAS는 클라이언트가 다른 서비스에 대한 권한 부여 확인을 통과해야 토큰이 발급되는 방식과도 쉽게 통합할 수 있습니다. 두 번째 방식은 ACS 사용 패턴과 비슷하지만, ACS에서는 표현하기가 어려운 애플리케이션 관련 조건에 따라 액세스 토큰을 발급할 수 있습니다.
 
-고객은 ACS를 사용하는 모든 기존 응용 프로그램이 SAS를 대신 사용하도록 마이그레이션하는 것이 좋습니다.
+고객은 ACS를 사용하는 모든 기존 애플리케이션이 SAS를 대신 사용하도록 마이그레이션하는 것이 좋습니다.
 
 ## <a name="migration-scenarios"></a>마이그레이션 시나리오
 
@@ -48,17 +48,17 @@ ACS 규칙이 경로 접두사 `/`에 대한 **보내기** 클레임을 서비�
 
 ### <a name="unchanged-defaults"></a>기본값 변경 안 됨
 
-응용 프로그램에서 ACS 기본값을 변경하지 않은 경우 사용되는 모든 [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider)를 [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) 개체로 바꾸고 ACS **소유자** 계정 대신 네임스페이스의 미리 구성된 **RootManageSharedAccessKey**를 사용할 수 있습니다. 그러나 ACS **소유자** 계정을 사용하더라도 이 구성은 이전에도 대체로 권장되지 않았으며 현재도 사용하지 않는 것이 좋습니다. 이 계정/규칙은 엔터티 삭제 권한을 비롯하여 네임스페이스에 대한 모든 권리 권한을 제공하기 때문입니다.
+애플리케이션에서 ACS 기본값을 변경하지 않은 경우 사용되는 모든 [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider)를 [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) 개체로 바꾸고 ACS **소유자** 계정 대신 네임스페이스의 미리 구성된 **RootManageSharedAccessKey**를 사용할 수 있습니다. 그러나 ACS **소유자** 계정을 사용하더라도 이 구성은 이전에도 대체로 권장되지 않았으며 현재도 사용하지 않는 것이 좋습니다. 이 계정/규칙은 엔터티 삭제 권한을 비롯하여 네임스페이스에 대한 모든 권리 권한을 제공하기 때문입니다.
 
 ### <a name="simple-rules"></a>단순 규칙
 
-응용 프로그램이 단순 규칙을 포함하는 사용자 지정 서비스 ID를 사용하는 경우, 특정 큐에 대한 액세스 제어 기능을 제공하기 위해 ACS 서비스 ID를 만들었다면 마이그레이션을 손쉽게 수행할 수 있습니다. 이 시나리오는 대개 각 큐를 테넌트 사이트나 지점에 대한 브리지로 사용하며 해당 특정 사이트용으로 서비스 ID를 만드는 SaaS 스타일 솔루션에서 사용되는 경우가 많습니다. 이 경우에는 개별 서비스 ID를 큐에서 직접 공유 액세스 서명 규칙으로 마이그레이션할 수 있습니다. 서비스 ID 이름은 SAS 규칙 이름으로, 서비스 ID 키는 SAS 규칙 키로 설정될 수 있습니다. 그리고 나면 SAS 규칙의 권한이 엔터티에 해당하는 각 ACS 규칙과 동일하게 구성됩니다.
+애플리케이션이 단순 규칙을 포함하는 사용자 지정 서비스 ID를 사용하는 경우, 특정 큐에 대한 액세스 제어 기능을 제공하기 위해 ACS 서비스 ID를 만들었다면 마이그레이션을 손쉽게 수행할 수 있습니다. 이 시나리오는 대개 각 큐를 테넌트 사이트나 지점에 대한 브리지로 사용하며 해당 특정 사이트용으로 서비스 ID를 만드는 SaaS 스타일 솔루션에서 사용되는 경우가 많습니다. 이 경우에는 개별 서비스 ID를 큐에서 직접 공유 액세스 서명 규칙으로 마이그레이션할 수 있습니다. 서비스 ID 이름은 SAS 규칙 이름으로, 서비스 ID 키는 SAS 규칙 키로 설정될 수 있습니다. 그리고 나면 SAS 규칙의 권한이 엔터티에 해당하는 각 ACS 규칙과 동일하게 구성됩니다.
 
 ACS와 페더레이션된 기존 네임스페이스 대신 이 새로운 SAS 구성을 추가로 만들 수 있으며, 그런 후에 [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider) 대신 [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider)를 사용하여 ACS에서 SAS로의 마이그레이션을 수행할 수 있습니다. 이때 ACS에서 네임스페이스의 연결을 끊지 않아도 됩니다.
 
 ### <a name="complex-rules"></a>복잡한 규칙
 
-SAS 규칙은 계정이 아니라 권한과 연결되어 있는 명명된 서명 키입니다. 따라서 응용 프로그램이 서비스 ID를 여러 개 만들고 여러 엔터티나 전체 네임스페이스에 대한 액세스 권한을 부여하는 시나리오에서는 여전히 토큰 발급 매개체가 필요합니다. [Azure 지원에 문의](https://azure.microsoft.com/support/options/)하면 이러한 매개체에 대한 지침을 확인할 수 있습니다.
+SAS 규칙은 계정이 아니라 권한과 연결되어 있는 명명된 서명 키입니다. 따라서 애플리케이션이 서비스 ID를 여러 개 만들고 여러 엔터티나 전체 네임스페이스에 대한 액세스 권한을 부여하는 시나리오에서는 여전히 토큰 발급 매개체가 필요합니다. [Azure 지원에 문의](https://azure.microsoft.com/support/options/)하면 이러한 매개체에 대한 지침을 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

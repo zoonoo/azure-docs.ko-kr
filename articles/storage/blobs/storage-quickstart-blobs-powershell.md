@@ -6,14 +6,14 @@ author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
+ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: 13d28e43f9f712f5e597da8171ba9ebf4118bd49
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: f85d404df37d34f7363114fbbf34ceec3bbe7c0f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712044"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042804"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Blob 업로드, 다운로드 및 나열
 
@@ -21,9 +21,13 @@ Azure PowerShell 모듈을 사용하여 Azure 리소스를 만들고 관리합�
 
 ## <a name="prerequisites"></a>필수 조건
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+Azure Storage에 액세스하려면 Azure 구독이 있어야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-이 빠른 시작에서는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+이 빠른 시작에서는 Azure PowerShell 모듈 Az 버전 0.7 이상이 필요합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요.
+
+[!INCLUDE [storage-quickstart-tutorial-intro-include-powershell](../../../includes/storage-quickstart-tutorial-intro-include-powershell.md)]
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
@@ -33,26 +37,26 @@ Blob은 항상 컨테이너에 업로드됩니다. 폴더에서 컴퓨터의 파
 
 ```powershell
 $containerName = "quickstartblobs"
-New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob
+new-azurestoragecontainer -Name $containerName -Context $ctx -Permission blob
 ```
 
 ## <a name="upload-blobs-to-the-container"></a>컨테이너에 Blob 업로드
 
 Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. IaaS VM을 백업하는 VHD 파일은 페이지 Blob입니다. 파일에 쓴 다음, 더 많은 정보를 계속해서 추가하려는 경우처럼 로깅에 추가 Blob을 사용합니다. Blob Storage에 저장된 대부분의 파일은 블록 Blob입니다. 
 
-블록 Blob에 파일을 업로드하려면 컨테이너 참조를 가져온 다음 해당 컨테이너의 블록 Blob에 대한 참조를 가져옵니다. Blob 참조가 있으면 [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent)를 사용하여 데이터를 업로드할 수 있습니다. 이 작업은 Blob이 없는 경우 새로 만들고, Blob이 있는 경우 덮어씁니다.
+블록 Blob에 파일을 업로드하려면 컨테이너 참조를 가져온 다음 해당 컨테이너의 블록 Blob에 대한 참조를 가져옵니다. Blob 참조가 있으면 [set-azurestorageblobcontent](/powershell/module/azure.storage/set-azurestorageblobcontent)를 사용하여 데이터를 업로드할 수 있습니다. 이 작업은 Blob이 없는 경우 새로 만들고, Blob이 있는 경우 덮어씁니다.
 
 다음 예제에서는 *Image001.jpg* 및 *Image002.png*를 로컬 디스크의 *D:\\_TestImages* 폴더에서 방금 만든 컨테이너로 업로드합니다.
 
 ```powershell
 # upload a file
-Set-AzureStorageBlobContent -File "D:\_TestImages\Image001.jpg" `
+set-azurestorageblobcontent -File "D:\_TestImages\Image001.jpg" `
   -Container $containerName `
   -Blob "Image001.jpg" `
   -Context $ctx 
 
 # upload another file
-Set-AzureStorageBlobContent -File "D:\_TestImages\Image002.png" `
+set-azurestorageblobcontent -File "D:\_TestImages\Image002.png" `
   -Container $containerName `
   -Blob "Image002.png" `
   -Context $ctx
@@ -62,30 +66,30 @@ Set-AzureStorageBlobContent -File "D:\_TestImages\Image002.png" `
 
 ## <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
 
-[Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob)을 사용하여 컨테이너의 Blob 목록을 가져옵니다. 이 예제에서는 업로드된 Blob의 이름만 보여 줍니다.
+[get-azurestorageblob](/powershell/module/azure.storage/get-azurestorageblob)을 사용하여 컨테이너의 Blob 목록을 가져옵니다. 이 예제에서는 업로드된 Blob의 이름만 보여 줍니다.
 
 ```powershell
-Get-AzureStorageBlob -Container $ContainerName -Context $ctx | select Name 
+get-azurestorageblob -Container $ContainerName -Context $ctx | select Name
 ```
 
 ## <a name="download-blobs"></a>Blob 다운로드
 
-로컬 디스크로 Blob을 다운로드합니다. 다운로드하려는 각 Blob에 대해 이름을 설정하고 [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent)를 호출하여 Blob을 다운로드합니다.
+로컬 디스크로 Blob을 다운로드합니다. 다운로드하려는 각 Blob에 대해 이름을 설정하고 [get-azurestorageblobcontent](/powershell/module/azure.storage/get-azurestorageblobcontent)를 호출하여 Blob을 다운로드합니다.
 
 이 예제에서는 로컬 디스크의 *D:\\_TestImages\Downloads*에 Blob을 다운로드합니다. 
 
 ```powershell
 # download first blob
-Get-AzureStorageBlobContent -Blob "Image001.jpg" `
+get-azurestorageblobcontent -Blob "Image001.jpg" `
   -Container $containerName `
   -Destination "D:\_TestImages\Downloads\" `
   -Context $ctx 
 
 # download another blob
-Get-AzureStorageBlobContent -Blob "Image002.png" `
+get-azurestorageblobcontent -Blob "Image002.png" `
   -Container $containerName `
   -Destination "D:\_TestImages\Downloads\" `
-  -Context $ctx 
+  -Context $ctx
 ```
 
 ## <a name="data-transfer-with-azcopy"></a>AzCopy를 사용한 데이터 전송
@@ -112,14 +116,14 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 로컬 디스크와 Azure Blob 저장소 간에 파일을 전송했습니다. PowerShell을 사용하여 Blob 저장소를 사용하는 자세한 방법을 알아보려면 Azure Storage에서 Azure PowerShell을 사용하는 방법을 계속 진행하세요.
+이 빠른 시작에서는 로컬 디스크와 Azure Blob 저장소 간에 파일을 전송했습니다. PowerShell을 사용하여 Blob 스토리지를 사용하는 자세한 방법을 알아보려면 Azure Storage에서 Azure PowerShell을 사용하는 방법을 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [Azure Storage와 함께 Azure PowerShell 사용](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets-reference"></a>Microsoft Azure PowerShell Storage cmdlet 참조
 
-* [Storage PowerShell cmdlet](/powershell/module/azurerm.storage#storage)
+* [Storage PowerShell cmdlet](/powershell/module/az.storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage 탐색기
 

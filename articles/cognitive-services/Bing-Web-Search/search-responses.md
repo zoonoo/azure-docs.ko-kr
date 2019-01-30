@@ -1,7 +1,7 @@
 ---
-title: 응답 검색 - Bing Web Search API
+title: Bing Web Search API 응답 구조 및 대답 형식
 titleSuffix: Azure Cognitive Services
-description: Bing Web Search API에서 시작된 대답 형식 및 응답에 대해 알아봅니다.
+description: Bing Web Search API에서 사용하는 응답 형식 및 응답에 대해 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: aahi
-ms.openlocfilehash: c7626f08dcfad76724a4d1f5d88fbd10c78c62c6
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec2018
+ms.openlocfilehash: 1d47d8e35a1be28b5610961c1b1c7b5d1492e871
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164778"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250504"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web Search API 응답 구조 및 대답 형식  
 

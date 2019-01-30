@@ -1,6 +1,6 @@
 ---
-title: Azure Storage를 사용하여 클라우드의 응용 프로그램 데이터에 대한 액세스 보호 | Microsoft Docs
-description: SAS 토큰, 암호화 및 HTTPS를 사용하여 클라우드의 응용 프로그램 데이터를 보호합니다.
+title: Azure Storage를 사용하여 클라우드의 애플리케이션 데이터에 대한 액세스 보호 | Microsoft Docs
+description: SAS 토큰, 암호화 및 HTTPS를 사용하여 클라우드의 애플리케이션 데이터를 보호합니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/01/2018
 ms.locfileid: "39397776"
 ---
-# <a name="secure-access-to-an-applications-data-in-the-cloud"></a>클라우드의 응용 프로그램 데이터에 대한 액세스 보호
+# <a name="secure-access-to-an-applications-data-in-the-cloud"></a>클라우드의 애플리케이션 데이터에 대한 액세스 보호
 
 이 자습서는 시리즈의 3부입니다. 저장소 계정에 대한 액세스를 보호하는 방법을 배웁니다. 
 
@@ -26,7 +26,7 @@ ms.locfileid: "39397776"
 > * 서버 쪽 암호화 켜기
 > * HTTPS 전용 전송 사용
 
-[Azure Blob Storage](../common/storage-introduction.md#blob-storage)는 응용 프로그램용 파일을 저장하기 위한 강력한 서비스를 제공합니다. 이 자습서에서는 [이전 항목][previous-tutorial]을 확장하여 웹 응용 프로그램에서 저장소 계정에 대한 액세스를 보호하는 방법을 보여 줍니다. 완료되면 이미지가 암호화되고 웹앱은 보안 SAS 토큰을 사용하여 썸네일 이미지에 액세스합니다.
+[Azure Blob Storage](../common/storage-introduction.md#blob-storage)는 응용 프로그램용 파일을 저장하기 위한 강력한 서비스를 제공합니다. 이 자습서에서는 [이전 항목][previous-tutorial]을 확장하여 웹 애플리케이션에서 저장소 계정에 대한 액세스를 보호하는 방법을 보여 줍니다. 완료되면 이미지가 암호화되고 웹앱은 보안 SAS 토큰을 사용하여 썸네일 이미지에 액세스합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -48,7 +48,7 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 
 ## <a name="configure-sas-tokens-for-thumbnails"></a>썸네일에 대한 SAS 토큰 구성
 
-이 자습서 시리즈의 1부에서 웹 응용 프로그램은 공용 컨테이너의 이미지를 표시했습니다. 시리즈의 이 부분에서는 [SAS(공유 액세스 서명)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) 토큰을 사용하여 썸네일 이미지를 검색합니다. SAS 토큰을 사용하여 IP, 프로토콜, 시간 간격, 허용되는 권한에 따라 컨테이너 또는 blob에 대해 제한된 액세스를 제공할 수 있습니다.
+이 자습서 시리즈의 1부에서 웹 애플리케이션은 공용 컨테이너의 이미지를 표시했습니다. 시리즈의 이 부분에서는 [SAS(공유 액세스 서명)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) 토큰을 사용하여 썸네일 이미지를 검색합니다. SAS 토큰을 사용하여 IP, 프로토콜, 시간 간격, 허용되는 권한에 따라 컨테이너 또는 blob에 대해 제한된 액세스를 제공할 수 있습니다.
 
 이 예제에서 소스 코드 리포지토리는 업데이트된 코드 샘플이 있는 `sasTokens` 분기를 사용합니다. [az webapp deployment source delete](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete)를 사용하여 기존 GitHub 배포를 삭제합니다. 다음으로, [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) 명령을 사용하여 웹앱에 대한 Git 배포를 구성합니다.  
 
@@ -173,7 +173,7 @@ HTTP/1.1 400 The account being accessed does not support http.
 > * 서버 쪽 암호화 켜기
 > * HTTPS 전용 전송 사용
 
-시리즈의 4부를 계속 진행하면서 클라우드 저장소 응용 프로그램을 모니터링하고 문제를 해결하는 방법을 알아봅니다.
+시리즈의 4부를 계속 진행하면서 클라우드 저장소 애플리케이션을 모니터링하고 문제를 해결하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [응용 프로그램 클라우드 응용 프로그램 저장소 모니터링 및 문제 해결](storage-monitor-troubleshoot-storage-application.md)

@@ -1,5 +1,5 @@
 ---
-title: Azure Search의 Lucene 쿼리 예제 | Microsoft Docs
+title: Lucene 쿼리 예제 - Azure Search
 description: Lucene은 Azure Search 서비스에서 유사 항목 검색, 근접 검색, 용어 상승, 정규식 검색 및 와일드카드 검색에 대해 구문을 쿼리합니다.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
-ms.openlocfilehash: b5a3e2eac218ba2aa6958ffc56bd59f5b513cf48
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.custom: seodec2018
+ms.openlocfilehash: 962c1cff91a5ac3f52dc67c30bd2c7a4e2e22b9d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42140730"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631841"
 ---
 # <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Azure Search에서 고급 쿼리를 작성하기 위한 Lucene 구문 퀴리 예제
 Azure Search에 대한 쿼리를 생성하는 경우 기본 [단순 쿼리 파서](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)를 좀 더 복잡한 [Azure Search의 Lucene 쿼리 파서](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)로 바꾸어 특수 및 고급 쿼리 정의를 작성할 수 있습니다. 
@@ -77,7 +78,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 
 이 문서의 모든 예제는 전체 구문을 나타내는 **queryType=full** 검색 매개 변수가 Lucene 쿼리 파서에서 처리되도록 지정합니다. 
 
-## <a name="example-1-field-scoped-query"></a>예제제 1: 필드 범위 쿼리
+## <a name="example-1-field-scoped-query"></a>예제 1: 필드 범위 쿼리
 
 이 첫 번째 예제는 파서 특정적이지는 않지만 Azure에서는 이를 사용하여 첫 번째 기본 쿼리 개념인 포함을 소개하려고 합니다. 이 예제에서는 쿼리 실행 및 몇 가지 특정 필드에 대한 응답의 범위를 지정합니다. 도구가 Postman 또는 Search 탐색기인 경우 판독 가능한 JSON 응답을 구성하는 방법을 파악하는 것이 중요합니다. 
 
@@ -93,7 +94,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 
 응답에서 검색 점수를 보았을 수 있습니다. 순위가 없으면 검색이 전체 텍스트 검색이 아니거나 어떤 조건도 적용되지 않기 때문에 균일하게 점수 1이 지정됩니다. 조건 없는 Null 검색의 경우 행은 임의의 순서로 반환됩니다. 실제 조건을 포함하는 경우 검색 점수가 의미 있는 값으로 바뀌는 것을 볼 수 있습니다.
 
-## <a name="example-2-intra-field-filtering"></a>예제 2: 필드 내 필터링
+## <a name="example-2-intra-field-filtering"></a>예 2: 필드 내 필터링
 
 전체 Lucene 구문은 필드 내의 식을 지원합니다. 이 쿼리는 junior가 아닌 senior라는 용어가 포함된 직함을 검색합니다.
 
@@ -112,7 +113,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 
 **fieldname:searchterm** 에서 지정된 필드는 검색 가능 필드이어야 합니다. 필드 정의에서 인덱스 특성이 사용되는 방법에 대한 자세한 내용은 [인덱스 만들기(Azure Search 서비스 REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요.
 
-## <a name="example-3-fuzzy-search"></a>예제 3: 유사 항목 검색
+## <a name="example-3-fuzzy-search"></a>예 3: 유사 항목 검색
 
 전체 Lucene 구문은 비슷한 구문을 갖는 용어를 일치시키는 유사 항목 검색도 지원합니다. 유사 항목 검색을 수행하려면 편집 거리를 지정하는 0과 2 사이의 값을 선택적 매개 변수로 포함하여 단일 단어의 끝에 물결표`~` 기호를 추가합니다. 예를 들어, `blue~` 또는 `blue~1`은 blue, blues 및 glue를 반환합니다.
 
@@ -171,9 +172,9 @@ musicstoreindex 예제에서 **genre** 와 같이, 특정 필드에서 일치 �
 계수 수준을 설정할 때 상승 계수가 높을수록 해당 용어는 다른 검색어에 비해 관련성이 더 높아집니다. 기본적으로, 상승 계수는 1입니다. 상승 계수는 양수이어야 하지만, 1보다 작을 수 있습니다(예: 0.2).
 
 
-## <a name="example-6-regex"></a>예제 6: 정규식
+## <a name="example-6-regex"></a>예제 6: Regex
 
-정규식 검색은 [RegExp 클래스](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html)에 나와 있는 것처럼 슬래시("/") 사이의 내용에 기반하여 일치 항목을 찾습니다.
+정규식 검색은 [RegExp 클래스](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html)에 나와 있는 것처럼 슬래시("/") 사이의 내용에 기반하여 일치 항목을 찾습니다.
 
 이 쿼리에서 용어 Senior 또는 Junior 중 하나를 사용하여 작업을 검색합니다. `search=business_title:/(Sen|Jun)ior/``
 

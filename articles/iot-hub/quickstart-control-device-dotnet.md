@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub 빠른 시작(.NET)에서 디바이스 제어 | Microsoft Docs
-description: 이 빠른 시작에서 두 개의 샘플 C# 응용 프로그램을 실행합니다. 하나의 애플리케이션은 허브에 연결된 디바이스를 원격으로 제어할 수 있는 백 엔드 애플리케이션입니다. 또 다른 애플리케이션은 원격으로 제어할 수 있는 허브에 연결된 디바이스를 시뮬레이션 합니다.
+description: 이 빠른 시작에서 두 개의 샘플 C# 애플리케이션을 실행합니다. 하나의 애플리케이션은 허브에 연결된 디바이스를 원격으로 제어할 수 있는 백 엔드 애플리케이션입니다. 또 다른 애플리케이션은 원격으로 제어할 수 있는 허브에 연결된 디바이스를 시뮬레이션 합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -23,7 +23,7 @@ ms.locfileid: "51514747"
 
 IoT Hub는 IoT 디바이스에서 클라우드로 다량의 원격 분석 데이터를 수집하고 클라우드에서 디바이스를 관리할 수 있게 해주는 Azure 서비스입니다. 이 빠른 시작에서는 *직접 메서드*를 사용하여 IoT 허브에 연결된 시뮬레이션된 디바이스를 제어합니다. 직접 메서드를 사용하여 IoT 허브에 연결된 디바이스의 동작을 원격으로 변경할 수 있습니다.
 
-빠른 시작은 두 가지 미리 작성된 .NET 응용 프로그램을 사용합니다.
+빠른 시작은 두 가지 미리 작성된 .NET 애플리케이션을 사용합니다.
 
 * 백 엔드 애플리케이션에서 호출된 직접 메소드에 응답하는 시뮬레이션된 디바이스 애플리케이션입니다. 직접 메서드 호출을 수신하기 위해 이 애플리케이션을 IoT 허브의 디바이스별 엔드포인트에 연결합니다.
 
@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작에서 실행하는 두 개의 샘플 응용 프로그램은 C#을 사용하여 작성되었습니다. 개발 컴퓨터에서 .NET Core SDK 2.1.0 이상이 필요합니다.
+이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 C#을 사용하여 작성되었습니다. 개발 컴퓨터에서 .NET Core SDK 2.1.0 이상이 필요합니다.
 
 [.NET](https://www.microsoft.com/net/download/all)에서 여러 플랫폼에 대한 .NET Core SDK를 다운로드할 수 있습니다.
 
@@ -90,7 +90,7 @@ dotnet --version
 
 ## <a name="retrieve-the-service-connection-string"></a>서비스 연결 문자열 검색
 
-백 엔드 응용 프로그램을 허브에 연결하여 메시지를 검색할 수 있게 하려면 IoT 허브 _서비스 연결 문자열_이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
+백 엔드 애플리케이션을 허브에 연결하여 메시지를 검색할 수 있게 하려면 IoT 허브 _서비스 연결 문자열_이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name YourIoTHubName --output table
@@ -130,7 +130,7 @@ az iot hub show-connection-string --hub-name YourIoTHubName --output table
 
 ## <a name="call-the-direct-method"></a>직접 메서드 호출
 
-백 엔드 응용 프로그램은 IoT Hub의 서비스 측 엔드포인트에 연결합니다. 애플리케이션은 IoT 허브를 통해 디바이스에 직접 메서드 호출을 하고 승인을 수신 대기합니다. IoT Hub 백 엔드 응용 프로그램은 일반적으로 클라우드에서 실행됩니다.
+백 엔드 애플리케이션은 IoT Hub의 서비스 측 엔드포인트에 연결합니다. 애플리케이션은 IoT 허브를 통해 디바이스에 직접 메서드 호출을 하고 승인을 수신 대기합니다. IoT Hub 백 엔드 애플리케이션은 일반적으로 클라우드에서 실행됩니다.
 
 1. 또 다른 로컬 터미널 창에서 샘플 C# 프로젝트의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\back-end-application** 폴더로 이동합니다.
 
@@ -138,13 +138,13 @@ az iot hub show-connection-string --hub-name YourIoTHubName --output table
 
     `s_connectionString` 변수의 값을 이전에 적어둔 서비스 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **BackEndApplication.cs** 파일에 저장합니다.
 
-3. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램에 필요한 라이브러리를 설치합니다.
+3. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 애플리케이션에 필요한 라이브러리를 설치합니다.
 
     ```cmd/sh
     dotnet restore
     ```
 
-4. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램을 빌드하고 실행합니다.
+4. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 애플리케이션을 빌드하고 실행합니다.
 
     ```cmd/sh
     dotnet run
@@ -152,7 +152,7 @@ az iot hub show-connection-string --hub-name YourIoTHubName --output table
 
     다음 스크린샷에서는 애플리케이션에서 디바이스에 직접 메서드를 호출하고 승인을 받을 때의 출력을 보여 줍니다.
 
-    ![백 엔드 응용 프로그램 실행](./media/quickstart-control-device-dotnet/BackEndApplication.png)
+    ![백 엔드 애플리케이션 실행](./media/quickstart-control-device-dotnet/BackEndApplication.png)
 
     백 엔드 애플리케이션을 실행한 후 시뮬레이션된 디바이스를 실행하는 콘솔 창에 메시지가 표시되고 메시지를 보내는 속도가 변경됩니다.
 

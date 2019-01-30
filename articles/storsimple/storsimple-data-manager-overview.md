@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure StorSimple 데이터 관리자 개요 | Microsoft Docs
-description: StorSimple 데이터 관리자 서비스 개요 제공
+description: StorSimple Data Manager 서비스 개요 제공
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 5845fd246b20d29739eb6d60bbc8621489ccc0d6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fe4d332859b3ec0ba03e64f9a830b7710586aa17
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011941"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158820"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>StorSimple 데이터 관리자 솔루션 개요
 
 ## <a name="overview"></a>개요
 
-Microsoft Azure StorSimple은 클라우드 저장소를 온-프레미스 솔루션의 확장으로 사용하여 자동으로 온-프레미스 솔루션 및 클라우드에서 데이터를 계층화합니다. 최대 효율성 및 비용 절감을 위해 데이터는 중복 제거 및 압축된 형식으로 클라우드에 저장됩니다. 데이터가 StorSimple 형식으로 저장되면 사용하려고 할 수 있는 다른 클라우드 응용 프로그램에서 쉽게 사용할 수 없게 됩니다.
+Microsoft Azure StorSimple은 클라우드 저장소를 온-프레미스 솔루션의 확장으로 사용하여 자동으로 온-프레미스 솔루션 및 클라우드에서 데이터를 계층화합니다. 최대 효율성 및 비용 절감을 위해 데이터는 중복 제거 및 압축된 형식으로 클라우드에 저장됩니다. 데이터가 StorSimple 형식으로 저장되면 사용하려고 할 수 있는 다른 클라우드 애플리케이션에서 쉽게 사용할 수 없게 됩니다.
 
 StorSimple 데이터 관리자를 사용하면 클라우드의 StorSimple 형식 데이터를 원활하게 액세스하고 사용할 수 있습니다. StorSimple 형식을 기본 Blob 및 파일로 변환하여 Azure Media Services, Azure HDInsights, Azure Machine Learning 등의 다른 서비스에서 사용할 수 있도록 합니다.
 
-이 문서에서는 StorSimple 데이터 관리자 솔루션을 대략적으로 설명합니다. 또한 이 서비스를 사용하여 클라우드에서 StorSimple 데이터 및 기타 Azure 서비스를 사용하는 응용 프로그램을 작성하는 방법을 설명합니다.
+이 문서에서는 StorSimple 데이터 관리자 솔루션을 대략적으로 설명합니다. 또한 이 서비스를 사용하여 클라우드에서 StorSimple 데이터 및 기타 Azure 서비스를 사용하는 애플리케이션을 작성하는 방법을 설명합니다.
 
 ## <a name="how-it-works"></a>작동 원리
 

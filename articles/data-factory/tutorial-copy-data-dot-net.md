@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 3240b3ecfe8de8644d2ac1fd4a880fc0d2dcc76b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1ad344d3169643128a4860c9b0856f845d9656cd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237131"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021359"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob에서 Azure SQL Database로 데이터 복사
 이 자습서에서는 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 Data Factory 파이프라인을 만듭니다. 이 자습서의 구성 패턴은 파일 기반 데이터 저장소에서 관계형 데이터 저장소로 복사하는 데 적용됩니다. 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
@@ -39,11 +38,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **Azure Storage 계정**. Blob 저장소를 **원본** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
+* **Azure Storage 계정**. Blob 저장소를 **원본** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
 * **Azure SQL Database**. 데이터베이스를 **싱크** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure SQL Database를 만드는 단계는 [Azure SQL Database 만들기](../sql-database/sql-database-get-started-portal.md) 문서를 참조하세요.
 * **Visual Studio** 2015 또는 2017 이 문서의 연습에서는 Visual Studio 2017을 사용합니다.
 * **[Azure .NET SDK](https://azure.microsoft.com/downloads/)를 다운로드하고 설치합니다**.
-* [이 지침](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)에 따라 **Azure Active Directory에 응용 프로그램을 만듭니다**. 나중의 단계에서 사용하는 **응용 프로그램 ID**, **인증 키** 및 **테넌트 ID** 값을 적어 둡니다. 동일한 문서의 지침에 따라 응용 프로그램을 "**참가자**" 역할에 할당합니다
+* [이 지침](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)에 따라 **Azure Active Directory에 애플리케이션을 만듭니다**. 나중에 나오는 단계에서 사용하는 다음 값을 기록해 둡니다. **애플리케이션 ID**, **인증 키** 및 **테넌트 ID**. 동일한 문서의 지침에 따라 애플리케이션을 "**참가자**" 역할에 할당합니다
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Blob 및 SQL 테이블 만들기
 
@@ -85,7 +84,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
-Visual Studio 2015/2017을 사용하여 C# .NET 콘솔 응용 프로그램을 만듭니다.
+Visual Studio 2015/2017을 사용하여 C# .NET 콘솔 애플리케이션을 만듭니다.
 
 1. **Visual Studio**를 시작합니다.
 2. **File**을 클릭하고 **New**를 가리킨 다음 **프로젝트**를 클릭합니다.
@@ -119,7 +118,7 @@ Visual Studio 2015/2017을 사용하여 C# .NET 콘솔 응용 프로그램을 �
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
     
-2. 변수를 설정하는 **Main** 메서드에 다음 코드를 추가합니다. 자리 표시자를 사용자의 고유 값으로 바꿉니다. Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+2. 변수를 설정하는 **Main** 메서드에 다음 코드를 추가합니다. 자리 표시자를 사용자의 고유 값으로 바꿉니다. 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
     ```csharp
     // Set variables
@@ -228,12 +227,12 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(sqlDbLinkedService, client.Ser
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>원본 Azure Blob에 대한 데이터 세트 만들기
 
-**Main** 메서드에 **Azure Blob 데이터 집합**을 만드는 다음 코드를 추가합니다. 지원되는 속성 및 세부 정보는 [Azure Blob 데이터 세트 속성](connector-azure-blob-storage.md#dataset-properties)에서 자세히 알아보세요.
+**Main** 메서드에 **Azure Blob 데이터 세트**를 만드는 다음 코드를 추가합니다. 지원되는 속성 및 세부 정보는 [Azure Blob 데이터 세트 속성](connector-azure-blob-storage.md#dataset-properties)에서 자세히 알아보세요.
 
 Azure Blob의 원본 데이터를 나타내는 데이터 세트를 정의합니다. 이 Blob 데이터 세트는 이전 단계에서 만든 Azure Storage 연결된 서비스를 참조하며 다음을 설명합니다.
 
 - 복사할 Blob의 원본 위치: **FolderPath** 및 **FileName**
-- 내용을 구문 분석하는 방법을 나타내는 Blob 형식: **TextFormat** 및 해당 설정(예: 열 구분 기호)
+- 콘텐츠를 구문 분석하는 방법을 나타내는 Blob 형식: **TextFormat** 및 해당 설정(예: 열 구분 기호).
 - 이 경우 싱크 SQL 테이블에 매핑하는 열 이름과 데이터 형식을 포함한 데이터 구조
 
 ```csharp
@@ -270,7 +269,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(blobDataset, client.Serializat
 
 ### <a name="create-a-dataset-for-sink-azure-sql-database"></a>싱크 Azure SQL Database에 대한 데이터 세트 만들기
 
-**Main** 메서드에 **Azure SQL Database 데이터 집합**을 만드는 다음 코드를 추가합니다. 지원되는 속성 및 세부 정보는 [Azure SQL Database 데이터 세트 속성](connector-azure-sql-database.md#dataset-properties)에 대해 자세히 알아보세요.
+**Main** 메서드에 **Azure SQL Database 데이터 세트**를 만드는 다음 코드를 추가합니다. 지원되는 속성 및 세부 정보는 [Azure SQL Database 데이터 세트 속성](connector-azure-sql-database.md#dataset-properties)에 대해 자세히 알아보세요.
 
 Azure SQL Database의 싱크 데이터를 나타내는 데이터 세트를 정의합니다. 이 데이터 세트는 이전 단계에서 만든 Azure SQL Database 연결된 서비스를 참조합니다. 또한 복사된 데이터를 보관하는 SQL 테이블을 지정합니다. 
 
@@ -380,7 +379,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## <a name="run-the-code"></a>코드 실행
 
-응용 프로그램을 빌드하고 시작한 다음 파이프라인 실행을 확인합니다.
+애플리케이션을 빌드하고 시작한 다음, 파이프라인 실행을 확인합니다.
 
 콘솔에서 데이터 팩터리, 연결된 서비스, 데이터 세트, 파이프라인 및 파이프라인 실행 만들기에 대한 진행 상황을 출력합니다. 그런 다음 파이프라인 실행 상태를 확인합니다. 데이터를 읽고/쓴 크기가 있는 복사 작업 실행 세부 정보가 표시될 때까지 기다립니다. 그런 다음 SSMS(SQL Server Management Studio) 또는 Visual Studio와 같은 도구를 사용하여 대상 Azure SQL Database에 연결하고 지정한 테이블에 데이터가 복사되었는지 확인합니다.
 

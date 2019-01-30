@@ -1,20 +1,17 @@
 ---
 title: Azure Database for MySQL에서 서버 매개 변수를 구성하는 방법
 description: 이 문서에서는 Azure Portal을 사용하여 Azure Database for MySQL에서 사용 가능한 서버 매개 변수를 구성하는 방법을 설명합니다.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
-ms.date: 07/18/2018
-ms.openlocfilehash: 686db4dc15eb42abead3eef6798ed2b83e248811
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.topic: conceptual
+ms.date: 12/06/2018
+ms.openlocfilehash: 103e09a0e2b9dd409fa2ddaff1c5311ef9936d22
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136454"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538512"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL에서 서버 매개 변수 구성 방법
 
@@ -34,7 +31,7 @@ MySQL용 Azure Database는 일부 서버 매개 변수 구성을 지원합니다
 
 ## <a name="list-of-configurable-server-parameters"></a>구성 가능한 서버 매개 변수 목록
 
-지원되는 서버 매개 변수 목록은 계속 확장됩니다. Azure Portal의 서버 매개 변수 탭을 사용하여 정의를 가져오고 응용 프로그램 요구 사항에 따라 서버 매개 변수를 구성합니다.
+지원되는 서버 매개 변수 목록은 계속 확장됩니다. Azure Portal의 서버 매개 변수 탭을 사용하여 정의를 가져오고 애플리케이션 요구 사항에 따라 서버 매개 변수를 구성합니다.
 
 ## <a name="non-configurable-server-parameters"></a>구성 불가능한 서버 매개 변수
 
@@ -42,9 +39,9 @@ InnoDB 버퍼 풀 및 최대 연결은 구성할 수 없으며 [가격 책정 �
 
 |**가격 책정 계층**| **계산 세대**|**vCore**|**InnoDB 버퍼 풀(MB)**| **최대 연결**|
 |---|---|---|---|--|
-|Basic| 4세대| 1| 1024| 50|
+|Basic| 4세대| 1| 960| 50|
 |Basic| 4세대| 2| 2560| 100|
-|Basic| 5세대| 1| 1024| 50|
+|Basic| 5세대| 1| 960| 50|
 |Basic| 5세대| 2| 2560| 100|
 |범용| 4세대| 2| 3584| 300|
 |범용| 4세대| 4| 7680| 625|
@@ -56,10 +53,12 @@ InnoDB 버퍼 풀 및 최대 연결은 구성할 수 없으며 [가격 책정 �
 |범용| 5세대| 8| 15360| 1250|
 |범용| 5세대| 16| 31232| 2500|
 |범용| 5세대| 32| 62976| 5,000|
+|범용| 5세대| 64| 125952| 10000|
 |메모리 최적화| 5세대| 2| 7168| 600|
 |메모리 최적화| 5세대| 4| 15360| 1250|
 |메모리 최적화| 5세대| 8| 30720| 2500|
 |메모리 최적화| 5세대| 16| 62464| 5,000|
+|메모리 최적화| 5세대| 32| 125952| 10000|
 
 이러한 추가 서버 매개 변수는 시스템에서 구성할 수 없습니다.
 

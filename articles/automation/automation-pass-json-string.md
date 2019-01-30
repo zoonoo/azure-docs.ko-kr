@@ -3,19 +3,19 @@ title: Azure Automation Runbook에 JSON 개체 전달
 description: Runbook에 매개 변수를 JSON 개체로 전달하는 방법
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powershell,  runbook, json, azure automation
-ms.openlocfilehash: 5e1ab8d6bd2de24251851cfc60d270a2fef4090d
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 65f3bfcebdde50352d5e9e2748036d4522b2a991
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918821"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424902"
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Azure Automation Runbook에 JSON 개체 전달
 
@@ -32,7 +32,7 @@ PowerShell Runbook은 Azure VM을 시작하고 전달된 JSON에서 VM에 대한
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [체험 계정을 등록](https://azure.microsoft.com/free/)할 수 있습니다.
 * [Automation 계정](automation-sec-configure-azure-runas-account.md) .  이 계정은 가상 머신을 시작하고 중지할 수 있는 권한이 있어야 합니다.
 * Azure 가상 머신. 프로덕션 VM이 되지 않도록 이 가상 컴퓨터를 중지하고 시작합니다.
-* 로컬 컴퓨터에 설치된 Azure Powershell. Azure PowerShell을 얻는 방법에 대한 자세한 내용은 [Install and configure Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0)(Azure Powershell 설치 및 구성)을 참조하세요.
+* 로컬 컴퓨터에 설치된 Azure Powershell. Azure PowerShell을 얻는 방법에 대한 자세한 내용은 [Install and configure Azure Powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.1.0)(Azure Powershell 설치 및 구성)을 참조하세요.
 
 ## <a name="create-the-json-file"></a>JSON 파일 만들기
 
@@ -90,7 +90,7 @@ Start-AzureRmVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
 
 1. JSON 파일의 내용을 가져와 문자열로 변환합니다.
     ```powershell
-    $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
+    $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
     ```
     `JsonPath`는 JSON 파일을 저장한 경로입니다.
 1. `$json`의 문자열 내용을 PowerShell 개체로 변환합니다.
@@ -118,5 +118,6 @@ Runbook에서 JSON 파일의 값을 사용하여 VM을 시작합니다.
 
 * 텍스트 편집기를 사용하여 PowerShell 및 PowerShell 워크플로 Runbook을 편집하는 방법을 알아보려면 [Azure Automation에서 텍스트 Runbook 편집](automation-edit-textual-runbook.md) 
 * Runbook을 만들고 가져오는 방법을 알아보려면 [Azure Automation에서 Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md)를 참조하세요.
+
 
 

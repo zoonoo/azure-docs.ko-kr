@@ -3,19 +3,19 @@ title: SQL Server Express에서 SQL Server로 Azure AD Connect 데이터베이�
 description: 이 문서에서는 로컬 SQL Server Express 서버에서 원격 SQL Server로 Azure AD Connect 데이터베이스를 이동하는 방법을 설명합니다.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a42deb6bc039602c4bda523d2ab1ee5a69bb5644
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8f9d530531d5f72e92bdb7362879199ce6a4853c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46303539"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474849"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>SQL Server Express에서 SQL Server로 Azure AD Connect 데이터베이스 이동 
 
@@ -30,7 +30,7 @@ ms.locfileid: "46303539"
 다음 단계를 사용하여 원격 SQL Server로 Azure AD Connect 데이터베이스를 이동합니다.
 
 1.  Azure AD Connect 서버에서로 **서비스**로 이동하고 **Microsoft Azure AD Sync** 서비스를 중지합니다.
-2. **% Program Files%\Microsoft Azure AD Sync/데이터/** 폴더를 찾고 **ADSync.mdf** 및 **ADSync_log.mdf** 파일을 원격 SQL Server에 복사합니다.
+2. **%Program Files%\Microsoft Azure AD Sync/데이터/** 폴더를 찾고 **ADSync.mdf** 및 **ADSync_log.ldf** 파일을 원격 SQL Server에 복사합니다.
 3. **Microsoft Azure AD Sync** 서비스를 Azure AD Connect 서버에서 다시 시작합니다.
 4. 제어판 - 프로그램 - 프로그램 및 기능으로 이동하여 Azure AD Connect를 제거합니다.  Microsoft Azure AD Connect를 선택하고 위쪽에서 제거합니다.
 5. 원격 SQL server에서 SQL Server Management Studio를 엽니다.

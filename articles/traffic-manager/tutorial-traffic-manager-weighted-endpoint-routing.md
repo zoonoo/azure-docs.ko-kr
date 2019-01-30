@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure Traffic Manager를 사용하여 가중 엔드포인트로 트래픽 라우팅
+title: 자습서 -가중 엔드포인트로 트래픽 라우팅 - Azure Traffic Manager
 description: 이 자습서 문서에서는 Traffic Manager를 사용하여 가중 엔드포인트로 트래픽을 라우팅하는 방법에 대해 설명합니다.
 services: traffic-manager
 author: KumudD
@@ -8,14 +8,14 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: kumud
-ms.openlocfilehash: 0f5b1f3525ab75f8c14f7921e23b30a1c58e8c73
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f4c29526f675cab461153b4749c4f6edc237dada
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158825"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467335"
 ---
-# <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>자습서: Traffic Manager를 사용하여 가중 트래픽 라우팅 제어 
+# <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>자습서: Traffic Manager를 사용하여 가중 엔드포인트에서 트래픽 라우팅 제어
 
 이 자습서는 Azure Traffic Manager를 사용하여 가중 라우팅 방법으로 엔드포인트 간에 사용자 트래픽 라우팅을 제어하는 방법을 설명합니다. 이 라우팅 메서드에서는 Traffic Manager 프로필 구성에서 각 엔드포인트에 가중치를 할당합니다. 그런 다음, 각 엔드포인트에 할당된 가중치에 따라 사용자 트래픽이 라우팅됩니다. 가중치는 1에서 1000 사이의 정수입니다. 엔드포인트에 할당된 가중치 값이 높을수록 우선 순위가 높습니다.
 
@@ -33,10 +33,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 실행 중인 Traffic Manager를 보려면 이 자습서에서 다음을 배포하세요.
-- 서로 다른 Azure 지역(미국 동부 및 유럽 서부)에서 실행되는 기본 웹 사이트의 두 인스턴스.
+- 다른 Azure 지역, 즉 미국 동부 및 유럽 서부에서 실행되는 기본 웹 사이트의 두 인스턴스
 - Traffic Manager를 테스트하기 위한 두 개의 테스트 VM: 미국 동부에 VM 하나 및 유럽 서부에 두 번째 VM. 테스트 VM을 사용하여 Traffic Manager가 엔드포인트에 더 높은 가중치가 할당된 웹 사이트로 사용자 트래픽을 라우팅하는 방법을 자세히 보여줍니다.
 
-### <a name="sign-in-to-azure"></a>Azure에 로그인 
+### <a name="sign-in-to-azure"></a>Azure에 로그인
 
 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -89,24 +89,24 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 섹션에서는 &mdash;myIISVMEastUS 및 myIISVMWEurope&mdash;이라는 두 개의 VM에 IIS 서버를 설치한 다음, 기본 웹 페이지를 업데이트합니다. 사용자 지정된 웹 페이지에는 웹 브라우저에서 웹 사이트를 방문할 때 연결하는 VM의 이름이 표시됩니다.
 
 1. 왼쪽 메뉴에서 **모든 리소스**를 선택합니다. 리소스 목록의 **myResourceGroupTM1** 리소스 그룹에서 **myIISVMEastUS**를 선택합니다.
-2. **개요** 페이지에서 **연결**을 선택합니다. **가상 머신에 연결**에서 **RDP 파일 다운로드**를 선택합니다. 
-3. 다운로드한 rdp 파일을 엽니다. 메시지가 표시되면 **연결**을 선택합니다. VM을 만들 때 지정한 사용자 이름 및 암호를 입력합니다. **추가 선택 사항**,  > **다른 계정 사용**을 차례로 선택하여 VM을 만들 때 입력한 자격 증명을 지정해야 할 수도 있습니다. 
+2. **개요** 페이지에서 **연결**을 선택합니다. **가상 머신에 연결**에서 **RDP 파일 다운로드**를 선택합니다.
+3. 다운로드한 rdp 파일을 엽니다. 메시지가 표시되면 **연결**을 선택합니다. VM을 만들 때 지정한 사용자 이름 및 암호를 입력합니다. **추가 선택 사항**,  > **다른 계정 사용**을 차례로 선택하여 VM을 만들 때 입력한 자격 증명을 지정해야 할 수도 있습니다.
 4. **확인**을 선택합니다.
 5. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. 경고 메시지가 표시되면 **예** 또는 **계속**을 선택하여 연결을 계속합니다.
 6. 서버 바탕 화면에서 **Windows 관리 도구** > **서버 관리자**로 이동합니다.
 7. VM1에서 Windows PowerShell을 엽니다. 다음 명령을 사용하여 IIS 서버를 설치하고 기본 .htm 파일을 업데이트합니다.
     ```powershell-interactive
     # Install IIS
-      Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
     
     # Remove default .htm file
-     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    remove-item C:\inetpub\wwwroot\iisstart.htm
     
     #Add custom .htm file
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
     ```
 
-     ![IIS를 설치하고 웹 페이지를 사용자 지정](./media/tutorial-traffic-manager-improve-website-response/deployiis.png)
+    ![IIS를 설치하고 웹 페이지를 사용자 지정](./media/tutorial-traffic-manager-improve-website-response/deployiis.png)
 
 8. **myIISVMEastUS**와의 RDP 연결을 종료합니다.
 9. 1-8단계를 반복합니다. **myResourceGroupTM2** 리소스 그룹 내에서 **myIISVMWEurope** VM을 사용하여 RDP 연결을 만들어서 IIS를 설치하고 기본 웹 페이지를 사용자 지정합니다.
@@ -180,8 +180,8 @@ IIS 서버를 실행하는 myIISVMEastUS 및 myIISVMWEurope이라는 두 개의 
     |  무게      | **100**을 입력합니다.        |
     |        |           |
 
-4. 2단계와 3단계를 반복하여 공용 IP 주소 **myIISVMWEurope-ip**에 대해 **myWestEuropeEndpoint**라는 이름의 또 다른 엔드포인트를 추가합니다. 이 주소는 myIISVMWEurope이라는 IIS 서버 VM과 연결됩니다. **가중치**에 **25**를 입력합니다. 
-5.  두 엔드포인트 추가가 완료되면 **온라인**인 모니터링 상태와 함께 Traffic Manager 프로필에 표시됩니다.
+4. 2단계와 3단계를 반복하여 공용 IP 주소 **myIISVMWEurope-ip**에 대해 **myWestEuropeEndpoint**라는 이름의 또 다른 엔드포인트를 추가합니다. 이 주소는 myIISVMWEurope이라는 IIS 서버 VM과 연결됩니다. **가중치**에 **25**를 입력합니다.
+5. 두 엔드포인트 추가가 완료되면 **온라인**인 모니터링 상태와 함께 Traffic Manager 프로필에 표시됩니다.
 
 ## <a name="test-the-traffic-manager-profile"></a>Traffic Manager 프로필 테스트
 실행 중인 Traffic Manager를 보려면 다음 단계를 완료합니다.
@@ -189,28 +189,28 @@ IIS 서버를 실행하는 myIISVMEastUS 및 myIISVMWEurope이라는 두 개의 
 2. 실행 중인 Traffic Manager를 봅니다.
 
 ### <a name="determine-dns-name-of-traffic-manager-profile"></a>Traffic Manager 프로필의 DNS 이름 확인
-이 자습서에서는 간단하게 Traffic Manager 프로필의 DNS 이름을 사용하여 웹 사이트를 방문합니다. 
+이 자습서에서는 간단하게 Traffic Manager 프로필의 DNS 이름을 사용하여 웹 사이트를 방문합니다.
 
 Traffic Manager 프로필의 DNS 이름은 다음과 같이 확인할 수 있습니다.
 
-1.  포털의 검색 창에서 이전 섹션에서 만든 Traffic Manager 프로필 이름을 검색합니다. 표시되는 결과에서 Traffic Manager 프로필을 선택합니다.
+1. 포털의 검색 창에서 이전 섹션에서 만든 Traffic Manager 프로필 이름을 검색합니다. 표시되는 결과에서 Traffic Manager 프로필을 선택합니다.
 1. **개요**를 선택합니다.
 2. Traffic Manager 프로필에는 해당 DNS 이름이 표시됩니다. 프로덕션 배포에서는 DNS CNAME 레코드를 사용하여 Traffic Manager 도메인 이름을 가리키도록 베니티 도메인 이름을 구성합니다.
 
    ![Traffic Manager DNS 이름](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-dns-name.png)
 
 ### <a name="view-traffic-manager-in-action"></a>실행 중인 Traffic Manager 보기
-이 섹션에서는 실행 중인 Traffic Manager를 볼 수 있습니다. 
+이 섹션에서는 실행 중인 Traffic Manager를 볼 수 있습니다.
 
 1. 왼쪽 메뉴에서 **모든 리소스**를 선택합니다. 리소스 목록의 **myResourceGroupTM1** 리소스 그룹에서 **myVMEastUS**를 선택합니다.
-2. **개요** 페이지에서 **연결**을 선택합니다. **가상 머신에 연결**에서 **RDP 파일 다운로드**를 선택합니다. 
-3. 다운로드한 rdp 파일을 엽니다. 메시지가 표시되면 **연결**을 선택합니다. VM을 만들 때 지정한 사용자 이름과 암호를 입력합니다. **추가 선택 사항**,  > **다른 계정 사용**을 차례로 선택하여 VM을 만들 때 입력한 자격 증명을 지정해야 할 수도 있습니다. 
+2. **개요** 페이지에서 **연결**을 선택합니다. **가상 머신에 연결**에서 **RDP 파일 다운로드**를 선택합니다.
+3. 다운로드한 rdp 파일을 엽니다. 메시지가 표시되면 **연결**을 선택합니다. VM을 만들 때 지정한 사용자 이름과 암호를 입력합니다. **추가 선택 사항**,  > **다른 계정 사용**을 차례로 선택하여 VM을 만들 때 입력한 자격 증명을 지정해야 할 수도 있습니다.
 4. **확인**을 선택합니다.
-5. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. 경고 메시지가 표시되면 **예** 또는 **계속**을 선택하여 연결을 계속합니다. 
+5. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. 경고 메시지가 표시되면 **예** 또는 **계속**을 선택하여 연결을 계속합니다.
 6. VM myVMEastUS의 웹 브라우저에서 Traffic Manager 프로필의 DNS 이름을 입력하여 웹 사이트를 봅니다. myIISVMEastUS라는 IIS 서버에 할당된 가중치가 **100**으로 더 높기 때문에 이 서버에서 호스팅되는 웹 사이트로 라우팅됩니다. myIISVMWEurope이라는 IIS 서버에 할당된 엔드포인트 가중치 값은 **25**로 더 낮습니다.
 
    ![Traffic Manager 프로필 테스트](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
-   
+
 ## <a name="delete-the-traffic-manager-profile"></a>Traffic Manager 프로필 삭제
 이 자습서에서 만든 리소스 그룹이 더 이상 필요하지 않은 경우 삭제할 수 있습니다. 이렇게 하려면 리소스 그룹(**ResourceGroupTM1** 또는 **ResourceGroupTM2**)을 선택한 다음, **삭제**를 선택합니다.
 
@@ -218,5 +218,3 @@ Traffic Manager 프로필의 DNS 이름은 다음과 같이 확인할 수 있습
 
 > [!div class="nextstepaction"]
 > [사용자의 지리적 위치에 기반하여 특정 엔드포인트로 트래픽 라우팅](traffic-manager-configure-geographic-routing-method.md)
-
-

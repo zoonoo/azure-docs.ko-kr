@@ -47,12 +47,24 @@ items:
   items:
   - name: 개요
     href: user-help-auth-app-overview.md
-  - name: 시작하기
+  - name: 앱 다운로드 및 설치
     href: microsoft-authenticator-app-how-to.md
-  - name: 백업 및 복구
-    href: microsoft-authenticator-app-backup-and-recovery.md
-  - name: 휴대폰으로 로그인
+  - name: 계정 추가 개요
+    href: microsoft-authenticator-app-add-accounts-overview.md
+    items:
+    - name: 회사 또는 학교 계정 추가
+      href: microsoft-authenticator-app-add-work-account.md
+    - name: 개인 Microsoft 계정 추가
+      href: microsoft-authenticator-app-add-personal-account.md
+    - name: 개인 비 Microsoft 계정 추가
+      href: microsoft-authenticator-app-add-non-microsoft-account.md
+    - name: 수동으로 계정 추가
+      href: microsoft-authenticator-app-add-account-manual.md
+    expanded: true
+  - name: Microsoft Authenticator 앱을 사용하여 로그인
     href: microsoft-authenticator-app-phone-signin-faq.md
+  - name: 계정 백업 및 복구
+    href: microsoft-authenticator-app-backup-and-recovery.md
   - name: FAQ
     href: microsoft-authenticator-app-faq.md
 - name: My Apps 포털 도움말
@@ -73,9 +85,9 @@ items:
     href: user-help-register-device-on-network.md
   - name: "\"연결할 수 없습니다\" 메시지 문제 해결"
     href: user-help-device-remediation.md
-ms.openlocfilehash: 27d0d3300a19d4c27bec48ebf411c7ac3ee6ad87
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 9ccadb31ce331d3a9dc64aa26d5e8edab900cd1e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649588"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904100"

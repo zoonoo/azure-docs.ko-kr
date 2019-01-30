@@ -3,29 +3,29 @@ title: Azure Active Directory B2C에 Azure 구독을 연결하는 방법 | Micro
 description: Azure AD B2C 테넌트에 대한 요금을 Azure 구독에 청구하는 단계별 가이드입니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 80ba42d7eab1726c7add6c4c9426b7dde3b55480
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e39b7472904e7635340327d311eb7d4b9123f51e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445944"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853190"
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Azure 구독을 Azure AD B2C 테넌트에 연결
 
 > [!IMPORTANT]
-> Azure AD B2C의 사용 요금 청구 및 가격 책정에 대한 최신 정보는 [Azure AD B2C 가격](https://azure.microsoft.com/pricing/details/active-directory-b2c/) 페이지에 있습니다.
+> Azure AD B2C의 사용 요금 청구 및 가격 책정에 대한 최신 정보는 다음 페이지에 있습니다. [Azure AD B2C 가격](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 Azure AD B2C에 대한 사용 요금은 Azure 구독에 청구됩니다. Azure AD B2C 테넌트가 만들어지면 테넌트 관리자는 Azure AD B2C 테넌트를 Azure 구독에 명시적으로 연결해야 합니다. 이 문서는 방법을 안내합니다.
 
 > [!NOTE]
-> Azure AD B2C 테넌트에 연결된 구독은 Azure AD B2C 사용 요금을 청구하는 데만 사용할 수 있습니다. *Azure AD B2C 테넌트 내에서* 다른 Azure 서비스 또는 Office 365 라이선스를 추가하는 데는 구독을 사용할 수 없습니다.
+> Azure AD B2C 테넌트에 연결된 구독은 Azure AD B2C 사용 또는 추가 Azure AD B2C 리소스를 포함한 기타 Azure 리소스에 대한 요금 청구에 사용할 수 있습니다.  Azure AD B2C 테넌트 내의 다른 Azure 라이선스 기반 서비스 또는 Office 365 라이선스를 추가하는 데는 구독을 사용할 수 없습니다.
 
  구독 연결은 대상 Azure 구독 내에 Azure AD B2C “리소스”를 만들어서 이루어집니다. 많은 Azure AD B2C “리소스”는 다른 Azure 리소스(예: VM, 데이터 저장소, LogicApps)와 함께, 단일 Azure 구독 내에서 만들어질 수 있습니다. 구독이 연결된 Azure AD 테넌트로 이동하여 구독 내의 모든 리소스를 볼 수 있습니다.
 

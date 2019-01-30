@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 5f74ee390ac327a9e697d3dc67da4ea604b64d69
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 429c7c266357b4808ab3ebbb7f346cf22d9f479c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686895"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855401"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
@@ -105,7 +105,9 @@ public class Function {
 
 ## <a name="jdk-runtime-availability-and-support"></a>JDK 런타임 사용 가능성 및 지원 
 
-Java 함수 앱을 로컬에서 개발하는 데 사용할 수 있는 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/)의 [Azul Zulu for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDK를 다운로드하여 사용합니다. JDK는 Windows, Linux 및 macOS에서 사용할 수 있습니다. [Azure 지원](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support)은 [적격 지원 계획](https://azure.microsoft.com/support/plans/)에서 사용할 수 있습니다.
+Java 함수 앱을 로컬에서 개발하는 데 사용할 수 있는 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/)의 [Azul Zulu Enterprise for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDK를 다운로드하여 사용합니다. Azure Functions는 클라우드에 함수 앱을 배포할 때 Azul Java 8 JDK 런타임을 사용합니다.
+
+JDK 및 함수 앱에 문제가 있는 경우 [정격 지원 플랜](https://azure.microsoft.com/support/plans/)을 통해 [Azure 지원](https://azure.microsoft.com/en-us/support/)을 사용할 수 있습니다.
 
 ## <a name="third-party-libraries"></a>타사 라이브러리 
 
@@ -270,7 +272,7 @@ public class Function {
 
 ## <a name="metadata"></a>Metadata
 
-입력 데이터와 함께 [트리거 메타데이터](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties)를 보내는 트리거는 거의 없습니다. `@BindingName` 주석을 사용하여 메타데이터를 트리거하도록 바인딩할 수 있습니다.
+입력 데이터와 함께 [트리거 메타데이터](/azure/azure-functions/functions-triggers-bindings)를 보내는 트리거는 거의 없습니다. `@BindingName` 주석을 사용하여 메타데이터를 트리거하도록 바인딩할 수 있습니다.
 
 
 ```Java
@@ -299,7 +301,7 @@ public class Function {
         @QueueOutput(name = "output", queueName = "test-output-java-metadata", connection = "AzureWebJobsStorage") OutputBinding<TestData> output,
         final ExecutionContext context
     ) {
-        context.getLogger().info("Java Queue trigger function processed a message: " + message + " whith metadaId:" + metadataId );
+        context.getLogger().info("Java Queue trigger function processed a message: " + message + " with metadaId:" + metadataId );
         TestData testData = new TestData();
         testData.id = metadataId;
         output.setValue(testData);
@@ -361,11 +363,11 @@ az webapp log download --resource-group resourcegroupname --name functionappname
 
 ## <a name="environment-variables"></a>환경 변수
 
-Functions에서 [앱 설정](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings)(예: 서비스 연결 문자열)은 실행 중에 환경 변수로 노출됩니다. `System.getenv("AzureWebJobsStorage")`를 사용하여 이러한 설정에 액세스할 수 있습니다.
+Functions에서 [앱 설정](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)(예: 서비스 연결 문자열)은 실행 중에 환경 변수로 노출됩니다. `System.getenv("AzureWebJobsStorage")`를 사용하여 이러한 설정에 액세스할 수 있습니다.
 
 예제:
 
-이름이 testAppSetting이고 값이 testAppSettingValue인 [AppSetting](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings)을 추가합니다.
+이름이 testAppSetting이고 값이 testAppSettingValue인 [AppSetting](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings)을 추가합니다.
 
 ```java
 

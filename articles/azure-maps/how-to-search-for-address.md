@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d25142cecd62fc34a08939d5f1915ba9b2cee749
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: cd6927cccfa85c8409d612a40a4e708e81af746a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387432"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413552"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Azure Maps 검색 서비스를 사용하여 주소 찾기
 
@@ -61,7 +61,7 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
 
     "pizza"라는 모호한 쿼리 문자열을 사용하면 "pizza"(피자)와 "restaurant"(음식점)에 속한 범주의 [POI(관심 지점)](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) 결과 10개가 반환되었습니다. 각 결과는 위치에 대한 도로 주소, 위도 / 경도 값, 뷰 포트 및 진입점을 반환합니다.
   
-    결과는 특정 기준 위치에 연결되지 않고 이 쿼리에 대해 변화됩니다. 기본 동작이 전체 세계를 검색하여 불필요한 결과를 반환할 가능성이 높기 때문에 **countrySet** 매개 변수를 사용하여 응용 프로그램에 적용 범위가 필요한 국가만 지정할 수 있습니다.
+    결과는 특정 기준 위치에 연결되지 않고 이 쿼리에 대해 변화됩니다. 기본 동작이 전체 세계를 검색하여 불필요한 결과를 반환할 가능성이 높기 때문에 **countrySet** 매개 변수를 사용하여 애플리케이션에 적용 범위가 필요한 국가만 지정할 수 있습니다.
 
 5. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
@@ -158,7 +158,7 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
     |-----|------------|
     | number | true |
 
-    요청과 함께 [숫자](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 쿼리 매개 변수를 보내는 경우 응답은 도로의 측면(왼쪽/오른쪽) 및 해당 번호에 대한 오프셋 위치로 포함할 수 있습니다.
+    요청과 함께 [숫자](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) 쿼리 매개 변수를 보내는 경우 응답은 도로의 측면(왼쪽/오른쪽) 및 해당 번호에 대한 오프셋 위치로 포함할 수 있습니다.
   
 6. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
@@ -166,7 +166,7 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
     |-----|------------|
     | returnSpeedLimit | true |
   
-    [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 쿼리 매개 변수를 설정한 경우 응답은 게시된 속도 제한을 반환합니다.
+    [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) 쿼리 매개 변수를 설정한 경우 응답은 게시된 속도 제한을 반환합니다.
 
 7. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
@@ -174,7 +174,7 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
     |-----|------------|
     | returnRoadUse | true |
 
-    [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 쿼리 매개 변수가 설정되면 응답에서 도로 수준의 역방향 지역 코드에 대한 도로 사용 배열을 반환합니다.
+    [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) 쿼리 매개 변수가 설정되면 응답에서 도로 수준의 역방향 지역 코드에 대한 도로 사용 배열을 반환합니다.
 
 8. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
@@ -182,7 +182,7 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
     |-----|------------|
     | roadUse | true |
 
-    [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 쿼리 매개 변수를 사용하면 역 지오코드 쿼리를 특정 유형의 도로 사용으로 제한할 수 있습니다.
+    [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) 쿼리 매개 변수를 사용하면 역 지오코드 쿼리를 특정 유형의 도로 사용으로 제한할 수 있습니다.
   
 ## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>역 주소 교차로 검색을 사용하여 교차로 검색
 

@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 93929df86057b48e132048a0879bc7347402652a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: fada29145334a45872aa64b3cc0fe2e859b52568
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497753"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632894"
 ---
 # <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>HDInsight의 Apache Hive를 사용하여 비행 지연 데이터 분석
 [Apache Hive](https://hive.apache.org/)는 대량의 데이터를 요약, 쿼리, 분석하는 데 적용할 수 있는 SQL 스타일 스크립트 언어인 *[HiveQL][hadoop-hiveql]* 을 통해 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 작업을 실행하는 수단을 제공합니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이 문서의 단계에는 Windows 기반 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요. Linux 기반 클러스터를 사용하는 단계는 [HDInsight에서 Apache Hive를 사용하여 비행 지연 데이터 분석(Linux)](hdinsight-analyze-flight-delay-data-linux.md)을 참조하세요.
 
 Azure HDInsight의 주요 이점 중 하나는 데이터 저장소와 계산 기능을 분리할 수 있다는 것입니다. HDInsight는 데이터 저장소로 Azure Blob 저장소를 사용합니다. 일반적인 작업은 세 부분으로 구성되어 있습니다.
 
 1. **Azure Blob 저장소에 데이터 저장.**  예를 들어 날씨 데이터, 센서 데이터, 웹 로그 및 이 자습서의 경우 비행 지연 데이터를 Azure Blob 저장소에 저장할 수 있습니다.
-2. **작업 실행** 데이터를 처리해야 할 때는 Windows PowerShell 스크립트나 클라이언트 응용 프로그램을 실행하여 HDInsight 클러스터를 만들고 작업을 실행한 다음 클러스터를 삭제합니다. 작업의 출력 데이터는 Azure Blob 저장소에 저장되며 클러스터가 삭제된 후에도 그대로 유지됩니다. 따라서 사용한 데이터에 대해서만 비용을 지불하면 됩니다.
+2. **작업 실행** 데이터를 처리해야 할 때는 Windows PowerShell 스크립트나 클라이언트 애플리케이션을 실행하여 HDInsight 클러스터를 만들고 작업을 실행한 다음 클러스터를 삭제합니다. 작업의 출력 데이터는 Azure Blob 저장소에 저장되며 클러스터가 삭제된 후에도 그대로 유지됩니다. 따라서 사용한 데이터에 대해서만 비용을 지불하면 됩니다.
 3. **Azure Blob 저장소에서 출력을 검색**하거나 이 자습서에 설명된 것처럼 데이터를 Azure SQL 데이터베이스로 내보냅니다.
 
 아래 다이어그램에는 이 자습서에서 설명하는 시나리오와 구조가 나와 있습니다.
@@ -43,7 +43,7 @@ Azure HDInsight의 주요 이점 중 하나는 데이터 저장소와 계산 기
 
 부록에서 비행 지연 데이터를 업로드하고, Hive 쿼리 문자열을 만들기/업로드하고, Azure SQL 데이터베이스에서 Sqoop 작업을 준비하기 위한 지침을 찾을 수 있습니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 이 문서의 단계는 Windows 기반 HDInsight 클러스터를 대상으로 합니다. Linux 기반 클러스터를 사용하는 단계는 [HDInsight에서 Apache Hive를 사용하여 비행 지연 데이터 분석(Linux)](hdinsight-analyze-flight-delay-data-linux.md)을 참조하세요.
 
 ### <a name="prerequisites"></a>필수 조건
@@ -52,7 +52,7 @@ Azure HDInsight의 주요 이점 중 하나는 데이터 저장소와 계산 기
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * **Azure PowerShell이 포함된 워크스테이션**.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Azure Service Manager를 사용하여 HDInsight 리소스를 관리하는 Azure PowerShell 지원은 더 이상 **지원되지 않고** 2017년 1월 1일에 제거되었습니다. 이 문서의 단계에서는 Azure Resource Manager로 작동하는 새 HDInsight cmdlet을 사용합니다.
     >
     > [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs) 단계를 수행하여 최신 버전의 Azure PowerShell을 설치합니다. Azure Resource Manager로 작동하는 새로운 cmdlet을 사용하도록 수정해야 하는 스크립트가 있는 경우 자세한 내용은 [HDInsight 클러스터에 대한 Azure Resource Manager 기반 개발 도구에 마이그레이션](hdinsight-hadoop-development-using-azure-resource-manager.md) 을 참조하세요.
@@ -242,7 +242,7 @@ HDInsight 클러스터를 만들고 Hive 작업을 실행하는 방법에 대한
 * **HDInsight 클러스터에서 기본 파일 시스템으로 사용하는 것과 같은 Azure Storage 계정을 사용합니다.** HDInsight 클러스터에는 Storage 계정 액세스 키가 포함되므로 추가로 변경할 필요가 없습니다.
 * **HDInsight 클러스터 기본 파일 시스템과 다른 Azure Storage 계정을 사용합니다.** 이 경우 [HDInsight 클러스터 만들기 및 Apache Hive/Sqoop 작업 실행](#runjob) 에 있는 Windows PowerShell 스크립트의 생성 부분을 수정하여 추가 Storage 계정으로 Storage 계정을 연결해야 합니다. 지침은 [HDInsight에서 Apache Hadoop 클러스터 만들기][hdinsight-provision]를 참조하세요. 그러면 HDInsight 클러스터가 Storage 계정의 액세스 키를 인식합니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 데이터 파일의 Blob 저장소 경로는 HiveQL 스크립트 파일에 하드 코드됩니다. 수정 내용에 따라 이를 업데이트해야 합니다.
 
 **비행 데이터를 다운로드하려면**
@@ -351,7 +351,7 @@ HDInsight 클러스터를 만들고 Hive 작업을 실행하는 방법에 대한
 
 tutorials/flightdelay/data 경로는 파일을 업로드했을 때 만든 가상 폴더입니다. 달마다 하나씩 12개의 파일이 있는지 확인합니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 새 위치에서 읽으려면 Hive 쿼리를 업데이트해야 합니다.
 >
 > 컨테이너 액세스 권한을 공용으로 구성하거나 Storage 계정을 HDInsight 클러스터에 바인딩해야 합니다. 그렇지 않으면 Hive 쿼리 문자열이 데이터 파일에 액세스할 수 없습니다.
@@ -615,7 +615,7 @@ HiveQL 명령의 전체 목록을 보려면 [Apache Hive 데이터 정의 언어
     #region - Constants and variables
 
     # IP address REST service used for retrieving external IP address and creating firewall rules
-    [String]$ipAddressRestService = "http://bot.whatismyipaddress.com"
+    [String]$ipAddressRestService = "https://bot.whatismyipaddress.com"
     [String]$fireWallRuleName = "FlightDelay"
 
     # SQL database variables
@@ -699,12 +699,12 @@ HiveQL 명령의 전체 목록을 보려면 [Apache Hive 데이터 정의 언어
     Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
     ```
 
-   > [!NOTE]
-   > 스크립트는 REST(representational state transfer) 서비스 http://bot.whatismyipaddress.com을 사용하여 외부 IP 주소를 검색합니다. IP 주소는 SQL 데이터베이스 서버용 방화벽 규칙을 만드는 데 사용됩니다.
+   > [!NOTE]  
+   > 스크립트는 REST(representational state transfer) 서비스 https://bot.whatismyipaddress.com을 사용하여 외부 IP 주소를 검색합니다. IP 주소는 SQL 데이터베이스 서버용 방화벽 규칙을 만드는 데 사용됩니다.
 
     스크립트에서 사용되는 일부 변수는 다음과 같습니다.
 
-   * **$ipAddressRestService** - 기본값은 http://bot.whatismyipaddress.com입니다. 외부 IP 주소를 가져오기 위한 공용 IP 주소 REST 서비스입니다. 원하는 경우 다른 서비스를 사용할 수 있습니다. 서비스를 통해 검색된 외부 IP 주소를 사용하여 Azure SQL 데이터베이스 서버용 방화벽 규칙을 만듭니다. 따라서 Windows PowerShell 스크립트를 사용하여 워크스테이션에서 데이터베이스에 액세스할 수 있습니다.
+   * **$ipAddressRestService** - 기본값은 https://bot.whatismyipaddress.com입니다. 외부 IP 주소를 가져오기 위한 공용 IP 주소 REST 서비스입니다. 원하는 경우 다른 서비스를 사용할 수 있습니다. 서비스를 통해 검색된 외부 IP 주소를 사용하여 Azure SQL 데이터베이스 서버용 방화벽 규칙을 만듭니다. 따라서 Windows PowerShell 스크립트를 사용하여 워크스테이션에서 데이터베이스에 액세스할 수 있습니다.
    * **$fireWallRuleName** - Azure SQL 데이터베이스 서버에 대한 방화벽 규칙의 이름입니다. 기본 이름은 <u>FlightDelay</u>입니다. 원하는 경우 이름을 바꿀 수 있습니다.
    * **$sqlDatabaseMaxSizeGB** - 이 값은 새 Azure SQL 데이터베이스 서버를 만드는 경우에만 사용됩니다. 기본 크기는 10GB입니다. 이 자습서에서는 크기가 10GB이면 충분합니다.
    * **$sqlDatabaseName** - 이 값은 새 Azure SQL 데이터베이스를 만드는 경우에만 사용됩니다. 기본값은 HDISqoop입니다. 이 상수의 이름을 바꾸는 경우에는 Sqoop Windows PowerShell 스크립트도 그에 따라 업데이트해야 합니다.
@@ -721,11 +721,11 @@ HiveQL 명령의 전체 목록을 보려면 [Apache Hive 데이터 정의 언어
 * [HDInsight에서 Apache Pig 사용][hdinsight-use-pig]
 * [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
+[rita-website]: https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -739,9 +739,9 @@ HiveQL 명령의 전체 목록을 보려면 [Apache Hive 데이터 정의 언어
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
-[hadoop-shell-commands]: http://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html
+[hadoop-shell-commands]: https://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
 [image-hdi-flightdelays-avgdelays-dataset]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.AvgDelays.DataSet.png
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png

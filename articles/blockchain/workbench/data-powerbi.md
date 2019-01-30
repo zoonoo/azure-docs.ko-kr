@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: b1020389ef28c18c03536d686cd47ef0c65b9204
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e50a82f0f141fec266a8348c0a1a8b5fbdb38b45
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241444"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329857"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Microsoft Power BI에 Azure Blockchain Workbench 데이터 사용
 
@@ -25,9 +25,9 @@ Microsoft Power BI는 Power BI Desktop을 사용하여 SQL DB 데이터베이스
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [PowerBI Desktop](https://aka.ms/pbidesktopstore)을 다운로드합니다.
+* [Power BI Desktop](https://aka.ms/pbidesktopstore)을 다운로드합니다.
 
-## <a name="connecting-powerbi-to-data-in-azure-blockchain-workbench"></a>PowerBI를 Azure Blockchain Workbench의 데이터에 연결
+## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Power BI를 Azure Blockchain Workbench의 데이터에 연결
 
 1.  Power BI Desktop을 엽니다.
 2.  **데이터 가져오기**를 선택합니다.
@@ -49,7 +49,7 @@ Microsoft Power BI는 Power BI Desktop을 사용하여 SQL DB 데이터베이스
 
     ![탐색기](./media/data-powerbi/navigator.png)
 
-7.  포함할 보기를 선택합니다. 시연을 위해, 계약에 대해 발생한 모든 작업에 대한 세부 정보를 제공하는 **vwContractAction**을 포함하겠습니다.
+7.  포함할 보기를 선택합니다. 데모를 위해, 계약에 대해 발생한 작업에 대한 세부 정보를 제공하는 **vwContractAction**을 포함하겠습니다.
 
     ![보기 선택](./media/data-powerbi/select-views.png)
 

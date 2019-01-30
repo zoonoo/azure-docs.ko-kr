@@ -1,30 +1,27 @@
 ---
-title: '빠른 시작: Gremlin API와 PHP - Azure Cosmos DB | Microsoft Docs'
-description: 이 빠른 시작은 Azure Portal 및 PHP와 함께 Azure Cosmos DB Gremlin API를 사용하여 콘솔 응용 프로그램을 만드는 방법을 보여줍니다.
-services: cosmos-db
+title: '빠른 시작: Gremlin API와 PHP - Azure Cosmos DB'
+description: 이 빠른 시작은 Azure Portal 및 PHP와 함께 Azure Cosmos DB Gremlin API를 사용하여 콘솔 애플리케이션을 만드는 방법을 보여줍니다.
 author: luisbosquez
-manager: kfile
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-graph
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: 06f54429957a84de81e3dfaae00c6126b5340b74
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: f13f8878f24309330db8143eb0f5cf3ae890d2fe
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702496"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039149"
 ---
-# <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: PHP 및 Azure Portal을 사용하여 그래프 데이터베이스 만들기
+# <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB는 PHP 및 Azure Portal을 사용하여 그래프 데이터베이스 만들기
 
 > [!div class="op_single_selector"]
 > * [Gremlin 콘솔](create-graph-gremlin-console.md)
 > * [.NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
-> * [Node.js](create-graph-nodejs.md)
+> * [Node.JS](create-graph-nodejs.md)
 > * [Python](create-graph-python.md)
 > * [PHP](create-graph-php.md)
 >  
@@ -38,7 +35,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 또는 Azure 구독, 요금 및 약정 없이 [Azure Cosmos DB 평가판](https://azure.microsoft.com/try/cosmosdb/)을 사용할 수 있습니다.
 
 또한,
-* [PHP](http://php.net/) 5.6 이상
+* [PHP](https://php.net/) 5.6 이상
 * [Composer](https://getcomposer.org/download/)
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
@@ -105,7 +102,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이제 Azure Portal로 다시 이동하여 연결 정보를 가져와서 앱에 복사합니다. 이러한 설정을 사용하면 앱이 호스팅된 데이터베이스와 통신할 수 있게 됩니다.
 
-1. [Azure Portal](http://portal.azure.com/)에서 **키**를 클릭합니다. 
+1. [Azure Portal](https://portal.azure.com/)에서 **키**를 클릭합니다. 
 
     URI 값의 첫 번째 부분을 복사합니다.
 

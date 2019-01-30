@@ -3,7 +3,7 @@ title: SQL Server VM의 자동화된 패치(클래식) | Microsoft Docs
 description: 클래식 배포 모드를 사용하여 Azure에서 실행 중인 SQL Server Virtual Machines에 대한 자동화된 패치 기능에 대해 설명합니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/07/2018
-ms.author: jroth
-ms.openlocfilehash: 4bb13ec9d835959273801c2f53c8d736491080a6
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: aa912e3eb76d72e7a79c83d7e51d493310bd36b3
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061338"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331319"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Azure Virtual Machines에서 SQL Server의 자동화된 패치(클래식)
 > [!div class="op_single_selector"]
@@ -37,7 +38,7 @@ ms.locfileid: "37061338"
 자동화된 패치는 [SQL Server IaaS 에이전트 확장](../classic/sql-server-agent-extension.md)에 따라 다릅니다.
 
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. 이 문서의 Resource Manager 버전을 보려면 [Azure Virtual Machines Resource Manager에서 SQL Server의 자동화된 패치](../sql/virtual-machines-windows-sql-automated-patching.md)를 참조하세요.
+> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. 이 문서의 Resource Manager 버전을 보려면 [Azure Virtual Machines Resource Manager에서 SQL Server의 자동화된 패치](../sql/virtual-machines-windows-sql-automated-patching.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 자동화된 패치를 사용하려면 다음 필수 조건을 고려하세요.

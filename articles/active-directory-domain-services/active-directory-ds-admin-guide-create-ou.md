@@ -4,7 +4,7 @@ description: Azure AD 도메인 서비스 관리되는 도메인에 OU(조직 �
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: cd4964939aa9b9ebd96a2fb29e1a6f7bf422d477
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 49b915242ca0a4775236da3314eed816fde7ea6b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154831"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856267"
 ---
 # <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD 도메인 서비스 관리되는 도메인에 OU(조직 구성 단위) 만들기
 Azure AD 도메인 서비스 관리되는 도메인에는 'AADDC 컴퓨터'와 'AADDC 사용자'라는 두 개의 기본 제공 컨테이너가 각각 있습니다. 'AADDC 컴퓨터' 컨테이너에는 관리되는 도메인에 가입된 모든 컴퓨터에 대한 컴퓨터 개체가 있습니다. 'AADDC 사용자' 컨테이너는 Azure AD 테넌트의 사용자 및 그룹을 포함합니다. 경우에 따라 워크로드를 배포하기 위해 관리되는 도메인에 서비스 계정을 만들어야 할 수 있습니다. 이 용도로 관리되는 도메인에 사용자 지정 OU(조직 구성 단위)를 만들고 해당 OU 내에 서비스 계정을 만들 수 있습니다. 이 문서에서는 관리되는 도메인에 OU를 만드는 방법을 보여 줍니다.

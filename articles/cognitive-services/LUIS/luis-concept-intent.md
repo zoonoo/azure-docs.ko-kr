@@ -1,27 +1,28 @@
 ---
-title: LUIS 앱의 의도 이해
-titleSuffix: Azure Cognitive Services
-description: 의도는 사용자가 수행하려는 작업을 나타냅니다. 사용자의 발언으로 표현되는 목적 또는 목표입니다. 사용자가 응용 프로그램에서 수행하려는 작업에 해당하는 의도 집합을 정의합니다.
+title: 사용자 의도
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: 의도는 사용자가 수행하려는 작업을 나타냅니다. 사용자의 발언으로 표현되는 목적 또는 목표입니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 5ccfe781b3632bd7ccfc532398a00faf7a87b63f
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: f9f0c52c187b36416dbc77f280a8f6148cf1cbbc
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637214"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971055"
 ---
-# <a name="intents-in-luis"></a>LUIS의 의도
+# <a name="concepts-about-intents-in-your-luis-app"></a>LUIS 앱에서 의도에 대한 개념
 
 의도는 사용자가 수행하려는 작업을 나타냅니다. 사용자의 [발화](luis-concept-utterance.md)로 표현되는 목적 또는 목표입니다.
 
-사용자가 응용 프로그램에서 수행하려는 작업에 해당하는 의도 집합을 정의합니다. 예를 들어, 여행 앱에서는 다음과 같은 여러 의도를 정의합니다.
+사용자가 애플리케이션에서 수행하려는 작업에 해당하는 의도 집합을 정의합니다. 예를 들어, 여행 앱에서는 다음과 같은 여러 의도를 정의합니다.
 
 여행 앱 의도   |   예제 발화   | 
 ------|------|
@@ -30,7 +31,7 @@ ms.locfileid: "49637214"
  CheckWeather | “What's the weather like in Boston?” <br/> “Show me the forecast for this weekend” |
  없음         | “Get me a cookie recipe”<br>“Did the Lakers win?” |
 
-모든 응용 프로그램에는 대체 의도인 미리 정의된 의도 “[None](#none-intent-is-fallback-for-app)”이 제공됩니다. 
+모든 애플리케이션에는 대체 의도인 미리 정의된 의도 “[None](#none-intent-is-fallback-for-app)”이 제공됩니다. 
 
 ## <a name="prebuilt-domains-provide-intents"></a>미리 빌드된 도메인이 의도를 제공함
 사용자가 정의한 의도 외에도 미리 빌드된 도메인 중 하나에서 미리 빌드된 의도를 사용할 수 있습니다. 앱에서 사용하도록 미리 빌드된 도메인에서 의도를 사용자 지정하는 방법에 대한 자세한 내용은 [LUIS 앱에서 미리 빌드된 도메인 사용](luis-how-to-use-prebuilt-domains.md)을 참조하세요.
@@ -41,7 +42,7 @@ ms.locfileid: "49637214"
 ## <a name="intent-compared-to-entity"></a>의도 및 엔터티 비교
 의도는 챗봇이 사용자에게 수행해야 하는 작업을 나타내며 전체 발화를 기반으로 합니다. 엔터티는 발화 내부에 포함된 단어 또는 구문을 나타냅니다. 발화에는 하나의 상위 점수 의도만 포함되지만, 여러 엔터티가 포함될 수 있습니다. 
 
-<a name="how-do-intents-relate-to-entities"></a> 사용자의 ‘의도’가 클라이언트 응용 프로그램에서 작업을 트리거할 경우(예: checkweather() 함수 호출) 의도를 만듭니다. 그런 다음, 작업을 실행하는 데 필요한 매개 변수를 나타내는 엔터티를 만듭니다. 
+<a name="how-do-intents-relate-to-entities"></a> 사용자의 ‘의도’가 클라이언트 애플리케이션에서 작업을 트리거할 경우(예: checkweather() 함수 호출) 의도를 만듭니다. 그런 다음, 작업을 실행하는 데 필요한 매개 변수를 나타내는 엔터티를 만듭니다. 
 
 |예제 의도   | 엔터티 | 예제 발화의 엔터티   | 
 |------------------|------------------------------|------------------------------|
@@ -57,7 +58,7 @@ ms.locfileid: "49637214"
 [미리 빌드된 도메인](luis-how-to-use-prebuilt-domains.md)에는 발화가 포함된 의도가 있습니다.  
 
 ## <a name="none-intent-is-fallback-for-app"></a>None 의도는 앱의 대체 의도임
-**None** 의도는 catch-all 또는 대체 의도입니다. 앱 도메인(주체 영역)에서 중요하지 않은 LUIS 발화를 학습시키는 데 사용됩니다. **None** 의도는 응용 프로그램에서 총 발화의 10~20% 사이여야 합니다. 이 의도를 비워 두지 마세요. 
+**None** 의도는 catch-all 또는 대체 의도입니다. 앱 도메인(주체 영역)에서 중요하지 않은 LUIS 발화를 학습시키는 데 사용됩니다. **None** 의도는 애플리케이션에서 총 발화의 10~20% 사이여야 합니다. [없음] 의도를 비워 놓지 마세요. 
 
 ### <a name="none-intent-helps-conversation-direction"></a>None 의도가 대화 방향에 도움이 됨
 발화가 None 의도로 예측되고 해당 예측과 함께 챗봇에 반환되면 봇은 추가로 질문을 하거나 사용자를 챗봇의 유효한 선택 항목으로 이동하는 메뉴를 제공합니다. 

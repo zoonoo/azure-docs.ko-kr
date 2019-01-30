@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs 진단 로그 | Microsoft Docs
-description: Azure에서 이벤트 허브의 진단 로그를 설정하는 방법을 배웁니다.
+title: 진단 로그 설정 - Azure Event Hub | Microsoft Docs
+description: Azure에서 이벤트 허브의 활동 로그 및 진단 로그를 설정하는 방법을 배웁니다.
 keywords: ''
 documentationcenter: ''
 services: event-hubs
@@ -13,21 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/02/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: bee6219bca21c3bc2bf4f97aa061fce0b30d55ff
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: c32662b446df10649617570c63ce534071ed7d27
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985169"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540319"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Azure 이벤트 허브에 대한 진단 로그 설정
 
 Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습니다.
 
-* **[활동 로그](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**: 이러한 로그에는 작업에 대해 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다.
-* **[진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**: 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
+* **[활동 로그](../azure-monitor/platform/activity-logs-overview.md)**: 이러한 로그에는 작업에 대해 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다.
+* **[진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md)**: 작업에서 발생하는 모든 상황을 보다 잘 이해할 수 있도록 진단 로그를 구성할 수 있습니다. 진단 로그는 업데이트 및 작업이 실행 중일 때 발생하는 활동을 비롯하여 작업이 만들어질 때부터 삭제될 때까지의 모든 활동을 포함합니다.
 
 ## <a name="enable-diagnostic-logs"></a>진단 로그 활성화
 
@@ -53,7 +54,7 @@ Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습�
 
 새 설정은 약 10분 후에 적용됩니다. 그런 다음 구성된 보관 대상의 **진단 로그** 창에 로그가 나타납니다.
 
-진단 구성에 대한 자세한 내용은 [Azure 진단 로그 개요](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)를 참조하세요.
+진단 구성에 대한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md)를 참조하세요.
 
 ## <a name="diagnostic-logs-categories"></a>진단 로그 범주
 

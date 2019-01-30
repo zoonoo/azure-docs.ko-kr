@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: d02557ecd84ea14db297ee07f7055a08304e7fcd
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 43dc9edf715e20c84515d6acf4884e97c3b28184
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091218"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451887"
 ---
 # <a name="tutorial-order-azure-data-box"></a>자습서: Azure Data Box 주문
 
@@ -22,7 +22,7 @@ Azure Data Box는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레�
 이 자습서에서는 Azure Data Box를 주문하는 방법에 대해 설명합니다. 이 자습서에서는 다음에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Data Box에 등록
+> * Data Box를 배포하기 위한 필수 구성 요소
 > * Data Box 주문
 > * 주문 추적
 > * 주문 취소
@@ -38,9 +38,9 @@ Azure Data Box는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레�
 - Data Box 서비스에 사용할 구독이 다음 형식 중 하나인지 확인합니다.
     - Microsoft EA(기업계약). [EA 구독](https://azure.microsoft.com/pricing/enterprise-agreement/)에 대해 자세히 알아보세요.
     - CSP(클라우드 솔루션 공급자). [CSP 프로그램](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)에 대해 자세히 알아보세요.
-    - 소비 - 종량제. Azure [종량제 구독](https://azure.microsoft.com/offers/ms-azr-0003p/)에 대해 자세히 알아보세요.
+    - Microsoft Azure 스폰서쉽. [Azure 스폰서쉽 프로그램](https://azure.microsoft.com/offers/ms-azr-0036p/)에 대해 자세히 알아보세요. 
 
-- Data Box 주문을 만드는 구독에 대한 소유자 또는 기여자 액세스 권한이 있는지 확인합니다.
+- Data Box 주문을 작성할 구독에 대한 소유자 또는 참가자 권한이 있는지 확인합니다.
 
 ### <a name="for-device"></a>디바이스의 경우
 
@@ -63,7 +63,7 @@ Azure Data Box는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레�
 4. 해당 지역에서 Data Box 서비스를 사용할 수 있는지 확인합니다. 다음 정보를 입력하거나 선택하고 **적용**을 클릭합니다. 
     |설정  |값  |
     |---------|---------|
-    |구독     | Data Box 서비스에 대해 EA, CSP 또는 종량제 구독을 선택합니다. <br> 구독은 대금 청구 계정에 연결됩니다.       |
+    |구독     | Data Box 서비스에 대한 EA, CSP 또는 Azure 스폰서쉽 구독을 선택합니다. <br> 구독은 대금 청구 계정에 연결됩니다.       |
     |전송 형식     | **Azure로 가져오기**를 선택합니다.        |
     |원천 국가     |   현재 데이터가 있는 국가를 선택합니다.         |
     |대상 Azure 지역     |     데이터를 전송하려는 Azure 지역을 선택합니다.        |
@@ -79,7 +79,7 @@ Azure Data Box는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레�
     |이름     |  주문을 추적하는 데 친숙한 이름을 입력합니다. <br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.      |
     |리소스 그룹     |   기존 그룹을 사용하거나 새 그룹을 만듭니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다.         |
     |대상 Azure 지역     | 저장소 계정에 대한 지역을 선택합니다. <br> 자세한 내용은 [지역 가용성](data-box-overview.md#region-availability)을 참조하세요.        |
-    |저장소 계정     | 지정된 Azure 지역에 따라 필터링된 기존 저장소 계정 목록에서 하나 이상의 저장소 계정을 선택합니다. Data Box는 최대 10개의 저장소 계정과 연결할 수 있습니다. <br> 새 **범용 v1**, **범용 v2** 또는 **Blob Storage 계정**도 만들 수 있습니다.        |
+    |저장소 계정     | 지정된 Azure 지역에 따라 필터링된 기존 저장소 계정 목록에서 하나 이상의 저장소 계정을 선택합니다. Data Box는 최대 10개의 저장소 계정과 연결할 수 있습니다. <br> 새 **범용 v1**, **범용 v2** 또는 **Blob Storage 계정**도 만들 수 있습니다. 규칙이 구성된 스토리지 계정은 사용할 수 없습니다. 스토리지 계정은 방화벽 및 가상 네트워크 섹션의 **모든 네트워크에서 액세스할 수 있어야** 합니다.|
     
 7. **배송 주소**에 사용자의 성과 이름, 회사의 이름과 우편 주소 및 유효한 전화 번호를 입력합니다. **주소 확인**을 클릭합니다. 서비스에서 서비스 가용성을 위해 배송 주소의 유효성을 검사합니다. 지정한 배송 주소에 대해 서비스를 사용할 수 있으면 해당 알림을 받게 됩니다. **다음**을 클릭합니다.
 
@@ -94,7 +94,7 @@ Azure Data Box는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레�
 
 ## <a name="track-the-order"></a>주문 추적
 
-주문이 완료되면 Azure Portal에서 주문 상태를 추적할 수 있습니다. 해당 주문, **개요**로 차례로 이동하여 상태를 확인합니다. 포털에서는 해당 주문을 **주문됨** 상태로 표시합니다.
+주문이 완료되면 Azure Portal에서 주문 상태를 추적할 수 있습니다. Data Box 주문, **개요**로 차례로 이동하여 상태를 확인합니다. 포털에서는 해당 주문을 **주문됨** 상태로 표시합니다.
 
 디바이스를 사용할 수 없는 경우 알림을 받습니다. 디바이스를 사용할 수 있으면 Microsoft에서는 배송할 디바이스를 확인하고 배송을 준비합니다. 디바이스를 준비하는 동안 수행되는 작업은 다음과 같습니다.
 

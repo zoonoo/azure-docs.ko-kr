@@ -35,7 +35,7 @@ ms.locfileid: "30918594"
 
 * 가상 머신의 크기로 연결할 수 있는 디스크 개수가 제어됩니다. 자세한 내용은 [가상 머신의 크기](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
-* 프리미엄 저장소를 사용하려면 DS 시리즈 또는 GS 시리즈 가상 머신이 필요합니다. 이 가상 머신을 사용하여 프리미엄 및 표준 저장소 계정에서 모두 디스크를 사용할 수 있습니다. 프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 [Premium Storage: Azure Virtual Machine 작업을 위한 고성능 저장소](../premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+* 프리미엄 저장소를 사용하려면 DS 시리즈 또는 GS 시리즈 가상 머신이 필요합니다. 이 가상 머신을 사용하여 프리미엄 및 표준 저장소 계정에서 모두 디스크를 사용할 수 있습니다. 프리미엄 저장소는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 [Premium Storage: Azure Virtual Machine 작업을 위한 고성능 스토리지](../premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 * 새 디스크의 경우 Azure가 디스크를 연결할 때 생성하므로 먼저 생성하지 않아도 됩니다.
 
@@ -110,7 +110,7 @@ fsutil behavior set DisableDeleteNotify 0
 ```
 
 ## <a name="next-steps"></a>다음 단계
-응용 프로그램이 데이터를 저장하는 데 D: 드라이브를 사용해야 하면 [Windows 임시 디스크의 드라이브 문자를 변경](../../virtual-machines-windows-change-drive-letter.md)할 수 있습니다.
+애플리케이션이 데이터를 저장하는 데 D: 드라이브를 사용해야 하면 [Windows 임시 디스크의 드라이브 문자를 변경](../../virtual-machines-windows-change-drive-letter.md)할 수 있습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 [가상 머신용 디스크 및 VHD에 대하여](../../virtual-machines-linux-about-disks-vhds.md)

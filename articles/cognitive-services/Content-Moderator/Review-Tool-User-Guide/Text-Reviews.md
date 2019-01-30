@@ -1,5 +1,5 @@
 ---
-title: Azure Content Moderator에서 텍스트 검토 | Microsoft Docs
+title: Azure Content Moderator에서 텍스트 검토 - Content Moderator
 description: Content Moderator에서 텍스트를 검토하여 점수 및 검색된 태그를 살펴보는 방법을 알아봅니다. 정보를 사용하여 콘텐츠가 적절한지 확인합니다.
 services: cognitive-services
 author: sanjeev3
@@ -7,16 +7,16 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 60a8d03a6562c9a66c2f6781ebbc330c989b343e
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 005e6ed853cbc6013d74e7ff479097dcbb0a1043
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852098"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259566"
 ---
-# <a name="review-text"></a>텍스트 검토
+# <a name="let-human-reviewers-review-text"></a>사용자 검토자의 텍스트 검토 허용
 
 Azure Content Moderator에서 점수 및 검색된 태그를 사용하여 텍스트를 검토할 수 있습니다. 정보를 사용하여 콘텐츠가 적절한지 확인합니다. 
 

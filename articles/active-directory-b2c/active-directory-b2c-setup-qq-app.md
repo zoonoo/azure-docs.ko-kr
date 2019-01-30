@@ -1,21 +1,21 @@
 ---
 title: Azure Active Directory B2C를 사용하여 QQ 계정으로 등록 설정 및 로그인 | Microsoft Docs
-description: 고객에게 Azure Active Directory B2C를 사용하여 응용 프로그램에서 QQ 계정으로 등록 및 로그인을 제공합니다.
+description: 고객에게 Azure Active Directory B2C를 사용하여 애플리케이션에서 QQ 계정으로 등록 및 로그인을 제공합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 23e44763b773835583d255104771d2329851aac8
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 1681fd0639c176d9a6a00f656c515c089973b554
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181417"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845863"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 QQ 계정으로 등록 설정 및 로그인
 
@@ -23,9 +23,9 @@ ms.locfileid: "47181417"
 > 이 기능은 미리 보기 상태입니다.
 > 
 
-## <a name="create-a-qq-application"></a>QQ 응용 프로그램 만들기
+## <a name="create-a-qq-application"></a>QQ 애플리케이션 만들기
 
-Azure AD(Azure Active Directory) B2C에서 QQ 계정을 ID 공급자로 사용하려면 테넌트에 해당 계정을 나타내는 응용 프로그램을 만들어야 합니다. QQ 계정이 없는 경우 [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033)에서 얻을 수 있습니다.
+Azure AD(Azure Active Directory) B2C에서 QQ 계정을 ID 공급자로 사용하려면 테넌트에 해당 계정을 나타내는 애플리케이션을 만들어야 합니다. QQ 계정이 없는 경우 [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033)에서 얻을 수 있습니다.
 
 ### <a name="register-for-the-qq-developer-program"></a>QQ 개발자 프로그램 등록
 
@@ -35,7 +35,7 @@ Azure AD(Azure Active Directory) B2C에서 QQ 계정을 ID 공급자로 사용�
 4. 필요한 정보를 입력하고 **下 一 步**(다음 단계)를 선택합니다.
 5. 전자 메일 확인 프로세스를 완료합니다. 개발자로 등록한 후 승인이 되기까지 몇 일 동안 기다려야 합니다. 
 
-### <a name="register-a-qq-application"></a>QQ 응용 프로그램 등록
+### <a name="register-a-qq-application"></a>QQ 애플리케이션 등록
 
 1. [https://connect.qq.com/index.html](https://connect.qq.com/index.html)로 이동합니다.
 2. **应用管理**(앱 관리)를 선택합니다.
@@ -55,6 +55,6 @@ Azure AD(Azure Active Directory) B2C에서 QQ 계정을 ID 공급자로 사용�
 4. **ID 공급자**를 선택한 다음, **추가**를 선택합니다.
 5. **이름**을 제공합니다. 예를 들어, *QQ*를 입력합니다.
 6. **ID 공급자 형식**을 클릭하고 **QQ(미리 보기)** 를 선택한 다음, **확인**을 클릭합니다.
-7. **이 ID 공급자 설정**을 선택하고 이전에 기록한 앱 ID를 **클라이언트 ID**로 입력한 후, 기록한 앱 키를 이전에 만든 QQ 응용 프로그램의 **클라이언트 암호**로 입력합니다.
+7. **이 ID 공급자 설정**을 선택하고 이전에 기록한 앱 ID를 **클라이언트 ID**로 입력한 후, 기록한 앱 키를 이전에 만든 QQ 애플리케이션의 **클라이언트 암호**로 입력합니다.
 8. **확인**을 클릭한 다음 **만들기**를 클릭하여 QQ 구성을 저장합니다.
 

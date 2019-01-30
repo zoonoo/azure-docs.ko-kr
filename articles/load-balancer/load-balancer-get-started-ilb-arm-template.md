@@ -1,5 +1,6 @@
 ---
-title: 내부 부하 분산 장치 만들기 - Azure 템플릿 | Microsoft Docs
+title: 내부 Load Balancer 만들기 - Azure 템플릿
+titlesuffix: Azure Load Balancer
 description: 리소스 관리자에서 템플릿을 사용하여 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다.
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: a65c43ac70bd4e423c28149a122d346519e73c9a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: d029de11c7101e961506f1fa46f5a71c6efb103e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412536"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044011"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>템플릿을 사용하여 내부 부하 분산 장치 만들기
 
@@ -78,3 +80,4 @@ Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르�
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
+템플릿에서 부하 분산 장치의 JSON 구문 및 속성은 [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers)를 참조하세요.

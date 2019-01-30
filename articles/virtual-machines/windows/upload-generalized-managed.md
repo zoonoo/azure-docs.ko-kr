@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 93d5cbdb44d3014b547141d59ce96cf607276846
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1a5b9f7abbb17aeefa3647e965c63c1f6dc4b0a7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234615"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429262"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>일반화된 VHD를 업로드하고 사용하여 Azure에서 새 VM 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "51234615"
 
 - Azure에 VHD를 업로드하기 전에 [Azure에 업로드할 Windows VHD 또는 VHDX 준비](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 수행해야 합니다.
 - [Managed Disks](managed-disks-overview.md)로 마이그레이션을 시작하기 전에 [Managed Disks로 마이그레이션하기 위한 계획](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks)을 검토하세요.
-- 이 문서에서는 AzureRM 모듈 버전 5.6 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM.Compute`를 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+- 이 문서에서는 AzureRM 모듈 버전 5.6 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM.Compute`를 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요.
 
 
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Sysprep을 사용하여 원본 VM 일반화
@@ -70,7 +70,7 @@ Get-AzureRmStorageAccount | Format-Table
 
 ## <a name="upload-the-vhd-to-your-storage-account"></a>저장소 계정에 VHD 업로드
 
-[Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd) cmdlet을 사용하여 저장소 계정의 컨테이너에 VHD를 업로드합니다. 이 예제에서는 *C:\Users\Public\Documents\Virtual hard disks\\*의 *myVHD.vhd* 파일을 *myResourceGroup* 리소스 그룹의 *mystorageaccount*라는 저장소 계정에 업로드합니다. 파일은 *mycontainer*라는 컨테이너에 배치되고 새 파일 이름은 *myUploadedVHD.vhd*가 됩니다.
+[Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd) cmdlet을 사용하여 저장소 계정의 컨테이너에 VHD를 업로드합니다. 이 예제에서는 *C:\Users\Public\Documents\Virtual hard disks\\*의 *myVHD.vhd* 파일을 *myResourceGroup* 리소스 그룹의 *mystorageaccount*라는 스토리지 계정에 업로드합니다. 파일은 *mycontainer*라는 컨테이너에 배치되고 새 파일 이름은 *myUploadedVHD.vhd*가 됩니다.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -105,7 +105,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 - [Azure Storage 탐색기 Blob 업로드](https://azurestorageexplorer.codeplex.com/)
 - [저장소 Import/Export 서비스 REST API 참조](https://msdn.microsoft.com/library/dn529096.aspx)
 -   예상 업로드 시간이 7일보다 긴 경우 Import/Export 서비스를 사용하는 것이 좋습니다. [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html)를 사용하여 데이터 크기 및 전송 단위로 시간을 예측할 수 있습니다. 
-    Import/Export를 사용하여 표준 저장소 계정을 복사할 수 있습니다. AzCopy와 같은 도구를 사용하여 표준 저장소에서 프리미엄 저장소 계정으로 복사해야 합니다.
+    Import/Export를 사용하여 표준 저장소 계정을 복사할 수 있습니다. AzCopy와 같은 도구를 사용하여 표준 스토리지에서 Premium Storage 계정으로 복사해야 합니다.
 
 > [!IMPORTANT]
 > AzCopy를 사용하여 VHD를 Azure에 업로드하는 경우, 업로드 스크립트를 실행하기 전에 [**/BlobType:page**](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append)를 설정했는지 확인합니다. 대상이 Blob인데 이 옵션을 지정하지 않으면 기본적으로 AzCopy는 블록 Blob를 만듭니다.

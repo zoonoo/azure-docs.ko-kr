@@ -3,18 +3,18 @@ title: Azure Digital Twins 개요 | Microsoft Docs
 description: 공간 인텔리전스를 위한 Azure IoT 솔루션인 Azure Digital Twins에 대해 자세히 알아봅니다.
 author: julieseto
 ms.author: jseto
-ms.date: 10/10/2018
+ms.date: 12/14/2018
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 84f329c0a97d0f79a5f612fb3054b82a182e4da9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 2848f9ce97c2bdad59d86031c5894219875b6059
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287373"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437115"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Azure Digital Twins 개요
 
@@ -27,12 +27,12 @@ Azure Digital Twins를 사용하면 많은 다른 센서가 아닌 실제 공간
 - 사무실에서 사용 가능한 공간의 사용을 최적화합니다.
 
 Azure Digital Twins는 모든 유형의 환경에 적용됩니다. 몇 가지 예로 창고, 사무실, 학교, 병원 및 은행이 있습니다. 경기장, 공장, 주차장, 공원, 스마트 그리드, 도시에서도 사용할 수 있습니다. Azure Digital Twins를 사용할 수 있는 예제 시나리오는 다음과 같습니다.
- 
-- 여러 지역에 걸친 일일 온도를 추적합니다. 
+
+- 여러 지역에 걸친 일일 온도를 추적합니다.
 - 사용 중인 드론 경로를 모니터링합니다.
-- 자율 차량을 식별합니다. 
-- 건물에 대한 점유율 수준을 분석합니다. 
-- 가게에서 가장 분주한 현금 등록기를 찾습니다. 
+- 자율 차량을 식별합니다.
+- 건물에 대한 점유율 수준을 분석합니다.
+- 가게에서 가장 분주한 현금 등록기를 찾습니다.
 
 실제 시나리오가 무엇이든 Azure Digital Twins를 통해 해당하는 디지털 인스턴스를 프로비전할 수 있습니다.
 
@@ -94,7 +94,7 @@ Azure Digital Twins는 실제 세계와 해당하는 많은 관계를 나타내�
 
 Azure Digital Twins는 Azure IoT Hub를 사용하여 실제 세계에 맞춰 모든 항목을 최신으로 유지하는 IoT 디바이스 및 센서를 연결합니다. 다음 다이어그램에서는 Azure Digital Twins가 다른 Azure IoT 서비스와 설정된 관계를 보여 줍니다.
 
-![Azure Digital Twins는 Azure IoT Hub를 바탕으로 빌드된 서비스입니다.](./media/overview/azure-digital-twins-in-iot-ecosystem.png)
+![Azure Digital Twins는 Azure IoT Hub를 바탕으로 빌드된 서비스입니다.][1]
 
 IoT에 대한 자세한 내용은 [Azure IoT 기술 및 솔루션](https://docs.microsoft.com/azure/iot-fundamentals/iot-services-and-technologies)을 참조하세요.
 
@@ -102,15 +102,18 @@ IoT에 대한 자세한 내용은 [Azure IoT 기술 및 솔루션](https://docs.
 
 Azure Digital Twins에 대한 간단한 데모로 이동합니다.
 
-> [!div class="nextstepaction"]
-> [빠른 시작: Azure Digital Twins로 사용 가능한 회의실 찾기](./quickstart-view-occupancy-dotnet.md)
+>[!div class="nextstepaction"]
+>[빠른 시작: Azure Digital Twins로 사용 가능한 회의실 찾기](./quickstart-view-occupancy-dotnet.md)
 
 Azure Digital Twins를 사용하여 시설 관리 애플리케이션을 자세히 살펴봅니다.
 
-> [!div class="nextstepaction"]
-> [자습서: Azure Digital Twins를 배포하고 공간 그래프 구성](./tutorial-facilities-setup.md)
+>[!div class="nextstepaction"]
+>[자습서: Azure Digital Twins 배포 및 공간 그래프 구성](./tutorial-facilities-setup.md)
 
 Azure Digital Twins의 핵심 개념에 알아봅니다.
 
-> [!div class="nextstepaction"]
-> [Digital Twins 개체 모델 및 공간 인텔리전스 그래프 이해](./concepts-objectmodel-spatialgraph.md)
+>[!div class="nextstepaction"]
+>[Digital Twins 개체 모델 및 공간 인텔리전스 그래프 이해](./concepts-objectmodel-spatialgraph.md)
+
+<!-- Images -->
+[1]: media/overview/azure-digital-twins-in-iot-ecosystem.png

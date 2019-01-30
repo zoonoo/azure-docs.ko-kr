@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 2a54752f933b91265d0aa8add61ca0707615931b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8a5c25cd5836c3bde630684eff24da7dc8b62fc6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526330"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855808"
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Azure Import/Export 작업에 대한 진단 및 오류 복구
-처리된 각 드라이브의 경우 Azure Import/Export 서비스가 연결된 저장소 계정에 오류 로그를 만듭니다. [작업 배치](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 또는 [업데이트 작업 속성](/rest/api/storageimportexport/jobs#Jobs_Update) 작업을 호출할 때 `LogLevel` 속성을 `Verbose`로 설정하여 자세한 정보 로깅을 사용하도록 설정할 수도 있습니다.
+처리된 각 드라이브의 경우 Azure Import/Export 서비스가 연결된 저장소 계정에 오류 로그를 만듭니다. [작업 배치](/rest/api/storageimportexport/jobs) 또는 [업데이트 작업 속성](/rest/api/storageimportexport/jobs) 작업을 호출할 때 `LogLevel` 속성을 `Verbose`로 설정하여 자세한 정보 로깅을 사용하도록 설정할 수도 있습니다.
 
  기본적으로 로그는 `waimportexport`라는 컨테이너에 기록됩니다. `Put Job` 또는 `Update Job Properties` 조작을 호출할 때 `DiagnosticsPath` 속성을 설정하여 다른 이름을 지정할 수 있습니다. 로그는 다음 명명 규칙을 사용하여 블록 Blob으로 저장됩니다. `waies/jobname_driveid_timestamp_logtype.xml`.
 
- [작업 가져오기](/rest/api/storageimportexport/jobs#Jobs_Get) 작업을 호출하여 작업의 로그 URI를 검색할 수 있습니다. 자세한 정보 로그의 URI는 각 드라이브의 `VerboseLogUri` 속성에서 반환되는 반면 오류 로그의 URI는 `ErrorLogUri` 속성에서 반환됩니다.
+ [작업 가져오기](/rest/api/storageimportexport/jobs) 작업을 호출하여 작업의 로그 URI를 검색할 수 있습니다. 자세한 정보 로그의 URI는 각 드라이브의 `VerboseLogUri` 속성에서 반환되는 반면 오류 로그의 URI는 `ErrorLogUri` 속성에서 반환됩니다.
 
 로깅 데이터를 사용하여 다음 문제를 식별할 수 있습니다.
 

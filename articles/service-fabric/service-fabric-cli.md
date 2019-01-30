@@ -6,14 +6,14 @@ author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 370c8521127ffc28cc1b604c217544bccc82d705
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 579df1c8412ae626ced6776a98e054a13e4a3e64
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495947"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273088"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -33,7 +33,8 @@ Service Fabric CLI는 Service Fabric SDK의 최신 런타임 버전을 지원하
 
 | CLI 버전   | 지원되는 런타임 버전 |
 |---------------|---------------------------|
-| 최신(~=6)  | 최신(~=6.3)            |
+| 최신(~=7)  | 최신(~=6.4)            |
+| 6.0.0         | 6.3                       |
 | 5.0.0         | 6.2                       |
 | 4.0.0         | 6.1                       |
 | 3.0.0         | 6.0                       |
@@ -53,7 +54,7 @@ Service Fabric CLI 릴리스에 대한 자세한 내용은 [GitHub 설명서](ht
 
 플랫폼에 pip와 Python을 설치하는 방법은 여러 가지가 있습니다. Python 3 및 pip를 사용하여 주요 운영 체제를 빠르게 설정하는 몇 가지 단계는 다음과 같습니다.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 Windows 10, Windows Server 2016 및 Windows Server 2012 R2의 경우 표준 공식 설치 지침을 사용합니다. 또한 Python 설치 관리자는 기본적으로 pip를 설치합니다.
 
@@ -165,7 +166,7 @@ sfctl <object> <action>
 sfctl cluster select --endpoint http://testcluster.com:19080
 ```
 
-클러스터 끝점은 접두사로 `http` 또는 `https`를 사용해야 합니다. HTTP 게이트웨이에 대한 포트를 포함해야 합니다. 포트 및 주소는 Service Fabric Explorer URL와 동일합니다.
+클러스터 엔드포인트는 접두사로 `http` 또는 `https`를 사용해야 합니다. HTTP 게이트웨이에 대한 포트를 포함해야 합니다. 포트 및 주소는 Service Fabric Explorer URL와 동일합니다.
 
 인증서로 보호되는 클러스터에는 PEM으로 인코딩된 인증서를 지정할 수 있습니다. 인증서는 단일 파일 또는 인증서와 키 쌍으로 지정할 수 있습니다. CA 서명되지 않은 자체 서명된 인증서인 경우 `--no-verify` 옵션을 전달하여 CA 확인을 건너뛸 수 있습니다.
 
@@ -236,7 +237,7 @@ openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certif
 
 `Failed to establish a new connection`
 
-지정된 클러스터 끝점을 사용 가능하고 수신 대기하는지를 확인합니다. Service Fabric Explorer UI가 해당 호스트 및 포트에서 사용 가능한지도 확인합니다. 끝점을 업데이트하려면 `sfctl cluster select`를 사용합니다.
+지정된 클러스터 엔드포인트를 사용 가능하고 수신 대기하는지를 확인합니다. Service Fabric Explorer UI가 해당 호스트 및 포트에서 사용 가능한지도 확인합니다. 엔드포인트를 업데이트하려면 `sfctl cluster select`를 사용합니다.
 
 ### <a name="detailed-logs"></a>자세한 로그
 

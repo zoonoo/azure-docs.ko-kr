@@ -8,21 +8,20 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: douglasl
-ms.openlocfilehash: cb1a263c0a33a291a44e7c60b3c032d7f9dc16a3
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f9dfb2dde4c49d9ca167b0f4ea6af28bd1db6872
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054078"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013590"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Azure 통합 런타임을 만들고 구성하는 방법
 IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. IR에 대한 자세한 내용은 [통합 런타임](concepts-integration-runtime.md)을 참조하세요.
 
-Azure IR은 완전히 관리되는 계산을 제공하여 기본적으로 데이터 이동을 수행하고 HDInsight와 같은 계산 서비스로 데이터 변환 작업을 디스패치합니다. Azure 환경에서 호스트되며 액세스 가능한 공용 끝점을 통해 공용 네트워크 환경의 리소스에 연결할 수 있습니다.
+Azure IR은 완전히 관리되는 계산을 제공하여 기본적으로 데이터 이동을 수행하고 HDInsight와 같은 계산 서비스로 데이터 변환 작업을 디스패치합니다. Azure 환경에서 호스트되며 액세스 가능한 공용 엔드포인트를 통해 공용 네트워크 환경의 리소스에 연결할 수 있습니다.
 
 이 문서에서는 Azure 통합 런타임을 만들고 구성할 수 있는 방법을 소개합니다. 
 

@@ -1,22 +1,18 @@
 ---
-title: 'Azure Cosmos DB: SQL API에 대한 .NET 예제 | Microsoft Docs'
-description: CRUD 작업을 포함하여 Azure Cosmos DB SQL API를 사용하는 일반적인 작업에 대한 C# .NET 예제를 github에서 찾아봅니다.
-keywords: NoSQL 예제
-services: cosmos-db
-author: rnagpal
-manager: kfile
+title: 'Azure Cosmos DB: SQL API에 대한 .NET 예제'
+description: CRUD 작업을 포함하여 Azure Cosmos DB SQL API를 사용하는 일반적인 작업에 대한 C# .NET 예제를 GitHub에서 찾아봅니다.
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
-ms.devlang: na
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 02/22/2017
-ms.author: rnagpal
-ms.openlocfilehash: 5cee4a736232e7734be85b2940ce457bfbfd1613
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.author: sngun
+ms.openlocfilehash: 5d80c0a8464a9672859a3fbd305bbd4ab322b092
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262297"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037092"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: SQL API에 대한 .NET 예제
 > [!div class="op_single_selector"]
@@ -29,20 +25,22 @@ ms.locfileid: "52262297"
 > 
 > 
 
-Azure Cosmos DB 리소스에 대한 CRUD 작업 및 다른 일반적인 작업을 수행하는 샘플 솔루션은 [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples) GitHub 리포지토리에 포함됩니다. 이 문서는 다음을 제공합니다.
+Azure Cosmos DB 리소스에 대한 CRUD 작업 및 기타 일반적인 작업을 수행하는 최신 샘플 솔루션은 [azure-cosmos-dotnet-v2](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples) GitHub 리포지토리에 포함됩니다. 이 문서는 다음을 제공합니다.
 
 * 각 예제 C# 프로젝트 파일에서 작업에 연결합니다. 
 * 관련된 API 참조 콘텐츠에 대한 링크입니다.
+
+.NET SDK 버전 3.0(미리 보기)에 대한 코드 샘플은 [azure cosmos-dotnet v3](https://github.com/Azure/azure-cosmos-dotnet-v3) GitHub 리포지토리의 최신 샘플을 참조하세요. 
 
 **필수 구성 요소**
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
   
-- [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)할 수 있음: Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+- [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)할 수 있습니다. Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-또한 [Microsoft.Azure.DocumentDB NuGet 패키지](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)가 필요합니다. 
+또한 [Microsoft.Azure.DocumentDB NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)가 필요합니다. 
 
 > [!NOTE]
 > 각 샘플은 자체 포함되며 자체를 설정하고 자체를 정리합니다. 샘플은 CreateDocumentCollectionAsync()에 대한 여러 호출을 실행합니다. 구독에 이렇게 영향을 줄 때마다 생성되는 컬렉션의 성능 계층 당 1시간 사용량이 청구됩니다. 
@@ -128,7 +126,7 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 | [>, <, >=, <=같은 범위 연산자를 사용하는 쿼리](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L305-L325) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 | [문자열에 대해 범위 연산자를 사용하는 쿼리](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L337-L346) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 | [Order By로 쿼리](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L370-L392) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
-| [집계 함수를 사용하여 쿼리](https://github.com/arramac/azure-documentdb-dotnet/blob/198bed2865e54af6681fc96b3ca253d31b113b9a/samples/code-samples/Queries/Program.cs#L451-L455) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
+| [집계 함수를 사용하여 쿼리](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs#L448-L496) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 | [하위 문서로 작업](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L394-L419) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 | [문서 내 조인으로 쿼리](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L421-L435) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 | [문자열, 수치 연산 및 배열 연산자로 쿼리](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L527-L552) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
@@ -147,7 +145,7 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 | [읽기 변경 피드](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L132) |[DocumentClient.CreateDocumentChangeFeedQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) | 
 | [읽기 파티션 키 범위](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L118) |[DocumentClient.ReadPartitionKeyRangeFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readpartitionkeyrangefeedasync.aspx) | 
 
-변경 피드 프로세서 샘플: [변경 피드 마이그레이션 도구](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedMigrationTool)는 변경 피드 프로세서 라이브러리를 사용하여 다른 Cosmos DB 컬렉션에 데이터를 복제하는 방법을 보여 줍니다.   
+변경 피드 프로세서 샘플:  [변경 피드 마이그레이션 도구](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedMigrationTool)는 변경 피드 프로세서 라이브러리를 사용하여 다른 Cosmos DB 컬렉션에 데이터를 복제하는 방법을 보여 줍니다.   
 
 ## <a name="server-side-programming-examples"></a>서버 쪽 프로그래밍 예제
 서버 쪽 프로그래밍 파일인 [azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs)는 다음 작업을 수행하는 방법을 보여 줍니다.
@@ -162,7 +160,7 @@ DatabaseManagement 프로젝트의 샘플인 [RunDatabaseDemo](https://github.co
 | [사후 트리거 만들기](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L329) |[DocumentClient.CreateTriggerAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createtriggerasync.aspx) |
 | [UDF(사용자 정의 함수) 만들기](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L389) |[DocumentClient.CreateUserDefinedFunctionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createuserdefinedfunctionasync.aspx) |
 
-서버 쪽 프로그래밍에 대한 자세한 내용은 [Azure Cosmos DB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF](programming.md)를 참조하세요.
+서버 쪽 프로그래밍에 대한 자세한 내용은 [Azure Cosmos DB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF](stored-procedures-triggers-udfs.md)를 참조하세요.
 
 ## <a name="user-management-examples"></a>사용자 관리 예제
 사용자 관리 파일인 [azure-documentdb-dotnet/samples/code-samples/UserManagement/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/UserManagement/Program.cs)는 다음 작업을 수행하는 방법을 보여 줍니다.

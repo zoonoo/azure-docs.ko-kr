@@ -9,12 +9,12 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 6a479218ff8bd5addf4273b23c06380859e0ea08
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 415f58d9c6880bc7ef9ba6b6ba3f575fae382f04
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782902"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54806894"
 ---
 # <a name="loading-assets-into-azure-media-clipper"></a>Azure Media Clipper에 자산 로드
 다음 두 가지 방법으로 Azure Media Clipper에 자산을 로드할 수 있습니다.
@@ -136,7 +136,7 @@ Clipper에 동적으로 비디오를 로드하면 최종 사용자가 자산 선
     // - take: int value used for pagination in the back-end that allows defining the number of assets to include in the response.
     // - type: ('filter', 'asset') value that will be used in the back-end to filter assets by type.
     //
-    // Returns: a Promise object that, when resolved, retuns an object containing an array of assets (input contract)
+    // Returns: a Promise object that, when resolved, returns an object containing an array of assets (input contract)
     //          that satisfies the filter parameters, plus optionally the total types of files available:
     // {
     //  total: 100,

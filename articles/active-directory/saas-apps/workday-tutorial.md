@@ -4,7 +4,7 @@ description: Azure Active Directory와 Workday 간에 Single Sign-On을 구성�
 services: active-directory
 documentationCenter: na
 author: cmmdesai
-manager: mtillman
+manager: daveba
 ms.reviewer: jeedes
 ms.assetid: e9da692e-4a65-4231-8ab3-bc9a87b10bca
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: chmutali
-ms.openlocfilehash: 78b9fe704c5c8a1f81da480787f1791e88bf4f72
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: d44d44b47420e2e05c351e5c607cc71b1c7e1247
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714721"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824443"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>자습서: Workday와 Azure Active Directory 통합
 
@@ -32,7 +32,7 @@ Workday를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 자신의 Azure AD 계정으로 Workday에 자동으로 로그온(Single Sign-On) 되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -51,7 +51,7 @@ Workday와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Workday 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -66,15 +66,15 @@ Workday가 Azure AD에 통합되도록 구성하려면 갤러리에서 Workday�
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![엔터프라이즈 애플리케이션 블레이드][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
-4. 검색 상자에 **Workday**를 입력하고 결과 패널에서 **Workday**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에 **Workday**를 입력하고 결과 패널에서 **Workday**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Workday](./media/workday-tutorial/tutorial_workday_addfromgallery.png)
 
@@ -96,11 +96,11 @@ Workday에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Workday 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Workday 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Workday에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Workday** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Workday** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -114,7 +114,7 @@ Workday에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://impl.workday.com/<tenant>/login-saml2.htmld`
 
-    b. **식별자** 텍스트 상자에 URL `http://www.workday.com`를 입력합니다.
+    b. **식별자** 텍스트 상자에 URL `https://www.workday.com`를 입력합니다.
 
 4. **고급 URL 설정 표시**를 확인하고, 다음 단계를 수행합니다.
 
@@ -126,7 +126,7 @@ Workday에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 회신 URL을 사용하여 이러한 값을 업데이트합니다. 회신 URL에 하위 도메인(예: www, wd2, wd3, wd3-impl, wd5, wd5-impl)이 있어야 합니다.
     > "*http://www.myworkday.com*"과 같이 사용해도 되지만 "*http://myworkday.com*"은 가능하지 않습니다. 이러한 값을 얻으려면 [Workday 클라이언트 지원 팀](https://www.workday.com/en-us/partners-services/services/support.html)에 문의하세요.
 
-5. Workday 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이 구성에 대한 예제를 보여줍니다.
+5. Workday 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이 구성에 대한 예제를 보여줍니다.
 
     ![Configure Single Sign-On](./media/Workday-tutorial/tutorial_workday_attributes.png)
 
@@ -180,7 +180,7 @@ Workday에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![SAML ID 공급자](./media/workday-tutorial/IC7829271.png "SAML ID 공급자")
 
-    a. **ID 공급자 이름** 텍스트 상자에 공급자 이름(예: *SPInitiatedSSO*)을 입력합니다.
+    a. **ID 공급 기업 이름** 텍스트 상자에 공급 기업 이름(예: *SPInitiatedSSO*)을 입력합니다.
 
     b. Azure Portal의 **로그온 구성** 창에서 **SAML 엔터티 ID**  값을 복사한 다음 **발급자** 텍스트 상자에 붙여넣습니다.
 
@@ -225,7 +225,7 @@ Workday에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![SSO 구성](./media/workday-tutorial/WorkdaySSOConfiguratio.png "SSO 구성")
 
-    a.  **서비스 공급자 ID** 텍스트 상자에 **http://www.workday.com**을 입력합니다.
+    a.  **서비스 공급자 ID** 텍스트 상자에 **https://www.workday.com**을 입력합니다.
 
     b. **SP에서 시작한 인증 요청을 Deflate하지 않음**을 선택합니다.
 
@@ -238,7 +238,7 @@ Workday에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     ![확인](./media/workday-tutorial/IC782933.png "확인")
 
     > [!NOTE]
-    > Single Sign-On을 올바르게 설정했는지 확인하세요. 잘못된 설정으로 Single Sign-On을 활성화한 경우 자격 증명을 사용하여 응용 프로그램을 입력하고 잠글 수 없을 수도 있습니다. 이 경우 Workday는 사용자가 [Your Workday URL]/login.flex?redirect=n 형식으로 해당 일반 사용자 이름 및 암호를 사용하여 로그인할 수 있는 백업 로그인 url을 제공합니다.
+    > Single Sign-On을 올바르게 설정했는지 확인하세요. 잘못된 설정으로 Single Sign-On을 활성화한 경우 자격 증명을 사용하여 애플리케이션을 입력하고 잠글 수 없을 수도 있습니다. 이 경우 Workday는 사용자가 [Your Workday URL]/login.flex?redirect=n 형식으로 해당 일반 사용자 이름 및 암호를 사용하여 로그인할 수 있는 백업 로그인 url을 제공합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -284,13 +284,13 @@ Workday에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 **Britta Simon을 Workday에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **Workday**를 선택합니다.
+2. 애플리케이션 목록에서 **Workday**를 선택합니다.
 
-    ![응용 프로그램 목록의 Workday 링크](./media/workday-tutorial/tutorial_workday_app.png)  
+    ![애플리케이션 목록의 Workday 링크](./media/workday-tutorial/tutorial_workday_app.png)  
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -310,13 +310,13 @@ Workday에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Workday 타일을 클릭하면 Workday 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Workday 타일을 클릭하면 Workday 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

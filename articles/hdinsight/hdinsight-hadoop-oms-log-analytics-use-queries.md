@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: a4c4017d7fa798559817c281d159148ec675d158
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 400ae8ffe86b5ba66a53835c720f911ddb889bd9
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281356"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386505"
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics를 쿼리하여 HDInsight 클러스터 모니터링
 
@@ -46,7 +46,7 @@ HDInsight 클러스터에 대한 특정 메트릭을 조회하는 방법을 알�
 
 5. 왼쪽 창의 **형식**에서 심층적으로 분석하려는 메트릭을 선택한 다음, **적용**을 선택합니다. 다음 스크린샷은 `metrics_resourcemanager_queue_root_default_CL` 형식을 선택한 것입니다.
 
-    > [!NOTE]
+    > [!NOTE]  
     > **[+]자세히** 단추를 선택하여 원하는 메트릭을 찾을 수도 있습니다. 또한 **적용** 단추는 목록의 아래쪽에 있으므로 스크롤해야 볼 수 있습니다.
 
     텍스트 상자의 쿼리가 다음 스크린샷에서 강조 표시된 상자에 표시된 내용으로 변경됩니다.
@@ -115,7 +115,7 @@ HDInsight 클러스터에 대한 특정 메트릭을 조회하는 방법을 알�
 1. Azure Portal에서 Log Analytics 작업 영역을 엽니다.
 2. 왼쪽 메뉴에서 **경고**를 선택합니다.
 3. 편집하거나 삭제하려는 경고를 선택합니다.
-4. **저장**, **취소**, **사용 안 함** 및 **삭제**와 같은 옵션이 있습니다.
+4. 다음 옵션이 있습니다. **저장**, **취소**, **사용 안 함** 및 **삭제**.
 
     ![HDInsight Log Analytics 경고 삭제 편집](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 

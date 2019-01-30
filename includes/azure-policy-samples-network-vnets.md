@@ -19,7 +19,7 @@ ms.locfileid: "53318313"
 
 |  |  |
 |---------|---------|
-| [허용되는 가상 네트워크 게이트웨이 SKU](../articles/governance/policy/samples/allowed-app-gateway-sku.md) | 응용 프로그램 게이트웨이에서 승인된 SKU를 사용해야 합니다. 승인된 SKU 배열을 지정합니다. |
+| [허용되는 가상 네트워크 게이트웨이 SKU](../articles/governance/policy/samples/allowed-app-gateway-sku.md) | 애플리케이션 게이트웨이에서 승인된 SKU를 사용해야 합니다. 승인된 SKU 배열을 지정합니다. |
 | [허용되는 vNet 게이트웨이 SKU](../articles/governance/policy/samples/allowed-vnet-gateway-sku.md) | 가상 네트워크 게이트웨이는 승인된 SKU를 사용해야 합니다. 승인된 SKU 배열을 지정합니다. |
 | [허용되는 Load Balancer SKU](../articles/governance/policy/samples/allowed-load-balancer-skus.md) | 가상 네트워크 부하 분산 장치는 승인된 SKU를 사용해야 합니다. 승인된 SKU 배열을 지정합니다. |
 | [Express Route 네트워크에 대한 네트워크 피어링 없음](../articles/governance/policy/samples/no-peering-express-route-network.md) | 네트워크 피어링이 지정된 리소스 그룹의 한 네트워크에 연결되는 것을 금지합니다. 중앙 관리 네트워크 인프라와의 연결을 예방하기 위해 사용합니다. 연결을 예방하기 위해 리소스 그룹의 이름을 지정합니다. |

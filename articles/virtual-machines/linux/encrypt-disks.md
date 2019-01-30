@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: b80c2fe44ddd15e0e31a83e5baab37736dc57fca
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 2a057c311a8b080b695492664df0eaabc5609b35
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913770"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856794"
 ---
 # <a name="how-to-encrypt-a-linux-virtual-machine-in-azure"></a>Azure에서 Linux 가상 머신을 암호화하는 방법
 
@@ -67,7 +67,7 @@ VM을 암호화하는 프로세스는 다음과 같습니다.
 ## <a name="create-an-azure-key-vault-and-keys"></a>Azure Key Vault 및 키 만들기
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myKey*, *myVM*이 포함됩니다.
 
-첫 번째 단계는 암호화 키를 저장할 Azure Key Vault를 만드는 것입니다. Azure Key Vault는 응용 프로그램 및 서비스에 안전하게 구현할 수 있는 키와 암호를 저장할 수 있습니다. 가상 디스크 암호화의 경우 Key Vault를 사용하여 가상 디스크 암호화 또는 암호 해독에 사용되는 암호화 키를 저장합니다.
+첫 번째 단계는 암호화 키를 저장할 Azure Key Vault를 만드는 것입니다. Azure Key Vault는 애플리케이션 및 서비스에 안전하게 구현할 수 있는 키와 암호를 저장할 수 있습니다. 가상 디스크 암호화의 경우 Key Vault를 사용하여 가상 디스크 암호화 또는 암호 해독에 사용되는 암호화 키를 저장합니다.
 
 Azure 구독 내에서 [az provider register](/cli/azure/provider#az-provider-register)를 사용하여 Azure Key Vault 공급자를 사용하도록 설정하고 [az group create](/cli/azure/group#az-group-create)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 `eastus` 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
@@ -162,7 +162,7 @@ az vm encryption enable \
     --name myVM \
     --disk-encryption-keyvault $keyvault_name \
     --key-encryption-key myKey \
-    --volume-type all
+    --volume-type data
 ```
 
 

@@ -24,7 +24,7 @@ ms.locfileid: "51240344"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>자습서: Service Fabric 클러스터 설치 및 만들기
 
-Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 선택하고 Service Fabric이 수행하는 "모든 OS 및 모든 클라우드" 접근 방법의 일부로서 클러스터를 만드는 옵션을 제공합니다. 이 자습서 시리즈에서는 AWS에서 호스팅되는 독립 실행형 클러스터를 만들고 여기에 응용 프로그램을 설치합니다.
+Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 선택하고 Service Fabric이 수행하는 "모든 OS 및 모든 클라우드" 접근 방법의 일부로서 클러스터를 만드는 옵션을 제공합니다. 이 자습서 시리즈에서는 AWS에서 호스팅되는 독립 실행형 클러스터를 만들고 여기에 애플리케이션을 설치합니다.
 
 이 자습서는 시리즈의 2부입니다. 이 자습서에서는 Service Fabric 독립 실행형 클러스터를 만들기 위한 단계를 안내합니다.
 
@@ -141,11 +141,11 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 > [!div class="checklist"]
 > * 연결 문자열 구성
-> * 응용 프로그램 빌드
-> * 응용 프로그램 실행
+> * 애플리케이션 빌드
+> * 애플리케이션 실행
 > * 연결 수의 유효성 검사
 
-시리즈의 3부로 이동하여 사용자가 만든 클러스터로 응용 프로그램을 설치합니다.
+시리즈의 3부로 이동하여 사용자가 만든 클러스터로 애플리케이션을 설치합니다.
 
 > [!div class="nextstepaction"]
 > [서비스 패브릭 클러스터에 응용 프로그램 설치](service-fabric-tutorial-standalone-install-an-application.md)

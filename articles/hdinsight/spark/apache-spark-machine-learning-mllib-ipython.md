@@ -10,21 +10,19 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: f9ee5946d9748388cc1f606d89d4edeacb0b9c02
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 2a566312e70e0c1d5f85a540f30ecdf0adc0e7e7
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498084"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653716"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Apache Spark MLlib을 사용하여 Machine Learning 애플리케이션 빌드 및 데이터 세트 분석
 
 Apache Spark [MLlib](https://spark.apache.org/mllib/)을 사용하여 오픈 데이터 세트에 대한 간단한 예측 분석을 수행하는 Machine Learning 애플리케이션을 만드는 방법을 알아봅니다. Spark의 기본 제공 Machine Learning 라이브러리에서 이 예제는 로지스틱 회귀를 통해 *분류*를 사용합니다. 
 
-> [!TIP]
+> [!TIP]  
 > 이 예제는 HDInsight에서 만드는 Spark(Linux) 클러스터에서 [Jupyter Notebook](https://jupyter.org/)으로 사용할 수도 있습니다. Notebook 환경을 통해 Notebook 자체에서 Python 코드 조각을 실행할 수 있습니다. Notebook 내에서 자습서를 수행하려면 Spark 클러스터를 만들고 Jupyter Notebook(`https://CLUSTERNAME.azurehdinsight.net/jupyter`)을 시작합니다. **Python** 폴더에서 Notebook **Spark Machine Learning - MLlib.ipynb를 사용하여 음식 검사 데이터에 대한 예측 분석**을 실행합니다.
->
->
 
 MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learning 작업에 유용한 여러 유틸리티를 제공하는 코어 Spark 라이브러리입니다.
 
@@ -51,7 +49,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
 
 1. PySpark 커널을 사용하여 Jupyter 노트북을 만듭니다. 자세한 지침은 [Jupyter 노트북 만들기](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook)를 참조하세요.
 
-2. 이 응용 프로그램에 필요한 형식을 가져옵니다. 빈 셀에 다음 코드를 복사하여 붙여넣은 다음, **SHIRT + ENTER** 키를 누릅니다.
+2. 이 애플리케이션에 필요한 형식을 가져옵니다. 빈 셀에 다음 코드를 복사하여 붙여넣은 다음, **SHIRT + ENTER** 키를 누릅니다.
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -178,7 +176,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
     SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
     ```
 
-    `-o countResultsdf` 앞의 `%%sql` 매직은 쿼리 출력이 Jupyter 서버(일반적으로 클러스터의 헤드 노드)에서 로컬로 유지되도록 합니다. 출력은 [countResultsdf](http://pandas.pydata.org/) 라는 이름이 지정된 **Pandas**데이터 프레임으로 유지됩니다. `%%sql` 매직 및 PySpark 커널에서 사용 가능한 기타 매직에 대한 자세한 내용은 [Apache Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)을 참조하세요.
+    `-o countResultsdf` 앞의 `%%sql` 매직은 쿼리 출력이 Jupyter 서버(일반적으로 클러스터의 헤드 노드)에서 로컬로 유지되도록 합니다. 출력은 [countResultsdf](https://pandas.pydata.org/) 라는 이름이 지정된 **Pandas**데이터 프레임으로 유지됩니다. `%%sql` 매직 및 PySpark 커널에서 사용 가능한 기타 매직에 대한 자세한 내용은 [Apache Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)을 참조하세요.
 
     출력은 다음과 같습니다.
 
@@ -201,7 +199,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
 
     출력은 다음과 같습니다.
 
-    ![Spark Machine Learning 응용 프로그램 출력 - 5개의 고유한 검사 결과를 포함하는 원형 차트](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Spark Machine Learning 결과 출력")
+    ![Spark Machine Learning 애플리케이션 출력 - 5개의 고유한 검사 결과를 포함하는 원형 차트](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Spark Machine Learning 결과 출력")
 
     아래는 검사에서 나올 수 있는 5가지 고유한 결과입니다.
 
@@ -211,7 +209,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
     - 조건부 합격
     - 폐업
 
-    음식 검사 결과를 예측하려면 위반을 기반으로 모델을 개발해야 합니다. 로지스틱 회귀는 이진 분류 방법이므로 결과 데이터를 두 가지 범주, 즉 **불합격** 및 **합격**으로 그룹화할 수 있습니다.
+    음식 검사 결과를 예측하려면 위반을 기반으로 모델을 개발해야 합니다. 로지스틱 회귀는 이진 분류 방법이므로 결과 데이터를 두 가지 범주로 그룹화할 수 있습니다. **불합격** 및 **합격**:
 
     - 합격
         - 합격
@@ -269,7 +267,7 @@ model = pipeline.fit(labeledData)
 
 ## <a name="evaluate-the-model-using-another-dataset"></a>다른 데이터 세트를 사용하여 모델 평가
 
-앞에 만든 모델을 사용하여 관찰된 위반을 기반으로 새 검사의 결과를 *예측* 할 수 있습니다. **Food_Inspections1.csv** 데이터 집합에서 이 모델을 학습했습니다. 두 번째 데이터 세트인 **Food_Inspections2.csv**를 사용하여 새 데이터에서 이 모델의 강도를 *평가*할 수 있습니다. 이 두 번째 데이터 집합(**Food_Inspections2.csv**)은 클러스터와 연결된 기본 저장소 컨테이너에 있습니다.
+앞에 만든 모델을 사용하여 관찰된 위반을 기반으로 새 검사의 결과를 *예측* 할 수 있습니다. **Food_Inspections1.csv** 데이터 세트에서 이 모델을 학습했습니다. 두 번째 데이터 세트인 **Food_Inspections2.csv**를 사용하여 새 데이터에서 이 모델의 강도를 *평가*할 수 있습니다. 이 두 번째 데이터 집합(**Food_Inspections2.csv**)은 클러스터와 연결된 기본 저장소 컨테이너에 있습니다.
 
 1. 다음 코드를 실행하여 모델에서 생성한 예측을 포함하는 새 데이터 프레임 **predictionsDf**를 만듭니다. 이 조각은 데이터 프레임을 기반으로 **Predictions**라는 임시 테이블도 만듭니다.
 
@@ -374,27 +372,27 @@ model = pipeline.fit(labeledData)
 
     다음 출력이 표시됩니다.
 
-    ![Spark Machine Learning 응용 프로그램 출력 - 실패한 식품 검사의 원형 차트 비율.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Spark Machine Learning 결과 출력")
+    ![Spark Machine Learning 애플리케이션 출력 - 실패한 식품 검사의 원형 차트 비율.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Spark Machine Learning 결과 출력")
 
     이 차트에서 "긍정" 결과는 불합격한 음식 검사를 참조하는 반면, 부정 결과는 합격한 검사를 참조합니다.
 
 ## <a name="shut-down-the-notebook"></a>Notebook 종료
-응용 프로그램 실행을 완료한 후 리소스를 해제하도록 Notebook을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 클릭합니다. 그러면 Notebook을 종료하고 닫습니다.
+애플리케이션 실행을 완료한 후 리소스를 해제하도록 Notebook을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 클릭합니다. 그러면 Notebook을 종료하고 닫습니다.
 
 ## <a name="seealso"></a>참고 항목
-* [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
+* [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
 * [BI와 Apache Spark: BI 도구와 함께 HDInsight의 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 HVAC 데이터로 건물 온도 분석](apache-spark-ipython-notebook-machine-learning.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 
-### <a name="create-and-run-applications"></a>응용 프로그램 만들기 및 실행
-* [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](apache-spark-create-standalone-application.md)
+### <a name="create-and-run-applications"></a>애플리케이션 만들기 및 실행
+* [Scala를 사용하여 독립 실행형 애플리케이션 만들기](apache-spark-create-standalone-application.md)
 * [Apache Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>도구 및 확장
-* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](apache-spark-intellij-tool-plugin.md)
+* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 애플리케이션 만들기 및 제출](apache-spark-intellij-tool-plugin.md)
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Apache Spark 애플리케이션을 원격으로 디버그](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md)
 * [HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)

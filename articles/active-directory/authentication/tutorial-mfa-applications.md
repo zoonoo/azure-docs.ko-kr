@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 098973e2ece3477ec87b154c0304c4ca7e0246d1
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5bd27ed71e93edc10fd86395121c524cb54c98e7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163335"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427613"
 ---
 # <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>자습서: Azure Multi-Factor Authentication 파일럿 배포 완료
 
@@ -27,9 +27,9 @@ ms.locfileid: "39163335"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 적어도 평가판 라이선스가 설정된 작동 중인 Azure AD 테넌트.
-* 전역 관리자 권한이 있는 계정.
-* 암호를 알고 있는 테스트용 비 관리자 테스트 사용자. 사용자를 만들어야 하는 경우 [빠른 시작: Azure Active Directory에 새 사용자 추가](../add-users-azure-active-directory.md) 문서를 참조하세요.
+* 적어도 평가판 라이선스가 설정된 작동 중인 Azure AD 테넌트
+* 전역 관리자 권한이 있는 계정
+* 테스트용 암호를 알고 있는 관리자가 아닌 테스트 사용자. 사용자를 만들어야 하는 경우 [빠른 시작: Azure Active Directory에 새 사용자 추가](../add-users-azure-active-directory.md)의 정보를 사용할 수 있습니다.
 * 비 관리자 사용자가 멤버인지 테스트하는 데 사용할 파일럿 그룹. 그룹을 만들어야 하는 경우 [Azure Active Directory에서 그룹 만들기 및 멤버 추가](../active-directory-groups-create-azure-portal.md) 문서를 참조하세요.
 
 ## <a name="enable-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 사용

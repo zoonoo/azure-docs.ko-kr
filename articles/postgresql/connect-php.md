@@ -1,25 +1,22 @@
 ---
 title: PHP를 사용하여 Azure Database for PostgreSQL에 연결
 description: 이 빠른 시작에서는 PostgreSQL용 Azure Database의 데이터를 연결하고 쿼리하는 데 사용할 수 있는 PHP 코드 샘플을 제공합니다.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 8f45191d7844700906aac0a206aaaf8dc8cf6202
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: f07dfabf854cf56e1c3cae87bbd0736839be8039
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985560"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608735"
 ---
-# <a name="azure-database-for-postgresql-use-php-to-connect-and-query-data"></a>PostgreSQL용 Azure Database: PHP를 사용하여 데이터 연결 및 쿼리
-이 빠른 시작에서는 [PHP](https://secure.php.net/manual/intro-whatis.php) 응용 프로그램을 사용하여 PostgreSQL용 Azure Database에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서의 단계에서는 개발자가 PHP를 사용하여 개발하는 것에 익숙하고 Azure Database for PostgreSQL 작업에 익숙하지 않다고 가정합니다.
+# <a name="azure-database-for-postgresql-use-php-to-connect-and-query-data"></a>Azure Database for PostgreSQL: PHP를 사용하여 데이터 연결 및 쿼리
+이 빠른 시작에서는 [PHP](https://secure.php.net/manual/intro-whatis.php) 애플리케이션을 사용하여 Azure Database for PostgreSQL에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서의 단계에서는 개발자가 PHP를 사용하여 개발하는 것에 익숙하고 Azure Database for PostgreSQL 작업에 익숙하지 않다고 가정합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작에서는 다음과 같은 가이드 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
@@ -27,9 +24,9 @@ ms.locfileid: "49985560"
 - [DB 만들기 - Azure CLI](quickstart-create-server-database-azure-cli.md)
 
 ## <a name="install-php"></a>PHP 설치
-사용자의 서버에 PHP를 설치하거나 PHP를 포함하는 Azure [웹앱](../app-service/app-service-web-overview.md)을 만듭니다.
+사용자의 서버에 PHP를 설치하거나 PHP를 포함하는 Azure [웹앱](../app-service/overview.md)을 만듭니다.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 - [PHP 7.1.4 스레드로부터 안전하지 않은(x64) 버전](https://windows.php.net/download#php-7.1) 다운로드
 - PHP를 설치하고 [PHP 매뉴얼](https://secure.php.net/manual/install.windows.php)에서 자세한 구성 정보 참조
 - 이 코드는 PHP 설치에 포함된 **pgsql** 클래스(ext/php_pgsql.dll)를 사용합니다. 

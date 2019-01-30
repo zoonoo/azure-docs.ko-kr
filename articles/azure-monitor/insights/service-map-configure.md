@@ -1,6 +1,6 @@
 ---
 title: Azure에서 서비스 맵 구성 | Microsoft Docs
-description: 서비스 맵은 Windows 및 Linux 시스템의 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 사용자 환경에 서비스 맵을 배포하고 다양한 시나리오에서 사용하는 것에 대해 자세히 설명합니다.
+description: 서비스 맵은 Windows 및 Linux 시스템의 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 사용자 환경에 서비스 맵을 배포하고 다양한 시나리오에서 사용하는 것에 대해 자세히 설명합니다.
 services: monitoring
 documentationcenter: ''
 author: mgoedtel
@@ -8,21 +8,20 @@ manager: carmonm
 editor: tysonn
 ms.assetid: d3d66b45-9874-4aad-9c00-124734944b2e
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2018
+ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: cead67bf18dcd0ea7b5c1479588083884dab475f
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 808fe41928a99ffc797c96a02305d81765318780
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632962"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381661"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure에서 서비스 맵 구성
-서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 이것을 사용하여 서버를 생각한 것처럼(중요한 서비스를 제공하는 상호 연결된 시스템으로) 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
+서비스 맵은 Windows 및 Linux 시스템에서 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 이것을 사용하여 서버를 생각한 것처럼(중요한 서비스를 제공하는 상호 연결된 시스템으로) 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
 
 이 문서에서는 서비스 맵 및 에이전트 등록에 대해 자세히 설명합니다. 서비스 맵 사용에 대한 자세한 내용은 [Azure에서 서비스 맵 솔루션 사용]( service-map.md)을 참조하세요.
 
@@ -125,17 +124,17 @@ ms.locfileid: "52632962"
 
 | 파일 | OS | 버전 | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) |  Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) |  Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
 
 ## <a name="connected-sources"></a>연결된 소스
 서비스 맵은 Microsoft Dependency Agent에서 해당 데이터를 가져옵니다. Dependency Agent는 Log Analytics 연결을 위한 Log Analytics 에이전트에 따라 달라집니다. 즉, 서버에 먼저 Log Analytics 에이전트를 설치하고 Dependency Agent로 구성해야 합니다.  다음 표는 서비스 맵 솔루션이 지원하는 연결된 원본을 설명합니다.
 
 | 연결된 원본 | 지원됨 | 설명 |
 |:--|:--|:--|
-| Windows 에이전트 | yes | 서비스 맵은 Windows 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br>[Windows용 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md) 외에도 Windows 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](#supported-operating-systems)를 참조하세요. |
-| Linux 에이전트 | yes | 서비스 맵은 Linux 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br>[Linux용 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md) 외에도 Linux 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](#supported-operating-systems)를 참조하세요. |
-| System Center Operations Manager 관리 그룹 | yes | 서비스 맵은 연결된 [System Center Operations Manager 관리 그룹](../../log-analytics/log-analytics-om-agents.md)의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br>System Center Operations Manager 에이전트 컴퓨터에서 Log Analytics로의 직접 연결이 필요합니다. |
+| Windows 에이전트 | 예 | 서비스 맵은 Windows 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br>[Windows용 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md) 외에도 Windows 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](#supported-operating-systems)를 참조하세요. |
+| Linux 에이전트 | 예 | 서비스 맵은 Linux 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br>[Linux용 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md) 외에도 Linux 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](#supported-operating-systems)를 참조하세요. |
+| System Center Operations Manager 관리 그룹 | 예 | 서비스 맵은 연결된 [System Center Operations Manager 관리 그룹](../../azure-monitor/platform/om-agents.md)의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br>System Center Operations Manager 에이전트 컴퓨터에서 Log Analytics로의 직접 연결이 필요합니다. |
 | Azure Storage 계정 | 아니요 | 서비스 맵은 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
 
 Windows에서 System Center Operations Manager와 Log Analytics는 MMA(Microsoft Monitoring Agent)를 사용하여 모니터링 데이터를 수집하고 전송합니다. (이 에이전트는 컨텍스트에 따라 System Center Operations Manager 에이전트, Log Analytics 에이전트, MMA 또는 직접 에이전트라고 합니다.) System Center Operations Manager와 Log Analytics는 MMA의 다양한 기본 버전을 제공합니다. 이러한 버전은 각각 System Center Operations Manager, Log Analytics 또는 양쪽 모두에 보고할 수 있습니다.  
@@ -156,7 +155,7 @@ Log Analytics에 연결된 관리 그룹을 사용하는 System Center Operation
 Windows 또는 Linux 컴퓨터를 서비스에 직접 연결할 수 없으면, 게이트웨이를 사용하여 Log Analytics 작업 영역에 연결하도록 Log Analytics 에이전트를 구성해야 합니다. Log Analytics 게이트웨이를 배포하고 구성하는 방법에 자세한 내용은 [Log Analytics 게이트웨이를 사용하여 인터넷 액세스 없이 컴퓨터 연결](../../azure-monitor/platform/gateway.md)을 참조하세요.  
 
 ### <a name="management-packs"></a>관리 팩
-Log Analytics 작업 영역에서 서비스 맵이 활성화되면 해당 작업 영역의 모든 Windows 서버에 300KB 관리 팩이 전송됩니다. [연결된 관리 그룹](../../log-analytics/log-analytics-om-agents.md)에서 System Center Operations Manager 에이전트를 사용하는 경우 서비스 맵 관리 팩은 System Center Operations Manager에서 배포됩니다. 
+Log Analytics 작업 영역에서 서비스 맵이 활성화되면 해당 작업 영역의 모든 Windows 서버에 300KB 관리 팩이 전송됩니다. [연결된 관리 그룹](../../azure-monitor/platform/om-agents.md)에서 System Center Operations Manager 에이전트를 사용하는 경우 서비스 맵 관리 팩은 System Center Operations Manager에서 배포됩니다. 
 
 관리 팩 이름은 Microsoft.IntelligencePacks.ApplicationDependencyMonitor입니다. 이것은 %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\에 기록됩니다. 관리 팩에 사용된 데이터 원본은 %Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll입니다.
 
@@ -211,7 +210,7 @@ VM에 Dependency Agent가 설치되어 있는지 확인하는 것보다 더 쉬�
 "apiVersion": "2017-03-30",
 "location": "[resourceGroup().location]",
 "dependsOn": [
-"[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+    "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
 ],
 "properties": {
     "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
@@ -306,37 +305,37 @@ DSC(필요한 상태 구성)를 통해 Dependency Agent를 배포하려면 xPSDe
 ```
 configuration ServiceMap {
 
-Import-DscResource -ModuleName xPSDesiredStateConfiguration
+    Import-DscResource -ModuleName xPSDesiredStateConfiguration
 
-$DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
+    $DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
 
-Node localhost
-{ 
-    # Download and install the Dependency agent
-    xRemoteFile DAPackage 
+    Node localhost
     {
-        Uri = "https://aka.ms/dependencyagentwindows"
-        DestinationPath = $DAPackageLocalPath
-    }
+        # Download and install the Dependency agent
+        xRemoteFile DAPackage 
+        {
+            Uri = "https://aka.ms/dependencyagentwindows"
+            DestinationPath = $DAPackageLocalPath
+        }
 
-    xPackage DA
-    {
-        Ensure="Present"
-        Name = "Dependency Agent"
-        Path = $DAPackageLocalPath
-        Arguments = '/S'
-        ProductId = ""
-        InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
-        InstalledCheckRegValueName = "DisplayName"
-        InstalledCheckRegValueData = "Dependency Agent"
-        DependsOn = "[xRemoteFile]DAPackage"
+        xPackage DA
+        {
+            Ensure="Present"
+            Name = "Dependency Agent"
+            Path = $DAPackageLocalPath
+            Arguments = '/S'
+            ProductId = ""
+            InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
+            InstalledCheckRegValueName = "DisplayName"
+            InstalledCheckRegValueData = "Dependency Agent"
+            DependsOn = "[xRemoteFile]DAPackage"
+        }
     }
-  }
 }
 ```
 
 ## <a name="remove-the-dependency-agent"></a>Dependency Agent 제거
-### <a name="uinstall-agent-on-windows"></a>Windows에서 에이전트 제거
+### <a name="uninstall-agent-on-windows"></a>Windows에서 에이전트 제거
 관리자는 제어판을 통해 Windows용 Dependency Agent를 제거할 수 있습니다.
 
 관리자는 %Programfiles%\Microsoft Dependency Agent\Uninstall.exe를 실행하여 Dependency Agent를 제거할 수도 있습니다.
@@ -363,7 +362,7 @@ sudo apt -y purge dependency-agent
 #### <a name="installer-prompts-for-a-reboot"></a>재부팅용 설치 관리자 프롬프트
 Dependency Agent는 *일반적으로* 설치 또는 제거 시 재부팅하지 않아도 됩니다. 그러나 드문 경우이지만 설치를 계속하기 위해 Windows Server를 다시 부팅해야 합니다. 이것은 종속성(일반적으로 Microsoft Visual C ++ 재배포 가능 패키지)이 잠긴 파일로 인해 재부팅해야 하는 경우 발생합니다.
 
-#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--codenumber-appears"></a>“Dependency Agent를 설치할 수 없습니다: Visual Studio 런타임 라이브러리를 설치하지 못했습니다(코드 = [코드 번호])” 메시지가 표시됩니다.
+#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--codenumber-appears"></a>"종속성 에이전트를 설치할 수 없습니다. Visual Studio 런타임 라이브러리를 설치하지 못했습니다(코드 = [코드 번호])" 메시지가 표시됩니다.
 
 Microsoft Dependency Agent는 Microsoft Visual Studio 런타임 라이브러리를 기반으로 합니다. 라이브러리를 설치하는 동안 문제가 발생하면 메시지가 표시됩니다. 
 
@@ -375,20 +374,20 @@ Microsoft Dependency Agent는 Microsoft Visual Studio 런타임 라이브러리�
 
 | 코드 | 설명 | 해결 방법 |
 |:--|:--|:--|
-| 0x17 | 라이브러리 설치 관리자에는 설치하지 않은 Windows 업데이트가 필요합니다. | 가장 최근의 라이브러리 설치 관리자 로그를 확인합니다.<br><br>"Windows8.1-KB2999226-x64.msu"에 대한 참조 뒤에 "오류 0x80240017: MSU 패키지를 실행하지 못했습니다."라는 줄이 표시되면 KB2999226을 설치하기 위한 필수 구성 요소가 없는 것입니다. [Windows의 유니버설 C 런타임](https://support.microsoft.com/kb/2999226) 필수 구성 요소 섹션의 지침을 따릅니다. 필수 구성 요소를 설치하려면 Windows Update를 실행하고 여러 번 다시 부팅해야 할 수 있습니다.<br><br>Microsoft 종속성 에이전트 설치 관리자를 다시 실행합니다. |
+| 0x17 | 라이브러리 설치 관리자에는 설치하지 않은 Windows 업데이트가 필요합니다. | 가장 최근의 라이브러리 설치 관리자 로그를 확인합니다.<br><br>"Windows8.1-KB2999226-x64.msu" 참조 뒤에 "오류 0x80240017: MSU 패키지를 실행하지 못했습니다"라는 줄이 나오면 KB2999226을 설치하기 위한 필수 구성 요소가 없는 것입니다. [Windows의 유니버설 C 런타임](https://support.microsoft.com/kb/2999226) 필수 구성 요소 섹션의 지침을 따릅니다. 필수 구성 요소를 설치하려면 Windows Update를 실행하고 여러 번 다시 부팅해야 할 수 있습니다.<br><br>Microsoft 종속성 에이전트 설치 관리자를 다시 실행합니다. |
 
 ### <a name="post-installation-issues"></a>사후 설치 문제
 #### <a name="server-doesnt-appear-in-service-map"></a>서버가 서비스 맵에 표시되지 않습니다.
 종속성 에이전트 설치에 성공했지만 서비스 맵 솔루션에 서버가 표시되지 않는 경우:
 * 종속성 에이전트가 성공적으로 설치되었나요? 서비스가 설치되어 실행 중인지 확인하여 성공적인 설치 여부를 검사할 수 있습니다.<br><br>
-**Windows**: “Microsoft 종속성 에이전트”라는 서비스를 찾아봅니다.<br>
-**Linux**: “microsoft-dependency-agent” 실행 프로세스를 찾아봅니다.
+**Windows**: "Microsoft 종속성 에이전트"라는 서비스를 찾아봅니다.<br>
+**Linux**: "microsoft-dependency-agent" 실행 프로세스를 찾아봅니다.
 
 * [Operations Management Suite/Log Analytics의 무료 가격 책정 등급](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)에 있습니까? 무료 계획에서는 고유한 서비스 맵 서버를 5개까지 허용합니다. 따라서 이전의 5개 서비스 맵 서버에서 데이터를 더 이상 보내지 않더라도 이후의 모든 서버는 서비스 맵에 표시되지 않습니다.
 
 * 서버에서 Log Analytics로 로그 및 perf 데이터를 보내고 있나요? [로그 검색]으로 이동하여 컴퓨터에 대해 다음 쿼리를 실행합니다. 
 
-        Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
+    Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
 
 결과에서 다양한 이벤트를 얻었나요? 최근 데이터인가요? 그렇다면 Log Analytics 에이전트가 올바르게 작동하고 Log Analytics와 통신하고 있습니다. 그렇지 않으면 [Windows용 Log Analytics 에이전트 문제 해결](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) 또는 [Linux용 Log Analytics 에이전트 문제 해결](../../azure-monitor/platform/agent-linux-troubleshoot.md)을 참조하여 서버의 에이전트를 확인합니다.
 

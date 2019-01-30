@@ -10,16 +10,15 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: shlo
-ms.openlocfilehash: f61399a3a6cb5c67343e28e4364d8d796ffbc066
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 4188fb413cc1001b6e4813fe69518a016c8c0656
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457074"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354266"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory에서 메타데이터 가져오기 작업
 GetMetadata 작업은 Azure Data Factory에서 모든 데이터의 **메타데이터**를 검색하는 데 사용할 수 있습니다. 이 작업은 다음과 같은 시나리오에서 사용할 수 있습니다.
@@ -103,7 +102,7 @@ GetMetadata 작업 필드 목록에 지정하여 검색할 수 있는 메타데�
 }
 ```
 
-**데이터 집합:**
+**데이터 세트:**
 
 ```json
 {
@@ -131,8 +130,8 @@ GetMetadata 작업 필드 목록에 지정하여 검색할 수 있는 메타데�
 
 자산 | 설명 | 필수
 -------- | ----------- | --------
-fieldList | 필요한 메타데이터 정보의 유형을 나열합니다. 지원되는 메타데이터에 대한 자세한 내용은 [메타데이터 옵션](#metadata-options) 섹션을 참조하세요. | yes 
-dataset | GetMetadata 작업 시 메타데이터 작업을 검색할 참조 데이터 세트입니다. 지원되는 커넥터에 대한 [지원되는 기능](#supported-capabilities) 섹션을 참조하고, 데이터 세트 구문 세부 정보에 대한 커넥터 항목을 참조하세요. | yes
+fieldList | 필요한 메타데이터 정보의 유형을 나열합니다. 지원되는 메타데이터에 대한 자세한 내용은 [메타데이터 옵션](#metadata-options) 섹션을 참조하세요. | 예 
+데이터 세트 | GetMetadata 작업 시 메타데이터 작업을 검색할 참조 데이터 세트입니다. 지원되는 커넥터에 대한 [지원되는 기능](#supported-capabilities) 섹션을 참조하고, 데이터 세트 구문 세부 정보에 대한 커넥터 항목을 참조하세요. | 예
 
 ## <a name="sample-output"></a>샘플 출력
 

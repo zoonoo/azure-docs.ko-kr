@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: f4d8f4a927415426248860b07a40e7294c84de59
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a4f84d6e61d3a100f952908883e6eb70d81f66b2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406962"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998810"
 ---
 # <a name="azure-security-and-compliance-blueprint---data-analytics-for-nist-sp-800-171"></a>Azure 보안 및 규정 준수 청사진 - NIST SP 800-171용 데이터 분석
 
@@ -33,7 +33,7 @@ Azure는 고객에게 다양한 보고 및 분석 서비스를 제공합니다. 
 
 데이터가 SQL Database에 업로드되고 Machine Learning에서 학습되면 운영 사용자와 SQL/데이터 관리자가 Power BI를 사용하여 이러한 데이터를 요약합니다. Power BI는 직관적으로 데이터를 표시하고, 더 많은 통찰력을 얻기 위해 여러 데이터 세트에서 정보를 가져옵니다. Power BI는 원하는 방식으로 세밀하게 조정할 수 있으며 SQL Database와 쉽게 통합할 수 있습니다. 고객은 다양한 비즈니스 요구에 따라 필요한 폭넓은 시나리오를 처리하도록 Power BI를 구성할 수 있습니다.
 
-전체 솔루션은 고객이 Azure Portal에서 구성하는 Azure Storage를 기반으로 합니다. Storage는 저장소 서비스 암호화를 통해 모든 데이터를 암호화하여 미사용 데이터의 기밀을 유지합니다. 또한 지역 중복 저장소가 사용되므로 고객의 기본 데이터 센터에서 사고가 발생해도 데이터가 손실되지 않습니다. 두 번째 복사본은 매우 멀리 떨어진 별도의 위치에 저장됩니다.
+전체 솔루션은 고객이 Azure Portal에서 구성하는 Azure Storage를 기반으로 합니다. Storage는 스토리지 서비스 암호화를 통해 모든 데이터를 암호화하여 미사용 데이터의 기밀을 유지합니다. 또한 지역 중복 저장소가 사용되므로 고객의 기본 데이터 센터에서 사고가 발생해도 데이터가 손실되지 않습니다. 두 번째 복사본은 매우 멀리 떨어진 별도의 위치에 저장됩니다.
 
 보안 향상을 위해 이 솔루션의 모든 리소스는 Azure Resource Manager를 통해 리소스 그룹으로 관리됩니다. 그리고 Azure AD(Active Directory) RBAC(역할 기반 액세스 제어)를 사용하여 배포된 리소스 액세스를 제어합니다. 이러한 리소스는 Azure Key Vault의 고객 키를 포함합니다. 시스템 상태는 Azure Security Center 및 Azure Monitor를 통해 모니터링됩니다. 고객은 로그를 캡처하도록 두 모니터링 서비스를 구성합니다. 시스템 상태는 쉽게 사용할 수 있는 단일 대시보드에 표시됩니다.
 
@@ -65,11 +65,11 @@ SQL Database는 보통 SQL Server Management Studio를 통해 관리되며, 보�
 ## <a name="deployment-architecture"></a>배포 아키텍처
 다음 섹션에서는 개발 및 구현 요소에 대해 자세히 설명합니다.
 
-**Azure Event Grid**: [Event Grid](https://docs.microsoft.com/azure/event-grid/overview)를 사용하면 고객이 이벤트 기반 아키텍처를 통해 응용 프로그램을 쉽게 구축할 수 있습니다. 사용자는 구독하려는 Azure 리소스를 선택한 다음 이벤트 처리기나 웹후크에 이벤트를 전송할 엔드포인트를 제공합니다. 고객은 이벤트 구독을 만들 때 웹후크 URL에 쿼리 매개 변수를 추가하여 웹후크 엔드포인트를 보호할 수 있습니다. Event Grid는 HTTPS 웹후크 엔드포인트만 지원합니다. 고객은 Event Grid를 사용해 다양한 관리 작업을 수행할 수 있도록 사용자별로 제공할 액세스 수준을 제어할 수 있습니다. 사용자는 이벤트 구독을 나열하고 새 구독을 만들고 키를 생성할 수 있습니다. Event Grid는 Azure RBAC를 사용합니다.
+**Azure Event Grid**: [Event Grid](https://docs.microsoft.com/azure/event-grid/overview)를 사용하면 고객이 이벤트 기반 아키텍처를 통해 애플리케이션을 쉽게 구축할 수 있습니다. 사용자는 구독하려는 Azure 리소스를 선택한 다음 이벤트 처리기나 웹후크에 이벤트를 전송할 엔드포인트를 제공합니다. 고객은 이벤트 구독을 만들 때 웹후크 URL에 쿼리 매개 변수를 추가하여 웹후크 엔드포인트를 보호할 수 있습니다. Event Grid는 HTTPS 웹후크 엔드포인트만 지원합니다. 고객은 Event Grid를 사용해 다양한 관리 작업을 수행할 수 있도록 사용자별로 제공할 액세스 수준을 제어할 수 있습니다. 사용자는 이벤트 구독을 나열하고 새 구독을 만들고 키를 생성할 수 있습니다. Event Grid는 Azure RBAC를 사용합니다.
 
 **Azure Functions**: [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)는 요청 시 코드를 실행하는 서버리스 컴퓨팅 서비스입니다. 따라서 인프라를 명시적으로 프로비전하거나 관리하지 않아도 됩니다. Azure Functions를 사용하여 다양한 이벤트에 대한 응답으로 스크립트 또는 코드 조각을 실행합니다.
 
-**Azure Machine Learning**: [Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/)은 컴퓨터에서 기존 데이터를 사용하여 향후의 동작, 결과 및 추세를 예측할 수 있도록 하는 데이터 과학 기술입니다.
+**Azure Machine Learning Service**: [Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/)은 컴퓨터에서 기존 데이터를 사용하여 미래 동작, 결과 및 추세를 예측하는 데이터 과학 기술입니다.
 
 **Azure Data Catalog**: [Data Catalog](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog)를 사용하면 데이터를 관리하는 사용자가 데이터 원본을 쉽게 검색하고 이해할 수 있습니다. 일반적인 데이터 원본은 데이터를 등록, 태그 지정 및 검색할 수 있습니다. 데이터는 기존 위치에 그대로 유지되지만 메타데이터의 복사본이 Data Catalog에 추가됩니다. 데이터 원본 위치에 대한 참조도 포함됩니다. 메타데이터가 인덱싱되므로 검색을 통해 각 데이터 원본을 쉽게 검색할 수 있습니다. 또한 데이터 원본을 검색하는 사용자가 해당 원본을 쉽게 이해할 수 있습니다.
 
@@ -84,7 +84,7 @@ SQL Database는 보통 SQL Server Management Studio를 통해 관리되며, 보�
   - [진단 로그 및 이벤트](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)는 저장소 계정에 사용되고 저장됩니다.
   - Log Analytics는 [NSG의 진단](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)에 연결됩니다.
 
-**서브넷**: 각 서브넷은 해당 NSG에 연결됩니다.
+**서브넷**: 각 서브넷이 해당 NSG에 연결되어야 합니다.
 
 ### <a name="data-in-transit"></a>전송 중 데이터
 Azure는 기본적으로 Azure 데이터 센터와의 모든 통신을 암호화합니다. Azure Portal을 통과하여 Storage로 전송되는 모든 트랜잭션은 HTTPS를 통해 진행됩니다.
@@ -93,29 +93,29 @@ Azure는 기본적으로 Azure 데이터 센터와의 모든 통신을 암호화
 
 이 아키텍처는 암호화, 데이터베이스 감사 및 다른 방법을 통해 미사용 데이터를 보호합니다.
 
-**Azure Storage**: 모든 [Storage](https://azure.microsoft.com/services/storage/)에서는 암호화된 미사용 데이터 관련 요구 사항을 충족하기 위해 [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption)을 사용합니다. 이 기능을 사용하면 NIST SP 800-171을 통해 정의된 조직의 보안 약정 및 규정 준수 요구 사항을 지원하기 위해 데이터를 보호할 수 있습니다.
+**Azure Storage**: 모든 [스토리지](https://azure.microsoft.com/services/storage/)에서는 암호화된 미사용 데이터 관련 요구 사항을 충족하기 위해 [스토리지 서비스 암호화](https://docs.microsoft.com/azure/storage/storage-service-encryption)를 사용합니다. 이 기능을 사용하면 NIST SP 800-171을 통해 정의된 조직의 보안 약정 및 규정 준수 요구 사항을 지원하기 위해 데이터를 보호할 수 있습니다.
 
 **Azure Disk Encryption**: [Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)은 Windows의 BitLocker 기능을 활용하여 데이터 디스크에 대한 볼륨 암호화 기능을 제공합니다. 이 솔루션은 Azure Key Vault와 통합되어 디스크 암호화 키를 제어하고 관리하는 데 유용합니다.
 
-**Azure SQL Database**: SQL Database 인스턴스에서 사용하는 데이터베이스 보안 조치는 다음과 같습니다.
+**Azure SQL Database**: SQL Database 인스턴스는 다음 데이터베이스 보안 조치를 사용합니다.
 -   [Active Directory 인증 및 권한 부여](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)를 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 ID를 중앙의 한 위치에서 집중적으로 관리할 수 있습니다.
 -   [SQL 데이터베이스 감사](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started)는 데이터베이스 이벤트를 추적하고 Azure 저장소 계정의 감사 로그에 기록합니다.
 -   SQL Database는 [투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 사용하도록 구성됩니다. 투명한 데이터 암호화는 데이터베이스, 관련 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행하여 미사용 정보를 보호합니다. 투명한 데이터 암호화를 사용하는 경우 저장된 데이터에 무단으로 액세스할 수 없습니다.
 -   [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)은 적절한 권한이 부여될 때까지 데이터베이스 서버에 대한 모든 액세스를 차단합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다.
 -   [SQL 위협 검색](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started)을 사용하면 잠재적 위협 발생 시 검색하여 대응을 할 수 있습니다. SQL 위협 검색에서는 의심스러운 데이터베이스 활동, 잠재적 취약성, SQL 삽입 공격 및 비정상적인 데이터베이스 액세스 패턴에 대한 보안 경고를 제공합니다.
--   [암호화된 열](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)을 사용하면 중요한 데이터가 데이터베이스 시스템 내에서 일반 텍스트로 표시되지 않습니다. 데이터 암호화를 사용하도록 설정하면 키에 액세스할 수 있는 클라이언트 응용 프로그램 또는 응용 프로그램 서버만 일반 텍스트 데이터에 액세스할 수 있습니다.
+-   [암호화된 열](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)을 사용하면 중요한 데이터가 데이터베이스 시스템 내에서 일반 텍스트로 표시되지 않습니다. 데이터 암호화를 사용하도록 설정하면 키에 액세스할 수 있는 클라이언트 애플리케이션 또는 애플리케이션 서버만 일반 텍스트 데이터에 액세스할 수 있습니다.
 - [SQL Database 동적 데이터 마스킹](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started)은 권한이 없는 사용자 또는 응용 프로그램에 데이터를 마스킹하여 중요한 데이터의 노출을 제한합니다. 이 기능은 중요할 가능성이 있는 데이터를 자동으로 검색하고 적용할 적절한 마스크를 제안할 수 있습니다. 동적 데이터 마스킹을 사용하면 무단 액세스로 인해 중요한 데이터가 데이터베이스 외부로 유출되지 않도록 액세스 횟수를 줄일 수 있습니다. *고객은 데이터베이스 스키마를 준수하도록 설정을 조정할 책임이 있습니다.*
 
 ### <a name="identity-management"></a>ID 관리
 Azure 환경에서 데이터에 대한 액세스를 관리하는 기능을 제공하는 기술은 다음과 같습니다.
 -   [Azure AD](https://azure.microsoft.com/services/active-directory/)는 Microsoft 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. 이 솔루션의 모든 사용자(SQL Database에 액세스하는 사용자 포함)는 Azure AD에서 생성됩니다.
--   Azure AD를 사용하여 응용 프로그램에 대한 인증을 수행합니다. 자세한 내용은 [Azure AD와 응용 프로그램을 통합하는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요. 데이터베이스 열 암호화에서는 SQL Database에 응용 프로그램을 인증할 때도 Azure AD를 사용합니다. 자세한 내용은 [SQL Database의 중요 데이터 보호](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)를 참조하세요.
+-   Azure AD를 사용하여 애플리케이션에 대한 인증을 수행합니다. 자세한 내용은 [Azure AD와 애플리케이션을 통합하는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요. 데이터베이스 열 암호화에서는 SQL Database에 애플리케이션을 인증할 때도 Azure AD를 사용합니다. 자세한 내용은 [SQL Database의 중요 데이터 보호](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)를 참조하세요.
 -   관리자는 [Azure RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)를 사용하여 세분화된 액세스 권한을 정의할 수 있습니다. RBAC를 사용하면 사용자가 작업을 수행하는 데 필요한 액세스 권한만 부여할 수 있습니다. 관리자는 모든 사용자에게 Azure 리소스에 대한 무제한 권한을 부여하는 대신, 데이터에 액세스하기 위한 특정 작업만 허용할 수 있습니다. 구독 액세스는 구독 관리자로 제한됩니다.
 - 고객은 [Azure Active Directory Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started)를 사용하여 데이터 등의 특정 정보에 액세스할 수 있는 사용자 수를 최소화할 수 있습니다. 관리자는 Azure AD Privileged Identity Management를 사용하여 권한 있는 ID와 이러한 ID의 리소스 액세스 권한을 검색, 제한 및 모니터링할 수 있습니다. 필요한 경우 이 기능을 사용하여 요청 시 JIT(Just-In-Time) 관리 액세스를 적용할 수도 있습니다.
 -   [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)은 조직 ID에 영향을 주는 잠재적 취약성을 검색하며, 조직 ID와 관련하여 검색된 의심스러운 작업에 대한 자동화된 응답을 구성합니다. 또한 의심스러운 인시던트를 조사하며 해결을 위해 적절한 작업을 수행합니다.
 
 ### <a name="security"></a>보안
-**비밀 관리**: 이 솔루션은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용하여 키와 비밀을 관리합니다. Key Vault를 사용하면 클라우드 응용 프로그램 및 서비스에서 사용되는 암호화 키 및 비밀을 보호할 수 있습니다. 고객은 다음 Key Vault 기능을 통해 데이터를 보호할 수 있습니다.
+**비밀 관리**: 이 솔루션은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용하여 키와 비밀을 관리합니다. Key Vault를 사용하면 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호할 수 있습니다. 고객은 다음 Key Vault 기능을 통해 데이터를 보호할 수 있습니다.
 - 필요에 따라 고급 액세스 정책이 구성됩니다.
 - Key Vault 액세스 정책은 키와 비밀에 대한 최소 필수 권한으로 정의됩니다.
 - Key Vault의 모든 키와 비밀에는 만료 날짜가 있습니다.
@@ -124,7 +124,7 @@ Azure 환경에서 데이터에 대한 액세스를 관리하는 기능을 제�
 - Key Vault에 대한 진단 로그는 365일 이상의 보존 기간 동안 사용하도록 설정됩니다.
 - 키에 허용되는 암호화 작업은 필요한 것으로 제한됩니다
 
-**Azure Security Center**: 고객은 [Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)를 통해 여러 워크로드에 걸쳐 보안 정책을 중앙에서 적용/관리하고, 위협에 대한 노출을 제한하고, 공격을 검색하여 대응할 수 있습니다. 또한 Security Center는 Azure 서비스의 기존 구성에 액세스하여 보안 태세를 개선하고 데이터를 보호하는 데 유용한 구성 및 서비스 권장 사항을 제공합니다.
+**Azure Security Center**: 고객은 [Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)를 통해 여러 워크로드에 걸쳐 보안 정책을 중앙에서 적용 및 관리하고, 위협에 대한 노출을 제한하고, 공격을 검색하여 대응할 수 있습니다. 또한 Security Center는 Azure 서비스의 기존 구성에 액세스하여 보안 태세를 개선하고 데이터를 보호하는 데 유용한 구성 및 서비스 권장 사항을 제공합니다.
 
  Security Center는 다양한 검색 기능을 사용하여 고객에게 환경을 대상으로 하는 잠재적인 공격에 대해 경고합니다. 이러한 경고는 트리거된 경고, 대상으로 지정된 리소스 및 공격의 출처에 대한 중요한 정보를 포함합니다. Security Center에는 위협 또는 의심스러운 활동이 발생할 때 트리거되는 미리 정의된 [보안 경고](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) 집합이 있습니다. 고객은 [사용자 지정 경고 규칙](https://docs.microsoft.com/azure/security-center/security-center-custom-alert)을 사용하여 환경에서 이미 수집된 데이터를 기반으로 하는 새 보안 경고를 정의할 수 있습니다.
 
@@ -133,22 +133,22 @@ Azure 환경에서 데이터에 대한 액세스를 관리하는 기능을 제�
 ### <a name="logging-and-auditing"></a>로깅 및 감사
 
 Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위하게 기록합니다.
-- **활동 로그**: [활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 구독에 있는 리소스에서 수행된 작업에 대한 통찰력을 제공합니다. 활동 로그는 작업의 초기자, 발생 시간 및 상태를 결정하는 데 도움이 될 수 있습니다.
-- **진단 로그**: [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)에는 모든 리소스에서 내보낸 모든 로그가 포함됩니다. 이러한 로그에는 Windows 이벤트 시스템 로그, Storage 로그, Key Vault 감사 로그 및 Azure Application Gateway 액세스 및 방화벽 로그가 포함됩니다. 모든 진단 로그는 보관을 위해 암호화된 중앙 집중식 Azure Storage 계정에 기록됩니다. 사용자는 특정 요구 사항에 맞게 보존 기간을 최대 730일까지 구성할 수 있습니다.
+- **활동 로그**: [활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 구독에 있는 리소스에서 수행된 작업에 대한 인사이트를 제공합니다. 활동 로그는 작업의 개시 장치, 발생 시간 및 상태를 결정하는 데 도움이 될 수 있습니다.
+- **진단 로그**: [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)는 모든 리소스에서 내보낸 모든 로그를 포함합니다. 이러한 로그에는 Windows 이벤트 시스템 로그, Storage 로그, Key Vault 감사 로그 및 Azure Application Gateway 액세스 및 방화벽 로그가 포함됩니다. 모든 진단 로그는 보관을 위해 암호화된 중앙 집중식 Azure Storage 계정에 기록됩니다. 사용자는 특정 요구 사항에 맞게 보존 기간을 최대 730일까지 구성할 수 있습니다.
 
-**Log Analytics**: 로그는 처리, 저장 및 대시보드 보고를 위해 [Log Analytics](https://azure.microsoft.com/services/log-analytics/)에 통합됩니다. 수집된 데이터는 Log Analytics 작업 영역 내에서 각 데이터 형식용 개별 테이블로 구성됩니다. 이러한 방식으로 인해 원래 원본에 관계없이 모든 데이터를 함께 분석할 수 있습니다. Security Center는 Log Analytics와 통합됩니다. 고객은 Log Analytics 쿼리를 사용하여 보안 이벤트 데이터에 액세스한 다음 다른 서비스의 데이터와 결합할 수 있습니다.
+**Log Analytics**: 로그는 처리, 저장, 대시보드 보고를 위해 [Log Analytics](https://azure.microsoft.com/services/log-analytics/)에 통합됩니다. 수집된 데이터는 Log Analytics 작업 영역 내에서 각 데이터 형식용 개별 테이블로 구성됩니다. 이러한 방식으로 인해 원래 원본에 관계없이 모든 데이터를 함께 분석할 수 있습니다. Security Center는 Log Analytics와 통합됩니다. 고객은 Log Analytics 쿼리를 사용하여 보안 이벤트 데이터에 액세스한 다음 다른 서비스의 데이터와 결합할 수 있습니다.
 
 다음 Log Analytics [관리 솔루션](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)은 이 아키텍처의 일부로 포함됩니다.
 -   [Active Directory 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory 상태 검사 솔루션은 일정한 간격으로 서버 환경의 위험 및 상태를 평가합니다. 이 솔루션은 배포된 서버 인프라 관련 우선 순위가 지정된 권장 사항 목록을 제공합니다.
 - [SQL 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): SQL 상태 검사 솔루션은 일정한 간격으로 서버 환경의 위험 및 상태를 평가합니다. 이 솔루션은 배포된 서버 인프라 관련 우선 순위가 지정된 권장 사항 목록을 고객에게 제공합니다.
 - [에이전트 상태](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): 에이전트 상태 솔루션은 배포된 에이전트의 수와 에이전트의 지리적 분산을 보고합니다. 또한 응답하지 않는 에이전트의 수와 작동 데이터를 제출하는 에이전트의 수도 보고합니다.
--   [활동 로그 분석](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): 활동 로그 분석 솔루션은 고객에 대한 모든 Azure 구독에서 Azure 활동 로그를 분석하는 데 도움을 줍니다.
+-   [활동 로그 분석](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): 활동 로그 분석 솔루션은 고객에 대한 모든 구독에서 활동 로그를 분석하는 데 도움을 줍니다.
 
 **Azure Automation**: [Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)은 Runbook을 저장, 실행 및 관리합니다. 이 솔루션에서 Runbook은 SQL Database에서 로그를 수집하는 데 도움이 됩니다. 고객은 Automation [변경 내용 추적](https://docs.microsoft.com/azure/automation/automation-change-tracking) 솔루션을 사용하여 환경의 변경 내용을 쉽게 파악할 수 있습니다.
 
 **Azure Monitor**: 고객은 [Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)를 통해 성능을 추적하고 보안을 유지하고 추세를 파악할 수 있습니다. 조직에서는 Monitor를 사용하여 감사를 수행하고 경고를 작성하고 데이터를 보관할 수 있습니다. 또한 Azure 리소스의 API 호출을 추적할 수도 있습니다.
 
-**Application Insights**: [Application Insights](https://docs.microsoft.com/azure/application-insights/)는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 응용 프로그램 성능 관리 서비스입니다. 성능 이상을 검색하는 이 솔루션에는 유용한 분석 도구가 포함되어 있습니다. 이러한 도구를 통해 문제를 진단할 수 있으며, 고객은 사용자가 앱을 사용하여 수행하는 작업을 파악할 수 있습니다. 사용자가 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다.
+**Application Insights**: [Application Insights](https://docs.microsoft.com/azure/application-insights/)는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 애플리케이션 성능 관리 서비스입니다. 성능 이상을 검색하는 이 솔루션에는 유용한 분석 도구가 포함되어 있습니다. 이러한 도구를 통해 문제를 진단할 수 있으며, 고객은 사용자가 앱을 사용하여 수행하는 작업을 파악할 수 있습니다. 사용자가 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다.
 
 ## <a name="threat-model"></a>위협 모델
 

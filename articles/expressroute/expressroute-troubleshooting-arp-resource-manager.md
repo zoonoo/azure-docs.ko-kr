@@ -1,25 +1,19 @@
 ---
-title: 'ARP 테이블 가져오기: Resource Manager: Azure ExpressRoute 문제 해결 | Microsoft Docs'
+title: 'ARP 테이블 가져오기 - 문제 해결 - ExpressRoute: Azure| Microsoft Docs'
 description: 이 페이지는 ExpressRoute 회로의 ARP 테이블을 가져오는 방법을 안내합니다.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carolz
-editor: tysonn
-ms.assetid: 0a6bf1d5-6baf-44dd-87d3-1ebd2fd08bdc
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: ganesr
-ms.openlocfilehash: a65b1ba2998eae33b3e73bd2492fbbf025eb5946
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.custom: seodec18
+ms.openlocfilehash: a16b2dd61a1a04d8fc3362ce2e26c7d3c9433972
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23013138"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274477"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Resource Manager 배포 모델에서 ARP 테이블 가져오기
 > [!div class="op_single_selector"]
@@ -28,7 +22,7 @@ ms.locfileid: "23013138"
 > 
 > 
 
-이 문서는 ExpressRoute 회로의 ARP 테이블을 배우는 단계를 안내합니다. 
+이 문서는 ExpressRoute 회로의 ARP 테이블을 배우는 단계를 안내합니다.
 
 > [!IMPORTANT]
 > 이 문서는 간단한 문제를 진단하고 수정하는 데 사용됩니다. 이 문서는 Microsoft 기술 지원 서비스를 대체하지 않습니다. 아래 설명한 지침으로 문제를 해결할 수 없다면 [Microsoft 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 으로 지원 티켓을 열어야 합니다.

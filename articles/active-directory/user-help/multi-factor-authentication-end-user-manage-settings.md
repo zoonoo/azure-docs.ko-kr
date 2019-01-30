@@ -4,7 +4,7 @@ description: 연락처 정보를 변경하거나 디바이스를 구성하는 �
 services: active-directory
 keywords: 다단계 인증 클라이언트, 인증 문제, 상관관계 ID
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: richagi
 ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
-ms.openlocfilehash: c3fd74731dbed2c2f36d97b3cb42b383f8e4ca0f
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 762033bbe05b9e1ee497180e004eb8aaa47ba195
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345092"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827400"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>2단계 인증을 위한 설정 관리
 이 문서에서는 2단계 인증 또는 다단계 인증에 대한 설정을 업데이트하는 방법에 대한 질문에 대답합니다. 계정에 로그인하는 데 문제가 있는 경우 문제 해결 도움말을 보려면 [2단계 인증에 문제 발생](multi-factor-authentication-end-user-troubleshoot.md)을 참조하세요.

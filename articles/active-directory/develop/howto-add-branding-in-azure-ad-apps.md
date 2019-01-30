@@ -1,5 +1,5 @@
 ---
-title: 응용 프로그램에 대한 브랜딩 지침 | Microsoft Docs
+title: 애플리케이션에 대한 브랜딩 지침 | Microsoft Docs
 description: Azure Active Directory의 개발자 중심 리소스에 대한 포괄적인 가이드
 services: active-directory
 documentationcenter: dev-center-name
@@ -24,13 +24,13 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2018
 ms.locfileid: "47068733"
 ---
-# <a name="branding-guidelines-for-applications"></a>응용 프로그램에 대한 브랜딩 지침
+# <a name="branding-guidelines-for-applications"></a>애플리케이션에 대한 브랜딩 지침
 
-Azure AD(Azure Active Directory)를 사용하여 응용 프로그램을 개발하는 경우 Azure AD에서 관리되는 회사 또는 학교 계정, 또는 개인 계정을 응용 프로그램 등록 및 로그인에 사용하려는 고객을 안내해야 합니다.
+Azure AD(Azure Active Directory)를 사용하여 애플리케이션을 개발하는 경우 Azure AD에서 관리되는 회사 또는 학교 계정, 또는 개인 계정을 애플리케이션 등록 및 로그인에 사용하려는 고객을 안내해야 합니다.
 
 이 문서에서는 다음에 대해 알아봅니다.
 
-- Microsoft에서 관리하는 두 종류의 사용자 계정과 응용 프로그램에서 Azure AD 계정을 가리키는 방법에 대해 알아봅니다.
+- Microsoft에서 관리하는 두 종류의 사용자 계정과 애플리케이션에서 Azure AD 계정을 가리키는 방법에 대해 알아봅니다.
 - 앱에서 사용할 Microsoft 로고를 추가하는 데 필요한 작업을 확인합니다.
 - 앱에서 사용할 공식 **로그인** 또는 **Microsoft에 로그인** 이미지를 다운로드합니다.
 - 브랜딩 및 탐색과 관련해서 수행해야 할 작업과 수행하지 않아야 할 작업에 대해 알아봅니다.
@@ -44,7 +44,7 @@ Microsoft는 두 종류의 사용자 계정을 관리합니다.
 
 Microsoft 회사 또는 학교 계정은 일반적으로 회사, 학교, 정부 기관 등의 조직이 직원, 학생, 연방 직원 등의 최종 사용자에게 할당합니다. 이 계정은 Azure AD 플랫폼의 클라우드에서 직접 마스터되거나 Windows Server Active Directory와 같은 온-프레미스 디렉터리에서 Azure AD로 동기화됩니다. Microsoft는 회사 또는 학교 계정의 *보유자* 이지만, 이 계정을 소유하고 제어하는 것은 조직입니다.
 
-## <a name="referring-to-azure-ad-accounts-in-your-application"></a>응용 프로그램에서 Azure AD 계정 언급
+## <a name="referring-to-azure-ad-accounts-in-your-application"></a>애플리케이션에서 Azure AD 계정 언급
 
 Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자를 노출하지 않으며 이 규칙을 강제합니다.
 
@@ -65,11 +65,11 @@ Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자�
 
 ## <a name="visual-guidance-for-app-acquisition"></a>앱 구입에 대한 시각적 지침
 
-"앱 가져오기" 링크는 Azure AD 액세스 권한 부여(권한 부여) 페이지로 사용자를 리디렉션해야 합니다. 그러면 조직 관리자가 앱이 Microsoft에서 호스트되는 조직 데이터에 액세스할 수 있게 승인할 수 있습니다. 액세스 권한을 요청하는 방법에 대한 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](quickstart-v1-integrate-apps-with-azure-ad.md) 항목에서 설명합니다.
+"앱 가져오기" 링크는 Azure AD 액세스 권한 부여(권한 부여) 페이지로 사용자를 리디렉션해야 합니다. 그러면 조직 관리자가 앱이 Microsoft에서 호스트되는 조직 데이터에 액세스할 수 있게 승인할 수 있습니다. 액세스 권한을 요청하는 방법에 대한 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](quickstart-v1-integrate-apps-with-azure-ad.md) 문서에서 설명합니다.
 
 관리자가 앱에 동의한 후에는 사용자의 Office 365 앱 시작 관리자 환경(와플 및 [https://portal.office.com/myapps](https://portal.office.com/myapps)에서 액세스 가능)에 앱을 추가할 수 있습니다. 이 기능을 보급하려는 경우 "조직에 이 앱 추가"와 같은 용어를 사용하고 다음 예제와 같은 단추를 표시할 수 있습니다.
 
-![응용 프로그램 종류 및 시나리오](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
+![애플리케이션 종류 및 시나리오](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
 그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 예: 
 

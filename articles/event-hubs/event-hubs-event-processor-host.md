@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs 이벤트 프로세서 호스트 정의 및 사용하는 이유 | Microsoft Docs
-description: Azure Event Hubs 이벤트 프로세서 호스트 개요 및 소개
+title: 이벤트 프로세서 호스트를 사용하여 이벤트 수신 - Azure Event Hubs | Microsoft Docs
+description: 이 문서에서는 검사점, 임대 및 병렬 읽기 이벤트의 관리를 간소화하는 Azure Event Hubs의 이벤트 프로세서 호스트에 대해 설명합니다.
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -11,16 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 236103861ce8a296c77f708dbb4a7cc7e03f10f3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2b4fcb42c913149f8caf05a72fb089586ee21e2a
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258955"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106123"
 ---
-# <a name="azure-event-hubs-event-processor-host-overview"></a>Azure Event Hubs 이벤트 프로세서 호스트 개요
+# <a name="receive-events-from-azure-event-hubs-using-event-processor-host"></a>이벤트 프로세서 호스트를 사용하여 Azure Event Hubs에서 이벤트 수신
 
 Azure Event Hubs는 저렴한 비용으로 수백만 개의 이벤트를 스트리밍하는 데 사용할 수 있는 강력한 원격 분석 수집 서비스입니다. 이 아티클에서는 검사점, 임대 및 병렬 이벤트 판독기의 관리를 간소화하는 지능형 소비자 에이전트인 EPH(*이벤트 프로세서 호스트*)를 사용하여 수집된 이벤트를 사용하는 방법을 설명합니다.  
 
@@ -32,20 +33,20 @@ Event Hubs의 크기를 조정하는 핵심은 분할된 소비자라는 개념�
 
 각 센서는 데이터를 이벤트 허브로 푸시합니다. 이벤트 허브는 16개의 파티션으로 구성됩니다. 사용한 후에 이러한 이벤트를 읽고, 통합(필터, 집계 등)하고, 저장소 Blob에 집계를 덤프할 수 있는 메커니즘이 필요합니다. 그런 다음, 사용자 중심 웹 페이지에 프로젝션합니다.
 
-## <a name="write-the-consumer-application"></a>소비자 응용 프로그램 작성
+## <a name="write-the-consumer-application"></a>소비자 애플리케이션 작성
 
 분산된 환경에서 소비자를 디자인할 때 시나리오는 다음 요구 사항을 처리해야 합니다.
 
 1. **크기 조정:** 몇몇 Event Hubs 파티션에서 읽기 소유권을 가진 각 소비자를 사용하여 여러 소비자를 만듭니다.
 2. **부하 분산:** 소비자를 동적으로 증가시키거나 감소시킵니다. 예를 들어, 새 센서 형식(예: 일산화 탐지기)이 각 집에 추가되면 이벤트 수가 증가합니다. 이 경우에 연산자(사람)는 소비자 인스턴스 수를 증가시킵니다. 그런 다음, 소비자 풀은 소유한 파티션의 수를 다시 조정하여 새로 추가된 소비자와 관련된 부하를 공유할 수 있습니다.
-3. **오류에서 원활한 다시 시작:** 소비자(**소비자 A**)가 실패하면(예: 소비자를 호스트하는 가상 머신이 갑자기 충돌함) 다른 소비자는 **소비자 A**가 소유한 파티션을 선택한 다음, 계속할 수 있어야 합니다. 또한 *검사점* 또는 *오프셋*이라는 연속 지점은 **소비자 A**가 실패한 정확한 지점 또는 약간 앞에 위치해야 합니다.
+3. **오류 시 원활한 다시 시작:** 소비자(**소비자 A**)가 실패하면(예: 소비자를 호스트하는 가상 머신이 갑자기 충돌함) 다른 소비자는 **소비자 A**가 소유한 파티션을 선택한 다음, 계속할 수 있어야 합니다. 또한 *검사점* 또는 *오프셋*이라는 연속 지점은 **소비자 A**가 실패한 정확한 지점 또는 약간 앞에 위치해야 합니다.
 4. **이벤트 사용:** 이전 세 개의 지점이 소비자의 관리를 처리하는 동안 이벤트를 사용하여 유용한 작업을 수행하는 코드가 있어야 합니다(예: 집계하고 Blob Storage에 업로드).
 
 이에 대해 고유한 솔루션을 구축하는 대신에 Event Hubs는 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 인터페이스와 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 클래스를 통해 이 기능을 제공합니다.
 
 ## <a name="ieventprocessor-interface"></a>IEventProcessor 인터페이스
 
-먼저 사용하는 응용 프로그램은 [OpenAsync, CloseAsync, ProcessErrorAsync 및 ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods)라는 네 가지 메서드가 있는 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 인터페이스를 구현합니다. 이 인터페이스에는 Event Hubs가 전송하는 이벤트를 사용하는 실제 코드가 포함됩니다. 다음 코드에서는 구현 예제를 보여줍니다.
+먼저, 사용하는 애플리케이션은 4개의 메서드가 포함된 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 인터페이스를 구현합니다. [OpenAsync, CloseAsync, ProcessErrorAsync 및 ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods). 이 인터페이스에는 Event Hubs가 전송하는 이벤트를 사용하는 실제 코드가 포함됩니다. 다음 코드에서는 구현 예제를 보여줍니다.
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -86,14 +87,14 @@ public class SimpleEventProcessor : IEventProcessor
 - **eventHubPath:** 이벤트 허브의 이름입니다.
 - **consumerGroupName:** Event Hubs는 **$Default**를 기본 소비자 그룹의 이름으로 사용하지만 처리의 특정 측면에 대한 소비자 그룹을 만드는 것이 좋습니다.
 - **eventHubConnectionString:** Azure Portal에서 검색할 수 있는 이벤트 허브에 대한 연결 문자열입니다. 이 연결 문자열에는 이벤트 허브에 대한 **수신** 권한이 있어야 합니다.
-- **storageConnectionString:** 내부 리소스 관리에 사용되는 저장소 계정입니다.
+- **storageConnectionString:** 내부 리소스 관리에 사용되는 스토리지 계정입니다.
 
 마지막으로, 소비자는 Event Hubs 서비스를 사용하여 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 인스턴스를 등록합니다. EventProcessorHost 인스턴스에 이벤트 프로세서 클래스를 등록하면 이벤트 처리가 시작됩니다. 등록하면 Event Hubs 서비스에 지시하여 소비자 앱에서 해당 파티션 중 일부의 이벤트를 사용하도록 예상하고 사용할 이벤트를 푸시할 때마다 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 구현 코드를 호출합니다. 
 
 
 ### <a name="example"></a>예
 
-예를 들어 사용하는 이벤트에 대한 5대의 전용 VM(가상 머신)이 있고 각 VM에 간단한 콘솔 응용 프로그램이 있다고 가정합니다. 여기에서 실제 사용 작업을 수행합니다. 그런 다음, 각 콘솔 응용 프로그램은 하나의 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 인스턴스를 만들고 Event Hubs 서비스에 등록합니다.
+예를 들어 사용하는 이벤트에 대한 5대의 전용 VM(가상 머신)이 있고 각 VM에 간단한 콘솔 애플리케이션이 있다고 가정합니다. 여기에서 실제 사용 작업을 수행합니다. 그런 다음, 각 콘솔 애플리케이션은 하나의 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 인스턴스를 만들고 Event Hubs 서비스에 등록합니다.
 
 이 예제 시나리오에서는 16개의 파티션을 5개의 **EventProcessorHost** 인스턴스에 할당했다고 가정하겠습니다. 일부 **EventProcessorHost** 인스턴스는 다른 인스턴스보다 더 많은 파티션을 소유할 수 있습니다. **EventProcessorHost** 인스턴스를 소유한 각 파티션의 경우 `SimpleEventProcessor` 클래스의 인스턴스를 만듭니다. 따라서 각 파티션에 하나씩 할당되어 전체 `SimpleEventProcessor`의 16개 인스턴스가 있습니다.
 
@@ -122,7 +123,9 @@ EPH 인스턴스(또는 소비자)에 대한 파티션의 소유권은 추적을
 
 ## <a name="receive-messages"></a>메시지 받기
 
-[ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)에 대한 호출은 이벤트의 컬렉션을 제공합니다. 사용자의 책임 하에 이러한 이벤트를 처리합니다. 비교적 빠르게 작업을 수행하는 것이 좋습니다. 즉, 가능한 작은 처리로 수행합니다. 대신 소비자 그룹을 사용합니다. 저장소를 작성하고 일부 라우팅을 수행해야 하는 경우 일반적으로 두 개의 소비자 그룹을 사용하고 개별적으로 실행되는 두 개의 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 구현이 포함되는 것이 좋습니다.
+[ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)에 대한 호출은 이벤트의 컬렉션을 제공합니다. 사용자의 책임 하에 이러한 이벤트를 처리합니다. 프로세서 호스트에서 모든 메시지를 한 번 이상 처리되도록 하려는 경우 고유한 다시 시도 유지 코드를 작성해야 합니다. 하지만 포이즌 메시지에 대해 주의해야 합니다.
+
+비교적 빠르게 작업을 수행하는 것이 좋습니다. 즉, 가능한 작은 처리로 수행합니다. 대신 소비자 그룹을 사용합니다. 저장소를 작성하고 일부 라우팅을 수행해야 하는 경우 일반적으로 두 개의 소비자 그룹을 사용하고 개별적으로 실행되는 두 개의 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 구현이 포함되는 것이 좋습니다.
 
 처리하는 동안 특정 시점에 읽고 완료한 내용을 추적하는 것이 좋습니다. 스트림의 시작 부분으로 돌아가지 않도록 읽기를 다시 시작해야 하는 경우 추적하는 것이 중요합니다. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)는 *검사점*을 사용하여 이 추적을 간소화합니다. 검사점은 지정된 소비자 그룹 내에서 지정된 파티션의 위치 또는 오프셋입니다. 여기서 메시지를 처리하는 작업을 충족합니다. **EventProcessorHost**에서 검사점을 표시하는 작업은 [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext) 개체에서 [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) 메서드를 호출하여 수행됩니다. 이 작업은 [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) 메서드 내에서 수행되지만 [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync)에서 수행될 수도 있습니다.
 

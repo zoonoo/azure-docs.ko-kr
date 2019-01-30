@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/22/2017
 ms.author: yushwang
-ms.openlocfilehash: d2f3da47f1d4eebe1b81964790ff6612dd78155d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 060e647badcc3bad7b44d7cef3530c36b8ecdf57
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 01/07/2019
 ms.locfileid: "23125181"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>암호화 요구 사항 및 Azure VPN Gateway 정보
@@ -29,7 +29,7 @@ ms.locfileid: "23125181"
 ## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a>Azure VPN Gateway에 대한 IPsec 및 IKE 정책 매개 변수 정보
 IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 알고리즘을 지원합니다. 고객이 특정 조합의 암호화 알고리즘 및 매개 변수를 요청하지 않으면 Azure VPN Gateway에서 기본 제안 집합을 사용합니다. 기본 정책 집합은 기본 구성에서 광범위한 타사 VPN 디바이스와의 상호 운용성을 극대화하기 위해 선택되었습니다. 따라서 정책 및 제안 수에서 사용 가능한 암호화 알고리즘 및 키 길이의 가능한 모든 조합을 다룰 수는 없습니다.
 
-Azure VPN Gateway에 대한 기본 정책 집합은 [사이트 간 VPN Gateway 연결에 대한 VPN 디바이스 및 IPsec/IKE 매개 변수 정보](vpn-gateway-about-vpn-devices.md) 문서에 나열되어 있습니다.
+Azure VPN 게이트웨이의 기본 정책 집합은 [사이트 간 VPN Gateway 연결에 대한 VPN 디바이스 및 IPsec/IKE 매개 변수 정보](vpn-gateway-about-vpn-devices.md) 문서에 나와 있습니다.
 
 ## <a name="cryptographic-requirements"></a>암호화 요구 사항
 특정 암호화 알고리즘 또는 매개 변수가 필요한 통신의 경우, 일반적으로 규정 준수 또는 보안 요구 사항으로 인해 고객은 이제 Azure 기본 정책 집합 대신 특정 암호화 알고리즘 및 키 강도와 함께 사용자 지정 IPsec/IKE 정책을 사용하도록 Azure VPN Gateway를 구성할 수 있습니다.

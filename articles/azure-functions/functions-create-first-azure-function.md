@@ -12,16 +12,16 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: a1a593dc037901f6661bc8c7268d835bc5a48c94
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 1b7efd4f36d5587667010d25f30a3e7945faee4f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900619"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997806"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure Portal에서 첫 번째 Azure Function을 만듭니다.
 
-Azure Functions를 사용하면 먼저 VM을 만들거나 웹 응용 프로그램을 게시하지 않고도 [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 환경에서 코드를 실행할 수 있습니다. 이 항목에서는 Azure Portal에서 함수를 사용하여 "hello world" 함수를 만드는 방법을 보여 줍니다.
+Azure Functions를 사용하면 먼저 VM을 만들거나 웹 애플리케이션을 게시하지 않고도 [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 환경에서 코드를 실행할 수 있습니다. 이 항목에서는 Azure Portal에서 함수를 사용하여 "hello world" 함수를 만드는 방법을 보여 줍니다.
 
 ![Azure Portal에서 함수 앱 만들기](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
@@ -32,7 +32,7 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 응용 프로그�
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-Azure 계정을 사용하여 <http://portal.azure.com>에서 Azure Portal에 로그인합니다.
+Azure 계정을 사용하여 <https://portal.azure.com>에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 

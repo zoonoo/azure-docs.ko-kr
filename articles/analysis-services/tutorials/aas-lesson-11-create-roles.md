@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1a9ecea835e42c90ce7d71617666d210182fe465
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5b89051cab7e89f79a2b62a392173e6dc234e48d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428909"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189748"
 ---
 # <a name="create-roles"></a>역할 만들기
 
-이 단원에서는 역할을 만듭니다. 역할은 역할 멤버인 Sa 사용자로만 액세스를 제한하여 모델 데이터베이스 개체 및 데이터 보안을 제공합니다. 각 역할은 단일 사용 권한(없음, 읽기, 읽기 및 프로세스, 프로세스 또는 관리자)으로 정의됩니다. 역할 관리자를 사용하여 모델 작성 중에 역할을 정의할 수 있습니다. 모델을 배포한 후에는 SSMS(SQL Server Management Studio)를 사용하여 역할을 관리할 수 있습니다. 자세한 내용은 [역할](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular)을 참조하세요.
+이 단원에서는 역할을 만듭니다. 역할은 역할 멤버인 Sa 사용자로만 액세스를 제한하여 모델 데이터베이스 개체 및 데이터 보안을 제공합니다. 각 역할은 단일 사용 권한인 없음, 읽기, 읽기 및 처리, 처리 또는 관리자로 정의됩니다. 역할 관리자를 사용하여 모델 작성 중에 역할을 정의할 수 있습니다. 모델을 배포한 후에는 SSMS(SQL Server Management Studio)를 사용하여 역할을 관리할 수 있습니다. 자세한 내용은 [역할](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular)을 참조하세요.
   
 > [!NOTE]  
 > 이 자습서를 완료하는 데 역할 만들기가 반드시 필요한 것은 아닙니다. 기본적으로 현재 로그인한 계정은 모델에 대해 관리자 권한을 포함하게 됩니다. 그러나 조직의 다른 사용자가 보고 클라이언트를 사용하여 탐색하도록 하려면 읽기 권한을 가진 역할을 하나 이상 만들고 해당 사용자를 멤버로 추가해야 합니다.  

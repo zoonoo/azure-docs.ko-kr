@@ -8,16 +8,16 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: d0b6fc1ebd08b29b9acc28cfb0107b815c7d7bad
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 9c35dff9b9587334e7001f3653ea7e2e8a4919eb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068245"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191618"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>OSBA(Open Service Broker for Azure)를 사용하여 Azure에서 관리되는 서비스와 통합
 
-[Kubernetes 서비스 카탈로그][kubernetes-service-catalog]와 함께 OSBA(Open Service Broker for Azure)를 사용하면 개발자가 Kubernetes에서 Azure 관리 서비스를 활용할 수 있습니다. 이 가이드는 Kubernetes 서비스 카탈로그, OSBA(Open Service Broker for Azure) 및 Kubernetes를 사용하는 Azure에서 관리되는 서비스를 사용하는 응용 프로그램 배포에 중점을 두고 있습니다.
+[Kubernetes 서비스 카탈로그][kubernetes-service-catalog]와 함께 OSBA(Open Service Broker for Azure)를 사용하면 개발자가 Kubernetes에서 Azure 관리 서비스를 활용할 수 있습니다. 이 가이드는 Kubernetes 서비스 카탈로그, OSBA(Open Service Broker for Azure) 및 Kubernetes를 사용하는 Azure에서 관리되는 서비스를 사용하는 애플리케이션 배포에 중점을 두고 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * Azure 구독
@@ -47,13 +47,13 @@ helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
 마지막으로 Helm 차트와 함께 서비스 카탈로그를 설치합니다. 클러스터가 RBAC를 사용할 수 있는 경우 이 명령을 실행합니다.
 
 ```azurecli-interactive
-helm install svc-cat/catalog --name catalog --namespace catalog --set controllerManager.healthcheck.enabled=false
+helm install svc-cat/catalog --name catalog --namespace catalog --set apiserver.storage.etcd.persistence.enabled=true --set apiserver.healthcheck.enabled=false --set controllerManager.healthcheck.enabled=false --set apiserver.verbosity=2 --set controllerManager.verbosity=2
 ```
 
 클러스터가 RBAC를 사용할 수 없는 경우 이 명령을 실행합니다.
 
 ```azurecli-interactive
-helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set controllerManager.healthcheck.enabled=false
+helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set apiserver.storage.etcd.persistence.enabled=true --set apiserver.healthcheck.enabled=false --set controllerManager.healthcheck.enabled=false --set apiserver.verbosity=2 --set controllerManager.verbosity=2
 ```
 
 Helm 차트를 실행한 후에는 다음 명령의 출력에 `servicecatalog`가 나타나는지 확인합니다.
@@ -171,7 +171,7 @@ chmod +x ./svcat
 이 단계에서는 Helm을 사용하여 WordPress용으로 업데이트된 Helm 차트를 설치합니다. 이 차트는 WordPress가 사용할 수 있는 외부 Azure Database for MySQL 인스턴스를 프로비전합니다. 이 프로세스는 몇 분 정도 걸릴 수 있습니다.
 
 ```azurecli-interactive
-helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0
+helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0 --set replicaCount=1
 ```
 
 설치를 통해 올바른 리소스가 프로비전되었는지 확인하려면 설치된 서비스 인스턴스와 바인딩을 나열합니다.

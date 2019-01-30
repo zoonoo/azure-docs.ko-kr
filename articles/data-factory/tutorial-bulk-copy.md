@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 1bf93ce9aa1733634b46c2a15b587d4cc0826ba1
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d22ea75dff884adbfaaa7975eb1d1542b4721f16
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090936"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438578"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 여러 테이블 대량 복사
 이 자습서에서는 **Azure SQL Database에서 Azure SQL Data Warehouse로 여러 테이블을 복사**하는 방법을 보여 줍니다. 다른 복사 시나리오에도 동일한 패턴을 적용할 수 있습니다. 예를 들어 SQL Server/Oracle에서 Azure SQL Database/Data Warehouse/Azure Blob으로 테이블을 복사하고, Blob에서 Azure SQL Database 테이블로 다른 경로를 복사합니다.
@@ -41,14 +40,14 @@ ms.locfileid: "43090936"
 ![워크플로](media/tutorial-bulk-copy/tutorial-copy-multiple-tables.png)
 
 * 첫 번째 파이프라인은 싱크 데이터 저장소로 복사해야 하는 테이블의 목록을 찾습니다.  또는 싱크 데이터 저장소에 복사할 모든 테이블을 나열하는 메타데이터 테이블을 유지할 수 있습니다. 그런 다음 파이프라인에서 다른 파이프라인을 트리거하여 데이터베이스의 각 테이블을 반복하고 데이터 복사 작업을 수행합니다.
-* 두 번째 파이프라인은 실제 복사를 수행하며, 테이블 목록을 매개 변수로 사용합니다. 최상의 성능을 위해 목록의 각 테이블에 대해 [Blob 저장소 및 PolyBase를 통해 스테이징되는 복사](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse)를 사용하여 Azure SQL Database의 특정 테이블을 SQL Data Warehouse의 해당 테이블에 복사합니다. 이 예제에서 첫 번째 파이프라인은 테이블의 목록을 매개 변수의 값으로 전달합니다. 
+* 두 번째 파이프라인은 실제 복사를 수행하며, 테이블 목록을 매개 변수로 사용합니다. 최상의 성능을 위해 목록의 각 테이블에 대해 [Blob Storage 및 PolyBase를 통해 스테이징되는 복사](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse)를 사용하여 Azure SQL Database의 특정 테이블을 SQL Data Warehouse의 해당 테이블에 복사합니다. 이 예제에서 첫 번째 파이프라인은 테이블의 목록을 매개 변수의 값으로 전달합니다. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **Azure PowerShell**. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-azurerm-ps)의 지침을 따르세요.
-* **Azure Storage 계정**. Azure Storage 계정은 대량 복사 작업에서 스테이징 Blob 저장소로 사용됩니다. 
+* **Azure PowerShell**. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/azurerm/install-azurerm-ps)의 지침을 따르세요.
+* **Azure Storage 계정**. Azure Storage 계정은 대량 복사 작업에서 스테이징 Blob 스토리지로 사용됩니다. 
 * **Azure SQL Database**. 이 데이터베이스에는 원본 데이터가 포함되어 있습니다. 
 * **Azure SQL Data Warehouse** 이 데이터 웨어하우스에는 SQL Database에서 복사된 데이터를 보관하고 있습니다. 
 
@@ -108,7 +107,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
         ```
 
     * Data Factory 인스턴스를 만들려면 Azure 구독의 참가자 또는 관리자여야 합니다.
-    * Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+    * 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 
@@ -116,7 +115,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>원본 Azure SQL Database 연결된 서비스 만들기
 
-1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **AzureSqlDatabaseLinkedService.json**이라는 JSON 파일을 만듭니다. 아직 없는 경우 ADFv2TutorialBulkCopy 폴더를 만듭니다.
+1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **AzureSqlDatabaseLinkedService.json**이라는 JSON 파일을 만듭니다. (아직 없는 경우 ADFv2TutorialBulkCopy 폴더를 만듭니다.)
 
     > [!IMPORTANT]
     > 파일을 저장하기 전에 &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; 및 &lt;password&gt;를 Azure SQL Database의 값으로 바꿉니다.
@@ -175,7 +174,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
     }
     ```
 
-2. **Set-AzureRmDataFactoryV2LinkedService** cmdlet을 실행하여 **AzureSqlDWLinkedService** 연결된 서비스를 만듭니다.
+2. 연결된 서비스 **AzureSqlDWLinkedService**를 만들려면 **Set-AzureRmDataFactoryV2LinkedService** cmdlet을 실행합니다.
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWLinkedService" -File ".\AzureSqlDWLinkedService.json"
@@ -192,7 +191,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
 
 ### <a name="create-the-staging-azure-storage-linked-service"></a>스테이징 Azure Storage 연결된 서비스 만들기
 
-이 자습서에서는 더 나은 복사 성능을 위해 Azure Blob 저장소를 중간 스테이징 영역으로 사용하여 PolyBase를 사용할 수 있게 합니다.
+이 자습서에서는 더 나은 복사 성능을 위해 Azure Blob Storage를 중간 스테이징 영역으로 사용하여 PolyBase를 사용할 수 있게 합니다.
 
 1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **AzureStorageLinkedService.json**이라는 JSON 파일을 만듭니다.
 
@@ -214,7 +213,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
     }
     ```
 
-2. **Set-AzureRmDataFactoryV2LinkedService** cmdlet을 실행하여 **AzureStorageLinkedService** 연결된 서비스를 만듭니다.
+2. 연결된 서비스 **AzureStorageLinkedService**를 만들려면 **Set-AzureRmDataFactoryV2LinkedService** cmdlet을 실행합니다.
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -253,7 +252,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
     }
     ```
 
-2. **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 **AzureSqlDatabaseDataset** 데이터 집합을 만듭니다.
+2. 데이터 세트 **AzureSqlDatabaseDataset**를 만들려면 **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행합니다.
 
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseDataset" -File ".\AzureSqlDatabaseDataset.json"
@@ -271,7 +270,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
 
 ### <a name="create-a-dataset-for-sink-sql-data-warehouse"></a>싱크 SQL Data Warehouse에 대한 데이터 세트 만들기
 
-1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **AzureSqlDWDataset.json**이라는 JSON 파일을 만듭니다. "tableName"이 매개 변수로 설정되며, 나중에 이 데이터 집합을 참조하는 복사 작업에서 실제 값을 데이터 집합으로 전달합니다.
+1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **AzureSqlDWDataset.json**이라는 JSON 파일을 만듭니다. “tableName”이 매개 변수로 설정되면 나중에 이 데이터 세트를 참조하는 복사 작업이 실제 값을 데이터 세트로 전달합니다.
 
     ```json
     {
@@ -297,7 +296,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
     }
     ```
 
-2. **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 **AzureSqlDWDataset** 데이터 집합을 만듭니다.
+2. 데이터 세트 **AzureSqlDWDataset**를 만들려면 **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행합니다.
 
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWDataset" -File ".\AzureSqlDWDataset.json"
@@ -389,7 +388,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
     }
     ```
 
-2. **Set-AzureRmDataFactoryV2Pipeline** cmdlet을 실행하여 **IterateAndCopySQLTables** 파이프라인을 만듭니다.
+2. 파이프라인 **IterateAndCopySQLTables**를 만들려면 **Set-AzureRmDataFactoryV2Pipeline** cmdlet을 실행합니다.
 
     ```powershell
     Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IterateAndCopySQLTables" -File ".\IterateAndCopySQLTables.json"
@@ -465,7 +464,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
     }
     ```
 
-2. **Set-AzureRmDataFactoryV2Pipeline** cmdlet을 실행하여 **GetTableListAndTriggerCopyData** 파이프라인을 만듭니다.
+2. 파이프라인 **GetTableListAndTriggerCopyData**를 만들려면 **Set-AzureRmDataFactoryV2Pipeline** cmdlet을 실행합니다.
 
     ```powershell
     Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "GetTableListAndTriggerCopyData" -File ".\GetTableListAndTriggerCopyData.json"

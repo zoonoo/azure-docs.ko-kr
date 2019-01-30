@@ -4,25 +4,31 @@ description: 업데이트 관리 에이전트의 문제를 해결하는 방법�
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/06/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: adaeb3087fca57a4a868f4525d588e014ff36fcf
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: e1dca8655c6bf609bee255f183bcd2fe9b56bc55
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335830"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437496"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>업데이트 관리에서 Linux 에이전트 확인 결과 이해
 
-업데이트 관리에서 Azure 머신이 **준비**를 표시하지 않는 이유에는 여러 가지가 있을 수 있습니다. 업데이트 관리에서 Hybrid Worker 에이전트의 상태를 확인하여 기본 문제를 검토할 수 있습니다. 이 문서에서는 Azure Portal 및 오프라인 시나리오에서 문제 해결사를 실행하는 방법을 설명합니다.
+업데이트 관리에서 컴퓨터가 **준비**를 표시하지 않는 이유에는 여러 가지가 있을 수 있습니다. 업데이트 관리에서 Hybrid Worker 에이전트의 상태를 확인하여 기본 문제를 검토할 수 있습니다. 이 문서에서는 Azure Portal의 Azure 머신 및 [오프라인 시나리오](#troubleshoot-offline)의 경우 Azure 이외 머신에 대해 문제 해결사를 실행하는 방법을 설명합니다.
+
+다음 목록은 컴퓨터가 나타낼 수 있는 세 가지 준비 상태입니다.
+
+* **준비** - 업데이트 에이전트가 배포되었으며 마지막으로 확인된 시간이 1시간 이내입니다.
+* **연결이 끊김** - 업데이트 에이전트가 배포되었으며 마지막으로 확인된 시간이 1시간을 넘습니다.
+* **구성되지 않음** - 업데이트 에이전트가 확인되지 않거나 온보딩을 완료하지 않았습니다.
 
 ## <a name="start-the-troubleshooter"></a>문제 해결사 시작
 
-포털의 **업데이트 에이전트 준비** 열에서 **문제 해결** 링크를 클릭하여 **업데이트 에이전트 문제 해결** 페이지를 시작합니다. 이 페이지는 문제 해결에 도움을 주기 위해 에이전트의 문제와 이 문서로 연결되는 링크를 표시합니다.
+Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 **문제 해결** 링크를 클릭하여 **업데이트 에이전트 문제 해결** 페이지를 시작합니다. Azure 이외 머신의 경우 해당 링크를 클릭하면 이 문서로 이동합니다. Azure 이외 머신의 문제를 해결하려면 [오프라인 지침](#offline)을 참조하세요.
 
 ![VM 목록 페이지](../media/update-agent-issues-linux/vm-list.png)
 
@@ -54,12 +60,12 @@ OS 검사는 Hybrid Runbook Worker에서 다음 운영 체제 중 하나가 실�
 
 ### <a name="oms-agent"></a>OMS 에이전트
 
-이 검사를 통해 Linux용 OMS 에이전트가 설치되어 있는지 확인합니다. 이 에이전트를 설치하는 방법에 대한 지침은 [Linux용 에이전트 설치](../../log-analytics//log-analytics-quick-collect-linux-computer.md#install-the-agent-for-linux
+이 검사를 통해 Linux용 OMS 에이전트가 설치되어 있는지 확인합니다. 이 에이전트를 설치하는 방법에 대한 지침은 [Linux용 에이전트 설치](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
 )를 참조하세요.
 
 ### <a name="oms-agent-status"></a>OMS 에이전트 상태
 
-이 검사를 통해 Linux용 OMS 에이전트가 실행되고 있는지 확인합니다. 에이전트가 실행되지 않는 경우 다음 명령을 실행하여 다시 시작할 수 있습니다. 에이전트 문제 해결에 대한 자세한 내용은 [Linux Hybrid Runbook Worker 문제 해결](hybrid-runbook-worker.md#linux) 참조
+이 검사를 통해 Linux용 OMS 에이전트가 실행되고 있는지 확인합니다. 에이전트가 실행되지 않는 경우 다음 명령을 실행하여 다시 시작할 수 있습니다. 에이전트 문제 해결에 대한 자세한 내용은 [Linux Hybrid Runbook Worker 문제 해결](hybrid-runbook-worker.md#linux)을 참조하세요.
 
 ```bash
 sudo /opt/microsoft/omsagent/bin/service_control restart
@@ -171,3 +177,4 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 ## <a name="next-steps"></a>다음 단계
 
 Hybrid Runbook Worker의 추가 문제를 해결하려면 [문제 해결 - Hybrid Runbook Worker](hybrid-runbook-worker.md)를 참조하세요.
+

@@ -1,24 +1,21 @@
 ---
 title: Node.js에서 Azure Database for MySQL에 연결
 description: 이 빠른 시작에서는 MySQL용 Azure Database에서 데이터를 연결하고 쿼리하는 데 사용할 수 있는 몇 가지 Node.js 코드 샘플을 제공합니다.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/21/2018
-ms.openlocfilehash: f0e76dff32038ba53dbdf7f869f5a04e75316e12
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: f5738c3eba3461c6f75884033eb60c54faec8473
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290708"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53535503"
 ---
-# <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>MySQL용 Azure Database: Node.js를 사용하여 데이터 연결 및 쿼리
+# <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>Azure Database for MySQL: Node.js를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 Windows, Ubuntu Linux 및 Mac 플랫폼에서 [Node.js](https://nodejs.org/)를 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 항목에서는 Node.js를 사용하여 개발하는 데 익숙하고 MySQL용 Azure Database를 처음 사용한다고 가정합니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -94,8 +91,8 @@ MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵
 ## <a name="running-the-javascript-code-in-nodejs"></a>Node.js에서 JavaScript 코드 실행
 1. JavaScript 코드를 텍스트 파일에 붙여넣고 .js 파일 확장명이 포함된 프로젝트 폴더(C:\nodejsmysql\createtable.js 또는 /home/username/nodejsmysql/createtable.js)에 저장합니다.
 2. 명령 프롬프트 또는 Bash 셸을 시작한 후 디렉터리를 프로젝트 폴더로 변경합니다(예: `cd nodejsmysql`).
-3. 응용 프로그램을 실행하려면 node 명령 다음에 파일 이름을 입력합니다(예: `node createtable.js`).
-4. Windows에서 노드 응용 프로그램이 환경 변수 경로에 없는 경우 전체 경로를 사용하여 노드 응용 프로그램을 시작해야 할 수도 있습니다(예: `"C:\Program Files\nodejs\node.exe" createtable.js`).
+3. 애플리케이션을 실행하려면 node 명령 다음에 파일 이름을 입력합니다(예: `node createtable.js`).
+4. Windows에서 노드 애플리케이션이 환경 변수 경로에 없는 경우 전체 경로를 사용하여 노드 애플리케이션을 시작해야 할 수도 있습니다(예: `"C:\Program Files\nodejs\node.exe" createtable.js`).
 
 ## <a name="connect-create-table-and-insert-data"></a>테이블 연결, 생성 및 데이터 삽입
 **CREATE TABLE** 및 **INSERT INTO** SQL 문을 사용하여 데이터를 연결하고 로드하려면 다음 코드를 사용하세요.

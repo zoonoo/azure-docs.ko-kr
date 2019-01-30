@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 1ae10fb749e671f7a8b5ca48e652711d7dcf98c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: da8fd886afa6028959247caa0c6e007df20fdd1b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262604"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077745"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
@@ -36,10 +36,8 @@ Microsoft 파트너는 고객을 대신하여 프로비전하는 Azure 리소스
 
 ## <a name="use-resource-manager-templates"></a>Resource Manager 템플릿 사용
 
-많은 파트너 솔루션은 Resource Manager 템플릿을 사용하여 고객의 구독에 배포됩니다. Azure Marketplace, GitHub 또는 빠른 시작에서 사용할 수 있는 Resource Manager 템플릿이 있는 경우, 새 추적 메서드를 사용하도록 템플릿을 수정하는 프로세스가 간단해야 합니다. Azure Resource Manager 템플릿을 사용하지 않는 경우, Resource Manager 템플릿 및 이러한 템플릿을 만드는 방법을 더 잘 이해하는 데 도움이 되는 몇 가지 링크는 다음과 같습니다. 
+많은 파트너 솔루션은 Resource Manager 템플릿을 사용하여 고객의 구독에 배포됩니다. Azure Marketplace, GitHub 또는 빠른 시작에서 사용할 수 있는 Resource Manager 템플릿이 있는 경우, 새 추적 메서드를 사용하도록 템플릿을 수정하는 프로세스가 간단해야 합니다. 자세한 내용은 [첫 번째 Resource Manager 템플릿을 만들고 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)를 참조하세요.
 
-*   [첫 번째 Resource Manager 템플릿 만들기 및 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)
-*   [Azure Marketplace용 솔루션 템플릿 만들기](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-solution-template-creation)
 
 ## <a name="add-a-guid-to-your-template"></a>템플릿에 GUID 추가
 

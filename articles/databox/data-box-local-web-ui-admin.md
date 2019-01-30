@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/11/2018
+ms.date: 12/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 9dd519f8efc9700f7a747aa37a9c02414f3e1865
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: c0793cd4adc5359aaa2282eb2505c257315c056f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093887"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793396"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box"></a>로컬 웹 UI를 사용하여 Data Box 관리
 
@@ -25,8 +25,7 @@ Data Box의 로컬 웹 UI는 디바이스의 초기 구성에 사용됩니다. �
 
 - 지원 패키지 생성
 - 디바이스 종료 또는 다시 시작
-- 디바이스에서 안전하게 데이터 지우기
-- 디바이스의 사용 가능한 용량 모니터링
+- 디바이스의 사용 가능한 용량 확인
 - 체크섬 유효성 검사 건너뛰기 
 
 ## <a name="generate-support-package"></a>지원 패키지 생성
@@ -83,7 +82,7 @@ Data Box를 다시 시작하려면 다음 단계를 수행합니다.
 디바이스 대시보드를 통해 디바이스에서 사용 가능한 용량과 사용한 용량을 확인할 수 있습니다. 
 
 1. 로컬 웹 UI에서 **대시보드 보기**로 이동합니다.
-2. **연결 및 복사** 아래에 장치의 사용 가능한 공간과 사용한 공간이 표시됩니다.
+2. **연결 및 복사** 아래에 디바이스의 사용 가능한 공간과 사용한 공간이 표시됩니다.
 
     ![사용 가능한 용량 확인](media/data-box-local-web-ui-admin/verify-used-space-dashboard.png)
 

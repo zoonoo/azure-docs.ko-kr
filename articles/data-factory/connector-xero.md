@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: d9ee9a73f4e88786ca51fe9fac50ce51e25b4dde
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6793fbcc50711e10231b87fa6e1f11f54f90d325
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123371"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018435"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Xero에서 데이터 복사(미리 보기)
 
@@ -33,7 +32,7 @@ Xero에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사
 
 특히 이 Xero 커넥터는 다음을 지원합니다.
 
-- Xero [개인 응용 프로그램](https://developer.xero.com/documentation/getting-started/api-application-types)(공용 응용 프로그램은 제외)
+- Xero [개인 애플리케이션](https://developer.xero.com/documentation/getting-started/api-application-types)(공용 애플리케이션은 제외)
 - "보고서"를 제외한 모든 Xero 테이블(API 엔드포인트) 
 
 Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제공합니다. 따라서 이 커넥터를 사용하여 드라이버를 수동으로 설치하지 않아도 됩니다.
@@ -50,10 +49,10 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성은 **Xero**로 설정해야 합니다. | yes |
-| host | Xero 서버(`api.xero.com`)의 엔드포인트입니다.  | yes |
-| consumerKey | Xero 응용 프로그램과 연결된 소비자 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
-| privateKey | Xero 개인 응용 프로그램에 대해 생성된 .pem 파일의 개인 키는 [공개/개인 키 쌍 만들기](https://developer.xero.com/documentation/api-guides/create-publicprivate-key)를 참조하세요. **512의 numbits로 privatekey.pem을 생성**하려면 `openssl genrsa -out privatekey.pem 512`를 사용합니다. 1024는 지원되지 않습니다. Unix 줄 끝(\n)을 포함하여 .pem 파일의 모든 텍스트를 포함합니다. 아래 샘플을 참조하세요.<br/><br/>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| 형식 | type 속성을 다음으로 설정해야 합니다. **Xero** | 예 |
+| host | Xero 서버(`api.xero.com`)의 엔드포인트입니다.  | 예 |
+| consumerKey | Xero 애플리케이션과 연결된 소비자 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| privateKey | Xero 개인 애플리케이션에 대해 생성된 .pem 파일의 개인 키는 [공개/개인 키 쌍 만들기](https://developer.xero.com/documentation/api-guides/create-publicprivate-key)를 참조하세요. **512의 numbits로 privatekey.pem을 생성**하려면 `openssl genrsa -out privatekey.pem 512`를 사용합니다. 1024는 지원되지 않습니다. Unix 줄 끝(\n)을 포함하여 .pem 파일의 모든 텍스트를 포함합니다. 아래 샘플을 참조하세요.<br/><br/>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 | useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 | usePeerVerification | SSL을 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
@@ -92,7 +91,12 @@ Unix 줄 끝(\n)을 포함하여 .pem 파일의 모든 텍스트를 포함합니
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Xero 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Xero에서 데이터를 복사하려면 데이터 세트의 type 속성을 **XeroObject**로 설정합니다. 이 형식의 데이터 세트에는 추가적인 형식별 속성이 없습니다.
+Xero에서 데이터를 복사하려면 데이터 세트의 type 속성을 **XeroObject**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+
+| 속성 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| 형식 | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **XeroObject** | 예 |
+| tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
 
@@ -104,7 +108,8 @@ Xero에서 데이터를 복사하려면 데이터 세트의 type 속성을 **Xer
         "linkedServiceName": {
             "referenceName": "<Xero linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -119,8 +124,8 @@ Xero에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Xero
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성은 **XeroSource**로 설정해야 합니다. | yes |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Contacts"` | yes |
+| 형식 | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **XeroSource** | 예 |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Contacts"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
 

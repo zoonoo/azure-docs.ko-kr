@@ -1,22 +1,22 @@
 ---
-title: Apache Kafka용 Azure Event Hubs로 스트리밍
-description: Kafka 프로토콜 및 API를 사용하여 Event Hubs로 스트리밍합니다.
+title: Kafka 사용 가능 이벤트 허브로 스트리밍 - Azure Event Hubs | Microsoft Docs
+description: 이 문서에서는 Kafka 프로토콜 및 API를 사용하여 Azure Event Hubs에 스트리밍하는 방법을 설명합니다.
 services: event-hubs
 author: basilhariri
 ms.author: bahariri
 ms.service: event-hubs
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 08/01/2018
-ms.openlocfilehash: 748ed7dde98d81de6e1d2661c6ce50d10357ba3d
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.custom: seodec18
+ms.date: 12/06/2018
+ms.openlocfilehash: 19d903a4083c432ac3932189ad8a6890be9014fb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975314"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354232"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Apache Kafka용 Event Hubs로 스트리밍
-이 빠른 시작에서는 프로토콜 클라이언트를 변경하거나 사용자 고유의 클러스터를 실행하지 않고 Kafka 지원 Event Hubs로 스트리밍하는 방법을 보여줍니다. 생산자와 소비자가 응용 프로그램 구성을 간단하게 변경하여 Kafka 지원 Event Hubs로 대화하는 방법을 알아봅니다. Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다.
+이 빠른 시작에서는 프로토콜 클라이언트를 변경하거나 사용자 고유의 클러스터를 실행하지 않고 Kafka 지원 Event Hubs로 스트리밍하는 방법을 보여줍니다. 생산자와 소비자가 애플리케이션 구성을 간단하게 변경하여 Kafka 지원 Event Hubs로 대화하는 방법을 알아봅니다. Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다.
 
 > [!NOTE]
 > 이 샘플은 [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java)에서 사용할 수 있습니다.
@@ -34,13 +34,13 @@ ms.locfileid: "51975314"
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Kafka 지원 Event Hubs 네임스페이스 만들기
 
-1. [Azure Portal][Azure Portal]에 로그온하고 화면 왼쪽 위에서 **리소스 만들기**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, 화면 왼쪽 위에서 **리소스 만들기**를 클릭합니다.
 
 2. Event Hubs를 검색하고 아래 표시된 옵션을 선택합니다.
     
     ![포털에서 Event Hubs 검색](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. 고유 이름을 제공하고 네임스페이스에서 Kafka를 사용하도록 설정합니다. **만들기**를 클릭합니다.
+3. 고유 이름을 제공하고 네임스페이스에서 Kafka를 사용하도록 설정합니다. **만들기**를 클릭합니다. 참고: Kafka용 Event Hubs는 표준 및 전용 계층 Event Hubs에서만 지원됩니다. 기본 계층 Event Hubs는 Kafka 작업에 대한 응답으로 토픽 권한 부여 오류를 반환합니다.
     
     ![네임스페이스 만들기](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  
@@ -52,9 +52,9 @@ ms.locfileid: "51975314"
     
     ![정책 선택](./media/event-hubs-create/create-event-hub8.png)
  
-6. 이 연결 문자열을 Kafka 응용 프로그램 구성에 추가합니다.
+6. 이 연결 문자열을 Kafka 애플리케이션 구성에 추가합니다.
 
-이제 Kafka 프로토콜을 사용하는 응용 프로그램에서 Event Hubs로 이벤트를 스트리밍할 수 있습니다.
+이제 Kafka 프로토콜을 사용하는 애플리케이션에서 Event Hubs로 이벤트를 스트리밍할 수 있습니다.
 
 ## <a name="send-and-receive-messages-with-kafka-in-event-hubs"></a>Event Hubs에서 Kafka로 메시지 보내고 받기
 

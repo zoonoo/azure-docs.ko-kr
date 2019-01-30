@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 10/28/2018
+ms.date: 12/27/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 6345cf47d19f7990e776e0fe4ec2bafd005c9cf2
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 11e29aa8d85ed7e3cf5ce7b4a8360e4b5eb628f9
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212491"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319220"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>일반적인 질문 - Hyper-V와 Azure 간 재해 복구
 
@@ -100,7 +100,7 @@ Hyper-V에서 Azure로 복제 아키텍처에 대해 [자세히 알아보세요]
 데이터는 Azure 저장소에 복제됩니다. 장애 조치를 실행하면 Site Recovery에서 저장소 계정으로부터 Azure VM을 자동으로 만듭니다.
 
 ### <a name="what-apps-can-i-replicate"></a>복제할 수 있는 앱은 무엇인가요?
-[복제 요구 사항](hyper-v-azure-support-matrix.md#replicated-vms)을 준수하는 Hyper-V VM에서 실행되는 모든 응용 프로그램 또는 작업을 복제할 수 있습니다. Site Recovery는 응용 프로그램 인식 복제를 지원하므로 앱을 지능형 상태로 장애 조치 및 장애 복구할 수 있습니다. SharePoint, Exchange, Dynamics, SQL Server, Active Directory와 같은 Microsoft 응용 프로그램과 통합되고, Oracle, SAP, IBM, Red Hat과 같은 선도적인 공급 업체와 긴밀하게 협력합니다. [자세히 알아봅니다](site-recovery-workload.md) .
+[복제 요구 사항](hyper-v-azure-support-matrix.md#replicated-vms)을 준수하는 Hyper-V VM에서 실행되는 모든 응용 프로그램 또는 작업을 복제할 수 있습니다. Site Recovery는 애플리케이션 인식 복제를 지원하므로 앱을 지능형 상태로 장애 조치 및 장애 복구할 수 있습니다. SharePoint, Exchange, Dynamics, SQL Server, Active Directory와 같은 Microsoft 애플리케이션과 통합되고, Oracle, SAP, IBM, Red Hat과 같은 선도적인 공급 업체와 긴밀하게 협력합니다. [자세히 알아봅니다](site-recovery-workload.md) .
 
 ### <a name="whats-the-replication-process"></a>복제 프로세스란?
 
@@ -124,7 +124,7 @@ Site Recovery는 공용 엔드포인트를 통하거나 ExpressRoute 공용 피�
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>ExpressRoute를 사용하여 Azure에 복제할 수 있나요?
 
-예, ExpressRoute를 사용하여 VM을 Azure로 복제할 수 있습니다. Site Recovery에서 공용 엔드포인트를 통해 Azure Storage 계정에 데이터를 복제하므로 Site Recovery 복제에 대해 [공용 피어링](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)을 설정해야 합니다. VM에서 Azure 가상 네트워크로 장애 조치한 후에는 [개인 피어링](../expressroute/expressroute-circuit-peerings.md#azure-private-peering)을 사용하여 해당 VM에 액세스할 수 있습니다.
+예, ExpressRoute를 사용하여 VM을 Azure로 복제할 수 있습니다. Site Recovery에서 공용 엔드포인트를 통해 Azure Storage 계정에 데이터를 복제하므로 Site Recovery 복제에 대해 [공용 피어링](../expressroute/expressroute-circuit-peerings.md#publicpeering)을 설정해야 합니다. VM에서 Azure 가상 네트워크로 장애 조치한 후에는 [개인 피어링](../expressroute/expressroute-circuit-peerings.md#privatepeering)을 사용하여 해당 VM에 액세스할 수 있습니다.
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>VPN을 통해 복제할 수 없는 이유는 무엇인가요?
@@ -137,10 +137,10 @@ Azure에 복제하는 경우 복제 트래픽이 Azure Storage 계정의 공용 
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Azure에 얼마나 자주 복제할 수 있나요?
 
-Hyper-V VM은 30초(프리미엄 저장소 제외), 5분 또는 15분마다 복제할 수 있습니다.
+Hyper-V VM은 30초(Premium Storage 제외), 5분 또는 15분마다 복제할 수 있습니다.
 
 ###<a name="can-i-extend-replication"></a>복제를 확장할 수 있나요?
-확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication)을 통해 이 기능에 대한 의견을 보내 주세요.
+확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959)을 통해 이 기능에 대한 의견을 보내 주세요.
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>오프라인 초기 복제를 수행할 수 있나요?
 지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)을 통해 이 기능에 대한 의견을 보내 주세요.
@@ -197,8 +197,8 @@ Azure는 복원을 위해 디자인되었습니다. Site Recovery는 Azure SLA�
 
 1. 몇 가지 다른 옵션을 사용하여 Azure에서 온-프레미스 사이트로 계획된 장애 조치(Failover)를 시작합니다.
 
-    - 가동 중지 시간 최소화: 이 옵션을 사용하면 Site Recovery가 장애 조치(Failover) 전에 데이터를 동기화합니다. 변경된 데이터 블록을 확인하고 온-프레미스 사이트에 다운로드하며 Azure VM은 그 동안에도 계속 실행되어 가동 중지 시간을 최소화합니다. 장애 조치 완료를 수동으로 지정해야 하는 경우 Azure VM이 종료되고 최종 델타 변경 내용이 복사되며 장애 조치가 시작됩니다.
-    - 전체 다운로드:이 옵션에서는 장애 조치(Failover) 중에 데이터가 동기화됩니다. 이 옵션은 전체 디스크를 다운로드합니다. 체크섬을 계산하지 않아 더 빠르지만 가동 중지 시간은 더 늘어납니다. 상당 시간 동안 복제본 Azure VM을 실행하였거나 온-프레미스 VM이 삭제된 경우에 이 옵션을 사용합니다.
+    - 가동 중단 시간 최소화: 이 옵션을 사용하면 Site Recovery가 장애 조치(failover) 전에 데이터를 동기화합니다. 변경된 데이터 블록을 확인하고 온-프레미스 사이트에 다운로드하며 Azure VM은 그 동안에도 계속 실행되어 가동 중지 시간을 최소화합니다. 장애 조치 완료를 수동으로 지정해야 하는 경우 Azure VM이 종료되고 최종 델타 변경 내용이 복사되며 장애 조치가 시작됩니다.
+    - 전체 다운로드: 이 옵션에서는 장애 조치(failover) 도중에 데이터가 동기화됩니다. 이 옵션은 전체 디스크를 다운로드합니다. 체크섬을 계산하지 않아 더 빠르지만 가동 중지 시간은 더 늘어납니다. 상당 시간 동안 복제본 Azure VM을 실행하였거나 온-프레미스 VM이 삭제된 경우에 이 옵션을 사용합니다.
 
 2. 동일한 VM으로 또는 대체 VM으로 장애 복구(Failback)하도록 선택할 수 있습니다. VM이 없는 경우 Site Recovery가 이를 만들도록 지정할 수 있습니다.
 3. 초기 동기화가 완료되면 장애 조치를 완료하도록 선택합니다. 완료되면 온-프레미스 VM에 로그온하여 모든 것이 기대한 대로 작동하는지 확인할 수 있습니다. Azure Portal에서 Azure VM이 중지된 것을 확인할 수 있습니다.

@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a8d6080b573cbad1004166f28a3e6596560241be
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 480d453cc906fa1b1d93e00bd4a6d2b080768a47
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426518"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105839"
 ---
 # <a name="setup-diagnostic-logging"></a>진단 로깅 설정
 
-Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법을 모니터링하는 것입니다. [Azure 리소스 진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)에서 로그를 모니터링하여 [Azure Storage](https://azure.microsoft.com/services/storage/)로 전송하고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트리밍하고, [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite)의 서비스인 [Log Analytics](https://azure.microsoft.com/services/log-analytics/)로 내보낼 수 있습니다. 
+Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법을 모니터링하는 것입니다. [Azure 리소스 진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md)에서 로그를 모니터링하여 [Azure Storage](https://azure.microsoft.com/services/storage/)로 전송하고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트리밍하고, [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite)의 서비스인 [Log Analytics](https://azure.microsoft.com/services/log-analytics/)로 내보낼 수 있습니다. 
 
 ![Storage, Event Hubs 또는 Log Analytics에 대한 진단 로깅](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -82,7 +82,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 
     * **저장소 계정에 보관**. 이 옵션을 사용하려면 연결할 기존 저장소 계정이 필요합니다. [저장소 계정 만들기](../storage/common/storage-create-storage-account.md)를 참조하세요. 지침에 따라 리소스 관리자와 범용 계정을 만든 다음 포털에서 이 페이지로 돌아가 해당 저장소 계정을 선택합니다. 새로 만든 저장소 계정이 드롭다운 메뉴에 나타나기까지 몇 분 정도 걸릴 수 있습니다.
     * **이벤트 허브로 스트림**. 이 옵션을 사용하려면 연결할 기존 Event Hub 네임스페이스 및 이벤트 허브가 필요합니다. 자세한 내용은 [Azure Portal을 사용하여 Event Hubs 네임스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조하세요. 그런 다음 포털의 이 페이지로 돌아가 Event Hub 네임스페이스 및 정책 이름을 선택합니다.
-    * **Log Analytics에 보내기**. 이 옵션을 사용하려면 기존 작업 영역을 사용하거나 포털에서 [새 작업 영역 만들기](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) 단계를 따라 새 Log Analytics 작업 영역을 만듭니다. Log Analytics에서 로그를 보는 방법에 대한 자세한 내용은 [Log Analytics에서 로그 보기](#view-in-loganalytics)를 참조하세요.
+    * **Log Analytics에 보내기**. 이 옵션을 사용하려면 기존 작업 영역을 사용하거나 포털에서 [새 작업 영역 만들기](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) 단계를 따라 새 Log Analytics 작업 영역을 만듭니다. Log Analytics에서 로그를 보는 방법에 대한 자세한 내용은 이 문서의 [Log Analytics에서 로그 보기](#view-logs-in-log-analytics)를 참조하세요.
 
     * **엔진**. xEvents를 기록하려면 이 옵션을 선택합니다. 저장소 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
     * **서비스**. 서비스 수준 이벤트를 기록하려면 이 옵션을 선택합니다. 저장소 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
@@ -136,11 +136,11 @@ PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정
 
 ### <a name="rest-api"></a>REST API
 
-[Azure Monitor REST API를 사용하여 진단 설정을 변경](https://msdn.microsoft.com/library/azure/dn931931.aspx)하는 방법을 알아봅니다. 
+[Azure Monitor REST API를 사용하여 진단 설정을 변경](https://docs.microsoft.com/rest/api/monitor/)하는 방법을 알아봅니다. 
 
 ### <a name="resource-manager-template"></a>Resource Manager 템플릿
 
-[Resource Manager 템플릿을 사용하여 리소스 생성 시 진단 설정을 활성화](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md)하는 방법을 알아봅니다. 
+[Resource Manager 템플릿을 사용하여 리소스 생성 시 진단 설정을 활성화](../azure-monitor/platform/diagnostic-logs-stream-template.md)하는 방법을 알아봅니다. 
 
 ## <a name="manage-your-logs"></a>로그 관리
 
@@ -304,6 +304,6 @@ Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 리소스 진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)에 대해 자세히 알아보기
+[Azure 리소스 진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md)에 대해 자세히 알아보기
 
 PowerShell 도움말은 [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/Set-AzureRmDiagnosticSetting)을 참조하세요.

@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 588bd5b3edeadb841de54691cf30916dd18c0982
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 60bd3aef20e39a9f451f54164ef3fb8ef682bc3e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093004"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809692"
 ---
-# <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Contoso 마이그레이션: Contoso Linux 서비스 데스크 앱을 Azure App Service, Traffic Manager 및 Azure MySQL의 여러 지역에 리팩터링
+# <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Contoso 마이그레이션: Azure App Service, Traffic Manager 및 Azure MySQL을 사용하여 Contoso Linux 서비스 데스크 앱을 여러 지역에 리팩터링
 
 이 문서에서는 Contoso가 온-프레미스 2계층 Linux 서비스 데스크 앱(osTicket)을 Azure App Service(GitHub 통합을 통해) 및 Azure MySQL로 마이그레이션하여 리팩터링하는 방법을 보여줍니다.
 
@@ -24,16 +24,16 @@ ms.locfileid: "49093004"
 --- | --- | ---
 [문서 1: 개요](contoso-migration-overview.md) | 문서 시리즈, Contoso의 마이그레이션 전략 및 시리즈에서 사용되는 샘플 앱에 대해 간략히 설명합니다. | 사용 가능
 [문서 2: Azure 인프라 배포](contoso-migration-infrastructure.md) | Contoso에서 마이그레이션을 위해 온-프레미스 인프라와 Azure 인프라를 준비합니다. 이 시리즈의 모든 마이그레이션 관련 문서에서 동일한 인프라가 사용됩니다. | 사용 가능
-[문서 3: Azure로 마이그레이션할 온-프레미스 리소스 평가](contoso-migration-assessment.md)  | Contoso가 VMware에서 실행되는 온-프레미스 SmartHotel360 앱의 평가를 실행합니다. Contoso에서 Azure Migrate 서비스를 사용하여 앱 VM을 평가하고, Database Migration Assistant를 사용하여 앱 SQL Server 데이터베이스를 평가합니다. | 사용 가능
+[문서 3: Azure로 마이그레이션하기 위한 온-프레미스 리소스 평가](contoso-migration-assessment.md)  | Contoso가 VMware에서 실행되는 온-프레미스 SmartHotel360 앱의 평가를 실행합니다. Contoso에서 Azure Migrate 서비스를 사용하여 앱 VM을 평가하고, Database Migration Assistant를 사용하여 앱 SQL Server 데이터베이스를 평가합니다. | 사용 가능
 [문서 4: Azure VM 및 SQL Database Managed Instance에서 앱 다시 호스트](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso가 온-프레미스 SmartHotel360 앱을 Azure로 리프트 앤 시프트 방식으로 마이그레이션합니다. Contoso에서 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 앱 프런트 엔드 VM을 마이그레이션하고, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)를 사용하여 앱 데이터베이스를 Azure SQL Database Managed Instance로 마이그레이션합니다. | 사용 가능   
-[문서 5: 앱을 Azure VM에 다시 호스트](contoso-migration-rehost-vm.md) | Contoso에서 Site Recovery 서비스를 사용하여 SmartHotel360 앱 VM을 Azure VM으로 마이그레이션합니다. | 사용 가능
+[문서 5: Azure VM에서 앱 다시 호스트](contoso-migration-rehost-vm.md) | Contoso에서 Site Recovery 서비스를 사용하여 SmartHotel360 앱 VM을 Azure VM으로 마이그레이션합니다. | 사용 가능
 [문서 6: Azure VM 및 SQL Server AlwaysOn 가용성 그룹에서 앱 다시 호스트](contoso-migration-rehost-vm-sql-ag.md) | Contoso가 SmartHotel360 앱을 마이그레이션합니다. Contoso에서 Site Recovery를 사용하여 앱 VM을 마이그레이션하고, Database Migration Service를 사용하여 앱 데이터베이스를 AlwaysOn 가용성 그룹으로 보호되는 SQL Server 클러스터로 마이그레이션합니다. | 사용 가능 
 [문서 7: Azure VM에서 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm.md) | Contoso에서 Azure Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 리프트 앤 시프트 방식으로 마이그레이션합니다. | 사용 가능
 [문서 8: Azure VM 및 Azure MySQL에서 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm-mysql.md) | Contoso에서 Azure Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 마이그레이션하고, MySQL Workbench를 사용하여 앱 데이터베이스를 Azure MySQL 서버 인스턴스로 마이그레이션합니다. | 사용 가능
-[문서 9: Azure Web Apps 및 Azure SQL 데이터베이스에서 앱 리팩터링](contoso-migration-refactor-web-app-sql.md) | Contoso에서 SmartHotel360 앱을 Azure Web App으로 마이그레이션하고, Database Migration Assistant를 사용하여 앱 데이터베이스를 Azure SQL Server 인스턴스로 마이그레이션합니다. | 사용 가능
+[문서 9: Azure Web Apps 및 Azure SQL Database에서 앱 리팩터링](contoso-migration-refactor-web-app-sql.md) | Contoso에서 SmartHotel360 앱을 Azure Web App으로 마이그레이션하고, Database Migration Assistant를 사용하여 앱 데이터베이스를 Azure SQL Server 인스턴스로 마이그레이션합니다. | 사용 가능
 문서 10: Azure Web Apps 및 Azure MySQL에서 Linux 앱 리팩터링 | Contoso에서 지속적인 업데이트를 위해 GitHub와 통합된 Azure Traffic Manager를 사용하여 Linux osTicket 앱을 여러 Azure 지역의 Azure 웹앱으로 마이그레이션합니다. Contoso에서 앱 데이터베이스를 Azure Database for MySQL 인스턴스로 마이그레이션합니다. | 이 문서의 내용
 [문서 11: Azure DevOps Services에서 TFS 리팩터링](contoso-migration-tfs-vsts.md) | Contoso에서 온-프레미스 Team Foundation Server 배포를 Azure의 Azure DevOps Services로 마이그레이션합니다. | 사용 가능
-[문서 12: Azure 컨테이너 및 Azure SQL Database에서 앱 아키텍처 변경](contoso-migration-rearchitect-container-sql.md) | Contoso에서 SmartHotel 앱을 Azure로 마이그레이션합니다. 그런 다음, 웹앱 계층을 Azure Service Fabric에서 실행되는 Windows 컨테이너로 재설계하고 Azure SQL Database를 사용하여 데이터베이스를 재설계합니다. | 사용 가능
+[문서 12: Azure 컨테이너 및 Azure SQL Database에서 앱 재설계](contoso-migration-rearchitect-container-sql.md) | Contoso에서 SmartHotel 앱을 Azure로 마이그레이션합니다. 그런 다음, 웹앱 계층을 Azure Service Fabric에서 실행되는 Windows 컨테이너로 재설계하고 Azure SQL Database를 사용하여 데이터베이스를 재설계합니다. | 사용 가능
 [문서 13: Azure에서 앱 다시 빌드](contoso-migration-rebuild.md) | Contoso가 다양한 Azure 기능과 서비스(Azure App Service, AKS(Azure Kubernetes Service), Azure Functions, Azure Cognitive Services 및 Azure Cosmos DB 포함)를 사용하여 SmartHotel360 앱을 다시 빌드합니다. | 사용 가능
 [문서 14: Azure로의 마이그레이션 확장](contoso-migration-scale.md) | 마이그레이션 조합을 시도한 후 Contoso는 Azure로 전체 마이그레이션을 확장할 준비를 합니다. | 사용 가능
 
@@ -44,17 +44,17 @@ ms.locfileid: "49093004"
 
 IT 리더십 팀은 비즈니스 파트너와의 긴밀한 협력을 통해 다음과 같이 기업이 달성하고자 하는 바를 잘 이해하고 있습니다.
 
-- **비즈니스 성장에 대응**: Contoso는 성장하면서 새로운 시장에 진입하고 있습니다. 고객 서비스 에이전트가 추가로 필요합니다. 
-- **확장**: 비즈니스 확장으로 인해 Contoso가 고객 서비스 에이전트를 더 많이 추가할 수 있도록 솔루션을 구축해야 합니다.
-- **복원력 향상**: 과거에는 시스템 문제가 내부 사용자에게만 영향을 미쳤습니다. 새로운 비즈니스 모델에서는 외부 사용자가 영향을 받기 때문에 Contoso는 앱이 항상 실행되도록 해야 합니다.
+- **비즈니스 성장 해결**: Contoso는 성장하면서 새로운 시장에 진입하고 있습니다. 고객 서비스 에이전트가 추가로 필요합니다. 
+- **크기 조정**: 비즈니스 확장으로 인해 Contoso가 고객 서비스 에이전트를 더 많이 추가할 수 있도록 솔루션을 구축해야 합니다.
+- **복원력 향상**:  과거에는 시스템 문제가 내부 사용자에게만 영향을 미쳤습니다. 새로운 비즈니스 모델에서는 외부 사용자가 영향을 받기 때문에 Contoso는 앱이 항상 실행되도록 해야 합니다.
 
 ## <a name="migration-goals"></a>마이그레이션 목표
 
 Contoso 클라우드 팀은 최상의 마이그레이션 방법을 확인하기 위해 이 마이그레이션의 목표를 정했습니다.
 
-- 현재 온-프레미스 용량 및 성능을 능가하도록 응용 프로그램을 확장해야 합니다.  Contoso는 Azure의 주문형 크기 조정 기능을 활용하기 위해 응용 프로그램을 옮기고 있습니다.
+- 현재 온-프레미스 용량 및 성능을 능가하도록 애플리케이션을 확장해야 합니다.  Contoso는 Azure의 주문형 크기 조정 기능을 활용하기 위해 애플리케이션을 옮기고 있습니다.
 - Contoso는 앱 코드 기반을 지속적인 업데이트 파이프라인으로 이동하려고 합니다.  앱 변경 내용이 GitHub에 푸시될 때, Contoso는 운영 담당자가 작업을 수행하지 않고 이러한 변경 사항을 배포하려고 합니다.
-- 응용 프로그램은 확장 및 장애 조치(failover) 기능과 함께 복원력이 있어야 합니다. Contoso는 서로 다른 Azure 지역 두 곳에 앱을 배포하고 자동으로 규모가 조정되도록 설정하려고 합니다.
+- 애플리케이션은 확장 및 장애 조치(failover) 기능과 함께 복원력이 있어야 합니다. Contoso는 서로 다른 Azure 지역 두 곳에 앱을 배포하고 자동으로 규모가 조정되도록 설정하려고 합니다.
 - Contoso는 앱이 클라우드로 이동되면 데이터베이스 관리 작업을 최소화하려고 합니다.
 
 ## <a name="solution-design"></a>솔루션 디자인
@@ -108,7 +108,7 @@ Contoso는 다음과 같이 마이그레이션 프로세스를 완료합니다.
 
 **서비스** | **설명** | **비용**
 --- | --- | ---
-[Azure App Service](https://azure.microsoft.com/services/app-service/) | 이 서비스는 웹 사이트에 대해 Azure PaaS 서비스를 사용하여 응용 프로그램을 실행하고 규모를 조정합니다.  | 인스턴스의 크기와 필요한 기능에 따라 가격이 책정됩니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/app-service/windows/).
+[Azure App Service](https://azure.microsoft.com/services/app-service/) | 이 서비스는 웹 사이트에 대해 Azure PaaS 서비스를 사용하여 애플리케이션을 실행하고 규모를 조정합니다.  | 인스턴스의 크기와 필요한 기능에 따라 가격이 책정됩니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/app-service/windows/).
 [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) | DNS를 사용하여 사용자를 Azure 또는 외부 웹 사이트 및 서비스로 보내는 부하 분산 장치입니다. | 수신한 DNS 쿼리의 수와 모니터링되는 엔드포인트 수에 따라 가격이 책정됩니다. | [자세히 알아보기](https://azure.microsoft.com/pricing/details/traffic-manager/).
 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) | 데이터베이스는 오픈 소스 MySQL 서버 엔진을 기반으로 합니다. 완전히 관리되는 엔터프라이즈용 커뮤니티 MySQL 데이터베이스를 앱 개발 및 배포용 서비스로 제공합니다. | 계산, 저장소 및 백업 요구 사항에 따라 가격이 책정됩니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/mysql/).
 
@@ -163,7 +163,7 @@ Contoso 관리자는 Azure App Services를 사용하여 Web Apps를 두 개(지�
 
 **도움이 더 필요하세요?**
 
-- [Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview)에 대해 알아봅니다.
+- [Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview)에 대해 알아봅니다.
 - [Linux의 Azure App Service](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)에 대해 알아봅니다.
 
 
@@ -284,7 +284,7 @@ Contoso 관리자는 개인 GitHub 리포지토리를 새로 만들어서 Azure 
 
     ![GitHub](./media/contoso-migration-refactor-linux-app-service-mysql/github5.png)
 
-6. 각 웹앱(**osticket-eus2** 및 **osticket-cus**)에 대해 Azure Portal에서 **응용 프로그램 설정**을 수정합니다.
+6. 각 웹앱(**osticket-eus2** 및 **osticket-cus**)에 대해 Azure Portal에서 **애플리케이션 설정**을 수정합니다.
 
     ![GitHub](./media/contoso-migration-refactor-linux-app-service-mysql/github6.png)
 

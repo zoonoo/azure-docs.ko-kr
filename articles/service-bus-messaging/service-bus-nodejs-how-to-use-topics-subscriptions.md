@@ -3,9 +3,9 @@ title: Node.js에서 Azure Service Bus 토픽 및 구독을 사용하는 방법 
 description: Node.js app에서 Azure의 Service Bus 토픽 및 구독을 사용하는 방법에 대해 알아봅니다.
 services: service-bus-messaging
 documentationcenter: nodejs
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: spelluru
-ms.openlocfilehash: 00ae254a9e9d40ec88802f2f46666aff72cb242a
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.author: aschhab
+ms.openlocfilehash: a5d0f457d06bd4e4e655d8f3ebc712f4d6ee7523
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377653"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849909"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Node.js에서 Service Bus 토픽 및 구독을 사용하는 방법
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-이 가이드에서는 Node.js 응용 프로그램에서 Service Bus 토픽과 구독을 사용하는 방법을 설명합니다. 다루는 시나리오는 다음과 같습니다.
+이 가이드에서는 Node.js 애플리케이션에서 Service Bus 토픽과 구독을 사용하는 방법을 설명합니다. 다루는 시나리오는 다음과 같습니다.
 
 - 토픽 및 구독 만들기 
 - 구독 만들기 필터 
@@ -37,15 +37,15 @@ ms.locfileid: "49377653"
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
-## <a name="create-a-nodejs-application"></a>Node.js 응용 프로그램 만들기
-빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포], Windows PowerShell을 사용하는 [Node.js 클라우드 서비스][Node.js Cloud Service] 또는 WebMatrix를 사용하는 웹 사이트를 참조하세요.
+## <a name="create-a-nodejs-application"></a>Node.js 애플리케이션 만들기
+빈 Node.js 애플리케이션을 만듭니다. Node.js 애플리케이션을 만드는 방법에 대한 지침은 [Node.js 애플리케이션을 만들어 Azure 웹 사이트에 배포], Windows PowerShell을 사용하는 [Node.js 클라우드 서비스][Node.js Cloud Service] 또는 WebMatrix를 사용하는 웹 사이트를 참조하세요.
 
-## <a name="configure-your-application-to-use-service-bus"></a>Service Bus를 사용하도록 응용 프로그램 구성
+## <a name="configure-your-application-to-use-service-bus"></a>Service Bus를 사용하도록 애플리케이션 구성
 Service Bus를 사용하려면 Node.js Azure 패키지를 다운로드합니다. 이 패키지에는 Service Bus REST 서비스와 통신하는 라이브러리 집합이 포함되어 있습니다.
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>NPM(Node Package Manager)을 사용하여 패키지 가져오기
 1. **PowerShell**(Windows), **Terminal**(Mac) 또는 **Bash**(Unix)와 같은 명령줄 인터페이스를 엽니다.
-2. 샘플 응용 프로그램을 만든 폴더로 이동합니다.
+2. 샘플 애플리케이션을 만든 폴더로 이동합니다.
 3. 명령 창에 **npm install azure**를 입력합니다. 그러면 다음과 같이 출력됩니다.
 
    ```
@@ -64,7 +64,7 @@ Service Bus를 사용하려면 Node.js Azure 패키지를 다운로드합니다.
 3. **ls** 명령을 수동으로 실행하여 **node\_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 Service Bus 토픽에 액세스하는 데 필요한 라이브러리가 들어 있는 **Azure** 패키지를 찾습니다.
 
 ### <a name="import-the-module"></a>모듈 가져오기
-메모장 또는 다른 텍스트 편집기를 사용하여 다음을 응용 프로그램의 **server.js** 파일 맨 위에 추가합니다.
+메모장 또는 다른 텍스트 편집기를 사용하여 다음을 애플리케이션의 **server.js** 파일 맨 위에 추가합니다.
 
 ```javascript
 var azure = require('azure');
@@ -138,7 +138,7 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 토픽 구독은 **ServiceBusService** 개체로도 만들 수 있습니다. 구독에는 이름이 지정되며, 구독의 가상 큐에 전달되는 메시지 집합을 제한하는 선택적 필터가 있을 수 있습니다.
 
 > [!NOTE]
-> 구독은 구독 자체 또는 구독과 연결된 토픽이 삭제될 때까지 영구적입니다. 응용 프로그램에 구독을 만들기 위한 논리가 포함된 경우, `getSubscription` 메서드를 사용하여 구독이 존재하는지를 먼저 확인해야 합니다.
+> 구독은 구독 자체 또는 구독과 연결된 토픽이 삭제될 때까지 영구적입니다. 애플리케이션에 구독을 만들기 위한 논리가 포함된 경우, `getSubscription` 메서드를 사용하여 구독이 존재하는지를 먼저 확인해야 합니다.
 >
 >
 
@@ -238,9 +238,9 @@ var rule={
 이제 `MyTopic`으로 메시지를 보내는 경우 `AllMessages` 토픽 구독을 구독하는 수신자에게는 배달되고, 메시지 내용에 따라 `HighMessages` 및 `LowMessages` 토픽 구독을 구독하는 수신자에게 선택적으로 배달됩니다.
 
 ## <a name="how-to-send-messages-to-a-topic"></a>토픽에 메시지를 보내는 방법
-Service Bus 토픽에 메시지를 보내려면 응용 프로그램에서 **ServiceBusService** 개체의 `sendTopicMessage` 메서드를 사용해야 합니다.
+Service Bus 토픽에 메시지를 보내려면 애플리케이션에서 **ServiceBusService** 개체의 `sendTopicMessage` 메서드를 사용해야 합니다.
 Service Bus 토픽으로 보내는 메시지는 **BrokeredMessage** 개체입니다.
-**BrokeredMessage** 개체에는 표준 속성 집합(예: `Label` 및 `TimeToLive`), 응용 프로그램별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 문자열 데이터의 본문이 있습니다. 응용 프로그램은 문자열 값을 `sendTopicMessage`에 전달하여 메시지의 본문을 설정할 수 있습니다. 그러면 필수 표준 속성이 기본값으로 채워집니다.
+**BrokeredMessage** 개체에는 표준 속성 세트(예: `Label` 및 `TimeToLive`), 애플리케이션별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 문자열 데이터의 본문이 있습니다. 애플리케이션은 문자열 값을 `sendTopicMessage`에 전달하여 메시지의 본문을 설정할 수 있습니다. 그러면 필수 표준 속성이 기본값으로 채워집니다.
 
 다음 예제에서는 5개의 테스트 메시지를 `MyTopic`에 보내는 방법을 보여 줍니다. 루프가 반복될 때마다 각 메시지의 `messagenumber` 속성 값이 변경되며 이 속성 값에 따라 해당 메시지를 받는 구독이 결정됩니다.
 
@@ -263,15 +263,15 @@ for (i = 0;i < 5;i++) {
 }
 ```
 
-Service Bus 토픽은 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 토픽에 저장되는 메시지 수에는 제한이 없지만 한 토픽에 저장되는 총 메시지 크기는 제한됩니다. 이 토픽 크기는 생성 시 정의되며 상한이 5GB입니다.
+Service Bus 토픽은 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 애플리케이션 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 토픽에 저장되는 메시지 수에는 제한이 없지만 한 토픽에 저장되는 총 메시지 크기는 제한됩니다. 이 토픽 크기는 생성 시 정의되며 상한이 5GB입니다.
 
 ## <a name="receive-messages-from-a-subscription"></a>구독에서 메시지 받기
 **ServiceBusService** 개체의 `receiveSubscriptionMessage` 메서드를 사용하여 구독에서 메시지를 받습니다. 기본적으로 메시지를 읽으면 구독에서 해당 메시지가 삭제됩니다. 하지만 `isPeekLock` 선택적 매개 변수를 **true**로 설정하여 메시지를 구독에서 삭제하지 않고 읽고(보고) 잠글 수 있습니다.
 
-받기 작업의 일부로 메시지를 읽고 삭제하는 기본 동작은 가장 단순한 모델이며, 오류 발생 시 응용 프로그램이 메시지를 처리하지 않아도 되는 시나리오에서 가장 효과적입니다. 이 동작에 대한 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. Service Bus가 메시지를 사용되는 것으로 표시했기 때문에 응용 프로그램이 다시 시작되고 메시지를 다시 사용하기 시작할 때 충돌 전에 사용한 메시지는 누락됩니다.
+받기 작업의 일부로 메시지를 읽고 삭제하는 기본 동작은 가장 단순한 모델이며, 오류 발생 시 응용 프로그램이 메시지를 처리하지 않아도 되는 시나리오에서 가장 효과적입니다. 이 동작에 대한 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. Service Bus가 메시지를 사용되는 것으로 표시했기 때문에 애플리케이션이 다시 시작되고 메시지를 다시 사용하기 시작할 때 충돌 전에 사용한 메시지는 누락됩니다.
 
-`isPeekLock` 매개 변수를 **true**로 설정하면 수신은 2단계 작업이 되므로, 누락된 메시지를 허용하지 않는 응용 프로그램을 지원할 수 있습니다. Service Bus는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠그고, 응용 프로그램에 반환합니다.
-응용 프로그램은 메시지를 처리하거나 추가 처리를 위해 안전하게 저장한 후에 **deleteMessage** 메서드를 호출하여 수신 프로세스의 두 번째 단계를 완료하고 삭제할 메시지를 매개 변수로 전달합니다. **deleteMessage** 메서드는 메시지를 사용됨으로 표시하고 구독에서 제거합니다.
+`isPeekLock` 매개 변수를 **true**로 설정하면 수신은 2단계 작업이 되므로, 누락된 메시지를 허용하지 않는 애플리케이션을 지원할 수 있습니다. Service Bus는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠그고, 애플리케이션에 반환합니다.
+애플리케이션은 메시지를 처리하거나 추가 처리를 위해 안전하게 저장한 후에 **deleteMessage** 메서드를 호출하여 수신 프로세스의 두 번째 단계를 완료하고 삭제할 메시지를 매개 변수로 전달합니다. **deleteMessage** 메서드는 메시지를 사용됨으로 표시하고 구독에서 제거합니다.
 
 다음 예제에서는 `receiveSubscriptionMessage`를 사용하여 메시지를 받고 처리하는 방법을 보여줍니다. 먼저 'LowMessages' 구독에서 메시지를 받고 삭제한 다음, true로 설정된 `isPeekLock`을 사용하여 'HighMessages' 구독에서 메시지를 받습니다. 그런 다음 `deleteMessage`를 사용하여 메시지를 삭제합니다.
 
@@ -296,12 +296,12 @@ serviceBusService.receiveSubscriptionMessage('MyTopic', 'HighMessages', { isPeek
 });
 ```
 
-## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>응용 프로그램 작동 중단 및 읽을 수 없는 메시지를 처리하는 방법
-Service Bus는 응용 프로그램 오류나 메시지 처리 문제를 정상적으로 복구하는 데 유용한 기능을 제공합니다. 어떤 이유로든 수신 응용 프로그램이 메시지를 처리할 수 없는 경우 **ServiceBusService** 개체의 `unlockMessage` 메서드를 호출할 수 있습니다. 이 메서드를 사용하면 Service Bus가 구독 내 메시지의 잠금을 해제하고 메시지를 다시 받을 수 있습니다. 이 인스턴스에서는 동일하게 사용되는 응용 프로그램 또는 다른 사용되는 응용 프로그램입니다.
+## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>애플리케이션 작동 중단 및 읽을 수 없는 메시지를 처리하는 방법
+Service Bus는 애플리케이션 오류나 메시지 처리 문제를 정상적으로 복구하는 데 유용한 기능을 제공합니다. 어떤 이유로든 수신 애플리케이션이 메시지를 처리할 수 없는 경우 **ServiceBusService** 개체의 `unlockMessage` 메서드를 호출할 수 있습니다. 이 메서드를 사용하면 Service Bus가 구독 내 메시지의 잠금을 해제하고 메시지를 다시 받을 수 있습니다. 이 인스턴스에서는 동일하게 사용되는 애플리케이션 또는 다른 사용되는 애플리케이션입니다.
 
-구독 내에는 잠긴 메시지와 관련된 제한 시간도 있습니다. 응용 프로그램에서 잠금 시간 제한이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 응용 프로그램이 크래시되는 경우) Service Bus가 메시지를 자동으로 잠금 해제하여 다시 받을 수 있게 합니다.
+구독 내에는 잠긴 메시지와 관련된 제한 시간도 있습니다. 애플리케이션에서 잠금 시간 제한이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 애플리케이션이 크래시되는 경우) Service Bus가 메시지를 자동으로 잠금 해제하여 다시 받을 수 있게 합니다.
 
-응용 프로그램이 메시지를 처리한 후 `deleteMessage` 메서드가 호출되기 전에 충돌하는 경우 다시 시작될 때 메시지가 응용 프로그램에 다시 배달됩니다. 이 동작은 일반적으로 *최소 한 번 이상 처리*라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 중복 메시지 배달을 처리하는 논리를 응용 프로그램에 추가해야 합니다. 배달 시도 간에 일정하게 유지하는 메시지의 **MessageId** 속성을 사용하면 됩니다.
+애플리케이션이 메시지를 처리한 후 `deleteMessage` 메서드가 호출되기 전에 충돌하는 경우 다시 시작될 때 메시지가 애플리케이션에 다시 배달됩니다. 이 동작은 일반적으로 *최소 한 번 이상 처리*라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 중복 메시지 배달을 처리하는 논리를 애플리케이션에 추가해야 합니다. 배달 시도 간에 일정하게 유지하는 메시지의 **MessageId** 속성을 사용하면 됩니다.
 
 ## <a name="delete-topics-and-subscriptions"></a>토픽 및 구독 삭제
 토픽과 구독은 영구적이므로, [Azure Portal][Azure portal] 또는 프로그래밍 방식을 통해 명시적으로 삭제해야 합니다.
@@ -338,6 +338,6 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포]: ../app-service/app-service-web-get-started-nodejs.md
+[Node.js 애플리케이션을 만들어 Azure 웹 사이트에 배포]: ../app-service/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 

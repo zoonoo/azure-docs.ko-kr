@@ -19,7 +19,7 @@ ms.locfileid: "49466939"
 ---
 # <a name="quickstart-url-preview-in-javascript"></a>빠른 시작: JavaScript에서 URL Preview 사용 
 
-다음 단일 페이지 응용 프로그램은 JavaScript를 사용하여 SwiftKey 사이트에 대한 URL 미리 보기를 만듭니다. https://swiftkey.com/en 
+다음 단일 페이지 애플리케이션은 JavaScript를 사용하여 SwiftKey 사이트에 대한 URL 미리 보기를 만듭니다. https://swiftkey.com/en 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -52,9 +52,9 @@ ms.locfileid: "49466939"
 
 ![JavaScript URL 미리 보기 예제](./media/java-script-demo.png)
 
-## <a name="running-the-application"></a>응용 프로그램 실행
+## <a name="running-the-application"></a>애플리케이션 실행
 
-응용 프로그램을 실행하려면:
+애플리케이션을 실행하려면:
 
 1. `YOUR-SUBSCRIPTION-KEY` 값을 구독에 유효한 액세스 키로 바꿉니다.
 2. HTML 및 스크립트를 확장명이 .html인 파일에 저장합니다.

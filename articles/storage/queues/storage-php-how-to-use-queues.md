@@ -29,10 +29,10 @@ ms.locfileid: "42141150"
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## <a name="create-a-php-application"></a>PHP 응용 프로그램 만들기
-Azure Queue Storage에 액세스하는 PHP 응용 프로그램을 만들기 위한 유일한 요구 사항은 코드 내에서 [PHP용 Azure Storage Client Library][download]의 클래스를 참조하는 것입니다. 응용 프로그램을 만드는 데는 메모장을 포함한 어떠한 개발 도구도 사용할 수 있습니다.
+## <a name="create-a-php-application"></a>PHP 애플리케이션 만들기
+Azure Queue Storage에 액세스하는 PHP 애플리케이션을 만들기 위한 유일한 요구 사항은 코드 내에서 [PHP용 Azure Storage Client Library][download]의 클래스를 참조하는 것입니다. 애플리케이션을 만드는 데는 메모장을 포함한 어떠한 개발 도구도 사용할 수 있습니다.
 
-이 가이드에서는 PHP 응용 프로그램 내에서 로컬로 또는 Azure 웹 역할, 작업자 역할 또는 웹 사이트 내에서 실행되는 코드에서 호출할 수 있는 큐 저장소 서비스 기능을 사용합니다.
+이 가이드에서는 PHP 애플리케이션 내에서 로컬로 또는 Azure 웹 역할, 작업자 역할 또는 웹 사이트 내에서 실행되는 코드에서 호출할 수 있는 Queue Storage 서비스 기능을 사용합니다.
 
 ## <a name="get-the-azure-client-libraries"></a>Azure 클라이언트 라이브러리 가져오기
 ### <a name="install-via-composer"></a>작성기를 통해 설치
@@ -54,7 +54,7 @@ Azure Queue Storage에 액세스하는 PHP 응용 프로그램을 만들기 위�
 
 또는 GitHub에서 [Azure Storage PHP 클라이언트 라이브러리][download]로 이동하여 소스 코드를 복제합니다.
 
-## <a name="configure-your-application-to-access-queue-storage"></a>큐 저장소에 액세스하도록 응용 프로그램 구성
+## <a name="configure-your-application-to-access-queue-storage"></a>큐 저장소에 액세스하도록 애플리케이션 구성
 Azure 큐 저장소에 대한 API를 사용하려면 다음을 수행해야 합니다.
 
 1. [require_once] 문을 사용하여 자동 로더 파일을 참조합니다.
@@ -257,7 +257,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="change-the-contents-of-a-queued-message"></a>대기 중인 메시지의 콘텐츠 변경
-**QueueRestProxy->updateMessage**를 호출하여 큐에 있는 메시지의 콘텐츠를 변경할 수 있습니다. 메시지가 작업을 나타내는 경우 이 기능을 사용하여 작업의 상태를 업데이트할 수 있습니다. 다음 코드는 큐 메시지를 새로운 콘텐츠로 업데이트하고 표시 제한 시간이 60초 더 늘어나도록 설정합니다. 그러면 메시지와 연결된 작업의 상태가 저장되고 클라이언트에서 메시지에 대한 작업을 계속할 수 있는 시간이 1분 더 허용됩니다. 이 기술을 사용하여 처리 단계가 하드웨어 또는 소프트웨어 오류로 인해 실패하는 경우 처음부터 시작하지 않고도 큐 메시지에 대한 여러 단계의 워크플로를 추적할 수 있습니다. 일반적으로, 다시 시도 수도 유지하므로, 메시지가 *n* 번 넘게 다시 시도된 경우 메시지를 지울 수도 있습니다. 이 기능은 처리될 때마다 응용 프로그램 오류를 트리거하는 메시지를 차단하여 보호해 줍니다.
+**QueueRestProxy->updateMessage**를 호출하여 큐에 있는 메시지의 콘텐츠를 변경할 수 있습니다. 메시지가 작업을 나타내는 경우 이 기능을 사용하여 작업의 상태를 업데이트할 수 있습니다. 다음 코드는 큐 메시지를 새로운 콘텐츠로 업데이트하고 표시 제한 시간이 60초 더 늘어나도록 설정합니다. 그러면 메시지와 연결된 작업의 상태가 저장되고 클라이언트에서 메시지에 대한 작업을 계속할 수 있는 시간이 1분 더 허용됩니다. 이 기술을 사용하여 처리 단계가 하드웨어 또는 소프트웨어 오류로 인해 실패하는 경우 처음부터 시작하지 않고도 큐 메시지에 대한 여러 단계의 워크플로를 추적할 수 있습니다. 일반적으로, 다시 시도 수도 유지하므로, 메시지가 *n* 번 넘게 다시 시도된 경우 메시지를 지울 수도 있습니다. 이 기능은 처리될 때마다 애플리케이션 오류를 트리거하는 메시지를 차단하여 보호해 줍니다.
 
 ```php
 require_once 'vendor/autoload.php';

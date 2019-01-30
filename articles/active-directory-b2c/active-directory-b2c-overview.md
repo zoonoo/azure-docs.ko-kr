@@ -3,40 +3,40 @@ title: Azure Active Directory B2C란? | Microsoft Docs
 description: Azure Active Directory B2C를 사용하여 응용 프로그램 로그인 환경을 만들고 관리하는 방법을 살펴봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fdb856f92bf790df0065cfc74ce5896f1d10c47b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: b667934fefe0b9afb5aeca786839f5e105be2c4d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954109"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844996"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Azure Active Directory B2C란?
 
-Azure AD(Azure Active Directory) B2C는 응용 프로그램을 사용할 때 고객이 응용 프로그램과 상호 작용하는 방법을 사용자 지정하고 제어할 수 있는 ID 관리 서비스입니다. 이 상호 작용에는 고객이 응용 프로그램을 사용할 때의 가입, 로그인 및 프로필 관리가 포함됩니다. iOS, Android 및 .NET용 응용 프로그램을 선택할 수 있습니다. Azure AD B2C를 사용하면 고객의 ID를 보호하면서 이러한 작업을 수행할 수 있습니다.
+Azure AD(Azure Active Directory) B2C는 응용 프로그램을 사용할 때 고객이 응용 프로그램과 상호 작용하는 방법을 사용자 지정하고 제어할 수 있는 ID 관리 서비스입니다. 이 상호 작용에는 고객이 애플리케이션을 사용할 때의 가입, 로그인 및 프로필 관리가 포함됩니다. iOS, Android 및 .NET용 응용 프로그램을 선택할 수 있습니다. Azure AD B2C를 사용하면 고객의 ID를 보호하면서 이러한 작업을 수행할 수 있습니다.
 
 Azure AD B2C에 등록된 응용 프로그램을 구성하여 다양한 ID 관리 작업을 수행할 수 있습니다. 일부 사례:
 
 - 고객이 가입하여 등록된 응용 프로그램을 사용할 수 있도록 설정
-- 가입한 고객이 로그인하여 응용 프로그램 사용을 시작할 수 있도록 설정
+- 가입한 고객이 로그인하여 애플리케이션 사용을 시작할 수 있도록 설정
 - 가입한 고객이 자신의 프로필을 편집할 수 있도록 설정
-- 응용 프로그램에서 다단계 인증을 사용하도록 설정
+- 애플리케이션에서 다단계 인증을 사용하도록 설정
 - 고객이 특정 ID 공급자를 통해 가입 및 로그인할 수 있도록 설정
-- 사용자가 작성한 API에 대한 응용 프로그램으로부터의 액세스 권한 부여
+- 사용자가 작성한 API에 대한 애플리케이션으로부터의 액세스 권한 부여
 - 가입 및 로그인 환경 사용자 지정
-- 응용 프로그램에 대한 Single Sign-On 관리
+- 애플리케이션에 대한 Single Sign-On 관리
 
 ## <a name="what-do-i-need-to-think-about-before-using-azure-ad-b2c"></a>Azure AD B2C를 사용하기 전의 고려 사항
 
-- 고객이 내 응용 프로그램과 상호 작용하는 방법
+- 고객이 내 애플리케이션과 상호 작용하는 방법
 - 고객에게 제공하고자 하는 UI(사용자 인터페이스)
-- 고객이 내 응용 프로그램에서 선택하게 할 ID 공급자 
+- 고객이 내 애플리케이션에서 선택하게 할 ID 공급자
 - 내 로그인 프로세스에서 추가 API 실행의 필요 여부
 
 ### <a name="customer-interaction"></a>고객 상호 작용
@@ -47,7 +47,7 @@ Azure AD B2C를 사용하는 모든 응용 프로그램은 Azure Portal을 사�
 
 모든 응용 프로그램의 상호 작용은 높은 수준에서 비슷한 패턴을 따릅니다.
 
-1. 응용 프로그램은 고객이 정책을 실행하도록 합니다.
+1. 애플리케이션은 고객이 정책을 실행하도록 합니다.
 2. 고객은 정책 정의에 따라 정책을 완료합니다.
 3. 응용 프로그램은 보안 토큰을 수신합니다.
 4. 응용 프로그램은 보안 토큰을 사용하여 보호된 리소스에 액세스를 시도합니다.
@@ -60,9 +60,9 @@ Azure AD B2C는 순서대로 ID 공급자, 고객, 기타 시스템 및 로컬 �
 
 Azure AD B2C는 응용 프로그램에 대한 서비스 거부 및 암호 공격으로부터 보호합니다. Azure AD B2C는 SYN 쿠키, 속도 및 연결 제한과 같은 검색 및 완화 기술을 사용하여 서비스 거부 공격으로부터 리소스를 보호합니다. 무차별 암호 대입 공격 및 사전 암호 공격에 대해서는 완화도 포함됩니다.
 
-#### <a name="built-in-policies"></a>기본 제공 정책
+#### <a name="user-flows"></a>사용자 흐름
 
-Azure AD B2C에 전송되는 각 요청은 정책을 지정합니다. 정책은 응용 프로그램이 Azure AD B2C와 상호 작용하는 방식을 제어합니다. 가입, 로그인, 프로필 편집 등과 같이 가장 일반적인 ID 작업에 대해서는 기본 제공 정책이 미리 정의되어 있습니다.  예를 들어 등록 정책을 사용하면 다음 설정을 구성하여 동작을 제어할 수 있습니다.
+Azure AD B2C로 전송되는 각 요청은 사용자 흐름을 지정하며, 이 흐름은 애플리케이션에서 Azure AD B2C와 상호 작용하는 방식을 제어하는 정책입니다. Azure AD B2C 포털에서는 가입, 로그인 및 프로필 편집과 같은 가장 일반적인 ID 작업에 대해 미리 정의된 사용자 흐름을 사용할 수 있습니다.  예를 들어 가입 사용자 흐름을 사용하면 다음 설정을 구성하여 동작을 제어할 수 있습니다.
 
 - 고객이 응용 프로그램 가입에 사용할 수 있는 소셜 계정
 - 이름, 우편 번호 등, 고객에게서 수집한 데이터
@@ -86,7 +86,7 @@ Azure AD B2C 테넌트에서는 필요에 따라 다양한 형식의 사용자 �
 
 ID 공급자는 사용자 ID를 인증하고 보안 토큰을 발급하는 서비스입니다. Azure AD B2C에서는 [Microsoft 계정](active-directory-b2c-setup-msa-app.md), [Facebook](active-directory-b2c-setup-fb-app.md) 또는 [Amazon](active-directory-b2c-setup-amzn-app.md) 등을 비롯한 다양한 ID 공급자를 테넌트에서 구성할 수 있습니다. 
 
-Azure AD B2C 테넌트에서 ID 공급자를 구성하려면 응용 프로그램 식별자 또는 클라이언트 식별자와, 자신이 만든 ID 공급자 응용 프로그램의 암호나 클라이언트 암호를 기록해야 합니다. 그런 다음, 이 식별자와 암호를 사용하여 응용 프로그램을 구성합니다.
+Azure AD B2C 테넌트에서 ID 공급자를 구성하려면 응용 프로그램 식별자 또는 클라이언트 식별자와, 자신이 만든 ID 공급자 응용 프로그램의 암호나 클라이언트 암호를 기록해야 합니다. 그런 다음, 이 식별자와 암호를 사용하여 애플리케이션을 구성합니다.
 
 ### <a name="user-interface-experience"></a>사용자 인터페이스 환경
 
@@ -98,21 +98,21 @@ Azure AD B2C는 소비자의 브라우저에서 코드를 실행하고 CORS(원�
 
 ## <a name="how-do-i-get-started-with-azure-ad-b2c"></a>Azure AD B2C를 시작하는 방법
 
-Azure AD B2C에서 테넌트는 조직을 나타내며 사용자의 디렉터리입니다. 각 Azure AD B2C 테넌트는 서로 전혀 다르고 다른 Azure AD B2C 테넌트와 별개입니다. 테넌트는 응용 프로그램을 사용하기 위해 가입한 고객 관련 정보를 포함합니다. 암호, 프로필 데이터, 권한 등을 예로 들 수 있습니다.
+Azure AD B2C에서 테넌트는 조직을 나타내며 사용자의 디렉터리입니다. 각 Azure AD B2C 테넌트는 서로 전혀 다르고 다른 Azure AD B2C 테넌트와 별개입니다. 테넌트는 애플리케이션을 사용하기 위해 가입한 고객 관련 정보를 포함합니다. 암호, 프로필 데이터, 권한 등을 예로 들 수 있습니다.
 
 모든 기능을 활성화하고 사용 요금을 지불하기 위해 Azure 구독에 Azure AD B2C테넌트를 연결합니다. 고객이 응용 프로그램에 로그인할 수 있게 하려면 Azure AD B2C 테넌트에 등록합니다.
 
-Azure AD B2C를 사용하도록 응용 프로그램을 구성하기에 앞서 Azure AD B2C 테넌트를 만들고 응용 프로그램을 등록해야 합니다. 응용 프로그램을 등록하려면 [자습서: Azure AD B2C를 통한 가입 및 로그인을 사용하도록 응용 프로그램 등록](tutorial-register-applications.md)의 단계를 완료합니다.
+Azure AD B2C를 사용하도록 애플리케이션을 구성하기에 앞서 Azure AD B2C 테넌트를 만들고 애플리케이션을 등록해야 합니다. 애플리케이션을 등록하려면 [자습서: Azure AD B2C를 가입 및 로그인에 사용하도록 애플리케이션 등록](tutorial-register-applications.md)의 단계를 완료합니다.
   
-ASP.NET 웹 응용 프로그램 개발자인 경우 [자습서: 웹 응용 프로그램이 Azure AD B2C를 사용하여 계정을 인증하도록 설정](active-directory-b2c-tutorials-web-app.md)의 단계를 사용하여 계정을 인증합니다.
+ASP.NET 웹 애플리케이션 개발자인 경우 [자습서: 웹 애플리케이션이 Azure AD B2C를 사용하여 계정을 인증하도록 설정](active-directory-b2c-tutorials-web-app.md)의 단계를 사용하여 계정을 인증하도록 애플리케이션을 설정합니다.
 
-데스크톱 응용 프로그램 개발자인 경우 [자습서: 데스크톱 응용 프로그램이 Azure AD B2C를 사용하여 계정을 인증하도록 설정](active-directory-b2c-tutorials-desktop-app.md)의 단계를 사용하여 계정을 인증합니다.
+데스크톱 애플리케이션 개발자인 경우 [자습서: 데스크톱 애플리케이션이 Azure AD B2C를 사용하여 계정을 인증하도록 설정](active-directory-b2c-tutorials-desktop-app.md)의 단계를 사용하여 계정을 인증하도록 애플리케이션을 설정합니다.
 
-Node.js를 사용한 단일 페이지 응용 프로그램 개발자인 경우 [자습서: 단일 페이지 응용 프로그램이 Azure AD B2C를 사용하여 계정을 인증하도록 설정](active-directory-b2c-tutorials-spa.md)의 단계를 사용하여 계정을 인증합니다.
+Node.js를 사용한 단일 페이지 애플리케이션 개발자인 경우 [자습서: 단일 페이지 애플리케이션이 Azure AD B2C를 사용하여 계정을 인증하도록 설정](active-directory-b2c-tutorials-spa.md)의 단계를 사용하여 계정을 인증하도록 애플리케이션을 설정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-자습서를 계속해 나가면서 가입 및 로그인 환경에 대한 응용 프로그램 구성을 시작해 봅니다.
+자습서를 계속해 나가면서 가입 및 로그인 환경에 대한 애플리케이션 구성을 시작해 봅니다.
 
 > [!div class="nextstepaction"]
 > [자습서: Azure Active Directory B2C 테넌트 만들기](tutorial-create-tenant.md)

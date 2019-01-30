@@ -4,7 +4,7 @@ description: Azure Active Directory 및 RunMyProcess 간에 Single Sign-On을 �
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d31f7395-048b-4a61-9505-5acf9fc68d9b
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 8cfdbac75036e59cf4acebe07c76ff758b74cdd2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7e7148b178b2fbbb2d2009889b1a80b56f3a1152
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439330"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807901"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-runmyprocess"></a>자습서: RunMyProcess와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ RunMyProcess를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니
 - 사용자가 해당 Azure AD 계정으로 RunMyProcess에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -49,7 +49,7 @@ RunMyProcess와의 Azure AD 통합을 구성하려면 다음 항목이 필요합
 - Azure AD 평가판 환경이 없으면 [평가판 제품](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 RunMyProcess 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -63,19 +63,19 @@ RunMyProcess의 Azure AD 통합을 구성하려면 갤러리의 RunMyProcess를 
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
 1. 검색 상자에 **RunMyProcess**를 입력합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/runmyprocess-tutorial/tutorial_runmyprocess_search.png)
 
-1. 결과 창에서 **RunMyProcess**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **RunMyProcess**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/runmyprocess-tutorial/tutorial_runmyprocess_addfromgallery.png)
 
@@ -96,11 +96,11 @@ RunMyProcess에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 RunMyProcess 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 RunMyProcess 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **RunMyProcess에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **RunMyProcess** 응용 프로그램 통합 페이지에서 **Single sign-on**을 클릭합니다.
+1. Azure Portal의 **RunMyProcess** 애플리케이션 통합 페이지에서 **Single sign-on**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -141,7 +141,7 @@ RunMyProcess에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     a. **메서드**로 **Samlv2를 사용한 SSO**를 선택합니다. 
 
-    나. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **SSO 리디렉션** 텍스트 상자에 붙여 넣습니다.
+    b. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **SSO 리디렉션** 텍스트 상자에 붙여 넣습니다.
 
     다. Azure Portal에서 복사한 **로그아웃 URL** 값을 **로그아웃 리디렉션** 텍스트 상자에 붙여 넣습니다.
 
@@ -152,7 +152,7 @@ RunMyProcess에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     f. **저장** 아이콘을 클릭합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -180,7 +180,7 @@ RunMyProcess에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -204,7 +204,7 @@ Azure AD 사용자가 RunMyProcess에 로그인할 수 있도록 하려면 RunMy
   
     a. 관련된 텍스트 상자에 프로비전할 유효한 Azure AD 계정의 **이름** 및 **전자 메일**을 입력합니다. 
 
-    나. **IDE 언어**, **언어** 및 **프로필**을 선택합니다. 
+    b. **IDE 언어**, **언어** 및 **프로필**을 선택합니다. 
 
     다. **나에게 계정 만들기 메일 보내기**를 선택합니다. 
 
@@ -222,11 +222,11 @@ Azure AD 사용자가 RunMyProcess에 로그인할 수 있도록 하려면 RunMy
 
 **Britta Simon을 RunMyProcess에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **RunMyProcess**를 선택합니다.
+1. 애플리케이션 목록에서 **RunMyProcess**를 선택합니다.
 
     ![Configure Single Sign-On](./media/runmyprocess-tutorial/tutorial_runmyprocess_app.png) 
 
@@ -248,12 +248,12 @@ Azure AD 사용자가 RunMyProcess에 로그인할 수 있도록 하려면 RunMy
 
 이 섹션은 액세스 패널을 사용하여 Azure AD SSO 구성을 테스트하기 위한 것입니다.
 
-액세스 패널에서 RunMyProcess 타일을 클릭하면 RunMyProcess 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 RunMyProcess 타일을 클릭하면 RunMyProcess 애플리케이션에 자동으로 로그온됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

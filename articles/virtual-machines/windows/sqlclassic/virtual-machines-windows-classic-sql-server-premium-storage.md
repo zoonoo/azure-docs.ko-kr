@@ -3,7 +3,7 @@ title: SQL Server에서 Azure Premium Storage 사용 | Microsoft Docs
 description: 이 문서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, Azure Virtual Machines에서 실행되는 SQL Server에서 Azure Premium Storage를 사용하기 위한 지침을 제공합니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -14,20 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
-ms.author: jroth
-ms.openlocfilehash: 0b7e7f43724b3facd04b8da05ca054fd5ea0022b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: ac5b3bec9915574dd33d40ae2dcbc5aa3c91280a
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317759"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332169"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Virtual Machines의 SQL Server에서 Azure Premium Storage 사용
 ## <a name="overview"></a>개요
-[Azure Premium Storage](../premium-storage.md)는 대기 시간이 짧고 처리량 IO가 높은 차세대 저장소로, IaaS [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)의 SQL Server와 같이 IO를 많이 사용하는 주요 워크로드에서 매우 효율적입니다.
+[Azure Premium Storage](../premium-storage.md)는 대기 시간이 짧고 처리량 IO가 높은 차세대 스토리지로, IaaS [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)의 SQL Server와 같이 IO를 많이 사용하는 주요 워크로드에서 매우 효율적입니다.
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 이 문서에서는 SQL Server를 실행하는 Virtual Machine이 Premium Storage를 사용하도록 마이그레이션하기 위한 계획 및 지침을 제공합니다. 여기에는 Azure 인프라(네트워킹, 저장소) 및 게스트 Windows VM 관련 단계가 포함됩니다. [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) 의 예제에서는 PowerShell을 통해 개선된 로컬 SSD 저장소를 활용하도록 대규모 VM을 이동하는 전체 마이그레이션 방법을 보여 줍니다.
 
@@ -90,7 +91,7 @@ VNET으로 마이그레이션하려면 Microsoft 지원 티켓을 제출할 수 
 ```
 
 ### <a name="storage-accounts"></a>Storage 계정
-Premium Storage용으로 구성된 새 저장소 계정을 만들어야 합니다. Premium Storage 사용은 개별 VHD가 아니라 Storage 계정에서 설정되지만 DS* 시리즈 VM을 사용할 때는 프리미엄 및 Standard Storage 계정에서 VHD를 연결할 수 있습니다. Premium Storage 계정에 OS VHD를 배치하지 않으려는 경우 이러한 방식을 사용할 수 있습니다.
+Premium Storage용으로 구성된 새 스토리지 계정을 만들어야 합니다. Premium Storage 사용은 개별 VHD가 아니라 Storage 계정에서 설정되지만 DS* 시리즈 VM을 사용할 때는 프리미엄 및 Standard Storage 계정에서 VHD를 연결할 수 있습니다. Premium Storage 계정에 OS VHD를 배치하지 않으려는 경우 이러한 방식을 사용할 수 있습니다.
 
 아래에 나와 있는 "Premium_LRS" **형식**을 사용하는 **New-AzureStorageAccountPowerShell** 명령은 Premium Storage 계정을 만듭니다.
 
@@ -105,9 +106,9 @@ Premium Storage 계정의 일부분인 디스크를 만들 때의 기본적인 �
 VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 업데이트된 캐시 설정으로 VHD를 분리했다가 다시 연결해야 합니다.
 
 ### <a name="windows-storage-spaces"></a>Windows 저장소 공간
-이전 Standard Storage와 같이 [Windows 저장소 공간](https://technet.microsoft.com/library/hh831739.aspx)을 사용할 수 있습니다. 그러면 이미 저장소 공간을 사용 중인 VM을 마이그레이션할 수 있습니다. [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)의 예제(9단계부터)에서는 여러 VHD가 연결된 VM을 추출하고 가져오는 PowerShell 코드를 보여 줍니다.
+이전 Standard Storage와 같이 [Windows 스토리지 공간](https://technet.microsoft.com/library/hh831739.aspx)을 사용할 수 있습니다. 그러면 이미 스토리지 공간을 사용 중인 VM을 마이그레이션할 수 있습니다. [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)의 예제(9단계부터)에서는 여러 VHD가 연결된 VM을 추출하고 가져오는 PowerShell 코드를 보여 줍니다.
 
-저장소 풀은 처리량을 높이고 대기 시간을 줄이기 위해 표준 Azure Storage 계정에서 사용되었습니다. 새 배포의 경우 Premium Storage에서도 저장소 풀을 사용해 볼 수 있습니다. 그러나 이렇게 하면 저장소 설정이 더 복잡해집니다.
+스토리지 풀은 처리량을 높이고 대기 시간을 줄이기 위해 표준 Azure Storage 계정에서 사용되었습니다. 새 배포의 경우 Premium Storage에서도 스토리지 풀을 사용해 볼 수 있습니다. 그러나 이렇게 하면 스토리지 설정이 더 복잡해집니다.
 
 #### <a name="how-to-find-which-azure-virtual-disks-map-to-storage-pools"></a>저장소 풀에 매핑되는 Azure 가상 디스크를 찾는 방법
 연결된 VHD에 따라 각기 다른 캐시 설정을 사용하는 것이 좋으므로 VHD를 Premium Storage 계정에 복사할 수 있습니다. 그러나 새 DS 시리즈 VM에 VHD를 다시 연결할 때는 캐시 설정을 변경해야 할 수 있습니다. SQL 데이터 파일 및 로그 파일이 모두 포함된 VHD를 하나 사용하기보다는 두 파일에 대해 각각 별도의 VHD를 사용하는 경우 Premium Storage 권장 캐시 설정을 보다 간편하게 적용할 수 있습니다.
@@ -149,7 +150,7 @@ Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
 
 이제 이 정보를 사용하여 연결된 VHD를 저장소 풀의 실제 디스크에 연결할 수 있습니다.
 
-저장소 풀의 실제 디스크에 매핑한 VHD는 분리하여 Premium Storage 계정으로 복사한 다음 올바른 캐시 설정을 사용하여 연결할 수 있습니다. [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) 8~12단계의 예제를 참조하세요. 이러한 단계에서는 VM에 연결된 VHD 디스크 구성을 CSV파일에 추출하고 VHD를 복사한 다음 디스크 구성 캐시 설정을 변경하고 마지막으로 모든 연결된 디스크와 함께 VM을 DS 시리즈 VM으로 다시 배포하는 방법을 보여 줍니다.
+스토리지 풀의 실제 디스크에 매핑한 VHD는 분리하여 Premium Storage 계정으로 복사한 다음 올바른 캐시 설정을 사용하여 연결할 수 있습니다. [부록](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) 8~12단계의 예제를 참조하세요. 이러한 단계에서는 VM에 연결된 VHD 디스크 구성을 CSV파일에 추출하고 VHD를 복사한 다음 디스크 구성 캐시 설정을 변경하고 마지막으로 모든 연결된 디스크와 함께 VM을 DS 시리즈 VM으로 다시 배포하는 방법을 보여 줍니다.
 
 ### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>VM 저장소 대역폭 및 VHD 저장소 처리량
 저장소 성능은 지정한 DS* VM 크기와 VHD 크기에 따라 달라집니다. VM마다 연결할 수 있는 VHD 수와 지원하는 최대 대역폭(MB/s)이 다릅니다. 구체적인 대역폭 수치는 [Azure를 위한 Virtual Machine 및 클라우드 서비스 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
@@ -159,7 +160,7 @@ Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
 마지막으로, VM마다 연결된 모든 디스크에 대해 지원하는 최대 디스크 대역폭이 서로 다르다는 점도 고려해야 합니다. 부하가 높을 때는 해당 VM 역할 크기에 사용 가능한 최대 디스크 대역폭을 모두 사용하게 될 수 있습니다. 예를 들어 Standard_DS14는 최대 512MB/s를 지원하므로 P30 디스크가 3개인 경우 VM의 디스크 대역폭이 모두 사용됩니다. 그러나 이 예제에서는 읽기 및 쓰기 IO 조합에 따라 처리량 제한을 초과할 수도 있습니다.
 
 ## <a name="new-deployments"></a>새 배포
-다음 두 섹션에서는 SQL Server VM을 Premium Storage로 배포하는 방법을 설명합니다. 앞에서 설명한 것처럼 OS 디스크를 반드시 프리미엄 저장소에 배치할 필요는 없습니다. IO를 많이 사용하는 작업을 OS VHD에서 수행하려는 경우에는 OS 디스크를 프리미엄 저장소에 배치할 수 있습니다.
+다음 두 섹션에서는 SQL Server VM을 Premium Storage로 배포하는 방법을 설명합니다. 앞에서 설명한 것처럼 OS 디스크를 반드시 Premium Storage에 배치할 필요는 없습니다. IO를 많이 사용하는 작업을 OS VHD에서 수행하려는 경우에는 OS 디스크를 프리미엄 저장소에 배치할 수 있습니다.
 
 첫 번째 예제에서는 기존 Azure 갤러리 이미지를 사용하는 방법을 보여 줍니다. 두 번째 예제에서는 기존 표준 저장소 계정 내의 사용자 지정 VM 이미지를 사용하는 방법을 보여 줍니다.
 
@@ -350,7 +351,7 @@ Add-AzureVMImage -ImageName $newimageName -MediaLocation $imageMediaLocation
 >
 >
 
-#### <a name="step-7--build-the-vm"></a>7단계: VM 빌드
+#### <a name="step-7--build-the-vm"></a>7단계:  VM 빌드
 이 단계에서는 이미지에서 VM을 빌드하고 Premium Storage VHD 두 개를 연결합니다.
 
 ```powershell
@@ -394,8 +395,8 @@ $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 
 Always On 가용성 그룹 사용 여부에 따라 SQL Server 배포 관련 고려 사항이 달라집니다. Always On을 사용하지 않으며 기존 독립 실행형 SQL Server가 있는 경우 새 클라우드 서비스 및 Storage 계정을 사용하여 Premium Storage로 업그레이드할 수 있습니다. 이때 다음 옵션을 사용할 수 있습니다.
 
-* **새 SQL Server VM 만들기**. 새 배포에서 설명하는 것처럼 Premium Storage 계정을 사용하는 새 SQL Server VM을 만들 수 있습니다. 그런 후에 SQL Server 구성과 사용자 데이터베이스를 백업 및 복원합니다. 내부 또는 외부에서 액세스되는 경우 새 SQL Server를 참조하도록 응용 프로그램을 업데이트해야 합니다. 병렬(SxS) SQL Server 마이그레이션을 수행하는 것처럼 db 외부의 모든 개체를 복사해야 합니다. 여기에는 로그인, 인증서, 연결된 서버 등의 개체도 포함됩니다.
-* **기존 SQL Server VM 마이그레이션**. 이 옵션을 사용하는 경우 SQL Server VM을 오프라인으로 전환한 다음, 새 클라우드 서비스로 전송해야 합니다. 이때 연결된 모든 VHD를 Premium Storage 계정으로 복사합니다. VM이 온라인 상태가 되면 응용 프로그램은 이전과 같이 서버 호스트 이름을 참조합니다. 기존 디스크의 크기가 성능 특성에 영향을 준다는 것에 유의하세요. 예를 들어 400GB 디스크의 경우 P20으로 반올림될 수 있습니다. 그만큼 높은 디스크 성능이 필요하지 않으면 VM을 DS 시리즈 VM으로 다시 만든 다음 필요한 크기/성능 사양의 Premium Storage VHD를 연결하면 됩니다. 그런 후에 SQL DB 파일을 분리했다가 다시 연결합니다.
+* **새 SQL Server VM 만들기**. 새 배포에서 설명하는 것처럼 Premium Storage 계정을 사용하는 새 SQL Server VM을 만들 수 있습니다. 그런 후에 SQL Server 구성과 사용자 데이터베이스를 백업 및 복원합니다. 내부 또는 외부에서 액세스되는 경우 새 SQL Server를 참조하도록 애플리케이션을 업데이트해야 합니다. 병렬(SxS) SQL Server 마이그레이션을 수행하는 것처럼 db 외부의 모든 개체를 복사해야 합니다. 여기에는 로그인, 인증서, 연결된 서버 등의 개체도 포함됩니다.
+* **기존 SQL Server VM 마이그레이션**. 이 옵션을 사용하는 경우 SQL Server VM을 오프라인으로 전환한 다음, 새 클라우드 서비스로 전송해야 합니다. 이때 연결된 모든 VHD를 Premium Storage 계정으로 복사합니다. VM이 온라인 상태가 되면 애플리케이션은 이전과 같이 서버 호스트 이름을 참조합니다. 기존 디스크의 크기가 성능 특성에 영향을 준다는 것에 유의하세요. 예를 들어 400GB 디스크의 경우 P20으로 반올림될 수 있습니다. 그만큼 높은 디스크 성능이 필요하지 않으면 VM을 DS 시리즈 VM으로 다시 만든 다음 필요한 크기/성능 사양의 Premium Storage VHD를 연결하면 됩니다. 그런 후에 SQL DB 파일을 분리했다가 다시 연결합니다.
 
 > [!NOTE]
 > VHD 디스크를 복사할 때는 크기를 고려해야 합니다. 즉, 디스크는 크기에 따라 각기 다른 Premium Storage 디스크 형식에 속하며 해당하는 디스크 성능 사양이 결정됩니다. Azure에서는 디스크 크기를 가장 가까운 크기로 반올림하므로 400GB 디스크의 경우 P20으로 반올림됩니다. OS VHD의 기존 IO 요구 사항에 따라서는 해당 디스크를 Premium Storage 계정으로 마이그레이션하지 않아도 될 수 있습니다.
@@ -469,7 +470,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 14. 가용성 그룹에서 원래 노드를 제거합니다.
 
 ##### <a name="advantages"></a>장점
-* 새 SQL Server(SQL Server 및 응용 프로그램)를 Always On에 추가하기 전에 테스트할 수 있습니다.
+* 새 SQL Server(SQL Server 및 애플리케이션)를 Always On에 추가하기 전에 테스트할 수 있습니다.
 * VM 크기를 변경할 수 있으며 정확한 요구 사항에 맞게 저장소를 사용자 지정할 수 있습니다. 그러나 모든 SQL 파일 경로는 동일하게 유지하는 것이 좋습니다.
 * 보조 복제본에 DB 백업이 전송이 시작되는 시간을 제어할 수 있습니다. 이 방식은 Azure **Start-AzureStorageBlobCopy** commandlet을 사용하여 VHD를 복사하는 비동기 복사와는 다릅니다.
 
@@ -483,10 +484,10 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 두 번째 전략은 새 클라우드 서비스에서 새 노드를 사용하여 Always On 클러스터를 새로 만든 다음 클라이언트가 해당 클러스터를 사용하도록 리디렉션하는 것입니다.
 
 ##### <a name="points-of-downtime"></a>가동 중지 시간 발생 시점
-응용 프로그램 및 사용자를 새 Always On 수신기로 전송할 때 가동 중지 시간이 발생합니다. 가동 중지 시간은 다음 시간에 따라 달라집니다.
+애플리케이션 및 사용자를 새 Always On 수신기로 전송할 때 가동 중지 시간이 발생합니다. 가동 중지 시간은 다음 시간에 따라 달라집니다.
 
 * 최종 트랜잭션 로그 백업을 새 서버의 데이터베이스로 복원하는 데 걸리는 시간
-* 새 Always On 수신기를 사용하도록 클라이언트 응용 프로그램을 업데이트하는 데 걸리는 시간
+* 새 Always On 수신기를 사용하도록 클라이언트 애플리케이션을 업데이트하는 데 걸리는 시간
 
 ##### <a name="advantages"></a>장점
 * 실제 프로덕션 환경, SQL Serve 및 OS 빌드 변경 내용을 테스트할 수 있습니다.
@@ -495,7 +496,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 * 이전 Always On 클러스터를 명확한 롤백 대상으로 사용할 수 있습니다.
 
 ##### <a name="disadvantages"></a>단점
-* 두 Always On 클러스터를 동시에 실행하려는 경우 수신기의 DNS 이름을 변경해야 합니다. 따라서 클라이언트 응용 프로그램 문자열이 새 수신기 이름을 반영해야 하므로 마이그레이션 중에 관리 오버헤드가 추가됩니다.
+* 두 Always On 클러스터를 동시에 실행하려는 경우 수신기의 DNS 이름을 변경해야 합니다. 따라서 클라이언트 애플리케이션 문자열이 새 수신기 이름을 반영해야 하므로 마이그레이션 중에 관리 오버헤드가 추가됩니다.
 * 마이그레이션 전에 최종 동기화 요구 사항을 최소화할 수 있도록 두 환경 간의 동기화 메커니즘을 최대한 근접하게 구현해야 합니다.
 * 새 환경을 실행하는 동안 마이그레이션 중에 비용이 추가됩니다.
 
@@ -568,8 +569,8 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 * 백업과 복원 시에 SQL Server 데이터를 이동할 필요가 없습니다.
 
 ##### <a name="disadvantages"></a>단점
-* SQL Server에 대한 클라이언트 액세스에 따라 SQL Server가 응용 프로그램에 대한 대체 DC에서 실행될 때는 대기 시간이 길어질 수 있습니다.
-* 프리미엄 저장소에 VHD를 복사하는 데 시간이 오래 걸릴 수 있습니다. 이러한 시간 증가는 가용성 그룹에 노드를 유지할지를 결정하는 데 영향을 줄 수 있습니다. 마이그레이션 중에 로그를 많이 사용하는 워크로드를 실행하는 경우 이 사항을 고려해야 합니다. 주 노드에서 복제되지 않은 트랜잭션을 트랜잭션 로그에 보관해야 하기 때문입니다. 따라서 로그의 크기가 대폭 증가할 수 있습니다.
+* SQL Server에 대한 클라이언트 액세스에 따라 SQL Server가 애플리케이션에 대한 대체 DC에서 실행될 때는 대기 시간이 길어질 수 있습니다.
+* Premium Storage에 VHD를 복사하는 데 시간이 오래 걸릴 수 있습니다. 이러한 시간 증가는 가용성 그룹에 노드를 유지할지를 결정하는 데 영향을 줄 수 있습니다. 마이그레이션 중에 로그를 많이 사용하는 워크로드를 실행하는 경우 이 사항을 고려해야 합니다. 주 노드에서 복제되지 않은 트랜잭션을 트랜잭션 로그에 보관해야 하기 때문입니다. 따라서 로그의 크기가 대폭 증가할 수 있습니다.
 * 이 시나리오에서는 비동기 Azure **Start-AzureStorageBlobCopy** commandlet을 사용합니다. 완료 시 SLA는 제공되지 않습니다. 복사 시간은 큐의 대기 시간과 전송할 데이터 양에 따라 달라집니다. 따라서 두 번째 데이터 센터에 노드가 하나뿐인 경우에는 테스트할 때보다 복사 시간이 오래 걸리면 완화 단계를 수행해야 합니다. 이러한 완화 단계에는 다음 아이디어가 포함됩니다.
   * 가동 중지 시간을 합의한 마이그레이션을 수행하기 전에 HA용 두 번째 임시 SQL 노드를 추가합니다.
   * Azure 예약 유지 관리를 수행하지 않는 시간에 마이그레이션을 실행합니다.
@@ -606,7 +607,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 
 ![Appendix2][12]
 
-### <a name="pre-steps-connect-to-subscription"></a>사전 단계: 구독에 연결
+### <a name="pre-steps-connect-to-subscription"></a>이전 단계: 구독에 연결
 
 ```powershell
 Add-AzureAccount
@@ -698,7 +699,7 @@ Get-ClusterResource $ListenerName| Set-ClusterParameter RegisterAllProvidersIP  
 
 이후 마이그레이션 단계에서는 부하 분산 장치를 참조하는 업데이트된 IP 주소를 사용하여 Always On 수신기를 업데이트해야 합니다. 여기에는 IP 주소 리소스 제거 및 추가가 포함됩니다. IP 업데이트 후에는 DNS 영역에서 새 IP 주소가 업데이트되었으며 클라이언트가 로컬 DNS 캐시를 업데이트하는지를 확인해야 합니다.
 
-클라이언트가 다른 네트워크 세그먼트에 있으며 다른 DNS 서버를 참조하는 경우에는 마이그레이션 중에 DNS 영역 전송과 관련하여 발생하는 현상을 고려해야 합니다. 응용 프로그램 다시 연결 시간은 최소한 수신기에 대한 새 IP 주소의 영역 전송 시간에 의해 제한되기 때문입니다. 여기서 시간 제약이 있는 경우에는 Windows 팀과 논의하여 강제 증분 영역 전송을 테스트해야 하며, 클라이언트가 업데이트되도록 DNS 호스트 레코드의 TTL(Time to Live)을 줄여야 합니다. 자세한 내용은 [증분 영역 전송](https://technet.microsoft.com/library/cc958973.aspx) 및 [Start-DnsServerZoneTransfer](https://docs.microsoft.com/powershell/module/dnsserver/start-dnsserverzonetransfer)를 참조하세요.
+클라이언트가 다른 네트워크 세그먼트에 있으며 다른 DNS 서버를 참조하는 경우에는 마이그레이션 중에 DNS 영역 전송과 관련하여 발생하는 현상을 고려해야 합니다. 애플리케이션 다시 연결 시간은 최소한 수신기에 대한 새 IP 주소의 영역 전송 시간에 의해 제한되기 때문입니다. 여기서 시간 제약이 있는 경우에는 Windows 팀과 논의하여 강제 증분 영역 전송을 테스트해야 하며, 클라이언트가 업데이트되도록 DNS 호스트 레코드의 TTL(Time to Live)을 줄여야 합니다. 자세한 내용은 [증분 영역 전송](https://technet.microsoft.com/library/cc958973.aspx) 및 [Start-DnsServerZoneTransfer](https://docs.microsoft.com/powershell/module/dnsserver/start-dnsserverzonetransfer)를 참조하세요.
 
 기본적으로 Azure에서 Always On 수신기와 연결된 DNS 레코드의 TTL은 1200초입니다. 마이그레이션 중에 시간 제약이 있는 경우에는 클라이언트가 수신기에 대해 업데이트된 IP 주소로 DNS를 업데이트하도록 이 시간을 줄일 수 있습니다. VNN의 구성을 덤프하면 구성을 확인하고 수정할 수 있습니다.
 
@@ -715,8 +716,8 @@ Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 12
 > [!NOTE]
 > ‘HostRecordTTL’이 낮을수록 DNS 트래픽이 더 많이 발생합니다.
 
-##### <a name="client-application-settings"></a>클라이언트 응용 프로그램 설정
-SQL 클라이언트 응용 프로그램에서 .Net 4.5 SQLClient를 지원하는 경우 ‘MULTISUBNETFAILOVER=TRUE’ 키워드를 사용할 수 있습니다. 이 키워드는 장애 조치(failover) 중 SQL Always On 가용성 그룹에 더 빠르게 연결할 수 있게 하므로 적용해야 합니다. 이 키워드는 Always On 수신기에 연결된 모든 IP 주소를 병렬로 열거하며 장애 조치(failover) 중에 TCP 연결 다시 시도를 더 빠르게 수행합니다.
+##### <a name="client-application-settings"></a>클라이언트 애플리케이션 설정
+SQL 클라이언트 애플리케이션에서 .Net 4.5 SQLClient를 지원하는 경우 ‘MULTISUBNETFAILOVER=TRUE’ 키워드를 사용할 수 있습니다. 이 키워드는 장애 조치(failover) 중 SQL Always On 가용성 그룹에 더 빠르게 연결할 수 있게 하므로 적용해야 합니다. 이 키워드는 Always On 수신기에 연결된 모든 IP 주소를 병렬로 열거하며 장애 조치(failover) 중에 TCP 연결 다시 시도를 더 빠르게 수행합니다.
 
 이전 설정에 대한 자세한 내용은 [MultiSubnetFailover 키워드 및 관련 기능](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover)을 참조하세요. 또한 [SqlClient의 고가용성 및 재해 복구 지원](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx)도 참조하세요.
 
@@ -804,7 +805,7 @@ TLOG 볼륨의 경우 디스크 캐싱을 NONE으로 설정해야 합니다.
 
 ![Appendix7][17]
 
-#### <a name="step-10-copy-vhds"></a>10단계: VHD 복사
+#### <a name="step-10-copy-vhds"></a>10단계: VHDS 복사
 
 ```powershell
 #Ensure you have created the container for these:
@@ -1053,7 +1054,7 @@ Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount $
 Select-AzureSubscription -SubscriptionName $mysubscription -Current
 ```
 
-#### <a name="step-20-copy-vhds"></a>20단계: VHD 복사
+#### <a name="step-20-copy-vhds"></a>20단계: VHDS 복사
 
 ```powershell
 #Ensure you have created the container for these:
@@ -1179,7 +1180,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 #http://msdn.microsoft.com/library/azure/dn495192.aspx
 ```
 
-#### <a name="step-23-test-failover"></a>23단계: 장애 조치(failover) 테스트
+#### <a name="step-23-test-failover"></a>23단계: 테스트 장애 조치
 마이그레이션된 노드가 온-프레미스 Always On 노드와 동기화될 때까지 기다립니다. 동기 복제 모드로 설정하고 동기화될 때까지 기다립니다. 그런 다음 온-프레미스에서 마이그레이션된 첫 번째 노드(AFP)로 장애 조치(failover)합니다. 장애 조치(failover)가 정상적으로 수행되면 마지막으로 마이그레이션한 노드를 AFP로 변경합니다.
 
 모든 노드 간에 장애 조치(failover)를 테스트하고 비정상 상황 테스트를 실행하여 장애 조치(failover)가 제때 정상적으로 작동하는지 확인해야 합니다.

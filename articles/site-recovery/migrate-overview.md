@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 6f510ac394b939996defe0a7ed49317ec0aabe3b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 9ec502f63df23bab311a45972e31e6df13fa9281
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211998"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792978"
 ---
 # <a name="about-migration"></a>마이그레이션 정보
 
@@ -21,7 +21,7 @@ ms.locfileid: "50211998"
 
 Site Recovery를 사용하여 마이그레이션할 수 있는 항목은 다음과 같습니다.
 
-- **온-프레미스에서 Azure로 마이그레이션**: 온 프레미스 Hyper-V VM, VMware VM 및 물리적 서버를 Azure로 마이그레이션합니다. 마이그레이션한 후에는 온-프레미스 컴퓨터에서 실행되는 워크로드가 Azure VM에서 실행됩니다. 
+- **온-프레미스에서 Azure로 마이그레이션**: 온-프레미스 Hyper-V VM, VMware VM 및 물리적 서버를 Azure로 마이그레이션합니다. 마이그레이션한 후에는 온-프레미스 컴퓨터에서 실행되는 워크로드가 Azure VM에서 실행됩니다. 
 - **Azure 내에서 마이그레이션**: Azure 지역 간에 Azure VM을 마이그레이션합니다. 
 - **AWS 마이그레이션**: AWS Windows 인스턴스를 Azure IaaS VM으로 마이그레이션합니다. 
 

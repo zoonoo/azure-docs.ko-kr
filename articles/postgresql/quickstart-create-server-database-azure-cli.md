@@ -1,25 +1,22 @@
 ---
 title: 빠른 시작 - Azure CLI를 사용하여 Azure Database for PostgreSQL 만들기
 description: Azure CLI(명령줄 인터페이스)를 통해 Azure Database for PostgreSQL 서버를 만들고 관리하기 위한 빠른 시작 가이드입니다.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 04/01/2018
+ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: fa7fca18d52d4853bd31f0bddc3a3cd6ec930664
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 533120bd13d9aad48e62b7799e5f1167b6098d37
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961036"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413807"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Database for PostgreSQL 만들기
-PostgreSQL용 Azure Database는 클라우드에서 항상 사용 가능한 PostgreSQL 데이터베이스를 실행, 관리 및 크기 조정할 수 있게 하는 관리 서비스입니다. 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작에서는 Azure CLI를 사용하여 [Azure 리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)에서 PostgreSQL용 Azure Database 서버를 만드는 방법을 살펴봅니다.
+# <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 PostgreSQL용  Azure Database 만들기
+PostgreSQL용  Azure Database는 클라우드에서 항상 사용 가능한 PostgreSQL 데이터베이스를 실행, 관리 및 크기 조정할 수 있게 하는 관리 서비스입니다. 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작에서는 Azure CLI를 사용하여 [Azure 리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)에서 PostgreSQL용 Azure Database 서버를 만드는 방법을 살펴봅니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -55,17 +52,17 @@ az group create --name myresourcegroup --location westus
 resource-group | myresourcegroup | Azure 리소스 그룹의 이름을 입력합니다.
 sku-name | GP_Gen4_2 | SKU의 이름입니다. {가격 책정 계층}_{계산 세대}_{vCores} 규칙을 축약형으로 따릅니다. sku-name 매개 변수에 대한 자세한 내용은 아래 표를 참조하세요.
 backup-retention | 7 | 백업을 보존하는 기간입니다. 단위는 일입니다. 범위는 7-35입니다. 
-geo-redundant-backup | 사용 안 함 | 이 서버에 지역 중복 백업을 사용할 것인지 여부를 결정합니다. 허용되는 값은 [사용] 및 [사용 안 함]입니다.
+geo-redundant-backup | 사용 안 함 | 이 서버에 지역 중복 백업을 사용할 것인지 여부를 결정합니다. 허용되는 값은 다음과 같습니다. 사용, 사용 안 함
 location | westus | 서버에 대한 Azure 위치입니다.
-ssl-enforcement | 사용 | 이 서버에 ssl을 사용할 것인지 여부를 결정합니다. 허용되는 값은 [사용] 및 [사용 안 함]입니다.
+ssl-enforcement | 사용 | 이 서버에 ssl을 사용할 것인지 여부를 결정합니다. 허용되는 값은 다음과 같습니다. 사용, 사용 안 함
 storage-size | 51200 | 서버의 저장소 용량입니다(단위는 메가바이트). 유효한 저장소 크기는 5120MB이고 1024MB 단위로 증가합니다. 저장소 크기 한도에 대한 자세한 내용은 [가격 책정 계층](./concepts-pricing-tiers.md) 문서를 참조하세요. 
 버전 | 9.6 | PostgreSQL 주 버전입니다.
 admin-user | myadmin | 관리자 로그인에 대한 사용자 이름입니다. **azure_superuser**, **admin**, **administrator**, **root**, **guest** 또는 **public**을 사용할 수 없습니다.
-admin-password | *보안 암호* | 관리자 사용자의 암호입니다. 8-128자여야 합니다. 암호에는 영어 대문자, 영어 소문자, 숫자 및 영숫자가 아닌 문자의 세 범주에 해당하는 문자가 포함되어야 합니다.
+admin-password | *보안 암호* | 관리자 사용자의 암호입니다. 8-128자여야 합니다. 사용자 암호는 다음 범주 중 세 개의 문자를 포함해야 합니다. 영문 대문자, 영문 소문자, 숫자 및 영숫자가 아닌 문자
 
 
 sku-name 매개 변수 값은 아래 예에서 같이 {가격 책정 계층}\_{계산 세대}\_{vCores} 규칙을 따릅니다.
-+ `--sku-name B_Gen4_4`는 기본, 4세대 및 vCore 4개에 매핑됩니다.
++ `--sku-name B_Gen4_1`는 기본, 4세대 및 vCore 1개에 매핑됩니다. 이 옵션은 사용 가능한 가장 작은 SKU입니다.
 + `--sku-name GP_Gen5_32`는 범용, 5세대 및 vCore 32개에 매핑됩니다.
 + `--sku-name MO_Gen5_2`는 메모리 최적화, 5세대 및 vCore 2개에 매핑됩니다.
 
@@ -76,14 +73,13 @@ sku-name 매개 변수 값은 아래 예에서 같이 {가격 책정 계층}\_{�
 az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
 ```
 
-
-> [!IMPORTANT]
-> 여기에 지정한 서버 관리자 로그인 및 암호는 이 빠른 시작의 뒷부분에 나오는 서버에 로그인하는 데 필요합니다. 나중에 사용하기 위해 이 정보를 기억하거나 기록합니다.
-
+> [!NOTE]
+> 워크로드에 가벼운 컴퓨팅 및 I/O가 적합한 경우 기본 가격 책정 계층을 고려합니다. 기본 가격 책정 계층에서 만든 서버는 나중에 범용으로 또는 메모리 최적화되도록 확장할 수 없습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/postgresql/)를 참조하세요.
+> 
 
 ## <a name="configure-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 구성
 
-[az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) 명령을 사용하여 Azure PostgreSQL 서버 수준 방화벽 규칙을 만듭니다. 서버 수준 방화벽 규칙을 사용하면 [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) 또는 [PgAdmin](https://www.pgadmin.org/)과 같은 외부 응용 프로그램에서 Azure PostgreSQL 서비스 방화벽을 통해 서버에 연결할 수 있습니다. 
+[az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) 명령을 사용하여 Azure PostgreSQL 서버 수준 방화벽 규칙을 만듭니다. 서버 수준 방화벽 규칙을 사용하면 [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) 또는 [PgAdmin](https://www.pgadmin.org/)과 같은 외부 애플리케이션에서 Azure PostgreSQL 서비스 방화벽을 통해 서버에 연결할 수 있습니다. 
 
 IP 범위를 적용하는 방화벽 규칙을 설정하여 네트워크에서 연결할 수 있습니다. 다음 예제에서는 [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create)를 사용하여 단일 IP 주소에 대한 `AllowMyIP` 방화벽 규칙을 만듭니다.
 ```azurecli-interactive
@@ -159,7 +155,7 @@ CREATE DATABASE mypgsqldb;
 
 pgAdmin은 PostgreSQL에서 사용되는 오픈 소스 도구입니다. [pgAdmin 웹 사이트](https://www.pgadmin.org/)에서 pgAdmin을 설치할 수 있습니다. 사용 중인 pgAdmin 버전이 이 빠른 시작에 사용된 버전과 다를 수 있습니다. 추가 지침이 필요하면 pgAdmin 설명서를 참조하세요.
 
-1. 클라이언트 컴퓨터에서 pgAdmin 응용 프로그램을 엽니다.
+1. 클라이언트 컴퓨터에서 pgAdmin 애플리케이션을 엽니다.
 
 2. 도구 모음에서 **개체**로 이동하고, 마우스로 **만들기**를 가리킨 다음, **서버**를 선택합니다.
 
@@ -213,7 +209,7 @@ pgAdmin은 PostgreSQL에서 사용되는 오픈 소스 도구입니다. [pgAdmin
 az group delete --name myresourcegroup
 ```
 
-새로 만든 서버만 삭제하려면 [az postgres server delete](/cli/azure/postgres/server#az_postgres_server_delete) 명령을 실행합니다.
+새로 만든 서버만 삭제하려면 [az postgres server delete](/cli/azure/postgres/server) 명령을 실행합니다.
 ```azurecli-interactive
 az postgres server delete --resource-group myresourcegroup --name mydemoserver
 ```

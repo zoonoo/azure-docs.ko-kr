@@ -85,7 +85,7 @@ sections:
       image:
         src: /learn/achievements/create-linux-virtual-machine-in-azure.svg
         href: /learn/modules/create-linux-virtual-machine-in-azure/
-    - title: Azure Linux Virtual Machine에서 MEAN 스택을 사용하여 웹 응용 프로그램 빌드 및 실행
+    - title: Azure Linux Virtual Machine에서 MEAN 스택을 사용하여 웹 애플리케이션 빌드 및 실행
       href: /learn/modules/build-a-web-app-with-mean-on-a-linux-vm/
       image:
         src: /learn/achievements/build-a-web-app-with-mean-on-a-linux-vm.svg
@@ -106,7 +106,7 @@ sections:
 - title: 샘플
   items:
   - type: paragraph
-    text: Azure에 첫 번째 응용 프로그램을 배포합니다.
+    text: Azure에 첫 번째 애플리케이션을 배포합니다.
   - type: list
     style: unordered
     className: spaced noBullet

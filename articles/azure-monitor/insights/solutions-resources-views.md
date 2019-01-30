@@ -8,18 +8,17 @@ manager: jwhit
 editor: tysonn
 ms.assetid: 570b278c-2d47-4e5a-9828-7f01f31ddf8c
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 97e499612082d0d58cd75bb9f8854b8c4e0f669e
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4bd8e4ea347c1b26cba831317bdc1d837701788b
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635767"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107398"
 ---
 # <a name="views-in-management-solutions-preview"></a>관리 솔루션 보기(미리 보기)
 > [!NOTE]
@@ -90,15 +89,15 @@ ms.locfileid: "52635767"
 * 변수는 솔루션에서 정의되고 적절한 속성에서 사용되어야 합니다.
 
 ### <a name="log-analytics-api-version"></a>Log Analytics API 버전
-Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리소스가 사용해야 하는 API의 버전을 정의하는 **apiVersion** 속성이 있습니다.  이 버전은 [레거시 및 업그레이드된 쿼리 언어](../../log-analytics/log-analytics-queries.md)를 사용하는 쿼리가 있는 보기와는 다릅니다.  
+Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리소스가 사용해야 하는 API의 버전을 정의하는 **apiVersion** 속성이 있습니다.  이 버전은 [레거시 및 업그레이드된 쿼리 언어](../../azure-monitor/log-query/log-query-overview.md)를 사용하는 쿼리가 있는 보기와는 다릅니다.  
 
  다음 표에서는 레거시 및 업그레이드된 작업 영역에서 보기의 Log Analytics API 버전을 지정합니다. 
 
 | 작업 영역 버전 | API 버전 | 쿼리 |
 |:---|:---|:---|
-| v1(레거시)   | 2015-11-01-preview | 레거시 형식입니다.<br> 예: Type=Event EventLevelName = Error  |
-| v2(업그레이드된 버전) | 2015-11-01-preview | 레거시 형식입니다.  설치 시 업그레이드된 형식으로 변환됩니다.<br> 예: Type=Event EventLevelName = Error<br>변환 대상: Event &#124; where EventLevelName == "Error"  |
-| v2(업그레이드된 버전) | 2017-03-03-preview | 업그레이드 형식입니다. <br>예: Event &#124; where EventLevelName == "Error"  |
+| v1(레거시)   | 2015-11-01-preview | 레거시 형식입니다.<br> 예제: Type=Event EventLevelName = Error  |
+| v2(업그레이드된 버전) | 2015-11-01-preview | 레거시 형식입니다.  설치 시 업그레이드된 형식으로 변환됩니다.<br> 예제: Type=Event EventLevelName = Error<br>변환 대상: Event &#124; where EventLevelName == "Error"  |
+| v2(업그레이드된 버전) | 2017-03-03-preview | 업그레이드 형식입니다. <br>예제: Event &#124; where EventLevelName == "Error"  |
 
 
 ## <a name="add-the-view-details"></a>보기 세부 정보 추가
@@ -108,7 +107,7 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 예를 들어 다음 샘플에서는 보기가 있는 단순 솔루션 파일을 보여 줍니다.  공간 문제로 **Dashboard** 및 **OverviewTile** 내용에는 줄임표(...)가 표시됩니다.
 
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "workspaceName": {

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: b2b4bfc6aa03039a7eca402f7a9af083a44f0829
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: db1af4f046bd8849fddee299e949d6edbdaae86a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43346322"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53609092"
 ---
 ## <a name="access-the-virtual-machine"></a>가상 머신에 액세스
 
@@ -35,7 +35,7 @@ ms.locfileid: "43346322"
     az network nsg rule update --name SSH --nsg-name contoso-simulation-nsg -g contoso-simulation --access Allow -o table
     ```
 
-    테스트 및 개발하는 동안 SSH 액세스만 활성화합니다. SSH를 활성화하는 경우 [가능한 한 빨리 비활성화해야 합니다](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices#disable-rdpssh-access-to-azure-virtual-machines).
+    테스트 및 개발하는 동안 SSH 액세스만 활성화합니다. SSH를 활성화하는 경우 [가능한 한 빨리 비활성화해야 합니다](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices#disable-rdpssh-access-to-virtual-machines).
 
 1. 가상 머신에서 **azureuser** 계정에 대한 암호를 아는 암호로 업데이트합니다. 다음 명령을 실행하는 경우 고유한 암호를 선택합니다.
 

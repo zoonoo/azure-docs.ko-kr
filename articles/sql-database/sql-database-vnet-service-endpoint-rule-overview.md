@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database에 대한 가상 네트워크 서비스 엔드포인트 및 규칙 | Microsoft Docs
+title: Azure SQL Database 및 SQL Data Warehouse에 대한 Virtual Network 서비스 엔드포인트 및 규칙 | Microsoft Docs
 description: 서브넷을 Virtual Network 서비스 엔드포인트로 표시합니다. 그런 다음 해당 엔드포인트를 가상 네트워크 규칙으로 Azure SQL Database의 ACL에 추가합니다. 그러면 SQL Database가 해당 서브넷에 있는 모든 가상 머신과 다른 노드에서 보낸 통신을 수락합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 09/18/2018
-ms.openlocfilehash: 0fc5ca73dec79942e05c7dfd410bc0a13e5ffb44
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.date: 01/17/2019
+ms.openlocfilehash: 0a0a5a046bd1afefe3f4c72e713a0dafe0c856e4
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648720"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390379"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Azure SQL Database 및 SQL Data Warehouse에 대해 Virtual Network 서비스 엔드포인트 및 규칙 사용
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Azure SQL에 대한 Virtual Network 서비스 엔드포인트 및 규칙 사용
 
-*가상 네트워크 규칙*은 Azure [SQL Database](sql-database-technical-overview.md) 또는 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신을 수락할지 여부를 제어하는 하나의 방화벽 보안 기능입니다. 이 문서에서는 경우에 따라 가상 네트워크 규칙 기능이 Azure SQL Database에 대한 통신을 안전하게 허용하기 위한 가장 좋은 옵션인 이유를 설명합니다.
+*가상 네트워크 규칙*은 Azure [SQL Database](sql-database-technical-overview.md) 또는 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신을 수락할지 여부를 제어하는 하나의 방화벽 보안 기능입니다. 이 문서에서는 경우에 따라 가상 네트워크 규칙 기능이 Azure SQL Database 및 SQL Data Warehouse에 대한 통신을 안전하게 허용하기 위한 가장 좋은 옵션인 이유를 설명합니다.
 
-> [!NOTE]
-> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
+> [!IMPORTANT]
+> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다. 이 문서는 **Azure SQL Database Managed Instance**에 적용되지 *않습니다*.
 
 가상 네트워크 규칙을 만들려면 먼저 참조할 규칙에 대한 [가상 네트워크 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]가 있어야 합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "49648720"
 
 **서브넷:** 가상 네트워크에 **서브넷**이 포함됩니다. 소유한 Azure VM(가상 머신)은 서브넷에 할당됩니다. 하나의 서브넷에 여러 VM 또는 다른 계산 노드가 포함될 수 있습니다. 액세스를 허용하도록 보안을 구성해야 가상 네트워크 외부의 계산 노드가 가상 네트워크에 액세스할 수 있습니다.
 
-**Virtual Network 서비스 엔드포인트:**[Virtual Network 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]는 속성 값에 하나 이상의 정식 Azure 서비스 유형 이름이 포함된 서브넷입니다. 이 문서에서는 SQL Database라는 Azure 서비스를 나타내는 **Microsoft.Sql**의 형식 이름을 살펴봅니다.
+**Virtual Network 서비스 엔드포인트:** [Virtual Network 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]는 속성 값에 하나 이상의 정식 Azure 서비스 유형 이름이 포함된 서브넷입니다. 이 문서에서는 SQL Database라는 Azure 서비스를 나타내는 **Microsoft.Sql**의 형식 이름을 살펴봅니다.
 
 **가상 네트워크 규칙:** SQL Database 서버에 대한 가상 네트워크 규칙은 SQL Database 서버의 ACL(액세스 제어 목록)에 나열된 서브넷입니다. SQL Database에 대한 ACL에 나열되려면 서브넷에 **Microsoft.Sql** 형식 이름이 있어야 합니다.
 
@@ -64,9 +64,8 @@ VM에 대한 *정적* IP 주소를 가져와서 IP 옵션을 복원할 수 있�
 
 그러나 정적 IP 방법은 관리가 어려워질 수 있고 대규모로 이루어질 경우 비용이 많이 듭니다. 가상 네트워크 규칙은 설정 및 관리가 더 쉽습니다.
 
-### <a name="c-cannot-yet-have-sql-database-on-a-subnet"></a>C. 아직 서브넷에 SQL Database가 있을 수 없음
-
-Azure SQL Database 서버가 가상 네트워크에 있는 서브넷의 노드인 경우 가상 네트워크 내의 모든 노드가 SQL Database와 통신할 수 있습니다. 이 경우 VM은 가상 네트워크 규칙이나 IP 규칙이 없어도 SQL Database와 통신할 수 있습니다.
+> [!NOTE]
+> 아직 서브넷에 SQL Database가 있을 수 없습니다. Azure SQL Database 서버가 가상 네트워크에 있는 서브넷의 노드인 경우 가상 네트워크 내의 모든 노드가 SQL Database와 통신할 수 있습니다. 이 경우 VM은 가상 네트워크 규칙이나 IP 규칙이 없어도 SQL Database와 통신할 수 있습니다.
 
 그러나 2017년 9월 현재, Azure SQL Database 서비스는 아직 서브넷에 할당될 수 없습니다.
 
@@ -92,7 +91,7 @@ Azure SQL Database 서버가 가상 네트워크에 있는 서브넷의 노드�
 
 Virtual Network 서비스 엔드포인트 관리에는 보안 역할 분리가 있습니다. 다음과 같은 각 역할의 작업이 필요합니다.
 
-- **네트워크 관리자:**&nbsp; 엔드포인트를 켭니다.
+- **네트워크 관리자:** &nbsp; 엔드포인트를 켭니다.
 - **데이터베이스 관리자:** &nbsp; ACL(액세스 제어 목록)을 업데이트하여 제공된 서브넷을 SQL Database 서버에 추가합니다.
 
 *RBAC 대체:*
@@ -120,7 +119,8 @@ Azure SQL Database의 경우 가상 네트워크 규칙 기능에는 다음과 �
 - 가상 네트워크 규칙은 Azure Resource Manager 가상 네트워크에만 적용되고 [클래식 배포 모델][arm-deployment-model-568f] 네트워크에는 적용되지 않습니다.
 
 - 가상 네트워크 서비스 엔드포인트를 Azure SQL Database로 설정하면 MySQL 및 PostgreSQL Azure 서비스에 대한 엔드포인트도 활성화됩니다. 그러나 엔드포인트를 실행한 상태에서 엔드포인트를 MySQL 또는 PostgreSQL 인스턴스에 연결하려는 시도는 실패합니다.
-  - 기본 이유는 MySQL 및 PostgreSQL이 현재 ACLing를 지원하지 않기 때문입니다.
+  - 기본적인 이유는 MySQL 및 PostgreSQL에서 가상 네트워크 규칙이 구성되지 않을 가능성이 높다는 것입니다. Azure Database for MySQL 및 PostgreSQL의 가상 네트워크 규칙을 구성해야 연결이 성공적으로 수행됩니다.
+
 - 방화벽에서 IP 주소 범위는 다음 네트워킹 항목에 적용되지만 가상 네트워크 규칙에는 적용되지 않습니다.
   - [S2S(사이트 간) VPN(가상 사설망)][vpn-gateway-indexmd-608y]
   - [ExpressRoute][expressroute-indexmd-744v]를 통한 온-프레미스
@@ -129,7 +129,7 @@ Azure SQL Database의 경우 가상 네트워크 규칙 기능에는 다음과 �
 
 Azure SQL Database에 대해 서비스 엔드포인트를 사용하는 경우 다음 고려 사항을 검토합니다.
 
-- **Azure SQL Database 공용 IP에 대한 아웃 바운드가 필요함**: 연결을 허용하려면 Azure SQL Database IP에 대해 NSG(네트워크 보안 그룹)를 열어야 합니다. Azure SQL Database에 대해 NSG [서비스 태그](../virtual-network/security-overview.md#service-tags)를 사용하면 됩니다.
+- **Azure SQL Database 공용 IP에 대한 아웃바운드 필요**: 연결을 허용하려면 Azure SQL Database IP에 대해 NSG(네트워크 보안 그룹)를 열어야 합니다. Azure SQL Database에 대해 NSG [서비스 태그](../virtual-network/security-overview.md#service-tags)를 사용하면 됩니다.
 
 ### <a name="expressroute"></a>ExpressRoute
 
@@ -145,7 +145,7 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 ## <a name="impact-of-removing-allow-azure-services-to-access-server"></a>'Azure 서비스의 서버 액세스 허용' 제거의 영향
 
 많은 사용자가 자신의 Azure SQL Server에서 **Azure 서비스의 서버 액세스 허용**을 제거하고 이 옵션을 VNet 방화벽 규칙으로 바꾸려고 합니다.
-그러나 이를 제거하면 다음과 같은 Azure SQL Database 기능에 영향을 미칩니다.
+그러나 이를 제거하면 다음과 같은 기능에 영향을 미칩니다.
 
 ### <a name="import-export-service"></a>가져오기/내보내기 서비스
 
@@ -166,12 +166,64 @@ Azure SQL Database에는 Azure IP를 사용하여 데이터베이스에 연결�
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Azure 저장소에서 VNet 서비스 엔드포인트 사용의 영향
 
-Azure Storage는 사용자가 저장소 계정에 대한 연결성을 제한하도록 허용하는 동일한 기능을 구현했습니다.
-Azure SQL Server에서 사용 중인 저장소 계정에서 이 기능을 사용하도록 선택한 경우 문제가 발생할 수 있습니다. 다음은 이로 인해 영향을 받는 Azure SQL Database 기능의 목록 및 토론입니다.
+Azure Storage는 사용자가 Azure Storage 계정에 대한 연결성을 제한하도록 허용하는 동일한 기능을 구현했습니다. Azure SQL Server에서 사용 중인 Azure Storage 계정에서 이 기능을 사용하도록 선택한 경우 문제가 발생할 수 있습니다. 다음은 이로 인해 영향을 받는 Azure SQL Database 및 Azure SQL Data Warehouse 기능의 목록 및 논의 내용입니다.
 
 ### <a name="azure-sql-data-warehouse-polybase"></a>Azure SQL Data Warehouse PolyBase
 
-PolyBase는 대개 Storage 계정에서 Azure SQL Data Warehouse로 데이터를 로드하는 데 사용됩니다. 데이터를 로드하는 저장소 계정이 액세스를 VNet 서브넷 집합으로만 제한하는 경우 PolyBase에서 계정으로의 연결은 중단됩니다. 이 문제에 대한 완화 방법이 있으며 자세한 내용은 Microsoft 고객 지원팀에 문의하세요.
+PolyBase는 대개 Azure Storage 계정에서 Azure SQL Data Warehouse로 데이터를 로드하는 데 사용됩니다. 데이터를 로드하는 Azure Storage 계정이 액세스를 VNet 서브넷 집합으로만 제한하는 경우 PolyBase에서 계정으로의 연결은 중단됩니다. Azure SQL Data Warehouse가 VNet으로 보호되는 Azure Storage에 연결되는 PolyBase 가져오기 및 내보내기 시나리오를 사용하도록 설정하는 경우 아래에 설명된 단계를 따르세요.
+
+#### <a name="prerequisites"></a>필수 조건
+1.  [이 가이드](https://docs.microsoft.com/powershell/azure/install-az-ps)를 사용하여 Azure PowerShell을 설치합니다.
+2.  범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)를 사용하여 범용 v2로 업그레이드해야 합니다.
+3.  Azure Storage 계정 **방화벽 및 가상 네트워크** 설정 메뉴에서 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다.** 를 설정해야 합니다. 자세한 내용은 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)를 참조하세요.
+ 
+#### <a name="steps"></a>단계
+1.  PowerShell에서 AAD(Azure Active Directory)에 **논리 SQL Server를 등록**합니다.
+
+    ```powershell
+    Add-AzureRmAccount
+    Select-AzureRmSubscription -SubscriptionId your-subscriptionId
+    Set-AzureRmSqlServer -ResourceGroupName your-logical-server-resourceGroup -ServerName your-logical-servername -AssignIdentity
+    ```
+    
+ 1. 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)를 사용하여 **범용 v2 스토리지 계정**을 만듭니다.
+
+    > [!NOTE]
+    > - 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)를 사용하여 **v2로 업그레이드**해야 합니다.
+    > - Azure Data Lake Storage Gen2의 알려진 문제에 대해서는 이 [가이드](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues)를 참조하세요.
+    
+1.  스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가**를 클릭합니다. **Storage Blob 데이터 참가자(미리 보기)** RBAC 역할을 논리 SQL Server에 할당합니다.
+
+    > [!NOTE] 
+    > 소유자 권한이 있는 멤버만 이 단계를 수행할 수 있습니다. Azure 리소스에 대한 다양한 기본 제공 역할을 보려면 이 [가이드](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)를 참조하세요.
+  
+1.  **Azure Storage 계정에 대한 Polybase 연결:**
+
+    1. 이전에 생성하지 않은 경우 데이터베이스 **[마스터 키](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql?view=sql-server-2017)** 를 만듭니다.
+        ```SQL
+        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
+        ```
+    
+    1. **IDENTITY = '관리 서비스 ID'** 인 데이터베이스 범위 자격 증명을 만듭니다.
+
+        ```SQL
+        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+        ```
+        > [!NOTE] 
+        > - 이 메커니즘은 내부적으로 [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 사용하므로 Azure Storage 액세스 키로 SECRET을 지정할 필요가 없습니다.
+        > - PolyBase 연결을 VNet에서 보호되는 Azure Storage 계정에 사용하려면 IDENTITY 이름이 **'관리 서비스 ID'** 여야 합니다.    
+    
+    1. PolyBase를 사용하여 범용 v2 스토리지 계정에 연결하기 위해 abfss:// 체계를 사용하여 외부 데이터 원본을 만듭니다.
+
+        ```SQL
+        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
+        ```
+        > [!NOTE] 
+        > - 범용 v1 또는 Blob Storage 계정과 연결된 외부 테이블이 이미 있는 경우 먼저 해당 외부 테이블을 삭제한 다음, 해당 외부 데이터 원본을 삭제해야 합니다. 그런 다음, 위와 같이 범용 v2 스토리지 계정에 연결하는 abfss:// 체계를 사용하여 외부 데이터 원본을 만들고, 이 새 외부 데이터 원본을 사용하여 모든 외부 테이블을 다시 만듭니다. [스크립트 생성 및 게시 마법사](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard?view=sql-server-2017)를 사용하여 모든 외부 테이블용 create-scripts를 쉽게 생성할 수 있습니다.
+        > - abfss:// 체계에 대한 자세한 내용은 이 [가이드](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri)를 참조하세요.
+        > - CREATE EXTERNAL DATA SOURCE에 대한 자세한 내용은 이 [가이드](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql)를 참조하세요.
+        
+    1. [외부 테이블](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql)을 사용하여 평소와 같이 쿼리합니다.
 
 ### <a name="azure-sql-database-blob-auditing"></a>Azure SQL Database Blob 감사
 
@@ -179,11 +231,11 @@ Blob 감사는 사용자 고유의 저장소 계정에 감사 로그를 푸시�
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>VNet 서비스 엔드포인트를 켜지 않고 서버에 VNet 방화벽 규칙 추가
 
-이 기능을 강화하기 오래 전에는 VNet 서비스 엔드포인트를 켜야 방화벽에 라이브 VNet 규칙을 구현할 수 있었습니다. 엔드포인트는 Azure SQL Database에 지정된 VNet 서브넷과 관련이 있었습니다. 하지만 2018년 1월 현재는 **IgnoreMissingServiceEndpoint** 플래그를 설정하면 이 요구 사항을 우회할 수 있습니다.
+이 기능을 강화하기 오래 전에는 VNet 서비스 엔드포인트를 켜야 방화벽에 라이브 VNet 규칙을 구현할 수 있었습니다. 엔드포인트는 Azure SQL Database에 지정된 VNet 서브넷과 관련이 있었습니다. 그러나 이제 2018년 1월부터는 **IgnoreMissingVNetServiceEndpoint** 플래그를 설정하여 이 요구 사항을 우회할 수 있습니다.
 
-단순히 방화벽 규칙을 설정하는 것은 서버 보안에 도움이 되지 않습니다. 보안이 효력을 나타내려면 VNet 서비스 엔드포인트도 켜야 합니다. 서비스 엔드포인트를 켜면 전환을 끈 상태에서 켠 상태로 완료할 때까지 VNet 서브넷에서 가동 중지 시간이 발생합니다. 이는 특히 대규모 VNet의 컨텍스트에 적용됩니다. **IgnoreMissingServiceEndpoint** 플래그를 사용하여 전환 시 가동 중지 시간을 줄이거나 없앨 수 있습니다.
+단순히 방화벽 규칙을 설정하는 것은 서버 보안에 도움이 되지 않습니다. 보안이 효력을 나타내려면 VNet 서비스 엔드포인트도 켜야 합니다. 서비스 엔드포인트를 켜면 전환을 끈 상태에서 켠 상태로 완료할 때까지 VNet 서브넷에서 가동 중지 시간이 발생합니다. 이는 특히 대규모 VNet의 컨텍스트에 적용됩니다. **IgnoreMissingVNetServiceEndpoint** 플래그를 사용하여 전환 시 가동 중지 시간을 줄이거나 없앨 수 있습니다.
 
-PowerShell을 사용하여 **IgnoreMissingServiceEndpoint** 플래그를 설정할 수 있습니다. 자세한 내용은 [PowerShell을 사용하여 Azure SQL Database에 대한 Virtual Network 서비스 엔드포인트 및 규칙 만들기][sql-db-vnet-service-endpoint-rule-powershell-md-52d]를 참조하세요.
+PowerShell을 사용하여 **IgnoreMissingVNetServiceEndpoint** 플래그를 설정할 수 있습니다. 자세한 내용은 [PowerShell을 사용하여 Azure SQL Database에 대한 Virtual Network 서비스 엔드포인트 및 규칙 만들기][sql-db-vnet-service-endpoint-rule-powershell-md-52d]를 참조하세요.
 
 ## <a name="errors-40914-and-40615"></a>오류 40914 및 40615
 
@@ -191,7 +243,7 @@ PowerShell을 사용하여 **IgnoreMissingServiceEndpoint** 플래그를 설정�
 
 ### <a name="error-40914"></a>오류 40914
 
-*메시지 텍스트*: 로그인에서 요청한 '*[server-name]*' 서버를 열 수 없습니다. 클라이언트가 서버에 액세스할 수 없습니다.
+*메시지 텍스트:* 로그인에서 요청한 '*[server-name]*' 서버를 열 수 없습니다. 클라이언트가 서버에 액세스할 수 없습니다.
 
 *오류 설명:* 클라이언트가 가상 네트워크 서버 엔드포인트가 있는 서브넷에 있습니다. 그러나 Azure SQL Database 서버에는 SQL Database와의 통신 권한을 서브넷에 부여하는 가상 네트워크 규칙이 없습니다.
 
@@ -199,7 +251,7 @@ PowerShell을 사용하여 **IgnoreMissingServiceEndpoint** 플래그를 설정�
 
 ### <a name="error-40615"></a>오류 40615
 
-*메시지 텍스트:* 로그인에서 요청된 서버 '{0}'을(를) 열 수 없습니다. IP 주소가 ‘{1}’인 클라이언트는 서버에 액세스할 수 없습니다.
+*메시지 텍스트:* 로그인에서 요청된 서버 ‘{0}’을(를) 열 수 없습니다. IP 주소가 ‘{1}’인 클라이언트는 서버에 액세스할 수 없습니다.
 
 *오류 설명:* 클라이언트가 Azure SQL Database 서버에 연결할 권한이 없는 IP 주소에서 연결을 시도합니다. 서버 방화벽에 클라이언트가 주어진 IP 주소로부터 SQL Database로 통신하도록 허용하는 IP 주소 규칙이 없습니다.
 
@@ -226,7 +278,7 @@ PowerShell 스크립트로 가상 네트워크 규칙을 만들 수도 있습니
 
 내부적으로 SQL VNet 작업을 위한 PowerShell cmdlet은 REST API를 호출합니다. REST API를 직접 호출할 수 있습니다.
 
-- [가상 네트워크 규칙: 작업][rest-api-virtual-network-rules-operations-862r]
+- [Virtual Network 규칙: 작업][rest-api-virtual-network-rules-operations-862r]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -285,7 +337,7 @@ Azure SQL Database에 대한 가상 네트워크 규칙 기능은 2017년 9월 �
 ## <a name="next-steps"></a>다음 단계
 
 - [PowerShell을 사용하여 가상 네트워크 서비스 엔드포인트를 만든 다음, Azure SQL Database에 대한 가상 네트워크 규칙을 만듭니다.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
-- REST API를 사용한 [가상 네트워크 규칙: 작업][rest-api-virtual-network-rules-operations-862r]
+- REST API를 사용한 [Virtual Network 규칙: 작업][rest-api-virtual-network-rules-operations-862r]
 
 <!-- Link references, to images. -->
 
@@ -295,7 +347,7 @@ Azure SQL Database에 대한 가상 네트워크 규칙 기능은 2017년 9월 �
 
 [image-portal-firewall-vnet-result-rule-30-png]: media/sql-database-vnet-service-endpoint-rule-overview/portal-firewall-vnet-result-rule-30.png
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
@@ -317,7 +369,7 @@ Azure SQL Database에 대한 가상 네트워크 규칙 기능은 2017년 9월 �
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 
-<!-- Link references, to text, Outside this Github repo (HTTP). -->
+<!-- Link references, to text, Outside this GitHub repo (HTTP). -->
 
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
 

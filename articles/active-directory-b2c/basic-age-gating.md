@@ -1,21 +1,21 @@
 ---
 title: Azure Active Directory B2C에서 나이 제한 사용 | Microsoft Docs
-description: 응용 프로그램을 사용하여 미성년자를 식별하는 방법을 알아봅니다.
+description: 애플리케이션을 사용하여 미성년자를 식별하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a9220349249315d807a9dba675f6b074ddd385fa
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: ddc4b7b899385eb7388198973460386a4a0af10c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291099"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845778"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 나이 제한 사용
 

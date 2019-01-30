@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 613cdd14ad196058458b090024cc6b9a4b8a80b6
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 841982a4ecbfa5241d826beaaae81921b2859596
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018624"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967336"
 ---
-# <a name="translator-text-api-30-transliterate"></a>Translator Text API 3.0: Transliterate
+# <a name="translator-text-api-30-transliterate"></a>Translator Text API 3.0: 음역
 
 특정 언어의 텍스트를 한 스크립트에서 다른 스크립트로 변환합니다.
 
@@ -42,15 +42,15 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
   </tr>
   <tr>
     <td>언어</td>
-    <td>*필수 매개 변수*입니다.<br/>한 스크립트에서 다른 스크립트로 변환할 텍스트의 언어를 지정합니다. 사용 가능한 언어는 서비스에서 [지원되는 언어](.\v3-0-languages.md)를 쿼리하여 표시되는 `transliteration` 범위에 표시됩니다.</td>
+    <td>*필수 매개 변수*입니다.<br/>한 스크립트에서 다른 스크립트로 변환할 텍스트의 언어를 지정합니다. 사용 가능한 언어는 서비스에서 [지원되는 언어](./v3-0-languages.md)를 쿼리하여 표시되는 `transliteration` 범위에 표시됩니다.</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*필수 매개 변수*입니다.<br/>입력 텍스트에서 사용되는 스크립트를 지정합니다. `transliteration` 범위를 사용하여 [지원되는 언어](.\v3-0-languages.md)를 조회하면 선택한 언어로 사용 가능한 입력 스크립트가 검색됩니다.</td>
+    <td>*필수 매개 변수*입니다.<br/>입력 텍스트에서 사용되는 스크립트를 지정합니다. `transliteration` 범위를 사용하여 [지원되는 언어](./v3-0-languages.md)를 조회하면 선택한 언어로 사용 가능한 입력 스크립트가 검색됩니다.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*필수 매개 변수*입니다.<br/>출력 스크립트를 지정합니다. `transliteration` 범위를 사용하여 [지원되는 언어](.\v3-0-languages.md)를 조회하면 선택한 입력 언어 및 입력 스크립트 조합으로 사용 가능한 출력 스크립트가 검색됩니다.</td>
+    <td>*필수 매개 변수*입니다.<br/>출력 스크립트를 지정합니다. `transliteration` 범위를 사용하여 [지원되는 언어](./v3-0-languages.md)를 조회하면 선택한 입력 언어 및 입력 스크립트 조합으로 사용 가능한 출력 스크립트가 검색됩니다.</td>
   </tr>
 </table> 
 

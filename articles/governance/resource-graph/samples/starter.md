@@ -1,20 +1,20 @@
 ---
-title: Azure Resource Graph 시작 쿼리
+title: 시작 쿼리 샘플
 description: Azure Resource Graph를 사용하여 일부 시작 쿼리를 실행합니다.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/22/2018
+ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: d5b2bb719bcd5c2145740a02bc408385953ff739
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.custom: seodec18
+ms.openlocfilehash: 85d54503e980d8c51128c8b5235197759a536003
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50084533"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852357"
 ---
 # <a name="starter-resource-graph-queries"></a>Resource Graph 시작 쿼리
 
@@ -36,6 +36,8 @@ Azure Resource Graph를 사용하는 쿼리를 이해하는 첫 번째 단계는
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+
 ## <a name="language-support"></a>언어 지원
 
 Azure CLI(확장을 통해) 및 Azure PowerShell(모듈을 통해)은 Azure Resource Graph를 지원합니다. 다음 쿼리를 실행하기 전에 사용자 환경이 준비되었는지 확인합니다. 선택한 셸 환경의 설치 및 유효성 검사 단계에 대해서는 [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) 및 [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module)을 참조하세요.
@@ -53,7 +55,7 @@ az graph query -q "summarize count()"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "summarize count()"
+Search-AzGraph -Query "summarize count()"
 ```
 
 ## <a name="list-resources"></a>리소스를 이름별로 나열
@@ -70,7 +72,7 @@ az graph query -q "project name, type, location | order by name asc"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "project name, type, location | order by name asc"
+Search-AzGraph -Query "project name, type, location | order by name asc"
 ```
 
 ## <a name="show-vms"></a>이름의 내림차순으로 모든 가상 머신 나열
@@ -88,7 +90,7 @@ az graph query -q "project name, location, type| where type =~ 'Microsoft.Comput
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
+Search-AzGraph -Query "project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
 ```
 
 ## <a name="show-sorted"></a>이름 및 해당 OS 유형별로 처음 5개의 가상 머신 표시
@@ -106,7 +108,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project n
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
 ```
 
 ## <a name="count-os"></a>OS 유형별 가상 머신 개수 계산
@@ -124,7 +126,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | summarize
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
 ```
 
 동일한 쿼리를 작성하는 다른 방법은 속성을 `extend`한 후 쿼리 내에서 사용할 임시 이름(이 경우에는 **os**)을 부여하는 것입니다. 그런 다음 **OS**는 이전 예제에서와 같이 `summarize` 및 `count()`에서 사용됩니다.
@@ -140,7 +142,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | extend os
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
 ```
 
 > [!NOTE]
@@ -159,7 +161,7 @@ az graph query -q "where type contains 'storage' | distinct type"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type contains 'storage' | distinct type"
+Search-AzGraph -Query "where type contains 'storage' | distinct type"
 ```
 
 ## <a name="list-publicip"></a>모든 공용 IP 주소 나열
@@ -178,7 +180,7 @@ az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddr
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
+Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
 ```
 
 ## <a name="count-resources-by-ip"></a>구독에 의해 IP 주소가 구성된 리소스 개수 계산
@@ -195,7 +197,7 @@ az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddr
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
+Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
 ```
 
 ## <a name="list-tag"></a>특정 태그 값이 있는 리소스 나열
@@ -212,7 +214,7 @@ az graph query -q "where tags.environment=~'internal' | project name"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name"
+Search-AzGraph -Query "where tags.environment=~'internal' | project name"
 ```
 
 또한 리소스의 태그와 값을 지정하려면 `project` 키워드에 **tags** 속성을 추가합니다.
@@ -227,7 +229,7 @@ az graph query -q "where tags.environment=~'internal' | project name, tags"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name, tags"
+Search-AzGraph -Query "where tags.environment=~'internal' | project name, tags"
 ```
 
 ## <a name="list-specific-tag"></a>특정 태그 값이 있는 모든 저장소 계정 나열
@@ -244,7 +246,7 @@ az graph query -q "where type =~ 'Microsoft.Storage/storageAccounts' | where tag
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
+Search-AzGraph -Query "where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
 ```
 
 > [!NOTE]

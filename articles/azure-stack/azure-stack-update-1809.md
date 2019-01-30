@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 5a0d7a0e96a788c3136adba70fb27a2c98674e7a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.lastreviewed: 01/24/2019
+ms.openlocfilehash: 81501c79f00c2c0f8ef81532f3b8e7f61fc9eba0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088054"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250617"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 업데이트
 
@@ -49,6 +50,8 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 
 - 이제 [등록 리소스 이동](azure-stack-registration.md#move-a-registration-resource) 다시 등록 하지 않고 리소스 그룹 간에 Azure에서. 클라우드 솔루션 공급자 (Csp) 간에 이동할 수도 등록 리소스 구독으로 새 일정과 이전 구독을 모두 같은 CSP 파트너 ID에 매핑됩니다. 기존 고객 테 넌 트 매핑을 영향을 주지 않습니다. 
 
+- 네트워크 인터페이스 당 여러 IP 주소를 할당 하기 위한 지원이 추가 되었습니다.  자세한 내용은 참조 하세요 [PowerShell을 사용 하 여 가상 머신에 여러 IP 주소를 할당](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell)합니다.
+
 ### <a name="fixed-issues"></a>해결된 문제
 
 <!-- TBD - IS ASDK -->
@@ -60,10 +63,10 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 - 다음과 같은 관리 디스크 문제가 1809에서 고정 되어 있으며는 1808에도 수정 되어 [Azure Stack 핫픽스 1.1808.9.117](https://support.microsoft.com/help/4481066/): 
 
    <!--  2966665 – IS, ASDK --> 
-   - 관리 디스크 virtual machines (DS, DSv2, Fs, Fs_V2) 오류로 인해 실패 하는 프리미엄 크기는 연결 SSD 데이터 디스크에서 문제를 해결 했습니다.: *가상 머신 'vmname' 오류에 대 한 디스크를 업데이트 하지 못했습니다: 요청 때문에 작업을 수행할 수 없습니다 저장소 계정 유형 VM 크기에 대 한 'Premium_LRS'를 사용할 수 없습니다 ' Standard_DS/Ds_V2/FS/Fs_v2)* 합니다. 
+   - 관리 디스크 virtual machines (DS, DSv2, Fs, Fs_V2) 오류로 인해 실패 하는 프리미엄 크기는 연결 SSD 데이터 디스크에서 문제를 해결 했습니다.  *가상 머신 'vmname' 오류에 대 한 디스크를 업데이트 하지 못했습니다. 요청한 VM 크기에 대 한 저장소 계정 유형 'Premium_LRS' 지원 되지 않으므로 작업을 수행할 수 없습니다 ' Standard_DS/Ds_V2/FS/Fs_v2)* 합니다. 
    
-   - 사용 하 여 관리 디스크 VM을 만드는 **createOption**: **Attach** 다음 오류로 인해 실패: *장기 실행 작업 상태 '실패'를 사용 하 여 실패 했습니다. 추가 정보: '내부 실행 오류가 발생 했습니다.'*
-   ErrorCode: InternalExecutionError ErrorMessage: 내부 실행 오류가 발생 했습니다.
+   - 사용 하 여 관리 디스크 VM을 만드는 **createOption**: **연결** 다음 오류로 인해 실패 합니다. *장기 실행 작업 상태 '실패'를 사용 하 여 실패 했습니다. 추가 정보: '내부 실행 오류가 발생 했습니다.'*
+   ErrorCode: InternalExecutionError ErrorMessage: 내부 실행 오류가 발생했습니다.
    
    이제이 문제가 해결 되었습니다.
 
@@ -79,7 +82,7 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 > [!IMPORTANT]  
 > 파일 서버에 공용 VIP 네트워크에서 연결을 허용 하지 않는 방화벽이 있는 경우 이러한 변경으로 인해 실패 "오류 53 네트워크 경로 찾을 수 없습니다."를 사용 하 여 인프라 백업 이 주요 변경 내용에 적절 한 해결 방법은 없습니다. Microsoft는 고객 피드백에 따라 핫픽스에서이 변경 내용 되돌리기 됩니다. 살펴보시기 합니다 [업데이트 단계 섹션 게시](#post-update-steps) 1809에 사용할 수 있는 핫픽스에 대 한 자세한 정보에 대 한 합니다. 핫픽스를 사용할 수 있는 네트워크 정책에는 공용 VIP 네트워크에 인프라 리소스에 액세스를 허용 하지 않는 경우에 1809로 업데이트 한 후 적용 해야 합니다. 이 변경 1811의 모든 시스템에 적용 됩니다. 추가 작업이 필요 하지 않습니다. 있는지 1809에서 핫픽스를 적용 합니다.  
 
-### <a name="common-vulnerabilities-and-exposures"></a>Common Vulnerabilities and Exposures
+### <a name="common-vulnerabilities-and-exposures"></a>일반적인 취약점 및 exposures
 
 이 업데이트에는 다음 보안 업데이트를 설치합니다.  
 
@@ -132,7 +135,7 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 
 ### <a name="prerequisites"></a>필수 조건
 
-- 1809 적용 하기 전에 1808에 대 한 최신 Azure Stack 핫픽스를 설치 합니다. 자세한 내용은 [KB 4481066 – Azure Stack 핫픽스 Azure Stack 핫픽스 1.1808.9.117](https://support.microsoft.com/help/4481066/)합니다.
+- 1809 적용 하기 전에 1808에 대 한 최신 Azure Stack 핫픽스를 설치 합니다. 자세한 내용은 [KB 4481066 – Azure Stack 핫픽스 Azure Stack 핫픽스 1.1808.9.117](https://support.microsoft.com/help/4481066/)합니다. 최신 핫픽스 사용 가능한 사용 하는 것이 좋습니다, 있지만 1809를 설치 하는 데 필요한 최소 버전 1.1808.5.110 됩니다.
 
   > [!TIP]  
   > 다음을 구독할 *RRS* 또는 *Atom* Azure Stack 핫픽스를 피드 합니다.
@@ -221,16 +224,16 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 - 에 대 한 경고를 표시 될 수 있습니다 합니다 **상태 컨트롤러** 다음 세부 정보는 구성 요소:  
 
    경고 # 1:
-   - 비정상 인프라 역할 이름:
-   - 심각도: 경고
-   - 구성 요소: 상태 컨트롤러
-   - 설명: 상태 컨트롤러 하트 비트 검색 프로그램 사용할 수 없는 경우 상태 보고서 및 메트릭에 영향을 줄 수 있습니다.  
+   - 이름:  인프라 역할 비정상
+   - 심각도: Warning
+   - 구성 요소입니다. 상태 컨트롤러
+   - 설명: 상태 컨트롤러 하트 비트 검색 프로그램을 사용할 수 없는 경우 상태 보고서 및 메트릭에 영향을 줄 수 있습니다.  
 
   # 2를 경고 합니다.
-   - 비정상 인프라 역할 이름:
-   - 심각도: 경고
-   - 구성 요소: 상태 컨트롤러
-   - 설명: 상태 컨트롤러 오류 스캐너를 사용할 수 없습니다. 상태 보고서 및 메트릭에 영향을 줄 수 있습니다.
+   - 이름:  인프라 역할 비정상
+   - 심각도: Warning
+   - 구성 요소입니다. 상태 컨트롤러
+   - 설명: 상태 컨트롤러 오류 스캐너 제공 되지 않습니다. 상태 보고서 및 메트릭에 영향을 줄 수 있습니다.
 
   모두 경고를 안전 하 게 무시할 수 있습니다 하 고 시간이 지남에 따라 자동으로 닫을 수 있습니다.  
 
@@ -239,9 +242,9 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 - 에 대 한 경고가 표시 될 수 있습니다 합니다 **저장소** 다음 세부 정보를 포함 하는 구성 요소:
 
    - 이름: 저장소 서비스의 내부 통신 오류  
-   - 심각도: 위험  
-   - 구성 요소: 저장소  
-   - 설명: 다음 노드에 요청을 보낼 때 저장소 서비스의 내부 통신 오류가 발생 했습니다.  
+   - 심각도: 중요  
+   - 구성 요소입니다. Storage  
+   - 설명: 다음 노드에 요청을 전송 하는 저장소 서비스의 내부 통신 오류가 발생 했습니다.  
 
     경고를 안전 하 게 무시할 수 있지만 경고를 수동으로 종결 해야 합니다.
 
@@ -250,6 +253,8 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 
 ### <a name="compute"></a>컴퓨팅
 
+- 만들 때를 [Dv2 시리즈 VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11 14v2 Vm 4, 8, 16 및 32 데이터 디스크를 각각 만들 수 있습니다. 단, 8, 16, 32 및 64 개의 데이터 디스크 만들기 VM 창을 보여 줍니다.
+
 <!-- 3235634 – IS, ASDK -->
 - 포함 된 크기를 사용 하 여 Vm을 배포 하는 **v2** 접미사; 예를 들어 **Standard_A2_v2**,으로 접미사를 지정 하세요 **Standard_A2_v2** (소문자 v). 사용 하지 마세요 **Standard_A2_V2** (V 대문자). 이 글로벌 Azure에서 작동 하며 Azure Stack에서 일치 하지 않습니다.
 
@@ -257,12 +262,12 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 - Azure Stack 포털을 사용 하 여 새 가상 컴퓨터 (VM)를 만든 경우 VM 크기를 선택 하면 u s D/월 열이 사용 하 여 표시 됩니다는 **사용할 수 없습니다** 메시지입니다. 이 열이 나타나지 않아야 합니다. 표시 된 VM 가격 책정 열에서에서 지원 되지 않습니다 Azure Stack.
 
 <!-- 2869209 – IS, ASDK --> 
-- 사용 하는 경우는 [ **추가 AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0)를 사용 해야 합니다는 **-OsUri** storage 계정과 디스크 업로드 되는 URI 매개 변수입니다. 다음 오류로 인해 cmdlet이 실패 하면 디스크의 로컬 경로 사용 하는 경우: *장기 실행 작업 상태 '실패'를 사용 하 여 실패 한*합니다. 
+- 사용 하는 경우는 [ **추가 AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0)를 사용 해야 합니다는 **-OsUri** storage 계정과 디스크 업로드 되는 URI 매개 변수입니다. 디스크의 로컬 경로 사용 하는 경우 cmdlet은 다음 오류로 인해 실패 합니다. *장기 실행 작업 상태 '실패'를 사용 하 여 실패 한*합니다. 
 
 <!--  2795678 – IS, ASDK --> 
 - 가상 머신 (VM)를 만들려면 포털 (DS, Ds_v2, FS, FSv2) 프리미엄 VM 크기에서를 사용 하면 표준 저장소 계정에 VM이 생성 됩니다. 표준 저장소 계정 만드는 영향을 주지 않습니다 기능적으로 IOPs 또는 대금 청구 합니다. 
 
-   라는 경고를 무시 해도: *에 프리미엄 디스크를 지 원하는 크기로 표준 디스크를 사용 하기로 선택 하셨습니다. 이 운영 체제 성능에 영향을 줄 수 있으며 권장 되지 않습니다. Premium storage (SSD)를 대신 사용 하는 것이 좋습니다.*
+   안전 하 게 되었다는 경고를 무시할 수 있습니다. *에서는 표준 디스크를 프리미엄 디스크를 지 원하는 크기를 사용 하기로 했습니다. 이 운영 체제 성능에 영향을 줄 수 있으며 권장 되지 않습니다. Premium storage (SSD)를 대신 사용 하는 것이 좋습니다.*
 
 <!-- 2967447 - IS, ASDK --> 
 - 가상 머신 확장 집합 (VMSS) 생성 환경에 대 한 배포 옵션으로 7.2 CentOS 기반을 제공합니다. 해당 이미지를 Azure Stack에서 사용할 수 없는 때문에 배포에 대 한 다른 OS를 선택 하거나 연산자가 marketplace에서 배포 하기 전에 다운로드 된 다른 CentOS 이미지를 지정 하는 Azure Resource Manager 템플릿을 사용 합니다.  
@@ -287,12 +292,15 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
    - 할당량의 1808 업데이트 이전에 만든 경우 Managed Disks 할당량에에서 표시 됩니다 0 값 관리자 포털을 2048 GiB 할당 됩니다. 늘리거나 실제 요구 사항 및 새로 설정에 따라 값을 줄일 수 할당량 값 2048 GiB 기본값을 재정의 합니다.
    - 0으로 할당량 값을 업데이트 하는 경우 기본값인 2048 GiB 같습니다. 대 안으로 할당량 값을 1로 설정 합니다.
 
-<!-- TBD - IS ASDK --> 업데이트 된 1809를 적용 한 후, Managed Disks를 사용 하 여 Vm을 배포 하는 경우 다음과 같은 문제가 발생할 수 있습니다.
+<!-- TBD - IS ASDK --> 
+- 업데이트 된 1809를 적용 한 후, Managed Disks를 사용 하 여 Vm을 배포 하는 경우 다음과 같은 문제가 발생할 수 있습니다.
 
    - Managed Disks를 사용 하 여 VM 배포 1808 업데이트 하기 전에 구독을 만든 경우 내부 오류 메시지와 함께 실패할 수 있습니다. 오류를 해결 하려면 각 구독에 대해 다음이 단계를 수행 합니다.
       1. 테 넌 트 포털에서로 이동 **구독** 구독을 찾습니다. 클릭 **리소스 공급자**, 클릭 **Microsoft.Compute**를 클릭 하 고 **re-register**합니다.
-      2. 로 동일한 구독에 따라 **액세스 제어 (IAM)**, 되어 있는지 확인 하 고 **Azure Stack – Managed Disk** 나열 됩니다.
+      2. 로 동일한 구독에서 **액세스 제어 (IAM)**, 하 고 있는지 확인 합니다 **AzureStack DiskRP 클라이언트** 역할 나열 됩니다.
    2. 다중 테 넌 트 환경에 구성한 게스트 디렉터리와 연결 된 구독에서 Vm을 배포할 내부 오류 메시지와 함께 실패할 수 있습니다. 오류를 해결 하려면에서 다음이 단계를 수행 [이 문서에서는](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) 각 게스트 디렉터리를 다시 구성 합니다.
+
+- 사용 하도록 설정 하는 SSH 인증을 사용 하 여 만든 Ubuntu 18.04 VM은 SSH 키를 사용 하 여 로그인 할 수 없습니다. 대 안으로 Linux 확장에 대 한 VM 액세스를 사용 하 여 프로 비전 한 후 SSH 키를 구현 하거나 암호 기반 인증을 사용 하세요.
 
 ### <a name="networking"></a>네트워킹  
 

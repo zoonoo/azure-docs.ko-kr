@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure IoT Edge 디바이스에 ASA 작업 배포 | Microsoft Docs
+title: 자습서 - 디바이스에 Azure Stream Analytics 작업 배포 - Azure IoT Edge | Microsoft Docs
 description: 이 자습서에서는 Iot Edge 디바이스에 Azure Stream Analytics를 모듈로 배포합니다.
 author: kgremban
 manager: philmea
@@ -7,16 +7,15 @@ ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
-services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 2188e21cfd29ac8ac2d44878819ee62a3e2d555e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 0096a7a57cb4a404f5c8e36d8b69eac2c20c1fab
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566944"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139814"
 ---
-# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>자습서: Azure Stream Analytics를 IoT Edge 모듈로 배포(미리 보기)
+# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>자습서: Azure Stream Analytics를 IoT Edge 모듈로 배포
 
 많은 IoT 솔루션에서는 분석 서비스를 사용하여 IoT 디바이스에서 클라우드에 도착하는 대로 데이터에 대한 인사이트를 얻습니다. Azure IoT Edge를 사용하면 [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) 논리를 가져와서 디바이스 자체로 이동할 수 있습니다. 에지 장치에서 원격 분석 스트림을 처리함으로써 업로드되는 데이터의 양을 줄이고 실행 가능한 인사이트에 대응하는 데 걸리는 시간을 단축할 수 있습니다.
 
@@ -34,17 +33,15 @@ ASA(Azure Stream Analytics)는 클라우드 및 IoT Edge 디바이스 둘 다에
 > * Azure Portal에서 Azure Stream Analytics 작업을 IoT Edge 디바이스에 배포합니다.
 
 <center>
-![자습서 아키텍처 다이어그램](./media/tutorial-deploy-stream-analytics/ASATutorialDiagram.png)
+![다이어그램 - ASA 작업 아키텍처, 스테이징 및 배포 자습서](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
->[!NOTE]
->IoT Edge용 Azure Stream Analytics 모듈은 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)로 있습니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure IoT Edge 디바이스:
+Azure IoT Edge 장치:
 
 * [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다.
 
@@ -100,7 +97,7 @@ Azure Portal에서 Stream Analytics 작업을 만든 후에는 통과하는 데�
 
 1. **작업 토폴로지**에서 **입력**, **스트림 입력 추가**를 차례로 선택합니다.
 
-   ![Azure Stream Analytics 입력](./media/tutorial-deploy-stream-analytics/asa_input.png)
+   ![Azure Stream Analytics 입력 추가](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
 1. 드롭다운 목록에서 **Edge Hub**를 선택합니다.
 
@@ -110,7 +107,7 @@ Azure Portal에서 Stream Analytics 작업을 만든 후에는 통과하는 데�
 
 1. **작업 토폴로지**에서 **출력**을 열고 **추가**를 선택합니다.
 
-   ![Azure Stream Analytics 출력](./media/tutorial-deploy-stream-analytics/asa_output.png)
+   ![Azure Stream Analytics 출력 추가](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
 1. 드롭다운 목록에서 **Edge Hub**를 선택합니다.
 
@@ -207,7 +204,7 @@ IoT Edge 디바이스에 배포할 Stream Analytics 작업을 준비하려면 �
 
     IoT Edge 에이전트 모듈 및 IoT Edge Hub와 함께 실행되는 새로운 Stream Analytics 모듈이 표시됩니다.
 
-    ![모듈 출력](./media/tutorial-deploy-stream-analytics/module_output2.png)
+    ![디바이스에서 보고하는 tempSensor 및 ASA 모듈](./media/tutorial-deploy-stream-analytics/module_output2.png)
 
 ## <a name="view-data"></a>데이터 보기
 
@@ -229,11 +226,11 @@ IoT Edge 디바이스에 배포할 Stream Analytics 작업을 준비하려면 �
 
 30초 동안 70도에 도달할 때까지 컴퓨터의 온도가 점차 상승하는 것을 볼 수 있어야 합니다. 그러면 Stream Analytics 모듈이 재설정을 트리거하고 컴퓨터 온도가 21도로 떨어집니다. 
 
-   ![Docker 로그](./media/tutorial-deploy-stream-analytics/docker_log.png)
+   ![모듈 로그에 명령 출력 다시 설정](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 
-권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 디바이스와 동일한 IoT Edge 디바이스를 계속 사용해도 됩니다. 
+권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 장치와 동일한 IoT Edge 장치를 계속 사용해도 됩니다. 
 
 그렇지 않은 경우 요금 청구를 방지하도록 이 문서에서 만든 로컬 구성 및 Azure 리소스를 삭제할 수 있습니다. 
  

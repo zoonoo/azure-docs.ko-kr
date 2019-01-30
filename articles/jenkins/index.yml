@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: cd539e1ba1b740155a22960645c3947d7c4d8176
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: e94a667cb67e4812984d4a338e763ebeaa1d3205
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666528"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073223"
 documentType: LandingData
 title: Azure의 Jenkins
 metadata:
@@ -12,7 +12,7 @@ metadata:
   description: Jenkins 배포 및 Azure와 통합
   ms.service: jenkins
   keywords: Jenkins, azure, devops, 자습서, 샘플, 참조
-  author: tomarcher
+  author: tomarchermsft
   manager: jeconnoc
   ms.author: tarcher
   ms.topic: landing-page
@@ -66,4 +66,4 @@ sections:
     - title: 플러그 인
       html: <p><a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM 에이전트</a><p><a href="https://plugins.jenkins.io/azure-app-service">Azure App Service</a></p><p><a href="https://plugins.jenkins.io/windows-azure-storage">Azure Storage</a></p><p><a href="https://plugins.jenkins.io/azure-container-agents">Azure 컨테이너 에이전트</a><p><a href="https://plugins.jenkins.io/azure-function">Azure Function 플러그 인</a><p><a href="https://plugins.jenkins.io/azure-acs">Azure Container Service 플러그 인</a>
 - type: paragraph
-  text: <h4>Jenkins®는 Public Interest, Inc.에서 소프트웨어의 등록된 상표입니다. [Jenkins® 로고](https://wiki.jenkins.io/display/JENKINS/Logo)는 [Jenkins 프로젝트](https://jenkins.io)의 [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)에서 라이선스를 체결했습니다.</h4>
+  text: <h4>Jenkins®는 Public Interest, Inc. 소프트웨어의 등록된 상표입니다. [Jenkins® 로고](https://wiki.jenkins.io/display/JENKINS/Logo)는 [Jenkins 프로젝트](https://jenkins.io)의 [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)에서 사용이 허가되었습니다.</h4>

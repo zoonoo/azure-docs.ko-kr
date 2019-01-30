@@ -1,25 +1,26 @@
 ---
-title: C#을 사용하는 LUIS 봇 - 웹앱 봇 - Bot Framework SDK 3.0
-titleSuffix: Azure Cognitive Services
+title: 봇 - C# - v3
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합니다. 이 챗봇은 사전 빌드된 HomeAutomation 도메인을 사용하여 신속하게 봇 솔루션을 구현합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 0ad95d5683ea10803c2f3986be97617051f191cf
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5be96fc93a5a6636ccac6faf456458b3bcb8423a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032277"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413722"
 ---
-# <a name="luis-bot-in-c"></a>C#의 LUIS 봇
+# <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot Framework 3.x 및 Azure 웹앱 봇을 사용하는 C#의 LUIS 봇
 
-C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합니다. 이 챗봇은 사전 빌드된 HomeAutomation 도메인을 사용하여 신속하게 봇 솔루션을 구현합니다. 해당 봇은 Bot Framework 3.x 및 Azure 웹앱 봇을 사용하여 빌드됩니다.
+C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합니다. 이 챗봇은 사전 빌드된 HomeAutomation 도메인을 사용하여 신속하게 봇 솔루션을 구현합니다. 이 봇은 Bot Framework 3.x 및 Azure 웹앱 봇을 사용하여 빌드됩니다.
 
 ## <a name="prerequisite"></a>필수 요소
 
@@ -36,11 +37,11 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합
 
 1. [Azure Portal](https://portal.azure.com)의 왼쪽 위 메뉴에서 **새 리소스 만들기**를 선택합니다.
 
-    ![새 리소스 만들기](./media/luis-tutorial-cscharp-web-bot/bot-service-creation.png)
+    ![Azure Portal에서 새 리소스 만들기](./media/luis-tutorial-cscharp-web-bot/bot-service-creation.png)
 
 2. 검색 상자에서 **웹앱 봇**을 검색합니다. 
 
-    ![새 리소스 만들기](./media/luis-tutorial-cscharp-web-bot/bot-service-selection.png)
+    ![웹앱 봇을 리소스 종류로 선택](./media/luis-tutorial-cscharp-web-bot/bot-service-selection.png)
 
 3. [웹앱 봇] 창에서 **만들기**를 클릭합니다.
 
@@ -76,7 +77,7 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합
 
 ## <a name="connect-your-luis-app-to-the-bot"></a>봇에 LUIS 앱 연결
 
-**응용 프로그램 설정**을 열고 **LuisAppId** 필드를 편집하여 LUIS 앱의 응용 프로그램 ID를 포함합니다. HomeAutomation LUIS 앱을 미국 서부 이외의 지역에서 만든 경우 **LuisAPIHostName**도 변경해야 합니다. **LuisAPIKey**가 작성 키로 설정되어 있습니다. 이 작성 키는 트래픽이 체험 계층 할당량을 초과하면 끝점 키로 변경됩니다. 
+**애플리케이션 설정**을 열고 **LuisAppId** 필드를 편집하여 LUIS 앱의 애플리케이션 ID를 포함합니다. HomeAutomation LUIS 앱을 미국 서부 이외의 지역에서 만든 경우 **LuisAPIHostName**도 변경해야 합니다. **LuisAPIKey**가 작성 키로 설정되어 있습니다. 이 작성 키는 트래픽이 체험 계층 할당량을 초과하면 끝점 키로 변경됩니다. 
 
   ![Azure에서 LUIS 앱 ID 업데이트](./media/luis-tutorial-cscharp-web-bot/bot-service-app-settings.png)
 
@@ -152,7 +153,7 @@ Azure Portal에서 **웹 채팅에서 테스트**를 클릭하여 봇을 테스�
 > 봇의 코드를 수정하지 않고 LUIS 앱을 다시 학습시킬 수 있습니다. [예제 발화 추가](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) 및 [LUIS 앱 학습 및 테스트](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test)를 참조하세요. 
 
 ## <a name="download-the-bot-to-debug"></a>디버그할 봇 다운로드
-봇이 작동하지 않으면 프로젝트를 로컬 머신에 다운로드하고 계속 [디버그](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-a-c-bot)합니다. 
+봇이 작동하지 않으면 프로젝트를 로컬 머신에 다운로드하고 계속 [디버그](https://docs.microsoft.com/bot-framework/bot-service-debug-bot)합니다. 
 
 ## <a name="learn-more-about-bot-framework"></a>Bot Framework에 대해 자세히 알아보기
 [Bot Framework](https://dev.botframework.com/)와 [3.x](https://github.com/Microsoft/BotBuilder) 및 [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK에 대해 자세히 알아봅니다.
@@ -161,19 +162,10 @@ Azure Portal에서 **웹 채팅에서 테스트**를 클릭하여 봇을 테스�
 
 **Help**, **Cancel** 및 **Greeting** 의도를 처리하기 위한 LUIS 의도 및 Bot Service 대화 상자를 추가합니다. 웹앱 봇을 학습시키고 게시 및 [빌드](#build-the-bot)해야 합니다. LUIS 및 봇에 둘 다 동일한 의도가 있어야 합니다.
 
+대화형 봇을 사용하는 추가 [샘플](https://github.com/Microsoft/AI)을 참조하세요. 
+
 > [!div class="nextstepaction"]
 > [의도 추가](./luis-how-to-add-intents.md)
 > [음성 초기화](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)
-
-
-<!-- Links -->
-[Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
-[Github-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
-[Github-LUIS-Samples-cs-hotel-bot]: https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/csharp
-[Github-LUIS-Samples-cs-hotel-bot-readme]: https://github.com/Microsoft/LUIS-Samples/blob/master/bot-integration-samples/hotel-finder/csharp/README.md
-[BFPortal]: https://dev.botframework.com/
-[RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
-[BotFramework]: https://docs.microsoft.com/bot-framework/
-[VisualStudio]: https://www.visualstudio.com/
 
 <!-- tested on Win10 -->

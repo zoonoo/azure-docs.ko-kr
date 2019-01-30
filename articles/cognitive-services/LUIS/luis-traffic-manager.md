@@ -1,21 +1,22 @@
 ---
-title: Microsoft Azure Traffic Manager를 사용하여 Language Understanding(LUIS)의 엔드포인트 할당량 늘리기
+title: 엔드포인트 할당량 늘리기
 titleSuffix: Azure Cognitive Services
 description: Language Understanding(LUIS)은 단일 키의 할당량 이상으로 엔드포인트 요청 할당량을 늘리는 기능을 제공합니다. 이렇게 하려면 **게시** 페이지의 **리소스 및 키** 섹션에서 LUIS에 대해 더 많은 키를 만들고 LUIS 응용 프로그램에 추가합니다.
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 28fc0d0061d1826f0e17c26325ea227e001dccda
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3f3dddca7944403ace6a9779be07b0d458fb3cd1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042179"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076766"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Microsoft Azure Traffic Manager를 사용하여 키 전체에서 엔드포인트 할당량 관리
 Language Understanding(LUIS)은 단일 키의 할당량 이상으로 엔드포인트 요청 할당량을 늘리는 기능을 제공합니다. 이렇게 하려면 **게시** 페이지의 **리소스 및 키** 섹션에서 LUIS에 대해 더 많은 키를 만들고 LUIS 응용 프로그램에 추가합니다. 
@@ -36,7 +37,7 @@ Azure 리소스를 만들기 전에 모든 리소스를 포함할 리소스 그�
 
 **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.2.0)** cmdlet을 사용하여 리소스 그룹을 만듭니다.
 
-```PowerShell
+```powerShell
 New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 ```
 
@@ -69,7 +70,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
     다음 cmdlet을 사용하여 프로필을 만듭니다. `appIdLuis` 및 `subscriptionKeyLuis`를 변경해야 합니다. subscriptionKey는 미국 동부 LUIS 키용입니다. LUIS 앱 ID 및 끝점 키를 포함하여 경로가 올바르지 않으면 Traffic Manager에서 LUIS 끝점을 요청할 수 없기 때문에 Traffic Manager 폴링은 `degraded` 상태가 됩니다. `q` 값이 `traffic-manager-east`인지 확인하여 이 값이 LUIS 엔드포인트 로그에 표시되도록 합니다.
 
-    ```PowerShell
+    ```powerShell
     $eastprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager-east"
     ```
     
@@ -79,7 +80,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     |--|--|--|
     |-Name|luis-profile-eastus|Azure Portal의 Traffic Manager 이름|
     |-ResourceGroupName|luis-traffic-manager|이전 섹션에서 만든 리소스 그룹 이름|
-    |-TrafficRoutingMethod|성능|자세한 내용은 [Traffic Manager 라우팅 방법][routing-methods]을 참조하세요. 성능을 사용하는 경우, 사용자의 지역에서 Traffic Manager에 대한 URL 요청을 가져와야 합니다. 챗봇이나 다른 응용 프로그램을 사용하는 경우, 챗봇이 Traffic Manager에 대한 호출에서 지역을 모방해야 합니다. |
+    |-TrafficRoutingMethod|성능|자세한 내용은 [Traffic Manager 라우팅 방법][routing-methods]을 참조하세요. 성능을 사용하는 경우, 사용자의 지역에서 Traffic Manager에 대한 URL 요청을 가져와야 합니다. 챗봇이나 다른 애플리케이션을 사용하는 경우, 챗봇이 Traffic Manager에 대한 호출에서 지역을 모방해야 합니다. |
     |-RelativeDnsName|luis-dns-eastus|서비스의 하위 도메인(luis-dns-eastus.trafficmanager.net)|
     |-Ttl|30|폴링 간격(30초)|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|LUIS에 대한 포트 및 프로토콜은 HTTPS/443입니다.|
@@ -89,7 +90,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
 2. **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/add-azurermtrafficmanagerendpointconfig?view=azurermps-6.2.0)** cmdlet을 사용하여 미국 동부 엔드포인트 추가
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "eastus" -EndpointStatus Enabled
     ```
     다음 표에서는 cmdlet의 각 변수에 대해 설명합니다.
@@ -105,7 +106,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
     성공한 응답은 다음과 같습니다.
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-eastus
     Name                             : luis-profile-eastus
     ResourceGroupName                : luis-traffic-manager
@@ -124,7 +125,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
 3. **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/set-azurermtrafficmanagerprofile?view=azurermps-6.2.0)** cmdlet을 사용하여 미국 동부 엔드포인트 설정
 
-    ```PowerShell
+    ```powerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $eastprofile
     ```
 
@@ -137,7 +138,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
     다음 cmdlet을 사용하여 프로필을 만듭니다. `appIdLuis` 및 `subscriptionKeyLuis`를 변경해야 합니다. subscriptionKey는 미국 동부 LUIS 키용입니다. LUIS 앱 ID 및 끝점 키를 포함하여 경로가 올바르지 않으면 Traffic Manager에서 LUIS 끝점을 요청할 수 없기 때문에 Traffic Manager 폴링은 `degraded` 상태가 됩니다. `q` 값이 `traffic-manager-west`인지 확인하여 이 값이 LUIS 엔드포인트 로그에 표시되도록 합니다.
 
-    ```PowerShell
+    ```powerShell
     $westprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"
     ```
     
@@ -147,7 +148,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     |--|--|--|
     |-Name|luis-profile-westus|Azure Portal의 Traffic Manager 이름|
     |-ResourceGroupName|luis-traffic-manager|이전 섹션에서 만든 리소스 그룹 이름|
-    |-TrafficRoutingMethod|성능|자세한 내용은 [Traffic Manager 라우팅 방법][routing-methods]을 참조하세요. 성능을 사용하는 경우, 사용자의 지역에서 Traffic Manager에 대한 URL 요청을 가져와야 합니다. 챗봇이나 다른 응용 프로그램을 사용하는 경우, 챗봇이 Traffic Manager에 대한 호출에서 지역을 모방해야 합니다. |
+    |-TrafficRoutingMethod|성능|자세한 내용은 [Traffic Manager 라우팅 방법][routing-methods]을 참조하세요. 성능을 사용하는 경우, 사용자의 지역에서 Traffic Manager에 대한 URL 요청을 가져와야 합니다. 챗봇이나 다른 애플리케이션을 사용하는 경우, 챗봇이 Traffic Manager에 대한 호출에서 지역을 모방해야 합니다. |
     |-RelativeDnsName|luis-dns-westus|서비스의 하위 도메인(luis-dns-westus.trafficmanager.net)|
     |-Ttl|30|폴링 간격(30초)|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|LUIS에 대한 포트 및 프로토콜은 HTTPS/443입니다.|
@@ -157,7 +158,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
 2. **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** cmdlet을 사용하여 미국 서부 엔드포인트 추가
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "westus" -EndpointStatus Enabled
     ```
 
@@ -174,7 +175,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
     성공한 응답은 다음과 같습니다.
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-westus
     Name                             : luis-profile-westus
     ResourceGroupName                : luis-traffic-manager
@@ -193,7 +194,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
 3. **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Set-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet을 사용하여 미국 서부 엔드포인트 설정
 
-    ```PowerShell
+    ```powerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $westprofile
     ```
 
@@ -204,7 +205,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
 1. **[New-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/New-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet을 사용하여 부모 프로필 만들기
 
-    ```PowerShell
+    ```powerShell
     $parentprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-parent -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-parent -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/"
     ```
 
@@ -214,7 +215,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
     |--|--|--|
     |-Name|luis-profile-parent|Azure Portal의 Traffic Manager 이름|
     |-ResourceGroupName|luis-traffic-manager|이전 섹션에서 만든 리소스 그룹 이름|
-    |-TrafficRoutingMethod|성능|자세한 내용은 [Traffic Manager 라우팅 방법][routing-methods]을 참조하세요. 성능을 사용하는 경우, 사용자의 지역에서 Traffic Manager에 대한 URL 요청을 가져와야 합니다. 챗봇이나 다른 응용 프로그램을 사용하는 경우, 챗봇이 Traffic Manager에 대한 호출에서 지역을 모방해야 합니다. |
+    |-TrafficRoutingMethod|성능|자세한 내용은 [Traffic Manager 라우팅 방법][routing-methods]을 참조하세요. 성능을 사용하는 경우, 사용자의 지역에서 Traffic Manager에 대한 URL 요청을 가져와야 합니다. 챗봇이나 다른 애플리케이션을 사용하는 경우, 챗봇이 Traffic Manager에 대한 호출에서 지역을 모방해야 합니다. |
     |-RelativeDnsName|luis-dns-parent|서비스의 하위 도메인(luis-dns-parent.trafficmanager.net)|
     |-Ttl|30|폴링 간격(30초)|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|LUIS에 대한 포트 및 프로토콜은 HTTPS/443입니다.|
@@ -224,7 +225,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
 2. **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** 및 **NestedEndpoints** 형식을 사용하여 부모에 미국 동부 자식 프로필 추가
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint-useast -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $eastprofile.Id -EndpointStatus Enabled -EndpointLocation "eastus" -MinChildEndpoints 1
     ```
 
@@ -242,7 +243,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
     성공한 응답은 다음과 같으며 새 `child-endpoint-useast` 엔드포인트를 포함합니다.    
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-parent
     Name                             : luis-profile-parent
     ResourceGroupName                : luis-traffic-manager
@@ -261,7 +262,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
 3. **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** cmdlet 및 **NestedEndpoints** 형식을 사용하여 부모에 미국 서부 자식 프로필 추가
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint-uswest -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $westprofile.Id -EndpointStatus Enabled -EndpointLocation "westus" -MinChildEndpoints 1
     ```
 
@@ -279,7 +280,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
     성공한 응답은 다음과 같으며 이전 `child-endpoint-useast` 엔드포인트 및 새 `child-endpoint-uswest` 엔드포인트를 모두 포함합니다.
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-parent
     Name                             : luis-profile-parent
     ResourceGroupName                : luis-traffic-manager
@@ -298,7 +299,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
 4. **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Set-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** cmdlet을 사용하여 엔드포인트 설정 
 
-    ```PowerShell
+    ```powerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $parentprofile
     ```
 
@@ -309,7 +310,7 @@ Traffic Manager를 구성한 다음에는 logging=false 쿼리 문자열 매개 
 
 꺾쇠 괄호(`<>`)로 묶인 항목을 필요한 세 개의 프로필 각각에 올바른 값으로 바꾸세요. 
 
-```PowerShell
+```powerShell
 $<variable-name> = Get-AzureRmTrafficManagerProfile -Name <profile-name> -ResourceGroupName luis-traffic-manager
 ```
 
@@ -329,7 +330,7 @@ Traffic Manager는 각 엔드포인트의 경로를 폴링하여 온라인 상�
 ### <a name="validate-traffic-manager-polling-works"></a>Traffic Manager 폴링 작업 유효성 검사
 Traffic Manager 폴링 작업의 유효성을 검사하는 또 다른 방법은 LUIS 엔드포인트 로그를 사용하는 것입니다. [LUIS][LUIS] 웹 사이트 앱 목록 페이지에서 응용 프로그램에 대한 엔드포인트 로그를 내보냅니다. Traffic Manager는 두 개의 엔드포인트에 대해 자주 폴링하므로 몇 분 안에도 로그에 항목이 생성될 수 있습니다. 쿼리가 `traffic-manager-`로 시작하는 항목을 찾아야 합니다.
 
-```text
+```console
 traffic-manager-west    6/7/2018 19:19  {"query":"traffic-manager-west","intents":[{"intent":"None","score":0.944767}],"entities":[]}
 traffic-manager-east    6/7/2018 19:20  {"query":"traffic-manager-east","intents":[{"intent":"None","score":0.944767}],"entities":[]}
 ```
@@ -339,7 +340,7 @@ DNS 응답에서 LUIS 엔드포인트를 반환하는지 확인하려면 DNS 클
 
 다음 Node.js 코드는 부모 프로필을 요청하고 LUIS 엔드포인트를 반환합니다.
 
-```javascript
+```nodejs
 const dns = require('dns');
 
 dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {
@@ -359,7 +360,7 @@ LUIS 엔드포인트가 있는 성공한 응답은 다음과 같습니다.
 ```
 
 ## <a name="use-the-traffic-manager-parent-profile"></a>Traffic Manager 부모 프로필 사용
-엔드포인트 간의 트래픽을 관리하려면 Traffic Manager DNS에 대한 호출을 삽입하여 LUIS 엔드포인트를 찾아야 합니다. 이 호출은 모든 LUIS 엔드포인트 요청에 대해 수행되고 LUIS 클라이언트 응용 프로그램 사용자의 지리적 위치를 시뮬레이션해야 합니다. LUIS 클라이언트 응용 프로그램과 엔드포인트 예측을 위한 LUIS 요청 간에 DNS 응답 코드를 추가합니다. 
+엔드포인트 간의 트래픽을 관리하려면 Traffic Manager DNS에 대한 호출을 삽입하여 LUIS 엔드포인트를 찾아야 합니다. 이 호출은 모든 LUIS 엔드포인트 요청에 대해 수행되고 LUIS 클라이언트 애플리케이션 사용자의 지리적 위치를 시뮬레이션해야 합니다. LUIS 클라이언트 응용 프로그램과 엔드포인트 예측을 위한 LUIS 요청 간에 DNS 응답 코드를 추가합니다. 
 
 
 ## <a name="clean-up"></a>정리

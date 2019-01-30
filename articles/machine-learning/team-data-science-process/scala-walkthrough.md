@@ -1,5 +1,5 @@
 ---
-title: Azure에서 Scala 및 Spark를 사용하는 데이터 과학 | Microsoft Docs
+title: Azure에서 Scala 및 Spark를 사용하는 데이터 과학 - Team Data Science Process
 description: Azure HDInsight Spark 클러스터에서 Spark 확장형 MLlib 및 Spark ML 패키지를 사용하여 감독 기계 학습 작업에 대해 Scala를 사용하는 방법을 설명합니다.
 services: machine-learning
 author: marktab
@@ -10,19 +10,19 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 836fdb5da13465d77c6e9e6ede4780f5d4048597
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: bf4e65b95211fc03ea4a319fd4e503396b893522
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447166"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135150"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Azure에서 Scala 및 Spark를 사용하는 데이터 과학
-이 문서에서는 Azure HDInsight Spark 클러스터에서 Spark 확장형 MLlib 및 SparkML 패키지를 사용하여 감독 기계 학습 작업에 대해 Scala를 사용하는 방법을 설명합니다. 또한 [데이터 과학 프로세스](https://aka.ms/datascienceprocess): 데이터 수집 및 탐색, 시각화, 기능 엔지니어링, 모델링 및 모델 사용으로 이루어진 작업을 단계별로 안내합니다. 이 문서의 모델에는 두 가지 일반적인 감독 기계 학습 작업 외에 로지스틱 및 선형 회귀, 임의 포리스트 및 GBT(그라데이션 향상 트리)가 포함됩니다.
+이 문서에서는 Azure HDInsight Spark 클러스터에서 Spark 확장형 MLlib 및 SparkML 패키지를 사용하여 감독 기계 학습 작업에 대해 Scala를 사용하는 방법을 설명합니다. 또한 [데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): 데이터 수집 및 탐색, 시각화, 기능 엔지니어링, 모델링 및 모델 사용으로 이루어진 작업을 단계별로 안내합니다. 이 문서의 모델에는 두 가지 일반적인 감독 기계 학습 작업 외에 로지스틱 및 선형 회귀, 임의 포리스트 및 GBT(그라데이션 향상 트리)가 포함됩니다.
 
-* 회귀 문제: 택시 여정에 대한 팁 금액 예측($)
-* 이진 분류: 택시 여정에 대한 팁 또는 노팁(1/0) 예측
+* 회귀 문제: 택시 운행에 대한 팁 액수 예측($)
+* 이진 분류: 택시 운행에 대한 팁 또는 노팁(1/0) 예측
 
 모델링 프로세스에는 관련 정확도 메트릭을 통한 테스트 데이터 집합의 학습 및 평가가 필요합니다. 이 문서에서는 이러한 모델을 Azure Blob 저장소에 저장하고 예측 성능의 점수를 매기며 평가하는 방법을 설명합니다. 그뿐 아니라 교차 유효성 검사 및 하이퍼 매개 변수 스윕 작업을 사용하여 모델을 최적화하는 방법의 고급 항목도 포함되어 있습니다. 사용되는 데이터는 GitHub에서 사용할 수 있는 2013 NYC 택시 여정 및 요금 데이터 집합의 샘플입니다.
 
@@ -341,7 +341,7 @@ Spark ML 및 MLlib의 트리 기반 모델링 기능의 경우 범주화, 인덱
 1. 시간을 트래픽 시간 버킷으로 **범주화** 하여 새로운 기능을 만듭니다.
 2. 범주 기능에 **인덱싱 및 원 핫 인코딩(one-hot encoding)** 을 적용합니다.
 3. **데이터 집합을 학습 및 테스트 부분으로 샘플링 및 분할** 합니다.
-4. **학습 변수 및 기능을 지정**하고, 인덱싱되었거나 원 핫 인코딩된 학습 및 테스팅 입력 레이블이 지정된 지점 RDD(탄력성 분산 데이터 집합) 또는 데이터 프레임을 만듭니다.
+4. **학습 변수 및 기능을 지정**하고, 인덱싱되었거나 원 핫 인코딩된 학습 및 테스팅 입력 레이블이 지정된 지점 RDD(탄력성 분산 데이터 세트) 또는 데이터 프레임을 만듭니다.
 5. 기계 학습 모델에 대한 입력으로 사용할 **기능과 대상을 자동으로 범주화 및 벡터화** 합니다.
 
 ### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>시간을 트래픽 시간 버킷으로 범주화하여 새로운 기능 만들기
@@ -532,7 +532,7 @@ Spark ML을 사용하여 트리 기반 모델링 기능에 사용할 대상 및 
 
 
 
-## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>이진 분류 모델: 팁이 지불되었는지 예측
+## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>이진 분류 모델: 팁을 지불해야 하는지 예측
 이 섹션에서는 팁이 지불되었는지 아닌지를 예측하기 위해 이진 분류 모델을 세 가지 형식으로 만듭니다.
 
 * Spark ML `LogisticRegression()` 함수를 사용하는 **로지스틱 회귀 모델**
@@ -725,7 +725,7 @@ ROC on test data = 0.9847103571552683
 
 Area under ROC curve: 0.9846895479241554
 
-## <a name="regression-model-predict-tip-amount"></a>회귀 모델: 팁 금액 예측
+## <a name="regression-model-predict-tip-amount"></a>회귀 모델: 팁 액수 예측
 이 섹션에서는 팁 금액을 예측하기 위해 두 가지 형식의 회귀 모델을 만듭니다.
 
 * Spark ML `LinearRegression()` 함수를 사용하는 **정칙 선형 회귀 모델** 모델을 저장하고 테스트 데이터에 대해 모델을 평가합니다.
@@ -848,7 +848,7 @@ Python matplotlib를 사용하여 도표를 만듭니다.
 
 **출력:**
 
-![팁 금액: 실제 및 예측](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
+![팁 액수: 실제 및 예측](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
 
 ### <a name="create-a-gbt-regression-model"></a>GBT 회귀 모델 만들기
 Spark ML `GBTRegressor()` 함수를 사용하여 GBT 회귀 모델을 만들고 테스트 데이터에 대해 모델을 평가합니다.
@@ -1100,7 +1100,7 @@ Test R-sqr is: 0.6226484708501209
 셀 실행 시간: 61초
 
 ## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>Scala를 사용하여 Spark에서 빌드한 기계 학습 모델을 자동으로 사용
-Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는 항목에 대한 개요는 [팀 데이터 과학 프로세스](https://aka.ms/datascienceprocess)를 참조하세요.
+Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는 항목에 대한 개요는 [팀 데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)를 참조하세요.
 
 [팀 데이터 과학 프로세스 연습](walkthroughs.md) 에서는 특정 시나리오에 대한 팀 데이터 과학 프로세스의 단계를 보여 주는 다른 종단 간 연습에 대해 설명합니다. 또한 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 설명합니다.
 

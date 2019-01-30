@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: af57dc50dd156a3398c2c685e436d22ba3daea95
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 5a16b81abb9cc95f46bd61f6c0232a28f3cda0ff
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567777"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875402"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure VM을 위한 재해 복구와 Azure ExpressRoute 통합
 
@@ -28,8 +28,8 @@ Site Recovery를 사용하면 Azure VM 데이터를 Azure에 복제하여 Azure 
 
 ExpressRoute를 사용하면 연결 공급자가 지원하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft Azure 클라우드로 확장할 수 있습니다. ExpressRoute를 구성한 경우 다음과 같이 Site Recovery와 통합합니다.
 
-- **Azure 하위 지역 간에 복제하는 동안**: Azure VM 재해 복구에 대한 복제 트래픽이 Azure 내에만 있으며 ExpressRoute는 복제를 위해 필요 없거나 사용되지 않습니다. 그러나 온-프레미스 사이트에서 기본 Azure 사이트의 Azure VM에 연결하는 경우 해당 Azure VM에 대해 재해 복구를 설정할 때 주의해야 할 여러 가지 문제가 있습니다.
-- **Azure 하위 지역 간의 장애 조치**: 중단이 발생한 경우 Azure VM을 기본에서 보조 Azure 하위 지역으로 장애 조치합니다. 보조 하위 지역으로 장애 조치 후 ExpressRoute를 사용하여 보조 하위 지역의 Azure VM에 액세스하려면 여러 단계를 실행해야 합니다.
+- **Azure 지역 간에 복제하는 동안**: Azure VM 재해 복구에 대한 복제 트래픽이 Azure 내에만 있으며 ExpressRoute는 복제에 필요하지 않거나 사용되지 않습니다. 그러나 온-프레미스 사이트에서 기본 Azure 사이트의 Azure VM에 연결하는 경우 해당 Azure VM에 대해 재해 복구를 설정할 때 주의해야 할 여러 가지 문제가 있습니다.
+- **Azure 지역 간 장애 조치(failover)**: 중단이 발생한 경우 Azure VM을 기본에서 보조 Azure 하위 지역으로 장애 조치합니다. 보조 하위 지역으로 장애 조치 후 ExpressRoute를 사용하여 보조 하위 지역의 Azure VM에 액세스하려면 여러 단계를 실행해야 합니다.
 
 
 ## <a name="before-you-begin"></a>시작하기 전에
@@ -37,7 +37,7 @@ ExpressRoute를 사용하면 연결 공급자가 지원하는 개인 연결을 �
 시작하기 전에 다음 개념을 이해해야 합니다.
 
 - ExpressRoute [회로](../expressroute/expressroute-circuit-peerings.md)
-- ExpressRoute [라우팅 도메인](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains)
+- ExpressRoute [라우팅 도메인](../expressroute/expressroute-circuit-peerings.md#routingdomains)
 - ExpressRoute [위치](../expressroute/expressroute-locations.md).
 - Azure VM [복제 아키텍처](azure-to-azure-architecture.md)
 - Azure VM을 위한 [복제를 설정](azure-to-azure-tutorial-enable-replication.md)하는 방법.
@@ -136,7 +136,7 @@ ExpressRoute를 사용하면 연결 공급자가 지원하는 개인 연결을 �
 
 ## <a name="fail-over-azure-vms-when-using-expressroute"></a>ExpressRoute를 사용할 때 Azure VM 장애 조치
 
-Site Recovery를 사용하여 대상 Azure 하위 지역에 Azure VM을 장애 조치한 후 ExpressRoute [개인 피어링](../expressroute/expressroute-circuit-peerings.md#azure-private-peering)을 사용하여 이들에 액세스할 수 있습니다.
+Site Recovery를 사용하여 대상 Azure 하위 지역에 Azure VM을 장애 조치한 후 ExpressRoute [개인 피어링](../expressroute/expressroute-circuit-peerings.md#privatepeering)을 사용하여 이들에 액세스할 수 있습니다.
 
 - 새 연결을 사용하여 대상 vNet에 ExpressRoute를 연결해야 합니다. 기존 ExpressRoute 연결은 자동으로 전송되지 않습니다.
 - 대상 vNet에 ExpressRoute 연결을 설정하는 방법은 ExpressRoute 토폴로지에 따라 달라집니다.

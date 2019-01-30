@@ -1,25 +1,25 @@
 ---
 title: Azure Service Bus 항목 및 구독 시작 | Microsoft Docs
-description: Service Bus 메시징 항목 및 구독을 사용하는 C# .NET Core 콘솔 응용 프로그램을 작성합니다.
+description: Service Bus 메시징 항목 및 구독을 사용하는 C# .NET Core 콘솔 애플리케이션을 작성합니다.
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 09/03/2018
-ms.author: spelluru
-ms.openlocfilehash: d48d658883324637e1026ac00312ade86ccc1400
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 535dd04efd9f150365b24ae175ee90fbb247305f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230583"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846679"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Service Bus 큐 항목 시작
 
@@ -30,8 +30,8 @@ ms.locfileid: "51230583"
 1. Azure Portal을 사용하여 Service Bus 네임스페이스를 만듭니다.
 2. Azure Portal을 사용하여 Service Bus 항목을 만듭니다.
 3. Azure Portal을 사용하여 해당 항목에 Service Bus 구독을 만듭니다.
-4. 항목에 일련의 메시지를 보내도록 .NET Core 콘솔 응용 프로그램을 작성합니다.
-5. 구독에서 해당 메시지를 수신하도록 .NET Core 콘솔 응용 프로그램을 작성합니다.
+4. 항목에 일련의 메시지를 보내도록 .NET Core 콘솔 애플리케이션을 작성합니다.
+5. 구독에서 해당 메시지를 수신하도록 .NET Core 콘솔 애플리케이션을 작성합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -76,9 +76,9 @@ Service Bus 메시징 네임스페이스를 이미 만든 경우 [Azure Portal�
 
 ## <a name="4-send-messages-to-the-topic"></a>4. 토픽에 메시지 보내기
 
-항목에 메시지를 보내려면 Visual Studio를 사용하여 C# 콘솔 응용 프로그램을 작성합니다.
+항목에 메시지를 보내려면 Visual Studio를 사용하여 C# 콘솔 애플리케이션을 작성합니다.
 
-### <a name="create-a-console-application"></a>콘솔 응용 프로그램 만들기
+### <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
 
 Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트를 만듭니다.
 
@@ -227,13 +227,13 @@ Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트�
     }
     ```
 
-3. 프로그램을 실행하고 Azure Portal을 확인합니다. 네임스페이스 **개요** 창에서 항목 이름을 클릭합니다. 항목 **Essentials** 화면이 표시됩니다. 이제 창의 맨 아래 가까이에 나열된 구독에서 각 구독에 대한 **메시지 수** 값은 **10**입니다. 메시지를 검색하지 않고 보낸 사람 응용 프로그램을 실행할 때마다(다음 섹션에서 설명) 이 값이 10만큼 증가합니다. 또한 앱이 항목에 메시지를 추가할 때마다 항목의 현재 크기는 **Essentials** 창에 있는 **현재** 값을 증가시킵니다.
+3. 프로그램을 실행하고 Azure Portal을 확인합니다. 네임스페이스 **개요** 창에서 항목 이름을 클릭합니다. 항목 **Essentials** 화면이 표시됩니다. 이제 창의 맨 아래 가까이에 나열된 구독에서 각 구독에 대한 **메시지 수** 값은 **10**입니다. 메시지를 검색하지 않고 보낸 사람 애플리케이션을 실행할 때마다(다음 섹션에서 설명) 이 값이 10만큼 증가합니다. 또한 앱이 항목에 메시지를 추가할 때마다 항목의 현재 크기는 **Essentials** 창에 있는 **현재** 값을 증가시킵니다.
    
       ![메시지 크기][topic-message]
 
 ## <a name="5-receive-messages-from-the-subscription"></a>5. 구독에서 메시지 받기
 
-방금 보낸 메시지를 받으려면 다른 .NET Core 콘솔 응용 프로그램을 만들고 이전의 보낸 사람 응용 프로그램과 유사한 **Microsoft.Azure.ServiceBus** NuGet 패키지를 설치합니다.
+방금 보낸 메시지를 받으려면 다른 .NET Core 콘솔 애플리케이션을 만들고 이전의 보낸 사람 애플리케이션과 유사한 **Microsoft.Azure.ServiceBus** NuGet 패키지를 설치합니다.
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>코드를 작성하여 구독에서 메시지 받기
 
@@ -281,7 +281,7 @@ Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트�
     }
     ```
 
-5. `MainAsync()` 메서드의 바로 뒤에 메시지 처리기를 등록하고 보낸 사람 응용 프로그램에서 보낸 메시지를 수신하는 다음 메서드를 추가합니다.
+5. `MainAsync()` 메서드의 바로 뒤에 메시지 처리기를 등록하고 보낸 사람 애플리케이션에서 보낸 메시지를 수신하는 다음 메서드를 추가합니다.
 
     ```csharp
     static void RegisterOnMessageHandlerAndReceiveMessages()

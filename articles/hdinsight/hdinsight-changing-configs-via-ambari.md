@@ -8,16 +8,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: abb80bb0877f99dfb1623e320078e935f581d833
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 14b634e610fb0da71c5f0d742a250b18cea70dc7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498662"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722926"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Apache Ambari를 사용하여 HDInsight 클러스터 구성 최적화
 
-HDInsight는 대규모 데이터 처리 애플리케이션을 위한 [Apache Hadoop](https://hadoop.apache.org/) 클러스터를 제공합니다. 이렇게 복잡한 다중 노드 클러스터를 관리, 모니터링 및 최적화하는 작업은 어려울 수 있습니다. [Apache Ambari](http://ambari.apache.org/)는 HDInsight Linux 클러스터를 관리하고 모니터링하는 웹 인터페이스입니다.  Windows 클러스터의 경우 [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)를 사용합니다.
+HDInsight는 대규모 데이터 처리 애플리케이션을 위한 [Apache Hadoop](https://hadoop.apache.org/) 클러스터를 제공합니다. 이렇게 복잡한 다중 노드 클러스터를 관리, 모니터링 및 최적화하는 작업은 어려울 수 있습니다. [Apache Ambari](https://ambari.apache.org/)는 HDInsight Linux 클러스터를 관리하고 모니터링하는 웹 인터페이스입니다.  Windows 클러스터의 경우 [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)를 사용합니다.
 
 Ambari Web UI 사용에 대한 소개는 [Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
@@ -68,7 +68,7 @@ NameNode Java 힙 크기를 수정하려면:
 
 ### <a name="set-the-hive-execution-engine"></a>Hive 실행 엔진 설정
 
-Hive는 두 개의 실행 엔진인 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 및 [Apache TEZ](https://tez.apache.org/)를 제공합니다. Tez는 MapReduce보다 빠릅니다. HDInsight Linux 클러스터에는 Tez가 기본 실행 엔진으로 있습니다. 실행 엔진을 변경하려면:
+Hive는 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 및 [Apache TEZ](https://tez.apache.org/)라는 두 가지 실행 엔진을 제공합니다. Tez는 MapReduce보다 빠릅니다. HDInsight Linux 클러스터에는 Tez가 기본 실행 엔진으로 있습니다. 실행 엔진을 변경하려면:
 
 1. Hive **Configs**(구성) 탭의 필터 상자에 **실행 엔진**을 입력합니다.
 
@@ -179,7 +179,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 | 형식 | 도구 | 알고리즘 | 파일 확장명 | 분할 가능? |
 | -- | -- | -- | -- | -- |
 | Gzip | Gzip | DEFLATE | .gz | 아니요 |
-| Bzip2 | Bzip2 | Bzip2 |.bz2 | yes |
+| Bzip2 | Bzip2 | Bzip2 |.bz2 | 예 |
 | LZO | Lzop | LZO | .lzo | 예(인덱싱된 경우) |
 | Snappy | 해당 없음 | Snappy | Snappy | 아니요 |
 
@@ -189,7 +189,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
     ![Hive 실행 중간 압축](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > 중간 파일을 압축하려면 코덱의 압축 출력이 높지 않더라도 CPU 비용이 낮은 압축 코덱을 선택합니다.
 
 1. 중간 압축 코덱을 설정하려면 사용자 지정 속성 `mapred.map.output.compression.codec`을 `hive-site.xml` 또는 `mapred-site.xml` 파일에 추가합니다.
@@ -210,7 +210,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
     이렇게 하면 Snappy 압축을 사용하여 중간 파일이 압축됩니다. 속성이 추가되면 사용자 지정 hive-site 창에 나타납니다.
 
-    > [!NOTE]
+    > [!NOTE]  
     > 이 프로시저는 `$HADOOP_HOME/conf/hive-site.xml` 파일을 수정합니다.
 
 ### <a name="compress-final-output"></a>압축 최종 출력
@@ -299,7 +299,7 @@ Hive 실행 엔진 최적화를 위한 추가 권장 사항:
 
     ![고급 Pig 속성](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
-> [!NOTE]
+> [!NOTE]  
 > 모든 세션 수준 설정은 `pig.properties` 파일의 속성 값을 재정의합니다.
 
 ### <a name="tune-execution-engine"></a>실행 엔진 조정
@@ -333,7 +333,7 @@ Pig는 UDF에 필요한 JAR 파일을 태스크 노드에서 사용할 수 있�
 
 다음 메모리 설정은 Pig 스크립트 성능을 최적화하는 데 도움이 됩니다.
 
-* `pig.cachedbag.memusage`: bag에 할당된 메모리 양입니다. bag은 튜플의 컬렉션입니다. 튜플은 정렬된 필드 집합이며 필드는 데이터의 일부입니다. bag의 데이터가 할당된 메모리를 초과하면 데이터가 디스크로 유출됩니다. 기본값은 0.2이며, 이것은 사용 가능한 메모리의 20%를 나타냅니다. 이 메모리는 응용 프로그램의 모든 bag에서 공유됩니다.
+* `pig.cachedbag.memusage`: bag에 할당된 메모리 양입니다. bag은 튜플의 컬렉션입니다. 튜플은 정렬된 필드 집합이며 필드는 데이터의 일부입니다. bag의 데이터가 할당된 메모리를 초과하면 데이터가 디스크로 유출됩니다. 기본값은 0.2이며, 이것은 사용 가능한 메모리의 20%를 나타냅니다. 이 메모리는 애플리케이션의 모든 bag에서 공유됩니다.
 
 * `pig.spill.size.threshold`: 이 유출 크기 임계값(바이트 단위)보다 큰 bag은 디스크로 유출됩니다. 기본값은 5MB입니다.
 
@@ -408,7 +408,7 @@ HBase 힙 크기는 *영역* 및 *마스터* 서버에서 사용할 최대 힙 �
 
 ![HBase 페치한 행 수](./media/hdinsight-changing-configs-via-ambari/hbase-num-rows-fetched.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 스캐너에서 다음 메서드 호출 사이의 간격이 스캐너 시간 제한보다 크도록 값을 설정하지 않습니다. 스캐너 시간 제한 기간은 `hbase.regionserver.lease.period` 속성에 의해 정의됩니다.
 
 

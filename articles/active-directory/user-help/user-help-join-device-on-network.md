@@ -3,7 +3,7 @@ title: 조직의 네트워크에 회사 디바이스 가입 - Azure Active Direc
 description: 회사 디바이스를 조직의 네트워크에 가입하는 방법을 알아봅니다.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.component: user-help
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 34d3c12c83aeac7e92aa019abc38d9c4109883bd
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 9a860135d8b8bf5e3e0699e408365c7de9466aef
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40180692"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820396"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>조직의 네트워크에 회사 디바이스 가입
 잠재적으로 제한된 리소스에 액세스할 수 있도록 회사 소유의 Windows 10 디바이스를 조직의 네트워크에 가입합니다.
@@ -75,7 +75,7 @@ ms.locfileid: "40180692"
 
     ![회사 또는 학교 액세스 및 연결 링크](./media/user-help-join-device-on-network/join-device-access-work-school-connect.png)
 
-3. **회사 또는 학교 계정 설정** 화면에서 **Azure Active Directory에 이 장치 가입**을 선택합니다.
+3. **회사 또는 학교 계정 설정** 화면에서 **Azure Active Directory에 이 디바이스 가입**을 선택합니다.
 
     ![회사 또는 학교 계정 설정 화면](./media/user-help-join-device-on-network/join-device-setup-join-aad.png)
 

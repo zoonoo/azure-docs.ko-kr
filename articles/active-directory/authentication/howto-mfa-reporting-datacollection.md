@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 1b380bc20c9f80710ca62672b99649ce3498a8e8
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: dd12acb1212e52eb413dfbf35945cd17902d8db7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223765"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433886"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Azure Multi-Factor Authentication 사용자 데이터 컬렉션
 
@@ -42,7 +42,7 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure MFA AD FS 어댑터는 다�
 - 모바일 앱 모드(표준, PIN)
 - OATH 토큰 모드(표준, PIN)
 - 인증 유형
-- 응용 프로그램 이름
+- 애플리케이션 이름
 - 기본 호출 국가 코드
 - 기본 호출 전화 번호
 - 기본 호출 내선 번호

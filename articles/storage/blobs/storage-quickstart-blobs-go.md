@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: 2939bd5c7b32cc9fe05326ee72dbb7367a72ef7f
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 5bafceca09cfe5a981365a39e4f3803b5865ce73
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711160"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754818"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-go"></a>빠른 시작: Go를 사용하여 BLOB 업로드, 다운로드 및 나열
+# <a name="quickstart-upload-download-and-list-blobs-using-go"></a>빠른 시작: Go를 사용하여 Blob 업로드, 다운로드 및 나열
 
 이 빠른 시작에서 Go 프로그래밍 언어를 사용하여 Azure Blob Storage의 컨테이너에 블록 Blob을 업로드하고, 다운로드하고, 나열하는 방법을 알아봅니다. 
 
@@ -35,10 +35,10 @@ ms.locfileid: "51711160"
     > [!NOTE]
     > URL에서 `Azure`를 대문자로 표시하여 SDK로 작업할 때 대/소문자 관련 가져오기 문제가 발생하지 않도록 합니다. 또한 import 문에서도 `Azure`를 대문자로 표시합니다.
     
-## <a name="download-the-sample-application"></a>샘플 응용 프로그램 다운로드
-이 빠른 시작에서 사용되는 [샘플 응용 프로그램](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git)은 기본 Go 응용 프로그램입니다.  
+## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
+이 빠른 시작에서 사용되는 [샘플 애플리케이션](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git)은 기본 Go 애플리케이션입니다.  
 
-[git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드합니다. 
+[git](https://git-scm.com/)을 사용하여 개발 환경에 애플리케이션 복사본을 다운로드합니다. 
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-go-quickstart 
@@ -51,14 +51,14 @@ git clone https://github.com/Azure-Samples/storage-blobs-go-quickstart
 ## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
 이 솔루션에서는 샘플을 실행하는 컴퓨터에 로컬인 환경 변수에 저장소 계정 이름과 키를 안전하게 저장해야 합니다. 운영 체제에 따라 아래 예제 중 하나를 따라 환경 변수를 만듭니다.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/Linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ```
 export AZURE_STORAGE_ACCOUNT="<youraccountname>"
 export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 ```
 
-# <a name="windowstabwindows"></a>[Windows](#tab/Windows)
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 ```
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
@@ -74,7 +74,7 @@ setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 
 ```go run storage-quickstart.go```
 
-다음 출력은 응용 프로그램 실행 시 반환되는 출력의 예제입니다.
+다음 출력은 애플리케이션 실행 시 반환되는 출력의 예제입니다.
   
 ```
 Azure Blob storage quick start sample
@@ -148,7 +148,7 @@ handleErrors(err)
 
 Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 블록 Blob는 가장 일반적으로 사용되므로 이 빠른 시작 가이드에서도 사용합니다.  
 
-Blob에 파일을 업로드하려면 **os.Open**을 사용하여 파일을 엽니다. 그런 다음, Upload(PutBlob), StageBlock/CommitBlockList(PutBlock/PutBlockList)와 같은 REST API 중 하나를 사용하여 지정된 경로에 파일을 업로드할 수 있습니다. 
+Blob에 파일을 업로드하려면 **os.Open**을 사용하여 파일을 엽니다. 다음 REST API 중 하나를 사용하여 지정된 경로에 파일을 업로드할 수 있습니다. Upload(PutBlob), StageBlock/CommitBlockList(PutBlock/PutBlockList). 
 
 또는 SDK가 하위 수준 REST API를 기반으로 하는 [고급 수준의 API](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go)를 제공합니다. 예를 들어 ***UploadFileToBlockBlob*** 함수는 처리량을 최적화하기 위해 StageBlock(PutBlock) 작업을 사용하여 동시에 청크에서 파일을 업로드합니다. 파일이 256MB보다 작은 경우 대신 Upload(PutBlob)을 사용하여 단일 트랜잭션에서 전송을 완료합니다.
 
@@ -238,7 +238,7 @@ file.Close()
 os.Remove(fileName)
 ```
 
-## <a name="resources-for-developing-go-applications-with-blobs"></a>BLOB을 사용하여 Go 응용 프로그램을 개발하기 위한 리소스
+## <a name="resources-for-developing-go-applications-with-blobs"></a>BLOB을 사용하여 Go 애플리케이션을 개발하기 위한 리소스
 
 BLOB 저장소를 사용하여 Go 응용 프로그램을 개발하기 위한 추가 리소스는 다음과 같습니다.
 

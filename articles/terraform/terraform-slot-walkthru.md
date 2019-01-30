@@ -4,27 +4,27 @@ description: Azure 공급자 배포 슬롯에서 Terraform을 사용하는 방�
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, 가상 머신, Azure, 배포 슬롯
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 4/05/2018
-ms.openlocfilehash: bbd06ae8927e6c21607ac1c997f1e5cf37f092bf
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 1564991ecfe29b1977837c2fdff4be7b3a3e1797
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667239"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074821"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Terraform을 사용하여 Azure 배포 슬롯으로 인프라 프로비전
 
-[Azure 배포 슬롯](/azure/app-service/web-sites-staged-publishing)을 사용하여 여러 다른 앱 버전 간을 전환할 수 있습니다. 이 기능을 사용하면 손상된 배포의 영향을 최소화할 수 있습니다. 
+[Azure 배포 슬롯](/azure/app-service/deploy-staging-slots)을 사용하여 여러 다른 앱 버전 간을 전환할 수 있습니다. 이 기능을 사용하면 손상된 배포의 영향을 최소화할 수 있습니다. 
 
 이 문서에서는 GitHub 및 Azure를 통해 두 개의 앱을 배포하는 과정을 안내하면서 배포 슬롯을 사용하는 예를 보여줍니다. 하나의 앱이 프로덕션 슬롯에 호스트됩니다. 두 번째 앱은 스테이징 슬롯에 호스트됩니다. ("프로덕션" 및 "스테이징"은 임의의 이름이며 시나리오를 나타내는 이름을 원하는 대로 사용할 수 있습니다.) 배포 슬롯을 구성한 후, 필요에 따라 Terraform을 사용하여 두 슬롯 사이를 전환할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
+- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 을 만듭니다.
 
 - **GitHub 계정**: 테스트 GitHub 리포지토리를 포크하고 사용하려면 [GitHub](http://www.github.com) 계정이 필요합니다.
 

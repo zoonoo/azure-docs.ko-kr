@@ -59,7 +59,7 @@ Conversation Learner UI 외부에서 봇을 실행하려면 봇에서 사용할 
 
 ### <a name="configure-your-bot-for-access-outside-the-conversation-learner-ui"></a>Conversation Learner UI 외부에서 액세스할 수 있도록 봇 구성
 
-로컬에서 봇을 실행하는 경우 응용 프로그램 ID를 봇의 `.env` 파일에 추가합니다.
+로컬에서 봇을 실행하는 경우 애플리케이션 ID를 봇의 `.env` 파일에 추가합니다.
 
     ```
     CONVERSATION_LEARNER_MODEL_ID=<YOUR_MODEL_ID>
@@ -109,7 +109,7 @@ Conversation Learner UI 외부에서 봇을 실행하려면 봇에서 사용할 
 
 3. Azure Portal에서 방금 만든 웹앱 봇 리소스를 편집합니다.
 
-    1. 왼쪽에서 “응용 프로그램 설정” 탐색 항목을 클릭합니다.
+    1. 왼쪽에서 “애플리케이션 설정” 탐색 항목을 클릭합니다.
     1. “앱 설정” 섹션까지 아래로 스크롤합니다.
     2. 다음 설정을 추가합니다.
 

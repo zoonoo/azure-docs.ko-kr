@@ -345,7 +345,7 @@ ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
 
 ## <a name="install-open-service-broker-for-azure-osba"></a>OSBA(Open Service Broker for Azure) 설치
 
-Open Service Broker for Azure 또는 OSBA를 사용하여 OpenShift에서 직접 Azure Cloud Services를 프로비전할 수 있습니다. OSBA는 Azure에서 구현된 Open Service Broker API입니다. Open Service Broker API는 클라우드 기본 응용 프로그램이 잠금 없이 클라우드 서비스를 관리하는 데 사용할 수 있는 클라우드 공급자에 대한 공용 언어를 정의하는 사양입니다.
+Open Service Broker for Azure 또는 OSBA를 사용하여 OpenShift에서 직접 Azure Cloud Services를 프로비전할 수 있습니다. OSBA는 Azure에서 구현된 Open Service Broker API입니다. Open Service Broker API는 클라우드 기본 애플리케이션이 잠금 없이 클라우드 서비스를 관리하는 데 사용할 수 있는 클라우드 공급자에 대한 공용 언어를 정의하는 사양입니다.
 
 OpenShift에 OSBA를 설치하려면 https://github.com/Azure/open-service-broker-azure#openshift-project-template의 지침을 따르세요. 
 

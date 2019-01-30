@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: 76a164ffcf918ebedcf4647f24a61ca3a271e967
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.reviewer: jiahan
+ms.lastreviewed: 01/11/2019
+ms.openlocfilehash: fdc75f169ebd4b85e5e413277c265922fb27dfdb
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361918"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239726"
 ---
 # <a name="mysql-resource-provider-maintenance-operations"></a>MySQL 리소스 공급자 유지 관리 작업
 
@@ -150,7 +151,7 @@ SQL 및 MySQL 리소스 공급자를 사용 하 여 Azure Stack을 사용 하 �
 
 ```
 
-### <a name="secretrotationmysqlproviderps1-parameters"></a>SecretRotationMySQLProvider.ps1 매개 변수
+### <a name="secretrotationmysqlproviderps1-parameters"></a>SecretRotationMySQLProvider.ps1 parameters
 
 |매개 변수|설명|
 |-----|-----|
@@ -175,9 +176,9 @@ SQL 및 MySQL 리소스 공급자를 사용 하 여 Azure Stack을 사용 하 �
 
 잠긴된 가상 컴퓨터에서 로그를 수집 하려면 DBAdapterDiagnostics PowerShell 관리 JEA (Just Enough) 끝점을 사용할 수 있습니다. 이 끝점에는 다음 명령을 제공합니다.
 
-- **Get-AzsDBAdapterLog**합니다. 이 명령은 리소스 공급자 진단 로그의 zip 패키지를 만들고 세션의 사용자 드라이브에 파일을 저장 합니다. 매개 변수 없이이 명령을 실행할 수 있습니다 하 고 로그의 마지막 4 시간 수집 됩니다.
+- **Get-AzsDBAdapterLog**. 이 명령은 리소스 공급자 진단 로그의 zip 패키지를 만들고 세션의 사용자 드라이브에 파일을 저장 합니다. 매개 변수 없이이 명령을 실행할 수 있습니다 하 고 로그의 마지막 4 시간 수집 됩니다.
 
-- **제거-AzsDBAdapterLog**합니다. 이 명령은 리소스 공급자 VM에서 기존 로그 패키지를 제거합니다.
+- **Remove-AzsDBAdapterLog**. 이 명령은 리소스 공급자 VM에서 기존 로그 패키지를 제거합니다.
 
 ### <a name="endpoint-requirements-and-process"></a>끝점의 요구 사항 및 프로세스
 

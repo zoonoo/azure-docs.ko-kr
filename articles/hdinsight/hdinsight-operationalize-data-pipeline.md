@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 9057d9f5d63598ea249e8f3193b84fd715018829
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 175fdcc1bf8d28c0eeb6eeccaa54c996c837ef81
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109974"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744448"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>데이터 분석 파이프라인 운영
 
@@ -30,13 +30,13 @@ ms.locfileid: "43109974"
 | 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6.935409 | -2.1893024 | 1909696 |
 
-이 예제 파이프라인은 새로운 시간 간격의 비행 데이터가 도착할 때까지 기다렸다가, 장기적인 분석을 위해 자세한 비행 정보를 Hive 데이터 웨어하우스에 저장합니다. 또한 이 파이프라인은 일별 비행 데이터만 요약하는 훨씬 더 작은 데이터 세트도 만듭니다. 이 일별 비행 요약 데이터는 웹 사이트용과 같은 보고서를 제공하기 위해 SQL Database로 전송됩니다.
+이 예제 파이프라인은 새로운 시간 간격의 비행 데이터가 도착할 때까지 기다렸다가, 장기적인 분석을 위해 자세한 비행 정보를 Apache Hive 데이터 웨어하우스에 저장합니다. 또한 이 파이프라인은 일별 비행 데이터만 요약하는 훨씬 더 작은 데이터 세트도 만듭니다. 이 일별 비행 요약 데이터는 웹 사이트용과 같은 보고서를 제공하기 위해 SQL Database로 전송됩니다.
 
 아래 다이어그램은 이 예제 파이프라인을 보여 줍니다.
 
 ![비행 데이터 파이프라인](./media/hdinsight-operationalize-data-pipeline/pipeline-overview.png)
 
-## <a name="oozie-solution-overview"></a>Oozie 솔루션 개요
+## <a name="apache-oozie-solution-overview"></a>Apache Oozie 솔루션 개요
 
 이 파이프라인은 HDInsight Hadoop 클러스터에서 실행되는 Apache Oozie를 사용합니다.
 
@@ -139,7 +139,7 @@ Oozie는 *작업*, *워크플로* 및 *코디네이터*의 측면에서 해당 �
 
 Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스의 상태를 보려면 HDInsight 클러스터에 대한 SSH 터널을 설정합니다. 자세한 내용은 [SSH 터널](hdinsight-linux-ambari-ssh-tunnel.md)을 참조하세요.
 
-> [!NOTE]
+> [!NOTE]  
 > [Foxy Proxy](https://getfoxyproxy.org/) 확장에서 Chrome을 사용하여 SSH 터널에서 클러스터의 웹 리소스를 검색할 수도 있습니다. 터널 포트 9876의 호스트 `localhost`를 통해 모든 요청을 프록시하도록 구성합니다. 이 방법은 Windows 10의 Bash라고도 하는 Linux용 Windows 하위 시스템과 호환됩니다.
 
 1. 다음 명령을 실행하여 클러스터에 대한 SSH 터널을 엽니다.
@@ -156,7 +156,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
 
 ### <a name="configure-hive"></a>Hive 구성
 
-1. 1개월 동안의 비행 데이터를 포함하는 예제 CSV 파일을 다운로드합니다. 해당 ZIP 파일 `2017-01-FlightData.zip`을 [HDInsight Github 리포지토리](https://github.com/hdinsight/hdinsight-dev-guide)에서 다운로드한 후 CSV 파일 `2017-01-FlightData.csv`로 압축을 풉니다. 
+1. 1개월 동안의 비행 데이터를 포함하는 예제 CSV 파일을 다운로드합니다. 해당 ZIP 파일 `2017-01-FlightData.zip`을 [HDInsight GitHub 리포지토리](https://github.com/hdinsight/hdinsight-dev-guide)에서 다운로드한 후 CSV 파일 `2017-01-FlightData.csv`로 압축을 풉니다. 
 
 2. HDInsight 클러스터에 연결된 Azure Storage 계정으로 이 CSV 파일을 복사한 후 `/example/data/flights` 폴더에 배치합니다.
 
@@ -168,7 +168,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
     scp ./2017-01-FlightData.csv sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net:2017-01-FlightData.csv
     ```
 
-2. HDFS 명령을 사용하여 헤드 노드 로컬 저장소에서 Azure Storage로 파일을 복사합니다.
+2. HDFS 명령을 사용하여 헤드 노드 로컬 스토리지에서 Azure Storage로 파일을 복사합니다.
 
     ```bash
     hdfs dfs -put ./2017-01-FlightData.csv /example/data/flights/2017-01-FlightData.csv
@@ -430,7 +430,7 @@ day=03
 | month | 항공편 요약이 계산되는 날짜의 월 구성 요소입니다. 있는 그대로 둡니다. |
 | 일 | 항공편 요약이 계산되는 날짜의 일 구성 요소입니다. 있는 그대로 둡니다. |
 
-> [!NOTE]
+> [!NOTE]  
 > Oozie 워크플로를 배포 및 실행하기 전에 `job.properties` 파일 복사본을 사용자 환경의 고유한 값으로 업데이트해야 합니다.
 
 ### <a name="deploy-and-run-the-oozie-workflow"></a>Oozie 워크플로 배포 및 실행
@@ -551,7 +551,7 @@ bash 세션의 SCP를 사용하여 Oozie 워크플로(`workflow.xml`), Hive 쿼�
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
     ```
 
-    코디네이터는 `frequency` 특성으로 지정된 간격에 따라, `start` 및 `end` 데이터 범위 내에서 작업을 예약합니다. 예약된 각 작업은 구성된 대로 워크플로를 다시 실행합니다. 위의 코디네이터 정의에서, 코디네이터는 2017년 1월 1일부터 2017년 1월 5일까지 작업을 실행하도록 구성되어 있습니다. 주기는 [Oozie 식 언어](http://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) 주기 식 `${coord:days(1)}`에 의해 1일로 설정됩니다. 이로 인해 코디네이터는 작업(및 워크플로)이 하루에 1번 실행되도록 예약합니다. 이 예제에서와 같이, 이전 날짜 범위에서는 작업이 지연 없이 실행되도록 예약됩니다. 작업이 실행되도록 예약된 날짜 시작을 *명목 시간*이라고 합니다. 예를 들어, 2017년 1월 1일의 데이터를 처리하기 위해 코디네이터는 명목 시간 2017-01-01T00:00:00 GMT를 사용해서 작업을 예약합니다.
+    코디네이터는 `frequency` 특성으로 지정된 간격에 따라, `start` 및 `end` 데이터 범위 내에서 작업을 예약합니다. 예약된 각 작업은 구성된 대로 워크플로를 다시 실행합니다. 위의 코디네이터 정의에서, 코디네이터는 2017년 1월 1일부터 2017년 1월 5일까지 작업을 실행하도록 구성되어 있습니다. 주기는 [Oozie 식 언어](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) 주기 식 `${coord:days(1)}`에 의해 1일로 설정됩니다. 이로 인해 코디네이터는 작업(및 워크플로)이 하루에 1번 실행되도록 예약합니다. 이 예제에서와 같이, 이전 날짜 범위에서는 작업이 지연 없이 실행되도록 예약됩니다. 작업이 실행되도록 예약된 날짜 시작을 *명목 시간*이라고 합니다. 예를 들어, 2017년 1월 1일의 데이터를 처리하기 위해 코디네이터는 명목 시간 2017-01-01T00:00:00 GMT를 사용해서 작업을 예약합니다.
 
 * 핵심 사항 2: 워크플로의 날짜 범위 내에서 `dataset` 요소는 HDFS에서 특정 날짜 범위의 데이터를 조회할 위치를 지정하고, Oozie가 처리를 위해 해당 데이터를 사용할 수 있는지 여부를 확인하는 방법을 구성합니다.
 
@@ -651,6 +651,6 @@ sqlDatabaseTableName=dailyflights
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Apache Oozie 설명서](http://oozie.apache.org/docs/4.2.0/index.html)
+* [Apache Oozie 설명서](https://oozie.apache.org/docs/4.2.0/index.html)
 
 <!-- * Build the same pipeline [using Azure Data Factory](tbd.md).  -->

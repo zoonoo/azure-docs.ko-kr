@@ -1,27 +1,8 @@
 ---
-title: '2단계: Machine Learning Studio 실험에 데이터 업로드 - Azure | Microsoft Docs'
-description: '예측 솔루션 연습 개발의 2단계: Azure Machine Learning Studio로 저장된 공용 데이터를 업로드합니다.'
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
-editor: cgronlun
-ms.assetid: 9f4bc52e-9919-4dea-90ea-5cf7cc506d85
-ms.service: machine-learning
-ms.component: studio
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/23/2017
-ms.openlocfilehash: 0dc39d42e1ad7cc955b0bdc91d9a4c5cb49a2f2e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311979"
+제목: '2단계: Machine Learning Studio 실험에 데이터 업로드' titleSuffix: Azure Machine Learning Studio 설명: '예측 솔루션 개발 연습의 2단계: Azure Machine Learning Studio에 저장된 공용 데이터 업로드'
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 2017/03/23
 ---
 # <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-studio-experiment"></a>연습 2단계: Azure Machine Learning Studio 실험에 기존 데이터 업로드
 [Azure Machine Learning에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)
@@ -39,7 +20,7 @@ ms.locfileid: "52311979"
 
 여기서는 **german.data**라는 파일을 사용합니다. 로컬 하드 드라이브로 이 파일을 다운로드하세요.  
 
-**german.data** 데이터 집합에는 지난 1000명의 신용대출 신청자에 대한 20개 변수 행이 포함되어 있습니다. 이러한 20개 변수는 각 대출 신청자에 대한 특성을 파악하는 기능의 데이터 세트(*기능 벡터*)를 나타냅니다. 각 행의 추가 열은 신청자의 계산된 신용 위험을 나타내며, 700명의 신청자는 신용 위험이 낮은 것으로, 300명의 신청자는 위험이 높은 것으로 파악되었습니다.
+**german.data** 데이터 세트에는 지난 1000명의 신용대출 신청자에 대한 20개 변수 행이 포함되어 있습니다. 이러한 20개 변수는 각 대출 신청자에 대한 특성을 파악하는 기능의 데이터 세트(*기능 벡터*)를 나타냅니다. 각 행의 추가 열은 신청자의 계산된 신용 위험을 나타내며, 700명의 신청자는 신용 위험이 낮은 것으로, 300명의 신청자는 위험이 높은 것으로 파악되었습니다.
 
 UCI 웹 사이트에서는 이 데이터에 대한 기능 벡터의 특성을 설명합니다. 여기에는 재무 정보, 신용 기록, 고용 상태 및 개인 정보가 포함됩니다. 각 지원자에 대해 신용 위험이 낮은지 아니면 높은지 여부를 나타내는 이진 등급이 제공되었습니다. 
 
@@ -75,13 +56,13 @@ UCI 웹 사이트에서는 이 데이터에 대한 기능 벡터의 특성을 �
 
 3. 창 아래쪽에서 **+새로 만들기** 를 클릭합니다.
 
-4. **데이터 집합**을 선택합니다.
+4. **데이터 세트**를 선택합니다.
 
 5. **로컬 파일에서**를 선택합니다.
 
     ![로컬 파일에서 데이터 세트 추가][2]
 
-6. **새 데이터 집합 업로드** 대화 상자에서 **찾아보기**를 클릭하여 앞서 만든 **german.csv** 파일을 찾습니다.
+6. **새 데이터 세트 업로드** 대화 상자에서 **찾아보기**를 클릭하여 앞서 만든 **german.csv** 파일을 찾습니다.
 
 7. 데이터 세트의 이름을 입력합니다. 이 연습에서는 데이터 집합을 "UCI 독일 신용 카드 데이터"라고 합니다.
 
@@ -101,7 +82,7 @@ UCI 웹 사이트에서는 이 데이터에 대한 기능 벡터의 특성을 �
 
 다른 데이터 형식을 실험으로 가져오는 방법에 대한 자세한 내용은 [Azure Machine Learning Studio로 학습 데이터 가져오기](import-data.md)를 참조하세요.
 
-**다음 단계: [새 실험 만들기](walkthrough-3-create-new-experiment.md)**
+**다음: [새 실험 만들기](walkthrough-3-create-new-experiment.md)**
 
 [1]: media/walkthrough-2-upload-data/menu.png
 [2]: media/walkthrough-2-upload-data/add-dataset.png

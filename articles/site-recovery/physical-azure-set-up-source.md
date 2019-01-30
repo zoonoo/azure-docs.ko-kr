@@ -2,17 +2,18 @@
 title: Azure Site Recovery를 사용하여 Azure에 물리적 서버를 재해 복구하기 위해 구성 서버 설정 | Microsoft Docs
 description: 이 문서에서는 Azure에 온-프레미스 물리적 서버를 재해 복구하기 위해 온-프레미스 구성 서버를 설정하는 방법을 설명합니다.
 services: site-recovery
-author: rayne-wiselman
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
-ms.author: raynew
-ms.openlocfilehash: 739129045fab72a9b535be25b853c902c7dbd251
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 11/27/2018
+ms.author: ramamill
+ms.openlocfilehash: 2e5b90f36a6dc5c88db3f6f449c911d22de680b1
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209550"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976803"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Azure에 물리적 서버를 재해 복구하기 위해 구성 서버 설정
 

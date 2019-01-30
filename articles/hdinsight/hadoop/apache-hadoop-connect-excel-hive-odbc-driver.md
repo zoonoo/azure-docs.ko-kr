@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 09642aba1cd0daa05e56e418330f21361d9263a2
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 963e34ae9327b7b124d47f4223de8d6ab2082fbf
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632512"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437013"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Microsoft Hive ODBC 드라이버로 Azure HDInsight의 Apache Hadoop에 Excel 연결
 
@@ -37,7 +37,7 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
 ## <a name="install-microsoft-hive-odbc-driver"></a>Microsoft Hive ODBC 드라이버 설치
 [다운로드 센터][hive-odbc-driver-download]에서 Microsoft Hive ODBC 드라이버를 다운로드하고 설치합니다.
 
-이 드라이버는 32비트 또는 64비트 버전의 Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 및 Windows Server 2012에 설치할 수 있습니다. 이 드라이버를 사용하여 Azure HDInsight에 연결할 수 있습니다. ODBC 드라이버를 사용하는 응용 프로그램 버전에 맞는 버전을 설치해야 합니다. 이 자습서에서는 Office Excel에서 드라이버를 사용합니다.
+이 드라이버는 32비트 또는 64비트 버전의 Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 및 Windows Server 2012에 설치할 수 있습니다. 이 드라이버를 사용하여 Azure HDInsight에 연결할 수 있습니다. ODBC 드라이버를 사용하는 애플리케이션 버전에 맞는 버전을 설치해야 합니다. 이 자습서에서는 Office Excel에서 드라이버를 사용합니다.
 
 ## <a name="create-apache-hive-odbc-data-source"></a>Apache Hive ODBC 데이터 원본 만들기
 다음 단계에 따라 Hive ODBC 데이터 원본을 만들 수 있습니다.
@@ -94,11 +94,11 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Microsoft Hive ODBC 드라이버를 사용하여 HDInsight Service에서 Excel로 데이터를 가져오는 방법을 알아보았습니다. 마찬가지로 HDInsight Service에서 SQL Database로 데이터를 가져올 수 있습니다. 데이터를 HDInsight Service에 업로드할 수도 있습니다. 자세한 내용은 다음을 참조하세요.
 
-* [Azure HDInsight에서 Microsoft Power BI를 사용하여 Hive 데이터 시각화](apache-hadoop-connect-hive-power-bi.md)
+* [Azure HDInsight에서 Microsoft Power BI를 사용하여 Apache Hive 데이터 시각화](apache-hadoop-connect-hive-power-bi.md)
 * [Azure HDInsight에서 Power BI를 사용하여 대화형 쿼리 Hive 데이터 시각화](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
-* [Azure HDInsight에서 Zeppelin을 사용하여 Hive 쿼리 실행](./../hdinsight-connect-hive-zeppelin.md)
-* [파워 쿼리를 사용하여 Hadoop에 Excel 연결](apache-hadoop-connect-excel-power-query.md)
-* [Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결하고 Hive 쿼리 실행](apache-hadoop-visual-studio-tools-get-started.md)
+* [Azure HDInsight에서 Apache Zeppelin을 사용하여 Apache Hive 쿼리 실행](./../hdinsight-connect-hive-zeppelin.md)
+* [파워 쿼리를 사용하여 Apache Hadoop에 Excel 연결](apache-hadoop-connect-excel-power-query.md)
+* [Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 및 Apache Hive 쿼리 실행](apache-hadoop-visual-studio-tools-get-started.md)
 * [Azure HDInsight Tool for Visual Studio Code 사용](../hdinsight-for-vscode.md)
 * [HDInsight에 데이터 업로드](./../hdinsight-upload-data.md)
 
@@ -107,6 +107,6 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
 [hdinsight-use-hive]:hdinsight-use-hive.md
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query.md
-[hive-odbc-driver-download]: http://go.microsoft.com/fwlink/?LinkID=286698
+[hive-odbc-driver-download]: https://go.microsoft.com/fwlink/?LinkID=286698
 
 

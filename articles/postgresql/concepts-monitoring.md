@@ -1,19 +1,17 @@
 ---
 title: Azure Database for PostgreSQL의 모니터링 및 튜닝
 description: 이 문서에서는 Azure Database for PostgreSQL의 모니터링 및 튜닝 기능을 설명합니다.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: 8ad7369bc940f682bb7c11c3ed4e3444f1bb056a
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: c412ace453eb37646654375454d80a5c4e8dc3a6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035087"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540914"
 ---
 # <a name="monitor-and-tune"></a>모니터링 및 튜닝
 서버에 대한 데이터를 모니터링하면 워크로드에 대한 문제를 해결하고 최적화할 수 있습니다. Azure Database for PostgreSQL은 서버 동작에 대한 인사이트를 제공하기 위해 다양한 모니터링 옵션을 제공합니다.
@@ -42,7 +40,7 @@ Azure Database for PostgreSQL에서는 다음 메트릭을 사용할 수 있습�
 |backup_storage_used|사용된 백업 스토리지|바이트|사용된 백업 스토리지 양.|
 
 ## <a name="server-logs"></a>서버 로그
-서버에서 로그를 사용하도록 설정할 수 있습니다. 또한 이러한 로그는 [Log Analytics](../log-analytics/log-analytics-queries.md), Event Hubs 및 저장소 계정에서 Azure 진단 로그를 통해 사용할 수 있습니다. 로깅에 대한 자세한 내용은 [서버 로그](concepts-server-logs.md) 페이지를 참조하세요.
+서버에서 로그를 사용하도록 설정할 수 있습니다. 또한 이러한 로그는 [Log Analytics](../azure-monitor/log-query/log-query-overview.md), Event Hubs 및 저장소 계정에서 Azure 진단 로그를 통해 사용할 수 있습니다. 로깅에 대한 자세한 내용은 [서버 로그](concepts-server-logs.md) 페이지를 참조하세요.
 
 ## <a name="query-store"></a>쿼리 저장소
 [쿼리 저장소](concepts-query-store.md)는 쿼리 런타임 통계 및 대기 이벤트를 포함하여 시간 경과에 따라 쿼리 성능을 추적하는 공개 미리 보기 기능입니다. 이 기능은 query_store 스키마 아래의 **azure_sys**라는 시스템 데이터베이스에서 쿼리 런타임 성능 정보를 유지합니다. 데이터 수집 및 저장은 다양한 구성 노브를 통해 제어할 수 있습니다.

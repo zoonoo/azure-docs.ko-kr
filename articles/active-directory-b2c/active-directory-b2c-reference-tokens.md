@@ -3,19 +3,19 @@ title: Azure Active Directory B2C에서 토큰 참조 | Microsoft Docs
 description: Azure Active Directory B2C에서 발급된 토큰의 형식입니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5ff4ddee3d8af15caf082be56a51b1aa0d36f02a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 47cfd5820c80a0f53772f5424f674603acdaf18d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339980"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848940"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: 토큰 참조
 
@@ -30,13 +30,13 @@ Azure AD B2C는 액세스 토큰 및 새로 고침 토큰 둘 다를 활용하�
 
 전달자 토큰이 보안 채널 밖으로 전송되는 경우 악의적인 당사자가 메시지 가로채기(man-in-the-middle) 공격으로 토큰을 획득하고 이를 사용하여 보호된 리소스에 무단으로 액세스할 수 있습니다. 나중에 사용하기 위해 전달자 토큰을 저장하거나 캐싱할 때 동일한 보안 원칙이 적용됩니다. 항상 앱이 안전한 방식으로 전달자 토큰을 전송하고 저장하도록 합니다.
 
-전달자 토큰의 보안 고려 사항을 자세히 알아보려면 [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750)를 참조하세요.
+전달자 토큰의 보안 고려 사항을 자세히 알아보려면 [RFC 6750 Section 5](https://tools.ietf.org/html/rfc6750)를 참조하세요.
 
-Azure AD B2C에서 발급된 토큰은 대부분 JSON 웹 토큰(JWT)으로 구현됩니다. JWT는 두 요소 간에 정보를 전송하는 URL로부터 안전한 간단한 수단입니다. JWT는 클레임이라고 하는 정보를 포함합니다. 이들은 토큰의 주체 및 전달자에 대한 정보의 어설션입니다. JWT의 클레임은 전송을 위해 인코드 및 직렬화된 JSON 개체입니다. Azure AD B2C에서 발급된 JWT가 서명되었지만 암호화되지 않았으므로 디버깅을 위해 JWT의 내용을 쉽게 검사할 수 있습니다. 이 작업을 수행하는 데 [jwt.ms](https://jwt.ms)를 포함하여 여러 도구를 사용할 수 있습니다. JWT에 대한 자세한 내용은 [JWT 사양](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)을 참조하세요.
+Azure AD B2C에서 발급된 토큰은 대부분 JSON 웹 토큰(JWT)으로 구현됩니다. JWT는 두 요소 간에 정보를 전송하는 URL로부터 안전한 간단한 수단입니다. JWT는 클레임이라고 하는 정보를 포함합니다. 이들은 토큰의 주체 및 전달자에 대한 정보의 어설션입니다. JWT의 클레임은 전송을 위해 인코드 및 직렬화된 JSON 개체입니다. Azure AD B2C에서 발급된 JWT가 서명되었지만 암호화되지 않았으므로 디버깅을 위해 JWT의 내용을 쉽게 검사할 수 있습니다. 이 작업을 수행하는 데 [jwt.ms](https://jwt.ms)를 포함하여 여러 도구를 사용할 수 있습니다. JWT에 대한 자세한 내용은 [JWT 사양](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)을 참조하세요.
 
 ### <a name="id-tokens"></a>ID 토큰
 
-ID 토큰은 Azure AD B2C `/authorize` 및 `/token` 엔드포인트에서 앱이 수신하는 보안 토큰의 형태입니다. ID 토큰은 [JWT](#types-of-tokens)로 표시되며 사용자를 앱에서 식별하는 데 사용할 수 있는 클레임을 포함합니다. `/authorize` 엔드포인트에서 ID 토큰을 획득하는 경우 JavaScript 기반 웹 응용 프로그램에 로그인하는 사용자가 자주 사용하는 [암시적 흐름](active-directory-b2c-reference-spa.md)을 사용하도록 합니다. `/token` 엔드포인트에서 ID 토큰을 획득하는 경우 브라우저에서 숨겨진 토큰을 유지하는 [기밀 코드 흐름](active-directory-b2c-reference-oidc.md)을 사용하도록 합니다. 이렇게 하면 토큰을 동일한 응용 프로그램 또는 서비스의 두 구성 요소 간의 통신에 대한 HTTP 요청에 안전하게 보낼 수 있습니다. 필요에 따라 ID 토큰에서 클레임을 사용할 수 있습니다. 계정 정보를 표시하거나 앱에서 액세스 제어를 결정할 수 있도록 하는 데 일반적으로 사용됩니다.  
+ID 토큰은 Azure AD B2C `/authorize` 및 `/token` 엔드포인트에서 앱이 수신하는 보안 토큰의 형태입니다. ID 토큰은 [JWT](#types-of-tokens)로 표시되며 사용자를 앱에서 식별하는 데 사용할 수 있는 클레임을 포함합니다. `/authorize` 엔드포인트에서 ID 토큰을 획득하는 경우 JavaScript 기반 웹 애플리케이션에 로그인하는 사용자가 자주 사용하는 [암시적 흐름](active-directory-b2c-reference-spa.md)을 사용하도록 합니다. `/token` 엔드포인트에서 ID 토큰을 획득하는 경우 브라우저에서 숨겨진 토큰을 유지하는 [기밀 코드 흐름](active-directory-b2c-reference-oidc.md)을 사용하도록 합니다. 이렇게 하면 토큰을 동일한 애플리케이션 또는 서비스의 두 구성 요소 간의 통신에 대한 HTTP 요청에 안전하게 보낼 수 있습니다. 필요에 따라 ID 토큰에서 클레임을 사용할 수 있습니다. 계정 정보를 표시하거나 앱에서 액세스 제어를 결정할 수 있도록 하는 데 일반적으로 사용됩니다.  
 
 ID 토큰은 서명되어 있지만, 현재 암호화되지 않습니다. 앱 또는 API에서 ID 토큰을 받으면 [서명의 유효성을 검사](#token-validation) 하여 토큰이 인증되었음을 증명해야 합니다. 앱 또는 API도 토큰에서도 일부 클레임의 유효성을 검사하여 유효하다는 것을 입증해야 합니다. 앱에서 유효성을 검사하는 클레임은 시나리오 요구 사항에 따라 다를 수 있지만 앱은 모든 시나리오에서 몇 가지 [일반적인 클레임 유효성 검사](#token-validation) 를 수행해야 합니다.
 
@@ -66,20 +66,20 @@ API에서 액세스 토큰을 받으면 [서명의 유효성을 검사](#token-v
 
 ### <a name="claims-in-id-and-access-tokens"></a>ID 및 액세스 토큰의 클레임
 
-Azure AD B2C를 사용하는 경우 토큰의 내용에 대해 정교하게 세분화된 조정을 해야 합니다. [정책](active-directory-b2c-reference-policies.md) 을 구성하여 해당 작업에 대해 앱이 필요한 클레임에서 사용자 데이터의 특정 집합을 전송할 수 있습니다. 이러한 클레임은 사용자의 `displayName` 및 `emailAddress`와 같은 표준 속성을 포함할 수 있습니다. 또한 B2C 디렉터리에서 정의할 수 있는 [사용자 지정 특성](active-directory-b2c-reference-custom-attr.md) 도 포함할 수 있습니다. 받는 모든 ID 및 액세스 토큰에는 보안 관련 클레임의 특정 집합이 포함되어 있습니다. 응용 프로그램에서 이러한 클레임을 사용하여 사용자 및 요청을 안전하게 인증할 수 있습니다.
+Azure AD B2C를 사용하는 경우 토큰의 내용에 대해 정교하게 세분화된 조정을 해야 합니다. [사용자 흐름](active-directory-b2c-reference-policies.md) 및 사용자 지정 정책을 구성하여 해당 작업에 대해 앱이 필요한 클레임에서 사용자 데이터의 특정 집합을 전송할 수 있습니다. 이러한 클레임은 사용자의 `displayName` 및 `emailAddress`와 같은 표준 속성을 포함할 수 있습니다. 또한 B2C 디렉터리에서 정의할 수 있는 [사용자 지정 특성](active-directory-b2c-reference-custom-attr.md) 도 포함할 수 있습니다. 받는 모든 ID 및 액세스 토큰에는 보안 관련 클레임의 특정 집합이 포함되어 있습니다. 애플리케이션에서 이러한 클레임을 사용하여 사용자 및 요청을 안전하게 인증할 수 있습니다.
 
-ID 토큰에 있는 클레임은 특정 순서로 반환되지 않습니다. 또한 언제든지 새 클레임을 ID 토큰에 도입할 수 있습니다. 새 클레임이 도입되므로 앱을 해제하지 말아야 합니다. 다음은 Azure AD B2C에서 발급하는 ID 및 액세스 토큰에 있어야 하는 클레임입니다. 모든 추가 클레임은 정책에 따라 결정됩니다. 연습을 위해 샘플 ID 토큰에 있는 클레임을 [jwt.ms](https://jwt.ms)에 붙여넣어 검사하세요. 자세한 내용은 [OpenID Connect 사양](http://openid.net/specs/openid-connect-core-1_0.html)에서 확인할 수 있습니다.
+ID 토큰에 있는 클레임은 특정 순서로 반환되지 않습니다. 또한 언제든지 새 클레임을 ID 토큰에 도입할 수 있습니다. 새 클레임이 도입되므로 앱을 해제하지 말아야 합니다. 다음은 Azure AD B2C에서 발급하는 ID 및 액세스 토큰에 있어야 하는 클레임입니다. 모든 추가 클레임은 정책에 따라 결정됩니다. 연습을 위해 샘플 ID 토큰에 있는 클레임을 [jwt.ms](https://jwt.ms)에 붙여넣어 검사하세요. 자세한 내용은 [OpenID Connect 사양](https://openid.net/specs/openid-connect-core-1_0.html)에서 확인할 수 있습니다.
 
-| Name | 클레임 | 예제 값 | 설명 |
+| 이름 | 클레임 | 예제 값 | 설명 |
 | --- | --- | --- | --- |
-| 대상 |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |대상 클레임은 토큰의 의도된 수신자를 식별합니다. Azure AD B2C의 경우 대상은 앱 등록 포털에서 앱에 할당된 앱의 응용 프로그램 ID입니다. 앱은 이 값의 유효성을 검사하고 일치하지 않을 경우 토큰을 거부해야 합니다. 대상은 리소스와 동의어입니다. |
+| 대상 |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |대상 클레임은 토큰의 의도된 수신자를 식별합니다. Azure AD B2C의 경우 대상은 앱 등록 포털에서 앱에 할당된 앱의 애플리케이션 ID입니다. 앱은 이 값의 유효성을 검사하고 일치하지 않을 경우 토큰을 거부해야 합니다. 대상은 리소스와 동의어입니다. |
 | 발급자 |`iss` |`https://{tenantname}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |이 클레임은 토큰을 생성하고 반환하는 STS(보안 토큰 서비스)를 식별합니다. 또한 사용자가 인증하는 Azure AD 디렉터리도 식별합니다. 앱에서 발급자 클레임의 유효성을 검사하여 Azure Active Directory v2.0 엔드포인트에서 제공한 토큰인지 확인해야 합니다. |
 | 발급 시간 |`iat` |`1438535543` |이 클레임은 epoch 시간으로 표시된, 토큰이 발급된 시간입니다. |
 | 만료 시간 |`exp` |`1438539443` |만료 시간 클레임은 epoch 시간으로 표시된, 토큰이 무효화되는 시간입니다. 앱은 이 클레임을 사용하여 토큰 수명의 유효성을 확인해야 합니다. |
 | 이전이 아님 |`nbf` |`1438535543` |이 클레임은 epoch 시간으로 표시된, 토큰이 유효화되는 시간입니다. 일반적으로 토큰이 발급된 시간과 같습니다. 앱은 이 클레임을 사용하여 토큰 수명의 유효성을 확인해야 합니다. |
 | 버전 |`ver` |`1.0` |Azure AD에서 정의된 ID 토큰의 버전입니다. |
-| 코드 해시 |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |코드 해시는 OAuth 2.0 인증 코드와 함께 토큰이 발급된 경우에만 ID 토큰에 포함됩니다. 코드 해시는 인증 코드의 신뢰성이 유효한지 검사하는 데 사용할 수 있습니다. 이 유효성 검사를 수행하는 방법에 대한 자세한 내용은 [OpenID Connect 사양](http://openid.net/specs/openid-connect-core-1_0.html)을 참조하세요.  |
-| 액세스 토큰 해시 |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |액세스 토큰 해시는 OAuth 2.0 액세스 토큰과 함께 토큰이 발급된 경우에만 ID 토큰에 포함됩니다. 액세스 토큰 해시는 액세스 토큰의 신뢰성이 유효한지 검사하는 데 사용할 수 있습니다. 이 유효성 검사를 수행하는 방법에 대한 자세한 내용은 [OpenID Connect 사양](http://openid.net/specs/openid-connect-core-1_0.html)을 참조하세요.  |
+| 코드 해시 |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |코드 해시는 OAuth 2.0 인증 코드와 함께 토큰이 발급된 경우에만 ID 토큰에 포함됩니다. 코드 해시는 인증 코드의 신뢰성이 유효한지 검사하는 데 사용할 수 있습니다. 이 유효성 검사를 수행하는 방법에 대한 자세한 내용은 [OpenID Connect 사양](https://openid.net/specs/openid-connect-core-1_0.html)을 참조하세요.  |
+| 액세스 토큰 해시 |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |액세스 토큰 해시는 OAuth 2.0 액세스 토큰과 함께 토큰이 발급된 경우에만 ID 토큰에 포함됩니다. 액세스 토큰 해시는 액세스 토큰의 신뢰성이 유효한지 검사하는 데 사용할 수 있습니다. 이 유효성 검사를 수행하는 방법에 대한 자세한 내용은 [OpenID Connect 사양](https://openid.net/specs/openid-connect-core-1_0.html)을 참조하세요.  |
 | nonce |`nonce` |`12345` |nonce는 토큰 재생 공격을 완화하는 데 사용된 전략입니다. 앱은 `nonce` 쿼리 매개 변수를 사용하여 권한 부여 요청에 nonce를 지정할 수 있습니다. 요청에 제공한 값은 수정되지 않고 ID 토큰 만의 `nonce` 클레임에 내보내집니다. 따라서 앱이 지정된 ID 토큰과 앱 세션을 연결하는 요청에 지정된 값과 비교하여 값을 확인할 수 있습니다. 앱은 ID 토큰 유효성 검사 프로세스 중에 이 유효성 검사를 수행해야 합니다. |
 | 제목 |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |토큰에서 앱 사용자와 같은 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 예를 들어 리소스 액세스에 토큰을 사용할 때 이 값을 사용하면 안전하게 인증 검사를 수행할 수 있습니다. 기본적으로 주체 클레임은 디렉터리에 있는 사용자의 개체 ID로 채워집니다. 자세한 내용은 [Azure Active Directory B2C: 토큰, 세션 및 Single Sign-On 구성](active-directory-b2c-token-session-sso.md)을 참조하세요. |
 | 인증 컨텍스트 클래스 참조 |`acr` |해당 없음 |이전 정책의 경우를 제외하고는 현재 사용되지 않습니다. 자세한 내용은 [Azure Active Directory B2C: 토큰, 세션 및 Single Sign-On 구성](active-directory-b2c-token-session-sso.md)을 참조하세요. |
@@ -89,7 +89,7 @@ ID 토큰에 있는 클레임은 특정 순서로 반환되지 않습니다. 또
 ### <a name="refresh-tokens"></a>새로 고침 토큰
 새로 고침 토큰은 앱이 OAuth 2.0 흐름에서 새 ID 토큰 및 액세스 토큰을 획득하는 데 사용할 수 있는 보안 토큰입니다. 이를 통해 앱은 사용자 상호 작용을 요구하지 않고 사용자 대신 리소스에 장기적으로 액세스할 수 있습니다.
 
-토큰 응답에서 토큰 새로 고침을 받으려면 앱이 `offline_acesss` 범위를 요청해야 합니다. `offline_access` 범위에 대한 자세한 내용은 [Azure AD B2C 프로토콜 참조](active-directory-b2c-reference-protocols.md)를 참조하세요.
+토큰 응답에서 토큰 새로 고침을 받으려면 앱이 `offline_access` 범위를 요청해야 합니다. `offline_access` 범위에 대한 자세한 내용은 [Azure AD B2C 프로토콜 참조](active-directory-b2c-reference-protocols.md)를 참조하세요.
 
 새로 고침 토큰은 앱에 완전히 불투명하며 항상 그럴 것입니다. 새로 고침 토큰은 Azure AD에서 발급되며 Azure AD에서만 검사 및 해석될 수 있습니다. 또한 새로 고침 토큰은 수명이 길지만 특정 기간 지속될 것으로 예상하도록 앱을 작성해서는 안 됩니다. 다양한 이유로 언제든지 새로 고침 토큰이 무효화될 수 있기 때문입니다. 앱에서 새로 고침 토큰이 유효한지 확인하는 유일한 방법은 Azure AD에 대한 토큰 요청을 수행하여 교환하는 것입니다.
 
@@ -139,7 +139,7 @@ https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys
 앱 또는 API가 ID 토큰을 받은 경우 ID 토큰의 클레임에 대해서도 몇 가지 검사를 수행해야 합니다. 포함하지만 다음과 같이 제한되지 않습니다.
 
 * **대상** 클레임: ID 토큰이 앱에 제공된 것이 맞는지 확인합니다.
-* **이전이 아님** 및 **만료 시간** 클레임: ID 토큰이 만료되지 않았는지 확인합니다.
+* **이전은 아님** 및 **만료 시간** 클레임: ID 토큰이 만료되지 않았는지 확인합니다.
 * **발급자** 클레임: Azure AD에서 앱에 토큰을 발급했는지 확인합니다.
 * **nonce**: 토큰 재생 공격 완화를 위한 전략입니다.
 
@@ -148,7 +148,7 @@ https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys
 ## <a name="token-lifetimes"></a>토큰 수명
 이해를 돕기 위해 다음 토큰 수명이 제공됩니다. 디버그 앱을 개발할 때 도움이 될 수 있습니다. 이러한 수명이 일정하게 유지된다고 예상하도록 앱을 작성해서는 안 됩니다. 언제든지 변경될 수 있고 변경됩니다. Azure AD B2C의 [토큰 수명 사용자 지정](active-directory-b2c-token-session-sso.md)에서 자세히 알아보세요.
 
-| 신뢰 | 수명 | 설명 |
+| 토큰 | 수명 | 설명 |
 | --- | --- | --- |
 | ID 토큰 |1시간 |ID 토큰은 일반적으로 1시간 동안 유효합니다. 웹앱은 이 수명을 사용하여 사용자와의 자체 세션을 유지 관리할 수 있습니다(권장). 다른 세션 수명을 선택할 수도 있습니다. 앱이 새 ID 토큰을 가져와야 하는 경우 Azure AD에 대해 새 로그인 요청을 만들면 됩니다. Azure AD를 통해 유효한 브라우저 세션이 사용자에게 있는 경우 해당 사용자는 자격 증명을 다시 입력하지 않아도 됩니다. |
 | 새로 고침 토큰 |최대 14일 |단일 새로 고침 토큰이 최대 14일 동안 유효합니다. 그러나 새로 고침 토큰은 여러 가지 이유로 언제든지 무효화될 수 있습니다. 앱은 요청이 실패하거나 앱이 새로 고침 토큰을 새 것으로 바꿀 때까지 새로 고침 토큰을 사용하도록 계속 시도합니다. 또한 사용자가 마지막으로 자격 증명을 입력한 후 90일이 지나면 새로 고침 토큰이 무효화될 수 있습니다. |

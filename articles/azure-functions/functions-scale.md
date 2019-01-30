@@ -13,19 +13,19 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfdd0c647021c453095ec4e05c042992011389b9
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 08897b2085c2a8f0eafb90b77486d60a0edce190
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975893"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359870"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 크기 조정 및 호스팅
 
-Azure Functions는 두 가지 모드로 실행됨: 소비 계획 및 Azure App Service 계획 소비 계획은 코드가 실행될 때 계산 능력을 자동으로 할당합니다. 로드를 처리해야 하는 경우 앱이 규모 확장되고 코드가 실행되지 않을 때는 규모 축소됩니다. 유휴 VM에 대한 요금을 지불하고 용량을 미리 예약할 필요가 없습니다.
+Azure Functions는 소비 계획 또는 Azure App Service 계획의 두 가지 모드로 실행됩니다. 소비 계획은 코드가 실행될 때 계산 능력을 자동으로 할당합니다. 로드를 처리해야 하는 경우 앱이 규모 확장되고 코드가 실행되지 않을 때는 규모 축소됩니다. 유휴 VM에 대한 요금을 지불하고 용량을 미리 예약할 필요가 없습니다.
 
 > [!NOTE]  
-> [Linux 호스팅](functions-create-first-azure-function-azure-cli-linux.md)은 현재 App Service 계획에서만 사용할 수 있습니다.
+> Linux용 사용량 플랜은 [이제 공개 미리 보기](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/)로 제공됩니다.
 
 Azure Functions에 익숙하지 않으면 [Azure Functions 개요](functions-overview.md)를 참조하세요.
 
@@ -66,9 +66,9 @@ App Service 계획에서는 계층 간에 크기 조정하여 서로 다른 양�
 * App Service 환경에 대한 지원, VNET/VPN 연결 및 더 큰 VM 크기와 같이 App Service 계획에서만 사용할 수 있는 기능이 필요합니다.
 * Linux에서 함수 앱을 실행하거나 함수를 실행할 사용자 지정 이미지를 제공하려고 합니다.
 
-VM은 실행 횟수, 실행 시간 및 사용된 메모리에서 비용을 분리합니다. 결과적으로, 할당하는 VM 인스턴스의 비용보다 더 지불하지 않습니다. App Service 계획의 작동 원리에 대한 자세한 내용은 [Azure App Service 계획의 포괄 개요](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)를 참조하세요. 
+VM은 실행 횟수, 실행 시간 및 사용된 메모리에서 비용을 분리합니다. 결과적으로, 할당하는 VM 인스턴스의 비용보다 더 지불하지 않습니다. App Service 계획의 작동 원리에 대한 자세한 내용은 [Azure App Service 계획의 포괄 개요](../app-service/overview-hosting-plans.md)를 참조하세요. 
 
-App Service 계획을 사용하면 더 많은 VM 인스턴스를 추가하여 수동으로 확장하거나 자동 조정을 사용하도록 설정할 수 있습니다. 자세한 내용은 [수동 또는 자동으로 인스턴스 개수 조정](../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)을 참조하세요. 다른 App Service 계획을 선택하여 확장할 수도 있습니다. 자세한 내용은 [Azure에서 앱 확장](../app-service/web-sites-scale.md)을 참조하세요. 
+App Service 계획을 사용하면 더 많은 VM 인스턴스를 추가하여 수동으로 확장하거나 자동 조정을 사용하도록 설정할 수 있습니다. 자세한 내용은 [수동 또는 자동으로 인스턴스 개수 조정](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)을 참조하세요. 다른 App Service 계획을 선택하여 확장할 수도 있습니다. 자세한 내용은 [Azure에서 앱 확장](../app-service/web-sites-scale.md)을 참조하세요. 
 
 App Service 계획에서 JavaScript 함수를 실행 중인 경우 vCPU 수가 더 작은 계획을 선택해야 합니다. 자세한 내용은 [단일 코어 App Service 계획 선택](functions-reference-node.md#considerations-for-javascript-functions)을 참조하세요.  
 
@@ -97,11 +97,11 @@ Always On이 설정된 경우에도 개별 함수의 실행 시간 초과는 [ho
 
 ## <a name="storage-account-requirements"></a>Storage 계정 요구 사항
 
-소비 계획 또는 App Service 계획에서 함수 앱을 사용하려면 Azure Blob, Queue, Files 및 Table 저장소를 지원하는 일반 Azure Storage 계정이 필요합니다. Functions는 트리거 관리 및 함수 실행 기록과 같은 작업에 Azure Storage를 사용하지만 일부 저장소 계정은 큐와 테이블을 지원하지 않기 때문입니다. Blob 전용 저장소 계정(Premium Storage 포함) 및 영역 중복 저장소 복제가 사용되는 범용 저장소 계정을 포함한 계정은 함수 앱을 만들 때 기존 **저장소 계정** 선택 항목에서 필터링됩니다.
+소비 계획 또는 App Service 계획에서 함수 앱을 사용하려면 Azure Blob, Queue, Files 및 Table 스토리지를 지원하는 일반 Azure Storage 계정이 필요합니다. Functions는 트리거 관리 및 함수 실행 기록과 같은 작업에 Azure Storage를 사용하지만 일부 스토리지 계정은 큐와 테이블을 지원하지 않기 때문입니다. Blob 전용 스토리지 계정(Premium Storage 포함) 및 영역 중복 스토리지 복제가 사용되는 범용 스토리지 계정을 포함한 계정은 함수 앱을 만들 때 기존 **스토리지 계정** 선택 항목에서 필터링됩니다.
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
-저장소 계정 유형에 대해 자세히 알아보려면 [Azure Storage 서비스 소개](../storage/common/storage-introduction.md#azure-storage-services)를 참조하세요.
+스토리지 계정 유형에 대해 자세히 알아보려면 [Azure Storage 서비스 소개](../storage/common/storage-introduction.md#azure-storage-services)를 참조하세요.
 
 ## <a name="how-the-consumption-plan-works"></a>소비 계획의 작동 원리
 

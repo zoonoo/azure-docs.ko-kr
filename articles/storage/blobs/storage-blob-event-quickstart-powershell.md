@@ -1,5 +1,5 @@
 ---
-title: Azure Blob 저장소 이벤트를 사용자 지정 웹 엔드포인트로 라우팅 - Powershell | Microsoft Docs
+title: Azure Blob Storage 이벤트를 웹 엔드포인트에 전송 - PowerShell | Microsoft Docs
 description: Azure Event Grid를 사용하여 Blob 저장소 이벤트를 구독합니다.
 services: storage,event-grid
 author: david-stanford
@@ -8,14 +8,15 @@ ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 8482678a9c42fa2d960dee54c9810593cd820553
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec18
+ms.openlocfilehash: 852b7a32bc27b0aa67d66c25d3b54ab864ee1612
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732005"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628258"
 ---
-# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Powershell로 Blob 저장소 이벤트를 사용자 지정 웹 엔드포인트로 라우팅
+# <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>빠른 시작: PowerShell을 사용하여 스토리지 이벤트를 웹 엔드포인트로 라우팅
 
 Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 Azure PowerShell을 사용하여 Blob 저장소 이벤트를 구독하고 이벤트를 트리거하여 결과를 확인합니다. 
 
@@ -27,14 +28,16 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문
 
 ## <a name="setup"></a>설정
 
-이 문서에서는 Azure PowerShell의 최신 버전을 실행해야 합니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성](/powershell/azure/install-azurerm-ps)을 참조하세요.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+이 문서에서는 Azure PowerShell의 최신 버전을 실행해야 합니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성](/powershell/azure/install-Az-ps)을 참조하세요.
 
-`Connect-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시에 따라 인증합니다.
+## <a name="sign-in-to-azure"></a>Azure에 로그인
+
+`Connect-AzAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시에 따라 인증합니다.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 이 예제에서는 **westus2**를 사용하고, 선택한 항목을 전체적으로 사용할 수 있게 변수에 저장합니다.
@@ -47,27 +50,27 @@ $location = "westus2"
 
 Event Grid 토픽은 Azure 리소스이며 Azure 리소스 그룹에 배치해야 합니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컬렉션입니다.
 
-[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 명령으로 리소스 그룹을 만듭니다.
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 리소스 그룹을 만듭니다.
 
 다음 예제에서는 **westus2** 위치에 **gridResourceGroup**이라는 리소스 그룹을 만듭니다.  
 
 ```powershell
 $resourceGroup = "gridResourceGroup"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 
 Blob Storage 이벤트는 범용 v2 저장소 계정과 Blob Storage 계정에서 사용할 수 있습니다. **범용 v2** 저장소 계정은 Blob, 파일, 큐 및 테이블을 포함하여 모든 저장소 서비스의 모든 기능을 지원하는 저장소 계정입니다. **Blob Storage 계정**은 Azure Storage에서 Blob와 같은 구조화되지 않은 데이터(개체) 저장을 위한 특수 Storage 계정입니다. Blob Storage 계정은 범용 저장소 계정과 유사하면서, 현재 사용되고 있는 모든 뛰어난 내구성, 가용성, 확장성 및 성능 기능을 공유합니다(예: 블록 Blob 및 추가 Blob에 대한 100% API 일관성). 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
-[New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount)를 사용하여 LRS 복제를 통한 Blob Storage 계정을 만든 후 사용할 저장소 계정을 정의하는 저장소 계정 컨텍스트를 검색합니다. 저장소 계정에서 작업할 때 반복적으로 자격 증명을 제공하는 대신 컨텍스트를 참조합니다. 이 예제에서는 LRS(로컬 중복 저장소)를 사용하여 **gridstorage**라는 저장소 계정을 만듭니다. 
+[New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount)를 사용하여 LRS 복제를 통한 Blob Storage 계정을 만든 후 사용할 스토리지 계정을 정의하는 스토리지 계정 컨텍스트를 검색합니다. 저장소 계정에서 작업할 때 반복적으로 자격 증명을 제공하는 대신 컨텍스트를 참조합니다. 이 예제에서는 LRS(로컬 중복 저장소)를 사용하여 **gridstorage**라는 저장소 계정을 만듭니다. 
 
 > [!NOTE]
 > 저장소 계정 이름은 전역 네임스페이스에 있으므로 이 스크립트에 제공된 이름에 일부 임의 문자를 추가해야 합니다.
 
 ```powershell
 $storageName = "gridstorage"
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageName `
   -Location $location `
   -SkuName Standard_LRS `
@@ -86,7 +89,7 @@ $ctx = $storageAccount.Context
 ```powershell
 $sitename="<your-site-name>"
 
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -ResourceGroupName $resourceGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" `
   -siteName $sitename `
@@ -104,10 +107,10 @@ New-AzureRmResourceGroupDeployment `
 토픽을 구독하여 Event Grid에 추적하려는 이벤트를 알립니다. 다음 예제에서는 저장소 계정을 구독하고 웹앱의 URL을 이벤트 알림에 대한 엔드포인트로 전달합니다. 웹앱에 대한 엔드포인트는 접미사 `/api/updates/`를 포함해야 합니다.
 
 ```powershell
-$storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
+$storageId = (Get-AzStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
 $endpoint="https://$sitename.azurewebsites.net/api/updates"
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -EventSubscriptionName gridBlobQuickStart `
   -Endpoint $endpoint `
   -ResourceId $storageId
@@ -123,11 +126,11 @@ New-AzureRmEventGridSubscription `
 
 ```powershell
 $containerName = "gridcontainer"
-New-AzureStorageContainer -Name $containerName -Context $ctx
+New-AzStorageContainer -Name $containerName -Context $ctx
 
 echo $null >> gridTestFile.txt
 
-Set-AzureStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
+Set-AzStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
 ```
 
 이벤트를 트리거했고 Event Grid가 구독할 때 구성한 엔드포인트로 메시지를 보냈습니다. 웹앱을 확인하여 방금 전송한 이벤트를 봅니다.
@@ -160,10 +163,10 @@ Set-AzureStorageBlobContent -File gridTestFile.txt -Container $containerName -Co
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리
-이 저장소 계정 및 이벤트 구독을 계속 사용하려면 이 문서에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 다음 명령을 사용하여 이 문서에서 만든 리소스를 삭제합니다.
+이 스토리지 계정 및 이벤트 구독을 계속 사용하려면 이 문서에서 만든 리소스를 정리하지 마세요. 계속 사용하지 않으려면 다음 명령을 사용하여 이 문서에서 만든 리소스를 삭제합니다.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>다음 단계

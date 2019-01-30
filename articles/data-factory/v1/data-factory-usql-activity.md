@@ -9,17 +9,16 @@ ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 534fbeaa8ba3c27c8d3f3bbcc59717d8bdb5c654
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7631b103d6d14cceb2c320d56e9f68d9ea57e4d8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050321"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020849"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 스크립트를 실행하여 데이터 변환 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,25 +48,25 @@ Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연�
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| **type** |type 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. |예 |
+| **type** |형식 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. |예 |
 | **accountName** |Azure 데이터 레이크 분석 계정 이름입니다. |예 |
-| **dataLakeAnalyticsUri** |Azure 데이터 레이크 분석 URI입니다. |아니오 |
+| **dataLakeAnalyticsUri** |Azure 데이터 레이크 분석 URI입니다. |아니요 |
 | **subscriptionId** |Azure 구독 ID |아니요(지정하지 않으면 Data Factory의 구독이 사용됨). |
 | **resourceGroupName** |Azure 리소스 그룹 이름 |아니요(지정하지 않으면 Data Factory의 리소스 그룹이 사용됨). |
 
 ### <a name="service-principal-authentication-recommended"></a>서비스 주체 인증(권장)
-서비스 주체 인증을 사용하려면 Azure AD(Azure Active Directory)에서 응용 프로그램 엔터티를 등록한 후 Data Lake Store에서 액세스 권한을 부여합니다. 자세한 단계는 [서비스 간 인증](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 참조하세요. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
-* 응용 프로그램 UI
-* 응용 프로그램 키 
+서비스 주체 인증을 사용하려면 Azure AD(Azure Active Directory)에서 애플리케이션 엔터티를 등록한 후 Data Lake Store에서 액세스 권한을 부여합니다. 자세한 단계는 [서비스 간 인증](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 참조하세요. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
+* 애플리케이션 UI
+* 애플리케이션 키 
 * 테넌트 ID
 
 다음 속성을 지정하여 서비스 주체 인증을 사용합니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | 응용 프로그램의 클라이언트 ID를 지정합니다. | 예 |
-| **servicePrincipalKey** | 응용 프로그램의 키를 지정합니다. | 예 |
-| **테넌트** | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 예 |
+| **servicePrincipalId** | 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
+| **servicePrincipalKey** | 애플리케이션의 키를 지정합니다. | 예 |
+| **테넌트** | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 예 |
 
 **예제: 서비스 주체 인증**
 ```json
@@ -115,7 +114,7 @@ Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연�
 ```
 
 #### <a name="token-expiration"></a>토큰 만료
-**권한 부여** 단추를 사용하여 생성된 인증 코드는 잠시 후 만료됩니다. 다양한 유형의 사용자 계정에 대한 만료 시간은 다음 표를 참조하세요. 인증 **토큰이 만료**되는 경우 다음과 같은 오류 메시지가 표시될 수 있습니다. 자격 증명 작업 오류: invalid_grant - AADSTS70002: 자격 증명 유효성 검사 오류. "자격 증명 작업 오류: invalid_grant - AADSTS70002: 자격 증명의 유효성 검사 오류 AADSTS70008: 제공된 액세스 권한 부여가 만료되었거나 해지됩니다. 추적 ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 상관관계 ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 타임스탬프: 2015-12-15 21:09:31Z
+**권한 부여** 단추를 사용하여 생성된 인증 코드는 잠시 후 만료됩니다. 다양한 유형의 사용자 계정에 대한 만료 시간은 다음 표를 참조하세요. 인증 **토큰이 만료**되면 다음 오류 메시지가 표시됩니다. 자격 증명 작업 오류: invalid_grant - AADSTS70002: 자격 증명의 유효성 검사 오류. AADSTS70008: 제공된 액세스 권한 부여가 만료되었거나 해지됩니다. 추적 ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 상관관계 ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 타임스탬프: 2015-12-15 21:09:31Z
 
 | 사용자 유형 | 다음 시간 후에 만료 |
 |:--- |:--- |
@@ -149,7 +148,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }
 ```
 
-코드에 사용되는 Data Factory 클래스에 대한 세부 정보는 [AzureDataLakeStoreLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) 및 [AuthorizationSessionGetResponse 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) 항목을 참조하세요. WindowsFormsWebAuthenticationDialog 클래스의 Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll에 대한 참조를 추가합니다. 
+코드에 사용되는 Data Factory 클래스에 대한 세부 정보는 [AzureDataLakeStoreLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) 및 [AuthorizationSessionGetResponse 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) 항목을 참조하세요. 다음에 대한 참조를 추가합니다. WindowsFormsWebAuthenticationDialog 클래스의 Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll. 
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL 작업
 다음 JSON 조각은 Data Lake Analytics U-SQL 작업이 포함된 파이프라인을 정의합니다. 작업 정의에 앞에서 만든 Azure Data Lake Analytics 연결된 서비스에 대한 참조가 있습니다.   
@@ -214,11 +213,11 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 | scriptPath          | U-SQL 스크립트가 포함된 폴더 경로입니다. 파일 이름은 대/소문자를 구분합니다. | 아니요(스크립트를 사용하는 경우)                   |
 | scriptLinkedService | 스크립트가 포함된 저장소를 Data Factory에 연결하는 연결된 서비스입니다. | 아니요(스크립트를 사용하는 경우)                   |
 | script              | scriptPath 및 scriptLinkedService를 지정하는 대신 인라인 스크립트를 지정합니다. 예: `"script": "CREATE DATABASE test"` | 아니요(scriptPath 및 scriptLinkedService를 사용하는 경우) |
-| degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. | 아니오                                       |
-| 우선 순위            | 대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. | 아니오                                       |
-| 매개 변수          | U-SQL 스크립트의 매개 변수          | 아니오                                       |
-| runtimeVersion      | 사용할 U-SQL 엔진의 런타임 버전 | 아니오                                       |
-| compilationMode     | <p>U-SQL의 컴파일 모드 다음 값 중 하나여야 합니다.</p> <ul><li>**의미 체계:** 의미 체계 검사 및 필수 온전성 검사만 수행합니다.</li><li>**전체:** 구문 검사, 최적화, 코드 생성 등을 비롯하여 전체 컴파일을 수행합니다.</li><li>**SingleBox:** TargetType이 SingleBox로 설정된 상태에서 전체 컴파일을 수행합니다.</li></ul><p>이 속성에 대한 값을 지정하지 않으면 서버가 최적의 컴파일 모드를 결정합니다. </p> | 아니오                                       |
+| degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. | 아니요                                       |
+| 우선 순위            | 대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. | 아니요                                       |
+| 매개 변수          | U-SQL 스크립트의 매개 변수          | 아니요                                       |
+| runtimeVersion      | 사용할 U-SQL 엔진의 런타임 버전 | 아니요                                       |
+| compilationMode     | <p>U-SQL의 컴파일 모드 다음 값 중 하나여야 합니다.</p> <ul><li>**의미 체계:** 의미 체계 검사 및 필수 온전성 검사만 수행합니다.</li><li>**전체:** 구문 검사, 최적화, 코드 생성 등을 비롯하여 전체 컴파일을 수행합니다.</li><li>**SingleBox:** TargetType이 SingleBox로 설정된 상태에서 전체 컴파일을 수행합니다.</li></ul><p>이 속성에 대한 값을 지정하지 않으면 서버가 최적의 컴파일 모드를 결정합니다. </p> | 아니요                                       |
 
 스크립트 정의에 대해서는 [SearchLogProcessing.txt 스크립트 정의](#sample-u-sql-script) 를 참조하세요. 
 

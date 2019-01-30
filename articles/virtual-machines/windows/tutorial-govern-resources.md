@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 6377a54cc862bb5f62726c3ce91a41cc6eb0763d
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 6b36cdecb178a7189773abbfe963411e19764401
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311391"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438663"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows 가상 머신 거버넌스에 대해 알아보기
 
@@ -27,7 +27,7 @@ ms.locfileid: "49311391"
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-이 문서의 예제에는 Azure PowerShell 6.0 이상이 필요합니다. PowerShell을 로컬로 실행하고 6.0 버전 이상이 없는 경우 [해당 버전을 업데이트](/powershell/azure/install-azurerm-ps)하세요. 또한 `Connect-AzureRmAccount`을 실행하여 Azure와 연결해야 합니다. 로컬 설치의 경우 [Azure AD PowerShell 모듈을 다운로드](https://www.powershellgallery.com/packages/AzureAD/)하여 새 Azure Active Directory 그룹을 만들어야 합니다.
+이 문서의 예제에는 Azure PowerShell 6.0 이상이 필요합니다. PowerShell을 로컬로 실행하고 6.0 버전 이상이 없는 경우 [해당 버전을 업데이트](/powershell/azure/azurerm/install-azurerm-ps)하세요. 또한 `Connect-AzureRmAccount`을 실행하여 Azure와 연결해야 합니다. 로컬 설치의 경우 [Azure AD PowerShell 모듈을 다운로드](https://www.powershellgallery.com/packages/AzureAD/)하여 새 Azure Active Directory 그룹을 만들어야 합니다.
 
 ## <a name="understand-scope"></a>범위 이해
 

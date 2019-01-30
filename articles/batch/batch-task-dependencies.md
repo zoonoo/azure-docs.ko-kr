@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a9b44ed56774466bae2f0f5d48b5e012382721b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 40e925fff9d87d8590ea3a83be9e7d93a84d6e26
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865236"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266657"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>작업 의존 관계를 만들어 다른 작업에 종속된 작업 실행
 
@@ -41,7 +41,7 @@ Batch 태스크 종속성을 통해 하나 이상의 상위 태스크를 완료�
 이 문서에서는 [Batch .NET][net_msdn] 라이브러리를 사용하여 태스크 종속성을 구성하는 방법을 설명합니다. 먼저는 작업에서 [태스크 종속성을 사용](#enable-task-dependencies)하는 방법을 보여 주고 [종속성을 사용하여 태스크를 구성](#create-dependent-tasks)하는 방법을 설명합니다. 또한 상위 태스크가 실패하는 경우 종속 태스크를 실행하는 종속성 작동을 지정하는 방법을 설명합니다. 마지막으로 Batch에서 지원되는 [종속성 시나리오](#dependency-scenarios)를 설명합니다.
 
 ## <a name="enable-task-dependencies"></a>태스크 종속성 사용
-Batch 응용 프로그램에서 태스크 종속성을 사용하려면 먼저 작업이 태스크 종속성을 사용하도록 구성해야 합니다. Batch .NET에서 해당 [UsesTaskDependencies][net_usestaskdependencies] 속성을 `true`으로 설정하여 [CloudJob][net_cloudjob]에서 이를 사용합니다.
+Batch 애플리케이션에서 태스크 종속성을 사용하려면 먼저 작업이 태스크 종속성을 사용하도록 구성해야 합니다. Batch .NET에서 해당 [UsesTaskDependencies][net_usestaskdependencies] 속성을 `true`으로 설정하여 [CloudJob][net_cloudjob]에서 이를 사용합니다.
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -79,7 +79,7 @@ Azure Batch에서 사용할 수 있는 세 가지 기본 태스크 종속성 시
 |:---:| --- | --- |
 |  [일대일](#one-to-one) |*taskB*가 *taskA*에 종속됨 <p/> *taskB*는 *taskA*가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 |![다이어그램: 일대일 태스크 종속성][1] |
 |  [일대다](#one-to-many) |*taskC*는 *taskA* 및 *taskB*에 종속됨 <p/> *taskC*는 *taskA* 및 *taskB*가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 |![다이어그램: 일대다 태스크 종속성][2] |
-|  [태스크 ID 범위](#task-id-range) |*taskD*가 태스크의 범위에 종속됨 <p/> *taskD*는 ID *1*-*10*을 가진 태스크가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 |![다이어그램: 태스크 ID 범위 종속성][3] |
+|  [태스크 ID 범위](#task-id-range) |*taskD*가 태스크의 범위에 종속됨 <p/> *taskD*는 ID *1*-*10*을 가진 태스크가 성공적으로 완료될 때까지 실행하도록 예약되지 않음 |![다이어그램: 작업 ID 범위 종속성][3] |
 
 > [!TIP]
 > 태스크 C, D, E 및 F는 각각 태스크 A 및 B에 종속되는 경우 **다대다** 관계를 만들 수 있습니다. 예를 들어, 다운스트림 태스크가 여러 업스트림 태스크의 출력에 따라 달라지는 병렬화된 전처리 시나리오에서 유용합니다.
@@ -123,7 +123,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 > [!IMPORTANT]
 > 종속성에 대해 태스크 ID 범위를 사용할 경우 ID가 정수 값을 나타내는 태스크만 범위에 따라 선택됩니다. 따라서 범위 `1..10`에서 태스크 `3` 및 `7`이 선택되지만 `5flamingoes`는 선택되지 않습니다. 
 > 
-> 범위 종속성을 평가할 때 선행 0은 의미가 없으므로 문자열 식별자 `4`, `04` 및 `004`는 해당 범위 *내에* 있게 되고, 모두 태스크 `4`로 취급되므로 첫 번째로 완료되는 태스크가 종속성을 충족합니다.
+> 범위 종속성을 평가할 때 앞에 오는 0은 의미가 없으므로 문자열 식별자가 `4`, `04` 및 `004`인 작업은 모두 범위 *내*에 포함되며 `4` 작업으로 처리됩니다. 따라서 처음 완료되는 작업에서 종속성이 충족됩니다.
 > 
 > **충족**으로 설정된 종속성 작업에 매핑되는 오류를 성공적으로 완료하거나 해결하여 범위에 있는 모든 태스크가 종속성을 충족해야 합니다. 자세한 내용은 [종속성 작업](#dependency-actions) 섹션을 참조하세요.
 >
@@ -211,11 +211,11 @@ new CloudTask("B", "cmd.exe /c echo B")
 - 계산 노드의 풀에서 해당 태스크를 실행하는 방법
 
 ## <a name="next-steps"></a>다음 단계
-### <a name="application-deployment"></a>응용 프로그램 배포
-Batch의 [응용 프로그램 패키지](batch-application-packages.md) 기능은 계산 노드에서 태스크를 실행하는 응용 프로그램을 배포하고 버전을 관리하는 쉬운 방법을 제공합니다.
+### <a name="application-deployment"></a>애플리케이션 배포
+Batch의 [애플리케이션 패키지](batch-application-packages.md) 기능은 계산 노드에서 태스크를 실행하는 애플리케이션을 배포하고 버전을 관리하는 쉬운 방법을 제공합니다.
 
-### <a name="installing-applications-and-staging-data"></a>응용 프로그램 설치 및 데이터 준비
-태스크를 실행하기 위해 노드를 준비하는 방법의 개요는 Azure 배치 포럼에서 [Batch 계산 노드에서 응용 프로그램 설치 및 데이터 스테이징][forum_post]을 참조하세요. Azure Batch 팀 구성원 중 한 사람이 작성한 이 게시물은 계산 노드에 응용 프로그램, 태스크 입력 데이터 및 다른 파일을 복사하는 다른 방법에 대한 좋은 기초입니다.
+### <a name="installing-applications-and-staging-data"></a>애플리케이션 설치 및 데이터 준비
+태스크를 실행하기 위해 노드를 준비하는 방법의 개요는 Azure 배치 포럼에서 [Batch 계산 노드에서 애플리케이션 설치 및 데이터 스테이징][forum_post]을 참조하세요. Azure Batch 팀 구성원 중 한 사람이 작성한 이 게시물은 계산 노드에 애플리케이션, 태스크 입력 데이터 및 다른 파일을 복사하는 다른 방법에 대한 좋은 기초입니다.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies

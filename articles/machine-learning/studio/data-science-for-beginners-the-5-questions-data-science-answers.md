@@ -1,28 +1,8 @@
 ---
-title: 5가지 데이터 과학 질문 - 초급자를 위한 데이터 과학 - Azure Machine Learning Studio | Microsoft Docs
-description: 초급자를 위한 데이터 과학에서는 데이터 과학으로 답변할 수 있는 5가지 질문부터 시작해서 5가지 짧은 비디오를 통해 기본적인 개념을 설명합니다. Azure Machine Learning
-keywords: 데이터 과학 수행,데이터 과학 초급자,초급자를 위한 데이터 과학, 데이터 과학 기본 사항,데이터 과학 질문,데이터 과학 비디오, 데이터 과학 소개
-services: machine-learning
-documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
-editor: cjgronlund
-ms.assetid: a01f93ee-01eb-4afe-abbd-cfa035c119b0
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/03/2018
-ms.openlocfilehash: c59b4783c59c44604738a3056b3484e11ff90363
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314169"
+제목: 초급자를 위한 데이터 과학 titleSuffix: Azure Machine Learning Studio 설명: 초급자를 위한 데이터 과학에서는 데이터 과학으로 답변할 수 있는 5가지 질문부터 시작해서 5가지 짧은 비디오를 통해 기본적인 개념을 설명합니다. Azure Machine Learning
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 01/03/2018
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>초급자를 위한 데이터 과학 비디오 1: 데이터 과학으로 답변할 수 있는 5가지 질문
 최고의 데이터 과학자가 제공하는 5개의 짧은 비디오로 구성된 *초급자를 위한 데이터 과학*에서 데이터 과학을 빠르게 살펴보세요. 이러한 비디오는 기초적이지만 데이터 과학에 관심이 있든 데이터 과학자와 함께 일하든 상관없이 유용한 정보를 제공합니다.
@@ -43,7 +23,7 @@ ms.locfileid: "52314169"
 * 비디오 4: [단순 모델을 사용하여 답변 예측](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7분 42초)*
 * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3분 18초)*
 
-## <a name="transcript-the-5-questions-data-science-answers"></a>비디오 내용: 데이터 과학으로 답변할 수 있는 5가지 질문
+## <a name="transcript-the-5-questions-data-science-answers"></a>대본: 데이터 과학으로 답변할 수 있는 5가지 질문
 안녕하세요. 비디오 시리즈 *초급자를 위한 데이터 과학*에 오신 것을 환영합니다.
 
 데이터 과학이 어렵게 느껴질 수 있으므로, 여기서는 방정식이나 컴퓨터 프로그래밍 특수 용어 없이 기본 개념을 소개하겠습니다.
@@ -65,7 +45,7 @@ ms.locfileid: "52314169"
 알고리즘을 레시피로, 데이터를 재료로 생각하면 도움이 될 것입니다. 알고리즘은 답변을 얻기 위해 데이터를 조합하고 혼합하는 방법을 설명합니다. 컴퓨터는 믹서기와 같습니다. 알고리즘의 어려운 작업 대부분을 꽤 빠르게 처리합니다.
 
 ## <a name="question-1-is-this-a-or-b-uses-classification-algorithms"></a>질문 1: 이것은 A인가요 B인가요?에서는 분류 알고리즘을 사용합니다.
-질문: 이것은 A인가요 B인가요?부터 시작해 보겠습니다.
+먼저 질문을 사용하여 시작해 보겠습니다. 이것은 A인가요 B인가요?
 
 ![분류 알고리즘: 이것은 A인가요 B인가요?](./media/data-science-for-beginners-the-5-questions-data-science-answers/classification-algorithms.png)
 
@@ -78,19 +58,19 @@ ms.locfileid: "52314169"
 * 이 타이어는 다음 1,000마일을 가는 동안 터질까요? 예 또는 아니요?
 * 어떤 방식이 더 많은 고객을 이끌까요? 5달러 쿠폰 또는 25% 할인?
 
-이 질문을 3개 이상의 옵션을 포함하도록 “이것은 A인가요? B인가요? C인가요? D인가요?” 등과 같이 다시 쓸 수 있습니다.  이것을 다중 클래스 분류라고 하며 이 분류 방식은 몇 개 또는 몇천 개의 가능한 답변이 있을 때 유용합니다. 다중 클래스 분류는 가능성이 가장 높은 하나를 선택합니다.
+이 질문을 3개 이상의 옵션을 포함하도록 이것은 A인가요? B인가요? C인가요? D인가요? 등과 같이 다시 쓸 수 있습니다.  이것을 다중 클래스 분류라고 하며 이 분류 방식은 몇 개 또는 몇천 개의 가능한 답변이 있을 때 유용합니다. 다중 클래스 분류는 가능성이 가장 높은 하나를 선택합니다.
 
-## <a name="question-2-is-this-weird-uses-anomaly-detection-algorithms"></a>질문 2: 이것은 이상한가요?는 변칙 감지 알고리즘을 사용합니다.
-데이터 과학으로 답변을 얻을 수 있는 다음 질문은 이것은 이상한가요?입니다. 이 질문은 변칙 감지라고 하는 알고리즘군을 통해 답변됩니다.
+## <a name="question-2-is-this-weird-uses-anomaly-detection-algorithms"></a>질문 2: 이것은 이상한가요?는 변칙 검색 알고리즘을 사용합니다.
+데이터 과학으로 답변을 얻을 수 있는 다음 질문은 다음과 같습니다. 이것은 이상한가요? 이 질문은 변칙 감지라고 하는 알고리즘군을 통해 답변됩니다.
 
-![변칙 감지 알고리즘: 이것은 이상한가요?](./media/data-science-for-beginners-the-5-questions-data-science-answers/anomaly-detection-algorithms.png)
+![변칙 검색 알고리즘: 이것은 이상한가요?](./media/data-science-for-beginners-the-5-questions-data-science-answers/anomaly-detection-algorithms.png)
 
 신용 카드가 있는 경우 이미 변칙 감지를 통한 혜택을 보고 있는 것입니다. 여러분의 신용 카드 회사는 구매 패턴을 분석하므로 가능한 사기 행위를 여러분에게 경고할 수 있습니다. "이상하게" 요금이 청구되었다면 평소에 물건을 구매하지 않던 매장에서 구매하거나 굉장히 비싼 가격의 상품을 구매해서일 수 있습니다.
 
 이 질문은 다양한 측면에서 유용할 수 있습니다. 예:
 
 * 자동차에 압력 계기판이 있는 경우 이 압력 계기판에 정상적인 수치가 표시되는지 알고 싶을 수 있습니다.
-* 인터넷을 모니터링하다보면 인터넷의 이 메시지가 정상적인 것인지 궁금할 수 있습니다.
+* 인터넷을 모니터링하는 경우 다음을 알고 싶습니다. 인터넷의 이 메시지가 정상적인가요?
 
 변칙 감지는 예기치 않거나 비정상적인 이벤트 또는 동작에 플래그를 지정합니다. 어디서 문제점을 찾아내야 할지에 대한 단서를 줍니다.
 

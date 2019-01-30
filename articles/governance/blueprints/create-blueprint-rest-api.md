@@ -1,20 +1,20 @@
 ---
-title: REST API로 Azure Blueprint 만들기
+title: REST API를 사용하여 청사진 만들기
 description: Azure Blueprint를 사용하여 아티팩트를 만들고 정의하고 배포할 수 있습니다.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/07/2018
+ms.date: 01/15/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: b600eeff0482944a8b9b18ad39c23ee6ea4700ce
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.custom: seodec18
+ms.openlocfilehash: b66a1c2c12a97ea8754377a138b51a4ca1739c21
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283549"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320687"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>REST API로 Azure Blueprint 정의 및 할당
 
@@ -68,8 +68,8 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
 각 REST API URI에는 사용자가 자신의 값으로 대체해야 하는 변수가 있습니다.
 
-- `{YourMG}` - 사용자의 관리 그룹 이름으로 대체
-- `{subscriptionId}` - 사용자의구독 ID로 대체
+- `{YourMG}` - 사용자의 관리 그룹 ID로 대체
+- `{subscriptionId}` - 사용자의 구독 ID로 대체
 
 1. 초기 _청사진_ 개체를 만듭니다. **요청 본문**에는 청사진에 대한 속성, 생성할 리소스 그룹 및 모든 청사진 수준의 매개 변수가 포함됩니다. 매개 변수는 할당 중에 설정되고 이후 단계에서 추가되는 아티팩트에서 사용합니다.
 
@@ -130,7 +130,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 구독 시 역할 할당을 추가합니다. **요청 본문**은 아티팩트의 종류를 정의하고 속성은 역할 정의 식별자에 정렬되며 주체 ID는 값 배열의 형태로 전달됩니다. 아래 예에서 지정된 역할에 부여된 주체 ID는 청사진 할당 중에 설정되는 매개 변수로 구성됩니다.
+1. 구독 시 역할 할당을 추가합니다. **요청 본문**은 아티팩트의 종류를 정의하고 속성은 역할 정의 식별자에 정렬되며 주체 ID는 값 배열의 형태로 전달됩니다. 아래 예에서 지정된 역할에 부여된 주체 ID는 청사진 할당 중에 설정되는 매개 변수로 구성됩니다. 이 예제에서는 `b24988ac-6180-42a0-ab88-20f7382dd24c`의 GUID와 함께 _기여자_ 기본 제공 역할을 사용합니다.
 
    - REST API URI
 
@@ -150,7 +150,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 구독 시 정책 할당을 추가합니다. **요청 본문**은 아티팩트의 _종류_, 정책 또는 이니셔티브 정의에 부합하는 속성을 정의하고, 청사진 할당 중에 구성될 정의된 청사진 매개 변수를 사용하도록 정책 할당을 구성합니다.
+1. 구독 시 정책 할당을 추가합니다. **요청 본문**은 아티팩트의 _종류_, 정책 또는 이니셔티브 정의에 부합하는 속성을 정의하고, 청사진 할당 중에 구성될 정의된 청사진 매개 변수를 사용하도록 정책 할당을 구성합니다. 이 예제에서는 `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`의 GUID와 함께 _리소스 그룹에 태그 및 기본값 적용_ 기본 제공 정책을 사용합니다.
 
    - REST API URI
 
@@ -178,7 +178,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 구독 시 Storage 태그(_storageAccountType_ 매개 변수 재사용)에 대해 또 다른 정책 할당을 추가합니다. 이렇게 추가된 정책 할당 아티팩트는 청사진에 정의된 매개 변수가 둘 이상의 아티팩트에서 사용될 수 있다는 것을 보여줍니다. 이 예에서 **storageAccountType**은 리소스 그룹에 태그를 설정하는 데 사용됩니다. 이 값은 다음 단계에서 생성되는 저장소 계정에 대한 정보를 제공합니다.
+1. 구독 시 Storage 태그(_storageAccountType_ 매개 변수 재사용)에 대해 또 다른 정책 할당을 추가합니다. 이렇게 추가된 정책 할당 아티팩트는 청사진에 정의된 매개 변수가 둘 이상의 아티팩트에서 사용될 수 있다는 것을 보여줍니다. 이 예에서 **storageAccountType**은 리소스 그룹에 태그를 설정하는 데 사용됩니다. 이 값은 다음 단계에서 생성되는 저장소 계정에 대한 정보를 제공합니다. 이 예제에서는 `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`의 GUID와 함께 _리소스 그룹에 태그 및 기본값 적용_ 기본 제공 정책을 사용합니다.
 
    - REST API URI
 
@@ -292,7 +292,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 리소스 그룹에서 역할 할당을 추가합니다. 이전 역할 할당과 유사하게, 아래 예제에서는 **소유자** 역할에 대한 정의 식별자를 사용하고 청사진과 다른 매개 변수를 제공합니다.
+1. 리소스 그룹에서 역할 할당을 추가합니다. 이전 역할 할당과 유사하게, 아래 예제에서는 **소유자** 역할에 대한 정의 식별자를 사용하고 청사진과 다른 매개 변수를 제공합니다. 이 예제에서는 `8e3af657-a8ff-443c-a75c-2fe8c4bcb635`의 GUID와 함께 _소유자_ 기본 제공 역할을 사용합니다.
 
    - REST API URI
 

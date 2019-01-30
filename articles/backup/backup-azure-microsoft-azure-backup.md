@@ -8,13 +8,13 @@ keywords: Azure Backup Server; 워크로드 보호; 워크로드 백업
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: adigan; kasinh
-ms.openlocfilehash: e1ed8b1f62eeb52d65ba178c8ca13f94b57da6f0
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.author: adigan
+ms.openlocfilehash: a57161fd379269f69ce4e83730a29588d9028b7a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616319"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351614"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 > [!div class="op_single_selector"]
@@ -23,17 +23,17 @@ ms.locfileid: "51616319"
 >
 >
 
-이 문서는 MABS(Microsoft Azure Backup Server)를 사용하여 워크로드를 백업하기 위한 환경을 준비하는 방법을 설명합니다. Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단일 콘솔의 Microsoft Exchange 및 Windows 클라이언트와 같은 응용 프로그램 워크로드를 보호할 수 있습니다.
+이 문서는 MABS(Microsoft Azure Backup Server)를 사용하여 워크로드를 백업하기 위한 환경을 준비하는 방법을 설명합니다. Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단일 콘솔의 Microsoft Exchange 및 Windows 클라이언트와 같은 애플리케이션 워크로드를 보호할 수 있습니다.
 
 > [!NOTE]
 > Azure Backup Server는 이제 VMware VM을 보호하고 개선된 보안 기능을 제공할 수 있습니다. 아래 섹션에 설명된 대로 제품 및 최신 Azure Backup 에이전트를 설치합니다. Azure Backup Server를 사용하여 VMware 서버를 백업하는 방법에 대한 자세한 내용은 [Azure Backup Server를 사용하여 VMware 서버 백업](backup-azure-backup-server-vmware.md) 문서를 참조하세요. 보안 기능에 대해 알아보려면 [Azure Backup 보안 기능 설명서](backup-azure-security-feature.md)를 참조하세요.
 >
 >
 
-Azure의 VM과 같은 IaaS(Infrastructure as a Service) 작업을 보호할 수도 있습니다.
+Azure VM에 배포된 MABS는 Azure의 VM을 백업할 수 있지만 백업 작업을 사용하려면 동일한 도메인에 있어야 합니다. Azure VM을 지원하는 프로세스는 VM의 온-프레미스 백업과 동일하지만 Azure에 MABS를 배포하는 경우 몇 가지 제한 사항이 있습니다. 제한 사항에 대한 자세한 내용은 [Azure 가상 머신으로서의 DPM](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)을 참조하세요.
 
 > [!NOTE]
-> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)모델이 있습니다. 이 문서에서는 리소스 관리자 모델을 사용하여 배포된 VM을 복원하기 위한 정보 및 절차를 제공합니다.
+> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md) 모델이 있습니다. 이 문서에서는 리소스 관리자 모델을 사용하여 배포된 VM을 복원하기 위한 정보 및 절차를 제공합니다.
 >
 >
 
@@ -43,7 +43,7 @@ Azure Backup 서버는 DPM(Data Protection Manager)에서 대부분의 워크로
 Azure Backup 서버를 작동하고 실행하는 첫 번째 단계는 Windows Server를 설정하는 것입니다. 서버는 Azure 또는 온-프레미스에 있을 수 있습니다.
 
 ### <a name="using-a-server-in-azure"></a>Azure에서 서버 사용
-Azure Backup Server를 실행하기 위한 서버를 선택할 때 Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter 또는 Windows Server 2019 Datacenter의 갤러리 이미지로 시작하는 것이 좋습니다. [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)문서는 Azure를 사용한 경험이 없는 경우 Azure에서 권장된 가상 머신 시작에 대한 자습서를 제공합니다. 서버 VM(가상 컴퓨터)에 대한 권장 최소 요구 사항은 2코어 및 3.5GB RAM의 A2 Standard입니다.
+Azure Backup Server를 실행하기 위한 서버를 선택할 때 Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter 또는 Windows Server 2019 Datacenter의 갤러리 이미지로 시작하는 것이 좋습니다. [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)문서는 Azure를 사용한 경험이 없는 경우 Azure에서 권장된 가상 머신 시작에 대한 자습서를 제공합니다. 서버 VM(가상 머신)에 대한 권장 최소 요구 사항은 2코어 및 3.5GB RAM의 A2 Standard입니다.
 
 Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘한 많은 차이가 있습니다. [Azure 가상 머신으로 DPM 설치](https://technet.microsoft.com/library/jj852163.aspx)문서는 이러한 미묘한 차이를 설명하는 데 도움이 됩니다. 컴퓨터를 배포하기 전에 이 문서를 완전히 읽어보세요.
 
@@ -64,7 +64,7 @@ Windows Server 중복 제거를 사용하여 DPM 저장소를 중복 제거할 �
 > [!NOTE]
 > Azure Backup Server는 단일 용도의 전용 서버에서 실행하도록 설계되었습니다. Azure Backup Server를 다음 항목에 설치할 수 없습니다.
 > - 도메인 컨트롤러로 실행하는 컴퓨터
-> - 응용 프로그램 서버 역할이 설치된 컴퓨터
+> - 애플리케이션 서버 역할이 설치된 컴퓨터
 > - System Center Operations Manager 관리 서버인 컴퓨터
 > - Exchange Server를 실행하는 컴퓨터
 > - 클러스터의 한 노드인 컴퓨터
@@ -76,7 +76,7 @@ Windows Server 중복 제거를 사용하여 DPM 저장소를 중복 제거할 �
 [!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
 ### <a name="set-storage-replication"></a>저장소 복제 설정
-저장소 복제 옵션을 사용하면 지역 중복 저장소와 로컬 중복 저장소 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 저장소를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 저장소 옵션을 지역 중복 저장소 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 저장소를 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 저장소 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
+저장소 복제 옵션을 사용하면 지역 중복 저장소와 로컬 중복 저장소 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 저장소를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 저장소 옵션을 지역 중복 저장소 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 저장소를 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 스토리지 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
 
 저장소 복제 설정을 편집하려면
 

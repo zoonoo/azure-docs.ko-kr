@@ -1,5 +1,5 @@
 ---
-title: Linux의 Azure App Service용 Python 앱 구성
+title: Linux에서 Python 앱 구성 - Azure App Service
 description: 이 자습서에서는 Linux의 Azure App Service용 Python 앱을 작성하고 구성하는 옵션을 설명합니다.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
-ms.custom: mvc
-ms.openlocfilehash: 9474b2d64c97b6e6d0fc06c3c448fa6e0515e70c
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.custom: seodec18
+ms.openlocfilehash: f7e63fa75f473d5da911fbf845f0662d8eec5c70
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633651"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717401"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Linux의 Azure App Service용 Python 앱 구성
 
@@ -48,7 +48,7 @@ Linux 기반 App Service에 배포된 Python 앱은 GitHub 리포지토리에 �
 
 이 컨테이너에는 다음과 같은 특성이 있습니다.
 
-- 앱은 `--bind=0.0.0.0 --timeout 600` 추가 인수를 통해 [Gunicorn WSGI HTTP 서버](http://gunicorn.org/)를 사용하여 실행됩니다.
+- 앱은 `--bind=0.0.0.0 --timeout 600` 추가 인수를 통해 [Gunicorn WSGI HTTP 서버](https://gunicorn.org/)를 사용하여 실행됩니다.
 
 - 기본적으로 기본 이미지에는 Flask 웹 프레임워크가 포함되어 있지만, 컨테이너는 WSGI 및 Python 3.7과 호환되는 다른 프레임워크(예: Django)를 지원합니다.
 
@@ -59,9 +59,9 @@ Linux 기반 App Service에 배포된 Python 앱은 GitHub 리포지토리에 �
 시작하는 동안 Linux의 App Service 컨테이너에서 실행하는 단계는 다음과 같습니다.
 
 1. 제공되는 경우 사용자 지정 시작 명령을 확인하고 적용합니다.
-1. Django 앱의 *wsgi.py* 파일이 있는지 확인합니다. 그렇다면 해당 파일을 사용하여 Gunicorn을 시작합니다.
-1. *application.py*라는 파일이 있는지 확인합니다. 그렇다면 Flask 앱이라는 가정하에 `application:app`을 사용하여 Gunicorn을 시작합니다.
-1. 다른 앱이 없으면 컨테이너에 기본적으로 제공되는 기본 앱을 시작합니다.
+2. Django 앱의 *wsgi.py* 파일이 있는지 확인합니다. 그렇다면 해당 파일을 사용하여 Gunicorn을 시작합니다.
+3. *application.py*라는 파일이 있는지 확인합니다. 그렇다면 Flask 앱이라는 가정하에 `application:app`을 사용하여 Gunicorn을 시작합니다.
+4. 다른 앱이 없으면 컨테이너에 기본적으로 제공되는 기본 앱을 시작합니다.
 
 다음 섹션에서는 각 옵션에 대한 추가 세부 정보를 제공합니다.
 
@@ -100,11 +100,11 @@ gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
 gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
-또한 Gunicorn에 대한 추가 인수(예: `--workers=4`)를 명령에 추가할 수도 있습니다. 자세한 내용은 [Gunicorn 실행](http://docs.gunicorn.org/en/stable/run.html)(docs.gunicorn.org)을 참조하세요.
+또한 Gunicorn에 대한 추가 인수(예: `--workers=4`)를 명령에 추가할 수도 있습니다. 자세한 내용은 [Gunicorn 실행](https://docs.gunicorn.org/en/stable/run.html)(docs.gunicorn.org)을 참조하세요.
 
 사용자 지정 명령을 제공하려면 다음 단계를 수행합니다.
 
-1. Azure Portal에서 [응용 프로그램 설정](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) 페이지로 이동합니다.
+1. Azure Portal에서 [애플리케이션 설정](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) 페이지로 이동합니다.
 
 1. **런타임** 설정에서 **스택** 옵션을 **Python 3.7**로 설정하고, **시작 파일** 필드에 명령을 직접 입력합니다.
 
@@ -132,4 +132,4 @@ App Service에서 사용자 지정 명령, Django 앱 또는 Flask 앱을 찾지
 - **브라우저에 "서비스를 사용할 수 없음"이라는 메시지가 표시됩니다.** App Service에서 Gunicorn 서버를 시작했음을 나타내는 App Service의 응답을 기다리는 동안 브라우저에서 시간이 초과되었지만 앱 코드를 지정하는 인수가 올바르지 않습니다.
   - 특히 App Service 계획에서 가장 낮은 가격 책정 계층을 사용하는 경우 브라우저를 새로 고칩니다. 예를 들어 체험 계층을 사용하는 경우 앱을 시작하는 데 시간이 더 오래 걸릴 수 있으며, 브라우저를 새로 고친 후에 응답하게 됩니다.
   - 앱이 [Django](#django-app) 또는 [Flask](#flask-app)에 대해 예상되는 App Service로 구성되었는지 확인하거나 [사용자 지정 시작 명령](#custom-startup-command)을 사용합니다.
-  - SSH 또는 Kudu 콘솔을 사용하여 App Service에 연결한 다음, *LogFiles* 폴더에 저장된 진단 로그를 검사합니다. 로깅에 대한 자세한 내용은 [Azure App Service에서 웹앱에 대한 진단 로깅 설정](../web-sites-enable-diagnostic-log.md)을 참조하세요.
+  - SSH 또는 Kudu 콘솔을 사용하여 App Service에 연결한 다음, *LogFiles* 폴더에 저장된 진단 로그를 검사합니다. 로깅에 대한 자세한 내용은 [Azure App Service에서 웹앱에 대한 진단 로깅 설정](../troubleshoot-diagnostic-logs.md)을 참조하세요.

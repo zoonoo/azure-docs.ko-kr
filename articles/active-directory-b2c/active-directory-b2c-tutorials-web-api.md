@@ -3,19 +3,19 @@ title: 자습서 - Azure Active Directory B2C를 사용하여 웹앱에서 ASP.N
 description: Active Directory B2C를 사용하여 ASP.NET 웹 API를 보호하고 ASP.NET 웹앱에서 호출하는 방법에 대한 자습서입니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
-ms.date: 01/23/2018
+ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 2b70ed174331b88f9afc9aa30d14a585986496a5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 4051c0438cfb7c33f36cf49542e422e54e723cfc
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604344"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856063"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 웹앱에서 ASP.NET Web API로의 액세스 권한 부여
 
@@ -38,7 +38,7 @@ ms.locfileid: "45604344"
 
 ## <a name="register-web-api"></a>웹 API 등록
 
-Azure Active Directory에서 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)을 제공하는 [클라이언트 응용 프로그램](../active-directory/develop/developer-glossary.md#client-application)을 통해 [보호된 리소스 요청](../active-directory/develop/developer-glossary.md#resource-server)을 수락하고 이에 응답하려면, 먼저 웹 API 리소스를 테넌트에 등록해야 합니다. 등록하면 [응용 프로그램 및 서비스 사용자 개체](../active-directory/develop/developer-glossary.md#application-object)가 테넌트에 설정됩니다. 
+Azure Active Directory에서 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)을 제공하는 [클라이언트 애플리케이션](../active-directory/develop/developer-glossary.md#client-application)을 통해 [보호된 리소스 요청](../active-directory/develop/developer-glossary.md#resource-server)을 수락하고 이에 응답하려면, 먼저 웹 API 리소스를 테넌트에 등록해야 합니다. 등록하면 [응용 프로그램 및 서비스 사용자 개체](../active-directory/develop/developer-glossary.md#application-object)가 테넌트에 설정됩니다. 
 
 Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -69,7 +69,7 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
 
 **응용 프로그램 클라이언트 ID**를 적어 둡니다. ID는 API를 고유하게 식별하며 자습서의 뒷부분에서 API를 구성할 때 필요합니다.
 
-Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정의됩니다. API가 B2C에 등록되어 있으므로 이제 API는 다른 응용 프로그램에서 받은 B2C 액세스 토큰을 신뢰할 수 있습니다.
+Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정의됩니다. API가 B2C에 등록되어 있으므로 이제 API는 다른 애플리케이션에서 받은 B2C 액세스 토큰을 신뢰할 수 있습니다.
 
 ## <a name="define-and-configure-scopes"></a>범위 정의 및 구성
 
@@ -116,13 +116,13 @@ Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정�
 
 이제 웹 API가 등록되었고 범위가 정의되었으므로 웹 API 코드에서 Azure AD B2C 테넌트를 사용하도록 구성해야 합니다. 이 자습서에서는 샘플 웹 API를 구성합니다. 
 
-샘플 웹 API는 필수 구성 요소 자습서([ASP.NET 웹앱 자습서에서 Azure Active Directory B2C를 사용하여 사용자 인증](active-directory-b2c-tutorials-web-app.md))에서 다운로드한 프로젝트에 포함되어 있습니다. 이 필수 구성 요소 자습서를 완료하지 않은 경우 먼저 이를 완료한 후에 계속합니다.
+샘플 웹 API는 필수 구성 요소 자습서에서 다운로드한 프로젝트에 포함됩니다. [ASP.NET 웹앱 자습서에서 Azure Active Directory B2C를 사용하여 사용자 인증](active-directory-b2c-tutorials-web-app.md) 이 필수 구성 요소 자습서를 완료하지 않은 경우 먼저 이를 완료한 후에 계속합니다.
 
 샘플 솔루션에는 두 개의 프로젝트가 있습니다.
 
-**웹앱 샘플 앱(TaskWebApp):** 작업 목록을 만들고 편집하는 웹앱입니다. 웹앱에서 **등록 또는 로그인** 정책을 사용하여 이메일 주소로 사용자를 등록하거나 로그인합니다.
+**웹앱 샘플 앱(TaskWebApp):** 작업 목록을 만들고 편집할 웹앱입니다. 웹앱에서 **가입 또는 로그인** 사용자 흐름을 사용하여 이메일 주소로 사용자를 가입 또는 로그인시킵니다.
 
-**웹 API 샘플 앱(TaskService):** 작업 목록 만들기, 읽기, 업데이트 및 삭제 기능을 지원하는 웹 API입니다. 웹 API는 Azure AD B2C를 통해 보호되고 웹앱에서 호출됩니다.
+**Web API 샘플 앱(TaskService):** 작업 목록 만들기, 읽기, 업데이트 및 삭제 기능을 지원하는 Web API입니다. 웹 API는 Azure AD B2C를 통해 보호되고 웹앱에서 호출됩니다.
 
 샘플 웹앱 및 웹 API는 각 프로젝트의 Web.config 파일에서 구성 값을 앱 설정으로 정의합니다.
 
@@ -162,10 +162,10 @@ Visual Studio에서 **B2C-WebAPI-DotNet** 솔루션을 엽니다.
     <add key="ida:ClientId" value="<The Application ID for your web API obtained from the Azure portal>"/>
     ```
 
-4. 등록 및 로그인 정책을 만들 때 생성된 이름으로 정책 설정을 업데이트합니다.
+4. 가입 및 로그인 사용자 흐름을 만들 때 생성된 이름으로 사용자 흐름 설정을 업데이트합니다.
 
     ```C#
-    <add key="ida:SignUpSignInPolicyId" value="B2C_1_SiUpIn" />
+    <add key="ida:SignUpSignInUserFlowId" value="B2C_1_SiUpIn" />
     ```
 
 5. 포털에서 만든 범위와 일치하도록 범위 설정을 구성합니다.
@@ -183,7 +183,7 @@ Visual Studio에서 **B2C-WebAPI-DotNet** 솔루션을 엽니다.
 2. **여러 시작 프로젝트** 라디오 단추를 선택합니다.
 3. **시작**할 두 프로젝트에 대한 **작업**을 변경합니다.
 4. [확인]을 클릭하여 구성을 저장합니다.
-5. **F5** 키를 눌러 두 응용 프로그램을 모두 실행합니다. 각 응용 프로그램은 자체 브라우저 탭에서 열립니다. `https://localhost:44316/`은 웹앱이고,
+5. **F5** 키를 눌러 두 응용 프로그램을 모두 실행합니다. 각 애플리케이션은 자체 브라우저 탭에서 열립니다. `https://localhost:44316/`은 웹앱이고,
     `https://localhost:44332/`는 웹 API입니다.
 
 6. 웹앱의 메뉴 배너에서 등록/로그인 링크를 클릭하여 웹 응용 프로그램에 등록합니다. [웹앱 프로그램 자습서](active-directory-b2c-tutorials-web-app.md)에서 만든 계정을 사용합니다. 

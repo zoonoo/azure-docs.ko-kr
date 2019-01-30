@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 2cdc9f780e0d9ddb6e688e53208e5597b000aa56
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: dc48194f4740216089f3daa869576596899e272b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632775"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439054"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>클러스터에 대해 Log Analytics 설정
 
@@ -69,7 +69,7 @@ Windows를 사용하는 경우 다음 단계를 계속 진행하여 클러스터
 
 이제 계정이 작업 영역의 데이터 원본에서 저장소 계정 로그의 일부로 표시됩니다.
 
-Log Analytics 작업 영역에 추가한 Service Fabric 분석 솔루션이 이제 클러스터의 플랫폼 및 응용 프로그램 로그 표에 제대로 연결되었습니다. 같은 방식으로 작업 영역에 추가적인 원본을 추가할 수 있습니다.
+Log Analytics 작업 영역에 추가한 Service Fabric 분석 솔루션이 이제 클러스터의 플랫폼 및 애플리케이션 로그 표에 제대로 연결되었습니다. 같은 방식으로 작업 영역에 추가적인 원본을 추가할 수 있습니다.
 
 
 ## <a name="deploy-log-analytics-with-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Log Analytics 배포
@@ -95,7 +95,7 @@ Azure Resource Manager는 이 명령이 기존 리소스에 대한 업데이트�
 
 ## <a name="deploy-log-analytics-with-azure-powershell"></a>Azure PowerShell을 사용하여 Log Analytics 배포
 
-`New-AzureRmOperationalInsightsWorkspace` 명령을 사용하여 PowerShell을 통해 Log Analytics 리소스를 배포할 수도 있습니다. 이 방법을 사용하려면 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1)을 설치했는지 확인합니다. 이 스크립트를 사용하여 새 Log Analytics 작업 영역을 만들고 여기에 Service Fabric 솔루션을 추가합니다. 
+`New-AzureRmOperationalInsightsWorkspace` 명령을 사용하여 PowerShell을 통해 Log Analytics 리소스를 배포할 수도 있습니다. 이 방법을 사용하려면 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.1.1)을 설치했는지 확인합니다. 이 스크립트를 사용하여 새 Log Analytics 작업 영역을 만들고 여기에 Service Fabric 솔루션을 추가합니다. 
 
 ```PowerShell
 
@@ -123,7 +123,7 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup
 
 완료되면 이전 섹션의 단계에 따라 Log Analytics를 해당 저장소 계정에 연결합니다.
 
-PowerShell을 사용하여 Log Analytics 작업 영역에 다른 솔루션을 추가하거나 다른 수정 작업을 할 수도 있습니다. 자세한 내용은 [PowerShell을 사용하여 Log Analytics 관리](../log-analytics/log-analytics-powershell-workspace-configuration.md)를 참조하세요.
+PowerShell을 사용하여 Log Analytics 작업 영역에 다른 솔루션을 추가하거나 다른 수정 작업을 할 수도 있습니다. 자세한 내용은 [PowerShell을 사용하여 Log Analytics 관리](../azure-monitor/platform/powershell-workspace-configuration.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * 노드에 [Log Analytics 에이전트를 배포](service-fabric-diagnostics-oms-agent.md)하여 성능 카운터를 수집하고 컨테이너에 대한 docker 통계 및 로그를 수집합니다.

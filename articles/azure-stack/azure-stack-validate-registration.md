@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 9d84d8b40d0d3ebc58b86dbdc95ec737f13324af
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: unknown
+ms.lastreviewed: 12/04/2018
+ms.openlocfilehash: 0281186be4fae71c56b65327e0c67da3f252a33c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966415"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239522"
 ---
 # <a name="validate-azure-registration"></a>Azure 등록 유효성 검사
  

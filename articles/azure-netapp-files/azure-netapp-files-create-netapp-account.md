@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: ad8cc550ce69e4dc4c19a569718fa873a65b3620
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eda5f21a535c6256d534bfdaa6cf30ae710ba075
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010347"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413186"
 ---
 # <a name="create-a-netapp-account"></a>NetApp 계정 만들기
 NetApp 계정 만들기를 사용하면 용량 풀을 설정하고 이후에 볼륨을 만들 수 있습니다. Azure NetApp Files 블레이드를 사용하여 새 NetApp 계정을 만듭니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-Microsoft.NetApp Azure 리소스 공급자에 액세스하기 위한 허용 목록을 작성하고 Azure NetApp Files 서비스를 사용하기 위해 구성해야 합니다.  
+NetApp 리소스 공급자 및 공개 미리 보기 기능을 사용하려면 구독을 등록해야 합니다.
 
-[Azure NetApp Files 공개 미리 보기 등록 페이지](https://aka.ms/nfspublicpreview). 
+[Azure NetApp Files에 등록](azure-netapp-files-register.md)
 
 ## <a name="steps"></a>단계 
 
-1. 미리 보기 초대에서 미리 보기 Azure Portal URL을 찾고, 포털에 로그인합니다. 
+1. 미리 보기 초대에서 미리 보기 Azure Portal URL을 찾아서 포털에 로그인합니다. 
 2.  다음 방법 중 하나를 사용하여 Azure NetApp Files 블레이드에 액세스합니다.  
   * Azure Portal 검색 상자에서 **Azure NetApp Files**를 검색합니다.  
   * 탐색에서 **모든 서비스**를 클릭한 다음, Azure NetApp Files로 필터링합니다.  
@@ -60,6 +60,5 @@ Microsoft.NetApp Azure 리소스 공급자에 액세스하기 위한 허용 목�
 
 ## <a name="next-steps"></a>다음 단계  
 
-1. [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)
-2. [Azure NetApp Files에 대한 볼륨 만들기](azure-netapp-files-create-volumes.md)
-3. [볼륨에 대한 내보내기 정책 구성(선택 사항)](azure-netapp-files-configure-export-policy.md)
+[용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)
+

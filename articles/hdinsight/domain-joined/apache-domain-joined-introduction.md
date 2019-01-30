@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 270227204af9cf50f0244b8aa11ebf9aa8cdc3ce
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b120d50b6b0f72b5977d238866cfdf26fd9be5ff
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632002"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436894"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 Apache Hadoop 보안 소개
 
@@ -22,10 +22,10 @@ ms.locfileid: "51632002"
 
 Active Directory 도메인에 가입된 ESP(Enterprise Security Package)가 포함된 HDInsight 클러스터를 만들 수 있습니다. 그런 다음, HDInsight 클러스터에 로그온하기 위해 Azure Active Directory를 통해 인증할 수 있는 기업의 직원 목록을 구성할 수 있습니다. 기업 외부의 사용자는 HDInsight 클러스터에 로그온하거나 액세스할 수 없습니다. 
 
-기업 관리자는 [Apache Ranger](http://hortonworks.com/apache/ranger/)를 사용하여 Apache Hive 보안을 위한 RBAC(역할 기반 액세스 제어)를 구성할 수 있습니다. RBAC를 구성하면 필요한 만큼 데이터 액세스를 제한할 수 있습니다. 마지막으로 관리자는 직원의 데이터 액세스 및 액세스 제어 정책에 대한 변경 내용을 감사할 수 있습니다. 그런 다음, 관리자는 높은 수준의 회사 리소스 거버넌스를 달성할 수 있습니다.
+기업 관리자는 [Apache Ranger](https://hortonworks.com/apache/ranger/)를 사용하여 Apache Hive 보안을 위한 RBAC(역할 기반 액세스 제어)를 구성할 수 있습니다. RBAC를 구성하면 필요한 만큼 데이터 액세스를 제한할 수 있습니다. 마지막으로 관리자는 직원의 데이터 액세스 및 액세스 제어 정책에 대한 변경 내용을 감사할 수 있습니다. 그런 다음, 관리자는 높은 수준의 회사 리소스 거버넌스를 달성할 수 있습니다.
 
-> [!NOTE]
-> 이제 ESP 클러스터에서 Oozie를 사용할 수 있습니다. Oozie 웹 UI에 액세스하려면 사용자가 [터널링](../hdinsight-linux-ambari-ssh-tunnel.md)을 사용하도록 설정해야 합니다.
+> [!NOTE]  
+> 이제 ESP 클러스터에서 Apache Oozie를 사용할 수 있습니다. Oozie 웹 UI에 액세스하려면 사용자가 [터널링](../hdinsight-linux-ambari-ssh-tunnel.md)을 사용하도록 설정해야 합니다.
 
 기업 보안에는 네 가지 주요 요소인 경계 보안, 인증, 권한 부여 및 암호화가 포함됩니다.
 
@@ -39,19 +39,19 @@ HDInsight의 경계 보안은 가상 네트워크와 Azure VPN Gateway 서비스
 ## <a name="authentication"></a>인증
 기업 관리자는 [가상 네트워크](https://azure.microsoft.com/services/virtual-network/)에서 ESP가 포함된 HDInsight 클러스터를 만들 수 있습니다. HDInsight 클러스터의 모든 노드는 기업에서 관리하는 도메인에 가입됩니다. 이 작업은 [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md)를 사용하여 이루어집니다. 
 
-이 설정을 통해 기업 직원은 해당 도메인 자격 증명을 사용하여 클러스터 노드에 로그온할 수 있습니다. 또한 클러스터와의 상호 작용하기 위해 해당 도메인 자격 증명을 사용하여 Ambari 뷰, ODBC, JDBC, PowerShell 및 REST API와 같은 다른 승인된 엔드포인트로 인증할 수도 있습니다. 관리자는 이러한 엔드포인트를 통해 클러스터와 상호 작용하는 사용자의 수를 완벽히 제한합니다.
+이 설정을 통해 기업 직원은 해당 도메인 자격 증명을 사용하여 클러스터 노드에 로그온할 수 있습니다. 또한 클러스터와의 상호 작용하기 위해 해당 도메인 자격 증명을 사용하여 Apache Ambari 뷰, ODBC, JDBC, PowerShell 및 REST API 등의 다른 승인된 엔드포인트로 인증할 수도 있습니다. 관리자는 이러한 엔드포인트를 통해 클러스터와 상호 작용하는 사용자의 수를 완벽히 제한합니다.
 
 ## <a name="authorization"></a>권한 부여
 대부분의 기업이 따르는 선택한 모범 사례는 모든 직원에게 기업 리소스에 대한 모든 액세스를 부여하지 않도록 하는 것입니다. 마찬가지로 관리자는 클러스터 리소스에 대한 역할 기반 액세스 제어 정책을 정의할 수 있습니다. 
 
-예를 들어, 관리자는 [Apache Ranger](http://hortonworks.com/apache/ranger/)를 구성하여 Hive에 대한 액세스 제어 정책을 설정할 수 있습니다. 이 기능을 사용하여 직원이 작업을 수행하는 데 필요한 만큼의 데이터에만 액세스할 수 있도록 합니다. 클러스터에 대한 SSH 액세스는 관리자에게만 제한됩니다.
+예를 들어, 관리자는 [Apache Ranger](https://hortonworks.com/apache/ranger/)를 구성하여 Hive에 대한 액세스 제어 정책을 설정할 수 있습니다. 이 기능을 사용하여 직원이 작업을 수행하는 데 필요한 만큼의 데이터에만 액세스할 수 있도록 합니다. 클러스터에 대한 SSH 액세스는 관리자에게만 제한됩니다.
 
 ## <a name="auditing"></a>감사
 클러스터 리소스에 대한 모든 액세스를 감사하는 작업은 리소스의 무단 또는 실수로 실행된 액세스를 추적하는 데 필요합니다. 권한 없는 사용자로부터 HDInsight 클러스터 리소스를 보호하고 데이터를 보호하는 것만큼 중요합니다. 
 
 관리자는 HDInsight 클러스터 리소스 및 데이터에 대한 모든 액세스를 확인하고 보고할 수 있습니다. 관리자는 Apache Ranger가 지원되는 엔드포인트에서 만들어진 액세스 제어 정책에 대한 모든 변경 내용을 확인하고 보고할 수도 있습니다. 
 
-ESP가 포함된 HDInsight 클러스터는 Apache Ranger UI를 사용하여 감사 로그를 검색합니다. Ranger는 백 엔드에서 로그를 저장하고 검색하는 데 [Apache Solr](http://hortonworks.com/apache/solr/)을 사용합니다.
+ESP가 포함된 HDInsight 클러스터는 Apache Ranger UI를 사용하여 감사 로그를 검색합니다. Ranger는 백 엔드에서 로그를 저장하고 검색하는 데 [Apache Solr](https://hortonworks.com/apache/solr/)을 사용합니다.
 
 ## <a name="encryption"></a>암호화
 조직 보안 및 준수 요구 사항을 충족하는 데는 데이터 보호가 중요합니다. 권한 없는 직원의 데이터 액세스를 제한하고 데이터를 암호화해야 합니다. 
@@ -63,6 +63,6 @@ HDInsight 클러스터용 데이터 저장소(Azure Blob Storage 및 Azure Data 
 * [ESP가 포함된 HDInsight 클러스터 계획](apache-domain-joined-architecture.md)
 * [ESP가 포함된 HDInsight 클러스터 구성](apache-domain-joined-configure.md)
 * [ESP가 포함된 HDInsight 클러스터 관리](apache-domain-joined-manage.md)
-* [ESP가 포함된 HDInsight 클러스터용 Hive 정책 구성](apache-domain-joined-run-hive.md)
+* [ESP가 포함된 HDInsight 클러스터용 Apache Hive 정책 구성](apache-domain-joined-run-hive.md)
 * [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)
 

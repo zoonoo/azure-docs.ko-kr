@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 23b12f5b0423f717e96ec1f59480f0175648c75f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: ae71fb9f509c39e871f4d1dfb29626be47bea4b9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210655"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790982"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V와 Azure 간 재해 복구 아키텍처
 
@@ -131,9 +131,9 @@ Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) �
 온-프레미스 인프라를 다시 실행한 후 장애 복구를 수행할 수 있습니다. 장애 복구는 다음 3단계로 수행됩니다.
 
 1. Azure에서 온-프레미스 사이트로 계획된 장애 조치를 시작합니다.
-    - **가동 중지 시간 최소화**: 이 옵션을 사용하면 Site Recovery가 장애 조치 전에 데이터를 동기화합니다. 변경된 데이터 블록을 확인하고 온-프레미스 사이트에 다운로드하며 Azure VM은 그 동안에도 계속 실행되어 가동 중지 시간을 최소화합니다. 장애 조치 완료를 수동으로 지정해야 하는 경우 Azure VM이 종료되고 최종 델타 변경 내용이 복사되며 장애 조치가 시작됩니다.
-    - **전체 다운로드**:이 옵션에서는 장애 조치 중에 데이터가 동기화됩니다. 이 옵션은 전체 디스크를 다운로드합니다. 체크섬을 계산하지 않아 더 빠르지만 가동 중지 시간은 더 늘어납니다. 상당 시간 동안 복제본 Azure VM을 실행하였거나 온-프레미스 VM이 삭제된 경우에 이 옵션을 사용합니다.
-    - **VM 만들기**: 동일한 VM으로 또는 대체 VM으로 장애 복구하도록 선택할 수 있습니다. VM이 없는 경우 Site Recovery가 이를 만들도록 지정할 수 있습니다.
+    - **가동 중단 시간 최소화**: 이 옵션을 사용하면 Site Recovery가 장애 조치(failover) 전에 데이터를 동기화합니다. 변경된 데이터 블록을 확인하고 온-프레미스 사이트에 다운로드하며 Azure VM은 그 동안에도 계속 실행되어 가동 중지 시간을 최소화합니다. 장애 조치 완료를 수동으로 지정해야 하는 경우 Azure VM이 종료되고 최종 델타 변경 내용이 복사되며 장애 조치가 시작됩니다.
+    - **전체 다운로드**: 이 옵션에서는 장애 조치(failover) 도중에 데이터가 동기화됩니다. 이 옵션은 전체 디스크를 다운로드합니다. 체크섬을 계산하지 않아 더 빠르지만 가동 중지 시간은 더 늘어납니다. 상당 시간 동안 복제본 Azure VM을 실행하였거나 온-프레미스 VM이 삭제된 경우에 이 옵션을 사용합니다.
+    - **VM 만들기**: 동일한 VM으로 또는 대체 VM으로 장애 복구(Failback)하도록 선택할 수 있습니다. VM이 없는 경우 Site Recovery가 이를 만들도록 지정할 수 있습니다.
 
 2. 초기 동기화가 완료되면 장애 조치를 완료하도록 선택합니다. 완료되면 온-프레미스 VM에 로그온하여 모든 것이 기대한 대로 작동하는지 확인할 수 있습니다. Azure Portal에서 Azure VM이 중지된 것을 확인할 수 있습니다.
 3.  그런 다음 장애 조치를 커밋하여 완료하고 다시 온-프레미스 VM에서 워크로드에 액세스합니다.

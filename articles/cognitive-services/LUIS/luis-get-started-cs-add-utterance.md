@@ -1,21 +1,22 @@
 ---
-title: C# 빠른 시작 - 모델 변경 및 LUIS 앱 학습
-titleSuffix: Azure Cognitive Services
-description: C# 빠른 시작에서는 Home Automation 앱에 예제 발언을 추가하여 앱을 학습시킵니다. 예제 발언은 의도에 매핑된 대화형 사용자 텍스트입니다. 의도에 대한 예제 발언을 제공하여, 사용자가 제공한 텍스트의 종류가 어떤 의도에 속하는지 LUIS에 알려줍니다.
+title: 변경, 학습 앱, C#
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: C# 빠른 시작에서는 Home Automation 앱에 예제 발언을 추가하여 앱을 학습시킵니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: aab9651092f7ad5dbc78c31db8df4ef3538fedfc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6be2b3016218f02e6c58f19feb7f0585032bffe3
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039975"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719577"
 ---
 # <a name="quickstart-change-model-using-c"></a>빠른 시작: C#을 사용하여 모델 변경
 
@@ -28,7 +29,7 @@ ms.locfileid: "47039975"
 * C# 프로그래밍 언어가 설치되어 있습니다.
 * [JsonFormatterPlus](https://www.nuget.org/packages/JsonFormatterPlus) 및 [CommandLine](https://www.nuget.org/packages/CommandLineParser/) NuGet 패키지
 
-[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>예제 발언 JSON 파일
 
@@ -56,7 +57,7 @@ Visual Studio 프로젝트에 **JsonFormatterPlus** 및 **CommandLineParser**가
 ### <a name="write-the-c-code"></a>C# 코드 작성
 **Program.cs** 파일은 다음과 같아야 합니다.
 
-```CSharp
+```C#
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -98,9 +99,7 @@ LUIS ID 및 문자열을 **프로그램** 클래스에 추가합니다.
 
 파일 메서드의 예제 발언을 **Program** 클래스에 추가합니다.
 
-   [!code-csharp[Add example utterances from file.
-](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=77-86 "Add example utterances from file.
-")]
+   [!code-csharp[Add example utterances from file.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=77-86 "Add example utterances from file.")]
 
 변경 내용이 모델에 적용되면 모델을 학습시킵니다. **Program** 클래스에 메서드를 추가합니다.
 
@@ -126,9 +125,9 @@ Visual Studio에서 코드를 빌드합니다.
 
 ## <a name="run-code"></a>코드 실행
 
-프로젝트의 /bin/Debug 디렉터리에서 명령줄을 사용하여 응용 프로그램을 실행합니다. 
+프로젝트의 /bin/Debug 디렉터리에서 명령줄을 사용하여 애플리케이션을 실행합니다. 
 
-```CMD
+```console
 ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
 ```
 

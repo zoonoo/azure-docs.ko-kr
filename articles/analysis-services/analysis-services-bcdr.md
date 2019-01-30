@@ -5,21 +5,22 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 657800c6f96560c68e690ccbd1dfb166c5034812
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 51a0f560a0e4b6ff791d5ed3f9f221eb2eeb9b4d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430139"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191346"
 ---
 # <a name="analysis-services-high-availability"></a>Analysis Services 고가용성
+
 이 문서에서는 Azure Analysis Services 서버에 대한 고가용성을 보장하는 방법을 설명합니다. 
 
-
 ## <a name="assuring-high-availability-during-a-service-disruption"></a>서비스가 중단된 동안 고가용성 보장
+
 드문 경우지만 Azure 데이터 센터에서 가동 중단이 발생할 수 있습니다. 가동 중단이 발생하면 몇 분 내지 몇 시간 동안 지속될 수 있는 업무 중단이 발생합니다. 고가용성은 대부분 서버 중복을 통해 획득됩니다. Azure Analysis Services를 통해 하나 이상의 지역에서 추가적인 보조 서버를 만들어 중복을 획득할 수 있습니다. 중복 서버를 만들 경우 해당 서버의 데이터 및 메타데이터가 오프라인으로 전환된 지역의 서버와 동기화되도록 하려면 다음을 수행합니다.
 
 * 다른 지역의 중복 서버에 모델을 배포합니다. 이 방법을 적용할 경우 모든 서버가 동기화되도록 기본 서버와 중복 서버에서 모두 병렬로 데이터를 처리해야 합니다.
@@ -31,6 +32,7 @@ ms.locfileid: "49430139"
 보고 클라이언트에서 연결 문자열을 변경하지 않기 위해 주 서버에 대한 서버 [별칭](analysis-services-server-alias.md)을 만들 수 있습니다. 주 서버가 다운되면 다른 지역에서 중복 서버를 가리키도록 별칭을 변경할 수 있습니다. 주 서버에서 엔드포인트 상태 검사를 코딩하여 서버 이름에 대한 별칭을 자동화할 수 있습니다. 상태 검사가 실패하는 경우 동일한 엔드포인트를 다른 지역의 중복 서버로 보낼 수 있습니다. 
 
 ## <a name="related-information"></a>관련 정보
+
 [Backup 및 복원](analysis-services-backup.md)   
 [Azure Analysis Services 관리](analysis-services-manage.md)   
 [별칭 서버 이름](analysis-services-server-alias.md) 

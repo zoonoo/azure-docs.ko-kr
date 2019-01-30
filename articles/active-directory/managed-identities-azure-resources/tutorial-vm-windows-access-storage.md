@@ -4,7 +4,7 @@ description: Windows VM 시스템 할당 관리 ID를 사용하여 Azure Storage
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: daveba
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
 ms.author: daveba
-ms.openlocfilehash: d032d8cc33d33954406ad45e64fc199d569abf41
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ff5ff237def4bbb5da1c62aca57bd09ee22e574b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51620938"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432390"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure Storage에 액세스
 
@@ -54,7 +54,7 @@ ms.locfileid: "51620938"
 
 ## <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Blob 컨테이너 만들기 및 저장소 계정에 파일 업로드
 
-파일에 Blob 저장소가 필요하므로 파일을 저장할 Blob 컨테이너를 만들어야 합니다. 그런 다음, 새 저장소 계정에서 Blob 컨테이너에 파일을 업로드합니다.
+파일에 Blob Storage가 필요하므로 파일을 저장할 Blob 컨테이너를 만들어야 합니다. 그런 다음, 새 저장소 계정에서 Blob 컨테이너에 파일을 업로드합니다.
 
 1. 새로 만든 저장소 계정으로 다시 이동합니다.
 2. **Blob Service**에서 **컨테이너**를 클릭합니다.
@@ -74,7 +74,7 @@ VM의 시스템 할당 관리 ID를 사용하여 Azure 저장소 Blob에서 데�
 
 1. 새로 만든 저장소 계정으로 다시 이동합니다.  
 2. 왼쪽 패널의 **액세스 제어(IAM)** 링크를 클릭합니다.  
-3. 페이지 위쪽에 있는 **+ 추가**를 클릭하여 VM에 대한 새 역할 할당을 추가합니다.
+3. 페이지의 위쪽에서 **+ 역할 할당 추가**를 클릭하여 VM에 대한 새 역할 할당을 추가합니다.
 4. **역할** 아래의 드롭다운에서 **Storage Blob 데이터 판독기(미리 보기)** 를 선택합니다. 
 5. 다음 드롭다운의 **다음에 대한 액세스 할당** 아래에서 **가상 머신**을 선택합니다.  
 6. 다음으로 적절한 구독이 **구독** 드롭다운에 나열되는지 확인한 다음, **리소스 그룹**을 **모든 리소스 그룹**으로 설정합니다.  

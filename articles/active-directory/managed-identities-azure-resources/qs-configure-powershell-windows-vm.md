@@ -4,7 +4,7 @@ description: PowerShell을 사용하여 Azure VM에서 Azure 리소스에 대한
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: a29980da64775ca39f103b7430239f38c98a43fc
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: ed52ec67e27d7abf2f52818e18a6ecc86953148b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578459"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428803"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>PowerShell을 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -88,6 +88,34 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
    ```
     > [!NOTE]
     > 이 단계는 Azure IMDS(Instance Metadata Service) ID 엔드포인트를 사용하여 토큰을 검색할 수도 있으므로 선택 사항입니다.
+
+### <a name="add-vm-system-assigned-identity-to-a-group"></a>그룹에 VM 시스템이 할당한 ID 추가
+
+VM에서 시스템이 할당한 ID를 사용하도록 설정한 후에는 그룹에 해당 ID를 추가할 수 있습니다.  다음 절차에서는 VM의 시스템이 할당한 ID를 그룹에 추가합니다.
+
+1. `Login-AzureRmAccount`를 사용하여 Azure에 로그인합니다. VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다.
+
+   ```powershell
+   Login-AzureRmAccount
+   ```
+
+2. VM 서비스 주체의 `ObjectID`(반환된 값의 `Id` 필드에 지정되어 있음)를 검색하여 적어 둡니다.
+
+   ```powerhshell
+   Get-AzureRmADServicePrincipal -displayname "myVM"
+   ```
+
+3. 그룹의 `ObjectID`(반환된 값의 `Id` 필드에 지정되어 있음)를 검색하여 적어 둡니다.
+
+   ```powershell
+   Get-AzureRmADGroup -searchstring "myGroup"
+   ```
+
+4. VM 서비스 주체를 그룹에 추가합니다.
+
+   ```powershell
+   Add-AzureADGroupMember -ObjectId "<objectID of group>" -RefObjectId "<object id of VM service principal>"
+   ```
 
 ## <a name="disable-system-assigned-managed-identity-from-an-azure-vm"></a>Azure VM에서 시스템 할당 관리 ID를 사용하지 않도록 설정
 

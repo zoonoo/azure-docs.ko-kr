@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: d422b56acd56f87cb855c5e045e3a91666eee571
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: dbda20554b119bfb72b939cbeb7f19e0b9093b31
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499396"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597480"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Apache Spark 기계 학습 파이프라인 만들기
 
-Apache Spark의 확장 가능한 MLlib(기계 학습 라이브러리)는 모델링 기능을 분산 환경에 제공합니다. [`spark.ml`](http://spark.apache.org/docs/latest/ml-pipeline.html) Spark 패키지는 데이터 프레임에 작성된 고급 수준의 API 집합입니다. 이러한 API를 사용하면 실용적인 기계 학습 파이프라인을 만들고 튜닝할 수 있습니다.  *Spark 기계 학습*은 이전의 RDD 기반 파이프라인 API가 아니라 이 MLlib 데이터 프레임 기반 API를 참조합니다.
+Apache Spark의 확장 가능한 MLlib(기계 학습 라이브러리)는 모델링 기능을 분산 환경에 제공합니다. [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) Spark 패키지는 데이터 프레임에 작성된 고급 수준의 API 집합입니다. 이러한 API를 사용하면 실용적인 기계 학습 파이프라인을 만들고 튜닝할 수 있습니다.  *Spark 기계 학습*은 이전의 RDD 기반 파이프라인 API가 아니라 이 MLlib 데이터 프레임 기반 API를 참조합니다.
 
 ML(기계 학습) 파이프라인은 여러 기계 학습 알고리즘을 결합한 완벽한 워크플로입니다. 데이터를 처리하고 학습하는 데 필요한 여러 단계가 있을 수 있으며 일련의 알고리즘이 필요합니다. 파이프라인은 기계 학습 프로세스의 단계와 순서를 정의합니다. MLlib에서 파이프라인의 단계는 변환기와 평가기에서 각각 작업을 수행하는 PipelineStages의 특정 시퀀스로 표시됩니다.
 
@@ -30,7 +30,7 @@ ML(기계 학습) 파이프라인은 여러 기계 학습 알고리즘을 결합
 
 ## <a name="pipeline-example"></a>파이프라인 예제
 
-ML 파이프라인을 실제로 사용하기 위해 이 예제에서는 HDInsight 클러스터에 대한 기본 저장소(Azure Storage 또는 Data Lake Store)에 미리 로드된 `HVAC.csv` 데이터 파일 샘플을 사용합니다. 파일의 내용을 보려면 `/HdiSamples/HdiSamples/SensorSampleData/hvac` 디렉터리로 이동합니다. `HVAC.csv`에는 여러 건물의 HVAC(*난방, 환기 및 공기 조절*) 시스템의 목표 온도와 실제 온도가 모두 포함된 일단의 시간이 포함되어 있습니다. 목표는 모델에서 데이터를 학습하고 지정된 건물에 대한 예측 온도를 생성하는 것입니다.
+ML 파이프라인을 실제로 사용하기 위해 이 예제에서는 HDInsight 클러스터에 대한 기본 스토리지(Azure Storage 또는 Data Lake Storage)에 미리 로드된 `HVAC.csv` 데이터 파일 샘플을 사용합니다. 파일의 내용을 보려면 `/HdiSamples/HdiSamples/SensorSampleData/hvac` 디렉터리로 이동합니다. `HVAC.csv`에는 여러 건물의 HVAC(*난방, 환기 및 공기 조절*) 시스템의 목표 온도와 실제 온도가 모두 포함된 일단의 시간이 포함되어 있습니다. 목표는 모델에서 데이터를 학습하고 지정된 건물에 대한 예측 온도를 생성하는 것입니다.
 
 코드는 다음과 같습니다.
 
@@ -127,7 +127,7 @@ peek.show()
 only showing top 20 rows
 ```
 
-이제 `model` 개체를 사용하여 예측을 만들 수 있습니다. 이 기계 학습 응용 프로그램의 전체 샘플과 단계별 실행 지침은 [Azure HDInsight에서 Apache Spark 기계 학습 응용 프로그램 빌드](apache-spark-ipython-notebook-machine-learning.md)를 참조하세요.
+이제 `model` 개체를 사용하여 예측을 만들 수 있습니다. 이 기계 학습 애플리케이션의 전체 샘플과 단계별 실행 지침은 [Azure HDInsight에서 Apache Spark 기계 학습 애플리케이션 빌드](apache-spark-ipython-notebook-machine-learning.md)를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 

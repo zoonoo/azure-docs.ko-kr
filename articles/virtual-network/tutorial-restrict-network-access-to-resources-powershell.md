@@ -17,19 +17,19 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: b3977e045751165947243c67291e81b998b5fcb5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e70a17271dee9f78f13c06ca2fd24dc39b20c6a4
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606117"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425206"
 ---
-# <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>PowerShell을 사용하는 가상 네트워크 서비스 끝점으로 PaaS 리소스에 대한 네트워크 액세스 제한
+# <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>PowerShell을 사용하는 가상 네트워크 서비스 엔드포인트로 PaaS 리소스에 대한 네트워크 액세스 제한
 
-가상 네트워크 서비스 끝점을 사용하면 일부 Azure 서비스 리소스에 대한 네트워크 액세스를 가상 네트워크 서브넷으로 제한할 수 있습니다. 리소스에 대한 인터넷 액세스를 제거할 수도 있습니다. 서비스 끝점은 가상 네트워크에서 지원되는 Azure 서비스로의 직접 연결을 제공하므로 가상 네트워크의 개인 주소 공간을 사용하여 Azure 서비스에 액세스할 수 있습니다. 서비스 끝점을 통해 Azure 리소스에 도달하는 트래픽은 항상 Microsoft Azure 백본 네트워크에 유지됩니다. 이 문서에서는 다음 방법을 설명합니다.
+가상 네트워크 서비스 엔드포인트를 사용하면 일부 Azure 서비스 리소스에 대한 네트워크 액세스를 가상 네트워크 서브넷으로 제한할 수 있습니다. 리소스에 대한 인터넷 액세스를 제거할 수도 있습니다. 서비스 엔드포인트는 가상 네트워크에서 지원되는 Azure 서비스로의 직접 연결을 제공하므로 가상 네트워크의 개인 주소 공간을 사용하여 Azure 서비스에 액세스할 수 있습니다. 서비스 엔드포인트를 통해 Azure 리소스에 도달하는 트래픽은 항상 Microsoft Azure 백본 네트워크에 유지됩니다. 이 문서에서는 다음 방법을 설명합니다.
 
 * 하나의 서브넷이 있는 가상 네트워크 만들기
-* 서브넷을 추가하고 서비스 끝점을 사용하도록 설정
+* 서브넷을 추가하고 서비스 엔드포인트를 사용하도록 설정
 * Azure 리소스를 만들고 서브넷에서만 네트워크 액세스 허용
 * 각 서브넷에 VM(가상 머신) 배포
 * 서브넷에서 리소스에 대한 액세스 확인
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 문서에는 Azure PowerShell 모듈 버전 5.4.1 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 ` Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 문서에는 Azure PowerShell 모듈 버전 5.4.1 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 ` Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
@@ -74,15 +74,15 @@ $subnetConfigPublic = Add-AzureRmVirtualNetworkSubnetConfig `
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
-## <a name="enable-a-service-endpoint"></a>서비스 끝점 사용 
+## <a name="enable-a-service-endpoint"></a>서비스 엔드포인트 사용 
 
-서비스 끝점을 지원하는 서비스에 대해서만 서비스 끝점을 사용하도록 설정할 수 있습니다. [Get-AzureRmVirtualNetworkAvailableEndpointService](/powershell/module/azurerm.network/get-azurermvirtualnetworkavailableendpointservice)를 통해 Azure 위치에서 사용할 수 있는 서비스 끝점 지원 서비스를 확인합니다. 다음 예제에서는 *eastus* 지역에서 사용할 수 있는 서비스 끝점 지원 서비스 목록을 반환합니다. 반환되는 서비스 목록은 시간이 지나면서 서비스 끝점을 사용할 수 있는 Azure 서비스가 증가함에 따라 확장됩니다.
+서비스 엔드포인트를 지원하는 서비스에 대해서만 서비스 엔드포인트를 사용하도록 설정할 수 있습니다. [Get-AzureRmVirtualNetworkAvailableEndpointService](/powershell/module/azurerm.network/get-azurermvirtualnetworkavailableendpointservice)를 통해 Azure 위치에서 사용할 수 있는 서비스 엔드포인트 지원 서비스를 확인합니다. 다음 예제에서는 *eastus* 지역에서 사용할 수 있는 서비스 끝점 지원 서비스 목록을 반환합니다. 반환되는 서비스 목록은 시간이 지나면서 서비스 엔드포인트를 사용할 수 있는 Azure 서비스가 증가함에 따라 확장됩니다.
 
 ```azurepowershell-interactive
 Get-AzureRmVirtualNetworkAvailableEndpointService -Location eastus | Select Name
 ``` 
 
-가상 네트워크에 추가 서브넷을 만듭니다. 이 예제에서는 *Private*라는 서브넷이 *Microsoft.Storage*에 대한 서비스 끝점으로 생성됩니다. 
+가상 네트워크에 추가 서브넷을 만듭니다. 이 예제에서는 *Private*라는 서브넷이 *Microsoft.Storage*에 대한 서비스 엔드포인트로 생성됩니다. 
 
 ```azurepowershell-interactive
 $subnetConfigPrivate = Add-AzureRmVirtualNetworkSubnetConfig `
@@ -166,7 +166,7 @@ $virtualNetwork | Set-AzureRmVirtualNetwork
 
 ## <a name="restrict-network-access-to-a-resource"></a>리소스에 대한 네트워크 액세스 제한
 
-서비스 끝점에 사용할 수 있는 Azure 서비스를 통해 만든 리소스에 대한 네트워크 액세스를 제한하는 데 필요한 단계는 서비스에 따라 다릅니다. 각 서비스에 대한 특정 단계는 개별 서비스의 설명서를 참조하세요. 이 문서의 나머지 부분에는 Azure Storage 계정에 대한 네트워크 액세스를 제한하는 단계가 예제로 포함되어 있습니다.
+서비스 엔드포인트에 사용할 수 있는 Azure 서비스를 통해 만든 리소스에 대한 네트워크 액세스를 제한하는 데 필요한 단계는 서비스에 따라 다릅니다. 각 서비스에 대한 특정 단계는 개별 서비스의 설명서를 참조하세요. 이 문서의 나머지 부분에는 Azure Storage 계정에 대한 네트워크 액세스를 제한하는 단계가 예제로 포함되어 있습니다.
 
 ### <a name="create-a-storage-account"></a>저장소 계정 만들기
 
@@ -183,7 +183,7 @@ New-AzureRmStorageAccount `
   -Kind StorageV2
 ```
 
-저장소 계정이 생성된 후 [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey)를 사용하여 저장소 계정의 키를 변수로 검색합니다.
+스토리지 계정이 생성된 후 [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey)를 사용하여 스토리지 계정의 키를 변수로 검색합니다.
 
 ```azurepowershell-interactive
 $storageAcctKey = (Get-AzureRmStorageAccountKey `
@@ -195,7 +195,7 @@ $storageAcctKey = (Get-AzureRmStorageAccountKey `
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>저장소 계정에 파일 공유 만들기
 
-[New-AzureStorageContext](/powershell/module/azure.storage/new-azurestoragecontext)를 사용하여 저장소 계정 및 키에 대한 컨텍스트를 만듭니다. 이 컨텍스트는 저장소 계정 이름 및 계정 키를 캡슐화합니다.
+[New-AzureStorageContext](/powershell/module/azure.storage/new-azurestoragecontext)를 사용하여 스토리지 계정 및 키에 대한 컨텍스트를 만듭니다. 이 컨텍스트는 저장소 계정 이름 및 계정 키를 캡슐화합니다.
 
 ```azurepowershell-interactive
 $storageContext = New-AzureStorageContext $storageAcctName $storageAcctKey
@@ -228,7 +228,7 @@ $privateSubnet = Get-AzureRmVirtualNetwork `
   -Name "Private"
 ```
 
-[Add-AzureRmStorageAccountNetworkRule](/powershell/module/azurerm.network/add-azurermnetworksecurityruleconfig)을 사용하여 *Private* 서브넷에서 저장소 계정에 대한 네트워크 액세스를 허용합니다.
+[Add-AzureRmStorageAccountNetworkRule](/powershell/module/azurerm.network/add-azurermnetworksecurityruleconfig)을 사용하여 *Private* 서브넷에서 스토리지 계정에 대한 네트워크 액세스를 허용합니다.
 
 ```azurepowershell-interactive
 Add-AzureRmStorageAccountNetworkRule `
@@ -349,7 +349,7 @@ $credential = New-Object System.Management.Automation.PSCredential -ArgumentList
 New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\my-file-share" -Credential $credential
 ```
 
-공유에 대한 액세스가 거부되고 `New-PSDrive : Access is denied` 오류가 수신됩니다. *myVmPublic* VM이 *Public* 서브넷에 배포되었으므로 액세스가 거부되었습니다. *Public* 서브넷에는 Azure Storage에 사용할 수 있는 서비스 끝점이 없으며 저장소 계정이 *Public* 서브넷이 아닌 *Private* 서브넷의 네트워크 액세스만 허용합니다.
+공유에 대한 액세스가 거부되고 `New-PSDrive : Access is denied` 오류가 수신됩니다. *myVmPublic* VM이 *Public* 서브넷에 배포되었으므로 액세스가 거부되었습니다. *Public* 서브넷에는 Azure Storage에 사용할 수 있는 서비스 엔드포인트가 없으며 스토리지 계정이 *Public* 서브넷이 아닌 *Private* 서브넷의 네트워크 액세스만 허용합니다.
 
 *myVmPublic* VM에 대한 원격 데스크톱 세션을 닫습니다.
 
@@ -361,7 +361,7 @@ Get-AzureStorageFile `
   -Context $storageContext
 ```
 
-액세스가 거부되고 *Get-AzureStorageFile : The remote server returned an error: (403) Forbidden. HTTP Status Code: 403 - HTTP Error Message: This request is not authorized to perform this operation*(Get-AzureStorageFile : 원격 서버에서 (403) 사용할 수 없음 오류를 반환했습니다. HTTP 상태 코드: 403 - HTTP 오류 메시지: 이 요청에는 이 작업을 수행할 수있는 권한이 없습니다.) 오류가 수신됩니다. 사용자 컴퓨터가 *MyVirtualNetwork* 가상 네트워크의 *Private* 서브넷에 없기 때문입니다.
+액세스가 거부되고 *Get-AzureStorageFile: 원격 서버에서 오류를 반환했습니다. (403) 사용 권한 없음 HTTP 상태 코드: 403 - HTTP 오류 메시지: 이 요청은 이 작업을 수행할 권한이 없습니다.* 오류가 수신됩니다. 사용자 컴퓨터가 *MyVirtualNetwork* 가상 네트워크의 *Private* 서브넷에 없기 때문입니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -373,6 +373,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 가상 네트워크 서브넷에 대해 서비스 엔드포인트를 사용하도록 설정했습니다. 여러 Azure 서비스로 배포된 리소스에 대해 서비스 끝점을 사용하도록 설정할 수 있음을 배웠습니다. Azure Storage 계정을 만들고 저장소 계정에 대한 네트워크 액세스를 가상 네트워크 서브넷 내의 리소스로만 제한했습니다. 서비스 끝점에 대한 자세한 내용은 [서비스 끝점 개요](virtual-network-service-endpoints-overview.md) 및 [서브넷 관리](virtual-network-manage-subnet.md)를 참조하세요.
+이 문서에서는 가상 네트워크 서브넷에 대해 서비스 엔드포인트를 사용하도록 설정했습니다. 여러 Azure 서비스로 배포된 리소스에 대해 서비스 엔드포인트를 사용하도록 설정할 수 있음을 배웠습니다. Azure Storage 계정을 만들고 스토리지 계정에 대한 네트워크 액세스를 가상 네트워크 서브넷 내의 리소스로만 제한했습니다. 서비스 엔드포인트에 대한 자세한 내용은 [서비스 엔드포인트 개요](virtual-network-service-endpoints-overview.md) 및 [서브넷 관리](virtual-network-manage-subnet.md)를 참조하세요.
 
 계정에 여러 개의 가상 네트워크가 있는 경우, 각 가상 네트워크 내의 리소스가 서로 통신할 수 있도록 두 개의 가상 네트워크를 함께 연결하는 것이 좋습니다. 방법을 알아보려면 [가상 네트워크 연결](tutorial-connect-virtual-networks-powershell.md)을 참조하세요.

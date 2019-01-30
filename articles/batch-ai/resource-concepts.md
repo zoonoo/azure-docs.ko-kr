@@ -15,14 +15,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: danlep
-ms.openlocfilehash: 4a9e3529f9d68ecdc614ea69cffc6897891f4548
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4454448809411c6390bc1f65c33b4abe76094ded
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44056960"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407748"
 ---
 # <a name="overview-of-resources-in-batch-ai"></a>Batch AI의 리소스 개요
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Batch AI 서비스를 사용하여 처음 시작하는 경우 사용 가능한 Batch AI 리소스를 알아볼 수 있습니다. 다른 Azure 서비스와 마찬가지로, 하나 이상의 Azure *리소스 그룹*에 Batch AI 리소스를 만듭니다. 리소스 그룹에 하나 이상의 Batch AI *작업 영역*을 만듭니다. 각 작업 영역에는 Batch AI *클러스터*, *파일 서버* 및 *실험*이 혼합되어 있습니다. Batch AI 실험은 *작업* 그룹을 캡슐화합니다.
 
@@ -42,7 +45,7 @@ Batch AI의 클러스터에는 작업을 실행하기 위한 계산 리소스가
 
 ## <a name="file-server"></a>파일 서버
 
-선택적으로 Batch AI에 파일 서버를 만들어 데이터, 교육 스크립트 및 출력 로그를 저장합니다. Batch AI 파일 서버는 중앙에서 쉽게 액세스할 수 있는 작업용 저장소 위치를 제공하기 위해 클러스터 노드에 자동으로 탑재될 수 있는 관리 단일 노드 NFS입니다. 대부분의 경우 하나의 작업 영역에는 하나의 파일 서버만 필요하며, 학습 작업용 데이터는 다른 디렉터리로 구분할 수 있습니다. NFS가 워크로드에 적합하지 않은 경우 Batch AI는 [Azure Storage](use-azure-storage.md) 또는 사용자 지정 솔루션(예: Gluster 또는 Lustre 파일 시스템)을 비롯한 다른 저장소 옵션을 지원합니다.
+선택적으로 Batch AI에 파일 서버를 만들어 데이터, 교육 스크립트 및 출력 로그를 저장합니다. Batch AI 파일 서버는 중앙에서 쉽게 액세스할 수 있는 작업용 저장소 위치를 제공하기 위해 클러스터 노드에 자동으로 탑재될 수 있는 관리 단일 노드 NFS입니다. 대부분의 경우 하나의 작업 영역에는 하나의 파일 서버만 필요하며, 학습 작업용 데이터는 다른 디렉터리로 구분할 수 있습니다. NFS가 워크로드에 적합하지 않은 경우 Batch AI는 [Azure Storage](use-azure-storage.md) 또는 사용자 지정 솔루션(예: Gluster 또는 Lustre 파일 시스템)을 비롯한 다른 스토리지 옵션을 지원합니다.
 
 ## <a name="experiment"></a>실험
 

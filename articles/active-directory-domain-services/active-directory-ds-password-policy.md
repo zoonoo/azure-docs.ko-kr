@@ -4,7 +4,7 @@ description: 관리되는 도메인의 암호 정책에 대해 살펴봅니다.
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: dcc1de5fa0ac1f394d0fe12fd24a1d6e745df83e
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 0bb3ccb3841b60f6c94ac1d6126bd2b0d44af092
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284611"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852697"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>관리되는 도메인의 암호 및 계정 잠금 정책
 이 문서에서는 관리되는 도메인의 기본 암호 정책과 이러한 정책을 구성할 수 있는 방법을 설명합니다.
@@ -113,7 +113,7 @@ FGPP를 사용하여 구성할 수 있는 암호 설정은 다음과 같습니�
   ![적용된 FGPP](./media/how-to/fgpp-applied.png)
 
 > [!TIP]
-> **사용자 지정 OU에 있는 사용자 계정에 사용자 지정 암호 정책을 적용하려면:** 세분화된 암호 정책은 그룹에만 적용할 수 있습니다. 사용자 지정 OU의 사용자만을 대상으로 사용자 지정 암호 정책을 구성하려면 해당 OU의 사용자가 포함된 그룹을 만드세요.
+> **사용자 지정 OU의 사용자 계정에 사용자 지정 암호 정책을 적용하려면:** 세밀하게 세분화된 암호 정책은 그룹에만 적용할 수 있습니다. 사용자 지정 OU의 사용자만을 대상으로 사용자 지정 암호 정책을 구성하려면 해당 OU의 사용자가 포함된 그룹을 만드세요.
 >
 >
 

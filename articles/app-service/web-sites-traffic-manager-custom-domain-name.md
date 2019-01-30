@@ -1,5 +1,5 @@
 ---
-title: 부하 분산을 위해 Traffic Manager를 사용하는 Azure App Service의 사용자 지정 도메인 이름 구성
+title: Configure Traffic Manager를 사용하는 앱의 DNS 이름 구성 - Azure App Service
 description: 부하 분산을 위해 Traffic Manager를 포함하는 Azure App Service의 웹 앱에 대한 사용자 지정 도메인 이름을 사용합니다.
 services: app-service\web
 documentationcenter: ''
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
-ms.openlocfilehash: b140ccba2b45dbfb1e4413c9fbeb12e9fec6bc8a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 5431372abb9a1157b322a8af4a07ba5fa15d8e8e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227181"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720463"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Traffic Manager를 사용하는 Azure App Service의 웹앱에 대한 사용자 지정 도메인 이름 구성
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 [!INCLUDE [intro](../../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-이 문서에서는 부하 분산을 위해 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)와 통합된 [App Service](app-service-web-overview.md) 앱에서 사용자 지정 도메인 이름을 사용하는 일반 지침을 제공합니다.
+이 문서에서는 부하 분산을 위해 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)와 통합된 [App Service](overview.md) 앱에서 사용자 지정 도메인 이름을 사용하는 일반 지침을 제공합니다.
 
 [!INCLUDE [tmwebsitefooter](../../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
@@ -46,7 +47,7 @@ ms.locfileid: "51227181"
 
 ## <a name="add-a-dns-record-for-your-custom-domain"></a>사용자 지정 도메인에 대한 DNS 레코드 추가
 > [!NOTE]
-> Azure App Service Web Apps를 통해 도메인을 구입한 경우 다음 단계를 생략하고 [Web Apps 도메인 구입](custom-dns-web-site-buydomains-web-app.md) 문서의 최종 단계를 참조하세요.
+> Azure App Service Web Apps를 통해 도메인을 구입한 경우 다음 단계를 생략하고 [Web Apps 도메인 구입](manage-custom-dns-buy-domain.md) 문서의 최종 단계를 참조하세요.
 > 
 > 
 
@@ -70,8 +71,6 @@ ms.locfileid: "51227181"
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [Node.js 개발자 센터](https://azure.microsoft.com/develop/nodejs/)를 참조하세요.
-
-[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
 

@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Linux용 Azure Docker CE 클러스터
+title: (사용되지 않음) 빠른 시작 - Linux용 Azure Docker CE 클러스터
 description: Azure Container Service에서 Azure CLI를 사용하여 Linux 컨테이너용 Docker CE 클러스터를 빠르게 만드는 방법에 대해 알아봅니다.
 services: container-service
 author: iainfoulds
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: c8f9db2674976d2c1efa7686b8b224b48a19a534
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a7a7455ce9167a9c480d317d50fdce49e2ef06a9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964448"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994305"
 ---
-# <a name="deploy-docker-ce-cluster"></a>Docker CE 클러스터 배포
+# <a name="deprecated-deploy-docker-ce-cluster"></a>(사용되지 않음) Docker CE 클러스터 배포
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 이 빠른 시작에서는 Azure CLI를 사용하여 Docker CE 클러스터가 배포됩니다. 웹 프런트 엔드 및 Redis 인스턴스로 구성된 다중 컨테이너 응용 프로그램이 클러스터에 배포되어 실행됩니다. 완료되면 인터넷을 통해 응용 프로그램에 액세스할 수 있습니다.
 
@@ -97,7 +99,7 @@ export DOCKER_HOST=localhost:2374
 이제 Docker Swarm에서 Docker 서비스를 실행할 준비가 되었습니다.
 
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="run-the-application"></a>애플리케이션 실행
 
 `azure-vote.yaml`이라는 파일을 만들고 다음 콘텐츠를 복사합니다.
 

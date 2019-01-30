@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f5bd679c11139b7ac439247df81a7adb0b02b0fe
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 50926b7c8b06668770d9a00b8342d209fdb94649
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426334"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191108"
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>추가 단원 - 불규칙한 계층 구조
 
@@ -44,11 +44,11 @@ ms.locfileid: "49426334"
 
     | 표 1           | 열       | 필터 방향   | 표 2     | 열      | Active |
     |-------------------|--------------|--------------------|-------------|-------------|--------|
-    | FactResellerSales | OrderDateKey | 기본값            | DimDate     | Date        | yes    |
+    | FactResellerSales | OrderDateKey | 기본값            | DimDate     | Date        | 예    |
     | FactResellerSales | DueDate      | 기본값            | DimDate     | Date        | 아니요     |
     | FactResellerSales | ShipDateKey  | 기본값            | DimDate     | Date        | 아니요     |
-    | FactResellerSales | ProductKey   | 기본값            | DimProduct  | ProductKey  | yes    |
-    | FactResellerSales | EmployeeKey  | 두 테이블로 | DimEmployee | EmployeeKey | yes    |
+    | FactResellerSales | ProductKey   | 기본값            | DimProduct  | ProductKey  | 예    |
+    | FactResellerSales | EmployeeKey  | 두 테이블로 | DimEmployee | EmployeeKey | 예    |
 
 5. **DimEmployee** 테이블에서 다음 [계산된 열](../tutorials/aas-lesson-5-create-calculated-columns.md)을 만듭니다. 
 
@@ -87,7 +87,7 @@ ms.locfileid: "49426334"
     =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],5,1)) 
     ```
 
-6.  **DimEmployee** 테이블에서 **Organization**이라는 이름의 [계층 구조](../tutorials/aas-lesson-9-create-hierarchies.md)를 만듭니다. 다음 열을 순서대로 추가합니다. **Level1**, **Level2**, **Level3**, **Level4**, **Level5**
+6.  **DimEmployee** 테이블에서 **Organization**이라는 이름의 [계층 구조](../tutorials/aas-lesson-9-create-hierarchies.md)를 만듭니다. 다음 열을 순서대로 추가합니다. **Level1**, **Level2**, **Level3**, **Level4**, **Level5**.
 
 7.  **FactResellerSales** 테이블에서 다음 [측정값](../tutorials/aas-lesson-6-create-measures.md)을 만듭니다.
 

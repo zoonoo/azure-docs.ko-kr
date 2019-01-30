@@ -12,18 +12,41 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: 78984cf9f73fd0cdd6e28e20e1d54d5b1198b7be
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 2afdd3f78a99d9aae5e84bc2fdf1b21cbdc150d2
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687489"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306389"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화
 
 SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간에 양방향으로 선택한 데이터를 동기화할 수 있는 Azure SQL Database에 기반한 서비스입니다.
 
-## <a name="architecture-of-sql-data-sync"></a>SQL 데이터 동기화의 아키텍처
+> [!IMPORTANT]
+> 현재 Azure SQL Data Sync는 Azure SQL Database Managed Instance를 지원하지 **않습니다**.
+
+## <a name="when-to-use-data-sync"></a>데이터 동기화를 사용하는 경우
+
+데이터 동기화는 몇몇 Azure SQL 데이터베이스 또는 SQL Server 데이터베이스 간에 데이터를 최신 상태로 유지해야 하는 경우에 유용합니다. 데이터 동기화에 대한 주요 사용 사례는 다음과 같습니다.
+
+-   **하이브리드 데이터 동기화:** 데이터 동기화를 사용하면 온-프레미스 데이터베이스와 Azure SQL 데이터베이스 간에 데이터를 동기화하여 하이브리드 애플리케이션을 사용하도록 설정할 수 있습니다. 이 기능은 클라우드로 이동하려는 고객에게 표시되고 Azure에 애플리케이션의 일부를 배치할 수 있습니다.
+
+-   **분산 애플리케이션:** 많은 경우에 다른 워크로드를 다른 데이터베이스에 분리하는 것이 좋습니다. 예를 들어 대형 프로덕션 데이터베이스가 있지만 이 데이터에 대한 보고 또는 분석 워크로드를 실행해야 하는 경우 해당 추가 워크로드에 대한 두 번째 데이터베이스를 만드는 데 도움이 됩니다. 이 방법을 사용하면 프로덕션 워크로드에 미치는 영향을 최소화합니다. 데이터 동기화를 사용하여 이러한 두 데이터베이스의 동기화를 유지할 수 있습니다.
+
+-   **글로벌 분산 애플리케이션:** 많은 기업이 여러 지역과 여러 국가에 걸쳐 있습니다. 네트워크 대기 시간을 최소화하려면 가까운 지역에 데이터가 위치하는 것이 좋습니다. 데이터 동기화를 사용하면 전 세계 여러 지역에서 데이터베이스를 쉽게 동기화할 수 있습니다.
+
+다음과 같은 시나리오에서 데이터 동기화는 기본 설정된 솔루션이 아닙니다.
+
+| 시나리오 | 권장되는 솔루션 |
+|----------|----------------------------|
+| 재해 복구 | [Azure 지역 중복 백업](sql-database-automated-backups.md) |
+| 읽기 크기 조정 | [읽기 전용 복제본을 사용하여 읽기 전용 쿼리 워크로드의 부하 분산(미리 보기)](sql-database-read-scale-out.md) |
+| ETL(OLTP 및 OLAP 간) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 또는 [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| 온-프레미스 SQL Server에서 Azure SQL Database로 마이그레이션 | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
+|||
+
+## <a name="overview-of-sql-data-sync"></a>SQL 데이터 동기화 개요
 
 데이터 동기화는 동기화 그룹의 개념에 기반합니다. 동기화 그룹은 동기화하려는 데이터베이스의 그룹입니다.
 
@@ -47,29 +70,9 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 
 -   **충돌 해결 정책**은 그룹 수준 정책으로 *허브 우선*일 수도 있고 *구성원 우선*일 수도 있습니다.
 
-## <a name="when-to-use-data-sync"></a>데이터 동기화를 사용하는 경우
-
-데이터 동기화는 몇몇 Azure SQL 데이터베이스 또는 SQL Server 데이터베이스 간에 데이터를 최신 상태로 유지해야 하는 경우에 유용합니다. 데이터 동기화에 대한 주요 사용 사례는 다음과 같습니다.
-
--   **하이브리드 데이터 동기화:** 데이터 동기화를 사용하면 온-프레미스 데이터베이스와 Azure SQL 데이터베이스 간에 데이터를 동기화하여 하이브리드 응용 프로그램을 사용하도록 설정할 수 있습니다. 이 기능은 클라우드로 이동하려는 고객에게 표시되고 Azure에 응용 프로그램의 일부를 배치할 수 있습니다.
-
--   **배포된 응용 프로그램:** 많은 경우에 다른 데이터베이스에서 다양한 워크로드를 구분하는 데 도움이 됩니다. 예를 들어 대형 프로덕션 데이터베이스가 있지만 이 데이터에 대한 보고 또는 분석 워크로드를 실행해야 하는 경우 해당 추가 워크로드에 대한 두 번째 데이터베이스를 만드는 데 도움이 됩니다. 이 방법을 사용하면 프로덕션 워크로드에 미치는 영향을 최소화합니다. 데이터 동기화를 사용하여 이러한 두 데이터베이스의 동기화를 유지할 수 있습니다.
-
--   **전역 분산 응용 프로그램:** 많은 비즈니스는 여러 지역 및 여러 국가 걸쳐 있습니다. 네트워크 대기 시간을 최소화하려면 가까운 지역에 데이터가 위치하는 것이 좋습니다. 데이터 동기화를 사용하면 전 세계 여러 지역에서 데이터베이스를 쉽게 동기화할 수 있습니다.
-
-다음과 같은 시나리오에서 데이터 동기화는 기본 설정된 솔루션이 아닙니다.
-
-| 시나리오 | 권장되는 솔루션 |
-|----------|----------------------------|
-| 재해 복구 | [Azure 지역 중복 백업](sql-database-automated-backups.md) |
-| 읽기 크기 조정 | [읽기 전용 복제본을 사용하여 읽기 전용 쿼리 워크로드의 부하 분산(미리 보기)](sql-database-read-scale-out.md) |
-| ETL(OLTP 및 OLAP 간) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 또는 [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
-| 온-프레미스 SQL Server에서 Azure SQL Database로 마이그레이션 | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
-|||
-
 ## <a name="how-does-data-sync-work"></a>데이터 동기화는 어떻게 작동하나요? 
 
--   **데이터 변경 내용 추적:** 데이터 동기화는 트리거 삽입, 업데이트 및 삭제를 사용하여 변경 내용을 추적합니다. 변경 내용은 사용자 데이터베이스에 있는 추가 표에 기록됩니다.
+-   **데이터 변경 내용 추적:** 데이터 동기화는 삽입, 업데이트 및 삭제 트리거를 사용하여 변경 내용을 추적합니다. 변경 내용은 사용자 데이터베이스에 있는 추가 표에 기록됩니다. BULK INSERT는 기본적으로 트리거를 실행하지 않습니다. FIRE_TRIGGERS가 지정되지 않으면 삽입 트리거가 실행되지 않습니다. 데이터 동기화가 이러한 삽입을 추적할 수 있도록 FIRE_TRIGGERS 옵션을 추가합니다. 
 
 -   **데이터 동기화:** 데이터 동기화는 허브 및 스포크 모델에서 설계됩니다. 허브는 개별적으로 각 구성원과 동기화됩니다. 허브의 변경 내용이 구성원에 다운로드된 다음 구성원의 변경 내용은 허브에 업로드됩니다.
 
@@ -77,12 +80,20 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
     -   *허브 우선*을 선택하는 경우 허브의 변경 내용은 항상 구성원의 변경 내용을 덮어씁니다.
     -   *구성원 우선*을 선택하는 경우 구성원의 변경 내용은 항상 허브의 변경 내용을 덮어씁니다. 구성원이 둘 이상인 경우 최종 값은 먼저 동기화된 구성원에 따라 달라집니다.
 
+## <a name="compare-data-sync-with-transactional-replication"></a>트랜잭션 복제와 데이터 동기화 비교
+
+| | 데이터 동기화 | 트랜잭션 복제 |
+|---|---|---|
+| 장점 | - 활성-활성 지원<br/>- 온-프레미스 및 Azure SQL Database 간 양방향 | - 낮은 대기 시간<br/>- 트랜잭션 일관성<br/>- 마이그레이션 후 기존 토폴로지 다시 사용 |
+| 단점 | - 5분 이상의 대기 시간<br/>- 트랜잭션 일관성 부족<br/>- 성능에 더 많은 영향을 미침 | - Azure SQL Database 단일 데이터베이스에서 게시할 수 없음<br/>- 높은 유지 관리 비용 |
+| | | |
+
 ## <a name="get-started-with-sql-data-sync"></a>SQL 데이터 동기화 시작
 
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>Azure Portal에서 데이터 동기화 설정
 
 -   [Azure SQL 데이터 동기화 설정](sql-database-get-started-sql-data-sync.md)
--   데이터 동기화 에이전트 - [Azure SQL 데이타 동기화용 데이터 동기화 에이전트](sql-database-data-sync-agent.md)
+-   데이터 동기화 에이전트 - [Azure SQL 데이터 동기화용 데이터 동기화 에이전트](sql-database-data-sync-agent.md)
 
 ### <a name="set-up-data-sync-with-powershell"></a>PowerShell을 사용하여 데이터 동기화 설정
 

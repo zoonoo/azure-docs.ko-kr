@@ -10,15 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 45bf9bbffdbba22336da08c81df069ce0267686f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.lastreviewed: 12/03/2018
+ms.openlocfilehash: ea36dbe30eddc3d503631c31e46291101ea175d4
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092663"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239539"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Azure Stack 저장소에 대 한 데이터 전송 도구를 사용 합니다.
 
@@ -48,7 +49,7 @@ Microsoft Azure Stack의 디스크, blob, 테이블, 큐 및 계정 관리 기�
 
     Linux 파일 시스템을 통해 저장소 계정의 기존 블록 blob 데이터에 액세스할 수 있는 Azure Blob Storage에 대 한 가상 파일 시스템 드라이버입니다. 
 
-Azure 및 Azure Stack 간에 저장소 서비스 차이로 인해 다음 섹션에 설명 된 각 도구에 대 한 몇 가지 요구 사항이 있을 수 있습니다. Azure Stack storage 및 Azure storage 비교를 참조 하세요 [Azure Stack 저장소: 차이점 및 고려 사항](azure-stack-acs-differences.md)합니다.
+Azure 및 Azure Stack 간에 저장소 서비스 차이로 인해 다음 섹션에 설명 된 각 도구에 대 한 몇 가지 요구 사항이 있을 수 있습니다. Azure Stack storage 및 Azure storage 비교를 참조 하세요. [Azure Stack 저장소: 차이점 및 고려 사항](azure-stack-acs-differences.md)합니다.
 
 ## <a name="azcopy"></a>AzCopy
 
@@ -56,16 +57,17 @@ AzCopy는 간단한 명령과 최적의 성능으로 사용 하 여 Microsoft Az
 
 ### <a name="download-and-install-azcopy"></a>AzCopy 다운로드 및 설치
 
-두 가지 버전의 AzCopy 유틸리티: Windows 및 Linux에서 AzCopy에서 AzCopy 합니다.
+두 가지 버전의 AzCopy 유틸리티. Windows 및 Linux에서 AzCopy에서 AzCopy를 제공 합니다.
 
  - **Windows에서 AzCopy**
-    - Azure Stack에 대 한 지원 되는 버전의 AzCopy 다운로드 합니다. 설치 하 고 Azure와 마찬가지로 Azure Stack에서 AzCopy를 사용할 수 있습니다. 자세한 내용은 참조 하세요 [Windows에서 AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)합니다.
-        - 업데이트 또는 최신 버전 1802 [AzCopy 7.1.0 다운로드](https://aka.ms/azcopyforazurestack20170417)합니다.
-        - 이전 버전용 [5.0.0 AzCopy를 다운로드](https://aka.ms/azcopyforazurestack20170417)합니다.
+    - Azure Stack에 대 한 지원 되는 버전의 AzCopy 다운로드 합니다. 설치 하 고 Azure와 마찬가지로 Azure Stack에서 AzCopy를 사용할 수 있습니다. 자세한 내용은 [Windows에서 AzCopy](../../storage/common/storage-use-azcopy.md)합니다.
+        - 1811 업데이트 또는 최신 버전에 대 한 [7.3.0 AzCopy를 다운로드](https://aka.ms/azcopyforazurestack20171109)합니다.
+        - (1802에 1809 업데이트) 이전 버전용 [AzCopy 7.1.0 다운로드](https://aka.ms/azcopyforazurestack20170417)합니다.
 
  - **Linux에서 AzCopy**
 
-    - Linux에서 AzCopy는 Azure Stack 1802 업데이트 또는 최신 버전을 지원합니다. 설치 하 고 Azure와 마찬가지로 Azure Stack에서 AzCopy를 사용할 수 있습니다. 자세한 내용은 참조 하세요 [Linux에서 AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux)합니다.
+    - 설치 하 고 Azure와 마찬가지로 Azure Stack에서 AzCopy를 사용할 수 있습니다. 자세한 내용은 [Linux에서 AzCopy](../../storage/common/storage-use-azcopy-linux.md)합니다.
+    - 이전 버전 (1802에 1809 업데이트)에 대 한 참조를 [AzCopy 7.1이 하 버전에 대 한 설치 단계](../../storage/common/storage-use-azcopy-linux.md#installation-steps-for-azcopy-71-and-earlier-versions)합니다.
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>데이터 전송 위한 AzCopy 명령 예제
 
@@ -75,36 +77,36 @@ AzCopy는 간단한 명령과 최적의 성능으로 사용 하 여 Microsoft Az
 
 **Windows**
 
-````AzCopy
+```shell
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
-````
+```
 
 **Linux**
 
-````AzCopy
+```bash
 azcopy \
     --source https://myaccount.blob.local.azurestack.external/mycontainer \
     --destination /mnt/myfiles \
     --source-key <key> \
     --recursive
-````
+```
 
 ### <a name="upload-single-file-to-virtual-directory"></a>가상 디렉터리에 단일 파일 업로드
 
 **Windows**
 
-```AzCopy
+```shell
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 
 **Linux**
 
-````AzCopy
+```bash
 azcopy \
     --source /mnt/myfiles/abc.txt \
     --destination https://myaccount.blob.local.azurestack.external/mycontainer/vd/abc.txt \
     --dest-key <key>
-````
+```
 
 ### <a name="move-data-between-azure-and-azure-stack-storage"></a>Azure 및 Azure Stack 저장소 간에 데이터 이동
 
@@ -112,13 +114,13 @@ Azure storage 및 Azure Stack 간에 비동기 데이터 전송 지원 되지 �
 
 **Windows**
 
-````AzCopy
+```shell
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
-````
+```
 
 **Linux**
 
-````AzCopy
+```bash
 azcopy \
     --source https://myaccount1.blob.local.azurestack.external/myContainer/ \
     --destination https://myaccount2.blob.core.windows.net/myContainer/ \
@@ -126,7 +128,7 @@ azcopy \
     --dest-key <key2> \
     --include "abc.txt" \
     --sync-copy
-````
+```
 
 ### <a name="azcopy-known-issues"></a>Azcopy의 알려진 문제
 
@@ -159,7 +161,7 @@ Azure Stack 호환 가능한 Azure PowerShell 모듈은 Azure Stack을 사용 �
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environment name
 $ARMEndPoint = "https://management.local.azurestack.external" 
-$GraphAudiance = "https://graph.windows.net/" 
+$GraphAudience = "https://graph.windows.net/" 
 $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com" 
 
 $SubscriptionName = "basic" # Update with the name of your subscription.
@@ -168,7 +170,7 @@ $StorageAccountName = "azsblobcontainer" # Give a name to your new storage accou
 $Location = "Local" # Choose "Local" as an example.
 $ContainerName = "photo" # Give a name to your new container.
 $ImageToUpload = "C:\temp\Hello.jpg" # Prepare an image file and a source directory in your local computer.
-$DestinationFolder = "C:\temp\downlaod" # A destination directory in your local computer.
+$DestinationFolder = "C:\temp\download" # A destination directory in your local computer.
 
 # Import the Connect PowerShell module"
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
@@ -217,28 +219,27 @@ New-Item -Path $DestinationFolder -ItemType Directory -Force
 $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 
 # end
-````
+```
 
 ### <a name="powershell-known-issues"></a>PowerShell의 알려진 문제
 
 Azure Stack에 대 한 현재 호환 가능한 Azure PowerShell 모듈 버전 1.2.11 사용자 작업에 대 한 경우 최신 버전의 Azure PowerShell에서 다릅니다. 이 차이 저장소 서비스 작업에 영향을 줍니다.
 
-* 반환 값 형식을 `Get-AzureRmStorageAccountKey` 버전에서 1.2.11는 두 개의 속성이: `Key1` 및 `Key2`반면 현재 Azure 버전 모든 account 키를 포함 하는 배열을 반환 합니다.
+반환 값 형식을 `Get-AzureRmStorageAccountKey` 버전에서 1.2.11는 두 개의 속성이: `Key1` 및 `Key2`반면 현재 Azure 버전 모든 account 키를 포함 하는 배열을 반환 합니다.
 
-   ```
-   # This command gets a specific key for a storage account, 
-   # and works for Azure PowerShell version 1.4, and later versions.
-   (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
-   -AccountName "MyStorageAccount").Value[0]
+```powershell
+# This command gets a specific key for a storage account, 
+# and works for Azure PowerShell version 1.4, and later versions.
+(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
+-AccountName "MyStorageAccount").Value[0]
 
-   # This command gets a specific key for a storage account, 
-   # and works for Azure PowerShell version 1.3.2, and previous versions.
-   (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
-   -AccountName "MyStorageAccount").Key1
+# This command gets a specific key for a storage account, 
+# and works for Azure PowerShell version 1.3.2, and previous versions.
+(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
+-AccountName "MyStorageAccount").Key1
+```
 
-   ```
-
-   자세한 내용은 [Get-azurermstorageaccountkey](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0)합니다.
+자세한 내용은 [Get-azurermstorageaccountkey](/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey)합니다.
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -265,7 +266,7 @@ CLI 설치 및 구성을 완료 하면 Azure Stack 저장소 리소스와 상호
 4. 필요한 경우 다음과 같이 스크립트를 실행 가능으로 표시합니다. `chmod +x my_storage_sample.sh`
 5. 스크립트를 실행합니다. 예를 들어 Bash에서는 `./my_storage_sample.sh`입니다.
 
-```bash
+```azurecli
 #!/bin/bash
 # A simple Azure Stack storage example script
 
@@ -296,7 +297,7 @@ echo "Downloading the file..."
 az storage blob download --container-name $AZURESTACK_STORAGE_CONTAINER_NAME --account-name $AZURESTACK_STORAGE_ACCOUNT_NAME --name $AZURESTACK_STORAGE_BLOB_NAME --file $DESTINATION_FILE --output table
 
 echo "Done"
-````
+```
 
 ## <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure storage 탐색기
 
@@ -307,7 +308,7 @@ Microsoft Azure storage 탐색기는 Microsoft의 독립 실행형 앱입니다.
 
 ## <a name="blobfuse"></a>Blobfuse 
 
-[blobfuse](https://github.com/Azure/azure-storage-fuse)는 Azure Blob Storage용 가상 파일 시스템 드라이버로, Linux 파일 시스템을 통해 Storage 계정의 기존 블록 Blob 데이터에 액세스할 수 있습니다. Azure Blob Storage는 개체 저장소 서비스이므로 계층 구조 네임스페이스가 없습니다. Blobfuse는 슬래시를 사용 하 여 가상 direcectory 체계를 사용 하 여이 네임 스페이스를 제공 `/` 를 구분 합니다. Blobfuse는 Azure 및 Azure Stack에서 작동합니다. 
+[blobfuse](https://github.com/Azure/azure-storage-fuse)는 Azure Blob Storage용 가상 파일 시스템 드라이버로, Linux 파일 시스템을 통해 Storage 계정의 기존 블록 Blob 데이터에 액세스할 수 있습니다. Azure Blob Storage는 개체 스토리지 서비스이므로 계층 구조 네임스페이스가 없습니다. Blobfuse는 슬래시를 사용 하 여 가상 디렉터리 체계를 사용 하 여이 네임 스페이스를 제공 `/` 를 구분 합니다. Blobfuse는 Azure 및 Azure Stack에서 작동합니다. 
 
 Linux에 Blobfuse 사용 하 여 파일 시스템으로 Blob storage를 탑재 하는 방법에 대 한 자세한 내용은 참조 하세요 [Blobfuse 사용 하 여 Blob 저장소 파일 시스템으로 탑재 하는 방법을](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)합니다. 
 
@@ -317,20 +318,20 @@ Azure Stack 개발 키트에에서는 blobEndpoint 해야 `myaccount.blob.local.
 
 AccountKey 한 sasToken에 한 번만 구성된 가능 주의 하십시오. 저장소 계정 키를 지정 하는 경우 다음 형식으로 자격 증명 구성 파일은: 
 
-```text  
-    accountName myaccount 
-    accountKey myaccesskey== 
-    containerName mycontainer 
-    blobEndpoint myaccount.blob.local.azurestack.external
+```
+accountName myaccount 
+accountKey myaccesskey== 
+containerName mycontainer 
+blobEndpoint myaccount.blob.local.azurestack.external
 ```
 
 공유 액세스 토큰을 지정 되 면 다음 형식으로 자격 증명 구성 파일은:
 
-```text  
-    accountName myaccount 
-    sasToken ?mysastoken 
-    containerName mycontainer 
-    blobEndpoint myaccount.blob.local.azurestack.external
+```  
+accountName myaccount 
+sasToken ?mysastoken 
+containerName mycontainer 
+blobEndpoint myaccount.blob.local.azurestack.external
 ```
 
 ## <a name="next-steps"></a>다음 단계

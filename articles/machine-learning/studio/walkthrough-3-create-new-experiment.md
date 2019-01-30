@@ -1,27 +1,8 @@
 ---
-title: '3단계: 새 Machine Learning Studio 실험 만들기 - Azure | Microsoft Docs'
-description: '예측 솔루션 개발 연습 3단계: Azure Machine Learning Studio에서 새 학습 실험을 만듭니다.'
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
-editor: cgronlun
-ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/23/2017
-ms.openlocfilehash: a6f12c536cfc18ed0be55ec1755c7fe5179006ba
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317531"
+제목: ‘3단계: 새 Azure Machine Learning Studio 실험 만들기’ titleSuffix: Azure Machine Learning Studio 설명: ‘예측 솔루션 개발 연습의 3단계: Azure Machine Learning Studio에서 새 학습 실험 만들기’
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/23/2017
 ---
 # <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>연습 3단계: 새 Azure Machine Learning Studio 실험 만들기
 [Azure Machine Learning에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)
@@ -51,23 +32,23 @@ ms.locfileid: "52317531"
    > ![실험 속성][6]
    > 
 3. 실험 캔버스의 왼쪽에 있는 모듈 팔레트에서 **저장된 데이터 세트**를 확장합니다.
-4. **내 데이터 집합** 아래에서 만든 데이터 집합을 찾고 캔버스로 끌어 옵니다. 팔레트 위의 **검색** 상자에 이름을 입력하여 데이터 세트를 찾을 수도 있습니다.  
+4. **내 데이터 세트** 아래에서 만든 데이터 세트를 찾고 캔버스로 끌어 옵니다. 팔레트 위의 **검색** 상자에 이름을 입력하여 데이터 세트를 찾을 수도 있습니다.  
 
     ![실험에 데이터 세트 추가][7]
 
 ## <a name="prepare-the-data"></a>데이터 준비
-데이터 세트(아래 작은 원)의 출력 포트를 클릭하고 **시각화**를 선택하여 데이터의 처음 100개 행 및 전체 데이터 세트에 대한 일부 통계 정보를 볼 수 있습니다.  
+데이터의 처음 100개 행 및 전체 데이터 세트에 대한 일부 통계 정보를 볼 수 있습니다. 데이터 세트(맨 아래에 작은 원)의 출력 포트를 클릭하고 **시각화**를 선택합니다.  
 
 데이터 파일에는 열 제목이 없으므로 스튜디오에서 일반적인 제목(Col1, Col2, *등*)을 제공했습니다. 적합한 제목은 모델 작성 시 필수 사항은 아니지만 제목이 있으면 실험에서 데이터를 더 쉽게 사용할 수 있습니다. 또한 최종적으로 웹 서비스에서 이 모델을 게시할 때 제목을 사용하여 서비스 사용자에 대한 열을 식별할 수 있습니다.  
 
 [메타데이터 편집][edit-metadata] 모듈을 사용하여 열 제목을 추가할 수 있습니다.
-[메타데이터 편집][edit-metadata] 모듈을 사용하여 데이터 집합과 연결된 메타데이터를 변경합니다. 이 경우에는 좀 더 친숙한 열 머리글 이름을 사용할 수 있습니다. 
+[메타데이터 편집][edit-metadata] 모듈을 사용하여 데이터 세트와 연결된 메타데이터를 변경합니다. 이 경우에는 좀 더 친숙한 열 머리글 이름을 사용할 수 있습니다. 
 
 [메타데이터 편집][edit-metadata]을 사용하려면 먼저 수정할 열(이 경우 모두)을 지정합니다. 다음으로 해당 열에서 수행할 작업(이 경우 열 머리글 변경)을 지정합니다.
 
 1. 모듈 팔레트에서 **검색** 상자에 "metadata"를 입력합니다. [메타데이터 편집][edit-metadata]이 모듈 목록에 나타납니다.
 
-2. [메타데이터 편집][edit-metadata] 모듈을 클릭하고 캔버스로 끌어서 이전에 추가한 데이터 집합 아래에 놓습니다.
+2. [메타데이터 편집][edit-metadata] 모듈을 클릭하고 캔버스로 끌어서 이전에 추가한 데이터 세트 아래에 놓습니다.
 
 3. 데이터 세트를 [메타데이터 편집][edit-metadata]에 연결합니다. 데이터 세트의 출력 포트(데이터 세트 맨 아래의 작은 원)를 클릭하여 [메타데이터 편집][edit-metadata]의 입력 포트(모듈 맨 위의 작은 원)로 끌어 놓은 다음 마우스 단추를 놓습니다. 데이터 세트와 모듈은 캔버스에서 이동해도 연결 상태를 유지합니다.
    
@@ -115,7 +96,7 @@ ms.locfileid: "52317531"
 2. 기본적으로 분할 비율은 0.5이고 **무작위 분할** 매개 변수가 설정됩니다. 이는 데이터의 임의 절반이 [데이터 분할][split] 모듈의 한 포트를 통해 출력되고 나머지 절반은 다른 포트를 통해 출력됨을 의미합니다. 이러한 매개 변수와 **임의 초기값** 매개 변수를 조정하여 학습 및 테스트 데이터 간의 분할을 변경합니다. 이 예제에서는 그대로 유지합니다.
    
    > [!TIP]
-   > **첫 번째 출력 데이터 집합의 행의 비율** 속성은 *왼쪽* 출력 포트를 통해 출력되는 데이터의 양을 결정합니다. 예를 들어 비율을 0.7로 설정하면 데이터의 70%가 왼쪽 포트를 통해 출력되고 30%는 오른쪽 포트를 통해 출력됩니다.  
+   > **첫 번째 출력 데이터 세트의 행의 비율** 속성은 *왼쪽* 출력 포트를 통해 출력되는 데이터의 양을 결정합니다. 예를 들어 비율을 0.7로 설정하면 데이터의 70%가 왼쪽 포트를 통해 출력되고 30%는 오른쪽 포트를 통해 출력됩니다.  
    > 
    > 
 

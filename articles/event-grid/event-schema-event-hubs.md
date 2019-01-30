@@ -2,21 +2,21 @@
 title: Azure Event Grid 이벤트 허브 이벤트 스키마
 description: Azure Event Grid를 사용하여 이벤트 허브 이벤트에 제공되는 속성을 설명합니다.
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
-ms.author: tomfitz
-ms.openlocfilehash: e301f3895126ed52b8d4c1f046f69dfcedb3563c
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.date: 01/17/2019
+ms.author: spelluru
+ms.openlocfilehash: 9c0113687d27bf43375f298057129a5594ec0a06
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42141171"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475410"
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Azure Event Grid 이벤트 허브에 대한 이벤트 스키마
 
-이 문서에서는 이벤트 허브 이벤트에 대한 속성 및 스키마를 제공합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
+이 문서에서는 이벤트 허브 이벤트에 대한 속성 및 스키마를 제공합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
 
 샘플 스크립트 및 자습서 목록은 [Event Hubs 이벤트 원본](event-sources.md#event-hubs)을 참조하세요.
 
@@ -60,7 +60,7 @@ Event Hubs는 캡처 파일이 생성되면 **Microsoft.EventHub.CaptureFileCrea
 | 자산 | type | 설명 |
 | -------- | ---- | ----------- |
 | 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
-| subject | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
+| 제목 | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
 | eventType | string | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | eventTime | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | id | string | 이벤트에 대한 고유 식별자입니다. |

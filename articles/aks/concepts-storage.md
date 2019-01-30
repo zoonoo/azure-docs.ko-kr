@@ -14,13 +14,13 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/17/2018
 ms.locfileid: "49380768"
 ---
-# <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>응용 프로그램에 대한 AKS(Azure Kubernetes Service)의 저장소 옵션
+# <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 저장소 옵션
 
-AKS(Azure Kubernetes Service)에서 실행되는 응용 프로그램은 데이터를 저장하고 검색해야 할 수 있습니다. 일부 응용 프로그램 워크로드의 경우 이 데이터 저장소는 Pod를 삭제할 때 더 이상 필요하지 않은 노드의 로컬 고속 저장소를 사용할 수 있습니다. 다른 응용 프로그램 워크로드에는 Azure 플랫폼 내의 더 일반적인 데이터 볼륨에서 유지되는 저장소가 필요할 수 있습니다. 여러 Pod에서 동일한 데이터 볼륨을 공유하거나, Pod가 다른 노드에 다시 예약되는 경우 데이터 볼륨을 다시 연결해야 할 수 있습니다. 마지막으로, 중요한 데이터 또는 응용 프로그램 구성 정보를 Pod에 삽입해야 할 수 있습니다.
+AKS(Azure Kubernetes Service)에서 실행되는 애플리케이션은 데이터를 저장하고 검색해야 할 수 있습니다. 일부 애플리케이션 워크로드의 경우 이 데이터 저장소는 Pod를 삭제할 때 더 이상 필요하지 않은 노드의 로컬 고속 저장소를 사용할 수 있습니다. 다른 애플리케이션 워크로드에는 Azure 플랫폼 내의 더 일반적인 데이터 볼륨에서 유지되는 저장소가 필요할 수 있습니다. 여러 Pod에서 동일한 데이터 볼륨을 공유하거나, Pod가 다른 노드에 다시 예약되는 경우 데이터 볼륨을 다시 연결해야 할 수 있습니다. 마지막으로, 중요한 데이터 또는 애플리케이션 구성 정보를 Pod에 삽입해야 할 수 있습니다.
 
-![응용 프로그램에 대한 AKS(Azure Kubernetes Service) 클러스터의 저장소 옵션](media/concepts-storage/aks-storage-options.png)
+![애플리케이션에 대한 AKS(Azure Kubernetes Service) 클러스터의 저장소 옵션](media/concepts-storage/aks-storage-options.png)
 
-이 문서에서는 AKS에서 저장소를 응용 프로그램에 제공하는 핵심 개념을 소개합니다.
+이 문서에서는 AKS에서 저장소를 애플리케이션에 제공하는 핵심 개념을 소개합니다.
 
 - [볼륨](#volumes)
 - [영구적 볼륨](#persistent-volumes)
@@ -29,7 +29,7 @@ AKS(Azure Kubernetes Service)에서 실행되는 응용 프로그램은 데이�
 
 ## <a name="volumes"></a>볼륨
 
-응용 프로그램은 종종 데이터를 저장하고 검색할 수 있어야 합니다. Kubernetes는 일반적으로 개별 Pod를 사용 후 삭제 가능한 임시 리소스로 취급하므로 응용 프로그램 사용에 대해 다른 접근 방식을 적용할 수 있으며 필요에 따라 데이터를 유지할 수 있습니다. *볼륨*은 Pod 간에 응용 프로그램 수명 주기를 통해 데이터를 저장, 검색 및 유지하는 방법을 나타냅니다.
+애플리케이션은 종종 데이터를 저장하고 검색할 수 있어야 합니다. Kubernetes는 일반적으로 개별 Pod를 사용 후 삭제 가능한 임시 리소스로 취급하므로 애플리케이션 사용에 대해 다른 접근 방식을 적용할 수 있으며 필요에 따라 데이터를 유지할 수 있습니다. *볼륨*은 Pod 간에 응용 프로그램 수명 주기를 통해 데이터를 저장, 검색 및 유지하는 방법을 나타냅니다.
 
 데이터를 저장하고 검색하는 기존 볼륨은 Azure Storage에서 지원하는 Kubernetes 리소스로 만들어집니다. 이러한 데이터 볼륨은 수동으로 만들어 Pod에 직접 할당하거나 Kubernetes에서 자동으로 만들 수 있습니다. 이러한 데이터 볼륨은 Azure Disks 또는 Azure Files를 사용할 수 있습니다.
 
@@ -40,7 +40,7 @@ Kubernetes에서 볼륨은 단순히 정보를 저장하고 검색할 수 있는
 
 - *emptyDir* - 일반적으로 Pod용 사용 후 삭제 공간으로 사용됩니다. Pod 내의 모든 컨테이너에서 볼륨의 데이터에 액세스할 수 있습니다. 이 볼륨 유형에 기록된 데이터는 Pod의 수명 동안만 유지되며, Pod가 삭제되면 해당 볼륨도 삭제됩니다. 이 볼륨은 일반적으로 기본 로컬 노드 디스크 저장소를 사용하지만 노드의 메모리에만 존재할 수도 있습니다.
 - *비밀* - 암호와 같은 중요한 데이터를 Pod에 삽입하는 데 사용됩니다. 먼저 Kubernetes API를 사용하여 Secret(비밀) 개체를 만듭니다. Pod 또는 배포를 정의할 때 특정 Secret을 요청할 수 있습니다. Secret은 예약된 Pod가 필요한 노드에만 제공되며, 디스크에 기록되지 않고 *tmpfs*에 저장됩니다. Secret이 필요한 노드의 마지막 Pod가 삭제되면 해당 Secret이 노드의 tmpfs에서 삭제됩니다. Secret은 지정된 네임스페이스 내에 저장되며 동일한 네임스페이스 내의 Pod에서만 액세스할 수 있습니다.
-- *configMap* - 응용 프로그램 구성 정보와 같은 키-값 쌍 속성을 Pod에 삽입하는 데 사용됩니다. 컨테이너 이미지 내에서 응용 프로그램 구성 정보를 정의하는 대신, 배포할 때 Pod의 새 인스턴스에 쉽게 업데이트하고 적용할 수 있는 Kubernetes 리소스로 정의할 수 있습니다. Secret을 사용하는 것과 마찬가지로, 먼저 Kubernetes API를 사용하여 ConfigMap 개체를 만듭니다. 그러면 Pod 또는 배포를 정의할 때 이 ConfigMap을 요청할 수 있습니다. ConfigMap은 지정된 네임스페이스 내에 저장되며 동일한 네임스페이스 내의 Pod에서만 액세스할 수 있습니다.
+- *configMap* - 응용 프로그램 구성 정보와 같은 키-값 쌍 속성을 Pod에 삽입하는 데 사용됩니다. 컨테이너 이미지 내에서 애플리케이션 구성 정보를 정의하는 대신, 배포할 때 Pod의 새 인스턴스에 쉽게 업데이트하고 적용할 수 있는 Kubernetes 리소스로 정의할 수 있습니다. Secret을 사용하는 것과 마찬가지로, 먼저 Kubernetes API를 사용하여 ConfigMap 개체를 만듭니다. 그러면 Pod 또는 배포를 정의할 때 이 ConfigMap을 요청할 수 있습니다. ConfigMap은 지정된 네임스페이스 내에 저장되며 동일한 네임스페이스 내의 Pod에서만 액세스할 수 있습니다.
 
 ## <a name="persistent-volumes"></a>영구적 볼륨
 
@@ -50,11 +50,11 @@ Azure Disks 또는 Azure Files는 PersistentVolume을 제공하는 데 사용됩
 
 ![AKS(Azure Kubernetes Service) 클러스터의 영구적 볼륨](media/concepts-storage/persistent-volumes.png)
 
-PersistentVolume은 클러스터 관리자에서 *정적으로* 만들거나 Kubernetes API 서버에서 *동적으로* 만들 수 있습니다. Pod가 예약되어 있고 현재 사용할 수 없는 저장소를 요청하는 경우 Kubernetes에서 기본 Azure Disks 또는 Azure Files 저장소를 만들어 해당 Pod에 연결할 수 있습니다. 동적 프로비전은 *StorageClass*를 사용하여 만들어야 하는Azure 저장소의 유형을 식별합니다.
+PersistentVolume은 클러스터 관리자에서 *정적으로* 만들거나 Kubernetes API 서버에서 *동적으로* 만들 수 있습니다. Pod가 예약되어 있고 현재 사용할 수 없는 저장소를 요청하는 경우 Kubernetes에서 기본 Azure Disks 또는 Azure Files 저장소를 만들어 해당 Pod에 연결할 수 있습니다. 동적 프로비전은 *StorageClass*를 사용하여 만들어야 하는Azure 스토리지의 유형을 식별합니다.
 
 ## <a name="storage-classes"></a>저장소 클래스
 
-Premium 및 Standard와 같은 다른 계층의 저장소를 정의하기 위해 *StorageClass*를 만들 수 있습니다. StorageClass는 *reclaimPolicy*도 정의합니다. 이 reclaimPolicy는 Pod가 삭제되고 영구적 볼륨이 더 이상 필요하지 않을 때 기본 Azure 저장소 리소스의 동작을 제어합니다. 기본 저장소 리소스는 삭제하거나 나중에 Pod에서 사용할 수 있도록 유지할 수 있습니다.
+Premium 및 Standard와 같은 다른 계층의 스토리지를 정의하기 위해 *StorageClass*를 만들 수 있습니다. StorageClass는 *reclaimPolicy*도 정의합니다. 이 reclaimPolicy는 Pod가 삭제되고 영구적 볼륨이 더 이상 필요하지 않을 때 기본 Azure 저장소 리소스의 동작을 제어합니다. 기본 저장소 리소스는 삭제하거나 나중에 Pod에서 사용할 수 있도록 유지할 수 있습니다.
 
 AKS에서 만드는 두 가지 초기 StorageClass는 다음과 같습니다.
 
@@ -77,7 +77,7 @@ parameters:
 
 ## <a name="persistent-volume-claims"></a>영구적 볼륨 클레임
 
-PersistentVolumeClaim은 특정 StorageClass의 Disk 또는 File 저장소, 액세스 모드 및 크기를 요청합니다. 정의된 StorageClass에 따라 클레임을 처리할 기존 리소스가 없는 경우 Kubernetes API 서버는 Azure에서 기본 저장소 리소스를 동적으로 프로비전할 수 있습니다. 볼륨이 Pod에 연결되면 Pod 정의에 볼륨 탑재가 포함됩니다.
+PersistentVolumeClaim은 특정 StorageClass의 Disk 또는 File 스토리지, 액세스 모드 및 크기를 요청합니다. 정의된 StorageClass에 따라 클레임을 처리할 기존 리소스가 없는 경우 Kubernetes API 서버는 Azure에서 기본 스토리지 리소스를 동적으로 프로비전할 수 있습니다. 볼륨이 Pod에 연결되면 Pod 정의에 볼륨 탑재가 포함됩니다.
 
 ![AKS(Azure Kubernetes Service) 클러스터의 영구적 볼륨 클레임](media/concepts-storage/persistent-volume-claims.png)
 
@@ -99,7 +99,7 @@ spec:
       storage: 5Gi
 ```
 
-Pod 정의가 만들어지면 원하는 저장소를 요청하는 영구적 볼륨 클레임이 지정됩니다. 또한 응용 프로그램에서 데이터를 읽고 쓸 수 있도록 *volumeMount*도 지정합니다. 다음 YAML 매니페스트 예제에서는 이전의 영구적 볼륨 클레임을 사용하여 볼륨을 */mnt/azure*에 탑재하는 방법을 보여 줍니다.
+Pod 정의가 만들어지면 원하는 저장소를 요청하는 영구적 볼륨 클레임이 지정됩니다. 또한 애플리케이션에서 데이터를 읽고 쓸 수 있도록 *volumeMount*도 지정합니다. 다음 YAML 매니페스트 예제에서는 이전의 영구적 볼륨 클레임을 사용하여 볼륨을 */mnt/azure*에 탑재하는 방법을 보여 줍니다.
 
 ```yaml
 kind: Pod

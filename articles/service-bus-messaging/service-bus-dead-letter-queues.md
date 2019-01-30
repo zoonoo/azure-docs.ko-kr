@@ -3,23 +3,23 @@ title: Service Bus 배달 못 한 편지 큐 | Microsoft Docs
 description: Azure Service Bus 배달 못 한 편지 큐의 개요
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 68b2aa38-dba7-491a-9c26-0289bc15d397
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: spelluru
-ms.openlocfilehash: df69406bd0a6e09f66262ce66f8eeb7cada2422a
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: aaeebb200197ba6ef15fbcfe02f262a3840197b5
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393988"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856126"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Service Bus 배달 못 한 편지 큐의 개요
 
@@ -29,7 +29,7 @@ Azure Service Bus 큐 및 토픽 구독은 *배달 못 한 편지 큐*(DLQ)라�
  
 ## <a name="the-dead-letter-queue"></a>배달하지 못한 편지 큐
 
-배달 못 한 편지 큐의 목적은 수신자에게 배달할 수 없는 메시지 또는 처리하지 못한 메시지를 보관하는 것입니다. 그런 다음 DLQ에서 메시지를 제거하여 검사할 수 있습니다. 응용 프로그램에서 운영자의 도움을 받아 문제를 수정한 후 메시지를 다시 전송하고, 오류가 발생했다는 사실을 기록하고, 수정 작업을 수행할 수 있습니다. 
+배달 못 한 편지 큐의 목적은 수신자에게 배달할 수 없는 메시지 또는 처리하지 못한 메시지를 보관하는 것입니다. 그런 다음 DLQ에서 메시지를 제거하여 검사할 수 있습니다. 애플리케이션에서 운영자의 도움을 받아 문제를 수정한 후 메시지를 다시 전송하고, 오류가 발생했다는 사실을 기록하고, 수정 작업을 수행할 수 있습니다. 
 
 API 및 프로토콜의 관점에서, 부모 엔터티의 배달하지 못한 편지 작업을 통해 메시지를 제출할 수 있다는 점만 제외하면 DLQ는 다른 큐와 거의 비슷합니다. 뿐만 아니라 활성 시간이 관찰되지 않으며, DLQ의 메시지를 배달 못 한 편지로 처리할 수 없습니다. 배달 못 한 편지 큐는 배달 보기-잠금 및 트랜잭션 작업을 완벽하게 지원합니다.
 
@@ -37,11 +37,11 @@ DLQ는 자동으로 정리되지 않습니다. 사용자가 DLQ에서 명시적�
 
 ## <a name="moving-messages-to-the-dlq"></a>DLQ로 메시지 이동
 
-Service Bus의 여러 활동에 의해 메시징 엔진 자체 내에서 DLQ로 메시지가 푸시됩니다. 또한 응용 프로그램이 명시적으로 메시지를 DLQ로 이동시킬 수 있습니다. 
+Service Bus의 여러 활동에 의해 메시징 엔진 자체 내에서 DLQ로 메시지가 푸시됩니다. 또한 애플리케이션이 명시적으로 메시지를 DLQ로 이동시킬 수 있습니다. 
 
 broker에 의해 메시지가 이동되면 broker가 메시지의 [DeadLetter](/dotnet/api/microsoft.azure.servicebus.queueclient.deadletterasync) 메서드 내부 버전을 호출하므로 해당 메시지에 두 속성 `DeadLetterReason` 및 `DeadLetterErrorDescription` 속성이 추가됩니다.
 
-응용 프로그램에서 `DeadLetterReason` 속성에 대한 고유의 코드를 정의할 수는 있지만, 시스템에서 다음 값을 설정합니다.
+애플리케이션에서 `DeadLetterReason` 속성에 대한 고유의 코드를 정의할 수는 있지만, 시스템에서 다음 값을 설정합니다.
 
 | 조건 | DeadLetterReason | DeadLetterErrorDescription |
 | --- | --- | --- |
@@ -50,7 +50,7 @@ broker에 의해 메시지가 이동되면 broker가 메시지의 [DeadLetter](/
 | EnableDeadLetteringOnMessageExpiration |TTLExpiredException |메시지가 만료되어 배달 못 한 편지로 처리되었습니다. |
 | SubscriptionDescription.RequiresSession |세션 ID가 null입니다. |세션이 활성화된 엔터티가 세션 식별자가 null인 메시지를 허용하지 않습니다. |
 | !dead letter queue |MaxTransferHopCountExceeded |Null |
-| 응용 프로그램에서 명시적으로 배달 못 한 편지로 처리 |응용 프로그램에서 지정 |응용 프로그램에서 지정 |
+| 애플리케이션에서 명시적으로 배달 못 한 편지로 처리 |애플리케이션에서 지정 |애플리케이션에서 지정 |
 
 ## <a name="exceeding-maxdeliverycount"></a>Exceeding MaxDeliveryCount
 
@@ -68,15 +68,15 @@ broker에 의해 메시지가 이동되면 broker가 메시지의 [DeadLetter](/
 
 구독에 대해 When the [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnFilterEvaluationExceptions) 속성이 활성화되면 구독의 SQL 필터 규칙이 실행되는 동안 발생하는 모든 오류가 오류 메시지와 함께 DLQ에 캡처됩니다.
 
-## <a name="application-level-dead-lettering"></a>응용 프로그램 수준에서 배달 못 한 편지 처리
+## <a name="application-level-dead-lettering"></a>애플리케이션 수준에서 배달 못 한 편지 처리
 
-시스템에서 제공하는 배달 못 한 편지 처리 기능 외에도 응용 프로그램에서 DLQ를 사용하여 허용할 수 없는 메시지를 명시적으로 거부할 수 있습니다. 여기에는 시스템 문제로 인해 올바르게 처리할 수 없는 메시지, 잘못된 페이로드가 포함된 메시지 또는 메시지 수준 보안 체계가 사용될 때 실패한 메시지가 포함될 수 있습니다.
+시스템에서 제공하는 배달 못 한 편지 처리 기능 외에도 애플리케이션에서 DLQ를 사용하여 허용할 수 없는 메시지를 명시적으로 거부할 수 있습니다. 여기에는 시스템 문제로 인해 올바르게 처리할 수 없는 메시지, 잘못된 페이로드가 포함된 메시지 또는 메시지 수준 보안 체계가 사용될 때 실패한 메시지가 포함될 수 있습니다.
 
 ## <a name="dead-lettering-in-forwardto-or-sendvia-scenarios"></a>ForwardTo 또는 SendVia 시나리오의 배달 못한 편지
 
 다음과 같은 상황에서는 배달하지 못한 편지 큐에 메시지가 전달됩니다.
 
-- 메시지는 [함께 체인으로 연결된](service-bus-auto-forwarding.md) 3개 이상의 큐 또는 항목을 통과합니다.
+- 메시지는 [함께 체인으로 연결된](service-bus-auto-forwarding.md) 4 이상의 큐 또는 토픽을 통과합니다.
 - 대상 큐 또는 항목은 사용되지 않도록 설정되거나 삭제됩니다.
 - 대상 큐 또는 항목이 최대 엔터티 크기를 초과합니다.
 

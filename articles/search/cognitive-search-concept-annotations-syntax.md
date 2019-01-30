@@ -1,5 +1,5 @@
 ---
-title: Azure Search에서 인식 검색 파이프라인의 입출력에서 주석 참조 | Microsoft Docs
+title: 인식 검색 파이프라인의 참조 입력 및 출력 - Azure Search
 description: Azure Search에서 인식 검색 파이프라인의 기술 집합의 입출력에서 주석을 참조하는 방법 및 주석 구문을 설명합니다.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 1ccc1fb20cb08cfd97d58984676ef4006e693118
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.custom: seodec2018
+ms.openlocfilehash: 57fed710d7d58199fb3cb70640d1f2d3f316f180
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801950"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315832"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>인식 검색 기술 집합의 주석 참조하는 방법
 
@@ -61,7 +62,7 @@ Azure Blob 저장소에는 명명된 엔터티 인식을 사용하여 추출하�
 
 <a name="example-2"></a>
 
-## <a name="example-2-reference-an-array-within-a-document"></a>예제 2: 문서 내에서 배열을 참조
+## <a name="example-2-reference-an-array-within-a-document"></a>예 2: 문서 내에서 배열 참조
 
 이 예제는 동일 문서에 대해 보강 단계를 여러 번 호출하는 방법을 보여주며 이전 예제를 기반으로 빌드합니다. 이전 예제가 단일 문서에서 10명의 이름을 통해 문자열 배열을 생성했다고 가정합니다. 합리적인 다음 단계는 전체 이름에서 성을 추출하는 두 번째 보강일 수 있습니다. 10개 이름이 있으므로 이 문서에서 이 단계를 한 명당 한 번씩 10번을 호출하고자 합니다. 
 
@@ -93,7 +94,7 @@ Azure Blob 저장소에는 명명된 엔터티 인식을 사용하여 추출하�
 
 <a name="example-3"></a>
 
-## <a name="example-3-reference-members-within-an-array"></a>예제 3: 배열 내에서 구성원 참조
+## <a name="example-3-reference-members-within-an-array"></a>예 3: 배열 내에서 멤버 참조
 
 경우에 따라 특정 기술에 전달하는 특정 형식의 모든 주석을 그룹화해야 합니다. 예제 2에서 추출된 모든 성 가운데 가장 일반적인 성을 식별하는 가상의 사용자 지정 기술을 고려합니다. 사용자 지정 기술에 성만 제공하려면 컨텍스트를 `"/document"`로, 입력을 `"/document/people/*/lastname"`로 지정합니다.
 

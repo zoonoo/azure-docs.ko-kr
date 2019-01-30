@@ -1,22 +1,18 @@
 ---
-title: Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버그 | Microsoft Docs
+title: Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버그
 description: Azure Cosmos DB에서 메트릭을 사용하여 일반적인 문제를 디버그하고 데이터베이스를 모니터링합니다.
-keywords: 메트릭
-services: cosmos-db
-author: kanshiG
-manager: kfile
-editor: ''
 ms.service: cosmos-db
-ms.devlang: na
+author: kanshiG
+ms.author: sngun
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: govindk
-ms.openlocfilehash: 5e2ff89c45797e8453a3a3e4da4ac7cbe1ee6f16
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.reviewer: sngun
+ms.openlocfilehash: ff6e0b6084eebf236d01b4dd00a46897687938c2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852880"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034729"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버그
 
@@ -34,7 +30,7 @@ Azure Cosmos DB는 처리량, 저장소, 일관성, 가용성 및 대기 시간�
 
 ## <a name="determine-the-throughput-distribution-across-partitions"></a>파티션의 처리량 배포 확인
 
-파티션 키의 좋은 카디널리티 사용은 확장 가능한 모든 응용 프로그램에 필요합니다. 모든 분할된 컨테이너의 처리량 배포를 파티션으로 분석하여 확인하려면 [Azure Portal](https://portal.azure.com)의 **메트릭 블레이드**로 이동합니다. **처리량** 탭에서 저장소 분석은 **각 실제 파티션별 사용된 최대 RU/초** 차트에 표시됩니다. 다음 그림은 맨 왼쪽에 있는 불일치 파티션에서 표시된 것과 같이 잘못된 데이터 배포의 예제를 보여줍니다.
+파티션 키의 좋은 카디널리티 사용은 확장 가능한 모든 애플리케이션에 필요합니다. 모든 분할된 컨테이너의 처리량 배포를 파티션으로 분석하여 확인하려면 [Azure Portal](https://portal.azure.com)의 **메트릭 블레이드**로 이동합니다. **처리량** 탭에서 저장소 분석은 **각 실제 파티션별 사용된 최대 RU/초** 차트에 표시됩니다. 다음 그림은 맨 왼쪽에 있는 불일치 파티션에서 표시된 것과 같이 잘못된 데이터 배포의 예제를 보여줍니다.
 
 ![오후 3시 05분에 높은 사용량을 표시하는 단일 파티션](media/use-metrics/metrics-17.png)
 
@@ -42,7 +38,7 @@ Azure Cosmos DB는 처리량, 저장소, 일관성, 가용성 및 대기 시간�
 
 ## <a name="determine-the-storage-distribution-across-partitions"></a>파티션의 스토리지 배포 확인
 
-파티션의 좋은 카디널리티 사용은 확장 가능한 모든 응용 프로그램에 필요합니다. 모든 분할된 컨테이너의 처리량 배포를 파티션으로 분석하여 확인하려면 [Azure Portal](https://portal.azure.com)의 메트릭 블레이드로 이동합니다. 처리량 탭에서 저장소 분석은 각 실제 파티션별 사용된 최대 RU/초 차트에 표시됩니다. 다음 그림은 맨 왼쪽에 있는 불일치 파티션에서 표시된 것과 같이 잘못된 데이터 배포를 보여줍니다.
+파티션의 좋은 카디널리티 사용은 확장 가능한 모든 애플리케이션에 필요합니다. 모든 분할된 컨테이너의 스토리지 배포를 파티션으로 분석하여 확인하려면 [Azure Portal](https://portal.azure.com)의 메트릭 블레이드로 이동합니다. 스토리지 탭에서 스토리지 분석은 상위 파티션 키 차트에서 사용된 데이터 + 인덱스 스토리지에 표시됩니다. 다음 그래픽은 맨 왼쪽에 있는 불일치 파티션에서 표시된 대로 잘못된 데이터 스토리지 배포를 보여줍니다.
 
 ![불량 데이터 배포의 예](media/use-metrics/metrics-07.png)
 

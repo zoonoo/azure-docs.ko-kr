@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: NET을 사용하여 검토 만들기 - Content Moderator'
+title: '빠른 시작: .NET을 사용하여 검토 만들기 - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: .NET용 Azure Content Moderator SDK를 사용하여 검토를 만드는 방법입니다.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: ce90c5f691a0a8a333161f3135856d720d1de310
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8a5c11df1b6353a100dd5f1cf388308b9c048932
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226588"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258887"
 ---
 # <a name="quickstart-create-reviews-using-net"></a>빠른 시작: .NET을 사용하여 검토 만들기
 
@@ -24,14 +24,13 @@ ms.locfileid: "47226588"
 - 사용자 중재자에 대한 검토 집합 만들기
 - 사용자 중재자에 대한 기존 검토의 상태 가져오기
 
-일반적으로 콘텐츠는 사용자 검토를 위해 예약되기 전에 일부 자동화된 중재를 거칩니다. 이 문서에서는 사용자 중재에 대한 검토를 만드는 방법만을 다룹니다. 자세한 전체 시나리오는 [Facebook 콘텐츠 조정](facebook-post-moderation.md) 및 [전자 상거래 카탈로그 조정](ecommerce-retail-catalog-moderation.md) 자습서를 참조하세요.
+일반적으로 콘텐츠는 사용자 검토를 위해 예약되기 전에 일부 자동화된 중재를 거칩니다. 이 문서에서는 사용자 중재에 대한 검토를 만드는 방법만을 다룹니다. 자세한 전체 시나리오는 [Facebook 콘텐츠 조정](facebook-post-moderation.md) 및 [전자 상거래 제품 이미지 조정](ecommerce-retail-catalog-moderation.md) 자습서를 참조하세요.
 
 이 문서에서는 사용자가 Visual Studio 및 C#에 이미 익숙한 것으로 가정합니다.
 
 ## <a name="sign-up-for-content-moderator"></a>Content Moderator 등록
 
-REST API 또는 SDK를 통해 Content Moderator 서비스를 사용하려면 먼저 구독 키가 필요합니다.
-키를 획득하는 방법은 [빠른 시작](quick-start.md)을 참조하세요.
+REST API 또는 SDK를 통해 Content Moderator 서비스를 사용하려면 먼저 구독 키가 필요합니다. [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Content Moderator를 구독하고 키를 가져옵니다.
 
 ## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>이전 단계에서 완료되지 않은 경우 검토 도구 계정에 등록
 
@@ -41,7 +40,7 @@ Azure Portal에서 Content Moderator를 가져온 경우 [검토 도구 계정�
 
 이전 단계를 완료한 후 Azure Portal에서 시작한 경우 두 개의 Content Moderator 키가 생성됩니다. 
 
-SDK 샘플에서 Azure에서 제공하는 API 키를 사용하려는 경우 [검토 API를 사용하여 Azure 키 사용](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) 섹션에서 언급된 단계를 수행하여 응용 프로그램에서 검토 API를 호출하고 검토를 만들도록 허용합니다.
+SDK 샘플에서 Azure가 제공한 API 키를 사용하려는 경우 [검토 API를 사용하여 Azure 키 사용](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) 섹션에서 언급된 단계를 수행하여 애플리케이션에서 검토 API를 호출하고 검토를 만들도록 허용합니다.
 
 검토 도구에서 생성된 평가판 키를 사용하는 경우 검토 도구 계정은 키에 대해 이미 알고 있으므로 추가 단계가 필요하지 않습니다.
 
@@ -156,7 +155,7 @@ SDK 샘플에서 Azure에서 제공하는 API 키를 사용하려는 경우 [검
         public string ReviewId;
     }
 
-### <a name="initialize-application-specific-settings"></a>응용 프로그램 관련 설정 초기화
+### <a name="initialize-application-specific-settings"></a>애플리케이션 관련 설정 초기화
 
 > [!NOTE]
 > Content Moderator 서비스 키에는 RPS(초당 요청 수) 속도 제한이 있으며, 제한을 초과하는 경우 SDK에서 429 오류 코드로 예외를 throw합니다. 
@@ -240,7 +239,7 @@ SDK 샘플에서 Azure에서 제공하는 API 키를 사용하려는 경우 [검
 
 #### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>Program.cs의 **Program** 클래스에 다음 정적 필드를 추가합니다.
 
-이러한 필드를 사용하여 응용 프로그램 상태를 추적합니다.
+이러한 필드를 사용하여 애플리케이션 상태를 추적합니다.
 
     /// <summary>
     /// A static reference to the text writer to use for logging.
@@ -436,7 +435,7 @@ Content Moderator 검토 도구에 로그인하여 **sc** 레이블을 **true**�
 > [!NOTE]
 > 출력 파일에서 문자열 "\{teamname}" 및 "\{callbackUrl}"은 `TeamName` 및 `CallbackEndpoint` 필드에 대한 값을 각각 반영합니다.
 
-검토 ID 및 이미지 콘텐츠 URL은 응용 프로그램을 실행할 때마다 다르며, 검토가 완료되면 `reviewerResultTags` 필드는 검토자가 항목의 태그를 지정한 방법을 반영합니다.
+검토 ID 및 이미지 콘텐츠 URL은 애플리케이션을 실행할 때마다 다르며, 검토가 완료되면 `reviewerResultTags` 필드는 검토자가 항목의 태그를 지정한 방법을 반영합니다.
 
     Creating reviews for the following images:
         - https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg; with id = 0.

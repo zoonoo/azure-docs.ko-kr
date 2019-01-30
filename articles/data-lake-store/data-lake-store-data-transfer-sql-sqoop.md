@@ -23,7 +23,7 @@ ms.locfileid: "44391745"
 Apache Sqoop를 사용하여 Azure SQL Database와 Azure Data Lake Storage Gen1 간에 데이터를 가져오고 내보내는 방법을 알아봅니다.
 
 ## <a name="what-is-sqoop"></a>Sqoop 정의
-빅 데이터 응용 프로그램은 로그 및 파일과 같은 비구조적 및 반구조적 데이터를 처리하기 위한 자연스러운 선택입니다. 그러나 관계형 데이터베이스에 저장된 구조적 데이터를 처리해야 할 수도 있습니다.
+빅 데이터 애플리케이션은 로그 및 파일과 같은 비구조적 및 반구조적 데이터를 처리하기 위한 자연스러운 선택입니다. 그러나 관계형 데이터베이스에 저장된 구조적 데이터를 처리해야 할 수도 있습니다.
 
 [Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html)는 Data Lake Storage Gen1과 같은 빅 데이터 리포지토리와 관계형 데이터베이스 간에 데이터를 전송하도록 설계된 도구입니다. 이 도구를 사용하여 Azure SQL Database와 같은 RDBMS(관계형 데이터베이스 관리 시스템)에서 Data Lake Storage Gen1로 데이터를 가져올 수 있습니다. 그런 다음 빅 데이터 워크로드를 사용하여 데이터를 변환 및 분석한 후 RDBMS로 다시 내보낼 수 있습니다. 이 자습서에서는 Azure SQL Database를 관계형 데이터베이스로 사용하여 데이터를 가져오고 내보낼 수 있습니다.
 
@@ -72,7 +72,7 @@ Distcp를 사용하여 Azure Storage Blob과 Data Lake Storage Gen1 간에 데�
 
 
 ## <a name="use-sqoop-from-an-hdinsight-cluster-with-access-to-data-lake-storage-gen1"></a>Data Lake Storage Gen1 액세스 권한이 있는 HDInsight 클러스터에서 Sqoop 사용
-HDInsight 클러스터에는 사용 가능한 Sqoop 패키지가 이미 있습니다. Data Lake Storage Gen1을 추가 저장소로 사용하도록 HDInsight 클러스터를 구성한 경우 Sqoop(구성 변경 없이)를 사용하여 관계형 데이터베이스(이 예제의 경우 Azure SQL Database)와 Data Lake Storage Gen1 계정 간에 데이터를 가져오고 내보낼 수 있습니다.
+HDInsight 클러스터에는 사용 가능한 Sqoop 패키지가 이미 있습니다. Data Lake Storage Gen1을 추가 스토리지로 사용하도록 HDInsight 클러스터를 구성한 경우 Sqoop(구성 변경 없이)를 사용하여 관계형 데이터베이스(이 예제의 경우 Azure SQL Database)와 Data Lake Storage Gen1 계정 간에 데이터를 가져오고 내보낼 수 있습니다.
 
 1. 이 자습서에서는 Linux 클러스터를 만든 것으로 가정하므로 SSH를 사용하여 클러스터에 연결해야 합니다. [Linux 기반 HDInsight 클러스터에 연결](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 2. 클러스터에서 Data Lake Storage Gen1 계정에 액세스할 수 있는지 확인합니다. SSH 프롬프트에서 다음 명령을 실행합니다.

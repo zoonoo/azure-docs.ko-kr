@@ -3,7 +3,7 @@ title: 사용자로 PowerShell 사용 하 여 Azure Stack에 연결 | Microsoft 
 description: 사용자의 Azure Stack 인스턴스에 연결 하는 단계입니다.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,15 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2018
-ms.author: sethm
-ms.reviewer: Balsu.G
-ms.openlocfilehash: 75b942ea99dace60b3c086b84e3b3e2157f8b821
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.date: 01/24/2019
+ms.author: mabrigg
+ms.reviewer: bganapa
+ms.lastreviewed: 01/24/2019
+ms.openlocfilehash: 450628019d705584c28acb86be214a478eb146a4
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093729"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244048"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>사용자로 PowerShell 사용 하 여 Azure Stack에 연결
 
@@ -50,6 +51,7 @@ Azure Stack 구성에서 값을 사용 하 여 다음 스크립트 변수를 대
 ## <a name="connect-with-azure-ad"></a>Azure AD를 사용 하 여 연결
 
 ```PowerShell  
+    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
     # Set your tenant name
     $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
     $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"
@@ -66,16 +68,12 @@ Azure Stack 구성에서 값을 사용 하 여 다음 스크립트 변수를 대
   # Register an Azure Resource Manager environment that targets your Azure Stack instance
   Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
 
-  $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
-  $tenantId = (invoke-restmethod "$($AuthEndpoint)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
-
   # Sign in to your environment
 
   $cred = get-credential
 
   Login-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
-    -TenantId $tenantId `
     -Credential $cred
   ```
 

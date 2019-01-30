@@ -41,7 +41,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-Azure Storage 계정과 배치 계정을 연결할 수 있습니다. 저장소 계정은 이 빠른 시작에서 필요하지 않지만, 응용 프로그램을 배포하고 대부분의 실제 작업에 대한 입력 및 출력 데이터를 저장하는 데 유용합니다. [az storage account create](/cli/azure/storage/account#az-storage-account-create) 명령을 사용하여 리소스 그룹에 저장소 계정을 만듭니다.
+Azure Storage 계정과 배치 계정을 연결할 수 있습니다. 스토리지 계정은 이 빠른 시작에서 필요하지 않지만, 애플리케이션을 배포하고 대부분의 실제 작업에 대한 입력 및 출력 데이터를 저장하는 데 유용합니다. [az storage account create](/cli/azure/storage/account#az-storage-account-create) 명령을 사용하여 리소스 그룹에 저장소 계정을 만듭니다.
 
 ```azurecli-interactive
 az storage account create \

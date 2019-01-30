@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3759a9845d4ad1514fc5f0183c78b5eca2e31464
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: eff526118f6fd127ba720d28296baf86abd01393
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960654"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246443"
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure Stack 방화벽 통합
 Azure Stack 보안 하는 데 방화벽 장치를 사용 하는 것이 좋습니다. 방화벽이 배포 된 서비스 거부 (DDOS) 공격, 침입 검색 및 콘텐츠 검사 등을 사용 하 여 도움을 줄 수 있지만 blob, 테이블 및 큐와 같은 Azure storage 서비스에 대 한 처리량 병목 지점이 될 수도 있습니다.
@@ -34,7 +35,7 @@ Azure 리소스 관리자 (관리자), 관리자 포털 및 Key Vault (관리자
 ### <a name="network-address-translation"></a>NAT(Network Address Translation)
 네트워크 주소 변환 (NAT)은 응급 복구 콘솔 (ERCS) Vm 뿐만 아니라 외부 리소스 및 배포 하는 동안 인터넷에 액세스할 수 (dvm이)에 가상 컴퓨터를 배포 하거나 권한 있는 끝점 (PEP) 하는 동안 허용 하는 것이 좋습니다. 등록 및 문제 해결입니다.
 
-NAT는 공용 IP 주소에서 외부 네트워크 또는 공용 Vip 대신 수도 있습니다. 그러나 테 넌 트 사용자 경험을 제한 하 고 복잡성 증가 하므로 이렇게 하지 좋습니다. 두 옵션 1:1 NAT 풀에서 IP 사용자 당 하나의 공용 IP 또는 여러 여전히 필요한 수: 1 NAT NAT 규칙이 모든 포트에 연결을 포함 하는 VIP 사용자 당 사용자는 사용할 수 있습니다.
+NAT는 공용 IP 주소에서 외부 네트워크 또는 공용 Vip 대신 수도 있습니다. 그러나 테 넌 트 사용자 경험을 제한 하 고 복잡성 증가 하므로 이렇게 하지 좋습니다. 두 옵션 1:1 NAT 풀에서 IP 사용자 당 하나의 공용 IP 또는 여러 계속 해야 하는 것입니다. 모든 포트에 연결을 포함 하는 VIP 사용자별 NAT 규칙을 요구 하는 1 NAT 사용자를 사용할 수 있습니다.
 
 공용 VIP에 대 한 NAT를 사용 하 여의 단점 중 일부는:
 - 사용자가 고유한 끝점 및 소프트웨어 정의 네트워킹 (SDN) 스택의 자체 게시 규칙을 제어 하기 때문에 방화벽 규칙을 관리 하는 경우 NAT 오버 헤드가 추가 됩니다. 사용자가 게시 하는 Vip를 얻을 포트 목록을 업데이트 하려면 Azure Stack 운영자를 문의 해야 합니다.
@@ -54,7 +55,7 @@ Edge 배포를 Azure Stack에 지 라우터 또는 방화벽 뒤에 직접 배�
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>엔터프라이즈 인트라넷 이나 경계 네트워크 방화벽 시나리오
 엔터프라이즈 인트라넷 이나 경계 배포에 다중 영역 방화벽 또는 지 방화벽 및 회사 내부 네트워크 방화벽 사이 Azure Stack 배포 됩니다. 해당 트래픽을 분산 하는 다음의 보안 경계 네트워크 (또는 DMZ) 사이 및 아래에 설명 된 안전 하지 않은 영역으로:
 
-- **보안 영역**: 내부 또는 회사 라우팅할 수 있는 IP 주소를 사용 하는 내부 네트워크입니다. 보안 네트워크 나눌 수 있습니다, 방화벽에서 NAT 통해 아웃 바운드 인터넷 연결 되어 및 내부 네트워크를 통해 데이터 센터 내에서 일반적으로 액세스할 수 있습니다. 모든 Azure Stack 네트워크는 외부 네트워크의 공용 VIP 풀 제외 하 고 보안 영역에 있어야 합니다.
+- **보안 영역**: 이것이 내부 또는 회사 라우팅할 수 있는 IP 주소를 사용 하는 내부 네트워크입니다. 보안 네트워크 나눌 수 있습니다, 방화벽에서 NAT 통해 아웃 바운드 인터넷 연결 되어 및 내부 네트워크를 통해 데이터 센터 내에서 일반적으로 액세스할 수 있습니다. 모든 Azure Stack 네트워크는 외부 네트워크의 공용 VIP 풀 제외 하 고 보안 영역에 있어야 합니다.
 - **경계 영역**합니다. 경계 네트워크가 인터넷 연결 웹 서버는 일반적으로 배포와 같은 응용 프로그램 또는 외부 위치입니다. 일반적으로 인터넷에서 지정 된 인바운드 트래픽을 허용 하는 동안 (해킹) 침입 및 DDoS와 같은 공격을 방지 하려면 방화벽에 의해 모니터링 됩니다. 만 외부 네트워크 공용 VIP 풀을 Azure Stack의 DMZ 영역에 있어야 합니다.
 - **보안 되지 않은 영역**합니다. 이것이 외부 네트워크와 인터넷입니다. 것 **아닙니다** 안전 하지 않은 영역에 Azure Stack을 배포 하는 것이 좋습니다.
 

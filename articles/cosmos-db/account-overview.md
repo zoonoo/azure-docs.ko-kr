@@ -1,18 +1,19 @@
 ---
 title: Azure Cosmos DB 계정으로 작업
 description: 이 문서에서는 Azure Cosmos DB 계정을 만들고 사용하는 방법을 설명합니다.
-author: dharmas
+author: dharmas-cosmos
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: e73c295c214728bf07b65ae4402c3b5abe21932f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 7c4c1a5991445448f015dc0912383baf53f4e38c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165291"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034933"
 ---
 # <a name="working-with-azure-cosmos-account"></a>Azure Cosmos 계정 작업
 
@@ -38,7 +39,7 @@ Azure 구독을 사용하면 현재 Azure Cosmos 계정을 최대 100개까지 �
 * [글로벌 분포](distribute-data-globally.md)
 * [일관성 수준](consistency-levels.md)
 * [Azure Cosmos 컨테이너와 항목으로 작업](databases-containers-items.md)
-* [Azure Cosmos 계정에 대한 VNET 서비스 엔드포인트](firewall-support.md)
-* [Azure Cosmos 계정에 대한 IP 방화벽](vnet-service-endpoint.md)
+* [Azure Cosmos 계정에 대한 VNET 서비스 엔드포인트](vnet-service-endpoint.md)
+* [Azure Cosmos 계정에 대한 IP 방화벽](firewall-support.md)
 * [Azure Cosmos 계정에서 Azure 지역을 추가하고 제거하는 방법](how-to-manage-database-account.md)
 * [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

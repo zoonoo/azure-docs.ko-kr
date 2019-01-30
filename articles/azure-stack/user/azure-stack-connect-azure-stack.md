@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/10/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
-ms.openlocfilehash: e982df514784c37de29c9931da063f37d6886655
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: b7f9bda37d63956ea672528c28b81eaaac9891a6
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377330"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243769"
 ---
 # <a name="connect-to-azure-stack"></a>Azure Stack에 연결
 

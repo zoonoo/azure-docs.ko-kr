@@ -2,17 +2,17 @@
 title: Azure Event Grid에 대한 이벤트 필터링
 description: Azure Event Grid 구독을 만들 때 이벤트를 필터링하는 방법을 설명합니다.
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/05/2018
-ms.author: tomfitz
-ms.openlocfilehash: fd33ca723bd00b4a9c25009ef5b4f444487244f0
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.date: 01/21/2019
+ms.author: spelluru
+ms.openlocfilehash: 87599b05a3569bf6f28880352185a131f48a7f52
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281951"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470633"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Event Grid 구독에 대한 이벤트 필터링 이해
 
@@ -47,7 +47,7 @@ ms.locfileid: "51281951"
 
 ```json
 "filter": {
-  "subjectBeginsWith": "blobServices/default/containers/mycontainer/log",
+  "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
   "subjectEndsWith": ".jpg"
 }
 
@@ -91,7 +91,7 @@ ms.locfileid: "51281951"
 * NumberIn
 * NumberNotIn
 
-부울에 사용 가능한 연산자는 BoolEquals입니다.
+부울에 사용 가능한 연산자: BoolEquals
 
 문자열에 사용 가능한 연산자는 다음과 같습니다.
 
@@ -141,6 +141,7 @@ Event Grid 스키마의 이벤트의 경우 키에 대해 다음 값을 사용�
 * 문자열 값당 512자
 * **in** 및 **not in** 연산자에 대한 5개의 값
 * 키에는 한 가지 수준의 중첩만을 있을 수 있습니다(예: data.key1).
+* 사용자 지정 이벤트 스키마는 최상위 필드에서만 필터링됩니다.
 
 둘 이상의 필터에 동일한 키를 사용할 수 있습니다.
 

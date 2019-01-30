@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory에서 전역 관리자에 대한 액세스 권한 상승 | Microsoft Docs
-description: Azure Portal 또는 REST API를 사용하여 Azure Active Directory에서 전역 관리자에 대한 액세스 권한을 상승시키는 방법에 대해 설명합니다.
+title: 모든 Azure 구독 및 관리 그룹을 관리하는 액세스 권한 상승 | Microsoft Docs
+description: Azure Portal 또는 REST API를 사용하여 Azure Active Directory에서 모든 구독 및 관리 그룹을 관리하는 글로벌 관리자에 대한 액세스 권한을 상승시키는 방법에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,32 +12,34 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/15/2018
+ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a2f66078a817f5e6ad7296df11634a1a6130a055
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 7552018c32078295c164023f909a604c6522c32f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321668"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437473"
 ---
-# <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Azure Active Directory에서 전역 관리자에 대한 액세스 권한 상승
+# <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>모든 Azure 구독 및 관리 그룹을 관리하는 액세스 권한 상승
 
-사용자가 Azure AD(Azure Active Directory)에서 [전역 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator)인 경우 다음을 수행하려는 경우가 있을 수 있습니다.
-
-- 사용자가 액세스 권한을 상실할 때 Azure 구독에 대한 액세스 권한 다시 얻기
-- 다른 사용자 또는 사용자 자신에게 Azure 구독에 대한 액세스 권한 부여
-- 조직에서 모든 Azure 구독 확인
-- 자동화 앱(예: 송장 또는 감사 앱)이 모든 Azure 구독에 액세스하도록 허용
-
-이 문서에서는 Azure AD에서 액세스 권한을 높이는 여러 가지 방법을 설명합니다.
+Azure AD(Azure Active Directory)의 글로벌 관리자로서 디렉터리에 있는 모든 구독 및 관리 그룹에 대한 액세스 권한을 가질 수 없습니다. 이 문서에서는 모든 구독 및 관리 그룹에 대한 액세스 권한을 상승시킬 수 있는 방법을 설명합니다.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="overview"></a>개요
+## <a name="why-would-you-need-to-elevate-your-access"></a>액세스 권한을 상승시켜야 하는 이유는 무엇인가요?
 
-Azure AD와 Azure 리소스는 서로 독립적으로 보호됩니다. 즉, Azure AD 역할을 할당해도 Azure 리소스에 대한 액세스가 부여되지 않고, Azure 역할을 할당해도 Azure AD에 대한 액세스가 부여되지 않습니다. 그러나 Azure AD의 글로벌 관리자는 디렉터리에 있는 모든 Azure 구독 및 관리 그룹에 대한 액세스 권한을 자신에게 할당할 수 있습니다. 가상 머신이나 저장소 계정 같은 Azure 구독 리소스에 액세스할 수 없고, 글로벌 관리자 권한을 사용하여 이러한 리소스에 대한 액세스 권한을 얻고 싶으면 이 기능을 사용하세요.
+글로벌 관리자인 경우 다음을 수행하려는 경우가 있을 수 있습니다.
+
+- 사용자가 액세스 권한을 상실할 때 Azure 구독 또는 관리 그룹에 대한 액세스 권한 다시 얻기
+- 다른 사용자 또는 사용자 자신에게 Azure 구독 또는 관리 그룹에 대한 액세스 권한 부여
+- 조직에서 모든 Azure 구독 또는 관리 그룹 확인
+- 자동화 앱(예: 송장 또는 감사 앱)이 모든 Azure 구독 또는 관리 그룹에 액세스하도록 허용
+
+## <a name="how-does-elevate-access-work"></a>액세스 권한 상승의 작동 방법은 무엇인가요?
+
+Azure AD와 Azure 리소스는 서로 독립적으로 보호됩니다. 즉, Azure AD 역할을 할당해도 Azure 리소스에 대한 액세스가 부여되지 않고, Azure 역할을 할당해도 Azure AD에 대한 액세스가 부여되지 않습니다. 그러나 Azure AD의 [글로벌 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator)는 디렉터리에 있는 모든 Azure 구독 및 관리 그룹에 대한 액세스 권한을 자신에게 할당할 수 있습니다. 가상 머신이나 저장소 계정 같은 Azure 구독 리소스에 액세스할 수 없고, 글로벌 관리자 권한을 사용하여 이러한 리소스에 대한 액세스 권한을 얻고 싶으면 이 기능을 사용하세요.
 
 액세스 권한을 높이면 Azure의 루트 범위(`/`)에서 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 역할이 할당됩니다. 이를 통해 모든 리소스를 살펴보고, 디렉터리에 있는 구독 또는 관리 그룹에 대한 액세스 권한을 할당할 수 있습니다. 사용자 액세스 관리자 역할 할당은 PowerShell을 사용하여 제거할 수 있습니다.
 
@@ -55,19 +57,29 @@ Azure AD와 Azure 리소스는 서로 독립적으로 보호됩니다. 즉, Azur
 
    ![Azure AD 속성 - 스크린샷](./media/elevate-access-global-admin/aad-properties.png)
 
-1. **Azure 리소스에 대한 액세스 관리**에서 스위치를 **예**로 설정합니다.
+1. **Azure 리소스에 대한 액세스 관리**에서 토글을 **예**로 설정합니다.
 
    ![Azure 리소스에 대한 액세스 관리 - 스크린샷](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   스위치를 **예**로 설정하면 Azure RBAC의 루트 범위(/)에서 사용자 액세스 관리자 역할이 할당됩니다. 그러면 이 Azure AD 디렉터리와 연결된 모든 Azure 구독 및 관리 그룹의 역할을 할당할 수 있는 권한이 부여됩니다. 이 스위치는 Azure AD에서 글로벌 관리자 역할이 할당된 사용자만 사용할 수 있습니다.
+   토글을 **예**로 설정하면 Azure RBAC의 루트 범위(/)에서 사용자 액세스 관리자 역할이 할당됩니다. 그러면 이 Azure AD 디렉터리와 연결된 모든 Azure 구독 및 관리 그룹의 역할을 할당할 수 있는 권한이 부여됩니다. 이 토글은 Azure AD에서 글로벌 관리자 역할이 할당된 사용자만 사용할 수 있습니다.
 
-   스위치를 **아니요**로 설정하면 Azure RBAC의 사용자 액세스 관리자 역할이 사용자 계정에서 제거됩니다. 그러면 이 Azure AD 디렉터리와 연결된 모든 Azure 구독 및 관리 그룹의 역할을 더 이상 할당할 수 없습니다. 액세스 권한이 부여된 Azure 구독 및 관리 그룹만 살펴보고 관리할 수 있습니다.
+   토글을 **아니요**로 설정하면 Azure RBAC의 사용자 액세스 관리자 역할이 사용자 계정에서 제거됩니다. 그러면 이 Azure AD 디렉터리와 연결된 모든 Azure 구독 및 관리 그룹의 역할을 더 이상 할당할 수 없습니다. 액세스 권한이 부여된 Azure 구독 및 관리 그룹만 살펴보고 관리할 수 있습니다.
 
 1. **Save**를 클릭하여 설정을 저장합니다.
 
-   이 설정은 전역 속성이 아니며 현재 로그인된 사용자에게만 적용됩니다.
+   이 설정은 글로벌 속성이 아니며 현재 로그인된 사용자에게만 적용됩니다. 글로벌 관리자 역할의 모든 멤버에 대한 액세스 권한을 상승시킬 수 없습니다.
 
-1. 권한이 상승된 액세스를 확인하는 데 필요한 작업을 수행합니다. 작업이 완료되면 스위치를 다시 **아니요**로 설정합니다.
+1. 로그아웃하고 다시 로그인하여 액세스를 새로 고칩니다.
+
+    이제 이 디렉터리의 모든 구독 및 관리 그룹에 대한 액세스 권한을 갖습니다. 루트 범위에서 사용자 액세스 관리자 역할이 할당된 것을 알 수 있습니다.
+
+   ![루트 범위의 구독 역할 할당 - 스크린샷](./media/elevate-access-global-admin/iam-root.png)
+
+1. 권한이 상승된 액세스를 확인하는 데 필요한 변경을 수행합니다.
+
+    역할 할당에 대한 자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](role-assignments-portal.md)를 참조하세요. Azure AD PIM(Privileged Identity Management)을 사용하는 경우 [PIM에서 관리할 Azure 리소스 검색](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) 또는 [PIM에서 Azure 리소스 역할 할당](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md)을 참조하세요.
+
+1. 완료되면 **Azure 리소스에 대한 액세스 관리** 토글을 **아니요**로 다시 설정합니다. 사용자별 설정이므로 액세스 권한을 상승시키는 데 사용했던 동일한 사용자로 로그인해야 합니다.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -89,16 +101,22 @@ RoleDefinitionName : User Access Administrator
 RoleDefinitionId   : 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9
 ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
+CanDelegate        : False
 ```
 
 ### <a name="remove-a-role-assignment-at-the-root-scope-"></a>루트 범위(/)에 있는 역할 할당 제거
 
-루트 범위(`/`)에서 사용자에 대한 사용자 액세스 관리자 역할 할당을 제거하려면 [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) 명령을 사용합니다.
+루트 범위(`/`)에서 사용자에 대한 사용자 액세스 관리자 역할 할당을 제거하려면 다음 단계를 따릅니다.
 
-```azurepowershell
-Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
-  -RoleDefinitionName "User Access Administrator" -Scope "/"
-```
+1. 상승된 액세스 권한을 제거할 수 있는 사용자로 로그인합니다. 이는 액세스 권한을 상승하는 데 사용했던 동일한 사용자 또는 루트 범위에서 상승된 액세스 권한이 있는 다른 글로벌 관리자일 수 있습니다.
+
+
+1. [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) 명령을 사용하여 사용자 액세스 관리자 역할 할당을 제거합니다.
+
+    ```azurepowershell
+    Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
+      -RoleDefinitionName "User Access Administrator" -Scope "/"
+    ```
 
 ## <a name="rest-api"></a>REST API
 

@@ -1,23 +1,23 @@
 ---
 title: '자습서: Facebook 콘텐츠 조정 - Azure Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Content Moderator를 사용한 Facebook 페이지 조정입니다.
+description: 이 자습서에서는 기계 학습 기반 Content Moderator를 사용하여 Facebook 게시물 및 의견을 조정하는 방법을 알아봅니다.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
-ms.date: 09/18/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: ead8c1d445bf32ecaaf236b4e73c2a583c755049
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 085ddaf757f2a11b4db4aadb22ad16009d29231e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223941"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260449"
 ---
-# <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>자습서: Content Moderator를 사용한 Facebook 콘텐츠 조정
+# <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>자습서: Content Moderator를 사용하여 Facebook 콘텐츠 조정
 
 이 자습서에서는 기계 학습 기반 Content Moderator를 사용하여 Facebook 게시물 및 의견을 조정하는 방법을 알아봅니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "47223941"
 
 ## <a name="create-a-content-moderator-team"></a>Content Moderator 팀 만들기
 
-[빠른 시작](quick-start.md) 페이지를 참조하여 Content Moderator에 등록하고 팀을 만듭니다.
+[웹에서 Content Moderator 사용해 보기](quick-start.md) 빠른 시작을 참조하여 Content Moderator에 가입하고 팀을 만듭니다.
 
 ## <a name="configure-image-moderation-workflow-threshold"></a>이미지 중재 워크플로(임계값) 구성
 
@@ -57,8 +57,8 @@ ms.locfileid: "47223941"
 
 1. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) 페이지에 표시된 대로 Azure 함수 앱을 만듭니다.
 2. 새로 만든 함수 앱을 엽니다.
-3. 앱 내에서 **플랫폼 기능 -> 응용 프로그램 설정**으로 이동합니다.
-4. 다음 [응용 프로그램 설정](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings)을 정의합니다.
+3. 앱 내에서 **플랫폼 기능 -&gt; 애플리케이션 설정**으로 이동합니다.
+4. 다음 [애플리케이션 설정](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings)을 정의합니다.
 
 > [!NOTE]
 > **cm: Region**은 지역의 이름이어야 합니다(공백 없이).
@@ -112,7 +112,7 @@ ms.locfileid: "47223941"
     1. [Facebook](https://www.facebook.com/bookmarks/pages)으로 이동하고 **새 Facebook 페이지**를 만듭니다.
     2. Facebook 앱에서 이러한 단계를 따라 이 페이지에 액세스하도록 허용합니다.
         1. [Graph API 탐색기](https://developers.facebook.com/tools/explorer/)로 이동합니다.
-        2. **응용 프로그램**을 선택합니다.
+        2. **애플리케이션**을 선택합니다.
         3. **페이지 액세스 토큰**을 선택하고, **Get** 요청을 보냅니다.
         4. 응답에서 **페이지 ID**를 클릭합니다.
         5. 이제 URL에 **/subscribed_apps**를 추가하고 **Get**(빈 응답) 요청을 보냅니다.
@@ -121,7 +121,7 @@ ms.locfileid: "47223941"
 3. 만료되지 않는 Graph API 액세스 토큰을 만듭니다.
 
     1. [Graph API 탐색기](https://developers.facebook.com/tools/explorer/)로 이동합니다.
-    2. **응용 프로그램** 옵션을 선택합니다.
+    2. **애플리케이션** 옵션을 선택합니다.
     3. **사용자 액세스 토큰 가져오기** 옵션을 선택합니다.
     4. **권한 선택** 아래에서 **manage_pages** 및 **publish_pages** 옵션을 선택합니다.
     5. 다음 단계에서 **액세스 토큰**(수명이 짧은 토큰)을 사용합니다.
@@ -153,14 +153,10 @@ ms.locfileid: "47223941"
 
 Microsoft Cognitive Services SDK 및 샘플은 모두 MIT 라이선스를 통해 사용이 허가됩니다. 자세한 내용은 [라이선스](https://microsoft.mit-license.org/)를 참조하세요.
 
-## <a name="developer-code-of-conduct"></a>개발자 준수 사항
-
-이 클라이언트 라이브러리 및 샘플을 포함한 Cognitive Services를 사용하는 개발자는 http://go.microsoft.com/fwlink/?LinkId=698895에 있는 “Microsoft Cognitive Services를 위한 개발자 준수 사항”을 따라야 합니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 1. Microsoft Build 2017에서 이 솔루션의 [데모(비디오)를 봅니다](https://channel9.msdn.com/Events/Build/2017/T6033).
-1. [Github의 Facebook 샘플](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
+1. [GitHub의 Facebook 샘플](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
 1. https://docs.microsoft.com/azure/azure-functions/functions-create-github-webhook-triggered-function
 2. http://ukimiawz.github.io/facebook/2015/08/12/webhook-facebook-subscriptions/
 3. http://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token

@@ -23,8 +23,8 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/19/2018
 ms.locfileid: "49468197"
 ---
-# <a name="install-applications-into-a-virtual-machine-scale-set-with-powershell"></a>PowerShell을 사용하여 가상 머신 확장 집합에 응용 프로그램 설치
-이 스크립트는 Windows Server 2016을 실행하는 가상 머신 확장 집합을 만들고, 사용자 지정 스크립트 확장을 사용하여 기본 웹 응용 프로그램을 설치합니다. 스크립트가 실행되면 웹 브라우저를 통해 웹 응용 프로그램에 액세스할 수 있습니다.
+# <a name="install-applications-into-a-virtual-machine-scale-set-with-powershell"></a>PowerShell을 사용하여 가상 머신 확장 집합에 애플리케이션 설치
+이 스크립트는 Windows Server 2016을 실행하는 가상 머신 확장 집합을 만들고, 사용자 지정 스크립트 확장을 사용하여 기본 웹 애플리케이션을 설치합니다. 스크립트가 실행되면 웹 브라우저를 통해 웹 응용 프로그램에 액세스할 수 있습니다.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -47,7 +47,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 |---|---|
 | [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss) | 가상 네트워크, 부하 분산 장치 및 NAT 규칙을 포함하여 가상 머신 확장 집합 및 모든 지원 리소스를 만듭니다. |
 | [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) | 가상 머신 확장 집합에 대한 정보를 가져옵니다. |
-| [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) | 사용자 지정 스크립트용 VM 확장을 추가하여 기본 웹 응용 프로그램을 설치합니다. |
+| [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) | 사용자 지정 스크립트용 VM 확장을 추가하여 기본 웹 애플리케이션을 설치합니다. |
 | [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) | VM 확장을 적용하기 위해 가상 머신 확장 집합 모델을 업데이트합니다. |
 | [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) | 부하 분산 장치에서 사용하는 할당된 공용 IP 주소에 대한 정보를 가져옵니다. |
 |  [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 리소스 그룹 및 포함된 모든 리소스를 제거합니다. |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: cwatson
-ms.openlocfilehash: 096cf8e7a03f00cd5854ac4ce9569b14fe4b761b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: cdcb4e06afab2cccff7baa92989ccf904f42cf88
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581479"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118016"
 ---
 # <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Azure Reservation 할인이 가상 머신에 적용되는 방식 이해
 
@@ -36,9 +36,9 @@ SQL Database 예약된 용량의 경우 [Azure Reserved Instances 할인](billin
 |추가 소프트웨어가 있는 Windows VM(예: SQL Server) | 예약은 인프라 비용을 포함합니다. Windows 소프트웨어 및 추가 소프트웨어에 대한 요금이 청구됩니다.|
 |[Azure Hybrid Benefit](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)을 포함한 Windows VM | 예약은 인프라 비용을 포함합니다. Windows 소프트웨어 비용은 Azure Hybrid Benefit에 포함되어 있습니다. 추가 소프트웨어는 별도로 청구됩니다.| 
 
-## <a name="application-of-reservation-discount-to-non-windows-vms"></a>Windows 외 VM 대상 응용 프로그램 예약 할인
+## <a name="application-of-reservation-discount-to-non-windows-vms"></a>Windows 외 VM 대상 애플리케이션 예약 할인
 
- Azure Reservation 할인은 시간 단위로 실행 중인 VM 인스턴스에 적용됩니다. 구입한 예약은 예약 할인을 적용할 실행 중인 VM의 사용량과 일치합니다. 전체 시간을 실행하지 못한 VM의 경우 예약은 현재 실행 중인 VM을 비롯하여 예약을 사용하지 않는 다른 VM에서 채워집니다. 시간이 다 지날 때쯤 해당 시간의 VM에 대한 예약 응용 프로그램이 잠깁니다. 1시간 동안 VM이 실행되지 않거나 시간 내 동시 VM이 예약 시간을 채우지 못하는 경우 예약이 해당 시간 동안 미달 사용됩니다. 다음 그래프는 청구 가능한 VM 사용량에 예약을 적용하는 작업을 보여줍니다. 일러스트레이션은 하나의 예약 구매 및 일치하는 두 개의 VM 인스턴스를 기반으로 합니다.
+ Azure Reservation 할인은 시간 단위로 실행 중인 VM 인스턴스에 적용됩니다. 구입한 예약은 예약 할인을 적용할 실행 중인 VM의 사용량과 일치합니다. 전체 시간을 실행하지 못한 VM의 경우 예약은 현재 실행 중인 VM을 비롯하여 예약을 사용하지 않는 다른 VM에서 채워집니다. 시간이 다 지날 때쯤 해당 시간의 VM에 대한 예약 애플리케이션이 잠깁니다. 1시간 동안 VM이 실행되지 않거나 시간 내 동시 VM이 예약 시간을 채우지 못하는 경우 예약이 해당 시간 동안 미달 사용됩니다. 다음 그래프는 청구 가능한 VM 사용량에 대한 예약 애플리케이션을 보여줍니다. 일러스트레이션은 하나의 예약 구매 및 일치하는 두 개의 VM 인스턴스를 기반으로 합니다.
 
 ![적용된 하나의 예약 및 일치하는 두 개의 VM 인스턴스에 대한 스크린샷](media/billing-reserved-vm-instance-application/billing-reserved-vm-instance-application.png)
 
@@ -49,9 +49,13 @@ SQL Database 예약된 용량의 경우 [Azure Reserved Instances 할인](billin
 
 청구 사용량 보고서에서 Azure 예약 적용 결과를 이해하고 확인하려면 [예약 사용량 이해](https://go.microsoft.com/fwlink/?linkid=862757)를 참조하세요.
 
-## <a name="application-of-reservation-discount-to-windows-vms"></a>Windows VM 대상 응용 프로그램 예약 할인
+## <a name="application-of-reservation-discount-to-windows-vms"></a>Windows VM 대상 애플리케이션 예약 할인
 
 Windows VM 인스턴스를 실행하면 인프라 비용을 포함하도록 예약이 적용됩니다. Windows VM의 VM 인프라 비용에 예약을 적용하는 것은 Windows 외 VM의 경우와 동일합니다. vCPU를 기준으로 Windows 소프트웨어에 대한 요금이 별도로 청구됩니다. [예약 사용 시 Windows 소프트웨어 비용](https://go.microsoft.com/fwlink/?linkid=862756)을 참조하세요. [Windows Server용 Azure 하이브리드 혜택](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)으로 Windows 라이선스 비용을 처리할 수 있습니다.
+
+## <a name="discount-applies-to-different-sizes-with-instance-size-flexibility"></a>할인은 인스턴스 크기를 유동적으로 조정할 수 있는 다양한 크기에 적용됩니다.
+
+예약 VM 인스턴스를 구매하는 경우 **최적화 대상**: **인스턴스 크기 유연성**을 선택하면 할인 적용률은 선택하는 VM 크기에 따라 달라집니다. 같은 크기 시리즈 그룹의 VM(가상 머신) 크기에 예약을 적용할 수 있습니다. 자세한 내용은 [예약 VM 인스턴스를 통해 유동적으로 가상 머신 크기 조정](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

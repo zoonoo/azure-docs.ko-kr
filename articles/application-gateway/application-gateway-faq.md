@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 10/6/2018
+ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 0187ef3d3b6853c1d1225fc9f208f2508372978d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 45751af66b1b050d4d36d1b8aee52dc6a5d8cc7b
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425730"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382402"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway에 대한 질문과 대답
 
@@ -21,11 +21,11 @@ ms.locfileid: "52425730"
 
 ### <a name="what-is-application-gateway"></a>Application Gateway란?
 
-Azure Application Gateway는 서비스 형태의 ADC(응용 프로그램 전달 컨트롤러)이며 응용 프로그램에 대한 다양한 계층 7 부하 분산 기능을 제공합니다. Azure에서 완전히 관리되는 고가용성의 확장성 있는 서비스를 제공합니다.
+Azure Application Gateway는 서비스 형태의 ADC(애플리케이션 전달 컨트롤러)이며 애플리케이션에 대한 다양한 계층 7 부하 분산 기능을 제공합니다. Azure에서 완전히 관리되는 고가용성의 확장성 있는 서비스를 제공합니다.
 
 ### <a name="what-features-does-application-gateway-support"></a>Application Gateway에서 지원하는 기능은 어떤 것이 있나요?
 
-Application Gateway에서는 자동 크기 조정, SSL 오프로딩 및 종단 간 SSL, 웹 응용 프로그램 방화벽, 쿠키 기반 세션 선호도, URL 경로 기반 라우팅, 다중 사이트 호스팅 등을 지원합니다. 지원되는 기능의 전체 목록은 [Application Gateway 소개](application-gateway-introduction.md)를 참조하세요.
+Application Gateway에서는 자동 크기 조정, SSL 오프로딩 및 종단 간 SSL, 웹 애플리케이션 방화벽, 쿠키 기반 세션 선호도, URL 경로 기반 라우팅, 다중 사이트 호스팅 등을 지원합니다. 지원되는 기능의 전체 목록은 [Application Gateway 소개](application-gateway-introduction.md)를 참조하세요.
 
 ### <a name="what-is-the-difference-between-application-gateway-and-azure-load-balancer"></a>Application Gateway와 Azure Load Balancer 간의 차이는 무엇인가요?
 
@@ -49,11 +49,11 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>현재 백 엔드 풀의 일부로 어떤 리소스가 지원되나요?
 
-백 엔드 풀은 NIC, 가상 머신 확장 집합, 공용 IP, 내부 IP, FQDN(정규화된 도메인 이름) 및 다중 테넌트 백 엔드(예: Azure Web Apps)로 구성될 수 있습니다. Application Gateway 백 엔드 풀 멤버는 가용성 집합에 연결되지 않습니다. 백 엔드 풀의 멤버는 IP 연결이 있는 경우 클러스터, 데이터 센터 간 또는 Azure 외부에 있을 수 있습니다.
+백 엔드 풀은 NIC, 가상 머신 확장 집합, 공용 IP, 내부 IP, FQDN(정규화된 도메인 이름) 및 다중 테넌트 백 엔드(예: Azure App Service)로 구성될 수 있습니다. Application Gateway 백 엔드 풀 멤버는 가용성 집합에 연결되지 않습니다. 백 엔드 풀의 멤버는 IP 연결이 있는 경우 클러스터, 데이터 센터 간 또는 Azure 외부에 있을 수 있습니다.
 
 ### <a name="what-regions-is-the-service-available-in"></a>어떤 지역에서 서비스를 사용할 수 있습니까?
 
-Application Gateway는 Azure 전체의 모든 지역에서 사용할 수 있습니다. [Azure China](https://www.azure.cn/) 및 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)에서도 사용할 수 있습니다.
+Application Gateway는 Azure 전체의 모든 지역에서 사용할 수 있습니다. [Azure China 21Vianet](https://www.azure.cn/) 및 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)에서도 사용할 수 있습니다.
 
 ### <a name="is-this-a-dedicated-deployment-for-my-subscription-or-is-it-shared-across-customers"></a>내 구독에 대한 전용 배포인가요? 아니면 고객 간에 공유되나요?
 
@@ -88,9 +88,11 @@ Application Gateway에서는 공용 IP 주소가 하나만 지원됩니다.
 Application Gateway는 인스턴스당 하나의 개인 IP 주소를 사용하고 개인 프런트엔드 IP 구성이 구성된 경우 또 다른 개인 IP 주소를 사용합니다. 또한 Azure에서는 내부 사용을 위해 각 서브넷에서 처음 4개 및 마지막 IP 주소를 예약합니다.
 예를 들어 Application Gateway가 인스턴스 3개로 설정되어 있으며 개인 프런트 엔드 IP는 없는 경우 서브넷 크기는 /29 이상이어야 합니다. 이 경우 Application Gateway는 IP 주소 3개를 사용합니다. 개인 프런트엔드 IP 구성에 세 개의 인스턴스 및 하나의 IP 주소가 있는 경우 네 개의 IP 주소가 필요하므로 /28 서브넷 크기 이상이 필요합니다.
 
-### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>Q. 둘 이상의 Application Gateway 리소스를 단일 서브넷에 배포할 수 있나요?**
+### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>Q. 둘 이상의 Application Gateway 리소스를 단일 서브넷에 배포할 수 있나요?
 
-예. 지정된 Application Gateway 배포의 여러 인스턴스를 보유하는 것 외에도, 다른 응용 프로그램 게이트웨이 리소스를 포함하는 기존 서브넷에 다른 고유한 Application Gateway 리소스를 프로비전할 수 있습니다.
+예. 지정된 Application Gateway 배포의 여러 인스턴스를 보유하는 것 외에도, 다른 애플리케이션 게이트웨이 리소스를 포함하는 기존 서브넷에 다른 고유한 Application Gateway 리소스를 프로비전할 수 있습니다.
+
+동일한 서브넷에서 Standard_v2와 표준 Application Gateway의 혼합은 지원되지 않습니다. 또한 자동 크기 조정을 사용하도록 설정하는 경우 하나의 서브넷에 애플리케이션 게이트웨이 하나만 있을 수 있습니다.
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Application Gateway에서 x-forwarded-for 헤더를 지원하나요?
 
@@ -104,6 +106,8 @@ Application Gateway는 인스턴스당 하나의 개인 IP 주소를 사용하�
 
 V1 SKU 배포의 경우 프로비전하는 데 5~6분이 걸릴 수 있습니다.
 
+Application Gateway에서 x-forwarded-for 헤더를 지원하나요?
+
 ## <a name="configuration"></a>구성
 
 ### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>Application Gateway가 가상 네트워크에서 항상 배포되나요?
@@ -116,7 +120,7 @@ Application Gateway는 IP 연결이 있는 경우 가상 네트워크 외부 인
 
 ### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>Application Gateway 서브넷에서 다른 항목을 배포할 수 있나요?
 
-아니요, 그러나 서브넷에 다른 응용 프로그램 게이트웨이를 배포할 수 있습니다.
+아니요, 그러나 서브넷에 다른 애플리케이션 게이트웨이를 배포할 수 있습니다.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Application Gateway 서브넷에서 네트워크 보안 그룹이 지원되나요?
 
@@ -128,11 +132,13 @@ NSG(네트워크 보안 그룹)는 Application Gateway 서브넷에서 지원되
 
 * AzureLoadBalancer 태그의 트래픽을 허용해야 합니다.
 
-### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>응용 프로그램 게이트웨이 서브넷에서 사용자 정의 경로가 지원되나요?
+### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>애플리케이션 게이트웨이 서브넷에서 사용자 정의 경로가 지원되나요?
 
-UDR(사용자 정의 경로)은 종단 간 요청/응답 통신을 변경하지 않는 한 응용 프로그램 게이트웨이에서 지원됩니다.
+UDR(사용자 정의 경로)은 종단 간 요청/응답 통신을 변경하지 않는 한 애플리케이션 게이트웨이에서 지원됩니다.
 
-예를 들어 패킷 검사를 위한 방화벽 장비를 가리키도록 응용 프로그램 게이트웨이 서브넷에서 UDR을 설정할 수 있지만 패킷이 원하는 대상 사후 검사에 도달할 수 있는지 확인해야 합니다. 이렇게 하지 않으면 잘못된 상태 프로브 또는 트래픽 라우팅 동작을 초래할 수 있습니다. 여기에는 가상 네트워크에서 ExpressRoute 또는 VPN 게이트웨이를 통해 전파된 학습한 경로 또는 기본 0.0.0.0/0 경로가 포함됩니다.
+예를 들어 패킷 검사를 위한 방화벽 장비를 가리키도록 애플리케이션 게이트웨이 서브넷에서 UDR을 설정할 수 있지만 패킷이 원하는 대상 사후 검사에 도달할 수 있는지 확인해야 합니다. 이렇게 하지 않으면 잘못된 상태 프로브 또는 트래픽 라우팅 동작을 초래할 수 있습니다. 여기에는 가상 네트워크에서 ExpressRoute 또는 VPN 게이트웨이를 통해 전파된 학습한 경로 또는 기본 0.0.0.0/0 경로가 포함됩니다.
+
+애플리케이션 게이트웨이 서브넷의 UDR은 v2 SKU에서 지원되지 **않습니다**. 자세한 내용은 [자동 크기 조정 및 영역 중복 Application Gateway(공개 미리 보기)](application-gateway-autoscaling-zone-redundant.md#known-issues-and-limitations)를 참조하세요.
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Application Gateway에서 한도는 어떻게 되나요? 이러한 한도를 늘릴 수 있나요?
 
@@ -150,7 +156,7 @@ UDR(사용자 정의 경로)은 종단 간 요청/응답 통신을 변경하지 
 
 예, 트래픽이 허용되기만 한다면 가능합니다.
 
-### <a name="can-i-have-one-backend-pool-serving-many-applications-on-different-ports"></a>한 개의 백 엔드 풀에서 서로 다른 포트로 많은 응용 프로그램을 제공할 수 있나요?
+### <a name="can-i-have-one-backend-pool-serving-many-applications-on-different-ports"></a>한 개의 백 엔드 풀에서 서로 다른 포트로 많은 애플리케이션을 제공할 수 있나요?
 
 마이크로 서비스 아키텍처가 지원됩니다. 서로 다른 포트의 프로브에 대해 여러 http 설정이 구성되어야 합니다.
 
@@ -202,27 +208,11 @@ v2 SKU의 경우에는 여러 장애 도메인과 업데이트 도메인에 새 
 
 ### <a name="does-manual-scale-updown-cause-downtime"></a>수동 강화/규모 축소 시 가동 중지 시간이 발생하나요?
 
-가동 중지 시간 없이 인스턴스가 업그레이드 도메인 및 장애 도메인 간에 배포됩니다.
+가동 중지 시간은 발생하지 않습니다. 인스턴스가 업그레이드 도메인 및 장애 도메인 간에 배포됩니다.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>Application Gateway는 연결 드레이닝을 지원하나요?
 
-예. 중지 없이 백 엔드 풀 내에서 멤버를 변경하도록 연결 드레이닝을 구성할 수 있습니다. 이렇게 하면 해당 연결이 닫히거나 구성 가능한 제한 시간이 만료될 때까지 기존 연결을 이전 목적지로 계속 보낼 수 있습니다. 연결 드레이닝은 현재 처리 중인 연결이 완료될 때까지만 대기합니다. Application Gateway는 응용 프로그램 세션 상태를 인식하지 못합니다.
-
-### <a name="what-are-application-gateway-sizes"></a>Application Gateway 크기란?
-
-Application Gateway는 현재 **소형**, **중형** 및 **대형**의 3가지 크기를 제공합니다. 소규모 인스턴스 크기는 개발 및 테스트 시나리오를 위해 사용 됩니다.
-
-Application Gateway의 전체 목록은 [Application Gateway 서비스 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)을 참조하세요.
-
-다음 표에서는 활성화된 SSL 오프로드로 각 응용 프로그램 게이트웨이 인스턴스의 평균 성능 처리량을 보여 줍니다.
-
-| 평균 백 엔드 페이지 응답 크기 | 작음 | 중간 | 큰 |
-| --- | --- | --- | --- |
-| 6KB |7.5Mbps |13Mbps |50Mbps |
-| 100KB |35Mbps |100Mbps |200Mbps |
-
-> [!NOTE]
-> 이러한 값은 응용 프로그램 게이트웨이 처리량에 대한 대략적인 값입니다. 실제 처리량은 평균 페이지 크기, 백 엔드 인스턴스의 위치 및 페이지 처리 시간 등 다양한 환경 세부 사항에 따라 달라집니다. 정확한 성능 수치를 얻으려면 자체 테스트를 실행해야 합니다. 이러한 값은 용량 계획 지침에 대해서만 제공됩니다.
+예. 중지 없이 백 엔드 풀 내에서 멤버를 변경하도록 연결 드레이닝을 구성할 수 있습니다. 이렇게 하면 해당 연결이 닫히거나 구성 가능한 제한 시간이 만료될 때까지 기존 연결을 이전 목적지로 계속 보낼 수 있습니다. 연결 드레이닝은 현재 처리 중인 연결이 완료될 때까지만 대기합니다. Application Gateway는 애플리케이션 세션 상태를 인식하지 못합니다.
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>중단 없이 인스턴스 크기를 중간에서 큼으로 변경할 수 있나요?
 
@@ -288,7 +278,7 @@ Application Gateway에서 현재 지원되는 현재 암호 그룹은 다음과 
 
 ### <a name="how-many-ssl-certificates-are-supported"></a>몇 개의 SSL 인증서가 지원되나요?
 
-최대 20개의 SSL 인증서가 지원됩니다.
+최대 100개의 SSL 인증서가 지원됩니다.
 
 ### <a name="how-many-authentication-certificates-for-backend-re-encryption-are-supported"></a>백 엔드 재암호화에 몇 개의 인증 인증서가 지원되나요?
 
@@ -298,7 +288,7 @@ Application Gateway에서 현재 지원되는 현재 암호 그룹은 다음과 
 
 아니요, Azure Key Vault와 통합되지 않습니다.
 
-## <a name="web-application-firewall-waf-configuration"></a>WAF(웹 응용 프로그램 방화벽) 구성
+## <a name="web-application-firewall-waf-configuration"></a>WAF(웹 애플리케이션 방화벽) 구성
 
 ### <a name="does-the-waf-sku-offer-all-the-features-available-with-the-standard-sku"></a>WAF SKU는 표준 SKU에서 사용 가능한 모든 기능을 제공하나요?
 
@@ -316,9 +306,9 @@ WAF는 진단 로깅을 통해 모니터링되며 진단 로깅에 대한 자세
 
 아니요, 검색 모드는 WAF 규칙을 트리거한 트래픽만 로깅합니다.
 
-### <a name="how-do-i-customize-waf-rules"></a>WAF 규칙을 사용자 지정하려면 어떻게 하나요?
+### <a name="can-i-customize-waf-rules"></a>WAF 규칙을 사용자 지정할 수 있나요?
 
-WAF 규칙은 사용자 지정할 수 있습니다. 사용자 지정 방법에 대한 자세한 내용은 [WAF 규칙 그룹 및 규칙 사용자 지정](application-gateway-customize-waf-rules-portal.md)을 참조하세요.
+예, WAF 규칙은 사용자 지정할 수 있습니다. 자세한 내용은 [WAF 규칙 그룹 및 규칙 사용자 지정](application-gateway-customize-waf-rules-portal.md)을 참조하세요.
 
 ### <a name="what-rules-are-currently-available"></a>현재 사용 가능한 규칙은 무엇인가요?
 
@@ -336,7 +326,7 @@ WAF 규칙은 사용자 지정할 수 있습니다. 사용자 지정 방법에 �
 
 * 보트, 크롤러 및 스캐너 방지
 
-* 일반적인 응용 프로그램 구성 오류(즉 Apache, IIS 등) 검색
+* 일반적인 애플리케이션 구성 오류(즉 Apache, IIS 등) 검색
 
 ### <a name="does-waf-also-support-ddos-prevention"></a>WAF에서 DDoS 방지도 지원하나요?
 
@@ -350,7 +340,7 @@ Application Gateway에서는 3가지 로그를 사용할 수 있습니다. 이�
 
 * **ApplicationGatewayAccessLog** - 이 액세스 로그에는 Application Gateway 프런트 엔드에 제출된 각 요청이 포함되어 있습니다. 이 데이터에는 호출자의 IP, 요청된 URL, 응답 대기 시간, 반환 코드, 바이트 입출력을 포함합니다. 액세스 로그는 300초마다 수집됩니다. 이 로그에는 Application Gateway 인스턴스당 하나의 레코드가 포함됩니다.
 * **ApplicationGatewayPerformanceLog** - 이 성능 로그는 처리된 총 요청 수, 처리량(바이트), 실패한 요청 수, 실패한 요청 수, 정상 및 비정상 백 엔드 인스턴스 수 등을 포함한 인스턴스별 성능 정보를 캡처합니다.
-* **ApplicationGatewayFirewallLog** - 이 방화벽 로그에는 웹 응용 프로그램 방화벽으로 구성된 응용 프로그램 게이트웨이의 검색 모드 또는 방지 모드를 통해 기록된 요청이 포함되어 있습니다.
+* **ApplicationGatewayFirewallLog** - 이 방화벽 로그에는 웹 애플리케이션 방화벽으로 구성된 애플리케이션 게이트웨이의 검색 모드 또는 방지 모드를 통해 기록된 요청이 포함되어 있습니다.
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>내 백 엔드 풀 멤버가 정상인지 어떻게 알 수 있나요?
 
@@ -370,7 +360,7 @@ Application Gateway에 대해 감사 로그를 사용할 수 있습니다. 포�
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Application Gateway에 대한 트래픽 통계를 분석하려면 어떻게 해야 하나요?
 
-Azure Log Analytics, Excel, Power BI 등 다양한 메커니즘을 통해 액세스 로그를 보고 분석할 수 있습니다.
+Azure Log Analytics, Excel, Power BI 등 여러 메커니즘을 통해 액세스 로그를 보고 분석할 수 있습니다.
 
 또한 Application Gateway 액세스 로그에 대해 널리 사용되는 [GoAccess](https://goaccess.io/) 로그 분석기를 설치하고 실행하는 Resource Manager 템플릿을 게시했습니다. GoAccess는 고유 방문자, 요청한 파일, 호스트, 운영 체제, 브라우저, HTTP 상태 코드 및 기타 유용한 HTTP 트래픽 통계를 제공 합니다. 자세한 내용은 [GitHub의 Resource Manager 템플릿 폴더에 대한 추가 정보 파일](https://aka.ms/appgwgoaccessreadme)을 참조하세요.
 

@@ -4,24 +4,24 @@ description: IoT Hub 이벤트를 기반으로 Azure Logic Apps 작업을 수행
 services: iot-hub
 documentationcenter: ''
 author: kgremban
-manager: timlt
+manager: philmea
 editor: ''
 ms.service: iot-hub
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 12/07/2018
 ms.author: kgremban
-ms.openlocfilehash: c91dad17016cd9619d2d42a3fcee04a7d14b5eab
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7c5030a80ead7e84526e01aa3a8a4a75ee2b276a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242522"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135018"
 ---
-# <a name="send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Logic Apps를 사용하여 Azure IoT Hub 이벤트에 관한 이메일 알림 보내기
+# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>자습서: Logic Apps를 사용하여 Azure IoT Hub 이벤트에 관한 이메일 알림 보내기
 
-Azure Event Grid를 사용하면 다운스트림 비즈니스 응용 프로그램에서 작업을 트리거하여 IoT Hub에서 이벤트에 대응할 수 있습니다.
+Azure Event Grid를 사용하면 다운스트림 비즈니스 애플리케이션에서 작업을 트리거하여 IoT Hub에서 이벤트에 대응할 수 있습니다.
 
 이 아티클은 IoT Hub 및 Event Grid를 사용하는 샘플 구성을 안내합니다. 결과적으로 디바이스가 IoT 허브에 추가될 때마다 Azure 논리 앱이 알림 이메일을 보내도록 설정합니다. 
 
@@ -37,19 +37,16 @@ Azure Event Grid를 사용하면 다운스트림 비즈니스 응용 프로그�
 
 ### <a name="create-a-logic-app-resource"></a>논리 앱 리소스 만들기
 
-1. [Azure Portal](https://portal.azure.com)에서 **새로 만들기** > **통합** > **논리 앱**을 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **통합** > **논리 앱**을 선택합니다.
 
    ![논리 앱 만들기](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
 
 2. 구독에서 논리 앱에 고유한 이름을 제공하고 동일한 구독과 리소스 그룹 및 위치를 IoT 허브로 선택합니다. 
-3. 준비가 되면 **대시보드에 고정**을 선택하고 **만들기**를 선택합니다.
+3. **만들기**를 선택합니다.
 
-   이제 논리 앱에 대한 Azure 리소스를 만들었습니다. Azure에서 논리 앱을 배포하면 Logic Apps 디자이너에서 일반적인 패턴에 대한 템플릿을 표시하므로 더 빨리 시작할 수 있습니다.
+4. 리소스가 만들어지면 논리 앱으로 이동합니다. 
 
-   > [!NOTE] 
-   > **대시보드에 고정**을 선택하면 Logic Apps 디자이너에서 해당 논리 앱이 자동으로 열립니다. 그렇지 않으면 논리 앱을 수동으로 찾아 열 수 있습니다.
-
-4. **템플릿** 아래의 Logic App Designer에서 **비어 있는 논리 앱**을 선택하면 논리 앱을 처음부터 빌드할 수 있습니다.
+5. Logic Apps 디자이너에서 일반적인 패턴에 대한 템플릿을 표시하므로 더 빨리 시작할 수 있습니다. **템플릿** 아래의 Logic App Designer에서 **비어 있는 논리 앱**을 선택하면 논리 앱을 처음부터 빌드할 수 있습니다.
 
 ### <a name="select-a-trigger"></a>트리거 선택
 
@@ -66,51 +63,51 @@ Azure Event Grid를 사용하면 다운스트림 비즈니스 응용 프로그�
 
 4. 다음 샘플 JSON 코드를 텍스트 상자에 붙여넣기한 다음 **완료**를 선택합니다.
 
-```json
-[{
-  "id": "56afc886-767b-d359-d59e-0da7877166b2",
-  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
-  "subject": "devices/LogicAppTestDevice",
-  "eventType": "Microsoft.Devices.DeviceCreated",
-  "eventTime": "2018-01-02T19:17:44.4383997Z",
-  "data": {
-    "twin": {
-      "deviceId": "LogicAppTestDevice",
-      "etag": "AAAAAAAAAAE=",
-      "deviceEtag": "null",
-      "status": "enabled",
-      "statusUpdateTime": "0001-01-01T00:00:00",
-      "connectionState": "Disconnected",
-      "lastActivityTime": "0001-01-01T00:00:00",
-      "cloudToDeviceMessageCount": 0,
-      "authenticationType": "sas",
-      "x509Thumbprint": {
-        "primaryThumbprint": null,
-        "secondaryThumbprint": null
-      },
-      "version": 2,
-      "properties": {
-        "desired": {
-          "$metadata": {
-            "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
-          },
-          "$version": 1
-        },
-        "reported": {
-          "$metadata": {
-            "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
-          },
-          "$version": 1
-        }
-      }
-    },
-    "hubName": "egtesthub1",
-    "deviceId": "LogicAppTestDevice"
-  },
-  "dataVersion": "1",
-  "metadataVersion": "1"
-}]
-```
+   ```json
+   [{
+     "id": "56afc886-767b-d359-d59e-0da7877166b2",
+     "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
+     "subject": "devices/LogicAppTestDevice",
+     "eventType": "Microsoft.Devices.DeviceCreated",
+     "eventTime": "2018-01-02T19:17:44.4383997Z",
+     "data": {
+       "twin": {
+         "deviceId": "LogicAppTestDevice",
+         "etag": "AAAAAAAAAAE=",
+         "deviceEtag": "null",
+         "status": "enabled",
+         "statusUpdateTime": "0001-01-01T00:00:00",
+         "connectionState": "Disconnected",
+         "lastActivityTime": "0001-01-01T00:00:00",
+         "cloudToDeviceMessageCount": 0,
+         "authenticationType": "sas",
+         "x509Thumbprint": {
+           "primaryThumbprint": null,
+           "secondaryThumbprint": null
+         },
+         "version": 2,
+         "properties": {
+           "desired": {
+             "$metadata": {
+               "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
+             },
+             "$version": 1
+           },
+           "reported": {
+             "$metadata": {
+               "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
+             },
+             "$version": 1
+           }
+         }
+       },
+       "hubName": "egtesthub1",
+       "deviceId": "LogicAppTestDevice"
+     },
+     "dataVersion": "1",
+     "metadataVersion": "1"
+   }]
+   ```
 
 5. **요청할 때 Content-Type 헤더 집합을 응용프로그램/json에 포함해야 합니다**라고 표시되는 팝업 알림을 받을 수도 있습니다. 이 제안을 안전하게 무시하고 다음 섹션으로 이동할 수 있습니다. 
 
@@ -119,16 +116,20 @@ Azure Event Grid를 사용하면 다운스트림 비즈니스 응용 프로그�
 트리거가 논리 앱 워크플로를 시작한 후에 발생하는 모든 단계가 작업할 대상입니다. 이 자습서의 경우 작업은 메일 공급자의 이메일 알림을 보내는 것입니다. 
 
 1. **새 단계**를 선택합니다. 그러면 **작업 선택** 창이 열립니다.
+
 2. **이메일** 검색.
+
 3. 전자 메일 공급자에 따라 일치하는 커넥터를 찾아 선택합니다. 이 자습서에서는 **Office 365 Outlook**이 사용됩니다. 다른 이메일 공급자를 위한 단계들도 비슷합니다. 
 
    ![이메일 공급자 커넥터 선택](./media/publish-iot-hub-events-to-logic-apps/o365-outlook.png)
 
 4. **이메일 보내기** 작업을 선택합니다. 
+
 5. 메시지가 표시되면 이메일 계정에 로그인합니다. 
+
 6. 이메일 템플릿을 작성합니다. 
    * **받는 사람**: 알림 이메일을 받을 이메일 주소를 입력합니다. 이 자습서의 경우 테스트를 위해 액세스할 수 있는 이메일 계정을 사용합니다. 
-   * **제목** 및 **본문**: 이메일에 텍스트를 작성합니다. 이벤트 데이터를 기반으로 하는 동적 콘텐츠를 포함하도록 선택기 도구에서 JSON 속성을 선택합니다.  
+   * **제목** 및 **본문**: 이메일의 텍스트를 작성합니다. 이벤트 데이터를 기반으로 하는 동적 콘텐츠를 포함하도록 선택기 도구에서 JSON 속성을 선택합니다.  
 
    이메일 템플릿은 다음 예와 같습니다.
 
@@ -161,22 +162,24 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
    ![새 이벤트 구독 만들기](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
 4. 다음 값을 가진 이벤트 구독을 만듭니다. 
-    * **이벤트 유형**: 모든 이벤트 유형에 대한 구독의 선택을 취소하고, 메뉴에서 **장치를 만들었습니다.** 를 선택합니다.
+    * **이벤트 유형**: 모든 이벤트 유형에 대한 구독의 선택을 취소하고, 메뉴에서 **디바이스를 만들었습니다**를 선택합니다.
     * **엔드포인트 정보**: [엔드포인트 유형]을 **웹후크**로 선택하고, [엔드포인트 선택]을 클릭하고, 논리 앱에서 복사한 URL을 붙여넣고, 선택한 항목을 확인합니다.
 
     ![엔드포인트 URL 선택](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
-    * **이벤트 구독 정보**: 설명이 포함된 이름을 제공하고 **Event Grid 스키마**를 선택합니다.
-
-  여기에 이벤트 구독을 저장하고 IoT 허브에서 생성된 모든 디바이스에 대한 알림을 받을 수 있습니다. 이 자습서의 경우 선택적 필드를 사용하여 특정 디바이스에 대해 필터링해 보겠습니다. 
-
-  * **제목 시작 문자**: 건물 1의 장치 이벤트를 필터링하려면 `devices/Building1_`을 입력합니다.
-  * **제목 종료 문자**: 온도와 관련된 장치 이벤트를 필터링하려면 `_Temperature`를 입력합니다.
+    * **이벤트 구독 정보**: 설명이 포함된 이름을 제공하고, **Event Grid 스키마**를 선택합니다.
 
   작업을 완료했을 때 폼 모양은 다음 예제와 유사해야 합니다. 
 
     ![샘플 이벤트 구독 양식](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
-    
+
+5. 여기에 이벤트 구독을 저장하고 IoT 허브에서 생성된 모든 디바이스에 대한 알림을 받을 수 있습니다. 이 자습서에서는 선택적 필드를 사용하여 특정 디바이스를 필터링해 보겠습니다. 양식의 위쪽에서 **추가 기능**을 선택합니다. 
+
+6. 다음 필터를 만듭니다.
+
+  * **제목 시작 문자**: 건물 1에서 디바이스 이벤트를 필터링하려면 `devices/Building1_`을 입력합니다.
+  * **제목 종료 문자**: 온도와 관련된 디바이스 이벤트를 필터링하려면 `_Temperature`를 입력합니다.
+
 5. **만들기**를 선택하여 이벤트 구독을 저장합니다.
 
 ## <a name="create-a-new-device"></a>새 디바이스 만들기
@@ -185,7 +188,7 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
 1. IoT 허브에서 **IoT 디바이스**를 선택합니다. 
 2. **추가**를 선택합니다.
-3. **장치 ID**에 대해 `Building1_Floor1_Room1_Temperature`를 입력합니다.
+3. **디바이스 ID**로 `Building1_Floor1_Room1_Temperature`를 입력합니다.
 4. **저장**을 선택합니다. 
 5. 이벤트 구독 필터를 테스트하기 위해 다른 디바이스 ID를 사용하여 여러 디바이스를 추가할 수 있습니다. 이러한 예제를 시도해 보십시오. 
    * Building1_Floor1_Room1_Light
@@ -222,7 +225,7 @@ IoT 허브를 유지하더라도 만든 이벤트 구독을 삭제하는 것이 
 ## <a name="next-steps"></a>다음 단계
 
 * [작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응](../iot-hub/iot-hub-event-grid.md)에 대해 자세히 알아봅니다.
-* [장치 연결됨 및 장치 연결 끊김 이벤트를 정렬하는 방법 알아보기](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
+* [디바이스 연결 및 연결 해제 이벤트를 정렬하는 방법](../iot-hub/iot-hub-how-to-order-connection-state-events.md)에 대해 알아봅니다.
 * [Event Grid](overview.md)를 사용하여 다른 무엇을 할 수 있는지에 대해 알아봅니다.
 
 

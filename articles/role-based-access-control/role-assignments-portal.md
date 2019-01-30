@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9f5d48a074f8069e243af5644f86ad3c3d8f559b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c339556353967db26f022384f2cf877962dc6d83
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634866"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412311"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>RBAC 및 Azure Portal을 사용하여 액세스 관리
 
@@ -71,7 +71,7 @@ ms.locfileid: "52634866"
 
 1. **찾기** 목록에서 액세스 권한을 확인하려는 보안 주체의 유형을 선택합니다.
 
-1. 검색 상자에 표시 이름, 이메일 주소 또는 개체 ID에 대한 디렉터리를 검색할 문자열을 입력합니다.
+1. 검색 상자에서 표시 이름, 이메일 주소 또는 개체 ID에 대한 디렉터리를 검색할 문자열을 입력합니다.
 
     ![액세스 권한 확인 선택 목록](./media/role-assignments-portal/check-access-select.png)
 
@@ -167,5 +167,5 @@ RBAC에서 액세스 권한을 제거하려면 역할 할당을 제거해야 합
 
 * [자습서: RBAC 및 Azure Portal을 사용하여 사용자에게 액세스 권한 부여](quickstart-assign-role-user-portal.md)
 * [자습서: RBAC 및 Azure PowerShell을 사용하여 사용자에게 액세스 권한 부여](tutorial-role-assignments-user-powershell.md)
-* [기본 제공 역할](built-in-roles.md)
+* [Azure의 RBAC 문제 해결](troubleshooting.md)
 * [Azure 관리 그룹으로 리소스 구성](../azure-resource-manager/management-groups-overview.md)

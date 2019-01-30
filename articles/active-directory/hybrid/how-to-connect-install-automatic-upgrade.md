@@ -4,7 +4,7 @@ description: 이 항목에서는 Azure AD Connect 동기화의 기본 제공 자
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 72503c9f073a046b81001322cdbb4fb8a1af76cf
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 2c59d86de43772de9480edd3af187379220da8e8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224123"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470667"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: 자동 업그레이드
 이 기능은 빌드 [1.1.105.0(2016년 2월에 발표됨)](reference-connect-version-history.md#111050)에서 도입되었습니다.  이 기능은 [빌드 1.1.561](reference-connect-version-history.md#115610)에서 업데이트되었고 이제 이전에 지원되지 않던 추가 시나리오를 지원합니다.
@@ -58,7 +58,7 @@ Connect 설치 자체가 예상대로 업그레이드되지 않는 경우 다음
 
 그런 다음 프록시 또는 방화벽에서 필요한 URL을 열었는지 확인합니다. 자동 업데이트는 [개요](#overview)에서 설명된 대로 Azure AD Connect Health를 사용합니다. 프록시를 사용하는 경우 [프록시 서버](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy)를 사용하기 위해 상태가 구성되었는지 확인합니다. 또한 Azure AD에 대한 [상태 연결](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) 을 테스트합니다.
 
-Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니다. 이벤트 뷰어를 시작하고 **응용 프로그램** 이벤트 로그를 확인합니다. **Azure AD Connect 업그레이드** 원본 및 이벤트 ID 범위 **300-399**에 대한 이벤트 로그 필터를 추가합니다.  
+Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니다. 이벤트 뷰어를 시작하고 **애플리케이션** 이벤트 로그를 확인합니다. **Azure AD Connect 업그레이드** 원본 및 이벤트 ID 범위 **300-399**에 대한 이벤트 로그 필터를 추가합니다.  
 ![자동 업그레이드에 대한 이벤트 로그 필터](./media/how-to-connect-install-automatic-upgrade/eventlogfilter.png)  
 
 이제 자동 업그레이드 상태와 관련된 이벤트 로그를 볼 수 있습니다.  
@@ -90,7 +90,7 @@ Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니�
 | **UpgradeNotSupported** | |
 | UpgradeNotSupportedAdfsSignInMethod | 로그인 방법으로 Adfs를 선택했습니다. | 
 | UpgradeNotSupportedCustomizedSyncRules |사용자 지정 규칙을 구성에 추가했습니다. |
-| UpgradeNotSupportedDeviceWritebackEnabled |[장치 쓰기 저장](how-to-connect-device-writeback.md) 기능을 사용하도록 설정했습니다. |
+| UpgradeNotSupportedDeviceWritebackEnabled |[디바이스 쓰기 저장](how-to-connect-device-writeback.md) 기능을 사용하도록 설정했습니다. |
 | UpgradeNotSupportedGroupWritebackEnabled |[그룹 쓰기 저장](how-to-connect-preview.md#group-writeback) 기능을 사용하도록 설정했습니다. |
 | UpgradeNotSupportedInvalidPersistedState |설치가 Express 설정 또는 DirSync 업그레이드가 아닙니다. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |메타버스에 10만 개가 넘는 개체가 있습니다. |

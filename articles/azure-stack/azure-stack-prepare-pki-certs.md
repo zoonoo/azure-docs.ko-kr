@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 공개 키 인프라 인증서를 Azure Stack 통합 시스템 배포 준비 | Microsoft Docs
+title: Azure Stack 공개 키 인프라 인증서 암호 회전 또는 Azure Stack 통합 시스템 배포 준비 | Microsoft Docs
 description: Azure Stack 통합 시스템에 대 한 Azure Stack PKI 인증서를 준비 하는 방법에 설명 합니다.
 services: azure-stack
 documentationcenter: ''
@@ -11,22 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: c26dcbc2fab7cff3134846234cafaa481fd5ba1a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 01/02/2019
+ms.openlocfilehash: 496a6c45c9f8930f77b3a3dab2f81db1b24c1801
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972035"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247207"
 ---
-# <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Azure Stack PKI 인증서 배포 준비
+# <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Azure Stack PKI 인증서를 배포 또는 회전 사용 준비
 인증서 파일 [선택한 CA에서 얻은](azure-stack-get-pki-certs.md) 가져오고 Azure Stack 인증서 요구 사항 일치 하는 속성을 사용 하 여 내보낸 해야 합니다.
 
 
 ## <a name="prepare-certificates-for-deployment"></a>배포에 대 한 인증서를 준비 합니다.
-다음이 단계를 사용 하 여 준비 하 고 Azure Stack PKI 인증서의 유효성 검사. 
+준비 및 새 Azure Stack 환경을 배포 또는 기존 Azure Stack 환경에서 암호를 회전 하기 위한 사용 되는 Azure Stack PKI 인증서의 유효성을 검사 하려면 다음이 단계를 사용 합니다. 
 
 ### <a name="import-the-certificate"></a>인증서 가져오기
 
@@ -73,7 +74,14 @@ ms.locfileid: "52972035"
 
 1. 선택 **예, 개인 키를 내보냅니다**를 클릭 하 고 **다음**합니다.
 
-1. 파일 내보내기 형식 섹션에서 선택 **확장 속성 모두 내보내기** 을 클릭 한 다음 **다음**합니다.
+1. 파일 내보내기 형식 섹션:
+    
+    - 선택 **가능한 경우 인증서의 인증서 모두 포함**합니다.  
+    - 선택 **확장 속성 모두 내보내기**합니다.  
+    - 선택 **인증서 개인 정보 사용**합니다.  
+    - **다음**을 클릭합니다.  
+    
+    ![선택한 옵션을 사용 하 여 인증서 내보내기 마법사](./media/prepare-pki-certs\azure-stack-save-cert.png)
 
 1. 선택 **암호** 인증서에 대 한 암호를 제공 합니다. 배포 매개 변수로 사용 되기 때문에이 암호를 기억해 둡니다. **다음**을 선택합니다.
 
@@ -82,4 +90,5 @@ ms.locfileid: "52972035"
 1. **마침**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 [PKI 인증서의 유효성 검사](azure-stack-validate-pki-certs.md)

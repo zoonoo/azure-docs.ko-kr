@@ -6,14 +6,14 @@ manager: camerons
 ms.author: timlav
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/12/2018
+ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 94641796fa77e03efc7158bc3aaf4bde9385c899
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824271"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464224"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>원격 모니터링 아키텍처 선택
 
@@ -25,7 +25,7 @@ Azure IoT 원격 모니터링 솔루션 가속기는 오픈 소스, MIT 사용�
 
 원격 모니터링 솔루션은 권장되는 [Azure IoT 참조 아키텍처](https://aka.ms/iotrefarchitecture)를 따릅니다.
 
-이 문서에서는 각 원격 모니터링 하위 시스템에서 선택되는 아키텍처 및 기술 과 고려해야 할 대안에 대해 설명합니다. 그렇지만 원격 모니터링 솔루션에서 선택하는 Microsoft 기술은 원격 모니터링 IoT 솔루션을 구현하는 유일한 방법은 아닙니다. 이러한 기술 구현을 성공적인 애플리케이션 빌드를 위한 기준으로 사용하고 다음과 같이 수정해야 합니다.
+이 문서에서는 각 원격 모니터링 하위 시스템의 핵심 아키텍처 및 기술 옵션에 대해 설명합니다. 그렇지만 원격 모니터링 솔루션에서 선택하는 Microsoft 기술은 원격 모니터링 IoT 솔루션을 구현하는 유일한 방법은 아닙니다. 이러한 기술 구현을 성공적인 애플리케이션 빌드를 위한 기준으로 사용하고 다음과 같이 수정해야 합니다.
 
 - 조직의 사용 가능한 기술 및 환경에 맞아야 합니다.
 - 수직적 애플리케이션 요구를 충족해야 합니다.
@@ -51,8 +51,9 @@ Azure IoT Hub는 원격 모니터링 솔루션 클라우드 게이트웨이로 �
 
 IoT 디바이스 연결을 위해 다음을 사용할 수 있습니다.
 
-- [IoT Hub 디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks): 디바이스에 대한 기본 클라이언트 애플리케이션을 구현합니다. SDK는 IoT Hub REST API에 대한 래퍼를 제공하고 다시 시도 같은 시나리오를 처리합니다.
-- 솔루션 가속기에서 Azure IoT Edge와 통합하여 디바이스의 컨테이너에서 실행되는 사용자 지정 모듈을 배포 및 관리합니다.
+- [IoT Hub 디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks): 디바이스에 대한 기본 클라이언트 애플리케이션을 구현합니다. SDK는 IoT Hub REST API에 대한 래퍼를 제공하고 다시 시도 같은 시나리오를 처리합니다.
+- Azure IoT Edge와 통합하여 디바이스의 컨테이너에서 실행되는 사용자 지정 모듈을 배포 및 관리합니다.
+- IoT Hub의 자동 디바이스 관리와 통합하여 연결된 디바이스를 대량으로 관리합니다.
 
 ### <a name="stream-processing"></a>스트림 처리
 
@@ -60,16 +61,16 @@ IoT 디바이스 연결을 위해 다음을 사용할 수 있습니다.
 
 ### <a name="storage"></a>Storage
 
-저장소의 경우 원격 모니터링 솔루션 가속기는 Azure Time Series Insights 및 Azure Cosmos DB를 모두 사용합니다. Azure Time Series Insights는 연결된 디바이스에서 IoT Hub를 통해 들어오는 메시지를 저장합니다. 솔루션 가속기는 Azure Cosmos DB를 콜드 저장소, 규칙 정의, 경보 및 구성 설정과 같은 다른 모든 저장소에 사용합니다.
+저장소의 경우 원격 모니터링 솔루션 가속기는 Azure Time Series Insights 및 Azure Cosmos DB를 모두 사용합니다. Azure Time Series Insights는 연결된 디바이스에서 IoT Hub를 통해 들어오는 메시지를 저장합니다. 솔루션 가속기는 Azure Cosmos DB를 콜드 스토리지, 규칙 정의, 경고 및 구성 설정과 같은 다른 모든 스토리지에 사용합니다.
 
-Azure Time Series Insights 및 Azure Data Lake와 같은 솔루션이 많은 사용 사례에 적합하긴 하지만, Azure Cosmos DB는 IoT 응용 프로그램에 권장되는 범용 웜 저장소 솔루션입니다. Azure Time Series Insights를 사용하면 추세와 이상 현상을 파악하여 시계열 센서 데이터에 대한 심층적 인사이트를 얻을 수 있습니다. 이를 통해 근본 원인을 분석하고 비용이 많이 드는 가동 중지 시간을 방지할 수 있습니다.
+Azure Cosmos DB는 IoT 애플리케이션에 권장되는 범용 웜 스토리지 솔루션입니다. 그러나 Azure Time Series Insights 및 Azure Data Lake와 같은 솔루션이 여러 사용 사례에 적합합니다. Azure Time Series Insights를 사용하면 추세와 이상 현상을 파악하여 시계열 센서 데이터에 대한 심층적 인사이트를 얻을 수 있습니다. 이를 통해 근본 원인을 분석하고 비용이 많이 드는 가동 중지 시간을 방지할 수 있습니다.
 
 > [!NOTE]
 > Time Series Insights는 현재 Azure 중국 클라우드에서 사용할 수 없습니다. Azure China 클라우드에서 새 원격 모니터링 솔루션 가속기를 배포하는 경우 모든 저장소에 Cosmos DB를 사용합니다.
 
 ### <a name="business-integration"></a>비즈니스 통합
 
-원격 모니터링 솔루션의 비즈니스 통합은 웜 스토리지에 배치되는 경보 생성으로 제한됩니다. 심층적인 비즈니스 통합 시나리오를 구현하려면 솔루션을 Azure Logic Apps에 연결합니다.
+원격 모니터링 솔루션의 비즈니스 통합은 웜 스토리지에 배치되는 경고 생성으로 제한됩니다. 심층적인 비즈니스 통합 시나리오를 구현하려면 솔루션을 Azure Logic Apps에 연결합니다.
 
 ### <a name="user-interface"></a>사용자 인터페이스
 

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: e0f51306ab17e88db9d28da14faab9de0b445f74
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 491bdf121729d690784324051ff701f3ed2d2b7a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037909"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243184"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure 연결 된 배포 계획 결정 for Azure Stack 통합 시스템
 결정 한 다음 [하이브리드 클라우드 환경에 Azure Stack에서는 통합 하는 방법을](azure-stack-connection-models.md), Azure Stack 배포 관련 결정 사항을 완료 후 수 있습니다.
@@ -30,7 +31,7 @@ Azure에 연결 된 Azure Stack를 배포 하는 Azure Active Directory (Azure A
 ## <a name="choose-an-identity-store"></a>id 저장소를 선택 합니다.
 연결 된 배포를 사용 하 여 Azure AD 또는 사용자 id 저장소에 대 한 AD FS 선택할 수 있습니다. 연결이 끊긴된 경우 배포를 인터넷 연결 되지 않은 수만 AD FS를 사용 합니다.
 
-Id 저장소 선택 하는 테 넌 트 virtual machines (Vm)에서 관련이 없습니다. 테 넌 트 Vm 구성 방식에 따라 연결 하고자 하는 id 저장소를 선택할 수 있습니다: Azure AD에서 Windows Server Active Directory 도메인에 가입 된, workgroup, 등입니다. 이 Azure Stack identity provider 결정 관련이 없습니다. 
+Id 저장소 선택 하는 테 넌 트 virtual machines (Vm)에서 관련이 없습니다. 테 넌 트 Vm 구성 방식에 따라 연결 하고자 하는 id 저장소를 선택할 수 있습니다. Azure AD에서 Windows Server Active Directory 도메인에 가입 된, workgroup, 등입니다. 이 Azure Stack identity provider 결정 관련이 없습니다. 
 
 예를 들어, 테 넌 트 IaaS Azure Stack을 기반으로 Vm을 배포 하 고 회사 Active Directory 도메인에 가입 하 고 여기에서 계정을 사용 하도록 할 경우 여전히 이렇게 합니다. 여기에서 선택 하는 Azure AD id 저장소를 사용 하 여 해당 계정에 대 한 필요가 없습니다.
 
@@ -68,7 +69,7 @@ CSP 구독을 사용 하려면 사용 하는 CSP 구독을 식별 하는 아래 
 
 ## <a name="learn-more"></a>자세한 정보
 - 사용 사례, 구매, 파트너 및 OEM 하드웨어 공급 업체에 대 한 내용은 참조는 [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) 제품 페이지입니다.
-- 통합된 시스템을 Azure Stack에 대 한 로드맵 및 지역 가용성에 대 한 자세한 백서를 참조 합니다. [Azure Stack: Azure의 확장](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)합니다. 
+- 통합된 시스템, Azure Stack에 대 한 로드맵 및 지역 가용성에 대 한 자세한 백서를 참조 합니다. [Azure Stack: Azure의 확장](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)합니다. 
 - Microsoft Azure Stack 패키징 및 가격 책정에 대해 자세히 알아보려면 [는.pdf 다운로드](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)합니다. 
 
 ## <a name="next-steps"></a>다음 단계

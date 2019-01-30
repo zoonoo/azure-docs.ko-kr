@@ -1,24 +1,27 @@
 ---
-title: Azure Container Service 자습서 - Kubernetes 모니터링
+title: (사용되지 않음) Azure Container Service 자습서 - Kubernetes 모니터링
 description: Azure Container Service 자습서 - Log Analytics를 사용하여 Kubernetes 모니터링
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 04/05/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b2243851d62cc17dc52407dce051cc2e0f4bcb12
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 6f95aa701228730682c0122dc1fd46d8a2537ce1
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889211"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001604"
 ---
-# <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Log Analytics를 사용하여 Kubernetes 클러스터 모니터링
+# <a name="deprecated-monitor-a-kubernetes-cluster-with-log-analytics"></a>(사용되지 않음) Log Analytics를 사용하여 Kubernetes 클러스터 모니터링
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Azure Kubernetes Service를 사용하는 이 자습서의 업데이트된 버전은 [컨테이너용 Azure Monitor(미리 보기) 개요](../../azure-monitor/insights/container-insights-overview.md)를 참조하세요.
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Kubernetes 클러스터 및 컨테이너를 모니터링하는 것은 중요하며, 특히 여러 앱을 사용하여 대규모의 프로덕션 클러스터를 관리하는 경우 그렇습니다.
 
@@ -33,7 +36,7 @@ Microsoft 또는 다른 공급자가 제공하는 여러 Kubernetes 모니터링
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이전 자습서에서는 응용 프로그램을 컨테이너 이미지에 패키지하고, Azure Container Registry에 이러한 이미지를 업로드하고, Kubernetes 클러스터를 만들었습니다.
+이전 자습서에서는 애플리케이션을 컨테이너 이미지에 패키지하고, Azure Container Registry에 이러한 이미지를 업로드하고, Kubernetes 클러스터를 만들었습니다.
 
 이러한 단계를 수행하지 않은 경우 수행하려면 [자습서 1 - 컨테이너 이미지 만들기](./container-service-tutorial-kubernetes-prepare-app.md)로 돌아갑니다.
 

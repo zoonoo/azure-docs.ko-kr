@@ -22,7 +22,7 @@ ms.lasthandoff: 08/10/2018
 ms.locfileid: "40038443"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>PowerShell을 사용하여 Azure Cloud Services에 진단 사용
-Azure 진단 확장을 사용하여 클라우드 서비스로부터 응용 프로그램 로그, 성능 카운터 등과 같은 진단 데이터를 수집할 수 있습니다. 이 문서는 PowerShell을 사용하여 클라우드 서비스에 대해 Azure 진단 확장을 사용하도록 설정하는 방법을 설명합니다.  이 문서에 요구되는 필수 조건은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하세요.
+Azure 진단 확장을 사용하여 클라우드 서비스로부터 애플리케이션 로그, 성능 카운터 등과 같은 진단 데이터를 수집할 수 있습니다. 이 문서는 PowerShell을 사용하여 클라우드 서비스에 대해 Azure 진단 확장을 사용하도록 설정하는 방법을 설명합니다.  이 문서에 요구되는 필수 조건은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하세요.
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>클라우드 서비스 배포의 일부로 진단 확장을 사용하도록 설정
 이 접근 방식은 진단 확장이 클라우드 서비스의 배포 중 일부로 사용될 수 있는 연속 통합 형식의 시나리오에 적용됩니다. 새 클라우드 서비스 배포를 만들 경우 *ExtensionConfiguration* 매개 변수에서 [New-AzureDeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-3.7.0) cmdlet으로 전달하여 진단 확장을 사용할 수 있습니다. *ExtensionConfiguration* 매개 변수는 [New-AzureServiceDiagnosticsExtensionConfig](/powershell/module/servicemanagement/azure/new-azureservicediagnosticsextensionconfig?view=azuresmps-3.7.0) cmdlet을 사용하여 만들 수 있는 진단 구성 배열을 사용합니다.
@@ -89,7 +89,7 @@ Visual Studio Online은 진단 확장으로 Cloud Services의 자동화된 배�
 
 진단 구성에 `StorageAccount`가 지정되지 않은 경우 cmdlet에 *StorageAccountName* 매개 변수를 전달해야 합니다. *StorageAccountName* 매개 변수가 지정된 경우 cmdlet은 항상 진단 구성 파일에 지정된 저장소 계정이 아닌 매개 변수에 지정된 저장소 계정을 사용합니다.
 
-진단 저장소 계정이 클라우드 서비스와 다른 구독에 있는 경우 *StorageAccountName* 및 *StorageAccountKey* 매개 변수를 cmdlet에 명시적으로 전달해야 합니다. 진단 저장소 계정이 동일한 구독에 있는 경우 진단 확장을 사용하도록 설정하면 cmdlet이 키 값을 자동으로 쿼리하고 설정할 수 있으므로 *StorageAccountKey* 매개 변수가 필요하지 않습니다. 하지만 진단 저장소 계정이 다른 구독에 있는 경우에는 cmdlet이 자동으로 키를 얻지 못할 수 있으며, 사용자가 *StorageAccountKey* 매개 변수를 통해 키를 명시적으로 지정해야 합니다.
+진단 스토리지 계정이 클라우드 서비스와 다른 구독에 있는 경우 *StorageAccountName* 및 *StorageAccountKey* 매개 변수를 cmdlet에 명시적으로 전달해야 합니다. 진단 스토리지 계정이 동일한 구독에 있는 경우 진단 확장을 사용하도록 설정하면 cmdlet이 키 값을 자동으로 쿼리하고 설정할 수 있으므로 *StorageAccountKey* 매개 변수가 필요하지 않습니다. 하지만 진단 스토리지 계정이 다른 구독에 있는 경우에는 cmdlet이 자동으로 키를 얻지 못할 수 있으며, 사용자가 *StorageAccountKey* 매개 변수를 통해 키를 명시적으로 지정해야 합니다.
 
 ```powershell
 $webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key

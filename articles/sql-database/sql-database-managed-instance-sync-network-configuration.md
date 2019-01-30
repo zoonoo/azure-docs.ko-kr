@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 03/07/2018
-ms.openlocfilehash: d5de908166e8de1d45a36f97aee8934653e59623
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: e488fc7e568fc94f9a0744c12122b605f37f8152
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163173"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339674"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Azure App Service 호스팅 계획에 대한 네트워킹 구성 동기화
 
@@ -47,4 +47,4 @@ ms.locfileid: "47163173"
 
 ## <a name="next-steps"></a>다음 단계
 
-- Managed Instance에 VNet을 구성하는 방법에 대한 정보는 [Managed Instance VNet 구성](sql-database-managed-instance-vnet-configuration.md)을 참조하세요.
+- Managed Instance에 대해 VNet을 구성하는 방법에 대한 자세한 내용은 [Managed Instance VNet 아키텍처](sql-database-managed-instance-connectivity-architecture.md) 및 [기존 VNet을 구성하는 방법](sql-database-managed-instance-configure-vnet-subnet.md)을 참조하세요.

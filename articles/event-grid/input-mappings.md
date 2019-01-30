@@ -2,18 +2,18 @@
 title: Azure Event Grid 스키마에 사용자 지정 필드 매핑
 description: 사용자 지정 스키마를 Azure Event Grid 스키마로 변환하는 방법을 설명합니다.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/07/2018
-ms.author: tomfitz
-ms.openlocfilehash: ce9df1d45de82c759883dc90d50c28551bf62cdf
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.date: 01/07/2019
+ms.author: spelluru
+ms.openlocfilehash: 2c768790421ac74fa483877f09e66b1b4b5d5f35
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287307"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476617"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Event Grid 스키마에 사용자 지정 필드 매핑
 
@@ -25,7 +25,7 @@ ms.locfileid: "51287307"
 
 ## <a name="original-event-schema"></a>원래 이벤트 스키마
 
-다음과 같은 형식의 이벤트를 보내는 응용 프로그램이 있다고 가정하겠습니다.
+다음과 같은 형식의 이벤트를 보내는 애플리케이션이 있다고 가정하겠습니다.
 
 ```json
 [
@@ -103,7 +103,7 @@ az eventgrid event-subscription create \
 az eventgrid event-subscription create \
   --source-resource-id $topicid \
   --name eventsub2 \
-  --event-delivery-schema inputeventschema \
+  --event-delivery-schema custominputschema \
   --endpoint <endpoint_URL>
 ```
 

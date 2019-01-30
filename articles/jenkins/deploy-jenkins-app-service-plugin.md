@@ -3,17 +3,17 @@ title: Jenkins 플러그 인을 사용하여 Azure App Service에 배포
 description: Azure App Service Jenkins 플러그 인을 사용하여 Jenkins에서 Azure에 Java 웹앱을 배포하는 방법을 알아봅니다.
 ms.service: jenkins
 keywords: Jenkins, Azure, DevOps, App Service
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 5f76d18662105df6d278e09e047baa13773ab4ac
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 0ecd0603a5750b6d03da7cf2c577c668482048aa
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319356"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077320"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins 플러그 인을 사용하여 Azure App Service에 배포 
 
@@ -38,7 +38,7 @@ Jenkins 마스터가 없는 경우 JDK(Java Development Kit) 버전 8 및 다음
 Jenkins 플러그 인을 사용하여 Web Apps에 지원되는 언어(예: C#, PHP, Java, Node.js)로 웹앱을 배포할 수 있습니다. 이 자습서에서는 [Azure용 간단한 Java 웹앱](https://github.com/azure-devops/javawebappsample)을 사용합니다. 자신의 GitHub 계정에 리포지토리를 분기하려면 GitHub 인터페이스의 오른쪽 위 모서리에 있는 **분기** 단추를 선택합니다.  
 
 > [!NOTE]
-> Java 프로젝트를 빌드하려면 Java JDK 및 Maven이 필요합니다. 지속적인 통합을 위해 에이전트를 사용하는 경우 Jenkins 마스터 또는 VM 에이전트에 구성 요소를 설치하십시오. Java SE 응용 프로그램을 배포하는 경우 빌드 서버에서 ZIP도 필요합니다.
+> Java 프로젝트를 빌드하려면 Java JDK 및 Maven이 필요합니다. 지속적인 통합을 위해 에이전트를 사용하는 경우 Jenkins 마스터 또는 VM 에이전트에 구성 요소를 설치하십시오. Java SE 애플리케이션을 배포하는 경우 빌드 서버에서 ZIP도 필요합니다.
 >
 
 구성 요소를 설치하려면 SSH로 Jenkins 인스턴스에 로그인하고 다음 명령을 실행합니다.
@@ -55,7 +55,7 @@ Web App for Containers에 배포하려면 Jenkins 마스터 또는 빌드에 사
 Azure에 배포하려면 Azure 서비스 주체가 필요합니다. 
 
 
-1. Azure 서비스 주체를 만들려면 [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) 또는 [Azure Portal](/azure/azure-resource-manager/resource-group-create-service-principal-portal)을 사용합니다.
+1. Azure 서비스 주체를 만들려면 [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) 또는 [Azure Portal](/azure/azure-resource-manager/resource-group-create-service-principal-portal)을 사용합니다.
 2. Jenkins 대시보드에서 **자격 증명** > **시스템**을 선택합니다. 그런 다음 **전역 자격 증명(제한 없음)** 을 선택합니다.
 3. Microsoft Azure 서비스 주체를 추가하려면 **자격 증명 추가**를 선택합니다. **구독 ID**, **클라이언트 ID**, **클라이언트 암호** 및 **OAuth 2.0 토큰 엔드포인트** 필드에 대한 값을 제공합니다. **ID** 필드를 **mySp**로 설정합니다. 이 ID는 이 문서의 후속 단계에서 사용됩니다.
 
@@ -64,14 +64,14 @@ Azure에 배포하려면 Azure 서비스 주체가 필요합니다.
 
 Web Apps에 프로젝트를 배포하려면 파일을 업로드하여 빌드 아티팩트를 업로드할 수 있습니다. Azure App Service는 여러 배포 옵션을 지원합니다. Azure App Service Jenkins 플러그 인은 배포를 간소화하며, 파일 형식에 따라 다른 배포 옵션을 제공합니다. 
 
-* Java EE 응용 프로그램의 경우 [WAR 배포](/azure/app-service/app-service-deploy-zip#deploy-war-file)가 사용됩니다.
-* Java SE 응용 프로그램의 경우 [ZIP 배포](/azure/app-service/app-service-deploy-zip#deploy-zip-file)가 사용됩니다.
-* 다른 언어의 경우 [Git 배포](/azure/app-service/app-service-deploy-local-git)가 사용됩니다.
+* Java EE 애플리케이션의 경우 [WAR 배포](/azure/app-service/deploy-zip#deploy-war-file)가 사용됩니다.
+* Java SE 애플리케이션의 경우 [ZIP 배포](/azure/app-service/deploy-zip#deploy-zip-file)가 사용됩니다.
+* 다른 언어의 경우 [Git 배포](/azure/app-service/deploy-local-git)가 사용됩니다.
 
 Jenkins에서 작업을 설정하기 전에 Java 앱을 실행하려면 웹앱과 Azure App Service 계획이 필요합니다.
 
 
-1. `az appservice plan create` [Azure CLI 명령](/cli/azure/appservice/plan#az-appservice-plan-create)을 사용하여 **무료** 가격 책정 계층으로 Azure App Service 계획을 만듭니다. App Service 계획은 앱을 호스트하는 데 사용되는 물리적 리소스를 정의합니다. App Service 계획에 할당된 모든 응용 프로그램은 이러한 리소스를 공유합니다. 공유 리소스를 사용하면 여러 앱을 호스트하는 경우 비용을 절약할 수 있습니다.
+1. `az appservice plan create` [Azure CLI 명령](/cli/azure/appservice/plan#az-appservice-plan-create)을 사용하여 **무료** 가격 책정 계층으로 Azure App Service 계획을 만듭니다. App Service 계획은 앱을 호스트하는 데 사용되는 물리적 리소스를 정의합니다. App Service 계획에 할당된 모든 애플리케이션은 이러한 리소스를 공유합니다. 공유 리소스를 사용하면 여러 앱을 호스트하는 경우 비용을 절약할 수 있습니다.
 2. 웹앱을 만듭니다. [Azure Portal](/azure/app-service-web/web-sites-configure) 또는 다음 `az` Azure CLI 명령을 사용할 수 있습니다.
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
@@ -133,7 +133,7 @@ Azure App Service Jenkins 플러그 인은 파이프 라인을 지원합니다. 
 
 Linux의 Web Apps는 Docker를 사용하여 배포를 지원합니다. Docker를 사용하여 웹앱을 배포하려면 서비스 런타임에 웹앱을 Docker 이미지로 패키지화하는 Dockerfile을 제공해야 합니다. 그러면 Jenkins 플러그 인이 이미지를 빌드하고 Docker 레지스트리에 푸시하고 이미지를 웹앱에 배포합니다.
 
-Linux에서 Web Apps는 Git 및 파일 업로드와 같은 일반적인 배포 방법도 지원하지만 기본 제공되는 언어(.NET Core, Node.js, PHP 및 Ruby)에 한합니다. 다른 언어의 경우 응용 프로그램 코드와 서비스 런타임을 함께 Docker 이미지로 패키징하고 Docker를 사용하여 배포해야 합니다.
+Linux에서 Web Apps는 Git 및 파일 업로드와 같은 일반적인 배포 방법도 지원하지만 기본 제공되는 언어(.NET Core, Node.js, PHP 및 Ruby)에 한합니다. 다른 언어의 경우 애플리케이션 코드와 서비스 런타임을 함께 Docker 이미지로 패키징하고 Docker를 사용하여 배포해야 합니다.
 
 Jenkins에서 작업을 설정하기 전에 Linux에 웹앱이 필요합니다. 개인 Docker 컨테이너 이미지를 저장하고 관리하기 위해 컨테이너 레지스트리도 필요합니다. DockerHub를 사용하여 컨테이너 레지스트리를 만들 수 있습니다. 이 예제에서는 Azure Container Registry를 사용합니다.
 
@@ -206,7 +206,7 @@ Jenkins에서 작업을 설정하기 전에 Linux에 웹앱이 필요합니다. 
     Sun Jun 17 16:39:10 UTC 2017
     ```
 
-3. http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>로 이동합니다. &lt;x>와 &lt;y>를 임의의 숫자로 바꿔 x + y의 합을 구합니다. 계산기에 합계가 표시됩니다. ![계산기: 추가](./media/execute-cli-jenkins-pipeline/calculator-add.png)
+3. http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>로 이동합니다. &lt;x>와 &lt;y>를 임의의 숫자로 바꿔 x + y의 합을 구합니다. 계산기에 합계가 표시됩니다. ![계산기: 더하기](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
 ### <a name="for-azure-app-service-on-linux"></a>Linux의 Azure App Service
 

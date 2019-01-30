@@ -123,7 +123,7 @@ pod install
 
 설치 명령은 프로젝트에 필요한 포드를 설치하고, 종속성에 Pod를 사용하도록 이미 구성된 XCode 작업 영역 파일도 만들었습니다.
 
-### <a name="run-the-sample-service-application"></a>샘플 서비스 응용 프로그램 실행
+### <a name="run-the-sample-service-application"></a>샘플 서비스 애플리케이션 실행
 
 1. IoT Hub의 서비스 연결 문자열을 검색합니다. **공유 액세스 정책** 블레이드의 **iothubowner** 정책에서 [Azure Portal](https://portal.azure.com)을 통해 이 문자열을 복사하거나 다음 CLI 명령을 사용하여 검색할 수 있습니다.  
 
@@ -155,7 +155,7 @@ pod install
 
 ## <a name="send-a-cloud-to-device-message"></a>클라우드-장치 메시지 보내기
 
-이제 클라우드-장치 메시지를 주고 받는 두 응용 프로그램을 사용할 준비가 완료되었습니다.
+이제 클라우드-장치 메시지를 주고 받는 두 애플리케이션을 사용할 준비가 완료되었습니다.
 
 1. 시뮬레이션된 IoT 디바이스에서 실행되는 **iOS 앱 샘플**에서 **시작**을 클릭합니다. 응용 프로그램이 디바이스-클라우드 메시지 송신을 시작하고, 그와 동시에 클라우드-디바이스 메시지 수신 대기도 시작합니다. 
 

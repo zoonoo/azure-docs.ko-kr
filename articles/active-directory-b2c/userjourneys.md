@@ -3,25 +3,25 @@ title: UserJourneys | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책의 UserJourneys 요소를 지정하는 방법을 설명합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 231a3e87692e47ec33f8a613832acf5102257c96
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c6933a3d50807f38c0704f41dff7c9bcb3351949
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567063"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850642"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-사용자 경험은 명시적 경로를 지정합니다. 이 경로를 통해 정책은 신뢰 당사자 응용 프로그램이 사용자에 대해 원하는 클레임을 가져오도록 허용합니다. 이러한 경로를 통해 사용자를 가져와서 신뢰 당사자에게 표시할 클레임을 검색합니다. 즉, 사용자 경험은 Azure AD B2C ID 경험 프레임워크가 요청을 처리할 때 최종 사용자에게 적용되는 비즈니스 논리를 정의합니다.
+사용자 경험은 명시적 경로를 지정합니다. 이 경로를 통해 정책은 신뢰 당사자 애플리케이션이 사용자에 대해 원하는 클레임을 가져오도록 허용합니다. 이러한 경로를 통해 사용자를 가져와서 신뢰 당사자에게 표시할 클레임을 검색합니다. 즉, 사용자 경험은 Azure AD B2C ID 경험 프레임워크가 요청을 처리할 때 최종 사용자에게 적용되는 비즈니스 논리를 정의합니다.
 
 이러한 사용자 경험은 관심 커뮤니티의 다양한 신뢰 당사자 요구를 충족하는 데 사용할 수 있는 템플릿으로 간주할 수 있습니다. 사용자 경험을 활용하면 정책의 신뢰 당사자 부분을 원활하게 정의할 수 있습니다. 정책 하나가 여러 사용자 경험을 정의할 수 있습니다. 각 사용자 경험은 오케스트레이션 단계 시퀀스입니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "51567063"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| Id | yes | 정책의 다른 요소에서 사용자 경험을 참조하는 데 사용할 수 있는 사용자 경험의 식별자입니다. [신뢰 당사자 정책](relyingparty.md)의 **DefaultUserJourney** 요소는 이 특성을 가리킵니다. |
+| Id | 예 | 정책의 다른 요소에서 사용자 경험을 참조하는 데 사용할 수 있는 사용자 경험의 식별자입니다. [신뢰 당사자 정책](relyingparty.md)의 **DefaultUserJourney** 요소는 이 특성을 가리킵니다. |
 
 **UserJourney** 요소에는 다음과 같은 요소가 포함됩니다.
 
@@ -63,8 +63,8 @@ ms.locfileid: "51567063"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 순서 | yes | 오케스트레이션 단계의 순서입니다. | 
-| type | yes | 오케스트레이션 단계의 유형입니다. 가능한 값은 다음과 같습니다. <ul><li>**ClaimsProviderSelection** - 오케스트레이션 단계에서 사용자가 하나를 선택할 수 있도록 여러 클레임 공급자가 표시됨을 나타냅니다.</li><li>**CombinedSignInAndSignUp** - 오케스트레이션 단계에서 소셜 공급자 로그인 및 로컬 계정 등록 페이지가 결합된 형태로 표시됨을 나타냅니다.</li><li>**ClaimsExchange** - 오케스트레이션 단계에서 클레임 공급자와 클레임을 교환함을 나타냅니다.</li><li>**SendClaims** - 오케스트레이션 단계에서 클레임 발급자가 발급한 토큰과 함께 클레임을 신뢰 당사자에게 전송함을 나타냅니다.</li></ul> | 
+| 순서 | 예 | 오케스트레이션 단계의 순서입니다. | 
+| type | 예 | 오케스트레이션 단계의 유형입니다. 가능한 값은 다음과 같습니다. <ul><li>**ClaimsProviderSelection** - 오케스트레이션 단계에서 사용자가 하나를 선택할 수 있도록 여러 클레임 공급자가 표시됨을 나타냅니다.</li><li>**CombinedSignInAndSignUp** - 오케스트레이션 단계에서 소셜 공급자 로그인 및 로컬 계정 등록 페이지가 결합된 형태로 표시됨을 나타냅니다.</li><li>**ClaimsExchange** - 오케스트레이션 단계에서 클레임 공급자와 클레임을 교환함을 나타냅니다.</li><li>**SendClaims** - 오케스트레이션 단계에서 클레임 발급자가 발급한 토큰과 함께 클레임을 신뢰 당사자에게 전송함을 나타냅니다.</li></ul> | 
 | ContentDefinitionReferenceId | 아니요 | 이 오케스트레이션 단계와 연결된 [콘텐츠 정의](contentdefinitions.md)의 식별자입니다. 일반적으로 콘텐츠 정의 참조 식별자는 자체 어설션된 기술 프로필에서 정의됩니다. 그러나 Azure AD B2C가 기술 프로필을 사용하지 않고 콘텐츠를 표시해야 하는 경우도 있습니다. 오케스트레이션 단계의 유형이 `ClaimsProviderSelection` 또는 `CombinedSignInAndSignUp` 중 하나인 경우가 여기에 해당합니다. 이러한 경우 Azure AD B2C는 기술 프로필을 사용하지 않고 ID 공급자 선택 항목을 표시해야 합니다. | 
 | CpimIssuerTechnicalProfileReferenceId | 아니요 | 오케스트레이션 단계의 유형이 `SendClaims`입니다. 이 속성은 신뢰 당사자용 토큰을 발급하는 클레임 공급자의 기술 프로필 식별자를 정의합니다.  해당 식별자가 없으면 신뢰 당사자 토큰이 생성되지 않습니다. |
 
@@ -92,8 +92,8 @@ ms.locfileid: "51567063"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| type | yes | 이 전제 조건에 대해 수행할 확인이나 쿼리의 유형입니다. 값은 **ClaimsExist**(지정한 클레임이 사용자의 현재 클레임 집합에 있으면 작업을 수행해야 함을 지정함) 또는 **ClaimEquals**(지정한 클레임이 있으며 해당 값이 지정된 값과 같으면 작업을 수행해야 함을 지정함)일 수 있습니다. |
-| ExecuteActionsIf | yes | true 또는 false 테스트를 사용하여 전제 조건의 작업을 수행해야 하는지를 결정합니다. | 
+| type | 예 | 이 전제 조건에 대해 수행할 확인이나 쿼리의 유형입니다. 값은 **ClaimsExist**(지정한 클레임이 사용자의 현재 클레임 집합에 있으면 작업을 수행해야 함을 지정함) 또는 **ClaimEquals**(지정한 클레임이 있으며 해당 값이 지정된 값과 같으면 작업을 수행해야 함을 지정함)일 수 있습니다. |
+| ExecuteActionsIf | 예 | true 또는 false 테스트를 사용하여 전제 조건의 작업을 수행해야 하는지를 결정합니다. | 
 
 **Precondition** 요소에는 다음과 같은 요소가 포함됩니다.
 
@@ -224,8 +224,8 @@ Preconditions는 여러 전제 조건을 확인할 수 있습니다. 다음 예�
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| Id | yes | 클레임 교환 단계의 식별자입니다. 식별자는 정책의 클레임 공급자 선택 단계에서 클레임 교환을 참조하는 데 사용됩니다. | 
-| TechnicalProfileReferenceId | yes | 실행할 기술 프로필의 식별자입니다. |
+| Id | 예 | 클레임 교환 단계의 식별자입니다. 식별자는 정책의 클레임 공급자 선택 단계에서 클레임 교환을 참조하는 데 사용됩니다. | 
+| TechnicalProfileReferenceId | 예 | 실행할 기술 프로필의 식별자입니다. |
  
 
 

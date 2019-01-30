@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 08420be7171df78babf62b262fef84fd29fb34ab
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: f341c7e4a56aacb35ee16cbae00115196325b46a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495066"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855825"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Azure Linux 가상 머신에서 Oracle Data Guard 구현 
 
@@ -40,7 +40,7 @@ VM을 만드는 데 사용하는 Marketplace 이미지는 Oracle:Oracle-Database
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인 
 
-[az login](/cli/azure/reference-index#az_login) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+[az login](/cli/azure/reference-index) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
 ```azurecli
 az login
@@ -48,7 +48,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
+[az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
 다음 예제에서는 `westus` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
@@ -117,7 +117,7 @@ myVM2를 만든 후 `publicIpAddress` 값을 기록해 둡니다.
 
 ### <a name="open-the-tcp-port-for-connectivity"></a>연결에 대한 TCP 포트 열기
 
-이 단계에서는 Oracle 데이터베이스에 대한 원격 액세스를 허용하는 외부 끝점을 구성합니다.
+이 단계에서는 Oracle 데이터베이스에 대한 원격 액세스를 허용하는 외부 엔드포인트를 구성합니다.
 
 myVM1에 대한 포트 열기:
 

@@ -10,12 +10,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e3bfdcfaaf752321997636811b282ea920e6144a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 205eff6c79ba4699516a8898c5b1268eb3dfe644
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344203"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754019"
 ---
 # <a name="authenticate-to-the-speech-api"></a>Speech API 인증
 
@@ -51,7 +51,7 @@ Expect: 100-continue
 ```
 
 > [!IMPORTANT]
-> 응용 프로그램에서 [클라이언트 라이브러리](../GetStarted/GetStartedClientLibraries.md)를 사용하는 경우 다음 섹션에서 설명한 대로 구독 키가 있는 권한 부여 토큰을 가져올 수 있는지 확인합니다. 클라이언트 라이브러리는 구독 키를 사용하여 권한 부여 토큰을 가져온 다음, 이 토큰을 인증에 사용합니다.
+> 애플리케이션에서 [클라이언트 라이브러리](../GetStarted/GetStartedClientLibraries.md)를 사용하는 경우 다음 섹션에서 설명한 대로 구독 키가 있는 권한 부여 토큰을 가져올 수 있는지 확인합니다. 클라이언트 라이브러리는 구독 키를 사용하여 권한 부여 토큰을 가져온 다음, 이 토큰을 인증에 사용합니다.
 
 ## <a name="use-an-authorization-token"></a>권한 부여 토큰 사용
 
@@ -72,7 +72,7 @@ https://api.cognitive.microsoft.com/sts/v1.0/issueToken
 
 다음 코드 샘플에서는 액세스 토큰을 가져오는 방법을 보여 줍니다. `YOUR_SUBSCRIPTION_KEY`를 사용자 고유의 구독 키로 바꾸세요.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -96,7 +96,7 @@ $OAuthToken
 curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/CSharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
     /*
@@ -159,7 +159,7 @@ Speech API를 호출할 때마다 `Authorization` 헤더에 권한 부여 토큰
 > [!NOTE]
 > `YOUR_AUDIO_FILE`을 미리 녹음된 오디오 파일의 경로로 바꾸고, `YOUR_ACCESS_TOKEN`을 이전의 [권한 부여 토큰 가져오기](#get-an-authorization-token) 단계에서 획득한 권한 부여 토큰으로 바꾸세요.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 
@@ -189,7 +189,7 @@ $RecoResponse
 curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/CSharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
 HttpWebRequest request = null;

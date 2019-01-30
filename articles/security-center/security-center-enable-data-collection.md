@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/2/2018
+ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: f6a818e0f628924342ddd50322bb54bf1d1d6079
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 40f3275b2f16a80f1199afdc0d7965cbd4433f50
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976664"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082455"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Security Center에서 데이터 수집
 Security Center는 Azure VM(Virtual Machines) 및 비 Azure 컴퓨터에서 데이터를 수집하여 보안 취약성과 위협을 모니터링합니다. Microsoft Monitoring Agent를 사용하여 데이터를 수집합니다. Microsoft Monitoring Agent는 컴퓨터에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석용으로 작업 영역에 데이터를 복사합니다. 이러한 데이터의 예로는 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, 머신 이름, IP 주소, 로그인된 사용자를 들 수 있습니다. 또한 Microsoft Monitoring Agent는 작업 영역에 크래시 덤프 파일을 복사합니다.
@@ -261,7 +261,7 @@ Security Center가 VM의 보안 데이터를 수집하고 권장 사항 및 경�
     a.  [Windows용 OMS 가상 머신 확장 설치](../virtual-machines/extensions/oms-windows.md)
     
     b.  [Linux용 OMS 가상 머신 확장 설치](../virtual-machines/extensions/oms-linux.md)
-5.  기존 VM에 확장을 배포하려면 [Azure Virtual Machines에 대한 데이터 수집](../log-analytics/log-analytics-quick-collect-azurevm.md)의 지침을 따릅니다.
+5.  기존 VM에 확장을 배포하려면 [Azure Virtual Machines에 대한 데이터 수집](../azure-monitor/learn/quick-collect-azurevm.md)의 지침을 따릅니다.
 
   > [!NOTE]
   > **이벤트 및 성능 데이터 수집**은 선택 사항입니다.

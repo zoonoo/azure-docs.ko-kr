@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: cynthn
-ms.openlocfilehash: cd11bb8ae8f22705feb7eebeafde385fcf11fdcd
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.component: disks
+ms.openlocfilehash: b293a60240622b5c8e417bf61de83ae8817e203f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637088"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477127"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>PowerShell을 사용하여 Windows VM에 데이터 디스크 연결
 
@@ -28,11 +29,11 @@ ms.locfileid: "49637088"
 
 먼저 다음 팁을 검토합니다.
 * 가상 머신의 크기로 연결할 수 있는 디스크 개수가 제어됩니다. 자세한 내용은 [가상 머신의 크기](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
-* Premium Storage를 사용하려면 DS 시리즈 또는 GS 시리즈 가상 머신과 같은 Premium Storage 지원 VM 유형이 필요합니다. 자세한 내용은 [Premium Storage: Azure Virtual Machine 워크로드용 고성능 저장소](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+* Premium Storage를 사용하려면 DS 시리즈 또는 GS 시리즈 가상 머신과 같은 Premium Storage 지원 VM 유형이 필요합니다. 자세한 내용은 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 스토리지](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 문서를 참조하세요.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하여 사용하려면 이 자습서에 Azure PowerShell 모듈 버전 6.0.0 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와의 연결을 만들어야 합니다.
+PowerShell을 로컬로 설치하여 사용하려면 이 자습서에 Azure PowerShell 모듈 버전 6.0.0 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와의 연결을 만들어야 합니다.
 
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>가상 머신에 빈 데이터 디스크 추가

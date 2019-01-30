@@ -4,15 +4,16 @@ description: 이 문서에서는 Azure Site Recovery를 사용하여 온-프레�
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 77387b52003923dffce7519df9cca47fad8f6e6c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6ce1a20ddb5e99ca6da9531b6d23a8a54d14f588
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007436"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971736"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>VMware용 아키텍처/보조 온-프레미스 사이트에 물리적 서버 복제
 

@@ -70,7 +70,7 @@ Blob service를 Jenkins와 함께 사용하려면 Azure Storage 플러그인을 
    2. [Azure Portal](https://portal.azure.com)에서 확인 가능한 저장소 계정 키도 입력합니다.
    3. 전역 Azure 클라우드를 사용 중이면 **Blob 서비스 끝점 URL**에 기본값을 사용합니다. 다른 Azure 클라우드를 사용 중이면 [Azure Portal](https://portal.azure.com) 에서 저장소 계정에 대해 지정된 엔드포인트를 사용합니다. 
    4. **저장소 자격 증명 유효성 검사**를 선택하여 저장소 계정의 유효성을 검사합니다. 
-   5. [옵션] Jenkins CI에서 더 많은 저장소 계정을 사용할 수 있게 하려면 **Add more Storage Accounts**(추가 저장소 계정 추가)를 선택합니다.
+   5. [옵션] Jenkins CI에서 더 많은 스토리지 계정을 사용할 수 있게 하려면 **Add more Storage Accounts**(추가 스토리지 계정 추가)를 선택합니다.
    6. **저장**을 선택하여 설정을 저장합니다.
 
 ## <a name="how-to-create-a-post-build-action-that-uploads-your-build-artifacts-to-your-storage-account"></a>빌드 아티팩트를 저장소 계정으로 업로드하는 빌드 후 작업을 만드는 방법
@@ -89,7 +89,7 @@ Blob service를 Jenkins와 함께 사용하려면 Azure Storage 플러그인을 
     time /t >> date.txt
     ```
 
-5. 작업 구성의 **Post-build Actions**(빌드 후 작업) 섹션에서 **Add post-build action**(빌드 후 작업 추가)을 선택하고 **Upload artifacts to Azure Blob storage**(Azure Blob 저장소로 아티팩트 업로드)를 선택합니다.
+5. 작업 구성의 **Post-build Actions**(빌드 후 작업) 섹션에서 **Add post-build action**(빌드 후 작업 추가)을 선택하고 **Upload artifacts to Azure Blob storage**(Azure Blob 스토리지로 아티팩트 업로드)를 선택합니다.
 6. **Storage account name**에서는 사용할 저장소 계정을 선택합니다.
 7. **Container name**에서 컨테이너 이름을 지정합니다. (컨테이너는 빌드 아티팩트가 업로드될 때 없으면 만들어집니다.) 환경 변수를 사용할 수 있으며, 이 예제에서는 컨테이너 이름으로 `${JOB_NAME}`을 입력합니다.
    

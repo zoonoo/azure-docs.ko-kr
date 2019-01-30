@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: d69addac0647513e00663110ac82eef343b77983
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 4940c4893a4f31b18e1741740e6d1c2525acd3f1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364621"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424135"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버로 시작하기
 
@@ -55,11 +55,11 @@ Azure Multi-Factor Authentication에 사용 중인 서버가 다음 요구 사�
 
 Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 
-* 웹 서비스 SDK - 다른 구성 요소와 통신을 활성화하고 Azure MFA 응용 프로그램 서버에 설치됩니다.
+* 웹 서비스 SDK - 다른 구성 요소와 통신을 활성화하고 Azure MFA 애플리케이션 서버에 설치됩니다.
 * 사용자 포털 - 사용자가 Azure MFA(Multi-Factor Authentication)에 등록하고 해당 계정을 유지 관리할 수 있는 IIS 웹 사이트입니다.
 * 모바일 앱 웹 서비스 - 2단계 인증에 대해 Microsoft Authenticator 앱과 같은 모바일 앱을 사용할 수 있습니다.
 
-서버를 인터넷에 연결하는 경우 세 가지 구성 요소를 모두 동일한 서버에 설치할 수 있습니다. 구성 요소를 나누는 경우 웹 서비스 SDK는 Azure MFA 응용 프로그램 서버에 설치되고 사용자 포털 및 모바일 앱 웹 서비스는 인터넷 연결 서버에 설치됩니다.
+서버를 인터넷에 연결하는 경우 세 가지 구성 요소를 모두 동일한 서버에 설치할 수 있습니다. 구성 요소를 나누는 경우 웹 서비스 SDK는 Azure MFA 애플리케이션 서버에 설치되고 사용자 포털 및 모바일 앱 웹 서비스는 인터넷 연결 서버에 설치됩니다.
 
 ### <a name="azure-multi-factor-authentication-server-firewall-requirements"></a>Azure Multi-Factor Authentication 방화벽 요구 사항
 

@@ -28,19 +28,19 @@ items:
     - name: Azure Storage 사용
       href: ../hdinsight-hadoop-use-blob-storage.md
       maintainContext: true
-    - name: Azure Data Lake Store 사용
+    - name: Azure Data Lake Storage 사용
       href: ../hdinsight-hadoop-use-data-lake-store.md
       maintainContext: true
   - name: 개발
     items:
     - name: Apache HBase.NET SDK 사용
       href: apache-hbase-rest-sdk.md
-    - name: Java 응용 프로그램 배포
+    - name: Java 애플리케이션 배포
       href: apache-hbase-build-java-maven-linux.md
     - name: 빈 에지 노드 사용
       href: ../hdinsight-apps-use-edge-node.md
       maintainContext: true
-    - name: 비대화형 인증 .NET HDInsight 응용 프로그램 만들기
+    - name: 비대화형 인증 .NET HDInsight 애플리케이션 만들기
       href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
       maintainContext: true
     - name: HDInsight의 Apache Phoenix
@@ -66,7 +66,7 @@ items:
     - name: 스크립트 작업 개발
       href: ../hdinsight-hadoop-script-actions-linux.md
       maintainContext: true
-    - name: HDInsight 응용 프로그램 빌드
+    - name: HDInsight 애플리케이션 빌드
       items:
       - name: 사용자 지정 앱 설치
         href: ../hdinsight-apps-install-custom-applications.md
@@ -76,7 +76,7 @@ items:
       - name: Azure Marketplace에 HDInsight 앱 게시
         href: ../hdinsight-apps-publish-applications.md
         maintainContext: true
-      - name: 게시된 앱 설치 - Cask 데이터 응용 프로그램 플랫폼(CDAP)
+      - name: 게시된 앱 설치 - Cask 데이터 애플리케이션 플랫폼(CDAP)
         href: ../hdinsight-apps-install-cask.md
         maintainContext: true
       - name: 게시된 앱 설치 - Dataiku
@@ -163,7 +163,7 @@ items:
       maintainContext: true
     - name: psql을 사용하여 Apache Phoenix로 데이터 대량 로드
       href: apache-hbase-phoenix-psql.md
-    - name: Data Lake Store가 있는 다중 HDInsight 클러스터
+    - name: Data Lake Storage가 있는 다중 HDInsight 클러스터
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
     - name: Apache Sqoop으로 데이터 가져오기 및 내보내기
@@ -288,6 +288,8 @@ items:
     href: /rest/api/hdinsight/
   - name: REST(Apache Spark)
     href: /rest/api/hdinsightspark/
+  - name: Resource Manager 템플릿
+    href: /azure/templates/microsoft.hdinsight/allversions
 - name: 관련 항목
   items:
   - name: Windows 클러스터
@@ -365,9 +367,9 @@ items:
   - name: HDInsight에 대한 Windows 도구
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 9bf9d1f319d92712fe15ac510717b0c0eb1a53c6
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ba71eff70ca705c721552d3dc89d3da9525d87dd
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317214"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318630"

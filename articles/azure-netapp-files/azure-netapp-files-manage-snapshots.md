@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 48cb88b9815ba723d93c18caf63f33b50eea850c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e3ae11adf84e858429cba4643802300f7915a166
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011981"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412940"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 스냅숏 관리
 Azure NetApp Files를 사용하여 볼륨에 대한 주문형 스냅숏을 만들거나 스냅숏에서 새 볼륨으로 복원할 수 있습니다.
@@ -60,12 +60,16 @@ Azure NetApp Files를 사용하여 볼륨에 대한 주문형 스냅숏을 만�
         **사용 가능한 할당량** 필드는 새 볼륨을 만들 때 사용할 수 있는 선택한 용량 풀에서 사용되지 않은 공간의 양을 보여줍니다. 새 볼륨의 크기는 사용 가능한 할당량을 초과해서는 안 됩니다.
 
     *   **가상 네트워크**  
-        볼륨에 액세스하려는 Azure Vnet(가상 네트워크)을 지정합니다. 
-        
-        지정하는 Vnet은 구성된 Azure NetApp Files가 있어야 합니다. Azure NetApp Files 서비스는 볼륨과 같은 위치에 있는 Vnet에서만 액세스할 수 있습니다.  
+        볼륨에 액세스하려는 Azure Vnet(가상 네트워크)을 지정합니다.  
+        지정하는 Vnet에는 Azure NetApp Files에 위임된 서브넷이 있어야 합니다. Azure NetApp Files 서비스는 동일한 Vnet에서만, 그리고 Vnet 피어링을 통해 볼륨과 동일한 영역에 있는 Vnet에서만 액세스할 수 있습니다. ExpressRoute를 통해 온-프레미스 네트워크에서 볼륨에 액세스할 수도 있습니다. 
 
-    ![복원된 새 볼륨](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
-    
+    * **서브넷**  
+        볼륨에 사용할 서브넷을 지정합니다.  
+        지정하는 서브넷은 Azure NetApp Files 서비스에 위임되어야 합니다. 서브넷 필드 아래에서 **새로 만들기**를 선택하여 새 서브넷을 만들 수 있습니다.  
+<!--
+    ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
+-->
+
 5. **확인**을 클릭합니다.   
     스냅숏이 복원된 새 볼륨은 볼륨 블레이드에 표시됩니다.
 

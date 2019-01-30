@@ -1,23 +1,24 @@
 ---
-title: 'Azure Cosmos DB: .NET의 Table API를 사용하여 개발'
-description: .NET을 사용하는 Azure Cosmos DB의 Table API를 통해 개발하는 방법에 대해 알아봅니다.
-services: cosmos-db
-author: SnehaGunda
+title: .NET SDK를 사용하여 Table API로 개발
+titleSuffix: Azure Cosmos DB
+description: .NET SDK를 사용하여 Azure Cosmos DB에서 Table API로 개발하는 방법을 알아봅니다.
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 12/18/2017
-ms.author: sngun
-ms.custom: mvc
-ms.openlocfilehash: 02c4ead0f41463a70cc7123427193f835d9cca94
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/07/2018
+author: wmengmsft
+ms.author: wmeng
+ms.custom: seodec18
+ms.reviewer: sngun
+ms.openlocfilehash: 0f0e5219298cf0bce30e2a1e9d66135b4146db5d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877738"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036786"
 ---
-# <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: .NET의 Table API를 사용하여 개발
+# <a name="develop-with-azure-cosmos-dbs-table-api-using-net-sdk"></a>.NET SDK를 사용하여 Azure Cosmos DB의 Table API로 개발
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다.
 
@@ -37,9 +38,9 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
  
 ## <a name="tables-in-azure-cosmos-db"></a>Azure Cosmos DB의 테이블 
 
-Azure Cosmos DB는 스키마를 사용하지 않는 키-값 저장소가 필요한 응용 프로그램을 위해 [테이블 API](table-introduction.md)를 제공합니다. 이제 Azure Cosmos DB 테이블 API 및 [Azure Table Storage](../storage/common/storage-introduction.md) 둘 다 동일한 SDK 및 REST API를 지원합니다. Azure Cosmos DB를 사용하면 높은 처리량 요구 사항의 테이블을 만들 수 있습니다.
+Azure Cosmos DB는 스키마를 사용하지 않는 키-값 저장소가 필요한 애플리케이션을 위해 [테이블 API](table-introduction.md)를 제공합니다. 이제 Azure Cosmos DB 테이블 API 및 [Azure Table Storage](../storage/common/storage-introduction.md) 둘 다 동일한 SDK 및 REST API를 지원합니다. Azure Cosmos DB를 사용하면 높은 처리량 요구 사항의 테이블을 만들 수 있습니다.
 
-이 자습서는 Azure Table Storage SDK에 익숙하고 Azure Cosmos DB에서 사용 가능한 프리미엄 기능을 사용하려는 개발자를 위한 것입니다. [.NET을 사용하여 Azure Table 저장소 시작](table-storage-how-to-use-dotnet.md)을 기반으로 하며, 보조 인덱스, 프로비전된 처리량 및 멀티 호밍과 같은 추가 기능을 활용하는 방법을 보여 줍니다. 이 자습서에서는 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만든 다음 Table API 응용 프로그램을 빌드하고 배포하는 방법에 대해 설명합니다. 또한 테이블을 만들고 삭제하며, 테이블 데이터를 삽입, 업데이트, 삭제 및 쿼리하기 위한 .NET 예제를 단계별로 안내합니다. 
+이 자습서는 Azure Table Storage SDK에 익숙하고 Azure Cosmos DB에서 사용 가능한 프리미엄 기능을 사용하려는 개발자를 위한 것입니다. [.NET을 사용하여 Azure Table 저장소 시작](table-storage-how-to-use-dotnet.md)을 기반으로 하며, 보조 인덱스, 프로비전된 처리량 및 멀티 호밍과 같은 추가 기능을 활용하는 방법을 보여 줍니다. 이 자습서에서는 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만든 다음 Table API 애플리케이션을 빌드하고 배포하는 방법에 대해 설명합니다. 또한 테이블을 만들고 삭제하며, 테이블 데이터를 삽입, 업데이트, 삭제 및 쿼리하기 위한 .NET 예제를 단계별로 안내합니다. 
 
 현재 Azure Table Storage를 사용하고 있다면 Azure Cosmos DB 테이블 API를 사용할 경우 다음과 같은 이점이 있습니다.
 
@@ -47,9 +48,9 @@ Azure Cosmos DB는 스키마를 사용하지 않는 키-값 저장소가 필요�
 - 모든 속성("보조 인덱스")에 대한 스키마 독립적 자동 인덱싱 및 빠른 쿼리 지원 
 - 여러 지역 간에 [독립적인 저장소 및 처리량 크기 조정](partition-data.md) 지원
 - 초당 수백 개에서 수백만 개의 요청으로 확장할 수 있는 [테이블당 전용 처리량](request-units.md) 지원
-- 응용 프로그램 요구 사항에 따라 가용성, 대기 시간 및 일관성을 조정할 수 있는 [튜닝 가능한 5가지 일관성 수준](consistency-levels.md) 지원
+- 애플리케이션 요구 사항에 따라 가용성, 대기 시간 및 일관성을 조정할 수 있는 [튜닝 가능한 5가지 일관성 수준](consistency-levels.md) 지원
 - 단일 지역 내 99.99% 가용성, 더 높은 가용성을 위해 더 많은 지역을 추가할 수 있는 기능 및 일반 가용성에 대한 [업계 최고의 포괄적 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- 기존 Azure 저장소 .NET SDK 사용 및 응용 프로그램에 대한 코드 변경 없음
+- 기존 Azure 저장소 .NET SDK 사용 및 애플리케이션에 대한 코드 변경 없음
 
 이 자습서에서는 .NET SDK를 사용하는 Azure Cosmos DB 테이블 API에 대해 설명합니다. NuGet에서 [Azure Cosmos DB 테이블 API .NET SDK](https://aka.ms/tableapinuget)를 다운로드할 수 있습니다.
 
@@ -59,7 +60,7 @@ Azure Cosmos DB는 스키마를 사용하지 않는 키-값 저장소가 필요�
 * 사용 가능한 API에 대한 자세한 내용은 Table service 참조 설명서인 [Azure Cosmos DB 테이블 API .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb/client?view=azure-dotnet)를 참조하세요.
 
 ### <a name="about-this-tutorial"></a>이 자습서 정보
-이 자습서는 Azure Table 저장소 SDK에 익숙하고 Azure Cosmos DB를 사용하여 제공되는 프리미엄 기능을 사용하려는 개발자를 위한 것입니다. [.NET을 사용하여 Azure Table 저장소 시작](table-storage-how-to-use-dotnet.md)을 기반으로 하며, 보조 인덱스, 프로비전된 처리량 및 멀티 호밍과 같은 추가 기능을 활용하는 방법을 보여 줍니다. Azure Portal을 사용하여 Azure Cosmos DB 계정을 만든 다음 Table 응용 프로그램을 빌드하고 배포하는 방법에 대해 설명합니다. 또한 테이블을 만들고 삭제하며, 테이블 데이터를 삽입, 업데이트, 삭제 및 쿼리하기 위한 .NET 예제를 단계별로 안내합니다. 
+이 자습서는 Azure Table 저장소 SDK에 익숙하고 Azure Cosmos DB를 사용하여 제공되는 프리미엄 기능을 사용하려는 개발자를 위한 것입니다. [.NET을 사용하여 Azure Table 저장소 시작](table-storage-how-to-use-dotnet.md)을 기반으로 하며, 보조 인덱스, 프로비전된 처리량 및 멀티 호밍과 같은 추가 기능을 활용하는 방법을 보여 줍니다. Azure Portal을 사용하여 Azure Cosmos DB 계정을 만든 다음 Table 애플리케이션을 빌드하고 배포하는 방법에 대해 설명합니다. 또한 테이블을 만들고 삭제하며, 테이블 데이터를 삽입, 업데이트, 삭제 및 쿼리하기 위한 .NET 예제를 단계별로 안내합니다. 
 
 Visual Studio 2017을 아직 설치하지 않은 경우 [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **평가판**을 다운로드하고 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발**을 사용하도록 설정합니다.
 
@@ -75,9 +76,9 @@ Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 
-## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
-이제 github에서 Table 앱을 복제하고 연결 문자열을 설정한 다음 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
+이제 GitHub에서 Table 앱을 복제하고 연결 문자열을 설정한 다음 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
 1. Git Bash와 같은 Git 터미널 창을 열고, `cd` 명령을 사용하여 샘플 앱을 설치할 폴더를 변경합니다. 
 
@@ -97,7 +98,7 @@ Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다. 이를 통해 앱이 호스팅된 데이터베이스와 통신할 수 있게 됩니다. 
 
-1. [Azure Portal](http://portal.azure.com/)에서 **연결 문자열**을 클릭합니다. 
+1. [Azure Portal](https://portal.azure.com/)에서 **연결 문자열**을 클릭합니다. 
 
     화면의 오른쪽에서 복사 단추를 사용하여 기본 연결 문자열을 복사합니다.
 
@@ -105,7 +106,7 @@ Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.
 
 2. Visual Studio에서 app.config 파일을 엽니다. 
 
-3. 이 자습서에서는 저장소 에뮬레이터를 사용하지 않으므로 8줄에서 StorageConnectionString 주석 처리를 제거하고, 7줄에서 StorageConnectionString을 주석으로 처리합니다. 이제 7줄과 8줄은 다음과 같이 표시됩니다.
+3. 이 자습서에서는 스토리지 에뮬레이터를 사용하지 않으므로 8줄에서 StorageConnectionString 주석 처리를 제거하고, 7줄에서 StorageConnectionString을 주석으로 처리합니다. 이제 7줄과 8줄은 다음과 같이 표시됩니다.
 
     ```
     <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
@@ -180,7 +181,8 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 이 클라이언트는 앱 설정에 지정된 경우 `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel` 및 `TablePreferredLocations` 구성 값을 사용하여 초기화됩니다.
 
 ## <a name="create-a-table"></a>테이블 만들기
-그런 다음 `CloudTable`을 사용하여 테이블을 만듭니다. Azure Cosmos DB의 테이블은 저장소 및 처리량 측면에서 독립적으로 확장할 수 있으며, 분할은 서비스에서 자동으로 처리됩니다. Azure Cosmos DB는 고정된 크기 및 무제한 테이블을 모두 지원합니다. 자세한 내용은 [Azure Cosmos DB에서 분할](partition-data.md)을 참조하세요. 
+
+그런 다음 `CloudTable`을 사용하여 테이블을 만듭니다. Azure Cosmos DB의 테이블은 저장소 및 처리량 측면에서 독립적으로 확장할 수 있으며, 분할은 서비스에서 자동으로 처리됩니다. 
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");
@@ -218,7 +220,7 @@ public class CustomerEntity : TableEntity
 
 다음 코드 조각에서는 Azure 저장소 SDK에 포함된 엔터티를 삽입하는 방법을 보여 줍니다. Azure Cosmos DB는 전 세계의 어떤 규모에서나 짧은 대기 시간을 보장하도록 설계되었습니다.
 
-Azure Cosmos DB 계정과 동일한 지역에서 실행되는 응용 프로그램의 경우 쓰기 작업은 p99에서 15ms 이내, p50에서 6ms까지 완료됩니다. 그리고 이 기간 동안 쓰기 작업이 동기적으로 복제되고, 영구적으로 커밋되며, 모든 콘텐츠가 인덱싱된 후에만 클라이언트에서 다시 승인됩니다.
+Azure Cosmos DB 계정과 동일한 지역에서 실행되는 애플리케이션의 경우 쓰기 작업은 p99에서 15ms 이내, p50에서 6ms까지 완료됩니다. 그리고 이 기간 동안 쓰기 작업이 동기적으로 복제되고, 영구적으로 커밋되며, 모든 콘텐츠가 인덱싱된 후에만 클라이언트에서 다시 승인됩니다.
 
 
 ```csharp
@@ -259,7 +261,7 @@ batchOperation.Insert(customer2);
 table.ExecuteBatch(batchOperation);
 ```
 ## <a name="retrieve-a-single-entity"></a>단일 엔터티 검색
-Azure Cosmos DB의 검색(GET)은 p99에서 10ms 이내, 동일한 Azure 지역의 검색은 p50에서 1ms까지 완료됩니다. 대기 시간이 짧은 읽기를 위해 계정에 많은 지역을 추가하고, `TablePreferredLocations`를 설정하여 로컬 지역("멀티 홈")에서 읽을 수 있도록 응용 프로그램을 배포할 수 있습니다. 
+Azure Cosmos DB의 검색(GET)은 p99에서 10ms 이내, 동일한 Azure 지역의 검색은 p50에서 1ms까지 완료됩니다. 대기 시간이 짧은 읽기를 위해 계정에 많은 지역을 추가하고, `TablePreferredLocations`를 설정하여 로컬 지역("멀티 홈")에서 읽을 수 있도록 애플리케이션을 배포할 수 있습니다. 
 
 다음 코드 조각을 사용하여 단일 엔터티를 검색할 수 있습니다.
 

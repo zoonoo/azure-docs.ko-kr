@@ -1,5 +1,6 @@
 ---
-title: Azure Machine Learning을 사용하여 TensorFlow 모델 학습시키기
+title: TensorFlow를 사용하여 모델 학습
+titleSuffix: Azure Machine Learning service
 description: TensorFlow Estimator를 사용하여 TensorFlow 모델의 단일 노드 및 분산 학습을 실행하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -8,22 +9,23 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: c761d0ac5d2c52241eadd18b2d8b65e00ccb34ba
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: d15d3ed115009ad1395a85d36e833d85197d4d19
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114988"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094113"
 ---
-# <a name="how-to-train-tensorflow-models"></a>TensorFlow 모델을 학습시키는 방법
+# <a name="train-tensorflow-models-with-azure-machine-learning-service"></a>Azure Machine Learning Service를 사용하여 TensorFlow 모델 학습
 
 Azure Machine Learning에서는 TensorFlow를 사용한 DNN(심층 신경망) 학습을 위해 `Estimator`의 사용자 지정 `TensorFlow` 클래스를 제공합니다. Azure SDK의 `TensorFlow` Estimator([`tf.estimator.Estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) 클래스와 통합되지 않음)를 사용하면 Azure Compute의 단일 노드 및 분산 실행 둘 다에 대해 TensorFlow 학습 작업을 쉽게 제출할 수 있습니다.
 
 ## <a name="single-node-training"></a>단일 노드 학습
 `TensorFlow` Estimator를 사용하는 학습은 [기본 `Estimator`](how-to-train-ml-models.md)를 사용하는 방식과 비슷하므로 먼저 방법 문서를 확인하고 이 문서에서 소개하는 개념을 이해해야 합니다.
   
-TensorFlow 작업을 실행하려면 `TensorFlow` 개체를 인스턴스화합니다. [계산 대상](how-to-set-up-training-targets.md#batch) 개체 `compute_target`는 이미 만든 상태여야 합니다.
+TensorFlow 작업을 실행하려면 `TensorFlow` 개체를 인스턴스화합니다. [계산 대상](how-to-set-up-training-targets.md#amlcompute) 개체 `compute_target`는 이미 만든 상태여야 합니다.
 
 ```Python
 from azureml.train.dnn import TensorFlow
@@ -47,7 +49,7 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
 --|--
 `source_directory` | 학습 작업에 필요한 모든 코드가 포함된 로컬 디렉터리입니다. 이 폴더는 로컬 컴퓨터에서 원격 컴퓨터로 복사됩니다.
 `script_params` | <명령줄 인수, 값> 쌍 형식으로 학습 스크립트 `entry_script`에 대한 명령줄 인수를 지정하는 사전입니다.
-`compute_target` | 학습 스크립트가 실행될 원격 계산(여기서는 [Batch AI](how-to-set-up-training-targets.md#batch) 클러스터)입니다.
+`compute_target` | 이 경우 학습 스크립트가 Azure Machine Learning 컴퓨팅([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) 클러스터에서 실행되는 원격 컴퓨팅 대상
 `entry_script` | 원격 계산에서 실행할 학습 스크립트의 파일 경로(`source_directory` 기준)입니다. 이 파일 및 이 파일이 의존하는 추가 파일은 이 폴더에 있어야 합니다.
 `conda_packages` | conda를 통해 설치할 학습 스크립트에 필요한 Python 패키지의 목록입니다. 여기서 학습 스크립트는 `sklearn`을 사용하여 데이터를 로드하므로 이 패키지를 설치하도록 지정합니다.  생성자에는 필요한 모든 pip 패키지에 사용할 수 있는 `pip_packages` 매개 변수도 있습니다.
 `use_gpu` | 학습에 GPU를 활용하려면 이 플래그를 `True`로 설정합니다. 기본값은 `False`입니다.
@@ -170,16 +172,9 @@ run = exp.submit(tf_est)
 ```
 
 ## <a name="examples"></a>예
-단일 노드 TensorFlow 학습 관련 자습서는 다음 항목을 참조하세요.
-* [training/03.train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb)
 
-Horovod를 사용하는 분산 TensorFlow 관련 자습서는 다음 항목을 참조하세요.
-* [training/04.distributed-tensorflow-with-horovod](https://github.com/Azure/MachineLearningNotebooks/tree/master/training/04.distributed-tensorflow-with-horovod)
-
-기본 분산 TensorFlow 관련 자습서는 다음 항목을 참조하세요.
-* [training/05.distributed-tensorflow-with-parameter-server](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/05.distributed-tensorflow-with-parameter-server)
-
-다음 Notebook을 다운로드합니다.
+분산형 딥러닝에서 Notebook은 다음을 참조하세요.
+* [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

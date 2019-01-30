@@ -4,16 +4,16 @@ description: 이 문서는 Azure Site Recovery를 사용하여 파일 서버를 
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: dde38f1c27ed808d730699e3c1d68a1c78cf3af5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c6db0b9dda9f383ddc062c41bae0be0b56f7e69d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850485"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794093"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 파일 서버 보호 
 
@@ -37,7 +37,7 @@ DFSR은 RDC(원격 차등 압축)라는 압축 알고리즘을 사용합니다. 
 
 ## <a name="disaster-recovery-recommendations-for-file-servers"></a>파일 서버의 재해 복구 권장 사항
 
-* **Site Recovery를 사용하여 파일 서버 복제**: 파일 서버는 Site Recovery를 사용하여 Azure에 복제할 수 있습니다. 하나 이상의 온-프레미스 파일 서버에 액세스할 수 없는 경우 Azure에서 복구 VM을 가져올 수 있습니다. 그런 다음, VM은 클라이언트, 온-프레미스에서 요청을 처리할 수 있습니다. 여기에서 제공되는 사이트 간 VPN 연결 및 Active Directory는 Azure에서 구성됩니다. DFSR이 구성된 환경 또는 DFSR이 없는 단순한 파일 서버 환경의 경우에 이 메서드를 사용할 수 있습니다. 
+* **Site Recovery를 사용하여 파일 서버 복제**: Site Recovery를 사용하여 파일 서버를 Azure에 복제할 수 있습니다. 하나 이상의 온-프레미스 파일 서버에 액세스할 수 없는 경우 Azure에서 복구 VM을 가져올 수 있습니다. 그런 다음, VM은 클라이언트, 온-프레미스에서 요청을 처리할 수 있습니다. 여기에서 제공되는 사이트 간 VPN 연결 및 Active Directory는 Azure에서 구성됩니다. DFSR이 구성된 환경 또는 DFSR이 없는 단순한 파일 서버 환경의 경우에 이 메서드를 사용할 수 있습니다. 
 
 * **DFSR을 Azure IaaS VM으로 확장**: DFSR이 구현된 클러스터된 파일 서버 환경에서 Azure로 온-프레미스 DFSR을 확장할 수 있습니다. Azure VM은 파일 서버 역할을 수행하도록 설정됩니다. 
 
@@ -45,7 +45,7 @@ DFSR은 RDC(원격 차등 압축)라는 압축 알고리즘을 사용합니다. 
 
     * VM에 Site Recovery에서 지원되지 않는 구성이 있는 경우 이 방법을 사용할 수 있습니다. 예는 경우에 따라 일반적으로 파일 서버 환경에서 사용되는 공유 클러스터 디스크입니다. DFSR은 중간 변동률을 사용하여 대역폭이 낮은 환경에서도 잘 작동합니다. Azure VM을 사용하고 항상 실행하는 추가 비용을 고려해야 합니다. 
 
-* **Azure 파일 동기화를 사용하여 파일 복제**: 클라우드를 사용하려는 경우 또는 Azure VM을 이미 사용하는 경우 Azure 파일 동기화를 사용할 수 있습니다. Azure 파일 동기화는 산업 표준 SMB([서버 메시지 블록](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)) 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유의 동기화를 제공합니다. Azure 파일 공유는 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포를 통해 동시에 탑재될 수 있습니다. 
+* **Azure File Sync를 사용하여 파일 복제**: 클라우드를 사용하려는 경우 또는 Azure VM을 이미 사용하는 경우 Azure 파일 동기화를 사용할 수 있습니다. Azure 파일 동기화는 산업 표준 SMB([서버 메시지 블록](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)) 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유의 동기화를 제공합니다. Azure 파일 공유는 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포를 통해 동시에 탑재될 수 있습니다. 
 
 다음 다이어그램을 사용하여 파일 서버 환경에 사용할 전략을 결정할 수 있습니다.
 
@@ -62,13 +62,13 @@ DFSR은 RDC(원격 차등 압축)라는 압축 알고리즘을 사용합니다. 
 
 
 ### <a name="site-recovery-support"></a>Site Recovery 지원
-Site Recovery 복제는 응용 프로그램을 제한하지 않으므로 권장 사항은 다음 시나리오에서도 유지됩니다.
+Site Recovery 복제는 애플리케이션을 제한하지 않으므로 권장 사항은 다음 시나리오에서도 유지됩니다.
 | 원본    |보조 사이트 대상    |Azure 대상
 |---------|---------|---------|
-|Azure| -|yes|
-|Hyper-V|   yes |yes
-|VMware |yes|   yes
-|물리적 서버|   yes |yes
+|Azure| -|예|
+|Hyper-V|   예 |예
+|VMware |예|   예
+|물리적 서버|   예 |예
  
 
 > [!IMPORTANT]

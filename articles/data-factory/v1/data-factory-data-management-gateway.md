@@ -9,17 +9,16 @@ ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 988c264ef6052b4b41de493944ac8d39a197a083
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 728adae62677eb2edb1e203df9b0d9f11f6acecf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698760"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022311"
 ---
 # <a name="data-management-gateway"></a>데이터 관리 게이트웨이
 > [!NOTE]
@@ -54,7 +53,7 @@ ms.locfileid: "43698760"
 높은 수준의 데이터 흐름 및 데이터 게이트웨이를 사용하여 복사하는 단계의 요약은 다음과 같습니다. ![게이트웨이를 사용하는 데이터 흐름](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
 
 1. 데이터 개발자는 [Azure Portal](https://portal.azure.com) 또는 [PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.datafactories/) 중 하나를 사용하는 Azure Data Factory에 대한 게이트웨이를 만듭니다.
-2. 데이터 개발자는 게이트웨이 지정하여 온-프레미스 데이터 저장소에 대한 연결된 서비스를 만듭니다. 연결된 서비스 데이터 설정의 일부로서 데이터 개발자는 자격 증명 설정 응용 프로그램을 사용하여 인증 유형 및 자격 증명을 지정합니다.  자격 증명 설정 응용 프로그램 대화 상자는 연결을 테스트하는 데이터 저장소 및 자격 증명을 저장하는 게이트웨이와 통신합니다.
+2. 데이터 개발자는 게이트웨이 지정하여 온-프레미스 데이터 저장소에 대한 연결된 서비스를 만듭니다. 연결된 서비스 데이터 설정의 일부로서 데이터 개발자는 자격 증명 설정 애플리케이션을 사용하여 인증 유형 및 자격 증명을 지정합니다.  자격 증명 설정 애플리케이션 대화 상자는 연결을 테스트하는 데이터 저장소 및 자격 증명을 저장하는 게이트웨이와 통신합니다.
 3. 게이트웨이는 클라우드에서 자격 증명을 저장하기 전에 게이트웨이(데이터 개발자가 제공함)에 연결된 인증서로 자격 증명을 암호화합니다.
 4. Data Factory 서비스는 공유 Azure 서비스 버스 큐를 사용하는 컨트롤 채널을 통해 작업의 예정 및 관리에 대한 게이트웨이와 통신합니다. 복사 작업이 시작되어야 할 경우 Data Factory는 자격 증명 정보와 함께 요청을 큐에 보관합니다. 게이트웨이는 큐를 폴링한 후에 작업을 시작합니다.
 5. 게이트웨이는 동일한 인증서를 사용하여 자격 증명의 암호를 해독하고 적절한 인증 형식 및 자격 증명을 사용하여 온-프레미스 데이터 저장소에 연결합니다.
@@ -152,7 +151,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트를 일반적으�
 
 > [!NOTE]
 > 1. 소스/싱크에 따라 회사/Windows 방화벽에서 추가 도메인 및 아웃바운드 포트를 허용 목록으로 만들어야 할 수 있습니다.
-> 2. 일부 클라우드 데이터베이스(예: [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access) 등)의 경우 해당 방화벽 구성에서 게이트웨이 컴퓨터의 IP 주소를 허용 목록으로 만들어야 합니다.
+> 2. 일부 클라우드 데이터베이스(예: [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access) 등)에서는 방화벽 구성에서 게이트웨이 머신의 IP 주소를 허용 목록으로 만들어야 할 수 있습니다.
 >
 >
 
@@ -225,7 +224,7 @@ HTTP 프록시에 대해 **시스템 프록시 사용** 설정을 선택하는 �
    프록시 태그 내에 scriptLocation과 같은 필수 설정을 지정하는 추가 속성을 사용할 수 있습니다. 구문의 [proxy 요소(네트워크 설정)](https://msdn.microsoft.com/library/sa91de1e.aspx)를 참조하세요.
 
          <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
-3. 구성 파일을 원래 위치에 저장한 다음 데이터 관리 게이트웨이 호스트 서비스를 다시 시작하면 변경 내용이 적용됩니다. 서비스를 다시 시작하려면 제어판의 서비스 애플릿을 사용하거나, **데이터 관리 게이트웨이 구성 관리자**에서 **서비스 중지** 단추를 클릭한 후 **서비스 시작**을 클릭합니다. 서비스가 시작되지 않으면 잘못된 XML 태그 구문이 편집된 응용 프로그램 구성 파일에 추가되었을 가능성이 높습니다.
+3. 구성 파일을 원래 위치에 저장한 다음 데이터 관리 게이트웨이 호스트 서비스를 다시 시작하면 변경 내용이 적용됩니다. 서비스를 다시 시작하려면 제어판의 서비스 애플릿을 사용하거나, **데이터 관리 게이트웨이 구성 관리자**에서 **서비스 중지** 단추를 클릭한 후 **서비스 시작**을 클릭합니다. 서비스가 시작되지 않으면 잘못된 XML 태그 구문이 편집된 애플리케이션 구성 파일에 추가되었을 가능성이 높습니다.
 
 > [!IMPORTANT]
 > diahost.exe.config 및 diawp.exe.config를 **둘 다** 업데이트해야 합니다.  
@@ -237,17 +236,17 @@ HTTP 프록시에 대해 **시스템 프록시 사용** 설정을 선택하는 �
 다음과 비슷한 오류가 발생할 경우 방화벽 또는 프록시 서버가 잘못 구성된 것일 수 있습니다. 그러면 게이트웨이가 Data Factory에 연결하여 인증을 할 수 없게 됩니다. 이전 섹션을 참조하여 방화벽 및 프록시 서버가 올바르게 구성되었는지 확인합니다.
 
 1. 게이트웨이를 등록하려고 하는 경우 다음과 같은 오류가 나타납니다. "게이트웨이 키를 등록하지 못했습니다. 게이트웨이 키를 다시 등록하려 하기 전에 데이터 관리 게이트웨이가 연결된 상태이며 데이터 관리 게이트웨이 호스트 서비스가 시작되었는지 확인합니다."
-2. Configuration Manager를 열 때 상태가 “연결 끊김” 또는 “연결 중”으로 표시됩니다. Windows 이벤트 로그를 확인할 때 “이벤트 뷰어” > “응용 프로그램 및 서비스 로그” > “데이터 관리 게이트웨이”에 다음 오류와 같은 오류 메시지가 표시됩니다. `Unable to connect to the remote server`
+2. Configuration Manager를 열 때 상태가 “연결 끊김” 또는 “연결 중”으로 표시됩니다. Windows 이벤트 로그를 확인할 때 “이벤트 뷰어” &gt; “애플리케이션 및 서비스 로그” &gt; “데이터 관리 게이트웨이”에 다음 오류와 같은 오류 메시지가 표시됩니다. `Unable to connect to the remote server`
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 
 ### <a name="open-port-8050-for-credential-encryption"></a>자격 증명 암호화용 8050 포트 열기
-Azure Portal에서 온-프레미스 연결된 서비스를 설정할 때 **자격 증명 설정** 응용 프로그램은 인바운드 포트 **8050**을 사용하여 게이트웨이로 자격 증명을 릴레이합니다. 게이트웨이를 설정하는 동안 기본적으로 게이트웨이를 설치하면 게이트웨이 컴퓨터에 이 포트가 열립니다.
+Azure Portal에서 온-프레미스 연결된 서비스를 설정할 때 **자격 증명 설정** 애플리케이션은 인바운드 포트 **8050**을 사용하여 게이트웨이로 자격 증명을 릴레이합니다. 게이트웨이를 설정하는 동안 기본적으로 게이트웨이를 설치하면 게이트웨이 컴퓨터에 이 포트가 열립니다.
 
 타사 방화벽을 사용 중인 경우 포트 8050을 수동으로 열 수 있습니다. 게이트웨이를 설치하는 동안 방화벽 문제가 발생하는 경우 다음 명령을 사용하여 방화벽을 구성하지 않고 게이트웨이를 설치할 수 있습니다.
 
     msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-게이트웨이 컴퓨터에서 포트 8050을 열지 않는 경우 **자격 증명 설정** 응용 프로그램을 사용하는 방식 이외의 메커니즘을 사용하여 데이터 저장소 자격 증명을 구성합니다. 예를 들어 [New-AzureRmDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) PowerShell cmdlet을 사용할 수 있습니다. 데이터 저장소 자격 증명을 설정할 수 있는 방법은 [자격 증명 및 보안 설정](#set-credentials-and-securityy) 섹션을 참조하세요.
+게이트웨이 머신에서 포트 8050을 열지 않는 경우 **자격 증명 설정** 애플리케이션을 사용하는 방식 이외의 메커니즘을 사용하여 데이터 스토리지 자격 증명을 구성합니다. 예를 들어 [New-AzureRmDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) PowerShell cmdlet을 사용할 수 있습니다. 데이터 저장소 자격 증명을 설정할 수 있는 방법은 [자격 증명 및 보안 설정](#set-credentials-and-securityy) 섹션을 참조하세요.
 
 ## <a name="update"></a>주 지역에서
 기본적으로 데이터 관리 게이트웨이는 게이트웨이의 새 버전을 사용할 수 있을 때 자동으로 업데이트됩니다. 게이트웨이는 모든 예약된 작업이 완료될 때까지 업데이트되지 않습니다. 업데이트 작업이 완료될 때까지 게이트웨이가 더 이상 작업을 처리하지 않습니다. 업데이트가 실패하면 게이트웨이는 이전 버전으로 다시 롤백됩니다.
@@ -307,7 +306,7 @@ Azure Portal에서 온-프레미스 연결된 서비스를 설정할 때 **자�
 게이트웨이를 설치하면 다음 방법 중 하나로 데이터 관리 게이트웨이 구성 관리자를 시작할 수 있습니다.
 
 1. **Search** 창에서 **데이터 관리 게이트웨이**를 입력하여 이 유틸리티에 액세스합니다.
-2. **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared** 폴더에서 **ConfigManager.exe** 실행 파일을 실행합니다.
+2. **ConfigManager.exe**라는 실행 파일을 실행합니다. 이 파일은 다음 폴더에 있습니다. **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
 
 ### <a name="home-page"></a>홈 페이지
 홈 페이지를 통해 다음 작업을 수행할 수 있습니다.
@@ -327,7 +326,7 @@ Azure Portal에서 온-프레미스 연결된 서비스를 설정할 때 **자�
 * **SSL 인증서**는 포털과 게이트웨이 간의 SSL 통신에서 데이터 원본에 대한 자격 증명을 설정하는 데 사용됩니다.  
 
 ### <a name="remote-access-from-intranet"></a>인트라넷에서 원격 액세스  
-이 기능은 나중에 사용할 수 있습니다. 향후 업데이트(v3.4 이상)에서는 현재 자격 증명의 암호화에는 PowerShell 또는 자격 증명 관리자 응용 프로그램을 사용하는 동안 포트 8050(위의 섹션 참조)을 사용하여 이뤄지는 원격 연결을 사용자가 활성화/비활성화할 수 있습니다. 
+이 기능은 나중에 사용할 수 있습니다. 향후 업데이트(v3.4 이상)에서는 현재 자격 증명 암호화에 PowerShell 또는 자격 증명 관리자 애플리케이션을 사용하는 동안 포트 8050(위의 섹션 참조)을 사용하여 이뤄지는 원격 연결을 사용자가 활성화/비활성화할 수 있습니다. 
 
 ### <a name="diagnostics-page"></a>진단 페이지
 진단 페이지를 통해 다음 작업을 수행할 수 있습니다.
@@ -362,8 +361,8 @@ Azure Portal에서 게이트웨이 컴퓨터의 리소스 사용률(CPU, 메모�
 
 모니터링 속성 | 설명
 :------------------ | :---------- 
-Name | 논리 게이트웨이 및 이 게이트웨이와 연결된 노드의 이름입니다. 노드는 게이트웨이가 설치되는 온-프레미스 Windows 컴퓨터입니다. 단일 논리 게이트웨이에서 하나 이상의 노드(최대 4개의 노드)를 포함하는 방법은 [데이터 관리 게이트웨이 - 고가용성 및 확장성](data-factory-data-management-gateway-high-availability-scalability.md)을 참조하세요.    
-상태 | 논리 게이트웨이 및 게이트웨이 노드의 상태입니다. 예를 들어 온라인/오프라인/제한 등이 있습니다. 이러한 상태에 대한 자세한 내용은 [게이트웨이 상태](#gateway-status) 섹션을 참조하세요. 
+이름 | 논리 게이트웨이 및 이 게이트웨이와 연결된 노드의 이름입니다. 노드는 게이트웨이가 설치되는 온-프레미스 Windows 컴퓨터입니다. 단일 논리 게이트웨이에서 하나 이상의 노드(최대 4개의 노드)를 포함하는 방법은 [데이터 관리 게이트웨이 - 고가용성 및 확장성](data-factory-data-management-gateway-high-availability-scalability.md)을 참조하세요.    
+상태 | 논리 게이트웨이 및 게이트웨이 노드의 상태입니다. 예제: 온라인/오프라인/제한 등 이러한 상태에 대한 자세한 내용은 [게이트웨이 상태](#gateway-status) 섹션을 참조하세요. 
 버전 | 논리 게이트웨이 및 각 게이트웨이 노드의 버전을 표시합니다. 논리 게이트웨이의 버전은 그룹에 있는 대다수 노드의 버전에 따라 결정됩니다. 논리 게이트웨이 설정에 다른 버전의 노드가 있으면 논리 게이트웨이와 버전 번호가 동일한 노드만 제대로 작동합니다. 다른 버전의 노드는 제한된 모드에 있으므로 수동으로 업데이트해야 합니다(자동 업데이트가 실패할 경우에만). 
 사용 가능한 메모리 | 게이트웨이 노드에서 사용 가능한 메모리입니다. 이 값은 거의 실시간 스냅숏입니다. 
 CPU 사용률 | 게이트웨이 노드의 CPU 사용률입니다. 이 값은 거의 실시간 스냅숏입니다. 
@@ -443,7 +442,7 @@ Data Factory 편집기에서 자격 증명을 암호화하려면 다음 단계�
 3. JSON 편집기에서 **gatewayName** 속성으로 게이트웨이의 이름을 입력합니다.
 4. **connectionString**에 **데이터 원본** 속성의 서버 이름을 입력합니다.
 5. **connectionString**에 **초기 카탈로그** 속성의 데이터베이스 이름을 입력합니다.    
-6. 명령 모음에서 **암호화** 단추를 클릭하여 ClickOnce **자격 증명 관리자** 응용 프로그램을 시작합니다. **자격 증명 설정** 대화 상자가 표시됩니다.
+6. 명령 모음에서 **암호화** 단추를 클릭하여 ClickOnce **자격 증명 관리자** 애플리케이션을 시작합니다. **자격 증명 설정** 대화 상자가 표시됩니다.
 
     ![자격 증명 대화 상자 설정](./media/data-factory-data-management-gateway/setting-credentials-dialog.png)
 7. **자격 증명 설정** 대화 상자에서 다음 단계를 수행합니다.
@@ -466,9 +465,9 @@ Data Factory 편집기에서 자격 증명을 암호화하려면 다음 단계�
         }
     }
     ```
-게이트웨이 컴퓨터와 다른 컴퓨터에서 포털에 액세스하는 경우 자격 증명 관리자 응용프로그램이 게이트웨이 컴퓨터에 연결할 수 있는지 확인해야 합니다. 응용 프로그램이 게이트웨이 컴퓨터에 연결할 수 없는 경우, 데이터 원본에 대한 자격 증명을 설정하고 데이터 원본에 대한 연결을 테스트할 수 없습니다.  
+게이트웨이 컴퓨터와 다른 컴퓨터에서 포털에 액세스하는 경우 자격 증명 관리자 애플리케이션이 게이트웨이 컴퓨터에 연결할 수 있는지 확인해야 합니다. 애플리케이션이 게이트웨이 컴퓨터에 연결할 수 없는 경우, 데이터 원본에 대한 자격 증명을 설정하고 데이터 원본에 대한 연결을 테스트할 수 없습니다.  
 
-**자격 증명 설정** 응용 프로그램을 사용하는 경우 포털은 게이트웨이 컴퓨터에서 **게이트웨이 구성 관리자**의 **인증서** 탭에 지정한 인증서를 사용하여 자격 증명을 암호화합니다.
+**자격 증명 설정** 애플리케이션을 사용하는 경우 포털은 게이트웨이 머신에서 **게이트웨이 구성 관리자**의 **인증서** 탭에 지정한 인증서를 사용하여 자격 증명을 암호화합니다.
 
 API 기반 방식으로 자격 증명을 암호화하려는 경우에는 [New-AzureRmDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) PowerShell cmdlet를 사용하여 자격 증명을 암호화할 수 있습니다. Cmdlet은 해당 게이트웨이 구성하는 인증서를 사용하여 자격 증명을 암호화를 사용합니다. 암호화된 자격 증명을 JSON에서 **connectionString**의 **EncryptedCredential** 요소에 추가합니다. JSON을 ` [New-AzureRmDataFactoryLinkedService](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactorylinkedservice) cmdlet과 함께 또는 데이터 팩터리 편집기에서.사용합니다.
 

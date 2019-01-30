@@ -1,19 +1,17 @@
 ---
 title: Azure Database for MySQL에서 읽기 복제본 만들기 및 관리
 description: 이 문서에서는 포털을 사용하여 Azure Database for MySQL에서 읽기 복제본을 설정하고 관리하는 방법을 설명합니다.
-services: mysql
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d779a492dde173df594ec332bb17bc4227d9d936
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8e622a11c489618cf66e9cdddf369309e7188645
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988487"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548020"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL에서 읽기 복제본을 만들고 관리하는 방법
 

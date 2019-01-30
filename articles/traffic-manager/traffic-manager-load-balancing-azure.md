@@ -1,6 +1,6 @@
 ---
 title: Azure에서 부하 분산 서비스 사용 | Microsoft Docs
-description: 이 자습서에서는 Azure 부하 분산 포트폴리오인 Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 시나리오를 만드는 방법을 보여 줍니다.
+description: 이 자습서에서는 Azure 부하 분산 포트폴리오인 Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 시나리오를 만드는 방법을 보여줍니다.
 services: traffic-manager
 documentationcenter: ''
 author: liumichelle
@@ -42,7 +42,7 @@ Microsoft Azure는 네트워크 트래픽을 분산하고 부하를 분산하는
 
 ## <a name="scenario"></a>시나리오
 
-이 예제 시나리오에서는 두 가지 유형의 콘텐츠와 동적으로 렌더링 되는 웹 페이지를 제공하는 간단한 웹 사이트를 사용합니다. 웹 사이트는 지리적으로 중복되고 사용자들에게 가장 가까운 (가장 낮은 대기 시간) 위치에서 서비스를 제공해야 합니다. 응용 프로그램 개발자는 /images/* 패턴과 일치하는 모든 URL이 웹 팜의 나머지 부분과는 다른 전용 VM 풀에서 서비스를 제공하도록 결정했습니다.
+이 예제 시나리오에서는 두 가지 유형의 콘텐츠와 동적으로 렌더링 되는 웹 페이지를 제공하는 간단한 웹 사이트를 사용합니다. 웹 사이트는 지리적으로 중복되고 사용자들에게 가장 가까운 (가장 낮은 대기 시간) 위치에서 서비스를 제공해야 합니다. 애플리케이션 개발자는 /images/* 패턴과 일치하는 모든 URL이 웹 팜의 나머지 부분과는 다른 전용 VM 풀에서 서비스를 제공하도록 결정했습니다.
 
 또한 동적 콘텐츠를 제공하는 기본 VM 풀은 고가용성 클러스터에 호스트되는 백 엔드 데이터베이스와 통신해야 합니다. 전체 배포는 Azure Resource Manager를 통해 설정됩니다.
 
@@ -50,15 +50,15 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 
 * **다중 지역 중복**: 한 지역의 작동이 중단되더라도 Traffic Manager에서는 응용 프로그램 소유자의 개입 없이 가장 가까운 지역으로 트래픽을 원활하게 라우팅합니다.
 * **대기 시간 감소**: Azure Traffic Manager에서 고객을 자동으로 가장 가까운 지역으로 다이렉트하기 때문에 고객이 웹 페이지 콘텐츠를 요청할 때 대기 시간이 줄어들게 됩니다.
-* **독립 확장성**: 웹 응용 프로그램 워크로드를 콘텐츠 형식에 따라 구분했으므로 응용 프로그램 소유자는 서로 독립적인 요청 워크로드를 확장할 수 있습니다. Application Gateway는 지정된 규칙 및 응용 프로그램의 상태에 따라 트래픽을 적당한 풀로 라우팅되게 합니다.
-* **내부 부하 분산**: Load Balancer가 고가용성 클러스터 앞에 배치되기 때문에 데이터베이스에 대한 활성 및 정상 끝점만이 응용 프로그램에 노출됩니다. 또한 데이터베이스 관리자는 프런트 엔드 응용 프로그램과 독립적인 클러스터 전반에 활성 및 수동 복제본을 배포하여 워크로드를 최적화할 수 있습니다. Load Balancer는 고가용성 클러스터에 연결을 제공하고 정상적인 데이터베이스만 연결 요청을 받는지 확인합니다.
+* **독립 확장성**: 웹 응용 프로그램 워크로드를 콘텐츠 형식에 따라 구분했으므로 응용 프로그램 소유자는 서로 독립적인 요청 워크로드를 확장할 수 있습니다. Application Gateway는 지정된 규칙 및 애플리케이션의 상태에 따라 트래픽을 적당한 풀로 라우팅되게 합니다.
+* **내부 부하 분산**: Load Balancer가 고가용성 클러스터 앞에 배치되기 때문에 데이터베이스에 대한 활성 및 정상 끝점만이 응용 프로그램에 노출됩니다. 또한 데이터베이스 관리자는 프런트 엔드 애플리케이션과 독립적인 클러스터 전반에 활성 및 수동 복제본을 배포하여 워크로드를 최적화할 수 있습니다. Load Balancer는 고가용성 클러스터에 연결을 제공하고 정상적인 데이터베이스만 연결 요청을 받는지 확인합니다.
 
 다음 다이어그램은 이 시나리오의 아키텍처를 보여 줍니다.
 
 ![부하 분산 아키텍처의 다이어그램](./media/traffic-manager-load-balancing-azure/scenario-diagram.png)
 
 > [!NOTE]
-> 이 예제는 Azure에서 제공하는 부하 분산 서비스의 다양한 구성 중 하나에 불과합니다. Traffic Manager, Application Gateway 및 Load Balancer를 부하 분산 요구에 가장 잘 맞게 혼합 및 일치시킬 수 있습니다. 예를 들어, SSL 오프 로드 또는 Layer 7 처리가 필요 없는 경우 부하 분산 장치 Application Gateway 대신에 Load Balancer를 사용할 수 있습니다.
+> 이 예제는 Azure에서 제공하는 부하 분산 서비스의 다양한 구성 중 하나에 불과합니다. Traffic Manager, Application Gateway 및 Load Balancer를 부하 분산 요구에 가장 잘 맞게 혼합 및 일치시킬 수 있습니다. 예를 들어, SSL 오프로드 또는 Layer 7 처리가 필요 없는 경우 부하 분산 장치 Application Gateway 대신에 Load Balancer를 사용할 수 있습니다.
 
 ## <a name="setting-up-the-load-balancing-stack"></a>부하 분산 스택 설정
 
@@ -105,7 +105,7 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 
   ![Application Gateway “백 엔드 풀 추가”](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
-4. Application Gateway의 **설정**에서 **규칙**을 선택한 다음 **경로 기반** 단추를 클릭하여 새 규칙을 추가합니다.
+4. Application Gateway의 **설정**에서 **규칙**을 선택한 다음, **경로 기반** 단추를 클릭하여 새 규칙을 추가합니다.
 
   ![Application Gateway 규칙 "경로 기반" 단추](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
@@ -202,7 +202,7 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 
 ### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>5단계: 부하 분산 장치에 웹 계층 VM 연결
 
-이제 모든 데이터베이스 연결에 대해 웹 계층 VM에서 실행 중인 응용 프로그램의 IP 주소 및 부하 분산 장치 프런트 엔드 포트를 구성합니다. 이 구성은 이러한 VM에서 실행되는 응용 프로그램에 지정됩니다. 대상 IP 주소와 포트를 구성하려면 응용 프로그램 설명서를 참조하세요. 프런트 엔드의 IP 주소를 찾으려면 Azure Portal의 **부하 분산 장치 설정**에서 프런트 엔드 IP 풀로 이동합니다.
+이제 모든 데이터베이스 연결에 대해 웹 계층 VM에서 실행 중인 애플리케이션의 IP 주소 및 부하 분산 장치 프런트 엔드 포트를 구성합니다. 이 구성은 이러한 VM에서 실행되는 애플리케이션에 지정됩니다. 대상 IP 주소와 포트를 구성하려면 애플리케이션 설명서를 참조하세요. 프런트 엔드의 IP 주소를 찾으려면 Azure Portal의 **부하 분산 장치 설정**에서 프런트 엔드 IP 풀로 이동합니다.
 
 ![부하 분산 장치 "프런트 엔드 IP 풀" 탐색 창](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 

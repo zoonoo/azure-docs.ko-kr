@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 50e70ab9be87c15816dc6471a2a29afd0f17d907
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c1a1da9fd0fff09bab027c4b4cc4e3085c5439f2
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301248"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411119"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>DWU(데이터 웨어하우스 단위) 및 cDWU(계산 데이터 웨어하우스 단위)
 가격 및 성능을 최적화하기 위한 이상적인 데이터 웨어하우스 단위(DWU, cDWU) 수 선택에 대한 권장 사항 및 단위 수를 변경하는 방법 
@@ -78,7 +78,7 @@ DWU 및 cDWU 모두 계산을 확장 또는 축소할 수 있고 데이터 웨�
 워크로드에 가장 적합한 DWU를 찾는 방법에 대한 단계:
 
 1. 더 작은 DWU를 선택하여 시작합니다. 
-2. 시스템으로 로드하는 데이터를 테스트할 때 응용 프로그램 성능을 모니터링하여 선택한 DWU 수와 관찰한 성능을 비교합니다.
+2. 시스템으로 로드하는 데이터를 테스트할 때 애플리케이션 성능을 모니터링하여 선택한 DWU 수와 관찰한 성능을 비교합니다.
 3. 정기적으로 작업량이 많은 기간에 필요한 추가 요구 사항을 식별합니다. 워크로드가 작업에서 뚜렷한 최고점 및 최저점을 나타내면 크기를 자주 조정하는 것이 좋습니다.
 
 SQL Data Warehouse는 데이터 양 조정이 가능한 대량의 계산 및 쿼리를 프로비전할 수 있는 스케일 아웃 시스템입니다. 특히 큰 DWU에서 진정한 크기 조정 기능을 확인하려면 데이터에 충분한 CPU가 할당되도록 데이터 집합의 크기를 조정하는 것이 좋습니다. 크기 조정 테스트의 경우 1TB 이상을 사용하는 것이 좋습니다.
@@ -90,6 +90,8 @@ SQL Data Warehouse는 데이터 양 조정이 가능한 대량의 계산 및 쿼
 ## <a name="permissions"></a>권한
 
 데이터 웨어하우스 단위를 변경하려면 [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql)에 설명된 권한이 필요합니다. 
+
+SQL DB 참가자 및 SQL Server 참가자와 같은 Azure 리소스에 대한 기본 제공 역할은 DWU 설정을 변경할 수 있습니다. 
 
 ## <a name="view-current-dwu-settings"></a>현재 DWU 설정 보기
 

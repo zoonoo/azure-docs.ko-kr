@@ -6,19 +6,18 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 01/08/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 38839379f584b40cdbefad3e4cbb3bc47881c9a7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 8693c5e255020e30c2e8ed52a3199712089e4503
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094598"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119087"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 다음 시나리오에서 Azure-SSIS IR(통합 런타임)을 Azure 가상 네트워크에 조인합니다. 
@@ -53,7 +52,7 @@ SSIS 카탈로그가 가상 네트워크 서비스 엔드포인트 또는 Manage
 
 가상 네트워크 서비스 엔드포인트가 있는 Azure SQL Database에서 SSIS 카탈로그를 호스트하는 경우 Azure-SSIS IR을 동일한 가상 네트워크 및 서브넷에 연결해야 합니다.
 
-Azure-SSIS IR을 Managed Instance와 동일한 가상 네트워크에 연결하는 경우 Azure-SSIS IR이 Managed Instance와 다른 서브넷에 있어야 합니다. Azure-SSIS IR을 Managed Instance와 다른 가상 네트워크에 연결하는 경우에는 가상 네트워크 피어링(동일한 지역으로 제한됨) 또는 가상 네트워크 간 연결을 사용하는 것이 좋습니다. [응용 프로그램을 Azure SQL Database Managed Instance에 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요.
+Azure-SSIS IR을 Managed Instance와 동일한 가상 네트워크에 연결하는 경우 Azure-SSIS IR이 Managed Instance와 다른 서브넷에 있어야 합니다. Azure-SSIS IR을 Managed Instance와 다른 가상 네트워크에 연결하는 경우에는 가상 네트워크 피어링(동일한 지역으로 제한됨) 또는 가상 네트워크 간 연결을 사용하는 것이 좋습니다. [애플리케이션을 Azure SQL Database Managed Instance에 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요.
 
 모든 경우에서, 가상 네트워크는 Azure Resource Manager 배포 모델을 통해서만 배포할 수 있습니다.
 
@@ -73,6 +72,10 @@ Azure-SSIS IR을 Managed Instance와 동일한 가상 네트워크에 연결하�
 -   Azure Express Route를 사용하거나 UDR(사용자 정의 경로)을 구성하는 경우 [Azure ExpressRoute 또는 사용자 정의 경로](#route)를 참조하세요. 
 
 -   가상 네트워크의 리소스 그룹에서 특정 Azure 네트워크 리소스를 만들고 삭제할 수 있는지 확인합니다. [리소스 그룹 요구 사항](#resource-group)을 참조하세요. 
+
+다음은 Azure-SSIS IR에 대한 필수 연결을 보여주는 다이어그램입니다.
+
+![Azure-SSIS IR](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir.png)
 
 ### <a name="perms"></a> 필요한 권한
 
@@ -198,19 +201,21 @@ Azure-SSIS 통합 런타임에 사용되는 서브넷에 대해 NSG(네트워크
 
 1. **MicrosoftAzureBatch**를 가상 네트워크의 **클래식 가상 머신 참가자** 역할에 조인합니다. 
 
-    a. 왼쪽 메뉴에서 **액세스 제어(IAM)** 를 선택하고, 도구 모음에서 **추가**를 선택합니다. 
+    a. 왼쪽 메뉴에서 **액세스 제어(IAM)** 를 선택하고, **역할 할당** 탭을 선택합니다. 
 
     !["액세스 제어" 및 "추가" 단추](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
 
-    b. **권한 추가** 페이지에서 **역할**에 **클래식 가상 머신 참가자**를 선택합니다. **선택** 상자에 **ddbf3205-c6bd-46ae-8127-60eb93363864**를 붙여넣고 검색 결과 목록에서 **Microsoft Azure Batch**를 선택합니다. 
+    b. **역할 할당 추가**를 선택합니다.
 
-    !["권한 추가" 페이지의 검색 결과](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+    다. **역할 할당 추가** 페이지에서 **역할**에 **클래식 가상 머신 기여자**를 선택합니다. **선택** 상자에 **ddbf3205-c6bd-46ae-8127-60eb93363864**를 붙여넣고 검색 결과 목록에서 **Microsoft Azure Batch**를 선택합니다. 
 
-    다. **저장**을 선택하여 설정을 저장하고 페이지를 닫습니다. 
+    !["역할 할당 추가" 페이지의 검색 결과](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+
+    d. **저장**을 선택하여 설정을 저장하고 페이지를 닫습니다. 
 
     ![액세스 설정 저장](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
 
-    d. 참가자 목록에 **Microsoft Azure Batch**가 보이는지 확인합니다. 
+    e. 참가자 목록에 **Microsoft Azure Batch**가 보이는지 확인합니다. 
 
     ![Azure Batch 액세스 확인](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
 

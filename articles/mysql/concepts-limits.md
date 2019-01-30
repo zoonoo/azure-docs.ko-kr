@@ -1,20 +1,17 @@
 ---
 title: Azure Database for MySQL의 제한 사항
 description: 이 문서에서는 Azure Database for MySQL에 대한 연결 수 및 저장소 엔진 옵션과 같은 제한 사항을 설명합니다.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
-ms.date: 06/30/2018
-ms.openlocfilehash: d73c0cc6416145fa3764d2ef938d6de7a4195c1b
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.topic: conceptual
+ms.date: 12/6/2018
+ms.openlocfilehash: 19fc20f21a57c2325254581c642b75c92c221fd9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982881"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536093"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Azure Database for MySQL의 제한 사항
 다음 섹션에서는 데이터베이스 서비스의 용량, 저장소 엔진 지원, 권한 지원, 데이터 조작 명령문 지원 및 기능 제한 사항에 대해 설명합니다. 또한 MySQL 데이터베이스 엔진에 적용할 수 있는 [일반적인 제한 사항](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html)도 참조하세요.
@@ -31,13 +28,15 @@ ms.locfileid: "45982881"
 |범용| 8| 1250|
 |범용| 16| 2500|
 |범용| 32| 5,000|
+|범용| 64| 10000|
 |메모리 최적화| 2| 600|
 |메모리 최적화| 4| 1250|
 |메모리 최적화| 8| 2500|
 |메모리 최적화| 16| 5,000|
+|메모리 최적화| 32| 10000|
 
 연결 한도를 초과하면 다음과 같은 오류가 발생할 수 있습니다.
-> 오류 1040(08004): 너무 많은 연결이 있습니다.
+> 오류 1040(08004): 연결이 너무 많음
 
 ## <a name="storage-engine-support"></a>저장소 엔진 지원
 

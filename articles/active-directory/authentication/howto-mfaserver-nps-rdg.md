@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 99ed74a9664fbeeb65d90e51d0afcd97dd0b0ca0
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: db1b73dc683a1f109cddfe929ba4682b7c6674e8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346498"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438629"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>RADIUS를 사용한 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버
 
@@ -30,6 +30,9 @@ ms.locfileid: "44346498"
 - 도메인에 가입된 Azure MFA 서버. 설치되어 있지 않은 경우 [Azure Multi-factor Authentication 서버 시작](howto-mfaserver-deploy.md)의 단계를 따릅니다.
 - 기존 구성된 NPS 서버.
 - 네트워크 정책 서비스를 인증하는 원격 데스크톱 게이트웨이.
+
+> [!NOTE]
+> 이 문서는 Azure MFA(클라우드 기반)가 아닌 MFA 서버 배포에만 해당합니다.
 
 ## <a name="configure-the-remote-desktop-gateway"></a>원격 데스크톱 게이트웨이 구성
 Azure Multi-Factor Authentication 서버에 RADIUS 인증을 보내도록 RD 게이트웨이를 구성합니다. 
@@ -69,7 +72,7 @@ Azure Multi-Factor Authentication 서버는 RD 게이트웨이 및 NPS 사이의
 1. Azure Multi-Factor Authentication 서버를 열고 RADIUS 인증 아이콘을 선택합니다. 
 2. **RADIUS 인증 사용** 확인란을 선택합니다.
 3. 클라이언트 탭에서 포트가 NPS에 구성된 포트와 일치하는지 확인한 다음 **추가**를 선택합니다.
-4. RD 게이트웨이 서버 IP 주소, 응용 프로그램 이름(선택 사항) 및 공유 암호를 추가합니다. 공유 암호는 Azure Multi-Factor Authentication 서버 및 RD 게이트웨이 모두에서 동일해야 합니다.
+4. RD 게이트웨이 서버 IP 주소, 애플리케이션 이름(선택 사항) 및 공유 암호를 추가합니다. 공유 암호는 Azure Multi-Factor Authentication 서버 및 RD 게이트웨이 모두에서 동일해야 합니다.
 3. **대상** 탭으로 이동하고 **RADIUS 서버** 라디오 단추를 선택합니다.
 4. **추가**를 선택하고 NPS 서버의 IP 주소, 공유 암호 및 포트를 입력합니다. 중앙 NPS를 사용하지 않는 한 RADIUS 클라이언트와 RADIUS 대상은 동일합니다. 공유 암호는 NPS 서버에서 RADIUS 클라이언트 섹션의 설정 하나와 일치해야 합니다.
 

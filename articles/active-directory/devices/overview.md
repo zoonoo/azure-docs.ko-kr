@@ -4,7 +4,7 @@ description: 사용자 환경의 리소스에 액세스하는 디바이스를 �
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f239b3ef6881f9ea1be043b7d27f061e015ae3be
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: e7cc11fd35049bf55c848293fa5aaafbdd7b7370
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037364"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452771"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>Azure Active Directory에서 디바이스 관리란?
 
@@ -43,11 +43,11 @@ Azure AD에서 제어하는 디바이스를 얻으려면 두 가지 옵션이 �
 - 등록 
 - 가입
 
-Azure AD에 장치를 **등록**하면 장치의 ID를 관리할 수 있습니다. 디바이스가 등록되면 Azure AD 디바이스 등록은 사용자가 Azure AD에 로그인할 때 디바이스를 인증하는 데 사용되는 ID와 함께 디바이스를 제공합니다. ID를 사용하여 디바이스를 사용하도록 설정하거나 설정 해제할 수 있습니다.
+Azure AD에 디바이스를 **등록**하면 디바이스의 ID를 관리할 수 있습니다. 디바이스가 등록되면 Azure AD 디바이스 등록은 사용자가 Azure AD에 로그인할 때 디바이스를 인증하는 데 사용되는 ID와 함께 디바이스를 제공합니다. ID를 사용하여 디바이스를 사용하도록 설정하거나 설정 해제할 수 있습니다.
 
 Microsoft Intune과 같은 MDM(모바일 디바이스 관리) 솔루션과 함께 사용할 경우 Azure AD의 디바이스 특성이 디바이스에 대한 추가 정보로 업데이트됩니다. 이렇게 하면 디바이스의 액세스를 적용하여 보안 및 규정 준수에 대한 표준을 충족하는 조건부 액세스 규칙을 만들 수 있습니다. Microsoft Intune에서 디바이스를 등록하는 방법에 대한 자세한 내용은 [Intune에서 관리를 위한 디바이스 등록](https://docs.microsoft.com/intune/device-enrollment#supported-device-platforms)을 참조하세요.
 
-장치 **가입**은 장치를 등록하는 것에 대한 확장입니다. 즉, 디바이스 등록 혜택을 모두 제공하면서, 추가로 디바이스의 로컬 상태를 변경합니다. 로컬 상태를 변경하면 사용자가 개인 계정 대신 조직 회사 또는 학교 계정을 사용하여 디바이스에 로그인할 수 있습니다.
+디바이스 **가입**은 디바이스를 등록하는 것에 대한 확장입니다. 즉, 디바이스 등록 혜택을 모두 제공하면서, 추가로 디바이스의 로컬 상태를 변경합니다. 로컬 상태를 변경하면 사용자가 개인 계정 대신 조직 회사 또는 학교 계정을 사용하여 디바이스에 로그인할 수 있습니다.
 
 ## <a name="azure-ad-registered-devices"></a>Azure AD 등록 디바이스   
 
@@ -59,7 +59,7 @@ Azure AD 등록 디바이스의 목표는 **BYOD(Bring Your Own Device)** 시나
 예를 들어 Windows 10을 사용하면 사용자가 회사 또는 학교 계정을 개인용 컴퓨터, 태블릿 또는 휴대폰에 추가할 수 있습니다.  
 사용자가 회사 또는 학교 계정을 추가하면 디바이스가 Azure AD에 등록되고 필요에 따라 조직이 구성한 MDM(모바일 디바이스 관리) 시스템에 등록됩니다. 조직의 사용자가 회사 또는 학교 계정을 개인 디바이스에 매우 간편하게 추가할 수 있습니다.
 
-- 처음으로 회사 응용 프로그램에 액세스 하는 경우
+- 처음으로 회사 애플리케이션에 액세스 하는 경우
 - Windows 10의 경우 **설정** 메뉴를 통해 수동으로 
 
 Windows 10, iOS, Android 및 macOS용 Azure AD 등록 디바이스를 구성할 수 있습니다.
@@ -85,15 +85,15 @@ Azure AD 가입 디바이스를 구현하면 다음과 같은 이점이 제공�
 
 - Azure 관리 SaaS 앱 및 서비스에 대한 **SSO(Single Sign-On)**. 사용자가 회사 리소스에 액세스할 때 추가 인증 메시지가 표시되지 않습니다. SSO 기능은 사용할 수 있는 도메인 네트워크에 연결되지 않은 경우에도 동일합니다.
 
-- 가입 장치 간 사용자 설정의 **엔터프라이즈 규정 준수 로밍**. 사용자는 디바이스 간에 설정을 보기 위해 Microsoft 계정(예: Hotmail)을 연결할 필요가 없습니다.
+- 가입 디바이스 간 사용자 설정의 **엔터프라이즈 규정 준수 로밍**. 사용자는 디바이스 간에 설정을 보기 위해 Microsoft 계정(예: Hotmail)을 연결할 필요가 없습니다.
 
-- Azure AD 계정을 사용하여 **비즈니스용 Windows 스토어에 액세스**합니다. 사용자가 조직에서 미리 선택된 응용 프로그램의 인벤토리에서 선택할 수 있습니다.
+- Azure AD 계정을 사용하여 **비즈니스용 Windows 스토어에 액세스**합니다. 사용자가 조직에서 미리 선택된 애플리케이션의 인벤토리에서 선택할 수 있습니다.
 
 - **Windows Hello**는 회사 리소스에 대한 안전하고 편리한 액세스를 지원합니다.
 
-- 앱에 대한 **액세스 제한**은 규정 준수 정책을 충족하는 장치에만 해당합니다.
+- 앱에 대한 **액세스 제한**은 규정 준수 정책을 충족하는 디바이스에만 해당합니다.
 
-- 장치가 온-프레미스 도메인 컨트롤러에 대한 시야를 갖고 있는 경우 **온-프레미스 리소스에 원활하게 액세스**됩니다. 
+- 디바이스가 온-프레미스 도메인 컨트롤러에 대한 시야를 갖고 있는 경우 **온-프레미스 리소스에 원활하게 액세스**됩니다. 
 
 
 Azure AD 가입은 기본적으로 온-프레미스 Windows Server Active Directory 인프라가 없는 조직을 위해 고안되었으나, 다음과 같은 시나리오에서 확실히 사용할 수 있습니다.

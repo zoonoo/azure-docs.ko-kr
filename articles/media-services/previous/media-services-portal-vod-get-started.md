@@ -1,6 +1,6 @@
 ---
 title: Azure Portal을 사용한 주문형 비디오 제공 시작 | Microsoft Docs
-description: 이 자습서에서는 Azure Portal을 사용한 Azure Media Services 응용 프로그램으로 기본 주문형 비디오 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
+description: 이 자습서에서는 Azure Portal을 사용한 Azure Media Services 애플리케이션으로 기본 주문형 비디오 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -24,7 +24,7 @@ ms.locfileid: "51234514"
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Azure Portal을 사용한 주문형 콘텐츠 제공 시작
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
-이 자습서에서는 Azure Portal을 사용한 Azure Media Services 응용 프로그램으로 기본 주문형 비디오 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
+이 자습서에서는 Azure Portal을 사용한 Azure Media Services 애플리케이션으로 기본 주문형 비디오 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 자습서를 완료하는 데 필요한 항목은 다음과 같습니다.

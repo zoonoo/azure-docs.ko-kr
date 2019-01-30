@@ -1,8 +1,8 @@
 ---
-title: Azure Batch 서비스 API를 사용하여 Azure Storage에 작업 및 태스크 출력 유지 | Microsoft Docs
+title: Batch 서비스 API를 사용하여 Azure Storage에 작업 및 태스크 출력 유지 - Azure Batch | Microsoft Docs
 description: Batch 서비스 API를 사용하여 Azure Storage에 Batch 작업 및 태스크 출력을 유지하는 방법을 알아봅니다.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.service: batch
@@ -11,13 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: danlep
-ms.openlocfilehash: 549be57b52fa88efa8c3850d131563fea2a7c65e
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 0aa0be7ae9658259b327014c5678777c963e6cb5
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706129"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302819"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Batch 서비스 API를 사용하여 Azure Storage에 태스크 데이터 유지
 
@@ -25,13 +26,13 @@ ms.locfileid: "51706129"
 
 Batch 서비스 API에서 가상 머신 구성으로 풀에서 실행되는 태스크 및 작업 관리자 태스크의 출력 데이터를 Azure Storage에 유지하도록 지원합니다. 태스크를 추가할 때 Azure Storage의 컨테이너를 태스크 출력의 대상으로 지정할 수 있습니다. 그런 다음 태스크가 완료되면 Batch 서비스에서 해당 컨테이너에 출력 데이터를 씁니다.
 
-Batch 서비스 API를 사용하여 태스크 출력을 유지하는 이점은 태스크가 실행되는 응용 프로그램을 수정할 필요가 없다는 것입니다. 대신 클라이언트 응용 프로그램을 약간만 수정하면 태스크를 만드는 동일한 코드 내에서 태스크 출력을 유지할 수 있습니다.
+Batch 서비스 API를 사용하여 태스크 출력을 유지하는 이점은 태스크가 실행되는 애플리케이션을 수정할 필요가 없다는 것입니다. 대신 클라이언트 응용 프로그램을 약간만 수정하면 태스크를 만드는 동일한 코드 내에서 태스크 출력을 유지할 수 있습니다.
 
 ## <a name="when-do-i-use-the-batch-service-api-to-persist-task-output"></a>Batch 서비스 API를 사용하여 태스크 출력을 유지하는 경우는?
 
 Azure Batch는 태스크 출력을 유지하는 한 가지 이상의 방법을 제공합니다. Batch 서비스 API를 사용하는 것은 다음 시나리오에 가장 적합한 편리한 방식입니다.
 
-- 태스크가 실행되는 응용 프로그램을 수정하지 않고 클라이언트 응용 프로그램 내에서 태스크 출력을 유지하는 코드를 작성하려고 합니다.
+- 태스크가 실행되는 애플리케이션을 수정하지 않고 클라이언트 애플리케이션 내에서 태스크 출력을 유지하는 코드를 작성하려고 합니다.
 - 가상 컴퓨터 구성으로 만든 풀에서 Batch 태스크 및 작업 관리자 태스크의 출력을 유지하려고 합니다.
 - Azure Storage 컨테이너에 임의의 이름으로 출력을 유지하려고 합니다.
 - [Batch 파일 규칙 표준](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)(영문)에 따라 명명된 Azure Storage 컨테이너에 출력을 유지하려고 합니다. 
@@ -45,11 +46,11 @@ Azure Batch는 태스크 출력을 유지하는 한 가지 이상의 방법을 �
 
 Azure Storage에 태스크 출력을 유지하려면 출력 파일의 대상으로 사용할 컨테이너를 만들어야 합니다. 태스크를 실행하기 전에, 오히려 작업을 제출하기 전에 컨테이너를 만드세요. 컨테이너를 만들려면 적절한 Azure Storage 클라이언트 라이브러리 또는 SDK를 사용합니다. Azure Storage API에 대한 자세한 내용은 [Azure Storage 설명서](https://docs.microsoft.com/azure/storage/)를 참조하세요.
 
-예를 들어 C#으로 응용 프로그램을 작성하는 경우 [.NET용 Azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)를 사용합니다. 다음 예제에서는 컨테이너를 만드는 방법을 보여 줍니다.
+예를 들어 C#으로 애플리케이션을 작성하는 경우 [.NET용 Azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/)를 사용합니다. 다음 예제에서는 컨테이너를 만드는 방법을 보여 줍니다.
 
 ```csharp
 CloudBlobContainer container = storageAccount.CreateCloudBlobClient().GetContainerReference(containerName);
-await conainer.CreateIfNotExists();
+await container.CreateIfNotExists();
 ```
 
 ## <a name="get-a-shared-access-signature-for-the-container"></a>컨테이너에 대한 공유 액세스 서명 가져오기
@@ -185,7 +186,7 @@ C# 이외의 언어로 개발하는 경우 파일 규칙 표준을 직접 구현
 1. **Visual Studio 2017**에서 프로젝트를 엽니다.
 2. Microsoft.Azure.Batch.Samples.Common 프로젝트에서 Batch 및 Storage **계정 자격 증명**을 **AccountSettings.settings**에 추가합니다.
 3. **빌드** 합니다(하지만 실행하지 않음). 메시지가 표시되면 모든 NuGet 패키지를 복원합니다.
-4. Azure 포털을 사용하여 [PersistOutputsTask](batch-application-packages.md) 에 대한 **응용 프로그램 패키지**를 업로드합니다. `PersistOutputsTask.exe` 및 종속 어셈블리를 .zip 패키지에 포함하고, 응용 프로그램 ID를 "PersistOutputsTask"로, 응용 프로그램 패키지 버전을 "1.0"으로 설정합니다.
+4. Azure 포털을 사용하여 [PersistOutputsTask](batch-application-packages.md) 에 대한 **애플리케이션 패키지**를 업로드합니다. `PersistOutputsTask.exe` 및 종속 어셈블리를 .zip 패키지에 포함하고, 애플리케이션 ID를 "PersistOutputsTask"로, 애플리케이션 패키지 버전을 "1.0"으로 설정합니다.
 5. **PersistOutputs** 프로젝트를 **시작**(실행)합니다.
 6. 샘플을 실행하는 데 사용할 지속성 기술을 선택하라는 메시지가 표시될 때 Batch 서비스 API를 통해 샘플을 실행하여 태스크 출력을 유지하려면 **2**를 입력합니다.
 7. 원하는 경우 샘플을 다시 실행하고 **3**을 입력하여 Batch 서비스 API를 통해 출력을 유지하고 파일 규칙 표준에 따라 대상 컨테이너와 Blob 경로의 이름도 지정합니다.

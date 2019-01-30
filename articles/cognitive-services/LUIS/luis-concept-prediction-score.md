@@ -1,23 +1,24 @@
 ---
-title: 예측 점수 - 의도, 엔터티 - LUIS
-titleSuffix: Azure Cognitive Services
+title: 예측 점수
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 예측 점수는 예측 결과에 대한 LUIS의 신뢰도를 나타냅니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: e1582da9a8fea4137d40b3a3855ead467dbbb548
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: d082f8ee4d516e3c9571ec63653f39723cad8c77
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264389"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141988"
 ---
-# <a name="prediction-score"></a>예측 점수
+# <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>예측 점수는 의도 및 엔터티에 대한 예측 정확도를 나타냅니다.
 예측 점수는 예측 결과에 대한 LUIS의 신뢰도를 나타냅니다. 
 
 예측 점수는 0(영)과 1(일) 사이입니다. 신뢰도가 높은 LUIS 점수의 예는 0.99입니다. 신뢰도 점수의 예는 0.01입니다. 

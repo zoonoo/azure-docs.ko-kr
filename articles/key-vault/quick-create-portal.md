@@ -9,17 +9,16 @@ ms.assetid: 98cf8387-34de-468e-ac8f-5c02c9e83e68
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/10/2018
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 864c80fe0ab8b061439b5a80a111edbd1b2004b6
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: c3b605507c3878770db2c7dcb53a2ff9bb512b6b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027030"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078391"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -29,7 +28,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-http://portal.azure.com에서 Azure Portal에 로그인합니다.
+http://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-vault"></a>자격 증명 모음 만들기
 
@@ -51,7 +50,7 @@ http://portal.azure.com에서 Azure Portal에 로그인합니다.
 아래에 나열된 두 개의 속성을 기록합니다.
 
 * **자격 증명 모음 이름**: 이 예에서는 **Contoso-Vault2**입니다. 다른 단계에서 이 이름을 사용합니다.
-* **자격 증명 모음 URI**: 이 예에서는 https://contoso-vault2.vault.azure.net/입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 응용 프로그램은 URI를 사용해야 합니다.
+* **자격 증명 모음 URI**: 이 예에서는 https://contoso-vault2.vault.azure.net/입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
 
 이때 사용자의 Azure 계정은 이 새 자격 증명 모음에서 작업을 수행할 권한이 있는 유일한 계정입니다.
 
@@ -88,4 +87,4 @@ http://portal.azure.com에서 Azure Portal에 로그인합니다.
 이 빠른 시작에서는 Key Vault를 만들고 비밀을 저장했습니다. Key Vault와 이 Key Vault를 응용 프로그램과 함께 사용하는 방법에 대해 자세히 알아보려면 Key Vault와 함께 작동하는 웹 응용 프로그램에 대한 자습서를 진행합니다.
 
 > [!div class="nextstepaction"]
-> Azure 리소스에 대한 관리 ID를 사용하여 웹 응용 프로그램의 Key Vault에서 비밀을 읽는 방법을 알아보려면 [Key Vault에서 비밀을 읽도록 Azure 웹 응용 프로그램 구성](quick-create-net.md) 자습서를 계속 진행하세요.
+> Azure 리소스에 대한 관리 ID를 사용하여 웹 애플리케이션의 Key Vault에서 비밀을 읽는 방법을 알아보려면 [Key Vault에서 비밀을 읽도록 Azure 웹 애플리케이션 구성](quick-create-net.md) 자습서를 계속 진행하세요.

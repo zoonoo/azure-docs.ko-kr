@@ -4,7 +4,7 @@ description: 이 항목에서는 사용되고 만든 계정 및 필요한 권한
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ef8b621b41bb43c46ef728e28d3b312ac49f1da3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 403fd0679e0850d758dd0e2f65cec3fe2ff79965
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308786"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478606"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: 계정 및 사용 권한
 
@@ -111,7 +111,7 @@ DirSync에서 업그레이드하는 경우 AD DS Enterprise 관리자 자격 증
 | Azure에 연결 |Azure AD 디렉터리 자격 증명 |Azure AD에서 글로벌 관리자 역할 |<li>Azure AD 디렉터리에서 동기화를 사용하도록 설정합니다.</li>  <li>Azure AD에서 진행 중인 동기화 작업에 사용할 수 있는 [Azure AD Connect 계정](#azure-ad-service-account)을 만드는 데 사용됩니다.</li> |
 | 디렉터리에 연결 |Azure AD에 연결되는 각 포리스트의 온-프레미스 Active Directory 자격 증명 |사용 권한은 어떤 기능을 사용하는지에 따라 달라지며 [AD DS Connector 계정 만들기](#create-the-ad-dso-connector-account)에서 찾을 수 있습니다. |계정은 동기화 중에 디렉터리 정보를 읽고 쓰는 데 사용됩니다. |
 | AD FS 서버 |목록의 각 서버에 대해, 마법사를 실행하는 사용자의 로그온 자격 증명이 연결하기에 충분하지 않으면 마법사는 자격 증명을 수집합니다. |도메인 관리자 |AD FS 서버 역할 설치 및 구성 |
-| 웹 응용 프로그램 프록시 서버 |목록의 각 서버에 대해, 마법사를 실행하는 사용자의 로그온 자격 증명이 연결하기에 충분하지 않으면 마법사는 자격 증명을 수집합니다. |대상 컴퓨터의 로컬 관리자 |WAP 서버 역할 설치 및 구성 |
+| 웹 애플리케이션 프록시 서버 |목록의 각 서버에 대해, 마법사를 실행하는 사용자의 로그온 자격 증명이 연결하기에 충분하지 않으면 마법사는 자격 증명을 수집합니다. |대상 컴퓨터의 로컬 관리자 |WAP 서버 역할 설치 및 구성 |
 | 프록시 트러스트 자격 증명 |페더레이션 서비스 자격 증명(FS에서 프록시가 신뢰 인증서를 등록하는 데 사용하는 자격 증명) |AD FS 서버의 로컬 관리자인 도메인 계정 |FS-WAP 신뢰 인증서의 초기 등록. |
 | AD FS 서비스 계정 페이지에서 "도메인 사용자 계정 옵션 사용" |AD 사용자 계정 자격 증명 |도메인 사용자 |해당 자격 증명을 제공하는 AD 사용자 계정이 AD FS 서비스의 로그온 계정으로 사용됩니다. |
 
@@ -135,7 +135,7 @@ DirSync에서 업그레이드하는 경우 AD DS Enterprise 관리자 자격 증
 | Exchange 하이브리드 배포 |사용자, 그룹 및 연락처에 대한 [Exchange 하이브리드 쓰기 저장](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback)에 설명된 특성에 사용 권한을 작성합니다. |
 | Exchange 메일 공용 폴더 |공용 폴더의 [Exchange Mail 공용 폴더](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder)에서 설명하는 특성에 대한 읽기 권한 | 
 | 비밀번호 쓰기 저장 |사용자에 대한 [암호 관리 시작](../authentication/howto-sspr-writeback.md)에 설명된 특성에 사용 권한을 작성합니다. |
-| 디바이스 쓰기 저장 |[장치 쓰기 저장](how-to-connect-device-writeback.md)에 설명한 대로 PowerShell 스크립트에 부여된 사용 권한입니다. |
+| 디바이스 쓰기 저장 |[디바이스 쓰기 저장](how-to-connect-device-writeback.md)에 설명한 대로 PowerShell 스크립트에 부여된 사용 권한입니다. |
 | 그룹 쓰기 저장 |동기화된 **Office 365 그룹**에 대해 그룹 개체를 읽기, 만들기, 업데이트 및 삭제합니다.  자세한 내용은 [그룹 쓰기 저장](how-to-connect-preview.md#group-writeback)을 참조하세요.|
 
 ## <a name="upgrade"></a>업그레이드
@@ -149,7 +149,7 @@ Azure AD Connect의 한 버전에서 새 릴리스로 업그레이드하는 경�
 | --- | --- | --- |
 | 설치 마법사를 실행하는 사용자 |로컬 서버의 관리자 |이진을 업데이트합니다. |
 | 설치 마법사를 실행하는 사용자 |ADSyncAdmins의 구성원 |동기화 규칙 및 기타 구성을 변경합니다. |
-| 설치 마법사를 실행하는 사용자 |전체 SQL Server를 사용하는 경우, 동기화 엔진 데이터베이스의 DBO(또는 유사한 권한) |새 열을 사용한 테이블 업데이트와 같이 데이터베이스 수준을 변경합니다. |
+| 설치 마법사를 실행하는 사용자 |전체 SQL 서버를 사용하는 경우: 동기화 엔진 데이터베이스의 DBO(또는 이와 유사한) |새 열을 사용한 테이블 업데이트와 같이 데이터베이스 수준을 변경합니다. |
 
 ## <a name="more-about-the-created-accounts"></a>만든 계정에 대한 자세한 내용
 ### <a name="ad-ds-connector-account"></a>AD DS Connect 계정

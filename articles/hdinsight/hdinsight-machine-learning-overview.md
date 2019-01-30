@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2ac108d65b42221189e50987238ad3d7edad1e30
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 7e5f56251e00b59a6e6d3be40612f4c8e381dff1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005343"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743003"
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight의 기계 학습
 
-HDInsight를 사용하면 빅 데이터와 함께 기계 학습을 수행하여 대량(페타바이트, 심지어 엑사바이트)의 구조적, 비구조적 및 고속 이동 데이터에서 가치 있는 통찰력을 얻을 수 있습니다. HDInsight에는 SparkML과 MLlib, R, Hive 및 Microsoft Cognitive Toolkit와 같은 여러 가지 기계 학습 옵션이 있습니다.
+HDInsight를 사용하면 빅 데이터와 함께 기계 학습을 수행하여 대량(페타바이트, 심지어 엑사바이트)의 구조적, 비구조적 및 고속 이동 데이터에서 가치 있는 통찰력을 얻을 수 있습니다. HDInsight에는  SparkML 및 Apache Spark MLlib, R, Apache Hive, Microsoft Cognitive Toolkit과 같은 몇 가지 기계 학습 옵션이 제공됩니다.
 
 ## <a name="sparkml-and-mllib"></a>SparkML 및 MLlib
 
-[HDInsight Spark](spark/apache-spark-overview.md)는 Azure에서 호스팅되는 [Spark](http://spark.apache.org/) 제품으로, 메모리 내 처리를 지원하여 빅 데이터 분석을 향상시키는 오픈 소스 통합형 병렬 데이터 처리 프레임워크입니다. 속도, 간편한 사용 및 정교한 분석을 위해 Spark 처리 엔진이 빌드되었습니다. Spark는 메모리 내 분산형 계산 기능을 지원하여 기계 학습 및 그래프 계산에 사용된 반복 알고리즘에 적합합니다. 이 분산 환경에 알고리즘 모델링 기능을 제공하는 확장 가능한 두 가지 기계 학습 라이브러리로 MLlib와 SparkML이 있습니다. MLlib에는 RDD에 기반하여 빌드된 원래의 API가 포함되어 있습니다. SparkML은 ML 파이프라인을 생성하기 위해 데이터 프레임에 기반하여 빌드된 높은 수준의 고급 API를 제공하는 새로운 패키지입니다. SparkML은 아직 MLlib의 모든 기능을 지원하지는 않지만 MLlib를 Spark의 표준 기계 학습 라이브러리로 대체합니다.
+[HDInsight Spark](spark/apache-spark-overview.md)는 Azure에서 호스팅되는 [Apache Spark](https://spark.apache.org/) 제품으로, 메모리 내 처리를 지원하여 빅 데이터 분석을 향상시키는 오픈 소스 통합형 병렬 데이터 처리 프레임워크입니다. 속도, 간편한 사용 및 정교한 분석을 위해 Spark 처리 엔진이 빌드되었습니다. Spark는 메모리 내 분산형 계산 기능을 지원하여 기계 학습 및 그래프 계산에 사용된 반복 알고리즘에 적합합니다. 이 분산 환경에 알고리즘 모델링 기능을 제공하는 확장성 있는 두 가지 Machine Learning 라이브러리인 MLlib 및 SparkML이 있습니다. MLlib에는 RDD에 기반하여 빌드된 원래의 API가 포함되어 있습니다. SparkML은 ML 파이프라인을 생성하기 위해 데이터 프레임에 기반하여 빌드된 높은 수준의 고급 API를 제공하는 새로운 패키지입니다. SparkML은 아직 MLlib의 모든 기능을 지원하지는 않지만 MLlib를 Spark의 표준 기계 학습 라이브러리로 대체합니다.
 
 [MMLSpark](https://github.com/Azure/mmlspark)는 Apache Spark용 Microsoft Machine Learning 라이브러리입니다. 이 라이브러리는 Spark에서 데이터 과학자의 생산성을 높이고, 실험 속도를 높이고, 매우 큰 데이터 세트에서 최첨단 기계 학습 기술(딥 러닝 포함)을 활용하도록 설계되었습니다. MMLSpark는 확장 가능한 ML 모델(예: 인덱싱 문자열)을 작성하고, 데이터를 기계 학습 알고리즘에 필요한 레이아웃으로 강제 변환하고, 기능 벡터를 어셈블할 때 SparkML의 하위 수준 API에 기반한 계층을 제공합니다. MMLSpark 라이브러리는 PySpark에서 모델을 작성하기 위한 이러한 일반적인 작업을 간소화합니다.
 
@@ -36,7 +36,7 @@ HDInsight를 사용하면 빅 데이터와 함께 기계 학습을 수행하여 
 
 Spark가 있는 HDInsight의 ML 서비스를 사용하면 Spark 계산 컨텍스트를 통해 클러스터 노드에서 학습을 병렬화할 수 있습니다. 필요에 따라 사용 가능한 모든 코어를 병렬로 사용하여 에지 노드에서 R 스크립트를 직접 실행할 수 있습니다. 또는 에지 노드의 코드를 실행하여 클러스터의 모든 노드에 분산된 처리를 시작할 수 있습니다. 또한 Spark가 있는 HDInsight의 ML 서비스를 사용하면 원하는 경우 오픈 소스 R 패키지의 병렬화 기능을 사용할 수도 있습니다.
 
-## <a name="azure-machine-learning-and-hive"></a>Azure Machine Learning 및 Hive
+## <a name="azure-machine-learning-and-apache-hive"></a>Azure Machine Learning 및 Apache Hive
 
 Azure Machine Learning은 예측 분석을 모델링하는 도구를 제공할 뿐 아니라, 예측 모델을 사용할 준비가 된 웹 서비스로 배포하는 데 사용할 수 있는 완전한 관리 서비스도 제공합니다. Azure Machine Learning은 클라우드 기반의 완벽한 예측 분석 솔루션으로, 예측 모델을 생성, 테스트, 운영 및 관리하는 데 사용할 수 있습니다. 대형 알고리즘 라이브러리에서 선택하고, 웹 기반 스튜디오를 사용하여 모델을 작성하고, 이 모델을 웹 서비스로 쉽게 배포합니다.
 
@@ -54,14 +54,14 @@ Azure Machine Learning은 예측 분석을 모델링하는 도구를 제공할 �
 
 ### <a name="scenarios"></a>시나리오
 
-* [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [Mahout을 사용하여 영화 추천 생성](hadoop/apache-hadoop-mahout-linux-mac.md)
-* [Hive 및 Azure Machine Learning](../machine-learning/team-data-science-process/create-features-hive.md)
-* [Hive 및 Azure Machine Learning 종단 간 시나리오](../machine-learning/team-data-science-process/hive-walkthrough.md)
-* [HDInsight에서 Spark를 사용하는 기계 학습](../machine-learning/team-data-science-process/spark-overview.md)
+* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 HVAC 데이터로 건물 온도 분석](spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Mahout를 사용하여 영화 추천 생성](hadoop/apache-hadoop-mahout-linux-mac.md)
+* [Apache Hive 및 Azure Machine Learning](../machine-learning/team-data-science-process/create-features-hive.md)
+* [Apache Hive 및 Azure Machine Learning 엔드 투 엔드](../machine-learning/team-data-science-process/hive-walkthrough.md)
+* [HDInsight에서 Apache Spark를 사용하는 Machine Learning](../machine-learning/team-data-science-process/spark-overview.md)
 
 ### <a name="deep-learning-resources"></a>딥 러닝 리소스
 
-* [Spark를 사용한 딥 러닝 도구 키트](https://blogs.technet.microsoft.com/machinelearning/2017/04/25/using-microsofts-deep-learning-toolkit-with-spark-on-azure-hdinsight-clusters/)
-* [Spark에서 Cognitive Toolkit 및 Tensorflow를 사용하여 처치 곤란한 병렬 이미지 분류](https://blogs.technet.microsoft.com/machinelearning/2017/04/12/embarrassingly-parallel-image-classification-using-cognitive-toolkit-tensorflow-on-azure-hdinsight-spark/)
+* [Apache Spark를 사용한 딥 러닝 도구 키트](https://blogs.technet.microsoft.com/machinelearning/2017/04/25/using-microsofts-deep-learning-toolkit-with-spark-on-azure-hdinsight-clusters/)
+* [Apache Spark에서 Cognitive Toolkit 및 Tensorflow를 사용하여 처치 곤란한 병렬 이미지 분류](https://blogs.technet.microsoft.com/machinelearning/2017/04/12/embarrassingly-parallel-image-classification-using-cognitive-toolkit-tensorflow-on-azure-hdinsight-spark/)

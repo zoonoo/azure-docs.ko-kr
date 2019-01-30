@@ -5,7 +5,7 @@ services: active-directory
 keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -14,37 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 12/22/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: a40774faadc4393a1ebbb6e26673ba7dff22560c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 39d49a223fb02d00af2309922ccd98a764264b4d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092307"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452516"
 ---
-# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 액세스 제어란? 
+# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 액세스 제어란?
 
-[Azure AD(Azure Active Directory) 조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 사용하여 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있습니다. 조건부 액세스 정책에서 정책을 트리거하는 이유(“when this happens”)에 대한 응답(“do this”)을 정의합니다. 
+[Azure AD(Azure Active Directory) 조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 사용하여 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있습니다. 조건부 액세스 정책에서 정책을 트리거하는 이유(“when this happens”)에 대한 응답(“do this”)을 정의합니다.
 
 ![제어](./media/controls/10.png)
 
-
-조건부 액세스의 컨텍스트에서, 
+조건부 액세스의 컨텍스트에서,
 
 - “**When this happens**”는 **조건**이라고 합니다.
 
 - “**Then do this**”는 **액세스 제어**라고 합니다.
 
-
 조건 문과 제어 문의 조합은 조건부 액세스 정책을 나타냅니다.
 
 ![제어](./media/controls/61.png)
 
-각 컨트롤은 로그인하는 사용자 또는 시스템에 의해 충족되어야 하는 요구 사항 또는 사용자가 로그인한 후 수행할 수 있는 작업에 대한 제한입니다. 
+각 컨트롤은 로그인하는 사용자 또는 시스템에 의해 충족되어야 하는 요구 사항 또는 사용자가 로그인한 후 수행할 수 있는 작업에 대한 제한입니다.
 
-두 가지 형식의 컨트롤이 있습니다. 
+두 가지 형식의 컨트롤이 있습니다.
 
 - **권한 부여 컨트롤** - 액세스를 제어하기 위해
 
@@ -56,28 +54,24 @@ ms.locfileid: "50092307"
 
 권한 부여 컨트롤을 사용하여 액세스를 완전히 차단하거나 원하는 컨트롤을 선택하여 추가 요구 사항으로 액세스를 허용할 수 있습니다. 여러 컨트롤의 경우 다음이 필요할 수 있습니다.
 
-- 충족되도록 선택한 모든 컨트롤(*AND*) 
+- 충족되도록 선택한 모든 컨트롤(*AND*)
 - 충족되도록 선택한 하나의 컨트롤(*OR*)
 
 ![제어](./media/controls/17.png)
 
-
-
 ### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-이 컨트롤을 사용하여 지정된 클라우드 앱에 액세스하기 위해 다단계 인증을 요구할 수 있습니다. 이 컨트롤은 다음 다단계 공급자를 지원합니다. 
+이 컨트롤을 사용하여 지정된 클라우드 앱에 액세스하기 위해 다단계 인증을 요구할 수 있습니다. 이 컨트롤은 다음 다단계 공급자를 지원합니다.
 
-- Azure Multi-Factor Authentication 
+- Azure Multi-Factor Authentication
 
 - AD FS(Active Directory Federation Service)와 결합된 온-프레미스 다단계 인증 공급자.
- 
+
 다단계 인증을 사용하면 유효한 사용자의 주 자격 증명에 액세스 할 수 있는 권한이 없는 사용자가 리소스에 액세스하지 못하도록 방지할 수 있습니다.
-
-
 
 ### <a name="compliant-device"></a>규정 준수 디바이스
 
-디바이스 기반인 조건부 액세스 정책을 구성할 수 있습니다. 디바이스 기반 조건부 액세스 정책의 목적은 [관리 디바이스](require-managed-devices.md)에서 구성된 리소스에 대한 액세스 권한만을 부여하는 것입니다. 관리 디바이스를 정의해야 하는 한 가지 옵션은 준수 디바이스가 필요합니다. 이 옵션을 선택하면 조건부 액세스 정책에서는 Azure Active Directory에 [등록](../devices/overview.md)되어 있고 Intune(모든 디바이스 OS) 또는 Windows 10 디바이스에 대한 타사 MDM 시스템 규격으로 표시되는 디바이스의 액세스 시도에 액세스할 수 있는 권한을 부여합니다. Windows 10 이외의 디바이스 OS 형식에 대한 타사 MDM 시스템은 지원되지 않습니다.
+디바이스 기반인 조건부 액세스 정책을 구성할 수 있습니다. 디바이스 기반 조건부 액세스 정책의 목적은 [관리 디바이스](require-managed-devices.md)에서 구성된 리소스에 대한 액세스 권한만을 부여하는 것입니다. 관리 디바이스를 정의해야 하는 한 가지 옵션은 준수 디바이스가 필요합니다. 이 옵션을 선택하면 조건부 액세스 정책에서는 Azure Active Directory에 [등록](../devices/overview.md)되어 있고 Intune(모든 디바이스 OS) 또는 Windows 10 디바이스에 대한 타사 MDM 시스템 규격으로 표시되는 디바이스의 액세스 시도에 액세스할 수 있는 권한을 부여합니다. Windows 10 이외의 디바이스 OS 유형에 대한 타사 MDM 시스템은 지원되지 않습니다.
 
 자세한 내용은 [Azure Active Directory 디바이스 기반 조건부 액세스 정책 설정](require-managed-devices.md)을 참조하세요.
 
@@ -87,25 +81,18 @@ ms.locfileid: "50092307"
 
 자세한 내용은 [Azure Active Directory 디바이스 기반 조건부 액세스 정책 설정](require-managed-devices.md)을 참조하세요.
 
-
-
-
-
 ### <a name="approved-client-app"></a>승인된 클라이언트 앱
 
 직원이 개인 및 회사 작업 모두에 모바일 디바이스를 사용하므로 관리되지 않는 경우에도 디바이스를 사용하여 액세스되는 회사 데이터를 보호하는 기능이 있어야 합니다.
 [Intune 앱 보호 정책](https://docs.microsoft.com/intune/app-protection-policy)을 사용하여 모든 MDM(모바일 장치 관리) 솔루션과는 별도로 회사의 데이터를 보호할 수 있습니다.
 
-
 승인된 클라이언트 앱을 사용하여 [Intune 앱 보호 정책](https://docs.microsoft.com/intune/app-protection-policy)을 지원하도록 클라우드 앱에 액세스를 시도하는 클라이언트 앱을 요구할 수 있습니다. 예를 들어 Exchange Online에 대한 액세스를 Outlook 앱으로 제한할 수 있습니다. 승인된 클라이언트 앱을 요구하는 조건부 액세스 정책을 [앱 기반 조건부 액세스 정책](app-based-conditional-access.md)이라고도 합니다. 지원되는 승인된 클라이언트 앱의 목록은 [승인된 클라이언트 앱 요구 사항](technical-reference.md#approved-client-app-requirement)을 참조하세요.
-
 
 ### <a name="terms-of-use"></a>사용 약관
 
-테넌트의 사용자가 리소스에 대한 액세스 권한을 부여 받기 전에 사용 조건에 동의하도록 요구할 수 있습니다. 관리자는 PDF 문서를 업로드하여 사용 조건을 구성하고 사용자 지정할 수 있습니다. 사용자가 이 제어 범위에 해당하는 경우 사용 조건에 동의한 경우에만 응용 프로그램에 대한 액세스가 부여됩니다. 
+테넌트의 사용자가 리소스에 대한 액세스 권한을 부여 받기 전에 사용 조건에 동의하도록 요구할 수 있습니다. 관리자는 PDF 문서를 업로드하여 사용 조건을 구성하고 사용자 지정할 수 있습니다. 사용자가 이 제어 범위에 해당하는 경우 사용 조건에 동의한 경우에만 애플리케이션에 대한 액세스가 부여됩니다.
 
-
-### <a name="custom-controls-preview"></a>사용자 지정 컨트롤(미리 보기) 
+### <a name="custom-controls-preview"></a>사용자 지정 컨트롤(미리 보기)
 
 Azure Active Directory 외부의 추가 요구 사항을 충족시키기 위해 사용자를 호환 가능한 서비스로 리디렉션하는 조건부 액세스의 사용자 지정 컨트롤을 만들 수 있습니다. 이를 통해 특정 외부 다단계 인증 및 검증 공급자를 사용하여 조건부 액세스 규칙을 적용하거나 직접 사용자 지정 서비스를 빌드할 수 있습니다. 이 제어를 충족시키기 위해 사용자의 브라우저는 외부 서비스로 리디렉션되고 필요한 인증 또는 유효성 검사 활동을 수행한 다음 Azure Active Directory로 다시 리디렉션됩니다. 사용자가 성공적으로 인증되거나 유효성이 확인되면 사용자는 조건부 액세스 흐름을 계속합니다. 
 
@@ -121,6 +108,8 @@ Azure Active Directory 외부의 추가 요구 사항을 충족시키기 위해 
 - [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
 - [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
+- [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
+- [Symantec VIP](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)
 - [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
 
 이러한 서비스에 대한 자세한 내용은 공급자에게 직접 문의하세요.
@@ -137,9 +126,7 @@ JSON 데이터를 복사한 다음 관련 텍스트 상자에 붙여넣습니다
 
 **새 사용자 지정 컨트롤**을 클릭하면 컨트롤의 JSON 데이터에 대한 텍스트 상자가 있는 블레이드가 열립니다.  
 
-
 ![제어](./media/controls/81.png)
-
 
 ### <a name="deleting-custom-controls"></a>사용자 지정 컨트롤 삭제
 
@@ -155,9 +142,6 @@ JSON 데이터를 복사한 다음 관련 텍스트 상자에 붙여넣습니다
 
 사용자 지정 컨트롤을 편집하려면 현재 컨트롤을 삭제하고 업데이트된 정보로 새 컨트롤을 만들어야 합니다.
 
-
-
-
 ## <a name="session-controls"></a>세션 컨트롤
 
 세션 컨트롤은 클라우드 앱 내에서 제한된 환경을 활성화합니다. 세션 컨트롤은 클라우드 앱에서 적용되고 Azure AD가 앱에 제공한 세션에 대한 추가 정보에 의존합니다.
@@ -170,15 +154,12 @@ JSON 데이터를 복사한 다음 관련 텍스트 상자에 붙여넣습니다
 
 자세한 내용은 다음을 참조하세요.
 
-- [SharePoint Online을 사용하여 제한된 액세스를 사용하도록 설정](https://aka.ms/spolimitedaccessdocs) 
+- [SharePoint Online을 사용하여 제한된 액세스를 사용하도록 설정](https://aka.ms/spolimitedaccessdocs)
 
 - [Exchange Online을 사용하여 제한된 액세스를 사용하도록 설정](https://aka.ms/owalimitedaccess)
-
-
-
 
 ## <a name="next-steps"></a>다음 단계
 
 - 조건부 액세스 정책을 구성하는 방법을 알아보려면 [Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](app-based-mfa.md)를 참조하세요.
 
-- 사용자 환경에 대한 조건부 액세스 정책을 구성할 준비가 완료된 경우 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)를 참조하세요. 
+- 사용자 환경에 대한 조건부 액세스 정책을 구성할 준비가 완료된 경우 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)를 참조하세요.

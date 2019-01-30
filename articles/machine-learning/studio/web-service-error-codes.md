@@ -1,13 +1,12 @@
 ---
-title: Azure Machine Learning Studio REST API 오류 코드 | Microsoft Docs
+title: REST API 오류 코드 - Azure Machine Learning Studio | Microsoft Docs
 description: 이러한 오류 코드는 Azure Machine Learning 웹 서비스의 작업에서 반환될 수 있습니다.
 keywords: ''
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 274fbced61318a6617b04ea3092e8e2f96a10940
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b7f27e981ceb12191e58a3e0824c7e0709a49013
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314904"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251327"
 ---
-# <a name="machine-learning-studio-rest-api-error-codes"></a>Machine Learning Studio REST API 오류 코드
+# <a name="azure-machine-learning-studio-rest-api-error-codes"></a>Azure Machine Learning Studio REST API 오류 코드
  
 다음 오류 코드는 Azure Machine Learning Studio 웹 서비스의 작업에서 반환될 수 있습니다.
  

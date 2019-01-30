@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 0f376d6b1108b784af37b5e50dab9edba63e5f76
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 178dd53046dc9e9b332272914b3aafbb80bc5f4c
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713098"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214983"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>AKS(Azure Kubernetes Service)의 클러스터 Autoscaler - 미리 보기
 
@@ -172,7 +172,7 @@ rules:
   resources: ["poddisruptionbudgets"]
   verbs: ["watch","list"]
 - apiGroups: ["apps"]
-  resources: ["statefulsets"]
+  resources: ["statefulsets", "replicasets"]
   verbs: ["watch","list","get"]
 - apiGroups: ["storage.k8s.io"]
   resources: ["storageclasses"]
@@ -382,7 +382,7 @@ Events:  <none>
 클러스터 Autoscaler 상태를 통해 두 개의 서로 다른 수준에서 클러스터 Autoscaler의 상태를 볼 수 있습니다. 클러스터 전체 및 각 노드 그룹 내에서 AKS는 현재 하나의 노드 풀만을 지원하므로 이러한 메트릭은 동일합니다.
 
 * 상태는 노드의 전반적인 상태를 나타냅니다. 클러스터 Autoscaler가 클러스터에서 노드를 만들거나 제거하는 데 어려움이 있는 경우 이 상태는 "Unhealthy"로 변경됩니다. 다른 노드의 상태에 대한 분석도 있습니다.
-    * "Ready"는 노드가 Pod를 예약하도록 준비됨을 의미합니다.
+    * "Ready"는 노드가 Pod를 예약할 준비가 완료된 것을 의미합니다.
     * "Unready"는 노드가 시작된 후 중단됨을 의미합니다.
     * "NotStarted"는 노드가 아직 완전히 시작되지 않음을 의미합니다.
     * "LongNotStarted"는 노드가 적절한 제한 내에서 시작하지 못함을 의미합니다.
@@ -398,11 +398,11 @@ Events:  <none>
     * 규모 축소에 대한 후보는 클러스터 Autoscaler에서 해당 워크로드를 처리하는 클러스터의 기능에 영향을 주지 않고 제거할 수 있는 것을 결정한 노드입니다. 
     * 제공된 시간은 후보 축소 및 해당 마지막 전환 시간에 대해 클러스터에서 확인된 마지막 시간을 표시합니다.
 
-마지막으로 이벤트에서 클러스터 Autoscaler에서 수행한 규모 확대 또는 규모 축소 이벤트, 실패 또는 성공 및 해당 시간을 확인할 수 있습니다.
+마지막으로 이벤트에서 클러스터 Autoscaler에서 수행한 강화 또는 규모 축소 이벤트, 실패 또는 성공 및 해당 시간을 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-수평 Pod Autoscaler로 클러스터 Autoscaler를 사용하려면 [Kubernetes 응용 프로그램 및 인프라 크기 조정][aks-tutorial-scale]을 체크 아웃합니다.
+수평 Pod Autoscaler로 클러스터 Autoscaler를 사용하려면 [Kubernetes 애플리케이션 및 인프라 크기 조정][aks-tutorial-scale]을 체크 아웃합니다.
 
 AKS 자습서를 통한 AKS 배포 및 관리에 대해 자세히 알아봅니다.
 

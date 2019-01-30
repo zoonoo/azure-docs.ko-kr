@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: f6f804ea9121d1728e31f1e694280e841f4b7f4e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9683eb8cbfcabb946f8b364ac9cc8aeeb167d023
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946547"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120294"
 ---
 # <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>빠른 시작: Azure Active Directory를 사용하여 Web API 보안 유지
 
@@ -28,7 +28,7 @@ ms.locfileid: "46946547"
 
 이 빠른 시작에서는 [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) 모듈을 사용하여 Azure AD(Azure Active Directory)와의 통신을 처리함으로써 [Passport](http://passportjs.org/)로 [Restify](http://restify.com/) API 엔드포인트의 보안을 유지하는 방법을 알아보겠습니다.
 
-이 빠른 시작에서는 API 엔드포인트 보안 유지와 관련된 내용을 소개합니다. 로그인 및 인증 토큰 유지는 여기에서 구현되지 않으며 클라이언트 응용 프로그램에서 수행합니다. 클라이언트 구현에 대한 자세한 내용은 [Azure AD에서 Node.js 웹앱 로그인 및 로그아웃](quickstart-v1-openid-connect-code.md)을 참조하세요.
+이 빠른 시작에서는 API 엔드포인트 보안 유지와 관련된 내용을 소개합니다. 로그인 및 인증 토큰 유지는 여기에서 구현되지 않으며 클라이언트 애플리케이션에서 수행합니다. 클라이언트 구현에 대한 자세한 내용은 [Azure AD에서 Node.js 웹앱 로그인 및 로그아웃](quickstart-v1-openid-connect-code.md)을 참조하세요.
 
 이 문서와 연결된 전체 코드 샘플은 [GitHub](https://github.com/Azure-Samples/active-directory-node-webapi-basic)에서 사용할 수 있습니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "46946547"
 
 #### <a name="configure-the-project-to-use-active-directory"></a>Active Directory를 사용하도록 프로젝트 구성
 
-응용 프로그램 구성을 시작하기 위해 Azure CLI에서 가져올 수는 몇 가지 계정 관련 값 있습니다. CLI을 시작하는 가장 쉬운 방법은 Azure Cloud Shell을 사용하는 것입니다.
+애플리케이션 구성을 시작하기 위해 Azure CLI에서 가져올 수는 몇 가지 계정 관련 값 있습니다. CLI을 시작하는 가장 쉬운 방법은 Azure Cloud Shell을 사용하는 것입니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -77,15 +77,15 @@ az ad app create --display-name node-aad-demo --homepage http://localhost --iden
 | 인수  | 설명 |
 |---------|---------|
 |`display-name` | 등록의 이름 |
-|`homepage` | 사용자가 로그인하여 응용 프로그램을 사용할 수 있는 URL |
-|`identifier-uris` | Azure AD가 이 응용 프로그램에 사용할 수 있는 공백으로 구분된 고유 URI |
+|`homepage` | 사용자가 로그인하여 애플리케이션을 사용할 수 있는 URL |
+|`identifier-uris` | Azure AD가 이 애플리케이션에 사용할 수 있는 공백으로 구분된 고유 URI |
 
 Azure Active Directory에 연결하려면 다음 정보가 필요합니다.
 
 | 이름  | 설명 | 구성 파일의 변수 이름 |
 | ------------- | ------------- | ------------- |
 | 테넌트 이름  | 인증에 사용할 [테넌트 이름](quickstart-create-new-tenant.md) | `tenantName`  |
-| 클라이언트 ID  | 클라이언트 ID는 AAD _응용 프로그램 ID_에 사용되는 OAuth 용어입니다. |  `clientID`  |
+| 클라이언트 ID  | 클라이언트 ID는 AAD _애플리케이션 ID_에 사용되는 OAuth 용어입니다. |  `clientID`  |
 
 Azure Cloud Shell의 등록 응답에서 `appId` 값을 복사하고 `config.js`라는 새 파일을 만듭니다. 그런 후에는 다음 코드를 추가하고 사용자의 값을 대괄호로 묶은 토큰으로 바꿉니다.
 
@@ -110,7 +110,7 @@ module.exports.credentials = {
 
 ### <a name="step-1-import-dependencies"></a>1단계: 종속성 가져오기
 
-`app.js`라는 새 파일을 만들고 다음 텍스트를 붙여넣습니다.
+`app.js`라는 새 파일을 만들고 다음 텍스트를 붙여 넣습니다.
 
 ```JavaScript
 const
@@ -166,7 +166,7 @@ passport.use(authenticationStrategy);
 인증 전략이 정의되었으므로 이제 몇 가지 기본적인 설정을 사용하여 Restify 서버를 설정하고 보안을 위해 Passport를 사용하도록 설정할 수 있습니다.
 
 ```JavaScript
-const server = restify.createServer({ name: 'Azure Active Directroy with Node.js Demo' });
+const server = restify.createServer({ name: 'Azure Active Directory with Node.js Demo' });
 server.use(restifyPlugins.authorizationParser());
 server.use(passport.initialize());
 server.use(passport.session());
@@ -221,7 +221,7 @@ curl -isS -X GET http://127.0.0.1:3000/
 
 ```shell
 HTTP/1.1 200 OK
-Server: Azure Active Directroy with Node.js Demo
+Server: Azure Active Directory with Node.js Demo
 Content-Type: application/json
 Content-Length: 49
 Date: Tue, 10 Oct 2017 18:35:13 GMT
@@ -240,7 +240,7 @@ curl -isS -X GET http://127.0.0.1:3000/api
 
 ```shell
 HTTP/1.1 401 Unauthorized
-Server: Azure Active Directroy with Node.js Demo
+Server: Azure Active Directory with Node.js Demo
 WWW-Authenticate: token is not found
 Date: Tue, 10 Oct 2017 16:22:03 GMT
 Connection: keep-alive
@@ -253,5 +253,5 @@ Unauthorized
 
 ## <a name="next-steps"></a>다음 단계
 
-* 로그인, 로그아웃 및 토큰 관리를 처리하는 서버에 연결하려면 해당 클라이언트를 구현해야 합니다. 코드 기반 예제를 보려면 [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) 및 [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)에서 클라이언트 응용 프로그램을 참조하세요.
+* 로그인, 로그아웃 및 토큰 관리를 처리하는 서버에 연결하려면 해당 클라이언트를 구현해야 합니다. 코드 기반 예제를 보려면 [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) 및 [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)에서 클라이언트 애플리케이션을 참조하세요.
 * 단계별 자습서는 [Azure AD에서 Node.js 웹앱 로그인 및 로그아웃](quickstart-v1-openid-connect-code.md)을 참조하세요.

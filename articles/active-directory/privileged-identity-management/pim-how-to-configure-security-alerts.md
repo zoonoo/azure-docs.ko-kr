@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 11/21/2018
+ms.date: 01/04/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 4a715020e37d5885dac26ac0573efe985c3f2cfb
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 0231eaad26fbc3e7157999c0023c5001f37d70d5
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291218"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063288"
 ---
 # <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>PIM에서 Azure AD 디렉터리 역할에 대한 보안 경고 구성
 
@@ -30,9 +30,9 @@ Azure AD PIM(Privileged Identity Management)은 사용자의 환경에 의심스
 
 이 섹션에서는 디렉터리 역할에 대한 모든 보안 경고와, 해결 방법 및 예방 방법을 나열합니다. 심각도의 의미는 다음과 같습니다.
 
-* **높음**: 정책 위반으로 인해 즉각적인 조치를 요구합니다.
-* **보통**: 즉각적인 조치를 요구하지는 않지만 잠재적으로 정책이 위반될 수 있음을 나타냅니다.
-* **낮음**: 즉각적인 조치를 요구하지는 않지만 정책 변경을 제안합니다.
+* **높음**: 정책 위반으로 인해 즉각적인 조치가 필요합니다.
+* **보통**: 즉각적인 조치가 필요하지는 않지만 잠재적으로 정책이 위반될 수 있음을 나타냅니다.
+* **낮음**: 즉각적인 조치가 필요하지는 않지만 정책 변경을 제안합니다.
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>관리자가 권한 있는 역할을 사용하지 않음
 
@@ -69,7 +69,7 @@ Azure AD PIM(Privileged Identity Management)은 사용자의 환경에 의심스
 | | |
 | --- | --- |
 | **심각도** | 중간 |
-| **이 경고가 표시된 이유는 무엇인가요?** | 계정 암호가 변경되지 않은 계정이 유지 관리되지 않는 서비스 또는 공유 계정일 수 있습니다. 권한 있는 역할의 이러한 계정은 공격자에게 취약합니다. |
+| **이 경고가 표시된 이유는 무엇인가요?** | 지난 90일 동안에서 자신의 암호를 변경하지 않은 권한 있는 역할의 계정입니다. 이러한 계정은 유지되지 않고 공격자에게 취약한 서비스 또는 공유 계정일 수 있습니다. |
 | **해결 방법** | 목록에서 계정을 검토합니다. 액세스가 더 이상 필요하지 않으면 권한 있는 역할에서 제거합니다. |
 | **방지** | 암호를 아는 사용자에게 변경 내용이 있으면 공유되는 계정에서 강력한 암호가 회전되는지 확인합니다. </br>정기적으로 [액세스 검토](pim-how-to-start-security-review.md)를 사용하여 권한 있는 역할이 있는 계정을 검토하고, 더 이상 필요하지 않은 역할 할당을 제거합니다. |
 | **포털 내 완화 작업** | 해당하는 권한 있는 역할에서 계정을 제거합니다. |

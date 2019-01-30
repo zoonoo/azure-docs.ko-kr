@@ -1,30 +1,10 @@
 ---
-title: 예제로 Machine Learning Studio 실험 만들기 - Azure | Microsoft Docs
-description: 기계 학습 실험 예제를 사용하여 Azure AI Gallery 및 Microsoft Azure Machine Learning Studio를 통해 새 실험을 만드는 방법에 대해 알아봅니다.
-keywords: 기계 학습 예제, 샘플 실험, 기계 학습 샘플, AI 예제
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
-editor: cgronlun
-ms.assetid: 81e6c1d8-682c-4db3-bfd5-d7bfb1150ff3
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 01/05/2018
-ms.openlocfilehash: 568732c5a1d2abbb9f304b624d885b2a3c692706
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52306683"
+제목: 예제로 Machine Learning Studio 실험 만들기 titleSuffix: Azure Machine Learning Studio 설명: 기계 학습 실험 예제를 사용하여 Azure AI Gallery 및 Microsoft Azure Machine Learning Studio를 통해 새 실험을 만드는 방법에 대해 알아봅니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: conceptual
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 2018/01/05
 ---
-# <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>Azure AI Gallery의 작업 예제에서 기계 학습 실험 만들기
+# <a name="create-azure-machine-learning-studio-experiments-from-working-examples-in-azure-ai-gallery"></a>Azure AI Gallery의 작업 예제에서 Azure Machine Learning Studio 실험 만들기
 
 처음부터 기계 학습 실험을 만드는 대신 [Azure AI Gallery](https://gallery.cortanaintelligence.com/)의 예제 실험으로 시작하는 방법에 대해 알아봅니다. 예제를 사용하여 고유의 기계 학습 솔루션을 직접 빌드할 수 있습니다.
 
@@ -32,7 +12,7 @@ ms.locfileid: "52306683"
 
 갤러리를 사용하는 방법에 대해 알아보려면 [초보자를 위한 데이터 과학](data-science-for-beginners-the-5-questions-data-science-answers.md) 시리즈의 3분짜리 비디오 [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)를 참조하세요.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="find-an-experiment-to-copy-in-azure-ai-gallery"></a>Azure AI Gallery에서 복사할 실험 찾기
 사용할 수 있는 실험을 보려면 [갤러리](https://gallery.cortanaintelligence.com/)로 이동하여 페이지의 위쪽에 있는 **실험**을 클릭합니다.
@@ -46,7 +26,7 @@ ms.locfileid: "52306683"
 1. 페이지 위쪽에 있는 **모두 찾아보기**를 클릭합니다.
 2. 왼쪽에 있는 **범주** 섹션의 **구체화 기준**에서 **실험**을 선택하여 갤러리에 있는 모든 실험을 볼 수 있습니다.
 3. 두 가지 방법으로 요구 사항을 충족하는 실험을 찾을 수 있습니다.
-   * **왼쪽에 필터를 선택합니다.** 예를 들어 PCA 기반 변칙 검색 알고리즘을 사용하는 실험을 찾아보려면 **범주** 아래에서 **실험**을 클릭합니다. 그런 다음 **Algorithms Used**(사용 알고리즘) 아래에서 **모두 표시**를 클릭하고 대화 상자에서 **PCA 기반 변칙 검색**을 선택합니다. 이 필터를 찾기 위해 스크롤해야 할 수도 있습니다.<br></br>
+   * **왼쪽에 필터를 선택합니다.** 예를 들어 PCA 기반 변칙 검색 알고리즘을 사용하는 실험을 찾아보려면: **범주** 아래에서 **실험**을 클릭합니다. 그런 다음 **Algorithms Used**(사용 알고리즘) 아래에서 **모두 표시**를 클릭하고 대화 상자에서 **PCA 기반 변칙 검색**을 선택합니다. 이 필터를 찾기 위해 스크롤해야 할 수도 있습니다.<br></br>
      ![필터 선택](./media/sample-experiments/choose-an-algorithm.png)
    * **검색 상자를 사용합니다.** 예를 들어 제공하는 두 개의 클래스 지원 벡터 컴퓨터 알고리즘을 사용하는 숫자 인식과 관련된 Microsoft의 실험을 찾으려면 검색 상자에 "숫자 인식"을 입력합니다. 그런 다음 **실험**, **Microsoft 콘텐츠만** 및 **2클래스 Support Vector Machine**을 선택합니다.<br></br>
      ![검색 상자를 사용합니다](./media/sample-experiments/search-for-experiments.png).

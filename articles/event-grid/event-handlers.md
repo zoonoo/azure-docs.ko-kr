@@ -2,17 +2,17 @@
 title: Azure Event Grid 이벤트 처리기
 description: Azure Event Grid에 대한 지원되는 이벤트 처리기에 대해 설명합니다.
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/21/2018
-ms.author: tomfitz
-ms.openlocfilehash: 12cc5a918044e3bc74e34f2e05adc9773dee5421
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.date: 01/21/2019
+ms.author: spelluru
+ms.openlocfilehash: 33604a16f5895e20d4475d1dd8b27c34184feb72
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498660"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478470"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Azure Event Grid의 이벤트 처리기
 
@@ -26,7 +26,7 @@ ms.locfileid: "46498660"
 
 |제목  |설명  |
 |---------|---------|
-|[자습서: Event Grid 및 Microsoft 팀을 사용한 Azure Automation](ensure-tags-exists-on-new-virtual-machines.md) |이벤트를 전송 하는 가상 머신을 만듭니다. 이벤트는 가상 머신에 태그를 지정하는 Automation Runbook을 트리거하고, Microsoft 팀 채널에 전송되는 메시지를 트리거합니다. |
+|[자습서: Event Grid 및 Microsoft Teams를 사용한 Azure Automation](ensure-tags-exists-on-new-virtual-machines.md) |이벤트를 전송 하는 가상 머신을 만듭니다. 이벤트는 가상 머신에 태그를 지정하는 Automation Runbook을 트리거하고, Microsoft 팀 채널에 전송되는 메시지를 트리거합니다. |
 
 ## <a name="azure-functions"></a>Azure 기능
 
@@ -43,24 +43,24 @@ Azure Functions를 처리기로 사용할 때는 일반 HTTP 트리거 대신 Ev
 
 ## <a name="event-hubs"></a>Event Hubs
 
-솔루션이 이벤트를 처리할 수 있는 속도보다 더 빠르게 이벤트를 가져오는 경우 Event Hubs를 사용하세요. 응용 프로그램이 자체 일정에 따라 Event Hubs의 이벤트를 처리합니다. 들어오는 이벤트를 처리하도록 이벤트 처리 규모를 확장할 수 있습니다.
+솔루션이 이벤트를 처리할 수 있는 속도보다 더 빠르게 이벤트를 가져오는 경우 Event Hubs를 사용하세요. 애플리케이션이 자체 일정에 따라 Event Hubs의 이벤트를 처리합니다. 들어오는 이벤트를 처리하도록 이벤트 처리 규모를 확장할 수 있습니다.
 
 Event Hubs는 이벤트 원본 또는 이벤트 처리기로 작동할 수 있습니다. 다음 아티클에서는 처리기로 Event Hubs를 사용하는 방법을 보여줍니다.
 
 |제목  |설명  |
 |---------|---------|
-| [빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Event Hubs로 사용자 지정 이벤트 라우팅](custom-event-to-eventhub.md) | 응용 프로그램에서 처리하도록 사용자 지정 이벤트를 이벤트 허브로 보냅니다. |
+| [빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Event Hubs로 사용자 지정 이벤트 라우팅](custom-event-to-eventhub.md) | 애플리케이션에서 처리하도록 사용자 지정 이벤트를 이벤트 허브로 보냅니다. |
 | [Resource Manager 템플릿: 토픽 및 Event Hubs 엔드포인트 사용자 지정](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| 사용자 지정 토픽에 대한 구독을 만드는 Resource Manager 템플릿입니다. Azure Event Hubs에 이벤트를 전송합니다. |
 
 원본인 Event Hubs의 예제는 [Event Hubs 원본](event-sources.md#event-hubs)을 참조하세요.
 
 ## <a name="hybrid-connections"></a>하이브리드 연결
 
-Azure Relay 하이브리드 연결을 사용하여 엔터프라이즈 네트워크 내에 있으며 공개적으로 액세스할 수 있는 엔드포인트가 없는 응용 프로그램에 이벤트를 보냅니다.
+Azure Relay 하이브리드 연결을 사용하여 엔터프라이즈 네트워크 내에 있으며 공개적으로 액세스할 수 있는 엔드포인트가 없는 애플리케이션에 이벤트를 보냅니다.
 
 |제목  |설명  |
 |---------|---------|
-| [자습서: 하이브리드 연결로 이벤트 전송](custom-event-to-hybrid-connection.md) | 수신기 응용 프로그램에서 프로세싱에 대한 기존 하이브리드 연결에 사용자 지정 이벤트를 보냅니다. |
+| [자습서: 하이브리드 연결로 이벤트 전송](custom-event-to-hybrid-connection.md) | 수신기 애플리케이션에서 프로세싱에 대한 기존 하이브리드 연결에 사용자 지정 이벤트를 보냅니다. |
 
 ## <a name="logic-apps"></a>Logic Apps
 
@@ -74,11 +74,11 @@ Logic Apps를 사용하여 이벤트에 응답하는 비즈니스 프로세스�
 
 ## <a name="queue-storage"></a>Queue Storage
 
-Queue Storage를 사용하여 끌어와야 할 이벤트를 수신합니다. 응답 시간이 너무 오래 걸리는 장기 실행 프로세스가 있는 경우 큐 저장소를 사용할 수 있습니다. 이벤트를 큐 저장소를 보내면 앱이 자체 일정에 따라 프로세스를 끌어와서 처리할 수 있습니다.
+Queue Storage를 사용하여 끌어와야 할 이벤트를 수신합니다. 응답 시간이 너무 오래 걸리는 장기 실행 프로세스가 있는 경우 Queue Storage를 사용할 수 있습니다. 이벤트를 Queue Storage를 보내면 앱이 자체 일정에 따라 프로세스를 끌어와서 처리할 수 있습니다.
 
 |제목  |설명  |
 |---------|---------|
-| [빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Queue Storage로 사용자 지정 이벤트 라우팅](custom-event-to-queue-storage.md) | 큐 저장소에 사용자 지정 이벤트를 보내는 방법을 설명합니다. |
+| [빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Queue Storage로 사용자 지정 이벤트 라우팅](custom-event-to-queue-storage.md) | Queue Storage에 사용자 지정 이벤트를 보내는 방법을 설명합니다. |
 
 ## <a name="webhooks"></a>웹후크
 

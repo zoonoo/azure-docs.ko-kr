@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 9eba9eef315f1ec6eb25ea21c1d4747ab002d078
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a47b18972e945e495e5a5d3dd90e383390612865
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958919"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189612"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Avere vFXT 클러스터 관리
 
@@ -63,11 +63,11 @@ Avere 제어판은 데이터 무결성의 우선 순위를 지정하므로 가�
 > [!NOTE] 
 > 활성 노드 수가 변경되면 IP 주소가 클러스터 노드 간에 이동할 수 있습니다.
 
-자세한 내용은 Avere 클러스터 설정 가이드의 [클러스터 > FXT 노드](<http://library.averesystems.com/ops_guide/4_7/gui_fxt_nodes.html#gui-fxt-nodes>)를 참조하세요.
+자세한 내용은 Avere 클러스터 설정 가이드의 [클러스터 > FXT 노드](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html#gui-fxt-nodes>)를 참조하세요.
 
 ### <a name="stop-or-reboot-the-cluster-with-avere-control-panel"></a>Avere 제어판을 사용하여 클러스터 중지 또는 다시 부팅
 
-**시스템 유지 관리** 설정 페이지에는 클러스터 서비스를 다시 시작하거나, 클러스터를 다시 부팅하거나, 클러스터의 작동을 안전하게 중지하는 명령이 있습니다. 자세한 내용은 Avere 클러스터 설정 가이드의 [관리 > 시스템 유지 관리](<http://library.averesystems.com/ops_guide/4_7/gui_system_maintenance.html#gui-system-maintenance>)를 참조하세요.
+**시스템 유지 관리** 설정 페이지에는 클러스터 서비스를 다시 시작하거나, 클러스터를 다시 부팅하거나, 클러스터의 작동을 안전하게 중지하는 명령이 있습니다. 자세한 내용은 Avere 클러스터 설정 가이드의 [관리 > 시스템 유지 관리](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>)를 참조하세요.
 
 클러스터가 종료되면 처음에는 상태 메시지를 **대시보드** 탭에 게시합니다. 잠시 후에 Avere 제어판 세션에서 응답을 중지합니다. 이는 클러스터가 종료되었음을 의미합니다.
 
@@ -81,9 +81,9 @@ vfxt.py 스크립트를 사용할 수 있는 클러스터 관리 작업은 다�
 
 Avere 제어판과 마찬가지로, vfxt.py 작업은 클러스터 또는 노드를 종료하거나 삭제하기 전에 변경된 데이터가 백 엔드 저장소에 영구적으로 저장되도록 합니다. 이는 Avere 포털보다 안전한 옵션입니다.
 
-vfxt.py는 클러스터 컨트롤러 VM에 사전 설치됩니다. <!-- (If you want to install it on another system, refer to http://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
+vfxt.py는 클러스터 컨트롤러 VM에 사전 설치됩니다. <!-- (If you want to install it on another system, refer to https://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
-전체 vfxt.py 사용 가이드는 GitHub: [vfxt.py를 사용한 클라우드 클러스터 관리](https://github.com/azure/averesdk/blob/master/docs/README.md)에서 제공됩니다.
+전체 vfxt.py 사용 가이드는 GitHub: [vfxt.py를 사용한 클라우드 클러스터 관리](https://github.com/azure/averesdk/blob/master/docs/README.md)에서 사용할 수 있습니다.
 
 ### <a name="add-cluster-nodes-with-vfxtpy"></a>vfxt.py를 사용하여 클러스터 노드 추가
 

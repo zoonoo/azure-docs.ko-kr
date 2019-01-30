@@ -11,12 +11,12 @@ ms.topic: article
 ms.technology: azds-kubernetes
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
-ms.openlocfilehash: 49e9a974dc01548c250f0b0a8b9b5afac5f286ff
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: e155b4151a3b974e9ccc56a88028a89c35896522
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705500"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014004"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Azure Dev Space로 작업할 때 비밀을 관리하는 방법
 
@@ -112,5 +112,5 @@ Azure Dev Spaces는 values.dev.yaml 파일과 azds.yaml에서 직접 인라인�
 
 ## <a name="next-steps"></a>다음 단계
 
-이러한 방법을 사용하여 이제 안전하게 데이터베이스, Redis 캐시에 연결하거나 보안 Azure 서비스에 액세스할 수 있습니다.
+이러한 방법을 사용하여 이제 안전하게 데이터베이스, Azure Redis Cache에 연결하거나 보안 Azure 서비스에 액세스할 수 있습니다.
  

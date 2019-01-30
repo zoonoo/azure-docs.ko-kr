@@ -1,26 +1,22 @@
 ---
 title: PostgreSQL용 Azure 데이터베이스에서 SSL 연결 구성
-description: SSL 연결을 올바르게 사용하기 위해 PostgreSQL용 Azure 데이터베이스 및 연결된 응용 프로그램을 구성하는 방법에 대한 지침 및 정보
-services: postgresql
+description: SSL 연결을 올바르게 사용하기 위해 PostgreSQL용 Azure 데이터베이스 및 연결된 애플리케이션을 구성하는 방법에 대한 지침 및 정보
 author: JasonMAnderson
 ms.author: janders
-editor: jasonwhowell
-manager: kfile
 ms.service: postgresql
-ms.custom: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: cc8bd25b58cf898169a4d84154f7f3f81966bb92
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: bcb6f1da78cfccb4914f1f4008609f002a7b8c2d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985797"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545436"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스에서 SSL 연결 구성
-PostgreSQL용 Azure 데이터베이스는 SSL(Secure Sockets Layer)을 사용해서 PostgreSQL 서비스에 클라이언트 응용 프로그램을 연결하는 것을 선호합니다. 데이터베이스 서버와 클라이언트 응용 프로그램 간 SSL 연결을 적용하면 서버와 응용 프로그램 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.
+PostgreSQL용 Azure 데이터베이스는 SSL(Secure Sockets Layer)을 사용해서 PostgreSQL 서비스에 클라이언트 애플리케이션을 연결하는 것을 선호합니다. 데이터베이스 서버와 클라이언트 애플리케이션 간 SSL 연결을 적용하면 서버와 애플리케이션 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.
 
-기본적으로 PostgreSQL 데이터베이스 서비스는 SSL 연결을 요구하도록 구성됩니다. 필요에 따라 클라이언트 응용 프로그램이 SSL 연결을 지원하지 않을 경우 데이터베이스 서비스에 연결하기 위해 SSL을 요구하지 않도록 설정할 수 있습니다. 
+기본적으로 PostgreSQL 데이터베이스 서비스는 SSL 연결을 요구하도록 구성됩니다. 필요에 따라 클라이언트 애플리케이션이 SSL 연결을 지원하지 않을 경우 데이터베이스 서비스에 연결하기 위해 SSL을 요구하지 않도록 설정할 수 있습니다. 
 
 ## <a name="enforcing-ssl-connections"></a>SSL 연결 적용
 Azure Portal 및 CLI를 통해 프로비전된 모든 MySQL용 Azure 데이터베이스 서버의 경우 SSL 연결 적용이 기본적으로 활성화됩니다. 
@@ -44,18 +40,18 @@ Azure CLI에서 `Enabled` 또는 `Disabled` 값을 각각 사용하여 **ssl-enf
 az postgres server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Enabled
 ```
 
-## <a name="ensure-your-application-or-framework-supports-ssl-connections"></a>응용 프로그램 또는 프레임워크가 SSL 연결을 지원하는지 확인합니다.
-Drupal 및 Django와 같은 데이터베이스 서비스용 PostgreSQL을 사용하는 많은 일반적인 응용 프로그램 프레임워크는 기본적으로 설치하는 동안 SSL을 사용하도록 설정하지 않습니다. SSL 연결의 사용 설정은 설치 후 또는 응용 프로그램 특정 CLI 명령을 통해 수행되어야 합니다. PostgreSQL 서버에 SSL 연결이 적용되어 있고 연결된 응용 프로그램이 올바르게 구성되어 있지 않은 경우 응용 프로그램이 데이터베이스 서버에 연결하지 못할 수 있습니다. 응용 프로그램의 설명서를 참조하여 SSL 연결을 설정하는 방법을 알아보세요.
+## <a name="ensure-your-application-or-framework-supports-ssl-connections"></a>애플리케이션 또는 프레임워크가 SSL 연결을 지원하는지 확인합니다.
+Drupal 및 Django와 같은 데이터베이스 서비스용 PostgreSQL을 사용하는 많은 일반적인 애플리케이션 프레임워크는 기본적으로 설치하는 동안 SSL을 사용하도록 설정하지 않습니다. SSL 연결의 사용 설정은 설치 후 또는 애플리케이션 특정 CLI 명령을 통해 수행되어야 합니다. PostgreSQL 서버에 SSL 연결이 적용되어 있고 연결된 애플리케이션이 올바르게 구성되어 있지 않은 경우 애플리케이션이 데이터베이스 서버에 연결하지 못할 수 있습니다. 애플리케이션의 설명서를 참조하여 SSL 연결을 설정하는 방법을 알아보세요.
 
 
-## <a name="applications-that-require-certificate-verification-for-ssl-connectivity"></a>SSL 연결을 위해 인증서 확인이 필요한 응용 프로그램
-경우에 따라 안전한 연결을 위해 응용 프로그램에 신뢰할 수 있는 CA(인증 기관) 인증서 파일(.cer)에서 생성되는 로컬 인증서 파일이 필요합니다. 다음 단계를 참조하여 .cer 파일을 얻고, 인증서를 디코딩한 후 응용 프로그램에 바인딩하세요.
+## <a name="applications-that-require-certificate-verification-for-ssl-connectivity"></a>SSL 연결을 위해 인증서 확인이 필요한 애플리케이션
+경우에 따라 안전한 연결을 위해 애플리케이션에 신뢰할 수 있는 CA(인증 기관) 인증서 파일(.cer)에서 생성되는 로컬 인증서 파일이 필요합니다. 다음 단계를 참조하여 .cer 파일을 얻고, 인증서를 디코딩한 후 애플리케이션에 바인딩하세요.
 
 ### <a name="download-the-certificate-file-from-the-certificate-authority-ca"></a>CA(인증 기관)에서 인증서 파일 다운로드 
 PostgreSQL용 Azure 데이터베이스 서버와 함께 SSL을 통해 통신하는 데 필요한 인증서는 [여기](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt)에 있습니다. 인증서 파일을 로컬로 다운로드합니다.
 
 ### <a name="download-and-install-openssl-on-your-machine"></a>컴퓨터에 OpenSSL 다운로드 및 설치 
-응용 프로그램을 데이터베이스 서버에 안전하게 연결하기 위해 필요한 인증서 파일을 디코딩하려면 OpenSSL을 로컬 컴퓨터에 설치해야 합니다.
+애플리케이션을 데이터베이스 서버에 안전하게 연결하기 위해 필요한 인증서 파일을 디코딩하려면 OpenSSL을 로컬 컴퓨터에 설치해야 합니다.
 
 #### <a name="for-linux-os-x-or-unix"></a>Linux, OS X 또는 Unix
 OpenSSL 라이브러리는 [OpenSSL Software Foundation](https://www.openssl.org)에서 직접 소스 코드로 제공됩니다. 다음 지침에서는 Linux PC에 OpenSSL을 설치하는 데 필요한 단계를 안내합니다. 이 문서에서는 Ubuntu 12.04 이상에서 작동하는 것으로 알려진 명령을 사용합니다.
@@ -100,7 +96,7 @@ OpenSSL 1.1.0e 7 Apr 2014
 #### <a name="for-windows"></a>Windows의 경우
 다음 방법을 수행하면 Windows PC에서 OpenSSL을 설치할 수 있습니다.
 1. **(권장)** Window 10 이상에서 기본 제공되는 Windows용 Bash 기능을 사용하면 OpenSSL이 기본적으로 설치됩니다. Windows 10의 Windows용 Bash 기능을 사용하도록 설정하는 방법에 대한 지침은 [여기](https://msdn.microsoft.com/commandline/wsl/install_guide)에 나와 있습니다.
-2. 커뮤니티에서 제공되는 Win32/64 응용 프로그램을 다운로드하여, OpenSSL Software Foundation에서 특정 Windows 설치 관리자를 제공하거나 보증하지는 않지만 사용 가능한 설치 관리자의 목록은 [여기](https://wiki.openssl.org/index.php/Binaries)에서 확인할 수 있습니다.
+2. 커뮤니티에서 제공되는 Win32/64 애플리케이션을 다운로드합니다. OpenSSL Software Foundation에서 특정 Windows 설치 관리자를 제공하거나 보증하지는 않지만 사용 가능한 설치 관리자의 목록은 [여기](https://wiki.openssl.org/index.php/Binaries)에서 확인할 수 있습니다.
 
 ### <a name="decode-your-certificate-file"></a>인증서 파일 디코딩
 다운로드한 루트 CA 파일은 암호화된 형식입니다. OpenSSL을 사용하여 인증서 파일을 디코딩합니다. 이렇게 하려면 다음 OpenSSL 명령을 실행합니다.
@@ -138,4 +134,4 @@ SSL을 통해 안전하게 연결하도록 pgAdmin 4를 구성하려면 `SSL mod
 ![pgAdmin - 연결 - SSL 모드 Require 스크린샷](./media/concepts-ssl-connection-security/2-pgadmin-ssl.png)
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Database for PostgreSQL을 위한 연결 라이브러리](concepts-connection-libraries.md)에 따라 다양한 응용 프로그램 연결 옵션 검토
+[Azure Database for PostgreSQL을 위한 연결 라이브러리](concepts-connection-libraries.md)에 따라 다양한 애플리케이션 연결 옵션 검토

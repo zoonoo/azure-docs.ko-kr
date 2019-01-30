@@ -1,6 +1,6 @@
 ---
-title: Java에서 Azure Search 시작 | Microsoft Docs
-description: Java를 프로그래밍 언어로 사용하여 Azure에서 호스트된 클라우드 검색 응용 프로그램을 빌드하는 방법입니다.
+title: Java에서 Azure Search 시작 - Azure Search
+description: Java를 프로그래밍 언어로 사용하여 Azure에서 호스트된 클라우드 검색 애플리케이션을 빌드하는 방법입니다.
 services: search
 author: jj09
 manager: jlembicz
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-ms.openlocfilehash: d1ca905d415eb8ab49c449a69707c56d5c717081
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec2018
+ms.openlocfilehash: d16f20e3c2dfa3d670006e44f0072a3871d41c3f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419302"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629904"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Java에서 Azure Search 시작
 > [!div class="op_single_selector"]
@@ -22,7 +23,7 @@ ms.locfileid: "50419302"
 > 
 > 
 
-검색 환경에 Azure Search를 사용하는 사용자 지정 Java 검색 응용 프로그램을 빌드하는 방법에 대해 알아봅니다. 이 자습서에서는 [Azure Search 서비스 REST API](https://msdn.microsoft.com/library/dn798935.aspx)를 사용하여 이 연습에서 사용되는 개체 및 작업을 생성합니다.
+검색 환경에 Azure Search를 사용하는 사용자 지정 Java 검색 애플리케이션을 빌드하는 방법에 대해 알아봅니다. 이 자습서에서는 [Azure Search 서비스 REST API](https://msdn.microsoft.com/library/dn798935.aspx)를 사용하여 이 연습에서 사용되는 개체 및 작업을 생성합니다.
 
 이 샘플을 실행하려면 [Azure Portal](https://portal.azure.com)에서 등록할 수 있는 Azure Search 서비스가 있어야 합니다. 단계별 지침은 [포털에서 Azure Search 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
@@ -33,9 +34,9 @@ ms.locfileid: "50419302"
 * [Apache Tomcat 8.5.33](https://tomcat.apache.org/download-80.cgi#8.5.33)
 
 ## <a name="about-the-data"></a>데이터 정보
-이 샘플 응용 프로그램에서는 데이터 세트 크기를 줄이기 위해 Rhode Island 주에 대해 필터링된 [USGS(United States Geological Services)](http://geonames.usgs.gov/domestic/download_data.htm)의 데이터를 사용합니다. 이 데이터를 사용하여 병원 및 학교와 같은 랜드마크 빌딩뿐만 아니라 강, 호수, 산 등의 지질학적 특징을 반환하는 검색 응용 프로그램을 빌드합니다.
+이 샘플 애플리케이션에서는 데이터 집합 크기를 줄이기 위해 Rhode Island 주에 대해 필터링된 [USGS(United States Geological Services)](https://geonames.usgs.gov/domestic/download_data.htm)의 데이터를 사용합니다. 이 데이터를 사용하여 병원 및 학교와 같은 랜드마크 빌딩뿐만 아니라 강, 호수, 산 등의 지질학적 특징을 반환하는 검색 애플리케이션을 빌드합니다.
 
-이 응용 프로그램에서 **SearchServlet.java** 프로그램은 [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) 구문을 사용하여 인덱스를 빌드 및 로드하며, 이를 통해 Azure SQL Database에서 필터링된 USGS 데이터 세트를 검색합니다. 온라인 데이터 원본에 대한 미리 정의된 자격 증명 및 연결 정보는 프로그램 코드에서 제공됩니다. 데이터 액세스 측면에서 추가 구성은 필요하지 않습니다.
+이 애플리케이션에서 **SearchServlet.java** 프로그램은 [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) 구문을 사용하여 인덱스를 빌드 및 로드하며, 이를 통해 Azure SQL Database에서 필터링된 USGS 데이터 세트를 검색합니다. 온라인 데이터 원본에 대한 미리 정의된 자격 증명 및 연결 정보는 프로그램 코드에서 제공됩니다. 데이터 액세스 측면에서 추가 구성은 필요하지 않습니다.
 
 > [!NOTE]
 > 무료 가격 책정 계층의 문서 제한(10,000개) 미만으로 유지하기 위해 이 데이터 세트에 필터를 적용했습니다. 표준 계층을 사용하는 경우에는 이 제한이 적용되지 않으며 이 코드를 수정하여 더 큰 데이터 세트를 사용할 수 있습니다. 각 가격 책정 계층의 용량에 대한 자세한 내용은 [제한 및 제약 조건](search-limits-quotas-capacity.md)을 참조하세요.
@@ -86,7 +87,7 @@ Azure Search에 대한 모든 REST API 호출에는 서비스 URL 및 api-key를
 ## <a name="configure-the-service-url-and-api-key"></a>서비스 URL 및 api-key 구성
 1. **Project Explorer**에서 **config.properties**를 두 번 클릭하여 서버 이름 및 api-key가 포함된 구성 설정을 편집합니다.
 2. 이 문서의 이전 단계를 참조하여 [config.properties](https://portal.azure.com)에 입력할 값을 가져오도록 **Azure Portal**에서 서비스 URL 및 api-key를 찾습니다.
-3. **config.properties**에서 "Api Key"를 서비스의 api-key로 바꿉니다. 다음으로 서비스 이름(URL http://servicename.search.windows.net) 의 첫 번째 구성 요소)이 같은 파일의 “서비스 이름"을 대체합니다.
+3. **config.properties**에서 "Api Key"를 서비스의 api-key로 바꿉니다. 다음으로 서비스 이름(URL https://servicename.search.windows.net) 의 첫 번째 구성 요소)이 같은 파일의 “서비스 이름"을 대체합니다.
    
     ![][5]
 
@@ -110,7 +111,7 @@ Azure Search에 대한 모든 REST API 호출에는 서비스 URL 및 api-key를
 13. Installed JREs에서 **JDK**를 선택합니다. 설정은 다음 스크린샷과 유사해야 합니다.
     
     ![][9]
-14. 필요에 따라 **Window** > **Web Browser** > **Internet Explorer**를 선택하여 외부 브라우저 창에서 응용 프로그램을 엽니다. 외부 브라우저를 사용하면 웹 응용 프로그램 환경이 향상됩니다.
+14. 필요에 따라 **Window** > **Web Browser** > **Internet Explorer**를 선택하여 외부 브라우저 창에서 애플리케이션을 엽니다. 외부 브라우저를 사용하면 웹 애플리케이션 환경이 향상됩니다.
     
     ![][8]
 
@@ -125,7 +126,7 @@ Azure Search에 대한 모든 REST API 호출에는 서비스 URL 및 api-key를
 콘솔 창에 상태 메시지가 출력됩니다. 오류 없이 빌드에 성공했음을 나타내는 BUILD SUCCESS가 표시되어야 합니다.
 
 ## <a name="run-the-app"></a>앱 실행
-이 마지막 단계에서는 로컬 서버 런타임 환경에서 응용 프로그램을 실행합니다.
+이 마지막 단계에서는 로컬 서버 런타임 환경에서 애플리케이션을 실행합니다.
 
 Eclipse에서 서버 런타임 환경을 아직 지정하지 않은 경우 이 작업을 먼저 수행해야 합니다.
 
@@ -137,7 +138,7 @@ Eclipse에서 서버 런타임 환경을 아직 지정하지 않은 경우 이 �
 > 
 > 
 
-응용 프로그램을 실행하면 용어를 입력할 수 있는 검색 상자를 제공하는 브라우저 창이 표시됩니다.
+애플리케이션을 실행하면 용어를 입력할 수 있는 검색 상자를 제공하는 브라우저 창이 표시됩니다.
 
 1분 정도 기다렸다가 **Search** 를 클릭하여 인덱스를 만들고 로드할 서비스 이름을 제공합니다. HTTP 404 오류가 발생하는 경우 좀 더 기다렸다가 다시 시도해야 합니다.
 

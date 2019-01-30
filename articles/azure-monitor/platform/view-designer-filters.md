@@ -10,17 +10,15 @@ ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: bcdf3d2a6a7e0e20525c0e90a1ffc30c80d0e867
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 6a4ac2f26c01555ef54a4ee2248db7cd2818661e
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637808"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189424"
 ---
 # <a name="filters-in-log-analytics-views"></a>Log Analytics 보기의 필터
 [Log Analytics 보기](view-designer.md)에서 **필터**를 사용하면 사용자가 뷰 자체를 수정하지 않고 특정 속성의 값으로 뷰에서 데이터를 필터링할 수 있습니다.  예를 들어, 보기의 사용자가 특정 컴퓨터 또는 컴퓨터 집합의 데이터에 대한 보기를 필터링하도록 허용할 수 있습니다.  단일 보기에 여러 필터를 만들어서 사용자가 여러 속성별로 필터링하도록 허용할 수 있습니다.  이 문서에서는 필터를 사용하여 사용자 지정 보기에 추가하는 방법을 설명합니다.

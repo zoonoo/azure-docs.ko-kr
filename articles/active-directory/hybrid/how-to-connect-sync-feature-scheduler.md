@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect 동기화: Scheduler | Microsoft Docs'
+title: 'Azure AD Connect 동기화: 스케줄러 | Microsoft Docs'
 description: 이 항목에서는 Azure AD Connect 동기화의 기본 제공 스케줄러 기능을 설명합니다.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d8deb03d03446c1452d73a7c08df4cf14ffcd5b5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8099194feed3761e32686ab15e8738b10ffd4e8b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304562"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462320"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect 동기화: Scheduler
 이 토픽은 Azure AD Connect 동기화(동기화 엔진이라고도 함)의 기본 제공 스케줄러를 설명합니다.
@@ -123,7 +123,7 @@ Azure AD Connect의 이전 빌드에서 **isStagingModeEnabled**는 Set-ADSyncSc
 동기화 주기를 실행 중일 때 구성을 변경할 수 없습니다. 스케줄러에서 프로세스를 완료할 때까지 기다릴 수 있지만 이를 중지하여 즉시 변경할 수도 있습니다. 현재 주기를 중지해도 나쁜 영향을 주지 않으며 변경 사항은 다음 실행 시 처리됩니다.
 
 1. 먼저 PowerShell cmdlet `Stop-ADSyncSyncCycle`을 사용하여 스케줄러가 현재 주기를 중지하도록 합니다.
-2. 1.1.281 이전 빌드를 사용 중인 경우 스케줄러를 중지해도 현재 작업에서 현재 커넥터는 중지되지 않습니다. 커넥터를 강제로 중지하려면 ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png) 작업을 수행합니다.
+2. 1.1.281 이전 빌드를 사용 중인 경우 스케줄러를 중지해도 현재 작업에서 현재 커넥터는 중지되지 않습니다. 커넥터를 강제로 중지하려면 다음 작업을 수행합니다. ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
    * 시작 메뉴에서 **동기화 서비스**를 시작합니다. **커넥터**로 이동하여 **실행** 상태인 커넥터를 강조 표시하고 작업에서 **중지**를 선택합니다.
 
 스케줄러가 아직 활성화되어 있으며 다음에 다시 시작합니다.

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/24/2018
+ms.date: 12/05/2018
 ms.author: roiyz
-ms.openlocfilehash: 2c8ac43d96c100f0c26281fea1d4e9eba41bc178
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1370f541f8913d86db948a3165d6660a8cd66528
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282335"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963507"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows용 사용자 지정 스크립트 확장
 
@@ -54,13 +54,13 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
 * idempotent(멱등원)인 스크립트를 작성합니다. 이렇게 하면 스크립트를 실수로 두 번 이상 다시 실행하더라도 시스템이 변경되지 않습니다.
 * 스크립트를 실행할 때 사용자 입력이 필요하지 않도록 합니다.
 * 스크립트를 실행하는 데 허용되는 시간은 90분입니다. 더 오래 걸리면 확장을 프로비전하는 데 실패합니다.
-* 스크립트 내에 재부팅을 배치하지 않습니다. 그렇지 않으면 설치되는 다른 확장에 문제가 발생하고 재부팅 후 다시 시작하면 확장이 계속 실행되지 않습니다. 
-* 재부팅을 유발하는 스크립트가 있으면 응용 프로그램을 설치하고 스크립트를 실행합니다. Windows 예약된 작업을 사용하거나 DSC 또는 Chef, Puppet 확장과 같은 도구를 사용하여 재부팅을 예약해야 합니다.
+* 스크립트 내에서 다시 부팅하지 마세요. 이 작업으로 인해 설치 중인 다른 확장에 문제가 발생합니다. 다시 부팅 후 확장은 다시 시작한 후 계속되지 않습니다. 
+* 재부팅할 스크립트가 있는 경우 응용 프로그램을 설치하고 스크립트를 실행합니다. Windows 예약된 작업을 사용하거나 DSC 또는 Chef, Puppet 확장과 같은 도구를 사용하여 다시 부팅을 예약할 수 있습니다.
 * 확장은 스크립트를 한 번만 실행합니다. 부팅할 때마다 스크립트를 실행하려면 확장을 사용하여 Windows 예약된 작업을 만들어야 합니다.
 * 스크립트를 실행할 시기를 예약하려면 확장을 사용하여 Windows 예약된 작업을 만들어야 합니다. 
-* 스크립트가 실행 중인 경우 Azure Portal 또는 CLI에서 '전환 중' 확장 상태만 표시됩니다. 실행 중인 스크립트의 상태 업데이트를 자주 수행하려면 사용자 고유의 솔루션을 만들어야 합니다.
+* 스크립트를 실행하는 경우 Azure Portal 또는 CLI에서 ‘전환 중’ 확장 상태만 표시됩니다. 실행 중인 스크립트의 상태 업데이트를 더 자주 수행하려는 경우 사용자 고유의 솔루션을 만들어야 합니다.
 * 사용자 지정 스크립트 확장은 기본적으로 프록시 서버를 지원하지 않지만, 스크립트 내에서 프록시 서버를 지원하는 파일 전송 도구(예: *Curl*)를 사용할 수 있습니다. 
-* 스크립트 또는 명령에서 사용할 수 있는 기본 디렉터리가 아닌 위치를 알고 있어야 하고, 이를 처리할 논리가 있어야 합니다.
+* 스크립트 또는 명령에서 사용할 수 있는 기본 디렉터리가 아닌 위치를 알고 있어야 하고, 이 상황을 처리할 논리가 있어야 합니다.
 
 
 ## <a name="extension-schema"></a>확장 스키마
@@ -92,7 +92,8 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
         "settings": {
             "fileUris": [
                 "script location"
-            ]
+            ],
+            "timestamp":123456789
         },
         "protectedSettings": {
             "commandToExecute": "myExecutionCommand",
@@ -113,6 +114,7 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
 | 형식 | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
 | fileUris(예) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
+| timestamp(예) | 123456789 | 32비트 정수 |
 | commandToExecute(예) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
 | storageAccountName(예) | examplestorageacct | string |
 | storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
@@ -123,6 +125,7 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
 #### <a name="property-value-details"></a>속성 값 세부 정보
  * `commandToExecute`: (**필수**, 문자열) 실행할 진입점 스크립트입니다. 명령에 암호와 같은 비밀이 포함되어 있거나 fileUris가 중요한 경우 이 필드를 대신 사용합니다.
 * `fileUris`: (옵션, 문자열 배열) 다운로드할 파일에 대한 URL입니다.
+* `timestamp`(옵션, 32비트 정수)는 이 필드의 값을 변경하여 스크립트의 다시 실행을 트리거하는 데만 이 필드를 사용합니다.  모든 정수 값을 사용할 수 있습니다. 단, 이전 값과 달라야 합니다.
 * `storageAccountName`: (옵션, 문자열) 저장소 계정에 대한 이름입니다. 저장소 자격 증명을 지정하는 경우 모든 `fileUris`는 Azure Blob에 대한 URL이어야 합니다.
 * `storageAccountKey`: (옵션, 문자열) 저장소 계정의 액세스 키입니다.
 
@@ -182,7 +185,7 @@ Set-AzureRmVMExtension -ResourceGroupName myRG `
 ```
 
 ### <a name="running-scripts-from-a-local-share"></a>로컬 공유에서 스크립트 실행
-다음 예제에서는 스크립트 위치에 로컬 SMB 서버를 사용하려고 할 수 있습니다. 참고: *commandToExecute*를 제외하고는 다른 설정에 전달할 필요가 없습니다.
+이 예제에서는 스크립트 위치에 로컬 SMB 서버를 사용하려고 할 수 있습니다. 참고: *commandToExecute*를 제외하고는 다른 설정에 전달할 필요가 없습니다.
 
 ```powershell
 $ProtectedSettings = @{"commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File \\filesvr\build\serverUpdate1.ps1"};
@@ -199,9 +202,9 @@ Set-AzureRmVMExtension -ResourceGroupName myRG
 ```
 
 ### <a name="how-to-run-custom-script-more-than-once-with-cli"></a>CLI를 사용하여 두 번 이상 사용자 지정 스크립트를 실행하는 방법
-사용자 지정 스크립트 확장을 두 번 이상 실행하려면 다음 조건에서만 이 작업을 수행할 수 있습니다.
+사용자 지정 스크립트 확장을 두 번 이상 실행하려는 경우 다음 조건에서만 이 작업을 수행할 수 있습니다.
 1. 'Name' 확장 매개 변수는 확장의 이전 배포와 같습니다.
-2. 구성을 업데이트해야 합니다. 그렇지 않으면 명령이 다시 실행되지 않습니다. 예를 들어 명령에 타임스탬프와 같은 동적 속성을 추가할 수 있습니다. 
+2. 구성을 업데이트해야 합니다. 그렇지 않으면 명령을 다시 실행할 수 없습니다. 타임스탬프와 같은 명령으로 동적 속성을 추가할 수 있습니다.
 
 ## <a name="troubleshoot-and-support"></a>문제 해결 및 지원
 
@@ -224,7 +227,7 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
 여기서 `<n>`은 확장의 실행 간에 변경될 수 있는 10진수 정수입니다.  `1.*` 값은 확장의 현재 실제 `typeHandlerVersion` 값과 일치합니다.  예를 들어, 실제 디렉터리는 `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`일 수 있습니다.  
 
-`commandToExecute` 명령을 실행하는 경우 확장에서 이 디렉터리(예: `...\Downloads\2`)를 현재 작업 디렉터리로 설정합니다. 그러면 `fileURIs` 속성을 통해 다운로드된 파일을 배치하는 상대 경로를 사용할 수 있습니다. 예제는 아래 테이블을 참조하세요.
+`commandToExecute` 명령을 실행하는 경우 확장에서 이 디렉터리(예: `...\Downloads\2`)를 현재 작업 디렉터리로 설정합니다. 이 프로세스로 `fileURIs` 속성을 통해 다운로드된 파일을 배치하는 상대 경로를 사용할 수 있습니다. 예제는 아래 테이블을 참조하세요.
 
 시간이 지남에 따라 절대 다운로드 경로가 달라질 수 있으므로 가능한 경우 `commandToExecute` 문자열에서 상대 스크립트/파일 경로를 옵트인하는 것이 좋습니다. 예: 
 ```json
@@ -244,4 +247,4 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 
 ### <a name="support"></a>지원
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.

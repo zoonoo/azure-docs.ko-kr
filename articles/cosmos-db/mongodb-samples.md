@@ -1,39 +1,35 @@
 ---
-title: MongoDB API를 사용하여 Azure Cosmos DB 앱 빌드 | Microsoft Docs
-description: 이 문서는 MongoDB용 Azure Cosmos DB API를 사용하여 온라인 데이터베이스를 만드는 자습서입니다.
-keywords: MongoDB 예제
-services: cosmos-db
-author: SnehaGunda
-manager: kfile
-editor: ''
+title: Azure Cosmos DB의 API for MongoDB를 사용하여 Node.js 앱 빌드
+description: Azure Cosmos DB의 API for MongoDB를 사용하여 온라인 데이터베이스를 만드는 자습서입니다.
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: sample
-ms.date: 03/23/2018
-ms.author: sngun
-ms.openlocfilehash: 188b192cf9b86a2d28a578bbcec0d6b19a8cc5d0
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.date: 12/26/2018
+author: sivethe
+ms.author: sivethe
+ms.openlocfilehash: 1fb7ad7638f3235b915e758460bf6c483572a30d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084905"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54031856"
 ---
-# <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>Node.js를 사용하여 Azure Cosmos DB: MongoDB API 앱 빌드
+# <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>Node.js 및 Azure Cosmos DB의 API for MongoDB를 사용하여 앱 빌드 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [Java](sql-api-java-get-started.md)
 > * [MongoDB용 Node.js](mongodb-samples.md)
-> * [Node.js](sql-api-nodejs-get-started.md)
+> * [Node.JS](sql-api-nodejs-get-started.md)
 >
 
-이 예제에서는 Node.js를 사용하여 Azure Cosmos DB: MongoDB API 콘솔 앱을 빌드하는 방법을 보여 줍니다.
+이 예제에서는 Node.js 및 Azure Cosmos DB의 API for MongoDB를 사용하여 콘솔 앱을 빌드하는 방법을 보여줍니다.
 
 이 예제를 사용하려면 다음을 수행해야 합니다.
 
-* Azure Cosmos DB: MongoDB API 계정을 [만듭니다](create-mongodb-dotnet.md#create-account).
-* MongoDB [연결 문자열](connect-mongodb-account.md) 정보를 검색합니다.
+* Azure Cosmos DB의 API for MongoDB를 사용하도록 구성된 Cosmos 계정을 [만듭니다](create-mongodb-dotnet.md#create-account).
+* [연결 문자열](connect-mongodb-account.md) 정보를 검색합니다.
 
 ## <a name="create-the-app"></a>앱 만들기
 
@@ -119,7 +115,7 @@ ms.locfileid: "37084905"
     });
     ```
     
-    **선택 사항**: **MongoDB Node.js 2.2 드라이버**를 사용 중인 경우 다음 코드 조각을 바꾸십시오.
+    **선택 사항**: **MongoDB Node.js 2.2 드라이버**를 사용 중인 경우 다음 코드 조각을 바꿉니다.
 
     원본:
 
@@ -161,7 +157,7 @@ ms.locfileid: "37084905"
     > [!IMPORTANT]
     > **MongoDB Node.js 3.0 드라이버**는 Cosmos DB 암호에서 특수 문자를 인코딩할 것을 요구합니다. '=' 문자를 %3D로 인코딩하는지 확인
     >
-    > 예: 암호 *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv==* 가 *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D*로 인코딩됩니다
+    > 예제: 암호 *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv==* 가 *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D*로 인코딩됩니다
     >
     > **MongoDB Node.js 2.2 드라이버**는 Cosmos DB 암호에서 특수 문자를 인코딩할 것을 요구하지 않습니다.
     >
@@ -174,4 +170,7 @@ ms.locfileid: "37084905"
 3. 즐겨찾는 터미널을 열고 **npm install mongodb --save**를 설치한 다음 **node app.js**로 앱을 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* Azure Cosmos DB: MongoDB API 계정으로 [MongoChef를 사용](mongodb-mongochef.md)하는 방법을 알아봅니다.
+
+- Azure Cosmos DB의 API for MongoDB와 함께 [Studio 3T를 사용](mongodb-mongochef.md)하는 방법을 알아봅니다.
+- Azure Cosmos DB의 API for MongoDB와 함께 [Robo 3T를 사용](mongodb-robomongo.md)하는 방법을 알아봅니다.
+- Azure Cosmos DB의 API for MongoDB를 사용하여 MongoDB [샘플](mongodb-samples.md)을 살펴봅니다.

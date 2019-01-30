@@ -1,5 +1,5 @@
 ---
-title: Azure App Service에서 종단 간 사용자 인증 및 권한 부여 | Microsoft Docs
+title: 엔드투엔드 사용자 인증 및 권한 부여 - Azure App Service | Microsoft Docs
 description: App Service 인증 및 권한 부여를 사용하여 원격 API에 대한 액세스를 비롯한 App Service 앱을 보호하는 방법을 알아봅니다.
 keywords: App Service, Azure App Service, authN, authZ, 보호, 보안, 다중 계층, Azure Active Directory, Azure AD
 services: app-service\web
@@ -14,16 +14,17 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
-ms.openlocfilehash: 9b66dad87708ad127186b0bbbc39965fe90b6b75
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec18
+ms.openlocfilehash: 0c2b8b205229ec1ef180e52372f75d06c83f1cc7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416157"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716415"
 ---
-# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>자습서: Azure App Service에서 종단 간 사용자 인증 및 권한 부여
+# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여
 
-[Azure App Service](app-service-web-overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 또한, App Service는 [사용자 인증 및 권한 부여](app-service-authentication-overview.md)를 기본적으로 지원합니다. 이 자습서에는 App Service 인증 및 권한 부여를 통해 앱을 보호하는 방법을 보여줍니다. Angular.js 프런트 엔드가 있는 ASP.NET Core 앱이 사용되지만 예제일 뿐입니다. App Service 인증 및 권한 부여는 모든 언어 런타임을 지원하며 자습서를 수행하면서 원하는 언어에 적용하는 방법을 알아볼 수 있습니다.
+[Azure App Service](overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 또한, App Service는 [사용자 인증 및 권한 부여](overview-authentication-authorization.md)를 기본적으로 지원합니다. 이 자습서에는 App Service 인증 및 권한 부여를 통해 앱을 보호하는 방법을 보여줍니다. Angular.js 프런트 엔드가 있는 ASP.NET Core 앱이 사용되지만 예제일 뿐입니다. App Service 인증 및 권한 부여는 모든 언어 런타임을 지원하며 자습서를 수행하면서 원하는 언어에 적용하는 방법을 알아볼 수 있습니다.
 
 이 자습서에서는 샘플 앱을 사용하여 자체 포함 앱을 보호하는 방법을 보여줍니다([백 엔드 앱에 대한 인증 및 권한 부여 사용](#enable-authentication-and-authorization-for-back-end-app)).
 
@@ -61,7 +62,7 @@ ms.locfileid: "50416157"
 
 이 단계에서는 로컬 .NET Core 프로젝트를 설정합니다. 동일한 프로젝트를 사용하여 백 엔드 API 앱과 프런트 엔드 웹앱을 배포합니다.
 
-### <a name="clone-and-run-the-sample-application"></a>응용 프로그램 예제를 복제하고 실행합니다.
+### <a name="clone-and-run-the-sample-application"></a>애플리케이션 예제를 복제하고 실행합니다.
 
 다음 명령을 실행하여 샘플 리포지토리를 복제하고 실행합니다.
 
@@ -104,7 +105,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### <a name="push-to-azure-from-git"></a>Git에서 Azure에 푸시
 
-로컬 터미널 창으로 돌아가서 다음 Git 명령을 실행하여 백 엔드 앱에 배포합니다. _&lt;deploymentLocalGitUrl-of-back-end-app>_ 을 [Azure 리소스 만들기](#create-azure-resources)에서 저장한 Git 원격 URL로 바꿉니다. Git Credential Manager에서 자격 증명을 입력하라는 메시지가 표시되면 Azure Portal에 로그인하는 데 사용하는 자격 증명이 아닌 [배포 자격 증명](app-service-deployment-credentials.md)을 입력해야 합니다.
+로컬 터미널 창으로 돌아가서 다음 Git 명령을 실행하여 백 엔드 앱에 배포합니다. _&lt;deploymentLocalGitUrl-of-back-end-app>_ 을 [Azure 리소스 만들기](#create-azure-resources)에서 저장한 Git 원격 URL로 바꿉니다. Git Credential Manager에서 자격 증명을 입력하라는 메시지가 표시되면 Azure Portal에 로그인하는 데 사용하는 자격 증명이 아닌 [배포 자격 증명](deploy-configure-credentials.md)을 입력해야 합니다.
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
@@ -118,7 +119,7 @@ git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
 git push frontend master
 ```
 
-### <a name="browse-to-the-azure-web-apps"></a>Azure Web Apps로 이동합니다.
+### <a name="browse-to-the-apps"></a>앱으로 이동
 
 브라우저에서 다음 URL로 이동하여 두 개의 앱이 작동하는지 확인합니다.
 
@@ -140,7 +141,7 @@ http://<front_end_app_name>.azurewebsites.net
 
 ### <a name="modify-front-end-code"></a>프런트 엔드 코드 수정
 
-로컬 리포지토리에서 _Controllers/TodoController.cs_를 엽니다. `TodoController` 클래스의 시작 부분에 다음 줄을 추가하고 _&lt;back\_end\_app\_name>_ 을 백 엔드 앱의 이름으로 바꿉니다.
+로컬 리포지토리에서 _Controllers/TodoController.cs_ 를 엽니다. `TodoController` 클래스의 시작 부분에 다음 줄을 추가하고 _&lt;back\_end\_app\_name>_ 을 백 엔드 앱의 이름으로 바꿉니다.
 
 ```cs
 private static readonly HttpClient _client = new HttpClient();
@@ -213,11 +214,11 @@ git push frontend master
 
 이 단계에서는 두 앱에 인증 및 권한 부여를 사용하도록 설정합니다. 또한 백 엔드 앱에 인증된 호출을 수행하는 데 사용할 수 있는 액세스 토큰을 생성하도록 프런트 엔드 앱을 구성합니다.
 
-Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [App Services 응용 프로그램에 대해 Azure Active Directory 인증 구성](app-service-mobile-how-to-configure-active-directory-authentication.md)을 참조하세요.
+Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [App Services 애플리케이션에 대해 Azure Active Directory 인증 구성](configure-authentication-provider-aad.md)을 참조하세요.
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>백 엔드 앱에 대한 인증 및 권한 부여 사용
 
-[Azure Portal](https://portal.azure.com)에서 왼쪽 메뉴: **리소스 그룹** > **myAuthResourceGroup** > _\<back\_end\_app\_name>_ 을 클릭하여 백 엔드 앱의 관리 페이지를 엽니다.
+[Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **리소스 그룹** > **myAuthResourceGroup** > _\<back\_end\_app\_name>_ 을 차례로 클릭하여 백 엔드 앱의 관리 페이지를 엽니다.
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
 
@@ -235,15 +236,15 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 `Successfully saved the Auth Settings for <back_end_app_name> App` 메시지가 포함된 알림이 표시되면 페이지를 새로 고칩니다.
 
-**Azure Active Directory**를 다시 클릭한 다음 **응용 프로그램 관리**를 클릭합니다.
+**Azure Active Directory**를 다시 클릭한 다음, **애플리케이션 관리**를 클릭합니다.
 
-AD 응용 프로그램의 관리 페이지에서 **응용 프로그램 ID**를 메모장에 복사합니다. 이 값은 나중에 필요합니다.
+AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메모장에 복사합니다. 이 값은 나중에 필요합니다.
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/get-application-id-back-end.png)
 
 ### <a name="enable-authentication-and-authorization-for-front-end-app"></a>프런트 엔드 앱에 대한 인증 및 권한 부여 사용
 
-프런트 엔드 앱과 동일한 단계를 따르지만 마지막 단계는 건너뜁니다. 프런트 엔드 앱에는 **응용 프로그램 ID**가 필요하지 않습니다. **Azure Active Directory 설정** 페이지를 열어둡니다.
+프런트 엔드 앱과 동일한 단계를 따르지만 마지막 단계는 건너뜁니다. 프런트 엔드 앱에는 **애플리케이션 ID**가 필요하지 않습니다. **Azure Active Directory 설정** 페이지를 열어둡니다.
 
 원하는 경우 `http://<front_end_app_name>.azurewebsites.net`으로 이동합니다. 이제 보안 로그인 페이지로 연결됩니다. 로그인 후에도 백 엔드 앱의 데이터에 여전히 액세스할 수 없습니다. 다음 세 가지를 수행해야 하기 때문입니다.
 
@@ -256,7 +257,7 @@ AD 응용 프로그램의 관리 페이지에서 **응용 프로그램 ID**를 �
 
 ### <a name="grant-front-end-app-access-to-back-end"></a>백 엔드에 프런트 엔드 앱 액세스 부여
 
-두 앱에 대해 인증 및 권한 부여를 사용하도록 설정했으므로 각 앱은 AD 응용 프로그램으로 지원됩니다. 이 단계에서는 프런트 엔드 앱에 사용자 대신 백 엔드 액세스 권한을 부여합니다. (기술적으로 프런트 엔드의 _AD 응용 프로그램_에 사용자를 대신하여 백 엔드의 _AD 응용 프로그램_에 액세스할 수 있는 권한을 부여합니다.)
+두 앱에 대해 인증 및 권한 부여를 사용하도록 설정했으므로 각 앱은 AD 애플리케이션으로 지원됩니다. 이 단계에서는 프런트 엔드 앱에 사용자 대신 백 엔드 액세스 권한을 부여합니다. (기술적으로 프런트 엔드의 _AD 애플리케이션_ 에 사용자를 대신하여 백 엔드의 _AD 애플리케이션_ 에 액세스할 수 있는 권한을 부여합니다.)
 
 이 시점에서 프런트 엔드 앱의 **Azure Active Directory 설정** 페이지에 있어야 합니다. 그렇지 않은 경우 해당 페이지로 돌아갑니다. 
 
@@ -264,7 +265,7 @@ AD 응용 프로그램의 관리 페이지에서 **응용 프로그램 ID**를 �
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/add-api-access-front-end.png)
 
-**API 선택** 페이지에서 백 엔드 앱의 AD 응용 프로그램 이름을 입력합니다. 이것은 기본적으로 백 엔드 앱 이름과 같습니다. 이것을 목록에서 선택하고 **선택**을 클릭합니다.
+**API 선택** 페이지에서 백 엔드 앱의 AD 애플리케이션 이름을 입력합니다. 이것은 기본적으로 백 엔드 앱 이름과 같습니다. 이것을 목록에서 선택하고 **선택**을 클릭합니다.
 
 **_&lt;AD\_application\_name>에 액세스_** 옆의 확인란을 선택합니다. **선택** > **완료**를 클릭합니다.
 
@@ -272,7 +273,7 @@ AD 응용 프로그램의 관리 페이지에서 **응용 프로그램 ID**를 �
 
 ### <a name="configure-app-service-to-return-a-usable-access-token"></a>사용 가능한 액세스 토큰을 반환하도록 App Service 구성
 
-이제 프런트 엔드 앱에 필요한 권한이 있습니다. 이 단계에서는 백 엔드 액세스에 사용 가능한 액세스 토큰을 제공하도록 App Service 인증 및 권한 부여를 구성합니다. 이 단계에서는 [백 엔드 앱에 대한 인증 및 권한 부여 사용](#enable-authentication-and-authorization-for-back-end-app)에서 복사한 백 엔드의 응용 프로그램 ID가 필요합니다.
+이제 프런트 엔드 앱에 필요한 권한이 있습니다. 이 단계에서는 백 엔드 액세스에 사용 가능한 액세스 토큰을 제공하도록 App Service 인증 및 권한 부여를 구성합니다. 이 단계에서는 [백 엔드 앱에 대한 인증 및 권한 부여 사용](#enable-authentication-and-authorization-for-back-end-app)에서 복사한 백 엔드의 애플리케이션 ID가 필요합니다.
 
 [Azure Resource Explorer](https://resources.azure.com)에 로그인합니다. 페이지의 위쪽에서 **읽기/쓰기** 를 클릭하여 Azure 리소스 편집이 가능하도록 설정합니다.
 
@@ -280,7 +281,7 @@ AD 응용 프로그램의 관리 페이지에서 **응용 프로그램 ID**를 �
 
 왼쪽 브라우저에서 **구독** > **_&lt;your\_subscription>_** > **resourceGroups** > **myAuthResourceGroup** > **공급자** > **Microsoft.Web** > **사이트** > **_\<front\_end\_app\_name>_** > **구성** > **authsettings**를 클릭합니다.
 
-**authsettings** 보기에서 **편집**을 클릭합니다. 복사한 응용 프로그램 ID를 사용하여 `additionalLoginParams`를 다음 JSON 문자열로 설정합니다. 
+**authsettings** 보기에서 **편집**을 클릭합니다. 복사한 애플리케이션 ID를 사용하여 `additionalLoginParams`를 다음 JSON 문자열로 설정합니다. 
 
 ```json
 "additionalLoginParams": ["response_type=code id_token","resource=<back_end_application_id>"],
@@ -298,7 +299,7 @@ AD 응용 프로그램의 관리 페이지에서 **응용 프로그램 ID**를 �
 
 이 단계에서는 이전에 수정한 서버 코드를 사용하여 백 엔드 API에 대해 인증된 호출을 수행합니다.
 
-이제 프런트 엔드 앱에 필요한 권한이 있고 백 엔드의 응용 프로그램 ID가 로그인 매개 변수에 추가됩니다. 따라서 백 엔드 앱 인증을 위한 액세스 토큰을 가져올 수 있습니다. App Service는 인증된 요청마다 `X-MS-TOKEN-AAD-ACCESS-TOKEN` 헤더를 삽입하여([앱 코드에서 토큰 검색](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) 참조) 이 토큰을 서버 코드에 제공합니다.
+이제 프런트 엔드 앱에 필요한 권한이 있고 백 엔드의 애플리케이션 ID가 로그인 매개 변수에 추가됩니다. 따라서 백 엔드 앱 인증을 위한 액세스 토큰을 가져올 수 있습니다. App Service는 인증된 요청마다 `X-MS-TOKEN-AAD-ACCESS-TOKEN` 헤더를 삽입하여([앱 코드에서 토큰 검색](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) 참조) 이 토큰을 서버 코드에 제공합니다.
 
 > [!NOTE]
 > 이 헤더는 지원되는 모든 언어로 삽입됩니다. 각 해당 언어에 대한 표준 패턴을 사용하여 액세스할 수 있습니다.
@@ -339,7 +340,7 @@ git push frontend master
 서버 코드가 요청 헤더에 액세스할 수 있지만, 클라이언트 코드는 `GET /.auth/me`에 액세스하여 동일한 액세스 토큰을 얻을 수 있습니다([앱 코드에서 토큰 검색](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) 참조).
 
 > [!TIP]
-> 이 섹션에서는 표준 HTTP 메서드를 사용하여 보안 HTTP 호출을 보여줍니다. 그러나 [JavaScript용 ADAL(Azure AD 인증 라이브러리)](https://github.com/AzureAD/azure-activedirectory-library-for-js)을 사용하여 Angular.js 응용 프로그램 패턴을 간소화할 수 있습니다.
+> 이 섹션에서는 표준 HTTP 메서드를 사용하여 보안 HTTP 호출을 보여줍니다. 그러나 [JavaScript용 ADAL(Azure AD 인증 라이브러리)](https://github.com/AzureAD/azure-activedirectory-library-for-js)을 사용하여 Angular.js 애플리케이션 패턴을 간소화할 수 있습니다.
 >
 
 ### <a name="configure-cors"></a>CORS 구성
@@ -445,4 +446,4 @@ az group delete --name myAuthResourceGroup
 다음 자습서로 이동하여 사용자 지정 DNS 이름을 웹앱에 매핑하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)
+> [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)

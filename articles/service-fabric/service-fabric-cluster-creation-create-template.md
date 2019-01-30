@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: 9482b1a33caaf73838101431dfc1faac7020ee42
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: cd4871e3e4613973a50c8ee0994fe0440150eddf
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234783"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044028"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>서비스 패브릭 클러스터 Resource Manager 템플릿 만들기
 
 [Azure Service Fabric 클러스터](service-fabric-deploy-anywhere.md)는 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 머신 집합입니다. Azure에서 실행 중인 Service Fabric 클러스터는 Azure 리소스이며, Resource Manager를 사용하여 배포, 관리 및 모니터링됩니다.  이 문서에서는 Azure에서 실행 중인 Service Fabric 클러스터의 Resource Manager 템플릿을 만드는 방법을 설명합니다.  템플릿이 완성되면 [Azure에 클러스터를 배포](service-fabric-cluster-creation-via-arm.md)할 수 있습니다.
 
-클러스터 보안은 클러스터가 먼저 설정된 후에 구성되며 나중에 변경할 수 없습니다. 클러스터를 설정하기 전에 [Service Fabric 클러스터 보안 시나리오][service-fabric-cluster-security]를 읽어 보세요. Azure에서 Service Fabric은 x509 인증서를 사용하여 클러스터 및 해당 엔드포인트를 보호하고, 클라이언트를 인증하고, 데이터를 암호화합니다. 관리 엔드포인트에 대한 액세스를 보호하려면 Azure Active Directory도 권장됩니다. Azure AD 테넌트 및 사용자는 클러스터를 만들기 전에 생성되어야 합니다.  자세한 내용을 보려면 [클라이언트를 인증하도록 Azure AD 설정](service-fabric-cluster-creation-setup-aad.md)을 읽어 보세요.
+클러스터 보안은 클러스터가 먼저 설정된 후에 구성되며 나중에 변경할 수 없습니다. 클러스터를 설정하기 전에 [Service Fabric 클러스터 보안 시나리오][service-fabric-cluster-security]를 읽어 보세요. Azure에서 Service Fabric은 x509 인증서를 사용하여 클러스터 및 해당 엔드포인트를 보호하고, 클라이언트를 인증하고, 데이터를 암호화합니다. 관리 엔드포인트에 대한 액세스를 보호하려면 Azure Active Directory를 사용하는 것도 좋습니다. Azure AD 테넌트 및 사용자는 클러스터를 만들기 전에 생성되어야 합니다.  자세한 내용을 보려면 [클라이언트를 인증하도록 Azure AD 설정](service-fabric-cluster-creation-setup-aad.md)을 읽어 보세요.
 
 프로덕션 워크로드를 실행할 프로덕션 클러스터를 배포하기 전에 먼저 [프로덕션 준비 검사 목록](service-fabric-production-readiness-checklist.md)을 읽어 보세요.
 
@@ -41,7 +41,7 @@ ms.locfileid: "40234783"
 인증서 키를 포함하는 Key Vault 참조하여 Cluster Resource Manager 템플릿에 인증서를 추가합니다. Resource Manager 템플릿 매개 변수 파일(*azuredeploy.parameters.json*)에 해당 키 자격 증명 모음 매개 변수 및 값을 추가합니다.
 
 ### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>가상 머신 확장 집합 osProfile에 모든 인증서 추가
-클러스터에 설치된 모든 인증서는 확장 집합 리소스(Microsoft.Compute/virtualMachineScaleSets)의 **osProfile** 섹션에 구성되어야 합니다. 이 작업은 리소스 공급자에게 인증서를 VM에 설치하도록 지시합니다. 이 설치에는 클러스터 인증서와, 응용 프로그램에 사용하려는 모든 응용 프로그램 보안 인증서가 포함됩니다.
+클러스터에 설치된 모든 인증서는 확장 집합 리소스(Microsoft.Compute/virtualMachineScaleSets)의 **osProfile** 섹션에 구성되어야 합니다. 이 작업은 리소스 공급자에게 인증서를 VM에 설치하도록 지시합니다. 이 설치에는 클러스터 인증서와, 애플리케이션에 사용하려는 모든 애플리케이션 보안 인증서가 포함됩니다.
 
 ```json
 {
@@ -196,7 +196,7 @@ Azure Service Fabric RM PowerShell 모듈을 사용하려는 경우 클러스터
 },
 ```
 
-응용 프로그램 인증서를 사용하거나 키 자격 증명 모음에 업로드한 기존 클러스터를 사용하는 경우 이 정보를 가져와서 채워야 합니다.
+애플리케이션 인증서를 사용하거나 키 자격 증명 모음에 업로드한 기존 클러스터를 사용하는 경우 이 정보를 가져와서 채워야 합니다.
 
 RM 모듈에는 Azure AD 구성을 생성하는 기능이 없으므로 클라이언트 액세스에 Azure AD를 사용하려는 경우 채워야 합니다.
 
@@ -258,6 +258,14 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templa
 ## <a name="next-steps"></a>다음 단계
 이제 클러스터의 템플릿이 있으니 [클러스터를 Azure에 배포](service-fabric-cluster-creation-via-arm.md)하는 방법을 알아보세요.  아직 읽어 보지 않았다면 [프로덕션 준비 검사 목록](service-fabric-production-readiness-checklist.md)을 읽은 후 프로덕션 클러스터를 배포하세요.
 
+이 문서에서 배포된 리소스의 JSON 구문과 속성에 대해 알아보려면 다음을 참조하세요.
+
+* [Microsoft.ServiceFabric/clusters](/azure/templates/microsoft.servicefabric/clusters)
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+* [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
+* [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
+* [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers)
+* [Microsoft.Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets)
 
 <!-- Links -->
 [service-fabric-cluster-security]: service-fabric-cluster-security.md

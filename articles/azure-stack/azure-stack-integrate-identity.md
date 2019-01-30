@@ -2,20 +2,21 @@
 title: Azure Stack 데이터 센터 통합-Identity
 description: AD FS 데이터 센터를 사용 하 여 Azure Stack AD FS를 통합 하는 방법에 알아봅니다.
 services: azure-stack
-author: jeffgilb
+author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/10/2018
-ms.author: jeffgilb
-ms.reviewer: wfayed
+ms.date: 01/23/19
+ms.author: patricka
+ms.reviewer: thoroet
+ms.lastreviewed: 01/23/19
 keywords: ''
-ms.openlocfilehash: 9d9e97d81e33487a5f23197912eba3802e83a32e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f05d27effecee6a18a1395520b29d8cf1db1eaaa
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257379"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246250"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 데이터 센터 통합-Identity
 Id 공급자로 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)를 사용 하 여 Azure Stack을 배포할 수 있습니다. Azure Stack을 배포 하기 전에 선택을 해야 합니다. AD FS를 사용 하 여 배포를 오프 라인된 모드에서 Azure Stack 배포는 라고도 합니다.
@@ -27,7 +28,7 @@ Id 공급자로 Azure Active Directory (Azure AD) 또는 Active Directory Federa
 |결제|용량 이어야 합니다.<br> EA (기업 계약)만|용량 또는 지불으로-사용<br>EA 또는 CSP (클라우드 솔루션 공급자)|
 |ID|AD FS 여야 합니다.|Azure AD 또는 AD FS|
 |Marketplace |지원됨<br>BYOL 라이선싱|지원됨<br>BYOL 라이선싱|
-|등록|권장 되는, 이동식 미디어 필요<br> 와 별도 연결 된 장치입니다.|자동|
+|등록|필수, 이동식 미디어에 필요<br> 와 별도 연결 된 장치입니다.|자동|
 |패치 및 업데이트|필수, 이동식 미디어에 필요<br> 와 별도 연결 된 장치입니다.|업데이트 패키지를 직접 다운로드할 수 있습니다.<br> 인터넷에서 Azure Stack에.|
 
 > [!IMPORTANT]
@@ -118,9 +119,9 @@ Azure Stack에서 그래프 서비스 키 배포 센터 (KDC) Active Directory �
 
 Azure Stack에서 그래프 서비스 대상 Active Directory와 통신 하는 다음 프로토콜 및 포트를 사용 합니다.
 
-|type|포트|프로토콜|
+|Type|포트|프로토콜|
 |---------|---------|---------|
-|LDAP|389|TCP 및 UDP|
+|LDAP|389|TCP & UDP|
 |LDAP SSL|636|TCP|
 |LDAP GC|3268|TCP|
 |LDAP GC SSL|3269|TCP|
@@ -171,7 +172,7 @@ Azure Stack에서 그래프 서비스 대상 Active Directory와 통신 하는 �
 |매개 변수|설명|예|
 |---------|---------|---------|
 |CustomAdfsName|클레임 공급자의 이름입니다. 이런 방식으로 AD FS 방문 페이지에 표시 됩니다.|Contoso|
-|CustomADFSFederationMetadataFileContent|메타 데이터 콘텐츠|$using: federationMetadataFileContent|
+|CustomADFSFederationMetadataFileContent|메타 데이터 콘텐츠|$using:federationMetadataFileContent|
 
 ### <a name="create-federation-metadata-file"></a>페더레이션 메타 데이터 파일 만들기
 
@@ -193,16 +194,21 @@ Azure Stack에서 그래프 서비스 대상 Active Directory와 통신 하는 �
 
 이 절차에서는 Azure Stack에서 권한 있는 끝점과 통신 하 고 이전 단계에서 만든 메타 데이터 파일에 대 한 액세스 권한이 있는 컴퓨터를 사용 합니다.
 
-1. 관리자 권한 Windows PowerShell 세션을 엽니다.
+1. 관리자 권한 Windows PowerShell 세션을 열고 권한 있는 끝점에 연결 합니다.
 
    ```PowerShell  
    $federationMetadataFileContent = get-content c:\metadata.xml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
-   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
    ```
 
-2. 환경에 적합 한 매개 변수를 사용 하 여 기본 공급자 구독 소유자를 업데이트 하려면 다음 명령을 실행 합니다.
+2. 권한 있는 끝점에 연결 했으므로 환경에 적합 한 매개 변수를 사용 하 여 다음 명령을 실행 합니다.
+
+    ```PowerShell
+    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
+    ```
+
+3. 환경에 적합 한 매개 변수를 사용 하 여 기본 공급자 구독 소유자를 업데이트 하려면 다음 명령을 실행 합니다.
 
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
@@ -269,7 +275,7 @@ Microsoft는 클레임 변환 규칙을 포함 하 여 신뢰 당사자 트러�
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone" -TokenLifeTime 1440
    ```
 
-   **AD FS 2012/2012 R2에 대 한**
+   **For AD FS 2012/2012 R2**
 
    ```PowerShell  
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -TokenLifeTime 1440
@@ -278,7 +284,7 @@ Microsoft는 클레임 변환 규칙을 포함 하 여 신뢰 당사자 트러�
    > [!IMPORTANT]  
    > Windows Server 2012 또는 2012 R2 AD FS를 사용 하는 경우 발급 권한 부여 규칙을 구성 하려면 AD FS MMC 스냅인을 사용 해야 합니다.
 
-4. Internet Explorer 또는 Microsoft Edge 브라우저를 사용 하 여 Azure 스택 액세스할 때 토큰 바인딩을 무시 해야 합니다. 그렇지 않은 경우 로그인 시도 실패합니다. AD FS 인스턴스 또는 팜 구성원에서 다음 명령을 실행 합니다.
+4. Internet Explorer 또는 Microsoft Edge 브라우저를 사용 하 여 Azure Stack을 액세스할 때 토큰 바인딩을 무시 해야 합니다. 그렇지 않은 경우 로그인 시도 실패합니다. AD FS 인스턴스 또는 팜 구성원에서 다음 명령을 실행 합니다.
 
    > [!note]  
    > Windows Server 2012 또는 2012 R2 AD FS를 사용 하는 경우에이 단계가 적용 하지 않습니다. 이 명령은 건너뛰고 통합을 사용 하 여 계속 해도 됩니다.
@@ -319,7 +325,7 @@ SPN을 만드는 방법에 대 한 자세한 내용은 참조 하세요. [AD FS�
 2. 다음 cmdlet을 실행 합니다.
 
    ```PowerShell  
-   Reset-DatacenterIntegationConfiguration
+   Reset-DatacenterIntegrationConfiguration
    ```
 
    롤백 작업을 실행 한 후 모든 구성 변경 내용이 롤백됩니다. 기본 제공 인증만 **CloudAdmin** 사용자가 가능 합니다.

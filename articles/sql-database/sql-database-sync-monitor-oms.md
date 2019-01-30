@@ -12,18 +12,21 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 0a130613d6d2086fda55ca015b1c0ca77c909e3d
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: b7d6b59ab03985c19ffa08a0a8266d449892046f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684616"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717826"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>Log Analytics를 사용하여 SQL 데이터 동기화 모니터링 
 
 이전에는 SQL 데이터 동기화 활동 로그를 확인하고 오류와 경고를 검색하기 위해 Azure Portal에서 수동으로 SQL 데이터 동기화를 확인하거나 PowerShell 또는 REST API를 사용해야 했습니다. 이 문서의 단계에 따라 데이터 동기화 모니터링 환경을 향상시키는 사용자 지정 솔루션을 구성합니다. 시나리오에 맞게 이 솔루션을 사용자 지정할 수 있습니다.
 
 SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-database-sync-data.md)를 참조하세요.
+
+> [!IMPORTANT]
+> Azure SQL 데이터 동기화는 이때 Azure SQL Database Managed Instance를 지원하지 **않습니다**.
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>모든 동기화 그룹에 대한 모니터링 대시보드 
 
@@ -97,7 +100,7 @@ Runbook을 만드는 방법에 대한 자세한 내용은 [내 첫 번째 PowerS
 
     2.  동기화 그룹 정보
 
-    3.  Log Analytics 정보 이 정보는 Azure Portal | 설정 | 연결된 원본에서 찾습니다. Log Analytics에 데이터를 보내는 방법에 대한 자세한 내용은 [HTTP 데이터 수집기 API로 Log Analytics에 데이터 전송(미리 보기)](../log-analytics/log-analytics-data-collector-api.md)을 참조하세요.
+    3.  Log Analytics 정보 이 정보는 Azure Portal | 설정 | 연결된 원본에서 찾습니다. Log Analytics에 데이터를 보내는 방법에 대한 자세한 내용은 [HTTP 데이터 수집기 API로 Log Analytics에 데이터 전송(미리 보기)](../azure-monitor/platform/data-collector-api.md)을 참조하세요.
 
 11. [테스트] 창에서 Runbook을 실행합니다. 성공적으로 실행되었는지 확인합니다.
 

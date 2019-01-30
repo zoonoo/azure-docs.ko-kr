@@ -1,24 +1,21 @@
 ---
-title: 'Azure Cosmos DB: SQL Node.js API, SDK 및 리소스 | Microsoft Docs'
+title: Azure Cosmos DB는 SQL Node.js API, SDK 및 리소스
 description: 릴리스 날짜, 사용 중지 날짜 및 Azure Cosmos DB Node.js SDK의 각 버전 간 변경 내용을 포함하여 SQL Node.js API 및 SDK에 대한 모든 것을 알아봅니다.
-services: cosmos-db
 author: deborahc
-editor: cgronlun
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
 ms.date: 09/24/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5ba00376e40b92a217bddd5b27c53dbe30c3cf3
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.author: dech
+ms.openlocfilehash: 1cb6889305e5f6bce5728039712a1834dc2e9353
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687506"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033590"
 ---
-# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK for SQL API: 릴리스 정보 및 리소스
+# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Node.js SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
@@ -29,7 +26,7 @@ ms.locfileid: "51687506"
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -41,7 +38,7 @@ ms.locfileid: "51687506"
 |SDK에 참여 | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
 | 샘플 | [Node.js 코드 샘플](sql-api-nodejs-samples.md)
 | 시작 자습서 | [JavaScript SDK 시작](sql-api-nodejs-get-started.md)
-| 웹앱 자습서 | [Azure Cosmos DB를 사용하여 Node.js 웹 응용 프로그램 빌드](sql-api-nodejs-application.md)
+| 웹앱 자습서 | [Azure Cosmos DB를 사용하여 Node.js 웹 애플리케이션 빌드](sql-api-nodejs-application.md)
 | 현재 지원되는 플랫폼 | [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) - SDK 버전 2.0.0 이상이 필요합니다.<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
 
 ## <a name="release-notes"></a>릴리스 정보
@@ -107,8 +104,8 @@ ms.locfileid: "51687506"
 ### <a name="1.12.1"/>1.12.1</a>
 * 관련된 문서에 특수 유니코드 문자(LS, PS)가 있는 executeStoredProcedure의 버그를 수정했습니다.
 * 파티션 키의 유니코드 문자를 사용하여 문서를 처리할 때 버그를 수정했습니다.
-* 이름 미디어를 사용하여 컬렉션을 만들기 위한 지원을 수정했습니다. Github 문제 #114.
-* 권한 부여 토큰에 대한 지원을 수정했습니다. Github 문제 #178.
+* 이름 미디어를 사용하여 컬렉션을 만들기 위한 지원을 수정했습니다. GitHub 문제 #114.
+* 권한 부여 토큰에 대한 지원을 수정했습니다. GitHub 문제 #178.
 
 ### <a name="1.12.0"/>1.12.0</a>
 * ConsistentPrefix라고 하는 새로운 [일관성 수준](consistency-levels.md)에 대한 지원이 추가되었습니다.
@@ -120,8 +117,8 @@ ms.locfileid: "51687506"
 * 파티션 간 쿼리에 대한 병렬 처리 수준을 제어하기 위한 옵션을 추가했습니다.
 * Azure Cosmos DB 에뮬레이터에 대해 실행하는 경우 SSL 유효성 검사를 비활성화하기 위한 옵션을 추가했습니다.
 * 분할된 컬렉션에 대한 최소 처리량이 10,100RU/s에서 2500RU/s로 감소됩니다.
-* 단일 파티션 컬렉션에 대한 연속 토큰 버그를 수정했습니다. Github 문제 #107.
-* 단일 매개 변수인 0을 처리하는 도중 executeStoredProcedure 버그를 수정했습니다. Github 문제 #155.
+* 단일 파티션 컬렉션에 대한 연속 토큰 버그를 수정했습니다. GitHub 문제 #107.
+* 단일 매개 변수인 0을 처리하는 도중 executeStoredProcedure 버그를 수정했습니다. GitHub 문제 #155.
 
 ### <a name="1.10.2"/>1.10.2</a>
 * SDK 버전을 포함하도록 수정된 사용자 에이전트 헤더입니다.

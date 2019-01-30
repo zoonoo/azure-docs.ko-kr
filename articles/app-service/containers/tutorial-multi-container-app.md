@@ -1,5 +1,5 @@
 ---
-title: Web App for Containers에서 다중 컨테이너(미리 보기) 앱 만들기
+title: Web App for Containers에서 다중 컨테이너 앱 만들기 - Azure App Service
 description: Azure에서 WordPress 및 MySQL 앱을 통해 Docker Compose 및 Kubernetes 구성 파일이 포함된 다중 컨테이너를 사용하는 방법을 알아봅니다.
 keywords: Azure App Service, 웹앱, Linux, Docker, Compose, 다중 컨테이너, 다중-컨테이너, 컨테이너용 웹앱, 다중 컨테이너, 컨테이너, Kubernetes, WordPress, Azure DB for MySQL, 컨테이너를 포함한 프로덕션 데이터베이스
 services: app-service
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: c8002b10e2c7c0823cd59bf300283d04fca5ce2e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.custom: seodec18
+ms.openlocfilehash: c9759b8900f0579ccd56d001d50d65aedce2b445
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390213"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716041"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>자습서: Web App for Containers에서 다중 컨테이너(미리 보기) 앱 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "49390213"
 > * Web App for Containers에서 작동하도록 Docker Compose 구성 변환
 > * Web App for Containers에서 작동하도록 Kubernetes 구성 변환
 > * Azure에 다중 컨테이너 앱 배포
-> * 응용 프로그램 설정 추가
+> * 애플리케이션 설정 추가
 > * 컨테이너용 영구 저장소 사용
 > * Azure Database for MySQL에 연결
 > * 오류 문제 해결
@@ -210,7 +210,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 ```
 
 > [!TIP]
-> [앱이 사용하는 아웃바운드 IP 주소만 사용](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips)으로 방화벽 규칙을 훨씬 더 엄격하게 제한할 수 있습니다.
+> [앱이 사용하는 아웃바운드 IP 주소만 사용](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips)으로 방화벽 규칙을 훨씬 더 엄격하게 제한할 수 있습니다.
 >
 
 ### <a name="create-the-wordpress-database"></a>WordPress 데이터베이스 만들기
@@ -235,7 +235,7 @@ az mysql db create --resource-group myResourceGroup --server-name <mysql_server_
 
 ### <a name="configure-database-variables-in-wordpress"></a>WordPress의 데이터베이스 변수 구성
 
-WordPress 앱을 이 새 MySQL 서버에 연결하려면 `MYSQL_SSL_CA`에서 정의된 SSL CA 경로를 포함하여 몇 가지 WordPress 관련 환경 변수를 구성합니다. [DigiCert](http://www.digicert.com/)의 [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm)는 아래의 [사용자 지정 이미지](https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations)에서 제공됩니다.
+WordPress 앱을 이 새 MySQL 서버에 연결하려면 `MYSQL_SSL_CA`에서 정의된 SSL CA 경로를 포함하여 몇 가지 WordPress 관련 환경 변수를 구성합니다. [DigiCert](https://www.digicert.com/)의 [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm)는 아래의 [사용자 지정 이미지](https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations)에서 제공됩니다.
 
 이렇게 변경하려면 Cloud Shell에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용합니다. 앱 설정은 대/소문자를 구분하고 공백으로 구분합니다.
 
@@ -563,7 +563,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 ```
 
 > [!TIP]
-> [앱이 사용하는 아웃바운드 IP 주소만 사용](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips)으로 방화벽 규칙을 훨씬 더 엄격하게 제한할 수 있습니다.
+> [앱이 사용하는 아웃바운드 IP 주소만 사용](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips)으로 방화벽 규칙을 훨씬 더 엄격하게 제한할 수 있습니다.
 >
 
 ### <a name="create-the-wordpress-database"></a>WordPress 데이터베이스 만들기
@@ -710,7 +710,7 @@ Redis를 사용하려면 [Redis에 WordPress 연결](#connect-wordpress-to-redis
 > * Web App for Containers에서 작동하도록 Docker Compose 구성 변환
 > * Web App for Containers에서 작동하도록 Kubernetes 구성 변환
 > * Azure에 다중 컨테이너 앱 배포
-> * 응용 프로그램 설정 추가
+> * 애플리케이션 설정 추가
 > * 컨테이너용 영구 저장소 사용
 > * Azure Database for MySQL에 연결
 > * 오류 문제 해결

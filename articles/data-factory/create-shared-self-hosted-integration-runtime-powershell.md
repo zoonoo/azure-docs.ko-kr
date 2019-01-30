@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: b32ea4293daa9206c6b0da4bdee777677c5d340d
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 76b0d1728b46834270e9a5b53709de62b4a8b3fa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685517"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429381"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>PowerShell을 사용하여 Azure Data Factory에서 자체 호스팅 통합 런타임 공유 만들기
 
@@ -33,7 +32,7 @@ ms.locfileid: "51685517"
 
 - **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다. 
 
-- **Azure PowerShell**. [PowerShellGet을 사용하여 Windows에 Azure PowerShell 설치](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.11.0)의 지침을 따르세요. PowerShell을 사용하여 다른 데이터 팩터리와 공유할 수 있는 자체 호스팅 통합 런타임을 만드는 스크립트를 실행합니다. 
+- **Azure PowerShell**. [PowerShellGet을 사용하여 Windows에 Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.11.0)의 지침을 따르세요. PowerShell을 사용하여 다른 데이터 팩터리와 공유할 수 있는 자체 호스팅 통합 런타임을 만드는 스크립트를 실행합니다. 
 
 > [!NOTE]  
 > Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)에서 관심 있는 지역을 선택합니다.
@@ -75,7 +74,7 @@ ms.locfileid: "51685517"
     > [!NOTE]  
     > 이 단계는 선택 사항입니다. 데이터 팩터리가 이미 있는 경우 이 단계를 건너뜁니다. 
 
-    [New-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.11.0) 명령을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다. 다음 예제는 WestEurope 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다. 
+    [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.11.0) 명령을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다. 다음 예제는 WestEurope 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다. 
 
     ```powershell
     New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
@@ -192,6 +191,6 @@ Remove-AzureRmDataFactoryV2IntegrationRuntime `
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Data Factory의 통합 런타임 개념](https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime)을 검토합니다.
+- [Azure Data Factory의 통합 런타임 개념](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime)을 검토합니다.
 
-- [Azure Portal에서 자체 호스팅 통합 런타임을 만드는](https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime) 방법을 알아봅니다.
+- [Azure Portal에서 자체 호스팅 통합 런타임을 만드는](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime) 방법을 알아봅니다.

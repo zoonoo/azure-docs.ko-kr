@@ -21,7 +21,7 @@ ms.locfileid: "47393267"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>추출된 데이터를 사용하여 교차 테넌트 분석 - 단일 테넌트 앱
  
-이 자습서에서는 단일 테넌트 구현에 대한 하나의 완전한 분석 시나리오를 처음부터 끝까지 살펴봅니다. 시나리오에서는 기업에서 스마트한 의사 결정을 내리는 데 분석을 어떻게 이용할 수 있는지 보여줍니다. 각 테넌트 데이터베이스에서 추출된 데이터에 분석을 적용하여 테넌트 동작을 살펴보게 됩니다. 테넌트가 샘플 응용 프로그램인 Wingtip Tickets SaaS 응용 프로그램을 사용하는 방식도 확인하게 됩니다. 이 시나리오는 다음과 같이 3단계로 구성됩니다. 
+이 자습서에서는 단일 테넌트 구현에 대한 하나의 완전한 분석 시나리오를 처음부터 끝까지 살펴봅니다. 시나리오에서는 기업에서 스마트한 의사 결정을 내리는 데 분석을 어떻게 이용할 수 있는지 보여줍니다. 각 테넌트 데이터베이스에서 추출된 데이터를 사용하여 분석을 통해 샘플 Wingtip Tickets SaaS 애플리케이션을 비롯한 테넌트 동작을 살펴보게 됩니다. 이 시나리오는 다음과 같이 3단계로 구성됩니다. 
 
 1.  각 테넌트 데이터베이스에서 분석 저장소로 데이터를 **추출**하고 **로드**합니다.
 2.  분석 처리를 위해 **추출된 데이터를 변환**합니다.
@@ -40,11 +40,11 @@ ms.locfileid: "47393267"
 
 ## <a name="offline-tenant-analytics-pattern"></a>오프라인 테넌트 분석 패턴
 
-일반적으로 다중 테넌트 SaaS 응용 프로그램에는 클라우드에 저장된 방대한 테넌트 데이터가 있습니다. 이러한 데이터는 응용 프로그램의 작동 및 사용과 테넌트의 동작에 대한 풍부한 정보를 제공합니다. 이와 같은 인사이트는 기능 개발, 사용성 개선, 앱 및 플랫폼의 기타 투자에 대한 방향성을 제공할 수 있습니다.
+일반적으로 다중 테넌트 SaaS 애플리케이션에는 클라우드에 저장된 방대한 테넌트 데이터가 있습니다. 이러한 데이터는 애플리케이션의 작동 및 사용과 테넌트의 동작에 대한 풍부한 정보를 제공합니다. 이와 같은 인사이트는 기능 개발, 사용성 개선, 앱 및 플랫폼의 기타 투자에 대한 방향성을 제공할 수 있습니다.
 
 모든 데이터가 하나의 다중 테넌트 데이터베이스에 저장되어 있다면 모든 테넌트가 손쉽게 데이터에 액세스할 수 있습니다. 그러나 데이터가 수천 개의 데이터베이스에 잠재적으로 분산되어 저장되어 있다면 액세스가 복잡해집니다. 이러한 복잡성을 해결하고 트랜잭션 데이터에 대한 분석 쿼리의 영향을 최소화하는 한 가지 방법은 데이터를 목적이 있는 분석 데이터베이스 또는 데이터 웨어하우스로 추출하는 것입니다.
 
-이 자습서에서는 Wingtip Tickets SaaS 응용 프로그램에 대한 분석 시나리오를 처음부터 끝까지 살펴봅니다. 먼저 ‘탄력적 작업’은 각 테넌트 데이터베이스에서 데이터를 추출하여 분석 저장소의 준비 테이블에 로드하는 데 사용됩니다. 분석 저장소로 SQL Database나 SQL Data Warehouse를 사용할 수 있습니다. 대규모 데이터 추출 시에는 [Azure Data Factory](../data-factory/introduction.md)를 사용하는 것이 권장됩니다.
+이 자습서에서는 Wingtip Tickets SaaS 애플리케이션에 대한 분석 시나리오를 처음부터 끝까지 살펴봅니다. 먼저 ‘탄력적 작업’은 각 테넌트 데이터베이스에서 데이터를 추출하여 분석 저장소의 준비 테이블에 로드하는 데 사용됩니다. 분석 저장소로 SQL Database나 SQL Data Warehouse를 사용할 수 있습니다. 대규모 데이터 추출 시에는 [Azure Data Factory](../data-factory/introduction.md)를 사용하는 것이 권장됩니다.
 
 다음으로, 집계된 데이터를 일련의 [스타 스키마](https://www.wikipedia.org/wiki/Star_schema) 테이블로 변환합니다. 테이블은 중앙의 팩트 테이블과 관련 차원 테이블로 이루어집니다.  Wingtip Tickets의 경우 다음과 같습니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "47393267"
  
 ![architectureOverView](media/saas-tenancy-tenant-analytics/StarSchema.png)
 
-마지막으로 테넌트 동작에 대한 정보와 Wingtip Tickets 응용 프로그램의 사용을 강조 표시하기 위해 **PowerBI**를 통해 분석 저장소가 쿼리됩니다. 다음과 같은 쿼리를 실행합니다.
+마지막으로 테넌트 동작에 대한 정보와 Wingtip Tickets 애플리케이션의 사용을 강조 표시하기 위해 **PowerBI**를 통해 분석 저장소가 쿼리됩니다. 다음과 같은 쿼리를 실행합니다.
  
 - 각 장소의 상대적 인기도를 표시하는 쿼리
 - 다른 이벤트에 대한 티켓 판매의 패턴을 강조 표시하는 쿼리
@@ -69,8 +69,8 @@ ms.locfileid: "47393267"
 
 이 자습서를 수행하려면 다음 필수 조건이 충족되었는지 확인합니다.
 
-- Wingtip Tickets SaaS Database Per Tenant 응용 프로그램이 배포되어 있어야 합니다. 5분 내에 배포하려면 [Wingtip SaaS 응용 프로그램 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
-- Wingtip Tickets SaaS Database Per Tenant 스크립트와 응용 프로그램 [소스 코드](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/)를 GitHub에서 다운로드해야 합니다. 다운로드 지침을 참조하세요. 콘텐츠를 추출하기 전에 *zip 파일의 차단을 해제*해야 합니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
+- Wingtip Tickets SaaS Database Per Tenant 애플리케이션이 배포되어 있어야 합니다. 5분 내에 배포하려면 [Wingtip SaaS 애플리케이션 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
+- Wingtip Tickets SaaS Database Per Tenant 스크립트와 애플리케이션 [소스 코드](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/)를 GitHub에서 다운로드해야 합니다. 다운로드 지침을 참조하세요. 콘텐츠를 추출하기 전에 *zip 파일의 차단을 해제*해야 합니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
 - Power BI Desktop이 설치되어 있어야 합니다. [Power BI Desktop 다운로드](https://powerbi.microsoft.com/downloads/)
 - 추가 테넌트 배치가 프로비전되어 있어야 합니다. [**테넌트 프로비전 자습서**](saas-dbpertenant-provision-and-catalog.md)를 참조하세요.
 - 작업 계정과 jobaccount 데이터베이스가 생성되어 있어야 합니다. [**스키마 관리 자습서**](saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent)에서 해당 단계를 참조하세요.
@@ -93,7 +93,7 @@ ms.locfileid: "47393267"
     - 열 저장소가 있는 SQL 데이터베이스를 사용하려면 **$DemoScenario** = **3**으로 설정합니다.  
 3. **F5** 키를 눌러 *Deploy-TenantAnalytics<XX>.ps1* 스크립트를 호출하는 데모 스크립트를 실행하여 테넌트 분석 저장소를 만듭니다. 
 
-이렇게 해서 응용 프로그램을 배포하고 응용 프로그램에 유의미한 테넌트 데이터를 입력했습니다. 이번에는 [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)에서 **tenants1-dpt-&lt;User&gt;** 서버와 **catalog-dpt-&lt;User&gt;** 서버를 연결합니다. 이때 Login = *developer*, Password = *P@ssword1*입니다. 자세한 내용은 [입문용 자습서](saas-dbpertenant-wingtip-app-overview.md)를 참조하세요.
+이렇게 해서 애플리케이션을 배포하고 애플리케이션에 유의미한 테넌트 데이터를 입력했습니다. 이번에는 [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)에서 **tenants1-dpt-&lt;User&gt;** 서버와 **catalog-dpt-&lt;User&gt;** 서버를 연결합니다. 이때 Login = *developer*, Password = *P@ssword1*입니다. 자세한 내용은 [입문용 자습서](saas-dbpertenant-wingtip-app-overview.md)를 참조하세요.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -221,9 +221,9 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 
 위 차트를 통해 행사장 중 다수가 티켓의 80%를 판매하고 있지만, 좌석의 절반을 채우기도 어려운 행사장도 있음을 알 수 있습니다. 값을 조정하여 각 행사장별 판매량 비율의 최대값과 최소값을 선택합니다.
 
-앞에서는 티켓 판매량이 예측 가능한 패턴을 따른다는 사실을 분석했습니다. Wingtip Tickets는 이 사실을 바탕으로 동적 가격 책정 모델을 제안하여 성적이 부진한 행사장이 티켓 판매량을 높일 수 있도록 도울 수 있습니다. 또한, 각 이벤트의 티켓 판매량을 예측하는 데 기계 학습 기법을 사용할 기회도 제시됩니다. 티켓 판매 시 할인 혜택을 제공할 경우 각 행사장에 어떤 영향이 가해지는지를 예측해 볼 수도 있습니다. Power BI Embedded를 이벤트 관리 응용 프로그램에 통합하는 것도 가능합니다. 통합이 적용되면 예상 판매량과 할인율별 영향을 시각화해 볼 수도 있습니다. 이벤트 관리 응용 프로그램을 이용하여 분석 그래프에서 최적의 할인율을 곧바로 적용하는 방안도 고안할 수 있습니다.
+앞에서는 티켓 판매량이 예측 가능한 패턴을 따른다는 사실을 분석했습니다. Wingtip Tickets는 이 사실을 바탕으로 동적 가격 책정 모델을 제안하여 성적이 부진한 행사장이 티켓 판매량을 높일 수 있도록 도울 수 있습니다. 또한, 각 이벤트의 티켓 판매량을 예측하는 데 기계 학습 기법을 사용할 기회도 제시됩니다. 티켓 판매 시 할인 혜택을 제공할 경우 각 행사장에 어떤 영향이 가해지는지를 예측해 볼 수도 있습니다. Power BI Embedded를 이벤트 관리 애플리케이션에 통합하는 것도 가능합니다. 통합이 적용되면 예상 판매량과 할인율별 영향을 시각화해 볼 수도 있습니다. 이벤트 관리 애플리케이션을 이용하여 분석 그래프에서 최적의 할인율을 곧바로 적용하는 방안도 고안할 수 있습니다.
 
-지금까지 WingTip 응용 프로그램의 테넌트 데이터 추세를 관찰해 보았습니다. 이 앱을 사용하여 SaaS 응용 프로그램 벤더들이 비즈니스 의사 결정을 내리는 데 도움이 되는 다양한 방안을 생각해 볼 수 있을 것입니다. 벤더들은 이러한 방안을 고안하여 테넌트들의 다양한 니즈에 부응할 수 있게 됩니다. 이 자습서를 통해 테넌트 데이터에 분석을 적용하여 데이터를 기반으로 하는 의사 결정을 내리는 데 필요한 지식을 확충하셨기 바랍니다.
+지금까지 WingTip 애플리케이션의 테넌트 데이터 추세를 관찰해 보았습니다. 이 앱을 사용하여 SaaS 애플리케이션 벤더들이 비즈니스 의사 결정을 내리는 데 도움이 되는 다양한 방안을 생각해 볼 수 있을 것입니다. 벤더들은 이러한 방안을 고안하여 테넌트들의 다양한 니즈에 부응할 수 있게 됩니다. 이 자습서를 통해 테넌트 데이터에 분석을 적용하여 데이터를 기반으로 하는 의사 결정을 내리는 데 필요한 지식을 확충하셨기 바랍니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,44 +9,44 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1324980e173d31803026f9ec93565d4aabd30c85
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: cf7ef6f8e5dc157d3c3e89c9dfe3735c255694fa
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687251"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745060"
 ---
-# <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Windows 기반 HDInsight에서 Hadoop MapReduce 샘플 실행
+# <a name="run-mapreduce-samples-in-windows-based-hdinsight"></a>Windows 기반 HDInsight에서 MapReduce 샘플 실행
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-Azure HDInsight를 사용하여 Hadoop 클러스터에서 MapReduce 작업 실행을 시작하는 데 도움이 되는 일련의 샘플이 제공됩니다. 이 샘플은 직접 만든 각 HDInsight의 관리되는 클러스터에 대해 사용할 수 있습니다. 이러한 샘플을 실행하면 Azure PowerShell cmdlet을 사용하여 Hadoop 클러스터에 대해 작업을 실행하는 방법을 알 수 있게 됩니다.
+Azure HDInsight를 사용하여 Apache Hadoop 클러스터에서 MapReduce 작업 실행을 시작하는 데 도움이 되는 일련의 샘플이 제공됩니다. 이 샘플은 직접 만든 각 HDInsight의 관리되는 클러스터에 대해 사용할 수 있습니다. 이러한 샘플을 실행하면 Azure PowerShell cmdlet을 사용하여 Hadoop 클러스터에 대해 작업을 실행하는 방법을 알 수 있게 됩니다.
 
 * [**단어 개수**][hdinsight-sample-wordcount]: 텍스트 파일에 나오는 단어 수를 계산합니다.
 * [**C# 스트리밍 단어 개수**][hdinsight-sample-csharp-streaming]: Hadoop 스트리밍 인터페이스를 사용하여 텍스트 파일에 나오는 단어 수를 계산합니다.
 * [**Pi 추정**][hdinsight-sample-pi-estimator]: 통계(준난수 몬테카를로) 방법을 사용하여 Pi 값을 추정합니다.
 * [**10-GB Graysort**][hdinsight-sample-10gb-graysort]: HDInsight를 사용하여 10GB 파일에 대해 일반적인 용도의 GraySort를 실행합니다. 실행할 작업에는 데이터를 생성하는 Teragen, 데이터를 정렬하는 Terasort, 데이터가 제대로 정렬되었는지 확인하는 Teravalidate의 세 가지가 있습니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 부록에서 소스 코드를 찾을 수 있습니다.
 
 Hadoop 관련 기술(예: Java 기반 MapReduce 프로그래밍 및 스트리밍)에 대한 다양한 추가 설명서 및 Windows PowerShell 스크립팅에 사용되는 cmdlet에 대한 설명서를 웹에서 찾을 수 있습니다. 이러한 리소스에 대한 자세한 내용은 다음을 참조하세요.
 
-* [HDInsight의 Hadoop용 Java MapReduce 프로그램 개발](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-* [HDInsight에서 Hadoop 작업 제출](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [HDInsight에서 Apache Hadoop용 Java MapReduce 프로그램 개발](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [HDInsight에서 Apache Hadoop 작업 제출](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Azure HDInsight 소개][hdinsight-introduction]
 
-오늘날에 많은 사람들이 MapReduce를 통한 Hive 및 Pig를 선택합니다.  자세한 내용은 다음을 참조하세요.
+오늘날에 많은 사람들이 MapReduce를 통한 Apache Hive 및 Apache Pig를 선택합니다.  자세한 내용은 다음을 참조하세요.
 
-* [HDInsight에서 Hive 사용](hadoop/hdinsight-use-hive.md)
-* [HDInsight에서 Pig 사용](hadoop/hdinsight-use-pig.md)
+* [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)
+* [HDInsight에서 Apache Pig 사용](hadoop/hdinsight-use-pig.md)
 
 **필수 조건**:
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-* **HDInsight 클러스터**. 이러한 클러스터를 만드는 여러 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
+* **HDInsight 클러스터**. 이러한 클러스터를 만드는 여러 방법에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 * **Azure PowerShell이 포함된 워크스테이션**.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Azure 서비스 관리자를 사용하여 HDInsight 리소스를 관리하는 Azure PowerShell 지원은 더 이상 **지원되지 않고** 2017년 1월 1일에 제거됩니다. 이 문서의 단계에서는 Azure Resource Manager로 작동하는 새 HDInsight cmdlet을 사용합니다.
     >
     > [Azure PowerShell 설치 및 구성](/powershell/azureps-cmdlets-docs) 단계를 수행하여 최신 버전의 Azure PowerShell을 설치합니다. Azure Resource Manager로 작동하는 새로운 cmdlet을 사용하도록 수정해야 하는 스크립트가 있는 경우 자세한 내용은 [HDInsight 클러스터에 대한 Azure Resource Manager 기반 개발 도구에 마이그레이션](hdinsight-hadoop-development-using-azure-resource-manager.md)을 참조하세요.
@@ -56,7 +56,7 @@ MapReduce 프로젝트를 제출하려면 먼저 MapReduce 작업 정의를 만�
 
 [부록 A](#apendix-a---the-word-count-MapReduce-program-in-java)에서 소스 코드를 찾을 수 있습니다.
 
-Java MapReduce 프로그램을 개발하는 절차는 [HDInsight의 Hadoop용 Java MapReduce 프로그램 개발](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+Java MapReduce 프로그램을 개발하는 절차는 [HDInsight의 Apache Hadoop용 Java MapReduce 프로그램 개발](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
 **단어 개수 MapReduce 작업을 제출하려면**
 
@@ -120,7 +120,7 @@ Java MapReduce 프로그램을 개발하는 절차는 [HDInsight의 Hadoop용 Ja
 ## <a name="hdinsight-sample-csharp-streaming"></a>단어 개수 - C# 스트리밍
 Hadoop은 맵을 작성하고 Java가 아닌 다른 언어의 함수를 줄일 수 있는 스트리밍 API를 MapReduce에 제공합니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 이 자습서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. Linux 기반 HDInsight 클러스터를 스트리밍하는 예제는 [HDInsight용 Python 스트리밍 프로그램 개발](hadoop/apache-hadoop-streaming-python.md)을 참조하세요.
 
 예제에서 mapper 및 reducer는 [stdin][stdin-stdout-stderr]에서 입력을 줄 단위로 읽고 출력을 [stdout][stdin-stdout-stderr]로 내보내는 실행 파일입니다. 프로그램은 텍스트의 모든 단어 수를 계산합니다.
@@ -167,7 +167,7 @@ Pi 추정은 통계(준난수 몬테카를로) 방법을 사용하여 Pi 값을 
     ```
 
 ## <a name="hdinsight-sample-10gb-graysort"></a>10GB Graysort
-이 샘플에서는 비교적 빠르게 실행할 수 있도록 적절한 10GB의 데이터를 사용합니다. 또한 2009년에 0.578TB/분(173분에 100TB)의 속도로 연간 범용("daytona") 테라바이트 정렬 벤치마크를 획득한 Owen O'Malley 및 Arun Murthy가 개발한 MapReduce 응용 프로그램을 사용합니다. 이 정렬 벤치마크 및 다른 정렬 벤치마크에 대한 자세한 내용은 [정렬 벤치마크](http://sortbenchmark.org/) (영문) 사이트를 참조하십시오.
+이 샘플에서는 비교적 빠르게 실행할 수 있도록 적절한 10GB의 데이터를 사용합니다. 또한 2009년에 0.578TB/분(173분에 100TB)의 속도로 연간 범용("daytona") 테라바이트 정렬 벤치마크를 획득한 Owen O'Malley 및 Arun Murthy가 개발한 MapReduce 애플리케이션을 사용합니다. 이 정렬 벤치마크 및 다른 정렬 벤치마크에 대한 자세한 내용은 [정렬 벤치마크](https://sortbenchmark.org/) (영문) 사이트를 참조하십시오.
 
 이 샘플에서는 세 가지 집합의 MapReduce 프로그램을 사용합니다.
 
@@ -175,7 +175,7 @@ Pi 추정은 통계(준난수 몬테카를로) 방법을 사용하여 Pi 값을 
 2. **TeraSort**는 입력 데이터를 샘플링하고 MapReduce를 사용하여 데이터를 전체 순서로 정렬 TeraSort는 각 reduce의 키 범위를 정의하는 N-1 샘플 키의 정렬된 목록을 사용하는 사용자 지정 파티셔너를 제외하면 MapReduce 함수의 표준 정렬입니다. 특히, sample[i-1] <= key < sample[i]와 같은 모든 키는 reduce i로 전송됩니다. 이는 reduce i의 출력이 모두 reduce i+1의 출력보다 작다는 것을 보증합니다.
 3. **TeraValidate** 는 출력이 전역으로 정렬되는지 확인하는 MapReduce 프로그램입니다. 이 프로그램은 출력 디렉터리에 파일당 하나의 맵을 만들며 각 맵에서 각 키가 이전 키보다 작거나 같은지 확인합니다. 또한 map 함수는 각 파일의 첫 번째와 마지막 키의 레코드를 생성하며, reduce 함수는 파일 i의 첫 번째 키가 파일 i-1의 마지막 키보다 큰지 확인합니다. 모든 문제가 순서에서 벗어난 키와 함께 reduce의 출력으로 보고됩니다.
 
-세 응용 프로그램 모두에 사용된 입력 및 출력 형식은 올바른 형식의 텍스트 파일을 읽고 씁니다. 벤치마크 콘테스트에서는 출력 데이터를 여러 노드로 복제할 필요가 없으므로 reduce의 출력에서 복제를 기본값인 3 대신 1로 설정했습니다.
+세 애플리케이션 모두에 사용된 입력 및 출력 형식은 올바른 형식의 텍스트 파일을 읽고 씁니다. 벤치마크 콘테스트에서는 출력 데이터를 여러 노드로 복제할 필요가 없으므로 reduce의 출력에서 복제를 기본값인 3 대신 1로 설정했습니다.
 
 소개 부분에서 설명한 각 MapReduce 프로그램에 해당하는 샘플에는 다음과 같은 세 가지 작업이 필요합니다.
 
@@ -207,10 +207,10 @@ Pi 추정은 통계(준난수 몬테카를로) 방법을 사용하여 Pi 값을 
 ## <a name="next-steps"></a>다음 단계
 이 문서 및 각 샘플의 문서에서 HDInsight 클러스터에 포함된 샘플을 Azure PowerShell을 사용하여 실행하는 방법을 알아보았습니다. HDInsight에서 Pig, Hive 및 MapReduce를 사용하는 방법에 대한 자습서는 다음 항목을 참조하세요.
 
-* [휴대폰 사용을 분석하기 위해 HDInsight에서 Hive와 함께 Hadoop 사용 시작][hdinsight-get-started]
-* [HDInsight에서 Hadoop과 Pig 사용][hdinsight-use-pig]
-* [HDInsight에서 Hadoop과 Hive 사용][hdinsight-use-hive]
-* [HDInsight에서 Hadoop 작업 제출][hdinsight-submit-jobs]
+* [휴대폰 사용을 분석하기 위해 HDInsight에서 Apache Hive와 함께 Apache Hadoop 사용 시작][hdinsight-get-started]
+* [HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용][hdinsight-use-pig]
+* [HDInsight에서 Apache Hadoop과 함께 Apache Hive 사용][hdinsight-use-hive]
+* [HDInsight에서 Apache Hadoop 작업 제출][hdinsight-submit-jobs]
 
 ## <a name="appendix-a---the-word-count-source-code"></a>부록 A - 단어 개수 소스 코드
 
@@ -285,7 +285,7 @@ System.exit(job.waitForCompletion(true) ? 0 : 1);
 ```
 
 ## <a name="appendix-b---the-word-count-streaming-source-code"></a>부록 B - 단어 개수 스트리밍 소스 코드
-MapReduce 프로그램은 cat.exe 응용 프로그램을 매핑 인터페이스로 사용하여 텍스트를 콘솔로 스트리밍하고 wc.exe 응용 프로그램을 리듀싱 인터페이스로 사용하여 문서에서 스트리밍되는 단어 수를 계산합니다. mapper와 reducer는 둘 다 표준 입력 스트림(stdin)에서 문자를 줄 단위로 읽고 표준 출력 스트림(stdout)에 씁니다.
+MapReduce 프로그램은 cat.exe 애플리케이션을 매핑 인터페이스로 사용하여 텍스트를 콘솔로 스트리밍하고 wc.exe 애플리케이션을 리듀싱 인터페이스로 사용하여 문서에서 스트리밍되는 단어 수를 계산합니다. mapper와 reducer는 둘 다 표준 입력 스트림(stdin)에서 문자를 줄 단위로 읽고 표준 출력 스트림(stdout)에 씁니다.
 
 ```csharp
 // The source code for the cat.exe (Mapper).
@@ -383,7 +383,7 @@ mapper 및 reducer 함수가 포함된 Pi 추정 Java 코드를 아래 검사에
 * "License"); you may not use this file except in compliance
 * with the License. You may obtain a copy of the License at
 *
-* http://www.apache.org/licenses/LICENSE-2.0
+* https://www.apache.org/licenses/LICENSE-2.0
 *
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
@@ -722,7 +722,7 @@ System.exit(ToolRunner.run(null, new PiEstimator(), argv));
     * "License"); you may not use this file except in compliance
     * with the License.  You may obtain a copy of the License at
     *
-    *     http://www.apache.org/licenses/LICENSE-2.0
+    *     https://www.apache.org/licenses/LICENSE-2.0
     *
     * Unless required by applicable law or agreed to in writing, software
     * distributed under the License is distributed on an "AS IS" BASIS,
@@ -993,6 +993,6 @@ public class TeraSort extends Configured implements Tool {
 [hdinsight-use-hive]: hadoop/hdinsight-use-hive.md
 [hdinsight-use-pig]: hadoop/hdinsight-use-pig.md
 
-[streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
-[console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
+[streamreader]: https://msdn.microsoft.com/library/system.io.streamreader.aspx
+[console-writeline]: https://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx

@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/22/2019
 ms.author: mabrigg
-ms.openlocfilehash: 7ce501be5458282273e51a5b2bc18482592d2333
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.lastreviewed: 01/22/2019s
+ms.openlocfilehash: 091ede57dbbc069f20b5ece2fc5b39b6d49a9009
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44376955"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247785"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Azure Stack에서 실제 디스크 교체
 
@@ -29,10 +30,10 @@ ms.locfileid: "44376955"
 
 통합된 시스템을 개발 키트를 갖는 배포는 핫 스왑 가능 디스크에 대 한이 절차를 사용할 수 있습니다.
 
-원래 장비 제조업체 (OEM) 하드웨어 공급 업체를 기반으로 실제 디스크 교체 단계는 달라질 수 합니다. 시스템에 관련 된 자세한 단계에 대 한 공급 업체의 필드 교체 장치 (FRU) 설명서를 참조 하세요. 
+원래 장비 제조업체 (OEM) 하드웨어 공급 업체를 기반으로 실제 디스크 교체 단계는 달라질 수 합니다. 시스템에 관련 된 자세한 단계에 대 한 공급 업체의 필드 교체 장치 (FRU) 설명서를 참조 하세요.
 
 ## <a name="review-disk-alert-information"></a>디스크 경고 정보를 검토 합니다.
-디스크 오류 시에 연결 되지 않은 실제 디스크에 알려 주는 경고를 나타납니다. 
+디스크 오류 시에 연결 되지 않은 실제 디스크에 알려 주는 경고를 나타납니다.
 
  ![실제 디스크 경고 표시 연결이 끊어짐](media/azure-stack-replace-disk/DiskAlert.png)
 
@@ -47,34 +48,34 @@ ms.locfileid: "44376955"
 
 통합된 시스템에서 지원 되지 않는 디스크의 사용을 방지 하려면 시스템 공급 업체에서 지원 되지 않는 디스크를 차단 합니다. 지원 되지 않는 디스크를 사용 하려고 하면 새로운 경고가 지원 되지 않는 모델 또는 펌웨어를 때문에 격리 되어 디스크에 알려 줍니다.
 
-디스크를 교체한 후 Azure Stack 자동으로 새 디스크를 검색 하 고 가상 디스크 복구 프로세스를 시작 합니다.  
+디스크를 교체한 후 Azure Stack 자동으로 새 디스크를 검색 하 고 가상 디스크 복구 프로세스를 시작 합니다.
  
  ## <a name="check-the-status-of-virtual-disk-repair"></a>가상 디스크 복구의 상태를 확인 합니다.
  
  디스크를 교체한 후에 가상 디스크 상태를 모니터링 하 고 권한 있는 끝점을 사용 하 여 작업 진행 상태를 복구 수 있습니다. 권한 있는 끝점에 대 한 네트워크 연결 된 모든 컴퓨터에서 다음이 단계를 수행 합니다.
 
 1. Windows PowerShell 세션을 열고 권한 있는 끝점에 연결 합니다.
-    ````PowerShell
+    ```PowerShell
         $cred = Get-Credential
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-    ```` 
+    ``` 
   
 2. 가상 디스크 상태를 보려면 다음 명령을 실행 합니다.
-    ````PowerShell
+    ```PowerShell
         Get-VirtualDisk -CimSession s-cluster
-    ````
+    ```
    ![Powershell 명령의 출력은 Get-virtualdisk](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
 3. 현재 저장소 작업 상태를 보려면 다음 명령을 실행 합니다.
     ```PowerShell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
-    ````
+    ```
       ![Get-storagejob 명령의 Powershell 출력](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
 ## <a name="troubleshoot-virtual-disk-repair"></a>가상 디스크 복구 문제 해결
 
 가상 디스크를 복구 하는 경우 작업 작업을 다시 시작 하려면 다음 명령을 실행 중단을 나타납니다.
-  ````PowerShell
+  ```PowerShell
         Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
-  ```` 
+  ``` 

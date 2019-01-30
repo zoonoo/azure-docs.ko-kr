@@ -1,5 +1,5 @@
 ---
-title: 용량 spreadheet Azure Stack에 대 한 계획 | Microsoft Docs
+title: 용량 계획 스프레드시트 Azure Stack 용 | Microsoft Docs
 description: 용량 계획 스프레드시트 Azure Stack 배포에 대해 알아봅니다.
 services: azure-stack
 documentationcenter: ''
@@ -15,18 +15,19 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 7b8276281b8b550492fed17adc516e9539380987
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.lastreviewed: 12/11/2018
+ms.openlocfilehash: d140b80ecb5fe2a7211245044b08f43fde4233a8
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269739"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240989"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack Capacity Planner
 Azure Stack Capacity Planner 스프레드시트 Azure Stack 리소스 용량 계획에 사용 되는 경우 Capacity planner 컴퓨팅 리소스의 다양 한 할당을 디자인 하 고 어떻게 이러한 적합 한 다양 한 하드웨어 제품에서 참조 하는 기능을 제공 합니다. Azure Stack 계산기의 사용에 대 한 자세한 지침은 아래 제공 됩니다.
 
 ## <a name="worksheet-descriptions"></a>워크시트 설명
-다음은 간단한 요약이에서 다운로드할 수 있는 Azure Stack Capacity Planner 스프레드시트에 포함 된 워크시트 [ http://aka.ms/azstackcapacityplanner ](https://aka.ms/azstackcapacityplanner):
+다음은 간단한 요약이에서 다운로드할 수 있는 Azure Stack Capacity Planner 스프레드시트에 포함 된 워크시트 [ https://aka.ms/azstackcapacityplanner ](https://aka.ms/azstackcapacityplanner):
 
 |탭 이름|설명|
 |-----|-----|

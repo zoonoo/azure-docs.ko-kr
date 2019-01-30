@@ -2,18 +2,18 @@
 title: Azure Event Grid 구독 쿼리
 description: Azure Event Grid 구독을 나열하는 방법을 설명합니다.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/04/2018
-ms.author: tomfitz
-ms.openlocfilehash: 2b46cde4a352e647ee97669f116a6c1926879fa0
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.date: 01/04/2019
+ms.author: spelluru
+ms.openlocfilehash: ac43b85858451149ceabf87c77b42d40fbd4eac4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302418"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470985"
 ---
 # <a name="query-event-grid-subscriptions"></a>Event Grid 구독 쿼리 
 
@@ -83,7 +83,7 @@ Get-AzureRmEventGridSubscription -ResourceGroupName myResourceGroup
 
 ## <a name="custom-topics-and-azure-resources"></a>사용자 지정 항목 및 Azure 리소스
 
-이벤트 그리드 사용자 지정 항목은 Azure 리소스입니다. 따라서 Blob 저장소 계정과 같은 사용자 지정 항목 및 기타 리소스에 대한 이벤트 그리드 구독을 동일한 방식으로 쿼리합니다. 사용자 지정 항목에 대한 이벤트 그리드 구독을 얻으려면 리소스를 식별하거나 리소스의 위치를 식별하는 매개 변수를 제공해야 합니다. Azure 구독 전반에서 리소스에 대한 이벤트 그리드 구독을 광범위하게 쿼리할 수는 없습니다.
+이벤트 그리드 사용자 지정 항목은 Azure 리소스입니다. 따라서 Blob Storage 계정과 같은 사용자 지정 항목 및 기타 리소스에 대한 이벤트 그리드 구독을 동일한 방식으로 쿼리합니다. 사용자 지정 항목에 대한 이벤트 그리드 구독을 얻으려면 리소스를 식별하거나 리소스의 위치를 식별하는 매개 변수를 제공해야 합니다. Azure 구독 전반에서 리소스에 대한 이벤트 그리드 구독을 광범위하게 쿼리할 수는 없습니다.
 
 특정 위치의 사용자 지정 항목 및 기타 리소스에 대한 이벤트 그리드 구독을 얻으려면 위치 이름을 제공합니다.
 
@@ -113,7 +113,7 @@ PowerShell의 경우 다음을 사용합니다.
 Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.EventGrid.Topics" -Location westus2
 ```
 
-특정 위치의 저장소 계정에 대한 구독을 얻으려면 **Microsoft.Storage.StorageAccounts**의 위치와 항목 종류를 제공합니다.
+특정 위치의 스토리지 계정에 대한 구독을 얻으려면 **Microsoft.Storage.StorageAccounts**의 위치와 항목 종류를 제공합니다.
 
 Azure CLI의 경우 
 

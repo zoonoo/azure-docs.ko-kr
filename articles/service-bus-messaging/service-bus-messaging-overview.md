@@ -3,39 +3,39 @@ title: Azure Service Bus 메시지 개요 | Microsoft Docs
 description: Service Bus 메시징에 대한 설명
 services: service-bus-messaging
 documentationcenter: ''
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
-ms.author: spelluru
-ms.openlocfilehash: 7b4045737ea2be466a436e6abb0de6a1a61e6a5b
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.author: aschhab
+ms.openlocfilehash: ab1b68b8ca8339389a27d1c09aa8752cfdaec0d5
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636597"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851796"
 ---
 # <a name="what-is-azure-service-bus"></a>Azure Service Bus란?
 
-Microsoft Azure Service Bus는 완전히 관리되는 엔터프라이즈 통합 메시지 broker입니다. Service Bus는 응용 프로그램과 서비스를 서로 분리하는 데 가장 일반적으로 사용되며, 비동기 데이터 및 상태 전송에 대한 안정적이고 안전한 플랫폼입니다. 데이터는 *메시지*를 사용하여 서로 다른 응용 프로그램 및 서비스간에 전송됩니다. 메시지는 이진 형식으로 JSON, XML 또는 텍스트만 포함할 수 있습니다. 
+Microsoft Azure Service Bus는 완전 관리형 엔터프라이즈 [통합](http://azure.com/integration) 메시지 broker입니다. Service Bus는 애플리케이션과 서비스를 서로 분리하는 데 가장 일반적으로 사용되며, 비동기 데이터 및 상태 전송에 대한 안정적이고 안전한 플랫폼입니다. 데이터는 *메시지*를 사용하여 서로 다른 애플리케이션 및 서비스간에 전송됩니다. 메시지는 이진 형식으로 JSON, XML 또는 텍스트만 포함할 수 있습니다. 
 
 몇 가지 일반적인 메시징 시나리오는 다음과 같습니다.
 
 * 메시징: 주문, 저널 판매 및 구입 또는 인벤토리 이동과 같은 비즈니스 데이터를 전송합니다.
-* 응용 프로그램 분리: 응용 프로그램 및 서비스의 안정성 및 확장성을 개선합니다(클라이언트 및 서비스는 동시에 온라인 상태일 필요가 없음).
+* 애플리케이션 분리: 애플리케이션 및 서비스의 안정성 및 확장성을 개선합니다(클라이언트 및 서비스는 동시에 온라인 상태일 필요가 없음).
 * 토픽 및 구독: 게시자와 구독자 간의 1:*n* 관계를 활성화합니다.
 * 메시지 세션: 메시지 순서 지정 또는 메시지 지연이 필요한 워크플로를 구현합니다.
 
 ## <a name="namespaces"></a>네임스페이스
 
-네임스페이스는 모든 메시징 구성 요소에 대한 영역 컨테이너입니다. 여러 큐 및 토픽은 단일 네임스페이스 내에 있을 수 있으며 네임스페이스는 종종 응용 프로그램 컨테이너로 사용됩니다.
+네임스페이스는 모든 메시징 구성 요소에 대한 영역 컨테이너입니다. 여러 큐 및 토픽은 단일 네임스페이스 내에 있을 수 있으며 네임스페이스는 종종 애플리케이션 컨테이너로 사용됩니다.
 
 ## <a name="queues"></a>큐
 
-메시지는 *큐* 간에서 전송 및 수신됩니다. 큐를 사용하여 수신 응용 프로그램이 수신 및 처리할 수 있을 때까지 메시지를 저장할 수 있습니다.
+메시지는 *큐* 간에서 전송 및 수신됩니다. 큐를 사용하여 수신 애플리케이션이 수신 및 처리할 수 있을 때까지 메시지를 저장할 수 있습니다.
 
 ![큐](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
@@ -73,7 +73,7 @@ Service Bus는 수신자에게 배달할 수 없는 메시지 또는 처리하�
 
 ### <a name="message-deferral"></a>메시지 지연
 
-큐 또는 구독 클라이언트가 처리하려는 메시지를 받았으나 응용 프로그램 내의 특수한 상황으로 인해 처리가 현재 가능하지 않을 경우 엔터티에는 [메시지의 검색을 나중으로 연기](message-deferral.md)하는 옵션이 있습니다. 메시지는 큐나 구독에 남아 있지만 따로 분리됩니다.
+큐 또는 구독 클라이언트가 처리하려는 메시지를 받았으나 애플리케이션 내의 특수한 상황으로 인해 처리가 현재 가능하지 않을 경우 엔터티에는 [메시지의 검색을 나중으로 연기](message-deferral.md)하는 옵션이 있습니다. 메시지는 큐나 구독에 남아 있지만 따로 분리됩니다.
 
 ### <a name="batching"></a>일괄 처리
 

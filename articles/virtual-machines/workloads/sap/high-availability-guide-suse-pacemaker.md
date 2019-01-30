@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 9d3d1e5ba7ebc7e2afefb31df3be9f2a8f43e153
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 2cec9e9b9724ca401778d4493d03def2aefc4ee9
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685398"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304485"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
 
@@ -178,7 +178,7 @@ o- / ...........................................................................
 새로 만들 클러스터의 노드에서 다음 명령을 실행합니다.
 다음 항목에는 접두사 **[A]**(모든 노드에 적용됨), **[1]**(노드 1에만 적용됨), **[2]**(노드 2에만 적용됨) 접두사가 표시되어 있습니다.
 
-1. **[A]** iSCSI 장치에 연결
+1. **[A]** iSCSI 디바이스에 연결
 
    먼저 iSCSI 및 SBD 서비스를 사용하도록 설정합니다.
 
@@ -272,7 +272,7 @@ o- / ...........................................................................
    * **/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df**
    * **/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf**
 
-1. **[1]** SBD 장치 만들기
+1. **[1]** SBD 디바이스 만들기
 
    iSCSI 디바이스의 디바이스 ID를 사용하여 첫 번째 클러스터 노드에 새 SBD 디바이스를 만듭니다.
 
@@ -436,7 +436,7 @@ o- / ...........................................................................
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   값이 없거나 다른 경우 파일에 다음과 같이 굵게 표시된 콘텐츠를 추가합니다. 메모리 보존 유지 관리를 허용하도록 토큰을 30000으로 변경해야 합니다. 자세한 내용은 [Linux][virtual-machines-linux-maintenance] or [Windows에 대한 이 문서][virtual-machines-windows-maintenance]를 참조하세요.
+   값이 없거나 다른 경우 파일에 다음과 같이 굵게 표시된 콘텐츠를 추가합니다. 메모리 보존 유지 관리를 허용하도록 토큰을 30000으로 변경해야 합니다. 자세한 내용은 [Linux][virtual-machines-linux-maintenance] or [Windows에 대한 이 문서][virtual-machines-windows-maintenance]를 참조하세요. 또한 매개 변수 mcastaddr을 제거했는지 확인합니다.
 
    <pre><code>[...]
      <b>token:          30000
@@ -449,6 +449,8 @@ o- / ...........................................................................
         [...] 
      }
      <b>transport:      udpu</b>
+     # remove parameter mcastaddr
+     <b># mcastaddr: IP</b>
    } 
    <b>nodelist {
      node {
@@ -481,17 +483,17 @@ o- / ...........................................................................
 
 STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure에 대해 권한을 부여합니다. 다음 단계에 따라 서비스 주체를 만듭니다.
 
-1. <https://portal.azure.com>으로 이동합니다.
+1. [https://portal.azure.com](https://portal.azure.com)으로 이동
 1. Azure Active Directory 블레이드 열기  
    속성으로 이동하여 Directory ID 기록 이 ID는 **테넌트 ID**입니다.
 1. 앱 등록 클릭
 1. 추가를 클릭합니다.
-1. 이름을 입력하고 응용 프로그램 유형 "웹앱/API"를 선택한 다음, 로그온 URL(예: http://localhost))을 입력하고 만들기를 클릭
+1. 이름을 입력하고 애플리케이션 유형 “웹앱/API”를 선택한 후, 로그온 URL(예: http\://localhost)을 입력하고 만들기 클릭
 1. 로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있음
 1. 새 앱을 선택하고 설정 탭에서 키 클릭
 1. 새 키의 설명을 입력하고 “만료되지 않음”을 선택한 다음 저장을 클릭
 1. 값을 기록해 둡니다. 서비스 주체의 **암호**로 사용됨
-1. 응용 프로그램 ID를 적어둡니다. 서비스 주체의 사용자 이름(아래 단계의 **로그인 ID**)으로 사용됨
+1. 애플리케이션 ID를 적어둡니다. 서비스 주체의 사용자 이름(아래 단계의 **로그인 ID**)으로 사용됨
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** 펜스 에이전트에 대한 사용자 지정 역할 만들기
 
@@ -523,18 +525,18 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
 
 마지막 단원에서 만든 사용자 지정 역할인 "Linux 펜스 에이전트 역할"을 서비스 주체에 할당합니다. 소유자 역할을 더 이상 사용하지 마십시오!
 
-1. https://portal.azure.com으로 이동합니다.
+1. https\://portal.azure.com으로 이동
 1. 모든 리소스 블레이드 열기
 1. 첫 번째 클러스터 노드의 가상 머신 선택
 1. 액세스 제어(IAM) 클릭
-1. 추가를 클릭합니다.
+1. 역할 할당 추가 클릭
 1. "Linux 펜스 에이전트 역할"이라는 역할 선택
-1. 위에서 만든 응용 프로그램의 이름 입력
-1. 확인 클릭
+1. 위에서 만든 애플리케이션의 이름 입력
+1. 저장을 클릭합니다.
 
 두 번째 클러스터 노드에 위 단계 반복
 
-### <a name="1-create-the-stonith-devices"></a>**[1]** STONITH 장치 만들기
+### <a name="1-create-the-stonith-devices"></a>**[1]** STONITH 디바이스 만들기
 
 가상 머신의 권한을 편집하고 나면 클러스터의 STONITH 디바이스를 구성할 수 있습니다.
 
@@ -548,7 +550,7 @@ sudo crm configure property stonith-enabled=true
 
 ## <a name="default-pacemaker-configuration-for-sbd"></a>SBD에 대한 기본 Pacemaker 구성
 
-1. **[1]** STONITH 장치를 사용하도록 설정하고 방어 지연 설정
+1. **[1]** STONITH 디바이스를 사용하도록 설정하고 방어 지연 설정
 
 <pre><code>sudo crm configure property stonith-timeout=144
 sudo crm configure property stonith-enabled=true
@@ -568,5 +570,5 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
 * [SAP용 Azure Virtual Machines 배포][deployment-guide]
 * [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
 * [SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성][sles-nfs-guide]
-* [SAP 응용 프로그램용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성][sles-guide]
+* [SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성][sles-guide]
 * Azure VM에서 SAP HANA의 재해 복구를 계획하고 고가용성을 설정하는 방법을 알아보려면 [Azure VM(Virtual Machines)의 SAP HANA 고가용성][sap-hana-ha]을 참조하세요.

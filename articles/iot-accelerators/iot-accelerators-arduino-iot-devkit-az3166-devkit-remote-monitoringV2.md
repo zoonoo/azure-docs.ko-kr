@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: 7f67868f6220ab2940aa8ac4d4bf24f82191cc22
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: eb2a6692c0b00dc4419c601228453a8cfc44c02a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620254"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156785"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에 IoT DevKit 디바이스 연결
 
@@ -22,24 +22,21 @@ ms.locfileid: "52620254"
 
 이 방법 가이드에서는 IoT DevKit 디바이스에서 샘플 애플리케이션을 실행하는 방법을 보여 줍니다. 샘플 코드는 DevKit 디바이스의 센서에서 솔루션 가속기로 원격 분석을 보냅니다.
 
-[IoT DevKit](https://aka.ms/iot-devkit)는 풍부한 주변 장치 및 센서가 포함된 올인원 Arduino 호환 보드입니다. 이는 Visual Studio Code에서 [Azure IoT Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench)를 사용하여 개발할 수 있습니다. [프로젝트 카탈로그](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/)에는 IoT 솔루션을 프로토타입하는 데 도움이 되는 샘플 애플리케이션이 포함되어 있습니다.
+[MXChip IoT DevKit](https://aka.ms/iot-devkit)은 풍부한 주변 장치 및 센서가 포함된 올인원 Arduino 호환 보드입니다. Visual Studio Code에서 [Azure IoT Device Workbench](https://aka.ms/iot-workbench) 또는 [Azure IoT Tools](https://aka.ms/azure-iot-tools) 확장 팩을 사용하여 개발할 수 있습니다. [프로젝트 카탈로그](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/)에는 IoT 솔루션을 프로토타입하는 데 도움이 되는 샘플 애플리케이션이 포함되어 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="before-you-begin"></a>시작하기 전에
 
-[IoT DevKet 시작 가이드](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started)를 따르고 다음 섹션만 완료합니다.
+이 자습서를 완료하려면 먼저 다음 작업을 수행합니다.
 
-* 하드웨어 준비
-* Wi-Fi 구성
-* DevKit를 사용하여 시작
-* 개발 환경 준비
+* [클라우드에서 Azure IoT Hub에 IoT DevKit AZ3166 연결](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started)의 단계를 수행하여 DevKit를 준비합니다.
 
-## <a name="open-the-sample"></a>샘플 열기
+## <a name="open-sample-project"></a>샘플 프로젝트 열기
 
 VS Code에서 원격 모니터링 샘플을 열려면
 
 1. IoT DevKit가 컴퓨터에 연결되어 있지 않은지 확인합니다. VS Code를 시작하고 DevKit를 컴퓨터에 연결합니다.
 
-1. `F1` 키를 클릭하여 명령 팔레트를 연 다음, **IoT Workbench: 예제**를 입력하고 선택합니다. 보드로 **IoT DevKit**를 선택합니다.
+1. `F1` 키를 클릭하여 명령 팔레트를 연 다음, **Azure IoT Device Workbench: 예제 열기...** 를 입력하고 선택합니다. 보드로 **IoT DevKit**를 선택합니다.
 
 1. **원격 모니터링**을 찾아 **예제 열기**를 클릭합니다. 프로젝트 폴더를 표시하는 새 VS Code 창이 열립니다.
 
@@ -58,7 +55,7 @@ DevKit 디바이스에서 IoT Hub 디바이스 연결 문자열을 구성하려�
 
     ![IoT DevKit 구성 모드](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/devkit-configuration-mode.png)
 
-1. **F1** 키를 눌러 명령 팔레트를 연 다음, **IoT Workbench: 디바이스 > 디바이스 설정 구성**을 입력하고 선택합니다.
+1. **F1** 키를 클릭하여 명령 팔레트를 연 다음, **Azure IoT Device Workbench: 디바이스 설정 구성... > 디바이스 연결 문자열 구성**을 입력하고 선택합니다.
 
 1. 이전에 복사한 연결 문자열을 붙여넣고 **Enter** 키를 눌러 디바이스를 구성합니다.
 
@@ -66,9 +63,7 @@ DevKit 디바이스에서 IoT Hub 디바이스 연결 문자열을 구성하려�
 
 디바이스 코드를 빌드하고 업로드하려면
 
-1. **F1** 키를 눌러 명령 팔레트를 연 다음, **IoT Workbench: 디바이스 > 디바이스 업로드**를 입력하고 선택합니다.
-
-    ![IoT Workbench: 디바이스 -> 업로드](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-device-upload.png)
+1. `F1` 키를 눌러 명령 팔레트를 연 다음, **Azure IoT Device Workbench: 디바이스 코드 업로드**를 입력하고 선택합니다.
 
 1. VS Code가 코드를 컴파일하고 DevKit 디바이스로 업로드합니다.
 
@@ -104,7 +99,7 @@ DevKit LED 중 하나의 색을 변경하려면 **LedColor** 메서드를 사용
 
 1. 다음 값을 사용하여 작업을 구성하고 **적용**을 클릭합니다.
 
-    * 선택 작업: **메서드 실행**
+    * 다음과 같이 작업을 선택합니다. **Run 메서드**
     * 메서드 이름: **LedColor**
     * 작업 이름: **ChangeLedColor**
 
@@ -126,8 +121,8 @@ DevKit LED 중 하나의 색을 변경하려면 **LedColor** 메서드를 사용
 
 문제가 발생하면 [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)를 참조하거나, 다음 지원 채널을 사용하여 문의하세요.
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
+* [스택 오버플로](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -135,4 +130,4 @@ DevKit LED 중 하나의 색을 변경하려면 **LedColor** 메서드를 사용
 
 * [Azure IoT 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-accelerators/)
 * [UI 사용자 지정](iot-accelerators-remote-monitoring-customize.md)
-* [Azure IoT Central 응용 프로그램에 IoT DevKit 연결](../iot-central/howto-connect-devkit.md)
+* [Azure IoT Central 애플리케이션에 IoT DevKit 연결](../iot-central/howto-connect-devkit.md)

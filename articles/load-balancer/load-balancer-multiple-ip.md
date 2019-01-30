@@ -1,5 +1,6 @@
 ---
-title: Azure에서 여러 IP 구성의 부하 분산 | Microsoft Docs
+title: 여러 IP 구성의 부하 분산 - Azure Portal
+titlesuffix: Azure Load Balancer
 description: 기본 및 보조 IP 구성에서 부하 분산.
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: se0dec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 0f092c471a7908eabe481adc8c722993818840b8
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 4920d2a6c26da12effc2b44be8d3c6cbdb5e2a6f
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219514"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199139"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Azure Portal을 사용하여 여러 IP 구성의 부하 분산
 

@@ -78,6 +78,7 @@
 
 ## [PowerShell](analysis-services-powershell.md)
 ## [REST (영문)](/rest/api/analysisservices)
+## [Resource Manager 템플릿](/azure/templates/microsoft.analysisservices/servers)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [파워 쿼리 M](https://msdn.microsoft.com/library/mt211003.aspx)
 ## [테이블 형식 모델 스크립팅 언어(TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
@@ -94,7 +95,7 @@
 ## [사용자 의견](https://feedback.azure.com/forums/556165-azure-analysis-services)
 ## [가격](https://azure.microsoft.com/pricing/details/analysis-services/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
-## [Stackoverflow](https://stackoverflow.com/questions/tagged/azure-analysis-services)
+## [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
 
 

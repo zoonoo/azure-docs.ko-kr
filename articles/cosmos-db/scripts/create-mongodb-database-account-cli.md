@@ -1,22 +1,23 @@
 ---
-title: Azure CLI 스크립트-Azure Cosmos DB MongoDB API 계정, 데이터베이스 및 컬렉션 만들기 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - Azure Cosmos DB MongoDB API 계정, 데이터베이스 및 컬렉션 만들기
+title: Azure CLI 스크립트 - Azure Cosmos DB의 MongoDB API를 사용하여 Cosmos 계정 만들기
+description: Azure CLI 스크립트 샘플 - Azure Cosmos DB의 MongoDB API를 사용하여 Cosmos 계정 만들기
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: 6ca603a324dddf243927cf5bb67556edfb1cf7e6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.reviewer: sngun
+ms.openlocfilehash: 8aae88b24cee64136fb247744325424a446a7bbf
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007139"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043161"
 ---
-# <a name="azure-cosmos-db-create-an-mongodb-api-account-using-azure-cli"></a>Azure Cosmos DB: Azure CLI를 사용하여 MongoDB API 계정 만들기
+# <a name="create-an-azure-cosmos-db-account-with-azure-cosmos-dbs-api-for-mongodb-using-azure-cli"></a>Azure CLI에서 Azure Cosmos DB의 MongoDB API를 사용하여 Azure Cosmos DB 계정 만들기
 
-이 샘플 CLI 스크립트는 Azure Cosmos DB MongoDB API 계정, 데이터베이스 및 컬렉션을 만듭니다.
+이 CLI 스크립트 샘플에서는 Azure Cosmos DB의 MongoDB API를 사용하여 Cosmos 계정을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -24,7 +25,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-mongodb-account/create-cosmosdb-mongodb-account.sh "Create an Azure Cosmos DB MongoDB API account, database, and collection.")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-mongodb-account/create-cosmosdb-mongodb-account.sh "Create a Cosmos account with Azure Cosmos DB's API for MongoDB - account, database, and collection.")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 

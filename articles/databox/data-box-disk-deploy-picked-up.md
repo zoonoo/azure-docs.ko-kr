@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f971a1bed0391e809e19ff5bb0508d153319faf4
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 357fa8a34afc8b426d308940462e22895130169f
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094006"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158774"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>자습서: Azure Data Box Disk 반환 및 Azure에 대한 데이터 업로드 확인
 
-이 문서는 시리즈: Azure Data Box Disk 배포의 마지막 자습서입니다. 이 자습서에서는 다음 방법을 알아봅니다.
+이 자습서는 Azure Data Box Disk 배포 시리즈의 마지막 자습서입니다. 이 자습서에서는 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Microsoft에 Data Box Disk 배송
@@ -27,7 +27,7 @@ ms.locfileid: "49094006"
 
 ## <a name="prerequisites"></a>필수 조건
 
-시작하기 전에 [자습서: Azure Data Box Disk에 데이터 복사 및 확인](data-box-disk-deploy-copy-data.md)을 완료했는지 확인합니다.
+시작하기 전에 [자습서: Azure Data Box Disk에 데이터 복사 및 확인](data-box-disk-deploy-copy-data.md)을 참조하세요.
 
 ## <a name="ship-data-box-disk-back"></a>Data Box Disk 반송
 

@@ -1,21 +1,18 @@
 ---
-title: HL7 FHIR 리소스에 대한 변경 사항 피드 - Azure Cosmos DB | Microsoft Docs
+title: HL7 FHIR 리소스에 대한 변경 사항 피드 - Azure Cosmos DB
 description: Azure Logic Apps, Azure Cosmos DB 및 Service Bus를 사용하여 HL7 FHIR 환자 의료 기록에 대한 변경 알림 설정 방법을 알아보세요.
-keywords: hl7 fhir
-services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
-ms.openlocfilehash: aab6e5247830ee444bcab0b15bda34e4464aaad1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 765596500e3ac294dc79f0785b12b03370fa652a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565482"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354487"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Logic Apps 및 Azure Cosmos DB를 사용하여 환자에게 HL7 FHIR 의료 기록 변경 통지
 
@@ -25,7 +22,7 @@ Azure MVP Howard Edidin은 최근에 환자 포털에 새 기능을 추가하길
 
 ## <a name="project-requirements"></a>프로젝트 요구 사항
 - 공급자는 XML 형식으로 HL7 통합-임상 문서 아키텍처(C-CDA) 문서를 보냅니다. C-CDA 문서는 가족 이력, 예방접종 기록 등의 임상 문서는 물론 관리, 워크플로 및 재무 서류를 포함한 모든 유형의 임상 문서를 포괄하고 있습니다. 
-- C-CDA 문서는 JSON 형식으로 [HL7 FHIR 리소스](http://hl7.org/fhir/2017Jan/resourcelist.html)로 변환됩니다.
+- C-CDA 문서는 JSON 형식으로 [HL7 FHIR 리소스](https://hl7.org/fhir/2017Jan/resourcelist.html)로 변환됩니다.
 - 수정된 FHIR 리소스 문서는 JSON 형식으로 전자 메일을 통해 전송됩니다.
 
 ## <a name="solution-workflow"></a>솔루션 워크플로 
@@ -40,9 +37,9 @@ Azure MVP Howard Edidin은 최근에 환자 포털에 새 기능을 추가하길
 
 ## <a name="solution-architecture"></a>솔루션 아키텍처
 이 솔루션에는 위의 요구 사항을 충족하고 솔루션 워크플로를 완성하기 위해 세 개의 Logic Apps가 필요합니다. 세 가지 논리 앱은 다음과 같습니다.
-1. **HL7-FHIR-매핑 앱**: HL7 C-CDA 문서를 수신하여 FHIR 리소스로 변환한 다음 Azure Cosmos DB에 저장합니다.
+1. **HL7-FHIR-매핑 앱**: HL7 C-CDA 문서를 수신하여 FHIR 리소스로 변환한 다음, Azure Cosmos DB에 저장합니다.
 2. **EHR 앱**: Azure Cosmos DB FHIR 리포지토리를 쿼리하고 해당 응답을 Service Bus 큐에 저장합니다. 이 논리 앱에서는 [API 앱](#api-app)을 사용하여 새롭고 변경된 문서를 검색합니다.
-3. **프로세스 알림 앱**: 본문에 FHIR 리소스 문서가 포함된 전자 메일 알림을 보냅니다.
+3. **프로세스 알림 앱**: 본문에 FHIR 리소스 문서가 포함된 이메일 알림을 보냅니다.
 
 ![이 HL7 FHIR 의료 솔루션에 사용된 세 가지 Logic Apps](./media/change-feed-hl7-fhir-logic-apps/health-care-solution-hl7-fhir.png)
 
@@ -68,7 +65,7 @@ Logic Apps는 워크플로 프로세스를 처리합니다. 다음 스크린샷�
 
     ![Azure Cosmos DB를 쿼리하는 데 사용한 논리 앱](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-api-app.png)
 
-3. **프로세스 알림 앱**: 본문에 FHIR 리소스 문서가 포함된 전자 메일 알림을 보냅니다.
+3. **프로세스 알림 앱**: 본문에 FHIR 리소스 문서가 포함된 이메일 알림을 보냅니다.
 
     ![본문에 HL7 FHIR 리소스가 포함된 환자 전자 메일을 보내는 논리 앱](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-send-email.png)
 
@@ -133,11 +130,11 @@ Azure Cosmos DB SQL .NET API에서 [`CreateDocumentChangeFeedQuery`](https://msd
             /// <param name="maximumItemCount">-1 returns all (default)</param>
             /// <returns></returns>
             [Metadata("Get New or Modified FHIR Documents",
-                "Query for new or modifed FHIR Documents By Resource Type " +
+                "Query for new or modified FHIR Documents By Resource Type " +
                 "from Last Run Date or Beginning of Collection creation"
             )]
             [SwaggerResponse(HttpStatusCode.OK, type: typeof(Task<dynamic>))]
-            [SwaggerResponse(HttpStatusCode.NotFound, "No New or Modifed Documents found")]
+            [SwaggerResponse(HttpStatusCode.NotFound, "No New or Modified Documents found")]
             [SwaggerOperation("GetNewOrModifiedFHIRDocuments")]
             public async Task<dynamic> GetNewOrModifiedFhirDocuments(
                 [Metadata("Database Id", "Database Id")] string databaseId,

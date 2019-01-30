@@ -4,15 +4,15 @@ description: Azure Migrate 서비스의 개요를 제공합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 85873dc023e63b7cc9f5ba3ff87214c49ac16e34
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c8aa7050163c2b58ca68adcf9a9b4d0bc96bb126
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246738"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808360"
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 
@@ -22,22 +22,28 @@ Azure Migrate 서비스는 Azure로 마이그레이션하는 온-프레미스 �
 
 Azure Migrate의 기능:
 
-- **Azure 준비 상태 평가**: 온-프레미스 컴퓨터가 Azure에서 실행하기에 적합한지 여부를 평가합니다.
-- **크기 추천 정보 가져오기**: 온-프레미스 VM의 성능 기록을 기반으로 Azure VM에 대한 권장 크기를 확인합니다.
-- **월간 비용 예측**: Azure에서 온-프레미스 컴퓨터를 실행하는 데 드는 예상 비용을 확인합니다.  
-- **높은 확신을 가지고 마이그레이션**: 온-프레미스 컴퓨터의 종속성을 시각화하여 함께 마이그레이션하고 평가할 컴퓨터 그룹을 만듭니다.
+- **Azure 준비 상태 평가**: 온-프레미스 머신이 Azure에서 실행하기에 적합한지 여부를 평가합니다.
+- **크기 권장 사항 가져오기**: 온-프레미스 VM의 성능 기록을 기반으로 Azure VM에 대한 권장 크기를 확인합니다.
+- **월간 비용 예측**: Azure에서 온-프레미스 머신을 실행하는 데 드는 예상 비용을 확인합니다.  
+- **매우 확실한 마이그레이션**: 온-프레미스 머신의 종속성을 시각화하여 함께 평가하고 마이그레이션할 머신 그룹을 만듭니다.
 
 ## <a name="current-limitations"></a>현재 제한 사항
 
-- 온-프레미스 VMware VM(가상 머신)에서 Azure VM으로의 마이그레이션만 평가할 수 있습니다. VMware VM은 vCenter Server(버전 5.5, 6.0 또는 6.5)에서 관리되어야 합니다.
+- 온-프레미스 VMware VM(가상 머신)에서 Azure VM으로의 마이그레이션만 평가할 수 있습니다. VMware VM은 vCenter Server(버전 5.5, 6.0, 6.5 또는 6.7)에서 관리되어야 합니다.
 - Hyper-VM 및 물리적 서버를 평가하려는 경우 Hyper-VM의 경우 [Azure Site Recovery Deployment Planner](https://aka.ms/asr-dp-hyperv-doc)를 사용하고 물리적 머신의 경우 [파트너 도구](https://azure.microsoft.com/migration/partners/)를 사용합니다.
 - 단일 검색에서 최대 1500대의 VM을 검색하고, 단일 프로젝트에서 최대 1500대의 VM을 검색할 수 있습니다. 또한 단일 평가에서 최대 1500대의 VM을 평가할 수 있습니다.
 - 대규모 환경을 검색하려면 검색을 분할하고 여러 프로젝트를 만들면 됩니다. [자세히 알아보기](how-to-scale-assessment.md). Azure Migrate는 구독당 최대 20개의 프로젝트를 지원합니다.
 - 마이그레이션을 평가하는 경우 Azure Migrate는 관리 디스크만 지원합니다.
--  미국 지리에서는 Azure Migrate 프로젝트만 만들 수 있습니다. 그러나 대상 Azure 위치에 대한 마이그레이션을 계획할 수 있습니다.
-    - 온-프레미스 환경에서 발견된 메타데이터만 마이그레이션 프로젝트 지역에 저장됩니다.
-    - 메타데이터는 선택한 지역(미국 서중부/미국 동부)의 지역 중 하나에 저장됩니다.
-    - 종속성 시각화를 Log Analytics 작업 영역에 사용할 경우 프로젝트와 같은 지역에 생성됩니다.
+-  다음 지역에서만 Azure Migrate 프로젝트를 만들 수 있지만, 여전히 다른 대상 Azure 위치를 평가할 수 있습니다.
+    **지리** | **스토리지 위치**
+    --- | ---
+    Azure Government | 미국 정부 버지니아
+    아시아 | 동남아시아
+    유럽 | 북유럽 또는 유럽 서부
+    미국 | 미국 동부 또는 미국 중서부
+
+    마이그레이션 프로젝트와 연결된 지역은 온-프레미스 환경에서 발견된 메타데이터를 저장하는 데 사용됩니다. 메타데이터는 마이그레이션 프로젝트에 지정된 지역에 따라 지역 중 하나에 저장됩니다. 새 Log Analytics 작업 영역을 만들어서 종속성 시각화를 사용할 경우 작업 영역은 프로젝트와 같은 지역에 생성됩니다.
+- Azure Government에서는 종속성 시각화 기능을 사용할 수 없습니다.
 
 
 ## <a name="what-do-i-need-to-pay-for"></a>어떤 요금이 발생하나요?
@@ -51,18 +57,18 @@ Azure Migrate 가격 책정에 대해 [자세히 알아봅니다](https://azure.
 
 **속성** | **세부 정보**
 --- | ---
-**대상 위치** | 마이그레이션할 Azure 위치입니다.<br/><br/>Azure Migrate는 현재 30개 지역을 지원합니다. [지역을 확인합니다](https://azure.microsoft.com/global-infrastructure/services/). 기본적으로 대상 지역은 미국 서부 2로 설정되어 있습니다.
-**저장소 유형** | Azure에서 할당할 디스크의 형식 크기 조정 조건이 **온-프레미스**인 경우에 적용합니다. 대상 디스크 형식을 프리미엄(기본값) 또는 표준 관리 디스크 중 하나로 지정할 수 있습니다. 성능 기반 크기 조정의 경우 디스크 크기 조정 권장 사항은 VM의 성능 데이터에 따라 자동으로 수행됩니다.
-**크기 조정 기준** | 온-프레미스 VM의 **성능 기록**에 따라 크기를 조정할 수도 있고, 성능 기록을 고려하지 않고 **온-프레미스로** VM의 크기를 조정할 수도 있습니다.
+**대상 위치** | 마이그레이션할 Azure 위치입니다.<br/><br/>현재 Azure Migrate는 마이그레이션 대상 위치로 33개 지역을 지원합니다. [지역을 확인합니다](https://azure.microsoft.com/global-infrastructure/services/). 기본적으로 대상 지역은 미국 동부로 설정되어 있습니다.
+**저장소 유형** | 평가의 일부인 모든 VM에 대해 할당하려는 관리형 디스크의 형식입니다. 크기 조정 기준이 *온-프레미스 크기 조정으로*인 경우 프리미엄 디스크(기본값), 표준 SSD 디스크 또는 표준 HDD 디스크 중에서 대상 디스크 종류를 지정할 수 있습니다. *성능 기반 크기 조정*의 경우, 위의 옵션과 함께 자동화를 선택할 수 있는 옵션이 있습니다. 이는 VM의 성능 데이터에 따라 디스크 크기 권장 사항이 자동으로 이루어집니다. 예를 들어 [99.9%의 단일 인스턴스 VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)를 달성하려는 경우, 저장소 유형을 프리미엄 관리 디스크로 지정하고자 할 수도 있습니다. 즉, 평가 시 모든 디스크가 프리미엄 관리 디스크로 권장됩니다. 마이그레이션 평가의 경우 Azure Migrate는 관리 디스크만을 지원합니다.
+**예약 인스턴스** |  Azure에 [예약 인스턴스](https://azure.microsoft.com/pricing/reserved-vm-instances/)가 있는지 여부입니다. Azure Migrate는 그에 따라 비용을 예측합니다.
+**크기 조정 기준** | 온-프레미스 VM의 **성능 기록**에 따라 크기를 조정할 수도 있고(기본값), 성능 기록을 고려하지 않고 **온-프레미스로** VM의 크기를 조정할 수도 있습니다.
+**성능 기록** | 기본적으로 Azure Migrate는 백분위 값이 95%인 마지막 날의 성능 기록을 사용하여 온-프레미스 머신의 성능을 평가합니다.
+**쾌적 인자** | Azure Migrate는 평가 중에 버퍼(쾌적 인자)를 고려합니다. 이 버퍼는 VM의 컴퓨터 사용률 데이터(CPU, 메모리, 디스크 및 네트워크)를 기반으로 적용됩니다. 쾌적 인자는 계절별 사용량, 성능 기록 부족, 향후 사용량 증가 가능성 등의 문제를 고려합니다.<br/><br/> 예를 들어 사용률이 20%인 10코어 VM은 일반적으로 2코어 VM이라는 결과가 나옵니다. 그러나 쾌적 인자가 2.0x이면 결과는 4코어 VM이 됩니다. 기본 쾌적 설정은 1.3x입니다.
+**VM 시리즈** | 크기 예측에 사용되는 VM 시리즈입니다. 예를 들어 Azure에서 A 시리즈 VM으로 마이그레이션하지 않으려는 프로덕션 환경이 있는 경우 목록 또는 시리즈에서 A 시리즈를 제외할 수 있습니다. 크기 조정은 선택한 시리즈만을 기반으로 합니다.   
+**통화** | 청구 통화입니다. 기본값은 미국 달러입니다.
+**할인(%)** | Azure 제품에 적용되는 구독별 할인입니다. 기본 설정은 0%입니다.
+**VM 작동 시간** | VM이 Azure에서 24x7 실행되지 않는 경우 VM이 실행될 기간(월당 일 수 및 일당 시간 수)을 지정하면 그에 따라 비용이 계산됩니다. 기본값은 월당 31일이며 일당 24시간입니다.
 **Azure 제품** | 등록한 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/)입니다. Azure Migrate는 그에 따라 비용을 예측합니다.
 **Azure 하이브리드 혜택** | 소프트웨어 보증이 있고 할인된 가격으로 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-use-benefit/)을 받을 수 있는지 여부입니다.
-**예약 인스턴스** |  Azure에 [예약 인스턴스](https://azure.microsoft.com/pricing/reserved-vm-instances/)가 있는지 여부입니다. Azure Migrate는 그에 따라 비용을 예측합니다.
-**VM 작동 시간** | Azure에서 VM을 실행할 기간입니다. 그에 따라 비용 예측이 수행됩니다.
-**가격 책정 계층** | 대상 Azure VM에 대한 [가격 책정 계층(기본/표준)](../virtual-machines/windows/sizes-general.md)입니다. 예를 들어 프로덕션 환경을 마이그레이션할 예정이라면 VM에 대기 시간이 짧은 대신 더 많은 비용이 발생할 수 있는 표준 계층을 사용할 수 있습니다. 반면, 테스트 환경에서 대기 시간이 길고 적은 비용이 발생하는 기본 계층을 사용할 수 있습니다. 기본적으로 [표준](../virtual-machines/windows/sizes-general.md) 계층이 사용됩니다.
-**성능 기록** | 기본적으로 Azure Migrate는 백분위 값이 95%인 마지막 날의 성능 기록을 사용하여 온-프레미스 머신의 성능을 평가합니다.
-**VM 시리즈** | 크기 예측에 사용되는 VM 시리즈입니다. 예를 들어 Azure에서 A 시리즈 VM으로 마이그레이션하지 않으려는 프로덕션 환경이 있는 경우 목록 또는 시리즈에서 A 시리즈를 제외할 수 있습니다. 크기 조정은 선택한 시리즈만을 기반으로 합니다.   
-**쾌적 인자** | Azure Migrate는 평가 중에 버퍼(쾌적 인자)를 고려합니다. 이 버퍼는 VM의 컴퓨터 사용률 데이터(CPU, 메모리, 디스크 및 네트워크)를 기반으로 적용됩니다. 쾌적 인자는 계절별 사용량, 성능 기록 부족, 향후 사용량 증가 가능성 등의 문제를 고려합니다.<br/><br/> 예를 들어 사용률이 20%인 10코어 VM은 일반적으로 2코어 VM이라는 결과가 나옵니다. 그러나 쾌적 인자가 2.0x이면 결과는 4코어 VM이 됩니다. 기본 쾌적 설정은 1.3x입니다.
-
 
 ## <a name="how-does-azure-migrate-work"></a>Azure Migrate의 작동 방식
 

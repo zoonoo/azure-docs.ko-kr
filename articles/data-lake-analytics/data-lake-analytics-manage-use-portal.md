@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 1d49403ec04b2ec35291869385c316cb5ab3b0da
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8b2f16f45be1d095e9be8042611de328af36f064
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044912"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724063"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Analytics 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "43044912"
 3. 다음 항목에 대한 값을 선택합니다. 
    1. **이름**: Data Lake Analytics 계정의 이름입니다.
    2. **구독**: 계정에 사용되는 Azure 구독입니다.
-   3. **리소스 그룹**: 계정을 만들기 위한 Azure 리소스 그룹입니다. 
+   3. **리소스 그룹**: 계정을 만들 Azure 리소스 그룹입니다. 
    4. **위치**: Data Lake Analytics 계정의 Azure 데이터 센터입니다. 
    5. **Data Lake Store**: Data Lake Analytics 계정에 사용할 기본 저장소입니다. Azure Data Lake Store 계정 및 Data Lake Analytics 계정은 같은 위치에 있어야 합니다.
 4. **만들기**를 클릭합니다. 
@@ -67,7 +67,7 @@ Data Lake Analytics는 다음 데이터 원본을 지원합니다.
 3. **데이터 원본 추가**를 클릭합니다.
     
    * Data Lake Store 계정을 추가하려면 계정 이름이 필요하고 쿼리를 할 수 있으려면 계정에 대한 액세스가 필요합니다.
-   * Azure Blob Storage를 추가하려면 저장소 계정 및 계정 키가 필요합니다. 저장소 계정 및 계정 키를 찾으려면 포털에서 저장소 계정으로 이동합니다.
+   * Azure Blob Storage를 추가하려면 스토리지 계정 및 계정 키가 필요합니다. 저장소 계정 및 계정 키를 찾으려면 포털에서 저장소 계정으로 이동합니다.
 
 ## <a name="set-up-firewall-rules"></a>방화벽 규칙 설정
 
@@ -99,7 +99,7 @@ Data Lake Analytics를 사용하여 네트워크 수준에서 Data Lake Analytic
 
 표준 RBAC 역할은 다음 기능이 있습니다.
 * **소유자**: 작업을 제출하고, 작업을 모니터링하고, 사용자의 작업을 취소하고, 계정을 구성할 수 있습니다.
-* **참가자**: 작업을 제출하고, 작업을 모니터링하고, 사용자의 작업을 취소하고, 계정을 구성할 수 있습니다.
+* **기여자**: 작업을 제출하고, 작업을 모니터링하고, 사용자의 작업을 취소하고, 계정을 구성할 수 있습니다.
 * **독자**: 작업을 모니터링할 수 있습니다.
 
 Data Lake Analytics 개발자 역할을 사용하여 U-SQL 개발자가 Data Lake Analytics 서비스를 사용하도록 할 수 있습니다. Data Lake Analytics 개발자 역할을 사용하여 다음을 수행할 수 있습니다.
@@ -111,7 +111,7 @@ Data Lake Analytics 개발자 역할을 사용하여 U-SQL 개발자가 Data Lak
 ### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Data Lake Analytics 계정에 사용자 또는 보안 그룹 추가
 
 1. Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
-2. **액세스 제어(IAM)** > **추가**를 클릭합니다.
+2. **액세스 제어(IAM)** > **역할 할당 추가**를 클릭합니다.
 3. 원하는 역할을 선택합니다.
 4. 사용자를 추가합니다.
 5. **확인**을 클릭합니다.
@@ -133,7 +133,7 @@ Data Lake Analytics 개발자 역할을 사용하여 U-SQL 개발자가 Data Lak
 
     1. **작업 이름**: 작업의 이름입니다.
     2. **우선 순위**: 숫자가 낮을수록 우선 순위가 높습니다. 두 작업이 큐에 대기 중이면 우선 순위 값이 낮은 작업이 먼저 실행됩니다.
-    3. **병렬 처리**: 이 작업에 대해 예약할 최대 계산 프로세스 수입니다.
+    3. **병렬 처리**: 이 작업에 대해 예약할 최대 컴퓨팅 프로세스 수입니다.
 
 3. **작업 제출**을 클릭합니다.
 

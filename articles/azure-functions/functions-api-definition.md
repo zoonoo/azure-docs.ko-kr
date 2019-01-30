@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 93e6b8c606c0a6d7abebeb515b938a45001757c1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bb1616c7cbf5c9c4620aed3e31896e32fe0163f9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950372"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606217"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Azure Functions에서 OpenAPI 2.0 메타데이터 지원(미리 보기)
 Azure Functions의 OpenAPI 2.0(이전의 Swagger) 메타데이터 지원은 함수 앱 내에 OpenAPI 2.0 정의를 작성하는 데 사용할 수 있는 미리 보기 기능입니다. 그런 다음 함수 앱을 사용하여 해당 파일을 호스팅할 수 있습니다.
@@ -23,7 +23,7 @@ Azure Functions의 OpenAPI 2.0(이전의 Swagger) 메타데이터 지원은 함�
 > [!IMPORTANT]
 > OpenAPI 미리 보기 기능은 현재 1.x 런타임에서만 사용 가능합니다. 1.x 함수 앱을 만드는 방법에 대한 내용은 [여기서 확인할 수 있습니다](./functions-versions.md#creating-1x-apps).
 
-[OpenAPI 메타데이터](http://swagger.io/)는 다양한 다른 소프트웨어에서 REST API를 호스팅하는 함수를 사용할 수 있게 합니다. 이 소프트웨어에는 Microsoft 제품(예: PowerApps,[Azure App Service의 API Apps 기능](../app-service/app-service-web-overview.md)), 타사 개발자 도구(예: [Postman](https://www.getpostman.com/docs/importing_swagger)) 및 [다양한 추가 패키지](http://swagger.io/tools/)가 포함되어 있습니다.
+[OpenAPI 메타데이터](https://swagger.io/)는 다양한 다른 소프트웨어에서 REST API를 호스팅하는 함수를 사용할 수 있게 합니다. 이 소프트웨어에는 Microsoft 제품(예: PowerApps,[Azure App Service의 API Apps 기능](../app-service/overview.md)), 타사 개발자 도구(예: [Postman](https://www.getpostman.com/docs/importing_swagger)) 및 [다양한 추가 패키지](https://swagger.io/tools/)가 포함되어 있습니다.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -39,7 +39,7 @@ Azure Functions의 OpenAPI 2.0(이전의 Swagger) 메타데이터 지원은 함�
 호스트된 OpenAPI 정의 및 빠른 시작 정의를 생성하도록 설정하려면 **API 정의 원본**을 **함수(미리 보기)** 로 설정합니다. **외부 URL**을 사용하면 함수가 다른 곳에 호스팅된 OpenAPI 정의를 사용할 수 있습니다.
 
 ## <a name="generate-definition"></a>함수의 메타데이터에서 Swagger 구조 생성
-템플릿을 사용하면 첫 번째 OpenAPI 정의 작성을 시작할 수 있습니다. 정의 템플릿 기능은 각 HTTP 트리거 기능에 대해 function.json 파일의 모든 메타데이터를 사용하여 스파스 OpenAPI 정의를 만듭니다. [OpenAPI 사양](http://swagger.io/specification/)(예: 요청 및 응답 템플릿)에서 API에 대한 추가 정보를 입력해야 합니다.
+템플릿을 사용하면 첫 번째 OpenAPI 정의 작성을 시작할 수 있습니다. 정의 템플릿 기능은 각 HTTP 트리거 기능에 대해 function.json 파일의 모든 메타데이터를 사용하여 스파스 OpenAPI 정의를 만듭니다. [OpenAPI 사양](https://swagger.io/specification/)(예: 요청 및 응답 템플릿)에서 API에 대한 추가 정보를 입력해야 합니다.
 
 단계별 지침은 [시작 자습서](./functions-api-definition-getting-started.md)를 참조하세요.
 
@@ -55,10 +55,10 @@ Azure Functions의 OpenAPI 2.0(이전의 Swagger) 메타데이터 지원은 함�
 
 |Swagger.json|포털 UI|Function.json|
 |:----|:-----|:-----|
-|[호스트](http://swagger.io/specification/#fixed-fields-15)|**함수 앱 설정** > **App Service 설정** > **개요** > **URL**|*없음*
-|[경로](http://swagger.io/specification/#paths-object-29)|**통합** > **선택한 HTTP 메서드**|바인딩: 경로
-|[경로 항목](http://swagger.io/specification/#path-item-object-32)|**통합** > **경로 템플릿**|바인딩: 메서드
-|[보안](http://swagger.io/specification/#security-scheme-object-112)|**키**|*없음*|
+|[호스트](https://swagger.io/specification/#fixed-fields-15)|**함수 앱 설정** > **App Service 설정** > **개요** > **URL**|*없음*
+|[경로](https://swagger.io/specification/#paths-object-29)|**통합** > **선택한 HTTP 메서드**|바인딩: 라우팅
+|[경로 항목](https://swagger.io/specification/#path-item-object-32)|**통합** > **경로 템플릿**|바인딩: 메서드
+|[보안](https://swagger.io/specification/#security-scheme-object-112)|**키**|*없음*|
 |operationID*|**경로 + 허용되는 동사**|경로 + 허용 동사|
 
 \*작업 ID는 PowerApps 및 Flow와의 통합에만 필요합니다.

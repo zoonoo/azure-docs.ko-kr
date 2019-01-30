@@ -1,5 +1,5 @@
 ---
-title: Azure Search에 SQL VM 연결 | Microsoft Docs
+title: 검색 인덱싱을 위한 Azure SQL 가상 머신 VM 연결 - Azure Search
 description: 암호화된 연결을 사용하도록 설정하고 Azure Search의 인덱서에서 Azure VM(가상 머신)의 SQL Server로의 연결을 허용하도록 방화벽을 구성합니다.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: heidist
-ms.openlocfilehash: 7800e83891cb336bb896299b8fd4d6b3ba590178
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.custom: seodec2018
+ms.openlocfilehash: 5f04c98e1337c2b65c9e0bc8401dd6045a84021e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366463"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312033"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Azure VM에서 Azure Search 인덱서로부터 SQL Server로의 연결 구성
 [인덱서를 사용하여 Azure Search에 Azure SQL Database 연결](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)에 설명된 것처럼 Azure Search에서는 **Azure VM SQL Server**(줄여서 **SQL Azure VM**)에 대해 인덱서를 만드는 것을 지원하지만 먼저 몇 가지 보안 관련 필수 구성 요소에 유의해야 합니다. 
@@ -51,9 +52,9 @@ Azure Search에 필요한 암호화된 연결을 설정한 후 Azure VM에서 SQ
 특히 "인터넷을 통한 연결"의 각 문서에서 해당 섹션을 검토하세요.
 
 ## <a name="configure-the-network-security-group-nsg"></a>NSG(네트워크 보안 그룹) 구성
-Azure VM에서 다른 대상에 액세스할 수 있게 하기 위해 NSG 및 해당 Azure 끝점 또는 ACL(Access Control 목록)을 구성하는 것은 특별하지 않습니다. 이전에 이러한 구성을 수행하여 자체 응용 프로그램 논리가 SQL Azure VM에 연결되도록 했을 것입니다. 이것은 SQL Azure VM에 Azure Search를 연결하는 것과는 다릅니다. 
+Azure VM에서 다른 대상에 액세스할 수 있게 하기 위해 NSG 및 해당 Azure 엔드포인트 또는 ACL(Access Control 목록)을 구성하는 것은 특별하지 않습니다. 이전에 이러한 구성을 수행하여 자체 애플리케이션 논리가 SQL Azure VM에 연결되도록 했을 것입니다. 이것은 SQL Azure VM에 Azure Search를 연결하는 것과는 다릅니다. 
 
-아래 링크는 VM 배포를 위한 NSG 구성에 대한 지침을 제공합니다. 이러한 지침에 따라 IP 주소를 기반으로 Azure SEarch 끝점을 ACL로 작성합니다.
+아래 링크는 VM 배포를 위한 NSG 구성에 대한 지침을 제공합니다. 이러한 지침에 따라 IP 주소를 기반으로 Azure SEarch 엔드포인트를 ACL로 작성합니다.
 
 > [!NOTE]
 > 배경 지식은 [네트워크 보안 그룹이란?](../virtual-network/security-overview.md)

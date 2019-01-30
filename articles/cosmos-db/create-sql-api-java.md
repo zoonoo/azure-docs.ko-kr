@@ -1,27 +1,25 @@
 ---
-title: Java로 Azure Cosmos DB 문서 데이터베이스 만들기 | Microsoft Docs | Microsoft Docs'
+title: Java로 Azure Cosmos DB 문서 데이터베이스 만들기
 description: Azure Cosmos DB SQL API에 연결하고 쿼리하는 데 사용할 수 있는 Java 코드 샘플을 제공합니다.
-services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
-ms.custom: quick start connect, mvc, devcenter
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 10/24/2018
-ms.author: moderakh
-ms.openlocfilehash: 399db2d7ed5d1c94fe359cb55e9b90df3d99e003
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.author: sngun
+ms.openlocfilehash: 8fd99b1c68be08ca7c2f4b7cdeaaa8b5b64859e4
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421291"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197423"
 ---
 # <a name="create-and-manage-resources-of-an-azure-cosmos-db-sql-api-account-using-a-java-application"></a>Java 응용 프로그램을 사용하여 Azure Cosmos DB SQL API 계정 리소스 만들기 및 관리
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
+> * [.NET(미리 보기)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.JS](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
@@ -39,7 +37,7 @@ ms.locfileid: "50421291"
 * [JDK(Java Development Kit) 1.8 이상](https://aka.ms/azure-jdks)
     * Ubuntu에서 `apt-get install default-jdk`를 실행하여 JDK를 설치합니다.
     * JAVA_HOME 환경 변수가 반드시 JDK가 설치된 폴더를 지정하도록 설정합니다.
-* [Maven](http://maven.apache.org/) 이진 아카이브 [다운로드](http://maven.apache.org/download.cgi) 및 [설치](http://maven.apache.org/install.html)
+* [Maven](https://maven.apache.org/) 이진 아카이브 [다운로드](https://maven.apache.org/download.cgi) 및 [설치](https://maven.apache.org/install.html)
     * Ubuntu에서 `apt-get install maven`을 실행하여 Maven을 실행할 수 있습니다.
 * [Git](https://www.git-scm.com/)
     * Ubuntu에서 `sudo apt-get install git`를 실행하여 Git를 실행할 수 있습니다.
@@ -77,7 +75,7 @@ ms.locfileid: "50421291"
 
 이 단계는 선택 사항입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [앱 실행](#run-the-app)으로 넘어갈 수 있습니다. 
 
-* `AsyncDocumentClient` 초기화 [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client)에서는 Azure Cosmos DB 데이터베이스 서비스에 대한 클라이언트 쪽 논리적 표현을 제공합니다. 이 클라이언트는 서비스에 대한 요청을 구성하고 실행하는 데 사용됩니다.
+* `AsyncDocumentClient` 초기화 [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient)에서는 Azure Cosmos DB 데이터베이스 서비스에 대한 클라이언트 쪽 논리적 표현을 제공합니다. 이 클라이언트는 서비스에 대한 요청을 구성하고 실행하는 데 사용됩니다.
 
     ```java
     client = new AsyncDocumentClient.Builder()
@@ -88,7 +86,7 @@ ms.locfileid: "50421291"
              .build();
     ```
 
-* [데이터베이스](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._database) 생성
+* [데이터베이스](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.database) 생성
 
     ```java
     Database databaseDefinition = new Database();
@@ -99,7 +97,7 @@ ms.locfileid: "50421291"
             .await();
     ```
 
-* [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._document_collection) 생성
+* [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.documentcollection) 생성
 
     ```java
     DocumentCollection collectionDefinition = new DocumentCollection();
@@ -112,7 +110,7 @@ ms.locfileid: "50421291"
             .await();
     ```
 
-* [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._document) 메서드를 사용하여 문서 생성
+* [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.document) 메서드를 사용하여 문서 생성
 
     ```java
     // Any Java object within your code
@@ -129,7 +127,7 @@ ms.locfileid: "50421291"
 
     ```
 
-* JSON에 대한 SQL 쿼리는 [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.querydocuments?view=azure-java-stable) 메서드를 사용하여 수행됩니다.
+* JSON에 대한 SQL 쿼리는 [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient.querydocuments?view=azure-java-stable) 메서드를 사용하여 수행됩니다.
 
     ```java
     FeedOptions queryOptions = new FeedOptions();

@@ -4,7 +4,7 @@ description: Azure Active Directory 및 Cerner Central 간에 Single Sign-On을 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d2bc549d-d286-4679-854e-bb67c62b0475
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 400aa0a50c0f05937011adf62f76d1d96fde3fc2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 82541e8d4eb0a3f603fd70e5ba6724debb4e006c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447543"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808148"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>자습서: Cerner Central과 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ Cerner Central을 Azure AD와 통합하면 다음과 같은 이점이 제공됩�
 - 사용자가 해당 Azure AD 계정으로 Cerner Central에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -49,7 +49,7 @@ Cerner Central과 Azure AD 통합을 구성하려면 다음 항목이 필요합�
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Cerner Central 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -63,19 +63,19 @@ Cerner Central과 Azure AD의 통합을 구성하려면 갤러리의 Cerner Cent
 
     ![Active Directory][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
 
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
 1. 검색 상자에 **Cerner Central**을 입력합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/cernercentral-tutorial/tutorial_cernercentral_search.png)
 
-1. 결과 창에서 **Cerner Central**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **Cerner Central**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/cernercentral-tutorial/tutorial_cernercentral_addfromgallery.png)
 
@@ -94,11 +94,11 @@ Cerner Central에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Cerner Central 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Cerner Central 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Cerner Central에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Cerner Central** 응용 프로그램 통합 페이지에서 **Single sign-on**을 클릭합니다.
+1. Azure Portal의 **Cerner Central** 애플리케이션 통합 페이지에서 **Single sign-on**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -117,7 +117,7 @@ Cerner Central에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
     
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
@@ -134,7 +134,7 @@ Cerner Central에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
     ![Configure Single Sign-On](./media/cernercentral-tutorial/tutorial_general_400.png)
 
-1. **Cerner Central** 쪽에서 Single Sign-On을 구성하려면 **앱 페더레이션 메타데이터 URL**을 [Cerner Central 지원](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations)으로 보내야 합니다. 그러면 응용 프로그램 쪽에서 SSO를 구성하여 통합을 완료합니다.
+1. **Cerner Central** 쪽에서 Single Sign-On을 구성하려면 **앱 페더레이션 메타데이터 URL**을 [Cerner Central 지원](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations)으로 보내야 합니다. 그러면 애플리케이션 쪽에서 SSO를 구성하여 통합을 완료합니다.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
@@ -161,7 +161,7 @@ Cerner Central에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 Britta Simon의 **메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 Britta Simon의 **메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -169,7 +169,7 @@ Cerner Central에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 ### <a name="creating-a-cerner-central-test-user"></a>Cerner Central 테스트 사용자 만들기
 
-**Cerner Central** 응용 프로그램은 모든 페더레이션된 ID 공급자의 인증을 허용합니다. 사용자가 응용 프로그램 홈페이지에 로그인할 수 있다면 페더레이션되고 수동 프로비전이 필요하지 않습니다. 자동 사용자 프로비전 구성 방법에 대한 자세한 내용은 [여기](cernercentral-provisioning-tutorial.md)에서 제공합니다.
+**Cerner Central** 애플리케이션은 모든 페더레이션된 ID 공급자의 인증을 허용합니다. 사용자가 애플리케이션 홈페이지에 로그인할 수 있다면 페더레이션되고 수동 프로비전이 필요하지 않습니다. 자동 사용자 프로비전 구성 방법에 대한 자세한 내용은 [여기](cernercentral-provisioning-tutorial.md)에서 제공합니다.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -179,11 +179,11 @@ Cerner Central에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 **Britta Simon을 Cerner Central에 할당하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
+1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
     ![사용자 할당][201]
 
-1. 응용 프로그램 목록에서 **Cerner Central**을 선택합니다.
+1. 애플리케이션 목록에서 **Cerner Central**을 선택합니다.
 
     ![Configure Single Sign-On](./media/cernercentral-tutorial/tutorial_cernercentral_app.png)
 
@@ -205,12 +205,12 @@ Cerner Central에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Cerner Central 타일을 클릭하면 Cerner Central 응용 프로그램에 자동으로 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
+액세스 패널에서 Cerner Central 타일을 클릭하면 Cerner Central 애플리케이션에 자동으로 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 * [사용자 프로비저닝 구성](cernercentral-provisioning-tutorial.md)
 
 <!--Image references-->

@@ -11,20 +11,44 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: d1a0e46fe348bbc60a4d02a4727a9bb27cb26742
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e204beea5bdf72c2ec5ebcf661d3c983a2e0e6b4
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223299"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411240"
 ---
 # <a name="troubleshoot-rbac-in-azure"></a>Azure의 RBAC 문제 해결
 
 이 문서에서는 RBAC(역할 기반 액세스 제어)에 대한 일반적인 질문에 대해 답변을 제공합니다. 따라서 Azure Portal에서 역할을 사용할 때 예상되는 상황을 이해하고 액세스 문제를 해결하는 데 도움이 될 수 있습니다.
+
+## <a name="problems-with-rbac-role-assignments"></a>RBAC 역할 할당 관련 문제
+
+- **역할 할당 추가** 옵션이 비활성화되었거나 권한 오류로 인해 역할 할당을 추가할 수 없는 경우 역할을 할당하려는 범위에서 `Microsoft.Authorization/roleAssignments/*` 권한이 있는 역할을 사용하고 있는지 확인하세요. 이 권한이 없으면 구독 관리자에게 문의하세요.
+- 리소스를 만들려고 할 때 권한 오류가 발생하면 선택한 범위에서 리소스를 만들기 위한 권한이 있는 역할을 사용하고 있는지 확인하세요. 예를 들어, 참가자여야 할 수 있습니다. 이 권한이 없으면 구독 관리자에게 문의하세요.
+- 지원 티켓을 만들거나 업데이트하려고 할 때 권한 오류가 발생하면 `Microsoft.Support/*` 권한이 있는 역할(예: [지원 요청 참가자](built-in-roles.md#support-request-contributor))을 사용하고 있는지 확인하세요.
+- 역할을 할당하려고 할 때 역할 할당 수가 초과되었다는 오류가 발생하면 그룹에 역할을 할당하여 역할 할당 수를 줄여보세요. Azure는 구독당 최대 **2000**개의 역할 할당을 지원합니다.
+
+## <a name="problems-with-custom-roles"></a>사용자 지정 역할의 문제
+
+- 기존 사용자 지정 역할을 업데이트할 수 없는 경우 `Microsoft.Authorization/roleDefinition/write` 권한이 있는지 여부를 확인합니다.
+- 기존 사용자 지정 역할을 업데이트할 수 없는 경우 테넌트에서 하나 이상의 할당 가능한 범위를 삭제했는지 여부를 확인합니다. 또한 사용자 지정 역할의 `AssignableScopes` 속성은 [사용자 지정 역할을 생성, 삭제, 업데이트 또는 볼 수 있는 사용자](custom-roles.md#who-can-create-delete-update-or-view-a-custom-role)를 제어합니다.
+- 새 역할을 만들려고 시도하면 역할 정의 제한을 초과했다는 오류가 발생하는 경우 사용하지 않은 사용자 지정 역할을 삭제합니다. 기존 사용자 지정 역할을 통합하거나 다시 사용하려고 할 수도 있습니다. Azure는 테넌트에서 최대 **2000**개의 사용자 지정 역할을 지원합니다.
+- 사용자 지정 역할을 삭제할 수 없는 경우 하나 이상의 역할 할당이 해당 사용자 지정 역할을 아직도 사용하는지 여부를 확인합니다.
+
+## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>테넌트에서 구독이 이동될 때 RBAC 복구
+
+- 구독을 다른 테넌트로 양도하는 방법에 대한 단계가 필요한 경우 [Azure 구독의 소유권을 다른 계정으로 양도](../billing/billing-subscription-transfer.md)를 참조하세요.
+- 다른 테넌트에 구독을 전송하는 경우 모든 역할 할당이 원본 테넌트에서 영구적으로 삭제되고 대상 테넌트로 마이그레이션되지 않습니다. 대상 테넌트에서 역할 할당을 다시 만들어야 합니다.
+- 전역 관리자이고 구독에 액세스할 수 없는 경우 **Azure 리소스에 대한 액세스 관리** 토글을 사용하여 일시적으로 [액세스 권한을 상승](elevate-access-global-admin.md)하여 구독에 대한 액세스 권한을 얻으면 됩니다.
+
+## <a name="rbac-changes-are-not-being-detected"></a>RBAC 변경 내용이 인식되지 않음
+
+Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 데이터를 캐시합니다. 역할 할당을 만들거나 삭제하는 경우 변경 내용이 적용되는 데 최대 30분이 걸릴 수 있습니다. Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하는 경우 로그아웃 및 로그인하여 역할 할당 변경 내용을 강제로 새로 고칠 수 있습니다. REST API 호출을 사용하여 역할 할당을 변경하는 경우 액세스 토큰을 새로 고쳐 강제로 새로 고칠 수 있습니다.
 
 ## <a name="web-app-features-that-require-write-access"></a>쓰기 액세스 권한이 필요한 웹앱 기능
 
@@ -73,7 +97,7 @@ ms.locfileid: "39223299"
 
 다음 항목을 사용하려면 **가상 머신**에 대한 **쓰기** 권한이 필요합니다.
 
-* Endpoints  
+* 엔드포인트  
 * IP 주소  
 * 디스크  
 * 확장  
@@ -93,10 +117,6 @@ ms.locfileid: "39223299"
 ![함수 앱 액세스 권한 없음](./media/troubleshooting/functionapps-noaccess.png)
 
 판독기는 **플랫폼 기능** 탭을 클릭한 다음, **모든 설정**을 클릭하여 함수 앱(웹앱과 유사)에 관련된 일부 설정을 볼 수 있지만 이러한 설정을 수정할 수 없습니다.
-
-## <a name="rbac-changes-are-not-being-detected"></a>RBAC 변경 내용이 인식되지 않음
-
-Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 데이터를 캐시합니다. 역할 할당을 만들거나 삭제하는 경우 변경 내용이 적용되는 데 최대 30분이 걸릴 수 있습니다. Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하는 경우 로그아웃 및 로그인하여 역할 할당 변경 내용을 강제로 새로 고칠 수 있습니다. REST API 호출을 사용하여 역할 할당을 변경하는 경우 액세스 토큰을 새로 고쳐 강제로 새로 고칠 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [RBAC 및 Azure Portal을 사용하여 액세스 관리](role-assignments-portal.md)

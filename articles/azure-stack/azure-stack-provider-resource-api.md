@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: c6f17fd4cc225b7d4ce60d38bf2abcabf12a40c5
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.lastreviewed: 01/25/2018
+ms.openlocfilehash: 9568ac58e646be03d367fe466ae972955f23488c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945589"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252237"
 ---
 # <a name="provider-resource-usage-api"></a>공급자 리소스 사용 API
 용어 *공급자* 모든 위임 된 공급자 및 서비스 관리자에 적용 됩니다. Azure Stack 운영자 및 위임 된 공급자 공급자 사용량 API를 사용 하 여 직접 테 넌 트의 사용량을 볼 수 있습니다. 예를 들어 다이어그램에 표시 된 것과 같이 P0 수 P1의에서 사용량 정보를 가져오는 API 공급자 호출 하 고 P1 및 P2의 직접 사용 수 P3 및 P4 사용량 정보에 대 한 합니다.
@@ -86,7 +87,7 @@ meterID1",
 | *subscriptionId* |Azure Stack 사용자의 구독 식별자입니다. |
 | *usageStartTime* |UTC 시간인이 사용 현황 집계가 속하는 사용 현황 버킷의 시작 합니다.|
 | *usageEndTime* |이 사용 현황 집계가 속하는 사용 현황 버킷의 UTC 종료 시간입니다. |
-| *instanceData* |키-값 쌍을 새 형식으로 인스턴스 세부 정보:<br> *resourceUri*: 정규화 된 리소스 그룹 및 인스턴스 이름을 포함 하는 리소스 ID입니다. <br> *위치*:이 서비스를 실행 하는 지역입니다. <br> *태그*: 사용자가 지정 된 리소스 태그입니다. <br> *additionalInfo*: 예를 들어, 사용 된 리소스에 대 한 정보 자세히 OS 버전 또는 이미지 유형입니다. |
+| *instanceData* |키-값 쌍을 새 형식으로 인스턴스 세부 정보:<br> *resourceUri*: 리소스 그룹 및 인스턴스 이름을 포함 하는 정규화 된 리소스 ID입니다. <br> *location*: 이 서비스를 실행 하는 영역입니다. <br> *tags*: 사용자가 지정 된 리소스 태그입니다. <br> *additionalInfo*: 리소스 사용 된 예를 들어, OS 버전 또는 이미지에 대 한 자세한 세부 정보를 입력합니다. |
 | *quantity* |이 시간 내에 발생 한 리소스 사용량의 양입니다. |
 | *meterId* |사용 된 리소스에 대 한 고유 ID (라고도 *ResourceID*). |
 

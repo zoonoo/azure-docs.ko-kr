@@ -17,20 +17,20 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 2d8741f6c65002d7f3701784e5fffe67b0e9bf50
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: d5d284e8f7756e3e9bff5b08d28a8ed911a60572
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287237"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158876"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>빠른 시작: Android 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
-Android 응용 프로그램을 개발하는 분들은 Azure AD(Azure Active Directory) 사용자를 간단하게 로그인할 수 있습니다. Azure AD를 사용하면 응용 프로그램이 Microsoft Graph를 통해 또는 개발자 고유의 보호되는 web API를 통해 사용자 데이터에 액세스할 수 있습니다.
+Android 애플리케이션을 개발하는 분들은 Azure AD(Azure Active Directory) 사용자를 간단하게 로그인할 수 있습니다. Azure AD를 사용하면 애플리케이션이 Microsoft Graph를 통해 또는 개발자 고유의 보호되는 web API를 통해 사용자 데이터에 액세스할 수 있습니다.
 
-Azure ADAL(AD 인증 라이브러리) Android 라이브러리는 산업 표준 OAuth 2.0 및 OpenID Connect를 사용하는 [Microsoft Azure Active Directory 계정](https://azure.microsoft.com/services/active-directory/)을 지원하여 앱에 [Microsoft Azure Cloud](https://cloud.microsoft.com) & [Microsoft Graph API](https://developer.microsoft.com/graph) 사용을 시작할 수 있는 기능을 제공합니다.
+Azure ADAL(AD 인증 라이브러리) Android 라이브러리는 산업 표준 OAuth 2.0 및 OpenID Connect를 통해 [Microsoft Azure Active Directory 계정](https://azure.microsoft.com/services/active-directory/)을 지원하여 앱이 [Microsoft Azure Cloud](https://cloud.microsoft.com) 및 [Microsoft Graph API](https://developer.microsoft.com/graph) 사용을 시작할 수 있도록 합니다.
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 
@@ -41,33 +41,33 @@ Azure ADAL(AD 인증 라이브러리) Android 라이브러리는 산업 표준 O
 
 ## <a name="prerequisites"></a>필수 조건
 
-시작하려면 사용자를 만들고 응용 프로그램을 등록할 수 있는 Azure AD 테넌트가 필요합니다. 테넌트가 아직 없는 경우 [얻는 방법을 알아보세요](quickstart-create-new-tenant.md).
+시작하려면 사용자를 만들고 애플리케이션을 등록할 수 있는 Azure AD 테넌트가 필요합니다. 테넌트가 아직 없는 경우 [얻는 방법을 알아보세요](quickstart-create-new-tenant.md).
 
-## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>시나리오: 사용자를 로그인하고 Microsoft Graph를 호출
+## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>시나리오: 사용자 로그인 및 Microsoft Graph 호출
 
 ![토폴로지](./media/quickstart-v1-android/active-directory-android-topology.png)
 
-모든 Azure AD 계정에 이 앱을 사용할 수 있습니다. 단일 테넌트 및 다중 테넌트 시나리오를 둘 다 지원합니다(단계별로 설명). 앱을 빌드하여 엔터프라이즈 사용자와 연결하고 Microsoft Graph를 통해 해당 Azure + O365 데이터에 액세스하는 방법을 보여 줍니다. 인증 흐름에서 최종 사용자는 응용 프로그램에 로그인하고 사용 권한에 동의해야 하며, 경우에 따라 관리자가 앱에 동의해야 할 수도 있습니다. 이 샘플에 포함된 대부분의 논리는 최종 사용자를 인증하고 기본적인 Microsoft Graph 호출 방법을 보여줍니다.
+모든 Azure AD 계정에 이 앱을 사용할 수 있습니다. 단일 테넌트 및 다중 테넌트 시나리오를 둘 다 지원합니다(단계별로 설명). 앱을 빌드하여 엔터프라이즈 사용자와 연결하고 Microsoft Graph를 통해 해당 Azure + O365 데이터에 액세스하는 방법을 보여 줍니다. 인증 흐름에서 최종 사용자는 애플리케이션에 로그인하고 사용 권한에 동의해야 하며, 경우에 따라 관리자가 앱에 동의해야 할 수도 있습니다. 이 샘플에 포함된 대부분의 논리는 최종 사용자를 인증하고 기본적인 Microsoft Graph 호출 방법을 보여줍니다.
 
 ## <a name="sample-code"></a>샘플 코드
 
-전체 샘플 코드는 [Github](https://github.com/Azure-Samples/active-directory-android)에서 찾을 수 있습니다.
+전체 샘플 코드는 [GitHub](https://github.com/Azure-Samples/active-directory-android)에서 확인할 수 있습니다.
 
 ```Java
 // Initialize your app with MSAL
 AuthenticationContext mAuthContext = new AuthenticationContext(
-        MainActivity.this, 
-        AUTHORITY, 
+        MainActivity.this,
+        AUTHORITY,
         false);
 
 
 // Perform authentication requests
 mAuthContext.acquireToken(
-    getActivity(), 
-    RESOURCE_ID, 
-    CLIENT_ID, 
-    REDIRECT_URI,  
-    PromptBehavior.Auto, 
+    getActivity(),
+    RESOURCE_ID,
+    CLIENT_ID,
+    REDIRECT_URI,
+    PromptBehavior.Auto,
     getAuthInteractiveCallback());
 
 // ...
@@ -78,16 +78,16 @@ mAuthResult.getAccessToken()
 
 ## <a name="step-1-register-and-configure-your-app"></a>1단계: 앱 등록 및 구성
 
-[Azure Portal](https://portal.azure.com)을 사용하여 네이티브 클라이언트 응용 프로그램을 Microsoft에 등록해야 합니다.
+[Azure Portal](https://portal.azure.com)을 사용하여 네이티브 클라이언트 애플리케이션을 Microsoft에 등록해야 합니다.
 
 1. 앱 등록
     - [Azure Portal](https://aad.portal.azure.com)로 이동합니다.
     - ***Azure Active Directory*** > ***앱 등록***을 선택합니다.
 
 2. 앱 만들기
-    - **새 응용 프로그램 등록**을 선택합니다.
+    - **새 애플리케이션 등록**을 선택합니다.
     - **이름** 필드에 앱 이름을 입력합니다.
-    - **응용 프로그램 유형**에서 **네이티브**를 선택합니다.
+    - **애플리케이션 유형**에서 **네이티브**를 선택합니다.
     - **리디렉션 URI**로 `http://localhost`를 입력합니다.
 
 3. Microsoft Graph 구성
@@ -95,7 +95,7 @@ mAuthResult.getAccessToken()
     - **추가**를 선택하고, **API 선택** 안에서 ***Microsoft Graph***를 선택합니다.
     - **로그인 및 사용자 프로필 읽기** 권한을 선택한 다음, **선택**을 눌러 저장합니다.
         - 이 권한은 `User.Read` 범위에 매핑됩니다.
-    - 선택 사항: **필요한 권한 > Windows Azure Active Directory** 안에서, 선택한 **로그인 및 사용자 프로필 읽기** 권한을 제거합니다. 이렇게 하면 사용자 동의 페이지에 권한이 두 번 나열되지 않습니다.
+    - 선택 사항: **필요한 권한 > Microsoft Azure Active Directory** 안에서, 선택한 **로그인 및 사용자 프로필 읽기** 권한을 제거합니다. 이렇게 하면 사용자 동의 페이지에 권한이 두 번 나열되지 않습니다.
 
 4. 축하합니다! 앱이 구성되었습니다. 그 다음 섹션에서는 다음 작업을 수행해야 합니다.
     - `Application ID`
@@ -127,7 +127,7 @@ mAuthResult.getAccessToken()
 
 1. [ADAL Android Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki)에서 라이브러리 메커니즘과 새로운 시나리오 및 기능을 구성하는 방법에 대한 자세한 내용을 확인하세요.
 2. 네이티브 시나리오에서는 앱이 Webview를 사용하므로 앱에서 나가지 않습니다. `Redirect URI`는 임의로 지정될 수 있습니다.
-3. 문제가 있거나 궁금한 점이 있나요? Stackoverflow에서 `azure-active-directory` 태그를 사용하여 문제를 작성하거나 게시할 수 있습니다.
+3. 문제가 있거나 궁금한 점이 있나요? Stack Overflow에서 `azure-active-directory` 태그를 사용하여 문제를 작성하거나 게시할 수 있습니다.
 
 ### <a name="cross-app-sso"></a>앱 간 SSO
 

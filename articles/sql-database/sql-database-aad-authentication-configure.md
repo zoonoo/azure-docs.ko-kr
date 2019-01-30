@@ -11,20 +11,20 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 75108853929ea514a6b8660388d71736e74013e0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/03/2018
+ms.openlocfilehash: 87c3633bb3ed3537d1e258b9d8d50fd6d6356d81
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234734"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960033"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>SQL을 사용하여 Azure Active Directory 인증 구성 및 관리
 
-이 문서에서는 Azure AD를 만들고 채운 후 Azure [SQL Database](sql-database-technical-overview.md) 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에서 Azure AD를 사용하는 방법을 보여 줍니다. 개요는 [Azure Active Directory 인증](sql-database-aad-authentication.md)을 참조하세요.
+이 문서에서는 Azure AD를 만들고 채운 후 Azure [SQL Database](sql-database-technical-overview.md), [Managed Instance](sql-database-managed-instance.md) 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에서 Azure AD를 사용하는 방법을 보여줍니다. 개요는 [Azure Active Directory 인증](sql-database-aad-authentication.md)을 참조하세요.
 
 > [!NOTE]
-> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
+> 이 문서는 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
 > [!IMPORTANT]  
 > Azure VM에서 실행되는 SQL Server에 연결하는 경우 Azure Active Directory 계정은 사용할 수 없습니다. 대신 도메인 Active Directory 계정을 사용합니다.
 
@@ -65,13 +65,63 @@ Managed Instance는 보안 그룹 구성원 자격을 통한 사용자 인증 �
 
    ![aad](./media/sql-database-aad-authentication/aad.png)
 
-4. Active Directory 관리자 페이지 맨 위의 배너를 선택합니다. Azure AD의 글로벌/회사 관리자 권한으로 로그인된 경우 Azure Portal에서 또는 PowerShell을 사용하여 이 작업을 수행할 수 있습니다.
+4. Active Directory 관리자 페이지 위쪽에서 배너를 선택하고 현재 사용자에게 권한을 부여합니다. Azure AD의 글로벌/회사 관리자 권한으로 로그인된 경우 Azure Portal에서 또는 아래 스크립트로 PowerShell을 사용하여 이 작업을 수행할 수 있습니다.
 
     ![권한 부여-포털](./media/sql-database-aad-authentication/grant-permissions.png)
 
-    ![권한 부여-powershell](./media/sql-database-aad-authentication/grant-permissions-powershell.png)
+    ```PowerShell
+    # Gives Azure Active Directory read permission to a Service Principal representing the Managed Instance.
+    # Can be executed only by a "Company Administrator" or "Global Administrator" type of user.
 
-    Azure AD의 글로벌/회사 관리자 권한으로 로그인된 경우 Azure Portal에서 또는 PowerShell 스크립트를 실행하여 이 작업을 수행할 수 있습니다.
+    $aadTenant = "<YourTenantId>" # Enter your tenant ID
+    $managedInstanceName = "MyManagedInstance"
+
+    # Get Azure AD role "Directory Users" and create if it doesn't exist
+    $roleName = "Directory Readers"
+    $role = Get-AzureADDirectoryRole | Where-Object {$_.displayName -eq $roleName}
+    if ($role -eq $null) {
+        # Instantiate an instance of the role template
+        $roleTemplate = Get-AzureADDirectoryRoleTemplate | Where-Object {$_.displayName -eq $roleName}
+        Enable-AzureADDirectoryRole -RoleTemplateId $roleTemplate.ObjectId
+        $role = Get-AzureADDirectoryRole | Where-Object {$_.displayName -eq $roleName}
+    }
+
+    # Get service principal for managed instance
+    $roleMember = Get-AzureADServicePrincipal -SearchString $managedInstanceName
+    $roleMember.Count
+    if ($roleMember -eq $null)
+    {
+        Write-Output "Error: No Service Principals with name '$    ($managedInstanceName)', make sure that managedInstanceName parameter was     entered correctly."
+        exit
+    }
+    if (-not ($roleMember.Count -eq 1))
+    {
+        Write-Output "Error: More than one service principal with name pattern '$    ($managedInstanceName)'"
+        Write-Output "Dumping selected service principals...."
+        $roleMember
+        exit
+    }
+
+    # Check if service principal is already member of readers role
+    $allDirReaders = Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
+    $selDirReader = $allDirReaders | where{$_.ObjectId -match     $roleMember.ObjectId}
+
+    if ($selDirReader -eq $null)
+    {
+        # Add principal to readers role
+        Write-Output "Adding service principal '$($managedInstanceName)' to     'Directory Readers' role'..."
+        Add-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -RefObjectId     $roleMember.ObjectId
+        Write-Output "'$($managedInstanceName)' service principal added to     'Directory Readers' role'..."
+
+        #Write-Output "Dumping service principal '$($managedInstanceName)':"
+        #$allDirReaders = Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
+        #$allDirReaders | where{$_.ObjectId -match $roleMember.ObjectId}
+    }
+    else
+    {
+        Write-Output "Service principal '$($managedInstanceName)' is already     member of 'Directory Readers' role'."
+    }
+    ```
 
 5. 작업이 성공적으로 완료되면 다음과 같은 알림이 오른쪽 위 모서리에 표시됩니다.
 
@@ -81,7 +131,7 @@ Managed Instance는 보안 그룹 구성원 자격을 통한 사용자 인증 �
 
     ![set-admin](./media/sql-database-aad-authentication/set-admin.png)
 
-7. 관리자 추가 페이지에서 사용자를 검색하고 관리자가 될 사용자 또는 그룹을 선택한 다음, **선택**을 선택합니다.
+7. AAD 관리 페이지에서 사용자를 검색하고 관리자가 될 사용자 또는 그룹을 선택한 다음, **선택**을 선택합니다.
 
    Active Directory 관리 페이지에 해당 Active Directory에 모든 멤버와 그룹이 표시됩니다. 회색으로 표시된 사용자나 그룹은 Azure AD 관리자로 지원되지 않기 때문에 선택할 수 없습니다. [Azure AD 기능 및 제한 사항](sql-database-aad-authentication.md#azure-ad-features-and-limitations) 에서 지원되는 관리자 목록을 참조하세요. RBAC(역할 기반 액세스 제어)는 Azure Portal에만 적용되며 SQL Server에 전파되지 않습니다.
 
@@ -93,8 +143,8 @@ Managed Instance는 보안 그룹 구성원 자격을 통한 사용자 인증 �
 
     관리자 변경 과정에는 몇 분 정도 소요될 수 있습니다. 그런 다음 새 관리자가 Active Directory 관리자 상자에 표시됩니다.
 
-> [!IMPORTANT]
-> Azure AD 관리자를 설정하는 경우, 새 관리자 이름(사용자 또는 그룹)이 SQL Server 인증 사용자로 가상 master 데이터베이스에 있으면 안 됩니다. 새 관리자 이름이 있으면 Azure AD 관리자 설정은 실패하며, 생성 작업을 롤백하고 해당 관리자(이름)이 이미 존재한다는 것을 나타냅니다. SQL Server 인증 사용자는 Azure AD에 속하지 않기 때문에 Azure AD 인증을 사용하여 서버에 연결하려는 작업은 모두 실패합니다.
+Managed Instance에 Azure AD 관리를 프로비전한 후, <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> 구문으로 Azure AD 로그인(**공개 미리 보기**) 생성을 시작할 수 있습니다. 자세한 내용은 [Managed Instance 개요](sql-database-managed-instance.md#azure-active-directory-integration)를 참조하세요.
+
 > [!TIP]
 > 나중에 관리자를 제거하려면, Active Directory 관리자 페이지 위쪽에서 **관리자 제거**를 선택한 다음, **저장**을 선택합니다.
 
@@ -213,11 +263,15 @@ CLI 명령에 대한 자세한 내용은 [SQL - az sql](https://docs.microsoft.c
 
 ## <a name="create-contained-database-users-in-your-database-mapped-to-azure-ad-identities"></a>Azure AD ID에 매핑된 데이터베이스에서 포함된 데이터베이스 사용자 만들기
 
+>[!IMPORTANT]
+>Managed Instance에서 이제 Azure AD 로그인(**공개 미리 보기**)이 지원됩니다. 이를 통해 사용자, 그룹 또는 에서 로그인을 만들 수 있습니다. Azure AD 로그인은 데이터베이스 사용자를 포함된 데이터베이스 사용자로 만들지 않고도 Managed Instance에 인증할 수 있는 기능을 제공합니다. 자세한 내용은 [Managed Instance 개요](sql-database-managed-instance.md#azure-active-directory-integration)를 참조하세요. Azure AD 로그인을 만드는 구문은 <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>을 참조하세요.
+
 Azure Active Directory 인증에는 포함된 데이터베이스 사용자로 만들 데이터베이스 사용자가 필요합니다. Azure AD ID를 기반으로 하는 포함된 데이터베이스 사용자는 마스터 데이터베이스에 로그인이 없는 데이터베이스 사용자이며, 데이터베이스와 연결된 Azure AD 디렉터리의 ID에 매핑됩니다. Azure AD ID는 개별 사용자 계정 또는 그룹일 수 있습니다. 포함된 데이터베이스 사용자에 대한 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx)를 참조하세요.
 
 > [!NOTE]
 > 데이터베이스 사용자(관리자 예외)는 Azure Portal을 사용하여 만들 수 없습니다. RBAC 역할은 SQL Server, SQL Database 또는SQL Data Warehouse에 전파되지 않습니다. Azure RBAC 역할은 Azure 리소스 관리에 사용되며 데이터베이스 사용 권한에는 적용되지 않습니다. 예를 들어 **SQL Server 참여자** 역할은 SQL Database 또는 SQL Data Warehouse에 연결 권한을 부여하지 않습니다. TRANSACT-SQL 문을 사용하여 데이터베이스에 직접 액세스 권한을 부여해야 합니다.
->
+> [!WARNING]
+> 콜론(`:`) 또는 앰퍼샌드(`&`) 같은 특수 문자는 T-SQL CREATE LOGIN 및 CREATE USER 문의 사용자 이름에 포함할 수 없습니다.
 
 Azure AD 기반의 포함된 데이터베이스 사용자(데이터베이스를 소유한 서버 관리자 아님)를 만들려면 **ALTER ANY USER** 이상의 권한이 있는 사용자인 Azure AD ID를 통해 데이터베이스에 연결합니다. 그런 다음 아래 TRANSACT-SQL 구문을 사용합니다.
 
@@ -227,7 +281,7 @@ CREATE USER <Azure_AD_principal_name> FROM EXTERNAL PROVIDER;
 
 *Azure_AD_principal_name*은 Azure AD 사용자의 사용자 계정 이름이거나 Azure AD 그룹의 표시 이름일 수 있습니다.
 
-**예:** Azure AD 페더레이션 또는 관리 도메인 사용자를 나타내는 포함된 데이터베이스 사용자를 만드는 방법
+**예제:** Azure AD 페더레이션 또는 관리형 도메인 사용자를 나타내는 포함된 데이터베이스 사용자를 만드는 방법:
 
 ```sql
 CREATE USER [bob@contoso.com] FROM EXTERNAL PROVIDER;
@@ -269,11 +323,14 @@ Azure AD 관리자가 제대로 설정되었는지 확인하려면 Azure AD 관�
 Azure AD 기반의 포함된 데이터베이스 사용자(데이터베이스를 소유한 서버 관리자 아님)를 프로비전하려면 해당 데이터베이스에 대한 액세스가 있는 Azure AD ID로 데이터베이스에 연결합니다.
 
 > [!IMPORTANT]
-> Azure Active Directory 인증에 대한 지원은 [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 및 Visual Studio 2015의 [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx)에서 사용 가능합니다. SSMS의 2016년 8월 릴리스에는 관리자가 전화 통화, 문자 메시지, PIN이 있는 스마트 카드 또는 모바일 앱 알림을 사용하여 Multi-Factor Authentication을 요구할 수 있도록 하는 Active Directory 유니버설 인증도 포함되어 있습니다.
+> Azure Active Directory 인증에 대한 지원은 [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 및 Visual Studio 2015의 [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx)에서 사용 가능합니다. SSMS의 2016년 8월 릴리스에는 관리자가 전화 통화, 문자 메시지, PIN이 있는 스마트 카드 또는 모바일 앱 알림을 사용하여 Multi-Factor Authentication을 요구할 수 있도록 하는 Active Directory 유니버설 인증도 포함되어 있습니다. SSDT에서는 Azure AD 로그인 및 사용자(**공개 미리 보기**)를 사용할 수 없습니다.
 
-## <a name="using-an-azure-ad-identity-to-connect-using-ssms-or-ssdt"></a>SSMS 또는 SSDT를 사용하여 연결하는 데 Azure AD ID 사용  
+## <a name="using-an-azure-ad-identity-to-connect-using-ssms-or-ssdt"></a>SSMS 또는 SSDT를 사용하여 연결하는 데 Azure AD ID 사용
 
 다음 절차에서는 SQL Server Management Studio 또는 SQL Server Database Tools를 사용하여 SQL Database를 Azure AD ID에 연결하는 방법을 보여 줍니다.
+
+>[!IMPORTANT]
+>SSDT에서는 Azure AD 로그인 및 사용자(**공개 미리 보기**)를 사용할 수 없습니다.
 
 ### <a name="active-directory-integrated-authentication"></a>Active Directory 통합 인증
 
@@ -290,11 +347,10 @@ Azure AD 기반의 포함된 데이터베이스 사용자(데이터베이스를 
 
 Azure AD 관리 도메인을 사용하여 Azure AD 사용자 이름과 연결할 때 이 방법을 사용합니다. 원격 작업 등, 도메인 액세스 없이 페더레이션된 계정에도 이 방법을 사용할 수 있습니다.
 
-이 방법을 사용하여 Azure AD가 있는 SQL DB/DW를 페더레이션된 Azure AD 사용자의 네이티브에 대해 인증합니다.
-기본 사용자는 Azure AD에서 명시적으로 만들어지고 사용자 이름 및 암호를 사용하여 인증되지만, 페더레이션된 사용자는 도메인이 Azure AD와 함께 페더레이션된 Windows 사용자입니다. 후자의 방법(사용자 및 암호 사용)은 사용자가 자신의 Windows 자격 증명을 사용하려고 하지만 자신의 로컬 컴퓨터가 도메인에 가입되어 있지 않은 경우(예: 원격 액세스 사용) 사용할 수 있습니다. 이 경우 Windows 사용자는 자신의 도메인 계정과 암호를 표시할 수 있으며 페더레이션된 자격 증명을 사용하여 SQL DB/DW를 인증할 수 있습니다.
+이 방법을 사용하면 네이티브 또는 페더레이션된 Azure AD 사용자에 대해 Azure AD로 SQL DB/DW에 인증할 수 있습니다. 기본 사용자는 Azure AD에서 명시적으로 만들어지고 사용자 이름 및 암호를 사용하여 인증되지만, 페더레이션된 사용자는 도메인이 Azure AD와 함께 페더레이션된 Windows 사용자입니다. 후자의 방법(사용자 및 암호 사용)은 사용자가 자신의 Windows 자격 증명을 사용하려고 하지만 자신의 로컬 머신이 도메인에 가입되어 있지 않은 경우(예: 원격 액세스 사용) 사용할 수 있습니다. 이 경우 Windows 사용자는 자신의 도메인 계정과 암호를 표시할 수 있으며 페더레이션된 자격 증명을 사용하여 SQL DB/DW에 대해 인증할 수 있습니다.
 
 1. Management Studio 또는 Data Tools를 시작하고, **서버에 연결**(또는 **데이터베이스 엔진 연결**) 대화 상자의 **인증** 상자에서 **Active Directory - 암호**를 선택합니다.
-2. **사용자 이름** 상자에 **username@domain.com** 형식으로 Azure Active Directory 사용자 이름을 입력합니다. Azure Active Directory의 계정이거나, Azure Active Directory와 페더레이션된 도메인의 계정이어야 합니다.
+2. **사용자 이름** 상자에 **username@domain.com** 형식으로 Azure Active Directory 사용자 이름을 입력합니다. 사용자 이름은 Azure Active Directory의 계정이거나, Azure Active Directory와 페더레이션된 도메인의 계정이어야 합니다.
 3. **암호** 상자에 Azure Active Directory 계정이나 페더레이션된 도메인 계정의 사용자 암호를 입력합니다.
 
     ![AD 암호 인증 선택][12]
@@ -346,7 +402,7 @@ conn.Open();
 ```c#
 string ConnectionString =@"Data Source=n9lxnyuzhv.database.windows.net; Initial Catalog=testdb;"
 SqlConnection conn = new SqlConnection(ConnectionString);
-connection.AccessToken = "Your JWT token"
+conn.AccessToken = "Your JWT token"
 conn.Open();
 ```
 

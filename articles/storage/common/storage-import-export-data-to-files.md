@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/13/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: cb14a23fbffb5ca9b7d3240a42e14aa17060f935
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 30d0818b57057785784c1fbda1c67ca0be10d769
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820310"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384771"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure Import/Export 서비스를 사용하여 Azure Files로 데이터 가져오기
 
@@ -29,7 +29,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 - Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 저장소 계정 및 저장소 형식](storage-import-export-requirements.md) 목록을 참조하세요. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-quickstart-create-account.md)(영문)을 참조하세요.
 - [지원되는 형식](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다. 
 - [지원되는 OS 버전](storage-import-export-requirements.md#supported-operating-systems)을 실행하는 Windows 시스템이 있어야 합니다.
-- Windows 시스템에서 [WAImportExport 버전 2를 다운로드](https://www.microsoft.com/download/details.aspx?id=55280)합니다. `waimportexport` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExport`
+- Windows 시스템에서 [WAImportExport 버전 2를 다운로드](https://aka.ms/waiev2)합니다. `waimportexport` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExport`
 - FedEx/DHL 계정이 있습니다. 
     - 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
     - 내보내기 작업의 추적 번호를 생성합니다.
@@ -70,14 +70,14 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
             "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
                         
         ```
-    [데이터 집합 CSV 파일 준비](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file)에 대해 자세히 알아보세요.
+    [데이터 세트 CSV 파일 준비](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file)에 대해 자세히 알아보세요.
     
 
 4. 도구가 있는 루트 폴더에서 *driveset.csv* 파일을 수정합니다. 다음 예제와 비슷한 *driveset.csv* 파일에 항목을 추가합니다. 드라이브 집합 파일에는 디스크 및 해당하는 드라이브 문자 목록이 있으므로 도구는 준비해야 할 디스크 목록을 올바르게 선택할 수 있습니다.
 
     이 예제에서는 두 개의 디스크가 연결되어 있고 기본 NTFS 볼륨 G:\ 및 H:\가 생성되었다고 가정합니다. G:가 이미 암호화된 반면 H:\는 암호화되지 않았습니다. 도구는 H:\만을 호스트하는 디스크를 포맷하고 암호화합니다(G:\) 제외).
 
-    - **암호화되지 않은 디스크의 경우**: *암호화*를 지정하여 디스크에서 BitLocker 암호화를 사용합니다.
+    - **암호화되지 않은 디스크의 경우**: *Encrypt*를 지정하여 디스크에서 BitLocker 암호화를 사용합니다.
 
         ```
         DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
@@ -162,7 +162,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 
         ![가져오기 작업 만들기 - 4단계](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
-## <a name="step-3-ship-the-drives-to-the-azure-datacenter"></a>3단계: Azure 데이터 센터에 드라이브 운송 
+## <a name="step-3-ship-the-drives-to-the-azure-datacenter"></a>3단계: Azure 데이터 센터에 드라이브 배송 
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 

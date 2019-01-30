@@ -3,7 +3,7 @@ title: SQL Server 2014 Azure Virtual Machines의 자동화된 Backup | Microsoft
 description: Azure에서 실행되는 SQL Server 2014 VMs의 자동화된 Backup 기능에 대해 설명합니다. 이 문서는 Resource Manager를 사용하는 VMs에만 적용됩니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.assetid: bdc63fd1-db49-4e76-87d5-b5c6a890e53c
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
-ms.author: jroth
-ms.openlocfilehash: 0a1ad6d50c624115bab7ad09ff0e30a36e7df500
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: ca9c7611197de001265f70fd1b34314d90ee83b2
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256615"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329845"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>SQL Server 2014 Virtual Machines의 자동화된 Backup(Resource Manager)
 
@@ -27,7 +28,7 @@ ms.locfileid: "51256615"
 > * [SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
 > * [SQL Server 2016/2017](virtual-machines-windows-sql-automated-backup-v2.md)
 
-자동화된 Backup에서는 SQL Server 2014 Standard 또는 Enterprise를 실행하는 Azure VM의 모든 기존 및 새 데이터베이스에 대해 [Microsoft Azure에 대한 관리되는 Backup](https://msdn.microsoft.com/library/dn449496.aspx) 을 자동으로 구성합니다. 이를 통해 지속형 Azure Blob 저장소를 활용하는 일반 데이터베이스 백업을 구성할 수 있습니다. 자동화된 Backup은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)에 따라 다릅니다.
+자동화된 Backup에서는 SQL Server 2014 Standard 또는 Enterprise를 실행하는 Azure VM의 모든 기존 및 새 데이터베이스에 대해 [Microsoft Azure에 대한 관리되는 Backup](https://msdn.microsoft.com/library/dn449496.aspx) 을 자동으로 구성합니다. 이를 통해 지속형 Azure Blob Storage를 활용하는 일반 데이터베이스 백업을 구성할 수 있습니다. 자동화된 Backup은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)에 따라 다릅니다.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -64,7 +65,7 @@ ms.locfileid: "51256615"
 | --- | --- | --- |
 | **자동화된 Backup** | 사용/사용 안 함(사용 안 함) | SQL Server 2014 Standard 또는 Enterprise를 실행하는 Azure VM에 대해 자동화된 Backup을 사용하거나 사용하지 않도록 설정합니다. |
 | **보존 기간** | 1-30일(30일) | 백업 보존 기간(일 수)입니다. |
-| **Storage 계정** | Azure 저장소 계정 | Blob 저장소에 자동화된 Backup 파일을 저장하기 위해 사용하여 Azure 저장소 계정입니다. 모든 백업 파일을 저장하려면 컨테이너를 이 위치에 만듭니다. 백업 파일 명명 규칙에는 날짜, 시간 및 컴퓨터 이름이 포함됩니다. |
+| **Storage 계정** | Azure 저장소 계정 | Cloud Shell은 Azure File Storage를 활용하여 세션 간에 파일을 유지합니다. 모든 백업 파일을 저장하려면 컨테이너를 이 위치에 만듭니다. 백업 파일 명명 규칙에는 날짜, 시간 및 컴퓨터 이름이 포함됩니다. |
 | **암호화** | 사용/사용 안 함(사용 안 함) | 암호화 사용 여부를 설정합니다. 암호화를 사용하면 백업을 복원하는 데 사용되는 인증서가 동일한 명명 규칙을 사용하여 동일한 `automaticbackup` 컨테이너에 지정한 저장소 계정에 배치됩니다. 암호가 변경되면 해당 암호를 사용하여 새 인증서가 생성되지만 이전 인증서도 이전 백업의 복원을 위해 유지됩니다. |
 | **암호** | 암호 텍스트 | 암호화 키의 암호입니다. 암호화를 사용하는 경우에만 필요합니다. 암호화된 백업을 복원하기 위해서는 올바른 암호 및 백업을 수행할 때 사용한 인증서가 있어야 합니다. |
 
@@ -280,7 +281,7 @@ SQL Server 2014에서 자동화된 백업을 모니터링하려면 두 가지 �
 
 자동화된 Backup은 Azure VM에서 관리되는 Backup을 구성합니다. 따라서 [SQL Server 2014의 관리 백업에 대한 설명서를 검토](https://msdn.microsoft.com/library/dn449497(v=sql.120).aspx)하는 것이 중요합니다.
 
-Azure VM의 SQL Server에 대한 추가적인 백업 및 복원 지침은 [Azure Virtual Machines의 SQL Server 백업 및 복원](virtual-machines-windows-sql-backup-recovery.md) 문서를 참조하세요.
+Azure VM의 SQL Server에 대한 추가적인 백업 및 복원 지침은 [Azure Virtual Machines에서 SQL Server의 백업 및 복원](virtual-machines-windows-sql-backup-recovery.md) 문서를 참조하세요.
 
 사용 가능한 다른 자동화 작업에 대한 내용은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
 

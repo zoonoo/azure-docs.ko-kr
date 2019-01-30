@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 00dd74ccd317799ca3afcbe0ed1ca85e19bb3cbe
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 287f399d9c30da75972503abf71f9937f99c8842
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123881"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022090"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Concur에서 데이터 복사(미리 보기)
 
@@ -48,10 +47,10 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성은 **Concur**로 설정해야 합니다. | yes |
-| clientId | Concur App Management에서 제공하는 응용 프로그램 client_id입니다.  | yes |
-| 사용자 이름 | Concur Service에 액세스하는 데 사용되는 사용자 이름입니다.  | yes |
-| 암호 | username 필드에서 제공한 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| 형식 | type 속성을 다음으로 설정해야 합니다. **Concur** | 예 |
+| clientId | Concur App Management에서 제공하는 애플리케이션 client_id입니다.  | 예 |
+| 사용자 이름 | Concur Service에 액세스하는 데 사용되는 사용자 이름입니다.  | 예 |
+| 암호 | username 필드에서 제공한 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 | useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 | usePeerVerification | SSL을 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
@@ -79,7 +78,13 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Concur 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Concur에서 데이터를 복사하려면 데이터 세트의 type 속성을 **ConcurObject**로 설정합니다. 이 형식의 데이터 세트에는 추가적인 형식별 속성이 없습니다.
+Concur에서 데이터를 복사하려면 데이터 세트의 type 속성을 **ConcurObject**로 설정합니다. 이 형식의 데이터 세트에는 추가적인 형식별 속성이 없습니다. 다음과 같은 속성이 지원됩니다.
+
+| 속성 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| 형식 | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **ConcurObject** | 예 |
+| tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
+
 
 **예제**
 
@@ -91,7 +96,8 @@ Concur에서 데이터를 복사하려면 데이터 세트의 type 속성을 **C
         "linkedServiceName": {
             "referenceName": "<Concur linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -106,8 +112,8 @@ Concur에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Co
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성은 **ConcurSource**로 설정해야 합니다. | yes |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Opportunities where Id = xxx "` | yes |
+| 형식 | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **ConcurSource** | 예 |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Opportunities where Id = xxx "` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
 

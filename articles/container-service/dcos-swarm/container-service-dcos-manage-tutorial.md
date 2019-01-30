@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service 자습서 - DC/OS 관리
+title: (사용되지 않음) Azure Container Service 자습서 - DC/OS 관리
 description: Azure Container Service 자습서 - DC/OS 관리
 services: container-service
 author: iainfoulds
@@ -9,23 +9,25 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8f4b1c1c66243c06d46ef3fddec8ea495163fa07
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fe943ae5ac7894cdd8d8e104615cea670513b7eb
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999616"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000414"
 ---
-# <a name="azure-container-service-tutorial---manage-dcos"></a>Azure Container Service 자습서 - DC/OS 관리
+# <a name="deprecated-azure-container-service-tutorial---manage-dcos"></a>(사용되지 않음) Azure Container Service 자습서 - DC/OS 관리
 
-DC/OS는 컨테이너화된 최신 응용 프로그램 실행을 위한 분산 플랫폼을 제공합니다. Azure Container Service를 통해 프로덕션이 준비된 DC/OS 클러스터를 프로비전하는 작업은 간단하고 빠릅니다. 이 빠른 시작에서는 DC/OS 클러스터를 배포하고 기본 워크로드를 실행하는 데 필요한 기본 단계를 자세히 설명합니다.
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
+
+DC/OS는 컨테이너화된 최신 애플리케이션 실행을 위한 분산 플랫폼을 제공합니다. Azure Container Service를 통해 프로덕션이 준비된 DC/OS 클러스터를 프로비전하는 작업은 간단하고 빠릅니다. 이 빠른 시작에서는 DC/OS 클러스터를 배포하고 기본 워크로드를 실행하는 데 필요한 기본 단계를 자세히 설명합니다.
 
 > [!div class="checklist"]
 > * ACS DC/OS 클러스터 만들기
 > * 클러스터에 연결
 > * DC/OS CLI 설치
-> * 클러스터에 응용 프로그램 배포
-> * 클러스터에서 응용 프로그램 크기 조정
+> * 클러스터에 애플리케이션 배포
+> * 클러스터에서 애플리케이션 크기 조정
 > * DC/OS 클러스터 노드 크기 조정
 > * 기본 DC/OS 관리
 > * DC/OS 클러스터 삭제
@@ -84,9 +86,9 @@ CLI를 클러스터 함께 사용하기 전에 SSH 터널을 사용하도록 구
 dcos config set core.dcos_url http://localhost
 ```
 
-## <a name="run-an-application"></a>응용 프로그램 실행
+## <a name="run-an-application"></a>애플리케이션 실행
 
-ACS DC/OS 클러스터의 기본 예약 메커니즘은 Marathon입니다. Marathon은 응용 프로그램을 시작하고 DC/OS 클러스터에서 응용 프로그램의 상태를 관리하는 데 사용됩니다. Marathon을 통해 응용 프로그램을 예약하려면 **marathon-app.json**이라는 파일을 만들고 여기에 다음과 같은 내용을 복사합니다. 
+ACS DC/OS 클러스터의 기본 예약 메커니즘은 Marathon입니다. Marathon은 애플리케이션을 시작하고 DC/OS 클러스터에서 애플리케이션의 상태를 관리하는 데 사용됩니다. Marathon을 통해 애플리케이션을 예약하려면 **marathon-app.json**이라는 파일을 만들고 여기에 다음과 같은 내용을 복사합니다. 
 
 ```json
 {
@@ -114,7 +116,7 @@ ACS DC/OS 클러스터의 기본 예약 메커니즘은 Marathon입니다. Marat
 }
 ```
 
-DC/OS 클러스터에서 실행되도록 응용 프로그램을 예약하는 다음 명령을 실행합니다.
+DC/OS 클러스터에서 실행되도록 애플리케이션을 예약하는 다음 명령을 실행합니다.
 
 ```azurecli
 dcos marathon app add marathon-app.json
@@ -133,9 +135,9 @@ ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 /test   32   1     0/1    ---       ---      False      DOCKER   None
 ```
 
-## <a name="scale-marathon-application"></a>Marathon 응용 프로그램 크기 조정
+## <a name="scale-marathon-application"></a>Marathon 애플리케이션 크기 조정
 
-이전 예제에서는 단일 인스턴스 응용 프로그램을 만들었습니다. 응용 프로그램의 세 가지 인스턴스를 사용할 수 있도록 이 배포를 업데이트하려면 **marathon-app.json** 파일을 열고 인스턴스 속성을 3으로 업데이트합니다.
+이전 예제에서는 단일 인스턴스 애플리케이션을 만들었습니다. 애플리케이션의 세 가지 인스턴스를 사용할 수 있도록 이 배포를 업데이트하려면 **marathon-app.json** 파일을 열고 인스턴스 속성을 3으로 업데이트합니다.
 
 ```json
 {
@@ -186,7 +188,7 @@ ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 
 ACS DC/OS 클러스터는 인터넷에 액세스할 수 있는 공용 노드 집합과 인터넷에 액세스할 수 없는 개인 노드 집합이라는 두 개의 노드 집합으로 구성됩니다. 기본 집합은 개인 노드이며 마지막 예제에서 사용했습니다.
 
-응용 프로그램이 인터넷에 액세스할 수 있도록 만들려면 공개 노드 집합에 배포합니다. 그러려면 `acceptedResourceRoles` 개체에 `slave_public` 값을 입력합니다.
+애플리케이션이 인터넷에 액세스할 수 있도록 만들려면 공개 노드 집합에 배포합니다. 그러려면 `acceptedResourceRoles` 개체에 `slave_public` 값을 입력합니다.
 
 **nginx public.json**이라는 파일을 만들어서 여기에 다음과 같은 내용을 복사합니다.
 
@@ -220,7 +222,7 @@ ACS DC/OS 클러스터는 인터넷에 액세스할 수 있는 공용 노드 집
 }
 ```
 
-DC/OS 클러스터에서 실행되도록 응용 프로그램을 예약하는 다음 명령을 실행합니다.
+DC/OS 클러스터에서 실행되도록 애플리케이션을 예약하는 다음 명령을 실행합니다.
 
 ```azurecli 
 dcos marathon app add nginx-public.json
@@ -238,7 +240,7 @@ az network public-ip list --resource-group myResourceGroup --query "[?contains(n
 
 ## <a name="scale-dcos-cluster"></a>DC/OS 클러스터 크기 조정
 
-이전의 예에서 응용 프로그램은 여러 인스턴스로 확장되었습니다. 더 많거나 적은 계산 수용작업량을 제공하도록 DC/OS 인프라를 확장할 수도 있습니다. 그러려면 [az acs scale](/cli/azure/acs#az-acs-scale) 명령을 사용합니다. 
+이전의 예에서 애플리케이션은 여러 인스턴스로 확장되었습니다. 더 많거나 적은 계산 수용작업량을 제공하도록 DC/OS 인프라를 확장할 수도 있습니다. 그러려면 [az acs scale](/cli/azure/acs#az-acs-scale) 명령을 사용합니다. 
 
 DC/OS 에이전트의 현재 수를 보려면 [az acs show](/cli/azure/acs#az-acs-show) 명령을 사용합니다.
 
@@ -268,12 +270,12 @@ az group delete --name myResourceGroup --no-wait
 > * ACS DC/OS 클러스터 만들기
 > * 클러스터에 연결
 > * DC/OS CLI 설치
-> * 클러스터에 응용 프로그램 배포
-> * 클러스터에서 응용 프로그램 크기 조정
+> * 클러스터에 애플리케이션 배포
+> * 클러스터에서 애플리케이션 크기 조정
 > * DC/OS 클러스터 노드 크기 조정
 > * DC/OS 클러스터 삭제
 
-다음 자습서로 이동하여 Azure의 DC/OS에서 응용 프로그램의 부하를 분산하는 방법에 대해 알아봅니다. 
+다음 자습서로 이동하여 Azure의 DC/OS에서 애플리케이션의 부하를 분산하는 방법에 대해 알아봅니다. 
 
 > [!div class="nextstepaction"]
 > [부하 분산 응용 프로그램](container-service-load-balancing.md)

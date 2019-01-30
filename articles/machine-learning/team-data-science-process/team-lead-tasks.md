@@ -1,6 +1,6 @@
 ---
-title: Team Data Science Process 팀 리더 작업 - Azure | Microsoft Docs
-description: 데이터 과학 팀 프로젝트의 팀 리더 작업 개요입니다.
+title: Team Data Science Process Team에서 팀 리더의 작업
+description: 데이터 과학 팀 프로젝트의 팀 리더가 데이터 과학 팀을 위해 완료해야 하는 작업에 대해 간략히 설명합니다.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 2004396266d4bde9f3be540408524b668bbb863d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: faf0e06a0649c31cec840a5043a11af601ba5c47
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443852"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139642"
 ---
-# <a name="team-lead-tasks"></a>팀 리더 작업
+# <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>Team Data Science Process Team에서 팀 리더의 작업
 
 이 항목에서는 팀 리더가 데이터 과학 팀을 위해 완료해야 하는 작업에 대해 간략히 설명합니다. 목표는 [TDSP](overview.md)(Team Data Science Process)를 표준화하는 공동 작업 팀 환경을 구축하는 것입니다. TDSP는 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적으로 제공하는 기민한 반복 데이터 과학 방법론입니다. 공동 작업 및 팀 학습을 향상시키는 데 도움이 되도록 디자인되었습니다. 이 프로세스는 Microsoft와 업계의 모범 사례 및 구조를 추출하고 기업이 분석 프로그램의 이점을 완전히 실현할 수 있도록 데이터 과학 이니셔티브를 성공적으로 구현하는 데 필요합니다. 이 프로세스를 표준화하는 데이터 과학 팀의 인력 역할 및 관련 작업의 개요는 [Team Data Science Process 역할 및 작업](roles-tasks.md)을 참조하세요.
 
@@ -46,11 +46,11 @@ ms.locfileid: "52443852"
 이 항목에서는 리포지토리 및 디렉터리의 약식 이름을 사용합니다. 이 이름을 사용하면 리포지토리와 디렉터리 간의 작업을 쉽게 수행할 수 있습니다. 다음 섹션에서는 이 표기법이 사용됩니다(Git 리포지토리에는 **R** 및 DSVM의 로컬 디렉터리에는 **D**).
 
 - **R1**: 그룹 관리자가 Azure DevOps 그룹 서버에 설정한 Git의 **GroupProjectTemplate** 리포지토리
-- **R3**: 사용자가 설정한 팀 **ProjectTemplate** 리포지토리
-- **R4**: 사용자가 설정한 **TeamUtilities** 리포지토리
+- **R3**: 사용자가 설정한 팀 Git의 **ProjectTemplate** 리포지토리
+- **R4**: 사용자가 설정한 Git의 **TeamUtilities** 리포지토리
 - **D1**: R1에서 복제되어 D3에 복사된 로컬 디렉터리
-- **D3**: R3에서 복제되어 다시 R3에 복사된 로컬 디렉터리
-- **D3**: R4에서 복제되어 다시 R4에 복사된 로컬 디렉터리
+- **D3**: R3에서 복제되어, 사용자 지정하고, 다시 R3에 복사된 로컬 디렉터리
+- **D4**: R4에서 복제되어, 사용자 지정하고, 다시 R4에 복사된 로컬 디렉터리
 
 이 자습서의 리포지토리 및 디렉터리에 지정된 이름은 대규모 데이터 과학 그룹 내에서 자신의 팀에 대해 별도의 프로젝트를 설정하는 것을 전제로 제공되었습니다. 그러나 팀 리더에게는 다른 옵션이 있습니다.
 
@@ -140,9 +140,9 @@ ms.locfileid: "52443852"
 
 - 그룹 리포지토리를 로컬 디렉터리로 복제: 팀 R1 - 복제 -> 로컬 D1
 - 팀 리포지토리를 로컬 디렉터리로 복제: 팀 R3 및 R4 - 복제 -> 로컬 R3 및 R4
-- 그룹 프로젝트 템플릿 콘텐츠를 로컬 팀 폴더에 복사: D1 - 콘텐츠 복사 -> D3
+- 그룹 프로젝트 템플릿 콘텐츠를 로컬 팀 폴더에 복사:  D3에 D1 콘텐츠 복사
 - (선택 사항) 로컬 D3 및 D4 사용자 지정
-- 로컬 디렉터리 콘텐츠를 팀 리포지토리로 푸시: D3 및 D4 - 콘텐츠 추가 -> 팀 R3 및 R4
+- 팀 리포지토리에 로컬 디렉터리 콘텐츠 푸시: 팀 R3 및 R4에 D3 및 D4 콘텐츠 추가
 
 
 ### <a name="initialize-the-team-repositories"></a>팀 리포지토리 초기화
@@ -157,8 +157,8 @@ ms.locfileid: "52443852"
 이 절차를 시작하려면 다음을 수행합니다.
 
 - 로컬 컴퓨터에 디렉터리를 만듭니다.
-    - **Windows**: **C:\GitRepos\GroupCommon** 및 **C:\GitRepos\MyTeam**
-    - **Linux**: 홈 디렉터리의 **GitRepos\GroupCommon** 및 **GitRepos\MyTeam** 
+    - **Windows**의 경우: **C:\GitRepos\GroupCommon** 및 **C:\GitRepos\MyTeam**
+    - **Linux**의 경우: 홈 디렉터리의 **GitRepos\GroupCommon** 및 **GitRepos\MyTeam** 
 - **GitRepos\GroupCommon** 디렉터리로 변경합니다.
 - 로컬 시스템의 운영 체제에서 다음 명령을 적절하게 실행합니다.
 
@@ -355,7 +355,7 @@ Azure 파일 저장소 정보 파일이 있는지 묻는 메시지가 나타나�
 
 ![34](./media/team-lead-tasks/team-leads-34-attach-s3.png)
 
-**Azure 파일 저장소 정보를 수동으로 입력하는 방법:** 텍스트 파일에 Azure 파일 저장소 정보가 없는 경우 다음 화면의 지침에 따라 필요한 구독, 저장소 계정 및 Azure 파일 저장소 정보를 입력할 수 있습니다.
+**Azure 파일 스토리지 정보를 수동으로 입력하는 방법:** 텍스트 파일에 Azure 파일 스토리지 정보가 없는 경우 다음 화면의 지침에 따라 필요한 구독, 스토리지 계정 및 Azure 파일 스토리지 정보를 입력할 수 있습니다.
 
 ![35](./media/team-lead-tasks/team-leads-35-attach-s4.png)
 
@@ -384,7 +384,7 @@ Azure 파일 저장소 정보 파일이 있는지 묻는 메시지가 나타나�
 
 ![40](./media/team-lead-tasks/team-leads-40-attach-s4-linux.png)
 
-**Azure 파일 저장소 정보를 수동으로 입력하는 방법:** 텍스트 파일에 Azure 파일 저장소 정보가 없는 경우 다음 화면의 지침에 따라 필요한 구독, 저장소 계정 및 Azure 파일 저장소 정보를 입력할 수 있습니다.
+**Azure 파일 스토리지 정보를 수동으로 입력하는 방법:** 텍스트 파일에 Azure 파일 스토리지 정보가 없는 경우 다음 화면의 지침에 따라 필요한 구독, 스토리지 계정 및 Azure 파일 스토리지 정보를 입력할 수 있습니다.
 
 - **n**을 입력합니다.
 - 이전 단계에서 Azure 파일 저장소가 생성된 구독 이름의 인덱스를 선택합니다.

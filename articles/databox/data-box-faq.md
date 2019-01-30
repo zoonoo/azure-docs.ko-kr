@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/27/2018
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: e03d913e1887bceb9267207e3a9abea93ab6d000
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: ad52427263c4bbd2effb373b00ef8ff37b8f5b67
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568033"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449574"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: 질문과 대답
 
@@ -47,7 +47,7 @@ a. Azure로 전송할 데이터가 40~500TB이면 Data Box를 사용하는 것�
 a. Data Box는 10일에 대한 명목 요금으로 사용할 수 있습니다. Azure Portal에서 주문 중에 제품 모델을 선택하면 디바이스 요금이 표시됩니다. 또한 배송료는 무료이지만, Azure 저장소에 대한 비용이 부과됩니다. 자세한 내용은 [Azure Data Box 가격 책정](https://azure.microsoft.com/pricing/details/storage/databox/)을 참조하세요. 
 
 ### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-in-one-instance"></a>Q. 한 인스턴스에서 Data Box를 통해 전송할 수 있는 최대 데이터 양은 어떻게 되나요?
-a. Data Box의 원시 용량은 100TB, 사용 가능한 용량은 80TB입니다. Data Box로 최대 80TB의 데이터를 전송할 수 있습니다. 더 많은 데이터를 전송하려면 디바이스를 더 주문해야 합니다.
+a. Data Box의 원시 용량은 100TB, 사용 가능한 용량은 80TB입니다. Data Box를 사용하여 최대 80TB의 데이터를 전송할 수 있습니다. 더 많은 데이터를 전송하려면 디바이스를 더 주문해야 합니다.
 
 ### <a name="q-how-can-i-check-if-data-box-is-available-in-my-region"></a>Q. 내 지역에서 Data Box를 사용할 수 있는지 확인하려면 어떻게 해야 할까요? 
 a.  Data Box를 사용할 수 있는 국가에 대한 내용은 [지역 가용성](data-box-overview.md#region-availability)을 참조하세요.  
@@ -86,7 +86,7 @@ a. 이전 주문을 복제할 수 있습니다. 복제하는 경우 이전과 �
 ## <a name="configure-and-connect"></a>구성 및 연결
 
 ### <a name="q-how-do-i-unlock-the-data-box"></a>Q. Data Box의 잠금을 해제하려면 어떻게 할까요? 
-a.  Azure Portal에서 해당 Data Box 주문, **디바이스 세부 정보**로 차례로 이동합니다. 잠금 해제 암호를 복사합니다. 이 암호를 사용하여 Data Box에서 로컬 웹 UI에 로그인합니다. 자세한 내용은 [자습서: Azure Data Box 압축 풀기, 케이블, 연결](data-box-deploy-set-up.md)을 참조하세요.
+a.  Azure Portal에서 해당 Data Box 주문, **디바이스 세부 정보**로 차례로 이동합니다. 잠금 해제 암호를 복사합니다. 이 암호를 사용하여 Data Box에서 로컬 웹 UI에 로그인합니다. 자세한 내용은 [자습서: Azure Data Box 포장 해제, 케이블 연결, 연결](data-box-deploy-set-up.md)을 참조하세요.
 
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box"></a>Q. Linux 호스트 컴퓨터를 사용하여 Data Box에 연결하고 데이터를 복사할 수 있나요?
 a.  예. Data Box를 사용하여 SMB 및 NFS 클라이언트에 연결할 수 있습니다. 자세한 내용은 호스트 컴퓨터에 대한 [지원되는 운영 체제](data-box-system-requirements.md) 목록을 참조하세요.
@@ -115,6 +115,9 @@ a. 시스템 결함 표시기 LED가 켜져 있으면 시스템이 정상 상태
 ### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why-would-this-be"></a>Q. Azure Portal에서 Data Box 잠금 해제 암호에 액세스할 수 없습니다. 왜 그럴까요?
 a. Azure Portal의 잠금 해제 암호에 액세스할 수 없다면 구독 및 저장소 계정의 권한을 확인합니다. 리소스 그룹 수준에서 기여자 또는 소유자 권한이 있는지 확인합니다. 없는 경우 액세스 자격 증명을 보려면 최소한 Data Box 운영자 역할 권한이 있어야 합니다.
 
+### <a name="q-is-port-channel-configuration-supported-on-data-box-how-about-mpio"></a>Q. Data Box에서 포트 채널 구성이 지원되나요? MPIO는 어떤가요?
+a. 포트 채널 구성, MPIO(다중 경로 IO) 구성 또는 vLAN 구성은 Data Box에 지원되지 않습니다.
+
 ## <a name="track-status"></a>상태 추적
 
 ### <a name="q-how-do-i-track-the-data-box-from-when-i-placed-the-order-to-shipping-the-device-back"></a>Q. 주문을 확정했을 때부터 Data Box를 반송할 때까지 디바이스를 추적하려면 어떻게 할까요? 
@@ -129,7 +132,7 @@ a. Azure Portal에서 Data Box 주문, **개요**로 차례로 이동할 수 있
 ## <a name="migrate-data"></a>데이터 마이그레이션
 
 ### <a name="q-what-is-the-maximum-data-size-that-can-be-used-with-data-box"></a>Q. Data Box에 사용할 수 있는 최대 데이터 크기는 어떻게 되나요?  
-a.  Data Box에는 80TB의 사용 가능한 저장소 용량이 있습니다. 크기가 40 ~ 80TB에 해당하는 데이터에는 단일 Data Box 디바이스를 사용할 수 있습니다. 이보다 큰 데이터의 경우 최대 500TB까지 여러 Data Box 디바이스를 주문할 수 있습니다. 500TB가 넘는 데이터는 Data Box Heavy에 가입하세요.  
+a.  Data Box에는 80TB의 사용 가능한 저장소 용량이 있습니다. 크기가 40 ~ 80TB에 해당하는 데이터에는 단일 Data Box 디바이스를 사용할 수 있습니다. 최대 500TB의 데이터 크기가 필요한 경우 여러 개의 Data Box 디바이스를 주문할 수 있습니다. 500TB가 넘는 데이터는 Data Box Heavy에 가입하세요.  
 
 ### <a name="q-what-are-the-maximum-block-blob-and-page-blob-sizes-supported-by-data-box"></a>Q. Data Box에서 지원하는 블록 Blob 및 페이지 Blob에 대한 최대 크기는 어떻게 되나요? 
 a.  최대 크기는 Azure Storage 제한으로 관리됩니다. 최대 블록 Blob 크기는 대략 4.768TiB이고, 최대 페이지 Blob 크기는 8TiB입니다. 자세한 내용은 [Azure Storage 확장성 및 성능 목표](../storage/common/storage-scalability-targets.md)를 참조하세요. 
@@ -147,7 +150,7 @@ NFS 클라이언트를 사용할 경우 [rsync](https://rsync.samba.org/), [Free
 ### <a name="q-are-there-any-tips-to-speed-up-the-data-copy"></a>Q. 데이터 복사 속도를 높일 수 있는 팁이 있나요?
 a.  복사 프로세스의 속도를 높이려면 다음을 수행합니다.
 
-- 다중 데이터 복사 스트림을 사용합니다. 예를 들어 Robocopy에서는 다중 스레드 옵션을 사용합니다. 사용되는 정확한 명령에 대한 자세한 내용은 [자습서: Azure Data Box 에 데이터 복사 및 확인](data-box-deploy-copy-data.md)을 참조하세요.
+- 다중 데이터 복사 스트림을 사용합니다. 예를 들어 Robocopy에서는 다중 스레드 옵션을 사용합니다. 사용되는 정확한 명령에 대한 자세한 내용은 [자습서: Azure Data Box에 데이터 복사 및 확인](data-box-deploy-copy-data.md)을 완료했는지 확인합니다.
 - 다중 세션을 사용합니다.
 - 네트워크 공유를 통해 복사하는(네트워크 속도로 인해 제한될 수 있음) 대신, Data Box가 연결된 컴퓨터에 데이터가 로컬로 있는지 확인합니다.
 - 데이터를 복사하는 데 사용되는 컴퓨터의 성능을 벤치마크합니다. [Bluestop FIO 도구](https://bluestop.org/fio/)를 다운로드하고 사용하여 서버 하드웨어의 성능을 벤치마크합니다.
@@ -161,7 +164,7 @@ A.  To speed up the copy process:
 
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box"></a>Q. Data Box에 여러 개의 저장소 계정을 사용할 수 있나요?
-a.  예. Data Box에서는 최대 10개의 저장소 계정, 범용, 클래식 또는 Blob 저장소 계정이 지원됩니다. 핫 및 쿨 Blob은 모두 지원됩니다. GA 릴리스 중에는 Azure 공용 클라우드에서 미국, 유럽 서부, 유럽 북부, 프랑스 및 영국의 모든 지역의 저장소 계정이 지원됩니다.
+a.  예. Data Box에서는 최대 10개의 스토리지 계정, 범용, 클래식 또는 Blob Storage 계정이 지원됩니다. 핫 및 쿨 Blob은 모두 지원됩니다. GA 릴리스 중에는 Azure 공용 클라우드에서 미국, 유럽 서부, 유럽 북부, 프랑스 및 영국의 모든 지역의 저장소 계정이 지원됩니다.
 
 
 ## <a name="ship-device"></a>디바이스 배송
@@ -169,7 +172,7 @@ a.  예. Data Box에서는 최대 10개의 저장소 계정, 범용, 클래식 �
 <!--### Q. How do I schedule a pickup for my Data Box?--> 
 
 ### <a name="q-my-device-was-delivered-but-the-device-seems-to-be-damaged-what-should-i-do"></a>Q. 내 디바이스가 배송되었으나 손상된 것 같습니다. 어떻게 해야 하나요?
-a. 디바이스가 손상된 상태로 도착했거나 변조의 증거가 있다면 디바이스를 사용하지 않습니다. [Microsoft 지원에 문의](data-box-disk-contact-microsoft-support.md)하고 가능한 빨리 장치를 반환하세요. 교체 디바이스를 위한 새 Data Box 주문을 만들 수도 있습니다. 이런 경우 교체 디바이스에 대한 요금이 청구되지 않습니다.
+a. 디바이스가 손상된 상태로 도착했거나 변조의 증거가 있다면 디바이스를 사용하지 않습니다. [Microsoft 지원에 문의](data-box-disk-contact-microsoft-support.md)하고 가능한 빨리 디바이스를 반환하세요. 교체 디바이스를 위한 새 Data Box 주문을 만들 수도 있습니다. 이런 경우 교체 디바이스에 대한 요금이 청구되지 않습니다.
 
 ### <a name="q-can-i-use-my-own-shipping-carrier-to-ship-data-box"></a>Q. Data Box 배송에 내가 원하는 배송 업체를 사용할 수 있나요?
 a. Data Box 서비스에서는 Microsoft가 Azure 데이터 센터로의 배송을 처리합니다. 사용자 고유의 배송 업체를 사용하려면 Azure Import/Export 서비스를 사용할 수 있습니다. 자세한 내용은 [Azure Import/Export service 란?](../storage/common/storage-import-export-service.md)을 참조하세요.
@@ -189,7 +192,9 @@ a.  운송 중에는 Data Box의 다음 기능을 통해 데이터를 보호합�
 
 ### <a name="q-i-have-finished-prepare-to-ship-and-shut-down-the-device-can-i-still-add-more-data-to-data-box"></a>Q. 배송 준비를 마치고 디바이스를 종료했습니다. Data Box에 데이터를 추가할 수 있나요?
 a. 예. 디바이스를 켜고 데이터를 더 추가할 수 있습니다. 데이터 복사를 마친 후에는 **배송 준비**를 다시 실행해야 합니다.
-  
+
+### <a name="q-i-received-my-device-and-it-is-not-booting-up-how-do-i-ship-the-device-back"></a>Q. 내 디바이스를 받았는데 부팅되지 않았습니다. 디바이스를 다시 배송하려면 어떻게 해야 하나요?
+a. 디바이스가 부팅되지 않는 경우 Azure Portal에서 주문 내역으로 이동합니다. 배송 레이블을 다운로드하고 디바이스에 부착합니다. 자세한 내용은 [배송 레이블 다운로드](data-box-portal-admin.md#download-shipping-label)를 참조하세요.
 
 ## <a name="verify-and-upload"></a>확인 및 업로드
 
@@ -223,17 +228,17 @@ a.  Azure Data Box 서비스는 기본적으로 관리 연속성 문서에 사�
 ### <a name="what-type-of-reporting-is-available-to-support-chain-of-custody"></a>관리 연속성 지원에 사용 가능한 보고서의 유형은 무엇인가요?
 a.  관리 연속성 지원을 위해 다음 보고를 사용할 수 있습니다.
 
-- DHL 및 UPS로부터의 물류 운송
+- UPS로부터의 물류 운송
 - 전원 켜기 및 사용자 공유 액세스 로깅
 - Data Box에 성공적으로 수집된 각 파일에 대 한 64비트 CRC-64(순환 중복 검사) 또는 체크섬이 적용된 매니페스트 파일 
 - Azure Storage 계정에 업로드하지 못한 파일 보고
 - 데이터가 Azure Storage 계정에 복사된 후 Data Box 디바이스 삭제(NIST 800 88R1 표준에 따라)
 
-### <a name="are-the-carrier-tracking-logs--from-upsdhl-available"></a>배송 업체 추적 로그(UPS/DHL 제공)를 사용할 수 있나요? 
+### <a name="are-the-carrier-tracking-logs-from-ups-available"></a>운송업체 추적 로그(UPS 제공)를 사용할 수 있나요? 
 a.  운송업체 추적 로그는 Data Box 주문 기록에 캡처됩니다. 이 보고서는 디바이스가 Azure 데이터 센터로 반환되고 디바이스 디스크의 데이터가 정리된 후 사용할 수 있습니다. 즉시 필요한 경우 배송 업체 웹 사이트에서 직접 주문 추적 번호를 사용하여 추적 정보를 구할 수 있습니다.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Azure 데이터 센터에 Data Box를 직접 전달할 수 있나요? 
-a.   아니요. 현재 Azure 데이터 센터는 UPS/DHL이 아닌 운송업체나 고객의 Data Box 배송을 수취하지 않습니다.
+a.  아니요. 현재 Azure 데이터 센터는 고객 또는 UPS 이외의 운송업체에서 수행하는 Data Box 배달을 허용하지 않습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

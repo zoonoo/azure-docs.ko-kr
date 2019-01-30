@@ -3,8 +3,8 @@ title: Azure Notification Hubs를 사용하여 iOS 디바이스에 지역화된 
 description: Azure Notification Hubs를 사용하여 iOS 디바이스에 지역화된 알림 푸시를 사용하는 방법
 services: notification-hubs
 documentationcenter: ios
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 484914b5-e081-4a05-a84a-798bbd89d428
 ms.service: notification-hubs
@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: d19fc4290f32359d3af66d96512f65abb17f5d34
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: 56662a40df6abeb672992a2da4c04692e7280021
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918626"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451700"
 ---
-# <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 iOS 디바이스에 지역화된 알림 푸시 
+# <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 iOS 디바이스에 지역화된 알림 푸시
 
 > [!div class="op_single_selector"]
 > * [Windows 스토어 C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
@@ -63,7 +63,7 @@ ms.locfileid: "42918626"
 
 ```json
 {
-    aps:{
+    aps: {
         alert: "$(News_French)"
     }
 }
@@ -73,14 +73,14 @@ ms.locfileid: "42918626"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- [특정 iOS 장치에 푸시 알림](notification-hubs-ios-xplat-segmented-apns-push-notification.md) 자습서를 완료하고 이 자습서는 해당 코드에서 직접 빌드하므로 코드를 사용할 수 있도록 합니다.
-- Visual Studio 2017은 선택 사항입니다.
+* [특정 iOS 디바이스에 푸시 알림](notification-hubs-ios-xplat-segmented-apns-push-notification.md) 자습서를 완료하고 이 자습서는 해당 코드에서 직접 빌드하므로 코드를 사용할 수 있도록 합니다.
+* Visual Studio 2017은 선택 사항입니다.
 
 ## <a name="update-the-app-user-interface"></a>앱 사용자 인터페이스 업데이트
 
 이 섹션에서는 템플릿을 사용하여 지역화된 속보를 보내도록 [Notification Hubs를 사용하여 속보 보내기] 항목에서 만든 속보 앱을 수정합니다.
 
-**MainStoryboard_iPhone.storyboard**에서 분할된 제어를 3가지 언어, 즉 영어, 프랑스어 및 북경어로 추가합니다.
+`MainStoryboard_iPhone.storyboard`에서 영어, 프랑스어 및 북경어의 세 가지 언어로 분할된 컨트롤을 추가합니다.
 
 ![iOS UI 스토리보드 만들기][13]
 
@@ -90,7 +90,7 @@ ms.locfileid: "42918626"
 
 ## <a name="build-the-ios-app"></a>iOS 앱 빌드
 
-1. Notification.h에서 다음 코드에 표시된 것과 같이 *retrieveLocale* 메서드를 추가하고 저장 및 구독 메서드를 수정합니다.
+1. 다음 코드와 같이 `Notification.h`에서 `retrieveLocale` 메서드를 추가하고, 저장소 및 구독 메서드를 수정합니다.
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;
@@ -101,7 +101,7 @@ ms.locfileid: "42918626"
 
     - (int) retrieveLocale;
     ```
-    Notification.m에서 로캘 매개 변수를 추가하고 사용자 기본값에 저장하여 *storeCategoriesAndSubscribe* 메서드를 수정합니다.
+    `Notification.m`에서 `locale` 매개 변수를 추가하고 사용자 기본값으로 저장하여 `storeCategoriesAndSubscribe` 메서드를 수정합니다.
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion {
@@ -139,7 +139,7 @@ ms.locfileid: "42918626"
     }
     ```
 
-    *registerNativeWithDeviceToken* 대신 *registerTemplateWithDeviceToken* 메서드를 사용합니다. 템플릿을 등록할 때는 json 템플릿과 템플릿의 이름도 제공해야 합니다(이 앱이 다른 템플릿을 등록할 수 있으므로). 해당 뉴스에 대한 알림을 받도록 할 것이므로 범주를 태그로 등록해야 합니다.
+    `registerNativeWithDeviceToken` 대신 `registerTemplateWithDeviceToken` 메서드를 사용합니다. 템플릿을 등록할 때는 json 템플릿과 템플릿의 이름도 제공해야 합니다(이 앱이 다른 템플릿을 등록할 수 있으므로). 해당 뉴스에 대한 알림을 받을 수 있도록 하려면 범주를 태그로 등록해야 합니다.
 
     사용자 기본 설정에서 로캘을 검색하기 위한 메서드를 추가합니다.
 
@@ -153,13 +153,13 @@ ms.locfileid: "42918626"
     }
     ```
 
-2. 이제 Notifications 클래스를 수정했으므로 ViewController가 새 UISegmentControl을 사용하는지 확인해야 합니다. *viewDidLoad* 메서드에 다음 줄을 추가하여 현재 선택된 로캘을 표시해야 합니다.
+2. 이제 `Notifications` 클래스를 수정했으므로 `ViewController`에서 새 `UISegmentControl`을 사용하는지 확인해야 합니다. `viewDidLoad` 메서드에 다음 줄을 추가하여 현재 선택된 로캘을 표시해야 합니다.
 
     ```objc
     self.Locale.selectedSegmentIndex = [notifications retrieveLocale];
     ```
 
-    그런 다음, *subscribe* 메서드에서 *storeCategoriesAndSubscribe*에 대한 호출을 다음 코드로 변경합니다.
+    그런 다음, `subscribe` 메서드에서 `storeCategoriesAndSubscribe`에 대한 호출을 다음 코드로 변경합니다.
 
     ```objc
     [notifications storeCategoriesAndSubscribeWithLocale: self.Locale.selectedSegmentIndex categories:[NSSet setWithArray:categories] completion: ^(NSError* error) {
@@ -174,7 +174,7 @@ ms.locfileid: "42918626"
     }];
     ```
 
-3. 마지막으로, 앱이 시작될 때 등록을 올바르게 새로 고칠 수 있도록 AppDelegate.m에서 *didRegisterForRemoteNotificationsWithDeviceToken* 메서드를 업데이트해야 합니다. 알림의 *subscribe* 메서드에 대한 호출을 다음 코드로 변경합니다.
+3. 마지막으로, 앱이 시작될 때 등록을 올바르게 새로 고칠 수 있도록 AppDelegate.m의 `didRegisterForRemoteNotificationsWithDeviceToken` 메서드를 업데이트해야 합니다. 알림의 `subscribe` 메서드에 대한 호출을 다음 코드로 변경합니다.
 
     ```obj-c
     NSSet* categories = [self.notifications retrieveCategories];
@@ -261,20 +261,14 @@ Visual Studio에 액세스할 수 없거나 디바이스의 앱에서 직접 지
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 iOS 디바이스에 지역화된 알림을 보냈습니다. 특정 iOS 앱의 사용자에게 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 
+이 자습서에서는 iOS 디바이스에 지역화된 알림을 보냈습니다. 특정 iOS 앱의 사용자에게 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
 >[특정 사용자에 알림 푸시](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)
 
 <!-- Images. -->
-
 [13]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized1.png
 [14]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized2.png
-
-
-
-
-
 
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
@@ -292,7 +286,6 @@ Visual Studio에 액세스할 수 없거나 디바이스의 앱에서 직접 지
 [Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-ios
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 [JavaScript and HTML]: ../get-started-with-push-js.md
-
 [Windows Developer Preview registration steps for Mobile Services]: ../mobile-services-windows-developer-preview-registration.md
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx

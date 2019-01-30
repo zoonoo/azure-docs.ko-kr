@@ -5,16 +5,16 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: e2cba8cb53e73bd1fc25f1fe43fa0365247e2bd2
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c1714fd6ada45f2b4498a3f5972424200afa9aa3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210825"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838143"
 ---
-# <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>다중 계층 Dynamics AX 응용 프로그램에 대한 재해 복구 설정 
+# <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>다중 계층 Dynamics AX 애플리케이션에 대한 재해 복구 설정 
 
 
 
@@ -118,15 +118,15 @@ Site Recovery에서 복구 계획을 만들어 장애 조치 프로세스를 자
 다음 단계를 추가하여 Dynamics AX 응용 프로그램에 대한 복구 계획을 사용자 지정할 수 있습니다. 앞의 스냅숏은 단계를 모두 추가한 후 전체 복구 계획을 보여 줍니다.
 
 
-* **SQL Server 장애 조치 단계**: SQL Server 관련한 복구 단계에 대한 정보는 [SQL Server 및 Azure Site Recovery를 통한 응용 프로그램 복제](site-recovery-sql.md)를 참조하세요.
+* **SQL Server 장애 조치(failover) 단계**: SQL Server 관련 복구 단계에 대한 자세한 내용은 [SQL Server 및 Azure Site Recovery를 통한 애플리케이션 복제](site-recovery-sql.md)를 참조하세요.
 
-* **장애 조치 그룹 1**: Application Object Server VM을 장애 조치합니다.
+* **장애 조치(failover) 그룹 1** 애플리케이션 개체 서버 VM을 장애 조치합니다.
 선택한 복구 지점이 데이터베이스 PIT에 최대한 근접하면서도 앞서지 않도록 합니다.
 
 * **스크립트**: 부하 분산 장치(E-A만)를 추가합니다.
 Application Object Server VM 그룹이 나온 뒤 스크립트를 추가(Azure Automation을 통해)하여 부하 분산 장치를 추가합니다. 스크립트를 사용하여 이 작업을 수행할 수 있습니다. 자세한 내용은 [다중 계층 응용 프로그램의 재해 복구를 위해 부하 분산 장치를 추가하는 방법](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/)을 참조하세요.
 
-* **장애 조치 그룹 2**: Dynamics AX 클라이언트 VM을 장애 조치합니다. 복구 계획의 일부로 웹 계층 VM을 장애 조치합니다.
+* **장애 조치(failover) 그룹 2**: Dynamics AX 클라이언트 VM을 장애 조치합니다. 복구 계획의 일부로 웹 계층 VM을 장애 조치합니다.
 
 
 ### <a name="perform-a-test-failover"></a>테스트 장애 조치(failover) 수행

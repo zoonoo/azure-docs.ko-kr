@@ -1,29 +1,31 @@
 ---
-title: Azure에서 Windows 데이터 과학 Virtual Machine 프로비전 | Microsoft Docs
+title: Windows Data Science Virtual Machine 만들기
+titleSuffix: Azure
 description: 분석 및 기계 학습을 수행하기 위해 Azure에서 데이터 과학 Virtual Machine 구성 및 만들기
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
 ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: 1b293ee8f0f83d727cd647cdcdcc424b4db7e5d3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5dacbbcba44879b28e311f08b089d10d0ad8d95b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240888"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079639"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Azure에서 Windows 데이터 과학 Virtual Machine 프로비전
 Microsoft DSVM(Data Science Virtual Machine)은 Microsoft Azure VM(가상 머신) 이미지입니다. 사전 설치되고 데이터 분석 및 기계 학습에 사용되는 여러 가지 도구로 구성됩니다. 포함된 도구는 다음과 같습니다.
 
-* [Azure Machine Learning](../service/index.yml) Workbench
+* [Azure Machine Learning Service](../service/index.yml) Python SDK
 * [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/index) 디벨로퍼 버전
 * Anaconda Python 배포판
 * Jupyter Notebook(R, Python 및 PySpark 커널 포함)
@@ -33,7 +35,7 @@ Microsoft DSVM(Data Science Virtual Machine)은 Microsoft Azure VM(가상 머신
 * 독립 실행형 Apache Spark 인스턴스(로컬 개발 및 테스트용)
 * [JuliaPro](https://juliacomputing.com/products/juliapro.html)
 * 기계 학습 및 데이터 분석 도구는 다음과 같습니다.
-  * 딥 러닝 프레임워크. VM에 [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), mxNet 및 Keras의 다양한 일단의 AI 프레임워크가 포함되어 있습니다.
+  * 딥 러닝 프레임워크. 다양한 AI 프레임워크의 세트가 VM에 포함되어 있습니다. [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), mxNet 및 Keras
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit). 온라인 해시, allreduce, 축소, learning2search 및 활성/대화형 학습과 같은 기술을 지원하는 속성 기계 학습 시스템입니다.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/). 빠르고 정확하게 부스트되는 트리 구현을 제공하는 도구입니다.
   * [Rattle](https://togaware.com/rattle/). 쉽게 학습할 수 있는 R 분석 도구입니다. R에서 데이터 분석 및 기계 학습을 시작할 수 있는 도구이며, 자동 R 코드 생성 기능을 갖춘 GUI 기반 데이터 탐색 및 모델링이 포함되어 있습니다.
@@ -46,11 +48,11 @@ Microsoft DSVM(Data Science Virtual Machine)은 Microsoft Azure VM(가상 머신
 
 1. 데이터 찾기, 로드 및 전처리
 1. 모델 빌드 및 테스트
-1. 지능형 응용 프로그램에서 사용하기 위한 모델 배포
+1. 지능형 애플리케이션에서 사용하기 위한 모델 배포
 
 데이터 과학자는 이러한 작업에 몇 가지 도구를 사용합니다. 적절한 버전의 소프트웨어를 찾고 다운로드하여 설치하는 데 시간이 오래 걸릴 수 있습니다. Microsoft Data Science Virtual Machine은 인기 있는 몇 가지 도구가 사전 설치되고 구성되어 Azure에서 프로비전할 수 있는 즉시 사용 가능한 이미지를 제공하여 시간을 절약합니다. 
 
-Microsoft 데이터 과학 Virtual Machine은 분석 프로젝트를 빠르게 시작합니다. R, Python, SQL 및 C#을 포함하여 다양한 언어로 작업을 수행할 수 있습니다. Visual Studio는 사용하기 쉬운 IDE(통합 개발 환경)를 제공하여 코드를 개발하고 테스트합니다. Azure SDK는 VM에 포함되어 있습니다. 따라서 Microsoft의 클라우드 플랫폼에서 다양한 서비스를 사용하여 응용 프로그램을 빌드할 수 있습니다. 
+Microsoft 데이터 과학 Virtual Machine은 분석 프로젝트를 빠르게 시작합니다. R, Python, SQL 및 C#을 포함하여 다양한 언어로 작업을 수행할 수 있습니다. Visual Studio는 사용하기 쉬운 IDE(통합 개발 환경)를 제공하여 코드를 개발하고 테스트합니다. Azure SDK는 VM에 포함되어 있습니다. 따라서 Microsoft의 클라우드 플랫폼에서 다양한 서비스를 사용하여 애플리케이션을 빌드할 수 있습니다. 
 
 이 데이터 과학 VM 이미지에 대한 소프트웨어 요금은 부과되지 않습니다. Azure 사용 요금만 지불하면 됩니다. 이 요금은 프로비전하는 가상 머신의 크기에 따라 다릅니다. 계산 요금에 대한 자세한 내용은 [Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=PlansAndPrice) 페이지의 **가격 책정 세부 정보** 섹션에 나와 있습니다. 
 
@@ -150,7 +152,7 @@ Visual Studio Community는 VM에 설치됩니다. Microsoft에서 제공하여 �
 * Azure HDInsight Hadoop 및 Spark
 * Azure Data Lake 
 
-Azure Machine Learning에 원활하게 통합되고 AI 응용 프로그램을 빠르게 빌드하는 데 도움이 되는 ```Visual Studio Tools for AI```라는 플러그 인도 있습니다. 
+Azure Machine Learning에 원활하게 통합되고 AI 애플리케이션을 빠르게 빌드하는 데 도움이 되는 ```Azure Machine Learning for Visual Studio Code```라는 플러그 인도 있습니다. 
 
 > [!NOTE]
 > 평가 기간이 만료되었다는 메시지가 표시될 수 있습니다. Microsoft 계정 자격 증명을 입력합니다. 또는 새 체험 계정을 만들어 Visual Studio Community에 액세스할 수 있습니다. 
@@ -158,7 +160,7 @@ Azure Machine Learning에 원활하게 통합되고 AI 응용 프로그램을 �
 > 
 
 ### <a name="sql-server-2017-developer-edition"></a>SQL Server 2017 디벨로퍼 버전
-데이터베이스 내 분석을 실행하는 Machine Learning Services가 포함된 SQL Server 2017 디벨로퍼 버전은 VM의 R 또는 Python에 제공됩니다. Machine Learning Services는 지능형 응용 프로그램을 개발하고 배포하기 위한 플랫폼을 제공합니다. 이러한 언어와 커뮤니티의 많은 패키지를 사용하여 모델을 만들고 SQL Server 데이터에 대한 예측을 생성할 수 있습니다. 데이터베이스 내 Machine Learning Services는 SQL Server 내에서 R 및 Python 언어를 모두 통합하므로 데이터와의 긴밀한 분석을 유지할 수 있습니다. 이 통합은 데이터 이동과 관련된 비용 및 보안 위험을 제거합니다.
+데이터베이스 내 분석을 실행하는 Machine Learning Services가 포함된 SQL Server 2017 디벨로퍼 버전은 VM의 R 또는 Python에 제공됩니다. Machine Learning Services는 지능형 애플리케이션을 개발하고 배포하기 위한 플랫폼을 제공합니다. 이러한 언어와 커뮤니티의 많은 패키지를 사용하여 모델을 만들고 SQL Server 데이터에 대한 예측을 생성할 수 있습니다. 데이터베이스 내 Machine Learning Services는 SQL Server 내에서 R 및 Python 언어를 모두 통합하므로 데이터와의 긴밀한 분석을 유지할 수 있습니다. 이 통합은 데이터 이동과 관련된 비용 및 보안 위험을 제거합니다.
 
 > [!NOTE]
 > SQL Server 디벨로퍼 버전은 개발 및 테스트 용도로만 사용할 수 있습니다. 프로덕션에서 실행하려면 라이선스가 필요합니다. 
@@ -193,13 +195,13 @@ SQL Machine Learning Services를 사용하여 데이터베이스 내 분석을 �
 > 
 > 
 
-### <a name="azure-machine-learning-workbench"></a>Azure Machine Learning Workbench
+### <a name="azure-machine-learning-service-python-sdk"></a>Azure Machine Learning Service Python SDK
 
-Azure Machine Learning Workbench는 데스크톱 응용 프로그램 및 명령줄 인터페이스입니다. Workbench에는 사용자가 데이터 준비 단계를 수행할 때 해당 단계를 학습하는 기본 제공 데이터 준비가 있습니다. 또한 프로젝트 관리, 실행 기록 및 노트북 통합을 제공하여 생산성을 높입니다. 
+데이터 과학자 및 AI 개발자는 [Azure Machine Learning Service](../service/overview-what-is-azure-ml.md)와 함께 기계 학습 워크플로를 빌드 및 실행하는 데 Python용 Azure Machine Learning SDK를 사용합니다. TensorFlow 및 scikit-learn 등의 오픈 소스 프레임워크를 사용하는 Jupyter Notebook 또는 즐겨 찾는 Python IDE를 포함하여 모든 Python 환경에서 서비스와 상호 작용할 수 있습니다.
 
-TensorFlow, Cognitive Toolkit, Spark ML 및 scikit-learn과 같은 오픈 소스 프레임워크를 사용하여 모델을 개발할 수 있습니다. DSVM에서 Azure Machine Learning Workbench를 개별 사용자의 **%LOCALAPPDATA%** 디렉터리에 설치하는 바탕 화면 아이콘이 제공됩니다. 
+Python SDK 사용을 시작하려면 [Python을 사용하여 Azure Machine Learning 시작](../service/quickstart-create-workspace-with-python.md)을 참조하세요.
 
-Workbench의 각 사용자는 일회성 작업을 수행해야 합니다. ```AzureML Workbench Setup``` 바탕 화면 아이콘을 두 번 클릭하여 Workbench 인스턴스를 설치합니다. 또한 Azure Machine Learning은 **%LOCALAPPDATA%\amlworkbench\python** 디렉터리에 추출되는 사용자별 Python 환경을 만들고 사용합니다.
+Python SDK는 Microsoft Data Science Virtual Machine에 미리 설치되어 있습니다.
 
 ## <a name="more-microsoft-development-tools"></a>기타 Microsoft 개발 도구
 [Microsoft 웹 플랫폼 설치 관리자](https://www.microsoft.com/web/downloads/platform.aspx)는 다른 Microsoft 개발 도구를 찾고 다운로드하는 데 사용할 수 있습니다. 또한 Microsoft Data Science Virtual Machine 바탕 화면에는 제공되는 도구에 대한 바로 가기도 있습니다.  
@@ -215,7 +217,6 @@ Workbench의 각 사용자는 일회성 작업을 수행해야 합니다. ```Azu
 | Microsoft Machine Learning Server(독립 실행형) Python | C:\Program Files\Microsoft\ML Server\PYTHON_SERVER |
 | 기본 R 인스턴스, Machine Learning Server(독립 실행형) | C:\Program Files\Microsoft\ML Server\R_SERVER |
 | SQL Machine Learning Services 데이터베이스 내 인스턴스 디렉터리 | C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER |
-| Azure Machine Learning Workbench(사용자별) | %localappdata%\amlworkbench | 
 | 기타 도구 | c:\dsvm\tools |
 
 > [!NOTE]
@@ -226,7 +227,7 @@ Workbench의 각 사용자는 일회성 작업을 수행해야 합니다. ```Azu
 ## <a name="next-steps"></a>다음 단계
 
 * **시작** 메뉴를 선택하여 데이터 과학 VM의 도구를 탐색합니다.
-* Azure Machine Learning Services 및 Workbench에 대해 자세히 알아보려면 [빠른 시작 및 자습서 페이지](../service/index.yml)를 참조하세요. 
+* [Azure Machine Learning Service란?](../service/overview-what-is-azure-ml.md)을 참조하여 Azure Machine Learning Service에 대해 알아보고 제공되는 [빠른 시작 및 자습서](../service/index.yml)를 사용해 보세요.
 * 엔터프라이즈 규모의 데이터 분석을 지원하는 R에서 RevoScaleR 라이브러리를 사용하는 샘플을 보려면 **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts**로 이동합니다.  
 * [Data Science Virtual Machine으로 할 수 있는 10가지 작업](https://aka.ms/dsvmtenthings) 문서를 참조합니다.
 * [팀 데이터 과학 프로세스](../team-data-science-process/index.yml)를 사용하여 종단 간 분석 솔루션을 체계적으로 구축하는 방법을 알아봅니다.

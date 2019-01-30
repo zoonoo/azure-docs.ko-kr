@@ -4,20 +4,20 @@ description: 포함 파일
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: include file
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: include
-ms.custom: include file
 ms.date: 08/17/2018
 ms.author: diberry
-ms.openlocfilehash: 29332f7f43932c115a4e80b9c66f747555c9c298
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 489b2cd890452a62e7d19ce16bd4b72b71c71314
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47105817"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53107275"
 ---
-챗봇 또는 다른 클라이언트 응용 프로그램에서 LUIS 예측을 받으려면 앱을 엔드포인트에 게시해야 합니다. 
+챗봇 또는 다른 클라이언트 애플리케이션에서 LUIS 예측을 받으려면 앱을 엔드포인트에 게시해야 합니다. 
 
 1. 오른쪽 맨 위 탐색 창에서 **게시**를 선택합니다.
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/28/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 3096a79737c816747f36956958f9a16f86b9715d
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: secdec18
+ms.openlocfilehash: 50f048dc36b0248cdbbd85d91c00b7947f9ddc1f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582601"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052141"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Cost Management 데이터에 대한 액세스 할당
 
@@ -39,6 +39,10 @@ ms.locfileid: "52582601"
 <sup>1</sup> 청구 계정은 기업 계약 또는 등록이라고도 합니다.
 
 <sup>2</sup> 등록 계정은 계정 소유자라고도 합니다.
+
+다음 다이어그램에서는 역할 및 EA 포털 설정을 사용하여 Cost Management 범위 간의 관계를 보여줍니다.
+
+![역할 및 EA 포털 설정을 사용하여 Cost Management 범위 간의 관계를 보여주는 다이어그램](./media/assign-access-acm-data/scope-access-relationship-diagram.png)
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>EA 포털에서 비용에 대한 액세스를 사용하도록 설정
 
@@ -64,12 +68,12 @@ ms.locfileid: "52582601"
 1. [https://ea.azure.com](https://ea.azure.com)의 EA 포털에 엔터프라이즈 관리자 계정으로 로그인합니다.
 2. 왼쪽 창에서 **관리**를 선택합니다.
 3. **등록** 탭에서 관리하려는 등록을 선택합니다.  
-    ![EA 포털](./media/assign-access-acm-data/ea-portal.png)
+    ![EA 포털에서 등록 선택](./media/assign-access-acm-data/ea-portal.png)
 4. **+ 관리자 추가**를 클릭합니다.
 5. [관리자 추가] 상자에서 인증 유형을 선택하고 사용자의 이메일 주소를 입력합니다.
 6. 사용자에게 비용 및 사용량 데이터에 대한 읽기 전용 액세스 권한이 있어야 하는 경우 **읽기 전용** 아래에서 **예**를 선택합니다.  그렇지 않은 경우 **아니요**를 선택합니다.
 7. **추가**를 클릭하여 계정을 만듭니다.  
-    ![관리자 추가 상자](./media/assign-access-acm-data/add-admin.png)
+    ![관리자 추가 상자에 표시된 예제 정보](./media/assign-access-acm-data/add-admin.png)
 
 새 사용자가 Cost Management의 데이터에 액세스하는 데 최대 30분이 걸릴 수 있습니다.
 
@@ -85,7 +89,7 @@ ms.locfileid: "52582601"
 6. 사용자에게 비용 및 사용량 데이터에 대한 읽기 전용 액세스 권한이 있어야 하는 경우 **읽기 전용** 아래에서 **예**를 선택합니다.  그렇지 않은 경우 **아니요**를 선택합니다.
 7. 부서 관리자 권한을 부여하려는 부서를 선택합니다.
 8. **추가**를 클릭하여 계정을 만듭니다.  
-    ![부서 관리자 추가 상자](./media/assign-access-acm-data/add-depart-admin.png)
+    ![부서 관리자 추가 상자에 필요한 정보 입력](./media/assign-access-acm-data/add-depart-admin.png)
 
 ## <a name="assign-enrollment-account-scope-access"></a>등록 계정 범위 액세스 할당
 
@@ -99,7 +103,7 @@ ms.locfileid: "52582601"
 6. 인증 유형을 선택하고, 계정 이름을 입력합니다.
 7. 사용자의 이메일 주소를 입력한 다음, 선택적으로 비용 센터를 입력합니다.
 8. **추가**를 클릭하여 계정을 만듭니다.  
-    ![계정 추가 상자](./media/assign-access-acm-data/add-account.png)
+    ![등록 계정에 대한 계정 추가 상자에 필요한 정보 입력](./media/assign-access-acm-data/add-account.png)
 
 위의 단계를 완료하면 사용자 계정이 Enterprise Portal의 등록 계정이 되고 구독을 만들 수 있습니다. 사용자는 자신이 만든 구독에 대한 비용 및 사용량 데이터에 액세스할 수 있습니다.
 
@@ -107,7 +111,7 @@ ms.locfileid: "52582601"
 
 관리 그룹 범위에 액세스하려면 Cost Management 읽기 권한자(또는 읽기 권한자) 이상의 권한이 필요합니다. Azure Portal에서 관리 그룹에 대한 권한을 구성할 수 있습니다. 다른 사람들의 액세스가 가능하도록 설정하려면 관리 그룹에 대해 사용자 액세스 관리자(또는 소유자) 이상의 권한이 있어야 합니다. 또한 EA 포털에서 **AO 요금 보기** 설정을 사용하도록 설정해야 합니다.
 
-1. [http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 2. 사이드바에서 **모든 서비스**를 선택하고, _관리 그룹_을 검색한 다음,  **관리 그룹**을 선택합니다.
 3. 계층 구조에서 관리 그룹을 선택합니다.
 4. 관리 그룹 이름 옆에 있는 **세부 정보**를 클릭합니다.
@@ -117,13 +121,13 @@ ms.locfileid: "52582601"
 8. **다음에 대한 액세스 할당** 아래에서 **Azure AD, 사용자, 그룹 또는 애플리케이션**을 선택합니다.
 9. 액세스 권한을 할당하려면 사용자를 검색하여 선택합니다.
 10. **저장**을 클릭합니다.  
-    ![권한 추가 상자](./media/assign-access-acm-data/add-permissions.png)
+    ![관리 그룹에 대한 사용 권한 추가 상자의 예제 정보](./media/assign-access-acm-data/add-permissions.png)
 
 ## <a name="assign-subscription-scope-access"></a>구독 범위 액세스 할당
 
 구독에 액세스하려면 Cost Management 읽기 권한자(또는 읽기 권한자) 이상의 권한이 필요합니다. Azure Portal에서 구독에 대한 권한을 구성할 수 있습니다. 다른 사람들의 액세스가 가능하도록 설정하려면 구독에 대해 사용자 액세스 관리자(또는 소유자) 이상의 권한이 있어야 합니다. 또한 EA 포털에서 **AO 요금 보기** 설정을 사용하도록 설정해야 합니다.
 
-1. [http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 2. 사이드바에서 **모든 서비스**를 선택하고, _구독_을 검색한 다음, **구독**을 선택합니다.
 3. 구독을 선택합니다.
 4. 왼쪽 창에서 **액세스 제어(IAM)** 를 선택합니다.
@@ -137,7 +141,7 @@ ms.locfileid: "52582601"
 
 리소스 그룹에 액세스하려면 Cost Management 읽기 권한자(또는 읽기 권한자) 이상의 권한이 필요합니다. Azure Portal에서 리소스 그룹에 대한 권한을 구성할 수 있습니다. 다른 사람들의 액세스가 가능하도록 설정하려면 리소스 그룹에 대해 사용자 액세스 관리자(또는 소유자) 이상의 권한이 있어야 합니다. 또한 EA 포털에서 **AO 요금 보기** 설정을 사용하도록 설정해야 합니다.
 
-1. [http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 2. 사이드바에서 **모든 서비스** 를 선택하고, _리소스 그룹_을 검색한 다음, **리소스 그룹**을 선택합니다.
 3. 리소스 그룹을 선택합니다.
 4. 왼쪽 창에서 **액세스 제어(IAM)** 를 선택합니다.

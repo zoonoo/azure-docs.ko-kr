@@ -1,28 +1,21 @@
 ---
-title: '클래식에서 Resource Manager로 ExpressRoute 회로 이동: PowerShell: Azure | Microsoft Docs'
+title: '클래식에서 Resource Manager로 회로 이동 - ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: 이 페이지는 PowerShell을 사용하여 클래식 회로를 Resource Manager 배포 모델로 이동하는 방법을 설명합니다.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 08152836-23e7-42d1-9a56-8306b341cd91
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/28/2018
+ms.topic: conceptual
+ms.date: 01/07/2019
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 0c3a1a57a89d716245dc075e47b7970cb228ff50
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.custom: seodec18
+ms.openlocfilehash: 984ccfa9bad99281418ba891ce188536ae13d8e5
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100456"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106769"
 ---
-# <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>PowerShell을 사용하여 클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동
+# <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>PowerShell을 사용하여 클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동
 
 클래식 및 Resource Manager 배포 모델 모두에서 사용할 수 있도록 ExpressRoute 회로를 사용하려면 회로를 Resource Manager 배포 모델로 이동해야 합니다. 다음 섹션에서는 PowerShell을 사용하여 회로를 이동할 수 있습니다.
 
@@ -46,7 +39,7 @@ Azure 클래식 환경에 로그인하고 서비스 키를 수집합니다.
   Add-AzureAccount
   ```
 
-2. 적절한 Azure 구독을 선택합니다.
+2.  적절한 Azure 구독을 선택합니다.
 
   ```powershell
   Select-AzureSubscription "<Enter Subscription Name here>"
@@ -55,8 +48,8 @@ Azure 클래식 환경에 로그인하고 서비스 키를 수집합니다.
 3. Azure 및 ExpressRoute에 대한 PowerShell 모듈을 가져옵니다.
 
   ```powershell
-  Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-  Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+  Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+  Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
   ```
 
 4. 아래 cmdlet을 사용하여 모든 ExpressRoute 회로에 대한 서비스 키를 가져옵니다. 키를 가져온 후에 Resource Manager 배포 모델로 이동하려는 회로의 **서비스 키**를 복사합니다.
@@ -75,7 +68,7 @@ Resource Manager 환경에 로그인하고 새 리소스 그룹을 만듭니다.
   Connect-AzureRmAccount
   ```
 
-2. 적절한 Azure 구독을 선택합니다.
+2.  적절한 Azure 구독을 선택합니다.
 
   ```powershell
   Get-AzureRmSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzureRmSubscription

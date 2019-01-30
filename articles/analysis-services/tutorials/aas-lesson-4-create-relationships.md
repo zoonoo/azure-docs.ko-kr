@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7e791514cc25c645775de260e7f190ee20812d4b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 4a595e4c955b08bda6fcf49b9ca6a050e8440621
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428494"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187504"
 ---
 # <a name="create-relationships"></a>관계 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "49428494"
 이 단원을 완료하기 위한 예상 시간: **10분**  
   
 ## <a name="prerequisites"></a>필수 조건  
-이 항목은 테이블 형식 모델링 자습서에 포함되며 순서대로 완료해야 합니다. 이 단원의 작업을 수행하기 전에 이전 단원인 [단원 3: 날짜 테이블로 표시](../tutorials/aas-lesson-3-mark-as-date-table.md)를 모두 완료해야 합니다. 
+이 항목은 테이블 형식 모델링 자습서에 포함되며 순서대로 완료해야 합니다. 이 단원의 작업을 수행하기 전에 이전 단원인 [단원 3: 날짜 테이블로 표시](../tutorials/aas-lesson-3-mark-as-date-table.md)를 완료해야 합니다. 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>기존 관계 검토 및 새 관계 추가  
 데이터 가져오기를 사용하여 데이터를 가져올 때 AdventureWorksDW2014 데이터베이스에서 7개의 테이블을 가져왔습니다. 일반적으로 관계형 원본에서 데이터를 가져올 때 데이터와 함께 기존 관계가 자동으로 가져오기 됩니다. 데이터 가져오기가 데이터 모델에 자동으로 관계를 만들려면 데이터 원본에 있는 테이블 간 관계가 있어야 합니다.
@@ -54,13 +54,13 @@ ms.locfileid: "49428494"
   
     |Active|테이블|관련된 조회 테이블|  
     |----------|---------|------------------------|  
-    |yes|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
-    |yes|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
-    |yes|**DimProductSubcategory [ProductCategoryKey]**|**DimProductCategory [ProductCategoryKey]**|  
-    |yes|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
-    |yes|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
+    |예|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
+    |예|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
+    |예|**DimProductSubcategory [ProductCategoryKey]**|**DimProductCategory [ProductCategoryKey]**|  
+    |예|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
+    |예|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
-    관계가 없는 경우 사용자 모델에 DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory 및 FactInternetSales 테이블이 포함되어 있는지 확인합니다. 동일한 데이터 원본 연결의 테이블을 별도의 시간에 가져오는 경우 해당 테이블 간의 관계가 만들어지지 않으므로 수동으로 만들어야 합니다. 관계 없음이 표시되는 경우 데이터 원본에 관계가 없음을 의미합니다. 데이터 모델에서 수동으로 만들 수 있습니다.
+    관계가 누락된 경우 모델에 DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory 및 FactInternetSales 테이블이 포함되어 있는지 확인합니다. 동일한 데이터 원본 연결의 테이블을 별도의 시간에 가져오는 경우 해당 테이블 간의 관계가 만들어지지 않으므로 수동으로 만들어야 합니다. 관계 없음이 표시되는 경우 데이터 원본에 관계가 없음을 의미합니다. 데이터 모델에서 수동으로 만들 수 있습니다.
 
 ### <a name="take-a-closer-look"></a>자세히 보기
 다이어그램 뷰에는 화살표, 별표 및 테이블 간의 관계를 보여 주는 선 수를 알 수 있습니다.

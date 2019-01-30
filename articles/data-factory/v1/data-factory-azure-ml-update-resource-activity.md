@@ -8,17 +8,16 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7a5c0866bc08c5a73888d9baca41980106a62ae2
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 0c0e0e3983344bba76f5f305ecaf73f91110f3bc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954943"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020084"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>업데이트 리소스 작업을 사용하여 Azure Machine Learning 모델 업데이트
 
@@ -38,7 +37,7 @@ ms.locfileid: "49954943"
 > [!NOTE]
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우 [Data Factory에서 기계 학습 모델 업데이트](../update-machine-learning-models.md)를 참조하세요.
 
-이 문서는 주요 Azure Data Factory - Azure Machine Learning 통합 문서인 [Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기](data-factory-azure-ml-batch-execution-activity.md)를 보완합니다. 수행하지 않았다면 이 문서를 읽기 전에 기본 문서를 검토하세요. 
+이 문서는 기본 Azure Data Factory - Azure Machine Learning 통합 문서인 [Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기](data-factory-azure-ml-batch-execution-activity.md)를 보완합니다. 수행하지 않았다면 이 문서를 읽기 전에 기본 문서를 검토하세요. 
 
 ## <a name="overview"></a>개요
 시간이 지남에 따라 Azure ML 점수 매기기 실험의 예측 모델은 새 입력 데이터 세트를 사용하여 다시 학습되어야 합니다. 재학습으로 완료한 후에는 재학습한 ML 모델로 점수 매기기 웹 서비스를 업데이트하려고 합니다. 웹 서비스를 통해 Azure ML 모델을 재학습하고 업데이트하는 일반적인 단계는 다음과 같습니다.
@@ -57,7 +56,7 @@ ms.locfileid: "49954943"
 
 **Azure ML Batch 실행 작업**을 사용하여 **학습 웹 서비스**를 호출할 수 있습니다. 학습 웹 서비스를 호출하는 것은 점수 매기기 데이터에 대해 Azure ML 웹 서비스(점수 매기기 웹 서비스)를 호출하는 것과 동일합니다. 이전 섹션에서는 Azure Data Factory 파이프라인에서 Azure ML 웹 서비스를 호출하는 방법에 대해 자세히 설명합니다. 
 
- **scoring web service** 을 사용하여 두 번째 **Azure ML 업데이트 리소스 작업** 을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트합니다. 다음 예제에서는 연결된 서비스 정의를 제공합니다. 
+**scoring web service** 을 사용하여 두 번째 **Azure ML 업데이트 리소스 작업** 을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트합니다. 다음 예제에서는 연결된 서비스 정의를 제공합니다. 
 
 ## <a name="scoring-web-service-is-a-classic-web-service"></a>웹 서비스 점수 매기기는 클래식 웹 서비스입니다.
 웹 서비스 점수 매기기가 **클래식 웹 서비스**인 경우 Azure Portal을 사용하여 두 번째 **기본이 아닌 업데이트 가능한 엔드포인트**를 만들어야 합니다. 이에 대한 단계는 [엔드포인트 만들기](../../machine-learning/machine-learning-create-endpoint.md) 문서를 참조하세요. 기본이 아닌 업데이트 가능한 엔드포인트를 만든 후 다음 단계를 수행합니다.
@@ -262,7 +261,7 @@ Azure ML 업데이트 리소스 작업은 어떠한 출력도 생성하지 않�
 ```
 
 ### <a name="pipeline"></a>파이프라인
-파이프라인에는 **AzureMLBatchExecution** 및 **AzureMLUpdateResource**라는 두 활동이 있습니다. Azure ML Batch 실행 작업은 학습 데이터를 입력으로 사용하여 .iLearner 파일을 출력으로 생성합니다. 이 작업은 입력 교육 데이터와 함께 학습 웹 서비스(웹 서비스로 노출된 학습 실험)를 호출하고 웹 서비스로부터 ilearner 파일을 수신합니다. placeholderBlob는 Azure 데이터 팩터리 서비스가 파이프라인을 실행하기 위해 필요로 하는 더미 출력 데이터 세트입니다.
+파이프라인에는 두 개의 활동인 **AzureMLBatchExecution** 및 **AzureMLUpdateResource**가 있습니다. Azure ML Batch 실행 작업은 학습 데이터를 입력으로 사용하여 .iLearner 파일을 출력으로 생성합니다. 이 작업은 입력 교육 데이터와 함께 학습 웹 서비스(웹 서비스로 노출된 학습 실험)를 호출하고 웹 서비스로부터 ilearner 파일을 수신합니다. placeholderBlob는 Azure 데이터 팩터리 서비스가 파이프라인을 실행하기 위해 필요로 하는 더미 출력 데이터 세트입니다.
 
 ![파이프라인 다이어그램](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 

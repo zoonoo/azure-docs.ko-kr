@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 3cd6ef1716d455c5ac755122b8696dbc43fdf459
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: c1f4690d2ce10fe83d613b37ef2514effd2cef63
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581870"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598824"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>컴퓨터에 Jupyter 노트북을 설치하고 HDInsight에서 Apache Spark에 연결
 
@@ -22,9 +22,9 @@ ms.locfileid: "52581870"
 
 Jupyter 및 Spark Magic을 컴퓨터에 설치하는 것과 관련된 세 가지 주요 단계가 있습니다.
 
-* Jupyter 노트북 설치
-* Spark Magic과 함께 PySpark 및 Spark 커널 설치
-* HDInsight에서 Spark 클러스터에 액세스하도록 Spark Magic 구성
+* Jupyter 노트를 설치합니다.
+* Spark Magic과 함께 PySpark 및 Spark 커널을 설치합니다.
+* HDInsight에서 Spark 클러스터에 액세스하도록 Spark Magic을 구성합니다.
 
 HDInsight 클러스터의 Jupyter Notebook에 사용할 수 있는 사용자 지정 커널 및 Spark Magic에 대한 자세한 내용은 [HDInsight의 Apache Spark Linux 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
 
@@ -36,14 +36,14 @@ HDInsight 클러스터의 Jupyter Notebook에 사용할 수 있는 사용자 지
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>컴퓨터에 Jupyter 노트북 설치
 
-Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. Python 및 Jupyter 둘 다 [Anaconda 배포](https://www.continuum.io/downloads)의 일부로 사용할 수 있습니다. Anaconda를 설치할 때 Python 배포를 설치하게 됩니다. Anaconda를 설치한 후 적절한 명령을 실행하여 Jupyter 설치를 추가합니다.
+Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. Python 및 Jupyter 둘 다 [Anaconda 배포](https://www.anaconda.com/download/)의 일부로 사용할 수 있습니다. Anaconda를 설치할 때 Python 배포를 설치하게 됩니다. Anaconda를 설치한 후 적절한 명령을 실행하여 Jupyter 설치를 추가합니다.
 
-1. 사용하는 플랫폼용 [Anaconda 설치 관리자](https://www.continuum.io/downloads) 를 다운로드하고 설치 프로그램을 실행합니다. 설치 마법사를 실행하는 동안 PATH 변수에 Anaconda를 추가하는 옵션을 선택해야 합니다.
+1. 사용하는 플랫폼용 [Anaconda 설치 관리자](https://www.anaconda.com/download/) 를 다운로드하고 설치 프로그램을 실행합니다. 설치 마법사를 실행하는 동안 PATH 변수에 Anaconda를 추가하는 옵션을 선택해야 합니다.
 1. 다음 명령을 실행하여 Jupyter를 설치합니다.
 
         conda install jupyter
 
-    Jupyter 설치에 대한 자세한 내용은 [Anaconda를 사용하여 Jupyter 설치](http://jupyter.readthedocs.io/en/latest/install.html)를 참조하세요.
+    Jupyter 설치에 대한 자세한 내용은 [Anaconda를 사용하여 Jupyter 설치](https://jupyter.readthedocs.io/en/latest/install.html)를 참조하세요.
 
 ## <a name="install-the-kernels-and-spark-magic"></a>커널 및 Spark Magic 설치
 
@@ -100,7 +100,7 @@ Spark Magic, PySpark 및 Spark 커널을 설치 하는 방법에 대한 지침�
             "livy_server_heartbeat_timeout_seconds": 60,
             "heartbeat_retry_seconds": 1
 
-    >[!TIP]
+    >[!TIP]  
     >세션이 유출되지 않도록 하트 비트가 전송됩니다. 컴퓨터가 절전 모드로 전환되거나 종료되면, 하트비트가 전송되지 않으므로 세션이 삭제됩니다. 클러스터 v3.4의 경우, 이 동작을 사용하지 않도록 설정하려면 Ambari UI에서 Livy 구성 `livy.server.interactive.heartbeat.timeout`를 `0`로 설정할 수 있습니다. 클러스터 v 3.5의 경우, 위의 3.5 구성을 설정하지 않으면 세션이 삭제되지 않습니다.
 
 1. Jupyter를 시작합니다. 명령 프롬프트에서 다음 명령을 사용합니다.
@@ -120,38 +120,38 @@ Spark Magic, PySpark 및 Spark 커널을 설치 하는 방법에 대한 지침�
 
     출력을 검색할 수 있으면 HDInsight 클러스터에 대한 연결이 테스트됩니다.
 
-    >[!TIP]
+    >[!TIP]  
     >다른 클러스터에 연결하도록 노트북 구성을 업데이트하려는 경우 위의 3단계와 같이 새 값 집합으로 config.json을 업데이트합니다.
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>내 컴퓨터에 Jupyter를 설치해야 해야 이유는 무엇인가요?
 컴퓨터에 Jupyter를 설치한 다음, HDInsight의 Apache Spark 클러스터에 연결하는 이유는 여러 가지입니다.
 
-* Jupyter 노트북을 Azure HDInsight의 Spark 클러스터에 이미 사용할 수 있더라도 컴퓨터에 Jupyter를 설치하면 로컬에서 노트북을 만들고, 실행 중인 클러스터에 대해 응용 프로그램을 테스트한 다음 클러스터에 노트북을 업로드하는 옵션이 제공됩니다. 노트북에 클러스터를 업로드하려면 클러스터에서 실행되는 Jupyter 노트북을 사용하여 업로드하거나 클러스터와 연결된 저장소 계정의 /HdiNotebooks 폴더에 저장할 수 있습니다. 클러스터에 Notebook을 저장하는 방법에 대한 자세한 내용은 [Jupyter Notebook이 저장되는 위치](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)를 참조하세요.
-* 로컬에서 사용할 수 있는 Notebook을 사용하여 응용 프로그램 요구 사항에 따라 다른 Spark 클러스터에 연결할 수 있습니다.
+* Jupyter 노트북을 Azure HDInsight의 Spark 클러스터에 이미 사용할 수 있더라도 컴퓨터에 Jupyter를 설치하면 로컬에서 노트북을 만들고, 실행 중인 클러스터에 대해 애플리케이션을 테스트한 다음 클러스터에 노트북을 업로드하는 옵션이 제공됩니다. 노트북에 클러스터를 업로드하려면 클러스터에서 실행되는 Jupyter 노트북을 사용하여 업로드하거나 클러스터와 연결된 저장소 계정의 /HdiNotebooks 폴더에 저장할 수 있습니다. 클러스터에 Notebook을 저장하는 방법에 대한 자세한 내용은 [Jupyter Notebook이 저장되는 위치](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)를 참조하세요.
+* 로컬에서 사용할 수 있는 Notebook을 사용하여 애플리케이션 요구 사항에 따라 다른 Spark 클러스터에 연결할 수 있습니다.
 * GitHub를 사용하여 원본 제어 시스템을 구현하고 Notebook에 대한 버전을 제어할 수 있습니다. 여러 사용자가 동일한 Notebook으로 작업할 수 있는 공동 작업 환경이 있을 수도 있습니다.
 * 클러스터 없이 로컬로 Notebook을 사용할 수 있습니다. Notebook 또는 개발 환경을 수동으로 관리하기 위해서가 아니라 Notebook을 테스트하기 위해 클러스터가 필요합니다.
 * 클러스터에서 Jupyter 설치를 구성하는 것보다 자체 로컬 개발 환경을 구성하는 것이 더 쉬울 수 있습니다.  하나 이상의 원격 클러스터를 구성하지 않고 로컬로 설치한 모든 소프트웨어를 모두 활용할 수 있습니다.
 
-> [!WARNING]
+> [!WARNING]  
 > 로컬 컴퓨터에 설치된 Jupyter를 사용하면 여러 사용자가 동일한 Spark 클러스터에서 동시에 동일한 Notebook을 실행할 수 있습니다. 이러한 상황에서 여러 Livy 세션이 생성됩니다. 문제가 발생하여 디버깅하려는 경우 어떤 사용자에게 어떤 Livy 세션이 속하는지를 추적하는 복잡한 작업이 됩니다.
 >
 >
 
 ## <a name="seealso"></a>참고 항목
-* [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
+* [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
 * [BI와 Apache Spark: BI 도구와 함께 HDInsight의 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 HVAC 데이터로 건물 온도 분석](apache-spark-ipython-notebook-machine-learning.md)
 * [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 
-### <a name="create-and-run-applications"></a>응용 프로그램 만들기 및 실행
-* [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](apache-spark-create-standalone-application.md)
+### <a name="create-and-run-applications"></a>애플리케이션 만들기 및 실행
+* [Scala를 사용하여 독립 실행형 애플리케이션 만들기](apache-spark-create-standalone-application.md)
 * [Apache Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>도구 및 확장
-* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](apache-spark-intellij-tool-plugin.md)
+* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 애플리케이션 만들기 및 제출](apache-spark-intellij-tool-plugin.md)
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Apache Spark 애플리케이션을 원격으로 디버그](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md)
 * [HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)

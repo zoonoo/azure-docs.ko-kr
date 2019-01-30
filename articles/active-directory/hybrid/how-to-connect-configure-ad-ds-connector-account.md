@@ -3,23 +3,23 @@ title: 'Azure AD Connect: AD DS 커넥터 계정 권한 구성 | Microsoft Docs'
 description: 이 문서에서는 새 ADSyncConfig PowerShell 모듈을 사용하여 AD DS 커넥터 계정을 구성하는 방법을 자세히 설명합니다.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 01/14/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f57a5a2413103ddcf7484f3b1fc5b4170b7bdc98
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a23561e082736b7dfae6205e75fd1e9ccfab5f6c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412862"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463392"
 ---
-# <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS 커넥터 계정 권한 구성 
+# <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS 커넥터 계정 권한 구성 
 
-[ADSyncConfig.psm1](reference-connect-adsyncconfig.md)이라는 새 PowerShell 모듈은 Azure AD Connect 배포에 대한 올바른 Active Directory 권한을 구성하는 데 도움이 되는 cmdlet 컬렉션이 포함된 빌드 1.1.880.0(2018년 8월에 릴리스됨)에서 소개되었습니다. 
+PowerShell 모듈 [ADSyncConfig.psm1](reference-connect-adsyncconfig.md)은 2018년 8월에 릴리스된 빌드 1.1.880.0에서 도입되었습니다. 이 빌드에는 Azure AD Connect 배포의 올바른 Active Directory 권한을 구성하는 데 사용할 수 있는 cmdlet 컬렉션이 포함되어 있습니다. 
 
 ## <a name="overview"></a>개요 
 다음 PowerShell cmdlet을 사용하여 Azure AD Connect에서 사용하도록 설정한 것처럼 가장한 각 기능에 대해 AD DS 커넥터 계정의 Active Directory 권한을 설정할 수 있습니다. 문제를 방지하려면 사용자 지정 도메인 계정으로 Azure AD Connect를 설치하여 포리스트에 연결할 때마다 Active Directory 권한을 미리 준비해야 합니다. 이 ADSyncConfig 모듈은 Azure AD Connect가 배포된 후 권한을 구성하는 데도 사용할 수 있습니다.
@@ -38,7 +38,7 @@ Azure AD Connect 기본 설치의 경우, 필요한 모든 권한을 사용하�
 | Exchange 하이브리드 배포 |사용자, 그룹 및 연락처에 대한 [Exchange 하이브리드 쓰기 저장](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback)에 설명된 특성에 사용 권한을 작성합니다. |
 | Exchange 메일 공용 폴더 |공용 폴더의 [Exchange Mail 공용 폴더](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder)에서 설명하는 특성에 대한 읽기 권한 | 
 | 비밀번호 쓰기 저장 |사용자에 대한 [암호 관리 시작](../authentication/howto-sspr-writeback.md)에 설명된 특성에 사용 권한을 작성합니다. |
-| 디바이스 쓰기 저장 |[장치 쓰기 저장](how-to-connect-device-writeback.md)에서 설명하는 장치 개체 및 컨테이너에 대한 쓰기 권한입니다 |
+| 디바이스 쓰기 저장 |[디바이스 쓰기 저장](how-to-connect-device-writeback.md)에서 설명하는 디바이스 개체 및 컨테이너에 대한 쓰기 권한입니다. |
 | 그룹 쓰기 저장 |동기화된 **Office 365 그룹**에 대해 그룹 개체를 읽기, 만들기, 업데이트 및 삭제합니다.  자세한 내용은 [그룹 쓰기 저장](how-to-connect-preview.md#group-writeback)을 참조하세요.|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>ADSyncConfig PowerShell 모듈 사용 
@@ -205,12 +205,12 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 그룹 쓰기 저장을 사용하는 경우 AD DS 커넥터 계정에 대한 권한을 설정하려면 다음을 실행합니다. 
 
 ``` powershell
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 또는 
 
 ``` powershell
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
 ```
  
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 
@@ -219,20 +219,20 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
 |-----|-----|-----|-----| 
 |허용 |AD DS 커넥터 계정 |일반 읽기/쓰기 |하위 Group 개체| 
 |허용 |AD DS 커넥터 계정 |자식 개체 만들기/삭제 |이 개체 및 모든 자식 개체| 
-|허용 |AD DS 커넥터 계정 |삭제/개체 및 모든 해당 자식 삭제 |이 개체 및 모든 자식 개체|
+|허용 |AD DS 커넥터 계정 |개체 및 모든 해당 자식 만들기/삭제 |이 개체 및 모든 자식 개체|
 
 ### <a name="permissions-for-exchange-hybrid-deployment"></a>Exchange 하이브리드 배포에 대한 권한 
 Exchange 하이브리드 배포를 사용하는 경우 AD DS 커넥터 계정에 대한 권한을 설정하려면 다음을 실행합니다. 
 
 ``` powershell
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 
 
 또는 
 
 ``` powershell
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
 ```
 
 이 cmdlet에서 설정하는 권한은 다음과 같습니다.  
@@ -280,7 +280,7 @@ Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <
 
 ``` powershell
 $credential = Get-Credential 
-Set-ADSyncRestrictedPermissions -ObjectDN 'CN=ADConnectorAccount,CN=Users,DC=Contoso,DC=com' -Credential $credential  
+Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=Users,DC=Contoso,DC=com' -Credential $credential  
 ```
 
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 

@@ -38,13 +38,13 @@ Azure 디스크는 99.999% 가용성을 위해 설계되었습니다. Azure 디�
 
 ### <a name="standard-hdd-disks"></a>표준 HDD 디스크
 
-표준 HDD 디스크는 HDD에 의해 지원되며, 비용 효율적인 저장소를 제공합니다. 표준 HDD 저장소는 하나의 데이터 센터에 로컬로 복제되거나 기본 및 보조 데이터 센터와 함께 지역 중복 저장소가 될 수 있습니다. 저장소 복제에 대한 자세한 내용은 [Azure Storage 복제](../articles/storage/common/storage-redundancy.md)를 참조하세요.
+표준 HDD 디스크는 HDD에 의해 지원되며, 비용 효율적인 저장소를 제공합니다. 표준 HDD 저장소는 하나의 데이터 센터에 로컬로 복제되거나 기본 및 보조 데이터 센터와 함께 지역 중복 저장소가 될 수 있습니다. 스토리지 복제에 대한 자세한 내용은 [Azure Storage 복제](../articles/storage/common/storage-redundancy.md)를 참조하세요.
 
 표준 HDD 디스크를 사용하는 방법에 대한 자세한 내용은 [표준 저장소 및 디스크](../articles/virtual-machines/windows/standard-storage.md)를 참조하세요.
 
 ### <a name="standard-ssd-disks"></a>표준 SSD 디스크
 
-표준 SSD 디스크는 표준 HDD 디스크와 같은 종류의 워크로드를 처리하도록 설계되었지만 HDD보다 더욱 일관된 성능과 안정성을 제공합니다. 표준 SSD 디스크는 디스크에 높은 IOPS가 필요하지 않은 웹 서버와 같은 응용 프로그램에 가장 적합한 비용 효율적인 솔루션을 형성하도록 프리미엄 SSD 디스크 및 표준 HDD 디스크의 요소를 결합합니다. 사용할 수 있는 경우 표준 SSD 디스크는 대부분의 워크로드에 권장되는 배포 옵션입니다. 표준 SSD 디스크는 모든 지역에서 Managed Disks로 사용할 수 있으나 현재 LRS(로컬 중복 저장소) 복원 유형으로만 사용할 수 있습니다.
+표준 SSD 디스크는 표준 HDD 디스크와 같은 종류의 워크로드를 처리하도록 설계되었지만 HDD보다 더욱 일관된 성능과 안정성을 제공합니다. 표준 SSD 디스크는 디스크에 높은 IOPS가 필요하지 않은 웹 서버와 같은 애플리케이션에 가장 적합한 비용 효율적인 솔루션을 형성하도록 프리미엄 SSD 디스크 및 표준 HDD 디스크의 요소를 결합합니다. 사용할 수 있는 경우 표준 SSD 디스크는 대부분의 워크로드에 권장되는 배포 옵션입니다. 표준 SSD 디스크는 모든 지역에서 Managed Disks로 사용할 수 있으나 현재 LRS(로컬 중복 저장소) 복원 유형으로만 사용할 수 있습니다.
 
 ### <a name="premium-ssd-disks"></a>프리미엄 SSD 디스크
 
@@ -70,7 +70,7 @@ Managed Disks는 백그라운드에서 저장소 계정 만들기/관리 작업�
 |--- | ------------------ | ------------------------------- | -----------------------
 | 디스크 유형 | 반도체 드라이브(SSD) | 반도체 드라이브(SSD) | 하드 디스크 드라이브 (HDD)  
 | 개요  | IO 사용량이 많은 작업을 실행하거나 중요 업무용 프로덕션 환경을 호스팅하는 VM을 위해 SSD 기반의 고성능, 낮은 대기 시간 디스크 지원 |HDD보다 더욱 일관된 성능 및 안정성 낮은 IOPS 작업용으로 최적화됨| 드문 액세스에 대한 HDD 기반 비용 효율적인 디스크
-| 시나리오  | 프로덕션 및 성능이 중요한 워크로드 |웹 서버, 조금 사용되는 엔터프라이즈 응용 프로그램 및 개발/테스트| 백업, 중요하지 않음, 드문 액세스
+| 시나리오  | 프로덕션 및 성능이 중요한 워크로드 |웹 서버, 조금 사용되는 엔터프라이즈 애플리케이션 및 개발/테스트| 백업, 중요하지 않음, 드문 액세스
 | 디스크 크기 | P4: 32GiB(Managed Disks에만 해당)<br>P6: 64GiB(Managed Disks에만 해당)<br>P10: 128GiB<br>P15: 256GiB(Managed Disks에만 해당)<br>P20: 512GiB<br>P30: 1024GiB<br>P40: 2048GiB<br>P50: 4,095GiB<br>P60: 8,192GiB *(8TiB)<br>P70: 16,384GiB *(16TiB)<br>P80: 32,767GiB *(32TiB) |Managed Disks에만 해당:<br>E10: 128GiB<br>E15: 256GiB<br>E20: 512GiB<br>E30: 1024GiB<br>E40: 2048GiB<br>E50: 4095GiB<br>E60: 8,192GiB *(8TiB)<br>E70: 16,384GiB *(16TiB)<br> E80: 32,767GiB *(32TiB) | 관리되지 않는 디스크: 1GiB – 4TiB(4095GiB) <br><br>관리 디스크:<br> S4: 32GiB <br>S6: 64GiB <br>S10: 128GiB <br>S15: 256GiB <br>S20: 512GiB <br>S30: 1024GiB <br>S40: 2048GiB<br>S50: 4095GiB<br>S60: 8,192GiB *(8TiB)<br>S70: 16,384GiB *(16TiB)<br>S80: 32,767 GiB *(32TiB)
 | 디스크당 최대 처리량 | P4: 25MiB/초<br> P6: 50MiB/초<br> P10: 100MiB/초<br> P15: 125MiB/초<br> P20: 150MiB/초<br> P30: 200MiB/초<br> P40~P50: 250MiB/초<br> P60: 480MiB/s *<br> P70-P80: 750MiB/s * | E10~E50: 최대 60MiB/초<br> E60: 최대 300MiB/초*<br> E70~E80: 500MiB/초*| S4~S50: 최대 o 60MiB/초<br> S60: 최대 300MiB/초*<br> S70~S80: 최대 500MiB/초*
 | 디스크당 최대 IOPS | P4: 120IOPS<br> P6: 240IOPS<br> P10: 500IOPS<br> P15: 1100IOPS<br> P20: 2300IOPS<br> P30: 5000 IOPS<br> P40~P50: 7500IOPS<br> P60: 12,500IOPS *<br> P70: 15,000IOPS *<br> P80: 20,000IOPS * | E10~E50: 최대 500IOPS<br> E60: 최대 1300IOPS *<br> E70~E80: 최대 2000IOPS * | S4~S50: 최대 500IOPS<br> S60: 최대 1300IOPS *<br> S70~S80: 최대 2000IOPS *

@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 44d6135c8a259d3d4c791d359136963483088c5a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 6fbfaaa82095fbf093560e65076b40a392356da8
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567896"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330163"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>SQL Database 단일 및 풀링된 데이터베이스에 복제
 
@@ -40,7 +40,7 @@ SQL Server 복제는 Azure SQL Database에서 [논리 서버](sql-database-logic
 - SQL Server 2014(12.x) RTM CU10
 - SQL Server 2012(11.x) SP2 CU8 또는 SP3
 - 이전 버전을 사용하여 복제를 구성하는 시도는 오류 번호 MSSQL_REPL20084(프로세스가 구독자에 연결할 수 없습니다.) 및 MSSQL_REPL40532(로그인에서 요청한 서버 \<이름>을 열 수 없습니다. 로그인이 실패했습니다.)가 발생할 수 있습니다.  
-- Azure SQL Database의 모든 기능을 사용하려면 최신 버전의 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 및 [SQL Server Data Tools](https://docs.microsoft.com//sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017)를 사용해야 합니다.  
+- Azure SQL Database의 모든 기능을 사용하려면 최신 버전의 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 및 [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017)를 사용해야 합니다.  
   
 ## <a name="remarks"></a>설명
 
@@ -70,7 +70,7 @@ SQL Server 복제는 Azure SQL Database에서 [논리 서버](sql-database-logic
 ### <a name="data-migration-scenario"></a>데이터 마이그레이션 시나리오  
 
 1. 트랜잭션 복제를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure SQL Database로 데이터를 복제합니다.  
-2. 클라이언트 또는 중간 계층 응용 프로그램을 리디렉션하여 Azure SQL 데이터베이스 복사본을 업데이트합니다.  
+2. 클라이언트 또는 중간 계층 애플리케이션을 리디렉션하여 Azure SQL 데이터베이스 복사본을 업데이트합니다.  
 3. 테이블의 SQL Server 버전 업데이트를 중지하고 게시를 제거합니다.  
 
 ## <a name="limitations"></a>제한 사항
@@ -111,6 +111,7 @@ SQL Server 복제는 Azure SQL Database에서 [논리 서버](sql-database-logic
 
 ## <a name="see-also"></a>참고 항목  
 
+- [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md)
 - [게시 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [밀어넣기 구독 만들기](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
 - [복제 유형](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)

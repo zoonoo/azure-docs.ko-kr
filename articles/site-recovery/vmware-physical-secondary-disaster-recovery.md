@@ -4,15 +4,16 @@ description: Azure Site Recovery를 사용하여 보조 사이트에 VMware VM �
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: fe6199aea91bbb7518ccdbfe640848a59edcee49
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 34b38f979fcab765a35d8aa6f0714ce85beec6fe
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215466"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105188"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>보조 사이트에 온-프레미스 VMware 가상 머신 또는 물리적 서버의 재해 복구 설정
 
@@ -33,7 +34,7 @@ ms.locfileid: "50215466"
 
 업데이트 8 이후 추가적인 업데이트는 릴리스되지 않습니다. 업데이트 8에 추가된 운영 체제에 대한 핫픽스 지원 및 최상의 노력을 기반으로 한 버그 수정이 제한됩니다.
 
-Azure Site Recovery는 VMware 및 Hyper-V 고객에게 재해 복구 사이트인 Azure를 통해 동급 최상의 원활한 DRaaS 솔루션을 제공하면서 계속해서 혁신해 나갑니다. Microsoft는 기존 InMage/ASR Scout 고객들이 비즈니스의 연속성 요구를 위해 Azure 시나리오에 대한 Azure Site Recovery의 VMware 사용을 고려할 것을 권장합니다. Azure 시나리오에 대한 Azure Site Recovery의 VMware은 VMware 응용 프로그램을 위한 엔터프라이즈 수준의 DR 솔루션으로, RPO 및 RTO 시간(분), 여러 VM 응용 프로그램 복제 및 복구를 위한 지원, 원활한 온보딩, 포괄적인 모니터링 및 중요한 TCO 장점을 제공합니다.
+Azure Site Recovery는 VMware 및 Hyper-V 고객에게 재해 복구 사이트인 Azure를 통해 동급 최상의 원활한 DRaaS 솔루션을 제공하면서 계속해서 혁신해 나갑니다. Microsoft는 기존 InMage/ASR Scout 고객들이 비즈니스의 연속성 요구를 위해 Azure 시나리오에 대한 Azure Site Recovery의 VMware 사용을 고려할 것을 권장합니다. Azure 시나리오에 대한 Azure Site Recovery의 VMware은 VMware 애플리케이션을 위한 엔터프라이즈 수준의 DR 솔루션으로, RPO 및 RTO 시간(분), 여러 VM 애플리케이션 복제 및 복구를 위한 지원, 원활한 온보딩, 포괄적인 모니터링 및 중요한 TCO 장점을 제공합니다.
 
 ### <a name="scenario-migration"></a>시나리오 마이그레이션
 대안으로는 온-프레미스 VMware VM 및 물리적 머신을 Azure에 복제하여 그에 대한 재해 복구를 설정하는 것이 좋습니다. 다음과 같이 수행합니다.
@@ -63,18 +64,6 @@ o 물리적 머신의 경우 이 [자습서](./physical-azure-disaster-recovery.
 - 복제하려는 컴퓨터에서 [복제된 컴퓨터 지원](vmware-physical-secondary-support-matrix.md#replicated-vm-support)을 준수하는지 확인합니다.
 
 
-## <a name="create-a-vault"></a>자격 증명 모음 만들기
-
-[!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
-
-## <a name="choose-a-protection-goal"></a>보호 목표 선택
-
-복제할 항목 및 복제 대상 위치를 선택합니다.
-
-1. **Site Recovery** > **인프라 준비** > **보호 목표**를 차례로 클릭합니다.
-2. **To recovery site(대상 복구 사이트)** > **Yes, with VMware vSphere Hypervisor(예, VMware vSphere 하이퍼바이저 포함)** 를 차례로 선택합니다. 그런 후 **OK**를 클릭합니다.
-3. **Scout 설치**에서 InMage Scout 8.0.1 GA 소프트웨어 및 등록 키를 다운로드합니다. 모든 구성 요소에 대한 설치 파일은 다운로드한 zip 파일에 포함되어 있습니다.
-
 ## <a name="download-and-install-component-updates"></a>구성 요소 업데이트 다운로드 및 설치
 
  최신 [업데이트](#updates)를 검토하고 설치합니다. 업데이트는 다음 순서로 서버에 설치해야 합니다.
@@ -91,24 +80,53 @@ o 물리적 머신의 경우 이 [자습서](./physical-azure-disaster-recovery.
 > [!NOTE]
 >모든 Scout 구성 요소의 파일 업데이트 버전이 업데이트 .zip 파일에서 같지 않을 수 있습니다. 이전 버전인 경우는 이 업데이트의 이전 업데이트 이후에 구성 요소가 변경되지 않았음을 나타냅니다.
 
-[update](https://aka.ms/asr-scout-update6) zip 파일을 다운로드합니다. 파일에는 다음 구성 요소가 포함됩니다. 
-  - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
-  - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
-  - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
-  - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-  - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-  - UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+[업데이트](https://aka.ms/asr-scout-update7) .zip 파일 및 [MySQL 및 PHP 업그레이드](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade) 구성 파일을 다운로드합니다. 업데이트 .zip 파일은 모든 기본 이진 파일 및 다음 구성 요소의 누적 업그레이드 이진 파일을 포함합니다. 
+  - InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
+  - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz
+  - InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
+  - InMage_CX_TP_8.0.1.0_Windows_GA_26Feb2015_release.exe
+  - CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe
+  - InMage_PI_8.0.1.0_Windows_GA_26Feb2015_release.exe
+  - InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe
+  - InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe
+  - InMage_UA_8.0.7.0_OL5-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_OL5-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_OL6-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_OL6-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL5-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL5-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL6-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL7-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP1-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP1-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP2-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP2-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP3-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP3-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP4-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP4-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-64_GA_04Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP1-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP1-64_GA_04Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP2-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP2-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP3-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP3-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP4-64_GA_03Dec2018_release.tar.gz
 1. .zip 파일의 압축을 풉니다.
-2. **RX 서버**: **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz**를 RX 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
-3. **구성 서버/프로세스 서버**: **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe**를 구성 서버 및 프로세스 서버에 복사합니다. 실행하려면 두 번 클릭합니다.<br>
-4. **Windows 마스터 대상 서버**: 통합 에이전트를 업데이트하려면 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe**를 서버에 복사합니다. 실행하려면 두 번 클릭합니다. 또한 원본 서버에도 동일한 통합 에이전트 업데이트를 적용할 수 있습니다. 원본 서버가 업데이트 4로 업데이트되어 있지 않은 경우 통합 에이전트를 업데이트해야 합니다.
-  **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**로 준비된 마스터 대상에는 이 업데이트를 적용할 필요가 없습니다. 모든 최신 변경 내용을 포함하는 새 GA 설치 관리자이기 때문입니다.
-5. **vContinuum 서버**: **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe**를 서버에 복사합니다.  VContinuum 마법사를 닫았는지 확인합니다. 실행하려면 파일을 두 번 클릭합니다.
-    **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**로 준비된 마스터 대상에는 이 업데이트를 적용할 필요가 없습니다. 모든 최신 변경 내용을 포함하는 새 GA 설치 관리자이기 때문입니다.
-6. **Linux 마스터 대상 서버**: 통합 에이전트를 업데이트하려면 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz**를 마스터 대상 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
-7. **Windows 원본 서버**: 통합 에이전트를 업데이트하려면 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe**를 원본 서버에 복사합니다. 실행하려면 파일을 두 번 클릭합니다. 
-    업데이트 4로 이미 업데이트되었거나 원본 에이전트가 최신 기본 설치 관리자인 **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**를 사용하여 설치되면 원본 서버에서 업데이트 5 에이전트를 설치할 필요가 없습니다.
-8. **Linux 원본 서버**: 통합 에이전트를 업데이트하려면 해당 버전의 통합 에이전트 파일을 Linux 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.  예: RHEL 6.7 64비트 서버의 경우 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz**를 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+2. **RX 서버**: **RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz**를 RX 서버에 복사하고, 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+3. **구성 서버 및 프로세스 서버**: **CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe**를 구성 서버 및 프로세스 서버에 복사합니다. 실행하려면 두 번 클릭합니다.<br>
+4. **Windows 마스터 대상 서버**: 통합된 에이전트를 업데이트하려면 **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe**를 서버에 복사합니다. 실행하려면 두 번 클릭합니다. 새 설치에 동일한 파일을 사용할 수도 있습니다. 또한 원본 서버에도 동일한 통합 에이전트 업데이트를 적용할 수 있습니다.
+  **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe**로 준비된 마스터 대상에는 이 업데이트를 적용할 필요가 없습니다. 모든 최신 변경 내용을 포함하는 새 GA 설치 관리자이기 때문입니다.
+5. **vContinuum 서버**:  **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe**를 서버에 복사합니다.  VContinuum 마법사를 닫았는지 확인합니다. 실행하려면 파일을 두 번 클릭합니다.
+6. **Linux 마스터 대상 서버**: 통합 에이전트를 업데이트하려면 **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz**를 Linux 마스터 대상 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+7. **Windows 원본 서버**: 통합된 에이전트를 업데이트하려면 **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe**를 원본 서버에 복사합니다. 실행하려면 파일을 두 번 클릭합니다. 
+8. **Linux 원본 서버**: 통합 에이전트를 업데이트하려면 해당 버전의 통합 에이전트 파일을 Linux 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.  예제: RHEL 6.7 64비트 서버의 경우 **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz**를 서버에 복사하고, 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+9. 위에 언급한 설치 관리자를 사용하여 구성 서버, 프로세스 서버 및 RX 서버를 업그레이드한 후 PHP 및 MySQL 라이브러리는 [빠른 설치 가이드](https://aka.ms/asr-scout-quick-install-guide)의 섹션 7.4에 설명된 단계를 사용하여 수동으로 업그레이드되어야 합니다.
 
 ## <a name="enable-replication"></a>복제 사용
 
@@ -120,11 +138,31 @@ o 물리적 머신의 경우 이 [자습서](./physical-azure-disaster-recovery.
    * [사용자 가이드](https://aka.ms/asr-scout-user-guide)
    * [RX 사용자 가이드](https://aka.ms/asr-scout-rx-user-guide)
    * [빠른 설치 가이드](https://aka.ms/asr-scout-quick-install-guide)
+   * [MYSQL 및 PHP 라이브러리 업그레이드](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade)
 
 ## <a name="updates"></a>업데이트
 
+### <a name="site-recovery-scout-801-update-7"></a>Site Recovery Scout 8.0.1 업데이트 7 
+업데이트: 2018년 12월 31일 [Scout 업데이트 7](https://aka.ms/asr-scout-update7)을 다운로드합니다.
+Scout 업데이트 7은 새 설치 및 이전 업데이트(업데이트1~업데이트 6)에 있는 기존 에이전트/MT를 업그레이드하는 데 사용할 수 있는 전체 설치 관리자입니다. 여기에는 업데이트 1에서 업데이트 6까지의 모든 수정 사항 및 아래에서 설명하는 새 수정 사항 및 개선된 기능이 포함되어 있습니다.
+ 
+#### <a name="new-features"></a>새로운 기능
+* PCI 규정 준수
+* TLS v1.2 지원
+
+#### <a name="bug-and-security-fixes"></a>버그 및 보안 수정 사항
+* 수정됨: Windows 클러스터/독립 실행형 머신에는 복구/DR 드릴 시 잘못된 IP 구성이 있습니다.
+* 수정됨: 경우에 따라 V2V 클러스터에 대한 추가 디스크 작업이 실패합니다.
+* 수정됨: vContinuum 마법사는 마스터 대상이 Windows Server 2016인 경우 복구 단계 중 중단됩니다.
+* 수정됨: MySQL 보안 문제는 MySQL을 5.7.23 버전으로 업그레이드하여 완화되었습니다.
+
+#### <a name="manual-upgrade-for-php-and-mysql-on-csps-and-rx"></a>CS,PS 및 RX에서 PHP 및 MySQL에 대한 수동 업그레이드
+PHP 스크립팅 플랫폼은 구성 서버, 프로세스 서버 및 RX 서버에서 7.2.10 버전으로 업그레이드되어야 합니다.
+MySQL 데이터베이스 관리 시스템은 구성 서버, 프로세스 서버 및 RX 서버에서 5.7.23 버전으로 업그레이드되어야 합니다.
+[빠른 설치 가이드](https://aka.ms/asr-scout-quick-install-guide)에서 제공된 수동 단계를 따라 PHP 및 MySQL 버전을 업그레이드합니다.
+
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 업데이트 6 
-업데이트 날짜: 2017년 10월 12일
+업데이트: 2017년 10월 12일
 
 [Scout 업데이트 6](https://aka.ms/asr-scout-update6)를 다운로드합니다.
 
@@ -139,10 +177,35 @@ Scout 업데이트 6는 누적 업데이트입니다. 여기에는 업데이트 
     - Oracle Linux 6.8
 * VMware Center 6.5에 대한 지원이 추가되었습니다.
 
+다음과 같이 업데이트를 설치합니다.
+
+> [!NOTE]
+>모든 Scout 구성 요소의 파일 업데이트 버전이 업데이트 .zip 파일에서 같지 않을 수 있습니다. 이전 버전인 경우는 이 업데이트의 이전 업데이트 이후에 구성 요소가 변경되지 않았음을 나타냅니다.
+
+[update](https://aka.ms/asr-scout-update6) zip 파일을 다운로드합니다. 파일에는 다음 구성 요소가 포함됩니다. 
+  - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
+  - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
+  - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
+  - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
+  - UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+1. .zip 파일의 압축을 풉니다.
+2. **RX 서버**: **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz**를 RX 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+3. **구성 서버 및 프로세스 서버**: **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe**를 구성 서버 및 프로세스 서버에 복사합니다. 실행하려면 두 번 클릭합니다.<br>
+4. **Windows 마스터 대상 서버**: 통합 에이전트를 업데이트하려면 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe**를 서버에 복사합니다. 실행하려면 두 번 클릭합니다. 또한 원본 서버에도 동일한 통합 에이전트 업데이트를 적용할 수 있습니다. 원본 서버가 업데이트 4로 업데이트되어 있지 않은 경우 통합 에이전트를 업데이트해야 합니다.
+  **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**로 준비된 마스터 대상에는 이 업데이트를 적용할 필요가 없습니다. 모든 최신 변경 내용을 포함하는 새 GA 설치 관리자이기 때문입니다.
+5. **vContinuum 서버**:  **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe**를 서버에 복사합니다.  VContinuum 마법사를 닫았는지 확인합니다. 실행하려면 파일을 두 번 클릭합니다.
+    **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**로 준비된 마스터 대상에는 이 업데이트를 적용할 필요가 없습니다. 모든 최신 변경 내용을 포함하는 새 GA 설치 관리자이기 때문입니다.
+6. **Linux 마스터 대상 서버**: 통합 에이전트를 업데이트하려면 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz**를 마스터 대상 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+7. **Windows 원본 서버**: 통합된 에이전트를 업데이트하려면 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe**를 원본 서버에 복사합니다. 실행하려면 파일을 두 번 클릭합니다. 
+    업데이트 4로 이미 업데이트되었거나 원본 에이전트가 최신 기본 설치 관리자인 **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**를 사용하여 설치되면 원본 서버에서 업데이트 5 에이전트를 설치할 필요가 없습니다.
+8. **Linux 원본 서버**: 통합 에이전트를 업데이트하려면 해당 버전의 통합 에이전트 파일을 Linux 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.  예제: RHEL 6.7 64비트 서버의 경우 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz**를 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+
+
 > [!NOTE]
 > * Windows용 기본 UA(통합 에이전트) 설치 관리자는 Windows Server 2016을 지원하도록 새로 고쳐졌습니다. 새 설치 관리자 **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**가 기본 Scout GA 패키지에 패키지됩니다(**InMage_Scout_Standard_8.0.1 GA Oct17.zip**). 지원되는 모든 Windows 버전에 동일한 설치 관리자가 사용됩니다. 
 > * 기본 Windows vContinuum 및 마스터 대상 설치 관리자는 Windows Server 2016을 지원하도록 새로 고쳐졌습니다. 새 설치 관리자 **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**가 기본 Scout GA 패키지에 패키지됩니다(**InMage_Scout_Standard_8.0.1 GA Oct17.zip**). Windows 2016 마스터 대상 및 Windows 2012R2 마스터 대상을 배포하는 데 동일한 설치 관리자가 사용됩니다.
-> * [자격 증명 모음 만들기](#create-a-vault)에서 설명한 대로 포털에서 GA 패키지를 다운로드합니다.
+> * 물리적 서버 기반 Windows Server 2016은 ASR Scout에서 지원되지 않습니다. Windows Server 2016 VMware VM만 지원됩니다. 
 >
 
 #### <a name="bug-fixes-and-enhancements"></a>버그 수정 및 향상된 기능
@@ -168,7 +231,7 @@ Scout 업데이트 5는 누적 업데이트입니다. 여기에는 업데이트 
     * 수정됨 - 단일 노드 클러스터 보호가 SCSI 불일치 문제로 인해 실패합니다. 
     * 수정됨 - 대상 클러스터 디스크가 있는 경우 P2V Windows 클러스터 서버의 다시 보호가 실패합니다. 
     
-* 수정됨: 장애 복구 보호 중에 선택한 마스터 대상 서버가 보호된 원본 컴퓨터(전달 보호 중)와 동일한 ESXi 서버에 있지 않으면 vContinuum에서 장애 복구 중에 잘못된 마스터 대상 서버를 선택하고 복구 작업이 실패합니다.
+* 수정됨: 장애 복구(failback) 보호 중에 선택한 마스터 대상 서버가 보호된 원본 머신(전달 보호 중) 동일한 ESXi 서버에 있지 않으면 vContinuum에서 장애 복구 중에 잘못된 마스터 대상 서버를 선택하고 복구 작업이 실패합니다.
 
 > [!NOTE]
 > * P2V 클러스터 수정은 Site Recovery Scout 업데이트 5로 새로 보호되는 물리적 MSCS 클러스터에만 적용할 수 있습니다. 이전 업데이트를 사용하여 보호된 P2V MSCS 클러스터에 클러스터 수정 프로그램을 설치하려면 [Site Recovery Scout 릴리스 정보](https://aka.ms/asr-scout-release-notes)의 12섹션에서 설명하는 업그레이드 단계를 수행합니다.
@@ -197,13 +260,13 @@ Scout 업데이트 4는 누적 업데이트입니다. 여기에는 업데이트 
     * Red Hat Enterprise Linux(RHEL) 6.x
     * Oracle Linux(OL) 6.x
 * Linux의 경우 통합 에이전트 설치 디렉터리의 모든 폴더 액세스 권한은 이제 로컬 사용자로만 제한되었습니다.
-* Windows의 경우 SQL Server 및 SharePoint 클러스터와 같이 부하가 심한 분산 응용 프로그램에서 일반적인 분산 일관성 북마크를 발급할 때 발생한 시간 제한 문제가 해결되었습니다.
+* Windows의 경우 SQL Server 및 SharePoint 클러스터와 같이 부하가 심한 분산 애플리케이션에서 일반적인 분산 일관성 북마크를 발급할 때 발생한 시간 제한 문제가 해결되었습니다.
 * 구성 서버 기본 설치 관리자와 관련된 로그가 수정되었습니다.
 * VMware vCLI 6.0에 대한 다운로드 링크가 Windows 마스터 대상 기본 설치 관리자에 추가되었습니다.
 * 장애 조치 및 재해 복구 훈련 중에 네트워크 구성 변경에 대한 추가 검사 및 로그가 추가되었습니다.
 * 보존 정보가 구성 서버에 보고되지 않도록 하는 문제가 해결되었습니다.  
 * 물리적 클러스터의 경우 원본 볼륨을 줄이면 vContinuum 마법사에서 볼륨 크기 조정을 실패하게 하는 문제가 해결되었습니다.
-* 클러스터 디스크가 PRDM 디스크인 경우 "디스크 서명을 찾지 못했습니다" 오류로 인한 클러스터 보호 실패 문제가 해결되었습니다.
+* 클러스터 디스크가 PRDM 디스크인 경우 “디스크 서명을 찾을 수 없습니다” 오류로 인해 실패한 클러스터 보호 문제가 해결되었습니다.
 * 범위 이탈 예외로 인한 cxps 전송 서버 크래시가 수정되었습니다.
 * vContinuum 마법사의 **푸시 설치** 페이지에서 서버 이름 및 IP 주소 열의 크기를 조정할 수 있습니다.
 * 향상된 RX API 기능:
@@ -233,7 +296,7 @@ Scout 업데이트 4는 누적 업데이트입니다. 여기에는 업데이트 
 * 복구 후 Windows Server 2008 R2 도메인 컨트롤러가 시작되지 않습니다.
 * 오프라인 동기화가 예상대로 작동하지 않습니다.
 * VM 장애 조치 후에 구성 서버 콘솔에서 오랫동안 복제 쌍 삭제가 진행되지 않습니다. 사용자가 장애 복구를 완료하거나 작업을 다시 시작할 수 없습니다.
-* 일관성 작업에 의한 전체 스냅숏 작업이 최적화되어 SQL Server 클라이언트와 같은 응용 프로그램의 연결 해제를 줄일 수 있습니다.
+* 일관성 작업에 의한 전체 스냅숏 작업이 최적화되어 SQL Server 클라이언트와 같은 애플리케이션의 연결 해제를 줄일 수 있습니다.
 * 일관성 도구(VACP.exe) 성능이 향상되었습니다. Windows에서 스냅숏을 만드는 데 필요한 메모리 사용량이 줄었습니다.
 * 암호가 16자를 초과하면 푸시 설치 서비스가 충돌합니다.
 * 자격 증명이 수정되면 vContinuum에서 새 vCenter 자격 증명을 확인하고 요청하지 않습니다.
@@ -246,10 +309,10 @@ Scout 업데이트 4는 누적 업데이트입니다. 여기에는 업데이트 
   * CentOS 6 업데이트 7
 * 이제 구성 서버 및 RX 서버 콘솔에 비트맵 모드로 전환되는 쌍에 대한 알림이 표시됩니다.
 * 다음 보안 수정이 RX에 추가되었습니다.
-    * 매개 변수 변조를 통한 권한 부여 무시: 적용할 수 없는 사용자에 대한 액세스 권한이 제한되었습니다.
+    * 매개 변수 변조를 통해 권한 부여 바이패스: 적합하지 않은 사용자에게 제한된 액세스
     * 교차 사이트 요청 위조: 페이지 토큰 개념이 구현되었으며 모든 페이지에 대해 임의로 생성됩니다. 즉, 동일한 사용자에 대한 단일 로그인 인스턴스만 있고 페이지 새로 고침은 작동하지 않습니다. 대신 대시보드로 리디렉션됩니다.
-    * 악의적인 파일 업로드: 파일이 특정 확장자로 제한됩니다(z, aiff, asf, avi, bmp, csv, doc, docx, fla, flv, gif, gz, gzip, jpeg, jpg, log, mid, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, rmi, rmvb, rtf, sdc, sitd, swf, sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml, and zip).
-    * 영구 사이트 간 스크립팅: 입력 유효성 검사가 추가되었습니다.
+    * 악의적인 파일 업로드: 파일이 특정 확장명으로 제한됩니다(z, aiff, asf, avi, bmp, csv, doc, docx, fla, flv, gif, gz, gzip, jpeg, jpg, log, mid, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, rmi, rmvb, rtf, sdc, sitd, swf, sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml, and zip).
+    * 영구적 교차 사이트 스크립팅: 입력 유효성 검사가 추가되었습니다.
 
 ### <a name="azure-site-recovery-scout-801-update-2-update-03dec15"></a>Azure Site Recovery 서비스 Scout 8.0.1 업데이트 2(2015년 12월 3일 업데이트)
 

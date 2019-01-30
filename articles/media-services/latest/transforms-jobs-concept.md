@@ -9,20 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/20/2018
 ms.author: juliako
-ms.openlocfilehash: e13afe26d06f5b5b2dcf7eddf00f9ee481312b2c
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 95079813cf3ade41d17393168116e4767ca26e99
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024261"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742782"
 ---
 # <a name="transforms-and-jobs"></a>Transform 및 Job
  
-Azure Media Services v3에서는 비디오를 인코딩 및/또는 분석하는 데 사용할 작성법과 관련된 템플릿 워크플로 리소스인 [변환](https://docs.microsoft.com/rest/api/media/transforms)이 도입되었습니다. **변환**은 비디오 인코딩 또는 분석을 위한 일반적인 작업을 구성하는 데 사용할 수 있습니다. 각 **변환**은 비디오 또는 오디오 파일을 처리하는 작업의 작성법 또는 워크플로를 설명합니다. 
+[Transforms](https://docs.microsoft.com/rest/api/media/transforms)는 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성하는 데 사용할 수 있습니다. 각 **변환**은 비디오 또는 오디오 파일을 처리하는 작업의 작성법 또는 워크플로를 설명합니다. 
 
-**작업**은 **변환**을 특정 입력 비디오 또는 오디오 콘텐츠에 적용하기 위한 Azure Media Services에 대한 실제 요청입니다. **작업**은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다. 비디오의 위치는 HTTP, URL, SAS URL 또는 [Media Service 자산](https://docs.microsoft.com/rest/api/media/assets)을 사용하여 지정할 수 있습니다.  
+[작업](https://docs.microsoft.com/rest/api/media/jobs)은 **변환**을 특정 입력 비디오 또는 오디오 콘텐츠에 적용하기 위한 Azure Media Services에 대한 실제 요청입니다. **작업**은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다. 입력 비디오의 위치는 HTTPS URL, SAS URL 또는 [Media Services 자산](https://docs.microsoft.com/rest/api/media/assets)을 사용하여 지정할 수 있습니다.  
 
 ## <a name="typical-workflow"></a>일반적인 워크플로
 

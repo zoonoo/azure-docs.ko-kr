@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: ca412e94f65c7e1ed9a547ec9dcabc62fac7d42f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 45c77aa63159a8e62f65c0e250c0ace95b0d344e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741830"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429908"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>미리 보기: Windows Server Active Directory에 Azure AD 암호 보호 강제 적용
 
@@ -58,7 +58,7 @@ Azure AD 암호 보호에 필요한 두 가지 설치 관리자가 있으며, [M
 * 이 소프트웨어는 보호하는 Active Directory 도메인의 계정을 만들거나 요구하지 않습니다.
 * 증분 배포는 암호 정책이 도메인 컨트롤러 에이전트가 설치된 위치에만 적용된다는 절충안과 함께 지원됩니다.
 * 암호 보호 기능이 적용되도록 모든 DC에서 DC 에이전트를 설치하는 것이 좋습니다. 
-* Azure AD 암호 보호는 실시간 정책 응용 프로그램 엔진이 아닙니다. 암호 정책 구성이 변경되는 시간과 이것이 모든 도메인 컨트롤러에 도달하여 강제 적용되는 시간 사이에는 지연이 있을 수 있습니다.
+* Azure AD 암호 보호는 실시간 정책 애플리케이션 엔진이 아닙니다. 암호 정책 구성이 변경되는 시간과 이것이 모든 도메인 컨트롤러에 도달하여 강제 적용되는 시간 사이에는 지연이 있을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

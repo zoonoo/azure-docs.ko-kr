@@ -79,7 +79,7 @@ StorSimple Cloud Appliance는 Microsoft Azure Virtual Machine의 단일 노드�
 클라우드 어플라이언스를 프로비전하기 전에 Azure 환경에서 다음 준비를 확인해야 합니다.
 
 * 데이터 센터에 StorSimple 8000 시리즈 물리적 디바이스(8100 또는 8600 모델)가 배포되어 실행되고 있는지 확인합니다. StorSimple Cloud Appliance를 만들려는 동일한 StorSimple 디바이스 관리자 서비스에 이 디바이스를 등록합니다.
-* 클라우드 어플라이언스의 경우, [Azure에서 가상 네트워크를 구성](../virtual-network/manage-virtual-network.md#create-a-virtual-network)합니다. Premium Storage를 사용하는 경우 Premium Storage를 지원하는 Azure 지역에 가상 네트워크를 만들어야 합니다. Premium Storage 지역은 [지역별 Azure 서비스 목록](https://azure.microsoft.com/regions/services/)에서 디스크 저장소의 행에 해당하는 지역입니다.
+* 클라우드 어플라이언스의 경우, [Azure에서 가상 네트워크를 구성](../virtual-network/manage-virtual-network.md#create-a-virtual-network)합니다. Premium Storage를 사용하는 경우 Premium Storage를 지원하는 Azure 지역에 가상 네트워크를 만들어야 합니다. Premium Storage 지역은 [지역별 Azure 서비스 목록](https://azure.microsoft.com/regions/services/)에서 디스크 스토리지의 행에 해당하는 지역입니다.
 * 사용자 고유의 DNS 서버 이름을 지정하는 대신 Azure에서 제공하는 기본 DNS 서버를 사용하는 것이 좋습니다. DNS 서버 이름이 유효하지 않거나 DNS 서버가 IP 주소를 제대로 확인할 수 없으면 클라우드 어플라이언스 만들기에 실패합니다.
 * 지점 대 사이트간 및 사이트 대 사이트는 선택적이지만 필수는 아닙니다. 원하는 경우, 고급 시나리오에 대해 이 옵션을 구성할 수 있습니다.
 * 클라우드 어플라이언스에 표시된 볼륨을 사용할 수 있는 [Azure Virtual Machines](../virtual-machines/virtual-machines-windows-quick-create-portal.md)(호스트 서버)를 가상 네트워크에 만들 수 있습니다. 이 서버는 다음 요구 사항을 충족해야 합니다.

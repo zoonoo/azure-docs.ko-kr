@@ -23,7 +23,7 @@ ms.locfileid: "42141180"
 
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-이 문서에서는 Visual Studio **연결된 서비스** 기능을 사용하여 ASP.NET Core 프로젝트에서 Azure Storage 계정을 만들거나 참조한 후 Visual Studio에서 Azure Queue Storage 사용을 시작하는 방법에 대해 설명합니다. **연결된 서비스** 작업은 프로젝트의 Azure Storage에 액세스하는 데 적합한 NuGet 패키지를 설치하고 프로젝트 구성 파일에 저장소 계정에 대한 연결 문자열을 추가합니다. (Azure Storage에 대한 일반적인 내용은 [저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.)
+이 문서에서는 Visual Studio **연결된 서비스** 기능을 사용하여 ASP.NET Core 프로젝트에서 Azure Storage 계정을 만들거나 참조한 후 Visual Studio에서 Azure Queue Storage 사용을 시작하는 방법에 대해 설명합니다. **연결된 서비스** 작업은 프로젝트의 Azure Storage에 액세스하는 데 적합한 NuGet 패키지를 설치하고 프로젝트 구성 파일에 저장소 계정에 대한 연결 문자열을 추가합니다. (Azure Storage에 대한 일반적인 내용은 [스토리지 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.)
 
 Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 저장소 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다. 또한 큐를 프로그래밍 방식으로 조작하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Azure Queue Storage 시작](../storage/queues/storage-dotnet-how-to-use-queues.md)을 참조하세요.
 
@@ -143,7 +143,7 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
 ## <a name="use-the-async-await-pattern-with-common-queue-apis"></a>일반적인 큐 API와 함께 Async-Await 패턴 사용
 
-이 예제에서는 `Async`로 끝나는 큐 API와 함께 async-await 패턴을 사용하는 방법을 보여줍니다. 비동기 메서드가 사용되는 경우 호출이 완료될 때까지 async-await 패턴이 로컬 실행을 일시 중단합니다. 이 동작은 현재 스레드가 성능 병목 현상을 방지해주는 다른 작업을 수행할 수 있게 해주며, 응용 프로그램의 전반적인 응답성을 향상시킵니다.
+이 예제에서는 `Async`로 끝나는 큐 API와 함께 async-await 패턴을 사용하는 방법을 보여줍니다. 비동기 메서드가 사용되는 경우 호출이 완료될 때까지 async-await 패턴이 로컬 실행을 일시 중단합니다. 이 동작은 현재 스레드가 성능 병목 현상을 방지해주는 다른 작업을 수행할 수 있게 해주며, 애플리케이션의 전반적인 응답성을 향상시킵니다.
 
 ```cs
 // Create a message to add to the queue.

@@ -1,20 +1,20 @@
 ---
 ms.assetid: ''
 title: Azure Key Vault 관리 스토리지 계정 - CLI
-description: 저장소 계정 키는 Azure Key Vault 간의 원활한 통합과 Azure Storage 계정에 대한 키 기반 액세스를 제공합니다.
+description: 스토리지 계정 키는 Azure Key Vault 간의 원활한 통합과 Azure Storage 계정에 대한 키 기반 액세스를 제공합니다.
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
-author: bryanla
-ms.author: bryanla
+author: prashanthyv
+ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: e110a24af6a0d49ea949db6bc30ab344c81d0f48
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 3ee0d19c174490d558a8ff06d3f5e038ffff211f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619285"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064443"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault 관리 스토리지 계정 - CLI
 
@@ -47,7 +47,7 @@ ms.locfileid: "52619285"
     az storage account show -n storageaccountname (Copy ID field out of the result of this command)
     ```
     
-2. Azure Key Vault의 서비스 주체에 대한 응용 프로그램 ID를 가져옵니다. 
+2. Azure Key Vault의 서비스 주체에 대한 애플리케이션 ID를 가져옵니다. 
 
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093

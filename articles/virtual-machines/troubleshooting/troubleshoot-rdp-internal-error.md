@@ -13,24 +13,24 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 7d0d4a34a31f15c23638eba1f14794838780f2b0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dd75d5a3186bbb6ba82e2deb83a7e8429e32a3f2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307163"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134525"
 ---
-#  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>원격 데스크톱을 통해 Azure VM에 연결하려고 할 때 내부 오류 발생 
+#  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>원격 데스크톱을 통해 Azure VM에 연결하려고 할 때 내부 오류 발생
 
 이 문서에서는 Microsoft Azure에서 VM(가상 머신)에 연결하려고 할 때 발생할 수 있는 오류에 대해 설명합니다.
-> [!NOTE] 
-> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용에 대해 설명합니다. 이 배포 모델은 클래식 배포 모델 대신 새 배포에 사용하는 것이 좋습니다. 
+> [!NOTE]
+> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용에 대해 설명합니다. 이 배포 모델은 클래식 배포 모델 대신 새 배포에 사용하는 것이 좋습니다.
 
-## <a name="symptoms"></a>증상 
+## <a name="symptoms"></a>증상
 
 RDP(원격 데스크톱 프로토콜)를 사용하여 Azure VM에 연결할 수 없습니다. "원격 구성" 섹션에서 연결이 중지되거나 다음과 같은 오류 메시지가 표시됩니다.
 
-- RDP 내부 오류 
+- RDP 내부 오류
 - 내부 오류가 발생했습니다.
 - 이 컴퓨터에서 원격 컴퓨터에 연결할 수 없습니다. 다시 연결해 보세요. 문제가 계속되면 원격 컴퓨터의 소유자 또는 네트워크 관리자에게 문의하세요.
 
@@ -43,7 +43,7 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 Azure VM에 연결할 수 
 - TLS 프로토콜이 사용되지 않도록 설정되어 있습니다.
 - 인증서가 손상되었거나 만료되었습니다.
 
-## <a name="solution"></a>해결 방법 
+## <a name="solution"></a>해결 방법
 
 다음 단계를 수행하기 전에 영향을 받는 VM의 OS 디스크 스냅숏을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅숏](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 
@@ -52,46 +52,46 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 Azure VM에 연결할 수 
 
 ### <a name="use-serial-control"></a>직렬 콘솔 사용
 
-[직렬 콘솔에 연결하고 PowerShell 인스턴스를 엽니다](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
+[직렬 콘솔에 연결하고 PowerShell 인스턴스를 엽니다](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). VM에서 직렬 콘솔을 사용하지 않도록 설정한 경우 [오프라인으로 VM 복구](#repair-the-vm-offline) 섹션으로 이동합니다.
 
 #### <a name="step-1-check-the-rdp-port"></a>1단계: RDP 포트 확인
 
 1. PowerShell 인스턴스에서 [NETSTAT](https://docs.microsoft.com/windows-server/administration/windows-commands/netstat
-)를 사용하여 포트 8080이 다른 응용 프로그램에서 사용되는지 여부를 확인합니다.
+)를 사용하여 포트 8080이 다른 애플리케이션에서 사용되는지 여부를 확인합니다.
 
         Netstat -anob |more
-2. Termservice.exe가 8080 포트를 사용하는 경우 2단계로 이동합니다. Termservice.exe 이외의 다른 서비스 또는 응용 프로그램이 8080 포트를 사용하는 경우 다음 단계를 수행합니다.
+2. Termservice.exe가 8080 포트를 사용하는 경우 2단계로 이동합니다. Termservice.exe 이외의 다른 서비스 또는 애플리케이션이 8080 포트를 사용하는 경우 다음 단계를 수행합니다.
 
-    a. 3389 서비스를 사용하는 응용 프로그램에 대한 서비스를 중지합니다. 
+    1. 3389 서비스를 사용하는 애플리케이션에 대한 서비스를 중지합니다.
 
-        Stop-Service -Name <ServiceName>
+        Stop-Service -Name<ServiceName>
 
-    B. 터미널 서비스를 시작합니다. 
+    2. 터미널 서비스를 시작합니다.
 
         Start-Service -Name Termservice
 
-2. 응용 프로그램을 중지할 수 없거나 이 방법이 사용자에게 적용되지 않으면 RDP에 대한 포트를 변경합니다.
+2. 애플리케이션을 중지할 수 없거나 이 방법이 사용자에게 적용되지 않으면 RDP에 대한 포트를 변경합니다.
 
-    a. 포트를 변경합니다.
+    1. 포트를 변경합니다.
 
         Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name PortNumber -value <Hexportnumber>
 
         Stop-Service -Name Termservice Start-Service -Name Termservice
- 
-    B. 새 포트에 대한 방화벽을 설정합니다.
 
-        Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
+    2. 새 포트에 대한 방화벽을 설정합니다.
 
-    C. Azure Portal RDP 포트에서 [새 포트에 대한 네트워크 보안 그룹을 업데이트](../../virtual-network/security-overview.md)합니다.
+        Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT(decimal)>
+
+    3. Azure Portal RDP 포트에서 [새 포트에 대한 네트워크 보안 그룹을 업데이트](../../virtual-network/security-overview.md)합니다.
 
 #### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>2단계: RDP 자체 서명된 인증서에 대해 올바른 권한 설정
 
 1.  PowerShell 인스턴스에서 다음 명령을 하나씩 실행하여 RDP 자체 서명된 인증서를 갱신합니다.
 
-        Import-Module PKI Set-Location Cert:\LocalMachine $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) Remove-Item -Path $RdpCertThumbprint 
+        Import-Module PKI Set-Location Cert:\LocalMachine $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) Remove-Item -Path $RdpCertThumbprint
 
-        Stop-Service -Name "SessionEnv" 
+        Stop-Service -Name "SessionEnv"
 
         Start-Service -Name "SessionEnv"
 
@@ -101,24 +101,24 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 Azure VM에 연결할 수 
     2. **파일** 메뉴에서 **스냅인 추가/제거**를 선택하고 **인증서**를 선택한 후 **추가**를 선택합니다.
     3. **컴퓨터 계정**을 선택하고 **다른 컴퓨터**를 선택한 후 문제가 있는 VM의 IP 주소를 추가합니다.
     4. **원격 데스크톱\인증서** 폴더로 이동하고 인증서를 마우스 오른쪽 단추로 클릭한 후 **삭제**를 선택합니다.
-    5. 직렬 콘솔의 PowerShell 인스턴스에서 원격 데스크톱 구성 서비스를 다시 시작합니다. 
+    5. 직렬 콘솔의 PowerShell 인스턴스에서 원격 데스크톱 구성 서비스를 다시 시작합니다.
 
-            Stop-Service -Name "SessionEnv" 
+            Stop-Service -Name "SessionEnv"
 
             Start-Service -Name "SessionEnv"
 3. MachineKeys 폴더에 대한 권한을 다시 설정합니다.
-    
-        remove-module psreadline icacls 
+
+        remove-module psreadline icacls
 
         md c:\temp
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r 
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)" 
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\NETWORK SERVICE:(R)" 
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\NETWORK SERVICE:(R)"
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)" 
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)"
 
         icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt Restart-Service TermService -Force
 
@@ -129,9 +129,9 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 Azure VM에 연결할 수 
 RDP 클라이언트는 TLS 1.0을 기본 프로토콜로 사용합니다. 그러나 이 프로토콜을 TLS 1.1로 변경하여 새로운 표준으로 지정할 수 있습니다. VM에서 TLS 1.1을 사용하지 않도록 설정하면 연결이 실패합니다.
 1.  CMD 인스턴스에서 TLS 프로토콜을 사용하도록 설정합니다.
 
-        reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f 
+        reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
 
-        reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f 
+        reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f
 
         reg add "HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f
 2.  AD 정책이 변경 내용을 덮어쓰지 않게 하려면 그룹 정책 업데이트를 일시적으로 중지합니다.
@@ -201,23 +201,23 @@ RDP 클라이언트는 TLS 1.0을 기본 프로토콜로 사용합니다. 그러
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt
 
-#### <a name="enable-all-supported-tls-versions"></a>지원되는 모든 TLS 버전 사용 
+#### <a name="enable-all-supported-tls-versions"></a>지원되는 모든 TLS 버전 사용
 
 1.  관리자 권한 명령 프롬프트 세션(**관리자 권한으로 실행**)을 열고 다음 명령을 실행합니다. 다음 스크립트는 연결된 OS 디스크에 할당된 드라이브 문자가 F라고 가정합니다. 이 드라이브 문자를 VM에서 적절한 값으로 바꿉니다.
 2.  TLS가 사용하도록 설정되었는지를 확인합니다.
 
         reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f 
-        
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f 
-        
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f 
-        
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f 
-        
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f 
-        
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" /v Enabled /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" /v Enabled /t REG_DWORD /d 1 /f
+
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWO
 
 3.  키가 없거나 해당 값이 **0**이면 다음 스크립트를 실행하여 프로토콜을 사용하도록 설정합니다.
@@ -238,22 +238,22 @@ RDP 클라이언트는 TLS 1.0을 기본 프로토콜로 사용합니다. 그러
 
 4.  NLA 사용:
 
-        REM Enable NLA 
+        REM Enable NLA
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD /d 1 /f 
-    
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f 
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD /d 1 /f
 
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f 
-        
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD /d 1 /f 
-        
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f 
-        
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD /d 1 /f
+
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f
+
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f reg unload HKLM\BROKENSYSTEM
 5.  [OS 디스크를 분리하고 VM을 다시 만든 후](../windows/troubleshoot-recovery-disks-portal.md) 문제가 해결되었는지 확인합니다.
 
 
 
-    
- 
+
+

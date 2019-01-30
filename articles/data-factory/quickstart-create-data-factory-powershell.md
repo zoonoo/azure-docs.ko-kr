@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory를 사용하여 Blob Storage 데이터 복사 | Microsoft Docs
-description: Azure Blob 저장소의 한 위치에서 다른 위치로 데이터를 복사하는 Azure 데이터 팩터리를 만듭니다.
+description: Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사하는 Azure 데이터 팩터리를 만듭니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,19 +13,19 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 7cd38329be77dadc13b8e6372622be70609cedee
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: fc2feff700220f57f82e8ac0a310843dd9b0cae6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018675"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436606"
 ---
 # <a name="create-an-azure-data-factory-using-powershell"></a>PowerShell을 사용하여 Azure Data Factory 만들기 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [버전 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [현재 버전](quickstart-create-data-factory-powershell.md)
 
-이 빠른 시작에서는 PowerShell을 사용하여 Azure Data Factory를 만드는 방법을 설명합니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 **복사합니다**. Azure Data Factory를 사용하여 데이터를 **변환**하는 방법에 대한 자습서는 [자습서: Apache Spark를 사용하여 데이터 변환](transform-data-using-spark.md)을 참조하세요. 
+이 빠른 시작에서는 PowerShell을 사용하여 Azure Data Factory를 만드는 방법을 설명합니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 **복사합니다**. Azure Data Factory를 사용하여 데이터를 **변환**하는 방법에 대한 자습서는 [자습서: Spark를 사용하여 데이터 변환](transform-data-using-spark.md)을 참조하세요. 
 
 > [!NOTE]
 > 이 문서는 Data Factory 서비스의 자세한 소개를 제공하지 않습니다. Azure Data Factory 서비스 소개는 [Azure Data Factory 소개](introduction.md)를 참조하세요.
@@ -33,7 +33,7 @@ ms.locfileid: "48018675"
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-azurerm-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
+[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/azurerm/install-azurerm-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
 
 #### <a name="log-in-to-powershell"></a>PowerShell에 로그인
 
@@ -91,13 +91,13 @@ ms.locfileid: "48018675"
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정은 **참여자** 또는 **소유자** 역할의 구성원이거나, 또는 Azure 구독의 **관리자**이어야 합니다.
-* Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+* 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
 ## <a name="create-a-linked-service"></a>연결된 서비스 만들기
 
 데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소 및 계산 서비스를 데이터 팩터리에 연결합니다. 이 빠른 시작에서 원본 및 싱크 저장소로 사용되는 Azure Storage 연결된 서비스를 만듭니다. 연결된 서비스에는 Data Factory 서비스가 런타임에 연결하는 데 사용하는 연결 정보가 있습니다.
 
-1. 다음 콘텐츠가 포함된 **AzureStorageLinkedService.json**이라는 JSON 파일을 **C:\ADFv2QuickStartPSH** 폴더에 만듭니다. (없는 경우 ADFv2QuickStartPSH 폴더를 만듭니다.) 
+1. 다음 콘텐츠가 포함된 **AzureStorageLinkedService.json**이라는 JSON 파일을 **C:\ADFv2QuickStartPSH** 폴더에 만듭니다. (아직 없는 경우 ADFv2QuickStartPSH 폴더를 만듭니다.) 
 
     > [!IMPORTANT]
     > 파일을 저장하기 전에 &lt;accountName&gt;과 &lt;accountKey&gt;를 Azure 저장소 계정의 이름과 키로 바꿉니다.
@@ -116,7 +116,7 @@ ms.locfileid: "48018675"
         }
     }
     ```
-    메모장을 사용하는 경우 **다른 이름으로 저장** 대화 상자의 **파일 형식** 필드에서 **모든 파일**을 선택합니다. 선택하지 않으면 파일에 `.txt` 확장이 추가됩니다. 예: `AzureStorageLinkedService.json.txt`. 메모장에서 파일을 열기 전에 파일 탐색기에서 파일을 만들면 **알려진 파일 형식의 확장명 숨기기** 옵션이 기본적으로 설정되어 `.txt` 확장이 보이지 않을 수 있습니다. `.txt` 확장을 제거한 후 다음 단계로 넘어갑니다.
+    메모장을 사용하는 경우 **다른 이름으로 저장** 대화 상자의 **파일 형식** 필드에서 **모든 파일**을 선택합니다. 선택하지 않으면 파일에 `.txt` 확장이 추가됩니다. 예: `AzureStorageLinkedService.json.txt` 메모장에서 파일을 열기 전에 파일 탐색기에서 파일을 만들면 **알려진 파일 형식의 확장명 숨기기** 옵션이 기본적으로 설정되어 `.txt` 확장이 보이지 않을 수 있습니다. `.txt` 확장을 제거한 후 다음 단계로 넘어갑니다.
 2. **PowerShell**에서 **ADFv2QuickStartPSH** 폴더로 전환합니다.
 
     ```powershell
@@ -163,7 +163,7 @@ ms.locfileid: "48018675"
     }
     ```
 
-2. **BlobDataset** 데이터 집합을 만들려면 **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행합니다.
+2. 데이터 세트 **BlobDataset**를 만들려면 **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행합니다.
 
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "BlobDataset" -DefinitionFile ".\BlobDataset.json"
@@ -233,7 +233,7 @@ ms.locfileid: "48018675"
     }
     ```
 
-2. **Adfv2QuickStartPipeline** 파이프라인을 만들려면 **Set-AzureRmDataFactoryV2Pipeline** cmdlet을 실행합니다.
+2. 파이프라인 **Adfv2QuickStartPipeline**을 만들려면 **Set-AzureRmDataFactoryV2Pipeline** cmdlet을 실행합니다.
 
     ```powershell
     $DFPipeLine = Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "Adfv2QuickStartPipeline" -DefinitionFile ".\Adfv2QuickStartPipeline.json"
@@ -360,4 +360,4 @@ ms.locfileid: "48018675"
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)] 
 
 ## <a name="next-steps"></a>다음 단계
-이 샘플의 파이프라인은 Azure Blob 저장소의 한 위치에서 다른 위치로 데이터를 복사합니다. [자습서](tutorial-copy-data-dot-net.md)를 통해 더 많은 시나리오에서의 데이터 팩터리 사용에 관해 알아보세요. 
+이 샘플의 파이프라인은 Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사합니다. [자습서](tutorial-copy-data-dot-net.md)를 통해 더 많은 시나리오에서의 데이터 팩터리 사용에 관해 알아보세요. 

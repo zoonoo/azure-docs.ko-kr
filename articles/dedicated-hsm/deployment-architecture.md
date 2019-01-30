@@ -1,24 +1,25 @@
 ---
-title: Azure Dedicated HSM 배포 아키텍처 | Microsoft Docs
-description: Azure Dedicated HSM은 Azure 내에서 FIPS 140-2 수준 3 인증을 충족하는 키 스토리지 기능을 제공합니다.
+title: 배포 아키텍처 - Azure Dedicated HSM | Microsoft Docs
+description: 애플리케이션 아키텍처의 일부로 Azure Dedicated HSM을 사용할 때 생각해야 하는 기본적인 설계 고려 사항
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 8481f444464135a24d42612f334ac6096cba7b21
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 913be9d1ee6ce92d71f5f0c7eda46a618483ce8d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318992"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078296"
 ---
-# <a name="deployment-architecture"></a>배포 아키텍처
+# <a name="azure-dedicated-hsm-deployment-architecture"></a>Azure Dedicated HSM 배포 아키텍처
 
 Azure Dedicated HSM은 Azure에서 암호화 키 스토리지를 제공합니다. 엄격한 보안 요구 사항을 충족합니다. 다음에 해당하는 고객은 Azure Dedicated HSM을 사용하면 혜택을 얻을 수 있습니다.
 

@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: fa84d5a09eab56dc01a6e841323ca11d12886582
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: e5ee2f40526837fbe0251e1fdda6847db1c51288
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495501"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634357"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Hive를 사용하여 데이터 추출, 변환 및 로드
 
-이 자습서에서는 원시 CSV 데이터 파일을 사용하고, HDInsight 클러스터 스토리지로 가져온 다음, Azure HDInsight에서 [Apache Hive](https://hive.apache.org/)를 사용하여 데이터를 변환합니다. 데이터가 변환된 후 [Apache Sqoop](http://sqoop.apache.org/)을 사용하여 Azure SQL Database로 해당 데이터를 로드합니다. 이 문서에서는 공개적으로 사용할 수 있는 비행 데이터를 사용합니다.
+이 자습서에서는 원시 CSV 데이터 파일을 사용하고, HDInsight 클러스터 스토리지로 가져온 다음, Azure HDInsight에서 [Apache Hive](https://hive.apache.org/)를 사용하여 데이터를 변환합니다. 데이터가 변환된 후 [Apache Sqoop](https://sqoop.apache.org/)을 사용하여 Azure SQL Database로 해당 데이터를 로드합니다. 이 문서에서는 공개적으로 사용할 수 있는 비행 데이터를 사용합니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 Azure HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 이 자습서에서 다루는 작업은 다음과 같습니다. 
@@ -33,7 +33,7 @@ ms.locfileid: "52495501"
 > * Sqoop을 사용하여 Azure SQL 데이터베이스에 데이터 내보내기
 
 
-다음 그림에서는 일반적인 ETL 응용 프로그램 흐름을 보여줍니다.
+다음 그림에서는 일반적인 ETL 애플리케이션 흐름을 보여줍니다.
 
 ![Azure HDInsight에서 Apache Hive를 사용하여 ETL 작업](./media/hdinsight-analyze-flight-delay-data-linux/hdinsight-etl-architecture.png "Azure HDInsight에서 Apache Hive를 사용하여 ETL 작업")
 
@@ -76,7 +76,7 @@ HDInsight 클러스터와 연결된 저장소로 데이터를 업로드하는 �
 
     *FILENAME*을 .zip 파일의 이름으로 바꿉니다. *USERNAME*을 HDInsight 클러스터에 대한 SSH 로그인으로 바꿉니다. *CLUSTERNAME* 을 HDInsight 클러스터의 이름으로 바꿉니다.
 
-   > [!NOTE]
+   > [!NOTE]  
    > SSH 로그인을 인증하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. 공용 키를 사용하는 경우 `-i` 매개 변수를 사용하고 개인 키와 일치하는 경로를 지정합니다. 예: `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`
 
 2. 업로드를 완료한 후에 SSH를 사용하여 클러스터에 연결합니다. 명령 프롬프트에서 다음 명령을 입력합니다.
@@ -212,7 +212,7 @@ Hive 작업의 일부로 .csv 파일에서 **지연**이라는 Hive 테이블로
 
 ![Azure SQL 서버 세부 정보 가져오기](./media/hdinsight-analyze-flight-delay-data-linux/get-azure-sql-server-details.png "Azure SQL 서버 세부 정보 가져오기")
 
-> [!NOTE]
+> [!NOTE]  
 > 여러 가지 방법으로 SQL Database에 연결하고 테이블을 생성할 수 있습니다. 다음 단계는 HDInsight 클러스터의 [FreeTDS](http://www.freetds.org/)를 사용합니다.
 
 
@@ -325,13 +325,13 @@ HDInsight에서 데이터 사용에 대한 자세한 내용은 다음 문서를 
 
 
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 
-[rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
-[cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+[rita-website]: https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
+[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
@@ -346,4 +346,4 @@ HDInsight에서 데이터 사용에 대한 자세한 내용은 다음 문서를 
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx

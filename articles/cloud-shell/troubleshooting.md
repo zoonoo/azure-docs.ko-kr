@@ -64,7 +64,7 @@ Azure Cloud Shell의 문제 해결에 대해 알려진 해결 방법은 다음�
 
 ## <a name="powershell-troubleshooting"></a>PowerShell 문제 해결
 
-### <a name="gui-applications-are-not-supported"></a>GUI 응용 프로그램은 지원되지 않습니다.
+### <a name="gui-applications-are-not-supported"></a>GUI 애플리케이션은 지원되지 않습니다.
 
 - **세부 정보**: 사용자가 GUI 응용 프로그램을 시작하는 경우 프롬프트는 반환하지 않습니다. 예를 들어 사용자가 2단계 인증을 사용할 수 있는 개인 GitHub 리포지토리를 복제할 경우 2단계 인증을 완료하기 위한 대화 상자가 표시됩니다.
 - **해결 방법**: 셸을 닫고 다시 엽니다.

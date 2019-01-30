@@ -9,34 +9,34 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3c8e3b1186192d0d7c3fabb4e5a02cc4fcdf494d
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: de88fbc2960be452df0c9067dca3715d9f6febb0
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009796"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744040"
 ---
-# <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>HDInsight(PowerShell)의 Hadoop 및 Apache Mahout을 사용하여 영화 추천 생성
+# <a name="generate-movie-recommendations-by-using-apache-mahout-with-apache-hadoop-in-hdinsight-powershell"></a>HDInsight(PowerShell)의 Apache Hadoop 및 Apache Mahout을 사용하여 영화 추천 생성
 
 [!INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
-Azure HDInsight에서 [Apache Mahout](http://mahout.apache.org) 기계 학습 라이브러리를 사용하여 영화 추천을 생성하는 방법에 대해 알아봅니다. 이 문서의 예제는 Azure PowerShell을 사용하여 Mahout 작업을 실행합니다.
+Azure HDInsight에서 [Apache Mahout](https://mahout.apache.org) 기계 학습 라이브러리를 사용하여 영화 추천을 생성하는 방법에 대해 알아봅니다. 이 문서의 예제는 Azure PowerShell을 사용하여 Mahout 작업을 실행합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 * Linux 기반 HDInsight 클러스터입니다. HDInsight 클러스터 만들기에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 사용 시작][getstarted]을 참조하세요.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
 * [Azure PowerShell](/powershell/azure/overview)
 
 ## <a name="recommendations"></a>Azure PowerShell을 사용하여 추천 생성
 
-> [!WARNING]
+> [!WARNING]  
 > 이 섹션의 작업은 Azure PowerShell을 사용하여 실행합니다. Mahout에 제공되는 대부분의 클래스는 현재 Azure PowerShell에서 작동하지 않습니다. Azure PowerShell에서 작동하지 않는 클래스의 목록은 [문제 해결](#troubleshooting) 섹션을 참조하세요.
 >
-> SSH를 사용하여 HDInsight에 연결하고 클러스터에서 Mahout 예제를 직접 실행하는 예제의 경우 [Mahout 및 HDInsight (SSH)를 사용하여 영화 추천 생성](hadoop/apache-hadoop-mahout-linux-mac.md)을 참조하세요.
+> SSH를 사용하여 HDInsight에 연결하고 클러스터에서 Mahout 예제를 직접 실행하는 예제의 경우 [Apache Mahout 및 HDInsight(SSH)를 사용하여 영화 추천 생성](hadoop/apache-hadoop-mahout-linux-mac.md)을 참조하세요.
 
 Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔진은 `userID`, `itemId` 및 `prefValue`(항목에 대한 사용자 선호도) 형식의 데이터를 허용합니다. Mahout은 데이터를 사용하여 특정 품목에 대한 선호도를 가진 사용자를 결정합니다. 이 결과는 추천에 사용할 수 있습니다.
 
@@ -66,12 +66,12 @@ user-ratings.txt에 포함된 데이터의 구조는 `userID`, `movieID`, `userR
 
 다음 Windows PowerShell 스크립트를 사용하여 영화 데이터로 Mahout 추천 엔진을 사용하는 작업을 실행합니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 이 파일은 HDInsight 클러스터에 연결하고 작업을 실행하는 데 사용하는 정보를 안내합니다. 작업을 완료하고 output.txt 파일을 다운로드하는 데 몇 분이 걸립니다.
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=5-98)]
 
-> [!NOTE]
+> [!NOTE]  
 > Mahout 작업은 작업을 처리하는 동안 생성된 임시 데이터를 제거하지 않습니다. 이 `--tempDir` 매개 변수는 쉽게 삭제할 수 있도록 임시 파일을 특정 디렉터리로 분리하기 위해 예제 작업에서 지정되었습니다.
 
 Mahout 작업은 STDOUT로 출력을 반환하지 않습니다. 대신 지정된 출력 디렉터리에 **part-r-00000**으로 저장합니다. 이 스크립트는 이 파일을 워크스테이션의 현재 디렉터리에서 **output.txt** 에 다운로드합니다.
@@ -89,7 +89,7 @@ Mahout 작업은 STDOUT로 출력을 반환하지 않습니다. 대신 지정된
 
 ### <a name="view-the-output"></a>출력 보기
 
-생성된 출력을 응용 프로그램에서 사용할 수 있긴 하지만 사용자에게 친숙한 형식은 아닙니다. 서버의 `moviedb.txt`를 사용하여 영화 이름으로 `movieId`를 분석할 수 있습니다. 다음 PowerShell 스크립트를 사용하여 영화 이름과 함께 추천 항목을 표시합니다.
+생성된 출력을 애플리케이션에서 사용할 수 있긴 하지만 사용자에게 친숙한 형식은 아닙니다. 서버의 `moviedb.txt`를 사용하여 영화 이름으로 `movieId`를 분석할 수 있습니다. 다음 PowerShell 스크립트를 사용하여 영화 이름과 함께 추천 항목을 표시합니다.
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=106-180)]
 
@@ -202,24 +202,24 @@ Windows PowerShell에서 사용하는 경우 다음 클래스를 사용하는 Ma
 * org.apache.mahout.classifier.sequencelearning.hmm.RandomSequenceGenerator
 * org.apache.mahout.classifier.df.tools.Describe
 
-이러한 클래스를 사용하는 작업을 실행하려면 SSH를 사용하여 HDInsight 클러스터에 연결하고 명령줄에서 작업을 실행하세요. SSH를 사용하여 Mahout 작업을 실행하는 예제는 [Mahout 및 HDInsight(SSH)를 사용하여 영화 추천 생성](hadoop/apache-hadoop-mahout-linux-mac.md)을 참조하세요.
+이러한 클래스를 사용하는 작업을 실행하려면 SSH를 사용하여 HDInsight 클러스터에 연결하고 명령줄에서 작업을 실행하세요. SSH를 사용하여 Mahout 작업을 실행하는 예제는 [Apache Mahout 및 HDInsight(SSH)를 사용하여 영화 추천 생성](hadoop/apache-hadoop-mahout-linux-mac.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Mahout을 사용하는 방법을 배웠으므로 HDInsight에서 데이터로 작업하는 다른 방법을 검색합니다.
+이제 Apache Mahout을 사용하는 방법을 배웠으므로 HDInsight에서 데이터로 작업하는 다른 방법을 검색합니다.
 
-* [HDInsight에서 Hive 사용](hadoop/hdinsight-use-hive.md)
-* [HDInsight에서 Pig 사용](hadoop/hdinsight-use-pig.md)
+* [HDInsight의 Apache Hive](hadoop/hdinsight-use-hive.md)
+* [HDInsight의 Apache Pig](hadoop/hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
 
-[build]: http://mahout.apache.org/developers/buildingmahout.html
+[build]: https://mahout.apache.org/developers/buildingmahout.html
 [aps]: /powershell/azureps-cmdlets-docs
-[movielens]: http://grouplens.org/datasets/movielens/
-[100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
+[movielens]: https://grouplens.org/datasets/movielens/
+[100k]: https://files.grouplens.org/datasets/movielens/ml-100k.zip
 [getstarted]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [upload]: hdinsight-upload-data.md
-[ml]: http://en.wikipedia.org/wiki/Machine_learning
-[forest]: http://en.wikipedia.org/wiki/Random_forest
+[ml]: https://en.wikipedia.org/wiki/Machine_learning
+[forest]: https://en.wikipedia.org/wiki/Random_forest
 [enableremote]: ./media/hdinsight-mahout/enableremote.png
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png

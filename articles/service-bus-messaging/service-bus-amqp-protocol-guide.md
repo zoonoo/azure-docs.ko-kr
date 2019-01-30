@@ -3,23 +3,23 @@ title: Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0 | Mic
 description: Azure Service Bus 및 Event Hubs의 AMQP 1.0 식 및 설명에 대한 프로토콜 가이드
 services: service-bus-messaging,event-hubs
 documentationcenter: .net
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: clemensv
-ms.openlocfilehash: 0801e3a0e9217ab0855d09df8a054926b488d759
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 88f586fac4392e880efc3ef611a7c03177582bff
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821551"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856709"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0
 
@@ -35,7 +35,7 @@ AMQP 1.0은 금융 서비스 업계를 나타내는 많은 메시징 미들웨�
 
 일반적인 범용 AMQP 1.0 스택(예: Apache Proton 또는 AMQP.NET Lite)은 이미 모든 핵심 AMQP 1.0 프로토콜을 구현하고 있습니다. 이러한 기본적인 제스처는 상위 수준의 API로 래핑되기도 합니다. 그뿐 아니라 Apache Proton은 두 가지 명령적 Messenger API와 반응적 Reactor API를 모두 제공합니다.
 
-다음 논의에서는 AMQP 연결, 세션 및 링크의 관리와 프레임 전송 및 흐름 제어의 처리가 해당 스택(예: Apache Proton-C)에서 처리되며, 응용 프로그램 개발자의 많은 주의가 필요하지 않다고 가정합니다. 각각 `send()` 및 `receive()` 작업 모양을 갖는 특정 형식의 *발신자*와 *수신자* 추상화 개체를 만들고 연결하는 기능과 같은 몇 가지 API 기본형이 있다고 추상적으로 가정해보겠습니다.
+다음 논의에서는 AMQP 연결, 세션 및 링크의 관리와 프레임 전송 및 흐름 제어의 처리가 해당 스택(예: Apache Proton-C)에서 처리되며, 애플리케이션 개발자의 많은 주의가 필요하지 않다고 가정합니다. 각각 `send()` 및 `receive()` 작업 모양을 갖는 특정 형식의 *발신자*와 *수신자* 추상화 개체를 만들고 연결하는 기능과 같은 몇 가지 API 기본형이 있다고 추상적으로 가정해보겠습니다.
 
 메시지 찾아보기 또는 세션 관리와 같은 Azure Service Bus의 고급 기능을 설명할 때 AMQP 용어로 설명하기도 하지만 이와 같이 가정된 API 추상화를 기반으로 계층화된 의사 구현으로 설명하기도 합니다.
 
@@ -57,7 +57,7 @@ AMQP 작동 방식을 알기 위한 가장 신뢰할 수 있는 소스는 AMQP 1
 
 ### <a name="connections-and-sessions"></a>연결 및 세션
 
-AMQP는 통신하는 프로그램을 *컨테이너*라고 합니다. 여기에는 해당 컨테이너 내의 통신하는 엔터티인 *노드*가 포함됩니다. 큐는 이러한 노드가 될 수 있습니다. AMQP는 멀티플렉싱을 허용합니다. 따라서 노드 간의 많은 통신 경로에 대해 단일 연결을 사용할 수 있습니다. 예를 들어 응용 프로그램 클라이언트는 동일한 네트워크 연결을 통해 한 큐에서 수신하고 다른 큐로 전송하는 작업을 동시에 진행할 수 있습니다.
+AMQP는 통신하는 프로그램을 *컨테이너*라고 합니다. 여기에는 해당 컨테이너 내의 통신하는 엔터티인 *노드*가 포함됩니다. 큐는 이러한 노드가 될 수 있습니다. AMQP는 멀티플렉싱을 허용합니다. 따라서 노드 간의 많은 통신 경로에 대해 단일 연결을 사용할 수 있습니다. 예를 들어 애플리케이션 클라이언트는 동일한 네트워크 연결을 통해 한 큐에서 수신하고 다른 큐로 전송하는 작업을 동시에 진행할 수 있습니다.
 
 ![][1]
 
@@ -120,7 +120,7 @@ Service Bus는 링크 복구를 지원하지 않습니다. 클라이언트가 �
 
 ### <a name="flow-control"></a>흐름 제어
 
-앞서 설명한 세션 수준 흐름 제어 모델 외에, 각 링크에는 자체 흐름 제어 모델도 있습니다. 세션 수준 흐름 제어는 컨테이너가 한번에 너무 많은 프레임을 처리하지 못하게 하고, 링크 수준 흐름 제어는 링크에서 처리하려는 메시지 수 및 처리 시기가 응용 프로그램에서 자동으로 결정되도록 합니다.
+앞서 설명한 세션 수준 흐름 제어 모델 외에, 각 링크에는 자체 흐름 제어 모델도 있습니다. 세션 수준 흐름 제어는 컨테이너가 한번에 너무 많은 프레임을 처리하지 못하게 하고, 링크 수준 흐름 제어는 링크에서 처리하려는 메시지 수 및 처리 시기가 애플리케이션에서 자동으로 결정되도록 합니다.
 
 ![][4]
 
@@ -134,7 +134,7 @@ API 수준의 "수신" 호출은 클라이언트가 Service Bus로 보내는 *�
 
 전송이 최종 상태인 *수락됨*, *거부됨* 또는 *해제됨* 중 하나로 설정되면 메시지에 대한 잠금이 해제됩니다. 최종 상태가 *수락됨*이면 Service Bus에서 메시지가 제거됩니다. 해당 메시지는 Service Bus에 그대로 남아 있다가 전송이 다른 상태에 도달하면 다음 수신자에게 전달됩니다. Service Bus는 반복되는 거부 또는 해제로 인해 엔터티에 대해 허용되는 최대 배달 횟수에 도달하면 자동으로 메시지를 엔터티의 배달 못 한 편지 큐로 이동합니다.
 
-Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않지만, 하위 수준의 AMQP 프로토콜 클라이언트는 링크-크레딧 모델을 사용하여 대량의 링크 크레딧을 발행한 후 추가 상호 작용 없이 메시지를 사용할 수 있게 되면 메시지를 수신하여 각 수신 요청에 대해 크레딧 한 단위를 발행하는 "가져오기 스타일" 모델로 전환할 수 있습니다. [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PrefetchCount) 또는 [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) 속성 설정을 통한 가져오기가 지원됩니다. AMQP 클라이언트는 0이 아닌 크레딧을 링크 크레딧으로 사용합니다.
+Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않지만, 하위 수준의 AMQP 프로토콜 클라이언트는 링크-크레딧 모델을 사용하여 대량의 링크 크레딧을 발행한 후 추가 상호 작용 없이 메시지를 사용할 수 있게 되면 메시지를 수신하여 각 수신 요청에 대해 크레딧 한 단위를 발행하는 "가져오기 스타일" 모델로 전환할 수 있습니다. [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) 또는 [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) 속성 설정을 통한 가져오기가 지원됩니다. AMQP 클라이언트는 0이 아닌 크레딧을 링크 크레딧으로 사용합니다.
 
 이 컨텍스트에서 엔터티 내 메시지 잠금 만료에 대한 클록은 메시지가 유선으로 전송될 때가 아니라 메시지를 엔터티에서 가져올 때 시작된다는 것을 이해해야 합니다. 클라이언트가 링크 크레딧을 발행하여 메시지를 수신할 준비가 되었음을 나타낼 때마다 네트워크를 통해 메시지를 능동적으로 끌어와 처리할 준비가 된 것으로 간주됩니다. 그렇지 않으면 메시지 배달도 되기 전에 메시지 잠금이 만료될 수 있습니다. 링크 크레딧 흐름 제어를 사용하게 되면 수신자에게 발송된 사용 가능한 메시지를 처리할 준비가 되었는지를 바로 알 수 있습니다.
 
@@ -206,7 +206,7 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 
 다음 섹션에서는 Service Bus에서 사용되는 표준 AMQP 메시지 섹션의 속성과 이러한 속성이 어떤 Service Bus API 집합에 매핑되는지 설명합니다.
 
-응용 프로그램이 정의해야 하는 모든 속성은 AMQP의 `application-properties` 맵에 매핑되어야 합니다.
+애플리케이션이 정의해야 하는 모든 속성은 AMQP의 `application-properties` 맵에 매핑되어야 합니다.
 
 #### <a name="header"></a>머리글
 
@@ -222,19 +222,19 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 
 | 필드 이름 | 사용 현황 | API 이름 |
 | --- | --- | --- |
-| message-id |이 메시지에 대한 응용 프로그램 정의 자유 형식 식별자입니다. 중복 검색에 사용됩니다. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
-| user-id |Service Bus에서 해석되지 않는 응용 프로그램 정의 사용자 식별자입니다. |Service Bus API를 통해 액세스할 수 없습니다. |
-| to |Service Bus에서 해석되지 않는 응용 프로그램 정의 대상 식별자입니다. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
-| 제목 |Service Bus에서 해석되지 않는 응용 프로그램 정의 메시지 용도 식별자입니다. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
-| reply-to |Service Bus에서 해석되지 않는 응용 프로그램 정의 회산 경로 식별자입니다. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
-| correlation-id |Service Bus에서 해석되지 않는 응용 프로그램 정의 상관 관계 식별자입니다. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
-| content-type |Service Bus에서 해석되지 않는 본문에 대한 응용 프로그램 정의 콘텐츠 형식 지표입니다. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
-| content-encoding |Service Bus에서 해석되지 않는 본문에 대한 응용 프로그램 정의 콘텐츠 인코딩 지표입니다. |Service Bus API를 통해 액세스할 수 없습니다. |
+| message-id |이 메시지에 대한 애플리케이션 정의 자유 형식 식별자입니다. 중복 검색에 사용됩니다. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
+| user-id |Service Bus에서 해석되지 않는 애플리케이션 정의 사용자 식별자입니다. |Service Bus API를 통해 액세스할 수 없습니다. |
+| to |Service Bus에서 해석되지 않는 애플리케이션 정의 대상 식별자입니다. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
+| 제목 |Service Bus에서 해석되지 않는 애플리케이션 정의 메시지 용도 식별자입니다. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
+| reply-to |Service Bus에서 해석되지 않는 애플리케이션 정의 회산 경로 식별자입니다. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
+| correlation-id |Service Bus에서 해석되지 않는 애플리케이션 정의 상관 관계 식별자입니다. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| content-type |Service Bus에서 해석되지 않는 본문에 대한 애플리케이션 정의 콘텐츠 형식 지표입니다. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| content-encoding |Service Bus에서 해석되지 않는 본문에 대한 애플리케이션 정의 콘텐츠 인코딩 지표입니다. |Service Bus API를 통해 액세스할 수 없습니다. |
 | absolute-expiry-time |메시지가 만료되는 절대 인스턴트를 선언합니다. 입력 중에는 무시되고(헤더 TTL이 확인됨), 출력 중에는 신뢰할 수 있습니다. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
 | creation-time |메시지가 만들어진 시간을 선언합니다. Service Bus에서 사용되지 않습니다. |Service Bus API를 통해 액세스할 수 없습니다. |
-| group-id |관련된 메시지 집합에 대한 응용 프로그램 정의 식별자입니다. Service Bus 세션에 사용됩니다. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
+| group-id |관련된 메시지 집합에 대한 애플리케이션 정의 식별자입니다. Service Bus 세션에 사용됩니다. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
 | group-sequence |세션 내 메시지의 상대 시퀀스 번호를 식별하는 카운터입니다. Service Bus에서 무시됩니다. |Service Bus API를 통해 액세스할 수 없습니다. |
-| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
 #### <a name="message-annotations"></a>메시지 주석
 
@@ -243,8 +243,8 @@ AMQP 메시지 속성의 일부가 아니고, 메시지의 `MessageAnnotations`�
 | 주석 맵 키 | 사용 현황 | API 이름 |
 | --- | --- | --- |
 | x-opt-scheduled-enqueue-time | 메시지가 엔터티에 표시되어야 하는 시간을 선언합니다. |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
-| x-opt-partition-key | 메시지가 배치되어야 하는 파티션을 지정하는 응용 프로그램 정의 키입니다. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
-| x-opt-via-partition-key | 전송 큐를 통해 메시지를 전송하는 데 트랜잭션이 사용되어야 하는 경우의 응용 프로그램 정의 파티션 키 값입니다. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
+| x-opt-partition-key | 메시지가 배치되어야 하는 파티션을 지정하는 애플리케이션 정의 키입니다. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
+| x-opt-via-partition-key | 전송 큐를 통해 메시지를 전송하는 데 트랜잭션이 사용되어야 하는 경우의 애플리케이션 정의 파티션 키 값입니다. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
 | x-opt-enqueued-time | 메시지를 큐에 넣는 데 걸리는 실제 시간을 나타내는 서비스 정의 UTC 시간입니다. 입력 시 무시됩니다. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
 | x-opt-sequence-number | 메시지에 할당되는 서비스 정의 고유 번호입니다. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
 | x-opt-offset | 메시지의 큐에 넣은 서비스 정의 시퀀스 번호입니다. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber?view=azure-dotnet) |
@@ -336,7 +336,7 @@ AMQP 관리 사양은 이 문서에서 설명하는 초안 확장 중 첫 번째
 
 이 패턴은 클라이언트 컨테이너 및 회신 대상에 대해 클라이언트에서 생성한 식별자가 모든 클라이언트에서 고유하며, 보안상의 이유로 예측하기 어려워야 함을 명확히 요구합니다.
 
-관리 프로토콜 및 동일한 패턴을 사용하는 다른 모든 프로토콜에 사용되는 메시지 교환은 응용 프로그램 수준에서 발생합니다. 또한 새로운 AMQP 프로토콜 수준 제스처를 정의하지 않습니다. 이러한 방식은 응용 프로그램이 호환 AMQP 1.0 스택에서 이러한 확장을 즉시 활용할 수 있도록 하기 위해 의도된 것입니다.
+관리 프로토콜 및 동일한 패턴을 사용하는 다른 모든 프로토콜에 사용되는 메시지 교환은 애플리케이션 수준에서 발생합니다. 또한 새로운 AMQP 프로토콜 수준 제스처를 정의하지 않습니다. 이러한 방식은 애플리케이션이 호환 AMQP 1.0 스택에서 이러한 확장을 즉시 활용할 수 있도록 하기 위해 의도된 것입니다.
 
 Service Bus는 현재 관리 사양의 어떤 핵심 기능도 구현하지 않지만 관리 사양이 정의하는 요청/응답 패턴은 클레임 기반 보안 기능 및 다음 섹션에서 다룰 고급 기능 대부분의 토대가 됩니다.
 
@@ -351,20 +351,20 @@ AMQP의 SASL 통합에는 다음과 같은 두 가지 단점이 있습니다.
 * 모든 자격 증명 및 토큰 범위가 해당 연결로 지정됩니다. 메시지 인프라에서 엔터티 기준으로 차별화된 액세스 제어를 제공하려고 할 수 있습니다. 예를 들어 토큰의 전달자가 큐 A로 전송하는 것은 허용하지만 큐 B로는 전송하지 못하게 할 수 있습니다. 연결에 권한 부여 컨텍스트가 고정되면 단일 연결을 사용할 수 없지만 큐 A 및 큐 B에 대해 다른 액세스 토큰을 사용할 수 있습니다.
 * 액세스 토큰은 일반적으로 제한된 시간 동안만 유효합니다. 이 유효성 때문에 사용자는 주기적으로 토큰을 다시 획득해야 하며, 사용자 권한이 변경될 경우 토큰 발급자가 새 토큰 발행을 거부할 기회가 부여됩니다. AMQP 연결은 매우 긴 시간 동안 지속될 수 있습니다. SASL 모델은 연결 시에만 토큰을 설정할 기회를 제공합니다. 즉, 토큰이 만료되거나 액세스 권한이 임시로 취소되었을 수 있는 클라이언트와의 통신을 지속하는 것이 위험할 수 있는 경우 메시징 인프라는 클라이언트와의 연결을 끊어야 합니다.
 
-Service Bus에 의해 구현되는 AMQP CBS 사양은 이러한 문제에 대해 적합한 해결 방법을 제공합니다. 클라이언트가 액세스 토큰을 각 노드에 연결하고, 만료되기 전에 해당 토큰을 업데이트할 수 있도록 하여 메시지 흐름이 중단되지 않도록 합니다.
+Service Bus에 의해 구현되는 AMQP CBS 사양은 이러한 문제에 대한 적합한 해결 방법을 활성화합니다. 클라이언트는 각 노드로 액세스 토큰을 연결하고, 메시지 흐름을 방해하지 않고 만료되기 전에 해당 토큰을 업데이트할 수 있습니다.
 
 CBS는 *$cbs*라는 가상 관리 노드가 메시징 인프라에 의해 제공되도록 정의합니다. 관리 노드는 메시징 인프라의 다른 노드를 대신하여 토큰을 수락합니다.
 
 프로토콜 제스처는 관리 사양에 정의되는 요청/회신 교환입니다. 즉, 클라이언트는 *$cbs* 노드와의 링크 쌍을 설정한 다음, 아웃바운드 링크에 요청을 전달하고 인바운드 링크에서 응답을 기다립니다.
 
-요청 메시지에는 다음과 같은 응용 프로그램 속성이 적용됩니다.
+요청 메시지에는 다음과 같은 애플리케이션 속성이 적용됩니다.
 
 | 키 | 옵션 | 값 형식 | 값 내용 |
 | --- | --- | --- | --- |
 | operation |아니요 |string |**put-token** |
 | 형식 |아니요 |string |배치되는 토큰의 형식입니다. |
 | 이름 |아니요 |string |토큰이 적용되는 "대상"입니다. |
-| expiration |yes |timestamp |토큰의 만료 시간입니다. |
+| expiration |예 |timestamp |토큰의 만료 시간입니다. |
 
 *name* 속성은 토큰이 연결되어야 하는 엔터티를 식별합니다. Service Bus에서 큐 또는 토픽/구독에 대한 경로에 해당합니다. *type* 속성은 토큰 형식을 식별합니다.
 
@@ -376,12 +376,12 @@ CBS는 *$cbs*라는 가상 관리 노드가 메시징 인프라에 의해 제공
 
 토큰은 권한을 부여합니다. Service Bus는 다음 세 가지 기본 권한을 알고 있습니다. "전송"은 전송을 가능하게 하고, "수신"은 수신을 가능하게 하고, "메시지"는 엔터티 조작을 가능하게 합니다. 명시적으로 AAD/ACS에서 발급한 SWT 토큰에는 이러한 권한이 클레임으로 포함되어 있습니다. Service Bus SAS 토큰은 네임스페이스 또는 엔터티에 구성된 규칙을 참조하며, 이러한 규칙은 권한으로 구성됩니다. 해당 규칙과 연결된 키를 사용하여 토큰에 서명하면 토큰이 해당 권한을 나타냅니다. *put-token*을 사용하여 엔터티와 연결된 토큰은 연결된 클라이언트가 토큰 권한에 따라 엔터티와 상호 작용하는 것을 허용합니다. 클라이언트가 *발신자* 역할을 맡고 있는 링크에는 "전송" 권한이 필요하고, *수신자* 역할을 맡고 있는 링크에는 "수신" 권한이 필요합니다.
 
-회신 메시지는 다음과 같은 *응용 프로그램 속성* 값을 갖습니다.
+회신 메시지는 다음과 같은 *애플리케이션 속성* 값을 갖습니다.
 
 | 키 | 옵션 | 값 형식 | 값 내용 |
 | --- | --- | --- | --- |
 | status-code |아니요 |int |HTTP 응답 코드 **[RFC2616]** |
-| status-description |yes |string |상태에 대한 설명입니다. |
+| status-description |예 |string |상태에 대한 설명입니다. |
 
 클라이언트는 메시징 인프라의 모든 엔터티에 대해 반복적으로 *put-token*을 호출할 수 있습니다. 토큰은 현재 클라이언트로 범위가 지정되며 현재 연결에 고정됩니다. 즉, 연결이 삭제되면 서버는 보유된 토큰을 모두 삭제합니다.
 

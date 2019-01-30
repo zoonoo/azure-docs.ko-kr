@@ -12,27 +12,26 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
-ms.openlocfilehash: e92bcd412071d1a991a0bd3ec7b28df9f509c54c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 35b728793b81c41f0a81c5c7621b9e17edf1f22a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250889"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994668"
 ---
 # <a name="output-metadata"></a>출력 메타데이터
 ## <a name="overview"></a>개요
 인코딩 작업은 일부 인코딩 태스크를 수행할 입력 자산(또는 자산)과 연결됩니다. 예를 들어 MP4 파일을 H.264 MP4 적응 비트 전송률 집합으로 인코딩하며, 미리 보기 이미지와 오버레이를 만듭니다. 태스크가 완료되는 즉시 출력 자산이 생성됩니다.  출력 자산에는 비디오, 오디오, 미리 보기 등이 포함됩니다. 출력 자산에는 출력된 자산에 대한 메타데이터가 있는 파일도 포함됩니다. 메타데이터 XML 파일의 이름은 &lt;source_file_name&gt;_manifest.xml 형식입니다(예: BigBuckBunny_manifest.xml).  
 
+Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 자산을 검사하지 않습니다. 입력 자산이 작업에서 처리되는 경우 입력 메타데이터는 아티팩트로만 생성됩니다. 따라서 이 아티팩트는 출력 자산에 기록됩니다. 다른 도구는 입력 자산 및 출력 자산에 대한 메타데이터를 생성하는 데 사용됩니다. 따라서 입력 메타데이터는 출력 메타데이터와 스키마가 약간 다를 수 있습니다.
+
 메타데이터 파일을 검사하려는 경우 **SAS** 로케이터를 만들어 로컬 컴퓨터에 파일을 다운로드할 수 있습니다.  
 
 이 문서에서는 출력 메타데이터(&lt;source_file_name&gt;_manifest.xml)의 기초가 되는 XML 스키마의 요소 및 형식에 대해 설명합니다. 입력 자산에 대한 메타데이터가 포함된 파일에 대한 자세한 내용은 [입력 메타데이터](media-services-input-metadata-schema.md)를 참조하세요.  
 
-> [!NOTE]
-> 스키마 코드 및 XML 예제는 이 문서의 끝에 있습니다.  
->
->
+스키마 코드 및 XML 예제는 이 문서의 끝에 있습니다.  
 
 ## <a name="AssetFiles "></a> AssetFiles 루트 요소
 인코딩 작업에 대한 AssetFile 항목의 컬렉션입니다.  
@@ -97,7 +96,7 @@ ms.locfileid: "50250889"
 ### <a name="attributes"></a>특성
 | 이름 | type | 설명 |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |이 비디오 트랙의 0 기준 인덱스입니다. **참고:** 이 **ID**가 반드시 MP4 파일에 사용되는 TrackID일 필요는 없습니다. |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |이 비디오 트랙의 0 기준 인덱스입니다. **참고:**  이 **ID**가 반드시 MP4 파일에 사용되는 TrackID일 필요는 없습니다. |
 | **FourCC**<br/><br/> 필수 |**xs:string** |비디오 코덱 FourCC 코드입니다. |
 | **프로필** |**xs:string** |H264 프로파일입니다(H264 코덱에만 적용). |
 | **Level** |**xs:string** |H264 수준입니다(H264 코덱에만 적용). |
@@ -129,7 +128,7 @@ ms.locfileid: "50250889"
 ### <a name="attributes"></a>특성
 | 이름 | type | 설명 |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |이 오디오 트랙의 0 기준 인덱스입니다. **참고:** 반드시 MP4 파일에 사용되는 TrackID일 필요는 없습니다. |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |이 오디오 트랙의 0 기준 인덱스입니다. **참고:**  반드시 MP4 파일에 사용되는 TrackID일 필요는 없습니다. |
 | **Codec** |**xs:string** |오디오 트랙 코덱 문자열입니다. |
 | **EncoderVersion** |**xs:string** |EAC3에 필요한 선택적 인코더 버전 문자열입니다. |
 | **Channels**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |오디오 채널 수입니다. |

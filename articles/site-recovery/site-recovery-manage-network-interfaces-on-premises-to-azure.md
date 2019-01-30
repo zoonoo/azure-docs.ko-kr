@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: afa8dfc39177e3f15db0092691d910b6b2cd3764
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e5757cee2238f44706194da5247da7d4721762f3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212457"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837582"
 ---
 # <a name="manage-virtual-machine-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>온-프레미스와 Azure 간 재해 복구를 위한 가상 머신 네트워크 인터페이스 관리
 Azure의 VM(가상 머신)에는 하나 이상의 네트워크 인터페이스가 연결되어 있어야 합니다. 네트워크 인터페이스 수는 VM 크기에서 지원되는 수만큼 연결할 수 있습니다.

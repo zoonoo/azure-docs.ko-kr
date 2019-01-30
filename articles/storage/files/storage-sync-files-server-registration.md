@@ -8,17 +8,19 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 1aa1bd085a312e379dc996a860c7f97b2e0dfe73
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: a296576d3d7983b710727923043091f5660b693d
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918879"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002555"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Azure 파일 동기화에 등록된 서버 관리
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
 
 다음 문서에서는 저장소 동기화 서비스를 사용하여 서버를 등록하고 관리하는 방법을 보여 줍니다. 종단 간 Azure 파일 동기화를 배포하는 방법에 대한 자세한 내용은 [Azure 파일 동기화를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>저장소 동기화 서비스로 서버 등록/등록 취소
 Azure 파일 동기화를 사용하여 서버를 등록하면 Windows Server와 Azure 간에 트러스트 관계가 설정됩니다. 그런 다음 이 관계를 사용하여 Azure 파일 공유(*클라우드 엔드포인트*라고도 함)와 동기화해야 하는 특정 폴더를 나타내는 *서버 엔드포인트*를 서버에 만들 수 있습니다. 
@@ -33,10 +35,10 @@ Azure 파일 동기화를 사용하여 서버를 등록하면 Windows Server와 
     
     ![IE 고급 보안 구성이 강조 표시된 서버 관리자 UI](media/storage-sync-files-server-registration/server-manager-ie-config.png)
 
-* AzureRM PowerShell 모듈이 서버에 설치되어 있는지 확인합니다. 서버가 장애 조치(failover) 클러스터의 멤버인 경우 클러스터의 모든 노드에 AzureRM 모듈이 필요합니다. AzureRM 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)을 참조하세요.
+* Azure PowerShell 모듈이 서버에 설치되어 있는지 확인합니다. 서버가 장애 조치(failover) 클러스터의 멤버인 경우 클러스터의 모든 노드에 Az 모듈이 필요합니다. Az 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-Az-ps)을 참조하세요.
 
     > [!Note]  
-    > 최신 버전의 AzureRM PowerShell 모듈을 사용하여 서버를 등록/등록 취소하는 것이 좋습니다. AzureRM 패키지가 이전에 이 서버에 설치되었고 이 서버의 PowerShell 버전이 5.* 이상인 경우 `Update-Module` cmdlet을 사용하여 이 패키지를 업데이트할 수 있습니다. 
+    > 최신 버전의 Az PowerShell 모듈을 사용하여 서버를 등록/등록 취소하는 것이 좋습니다. Az 패키지가 이전에 이 서버에 설치되었고 이 서버의 PowerShell 버전이 5.* 이상인 경우 `Update-Module` cmdlet을 사용하여 이 패키지를 업데이트할 수 있습니다. 
 * 사용자 환경에서 네트워크 프록시 서버를 사용하는 경우 활용할 동기화 에이전트에 대한 서버에서 프록시 설정을 구성합니다.
     1. 프록시 IP 주소 및 포트 번호 결정
     2. 다음 두 파일을 편집합니다.
@@ -135,8 +137,8 @@ Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 
-$accountInfo = Connect-AzureRmAccount
-Login-AzureRmStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
+$accountInfo = Connect-AzAccount
+Login-AzStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
 
 $StorageSyncService = "<your-storage-sync-service>"
 

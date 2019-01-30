@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 1/10/2019
 ms.author: v-gedod
-ms.openlocfilehash: a8f7ccdb199f934011b6d64d813eb36cc9dff952
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 1d8a46287d2b84735ffb6d5159346cb9b8243472
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804551"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264003"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Bing News Search API에 대한 언어 및 지역 지원
 
@@ -47,7 +47,7 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |뉴질랜드|영어|en-NZ|
 |필리핀|영어|en-PH|
 |싱가포르|영어|en-SG|
-|미국|영어|ko-KR|
+|미국|영어|en-US|
 |영어|일반|en-WW|
 |영어|일반|en-XA|
 |남아프리카|영어|en-ZA|
@@ -67,7 +67,7 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |홍콩 특별 행정구|중국어 번체|zh-HK|  
 |대만|중국어 번체|zh-TW|
 |일본|일본어|ja-JP|  
-|한국|한국어|ko-KR|  
+|한국|한국어|en-US|  
 |네덜란드|네덜란드어|nl-NL|  
 |중국|중국어|zh-CN|  
 |브라질|포르투갈어|pt-BR|
@@ -86,7 +86,7 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |독일|독일어|de-DE|
 |오스트레일리아|영어|en-AU|
 |영국|영어|en-GB|
-|미국|영어|ko-KR|
+|미국|영어|en-US|
 |영어|일반|en-WW|
 |칠레|스페인어|es-CL|
 |멕시코|스페인어|es-MX|
@@ -108,7 +108,7 @@ Bing News Search API는 다양한 국가/지역을 지원하며, 이 중에는 �
 |독일|독일어|de-DE|
 |오스트레일리아|영어|en-AU|
 |영국|영어|en-GB|
-|미국|영어|ko-KR|
+|미국|영어|en-US|
 |캐나다|영어|en-CA|
 |인도|영어|en-IN|
 |프랑스|프랑스어|fr-FR|

@@ -1,25 +1,25 @@
 ---
-title: Azure Active Directory에서 최근에 삭제된 사용자를 복원하거나 영구적으로 제거하는 방법 | Microsoft Docs
-description: Azure Active Directory에서 복원 가능한 사용자를 보거나, 삭제된 사용자를 복원하거나, 영구적으로 사용자를 삭제하는 방법을 알아봅니다.
+title: 최근에 삭제된 사용자 복원 또는 영구 제거 - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory를 사용하여 복원 가능한 사용자를 보거나, 삭제된 사용자를 복원하거나, 사용자를 영구적으로 삭제하는 방법.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 12/17/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: 88d3c672cd072cd4b252f7ce4ede3a4c7b13a7db
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 995a6a9da637c23663c51fe2f4b175741f5849b6
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736175"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450325"
 ---
-# <a name="how-to-restore-or-permanently-remove-a-recently-deleted-user-with-azure-active-directory"></a>방법: Azure Active Directory에서 최근에 삭제된 사용자를 복원하거나 영구적으로 제거
+# <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Azure Active Directory를 사용하여 최근에 삭제된 사용자를 복원하거나 제거
 사용자를 삭제하면 30일 동안 계정이 일시 중단된 상태로 유지됩니다. 30일이라는 기간 동안 사용자는 모든 속성과 함께 계정을 복원할 수 있습니다. 30일이라는 기간이 지나면 사용자가 자동으로 영구적으로 삭제됩니다.
 
 Azure Portal에서 Azure AD(Azure Active Directory)를 사용하여 복원 가능한 사용자를 보거나, 삭제된 사용자를 복원하거나, 사용자를 영구적으로 삭제할 수 있습니다.
@@ -54,7 +54,7 @@ Azure Portal에서 Azure AD(Azure Active Directory)를 사용하여 복원 가�
 사용자의 계정이 일시 중단된 동안 관련된 모든 디렉터리 정보가 유지됩니다. 사용자를 복원할 때 이 디렉터리 정보도 복원됩니다.
 
 ### <a name="to-restore-a-user"></a>사용자를 복원하려면
-1. **사용자 - 삭제된 사용자** 페이지에서 사용할 수 있는 사용자 중 하나를 검색하고 선택합니다. _Mary Parker_를 예를 들겠습니다.
+1. **사용자 - 삭제된 사용자** 페이지에서 사용할 수 있는 사용자 중 하나를 검색하고 선택합니다. 예를 들어, _Mary Parker_입니다.
 
 2. **사용자 복원**을 선택합니다.
 

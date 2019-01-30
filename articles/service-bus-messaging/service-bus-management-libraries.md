@@ -3,9 +3,9 @@ title: Azure Service Bus 관리 라이브러리 | Microsoft Docs
 description: .NET에서 Service Bus 네임스페이스 및 메시징 엔터티 관리
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/05/2018
-ms.author: spelluru
-ms.openlocfilehash: b7f63ac8a52da4898abb3d30b71f3ee3a3e1a4b3
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: d6c2cd813e96b40fc9f95785a1fd28e324a0437b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394695"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850971"
 ---
 # <a name="service-bus-management-libraries"></a>Service Bus 관리 라이브러리
 
@@ -36,7 +36,7 @@ Azure Service Bus 관리 라이브러리는 Service Bus 네임스페이스 및 �
 
 Service Bus 관리 라이브러리 사용을 시작하려면 Azure AD(Azure Active Directory) 서비스로 인증해야 합니다. Azure AD를 사용하려면 Azure 리소스에 대한 액세스를 제공하는 서비스 주체로 인증해야 합니다. 서비스 주체 만들기에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.  
 
-* [Azure Portal을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Azure Portal을 사용하여 리소스에 액세스할 수 있는 Active Directory 애플리케이션 및 서비스 주체 만들기](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 * [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
 * [Azure CLI를 사용하여 리소스에 액세스하는 서비스 주체 만들기](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 

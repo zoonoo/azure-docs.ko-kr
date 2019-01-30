@@ -4,7 +4,7 @@ description: 이 항목에서는 LocalDB 10GB 제한 문제가 발생한 경우 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 41d081af-ed89-4e17-be34-14f7e80ae358
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 410559ab03f0e0be71f2eba27ed71c9f7cf05862
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 445137d268650f71bdc4d64342bc23d2b6da6daa
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238542"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474672"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: LocalDB 10GB 제한에서 복구하는 방법
 Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. Azure AD connect로 설치된 기본 SQL Server 2012 Express LocalDB를 사용하거나 사용자 고유의 전체 SQL을 사용할 수 있습니다. SQL Server Express는 10GB 크기 제한을 적용합니다. LocalDB를 사용하고 이 제한에 도달하는 경우 Azure AD Connect 동기화 서비스는 더 이상 제대로 시작하거나 동기화할 수 없습니다. 이 문서에서는 복구 단계를 제공합니다.
@@ -100,7 +100,7 @@ Azure AD Connect에 대해 만든 데이터베이스의 이름은 **ADSync**입�
 ## <a name="long-term-solution--migrate-to-full-sql"></a>장기 솔루션 – 전체 SQL로 마이그레이션
 일반적으로 문제는 Azure AD Connect가 온-프레미스 Active Directory를 Azure AD로 동기화하는 데 10GB의 데이터베이스 크기는 더 이상 충분하지 않다는 것을 나타냅니다. SQL 서버의 전체 버전을 사용하도록 전환하는 것이 좋습니다. 기존 Azure AD Connect 배포의 LocalDB를 정식 버전의 SQL 데이터베이스와 직접 바꿀 수 없습니다. 대신 SQL의 정식 버전으로 새 Azure AD Connect 서버를 배포해야 합니다. 새 Azure AD Connect 서버(SQL DB로)가 기존 Azure AD Connect 서버(LocalDB로) 옆의 스테이징 서버로 배포되는 스윙 마이그레이션을 수행하는 것이 좋습니다. 
 * Azure AD Connect로 원격 SQL을 구성하는 방법에 대한 지침은 [Azure AD Connect의 사용자 지정 설치](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom) 문서를 참조하세요.
-* Azure AD Connect 업그레이드를 위한 스윙 마이그레이션에 대한 지침은 [Azure AD Connect:이전 버전에서 최신 버전으로 업그레이드](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration) 문서를 참조하세요.
+* Azure AD Connect 업그레이드를 위한 스윙 마이그레이션에 대한 지침은 [Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에 대해 자세히 알아봅니다.

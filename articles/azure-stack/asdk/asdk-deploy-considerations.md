@@ -12,15 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/12/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 10ae943711fcd7516b0fdbe982fd5d9e09227bdc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.lastreviewed: 12/12/2018
+ms.openlocfilehash: f874be6081a1ea01ecf616c9b97db878554d441c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864981"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242419"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack 배포의 계획 고려 사항
 Azure Stack 개발 키트 (ASDK)를 배포 하기 전에 개발 키트 호스트 컴퓨터에는이 문서에 설명 된 요구 사항을 충족 해야 합니다.
@@ -29,12 +30,12 @@ Azure Stack 개발 키트 (ASDK)를 배포 하기 전에 개발 키트 호스트
 ## <a name="hardware"></a>하드웨어
 | 구성 요소 | 최소 | 권장 |
 | --- | --- | --- |
-| 디스크 드라이브: 운영 체제 |시스템 파티션에 사용할 수 있는 최소 200GB의 운영 체제 디스크 1개(SSD 또는 HDD) |시스템 파티션에 사용할 수 있는 최소 200GB의 운영 체제 디스크 1개(SSD 또는 HDD) |
-| 디스크 드라이브: 일반 개발 키트 데이터<sup>*</sup>  |4개의 디스크. 각 디스크는 최소 140GB의 용량을 제공합니다(SSD 또는 HDD). 사용 가능한 모든 디스크 사용 됩니다. |4개의 디스크. 각 디스크는 최소 250GB의 용량 (SSD 또는 HDD)를 제공합니다. 사용 가능한 모든 디스크 사용 됩니다. |
-| Compute: CPU |듀얼 소켓: 12 실제 코어 수 (합계) |듀얼 소켓: 16 실제 코어 수 (합계) |
-| Compute: 메모리 |96GB RAM |128GB RAM (PaaS 리소스 공급자를 지원 하기 위해 최소입니다.)|
-| Compute: BIOS |Hyper-V 사용(SLAT 지원) |Hyper-V 사용(SLAT 지원) |
-| 네트워크: NIC |NIC에 필요한 Windows Server 2012 R2 인증; 특수 기능 필요 없음 |NIC에 필요한 Windows Server 2012 R2 인증; 특수 기능 필요 없음 |
+| 디스크 드라이브: 운영 체제 |200GB 시스템 파티션 (SSD 또는 HDD)에 사용할 수 있는 최소 운영 체제 디스크 1 |시스템 파티션에 사용할 수 있는 최소 200GB의 운영 체제 디스크 1개(SSD 또는 HDD) |
+| 디스크 드라이브: 일반 개발 키트 데이터<sup>*</sup>  |4개의 디스크. 각 디스크 (SSD 또는 HDD) 용량의 240GB의 최소를 제공합니다. 사용 가능한 모든 디스크 사용 됩니다. |4개의 디스크. 각 디스크 (SSD 또는 HDD) 용량의 400GB의 최소를 제공합니다. 사용 가능한 모든 디스크 사용 됩니다. |
+| 계산: CPU |듀얼 소켓: 16 실제 코어 (합계) |듀얼 소켓: 20 개의 실제 코어 (합계) |
+| 계산: 메모리 |192 GB RAM |256GB RAM |
+| 계산: BIOS |Hyper-V 사용(SLAT 지원) |Hyper-V 사용(SLAT 지원) |
+| 네트워크: NIC |Windows Server 2012 R2 인증 합니다. 특수 기능 필요 없음 |Windows Server 2012 R2 인증 합니다. 특수 기능 필요 없음 |
 | HW 로고 인증 |[Windows Server 2012 R2에 대한 인증](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Windows Server 2016에 대 한 인증](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup> 다양 한 추가 하려는 경우이 권장 용량 보다 더 필요한 합니다 [마켓플레이스 항목](asdk-marketplace-item.md) Azure에서.
@@ -59,7 +60,7 @@ Azure Stack 개발 키트 (ASDK)를 배포 하기 전에 개발 키트 호스트
 
 <sup>*</sup> 통과 기능 없이 RAID 컨트롤러는 미디어 유형을 인식할 수 없습니다. 이러한 컨트롤러 않음으로 SSD와 HDD를 표시합니다. 이 경우 SSD는 캐싱 장치 대신 영구적 저장소로 사용 됩니다. 따라서 이러한 Ssd에 개발 키트를 배포할 수 있습니다.
 
-**예제 HBA**: LSI 9207 8i, LSI-9300-8i 또는 LSI-9265-8i 통과 모드
+**예제 Hba**: LSI 9207 8i, LSI-9300-8i, LSI-9265-8i 통과 모드로
 
 샘플 OEM 구성을 사용할 수 있습니다.
 
@@ -82,7 +83,7 @@ AD FS 옵션을 사용 하 여 배포 하는 경우 Azure AD로 전환 하려면
 ### <a name="azure-active-directory-accounts"></a>Azure Active Directory 계정
 Azure AD 계정을 사용 하 여 Azure Stack을 배포 하려면 배포 PowerShell 스크립트를 실행 하기 전에 Azure AD 계정을 준비 해야 합니다. 이 계정이 Azure AD 테 넌 트에 대 한 전역 관리자가 됩니다. 프로 비전 하 고 응용 프로그램 및 Azure Active Directory Graph API와 상호 작용 하는 모든 Azure Stack 서비스에 대 한 서비스 주체를 위임 하는 것이 됩니다. (나중에 변경할 수 있습니다)는 기본 공급자 구독 소유자로 사용 됩니다. 이 계정을 사용 하 여 Azure Stack 시스템의 관리자 포털에 로그인 수 있습니다.
 
-1. 하나 이상의 Azure ad 디렉터리 관리자는 Azure AD 계정을 만듭니다. 이미 있는 경우 하나를 사용할 수 있습니다. 그렇지 않은 경우에 만들 수 있습니다 하나 무료로 [ https://azure.microsoft.com/free/ ](https://azure.microsoft.com/pricing/free/) (중국에서 방문 <http://go.microsoft.com/fwlink/?LinkID=717821> 대신). 나중에 계획 하는 경우 [Azure를 사용 하 여 Azure Stack 등록](asdk-register.md), 새로 만든 계정에 구독이 있어야 합니다.
+1. 하나 이상의 Azure ad 디렉터리 관리자는 Azure AD 계정을 만듭니다. 이미 있는 경우 하나를 사용할 수 있습니다. 그렇지 않은 경우에 만들 수 있습니다 하나 무료로 [ https://azure.microsoft.com/free/ ](https://azure.microsoft.com/pricing/free/) (중국에서 방문 <https://go.microsoft.com/fwlink/?LinkID=717821> 대신). 나중에 계획 하는 경우 [Azure를 사용 하 여 Azure Stack 등록](asdk-register.md), 새로 만든 계정에 구독이 있어야 합니다.
    
     서비스 관리자로 사용 하기 위해 이러한 자격 증명을 저장 합니다. 이 계정을 구성 하 고 리소스 클라우드, 사용자 계정, 테 넌 트 계획, 할당량 및 가격 책정을 관리할 수 있습니다. 포털에서 웹 사이트 클라우드, 가상 컴퓨터 개인 클라우드 및 계획을 만들고 사용자 구독을 관리할 수 있습니다.
 1. 개발 키트 테 넌 트에 로그인 할 수 있도록 Azure AD에서 사용자 계정을 하나 이상의 테스트를 만듭니다.

@@ -2,18 +2,18 @@
 title: Azure Cosmos DB에서 변경 피드 프로세서 라이브러리 사용
 description: Azure Cosmos DB 변경 피드 프로세서 라이브러리 사용.
 author: rafats
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rafats
-ms.openlocfilehash: 9d427a8001112e4994597b86579d85156f94a870
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.reviewer: sngun
+ms.openlocfilehash: 35577f103979bf5f767e3b9d42548ed488e365c8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628902"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041903"
 ---
 # <a name="using-the-azure-cosmos-db-change-feed-processor-library"></a>Azure Cosmos DB 변경 피드 프로세서 라이브러리 사용
 

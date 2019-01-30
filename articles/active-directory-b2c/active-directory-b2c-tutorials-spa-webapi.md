@@ -3,19 +3,19 @@ title: 자습서 - Azure Active Directory B2C를 사용하여 단일 페이지 �
 description: Active Directory B2C를 사용하여 .NET Core Web api를 보호하고 단일 페이지 앱에서 호출하는 방법에 대한 자습서입니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
 ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: efe975fa4f89a262faef82df3cc79820d393b60e
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 4a1787f0a6d222f91eefd6f96e265ba825ca9e82
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605762"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848100"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 단일 페이지 앱에서 ASP.NET Core Web API로의 액세스 권한 부여
 
@@ -33,14 +33,14 @@ ms.locfileid: "45605762"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [단일 페이지 응용 프로그램에서 Azure Active Directory B2C를 사용하여 사용자 인증 자습서](active-directory-b2c-tutorials-spa.md)를 완료합니다.
+* [단일 페이지 애플리케이션에서 Azure Active Directory B2C를 사용하여 사용자 인증 자습서](active-directory-b2c-tutorials-spa.md)를 완료합니다.
 * **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2017](https://www.visualstudio.com/downloads/)을 설치합니다.
 * [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) 이상
 * [Node.js](https://nodejs.org/en/download/)
 
 ## <a name="register-web-api"></a>웹 API 등록
 
-Azure Active Directory에서 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)을 제공하는 [클라이언트 응용 프로그램](../active-directory/develop/developer-glossary.md#client-application)을 통해 [보호된 리소스 요청](../active-directory/develop/developer-glossary.md#resource-server)을 수락하고 이에 응답하려면, 먼저 웹 API 리소스를 테넌트에 등록해야 합니다. 등록하면 [응용 프로그램 및 서비스 사용자 개체](../active-directory/develop/developer-glossary.md#application-object)가 테넌트에 설정됩니다. 
+Azure Active Directory에서 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)을 제공하는 [클라이언트 애플리케이션](../active-directory/develop/developer-glossary.md#client-application)을 통해 [보호된 리소스 요청](../active-directory/develop/developer-glossary.md#resource-server)을 수락하고 이에 응답하려면, 먼저 웹 API 리소스를 테넌트에 등록해야 합니다. 등록하면 [응용 프로그램 및 서비스 사용자 개체](../active-directory/develop/developer-glossary.md#application-object)가 테넌트에 설정됩니다. 
 
 Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -71,7 +71,7 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
 
 **응용 프로그램 클라이언트 ID**를 적어 둡니다. ID는 API를 고유하게 식별하며 자습서의 뒷부분에서 API를 구성할 때 필요합니다.
 
-Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정의됩니다. API가 B2C에 등록되어 있으므로 이제 API는 다른 응용 프로그램에서 받은 B2C 액세스 토큰을 신뢰할 수 있습니다.
+Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정의됩니다. API가 B2C에 등록되어 있으므로 이제 API는 다른 애플리케이션에서 받은 B2C 액세스 토큰을 신뢰할 수 있습니다.
 
 ## <a name="define-and-configure-scopes"></a>범위 정의 및 구성
 
@@ -97,9 +97,9 @@ Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정�
 
 ### <a name="grant-app-permissions-to-web-api"></a>웹 API에 앱 사용 권한 부여
 
-앱에서 보호된 웹 API를 호출하려면 앱 사용 권한을 API에 부여해야 합니다. 이 자습서에서는 [단일 페이지 응용 프로그램(JavaScript)에서 Azure Active Directory B2C를 사용하여 사용자 인증](active-directory-b2c-tutorials-spa.md)에서 만든 단일 페이지 앱을 사용합니다.
+앱에서 보호된 웹 API를 호출하려면 앱 사용 권한을 API에 부여해야 합니다. 이 자습서에서는 [단일 페이지 애플리케이션(JavaScript)에서 Azure Active Directory B2C를 사용하여 사용자 인증](active-directory-b2c-tutorials-spa.md)에서 만든 단일 페이지 앱을 사용합니다.
 
-1. Azure Portal의 서비스 목록에서 **Azure AD B2C**를 선택하고, **응용 프로그램**을 클릭하여 등록된 앱 목록을 봅니다.
+1. Azure Portal의 서비스 목록에서 **Azure AD B2C**를 선택하고, **애플리케이션**을 클릭하여 등록된 앱 목록을 봅니다.
 
 2. 앱 목록에서 **내 샘플 단일 페이지 앱**을 선택하고, **API 액세스(미리 보기)**, **추가**를 차례로 클릭합니다.
 
@@ -205,7 +205,7 @@ Visual Studio에서 **F5** 키를 눌러 **B2C-WebAPI.sln** 솔루션을 디버�
     ```
 
 4. 앱을 보려면 브라우저를 사용하여 `http://localhost:6420` 주소로 이동합니다.
-5. [단일 페이지 응용 프로그램(JavaScript)에서 Azure Active Directory B2C를 사용하여 사용자 인증](active-directory-b2c-tutorials-spa.md)에서 사용한 이메일 주소와 암호를 사용하여 로그인합니다.
+5. [단일 페이지 애플리케이션(JavaScript)에서 Azure Active Directory B2C를 사용하여 사용자 인증](active-directory-b2c-tutorials-spa.md)에서 사용한 이메일 주소와 암호를 사용하여 로그인합니다.
 6. **API 호출** 단추를 클릭합니다.
 
 사용자 계정을 등록하거나 사용자 계정으로 로그인하면 샘플에서 보호되는 Web api를 호출하고 결과를 반환합니다.

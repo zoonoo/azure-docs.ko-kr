@@ -3,7 +3,7 @@ title: 계산 노드에서 작업을 준비하고 완료하는 태스크 만들�
 description: 작업 수준 준비 태스크를 사용하여 Azure Batch 계산 노드로의 데이터 전송을 최소화하고 작업 완료 시 태스크를 해제하여 노드를 정리합니다.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da69cc22fbb071ce3fa4b2c53aaf0b1ec4ba5e46
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 517ac0f612b9e5fc5909a7f0fe2ce088c9b367d9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096313"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548700"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Batch 계산 노드에서 작업 준비 및 작업 릴리스 태스크 실행
 
@@ -51,7 +51,7 @@ Batch 작업은 종종 작업의 태스크에 대한 입력으로 데이터의 �
 
 **로그 보존**
 
-태스크가 생성한 로그 파일의 복사본을 유지하거나 실패한 응용 프로그램에서 생성될 수 있는 덤프 파일의 작동을 중단할 수 있습니다. 이런 경우 **작업 릴리스 태스크**를 사용하여 [Azure Storage][azure_storage] 계정에 이 데이터를 압축하고 업로드합니다.
+태스크가 생성한 로그 파일의 복사본을 유지하거나 실패한 애플리케이션에서 생성될 수 있는 덤프 파일의 작동을 중단할 수 있습니다. 이런 경우 **작업 릴리스 태스크**를 사용하여 [Azure Storage][azure_storage] 계정에 이 데이터를 압축하고 업로드합니다.
 
 > [!TIP]
 > 로그 및 기타 작업과 태스크 출력 데이터를 유지하는 다른 방법은 [Azure Batch File Conventions](batch-task-output.md) 라이브러리를 사용하는 것입니다.
@@ -116,7 +116,7 @@ await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 ```
 
 ## <a name="code-sample-on-github"></a>GitHub의 코드 샘플
-작동 중인 작업 준비 및 해제 태스크를 보려면 GitHub의 [JobPrepRelease][job_prep_release_sample] 샘플 프로젝트를 확인합니다. 이 콘솔 응용 프로그램은 다음을 수행합니다.
+작동 중인 작업 준비 및 해제 태스크를 보려면 GitHub의 [JobPrepRelease][job_prep_release_sample] 샘플 프로젝트를 확인합니다. 이 콘솔 애플리케이션은 다음을 수행합니다.
 
 1. 노드가 두 개인 풀을 만듭니다.
 2. 작업 준비, 릴리스 및 표준 태스크를 사용하여 작업을 만듭니다.
@@ -127,7 +127,7 @@ await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 7. 실행된 각 노드에 대한 작업 준비 및 릴리스 태스크의 종료 코드를 인쇄합니다.
 8. 실행을 일시 중지하여 작업 및/또는 풀 삭제를 확인합니다.
 
-샘플 응용 프로그램에서 출력은 다음과 비슷합니다.
+샘플 애플리케이션에서 출력은 다음과 비슷합니다.
 
 ```
 Attempting to create pool: JobPrepReleaseSamplePool
@@ -178,26 +178,26 @@ Sample complete, hit ENTER to exit...
 > 
 
 ### <a name="inspect-job-preparation-and-release-tasks-in-the-azure-portal"></a>Azure 포털에서 작업 준비 및 해제 태스크 검사
-샘플 응용 프로그램을 실행할 때 [Azure 포털][portal]을 사용하면 작업 및 해당 태스크의 속성을 확인하거나 작업의 태스크에서 수정한 공유 텍스트 파일을 다운로드할 수도 있습니다.
+샘플 애플리케이션을 실행할 때 [Azure Portal][portal]을 사용하면 작업 및 해당 태스크의 속성을 확인하거나 작업의 태스크에서 수정한 공유 텍스트 파일을 다운로드할 수도 있습니다.
 
-다음은 샘플 응용 프로그램을 실행한 후에 Azure 포털에서 **준비 태스크 블레이드** 를 보여 주는 스크린샷입니다. 작업이 완료되었지만 작업과 풀을 삭제하기 전에 *JobPrepReleaseSampleJob* 속성으로 이동하여 **준비 태스크** 또는 **해제 태스크**를 클릭하여 그 속성을 확인합니다.
+다음은 샘플 애플리케이션을 실행한 후에 Azure Portal에서 **준비 태스크 블레이드**를 보여 주는 스크린샷입니다. 작업이 완료되었지만 작업과 풀을 삭제하기 전에 *JobPrepReleaseSampleJob* 속성으로 이동하여 **준비 태스크** 또는 **해제 태스크**를 클릭하여 그 속성을 확인합니다.
 
 ![Azure 포털에서 작업 준비 속성][1]
 
 ## <a name="next-steps"></a>다음 단계
-### <a name="application-packages"></a>응용 프로그램 패키지
-작업 준비 태스크 외에도 Batch의 [응용 프로그램 패키지](batch-application-packages.md) 기능을 사용하여 태스크 실행을 위한 계산 노드를 준비할 수 있습니다. 이 기능은 설치 관리자를 실행하지 않아도 되는 응용 프로그램, 100개 이상의 파일을 포함하는 응용 프로그램 또는 엄격한 버전 제어를 필요로 하는 응용 프로그램을 배포하는 데 특히 유용합니다.
+### <a name="application-packages"></a>애플리케이션 패키지
+작업 준비 태스크 외에도 Batch의 [애플리케이션 패키지](batch-application-packages.md) 기능을 사용하여 태스크 실행을 위한 계산 노드를 준비할 수 있습니다. 이 기능은 설치 관리자를 실행하지 않아도 되는 애플리케이션, 100개 이상의 파일을 포함하는 애플리케이션 또는 엄격한 버전 제어를 필요로 하는 애플리케이션을 배포하는 데 특히 유용합니다.
 
-### <a name="installing-applications-and-staging-data"></a>응용 프로그램 설치 및 데이터 준비
+### <a name="installing-applications-and-staging-data"></a>애플리케이션 설치 및 데이터 준비
 아래의 MSDN 포럼 게시물에서는 작업을 실행하기 위해 노드를 준비하는 여러 가지 방법을 간략히 제공합니다.
 
-[Batch 계산 노드에서의 응용 프로그램 설치 및 데이터 스테이징][forum_post]
+[Batch 계산 노드에서의 애플리케이션 설치 및 데이터 스테이징][forum_post]
 
-Azure Batch 팀 멤버 중 하나에서 작성하고 응용 프로그램과 데이터를 계산 노드에 배포하는 데 사용할 수 있는 몇 가지 방법을 설명하고 있습니다.
+Azure Batch 팀 멤버 중 하나에서 작성하고 애플리케이션과 데이터를 계산 노드에 배포하는 데 사용할 수 있는 몇 가지 방법을 설명하고 있습니다.
 
-[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
-[api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
+[api_rest]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [portal]: https://portal.azure.com
 [job_prep_release_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/JobPrepRelease

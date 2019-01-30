@@ -1,5 +1,5 @@
 ---
-title: DMZ 예제 - 방화벽 및 NSG로 응용 프로그램을 보호하는 DMZ 빌드 | Microsoft Docs
+title: DMZ 예제 - 방화벽 및 NSG로 애플리케이션을 보호하는 DMZ 빌드 | Microsoft Docs
 description: 방화벽 및 NSG(네트워크 보안 그룹)를 사용하여 DMZ 빌드
 services: virtual-network
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: cc0e8a3fa749eb2e6f65ef92c2d3cb404cfc8bc0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19e9690905fd993d59b186d59cc257b6b57e78b2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23126931"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449829"
 ---
-# <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>예 2 - 방화벽 및 NSG로 응용 프로그램을 보호하는 DMZ 빌드
+# <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>예 2 - 방화벽 및 NSG로 애플리케이션을 보호하는 DMZ 빌드
 [보안 경계 모범 사례 페이지로 돌아가기][HOME]
 
 이 예에서는 방화벽, 4개의 Windows Server 및 네트워크 보안 그룹이 포함된 DMZ를 만듭니다. 또한 각 단계를 자세히 이해할 수 있도록 각각의 관련 명령에 대해 안내합니다. 트래픽 시나리오 섹션에서는 DMZ에서 방어 계층을 진행하는 방법에 대한 심층적인 단계별 설명도 제공합니다. 마지막으로, 참조 섹션에서는 다양한 시나리오를 사용하여 테스트 및 실험하기 위한 환경을 구축하는 전체 코드와 지침을 제공합니다. 
@@ -31,12 +31,12 @@ ms.locfileid: "23126931"
 ## <a name="environment-description"></a>환경 설명
 이 예에서는 다음을 포함하는 구독이 있습니다.
 
-* 두 클라우드 서비스: "FrontEnd001" 및 "BackEnd001"
-* "FrontEnd" 및 "BackEnd"의 두 서브넷을 포함하는 가상 네트워크 "CorpNetwork"
+* 두 개의 클라우드 서비스: “FrontEnd001” 및 “BackEnd001”
+* 다음 두 개의 서브넷이 있는 Virtual Network “CorpNetwork”: “FrontEnd” 및 “BackEnd”
 * 서브넷 모두에 적용되는 단일 네트워크 보안 그룹
 * 네트워크 가상 어플라이언스(이 예제의 경우 프런트 엔드 서브넷에 연결된 Barracuda NextGen Firewall)
-* 응용 프로그램 웹 서버("IIS01")를 나타내는 Windows 서버
-* 응용 프로그램 백 엔드 서버("AppVM01", "AppVM02")를 나타내는 두 Windows 서버
+* 애플리케이션 웹 서버("IIS01")를 나타내는 Windows 서버
+* 애플리케이션 백 엔드 서버("AppVM01", "AppVM02")를 나타내는 두 Windows 서버
 * DNS 서버("DNS01")를 나타내는 Windows 서버
 
 > [!NOTE]
@@ -44,7 +44,7 @@ ms.locfileid: "23126931"
 > 
 > 
 
-아래 참조 섹션에는 위에서 설명한 대부분의 환경을 빌드할 PowerShell 스크립트가 나와 있습니다. VM 및 가상 네트워크 구축은 예제 스크립트로 수행하지만 이 문서에서는 자세히 설명하지 않습니다.
+아래 참조 섹션에는 위에서 설명한 대부분의 환경을 빌드할 PowerShell 스크립트가 나와 있습니다. VM 및 Virtual Network 구축은 예제 스크립트로 수행하지만 이 문서에서는 자세히 설명하지 않습니다.
 
 환경을 구축하려면
 
@@ -56,8 +56,8 @@ ms.locfileid: "23126931"
 
 스크립트를 성공적으로 실행하면 다음과 같은 사후 스크립트 단계를 수행할 수 있습니다.
 
-1. 방화벽 규칙을 설정합니다(아래 방화벽 규칙 섹션에서 설명).
-2. 또는 참조 섹션의 두 스크립트를 사용하여 간단한 웹 응용 프로그램을 사용하는 웹 서버와 앱 서버를 설정하여 이 DMZ 구성을 이용한 테스트를 허용합니다.
+1. 방화벽 규칙을 설정합니다. 아래 섹션에서 설명합니다. 방화벽 규칙
+2. 또는 참조 섹션의 두 스크립트를 사용하여 간단한 웹 애플리케이션을 사용하는 웹 서버와 앱 서버를 설정하여 이 DMZ 구성을 이용한 테스트를 허용합니다.
 
 다음 섹션에서는 네트워크 보안 그룹과 관련된 대부분의 스크립트 문에 대해 설명합니다.
 
@@ -78,16 +78,16 @@ ms.locfileid: "23126931"
 5. 인터넷에서 전체 VNet(두 서브넷)으로 모든 트래픽(모든 포트) 거부됨
 6. 프런트 엔드 서브넷에서 백 엔드 서브넷으로 모든 트래픽(모든 포트) 거부됨
 
-각 서브넷에 바인딩된 이러한 규칙에서는 HTTP 요청이 인터넷에서 웹 서버로 인바운드되는 경우 규칙 3(허용) 및 5(거부)가 모두 적용되지만 규칙 3이 우선순위가 높기 때문에 규칙 3만 적용되고 규칙 5는 진행되지 않습니다. 따라서 방화벽에 대해 HTTP 요청이 허용됩니다. 동일한 트래픽이 DNS01 서버에 도달하려고 시도하는 경우 규칙 5(거부)는 가장 먼저 적용되며 트래픽을 서버에 전달할 수 없습니다. 규칙 6(거부)은 프런트 엔드 서브넷이 백 엔드 서브넷과 통신을 차단합니다(규칙 1 및 4에서 허용된 트래픽 제외)하여 공격자가 프런트 엔드에서 웹 응용 프로그램을 손상시키는 경우 공격자의 "보호된" 백 엔드 네트워크(AppVM01 서버에서 노출되는 리소스만)에 대한 액세스가 제한되므로 백 엔드 네트워크를 보호합니다.
+각 서브넷에 바인딩된 이러한 규칙에서는 HTTP 요청이 인터넷에서 웹 서버로 인바운드되는 경우 규칙 3(허용) 및 5(거부)가 모두 적용되지만 규칙 3이 우선순위가 높기 때문에 규칙 3만 적용되고 규칙 5는 진행되지 않습니다. 따라서 방화벽에 대해 HTTP 요청이 허용됩니다. 동일한 트래픽이 DNS01 서버에 도달하려고 시도하는 경우 규칙 5(거부)는 가장 먼저 적용되며 트래픽을 서버에 전달할 수 없습니다. 규칙 6(거부)은 프런트 엔드 서브넷이 백 엔드 서브넷과 통신을 차단(규칙 1 및 4에서 허용된 트래픽 제외)하여 공격자가 프런트 엔드에서 웹 애플리케이션을 손상시키는 경우 공격자의 "보호된" 백 엔드 네트워크(AppVM01 서버에서 노출되는 리소스만)에 대한 액세스가 제한되므로 백 엔드 네트워크를 보호합니다.
 
 인터넷으로 트래픽을 허용하는 기본 아웃바운드 규칙이 있습니다. 이 예에서는 아웃바운드 트래픽을 허용하고 아웃바운드 규칙을 수정하지 않습니다. 양방향에서 트래픽을 잠그려면 사용자 정의 라우팅이 필요하며 [기본 보안 경계 문서][HOME]에 있는 다양한 예에서 이에 대해 살펴봅니다.
 
 위에서 설명한 NSG 규칙은 [예 1 - NSG를 사용하여 간단한 DMZ 빌드][Example1]의 NSG 규칙과 매우 유사합니다. 이 문서의 NSG 설명을 검토하여 각 NSG 규칙 및 해당 특성에 대해 자세히 살펴봅니다.
 
 ## <a name="firewall-rules"></a>방화벽 규칙
-관리 클라이언트를 PC에 설치하여 방화벽을 관리하고 필요에 따라 구성을 만들어야 합니다. 장치를 관리하는 방법은 방화벽(또는 다른 NVA) 공급업체의 설명서를 참조하세요. 이 섹션의 나머지 부분에서는 공급업체 관리 클라이언트(예: Azure 포털 또는 PowerShell 아님)를 통한 방화벽 자체 구성에 대해 설명합니다.
+관리 클라이언트를 PC에 설치하여 방화벽을 관리하고 필요에 따라 구성을 만들어야 합니다. 디바이스를 관리하는 방법은 방화벽(또는 다른 NVA) 공급업체의 설명서를 참조하세요. 이 섹션의 나머지 부분에서는 공급업체 관리 클라이언트(예: Azure 포털 또는 PowerShell 아님)를 통한 방화벽 자체 구성에 대해 설명합니다.
 
-이 예에 사용된 클라이언트 다운로드 및 Barracuda 연결에 대한 지침은 [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
+이 예제에 사용된 클라이언트 다운로드 및 Barracuda 연결에 대한 지침은 [Barracuda NG 관리자](https://techlib.barracuda.com/NG61/NGAdmin)에서 찾을 수 있습니다.
 
 방화벽에서 전달 규칙을 만들어야 합니다. 이 예에서는 인터넷 트래픽 인바운드를 방화벽으로 라우팅한 후 웹 서버로 라우팅하므로 하나의 전달 NAT 규칙만 필요합니다. 이 예제에 사용된 Barracuda NextGen Firewall에서 규칙은 이 트래픽을 전달하기 위한 대상 NAT 규칙("Dst NAT")입니다.
 
@@ -116,22 +116,22 @@ ms.locfileid: "23126931"
 
 관리 클라이언트의 오른쪽 위 모서리에 단추 클러스터가 있습니다. "변경 내용 보내기" 단추를 클릭하여 규칙을 방화벽으로 전송한 다음 "활성화" 단추를 클릭합니다.
 
-방화벽 규칙 집합을 활성화하면 이 예제 환경 빌드가 완료된 것입니다. 필요에 따라 참조 섹션의 빌드 후 스크립트를 실행하여 응용 프로그램을 이 환경에 추가하고 아래 트래픽 시나리오를 테스트할 수 있습니다.
+방화벽 규칙 집합을 활성화하면 이 예제 환경 빌드가 완료된 것입니다. 필요에 따라 참조 섹션의 빌드 후 스크립트를 실행하여 애플리케이션을 이 환경에 추가하고 아래 트래픽 시나리오를 테스트할 수 있습니다.
 
 > [!IMPORTANT]
-> 웹 서버를 직접 호출하지 않는다는 것을 깨닫는 것이 중요합니다. 브라우저가 FrontEnd001.CloudApp.Net에서 HTTP 페이지를 요청하면 HTTP 끝점(포트 80)이 이 트래픽을 웹 서버가 아닌 방화벽에 전달합니다. 방화벽 다음에는 위에서 만든 규칙에 따라 웹 서버로 요청을 NAT합니다.
+> 웹 서버를 직접 호출하지 않는다는 것을 깨닫는 것이 중요합니다. 브라우저가 FrontEnd001.CloudApp.Net에서 HTTP 페이지를 요청하면 HTTP 엔드포인트(포트 80)가 이 트래픽을 웹 서버가 아닌 방화벽에 전달합니다. 방화벽 다음에는 위에서 만든 규칙에 따라 웹 서버로 요청을 NAT합니다.
 > 
 > 
 
 ## <a name="traffic-scenarios"></a>트래픽 시나리오
 #### <a name="allowed-web-to-web-server-through-firewall"></a>(허용) 방화벽을 통해 웹 - 웹 서버
 1. 인터넷 사용자가 FrontEnd001.CloudApp.Net에서 HTTP 페이지를 요청합니다(인터넷 연결 클라우드 서비스).
-2. 클라우드 서비스는 포트 80에서 열린 끝점을 통해 10.0.1.4:80에서 방화벽 로컬 인터페이스로 트래픽을 전달합니다.
-3. 프런트엔드 서브넷은 인바운드 규칙 처리를 시작합니다.
+2. 클라우드 서비스는 포트 80에서 열린 엔드포인트를 통해 10.0.1.4:80에서 방화벽 로컬 인터페이스로 트래픽을 전달합니다.
+3. 프런트 엔드 서브넷에서 인바운드 규칙 처리를 시작합니다.
    1. NSG 규칙 1(DNS)이 적용되지 않고 다음 규칙으로 이동합니다.
    2. NSG 규칙 2(RDP)가 적용되지 않고 다음 규칙으로 이동합니다.
    3. NSG 규칙 3(인터넷에서 방화벽으로)이 적용되고 트래픽이 허용되며 규칙 처리를 중지합니다.
-4. 트래픽이 방화벽의 내부 IP 주소를 호출합니다(10.0.1.4).
+4. 트래픽이 방화벽의 내부 IP 주소에 도달합니다(10.0.1.4).
 5. 방화벽 전달 규칙은 이것이 포트 80 트래픽인 것을 확인하고 웹 서버 IIS01로 리디렉션합니다.
 6. IIS01이 웹 트래픽을 수신 대기하고 이 요청을 수신하며 요청 처리를 시작합니다.
 7. IIS01은 AppVM01에서 SQL Server에 정보를 요청합니다.
@@ -143,7 +143,7 @@ ms.locfileid: "23126931"
    4. NSG 규칙 4(IIS01에서 AppVM01로)가 적용되고 트래픽이 허용되며 규칙 처리를 중지합니다.
 10. AppVM01은 SQL 쿼리를 수신하고 응답합니다.
 11. 백 엔드 서브넷에 아웃바운드 규칙이 없으므로 응답이 허용됩니다.
-12. 프런트엔드 서브넷은 인바운드 규칙 처리를 시작합니다.
+12. 프런트 엔드 서브넷에서 인바운드 규칙 처리를 시작합니다.
     1. 백 엔드 서브넷에서 프런트엔드 서브넷으로 인바운드 트래픽에 적용되는 NSG 규칙이 없으므로 NSG 규칙이 적용되지 않습니다.
     2. 서브넷 간의 트래픽을 허용하는 기본 시스템 규칙이 이 트래픽을 허용하므로 트래픽이 허용됩니다.
 13. IIS 서버는 SQL 응답을 수신하고 HTTP 응답을 완료하여 요청자에게 보냅니다.
@@ -152,7 +152,7 @@ ms.locfileid: "23126931"
 16. 응답이 허용되는 프런트엔드 서브넷에 아웃바운드 규칙이 없으므로 인터넷 사용자는 요청된 웹 페이지를 수신합니다.
 
 #### <a name="allowed-rdp-to-backend"></a>(허용) RDP - 백 엔드
-1. 인터넷의 서버 관리자는 BackEnd001.CloudApp.Net:xxxxx에서 AppVM01에 대해 RDP 세션을 요청합니다.여기서 xxxxx는 RDP에 대해 AppVM01로 임의로 할당된 포트 번호입니다(할당된 포트는 Azure 포털 또는 PowerShell을 통해 확인할 수 있음).
+1. 인터넷의 서버 관리자는 BackEnd001.CloudApp.Net:xxxxx에서 AppVM01에 대해 RDP 세션을 요청합니다.여기서 xxxxx는 RDP에 대해 AppVM01로 임의로 할당된 포트 번호입니다(할당된 포트는 Azure Portal 또는 PowerShell을 통해 확인할 수 있음).
 2. 방화벽은 FrontEnd001.CloudApp.Net 주소만 수신 대기하므로 이 트래픽 흐름에는 포함되지 않습니다.
 3. 백 엔드 서브넷이 인바운드 규칙 처리를 시작합니다.
    1. NSG 규칙 1(DNS)이 적용되지 않고 다음 규칙으로 이동합니다.
@@ -176,7 +176,7 @@ ms.locfileid: "23126931"
 11. 프런트엔드 서브넷은 인바운드 규칙 처리를 시작합니다.
     1. 백 엔드 서브넷에서 프런트 엔드 서브넷으로 인바운드 트래픽에 적용되는 NSG 규칙이 없으므로 NSG 규칙이 적용되지 않습니다.
     2. 서브넷 간의 트래픽을 허용하는 기본 시스템 규칙에서 이 트래픽을 허용하므로 트래픽이 허용됩니다.
-12. IIS01은 DNS01에서 응답을 수신합니다.
+12. IIS01이 DNS01에서 응답을 수신합니다.
 
 #### <a name="allowed-web-server-access-file-on-appvm01"></a>(허용) AppVM01에서 웹 서버가 파일 액세스
 1. IIS01은 AppVM01에서 파일을 요청합니다.
@@ -188,7 +188,7 @@ ms.locfileid: "23126931"
    4. NSG 규칙 4(IIS01에서 AppVM01로)가 적용되고 트래픽이 허용되며 규칙 처리를 중지합니다.
 4. AppVM01이 요청을 받아 파일로 응답합니다(액세스 권한이 부여된 것으로 가정).
 5. 백 엔드 서브넷에 아웃바운드 규칙이 없으므로 응답이 허용됩니다.
-6. 프런트엔드 서브넷은 인바운드 규칙 처리를 시작합니다.
+6. 프런트 엔드 서브넷에서 인바운드 규칙 처리를 시작합니다.
    1. 백 엔드 서브넷에서 프런트엔드 서브넷으로 인바운드 트래픽에 적용되는 NSG 규칙이 없으므로 NSG 규칙이 적용되지 않습니다.
    2. 서브넷 간의 트래픽을 허용하는 기본 시스템 규칙이 이 트래픽을 허용하므로 트래픽이 허용됩니다.
 7. IIS 서버가 파일을 수신합니다.
@@ -198,18 +198,18 @@ ms.locfileid: "23126931"
 
 #### <a name="denied-web-to-backend-server"></a>(거부) 웹 - 백 엔드 서버
 1. 인터넷 사용자가 BackEnd001.CloudApp.Net 서비스를 통해 AppVM01에서 파일에 액세스하려고 합니다.
-2. 파일 공유를 위해 열린 끝점이 없으므로 클라우드 서비스를 전달하지 않고 서버에 도달하지 않습니다.
-3. 어떤 이유로 끝점이 열린 경우 NSG 규칙 5(인터넷에서 VNet으로)가 이 트래픽을 차단합니다.
+2. 파일 공유를 위해 열린 엔드포인트가 없으므로 클라우드 서비스를 전달하지 않고 서버에 도달하지 않습니다.
+3. 어떤 이유로 엔드포인트가 열린 경우 NSG 규칙 5(인터넷에서 VNet으로)가 이 트래픽을 차단합니다.
 
 #### <a name="denied-web-dns-lookup-on-dns-server"></a>(거부) DNS 서버에서 웹 DNS 조회
 1. 인터넷 사용자가 BackEnd001.CloudApp.Net 서비스를 통해 DNS01에서 내부 DNS 레코드를 조회하려고 합니다.
-2. DNS를 위해 열린 끝점이 없으므로 클라우드 서비스를 전달하지 않고 서버에 도달하지 않습니다.
-3. 어떤 이유로 끝점이 열린 경우 NSG 규칙 5(인터넷에서 VNet으로)가 이 트래픽을 차단합니다(참고: 규칙 1(DNS)은 두 가지 이유로 적용되지 않습니다. 첫째, 원본 주소가 인터넷입니다. 이 규칙은 로컬 VNet에만 원본으로 적용됩니다. 또한 이는 허용 규칙이므로 트래픽을 거부하지 않습니다.)
+2. DNS를 위해 열린 엔드포인트가 없으므로 클라우드 서비스를 전달하지 않고 서버에 도달하지 않습니다.
+3. 어떤 이유로 엔드포인트가 열린 경우 NSG 규칙 5(인터넷에서 VNet으로)가 이 트래픽을 차단합니다(참고: 규칙 1(DNS)은 두 가지 이유로 적용되지 않습니다. 첫째, 원본 주소가 인터넷입니다. 이 규칙은 로컬 VNet에만 원본으로 적용됩니다. 또한 이는 허용 규칙이므로 트래픽을 거부하지 않습니다.)
 
 #### <a name="denied-web-to-sql-access-through-firewall"></a>(거부) 방화벽을 통해 웹에서 SQL 액세스
 1. 인터넷 사용자가 FrontEnd001.CloudApp.Net에서 SQL 데이터를 요청합니다(인터넷 연결 클라우드 서비스).
-2. SQL을 위해 열린 끝점이 없으므로 클라우드 서비스를 전달하지 않고 방화벽에 도달하지 않습니다.
-3. 어떤 이유로 끝점이 열린 경우 프런트엔드 서브넷이 인바운드 규칙 처리를 시작합니다.
+2. SQL을 위해 열린 엔드포인트가 없으므로 클라우드 서비스를 전달하지 않고 방화벽에 도달하지 않습니다.
+3. 어떤 이유로 엔드포인트가 열린 경우 프런트엔드 서브넷이 인바운드 규칙 처리를 시작합니다.
    1. NSG 규칙 1(DNS)이 적용되지 않고 다음 규칙으로 이동합니다.
    2. NSG 규칙 2(RDP)가 적용되지 않고 다음 규칙으로 이동합니다.
    3. NSG 규칙 2(인터넷에서 방화벽으로)이 적용되고 트래픽이 허용되며 규칙 처리를 중지합니다.
@@ -217,7 +217,7 @@ ms.locfileid: "23126931"
 5. 방화벽에는 SQL에 대한 전달 규칙이 없고 트래픽을 삭제합니다.
 
 ## <a name="conclusion"></a>결론
-이 방법은 방화벽으로 응용 프로그램을 보호하고 백 엔드 서브넷을 인바운드 트래픽과 격리하는 비교적 직접적인 방법입니다.
+이 방법은 방화벽으로 애플리케이션을 보호하고 백 엔드 서브넷을 인바운드 트래픽과 격리하는 비교적 직접적인 방법입니다.
 
 네트워크 보안 경계에 대한 더 많은 예와 개요는 [여기][HOME]에서 찾을 수 있습니다.
 
@@ -422,12 +422,12 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
         $FatalError = $true}
     Else { Write-Host "The network config file was found" -ForegroundColor Green
             If (-Not (Select-String -Pattern $DeploymentLocation -Path $NetworkConfigFile)) {
-                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation varible is correct and the netowrk config file matches.' -ForegroundColor Yellow
+                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation variable is correct and the network config file matches.' -ForegroundColor Yellow
                 $FatalError = $true}
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 
     If ($FatalError) {
-        Write-Host "A fatal error has occured, please see the above messages for more information." -ForegroundColor Red
+        Write-Host "A fatal error has occurred, please see the above messages for more information." -ForegroundColor Red
         Return}
     Else { Write-Host "Validation passed, now building the environment." -ForegroundColor Green}
 
@@ -567,8 +567,8 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
       </VirtualNetworkConfiguration>
     </NetworkConfiguration>
 
-#### <a name="sample-application-scripts"></a>샘플 응용 프로그램 스크립트
-이에 대한 샘플 응용 프로그램 및 기타 DMZ 예제를 설치하는 방법은 다음 링크를 통해 제공됩니다. [샘플 응용 프로그램 스크립트][SampleApp]
+#### <a name="sample-application-scripts"></a>샘플 애플리케이션 스크립트
+이에 대한 샘플 애플리케이션 및 기타 DMZ 예제를 설치하려는 경우 다음 링크를 통해 제공됩니다. [샘플 애플리케이션 스크립트][SampleApp]
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-asm/example2design.png "NSG와 인바운드 DMZ"

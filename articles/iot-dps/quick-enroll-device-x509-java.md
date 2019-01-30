@@ -21,7 +21,7 @@ ms.locfileid: "50412774"
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-이 빠른 시작에서는 Java를 사용하여 Azure IoT Hub Device Provisioning Service에 X.509 시뮬레이션된 디바이스 그룹을 프로그래밍 방식으로 등록하는 방법을 보여줍니다. 디바이스는 [등록 그룹](concepts-service.md#enrollment-group) 또는 [개별 등록](concepts-service.md#individual-enrollment)을 만들어 프로비전 서비스 인스턴스에 등록됩니다. 이 빠른 시작에는 두 가지 유형의 등록을 만드는 방법을 보여줍니다. 등록은 샘플 Java 응용 프로그램의 도움으로 [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/)를 사용하여 생성됩니다. 
+이 빠른 시작에서는 Java를 사용하여 Azure IoT Hub Device Provisioning Service에 X.509 시뮬레이션된 디바이스 그룹을 프로그래밍 방식으로 등록하는 방법을 보여줍니다. 디바이스는 [등록 그룹](concepts-service.md#enrollment-group) 또는 [개별 등록](concepts-service.md#individual-enrollment)을 만들어 프로비전 서비스 인스턴스에 등록됩니다. 이 빠른 시작에는 두 가지 유형의 등록을 만드는 방법을 보여줍니다. 등록은 샘플 Java 애플리케이션의 도움으로 [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/)를 사용하여 생성됩니다. 
 
 이 빠른 시작에서는 IoT 허브 및 Device Provisioning Service 인스턴스를 이미 만들었다고 예상합니다. 이러한 리소스를 아직 만들지 않은 경우 이 문서를 계속하기 전에 [Azure Portal을 사용하여 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md)을 완료합니다.
 

@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
-ms.openlocfilehash: 2210aaa5d4d0ba9d730e5aee97972565ea0c1090
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 32a489ee6266018ef1160a0870fe236cc6a72d36
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092980"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726987"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - 마이그레이션 인프라 배포
 
@@ -29,9 +29,9 @@ ms.locfileid: "49092980"
 --- | --- | ---
 [문서 1: 개요](contoso-migration-overview.md) | 문서 시리즈, Contoso의 마이그레이션 전략 및 시리즈에서 사용되는 샘플 앱에 대해 간략히 설명합니다. | 사용 가능
 문서 2: Azure 인프라 배포 | Contoso에서 마이그레이션을 위해 온-프레미스 인프라와 Azure 인프라를 준비합니다. 이 시리즈의 모든 마이그레이션 관련 문서에서 동일한 인프라가 사용됩니다. | 이 문서의 내용
-[문서 3: Azure로 마이그레이션할 온-프레미스 리소스 평가](contoso-migration-assessment.md)  | Contoso가 VMware에서 실행되는 온-프레미스 SmartHotel360 앱의 평가를 실행합니다. Contoso에서 Azure Migrate 서비스를 사용하여 앱 VM을 평가하고, Database Migration Assistant를 사용하여 앱 SQL Server 데이터베이스를 평가합니다. | 사용 가능
+[문서 3: Azure로 마이그레이션하기 위한 온-프레미스 리소스 평가](contoso-migration-assessment.md)  | Contoso가 VMware에서 실행되는 온-프레미스 SmartHotel360 앱의 평가를 실행합니다. Contoso에서 Azure Migrate 서비스를 사용하여 앱 VM을 평가하고, Database Migration Assistant를 사용하여 앱 SQL Server 데이터베이스를 평가합니다. | 사용 가능
 [문서 4: Azure VM 및 SQL Database Managed Instance에서 앱 다시 호스트](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso가 온-프레미스 SmartHotel360 앱을 Azure로 리프트 앤 시프트 방식으로 마이그레이션합니다. Contoso에서 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 앱 프런트 엔드 VM을 마이그레이션하고, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)를 사용하여 앱 데이터베이스를 Azure SQL Database Managed Instance로 마이그레이션합니다. | 사용 가능   
-[문서 5: 앱을 Azure VM에 다시 호스트](contoso-migration-rehost-vm.md) | Contoso에서 Site Recovery 서비스를 사용하여 SmartHotel360 앱 VM을 Azure VM으로 마이그레이션합니다. | 사용 가능
+[문서 5: Azure VM에서 앱 다시 호스트](contoso-migration-rehost-vm.md) | Contoso에서 Site Recovery 서비스를 사용하여 SmartHotel360 앱 VM을 Azure VM으로 마이그레이션합니다. | 사용 가능
 [문서 6: Azure VM 및 SQL Server AlwaysOn 가용성 그룹에서 앱 다시 호스트](contoso-migration-rehost-vm-sql-ag.md) | Contoso에서 Site Recovery를 사용하여 앱을 마이그레이션하여 앱 VM을 마이그레이션하고, Database Migration Service를 사용하여 앱 데이터베이스를 AlwaysOn 가용성 그룹에서 보호되는 SQL Server 클러스터로 마이그레이션합니다. | 사용 가능
 [문서 7: Azure VM에서 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm.md) | Contoso에서 Site Recovery 서비스를 사용하여 Linux osTicket 앱을 Azure VM으로 리프트 앤 시프트 방식으로 마이그레이션합니다. | 사용 가능
 [문서 8: Azure VM 및 Azure Database for MySQL에서 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm-mysql.md) | Contoso에서 Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 마이그레이션하고, MySQL Workbench를 사용하여 앱 데이터베이스를 Azure Database for MySQL로 마이그레이션합니다. | 사용 가능
@@ -49,12 +49,12 @@ ms.locfileid: "49092980"
 
 Azure로 마이그레이션하려면 먼저 Contoso에서 Azure 인프라를 준비해야 합니다.  여기서 일반적으로 고려해야 하는 광범위한 5가지 영역은 다음과 같습니다.
 
-**1단계: Azure 구독**: Contoso에서 Azure를 구입하고 Azure 플랫폼 및 서비스와 상호 작용하려면 어떻게 합니까?  
-**2단계: 하이브리드 ID**: 마이그레이션 후에 온-프레미스 및 Azure 리소스에 대한 액세스를 관리하고 제어하려면 어떻게 합니까? Contoso에서 ID 관리를 클라우드로 확장하거나 전환하려면 어떻게 합니까?  
-**3단계: 재해 복구 및 복원**: Contoso에서 중단 및 재해 발생시 앱과 인프라를 복원하려면 어떻게 합니까?  
-**4단계: 네트워킹**: Contoso에서 네트워크 인프라를 설계하고 온-프레미스 데이터 센터와 Azure 간에 연결을 설정하려면 어떻게 해야 합니까?  
-**5단계: 보안**: 하이브리드/Azure 배포를 보호하려면 어떻게 합니까?  
-**6단계: 거버넌스**: Contoso에서 보안 및 거버넌스 요구 사항에 맞춰 어떻게 배포를 유지합니까?
+**1단계: Azure 구독**: Contoso에서 Azure를 구입하고 Azure 플랫폼 및 서비스와 상호 작용하려면 어떻게 해야 하나요?  
+**2단계: 하이브리드 ID**: 마이그레이션 후에 온-프레미스 및 Azure 리소스에 대한 액세스를 관리하고 제어하려면 어떻게 해야 하나요? Contoso에서 ID 관리를 클라우드로 확장하거나 전환하려면 어떻게 합니까?  
+**3단계: 재해 복구 및 복원**: Contoso에서 중단 및 재해 발생 시 앱과 인프라를 복원하려면 어떻게 해야 하나요?  
+**4단계: 네트워킹**: Contoso에서 네트워크 인프라를 설계하고 온-프레미스 데이터 센터와 Azure 간에 연결을 설정하려면 어떻게 해야 하나요?  
+**5단계: 보안**: 하이브리드/Azure 배포를 보호하려면 어떻게 해야 하나요?  
+**6단계: 거버넌스**: Contoso는 보안 및 거버넌스 요구 사항에 맞춰 어떻게 배포를 유지하나요?
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -256,8 +256,8 @@ Azure [RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/ro
 
 이제 Contoso 관리자는 온-프레미스에서 동기화된 AD 그룹에 역할을 할당합니다.
 
-1. **ControlCobRG** 리소스 그룹에서 **액세스 제어(IAM)** > **추가**를 차례로 클릭합니다.
-2. **권한 추가** > **역할** > **참가자**로 이동한 다음 목록에서 **ContosoCobRG** AD 그룹을 선택합니다. 그러면 해당 그룹이 **선택한 구성원** 목록에 표시됩니다. 
+1. **ControlCobRG** 리소스 그룹에서 **액세스 제어(IAM)** > **역할 할당 추가**를 차례로 클릭합니다.
+2. **역할 할당 추가** > **역할** > **기여자**로 이동한 후 목록에서 **ContosoCobRG** AD 그룹을 선택합니다. 그러면 해당 그룹이 **선택한 구성원** 목록에 표시됩니다. 
 3. 리소스 그룹과 일치하는 AD 계정에 기여자 권한을 추가하여 다른 리소스 그룹(**ContosoAzureAdmins** 제외)에 대해 동일한 권한으로 이 작업을 반복합니다.
 4. **ContosoAzureAdmins** AD 그룹에 대해 **소유자** 역할을 할당합니다.
 
@@ -293,7 +293,7 @@ Contoso는 중간 정도의 수준으로 유지하도록 결정했습니다. 즉
 - 각 가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다.
 - 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 
 - 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다.
-- 지역 내에서 영역의 물리적 구분은 응용 프로그램 및 데이터를 데이터 센터 오류로부터 보호할 수 있습니다.
+- 지역 내에서 영역의 물리적 구분은 애플리케이션 및 데이터를 데이터 센터 오류로부터 보호할 수 있습니다.
 
 Contoso는 확장성, 고가용성 및 복원력에 대한 앱 호출로 가용성 영역을 배포합니다. [자세히 알아보기](https://docs.microsoft.com/azure/availability-zones/az-overview). 
 
@@ -302,8 +302,8 @@ Contoso는 확장성, 고가용성 및 복원력에 대한 앱 호출로 가용�
 
 Contoso에서 지역 설계를 통해 네트워킹 전략을 고려할 준비가 되었습니다. 이제는 온-프레미스 데이터 센터와 Azure가 서로 연결하고 통신하는 방법 및 Azure에서 네트워크 인프라를 디자인할 방법을 고려해야 합니다. 특히 Contoso는 다음을 수행해야 합니다.
 
-- **하이브리드 네트워크 연결 계획**: 온-프레미스와 Azure 간에 네트워크를 연결하는 방법을 파악합니다.
-- **Azure 네트워크 인프라 설계**: 지역 전체에 네트워크를 배포하는 방법 및 네트워크에서 동일한 지역 내 및 지역 간에 통신하는 방법을 결정합니다.
+- **하이브리드 네트워크 연결 계획**: 온-프레미스와 Azure 간에 네트워크를 연결하는 방법을 알아봅니다.
+- **Azure 네트워크 인프라 설계**: 네트워크를 어떻게 지역에 배포할지 결정합니다. 네트워크에서 동일한 지역 내 및 지역 간에 통신하는 방법을 결정합니다.
 - **Azure 네트워크 설계 및 설정**: Azure 네트워크와 서브넷을 설정하고, 해당 영역 내에 상주할 항목을 결정합니다.
 
 ### <a name="plan-hybrid-network-connectivity"></a>하이브리드 네트워크 연결 계획
@@ -728,9 +728,9 @@ ENV | 가능한 값은 DEV, STG, PROD입니다. 이러한 값은 순서대로 �
 
 Contoso에서 고려해야 할 몇 가지 측면이 있습니다.
 
-- **Azure Security Center**: 하이브리드 클라우드 워크로드 전반에 걸쳐 통합 보안 관리 및 고급 위협 방지를 제공합니다. Security Center를 사용하여 워크로드에 보안 정책을 적용하고, 위협에 대한 노출을 제한하고, 공격을 검색 및 대응할 수 있습니다.  [자세히 알아보기](https://docs.microsoft.com/azure/security-center/security-center-intro).
-- **NSG(네트워크 보안 그룹)**: 적용되는 경우 Azure VNet에 연결된 리소스에 대한 네트워크 트래픽을 허용하거나 거부하는 보안 규칙 목록이 포함된 필터(방화벽)입니다. [자세히 알아보기](https://docs.microsoft.com/azure/virtual-network/security-overview).
-- **데이터 암호화**: Azure Disk Encryption은 Windows 및 Linux IaaS 가상 머신 디스크를 암호화하는 데 도움이 되는 기능입니다. [자세히 알아보기](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest).
+- **Azure Security Center**: Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보안 관리 및 고급 위협 방지를 제공합니다. Security Center를 사용하여 워크로드에 보안 정책을 적용하고, 위협에 대한 노출을 제한하고, 공격을 검색 및 대응할 수 있습니다.  [자세히 알아보기](https://docs.microsoft.com/azure/security-center/security-center-intro).
+- **NSG(네트워크 보안 그룹)**: NSG는 적용되는 경우 Azure VNet에 연결된 리소스에 대한 네트워크 트래픽을 허용하거나 거부하는 보안 규칙 목록이 포함된 필터(방화벽)입니다. [자세히 알아보기](https://docs.microsoft.com/azure/virtual-network/security-overview).
+- **데이터 암호화**: Azure Disk Encryption은 Windows 및 Linux IaaS 가상 머신 디스크를 암호화할 수 있도록 하는 기능입니다. [자세히 알아보기](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest).
 
 ### <a name="work-with-the-azure-security-center"></a>Azure Security Center 사용
 
@@ -763,8 +763,8 @@ Contoso는 네트워크 보안 그룹을 사용하여 네트워크 트래픽을 
 - 네트워크 보안 그룹에는 원본 또는 대상 IP 주소, 포트 및 프로토콜에 따라 인바운드 또는 아웃바운드 네트워크 트래픽을 허용하거나 거부하는 보안 규칙 목록이 포함되어 있습니다.
 - 규칙이 서브넷에 적용되면 서브넷에 있는 모든 리소스에 적용됩니다. 네트워크 인터페이스 외에도 서브넷에 배포된 Azure 서비스의 인스턴스도 포함됩니다.
 - ASG(응용 프로그램 보안 그룹)를 사용하면 네트워크 보안을 응용 프로그램 구조의 자연스러운 확장으로 구성할 수 있으므로 VM을 그룹화하고 이러한 그룹에 따라 네트워크 보안 정책을 정의할 수 있습니다.
-    - 응용 프로그램 보안 그룹을 사용하는 경우 Contoso는 명시적 IP 주소를 수동으로 유지 관리하지 않고도 보안 정책을 광범위하게 다시 사용할 수 있습니다. 플랫폼은 명시적 IP 주소 및 여러 규칙 집합의 복잡성을 처리하여 비즈니스 논리에 집중할 수 있도록 합니다.
-    - Contoso는 응용 프로그램 보안 그룹을 보안 규칙의 원본 및 대상으로 지정할 수 있습니다. 보안 정책이 정의되면 Contoso는 VM을 만들고 VM NIC를 그룹에 할당할 수 있습니다. 
+    - 애플리케이션 보안 그룹을 사용하는 경우 Contoso는 명시적 IP 주소를 수동으로 유지 관리하지 않고도 보안 정책을 광범위하게 다시 사용할 수 있습니다. 플랫폼은 명시적 IP 주소 및 여러 규칙 집합의 복잡성을 처리하여 비즈니스 논리에 집중할 수 있도록 합니다.
+    - Contoso는 애플리케이션 보안 그룹을 보안 규칙의 원본 및 대상으로 지정할 수 있습니다. 보안 정책이 정의되면 Contoso는 VM을 만들고 VM NIC를 그룹에 할당할 수 있습니다. 
 
 
 Contoso는 NSG와 ASG를 혼합하여 구현하며, NSG 관리를 수행하고자 합니다. 또한 NSG의 남용 및 운영자에 대한 추가된 복잡성을 걱정합니다. 이러한 측면을 고려하여 Contoso는 다음 작업을 수행합니다.
@@ -774,7 +774,7 @@ Contoso는 NSG와 ASG를 혼합하여 구현하며, NSG 관리를 수행하고�
 - 모든 프로덕션 응용 프로그램에는 ASG가 적용됩니다.
 
 
-이를 위해 Contoso는 응용 프로그램을 찾는 방법에 대한 모델을 구축했습니다.
+이를 위해 Contoso는 애플리케이션을 찾는 방법에 대한 모델을 구축했습니다.
 
 ![보안](./media/contoso-migration-infrastructure/asg.png)
 

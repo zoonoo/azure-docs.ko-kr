@@ -1,50 +1,31 @@
 ---
-title: 클래식 웹 서비스 재학습 - Azure Machine Learning Studio | Microsoft Docs
-description: Azure Machine Learning에서 프로그래밍 방식으로 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
-ms.author: amlstudiodocs
-manager: hjerez
-editor: cgronlun
-ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/19/2017
-ms.openlocfilehash: e94fa4b6382a4672e5763b382a22fb812991cb03
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308468"
+제목: 기존 웹 서비스 재학습 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning에서 프로그래밍 방식으로 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 04/19/2017
 ---
-# <a name="retrain-a-classic-web-service"></a>기존 웹 서비스 재학습
-배포한 예측 웹 서비스는 기본 점수 매기기 엔드포인트입니다. 기본 엔드포인트는 원래 학습 및 점수 매기기 실험과 동기화 상태를 유지하므로 기본 엔드포인트에 대한 학습된 모델을 바꿀 수 없습니다. 웹 서비스를 다시 학습하려면 웹 서비스에 새 엔드포인트를 추가해야 합니다. 
+# <a name="retrain-a-classic-azure-machine-learning-studio-web-service"></a>클래식 Azure Machine Learning Studio 웹 서비스 다시 학습
+배포한 예측 웹 서비스는 기본 점수 매기기 엔드포인트입니다. 기본 엔드포인트는 원래 학습 및 점수 매기기 실험과 동기화 상태를 유지하므로 기본 엔드포인트에 대한 학습된 모델을 바꿀 수 없습니다. 웹 서비스를 다시 학습하려면 웹 서비스에 새 엔드포인트를 추가해야 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-학습 실험 및 예측 실험을 [프로그래밍 방식으로 Machine Learning 모델 재학습](retrain-models-programmatically.md)에서 보듯이 설정해야 합니다. 
+학습 실험 및 예측 실험을 [프로그래밍 방식으로 Machine Learning 모델 재학습](retrain-models-programmatically.md)에서 보듯이 설정해야 합니다.
 
 > [!IMPORTANT]
-> 예측 실험을 기존 Machine Learning 웹 서비스로 배포해야 합니다. 
-> 
-> 
+> 예측 실험을 기존 Machine Learning 웹 서비스로 배포해야 합니다.
+>
+>
 
 웹 서비스 배포에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포](publish-a-machine-learning-web-service.md)를 참조하세요.
 
 ## <a name="add-a-new-endpoint"></a>새 엔드포인트 추가
-배포한 예측 웹 서비스는 원래의 학습 및 점수 매기기 실험 학습된 모델과 동기화를 유지하는 기본 점수 매기기 엔드포인트를 포함합니다. 새로 학습된 모델을 사용하여 웹 서비스를 업데이트하려면 새 점수 매기기 엔드포인트를 만들어야 합니다. 
+배포한 예측 웹 서비스는 원래의 학습 및 점수 매기기 실험 학습된 모델과 동기화를 유지하는 기본 점수 매기기 엔드포인트를 포함합니다. 새로 학습된 모델을 사용하여 웹 서비스를 업데이트하려면 새 점수 매기기 엔드포인트를 만들어야 합니다.
 
 학습된 모델과 함께 업데이트될 수 있는 예측 웹 서비스에서 새 점수 매기기 엔드포인트를 만들려면:
 
 > [!NOTE]
 > 엔드포인트를 학습 웹 서비스가 아닌 예측 웹 서비스에 추가해야 합니다. 학습 및 예측 웹 서비스를 모두 올바르게 배포한 경우 나열된 두 개의 별도 웹 서비스가 표시됩니다. 예측 웹 서비스는 "[예측 exp.]"로 끝나야 합니다.
-> 
-> 
+>
+>
 
 웹 서비스에 새로 끝점을 추가할 수 있는 두 가지 방법이 있습니다.
 

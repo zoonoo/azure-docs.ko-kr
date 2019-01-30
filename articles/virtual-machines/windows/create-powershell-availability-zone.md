@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 5f76b117b01090864e1bf33e986e8ec96f0bf376
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 23c53982919ad29c639a6441f206abb35ddb7a1b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599937"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430794"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>PowerShell을 사용하여 가용성 영역에서 Windows 가상 머신 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "31599937"
 
 가용성 영역을 사용하려면 [지원되는 Azure 지역](../../availability-zones/az-overview.md#regions-that-support-availability-zones)에 가상 머신을 만들어야 합니다.
 
-최신 Azure PowerShell 모듈을 설치했는지 확인합니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+최신 Azure PowerShell 모듈을 설치했는지 확인합니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
@@ -121,7 +121,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGrou
     -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
-## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
+## <a name="create-virtual-machine"></a>가상 머신 만들기
 
 가상 머신 구성을 만듭니다. 이 구성은 가상 머신 이미지, 크기 및 인증 구성 등 가상 머신을 배포할 때 사용되는 설정을 포함합니다. 이 예제의 *Standard_DS1_v2* 크기는 가용성 영역에서 지원됩니다. 이 구성은 IP 주소를 만들 때 설정한 가용성 영역도 지정합니다. 이 단계를 실행할 때 자격 증명을 묻는 메시지가 나타납니다. 입력하는 값은 가상 컴퓨터에 대한 사용자 이름 및 암호로 구성됩니다.
 

@@ -1,20 +1,19 @@
 ---
-title: Azure Policy 샘플 ‑ SQL Database에 대한 투명한 데이터 암호화 감사
+title: 샘플 ‑ SQL Database에 대한 투명한 데이터 암호화 감사
 description: 이 샘플 정책은 SQL Database가 투명한 데이터 암호화를 사용하지 않는지를 감사합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 10/29/2018
+ms.date: 01/23/2019
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: d7e8571c0b8301da953d84893ac48934a2392d55
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 8bc9fdb6d1008d6d57edaab0bdbf3892584f3be2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230006"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853802"
 ---
 # <a name="audit-sql-database-encryption"></a>SQL Database 암호화 감사
 
@@ -37,9 +36,9 @@ ms.locfileid: "50230006"
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
 
 ```azurepowershell-interactive
-$definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/17k78e20-9358-41c9-923c-fb736d382a12
+$definition = Get-AzPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/17k78e20-9358-41c9-923c-fb736d382a12
 
-New-AzureRmPolicyAssignment -name "SQL TDE Audit" -PolicyDefinition $definition -Scope <scope>
+New-AzPolicyAssignment -name "SQL TDE Audit" -PolicyDefinition $definition -Scope <scope>
 ```
 
 ### <a name="clean-up-powershell-deployment"></a>PowerShell 배포 정리
@@ -47,7 +46,7 @@ New-AzureRmPolicyAssignment -name "SQL TDE Audit" -PolicyDefinition $definition 
 정책 할당을 제거하려면 다음 명령을 실행합니다.
 
 ```azurepowershell-interactive
-Remove-AzureRmPolicyAssignment -Name "SQL TDE Audit" -Scope <scope>
+Remove-AzPolicyAssignment -Name "SQL TDE Audit" -Scope <scope>
 ```
 
 ## <a name="deploy-with-azure-cli"></a>Azure CLI를 사용하여 배포

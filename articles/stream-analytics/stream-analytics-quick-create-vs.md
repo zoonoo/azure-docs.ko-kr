@@ -1,24 +1,23 @@
 ---
-title: Visual Studio용 Azure Stream Analytics 도구를 사용하여 Stream Analytics 작업 만들기 | Microsoft Docs
+title: Azure Stream Analytics Tools for Visual Studio를 사용하여 Stream Analytics 작업 만들기
 description: 이 빠른 시작은 Stream Analytics 작업을 만들고, 입력, 출력을 구성하고, Visual Studio에서 쿼리를 정의하여 시작하는 방법을 보여줍니다.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 06/15/2018
+ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-manager: kfile
-ms.openlocfilehash: be4c906535981c6b05c1a72aa23e4e1f78f57edf
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 1a72e2874e28a2aa5b69866bd959743707ea9d99
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954756"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021920"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>빠른 시작: Visual Studio용 Azure Stream Analytics 도구를 사용하여 Stream Analytics 작업 만들기
+# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>빠른 시작: Azure Stream Analytics Tools for Visual Studio를 사용하여 Stream Analytics 작업 만들기
 
-이 빠른 시작에서는Visual Studio용 Azure Stream Analytics 도구를 사용하여 Stream Analytics 작업을 만들고 실행하는 방법을 보여줍니다. 예제 작업에서는 Azure Blob Storage에서 스트리밍 데이터를 읽습니다. 이 빠른 시작에 사용된 입력 데이터 파일에는 오직 설명할 목적으로 정적 데이터가 들어 있습니다. 실제 시나리오에서는 Stream Analytics 작업에 스트리밍 입력 데이터를 사용합니다. 이 빠른 시작에서는 100°를 초과할 때 평균 온도를 계산하고 새 파일에 결과 출력 이벤트를 작성하는 작업을 정의합니다.
+이 빠른 시작에서는Visual Studio용 Azure Stream Analytics 도구를 사용하여 Stream Analytics 작업을 만들고 실행하는 방법을 보여줍니다. 예제 작업에서는 IoT Hub 서비스에서 스트리밍 데이터를 읽습니다. 27°를 초과할 때 평균 온도를 계산하고 Blob 스토리지의 새 파일에 결과 출력 이벤트를 작성하는 작업을 정의합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -32,33 +31,54 @@ ms.locfileid: "49954756"
 
 ## <a name="prepare-the-input-data"></a>입력 데이터 준비
 
-Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구성된 데이터를 준비해야 합니다. 작업에 필요한 입력 데이터를 준비하려면 다음 단계를 실행합니다.
+Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구성될 데이터를 준비해야 합니다. 작업에 필요한 입력 데이터를 준비하려면 다음 단계를 완료합니다.
 
-1. GitHub에서 [샘플 센서 데이터](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json)를 다운로드합니다. 샘플 데이터는 다음 JSON 형식의 센서 정보를 포함합니다.  
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-   ```json
-   {
-     "time": "2018-01-26T21:18:52.0000000",
-     "dspl": "sensorC",
-     "temp": 87,
-     "hmdt": 44
-   }
-   ```
-2. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2. **리소스 만들기** > **사물 인터넷** > **IoT Hub**를 선택합니다.
 
-3. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **저장소** > **저장소 계정**을 선택합니다. **이름**이 "asaquickstartstorage"로 설정되고, **위치**가 "미국 서부"로 설정되고, **리소스 그룹**이 "asaquickstart-resourcegroup"으로 설정된 저장소 계정 작업 페이지를 작성합니다(성능 향상을 위해 스트리밍 작업과 동일한 리소스 그룹의 저장소 계정을 호스팅함). 나머지 설정은 해당 기본값으로 유지할 수 있습니다.  
+3. **IoT Hub** 창에서 다음 정보를 입력합니다.
+   
+   |**설정**  |**제안 값**  |**설명**  |
+   |---------|---------|---------|
+   |구독  | \<구독\> |  사용할 Azure 구독을 선택합니다. |
+   |리소스 그룹   |   asaquickstart-resourcegroup  |   **새로 만들기**를 선택하고 계정의 새로운 리소스 그룹 이름을 입력합니다. |
+   |지역  |  \<사용자와 가장 가까운 지역 선택\> | IoT Hub를 호스트할 수 있는 지리적 위치를 선택합니다. 사용자와 가장 가까운 위치를 사용합니다. |
+   |IoT Hub 이름  | MyASAIoTHub  |   IoT Hub의 이름을 선택합니다.   |
 
-   ![저장소 계정 만들기](./media/stream-analytics-quick-create-vs/create-a-storage-account-vs.png)
+   ![IoT Hub 만들기](./media/stream-analytics-quick-create-vs/create-iot-hub.png)
 
-4. **모든 리소스** 페이지에서 이전 단계에서 만든 저장소 계정을 찾습니다. **개요** 페이지, **Blob** 타일을 차례로 엽니다.  
+4. 완료되면 **다음: 크기 및 규모 설정**을 선택합니다.
 
-5. **Blob 서비스** 페이지에서 **컨테이너**를 선택하고, 컨테이너에 *container1*과 같은 **이름**을 입력하고, **확인**을 선택합니다.  
+5. **가격 책정 및 규모 계층**을 선택합니다. 이 빠른 시작의 경우 구독에서 아직 사용할 수 있다면 **F1 - 무료** 계층을 선택합니다. 체험 계층을사용 할 수 없는 경우 가능한 가장 낮은 계층을 선택합니다. 자세한 내용은 [IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)을 참조하세요.
 
-   ![컨테이너 만들기](./media/stream-analytics-quick-create-vs/create-a-storage-container.png)
+   ![IoT Hub 크기 및 규모 조정](./media/stream-analytics-quick-create-vs/iot-hub-size-and-scale.png)
 
-6. 이전 단계에서 만든 컨테이너로 이동합니다. **Upload**를 선택하고 첫 번째 단계에서 얻은 센서 데이터를 업로드합니다.  
+6. **검토 + 만들기**를 선택합니다. IoT Hub 정보를 검토하고 **만들기**를 클릭합니다. IoT Hub를 만드는 데 몇 분 정도 걸릴 수 있습니다. **알림** 창에서 진행 상황을 모니터링할 수 있습니다.
 
-   ![Blob에 샘플 데이터 업로드](./media/stream-analytics-quick-create-vs/upload-sample-data-to-blob.png)
+7. IoT Hub 탐색 메뉴의 **IoT 디바이스** 아래에서 **추가**를 클릭합니다. **디바이스 ID**를 추가하고 **저장**을 클릭합니다.
+
+   ![IoT Hub에 디바이스 추가](./media/stream-analytics-quick-create-vs/add-device-iot-hub.png)
+
+8. 디바이스가 만들어진 후에 **IoT 디바이스** 목록에서 디바이스를 엽니다. 나중에 사용하기 위해 **연결 문자열---기본 키**를 복사하고 메모장에 저장합니다.
+
+   ![IoT Hub 디바이스 연결 문자열 복사](./media/stream-analytics-quick-create-vs/save-iot-device-connection-string.png)
+
+## <a name="create-blob-storage"></a>Blob Storage 만들기
+
+1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **저장소** > **저장소 계정**을 선택합니다.
+
+2. **스토리지 계정 만들기** 창에서 스토리지 계정 이름, 위치 및 리소스 그룹을 입력합니다. 자신이 만든 IoT Hub와 동일한 위치 및 리소스 그룹을 선택합니다. 그런 다음, **검토 + 만들기**를 클릭하여 계정을 만듭니다.
+
+   ![저장소 계정 만들기](./media/stream-analytics-quick-create-portal/create-storage-account.png)
+
+3. 스토리지 계정이 생성되면 **개요** 창에서 **Blob** 타일을 선택합니다.
+
+   ![Storage 계정 개요](./media/stream-analytics-quick-create-portal/blob-storage.png)
+
+4. **Blob 서비스** 페이지에서 **컨테이너**를 선택하고, 컨테이너에 *container1*과 같은 이름을 지정합니다. **공용 액세스 수준**을 **개인(익명 액세스 없음)** 으로 유지하고 **확인**을 선택합니다.
+
+   ![Blob 컨테이너 만들기](./media/stream-analytics-quick-create-portal/create-blob-container.png)
 
 ## <a name="create-a-stream-analytics-project"></a>Stream Analytics 프로젝트 만들기
 
@@ -66,7 +86,7 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
 
 2. **파일 > 새 프로젝트 만들기**를 선택합니다.  
 
-3. 왼쪽의 템플릿 목록에서 **Stream Analytics**를 선택한 다음 **Azure Stream Analytics 응용 프로그램**을 선택합니다.  
+3. 왼쪽의 템플릿 목록에서 **Stream Analytics**를 선택한 다음, **Azure Stream Analytics 애플리케이션**을 선택합니다.  
 
 4. 프로젝트 **이름**, **위치** 및 **솔루션 이름**을 입력하고, **확인**을 선택합니다.
 
@@ -92,12 +112,11 @@ Azure Stream Analytics 프로젝트에 포함된 요소를 확인합니다.
    |**설정**  |**제안 값**  |**설명**   |
    |---------|---------|---------|
    |입력 별칭  |  입력   |  작업의 입력을 식별하는 이름을 입력합니다.   |
-   |원본 유형   |  데이터 스트림 |  데이터 스트림 또는 참조 데이터라는 적절한 입력 원본을 선택합니다.   |
-   |원본  |  Blob Storage |  적합한 입력 원본을 선택합니다.   |
+   |원본 유형   |  데이터 스트림 |  적합한 입력 원본: 데이터 스트림 또는 참조 데이터를 선택합니다.   |
+   |원본  |  IoT Hub |  적합한 입력 원본을 선택합니다.   |
    |리소스  | 현재 계정에서 데이터 원본 선택 | 기존 계정을 선택하거나 데이터를 수동으로 입력하도록 선택합니다.   |
-   |구독  |  \<구독\>   | 만든 저장소 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 저장소 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 저장소 계정을 만들었다고 가정합니다.   |
-   |Storage 계정  |  asaquickstartstorage   |  저장소 계정의 이름을 선택하거나 입력합니다. 저장소 계정 이름은 동일한 구독에 만들어진 경우에 자동으로 감지됩니다.   |
-   |컨테이너  |  container1   |  저장소 계정에서 만든 기존 컨테이너를 선택합니다.   |
+   |구독  |  \<구독\>   | 만든 IoT Hub가 있는 Azure 구독을 선택합니다.   |
+   |IoT Hub  |  MyASAIoTHub   |  IoT Hub의 이름을 선택하거나 입력합니다. IoT Hub 이름은 동일한 구독에 만들어진 경우에 자동으로 감지됩니다.   |
    
 3. 다른 옵션을 기본값으로 유지하고 **저장**을 선택하여 설정을 저장합니다.  
 
@@ -130,16 +149,10 @@ Azure Stream Analytics 프로젝트에 포함된 요소를 확인합니다.
 2. 다음 쿼리를 추가합니다.
 
    ```sql
-   SELECT 
-   System.Timestamp AS OutputTime,
-   dspl AS SensorName,
-   Avg(temp) AS AvgTemperature
-   INTO
-     Output
-   FROM
-     Input TIMESTAMP BY time
-   GROUP BY TumblingWindow(second,30),dspl
-   HAVING Avg(temp)>100
+   SELECT *
+   INTO BlobOutput
+   FROM IoTHubInput
+   HAVING Temperature > 27
    ```
 
 ## <a name="submit-a-stream-analytics-query-to-azure"></a>Stream Analytics 쿼리를 Azure에 제출
@@ -150,13 +163,23 @@ Azure Stream Analytics 프로젝트에 포함된 요소를 확인합니다.
 
    ![Azure에 작업 제출](./media/stream-analytics-quick-create-vs/stream-analytics-job-to-azure.png)
 
+## <a name="run-the-iot-simulator"></a>IoT 시뮬레이터 실행
+
+1. 새 브라우저 탭 또는 창에서 [Raspberry Pi Azure IoT 온라인 시뮬레이터](https://azure-samples.github.io/raspberry-pi-web-simulator/)를 엽니다.
+
+2. 15행의 자리 표시자를 이전 섹션에서 저장한 Azure IoT Hub 디바이스 연결 문자열로 대체합니다.
+
+3. **실행**을 클릭합니다. IoT Hub로 전송 중인 센서 데이터와 메시지가 출력에 표시되어야 합니다.
+
+   ![Raspberry Pi Azure IoT 온라인 시뮬레이터](./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png)
+
 ## <a name="start-the-stream-analytics-job-and-check-output"></a>Stream Analytics 작업 시작 및 출력 확인
 
 1. 작업이 만들어지면 작업 보기가 자동으로 열립니다. 녹색 화살표 단추를 선택하여 작업을 시작합니다.
 
    ![Stream Analytics 작업 시작](./media/stream-analytics-quick-create-vs/start-stream-analytics-job-vs.png)
 
-2. 날짜 **사용자 지정 시간**을 `2018-01-01`로 변경하고 **시작**을 선택합니다.
+2. **작업 출력 시작 모드**를 **JobStartTime**으로 변경하고 **시작**을 선택합니다.
 
    ![작업 구성 시작](./media/stream-analytics-quick-create-vs/stream-analytics-start-configuration.png)
 
@@ -180,7 +203,7 @@ Azure Stream Analytics 프로젝트에 포함된 요소를 확인합니다.
 
 이 빠른 시작에서는 Visual Studio를 사용하여 간단한 Stream Analytics 작업을 배포했습니다. [Azure Portal](stream-analytics-quick-create-portal.md)과 [PowerShell](stream-analytics-quick-create-powershell.md)을 통해 Stream Analytics 작업도 배포할 수 있습니다. 
 
-다른 입력 원본을 구성하고 실시간 검색을 수행하는 방법을 알아보려면 다음 문서로 이동하세요.
+Azure Stream Analytics tools for Visual Studio를 알아보려면 다음 문서를 계속 합니다.
 
 > [!div class="nextstepaction"]
-> [Azure Stream Analytics를 사용하여 실시간 부정 행위 감지](stream-analytics-real-time-fraud-detection.md)
+> [Visual Studio를 사용하여 Azure Stream Analytics 작업 보기](stream-analytics-vs-tools.md)

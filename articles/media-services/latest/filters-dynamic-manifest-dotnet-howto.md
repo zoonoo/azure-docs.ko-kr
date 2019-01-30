@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/28/2018
 ms.author: juliako
-ms.openlocfilehash: 23e83b98288f9ac1fe23e01b9a91d81daa3b0f47
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 31b49d882c1affbbef84bb6f4e8989d30fa320fa
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632384"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650973"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Media Services .NET SDK로 필터 만들기
 
@@ -37,17 +37,18 @@ ms.locfileid: "52632384"
 
 .NET에서는 [FilterTrackSelection](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackselection?view=azure-dotnet) 및 [FilterTrackPropertyCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition?view=azure-dotnet) 클래스를 사용하여 트랙 선택 영역을 구성합니다. 
 
-다음 코드는 EC-3를 사용하는 모든 영어 오디오 트랙 및 비트 전송률이 0-1000000 범위인 모든 비디오 트랙을 포함하는 필터를 정의합니다.
+다음 코드는 EC-3인 오디오 트랙 및 비트 전송률이 0-1000000 범위인 비디오 트랙을 모두 포함하는 필터를 정의합니다.
 
 ```csharp
 var audioConditions = new List<FilterTrackPropertyCondition>()
 {
-    new FilterTrackPropertyCondition(FilterTrackPropertyType.Language, "en-us", FilterTrackPropertyCompareOperation.Equal),
+    new FilterTrackPropertyCondition(FilterTrackPropertyType.Type, "Audio", FilterTrackPropertyCompareOperation.Equal),
     new FilterTrackPropertyCondition(FilterTrackPropertyType.FourCC, "EC-3", FilterTrackPropertyCompareOperation.Equal)
 };
 
 var videoConditions = new List<FilterTrackPropertyCondition>()
 {
+    new FilterTrackPropertyCondition(FilterTrackPropertyType.Type, "Video", FilterTrackPropertyCompareOperation.Equal),
     new FilterTrackPropertyCondition(FilterTrackPropertyType.Bitrate, "0-1000000", FilterTrackPropertyCompareOperation.Equal)
 };
 

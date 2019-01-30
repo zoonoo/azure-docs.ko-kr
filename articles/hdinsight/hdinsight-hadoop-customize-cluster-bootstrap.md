@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: bfa36cfeda514be0941481b0e4ed5ab9b3669b54
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2da89e674b967287150b2e8f3a98fc25df2af81e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238100"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878266"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정
 
@@ -50,7 +50,7 @@ Bootstrap을 사용하는 방법은 3가지가 있습니다.
 * [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정(Linux)](hdinsight-hadoop-customize-cluster-linux.md)
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell 사용
-다음 PowerShell 코드는 Hive 구성을 사용자 지정합니다.
+다음 PowerShell 코드는 [Apache Hive](https://hive.apache.org/) 구성을 사용자 지정합니다.
 
 ```powershell
 # hive-site.xml configuration
@@ -128,11 +128,11 @@ Resource Manager 템플릿에서 부트스트랩을 사용할 수 있습니다.
 ![HDInsight Hadoop 사용자 지정 클러스터 부트스트랩 Azure Resource Manager 템플릿](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## <a name="see-also"></a>참고 항목
-* [HDInsight의 Hadoop 클러스터 만들기][hdinsight-provision-cluster]에서는 다른 사용자 지정 옵션을 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침을 제공합니다.
+* [HDInsight의 Apache Hadoop 클러스터 만들기][hdinsight-provision-cluster]에서는 다른 사용자 지정 옵션을 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침을 제공합니다.
 * [HDInsight용 스크립트 작업 스크립트 개발][hdinsight-write-script]
-* [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]
-* [HDInsight 클러스터에 Solr 설치 및 사용](hdinsight-hadoop-solr-install.md)
-* [HDInsight 클러스터에서 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install.md)
+* [HDInsight 클러스터에서 Apache Spark 설치 및 사용][hdinsight-install-spark]
+* [HDInsight 클러스터에 Apache Solr 설치 및 사용](hdinsight-hadoop-solr-install.md)
+* [HDInsight 클러스터에 Apache Giraph 설치 및 사용](hdinsight-hadoop-giraph-install.md)
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md

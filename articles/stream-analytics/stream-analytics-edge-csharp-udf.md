@@ -4,21 +4,21 @@ description: Visual Studio에서 Stream Analytics Edge 작업용으로 C# 사용
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.openlocfilehash: d593930705c7455d03e20af2affd2de3c418d4a5
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 5597109a65a8af88bf286977d039656635565ed9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389071"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086909"
 ---
-# <a name="tutorial-write-a-c-user-defined-function-for-an-azure-stream-analytics-edge-job-in-visual-studio-preview"></a>자습서: Visual Studio(Preview)에서 Azure Stream Analytics Edge 작업용 C# 사용자 정의 함수 작성
+# <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-edge-job-preview"></a>자습서: Azure Stream Analytics Edge 작업용 C# 사용자 정의 함수 작성(미리 보기)
 
-Visual Studio에서 만든 C# UDF(사용자 정의 함수)를 사용하면 원하는 함수로 Azure Stream Analytics 쿼리 언어를 확장할 수 있습니다. C#에서는 DLL을 비롯한 기존 코드를 다시 사용할 수 있으며 수학 논리나 복합 논리도 사용할 수 있습니다. UDF는 세 가지 방식으로 구현합니다. Stream Analytics 프로젝트의 CodeBehind 파일로 구현하거나, 로컬 C# 프로젝트의 UDF로 구현하거나, 저장소 계정의 기존 패키지에 포함된 UDF로 구현할 수 있습니다. 이 자습서에서는 CodeBehind 방법을 사용하여 기본적인 C# 함수를 구현합니다. Stream Analytics Edge 작업용 UDF 함수는 현재 미리 보기로 제공되며 프로덕션 워크로드에는 사용해서는 안 됩니다.
+Visual Studio에서 만든 C# UDF(사용자 정의 함수)를 사용하면 원하는 함수로 Azure Stream Analytics 쿼리 언어를 확장할 수 있습니다. C#에서는 DLL을 비롯한 기존 코드를 다시 사용할 수 있으며 수학 논리나 복합 논리도 사용할 수 있습니다. UDF를 구현하는 다음 세 가지 방법이 있습니다. Stream Analytics 프로젝트의 CodeBehind 파일, 로컬 C# 프로젝트의 UDF 또는 스토리지 계정의 기존 패키지에 있는 UDF를 구현합니다. 이 자습서에서는 CodeBehind 방법을 사용하여 기본적인 C# 함수를 구현합니다. Stream Analytics Edge 작업용 UDF 함수는 현재 미리 보기로 제공되며 프로덕션 워크로드에는 사용해서는 안 됩니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -45,7 +45,7 @@ Visual Studio에서 만든 C# UDF(사용자 정의 함수)를 사용하면 원�
 
 2. **파일 > 새로 만들기 > 프로젝트**를 선택합니다.
 
-3. 왼쪽의 템플릿 목록에서 **Stream Analytics**를 선택한 다음 **Azure Stream Analytics Edge 응용 프로그램**을 선택합니다.
+3. 왼쪽의 템플릿 목록에서 **Stream Analytics**를 선택한 다음, **Azure Stream Analytics Edge 애플리케이션**을 선택합니다.
 
 4.  프로젝트 **이름**, **위치** 및 **솔루션 이름**을 입력하고, **확인**을 선택합니다.
 
@@ -115,11 +115,11 @@ CodeBehind 파일은 ASA Edge 쿼리 스크립트 하나와 연결된 C# 파일�
 
 2. **솔루션 탐색기**에서 **입력**을 확장하고 **Input.json**을 마우스 오른쪽 단추로 클릭한 후에 **로컬 입력 추가**를 선택합니다.
 
-   ![Visual Studio에서 Azure Stream Analytics 작업에 로컬 입력 추가](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
+   ![Visual Studio에서 Stream Analytics 작업에 로컬 입력 추가](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
 
 3. 다운로드한 샘플 데이터의 로컬 입력 파일 경로를 지정하고 파일을 **저장**합니다.
 
-    ![Visual Studio의 Azure Stream Analytics 작업용 로컬 입력 구성](./media/stream-analytics-edge-csharp-udf/stream-analytics-local-input-config.png)
+    ![Visual Studio에서 Stream Analytics 작업에 대한 로컬 입력 구성](./media/stream-analytics-edge-csharp-udf/stream-analytics-local-input-config.png)
 
 4. 스크립트 편집기에서 **로컬에서 실행**을 클릭합니다. 로컬 실행에서 출력 결과가 정상적으로 저장되면 아무 키나 눌러 표 형식으로 결과를 확인합니다. 
 
@@ -134,11 +134,11 @@ CodeBehind 파일은 ASA Edge 쿼리 스크립트 하나와 연결된 C# 파일�
 
 1. C# 함수에 중단점을 추가합니다.
 
-    ![Visual Studio에서 Edge 작업용 Azure Stream Analytics 사용자 정의 함수에 중단점 추가](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-breakpoints.png)
+    ![Visual Studio에서 Stream Analytics 사용자 정의 함수에 중단점 추가](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-breakpoints.png)
 
 2. **F5** 키를 눌러 디버깅을 시작합니다. 프로그램이 중단점에서 정상적으로 중지됩니다.
 
-    ![Visual Studio 디버깅 결과에서 Edge 작업용 Azure Stream Analytics 사용자 정의 함수 확인](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-debug.png)
+    ![Stream Analytics 사용자 정의 함수에 대한 디버깅 결과 보기](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-debug.png)
 
 ## <a name="publish-your-job-to-azure"></a>Azure에 작업 게시
 쿼리를 로컬로 테스트한 다음 스크립트 편집기에서 **Azure에 제출**을 선택하여 작업을 Azure에 게시합니다.
@@ -146,7 +146,7 @@ CodeBehind 파일은 ASA Edge 쿼리 스크립트 하나와 연결된 C# 파일�
 ![Visual Studio에서 Azure에 Stream Analytics Edge 작업 제출](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png)
 
 ## <a name="deploy-to-iot-edge-devices"></a>IoT Edge 디바이스에 배포
-이제 Stream Analytics 작업을 IoT Edge 모듈로 배포할 준비가 되었습니다. [IoT Edge 빠른 시작](https://docs.microsoft.com/azure/iot-edge/quickstart)의 설명에 따라 IoT Hub를 만들고, IoT Edge 장치를 등록하고, 장치에서 IoT Edge 런타임을 설치 및 시작합니다. 그런 다음 [작업 배포](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) 자습서의 설명에 따라 Stream Analytics 작업을 IoT Edge 모듈로 배포합니다. 
+이제 Stream Analytics 작업을 IoT Edge 모듈로 배포할 준비가 되었습니다. [IoT Edge 빠른 시작](https://docs.microsoft.com/azure/iot-edge/quickstart)의 설명에 따라 IoT Hub를 만들고, IoT Edge 디바이스를 등록하고, 디바이스에서 IoT Edge 런타임을 설치 및 시작합니다. 그런 다음 [작업 배포](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) 자습서의 설명에 따라 Stream Analytics 작업을 IoT Edge 모듈로 배포합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -155,4 +155,4 @@ CodeBehind 파일은 ASA Edge 쿼리 스크립트 하나와 연결된 C# 파일�
 Stream Analytics Edge 작업에 C# 사용자 정의 함수를 사용하는 여러 방법에 대해 자세히 알아보려면 다음 문서를 계속 확인하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Stream Analytics용 C# 사용자 정의 함수 작성](stream-analytics-edge-csharp-udf-methods.md)
+> [Azure Stream Analytics용 C# 함수 작성](stream-analytics-edge-csharp-udf-methods.md)

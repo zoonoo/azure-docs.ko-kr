@@ -1,5 +1,5 @@
 ---
-title: Azure WebJobs SDK 사용 방법
+title: WebJob SDK 사용 방법 - Azure
 description: WebJobs SDK에 대한 코드 작성 방법을 알아봅니다. Azure 서비스 및 타사 서비스의 데이터에 액세스하는 이벤트 중심 백그라운드 처리 작업을 만듭니다.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 2266f63f9689ec4d22659eb4a7c4876e25fa08b1
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 34177cb2ea1650c4b7130d8c5a2a886655852783
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335217"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555033"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
@@ -96,9 +96,9 @@ static void Main()
 
 사용자가 `ServicePointManager`를 통해 `HttpClient` 흐름을 사용하여 함수에서 만드는 모든 나가는 HTTP 요청. `DefaultConnectionLimit`에 도달하면 `ServicePointManager`는 요청 큐잉을 시작한 후 요청을 보냅니다. `DefaultConnectionLimit`가 2로 설정되었고 코드에서 HTTP 요청 1,000개를 만든다고 가정해 봅시다. 처음에는 실제로 OS까지 전달되는 요청이 2개밖에 없습니다. 나머지 998개는 공간이 생길 때까지 큐에서 대기합니다. 즉, `HttpClient`는 요청을 만들었지만 OS가 요청을 대상 서버로 보낸 적이 없다고 *생각*하고 시간이 초과될 수 있습니다. 이와 같은 이유로 로컬 `HttpClient`가 요청을 완료하는 데 10초가 걸리지만 서비스가 200ms 후에 모든 요청을 반환하는 이상한 동작이 관찰될 수 있습니다. 
 
-ASP.NET 응용 프로그램의 기본값은 `Int32.MaxValue`이고, Basic 이상 App Service 계획에서 실행되는 WebJobs에서 잘 작동할 것입니다. WebJobs는 일반적으로 Always On 설정이 필요한데, 이 설정은 Basic 이상 App Service 계획에서만 지원됩니다. 
+ASP.NET 애플리케이션의 기본값은 `Int32.MaxValue`이고, Basic 이상 App Service 계획에서 실행되는 WebJobs에서 잘 작동할 것입니다. WebJobs는 일반적으로 Always On 설정이 필요한데, 이 설정은 Basic 이상 App Service 계획에서만 지원됩니다. 
 
-WebJob이 무료 또는 공유 App Service 계획에서 실행되는 경우 응용 프로그램이 App Service 샌드박스의 제한을 받으며, 현재 [연결 제한은 300개](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#per-sandbox-per-appper-site-numerical-limits)입니다. `ServicePointManager`의 바인딩되지 않은 제한 때문에 샌드박스 연결 임계값에 도달하여 사이트가 종료될 가능성이 있습니다. 이 경우 `DefaultConnectionLimit`를 50 또는 100처럼 약간 낮추면 이와 같은 상황을 방지하면서도 충분한 처리량을 계속 제공할 수 있습니다.
+WebJob이 무료 또는 공유 App Service 계획에서 실행되는 경우 애플리케이션이 App Service 샌드박스의 제한을 받으며, 현재 [연결 제한은 300개](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#per-sandbox-per-appper-site-numerical-limits)입니다. `ServicePointManager`의 바인딩되지 않은 제한 때문에 샌드박스 연결 임계값에 도달하여 사이트가 종료될 가능성이 있습니다. 이 경우 `DefaultConnectionLimit`를 50 또는 100처럼 약간 낮추면 이와 같은 상황을 방지하면서도 충분한 처리량을 계속 제공할 수 있습니다.
 
 이 설정은 HTTP 요청을 만들기 전에 구성해야 합니다. 이러한 이유로 WebJobs 호스트는 설정을 자동으로 조정하려고 시도하면 안 됩니다. 호스트가 시작되기 전에 발생하는 HTTP 요청이 있을 수 있으며 이로 인해 예기치 않은 동작이 발생할 수 있습니다. 가장 좋은 방법은 다음 예제와 같이 `JobHost`를 초기화하기 전에 `Main` 메서드에서 즉시 값을 설정하는 것입니다.
 
@@ -416,7 +416,7 @@ public class WorkItem
 
 잠금의 기본 범위는 `SingletonScope.Function`입니다. 즉, 잠금 범위(BLOB 임대 경로)가 정규화된 함수 이름에 연결됩니다. 모든 함수에서 잠그려면 `SingletonScope.Host`를 지정하고, 동시에 실행하지 않으려는 모든 함수에서 동일한 범위 ID 이름을 사용하세요. 다음 예제에서는 `AddItem` 또는 `RemoveItem`의 인스턴스가 한 번에 하나씩 실행됩니다.
 
-```charp
+```csharp
 [Singleton("ItemsLock", SingletonScope.Host)]
 public static void AddItem([QueueTrigger("add-item")] string message)
 {
@@ -450,7 +450,7 @@ WebJobs SDK는 분산 잠금을 구현하기 위해 백그라운드에서 [Azure
 
 타이머 트리거는 자동으로 타이머의 한 인스턴스만 실행되도록 보장하므로 예약된 특정 시간에 오직 하나의 함수 인스턴스만 실행됩니다.
 
-호스트 웹앱의 인스턴스가 여러 개 있는 경우에도 함수 인스턴스 중 하나만 실행되게 하려면 [Singleton](#singleton) 특성을 사용하면 됩니다.
+호스트 웹앱의 인스턴스가 여러 개 있는 경우에도 함수 인스턴스 중 하나만 실행되게 하려면 [싱글톤 특성](#singleton-attribute)을 사용하면 됩니다.
     
 ## <a name="filters"></a>필터 
 
@@ -498,7 +498,7 @@ config.LoggerFactory = new LoggerFactory()
 
 ### <a name="custom-telemetry-for-application-insights"></a>Application Insights에 대한 사용자 지정 원격 분석​
 
-내부적으로 WebJobs SDK에 대한 Application Insights 공급자가 만든 `TelemetryClient`는 [ServerTelemetryChannel](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)을 사용합니다. Application Insights 엔드포인트를 사용할 수 없거나 들어오는 요청을 제한하는 경우 이 채널은 [웹앱의 파일 시스템에 요청을 저장해 두었다가 나중에 다시 전송](http://apmtips.com/blog/2015/09/03/more-telemetry-channels)합니다.
+내부적으로 WebJobs SDK에 대한 Application Insights 공급자가 만든 `TelemetryClient`는 [ServerTelemetryChannel](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)을 사용합니다. Application Insights 엔드포인트를 사용할 수 없거나 들어오는 요청을 제한하는 경우 이 채널은 [웹앱의 파일 시스템에 요청을 저장해 두었다가 나중에 다시 전송](https://apmtips.com/blog/2015/09/03/more-telemetry-channels)합니다.
 
 `TelemetryClient`는 `ITelemetryClientFactory`를 구현하는 클래스에서 생성합니다. 기본적으로는 [DefaultTelemetryClientFactory](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/DefaultTelemetryClientFactory.cs)입니다.
 

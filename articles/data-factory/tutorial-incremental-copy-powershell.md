@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory를 사용하여 테이블 증분 복사 | Microsoft Docs
-description: 이 자습서에서는 Azure SQL 데이터베이스에서 Azure Blob 저장소로 데이터 증분을 복사하는 Azure 데이터 팩터리 파이프라인을 만듭니다.
+description: 이 자습서에서는 Azure SQL 데이터베이스에서 Azure Blob Storage로 데이터 증분을 복사하는 Azure 데이터 팩터리 파이프라인을 만듭니다.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 08bce244dc4eafcd423123b1230fe4aa8b4ed04e
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 1c074b4e7cee7a05611fd88b601e6e1f9fa559ce
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092045"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439207"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Azure SQL 데이터베이스에서 Azure Blob 저장소로 데이터 증분 로드
-이 자습서에서는 Azure SQL 데이터베이스의 테이블에서 Azure Blob 저장소로 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다. 
+# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Azure SQL 데이터베이스에서 Azure Blob Storage로 데이터 증분 로드
+이 자습서에서는 Azure SQL 데이터베이스의 테이블에서 Azure Blob Storage로 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다. 
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -37,7 +36,7 @@ ms.locfileid: "43092045"
 ## <a name="overview"></a>개요
 대략적인 솔루션 다이어그램은 다음과 같습니다. 
 
-![데이터 증분 로드](media\tutorial-Incrementally-copy-powershell\incrementally-load.png)
+![데이터 증분 로드](media/tutorial-Incrementally-copy-powershell/incrementally-load.png)
 
 이 솔루션을 만드는 중요한 단계는 다음과 같습니다. 
 
@@ -52,7 +51,7 @@ ms.locfileid: "43092045"
     이 솔루션의 파이프라인에 포함되는 작업은 다음과 같습니다.
   
     * 두 가지 조회 작업을 만듭니다. 첫 번째 조회 작업을 사용하여 마지막 워터마크 값을 검색합니다. 두 번째 조회 작업을 사용하여 새 워터마크 값을 검색합니다. 이러한 워터마크 값은 복사 작업에 전달됩니다. 
-    * 이전 워터마크 값보다 크고, 새 워터마크 값보다 작은 워터마크 열 값으로 원본 데이터 저장소의 행을 복사하는 복사 작업을 만듭니다. 그런 다음 원본 데이터 저장소의 델타 데이터를 새 파일로 Blob 저장소에 복사합니다. 
+    * 이전 워터마크 값보다 크고, 새 워터마크 값보다 작은 워터마크 열 값으로 원본 데이터 저장소의 행을 복사하는 복사 작업을 만듭니다. 그런 다음 원본 데이터 스토리지의 델타 데이터를 새 파일로 Blob Storage에 복사합니다. 
     * 다음에 실행되는 파이프라인에 대한 워터마크 값을 업데이트하는 StoredProcedure 작업을 만듭니다. 
 
 
@@ -60,8 +59,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 * **Azure SQL Database**. 데이터베이스를 원본 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 만드는 단계를 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)에서 참조하세요.
-* **Azure Storage**. Blob 저장소를 싱크 데이터 저장소로 사용합니다. 저장소 계정이 없는 경우, 계정을 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. adftutorial이라는 컨테이너를 만듭니다. 
-* **Azure PowerShell**. [Azure PowerShell을 설치 및 구성](/powershell/azure/install-azurerm-ps)의 지침을 따르세요.
+* **Azure Storage**. Blob Storage를 싱크 데이터 스토리지로 사용합니다. 저장소 계정이 없는 경우, 계정을 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. adftutorial이라는 컨테이너를 만듭니다. 
+* **Azure PowerShell**. [Azure PowerShell을 설치 및 구성](/powershell/azure/azurerm/install-azurerm-ps)의 지침을 따르세요.
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>SQL 데이터베이스에 데이터 원본 테이블 만들기
 1. SQL Server Management Studio를 엽니다. **서버 탐색기**에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
@@ -132,7 +131,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 다음 명령을 실행하여 SQL 데이터베이스에 저장 프로시저를 만듭니다.
 
 ```sql
-CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
+CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
 AS
 
 BEGIN
@@ -188,7 +187,7 @@ END
     ```
 
 * Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정이 참여자 또는 소유자 역할의 구성원이거나, Azure 구독의 관리자여야 합니다.
-* Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Storage, SQL Database 등) 및 계산(Azure HDInsight 등)은 다른 지역에 있을 수 있습니다.
+* 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Storage, SQL Database 등) 및 계산(Azure HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
@@ -288,7 +287,7 @@ END
     ```
     이 자습서에서는 테이블 이름으로 data_source_table을 사용합니다. 다른 이름의 테이블을 사용하는 경우 이름을 바꿉니다.
 
-2. **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 SourceDataset 데이터 집합을 만듭니다.
+2. **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 SourceDataset 데이터 세트를 만듭니다.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
@@ -329,9 +328,9 @@ END
     ```
 
     > [!IMPORTANT]
-    > 이 코드 조각에서는 Blob 저장소에 adftutorial이라는 Blob 컨테이너가 있다고 가정합니다. 컨테이너가 없으면 만들거나 기존 컨테이너의 이름으로 설정합니다. `incrementalcopy` 출력 폴더가 컨테이너에 없는 경우 자동으로 만들어집니다. 이 자습서에서 파일 이름은 `@CONCAT('Incremental-', pipeline().RunId, '.txt')` 식을 사용하여 동적으로 생성됩니다.
+    > 이 코드 조각에서는 Blob Storage에 adftutorial이라는 Blob 컨테이너가 있다고 가정합니다. 컨테이너가 없으면 만들거나 기존 컨테이너의 이름으로 설정합니다. `incrementalcopy` 출력 폴더가 컨테이너에 없는 경우 자동으로 만들어집니다. 이 자습서에서 파일 이름은 `@CONCAT('Incremental-', pipeline().RunId, '.txt')` 식을 사용하여 동적으로 생성됩니다.
 
-2. **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 SinkDataset 데이터 집합을 만듭니다.
+2. **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 SinkDataset 데이터 세트를 만듭니다.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
@@ -367,7 +366,7 @@ END
         }
     }    
     ```
-2.  **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 WatermarkDataset 데이터 집합을 만듭니다.
+2.  **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 WatermarkDataset 데이터 세트를 만듭니다.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
@@ -471,7 +470,7 @@ END
                     "type": "SqlServerStoredProcedure",
                     "typeProperties": {
     
-                        "storedProcedureName": "sp_write_watermark",
+                        "storedProcedureName": "usp_write_watermark",
                         "storedProcedureParameters": {
                             "LastModifiedtime": {"value": "@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}", "type": "datetime" },
                             "TableName":  { "value":"@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}", "type":"String"}
@@ -591,7 +590,7 @@ END
 
 ## <a name="review-the-results"></a>결과 검토
 
-1. Blob 저장소(싱크 저장소)에서 SinkDataset에 정의된 파일에 데이터가 복사된 것을 확인합니다. 현재 자습서에서 파일 이름은 `Incremental- d4bf3ce2-5d60-43f3-9318-923155f61037.txt`입니다. 이 파일을 열면 SQL 데이터베이스의 데이터와 동일한 레코드를 파일에서 볼 수 있습니다.
+1. Blob Storage(싱크 스토리지)에서 SinkDataset에 정의된 파일에 데이터가 복사된 것을 확인합니다. 현재 자습서에서 파일 이름은 `Incremental- d4bf3ce2-5d60-43f3-9318-923155f61037.txt`입니다. 이 파일을 열면 SQL 데이터베이스의 데이터와 동일한 레코드를 파일에서 볼 수 있습니다.
 
     ```
     1,aaaa,2017-09-01 00:56:00.0000000
@@ -708,7 +707,7 @@ END
     Error             : {errorCode, message, failureType, target}
 
     ```
-4. Blob 저장소에 다른 파일이 만들어진 것을 볼 수 있습니다. 이 자습서에서 새 파일 이름은 `Incremental-2fc90ab8-d42c-4583-aa64-755dba9925d7.txt`입니다. 해당 파일을 열면 2개 행의 레코드가 표시됩니다.
+4. Blob Storage에 다른 파일이 만들어진 것을 볼 수 있습니다. 이 자습서에서 새 파일 이름은 `Incremental-2fc90ab8-d42c-4583-aa64-755dba9925d7.txt`입니다. 해당 파일을 열면 2개 행의 레코드가 표시됩니다.
 
 5. `watermarktable`에서 최신 값을 확인합니다. 워터마크 값이 다시 업데이트된 것을 볼 수 있습니다.
 
@@ -734,7 +733,7 @@ END
 > * 파이프라인을 실행합니다.
 > * 파이프라인 실행을 모니터링합니다. 
 
-이 자습서에서는 파이프라인이 SQL 데이터베이스의 단일 테이블에서 Blob 저장소로 데이터를 복사했습니다. 온-프레미스 SQL Server 데이터베이스의 여러 테이블에서 SQL 데이터베이스로 데이터를 복사하는 방법을 알아보려면 다음 자습서로 이동하세요. 
+이 자습서에서는 파이프라인이 SQL 데이터베이스의 단일 테이블에서 Blob Storage로 데이터를 복사했습니다. 온-프레미스 SQL Server 데이터베이스의 여러 테이블에서 SQL 데이터베이스로 데이터를 복사하는 방법을 알아보려면 다음 자습서로 이동하세요. 
 
 > [!div class="nextstepaction"]
 >[SQL Server의 여러 테이블에서 Azure SQL Database로 데이터 증분 로드](tutorial-incremental-copy-multiple-tables-powershell.md)

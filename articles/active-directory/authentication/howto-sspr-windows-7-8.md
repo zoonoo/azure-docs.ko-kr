@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 1465ba23f6fed85f0d4164f8e3fdc8c38be43ad3
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 1b488e938cf314eef18117ffd33f582319260162
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427737"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438782"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>방법: Windows 7, 8 및 8.1에서 암호 재설정 사용
 

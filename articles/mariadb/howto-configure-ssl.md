@@ -1,22 +1,20 @@
 ---
 title: Azure Database for MariaDB에 안전하게 연결하기 위한 SSL 연결 구성
-description: SSL 연결을 올바르게 사용하기 위해 Azure Database for MariaDB 및 연결된 응용 프로그램을 올바르게 구성하는 방법에 대한 지침
+description: SSL 연결을 올바르게 사용하기 위해 Azure Database for MariaDB 및 연결된 애플리케이션을 올바르게 구성하는 방법에 대한 지침
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 00e8479eab927acccc8f797311a0a2d440bb96da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 01/22/2019
+ms.openlocfilehash: 197281a4666179037cd689e7e8d488e73039174b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961674"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810298"
 ---
-# <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Azure Database for MariaDB에 안전하게 연결하기 위한 사용자 응용 프로그램의 SSL 연결 구성
-Azure Database for MariaDB는 SSL(Secure Sockets Layer)을 사용한 Azure Database for MariaDB 서버와 클라이언트 응용 프로그램 간 연결을 지원합니다. 데이터베이스 서버와 클라이언트 응용 프로그램 간 SSL 연결을 적용하면 서버와 응용 프로그램 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.
+# <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Azure Database for MariaDB에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성
+Azure Database for MariaDB는 SSL(Secure Sockets Layer)을 사용한 Azure Database for MariaDB 서버와 클라이언트 애플리케이션 간 연결을 지원합니다. 데이터베이스 서버와 클라이언트 애플리케이션 간 SSL 연결을 적용하면 서버와 애플리케이션 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.
 
 ## <a name="obtain-ssl-certificate"></a>SSL 인증서 받기
 [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem)에서 SSL을 통해 Azure Database for MariaDB 서버와 통신하는 데 필요한 인증서를 다운로드하고 인증서 파일을 로컬 드라이브에 저장합니다(이 자습서에서는 c:\ssl을 예로 사용).
@@ -32,6 +30,8 @@ SSL 인증서를 바인딩하는 또 다른 방법은 다음 명령을 실행하
 ```bash
 mysql.exe -h mydemoserver.mariadb.database.azure.com -u Username@mydemoserver -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
+> [!NOTE]
+> Windows에서 MySQL 명령줄 인터페이스의 최신 버전을 사용할 경우 `SSL connection error: Certificate signature check failed` 오류가 발생할 수 있습니다. 이 오류가 발생하면 `--ssl-ca={filepath}` 매개 변수를 `--ssl`로 바꿉니다.
 
 ## <a name="enforcing-ssl-connections-in-azure"></a>Azure에 SSL 연결 적용 
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
@@ -49,10 +49,10 @@ mysql **status** 명령을 실행하여 SSL로 MariaDB 서버에 연결되어 �
 ```sql
 status
 ```
-출력을 검토하여 연결이 암호화되었는지 확인합니다. **SSL: 사용 중인 암호 그룹은 AES256-SHA**를 표시해야 합니다. 
+출력을 검토하여 연결이 암호화되었는지 확인합니다. 다음이 표시되어야 합니다.  **SSL: Cipher in use is AES256-SHA** 
 
 ## <a name="sample-code"></a>샘플 코드
-응용 프로그램에서 SSL을 통해 Azure Database for MariaDB에 대한 안전한 연결을 설정하려면 다음 코드 샘플을 참조하세요.
+애플리케이션에서 SSL을 통해 Azure Database for MariaDB에 대한 안전한 연결을 설정하려면 다음 코드 샘플을 참조하세요.
 
 ### <a name="php"></a>PHP
 ```php

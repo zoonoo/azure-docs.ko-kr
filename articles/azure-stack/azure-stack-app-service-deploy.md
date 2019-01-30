@@ -1,5 +1,5 @@
 ---
-title: 'App Services를 배포 합니다: Azure Stack | Microsoft Docs'
+title: App Services를 배포 합니다. Azure Stack | Microsoft Docs
 description: Azure Stack에서 App Service를 배포 하기 위한 자세한 지침
 services: azure-stack
 documentationcenter: ''
@@ -12,14 +12,15 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 01/11/2019
 ms.author: anwestg
-ms.openlocfilehash: cd16bf400c5a5e5a07c7e2dc459d801e6fc810b9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.lastreviewed: 01/11/2019
+ms.openlocfilehash: c3d120b8d124ce8c5536365e25bf8ffa500d4cbb
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635376"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251173"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure Stack에 App Service 리소스 공급자 추가
 
@@ -46,6 +47,9 @@ Azure Stack에서 App Service를 배포 하려면이 문서의 지침을 사용 
  - App Service에 대 한 DNS 영역 및 항목을 만듭니다.
  - App Service 리소스 공급자를 등록 합니다.
  - App Service 갤러리 항목을 등록 합니다.
+
+ > [!IMPORTANT]
+ > 리소스 공급자를 배포 하기 전에 새로운 기능, 수정 및 배포에 영향을 줄 수 있는 알려진된 문제에 대 한 자세한 릴리스 정보를 검토 합니다.
 
 App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 합니다.
 
@@ -153,11 +157,11 @@ App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 �
 
     | 역할 | 최소 인스턴스 | 최소 SKU | 메모 |
     | --- | --- | --- | --- |
-    | Controller | 1 | Standard_A2-(2 vCPU, 3584MB) | 관리 하 고 App Service 클라우드 상태를 유지 합니다. |
+    | Controller | 1 | Standard_A2 - (2 vCPU, 3584 MB) | 관리 하 고 App Service 클라우드 상태를 유지 합니다. |
     | 관리 | 1 | Standard_A2-(2 개 Vcpu, 3584MB) | App Service Azure Resource Manager 및 API 끝점, 포털 확장 (관리자, 테 넌 트, Functions 포털) 및 데이터 서비스를 관리합니다. 장애 조치를 지원 하기 위해 권장 되는 인스턴스 2로 증가 합니다. |
-    | 게시자 | 1 | Standard_A1-(1 개 vCPU, 1,792MB) | FTP 및 웹 배포를 통해 콘텐츠를 게시합니다. |
-    | FrontEnd | 1 | Standard_A1-(1 개 vCPU, 1,792MB) | App Service 응용 프로그램에 요청을 라우팅합니다. |
-    | 공유 작업자 | 1 | Standard_A1-(1 개 vCPU, 1,792MB) | 호스트 웹 또는 API 응용 프로그램 및 Azure Functions 앱. 더 많은 인스턴스를 추가할 수 있습니다. 운영자로 귀하의 제품을 정의 하 고 모든 SKU 계층을 선택할 수 있습니다. 계층에는 하나의 vCPU 개가 있어야 합니다. |
+    | 게시자 | 1 | Standard_A1 - (1 vCPU, 1792 MB) | FTP 및 웹 배포를 통해 콘텐츠를 게시합니다. |
+    | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | App Service 응용 프로그램에 요청을 라우팅합니다. |
+    | 공유 작업자 | 1 | Standard_A1 - (1 vCPU, 1792 MB) | 호스트 웹 또는 API 응용 프로그램 및 Azure Functions 앱. 더 많은 인스턴스를 추가할 수 있습니다. 운영자로 귀하의 제품을 정의 하 고 모든 SKU 계층을 선택할 수 있습니다. 계층에는 하나의 vCPU 개가 있어야 합니다. |
 
     ![App Service 설치 관리자][13]
 
@@ -204,7 +208,7 @@ App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 �
 
     기존 가상 네트워크에 배포 하 고 내부 IP 주소를 사용 하 여 파일 서버에 연결할, 아웃 바운드 보안 규칙을 추가 해야 합니다. 이 규칙에 작업자 서브넷과 파일 서버 간에 SMB 트래픽을 사용 하도록 설정 합니다.  이렇게 하려면 관리 포털에서 WorkersNsg 이동한 다음 속성을 사용 하 여 아웃 바운드 보안 규칙을 추가 합니다.
 
-    - 원본: 모든
+    - 원본: 모두
     - 원본 포트 범위: *
     - 대상: IP 주소
     - 대상 IP 주소 범위: Ip 범위에 파일 서버에 대 한
@@ -260,9 +264,9 @@ App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 �
  - [MySQL 리소스 공급자](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
-[Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531
-[App_Service_Deployment]: http://go.microsoft.com/fwlink/?LinkId=723982
-[AppServiceHelperScripts]: http://go.microsoft.com/fwlink/?LinkId=733525
+[Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531
+[App_Service_Deployment]: https://go.microsoft.com/fwlink/?LinkId=723982
+[AppServiceHelperScripts]: https://go.microsoft.com/fwlink/?LinkId=733525
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy/app-service-installer.png

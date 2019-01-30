@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/15/2018
+ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: e36390bbdc243237c97d605d4721fc1ad2cbe0ea
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 3e3d31f146fb49fdab8d955754572e4ea74dd3f6
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498877"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198391"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Linux용 NVIDIA GPU 드라이버 확장
 
@@ -38,8 +38,8 @@ ms.locfileid: "52498877"
 | 배포 | 버전 |
 |---|---|
 | Linux: Ubuntu | 16.04 LTS, 18.04 LTS |
-| Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5 |
-| Linux: CentOS | 7.3, 7.4, 7.5 |
+| Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6 |
+| Linux: CentOS | 7.3, 7.4, 7.5, 7.6 |
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
@@ -85,7 +85,7 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM�
 | 이름 | 설명 | 기본값 | 유효한 값 | 데이터 형식 |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | 드라이버 설치에 필요하지 않은 경우에도 커널을 업데이트합니다. | false | true, false | 부울 |
-| driverVersion | NV: GRID 드라이버 버전<br> NC/ND: CUDA 도구 키트 버전입니다. 선택한 CUDA에 대한 최신 드라이버가 자동으로 설치됩니다. | 최신 | GRID: “410.71”, “390.75”, “390.57”, “390.42”<br> CUDA: “10.0.130”, “9.2.88”, “9.1.85” | string |
+| driverVersion | NV: GRID 드라이버 버전<br> NC/ND: CUDA 도구 키트 버전. 선택한 CUDA에 대한 최신 드라이버가 자동으로 설치됩니다. | 최신 | GRID: "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | CUDA 도구 키트를 설치합니다. NC/ND 시리즈 VM에만 관련됩니다. | true | true, false | 부울 |
 
 

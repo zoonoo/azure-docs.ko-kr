@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 05/02/2018
+ms.date: 01/02/2019
 ms.author: babanisa
-ms.openlocfilehash: cfb4dabea12f2988108d24b025e324cf05afb325
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 9464ab89e08f53f61cb6f5a4b1e91da35b785af0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301722"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460825"
 ---
 # <a name="event-grid-subscription-schema"></a>Event Grid 구독 스키마
 
@@ -29,20 +29,20 @@ PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{reso
 PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
-문서는 요청 본문에 대한 속성 및 스키마를 설명합니다.
- 
+이벤트 구독 이름은 길이가 3-64자이어야 하며 a-z, A-Z, 0-9 및 "-"만을 포함할 수 있습니다. 문서는 요청 본문에 대한 속성 및 스키마를 설명합니다.
+ 
 ## <a name="event-subscription-properties"></a>이벤트 구독 속성
 
 | 자산 | type | 설명 |
 | -------- | ---- | ----------- |
-| destination | object | 끝점을 정의하는 개체입니다. |
+| destination | object | 엔드포인트를 정의하는 개체입니다. |
 | filter | object | 이벤트 유형을 필터링하기 위한 선택적 필드입니다. |
 
 ### <a name="destination-object"></a>대상 개체
 
 | 자산 | type | 설명 |
 | -------- | ---- | ----------- |
-| endpointType | string | 구독(웹후크/HTTP, Event Hub 또는 큐)에 대한 끝점의 형식입니다. | 
+| endpointType | string | 구독(웹후크/HTTP, Event Hub 또는 큐)에 대한 엔드포인트의 형식입니다. | 
 | endpointUrl | string | 이 이벤트 구독에서 이벤트의 대상 URL입니다. | 
 
 ### <a name="filter-object"></a>필터 개체

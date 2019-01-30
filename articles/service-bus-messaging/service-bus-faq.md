@@ -2,18 +2,19 @@
 title: Azure Service Bus FAQ | Microsoft Docs
 description: Azure Service Bus에 대한 일부 자주 묻는 질문을 답변합니다.
 services: service-bus-messaging
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 11/05/2018
-ms.author: spelluru
-ms.openlocfilehash: 8beb372c3fae567b23e51d2776dd9a79d837c657
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 0b419343829e7e7bbbd31260b9cd0c8d93cd255d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313838"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847818"
 ---
 # <a name="service-bus-faq"></a>Service Bus FAQ
 
@@ -24,13 +25,13 @@ ms.locfileid: "52313838"
 [Azure Service Bus](service-bus-messaging-overview.md)는 분리된 시스템 간에 데이터를 보낼 수 있도록 하는 비동기 메시지 클라우드 플랫폼입니다. Microsoft에서 이 기능을 서비스로 제공하므로 이를 사용하기 위해 고유한 하드웨어를 호스트할 필요는 없습니다.
 
 ### <a name="what-is-a-service-bus-namespace"></a>Service Bus 네임스페이스란?
-[네임스페이스](service-bus-create-namespace-portal.md)는 응용 프로그램 내에서 Service Bus 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다. 네임스페이스를 만드는 작업은 Service Bus를 사용하는 데 필요하고 Service Bus를 시작하는 첫 번째 단계 중 하나입니다.
+[네임스페이스](service-bus-create-namespace-portal.md)는 애플리케이션 내에서 Service Bus 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다. 네임스페이스를 만드는 작업은 Service Bus를 사용하는 데 필요하고 Service Bus를 시작하는 첫 번째 단계 중 하나입니다.
 
 ### <a name="what-is-an-azure-service-bus-queue"></a>Azure Service Bus 큐란?
-[Service Bus 큐](service-bus-queues-topics-subscriptions.md)는 메시지가 저장되는 엔터티입니다. 큐는 서로 통신해야 하는 여러 응용 프로그램 또는 분산된 응용 프로그램의 여러 부분이 있는 경우에 유용합니다. 큐는 여러 제품(메시지)를 해당 위치에서 받고 보내는 배포 센터와 비슷합니다.
+[Service Bus 큐](service-bus-queues-topics-subscriptions.md)는 메시지가 저장되는 엔터티입니다. 큐는 서로 통신해야 하는 여러 애플리케이션 또는 분산된 애플리케이션의 여러 부분이 있는 경우에 유용합니다. 큐는 여러 제품(메시지)를 해당 위치에서 받고 보내는 배포 센터와 비슷합니다.
 
 ### <a name="what-are-azure-service-bus-topics-and-subscriptions"></a>Azure Service Bus 토픽 및 구독이란?
-토픽은 큐로 시각화할 수 있고 여러 구독을 사용하는 경우 더 풍부한 메시징 모델이 되며 기본적으로는 일대다 통신 도구입니다. 이 게시/구독 모델(또는 *pub/sub*)을 사용하면 여러 응용 프로그램에서 받은 메시지를 여러 구독을 사용하여 토픽에 메시지를 전송하는 응용 프로그램을 활성화합니다.
+토픽은 큐로 시각화할 수 있고 여러 구독을 사용하는 경우 더 풍부한 메시징 모델이 되며 기본적으로는 일대다 통신 도구입니다. 이 게시/구독 모델(또는 *pub/sub*)을 사용하면 여러 애플리케이션에서 받은 메시지를 여러 구독을 사용하여 토픽에 메시지를 전송하는 애플리케이션을 활성화합니다.
 
 ### <a name="what-is-a-partitioned-entity"></a>분할된 엔터티란?
 일반적인 큐 또는 항목은 단일 메시지 broker에서 처리되며 하나의 메시징 저장소에 저장됩니다. 기본 및 표준 메시징 계층에서만 지원되는 [분할된 큐 또는 토픽](service-bus-partitioning.md)은 여러 메시지 broker에 의해 처리되고 여러 메시징 저장소에 저장됩니다. 즉, 분할된 큐 또는 항목의 전체 처리량은 단일 메시지 broker 또는 메시징 저장소의 성능으로 제한되지 않습니다. 또한 메시징 스토어가 일시적으로 중단된 경우에도 분할된 큐 또는 항목을 계속 렌더링할 수 없습니다.
@@ -59,7 +60,7 @@ ms.locfileid: "52313838"
 또한 일반적인 Azure 가격 책정 정보는 [Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)에서 확인할 수 있습니다. 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>Service Bus 요금을 어떻게 청구하나요?
-Service Bus 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 세부 정보][Pricing overview]를 참조하세요. 언급된 가격 외에도 응용 프로그램이 프로비전되는 데이터 센터의 외부에서 송신을 위해 연결된 데이터 전송에 요금이 부과됩니다.
+Service Bus 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 세부 정보][Pricing overview]를 참조하세요. 언급된 가격 외에도 애플리케이션이 프로비전되는 데이터 센터의 외부에서 송신을 위해 연결된 데이터 전송에 요금이 부과됩니다.
 
 ### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>Service Bus를 어떻게 사용하면 데이터가 전송의 대상이 되나요? 어떤 경우에 대상이 아닌가요?
 지정된 Azure 지역 내에서 데이터 전송은 비용뿐만 아니라 인바운드 데이터 전송 없이 제공됩니다. 지역 외부의 데이터 전송은 [여기](https://azure.microsoft.com/pricing/details/bandwidth/)에서 찾을 수 있는 송신 요금이 청구됩니다.

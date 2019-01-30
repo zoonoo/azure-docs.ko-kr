@@ -3,43 +3,39 @@ items:
   href: index.yml
 - name: 개요
   items:
-  - name: Bing News Search란?
+  - name: Bing News Search API란?
     href: search-the-web.md
-- name: REST API 빠른 시작
-  items:
-  - name: 시작하기
-    href: quickstart.md
-  - name: C#
-    href: csharp.md
-  - name: 자바
-    href: java.md
-  - name: Node.js
-    href: nodejs.md
-  - name: PHP
-    href: php.md
-  - name: Python
-    href: python.md
-  - name: Ruby
-    href: ruby.md
   expanded: true
-- name: SDK 빠른 시작
+- name: 빠른 시작
   items:
-  - name: SDK 샘플 개요
-    href: sdk.md
-  - name: News Search SDK C# 빠른 시작
-    href: news-search-sdk-quickstart.md
-  - name: News Search SDK Node.js 빠른 시작
-    href: news-search-sdk-node-quickstart.md
-  - name: News Search SDK Python 빠른 시작
-    href: news-sdk-python-quickstart.md
-  - name: News Search SDK Java 빠른 시작
-    href: news-sdk-java-quickstart.md
+  - name: REST API
+    items:
+    - name: C# 사용
+      href: csharp.md
+    - name: Java 사용
+      href: java.md
+    - name: Node.js 사용
+      href: nodejs.md
+    - name: PHP 사용
+      href: php.md
+    - name: Python 사용
+      href: python.md
+    - name: Ruby 사용
+      href: ruby.md
+  - name: SDK)
+    items:
+    - name: C# 사용
+      href: news-search-sdk-quickstart.md
+    - name: Node.js 사용
+      href: news-search-sdk-node-quickstart.md
+    - name: Python 사용
+      href: news-sdk-python-quickstart.md
+    - name: Java 사용
+      href: news-sdk-java-quickstart.md
 - name: 자습서
   items:
-  - name: 단일 페이지 웹앱
+  - name: 단일 페이지 웹앱 만들기
     href: tutorial-bing-news-search-single-page-app.md
-  - name: 단일 페이지 웹앱(소스 코드)
-    href: tutorial-bing-news-search-single-page-app-source.md
 - name: 샘플
   items:
   - name: 코드 샘플
@@ -54,18 +50,36 @@ items:
     href: paging-news.md
   - name: 크기 조정 및 자르기 썸네일
     href: resize-and-crop-thumbnails.md
-  - name: v5에서 v7로 업그레이드
+  - name: API v5에서 v7로 업그레이드
     href: bing-news-upgrade-guide-v5-to-v7.md
   - name: Visual Studio 작업
     items:
     - name: Bing News Search 연결된 서비스 사용
       href: vs-bing-news-search-connected-service.md
+- name: 개념
+  items:
+  - name: 검색 쿼리 보내기
+    href: concepts/send-search-queries.md
+  - name: 뉴스 검색
+    href: concepts/search-for-news.md
 - name: 참고 자료
   items:
   - name: Bing News Search API v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference
   - name: Bing News Search API v5
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference
+  - name: SDK
+    items:
+    - name: .NET
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingnews?view=azure-dotnet
+    - name: 자바
+      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/newssearch?view=azure-java-stable
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/newssearch?view=azure-python
+    - name: Node.js
+      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/newssearch?view=azure-node-latest
+    - name: Go
+      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/newssearch
 - name: 리소스
   items:
   - name: 가격
@@ -90,9 +104,9 @@ items:
     href: language-support.md
   - name: Bing News Search API에 대한 분석
     href: bing-news-stats.md
-ms.openlocfilehash: 18f4cb1a123c4dd535df9c82821271c6e3372796
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: ed425db68d5c617f6442e9757531f02b0ab1cd38
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434656"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266215"

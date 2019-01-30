@@ -4,15 +4,15 @@ description: Azure Site Recovery에서 PowerShell을 사용하여 VMware VM의 �
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 73f6790db2552123d81b779a472c13f159bca35c
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 1b97ff461dc3a4f7dcba0a3dbfad71a25cb3f1e9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165665"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840208"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>PowerShell을 사용하여 Azure로 VMware VM의 재해 복구 설정
 

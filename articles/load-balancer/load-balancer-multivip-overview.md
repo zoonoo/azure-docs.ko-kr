@@ -1,22 +1,24 @@
 ---
-title: Azure Load Balancer에 대한 다중 프런트 엔드 | Microsoft Docs
+title: Azure Load Balancer의 다중 프런트 엔드
+titlesuffix: Azure Load Balancer
 description: Azure Load Balancer의 다중 프런트 엔드에 대한 개요
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: chkuhtz
-ms.openlocfilehash: d435d2c491cf17356e96f7bbb05b1e22c8e04aca
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: b9a140314b8eba6386c37bdbcf2bb3de58589335
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219361"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163432"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure Load Balancer의 다중 프런트 엔드
 
@@ -46,7 +48,7 @@ Azure Load Balancer를 사용하면 동일한 부하 분산 장치 구성에서 
 
 기본 동작을 시작으로 이러한 시나리오를 더 자세히 알아봅니다.
 
-## <a name="rule-type-1-no-backend-port-reuse"></a>규칙 유형 #1: 백 엔드 포트 재사용하지 않음.
+## <a name="rule-type-1-no-backend-port-reuse"></a>규칙 유형 #1: 백 엔드 포트 재사용하지 않음
 
 ![녹색과 자주색 프런트 엔드가 포함된 다중 프런트 엔드 설명](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
 
@@ -63,8 +65,8 @@ DIP는 인바운드 흐름의 대상입니다. 백 엔드 풀에서 각 VM은 DI
 
 | 규칙 | 맵 프론트 엔드 | 백 엔드 풀에 |
 | --- | --- | --- |
-| 1 |![녹색 프런트 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
-| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
+| 1 |![녹색 프런트 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  DIP2:80 |
+| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 |![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  DIP2:81 |
 
 Azure Load Balancer에서 전체 매핑은 이제 다음과 같습니다.
 

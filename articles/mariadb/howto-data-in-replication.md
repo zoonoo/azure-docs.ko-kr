@@ -3,17 +3,15 @@ title: Azure Database for MariaDB에 데이터를 복제하도록 입력 데이�
 description: 이 문서에서는 Azure Database for MariaDB에 대해 입력 데이터 복제를 설정하는 방법을 설명합니다.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: f75b3e33cbd5719211bb30b22ab8d53c344b5579
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 3897c402e45962836880ccebbeb252d189188d3c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212763"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548904"
 ---
 # <a name="how-to-configure-azure-database-for-mariadb-data-in-replication"></a>Azure Database for MariaDB 입력 데이터 복제를 구성하는 방법
 
@@ -155,7 +153,7 @@ ms.locfileid: "50212763"
    - master_password: 마스터 서버의 암호
    - master_log_file: 실행 중인 `show master status`의 이진 로그 파일 이름
    - master_log_pos: 실행 중인 `show master status`의 이진 로그 위치
-   - master_ssl_ca: CA 인증서의 컨텍스트 SSL을 사용하지 않는 경우 빈 문자열을 전달합니다.
+   - master_ssl_ca: CA 인증서의 컨텍스트. SSL을 사용하지 않는 경우 빈 문자열을 전달합니다.
        - 이 매개 변수를 변수로 전달하는 것이 좋습니다. 자세한 내용은 다음 예제를 참조하세요.
 
    **예**

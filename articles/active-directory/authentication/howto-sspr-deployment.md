@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: f786a20f61c8851c1d50a89edd392b9b974db076
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9c728ba4c77cd22782adc9916da62cc309a8150b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622323"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431659"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>셀프 서비스 암호 재설정을 성공적으로 롤아웃하는 방법
 
@@ -24,7 +24,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정) 기능�
 > [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
 
 1. 조직의 일부에 대해 파일럿 롤아웃을 완료합니다.
-   * 파일럿 방법에 대한 내용은 [자습서: Azure AD 셀프 서비스 암호 재설정 파일럿 롤아웃 완료](tutorial-sspr-pilot.md)에서 확인할 수 있습니다.
+   * 파일럿 실행 방법에 대한 내용은 [자습서: Azure AD 셀프 서비스 암호 재설정 파일럿 배포 완료](tutorial-sspr-pilot.md)를 참조하세요.
 1. 기술 지원팀을 교육합니다.
    * 이 지원팀이 사용자에게 어떻게 도움을 주게 되나요?
    * 사용자가 강제로 SSPR을 사용하도록 하고 기술 지원팀에서 지원하지 못하게 할 예정인가요?

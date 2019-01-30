@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 인쇄 텍스트 추출(OCR) - REST, cURL - Computer Vision'
+title: '빠른 시작: 인쇄된 텍스트 추출 - REST, cURL'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 cURL과 함께 Computer Vision API를 사용하여 이미지의 인쇄 텍스트를 추출합니다.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
-ms.openlocfilehash: 6917e6f4ba0c2f8045d3f7da9a2e23acd949cf48
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 0eb276aa3af3cefb19a0659ec3188062deeddd0e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341245"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583632"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-curl-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 cURL을 사용하여 인쇄 텍스트 추출(OCR)
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-curl-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 cURL을 사용하여 인쇄된 텍스트 추출(OCR)
 
 이 빠른 시작에서는 Computer Vision의 REST API를 사용하여 이미지에서 OCR(광학 문자 인식)이 포함된 인쇄 텍스트를 추출합니다. [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 메서드를 사용하여 이미지의 인쇄 텍스트를 감지하고, 인식된 문자를 머신에서 사용 가능한 문자 스트림으로 추출할 수 있습니다.
 
@@ -46,7 +47,7 @@ curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: applica
 
 ## <a name="examine-the-response"></a>응답 검사
 
-성공적인 응답이 JSON을 통해 반환됩니다. 응용 프로그램 예제는 다음 예제와 유사하게 명령 프롬프트 창에서 성공한 응답을 구문 분석하고 표시합니다.
+성공적인 응답이 JSON을 통해 반환됩니다. 애플리케이션 예제는 다음 예제와 유사하게 명령 프롬프트 창에서 성공한 응답을 구문 분석하고 표시합니다.
 
 ```json
 {

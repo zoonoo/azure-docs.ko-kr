@@ -1,6 +1,6 @@
 ---
 title: Azure API Management, Event Hubs 및 Runscope를 사용하여 API 모니터링 | Microsoft Docs
-description: Azure API Management, Azure Event Hubs 및 HTTP 로깅 및 모니터링에 대한 Runscope에 연결하여  log-to-eventhub 정책을 보여주는 샘플 응용 프로그램
+description: Azure API Management, Azure Event Hubs 및 HTTP 로깅 및 모니터링에 대한 Runscope에 연결하여  log-to-eventhub 정책을 보여주는 샘플 애플리케이션
 services: api-management
 documentationcenter: ''
 author: darrelmiller
@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: 4c58be8f501e72027e1692ceb73552a3f252f92a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 48dfa3180f040af3e8298d418cf71c537477ba5a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38603181"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956956"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Azure API Management, Event Hubs 및 Runscope를 사용하여 API 모니터링
 [API Management 서비스](api-management-key-concepts.md)는 HTTP API로 전송 된 HTTP 요청의 처리를 향상시키기 위해 다양한 기능을 제공합니다. 그러나 요청 및 응답의 존재는 일시적입니다. 요청이 생성되면 API Management 서비스를 통해 백 엔드 API로 전달됩니다. API는 요청을 처리하고 응답은 API 소비자를 통해 다시 전달합니다. API Management 서비스는 Azure Portal 대시보드에 표시하기 위해 API에 대한 중요한 통계를 일부 유지하지만 세부 정보는 사라집니다.
@@ -42,10 +42,10 @@ Azure Event Hubs는 대부분 API 프로세스를 요청하는 HTTP 수 보다 �
 
 Event Hubs에는 여러 소비자 그룹에 이벤트를 스트림하는 기능이 있습니다. 이렇게 하면 이벤트를 다른 시스템에서 처리할 수 있습니다. 이렇게 하면 하나의 이벤트를 생성해야 하기 때문에 API Management 서비스 내에서 API 요청의 처리가 추가적으로 지연되지 않고 다양한 통합 시나리오를 지원합니다.
 
-## <a name="a-policy-to-send-applicationhttp-messages"></a>응용 프로그램/http 메시지를 보내는 정책
+## <a name="a-policy-to-send-applicationhttp-messages"></a>애플리케이션/http 메시지를 보내는 정책
 이벤트 허브는 이벤트 데이터를 간단한 문자열로 수락합니다. 이 문자열의 내용은 사용자의 몫입니다. HTTP 요청을 패키지하고 Event Hubs에 보낼 수 있으려면 요청 또는 응답 정보를 사용하여 문자열 형식을 지정해야 합니다. 이런 경우에 다시 사용할 수 있는 기존 형식이 있는 경우 고유한 구문 분석 코드를 작성할 필요가 없을 수 있습니다. 처음 필자는 HTTP 요청 및 응답을 보내는 데 [HAR](http://www.softwareishard.com/blog/har-12-spec/) 를 사용할 생각이었습니다. 그러나 이 형식은 JSON 기반 형식에 일련의 HTTP 요청을 저장하도록 최적화됩니다. 연결을 통해 HTTP 메시지를 전달하는 시나리오에 불필요 한 복잡성을 추가하는 여러 가지 필수 요소를 포함합니다.  
 
-대체 옵션은 HTTP 사양 [RFC 7230](http://tools.ietf.org/html/rfc7230)에 설명된 대로 `application/http` 미디어 형식을 사용하는 것입니다. 이 미디어 형식은 연결을 통해 실제로 HTTP 메시지를 보내는 데 사용되는 것과 동일한 형식을 사용하지만 전체 메시지는 다른 HTTP 요청의 본문에 삽입될 수 있습니다. 지금과 같은 경우에 본문을 메시지로 사용하여 Event Hubs에 보내려고 합니다. 이 형식을 구문 분석하고 네이티브 `HttpRequestMessage` 및 `HttpResponseMessage` 개체로 변환할 수 있는 [Microsoft ASP.NET Web API 2.2 클라이언트](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) 라이브러리에 존재하는 파서입니다.
+대체 옵션은 HTTP 사양 [RFC 7230](https://tools.ietf.org/html/rfc7230)에 설명된 대로 `application/http` 미디어 형식을 사용하는 것입니다. 이 미디어 형식은 연결을 통해 실제로 HTTP 메시지를 보내는 데 사용되는 것과 동일한 형식을 사용하지만 전체 메시지는 다른 HTTP 요청의 본문에 삽입될 수 있습니다. 지금과 같은 경우에 본문을 메시지로 사용하여 Event Hubs에 보내려고 합니다. 이 형식을 구문 분석하고 네이티브 `HttpRequestMessage` 및 `HttpResponseMessage` 개체로 변환할 수 있는 [Microsoft ASP.NET Web API 2.2 클라이언트](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) 라이브러리에 존재하는 파서입니다.
 
 이 메시지를 만들 수 있게 되려면 Azure API Management에서 C# 기반 [정책 식](https://msdn.microsoft.com/library/azure/dn910913.aspx)을 활용해야 합니다. 다음은 Azure Event Hubs에 HTTP 요청 메시지를 전송하는 정책입니다.
 
@@ -159,7 +159,7 @@ HTTP 응답 메시지를 보내는 정책은 요청과 유사하므로 완성된
 `set-variable` 정책은 `<inbound>` 섹션 및 `<outbound>` 섹션의 모든 `log-to-eventhub` 정책에서 액세스할 수 있는 값을 만듭니다.  
 
 ## <a name="receiving-events-from-event-hubs"></a>Event Hubs에서 이벤트 수신
-Azure 이벤트 허브의 이벤트는 [AMQP 프로토콜](http://www.amqp.org/)를 사용하여 수신됩니다. Microsoft Service Bus 팀 소비 이벤트를 쉽게 만드는 데 사용할 수 있는 클라이언트 라이브러리를 만들었습니다. 지원되는 두 가지 방법 중에 하나는 *직접 소비자*가 되는 것이고 다른 하나는 `EventProcessorHost` 클래스를 사용하는 것입니다. 이러한 두 방법의 예는 [Event Hubs 프로그래밍 가이드](../event-hubs/event-hubs-programming-guide.md)에서 찾을 수 있습니다. 차이점은 간략하게 `Direct Consumer`가 완벽한 제어를 제공하고 `EventProcessorHost`가 일부 배관 작업을 수행하지만 이러한 이벤트를 처리하는 방법에 대 해 특정한 가정을 한다는 점입니다.  
+Azure 이벤트 허브의 이벤트는 [AMQP 프로토콜](https://www.amqp.org/)를 사용하여 수신됩니다. Microsoft Service Bus 팀 소비 이벤트를 쉽게 만드는 데 사용할 수 있는 클라이언트 라이브러리를 만들었습니다. 지원되는 두 가지 방법 중에 하나는 *직접 소비자*가 되는 것이고 다른 하나는 `EventProcessorHost` 클래스를 사용하는 것입니다. 이러한 두 방법의 예는 [Event Hubs 프로그래밍 가이드](../event-hubs/event-hubs-programming-guide.md)에서 찾을 수 있습니다. 차이점은 간략하게 `Direct Consumer`가 완벽한 제어를 제공하고 `EventProcessorHost`가 일부 배관 작업을 수행하지만 이러한 이벤트를 처리하는 방법에 대 해 특정한 가정을 한다는 점입니다.  
 
 ### <a name="eventprocessorhost"></a>EventProcessorHost
 이 샘플에서는 간략한 설명을 위해 `EventProcessorHost`를 사용하지만 이는 이 특정 시나리오에 가장 적합한 선택 사항이 아닐 수 있습니다. `EventProcessorHost`는 특정 이벤트 프로세서 클래스 내에서 스레딩 문제를 걱정하지 않도록 하는 어려운 작업을 수행합니다. 그러나 시나리오에서는 단순히 메시지를 다른 형식으로 변환하며 비동기 메서드를 사용하여 다른 서비스에 전달합니다. 공유 상태를 업데이트할 필요가 없기 때문에 따라서 스레딩 문제의 위험도 없습니다  시나리오 중 대부분의 경우 `EventProcessorHost`은 아마도 최고의 선택이며 쉬운 옵션일 것입니다.     
@@ -213,7 +213,7 @@ public class HttpMessage
 `HttpMessage` 인스턴스는 Azure Event Hub에서 이벤트의 수신 및 해석을 분리하고 실제 처리를 위해 만든 인터페이스인 `IHttpMessageProcessor`를 구현하는 데 전달됩니다.
 
 ## <a name="forwarding-the-http-message"></a>HTTP 메시지 전달
-이 샘플의 경우 [Runscope](http://www.runscope.com)를 통해 HTTP 요청을 푸시해보면 흥미로울 것입니다. Runscope는 HTTP 디버깅, 로깅 및 모니터링을 전문으로 하는 클라우드 기반 서비스입니다. 무료 계층이 있으므로 시도하기 쉽고 API Management 서비스를 통해 실시간 흐름에서 HTTP 요청을 볼 수 있게 합니다.
+이 샘플의 경우 [Runscope](https://www.runscope.com)를 통해 HTTP 요청을 푸시해보면 흥미로울 것입니다. Runscope는 HTTP 디버깅, 로깅 및 모니터링을 전문으로 하는 클라우드 기반 서비스입니다. 무료 계층이 있으므로 시도하기 쉽고 API Management 서비스를 통해 실시간 흐름에서 HTTP 요청을 볼 수 있게 합니다.
 
 `IHttpMessageProcessor` 구현은 다음과 같습니다
 
@@ -260,14 +260,14 @@ public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-해당 서비스에 `HttpRequestMessage` 및 `HttpResponseMessage` 인스턴스를 쉽게 푸시하도록 하는 [Runscope용 기존 클라이언트 라이브러리](http://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha)를 활용할 수 있었습니다. Runscope API에 액세스하기 위해 계정 및 API 키가 필요합니다. API 키를 가져오는 지침은 [Runscope API에 액세스하는 응용 프로그램 만들기](http://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) 동영상 가이드에서 찾을 수 있습니다.
+해당 서비스에 `HttpRequestMessage` 및 `HttpResponseMessage` 인스턴스를 쉽게 푸시하도록 하는 [Runscope용 기존 클라이언트 라이브러리](https://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha)를 활용할 수 있었습니다. Runscope API에 액세스하기 위해 계정 및 API 키가 필요합니다. API 키를 가져오는 지침은 [Runscope API에 액세스하는 애플리케이션 만들기](https://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) 동영상 가이드에서 찾을 수 있습니다.
 
 ## <a name="complete-sample"></a>전체 샘플
 샘플의 [원본 코드](https://github.com/darrelmiller/ApimEventProcessor) 및 테스트는 GitHub에 있습니다. 샘플을 직접 실행하려면 [API Management 서비스](get-started-create-service-instance.md), [연결된 Event Hub](api-management-howto-log-event-hubs.md) 및 [Storage 계정](../storage/common/storage-create-storage-account.md)이 있어야 합니다.   
 
-샘플은 이벤트 허브에서 들어오는 이벤트를 수신하는 간단한 콘솔 응용 프로그램으로 해당 이벤트를 `HttpRequestMessage` 및 `HttpResponseMessage` 개체에 변환한 다음 Runscope API에 전달합니다.
+샘플은 이벤트 허브에서 들어오는 이벤트를 수신하는 간단한 콘솔 애플리케이션으로 해당 이벤트를 `HttpRequestMessage` 및 `HttpResponseMessage` 개체에 변환한 다음, Runscope API에 전달합니다.
 
-다음 애니메이션 이미지에서 개발자 포털에서 API에 생성된 요청과 수신, 처리 및 전달된 메시지를 보여주는 콘솔 응용 프로그램 그리고 Runscope 트래픽 관리자에 표시되는 요청 및 응답을 확인할 수 있습니다.
+다음 애니메이션 이미지에서 개발자 포털에서 API에 생성된 요청과 수신, 처리 및 전달된 메시지를 보여주는 콘솔 애플리케이션 그리고 Runscope 트래픽 관리자에 표시되는 요청 및 응답을 확인할 수 있습니다.
 
 ![Runscope에 전달된 요청의 데모](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)
 

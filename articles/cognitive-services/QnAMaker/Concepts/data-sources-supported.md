@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/04/2019
 ms.author: tulasim
-ms.openlocfilehash: ee88c8dca1521f4cdc2e3ea141d5c1d497061bb4
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a26c4b6d16ac16596f8b1b0606aca029be335d71
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422357"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038503"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>QnA Maker 콘텐츠의 데이터 원본
 
@@ -25,9 +25,9 @@ QnA Maker는 웹 페이지, PDF 파일 또는 MS Word doc 파일로 저장된 FA
 
 |원본 유형|콘텐츠 형식| 예|
 |--|--|--|
-|URL|FAQ(플랫, 섹션 또는 토픽 홈페이지 포함)|[일반 FAQ](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), [링크가 포함된 FAQ](https://www.microsoft.com/software-download/faq), [토픽 홈페이지가 포함된 FAQ](https://support.microsoft.com/products/windows?os=windows-10)|
-|PDF/DOC|FAQ, 제품 설명서, 브로슈어, 논문, 전단 정책, 지원 가이드, 구조화된 QnA 등|[구조화된 QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [샘플 제품 설명서.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf), [샘플 반 구조화.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [샘플 백서.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
-|Excel|구조화된 QnA 파일(RTF, HTML 지원 포함)|[샘플 QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
+|URL|FAQ<br> (플랫, 섹션 또는 토픽 홈페이지 포함)<br>지원 페이지 <br> (단일 페이지 방법 문서, 문제 해결 문서 등)|[일반 FAQ](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[하이퍼링크가 있는 FAQ](https://www.microsoft.com/software-download/faq),<br> [토픽 홈페이지가 있는 FAQ](https://support.microsoft.com/products/windows?os=windows-10)<br>[지원 문서](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
+|PDF/DOC|FAQ,<br> 제품 설명서,<br> 브로슈어,<br> 페이퍼,<br> 전단 정책,<br> 지원 가이드,<br> 구조화된 QnA,<br> etc.|[Structured QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Sample semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
+|Excel|구조화된 QnA 파일<br> (RTF, HTML 지원 포함)|[샘플 QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |TXT/TSV|구조화된 QnA 파일|[샘플 chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
 ## <a name="data-source-locations"></a>데이터 원본 위치
@@ -36,7 +36,7 @@ QnA Maker는 웹 페이지, PDF 파일 또는 MS Word doc 파일로 저장된 FA
 
 ## <a name="faq-urls"></a>FAQ URL
 
-QnA Maker는 일반 FAQ 페이지, 링크가 포함된 FAQ 페이지, 토픽 홈페이지가 포함된 FAQ 페이지의 3가지 양식으로 FAQ 웹 페이지를 지원할 수 있습니다.
+QnA Maker는 3가지 형식으로 FAQ 웹 페이지를 지원할 수 있습니다. 일반 FAQ 페이지, 링크를 사용한 FAQ 페이지, 항목 홈 페이지를 사용한 FAQ 페이지.
 
 ### <a name="plain-faq-pages"></a>일반 FAQ 페이지
 
@@ -44,7 +44,7 @@ QnA Maker는 일반 FAQ 페이지, 링크가 포함된 FAQ 페이지, 토픽 홈
 
 아래는 일반 FAQ 페이지의 예입니다.
 
-![일반 FAQ 페이지](../media/qnamaker-concepts-datasources/plain-faq.png) 
+![기술 자료를 위한 일반 FAQ 페이지 예제](../media/qnamaker-concepts-datasources/plain-faq.png) 
 
  
 ### <a name="faq-pages-with-links"></a>링크가 포함된 FAQ 페이지 
@@ -53,7 +53,7 @@ QnA Maker는 일반 FAQ 페이지, 링크가 포함된 FAQ 페이지, 토픽 홈
 
 아래는 동일한 페이지에 있는 섹션의 링크가 포함된 FAQ 페이지의 예입니다.
 
- ![섹션 링크 FAQ 페이지](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
+ ![기술 자료를 위한 섹션 링크 FAQ 페이지 예제](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
 
 
 ### <a name="faq-pages-with-a-topics-homepage"></a>토픽 홈페이지가 포함된 FAQ 페이지
@@ -62,7 +62,17 @@ QnA Maker는 일반 FAQ 페이지, 링크가 포함된 FAQ 페이지, 토픽 홈
 
 아래는 토픽 홈페이지에 다른 페이지의 FAQ 섹션에 대한 링크가 있는 FAQ 페이지의 예입니다. 
 
- ![딥 링크 FAQ 페이지](../media/qnamaker-concepts-datasources/topics-faq.png) 
+ ![기술 자료를 위한 딥 링크 FAQ 페이지 예제](../media/qnamaker-concepts-datasources/topics-faq.png) 
+
+
+### <a name="support-urls"></a>지원 URL
+
+QnA Maker는 지정된 태스크를 수행하는 방법, 지정된 문제를 진단하고 해결하는 방법 및 지정된 프로세스에 대한 어떤 모범 사례가 있는지를 설명하는 웹 문서와 같은 반정형화된 지원 웹 페이지를 처리할 수 있습니다. 추출은 계층 제목이 포함된 명확한 구조를 가진 콘텐츠에서 최적으로 작동합니다.
+
+> [!NOTE]
+> 지원 문서에 대한 추출은 새 기능이며 초기 단계에 있습니다. 잘 구조화된 단순 페이지에서 최적으로 작동하며 복잡한 헤더/바닥글을 포함하지 않습니다.
+
+![QnA Maker는 계층 제목과 함께 명확한 구조가 제시되는 반정형화된 웹 페이지에서 추출을 지원합니다.](../media/qnamaker-concepts-datasources/support-web-pages-with-heirarchical-structure.png)
 
 
 ## <a name="pdf-doc-files"></a>PDF/DOC 파일
@@ -77,14 +87,14 @@ QnA Maker는 글꼴 크기, 글꼴 스타일, 번호 매기기, 색상 등의 �
 
 아래는 인덱스 페이지와 계층적 콘텐츠가 포함된 설명서의 예입니다.
 
- ![제품 설명서 예제](../media/qnamaker-concepts-datasources/product-manual.png) 
+ ![기술 자료를 위한 제품 설명서 예제](../media/qnamaker-concepts-datasources/product-manual.png) 
 
 > [!NOTE]
 > 추출은 목차 및/또는 색인 페이지와 계층적 제목이 있는 명확한 구조를 가진 설명서에서 가장 잘 작동합니다.
 
 ### <a name="brochures-guidelines-papers-and-other-files"></a>브로슈어, 지침, 논문 및 기타 파일
 
-그 외의 문서 유형도 구조와 레이아웃이 명확하다면 QA 쌍을 생성하도록 처리할 수 있습니다. 브로슈어, 지침, 보고서, 백서, 과학 논문, 정책, 서적 등이 여기에 포함됩니다. [여기](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx)에서 예제를 참조하세요.
+그 외의 문서 유형도 구조와 레이아웃이 명확하다면 QA 쌍을 생성하도록 처리할 수 있습니다. 내용은 다음과 같습니다. 브로슈어, 지침, 보고서, 백서, 과학 논문, 정책, 서적 등. [여기](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx)에서 예제를 참조하세요.
 
 아래는 인덱스 없는 반 구조화된 문서의 예입니다.
 
@@ -106,7 +116,7 @@ Answer2
 
 아래는 구조화된 QnA Word 문서의 예입니다.
 
- ![구조화된 QnA 문서](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
+ ![기술 자료를 위한 구조화된 QnA 문서 예제](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
 
 ## <a name="structured-txt-tsv-and-xls-files"></a>구조화된 *TXT*, *TSV* 및 *XLS* 파일
 
@@ -121,7 +131,7 @@ Answer2
 
 아래는 HTML 콘텐츠가 포함된 구조화된 QnA *.xls* 파일의 예입니다.
 
- ![구조화된 QnA Excel](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+ ![기술 자료를 위한 구조화된 QnA 문서 예제](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
 
 ## <a name="structured-data-format-through-import"></a>가져오기를 통한 구조화된 데이터 형식
 
@@ -139,6 +149,23 @@ Answer2
 ## <a name="formatting-considerations"></a>서식 지정 고려 사항
 
 파일 또는 URL을 가져온 후 Markdown으로 변환되며 해당 형식으로 저장됩니다. 변환 프로세스가 파일 및 URL의 링크를 올바르게 변환하지 않는 경우 **편집** 페이지에서 질문 및 답변을 편집해야 합니다. 
+
+|형식|목적|
+|--|--|
+|`\n\n`| 새 줄|
+|`\n*`|순서가 지정된 목록의 글머리 기호|
+
+## <a name="editing-your-knowledge-base-locally"></a>로컬로 기술 자료 편집
+
+기술 자료를 만든 후에는 로컬 파일을 통해 내보냈다가 다시 가져오는 것보다는 [QnA Maker 포털](https://qnamaker.ai)에서 기술 자료 텍스트를 편집하는 것이 좋습니다. 그러나 로컬로 기술 자료를 편집해야 하는 경우가 있을 수 있습니다. 
+
+**설정** 페이지에서 기술 자료를 내보낸 후 Microsoft Excel을 사용하여 기술 자료를 편집합니다. 다른 애플리케이션을 사용하여 내보낸 TSV 파일을 편집하도록 선택할 경우 애플리케이션이 완전히 TSV 호환이 아니기 때문에 구문 오류가 발생할 수 있습니다. Microsoft Excel의 TSV 파일의 경우 일반적으로 서식 지정 오류가 발생하지 않습니다. 
+
+편집을 완료했으면 **설정** 페이지를 통해 TSV 파일을 다시 가져옵니다. 그러면 현재 기술 자료가 가져온 기술 자료로 완전히 바뀝니다. 
+
+## <a name="testing-your-markdown"></a>Markdown 테스트
+
+**[CommonMark](https://commonmark.org/help/tutorial/index.html)** 자습서를 사용하여 Markdown의 유효성을 검사합니다. 이 자습서에는 빠른 복사/붙여넣기 유효성 검사를 위한 **사용해보기** 기능이 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

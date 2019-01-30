@@ -3,19 +3,19 @@ title: ClaimsProviders  - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C에서 사용자 지정 정책의 ClaimsProvider 요소를 지정하는 방법을 설명합니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b226aeac86084c56a49d00c2a2f8deddaf7b0f68
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 543b6818709e88ef575516de663d97af9e2a724a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068777"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855876"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders 
 
@@ -42,7 +42,7 @@ ms.locfileid: "49068777"
 
 **ClaimsProviders** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | ClaimsProvider | 1:n | 다양한 사용자 journeys에서 활용할 수 있는 인증된 청구 공급자입니다. |
 
@@ -50,7 +50,7 @@ ms.locfileid: "49068777"
 
 **ClaimsProvider** 요소에는 다음과 같은 하위 요소가 포함됩니다.
 
-| 요소 | 발생 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ---------- | ----------- |
 | 도메인 | 0:1 | 클레임 공급자의 도메인 이름을 포함하는 문자열입니다. 예를 들어, 클레임 공급자에 Facebook 기술 프로필이 포함된 경우 도메인 이름은 Facebook.com입니다. 이 도메인 이름은 기술 프로필에 의해 대체되지 않는 한, 청구 제공자에 정의된 모든 기술 프로필에 사용됩니다. 도메인 이름은 **domain_hint**에서 참조할 수도 있습니다. 자세한 내용은 [Azure Active Directory B2C를 사용하여 직접 로그인 설정](direct-signin.md) 섹션의 **소셜 공급자로 로그인 리디렉션** 섹션을 참조하세요. |
 | DisplayName | 0:1 | 사용자에게 표시할 수 있는 클레임 공급자의 이름을 포함하는 문자열입니다. |

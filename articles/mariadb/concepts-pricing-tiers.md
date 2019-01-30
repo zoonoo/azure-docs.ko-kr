@@ -3,17 +3,15 @@ title: Azure Database for MariaDB의 가격 책정 계층
 description: 이 문서에서는 Azure Database for MariaDB의 가격 책정 계층을 설명합니다.
 author: jan-eng
 ms.author: janeng
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 561244efd653294694cc16a1115962473e9a7cec
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: bb6e27f92f60712cce71ba6fca53b40af00ee714
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249031"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354453"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB 가격 책정 계층
 
@@ -32,11 +30,11 @@ Azure Database for MariaDB 서버는 기본, 범용 및 메모리 최적화의 �
 
 | 가격 책정 계층  | 대상 워크로드 |
 |:-------------|:-----------------|
-| Basic | 간단한 계산 및 I/O 성능이 필요한 워크로드. 예를 들어 개발 또는 시험, 또는 자주 사용하지 않는 소규모 응용 프로그램에 사용되는 서버가 이에 해당합니다. |
-| 범용 | 확장 가능한 I/O 처리량을 갖춘 부하 분산된 컴퓨팅 및 메모리가 필요한 대부분의 비즈니스 워크로드. 예를 들어 웹 및 모바일 앱을 호스트하는 서버와 기타 엔터프라이즈 응용 프로그램이 있습니다.|
+| Basic | 간단한 계산 및 I/O 성능이 필요한 워크로드. 예를 들어 개발 또는 시험, 또는 자주 사용하지 않는 소규모 애플리케이션에 사용되는 서버가 이에 해당합니다. |
+| 범용 | 확장 가능한 I/O 처리량을 갖춘 부하 분산된 컴퓨팅 및 메모리가 필요한 대부분의 비즈니스 워크로드. 예를 들어 웹 및 모바일 앱을 호스트하는 서버와 기타 엔터프라이즈 애플리케이션이 있습니다.|
 | 메모리 최적화 | 빠른 트랜잭션 처리와 높은 동시성을 위해 메모리 내 성능이 필요한 고성능 데이터베이스 워크로드. 예를 들어 실시간 데이터를 처리하는 서버 및 고성능 트랜잭션 또는 분석 앱이 있습니다.|
 
-서버를 만든 후 vCore 수 및 가격 책정 계층(기본 제외)은 몇 초 이내로 늘리거나 줄일 수 있습니다. 또한 응용 프로그램 중단 시간 없이 독립적으로 저장소 용량을 늘리거나 백업 보존 기간을 늘리거나 줄일 수 있습니다. 서버가 만들어진 후 백업 저장소 유형은 변경할 수 없습니다. 자세한 내용은 [리소스 크기 조정](#scale-resources) 섹션을 참조하세요.
+서버를 만든 후 vCore 수 및 가격 책정 계층(기본 제외)은 몇 초 이내로 늘리거나 줄일 수 있습니다. 또한 애플리케이션 중단 시간 없이 독립적으로 스토리지 용량을 늘리거나 백업 보존 기간을 늘리거나 줄일 수 있습니다. 서버가 만들어진 후 백업 저장소 유형은 변경할 수 없습니다. 자세한 내용은 [리소스 크기 조정](#scale-resources) 섹션을 참조하세요.
 
 ## <a name="compute-generations-and-vcores"></a>세대 및 vCore 수 계산
 
@@ -55,8 +53,7 @@ Azure Database for MariaDB 서버는 기본, 범용 및 메모리 최적화의 �
 
 추가 저장소 용량은 서버를 만드는 동안 및 그 후에 추가할 수 있습니다. 기본 계층에서는 IOPS 보장을 제공하지 않습니다. 범용 및 메모리 최적화 가격 책정 계층에서 IOPS의 크기는 프로비전된 저장소 크기와 3:1 비율로 조정됩니다.
 
-Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터링할 수 있습니다. 모니터링할 관련 메트릭은 저장소 용량 한도, 저장소 비율, 사용된 저장소 및 IO 백분율입니다.
-<!--[storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md)-->
+Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터링할 수 있습니다. 모니터링할 관련 메트릭은 [저장소 제한, 저장소 비율, 저장소 사용됨 및 IO 백분율](concepts-monitoring.md)입니다.
 
 ### <a name="reaching-the-storage-limit"></a>저장소 제한에 도달
 
@@ -66,7 +63,7 @@ Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터�
 
 서버 저장소가 임계값에 근접하는 경우 읽기 전용 상태로 들어가는 것을 방지할 수 있도록 알림 경고를 설정하는 것이 좋습니다. 
 
-<!--For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).-->
+자세한 내용은 [경고 설정 방법](howto-alert-metric.md)에 관한 설명서를 참조하세요.
 
 ## <a name="backup"></a>Backup
 
@@ -80,7 +77,7 @@ Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터�
 
 vCore 수 또는 가격 책정 계층을 변경하면 새 계산 할당을 사용하여 원본 서버의 복사본이 만들어집니다. 새 서버가 시작되고 실행된 후 새 서버에 대한 연결로 전환됩니다. 시스템이 새 서버로 전환되면 잠시 동안 새 연결을 설정할 수 없으며, 커밋되지 않은 모든 트랜잭션이 롤백됩니다. 이 기간은 다양하지만, 대부분의 경우 1분 미만입니다.
 
-저장소 크기 조정 및 백업 보존 기간 변경은 온라인 작업입니다. 가동 중지 시간이 없으며 응용 프로그램은 영향을 받지 않습니다. IOPS가 프로비전된 저장소 크기로 조정되면 저장소를 확장하여 서버에서 사용할 수 있는 IOPS를 늘릴 수 있습니다.
+저장소 크기 조정 및 백업 보존 기간 변경은 온라인 작업입니다. 가동 중지 시간이 없으며 애플리케이션은 영향을 받지 않습니다. IOPS가 프로비전된 저장소 크기로 조정되면 저장소를 확장하여 서버에서 사용할 수 있는 IOPS를 늘릴 수 있습니다.
 
 ## <a name="pricing"></a>가격
 

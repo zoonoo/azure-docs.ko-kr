@@ -10,16 +10,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-09/28/2018started-article
-ms.date: 09/28/2018
+ms.topic: get-started-article
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: 783262a5b55bd645ae3b85c1f00434648d7ee35f
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: b313772fb2737c015a02cfc36cec87797c95f619
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584970"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251965"
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Azure Stack 용 iDNS 소개
 

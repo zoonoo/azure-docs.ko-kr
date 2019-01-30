@@ -3,61 +3,56 @@ title: Azure Active Directory B2C에서 Node.js를 사용하여 웹 API 보호 |
 description: B2C 테넌트에서 토큰을 수락하는 Node.js Web API를 빌드하는 방법입니다.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 93c3bd3f902f08c8f019744b3f30745c1fd9fa01
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5dbb932173bccea32d3463fe5e645df58b287990
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442426"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845957"
 ---
-# <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: Node.js를 사용하여 Web API 보안 유지
-<!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
+# <a name="secure-a-web-api-by-using-nodejs-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 Node.js를 사용하여 웹 API 보호
 
 Azure AD(Azure Active Directory) B2C로 OAuth 2.0 액세스 토큰을 사용하여 Web API를 보호할 수 있습니다. 이 토큰을 통해 클라이언트 앱이 Azure AD B2C를 사용하여 API에 인증할 수 있습니다. 이 문서에서는 사용자가 태스크를 추가하고 나열할 수 있는 "할 일 모음" API를 만드는 방법을 보여 줍니다. Web API는 Azure AD B2C를 사용하여 보호되며 사용자가 해당 할 일 목록을 관리하도록 인증할 수 있습니다.
 
 > [!NOTE]
-> 이 샘플은 [iOS B2C 샘플 응용 프로그램](active-directory-b2c-devquickstarts-ios.md)을 사용하여 연결되도록 작성되었습니다. 현재 연습을 먼저 수행한 다음 해당 샘플도 함께 수행하세요.
+> 이 샘플은 [iOS B2C 샘플 애플리케이션](active-directory-b2c-devquickstarts-ios.md)을 사용하여 연결되도록 작성되었습니다. 현재 연습을 먼저 수행한 다음 해당 샘플도 함께 수행하세요.
 >
 >
 
-**Passport** 는 Node.js에 대한 인증 미들웨어입니다. 유연한 모듈식 Passport는 어떤 Express 기반 또는 Restify 웹 응용 프로그램에도 원활하게 설치할 수 있습니다. 포괄적인 전략 모음이 사용자 이름 및 암호, Facebook, Twitter 등을 사용하는 인증을 지원합니다. Microsoft는 Azure AD(Azure Active Directory)에 대한 전략을 개발했습니다. 여기서는 이 모듈을 설치하고 Azure AD `passport-azure-ad` 플러그 인에 추가합니다.
+**Passport** 는 Node.js에 대한 인증 미들웨어입니다. 유연한 모듈식 Passport는 어떤 Express 기반 또는 Restify 웹 애플리케이션에도 원활하게 설치할 수 있습니다. 포괄적인 전략 모음이 사용자 이름 및 암호, Facebook, Twitter 등을 사용하는 인증을 지원합니다. Microsoft는 Azure AD(Azure Active Directory)에 대한 전략을 개발했습니다. 여기서는 이 모듈을 설치하고 Azure AD `passport-azure-ad` 플러그 인에 추가합니다.
 
 이 샘플을 수행하려면 다음을 수행해야 합니다.
 
-1. Azure AD에 응용 프로그램을 등록합니다.
-2. Passport의 `passport-azure-ad` 플러그 인을 사용하도록 응용 프로그램을 설정합니다.
-3. "to-do list" Web API를 호출하도록 클라이언트 응용 프로그램을 구성합니다.
+1. Azure AD에 애플리케이션을 등록합니다.
+2. Passport의 `passport-azure-ad` 플러그 인을 사용하도록 애플리케이션을 설정합니다.
+3. "to-do list" Web API를 호출하도록 클라이언트 애플리케이션을 구성합니다.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Azure AD B2C 디렉터리 가져오기
-Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어야 합니다.  디렉터리는 모든 사용자, 앱, 그룹 등을 위한 컨테이너입니다.  디렉터리가 없는 경우 계속하기 전에 [B2C 디렉터리를 만듭니다](active-directory-b2c-get-started.md) .
+Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어야 합니다.  디렉터리는 모든 사용자, 앱, 그룹 등을 위한 컨테이너입니다.  디렉터리가 없는 경우 계속하기 전에 [B2C 디렉터리를 만듭니다](tutorial-create-tenant.md) .
 
-## <a name="create-an-application"></a>응용 프로그램 만들기
-다음으로 B2C 디렉터리에 앱을 만들어야 하며 Azure AD가 앱과 안전하게 통신해야 한다는 일부 정보를 제공합니다. 이 경우 하나의 논리 앱을 구성하기 때문에 클라이언트 앱과 Web API 모두는 단일 **응용 프로그램 ID**에서 표현됩니다. 앱을 만들려면 [다음 지침](active-directory-b2c-app-registration.md)에 따릅니다. 다음을 수행해야 합니다.
+## <a name="create-an-application"></a>애플리케이션 만들기
+다음으로 B2C 디렉터리에 앱을 만들어야 하며 Azure AD가 앱과 안전하게 통신해야 한다는 일부 정보를 제공합니다. 이 경우 하나의 논리 앱을 구성하기 때문에 클라이언트 앱과 Web API 모두는 단일 **애플리케이션 ID**에서 표현됩니다. 앱을 만들려면 [다음 지침](active-directory-b2c-app-registration.md)에 따릅니다. 다음을 수행해야 합니다.
 
-* 응용 프로그램에서 **웹앱/웹 API** 포함
+* 애플리케이션에서 **웹앱/웹 API** 포함
 * **회신 URL**로 `http://localhost/TodoListService`을 입력합니다. 이 코드 샘플에 대한 기본 URL입니다.
-* 응용 프로그램에 **응용 프로그램 암호** 를 만들고 복사합니다. 이 데이터가 나중에 필요합니다. 참고로 이 값은 사용하기 전에 [XML 이스케이프](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) 되어야 합니다.
-* 앱에 할당된 **응용 프로그램 ID**를 복사합니다. 이 데이터가 나중에 필요합니다.
+* 애플리케이션에 **애플리케이션 암호**를 만들고 복사합니다. 이 데이터가 나중에 필요합니다. 참고로 이 값은 사용하기 전에 [XML 이스케이프](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) 되어야 합니다.
+* 앱에 할당된 **애플리케이션 ID**를 복사합니다. 이 데이터가 나중에 필요합니다.
 
 ## <a name="create-your-policies"></a>정책 만들기
-Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 앱은 등록 및 로그인이라는 두 가지 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#create-a-sign-up-policy)에서 설명한 대로 각 형식에 하나의 정책을 만들어야 합니다.  세 가지 정책을 만들 때 다음을 확인합니다.
+Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 애플리케이션은 등록 및 로그인이라는 두 가지 ID 환경을 포함합니다. 각 유형에 대해 하나의 정책을 만들어야 합니다.  정책을 만들 때 다음을 확인합니다.
 
 * 등록 정책에서 **표시 이름** 및 다른 등록 특성을 선택합니다.
-* 모든 정책에서 **표시 이름** 및 **개체 ID** 응용 프로그램 클레임을 선택합니다.  물론 다른 클레임을 선택할 수 있습니다.
+* 모든 정책에서 **표시 이름** 및 **개체 ID** 애플리케이션 클레임을 선택합니다.  물론 다른 클레임을 선택할 수 있습니다.
 * 각 정책을 만든 후에 **이름** 을 복사합니다. 접두사 `b2c_1_`이 있어야 합니다.  이러한 정책 이름이 나중에 필요합니다.
 
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
-
-세 가지 정책을 만들었다면 앱을 빌드할 준비가 되었습니다.
-
-Azure AD B2C에서 정책 작동 방법을 알아보려면 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)를 시작합니다.
+정책을 만들었다면 앱을 빌드할 준비가 되었습니다.
 
 ## <a name="download-the-code"></a>코드 다운로드
 이 자습서에 대한 코드는 [GitHub에서 유지 관리](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS)됩니다. 진행하면서 샘플을 빌드하기 위해 [골격 프로젝트를 .zip 파일로 다운로드](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/skeleton.zip)할 수 있습니다. 기본 구조를 복제할 수도 있습니다.
@@ -71,20 +66,20 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Nod
 ## <a name="download-nodejs-for-your-platform"></a>사용자 플랫폼을 위한 Node.js 다운로드
 이 샘플을 사용하려면 작동하는 Node.js 설치가 필요합니다.
 
-[nodejs.org](http://nodejs.org)에서 Node.js를 설치합니다.
+[nodejs.org](https://nodejs.org)에서 Node.js를 설치합니다.
 
 ## <a name="install-mongodb-for-your-platform"></a>사용자 플랫폼을 위한 MongoDB 설치
 이 샘플을 사용하려면 작동하는 MongoDB 설치가 필요합니다. MongoDB를 사용하여 REST API가 서버 인스턴스 간에 지속되도록 할 것입니다.
 
-[mongodb.org](http://www.mongodb.org)에서 MongoDB를 설치합니다.
+[mongodb.org](https://www.mongodb.org)에서 MongoDB를 설치합니다.
 
 > [!NOTE]
-> 이 연습에서는 연습 과정을 작성할 때의 MongoDB에 대한 기본 설치 및 서버 끝점인 `mongodb://localhost`을(를) 사용한다고 가정합니다.
+> 이 연습에서는 연습 과정을 작성할 때의 MongoDB에 대한 기본 설치 및 서버 엔드포인트인 `mongodb://localhost`을(를) 사용한다고 가정합니다.
 >
 >
 
 ## <a name="install-the-restify-modules-in-your-web-api"></a>Web API에 Restify 모듈 설치
-REST API를 빌드하는 데 Restify를 사용합니다. Restify는 Express에서 파생된 유연한 최소 Node.js 응용 프로그램 프레임워크입니다. Connect 위에 REST API를 구축하기 위한 강력한 기능 집합을 포함합니다.
+REST API를 빌드하는 데 Restify를 사용합니다. Restify는 Express에서 파생된 유연한 최소 Node.js 애플리케이션 프레임워크입니다. Connect 위에 REST API를 구축하기 위한 강력한 기능 집합을 포함합니다.
 
 ### <a name="install-restify"></a>Restify 설치
 명령줄에서 해당 디렉터리를 `azuread`로 변경합니다. `azuread` 디렉터리가 존재하지 않는 경우 만듭니다.
@@ -162,7 +157,7 @@ Restify는 DTrace를 사용하여 REST 호출을 추적하는 강력한 메커�
 다음으로 Azure AD를 Passport와 함께 연결하는 전략 제품군인 `passport-azuread`를 사용하여 OAuth 전략을 추가합니다. REST API 샘플에서는 이 전략을 전달자 토큰으로 사용합니다.
 
 > [!NOTE]
-> OAuth2는 알려진 모든 토큰 유형이 발급될 수 있는 프레임워크를 제공하지만 특정 토큰 유형만 일반적으로 사용할 수 있습니다. 끝점을 보호하기 위한 토큰이 전달자 토큰입니다. 전달자 토큰 형식은 OAuth2에서 가장 널리 발급됩니다. 많은 구현에서 발급되는 유일한 토큰 유형이 전달자 토큰이라고 가정합니다.
+> OAuth2는 알려진 모든 토큰 유형이 발급될 수 있는 프레임워크를 제공하지만 특정 토큰 유형만 일반적으로 사용할 수 있습니다. 엔드포인트를 보호하기 위한 토큰이 전달자 토큰입니다. 전달자 토큰 형식은 OAuth2에서 가장 널리 발급됩니다. 많은 구현에서 발급되는 유일한 토큰 유형이 전달자 토큰이라고 가정합니다.
 >
 >
 
@@ -263,15 +258,15 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 [!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ### <a name="required-values"></a>필요한 값
-`clientID`: 웹 API 응용 프로그램의 클라이언트 ID입니다.
+`clientID`: Web API 애플리케이션의 클라이언트 ID입니다.
 
 `IdentityMetadata`: `passport-azure-ad`가 ID 공급자에 대한 구성 데이터를 찾는 위치입니다. JSON 웹 토큰의 유효성을 검사하는 키도 찾습니다.
 
-`audience`: 응용 프로그램 호출을 식별하는 포털의 URI(Uniform Resource Identifier)입니다.
+`audience`: 애플리케이션 호출을 식별하는 포털의 URI(Uniform Resource Identifier)입니다.
 
 `tenantName`: 해당 테넌트 이름입니다(예: **contoso.onmicrosoft.com**).
 
-`policyName`: 서버로 들어오는 토큰의 유효성을 검사하려는 정책입니다. 이 정책은 클라이언트 응용 프로그램에서 로그인에 사용하는 것과 동일한 정책이어야 합니다.
+`policyName`: 서버로 들어오는 토큰의 유효성을 검사하려는 정책입니다. 이 정책은 클라이언트 애플리케이션에서 로그인에 사용하는 것과 동일한 정책이어야 합니다.
 
 > [!NOTE]
 > 이제 클라이언트와 서버 설정 모두에서 동일한 정책을 사용합니다. 이미 연습 단계를 완료하고 이러한 정책을 만든 경우에는 다시 작업을 수행하지 않아도 됩니다. 연습 단계를 완료했으므로 사이트에서 클라이언트 연습에 대해 새 정책을 설정할 필요가 없습니다.
@@ -279,7 +274,7 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 >
 
 ## <a name="add-configuration-to-your-serverjs-file"></a>server.js 파일에 구성 추가
-만든 `config.js` 파일에서 값을 참고하려면 응용 프로그램에 필수 리소스로 `.config` 파일을 추가하고 전역 변수를 `config.js` 문서의 변수로 설정합니다.
+만든 `config.js` 파일에서 값을 참고하려면 애플리케이션에 필수 리소스로 `.config` 파일을 추가하고 전역 변수를 `config.js` 문서의 변수로 설정합니다.
 
 아직 없는 경우 명령줄에서 해당 디렉터리를 `azuread`로 변경합니다.
 
@@ -308,7 +303,7 @@ var options = {
 };
 ```
 
-다음으로 응용 프로그램 호출에서 수신한 사용자에 몇 가지 자리 표시자를 추가해 보겠습니다.
+다음으로 애플리케이션 호출에서 수신한 사용자에 몇 가지 자리 표시자를 추가해 보겠습니다.
 
 ```Javascript
 // array to hold logged in users and the current logged in user (owner)
@@ -330,7 +325,7 @@ REST API 서비스에서 이러한 세 파일을 함께 가져옴에 따라 이�
 
 이 연습의 경우 앞에서 설명한 대로 MongoDB를 사용하여 작업을 저장합니다.
 
-`config.js` 파일에서 데이터베이스 **tasklist**를 호출했습니다. 해당 이름은 `mongoose_auth_local` 연결 URL의 끝에도 배치했습니다. MongoDB에서 이 데이터베이스를 미리 만들 필요가 없습니다. 서버 응용 프로그램을 처음으로 실행할 경우 사용자에 대한 데이터베이스를 만듭니다.
+`config.js` 파일에서 데이터베이스 **tasklist**를 호출했습니다. 해당 이름은 `mongoose_auth_local` 연결 URL의 끝에도 배치했습니다. MongoDB에서 이 데이터베이스를 미리 만들 필요가 없습니다. 서버 애플리케이션을 처음으로 실행할 경우 사용자에 대한 데이터베이스를 만듭니다.
 
 사용하려는 MongoDB 데이터베이스를 서버에 알린 후에는 일부 추가 코드를 작성하여 서버 작업에 대한 모델 및 스키마를 만들어야 합니다.
 
@@ -381,7 +376,7 @@ var Task = mongoose.model('Task');
 작업할 데이터베이스 모델이 준비되었으므로 REST API 서버에 사용할 경로를 추가하겠습니다.
 
 ### <a name="about-routes-in-restify"></a>Restify의 경로 정보
-경로는 Express 스택을 사용할 때 작업하는 것과 동일한 방식으로 Restify에서 작동합니다. 클라이언트 응용 프로그램이 호출할 것으로 예상하는 URI를 사용하여 경로를 정의합니다.
+경로는 Express 스택을 사용할 때 작업하는 것과 동일한 방식으로 Restify에서 작동합니다. 클라이언트 애플리케이션이 호출할 것으로 예상하는 URI를 사용하여 경로를 정의합니다.
 
 Restify 경로의 일반적인 패턴:
 
@@ -396,7 +391,7 @@ return next(); // keep the server going
 server.post('/service/:add/:object', createObject); // calls createObject on routes that match this.
 ```
 
-Resitfy 및 Express는 응용 프로그램 유형 정의 및 여러 다른 끝점에서 복잡한 라우팅 수행 등의 훨씬 더 수준 높은 기능을 제공합니다. 이 자습서의 목적에 따라 이러한 경로를 간단하게 유지합니다.
+Resitfy 및 Express는 애플리케이션 유형 정의 및 여러 다른 엔드포인트에서 복잡한 라우팅 수행 등의 훨씬 더 수준 높은 기능을 제공합니다. 이 자습서의 목적에 따라 이러한 경로를 간단하게 유지합니다.
 
 #### <a name="add-default-routes-to-your-server"></a>서버에 기본 경로 추가
 이제 REST API에 대한 **만들기** 및 **나열**이라는 기본 CRUD 경로를 추가합니다. 다른 경로는 샘플의 `complete` 분기에서 찾을 수 있습니다.
@@ -549,7 +544,7 @@ Restify 및 Express는 REST API 서버에 대한 세부적인 사용자 지정 �
 
 
 var server = restify.createServer({
-    name: "Microsoft Azure Active Directroy TODO Server",
+    name: "Microsoft Azure Active Directory TODO Server",
     version: "2.0.1"
 });
 
@@ -692,7 +687,7 @@ var findById = function(id, fn) {
 var oidcStrategy = new OIDCBearerStrategy(options,
     function(token, done) {
         log.info('verifying the user');
-        log.info(token, 'was the token retreived');
+        log.info(token, 'was the token retrieved');
         findById(token.sub, function(err, user) {
             if (err) {
                 return done(err);
@@ -720,8 +715,8 @@ Passport는 모든 전략에 동일한 패턴을 사용합니다. 사용자는 �
 >
 >
 
-## <a name="run-your-server-application-to-verify-that-it-rejects-you"></a>서버 응용 프로그램을 실행하고 사용자를 거부하는지 확인합니다.
-`curl`을 사용하여 끝점에 대해 OAuth2 보호가 적용되는지 확인합니다. 반환되는 헤더는 올바른 경로에 있는지 알려줄 만큼 충분해야 합니다.
+## <a name="run-your-server-application-to-verify-that-it-rejects-you"></a>서버 애플리케이션을 실행하고 사용자를 거부하는지 확인합니다.
+`curl`을 사용하여 엔드포인트에 대해 OAuth2 보호가 적용되는지 확인합니다. 반환되는 헤더는 올바른 경로에 있는지 알려줄 만큼 충분해야 합니다.
 
 MongoDB 인스턴스가 실행되고 있는지 확인합니다.
 
@@ -746,7 +741,7 @@ Date: Tue, 14 Jul 2015 05:45:03 GMT
 Transfer-Encoding: chunked
 ```
 
-401 오류는 원하는 응답입니다. Passport 계층이 권한 부여 끝점으로 리디렉션을 시도함을 나타냅니다.
+401 오류는 원하는 응답입니다. Passport 계층이 권한 부여 엔드포인트로 리디렉션을 시도함을 나타냅니다.
 
 ## <a name="you-now-have-a-rest-api-service-that-uses-oauth2"></a>이제 OAuth2를 사용하는 REST API 서비스가 있습니다.
 Restify 및 OAuth를 사용하여 REST API를 구현했습니다. 이제 충분한 코드가 있으므로 계속해서 서비스를 개발하고 이 예제를 빌드할 수 있습니다. OAuth2 호환 클라이언트를 사용하지 않고 이 서버로 수행할 수 있는 작업은 모두 완료했습니다. 이를 위해 다음 단계에서는 [B2C를 포함한 iOS를 사용하여 웹 API에 연결](active-directory-b2c-devquickstarts-ios.md) 연습과 같은 추가 연습을 사용합니다.

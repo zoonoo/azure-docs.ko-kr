@@ -4,7 +4,7 @@ description: 이 항목에서는 Azure AD Connect에서 미리 보기 상태인 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: c75cd8cf-3eff-4619-bbca-66276757cc07
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ab64cc2fc206772fe0f842af9d2f4c3596d76c07
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 86c45379097f51569d734a46f50edd916428c48a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309092"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473064"
 ---
 # <a name="more-details-about-features-in-preview"></a>미리 보기 기능에 대한 자세한 내용
 이 항목에서는 현재 미리 보기 상태인 기능을 사용하는 방법에 대해 설명합니다.

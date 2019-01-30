@@ -1,7 +1,7 @@
 ---
 title: FAQ(질문과 대답) - Bing Web Search API
 titleSuffix: Azure Cognitive Services
-description: Bing Web Search API와 관련된 일반적인 질문에 대한 답변을 얻습니다.
+description: Bing Web Search API 사용과 관련된 일반적인 질문에 대한 답변을 얻습니다.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: bing-web-search
 ms.topic: troubleshooting
 ms.date: 10/06/2017
 ms.author: aahi
-ms.openlocfilehash: dbff161f96949100703451a64875079288574014
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec2018
+ms.openlocfilehash: 9098ddc780e6adefa8430fe601e3f4d06634972a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162437"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252986"
 ---
 # <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
 
@@ -65,4 +66,4 @@ Bing Web Search API의 응답에 다음 헤더가 발생할 수 있습니다.
 
 ## <a name="see-also"></a>참고 항목
 
- [Stack Overflow: Cognitive Services](http://stackoverflow.com/questions/tagged/bing-api)
+ [스택 오버플로: Cognitive Services](http://stackoverflow.com/questions/tagged/bing-api)

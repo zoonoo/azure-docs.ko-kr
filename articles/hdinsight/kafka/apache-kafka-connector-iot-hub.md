@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 143df8a8c82e84b193bdb48a3d41682fca19156b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ff96204d53d31940846d2ec74db57caf69d4329e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315430"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608633"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Azure IoT Hub를 통해 HDInsight에서 Apache Kafka 사용
 
@@ -48,7 +48,7 @@ IoT Hub에서 끌어오는 경우 __원본__ 커넥터를 사용합니다. IoT H
 
 2. HDInsight 클러스터에서 Kafka의 에지 노드에 .jar 파일을 업로드하려면 다음 명령을 사용합니다.
 
-    > [!NOTE]
+    > [!NOTE]  
     > `sshuser`를 HDInsight 클러스터의 SSH 사용자 계정으로 바꿉니다. `new-edgenode`를 에지 노드 이름으로 바꿉니다. `clustername`를 클러스터 이름으로 바꿉니다. 에지 노드의 SSH 엔드포인트에 대한 자세한 내용은 [HDInsight와 함께 에지 노드 사용](../hdinsight-apps-use-edge-node.md#access-an-edge-node) 문서를 참조하세요.
 
     ```bash
@@ -69,10 +69,10 @@ IoT Hub에서 끌어오는 경우 __원본__ 커넥터를 사용합니다. IoT H
     sudo mv kafka-connect-iothub-assembly*.jar /usr/hdp/current/kafka-broker/libs/
     ```
 
-> [!TIP]
+> [!TIP]  
 > 미리 빌드된 .jar 파일을 사용할 때 이 문서의 나머지 단계에서 문제가 발생하면 원본에서 패키지를 빌드하십시오.
 >
-> 커넥터를 빌드하려면 [Scala 빌드 도구](http://www.scala-sbt.org/)와 함께 Scala 개발 환경이 있어야 합니다.
+> 커넥터를 빌드하려면 [Scala 빌드 도구](https://www.scala-sbt.org/)와 함께 Scala 개발 환경이 있어야 합니다.
 >
 > 1. [https://github.com/Azure/toketi-kafka-connect-iothub/](https://github.com/Azure/toketi-kafka-connect-iothub/)에서 커넥터에 대한 원본을 개발 환경에 다운로드합니다.
 >
@@ -132,7 +132,7 @@ SSH 연결에서 에지 노드까지 다음 단계를 사용하여 독립 실행
         value.converter=org.apache.kafka.connect.storage.StringConverter
         ```
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > 이 변경을 통해 Kafka에 포함된 콘솔 생산자를 사용하여 테스트할 수 있습니다. 다른 생산자와 소비자에 대한 다른 변환기가 필요할 수 있습니다. 다른 변환기 값의 사용에 대한 내용은 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)을 참조합니다.
 
     * 다음 텍스트를 포함하는 파일의 끝에 줄을 추가합니다.
@@ -141,7 +141,7 @@ SSH 연결에서 에지 노드까지 다음 단계를 사용하여 독립 실행
         consumer.max.poll.records=10
         ```
 
-        > [!TIP]
+        > [!TIP]  
         > 이 변경은 한 번에 10개의 레코드로 제한하여 싱크 커넥터에서 시간 제한을 방지하기 위함입니다. 자세한 내용은 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)을 참조하세요.
 
 6. 파일을 저장하려면 __Ctrl + X__, __Y__ 및 __Enter__ 키를 사용합니다.
@@ -178,7 +178,7 @@ SSH 연결에서 에지 노드까지 다음 단계를 사용하여 독립 실행
             * __Event Hub 호환 엔드포인트__
             * __파티션__
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > 포털에서 엔드포인트 값이 이 예제에서 필요하지 않은 추가 텍스트를 포함할 수 있습니다. 이 패턴 `sb://<randomnamespace>.servicebus.windows.net/`과 일치하는 텍스트를 추출합니다.
 
     * __[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ 에서 다음 명령을 입력합니다.
@@ -239,14 +239,14 @@ IoT Hub와 작동하도록 원본을 구성하려면 SSH 연결에서 에지 노
 
     편집기에서 다음 항목을 찾아 변경합니다.
 
-    * `Kafka.Topic=PLACEHOLDER`: `PLACEHOLDER`를 `iotin`으로 바꿉니다. IoT Hub에서 받은 메시지는 `iotin` 항목에 배치됩니다.
+    * `Kafka.Topic=PLACEHOLDER`: `PLACEHOLDER`을 `iotin`로 바꿉니다. IoT Hub에서 받은 메시지는 `iotin` 항목에 배치됩니다.
     * `IotHub.EventHubCompatibleName=PLACEHOLDER`: `PLACEHOLDER`를 Event Hub 호환 이름으로 바꿉니다.
     * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`: `PLACEHOLDER`를 Event Hub 호환 엔드포인트로 바꿉니다.
     * `IotHub.Partitions=PLACEHOLDER`: `PLACEHOLDER`를 이전 단계의 파티션 수로 바꿉니다.
-    * `IotHub.AccessKeyName=PLACEHOLDER`: `PLACEHOLDER`를 `service`으로 바꿉니다.
+    * `IotHub.AccessKeyName=PLACEHOLDER`: `PLACEHOLDER`을 `service`로 바꿉니다.
     * `IotHub.AccessKeyValue=PLACEHOLDER`: `PLACEHOLDER`를 `service` 정책의 기본 키로 바꿉니다.
     * `IotHub.StartType=PLACEHOLDER`: `PLACEHOLDER`를 UTC 날짜로 바꿉니다. 이 날짜는 커넥터가 메시지에 대한 검사를 시작할 때입니다. 날짜 형식은 `yyyy-mm-ddThh:mm:ssZ`입니다.
-    * `BatchSize=100`: `100`를 `5`으로 바꿉니다. 이 변경으로 인해 IoT Hub에 5개의 새 메시지가 있는 경우 커넥터가 메시지를 Kafka로 읽어 들일 수 있습니다.
+    * `BatchSize=100`: `100`을 `5`로 바꿉니다. 이 변경으로 인해 IoT Hub에 5개의 새 메시지가 있는 경우 커넥터가 메시지를 Kafka로 읽어 들일 수 있습니다.
 
     예제 구성은 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md)을 참조합니다.
 
@@ -272,7 +272,7 @@ IoT Hub와 작동하도록 싱크 연결을 구성하려면 SSH 연결에서 에
 
     편집기에서 다음 항목을 찾아 변경합니다.
 
-    * `topics=PLACEHOLDER`: `PLACEHOLDER`를 `iotout`으로 바꿉니다. `iotout` 항목에 기록된 메시지는 IoT Hub로 전달됩니다.
+    * `topics=PLACEHOLDER`: `PLACEHOLDER`을 `iotout`로 바꿉니다. `iotout` 항목에 기록된 메시지는 IoT Hub로 전달됩니다.
     * `IotHub.ConnectionString=PLACEHOLDER`: `PLACEHOLDER`를 `service` 정책에 대한 연결 문자열로 바꿉니다.
 
     예제 구성은 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)을 참조합니다.
@@ -298,7 +298,7 @@ nnect.IotHubSourceTask:39)
 org.apache.kafka.connect.runtime.WorkerSourceTask:356)
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 커넥터가 시작할 때 여러 경고가 표시될 수 있습니다. 이러한 경고는 IoT Hub에서 메시지를 수신하는 문제를 일으키지 않습니다.
 
 커넥터를 중지하려면 __Ctrl+C__ 키를 사용합니다.
@@ -320,7 +320,7 @@ IotHubSinkTask:47)
 t.runtime.WorkerSinkTask:262)
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 커넥터가 시작할 때 여러 경고를 확인할 수 있습니다. 무시해도 됩니다.
 
 커넥터를 통해 메시지를 보내려면 다음 단계를 사용합니다.
@@ -332,7 +332,7 @@ t.runtime.WorkerSinkTask:262)
     ```
 2. `iotout` 항목에 메시지를 보내려면 다음 명령을 사용합니다.
 
-    > [!WARNING]
+    > [!WARNING]  
     > 새 SSH 연결이므로 `$KAFKABROKERS` 변수는 어떤 정보도 포함하지 않습니다. 이를 설정하려면 다음 방법 중 하나를 사용합니다.
     >
     > * [Apache Kafka 구성](#configure-apache-kafka) 섹션의 처음 세 단계를 사용합니다.
@@ -346,7 +346,7 @@ t.runtime.WorkerSinkTask:262)
 
 3. 디바이스에 메시지를 보내려면 `kafka-console-producer`에 대한 SSH 세션에 JSON 문서를 붙여넣습니다.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 디바이스 ID에 `"deviceId"` 항목 값을 설정해야 합니다. 다음 예제에서 디바이스는 `fakepi`이라고 합니다.
 
     ```text

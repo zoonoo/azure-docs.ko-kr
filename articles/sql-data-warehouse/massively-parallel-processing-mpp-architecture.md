@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 92e16104edb46298d6e503b7546449ed71041047
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 236b7543772f9e6df9c7ba7f1a9365153593a929
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005753"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473183"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse - MPP(Massively Parallel Processing) 아키텍처
 Azure SQL Data Warehouse가 고성능 및 확장성을 달성하도록 MPP(Massively Parallel Processing)와 Azure 저장소를 결합하는 방법을 알아봅니다. 
@@ -27,7 +27,7 @@ SQL Data Warehouse는 규모 확장 아키텍처를 활용하여 여러 노드�
 
 ![SQL Data Warehouse 아키텍처](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-SQL Data Warehouse는 노드 기반 아키텍처를 사용합니다. 응용 프로그램은 데이터 웨어하우스의 단일 입력 지점인 제어 노드에 연결하고 T-SQL 명령을 보냅니다. 제어 노드는 병렬 처리를 위해 쿼리를 최적화하는 MPP 엔진을 실행한 다음 연산을 계산 노드에 전달하여 병렬로 처리되도록 합니다. 계산 노드는 모든 사용자 데이터를 Azure Storage에 저장하고 병렬 쿼리를 실행합니다. DMS(Data Movement Service)는 쿼리를 병렬로 실행하고 정확한 결과를 반환하기 위해 필요할 때 노드에서 데이터를 이동시키는 시스템 수준의 내부 서비스입니다. 
+SQL Data Warehouse는 노드 기반 아키텍처를 사용합니다. 애플리케이션은 데이터 웨어하우스의 단일 입력 지점인 제어 노드에 연결하고 T-SQL 명령을 보냅니다. 제어 노드는 병렬 처리를 위해 쿼리를 최적화하는 MPP 엔진을 실행한 다음 연산을 계산 노드에 전달하여 병렬로 처리되도록 합니다. 계산 노드는 모든 사용자 데이터를 Azure Storage에 저장하고 병렬 쿼리를 실행합니다. DMS(Data Movement Service)는 쿼리를 병렬로 실행하고 정확한 결과를 반환하기 위해 필요할 때 노드에서 데이터를 이동시키는 시스템 수준의 내부 서비스입니다. 
 
 분리된 저장소 및 계산을 사용하여 SQL Data Warehouse는 다음을 수행할 수 있습니다.
 
@@ -45,13 +45,13 @@ SQL Data Warehouse는 Azure 저장소를 사용하여 사용자 데이터를 안
 
 ### <a name="control-node"></a>제어 노드
 
-제어 노드는 데이터 웨어하우스의 두뇌입니다. 모든 응용 프로그램 및 연결과 상호 작용하는 프런트 엔드입니다. MPP 엔진은 병렬 쿼리를 최적화하고 조정하기 위해 제어 노드에서 실행됩니다. SQL Data Warehouse에 T-SQL 쿼리를 제출하면 제어 노드는 이것을 각 분산에 대해 병렬로 실행되는 쿼리로 변환합니다.
+제어 노드는 데이터 웨어하우스의 두뇌입니다. 모든 애플리케이션 및 연결과 상호 작용하는 프런트 엔드입니다. MPP 엔진은 병렬 쿼리를 최적화하고 조정하기 위해 제어 노드에서 실행됩니다. SQL Data Warehouse에 T-SQL 쿼리를 제출하면 제어 노드는 이것을 각 분산에 대해 병렬로 실행되는 쿼리로 변환합니다.
 
 ### <a name="compute-nodes"></a>계산 노드
 
 계산 노드는 계산 성능을 제공합니다. 분산은 처리를 위해 계산 노드로 매핑됩니다. 비용을 지불하는 계산 리소스가 많을수록 SQL Data Warehouse는 사용 가능한 계산 노드에 분산을 다시 매핑합니다. 계산 노드의 수는 1~60 사이이며 데이터 웨어하우스의 서비스 수준에 따라 결정됩니다.
 
-각 계산 노드에는 시스템 뷰에 표시되는 노드 ID가 있습니다. 시스템 뷰에서 이름이 sys.pdw_nodes로 시작하는 node_id 열을 검색하여 Compute 노드 ID를 볼 수 있습니다. 시스템 뷰 목록은 [MPP 시스템 뷰](sql-data-warehouse-reference-tsql-statements.md)를 참조하세요.
+각 계산 노드에는 시스템 뷰에 표시되는 노드 ID가 있습니다. 시스템 뷰에서 이름이 sys.pdw_nodes로 시작하는 node_id 열을 검색하여 Compute 노드 ID를 볼 수 있습니다. 시스템 뷰 목록은 [MPP 시스템 뷰](http://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7)를 참조하세요.
 
 ### <a name="data-movement-service"></a>데이터 이동 서비스
 DMS(데이터 이동 서비스)는 계산 노드 간의 데이터 이동을 조정하는 데이터 전송 기술입니다. 일부 쿼리는 병렬 쿼리가 정확한 결과를 반환하도록 하려면 데이터 이동이 필요합니다. 데이터 이동이 필요할 때 DMS는 올바른 데이터가 올바른 위치에 도달하도록 보장합니다. 

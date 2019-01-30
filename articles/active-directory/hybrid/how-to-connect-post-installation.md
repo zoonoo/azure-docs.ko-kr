@@ -4,7 +4,7 @@ description: Azure AD Connect에 대한 기본 구성 및 운영 작업을 확�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: c18bee36-aebf-4281-b8fc-3fe14116f1a5
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 878b483c1f644bcfe39824766ca5495f111d1864
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f9c9af94b15c78783f95fb92be548321a35b15a6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306222"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473217"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>다음 단계 및 Azure AD Connect 관리 방법
 이 문서의 운영 절차를 사용하여 조직 요구 사항 및 요건에 부합하도록 Azure Active Directory(Azure AD) Connect를 사용자 지정합니다.  

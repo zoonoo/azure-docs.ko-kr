@@ -3,23 +3,22 @@ title: Azure Stack에 Azure Backup Server 설치 | Microsoft Docs
 description: Azure Backup Server를 사용하여 Azure Stack에 워크로드를 백업하거나 보호합니다.
 services: backup
 documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 keywords: Azure Backup Server; 워크로드 보호; 워크로드 백업
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
-ms.author: markgal
-ms.openlocfilehash: 5092a677bcbeac179e26fa0591b6a1cfbc3263d4
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.author: raynew
+ms.openlocfilehash: 31052276f06c5afdf78bf094637b7f60be4acbec
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576700"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262730"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack에 Azure Backup Server 설치
 
@@ -37,7 +36,7 @@ Azure Backup Server는 다음과 같은 Azure Stack 가상 머신 워크로드�
 | Windows Server 상하반기 채널 - Datacenter/Enterprise/Standard | 볼륨, 파일, 폴더 |
 | Windows Server 2016 - Datacenter/Enterprise/Standard | 볼륨, 파일, 폴더 |
 | Windows Server 2012 R2 - Datacenter/Enterprise/Standard | 볼륨, 파일, 폴더 |
-| Windows Server 2012 - Datacenter/Entprise/Standard | 볼륨, 파일, 폴더 |
+| Windows Server 2012 - Datacenter/Enterprise/Standard | 볼륨, 파일, 폴더 |
 | Windows Server 2008 R2 - Datacenter/Enterprise/Standard | 볼륨, 파일, 폴더 |
 | SQL Server 2016 | 데이터베이스 |
 | SQL Server 2014 | 데이터베이스 |
@@ -98,7 +97,7 @@ Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘�
 > [!NOTE]
 > Azure Backup Server는 단일 용도의 전용 가상 머신에서 실행되도록 설계되었습니다. Azure Backup Server를 다음 항목에 설치할 수 없습니다.
 > - 도메인 컨트롤러로 실행하는 컴퓨터
-> - 응용 프로그램 서버 역할이 설치된 컴퓨터
+> - 애플리케이션 서버 역할이 설치된 컴퓨터
 > - Exchange Server를 실행하는 컴퓨터
 > - 클러스터의 한 노드인 컴퓨터
 
@@ -108,7 +107,7 @@ Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘�
 
 ### <a name="set-storage-replication"></a>저장소 복제 설정
 
-Recovery Services 자격 증명 모음 저장소 복제를 사용하면 지역 중복 저장소와 로컬 중복 저장소 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 저장소를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 저장소 옵션을 지역 중복 저장소 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 저장소를 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 저장소 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
+Recovery Services 자격 증명 모음 저장소 복제를 사용하면 지역 중복 저장소와 로컬 중복 저장소 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 저장소를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 저장소 옵션을 지역 중복 저장소 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 저장소를 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 스토리지 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
 
 저장소 복제 설정을 편집하려면
 

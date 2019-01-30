@@ -1,23 +1,24 @@
 ---
-title: '자습서 1: 활성 학습으로 엔드포인트 발언 검토'
+title: 엔드포인트 발화 검토
 titleSuffix: Azure Cognitive Services
-description: LUIS에서 알 수 없는 LUIS HTTP 엔드포인트를 통해 수신된 발언을 확인하거나 수정하여 앱 예측을 향상시키는 방법을 학습합니다. 의도를 확인해야 하는 발언도 있고, 엔터티를 확인해야 하는 발언도 있습니다. 예약된 LUIS 유지 관리의 정기적인 과정 형태로 엔드포인트 발언 검토를 진행해야 합니다.
+description: LUIS에서 알 수 없는 LUIS HTTP 엔드포인트를 통해 수신된 발언을 확인하거나 수정하여 앱 예측을 향상시키는 방법을 학습합니다. 의도를 확인해야 하는 발언도 있고, 엔터티를 확인해야 하는 발언도 있습니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 8fbe856826770eb38cd4a6d921c1b0f4eacf9c2a
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 6cbeb44e5dfca84bc85a6be4c4b44cb59bad783a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426964"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755124"
 ---
-# <a name="tutorial-1-fix-unsure-predictions"></a>자습서 1: 알 수 없는 예측 수정
+# <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>자습서: 엔드포인트 발언을 검토하여 알 수 없는 예측 수정
 이 자습서에서는 LUIS에서 알 수 없는 LUIS HTTPS 엔드포인트를 통해 수신된 발언을 확인하거나 수정하여 앱 예측을 향상시키는 방법을 학습합니다. 의도를 확인해야 하는 발언도 있고, 엔터티를 확인해야 하는 발언도 있습니다. 예약된 LUIS 유지 관리의 정기적인 과정 형태로 엔드포인트 발언 검토를 진행해야 합니다. 
 
 이 검토 프로세스는 LUIS가 앱 도메인을 학습하는 또 다른 방법입니다. LUIS는 검토 목록에 표시되는 발언을 선택했습니다. 이 목록은 다음과 같습니다.
@@ -28,11 +29,11 @@ ms.locfileid: "52426964"
 
 엔드포인트 발언을 검토하여 발언의 예측된 의도를 확인하거나 수정합니다. 또한 예측되지 않았거나 잘못 예측된 사용자 지정 엔터티에도 레이블을 지정합니다. 
 
-**이 자습서에서는 다음 방법에 대해 알아봅니다.**
+**이 자습서에서 학습할 내용은 다음과 같습니다.**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * 기존 자습서 앱 사용
+> * 앱 가져오기 예제
 > * 엔드포인트 utterances 검토
 > * 구문 목록 업데이트
 > * 앱 교육
@@ -41,19 +42,19 @@ ms.locfileid: "52426964"
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>기존 앱 사용
+## <a name="import-example-app"></a>앱 가져오기 예제
 
 마지막 자습서에서 만든 **HumanResources**라는 앱을 사용하여 계속 진행합니다. 
 
-이전 자습서의 HumanResources 앱이 없으면 다음 단계를 사용합니다.
+다음 단계를 사용하세요.
 
-1.  [앱 JSON 파일](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json)을 다운로드하고 저장합니다.
+1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json)을 다운로드하고 저장합니다.
 
 2. JSON을 새 앱으로 가져옵니다.
 
 3. **관리** 섹션의 **버전** 탭에서 버전을 복제하고 `review`라는 이름을 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 버전 이름이 URL 경로의 일부로 사용되므로 이름에는 URL에 유효하지 않은 문자가 포함될 수 없습니다.
 
-    이 자습서를 새롭게 가져온 앱으로 사용하는 경우, 발언을 학습하고 게시한 다음, [스크립트](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js)를 사용하거나 브라우저의 엔드포인트에서 가져온 엔드포인트에 추가해야 합니다. 추가할 발언은 다음과 같습니다.
+    이 자습서를 새롭게 가져온 앱으로 사용하는 경우, 발언을 학습하고 게시한 다음, [스크립트](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js)를 사용하거나 브라우저의 엔드포인트에서 가져온 엔드포인트에 추가해야 합니다. 추가할 발언은 다음과 같습니다.
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 
@@ -132,7 +133,7 @@ LUIS는 학습할 때까지 변경 내용을 알지 못합니다.
 
 2. 주소의 URL 끝으로 이동하고 `Are there any natural language processing jobs in my department right now?`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 
 
-  ```JSON
+  ```json
   {
     "query": "are there any natural language processing jobs in my department right now?",
     "topScoringIntent": {

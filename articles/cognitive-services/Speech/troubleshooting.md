@@ -10,12 +10,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 80e39e845ab631ad5cc3ae8af9e2e42f09b521bf
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 2da6795e938f1a0c0ed0495fb169007126501eea
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342193"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753663"
 ---
 # <a name="troubleshooting-bing-speech"></a>Bing Speech 문제 해결
 
@@ -52,7 +52,7 @@ ms.locfileid: "49342193"
 > [!NOTE]
 > `YOUR_SUBSCRIPTION_KEY`를 사용자 고유의 구독 키로 바꾸세요.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -77,7 +77,7 @@ curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Co
 ```
 ---
 
-응용 프로그램 또는 REST 요청에서 위에서 사용한 것과 동일한 구독 키를 사용해야 합니다.
+애플리케이션 또는 REST 요청에서 위에서 사용한 것과 동일한 구독 키를 사용해야 합니다.
 
 #### <a name="verify-the-authorization-token"></a>권한 부여 토큰 확인
 
@@ -88,7 +88,7 @@ curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Co
 > [!NOTE]
 > `YOUR_AUDIO_FILE`을 미리 녹음된 오디오 파일의 경로로 바꾸고, `YOUR_ACCESS_TOKEN`을 이전 단계에서 반환된 권한 부여 토큰으로 바꾸세요.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 

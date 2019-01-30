@@ -1,20 +1,17 @@
 ---
 title: Azure Database for MariaDB에서 쿼리 성능 문제를 해결하는 방법
 description: 이 문서에서는 EXPLAIN을 사용하여 Azure Database for MariaDB에서 쿼리 성능 문제를 해결하는 방법을 설명합니다.
-services: mariadb
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 6bbaffeccbca77f1cab3058152f8c001f721332e
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 672635c8d8c84fa16c106ae79e97332fd740928d
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51347497"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53541084"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>EXPLAIN을 사용하여 Azure Database for MariaDB에서 쿼리 성능을 프로파일링하는 방법
 **EXPLAIN**은 쿼리를 최적화하는 편리한 도구입니다. EXPLAIN 문은 SQL 문이 어떻게 실행되는지에 대한 정보를 얻는 데 사용할 수 있습니다. 다음 출력은 EXPLAIN 문의 실행 예제입니다.

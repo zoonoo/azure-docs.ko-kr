@@ -15,7 +15,7 @@ items:
     href: quick-setup-auto-provision.md
   - name: 자동 프로비전 설정 - 템플릿
     href: quick-setup-auto-provision-rm.md
-  - name: 시뮬레이트된 장치 자동 프로비전
+  - name: 시뮬레이트된 디바이스 자동 프로비전
     items:
     - name: TPM 증명
       items:
@@ -45,7 +45,7 @@ items:
       items:
       - name: C
         href: quick-create-simulated-device-symm-key.md
-  - name: 프로비전 서비스 API를 사용하여 장치 등록
+  - name: 프로비전 서비스 API를 사용하여 디바이스 등록
     items:
     - name: TPM 증명
       items:
@@ -126,7 +126,7 @@ items:
       href: how-to-manage-dps-with-cli.md
     - name: 프로비저닝 서비스 API에 대한 액세스 제어
       href: how-to-control-access.md
-  - name: IoT Edge 장치 프로비전
+  - name: IoT Edge 디바이스 프로비전
     items:
     - name: Linux
       href: ../iot-edge/how-to-auto-provision-simulated-device-linux.md
@@ -148,6 +148,8 @@ items:
   items:
   - name: REST API
     href: /rest/api/iot-dps
+  - name: Resource Manager 템플릿
+    href: /azure/templates/microsoft.devices/deviceprovisioning-allversions
   - name: C용 Azure IoT SDK
     href: https://github.com/Azure/azure-iot-sdk-c
   - name: Python용 Azure IoT SDK
@@ -170,7 +172,7 @@ items:
     items:
     - name: IoT Hub
       href: /azure/iot-hub
-    - name: IoT Hub Device Provisioning Service
+    - name: IoT Hub Device Provisioning 서비스
       href: /azure/iot-dps
     - name: 지도
       href: /azure/azure-maps
@@ -178,7 +180,7 @@ items:
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: Edge
+  - name: Microsoft Edge
     items:
     - name: IoT Edge
       href: /azure/iot-edge
@@ -224,9 +226,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: fe4a2c1e64b1a5054bfc9c4bbc9d136f93848a1c
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 1a47edb218cc07fe48ee64bd8d23cc167083935e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616518"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156408"

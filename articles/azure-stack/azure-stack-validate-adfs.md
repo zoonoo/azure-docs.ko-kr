@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: jerskine
-ms.openlocfilehash: 87e3f03ce5d4c65d5c4b1754300f5d57feca2a49
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.lastreviewed: 01/28/2019
+ms.openlocfilehash: 2200b9a48d7f83d6785c8dbb4a7b02be52fca75a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416514"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241069"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack"></a>Azure Stack에 대 한 AD FS 통합 유효성 검사
 
@@ -29,7 +30,7 @@ ms.locfileid: "50416514"
 준비 상태 검사기의 유효성을 검사 합니다.
 
 * 합니다 *페더레이션 메타 데이터* 페더레이션에 대 한 유효한 XML 요소를 포함 합니다.
-* 합니다 *AD FS SSL 인증서* 검색할 수 있습니다 및 빌드해야 체인 신뢰 수 있습니다. 스탬프에서 AD FS SSL 인증서 체인을 신뢰 해야 합니다. 동일한 인증서를 서명 해야 합니다 *기관* Azure Stack 배포 인증서 또는 신뢰할 수 있는 루트 인증 기관 파트너가 있습니다. 신뢰할 수 있는 루트 인증 기관 파트너의 전체 목록을 참조 하세요 [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)합니다.
+* 합니다 *AD FS SSL 인증서* 검색할 수 있습니다 및 빌드해야 체인 신뢰 수 있습니다. 스탬프에서 AD FS SSL 인증서 체인을 신뢰 해야 합니다. 동일한 인증서를 서명 해야 합니다 *기관* 신뢰할 수 있는 루트 인증 기관 파트너 또는 Azure Stack 배포 인증서를 사용 합니다. 신뢰할 수 있는 루트 인증 기관 파트너의 전체 목록을 참조 하세요 [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)합니다.
 * 합니다 *AD FS 서명 인증서* 신뢰할 수 있고 하지 임박한 만료 됩니다.
 
 Azure Stack 데이터 센터 통합에 대 한 자세한 내용은 참조 하세요. [Azure Stack 데이터 센터 통합-Identity](azure-stack-integrate-identity.md)합니다.
@@ -102,7 +103,7 @@ Azure Stack 데이터 센터 통합에 대 한 자세한 내용은 참조 하세
 사용:
 
 * **-OutputPath**: 합니다 *경로* 끝 다른 보고서 위치를 지정 하려면 실행된 명령에 매개 변수입니다.
-* **-CleanReport**: AzsReadinessCheckerReport.json 이전 보고서 정보를 지우려면 실행 명령의 끝에 있는 매개 변수입니다. 자세한 내용은 [Azure Stack 유효성 검사 보고서](azure-stack-validation-report.md)합니다.
+* **-CleanReport**: 이전 보고서 정보의 AzsReadinessCheckerReport.json 지우려면 실행 명령의 끝에 대 한 매개 변수입니다. 자세한 내용은 [Azure Stack 유효성 검사 보고서](azure-stack-validation-report.md)합니다.
 
 ## <a name="validation-failures"></a>유효성 검사 실패
 
@@ -116,7 +117,7 @@ Azure Stack 데이터 센터 통합에 대 한 자세한 내용은 참조 하세
 
 **원인**: PowerShell Autoload 올바르게 준비 검사기 모듈을 로드 하지 못했습니다.
 
-**해상도**: 준비 검사 모듈을 명시적으로 가져옵니다. PowerShell 및 업데이트에 다음 코드를 붙여 복사 \<버전\> 현재 설치 된 버전 번호를 사용 하 여 합니다.
+**해결 방법**: 준비 검사 모듈을 명시적으로 가져옵니다. PowerShell 및 업데이트에 다음 코드를 붙여 복사 \<버전\> 현재 설치 된 버전 번호를 사용 하 여 합니다.
 
 `Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force`
 

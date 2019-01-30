@@ -1,23 +1,24 @@
 ---
-title: '빠른 시작: 기술 자료 만들기 - REST, C# - QnA Maker'
-titlesuffix: Azure Cognitive Services
+title: 기술 자료 만들기 - REST, C#
+titlesuffix: QnA Maker- Azure Cognitive Services
 description: 이 C# REST 기반 빠른 시작에서는 Cognitive Services API 계정의 Azure 대시보드에 표시될 QnA Maker 기술 자료 샘플을 프로그래밍 방식으로 만드는 방법을 안내합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 11/6/2018
+ms.date: 11/06/2018
 ms.author: diberry
-ms.openlocfilehash: 190a937a4239c08d844d271d2e1d8e858215a5c2
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 36f056003ec35f49120a36b15c0809b06daaecbf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334962"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254812"
 ---
-# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>빠른 시작: C#를 사용하여 QnA Maker 기술 자료 만들기
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>빠른 시작: C#을 사용하여 QnA Maker 기술 자료 만들기
 
 이 빠른 시작에서는 QnA Maker 기술 자료 샘플을 프로그래밍 방식으로 만들고 게시하는 방법을 안내합니다. QnA Maker는 [데이터 원본](../Concepts/data-sources-supported.md)에서 반구조화된 콘텐츠(예: FAQ)의 질문과 답변을 자동으로 추출합니다. 기술 자료 모델은 API 요청 본문에 전송된 JSON에 정의됩니다. 
 
@@ -32,7 +33,7 @@ ms.locfileid: "52334962"
 * [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키를 검색하려면 대시보드의 **리소스 관리**에서 **키**를 선택합니다. 
 
 > [!NOTE] 
-> 전체 솔루션 파일은 [**Azure-Samples/cognitive-services-qnamaker-csharp** Github 리포지토리](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp)에서 구할 수 있습니다.
+> 전체 솔루션 파일은 [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub 리포지토리](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp)에서 사용할 수 있습니다.
 
 ## <a name="create-a-knowledge-base-project"></a>기술 자료 프로젝트 만들기
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory에서 온-프레미스 조건부 액세스 설정 | Microsoft Docs
-description: Windows Server 2012 R2에서 AD FS(Active Directory Federation Service)를 사용하여 온-프레미스 응용 프로그램에 대한 조건부 액세스를 사용하도록 설정하는 단계별 가이드입니다.
+description: Windows Server 2012 R2에서 AD FS(Active Directory Federation Service)를 사용하여 온-프레미스 애플리케이션에 대한 조건부 액세스를 사용하도록 설정하는 단계별 가이드입니다.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -26,7 +26,7 @@ ms.locfileid: "51248761"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Azure Active Directory 디바이스 등록을 사용하여 온-프레미스 조건부 액세스 설정
 
-사용자가 Azure AD(Azure Active Directory) 디바이스 등록 서비스에 자신의 개인 디바이스를 작업 공간에 연결하도록 요구하면 해당 디바이스가 조직에 알려진 것으로 표시될 수 있습니다. 다음은 Windows Server 2012 R2에서 AD FS(Active Directory Federation Services)를 사용하여 온-프레미스 응용 프로그램에 대한 조건부 액세스를 사용하도록 설정하는 단계별 가이드입니다.
+사용자가 Azure AD(Azure Active Directory) 디바이스 등록 서비스에 자신의 개인 디바이스를 작업 공간에 연결하도록 요구하면 해당 디바이스가 조직에 알려진 것으로 표시될 수 있습니다. 다음은 Windows Server 2012 R2에서 AD FS(Active Directory Federation Services)를 사용하여 온-프레미스 애플리케이션에 대한 조건부 액세스를 사용하도록 설정하는 단계별 가이드입니다.
 
 > [!NOTE]
 > Azure Active Directory 디바이스 등록 서비스 조건부 액세스 정책에 등록된 디바이스를 사용하는 경우 Office 365 라이선스 또는 Azure AD Premium 라이선스가 필요합니다. 여기에는 온-프레미스 리소스에서 AD FS에 의해 적용되는 정책이 포함됩니다.
@@ -50,7 +50,7 @@ ms.locfileid: "51248761"
 * Windows Server 2012 R2에서 업데이트된 스키마
 * Azure Active Directory Premium에 대한 라이선스
 * Azure AD에 대해 SSO로 구성된 Windows Server 2012 R2 페더레이션 서비스
-* Windows Server 2012 R2 웹 응용 프로그램 프록시 
+* Windows Server 2012 R2 웹 애플리케이션 프록시 
 * Azure AD Connect(Microsoft Azure Active Directory Connect)[(Azure AD Connect 다운로드)](https://www.microsoft.com/download/details.aspx?id=47594)
 * 확인된 도메인
 
@@ -112,7 +112,7 @@ Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 �
 | Azure Active Directory 디바이스 등록을 사용하여 일부 디바이스를 작업 공간에 연결합니다. iOS, Windows 및 Android 디바이스를 연결할 수 있습니다. |[Azure Active Directory 장치 등록 서비스를 사용하여 작업 공간에 장치 연결](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
 | 관리자 포털을 사용하여 등록된 디바이스를 보고 사용하거나 사용하지 않도록 설정할 수 있습니다. 이 작업에서는 관리자 포털을 사용하여 등록된 디바이스 일부를 확인합니다. |[Azure Active Directory 장치 등록 서비스 개요](active-directory-device-registration-get-started.md) |
 | Azure Active Directory에서 Windows Server Active Directory로 디바이스 개체가 다시 기록되었는지 확인합니다. |[등록된 장치가 Active Directory에 쓰기 저장되는지 확인](#verify-registered-devices-are-written-back-to-active-directory) |
-| 이제 사용자가 디바이스를 등록할 수 있으므로 등록된 디바이스만 허용하도록 AD FS에서 응용 프로그램 액세스 정책을 만들 수 있습니다. 이 작업에서는 응용 프로그램 액세스 규칙과 사용자 지정 액세스 거부 메시지를 만듭니다. |[응용 프로그램 액세스 정책 및 사용자 지정 액세스 거부 메시지 만들기](#create-an-application-access-policy-and-custom-access-denied-message) |
+| 이제 사용자가 디바이스를 등록할 수 있으므로 등록된 디바이스만 허용하도록 AD FS에서 응용 프로그램 액세스 정책을 만들 수 있습니다. 이 작업에서는 애플리케이션 액세스 규칙과 사용자 지정 액세스 거부 메시지를 만듭니다. |[응용 프로그램 액세스 정책 및 사용자 지정 액세스 거부 메시지 만들기](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 ## <a name="integrate-azure-active-directory-with-on-premises-active-directory"></a>온-프레미스 Active Directory와 Azure Active Directory 통합
 
@@ -172,7 +172,7 @@ Azure Active Directory 디바이스 등록은 iOS 디바이스에 대한 무선 
 
 `https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/contoso.com`
 
-다양한 방법으로 이 URL을 사용자에게 알릴 수 있습니다. 예를 들어 AD FS의 사용자 지정 응용 프로그램 액세스 거부 메시지에 이 URL을 게시하는 것이 좋습니다. 이 정보는 다음에 나오는 [응용 프로그램 액세스 정책 및 사용자 지정 액세스 거부 메시지 만들기](#create-an-application-access-policy-and-custom-access-denied-message) 섹션에서 설명됩니다.
+다양한 방법으로 이 URL을 사용자에게 알릴 수 있습니다. 예를 들어 AD FS의 사용자 지정 애플리케이션 액세스 거부 메시지에 이 URL을 게시하는 것이 좋습니다. 이 정보는 다음에 나오는 [애플리케이션 액세스 정책 및 사용자 지정 액세스 거부 메시지 만들기](#create-an-application-access-policy-and-custom-access-denied-message) 섹션에서 설명됩니다.
 
 ### <a name="join-a-windows-81-device-by-using-azure-active-directory-device-registration"></a>Azure Active Directory 디바이스 등록을 사용하여 Windows 8.1 디바이스 연결
 
@@ -195,7 +195,7 @@ LDP.exe 또는 ADSI 편집을 사용하여 디바이스 개체가 Active Directo
 
 `CN=RegisteredDevices,defaultNamingContext`
 
-## <a name="create-an-application-access-policy-and-custom-access-denied-message"></a>응용 프로그램 액세스 정책 및 사용자 지정 액세스 거부 메시지 만들기
+## <a name="create-an-application-access-policy-and-custom-access-denied-message"></a>애플리케이션 액세스 정책 및 사용자 지정 액세스 거부 메시지 만들기
 
 다음 시나리오를 고려합니다. AD FS에서 응용 프로그램 신뢰 당사자 트러스트를 만들고 등록된 디바이스만 허용하는 발급 권한 부여 규칙을 구성합니다. 이제 등록된 디바이스만 애플리케이션에 액세스할 수 있습니다. 
 
@@ -204,11 +204,11 @@ LDP.exe 또는 ADSI 편집을 사용하여 디바이스 개체가 Active Directo
 다음 단계에서는 이 시나리오를 구현하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> 이 섹션에서는 AD FS에서 응용 프로그램에 대한 신뢰 당사자 트러스트를 이미 구성했다고 가정합니다.
+> 이 섹션에서는 AD FS에서 애플리케이션에 대한 신뢰 당사자 트러스트를 이미 구성했다고 가정합니다.
 > 
 
 1. AD FS MMC 도구를 연 다음 **AD FS** > **트러스트 관계** > **신뢰 당사자 트러스트**를 차례로 선택합니다.
-1. 새로운 이 액세스 규칙이 적용되는 응용 프로그램을 찾습니다. 응용 프로그램을 마우스 오른쪽 단추로 클릭한 다음 **클레임 규칙 편집**을 선택합니다.
+1. 새로운 이 액세스 규칙이 적용되는 애플리케이션을 찾습니다. 애플리케이션을 마우스 오른쪽 단추로 클릭한 다음 **클레임 규칙 편집**을 선택합니다.
 1. **발급 권한 부여 규칙** 탭을 선택한 다음 **규칙 추가**를 선택합니다.
 1. **클레임 규칙** 템플릿 드롭다운 목록에서 **들어오는 클레임을 기준으로 사용자 허용 또는 거부**를 선택합니다. 그런 후 **다음**을 선택합니다.
 1. **클레임 규칙 이름** 필드에서 **등록된 장치에서 액세스 허용**을 입력합니다.
@@ -218,9 +218,9 @@ LDP.exe 또는 ADSI 편집을 사용하여 디바이스 개체가 Active Directo
 1. **마침**을 선택한 다음 **적용**을 선택합니다.
 1. 허용 범위가 만든 규칙보다 더 넓은 규칙을 모두 제거합니다. 예를 들어 **모든 사용자에게 액세스 허용** 기본 규칙을 제거합니다.
 
-이제 애플리케이션이 사용자가 작업 공간에 등록 및 연결한 디바이스에서 들어오는 경우에만 액세스를 허용하도록 구성되었습니다. 자세한 고급 액세스 정책은 [추가 Multi-Factor Authentication을 통해 중요한 응용 프로그램에 대한 위험 관리](https://technet.microsoft.com/library/dn280949.aspx)를 참조하세요.
+이제 애플리케이션이 사용자가 작업 공간에 등록 및 연결한 디바이스에서 들어오는 경우에만 액세스를 허용하도록 구성되었습니다. 자세한 고급 액세스 정책은 [추가 Multi-Factor Authentication을 통해 중요한 애플리케이션에 대한 위험 관리](https://technet.microsoft.com/library/dn280949.aspx)를 참조하세요.
 
-다음으로 응용 프로그램에 대한 사용자 지정 오류 메시지를 구성합니다. 오류 메시지를 통해 사용자는 디바이스를 작업 공간에 연결해야 애플리케이션에 액세스할 수 있음을 알게 됩니다. 사용자 지정 HTML 및 PowerShell을 사용하여 사용자 지정 응용 프로그램 액세스 거부 메시지를 만들 수 있습니다.
+다음으로 애플리케이션에 대한 사용자 지정 오류 메시지를 구성합니다. 오류 메시지를 통해 사용자는 디바이스를 작업 공간에 연결해야 애플리케이션에 액세스할 수 있음을 알게 됩니다. 사용자 지정 HTML 및 PowerShell을 사용하여 사용자 지정 애플리케이션 액세스 거부 메시지를 만들 수 있습니다.
 
 페더레이션 서버에서 PowerShell 명령 창을 열고 다음 명령을 입력합니다. 명령 부분을 시스템과 관련된 항목으로 바꿉니다.
 
@@ -236,7 +236,7 @@ LDP.exe 또는 ADSI 편집을 사용하여 디바이스 개체가 Active Directo
 
 Windows 8.1 디바이스를 사용하는 경우 **PC 설정**> **네트워크** > **작업 공간**을 차례로 선택하여 디바이스를 연결할 수 있습니다.
 
-앞의 명령에서 **relying party trust name**(신뢰 당사자 트러스트 이름)은 AD FS에 있는 응용 프로그램의 신뢰 당사자 트러스트 개체 이름입니다.
+앞의 명령에서 **relying party trust name**(신뢰 당사자 트러스트 이름)은 AD FS에 있는 애플리케이션의 신뢰 당사자 트러스트 개체 이름입니다.
 그리고 **yourdomain.com**은 Azure Active Directory로 구성한 도메인 이름(예: contoso.com)입니다.
 **Set-AdfsRelyingPartyWebContent** cmdlet에 전달하는 HTML 콘텐츠에서 줄 바꿈을 모두 제거해야 합니다(있는 경우).
 

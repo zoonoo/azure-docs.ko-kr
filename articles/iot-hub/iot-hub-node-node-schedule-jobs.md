@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: juanpere
-ms.openlocfilehash: 1b6f3a3d4f130792ee606050338a2c30f7fc7847
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: a0614b5a1eadafe78537a4793d2dc0a866337487
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514981"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118883"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>작업 예약 및 브로드캐스트(노드)
 
@@ -30,7 +30,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 이러한 기능에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* 디바이스 쌍 및 속성: [디바이스 쌍 시작][lnk-get-started-twin] 및 [자습서: 디바이스 쌍 속성을 사용하는 방법][lnk-twin-props]
+* 디바이스 쌍 및 속성: [ 디바이스 쌍 시작][lnk-get-started-twin] 및 [자습서: 디바이스 쌍 속성을 사용하는 방법][lnk-twin-props]
 * 직접 메서드: [IoT Hub 개발자 가이드 - 직접 메서드][lnk-dev-methods] 및 [자습서: 직접 메서드][lnk-c2d-methods]
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
@@ -42,9 +42,9 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 이 자습서를 마치면 두 가지 Node.js 앱이 만들어집니다.
 
-**simDevice.js** - 장치 ID로 IoT Hub에 연결하고 **lockDoor** 직접 메서드를 수신합니다.
+**simDevice.js** - 디바이스 ID로 IoT Hub에 연결하고 **lockDoor** 직접 메서드를 수신합니다.
 
-**scheduleJobService.js**는 시뮬레이션된 장치 앱에서 직접 메서드를 호출하고 작업을 사용하여 장치 쌍의 desired 속성을 업데이트합니다.
+**scheduleJobService.js**는 시뮬레이션된 디바이스 앱에서 직접 메서드를 호출하고 작업을 사용하여 디바이스 쌍의 desired 속성을 업데이트합니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -69,7 +69,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
     ```
     npm init
     ```
-2. **simDevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device** 장치 SDK 패키지 및 **azure-iot-device-mqtt** 패키지를 설치합니다.
+2. **simDevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device** 디바이스 SDK 패키지 및 **azure-iot-device-mqtt** 패키지를 설치합니다.
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
@@ -97,7 +97,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
         // Respond the cloud app for the direct method
         response.send(200, function(err) {
             if (!err) {
-                console.error('An error occured when sending a method response:\n' + err.toString());
+                console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.');
             }
@@ -133,7 +133,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
     ```
     npm init
     ```
-2. **scheduleJobService** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iothub** 장치 SDK 패키지 및 **azure-iot-device-mqtt** 패키지를 설치합니다.
+2. **scheduleJobService** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iothub** 디바이스 SDK 패키지 및 **azure-iot-device-mqtt** 패키지를 설치합니다.
    
     ```
     npm install azure-iothub uuid --save
@@ -242,8 +242,8 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
     ```
 9. **scheduleJobService.js** 파일을 저장하고 닫습니다.
 
-## <a name="run-the-applications"></a>응용 프로그램 실행
-이제 응용 프로그램을 실행할 준비가 되었습니다.
+## <a name="run-the-applications"></a>애플리케이션 실행
+이제 애플리케이션을 실행할 준비가 되었습니다.
 
 1. **simDevice** 폴더의 명령 프롬프트에서 다음 명령을 실행하여 다시 시작 직접 메서드에 대한 수신 대기를 시작합니다.
    

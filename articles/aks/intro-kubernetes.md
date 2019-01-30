@@ -1,6 +1,6 @@
 ---
 title: Azure Kubernetes Service 소개
-description: Azure에서 컨테이너 기반 응용 프로그램을 배포 및 관리하는 Azure Kubernetes Service의 기능 및 이점을 알아봅니다.
+description: Azure에서 컨테이너 기반 애플리케이션을 배포 및 관리하는 Azure Kubernetes Service의 기능 및 이점을 알아봅니다.
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 196c3cb58eb60922f4898b6919c8393853c6126a
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: db6a02db3a154193a9326e2957038e5daa2faae7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094287"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992353"
 ---
 # <a name="azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)
 
@@ -35,7 +35,7 @@ AKS 클러스터를 보호하려면 [AKS와 Azure Active Directory 통합][aks-a
 
 ### <a name="integrated-logging-and-monitoring"></a>통합된 로깅 및 모니터링
 
-AKS 클러스터 및 배포된 응용 프로그램이 수행되는 방법을 이해하기 위해 컨테이너 상태에 대한 Azure Monitor는 컨테이너, 노드 및 컨트롤러에서 메모리 및 프로세서 메트릭을 수집합니다. 컨테이너 로그를 사용할 수 있으며, [Kubernetes 마스터 로그를 검토][aks-master-logs]할 수도 있습니다. 이 모니터링 데이터는 Azure Log Analytics 작업 영역에 저장되고, Azure Portal, Azure CLI 또는 REST 엔드포인트를 통해 제공됩니다.
+AKS 클러스터 및 배포된 애플리케이션이 수행되는 방법을 이해하기 위해 컨테이너 상태에 대한 Azure Monitor는 컨테이너, 노드 및 컨트롤러에서 메모리 및 프로세서 메트릭을 수집합니다. 컨테이너 로그를 사용할 수 있으며, [Kubernetes 마스터 로그를 검토][aks-master-logs]할 수도 있습니다. 이 모니터링 데이터는 Azure Log Analytics 작업 영역에 저장되고, Azure Portal, Azure CLI 또는 REST 엔드포인트를 통해 제공됩니다.
 
 자세한 내용은 [Azure Kubernetes Service 컨테이너 상태 모니터링][container-health].을 참조하세요.
 
@@ -51,7 +51,7 @@ AKS 노드는 Azure 가상 머신에서 실행됩니다. 저장소를 노드 및
 
 ### <a name="cluster-node-upgrades"></a>클러스터 노드 업그레이드
 
-Azure Kubernetes Service는 여러 Kubernetes 버전을 제공합니다. AKS에서 새 버전을 사용할 수 있으므로 Azure Portal 또는 Azure CLI를 사용하여 클러스터를 업그레이드할 수 있습니다. 업그레이드 프로세스 중에는 노드를 신중하게 통제하고 드레이닝하여 실행 중인 응용 프로그램의 중단을 최소화합니다.
+Azure Kubernetes Service는 여러 Kubernetes 버전을 제공합니다. AKS에서 새 버전을 사용할 수 있으므로 Azure Portal 또는 Azure CLI를 사용하여 클러스터를 업그레이드할 수 있습니다. 업그레이드 프로세스 중에는 노드를 신중하게 통제하고 드레이닝하여 실행 중인 애플리케이션의 중단을 최소화합니다.
 
 수명 주기 버전에 대해 자세히 알아보려면 [AKS의 지원되는 Kubernetes 버전][aks-supported versions]을 참조하세요. 업그레이드하는 방법에 대한 단계는 [AKS(Azure Kubernetes Service) 클러스터 업그레이드][aks-upgrade]를 참조하세요.
 
@@ -63,7 +63,7 @@ AKS는 GPU 사용 노드 풀 만들기를 지원합니다. Azure는 현재, 단�
 
 ### <a name="storage-volume-support"></a>저장소 볼륨 지원
 
-응용 프로그램 워크로드를 지원하기 위해 영구 데이터에 대한 저장소 볼륨을 탑재할 수 있습니다. 정적 및 동적 볼륨을 모두 사용할 수 있습니다. 저장소를 공유하기 위해 연결된 Pod 수에 따라 단일 Pod 액세스에 대한 Azure 디스크 또는 여러 동시 Pod 액세스에 대한 Azure Files 중 하나에서 지원되는 저장소를 사용할 수 있습니다.
+애플리케이션 워크로드를 지원하기 위해 영구 데이터에 대한 저장소 볼륨을 탑재할 수 있습니다. 정적 및 동적 볼륨을 모두 사용할 수 있습니다. 저장소를 공유하기 위해 연결된 Pod 수에 따라 단일 Pod 액세스에 대한 Azure 디스크 또는 여러 동시 Pod 액세스에 대한 Azure Files 중 하나에서 지원되는 저장소를 사용할 수 있습니다.
 
 [Azure Disks][azure-disk] 또는 [Azure Files][azure-files]를 사용하여 동적 영구적 볼륨을 시작합니다.
 
@@ -73,11 +73,11 @@ AKS 클러스터는 기존 가상 네트워크로 배포될 수 있습니다. �
 
 자세한 내용은 [AKS 네트워킹 개요][aks-networking]를 참조하세요.
 
-### <a name="ingress-with-http-application-routing"></a>HTTP 응용 프로그램 라우팅을 사용하여 수신
+### <a name="ingress-with-http-application-routing"></a>HTTP 애플리케이션 라우팅을 사용하여 수신
 
-HTTP 응용 프로그램 라우팅 추가 기능을 사용하면 AKS 클러스터에 배포된 응용 프로그램에 쉽게 액세스할 수 있습니다. HTTP 응용 프로그램 라우팅 솔루션이 설정되면 AKS 클러스터에 수신 컨트롤러를 구성합니다. 응용 프로그램이 배포되면 공개적으로 액세스할 수 있는 DNS 이름이 자동으로 구성됩니다. HTTP 응용 프로그램 라우팅은 DNS 영역을 구성하고 AKS 클러스터와 통합합니다. 그런 다음, 정상적으로 Kubernetes 수신 리소스를 배포할 수 있습니다.
+HTTP 애플리케이션 라우팅 추가 기능을 사용하면 AKS 클러스터에 배포된 애플리케이션에 쉽게 액세스할 수 있습니다. HTTP 애플리케이션 라우팅 솔루션이 설정되면 AKS 클러스터에 수신 컨트롤러를 구성합니다. 애플리케이션이 배포되면 공개적으로 액세스할 수 있는 DNS 이름이 자동으로 구성됩니다. HTTP 애플리케이션 라우팅은 DNS 영역을 구성하고 AKS 클러스터와 통합합니다. 그런 다음, 정상적으로 Kubernetes 수신 리소스를 배포할 수 있습니다.
 
-수신 트래픽을 시작하려면 [HTTP 응용 프로그램 라우팅][aks-http-routing]을 참조하세요.
+수신 트래픽을 시작하려면 [HTTP 애플리케이션 라우팅][aks-http-routing]을 참조하세요.
 
 ## <a name="development-tooling-integration"></a>개발 도구 통합
 
@@ -111,7 +111,7 @@ Azure CLI 빠른 시작으로 AKS 배포 및 관리에 대해 자세히 알아�
 > [AKS 빠른 시작][aks-cli]
 
 <!-- LINKS - external -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [draft]: https://github.com/Azure/draft
 [helm]: https://helm.sh/
 [kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/

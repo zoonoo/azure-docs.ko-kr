@@ -1,5 +1,5 @@
 ---
-title: App Service Environment에서 백 엔드 리소스에 안전하게 연결
+title: App Service Environment에서 백 엔드 리소스에 안전하게 연결 - Azure
 description: App Service Environment에서 백 엔드 리소스에 안전하게 연결하는 방법에 대해 알아봅니다.
 services: app-service
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
-ms.openlocfilehash: 1732e6778febac60a25da74c330cb3d3da94154d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: seodec18
+ms.openlocfilehash: aea51234d26e5dbaef836419c2a13a12f8083e6f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580056"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315862"
 ---
-# <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>App Service Environment에서 백 엔드 리소스에 안전하게 연결
+# <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>App Service Environment에서 백 엔드 리소스에 안전하게 연결
 ## <a name="overview"></a>개요
 App Service 환경은 **항상** Azure Resource Manager 가상 네트워크 **또는** 클래식 배포 모델 [가상 네트워크][virtualnetwork]의 서브넷에 만들어지므로 App Service 환경에서 다른 백 엔드 리소스로의 아웃바운드 연결은 가상 네트워크를 통해서만 이동할 수 있습니다.  최근인 2016년 6월의 변경 내용에 따르면 이제 공용 주소 범위 또는 RFC1918 주소 공간(즉, 개인 주소) 중 하나를 사용하는 가상 네트워크에 ASE를 배포할 수도 있습니다.  
 
@@ -57,7 +58,7 @@ Vnet의 모든 사용자 지정 DNS 서버는 App Service Environment 생성보�
 
 ![네트워크 Access Control 목록 예][NetworkAccessControlListExample]
 
-SQL Server와 동일한 가상 네트워크의 App Service Environment에서 실행되는 모든 응용 프로그램은 SQL Server 가상 머신에 대한 **VNet 내부** IP 주소를 사용하여 SQL Server 인스턴스에 연결할 수 있습니다.  
+SQL Server와 동일한 가상 네트워크의 App Service Environment에서 실행되는 모든 애플리케이션은 SQL Server 가상 머신에 대한 **VNet 내부** IP 주소를 사용하여 SQL Server 인스턴스에 연결할 수 있습니다.  
 
 아래 예제 연결 문자열은 해당 개인 IP 주소를 사용하여 SQL Server를 참조합니다.
 
@@ -95,7 +96,7 @@ App Service 환경으로의 인바운드 트래픽을 제어하는 방법에 대
 [virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
 [ControlInboundTraffic]:  app-service-app-service-environment-control-inbound-traffic.md
 [SiteToSite]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site
-[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
+[ExpressRoute]: https://azure.microsoft.com/services/expressroute/
 [NetworkAccessControlLists]: https://azure.microsoft.com/documentation/articles/virtual-networks-acl/
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md

@@ -1,5 +1,5 @@
 ---
-title: '위치 및 연결 공급자: Azure ExpressRoute | Microsoft Docs'
+title: '위치 및 연결 공급 기업: Azure ExpressRoute | Microsoft Docs'
 description: 이 문서에서는 서비스가 제공되는 위치 및 Azure 지역에 연결하는 방법의 자세한 개요를 제공합니다. 위치에 따라 정렬됩니다.
 services: expressroute
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/23/2018
+ms.date: 12/19/2018
 ms.author: pareshmu
-ms.openlocfilehash: ead7ad9178264bc2cfa323eb440c235ab52c069b
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 28c6382ba8749ae93125f73a14bef85e2477fb62
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275856"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821943"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -42,16 +42,16 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 
 | **지역** | **영역** | **Azure 지역** | **ExpressRoute 위치** |
 | --- | --- | --- | --- |
-| **오스트레일리아 정부** |영역 1 | 오스트레일리아 중부, 오스트레일리아 중부 2 |캔버라, 캔버라2 |
-| **유럽** |영역 1 |프랑스 중부, 프랑스 남부, 북유럽, 유럽 서부, 영국 서부, 영국 남부 |암스테르담, 암스테르담2, 더블린, 런던, 마르세유, 뉴포트(웨일스), 파리 |
-| **북아메리카** |영역 1 |미국 동부, 미국 서부, 미국 동부 2, 미국 서부 2, 미국 중부, 미국 중남부, 미국 중북부, 미국 중서부, 캐나다 중부, 캐나다 동부 |애틀랜타, 시카고, 댈러스, 덴버, 라스베이거스, 로스앤젤레스, 마이애미, 뉴욕, 샌안토니오, 시애틀, 실리콘밸리, 워싱턴 DC, 몬트리올, 퀘벡 시티, 토론토 |
-| **아시아** |영역 2 |동아시아, 동남 아시아 |홍콩, 콸라룸푸르, 싱가포르, 싱가포르2 |
-| **오스트레일리아** |영역 2 |오스트레일리아 남동부, 오스트레일리아 동부 |멜버른, 시드니 | 
-| **인도** |영역 2 |인도 서부, 인도 중부, 인도 남부 |첸나이, 첸나이2, 뭄바이, 뭄바이2 |
-| **일본** |영역 2 |일본 서부, 일본 동부 |오사카, 도쿄 |
-| **대한민국** |영역 2 |한국 중부, 한국 남부 |부산, 서울|
-| **남아프리카 공화국** |영역 3 |[남아프리카 공화국 서부+, 남아프리카 공화국 북부+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |케이프타운, 요하네스버그 |
-| **남미** |영역 3 |브라질 남부 |상파울루 |
+| **오스트레일리아 정부** | 1 | 오스트레일리아 중부, 오스트레일리아 중부 2 |캔버라, 캔버라2 |
+| **유럽** | 1 |프랑스 중부, 프랑스 남부, 북유럽, 유럽 서부, 영국 서부, 영국 남부 |암스테르담, 암스테르담2, 더블린, 런던, 런던2, 마르세유, 뉴포트(웨일스), 파리 |
+| **북아메리카** | 1 |미국 동부, 미국 서부, 미국 동부 2, 미국 서부 2, 미국 중부, 미국 중남부, 미국 중북부, 미국 중서부, 캐나다 중부, 캐나다 동부 |애틀랜타, 시카고, 댈러스, 덴버, 라스베이거스, 로스앤젤레스, 마이애미, 뉴욕, 샌안토니오, 시애틀, 실리콘밸리, 워싱턴 DC, 몬트리올, 퀘벡 시티, 토론토 |
+| **아시아** | 2 |동아시아, 동남 아시아 |홍콩, 콸라룸푸르, 싱가포르, 싱가포르2 |
+| **오스트레일리아** | 2 |오스트레일리아 남동부, 오스트레일리아 동부 |멜버른, 시드니 | 
+| **인도** | 2 |인도 서부, 인도 중부, 인도 남부 |첸나이, 첸나이2, 뭄바이, 뭄바이2 |
+| **일본** | 2 |일본 서부, 일본 동부 |오사카, 도쿄 |
+| **대한민국** | 2 |한국 중부, 한국 남부 |부산, 서울|
+| **남아프리카 공화국** | 3 |[남아프리카 공화국 서부+, 남아프리카 공화국 북부+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |케이프타운, 요하네스버그 |
+| **남미** | 3 |브라질 남부 |상파울루 |
 
  **+** 는 서비스 예정을 나타냄
 
@@ -62,8 +62,8 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **지역** | **Azure 지역** | **ExpressRoute 위치** |
 | --- | --- | --- |
 | **미국 정부 클라우드** |미국 애리조나 주 정부, 미국 아이오와 주 정부, 미국 텍사스 주 정부, 미국 버지니아 주 정부, US DoD 중부, US DoD 동부  |시카고, 댈러스, 뉴욕, 피닉스, 샌안토니오, 시애틀, 실리콘밸리, 워싱턴 DC |
-| **중국 동부** |중국 동부, 중국 동부2 |상하이 |
-| **중국 북부** |중국 북부, 중국 북부2 |베이징 |
+| **중국 동부** |중국 동부, 중국 동부2 |상하이, 상하이2 |
+| **중국 북부** |중국 북부, 중국 북부2 |베이징, 베이징2 |
 | **독일** |독일 중부, 독일 동부 |베를린, 프랑크푸르트 |
 
 지정학적 지역에 걸친 연결은 표준 ExpressRoute SKU에서 지원되지 않습니다. 전역 연결을 지원하려면 ExpressRoute 프리미엄 추가 기능을 사용하도록 설정해야 합니다. 국가별 클라우드 환경에 대한 연결은 지원되지 않습니다. 이러한 요구가 발생할 경우 연결 공급자와 함께 작업할 수 있습니다.
@@ -85,8 +85,8 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **케이프타운** | Teraco | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **첸나이** | Tata Communications | Global CloudXchange(GCX), SIFY, Tata Communications |
 | **첸나이2** | Airtel | Airtel |
-| **시카고** | Equinix | Aryaka Networks, AT&T NetBond, Cologix, Comcast, Coresite, Equinix, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW Global Limited, Sprint, Verizon, Zayo |
-| **댈러스** | Equinix | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet+, Verizon, Zayo|
+| **시카고** | Equinix | Aryaka Networks, AT&T NetBond, Cologix, Comcast, Coresite, Equinix, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW Global Limited, Sprint, Telia Carrier, Verizon, Zayo |
+| **댈러스** | Equinix | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet+, Telia Carrier, Verizon, Zayo|
 | **덴버** | CoreSite | CoreSite, Megaport |
 | **더블린** | Equinix | Colt, eir, Equinix, Interxion, Megaport |
 | **홍콩** | Equinix | Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
@@ -94,9 +94,10 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **콸라룸푸르** | TIME dotCom | TIME dotCom |
 | **라스베이거스** | Switch | CenturyLink Cloud Connect, Megaport |
 | **런던** | Equinix | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
+| **런던2** | Telehouse | Equinix
 | **로스앤젤레스** | CoreSite | CoreSite, Equinix, Megaport, NTT, Zayo |
 | **마르세유** |Interxion | Interxion |
-| **멜버른** | NextDC | AARNet, Equinix, Megaport, NEXTDC, Optus+, Telstra Corporation |
+| **멜버른** | NextDC | AARNet, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation |
 | **마이애미** | Equinix | C3ntro+, Equinix, Megaport, Neutrona Networks |
 | **Montreal** | Cologix | Bell Canada, Cologix, Telus, Zayo |
 | **뭄바이** | Tata Communications | GCX(Global CloudXchange), Sify, Tata Communications, Vodafone Idea |
@@ -110,7 +111,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **상파울루** | Equinix | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica, UOLDIVEO |
 | **시애틀** | Equinix | Aryaka Networks, Equinix, Level 3 Communications, Megaport, Zayo |
 | **서울** | KINX | KINX, LG CNS, Sejong Telecom |
-| **실리콘밸리** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Comcast, Coresite, Equinix, InterCloud, IXReach, PacketFabric, Level 3 Communications, Megaport, Orange, Sprint, Tata Communications, Verizon, Zayo Group |
+| **실리콘밸리** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Comcast, Coresite, Equinix, InterCloud, IX Reach, PacketFabric, Level 3 Communications, Megaport, Orange, Sprint, Tata Communications, Verizon, Zayo |
 | **싱가포르** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon, Vodafone |
 | **Singapore2** | 글로벌 스위치 | Megaport, SingTel |
 | **시드니** | Equinix | AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, NTT Communications, Optus, Orange, Telstra Corporation, Verizon |
@@ -138,7 +139,9 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **위치**: | **서비스 공급자** |
 | --- | --- |
 | **베이징** |China Telecom |
+| **베이징2** | GDS |
 | **상하이** |China Telecom |
+| **상하이2** | GDS |
 
 자세한 내용은 [중국의 ExpressRoute](http://www.windowsazure.cn/home/features/expressroute/)
 
@@ -156,7 +159,6 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
   * [CoreSite](http://www.coresite.com/)
   * [Equinix 클라우드 Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
   * [InterXion](http://www.interxion.com/)
-  * [IX Reach](https://www.ixreach.com/services/cloud-connectivity/microsoft-azure/)
   * [NextDC](http://www.nextdc.com/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)
@@ -169,24 +171,30 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 ## <a name="c1partners"></a>추가 서비스 공급자를 통한 연결
 | **위치**: | **Exchange** | **연결 공급자** |
 | --- | --- | --- |
-| **암스테르담** | Equinix, Telecity | BICS, Eurofiber, Fastweb S.p.A, MainOne, Nianet, Post, Proximus, Telecom Italia Sparkle, Telia |
+| **암스테르담** | Equinix, Telecity | BICS, CloudXpress, Eurofiber, Fastweb S.p.A, Gulf Bridge International, MainOne, Nianet, Post, Proximus, Telecom Italia Sparkle, Telia |
+| **케이프타운** | Teraco | MTN |
 | **시카고** | Equinix | Lightower, Windstream |
 | **댈러스** | Equinix, Megaport | Axtel, C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
-| **프랑크푸르트** | Telecity | BICS, Nianet, QSC AG |
-| **홍콩** | Equinix | Macroview Telecom |
-| **런던** | Equinix, euNetworks, Telecity | Bezeq International Ltd., Epsilon, Exponential E, HSO, NexGen Networks, Tamares Telecom, Zain |
+| **프랑크푸르트** | Telecity | BICS, Cinia, Nianet, QSC AG |
+| **함부르크** | Equinix | 중국 |
+| **홍콩** | Equinix | Chief, Macroview Telecom |
+| **요하네스버그** | Teraco | MTN |
+| **런던** | BICS, Equinix, euNetworks, Telecity | Bezeq International Ltd., Epsilon Telecommunications Limited, Exponential E, HSO, NexGen Networks, Proximus, Tamares Telecom, Zain |
 | **로스앤젤레스** | Equinix |Transtelco |
 | **마드리드** | Level3 | Zertia |
-| **Montreal** | Cologix, Equinix | Airgate Technologies. Inc, Cogeco Peer 1, Rogers, Zirro |
+| **Montreal** | Cologix, Equinix | Airgate Technologies, Inc. Cogeco Peer 1, Rogers, Zirro |
 | **뉴욕** |Equinix, Megaport | Altice Business, Lightower, Webair |
+| **파리** | Equinix | Proximus |
+| **퀘벡 시티** | Megaport | Fibrenoire |
+| **상파울루** | Equinix | Venha Pra Nuvem |
 | **시애틀** |Equinix | Alaska Communications |
 | **실리콘밸리** |Equinix | Cox Business, Windstream |
 | **싱가포르** |Equinix |1CLOUDSTAR, BICS, Epsilon Telecommunications Limited, LGA Telecom, United Information Highway (UIH) |
 | **슬라우** | Equinix | HSO|
 | **시드니** | Megaport | Macquarie Telecom Group|
 | **도쿄** | Equinix | ARTERIA Networks Corporation, BroadBand Tower, Inc. |
-| **토론토** | Equinix | Airgate Technologies. Inc, Cogeco Peer 1, IVedha Inc, Rogers, Thinktel, Zirro|
-| **워싱턴 DC** |Equinix | Altice Business, BICS, Gtt Communications Inc, Epsilon, Lightower, Masergy, Windstream |
+| **토론토** | Equinix | Airgate Technologies, Inc. Cogeco Peer 1, IVedha Inc, Rogers, Thinktel, Zirro|
+| **워싱턴 DC** |Equinix | Altice Business, BICS, Cox Business, Gtt Communications Inc, Epsilon Telecommunications Limited, Lightower, Masergy, Windstream |
 
 ## <a name="expressroute-system-integrators"></a>ExpressRoute 시스템 통합업체
 사용자 요구에 맞도록 개인 연결을 사용하도록 설정하면 네트워크의 크기에 따라 어려울 수 있습니다. 다음 표에 나열된 시스템 통합 업체와 함께 작업하여 ExpressRoute에 등록할 수 있습니다.

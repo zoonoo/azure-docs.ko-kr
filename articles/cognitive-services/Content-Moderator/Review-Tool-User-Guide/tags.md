@@ -1,5 +1,6 @@
 ---
-title: Azure Content Moderator에서 태그 사용 | Microsoft Docs
+title: 콘텐츠 조정에 사용자 지정 태그 사용 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Content Moderator에는 기본 태그가 포함되어 있으며, 비즈니스와 관련된 콘텐츠를 조정하는 데 사용할 사용자 지정 태그를 만들 수 있습니다.
 services: cognitive-services
 author: sanjeev3
@@ -7,20 +8,20 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 06/25/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: c462ff2937453f942db7fdd5b751f3356b6fe715
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: c1a547f99995d25d19dafb03276306c50a544c9a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310082"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264719"
 ---
-# <a name="about-tags"></a>태그 정보 #
+# <a name="create-and-use-moderation-tags"></a>조정 태그 만들기 및 사용
 
 두 개의 기본 태그 **isadult** (**a**) 및 **isracy** (**r**) 외에도, 검사 대상을 보다 구체적으로 지정하기 위한 사용자 지정 태그를 만들 수 있습니다. 이러한 사용자 지정 태그는 사용자 검토자가 이미지 또는 텍스트를 할당하는 데 사용할 수 있습니다.
 
-## <a name="create-tags"></a>태그 만들기 ##
+## <a name="create-tags"></a>태그 만들기
 
 1.  [설정] 탭에서 태그를 선택합니다.
 
@@ -34,7 +35,7 @@ ms.locfileid: "49310082"
 
 ![Content Moderation 태그 정의](images/tags-2-define.png)
 
-## <a name="using-custom-tags"></a>사용자 지정 태그 사용 ##
+## <a name="using-custom-tags"></a>사용자 지정 태그 사용
 
 사용자 지정 태그는 사용자 검토에 사용됩니다. 미리 보기에 표시되며, 검토자는 사용자 지정 태그를 클릭하여 선택할 수 있습니다.
 
@@ -48,6 +49,6 @@ ms.locfileid: "49310082"
 
 ![Content Moderation 태그 삭제](images/tags-5-delete.png)
 
-## <a name="next-steps"></a>다음 단계 ##
+## <a name="next-steps"></a>다음 단계
 
 태그를 이미지 조정에 사용하는 방법을 알아보려면 [조정된 이미지 검토](Review-Moderated-Images.md)를 참조하세요.
