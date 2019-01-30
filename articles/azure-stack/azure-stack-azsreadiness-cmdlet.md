@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: af959507fc2e0d1b68f547d2856eb7020d3ed5c6
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/04/2018
+ms.openlocfilehash: 861784a2d22d15253c61884bfab62667c0560bcd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247579"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250651"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>시작-AzsReadinessChecker cmdlet 참조
 
@@ -384,7 +385,7 @@ Azure Stack 배포 데이터 JSON 구성 파일을 지정합니다. 이 파일�
 |파이프라인 입력 허용:      |False    |
 |와일드 카드 문자를 허용 합니다. |False    |
 
-> -제목
+> -Subject
 
 인증서 요청 생성에 대 한 정렬된 된 사전을 주체를 지정합니다.
 |  |  |
@@ -407,7 +408,7 @@ Azure Stack 배포 데이터 JSON 구성 파일을 지정합니다. 이 파일�
 |형식:                       |문자열   |
 |위치:                   |named    |
 |기본값:              |없음     |
-|유효한 값:                |' MultipleCSR', 'SingleCSR' |
+|유효한 값:                |'MultipleCSR','SingleCSR' |
 |파이프라인 입력 허용:      |False    |
 |와일드 카드 문자를 허용 합니다. |False    |
 
@@ -452,7 +453,7 @@ Azure Stack 배포 및 등록에 사용할 계정, 디렉터리 및 구독에 �
 |형식:                       |문자열   |
 |위치:                   |named    |
 |기본값:              |없음     |
-|유효한 값:                |' AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment' |
+|유효한 값:                |'AzureCloud','AzureChinaCloud','AzureUSGovernment' |
 |파이프라인 입력 허용:      |False    |
 |와일드 카드 문자를 허용 합니다. |False    |
 
@@ -501,7 +502,7 @@ ACSBlob ACSQueue, ACSTable, 관리 포털, ARM 관리자 ARM 공용, KeyVault Ke
 
 Active Directory Federation Services id 시스템을 사용 하 여 배포 된 Azure Stack에 대 한 폴더를 해야 합니다.
 
-ACSBlob, ACSQueue, ACSTable, ADFS, 관리 포털, ARM 관리, ARM 공용, Graph, KeyVault, KeyVaultInternal, 공용 포털
+ACSBlob, ACSQueue, ACSTable, ADFS, Admin Portal, ARM Admin, ARM Public, Graph, KeyVault, KeyVaultInternal, Public Portal
 
 |  |  |
 |----------------------------|---------|
@@ -531,7 +532,7 @@ PaaS 서비스/호스트 이름이 인증서 요청에 추가 해야 하는 경�
 |형식:                       |문자열   |
 |위치:                   |named    |
 |기본값:              |모두      |
-|유효한 값:                |'Certificate', 'AzureRegistration', 'AzureIdentity', '작업'을 'All' |
+|유효한 값:                |'Certificate','AzureRegistration','AzureIdentity','Jobs','All' |
 |파이프라인 입력 허용:      |False    |
 |와일드 카드 문자를 허용 합니다. |False    |
 
@@ -566,7 +567,7 @@ PaaS 서비스/호스트 이름이 인증서 요청에 추가 해야 하는 경�
 |----------------------------|------------------|
 |형식:                       |문자열            |
 |위치:                   |named             |
-|기본값:              |$ENV: TEMP\AzsReadinessChecker  |
+|기본값:              |$ENV:TEMP\AzsReadinessChecker  |
 |파이프라인 입력 허용:      |False             |
 |와일드 카드 문자를 허용 합니다. |False             |
 

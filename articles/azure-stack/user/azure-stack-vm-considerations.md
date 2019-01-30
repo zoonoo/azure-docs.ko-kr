@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 12/19/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: bfe53ac99ae1719deeacc156b250fe5a7f87a99a
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.lastreviewed: 12/19/2018
+ms.openlocfilehash: 421e3bf4465f5aa9aafc4ad666af2178faedb7c3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913464"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245976"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Azure Stack에서 virtual machines 사용 시 고려 사항
 
@@ -53,7 +54,7 @@ Azure Stack에서 리소스 제한을 (server 로컬 및 서비스 수준입니�
 
 다음 표에서 해당 구성과 함께 Azure Stack에서 지원 되는 Vm을 나열 합니다.
 
-| type           | 크기          | 지원 되는 크기 범위 |
+| Type           | 크기          | 지원 되는 크기 범위 |
 | ---------------| ------------- | ------------------------ |
 |범용 가상 컴퓨터 |Basic A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
 |범용 가상 컴퓨터 |표준 A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |

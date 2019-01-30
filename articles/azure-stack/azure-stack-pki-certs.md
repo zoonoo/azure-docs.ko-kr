@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 6cf32ba50e83b95d51493244ef8e8646433b0b02
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.lastreviewed: 01/02/2019
+ms.openlocfilehash: 93e6345ba50bab21e03fb7a30148ea51c52a10f2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024946"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244252"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 공개 키 인프라 인증서 요구 사항
 
@@ -31,7 +32,7 @@ Azure Stack에는 소수의 Azure Stack 서비스 및 테 넌 트 Vm에 할당 �
 - 준비의 유효성을 검사 하 고 배포 하는 동안 해당 인증서를 사용 하는 방법
 
 > [!Note]  
-> 배포 하는 동안 인증서 (Azure AD 또는 AD FS)에 대 한 배포 하는 id 공급자와 일치 하는 배포 폴더로 복사 해야 합니다. 모든 끝점에 대 한 단일 인증서를 사용 하는 경우 아래 표에 설명 된 대로 각 배포 폴더에 인증서 파일을 복사 해야 합니다. 폴더 구조 미리 배포 가상 컴퓨터에서 빌드되고에서 찾을 수 있습니다. C:\CloudDeployment\Setup\Certificates 합니다. 
+> 배포 하는 동안 인증서 (Azure AD 또는 AD FS)에 대 한 배포 하는 id 공급자와 일치 하는 배포 폴더로 복사 해야 합니다. 모든 끝점에 대 한 단일 인증서를 사용 하는 경우 아래 표에 설명 된 대로 각 배포 폴더에 인증서 파일을 복사 해야 합니다. 폴더 구조 미리 배포 가상 컴퓨터에서 빌드되고에서 찾을 수 있습니다. C:\CloudDeployment\Setup\Certificates. 
 
 ## <a name="certificate-requirements"></a>인증서 요구 사항
 다음 목록에서는 Azure Stack을 배포 하는 데 필요한 인증서 요구 사항을 설명 합니다. 
@@ -78,8 +79,8 @@ Azure Stack에는 소수의 Azure Stack 서비스 및 테 넌 트 Vm에 할당 �
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(와일드 카드 SSL 인증서) | Queue Storage | queue.&lt;region>.&lt;fqdn> |
 | KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(와일드 카드 SSL 인증서) | Key Vault | vault.&lt;region>.&lt;fqdn> |
 | KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(와일드 카드 SSL 인증서) |  내부 Keyvault |  adminvault.&lt;region>.&lt;fqdn> |
-| 관리 확장 호스트 | *.adminhosting 합니다. \<지역 >. \<fqdn > (와일드 카드 SSL 인증서) | 관리 확장 호스트 | adminhosting 합니다. \<지역 >. \<fqdn > |
-| 공용 확장 호스트 | *.hosting 합니다. \<지역 >. \<fqdn > (와일드 카드 SSL 인증서) | 공용 확장 호스트 | 호스팅. \<지역 >. \<fqdn > |
+| 관리 확장 호스트 | *.adminhosting 합니다. \<지역 >. \<fqdn > (와일드 카드 SSL 인증서) | 관리 확장 호스트 | adminhosting.\<region>.\<fqdn> |
+| 공용 확장 호스트 | *.hosting 합니다. \<지역 >. \<fqdn > (와일드 카드 SSL 인증서) | 공용 확장 호스트 | hosting.\<region>.\<fqdn> |
 
 Azure AD 배포 모드를 사용 하 여 Azure Stack을 배포 하는 경우 이전 표에 나열 된 인증서를 요청 해야 합니다. 그러나 AD FS 배포 모드를 사용 하 여 Azure Stack을 배포 하는 경우 다음 표에 설명 된 인증서를 요청 해야 합니다.
 

@@ -13,13 +13,14 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8b7d2b6d2aef4567197fe18607cb50d1e9a4206b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 2fa0912d120760ddba3b3d21f718e214e9d7c26b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247264"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238927"
 ---
 # <a name="best-practices-for-validation-as-a-service"></a>서비스 유효성 검사에 대 한 모범 사례
 
@@ -35,7 +36,7 @@ VaaS에 등록 된 모든 솔루션에 대 한 일관 된 명명 규칙을 사�
 
 |제품 이름 | 고유한 하드웨어 요소 1 | 고유한 하드웨어 요소 2 | 솔루션 이름
 |---|---|---|---|
-필자의 솔루션 XYZ |  모든 플래시 | 내 스위치 X01 | MySolutionXYZ_AllFlash_MySwitchX01
+필자의 솔루션 XYZ |  모든 플래시 | My Switch X01 | MySolutionXYZ_AllFlash_MySwitchX01
 
 ### <a name="when-to-create-a-new-vaas-solution"></a>새 VaaS 솔루션을 만들어야 하는 경우
 

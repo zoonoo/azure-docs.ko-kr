@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: f40d88df7a46c73981b6f20bee0b119743c08257
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.lastreviewed: 05/18/2018
+ms.openlocfilehash: ec0c80925770c75ee1f23df29f1724444c1e7337
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714494"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249666"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>App Service에서 Azure Stack 업데이트 2 릴리스 정보
 
@@ -55,7 +56,7 @@ Azure Stack 업데이트 2의 azure App Service는 다음과 같은 향상 된 �
 - 안정성 및 오류 일반적인 문제를 쉽게 진단 사용 메시지를 개선 하기 위해 핵심 서비스를 업데이트 합니다.
 
 - **다음 응용 프로그램 프레임 워크 및 도구에 대 한 업데이트**:
-  - 추가.Net Framework 4.7.1
+  - Added .Net Framework 4.7.1
   - 추가 **Node.JS** 버전:
     - NodeJS 6.12.3
     - NodeJS 8.9.4

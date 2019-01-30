@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 51f9d2dbc8a0aef6dc84e76755a71eeb73149192
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.lastreviewed: 08/30/2018
+ms.openlocfilehash: 3681d583760be2ca537559e334c2facdeeb373db
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262747"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240389"
 ---
 # <a name="border-connectivity"></a>테두리 연결 
 네트워크 통합 계획은 성공적으로 Azure Stack 통합 시스템 배포, 작업 및 관리는 중요 한 필수 구성 요소입니다. BGP (경계 게이트웨이 프로토콜)를 사용 하 여 동적 라우팅을 사용 여부를 선택 하 여 테두리 연결 계획을 시작 합니다. (공용 또는 개인)는 16 비트 BGP 익명 시스템 번호를 할당 합니다. 그러려면 하거나 정적 라우팅을 사용 하면 여기서 정적 기본 경로에 지정 된 테두리 장치입니다.

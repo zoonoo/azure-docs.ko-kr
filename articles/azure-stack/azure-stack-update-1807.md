@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 82343daa9fafe27ac814b6246a303e661a0a22d1
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.lastreviewed: 10/07/2018
+ms.openlocfilehash: 2b36c5d31e9377335a9cc8a37d4e4e0e890bfc3b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231039"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245086"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 업데이트
 
@@ -85,7 +86,7 @@ Azure Stack 1807 업데이트 빌드 번호는 **1.1807.0.76**합니다.
   자세한 내용은 [Azure Stack syslog 전달을](azure-stack-integrate-security.md)합니다.
 
 <!-- ####### | IS, ASDK | --> 
-- **Azure Resource Manager 지역 이름이 포함 됩니다.** 이 릴리스를 사용 하 여 Azure Resource Manager에서 검색 된 개체는 지역 이름 특성을 포함 이제 됩니다. 기존 PowerShell 스크립트를 다른 cmdlet에 개체를 직접 통과 하면 스크립트 오류가 발생 하 고 실패할 수 있습니다. Azure Resource Manager 규격 동작을 이며 region 특성 뺄 호출 클라이언트가 필요 합니다. 자세한 내용은 Azure Resource Manager를 참조 하십시오 [Azure Resource Manager 설명서](https://docs.microsoft.com/azure/azure-resource-manager/)합니다. mdb--> 8 ~ 10 확인
+- **Azure Resource Manager 지역 이름이 포함 됩니다.** 이 릴리스를 사용 하 여 Azure Resource Manager에서 검색 된 개체는 지역 이름 특성을 포함 이제 됩니다. 기존 PowerShell 스크립트를 다른 cmdlet에 개체를 직접 통과 하면 스크립트 오류가 발생 하 고 실패할 수 있습니다. Azure Resource Manager 규격 동작을 이며 region 특성 뺄 호출 클라이언트가 필요 합니다. 자세한 내용은 Azure Resource Manager를 참조 하십시오 [Azure Resource Manager 설명서](https://docs.microsoft.com/azure/azure-resource-manager/)합니다. verify 8-10 mdb -->
 
 <!-- TBD | IS, ASDK -->  
 - **위임 된 공급자 기능 변경 내용입니다.** Azure 재판매인 모델을 사용 하 여 정렬 위임 된 공급자 모델에 더 잘 간체 1807을 사용 하 여 시작 하 고 위임 된 공급자는 기본적으로 모델을 평면화 하 고 위임 된 공급자를 만드는 다른 위임 된 공급자를 만들 수 없습니다. 단일 수준에서 사용할 수 있는 기능입니다. 새 모델 및 구독 관리로의 전환은 사용 하려면 사용자 구독 동일한 디렉터리 테 넌 트에 속하는 기존 또는 새 위임 된 공급자 구독 간에 이동할 이제 있습니다. 기본 공급자 구독에 속한 사용자 구독을 동일한 디렉터리 테 넌 트 위임 된 공급자 구독에도 이동할 수 있습니다.  자세한 내용은 참조 [Azure Stack에서 제품 위임](azure-stack-delegated-provider.md)합니다.
@@ -189,7 +190,7 @@ Azure Stack 호스트 키 인프라를 Windows Server 2016의 Server Core 설치
 
 ### <a name="post-update-steps"></a>업데이트 후 단계
 이 업데이트의 설치가 끝나면 모든 적용 가능한 핫픽스를 설치 합니다. 자세한 내용은 다음 기술 자료 문서를 볼 뿐만 아니라 우리 [서비스 정책](azure-stack-servicing-policy.md)합니다. 
-- [KB 4467061 – Azure Stack 핫픽스 Azure Stack 핫픽스 1.1807.3.82](https://support.microsoft.com/help/4467061/)
+- [KB 4467061 – Azure Stack Hotfix Azure Stack Hotfix 1.1807.3.82](https://support.microsoft.com/help/4467061/)
 
 <!-- 2933866 – IS --> 이 업데이트의 설치가 끝나면 보이는 **실패 한 업데이트 설치에 대 한 상태를 개선 합니다.** 이 두 가지 새 상태 범주를 반영 하도록 수정 되는 이전 업데이트 설치 오류에 대 한 정보를 포함할 수 있습니다. 새 상태 범주 *PreparationFailed*, 및 *InstallationFailed*합니다.  
 

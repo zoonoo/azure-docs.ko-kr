@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 7509d00815f56dc46bd276ffc67c4c607c54070a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: d55cebf380c4ca5183e8ff15fd193e254b66c30b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338899"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246588"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack 통합 시스템 연결 모델
 이해 해야 하는 Azure Stack 통합 시스템에 관심이 [여러 데이터 센터 통합 고려 사항](azure-stack-datacenter-integration.md) 시스템 데이터 센터에 들어가는지는 방법을 확인 하려면 Azure Stack 배포에 대 한 합니다. 또한 정확 하 게 하는 방법을 하는 Azure Stack 통합 하이브리드 클라우드 환경에 결정 해야 합니다. 이 문서에서는 이러한 주요 의사 결정 및 Azure 연결을 id 저장소를 포함 하 여 청구 모델 의사 결정의 개요를 제공 합니다.

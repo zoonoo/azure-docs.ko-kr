@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 6f6e680f7ce613d7a6d9f227765ce599c537e2d3
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.lastreviewed: 12/11/2018
+ms.openlocfilehash: d140b80ecb5fe2a7211245044b08f43fde4233a8
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106514"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240989"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack Capacity Planner
 Azure Stack Capacity Planner 스프레드시트 Azure Stack 리소스 용량 계획에 사용 되는 경우 Capacity planner 컴퓨팅 리소스의 다양 한 할당을 디자인 하 고 어떻게 이러한 적합 한 다양 한 하드웨어 제품에서 참조 하는 기능을 제공 합니다. Azure Stack 계산기의 사용에 대 한 자세한 지침은 아래 제공 됩니다.

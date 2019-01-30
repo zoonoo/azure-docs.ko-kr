@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 01/30/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 8bdc9a9a01a96ee34c5cf6cfa737be09661364bc
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: 444c67e942fad732c959f834e2c50f0b2a35562c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904423"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246537"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 업데이트
 
@@ -153,7 +154,7 @@ Azure Stack에는 핫픽스를 정기적으로 해제합니다. 설치 해야 �
 <!-- 3190553 - IS ASDK -->
 - 인프라 역할 인스턴스를 사용할 수 없습니다 또는 배율 단위 노드가 오프 라인 상태 였는 나타내는 불필요 한 경고를 생성 하는 문제가 수정 되었습니다.
 
-## <a name="changes"></a>변경
+## <a name="changes"></a>변경 내용
 
 - 보고 계획의 할당량을 편집 하는 새로운 방법은 1811에서 도입 되었습니다. 자세한 내용은 [기존 할당량을 보려면](azure-stack-quota-types.md#view-an-existing-quota)합니다.
 
@@ -186,8 +187,7 @@ Azure Stack에는 핫픽스를 정기적으로 해제합니다. 설치 해야 �
 - [CVE-2018-8566](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8566)
 - [CVE-2018-8584](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8584)
 
-
-이러한 취약점에 대 한 자세한 내용은 위의 링크를 클릭 하거나 Microsoft 기술 자료 문서를 참조 하세요 [4467684](https://support.microsoft.com/help/4467684)합니다.
+이러한 취약점에 대 한 자세한 내용은 위의 링크를 클릭 하거나 Microsoft 기술 자료 문서를 참조 하세요 [4478877](https://support.microsoft.com/help/4478877)합니다.
 
 ## <a name="known-issues-with-the-update-process"></a>업데이트 프로세스를 사용 하 여 알려진된 문제
 
@@ -241,13 +241,13 @@ Azure Stack에는 핫픽스를 정기적으로 해제합니다. 설치 해야 �
 
     - 경고 # 1:
        - 이름:  인프라 역할 비정상
-       - 심각도: 경고
+       - 심각도: Warning
        - 구성 요소입니다. 상태 컨트롤러
        - 설명: 상태 컨트롤러 하트 비트 검색 프로그램을 사용할 수 없는 경우 상태 보고서 및 메트릭에 영향을 줄 수 있습니다.  
 
     - # 2를 경고 합니다.
        - 이름:  인프라 역할 비정상
-       - 심각도: 경고
+       - 심각도: Warning
        - 구성 요소입니다. 상태 컨트롤러
        - 설명: 상태 컨트롤러 오류 스캐너 제공 되지 않습니다. 상태 보고서 및 메트릭에 영향을 줄 수 있습니다.
 

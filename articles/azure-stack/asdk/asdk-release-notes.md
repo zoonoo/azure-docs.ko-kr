@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: d1ff154c42709f0c672b30f7ec51a436fb44ce13
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.lastreviewed: 12/21/2018
+ms.openlocfilehash: d3d776def9e031ca2bcc76d1b60a19f67a74b35a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724745"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240347"
 ---
 # <a name="asdk-release-notes"></a>ASDK 릴리스 정보 
  
@@ -420,7 +421,7 @@ Azure Stack에 대 한 다음과 같은 향상 된 기능 및 픽스를 포함 �
 
 <!-- 2403291 - IS ASDK --> 
 - 관리자 및 사용자 포털의 아래쪽에 가로 스크롤 막대를 사용 하 여가 없을 수 있습니다. 가로 스크롤 막대에 액세스할 수 없는 경우 블레이드의 이름을 선택 하 여 포털에서 이전 블레이드로 이동 하려면 이동 경로 상단에 있는 이동 경로 탐색 목록에서 확인 하려는 사용 하 여 포털의 왼쪽입니다.
-  ![이동 경로 탐색](media/asdk-release-notes/breadcrumb.png)
+  ![Breadcrumb](media/asdk-release-notes/breadcrumb.png)
 
 <!-- TBD -  IS ASDK --> 
 - 분리 된 리소스에서 사용자 구독 결과 삭제합니다. 대 안으로 사용자 리소스 또는 전체 리소스 그룹을 삭제 하 고 사용자 구독을 삭제 합니다.

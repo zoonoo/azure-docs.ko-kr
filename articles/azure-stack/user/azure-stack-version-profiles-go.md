@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: f865d08f742ebd1072b80a95960609e6ae5f4a82
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: MT
+ms.openlocfilehash: 3c5a261eb5216c2dca93243d11b5d21b1d92846f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098411"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224159"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Azure Stack에서 Go를 사용한 API 버전 프로필 사용
 
@@ -51,7 +51,7 @@ import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compu
 
 Azure GO SDK에 대 한 자세한 내용은 다음 링크에서 찾을 수 있습니다.
 
-- Azure SDK에 이동 [Azure SDK for Go 설치](/azure/azure-sdk-go-install)합니다.
+- Azure SDK에 이동 [Azure SDK for Go 설치](/go/azure/azure-sdk-go-install)합니다.
 - Azure Go SDK는 GitHub에서 공개적으로 제공 합니다 [go에 대 한 azure sdk](https://github.com/Azure/azure-sdk-for-go) 리포지토리.
 
 ### <a name="go-autorest-dependencies"></a>Go AutoRest 종속성

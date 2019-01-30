@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: b2520864589558a530f4f9dbfed83a9f3b8c727a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.lastreviewed: 01/08/2019
+ms.openlocfilehash: 44cf5b2cc7547a4e85c65215fdc1e4fe2cb585a9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104100"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243643"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Marketplace 항목 만들기 및 게시
 
@@ -128,7 +129,7 @@ ms.locfileid: "54104100"
 
 ### <a name="identity-information"></a>ID 정보
 
-| 이름 | 필수 | type | 제약 조건 | 설명 |
+| 이름 | 필수 | Type | 제약 조건 | 설명 |
 | --- | --- | --- | --- | --- |
 | 이름 |X |문자열 |[A-Za-z0-9]+ | |
 | 게시자 |X |문자열 |[A-Za-z0-9]+ | |
@@ -136,7 +137,7 @@ ms.locfileid: "54104100"
 
 ### <a name="metadata"></a>Metadata
 
-| 이름 | 필수 | type | 제약 조건 | 설명 |
+| 이름 | 필수 | Type | 제약 조건 | 설명 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |문자열 |권장 사항 80 자 |80 자 보다 긴 경우 포털 항목 이름을 정상적으로 표시 하지 않을 수 있습니다. |
 | PublisherDisplayName |X |문자열 |권장 사항 30 자 |30 자 보다 긴 경우 포털 게시자 이름을 정상적으로 표시 하지 않을 수 있습니다. |
@@ -165,7 +166,7 @@ Marketplace에서는 다음 아이콘을 사용합니다.
 
 각 마켓플레이스 항목에는 다양 한 추가 콘텐츠 링크를 포함할 수 있습니다. 링크 이름 및 Uri 목록으로 지정 됩니다.
 
-| 이름 | 필수 | type | 제약 조건 | 설명 |
+| 이름 | 필수 | Type | 제약 조건 | 설명 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |문자열 |최대 64 자 | |
 | Uri |X |URI | | |
@@ -174,7 +175,7 @@ Marketplace에서는 다음 아이콘을 사용합니다.
 
 이전 메타 데이터 외에도 마켓플레이스 작성자는 다음과 같은 형태로 사용자 지정 키/값 쌍 데이터를 제공할 수 있습니다.
 
-| 이름 | 필수 | type | 제약 조건 | 설명 |
+| 이름 | 필수 | Type | 제약 조건 | 설명 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |문자열 |최대 25 자 | |
 | 값 |X |문자열 |최대 30 자 | |
