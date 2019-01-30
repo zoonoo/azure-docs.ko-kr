@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 664e31590f578b65da09f1e0fe8f57d579ed3cfc
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 4b6e6cf3fb030f5f9706ded19f85575baed69b39
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354555"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471823"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure Search에 대한 가격 책정 계층 선택
 
 Azure Search에서 서비스 수명 동안 수정되는 가격 책정 계층 또는 SKU에서 [리소스가 만들어집니다](search-create-service-portal.md). 계층에는 **무료**, **기본**, **표준**이 있으며 **표준**은 여러 구성 및 용량으로 사용 가능합니다. 대부분의 고객은 평가를 위해 **무료** 계층으로 시작한 다음, 개발 및 프로덕션 배포를 위해 **표준** 계층으로 전환합니다. 리소스 집약적 인식 검색의 경우를 비롯한 모든 빠른 시작 및 자습서를 **무료** 계층에서 완료할 수 있습니다. 
 
-계층은 기능이 아닌 용량을 결정하며 다음을 통해 구분됩니다.
+계층은 기능보다는 서비스를 호스팅하는 하드웨어의 특성을 반영하며 다음과 같이 구분됩니다.
 
 + 만들 수 있는 인덱스 수
 + 파티션(실제 저장소)의 크기와 속도
@@ -63,7 +63,7 @@ SU는 서비스에서 사용하는 *복제본* 및 *파티션*을 곱한 것입�
 
 ### <a name="billing-for-image-extraction-in-cognitive-search"></a>Cognitive Search의 이미지 추출 비용 청구
 
-Cognitive Search 인덱싱 파이프라인의 파일에서 이미지를 추출하는 경우 Azure Search 청구서에 해당 작업에 대한 요금이 청구됩니다. 이미지 추출을 트리거하는 매개 변수는 [인덱서 구성](https://docs.microsoft.com/erest/api/searchservice/create-indexer#indexer-parameters)의 **imageAction**에 있습니다. **imageAction**을 none(기본값)으로 설정하면 이미지 추출 요금이 청구되지 않습니다.
+Cognitive Search 인덱싱 파이프라인의 파일에서 이미지를 추출하는 경우 Azure Search 청구서에 해당 작업에 대한 요금이 청구됩니다. 이미지 추출을 트리거하는 매개 변수는 [인덱서 구성](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters)의 **imageAction**에 있습니다. **imageAction**을 none(기본값)으로 설정하면 이미지 추출 요금이 청구되지 않습니다.
 
 가격 책정은 변경될 수 있지만 항상 Azure Search의 [가격 책정 정보](https://azure.microsoft.com/pricing/details/search/) 페이지에 표시됩니다. 
 

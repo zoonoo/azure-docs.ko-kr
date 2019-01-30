@@ -11,17 +11,17 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: f484eaf127c1dda0e3389e237ace75f51401a806
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/22/2019
+ms.openlocfilehash: b0b4a89aaf9b00b30e6b4759c8aa168f06d0d008
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959880"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462473"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>SQL Database 및 Data Warehouse에 대한 투명한 데이터 암호화
 
-TDE(투명한 데이터 암호화)는 악의적인 활동의 위협으로부터 Azure SQL Database, Azure SQL Managed Instance 및 Azure Data Warehouse를 보호하는 데 도움이 됩니다. 응용 프로그램에 대한 변경 없이 미사용 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행합니다. 기본적으로 TDE는 새로 배포된 모든 Azure SQL 데이터베이스에 대해 활성화됩니다. TDE는 SQL Database의 논리 **master** 데이터베이스를 암호화하는 데 사용할 수 없습니다.  **master** 데이터베이스에는 사용자 데이터베이스에서 TDE 작업을 수행하는 데 필요한 개체가 포함되어 있습니다.
+TDE(투명한 데이터 암호화)는 악의적인 활동의 위협으로부터 Azure SQL Database, Azure SQL Managed Instance 및 Azure Data Warehouse를 보호하는 데 도움이 됩니다. 애플리케이션에 대한 변경 없이 미사용 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행합니다. 기본적으로 TDE는 새로 배포된 모든 Azure SQL 데이터베이스에 대해 활성화됩니다. TDE는 SQL Database의 논리 **master** 데이터베이스를 암호화하는 데 사용할 수 없습니다.  **master** 데이터베이스에는 사용자 데이터베이스에서 TDE 작업을 수행하는 데 필요한 개체가 포함되어 있습니다.
 
 Azure SQL Managed Instance, Azure SQL Database의 이전 데이터베이스 또는 Azure SQL Data Warehouse에 대해 TDE를 수동으로 활성화해야 합니다.  
 
@@ -60,6 +60,9 @@ Azure 내에서 작업용 데이터베이스를 해독할 필요가 없습니다
 - 활성 지역 복제
 - 데이터베이스 복사본 만들기
 - Azure SQL Managed Instance에 백업 파일 복원
+
+> [!IMPORTANT]
+> 암호화에 사용되는 인증서에 액세스할 수 없으므로 Azure SQL Managed Instance에서는 서비스 관리 TDE로 암호화된 데이터베이스에 대한 COPY-ONLY(복사 전용) 백업을 수동으로 수행할 수 없습니다. 특정 시점 복원 기능을 사용하여 이 유형의 데이터베이스를 다른 Managed Instance로 이동합니다.
 
 투명한 데이터 암호화로 보호된 데이터베이스를 내보내는 경우 내보내는 데이터베이스의 콘텐츠는 암호화되지 않습니다. 이 내보낸 콘텐츠는 암호화되지 않은 BACPAC 파일에 저장됩니다. BACPAC 파일을 적절히 보호하고, 새 데이터베이스 가져오기가 완료되면 투명한 데이터 암호화를 사용하도록 설정합니다.
 

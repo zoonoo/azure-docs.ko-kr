@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 2542364db3a895c060c752beeb0cfabf75834f7d
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ac97cf3e269652dc33ce4211947b45631228a697
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970275"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463289"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>LUIS docker 컨테이너 설치 및 실행
  
@@ -66,7 +66,7 @@ LUIS 컨테이너를 실행하려면 다음이 필요 합니다.
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
-사용 가능한 태그에 대한 전체 설명은 이전 명령에서 사용되는 `latest`처럼 Docker 허브에서 [LUIS](https://hub.docker.com/r/microsoft/azure-cognitive-services-luis/)를 참조하세요.
+사용 가능한 태그에 대한 전체 설명은 이전 명령에서 사용되는 `latest`처럼 Docker 허브에서 [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204)를 참조하세요.
 
 > [!TIP]
 > [docker images](https://docs.docker.com/engine/reference/commandline/images/) 명령을 사용하여 다운로드한 컨테이너 이미지를 나열할 수 있습니다. 예를 들어 다음 명령은 다운로드한 각 컨테이너 이미지의 ID, 리포지토리 및 태그를 테이블 형식으로 나열합니다.
@@ -113,7 +113,8 @@ LUIS 컨테이너는 사용자 발화의 예측 쿼리에 응답하기 위해 �
 |스테이징|Get, Post|Azure 및 컨테이너|`{APPLICATION_ID}_STAGING.gz`|
 |프로덕션|Get, Post|Azure 및 컨테이너|`{APPLICATION_ID}_PRODUCTION.gz`|
 
->**중요:** LUIS 패키지 파일의 이름을 바꾸거나, 변경 또는 압축을 풀지 마세요.
+> [!IMPORTANT]
+> LUIS 패키지 파일의 이름을 바꾸거나, 변경 또는 압축을 풀지 마세요.
 
 ### <a name="packaging-prerequisites"></a>패키징 필수 구성 요소
 
@@ -383,3 +384,4 @@ Cognitive Services 컨테이너는 측광을 위해 Azure에 연결되지 않은
 
 * [컨테이너 구성](luis-container-configuration.md)에서 구성 설정을 검토합니다.
 * [FAQ(질문과 대답)](luis-resources-faq.md)를 참조하여 LUIS 기능과 관련된 문제를 해결합니다.
+* 더 많은 [Cognitive Services 컨테이너](../cognitive-services-container-support.md)를 사용합니다.

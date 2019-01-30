@@ -1,17 +1,17 @@
 ---
-제목: Net# 신경망 titleSuffix: Azure Machine Learning Studio 설명: Net# 인공신경망 사양 언어 구문과 Net# 및 Azure Machine Learning Studio를 사용하여 사용자 지정 인공신경망 모델을 만드는 방법에 대한 예제입니다.
+제목: 사용자 지정 Net# 신경망 만들기 titleSuffix: Azure Machine Learning Studio 설명: Net# 신경망 사양 언어를 위한 구문 가이드 Azure Machine Learning Studio에서 사용자 지정 신경망 모델을 만드는 방법을 알아봅니다.
 services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: reference
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/01/2018
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 Net# 인공신경망 사양 언어에 대한 가이드
 
-Net#은 Microsft에서 개발된 언어로 신경망 아키텍처를 정의하기 위해 사용됩니다. Net#을 사용하여 신경망 구조를 정의하면 이미지, 오디오 또는 비디오 같은 데이터에서 학습을 향상하는 것으로 알려진 임의 차원의 나선 또는 DNN(Deep Neural Network) 같은 복잡한 구조를 정의할 수 있습니다.
+Net#은 Microsoft가 개발한 언어로, 심층 신경망 네트워크나 임의 차원의 난해와 같은 복잡한 신경 네트워크 아키텍처를 정의하는 데 사용됩니다. 이미지, 비디오 또는 오디오와 같은 데이터에 대한 학습을 개선하는 데 복잡한 구조체를 사용할 수 있습니다.
 
 Net# 아키텍처 사양은 다음 컨텍스트에서 사용할 수 있습니다.
 
 + Microsoft Azure Machine Learning Studio의 모든 신경망 모듈: [다중 클래스 신경망](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [2클래스 신경망](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network) 및 [신경망 회귀](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ MicrosoftML의 신경망 함수: R 언어의 경우 [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) 및 [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet), Python의 경우 [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network)
++ Microsoft ML Server의 신경망 함수: R 언어의 경우 [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) 및 [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet), Python의 경우 [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network)
 
 
 이 문서에서는 Net#을 사용하여 사용자 지정 신경망을 개발하는 데 필요한 기본 개념과 구문을 설명합니다. 
@@ -26,7 +26,7 @@ Net# 아키텍처 사양은 다음 컨텍스트에서 사용할 수 있습니다
 
 신경망 구조는 계층으로 이루어진 노드 및 노드 간의 가중 연결(또는 에지)로 구성됩니다. 연결은 방향성이 있고 각 연결에는 원본 노드와 대상 노드가 있습니다.  
 
-각 학습 가능한 계층(숨겨진 계층 또는 출력 계층)에는 하나 이상의 **연결 번들**이 있습니다. 연결 번들은 원본 계층 및 해당 원본 계층의 연결 지정으로 구성됩니다. 특정 번들의 모든 연결은 같은 원본 계층 및 같은 대상 계층을 공유합니다. Net#에서 연결 번들은 번들의 대상 계층에 속하는 것으로 간주합니다.
+각 학습 가능한 계층(숨겨진 계층 또는 출력 계층)에는 하나 이상의 **연결 번들**이 있습니다. 연결 번들은 원본 계층 및 해당 원본 계층의 연결 지정으로 구성됩니다. 특정 번들의 모든 연결은 원본 및 대상 계층을 공유합니다. Net#에서 연결 번들은 번들의 대상 계층에 속하는 것으로 간주합니다.
 
 Net#에서는 입력이 숨겨진 계층 및 출력에 매핑되는 방법을 사용자 지정할 수 있는 다양한 종류의 연결 번들을 지원합니다.
 
@@ -245,7 +245,7 @@ hidden P1 [5, 12, 12]
 
 ## <a name="response-normalization-bundles"></a>응답 정규화 번들
 
-**응답 정규화**는 Geoffrey Hinton 외 연구자가 [ImageNet Classiﬁcation with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) 논문에서 처음 도입한 로컬 정규화 체계입니다. 
+**응답 정규화**는 Geoffrey Hinton 외 연구자가 [ImageNet Classification with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) 논문에서 처음 도입한 로컬 정규화 체계입니다. 
 
 응답 정규화는 신경망에서 일반화를 지원하는 데 사용됩니다. 신경 하나가 매우 높은 활성화 수준에서 실행되면 로컬 응답 정규화 계층에서는 주위 신경의 활성화 수준을 억제합니다. 이 작업에는 매개 변수 3개(`α`, `β` 및 `k`)와 나선형 구조(또는 환경 셰이프)를 사용합니다. 대상 계층 **y**의 모든 신경은 원본 계층의 신경 **x**에 해당합니다. **y**의 활성화 수준은 다음 공식으로 제공됩니다. 여기서 `f`는 신경의 활성화 수준이고 `Nx`는 나선형 구조를 통해 정의된 대로 **x**의 환경에 신경이 포함된 집합 또는 커널입니다.  
 

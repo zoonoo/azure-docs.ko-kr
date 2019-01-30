@@ -4,7 +4,7 @@ description: Office 365와 같은 Azure AD를 사용하여 자사 Microsoft 애�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ab0face3c211a8ea1477f40167f80330f0423498
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 2a13df5fc609fe7cfddff91841e082c123d758f5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379267"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468788"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Microsoft 애플리케이션에 로그인하는 문제
 
@@ -34,11 +34,11 @@ ms.locfileid: "44379267"
 
 -   Microsoft 또는 타사에서 누구나 자유롭게 사용하도록 게시한 애플리케이션의 경우 사용자도 **관리자 동의**를 통해 액세스 권한을 부여받을 수 있습니다. 즉, 관리자는 전역 관리자 계정 사용하여 애플리케이션에 로그인하고 조직의 모든 사용자에게 액세스 권한을 부여하도록 조직의 모든 사용자가 애플리케이션을 사용할 수 있게 결정했습니다.
 
-문제를 해결하려면 [고려할 애플리케이션 액세스의 일반적인 문제 영역](#general-problem-areas-with-application-access-to-consider)으로 시작하고 [연습: Microsoft 애플리케이션 액세스를 해결하는 단계](#walkthrough-steps-to-troubleshoot-microsoft-application-access)를 읽고 세부 정보를 얻습니다.
+문제를 해결하려면 [고려할 애플리케이션 액세스의 일반적인 문제 영역](#general-problem-areas-with-application-access-to-consider)으로 시작한 다음, [연습: Microsoft 애플리케이션 액세스 문제를 해결하는 단계](#walkthrough-steps-to-troubleshoot-microsoft-application-access)를 참조하여 세부 정보를 확인합니다.
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>고려할 애플리케이션 액세스의 일반적인 문제 영역
 
-시작할 위치를 파악하는 경우 자세히 알아볼 수 있는 일반적인 문제 영역의 목록은 다음과 같습니다. 하지만 신속하게 [연습: Microsoft 애플리케이션 액세스를 해결하는 단계](#walkthrough-steps-to-troubleshoot-microsoft-application-access) 연습을 읽어보는 것이 좋습니다.
+시작할 위치를 알고 있는 경우 자세히 연습할 수 있는 일반적인 문제 영역의 목록은 다음과 같습니다. 그러나 [연습: Microsoft 애플리케이션 액세스 문제를 해결하는 단계](#walkthrough-steps-to-troubleshoot-microsoft-application-access)를 참조하여 빠르게 진행하는 것이 좋습니다.
 
 -   [사용자의 계정과 관련된 문제](#problems-with-the-users-account)
 
@@ -46,7 +46,7 @@ ms.locfileid: "44379267"
 
 -   [조건부 액세스 정책과 관련된 문제](#problems-with-conditional-access-policies)
 
--   [응용 프로그램 동의와 관련된 문제](#problems-with-application-consent)
+-   [애플리케이션 동의와 관련된 문제](#problems-with-application-consent)
 
 ## <a name="steps-to-troubleshoot-microsoft-application-access"></a>Microsoft 애플리케이션 액세스 문제를 해결하는 단계
 
@@ -66,11 +66,11 @@ ms.locfileid: "44379267"
 
    * **Multi-Factor Authentication**에서 사용자 액세스를 차단하지 않는지 확인합니다. [사용자의 Multi-Factor Authentication 상태 확인](#check-a-users-multi-factor-authentication-status) 또는 [사용자의 인증 연락처 정보 확인](#check-a-users-authentication-contact-info)
 
-   * **조건부 액세스 정책** 또는 **ID 보호** 정책이 사용자 액세스를 차단하지 않는지 확인합니다. [특정 조건부 액세스 정책 확인](#problems-with-conditional-access-policies) 또는 [특정 응용 프로그램의 조건부 액세스 정책 확인](#check-a-specific-applications-conditional-access-policy) 또는 [특정 조건부 액세스 정책 사용 안 함](#disable-a-specific-conditional-access-policy)
+   * **조건부 액세스 정책** 또는 **ID 보호** 정책이 사용자 액세스를 차단하지 않는지 확인합니다. [특정 조건부 액세스 정책 확인](#problems-with-conditional-access-policies) 또는 [특정 애플리케이션의 조건부 액세스 정책 확인](#check-a-specific-applications-conditional-access-policy) 또는 [특정 조건부 액세스 정책 사용 안 함](#disable-a-specific-conditional-access-policy)
 
    * 사용자의 **인증 연락처 정보**를 최신으로 유지하여 Multi-Factor Authentication 또는 조건부 액세스 정책을 적용할 수 있도록 해야 합니다. [사용자의 Multi-Factor Authentication 상태 확인](#check-a-users-multi-factor-authentication-status) 또는 [사용자의 인증 연락처 정보 확인](#check-a-users-authentication-contact-info)
 
--   라이선스를 필요로 하는 **Microsoft** **응용 프로그램**(예: office 365)의 경우 위의 일반 문제를 확인하면 확인할 몇 가지 특정 문제는 다음과 같습니다.
+-   라이선스를 필요로 하는 **Microsoft****애플리케이션**(예: office 365)의 경우 위의 일반 문제를 확인하면 확인할 몇 가지 특정 문제는 다음과 같습니다.
 
    * 사용자를 확인하거나 **라이선스를 할당합니다.** [사용자의 할당된 라이선스 확인](#check-a-users-assigned-licenses) 또는 [그룹의 할당된 라이선스 확인](#check-a-groups-assigned-licenses)
 
@@ -84,7 +84,7 @@ ms.locfileid: "44379267"
 
    *  라이선스가 액세스하는 **애플리케이션에 적용되는지** 확인합니다.
 
--   라이선스를 필요로 하지 않는 **Microsoft** **응용 프로그램**의 경우 확인할 몇 가지 다른 항목은 다음과 같습니다.
+-   라이선스를 필요로 하지 않는 **Microsoft****애플리케이션**의 경우 확인할 몇 가지 다른 항목은 다음과 같습니다.
 
    * 애플리케이션이 **사용자 수준 사용 권한**을 요청하는 경우(예: "이 사용자의 사서함에 액세스") 사용자가 애플리케이션에 로그인하고 **사용자 수준 동의 작업**을 수행하여 애플리케이션이 해당 데이터에 액세스할 수 있도록 합니다.
 
@@ -453,7 +453,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 4.  탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 응용 프로그램**을 클릭합니다.
+5.  **모든 애플리케이션**을 클릭합니다.
 
 6.  애플리케이션 표시 이름 또는 애플리케이션 ID를 기준으로 관심이 있는 애플리케이션이나 로그인하려는 사용자를 검색합니다.
 
@@ -497,11 +497,11 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 -   [사용자 수준 동의 작업 수행](#perform-a-user-level-consent-operation)
 
--   [응용 프로그램에 대해 관리자 수준 동의 작업 수행](#perform-administrator-level-consent-operation-for-any-application)
+-   [애플리케이션에 대해 관리자 수준 동의 작업 수행](#perform-administrator-level-consent-operation-for-any-application)
 
--   [단일 테넌트 응용 프로그램에 대해 관리자 수준 동의 작업 수행](#perform-administrator-level-consent-for-a-single-tenant-application)
+-   [단일 테넌트 애플리케이션에 대해 관리자 수준 동의 작업 수행](#perform-administrator-level-consent-for-a-single-tenant-application)
 
--   [다중 테넌트 응용 프로그램에 대해 관리자 수준 동의 작업 수행](#perform-administrator-level-consent-for-a-multi-tenant-application)
+-   [다중 테넌트 애플리케이션에 대해 관리자 수준 동의 작업 수행](#perform-administrator-level-consent-for-a-multi-tenant-application)
 
 ### <a name="perform-a-user-level-consent-operation"></a>사용자 수준 동의 작업 수행
 
@@ -511,13 +511,13 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>애플리케이션에 대해 관리자 수준 동의 작업 수행
 
--   **V1 응용 프로그램 모델을 사용하여 개발된 응용 프로그램**의 경우에만 응용 프로그램의 로그인 URL의 끝에 “**?prompt=admin\_consent**”를 추가하여 발생하는 이 관리자 수준 동의를 강제할 수 있습니다.
+-   **V1 애플리케이션 모델을 사용하여 개발된 애플리케이션**의 경우에만 애플리케이션의 로그인 URL의 끝에 “**?prompt=admin\_consent**”를 추가하여 발생하는 이 관리자 수준 동의를 강제할 수 있습니다.
 
--   **V2 응용 프로그램 모델을 사용하여 개발된 응용 프로그램**의 경우 [관리 동의 엔드포인트 사용](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)의 **디렉터리 관리에서 사용 권한 요청** 섹션 아래에 있는 지침에 따라 발생하는 이 관리자 수준 동의를 강제할 수 있습니다.
+-   **V2 애플리케이션 모델을 사용하여 개발된 애플리케이션**의 경우 [관리 동의 엔드포인트 사용](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)의 **디렉터리 관리에서 사용 권한 요청** 섹션 아래에 있는 지침에 따라 발생하는 이 관리자 수준 동의를 강제할 수 있습니다.
 
 ### <a name="perform-administrator-level-consent-for-a-single-tenant-application"></a>단일 테넌트 애플리케이션에 대해 관리자 수준 동의 작업 수행
 
--   사용 권한을 요청하는 **단일 테넌트 애플리케이션**의 경우(예: 사용자가 개발하거나 조직에서 소유한 애플리케이션) 전역 관리자로 로그인하고 **애플리케이션 레지스트리 -&gt; 모든 애플리케이션 -&gt; 앱 선택 -&gt; 필요한 권한** 창의 맨 위에 있는 **권한 부여** 단추를 클릭하여 모든 사용자를 대신하여 **관리 수준 동의** 작업을 수행할 수 있습니다.
+-   사용 권한을 요청하는 **단일 테넌트 응용 프로그램**의 경우(예: 사용자가 개발하거나 조직에서 소유한 응용 프로그램) 전역 관리자로 로그인하고 **응용 프로그램 레지스트리 -&gt; 모든 응용 프로그램 -&gt; 앱 선택 -&gt; 필요한 권한** 창의 맨 위에 있는 **권한 부여** 단추를 클릭하여 모든 사용자를 대신하여 **관리 수준 동의** 작업을 수행할 수 있습니다.
 
 -   **V1 또는 V2 응용 프로그램 모델을 사용하여 개발된 응용 프로그램**의 경우 [관리 동의 엔드포인트 사용](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)의 **디렉터리 관리에서 사용 권한 요청** 섹션 아래에 있는 지침에 따라 발생하는 이 관리자 수준 동의를 강제할 수 있습니다.
 

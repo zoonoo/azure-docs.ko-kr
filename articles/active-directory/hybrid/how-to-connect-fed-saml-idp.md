@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Single Sign On에 SAML 2.0 ID 공급자 사용 | Micro
 description: 이 문서에서는 Single Sign-On에 SAML 2.0 호환 Idp를 사용하는 방법을 설명합니다.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.custom: it-pro
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8f8503f560985e1170105199212734dd704d81c1
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: d7211cdec2e1de1aafd8d81289ab399f25b3c26a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743530"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463136"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용
 
@@ -268,7 +268,7 @@ Single Sign-On이 올바르게 설정되어 있는지 확인하려면 다음 단
 
 
 1. 도메인에 가입된 컴퓨터에서 회사 자격 증명에 사용하는 것과 동일한 로그온 이름을 사용하여 클라우드 서비스에 로그인합니다.
-2.  암호 상자 내부를 클릭합니다. Single Sign-On이 설정되면 암호 상자가 음영 처리되며 "이제 &lt;회사&gt;에서 로그인해야 합니다." 메시지가 표시됩니다.
+2.  암호 상자 내부를 클릭합니다. Single Sign-On이 설정되면 암호 상자가 음영 처리되며 "이제 &lt;회사&gt;에 로그인해야 합니다"라는 메시지가 표시됩니다.
 3.  &lt;회사&gt; 링크에서 로그인을 클릭합니다. 로그인할 수 있으면 Single Sign-On이 설정된 것입니다.
 
 ## <a name="next-steps"></a>다음 단계

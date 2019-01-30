@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 2b6cb711bf0cd2f0ec7f5633bbb36ebaeb203690
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 6e21b1d8905dc0f0eda5b6282e345ef52006a75a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605537"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468032"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>원격 모니터링 솔루션 가속기 개요
 
@@ -47,11 +47,11 @@ ms.locfileid: "53605537"
 
 이 솔루션은 논리적 구조의 디바이스 연결 부분에 다음과 같은 구성 요소를 포함합니다.
 
-### <a name="physical-devices"></a>물리적 디바이스
+### <a name="real-devices"></a>실제 디바이스
 
-물리적 디바이스를 솔루션에 연결할 수 있습니다. Azure IoT 디바이스 SDK를 사용하여 시뮬레이션된 디바이스의 동작을 구현할 수 있습니다.
+실제 디바이스는 솔루션에 연결할 수 있습니다. Azure IoT 디바이스 SDK를 사용하여 시뮬레이션된 디바이스의 동작을 구현할 수 있습니다.
 
-물리적 디바이스를 솔루션 포털의 대시보드에서 프로비전할 수 있습니다.
+실제 디바이스는 솔루션 포털의 대시보드에서 프로비전할 수 있습니다.
 
 ### <a name="device-simulation-microservice"></a>디바이스 시뮬레이션 마이크로 서비스
 
@@ -66,7 +66,7 @@ ms.locfileid: "53605537"
 
 ### <a name="iot-hub"></a>IoT Hub
 
-[IoT 허브](../iot-hub/index.yml)는 물리적 디바이스 및 시뮬레이션된 디바이스에서 보낸 원격 분석을 수집합니다. IoT 허브를 사용하면 IoT 솔루션 백 엔드의 서비스에서 원격 분석을 사용하여 처리할 수 있습니다.
+[IoT 허브](../iot-hub/index.yml)는 실제 디바이스 및 시뮬레이션된 디바이스에서 보낸 원격 분석을 수집합니다. IoT 허브를 사용하면 IoT 솔루션 백 엔드의 서비스에서 원격 분석을 사용하여 처리할 수 있습니다.
 
 또한 솔루션에서 IoT Hub는:
 
@@ -106,7 +106,7 @@ ms.locfileid: "53605537"
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-솔루션 가속기 배포에서는 [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)를 사용하여 규칙, 경보, 구성 설정 및 기타 모든 콜드 스토리지를 저장합니다.
+솔루션 가속기 배포에서는 [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)를 사용하여 규칙, 경고, 구성 설정 및 기타 모든 콜드 스토리지를 저장합니다.
 
 ### <a name="azure-stream-analytics-manager-microservice"></a>Azure Stream Analytics 관리자 마이크로 서비스
 

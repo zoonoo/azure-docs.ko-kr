@@ -4,7 +4,7 @@ description: 이 문서에서는 암호 해시 동기화 문제를 해결하는 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 036933c6b6e86856871c5f59f08fea20a0343ad7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 23787c777f20025d9310fac2efe0f429d66c4586
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310022"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470446"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 문제 해결
 이 항목에서는 암호 해시 동기화 문제를 해결하는 방법에 대한 단계를 제공합니다. 암호가 예상대로 동기화되지 않으면 사용자의 하위 집합 또는 모든 사용자의 암호일 수 있습니다.
@@ -233,7 +233,7 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
 3. Azure AD에서 이 기능이 사용되지 않거나 동기화 채널 상태가 사용되지 않는 경우 Connect 설치 마법사를 실행합니다. **동기화 옵션 사용자 지정**을 선택하고 암호 동기화의 선택을 취소합니다. 이 변경 내용은 기능을 일시적으로 비활성화합니다. 그런 다음 마법사를 다시 실행하고 암호 동기화를 다시 사용합니다. 스크립트를 다시 실행하여 구성이 올바른지 확인합니다.
 
 4. 이벤트 로그에서 오류를 찾습니다. 문제를 나타내는 다음 이벤트를 찾습니다.
-    * 원본: "디렉터리 동기화" ID: 0, 611, 652, 655 이러한 이벤트가 표시되면 연결 문제가 있는 것입니다. 이벤트 로그 메시지에는 문제가 있는 포리스트 정보가 포함됩니다. 자세한 내용은 [연결 문제](#connectivity problem)를 참조하세요.
+    * 원본: "디렉터리 동기화" ID: 0, 611, 652, 655. 이러한 이벤트가 표시되면 연결 문제가 있는 것입니다. 이벤트 로그 메시지에는 문제가 있는 포리스트 정보가 포함됩니다. 자세한 내용은 [연결 문제](#connectivity problem)를 참조하세요.
 
 5. 하트비트가 표시되지 않거나 아무 작동도 진행되지 않으면 [모든 암호의 전체 동기화 트리거](#trigger-a-full-sync-of-all-passwords)를 실행합니다. 스크립트를 한 번만 실행합니다.
 

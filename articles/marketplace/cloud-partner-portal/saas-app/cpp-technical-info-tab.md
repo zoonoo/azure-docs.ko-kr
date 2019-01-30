@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: da67213b708b3ff26fe1ddd926c5cb0bba33458d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 7a49e69b2e27a38b1a89fedbd6bbd70066b37dc2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788554"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451224"
 ---
 # <a name="saas-application-technical-info-tab"></a>SaaS 애플리케이션 기술 정보 탭
 
@@ -54,7 +54,7 @@ ms.locfileid: "53788554"
 |     시작하기 지침              |   SaaS 앱에 연결하도록 지원하기 위해 고객과 공유하는 지침입니다. &lt;p&gt;, &lt;h1&gt;, &lt;li&gt; 등의 기본 HTML 태그가 허용됩니다.                |
 |    방문 페이지 URL  |   Azure Portal로부터 획득한 후 고객이 방문하도록 설정하는 사이트 URL입니다. 이 URL은 Microsoft와의 거래를 용이하게 하기 위한 연결 API를 수신할 엔드포인트로도 사용됩니다.                |
 |  연결 웹후크    |  Microsoft에서 고객을 대신해서 보내야 하는 모든 비동기 이벤트(예: Azure 구독이 더 이상 유효하지 않음)를 위해 연결 웹후크를 제공해야 합니다. 웹후크 시스템이 아직 준비되지 않은 경우 가장 단순한 구성은 게시되는 모든 이벤트를 수신 대기한 후 적절히 처리하는 HTTP 엔드포인트 논리 앱을 유지하는 것입니다. 자세한 내용은 <a href="https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint">Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩</a>을 참조하세요.                |
-|  Azure AD 테넌트 ID 및 앱 ID      |   사용자는 두 서비스 간 연결이 인증된 통신을 통해 설정되는지 검증할 수 있도록 Azure Portal 내에서 Active Directory 앱을 만들어야 합니다. 이러한 필드에 대해, AD 앱을 만들고, 필요한 해당 테넌트 ID 및 앱 ID를 붙여 넣습니다. 앱 ID는 publisherID와 연관되어 있습니다. 따라서 모든 제안에서 앱 ID가 동일한지 확인합니다.             |
+|  Azure AD 테넌트 ID 및 앱 ID      |   사용자는 두 서비스 간 연결이 인증된 통신을 통해 설정되는지 검증할 수 있도록 Azure Portal 내에서 Active Directory 앱을 만들어야 합니다. 이러한 필드에 대해, AD 앱을 만들고, 필요한 해당 테넌트 ID 및 앱 ID를 붙여 넣습니다. 앱 ID는 publisherID와 연결되어 있습니다. 따라서 모든 제안에서 앱 ID가 동일한지 확인합니다.             |
 
 
 마지막으로, **Microsoft를 통해 판매**를 선택하는 경우 **플랜**이라는 다른 새 제안 탭이 있습니다. 

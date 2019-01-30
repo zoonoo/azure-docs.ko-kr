@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: saudas
-ms.openlocfilehash: e535d1c2c581e20667a1ccf10fc97fcf988bc91a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3e8342a719bf9ae7174195f88b97972d7f13193c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001824"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465788"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 지원되는 Kubernetes 버전
 
@@ -41,17 +41,18 @@ AKS에서 지원하는 Kubernetes의 4개 부 버전은 다음과 같습니다.
 az aks get-versions --location eastus --output table
 ```
 
-출력은 다음 예제와 비슷합니다. 이 예제에는 Kubernetes 버전 *1.11.5*이 사용할 수 있는 최신 버전임이 표시됩니다.
+출력은 다음 예제와 비슷하며, Kubernetes 버전 *1.12.4*가 사용할 수 있는 최신 버전임을 보여 줍니다.
 
 ```
 KubernetesVersion    Upgrades
--------------------  ----------------------
-1.11.5               None available
-1.11.4               1.11.5
-1.10.9               1.11.4, 1.11.5
-1.10.8               1.10.9, 1.11.4, 1.11.5
-1.9.11               1.10.8, 1.10.9
-1.9.10               1.9.11, 1.10.8, 1.10.9
+-------------------  -----------------------
+1.12.4               None available
+1.11.6               1.12.4
+1.11.5               1.11.6, 1.12.4
+1.10.12              1.11.5, 1.11.6
+1.10.9               1.10.12, 1.11.5, 1.11.6
+1.9.11               1.10.9, 1.10.12
+1.9.10               1.9.11, 1.10.9, 1.10.12
 1.8.15               1.9.10, 1.9.11
 1.8.14               1.8.15, 1.9.10, 1.9.11
 ```

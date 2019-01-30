@@ -3,8 +3,8 @@ title: Azure Notification Hubs를 사용하여 특정 iOS 디바이스에 알림
 description: 이 자습서에서는 Azure Notification Hubs를 사용하여 특정 iOS 디바이스로 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: ios
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 6ead4169-deff-4947-858c-8c6cf03cc3b2
 ms.service: notification-hubs
@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: 18caf2b1b96052d93737c8a9815e2e6643a52a67
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: aaaeb4e101147c19af5bd1dc7071cca273255863
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918065"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449762"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 iOS 디바이스에 알림 푸시
 
@@ -41,7 +41,7 @@ ms.locfileid: "42918065"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 항목은 [자습서: Azure Notification Hubs를 사용하여 iOS 앱에 알림 푸시][get-started]에서 만든 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 [자습서: Azure Notification Hubs를 사용하여 iOS 앱에 알림 푸시][get-started]를 이미 완료해야 합니다.
+이 토픽은 [자습서: Azure Notification Hubs를 사용하여 iOS 앱에 알림 푸시][get-started]에서 만든 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [자습서: Azure Notification Hubs를 사용하여 iOS 앱에 알림 푸시][get-started]를 완료해야 합니다.
 
 ## <a name="add-category-selection-to-the-app"></a>앱에 범주 선택 추가
 
@@ -59,7 +59,7 @@ ms.locfileid: "42918065"
     ![Xcode Interface Builder][3]
 
 2. 단말기 편집기에서 모든 스위치에 대한 콘센트를 만든 다음 "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"로 지정합니다.
-3. **subscribe**라는 단추에 대한 동작을 만듭니다. ViewController.h에는 다음 코드가 포함되어 있어야 합니다.
+3. `subscribe`이라는 단추에 대한 작업을 만듭니다. `ViewController.h`에 다음 코드가 포함되어야 합니다.
 
     ```objc
     @property (weak, nonatomic) IBOutlet UISwitch *WorldSwitch;
@@ -135,7 +135,7 @@ ms.locfileid: "42918065"
 
     이 클래스는 로컬 저장소를 사용하여 이 디바이스에서 받을 뉴스의 범주를 저장하고 검색합니다. 또한 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 등록을 사용하여 이러한 범주에 등록하는 메서드도 포함되어 있습니다.
 
-7. AppDelegate.h 파일에서 Notifications.h에 대한 import 문을 추가하고 알림 클래스의 인스턴스에 대한 속성을 추가합니다.
+7. `AppDelegate.h` 파일에서 `Notifications.h`에 대한 import 문을 추가하고 `Notifications` 클래스의 인스턴스에 대한 속성을 추가합니다.
 
     ```objc
     #import "Notifications.h"
@@ -143,9 +143,8 @@ ms.locfileid: "42918065"
     @property (nonatomic) Notifications* notifications;
     ```
 
-8. AppDelegate.m의 **didFinishLaunchingWithOptions** 메서드에서 메서드 시작 부분에 알림 인스턴스를 초기화하는 코드를 추가합니다.  
-
-    `HUBNAME`과 `HUBLISTENACCESS`(hubinfo.h에 정의됨)는 `<hub name>` 및 `<connection string with listen access>` 자리 표시자를 알림 허브 이름과 앞서 얻었던 *DefaultListenSharedAccessSignature*의 연결 문자열로 바꿉니다.
+8. `AppDelegate.m`의 `didFinishLaunchingWithOptions` 메서드에서 메서드 시작 부분에 알림 인스턴스를 초기화하는 코드를 추가합니다.  
+    `HUBNAME` 및 `HUBLISTENACCESS`(`hubinfo.h`에 정의됨)는 `<hub name>` 및 `<connection string with listen access>` 자리 표시자를 알림 허브 이름과 앞서 얻었던 *DefaultListenSharedAccessSignature*의 연결 문자열로 바꿉니다.
 
     ```objc
     self.notifications = [[Notifications alloc] initWithConnectionString:HUBLISTENACCESS HubName:HUBNAME];
@@ -154,7 +153,7 @@ ms.locfileid: "42918065"
     > [!NOTE]
     > 클라이언트 앱과 함께 배포되는 자격 증명은 일반적으로 안전하지 않기 때문에 클라이언트 앱과 함께 listen access용 키만 배포해야 합니다. Listen access를 통해 앱에서 알림을 등록할 수 있지만, 기존 등록을 수정할 수 없으며 알림을 전송할 수도 없습니다. 안전한 백 엔드 서비스에서 알림을 보내고 기존 등록을 변경하는 데에는 모든 액세스 키가 사용됩니다.
 
-9. AppDelegate.m의 **didRegisterForRemoteNotificationsWithDeviceToken** 메서드에서 메서드의 코드를 다음 코드로 바꿔 알림 클래스에 디바이스 토큰을 전달합니다. 알림 클래스는 범주를 사용하여 알림에 대해 등록을 수행합니다. 사용자가 범주 선택 항목을 변경하는 경우 **구독** 단추에 대한 응답으로 `subscribeWithCategories` 메서드를 호출하여 범주 선택 항목을 업데이트합니다.
+9. `AppDelegate.m`의 `didRegisterForRemoteNotificationsWithDeviceToken` 메서드에서 디바이스 토큰을 `notifications` 클래스에 전달하는 다음 코드로 메서드의 코드를 바꿉니다. `notifications` 클래스는 범주를 사용하여 알림에 대해 등록을 수행합니다. 사용자가 범주 선택 항목을 변경하는 경우 **구독** 단추에 대한 응답으로 `subscribeWithCategories` 메서드를 호출하여 범주 선택 항목을 업데이트합니다.
 
     > [!NOTE]
     > APNS(Apple Push Notification Service)에서 할당하는 디바이스 토큰은 언제든지 변경될 수 있으므로 알림 실패를 피하려면 알림을 자주 등록해야 합니다. 이 예제에서는 앱이 시작될 때마다 알림을 등록합니다. 자주(하루 두 번 이상) 실행되는 앱에서는 이전 등록 이후 만 하루가 지나지 않은 경우 대역폭 유지를 위한 등록을 건너뛸 수 있습니다.
@@ -173,9 +172,9 @@ ms.locfileid: "42918065"
     }];
     ```
 
-    이때 **didRegisterForRemoteNotificationsWithDeviceToken** 메서드에 다른 코드가 없어야 합니다.
+    이때 `didRegisterForRemoteNotificationsWithDeviceToken` 메서드에 다른 코드가 있어서는 안 됩니다.
 
-10. 다음 메서드는 [Notification Hubs 시작][get-started] 자습서를 완료할 때부터 AppDelegate.m에 있어야 합니다. 그렇지 않은 경우 메서드를 추가합니다.
+10. 다음 메서드는 [Notification Hubs 시작][get-started] 자습서를 완료할 때부터 `AppDelegate.m`에 있어야 합니다. 그렇지 않은 경우 메서드를 추가합니다.
 
     ```objc
     -(void)MessageBox:(NSString *)title message:(NSString *)messageText
@@ -195,7 +194,7 @@ ms.locfileid: "42918065"
 
     이 메서드는 단일 **UIAlert**를 표시하여 앱이 실행 중일 때 수신된 알림을 처리합니다.
 
-11. ViewController.m에서 AppDelegate.h에 대해 import 문을 추가하고 다음 코드를 XCode 생성 **구독** 메서드에 복사합니다. 이 코드는 사용자 인터페이스에서 사용자가 선택한 새 범주 태그를 사용하도록 알림 등록을 업데이트합니다.
+11. `ViewController.m`에서 `AppDelegate.h`에 대한 `import` 문을 추가하고 XCode 생성 `subscribe` 메서드에 다음 코드를 복사합니다. 이 코드는 사용자 인터페이스에서 사용자가 선택한 새 범주 태그를 사용하도록 알림 등록을 업데이트합니다.
 
     ```objc
     #import "Notifications.h"
@@ -220,9 +219,9 @@ ms.locfileid: "42918065"
     }];
     ```
 
-    이 메서드는 범주의 **NSMutableArray**를 만들고 **Notifications** 클래스를 사용하여, 로컬 저장소에 목록을 저장하고 알림 허브에 해당 태그를 등록합니다. 범주가 변경되면 새 범주로 등록이 다시 생성됩니다.
+    이 메서드는 범주의 `NSMutableArray`를 만들고 `Notifications` 클래스를 사용하여 로컬 스토리지에 목록을 저장하고 알림 허브에 해당 태그를 등록합니다. 범주가 변경되면 새 범주로 등록이 다시 생성됩니다.
 
-3. ViewController.m에서 **viewDidLoad** 메서드에 다음 코드를 추가하여 이전에 저장한 범주를 기반으로 사용자 인터페이스를 설정합니다.
+12. `ViewController.m`에서 `viewDidLoad` 메서드에 다음 코드를 추가하여 이전에 저장한 범주를 기반으로 사용자 인터페이스를 설정합니다.
 
     ```objc
     // This updates the UI on startup based on the status of previously saved categories.
@@ -239,11 +238,11 @@ ms.locfileid: "42918065"
     if ([categories containsObject:@"Sports"]) self.SportsSwitch.on = true;
     ```
 
-이제 앱은 앱이 시작할 때마다 알림 허브에 등록하는 데 사용한 디바이스 로컬 저장소에 범주 집합을 저장할 수 있습니다. 사용자는 런타임 시 범주 선택 사항을 변경하고 **구독** 메서드를 클릭하여 디바이스에 대한 등록을 업데이트할 수 있습니다. 다음으로 앱 자체에서 직접 속보 알림을 보내도록 앱을 업데이트합니다.
+이제 앱은 앱이 시작할 때마다 알림 허브에 등록하는 데 사용한 디바이스 로컬 저장소에 범주 집합을 저장할 수 있습니다. 사용자는 런타임 시 범주 선택 사항을 변경하고 `subscribe` 메서드를 클릭하여 디바이스에 대한 등록을 업데이트할 수 있습니다. 다음으로 앱 자체에서 직접 속보 알림을 보내도록 앱을 업데이트합니다.
 
 ## <a name="optional-send-tagged-notifications"></a>(선택 사항) 태그가 지정된 알림 보내기
 
-Visual Studio에 액세스할 수 없는 경우 다음 섹션으로 건너뛰고 앱 자체에서 알림을 보낼 수 있습니다. 또한 알림 허브에 대한 디버그 탭을 사용하여 [Azure Portal]에서 적절한 템플릿 알림을 보낼 수 있습니다. 
+Visual Studio에 액세스할 수 없는 경우 다음 섹션으로 건너뛰고 앱 자체에서 알림을 보낼 수 있습니다. 또한 알림 허브에 대한 디버그 탭을 사용하여 [Azure Portal]에서 적절한 템플릿 알림을 보낼 수 있습니다.
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
@@ -312,7 +311,7 @@ Visual Studio에 액세스할 수 없는 경우 다음 섹션으로 건너뛰고
     }
     ```
 
-2. `ViewController.m`에서 다음 코드에 표시된 것처럼 **알림 보내기** 작업을 업데이트합니다. 그러면 개별적으로 각 태그를 사용하여 알림을 보내고 여러 플랫폼으로 보냅니다.
+2. `ViewController.m`에서 다음 코드에 표시된 것처럼 `Send Notification` 작업을 업데이트합니다. 그러면 개별적으로 각 태그를 사용하여 알림을 보내고 여러 플랫폼으로 보냅니다.
 
     ```objc
     - (IBAction)SendNotificationMessage:(id)sender
@@ -339,7 +338,7 @@ Visual Studio에 액세스할 수 없는 경우 다음 섹션으로 건너뛰고
 
     ![iOS의 예제 알림][1]
 
-    **구독**을 선택하면 앱은 선택한 범주를 태그로 변환하고 알림 허브에서 선택한 태그에 대한 새로운 장치 등록을 요청합니다.
+    **구독**을 선택하면 앱은 선택한 범주를 태그로 변환하고 알림 허브에서 선택한 태그에 대한 새로운 디바이스 등록을 요청합니다.
 
 2. 속보로 보낼 메시지를 입력하고 **알림 보내기** 단추를 누릅니다. 또는 .NET 콘솔 앱을 실행하여 알림을 생성합니다.
 
@@ -349,23 +348,15 @@ Visual Studio에 액세스할 수 없는 경우 다음 섹션으로 건너뛰고
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 범주에 등록한 특정 iOS 디바이스에 브로드캐스트 알림을 보냈습니다. 지역화된 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 
+이 자습서에서는 범주에 등록한 특정 iOS 디바이스에 브로드캐스트 알림을 보냈습니다. 지역화된 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
 >[지역화된 알림 푸시](notification-hubs-ios-xplat-localized-apns-push-notification.md)
-
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-subscribed.png
 [2]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios1.png
 [3]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
-
-
-
-
-
-
-
 
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx

@@ -4,7 +4,7 @@ description: Azure AD 테넌트가 무엇이며, Azure Active Directory를 통�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: infrastructure-services
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: f9cd761080bc5098d0500841e7327ac8ce9f9a2d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7b16e3ff5be21c52f354f0dcbb5dd91b4509e65e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957941"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461198"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용하여 애플리케이션에 대한 Azure Active Directory 로그인 동작 구성
 
@@ -61,11 +61,11 @@ HRD(홈 영역 검색)는 Azure AD(Azure Active Directory)에서 로그인 시 �
 
 도메인 힌트 구문은 사용되는 프로토콜에 따라 다르며, 일반적으로 애플리케이션에서 구성됩니다.
 
-**WS-Federation**: 쿼리 문자열의 whr=contoso.com
+**WS-Federation**: whr=contoso.com 쿼리 문자열
 
-**SAML**: 도메인 힌트가 포함된 SAML 인증 요청 또는 쿼리 문자열 whr=contoso.com
+**SAML**:  도메인 힌트가 포함된 SAML 인증 요청 또는 whr=contoso.com 쿼리 문자열
 
-**Open ID Connect**: 쿼리 문자열 domain_hint=contoso.com 
+**Open ID Connect**: domain_hint=contoso.com 쿼리 문자열 
 
 도메인 힌트가 애플리케이션의 인증 요청에 포함되고 테넌트가 해당 도메인과 페더레이션되면 Azure AD는 해당 도메인에 대해 구성된 IdP로 로그인을 리디렉션하려고 합니다. 
 
@@ -123,7 +123,7 @@ Microsoft Azure Active Directory Graph API 또는 Azure Active Directory PowerSh
 
  **PreferredDomain**이 지정된 경우 테넌트에 대한 확인된 페더레이션된 도메인이 일치해야 합니다. 애플리케이션의 모든 사용자가 해당 도메인에 로그인할 수 있어야 합니다.
 
-**AllowCloudPasswordValidation**은 선택 사항입니다. **AllowCloudPasswordValidation**이 true인 경우 응용 프로그램에서 사용자 이름/암호 자격 증명을 Azure Active Directory 토큰 엔드포인트에 직접 표시하여 페더레이션 사용자를 인증할 수 있습니다. 암호 해시 동기화가 사용되는 경우에만 작동합니다.
+**AllowCloudPasswordValidation**은 선택 사항입니다. **AllowCloudPasswordValidation**이 true인 경우 애플리케이션에서 사용자 이름/암호 자격 증명을 Azure Active Directory 토큰 엔드포인트에 직접 표시하여 페더레이션 사용자를 인증할 수 있습니다. 암호 해시 동기화가 사용되는 경우에만 작동합니다.
 
 ### <a name="priority-and-evaluation-of-hrd-policies"></a>HRD 정책의 우선 순위 및 평가
 HRD 정책을 만들어 특정 조직 및 서비스 주체에 할당할 수 있습니다. 즉, 여러 정책을 특정 애플리케이션에 적용할 수 있습니다. 적용되는 HRD 정책은 다음 규칙을 따릅니다.
@@ -209,7 +209,7 @@ HRD 정책을 만든 후에 적용하려면 여러 애플리케이션 서비스 
 
 포털을 사용하거나 [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity)를 쿼리할 수 있습니다. [Graph 탐색기 도구](https://developer.microsoft.com/graph/graph-explorer)로 이동하고 Azure AD 계정에 로그인하여 조직의 모든 서비스 주체를 확인할 수 있습니다. PowerShell을 사용하기 때문에 get-AzureADServicePrincipal cmdlet을 사용하여 서비스 주체 및 해당 ID를 나열할 수 있습니다.
 
-#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>3단계: 서비스 주체에게 정책 할당  
+#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>3단계: 서비스 주체에 정책 할당  
 자동 가속을 구성하려는 애플리케이션의 서비스 주체 **ObjectID**를 찾은 후 다음 명령을 실행합니다. 이 명령은 1단계에서 만든 HRD 정책을 2단계에서 찾은 서비스 주체에 연결합니다.
 
 ``` powershell
@@ -231,7 +231,7 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 
 ### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>예제: HRD 정책이 구성된 애플리케이션 나열
 
-#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>1단계: 조직에서 생성된 모든 정책 나열 
+#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>1단계: 조직에서 만든 모든 정책 나열 
 
 ``` powershell
 Get-AzureADPolicy

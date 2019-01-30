@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory에서 LinkedIn 통합 데이터 공유 | Microsoft Docs
-description: Azure Active Directory에서 Microsoft 앱을 통해 LinkedIn 계정 연결이 데이터를 공유하는 방법에 대해 설명합니다.
+title: Azure Active Directory에서 LinkedIn 통합 데이터 공유 및 동의 | Microsoft Docs
+description: LinkedIn 통합이 Azure Active Directory에서 Microsoft 앱을 통해 데이터를 공유하는 방법을 설명합니다.
 services: active-directory
 author: curtand
 manager: mtillman
@@ -8,22 +8,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 01/22/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 25060f41528c59d252adbc854704c6060becd907
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 776c793fb797e9388f0852773315f27cd42dde25
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319124"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471721"
 ---
-# <a name="user-consent-and-linkedin-account-connections-data-sharing"></a>사용자 동의 및 LinkedIn 계정 연결 데이터 공유
+# <a name="linkedin-integration-data-sharing-and-consent"></a>LinkedIn 통합 데이터 공유 및 동의
 
 Azure AD(Azure Active Directory) 관리자 권한으로 조직의 사용자가 해당 Microsoft 회사 또는 학교 계정을 LinkedIn 계정과 연결하는 데 동의하도록 설정할 수 있습니다. 사용자가 해당 계정을 연결하면 LinkedIn의 정보 및 주요 내용은 일부 Microsoft 앱 및 서비스에서 사용할 수 있습니다. 또한 사용자는 Microsoft의 정보를 사용하여 LinkedIn의 해당 네트워킹 환경이 개선되고 보강되기를 기대할 수 있습니다.
 
-Microsoft 앱 및 서비스에서 LinkedIn 정보를 보려면 사용자는 고유한 Microsoft 및 LinkedIn 계정을 연결하는 데 동의해야 합니다. 사용자가 Outlook, OneDrive 또는 SharePoint Online의 프로필 카드에 대한 다른 사용자의 LinkedIn 정보를 보기 위해 처음으로 클릭할 때 해당 계정에 연결하라는 메시지가 표시됩니다. 사용자가 해당 환경 및 해당 계정에 연결하도록 동의하기 전까지는 LinkedIn 계정 연결을 완전히 사용하지 않습니다.
+Microsoft 앱 및 서비스에서 LinkedIn 정보를 보려면 사용자가 자신의 Microsoft 및 LinkedIn 계정을 연결하는 데 동의해야 합니다. 사용자가 Outlook, OneDrive 또는 SharePoint Online의 프로필 카드에 대한 다른 사용자의 LinkedIn 정보를 보기 위해 처음으로 클릭할 때 해당 계정에 연결하라는 메시지가 표시됩니다. 사용자가 해당 환경 및 해당 계정에 연결하도록 동의하기 전까지는 LinkedIn 계정 연결을 완전히 사용하지 않습니다.
 
 [!INCLUDE [active-directory-gdpr-note](../../../includes/gdpr-hybrid-note.md)]
 
@@ -31,13 +31,13 @@ Microsoft 앱 및 서비스에서 LinkedIn 정보를 보려면 사용자는 고�
 
 Microsoft 앱 및 서비스 내에서 LinkedIn 정보에 대한 액세스 권한을 통해 사용자는 조직 내외의 동료, 고객 및 파트너와 전문적인 관계를 쉽게 연결하고, 관여하고, 빌드할 수 있습니다. 새 사용자는 동료와 연결되고, 자세히 알아보고, 자세한 정보에 쉽게 액세스하여 속도를 높일 수 있습니다. Microsoft 앱의 프로필 카드에서 LinkedIn 정보가 표시되는 방법의 예제는 다음과 같습니다.
 
-![LinkedIn 계정 연결 사용](./media/linkedin-user-consent/display-example.png)
+![LinkedIn 통합 사용](./media/linkedin-user-consent/display-example.png)
 
-## <a name="enable-and-announce-linkedin-account-connections"></a>LinkedIn 계정 연결 사용 및 공지
+## <a name="enable-and-announce-linkedin-integration"></a>LinkedIn 통합 사용 및 알림
 
 조직에 대한 설정을 관리하려면 Azure Active Directory 관리자여야 합니다. 모든 사용자 또는 사용자의 특정 집합에 대해 사용할 수 있습니다.
 
-1. 계정 연결 통합을 사용하거나 사용하지 않도록 설정하려면 [LinkedIn 계정 연결](linkedin-integration.md)의 단계를 따릅니다.
+1. 통합을 사용하거나 사용하지 않도록 설정하려면 [LinkedIn 통합](linkedin-integration.md)의 단계를 따릅니다.
 2. 조직에서 LinkedIn을 통합한다고 공지하면 사용자에게 [Microsoft 앱 및 서비스의 LinkedIn 정보](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381)에 대한 FAQ를 알려줍니다. 이 문서에서는 LinkedIn 정보가 표시되는 위치, 계정을 연결하는 방법 등에 대한 정보를 제공합니다.
 
 ## <a name="user-consent-for-data-access-in-microsoft-and-linkedin"></a>Microsoft 및 LinkedIn의 데이터 액세스에 대한 사용자 동의

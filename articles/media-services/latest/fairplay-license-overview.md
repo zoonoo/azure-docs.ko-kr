@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 12/08/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 66d816795ec06891aafce73036d7aea9bb52b2c8
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: e861d8fe22d4e7acb970990b27998caf923ed6c2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140541"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449652"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Apple FairPlay 라이선스 요구 사항 및 구성 
 
 Azure Media Services를 사용하면 **Apple FairPlay**(AES-128 CBC)로 HLS 콘텐츠를 암호화할 수 있습니다. 또한 Media Services는 FairPlay 라이선스를 배달하는 서비스를 제공합니다. 플레이어가 FairPlay로 보호된 콘텐츠를 재생하려고 하면 라이선스 배달 서비스로 요청이 전송되어 라이선스를 얻습니다. 라이선스 서비스에서 요청을 승인하면 클라이언트로 전송하여 지정된 콘텐츠의 암호를 해독하고 재생하는 데 사용되는 라이선스가 발급됩니다.
 
-또한 Media Services는 FairPlay 라이선스를 구성할 수 있는 API를 제공합니다. 이 항목에서는 FairPlay 라이선스 요구 사항을 설명하고 Media Services API를 사용하여 **FairPlay** 라이선스를 구성하는 방법을 보여 줍니다. 
+또한 Media Services는 FairPlay 라이선스를 구성할 수 있는 API를 제공합니다. 이 항목에서는 FairPlay 라이선스 요구 사항을 설명하고 Media Services API를 사용하여 **FairPlay** 라이선스를 구성하는 방법을 보여줍니다. 
 
 ## <a name="requirements"></a>요구 사항
 

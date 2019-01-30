@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 85d054be6b72c736ec66384b9caec71208f36802
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 1ad85a57762ae4fba30e1699b38eaa52d45ab26e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869366"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447210"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 개요
 Azure Cloud Shell은 Azure 리소스를 관리하기 위한 브라우저에서 액세스할 수 있는 대화형 셸입니다.
@@ -57,11 +57,16 @@ Cloud Shell은 오픈 소스 Monaco 편집기에 따라 통합된 그래픽 텍�
 
 [Cloud Shell 편집기에 대해 자세히 알아보세요](using-cloud-shell-editor.md).
 
+### <a name="integrated-with-docsmicrosoftcom"></a>docs.microsoft.com과 통합
+
+[docs.microsoft.com](https://docs.microsoft.com)에서 호스트되는 설명서에서 직접 Cloud Shell을 사용할 수 있습니다. [Microsoft Learn](https://docs.microsoft.com/learn/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 및 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)에 통합됩니다. 몰입형 셸 환경을 열려면 코드 조각에서 “사용해보기” 단추를 클릭합니다. 
+
 ### <a name="multiple-access-points"></a>여러 액세스 포인트
 Cloud Shell은 다음에서 사용할 수 있는 유연한 도구입니다.
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Azure CLI “실행” 문서](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
+* [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)
+* [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/overview)
 * [Azure 모바일 앱](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [VS Code Azure 계정 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 

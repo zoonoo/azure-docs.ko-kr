@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 12/12/2018
-ms.openlocfilehash: f6191ba2f6ca86e07842030c0fca0a65b8c9d09a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.date: 01/22/2019
+ms.openlocfilehash: 420d3c256f9bf2d0884e98312a5a66aea08b13bc
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584499"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450884"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database Managed Instance 리소스 제한 사항에 대한 개요
 
@@ -39,7 +39,8 @@ Azure SQL Database Managed Instance는 두 가지 하드웨어 세대(Gen4 및 G
 | 하드웨어 | Intel E5-2673 v3(Haswell) 2.4GHz 프로세서, 연결형 SSD, vCore = 1PP(물리적 코어) | Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서, 고속 eNVM SSD, vCore = 1LP(하이퍼스레드) |
 | 컴퓨팅 | 8, 16, 24개 vCore | 8, 16, 24, 32, 40, 64, 80개 vCore |
 | 메모리 | vCore당 7GB | vCore당 5.1GB |
-| 최대 저장소 크기(중요 비즈니스용) | 1TB | 코어 수에 따라 1TB, 2TB 또는 4TB |
+| 최대 스토리지 크기(범용) |  8 TB | 1TB |
+| 최대 저장소 크기(중요 비즈니스용) | 8 TB | 코어 수에 따라 1TB, 2TB 또는 4TB |
 
 ### <a name="service-tier-characteristics"></a>서비스 계층 특성
 
@@ -53,8 +54,7 @@ Managed Instance에는 범용 및 중요 비즈니스용의 두 가지 서비스
 | 데이터베이스당 최대 저장소 | 인스턴스당 최대 저장소 크기에 따라 결정됨 | 인스턴스당 최대 저장소 크기에 따라 결정됨 |
 | 인스턴스당 최대 데이터베이스 수 | 100 | 100 |
 | 인스턴스당 최대 데이터베이스 파일 수 | 최대 280개 | 데이터베이스당 32,767개 파일 |
-| 데이터/로그 IOPS(근사치) | 파일당 500~7,500개<br/>\*[파일 크기에 따라 다름](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K~110K(vCore당 1375) |
-| 인스턴스 로그 처리량 | 인스턴스당 22MB/초 | vCore당 3MB/초<br/>최대 48MB/초 |
+| 데이터/로그 IOPS(근사치) | 파일당 500~7,500개<br/>\*[파일 크기에 따라 다름](https://docs.microsoft.com/azure/virtual-machines ce 로그 처리량 | 인스턴스당 22MB/초 | vCore당 3MB/초<br/>최대 48MB/초 |
 | 데이터 처리량(근사치) | 파일당 100~250MB/초<br/>\*[파일 크기에 따라 다름](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | vCore당 24~48MB/초 |
 | IO 대기 시간(근사치) | 5~10ms | 1~2ms |
 | 최대 tempDB 크기 | 192~1920GB(vCore당 24GB) | 제약 조건 없음 - 최대 인스턴스 스토리지 크기로 제한됨 |

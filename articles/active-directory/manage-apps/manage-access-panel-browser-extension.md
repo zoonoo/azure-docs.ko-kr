@@ -4,7 +4,7 @@ description: 그룹 정책을 사용하여 My Apps 포털용 Internet Explorer �
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9ebd949460f826c9529b9f392bc4a7f4918ee170
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7ccaf272a79268ecd781821593a6041d5653a39b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715043"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471891"
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Internet Explorer용 액세스 패널 확장 문제 해결
 이 문서는 다음과 같은 문제를 해결하는 데 도움이 됩니다.
@@ -28,7 +28,7 @@ ms.locfileid: "44715043"
 * Internet Explorer를 사용하는 중에 My Apps 포털을 통해 응용 프로그램에 액세스할 수 없습니다.
 * 소프트웨어를 이미 설치했는데도 "소프트웨어 설치" 메시지가 나타납니다.
 
-관리자인 경우 [Internet Explorer용 액세스 패널 확장을 배포하는 방법](deploy-access-panel-browser-extension.md)
+관리자인 경우 [그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법](deploy-access-panel-browser-extension.md)도 참조하세요.
 
 ## <a name="run-the-diagnostic-tool"></a>진단 도구 실행
 액세스 패널 진단 도구를 다운로드 및 실행하여 액세스 패널 확장의 설치 문제를 진단할 수 있습니다.
@@ -91,6 +91,6 @@ InPrivate 브라우징 모드를 사용 중인 경우:
 확장을 제거하는 데 문제가 있으면 [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673) 도구를 사용하여 제거할 수도 있습니다.
 
 ## <a name="related-articles"></a>관련 문서
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On](what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On](what-is-single-sign-on.md)
 * [그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법](deploy-access-panel-browser-extension.md)
 

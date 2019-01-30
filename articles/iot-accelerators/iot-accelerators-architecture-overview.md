@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: philmea
-ms.openlocfilehash: 5fb615ff042cc5cdd3b6b8e42e4d91b161ebf445
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: ba5eb50dcf800c186124db348ac584ff6f55cebb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602378"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467318"
 ---
 # <a name="introduction-to-the-azure-iot-reference-architecture"></a>Azure IoT 참조 아키텍처 소개
 
@@ -79,7 +79,7 @@ IoT 솔루션은 거의 모든 종류의 디바이스 및 클라우드 게이트
 
 라우팅은 하나 이상의 스토리지 엔드포인트, 분석 프로세스 및 조치에 원격 분석을 디스패치할 수 있습니다. 솔루션은 다양한 순서로 스테이지를 결합하고 동시 병렬 작업으로 처리할 수 있습니다.
 
-원격 모니터링 솔루션은 스트림 처리를 위해 [Azure Stream Analytics](/azure/stream-analytics/)를 사용합니다. 솔루션의 규칙 엔진은 Stream Analytics 쿼리를 사용하여 알람 및 조치를 생성합니다. 예를 들어, 솔루션은 5분 동안 트럭 수납부의 평균 온도가 36도 아래로 떨어지는 경우를 식별하는 쿼리를 사용할 수 있습니다.
+원격 모니터링 솔루션은 스트림 처리를 위해 [Azure Stream Analytics](/azure/stream-analytics/)를 사용합니다. 솔루션의 규칙 엔진은 Stream Analytics 쿼리를 사용하여 경고와 작업을 생성합니다. 예를 들어, 솔루션은 5분 동안 트럭 수납부의 평균 온도가 36도 아래로 떨어지는 경우를 식별하는 쿼리를 사용할 수 있습니다.
 
 ### <a name="storage"></a>Storage
 

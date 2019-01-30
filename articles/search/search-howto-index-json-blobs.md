@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 6df8d9a5c1ca1e587834ea08f73b3dd9498f8537
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: cafb48f28e38794ce0757d50a5d87432b237e17c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753152"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467166"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Azure Search BLOB 인덱서를 사용하여 JSON BLOB 인덱싱
 이 문서에서는 Azure Blob Storage의 JSON Blob에서 구조화된 콘텐츠를 추출하도록 Azure Search Blob 인덱서를 구성하는 방법을 보여줍니다.
@@ -23,6 +23,9 @@ ms.locfileid: "53753152"
 [포털](#json-indexer-portal), [REST API](#json-indexer-rest) 또는 [.NET SDK](#json-indexer-dotnet)를 사용하여 JSON 콘텐츠를 인덱싱할 수 있습니다. 모든 방법에 공통되는 JSON 문서는 Azure Storage 계정의 blob 컨테이너에 있습니다. 다른 비 Azure 플랫폼에서 JSON 문서를 푸시하는 방법에 대한 지침은 [Azure Search에서 데이터 가져오기](search-what-is-data-import.md)를 참조하세요.
 
 Azure Blob Storage에서 JSON Blob은 일반적으로 단일 JSON 문서 또는 JSON 배열입니다. Azure Search에서 Blob 인덱서는 요청에 대한 **parsingMode** 매개 변수를 설정하는 방법에 따라 생성을 구문 분석할 수 있습니다.
+
+> [!IMPORTANT]
+> JSON Blob 인덱싱은 일반적으로 사용할 수 있지만, JsonArray 구문 분석은 공개 미리 보기이며 프로덕션 환경에서 사용하지 않아야 합니다. 자세한 내용은 [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md)를 참조하세요. 
 
 <a name="json-indexer-portal"></a>
 

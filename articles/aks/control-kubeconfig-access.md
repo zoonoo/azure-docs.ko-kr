@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: ae45a268536f6a8fcb4ab27336a1281837cf5dc7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 40588ec29eb6f7c33ba5e1d6071caf5c8ed43424
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54045495"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450178"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Azure 역할 기반 액세스 제어를 사용하여 AKS(Azure Kubernetes Service)의 Kubernetes 구성 파일에 대한 액세스 정의
 
-`kubectl` 도구를 사용하여 Kubernetes 클러스터와 상호 작용할 수 있습니다. Azure CLI는 `kubectl`을 사용하여 AKS 클러스터에 연결하는 데 필요한 액세스 자격 증명 및 구성 정보를 쉽게 받을 수 있는 방법을 제공합니다. Kubernetes 구성(*kubeconfig*) 정보를 받을 수 있는 사람과 그 권한을 제한하려면 Azure 역할 기반 액세스 제어(RBAC)를 사용하면 됩니다.
+`kubectl` 도구를 사용하여 Kubernetes 클러스터와 상호 작용할 수 있습니다. Azure CLI는 `kubectl`을 사용하여 AKS 클러스터에 연결하는 데 필요한 액세스 자격 증명 및 구성 정보를 쉽게 받을 수 있는 방법을 제공합니다. Kubernetes 구성(*kubeconfig*) 정보를 가져올 수 있는 사용자와 해당 권한을 제한하려면 Azure RBAC(역할 기반 액세스 제어)를 사용할 수 있습니다.
 
 이 문서에서는 AKS 클러스터의 구성 정보를 받을 수 있는 사람을 제한하는 RBAC 역할을 할당하는 방법을 보여줍니다.
 
@@ -128,7 +128,7 @@ az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
 
 ## <a name="next-steps"></a>다음 단계
 
-보안 향상 및 AKS 클러스터 액세스를 위해 [Azure Active Directory 인증 통합][aad-integration].
+AKS 클러스터에 대한 액세스 보안을 강화하기 위해 [Azure Active Directory 인증을 통합][aad-integration]합니다.
 
 <!-- LINKS - external -->
 [kubectl-config-use-context]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#config

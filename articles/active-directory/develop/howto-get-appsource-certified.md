@@ -17,16 +17,16 @@ ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 30dff14f322bcd66ea56b4b12843a6293cd95326
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 6a1e3d2362ab711ee50f9ca94737883893e2ffd5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423799"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450340"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory에 대해 인증된 AppSource 가져오는 방법
 
-[Microsoft AppSource](https://appsource.microsoft.com/)는 기간 업무 SaaS 응용 프로그램을 검색, 시도 및 관리하는 비즈니스 사용자에 대한 대상입니다(기존 Microsoft SaaS 제품에 대한 독립 실행형 SaaS 및 추가 기능).
+[Microsoft AppSource](https://appsource.microsoft.com/)는 기간 업무 SaaS 애플리케이션을 검색, 시도 및 관리하는 비즈니스 사용자에 대한 대상입니다(기존 Microsoft SaaS 제품에 대한 독립 실행형 SaaS 및 추가 기능).
 
 AppSource에서 독립 실행형 SaaS 애플리케이션을 나열하려면 애플리케이션은 Azure AD(Azure Active Directory)가 있는 모든 회사 또는 조직의 작업 계정에서 Single Sign-On을 허용해야 합니다. 로그인 프로세스는 [OpenID Connect](v1-protocols-openid-connect-code.md) 또는 [OAuth 2.0](v1-protocols-oauth-code.md) 프로토콜을 사용해야 합니다. SAML 통합은 AppSource 인증에 허용되지 않습니다.
 
@@ -36,10 +36,10 @@ Open ID를 사용하여 애플리케이션을 Azure AD와 통합하는 방법에
 
 ## <a name="multi-tenant-applications"></a>다중 테넌트 애플리케이션
 
-*다중 테넌트 응용 프로그램*은 별도 인스턴스, 구성 또는 배포를 요구하지 않고 Azure AD가 있는 모든 회사 또는 조직에서 사용자의 로그인을 허용하는 응용 프로그램입니다. AppSource에서는 애플리케이션이 *단일 클릭* 평가판 체험을 활성화하도록 다중 테넌트를 구현하는 것을 권장합니다.
+*다중 테넌트 애플리케이션*은 별도 인스턴스, 구성 또는 배포를 요구하지 않고 Azure AD가 있는 모든 회사 또는 조직에서 사용자의 로그인을 허용하는 애플리케이션입니다. AppSource에서는 애플리케이션이 *단일 클릭* 평가판 체험을 활성화하도록 다중 테넌트를 구현하는 것을 권장합니다.
 
 애플리케이션에서 다중 테넌트를 활성화하려면 다음 단계를 수행합니다.
-1. [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)의 응용 프로그램 등록 정보에서 `Multi-Tenanted` 속성을 `Yes`로 설정합니다. 기본적으로 Azure Portal에서 만든 애플리케이션은 *[단일 테넌트](#single-tenant-applications)* 로 구성됩니다.
+1. [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)의 애플리케이션 등록 정보에서 `Multi-Tenanted` 속성을 `Yes`로 설정합니다. 기본적으로 Azure Portal에서 만든 애플리케이션은 *[단일 테넌트](#single-tenant-applications)* 로 구성됩니다.
 1. `common` 엔드포인트에 요청을 보내도록 코드를 업데이트합니다. 이렇게 하려면 엔드포인트를 `https://login.microsoftonline.com/{yourtenant}`에서 `https://login.microsoftonline.com/common*`으로 업데이트합니다.
 1. ASP .NET과 같은 일부 플랫폼의 경우 여러 발급자를 허용하도록 코드를 업데이트해야 합니다.
 
@@ -47,9 +47,9 @@ Open ID를 사용하여 애플리케이션을 Azure AD와 통합하는 방법에
 
 ### <a name="single-tenant-applications"></a>단일 테넌트 애플리케이션
 
-*단일 테넌트 응용 프로그램*은 정의된 Azure AD 인스턴스의 사용자의 로그인만 허용하는 응용 프로그램입니다. 외부 사용자(다른 조직의 회사 또는 학교 계정 또는 개인 계정 포함)는 각 사용자를 게스트 계정으로 애플리케이션이 등록된 Azure AD 인스턴스에 추가한 후 단일 테넌트 애플리케이션에 로그인 할 수 있습니다. 
+*단일 테넌트 애플리케이션*은 정의된 Azure AD 인스턴스의 사용자의 로그인만 허용하는 애플리케이션입니다. 외부 사용자(다른 조직의 회사 또는 학교 계정 또는 개인 계정 포함)는 각 사용자를 게스트 계정으로 애플리케이션이 등록된 Azure AD 인스턴스에 추가한 후 단일 테넌트 애플리케이션에 로그인 할 수 있습니다. 
 
-사용자를 게스트 계정으로 [Azure AD B2B 공동 작업](../b2b/what-is-b2b.md)을 통해 Azure AD에 추가할 수 있으며 이를 [프로그래밍 방식으로](../../active-directory-b2c/code-samples.md) 수행할 수 있습니다. B2B를 사용하는 경우 사용자는 로그인하라는 초대장이 필요하지 않은 셀프 서비스 포털을 만들 수 있습니다. 자세한 내용은 [Azure AD B2B 공동 작업 등록을 위한 셀프 서비스 포털](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal)을 참조하세요.
+[Azure AD B2B 공동 작업](../b2b/what-is-b2b.md)을 통해 사용자를 게스트 계정으로 Azure AD에 추가할 수 있으며, 이 작업은 [프로그래밍 방식으로](../../active-directory-b2c/code-samples.md) 수행할 수 있습니다. B2B를 사용하는 경우 사용자는 로그인하라는 초대장이 필요하지 않은 셀프 서비스 포털을 만들 수 있습니다. 자세한 내용은 [Azure AD B2B 공동 작업 등록을 위한 셀프 서비스 포털](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal)을 참조하세요.
 
 단일 테넌트 애플리케이션은 *연락처* 환경을 활성화할 수 있지만 AppSource가 권장하는 단일 클릭/평가판 체험을 활성화하려는 경우 애플리케이션에서 다중 테넌트를 대신 활성화합니다.
 

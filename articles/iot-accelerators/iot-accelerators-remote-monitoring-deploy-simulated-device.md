@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: f073637810e9ed1acdf37b0e541ca3f1d518de2a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8491acfd28524ee3bbbd06c788afb668c40c98b9
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43346624"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450584"
 ---
 # <a name="deploy-a-new-simulated-device"></a>시뮬레이트된 새 디바이스 배포
 
@@ -41,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 - [원격 모니터링 솔루션 가속기](https://www.azureiotsolutions.com/Accelerators#solutions/types/RM2)의 배포된 인스턴스
 - `ssh` 및 `scp` 명령을 실행하기 위한 로컬 **bash** 셸. Windows에서 **bash**를 설치하는 쉬운 방법은 [git](https://git-scm.com/download/win)을 설치하는 것입니다.
-- [시뮬레이트된 새 장치 만들기 및 테스트](iot-accelerators-remote-monitoring-create-simulated-device.md)에 설명된 것과 같은 사용자 지정 장치 모델 파일
+- [시뮬레이트된 새 디바이스 만들기 및 테스트](iot-accelerators-remote-monitoring-create-simulated-device.md)에 설명된 것과 같은 사용자 지정 디바이스 모델 파일
 
 [!INCLUDE [iot-solution-accelerators-access-vm](../../includes/iot-solution-accelerators-access-vm.md)]
 
@@ -135,7 +135,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. [Microsoft Azure IoT 솔루션 가속기](https://www.azureiotsolutions.com/Accelerators#dashboard)에서 원격 모니터링 대시보드를 시작합니다.
 
-1. **장치** 페이지에서 시뮬레이트된 장치를 추가합니다. 시뮬레이트된 새 디바이스를 추가하면 새 디바이스 모델을 선택할 수 있습니다.
+1. **디바이스** 페이지에서 시뮬레이트된 디바이스를 추가합니다. 시뮬레이트된 새 디바이스를 추가하면 새 디바이스 모델을 선택할 수 있습니다.
 
 1. 대시보드에서 디바이스 원격 분석을 보고 디바이스 메서드를 호출할 수 있습니다.
 
@@ -147,4 +147,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 가이드에서는 원격 모니터링 솔루션 가속기에 사용자 지정 디바이스 모델을 배포하는 방법을 살펴보았습니다. 제안된 다음 단계는 [물리적 디바이스를 원격 모니터링 솔루션에 연결](iot-accelerators-connecting-devices-node.md)하는 방법을 알아보기 위한 것입니다.
+이 가이드에서는 원격 모니터링 솔루션 가속기에 사용자 지정 디바이스 모델을 배포하는 방법을 살펴보았습니다. 제안되는 다음 단계는 [실제 디바이스를 원격 모니터링 솔루션에 연결](iot-accelerators-connecting-devices-node.md)하는 방법을 알아보는 것입니다.

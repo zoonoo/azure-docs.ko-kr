@@ -3,19 +3,19 @@ title: Azure Active Directory를 사용하여 복원력 있는 액세스 제어 
 description: 이 문서에서는 조직이 예기치 않은 중단 시 잠금의 위험을 줄이는 복원력을 제공하기 위해 채택해야 하는 전략에 대한 지침을 제공합니다.
 services: active-directory
 author: martincoetzer
-manager: mtillman
+manager: daveba
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
-ms.openlocfilehash: caabc5a396c015b806778bfc5887b0708897101e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9e13b8872fab89bef6ec952fe2ee0b901a25092e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101924"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452550"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory를 사용하여 복원력 있는 액세스 제어 관리 전략 수립
 
@@ -119,30 +119,48 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 * 특정 인증 수준에 도달하지 못하는 경우 단순히 전체 액세스로 대체하는 대신 앱 내에서 액세스를 제한하는 정책을 사용합니다. 예: 
   * 제한된 세션 클레임을 Exchange 및 SharePoint로 보내는 백업 정책을 구성합니다.
   * 조직에서 MCAS(Microsoft Cloud App Security)를 사용하는 경우 MCAS를 사용하는 정책으로 대체한 다음, MCAS에서 읽기 전용 액세스만 허용하고 업로드는 허용하지 않는 것이 좋습니다.
+* 중단 시 정책을 쉽게 찾을 수 있도록 해당 정책의 이름을 지정합니다. 정책 이름에 포함되는 요소는 다음과 같습니다.
+  * 정책에 대한 *레이블 번호*
+  * 표시할 텍스트 - 이 정책은 응급 상황에만 적용됩니다. 예:  **응급 상황에서 사용**
+  * 적용되는 *중단*. 예:  **MFA 중단 시**
+  * 정책을 활성화해야 하는 순서를 나타내는 *시퀀스 번호*
+  * 적용되는 *앱*
+  * 적용할 *제어*
+  * 필요한 *조건*
+  
+대체 정책에 대한 이 명명 표준은 다음과 같습니다. 
 
-다음 예제를 참조하세요. **예제 A - 중요 업무용 공동 작업 앱에 대한 액세스를 복원하는 대응 CA 정책**은 일반적인 회사 대응 정책입니다. 이 시나리오에서 조직은 일반적으로 모든 Exchange Online 및 SharePoint Online 액세스에서 MFA를 요구하며, 이 경우 중단되면 고객에 대한 MFA 공급자(Azure MFA, 온-프레미스 MFA 공급자 또는 타사 MFA)가 중단된 것입니다. 이 정책은 특정 대상 사용자가 신뢰할 수 있는 회사 네트워크에서 해당 애플리케이션에 액세스할 때만 신뢰할 수 있는 Windows 디바이스에서 이러한 애플리케이션에 액세스할 수 있도록 하여 이러한 중단을 완화합니다. 또한 응급 계정과 핵심 관리자도 이러한 제한에서 제외됩니다. 이 예제에서는 대상 사용자가 있는 **CorpNetwork** 네트워크 위치와 **ContingencyAccess** 보안 그룹, 핵심 관리자가 있는 **CoreAdmins** 그룹 및 응급 액세스 계정이 있는 **EmergencyAccess** 그룹이 필요합니다. 긴급 상황에는 원하는 액세스를 제공하는 4가지 정책이 필요합니다.
+`
+EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
+`
+
+다음 예제를 참조하세요. **예제 A - 중요 업무용 공동 작업 앱에 대한 액세스를 복원하는 대응 CA 정책**은 일반적인 회사 대응 정책입니다. 이 시나리오에서 조직은 일반적으로 모든 Exchange Online 및 SharePoint Online 액세스에서 MFA를 요구하며, 이 경우 중단되면 고객에 대한 MFA 공급자(Azure MFA, 온-프레미스 MFA 공급자 또는 타사 MFA)가 중단된 것입니다. 이 정책은 특정 대상 사용자가 신뢰할 수 있는 회사 네트워크에서 해당 애플리케이션에 액세스할 때만 신뢰할 수 있는 Windows 디바이스에서 이러한 애플리케이션에 액세스할 수 있도록 하여 이러한 중단을 완화합니다. 또한 응급 계정과 핵심 관리자도 이러한 제한에서 제외됩니다. 그러면 대상으로 지정된 사용자는 Exchange Online 및 SharePoint Online에 액세스할 수 있지만, 다른 사용자는 중단으로 인해 애플리케이션에 액세스할 수 없습니다. 이 예제에서는 대상 사용자가 있는 **CorpNetwork** 네트워크 위치와 **ContingencyAccess** 보안 그룹, 핵심 관리자가 있는 **CoreAdmins** 그룹 및 응급 액세스 계정이 있는 **EmergencyAccess** 그룹이 필요합니다. 긴급 상황에는 원하는 액세스를 제공하는 4가지 정책이 필요합니다. 
 
 **예제 A - 중요 업무용 공동 작업 앱에 대한 액세스를 복원하는 대응 CA 정책:**
 
 * 정책 1: Exchange 및 SharePoint에 대한 도메인 조인 디바이스 필요
+  * 이름: EM001 - 응급 상황에서 사용: MFA 중단[1/4] - Exchange SharePoint - 하이브리드 Azure AD 조인 필요
   * 사용자 및 그룹: ContingencyAccess 포함, CoreAdmins 및 EmergencyAccess 제외
   * 클라우드 앱: Exchange Online 및 SharePoint Online
   * 조건: 모두
   * 제어 권한 부여: 도메인 조인 필요
   * 상태: 사용 안 함
 * 정책 2: Windows 이외의 플랫폼 차단
+  * 이름: EM002 - 응급 상황에서 사용: MFA 중단[2/4] - Exchange SharePoint - Windows를 제외한 액세스 차단
   * 사용자 및 그룹: 모든 사용자 포함, CoreAdmins 및 EmergencyAccess 제외
   * 클라우드 앱: Exchange Online 및 SharePoint Online
   * 조건: 디바이스 플랫폼, 모든 플랫폼 포함, Windows 제외
   * 제어 권한 부여: Block
   * 상태: 사용 안 함
 * 정책 3: CorpNetwork 이외의 네트워크 차단
+  * 이름: EM003 - 응급 상황에서 사용: MFA 중단[3/4] - Exchange SharePoint - 회사 네트워크를 제외한 액세스 차단
   * 사용자 및 그룹: 모든 사용자 포함, CoreAdmins 및 EmergencyAccess 제외
   * 클라우드 앱: Exchange Online 및 SharePoint Online
   * 조건: 위치, 모든 위치 포함, CorpNetwork 제외
   * 제어 권한 부여: Block
   * 상태: 사용 안 함
 * 정책 4: 명시적으로 EAS 차단
+  * 이름: EM004 - 응급 상황에서 사용: MFA 중단[4/4] - Exchange - 모든 사용자에 대한 EAS 차단
   * 사용자 및 그룹: 모든 사용자 포함
   * 클라우드 앱: Exchange Online 포함
   * 조건: 클라이언트 앱: Exchange Active Sync
@@ -163,12 +181,14 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 **예제 B - 대응 CA 정책:**
 
 * 정책 1: SalesContingency 팀에 속하지 않은 모든 사용자 차단
+  * 이름: EM001 - 응급 상황에서 사용: 디바이스 규정 준수 중단[1/2]- Salesforce - SalesforceContingency를 제외한 모든 사용자 차단
   * 사용자 및 그룹: 모든 사용자 포함, SalesAdmins 및 SalesforceContingency 제외
   * 클라우드 앱: Salesforce
   * 조건: 없음
   * 제어 권한 부여: Block
   * 상태: 사용 안 함
 * 정책 2: 모바일 이외의 모든 플랫폼에서 판매 팀 차단(공격 노출 영역을 줄이기 위해)
+  * 이름: EM002 - 응급 상황에서 사용: 디바이스 규정 준수 중단[2/2]- Salesforce - iOS 및 Android를 제외한 모든 플랫폼 차단
   * 사용자 및 그룹: SalesforceContingency 포함, SalesAdmins 제외
   * 클라우드 앱: Salesforce
   * 조건: 디바이스 플랫폼, 모든 플랫폼 포함, iOS 및 Android 제외
@@ -179,7 +199,7 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 
 1. Salesforce에 대한 기존 디바이스 규정 준수 정책에서 SalesAdmins 및 SalesforceContingency를 제외합니다. SalesforceContingency 그룹에 속한 사용자가 Salesforce에 액세스할 수 있는지 확인합니다.
 2. 정책 1 사용 설정: SalesContingency에 속하지 않은 사용자가 Salesforce에 액세스할 수 없는지 확인합니다. SalesAdmins 및 SalesforceContingency에 속한 사용자가 Salesforce에 액세스할 수 있는지 확인합니다.
-3. 정책 2 사용 설정: SalesContigency 그룹에 속한 사용자가 Windows/Mac 랩톱에서 Salesforce에 액세스할 수 없지만 모바일 디바이스에서는 계속 액세스할 수 있는지 확인합니다. SalesAdmin이 모든 디바이스에서 Salesforce에 계속 액세스할 수 있는지 확인합니다.
+3. 정책 2 사용 설정: SalesContingency 그룹에 속한 사용자가 Windows/Mac 랩톱에서 Salesforce에 액세스할 수 없지만 모바일 디바이스에서는 계속 액세스할 수 있는지 확인합니다. SalesAdmin이 모든 디바이스에서 Salesforce에 계속 액세스할 수 있는지 확인합니다.
 4. Salesforce에 대한 기존 디바이스 규정 준수 정책을 사용하지 않도록 설정합니다.
 
 ### <a name="deploy-password-hash-sync-even-if-you-are-federated-or-use-pass-through-authentication"></a>페더레이션되었거나 통과 인증을 사용하는 경우에도 암호 해시 동기화 배포
@@ -215,14 +235,14 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 
 ## <a name="after-a-disruption"></a>중단 후
 
-중단을 초래한 서비스가 복원되면 활성화된 대응 계획의 일환으로 변경 내용을 실행 취소해야 합니다. 
+중단이 발생한 서비스가 복원되면 활성화된 대체 계획의 일환으로 변경을 실행 취소합니다. 
 
 1. 일반 정책을 사용하도록 설정합니다.
 2. 대응 정책을 사용하지 않도록 설정합니다. 
 3. 중단 중에 수행되고 문서화된 다른 변경을 롤백합니다.
 4. 응급 액세스 계정을 사용한 경우 응급 액세스 계정 절차의 일환으로 자격 증명을 다시 생성하고 새 자격 증명의 세부 정보를 물리적으로 보호합니다.
 5. 의심스러운 활동의 중단 후에 [보고된 모든 위험 이벤트를 계속 심사](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins)합니다.
-6. [PowerShell을 사용](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0)하여 발급된 모든 새로 고침 토큰을 철회하여 일단의 사용자를 대상으로 지정합니다. 모든 새로 고침 토큰을 철회하는 것은 중단 중에 사용되는 권한 있는 계정에 특히 중요하며, 이를 수행하는 경우 다시 인증하고 복원된 정책의 제어를 충족하도록 강제로 적용합니다.
+6. [PowerShell을 사용](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0)하여 발급된 모든 새로 고침 토큰을 철회하여 일단의 사용자를 대상으로 지정합니다. 모든 새로 고침 토큰을 철회하는 것은 중단 중에 사용되는 권한 있는 계정에 중요합니다. 이를 수행하는 경우 복원된 정책의 제어를 다시 인증하고 충족하도록 강제로 적용합니다.
 
 ## <a name="emergency-options"></a>응급 옵션
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 5059e4c00fc3bcbee76f8f5a3746b4d8783d901b
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: c38ca56bc71215ed7fb64d346571ca517a79914f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359275"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450203"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>미디어 인코더 Premium 워크플로 형식 및 코덱
 
@@ -31,9 +31,9 @@ ms.locfileid: "54359275"
 
 이 문서에는 **미디어 인코더 Premium 워크플로** 인코더의 공개 미리 보기 버전에서 지원하는 입력 및 출력 파일 형식과 코덱 목록이 포함되어 있습니다.
 
-[미디어 인코더 Premium 워크플로 입력 형식 및 코덱](#input_formats)
+[Media Encoder Premium Workflow 입력 형식 및 코덱](#input_formats)
 
-[미디어 인코더 Premium 워크플로 출력 형식 및 코덱](#output_formats)
+[Media Encoder Premium Workflow 출력 형식 및 코덱](#output_formats)
 
 **미디어 인코더 Premium 워크플로** 는 [이](#closed_captioning) 섹션에 설명된 선택 캡션을 지원합니다. 
 

@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: 동기화 중의 오류 문제 해결 | Microsoft Docs'
+title: 'Azure AD Connect: 동기화 중 오류 문제 해결 | Microsoft Docs'
 description: Azure AD Connect와의 동기화 중에 발생하는 오류의 문제 해결 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 2209d5ce-0a64-447b-be3a-6f06d47995f8
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c94ecc223c4e2c0533c23e58823bb203064ceef6
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 34a719c8fb62a2b993320d1bd9f97f9d47abf494
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250474"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463315"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>동기화 중 오류 문제 해결
 ID 데이터가 Windows Server Active Directory(AD DS)로부터 Azure AD(Azure Active Directory)로 동기화되는 중에 오류가 발생할 수 있습니다. 이 문서에서는 여러 동기화 오류 유형, 오류가 발생할 수 있는 몇 가지 상황, 오류를 해결할 수 있는 가능한 방법에 대한 개요를 제공합니다. 이 문서는 일반적인 오류 유형을 다루며 가능한 모든 오류를 포괄하지 못할 수 있습니다.
@@ -30,7 +30,7 @@ Azure AD Connect \(2016년 8월 이상\)의 최신 버전에서는 [Azure Portal
 
 2016년 9월 1일부터 모든 *새* Azure Active Directory 테넌트에 대해 [Azure Active Directory Duplicate Attribute Resiliency](how-to-connect-syncservice-duplicate-attribute-resiliency.md) 기능이 기본적으로 활성화됩니다. 향후 몇 달 안에 기존 테넌트에 대해 이 기능이 자동으로 활성화될 것입니다.
 
-Azure AD Connect는 가져오기, 동기화, 내보내기 등, 동기 상태를 유지하는 디렉터리로부터 3가지 유형의 작업을 수행합니다. 오류는 모든 작업에서 발생할 수 있습니다. 이 문서는 주로 Azure AD로 내보내는 중 발생하는 오류에 초점을 맞춥니다.
+Azure AD Connect는 동기화 상태를 유지하는 디렉터리에서 3가지 유형의 작업, 즉 가져오기, 동기화 및 내보내기를 수행합니다. 오류는 모든 작업에서 발생할 수 있습니다. 이 문서는 주로 Azure AD로 내보내는 중 발생하는 오류에 초점을 맞춥니다.
 
 ## <a name="errors-during-export-to-azure-ad"></a>Azure AD로 내보내는 중 오류
 다음 섹션에서는 Azure AD 커넥터를 사용하여 Azure AD로의 내보내기 작업 중 발생할 수 있는 여러 동기화 오류 유형을 설명합니다. 이 커넥터는 "contoso.*onmicrosoft.com*" 이름 형식으로 식별할 수 있습니다.

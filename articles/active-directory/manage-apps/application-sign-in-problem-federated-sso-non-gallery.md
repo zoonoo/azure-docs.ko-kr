@@ -4,7 +4,7 @@ description: Azure AD에서 SAML 기반 페더레이션된 Single Sign-On에 대
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 17114818105935d8d6a7ac647f1d98c097e78efd
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8f545aad7256764780a68f4b43ee30bf68749187
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355437"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469715"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>페더레이션된 Single Sign-On에 대해 구성된 비갤러리 애플리케이션에 로그인하는 문제
 
@@ -34,7 +34,7 @@ ms.locfileid: "44355437"
 
 ## <a name="application-not-found-in-directory"></a>애플리케이션을 디렉터리에서 찾을 수 없습니다
 
-*오류 AADSTS70001: ‘https://contoso.com’ 식별자를 가진 응용 프로그램이 디렉터리에 없습니다*.
+*오류 AADSTS70001: 식별자가 'https://contoso.com'인 애플리케이션이 디렉터리에 없습니다*.
 
 **가능한 원인**
 
@@ -52,7 +52,7 @@ SAML 요청의 발급자 특성이 Azure AD에서 구성된 식별자 값과 일
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
+5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
    * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
@@ -66,7 +66,7 @@ Azure AD에서 식별자 값을 업데이트하고 SAML 요청에서 애플리�
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>회신 주소가 애플리케이션에 대해 구성된 회신 주소와 일치하지 않습니다. 
 
-*오류 AADSTS50011: 회신 주소 ‘https://contoso.com’이 응용 프로그램에 대해 구성된 회신 주소와 일치하지 않습니다.* 
+*오류 AADSTS50011: 'https://contoso.com' 회신 주소가 애플리케이션에 대해 구성된 회신 주소와 일치하지 않습니다*. 
 
 **가능한 원인** 
 
@@ -84,7 +84,7 @@ SAML 요청에서 AssertionConsumerServiceURL 값이 Azure AD에 구성된 회�
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다. 
 
-5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다. 
+5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다. 
 
   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
   
@@ -100,7 +100,7 @@ Azure AD에서 회신 URL 값을 업데이트하고 SAML 요청에서 애플리�
 
 ## <a name="user-not-assigned-a-role"></a>역할이 지정되지 않은 사용자
 
-*오류 AADSTS50105: 로그인한 사용자 'brian@contoso.com'는 응용 프로그램의 역할에 할당되지 않았습니다*.
+*오류 AADSTS50105: 로그인한 'brian@contoso.com' 사용자는 애플리케이션에 대한 역할에 할당되지 않았습니다*
 
 **가능한 원인**
 
@@ -118,7 +118,7 @@ Azure AD에서 회신 URL 값을 업데이트하고 SAML 요청에서 애플리�
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
+5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
@@ -134,13 +134,13 @@ Azure AD에서 회신 URL 값을 업데이트하고 SAML 요청에서 애플리�
 
 11. 목록의 **사용자** 위로 마우스를 이동하여 **확인란**을 표시합니다. 사용자의 프로필 사진이나 로고 옆의 확인란을 클릭하여 사용자를 **선택됨** 목록에 추가합니다.
 
-12. **선택 사항:** **둘 이상의 사용자를 추가**하려는 경우 **이름 또는 전자 메일 주소로 검색** 검색 상자에 다른 **전체 이름** 또는 **전자 메일 주소**를 입력하고 확인란을 클릭하여 이 사용자를 **선택됨** 목록에 추가합니다.
+12. **선택 사항:** **하나를 초과하는 사용자를 추가**하려는 경우 **이름 또는 이메일 주소로 검색** 검색 상자에 다른 **전체 이름** 또는 **이메일 주소**를 입력하고 확인란을 클릭하여 이 사용자를 **선택됨** 목록에 추가합니다.
 
 13. 사용자 선택이 완료되면 **선택** 단추를 클릭하여 애플리케이션에 할당되도록 사용자 및 그룹의 목록에 추가합니다.
 
 14. **선택 사항:** **할당 추가** 창에서 **역할 선택** 선택기를 클릭하여 선택한 사용자에게 할당할 역할을 선택합니다.
 
-15. **할당** 단추를 클릭하여 선택한 사용자에게 응용 프로그램을 할당합니다.
+15. **할당** 단추를 클릭하여 선택한 사용자에게 애플리케이션을 할당합니다.
 
 잠시 후에 선택한 사용자는 솔루션 설명 섹션에 설명된 메서드를 사용하여 이러한 애플리케이션을 시작할 수 있습니다.
 
@@ -158,7 +158,7 @@ Azure AD에서는 Single Sign-On의 애플리케이션에서 보낸 SAML 요청�
 
 **해결 방법**
 
-1.  SAML 요청을 캡처합니다. [Azure AD에서 SAML 기반 Single Sign-On 응용 프로그램을 디버깅하는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)에 대한 자습서에 따라 SAML 요청을 캡처하는 방법을 알아봅니다.
+1.  SAML 요청을 캡처합니다. [Azure AD에서 SAML 기반 Single Sign-On 애플리케이션을 디버깅하는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)에 대한 자습서에 따라 SAML 요청을 캡처하는 방법을 알아봅니다.
 
 2.  애플리케이션 공급 업체와 공유에 문의하세요.
 
@@ -170,7 +170,7 @@ Single Sign-On에 Azure AD SAML 구현을 지원하는지 유효성을 검사해
 
 ## <a name="no-resource-in-requiredresourceaccess-list"></a>requiredResourceAccess 목록에 리소스 없음
 
-*오류 AADSTS65005: 클라이언트 응용 프로그램은 리소스 '00000002-0000-0000-c000-000000000000'에 대한 액세스 권한을 요청했습니다. 클라이언트가 해당 requiredResourceAccess 목록*에 이 리소스를 지정하지 않았기 때문에 이 요청이 실패했습니다.
+*오류 AADSTS65005: 클라이언트 애플리케이션에서 '00000002-0000-0000-c000-000000000000' 리소스에 대한 액세스 권한을 요청했습니다. 클라이언트가 해당 requiredResourceAccess 목록*에 이 리소스를 지정하지 않았기 때문에 이 요청이 실패했습니다.
 
 **가능한 원인**
 
@@ -188,7 +188,7 @@ Single Sign-On에 Azure AD SAML 구현을 지원하는지 유효성을 검사해
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
+5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
@@ -220,7 +220,7 @@ Single Sign-On에 Azure AD SAML 구현을 지원하는지 유효성을 검사해
 
 4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
+5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
   * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 

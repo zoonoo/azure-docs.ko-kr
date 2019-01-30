@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.openlocfilehash: cea810a5e57f4b10c170038108226c4e0f1320bc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6f8565fcecab2c17794f94f5a051cc2f269a9d1c
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104937"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451041"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Stream Analytics의 Machine Learning 통합
 Stream Analytics는 Azure Machine Learning 엔드포인트를 호출하는 사용자 정의 함수를 지원합니다. 이 기능에 대한 REST API 지원은 [Stream Analytics REST API 라이브러리](https://msdn.microsoft.com/library/azure/dn835031.aspx)에 자세히 설명되어 있습니다. 이 문서에서는 Stream Analytics에서 이 기능을 성공적으로 구현하기 위해 필요한 추가 정보를 제공합니다. 자습서도 게시되어 있으며 [여기](stream-analytics-machine-learning-integration-tutorial.md)서 확인할 수 있습니다.
@@ -69,7 +69,7 @@ REST API를 사용하여 Azure 기계 언어 함수를 호출하는 작업을 �
 ```
 
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>기본 UDF에 대한 RetrieveDefaultDefinition 엔드포인트 호출
-기초 UDF를 만든 후에는 완전한 UDF 정의가 필요합니다. RetreiveDefaultDefinition 엔드포인트는 Azure Machine Learning 엔드포인트에 바인딩된 스칼라 함수의 기본 정의를 가져오는 데 도움이 됩니다. 아래 페이로드는 Azure Machine Learning 엔드포인트에 바인딩된 스칼라 함수의 기본 UDF 정의를 필요로 합니다. PUT 요청 동안 이미 엔드포인트가 제공되었기 때문에 실제 엔드포인트를 지정하지 않습니다. 엔드포인트가 명시적으로 제공되면 Stream Analytics는 요청에 제공된 엔드포인트를 호출합니다. 그렇지 않으면 원래 참조하던 끝점을 사용합니다. 다음 UDF는 단일 문자열 매개 변수(문장)를 가져와서 해당 문장에 대한 “sentiment” 레이블의 단일 문자열 형식을 반환합니다.
+기초 UDF를 만든 후에는 완전한 UDF 정의가 필요합니다. RetrieveDefaultDefinition 엔드포인트는 Azure Machine Learning 엔드포인트에 바인딩된 스칼라 함수에 대한 기본 정의를 가져오는 데 도움이 됩니다. 아래 페이로드는 Azure Machine Learning 엔드포인트에 바인딩된 스칼라 함수의 기본 UDF 정의를 필요로 합니다. PUT 요청 동안 이미 엔드포인트가 제공되었기 때문에 실제 엔드포인트를 지정하지 않습니다. 엔드포인트가 명시적으로 제공되면 Stream Analytics는 요청에 제공된 엔드포인트를 호출합니다. 그렇지 않으면 원래 참조하던 끝점을 사용합니다. 다음 UDF는 단일 문자열 매개 변수(문장)를 가져와서 해당 문장에 대한 “sentiment” 레이블의 단일 문자열 형식을 반환합니다.
 
 ````
 POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>

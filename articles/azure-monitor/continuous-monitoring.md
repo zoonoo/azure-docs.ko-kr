@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 5ba596a85abbb529990efdf7b15ac50515de011b
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: fdccb4e94d9b9fd8b698575c890efad56a115a3e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214456"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452822"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Azure Monitor를 사용하여 연속 모니터링
 
@@ -70,7 +70,7 @@ ms.locfileid: "54214456"
 ## <a name="create-actionable-alerts-with-actions"></a>작업을 사용하여 실행 가능한 경고 만들기
 모니터링의 중요한 측면은 관리자에게 현재 및 예상 문제를 적극적으로 알리는 것입니다. 
 
-- 로그 및 메트릭을 기반으로 [Azure Monitor에서 경고](../azure-monitor/platform/alerts-overview.md)를 만들어 예측 가능한 오류 상태를 식별합니다. 실제 위험 조건을 나타내고 가양성을 줄이고자 하는 모든 경고를 실행 가능하도록 설정해야 합니다. [동적 임계값](platform/alerts-dynamic-thresholds.md)을 사용하여 고유한 정적 임계값을 정의하지 않고 메트릭 데이터에서 기준선을 자동으로 계산합니다. 
+- 로그 및 메트릭을 기반으로 [Azure Monitor에서 경고](../azure-monitor/platform/alerts-overview.md)를 만들어 예측 가능한 오류 상태를 식별합니다. 실제 위험 조건을 나타내고 가양성을 줄이고자 하는 모든 경고를 실행 가능하도록 설정해야 합니다. [동적 임계값](platform/alerts-dynamic-thresholds.md)을 사용하여 고유한 정적 임계값을 정의하는 대신 메트릭 데이터에서 기준선을 자동으로 계산합니다. 
 - 관리자에게 알리는 가장 효과적인 수단을 사용하도록 경고 작업을 정의합니다. 사용 가능한 [알림 작업](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal)은 SMS, 메일, 푸시 알림 또는 음성 통화입니다.
 - 고급 작업을 사용하여 [웹후크](platform/activity-log-alerts-webhook.md)를 통해 [ITSM 도구에 연결](platform/itsmc-overview.md)하거나 기타 경고 관리 시스템에 연결합니다.
 - 웹후크를 사용하여 경고에서 시작될 수 있는 [Azure Automation Runbook](../automation/automation-webhooks.md) 또는 [Logic Apps](/connectors/custom-connectors/create-webhook-trigger)와 함께 경고에서 식별된 상황도 수정합니다. 
