@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: fa8c8da34a687edd1bd92c1d516183ee5d3e1bd0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.lastreviewed: 09/17/2018
+ms.openlocfilehash: c0f457955bd8df7fe07e2a96469fde0a751417bc
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240123"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240322"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Azure Active Directory에서 새 Azure Stack 테넌트 계정 추가
 
@@ -41,7 +42,7 @@ Azure 포털을 사용하려면 Azure 구독이 있어야 합니다.
     ![새 사용자 추가, 사용자 정보가 있는 사용자 페이지](media/azure-stack-add-new-user-aad/new-user-user.png)
 
     - **이름(필수).** 새 사용자의 이름 및 성입니다. 예를 들어, Mary Parker입니다.
-    - **사용자 이름(필수).** 새 사용자의 사용자 이름입니다. 예: mary@contoso.com.
+    - **사용자 이름(필수).** 새 사용자의 사용자 이름입니다. 예: mary@contoso.com
         사용자 이름의 도메인 이름 부분은 초기 기본 도메인 이름 <_yourdomainname_>.onmicrosoft.com이거나 contoso.com과 같은 사용자 지정 도메인 이름을 사용해야 합니다. 사용자 지정 도메인 이름 작성 방법에 대한 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름을 추가하는 방법](../active-directory/fundamentals/add-custom-domain.md)을 참조하세요.
     - **프로필.** 원할 경우 사용자에 대한 자세한 정보를 추가할 수 있습니다. 사용자 정보를 나중에 추가할 수도 있습니다. 사용자 정보 추가에 대한 자세한 내용은 [사용자 프로필 정보를 추가하거나 변경하는 방법](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)을 참조하세요.
     - **디렉터리 역할.**  선택할 **사용자**합니다.

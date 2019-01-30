@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 2740da5a51e95a327a868734a7f009dddf40219a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 11/20/2018
+ms.openlocfilehash: 41b89e5239d72954de7202b87aaf02a2bdf90fd1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964937"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241086"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>MySQL 리소스 공급자를 제거 합니다.
 
@@ -50,9 +51,9 @@ Azure Stack 운영자가 다음 정리 작업을 담당 합니다.
 3. 관리자 권한으로 새 PowerShell 콘솔 창을 열고 MySQL 리소스 공급자 설치 파일의 압축을 푼 디렉터리로 변경 합니다.
 4. 다음 매개 변수를 사용 하 여 DeployMySqlProvider.ps1 스크립트를 실행 합니다.
     - **제거**합니다. 리소스 공급자와 연결 된 모든 리소스를 제거합니다.
-    - **PrivilegedEndpoint**합니다. IP 주소 또는 권한 있는 끝점의 DNS 이름입니다.
-    - **AzureEnvironment**합니다. Azure Stack을 배포 하는 데 Azure 환경입니다. Azure AD 배포에만 필요합니다.
-    - **CloudAdminCredential**합니다. 권한 있는 끝점에 액세스 하는 데 필요한 클라우드 관리자에 대 한 자격 증명입니다.
+    - **PrivilegedEndpoint**. IP 주소 또는 권한 있는 끝점의 DNS 이름입니다.
+    - **AzureEnvironment**. Azure Stack을 배포 하는 데 Azure 환경입니다. Azure AD 배포에만 필요합니다.
+    - **CloudAdminCredential**. 권한 있는 끝점에 액세스 하는 데 필요한 클라우드 관리자에 대 한 자격 증명입니다.
     - **DirectoryTenantID**
     - **AzCredential**합니다. Azure Stack 서비스 관리자 계정에 대 한 자격 증명입니다. Azure Stack 배포에 사용한 동일한 자격 증명을 사용 합니다.
 

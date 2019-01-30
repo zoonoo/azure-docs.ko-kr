@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 6da81ab90a87285f9e1874e3f10eff4570124192
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: b8d13377b2fb1545ecf88645a5e19bf5eab24c74
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344016"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238138"
 ---
 # <a name="start-and-stop-azure-stack"></a>시작 하 고 Azure Stack 중지
 이 문서의 적절히 종료 하 고 Azure Stack 서비스를 다시 시작 절차를 따라야 합니다. 종료는 실제로 환경의 전원을 끄고 전체 Azure Stack. 시작 모든 인프라 역할을 구동 하 고 종료 하기 전에 있었을 전원 상태를 테 넌 트 리소스를 반환 합니다.

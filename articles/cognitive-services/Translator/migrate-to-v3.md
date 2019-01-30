@@ -78,7 +78,7 @@ Microsoft Translator V3는 V2와 동일한 방식으로 공백을 포함한 문�
 | Languages     | 문자가 제출되지 않았습니다. 계산되지 않았습니다. 비용이 청구되지 않습니다.          |
 | Translate     | 수는 번역에 제출되는 문자 수 및 번역되는 언어 및 문자 수에 따라 다릅니다. 제출된 50개 문자 및 요청된 5개 언어는 50x5입니다.           |
 | Transliterate     | 음역에 제출된 문자 수가 계산됩니다.         |
-| Dictionary lookup & example     | 사전 조회 및 예제에 제출된 문자 수가 계산됩니다.         |
+| Dictionary lookup &amp; example     | 사전 조회 및 예제에 제출된 문자 수가 계산됩니다.         |
 | BreakSentence     | 무료입니다.       |
 | Detect     | 무료입니다.      |
 

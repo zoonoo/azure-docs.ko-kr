@@ -7,16 +7,17 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
-ms.reviewer: ''
+ms.reviewer: kivenkat
 ms.custom: mvc
-ms.openlocfilehash: e82c3de4461e2d663496cd4ae4a98c10e7819466
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.lastreviewed: 12/03/2018
+ms.openlocfilehash: ef2d59393902194af3e257ce0fd5bf403b293af1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025413"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245426"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>빠른 시작: Azure Stack 포털을 사용 하 여 Linux 서버 가상 머신 만들기
 
@@ -36,11 +37,11 @@ Azure Stack 포털을 사용 하 여 Ubuntu Server 16.04 LTS 가상 컴퓨터를
 
 * **Azure Stack marketplace에서 Linux 이미지**
 
-   Azure Stack marketplace에는 기본적으로 Linux 이미지를 포함 하지 않습니다. Linux 서버 가상 컴퓨터를 만들려면 먼저 Azure Stack 연산자를 제공 하는지 확인 합니다 **Ubuntu Server 16.04 LTS** 이미지 해야 합니다. 연산자에 설명 된 단계를 사용할 수는 [Azure에서 Azure Stack marketplace 항목 다운로드](../azure-stack-download-azure-marketplace-item.md) 문서.
+   Azure Stack marketplace에는 기본적으로 Linux 이미지를 없습니다. Azure Stack 연산자를 제공 했는지 확인 합니다 **Ubuntu Server 16.04 LTS** marketplace의 이미지입니다. 연산자에 설명 된 단계를 사용할 수는 [Azure에서 Azure Stack marketplace 항목 다운로드](../azure-stack-download-azure-marketplace-item.md) 문서.
 
 * **SSH 클라이언트에 대 한 액세스**
 
-   Azure Stack 개발 키트 (ASDK)를 사용 하는 경우 SSH 클라이언트에 대 한 액세스가 없을 수 있습니다. 클라이언트에 필요한 경우에 SSH 클라이언트를 포함 하는 여러 개의 패키지가 있습니다. 예를 들어, PuTTY SSH 클라이언트 및 SSH 키 생성기 (puttygen.exe)를 포함 합니다. 사용 가능한 패키지에 대 한 자세한 내용은 다음 Azure 문서를 참조 하세요. [Azure에서 Windows 사용 하 여 SSH 키를 사용 하는 방법을](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients)합니다.
+   Azure Stack 개발 키트 (ASDK)를 사용 하는 경우 SSH 클라이언트에 대 한 액세스가 없을 수 있습니다. 클라이언트에 필요한 경우에 SSH 클라이언트를 포함 하는 여러 개의 패키지가 있습니다. 예를 들어, PuTTY SSH 클라이언트 및 SSH 키 생성기 (puttygen.exe)를 포함 합니다. 사용 가능한 패키지에 대 한 자세한 내용은 다음 Azure 문서를 읽어보세요. [Azure에서 Windows 사용 하 여 사용 하 여 SSH 키 방법](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients)합니다.
 
    이 빠른 시작에서는 SSH 키를 생성 하 고 Linux server 가상 머신에 연결할 PuTTY를 사용 합니다. PuTTY 다운로드 및 설치로 이동 [ http://www.putty.org/ ](http://www.putty.org)합니다.
 
@@ -71,7 +72,7 @@ Azure Stack 포털에 로그인 합니다. Azure Stack 포털의 주소는 Azure
 
 2. **Compute**를 선택한 후 **Ubuntu Server 16.04 LTS**를 선택합니다.
    
-   ![Linux 서버 선택](media/azure-stack-quick-linux-portal/select.png)
+   ![Linux 서버를 선택 합니다.](media/azure-stack-quick-linux-portal/select.png)
 1. **만들기**를 클릭합니다.
 
 4. 가상 머신 정보를 입력 합니다. **인증 유형**으로 **SSH 공용 키**를 선택합니다. 클릭 하 여 저장 하는 SSH 공개 키를 붙여 넣습니다 **확인**합니다.
@@ -97,11 +98,11 @@ Azure Stack 포털에 로그인 합니다. Azure Stack 포털의 주소는 Azure
 
 ## <a name="connect-to-the-virtual-machine"></a>가상 머신에 연결
 
-1. 클릭 **Connect** 가상 컴퓨터 페이지입니다. 이 가상 머신에 연결 해야 하는 SSH 연결 문자열을 표시 합니다. 
+1. 클릭 **Connect** 가상 컴퓨터 페이지입니다. 가상 머신에 연결 해야 하는 SSH 연결 문자열을 찾을 수 있습니다. 
 
 2. PuTTY를 엽니다.
 
-3. 에 **PuTTY 구성** 사용 하 여 화면을 **범주** 위로 또는 아래로 스크롤해야 할 합니다. 아래로 스크롤하여 **SSH**, 확장 **SSH**를 클릭 하 고 **Auth**합니다. 클릭 **찾아보기** 저장 된 개인 키 파일을 선택 합니다.
+3. PuTTY 구성 화면에서 사용 합니다 **범주** 창 위로 또는 아래로 스크롤해야 합니다. 아래로 스크롤하여 **SSH**, 확장 **SSH**를 클릭 하 고 **Auth**합니다. 클릭 **찾아보기** 저장 된 개인 키 파일을 선택 합니다.
    ![가상 컴퓨터 연결](media/azure-stack-quick-linux-portal/putty03.PNG)
 
 4. 위로 스크롤 합니다 **범주** 창에서 마우스 클릭 **세션**합니다.

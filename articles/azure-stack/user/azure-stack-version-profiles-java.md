@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 5a97a683e7f25029199ba68ce3d5cee410c3cf29
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.lastreviewed: 09/28/2018
+ms.openlocfilehash: cd02845f648275ee17f763bd5a94b386f7ed64fd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886827"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246367"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Azure Stack에서 Java를 사용 하 여 API 버전 프로필 사용
 
@@ -77,7 +78,7 @@ Java SDK를 설치 하려면 다음 단계를 사용 합니다.
 
 4.  패키지를 설치 해야 하는 사용 하려는 프로필 버전에 따라 달라 집니다. 프로필 버전에 대 한 패키지 이름은 다음과 같습니다.
     
-   - **com.microsoft.azure.profile\_2018\_03\_01\_하이브리드**
+   - **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**
    - **com.microsoft.azure**
       - **latest**
 
@@ -149,7 +150,7 @@ Resource Manager 끝점에서 메타 데이터 정보를 가져올 수 있습니
 
 ## <a name="existing-api-profiles"></a>기존 API 프로필
 
-1.  **com.microsoft.azure.profile\_2018\_03\_01\_하이브리드**: Azure Stack 용으로 작성 된 최신 프로필입니다. 가장 1808 스탬프에는 Azure Stack을 사용 하 여 호환 또는 추가 서비스에 대 한이 프로필을 사용 합니다.
+1.  **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**: Azure Stack 용으로 작성 된 최신 프로필입니다. 가장 1808 스탬프에는 Azure Stack을 사용 하 여 호환 또는 추가 서비스에 대 한이 프로필을 사용 합니다.
 
 2.  **com.microsoft.azure**: 모든 서비스의 최신 버전으로 구성 된 프로필입니다. 모든 서비스의 최신 버전을 사용 합니다.
 
