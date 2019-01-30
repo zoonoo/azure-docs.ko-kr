@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5b8d5e639711b91d380b5f14de48be6a80fb0263
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d0fbabdae9b560a882bd4681eb9e681fd2a0398a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820770"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101773"
 documentType: LandingData
 title: Azure Monitor 설명서
 metadata:
@@ -16,7 +16,7 @@ metadata:
   ms.service: azure-monitor
   ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 01/22/2019
+  ms.date: 01/25/2019
   ms.author: bwren
 abstract:
   description: 이제 Log Analytics 및 Application Insights가 포함된 Azure Monitor는 클라우드 및 온-프레미스 리소스와 애플리케이션의 성능 및 가용성을 최대화할 수 있는 원격 분석 데이터를 수집하고 분석하기 위한 정교한 도구를 제공합니다. 애플리케이션을 수행하는 방법과 애플리케이션 및 종속된 리소스에 영향을 주는 문제를 사전에 식별하는 방법을 파악할 수 있습니다.
@@ -63,7 +63,7 @@ sections:
       text: 구독 감사 및 경고
       href: /azure/monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription
   - type: paragraph
-    text: Azure Application Insights를 사용하여 애플리케이션 모니터링을 시작하는 방법을 알아봅니다.
+    text: Azure Monitor Application Insights를 사용하여 애플리케이션 모니터링을 시작하는 방법을 알아봅니다.
   - type: list
     style: icon48
     items:

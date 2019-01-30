@@ -13,16 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 1dee53f633d8b5edf893e2f6c83430d7c1a69022
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341595"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382960"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log Analytics의 경고 관리 솔루션
 
 ![경고 관리 아이콘](media/alert-management-solution/icon.png)
+
+> [!NOTE]
+>  이제 Azure Monitor는 [SCOM, Zabbix 또는 Nagios와 같은 모니터링 도구](https://aka.ms/managing-alerts-other-monitoring-services)에서 생성된 경고를 포함한 [경고를 대규모로 관리](https://aka.ms/azure-alerts-overview)하는 개선된 기능을 지원합니다.
+>  
+
 
 경고 관리 솔루션을 통해 Log Analytics 리포지토리에서 모든 경고를 분석할 수 있습니다.  [Log Analytics에서 만든](../../azure-monitor/platform/alerts-overview.md) 또는 [Nagios 또는 Zabbix에서 가져온](../../azure-monitor/learn/quick-collect-linux-computer.md) 원본을 포함하여 다양한 원본에서 이러한 경고가 발생할 수 있습니다. 또한 솔루션은 [연결된 System Center Operations Manager 관리 그룹](../../azure-monitor/platform/om-agents.md)에서도 경고를 가져옵니다.
 
@@ -51,7 +56,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 |:--- |:--- |:--- |
 | [Windows 에이전트](agent-windows.md) | 아니요 |직접 Windows 에이전트는 경고를 생성하지 않습니다.  이벤트에서 Log Analytics 경고를 만들고 Windows 에이전트에서 성능 데이터를 수집할 수 있습니다. |
 | [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 아니요 |직접 Linux 에이전트는 경고를 생성하지 않습니다.  이벤트에서 Log Analytics 경고를 만들고 Linux 에이전트에서 성능 데이터를 수집할 수 있습니다.  Linux 에이전트가 필요한 해당 서버에서 Nagios 및 Zabbix 경고를 수집합니다. |
-| [System Center Operations Manager 관리 그룹](../../azure-monitor/platform/om-agents.md) |yes |Operations Manager 에이전트에 대해 생성된 경고는 관리 그룹에 전달된 다음 Log Analytics에 전달됩니다.<br><br>Operations Manager 에이전트에서 Log Analytics로 직접 연결은 필요하지 않습니다. 경고 데이터는 관리 그룹에서 Log Analytics 리포지토리로 전달됩니다. |
+| [System Center Operations Manager 관리 그룹](../../azure-monitor/platform/om-agents.md) |예 |Operations Manager 에이전트에 대해 생성된 경고는 관리 그룹에 전달된 다음 Log Analytics에 전달됩니다.<br><br>Operations Manager 에이전트에서 Log Analytics로 직접 연결은 필요하지 않습니다. 경고 데이터는 관리 그룹에서 Log Analytics 리포지토리로 전달됩니다. |
 
 
 ### <a name="collection-frequency"></a>수집 빈도

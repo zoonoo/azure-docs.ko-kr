@@ -4,7 +4,7 @@ description: CURL을 통해 REST API를 호출하여 Azure VM에서 시스템 �
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: 6f147aa7066db19c1be451b0a5ac49bfce9f571b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 5240d46c1d754ec09f9d83a86424fdbd3cfaadb7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422936"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433308"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>REST API 호출을 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -319,7 +319,7 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
    az account get-access-token
    ``` 
 
-4. [사용자 할당 관리 ID 만들기](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity)의 지침에 따라 사용자 할당 관리 ID를 만듭니다.
+4. 사용자 할당 관리 ID는 [사용자 할당 관리 ID 만들기](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity)의 지침에 따라 만듭니다.
 
 5. CURL을 사용하여 Azure Resource Manager REST 엔드포인트를 호출하는 VM을 만듭니다. 다음 예제에서는 요청 본문에서 `"identity":{"type":"UserAssigned"}` 값으로 식별된 사용자 할당 관리 ID `ID1`을 사용하여 리소스 그룹 *myResourceGroup*에서 *myVM*이라는 VM을 만듭니다. 전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
  

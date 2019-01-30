@@ -1,6 +1,6 @@
 ---
 title: 게시 포털에서 애플리케이션 설정 | Microsoft Docs
-description: 클라우드 게시 포털에서 응용 프로그램을 설정하는 방법에 대한 지침입니다.
+description: 클라우드 게시 포털에서 애플리케이션을 설정하는 방법에 대한 지침입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: pbutlerm
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9386f0e0bf552789b027df96e9e54ebcf31d7d34
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7b5bb0bf8ff5fac10c47cf5bdf9564903f4d6b94
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807325"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448486"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>게시 포털에서 애플리케이션 설정
 
@@ -84,7 +84,7 @@ Dynamics 365 for Customer Engagement 제품을 작성하기 위한 4개의 기�
 
 * 패키지의 파일 이름: CRM AppSource 패키지인 zip 파일을 만들 때 위 단계에서 만든 파일 이름입니다. 위의 예제에서는 “Microsoft\_ SamplePackage.zip”입니다.
 * 패키지 위치의 URL: 위에서 지정한 패키지 파일 이름을 포함하는 Azure Storage 계정의 URL입니다. 위 섹션의 9단계에서 만든 URL입니다.
-* 패키지 파일에 둘 이상의 CRM 패키지가 있는 경우: 여러 패키지가 포함된 여러 CRM 버전을 지원하는 경우**에만** [예]를 선택합니다. 대부분 파트너의 경우 “아니요”가 됩니다. [예]를 선택하는 경우 솔루션의 각 버전에 대한 AppSource 패키지를 만들어야 합니다. ‘참고: 여러 **zip** 파일이 있는지 묻는 것이 아닙니다. 여러 solution.zip 파일이 있지만 버전이 하나뿐이라면 “아니요”를 선택해야 합니다. 패키징 도구가 이러한 파일을 자동으로 결합합니다.’
+* 패키지 파일에 둘 이상의 CRM 패키지가 있는 경우: 여러 패키지가 포함된 여러 CRM 버전을 지원하는 경우**에만** 예를 선택합니다. 대부분 파트너의 경우 “아니요”가 됩니다. [예]를 선택하는 경우 솔루션의 각 버전에 대한 AppSource 패키지를 만들어야 합니다. _참고: 여러 **zip** 파일이 있는지 묻는 것이 아닙니다. 여러 solution.zip 파일이 있지만 버전이 하나뿐이라면 “아니요”를 선택해야 합니다. 패키징 도구가 이러한 파일을 자동으로 결합합니다.’
 
 ### <a name="crm-package-availability"></a>CRM 패키지 가용성
 
@@ -184,7 +184,7 @@ PDF 형식으로 최대 3개의 문서를 업로드할 수 있습니다. 업로�
 
 ### <a name="lead-destination"></a>잠재 대상 고객
 
-잠재 고객을 저장할 CRM 시스템을 선택합니다. CRM 시스템인 Salesforce, Marketo, Microsoft Dynamics CRM 중 하나가 있는 경우 “Azure Table”을 선택합니다. 여기서 선택하는 CRM 시스템은 AppSource에서 앱을 사용해 보는 최종 사용자(잠재 고객)의 세부 정보를 작성하는 곳입니다. 선택한 CRM 시스템에 따라 다음 필드 집합을 완료하는 방법을 알아보려면 아래에서 해당 URL을 클릭합니다.
+잠재 고객을 저장할 CRM 시스템을 선택합니다. 다음 CRM 시스템 중 하나가 있는 경우 여기에서 “Azure Table”을 선택합니다. Salesforce, Marketo, Microsoft Dynamics CRM. 여기서 선택하는 CRM 시스템은 AppSource에서 앱을 사용해 보는 최종 사용자(잠재 고객)의 세부 정보를 작성하는 곳입니다. 선택한 CRM 시스템에 따라 다음 필드 집합을 완료하는 방법을 알아보려면 아래에서 해당 URL을 클릭합니다.
 
 * [Azure Table](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 * [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)

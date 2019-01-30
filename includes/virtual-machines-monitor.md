@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 47b58e74f57640098751b38c1a4fb504838c9ced
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: b9fa5fff46fa330a55125053b831c780f21f6e8f
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54242366"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54404694"
 ---
 진단 및 로그 데이터를 수집, 보기 및 분석하여 VM을 모니터링하는 데 많은 기회를 활용할 수 있습니다. VM의 간단한 [모니터링](../articles/azure-monitor/overview.md)을 수행하려면 Azure Portal에서 VM에 대한 개요 화면을 사용할 수 있습니다. [확장](../articles/virtual-machines/windows/extensions-features.md)을 사용하여 추가 메트릭 데이터를 수집하도록 VM에서 진단을 구성할 수 있습니다. [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) 및 [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md)와 같은 더 많은 고급 모니터링 옵션을 사용할 수도 있습니다.
 
@@ -60,13 +60,11 @@ Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(애플리케�
 
 - 감사 또는 수동 검사를 위해 [저장소 계정에 저장합니다](../articles/azure-monitor/platform/archive-diagnostic-logs.md). 리소스 진단 설정을 사용하여 보존 기간(일)을 지정할 수 있습니다.
 - 타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)으로 수집을 위해 [Event Hubs로 스트림](../articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)합니다.
-- [OMS Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md)를 사용하여 분석합니다.
+- [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md)를 사용하여 분석합니다.
 
 ## <a name="advanced-monitoring"></a>고급 모니터링
 
-- [OMS(Operations Management Suite)](https://docs.microsoft.com/azure/operations-management-suite/)는 클라우드와 온-프레미스 자산에서 모니터링, 경고 및 경고 수정 기능을 제공합니다. [Linux VM](../articles/virtual-machines/linux/extensions-oms.md) 또는 [Windows VM](../articles/virtual-machines/windows/extensions-oms.md)에 OMS 에이전트를 설치하고 기존 OMS 작업 영역에 VM을 등록하는 확장을 설치할 수 있습니다.
-
-- [Log Analytics](../articles/log-analytics/log-analytics-overview.md)는 클라우드 및 온-프레미스 환경을 모니터링하여 해당 가용성 및 성능을 유지하는 OMS의 서비스입니다. 이 서비스는 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성되고 여러 원본에 대한 분석을 제공하는 다른 모니터링 도구에서 생성된 데이터를 수집합니다.
+- [Log Analytics](../articles/log-analytics/log-analytics-overview.md)는 클라우드 및 온-프레미스 환경을 모니터링하여 해당 가용성 및 성능을 유지하는 서비스입니다. 이 서비스는 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성되고 여러 원본에 대한 분석을 제공하는 다른 모니터링 도구에서 생성된 데이터를 수집합니다. [Linux VM](../articles/virtual-machines/linux/extensions-oms.md) 또는 [Windows VM](../articles/virtual-machines/windows/extensions-oms.md)에 Log Analytics 에이전트를 설치하고 기존 Log Analytics 작업 영역에 VM을 등록하는 확장을 설치할 수 있습니다.
 
     Windows 및 Linux VM의 경우 로그 및 메트릭을 수집하는 좋은 방법은 Log Analytics로 에이전트를 설치하는 것입니다. VM에 Log Analytics 에이전트를 설치하는 가장 쉬운 방법은 [Log Analytics VM 확장](../articles/log-analytics/log-analytics-azure-vm-extension.md)을 사용하는 것입니다. 이 확장을 사용하면 설치 프로세스가 간소화되고 지정한 Log Analytics 작업 영역에 데이터를 전송하도록 에이전트가 자동으로 구성됩니다. 에이전트도 자동으로 업그레이드되므로 최신 기능 및 수정 사항을 받아볼 수 있습니다.
 

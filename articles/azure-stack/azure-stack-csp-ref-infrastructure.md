@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: f898ebcaac68cb3d12a0ddd2f68fc46bc1132c05
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 01/05/2019
+ms.openlocfilehash: 1b8b83491211ae26493a6bb41c7f0f219f47f620
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247744"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241307"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>클라우드 서비스 공급자에 대 한 보고 인프라 사용
 

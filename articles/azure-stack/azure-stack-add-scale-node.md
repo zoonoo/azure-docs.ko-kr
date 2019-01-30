@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.openlocfilehash: ff068ff5aa4401a80f2220df79fdac93db21cfb3
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.lastreviewed: 09/17/2018
+ms.openlocfilehash: d35d3bb32f9afabb0e2b02f0d93fc60e0121e9ce
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232875"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247649"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Azure Stack에서 확장할 단위 노드를 추가 합니다.
 
@@ -121,7 +122,7 @@ Azure Stack 1807 이상을 추가 하려면 추가 확장 단위 노드에서 �
 |----------------------|---------|
 |실행 중               |노드 배율 단위에 적극적으로 참여 합니다.|
 |중지됨               |노드를 사용할 수 없는 경우|
-|추가하는 중                |노드는 배율 단위에 추가 되 고 적극적으로 됩니다.|
+|추가                |노드는 배율 단위에 추가 되 고 적극적으로 됩니다.|
 |복구 중             |노드는 적극적으로 복구 하는 중입니다.|
 |유지 관리           |노드 일시 중지 되 고 활성 사용자 워크 로드가 없습니다 실행입니다. |
 |업데이트 관리 필요  |노드를 복구 해야 하는 오류가 감지 되었습니다.|

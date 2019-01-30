@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 57f4485e70bf91713539b3398fc93d6810c3c28e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 929ce0d984e53586c46f15f21b9e5c90c6a34771
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163239"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402305"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>.NET SDK를 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
@@ -38,17 +38,17 @@ ms.locfileid: "53163239"
 
 * **Azure Data Lake Storage Gen1 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요.
 
-## <a name="create-a-net-application"></a>.NET 응용 프로그램 만들기
+## <a name="create-a-net-application"></a>.NET 애플리케이션 만들기
 [GitHub에서](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) 사용 가능한 코드 샘플은 저장소에서 파일 만들기, 파일 연결, 파일 다운로드 및 저장소에서 파일 삭제와 같은 프로세스를 설명합니다. 문서의 이 섹션은 코드의 주요 부분을 설명합니다.
 
-1. Visual Studio를 열고 콘솔 응용 프로그램을 만듭니다.
+1. Visual Studio를 열고 콘솔 애플리케이션을 만듭니다.
 2. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
 3. **새 프로젝트**에서 다음 값을 입력하거나 선택합니다.
 
    | 자산 | 값 |
    | --- | --- |
    | Category |Templates/Visual C#/Windows |
-   | Template |콘솔 응용 프로그램 |
+   | Template |콘솔 애플리케이션 |
    | 이름 |CreateADLApplication |
 
 4. **확인**을 클릭하여 프로젝트를 만듭니다.
@@ -92,8 +92,8 @@ ms.locfileid: "53163239"
 
 ## <a name="authentication"></a>인증
 
-* 애플리케이션에 대한 최종 사용자 인증의 경우 [.NET SDK를 사용한 Data Lake Storage Gen1의 최종 사용자 인증](data-lake-store-end-user-authenticate-net-sdk.md)을 참조하세요.
-* 애플리케이션에 대한 서비스 간 인증의 경우 [.NET SDK를 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-net-sdk.md)을 참조하세요.
+* 응용 프로그램에 대한 최종 사용자 인증의 경우 [.NET SDK를 사용한 Data Lake Storage Gen1의 최종 사용자 인증](data-lake-store-end-user-authenticate-net-sdk.md)을 참조하세요.
+* 응용 프로그램에 대한 서비스 간 인증의 경우 [.NET SDK를 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-net-sdk.md)을 참조하세요.
 
 
 ## <a name="create-client-object"></a>클라이언트 개체 만들기
@@ -103,7 +103,7 @@ ms.locfileid: "53163239"
     AdlsClient client = AdlsClient.CreateClient(_adlsg1AccountName, adlCreds);
 
 ## <a name="create-a-file-and-directory"></a>파일 및 디렉터리 만들기
-응용 프로그램에 다음 코드 조각을 추가합니다. 이 코드 조각은 파일을 추가할 뿐만 아니라 존재하지 않는 모든 부모 디렉터리도 추가합니다.
+애플리케이션에 다음 코드 조각을 추가합니다. 이 코드 조각은 파일을 추가할 뿐만 아니라 존재하지 않는 모든 부모 디렉터리도 추가합니다.
 
     // Create a file - automatically creates any parent directories that don't exist
     // The AdlsOutputStream preserves record boundaries - it does not break records while writing to the store

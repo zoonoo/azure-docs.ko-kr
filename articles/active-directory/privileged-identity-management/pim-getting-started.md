@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 95582fb62f19dcc34aa03a6550f4dbc46257cf7f
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 7d97f68c04656c1f8e227069bb3d33aba13d4b53
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494353"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435076"
 ---
 # <a name="start-using-pim"></a>PIM 사용
 
@@ -33,7 +33,7 @@ PIM을 사용하려면 다음 라이선스 중 하나가 있어야 합니다.
 - Azure AD Premium P2
 - EMS(Enterprise Mobility + Security) E5
 
-자세한 내용은 [PIM을 사용하기 위한 구독 요구 사항](subscription-requirements.md)을 참조하세요.
+자세한 내용은 [PIM을 사용하기 위한 라이선스 요구 사항](subscription-requirements.md)을 참조하세요.
 
 ## <a name="first-person-to-use-pim"></a>PIM을 처음 사용하는 사용자
 
@@ -105,7 +105,7 @@ PIM이 설정되면 ID 관리 작업을 수행할 수 있습니다.
 | --- | --- |
 | **내 역할**  | 사용자에게 할당된 적격 및 활성 역할의 목록을 표시합니다. 여기서 할당된 적합한 역할을 활성화할 수 있습니다. |
 | **내 요청** | 적격 역할 할당을 활성화할 보류 중인 요청을 표시합니다. |
-| **응용 프로그램 액세스** | 잠재적 지연을 줄이고 역할을 활성화하는 즉시 사용할 수 있습니다. |
+| **애플리케이션 액세스** | 잠재적 지연을 줄이고 역할을 활성화하는 즉시 사용할 수 있습니다. |
 | **요청 승인** | 승인하도록 지정된 디렉터리에서 사용자를 통해 적격 역할을 활성화하기 위한 요청 목록을 표시합니다. |
 | **액세스 검토** | 사용자 자신 또는 다른 사용자에 대한 액세스를 검토하는지와 관계없이 사용자에게 수행하도록 할당된 활성 액세스 검토를 나열합니다. |
 | **Azure AD 역할** | 권한 있는 역할 관리자가 Azure AD 디렉터리 역할 할당을 관리하기 위한 대시보드 및 설정을 표시합니다. 이 대시보드는 권한 있는 역할 관리자가 아닌 사용자에게 비활성화됩니다. 이러한 사용자는 [내 보기]라는 특수한 대시보드에 액세스할 수 있습니다. [내 보기] 대시보드는 전체 테넌트가 아닌 대시보드에 액세스하는 사용자에 대한 정보만 표시합니다. |

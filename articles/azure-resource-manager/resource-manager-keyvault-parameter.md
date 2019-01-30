@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: a885fda23bb76091705ebe388f40a6eae7b56416
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e04ee6b74be0bb7ec81166f43295a8a9377f8cf8
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351512"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381529"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달
 
@@ -93,7 +93,7 @@ Resource Manager 템플릿 사용의 경우 단계별 지침은 [자습서: Reso
 
 `enabledForTemplateDeployment`를 `true`로 설정하는 것 외에, 템플릿을 배포하는 사용자에게는 리소스 그룹 및 Key Vault를 포함하는 Key Vault가 있는 범위에 대한 `Microsoft.KeyVault/vaults/deploy/action` 권한이 있어야 합니다. [소유자](../role-based-access-control/built-in-roles.md#owner) 및 [참여자](../role-based-access-control/built-in-roles.md#contributor) 역할 모두 이 액세스 권한을 부여합니다. Key Vault를 만드는 경우 소유자가 되며 권한을 갖게 됩니다. Key Vault가 다른 구독에 속하는 경우 Key Vault의 소유자가 액세스 권한을 부여해야 합니다.
 
-다음 프로시저는 최소의 권한을 가진 역할을 만드는 방법과 사용자에게 할당하는 방법을 나타냅니다.
+다음 절차는 최소의 권한을 가진 역할을 만드는 방법과 사용자에게 할당하는 방법을 나타냅니다.
 1. 사용자 지정 역할 정의 JSON 파일 만들기
 
     ```json

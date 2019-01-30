@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 45e22f19c6e2da26105615da6a775eed4f8676f0
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/10/2018
+ms.openlocfilehash: 759ea6b8e4981b3ea198077cabf9df7966d6e883
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243643"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242963"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Azure Stack에 배포 된 가상 컴퓨터를 보호 합니다.
 
@@ -64,9 +65,9 @@ Azure Stack 클라우드 운영자는 기본 Azure Stack 인프라 및 서비스
 
 각 응용 프로그램에 대 한 조직 허용할 수 있는 가동 중지 시간과 데이터 손실 양을 결정 해야 합니다. 가동 중지 시간과 데이터 손실을 측정 하 여 조직에 재해의 영향을 최소화 하는 복구 계획을 만들 수 있습니다. 각 응용 프로그램에서 다음을 고려 합니다.
 
- - **복구 시간 목표 (RTO)**  
+ - **RTO(복구 시간 목표)**  
 RTO가 최대 허용 시간 응용 프로그램 사용할 수 없게 사고 발생 후입니다. 예를 들어, 90 분의 RTO는 응용 프로그램을 실행 중인 상태로 90 분 이내부터 재해 복원 하는 일을 할 수 있어야 의미 합니다. 낮은 RTO에 있는 경우 지역 가동 중단 으로부터 보호 하기 위해 대기 중인 두 번째 배포를 유지할 수 있습니다.
- - **복구 지점 목표 (RPO)**  
+ - **RPO(복구 지점 목표)**  
 RPO는 재해 발생 시 허용 되는 데이터 손실의 최대 기간입니다. 예를 들어 다른 데이터베이스에 데이터를 복제하지 않고 단일 데이터베이스에만 데이터를 저장하며 매시간 백업을 수행하는 경우 최대 1시간 분량의 데이터가 손실될 수 있습니다.
 
 RTO 및 RPO는 비즈니스 요구 사항입니다. 응용 프로그램의 RTO 및 RPO를 정의 하기 위한 위험 평가 수행 합니다.

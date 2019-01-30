@@ -47,6 +47,8 @@ items:
         href: iot-accelerators-remote-monitoring-deploy-local.md
       - name: VS Code를 사용하여 로컬 배포
         href: iot-accelerators-remote-monitoring-deploy-local-vscode.md
+      - name: IntelliJ를 사용하여 로컬 배포
+        href: iot-accelerators-remote-monitoring-deploy-local-java.md
       - name: Docker를 사용하여 로컬 배포
         href: iot-accelerators-remote-monitoring-deploy-local-docker.md
     - name: 실제 디바이스 연결
@@ -257,9 +259,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: 원격 모니터링 V1
     href: https://docs.microsoft.com/previous-versions/azure/iot-suite/
-ms.openlocfilehash: 0b95b2efed51db0d43b618e76fbe24a13d35b6ed
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 3e3b8a7319a622d4b340b4ac704c45c00030a23b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390847"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099771"

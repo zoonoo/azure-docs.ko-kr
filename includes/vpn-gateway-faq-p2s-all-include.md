@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/21/2018
+ms.date: 01/18/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 55c9d9942272821de5724568ff58fe27c1641eb2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 9fd64e4a9eb100b00dc4597042321b21466f2c7d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54012126"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54414470"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>지점 및 사이트 간 구성에서 VPN 클라이언트 엔드포인트를 몇 개까지 지정할 수 있습니까?
 
@@ -70,7 +70,7 @@ VPN 터널의 정확한 처리량을 유지하는 것은 어렵습니다. IPsec�
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure는 Windows에서 IKEv2 VPN을 지원합니까?
 
-IKEv2는 Windows 10 및 Server 2016에서 지원됩니다. 그러나 IKEv2를 사용하려면 업데이트를 설치하고 로컬로 레지스트리 키 값을 설정해야 합니다. Windows 10 이전의 OS는 지원되지 않으며 SSTP만 사용할 수 있습니다.
+IKEv2는 Windows 10 및 Server 2016에서 지원됩니다. 그러나 IKEv2를 사용하려면 업데이트를 설치하고 로컬로 레지스트리 키 값을 설정해야 합니다. Windows 10 이전의 OS는 지원되지 않으며 SSTP 또는 OpenVPN 프로토콜만 사용할 수 있습니다.
 
 IKEv2에 대해 Windows 10 또는 Server 2016을 준비하려면:
 

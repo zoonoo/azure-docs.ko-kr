@@ -11,12 +11,12 @@ author: hning86
 ms.reviewer: larryfr
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4d201669bf627cf9b591958f3372760c0c990db9
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: a5a5b306341780ead737def90306fe6cb6a47db1
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808097"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401979"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스 작동 방법: 아키텍처 및 개념
 
@@ -28,7 +28,7 @@ ms.locfileid: "53808097"
 
 1. **Python**에서 기계 학습의 학습 스크립트를 개발합니다.
 1. **‘계산 대상’** 을 만들고 구성합니다.
-1. 해당 환경에서 실행하도록 구성된 계산 대상에 **‘스크립트를 제출’** 합니다. 학습 중에 계산 대상이 실행 기록을 **‘데이터 저장소’** 에 저장합니다. 레코드는 **‘실험’** 에 저장됩니다.
+1. 해당 환경에서 실행하도록 구성된 계산 대상에 **‘스크립트를 제출’** 합니다. 학습 동안 **데이터 저장소**에서 스크립트를 읽거나 쓸 수 있습니다. 또한 실행 레코드는 **작업 영역**에서 **실행**으로 저장되고 **실험** 아래에 그룹화됩니다.
 1. **‘실험을 쿼리’** 하여 현재 및 과거 실행에서 기록된 메트릭을 확인합니다. 메트릭이 원하는 결과를 표시하지 않으면 1단계로 돌아가 스크립트를 반복합니다.
 1. 만족스러운 실행이 발견되면 **모델 레지스트리**에 지속되는 모델을 등록합니다.
 1. 점수 매기기 스크립트를 개발합니다.

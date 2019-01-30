@@ -3,7 +3,7 @@ title: Azure Cache for Redis FAQ | Microsoft Docs
 description: Azure Cache for Redis에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다.
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: wesmc
-ms.openlocfilehash: 5d70e4beb97a23212bc85d529382d8e89f09336d
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.author: yegu
+ms.openlocfilehash: 3a0fb06acd9fc798f1528a1487ae0682135187ca
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199921"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402399"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Azure Cache for Redis FAQ
 Azure Cache for Redis에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다.
@@ -210,7 +210,7 @@ StackExchange.Redis에는 많은 옵션이 있습니다. 이 섹션에서는 몇
       * 이 지침을 따르면 `ConnectionMultiplexer`당 대기 시간이 감소할 수 있습니다.
 
 ### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>사용할 수 있는 Azure Cache for Redis 클라이언트는 어떻게 되나요?
-Redis의 장점 중 하나는 여러 가지 개발 언어를 지원하는 많은 클라이언트가 있다는 것입니다. 클라이언트의 현재 목록에 대해서는 [Redis 클라이언트](https://redis.io/clients)를 참조하세요. 여러 언어와 클라이언트를 다루는 자습서는 [Azure Cache for Redis를 사용하는 방법](cache-dotnet-how-to-use-azure-redis-cache.md)을 참조하고, 문서의 위쪽에 있는 언어 전환기에서 원하는 언어를 클릭합니다.
+Redis의 장점 중 하나는 여러 가지 개발 언어를 지원하는 많은 클라이언트가 있다는 것입니다. 클라이언트의 현재 목록에 대해서는 [Redis 클라이언트](https://redis.io/clients)를 참조하세요. 여러 다른 언어 및 클라이언트를 포함하는 자습서에 대해서는 [Azure Cache for Redis 사용 방법](cache-dotnet-how-to-use-azure-redis-cache.md)과 목차에 포함된 관련 문서를 참조하세요.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
@@ -259,7 +259,7 @@ Azure Cache for Redis에 대한 로컬 에뮬레이터는 없지만 다음 예�
 ### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services"></a>다른 일부 Azure 서비스와 달리 Azure Cache for Redis에는 MSDN 클래스 라이브러리 참조가 왜 없나요?
 Microsoft Azure Cache for Redis는 인기 있는 오픈 소스 Azure Cache for Redis를 기반으로 하며, 다양한 [Redis 클라이언트](https://redis.io/clients)에서 다양한 프로그래밍 언어로 액세스할 수 있습니다. 각 클라이언트에는 [Redis 명령](https://redis.io/commands)을 사용하여 Azure Cache for Redis 인스턴스를 호출하는 자체 API가 있습니다.
 
-클라이언트마다 다르기 때문에 MSDN에 하나의 중앙 집중식 클래스 참조는 없고, 각 클라이언트가 자체 참조 설명서를 유지 관리합니다. 참조 설명서 외에도 다양한 언어와 캐시 클라이언트를 사용하여 Azure Cache for Redis를 시작하는 방법을 보여 주는 몇 가지 자습서가 있습니다. 이러한 자습서에 액세스하려면 [Azure Cache for Redis를 사용하는 방법](cache-dotnet-how-to-use-azure-redis-cache.md)을 참조하고, 문서의 위쪽에 있는 언어 전환기에서 원하는 언어를 클릭합니다.
+클라이언트마다 다르기 때문에 MSDN에 하나의 중앙 집중식 클래스 참조는 없고, 각 클라이언트가 자체 참조 설명서를 유지 관리합니다. 참조 설명서 외에도 다양한 언어와 캐시 클라이언트를 사용하여 Azure Cache for Redis를 시작하는 방법을 보여 주는 몇 가지 자습서가 있습니다. 이 자습서에 액세스하려면 [Azure Cache for Redis 사용 방법](cache-dotnet-how-to-use-azure-redis-cache.md)과 목차에 포함된 관련 문서를 참조하세요.
 
 ### <a name="can-i-use-azure-cache-for-redis-as-a-php-session-cache"></a>Azure Cache for Redis는 PHP 세션 캐시로 사용할 수 있나요?
 예, Azure Cache for Redis를 PHP 세션 캐시로 사용하려면 `session.save_path`에서 Azure Cache for Redis 인스턴스에 대한 연결 문자열을 지정합니다.

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: dc4cd28fe61c422f65f47c74c7cbc4686d73ab77
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: d9fd7544c61b021bbb5db32087847cbeaddd3918
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628837"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431727"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에서 보고서
 
@@ -58,9 +58,9 @@ Azure Multi-Factor Authentication은 사용자 및 사용자의 조직에서 Azu
 
 MFA의 로그인 활동 보고서를 통해 다음 정보에 액세스 할 수 있습니다.
 
-**MFA 필요:** 로그인에 MFA가 필요한지 여부. MFA는 사용자별 MFA, 조건부 액세스 또는 기타 이유로 필요할 수 있습니다. 가능한 값은 **예** 또는 **아니요**입니다.
+**MFA 필요:** 로그인에 MFA가 필요한지 여부입니다. MFA는 사용자별 MFA, 조건부 액세스 또는 기타 이유로 필요할 수 있습니다. 가능한 값은 **예** 또는 **아니요**입니다.
 
-**MFA 결과:** MFA 충족 여부에 대한 추가 정보.
+**MFA 결과:** MFA 충족 여부에 대한 추가 정보입니다.
 
 - MFA가 충족되면 MFA가 어떻게 충족되었는지에 대한 자세한 정보가 이 열에 제공합니다.
    - Azure Multi-Factor Authentication
@@ -103,7 +103,7 @@ MFA의 로그인 활동 보고서를 통해 다음 정보에 액세스 할 수 �
       - 사용자를 찾을 수 없음
       - 확인 코드가 이미 한 번 사용됨
 
-**MFA 인증 방법:** 사용자가 MFA를 완료하는 데 사용한 인증 방법. 가능한 값은 다음과 같습니다.
+**MFA 인증 방법:** 사용자가 MFA를 완료하는 데 사용한 인증 방법입니다. 가능한 값은 다음과 같습니다.
 
 - 문자 메시지
 - 모바일 앱 알림
@@ -112,7 +112,7 @@ MFA의 로그인 활동 보고서를 통해 다음 정보에 액세스 할 수 �
 - 전화 통화(사무실 전화)
 - 전화 통화(대체 인증 전화)
 
-**MFA 인증 세부 정보:** 전화 번호의 삭제된 버전(예: +X XXXXXXXX64).
+**MFA 인증 세부 정보:** 전화 번호의 삭제된 버전(예: +X XXXXXXXX64)입니다.
 
 **조건부 액세스** 다음을 포함하여 로그인 시도에 영향을 미친 조건부 액세스 정책에 대한 정보를 찾아보세요.
 

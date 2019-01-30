@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 6eb2452507c3adcb8532a0dd2e50ad701e35cd7f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 7d5630c082c044ac936f555965aec5a2a00f3544
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579236"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448723"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>SSIS(SQL Server Integration Services)를 사용하여 U-SQL 작업 예약
 
@@ -40,7 +40,7 @@ SSIS 기본 제공 함수 및 태스크를 사용하여 여러 위치에서 U-SQ
 
 ## <a name="scenario-1-use-inline-script-call-tvfs-and-stored-procs"></a>시나리오 1 - 인라인 스크립트 호출 TVF 및 저장 프로시저 사용
 
-Azure Data Lake Analytics 태스크 편집기에서 **SourceType**을 **DiretInput**으로 구성하고 U-SQL 문을 **USQLStatemnt**에 배치합니다.
+Azure Data Lake Analytics 태스크 편집기에서 **SourceType**을 **DirectInput**으로 구성하고 U-SQL 문을 **USQLStatement**에 배치합니다.
 
 유지 관리와 코드 관리가 용이하도록, 짧은 U-SQL 스크립트만 인라인 스크립트로 배치합니다. 예를 들어, U-SQL 데이터베이스에서 기존 테이블 반환 함수 및 저장 프로시저를 호출할 수 있습니다. 
 
@@ -119,7 +119,7 @@ SSIS 패키지 디자인 뷰에서 **Azure Data Lake Store 파일 시스템 태�
 
 Azure Feature Pack의 **Azure Blob 다운로드 태스크**를 사용하여 Azure Blob Storage의 U-SQL 파일을 사용할 수 있습니다. 이 방법을 사용하면 클라우드에 있는 스크립트를 사용할 수 있습니다.
 
-단계는 [시나리오 2: Azure Data Lake Store의 U-SQL 파일 사용](#scenario-2-use-u-sql-files-in-azure-data-lake-store)과 유사합니다. Azure Data Lake Store 파일 시스템 태스크를 Azure Blob 다운로드 태스크로 변경합니다. [Azure Blob 다운로드 태스크에 대해 자세히 알아보세요](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
+단계는 [시나리오 2: Azure Data Lake Store의 U-SQL 파일 사용](#scenario-2-use-u-sql-files-in-azure-data-lake-store)과 비슷합니다. Azure Data Lake Store 파일 시스템 태스크를 Azure Blob 다운로드 태스크로 변경합니다. [Azure Blob 다운로드 태스크에 대해 자세히 알아보세요](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
 
 제어 흐름은 아래와 같습니다.
 

@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD Connect 통과 인증, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 437800483004cdbff89814579137f4057133d0fb
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 423edfecb7bfd69de9ef004686db4a05824d0857
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913803"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465434"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory 통과 인증: 기술 심층 분석
 이 문서에서는 Azure AD(Azure Active Directory) 통과 인증이 작동하는 방식에 대해 간략히 설명합니다. 심층적인 기술 및 보안 정보는 [보안 심층 분석](how-to-connect-pta-security-deep-dive.md) 문서를 참조하세요.
@@ -51,12 +51,12 @@ ms.locfileid: "50913803"
 
 ## <a name="next-steps"></a>다음 단계
 - [현재 제한 사항](how-to-connect-pta-current-limitations.md): 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
-- [빠른 시작](how-to-connect-pta-quick-start.md): Azure AD 통과 인증을 구성하고 실행합니다.
+- [빠른 시작](how-to-connect-pta-quick-start.md): Azure AD 통과 인증을 준비하고 실행합니다.
 - [AD FS에서 통과 인증으로 마이그레이션](https://aka.ms/adfstoPTADP) - AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 방법에 대한 자세한 가이드입니다.
 - [스마트 잠금](../authentication/howto-password-smart-lockout.md): 테넌트에서 스마트 잠금 기능을 구성하여 사용자 계정을 보호합니다.
-- [질문과 대답](how-to-connect-pta-faq.md): 자주 묻는 질문에 대한 대답을 찾아봅니다.
+- [질문과 대답](how-to-connect-pta-faq.md): 자주 묻는 질문에 대한 대답을 찾습니다.
 - [문제 해결](tshoot-connect-pass-through-authentication.md): 통과 인증 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.
-- [보안 심층 분석](how-to-connect-pta-security-deep-dive.md) - 통과 인증 기능에 대한 자세한 기술 정보를 가져옵니다.
-- [Azure AD Seamless SSO](how-to-connect-sso.md): 보완적인 Azure AD Seamless SSO 기능을 알아봅니다.
+- [보안 심층 분석](how-to-connect-pta-security-deep-dive.md): 통과 인증 기능에 대한 심층 기술 정보를 가져옵니다.
+- [Azure AD Seamless SSO](how-to-connect-sso.md): 이 보완 기능을 자세히 알아봅니다.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Azure Active Directory 포럼을 사용하여 새 기능 요청을 제출합니다.
 

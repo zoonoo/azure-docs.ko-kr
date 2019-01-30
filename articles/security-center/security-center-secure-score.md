@@ -3,7 +3,7 @@ title: Azure Security Center의 보안 점수 | Microsoft Docs
 description: " Azure Security Center에서 보안 점수를 사용하여 보안 권장 사항의 우선 순위를 지정하세요. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 4bc426e291a47ae42e7628ad911e2960e654819f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: monhaber
+ms.openlocfilehash: 4c7f272cbf98fefbf70e917634fb623c9e1b6a3b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261301"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425896"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수 개선
 
@@ -45,7 +45,7 @@ Security Center에서는 **전체 보안 점수**도 제공합니다.
 2. 화면 위쪽에 보안 점수 관련 주요 정보가 표시됩니다.
    - **전체 보안 점수**는 선택한 구독별 정책당 점수를 나타냅니다.
    - **범주별 보안 점수**에는 가장 시급하게 확인해야 하는 리소스가 표시됩니다.
-   - **보안 점수별 상위 권장 사항**에서는 교정 시 보안 점수를 가장 많이 높일 수 있는 권장 사항 목록이 제공됩니다.
+   - **보안 점수별 상위 권장 사항**에서는 구현 시 보안 점수를 가장 많이 높일 수 있는 권장 사항 목록이 제공됩니다.
  
    ![보안 점수](./media/security-center-secure-score/secure-score-dashboard.png)
 

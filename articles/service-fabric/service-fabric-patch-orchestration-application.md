@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 58e853a3e9df0c3ba78b41f0c62e37bbcc3cdb5a
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 7b19aa42c669fec5872e210351ecec22360ef24e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754036"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427936"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
 
@@ -141,7 +141,10 @@ POA는 Service Fabric 클러스터에서 가동 중지 시간 없이 운영 체�
 
 설치 스크립트와 함께 애플리케이션을 [보관 링크](https://go.microsoft.com/fwlink/?linkid=869566)에서 다운로드할 수 있습니다.
 
-sfpkg 형식의 애플리케이션은 [sfpkg 링크](https://aka.ms/POA/POA_v1.2.2.sfpkg)에서 다운로드할 수 있습니다. 이 링크를 통해 [Azure Resource Manager 기반 애플리케이션을 쉽게 배포](service-fabric-application-arm-resource.md)할 수 있습니다.
+sfpkg 형식의 애플리케이션은 [sfpkg 링크](https://aka.ms/POA/POA.sfpkg)에서 다운로드할 수 있습니다. 이 링크를 통해 [Azure Resource Manager 기반 애플리케이션을 쉽게 배포](service-fabric-application-arm-resource.md)할 수 있습니다.
+
+> [!IMPORTANT]
+> 패치 오케스트레이션 애플리케이션 v1.3.0(최신)을 Windows Server 2012에서 실행하면 알려진 문제가 발생합니다. Windows Server 2012를 실행하는 경우 [여기](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.zip)에서 이 애플리케이션 v1.2.2를 다운로드하세요. SFPkg 링크는 [여기](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.sfpkg)를 참조하세요.
 
 ## <a name="configure-the-app"></a>앱 구성
 
@@ -153,11 +156,11 @@ sfpkg 형식의 애플리케이션은 [sfpkg 링크](https://aka.ms/POA/POA_v1.2
 |TaskApprovalPolicy   |열거형 <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy는 Service Fabric 클러스터 노드에서 Windows 업데이트를 설치하기 위해 코디네이터 서비스에서 사용하는 정책을 나타냅니다.<br>                         허용되는 값은 다음과 같습니다. <br>                                                           <b>NodeWise</b>. Windows 업데이트가 한 번에 하나의 노드에 설치됩니다. <br>                                                           <b>UpgradeDomainWise</b>. Windows 업데이트가 한 번에 하나의 업그레이드 도메인에 설치됩니다. 최대, 한 업그레이드 도메인에 속하는 모든 노드가 Windows 업데이트에 해당될 수 있습니다.<br> 클러스터에 대한 가장 적합한 정책을 결정하는 방법은 [FAQ](#frequently-asked-questions) 섹션을 참조하세요.
 |LogsDiskQuotaInMB   |long  <br> (기본값: 1024)               |패치 오케스트레이션 앱 로그의 최대 크기(MB)로, 노드에서 로컬로 유지될 수 있습니다.
 | WUQuery               | string<br>(기본값: "IsInstalled=0")                | Windows 업데이트를 가져올 쿼리입니다. 자세한 내용은 [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)를 참조하세요.
-| InstallWindowsOSOnlyUpdates | BOOLEAN <br> (기본값: True)                 | 이 플래그를 사용하면 Windows 운영 체제 업데이트를 설치할 수 있습니다.            |
+| InstallWindowsOSOnlyUpdates | BOOLEAN <br> (기본값: true)                 | 이 플래그를 사용하여 다운로드하고 설치해야 하는 업데이트를 제어합니다. 다음 값이 허용됩니다. <br>true - Windows 운영 체제 업데이트만 설치합니다.<br>false - 컴퓨터에서 사용 가능한 모든 업데이트를 설치합니다.          |
 | WUOperationTimeOutInMinutes | int <br>(기본값: 90)                   | Windows 업데이트 작업에 대한 시간 제한을 지정합니다(검색, 다운로드 또는 설치). 지정된 시간 제한 내에 작업이 완료되지 않으면 중단됩니다.       |
 | WURescheduleCount     | int <br> (기본값: 5)                  | 작업이 영구적으로 실패하는 경우 서비스에서 Windows 업데이트를 다시 예약하는 최대 횟수입니다.          |
 | WURescheduleTimeInMinutes | int <br>(기본값: 30) | 오류가 계속 발생하는 경우 서비스에서 Windows 업데이트를 다시 예약하는 간격입니다. |
-| WUFrequency           | 쉼표로 구분된 문자열(기본값: "Weekly, Wednesday, 7:00:00")     | Windows Update를 설치하는 빈도입니다. 형식 및 가능한 값은 다음과 같습니다. <br>-   매월, DD, HH:MM:SS(예: 매월, 5,12:22:32) <br> -   매주, DAY, HH:MM:SS(예: 매주, 화요일, 12:22:32)  <br> -   매일, HH:MM:SS(예: 매일, 12:22:32)  <br> -   [없음]은 Windows 업데이트를 수행하지 않음을 나타냅니다.  <br><br> 시간은 UTC 형식입니다.|
+| WUFrequency           | 쉼표로 구분된 문자열(기본값: "Weekly, Wednesday, 7:00:00")     | Windows Update를 설치하는 빈도입니다. 형식 및 가능한 값은 다음과 같습니다. <br>-   매월, DD, HH:MM:SS(예: 매월, 5,12:22:32)<br>필드 DD(일)에서 허용되는 값은 1-28 범위의 숫자와 "last"입니다. <br> -   매주, DAY, HH:MM:SS(예: 매주, 화요일, 12:22:32)  <br> -   매일, HH:MM:SS(예: 매일, 12:22:32)  <br> -   [없음]은 Windows 업데이트를 수행하지 않음을 나타냅니다.  <br><br> 시간은 UTC 형식입니다.|
 | AcceptWindowsUpdateEula | BOOLEAN <br>(기본값: True) | 이 플래그를 설정하면 애플리케이션이 컴퓨터의 소유자를 대신하여 Windows 업데이트에 대한 최종 사용자 사용권 계약에 동의합니다.              |
 
 > [!TIP]
@@ -397,8 +400,14 @@ a. 아니요, 패치 오케스트레이션 앱을 사용하여 1노드 클러스
 
 - 클러스터 축소 워크플로의 버그 수정입니다. 존재하지 않는 노드에 속하는 POA 복구 태스크에 대해 가비지 수집 논리가 도입되었습니다.
 
-### <a name="version-122-latest"></a>버전 1.2.2(최신)
+### <a name="version-122"></a>버전 1.2.2
 
 - 기타 버그가 수정되었습니다.
 - 이제 이진 파일이 서명됩니다.
-- 이제 sfpkg 다운로드 링크는 특정 버전을 가리킵니다.
+- 애플리케이션에 대한 sfpkg 링크가 추가되었습니다.
+
+### <a name="version-130"></a>버전 1.3.0
+
+- 이제 InstallWindowsOSOnlyUpdates를 False로 설정하면 사용 가능한 모든 업데이트가 설치됩니다.
+- 자동 업데이트를 사용하지 않도록 설정하는 논리가 변경되었습니다. 이로 인해 Server 2016 이상에서 자동 업데이트가 사용하지 않도록 설정되지 않는 버그가 수정됩니다.
+- 고급 사용 사례에서 POA의 두 마이크로 서비스에 대한 배치 제약 조건이 매개 변수화되었습니다.

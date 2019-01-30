@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: d280ef50d91f2e9b5157de5ec918e496f9887681
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: dc92e7d2fcc911aeb6d92b91dd2d430af3c502ad
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127672"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401710"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight의 Spark 및 Azure Data Lake Storage Gen1에 대한 성능 조정 지침
 
@@ -51,7 +51,7 @@ Spark 작업을 실행할 때 Data Lake Storage Gen1에서 성능을 향상시�
 
 ## <a name="guidance"></a>지침
 
-Data Lake Storage Gen1의 데이터로 작업하는 Spark 분석 워크로드를 실행하는 동안 Data Lake Storage Gen1의 성능을 극대화하려면 최신 HDInsight 버전을 사용하는 것이 좋습니다. 작업이 I/O 집약적인 경우 성능 개선을 위해 특정 매개 변수를 구성할 수 있습니다.  Data Lake Storage Gen1은 높은 처리량을 처리할 수 있는 확장성 높은 스토리지 플랫폼입니다.  작업이 주로 읽기 또는 쓰기를 구성하는 경우 Data Lake Storage Gen1 간의 I/O에 대한 동시성이 증가하면 성능도 향상될 수 있습니다.
+Data Lake Storage Gen1의 데이터로 작업하는 Spark 분석 워크로드를 실행하는 동안 Data Lake Storage Gen1의 성능을 극대화하려면 최신 HDInsight 버전을 사용하는 것이 좋습니다. 작업이 I/O 집약적인 경우 성능 개선을 위해 특정 매개 변수를 구성할 수 있습니다.  Data Lake Storage Gen1은 높은 처리량을 처리할 수 있는 확장성 높은 저장소 플랫폼입니다.  작업이 주로 읽기 또는 쓰기를 구성하는 경우 Data Lake Storage Gen1 간의 I/O에 대한 동시성이 증가하면 성능도 향상될 수 있습니다.
 
 I/O 집약적인 작업에 대한 동시성을 높이는 몇 가지 일반적인 방법이 있습니다.
 
@@ -59,12 +59,12 @@ I/O 집약적인 작업에 대한 동시성을 높이는 몇 가지 일반적인
 
 **2단계: executor-memory 설정** – 가장 먼저 설정할 항목은 executor-memory입니다.  메모리는 실행할 작업에 따라 달라집니다.  실행기당 메모리 할당량을 줄여 동시성을 높일 수 있습니다.  작업을 실행할 때 메모리 부족 예외가 표시되면 이 매개 변수 값을 늘려야 합니다.  한 가지 대안은 메모리가 많은 클러스터를 사용하거나 클러스터 크기를 늘려 더 많은 메모리를 확보하는 것입니다.  메모리가 많아지면 더 많은 실행기가 사용되며 이것은 동시성 증가로 이어집니다.
 
-**3단계: executor-cores 설정** – 복잡한 작업이 없는 I/O 집약적인 워크로드의 경우 실행기당 병렬 태스크 수를 늘리기 위해 executor-cores 수를 높게 시작하는 것이 좋습니다.  executor-cores를 4로 설정하여 시작하는 것이 좋습니다.   
+**3단계: executor-cores 설정** – 복잡한 작업이 없는 I/O 집약적 워크로드의 경우 실행기당 병렬 태스크 수를 늘리기 위해 executor-cores 수를 높게 시작하는 것이 좋습니다.  executor-cores를 4로 설정하여 시작하는 것이 좋습니다.   
 
     executor-cores = 4
 executor-cores 수를 늘리면 더 많은 병렬 처리를 제공하므로 서로 다른 executor-cores로 실험할 수 있습니다.  더욱 복잡한 작업(operation)이 있는 작업(job)의 경우 실행기당 코어 수를 줄여야 합니다.  executor-cores가 4보다 높게 설정된 경우 가비지 수집이 부족하여 성능이 저하될 수 있습니다.
 
-**4단계: 클러스터에서 YARN 메모리 양 결정** – 이 정보는 Ambari에서 제공됩니다.  YARN으로 이동한 후 Configs 탭을 확인합니다.  이 창에 YARN 메모리가 표시됩니다.  
+**4단계: 클러스터에서 YARN 메모리 양 결정** – 이 정보는 Ambari에서 사용할 수 있습니다.  YARN으로 이동한 후 Configs 탭을 확인합니다.  이 창에 YARN 메모리가 표시됩니다.  
 이 창에 있는 동안 기본 YARN 컨테이너 크기도 확인할 수 있습니다.  YARN 컨테이너 크기는 실행기 매개 변수당 메모리와 같습니다.
 
     Total YARN memory = nodes * YARN memory per node
@@ -86,19 +86,19 @@ num-executors 수를 높게 설정한다고 성능이 반드시 향상되는 것
 
 실행 예정인 앱을 포함하여 현재 2개의 앱을 실행 중인 D4v2 노드 8개로 구성된 클러스터가 있다고 가정해 보겠습니다.  
 
-**1단계: 클러스터에서 실행되는 앱 수 결정** – 실행 예정인 앱을 포함하여 클러스터에 2개의 앱이 있다는 것을 알고 있습니다.  
+**1단계: 클러스터에서 실행되는 앱 수 결정** – 실행할 앱을 포함하여 클러스터에 2개의 앱이 있다는 것을 알고 있습니다.  
 
-**2단계: executor-memory 설정** – 이 예의 경우 I/O 집약적인 작업에 대해 6GB의 실행기 메모리면 충분하다고 결정합니다.  
+**2단계: executor-memory 설정** – 이 예제에서는 I/O 집약적 작업에 대해 6GB의 실행기 메모리가 충분하다고 결정합니다.  
 
     executor-memory = 6GB
-**3단계: executor-cores 설정** – I/O 집약적인 작업이므로 실행기당 코어 수를 4로 설정할 수 있습니다.  실행기당 코어 수를 4보다 높게 설정하면 가비지 수집 문제가 발생할 수 있습니다.  
+**3단계: executor-cores 설정** – I/O 집약적 작업이므로 실행기당 코어 수를 4로 설정할 수 있습니다.  실행기당 코어 수를 4보다 높게 설정하면 가비지 수집 문제가 발생할 수 있습니다.  
 
     executor-cores = 4
 **4단계: 클러스터에서 YARN 메모리 양 결정** – Ambari로 이동하여 각 D4v2에 25GB의 YARN 메모리가 있는지 확인합니다.  8개의 노드가 있으므로 사용 가능한 YARN 메모리에 8을 곱합니다.
 
     Total YARN memory = nodes * YARN memory* per node
     Total YARN memory = 8 nodes * 25GB = 200GB
-**5단계: num-executors 계산** – num-executors 매개 변수는 메모리 제약 조건 및 CPU 제약 조건 중 최소값을 Spark에서 실행 중인 앱 수로 나누어 결정됩니다.    
+**5단계: num-executors 계산** – num-executors 매개 변수는 메모리 제약 조건 및 CPU 제약 조건 중 최솟값을 Spark에서 실행되는 앱 수로 나눠서 결정됩니다.    
 
 **메모리 제약 조건 계산** - 메모리 제약 조건은 총 YARN 메모리를 실행기당 메모리로 나누어 계산합니다.
 

@@ -12,16 +12,16 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 10/23/2018
-ms.openlocfilehash: 8785ef50cd7bd27e866b1fa546317021eed5da01
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 301b0179c8222bfdff3b07f7962a74a4cc83b8f6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599113"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432288"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>자동화된 데이터베이스 백업을 사용하여 Azure SQL 데이터베이스 복구
 
-기본적으로 SQL Database 백업은 지역 복제 Blob 저장소(RA-GRS)에 저장됩니다. 다음 옵션은 [자동화된 데이터베이스 백업](sql-database-automated-backups.md)을 통한 데이터베이스 복구에 사용할 수 있습니다.
+기본적으로 SQL Database 백업은 지역 복제 Blob Storage(RA-GRS)에 저장됩니다. 다음 옵션은 [자동화된 데이터베이스 백업](sql-database-automated-backups.md)을 통한 데이터베이스 복구에 사용할 수 있습니다.
 
 - 동일한 논리 서버에 보존 기간 내의 지정된 시점으로 복구된 새 데이터베이스를 만듭니다.
 - 동일한 논리 서버에 삭제된 데이터베이스의 삭제 시간으로 복구된 데이터베이스를 만듭니다.
@@ -92,10 +92,8 @@ Azure Portal을 사용하여 단일 데이터베이스, 풀링된 데이터베�
 
 ## <a name="deleted-database-restore"></a>삭제된 데이터베이스 복원
 
-삭제된 데이터베이스 복원을 사용하면 Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) 또는 [REST(createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)를 사용하여 삭제된 데이터베이스를 동일한 논리 서버의 삭제된 데이터베이스에 대한 삭제 시간으로 복원할 수 있습니다. [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase)을 사용하여 삭제된 데이터베이스를 보존 기간 중 이전 시점으로 복원할 수 있습니다.
+삭제된 데이터베이스 복원을 사용하면 Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) 또는 [REST(createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)를 사용하여 삭제된 데이터베이스를 동일한 논리 서버의 삭제된 데이터베이스에 대한 삭제 시간으로 복원할 수 있습니다. [PowerShell을 사용하여 Managed Instance에서 삭제된 데이터베이스를 복원](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2019/01/21/recreate-dropped-database-on-azure-sql-managed-instance)할 수 있습니다. [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase)을 사용하여 삭제된 데이터베이스를 보존 기간 중 이전 시점으로 복원할 수 있습니다.
 
-> [!Note]
-> Managed Instance에서는 삭제된 데이터베이스를 복원할 수 없습니다.
 > [!TIP]
 > 삭제된 데이터베이스를 복원하는 방법을 보여 주는 샘플 PowerShell 스크립트는 [PowerShell을 사용하여 SQL 데이터베이스 복원](scripts/sql-database-restore-database-powershell.md)을 참조하세요.
 > [!IMPORTANT]

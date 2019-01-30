@@ -17,12 +17,12 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: afcdb7c64f4431e920f1f1fbce1e1e6d3e4db79c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 11132426bb8adb6ede564e706e18f3eddd649bef
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424955"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401880"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
@@ -81,7 +81,7 @@ SAML 토큰에 발급된 클레임을 편집해야 할만한 두 가지 이유�
 
 ## <a name="adding-claims"></a>클레임 추가
 
-클레임을 추가할 때 특성 이름(SAML 사양에 따라 URI 패턴을 엄격히 따를 필요는 없음)을 지정할 수 있습니다. 디렉터리에 저장된 사용자 특성 중 원하는 것으로 값을 설정합니다.
+클레임을 추가할 때 특성 이름(SAML 사양에 따라 URI 패턴을 엄격히 따를 필요는 없음)을 지정할 수 있습니다. 값을 디렉터리에 저장된 사용자 특성으로 설정하거나 상수 값을 조직의 모든 사용자의 정적 입력으로 사용합니다.
 
 ![사용자 특성 추가][7]
 
@@ -148,8 +148,8 @@ SAML에는 몇 가지 제한된 클레임이 있습니다. 이러한 클레임�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure AD의 응용 프로그램 관리](../manage-apps/what-is-application-management.md)
-* [Azure AD 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [Azure AD의 애플리케이션 관리](../manage-apps/what-is-application-management.md)
+* [Azure AD 애플리케이션 갤러리에 있지 않은 애플리케이션에 Single Sign-On 구성](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [SAML 기반 Single Sign-On 문제 해결](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->

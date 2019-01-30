@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e5f1f2fe3745ae2817b73b2500ee90a59fc283e1
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1de0f9b77bd1248d77f182a2e32e490c2814f42b
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607084"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382778"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>자동 조정을 사용하여 쿼리 모니터링 및 워크로드 성능 향상
 
@@ -87,6 +87,10 @@ T-SQL을 통해 개별 자동 조정 옵션을 구성하려면 데이터베이�
    ```
    
 개별 조정 옵션을 ON으로 설정하면 데이터베이스가 상속한 설정을 무시하고 조정 옵션을 활성화합니다. OFF로 설정하면 마찬가지로 데이터베이스가 상속한 설정을 무시하고 조정 옵션을 비활성화합니다. 기본값이 지정된 자동 조정 옵션은 데이터베이스 수준 자동 조정 설정에서 구성을 상속합니다.  
+
+> [!IMPORTANT]
+> [활성 지역 복제](sql-database-auto-failover-group.md)의 경우 주 데이터베이스에서만 자동 튜닝을 구성하면 됩니다. 인덱스 만들기 또는 삭제와 같은 자동으로 적용되는 튜닝 작업은 읽기 전용 보조 데이터베이스에 자동으로 복제됩니다. 읽기 전용 보조 데이터베이스에 다른 튜닝 구성을 적용하는 것은 지원되지 않으므로, 읽기 전용 보조 데이터베이스에서 T-SQL을 통한 자동 튜닝을 사용하도록 설정하려고 하면 실패합니다.
+>
 
 자동 조정을 구성하기 위한 T-SQL 옵션에 대해 자세히 알아보고, [SQL Database 논리 서버에 대한 ALTER DATABASE SET 옵션(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)을 참조하세요.
 

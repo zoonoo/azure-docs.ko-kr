@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
+ms.lastreviewed: 09/18/2018
 ms.custom: mvc
-ms.openlocfilehash: 314d40ba365f6dc9a279744ac3af874057fd2321
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: e756b48003ebfaff98271d93a3d8f0231571b5f9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076794"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242436"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Azure Stack 계산 용량 계획
 합니다 [Azure Stack에서 지 원하는 VM 크기](./user/azure-stack-vm-sizes.md) 기능은 Azure에서 지원 되는 하위 집합입니다. Azure는 과도 한 리소스 (로컬 및 서비스 수준에는 서버)를 방지 하려면 많은 벡터를 따라 리소스 제한을 둡니다. 테 넌 트 사용량에 대해 몇 가지 제한 없이, 다른 테 넌 트 리소스 overconsume 때 테 넌 트 환경을 저하 됩니다. VM에서 네트워크 송신에 대 한 Azure 제한 사항에 맞는 Azure Stack에서 대역폭 caps 있습니다. 저장소 리소스에 대 한 저장소 IOPs 한도 기본 과도 한 리소스를 방지 하려면 Azure Stack에서 저장소 액세스에 대 한 테 넌 트에서 구현 되었습니다.  

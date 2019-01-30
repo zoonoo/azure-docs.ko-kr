@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: ff1aaadd77df9cb7678ad71141d15c96f2f12dc0
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 73074898c29a240e31b181025f8cc92f25de5061
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788398"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382756"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Resource Manager 배포 모델을 사용하여 Azure로 Windows Server 또는 클라이언트 백업
 이 문서는 Resource Manager 배포 모델을 사용하여 Azure Backup이 포함된 Azure에 Windows 서버(또는 Windows 클라이언트) 파일 및 폴더를 백업하는 방법을 설명합니다.
@@ -48,9 +48,9 @@ Recovery Services 자격 증명 모음은 시간이 경과되면서 만든 모�
 
 6. **리소스 그룹** 섹션에서:
 
-    * 리소스 그룹을 새로 만들려면 **새로 만들기**를 선택합니다.
+    * **기존 선택...**  드롭다운 메뉴를 클릭하여 사용 가능한 리소스 그룹 목록을 봅니다.
     또는
-    * **기존 그룹 사용**을 선택하고 드롭다운 메뉴를 클릭하여 사용 가능한 리소스 그룹 목록을 봅니다.
+    * 리소스 그룹을 새로 만들려면 **새로 만들기**를 선택합니다.
 
   리소스 그룹에 대한 전체 정보는 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
@@ -70,25 +70,25 @@ Recovery Services 자격 증명 모음은 시간이 경과되면서 만든 모�
 
 1. **Recovery Services 자격 증명 모음** 블레이드에서 새 자격 증명 모음을 클릭합니다.
 
-    ![Recovery Services 자격 증명 모음 목록에서 새 자격 증명 모음 선택](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
+    ![Recovery Services 자격 증명 모음 목록에서 새 자격 증명 모음 선택](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault.png)
 
-    자격 증명 모음을 선택하면 **Recovery Services 자격 증명 모음** 블레이드가 좁아지고 설정 블레이드(*맨 위에 자격 증명 모음 이름이 있음*) 및 자격 증명 모음 세부 정보 블레이드가 열립니다.
+    자격 증명 모음을 선택하면 Recovery Services 자격 증명 모음 블레이드가 좁아지고 **개요** 블레이드(*맨 위에 자격 증명 모음 이름이 있음*) 및 자격 증명 모음 세부 정보 블레이드가 열립니다.
 
-    ![새 자격 증명 모음의 저장소 구성 보기](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+    ![새 자격 증명 모음의 저장소 구성 보기](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-overview.png)
 
-2. 새 자격 증명 모음의 설정 블레이드에서 세로 슬라이드를 사용하여 관리 섹션 쪽으로 아래로 스크롤하여 **Backup 인프라**를 클릭합니다.
+2. **설정** 섹션 아래의 새 자격 증명 모음에서 **속성**으로 이동합니다.
 
-  [Backup 인프라] 블레이드가 열립니다.
+  **속성** 블레이드가 열립니다.
 
-3. [Backup 인프라] 블레이드에서 **Backup 구성**을 클릭하여 **Backup 구성** 블레이드를 엽니다.
+3. **속성** 블레이드에서 **Backup 구성** 블레이드 아래의 **업데이트**를 클릭합니다. **Backup 구성** 블레이드가 열립니다.
 
-  ![새 자격 증명 모음의 저장소 구성 설정](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
+  ![새 자격 증명 모음의 저장소 구성 설정](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-4. 자격 증명 모음에 대해 적절한 저장소 복제 옵션을 선택합니다.
+4. 자격 증명 모음에 대해 적절한 스토리지 복제 옵션을 선택하고 **저장**을 클릭합니다.
 
   ![저장소 구성 선택 항목](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-  기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. Azure를 기본 백업 저장소 엔드포인트로 사용하는 경우 **지역 중복**을 계속 사용합니다. Azure를 기본 백업 저장소 엔드포인트로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 저장소 옵션에 대한 자세한 내용은 [저장소 중복 개요](../storage/common/storage-redundancy.md)를 참조하세요.
+  기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. Azure를 기본 백업 저장소 엔드포인트로 사용하는 경우 **지역 중복**을 계속 사용합니다. Azure를 기본 백업 스토리지 엔드포인트로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 저장소 옵션에 대한 자세한 내용은 [저장소 중복 개요](../storage/common/storage-redundancy.md)를 참조하세요.
 
 자격 증명 모음을 만들었으니, Microsoft Azure Recovery Services 에이전트를 다운로드하여 설치하고, 보관 자격 증명을 다운로드한 다음 그 자격 증명을 사용하여 에이전트를 자격 증명 모음에 등록하여, 파일과 폴더를 백업할 인프라를 준비하겠습니다.
 
@@ -183,7 +183,7 @@ Recovery Services 자격 증명 모음은 시간이 경과되면서 만든 모�
 
 ### <a name="to-create-a-backup-schedule"></a>백업 일정을 만들려면
 
-백업할 머신에 백업 일정을 설정합니다. Azure Backup은 DST(일광 절약 시간)를 고려하지 않으므로 백업에 설정된 시간이 로컬 컴퓨터 시간과 다를 수 있습니다. 
+백업할 머신에 백업 일정을 설정합니다. Azure Backup은 DST(일광 절약 시간)를 고려하지 않으므로 백업에 설정된 시간이 로컬 컴퓨터 시간과 다를 수 있습니다.
 1. Microsoft Azure Backup 에이전트를 엽니다. **Microsoft Azure Backup**에 대한 컴퓨터를 검색하여 찾을 수 있습니다.
 
     ![Azure Backup 에이전트 시작](./media/backup-configure-vault/snap-in-search.png)

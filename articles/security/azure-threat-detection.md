@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 33a9cc0a7b3d18004e19d73a0d9b91bf33cdb055
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 8a546845adb32823e89b814377bcf3e469562445
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408832"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413671"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 지능형 위협 탐지
 
@@ -56,7 +56,7 @@ Azure ID 보호를 사용하여 계정과 ID를 보호할 수 있는 몇 가지 
 -   조사를 추적하는 기본 워크플로를 제공합니다.
 -   암호 재설정 등 수정 작업에 쉽게 액세스할 수 있습니다.
 
-[위험 기반의 조건부 액세스 정책](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#risky-sign-ins)
+[위험 기반 조건부 액세스 정책](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 -   로그인을 차단하거나 다단계 인증 질문을 요구하여 위험한 로그인을 완화합니다.
 -   위험한 사용자 계정을 차단하거나 보호합니다.
 -   사용자에게 다단계 인증에 등록할 것을 요구합니다.
@@ -124,7 +124,7 @@ Log Analytics와의 상호 작용은 대부분 모든 브라우저에서 실행�
 
 보안 및 감사 대시보드는 이러한 솔루션 유형의 한 예입니다.
 
-### <a name="automation-and-control-alert-on-security-configuration-drifts"></a>자동화 및 제어: 보안 구성 변경에 대한 경고
+### <a name="automation-and-control-alert-on-security-configuration-drifts"></a>Automation 및 Control: 보안 구성 표류에 대한 경고
 
 Azure Automation은 PowerShell을 기반으로 하며 클라우드에서 실행되는 Runbook을 사용하여 관리 프로세스를 자동화합니다. 또한 Runbook을 로컬 데이터 센터의 서버에서 실행하여 로컬 리소스를 관리할 수 있습니다. Azure Automation은 PowerShell DSC(Desired State Configuration)를 사용하여 구성 관리를 제공합니다.
 
@@ -181,11 +181,11 @@ Microsoft는 방대한 글로벌 위협 인텔리전스에 대한 액세스 권�
 또한 패턴은 광범위한 캠페인의 증거 지원을 확인하는 다른 신호와 상관 관계가 있습니다. 이 상관 관계를 통해 설정된 손상 표시기와 일치하는 이벤트를 식별할 수 있습니다.
 
 일부 사례:
--   **의심스러운 프로세스 실행**: 공격자는 다양한 기술을 사용하여 감지 없이 악성 소프트웨어를 실행합니다. 예를 들어, 공격자는 합법적인 시스템 파일과 같은 이름을 맬웨어에 제공할 수 있지만, 이러한 파일을 대체 위치에 배치하거나 무해한 파일과 유사한 이름을 사용하거나 파일의 실제 확장명을 가립니다. Security Center는 프로세스 동작을 모델링하고 이와 같은 이상값을 검색하는 프로세스 실행을 모니터링합니다.
+-   **의심스러운 프로세스 실행**: 공격자는 다양한 기술을 사용하여 탐지 없이 악성 소프트웨어를 실행합니다. 예를 들어, 공격자는 합법적인 시스템 파일과 같은 이름을 맬웨어에 제공할 수 있지만, 이러한 파일을 대체 위치에 배치하거나 무해한 파일과 유사한 이름을 사용하거나 파일의 실제 확장명을 가립니다. Security Center는 프로세스 동작을 모델링하고 이와 같은 이상값을 검색하는 프로세스 실행을 모니터링합니다.
 
--   **숨겨진 맬웨어 및 악용 시도**: 정교한 맬웨어는 디스크에 절대로 쓰지 않거나 디스크에 저장된 소프트웨어 구성 요소를 암호화하여 기존 맬웨어 방지 제품을 피할 수 있습니다. 그러나 이러한 맬웨어는 작동하기 위해 메모리에 추적을 남겨야 하므로 메모리 분석을 사용하여 검색할 수 있습니다. 소프트웨어가 충돌할 때 크래시 덤프는 충돌 시 메모리의 일부를 캡처합니다. Azure Security Center에서는 크래시 덤프의 메모리를 분석하여 소프트웨어의 취약성을 악용하며, 기밀 데이터에 액세스하고, 머신의 성능에 영향을 주지 않고 손상된 머신에서 은밀하게 유지하는 데 사용되는 기술을 검색할 수 있습니다.
+-   **숨겨진 맬웨어 및 공격 시도**: 정교한 맬웨어는 디스크에 쓰지 않거나 디스크에 저장된 소프트웨어 구성 요소를 암호화하여 기존 맬웨어 방지 제품을 피할 수 있습니다. 그러나 이러한 맬웨어는 작동하기 위해 메모리에 추적을 남겨야 하므로 메모리 분석을 사용하여 검색할 수 있습니다. 소프트웨어가 충돌할 때 크래시 덤프는 충돌 시 메모리의 일부를 캡처합니다. Azure Security Center에서는 크래시 덤프의 메모리를 분석하여 소프트웨어의 취약성을 악용하며, 기밀 데이터에 액세스하고, 머신의 성능에 영향을 주지 않고 손상된 머신에서 은밀하게 유지하는 데 사용되는 기술을 검색할 수 있습니다.
 
--   **수평 이동 및 내부 정찰**: 손상된 네트워크에서 지속적으로 남아서 중요한 데이터를 찾거나 수집하기 위해 공격자는 종종 손상된 머신에서 동일한 네트워크 내의 다른 머신으로 수평 이동하려고 합니다. Security Center는 프로세스 및 로그인 활동을 모니터링하여 원격 명령 실행, 네트워크 검색 및 계정 열거와 같이 네트워크 내에서 공격자의 발판을 확장하려는 시도를 검색합니다.
+-   **수평 이동 및 내부 정찰**: 손상된 네트워크에서 유지하고 중요한 데이터를 찾고 수집하기 위해 공격자는 종종 손상된 머신에서 동일한 네트워크 내의 다른 머신으로 수평 이동하려고 합니다. Security Center는 프로세스 및 로그인 활동을 모니터링하여 원격 명령 실행, 네트워크 검색 및 계정 열거와 같이 네트워크 내에서 공격자의 발판을 확장하려는 시도를 검색합니다.
 
 -   **악의적인 PowerShell 스크립트**: 공격자는 PowerShell을 사용하여 대상 가상 머신에서 다양한 목적으로 악성 코드를 실행할 수 있습니다. 보안 센터는 의심스러운 활동의 증거에 대해 PowerShell 작업을 검사합니다.
 
@@ -195,7 +195,7 @@ Microsoft는 방대한 글로벌 위협 인텔리전스에 대한 액세스 권�
 
 Azure Security Center는 이상 감지를 사용하여 위협을 식별합니다. 동작 분석(큰 데이터 집합에서 파생된 알려진 패턴에 따라 결정)과 달리 이상 감지는 더욱 "개인화"되고 배포에만 적용되는 기준에 중점을 둡니다. 배포에 대한 정상적인 작동을 확인하기 위해 기계 학습이 적용되고 보안 이벤트를 표시할 수 있는 이상값 조건을 정의하는 규칙이 생성됩니다. 예를 들면 다음과 같습니다.
 
--   **인바운드 RDP/SSH 무차별 암호 대입 공격**: 배포에는 매일 로그인 수가 많은 가동률 높은 가상 머신과 로그인 수가 거의 없는 다른 가상 머신이 있을 수 있습니다. Azure Security Center는 이러한 가상 머신에 대한 기준 로그인 활동을 결정하고, 기계 학습을 사용하여 정상적인 로그인 활동을 정의할 수 있습니다. 로그인 관련 특성에 정의된 기준과의 불일치가 있으면 경고가 생성될 수 있습니다. 다시, 기계 학습은 무엇이 중요한지를 결정합니다.
+-   **인바운드 RDP/SSH 무차별 대입 공격**: 배포에는 매일 로그인 수가 많은 가동률 높은 가상 머신과 로그인 수가 거의 없는 다른 가상 머신이 있을 수 있습니다. Azure Security Center는 이러한 가상 머신에 대한 기준 로그인 활동을 결정하고, 기계 학습을 사용하여 정상적인 로그인 활동을 정의할 수 있습니다. 로그인 관련 특성에 정의된 기준과의 불일치가 있으면 경고가 생성될 수 있습니다. 다시, 기계 학습은 무엇이 중요한지를 결정합니다.
 
 ### <a name="continuous-threat-intelligence-monitoring"></a>연속 위협 인텔리전스 모니터링
 
@@ -203,43 +203,43 @@ Azure Security Center는 전 세계의 보안 연구 및 데이터 과학 팀과
 
 -   **위협 인텔리전스 모니터링**: 위협 인텔리전스에는 기존 또는 새로운 위협에 대한 메커니즘, 표시기, 영향 및 조치 가능한 조언이 포함됩니다. 이 정보는 보안 커뮤니티에서 공유되며, Microsoft는 내부 및 외부 소스에서 위협 인텔리전스 피드를 지속적으로 모니터링합니다.
 
--   **신호 공유**:클라우드 및 온-프레미스 서비스, 서버 및 클라이언트 엔드포인트 장치에 이르는 Microsoft의 광범위한 포트폴리오에 대한 보안 팀의 인사이트를 공유하고 분석합니다.
+-   **신호 공유**: Microsoft의 클라우드 및 온-프레미스 서비스, 서버 및 클라이언트 엔드포인트 디바이스의 광범위한 포트폴리오에 대한 보안 팀의 인사이트를 공유하고 분석합니다.
 
--   **Microsoft 보안 전문가**: 법정 분석 및 웹 공격 검색과 같은 전문 보안 분야에서 Microsoft 팀과 지속적인 관계를 유지하며 활동합니다.
+-   **Microsoft 보안 전문가**: 법정 분석 및 웹 공격 탐지와 같은 전문 보안 분야에서 Microsoft 팀과 지속적인 관계를 유지하며 활동합니다.
 
--   **검색 튜닝**: 알고리즘은 실제 고객 데이터 집합에 대해 실행되며, 보안 연구원은 고객과 협력하여 결과의 유효성을 검사합니다. 기계 학습 알고리즘을 구체화하기 위해 참 및 거짓 긍정이 사용됩니다.
+-   **탐지 튜닝**: 알고리즘은 실제 고객 데이터 세트에 대해 실행되며, 보안 연구원은 고객과 협력하여 결과의 유효성을 검사합니다. 기계 학습 알고리즘을 구체화하기 위해 참 및 거짓 긍정이 사용됩니다.
 
 이러한 결합된 노력은 즉시 활용할 수 있는 새롭고 향상된 감지에 누적됩니다. 수행해야 할 작업이 없습니다.
 
-## <a name="advanced-threat-detection-features-other-azure-services"></a>지능형 위협 탐지 기능: 다른 Azure 서비스
+## <a name="advanced-threat-detection-features-other-azure-services"></a>고급 위협 검색 기능: 기타 Azure 서비스
 
-### <a name="virtual-machines-microsoft-antimalware"></a>가상 머신: Microsoft 맬웨어 방지 프로그램
+### <a name="virtual-machines-microsoft-antimalware"></a>가상 머신: Microsoft 맬웨어 방지
 
-Azure용 [Microsoft 맬웨어 방지 프로그램](https://docs.microsoft.com/azure/security/azure-security-antimalware)은 응용 프로그램 및 테넌트 환경에 대한 단일 에이전트 솔루션이며 사용자의 개입 없이 백그라운드에서 실행되도록 설계되었습니다. 맬웨어 방지 프로그램 모니터링을 포함하여 기본 보안 또는 고급 사용자 지정 구성을 사용하여 애플리케이션 워크로드의 필요에 따라 보호를 배포할 수 있습니다. Azure 맬웨어 방지 프로그램은 Azure Virtual Machines의 보안 옵션이며, 모든 Azure PaaS 가상 머신에 자동으로 설치됩니다.
+Azure용 [Microsoft 맬웨어 방지 프로그램](https://docs.microsoft.com/azure/security/azure-security-antimalware)은 애플리케이션 및 테넌트 환경에 대한 단일 에이전트 솔루션이며 사용자의 개입 없이 백그라운드에서 실행되도록 설계되었습니다. 맬웨어 방지 프로그램 모니터링을 포함하여 기본 보안 또는 고급 사용자 지정 구성을 사용하여 애플리케이션 워크로드의 필요에 따라 보호를 배포할 수 있습니다. Azure 맬웨어 방지 프로그램은 Azure Virtual Machines의 보안 옵션이며, 모든 Azure PaaS 가상 머신에 자동으로 설치됩니다.
 
 #### <a name="microsoft-antimalware-core-features"></a>Microsoft 맬웨어 방지 프로그램 핵심 기능
 
 다음은 애플리케이션용 Microsoft 맬웨어 방지 프로그램을 배포하고 활성화하는 Azure의 기능입니다.
 
--   **실시간 보호**: 클라우드 서비스 및 가상 머신에서 작업을 모니터링하여 맬웨어 실행을 검색하고 차단합니다.
+-   **실시간 보호**: Cloud Services 및 Virtual Machines에서 작업을 모니터링하여 악성 프로그램 실행을 탐지 및 차단합니다.
 
--   **예약된 검색**: 주기적으로 대상으로 지정된 검색을 수행하여 적극적으로 실행 중인 프로그램을 포함하여 맬웨어를 검색합니다.
+-   **예약된 검색**: 주기적으로 대상 검색을 수행하여 적극적으로 실행 중인 프로그램을 포함하여 맬웨어를 탐지합니다.
 
--   **맬웨어 치료**: 검색된 맬웨어에서 악성 파일 삭제 또는 격리 및 악성 레지스트리 항목 정리와 같은 작업을 자동으로 수행합니다.
+-   **맬웨어 재구성**: 탐지된 맬웨어에 대해 악성 파일 삭제 또는 격리, 악성 레지스트리 항목 정리 등과 같은 작업을 자동으로 수행합니다.
 
--   **서명 업데이트**: 최신 보호 서명(바이러스 정의)을 자동으로 설치하여 보호가 미리 결정된 빈도에 최신 상태가 되도록 합니다.
+-   **서명 업데이트**: 최신 보호 서명(바이러스 정의)을 자동으로 설치하고 사전에 결정된 빈도로 보호가 최신 상태인지 확인합니다.
 
--   **Antimalware Engine 업데이트**: Microsoft Antimalware Engine을 자동으로 업데이트합니다.
+-   **맬웨어 방지 엔진 업데이트**: Microsoft 맬웨어 방지 엔진을 자동으로 업데이트합니다.
 
 -   **맬웨어 방지 플랫폼 업데이트**: Microsoft 맬웨어 방지 플랫폼을 자동으로 업데이트합니다.
 
 -   **활성 보호**: 검색된 위협 및 의심스러운 리소스에 대한 원격 분석 메타데이터를 Microsoft Azure에 보고하여 진화하는 위협 환경에 신속하게 대응하고 Microsoft 활성 보호 시스템을 통해 실시간 동기 서명 전송을 사용하도록 설정합니다.
 
--   **샘플 보고**: Microsoft 맬웨어 방지 서비스에 샘플을 제공하고 보고하여 서비스를 구체화하고 문제를 해결하는 데 사용합니다.
+-   **샘플 보고**: Microsoft 맬웨어 방지 서비스에 샘플을 제공 및 보고하여 서비스를 개선하고 문제 해결을 지원합니다.
 
--   **제외**: 응용 프로그램 및 서비스 관리자가 성능 및 기타 이유로 보호 및 검색에서 제외하도록 특정 파일, 프로세스, 드라이브를 구성할 수 있습니다.
+-   **제외**: 애플리케이션 및 서비스 관리자가 성능 및 기타 이유로 보호 및 검색에서 제외하도록 특정 파일, 프로세스, 드라이브를 구성할 수 있습니다.
 
--   **맬웨어 방지 이벤트 수집**: 맬웨어 방지 서비스 상태, 의심스러운 활동 및 운영 체제 이벤트 로그에서 수행된 수정 작업을 기록하고 고객의 Azure 저장소 계정에 수집합니다.
+-   **맬웨어 방지 이벤트 수집**: 맬웨어 방지 서비스 상태, 의심스러운 활동 및 운영 체제 이벤트 로그에서 수행된 수정 작업을 기록하고 고객의 Azure Storage 계정에 수집합니다.
 
 ### <a name="azure-sql-database-threat-detection"></a>Azure SQL Database 위협 검색
 
@@ -267,7 +267,7 @@ SQL Database 위협 감지기는 다음 검색 방법 중 하나를 사용합니
 
 ### <a name="application-gateway-web-application-firewall"></a>Application Gateway 웹 애플리케이션 방화벽
 
-[WAF(웹 응용 프로그램 방화벽)](../app-service/environment/app-service-app-service-environment-web-application-firewall.md)는 표준 [application delivery control](https://kemptechnologies.com/in/application-delivery-controllers)(응용 프로그램 전송 제어) 기능에 응용 프로그램 게이트웨이를 사용하는 웹 응용 프로그램에 보호를 제공하는 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview)의 기능입니다. 웹 애플리케이션 방화벽은 대부분의 [Open Web Application Security Project (OWASP) top 10 common web vulnerabilities](https://www.owasp.org/index.php/Top_10_2010-Main)(OWASP(Open Web Application Security Project) 상위 10개 일반 웹 취약성)로부터 보호함으로써 이 기능을 수행합니다.
+[WAF(웹 애플리케이션 방화벽)](../app-service/environment/app-service-app-service-environment-web-application-firewall.md)는 표준 [application delivery control](https://kemptechnologies.com/in/application-delivery-controllers)(애플리케이션 전송 제어) 기능에 애플리케이션 게이트웨이를 사용하는 웹 애플리케이션에 보호를 제공하는 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview)의 기능입니다. 웹 애플리케이션 방화벽은 대부분의 [Open Web Application Security Project (OWASP) top 10 common web vulnerabilities](https://www.owasp.org/index.php/Top_10_2010-Main)(OWASP(Open Web Application Security Project) 상위 10개 일반 웹 취약성)로부터 보호함으로써 이 기능을 수행합니다.
 
 ![Application Gateway 웹 애플리케이션 방화벽 다이어그램](./media/azure-threat-detection/azure-threat-detection-fig13.png)
 
@@ -305,7 +305,7 @@ Anomaly Detection API는 시계열 데이터에서 다양한 비정상 패턴을
 
 -   **급증 및 급락**: 서비스에 대한 로그인 실패 횟수 또는 전자상거래 사이트의 체크 아웃 수를 모니터링할 때 비정상적인 급증 또는 급락은 보안 공격 또는 서비스 중단을 나타낼 수 있습니다.
 
--   **긍정 및 부정 추세**: 컴퓨팅에서 메모리 사용량을 모니터링할 때 사용 가능한 메모리 크기가 줄어들면 잠재적인 메모리 누수가 있음을 나타냅니다. 서비스 큐 길이 모니터링의 경우, 지속적으로 증가하는 추세는 기본 소프트웨어 문제를 나타낼 수도 있습니다.
+-   **긍정적인 추세 및 부정적인 추세**: 컴퓨팅에서 메모리 사용량을 모니터링할 때 사용 가능한 메모리 크기가 줄어들면 잠재적인 메모리 누수가 있음을 나타냅니다. 서비스 큐 길이 모니터링의 경우, 지속적으로 증가하는 추세는 기본 소프트웨어 문제를 나타낼 수도 있습니다.
 
 -   **수준 변경 및 동적 범위 값 변경**: 서비스 업그레이드 후 서비스 대기 시간의 수준 변경 또는 업그레이드 후 낮은 수준의 예외를 모니터링하는 것이 흥미로울 수 있습니다.
 
@@ -383,6 +383,6 @@ Azure Marketplace에서 사용할 수 있는 웹 애플리케이션 방화벽의
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Center 검색 기능](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities): Azure 리소스를 대상으로 하는 활성 위협을 식별하고 신속하게 대응하는 데 필요한 인사이트를 제공합니다.
+- [Azure Security Center 감지 기능](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities): Azure 리소스를 대상으로 하는 활성 위협을 식별하고 신속하게 대응하는 데 필요한 인사이트를 제공합니다.
 
 - [Azure SQL Database 위협 검색](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): 데이터베이스에 잠재적인 위협에 대한 우려 사항을 해결하는 데 도움이 됩니다.

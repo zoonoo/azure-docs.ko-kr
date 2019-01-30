@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 622cdd36a1ecf582c4cdb883b12753ee2a75d50e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 36e87550c90c1a5d4b05aa62f2fbe79b04b25445
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52854999"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382442"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 비즈니스 연속성 및 재해 복구 모범 사례
 
@@ -38,7 +38,7 @@ AKS 클러스터는 단일 Azure 지역에 배포됩니다. Azure 지역 장애�
 * [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
   * 지리적 영역으로는 서로 쌍을 이루는 두 Azure 지역을 선택합니다. 이러한 Azure 지역은 플랫폼 업데이트를 조정하고, 필요한 경우 복구 활동의 우선 순위를 지정합니다.
 * 서비스 가용성 수준(핫/핫, 웜/핫, 핫/콜드)
-  * 두 Azure 지역을 동시에 실행하고 싶은데, 한 Azure 지역은 트래픽을 서비스할 *준비가 완료*되었고 다른 Azure 지역은 트래픽 서비스를 시작하려면 시간이 더 필요한가요?
+  * 두 Azure 지역을 동시에 실행하고 싶은데, 한 Azure 지역은 트래픽을 서비스할 *준비가 완료*되었고 다른 Azure 지역은 트래픽 서비스를 준비하기 위한 시간이 더 필요한가요?
 
 AKS 지역 가용성 및 쌍을 이루는 지역은 같이 고려해야 합니다. 지역 재해 복구를 함께 관리하도록 설계된 쌍을 이루는 지역에 AKS 클러스터를 배포합니다. 예를 들어 AKS는 *미국 동부* 및 *미국 서부*에서 사용할 수 있습니다. 두 Azure 지역 역시 쌍을 이루는 지역입니다. 두 Azure 지역은 AKS BC/DR 전략을 작성할 때 권장됩니다.
 

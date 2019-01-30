@@ -4,7 +4,7 @@ description: 하위 수준 디바이스에 조인된 하이브리드 Azure Activ
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.component: devices
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: b5fd5a9544e27092c8b65e18d59701421fc59ef5
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 546f9054978f0b9fbe6bb9063905c982de627442
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800862"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445289"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>하위 수준 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결 
 
@@ -116,7 +116,7 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
 
     ![Windows에 대한 작업 공간 연결](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
 
-**Applications and Services Log\Microsoft-Workplace Join**의 이벤트 로그에서 상태 정보를 찾을 수도 있습니다.
+상태 정보를 **Applications and Services Log\Microsoft-Workplace Join** 아래의 이벤트 로그에서도 찾을 수 있습니다.
   
 **실패한 하이브리드 Azure AD 조인에 대한 가장 일반적인 원인은 다음과 같습니다.** 
 

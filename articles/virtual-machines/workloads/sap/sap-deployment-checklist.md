@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/07/2019
+ms.date: 01/18/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 901dfc502470e52600e3a0fafe3f6b91b7686197
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: e78599a350aff4d0aba5603e8ad7959c945f1aca
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201332"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439156"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크로드 계획 및 배포 검사 목록 
 
@@ -36,6 +36,7 @@ ms.locfileid: "54201332"
 
 1. 개괄적인 디자인 문서 - 이 문서는 다음 내용을 포함해야 합니다.
     1. SAP 구성 요소 및 애플리케이션의 현재 인벤토리 및 Azure의 대상 애플리케이션 인벤토리
+    2. 관련된 여러 다른 대상의 책임과 할당을 정의하는 RACI(책임 할당 매트릭스)를 만들고 사용합니다. 상위 수준에서 시작한 후, 계획 전반 및 첫 번째 배포를 진행하면서 점점 더 세부적인 수준에서 작업합니다.
     2. 개괄적인 솔루션 아키텍처
     3. 배포할 Azure 지역 결정. Azure 지역 목록에 대해서는 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)을 확인하세요. 각 Azure 지역에서 사용할 수 있는 서비스에 대해서는 문서 [지역별 사용 가능 제품](https://azure.microsoft.com/global-infrastructure/services/)을 확인하세요.
     4. 온-프레미스에서 Azure에 연결하기 위한 네트워킹 아키텍처. [Azure의 가상 데이터 센터 청사진](https://docs.microsoft.com/azure/architecture/vdc/)을 숙지합니다.
@@ -46,7 +47,7 @@ ms.locfileid: "54201332"
     3.  비즈니스 연속성 및 재해 복구 아키텍처
     4.  자세한 OS, DB, 커널 및 SAP 팩 버전. SAP NetWeaver 또는 S/4HANA에서 지원되는 OS 릴리스는 Azure VM에서 지원되지 않습니다. DBMS 릴리스의 경우도 마찬가지입니다. 다음 원본을 확인하고 필요한 경우 SAP 및 Azure 지원 창에 표시되도록 SAP 릴리스, DBMS 릴리스 또는 OS 릴리스를 업그레이드해야 합니다. SAP 및 Microsoft에서 완전한 지원을 받으려면 SAP 및 Azure 지원 릴리스 조합 내에 속해야 합니다. 필요한 경우 소프트웨어 구성 요소 중 일부를 업그레이드하는 것을 계획해야 합니다. 지원되는 SAP, OS 및 DBMS 소프트웨어에 대한 자세한 내용은 다음 위치에 설명되어 있습니다.
         1.  SAP 지원 참고 사항 [#1928533](https://launchpad.support.sap.com/#/notes/1928533). 이 참고 사항은 Azure VM에서 지원되는 최소 OS 릴리스를 정의합니다. 또한 대부분의 비 HANA 데이터베이스에 필요한 최소 데이터베이스 릴리스를 정의합니다. 이 참고 사항은 다양한 SAP 지원 Azure VM 유형의 SAP 크기 조정을 제공합니다.
-        2.  SAP 지원 참고 사항 [#2039619](https://launchpad.support.sap.com/#/notes/2039619). 이 참고 사항은 Azure의 Oracle 지원 매트릭스를 정의합니다. Oracle은 SAP 워크로드에 대해 Azure에서 Windows 및 Oracle Linux만 게스트 OS로 지원합니다. 이러한 지원 설명은 SAP 인스턴스를 실행하는 SAP 애플리케이션 계층에도 적용됩니다. 그러나 Oracle은 SAP Central Services에 대한 고가용성을 지원하지 않습니다. 따라서 Oracle DBMS에 연결되지 않는 SAP Central Services의 경우 다른 OS가 필요할 수 있습니다.
+        2.  SAP 지원 참고 사항 [#2039619](https://launchpad.support.sap.com/#/notes/2039619). 이 참고 사항은 Azure의 Oracle 지원 매트릭스를 정의합니다. Oracle은 SAP 워크로드에 대해 Azure에서 Windows 및 Oracle Linux만 게스트 OS로 지원합니다. 이러한 지원 설명은 SAP 인스턴스를 실행하는 SAP 애플리케이션 계층에도 적용됩니다. 그러나 Oracle은 Oracle Linux의 SAP Central Services에 대한 고가용성을 지원하지 않습니다. Windows에서는 SAP Central Services용 SAP 지원 Windows 장애 조치(Failover) 클러스터 장애 조치(Failover) 솔루션이 Oracle DBMS 계층과 함께 지원됩니다. 
         3.  다른 OS 릴리스의 SAP HANA용 지원 매트릭스를 가져오기 위한 SAP 지원 참고 사항 [#2235581](https://launchpad.support.sap.com/#/notes/2235581)
         4.  SAP HANA에서 지원하는 Azure VM 및 [HANA 대규모 인스턴스](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)는 [여기](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)에 나와 있습니다.
         5.  [SAP 제품 가용성 매트릭스](https://support.sap.com/en/)
@@ -56,10 +57,14 @@ ms.locfileid: "54201332"
         2.  [Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 파일 공유를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-file-share)
     6.  고가용성 및 재해 복구 아키텍처
         1.  RTO 및 RPO에 따라, 필요한 고가용성 및 재해 복구 아키텍처 구성을 정의합니다.
-        2.  동일한 영역 내의 고가용성의 경우, Azure에서 원하는 DBMS가 제공해야 하는 기능을 확인합니다. 대부분의 DBMS는 프로덕션 시스템에서 권장되는 동기화 방법인 동기 상시 대기를 제공합니다.
+        2.  동일한 영역 내의 고가용성의 경우, Azure에서 원하는 DBMS가 제공해야 하는 기능을 확인합니다. 대부분의 DBMS는 프로덕션 시스템에서 권장되는 동기화 방법인 동기 상시 대기를 제공합니다. 또한 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) 및 관련 문서부터 시작해서 다양한 데이터베이스에 대한 SAP 관련 설명서를 확인하세요.
+            1.  SQL Server에 대해 [여기](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017)에서 설명된 것처럼, DBMS 계층의 공유 디스크 구성에서 Windows 장애 조치(Failover) 클러스터 서비스를 사용하는 것은 지원되지 **않습니다**. 대신, 다음과 같은 솔루션을 사용할 수 있습니다.
+                1.  [SQL Server AlwaysOn](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups) 
+                2.  [Oracle Data Guard](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
+                3.  [HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
         3.  여러 Azure 지역 간에 재해 복구의 경우, 다른 DBMS 공급업체가 제공하는 가능한 기능을 확인합니다. 대부분은 비동기 복제 또는 로그 전달을 지원합니다.
         4.  SAP 애플리케이션 계층의 경우, 동일한 Azure 지역 또는 DR 지역에 있는 프로덕션 배포의 복제본인 비즈니스 재발 테스트 시스템을 실행할지 여부를 정의합니다. 후자의 경우, 해당 비즈니스 재발 시스템을 프로덕션의 DR 대상으로 지정할 수 있습니다.
-        5.  DR 사이트의 비프로덕션 시스템을 DR 대상으로 지정하지 않으려면 SAP 애플리케이션 계층을 Azure DR 지역에 복제하는 실행 가능한 방법으로 Azure Site Recovery를 검토합니다. [다중 계층 SAP NetWeaver 앱 배포를 위한 재해 복구 설정](https://docs.microsoft.com/azure/site-recovery/site-recovery-sap)도 참조하세요. 
+        5.  DR 사이트에 비프로덕션 시스템을 배치하지 않으려면 SAP 애플리케이션 계층을 Azure DR 지역에 복제하는 실행 가능한 방법으로 Azure Site Recovery를 검토합니다. [다중 계층 SAP NetWeaver 앱 배포를 위한 재해 복구 설정](https://docs.microsoft.com/azure/site-recovery/site-recovery-sap)도 참조하세요. 
         6.  [Azure 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)을 활용하여 조합된 HA/DR 구성을 사용하려는 경우 가용성 영역을 사용할 수 있는 Azure 지역과 두 가용성 영역 간의 네트워크 대기 시간 증가로 인해 유발될 수 있는 제한 사항을 숙지하세요.  
 3.  고객/파트너는 모든 SAP 인터페이스(SAP 및 SAP 이외)의 인벤토리를 만들어야 합니다. 
 4.  Foundation Services 디자인 - 이 디자인은 다음과 같은 항목을 포함합니다.
@@ -78,7 +83,7 @@ ms.locfileid: "54201332"
 9.  고객, 시스템 통합업체, Microsoft 및 기타 관련 당사자 간의 정기적인 디자인 및 배포 검토 케이던스를 정의합니다.
 
  
-## <a name="pilot-phase-optional"></a>파일럿 단계(선택 사항)
+## <a name="pilot-phase-strongly-recommended"></a>파일럿 단계(강력 권장)
  
 파일럿은 프로젝트 계획 및 준비 이전에 또는 동시에 실행할 수 있습니다. 이 단계에서 계획 및 준비 단계 동안 수행한 접근 방법 및 디자인을 테스트할 수도 있습니다. 파일럿 단계를 실제 개념 증명으로 늘릴 수 있습니다. 파일럿 배포 동안 전체 HA/DR 솔루션 뿐만 아니라 보안 디자인을 설정하고 유효한지 검사하는 것이 좋습니다. 일부 고객의 경우 이 단계에서 확장성 테스트도 수행할 수 있습니다. 다른 고객은 SAP 샌드박스 시스템의 배포를 파일럿 단계로 사용합니다. 파일럿 실행을 위해 Azure로 마이그레이션하려는 시스템을 식별했다고 가정하겠습니다.
 
@@ -100,6 +105,8 @@ ms.locfileid: "54201332"
         3.  M-Series가 있는 DBMS 로그 드라이브에 대해 Azure Write Accelerator를 사용합니다. [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)에 설명된 Write Accelerator 제한 및 사용법을 숙지합니다.
         4.  다른 DBMS 형식의 경우 [일반 SAP 관련 DBMS 설명서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) 및 일반 문서가 나타내는 DBMS 특정 설명서를 확인합니다.
         5.  SAP HANA의 경우 [Azure에서 SAP HANA 인프라 구성 및 작업](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)에 자세한 내용이 나와 있습니다.
+        6.  디바이스 ID를 사용하여 Azure 데이터 디스크를 Azure Linux VM에 탑재해서는 안됩니다. 대신 UUID(Universally Unique Identifier)를 사용합니다. 예를 들어 Azure 데이터 디스크를 탑재하기 위해 그래픽 도구를 사용하는 경우 주의해야 합니다. /etc/fstab의 항목을 다시 확인하여 디스크가 UUID를 사용하여 탑재되는지 확인합니다.
+            1.  자세한 내용은 [여기](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk)
     3.  네트워킹
         1.  여러 다른 Azure Virtual Network 간 또는 내부의 VNet 인프라와 SAP 애플리케이션 배포를 테스트하고 평가합니다.
             1.  다음을 기준으로 단일 Azure Virtual Network 내의 허브 및 스포크 가상 네트워크 아키텍처나 마이크로 구분 접근 방식을 평가합니다.
@@ -134,11 +141,11 @@ ms.locfileid: "54201332"
             1.   SameSubNetDelay = 2
             2.   SameSubNetThreshold = 15
 4.   고가용성 및 재해 복구 절차 테스트
-    1.   장애 조치(failover) 구성이 디자인한 대로 작동하는지 여부를 파악하기 위해 VM을 종료하거나 운영 체제를 비상 모드로 전환하여 장애 조치(Failover) 상황을 시뮬레이트합니다. 
+    1.   장애 조치(failover) 구성이 디자인한 대로 작동하는지 여부를 파악하기 위해 VM을 종료하거나(Windows 게스트 OS) 운영 체제를 비상 모드로 전환하여(Linux 게스트 OS) 장애 조치(Failover) 상황을 시뮬레이트합니다. 
     2.   장애 조치(failover)를 실행하는 데 걸리는 시간을 측정합니다. 시간이 너무 오래 걸리면 다음을 고려합니다.
         1.   SUSE Linux의 경우 Azure Fencing Agent 대신 SBD 디바이스를 사용하여 장애 조치(failover) 속도를 높입니다.
         2.   SAP HANA의 경우 데이터 다시 로드 시간이 너무 오래 걸리는 경우 더 많은 스토리지 대역폭을 프로비전하는 것이 좋습니다.
-    3.   백업 및 복원 시퀀스를 테스트하고 필요한 경우 조정합니다.
+    3.   백업/복원 시퀀스 및 타이밍을 테스트하고 필요한 경우 조정합니다. 백업 시간만으로 충분하지 않은지 확인합니다. 또한 복원을 테스트하고 복원 작업의 타이밍을 확인합니다. RTO가 데이터베이스 또는 VM 복원 프로세스에 의존하는 경우 복원 시간이 RTO SLA 내에 포함되는지 확인합니다.
     4.   지역 DR 기능 및 아키텍처에 대해 테스트합니다.
 5.  보안 검사
     1.  구현한 Azure RBAC(역할 기반 액세스) 아키텍처의 유효성을 테스트합니다. 목표는 다른 팀의 액세스 권한 및 사용 권한을 분리하고 제한하는 것입니다. 예를 들어, SAP 기본 팀 멤버는 VM을 배포하고 Azure 스토리지의 디스크를 지정된 Azure Virtual Network에 할당할 수 있어야 합니다. 그러나 SAP 기본 팀은 고유의 가상 네트워크를 만들거나 기존 가상 네트워크의 설정을 변경할 수 없어야 합니다. 한편, 네트워크 팀의 멤버는 VM을 SAP 애플리케이션 및 DBMS VM이 실행되는 가상 네트워크에 배포할 수 없어야 합니다. 또한, 네트워크 팀의 멤버는 VM의 특성을 변경하거나 VM 또는 디스크를 삭제할 수 없어야 합니다.  
@@ -160,7 +167,8 @@ ms.locfileid: "54201332"
 3.  테스트를 거친 후 Azure에서 고유한 OS 이미지를 만들지 여부 또는 Azure 이미지 갤러리에 있는 이미지를 사용할 것인지 여부를 정의합니다. Azure 갤러리 이외의 이미지를 사용하는 경우 OS 공급업체와의 지원 계약을 반영하는 올바른 이미지를 만들어야 합니다. 일부 OS 공급업체를 위해 Azure 갤러리는 BYOL(사용자 라이선스 필요) 이미지를 제공합니다. 다른 OS 이미지의 경우, Azure의 견적 가격에 지원이 포함됩니다. 사용자 고유의 OS 이미지를 만들려는 경우 다음 문서에서 설명서를 찾을 수 있습니다.
     1.  [이 설명서](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)에 따라 Azure에 배포된 Windows VM의 일반화된 이미지를 작성할 수 있습니다.
     2.  [이 설명서](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image)에 따라 Azure에 배포된 Linux VM의 일반화된 이미지를 작성할 수 있습니다.
-3.  SAP는 Microsoft 지원 계약에 대한 지원 요구 사항을 충족하는지 확인합니다. SAP 지원 참고 사항 [#2015553](https://launchpad.support.sap.com/#/notes/2015553)에서 정보를 찾을 수 있습니다. HANA 대규모 인스턴스의 경우 문서 [온보딩 요구 사항](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-onboarding-requirements) 문서를 참조하세요.
+3.  Azure VM 갤러리의 SUSE 및 Red Hat Linux 이미지를 사용하는 경우 Azure VM 갤러리에서 Linux 공급업체가 제공하는 SAP용 이미지를 사용해야 합니다.
+4.  SAP는 Microsoft 지원 계약에 대한 지원 요구 사항을 충족하는지 확인합니다. SAP 지원 참고 사항 [#2015553](https://launchpad.support.sap.com/#/notes/2015553)에서 정보를 찾을 수 있습니다. HANA 대규모 인스턴스의 경우 문서 [온보딩 요구 사항](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-onboarding-requirements) 문서를 참조하세요.
 4.  적절한 사람이 [계획된 유지 관리 알림](https://azure.microsoft.com/blog/a-new-planned-maintenance-experience-for-your-virtual-machines/)을 받는지 확인합니다. 그래야 가동 중지 시간 및 VM 다시 부팅 시간을 적절히 선택할 수 있습니다.
 5.  [Channel9](https://channel9.msdn.com/)와 같은 채널의 Microsoft의 Azure 설명서 프레젠테이션에서 배포에 적용할 수 있는 새로운 기능이 있는지 지속적으로 확인합니다.
 6.  지원 참고 사항 [#1928533](https://launchpad.support.sap.com/#/notes/1928533)과 같은 Azure 관련 SAP 참고 사항에서 새 VM SKU 또는 새로 지원되는 OS 및 DBMS 릴리스가 있는지 확인합니다. 새 VM 유형의 가격을 이전 VM 유형의 가격과 비교하여 최상의 가격 대비 성능 비율을 사용하여 VM을 배포할 수 있도록 합니다.
@@ -178,7 +186,7 @@ ms.locfileid: "54201332"
 
  
 ## <a name="production-preparation-phase"></a>프로덕션 준비 단계 
-비프로덕션 배포의 모든 환경 및 학습을 수집한 후 향후 프로덕션 배포에 적용할 수 있는 단계입니다. 이전 단계 외에, 현재 호스팅 위치와 Azure 간의 데이터 전송 작업도 준비해야 합니다. 
+이 단계에서는 비프로덕션 배포의 모든 환경 및 학습을 수집한 후 향후 프로덕션 배포에 적용할 수 있습니다. 이전 단계 외에, 현재 호스팅 위치와 Azure 간의 데이터 전송 작업도 준비해야 합니다. 
 
 1.  Azure로 이동하기 전에 프로덕션 시스템의 필요한 SAP 릴리스 업그레이드를 진행합니다.
 2.  프로덕션 시스템의 마이그레이션 이후에 수행해야 하는 기능 및 비즈니스 테스트를 비즈니스 소유자와 협의합니다.
@@ -189,8 +197,7 @@ ms.locfileid: "54201332"
     3.  SAP SWPM 도구로 구현된 SAP 마이그레이션 모니터를 사용하여 유형이 다른 마이그레이션을 수행합니다.
     4.  SAP 릴리스 업그레이드와 조합해야 할 경우 [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) 프로세스를 사용합니다. 원본 및 대상 DBMS 간의 모든 조합이 지원되는 것은 아닙니다. 자세한 내용은 다양한 DMO 릴리스의 특정 SAP 지원 참고 사항을 참조하세요. [예: [SUM 2.0 SP04의 DMO(데이터베이스 마이그레이션 옵션)](https://launchpad.support.sap.com/#/notes/2644872)]
     5.  백업 또는 SAP 내보내기 파일을 이동해야 하는 경우 인터넷을 통한 데이터 전송과 ExpressRoute를 통한 데이터 전송 중 어떤 방식의 처리량이 더 높은지 테스트합니다. 인터넷을 통해 데이터를 이동하는 경우 향후 프로덕션 시스템을 위해 설정해야 하는 일부 NSG/ASG 보안 규칙을 변경해야 할 수 있습니다.
-3.  이전 플랫폼의 시스템을 Azure로 이동하기 전에 CPU 사용량, 스토리지 처리량 및 IOPS 데이터와 같은 리소스 소비량 데이터를 수집합니다. 특히 이러한 작업을 DBMS 계층 단위에서 수행해야 하지만 애플리케이션 계층 단위에서도 수행합니다. 또한 네트워크 및 스토리지 대기 시간을
-4.  측정합니다.
+3.  이전 플랫폼의 시스템을 Azure로 이동하기 전에 CPU 사용량, 스토리지 처리량 및 IOPS 데이터와 같은 리소스 소비량 데이터를 수집합니다. 특히 이러한 작업을 DBMS 계층 단위에서 수행해야 하지만 애플리케이션 계층 단위에서도 수행합니다. 또한 네트워크 및 스토리지 대기 시간을 측정합니다.
 4.  SAP 지원 참고 사항, SAP HANA 하드웨어 디렉터리 및 SAP PAM의 리소스를 확인하여 Azure의 지원되는 VM, 해당 VM의 지원되는 OS 릴리스 및 지원되는 SAP 및 DBMS 릴리스에 변경된 내용이 없는지 검토합니다. 
 4.  VM 유형 및 Azure 기능에 대해 결정한 최신 변경 내용에 따라 배포 스크립트를 조정합니다.
 5.  인프라 및 애플리케이션의 배포 후에 일련의 검사에 진행하여 다음에 대해 유효성을 확인합니다.
@@ -202,6 +209,8 @@ ms.locfileid: "54201332"
     6.  Azure Premium Storage를 대기 시간이 중요한 디스크에 사용했거나 [SLA가 99.9%인 단일 VM](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)이 필요합니다.
     7.  Azure Write Accelerator의 올바른 배포를 확인합니다.
         1.  VM 내의 스토리지 공간 또는 스트라이프 세트가 Azure Write Accelerator 지원이 필요한 디스크 간에 올바르게 작성되었는지 확인합니다.
+            1.  [Linux에서 소프트웨어 RAID 구성](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid)을 확인합니다.
+            2.  [Azure에서 Linux VM의 LVM 구성](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm)을 확인합니다.
     8.  [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/)가 단독으로 사용되었습니다
     9.  VM을 올바른 가용성 집합 및 가용성 영역에 배포했습니다.
     10. [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/)을 SAP 애플리케이션 계층과 SAP DBMS 계층에서 사용되는 VM에서 사용하도록 설정했습니다.

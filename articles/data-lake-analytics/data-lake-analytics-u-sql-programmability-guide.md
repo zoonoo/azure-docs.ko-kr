@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: 0fa695218bb1112324ef2ddac80e52f927a5971b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 9ff75cbd0a4915cdf7045be9a45d11075dda15bd
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045299"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402322"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL 프로그래밍 기능 가이드
 
@@ -135,7 +135,7 @@ REFERENCE ASSEMBLY MyDB.[MyAssembly];
 
 마지막으로 U-SQL 데이터베이스마다 지정된 어셈블리 버전을 하나만 포함할 수 있습니다. 예를 들어 NewtonSoft Json.Net 라이브러리의 버전 7과 버전 8이 모두 필요하면 서로 다른 두 데이터베이스에 등록해야 합니다. 또한 각 스크립트는 지정된 어셈블리 DLL의 한 가지 버전만 참조할 수 있습니다. 이러한 점에서 U-SQL은 C# 어셈블리 관리 및 버전 관리 의미 체계를 따릅니다.
 
-## <a name="use-user-defined-functions-udf"></a>UDF(사용자 정의 함수) 사용
+## <a name="use-user-defined-functions-udf"></a>다음 사용자 정의 함수를 사용합니다. UDF
 U-SQL UDF(사용자 정의 함수)는 매개 변수를 받아들이고, 작업(예: 복잡한 계산)을 수행하며, 해당 작업의 결과를 값으로 반환하는 프로그래밍 루틴입니다. UDF의 반환 값은 단지 단일 스칼라일 수 있습니다. U-SQL UDF는 다른 C# 스칼라 함수와 같이 U-SQL 기본 스크립트에서 호출할 수 있습니다.
 
 U-SQL 사용자 정의 함수는 **public** 및 **static**으로 초기화하는 것이 좋습니다.
@@ -426,7 +426,7 @@ OUTPUT @rs2
 
 이 예제는 전체 메모리 행 집합에 적용된 코드 숨김 섹션 내부에 전역 변수를 사용하는 보다 세밀한 사용 사례 시나리오를 보여줍니다.
 
-## <a name="use-user-defined-types-udt"></a>UDT(사용자 정의 형식) 사용
+## <a name="use-user-defined-types-udt"></a>다음 사용자 정의 형식을 사용합니다. UDT
 UDT(사용자 정의 형식)는 U-SQL의 또 다른 프로그래밍 기능입니다. U-SQL UDT는 일반 C# 사용자 정의 형식처럼 작동합니다. C#는 기본 제공 및 사용자 지정 UDT를 사용할 수 있는 강력한 형식의 언어입니다.
 
 U-SQL은 UDT가 행 집합의 꼭짓점 간에 전달되는 동안 임의의 UDT를 암시적으로 직렬화하거나 역직렬화할 수 없습니다. 다시 말해 사용자가 IFormatter 인터페이스를 사용하여 명시적인 포맷터를 제공해야 합니다. 이렇게 하면 U-SQL에 UDT에 대한 직렬화 및 역직렬화 메서드가 제공됩니다.
@@ -533,7 +533,7 @@ public class MyTypeFormatter : IFormatter<MyType>
 
 * **Serialize**: 제공된 스트림에 지정된 루트를 사용하여 개체 또는 개체 그래프를 직렬화합니다.
 
-`MyType` instance: 해당 형식 인스턴스입니다.  
+`MyType` 인스턴스: 해당 형식 인스턴스입니다.  
 `IColumnWriter` writer / `IColumnReader` reader: 기본 열 스트림입니다.  
 `ISerializationContext` context: 직렬화하는 동안 스트림에 대한 원본 또는 대상 컨텍스트를 지정하는 플래그 집합을 정의하는 열거형입니다.
 
@@ -895,7 +895,7 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 }
 ```
 
-## <a name="use-user-defined-aggregates-udagg"></a>UDAGG(사용자 정의 집계) 사용
+## <a name="use-user-defined-aggregates-udagg"></a>다음 사용자 정의 집계를 사용합니다. UDAGG
 UDAGG(사용자 정의 집계)는 U-SQL에 제공되지 않는 집계 관련 함수입니다. 예제에는 사용자 지정 수학 계산, 문자열 연결 또는 문자열 조작 등을 수행하는 집계가 포함됩니다.
 
 UDAGG(사용자 정의 집계) 기본 클래스 정의는 다음과 같습니다.
@@ -1025,7 +1025,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 
 이 사용 사례 시나리오에서는 특정 사용자에 대한 GUID 클래스를 연결합니다.
 
-## <a name="use-user-defined-objects-udo"></a>UDO(사용자 정의 개체) 사용
+## <a name="use-user-defined-objects-udo"></a>다음 사용자 정의 개체를 사용합니다. UDO
 U-SQL을 사용하면 UDO(사용자 정의 개체)라는 사용자 지정 프로그래밍 기능 개체를 정의할 수 있습니다.
 
 U-SQL의 UDO 목록은 다음과 같습니다.
@@ -1300,7 +1300,7 @@ string val = row.Get<string>(col.Name)
 
 이렇게 하면 모든 메타데이터 스키마에 대해 유연한 출력자를 빌드할 수 있습니다.
 
-출력 데이터는 `System.IO.StreamWriter`를 사용하여 파일에 기록됩니다. Stream 매개 변수는 `IUnstructuredWriter output`의 일부로 `output.BaseStrea`로 설정됩니다.
+출력 데이터는 `System.IO.StreamWriter`를 사용하여 파일에 기록됩니다. Stream 매개 변수는 `IUnstructuredWriter output`의 일부로 `output.BaseStream`로 설정됩니다.
 
 각 행을 반복한 후에 파일에 데이터 버퍼를 플러시하는 것이 중요합니다. 또한 Disposable 특성이 활성화된 상태에서(기본값) **using** 키워드와 함께 `StreamWriter` 개체를 사용해야 합니다.
 
@@ -1775,7 +1775,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 
 ```
 103 Z1AB2CD123XY45889   Ford,Explorer,2005,SUV,152345
-303 Y0AB2CD34XY458890   Shevrolet,Cruise,2010,4Dr,32455
+303 Y0AB2CD34XY458890   Chevrolet,Cruise,2010,4Dr,32455
 210 X5AB2CD45XY458893   Nissan,Altima,2011,4Dr,74000
 ```
 

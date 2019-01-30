@@ -3,24 +3,24 @@ title: Azure Automation 상태 구성 시작하기
 description: Azure Automation 상태 구성(DSC)에서 가장 일반적인 작업의 설명 및 예제
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fc1c870d06d6bf4a0db941b261e9aebd317fdcb1
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 19e1721a638dfc750938e09e1626c4e291367723
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634362"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432448"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Azure Automation 상태 구성 시작하기
 
 이 문서에서는 Azure Automation 상태 구성으로 만들기, 가져오기 및 구성 컴파일링, 관리할 머신 온보딩 및 보고서 보기 등과 같은 가장 일반적인 작업을 수행하는 방법을 설명합니다. Azure Automation 상태 구성에 대한 개요는 [Azure Automation 상태 구성 개요](automation-dsc-overview.md)를 참조하세요. DSC(필요한 상태 구성) 설명서는 [Windows PowerShell 필요한 상태 구성 개요](/powershell/dsc/overview)를 참조하세요.
 
-이 문서에서는 Azure Automation 상태 구성 사용에 대한 단계별 가이드를 제공합니다. 이 문서에 설명된 단계를 따르지 않고 이미 설정된 샘플 환경을 원하는 경우 Resource Manager 템플릿인 [Azure Automation 관리되는 노드 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration)을 사용할 수 있습니다. 이 템플릿은 Azure Automation 상태 구성에 의해 관리되는 Azure VM을 포함하는 완료된 Azure Automation 상태 구성 환경을 설정합니다.
+이 문서에서는 Azure Automation 상태 구성 사용에 대한 단계별 가이드를 제공합니다. 이 문서에 설명된 단계를 수행하지 않고 이미 설정된 샘플 환경을 원하는 경우 다음 Resource Manager 템플릿을 사용할 수 있습니다. [Azure Automation 관리되는 노드 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration) 이 템플릿은 Azure Automation 상태 구성에 의해 관리되는 Azure VM을 포함하는 완료된 Azure Automation 상태 구성 환경을 설정합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

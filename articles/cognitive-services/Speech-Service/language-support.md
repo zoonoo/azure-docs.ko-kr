@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 27b952fb1a901ff716f25cc7d512f860f639fb02
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 688194c8d5ec0c2594d8c7178d8cae3925b8e482
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632621"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413377"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Speech Service API에 대한 언어 및 지역 지원
 
@@ -63,6 +63,9 @@ Microsoft Speech Recognition API는 다음 언어를 지원합니다. 서로 다
 ## <a name="text-to-speech"></a>텍스트 음성 변환
 
 텍스트-음성 변환 REST API는 이러한 음성을 제공하며, 해당 음성 각각은 로캘로 식별되는 특정 언어를 지원합니다.
+
+> [!IMPORTANT]
+> 가격 책정은 표준, 사용자 지정 및 인공신경망 음성마다 다릅니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) 페이지를 참조하세요.
 
 ### <a name="neural-voices-preview"></a>인공신경망 음성(미리 보기)
 

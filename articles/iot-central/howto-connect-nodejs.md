@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4d61810adb24bb56b849a0a07ad1f097a1c33744
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: cc6857750534dad2ded29178eb3f140fc25cce0d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198085"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410492"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IoT Central 애플리케이션에 일반 클라이언트 애플리케이션 연결(Node.js)
 
-이 문서에서는 장치 개발자로서 실제 장치를 나타내는 일반 Node.js 애플리케이션을 Microsoft Azure IoT Central 애플리케이션에 연결하는 방법을 설명합니다.
+이 문서에서는 디바이스 개발자가 실제 디바이스를 나타내는 일반 Node.js 애플리케이션을 Microsoft Azure IoT Central 애플리케이션에 연결하는 방법을 설명합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -97,7 +97,7 @@ Azure IoT Central 애플리케이션에서, 자신이 만든 장치 템플릿으
 
 ### <a name="create-a-nodejs-application"></a>Node.js 애플리케이션 만들기
 
-다음 단계에서는 애플리케이션에 추가한 실제 장치를 구현하는 클라이언트 애플리케이션을 만드는 방법을 보여줍니다. Node.js 애플리케이션은 실제 물리적 장치를 나타냅니다. 
+다음 단계에서는 애플리케이션에 추가한 실제 장치를 구현하는 클라이언트 애플리케이션을 만드는 방법을 보여줍니다. Node.js 애플리케이션은 실제 디바이스를 나타냅니다. 
 
 1. 컴퓨터에 `connected-air-conditioner-adv`이라는 폴더를 만듭니다. 명령줄 환경에서 해당 폴더로 이동합니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 2eb2fbb1d184bf58923748278d4989a271adf434
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: d914242b6a29e05e5b97ad11a1bde6f894113e43
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352583"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382554"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Azure 표준 Load Balancer 개요
 
@@ -214,7 +214,7 @@ SKU는 변경할 수 없습니다. 이 섹션의 단계에 따라 리소스 SKU 
 표준 Load Balancer 사용량에 해당하는 요금이 청구됩니다.
 
 - 구성된 부하 분산 및 아웃바운드 규칙의 수(인바운드 NAT 규칙은 총 규칙 수에 포함되지 않음)
-- 규칙에 관계없이 인바운드/아웃바운드에서 처리된 데이터의 양 
+- 규칙에 관계없이 인바운드 및 아웃바운드에서 처리된 데이터의 양 
 
 표준 Load Balancer 가격 정보에 대해서는 [Load Balancer 가격](https://azure.microsoft.com/pricing/details/load-balancer/) 페이지를 참조하세요.
 

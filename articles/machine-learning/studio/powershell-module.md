@@ -25,7 +25,7 @@ Machine Learning PowerShell 모듈은 Windows PowerShell에서 Azure Machine Lea
 * 실험 실행([Start-AmlExperiment](https://github.com/hning86/azuremlps#start-amlexperiment))
 * 예측 실험에서 웹 서비스 만들기([New-AmlWebService](https://github.com/hning86/azuremlps#new-amlwebservice))
 * 게시된 웹 서비스에 엔드포인트 만들기([Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint))
-* RRS 또는 BES 웹 서비스 엔드포인트 호출([Invoke-AmlWebServiceRRSEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) 및 [Invoke-AmlWebServicBESEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint))
+* RRS 또는 BES 웹 서비스 엔드포인트 호출([Invoke-AmlWebServiceRRSEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) 및 [Invoke-AmlWebServiceBESEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint))
 
 기존 실험을 실행하기 위해 PowerShell을 사용하는 간단한 예는 다음과 같습니다.
 

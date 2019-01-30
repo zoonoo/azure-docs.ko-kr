@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 8d0138d20e1a30ab3efc509eb71f17a6b1e4e8e5
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 9ed3ab89387afc78bd631416a683e11f4dc7054a
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287475"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402254"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 리소스 클래스로 워크로드 관리
 Azure SQL Data Warehouse에서 리소스 클래스를 사용하여 메모리 및 쿼리의 동시성을 관리하기 위한 지침입니다.  
@@ -90,7 +90,7 @@ Gen1에서 동적 리소스 클래스의 세부 정보를 검토해 보면, 동�
 ### <a name="default-resource-class"></a>기본 리소스 클래스
 기본적으로 각 사용자는 동적 리소스 클래스인 **smallrc**의 멤버입니다. 
 
-서비스 관리자의 리소스 클래스는 고정되어 있고 변경할 수 없습니다.  서비스 관리자는 프로세스 프로비전 중에 만든 사용자입니다.
+서비스 관리자의 리소스 클래스는 smallrc에 고정되어 있고 변경할 수 없습니다.  서비스 관리자는 프로세스 프로비전 중에 만든 사용자입니다.  이 컨텍스트의 서비스 관리자는 새 서버를 사용하여 새 SQL Data Warehouse 인스턴스를 만들 때 "서버 관리자 로그인"에 대해 지정한 로그인입니다.
 
 > [!NOTE]
 > Active Directory 관리자로 정의된 사용자 또는 그룹은 서비스 관리자이기도 합니다.

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: a769bb4cce84fe78f442cce8440e6e828ed7f76d
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: 03d29b7f072aaab09b0677031ee34bd61d876ce6
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354141"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242844"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Azure Stack에서 Azure App Service 서버 역할의 용량 계획
 
@@ -43,31 +44,31 @@ Azure App Service on Azure Stack의 프로덕션 준비 배포를 설정 하려�
 
 ## <a name="controller-role"></a>컨트롤러 역할
 
-**권장 되는 최소**: A1 표준의 두 인스턴스
+**권장 최소**: A1 표준의 두 인스턴스
 
 Azure App Service 컨트롤러는 일반적으로 CPU, 메모리 및 네트워크 리소스 사용이 적습니다 경험입니다. 그러나 고가용성을 위해 두 명의 컨트롤러가 있어야 합니다. 두 명의 컨트롤러도 허용 하는 컨트롤러의 최대 수 있습니다. 직접 만들 수 있습니다 두 번째 웹 사이트 컨트롤러 설치 관리자에서 배포 중입니다.
 
 ## <a name="front-end-role"></a>프런트 엔드 역할
 
-**권장 되는 최소**: A1 표준의 두 인스턴스
+**권장 최소**: A1 표준의 두 인스턴스
 
 프런트 엔드 웹 작업자 가용성에 따라 웹 작업자로 요청을 라우팅합니다. 고가용성을 위해 둘 이상의 프런트 엔드를 해야 하 고 두 개 이상의 할 수 있습니다. 용량 계획 시 각 코어에 초당 약 100 개 요청을 처리할 수 있도록 하는 것이 좋습니다.
 
 ## <a name="management-role"></a>관리 역할
 
-**권장 되는 최소**: A3 표준의 두 인스턴스
+**권장 최소**: 두 인스턴스의 표준 A3
 
 Azure App Service 관리 역할은 Azure App Service 리소스 관리자 및 API 끝점, 포털 확장 (관리자, 테 넌 트, Functions 포털)와 데이터 서비스를 담당 합니다. 관리 서버 역할은 일반적으로 프로덕션 환경에서 4GB RAM에 대 한 정보만 필요합니다. 그러나 다양 한 관리 작업 (예: 웹 사이트 만들기)을 수행할 때 높은 CPU 수준이 발생할 수 있습니다 것입니다. 고가용성을 위해 둘 이상의 서버에서이 역할에 할당 해야 하 고 서버당 둘 이상의 코어가 있습니다.
 
 ## <a name="publisher-role"></a>게시자 역할
 
-**권장 되는 최소**: A1 표준의 두 인스턴스
+**권장 최소**: A1 표준의 두 인스턴스
 
 많은 사용자가 동시에 게시 하는 경우 게시자 역할의 CPU 사용량이 발생할 수 있습니다. 고가용성을 위해 둘 이상의 게시자 역할을 사용할 수 있는지를 확인 합니다. 게시자는 FTP/FTPS 트래픽도 처리합니다.
 
 ## <a name="web-worker-role"></a>웹 작업자 역할
 
-**권장 되는 최소**: A1 표준의 두 인스턴스
+**권장 최소**: A1 표준의 두 인스턴스
 
 고가용성을 위해 4 개 이상의 웹 작업자 역할, 공유 웹 사이트 모드에 대 한 두 및 제공 하려는 각 전용된 작업자 계층에 대해 두 개 있어야 합니다. 공유 및 전용 계산 모드 테 넌 트에 서로 다른 수준의 서비스를 제공 합니다. 많은 고객에 게 경우 추가 웹 작업자를 할 수 있습니다.
 
@@ -81,7 +82,7 @@ Azure Functions 소비 계획 모델에서 사용자에 게를 제공 하려면 
 사용 하려면 공유 웹 작업자 역할 수를 결정할 때 이러한 고려 사항을 검토 합니다.
 
 - **메모리**: 메모리는 웹 작업자 역할에 대 한 가장 중요 한 리소스입니다. 메모리가 부족 하 여 디스크에서 가상 메모리를 바꿀 때 웹 사이트 성능에 영향을 줍니다. 각 서버 운영 체제에 대해 약 1.2GB ram 필요합니다. 웹 사이트를 실행 하려면이 임계값 보다 RAM은 사용할 수 있습니다.
-- **활성 웹 사이트 비율**: 일반적으로 Azure App service를 사용 하 여 Azure Stack 배포에서 응용 프로그램의 약 5%가 활성 상태입니다. 그러나 특정된 시점에 활성화 된 응용 프로그램의 백분율 높거나 낮은 수 있습니다. 활성 응용 프로그램 속도 5%를 사용 하 여 Azure Stack 배포의 Azure App Service에 응용 프로그램의 최대 20 회 미만인 활성 웹 사이트 (5 x 20 = 100) 수 해야 합니다.
+- **활성 웹 사이트 비율**: 일반적으로 Azure App service를 사용 하 여 Azure Stack 배포에서 응용 프로그램의 약 5% 활성화 됩니다. 그러나 특정된 시점에 활성화 된 응용 프로그램의 백분율 높거나 낮은 수 있습니다. 활성 응용 프로그램 속도 5%를 사용 하 여 Azure Stack 배포의 Azure App Service에 응용 프로그램의 최대 20 회 미만인 활성 웹 사이트 (5 x 20 = 100) 수 해야 합니다.
 - **평균 메모리 사용량**: 프로덕션 환경에서 관찰 된 응용 프로그램에 대 한 평균 메모리 사용량은 약 70MB입니다. 이 공간을 사용 하 여 모든 웹 작업자 역할 컴퓨터 또는 Vm에서 할당 된 메모리를 계산할 수 있습니다 다음과 같습니다.
 
    `Number of provisioned applications * 70 MB * 5% - (number of web worker roles * 1044 MB)`

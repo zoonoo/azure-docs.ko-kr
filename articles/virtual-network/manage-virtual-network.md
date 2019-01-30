@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: a43988f8d4d6ae318f409cf1e79d8ad2ff8c8af1
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 00d5cb48053fe3f34152f29fb20fec8c4a20166f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247829"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426168"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>가상 네트워크 만들기, 변경 또는 삭제
 
@@ -29,7 +29,7 @@ ms.locfileid: "54247829"
 
 - 아직 Azure 계정이 없으면 [평가판 계정](https://azure.microsoft.com/free)에 등록합니다.
 - 포털을 사용하는 경우 https://portal.azure.com을 열고 Azure 계정으로 로그인합니다.
-- 이 문서의 작업을 완료하기 위해 PowerShell 명령을 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 이 자습서에는 Azure PowerShell 모듈 버전 5.7.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+- 이 문서의 작업을 완료하기 위해 PowerShell 명령을 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 이 자습서에는 Azure PowerShell 모듈 버전 5.7.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 - 이 문서의 작업을 완료하기 위해 Azure CLI(명령줄 인터페이스)를 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행하거나 컴퓨터에서 CLI를 실행합니다. 이 자습서에는 Azure CLI 버전 2.0.31 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 또한 Azure CLI를 로컬로 실행하는 경우 `az login`를 실행하여 Azure와 연결해야 합니다.
 - Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permissions)에 나열된 적절한 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이나 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 할당되어야 합니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "54247829"
         - 255.255.255.255/32(브로드캐스트)
         - 127.0.0.0/8(루프백)
         - 169.254.0.0/16(링크-로컬)
-        - 168.63.129.16/32(내부 DNS)
+        - 168.63.129.16/32(내부 DNS, DHCP 및 Azure Load Balancer [상태 프로브](../load-balancer/load-balancer-custom-probe-overview.md#probesource))
 
       가상 네트워크를 만들 때 주소 범위를 하나만 정의할 수 있지만 가상 네트워크를 만든 후 더 많은 주소 범위를 주소 공간에 추가할 수 있습니다. 기존 가상 네트워크에 주소 범위를 추가하는 방법은 [주소 범위 추가 또는 제거](#add-or-remove-an-address-range)를 참조하세요.
 
@@ -111,7 +111,7 @@ ms.locfileid: "54247829"
 - 255.255.255.255/32(브로드캐스트)
 - 127.0.0.0/8(루프백)
 - 169.254.0.0/16(링크-로컬)
-- 168.63.129.16/32(내부 DNS)
+- 168.63.129.16/32(내부 DNS, DHCP 및 Azure Load Balancer [상태 프로브](../load-balancer/load-balancer-custom-probe-overview.md#probesource))
 
 주소 범위를 추가 또는 제거하려면:
 
@@ -125,7 +125,7 @@ ms.locfileid: "54247829"
 
 **명령**
 
-- Azure CLI: [az network vnet update](/cli/azure/network/vnet#az_network_vnet_update)
+- Azure CLI: [az network vnet update](/cli/azure/network/vnet)
 - PowerShell: [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)
 
 ## <a name="change-dns-servers"></a>DNS 서버 변경
@@ -147,7 +147,7 @@ ms.locfileid: "54247829"
 
 **명령**
 
-- Azure CLI: [az network vnet update](/cli/azure/network/vnet#az_network_vnet_update)
+- Azure CLI: [az network vnet update](/cli/azure/network/vnet)
 - PowerShell: [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)
 
 ## <a name="delete-a-virtual-network"></a>가상 네트워크 삭제

@@ -9,13 +9,14 @@ ms.topic: article
 ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: fiseraci
+ms.lastreviewed: 01/28/2019
 keywords: ''
-ms.openlocfilehash: 5826ab8ac50a5d27f5a74cff4bebba4b2809d5f0
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 7dff82538448b27f14dd81e2862cd63d4dd56a9b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096622"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247105"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Azure Stack 데이터 센터 통합-syslog 전달
 
@@ -60,7 +61,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 에 대 한 매개 변수 *집합 SyslogServer* cmdlet:
 
-| 매개 변수 | 설명 | type | 필수 |
+| 매개 변수 | 설명 | Type | 필수 |
 |---------|---------|---------|---------|
 |*데이터 열이 추적에서 캡처되고 서버를 사용할 수 있으면* | Syslog 서버의 FQDN 또는 IP 주소 | 문자열 | 예|
 |*ServerPort* | Syslog 서버 포트 번호에서 수신 대기 | 문자열 | 예|
@@ -71,7 +72,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 |*제거*| 클라이언트에서 구성 서버를 제거 하 고 syslog 전달을 중지합니다| 플래그 | no|
 
 에 대 한 매개 변수 *집합 SyslogClient* cmdlet:
-| 매개 변수 | 설명 | type |
+| 매개 변수 | 설명 | Type |
 |---------|---------| ---------|
 | *pfxBinary* | 사용할 클라이언트 id로 syslog 서버 인증에 인증서를 포함 한 pfx 파일  | Byte[] |
 | *CertPassword* |  Pfx 파일을 사용 하 여 연결 된 개인 키를 가져오는 데 필요한 암호 | SecureString |

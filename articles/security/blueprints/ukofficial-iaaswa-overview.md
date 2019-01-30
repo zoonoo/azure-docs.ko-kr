@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: d40e23a7cc113a9db297a7dbf00a2372063dfb52
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d5b759fcde66a2a9be86cc15cba1ead1765ba248
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059215"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413399"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure 보안 및 준수 청사진 - UK OFFICIAL에 대한 3계층 IaaS 웹 애플리케이션
 
@@ -60,13 +60,13 @@ ms.locfileid: "39059215"
 - 규칙 집합: OWASP 3.0
 - 포트 80의 HTTP 수신기
 - NSG를 통해 조정된 연결/트래픽
-- 공용 IP 주소 끝점 정의(Azure)
+- 공용 IP 주소 엔드포인트 정의(Azure)
 
 (1) VPN - 경로 기반 사이트 간 IPSec VPN 터널
-- 공용 IP 주소 끝점 정의(Azure)
+- 공용 IP 주소 엔드포인트 정의(Azure)
 - NSG를 통해 조정된 연결/트래픽
-- (1) 로컬 네트워크 게이트웨이(온-프레미스 끝점)
-- (1) Azure 네트워크 게이트웨이(Azure 끝점)
+- (1) 로컬 네트워크 게이트웨이(온-프레미스 엔드포인트)
+- (1) Azure 네트워크 게이트웨이(Azure 엔드포인트)
 
 (9) Virtual Machines - 모든 VM은 Azure IaaS 맬웨어 방지 DSC 설정을 사용하여 배포됩니다.
 
@@ -129,23 +129,23 @@ Storage
 
 ### <a name="deployment-architecture"></a>배포 아키텍처:
 
-**온-프레미스 네트워크**: 조직에서 구현된 개인 로컬 영역 네트워크입니다.
+**온-프레미스 네트워크**: 조직에서 구현되는 개인 로컬 영역 네트워크입니다.
 
-**프로덕션 VNet**: 프로덕션 [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overview)(가상 네트워크)은 Azure에서 실행 중인 응용 프로그램 및 다른 작업 리소스를 호스팅합니다. 각 VNet에는 네트워크 트래픽을 격리하고 관리하는 데 사용되는 여러 서브넷이 포함될 수 있습니다.
+**프로덕션 VNet**: 프로덕션 [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overview)(가상 네트워크)은 Azure에서 실행 중인 애플리케이션 및 다른 작업 리소스를 호스팅합니다. 각 VNet에는 네트워크 트래픽을 격리하고 관리하는 데 사용되는 여러 서브넷이 포함될 수 있습니다.
 
 **웹 계층**: 들어오는 HTTP 요청을 처리합니다. 이 계층을 통해 응답이 반환됩니다.
 
 **비즈니스 계층**: 비즈니스 프로세스 및 시스템에 대한 다른 기능 논리를 구현합니다.
 
-**데이터베이스 계층**: 고가용성을 위해 [SQL Server Always On 가용성 그룹](https://msdn.microsoft.com/library/hh510230.aspx)을 사용하여 영구 데이터 저장소를 제공합니다. 고객은 PaaS 대신 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview)를 사용할 수 있습니다.
+**데이터베이스 계층**: 고가용성을 위해 [SQL Server Always On 가용성 그룹](https://msdn.microsoft.com/library/hh510230.aspx)을 사용하여 영구 데이터 스토리지를 제공합니다. 고객은 PaaS 대신 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview)를 사용할 수 있습니다.
 
 **게이트웨이**: [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)는 온-프레미스 네트워크의 라우터와 프로덕션 VNet 간에 연결을 제공합니다.
 
-**인터넷 게이트웨이 및 공용 IP 주소**: 인터넷 게이트웨이는 인터넷을 통해 사용자에게 응용 프로그램 서비스를 노출합니다. 이러한 서비스에 액세스하는 트래픽은 WAF(웹 애플리케이션 방화벽) 보호 기능을 포함하는 계층 7 라우팅 및 부하 분산 기능을 제공하는 [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)를 사용하여 보호됩니다.
+**인터넷 게이트웨이 및 공용 IP 주소**: 인터넷 게이트웨이는 인터넷을 통해 사용자에게 애플리케이션 서비스를 노출합니다. 이러한 서비스에 액세스하는 트래픽은 WAF(웹 애플리케이션 방화벽) 보호 기능을 포함하는 계층 7 라우팅 및 부하 분산 기능을 제공하는 [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)를 사용하여 보호됩니다.
 
 **관리 VNet**: 이 [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)에는 프로덕션 VNet에서 실행되는 워크로드에 관리 및 모니터링 기능을 구현하는 리소스가 포함되어 있습니다.
 
-**Jumpbox**: [요새 호스트](https://en.wikipedia.org/wiki/Bastion_host)라고도 하며 관리자가 프로덕션 VNet의 VM에 연결하는 데 사용하는 네트워크의 보안 VM입니다. Jumpbox는 안전 목록에 있는 공용 IP 주소의 원격 트래픽만 허용하는 NSG를 사용합니다. RDP(원격 데스크톱) 트래픽을 허용하려면 트래픽의 원본이 NSG에 정의되어야 합니다. 프로덕션 리소스는 보안 Jumpbox VM을 사용하여 RDP를 통해 관리됩니다.
+**Jumpbox**: [요새 호스트](https://en.wikipedia.org/wiki/Bastion_host)라고도 하며 관리자가 프로덕션 VNet의 VM에 연결하는 데 사용하는 네트워크의 보안 VM입니다. jumpbox는 안전 목록에 있는 공용 IP 주소의 원격 트래픽만 허용하는 NSG를 사용합니다. RDP(원격 데스크톱) 트래픽을 허용하려면 트래픽의 원본이 NSG에 정의되어야 합니다. 프로덕션 리소스는 보안 Jumpbox VM을 사용하여 RDP를 통해 관리됩니다.
 
 **사용자 정의 경로**: [사용자 정의 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)는 Azure VNet 내에서 IP 트래픽 흐름을 정의하는 데 사용됩니다.
 
@@ -154,7 +154,7 @@ Storage
 
 **네트워크 보안 그룹**: [NSG](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)에는 VNet 내에서 트래픽을 허용하거나 거부하는 액세스 제어 목록이 포함됩니다. NSG는 서브넷 또는 개별 VM 수준에서 트래픽을 보호하는 데 사용할 수 있습니다.
 
-**AD DS(Active Directory Domain Services)**:이 아키텍처에서는 전용 [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) 배포를 제공합니다.
+**AD DS(Active Directory Domain Services)**: 이 아키텍처에서는 전용 [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) 배포를 제공합니다.
 
 **로깅 및 감사**: [Azure 활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 작업을 시작한 사용자, 작업이 발생한 시기, 작업의 상태 및 작업을 조사할 수 있는 다른 속성의 값과 같은 구독의 리소스에서 수행된 작업을 캡처합니다. Azure 활동 로그는 구독에서 모든 작업을 캡처하는 Azure 플랫폼 서비스입니다. 필요한 경우 로그를 보관하거나 내보낼 수 있습니다.
 
@@ -170,23 +170,23 @@ Storage
 
 **모니터링**: [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started)는 모든 Azure 리소스의 활동 로그, 메트릭 및 진단 로그를 모니터링하기 위해 단일 원본을 제공하는 플랫폼 서비스입니다. Azure Monitor는 Azure의 리소스에서 비롯된 메트릭과 로그에 대해 시각화, 쿼리, 라우팅, 보관 및 조치를 수행하도록 구성될 수 있습니다. 리소스 기반 액세스 제어를 사용하여 사용자가 로그를 수정하는 기능을 갖지 못하도록 하기 위해 감사 내역을 보호하는 것이 좋습니다.
 
-**활동 로그:** [Azure 활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)를 구성하여 구독에 있는 리소스에서 수행된 작업에 대한 자세한 정보를 제공합니다.
+**활동 로그**: [Azure 활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)를 구성하여 구독에 있는 리소스에서 수행된 작업에 대한 자세한 정보를 제공합니다.
 
-**진단 로그:** [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)는 모든 리소스에서 내보낸 모든 로그입니다. 이러한 로그는 Windows 이벤트 시스템 로그, Blob, 테이블 및 큐 로그를 포함할 수 있습니다.
+**진단 로그**: [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)는 리소스에서 내보낸 모든 로그입니다. 이러한 로그는 Windows 이벤트 시스템 로그, Blob, 테이블 및 큐 로그를 포함할 수 있습니다.
 
-**방화벽 로그:** Application Gateway는 전체 진단 및 액세스 로그를 제공합니다. 방화벽 로그는 WAF를 사용할 수 있는 Application Gateway 리소스에 사용할 수 있습니다.
+**방화벽 로그.**: Application Gateway는 전체 진단 및 액세스 로그를 제공합니다. 방화벽 로그는 WAF를 사용할 수 있는 Application Gateway 리소스에 사용할 수 있습니다.
 
-**로그 보관**: 보관 및 정의된 보존 기간 동안 중앙 집중화된 Azure Storage 계정에 쓰도록 로그 데이터 저장소를 구성할 수 있습니다. Azure Log Analytics 또는 타사 SIEM 시스템을 사용하여 로그를 처리할 수 있습니다.
+**로그 보관**: 보관 및 정의된 보존 기간 동안 중앙 집중화된 Azure Storage 계정에 쓰도록 로그 데이터 스토리지를 구성할 수 있습니다. Azure Log Analytics 또는 타사 SIEM 시스템을 사용하여 로그를 처리할 수 있습니다.
 
 ### <a name="identity"></a>ID
 
-**Active Directory Domain Services**:이 아키텍처는 Azure에서 Active Directory Domain Services 배포를 제공합니다. Azure에서 Active Directory를 구현하는 방법에 대한 특정 권장 구성은 다음 문서를 참조하세요.
+**Active Directory Domain Services**: 이 아키텍처는 Azure에서 Active Directory Domain Services 배포를 제공합니다. Azure에서 Active Directory를 구현하는 방법에 대한 특정 권장 구성은 다음 문서를 참조하세요.
 
 [AD DS(Active Directory Domain Services)를 Azure로 확장](https://docs.microsoft.com/azure/guidance/guidance-identity-adds-extend-domain)
 
 [Azure Virtual Machines에 Windows Server Active Directory를 배포하기 위한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 
-**Active Directory 통합**: 고객은 전용 AD DS 아키텍처 대신 [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-azure-active-directory) 통합 또는 [온-프레미스 포리스트에 가입된 Azure의 Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-active-directory-in-azure-joined-to-an-on-premises-forest)를 사용하는 것이 좋습니다.
+**Active Directory 통합**: 고객은 전용 AD DS 아키텍처 대신 [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) 통합 또는 [온-프레미스 포리스트에 가입된 Azure의 Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-active-directory-in-azure-joined-to-an-on-premises-forest)를 사용하는 것이 좋습니다.
 
 ### <a name="security"></a>보안
 
@@ -196,17 +196,17 @@ Storage
 
 **네트워크 보안**: NSG([네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg))는 잘못 구성되었거나 사용할 수 없는 게이트웨이를 무시하는 인바운드 트래픽에 대해 두 번째 수준의 보호를 제공하는 각 서브넷에 권장됩니다. 예제 - [NSG 배포용 Resource Manager 템플릿](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 
-**공용 끝점 보안**: 인터넷 게이트웨이는 인터넷을 통해 사용자에게 응용 프로그램 서비스를 노출합니다. 이러한 서비스에 액세스하는 트래픽은 [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)를 사용하여 보호됩니다. 여기서는 웹 애플리케이션 방화벽 및 HTTPS 프로토콜 관리를 제공합니다.
+**공용 엔드포인트 보안**: 인터넷 게이트웨이는 인터넷을 통해 사용자에게 애플리케이션 서비스를 노출합니다. 이러한 서비스에 액세스하는 트래픽은 [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)를 사용하여 보호됩니다. 여기서는 웹 애플리케이션 방화벽 및 HTTPS 프로토콜 관리를 제공합니다.
 
 **IP 범위**: 아키텍처의 IP 범위는 제안된 범위입니다. 고객은 고유한 환경을 고려하고 적절한 범위를 사용하는 것이 좋습니다.
 
 **하이브리드 연결**: 클라우드 기반 워크로드는 Azure VPN Gateway를 사용하여 IPSEC VPN을 통해 온-프레미스 데이터 센터에 연결됩니다. 고객은 Azure에 연결할 적절한 VPN Gateway를 사용하고 있는지 확인해야 합니다. 예제 - [VPN Gateway Resource Manager 템플릿](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). 빅 데이터 요구 사항을 포함하는 대규모의 중요 업무용 워크로드를 실행하는 고객은 Microsoft 클라우드 서비스에 대한 개인 네트워크 연결에 [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute)를 사용하는 하이브리드 네트워크 아키텍처를 사용하는 것이 좋습니다.
 
-**문제의 분리**: 이 참조 아키텍처는 관리 작업 및 비즈니스 운영에 대한 VNet을 분리합니다. 별도 VNet 및 서브넷은 [Microsoft 클라우드 서비스 및 네트워크 보안](https://docs.microsoft.com/azure/best-practices-network-security) 모범 사례를 따르는 네트워크 세그먼트 간에 NSG를 사용하여 트래픽 수신 및 송신 제한을 비롯한 트래픽 관리를 허용합니다.
+**문제의 분리** 이 참조 아키텍처는 관리 작업 및 비즈니스 운영에 대한 VNet을 분리합니다. 별도 VNet 및 서브넷은 [Microsoft 클라우드 서비스 및 네트워크 보안](https://docs.microsoft.com/azure/best-practices-network-security) 모범 사례를 따르는 네트워크 세그먼트 간에 NSG를 사용하여 트래픽 수신 및 송신 제한을 비롯한 트래픽 관리를 허용합니다.
 
 **리소스 관리**: VM, VNet 및 부하 분산 장치와 같은 Azure 리소스는 [Azure 리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groupsresource)으로 함께 그룹화하여 관리됩니다. 리소스 기반 액세스 제어 역할을 각 리소스 그룹에 할당하여 권한 있는 사용자에 대한 액세스만을 제한할 수 있습니다.
 
-**액세스 제어 제한**: RBAC([역할 기반 액세스 제어](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal))를 사용하여 [사용자 정의 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)을 사용하는 응용 프로그램의 리소스를 관리합니다. RBAC를 사용하여 DevOps가 각 계층에서 수행할 수 있는 작업을 제한할 수 있습니다. 사용 권한을 부여할 때 [최소 권한의 원칙](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1)을 사용합니다. 모든 관리 작업을 기록하고 정기 감사를 수행하여 구성 변경을 계획했는지 확인합니다.
+**액세스 제어 제한**: RBAC([역할 기반 액세스 제어](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal))를 사용하여 [사용자 정의 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)을 사용하는 애플리케이션의 리소스를 관리합니다. RBAC를 사용하여 DevOps가 각 계층에서 수행할 수 있는 작업을 제한할 수 있습니다. 사용 권한을 부여할 때 [최소 권한의 원칙](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1)을 사용합니다. 모든 관리 작업을 기록하고 정기 감사를 수행하여 구성 변경을 계획했는지 확인합니다.
 
 **인터넷 액세스**: 이 참조 아키텍처는 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)를 인터넷 연결 게이트웨이 및 부하 분산 장치로 활용합니다. 또한 일부 고객은 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) 대신 네트워킹 보안의 추가 계층에 타사 네트워크 가상 어플라이언스를 사용할 수 있습니다.
 

@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: eb9d35b132a0aa3f0702604444f8a760bf66cf9a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: c7731de810dab8b252294d694ace5df3f5d0a185
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275584"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427562"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 호출
 이 문서에서는 Azure Data Factory 파이프라인에서 저장 프로시저 작업을 사용하여 SSIS 패키지를 호출하는 방법에 대해 설명합니다. 
@@ -62,7 +62,7 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 5. 데이터 팩터리의 **위치** 를 선택합니다. Data Factory에서 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 위치에 있을 수 있습니다.
 6. **대시보드에 고정**을 선택합니다.     
 7. **만들기**를 클릭합니다.
-8. 대시보드에서 **데이터 팩터리 배포 중** 상태의 타일이 표시됩니다. 
+8. 대시보드에서 다음과 같은 **데이터 팩터리 배포 중** 상태의 타일이 표시됩니다. 
 
     ![데이터 팩터리 배포 중 타일](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
 9. 만들기가 완료되면 이미지와 같은 **Data Factory** 페이지가 표시됩니다.
@@ -93,7 +93,7 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
 
 1. 데이터 팩터리 편집기의 왼쪽 창에서 **... 자세히** -> **새 데이터 세트** -> **Azure SQL**을 차례로 클릭합니다.
 
-    ![자세히 -> 새 데이터 집합](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-dataset-menu.png)
+    ![자세히 -&gt; 새 데이터 세트](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-dataset-menu.png)
 2. 다음 JSON 코드 조각을 오른쪽 창의 JSON 편집기에 복사합니다. 
     
     ```json
@@ -165,7 +165,7 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
 ## <a name="azure-powershell"></a>Azure PowerShell
 이 섹션에서는 Azure PowerShell을 사용하여 SSIS 패키지를 호출하는 저장 프로시저 작업이 있는 Data Factory 파이프라인을 만듭니다.
 
-[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-azurerm-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
+[Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/azurerm/install-azurerm-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
 
 ### <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 다음 절차에서는 데이터 팩터리를 만드는 단계를 설명합니다. 이 데이터 팩터리의 저장 프로시저 작업을 사용하여 파이프라인을 만듭니다. 저장 프로시저 작업은 SSISDB 데이터베이스의 저장 프로시저를 실행하여 SSIS 패키지를 실행합니다.
@@ -227,7 +227,7 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
         }
     ```
 2. **Azure PowerShell**에서 **C:\ADF\RunSSISPackage** 폴더로 전환합니다.
-3. **New-AzureRmDataFactoryLinkedService** cmdlet을 실행하여 **AzureSqlDatabaseLinkedService** 연결된 서비스를 만듭니다. 
+3. **New-AzureRmDataFactoryLinkedService** cmdlet을 사용하여 연결된 서비스를 만듭니다. **AzureSqlDatabaseLinkedService** 연결된 서비스를 만듭니다. 
 
     ```powershell
     New-AzureRmDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
@@ -252,7 +252,7 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
         }
     }
     ```
-2. **New-AzureRmDataFactoryDataset** cmdlet을 실행하여 데이터 집합을 만듭니다. 
+2. **New-AzureRmDataFactoryDataset** cmdlet을 실행하여 데이터 세트를 만듭니다. 
 
     ```powershell
     New-AzureRmDataFactoryDataset $df -File ".\OutputDataset.json"
@@ -294,7 +294,7 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
     }    
     ```
 
-2. **New-AzureRmDataFactoryPipeline** cmdlet을 실행하여 **RunSSISPackagePipeline** 파이프라인을 만듭니다.
+2. 파이프라인 **New-AzureRmDataFactoryPipeline** cmdlet을 실행하여 **RunSSISPackagePipeline** 파이프라인을 만듭니다.
 
     ```powershell
     $DFPipeLine = New-AzureRmDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
@@ -302,7 +302,7 @@ SSIS 카탈로그를 호스트하는 Azure SQL 데이터베이스를 데이터 �
 
 ### <a name="monitor-the-pipeline-run"></a>파이프라인 실행을 모니터링합니다.
 
-2. **Get-AzureRmDataFactorySlice**를 실행하여 파이프라인의 출력 테이블인 출력 데이터 집합\** 의 모든 조각에 대한 세부 정보를 가져옵니다.
+2. **Get-AzureRmDataFactorySlice**를 실행하여 파이프라인의 출력 테이블인 출력 데이터 세트**의 모든 조각에 대한 세부 정보를 가져옵니다.
 
     ```PowerShell
     Get-AzureRmDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z

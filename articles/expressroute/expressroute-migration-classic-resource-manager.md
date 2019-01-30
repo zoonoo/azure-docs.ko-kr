@@ -5,15 +5,15 @@ services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/17/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: c9f013a6af0b6d232eff32a9827006ce3247db3c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7b95c8b230714e1ba9306620e58628104cd676c9
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136414"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401644"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>ExpressRoute에 연결된 가상 네트워크를 클래식에서 Resource Manager로 마이그레이션
 
@@ -38,6 +38,7 @@ ms.locfileid: "53136414"
 * 동일한 구독에서 ExpressRoute 회로에 연결된 가상 네트워크, 게이트웨이 및 가상 네트워크 내 연결된 배포를 가동 중지 시간 없이 Resource Manager 환경으로 마이그레이션할 수 있습니다. 나중에 설명하는 단계에 따라 가상 네트워크, 게이트웨이 및 가상 네트워크 내 배포된 가상 머신과 같은 리소스를 마이그레이션할 수 있습니다. 마이그레이션하기 전에 가상 네트워크가 올바르게 구성되어 있는지 확인해야 합니다. 
 * ExpressRoute 회로와 다른 구독의 가상 네트워크, 게이트웨이 및 가상 네트워크 내 연결된 배포는 마이그레이션을 완료하는 데 가동 중지 시간이 필요합니다. 문서의 마지막 섹션에서는 리소스 마이그레이션을 위해 따라야 하는 단계를 설명합니다.
 * ExpressRoute 게이트웨이와 VPN Gateway가 모두 있는 가상 네트워크는 마이그레이션할 수 없습니다.
+* ExpressRoute 회로 구독 간 마이그레이션은 지원되지 않습니다. 자세한 내용은 [이동할 수 없는 서비스](../azure-resource-manager/resource-group-move-resources.md#services-that-cannot-be-moved)를 참조하세요.
 
 ## <a name="move-an-expressroute-circuit-from-classic-to-resource-manager"></a>클래식에서 Resource Manager로 ExpressRoute 회로 이동
 ExpressRoute 회로에 연결된 리소스를 마이그레이션하기 전에 ExpressRoute 회로를 클래식에서 Resource Manager 환경으로 이동해야 합니다. 이 작업을 완료하려면 다음 문서를 참조하세요.

@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 51470e9f8e0bffe18d1dc4007433246d084a5cb2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f160fc5f15ad9ca8994995c34d9eba7ee375c015
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846669"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424157"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>VMware VM에 대해 Azure로의 복제를 사용하도록 설정
 
@@ -59,7 +59,7 @@ VMware 가상 머신을 복제하는 경우:
 8. 장애 조치(Failover) 후 Azure VM이 회전하면 연결될 Azure 네트워크 및 서브넷을 선택합니다 네트워크는 복구 서비스 자격 증명 모음과 동일한 지역에 있어야 합니다. 네트워크는 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다. 컴퓨터마다 Azure 네트워크를 선택하려면 **나중에 구성** 을 선택합니다. 네트워크가 없는 경우 **만들어야** 합니다. 네트워크가 없는 경우 [만들어야](#set-up-an-azure-network) 합니다. Resource Manager 모델을 사용하여 네트워크를 만들려면 **새로 만들기**를 클릭합니다. 해당하는 경우 서브넷을 선택하고 **확인**을 클릭합니다.
 
     ![복제 대상 설정 사용](./media/vmware-azure-enable-replication/enable-rep3.png)
-9. **Virtual Machines** > **Virtual Machines 선택**에서 복제하려는 각 컴퓨터를 선택합니다. 복제를 활성화할 수 있는 컴퓨터만 선택할 수 있습니다. 그런 후 **OK**를 클릭합니다.
+9. **Virtual Machines** > **Virtual Machines 선택**에서 복제하려는 각 컴퓨터를 선택합니다. 복제를 활성화할 수 있는 컴퓨터만 선택할 수 있습니다. 그런 후 **OK**를 클릭합니다. 특정 가상 머신을 보거나 선택할 수 없으면 [여기](https://aka.ms/doc-plugin-VM-not-showing)를 클릭하여 문제를 해결합니다.
 
     ![복제 사용 가상 머신 선택](./media/vmware-azure-enable-replication/enable-replication5.png)
 10. **속성** > **속성 구성**에서 프로세스 서버가 자동으로 컴퓨터에 모바일 서비스를 설치하는 데 사용되는 계정을 선택합니다.  
@@ -126,6 +126,6 @@ Microsoft Software Assurance 고객은 Azure 하이브리드 혜택을 사용하
 
 ## <a name="next-steps"></a>다음 단계
 
-보호가 완료되고 컴퓨터가 보호된 상태에 도달한 후에 [장애 조치(Failover)](site-recovery-failover.md)를 시도하여 응용 프로그램이 Azure에서 온 것인지 여부를 확인할 수 있습니다.
+보호가 완료되고 컴퓨터가 보호된 상태에 도달한 후에 [장애 조치(Failover)](site-recovery-failover.md)를 시도하여 애플리케이션이 Azure에서 온 것인지 여부를 확인할 수 있습니다.
 
 보호를 사용하지 않도록 설정하려는 경우 [등록 및 보호 설정을 정리](site-recovery-manage-registration-and-protection.md)하는 방법을 알아봅니다.

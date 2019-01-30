@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 2bd89432a15f6960b07102ede317acca5864b773
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: eac0c1f2f7ded35cf09eec12f0406c754621f49c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310898"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465465"
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Azure Search Blob 인덱서를 사용하여 CSV Blob 인덱싱
 기본적으로 [Azure Search Blob 인덱서](search-howto-indexing-azure-blob-storage.md) 는 단일 텍스트 청크로 구분된 텍스트 Blob을 구문 분석합니다. 그러나 CSV 데이터를 포함하는 Blob을 사용하는 경우 Blob의 각 줄을 별도 파일로 처리하려고 합니다. 예를 들어, 다음 구분 기호로 분리된 텍스트를 각각 "id", "datePublished" 및 "tags" 필드가 포함된 두 개의 문서로 구문 분석할 수 있습니다. 
@@ -27,7 +27,7 @@ ms.locfileid: "53310898"
 이 문서에서는 Azure Search Blob 인덱서를 사용하여 CSV Blob을 구문 분석하는 방법을 배웁니다. 
 
 > [!IMPORTANT]
-> 이 기능은 현재 공개 미리 보기로 제공되므로 프로덕션 환경에서는 사용할 수 없습니다. 자세한 내용은 [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md)를 참조하세요. 
+> CSV Blob 인덱싱은 현재 공개 미리 보기로 제공되므로 프로덕션 환경에서는 사용할 수 없습니다. 자세한 내용은 [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md)를 참조하세요. 
 > 
 
 ## <a name="setting-up-csv-indexing"></a>CSV 인덱싱 설정

@@ -15,13 +15,14 @@ ms.topic: get-started-article
 ms.date: 09/12/2018
 ms.author: sethm
 ms.reviewer: scottnap
+ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: b17b1b077a1acac5ddb0e9eea8c4a2cf44697979
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 65bf3d7eb84f4a4e6fe6d74bd08c41ba4d9dd637
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078905"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247224"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>다른 Azure Stack 개발 키트 환경의 두 가상 네트워크 간의 사이트 간 VPN 연결 만들기
 ## <a name="overview"></a>개요
@@ -55,7 +56,7 @@ ms.locfileid: "49078905"
 |---------|---------|---------|
 |가상 네트워크 이름     |VNET-01|VNET-02 |
 |가상 네트워크 주소 공간 |10.0.10.0/23|10.0.20.0/23|
-|서브넷 이름     |서브넷-01|서브넷-02|
+|서브넷 이름     |Subnet-01|Subnet-02|
 |서브넷 주소 범위|10.0.10.0/24 |10.0.20.0/24 |
 |게이트웨이 서브넷      |10.0.11.0/24|10.0.21.0/24|
 |외부 BGPNAT 주소     |         |         |
@@ -207,7 +208,7 @@ VPN 연결을 통해 전송 되는 데이터의 유효성을 검사 하려면 �
 3. 네트워크 리소스의 목록에서 선택 **가상 네트워크 게이트웨이**합니다.
 4. **이름을**를 입력 **GW2**합니다.
 5. 가상 네트워크를 선택 하려면 **가상 네트워크**합니다. 선택한 **vnet-02** 목록에서.
-6. 선택 **공용 IP 주소**합니다. 경우는 **공용 IP 주소 선택** 블레이드가 열리고 **새로 만들기**합니다.
+6. **공용 IP 주소**를 선택합니다. 경우는 **공용 IP 주소 선택** 블레이드가 열리고 **새로 만들기**합니다.
 7. **이름을**를 입력 **GW2-PiP**를 선택한 후 **확인**합니다.
 8. 기본적으로 대 한 **VPN 유형**를 **route-based** 을 선택 합니다.
     유지 된 **route-based** VPN 유형입니다.

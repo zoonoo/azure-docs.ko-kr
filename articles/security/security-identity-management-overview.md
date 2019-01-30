@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As a IT Pro or decision maker I am trying to learn about identity mangement capabilities in Azure
-ms.openlocfilehash: 84ab35c269af66f58f3886a5dd0606ce69a11be9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d1933e58cae522b03ced29183440e226d47dfdf9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255884"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435059"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure ID 관리 보안 개요
 
@@ -55,14 +55,14 @@ SSO란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 
 
 대부분의 조직에서는 사용자 생산성을 위해 Office 365, Box, Salesforce와 같은 SaaS 애플리케이션에 의존합니다. 지금까지 IT 담당자는 각 SaaS 애플리케이션에서 사용자 계정을 개별적으로 만들고 업데이트해야 하며, 사용자는 각 SaaS 애플리케이션에 대한 암호를 기억해야 했습니다.
 
-Azure AD는 온-프레미스 Active Directory 환경을 클라우드로 확장하여 사용자가 자신의 기본 조직 계정을 사용하여 해당 도메인에 가입된 디바이스 및 회사 리소스뿐만 아니라 작업에 필요한 모든 웹 및 SaaS 응용 프로그램에 로그인할 수 있도록 합니다.
+Azure AD는 온-프레미스 Active Directory 환경을 클라우드로 확장하여 사용자가 자신의 기본 조직 계정을 사용하여 해당 도메인에 가입된 장치 및 회사 리소스뿐만 아니라 작업에 필요한 모든 웹 및 SaaS 애플리케이션에 로그인할 수 있도록 합니다.
 
 사용자는 여러 사용자 이름과 암호 집합을 관리할 필요가 없을 뿐만 아니라, 해당 조직 그룹 및 직원 상태에 따라 애플리케이션 액세스를 자동으로 프로비전하거나 프로비전을 해제할 수 있습니다. Azure AD는 SaaS 애플리케이션에 대한 사용자의 액세스를 중앙에서 관리할 수 있는 보안 및 액세스 관리 제어를 도입했습니다.
 
 자세한 정보:
 
 * [Single Sign-On 개요](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../active-directory/manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../active-directory/manage-apps/what-is-single-sign-on.md)
 * [Azure Active Directory Single Sign-On과 SaaS 앱 통합](../active-directory/manage-apps/configure-single-sign-on-portal.md)
 
 ## <a name="reverse-proxy"></a>역방향 프록시
@@ -71,9 +71,9 @@ Azure AD 애플리케이션 프록시를 사용하면 [SharePoint](https://suppo
 
 자세한 정보:
 
-* [Azure AD 응용 프로그램 프록시 사용](../active-directory/manage-apps/application-proxy-enable.md)
-* [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](../active-directory/active-directory-application-proxy-publish.md)
-* [응용 프로그램 프록시를 사용하는 Single Sign-On](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
+* [Azure AD 애플리케이션 프록시 사용](../active-directory/manage-apps/application-proxy-enable.md)
+* [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](../active-directory/active-directory-application-proxy-publish.md)
+* [애플리케이션 프록시를 사용하는 Single Sign-On](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [조건부 액세스로 작업하기](../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
@@ -102,9 +102,9 @@ RBAC는 Azure의 리소스에 대한 액세스를 세밀하게 관리할 수 있
 Azure Portal에서 보고서는 다음 범주에 속합니다.
 
 * **비정상 보고서**: 비정상으로 확인된 로그인 이벤트를 포함합니다. 이러한 활동을 인식하고 이벤트가 의심스러운지 확인할 수 있게 해 줍니다.
-* **통합 응용 프로그램 보고서**: 클라우드 응용 프로그램이 조직에서 사용되는 방식을 파악할 수 있게 해 줍니다. Azure AD는 수천 개의 클라우드 애플리케이션과 통합을 제공합니다.
-* **오류 보고서**: 외부 응용 프로그램에 계정을 프로비전할 때 발생할 수 있는 오류를 나타냅니다.
-* **사용자별 보고서**: 특정 사용자에 대한 장치/로그인 활동 데이터를 표시합니다.
+* **통합 애플리케이션 보고서**: 클라우드 애플리케이션이 조직에서 사용되는 방법에 대한 인사이트를 제공합니다. Azure AD는 수천 개의 클라우드 애플리케이션과 통합을 제공합니다.
+* **오류 보고서**: 외부 애플리케이션에 계정을 프로비전할 때 발생할 수 있는 오류를 나타냅니다.
+* **사용자별 보고서**: 특정 사용자에 대한 디바이스/로그인 활동 데이터를 표시합니다.
 * **활동 로그**: 최근 24시간, 최근 7일 또는 최근 30일 이내에 감사된 모든 이벤트의 레코드와 그룹 활동 변경 사항, 암호 재설정 및 등록 활동이 포함됩니다.
 
 자세한 정보:
@@ -124,20 +124,20 @@ Azure AD B2C를 사용하면 소비자는 기존 소셜 계정(Facebook, Google,
 자세한 정보:
 
 * [Azure Active Directory B2C란?](https://azure.microsoft.com/services/active-directory-b2c/)
-* [Azure Active Directory B2C 미리 보기: 응용 프로그램에 소비자 등록 및 로그인](../active-directory-b2c/active-directory-b2c-overview.md)
-* [Azure Active Directory B2C 미리 보기: 응용 프로그램 유형](../active-directory-b2c/active-directory-b2c-apps.md)
+* [Azure Active Directory B2C 미리 보기: 애플리케이션에서 소비자 등록 및 로그인](../active-directory-b2c/active-directory-b2c-overview.md)
+* [Azure Active Directory B2C 미리 보기: 애플리케이션 유형](../active-directory-b2c/active-directory-b2c-apps.md)
 
 ## <a name="device-registration"></a>디바이스 등록
 
-Azure AD Device Registration은 디바이스 기반 [조건부 액세스](../active-directory/active-directory-conditional-access-device-registration-overview.md) 시나리오의 기초입니다. 디바이스가 등록되면 Azure AD 디바이스 등록은 사용자가 로그인할 때 디바이스를 인증하는 데 사용하는 ID와 함께 디바이스를 제공합니다. 그런 다음, 인증된 디바이스 및 그 디바이스의 특성을 사용하여 클라우드 및 온-프레미스에 호스트되는 응용 프로그램에 조건부 액세스 정책을 적용할 수 있습니다.
+Azure AD Device Registration은 디바이스 기반 [조건부 액세스](../active-directory/active-directory-conditional-access-device-registration-overview.md) 시나리오의 기초입니다. 디바이스가 등록되면 Azure AD 디바이스 등록은 사용자가 로그인할 때 디바이스를 인증하는 데 사용하는 ID와 함께 디바이스를 제공합니다. 그런 다음, 인증된 장치 및 그 장치의 특성을 사용하여 클라우드 및 온-프레미스에 호스트되는 애플리케이션에 조건부 액세스 정책을 적용할 수 있습니다.
 
 Intune과 같은 모바일 디바이스 관리 솔루션과 함께 사용할 경우 Azure AD의 디바이스 특성이 디바이스에 대한 추가 정보로 업데이트됩니다. 그런 다음, 디바이스의 액세스를 적용하여 보안 및 규정 준수에 대한 표준을 충족하는 조건부 액세스 규칙을 만들 수 있습니다.
 
 자세한 정보:
 
-* [Azure AD 장치 등록 시작](../active-directory/active-directory-conditional-access-device-registration-overview.md)
-* [Windows 도메인에 가입된 장치의 Azure AD 자동 장치 등록](../active-directory/active-directory-conditional-access-automatic-device-registration.md)
-* [Windows 도메인 가입 장치에 대한 Azure AD 자동 등록 설정](../active-directory/active-directory-conditional-access-automatic-device-registration-setup.md)
+* [Azure AD 디바이스 등록 시작](../active-directory/active-directory-conditional-access-device-registration-overview.md)
+* [Windows 도메인에 가입된 디바이스의 Azure AD 자동 디바이스 등록](../active-directory/active-directory-conditional-access-automatic-device-registration.md)
+* [Windows 도메인 가입 디바이스에 대한 Azure AD 자동 등록 설정](../active-directory/active-directory-conditional-access-automatic-device-registration-setup.md)
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
@@ -154,9 +154,8 @@ Azure AD Privileged Identity Management로 다음을 수행할 수 있습니다.
 
 자세한 정보:
 
-* [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
-* [Azure AD Privileged Identity Management의 역할](../active-directory/privileged-identity-management/pim-roles.md)
-* [Azure AD Privileged Identity Management: 사용자 역할을 추가 또는 제거하는 방법](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
+* [Azure AD Privileged Identity Management란?](../active-directory/privileged-identity-management/pim-configure.md)
+* [PIM에서 Azure AD 디렉터리 역할 할당](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
 ## <a name="identity-protection"></a>ID 보호
 
@@ -165,7 +164,7 @@ Azure AD ID 보호는 조직의 ID에 영향을 주는 위험 이벤트와 잠�
 자세한 정보:
 
 * [Azure AD ID 보호](../active-directory/active-directory-identityprotection.md)
-* [Channel 9: Azure AD 및 ID 표시: ID 보호 미리 보기](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* [Channel 9: Azure AD 및 ID 쇼: ID 보호 미리 보기](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="hybrid-identity-managementazure-ad-connect"></a>하이브리드 ID 관리/Azure AD Connect
 

@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/16/2019
 ms.author: tomsh
-ms.openlocfilehash: b908589903d243b2d284e2a23b6111785229c16f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 718b6b38121981bdec1f677537f9cd1180dfdb08
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894132"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391221"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric 보안 모범 사례
 Azure에 애플리케이션을 배포하는 것은 빠르고, 쉽고, 비용 효율적입니다. 프로덕션에 클라우드 애플리케이션을 배포하기 전에 애플리케이션에서 보안 클러스터를 구현하기 위한 필수 및 권장 모범 사례의 목록을 검토합니다.
 
-Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. 또한 서비스 패브릭은 클라우드 애플리케이션 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다. 
+Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. 또한 서비스 패브릭은 클라우드 애플리케이션 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다.
 
 각 모범 사례에 대해 다음과 같이 설명합니다.
 
@@ -60,17 +60,17 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 -   Azure Network Security Groups(NSG)를 사용하여 경계 네트워크(완충 지역, DMZ 및 스크린된 서브넷이라고도 함)를 만듭니다.
 -   클러스터 가상 머신(VM)를 액세스하거나 원격 데스크톱 연결로 점프 서버를 사용하여 클러스터를 관리합니다.
 
-특히 프로덕션에서 클러스터가 실행 중일 때 권한 없는 사용자가 클러스터에 연결하지 못하도록 하여 클러스터의 보안을 유지해야 합니다. 보안이 되지 않은 클러스터를 만들 수 있지만 클러스터가 공용 인터넷에 관리 끝점을 노출하는 경우 익명 사용자가 클러스터에 연결할 수 있게 됩니다.
+특히 프로덕션에서 클러스터가 실행 중일 때 권한 없는 사용자가 클러스터에 연결하지 못하도록 하여 클러스터의 보안을 유지해야 합니다. 보안이 되지 않은 클러스터를 만들 수 있지만 클러스터가 공용 인터넷에 관리 엔드포인트를 노출하는 경우 익명 사용자가 클러스터에 연결할 수 있게 됩니다.
 
 다양한 기술을 사용하여 클러스터 보안을 구현하기 위해 세 가지 [시나리오](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)가 있습니다.
 
--   노드 - 노드 보안: 이 시나리오는 VM과 클러스터 내 컴퓨터 간의 통신을 보호합니다. 이러한 보안 형태는 클러스터에 가입하도록 인증된 컴퓨터만 클러스터에서 애플리케이션 및 서비스를 호스팅할 수 있습니다.
+-   노드-노드 보안: 이 시나리오는 VM과 클러스터 내 컴퓨터 간의 통신을 보호합니다. 이러한 보안 형태는 클러스터에 가입하도록 인증된 컴퓨터만 클러스터에서 애플리케이션 및 서비스를 호스팅할 수 있습니다.
 이 시나리오에서 Azure에서 실행되는 클러스터 또는 Windows에서 실행되는 독립 실행형 클러스터는 Windows Server 컴퓨터에 대해 [인증서 보안](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) 또는 [Windows 보안](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-windows-security)을 사용할 수 있습니다.
--   클라이언트 - 노드 보안: 이 시나리오는 클라이언트를 인증하고 Service Fabric 클라이언트와 클러스터의 개별 노드 간 통신을 보호합니다.
--   역할 기반 액세스 제어(RBAC): 이 시나리오는 클러스터에 액세스하는 각 관리자와 사용자 클라이언트 역할에 대해 별도의 ID(인증서, Azure AD 인증서 등)를 사용합니다. 클러스터를 만들 때 역할 ID를 지정합니다.
+-   클라이언트-노드 보안: 이 시나리오는 클라이언트를 인증하고 Service Fabric 클라이언트와 클러스터의 개별 노드 간 통신을 보호합니다.
+-   RBAC(역할 기반 액세스 제어): 이 시나리오는 클러스터에 액세스하는 각 관리자와 사용자 클라이언트 역할에 대해 별도의 ID(인증서, Azure AD 인증서 등)를 사용합니다. 클러스터를 만들 때 역할 ID를 지정합니다.
 
 >[!NOTE]
->**Azure 클러스터를 위한 보안 권장:** Azure AD 보안을 사용하여 노드 간 보안에 대해 클라이언트 및 인증서를 인증합니다.
+>**Azure 클러스터에 대한 보안 권장 사항:** Azure AD 보안을 사용하여 노드 간 보안에 대해 클라이언트 및 인증서를 인증합니다.
 
 독립 실행형 Windows 클러스터를 구성하려면 [독립 실행형 Windows 클러스터에 대한 설정 구성](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest)을 참조하세요.
 
@@ -85,7 +85,7 @@ Azure Resource Manager 템플릿을 사용합니다.
 -   배포 구성을 철저히 확인합니다.
 -   리소스를 직접 조정하기 위해 암시적 명령을 사용하지 않습니다.
 
-[서비스 패브릭 응용 프로그램 수명 주기](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle) 의 여러 측면을 자동화할 수 있습니다. [Service Fabric PowerShell 모듈](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications#upload-the-application-package)은 Azure Service Fabric 응용 프로그램의 배포, 업그레이드, 제거 및 테스트를 위한 일반적인 작업을 자동화합니다. 애플리케이션 관리를 위한 관리형 API 및 HTTP API도 사용 가능합니다.
+[Service Fabric 애플리케이션 수명 주기](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle) 의 여러 측면을 자동화할 수 있습니다. [Service Fabric PowerShell 모듈](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications#upload-the-application-package)은 Azure Service Fabric 애플리케이션의 배포, 업그레이드, 제거 및 테스트를 위한 일반적인 작업을 자동화합니다. 애플리케이션 관리를 위한 관리형 API 및 HTTP API도 사용 가능합니다.
 
 ## <a name="use-x509-certificates"></a>X.509 인증서 사용
 항상 X.509 인증서 또는 Windows 보안을 사용하여 클러스터를 보호합니다. 보안은 클러스터를 만들 때에만 구성됩니다. 클러스터를 만든 후에는 보안 기능을 설정할 수 없습니다.
@@ -106,15 +106,15 @@ Service Fabric은 애플리케이션에서 사용되는 리소스를 보호합�
 
 -   Active Directory 도메인 그룹 또는 사용자 사용: Active Directory 사용자 또는 그룹 계정에 대한 자격 증명에서 서비스를 실행합니다. 도메인 내의 Active Directory 온-프레미스를 사용하고 Azure Active Directory는 사용하지 않습니다. 도메인 사용자 또는 그룹을 사용하여 권한이 부여된 도메인의 다른 리소스를 액세스합니다. 예를 들어, 파일 공유와 같은 리소스입니다.
 
--   HTTP 및 HTTPS 끝점에 대한 보안 액세스 정책 할당: 서비스 매니페스트가 HTTP를 통해 끝점 리소스를 선언하는 경우 **SecurityAccessPolicy** 속성을 지정하여 **RunAs** 정책을 서비스에 적용합니다. HTTP 끝점에 할당된 포트는 서비스가 실행되는 RunAs 사용자 계정에 대해 올바르게 액세스 제어된 목록입니다. 정책이 설정되지 않은 경우 http.sys는 서비스에 액세스할 수 없고 클라이언트의 호출과 함께 오류가 발생할 수 있습니다.
+-   HTTP 및 HTTPS 엔드포인트에 대한 보안 액세스 정책 할당: 서비스 매니페스트가 HTTP를 통해 엔드포인트 리소스를 선언하는 경우 **SecurityAccessPolicy** 속성을 지정하여 **RunAs** 정책을 서비스에 적용합니다. HTTP 엔드포인트에 할당된 포트는 서비스가 실행되는 RunAs 사용자 계정에 대해 올바르게 액세스 제어된 목록입니다. 정책이 설정되지 않은 경우 http.sys는 서비스에 액세스할 수 없고 클라이언트의 호출과 함께 오류가 발생할 수 있습니다.
 
 Service Fabric에서 보안 정책을 사용하는 방법에 대한 자세한 내용은 [애플리케이션에 대한 보안 정책 구성](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-runas-security)을 참조하세요.
 
 ## <a name="implement-the-reliable-actors-security-configuration"></a>Reliable Actors 보안 구성 구현
-서비스 패브릭 Reliable Actors는 행위자 디자인 패턴의 구현입니다. 소프트웨어 디자인 패턴처럼 특정 패턴을 사용하겠다는 결정은 소프트웨어 문제가 패턴에 맞는지 여부에 기반합니다.
+Service Fabric Reliable Actors는 행위자 디자인 패턴을 구현한 것입니다. 소프트웨어 디자인 패턴처럼 특정 패턴을 사용하겠다는 결정은 소프트웨어 문제가 패턴에 맞는지 여부에 기반합니다.
 
 일반적으로 다음과 같은 소프트웨어 문제 또는 보안 시나리오에 대한 모델 솔루션을 위해 행위자 디자인 패턴을 사용합니다.
--   문제 영역은 1,000개 이상이라는 많은 수의 작고 독립적인 격리된 상태 및 논리 단위를 포함합니다.
+-   문제가 되는 공간이 1,000개 이상의 많은 수의 작고 독립적이며 격리된 상태 및 논리 단위를 포함하는 경우
 -   일련의 행위자에 걸친 상태를 쿼리하는 등 외부 구성 요소에서 중요한 상호 작용을 필요로 하지 않는 단일 스레드 개체로 작업하려고 합니다.
 -   행위자 인스턴스는 I/O 작업을 실행하여 예측할 수 없는 지연으로 호출자를 차단하지 않습니다.
 
@@ -126,7 +126,7 @@ Service Fabric의 경우 행위자는 Reliable Actors 애플리케이션 프레�
 복제자 구성은 행위자 상태 제공자의 상태를 매우 안정적으로 만드는 작업을 담당하는 복제자를 구성합니다.
 
 ## <a name="configure-ssl-for-azure-service-fabric"></a>Azure Service Fabric에 대해 SSL 구성
-서버 인증 프로세스는 관리 클라이언트에 대해 클러스터 관리 끝점을 [인증](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)합니다. 그러면 관리 클라이언트가 실제 클러스터와 통신하고 있음을 인식합니다. 이 인증은 HTTPS 관리 API 및 HTTPS를 통한 Service Fabric Explorer용 [SSL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)도 제공합니다.
+서버 인증 프로세스는 관리 클라이언트에 대해 클러스터 관리 엔드포인트를 [인증](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)합니다. 그러면 관리 클라이언트가 실제 클러스터와 통신하고 있음을 인식합니다. 이 인증은 HTTPS 관리 API 및 HTTPS를 통한 Service Fabric Explorer용 [SSL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)도 제공합니다.
 클러스터에 대한 사용자 지정 도메인 이름을 획득해야 합니다. 인증 기관으로부터 인증서를 요청하는 경우 인증서의 주체 이름이 클러스터에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다.
 
 애플리케이션에 대해 SSL을 구성하려면 먼저 CA에서 서명한 SSL 인증서를 얻어야 합니다. CA가 SSL 보안 목적을 위해 인증서를 발급하는 신뢰할 수 있는 타사입니다. SSL 인증서가 아직 없는 경우 SSL 인증서를 판매하는 회사에서 구입해야 합니다.
@@ -143,10 +143,10 @@ Service Fabric의 경우 행위자는 Reliable Actors 애플리케이션 프레�
 
     >[!NOTE]
     >__cloudapp__**.net** 도메인에 사용되는 SSL 인증서는 CA에서 얻을 수 없습니다.
-    
+
 -   인증서는 최소한 2,048비트 암호화를 사용해야 합니다.
 
-HTTP 프로토콜은 보안되지 않으며 도청 공격을 받기 쉽습니다. HTTP를 통해 전송된 데이터는 웹 브라우저에서 웹 서버로 또는 다른 끝점 간에 일반 텍스트로 전송됩니다. 공격자는 신용카드 정보와 계정 로그인 같이 HTTP를 통해 보내진 중요 데이터를 가로채 볼 수 있습니다. 데이터가 HTTPS를 통한 브라우저를 통해 전송 또는 게시될 경우 SSL이 중요한 정보를 암호화하여 가로채기로부터 보호합니다.
+HTTP 프로토콜은 보안되지 않으며 도청 공격을 받기 쉽습니다. HTTP를 통해 전송된 데이터는 웹 브라우저에서 웹 서버로 또는 다른 엔드포인트 간에 일반 텍스트로 전송됩니다. 공격자는 신용카드 정보와 계정 로그인 같이 HTTP를 통해 보내진 중요 데이터를 가로채 볼 수 있습니다. 데이터가 HTTPS를 통한 브라우저를 통해 전송 또는 게시될 경우 SSL이 중요한 정보를 암호화하여 가로채기로부터 보호합니다.
 
 SSL 인증서 사용에 대한 자세한 내용은 [Azure 애플리케이션에 대 한 SSL 구성](https://docs.microsoft.com/azure/cloud-services/cloud-services-configure-ssl-certificate)을 참조하세요.
 
@@ -184,5 +184,7 @@ Service Fabric은 클러스터에 보안을 적용하고 애플리케이션 보�
 Azure Service Fabric은 [Service Fabric 클러스터](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)에 연결된 클라이언트에 대해 두 가지 액세스 제어 유형(관리자 및 사용자)을 지원합니다. 클러스터 관리자는 다른 사용자 그룹의 특정 클러스터 작업에 대한 액세스를 제한하기 위해 액세스 제어를 사용할 수 있습니다. 액세스 제어는 클러스터의 보안을 강화합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
+- [Service Fabric 보안 검사 목록](azure-service-fabric-security-checklist.md)
 - Service Fabric [개발 환경](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)을 설정합니다.
 - [Service Fabric 지원 옵션](https://docs.microsoft.com/azure/service-fabric/service-fabric-support)에 대해 알아봅니다.

@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 3aa5a1c640cc46d677a66f5179f9f07a81e62b15
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 60c709108da041dc1e54ba69d3b1b153accebc19
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138078"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401404"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Azure Event Hubs에 대한 프로그래밍 가이드
 이 문서에서는 Azure Event Hubs를 사용하여 코드를 작성하는 몇 가지 일반적인 시나리오를 설명합니다. Event Hubs에 대한 예비 이해가 있다고 가정합니다. Event Hubs의 개요에 대한 개념은 [Event Hubs 개요](event-hubs-what-is-event-hubs.md)를 참조하세요.
@@ -92,7 +92,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 
 배치에서 이벤트를 보내면 처리량을 향상시키는 데 도움을 줄 수 있습니다. [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API를 사용하여 [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) 호출에 대해 데이터 개체를 나중에 추가할 수 있는 일괄 처리를 만들 수 있습니다.
 
-단일 일괄 처리는 이벤트의 256KB 제한을 초과하지 말아야 합니다. 또한 배치의 각 메시지는 동일한 게시자 id를 사용합니다. 배치가 최대 이벤트 크기를 초과하지 않도록 확인하는 것은 보낸 사람의 책임입니다. 그런 경우 클라이언트 **보내기** 오류가 생성됩니다. 도우미 메서드 [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch)를 사용하면 일괄 처리가 256KB를 초과하지 않도록 할 수 있습니다. [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API에서 빈 [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch)를 얻은 다음 [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd)를 사용하여 이벤트를 추가하여 일괄 처리를 구성합니다. 
+단일 일괄 처리는 이벤트의 1MB 제한을 초과하지 말아야 합니다. 또한 배치의 각 메시지는 동일한 게시자 id를 사용합니다. 배치가 최대 이벤트 크기를 초과하지 않도록 확인하는 것은 보낸 사람의 책임입니다. 그런 경우 클라이언트 **보내기** 오류가 생성됩니다. 도우미 메서드 [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch)를 사용하면 일괄 처리가 1MB를 초과하지 않도록 할 수 있습니다. [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API에서 빈 [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch)를 얻은 다음 [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd)를 사용하여 이벤트를 추가하여 일괄 처리를 구성합니다. 
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>비동기적으로 보내고 규모로 보내기
 

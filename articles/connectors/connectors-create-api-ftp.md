@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
-ms.openlocfilehash: a14f045193c01b8c26019314ddde4c2116d8bad6
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d57a80ec2a1ebfca173d7eaa165de4d344af2ccf
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232820"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391105"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 FTP 파일 만들기, 모니터링 및 관리
 
@@ -26,7 +26,7 @@ Azure Logic Apps 및 FTP 커넥터를 사용하면 다음과 같이 다른 작�
 * 파일 콘텐츠 및 메타데이터를 가져옵니다.
 * 보관을 폴더로 추출합니다.
 
-트리거를 사용하여 FTP 서버에서 응답을 가져오고 다른 작업에 출력을 제공하는 트리거를 사용할 수 있습니다. 논리 앱의 작업을 사용하여 FTP 서버에 있는 파일로 작업을 수행할 수 있습니다. 다른 작업에서 FTP 작업의 출력을 사용하게 만들 수도 있습니다. 예를 들어 정기적으로 FTP 서버에서 파일을 검색하는 경우 Office 365 Outlook 커넥터 또는 Outlook.com 커넥터를 사용하여 해당 파일 및 해당 콘텐츠에 대한 이메일을 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
+트리거를 사용하여 FTP 서버에서 응답을 가져오고 다른 작업에 출력을 제공하는 트리거를 사용할 수 있습니다. Logic Apps의 실행 작업을 사용하여 FTP 서버에 있는 파일을 관리할 수 있습니다. 다른 작업에서 FTP 작업의 출력을 사용하게 만들 수도 있습니다. 예를 들어 정기적으로 FTP 서버에서 파일을 검색하는 경우 Office 365 Outlook 커넥터 또는 Outlook.com 커넥터를 사용하여 해당 파일 및 해당 콘텐츠에 대한 이메일을 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 > [!NOTE]
 > [큰 메시지를 처리하기 위한 청크](../logic-apps/logic-apps-handle-large-messages.md)를 사용하지 않는 이상, FTP 커넥터는 50MB 이하 파일만 지원합니다. 
@@ -39,7 +39,7 @@ Azure Logic Apps 및 FTP 커넥터를 사용하면 다음과 같이 다른 작�
 
 * FTP 호스트 서버 주소 및 계정 자격 증명
 
-  FTP 커넥터를 사용하려면 인터넷에서 액세스할 수 있고 *passive* 모드로 작동하도록 설정된 FTP 서버가 필요합니다. 자격 증명을 통해 FTP 계정에 대한 연결을 만들고 액세스하는 권한이 논리 앱에 부여됩니다.
+  FTP 커넥터를 사용하려면 인터넷에서 액세스할 수 있고 *passive* 모드로 작동하도록 설정된 FTP 서버가 필요합니다. 자격 증명이 있으면 논리 앱에서 연결을 만들고 FTP 계정에 액세스할 수 있습니다.
 
 * [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
@@ -68,23 +68,26 @@ Azure Logic Apps 및 FTP 커넥터를 사용하면 다음과 같이 다른 작�
 
 ## <a name="examples"></a>예
 
-### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>FTP 트리거: 파일이 추가되거나 수정되는 경우
+### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>FTP 트리거: 파일을 추가하거나 수정할 때
 
 이 트리거는 FTP 서버에서 파일이 추가되거나 변경되는 것을 트리거가 감지하면 논리 앱 워크플로를 시작합니다. 따라서 예를 들어 해당 콘텐츠가 지정된 조건을 충족하는지 여부에 따라 파일의 콘텐츠를 확인하고 해당 콘텐츠를 가져올 것인지를 결정하는 조건을 추가할 수 있습니다. 마지막으로 파일의 콘텐츠를 가져오는 작업을 추가하고 해당 콘텐츠를 SFTP 서버의 폴더에 넣을 수 있습니다. 
 
-**엔터프라이즈 예제**: 이 트리거를 사용하여 고객의 주문을 나타내는 새 파일에 대한 FTP 폴더를 모니터링할 수 있습니다. 그런 다음, **파일 콘텐츠 가져오기** 같은 FTP 작업을 사용할 수 있으므로 추가로 처리할 주문의 콘텐츠를 가져오고 주문 데이터베이스에 해당 주문을 저장할 수 있습니다.
+**엔터프라이즈 예제**: 이 트리거를 사용하여 고객의 주문을 설명하는 새 파일용 FTP 폴더를 모니터링할 수 있습니다. 그런 다음, **파일 콘텐츠 가져오기** 같은 FTP 작업을 사용할 수 있으므로 추가로 처리할 주문의 콘텐츠를 가져오고 주문 데이터베이스에 해당 주문을 저장할 수 있습니다.
 
 논리 앱이 유효하고 정상적으로 작동하려면 트리거와 하나 이상의 작업이 필요합니다. 따라서 트리거를 추가한 후 작업을 추가해야 합니다.
 
-다음은 **파일을 추가하거나 수정할 때** 트리거를 보여주는 예제입니다.
+이 트리거를 보여 주는 예제는 다음과 같습니다. **파일을 추가하거나 수정할 때**
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고, 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
 
-1. 빈 논리 앱의 경우 검색 상자에서 필터로 “ftp”를 입력합니다. 트리거 목록에서 **파일을 추가하거나 수정할 때 - FTP** 트리거를 선택합니다.
+1. 빈 논리 앱의 경우 검색 상자에서 필터로 “ftp”를 입력합니다. 트리거 목록에서 다음 트리거를 선택합니다. **파일을 추가하거나 수정할 때 - FTP**
 
    ![FTP 트리거를 찾아서 선택](./media/connectors-create-api-ftp/select-ftp-trigger.png)  
 
 1. 연결에 필요한 세부 정보를 입력한 다음, **만들기**를 선택합니다.
+
+   기본적으로 이 커넥터는 파일을 텍스트 형식으로 전송합니다. 
+   예를 들어 파일을 이진 형식으로 전송하려면 인코딩을 사용하는 경우에 **이진 전송**을 선택합니다.
 
    ![FTP 서버 연결 만들기](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
 
@@ -104,7 +107,7 @@ Azure Logic Apps 및 FTP 커넥터를 사용하면 다음과 같이 다른 작�
 
 1. 트리거 또는 다른 작업에서 **새 단계**를 선택합니다. 
 
-1. 검색 상자에서 필터로 "ftp"를 입력합니다. 작업 목록에서 **파일 콘텐츠 가져오기 - FTP** 작업을 선택합니다.
+1. 검색 상자에서 필터로 "ftp"를 입력합니다. 작업 목록에서 다음 작업을 선택합니다. **파일 콘텐츠 가져오기 - FTP**
 
    ![FTP 작업 선택](./media/connectors-create-api-ftp/select-ftp-action.png)  
 

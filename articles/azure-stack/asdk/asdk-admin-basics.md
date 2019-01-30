@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 66a2871e0c4b36959ccd8f08df5b6b7edd09f624
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: 79e031226f11d45121827795c34b0103235d8d79
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227827"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55248166"
 ---
 # <a name="asdk-administration-basics"></a>ASDK 관리 기본 사항 
 Azure Stack 개발 키트 (ASDK) 관리 접하는 경우 알아야 할 몇 가지 있습니다. 이 설명서는 평가 환경에 Azure Stack 운영자 역할의 개요를 제공 하 고 테스트 사용자를 확인 하는 방법을 신속 하 게 생산성 될 수 있습니다.

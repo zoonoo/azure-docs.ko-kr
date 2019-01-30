@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 5e09401c37d40c99d3f8bbb643d104c0105812f4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 413473b856d76f9ebeff9669eb1facc54d89b509
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730294"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382532"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법
 
@@ -260,7 +260,7 @@ App Service 및 Azure Functions에서 토큰을 가져오는 간단한 REST 프�
 
 1. [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 및 기타 필요한 NuGet 패키지에 대한 참조를 애플리케이션에 추가합니다. 아래 예제에서는 [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)도 사용합니다.
 
-2.  애플리케이션에 다음 코드를 추가하고 올바른 리소스를 대상으로 하도록 수정합니다. 이 예제에서는 Azure Key Vault를 사용하는 두 가지 방법을 보여 줍니다.
+2. 애플리케이션에 다음 코드를 추가하고 올바른 리소스를 대상으로 하도록 수정합니다. 이 예제에서는 Azure Key Vault를 사용하는 두 가지 방법을 보여 줍니다.
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
@@ -277,12 +277,12 @@ Microsoft.Azure.Services.AppAuthentication 및 노출하는 작업에 대한 자
 ### <a name="using-the-rest-protocol"></a>REST 프로토콜 사용
 
 관리 ID가 있는 앱에는 다음 두 가지 환경 변수가 정의되어 있습니다.
+
 - MSI_ENDPOINT
 - MSI_SECRET
 
 **MSI_ENDPOINT**는 앱이 토큰을 요청할 수 있는 로컬 URL입니다. 리소스 토큰을 가져오려면 이 엔드포인트에 다음 매개 변수를 포함하여 HTTP GET 요청을 보냅니다.
 
-> [!div class="mx-tdBreakAll"]
 > |매개 변수 이름|그런 다음|설명|
 > |-----|-----|-----|
 > |resource|쿼리|토큰을 가져와야 하는 리소스의 AAD 리소스 URI입니다. [Azure AD 인증](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) 또는 기타 리소스 URI를 지원하는 Azure 서비스 중 하나일 수 있습니다.|
@@ -290,10 +290,8 @@ Microsoft.Azure.Services.AppAuthentication 및 노출하는 작업에 대한 자
 > |secret|헤더|MSI_SECRET 환경 변수의 값입니다.|
 > |clientid|쿼리|(선택 사항) 사용할 사용자 할당 ID의 식별자입니다. 생략하면 시스템 할당 ID가 사용됩니다.|
 
-
 성공적인 200 OK 응답에는 다음 속성을 가진 JSON 본문이 포함됩니다.
 
-> [!div class="mx-tdBreakAll"]
 > |속성 이름|설명|
 > |-------------|----------|
 > |access_token|요청된 액세스 토큰입니다. 호출 웹 서비스는 이 토큰을 사용하여 수신 웹 서비스에 인증할 수 있습니다.|
@@ -301,24 +299,27 @@ Microsoft.Azure.Services.AppAuthentication 및 노출하는 작업에 대한 자
 > |resource|수신 웹 서비스의 앱 ID URI입니다.|
 > |token_type|토큰 유형 값을 나타냅니다. Azure AD는 전달자 유형만 지원합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)을 참조하세요.|
 
-
 이 응답은 [AAD 서비스 간 액세스 토큰 요청에 대한 응답](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)과 동일합니다.
 
-> [!NOTE] 
+> [!NOTE]
 > 환경 변수는 프로세스를 처음 시작할 때 설정되므로 애플리케이션에 대한 관리 ID를 사용하도록 설정한 후 코드에서 `MSI_ENDPOINT` 및 `MSI_SECRET`를 사용하기 전에 먼저 애플리케이션을 다시 시작하거나 해당 코드를 다시 배포해야 할 수 있습니다.
 
 ### <a name="rest-protocol-examples"></a>REST 프로토콜 예제
+
 예제 요청은 다음과 유사할 수 있습니다.
+
 ```
 GET /MSI/token?resource=https://vault.azure.net&api-version=2017-09-01 HTTP/1.1
 Host: localhost:4141
 Secret: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
 ```
+
 샘플 응답은 다음과 유사할 수 있습니다.
+
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
- 
+
 {
     "access_token": "eyJ0eXAi…",
     "expires_on": "09/14/2017 00:00:00 PM +00:00",
@@ -328,7 +329,9 @@ Content-Type: application/json
 ```
 
 ### <a name="code-examples"></a>코드 예제
+
 <a name="token-csharp"></a>C#에서 이 요청을 만들려면:
+
 ```csharp
 public static async Task<HttpResponseMessage> GetToken(string resource, string apiversion)  {
     HttpClient client = new HttpClient();
@@ -336,10 +339,12 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
     return await client.GetAsync(String.Format("{0}/?resource={1}&api-version={2}", Environment.GetEnvironmentVariable("MSI_ENDPOINT"), resource, apiversion));
 }
 ```
+
 > [!TIP]
 > .NET 언어의 경우 이 요청을 직접 만드는 대신 [Microsoft.Azure.Services.AppAuthentication](#asal)을 사용해도 됩니다.
 
 <a name="token-js"></a>Node.JS:
+
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
@@ -355,6 +360,7 @@ const getToken = function(resource, apiver, cb) {
 ```
 
 <a name="token-powershell"></a>PowerShell:
+
 ```powershell
 $apiVersion = "2017-09-01"
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
@@ -370,12 +376,12 @@ $accessToken = $tokenResponse.access_token
 ```json
 "identity": {
     "type": "None"
-}    
+}
 ```
 
 이런 방식으로 시스템 할당 ID를 제거하면 AAD에서도 삭제됩니다. 앱 리소스가 삭제될 때 시스템 할당 ID도 AAD에서 자동으로 제거됩니다.
 
-> [!NOTE] 
+> [!NOTE]
 > 설정할 수 있는 애플리케이션 설정인 WEBSITE_DISABLE_MSI도 있으며 이것은 로컬 토큰 서비스를 비활성화합니다. 그러나 ID는 그대로 유지되고, 도구에는 여전히 관리 ID가 "on" 또는 "enabled"로 표시됩니다. 따라서 이 설정은 사용하지 않는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계

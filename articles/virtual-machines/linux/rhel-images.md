@@ -11,19 +11,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/18/2018
+ms.date: 01/18/2019
 ms.author: borisb
-ms.openlocfilehash: dbef04710e1a91cfda8b039605b517de9524ee19
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: fd73863dacd7914e23199ba92211ea67e68f7d0d
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229577"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402152"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Azure의 Red Hat Enterprise Linux 이미지
 이 문서에서는 명명 및 보존 정책에 대한 정책과 함께 Azure Marketplace에서 사용할 수 있는 RHEL(Red Hat Enterprise Linux) 이미지를 설명합니다.
 
 모든 RHEL 버전에 대한 Red Hat 지원 정책 관련 정보는 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata) 페이지에서 확인할 수 있습니다.
+
+>[!Important]
+> Azure Marketplace에서 현재 사용할 수 있는 RHEL 이미지는 BYOS(Bring-Your-Own-Subscription) 또는 PANG(종량제) 라이선스 모델을 지원합니다. [Azure Hybrid Use Benefit](../windows/hybrid-use-benefit-licensing.md) 및 BYOS와 PAYG 간의 동적 전환은 지원되지 않습니다. 라이선스 모드를 전환하려면 해당 이미지에서 VM을 다시 배포해야 합니다.
+
+>[!Note]
+> Azure Marketplace Gallery의 RHEL 이미지와 관련된 문제에 대해서는 Microsoft에 지원 티켓을 제출하세요.
 
 ## <a name="images-available-in-the-ui"></a>UI에서 사용 가능한 이미지
 Marketplace에서 "Red Hat"을 검색하거나 Azure Portal UI에서 리소스를 만들 때 사용할 수 있는 RHEL 이미지의 하위 세트 및 관련된 Red Hat 제품이 표시됩니다. Azure CLI/PowerShell/API를 사용하여 항상 사용 가능한 VM 이미지의 전체 세트를 얻을 수 있습니다.

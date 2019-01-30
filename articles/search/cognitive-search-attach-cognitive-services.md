@@ -7,28 +7,28 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 01/18/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5bffeacaa07f90a11c374061eb6c0d36fc8f86a9
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: bfa9bbb9816148182b79a8231f2ddb3e46433804
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351461"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413246"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Azure Search에서 기술과 Cognitive Services 리소스 연결 
 
-비정형 데이터 처리를 위해 [인지 검색 파이프라인](cognitive-search-concept-intro.md)을 구동하는 AI 알고리즘은 [**Cognitive Services 리소스**](https://azure.microsoft.com/services/cognitive-services/)를 기반으로 합니다. [**Computer Vision**](https://azure.microsoft.com/services/cognitive-services/computer-vision/)과 같은 리소스는 이미지 파일에서 텍스트와 구조를 추출하기 위한 이미지 분석 및 OCR(광학 문자 인식) 기능을 제공하며 [**Text Analytics**](https://azure.microsoft.com/services/cognitive-services/text-analytics/)는 엔터티 인식 및 핵심 구 추출과 같은 자연어 처리 기능을 제공합니다.
+AI 알고리즘은 Azure Search 인덱싱 작업에서 구조화되지 않은 데이터를 처리하는 데 사용되는 [Cognitive Search 파이프라인](cognitive-search-concept-intro.md)을 구동합니다. 이러한 알고리즘은 이미지 분석 및 OCR(광학 문자 인식)을 위한 [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/)과 엔터티 인식, 핵심 구 추출 및 기타 강화를 위한 [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/)를 비롯한 [Cognitive Services 리소스](https://azure.microsoft.com/services/cognitive-services/)를 기준으로 합니다.
 
 제한된 수의 문서를 보강하거나 크고 빈번한 워크로드에 대해 유료 Cognitive Services 리소스를 연결할 수 있습니다. 이 문서에서는 Cognitive Services 리소스를 인지 기술에 연결하여 [Azure Search 인덱싱](search-what-is-an-index.md) 중에 데이터를 보강하는 방법을 알아봅니다.
 
-파이프라인이 [사용자 지정 기술](cognitive-search-create-custom-skill-example.md)을 제외하고 구성된 경우에는 Cognitive Services 리소스를 연결할 필요가 없습니다.
+파이프라인이 Cognitive Services API와 관련이 없는 기술로 구성된 경우 여전히 Cognitive Services 리소스를 연결해야 합니다. 이렇게 하면 **무료** 리소스가 재정의되어 일별 보강 횟수가 낮게 제한됩니다. Cognitive Services API에 바인딩되지 않은 기술의 경우 요금이 부과되지 않습니다. 이러한 기술에는 [사용자 지정 기술](cognitive-search-create-custom-skill-example.md), [텍스트 병합기](cognitive-search-skill-textmerger.md), [텍스트 분할자](cognitive-search-skill-textsplit.md) 및 [쉐이퍼](cognitive-search-skill-shaper.md)가 포함됩니다.
 
 > [!NOTE]
 > 2018년 12월 21일부터 Cognitive Services 리소스를 Azure Search 기술과 연결할 수 있습니다. 그러면 기술을 실행한 요금을 청구할 수 있습니다. 또한 문서 해독 단계의 일부인 이미지 추출에 대한 요금 청구가 이 날짜에서 시작됩니다. 문서의 텍스트 추출은 추가 비용 없이 계속 제공됩니다.
 >
-> [기본 제공 인지 기술](cognitive-search-predefined-skills.md)을 실행하면 직접 작업을 수행한 것처럼 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services)으로 비용이 부과됩니다. 이미지 추출은 현재 미리 보기 가격으로 제공되는 Azure Search 청구 가능 이벤트입니다. 자세한 내용은 [Azure Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400) 또는 [청구 작동 방식](search-sku-tier.md#how-billing-works)을 참조하세요.
+> [기본 제공 인지 기술](cognitive-search-predefined-skills.md)을 실행하면 직접 작업을 수행한 것과 동일한 요율로 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services)이 부과됩니다. 이미지 추출은 현재 미리 보기 가격으로 Azure Search 요금이 청구됩니다. 자세한 내용은 [Azure Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400) 또는 [청구 작동 방식](search-sku-tier.md#how-billing-works)을 참조하세요.
 
 
 ## <a name="use-free-resources"></a>무료 리소스 사용
@@ -52,7 +52,9 @@ ms.locfileid: "54351461"
 
 ## <a name="use-billable-resources"></a>유료 리소스 사용
 
-매일 20개를 초과하는 문서에 번호를 매기는 워크로드에는 유료 Cognitive Services 리소스가 필요합니다.
+매일 20개를 초과하는 보강에 번호를 매기는 워크로드에는 유료 Cognitive Services 리소스를 연결해야 필요합니다. 
+
+Cognitive Services API를 호출하는 기술에 대해서만 요금이 청구됩니다. 와 같은 비 API 기반 기술을 [사용자 지정 기술](cognitive-search-create-custom-skill-example.md), [텍스트 병합기](cognitive-search-skill-textmerger.md), [텍스트 분할자](cognitive-search-skill-textsplit.md) 및 [쉐이퍼](cognitive-search-skill-shaper.md) 기술과 같은 비 API 기반 기술에는 요금이 청구되지 않습니다.
 
 1. **Cognitive Services 연결**의 **데이터 가져오기** 마법사에서 기존 리소스를 선택하거나 **새 Cognitive Services 리소스 만들기**를 클릭합니다.
 

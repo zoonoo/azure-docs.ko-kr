@@ -5,7 +5,7 @@ services: active-directory
 keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 68c2178440264aa6a6efce074b299f4e3deaa10f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 20beff7accbc987842141fa7ece9c17f11b0032e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415392"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448811"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 승인된 클라이언트 앱 필요 
 
@@ -114,9 +114,9 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
 
     ![조건부 액세스](./media/app-based-conditional-access/07.png)
 
-4. **조건:** **조건**으로 **장치 플랫폼** 및 **클라이언트 앱**을 선택해야 합니다.
+4. **조건:** **조건**으로 **디바이스 플랫폼** 및 **클라이언트 앱**을 구성해야 합니다.
 
-    a. **장치 플랫폼**으로 **Android** 및 **iOS**를 선택합니다.
+    a. **디바이스 플랫폼**으로 **Android** 및 **iOS**를 선택합니다.
 
     ![조건부 액세스](./media/app-based-conditional-access/03.png)
 
@@ -155,7 +155,7 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
     ![조건부 액세스](./media/app-based-conditional-access/05.png)
 
 
-**3단계 - iOS 및 Android 클라이언트 응용 프로그램에 대한 Intune 앱 보호 정책 구성**
+**3단계 - iOS 및 Android 클라이언트 애플리케이션에 대한 Intune 앱 보호 정책 구성**
 
 
 ![조건부 액세스](./media/app-based-conditional-access/09.png)
@@ -195,9 +195,9 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
 
     ![조건부 액세스](./media/app-based-conditional-access/02.png)
 
-4. **조건:** **조건**으로 **장치 플랫폼** 및 **클라이언트 앱**을 선택해야 합니다.
+4. **조건:** **조건**으로 **디바이스 플랫폼** 및 **클라이언트 앱**을 구성해야 합니다.
 
-    a. **장치 플랫폼**으로 **Android** 및 **iOS**를 선택합니다.
+    a. **디바이스 플랫폼**으로 **Android** 및 **iOS**를 선택합니다.
 
     ![조건부 액세스](./media/app-based-conditional-access/03.png)
 
@@ -239,7 +239,7 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
 
 
 
-**3단계 - iOS 및 Android 클라이언트 응용 프로그램에 대한 Intune 앱 보호 정책 구성**
+**3단계 - iOS 및 Android 클라이언트 애플리케이션에 대한 Intune 앱 보호 정책 구성**
 
 
 ![조건부 액세스](./media/app-based-conditional-access/09.png)
@@ -258,9 +258,9 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
  
 - 일부 사용자가 이미 등록되어 있습니다(회사 디바이스 포함 또는 제외).
 
-- 앱 보호 응용 프로그램을 사용하여 Azure AD에 등록되지 않은 사용자는 리소스에 액세스하려면 디바이스를 등록해야 합니다.
+- 앱 보호 애플리케이션을 사용하여 Azure AD에 등록되지 않은 사용자는 리소스에 액세스하려면 디바이스를 등록해야 합니다.
 
-- 앱 보호 응용 프로그램을 사용하는 등록된 사용자는 디바이스에 다시 등록할 필요가 없습니다.
+- 앱 보호 애플리케이션을 사용하는 등록된 사용자는 디바이스에 다시 등록할 필요가 없습니다.
 
 
 ### <a name="configuration"></a>구성
@@ -279,9 +279,9 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
 
      ![조건부 액세스](./media/app-based-conditional-access/02.png)
 
-4. **조건:** **조건**으로 **장치 플랫폼** 및 **클라이언트 앱**을 구성해야 합니다. 
+4. **조건:** **조건**으로 **디바이스 플랫폼** 및 **클라이언트 앱**을 구성해야 합니다. 
  
-    a. **장치 플랫폼**으로 **Android** 및 **iOS**를 선택합니다.
+    a. **디바이스 플랫폼**으로 **Android** 및 **iOS**를 선택합니다.
 
     ![조건부 액세스](./media/app-based-conditional-access/03.png)
 
@@ -291,7 +291,7 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
 
 5. **액세스 제어**로 다음을 선택해야 합니다.
 
-    - **장치를 준수 상태로 표시해야 함**
+    - **디바이스를 준수 상태로 표시해야 함**
 
     - **승인된 클라이언트 앱(미리 보기) 필요**
 
@@ -328,7 +328,7 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
 
 
 
-**3단계 - iOS 및 Android 클라이언트 응용 프로그램에 대한 Intune 앱 보호 정책 구성**
+**3단계 - iOS 및 Android 클라이언트 애플리케이션에 대한 Intune 앱 보호 정책 구성**
 
 
 ![조건부 액세스](./media/app-based-conditional-access/09.png)
@@ -375,9 +375,9 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
 
      ![조건부 액세스](./media/app-based-conditional-access/02.png)
 
-4. **조건:** **조건**으로 **장치 플랫폼** 및 **클라이언트 앱**을 구성해야 합니다. 
+4. **조건:** **조건**으로 **디바이스 플랫폼** 및 **클라이언트 앱**을 구성해야 합니다. 
  
-    a. **장치 플랫폼**으로 **Android** 및 **iOS**를 선택합니다.
+    a. **디바이스 플랫폼**으로 **Android** 및 **iOS**를 선택합니다.
 
     ![조건부 액세스](./media/app-based-conditional-access/03.png)
 
@@ -387,7 +387,7 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
 
 5. **액세스 제어**로 다음을 선택해야 합니다.
 
-    - **장치를 준수 상태로 표시해야 함**
+    - **디바이스를 준수 상태로 표시해야 함**
 
     - **승인된 클라이언트 앱(미리 보기) 필요**
 
@@ -419,7 +419,7 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
 
 5. **액세스 제어**로 다음을 선택해야 합니다.
 
-    - **장치를 준수 상태로 표시해야 함**
+    - **디바이스를 준수 상태로 표시해야 함**
 
     - **승인된 클라이언트 앱(미리 보기) 필요**
 
@@ -430,7 +430,7 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
 
 
 
-**3단계 - iOS 및 Android 클라이언트 응용 프로그램에 대한 Intune 앱 보호 정책 구성**
+**3단계 - iOS 및 Android 클라이언트 애플리케이션에 대한 Intune 앱 보호 정책 구성**
 
 
 ![조건부 액세스](./media/app-based-conditional-access/09.png)

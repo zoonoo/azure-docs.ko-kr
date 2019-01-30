@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 389c519d5f63b311b2e9c2b1d48d6e09e02c7d81
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 82ccbe8e57ff35904b7e763e838a81660ab13f88
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361072"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412821"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: 디바이스 쓰기 저장 사용
 > [!NOTE]
@@ -30,9 +30,9 @@ ms.locfileid: "49361072"
 
 다음 설명서에서는 Azure AD Connect에서 디바이스 쓰기 저장 기능을 사용하는 방법에 대한 정보를 제공합니다. 쓰기 저장 디바이스를 다음과 같은 시나리오에서 사용합니다.
 
-* 디바이스에 따라 ADFS(2012 R2 이상) 보호된 응용 프로그램에 조건부 액세스를 사용하도록 설정합니다(신뢰 당사자 트러스트).
+* 디바이스에 따라 ADFS(2012 R2 이상) 보호된 애플리케이션에 조건부 액세스를 사용하도록 설정합니다(신뢰 당사자 트러스트).
 
-애플리케이션에 대한 액세스 권한이 신뢰할 수 있는 디바이스에 부여된 추가 보안 및 보증을 제공합니다. 조건부 액세스에 대한 자세한 내용은 [조건부 액세스로 위험 관리](../active-directory-conditional-access-azure-portal.md) 및 [Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정](../../active-directory/active-directory-device-registration-on-premises-setup.md)을 참조하세요.
+애플리케이션에 대한 액세스 권한이 신뢰할 수 있는 장치에 부여된 추가 보안 및 보증을 제공합니다. 조건부 액세스에 대한 자세한 내용은 [조건부 액세스로 위험 관리](../active-directory-conditional-access-azure-portal.md) 및 [Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정](../../active-directory/active-directory-device-registration-on-premises-setup.md)을 참조하세요.
 
 > [!IMPORTANT]
 > <li>디바이스는 사용자와 동일한 포리스트에 있어야 합니다. 디바이스가 단일 포리스트에 쓰기 저장해야 하기 때문에 이 기능은 현재 여러 사용자 포리스트에서 배포를 지원하지 않습니다.</li>
@@ -49,18 +49,18 @@ ms.locfileid: "49361072"
     >[!NOTE]
     > 새로운 디바이스 구성 옵션은 버전 1.1.819.0 이상에서만 사용할 수 있습니다.
 
-2. 디바이스 옵션 페이지에서 **디바이스 쓰기 저장 구성**을 선택합니다. **장치 쓰기 저장을 사용하지 않도록 설정** 옵션은 장치 쓰기 저장을 사용하기 전에는 사용할 수 없습니다. **다음**을 클릭하여 마법사의 다음 페이지로 이동합니다.
-    ![장치 작업 선택](./media/how-to-connect-device-writeback/configuredevicewriteback1.png)
+2. 디바이스 옵션 페이지에서 **디바이스 쓰기 저장 구성**을 선택합니다. **디바이스 쓰기 저장을 사용하지 않도록 설정** 옵션은 디바이스 쓰기 저장을 사용하기 전에는 사용할 수 없습니다. **다음**을 클릭하여 마법사의 다음 페이지로 이동합니다.
+    ![디바이스 작업 선택](./media/how-to-connect-device-writeback/configuredevicewriteback1.png)
 
 3. 쓰기 저장 페이지에서 기본 디바이스 쓰기 저장 포리스트로 제공된 도메인이 표시됩니다.
-   ![사용자 지정 설치 장치 쓰기 저장 대상 포리스트](./media/how-to-connect-device-writeback/writebackforest.png)
+   ![사용자 지정 설치 디바이스 쓰기 저장 대상 포리스트](./media/how-to-connect-device-writeback/writebackforest.png)
 
-4. **장치 컨테이너** 페이지에서는 active directory를 준비하는 다음과 같은 두 가지 옵션을 제공합니다.
+4. **디바이스 컨테이너** 페이지에서는 active directory를 준비하는 다음과 같은 두 가지 옵션을 제공합니다.
 
-    a. **엔터프라이즈 관리자 자격 증명 제공**: 장치를 다시 써야 하는 포리스트에 대한 엔터프라이즈 관리자 자격 증명을 제공하면 Azure AD Connect는 장치 쓰기 저장을 구성하는 동안 자동으로 포리스트를 준비합니다.
+    a. **엔터프라이즈 관리자 자격 증명 제공**: 디바이스를 다시 써야 하는 포리스트에 대한 엔터프라이즈 관리자 자격 증명을 제공하면 Azure AD Connect는 디바이스 쓰기 저장을 구성하는 동안 자동으로 포리스트를 준비합니다.
 
-    b. **PowerShell 스크립트 다운로드**: Azure AD Connect는 장치 쓰기 저장에 대한 active directory를 준비할 수 있는 PowerShell 스크립트를 자동으로 생성합니다. Azure AD Connect에서 엔터프라이즈 관리자 자격 증명을 제공할 수 없는 경우 PowerShell 스크립트를 다운로드하면 됩니다. 디바이스를 다시 써야 하는 포리스트의 엔터프라이즈 관리자에게 다운로드한 **CreateDeviceContainer.psq** PowerShell 스크립트를 제공합니다.
-    ![active diretory 포리스트 준비](./media/how-to-connect-device-writeback/devicecontainercreds.png)
+    b. **PowerShell 스크립트 다운로드**: Azure AD Connect는 디바이스 쓰기 저장에 대한 Active Directory를 준비할 수 있는 PowerShell 스크립트를 자동으로 생성합니다. Azure AD Connect에서 엔터프라이즈 관리자 자격 증명을 제공할 수 없는 경우 PowerShell 스크립트를 다운로드하면 됩니다. 디바이스를 다시 써야 하는 포리스트의 엔터프라이즈 관리자에게 다운로드한 **CreateDeviceContainer.psq** PowerShell 스크립트를 제공합니다.
+    ![Active Directory 포리스트 준비](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     active directory 포리스트를 준비하기 위해 다음 작업이 수행됩니다.
     * 존재하지 않는 경우 CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn]에서 새 컨테이너 및 개체를 생성하고 구성합니다.
@@ -81,7 +81,7 @@ ms.locfileid: "49361072"
    ![Active Directory 관리 센터 등록 디바이스 목록](./media/how-to-connect-device-writeback/devicewriteback6.png)
 
 ## <a name="enable-conditional-access"></a>조건부 액세스 사용
-이 시나리오를 사용하기 위한 자세한 지침은 [Azure Active Directory 디바이스 등록을 사용하여 온-프레미스 조건부 액세스 설정](../../active-directory/active-directory-device-registration-on-premises-setup.md) 내에서 사용할 수 있습니다.
+이 시나리오를 사용하기 위한 자세한 지침은 [Azure Active Directory 디바이스 등록을 사용하여 온-프레미스 조건부 액세스 설정](../../active-directory/active-directory-device-registration-on-premises-setup.md)내에서 사용할 수 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 ### <a name="the-writeback-checkbox-is-still-disabled"></a>쓰기 저장 확인란이 계속 비활성화되어 있음

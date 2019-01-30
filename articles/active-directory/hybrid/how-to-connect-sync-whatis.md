@@ -4,7 +4,7 @@ description: Azure AD Connect 동기화 작업 및 사용자 지정 방법에 �
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 994169d4280c479ffe1b766a309198c8f4d951b5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 74973371b3d893c1e0c94024a97c77b59fa570fe
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309752"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461946"
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정
 Azure Active Directory Connect 동기화 서비스(Azure AD Connect 동기화)는 Azure AD Connect의 주요 구성 요소입니다. 온-프레미스 환경과 Azure AD 간의 ID 데이터를 동기화하는 데 관련된 모든 작업을 담당합니다. Azure AD Connect 동기화는 DirSync, Azure AD Sync 및 Azure Active Directory Connector가 구성된 Forefront Identity Manager의 후속 제품입니다.
@@ -49,7 +49,7 @@ Azure Active Directory Connect 동기화 서비스(Azure AD Connect 동기화)�
 | [실수로 인한 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md) |*실수로 인한 삭제 방지* 기능과 이를 구성하는 방법을 설명합니다. |
 | [Scheduler](how-to-connect-sync-feature-scheduler.md) |데이터를 가져오고 동기화하고 내보내는 기본 제공 스케줄러를 설명합니다. |
 | [암호 해시 동기화 구현](how-to-connect-password-hash-synchronization.md) |암호 동기화의 작동 방식, 구현 방법, 작동 및 문제 해결 방법에 대해 설명합니다. |
-| [장치 쓰기 저장](how-to-connect-device-writeback.md) |Azure AD Connect에서 디바이스 쓰기 저장이 작동하는 방식에 대해 설명합니다. |
+| [디바이스 쓰기 저장](how-to-connect-device-writeback.md) |Azure AD Connect에서 디바이스 쓰기 저장이 작동하는 방식에 대해 설명합니다. |
 | [디렉터리 확장](how-to-connect-sync-feature-directory-extensions.md) |자체 사용자 지정 특성을 사용하여 Azure AD 스키마를 확장하는 방법에 대해 설명합니다. |
 | [Office 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) |사용자의 Office 365 리소스를 사용자와 동일한 지역에 배치하는 방법을 설명합니다. |
 | **동기화 서비스** | |

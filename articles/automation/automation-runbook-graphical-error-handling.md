@@ -3,18 +3,18 @@ title: Azure Automation 그래픽 runbook의 오류 처리
 description: 이 문서에서는 Azure Automation 그래픽 runbook에서 오류 처리 논리를 구현하는 방법에 대해 설명합니다.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 14112a9a9f64f20540a8f7e1d37cd31017238e59
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d7fe38334b71334d4dae9235643117efdf5fbd5d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192713"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436691"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Azure Automation 그래픽 runbook의 오류 처리
 
@@ -30,7 +30,7 @@ runbook은 오류 처리를 포함해야 합니다. 활동의 출력에 대한 �
 
 * **종료되지 않는 오류**: 실패에도 불구하고 실행을 계속할 수 있는 심각하지 않은 오류입니다. 예를 들어 찾을 수 없는 파일 오류 및 권한 문제 등의 작동 오류가 있습니다.
 
-Azure Automation 그래픽 runbook은 오류 처리를 포함하는 기능으로 개선되었습니다. 이제 예외를 종료되지 않는 오류로 전환하고 활동 간에 오류 링크를 만들 수 있습니다. 이 프로세스를 통해 runbook 작성자가 오류를 포착하고 실현되거나 예기치 않은 조건을 관리할 수 있습니다.  
+Azure Automation 그래픽 runbook은 오류 처리를 포함하는 기능으로 개선되었습니다. 이제 예외를 종료되지 않는 오류로 전환하고 활동 간에 오류 링크를 만들 수 있습니다. 이 프로세스를 통해 runbook 작성자가 오류를 포착하고 실현되거나 예기치 않은 조건을 관리할 수 있습니다.  
 
 ## <a name="when-to-use-error-handling"></a>오류 처리를 사용하는 경우
 
@@ -69,3 +69,4 @@ runbook 작성자는 오류를 발생시킬 수 있는 각 활동에 대해 다�
 * 그래픽 runbook의 링크 및 링크 유형에 대해 자세히 알아보려면 [Azure Automation에서 그래픽 작성](automation-graphical-authoring-intro.md#links-and-workflow)을 참조하세요.
 
 * runbook 실행, runbook 작업 모니터링 방법 및 기타 기술 세부 정보를 알아보려면 [runbook 작업 추적](automation-runbook-execution.md)을 참조하세요.
+

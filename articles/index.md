@@ -6,12 +6,12 @@ description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 32500e4c7319411555e028889d6ec94150776250
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 6ff3aa57ceedbf9cfe4920cc8c3ca2327a1f882c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306593"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246816"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1428,6 +1428,12 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             <a href="/azure/api-management/">
                                                 <img src="media/index/APIManagement.svg" alt="" />
                                                 <p>API Management</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure-sphere/">
+                                                <img src="media/index/azure_sphere.svg" alt="" />
+                                                <p>Azure Sphere</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -4276,6 +4282,25 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 <div class="cardText">
                                                     <h3>API Management</h3>
                                                     <p>API를 개발자, 파트너 및 직원에게 안전하게 대규모로 게시</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure-sphere/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_sphere.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Sphere</h3>
+                                                    <p>높은 수준의 보안으로 연결된 MCU 구동 디바이스 만들기</p>
                                                 </div>
                                             </div>
                                         </div>

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 43cec400a21671d47d1a6c390833a5e4c6517709
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 403d60232f6b22161031dd4eb1af062336c370ee
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976831"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401761"
 ---
 # <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Azure Data Lake Storage Gen2의 성능 튜닝
 
@@ -57,7 +57,7 @@ Azure의 VM 또는 온-프레미스 컴퓨터를 사용하는 경우 적절한 �
 
 일반적으로 HDInsight, Azure Data Lake Analytics 등의 분석 엔진에서는 파일당 오버헤드가 발생합니다. 데이터를 많은 작은 파일로 저장하는 경우 성능이 저하될 수 있습니다. 일반적으로 더 나은 성능을 얻으려면 데이터를 더 큰 크기의 파일(256MB ~ 100GB)로 구성합니다. 일부 엔진과 애플리케이션에서 100GB를 초과하는 파일을 효율적으로 처리하는 데 어려움을 겪을 수 있습니다.
 
-때로는 다수의 작은 파일로 이루어진 원시 데이터에 대한 데이터 파이프라인의 제어가 제한됩니다. 다운스트림 응용 프로그램에 사용할 더 큰 파일을 생성하는 "처리" 프로세스를 포함하는 것이 좋습니다.
+때로는 다수의 작은 파일로 이루어진 원시 데이터에 대한 데이터 파이프라인의 제어가 제한됩니다. 다운스트림 애플리케이션에 사용할 더 큰 파일을 생성하는 "처리" 프로세스를 포함하는 것이 좋습니다.
 
 ### <a name="organizing-time-series-data-in-folders"></a>폴더에 시계열 데이터 구성
 
@@ -119,7 +119,7 @@ HDInsight 클러스터 내에 있는 3개의 계층을 튜닝하여 컨테이너
 
 워크로드에 따라 항상 필요한 최소 YARN 컨테이너 크기가 있습니다. 너무 작은 컨테이너를 선택하면 작업에서 메모리 부족 문제가 발생합니다. 일반적으로 YARN 컨테이너는 1GB 이상이어야 합니다. 3GB YARN 컨테이너도 흔히 볼 수 있습니다. 일부 워크로드의 경우 더 큰 YARN 컨테이너가 필요할 수도 있습니다.  
 
-**YARN 컨테이너당 코어 수를 늘립니다.**  각 컨테이너에 할당된 코어 수를 늘려 각 컨테이너에서 실행되는 병렬 태스크 수를 늘립니다.  이 방법은 컨테이너당 여러 태스크를 실행하는 Spark 등의 응용 프로그램에 적합합니다.  각 컨테이너에서 단일 스레드를 실행하는 경우 Hive 등의 응용 프로그램에서는 컨테이너당 코어 수보다 컨테이너 수를 늘리는 것이 좋습니다.
+**YARN 컨테이너당 코어 수를 늘립니다.**  각 컨테이너에 할당된 코어 수를 늘려 각 컨테이너에서 실행되는 병렬 태스크 수를 늘립니다.  이 방법은 컨테이너당 여러 태스크를 실행하는 Spark 등의 애플리케이션에 적합합니다.  각 컨테이너에서 단일 스레드를 실행하는 경우 Hive 등의 애플리케이션에서는 컨테이너당 코어 수보다 컨테이너 수를 늘리는 것이 좋습니다.
 
 ### <a name="workload-layer"></a>워크로드 계층
 
@@ -129,11 +129,11 @@ HDInsight 클러스터 내에 있는 3개의 계층을 튜닝하여 컨테이너
 
 **실패한 태스크는 비용이 많이 듭니다.** 각 태스크에서 많은 양의 데이터를 처리하는 경우 태스크 실패 시 다시 시도하는 데 많은 비용이 듭니다.  따라서 각각 적은 양의 데이터를 처리하는 태스크를 더 많이 만드는 것이 좋습니다.
 
-위의 일반적인 지침 외에도 각 응용 프로그램마다 특정 응용 프로그램에 대해 튜닝할 수 있는 다른 매개 변수가 있습니다. 아래 표에는 각 응용 프로그램에 대한 성능 튜닝을 시작하기 위한 몇 가지 매개 변수 및 링크가 나와 있습니다.
+위의 일반적인 지침 외에도 각 애플리케이션마다 특정 애플리케이션에 대해 튜닝할 수 있는 다른 매개 변수가 있습니다. 아래 표에는 각 애플리케이션에 대한 성능 튜닝을 시작하기 위한 몇 가지 매개 변수 및 링크가 나와 있습니다.
 
 | 워크로드               | 작업을 설정하는 매개 변수                                                         |
 |--------------------|-------------------------------------------------------------------------------------|
-| [HDInisight의 Spark](data-lake-storage-performance-tuning-spark.md)       | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
+| [HDInsight의 Spark](data-lake-storage-performance-tuning-spark.md)       | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
 | [HDInsight의 Hive](data-lake-storage-performance-tuning-hive.md)    | <ul><li>hive.tez.container.size</li></ul>         |
 | [HDInsight의 MapReduce](data-lake-storage-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [HDInsight의 Storm](data-lake-storage-performance-tuning-storm.md)|  | <ul><li>작업자 프로세스 수</li><li>Spout 실행자 인스턴스 수</li><li>Bolt 실행자 인스턴스 수 </li><li>Spout 작업 수</li><li>Bolt 작업 수</li></ul>|

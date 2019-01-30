@@ -1,29 +1,21 @@
 ---
-title: Azure Application Gateway에서 여러 사이트 호스팅 | Microsoft Docs
-description: 이 페이지에서는 Application Gateway 다중 사이트 지원에 대한 개요를 제공합니다.
-documentationcenter: na
+title: Azure Application Gateway에서 여러 사이트 호스팅
+description: 이 문서에서는 Azure Application Gateway 다중 사이트 지원에 대한 개요를 제공합니다.
 services: application-gateway
-author: amsriva
-manager: rossort
-editor: ''
-ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/09/2017
+ms.date: 1/17/2019
 ms.author: amsriva
-ms.openlocfilehash: df98559a9476190d683812bf9f63d8ad9c4d3f0e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5c3fd92b3aa21b749a0c8ff435a1e5c12da4f57d
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160514"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381977"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Application Gateway 다중 사이트 호스팅
 
-다중 사이트 호스팅을 통해 동일한 애플리케이션 게이트웨이 인스턴스에서 둘 이상의 웹 애플리케이션을 구성할 수 있습니다. 이 기능을 사용하면 최대 20개의 웹 사이트를 하나의 Application Gateway로 추가하여 배포에 보다 효율적인 토폴로지를 구성할 수 있습니다. 각 웹 사이트는 고유한 백 엔드 풀로 이동할 수 있습니다. 다음 예제에서 애플리케이션 게이트웨이는 두 개의 백 엔드 서버 풀(ContosoServerPool 및 FabrikamServerPool)에서 contoso.com 및 fabrikam.com에 대한 트래픽을 처리합니다.
+다중 사이트 호스팅을 통해 동일한 애플리케이션 게이트웨이 인스턴스에서 둘 이상의 웹 애플리케이션을 구성할 수 있습니다. 이 기능을 사용하면 최대 100개의 웹 사이트를 하나의 애플리케이션 게이트웨이에 추가하여 배포에 대해 보다 효율적인 토폴로지를 구성할 수 있습니다. 각 웹 사이트는 고유한 백 엔드 풀로 이동할 수 있습니다. 다음 예제에서 애플리케이션 게이트웨이는 두 개의 백 엔드 서버 풀(ContosoServerPool 및 FabrikamServerPool)에서 contoso.com 및 fabrikam.com에 대한 트래픽을 처리합니다.
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 
@@ -129,5 +121,5 @@ http://contoso.com에 대한 요청은 ContosoServerPool로 라우팅되고, htt
 
 ## <a name="next-steps"></a>다음 단계
 
-다중 사이트 호스팅에 대해 알아본 후에는 [다중 사이트 호스팅을 사용하여 애플리케이션 게이트웨이 만들기](tutorial-multiple-sites-powershell.md) 로 이동해 둘 이상의 웹 애플리케이션 지원 기능으로 애플리케이션 게이트웨이를 만듭니다.
+다중 사이트 호스팅에 대해 알아본 후에는 [다중 사이트 호스팅을 사용하여 애플리케이션 게이트웨이 만들기](tutorial-multiple-sites-powershell.md)로 이동해 둘 이상의 웹 애플리케이션 지원 기능으로 애플리케이션 게이트웨이를 만듭니다.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: a5619db18ef326b160bf9f4a1fbacbd6b3e9f012
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 4e3a79c28fc0e67fbf22e4d0fde3de9528d3edf4
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319463"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382626"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 이 문서에서는 Azure Backup 서비스에 대한 일반적인 질문과 대답을 제공합니다.
@@ -230,7 +230,7 @@ Azure Backup에서 수행할 수 있는 복구 횟수에는 제한이 없습니�
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>Azure에 전송되는 데이터는 암호화되나요?
 
-예. 데이터는 AES256을 사용하여 온-프레미스 컴퓨터에서 암호화됩니다. 데이터는 안전한 HTTPS 연결을 통해 전송됩니다.
+예. 데이터는 AES256을 사용하여 온-프레미스 컴퓨터에서 암호화됩니다. 데이터는 안전한 HTTPS 연결을 통해 전송됩니다. 클라우드에서 전송되는 데이터는 스토리지와 복구 서비스 간의 HTTPS 링크에 의해서만 보호됩니다. iSCSI 프로토콜은 복구 서비스와 사용자 컴퓨터 간에 전송되는 데이터를 보호합니다. 보안 터널링은 iSCSI 채널을 보호하는 데 사용됩니다.
 
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Azure의 백업 데이터도 암호화되나요?
 

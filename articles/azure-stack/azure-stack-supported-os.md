@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: cd44aa1dcc0ac5f97d39dee91fb547a333cb6ccf
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/27/2018
+ms.openlocfilehash: 8f53bbd65053fe9ac2bf49478944dc99dac3acfd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247710"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247853"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack에서 지 원하는 게스트 운영 체제
 
@@ -61,13 +62,13 @@ Marketplace에서 사용할 수 있는 것으로 나열 하는 Linux 배포는 �
 | Centos 6.9 | 64비트 | Rogue Wave | 예 |
 | CentOS 기반 7.4 | 64비트 | Rogue Wave | 예 |
 | ClearLinux | 64비트 | ClearLinux.org | 예 |
-| Linux 컨테이너 |  64비트 | CoreOS | Stable |
+| Container Linux |  64비트 | CoreOS | Stable |
 | Debian 8 "Jessie" | 64비트 | credativ |  예 |
 | Debian 9 "Stretch" | 64비트 | credativ | 예 |
 | Red Hat Enterprise Linux 7.x | 64비트 | Red Hat |사용자 고유의 이미지를 표시 합니다. |
 | SLES 11SP4 | 64비트 | SUSE | 예 |
 | SLES 12SP3 | 64비트 | SUSE | 예 |
-| Ubuntu 14.04 LTS | 64비트 | Canonical | 예 |
+| Ubuntu 14.04-LTS | 64비트 | Canonical | 예 |
 | Ubuntu 16.04-LTS | 64비트 | Canonical | 예 |
 | Ubuntu 18.04-LTS | 64비트 | Canonical | 예 |
 

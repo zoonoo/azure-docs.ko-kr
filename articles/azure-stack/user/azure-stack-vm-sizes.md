@@ -13,12 +13,13 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: e9c2bf52cb1999381d7d1cde3a8f62710514b915
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.lastreviewed: 01/11/2019
+ms.openlocfilehash: 6f3b4632674217133f4af4c95143d2df51ecde6a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884521"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247462"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack에서 지원 되는 가상 머신 크기
 
@@ -28,7 +29,7 @@ ms.locfileid: "54884521"
 
 디스크 IOPS (입/출력 작업 수 / 초) Azure Stack에는 디스크 형식 대신 VM 크기의 함수입니다. 즉, 디스크 형식에 대 한 SSD 또는 HDD 선택 되는 여부에 관계 없이 Standard_Fs 시리즈 VM에 대 한 IOPS 제한은 단일 추가 데이터 디스크는 2300 IOPS. IOPS 제한은 노이즈가 많은 주변 환경 방지 하기 위해 한도 (최대 수)입니다. 특정 VM 크기에서 얻을 수 있는 iops 보증 아닙니다.
 
-## <a name="general-purpose"></a>범용
+## <a name="general-purpose"></a>범용 가상 컴퓨터
 
 범용 VM 크기는 분산 된 CPU 대 메모리 비율을 제공합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버 사용 됩니다. 각 데이터 디스크는 기본 A 시리즈를 제외한 프리미엄 VM 크기에 대 한 IOPS는 2300까지. 기본 A에 대 한 데이터 디스크 크기는 500 IOPS.
 
@@ -106,7 +107,7 @@ ms.locfileid: "54884521"
 |**Standard_DS5_v2** |16  |56  |112 |1000 |64000 |64 / 64x2300 |8 |
 
 
-## <a name="compute-optimized"></a>계산에 최적화
+## <a name="compute-optimized"></a>Compute에 최적화
 ### <a name="f-series"></a>F 시리즈
 *Azure Stack 버전 1804 이상이 필요합니다.*
 

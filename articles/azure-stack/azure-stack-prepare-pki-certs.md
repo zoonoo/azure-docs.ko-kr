@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 5f31d995ba4390eb5a893c3ebde49ee4e96e8023
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.lastreviewed: 01/02/2019
+ms.openlocfilehash: 496a6c45c9f8930f77b3a3dab2f81db1b24c1801
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021138"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247207"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Azure Stack PKI 인증서를 배포 또는 회전 사용 준비
 인증서 파일 [선택한 CA에서 얻은](azure-stack-get-pki-certs.md) 가져오고 Azure Stack 인증서 요구 사항 일치 하는 속성을 사용 하 여 내보낸 해야 합니다.

@@ -2,20 +2,20 @@
 title: 'Azure AD Connect: ADConnectivityTools PowerShell 참조 | Microsoft Docs'
 description: 이 문서에서는 ADConnectivityTools.psm1 PowerShell 모듈에 대한 참조 정보를 제공합니다.
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9d63c35d82a98d816c18dd299a8e0e81baa5bc8d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e398814e9ce8b98d8b1079d6f6c429e829c99d21
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425227"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462100"
 ---
-# <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect: ADConnectivityTools PowerShell 참조
+# <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  ADConnectivityTools PowerShell 참조
 이 설명서에서는 Azure AD Connect에 포함된 ADConnectivityTools.psm1 PowerShell 모듈에 대해 다음과 같은 참조 정보를 제공합니다.
 
 ## <a name="confirm-dnsconnectivity"></a>Confirm-DnsConnectivity
@@ -693,9 +693,9 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-autocreateconnectoraccount"></a>-AutoCreateConnectorAccount
-사용자 지정 설치의 경우 사용자가 AADConnect 마법사의 AD 포리스트 계정 창에서 "새 AD 계정 만들기"를 선택한 경우 플래그는 $True입니다.
+사용자 지정 설치의 경우: 사용자가 AADConnect 마법사의 AD 포리스트 계정 창에서 "새 AD 계정 만들기"를 선택한 경우 플래그는 $True입니다.
 사용자가 "기존 AD 계정 사용"을 선택한 경우 $False입니다.
-기본 설치의 경우 기본 설치에 대한 이 변수의 값은 $True여야 합니다.
+기본 설치의 경우: 기본 설치에 대한 이 변수의 값은 $True여야 합니다.
 
 ```yaml
 Type: Boolean

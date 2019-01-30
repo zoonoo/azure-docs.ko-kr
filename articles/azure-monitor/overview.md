@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: bwren
-ms.openlocfilehash: b499f6e1b05e42c7af71dedd81fd15bc7574b0aa
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 1c53dfb1447b0abd5b96d109a657eae5f5947118
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118850"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401438"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 개요
 
@@ -26,7 +26,7 @@ Azure Monitor는 클라우드 및 온-프레미스 환경에서 원격 분석 �
 > [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
 ## <a name="overview"></a>개요
-다음 다이어그램은 Azure Monitor에 대한 개요를 제공합니다. 다이어그램의 중심에는 Azure Monitor의 두 가지 데이터 사용 기본 유형인 메트릭 및 로그를 저장하는 데이터 저장소가 있습니다. 왼쪽에는 [모니터링되는 여러 리소스에서 원격 분석 데이터를 수집](platform/data-sources.md)하고 [데이터 저장소를 채우는 원본](platform/data-collection.md)이 있습니다. 오른쪽에는 이렇게 수집된 데이터를 사용하여 Azure Monitor가 수행하는 분석, 경고, 외부 시스템으로 스트리밍 등의 여러 함수가 있습니다.
+다음 다이어그램은 Azure Monitor에 대한 개요를 제공합니다. 다이어그램의 중심에는 Azure Monitor의 두 가지 데이터 사용 기본 유형인 메트릭 및 로그를 저장하는 데이터 저장소가 있습니다. 왼쪽에는 이러한 [데이터 저장소](platform/data-collection.md)를 채우는 [모니터링 데이터의 원본](platform/data-sources.md)이 있습니다. 오른쪽에는 이렇게 수집된 데이터를 사용하여 Azure Monitor가 수행하는 분석, 경고, 외부 시스템으로 스트리밍 등의 여러 함수가 있습니다.
 
 
 ![Azure Monitor 개요](media/overview/overview.png)
@@ -35,11 +35,11 @@ Azure Monitor는 클라우드 및 온-프레미스 환경에서 원격 분석 �
 ## <a name="monitoring-data-platform"></a>데이터 플랫폼 모니터링
 Azure Monitor가 수집하는 모든 데이터는 두 가지 기본 유형인 [메트릭 및 로그](platform/data-collection.md) 중 한 쪽에 적합합니다. [메트릭](platform/data-collection.md#metrics)은 시간상 특정 지점에서 시스템의 일부 측면을 설명하는 숫자 값입니다. 메트릭은 간단하며 실시간에 가까운 시나리오를 지원할 수 있습니다. [로그](platform/data-collection.md#logs)에는 각 형식에 대해 다양한 속성 집합이 포함된 레코드로 구성된 다양한 데이터 형식이 포함됩니다. 이벤트 및 추적과 같은 원격 분석은 분석을 위해 모두 결합될 수 있도록 성능 데이터 외에 로그로 저장됩니다.
 
-많은 Azure 리소스의 경우 Azure Monitor가 수집한 데이터는 Azure Portal의 [개요] 페이지에서 바로 볼 수 있습니다. 예를 들어 아무 가상 머신을 살펴보면 성능 메트릭을 표시하는 여러 차트를 볼 수 있습니다. 아무 그래프를 클릭하면 Azure Portal의 [메트릭 탐색기](../azure-monitor/platform/metrics-charts.md)에서 데이터가 열리고, 시간에 따른 여러 메트릭의 값을 차트로 볼 수 있습니다.  대화형으로 차트를 보거나 다른 시각화 요소를 사용하여 보려는 대시보드에 고정할 수 있습니다.
+많은 Azure 리소스의 경우 Azure Monitor가 수집한 데이터는 Azure Portal의 [개요] 페이지에서 바로 볼 수 있습니다. 예를 들어 아무 가상 머신을 살펴보면 성능 메트릭을 표시하는 여러 차트를 볼 수 있습니다. 아무 그래프를 클릭하면 Azure Portal의 [메트릭 탐색기](platform/metrics-charts.md)에서 데이터가 열리고, 시간에 따른 여러 메트릭의 값을 차트로 볼 수 있습니다.  대화형으로 차트를 보거나 다른 시각화 요소를 사용하여 보려는 대시보드에 고정할 수 있습니다.
 
 ![메트릭](media/overview/metrics.png)
 
-Azure Monitor가 수집한 데이터는 Log Analytics에 저장되고, Log Analytics에는 수집한 데이터를 신속하게 검색, 통합, 분석할 수 있는 [풍부한 쿼리 언어](../azure-monitor/log-query/log-query-overview.md)가 포함되어 있습니다.  Azure Portal에서 [Log Analytics 페이지](../azure-monitor/log-query/portals.md)를 사용하여 쿼리를 만들고 테스트한 다음, 이러한 도구를 사용하여 데이터를 직접 분석하거나 [시각화](visualizations.md) 또는 [경고 규칙](../azure-monitor/platform/alerts-overview.md)에 사용하기 위해 쿼리를 저장할 수 있습니다.
+Azure Monitor가 수집한 데이터는 Log Analytics에 저장되고, Log Analytics에는 수집한 데이터를 신속하게 검색, 통합, 분석할 수 있는 [풍부한 쿼리 언어](log-query/log-query-overview.md)가 포함되어 있습니다.  Azure Portal에서 [Log Analytics 페이지](log-query/portals.md)를 사용하여 쿼리를 만들고 테스트한 다음, 이러한 도구를 사용하여 데이터를 직접 분석하거나 [시각화](visualizations.md) 또는 [경고 규칙](platform/alerts-overview.md)에 사용하기 위해 쿼리를 저장할 수 있습니다.
 
 Azure Monitor는 단순 로그 쿼리에 적합하지만 집계, 조인, 스마트 분석 같은 고급 기능도 포함하는 [Data Explorer 쿼리 언어](/azure/kusto/query/) 버전을 사용합니다. [여러 강좌](log-query/get-started-queries.md)를 통해 쿼리 언어를 빠르게 배울 수 있습니다.  [SQL](log-query/sql-cheatsheet.md) 및 [Splunk](log-query/splunk-cheatsheet.md)에 이미 익숙한 사용자에게는 특정 지침이 제공됩니다.
 
@@ -54,22 +54,22 @@ Azure Monitor는 다양한 원본에서 데이터를 수집할 수 있습니다.
 - **Azure 구독 모니터링 데이터**: Azure 구독의 운영 및 관리에 대한 데이터와 Azure 자체의 상태 및 작업에 대한 데이터입니다. 
 - **Azure 테넌트 모니터링 데이터**: Azure Active Directory 등, 테넌트 수준 Azure 서비스의 작업에 대한 데이터입니다.
 
-Azure 구독을 만들고 가상 머신이나 웹앱 같은 리소스 추가를 시작하는 즉시, Azure Monitor가 데이터 수집을 시작합니다.  리소스가 생성되거나 수정되면 [활동 로그](../azure-monitor/platform/activity-logs-overview.md)가 기록됩니다. [메트릭](../monitoring-and-diagnostics/monitoring-overview-metrics.md)은 리소스가 수행되는 방법 및 사용되는 리소스를 알려줍니다. 
+Azure 구독을 만들고 가상 머신이나 웹앱 같은 리소스 추가를 시작하는 즉시, Azure Monitor가 데이터 수집을 시작합니다.  리소스가 생성되거나 수정되면 [활동 로그](platform/activity-logs-overview.md)가 기록됩니다. [메트릭](../monitoring-and-diagnostics/monitoring-overview-metrics.md)은 리소스가 수행되는 방법 및 사용되는 리소스를 알려줍니다. 
 
-[진단을 사용하도록 설정](../azure-monitor/platform/diagnostic-logs-overview.md)하고 계산 리소스에 [에이전트를 추가](platform/agent-windows.md)하여 수집하는 데이터를 실제 리소스 작업으로 확장할 수 있습니다. 이렇게 하면 리소스의 내부 작업에 대한 원격 분석 데이터가 수집되며, Windows 및 Linux 게스트 운영 체제에서 로그 및 메트릭을 수집하도록 여러 [데이터 원본](platform/agent-data-sources.md)을 구성할 수 있습니다. 
+[진단을 사용하도록 설정](platform/diagnostic-logs-overview.md)하고 계산 리소스에 [에이전트를 추가](platform/agent-windows.md)하여 수집하는 데이터를 실제 리소스 작업으로 확장할 수 있습니다. 이렇게 하면 리소스의 내부 작업에 대한 원격 분석 데이터가 수집되며, Windows 및 Linux 게스트 운영 체제에서 로그 및 메트릭을 수집하도록 여러 [데이터 원본](platform/agent-data-sources.md)을 구성할 수 있습니다. 
 
-[애플리케이션에 계측 패키지를 추가](../azure-monitor/app/azure-web-apps.md)하고 페이지 보기, 애플리케이션 요청 및 예외를 포함하여 애플리케이션에 대한 자세한 정보를 수집하도록 Application Insights를 설정하세요. 사용자 트래픽을 시뮬레이션하도록 [가용성 테스트](../azure-monitor/app/monitor-web-app-availability.md)를 구성하여 애플리케이션의 가용성을 추가로 확인하세요.
+[애플리케이션에 계측 패키지를 추가](app/azure-web-apps.md)하고 페이지 보기, 애플리케이션 요청 및 예외를 포함하여 애플리케이션에 대한 자세한 정보를 수집하도록 Application Insights를 설정하세요. 사용자 트래픽을 시뮬레이션하도록 [가용성 테스트](app/monitor-web-app-availability.md)를 구성하여 애플리케이션의 가용성을 추가로 확인하세요.
 
 ### <a name="custom-sources"></a>사용자 지정 원본
-Azure Monitor는 [데이터 수집기 API](../azure-monitor/platform/data-collector-api.md)를 사용하여 REST 클라이언트에서 로그 데이터를 수집할 수 있습니다. 그러면 사용자 정의 모니터링 시나리오를 작성하고 다른 소스를 통해 원격 분석을 표시하지 않는 리소스까지 모니터링을 확장할 수 있습니다.
+Azure Monitor는 [데이터 수집기 API](platform/data-collector-api.md)를 사용하여 REST 클라이언트에서 로그 데이터를 수집할 수 있습니다. 그러면 사용자 정의 모니터링 시나리오를 작성하고 다른 소스를 통해 원격 분석을 표시하지 않는 리소스까지 모니터링을 확장할 수 있습니다.
 
 
 
 ## <a name="insights"></a>자세한 정보
-데이터 모니터링은 계산 환경의 작업에 대한 가시성을 높일 수 있는 경우에만 유용합니다. Azure Monitor는 애플리케이션 및 애플리케이션에서 사용하는 다른 리소스에 대한 소중한 인사이트를 제공하는 여러 기능과 도구를 포함하고 있습니다. [Application Insights](../azure-monitor/app/app-insights-overview.md) 및 Container Insights 같은 [모니터링 솔루션](insights/solutions.md)과 여러 기능은 애플리케이션 및 특정 Azure 서비스의 다양한 측면에 대한 심층 정보를 제공합니다. 
+데이터 모니터링은 계산 환경의 작업에 대한 가시성을 높일 수 있는 경우에만 유용합니다. Azure Monitor는 애플리케이션 및 애플리케이션에서 사용하는 다른 리소스에 대한 소중한 인사이트를 제공하는 여러 기능과 도구를 포함하고 있습니다. [Application Insights](app/app-insights-overview.md) 및 Container Insights 같은 [모니터링 솔루션](insights/solutions.md)과 여러 기능은 애플리케이션 및 특정 Azure 서비스의 다양한 측면에 대한 심층 정보를 제공합니다. 
 
 ### <a name="application-insights"></a>Application Insights
-[Application Insights](../azure-monitor/app/app-insights-overview.md)는 클라우드 또는 온-프레미스에 호스트되는 웹 애플리케이션의 가용성, 성능 및 사용량을 모니터링할 수 있습니다. Azure Monitor의 강력한 데이터 분석 플랫폼을 활용하여 애플리케이션의 작업에 대한 심층 인사이트를 제공하고, 사용자가 오류를 보고할 때까지 기다리지 않고 오류를 진단합니다. Application Insights는 다양한 개발 도구에 대한 연결점을 포함하고 있으며 Visual Studio와 통합되어 DevOps 프로세스를 지원합니다.
+[Application Insights](app/app-insights-overview.md)는 클라우드 또는 온-프레미스에 호스트되는 웹 애플리케이션의 가용성, 성능 및 사용량을 모니터링할 수 있습니다. Azure Monitor의 강력한 데이터 분석 플랫폼을 활용하여 애플리케이션의 작업에 대한 심층 인사이트를 제공하고, 사용자가 오류를 보고할 때까지 기다리지 않고 오류를 진단합니다. Application Insights는 다양한 개발 도구에 대한 연결점을 포함하고 있으며 Visual Studio와 통합되어 DevOps 프로세스를 지원합니다.
 
 ![App Insights](media/overview/app-insights.png)
 
@@ -94,9 +94,9 @@ Azure Monitor의 [관리 솔루션](insights/solutions.md)은 특정 애플리�
 
 
 ### <a name="alerts"></a>경고
-[Azure Monitor의 경고](../azure-monitor/platform/alerts-overview.md)는 위험 조건을 사전에 알리고 잠재적으로 수정 작업을 시도합니다. 메트릭 기반의 경고 규칙은 숫자 값을 기반으로 거의 실시간에 가까운 경고를 제공합니다. 반면 로그 기반의 규칙은 여러 원본의 데이터 간에 복잡한 논리를 처리할 수 있습니다.
+[Azure Monitor의 경고](platform/alerts-overview.md)는 위험 조건을 사전에 알리고 잠재적으로 수정 작업을 시도합니다. 메트릭 기반의 경고 규칙은 숫자 값을 기반으로 거의 실시간에 가까운 경고를 제공합니다. 반면 로그 기반의 규칙은 여러 원본의 데이터 간에 복잡한 논리를 처리할 수 있습니다.
 
-Azure Monitor의 경고 규칙은 고유한 수신자 집합 및 여러 규칙 간에 공유할 수 있는 작업을 포함하는 [작업 그룹](../azure-monitor/platform/action-groups.md)을 사용합니다. 요구 사항에 따라, 웹후크를 사용하여 경고가 외부 작업을 시작하도록 하거나 ITSM 도구와 통합하는 등의 작업을 작업 그룹이 수행할 수 있습니다.
+Azure Monitor의 경고 규칙은 고유한 수신자 집합 및 여러 규칙 간에 공유할 수 있는 작업을 포함하는 [작업 그룹](platform/action-groups.md)을 사용합니다. 요구 사항에 따라, 웹후크를 사용하여 경고가 외부 작업을 시작하도록 하거나 ITSM 도구와 통합하는 등의 작업을 작업 그룹이 수행할 수 있습니다.
 
 ![경고](media/overview/alerts.png)
 
@@ -129,7 +129,7 @@ Azure Monitor의 경고 규칙은 고유한 수신자 집합 및 여러 규칙 �
 Azure Monitor를 다른 시스템과 통합하여 모니터링 데이터를 사용하는 사용자 지정 솔루션을 빌드해야 하는 요구 사항이 자주 있습니다. 다른 Azure 서비스는 Azure Monitor와 함께 작동하여 이러한 통합을 제공합니다.
 
 ### <a name="event-hub"></a>이벤트 허브
-[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs)는 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 데이터를 변환하고 저장할 수 있는 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs를 사용하여 [Azure Monitor의 로그 데이터를 스트리밍](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)하여 SIEM 및 모니터링 도구와 통합하세요.
+[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs)는 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 데이터를 변환하고 저장할 수 있는 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs를 사용하여 [Azure Monitor의 로그 데이터를 스트리밍](platform/stream-monitoring-data-event-hubs.md)하여 SIEM 및 모니터링 도구와 통합하세요.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 

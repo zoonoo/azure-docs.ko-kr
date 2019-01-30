@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 4ec617fe49a3b55ba0608b77a8d1226fae025e6c
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/27/2018
+ms.openlocfilehash: 6bf84d7ecf2d436bdc00839699b150466b9de3ca
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246452"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247309"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>템플릿 유효성 검사 도구를 사용 하 여 Azure Stack에 대 한 템플릿을 확인합니다
 

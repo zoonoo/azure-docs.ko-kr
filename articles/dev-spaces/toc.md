@@ -28,6 +28,7 @@
 ### [사용자 지정 NuGet 피드 사용](how-to/use-custom-nuget-feed.md)
 ### [Azure Dev 공간으로 kubectl 사용](how-to/use-kubectl-with-azure-dev-spaces.md)
 ### [Azure Dev Spaces Tools 업그레이드](how-to/upgrade-tools.md)
+### [Azure Dev Spaces에 대한 BCDR(비즈니스 연속성 및 재해 복구)](how-to/dev-spaces-business-continuity.md)
 
 ## [문제 해결](troubleshooting.md)
 

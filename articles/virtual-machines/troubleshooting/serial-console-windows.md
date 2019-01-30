@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 535c65f58ac9a3f39faa347ca853bfa410b7f182
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 61b64b63a53318e0a703678d5525399fe13efa83
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185336"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432765"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Windows용 가상 머신 직렬 콘솔
 
@@ -53,6 +53,9 @@ Linux VM에 대한 직렬 콘솔 설명서는 [Linux용 가상 머신 직렬 콘
   1. **지원 + 문제 해결** 섹션까지 아래로 스크롤하여 **직렬 콘솔**을 선택합니다. 직렬 콘솔이 있는 새 창이 열리고 연결이 시작됩니다.
 
 ## <a name="enable-serial-console-functionality"></a>직렬 콘솔 기능 사용하도록 설정
+
+> [!NOTE]
+> 직렬 콘솔에 아무 것도 표시되지 않으면 VM에서 부트 진단이 사용하도록 설정되어 있는지 확인합니다.
 
 ### <a name="enable-the-serial-console-in-custom-or-older-images"></a>사용자 지정 또는 이전 이미지에서 직렬 콘솔 사용
 Azure의 최신 Windows Server 이미지에는 기본적으로 SAC([Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx))가 사용되도록 설정되어 있습니다. SAC는 서버 버전의 Windows에서 지원되지만, 클라이언트 버전(예: Windows 10, Windows 8 또는 Windows 7)에서는 사용할 수 없습니다.
@@ -237,6 +240,7 @@ Windows VM에 연결할 때 상태 정보만 표시됩니다.| Windows 이미지
 원래 콘텐츠에 반복 문자가 있는 경우 SAC의 PowerShell에 붙여 넣으면 세 번째 문자가 나타납니다. | 해결 방법은 `Remove-Module PSReadLine`을 실행하여 현재 세션에서 PSReadLine 모듈을 언로드하는 것입니다. 이 작업으로 모듈이 삭제되거나 제거되지 않습니다.
 일부 키보드 입력이 이상한 SAC 출력을 생성합니다(예: **[A**, **[3~**). | [VT100](https://aka.ms/vtsequences) 이스케이프 시퀀스는 SAC 프롬프트에서 지원되지 않습니다.
 긴 문자열을 붙여넣는 작업이 작동하지 않습니다. | 직렬 콘솔은 터미널에 붙여넣는 문자열의 길이를 2048자로 제한하여 직렬 포트 대역폭을 오버로드하지 않도록 방지합니다.
+직렬 콘솔은 스토리지 계정 방화벽에서 작동하지 않습니다. | 직렬 콘솔은 기본적으로 부트 진단 스토리지 계정에서 사용하도록 설정된 스토리지 계정 방화벽에 작동할 수 없습니다.
 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답

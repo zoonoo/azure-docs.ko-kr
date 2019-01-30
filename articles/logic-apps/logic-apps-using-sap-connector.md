@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 09/14/2018
 tags: connectors
-ms.openlocfilehash: 1738f02d28a4eb9ff5cbb51c73bc50ddf3c9a68b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 27da87c11ca35be72690965a2359ff6ff6b9f999
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231341"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391274"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
 
@@ -38,9 +38,9 @@ SAP 커넥터는 [온-프레미스 데이터 게이트웨이](https://www.micros
 
 * Azure 구독. 아직 Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
 
-* SAP 시스템에 액세스하려는 논리 앱과 논리 앱의 워크플로를 시작하는 트리거. 논리 앱을 처음 사용하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토합니다.
+* SAP 시스템에 액세스하려는 논리 앱과 논리 앱의 워크플로를 시작하는 트리거. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
 
-* <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">SAP 응용 프로그램 서버</a> 또는 <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">SAP 메시지 서버</a>
+* <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">SAP 애플리케이션 서버</a> 또는 <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">SAP 메시지 서버</a>
 
 * 온-프레미스 컴퓨터에서 최신 [온-프레미스 데이터 게이트웨이](https://www.microsoft.com/download/details.aspx?id=53127)를 다운로드하여 설치합니다. 계속 진행하기 전에 Azure Portal에서 게이트웨이를 설정하세요. 게이트웨이는 온-프레미스의 데이터 및 리소스에 안전하게 액세스하는 데 도움이 됩니다. 자세한 내용은 [Azure Logic Apps용 온-프레미스 데이터 게이트웨이 설치](../logic-apps/logic-apps-gateway-install.md)를 참조하세요.
 
@@ -71,7 +71,7 @@ Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 
 
 1. [Azure Portal](https://portal.azure.com)에서 빈 논리 앱을 만들어 논리 앱 디자이너를 엽니다. 
 
-2. 검색 상자에 “http 요청”을 필터로 입력합니다. 트리거 목록에서 **요청 - HTTP 요청을 수신하는 경우** 트리거를 선택합니다.
+2. 검색 상자에 “http 요청”을 필터로 입력합니다. 트리거 목록에서 다음 트리거를 선택합니다. **요청 - HTTP 요청을 수신하는 경우**
 
    ![HTTP 요청 트리거 추가](./media/logic-apps-using-sap-connector/add-trigger.png)
 
@@ -92,7 +92,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
    ![작업 추가](./media/logic-apps-using-sap-connector/add-action.png) 
 
-2. 검색 상자에서 필터로 "sap"를 입력합니다. 작업 목록에서 **SAP로 메시지 보내기** 작업을 선택합니다.
+2. 검색 상자에서 필터로 "sap"를 입력합니다. 작업 목록에서 다음 작업을 선택합니다. **SAP로 메시지 보내기**
   
    ![SAP 보내기 작업 선택](media/logic-apps-using-sap-connector/select-sap-send-action.png)
 
@@ -159,7 +159,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. 논리 앱 디자이너에서 SAP 작업 아래의 **새 단계** > **작업 추가**를 선택합니다.
 
-2. 검색 상자에 “응답”을 필터로 입력합니다. 작업 목록에서 **요청 - 응답** 작업을 선택합니다.
+2. 검색 상자에 “응답”을 필터로 입력합니다. 작업 목록에서 다음 작업을 선택합니다. **요청 - 응답**
 
 3. **본문** 상자 내부를 클릭하여 동적 콘텐츠 목록을 표시합니다. 해당 목록에서 **SAP로 보내기** 아래의 **본문** 필드를 선택합니다. 
 
@@ -201,7 +201,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. Azure Portal에서 빈 논리 앱을 만들어 논리 앱 디자이너를 엽니다. 
 
-2. 검색 상자에서 필터로 "sap"를 입력합니다. 트리거 목록에서 **SAP에서 메시지를 수신하는 경우** 트리거를 선택합니다.
+2. 검색 상자에서 필터로 "sap"를 입력합니다. 트리거 목록에서 다음 트리거를 선택합니다. **SAP에서 메시지가 수신될 때**
 
    ![SAP 트리거 추가](./media/logic-apps-using-sap-connector/add-sap-trigger.png)
 
@@ -269,7 +269,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. Azure Portal에서 빈 논리 앱을 만들어 논리 앱 디자이너를 엽니다. 
 
-2. 검색 상자에 “http 요청”을 필터로 입력합니다. 트리거 목록에서 **요청 - HTTP 요청을 수신하는 경우** 트리거를 선택합니다.
+2. 검색 상자에 “http 요청”을 필터로 입력합니다. 트리거 목록에서 다음 트리거를 선택합니다. **요청 - HTTP 요청을 수신하는 경우**
 
    ![HTTP 요청 트리거 추가](./media/logic-apps-using-sap-connector/add-trigger.png)
 
@@ -286,7 +286,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
    ![작업 추가](./media/logic-apps-using-sap-connector/add-action.png) 
 
-2. 검색 상자에서 필터로 "sap"를 입력합니다. 작업 목록에서 **스키마 생성** 작업을 선택합니다.
+2. 검색 상자에서 필터로 "sap"를 입력합니다. 작업 목록에서 다음 작업을 선택합니다. **스키마 생성**
   
    ![SAP 보내기 작업 선택](media/logic-apps-using-sap-connector/select-sap-schema-generator-action.png)
 
@@ -343,7 +343,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 필요에 따라 생성된 스키마를 Blob, 저장소, 통합 계정 등의 리포지토리에 다운로드하거나 저장할 수 있습니다. 통합 계정은 다른 XML 작업을 통해 최고의 환경을 제공하므로, 이 예제에서는 Azure Resource Manager 커넥터를 사용하여 동일한 논리 앱의 통합 계정에 스키마를 업로드하는 방법을 보여줍니다.
 
-1. 논리 앱 디자이너에서 해당 트리거 아래의 **새 단계** > **작업 추가**를 선택합니다. 검색 상자에서 "resource manager"를 필터로 입력합니다. **리소스 만들기 또는 업데이트** 작업을 선택합니다.
+1. 논리 앱 디자이너에서 해당 트리거 아래의 **새 단계** > **작업 추가**를 선택합니다. 검색 상자에서 "resource manager"를 필터로 입력합니다. 현재 선택한 작업: **리소스 만들기 또는 업데이트**
 
    ![Azure Resource Manager 작업 선택](media/logic-apps-using-sap-connector/select-arm-action.png) 
 

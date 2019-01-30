@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 92c8de0961f64eea8eef830ad99c7baa268099d9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c19275f096191a2d55c939cbc9b76e7ffc6e1b8b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007589"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424441"
 ---
-# <a name="preview-azure-ad-password-protection-operational-procedures"></a>미리 보기: Azure AD 암호 보호 운영 프로시저
+# <a name="preview-azure-ad-password-protection-operational-procedures"></a>미리 보기: Azure AD 암호 보호 운영 절차
 
 |     |
 | --- |

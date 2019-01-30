@@ -8,19 +8,22 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 376a5a2214c5f1d77439923d6a11aaad5e011e73
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d5a8fa61307c278a77b33868a711970850a06f3e
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313856"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410050"
 ---
 #   <a name="text-split-cognitive-skill"></a>텍스트 분할 인식 기술
 
 **분할 텍스트** 기술은 텍스트를 텍스트의 청크로 나눕니다. 텍스트를 문장으로 또는 특정 길이의 페이지로 나눌 것인지 여부를 지정할 수 있습니다. 이 기술은 다른 기술 다운스트림에서 최대 텍스트 길이 요구 사항이 있는 경우 특히 유용합니다. 
+
+> [!NOTE]
+> 이 기술은 Cognitive Services API에 바인딩되지 않으며 사용 요금이 부과되지 않습니다. 그렇지만 **무료** 리소스 옵션을 재정의하여 일별 보강 횟수를 낮게 제한하려면 계속해서 [Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SplitSkill 
@@ -32,7 +35,7 @@ Microsoft.Skills.Text.SplitSkill
 | 매개 변수 이름     | 설명 |
 |--------------------|-------------|
 | textSplitMode      | "페이지" 또는 "문장" 중 하나 | 
-| maximumPageLength | TextSplitMode가 "페이지"로 설정되는 경우 이는 `String.Length`에 의해 측정된 대로 최대 페이지 길이를 참조합니다. 최소값은 100입니다.  textSplitMode가 "pages"로 설정된 경우 알고리즘은 텍스트를 최대 "maximumPageLenth" 크기의 청크로 분할하려고 합니다. 이 경우 알고리즘은 청크 크기가 "maximumPageLength"보다 약간 더 작을 수 있게 문장 경계에서 문장을 나누기 위해 최선을 다합니다. | 
+| maximumPageLength | TextSplitMode가 "페이지"로 설정되는 경우 이는 `String.Length`에 의해 측정된 대로 최대 페이지 길이를 참조합니다. 최소값은 100입니다.  textSplitMode가 "pages"로 설정된 경우 알고리즘은 텍스트를 최대 "maximumPageLength" 크기의 청크로 분할하려고 합니다. 이 경우 알고리즘은 청크 크기가 "maximumPageLength"보다 약간 더 작을 수 있게 문장 경계에서 문장을 나누기 위해 최선을 다합니다. | 
 | defaultLanguageCode   | (선택 사항) 다음 언어 코드 `da, de, en, es, fi, fr, it, ko, pt` 중 하나입니다. 기본값은 영어(en)입니다. 고려할 사항은 다음과 같습니다.<ul><li>languagecode-countrycode 형식을 전달하는 경우 형식의 languagecode 부분만 사용됩니다.</li><li>언어가 이전 목록에 없는 경우 분할 기술은 문자를 경계로 텍스트를 나눕니다.</li><li>언어 코드를 제공하면 중국어, 일본어, 한국어 등 비공간 언어에 대해 단어를 반으로 줄이지 못하게 하는 데 유용합니다.</li></ul>  |
 
 

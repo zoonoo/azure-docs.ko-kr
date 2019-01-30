@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 01/14/2019
 ms.author: ramamill
-ms.openlocfilehash: 597b8f59ef6991f7868d3de481e98ed9a459077b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 0eebfd8b75f428d3b8f6024ed6ee71c18c1309f6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050798"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435977"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>구성 서버 문제 해결
 
@@ -58,6 +58,16 @@ ms.locfileid: "54050798"
 
 이 오류는 모바일 에이전트를 설치하고 구성 서버에 등록하는 동안 서비스가 전송 연결에서 데이터를 읽을 수 없을 때 발생합니다. 이 문제를 해결하려면 원본 머신에 TLS 1.0이 활성화되어 있는지 확인합니다.
 
+## <a name="vcenter-discovery-failures"></a>vCenter 검색 실패
+
+vCenter 검색 실패를 해결하려면 vCenter 서버가 바이패스 목록 프록시 설정에 추가되어야 합니다. 이 작업을 수행하려면
+
+- [여기](https://aka.ms/PsExec)에서 PsExec 도구를 다운로드하여 시스템 사용자 콘텐츠에 액세스합니다.
+- 명령줄 psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"를 실행하여 시스템 사용자 콘텐츠에서 Internet Explorer를 엽니다.
+- IE에서 프록시 설정을 추가하고 tmanssvc 서비스를 다시 시작합니다.
+- DRA 프록시 설정을 구성하려면 cd C:\Program Files\Microsoft Azure Site Recovery Provider를 실행합니다.
+- 다음으로, DRCONFIGURATOR.EXE /configure /AddBypassUrls를 실행합니다[[구성 서버 배포](vmware-azure-deploy-configuration-server.md#configure-settings)의 **vCenter Server/vSphere ESXi 서버 구성** 단계 동안 제공되는 vCenter Server의 IP 주소/FQDN 추가].
+
 ## <a name="change-the-ip-address-of-the-configuration-server"></a>구성 서버의 IP 주소 변경
 
 구성 서버의 IP 주소는 변경하지 않는 것이 좋습니다. 구성 서버에 할당된 모든 IP 주소는 고정 IP 주소여야 합니다. DHCP IP 주소는 사용하지 마십시오.
@@ -70,7 +80,7 @@ ms.locfileid: "54050798"
 
 Site Recovery를 인증하는 데 필요한 인증서를 만들 수 없습니다. 로컬 관리자로 설치 프로그램을 실행하고 있는지 확인한 후에 설치 프로그램을 다시 실행합니다.
 
-## <a name="register-the-source-machine-with-the-configuration-server"></a>구성 서버에 원본 머신 등록
+## <a name="register-source-machine-with-configuration-server"></a>구성 서버에 원본 머신 등록
 
 ### <a name="if-the-source-machine-runs-windows"></a>원본 머신에서 Windows를 실행하는 경우
 

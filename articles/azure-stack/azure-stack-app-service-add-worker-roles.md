@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: f4a3cd7d09c18506a85317db7a360b8de3a9630b
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.lastreviewed: 06/08/2018
+ms.openlocfilehash: 26981d50239ddd7da79919291f2accd8b8ed4fc0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077025"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241945"
 ---
-# <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Azure Stack에서 app Service: 인프라 또는 작업자 역할 추가
+# <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Azure Stack의 app Service: 인프라 또는 작업자 역할 추가
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*  
 

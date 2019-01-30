@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: rangv
-ms.openlocfilehash: a533bd6ee447479f08add23833bf5acdde5c4d40
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: a55e77853a1c9466892f686f34d17a5e84b11ba7
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155102"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411288"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
@@ -75,11 +75,13 @@ Stream Analytics 작업을 만들어 시작해 보겠습니다. 작업을 만든
 
 2. **작업 토폴로지**에서 **입력**을 클릭합니다.
 
-3. **입력** 창에서 **추가**를 클릭하고 다음 정보를 입력합니다.
+3. **입력** 창에서 **스트림 입력 추가**를 클릭하고 다음 정보를 입력합니다.
 
-   **입력 별칭**: 입력에 대한 고유 별칭입니다.
+   **입력 별칭**: 입력의 고유한 별칭을 입력하고 아래에서 **수동으로 IoT Hub 설정 제공**을 선택합니다.
 
    **원본**: **IoT Hub**를 선택합니다.
+   
+   **엔드포인트**: **메시징**을 클릭합니다.
 
    **소비자 그룹**: 방금 만든 소비자 그룹을 선택합니다.
 
@@ -91,23 +93,19 @@ Stream Analytics 작업을 만들어 시작해 보겠습니다. 작업을 만든
 
 1. **작업 토폴로지**에서 **출력**을 클릭합니다.
 
-2. **출력** 창에서 **추가**를 클릭하고 다음 정보를 입력합니다.
+2. **출력** 창에서 **추가** 및 **Power BI**를 클릭하고 다음 정보를 입력합니다.
 
    **출력 별칭**: 출력에 대한 고유 별칭입니다.
 
-   **싱크**: **Power BI**를 선택합니다.
-
-3. **권한 부여**를 클릭한 다음 Power BI 계정에 로그인합니다.
-
-4. 권한이 부여되면 다음 정보를 입력합니다.
-
    **그룹 작업 영역**: 대상 그룹 작업 영역을 선택합니다.
 
-   **데이터 집합 이름**: 데이터 집합 이름을 입력합니다.
+   **데이터 세트 이름**: 데이터 세트 이름을 입력합니다.
 
    **테이블 이름**: 테이블 이름을 입력합니다.
 
-5. **만들기**를 클릭합니다.
+3. **권한 부여**를 클릭한 다음 Power BI 계정에 로그인합니다.
+
+4. **만들기**를 클릭합니다.
 
    ![Azure에서 Stream Analytics 작업에 출력 추가](./media/iot-hub-live-data-visualization-in-power-bi/4_add-output-to-stream-analytics-job-azure.png)
 
@@ -131,17 +129,17 @@ Stream Analytics 작업에서 **시작** > **지금 시작** > **시작**을 차
 
 ## <a name="create-and-publish-a-power-bi-report-to-visualize-the-data"></a>Power BI 보고서를 만들고 게시하여 데이터 시각화
 
-1. 응용 프로그램 예제가 사용자 디바이스에서 실행 중인지 확인합니다. 그렇지 않은 경우 [사용자 디바이스 설정](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started)에 있는 자습서를 참조할 수 있습니다.
+1. 애플리케이션 예제가 사용자 장치에서 실행 중인지 확인합니다. 그렇지 않은 경우 [사용자 디바이스 설정](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started)에 있는 자습서를 참조할 수 있습니다.
 
 2. [Power BI](https://powerbi.microsoft.com/en-us/) 계정에 로그인합니다.
 
-3. Stream Analytics 작업에 대한 출력을 만들 때 설정한 그룹 작업 영역으로 이동합니다.
+3. 사용한 작업 영역, **내 작업 영역**을 클릭합니다.
 
-4. **스트리밍 데이터 집합**을 클릭합니다.
+4. **데이터 세트**를 클릭합니다.
 
-   Stream Analytics 작업에 대한 출력을 만들 때 지정한 나열된 데이터 세트가 표시됩니다.
+   Stream Analytics 작업에 대한 출력을 만들 때 지정한 데이터 세트가 표시됩니다.
 
-5. **작업**에서 첫 번째 아이콘을 클릭하여 보고서를 만듭니다.
+5. 만든 데이터 세트에 대해 **보고서 추가**(데이터 세트 이름 오른쪽의 첫 번째 아이콘)를 클릭합니다.
 
    ![Microsoft Power BI 보고서 만들기](./media/iot-hub-live-data-visualization-in-power-bi/7_create-power-bi-report-microsoft.png)
 
@@ -165,9 +163,11 @@ Stream Analytics 작업에서 **시작** > **지금 시작** > **시작**을 차
 
 8. **저장**을 클릭하여 보고서를 저장합니다.
 
-9. **파일** > **웹에 게시**를 차례로 클릭합니다.
+9. 왼쪽 창에서 **보고서**를 클릭하고 방금 만든 보고서를 클릭합니다.
 
-10. **Embed 태그 만들기**를 클릭한 다음 **게시**를 클릭합니다.
+10. **파일** > **웹에 게시**를 차례로 클릭합니다.
+
+11. **Embed 태그 만들기**를 클릭한 다음 **게시**를 클릭합니다.
 
 보고서 액세스를 위해 누구와도 공유할 수 있는 보고서 링크와 블로그 또는 웹 사이트에 보고서를 통합하는 코드 조각이 제공됩니다.
 

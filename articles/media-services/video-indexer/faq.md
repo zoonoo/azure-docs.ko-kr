@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: juliako
-ms.openlocfilehash: ff3aa86fee7fc30cfc18edc3b413a4378df69662
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 205a4f2089ec5f415932f98eefe2f3d5f614f0ba
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306974"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402050"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -28,18 +28,17 @@ Video Indexer는 Microsoft Azure Media Services의 일부인 AI 서비스입니�
 
 ### <a name="what-can-i-do-with-video-indexer"></a>Video Indexer를 사용하여 무엇을 수행할 수 있나요?
 
-Video Indexer는 미디어 파일에서 다음 유형의 작업을 수행할 수 있습니다.
+Video Indexer가 미디어 파일에서 수행할 수 있는 일부 작업은 다음과 같습니다.
 
-* 음성을 식별 및 추출하고 화자를 식별합니다.
-* 비디오에서 화면의 텍스트를 식별하고 추출합니다.
-* 비디오 파일에서 개체를 식별하고 레이블 지정합니다.
-* 오디오 트랙 및 비디오의 화면 텍스트에서 Microsoft와 같은 브랜드를 식별합니다.
-* 유명인의 데이터베이스 및 얼굴의 사용자 정의 데이터베이스에서 얼굴을 검색하고 인식합니다.
-* 음성 및 시각적 텍스트를 기반으로 하는 비디오 및 오디오 콘텐츠에서 키워드를 추출합니다.
-* 음성 및 시각적 텍스트를 기반으로 하는 오디오 및 비디오 콘텐츠에서 설명했지만 반드시 명시적으로 언급하지 않은 항목을 추출합니다.
-* 오디오 트랙의 선택 자막이나 자막을 만듭니다.
+* 음성을 식별 및 추출하고 화자 식별
+* 비디오에서 화면의 텍스트를 식별 및 추출
+* 비디오 파일에서 개체 감지
+* 오디오 트랙 및 비디오의 화면 텍스트에서 Microsoft와 같은 브랜드 식별
+* 유명인의 데이터베이스 및 얼굴의 사용자 정의 데이터베이스에서 얼굴 검색 및 인식
+* 논의되었으나 오디오 및 비디오 콘텐츠에서 반드시 언급될 필요는 없는 항목 추출
+* 오디오 트랙의 선택 자막 또는 자막 만들기
 
-자세한 내용은 [개요](video-indexer-overview.md)를 참조하세요.
+자세한 내용 및 추가 Video Indexer 기능에 대한 내용은 [개요](video-indexer-overview.md)를 참조하세요.
 
 ### <a name="how-do-i-get-started-with-video-indexer"></a>Video Indexer를 시작하려면 어떻게 하나요?
 

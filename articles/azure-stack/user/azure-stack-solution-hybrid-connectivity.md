@@ -14,12 +14,13 @@ ms.topic: tutorial
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 19c5e530822d1d9c2b4ec815b37b3373e8e39b02
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: 84e952514b88620af565cf7e9775c055476fb530
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305981"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247564"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 하이브리드 클라우드 연결 구성
 
@@ -152,7 +153,7 @@ Azure에서 가상 네트워크 게이트웨이 만들려면 다음 단계를 �
 4. **가상 네트워크 게이트웨이 만들기**에 표시 된 대로 네트워크 게이트웨이에 대 한 값을 지정할 **자습서의 예제 값**, 다음 추가 값:
 
     - **SKU**: basic
-    - **가상 네트워크**: 이전에 만든 가상 네트워크를 선택 합니다. 만든 게이트웨이 서브넷을 자동으로 선택 됩니다.
+    - **Virtual Network**: 이전에 만든 가상 네트워크를 선택 합니다. 만든 게이트웨이 서브넷을 자동으로 선택 됩니다.
     - **첫 번째 IP 구성**:  이것이 게이트웨이의 공용 IP입니다.
         - 선택 **게이트웨이 IP 구성 만들기**를 이동 합니다 **공용 IP 주소 선택** 페이지입니다.
         - 선택 **+ 새로 만들기** 열려는 합니다 **공용 IP 주소 만들기** 페이지입니다.

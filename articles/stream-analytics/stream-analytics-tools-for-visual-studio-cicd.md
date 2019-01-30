@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/27/2017
-ms.openlocfilehash: 2f3cc3b386dec0010b179455372fb49bcec55ffc
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 85cb23d865133f2ee769874aa5150ab13e04cd69
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558399"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410574"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Stream Analytics 도구를 사용하여 지속적으로 통합 및 개발
 이 문서에서는 Visual Studio용 Azure Stream Analytics 도구를 사용하여 지속적인 통합 및 배포 프로세스를 설정하는 방법에 대해 알아봅니다.
@@ -54,6 +54,8 @@ Parameters.json 파일의 기본 매개 변수는 Visual Studio 프로젝트의 
     },
 ```
 [Resource Manager 템플릿 파일 및 Azure PowerShell을 사용하여 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)하는 방법에 대해 자세히 알아보세요. [Resource Manager 템플릿에서 개체를 매개 변수로 사용](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters)하는 방법에 대해 자세히 알아보세요.
+
+Azure Data Lake Store Gen1용 관리 ID를 출력 싱크로 사용하려면 Azure에 배포하기 전에 PowerShell을 사용하여 서비스 주체에 액세스 권한을 제공해야 합니다. [Resource Manager 템플릿에서 관리 ID를 사용하여 ADLS Gen1을 배포](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment)하는 방법을 자세히 알아봅니다.
 
 
 ## <a name="command-line-tool"></a>명령줄 도구 

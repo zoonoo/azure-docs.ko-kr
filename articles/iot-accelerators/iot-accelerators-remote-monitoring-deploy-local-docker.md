@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: cf3c30d33e618ae3fd9d4ad942c77d211a414e82
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 208526b745a117c9ee14bab21f8a5ce05accd1fe
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601154"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382234"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>로컬로 원격 모니터링 솔루션 가속기 배포 - Docker
 
@@ -35,7 +35,7 @@ ms.locfileid: "53601154"
 
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
-* [Visual Studio](https://visualstudio.microsoft.com/)
+* [Visual Studio](https://visualstudio.microsoft.com/) - 마이크로 서비스를 변경하려는 경우
 * [Node.js v8](https://nodejs.org/) - 이 소프트웨어는 스크립트에서 Azure 리소스를 만드는 데 사용하는 PCS CLI에 대한 필수 구성 요소입니다. Node.js v10은 사용하지 마세요.
 
 > [!NOTE]

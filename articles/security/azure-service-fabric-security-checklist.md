@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 01/16/2019
 ms.author: tomsh
-ms.openlocfilehash: d0826d60d766874ddd186bcf406ea987134dab16
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 49c043853cede0a20e3d61011ded40e57d7a0303
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385869"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389434"
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Azure Service Fabric 보안 검사 목록
 이 문서에서는 Azure Service Fabric 환경을 보호하는 데 도움이 되는 사용하기 쉬운 검사 목록을 제공합니다.
@@ -38,7 +38,7 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 |[클러스터 보안](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) | <ul><li>클러스터 보안 시나리오에는 노드 간 보안, 클라이언트-노드 보안, [역할 기반 액세스 제어(RBAC)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles)가 포함됩니다.</li></ul>|
 |[클러스터 인증](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) | <ul><li>클러스터 페더레이션에 대한 [노드 간 통신](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-fabric/service-fabric-cluster-security.md)을 인증합니다. </li></ul>|
 |[서버 인증](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) | <ul><li>관리 클라이언트에 대해 [클러스터 관리 엔드포인트](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)를 인증합니다.</li></ul>|
-|[응용 프로그램 보안](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)| <ul><li>애플리케이션 구성 값의 암호화 및 암호 해독</li><li>   복제 중에 노드 간 데이터 암호화</li></ul>|
+|[애플리케이션 보안](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)| <ul><li>애플리케이션 구성 값의 암호화 및 암호 해독</li><li>   복제 중에 노드 간 데이터 암호화</li></ul>|
 |[클러스터 인증서](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) | <ul><li>이 인증서는 클러스터에서 노드 간의 통신을 보호해야 합니다.</li><li>    지문 섹션에서 기본 인증서의 지문 및 ThumbprintSecondary 변수에서 보조 인증서의 지문을 설정합니다.</li></ul>|
 |[ServerCertificate](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security)| <ul><li>이 인증서가 클러스터에 연결하려고 시도할 때 클라이언트에 표시됩니다. 업그레이드에 두 개의 다른 서버 인증서, 기본 및 보조 인증서를 사용할 수 있습니다.</li></ul>|
 |ClientCertificateThumbprints| <ul><li>인증된 클라이언트에 설치하려는 인증서의 집합입니다. </li></ul>|
@@ -48,6 +48,8 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 
 
 ## <a name="next-steps"></a>다음 단계
+
+- [Service Fabric 보안 모범 사례](azure-service-fabric-security-best-practices.md)
 - [서비스 패브릭 클러스터 업그레이드 프로세스 및 사용자 기대 수준](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade)
-- [Visual Studio에서 서비스 패브릭 응용 프로그램 관리](https://docs.microsoft.com/azure/service-fabric/service-fabric-manage-application-in-visual-studio).
+- [Visual Studio에서 서비스 패브릭 애플리케이션 관리](https://docs.microsoft.com/azure/service-fabric/service-fabric-manage-application-in-visual-studio).
 - [Service Fabric 상태 모델 소개](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction)

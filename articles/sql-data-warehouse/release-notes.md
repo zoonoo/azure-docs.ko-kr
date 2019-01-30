@@ -10,19 +10,20 @@ ms.component: manage
 ms.date: 11/11/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: a4737f4308f49547178bb216b90589c596f604c9
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 7a02a7fb8043c63ce47f7f0c7dccf025ab5ab402
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118441"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421456"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL Data Warehouse 릴리스 정보
 
-Azure SQL Data Warehouse는 MPP(대규모 병렬 처리)를 활용하여 페타바이트 단위의 데이터에서 복잡한 쿼리를 빠르게 실행하는 클라우드 기반 EDW(Enterprise Data Warehouse)입니다. SQL Data Warehouse를 빅 데이터 솔루션의 주요 구성 요소로 사용합니다. 간단한 PolyBase T-SQL 쿼리를 사용하여 빅 데이터를 SQL Data Warehouse로 가져온 다음 MPP 기능을 사용하여 고성능 분석을 실행합니다. 통합하고 분석할 때 데이터 웨어하우스는 비즈니스가 정보에 대해 신뢰할 수 있는 단일 버전의 정보입니다.
+Azure SQL DW(SQL Data Warehouse)는 MPP(대규모 병렬 처리)를 활용하여 페타바이트 단위의 데이터에서 복잡한 쿼리를 빠르게 실행하는 클라우드 기반 Enterprise Data Warehouse입니다. SQL Data Warehouse를 빅 데이터 솔루션의 주요 구성 요소로 사용합니다. 간단한 PolyBase T-SQL 쿼리를 사용하여 빅 데이터를 SQL Data Warehouse로 가져온 다음 MPP 기능을 사용하여 고성능 분석을 실행합니다. 통합하고 분석할 때 데이터 웨어하우스는 비즈니스가 정보에 대해 신뢰할 수 있는 단일 버전의 정보입니다.
 
 최신 버전의 Azure SQL Data Warehouse에서 기대할 수 있는 새로운 기능과 향상된 기능에 대해 더 자세히 알아보려면 아래 링크를 클릭하세요. 이러한 서비스 업데이트는 식별된 유지 관리 일정 중에 받으실 수 있습니다.
 
+- [SQL DW 버전 10.0.10106.0](./release-notes-10-0-10106-0.md)
 - [2018년 12월](./release-notes-december-2018.md)
 - [2018년 10월](./release-notes-october-2018.md)
 - [2018년 9월](./release-notes-september-2018.md)
@@ -39,9 +40,9 @@ Azure SQL Data Warehouse는 MPP(대규모 병렬 처리)를 활용하여 페타�
 SELECT @@VERSION AS 'SQL Data Warehouse';
 ```
 
-예제 출력: ![SQL Data Warehouse 버전](./media/release-notes/sql_data_warehouse_version.png)
+예제 출력: ![SQL Data Warehouse 버전](./media/release-notes/dw-version.png)
 
-식별된 날짜를 사용하여 Azure SQL Data Warehouse에 적용된 릴리스를 확인하세요. 
+식별된 버전을 사용하여 Azure SQL Data Warehouse에 적용된 릴리스를 확인하세요. 
 
 
 ## <a name="next-steps"></a>다음 단계

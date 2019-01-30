@@ -1,82 +1,74 @@
 ---
-title: Azure Maps를 사용하여 기호 및 표식 추가 | Microsoft Docs
-description: Javascript 지도에 기호 및 표식을 추가하는 방법
-author: walsehgal
-ms.author: v-musehg
-ms.date: 10/30/2018
+title: Azure Maps에 기호 계층 추가 | Microsoft Docs
+description: Javascript 맵에 기호를 추가하는 방법
+author: rbrundritt
+ms.author: richbrun
+ms.date: 12/2/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: c56ac35f49c364b7b0f2ad26b82b178411419414
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 718a679418790a6bf1207a96e5c204f7962de239
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282688"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411257"
 ---
-# <a name="add-symbols-and-markers-to-a-map"></a>지도에 기호 및 표식 추가
+# <a name="add-a-symbol-layer-to-a-map"></a>맵에 기호 계층 추가
 
-이 문서에서는 데이터 원본을 사용하여 지도에 기호 및 표식을 추가하는 방법을 보여 줍니다.
+이 문서에서는 맵에 기호 계층으로 데이터 원본에서 요소 데이터를 렌더링할 수 있는 방법을 보여줍니다. 기호 계층은 WebGL을 사용하여 렌더링되며, HTML 표식보다 훨씬 더 많은 데이터 요소를 지원하지만, 스타일을 지정할 때 기존 CSS 및 HTML 요소는 지원하지 않습니다.  
 
-## <a name="add-a-symbol-marker"></a>기호 표식 추가
+> [!TIP]
+> 기본적으로 기호 계층은 데이터 원본에 있는 모든 도형의 좌표를 렌더링합니다. 계층을 요소 도형만 렌더링하도록 제한하려면 계층의 `filter` 속성을 `['==', '$type', 'Point']`로 설정합니다.
+
+## <a name="add-a-symbol-layer"></a>기호 계층 추가
 
 <iframe height='500' scrolling='no' title='핀 고정 위치 전환' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의한 Pen <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>핀 고정 위치 전환</a>을 참조하세요.
 </iframe>
 
 위에서 첫 번째 코드 블록은 지도 개체를 생성합니다. 지침은 [지도 만들기](./map-create.md)를 참조하세요.
 
-두 번째 코드 블록에서는 데이터 원본 개체가 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 클래스를 사용하여 생성됩니다. 그런 다음, 점이 생성되어 데이터 원본에 추가됩니다. 점은 [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest)의 [기능](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) 중 하나입니다.
+두 번째 코드 블록에서는 데이터 원본 개체가 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 클래스를 사용하여 생성됩니다. [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) 기하 도형을 포함하는 [Feature]는 보다 쉽게 업데이트하기 위해 [Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) 클래스로 래핑된 후 만들어 데이터 원본에 추가합니다.
 
-세 번째 코드 블록은 [이벤트 수신기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)를 만들고 마우스 클릭 시 shape 클래스 [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest#setcoordinates) 메서드를 사용하여 점의 좌표를 업데이트합니다.
+세 번째 코드 블록은 [이벤트 수신기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)를 만들고 마우스 클릭 시 shape 클래스 [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) 메서드를 사용하여 점의 좌표를 업데이트합니다.
 
 [기호 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)은 텍스트 또는 아이콘을 사용하여 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 점 기반 데이터를 지도에 기호로 렌더링합니다.  데이터 원본, 클릭 이벤트 수신기 및 기호 계층이 생성되고 지도의 [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 함수 내에 추가되어 지도가 완전히 로드된 후 점이 표시되도록 합니다.
 
-## <a name="add-a-custom-symbol"></a>사용자 지정 기호 추가
+## <a name="add-a-custom-icon-to-a-symbol-layer"></a>기호 계층에 사용자 지정 아이콘 추가
 
-<iframe height='500' scrolling='no' title='HTML DataSource' src='//codepen.io/azuremaps/embed/qJVgMx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의한 Pen <a href='https://codepen.io/azuremaps/pen/qJVgMx/'>HTML DataSource</a>를 참조하세요.
+기호 계층은 WebGL을 사용하여 렌더링됩니다. 아이콘 이미지와 같은 이러한 모든 리소스는 WebGL 컨텍스트에 로드해야 하기 때문입니다. 이 샘플에서는 지도 리소스에 사용자 지정 기호 아이콘을 추가한 후 이 아이콘을 사용하여 지도에서 사용자 지정 기호로 점 데이터를 렌더링하는 방법을 보여 줍니다. 기호 계층의 `textField` 속성에는 식을 지정해야 합니다. 이 경우 점 기능의 온도 속성을 텍스트 값으로 렌더링하려고 합니다. 이 작업은 `['get', 'temperature']` 식을 사용하여 수행할 수 있습니다. 
+
+<br/>
+
+<iframe height='500' scrolling='no' title='사용자 지정 기호 이미지 아이콘' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>사용자 지정 기호 이미지 아이콘</a>을 참조하세요.
 </iframe>
 
-위의 코드에서 첫 번째 코드 블록은 지도 개체를 만듭니다. 지침은 [지도 만들기](./map-create.md)를 참조하세요.
+## <a name="customize-a-symbol-layer"></a>기호 계층 사용자 지정 
 
-두 번째 코드 블록은 [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 클래스의 [markers](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#markers) 속성을 사용하여 지도에 [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest)를 추가합니다. HtmlMarker가 지도의 [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 함수 내에 추가되어 지도가 완전히 로드된 후 표시되도록 합니다.
+기호 계층에는 사용할 수 있는 많은 스타일 지정 옵션이 있습니다. 이러한 다양한 스타일 지정 테스트하는 도구는 다음과 같습니다.
 
-## <a name="add-bubble-markers"></a>거품형 표식 추가
+<br/>
 
-<iframe height='500' scrolling='no' title='BubbleLayer DataSource' src='//codepen.io/azuremaps/embed/mzqaKB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의한 Pen <a href='https://codepen.io/azuremaps/pen/mzqaKB/'>BubbleLayer DataSource</a>를 참조하세요.
+<iframe height='700' scrolling='no' title='기호 계층 옵션' src='//codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/PxVXje/'>기호 계층 옵션</a>을 참조하세요.
 </iframe>
-
-위의 코드에서 첫 번째 코드 블록은 지도 개체를 만듭니다. 지침은 [지도 만들기](./map-create.md)를 참조하세요.
-
-두 번째 코드 블록에서는 위치 배열이 정의되고 [MultiPoint](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.multipoint?view=azure-iot-typescript-latest) 개체가 생성됩니다. 그런 다음, [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 클래스를 사용하여 데이터 원본 개체가 생성되고 MultiPoint 개체가 데이터 원본에 추가됩니다.
-
-[거품형 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)은 [데이터 원본](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 점 기반 데이터를 지도에 원으로 렌더링합니다. 마지막 코드 블록은 거품형 계층을 만들고 지도에 추가합니다. [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions)에서 거품형 계층의 속성을 확인합니다.
-
-MultiPoint 개체, 데이터 원본 및 거품형 계층이 생성되고 지도의 [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 함수 내에 추가되어 지도가 완전히 로드된 후 원이 표시되도록 합니다.
-
-## <a name="add-bubble-markers-with-label"></a>레이블이 있는 거품형 표식 추가
-
-<iframe height='500' scrolling='no' title='MultiLayer DataSource' src='//codepen.io/azuremaps/embed/rqbQXy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의한 Pen <a href='https://codepen.io/azuremaps/pen/rqbQXy/'>MultiLayer DataSource</a>를 참조하세요.
-</iframe>
-
-위 코드에서는 지도에 데이터를 시각화하고 레이블을 지정하는 방법을 보여 줍니다. 위에서 첫 번째 코드 블록은 지도 개체를 생성합니다. 지침은 [지도 만들기](./map-create.md)를 참조하세요.
-
-두 번째 코드 블록은 [point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) 개체를 만듭니다. 그런 다음, [data source](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 클래스를 사용하여 데이터 원본 개체를 만들고 데이터 원본에 점을 추가합니다.
-
-[거품형 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)은 [데이터 원본](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 점 기반 데이터를 지도에 원으로 렌더링합니다. 세 번째 코드 블록은 거품형 계층을 만들고 지도에 추가합니다. [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions)에서 거품형 계층의 속성을 확인합니다.
-
-[기호 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)은 텍스트 또는 아이콘을 사용하여 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 점 기반 데이터를 지도에 기호로 렌더링합니다. 마지막 코드 블록은 거품형의 텍스트 레이블을 렌더링하는 기호 계층을 만들고 지도에 추가합니다. [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions)에서 기호 계층의 속성을 참조하세요.
-
-데이터 원본 및 계층이 생성되고 지도의 [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 함수 내에 추가되어 지도가 완전히 로드된 후 데이터가 표시되도록 합니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [SymbolLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"]
+> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"]
+> [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"]
+> [TexTOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions?view=azure-iot-typescript-latest)
 
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
 
@@ -85,3 +77,9 @@ MultiPoint 개체, 데이터 원본 및 거품형 계층이 생성되고 지도�
 
 > [!div class="nextstepaction"]
 > [도형 추가](./map-add-shape.md)
+
+> [!div class="nextstepaction"]
+> [거품형 계층 추가](./map-add-bubble-layer.md)
+
+> [!div class="nextstepaction"]
+> [HTML 표식 추가](./map-add-bubble-layer.md)

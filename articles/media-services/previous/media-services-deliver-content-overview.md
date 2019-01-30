@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: juliako
-ms.openlocfilehash: ae0ff36c7e83120a9571e0f87788c25193027616
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3e968c71b87f7227dc4bd2e3f4ee486719b65e40
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240140"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388147"
 ---
 # <a name="deliver-content-to-customers"></a>고객에게 콘텐츠 배달
 고객에게 스트리밍 또는 주문형 비디오 콘텐츠를 전달할 때는 다양한 네트워크 조건의 다양한 디바이스에 고품질 비디오를 제공하는 것이 목표입니다.
@@ -28,7 +28,7 @@ ms.locfileid: "51240140"
 
 * 사용자의 스트림을 다중 비트 전송률(적응 비트 전송률) 비디오 스트림으로 인코딩합니다. 이렇게 하면 품질 및 네트워크 상태가 관리됩니다.
 * Microsoft Azure Media Services [동적 패키징](media-services-dynamic-packaging-overview.md) 을 사용하여 스트림을 여러 프로토콜로 동적으로 다시 패키징합니다. 이렇게 하면 여러 디바이스의 스트리밍이 관리됩니다. Media Services서 다음과 같은 적응 비트 전송률 스트리밍 기술 제공을 지원합니다. <br/>
-    * **HLS**(HTTP 라이브 스트리밍) - URL의 "/Manifest" 부분에 "(format=m3u8-aapl)" 경로를 추가하여 스트리밍 원본 서버에 **Apple iOS** 네이티브 장치에서 사용할 수 있게 HLS 콘텐츠를 반환하도록 지정합니다(자세한 내용은 [로케이터](#locators) 및 [URL](#URLs) 참조).
+    * **HLS**(HTTP 라이브 스트리밍) - URL의 "/Manifest" 부분에 "(format=m3u8-aapl)" 경로를 추가하여 스트리밍 원본 서버에 **Apple iOS** 네이티브 디바이스에서 사용할 수 있게 HLS 콘텐츠를 반환하도록 지정합니다(자세한 내용은 [로케이터](#locators) 및 [URL](#URLs) 참조).
     * **MPEG-DASH** - URL의 "/Manifest" 부분에 "(format=mpd-time-csf)" 경로를 추가하여 스트리밍 원본 서버에 MPEG-DASH를 반환하도록 지시합니다(자세한 내용은 [로케이터](#locators) 및 [URL](#URLs) 참조).
     * **부드러운 스트리밍**.
 
@@ -61,7 +61,7 @@ Media Services를 사용하여 자산에 대한 필터를 정의할 수 있습�
 * OnDemandOrigin 로케이터. 미디어를 스트리밍(예: MPEG-DASH, HLS 또는 부드러운 스트리밍)하거나 점진적으로 파일을 다운로드하는 데 사용합니다.
 * SAS(공유 액세스 서명) URL 로케이터. 미디어 파일을 로컬 컴퓨터로 다운로드하는 데 사용합니다.
 
-*액세스 정책* 은 사용 권한(예: 읽기, 쓰기 및 나열) 및 클라이언트가 특정 자산에 대한 액세스 권한을 갖는 기간을 정의하는 데 사용됩니다. OrDemandOrigin 로케이터를 만들 때는 목록 권한(AccessPermissions.List)을 사용할 수 없습니다.
+*액세스 정책* 은 사용 권한(예: 읽기, 쓰기 및 나열) 및 클라이언트가 특정 자산에 대한 액세스 권한을 갖는 기간을 정의하는 데 사용됩니다. OnDemandOrigin 로케이터를 만들 때는 목록 권한(AccessPermissions.List)을 사용할 수 없습니다.
 
 로케이터에는 만료 날짜가 있습니다. Azure 포털은 로케이터의 만료 날짜를 100년 이후로 설정합니다.
 
@@ -77,7 +77,7 @@ Media Services를 사용하여 자산에 대한 필터를 정의할 수 있습�
 로케이터를 만들 때 Azure Storage의 필수 스토리지 및 전파 프로세스로 인해 30초간 지연될 수 있습니다.
 
 ## <a name="adaptive-streaming"></a>적응 스트리밍
-적응 비트 전송률 기술에서는 비디오 플레이어 애플리케이션이 네트워크 상태를 확인하고 여러 가지 비트 전송률 중에서 선택할 수 있습니다. 네트워크 통신 성능이 저하되면 클라이언트에서 더 낮은 비트 전송률을 선택하여 더 낮은 비디오 품질로 비디오를 계속 재생하도록 할 수 있습니다. 네트워크 상태가 향상되면 클라이언트에서 더 높은 비트 전송률로 전환하여 향상된 비디오 품질을 제공할 수 있습니다. Azure Media Services에서 지원하는 적응 비트 전송률 기술은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍 및 MPEG-DASH입니다.
+적응 비트 전송률 기술에서는 비디오 플레이어 애플리케이션이 네트워크 상태를 확인하고 여러 가지 비트 전송률 중에서 선택할 수 있습니다. 네트워크 통신 성능이 저하되면 클라이언트에서 더 낮은 비트 전송률을 선택하여 더 낮은 비디오 품질로 비디오를 계속 재생하도록 할 수 있습니다. 네트워크 상태가 향상되면 클라이언트에서 더 높은 비트 전송률로 전환하여 향상된 비디오 품질을 제공할 수 있습니다. Azure Media Services는 적응 비트 전송률 기술 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍 및 MPEG-DASH를 지원합니다.
 
 사용자에게 스트리밍 URL을 제공하려면 먼저 OnDemandOrigin 로케이터를 만들어야 합니다. 로케이터를 만들면 스트리밍할 콘텐츠를 포함하는 자산에 대한 기본 경로가 제공됩니다. 그러나 이 콘텐츠를 스트리밍하려면 나중에 이 경로를 수정해야 합니다. 스트리밍 매니페스트 파일에 대한 전체 URL을 생성하려면 로케이터의 경로 값과 매니페스트(filename.ism) 파일 이름을 연결해야 합니다. 그런 다음 로케이터 경로에 **/Manifest** 및 적절한 형식(필요한 경우)을 추가합니다.
 

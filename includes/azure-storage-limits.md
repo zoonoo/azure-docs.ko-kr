@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 1dd11e22361e25721effe2ed919f175d9cb1b9e4
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: e4fa42b6c32c3eb383eea4489ea109c0d496bdb9
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249633"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54392681"
 ---
 다음 표에서는 Azure Storage에 대한 기본 제한을 설명합니다. *수신* 제한은 저장소 계정에 보내는 모든 데이터(요청)를 나타냅니다. *송신* 제한은 저장소 계정에서 수신되는 모든 데이터(응답)를 가리킵니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "54249633"
 | 범용 v1 스토리지 계정에 대한 최대 송신(미국 지역) | RA-GRS/GRS를 사용하는 경우 20Gbps, LRS/ZRS의 경우 30Gbps<sup>2</sup> |
 | 범용 v1 스토리지 계정에 대한 최대 송신(미국 외 지역) | RA-GRS/GRS를 사용하는 경우 10Gbps, LRS/ZRS의 경우 15Gbps<sup>2</sup> |
 
-<sup>1</sup> Azure Storage 계정은 요청에 따른 수신 및 IOPS에 대해 더 높은 한도를 지원합니다. 계정 제한을 늘리려면 [Azure 지원](https://azure.microsoft.com/support/faq/)에 문의하세요.
+<sup>1</sup> Azure 표준 Storage 계정은 요청에 따른 수신에 대해 더 높은 한도를 지원합니다. 수신에 대한 계정 제한을 늘리도록 요청하려면 [Azure 고객 지원팀](https://azure.microsoft.com/support/faq/)에 문의하세요.
 
 <sup>2</sup>[Azure Storage 복제](https://docs.microsoft.com/azure/storage/common/storage-redundancy) 옵션은 다음을 포함합니다.
 * **RA-GRS**: 읽기 액세스 지역 중복 저장소입니다. RA-GRS를 사용하는 경우 보조 위치에 대한 송신 대상은 기본 위치에 대한 송신 대상과 동일합니다.

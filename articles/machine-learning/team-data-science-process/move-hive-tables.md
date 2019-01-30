@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5d88974fd1fb3d8784416ad3895fe139a3275e01
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: be257b49e5ad5acc47a6daeec203e8513995e52e
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134950"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390933"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive 테이블을 만들고 Azure Blob Storage에서 데이터 로드
 
@@ -29,8 +29,8 @@ ms.locfileid: "53134950"
 * 사용자 지정된 Hadoop 클러스터에 HDInsight 서비스를 프로비전했습니다.  지침이 필요한 경우 [고급 분석을 위한 Azure HDInsight Hadoop 클러스터 사용자 지정](customize-hadoop-cluster.md)을 참조하세요.
 * 클러스터에 대한 원격 액세스를 설정하고, 로그인하고, Hadoop 명령줄 콘솔을 열었습니다. 지침이 필요한 경우 [Hadoop 클러스터의 헤드 노드에 액세스](customize-hadoop-cluster.md)를 참조하세요.
 
-## <a name="upload-data-to-azure-blob-storage"></a>Azure Blob 저장소에 데이터 업로드
-[고급 분석을 위한 Azure 가상 컴퓨터 설정](../data-science-virtual-machine/setup-virtual-machine.md)의 지침에 따라 Azure 가상 컴퓨터를 만드는 경우 이 스크립트 파일을 가상 컴퓨터의 *C:\\Users\\\<사용자 이름\>\\Documents\\Data Science Scripts* 디렉터리에 다운로드해야 합니다. 이러한 Hive 쿼리는 제출이 가능하도록 적절한 필드에서 사용자 데이터 스키마 및 Azure blob 저장소 구성을 연결하기만 하면 됩니다.
+## <a name="upload-data-to-azure-blob-storage"></a>Azure File Storage는 Windows 및 기타 운영 체제에 대해 표준 SMB 2.1 프로토콜을 사용하므로, 응용 프로그램은 파일 공유 열기, 액세스 및 관리에 대해 익숙한 FileSystem API를 계속 사용할 수 있습니다. 
+[고급 분석을 위한 Azure 가상 컴퓨터 설정](../data-science-virtual-machine/setup-virtual-machine.md)의 지침에 따라 Azure 가상 컴퓨터를 만드는 경우 이 스크립트 파일을 가상 컴퓨터의 *C:\\Users\\\<사용자 이름\>\\Documents\\Data Science Scripts* 디렉터리에 다운로드해야 합니다. 이러한 Hive 쿼리는 제출이 가능하도록 적절한 필드에서 사용자 데이터 스키마 및 Azure Blob Storage 구성을 연결하기만 하면 됩니다.
 
 Hive 테이블의 데이터가 **압축되지 않은** 테이블 형식이고 Hadoop 클러스터에서 사용하는 저장소 계정의 기본 또는 추가 컨테이너에 데이터가 업로드된 것으로 가정합니다.
 
@@ -137,11 +137,11 @@ Hive 쿼리는 [GitHub 리포지토리](https://github.com/Azure/Azure-MachineLe
 
 다음은 연결해야 하는 필드와 기타 구성에 대한 설명입니다.
 
-* **<database name>**: 만들려는 데이터베이스 이름입니다. 기본 데이터베이스를 사용하려는 경우 *create database...* 쿼리를 생략할 수 있습니다.
-* **<table name>**: 지정된 데이터베이스 내에 만들려는 테이블 이름입니다. 기본 데이터베이스를 사용하려는 경우 <database name> 없이 *<table name>* 에서 테이블을 직접 참조할 수 있습니다.
-* **<field separator>**: Hive 테이블에 업로드할 데이터 파일의 필드를 구분하는 구분 기호입니다.
-* **<line separator>**: 데이터 파일의 줄을 구분하는 구분 기호입니다.
-* **<storage location>**: Hive 테이블의 데이터를 저장하는 Azure 저장소의 위치입니다. *LOCATION<storage location>* 을 지정하지 않으면 데이터베이스 및 테이블이 기본적으로 Hive 클러스터의 기본 컨테이너에 있는 hive/warehouse/ 디렉터리에 저장됩니다. 저장소 위치를 지정하려면 저장소 위치가 데이터베이스 및 테이블의 기본 컨테이너 내부에 있어야 합니다. 이 위치는 'wasb:///<directory 1>/' 또는 'wasb:///<directory 1>/<directory 2>/' 등의 형식으로 클러스터의 기본 컨테이너에 대한 상대 위치로 참조되어야 합니다. 쿼리가 실행된 후 기본 컨테이너 내에 상대 디렉터리가 만들어집니다.
+* **\<데이터베이스 이름\>**: 만들려고 하는 데이터베이스 이름입니다. 기본 데이터베이스를 사용하려는 경우 *create database...* 쿼리를 생략할 수 있습니다.
+* **\<테이블 이름\>**: 지정된 데이터베이스 내에 만들려는 테이블 이름입니다. 기본 데이터베이스를 사용하려는 경우 \<데이터베이스 이름\> 없이 \<테이블 이름\>을 통해 직접 테이블을 참조할 수 있습니다.
+* **\<필드 구분 기호\>**: 데이터 파일에서 Hive 테이블에 업로드할 필드를 구분하는 구분 기호입니다.
+* **\<줄 구분 기호\>**: 데이터 파일의 줄을 구분하는 구분 기호입니다.
+* **\<스토리지 위치\>**: Hive 테이블의 데이터를 저장할 Azure Storage 위치입니다. LOCATION \<스토리지 위치\>를 지정하지 않으면 기본적으로 데이터베이스 및 테이블이 Hive 클러스터의 기본 컨테이너에 있는 *hive/warehouse/* 디렉터리에 저장됩니다. 저장소 위치를 지정하려면 저장소 위치가 데이터베이스 및 테이블의 기본 컨테이너 내부에 있어야 합니다. 이 위치는 'wasb:///<directory 1>/' 또는 'wasb:///<directory 1>/<directory 2>/' 등의 형식으로 클러스터의 기본 컨테이너에 대한 상대 위치로 참조되어야 합니다. 쿼리가 실행된 후 기본 컨테이너 내에 상대 디렉터리가 만들어집니다.
 * **TBLPROPERTIES("skip.header.line.count"="1")**: 데이터 파일에 헤더 줄이 있으면 *create table* 쿼리의 **끝**에 이 속성을 추가해야 합니다. 그렇지 않으면 헤더 줄이 테이블의 레코드로 로드됩니다. 데이터 파일에 헤더 줄이 없으면 쿼리에서 이 구성을 생략해도 됩니다.
 
 ## <a name="load-data"></a>Hive 테이블에 데이터 로드
@@ -149,7 +149,7 @@ Hive 쿼리는 [GitHub 리포지토리](https://github.com/Azure/Azure-MachineLe
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **<path to blob data>**: Hive 테이블에 업로드할 Blob 파일이 HDInsight Hadoop 클러스터의 기본 컨테이너에 있으면 *<path to blob data>* 가 'wasb:///<directory in this container>/<blob file name>' 형식이어야 합니다. blob 파일이 HDInsight Hadoop 클러스터의 추가 컨테이너에 있을 수도 있습니다. 이 경우 *<path to blob data>* 는 'wasb://<container name><storage account name>.blob.core.windows.net/<blob file name>' 형식이어야 합니다.
+* **\<blob 데이터 경로\>**: Hive 테이블에 업로드할 Blob 파일이 HDInsight Hadoop 클러스터의 기본 컨테이너에 있으면 \<blob 데이터 경로\>가 'wasb:///<directory in this container>/<blob file name>' 형식이어야 합니다. blob 파일이 HDInsight Hadoop 클러스터의 추가 컨테이너에 있을 수도 있습니다. 이 경우 \<blob 데이터 경로\>는 'wasb://<container name><storage account name>.blob.core.windows.net/<blob file name>' 형식이어야 합니다.
 
   > [!NOTE]
   > Hive 테이블에 업로드할 blob 데이터가 Hadoop 클러스터에 대한 저장소 계정의 기본 또는 추가 컨테이너에 있어야 합니다. 그렇지 않으면 데이터에 액세스할 수 없기 때문에 *LOAD DATA* 쿼리가 실패합니다.
@@ -182,9 +182,9 @@ Hive 테이블 분할 외에도 Hive 데이터를 ORC(Optimized Row Columnar) �
     where <partitionfieldname>=<partitionfieldvalue> and ...;
 
 ### <a name="orc"></a>ORC 형식으로 Hive 데이터 저장
-blob 저장소의 데이터를 ORC 형식으로 저장된 Hive 테이블에 바로 로드할 수 없습니다. Azure blob의 데이터를 ORC 형식으로 저장된 Hive 테이블에 로드하려면 다음 단계를 수행해야 합니다.
+Blob Storage의 데이터를 ORC 형식으로 저장된 Hive 테이블에 바로 로드할 수 없습니다. Azure blob의 데이터를 ORC 형식으로 저장된 Hive 테이블에 로드하려면 다음 단계를 수행해야 합니다.
 
-외부 테이블 **STORED AS TEXTFILE** 을 만들고 blob 저장소의 데이터를 이 테이블에 로드합니다.
+외부 테이블 **STORED AS TEXTFILE** 을 만들고 Blob Storage의 데이터를 이 테이블에 로드합니다.
 
         CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<external textfile table name>
         (
@@ -216,7 +216,7 @@ blob 저장소의 데이터를 ORC 형식으로 저장된 Hive 테이블에 바�
             SELECT * FROM <database name>.<external textfile table name>;
 
 > [!NOTE]
-> *<database name>.<external textfile table name>* TEXTFILE 테이블에 파티션이 있으면 3단계의 `SELECT * FROM <database name>.<external textfile table name>` 명령에서 파티션 변수를 반환된 데이터 집합의 필드로 선택합니다. *<database name>.<ORC table name>* 에는 삽입할 수 없습니다. 이는 *<database name>.<ORC table name>* 에 파티션 변수가 테이블 스키마의 필드로 포함되지 않기 때문입니다. 이 경우 *<database name>.<ORC table name>* 에 삽입할 필드는 다음과 같이 구체적으로 선택해야 합니다.
+> TEXTFILE 테이블 \<데이터베이스 이름\>.\<외부 텍스트 파일 테이블 이름\>에 파티션이 있으면 3단계의 `SELECT * FROM <database name>.<external textfile table name>` 명령에서는 반환된 데이터 집합의 필드로 파티션 변수를 선택합니다. \<데이터베이스 이름\>.\<ORC 테이블 이름\>에 삽입은 실패하는데, \<데이터베이스 이름\>.\<ORC 테이블 이름\>에는 테이블 스키마의 필드로 해당 파티션 변수가 포함되어 있지 않기 때문입니다. 이 경우 \<데이터베이스 이름\>.\<ORC 테이블 이름\>에 삽입할 필드를 다음과 같이 구체적으로 선택해야 합니다.
 >
 >
 
@@ -225,7 +225,7 @@ blob 저장소의 데이터를 ORC 형식으로 저장된 Hive 테이블에 바�
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-모든 데이터가 *<database name>.<ORC table name>* 에 삽입되면 다음 쿼리를 사용할 때 *<external textfile table name>* 을 삭제하는 것이 안전합니다.
+모든 데이터가 \<데이터베이스 이름\>.\<ORC 테이블 이름\>에 삽입된 후에는 다음 쿼리를 사용할 때 \<외부 텍스트 파일 테이블 이름\>을 삭제하는 것이 안전합니다.
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 

@@ -13,12 +13,13 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 9c4b66501cfb51088609de81fe00b5b041e056d3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 28ff7c9f6ca5fc6365b3fe1b9a91d2159c8b3f48
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037531"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247615"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Azure Stack에서 API 버전 프로필 관리
 
@@ -53,7 +54,7 @@ ms.locfileid: "54037531"
 **최신**  
 이 프로필이 최신 API 버전 글로벌 Azure에는 Azure Stack에서 작동 하지 않습니다. **최신** 에 가장 큰 수의 주요 변경 내용입니다. 안정성 및 다른 클라우드를 사용 하 여 호환성 프로필을 따로 배치합니다. 최신 API 버전을 사용 하려는 경우 **최신** 프로필 사용 해야 합니다.
 
-**Yyyy-mm-dd-하이브리드**  
+**Yyyy-mm-dd-hybrid**  
 이 프로필은 매년 3 월과 9 월에 해제 됩니다. 최적의 안정성과 호환성을 다양 한 클라우드가 있습니다. **Yyyy-mm-dd-하이브리드** 는 전역 Azure 및 Azure Stack을 대상으로 설계 되었습니다. 이 프로필에 나열 된 Azure API 버전 Azure Stack에 나열 된 것과 동일 합니다. 하이브리드 클라우드 솔루션에 대 한 코드를 개발 하려면이 프로필을 사용할 수 있습니다.
 
 **yyyy-mm-dd-profile**  

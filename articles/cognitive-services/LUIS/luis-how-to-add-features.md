@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/16/2019
 ms.author: diberry
-ms.openlocfilehash: 39a6ead041b1783a3effcb9659c59ea788cd2bf6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 4f2343e1c6b95c495f03cd94ee58164c546f4b76
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139506"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382182"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>단어 목록의 신호를 강화하는 구 사용
 
@@ -27,6 +27,8 @@ ms.locfileid: "53139506"
 구문 목록은 해당 단어와 관련된 LUIS에 대한 두 번째 신호로 앱 도메인의 어휘에 추가됩니다.
 
 ## <a name="add-phrase-list"></a>구 목록 추가
+
+LUIS는 앱당 최대 10개의 구 목록을 허용합니다. 
 
 1. **내 앱** 페이지에서 해당 이름을 클릭하여 앱을 열고 **빌드**를 클릭한 후 앱 왼쪽 패널에서 **구 목록**을 클릭합니다. 
 
