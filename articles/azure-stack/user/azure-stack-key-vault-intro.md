@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/05/2019
 ms.author: sethm
-ms.openlocfilehash: a0867399ab00910950598bb83309d1862b407d34
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.lastreviewed: 01/05/2019
+ms.openlocfilehash: afbc4d08e898cb0a465b8561dde65614f2cb6211
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192488"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251336"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack"></a>Azure Stack의 주요 자격 증명 모음 소개
 
@@ -35,7 +36,7 @@ Azure Stack에서 Key Vault는 암호화 키를 보호 하 고 암호는 클라�
 * 인증 키
 * Storage 계정 키
 * 데이터 암호화 키
-* .pfx 파일
+* .pfx files
 * 암호
 
 키 자격 증명 모음은 키 관리 프로세스를 간소화하고 데이터를 액세스하고 암호화 하는 키의 제어를 유지할 수 있습니다. 개발자는 개발 및 테스트(분)을 위한 키를 만든 다음, 프로덕션 키로 원활하게 마이그레이션할 수 있습니다. 보안 관리자 수 부여 (및 해지) 키를 필요에 따라 권한을 합니다.

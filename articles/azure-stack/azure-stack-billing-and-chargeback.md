@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: 32d0e0f48a99b5c06b1efa61e6e1a53cf5b0e61b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/19/2018
+ms.openlocfilehash: f17a76b62c511e1cdcd98e387fe0132e2bd15c16
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971796"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238070"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>사용량 및 Azure Stack에서 결제
 
@@ -59,7 +60,7 @@ Azure 청구 포털에서는 청구 가능한 리소스에 대 한 사용 현황
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Stack을 사용 하 여 등록](azure-stack-registration.md)
-- [Azure에 Azure Stack 사용 현황 데이터를 보고 합니다.](azure-stack-usage-reporting.md)
+- [Azure에 Azure Stack 사용량 데이터 보고](azure-stack-usage-reporting.md)
 - [공급자 리소스 사용 API](azure-stack-provider-resource-api.md)
-- [테 넌 트 리소스 사용량 API](azure-stack-tenant-resource-usage-api.md)
+- [테넌트 리소스 사용량 API](azure-stack-tenant-resource-usage-api.md)
 - [사용 관련 FAQ](azure-stack-usage-related-faq.md)

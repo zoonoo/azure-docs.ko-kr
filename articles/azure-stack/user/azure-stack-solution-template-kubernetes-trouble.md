@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 8a67ae74f753fdbe3c5301c543e5a57544695922
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.lastreviewed: 01/24/2019
+ms.openlocfilehash: 9a65ef9acf7a1a133b3f479fe75921191949eeb8
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904219"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55237854"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Azure Stack에 Kubernetes 배포 문제 해결
 
@@ -112,10 +113,10 @@ Kubernetes 클러스터를 배포할 때 문제를 확인 하려면 배포 상�
     | 자산 | 설명 |
     | ----     | ----        |
     | 리소스 | 리소스의 이름입니다. |
-    | 종류 | 리소스 공급자 및 리소스의 형식입니다. |
+    | Type | 리소스 공급자 및 리소스의 형식입니다. |
     | 상태 | 항목의 상태입니다. |
     | TimeStamp | 시간 UTC 타임 스탬프입니다. |
-    | 작업 정보 | 리소스의 이름과 작업, 리소스 끝점에 관련 된 리소스 공급자와 같은 작업 세부 정보입니다. |
+    | 작업 세부 정보 | 리소스의 이름과 작업, 리소스 끝점에 관련 된 리소스 공급자와 같은 작업 세부 정보입니다. |
 
     각 항목에 녹색 또는 빨간색 상태 아이콘이 있습니다.
 

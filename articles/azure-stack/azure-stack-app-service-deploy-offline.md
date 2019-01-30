@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: anwestg
-ms.openlocfilehash: db4c0f2d1197a190b33bd297bb597fd19057d875
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.lastreviewed: 01/11/2019
+ms.openlocfilehash: 267c3c2d8430d769b5d42de33796da8b57504516
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230342"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238791"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>AD FS에서 보안이 유지 되는 연결이 끊긴된 Azure Stack 환경에는 App Service 리소스 공급자 추가
 
@@ -161,11 +162,11 @@ App Service 리소스 공급자에 오프 라인 Azure Stack 배포를 추가 �
 
     | 역할 | 최소 인스턴스 | 최소 SKU | 메모 |
     | --- | --- | --- | --- |
-    | Controller | 1 | Standard_A2-(2 vCPU, 3584MB) | 관리 하 고 App Service 클라우드 상태를 유지 합니다. |
+    | Controller | 1 | Standard_A2 - (2 vCPU, 3584 MB) | 관리 하 고 App Service 클라우드 상태를 유지 합니다. |
     | 관리 | 1 | Standard_A2-(2 개 Vcpu, 3584MB) | App Service Azure Resource Manager 및 API 끝점, 포털 확장 (관리자, 테 넌 트, Functions 포털) 및 데이터 서비스를 관리합니다. 장애 조치를 지원 하기 위해 권장 되는 인스턴스 2로 증가 합니다. |
-    | 게시자 | 1 | Standard_A1-(1 개 vCPU, 1,792MB) | FTP 및 웹 배포를 통해 콘텐츠를 게시합니다. |
-    | FrontEnd | 1 | Standard_A1-(1 개 vCPU, 1,792MB) | App Service 응용 프로그램에 요청을 라우팅합니다. |
-    | 공유 작업자 | 1 | Standard_A1-(1 개 vCPU, 1,792MB) | 호스트 웹 또는 API 응용 프로그램 및 Azure Functions 앱. 더 많은 인스턴스를 추가할 수 있습니다. 운영자로 귀하의 제품을 정의 하 고 모든 SKU 계층을 선택할 수 있습니다. 계층에는 하나의 vCPU 개가 있어야 합니다. |
+    | 게시자 | 1 | Standard_A1 - (1 vCPU, 1792 MB) | FTP 및 웹 배포를 통해 콘텐츠를 게시합니다. |
+    | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | App Service 응용 프로그램에 요청을 라우팅합니다. |
+    | 공유 작업자 | 1 | Standard_A1 - (1 vCPU, 1792 MB) | 호스트 웹 또는 API 응용 프로그램 및 Azure Functions 앱. 더 많은 인스턴스를 추가할 수 있습니다. 운영자로 귀하의 제품을 정의 하 고 모든 SKU 계층을 선택할 수 있습니다. 계층에는 하나의 vCPU 개가 있어야 합니다. |
 
     ![App Service 설치 관리자][14]
 

@@ -9,13 +9,14 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: patricka
 ms.reviewer: fiseraci
+ms.lastreviewed: 12/06/2018
 keywords: ''
-ms.openlocfilehash: f9e76b255647f62b273fef8336ed845e365261cf
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 563534424cad7f3e02be07ad582be0b3966950b4
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731745"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55237985"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack"></a>Azure Stack에서 암호화 된 미사용 데이터
 
@@ -42,7 +43,7 @@ Get-AzsRecoveryKeys
 
 에 대 한 선택적 매개 변수 *Get AzsRecoveryKeys* cmdlet:
 
-| 매개 변수 | 설명 | type | 필수 |
+| 매개 변수 | 설명 | Type | 필수 |
 |---------|---------|---------|---------|
 |*원시* | 복구 키, 컴퓨터 이름 및 암호화 된 각 볼륨의 암호 id(s) 간의 매핑 원시 데이터를 반환합니다.  | 스위치 | 없음 (디자인에 따른 것임 지원 시나리오에 대 한)|
 

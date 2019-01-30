@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 8e577a95fc3cda3aafe1273cbc6b4e3c4fbb0317
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: d9855f107f9888fbfbcb10a3df849e78c87c0605
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304364"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246765"
 ---
 # <a name="optimize-sql-server-performance"></a>SQL Server 성능 최적화
 
@@ -120,7 +121,7 @@ Azure Stack virtual machine에서 세 가지 기본 디스크 유형에
 
 - 예상되는 부하에 따라 저장소 풀에 연결되는 디스크 수를 결정합니다. 연결 된 데이터 디스크를 다른 가상 머신 크기의 다른 숫자를 허용 하는 것에 유의 합니다. 자세한 내용은 [Azure Stack에서 지원 되는 가상 머신 크기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes)합니다.
 - 지 원하는 데이터 디스크의 최대 수를 추가 하는 것이 좋습니다 데이터 디스크에 대 한 최대 가능한 IOPS를 얻으려면 하 [가상 머신 크기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) 하 고 디스크 스트라이프를 사용 합니다.
-- **NTFS 할당 단위 크기:** 데이터 디스크를 포맷할 때 TempDB 뿐만 아니라 데이터 및 로그 파일에 대해 64KB 할당 단위 크기를 사용 하는 하는 것이 좋습니다.
+- **NTFS 할당 단위 크기:** 데이터 디스크를 포맷할 때 TempDB뿐만 아니라 데이터 및 로그 파일에 대해 64KB 할당 단위 크기를 사용하는 것이 좋습니다.
 - **디스크 관리 사례:** 데이터 디스크를 제거 하는 경우 변경 하는 동안 SQL Server 서비스를 중지 합니다. 또한 변경 되지 않습니다 디스크에서 캐시 설정을 모든 성능 향상을 제공 하지 마십시오.
 
 > [!WARNING]  

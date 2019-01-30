@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9fe3efba6cc18839f7d65d2f19dfb165bbdecc05
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 8b591cacd1c468f46dcdb5809cdc6ff0adf09ccb
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331285"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247683"
 documentType: LandingData
 title: Azure Machine Learning 서비스 설명서
 metadata:
@@ -12,7 +12,7 @@ metadata:
   description: 앱 및 웹 사이트에 지능형 알고리즘을 빌드하는 방법을 알아봅니다. Scikit-learn, Tensorflow, Pytorch 또는 다른 Python 기반 프레임워크를 사용하여 기계 학습 모델을 빌드하고 로컬로 또는 클라우드에서 학습할 수 있습니다. 자습서, 빠른 시작, API 참조 및 예제는 방법을 보여줍니다.
   services: machine-learning
   ms.service: machine-learning
-  ms.component: core
+  ms.subservice: core
   ms.topic: landing-page
   manager: jhubbard
   author: j-martens

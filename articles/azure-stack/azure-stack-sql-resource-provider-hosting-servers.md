@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: a0a482e44617732c9dc6cd6609672e8204001dbc
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.lastreviewed: 10/16/2018
+ms.openlocfilehash: f1b39601f0f6d254daadfafdd812549c6c95ed35
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362061"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239471"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL 리소스 공급자에 대 한 호스팅 서버를 추가 합니다.
 
@@ -142,7 +143,7 @@ SQL Always On 인스턴스를 구성 하려면 추가 단계가 필요 하며 3 
 
 ### <a name="configure-contained-database-authentication"></a>포함 된 데이터베이스 인증 구성
 
-가용성 그룹에 포함된 된 데이터베이스에 추가 하기 전에 contained database authentication 서버 옵션 가용성 그룹에 대 한 가용성 복제본을 호스팅하는 모든 서버 인스턴스에서 1로 설정 되어 있는지 확인 합니다. 자세한 내용은 [contained database authentication 서버 구성 옵션](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017)합니다.
+가용성 그룹에 포함된 된 데이터베이스에 추가 하기 전에 contained database authentication 서버 옵션 가용성 그룹에 대 한 가용성 복제본을 호스팅하는 모든 서버 인스턴스에서 1로 설정 되어 있는지 확인 합니다. 자세한 내용은 [contained database authentication Server Configuration Option](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017)을 참조하세요.
 
 이러한 명령을 사용 하 여 각 인스턴스에 대해 contained database authentication 서버 옵션을 설정 합니다.
 
