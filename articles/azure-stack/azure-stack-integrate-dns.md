@@ -9,13 +9,14 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
+ms.lastreviewed: 10/15/2018
 keywords: ''
-ms.openlocfilehash: bf412809f9d10296ad600e64abb6d870dbb88d3e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: dce59cf012a8c3bc5b6b3baf705b5619bdf43104
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339681"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252322"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack 데이터 센터 통합-DNS
 Azure Stack 끝점에 액세스할 수 있으려면 (**포털**, **adminportal**를 **management**, **adminmanagement**등.)  외부 Azure Stack에서 Azure Stack에서 사용 하려는 DNS 영역을 호스트 하는 DNS 서버를 사용 하 여 Azure Stack DNS 서비스를 통합 해야 합니다.
@@ -121,7 +122,7 @@ Azure Stack의 DNS 서버에 대 한 Fqdn의 형식이:
 
 DNS 인프라를 사용 하 여 Azure Stack을 통합 하는 가장 간단 하 고 가장 안전한 방법은 부모 영역을 호스팅하는 서버에서 영역의 조건부 전달을 수행 됩니다. Azure Stack 외부 DNS 네임 스페이스에 대 한 DNS 서버를 직접 제어 부모 영역을 호스트 하는 경우이 방법이 권장 됩니다.
 
-Dns 조건부 전달을 수행 하는 방법을 잘 모르는 경우 다음 TechNet 문서 참조: [도메인 이름에 대 한 조건부 전달자를 할당](https://technet.microsoft.com/library/cc794735), 또는 DNS 솔루션에 관련 된 설명서입니다.
+DNS를 사용 하 여 전달 조건부 작업을 수행 하는 방법을 잘 모르는 경우 다음 TechNet 문서를 참조 하세요. [도메인 이름에 대 한 조건부 전달자 할당](https://technet.microsoft.com/library/cc794735), 또는 DNS 솔루션에 관련 된 설명서입니다.
 
 회사 도메인 이름의 하위 도메인을 같이 외부 Azure Stack DNS 영역을 지정한 위치 시나리오에서 조건부 전달을 사용할 수 없습니다. DNS 위임을 구성 해야 합니다.
 
