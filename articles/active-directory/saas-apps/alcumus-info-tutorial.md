@@ -1,10 +1,10 @@
 ---
-title: '자습서: Alcumus 정보 교환과 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: Alcumus Info Exchange와 Azure Active Directory 통합 | Microsoft Docs'
 description: Azure Active Directory와 Alcumus 정보 교환 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d26034b8-f0d5-4f65-aa56-0fc168ceec8c
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 66ce8bb16e6e291742841766069b076c46a01c69
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d55aa873d0ad410b91dc678d1fe4784e00ed5487
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224601"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812474"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-alcumus-info-exchange"></a>자습서: Alcumus 정보 교환과 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-alcumus-info-exchange"></a>자습서: Alcumus Info Exchange와 Azure Active Directory 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Alcumus Info Exchange를 통합하는 방법에 대해 알아봅니다.
 
@@ -114,7 +114,7 @@ Alcumus 정보 교환에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     a. **식별자** 텍스트 상자에서 `https://<subdomain>.info-exchange.com` 패턴을 사용하여 URL을 입력합니다.
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<subdomain>.info-exchange.com/Auth/`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<subdomain>.info-exchange.com/Auth/`
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이 값을 가져오려면 [Alcumus Info Exchange 지원팀](mailto:helpdesk@alcumusgroup.com)에 문의하세요.
@@ -130,7 +130,7 @@ Alcumus 정보 교환에서 Azure AD Single Sign-On을 구성하고 테스트하
 6. **Alcumus Info Exchange** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML**을 [Alcumus Info Exchange 지원팀](mailto:helpdesk@alcumusgroup.com)에 보내야 합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -158,7 +158,7 @@ Alcumus 정보 교환에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -208,7 +208,7 @@ Alcumus Info Exchange에서 Britta Simon이라는 사용자를 만들려면 [Alc
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

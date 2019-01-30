@@ -1,10 +1,10 @@
 ---
-title: '자습서: Igloo Software와 Azure Active Directory 통합| Microsoft Azure'
+title: '자습서: Igloo Software와 Azure Active Directory 통합| Microsoft Docs'
 description: Azure Active Directory 및 Igloo Software 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2eb625c1-d3fc-4ae1-a304-6a6733a10e6e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: d49a08c6f57f5248f17539cd9d0467d132f7a63d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: daa00db39ac55cd14b7720b534313407a98dde2c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447410"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817744"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>자습서: Igloo Software와 Azure Active Directory 통합
 
@@ -114,7 +114,7 @@ Igloo Software에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
     
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<company name>.igloocommmunities.com`
 
-    나. **식별자** 텍스트 상자에서 `https://<company name>.igloocommmunities.com/saml.digest` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://<company name>.igloocommmunities.com/saml.digest` 패턴을 사용하여 URL을 입력합니다.
 
     다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<company name>.igloocommmunities.com/saml.digest`
 
@@ -153,7 +153,7 @@ Igloo Software에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
     a. **연결 이름** 텍스트 상자에 구성의 사용자 지정 이름을 입력합니다.
    
-    나. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **IdP 로그인 URL** 텍스트 상자에 붙여넣습니다.
+    b. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **IdP 로그인 URL** 텍스트 상자에 붙여넣습니다.
    
     다. Azure Portal에서 복사한 **로그아웃 URL** 값을 **IdP 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
     
@@ -167,7 +167,7 @@ Igloo Software에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
   
       a. **ID 공급자**로 **Microsoft ADFS**를 선택합니다.
       
-      나. **ID 형식**으로 **전자 메일 주소**를 선택합니다. 
+      b. **ID 형식**으로 **전자 메일 주소**를 선택합니다. 
 
       다. **이메일 특성** 텍스트 상자에 **emailaddress**를 입력합니다.
 
@@ -181,12 +181,12 @@ Igloo Software에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
      a. **로그인할 때 사용자 만들기**에서 **로그인할 때 사이트에 새 사용자 만들기**를 선택합니다.
 
-     나. **로그인 설정**에서 **"로그인" 화면에서 SAML 단추 사용**을 선택합니다.
+     b. **로그인 설정**에서 **"로그인" 화면에서 SAML 단추 사용**을 선택합니다.
 
      다. **저장**을 클릭합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
@@ -213,7 +213,7 @@ Igloo Software에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -265,7 +265,7 @@ Igloo Software를 프로비저닝하는 사용자를 구성할 작업 항목이 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

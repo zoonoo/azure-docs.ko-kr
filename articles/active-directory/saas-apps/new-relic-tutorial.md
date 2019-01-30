@@ -4,7 +4,7 @@ description: Azure Active Directory와 New Relic 간에 Single Sign-On을 구성
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 3186b9a8-f4d8-45e2-ad82-6275f95e7aa6
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 80bd77504f1b2ab5b6e5c781eadb7c2cd4c99220
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6aade578aef40b6f009ed42b4798bc9cefce5793
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440748"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828335"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>자습서: New Relic과 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ New Relic의 Azure AD 통합을 구성하려면 갤러리의 New Relic을 관리
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -72,7 +72,7 @@ New Relic의 Azure AD 통합을 구성하려면 갤러리의 New Relic을 관리
 
     ![새 애플리케이션 단추][3]
 
-1. 검색 상자에 **New Relic**을 입력하고 결과 패널에서 **New Relic**을 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에 **New Relic**을 입력하고, 결과 패널에서 **New Relic**을 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 New Relic](./media/new-relic-tutorial/tutorial_new-relic_addfromgallery.png)
 
@@ -112,7 +112,7 @@ New Relic에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` – 자신의 New Relic 계정 ID를 반드시 대체해야 합니다.
 
-    나. **식별자** 텍스트 상자에 해당 값으로 `rpm.newrelic.com`를 입력합니다.
+    b. **식별자** 텍스트 상자에 해당 값으로 `rpm.newrelic.com`를 입력합니다.
 
 1. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -142,14 +142,14 @@ New Relic에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
    
    a. **파일 선택** 을 클릭하여 다운로드한 Azure Active Directory 인증서를 업로드합니다.
 
-   나. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **원격 로그인 URL** 텍스트 상자에 붙여넣습니다.
+   b. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **원격 로그인 URL** 텍스트 상자에 붙여넣습니다.
    
    다. Azure Portal에서 복사한 **로그아웃 URL** 값을 **Logout landing URL**(로그아웃 방문 URL) 텍스트 상자에 붙여넣습니다.
 
    d. **내 변경 내용 저장**을 클릭합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -206,7 +206,7 @@ Azure Active Directory 사용자가 New Relic에 로그인할 수 있도록 하�
    
     a. **이메일** 텍스트 상자에 프로비전하려는 유효한 Azure Active Directory 사용자의 이메일 주소를 입력합니다.
 
-    나. **역할**로 **사용자**를 선택합니다.
+    b. **역할**로 **사용자**를 선택합니다.
 
     다. **이 사용자 추가**를 클릭합니다.
 
@@ -228,7 +228,7 @@ Azure Active Directory 사용자가 New Relic에 로그인할 수 있도록 하�
 
 1. 애플리케이션 목록에서 **New Relic**을 선택합니다.
 
-    ![응용 프로그램 목록의 New Relic 링크](./media/new-relic-tutorial/tutorial_new-relic_app.png)  
+    ![애플리케이션 목록의 New Relic 링크](./media/new-relic-tutorial/tutorial_new-relic_app.png)  
 
 1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -254,7 +254,7 @@ Azure Active Directory 사용자가 New Relic에 로그인할 수 있도록 하�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

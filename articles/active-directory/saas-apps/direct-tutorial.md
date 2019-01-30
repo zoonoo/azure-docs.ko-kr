@@ -4,7 +4,7 @@ description: Azure Active Directory와 Direct 간에 Single Sign-On을 구성하
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 7c2cd1f0-d14c-42f0-94a8-9b800008b285
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 7e693a721e5556970607fafd8ff187d3b06c913e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6bb197b820b9f4262eb5c93665c46c14f9497d0f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092889"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822657"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-direct"></a>자습서: Direct와 Azure Active Directory 통합
 
@@ -74,7 +74,7 @@ Direct의 Azure AD 통합을 구성하려면 갤러리의 Direct를 관리되는
 
     ![애플리케이션][3]
 
-4. 검색 상자에 **Direct**를 입력합니다. 결과 패널에서 **Direct**를 선택한 다음, **추가** 단추를 선택하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **Direct**를 입력합니다. 결과 패널에서 **Direct**를 선택한 다음, **추가** 단추를 선택하여 응용 프로그램을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/direct-tutorial/tutorial_direct_addfromgallery.png)
 
@@ -96,11 +96,11 @@ Direct에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Direct 애플리케이션에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Direct 응용 프로그램에서 Single Sign-On을 구성합니다.
 
 **Direct에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Direct** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Direct** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -114,11 +114,11 @@ Direct에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     **식별자** 텍스트 상자에 URL `https://direct4b.com/`을 입력합니다.
 
-4. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 선택하세요.
+4. **SP** 시작 모드에서 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 선택하세요.
 
     ![Configure Single Sign-On](./media/direct-tutorial/tutorial_direct_url1.png)
 
-     **로그온 URL** 텍스트 상자에서 URL `https://direct4b.com/sso`를 입력합니다. 
+     **로그온 URL** 텍스트 상자에서 URL `https://direct4b.com/sso`를 입력합니다. 
 
 5. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
@@ -164,7 +164,7 @@ Direct에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 ### <a name="creating-a-direct-test-user"></a>Direct 테스트 사용자 만들기
 
-이 섹션에서는 Direct에서 Britta Simon이라는 사용자를 만듭니다. Direct 플랫폼에서 사용자를 추가하려면 [Direct 지원 팀](https://direct4b.com/ja/support.html#inquiry)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
+이 섹션에서는 Direct에서 Britta Simon이라는 사용자를 만듭니다. Direct 플랫폼에 사용자를 추가하려면 [Direct 지원 팀](https://direct4b.com/ja/support.html#inquiry)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -178,7 +178,7 @@ Direct에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     ![사용자 할당][201] 
 
-2. 애플리케이션 목록에서 **Direct**를 선택합니다.
+2. 응용 프로그램 목록에서 **Direct**를 선택합니다.
 
     ![Configure Single Sign-On](./media/direct-tutorial/tutorial_direct_app.png) 
 
@@ -202,11 +202,11 @@ Direct에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 1. **IDP 시작 모드**에서 테스트하려는 경우:
 
-    액세스 패널에서 **Direct** 타일을 클릭하면 **Direct** 애플리케이션에 자동으로 로그온됩니다.
+    액세스 패널에서 **Direct** 타일을 클릭하면 **Direct** 응용 프로그램에 자동으로 로그온됩니다.
 
 2. **SP 시작 모드**에서 테스트하려는 경우:
 
-    a. 액세스 패널에서 **Direct** 타일을 클릭하면 애플리케이션 로그온 페이지로 리디렉션됩니다.
+    a. 액세스 패널에서 **Direct** 타일을 클릭하면 응용 프로그램 로그온 페이지로 리디렉션됩니다.
 
     b. 표시되는 텍스트 상자에 `subdomain`을 입력하고 ‘다음’을 누르면 **Direct** 애플리케이션에 자동으로 로그온됩니다.
 
@@ -215,7 +215,7 @@ Direct에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

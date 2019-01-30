@@ -4,7 +4,7 @@ description: Azure Active Directory와 Questetra BPM Suite 간에 Single Sign-On
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: fb6d5b73-e491-4dd2-92d6-94e5aba21465
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 655140fc7f8cc52adf6a13a99cef531f28d5cefc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: cc2d88bfc6b8ce57cebc2e35e3a9f2e3b826e9cd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422250"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816775"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>자습서: Questetra BPM Suite와 Azure Active Directory 통합
 
@@ -72,7 +72,7 @@ Questetra BPM Suite가 Azure AD에 통합되도록 구성하려면 갤러리의 
 
     ![애플리케이션][3]
 
-1. 검색 상자에 **Questetra BPM Suite**를 입력하고 결과 패널에서 **Questetra BPM Suite**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에 **Questetra BPM Suite**를 입력하고, 결과 패널에서 **Questetra BPM Suite**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![갤러리에서 추가](./media/questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_addfromgallery.png)
 
@@ -93,11 +93,11 @@ Questetra BPM Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Questetra BPM Suite 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Questetra BPM Suite 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **Questetra BPM Suite에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Questetra BPM Suite** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Questetra BPM Suite** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -111,7 +111,7 @@ Questetra BPM Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<subdomain>.questetra.net/saml/SSO/alias/bpm`
 
-    나. **식별자** 텍스트 상자에서 `https://<subdomain>.questetra.net/` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://<subdomain>.questetra.net/` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. **Questetra BPM Suite** 회사 사이트의 **SP 정보** 섹션에서 이러한 값을 가져올 수 있습니다. 자세한 내용은 자습서 뒷부분에 설명되어 있으며 [Questetra BPM Suite 클라이언트 지원 팀](https://www.questetra.com/contact/)으로 문의하셔도 됩니다. 
@@ -142,7 +142,7 @@ Questetra BPM Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     a. **ACS URL**을 복사한 후 Azure Portal에서 **Questetra BPM Suite 도메인 및 URL** 섹션의 **로그온 URL** 텍스트 상자에 붙여넣습니다.
     
-    나. **엔터티 ID**를 복사한 후 Azure Portal에서 **Questetra BPM Suite 도메인 및 URL** 섹션의 **식별자** 텍스트 상자에 붙여넣습니다.
+    b. **엔터티 ID**를 복사한 후 Azure Portal에서 **Questetra BPM Suite 도메인 및 URL** 섹션의 **식별자** 텍스트 상자에 붙여넣습니다.
 
 1. **Questetra BPM Suite** 회사 사이트에서 다음 단계를 수행합니다. 
    
@@ -150,7 +150,7 @@ Questetra BPM Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
    
     a. **Single Sign-On 사용**을 선택합니다.
    
-    나. Azure Portal에서 복사한 **SAML 엔터티 ID**를 **엔터티 ID** 텍스트 상자에 붙여넣습니다.
+    b. Azure Portal에서 복사한 **SAML 엔터티 ID**를 **엔터티 ID** 텍스트 상자에 붙여넣습니다.
     
     다. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **로그인 페이지 URL** 텍스트 상자에 붙여넣습니다.
     
@@ -163,7 +163,7 @@ Questetra BPM Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
     g. **저장**을 클릭합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -191,7 +191,7 @@ Questetra BPM Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -211,7 +211,7 @@ Questetra BPM Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
    
     a. **이름** 텍스트 상자에 사용자 **britta.simon@contoso.com**의 **이름**을 입력합니다.
    
-    나. **메일** 텍스트 상자에 사용자 **britta.simon@contoso.com**의 **메일** 주소를 입력합니다.
+    b. **메일** 텍스트 상자에 사용자 **britta.simon@contoso.com**의 **메일** 주소를 입력합니다.
    
     다. **암호** 텍스트 상자에 사용자의 **암호**를 입력합니다.
     
@@ -251,13 +251,13 @@ Questetra BPM Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Questetra BPM Suite 타일을 클릭하면 Questetra BPM Suite 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Questetra BPM Suite 타일을 클릭하면 Questetra BPM Suite 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

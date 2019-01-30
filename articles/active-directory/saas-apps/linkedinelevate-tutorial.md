@@ -1,10 +1,10 @@
 ---
-title: '자습서: LinkedIn Elevate와 Azure Active Directory 통합 | Microsoft 문서'
+title: '자습서: LinkedIn Elevate와 Azure Active Directory 통합 | Microsoft Docs'
 description: Azure Active Directory와 LinkedIn Elevate 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2ad9941b-c574-42c3-bd0f-5d6ec68537ef
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8b11b5e3e420577590e95c6839673f54c52d078b
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 209f87a77ff6e18fa08943385d9cf61bbf915089
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116179"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822640"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>자습서: LinkedIn Elevate와 Azure Active Directory 통합
 
@@ -240,9 +240,9 @@ LinkedIn Elevate 애플리케이션은 이 JIT(Just-in-time) 사용자 프로비
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [자습서: Azure Active Directory를 사용한 자동 사용자 프로비전을 위한 LinkedIn Elevate 구성](linkedinelevate-provisioning-tutorial.md)
+* [자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 LinkedIn Elevate 구성](linkedinelevate-provisioning-tutorial.md)
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 * [사용자 프로비저닝 구성](linkedinelevate-provisioning-tutorial.md)
 
 <!--Image references-->

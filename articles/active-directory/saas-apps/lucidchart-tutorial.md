@@ -4,7 +4,7 @@ description: Azure Active Directory 및 Lucidchart 간에 Single Sign-On을 구�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 1068d364-11f3-43b5-bd6d-26f00ecd5baa
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: 45dbf350bc874d48b077ba8f7d67819eff741df2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b53ddb800bfd2eaf1f85c3a00f55d9f03bdc7c9f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448043"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816605"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lucidchart"></a>자습서: Lucidchart와 Azure Active Directory 통합
 
@@ -128,7 +128,7 @@ Lucidchart에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
    
     ![팀](./media/lucidchart-tutorial/ic791190.png "팀")
 
-1. **응용 프로그램 \> SAML 관리**를 클릭합니다.
+1. **애플리케이션 \> SAML 관리**를 클릭합니다.
    
     ![SAML 관리](./media/lucidchart-tutorial/ic791191.png "SAML 관리")
 
@@ -138,7 +138,7 @@ Lucidchart에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![SAML 인증 설정](./media/lucidchart-tutorial/ic791192.png "SAML 인증 설정")
  
-    나. **도메인** 텍스트 상자에서 도메인을 입력한 다음 **인증서 변경**을 클릭합니다.
+    b. **도메인** 텍스트 상자에서 도메인을 입력한 다음 **인증서 변경**을 클릭합니다.
 
     ![인증서 변경](./media/lucidchart-tutorial/ic791193.png "인증서 변경")
  
@@ -151,7 +151,7 @@ Lucidchart에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     ![변경 내용 저장](./media/lucidchart-tutorial/ic791195.png "변경 내용 저장")
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
@@ -178,7 +178,7 @@ Lucidchart에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -230,7 +230,7 @@ Lucidchart를 프로비전하는 사용자를 구성할 작업 항목이 없습�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

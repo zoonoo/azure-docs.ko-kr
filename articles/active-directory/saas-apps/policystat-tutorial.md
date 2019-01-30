@@ -1,10 +1,10 @@
 ---
-title: '자습서: PolicyStat와 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: PolicyStat과 Azure Active Directory 통합 | Microsoft Docs'
 description: Azure Active Directory와 PolicyStat 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: af5eb0f1-1c8e-4809-b0c4-8ccfb915ca42
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 571b1723c1c064415e4d8cbee3620799af14d508
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f8dad5e3b5bfd908e8a3b3c1f1bcc78dd689757a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428267"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823881"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-policystat"></a>자습서: PolicyStat와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-policystat"></a>자습서: PolicyStat과 Azure Active Directory 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 PolicyStat를 통합하는 방법에 대해 알아봅니다.
 
@@ -35,7 +35,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 ## <a name="prerequisites"></a>필수 조건
 
-PolicyStat와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
+PolicyStat과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 - Azure AD 구독
 - PolicyStat Single Sign-On이 설정된 구독
@@ -114,7 +114,7 @@ PolicyStat에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<companyname>.policystat.com`
 
-    나. **식별자** 텍스트 상자에서 `https://<companyname>.policystat.com/saml2/metadata/` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://<companyname>.policystat.com/saml2/metadata/` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [PolicyStat 클라이언트 지원 팀](http://www.policystat.com/support/)에 문의하세요. 
@@ -143,7 +143,7 @@ PolicyStat에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Configure Single Sign-On](./media/policystat-tutorial/tutorial_policystat_addatribute.png)
     
-    나. **특성 이름** 텍스트 상자에 **uid**를 입력합니다.
+    b. **특성 이름** 텍스트 상자에 **uid**를 입력합니다.
 
     다. **특성 값** 텍스트 상자에서 **ExtractMailPrefix()** 를 선택합니다.    
    
@@ -171,7 +171,7 @@ PolicyStat에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
    
     a. **사용자 이름 특성** 텍스트 상자에 **uid**를 입력합니다.
 
-    나. **First Name Attribute**(이름 특성) 텍스트 상자에 사용자의 **이름**을 **Britta**로 입력합니다.
+    b. **First Name Attribute**(이름 특성) 텍스트 상자에 사용자의 **이름**을 **Britta**로 입력합니다.
 
     다. **Last Name Attribute**(성 특성) 텍스트 상자에 사용자의 **성**을 **Simon**으로 입력합니다.
 
@@ -185,10 +185,10 @@ PolicyStat에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
    
     a. 다운로드한 메타데이터 파일을 열고 내용을 복사한 다음 **Your Identity Provider Metadata**(ID 공급자 메타데이터) 텍스트 상자에 붙여넣습니다.
 
-    나. **변경 내용 저장**을 클릭합니다.
+    b. **변경 내용 저장**을 클릭합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -216,7 +216,7 @@ PolicyStat에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -272,7 +272,7 @@ PolicyStat는 사용자 프로비전 시간에만 지원합니다. 즉, PolicySt
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 
