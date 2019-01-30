@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: scottnap
-ms.openlocfilehash: b401139d417674cf58d2db264b442d7588cc34ba
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.lastreviewed: 09/17/2018
+ms.openlocfilehash: d81374b110523e48e06725d3d3153e61135471cc
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986413"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251625"
 ---
 # <a name="add-public-ip-addresses"></a>공용 IP 주소를 추가 합니다.
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*  
@@ -49,7 +50,7 @@ Azure Stack 시스템의 초기 배포 후 언제 든 지 Azure Stack 시스템�
 5.  사용량 타일을 풀 하는 공용 IP를 클릭 합니다.
 6.  추가 IP 풀 단추를 클릭 합니다.
 7.  IP 풀에 대 한 이름을 제공 합니다.  호출할 수 있도록이 원하는 IP 풀을 쉽게 식별할 수 있도록 하는 방금 선택한 이름입니다.  주소 범위와 동일한 이름을 확인 하는 것이 좋습니다 있지만 필요 하지 않습니다.
-8.   CIDR 표기법에서 추가 하려는 주소 블록을 입력 합니다.  예를 들어: 192.168.203.0/24
+8.   CIDR 표기법에서 추가 하려는 주소 블록을 입력 합니다.  예:  192.168.203.0/24
 9.  시작 ip 주소 범위 (CIDR 블록) 필드에 유효한 CIDR 범위를 제공 하는 경우 끝 IP 주소 및 사용 가능한 IP 주소 필드는 자동으로 채워집니다.  읽기 전용 이며 이러한 주소 범위의 필드에 값을 수정 하지 않고 변경할 수 없습니다 있도록 자동으로 생성 합니다.
 10. 항목이 블레이드 및 확인 정보를 검토 한 후 해결, 변경 내용 커밋 및 Azure Stack에 주소 범위를 추가 하려면 확인을 클릭 합니다.
 
