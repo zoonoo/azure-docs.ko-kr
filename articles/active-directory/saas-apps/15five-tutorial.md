@@ -4,7 +4,7 @@ description: Azure Active Directory와 15Five 간에 Single Sign-On을 구성하
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2fb301c2-7d7a-4046-8ee1-7dc9e7684806
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 3cc0d9122fd7335bc29c7f35c1163cb39d3481b8
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 13d3bc8c83ad921c781f067f53e9562965a6417a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054304"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813477"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-15five"></a>자습서: 15Five와 Azure Active Directory 통합
 
@@ -114,7 +114,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<companyname>.15five.com`
 
-    나. **식별자** 텍스트 상자에서 `https://<companyname>.15five.com/saml2/metadata/` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://<companyname>.15five.com/saml2/metadata/` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [15Five 클라이언트 지원 팀](https://www.15five.com/contact/)에 문의하세요. 
@@ -130,7 +130,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 6. **15Five** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML**을 [15Five 지원 팀](https://www.15five.com/contact/)에 보내야 합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
@@ -157,7 +157,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -184,7 +184,7 @@ Azure AD 사용자가 15Five에 로그인할 수 있도록 하려면 15Five로 �
    
     a. 관련 텍스트 상자에 프로비전할 유효한 Azure Active Directory 계정의 **이름**, **성**, **제목**, **전자 메일 주소**를 입력합니다.
 
-    나. **Done**을 클릭합니다.
+    b. **Done**을 클릭합니다.
    
     > [!NOTE]
     > Azure AD 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 전자 메일을 받습니다.
@@ -229,7 +229,7 @@ Azure AD 사용자가 15Five에 로그인할 수 있도록 하려면 15Five로 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

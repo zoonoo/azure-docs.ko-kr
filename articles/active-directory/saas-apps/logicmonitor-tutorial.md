@@ -4,7 +4,7 @@ description: Azure Active Directory 및 LogicMonitor 간에 Single Sign-On을 �
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 496156c3-0e22-4492-b36f-2c29c055e087
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: jeedes
-ms.openlocfilehash: a6bc220d15e720662eaa9605421e21ccb99892ab
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 5aa11c15e038c0af8447debba0cd385c944c0bce
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502348"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812423"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>자습서: LogicMonitor와 Azure Active Directory 통합
 
@@ -114,7 +114,7 @@ LogicMonitor에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<companyname>.logicmonitor.com`
 
-    나. **식별자** 텍스트 상자에서 `https://<companyname>.logicmonitor.com` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://<companyname>.logicmonitor.com` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [LogicMonitor 클라이언트 지원 팀](https://www.logicmonitor.com/contact/)에 문의하세요. 
@@ -145,7 +145,7 @@ LogicMonitor에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
    
     a. **Single Sign-On 사용**을 선택합니다.
 
-    나. **기본 역할 할당**으로 **readonly**를 선택합니다.
+    b. **기본 역할 할당**으로 **readonly**를 선택합니다.
    
     다. 다운로드한 메타데이터 파일을 메모장에서 열고 파일 내용을 **ID 공급자 메타데이터** 텍스트 상자에 붙여넣습니다.
    
@@ -176,7 +176,7 @@ LogicMonitor에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -184,7 +184,7 @@ LogicMonitor에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
  
 ### <a name="creating-a-logicmonitor-test-user"></a>LogicMonitor 테스트 사용자 만들기
 
-Azure AD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용자 이름을 사용하여 LogicMonitor 애플리케이션에 프로비전되어야 합니다.
+Azure AD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용자 이름을 사용하여 LogicMonitor 응용 프로그램에 프로비전되어야 합니다.
 
 **사용자 프로비전을 구성하려면 다음 단계를 수행합니다.**
 
@@ -202,7 +202,7 @@ Azure AD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용�
    
     a. 프로비전할 Azure Active Directory 사용자의 **이름**, **전자 메일**, **암호** 및 **암호 확인** 값을 관련된 텍스트 상자에 입력합니다.
    
-    나. **역할**, **보기 권한** 및 **상태**를 선택합니다.
+    b. **역할**, **보기 권한** 및 **상태**를 선택합니다.
    
     다. **제출**을 클릭합니다.
 
@@ -242,14 +242,14 @@ Azure AD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용�
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
- 
+ 
 액세스 패널에서 LogicMonitor 타일을 클릭하면 LogicMonitor 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

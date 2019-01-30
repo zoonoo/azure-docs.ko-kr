@@ -1,10 +1,10 @@
 ---
-title: '자습서: IMAGE WORKS와 Azure Active Directory 통합 | Microsoft 문서'
+title: '자습서: IMAGE WORKS와 Azure Active Directory 통합 | Microsoft Docs'
 description: Azure Active Directory와 IMAGE WORKS 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 635d86a1-b512-442d-8851-3b18ec1a24a5
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 5d0ee49bf2a792e855ed020eba74db1d15278fad
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4f1636d32782bcef31c1cea98eb9e91d6d7a5878
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442686"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826296"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-works"></a>자습서: IMAGE WORKS와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ Azure AD에 IMAGE WORKS를 통합하도록 구성하려면 갤러리의 IMAGE WO
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -112,7 +112,7 @@ IMAGE WORKS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://i-imageworks.jp/iw/<tenantName>/sso/Login.do`
 
-    나. **식별자** 텍스트 상자에서 `https://sp.i-imageworks.jp/iw/<tenantName>/postResponse` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://sp.i-imageworks.jp/iw/<tenantName>/postResponse` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [IMAGE WORKS 클라이언트 지원 팀](mailto:iw-sd-support@fujifilm.com)에 문의하세요. 
@@ -132,7 +132,7 @@ IMAGE WORKS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 1. **IMAGE WORKS** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64), 로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 [IMAGE WORKS 지원 팀](mailto:iw-sd-support@fujifilm.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -169,7 +169,7 @@ IMAGE WORKS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
  
 ### <a name="create-a-image-works-test-user"></a>IMAGE WORKS 테스트 사용자 만들기
 
-이 섹션에서는 IMAGE WORKS에서 Britta Simon이라는 사용자를 만듭니다. IMAGE WORKS 플랫폼에 사용자를 추가하려면 [IMAGE WORKS 지원 팀](mailto:iw-sd-support@fujifilm.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 IMAGE WORKS에서 Britta Simon이라는 사용자를 만듭니다. IMAGE WORKS 플랫폼에 사용자를 추가하려면 [IMAGE WORKS 지원 팀](mailto:iw-sd-support@fujifilm.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -211,7 +211,7 @@ IMAGE WORKS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

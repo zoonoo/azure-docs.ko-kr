@@ -4,7 +4,7 @@ description: Azure Active Directory 및 UserVoice 간에 Single Sign-On을 구�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 684a405b-8932-46f6-b43a-4d97a42b6b87
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: jeedes
-ms.openlocfilehash: f69955cb3e5419659e358e738c28f214fb7015b7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f8a30ba7eee7653e4a098df706450c6a4328cce9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429151"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819070"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>자습서: UserVoice와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ UserVoice의 Azure AD 통합을 구성하려면 갤러리의 UserVoice를 관리
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -112,7 +112,7 @@ UserVoice에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<tenantname>.UserVoice.com`
 
-    나. **식별자** 텍스트 상자에서 `https://<tenantname>.UserVoice.com` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://<tenantname>.UserVoice.com` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [UserVoice 클라이언트 지원 팀](https://www.uservoice.com/)에 문의하세요.
@@ -145,16 +145,16 @@ UserVoice에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
    
     a. **SSO(Single Sign-On)** 를 클릭합니다.
  
-    나. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **SSO 원격 로그인** 텍스트 상자에 붙여넣습니다.
+    b. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **SSO 원격 로그인** 텍스트 상자에 붙여넣습니다.
 
     다. Azure Portal에서 복사한 **로그아웃 URL** 값을 **SSO 원격 로그아웃** 텍스트 상자에 붙여넣습니다.
  
-    d. Azure Portal에서 복사한 **지문** 값을 **현재 인증서 SHA1 지문** 텍스트 상자에 붙여넣습니다.
+    d. Azure Portal에서 복사한 **지문** 값을 **현재 인증서 SHA1 지문** 텍스트 상자에 붙여넣습니다.
     
     e. **인증 설정 저장**을 클릭합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -216,7 +216,7 @@ Azure AD 사용자가 UserVoice에 로그인할 수 있도록 하려면 UserVoic
    
     a. 이메일 텍스트 상자에 프로비전하려는 계정의 이메일 주소를 입력하고 **추가**를 클릭합니다.
    
-    나. **초대**를 클릭합니다.
+    b. **초대**를 클릭합니다.
 
 > [!NOTE]
 > 다른 UserVoice 사용자 계정 생성 도구 또는 UserVoice가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
@@ -261,7 +261,7 @@ Azure AD 사용자가 UserVoice에 로그인할 수 있도록 하려면 UserVoic
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

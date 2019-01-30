@@ -4,7 +4,7 @@ description: Azure Active Directory와 ThousandEyes 간에 Single Sign-On을 구
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 790e3f1e-1591-4dd6-87df-590b7bf8b4ba
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: b6af7a3322b1a01c1d822df78d827121c19e21e1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 046832913a07c99310280d37ac1c6792692dd0cf
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444405"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824714"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>자습서: ThousandEyes와 Azure Active Directory 통합
 
@@ -146,7 +146,7 @@ ThousandEyes에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     a. **Single Sign-On 사용**을 선택합니다.
 
-    나. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL**을 **로그인 페이지 URL** 텍스트 상자에 붙여넣습니다.
+    b. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL**을 **로그인 페이지 URL** 텍스트 상자에 붙여넣습니다.
 
     다. Azure Portal에서 복사한 **로그아웃 URL**을 **로그아웃 페이지 URL** 텍스트 상자에 붙여넣습니다.
 
@@ -181,7 +181,7 @@ ThousandEyes에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -213,9 +213,9 @@ ThousandEyes에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     a. **이름** 텍스트 상자에 사용자 이름(예: **Britta Simon**)을 입력합니다.
 
-    나. **메일** 텍스트 사용자에 사용자 메일(예: **brittasimon@contoso.com**)을 입력합니다.
+    b. **메일** 텍스트 사용자에 사용자 메일(예: **brittasimon@contoso.com**)을 입력합니다.
 
-    나. **계정에 새 사용자 추가**를 클릭합니다.
+    b. **계정에 새 사용자 추가**를 클릭합니다.
 
     > [!NOTE]
     > Azure Active Directory 계정 보유자는 계정을 확인하고 활성화하기 위한 링크가 포함된 메일을 받습니다.
@@ -264,7 +264,7 @@ ThousandEyes에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 * [사용자 프로비저닝 구성](thousandeyes-provisioning-tutorial.md)
 
 

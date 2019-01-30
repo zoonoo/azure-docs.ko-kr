@@ -4,7 +4,7 @@ description: Azure Active Directory 및 Teamphoria 간에 Single Sign-On을 구�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d569c705-6f0f-4ec1-b485-ba82526b5d32
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 554930b18a271a677aeb5e82c3e62a94965a8e7f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8232af95cf8414df67343f5004975b11df4488a0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439612"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826720"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>자습서: Teamphoria와 Azure Active Directory 통합
 
@@ -128,7 +128,7 @@ Teamphoria에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Configure Single Sign-On](./media/teamphoria-tutorial/tutorial_teamphoria_configure.png)
 
-1. **Teamphoria** 측에서 Single Sign-On을 구성하려면 관리자 권한으로 Teamphoria 응용 프로그램에 로그인합니다.
+1. **Teamphoria** 측에서 Single Sign-On을 구성하려면 관리자 권한으로 Teamphoria 애플리케이션에 로그인합니다.
 
 1. 왼쪽 도구 모음에서 **관리 설정** 옵션으로 이동하고 구성 탭 아래에서 **SINGLE SIGN-ON**을 클릭하여 SSO 구성 창을 엽니다.
 
@@ -144,11 +144,11 @@ Teamphoria에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **표시 이름**: 관리 페이지에서 플러그 인의 표시 이름을 입력합니다.
 
-    나. **단추 이름**: SSO를 통한 로그인에 대해 로그인 페이지에 표시하는 탭의 이름입니다.
+    b. **단추 이름**: SSO를 통해 로그인하는 로그인 페이지에 표시되는 탭의 이름입니다.
 
-    다. **인증서**: 메모장에서 Azure Portal에서 이전에 다운로드한 인증서를 열고 동일한 내용을 복사하고 상자에 붙여 넣습니다.
+    다. **인증서**: 메모장에서 Azure Portal에서 이전에 다운로드한 인증서를 열고 동일한 내용을 복사하고 상자에 붙여넣습니다.
 
-    d. **진입점**: Azure Portal에서 이전에 복사한 **SAML Single Sign-On 서비스 URL**을 붙여 넣습니다.
+    d. **진입점**: Azure Portal에서 이전에 복사한 **SAML Single Sign-On 서비스 URL**을 붙여넣습니다.
 
     e. 옵션을 **ON**으로 전환하고 **저장**을 클릭합니다.
 
@@ -177,7 +177,7 @@ Teamphoria에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -205,7 +205,7 @@ Azure AD 사용자가 Teamphoria에 로그인할 수 있도록 하려면 Teampho
 
     a. **전자 메일 주소** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
-    나. **이름** 텍스트 상자에 **Britta**를 입력합니다.
+    b. **이름** 텍스트 상자에 **Britta**를 입력합니다.
 
     다. **성** 텍스트 상자에 **Simon**을 입력합니다.
 
@@ -250,7 +250,7 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

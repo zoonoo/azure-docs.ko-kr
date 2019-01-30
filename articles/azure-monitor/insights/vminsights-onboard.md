@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/07/2018
+ms.date: 01/23/2019
 ms.author: magoedte
-ms.openlocfilehash: cfbe1ce39d7f68dd6ea2510b5c6cbddf4eb71710
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: e97ac849fa0e590dd2462d8e64b761da23576833
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331999"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845965"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기) 배포
 이 문서에서는 VM용 Azure Monitor를 설치하는 방법을 설명합니다. 이 서비스는 Azure VM(Virtual Machine)의 운영 체제 상태와 가상 머신 확장 집합 및 작업 환경의 가상 머신을 모니터링합니다. 또한 호스트될 수 있는 애플리케이션 종속성의 검색 및 매핑도 모니터링합니다. 
@@ -303,113 +303,128 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 
 1. 이 파일을 *installsolutionsforvminsights.json*으로 로컬 폴더에 저장합니다.
 
-1. *WorkspaceName*, *ResourceGroupName* 및 *WorkspaceLocation;* 에 대한 값을 편집합니다. *WorkspaceName* 값은 Log Analytics 작업 영역의 전체 리소스 ID 이며, 작업 영역 이름을 포함합니다. *WorkspaceLocation* 값은 작업 영역이 정의된 지역입니다.
+1. *WorkspaceName*, *ResourceGroupName* 및 *WorkspaceLocation*의 값을 캡처합니다. *WorkspaceName* 값은 Log Analytics 작업 영역의 이름입니다. *WorkspaceLocation* 값은 작업 영역이 정의된 지역입니다.
 
-1. 다음 PowerShell 명령을 사용하여 이 템플릿을 배포할 준비가 되었습니다.
+1. 이제 이 템플릿을 배포할 수 있습니다.
+ 
+    * 템플릿이 포함된 폴더에서 다음 PowerShell 명령을 사용합니다.
 
-    ```powershell
-    New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
-    ```
+        ```powershell
+        New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
+        ```
 
-    구성 변경을 완료하려면 몇 분 정도 걸릴 수 있습니다. 완료되면 다음과 유사한 메시지가 표시되고 결과가 포함됩니다.
+        구성 변경을 완료하려면 몇 분 정도 걸릴 수 있습니다. 완료되면 다음과 유사한 메시지가 표시되고 결과가 포함됩니다.
 
-    ```powershell
-    provisioningState       : Succeeded
-    ```
+        ```powershell
+        provisioningState       : Succeeded
+        ```
 
-### <a name="enable-by-using-azure-policy"></a>Azure Policy를 사용하여 설정
-새로 프로비전한 VM의 일관된 규정 준수 및 자동 설정을 지원하는 방식으로 VM용 Azure Monitor를 대규모로 사용하도록 설정하려면 [Azure Policy](../../azure-policy/azure-policy-introduction.md)를 사용하는 것이 좋습니다. 이러한 정책에서 수행하는 작업은 다음과 같습니다.
+    * Azure CLI를 사용하여 다음 명령을 실행하려면:
+    
+        ```azurecli
+        az login
+        az account set --subscription "Subscription Name"
+        az group deployment create --name DeploySolutions --resource-group <ResourceGroupName> --template-file InstallSolutionsForVMInsights.json --parameters WorkspaceName=<workspaceName> WorkspaceLocation=<WorkspaceLocation - example: eastus>
 
-* Log Analytics 에이전트 및 Dependency Agent를 배포합니다.
-* 규정 준수 결과를 보고합니다.
-* 비준수 VM을 수정합니다.
+        The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
-테넌트에서 Azure Policy를 사용하여 VM용 Azure Monitor를 사용하도록 설정하려면
+        ```azurecli
+        provisioningState       : Succeeded
 
-- 범위(관리 그룹, 구독 또는 리소스 그룹)에 이니셔티브를 할당합니다.
-- 규정 준수 결과를 검토 및 수정합니다.
+### Enable by using Azure Policy
+To enable Azure Monitor for VMs at scale in a way that helps ensure consistent compliance and the automatic enabling of the newly provisioned VMs, we recommend [Azure Policy](../../azure-policy/azure-policy-introduction.md). These policies:
 
-계속하기 전에 [Azure Policy 개요](../../governance/policy/overview.md#policy-assignment)를 참조하고 [관리 그룹 개요](../../governance/management-groups/index.md)를 검토하여 Azure Policy 할당에 대해 자세히 알아보세요.
+* Deploy the Log Analytics agent and the Dependency agent.
+* Report on compliance results.
+* Remediate for non-compliant VMs.
 
-다음 표에는 정책 정의가 나와 있습니다.
+To enable Azure Monitor for VMs by using Azure Policy in your tenant:
 
-|이름 |설명 |type |
+- Assign the initiative to a scope: management group, subscription, or resource group
+- Review and remediate compliance results
+
+For more information about assigning Azure Policy, see [Azure Policy overview](../../governance/policy/overview.md#policy-assignment) and review the [overview of management groups](../../governance/management-groups/index.md) before you continue.
+
+The policy definitions are listed in the following table:
+
+|Name |Description |Type |
 |-----|------------|-----|
-|[미리 보기]: VM용 Azure Monitor 사용 |지정된 범위(관리 그룹, 구독 또는 리소스 그룹)에서 VMs(Virtual Machines)용 Azure Monitor를 사용하도록 설정합니다. Log Analytics 작업 영역을 매개 변수로 사용합니다. |이니셔티브 |
-|[미리 보기]: Dependency Agent 배포 감사 - VM 이미지(OS)가 나열 취소됨 |VM 이미지(OS)가 목록에 정의되어 있지 않고 에이전트가 설치되어 있지 않은 경우 VM을 비준수로 보고합니다. |정책 |
-|[미리 보기]: Log Analytics 에이전트 배포 감사 - VM 이미지(OS)가 나열 취소됨 |VM 이미지(OS)가 목록에 정의되어 있지 않고 에이전트가 설치되어 있지 않은 경우 VM을 비준수로 보고합니다. |정책 |
-|[미리 보기]: Linux VM용 Dependency Agent 배포 |VM 이미지(OS)가 목록에 정의되어 있고 에이전트가 설치되어 있지 않은 경우 Linux VM용 Dependency Agent를 배포합니다. |정책 |
-|[미리 보기]: Windows VM용 Dependency Agent 배포 |VM 이미지(OS)가 목록에 정의되어 있고 에이전트가 설치되어 있지 않은 경우 Windows VM용 Dependency Agent를 배포합니다. |정책 |
-|[미리 보기]: Linux VM용 Log Analytics 에이전트 배포 |VM 이미지(OS)가 목록에 정의되어 있고 에이전트가 설치되어 있지 않은 경우 Linux VM용 Log Analytics 에이전트를 배포합니다. |정책 |
-|[미리 보기]: Windows VM용 Log Analytics 에이전트 배포 |VM 이미지(OS)가 목록에 정의되어 있고 에이전트가 설치되어 있지 않은 경우 Windows VM용 Log Analytics 에이전트를 배포합니다. |정책 |
+|[Preview]: Enable Azure Monitor for VMs |Enable Azure Monitor for the Virtual Machines (VMs) in the specified scope (management group, subscription, or resource group). Takes Log Analytics workspace as a parameter. |Initiative |
+|[Preview]: Audit Dependency Agent Deployment – VM Image (OS) unlisted |Reports VMs as non-compliant if the VM Image (OS) isn't defined in the list and the agent isn't installed. |Policy |
+|[Preview]: Audit Log Analytics Agent Deployment – VM Image (OS) unlisted |Reports VMs as non-compliant if the VM Image (OS) isn't defined in the list and the agent isn't installed. |Policy |
+|[Preview]: Deploy Dependency Agent for Linux VMs |Deploy Dependency Agent for Linux VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
+|[Preview]: Deploy Dependency Agent for Windows VMs |Deploy Dependency Agent for Windows VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
+|[Preview]: Deploy Log Analytics Agent for Linux VMs |Deploy Log Analytics Agent for Linux VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
+|[Preview]: Deploy Log Analytics Agent for Windows VMs |Deploy Log Analytics Agent for Windows VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
 
-다음은 독립 실행형 정책(이니셔티브에 포함되지 않음)에 대한 설명입니다.
+Standalone policy (not included with the initiative) is described here:
 
-|이름 |설명 |type |
+|Name |Description |Type |
 |-----|------------|-----|
-|[미리 보기]: VM용 Log Analytics 작업 영역 감사 - 보고서 불일치 |정책/이니셔티브 할당에 지정된 Log Analytics 작업 영역에 로깅하지 않는 경우 VM을 비준수로 보고합니다. |정책 |
+|[Preview]: Audit Log Analytics Workspace for VM - Report Mismatch |Report VMs as non-compliant if they aren't logging to the Log Analytics workspace specified in the policy/initiative assignment. |Policy |
 
-#### <a name="assign-the-azure-monitor-initiative"></a>Azure Monitor 이니셔티브 할당
-이 초기 릴리스를 사용하면 Azure Portal에서만 정책 할당을 만들 수 있습니다. 이러한 단계를 완료하는 방법을 알아보려면  [Azure Portal에서 정책 할당 만들기](../../governance/policy/assign-policy-portal.md)를 참조하세요.
+#### Assign the Azure Monitor initiative
+With this initial release, you can create the policy assignment only in the Azure portal. To understand how to complete these steps, see [Create a policy assignment from the Azure portal](../../governance/policy/assign-policy-portal.md).
 
-1. Azure Portal에서 Azure Policy 서비스를 시작하려면 **모든 서비스**를 선택하고 **정책**을 검색한 후 선택합니다.
+1. To launch the Azure Policy service in the Azure portal, select **All services**, and then search for and select **Policy**.
 
-1. Azure Policy 페이지의 왼쪽 창에서 **할당**을 선택합니다.  
-    할당은 특정 범위 내에서 수행하도록 할당된 정책입니다.
+1. In the left pane of the Azure Policy page, select **Assignments**.  
+    An assignment is a policy that has been assigned to take place within a specific scope.
     
-1. **정책 - 할당** 페이지 맨 위에서 **이니셔티브 할당**을 선택합니다.
+1. At the top of the **Policy - Assignments** page, select **Assign Initiative**.
 
-1. **이니셔티브 할당** 페이지에서 줄임표를 클릭하고 관리 그룹 또는 구독을 선택하여 **범위**를 선택합니다.  
-    이 예제에서는 범위에서 정책 할당을 가상 머신 그룹으로 제한하여 적용합니다.
+1. On the **Assign Initiative** page, select the **Scope** by clicking the ellipsis (...), and select a management group or subscription.  
+    In our example, a scope limits the policy assignment to a grouping of virtual machines for enforcement.
     
-1. **범위** 페이지의 아래쪽에서 **선택**을 선택하여 변경 내용을 저장합니다.
+1. At the bottom of the **Scope** page, save your changes by selecting **Select**.
 
-1. (선택 사항) 범위에서 하나 이상의 리소스를 제거하려면 **제외**를 선택합니다.
+1. (Optional) To remove one or more resources from the scope, select **Exclusions**.
 
-1. **이니셔티브 정의** 줄임표를 선택하여 사용 가능한 정의 목록을 표시하고, **[미리 보기] VM에 대해 Azure Monitor 사용**을 선택한 다음, **선택**을 선택합니다.  
-    **할당 이름** 상자는 선택한 이니셔티브 이름으로 자동으로 채워지지만 변경할 수 있습니다. 선택적인 설명을 추가할 수도 있습니다. **할당한 사람** 상자는 로그인한 사용자를 기반으로 하여 자동으로 채워지며, 이 값은 선택 사항입니다.
+1. Select the **Initiative definition** ellipsis (...) to display the list of available definitions, select **[Preview] Enable Azure Monitor for VMs**, and then select **Select**.  
+    The **Assignment name** box is automatically populated with the initiative name you selected, but you can change it. You can also add an optional description. The **Assigned by** box is automatically populated based on who is logged in, and this value is optional.
     
-1. 지원되는 지역에 대한 **Log Analytics 작업 영역** 드롭다운 목록에서 작업 영역을 선택합니다.
+1. In the **Log Analytics workspace** drop-down list for the supported region, select a workspace.
 
     >[!NOTE]
-    >작업 영역이 할당 범위를 벗어나는 경우 *Log Analytics 기여자* 권한을 정책 할당의 Principal ID에 부여합니다. 이렇게 하지 않으면 다음과 같은 배포 오류가 표시될 수 있습니다. `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... ` 액세스 권한을 부여하려면 [수동으로 관리 ID를 구성하는 방법](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity)을 검토하세요.
+    >If the workspace is beyond the scope of the assignment, grant *Log Analytics Contributor* permissions to the policy assignment's Principal ID. If you don't do this, you might see a deployment failure such as: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... `
+    >To grant access, review [how to manually configure the managed identity](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
     >  
-    할당할 이니셔티브에 *deployIfNotExists*가 적용되는 정책이 포함되어 있으므로 **관리 ID** 확인란이 선택되어 있습니다.
+    The **Managed Identity** check box is selected, because the initiative being assigned includes a policy with the *deployIfNotExists* effect.
     
-1. **ID 위치 관리** 드롭다운 목록에서 해당 지역을 선택합니다.
+1. In the **Manage Identity location** drop-down list, select the appropriate region.
 
-1. **할당**을 선택합니다.
+1. Select **Assign**.
 
-#### <a name="review-and-remediate-the-compliance-results"></a>규정 준수 결과 검토 및 수정
+#### Review and remediate the compliance results
 
-[규정 비준수 결과 식별](../../governance/policy/assign-policy-portal.md#identify-non-compliant-resources)을 참조하여 규정 준수 결과를 검토하는 방법을 알아볼 수 있습니다. 왼쪽 창에서 **규정 준수**를 선택하고, 만든 할당에 따라 준수되지 않는 VM에 대해 **[미리 보기] VM용 Azure Monitor 사용** 이니셔티브를 찾습니다.
+You can learn how to review compliance results by reading [identify non-compliance results](../../governance/policy/assign-policy-portal.md#identify-non-compliant-resources). In the left pane, select **Compliance**, and then locate the **[Preview] Enable Azure Monitor for VMs** initiative for VMs that aren't compliant according to the assignment you created.
 
-![Azure VM에 대한 정책 준수](./media/vminsights-onboard/policy-view-compliance-01.png)
+![Policy compliance for Azure VMs](./media/vminsights-onboard/policy-view-compliance-01.png)
 
-이니셔티브에 포함된 정책의 결과에 따라 VM이 비준수로 보고되는 시나리오는 다음과 같습니다.
+Based on the results of the policies included with the initiative, VMs are reported as non-compliant in the following scenarios:
 
-* Log Analytics 또는 Dependency Agent가 배포되지 않았습니다.  
-    이 시나리오는 일반적으로 기존 VM이 포함된 범위에 해당합니다. 이 문제를 완화하려면 비준수 정책에 대한 [수정 작업을 만들어](../../governance/policy/how-to/remediate-resources.md) 필요한 에이전트를 배포합니다.  
-    - [미리 보기]: Deploy Dependency Agent for Linux VMs
-    - [미리 보기]: Deploy Dependency Agent for Windows VMs
-    - [미리 보기]: Deploy Log Analytics Agent for Linux VMs
-    - [미리 보기]: Deploy Log Analytics Agent for Windows VMs
+* Log Analytics or the Dependency agent isn't deployed.  
+    This scenario is typical for a scope with existing VMs. To mitigate it, deploy the required agents by [creating remediation tasks](../../governance/policy/how-to/remediate-resources.md) on a non-compliant policy.  
+    - [Preview]: Deploy Dependency Agent for Linux VMs
+    - [Preview]: Deploy Dependency Agent for Windows VMs
+    - [Preview]: Deploy Log Analytics Agent for Linux VMs
+    - [Preview]: Deploy Log Analytics Agent for Windows VMs
 
-* VM 이미지(OS)가 정책 정의에서 식별되지 않습니다.  
-    배포 정책의 조건에는 잘 알려진 Azure VM 이미지에서 배포된 VM만 포함됩니다. VM OS가 지원되는지 여부는 설명서를 확인하세요. 지원되지 않는 경우 배포 정책을 복제하고 업데이트 또는 수정하여 이미지가 준수되도록 해야 합니다.  
-    - [미리 보기]: Dependency Agent 배포 감사 - VM 이미지(OS)가 나열 취소됨
-    - [미리 보기]: Log Analytics 에이전트 배포 감사 - VM 이미지(OS)가 나열 취소됨
+* VM Image (OS) isn't identified in the policy definition.  
+    The criteria of the deployment policy include only VMs that are deployed from well-known Azure VM images. Check the documentation to see whether the VM OS is supported. If it isn't supported, duplicate the deployment policy and update or modify it to make the image compliant.  
+    - [Preview]: Audit Dependency Agent Deployment – VM Image (OS) unlisted
+    - [Preview]: Audit Log Analytics Agent Deployment – VM Image (OS) unlisted
 
-* VM이 지정된 Log Analytics 작업 영역에 로그인되지 않습니다.  
-    이니셔티브 범위의 일부 VM이 정책 할당에 지정된 작업 영역 이외의 Log Analytics 작업 영역에 로그인된 것일 수 있습니다. 이 정책은 비준수 작업 영역에 보고하는 VM을 식별하는 도구입니다.  
-    - [미리 보기]: Audit Log Analytics Workspace for VM - Report Mismatch
+* VMs aren't logging in to the specified Log Analytics workspace.  
+    It's possible that some VMs in the initiative scope are logging in to a Log Analytics workspace other than the one that's specified in the policy assignment. This policy is a tool to identify which VMs are reporting to a non-compliant workspace.  
+    - [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch
 
-### <a name="enable-with-powershell"></a>PowerShell을 통해 사용하도록 설정
-여러 VM 또는 가상 머신 확장 집합에 대해 VMs용 Azure Monitor를 사용하도록 설정하려면, Azure PowerShell 갤러리에서 [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0) PowerShell 스크립트를 사용할 수 있습니다. 이 스크립트는 구독 또는 *ResourceGroup*에 지정된 범위의 리소스 그룹에 있는 모든 가상 머신과 가상 머신 확장 집합에서 반복되거나 *Name*에 지정된 단일 VM 또는 가상 머신 확장 집합에서 반복됩니다. 각 VM 또는 가상 머신 확장 집합의 경우 스크립트에서 VM 확장을 이미 설치했는지 여부를 확인합니다. VM 확장을 설치하지 않은 경우 스크립트가 다시 설치하려고 시도합니다. VM 확장이 설치 된 경우 스크립트는 Log Analytics 및 Dependency Agent VM 확장을 설치 합니다.
+### Enable with PowerShell
+To enable Azure Monitor for VMs for multiple VMs or virtual machine scale sets, you can use the PowerShell script [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0), available from the Azure PowerShell Gallery. This script iterates through every virtual machine and virtual machine scale set in your subscription, in the scoped resource group that's specified by *ResourceGroup*, or to a single VM or virtual machine scale set that's specified by *Name*. For each VM or virtual machine scale set, the script verifies whether the VM extension is already installed. If the VM extension is not installed, the script tries to reinstall it. If the VM extension is installed, the script installs the Log Analytics and Dependency agent VM extensions.
 
-이 스크립트에는 Azure PowerShell 모듈 버전 5.7.0 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+This script requires Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). If you're running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
-스크립트의 인수 세부 정보 및 사용법 예제 목록을 가져오려면 `Get-Help`를 실행합니다.
+To get a list of the script's argument details and example usage, run `Get-Help`.
 
 ```powershell
 Get-Help .\Install-VMInsights.ps1 -Detailed
@@ -737,8 +752,8 @@ VM용 Azure Monitor는 솔루션에서 사용된 성능 카운터를 수집하�
 |LogicalDisk |디스크 읽기 바이트/초  |
 |LogicalDisk |디스크 읽기/초  |
 |LogicalDisk |디스크 전송/초 |
-|LogicalDisk | 디스크 쓰기 바이트/초 |
-|LogicalDisk | 디스크 쓰기/초 |
+|LogicalDisk |디스크 쓰기 바이트/초 |
+|LogicalDisk |디스크 쓰기/초 |
 |LogicalDisk |사용 가능한 메가바이트 |
 |메모리 |Available MBytes |
 |네트워크 어댑터 |Bytes Received/sec |
@@ -753,8 +768,8 @@ VM용 Azure Monitor는 솔루션에서 사용된 성능 카운터를 수집하�
 |논리 디스크 |디스크 읽기 바이트/초  |
 |논리 디스크 |디스크 읽기/초  |
 |논리 디스크 |디스크 전송/초 |
-|논리 디스크 | 디스크 쓰기 바이트/초 |
-|논리 디스크 | 디스크 쓰기/초 |
+|논리 디스크 |디스크 쓰기 바이트/초 |
+|논리 디스크 |디스크 쓰기/초 |
 |논리 디스크 |사용 가능한 메가바이트 |
 |논리 디스크 |논리 디스크 바이트/초 |
 |메모리 |사용 가능한 MB 메모리 |

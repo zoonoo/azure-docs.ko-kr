@@ -4,7 +4,7 @@ description: Azure Active Directory 및 Velpic SAML 간에 Single Sign-On을 구
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 2a8fe814801d00b3f27e52484d742cbe6c7b0770
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: eb59c61f89b3b23ce8b0a393ee1e0e842826e90b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114009"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811794"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>자습서: Velpic SAML과 Azure Active Directory 통합
 
@@ -264,7 +264,7 @@ Velpic SAML 회사 사이트에 관리자 권한으로 로그인하고 다음 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

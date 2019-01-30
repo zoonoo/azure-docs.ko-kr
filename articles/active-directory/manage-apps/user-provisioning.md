@@ -1,10 +1,10 @@
 ---
 title: Azure AD에서 SaaS 앱 사용자를 자동으로 프로비저닝 | Microsoft Docs
-description: Azure AD를 사용하여 여러 타사 SaaS 응용 프로그램에서 사용자 계정을 자동으로 프로비저닝, 프로비저닝 해제, 지속적으로 업데이트하는 방법을 소개합니다.
+description: Azure AD를 사용하여 여러 타사 SaaS 애플리케이션에서 사용자 계정을 자동으로 프로비저닝, 프로비저닝 해제, 지속적으로 업데이트하는 방법을 소개합니다.
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: ac58c6b951a03b403375fdc17dcd45f8e624deac
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: edd8e08ee20e7e6331701b55b3d58ebad3848408
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311456"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478487"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제
 
@@ -33,7 +33,7 @@ Azure AD(Azure Active Directory)를 사용하면 Dropbox, Salesforce, ServiceNow
 * 새로운 사람이 팀 또는 조직에 가입할 때 적절한 시스템에서 새 계정을 자동으로 만듭니다.
 * 사용자가 팀 또는 조직을 떠날 때 적절한 시스템에서 계정을 자동으로 비활성화합니다.
 * 디렉터리 또는 인사 관리 시스템의 변경 내용에 따라 앱 및 시스템의 ID가 최신 상태로 유지되도록 합니다.
-* 그룹과 같이 사용자가 아닌 개체를 지원하는 응용 프로그램에 해당 개체를 프로비전합니다.
+* 그룹과 같이 사용자가 아닌 개체를 지원하는 애플리케이션에 해당 개체를 프로비전합니다.
 
 **자동 사용자 프로비저닝에는 다음과 같은 기능도 포함됩니다.**
 
@@ -54,19 +54,19 @@ Azure AD(Azure Active Directory)를 사용하면 Dropbox, Salesforce, ServiceNow
 
 ## <a name="how-does-automatic-provisioning-work"></a>자동 프로비전은 어떻게 작동합니까?
     
-**Azure AD 프로비전 서비스**는 각 응용 프로그램 공급업체에서 제공하는 사용자 관리 API 엔드포인트에 연결하여 SaaS 앱 및 다른 시스템에 사용자를 프로비전합니다. 이러한 사용자 관리 API 엔드포인트를 사용하면 Azure AD에서 프로그래밍 방식으로 사용자를 만들고, 업데이트하고, 제거할 수 있습니다. 선택한 애플리케이션의 경우 프로비전 서비스는 그룹 및 역할과 같은 추가 ID 관련 개체를 만들고, 업데이트하고, 제거할 수 있습니다. 
+**Azure AD 프로비전 서비스**는 각 애플리케이션 공급업체에서 제공하는 사용자 관리 API 엔드포인트에 연결하여 SaaS 앱 및 다른 시스템에 사용자를 프로비전합니다. 이러한 사용자 관리 API 엔드포인트를 사용하면 Azure AD에서 프로그래밍 방식으로 사용자를 만들고, 업데이트하고, 제거할 수 있습니다. 선택한 애플리케이션의 경우 프로비전 서비스는 그룹 및 역할과 같은 추가 ID 관련 개체를 만들고, 업데이트하고, 제거할 수 있습니다. 
 
 ![프로비전](./media/user-provisioning/provisioning0.PNG)
-*그림 1: Azure AD 프로비전 서비스*
+그림 1: Azure AD Provisioning Service**
 
 ![아웃바운드 프로비전](./media/user-provisioning/provisioning1.PNG)
-*그림 2: Azure AD에서 인기 있는 SaaS 응용 프로그램으로의 "아웃바운드" 사용자 프로비전 워크플로*
+그림 2: Azure AD에서 인기 있는 SaaS 애플리케이션으로의 “아웃바운드” 사용자 프로비저닝 워크플로**
 
 ![인바운드 프로비전](./media/user-provisioning/provisioning2.PNG)
-*그림 3: 인기 있는 HCM(Human Capital Management) 응용 프로그램에서 Azure Active Directory 및 Windows Server Active Directory로의 "인바운드" 사용자 프로비전 워크플로*
+그림 3: 인기 있는 HCM(Human Capital Management) 애플리케이션에서 Azure Active Directory 및 Windows Server Active Directory로의 “인바운드”사용자 프로비저닝 워크플로**
 
 
-## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Azure AD 자동 사용자 프로비전에서 사용할 수 있는 응용 프로그램과 시스템은 무엇입니까?
+## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Azure AD 자동 사용자 프로비전에서 사용할 수 있는 애플리케이션과 시스템은 무엇입니까?
 
 Azure AD는 SCIM 2.0 표준의 특정 부분을 구현하는 앱에 대한 일반적 지원뿐만 아니라 다양한 인기 있는 SaaS 앱 및 인사 관리 시스템에 대한 사전 통합된 지원도 제공합니다.
 
@@ -74,7 +74,7 @@ Azure AD는 SCIM 2.0 표준의 특정 부분을 구현하는 앱에 대한 일�
 
 Azure AD가 미리 통합된 프로비저닝 커넥터를 지원하는 모든 애플리케이션 목록을 보려면 [사용자 프로비저닝에 대한 애플리케이션 자습서 목록](../saas-apps/tutorial-list.md)을 참조하세요.
 
-Azure AD 엔지니어링 팀에 문의하여 추가 응용 프로그램에 대한 프로비전 지원을 요청하려면 [Azure Active Directory 피드백 포럼](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035)을 통해 메시지를 제출하세요.
+Azure AD 엔지니어링 팀에 문의하여 추가 애플리케이션에 대한 프로비전 지원을 요청하려면 [Azure Active Directory 피드백 포럼](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035)을 통해 메시지를 제출하세요.
 
 > [!NOTE]
 > 애플리케이션에서 자동화된 사용자 프로비저닝을 지원하려면, 먼저 외부 프로그램에서 사용자 만들기, 유지 관리 및 제거를 자동화하는 데 필요한 사용자 관리 API를 제공해야 합니다. 따라서 모든 SaaS 앱이 이 기능과 호환되지는 않습니다. 사용자 관리 API를 지원하는 앱의 경우 Azure AD 엔지니어링 팀에서 해당 앱에 대한 프로비전 커넥터를 빌드할 수 있게 되며, 현재 및 잠재 고객의 요구 사항에 따라 이 작업의 우선 순위가 지정됩니다. 
@@ -84,26 +84,26 @@ Azure AD 엔지니어링 팀에 문의하여 추가 응용 프로그램에 대�
 SCIM 2.0 기반 사용자 관리 API를 구현하는 애플리케이션에 일반적으로 연결하는 방법에 대한 자세한 내용은 [SCIM을 사용하여 사용자 및 그룹을 Azure Active Directory에서 애플리케이션으로 자동으로 프로비전](use-scim-to-provision-users-and-groups.md)을 참조하세요.
 
     
-## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>응용 프로그램에 자동 프로비전을 설정하려면 어떻게 합니까?
+## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>애플리케이션에 자동 프로비전을 설정하려면 어떻게 합니까?
 
 > [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
-선택한 응용 프로그램에 대한 Azure AD 프로비전 서비스의 구성은 **[Azure Portal](https://portal.azure.com)** 에서 시작됩니다. **Azure Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 **추가**, **모두**를 차례로 선택한 다음, 시나리오에 따라 다음 중 하나를 추가합니다.
+선택한 애플리케이션에 대한 Azure AD 프로비전 서비스의 구성은 **[Azure Portal](https://portal.azure.com)** 에서 시작됩니다. **Azure Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 **추가**, **모두**를 차례로 선택한 다음, 시나리오에 따라 다음 중 하나를 추가합니다.
 
-* **주요 응용 프로그램** 섹션에 있는 응용 프로그램은 모두 자동 프로비저닝을 지원합니다. 추가 애플리케이션을 보려면 [사용자 프로비전에 대한 애플리케이션 자습서 목록](../saas-apps/tutorial-list.md)을 참조하세요.
+* **주요 애플리케이션** 섹션에 있는 애플리케이션은 모두 자동 프로비저닝을 지원합니다. 추가 애플리케이션을 보려면 [사용자 프로비전에 대한 애플리케이션 자습서 목록](../saas-apps/tutorial-list.md)을 참조하세요.
 
-* 사용자 지정 개발된 SCIM 통합에 "비갤러리 응용 프로그램" 옵션을 사용합니다.
+* 사용자 지정 개발된 SCIM 통합에 "비갤러리 애플리케이션" 옵션을 사용합니다.
 
 ![갤러리](./media/user-provisioning/gallery.png)
 
-응용 프로그램 관리 화면의 **프로비전** 탭에서 프로비전을 구성합니다.
+애플리케이션 관리 화면의 **프로비전** 탭에서 프로비전을 구성합니다.
 
 ![설정](./media/user-provisioning/provisioning_settings0.PNG)
 
 
-* **관리자 자격 증명**을 Azure AD 프로비전 서비스에 제공해야 응용 프로그램에서 제공하는 사용자 관리 API에 연결할 수 있습니다. 이 섹션에서는 자격 증명이 실패하거나 프로비저닝 작업이 [격리](#quarantine) 상태로 전환될 경우 메일 알림을 받도록 설정할 수도 있습니다.
+* **관리자 자격 증명**을 Azure AD 프로비전 서비스에 제공해야 애플리케이션에서 제공하는 사용자 관리 API에 연결할 수 있습니다. 이 섹션에서는 자격 증명이 실패하거나 프로비저닝 작업이 [격리](#quarantine) 상태로 전환될 경우 메일 알림을 받도록 설정할 수도 있습니다.
 
-* **특성 매핑**은 원본 시스템(예: Azure AD)의 필드와 대상 시스템의 필드(예: ServiceNow) 간에 내용을 동기화하도록 지정하기 위해 구성할 수 있습니다. 대상 애플리케이션에서 이 설정을 지원하는 경우 이 섹션에서는 필요에 따라 사용자 계정 외에도 그룹을 프로비전하도록 구성할 수 있습니다. "일치하는 속성"을 사용하면 시스템 간에 계정을 일치시키는 데 사용되는 필드를 선택할 수 있습니다. "[식](functions-for-customizing-application-data.md)"을 사용하면 대상 시스템에 쓰기 전에 원본 시스템에서 검색된 값을 수정하고 변환할 수 있습니다. 자세한 내용은 [특성 매핑 사용자 지정](customize-application-attributes.md)을 참조하세요.
+* **특성 매핑**은 원본 시스템(예: Azure AD)의 필드와 대상 시스템(예: ServiceNow)의 필드 간에 내용이 동기화되도록 지정하기 위해 구성할 수 있습니다. 대상 애플리케이션에서 이 설정을 지원하는 경우 이 섹션에서는 필요에 따라 사용자 계정 외에도 그룹을 프로비전하도록 구성할 수 있습니다. "일치하는 속성"을 사용하면 시스템 간에 계정을 일치시키는 데 사용되는 필드를 선택할 수 있습니다. "[식](functions-for-customizing-application-data.md)"을 사용하면 대상 시스템에 쓰기 전에 원본 시스템에서 검색된 값을 수정하고 변환할 수 있습니다. 자세한 내용은 [특성 매핑 사용자 지정](customize-application-attributes.md)을 참조하세요.
 
 ![설정](./media/user-provisioning/provisioning_settings1.PNG)
 
@@ -113,7 +113,7 @@ SCIM 2.0 기반 사용자 관리 API를 구현하는 애플리케이션에 일�
 
     * **Filter on assignments(할당 기준 필터링)** - 포털의 프로비전 > 설정 섹션에 있는 "범위" 메뉴를 사용하면, "할당된" 사용자 및 그룹만 프로비전 범위에 속해야 하는지 또는 Azure AD 디렉터리의 모든 사용자가 프로비전되어야 하는지를 지정할 수 있습니다. 사용자 및 그룹 "할당"에 대한 자세한 내용은 [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](assign-user-or-group-access-portal.md)을 참조하세요.
     
-* **설정**은 현재 실행 중인지 여부를 포함하여 응용 프로그램에 대한 프로비전 서비스 작업을 제어합니다.
+* **설정**은 현재 실행 중인지 여부를 포함하여 애플리케이션에 대한 프로비전 서비스 작업을 제어합니다.
 
 * **감사 로그**는 Azure AD 프로비전 서비스가 수행한 모든 작업에 대한 기록을 제공합니다. 자세한 내용은 [프로비전 보고 가이드](check-status-user-account-provisioning.md)를 참조하세요.
 
@@ -133,7 +133,7 @@ Azure AD가 소스 시스템인 경우 프로비저닝 서비스는 [Azure AD Gr
 
 1. [특성 매핑](customize-application-attributes.md)에 정의된 모든 특성을 검색하여 소스 시스템에서 모든 사용자와 그룹을 쿼리합니다.
 2. 구성된 [할당](assign-user-or-group-access-portal.md) 또는 [특성 기반 범위 지정 필터](define-conditional-rules-for-provisioning-user-accounts.md)를 사용하여 반환된 사용자 및 그룹을 필터링합니다.
-3. 사용자가 할당되었거나 프로비저닝 범위에 있는 경우 서비스는 지정된 [일치 특성](customize-application-attributes.md#understanding-attribute-mapping-properties)을 사용하여 대상 시스템에서 일치하는 사용자를 쿼리합니다. 예: 소스 시스템의 userPrincipal 이름이 일치하는 특성이고 대상 시스템의 userName에 매핑되는 경우 프로비저닝 서비스는 대상 시스템에서 소스 시스템의 userPrincipal 이름 값과 일치하는 userNames를 쿼리합니다.
+3. 사용자가 할당되었거나 프로비저닝 범위에 있는 경우 서비스는 지정된 [일치 특성](customize-application-attributes.md#understanding-attribute-mapping-properties)을 사용하여 대상 시스템에서 일치하는 사용자를 쿼리합니다. 예제: 원본 시스템의 userPrincipal 이름이 일치하는 특성이고 대상 시스템의 userName에 매핑되는 경우, 프로비전 서비스는 대상 시스템에서 원본 시스템의 userPrincipal 이름 값과 일치하는 userNames를 쿼리합니다.
 4. 대상 시스템에 일치하는 사용자가 없으면 소스 시스템에서 반환된 특성을 사용하여 생성됩니다. 사용자 계정이 생성되면 프로비저닝 서비스는 새 사용자의 대상 시스템 ID를 검색 및 캐시합니다. 이 ID는 해당 사용자에 대한 모든 후속 작업을 수행하는 데 사용됩니다.
 5. 일치하는 사용자가 있으면 소스 시스템에서 제공하는 특성을 사용하여 업데이트됩니다. 사용자 계정이 일치하면 프로비저닝 서비스는 새 사용자의 대상 시스템 ID를 검색 및 캐시합니다. 이 ID는 해당 사용자에 대한 모든 후속 작업을 수행하는 데 사용됩니다.
 6. 특성 매핑에 “참조” 특성이 포함되어 있을 경우 서비스는 대상 시스템에서 추가 업데이트를 수행하여 참조된 개체를 만들고 연결합니다. 예를 들어 대상 시스템에 있는 한 사용자의 “Manager” 특성이 대상 시스템에서 생성된 다른 사용자에 연결되어 있을 수 있습니다.
@@ -277,5 +277,5 @@ Azure Portal에서 감사 로그를 읽는 방법에 대한 자세한 내용은 
 * [사용자 프로비저닝에 대한 특성 매핑 사용자 지정](customize-application-attributes.md)
 * [특성 매핑에 대한 식 작성](functions-for-customizing-application-data.md)
 * [사용자 프로 비전에 대 한 필터 범위 지정](define-conditional-rules-for-provisioning-user-accounts.md)
-* [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](use-scim-to-provision-users-and-groups.md)
+* [SCIM를 사용하여 Azure Active Directory으로부터 애플리케이션에 사용자 및 그룹의 자동 프로비전 사용](use-scim-to-provision-users-and-groups.md)
 * [Azure AD 동기화 API 개요](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

@@ -4,7 +4,7 @@ description: Azure Active Directory 및 Sugar CRM 간에 Single Sign-On을 구�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 3331b9fc-ebc0-4a3a-9f7b-bf20ee35d180
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 1acaf5e530f5d5563901d8d498901ecc1bffecdb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1aa483f0333cd609ab599199415e12f844d722ea
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427396"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819427"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a>자습서: Sugar CRM과 Azure Active Directory 통합
 
@@ -153,14 +153,14 @@ Sugar CRM에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
  
     a. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **로그인 URL** 텍스트 상자에 붙여 넣습니다.
   
-    나. Azure Portal에서 복사한 **로그아웃 URL** 값을 **SLO URL** 텍스트 상자에 붙여넣습니다.
+    b. Azure Portal에서 복사한 **로그아웃 URL** 값을 **SLO URL** 텍스트 상자에 붙여넣습니다.
   
     다. Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 전체 인증서를 **X.509 인증서** 텍스트 상자에 붙여 넣습니다.
   
     d. **저장**을 클릭합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -188,7 +188,7 @@ Sugar CRM에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -230,7 +230,7 @@ Sugar CRM의 경우 프로비전은 수동 작업입니다.
 
     a. 관련된 텍스트 상자에 암호를 입력합니다.
 
-    나. **저장**을 클릭합니다.
+    b. **저장**을 클릭합니다.
 
 >[!NOTE]
 >다른 Sugar CRM 사용자 계정 생성 도구 또는 Sugar CRM이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다. 
@@ -275,7 +275,7 @@ Sugar CRM의 경우 프로비전은 수동 작업입니다.
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

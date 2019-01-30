@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: c83c9929019e6e236ead783c0c617e51523a5a8a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: dfe6184779d3c26273e8e7cabef4890360cf7e76
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567386"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446263"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine용 데이터 탐색 및 시각화 도구
 
@@ -42,7 +42,7 @@ ms.locfileid: "51567386"
 | 무엇인가요?   |  Weka는 데이터 마이닝 작업에 대한 기계 학습 알고리즘 컬렉션입니다. 알고리즘은 데이터 세트에 직접 적용하거나 사용자 고유의 Java 코드에서 호출할 수 있습니다. Weka는 데이터 전처리 작업, 분류, 회귀, 클러스터링, 연결 규칙 및 시각화를 위한 도구를 포함합니다. |
 | 지원되는 DSVM 버전     | Windows, Linux     |
 | 일반적인 사용 용도      | 범용 ML 도구     |
-| 사용/실행 방법      | Windows인 경우 Weka를 시작 메뉴에서 검색합니다. Linux인 경우 X2Go에 로그인한 후 Applications -> Development -> Weka로 이동합니다. |
+| 사용/실행 방법      | Windows인 경우 Weka를 시작 메뉴에서 검색합니다. Linux인 경우 X2Go에 로그인한 다음, Applications -&gt; Development -&gt; Weka로 이동합니다. |
 | 샘플에 대한 링크      | [Weka 샘플](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | DSVM의 관련 도구      |LightGBM, Rattle, Xgboost   |
 

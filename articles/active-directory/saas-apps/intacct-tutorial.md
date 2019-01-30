@@ -4,7 +4,7 @@ description: Azure Active Directory 및 Intacct 간에 Single Sign-On을 구성�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 92518e02-a62c-4b1b-a8e9-2803eb2b49ac
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: d834ca75085878350e257cc1c50e60fc1bf28484
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d7075894bde20f56c9323568ceffe8cad4118cbc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447342"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810094"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intacct"></a>자습서: Intacct와 Azure Active Directory 통합
 
@@ -149,7 +149,7 @@ Intacct에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     a. **Single Sign-On 사용**을 선택합니다.
 
-    나. **ID 공급자 유형**으로 **SAML 2.0**을 선택합니다.
+    b. **ID 공급자 유형**으로 **SAML 2.0**을 선택합니다.
 
     다. Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 **발급자 URL** 텍스트 상자에 붙여넣습니다.
    
@@ -160,7 +160,7 @@ Intacct에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     f. **저장**을 클릭합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -188,7 +188,7 @@ Intacct에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -214,7 +214,7 @@ Azure AD 사용자가 Intacct에 로그인할 수 있도록 설정하려면 Inta
 
     a. **사용자 정보** 섹션으로 프로비전하려는 Azure AD 계정의 **사용자 ID**, **성**, **이름**, **전자 메일 주소**, **직함** 및 **전화 번호**를 입력합니다.
 
-    나. 프로비전하려는 Azure AD 계정의 **관리자 권한**을 선택합니다.
+    b. 프로비전하려는 Azure AD 계정의 **관리자 권한**을 선택합니다.
    
     다. **저장**을 클릭합니다. Azure AD 계정 보유자에게 전자 메일이 발송되며 여기에 포함된 링크를 클릭하여 계정을 확인하면 계정이 활성화됩니다.
 
@@ -260,7 +260,7 @@ Azure AD 사용자가 Intacct에 로그인할 수 있도록 설정하려면 Inta
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

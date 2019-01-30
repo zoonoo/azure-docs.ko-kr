@@ -1,10 +1,10 @@
 ---
-title: '자습서: Jive와 Azure Active Directory 통합 | Microsoft 문서'
+title: '자습서: Jive와 Azure Active Directory 통합 | Microsoft Docs'
 description: Azure Active Directory와 Jive 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 9fc5659a-c116-4a1b-a601-333325a26b46
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: cebcfb4614d1f685697bed6914f80237e175fb7b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fa802e137f9fb76c531814f6128cabfc11a44f0f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436559"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812338"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jive"></a>자습서: Jive와 Azure Active Directory 통합
 
@@ -115,7 +115,7 @@ Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<instance name>.jivecustom.com`
 
-    나. **식별자** 텍스트 상자에서 `https://<instance name>.jiveon.com` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://<instance name>.jiveon.com` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Jive 클라이언트 지원 팀](https://www.jivesoftware.com/services-support/)에 문의하세요.
@@ -142,7 +142,7 @@ Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
     a. 다운로드한 메타데이터 XML 파일의 내용을 복사한 다음 **IDP(ID 공급자) 메타데이터** 텍스트 상자에 붙여 넣습니다.
 
-    나. "**모든 SAML 설정 저장**" 단추를 클릭합니다.
+    b. "**모든 SAML 설정 저장**" 단추를 클릭합니다.
 
 1. "**사용자 특성 매핑**" 탭으로 이동합니다.
 
@@ -150,7 +150,7 @@ Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
     a. **전자 메일** 텍스트 상자에서 **mail** 값의 특성 이름을 복사한 후 붙여넣습니다.
 
-    나. **이름** 텍스트 상자에서 **givenname** 값의 특성 이름을 복사한 후 붙여넣습니다.
+    b. **이름** 텍스트 상자에서 **givenname** 값의 특성 이름을 복사한 후 붙여넣습니다.
 
     다. **성** 텍스트 상자에서 **surname** 값의 특성 이름을 복사한 후 붙여넣습니다.
 
@@ -179,7 +179,7 @@ Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -225,12 +225,12 @@ Jive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Jive 타일을 클릭하면 Jive 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 Jive 타일을 클릭하면 Jive 애플리케이션에 자동으로 로그온됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 * [사용자 프로비저닝 구성](jive-provisioning-tutorial.md)
 
 <!--Image references-->

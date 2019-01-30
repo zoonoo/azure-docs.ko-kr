@@ -4,7 +4,7 @@ description: Azure Active Directory 및 SmarterU 간에 Single Sign-On을 구성
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 95fe3212-d052-4ac8-87eb-ac5305227e85
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 12c7a2751b980ef7951be9043a62dbb1ec50a63d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0c12c55913653e547cce0c42bd06fb55b374a4a0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439764"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823066"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>자습서: SmarterU와 Azure Active Directory 통합
 
@@ -134,7 +134,7 @@ SmarterU에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
  
       a. **외부 권한 부여를 사용하도록 설정**을 선택합니다.
   
-      나. **마스터 로그인 제어** 섹션에서 **SmarterU** 탭을 선택합니다.
+      b. **마스터 로그인 제어** 섹션에서 **SmarterU** 탭을 선택합니다.
   
       다. **사용자 기본 로그인** 섹션에서 **SmarterU** 탭을 선택합니다.
   
@@ -147,7 +147,7 @@ SmarterU에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
       g. **저장**을 클릭합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -175,7 +175,7 @@ SmarterU에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -199,7 +199,7 @@ SmarterU의 경우 프로비전은 수동 작업입니다.
 
     a. **+사용자**를 클릭합니다.
     
-    나. 다음 텍스트 상자에 Azure AD 사용자 계정의 관련된 특성 값을 입력합니다. **기본 메일**, **직원 ID**, **암호**, **암호 확인**, **이름**, **성**.
+    b. Azure AD 사용자 계정의 관련 특성 값을 다음 텍스트 상자에 입력합니다. **기본 이메일**, **직원 ID**, **암호**, **암호 확인**, **이름**, **성**.
     
     다. **활성**을 클릭합니다. 
     
@@ -242,7 +242,7 @@ SmarterU의 경우 프로비전은 수동 작업입니다.
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
- 
+ 
 액세스 패널에서 SmarterU 타일을 클릭하면 SmarterU 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
@@ -250,7 +250,7 @@ SmarterU의 경우 프로비전은 수동 작업입니다.
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

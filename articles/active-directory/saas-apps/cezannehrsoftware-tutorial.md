@@ -1,10 +1,10 @@
 ---
-title: '자습서: Cezanne HR Software와 Azure Active Directory 통합| Microsoft Docs'
+title: '자습서: Cezanne HR 소프트웨어와 Azure Active Directory 통합| Microsoft Docs'
 description: Azure Active Directory 및 Cezanne HR Software 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 62b42e15-c282-492d-823a-a7c1c539f2cc
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: d617b7a1195f322ad33a47ae2fd99b7eb336b7b2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1d5edd1335d99c369fa3ef560470edab41276a7a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429909"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819733"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>자습서: Cezanne HR Software와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ Cezanne HR Software의 Azure AD 통합을 구성하려면 갤러리의 Cezanne H
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -112,7 +112,7 @@ Cezanne HR Software에서 Azure AD Single Sign-on을 구성하고 테스트하�
 
     a. **로그온 URL** 텍스트 상자에서 URL `https://w3.cezanneondemand.com/CezanneOnDemand/-/<tenantidentifier>`을 입력합니다.
 
-    나. **식별자** 텍스트 상자에 URL `https://w3.cezanneondemand.com/CezanneOnDemand/`을 입력합니다.
+    b. **식별자** 텍스트 상자에 URL `https://w3.cezanneondemand.com/CezanneOnDemand/`을 입력합니다.
 
     다. **회신 URL** 텍스트 상자에 URL `https://w3.cezanneondemand.com:443/cezanneondemand/-/<tenantidentifier>/Saml/samlp`를 입력합니다.
     
@@ -155,11 +155,11 @@ Cezanne HR Software에서 Azure AD Single Sign-on을 구성하고 테스트하�
     
     a. **표시 이름**으로 ID 공급자의 이름을 입력합니다.
 
-    나. Azure Portal에서 복사한 **SAML 엔터티 ID**를 **엔터티 식별자** 텍스트 상자에 붙여넣습니다. 
+    b. Azure Portal에서 복사한 **SAML 엔터티 ID**를 **엔터티 식별자** 텍스트 상자에 붙여넣습니다. 
 
     다. **SAML 바인딩** 을 'POST'로 변경합니다.
 
-    d. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL**의 값을 **보안 토큰 서비스 끝점** 텍스트 상자에 붙여넣습니다.
+    d. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL**의 값을 **보안 토큰 서비스 엔드포인트** 텍스트 상자에 붙여넣습니다.
 
     e. 사용자 ID 특성 이름 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`을 입력합니다.
     
@@ -172,7 +172,7 @@ Cezanne HR Software에서 Azure AD Single Sign-on을 구성하고 테스트하�
     ![앱 쪽에서 Single Sign-On 구성](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -225,7 +225,7 @@ Azure AD 사용자가 Cezanne HR Software에 로그인 할 수 있도록 하려�
     
     a. **내부 사용자** 를 OFF로 설정합니다.
     
-    나. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.  
+    b. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.  
  
     다. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
     
@@ -237,7 +237,7 @@ Azure AD 사용자가 Cezanne HR Software에 로그인 할 수 있도록 하려�
     
     a. **사용자 이름** 텍스트 상자에서 Brittasimon@contoso.com과 같은 사용자의 이메일 주소를 입력합니다.
     
-    나. **암호** 텍스트 상자에서 사용자에 대한 암호를 입력합니다.
+    b. **암호** 텍스트 상자에서 사용자에 대한 암호를 입력합니다.
     
     다. **보안 역할**로 **HR 전문가**를 선택합니다.
     
@@ -295,7 +295,7 @@ Azure AD 사용자가 Cezanne HR Software에 로그인 할 수 있도록 하려�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -4,7 +4,7 @@ description: Azure Active Directory와 Jobscience 간에 Single Sign-On을 구�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 77282dcc-bbe2-4728-953d-adb4ab6a713b
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 92ff93f9836b1ab8157602569c8171f81b976d6f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2e144658ed4d4e4ae1f9e1ceb8a822e2b71bc2c0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422674"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822896"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>자습서: Jobscience와 Azure Active Directory 통합
 
@@ -153,7 +153,7 @@ Jobscience에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     
     a. **SAML 사용**을 선택합니다.
 
-    나. **새로 만들기**를 클릭합니다.
+    b. **새로 만들기**를 클릭합니다.
 
 1. **SAML Single Sign-On 설정 편집** 대화 상자에서 다음 단계를 수행합니다.
     
@@ -161,7 +161,7 @@ Jobscience에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     
     a. **이름** 텍스트 상자에 구성할 이름을 입력합니다.
 
-    나. **발급자** 텍스트 상자에 Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 붙여넣습니다.
+    b. **발급자** 텍스트 상자에 Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 붙여넣습니다.
 
     다. **엔터티 ID** 텍스트 상자에 `https://salesforce-jobscience.com`을 입력합니다.
 
@@ -196,7 +196,7 @@ Jobscience에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     위 단계에서 만든 SSO 프로필을 클릭합니다. 이 페이지에서는 회사의 Single Sign-On URL을 보여줍니다(예: [https://companyname.my.salesforce.com?so=companyid](https://companyname.my.salesforce.com?so=companyid).    
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -224,7 +224,7 @@ Jobscience에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -257,7 +257,7 @@ Azure AD 사용자가 Jobscience에 로그인할 수 있도록 하려면 Jobscie
    
    a. **First Name**(이름) 텍스트 상자에 사용자의 이름(예: Britta)을 입력합니다.
    
-   나. **Last Name**(성) 텍스트 상자에 사용자의 성(예: Simon)을 입력합니다.
+   b. **Last Name**(성) 텍스트 상자에 사용자의 성(예: Simon)을 입력합니다.
    
    다. **Alias**(별칭) 텍스트 상자에 사용자의 별칭(예: brittas)을 입력합니다.
 
@@ -313,7 +313,7 @@ Azure AD 사용자가 Jobscience에 로그인할 수 있도록 하려면 Jobscie
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

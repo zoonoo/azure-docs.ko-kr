@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6612e3fb5368d8d5a4f59c0e5eefc8ef24c04aec
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: de009d1dbc979a534b0fed8cee2afc867c5b79d4
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656927"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426916"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>SAP NetWeaver에 대한 고가용성 아키텍처 및 시나리오
 
@@ -231,7 +231,7 @@ ms.locfileid: "34656927"
 
 ## <a name="terminology-definitions"></a>용어 정의
 
-**고가용성**: *동일한* 데이터 센터 내의 중복성, 내결함성 또는 장애 조치(Failover) 보호 구성 요소를 통해 IT 서비스의 비즈니스 연속성을 제공함으로써 IT 작업 중단을 최소화하는 일련의 기술을 나타냅니다. Microsoft의 경우에는 데이터 센터가 하나의 Azure 지역 내에 상주합니다.
+**고가용성**: *동일한* 데이터 센터 내의 중복성, 내결함성 또는 장애 조치(failover) 보호 구성 요소를 통해 IT 서비스의 비즈니스 연속성을 제공함으로써 IT 작업 중단을 최소화하는 일련의 기술을 나타냅니다. Microsoft의 경우에는 데이터 센터가 하나의 Azure 지역 내에 상주합니다.
 
 **재해 복구**: 수백 마일 떨어져 있을 수 있는 *다양한* 데이터 센터를 막론하고 IT 서비스 중단 및 해당 복구의 최소화를 의미하기도 합니다. Microsoft의 경우에는 데이터 센터가 동일한 지리적 지역 내의 다양한 Azure 지역이나 고객이 설정한 위치에 상주할 수 있습니다.
 
@@ -243,11 +243,11 @@ Azure의 SAP 고가용성은 다음 세 가지 유형으로 구분할 수 있습
 
     예를 들어 고가용성에는 계산(VM), 네트워크, 스토리지와 SAP 애플리케이션 가용성 향상에 주는 이점이 포함될 수 있습니다.
 
-* **Azure 인프라 VM 다시 시작을 활용하여 SAP 응용 프로그램의 *고가용성* 확보**: 
+* **Azure 인프라 VM 다시 시작을 활용하여 SAP 애플리케이션의 *고가용성* 확보**: 
 
     Linux에서 WSFC(Windows Server 장애 조치(Failover) 클러스터링) 또는 Linux의 Pacemaker 같은 기능을 사용하지 않기로 결정하면 Azure VM 다시 시작이 사용됩니다. 이 기능은 Azure 물리적 서버 인프라 및 전반적인 기본 Azure 플랫폼의 계획되었거나 계획되지 않은 가동 중지 시간에서 SAP 시스템을 보호합니다.
 
-* **SAP 응용 프로그램 고가용성**: 
+* **SAP 애플리케이션 고가용성**: 
 
     완전한 SAP 시스템 고가용성을 달성하려면 모든 중요 SAP 시스템 구성 요소를 보호해야 합니다. 예: 
     * 이중화 SAP 애플리케이션 서버
@@ -287,6 +287,19 @@ Windows의 경우와 달리 Linux용 sapinst 통합 SAP 고가용성 구성은 �
 * 이중화 SAP 애플리케이션 서버  
 * SAP ASCS/SCS 인스턴스 또는 DBMS 같은 SPOF를 보호하는 두 개 이상의 노드(예: VM)로 구성된 클러스터
 
+
+### <a name="azure-availability-zones"></a>Azure 가용성 영역
+Azure는 다른 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/) 전체에서 [Azure 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)의 개념을 롤아웃하는 중입니다. 가용성 영역이 제공되는 Azure 지역에서 Azure 지역에 전원, 냉각 및 네트워크 공급이 독립적인 여러 데이터 센터가 있습니다. 단일 Azure 지역 내 다른 영역을 제공하는 이유는 제공되는 2-3개 가용성 영역에서 애플리케이션을 배포할 수 있도록 하기 위함입니다. 전원 및/또는 네트워크의 문제가 하나의 가용성 영역 인프라에만 영향을 준다고 가정하면, Azure 지역 내 애플리케이션 배포는 계속 완벽하게 작동합니다. 하나의 영역에서 일부 VM이 다소 손실될 수 있으므로 결과적으로 일부 용량이 감소합니다. 하지만 다른 두 영역의 VM은 여전히 작동하고 실행됩니다. 영역을 제공하는 Azure 지역은 [Azure 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)에 나열됩니다.
+
+가용성 영역을 사용하여 고려할 일부 사항이 있습니다. 고려 사항 목록은 다음과 같습니다.
+
+- 가용성 영역 내에서 Azure 가용성 집합을 배포할 수 없습니다. VM에 대한 배포 프레임으로 가용성 영역 또는 가용성 집합을 선택해야 합니다.
+- [기본 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus)를 사용하여 Windows 장애 조치(failover) 클러스터 서비스 또는 Linux Pacemaker를 기반으로 장애 조치(failover) 클러스터솔루션을 만들 수 없습니다. 대신 [Azure 표준 Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)를 사용해야 합니다.
+- Azure 가용성 영역은 한 지역 내의 다른 영역 간 특정 거리의 어떤 보증도 제공하지 않습니다.
+- 서로 다른 Azure 지역 내에서 다양한 Azure 가용성 영역 간의 네트워크 대기 시간은 Azure 지역에서 지역으로 달라질 수 있습니다. 하나의 영역에서 활성 DBMS VM으로의 네트워크 대기 시간은 비즈니스 프로세스 영향에서 여전히 허용 가능하므로 고객으로서 다른 영역에서 배포된 SAP 애플리케이션 계층을 합리적으로 실행할 수 있는 경우가 있습니다. 반면 하나의 영역에서 활성 DBMS VM과 다른 영역에서 VM의 SAP 애플리케이션 인스턴스 간의 대기 시간은 너무 방해가 되며 SAP 비즈니스 프로세스에 대해 허용되지 않을 수 있는 고객 시나리오가 있습니다. 결과적으로 배포 아키텍처는 대기 시간이 너무 높은 경우 애플리케이션에 대한 활성/활성 아키텍처 또는 능동/수동 아키텍처와 달라야 합니다.
+- [Azure 관리 디스크](https://azure.microsoft.com/services/managed-disks/) 사용은 Azure 가용성 영역으로 배포에 필수 항목입니다. 
+
+
 ### <a name="planned-and-unplanned-maintenance-of-virtual-machines"></a>가상 머신의 계획된 유지 관리 및 계획되지 않은 유지 관리
 
 다음 2가지 유형의 Azure 플랫폼 이벤트가 가상 머신의 가용성에 영향을 줄 수 있습니다.
@@ -305,13 +318,13 @@ Azure Storage에서는 기본적으로 데이터의 3가지 이미지를 유지�
 자세한 내용은 [Azure Storage 복제][azure-storage-redundancy]를 참조하세요.
 
 ### <a name="azure-managed-disks"></a>Azure Managed Disks
-Managed Disks는 Azure Storage 계정에 저장된 가상 하드 디스크 대신 사용할 수 있는 Azure Resource Manager의 새로운 리소스 종류입니다. Managed Disks는 연결되어 있는 가상 머신의 가용성 집합에 맞게 자동으로 조정됩니다. 따라서 가상 머신에서 실행되는 서비스와 가상 머신의 가용성을 높여 줍니다.
+Managed Disks는 Azure 스토리지 계정에 저장된 VHD(가상 하드 디스크) 대신 사용하도록 권장되는 Azure Resource Manager의 리소스 종류입니다. Managed Disks는 연결되어 있는 가상 머신의 Azure 가용성 집합에 맞게 자동으로 조정됩니다. 따라서 가상 머신에서 실행되는 서비스와 가상 머신의 가용성을 높여 줍니다.
 
 자세한 내용은 [Azure Managed Disks 개요][azure-storage-managed-disks-overview]를 참조하세요.
 
 Managed Disks를 사용하면 가상 머신을 간편하고 배포 및 관리할 수 있으므로 권장됩니다.
 
-SAP는 현재 프리미엄 Managed Disks만 지원합니다. 자세한 내용은 SAP Note [1928533]을 참조하세요.
+
 
 ## <a name="utilizing-azure-infrastructure-high-availability-to-achieve-higher-availability-of-sap-applications"></a>Azure 인프라 고가용성을 활용하여 SAP 애플리케이션의 *고가용성* 확보
 
@@ -319,7 +332,7 @@ Linux에서 WSFC 또는 Pacemaker와 같은 기능을 사용하지 않기로 결
 
 이 방법에 대한 자세한 내용은 [Azure 인프라 VM 다시 시작을 활용하여 SAP 시스템의 고가용성 확보][sap-higher-availability]를 참조하세요.
 
-## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a> Azure IaaS의 SAP 응용 프로그램 고가용성
+## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a> Azure IaaS의 SAP 애플리케이션 고가용성
 
 완전한 SAP 시스템 고가용성을 달성하려면 모든 중요 SAP 시스템 구성 요소를 보호해야 합니다. 예: 
   * 이중화 SAP 애플리케이션 서버
@@ -338,7 +351,7 @@ Linux에서 WSFC 또는 Pacemaker와 같은 기능을 사용하지 않기로 결
 
 ![그림 1: 고가용성 SAP 애플리케이션 서버][sap-ha-guide-figure-2000]
 
-_**그림 1:** 고가용성 SAP 응용 프로그램 서버_
+_**그림 1:** 고가용성 SAP 애플리케이션 서버_
 
 SAP 애플리케이션 서버 인스턴스를 호스트하는 모든 가상 머신을 동일한 Azure 가용성 집합에 배치해야 합니다. Azure 가용성 집합은 다음을 확인합니다.
 
@@ -354,14 +367,14 @@ Azure 배율 단위 내에서 Azure 가용성 집합이 사용할 수 있는 업
 
 전용 VM에서 일부 SAP 애플리케이션 서버 인스턴스를 배포하고 업데이트 도메인이 5개 있다고 가정하면 다음과 같은 그림이 완성됩니다. 가용성 집합 내의 업데이트 및 장애 도메인의 실제 최대 개수는 나중에 변경될 수 있습니다.
 
-![그림 2: Azure 가용성 집합에 있는 SAP 응용 프로그램 서버의 고가용성][planning-guide-figure-3000]
-_**그림 2:** Azure 가용성 집합에 있는 SAP 응용 프로그램 서버의 고가용성_
+![그림 2: Azure 가용성 집합에서 SAP 애플리케이션 서버의 고가용성][planning-guide-figure-3000]
+_**그림 2:** Azure 가용성 집합에서 SAP 애플리케이션 서버의 고가용성_
 
 자세한 내용은 [Azure에서 Windows 가상 머신의 가용성 관리][azure-virtual-machines-manage-availability]를 참조하세요.
 
 자세한 내용은 SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현 문서의 [Azure 가용성 집합][planning-guide-3.2.3] 섹션을 참조하세요.
 
-**비관리 디스크에만 해당하는 설명:** Azure Storage 계정은 잠재적인 단일 실패 지점일 수 있으므로 둘 이상의 가상 머신이 배포될 둘 이상의 Azure Storage 계정이 있어야 합니다. 이상적인 설치에서는 SAP 대화 상자 인스턴스를 실행하는 각 가상 머신의 디스크를 다른 저장소 계정에 배포합니다.
+**비관리 디스크 전용:** Azure Storage 계정은 잠재적인 단일 실패 지점일 수 있으므로 두 개 이상의 가상 머신이 배포될 2개 이상의 Azure Storage 계정이 있어야 합니다. 이상적인 설치에서는 SAP 대화 상자 인스턴스를 실행하는 각 가상 머신의 디스크를 다른 저장소 계정에 배포합니다.
 
 > [!IMPORTANT]
 > SAP 고가용성 설치에는 Azure Managed Disks를 사용하는 것이 좋습니다. Managed Disks는 연결되어 있는 가상 머신의 가용성 집합에 맞게 자동으로 조정되므로, 가상 머신에서 실행되는 서비스와 가상 머신의 가용성을 높여 줍니다.  
@@ -374,15 +387,18 @@ _**그림 2:** Azure 가용성 집합에 있는 SAP 응용 프로그램 서버�
 
 WSFC 솔루션을 사용하여 SAP ASCS/SCS 인스턴스를 보호할 수 있습니다. 솔루션에는 다음 두 가지 변형이 있습니다.
 
-* **클러스터형 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링**: 이 아키텍처에 대한 자세한 내용은 [클러스터 공유 디스크를 사용하여 Windows 장애 조치(Failover) 클러스터에서 SAP ASCS/SCS 인스턴스 클러스터링][sap-high-availability-guide-wsfc-shared-disk]을 참조하세요.   
+* **클러스터형 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링**: 이 아키텍처에 대한 자세한 내용은 [Windows 장애 조치(failover) 클러스터에서 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링][sap-high-availability-guide-wsfc-shared-disk]을 참조하세요.   
 
-* **파일 공유를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링**: 이 아키텍처에 대한 자세한 내용은 [파일 공유를 사용하여 Windows 장애 조치(Failover) 클러스터에서 SAP ASCS/SCS 인스턴스 클러스터링][sap-high-availability-guide-wsfc-file-share]을 참조하세요.
+* **파일 공유를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링**: 이 아키텍처에 대한 자세한 내용은 [Windows 장애 조치(failover) 클러스터에서 파일 공유를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링][sap-high-availability-guide-wsfc-file-share]을 참조하세요.
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Linux의 SAP ASCS/SCS 인스턴스에 대한 고가용성 아키텍처
 
 > ![Linux][Logo_Linux] Linux
 >
 SLES 클러스터 프레임워크를 사용한 SAP ASCS/SCS 인스턴스 클러스터링에 대한 자세한 내용은 [SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성][sap-suse-ascs-ha]을 참조하세요.
+
+Red Hat 클러스터 프레임워크를 사용한 SAP ASCS/SCS 인스턴스 클러스터링에 대한 자세한 내용은 [Red Hat Enterprise Linux의 SAP NetWeaver에 대한 Azure Virtual Machines 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)을 참조하세요.
+
 
 ### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>클러스터형 SAP ASCS/SCS 인스턴스에 대한 SAP NetWeaver 다중 SID 구성
 
@@ -400,7 +416,7 @@ SLES 클러스터 프레임워크를 사용한 SAP ASCS/SCS 인스턴스 클러�
 
 DBMS는 SAP 시스템의 단일 연락 지점이기도 합니다. 따라서 고가용성 솔루션을 사용하여 보호해야 합니다. 다음 그림은 Windows Server 장애 조치(Failover) 클러스터링 및 Azure 내부 부하 분산 장치를 사용하여 Azure의 SQL Server Always On 고가용성 솔루션을 보여줍니다. SQL Server AlwaysOn은 자체 DBMS 복제를 사용하여 DBMS 데이터 및 로그 파일을 복제합니다. 이 경우 전체 설정을 간소화하는 클러스터 공유 디스크가 필요하지 않습니다.
 
-![그림 3: SQL Server Always On을 사용하는 고가용성 SAP DBMS 예제][sap-ha-guide-figure-2003]
+![그림 3: SQL Server AlwaysOn을 사용하는 고가용성 SAP DBMS 예제][sap-ha-guide-figure-2003]
 
 _**그림 3:** SQL Server AlwaysOn을 사용하는 고가용성 SAP DBMS 예제_
 

@@ -4,7 +4,7 @@ description: Azure Active Directory 및 GaggleAMP 간에 Single Sign-On을 구�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 9cc1a4b7-964b-406b-9e0c-05cb1a7c9856
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 828dd1e1dcef900a7105143088f6782032b4f22e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fdec0ecf829bbceddd0dd2c876b5fdff9986c358
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436515"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826193"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>자습서: GaggleAMP와 Azure Active Directory 통합
 
@@ -108,13 +108,13 @@ GaggleAMP에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
  
     ![Configure Single Sign-On](./media/gaggleamp-tutorial/tutorial_gaggleamp_samlbase.png)
 
-1. **GaggleAMP 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+1. **GaggleAMP 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/gaggleamp-tutorial/tutorial_gaggleamp_url.png)
 
      **식별자** 텍스트 상자에 URL `https://accounts.gaggleamp.com/auth/saml/callback`을 입력합니다.
 
-1. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/gaggleamp-tutorial/tutorial_gaggleamp_url1.png)
 
@@ -143,7 +143,7 @@ GaggleAMP에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **ID 공급자** 드롭다운 메뉴에서 **기타**를 선택합니다.
     
-    나. Azure Portal에서 복사한 **발급자 URL** 값을 **ID 공급자 발급자** 텍스트 상자에 붙여넣습니다.
+    b. Azure Portal에서 복사한 **발급자 URL** 값을 **ID 공급자 발급자** 텍스트 상자에 붙여넣습니다.
     
     다. Azure Portal에서 복사한 **Single Sign-On 서비스 URL** 값을 **ID 공급자 Single Sign-On URL** 텍스트 상자에 붙여넣습니다.
     
@@ -176,7 +176,7 @@ GaggleAMP에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -227,7 +227,7 @@ GaggleAMP에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

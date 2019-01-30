@@ -1,10 +1,10 @@
 ---
-title: '자습서: FilesAnywhere와 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: FilesAnywhere과 Azure Active Directory 통합 | Microsoft Docs'
 description: Azure Active Directory와 FilesAnywhere 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 220b5a486f5bb5d22c671ac6935e610a6eef62cf
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 2dab43499d5f55474117f88cfaa1cecd1a50bf3e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115988"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822045"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>자습서:FilesAnywhere와 Azure Active Directory 통합
+# <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>자습서: FilesAnywhere과 Azure Active Directory 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 FilesAnywhere를 통합하는 방법에 대해 알아봅니다.
 
@@ -35,7 +35,7 @@ Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Direc
 
 ## <a name="prerequisites"></a>필수 조건
 
-FilesAnywhere와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
+FilesAnywhere과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 - Azure AD 구독
 - FilesAnywhere Single Sign-On을 사용하도록 설정된 구독
@@ -113,7 +113,7 @@ FilesAnywhere에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
  
     ![Configure Single Sign-On](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_samlbase.png)
 
-1. **FilesAnywhere 도메인 및 URL** 섹션에서 **IDP 시작 모드**로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+1. **FilesAnywhere 도메인 및 URL** 섹션에서 **IDP 시작 모드**로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/filesanywhere-tutorial/tutorial_filesanywhere_url.png)
     
@@ -121,7 +121,7 @@ FilesAnywhere에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 > [!NOTE]
 > 값 **215**가 **clientid**이지만 이것은 예제일 뿐입니다. 이 값을 실제 clientid 값으로 대체해야 합니다.
 
-1. **FilesAnywhere 도메인 및 URL** 섹션에서 **SP 시작 모드**로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+1. **FilesAnywhere 도메인 및 URL** 섹션에서 **SP 시작 모드**로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
     
     ![Configure Single Sign-On](./media/filesanywhere-tutorial/tutorial_filesanywhere_url1.png)
 
@@ -255,7 +255,7 @@ FilesAnywhere에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

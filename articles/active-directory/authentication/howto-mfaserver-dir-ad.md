@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 818674ba1825a438a5abeb7927bcf0f683506625
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 045d95daf78775c483a9ec4e7abec0baff999838
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159926"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432679"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA 서버와 Active Directory 간의 디렉터리 통합
 
@@ -32,7 +32,7 @@ Azure MFA 서버의 디렉터리 통합 섹션을 사용하여 Active Directory 
 | 트러스트된 도메인 포함 |**트러스트된 도메인 포함**을 선택하면 에이전트가 현재 도메인, 포리스트의 다른 도메인 또는 포리스트 트러스트와 관련된 도메인에서 트러스트된 도메인에 연결을 시도합니다.  트러스트된 도메인에서 사용자를 가져오거나 동기화하지 않을 때는 확인란을 선택 취소하여 성능을 향상시킵니다.  기본적으로 선택되어 있습니다. |
 | 특정 LDAP 구성 사용 |LDAP 사용 옵션을 선택하면 가져오기 및 동기화를 위해 지정된 LDAP 설정을 사용합니다. 참고: LDAP 사용을 선택하면 사용자 인터페이스가 Active Directory에서 LDAP로 참조를 변경합니다. |
 | 편집 단추 |편집 단추를 통해 현재 LDAP 구성 설정을 수정할 수 있습니다. |
-| 특성 범위 쿼리 사용 |특성 범위 쿼리 사용 여부를 나타냅니다.  특성 범위 쿼리를 사용하면 다른 레코드 특성에 있는 항목을 기반으로 레코드를 한정하는 디렉터리 검색을 효율적으로 실행할 수 있습니다.  Azure Multi-Factor Authentication 서버는 특성 범위 쿼리를 사용하여 보안 그룹의 구성원인 사용자를 효율적으로 쿼리합니다.   <br>참고: 특성 범위 쿼리가 지원되지만 사용하지 말아야 하는 몇 가지 경우가 있습니다.  예를 들어 Active Directory는 보안 그룹에 둘 이상의 도메인에 속한 구성원이 포함되어 있는 경우 특성 범위 쿼리에 문제가 있을 수 있습니다. 이 경우 확인란을 선택 취소합니다. |
+| 특성 범위 쿼리 사용 |특성 범위 쿼리 사용 여부를 나타냅니다.  특성 범위 쿼리를 사용하면 다른 레코드 특성에 있는 항목을 기반으로 레코드를 한정하는 디렉터리 검색을 효율적으로 실행할 수 있습니다.  Azure Multi-Factor Authentication 서버는 특성 범위 쿼리를 사용하여 보안 그룹의 구성원인 사용자를 효율적으로 쿼리합니다.   <br>참고:  특성 범위 쿼리가 지원되지만 사용하지 말아야 하는 몇 가지 경우가 있습니다.  예를 들어 Active Directory는 보안 그룹에 둘 이상의 도메인에 속한 구성원이 포함되어 있는 경우 특성 범위 쿼리에 문제가 있을 수 있습니다. 이 경우 확인란을 선택 취소합니다. |
 
 다음 표에서는 LDAP 구성 설정을 설명합니다.
 
@@ -54,9 +54,9 @@ Azure MFA 서버의 디렉터리 통합 섹션을 사용하여 Active Directory 
 
 Azure Multi-Factor Authentication에는 다음 세 가지 필터 옵션이 있습니다.
 
-* **컨테이너 필터** - 디렉터리 검색을 수행할 때 컨테이너 레코드를 한정하는 데 사용할 필터 조건을 지정합니다.  Active Directory 및 ADAM의 경우 (|(objectClass=organizationalUnit)(objectClass=container))가 일반적으로 사용됩니다.  다른 LDAP 디렉터리의 경우 디렉터리 스키마에 따라 각 컨테이너 개체 형식을 한정하는 필터 조건을 사용합니다.  <br>참고: 비워 둔 경우 ((objectClass=organizationalUnit)(objectClass=container))가 기본적으로 사용됩니다.
-* **보안 그룹 필터** - 디렉터리 검색을 수행할 때 보안 그룹 레코드를 한정하는 데 사용할 필터 조건을 지정합니다.  Active Directory 및 ADAM의 경우 (&(objectCategory=group) (groupType:1.2.840.113556.1.4.804:=-2147483648))이 일반적으로 사용됩니다.  다른 LDAP 디렉터리의 경우 디렉터리 스키마에 따라 각 보안 그룹 개체 형식을 한정하는 필터 조건을 사용합니다.  <br>참고: 비워 둔 경우 (&(objectCategory=group) (groupType:1.2.840.113556.1.4.804:=-2147483648))이 기본적으로 사용됩니다.
-* **사용자 필터** - 디렉터리 검색을 수행할 때 사용자 레코드를 한정하는 데 사용할 필터 조건을 지정합니다.  Active Directory 및 ADAM의 경우 (& (objectClass=user)(objectCategory=person))이 일반적으로 사용됩니다.  다른 LDAP 디렉터리의 경우 디렉터리 스키마에 따라 (objectClass=inetOrgPerson) 또는 이와 유사한 유형을 사용합니다. <br>참고: 비워 둔 경우 (&(objectCategory=person)(objectClass=user))가 기본적으로 사용됩니다.
+* **컨테이너 필터** - 디렉터리 검색을 수행할 때 컨테이너 레코드를 한정하는 데 사용할 필터 조건을 지정합니다.  Active Directory 및 ADAM의 경우 (|(objectClass=organizationalUnit)(objectClass=container))가 일반적으로 사용됩니다.  다른 LDAP 디렉터리의 경우 디렉터리 스키마에 따라 각 컨테이너 개체 형식을 한정하는 필터 조건을 사용합니다.  <br>참고:  비워 둔 경우 ((objectClass=organizationalUnit)(objectClass=container))가 기본적으로 사용됩니다.
+* **보안 그룹 필터** - 디렉터리 검색을 수행할 때 보안 그룹 레코드를 한정하는 데 사용할 필터 조건을 지정합니다.  Active Directory 및 ADAM의 경우 (&(objectCategory=group) (groupType:1.2.840.113556.1.4.804:=-2147483648))이 일반적으로 사용됩니다.  다른 LDAP 디렉터리의 경우 디렉터리 스키마에 따라 각 보안 그룹 개체 형식을 한정하는 필터 조건을 사용합니다.  <br>참고:  비워 둔 경우 (&(objectCategory=group) (groupType:1.2.840.113556.1.4.804:=-2147483648))이 기본적으로 사용됩니다.
+* **사용자 필터** - 디렉터리 검색을 수행할 때 사용자 레코드를 한정하는 데 사용할 필터 조건을 지정합니다.  Active Directory 및 ADAM의 경우 (& (objectClass=user)(objectCategory=person))이 일반적으로 사용됩니다.  다른 LDAP 디렉터리의 경우 디렉터리 스키마에 따라 (objectClass=inetOrgPerson) 또는 이와 유사한 유형을 사용합니다. <br>참고:  비워 둔 경우 (&(objectCategory=person)(objectClass=user))가 기본적으로 사용됩니다.
 
 ## <a name="attributes"></a>특성
 필요에 따라 특성을 특정 디렉터리에 사용자 지정할 수 있습니다.  이를 통해 사용자 지정 특성을 추가하고 필요한 특성에 대한 동기화만 미세 조정할 수 있습니다. 각 특성 필드의 값에 대해 디렉터리 스키마에서 정의된 특성의 이름을 사용합니다. 다음 표는 각 기능에 대한 추가 정보를 제공합니다.
@@ -115,7 +115,7 @@ LDAP 디렉터리에서 DirSync를 지원하고 DirSync에 대해 구성된 경�
 | 동기화 간격 |변경 사항을 폴링한 상태에서 Multi-Factor Auth 서버 서비스가 변경 사항을 처리하기 시작할 때까지 대기하는 시간 간격을 지정합니다. <br><br> 참고: 지정된 간격은 한 주기를 시작한 후 다음 주기를 시작할 때까지 대기하는 시간입니다.  변경 사항을 처리하는 시간이 이 간격을 초과하게 되면 서비스가 즉시 다시 폴링합니다. |
 | Active Directory에 더 이상 존재하지 않는 사용자 제거 |선택하면 Multi-Factor Auth 서버 서비스가 Active Directory에서 삭제된 사용자 삭제 표시를 진행하고 관련된 Multi-Factor Auth 서버 사용자를 제거합니다. |
 | 항상 전체 동기화 실행 |선택하면 Multi-Factor Auth 서버 서비스가 항상 전체 동기화를 실행합니다.  선택하지 않으면 Multi-Factor Auth 서버 서비스가 변경된 사용자만 쿼리하여 증분 동기화를 실행합니다.  기본값은 선택 취소입니다. <br><br>선택 취소하면 디렉터리가 DirSync 컨트롤을 지원하고 디렉터리에 바인딩하는 계정이 DirSync 증분 쿼리를 수행할 수 있는 권한을 가진 경우 Azure MFA 서버는 증분 동기화만 실행합니다.  계정에 적절한 권한이 없고 동기화에 여러 도메인이 관련된 경우 Azure MFA 서버는 전체 동기화를 실행합니다. |
-| 사용하지 않도록 설정하거나 제거할 사용자가 X명을 초과하는 경우 관리자 승인이 필요합니다. |더 이상 항목의 컨테이너 또는 보안 그룹의 구성원이 아닌 사용자를 사용하지 않도록 설정하거나 제거하도록 동기화 항목을 구성할 수 있습니다.  사용하지 않도록 설정하거나 제거할 사용자 수가 임계값을 초과하는 경우 관리자 승인이 예방 차원에서 필요할 수 있습니다.  선택하면 지정된 임계값에 대해 승인이 필요합니다.  기본값은 5이고 범위는 1 - 999입니다. <br><br> 승인을 받으려면 먼저 관리자에게 메일 알림을 보내야 합니다. 메일 알림은 사용자를 사용하지 않도록 설정하거나 제거하는 작업을 검토하고 승인하기 위한 지시 사항을 전달합니다.  Multi-Factor Auth 서버의 사용자 인터페이스가 시작되면 승인할 것인지 묻는 메시지가 표시됩니다. |
+| 사용하지 않도록 설정하거나 제거할 사용자가 X명을 초과하는 경우 관리자 승인이 필요합니다. |더 이상 항목의 컨테이너 또는 보안 그룹의 구성원이 아닌 사용자를 사용하지 않도록 설정하거나 제거하도록 동기화 항목을 구성할 수 있습니다.  사용하지 않도록 설정하거나 제거할 사용자 수가 임계값을 초과하는 경우 관리자 승인이 예방 차원에서 필요할 수 있습니다.  선택하면 지정된 임계값에 대해 승인이 필요합니다.  기본값은 5이고 범위는 1 - 999입니다. <br><br>  승인을 받으려면 먼저 관리자에게 메일 알림을 보내야 합니다. 메일 알림은 사용자를 사용하지 않도록 설정하거나 제거하는 작업을 검토하고 승인하기 위한 지시 사항을 전달합니다.  Multi-Factor Auth 서버의 사용자 인터페이스가 시작되면 승인할 것인지 묻는 메시지가 표시됩니다. |
 
 **지금 동기화** 단추를 사용하여 지정된 동기화 항목에 대해 전체 동기화를 실행할 수 있습니다.  동기화 항목이 추가, 수정, 제거 또는 그 순서가 변경할 때마다 전체 동기화가 필요합니다.  또한 전체 동기화를 통해 Multi-Factor Auth AdSync 서비스가 증분 변경을 위한 폴링을 시작하는 지점을 설정하므로 서비스를 작동하기 전에도 전체 동기화가 필요합니다.  동기화 항목이 변경되었지만 전체 동기화를 수행하지 않은 경우 지금 동기화를 묻는 메시지가 나타납니다.
 

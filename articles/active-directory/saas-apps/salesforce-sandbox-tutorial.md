@@ -4,7 +4,7 @@ description: Azure Active Directory와 Salesforce Sandbox 간에 Single Sign-On�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: ee54c39e-ce20-42a4-8531-da7b5f40f57c
 ms.service: active-directory
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 48dcb4a3b1e06ab62905092055ba1b48bd0dddb7
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 33d39e617bd55b88d8f04785d937faf176463ee5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114499"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808819"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>자습서: Salesforce Sandbox와 Azure Active Directory 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Salesforce Sandbox를 통합하는 방법에 대해 알아봅니다.
 
 샌드박스는 Salesforce 프로덕션 조직에서 데이터 및 애플리케이션을 손상시키지 않고 개발, 테스트 및 훈련과 같은 다양한 목적으로 별도의 환경에서 조직의 여러 복사본을 만들 수 있는 기능을 제공합니다.
-자세한 내용은 [샌드박스 개요](https://help.salesforce.com/articleView?id=create_test_instance.htm&language=en_us&type=5)를 참조하세요.
+자세한 내용은 [샌드박스 개요](https://help.salesforce.com/articleView?id=create_test_instance.htm&language=en_us&type=5)를 참조하세요.
 
 Salesforce Sandbox를 Azure AD와 통합하면 다음과 같은 이점이 있습니다.
 
@@ -69,7 +69,7 @@ Salesforce Sandbox의 Azure AD 통합을 구성하려면 갤러리의 Salesforce
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
 
@@ -174,7 +174,7 @@ Salesforce Sandbox에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
     ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure4.png)
 
-16. **SP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 조건을 충족해야 합니다.
+16. **SP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 조건을 충족해야 합니다.
 
     a. 확인된 도메인이 있어야 합니다.
 
@@ -219,7 +219,7 @@ Salesforce Sandbox에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
     ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
-25. **SAML Single Sign-On 설정** 페이지에서 필드가 자동으로 채워지면 구성의 이름(예: *SPSSOWAAD_Test*)을 **이름** 텍스트 상자에 입력하고 저장을 클릭합니다.
+25. **SAML Single Sign-On 설정** 페이지에서 필드가 자동으로 채워지면 구성의 이름(예: *SPSSOWAAD_Test*)을 **이름** 텍스트 상자에 입력하고 [저장]을 클릭합니다.
 
     ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 
@@ -244,7 +244,7 @@ Salesforce Sandbox에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택한 다음, **모든 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
 
     ![Azure AD 사용자 만들기][100]
 
@@ -258,7 +258,7 @@ Salesforce Sandbox에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에서 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음, 암호 상자에 표시된 값을 적어 둡니다.
@@ -309,7 +309,7 @@ Salesforce Sandbox에서 Azure AD Single Sign-On을 구성하고 테스트하려
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 * [사용자 프로비저닝 구성](salesforce-sandbox-provisioning-tutorial.md)
 
 <!--Image references-->

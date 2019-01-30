@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 2efa450b6b0cfa299370df3941224f4f64e91b4b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: cc71aba3e884214b054e0ac4e888a52e38b1c390
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230767"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812542"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - FAQ(질문과 대답)
 
@@ -159,7 +159,7 @@ Azure Migrate는 현재 [기업 계약 제품](https://azure.microsoft.com/offer
 
 ### <a name="what-is-the-difference-between-as-on-premises-sizing-and-performance-based-sizing"></a>as-on-premises 크기 조정과 성능 기반 크기 조정의 차이점은 무엇인가요?
 
-크기 조정 기준을 as-on-premises 크기 조정으로 지정하면 Azure Migrate에서는 VM의 성능 데이터를 고려하지 않고 온-프레미스 구성을 기준으로 하여 VM의 크기를 조정합니다. 성능 기반 크기 조정 기준을 사용하는 경우에는 사용률 데이터를 기준으로 크기를 조정합니다. 예를 들어 4코어 8GB 메모리를 사용하고 CPU 사용률이 50%, 메모리 사용률이 50%인 온-프레미스 VM이 있다고 가정해 봅니다. 크기를 추천할 때 사용률을 고려하므로 크기 조정 기준이 온-프레미스 크기 조정인 경우 4코어 8GB 메모리의 Azure VM SKU를 권장하지만, 크기 조정 기준이 성능 기반인 경우 2코어 4GB의 VM SKU를 권장합니다. 마찬가지로 디스크 크기 조정 결과는 크기 조정 기준과 스토리지 유형의 두 가지 평가 속성에 따라 달라집니다. 크기 조정 기준이 성능 기반이고 스토리지 유형이 자동인 경우 디스크의 IOPS 및 처리량 값을 고려하여 대상 디스크 유형을 결정합니다(표준 또는 프리미엄). 크기 조정 기준이 성능 기반이고 스토리지 유형이 프리미엄인 경우 프리미엄 디스크를 권장하고, Azure의 프리미엄 디스크 SKU는 온-프레미스 디스크 크기를 기준으로 선택됩니다. 크기 조정 기준이 온-프레미스 크기 조정이고 스토리지 유형이 표준 또는 프리미엄인 경우 동일한 논리를 사용하여 디스크 크기가 조정됩니다.
+크기 조정 기준을 as-on-premises 크기 조정으로 지정하면 Azure Migrate에서는 VM의 성능 데이터를 고려하지 않고 온-프레미스 구성을 기준으로 하여 VM의 크기를 조정합니다. 성능 기반 크기 조정 기준을 사용하는 경우에는 사용률 데이터를 기준으로 크기를 조정합니다. 예를 들어 4코어 8GB 메모리를 사용하고 CPU 사용률이 50%, 메모리 사용률이 50%인 온-프레미스 VM이 있다고 가정해 봅니다. 크기를 추천할 때 사용률을 고려하므로 크기 조정 기준이 온-프레미스 크기 조정인 경우 4코어 8GB 메모리의 Azure VM SKU를 권장하지만, 크기 조정 기준이 성능 기반인 경우 2코어 4GB의 VM SKU를 권장합니다. 마찬가지로 디스크 크기 조정 결과는 크기 조정 기준과 스토리지 유형의 두 가지 평가 속성에 따라 달라집니다. 크기 조정 기준이 성능 기반이고 스토리지 유형이 자동이면 디스크의 IOPS 및 처리량 값을 고려하여 대상 디스크 유형(표준 또는 프리미엄)을 결정합니다. 크기 조정 기준이 성능 기반이고 스토리지 유형이 프리미엄이면 프리미엄 디스크를 사용하는 것이 좋습니다. 따라서 온-프레미스 디스크의 크기를 기준으로 하여 Azure의 프리미엄 디스크 SKU가 선택됩니다. 크기 조정 기준이 as-on-premises 크기 조정이고 스토리지 유형이 표준 또는 프리미엄일 때도 동일한 논리를 사용하여 디스크 크기를 조정합니다.
 
 ### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>성능 기록 및 백분위수 활용률이 크기 추천에 어떤 영향을 주나요?
 

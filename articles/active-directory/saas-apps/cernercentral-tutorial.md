@@ -4,7 +4,7 @@ description: Azure Active Directory 및 Cerner Central 간에 Single Sign-On을 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d2bc549d-d286-4679-854e-bb67c62b0475
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 400aa0a50c0f05937011adf62f76d1d96fde3fc2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 82541e8d4eb0a3f603fd70e5ba6724debb4e006c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447543"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808148"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>자습서: Cerner Central과 Azure Active Directory 통합
 
@@ -117,7 +117,7 @@ Cerner Central에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
     | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
     
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
     | |
     |--|
     | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
@@ -161,7 +161,7 @@ Cerner Central에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 Britta Simon의 **메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 Britta Simon의 **메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -169,7 +169,7 @@ Cerner Central에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 ### <a name="creating-a-cerner-central-test-user"></a>Cerner Central 테스트 사용자 만들기
 
-**Cerner Central** 응용 프로그램은 모든 페더레이션된 ID 공급자의 인증을 허용합니다. 사용자가 애플리케이션 홈페이지에 로그인할 수 있다면 페더레이션되고 수동 프로비전이 필요하지 않습니다. 자동 사용자 프로비전 구성 방법에 대한 자세한 내용은 [여기](cernercentral-provisioning-tutorial.md)에서 제공합니다.
+**Cerner Central** 애플리케이션은 모든 페더레이션된 ID 공급자의 인증을 허용합니다. 사용자가 애플리케이션 홈페이지에 로그인할 수 있다면 페더레이션되고 수동 프로비전이 필요하지 않습니다. 자동 사용자 프로비전 구성 방법에 대한 자세한 내용은 [여기](cernercentral-provisioning-tutorial.md)에서 제공합니다.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -210,7 +210,7 @@ Cerner Central에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 * [사용자 프로비저닝 구성](cernercentral-provisioning-tutorial.md)
 
 <!--Image references-->

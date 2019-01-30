@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.openlocfilehash: 7b742840f461744e0be8c7a4ab4d9b392238de4e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 9558a924ee151f47033178b0762a39e2d1e1f538
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232688"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828318"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>부드러운 스트리밍 Windows 스토어 애플리케이션을 빌드하는 방법
 
@@ -142,7 +142,7 @@ Windows 스토어 애플리케이션 개발에 대한 자세한 내용은 [유�
    MediaElement 컨트롤은 미디어를 재생하는 데 사용됩니다. sliderProgress라는 슬라이더 컨트롤은 다음 단원에서 미디어 진행을 제어하는 데 사용됩니다.
 3. **Ctrl+S** 를 눌러 파일을 저장합니다.
 
-MediaElement 컨트롤은 기본적으로 부드러운 스트리밍 콘텐츠를 지원하지 않습니다. 부드러운 스트리밍 지원을 사용하도록 설정하려면 파일 이름 확장명과 MIME 형식으로 부드러운 스트리밍 바이트 스트림 처리기를 등록해야 합니다.  등록하려면 Windows.Media 네임스페이스의 MediaExtensionManager.RegisterByteStremHandler 메서드를 사용합니다.
+MediaElement 컨트롤은 기본적으로 부드러운 스트리밍 콘텐츠를 지원하지 않습니다. 부드러운 스트리밍 지원을 사용하도록 설정하려면 파일 이름 확장명과 MIME 형식으로 부드러운 스트리밍 바이트 스트림 처리기를 등록해야 합니다.  등록하려면 Windows.Media 네임스페이스의 MediaExtensionManager.RegisterByteStreamHandler 메서드를 사용합니다.
 
 이 XAML 파일에서는 일부 이벤트 처리기가 컨트롤과 연결되어 있습니다.  해당 이벤트 처리기를 정의해야 합니다.
 

@@ -4,7 +4,7 @@ description: Azure Active Directory와 Wdesk 간에 Single Sign-On을 구성하�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 06900a91-a326-4663-8ba6-69ae741a536e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 9ff4d38240bf44cdb3112730b6f6962feed09a6a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ee4e81d0af1648aa4ee61501c231585cf0b1cbfa
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444439"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811777"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>자습서: Wdesk와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ Wdesk를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 - 사용자가 해당 Azure AD 계정으로 Wdesk에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -108,15 +108,15 @@ Wdesk에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
  
     ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_samlbase.png)
 
-1. **Wdesk 도메인 및 URL** 섹션에서 **IDP 시작 모드**로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+1. **Wdesk 도메인 및 URL** 섹션에서 **IDP 시작 모드**로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_url.png)
 
     a. **식별자** 텍스트 상자에서 `https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>` 패턴을 사용하여 URL을 입력합니다.
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<subdomain>.wdesk.com/auth/saml/sp/consumer/<instancename>`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<subdomain>.wdesk.com/auth/saml/sp/consumer/<instancename>`
 
-1. **고급 URL 설정 표시**를 선택합니다. **SP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+1. **고급 URL 설정 표시**를 선택합니다. **SP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_url1.png)
 
@@ -153,7 +153,7 @@ Wdesk에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
       a. **로그인 URL**을 복사한 후 Azure Portal의 **로그온 URL** 텍스트 상자에 붙여 넣습니다.
    
-      나. **메타데이터 URL**을 복사한 후 Azure Portal의 **식별자** 텍스트 상자에 붙여 넣습니다.
+      b. **메타데이터 URL**을 복사한 후 Azure Portal의 **식별자** 텍스트 상자에 붙여 넣습니다.
        
       다. **소비자 URL**을 복사한 후 Azure Portal의 **회신 URL** 텍스트 상자에 붙여 넣습니다.
    
@@ -168,7 +168,7 @@ Wdesk에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
     ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
@@ -195,7 +195,7 @@ Wdesk에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -228,7 +228,7 @@ Azure AD 사용자가 Wdesk에 로그인할 수 있도록 하려면 Wdesk로 프
  
     a. **전자 메일** 텍스트 상자에 **brittasimon@contoso.com** 와 같은 사용자의 전자 메일 주소를 입력합니다.
 
-    나. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.
+    b. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.
 
     다. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
 
@@ -271,13 +271,13 @@ Azure AD 사용자가 Wdesk에 로그인할 수 있도록 하려면 Wdesk로 프
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 Wdesk 타일을 클릭하면 Wdesk 애플리케이션에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [Azure 시작](../user-help/active-directory-saas-access-panel-introduction.md)을 참조하세요.
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

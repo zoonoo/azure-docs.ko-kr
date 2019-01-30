@@ -1,10 +1,10 @@
 ---
-title: '자습서: TimeLive와 Azure Active Directory 통합 | Microsoft 문서'
+title: '자습서: TimeLive와 Azure Active Directory 통합 | Microsoft Docs'
 description: Azure Active Directory 및 TimeLive 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 34123629-4ad5-465c-a4c1-8299f857e720
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 26e70abc336b7cb13342873784aa2cb4048a47d9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e9be0417e56339fa5c56a72c1b2bd27d5f955ea4
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437324"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820753"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timelive"></a>자습서: TimeLive와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ TimeLive의 Azure AD 통합을 구성하려면 갤러리의 TimeLive를 관리�
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -112,7 +112,7 @@ TimeLive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://domainname.livetecs.com/`
 
-    나. **식별자** 텍스트 상자에서 `https://domainname.livetecs.com/` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://domainname.livetecs.com/` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 로그온 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [TimeLive 클라이언트 지원 팀](mailto:support@livetecs.com)에 문의하세요. 
@@ -135,13 +135,13 @@ TimeLive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![TimeLive 구성](./media/timelive-tutorial/configure1.png)
 
-1. **응용 프로그램 기본 설정** 섹션에서 다음 단계를 수행합니다.
+1. **애플리케이션 기본 설정** 섹션에서 다음 단계를 수행합니다.
     
     ![TimeLive 구성](./media/timelive-tutorial/configure2.png)
 
     a. **보안** 탭을 선택합니다.
 
-    나. **SSO(Single Sign-On) 사용** 확인란을 선택합니다.
+    b. **SSO(Single Sign-On) 사용** 확인란을 선택합니다.
 
     다. **SSO(Single Sign-On)를 사용하여 로그인**이라는 제목의 드롭 다운 메뉴에서 **SAML**을 선택합니다.
 
@@ -154,7 +154,7 @@ TimeLive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     g. **업데이트**를 클릭합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -232,7 +232,7 @@ TimeLive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/18/2019
 ms.author: raynew
-ms.openlocfilehash: b6713eabec62b1658b54dcb29231ddbfb2faceb7
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 7c01c8ec8c4957900688fed7ca09830f792a7886
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107501"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413416"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -112,7 +112,8 @@ SUSE Linux Enterprise Server 12(SP1,SP2,SP3) | [9.18][9.18 UR] | SP1 3.12.49-11-
 다중 큐 블록 IO 디바이스 | 지원되지 않습니다.
 HP CCISS 저장소 컨트롤러가 있는 물리적 서버 | 지원되지 않습니다.
 디바이스/탑재 지점 명명 규칙 | 디바이스 이름과 탑재 지점 이름은 고유해야 합니다. 대/소문자만 다른 두 개의 디바이스/탑재 지점 이름이 없어야 합니다. </br> 예제: 동일한 가상 머신의 디바이스 이름 두 개를 *device1*과 *Device1*로 지정하는 것이 허용되지 않습니다.
-디렉터리 | [9.20 버전](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) 이전 <br/> 1. /(root), /boot, /usr, /usr/local, /var, /etc 디렉터리는(별도의 파티션/파일 시스템으로 설정된 경우) 모두 원본 서버의 동일한 OS 디스크에 있어야 합니다.</br>2. /boot는 디스크 파티션에 있어야 하며 LVM 볼륨이 아니어야 합니다.<br/><br/> [9.20 버전](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)부터는 위의 제한이 적용되지 않습니다.
+디렉터리 | [9.20 버전](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) 이전 <br/> 1. /(root), /boot, /usr, /usr/local, /var, /etc 디렉터리는(별도의 파티션/파일 시스템으로 설정된 경우) 모두 원본 서버의 동일한 OS 디스크에 있어야 합니다.</br>2. /boot는 디스크 파티션에 있어야 하며 LVM 볼륨이 아니어야 합니다.<br/><br/> [9.20 버전](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)부터는 위의 제한이 적용되지 않습니다. 둘 이상의 디스크에 걸쳐 있는 LVM 볼륨의 /boot은 지원되지 않습니다.
+루트 디렉터리 | 한 가상 머신에 여러 부트 디스크가 있을 수 없습니다. <br/><br/> 부트 디스크가 없는 컴퓨터는 보호할 수 없습니다.
 
 사용 가능한 공간 요구 사항| /root 파티션에서 2GB <br/><br/> 설치 폴더 XFSv5에서 250MB | XFS 파일 시스템의 XFSv5 기능(예: 메타데이터 체크섬)은 모바일 서비스 버전 9.10 이상에서 지원됩니다. xfs_info 유틸리티를 사용하여 파티션에 대한 XFS 수퍼 블록을 확인합니다. ftype이 1로 설정되면 XFSv5 기능이 사용 중입니다.
 
@@ -157,6 +158,7 @@ Azure Virtual Network 서비스 엔드포인트<br/> (Azure Storage 방화벽 �
 ## <a name="storage"></a>Storage
 **구성 요소** | **지원됨**
 --- | ---
+동적 디스크 | 운영 체제 디스크는 기본 디스크여야 합니다. <br/><br/>데이터 디스크는 동적 디스크일 수 있습니다.
 호스트 NFS | VMware의 경우 예<br/><br/> 물리적 서버의 경우 아니요
 호스트 SAN(iSCSI/FC) | 예
 호스트 vSAN | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음

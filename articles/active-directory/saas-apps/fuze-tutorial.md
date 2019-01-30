@@ -1,10 +1,10 @@
 ---
-title: '자습서: Fuze와 Azure Active Directory 통합 | Microsoft 문서'
+title: '자습서: Fuze와 Azure Active Directory 통합 | Microsoft Docs'
 description: Azure Active Directory와 Fuze 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 9780b4bf-1fd1-48c1-9ceb-f750225ae08a
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 6a3fa8db14f2b155a471fd42d0d20ccf543fdbba
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 2fdad7df43310132684eae983eae2278629a9b63
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115758"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810196"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuze"></a>자습서: Fuze와 Azure Active Directory 통합
 
@@ -207,7 +207,7 @@ Fuze 애플리케이션은 사용자가 로그인하면 자동으로 생성될 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

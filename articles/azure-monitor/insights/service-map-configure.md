@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: ea1c44d95dfb00fdb2b0af9e5cd8560fdee3d361
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 808fe41928a99ffc797c96a02305d81765318780
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231345"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381661"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure에서 서비스 맵 구성
 서비스 맵은 Windows 및 Linux 시스템에서 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 이것을 사용하여 서버를 생각한 것처럼(중요한 서비스를 제공하는 상호 연결된 시스템으로) 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
@@ -210,7 +210,7 @@ VM에 Dependency Agent가 설치되어 있는지 확인하는 것보다 더 쉬�
 "apiVersion": "2017-03-30",
 "location": "[resourceGroup().location]",
 "dependsOn": [
-"[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+    "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
 ],
 "properties": {
     "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
@@ -305,32 +305,32 @@ DSC(필요한 상태 구성)를 통해 Dependency Agent를 배포하려면 xPSDe
 ```
 configuration ServiceMap {
 
-Import-DscResource -ModuleName xPSDesiredStateConfiguration
+    Import-DscResource -ModuleName xPSDesiredStateConfiguration
 
-$DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
+    $DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
 
-Node localhost
-{ 
-    # Download and install the Dependency agent
-    xRemoteFile DAPackage 
+    Node localhost
     {
-        Uri = "https://aka.ms/dependencyagentwindows"
-        DestinationPath = $DAPackageLocalPath
-    }
+        # Download and install the Dependency agent
+        xRemoteFile DAPackage 
+        {
+            Uri = "https://aka.ms/dependencyagentwindows"
+            DestinationPath = $DAPackageLocalPath
+        }
 
-    xPackage DA
-    {
-        Ensure="Present"
-        Name = "Dependency Agent"
-        Path = $DAPackageLocalPath
-        Arguments = '/S'
-        ProductId = ""
-        InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
-        InstalledCheckRegValueName = "DisplayName"
-        InstalledCheckRegValueData = "Dependency Agent"
-        DependsOn = "[xRemoteFile]DAPackage"
+        xPackage DA
+        {
+            Ensure="Present"
+            Name = "Dependency Agent"
+            Path = $DAPackageLocalPath
+            Arguments = '/S'
+            ProductId = ""
+            InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
+            InstalledCheckRegValueName = "DisplayName"
+            InstalledCheckRegValueData = "Dependency Agent"
+            DependsOn = "[xRemoteFile]DAPackage"
+        }
     }
-  }
 }
 ```
 
@@ -387,7 +387,7 @@ Microsoft Dependency Agent는 Microsoft Visual Studio 런타임 라이브러리�
 
 * 서버에서 Log Analytics로 로그 및 perf 데이터를 보내고 있나요? [로그 검색]으로 이동하여 컴퓨터에 대해 다음 쿼리를 실행합니다. 
 
-        Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
+    Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
 
 결과에서 다양한 이벤트를 얻었나요? 최근 데이터인가요? 그렇다면 Log Analytics 에이전트가 올바르게 작동하고 Log Analytics와 통신하고 있습니다. 그렇지 않으면 [Windows용 Log Analytics 에이전트 문제 해결](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) 또는 [Linux용 Log Analytics 에이전트 문제 해결](../../azure-monitor/platform/agent-linux-troubleshoot.md)을 참조하여 서버의 에이전트를 확인합니다.
 

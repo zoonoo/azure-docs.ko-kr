@@ -4,7 +4,7 @@ description: Azure Active Directory 및 Inkling 간에 Single Sign-On을 구성�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 64c7ee45-ee8a-42f7-bf04-fd0e00833ea9
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 339c924fc03faddae6326b79cc376b59c567829e
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 31e00c5810e33433d58820f4db300b935ad7baaf
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116558"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811284"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-inkling"></a>자습서: Inkling과 Azure Active Directory 통합
 
@@ -227,7 +227,7 @@ Inkling에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

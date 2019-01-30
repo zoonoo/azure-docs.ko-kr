@@ -4,7 +4,7 @@ description: Azure Active Directory 및 Weekdone 간에 Single Sign-On을 구성
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 34921f9a-5637-4420-ab4c-9beb34421909
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 7f7946ece91013696969dafda17b02c972f4b780
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 869deb1b68d30041b6780151a5712099982bd9b7
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230406"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807952"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-weekdone"></a>자습서: Weekdone과 Azure Active Directory 통합
 
@@ -106,7 +106,7 @@ Weekdone에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
  
     ![Configure Single Sign-On](./media/weekdone-tutorial/tutorial_weekdone_samlbase.png)
 
-3. **Weekdone 도메인 및 URL** 섹션에서 **IDP 시작 모드**로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+3. **Weekdone 도메인 및 URL** 섹션에서 **IDP 시작 모드**로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/weekdone-tutorial/tutorial_weekdone_url1.png)
 
@@ -115,9 +115,9 @@ Weekdone에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     > [!NOTE]
     > 동일한 URL을 사용하여 weekdone의 메타데이터 파일을 검색할 수 있습니다.
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://weekdone.com/a/<tenantname>`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://weekdone.com/a/<tenantname>`
 
-4. **고급 URL 설정 표시**를 선택합니다. **SP** 시작 모드에서 응용 프로그램을 구성하려면:
+4. **고급 URL 설정 표시**를 선택합니다. **SP** 시작 모드에서 애플리케이션을 구성하려면:
 
     ![Configure Single Sign-On](./media/weekdone-tutorial/tutorial_weekdone_url2.png)
 
@@ -165,7 +165,7 @@ Weekdone에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -219,7 +219,7 @@ Weekdone에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

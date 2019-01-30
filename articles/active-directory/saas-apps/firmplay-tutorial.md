@@ -4,7 +4,7 @@ description: Azure Active Directory 및 FirmPlay - Employee Advocacy for Recruit
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: a6799629-7546-43f8-a966-956db32864b1
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-ms.openlocfilehash: abc29480e5f5531857cbf973d5386727c3d7f2ac
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 929494d5d802dbc545c750386a286029c4bf962d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114531"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809805"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>자습서: FirmPlay - Employee Advocacy for Recruiting과 Azure Active Directory 통합
 
@@ -95,7 +95,7 @@ FirmPlay - Employee Advocacy for Recruiting에서 Azure AD Single Sign-On을 구
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 1. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
-1. **[FirmPlay - Employee Advocacy for Recruiting 테스트 사용자 만들기](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)**  - FirmPlay: Employee Advocacy for Recruiting에서 Azure AD 담당자와 연결된 Britta Simon에 해당하는 사용자가 있어야 합니다.
+1. **[FirmPlay - Employee Advocacy for Recruiting 테스트 사용자 만들기](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)** - FirmPlay에서 Britta Simon에 해당하는 사용자 해당 사용자의 Azure AD 표현에 연결된 Employee Advocacy for Recruiting.
 1. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 1. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
@@ -237,7 +237,7 @@ FirmPlay - Employee Advocacy for Recruiting에서 Azure AD Single Sign-On을 구
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

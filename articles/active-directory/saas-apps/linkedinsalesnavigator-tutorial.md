@@ -4,7 +4,7 @@ description: Azure Active Directory와 LinkedInSalesNavigator 간에 Single Sign
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 7a9fa8f3-d611-4ffe-8d50-04e9586b24da
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: f0e34a614251cf11c9547d749fef58dfa8ca623a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b4a30259c4aa00530e5aadd2cb98c19b63bd5d8a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425200"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817030"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>자습서: LinkedIn Sales Navigator와 Azure Active Directory 통합
 
@@ -124,15 +124,15 @@ LinkedIn Sales Navigator에서 Azure AD Single Sign-On을 구성하고 테스트
 
     a. **식별자** 텍스트 상자에 LinkedIn 포털에서 복사한 **엔티티 ID**를 입력합니다. 
 
-    나. **회신 URL** 텍스트 상자에 LinkedIn 포털에서 복사한 **ACS(Assertion Consumer Access) URL**을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 LinkedIn 포털에서 복사한 **ACS(Assertion Consumer Access) URL**을 입력합니다.
 
-1. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 선택하세요.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 선택하세요.
 
     ![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url2.png)
 
     **로그온 URL** 텍스트 상자에 다음 패턴으로 값을 입력합니다. `https://www.linkedin.com/checkpoint/enterprise/login/<account id>?application=salesNavigator` 
 
-1. **LinkedIn Sales Navigator** 응용 프로그램은 특정 형식의 SAML 어설션이 필요하기 때문에 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷은 예제를 보여 줍니다. **사용자 ID**의 기본값은 **user.userprincipalname**이지만 LinkedIn Sales Navigator에는 이것이 사용자의 메일 주소와 매핑되어야 합니다. 목록에서 **user.mail** 특성을 사용하거나 조직 구성을 기반으로 적절한 특성 값을 사용할 수 있습니다. 
+1. **LinkedIn Sales Navigator** 애플리케이션에는 특정 형식의 SAML 어설션이 필요하기 때문에 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷은 예제를 보여 줍니다. **사용자 ID**의 기본값은 **user.userprincipalname**이지만 LinkedIn Sales Navigator에는 이것이 사용자의 메일 주소와 매핑되어야 합니다. 목록에서 **user.mail** 특성을 사용하거나 조직 구성을 기반으로 적절한 특성 값을 사용할 수 있습니다. 
 
     ![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/updateusermail.png)
     
@@ -140,7 +140,7 @@ LinkedIn Sales Navigator에서 Azure AD Single Sign-On을 구성하고 테스트
 
     | 특성 이름 | 특성 값 |
     | --- | --- |    
-    | email| user.mail |
+    | 이메일| user.mail |
     | department| user.department |
     | firstname| user.givenname |
     | lastname| user.surname |
@@ -153,7 +153,7 @@ LinkedIn Sales Navigator에서 Azure AD Single Sign-On을 구성하고 테스트
     
     ![Azure AD 테스트 사용자 만들기](./media/linkedinsalesnavigator-tutorial/tutorial_attribute_05.png)
    
-    나. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
     
     다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
     
@@ -165,7 +165,7 @@ LinkedIn Sales Navigator에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/url_update.png)
 
-    나. **네임스페이스**에서 URL 값을 삭제합니다.
+    b. **네임스페이스**에서 URL 값을 삭제합니다.
     
     다. **확인**을 클릭하여 설정을 저장합니다.
 
@@ -187,7 +187,7 @@ LinkedIn Sales Navigator에서 Azure AD Single Sign-On을 구성하고 테스트
 
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -215,7 +215,7 @@ LinkedIn Sales Navigator에서 Azure AD Single Sign-On을 구성하고 테스트
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -261,12 +261,12 @@ LinkedIn Sales Navigator 애플리케이션이 JIT(Just-in-time) 사용자 프�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 LinkedIn Sales Navigator 타일을 클릭하면 개인 LinkedIn 계정 세부 정보를 제공해야 하는 조직 페이지로 리디렉션됩니다. 개인 계정이 LinkedIn 비즈니스 계정과 연결됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에서 LinkedIn Sales Navigator 타일을 클릭하면 개인 LinkedIn 계정 세부 정보를 제공해야 하는 조직 페이지로 리디렉션됩니다. 개인 계정이 LinkedIn 비즈니스 계정과 연결됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

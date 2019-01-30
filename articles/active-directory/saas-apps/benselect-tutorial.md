@@ -4,7 +4,7 @@ description: Azure Active Directory 및 BenSelect 간에 Single Sign-On을 구�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: ffa17478-3ea1-4356-a289-545b5b9a4494
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 9af2de667085ef736c3ae37b75e3c67981161267
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8fd01dc9757d358a33dae0d053e560af647652c9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434281"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809720"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benselect"></a>자습서: BenSelect와 Azure Active Directory 통합
 
@@ -75,7 +75,7 @@ BenSelect의 Azure AD 통합을 구성하려면 갤러리의 BenSelect를 관리
 
     ![Azure AD 테스트 사용자 만들기](./media/benselect-tutorial/tutorial_benselect_search.png)
 
-1. 결과 패널에서 **BenSelect**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **BenSelect**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/benselect-tutorial/tutorial_benselect_addfromgallery.png)
 
@@ -96,11 +96,11 @@ BenSelect에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 BenSelect 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 BenSelect 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **BenSelect에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **BenSelect** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **BenSelect** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -129,7 +129,7 @@ BenSelect에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **사용자 ID** 드롭다운 목록에서 **ExtractMailPrefix**를 선택합니다.
 
-    나. **전자 메일** 드롭다운 목록에서 **user.userprincipalname**을 선택합니다.
+    b. **전자 메일** 드롭다운 목록에서 **user.userprincipalname**을 선택합니다.
 
 1. **저장** 단추를 클릭합니다.
 
@@ -145,7 +145,7 @@ BenSelect에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
    >app2101 등과 같은 해당 서버에서 SSO를 설정할 수 있도록 이 통합에 SHA256 알고리즘(SHA1은 지원되지 않음)이 필요하다는 내용을 언급해야 합니다. 
    
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
@@ -172,7 +172,7 @@ BenSelect에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -216,12 +216,12 @@ BenSelect에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD SSO 구성을 테스트합니다.
 
-액세스 패널에서 BenSelect 타일을 클릭하면 BenSelect 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 BenSelect 타일을 클릭하면 BenSelect 애플리케이션에 자동으로 로그온됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

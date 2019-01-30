@@ -4,7 +4,7 @@ description: Azure Active Directory 및 CloudPassage 간에 Single Sign-On을 �
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: bfe1f14e-74e4-4680-ac9e-f7355e1c94cc
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: c44b9345da32f907efacfe2b7bb1cf09de0a6345
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 10ef9e0c07f6bad393fdb62de85456483284a998
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427536"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821314"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloudpassage"></a>자습서: CloudPassage와 Azure Active Directory 통합
 
@@ -114,7 +114,7 @@ CloudPassage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://portal.cloudpassage.com/saml/init/accountid`
 
-    나. **회신 URL** 텍스트 상자에 `https://portal.cloudpassage.com/saml/consume/accountid` 패턴으로 URL을 입력합니다. CloudPassage 포털의 **Single Sign-On 설정** 섹션에서 **SSO 설치 설명서**를 클릭하여 이 특성의 값을 가져올 수 있습니다.
+    b. **회신 URL** 텍스트 상자에 `https://portal.cloudpassage.com/saml/consume/accountid` 패턴으로 URL을 입력합니다. CloudPassage 포털의 **Single Sign-On 설정** 섹션에서 **SSO 설치 설명서**를 클릭하여 이 특성의 값을 가져올 수 있습니다.
 
     ![Configure Single Sign-On](./media/cloudpassage-tutorial/tutorial_cloudpassage_05.png)
      
@@ -135,7 +135,7 @@ CloudPassage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     | --- | --- |
     | firstname |user.givenname |
     | lastname |user.surname |
-    | email |user.mail |
+    | 이메일 |user.mail |
     
     a. **특성 추가**를 클릭하여 **특성 추가** 대화 상자를 엽니다.
 
@@ -143,7 +143,7 @@ CloudPassage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     
     ![Configure Single Sign-On](./media/cloudpassage-tutorial/tutorial_attribute_05.png)
     
-    나. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
 
     다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
     
@@ -173,9 +173,9 @@ CloudPassage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     a. **SSO(Single Sign-On) 사용(SSO 설치 설명서)** 확인란을 선택합니다.
     
-    나. **SAML 엔터티 ID**를 **SAML 발급자 URL** 텍스트 상자에 붙여넣습니다.
+    b. **SAML 엔터티 ID**를 **SAML 발급자 URL** 텍스트 상자에 붙여넣습니다.
   
-    다. **SAML Single Sign-On 서비스 URL**을 **SAML 끝점 URL** 텍스트 상자에 붙여 넣습니다.
+    다. **SAML Single Sign-On 서비스 URL**을 **SAML 엔드포인트 URL** 텍스트 상자에 붙여 넣습니다.
   
     d. **로그아웃 URL**을 **로그아웃 방문 페이지** 텍스트 상자에 붙여 넣습니다.
   
@@ -184,7 +184,7 @@ CloudPassage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     f. **저장**을 클릭합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
@@ -211,7 +211,7 @@ CloudPassage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -239,7 +239,7 @@ CloudPassage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     
     a. **이름** 텍스트 상자에 Britta를 입력합니다. 
   
-    나. **성** 텍스트 상자에 Simon을 입력합니다.
+    b. **성** 텍스트 상자에 Simon을 입력합니다.
   
     다. **사용자 이름** 텍스트 상자, **전자 메일** 텍스트 상자 및 **전자 메일 다시 입력** 텍스트 상자에 Azure AD의 Britta 사용자 이름을 입력합니다.
   
@@ -286,7 +286,7 @@ CloudPassage에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

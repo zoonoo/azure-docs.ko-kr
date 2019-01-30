@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 451480f5046d5ed8a1bd7262fd8f6a800e66dfc7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e2b08dbbeb078a4e139400112e9cdd9416878214
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582499"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54383011"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -35,7 +35,6 @@ ms.locfileid: "52582499"
 
 트래픽 분석을 사용하려면 계정이 다음 중 하나를 충족해야 합니다.
 
-- 구독 수준에서 계정 관리자, 서비스 관리자 또는 공동 관리자 역할 중 하나에 계정이 할당되어야 합니다.
 - 구독 범위에서 RBAC(역할 기반 액세스 제어) 역할인 소유자, 참가자, 독자 또는 네트워크 참가자 중 하나가 계정에 있어야 합니다.
 - 계정이 이전에 나열된 역할 중 하나에 할당되지 않은 경우, 구독 수준에서 다음 작업이 할당된 사용자 지정 역할에 할당되어야 합니다.
             
@@ -61,7 +60,7 @@ ms.locfileid: "52582499"
 출력이 표시되지 않으면 각 구독 관리자에게 문의하여 명령을 실행할 권한을 얻으세요. 자세한 내용은 [Azure PowerShell을 사용하여 역할 기반 액세스 제어 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)를 참조하세요.
 
 
-## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>트래픽 분석을 사용할 수 있는 Azure 지역은 어디인가요?
+## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>트래픽 분석을 사용할 수 있는 Azure 지역은 어디인가요?
 
 지원되는 다음 지역 중 하나에서 NSG용 트래픽 분석을 사용할 수 있습니다.
 - 캐나다 중부
@@ -133,7 +132,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 대시보드에 처음으로 항목이 표시될 때까지 최대 30분이 걸릴 수 있습니다. 솔루션에서 의미 있는 인사이트를 얻는 데 필요한 데이터를 충분히 수집한 후에야 보고서가 생성됩니다. 
 
-## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>다음 메시지가 표시되면 어떻게 하나요? “이 작업 영역에서 선택한 시간 간격의 데이터를 찾을 수 없습니다. 시간 간격을 변경하거나 다른 작업 영역을 선택해 보세요.”
+## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>다음 메시지가 표시되면 어떻게 하나요? “선택한 시간 간격에 대해 이 작업 영역의 데이터를 찾을 수 없습니다. 시간 간격을 변경하거나 다른 작업 영역을 선택해 보세요.”
 
 다음 옵션을 시도해 보세요.
 - 위쪽 메뉴에서 시간 간격을 변경합니다.

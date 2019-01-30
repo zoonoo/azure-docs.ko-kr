@@ -4,7 +4,7 @@ description: Azure Active Directory 및 SpaceIQ 간에 Single Sign-On을 구성�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 5b55ae29-491f-401f-9299-d3a6b64a1b99
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 515b89502a9794671c1086b9dc537cdac9779f79
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f9516cafc09b560b8c111d822aae8a26a04e4dc2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447890"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826924"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spaceiq"></a>자습서: SpaceIQ와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ SpaceIQ의 Azure AD 통합을 구성하려면 갤러리의 SpaceIQ를 관리되�
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -72,7 +72,7 @@ SpaceIQ의 Azure AD 통합을 구성하려면 갤러리의 SpaceIQ를 관리되�
 
     ![새 애플리케이션 단추][3]
 
-1. 검색 상자에 **SpaceIQ**를 입력하고 결과 패널에서 **SpaceIQ**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에 **SpaceIQ**를 입력하고, 결과 패널에서 **SpaceIQ**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 SpaceIQ](./media/spaceiq-tutorial/tutorial_spaceiq_addfromgallery.png)
 
@@ -94,11 +94,11 @@ SpaceIQ에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 SpaceIQ 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 SpaceIQ 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **SpaceIQ에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **SpaceIQ** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **SpaceIQ** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -112,7 +112,7 @@ SpaceIQ에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     a. **식별자** 텍스트 상자에 URL `https://api.spaceiq.com`을 입력합니다.
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://api.spaceiq.com/saml/<instanceid>/callback`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://api.spaceiq.com/saml/<instanceid>/callback`
 
     > [!NOTE] 
     > 자습서 뒷부분에 설명된 실제 회신 URL 및 식별자로 값을 업데이트합니다.
@@ -143,9 +143,9 @@ SpaceIQ에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![SAML 인증 설정](./media/spaceiq-tutorial/setting3.png)
 
-    a. **SAML 발급자 URL** 상자에 Azure AD 응용 프로그램 구성 창에서 복사한 **SAML 엔터티 ID** 값을 붙여넣습니다.
+    a. **SAML 발급자 URL** 상자에 Azure AD 애플리케이션 구성 창에서 복사한 **SAML 엔터티 ID** 값을 붙여넣습니다.
     
-    나. **SAML 콜백 끝점 URL(읽기 전용)** 값을 복사하여 SpaceIQ **도메인 및 URL** 섹션 아래, Azure Portal의 **회신 URL** 상자에 값을 붙여넣습니다.
+    b. **SAML 콜백 엔드포인트 URL(읽기 전용)** 값을 복사하여 SpaceIQ **도메인 및 URL** 섹션 아래, Azure Portal의 **회신 URL** 상자에 값을 붙여넣습니다.
     
     다. **SAML 대상 URI(읽기 전용)** 값을 복사하여 SpaceIQ **도메인 및 URL** 섹션 아래, Azure Portal의 **식별자** 상자에 값을 붙여넣습니다.
 
@@ -154,7 +154,7 @@ SpaceIQ에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     e. **저장**을 클릭합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -190,7 +190,7 @@ SpaceIQ에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
   
 ### <a name="create-a-spaceiq-test-user"></a>SpaceIQ 테스트 사용자 만들기
 
-이 섹션에서는 SpaceIQ에서 Britta Simon이라는 사용자를 만듭니다. [SpaceIQ 지원 팀](mailto:eng@spaceiq.com)과 작업하여 SpaceIQ 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 SpaceIQ에서 Britta Simon이라는 사용자를 만듭니다. [SpaceIQ 지원 팀](mailto:eng@spaceiq.com) 과 작업하여 SpaceIQ 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -204,9 +204,9 @@ SpaceIQ에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **SpaceIQ**를 선택합니다.
+1. 애플리케이션 목록에서 **SpaceIQ**를 선택합니다.
 
-    ![응용 프로그램 목록의 SpaceIQ 링크](./media/spaceiq-tutorial/tutorial_spaceiq_app.png)  
+    ![애플리케이션 목록의 SpaceIQ 링크](./media/spaceiq-tutorial/tutorial_spaceiq_app.png)  
 
 1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -226,13 +226,13 @@ SpaceIQ에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 SpaceIQ 타일을 클릭하면 SpaceIQ 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 SpaceIQ 타일을 클릭하면 SpaceIQ 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 
