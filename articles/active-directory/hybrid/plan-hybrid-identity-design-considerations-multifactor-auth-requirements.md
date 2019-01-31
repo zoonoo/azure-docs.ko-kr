@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: a5fa005741d0ac320badc12c908fde3991291857
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 46101ccf5eaf47a29bf01c7adcac989cfe2cc638
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305102"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167396"
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 다단계 인증 요구 사항 확인
-모바일 시대에서는 사용자가 모든 디바이스에서 클라우드에 있는 데이터 및 응용 프로그램에 액세스하므로 정보 보호가 가장 중요한 일이 되었습니다.  보안 위반에 관한 뉴스 헤드라인이 매일 바뀌고 있습니다.  보안 위반을 완벽하게 방지하는 대책은 없지만, 다단계 인증을 통해 보안 위반을 방지하는 보안을 강화할 수 있습니다.
+모바일 시대에서는 사용자가 모든 디바이스에서 클라우드에 있는 데이터 및 애플리케이션에 액세스하므로 정보 보호가 가장 중요한 일이 되었습니다.  보안 위반에 관한 뉴스 헤드라인이 매일 바뀌고 있습니다.  보안 위반을 완벽하게 방지하는 대책은 없지만, 다단계 인증을 통해 보안 위반을 방지하는 보안을 강화할 수 있습니다.
 다단계 인증에 대한 조직 요구 사항을 평가하고 시작하세요. 즉 조직에서 보호하려고 하는 대상이 무엇인지 확인하세요.  이 평가는 조직의 사용자가 다단계 인증을 설정하고 사용할 수 있도록 하는 기술 요구 사항을 정의하기 위해 중요합니다.
 
 다음 질문에 답변하세요.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: fd3d1c464c6f2d4cbecd715db0689581ca141769
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 17f6971cfa2dcd8c8988edc063c89859abec5367
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654073"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468838"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -66,28 +66,3 @@ Kubernetes 대시보드가 표시되지 않으면 `kube-proxy` pod가 `kube-syst
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-problem"></a>업그레이드하거나 크기를 조정하려고 하는데 "메시지": "'imageReference' 속성을 변경할 수 없습니다." 오류가 표시됩니다.  이 문제를 어떻게 해결하나요?
 
 AKS 클러스터 내의 에이전트 노드에서 태그를 수정했기 때문에 이 오류가 발생하는 것일 수 있습니다. MC_* 리소스 그룹에서 태그 및 리소스의 기타 속성을 수정 및 삭제하면 예기치 않은 결과가 발생할 수 있습니다. AKS 클러스터의 MC_* 그룹 아래에서 리소스를 수정하면 SLO(서비스 수준 목표)가 중단됩니다.
-
-## <a name="how-do-i-renew-the-service-principal-secret-on-my-aks-cluster"></a>AKS 클러스터 내에서 서비스 주체 암호를 갱신하려면 어떻게 하나요?
-
-기본적으로 AKS 클러스터는 만료 시간이 1년인 서비스 주체로 만들어집니다. 만료 날짜가 가까워지면 자격 증명을 다시 설정하여 서비스 주체를 추가 기간 동안 연장할 수 있습니다.
-
-다음 예제에서는 아래의 단계를 수행합니다.
-
-1. [az aks show](/cli/azure/aks#az-aks-show) 명령을 사용하여 클러스터의 서비스 주체 ID를 가져옵니다.
-1. [az ad sp credential list](/cli/azure/ad/sp/credential#az-ad-sp-credential-list)를 사용하여 서비스 주체 클라이언트 비밀을 나열합니다.
-1. [az ad sp credential-reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) 명령을 사용하여 서비스 주체를 1년 더 연장합니다. AKS 클러스터가 올바르게 실행될 수 있게 서비스 주체 클라이언트 비밀을 동일하게 유지해야 합니다.
-
-```azurecli
-# Get the service principal ID of your AKS cluster.
-sp_id=$(az aks show -g myResourceGroup -n myAKSCluster \
-    --query servicePrincipalProfile.clientId -o tsv)
-
-# Get the existing service principal client secret.
-key_secret=$(az ad sp credential list --id $sp_id --query [].keyId -o tsv)
-
-# Reset the credentials for your AKS service principal and extend for one year.
-az ad sp credential reset \
-    --name $sp_id \
-    --password $key_secret \
-    --years 1
-```

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 11/30/2018
-ms.openlocfilehash: 7de4415dd332254c595b6687dfb9d8db01c42362
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 61a413fc0b27db66091c8e4a401de654455ebe7c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871715"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470997"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database 서비스 계층
 
@@ -41,7 +41,7 @@ Azure SQL Database는 인프라 오류의 경우에도 99.99%의 가용성을 �
 - Managed Instance의 저장소 크기는 32GB의 배수로 지정해야 합니다.
 - 단일 데이터베이스 크기는 10GB와 지원되는 최대 크기 사이에서 선택할 수 있습니다.
   - 표준 저장소의 경우, 크기는 10GB 증분 단위로 늘리거나 줄입니다.
-  - 프리미엄 저장소의 경우, 크기는 250GB 증분 단위로 늘리거나 줄입니다.
+  - Premium Storage의 경우, 크기는 250GB 증분 단위로 늘리거나 줄입니다.
 - 범용 서비스 계층의 경우 `tempdb`에서 연결형 SSD를 사용하며, 이 저장소의 비용이 vCore 가격에 포함됩니다.
 - 중요 비즈니스 서비스 계층의 경우 `tempdb`에서 MDF 및 LDF 파일이 포함된 연결형 SSD를 공유하며, tempDB 저장소의 비용이 vCore 가격에 포함됩니다.
 

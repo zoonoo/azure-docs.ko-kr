@@ -7,7 +7,7 @@ author: barbkess
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 1c3d4c12af6321643c6ed916c9ae6541f902fd24
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: a3fe327113a62ad35dcc1843b00eb40cefdfb38c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468769"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161633"
 ---
 # <a name="problem-using-self-service-application-access"></a>셀프 서비스 애플리케이션 액세스를 사용할 때 발생하는 문제
 

@@ -6,16 +6,16 @@ author: acomet
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 4ef64b9d4e4e5c7f5a628359a8512dcb61b9c941
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: cede105f0bff9a65f88e06467e4d13419d389f04
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43245896"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461562"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 치트 시트
 이 치트 시트는 Azure SQL Data Warehouse 솔루션을 구축하는 데 유용한 팁과 모범 사례를 제공합니다. 시작하기 전에 [Azure SQL Data Warehouse 작업 패턴 및 안티 패턴](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns)을 참조하여 각 단계에 대해 자세히 알아보세요. 이러한 패턴은 SQL Data Warehouse 정의 및 장단점에 대해 설명합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "43245896"
 
 ## <a name="data-migration"></a>데이터 마이그레이션
 
-먼저 [Azure Data Lake Store](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) 또는 Azure Blob 저장소에 데이터를 로드합니다. 그런 다음 PolyBase를 사용하여 준비 테이블의 SQL Data Warehouse에 데이터를 로드합니다. 다음 구성을 사용합니다.
+먼저 [Azure Data Lake Store](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) 또는 Azure Blob Storage에 데이터를 로드합니다. 그런 다음 PolyBase를 사용하여 준비 테이블의 SQL Data Warehouse에 데이터를 로드합니다. 다음 구성을 사용합니다.
 
 | 디자인 | 권장 사항 |
 |:--- |:--- |
@@ -50,7 +50,7 @@ ms.locfileid: "43245896"
 
 테이블 속성에 따라 다음 전략을 사용합니다.
 
-| type | 적합한 대상| 유의해야 하는 경우|
+| Type | 적합한 대상| 유의해야 하는 경우|
 |:--- |:--- |:--- |
 | 복제됨 | • 압축 후 2GB 저장소 이하 별모양 스키마의 소형 차원 테이블(~5배 압축) |• 많은 쓰기 트랜잭션이 테이블에 있음(예: insert, upsert, delete, update)<br></br>• DWU(데이터 웨어하우스 단위) 프로비전이 자주 변경됨<br></br>• 2-3개 열만 사용하지만 테이블에 많은 열이 있음<br></br>• 복제된 테이블을 인덱싱 |
 | 라운드 로빈(기본값) | • 임시/준비 테이블<br></br> • 명백한 조인 키 또는 양호한 후보 열이 없음 |• 데이터 이동으로 인한 성능 저하 |
@@ -70,7 +70,7 @@ ms.locfileid: "43245896"
 
 인덱싱은 테이블을 빠르게 읽는 데 유용합니다. 필요에 따라 사용할 수 있는 고유한 기술 집합이 있습니다.
 
-| type | 적합한 대상 | 유의해야 하는 경우|
+| Type | 적합한 대상 | 유의해야 하는 경우|
 |:--- |:--- |:--- |
 | 힙 | • 준비/임시 테이블<br></br>• 작은 조회를 통한 소형 테이블 |• 전체 테이블을 검색하는 모두 조회 |
 | 클러스터형 인덱스 | • 최대 1억 개 행이 있는 테이블<br></br>• 1-2개 열만 많이 사용하는 대형 테이블(1억 개 이상의 행) |• 복제 테이블에서 사용됨<br></br>• 여러 Join, Group By 작업과 관련된 복잡한 쿼리가 있음<br></br>• 인덱싱된 열을 업데이트하고 메모리가 필요함 |

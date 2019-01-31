@@ -9,19 +9,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 253934d450619ca67e429fbf396a5fed5b71a267
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b5f2bee7ab0277b94da699be486594a602b94a29
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081866"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241704"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Azure에서 Linux CentOS 데이터 과학 Virtual Machine 프로비전
 
@@ -50,11 +50,11 @@ Linux 데이터 과학 Virtual Machine은 다양한 도구가 미리 설치되�
 
 1. 데이터 찾기, 로드 및 전처리
 1. 모델 빌드 및 테스트
-1. 지능형 응용 프로그램에서 사용하기 위해 모델 배포
+1. 지능형 애플리케이션에서 사용하기 위해 모델 배포
 
 데이터 과학자는 다양한 도구를 사용하여 이러한 태스크를 완료합니다. 소프트웨어의 적합한 버전을 찾은 다음 다운로드하여 컴파일하고 설치하는 데 시간이 상당히 걸릴 수 있습니다.
 
-Linux 데이터 과학 Virtual Machine을 사용하면 이러한 부담을 상당히 줄일 수 있습니다. Linux 데이터 과학 가상 컴퓨터를 사용하여 분석 프로젝트를 바로 시작합니다. R, Python, SQL, Java 및 C++ 등의 다양한 언어로 작업을 수행할 수 있습니다. Eclipse는 사용하기 쉬운 코드를 개발하고 테스트하기 위해 IDE를 제공합니다. VM에 포함된 Azure SDK를 통해 Linux의 다양한 서비스를 사용하여 Microsoft 클라우드 플랫폼용으로 응용 프로그램을 빌드할 수 있습니다. 또한 Ruby, Perl, PHP 및 node.js와 같이 미리 설치된 다른 언어에 액세스해야 합니다.
+Linux 데이터 과학 Virtual Machine을 사용하면 이러한 부담을 상당히 줄일 수 있습니다. Linux 데이터 과학 가상 컴퓨터를 사용하여 분석 프로젝트를 바로 시작합니다. R, Python, SQL, Java 및 C++ 등의 다양한 언어로 작업을 수행할 수 있습니다. Eclipse는 사용하기 쉬운 코드를 개발하고 테스트하기 위해 IDE를 제공합니다. VM에 포함된 Azure SDK를 통해 Linux의 다양한 서비스를 사용하여 Microsoft 클라우드 플랫폼용으로 애플리케이션을 빌드할 수 있습니다. 또한 Ruby, Perl, PHP 및 node.js와 같이 미리 설치된 다른 언어에 액세스해야 합니다.
 
 이 데이터 과학 VM 이미지에 대한 소프트웨어 요금은 부과되지 않습니다. VM 이미지로 프로비전하는 가상 머신의 크기를 기반으로 평가되는 Azure 하드웨어 사용 요금만 지불합니다. 계산 요금에 대한 자세한 내용은 [Azure Marketplace의 VM 목록 페이지](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/)를 참조하세요.
 
@@ -124,7 +124,7 @@ Linux VM은 이미 X2Go 서버에 프로비전되어 있어 클라이언트 연�
    * **미디어 탭**: 사운드 지원 및 클라이언트 인쇄를 사용하지 않으려면 해제할 수 있습니다.
    * **공유 폴더**: 클라이언트 머신의 디렉터리를 Linux VM에 탑재하려면 이 탭에서 VM과 공유하려는 클라이언트 머신 디렉터리를 추가합니다.
 
-X2Go 클라이언트를 통해 XFCE 그래픽 데스크톱 또는 SSH 클라이언트를 사용하여 VM에 로그인하고 나면 VM에 설치 및 구성된 도구를 사용할 수 있습니다. XFCE에는 다양한 도구에 대한 응용 프로그램 메뉴 바로 가기와 바탕 화면 아이콘이 표시됩니다.
+X2Go 클라이언트를 통해 XFCE 그래픽 데스크톱 또는 SSH 클라이언트를 사용하여 VM에 로그인하고 나면 VM에 설치 및 구성된 도구를 사용할 수 있습니다. XFCE에는 다양한 도구에 대한 애플리케이션 메뉴 바로 가기와 바탕 화면 아이콘이 표시됩니다.
 
 ## <a name="tools-installed-on-the-linux-data-science-virtual-machine"></a>Linux 데이터 과학 Virtual Machine에 설치된 도구
 ### <a name="microsoft-r-server"></a>Microsoft R 서버
@@ -154,7 +154,7 @@ Python 3.5는 */anaconda/envs/py35/bin*에 설치됩니다.
 
 Python 대화형 세션을 호출하려는 경우 셸에 **python** 만 입력하면 됩니다. 그래픽 인터페이스를 사용 중이거나 X11 전달이 설정된 경우 **pycharm**을 입력하면 PyCharm Python IDE를 시작할 수 있습니다.
 
-추가 Python 라이브러리를 설치하려면 sudo에서 ```conda``` 또는 ````pip```` 명령을 실행하고 Python 패키지 관리자(conda 또는 pip)의 전체 경로를 제공하여 올바른 Python 환경을 설치해야 합니다. 예: 
+추가 Python 라이브러리를 설치하려면 sudo에서 ```conda``` 또는 ```pip``` 명령을 실행하고 Python 패키지 관리자(conda 또는 pip)의 전체 경로를 제공하여 올바른 Python 환경을 설치해야 합니다. 예: 
 
     sudo /anaconda/bin/pip install <package> #pip for Python 2.7
     sudo /anaconda/envs/py35/bin/pip install <package> #pip for Python 3.5
@@ -182,7 +182,7 @@ Jupyter Notebook 서버는 Python 2, Python 3 및 R 커널을 사용하여 미�
 Python과 R로 각각 작성된 샘플 노트북이 패키지로 제공됩니다. 로컬 Linux 사용자 이름 및 암호를 사용하여 Jupyter Notebook에 인증하고 나면 노트북 홈페이지에서 샘플 링크를 확인할 수 있습니다. **새로 만들기**를 선택하고 적절한 언어 커널을 선택하여 새 Notebook을 만들 수 있습니다. **새로 만들기** 단추가 표시되지 않으면 왼쪽 위에서 **Jupyter** 아이콘을 클릭하여 Notebook 서버의 홈페이지로 이동합니다.
 
 ### <a name="apache-spark-standalone"></a>Apache Spark 독립 실행형 
-Apache Spark의 독립 실행형 인스턴스는 Linux DSVM에 미리 설치되어 대형 클러스터에서 테스트 및 배포하기 전에 먼저 Spark 응용 프로그램을 로컬로 개발하는 데 도움을 줍니다. Jupyter 커널을 통해 PySpark 프로그램을 실행할 수 있습니다. Jupyter를 열고 **New** 단추를 클릭하면 사용할 수 있는 커널의 목록이 표시됩니다. "Spark - Python"은 Python 언어를 사용하여 Spark 응용 프로그램을 빌드할 수 있도록 하는 PySpark 커널입니다. 또한 PyCharm 또는 Spyder와 같은 Python IDE를 사용하여 Spark 프로그램을 빌드할 수도 있습니다. 이는 독립 실행형 인스턴스이므로 Spark 스택은 호출 클라이언트 프로그램 내에서 실행합니다. 이렇게 하면 Spark 클러스터에서 개발에 비해 문제를 더 빠르고 쉽게 해결할 수 있습니다. 
+Apache Spark의 독립 실행형 인스턴스는 Linux DSVM에 미리 설치되어 대형 클러스터에서 테스트 및 배포하기 전에 먼저 Spark 애플리케이션을 로컬로 개발하는 데 도움을 줍니다. Jupyter 커널을 통해 PySpark 프로그램을 실행할 수 있습니다. Jupyter를 열고 **New** 단추를 클릭하면 사용할 수 있는 커널의 목록이 표시됩니다. "Spark - Python"은 Python 언어를 사용하여 Spark 애플리케이션을 빌드할 수 있도록 하는 PySpark 커널입니다. 또한 PyCharm 또는 Spyder와 같은 Python IDE를 사용하여 Spark 프로그램을 빌드할 수도 있습니다. 이는 독립 실행형 인스턴스이므로 Spark 스택은 호출 클라이언트 프로그램 내에서 실행합니다. 이렇게 하면 Spark 클러스터에서 개발에 비해 문제를 더 빠르고 쉽게 해결할 수 있습니다. 
 
 샘플 PySpark Notebook은 Jupyter($HOME/notebooks/SparkML/pySpark)의 홈 디렉터리에 있는 "SparkML" 디렉터리에서 찾을 수 있는 Jupyter에서 제공됩니다. 
 
@@ -198,14 +198,14 @@ Microsoft R Server에서 Spark 컨텍스트를 실행하기 전에 로컬 단일
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-필요하지 않을 때 ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn````을 실행하여 서비스와 관련된 Hadoop을 중지할 수 있습니다. 원격 Spark 컨텍스트(DSVM의 독립 실행형 Spark 인스턴스)에서 MRS를 개발 및 테스트하는 방법을 보여주는 샘플은 `/dsvm/samples/MRS` 디렉터리에서 제공되고 사용할 수 있습니다. 
+필요하지 않을 때 ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```을 실행하여 서비스와 관련된 Hadoop을 중지할 수 있습니다. 원격 Spark 컨텍스트(DSVM의 독립 실행형 Spark 인스턴스)에서 MRS를 개발 및 테스트하는 방법을 보여주는 샘플은 `/dsvm/samples/MRS` 디렉터리에서 제공되고 사용할 수 있습니다. 
 
 ### <a name="ides-and-editors"></a>IDE 및 편집기
 여러 코드 편집기 중에서 선택할 수 있습니다. vi/VIM, Emacs, gEdit, PyCharm, RStudio, Eclipse 및 IntelliJ를 포함합니다. gEdit, Eclipse, IntelliJ, RStudio 및 PyCharm은 그래픽 편집기이며 그래픽 데스크톱에 로그인해야 사용할 수 있습니다. 이러한 편집기는 데스크톱 및 애플리케이션 바로 가기 메뉴를 사용하여 시작할 수 있습니다.
 
 **VIM** 및 **Emacs**는 텍스트 기반 편집기입니다. Emacs의 경우 Emacs 편집기 내에서 R 작업을 쉽게 수행할 수 있도록 해주는 ESS(Emacs Speaks Statistics)라는 추가 기능 패키지가 설치되어 있습니다. 자세한 내용은 [ESS](http://ess.r-project.org/)를 참조하세요.
 
-**Eclipse** 는 다국어를 지원하는 확장형 오픈 소스 IDE입니다. Java 개발자 버전은 VM에 설치된 인스턴스입니다. 주요 언어에 사용할 수 있는 몇 가지 플러그 인을 설치하여 환경을 확장할 수 있습니다. 또한 **Eclipse용 Azure 도구 키트**라는 Eclipse에 플러그 인을 설치했습니다. Java와 같은 언어를 지원하는 Eclipse 개발 환경을 사용하여 Azure 응용 프로그램을 만들고 개발, 테스트 및 배포할 수 있습니다. 또한 Java 환경 내에서 다른 Azure 서비스에 액세스할 수 있는 **Java용 Azure SDK** 도 있습니다. Eclipse용 Azure 도구 키트에 대한 자세한 내용은 [Eclipse용 Azure 도구 키트](../../azure-toolkit-for-eclipse.md)를 참조하세요.
+**Eclipse** 는 다국어를 지원하는 확장형 오픈 소스 IDE입니다. Java 개발자 버전은 VM에 설치된 인스턴스입니다. 주요 언어에 사용할 수 있는 몇 가지 플러그 인을 설치하여 환경을 확장할 수 있습니다. 또한 **Eclipse용 Azure 도구 키트**라는 Eclipse에 플러그 인을 설치했습니다. Java와 같은 언어를 지원하는 Eclipse 개발 환경을 사용하여 Azure 애플리케이션을 만들고 개발, 테스트 및 배포할 수 있습니다. 또한 Java 환경 내에서 다른 Azure 서비스에 액세스할 수 있는 **Java용 Azure SDK** 도 있습니다. Eclipse용 Azure 도구 키트에 대한 자세한 내용은 [Eclipse용 Azure 도구 키트](../../azure-toolkit-for-eclipse.md)를 참조하세요.
 
 **LaTex**는 texlive 패키지를 통해 Emacs 추가 기능 [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) 패키지와 함께 설치되며 Emacs 내에서의 LaTex 문서 작성을 단순화합니다.  
 

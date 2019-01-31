@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.date: 07/08/2016
-ms.openlocfilehash: 9dd471f70407191734b4c5a3aa84d5365a7beab8
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 4ebd96613378bbd907beb5109343a2427b1300b0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125298"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095671"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 XML 간에 변환하는 맵 만들기
 
@@ -88,7 +88,7 @@ Visual Studio [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)�
 
   다음 예제에서는 "XslUtilitiesLib"라는 어셈블리를 참조하고 어셈블리에서 `circumreference` 메서드를 호출하는 맵을 보여줍니다.
 
-  ````xml
+  ```xml
   <?xml version="1.0" encoding="UTF-8"?>
   <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
   <msxsl:script language="C#" implements-prefix="user">
@@ -109,13 +109,13 @@ Visual Studio [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)�
      </circles>
     </xsl:template>
     </xsl:stylesheet>
-  ````
+  ```
 
 
 ### <a name="byte-order-mark"></a>바이트 순서 표시
 기본적으로 변환의 응답은 BOM(바이트 순서 표시)으로 시작됩니다. 이 기능은 코드 보기 편집기에서 작업하는 동안에만 액세스 할 수 있습니다. 이 기능을 사용하지 않도록 설정하려면 `transformOptions` 속성에 대해 `disableByteOrderMark`를 지정합니다.
 
-````json
+```json
 "Transform_XML": {
     "inputs": {
         "content": "@{triggerBody()}",
@@ -129,7 +129,7 @@ Visual Studio [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)�
     "runAfter": {},
     "type": "Xslt"
 }
-````
+```
 
 
 

@@ -8,13 +8,13 @@ ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-ms.component: disks
-ms.openlocfilehash: eec7b64836819f840702bb715f4fcc0573a94b00
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: disks
+ms.openlocfilehash: 07d26590799f169e8e252557287b5c7e0003ea87
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251852"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469416"
 ---
 # <a name="about-disks-storage-for-azure-linux-vms"></a>Azure Linux VM용 디스크 저장소 정보
 다른 컴퓨터와 마찬가지로, Azure에서 가상 머신은 운영 체제, 애플리케이션 및 데이터를 저장하는 장소로 디스크를 사용합니다. 모든 Azure 가상 머신은 적어도 2개의 디스크(Linux 운영 체제 디스크 및 임시 디스크)를 갖습니다. 운영 체제 디스크는 이미지에서 만들어지며, 운영 체제 디스크 및 이미지 모두는 Azure 저장소 계정에 저장된 VHD(가상 하드 디스크)입니다. 가상 머신에도 데이터 디스크가 있을 수 있으며 이러한 디스크도 VHD로 저장됩니다.

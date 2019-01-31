@@ -3,7 +3,7 @@ title: 병렬로 태스크를 실행하여 효율적으로 계산 리소스 사�
 description: Azure Batch 풀의 각 노드에서 동시 작업을 실행하고 더 적은 수의 계산 노드를 사용하여 효율성은 높이고 비용은 낮춥니다.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 538a067c-1f6e-44eb-a92b-8d51c33d3e1a
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c52c9fc6b47b03b3ca6db96decb8b4777577d00e
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 6c4fd63213eaaf402bd72b1754ba50a9ea35e965
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174244"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475434"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>동시에 태스크를 실행하여 Batch 계산 노드의 사용량 극대화 
 
@@ -126,7 +126,7 @@ Duration: 00:08:48.2423500
 
 ## <a name="next-steps"></a>다음 단계
 ### <a name="batch-explorer-heat-map"></a>Batch 탐색기 열 지도
-[Batch Explorer][batch_labs]는 Azure Batch 응용 프로그램을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Batch Explorer에는 작업 실행의 시각화를 제공하는 *열 지도* 기능이 포함되어 있습니다. [ParallelTasks][parallel_tasks_sample] 샘플 응용 프로그램을 실행할 때 열 지도 기능을 사용하면 각 노드에서 병렬 작업의 실행을 쉽게 시각화할 수 있습니다.
+[Batch Explorer][batch_labs]는 Azure Batch 응용 프로그램을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Batch Explorer에는 작업 실행의 시각화를 제공하는 *열 지도* 기능이 포함되어 있습니다. [ParallelTasks][parallel_tasks_sample] 샘플 애플리케이션을 실행할 때 열 지도 기능을 사용하면 각 노드에서 병렬 작업의 실행을 쉽게 시각화할 수 있습니다.
 
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx

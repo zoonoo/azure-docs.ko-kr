@@ -3,17 +3,17 @@ title: Azure Data Lake Storage Gen2 MapReduce 성능 튜닝 지침 | Microsoft D
 description: Azure Data Lake Storage Gen2의 MapReduce 성능 튜닝에 대한 지침입니다.
 services: storage
 author: swums
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 4ba683bc75ed841fc92eb2c9fcc908e419b716d6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0cd7ecdc6ee7b6ccd66c9d0d88ebef0a1220a40a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976871"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249115"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen2"></a>MapReduce on HDInsight 및 Azure Data Lake Storage Gen2에 대한 성능 튜닝 지침
 
@@ -43,7 +43,7 @@ MapReduce 작업을 실행할 때 Data Lake Storage Gen2의 성능을 향상시�
 ## <a name="guidance"></a>지침
 
 > [!NOTE]
-> 이 문서의 내용에서는 응용 프로그램이 클러스터에서 실행 중인 유일한 응용 프로그램이라고 가정합니다.
+> 이 문서의 내용에서는 애플리케이션이 클러스터에서 실행 중인 유일한 애플리케이션이라고 가정합니다.
 
 **1단계: 실행되는 작업 수 결정**
 
@@ -59,7 +59,7 @@ mapreduce.job.maps/mapreduce.job.reduces를 튜닝하려면 사용 가능한 YAR
 
     Total YARN memory = nodes * YARN memory per node
 
-비어 있는 클러스터를 사용 중인 경우 이 메모리가 클러스터의 총 YARN 메모리일 수 있습니다.  다른 응용 프로그램에서 메모리를 사용하고 있으면 매퍼 또는 리듀서 수를 사용하려는 컨테이너 수로 줄여서 클러스터 메모리 중에서 일부만 사용하도록 선택할 수 있습니다.  
+비어 있는 클러스터를 사용 중인 경우 이 메모리가 클러스터의 총 YARN 메모리일 수 있습니다.  다른 애플리케이션에서 메모리를 사용하고 있으면 매퍼 또는 리듀서 수를 사용하려는 컨테이너 수로 줄여서 클러스터 메모리 중에서 일부만 사용하도록 선택할 수 있습니다.  
 
 **4단계: YARN 컨테이너 수 계산**
 

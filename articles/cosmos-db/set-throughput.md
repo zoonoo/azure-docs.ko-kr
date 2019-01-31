@@ -1,19 +1,19 @@
 ---
-title: Azure Cosmos DB에 대한 처리량 프로비전
+title: Azure Cosmos 컨테이너 및 데이터베이스에 대한 처리량 프로비전
 description: Azure Cosmos DB 컨테이너 및 데이터베이스에 프로비전되는 처리량을 설정하는 방법을 알아봅니다.
 author: aliuy
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 3e992dd8ab24e4e60b81c6565ea4ec3971a9336b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cbcfaab7dc1b716b3978f1b19870d945e0eabf89
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036431"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459102"
 ---
-# <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Azure Cosmos 컨테이너 및 데이터베이스에 대한 처리량 프로비전
+# <a name="provision-throughput-on-containers-and-databases"></a>컨테이너 및 데이터베이스에 대한 처리량 프로비전
 
 Azure Cosmos 데이터베이스는 컨테이너 세트의 관리 단위입니다. 데이터베이스는 스키마 제약 없는 컨테이너의 집합으로 구성됩니다. Azure Cosmos 컨테이너는 처리량과 스토리지 모두에 대한 확장성 단위입니다. 컨테이너는 Azure 지역 내에 있는 머신 세트에 수평적으로 분할되고 Azure Cosmos 계정과 연결된 모든 Azure 지역에 분산됩니다.
 

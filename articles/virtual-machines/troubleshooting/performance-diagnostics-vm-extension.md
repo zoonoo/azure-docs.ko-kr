@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7037c0b4c1021ac7b91134fa429a774f600a774f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 3430ff2b292a3e5fe675c3a5f332a12a88d4bfbf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194167"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096792"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Windows용 Azure Performance Diagnostics VM 확장
 
@@ -123,7 +123,7 @@ Windows 가상 머신에서 확장을 설치하려면 다음 지침을 따릅니
 ## <a name="template-deployment"></a>템플릿 배포
 Azure Resource Manager 템플릿을 사용하여 Azure 가상 머신 확장을 배포할 수 있습니다. 이전 섹션에서 자세히 설명된 JSON 스키마는 Azure Resource Manager 템플릿에서 사용할 수 있습니다. 그러면 Azure Resource Manager 템플릿을 배포하는 동안 Azure 성능 진단 VM 확장을 실행합니다. 샘플 템플릿은 다음과 같습니다.
 
-````
+```
 {
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -207,14 +207,14 @@ Azure Resource Manager 템플릿을 사용하여 Azure 가상 머신 확장을 �
     }
   ]
 }
-````
+```
 
 ## <a name="powershell-deployment"></a>PowerShell 배포
 `Set-AzureRmVMExtension` 명령을 사용하여 Azure 성능 진단 VM 확장을 기존 가상 머신에 배포할 수 있습니다.
 
 PowerShell
 
-````
+```
 $PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z";"resourceId"="VMResourceId" }
 $ProtectedSettings = @{"storageAccountKey"="mystoragekey" }
 
@@ -227,7 +227,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
     -Location WestUS
-````
+```
 
 ## <a name="information-on-the-data-captured"></a>수집된 데이터에 대한 정보
 PerfInsights 도구는 선택한 시나리오에 따라 다양한 로그, 구성 및 진단 데이터를 수집합니다. 자세한 내용은 [PerfInsights 설명서](https://aka.ms/perfinsights)를 참조하세요.

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 236a4e4f79e6da89154e1e52bb9f45daf3a54d59
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: files
+ms.openlocfilehash: 82d1a83dfd96dd6d4c2b37567c745998a6f0cbdb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632046"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473513"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure 파일 공유 만들기 및 관리
 이 가이드에서는 Azure CLI를 사용하여 [Azure 파일 공유](storage-files-introduction.md)로 작업하는 기본 사항을 설명합니다. Azure 파일 공유는 다른 파일 공유와 유사하지만, 클라우드에 저장되고 Azure Platform에서 지원합니다. Azure 파일 공유는 산업 표준 SMB 프로토콜을 지원하며 여러 머신, 애플리케이션 및 인스턴스 전반에서 파일 공유를 활성화합니다. 
@@ -45,7 +45,7 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 저장소 계정은 Azure 파일 공유 또는 Blob이나 큐와 같은 다른 저장소 리소스를 배포할 수 있는 저장소의 공유 풀입니다. 저장소 계정에 포함될 수 있는 파일 공유 수에는 제한이 없습니다. 공유에 저장할 수 있는 파일 수에는 제한이 없으며, 저장소 계정의 최대 용량까지 저장할 수 있습니다.
 
-다음 예제에서는 [az storage account create](/cli/azure/storage/account#create) 명령을 사용하여 *mystorageaccount\<난수\>* 라는 저장소 계정을 만든 다음, 해당 저장소 계정의 이름을 `$STORAGEACCT` 변수에 배치합니다. 저장소 계정 이름은 고유해야 합니다. `$RANDOM`을 사용하여 고유하게 만들도록 저장소 계정 이름에 숫자를 추가합니다. 
+다음 예제에서는 [az storage account create](/cli/azure/storage/account#create) 명령을 사용하여 *mystorageaccount\<난수\>* 라는 스토리지 계정을 만든 다음, 해당 스토리지 계정의 이름을 `$STORAGEACCT` 변수에 배치합니다. 저장소 계정 이름은 고유해야 합니다. `$RANDOM`을 사용하여 고유하게 만들도록 저장소 계정 이름에 숫자를 추가합니다. 
 
 ```azurecli-interactive 
 STORAGEACCT=$(az storage account create \
@@ -57,7 +57,7 @@ STORAGEACCT=$(az storage account create \
 ```
 
 ### <a name="get-the-storage-account-key"></a>저장소 계정 키 가져오기
-저장소 계정 키는 저장소 계정에서 리소스에 대한 액세스를 제어합니다. 키는 저장소 계정을 만들 때 자동으로 만들어집니다. [az storage account keys list](/cli/azure/storage/account/keys#list) 명령을 사용하여 저장소 계정에 대한 저장소 계정 키를 가져올 수 있습니다. 
+저장소 계정 키는 저장소 계정에서 리소스에 대한 액세스를 제어합니다. 키는 저장소 계정을 만들 때 자동으로 만들어집니다. [az storage account keys list](/cli/azure/storage/account/keys#list) 명령을 사용하여 스토리지 계정에 대한 스토리지 계정 키를 가져올 수 있습니다. 
 
 ```azurecli-interactive 
 STORAGEKEY=$(az storage account keys list \
@@ -151,7 +151,7 @@ az storage file download \
 ```
 
 ### <a name="copy-files"></a>파일 복사
-일반적인 작업은 하나의 파일 공유에서 다른 파일 공유로 파일을 복사하거나 Azure Blob 저장소 컨테이너 간에 파일을 복사하는 것입니다. 이 기능을 보여주기 위해 새 공유를 만듭니다. [az storage file copy](/cli/azure/storage/file/copy) 명령을 사용하여 이 새 공유에 업로드한 파일을 복사합니다. 
+일반적인 작업은 하나의 파일 공유에서 다른 파일 공유로 파일을 복사하거나 Azure Blob Storage 컨테이너 간에 파일을 복사하는 것입니다. 이 기능을 보여주기 위해 새 공유를 만듭니다. [az storage file copy](/cli/azure/storage/file/copy) 명령을 사용하여 이 새 공유에 업로드한 파일을 복사합니다. 
 
 ```azurecli-interactive
 az storage share create \
@@ -184,7 +184,7 @@ az storage file list \
     --output table
 ```
 
-`az storage file copy start` 명령은 Azure 파일 공유와 Azure Blob 저장소 컨테이너 간에 파일 이동에 편리하지만 대규모 이동에 AzCopy를 사용하는 것이 좋습니다. (이동되는 파일의 수 또는 크기 측면에서) [Linux용 AzCopy](../common/storage-use-azcopy-linux.md) 및 [Windows용 AzCopy](../common/storage-use-azcopy.md)에 대해 자세히 알아봅니다. AzCopy는 로컬로 설치해야 합니다. AzCopy는 Cloud Shell에서 사용할 수 없습니다. 
+`az storage file copy start` 명령은 Azure 파일 공유와 Azure Blob Storage 컨테이너 간에 파일 이동에 편리하지만 대규모 이동에 AzCopy를 사용하는 것이 좋습니다. (이동되는 파일의 수 또는 크기 측면에서) [Linux용 AzCopy](../common/storage-use-azcopy-linux.md) 및 [Windows용 AzCopy](../common/storage-use-azcopy.md)에 대해 자세히 알아봅니다. AzCopy는 로컬로 설치해야 합니다. AzCopy는 Cloud Shell에서 사용할 수 없습니다. 
 
 ## <a name="create-and-manage-share-snapshots"></a>공유 스냅숏 만들기 및 관리
 Azure 파일 공유를 사용하여 수행할 수 있는 유용한 다른 작업은 공유 스냅숏을 만드는 것입니다. 스냅숏은 Azure 파일 공유의 지정 시간 복사본을 유지합니다. 공유 스냅숏은 이미 익숙한 다음과 같은 일부 운영 체제 기술과 비슷합니다.
@@ -284,7 +284,7 @@ az group delete --name "myResourceGroup"
         --delete-snapshots include
     ```
 
-- 저장소 계정 자체를 제거하려면 (이는 만든 Azure 파일 공유 및 Azure Blob 저장소 컨테이너와 같은 다른 저장소 리소스를 암시적으로 제거합니다.)
+- 저장소 계정 자체를 제거하려면 (이는 만든 Azure 파일 공유 및 Azure Blob Storage 컨테이너와 같은 다른 스토리지 리소스를 암시적으로 제거합니다.)
 
     ```azurecli-interactive
     az storage account delete \

@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bf4e65b95211fc03ea4a319fd4e503396b893522
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 3109c4e6190cd8e485ae9b28117c4688836dfc26
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135150"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470317"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Azure에서 Scala 및 Spark를 사용하는 데이터 과학
 이 문서에서는 Azure HDInsight Spark 클러스터에서 Spark 확장형 MLlib 및 SparkML 패키지를 사용하여 감독 기계 학습 작업에 대해 Scala를 사용하는 방법을 설명합니다. 또한 [데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): 데이터 수집 및 탐색, 시각화, 기능 엔지니어링, 모델링 및 모델 사용으로 이루어진 작업을 단계별로 안내합니다. 이 문서의 모델에는 두 가지 일반적인 감독 기계 학습 작업 외에 로지스틱 및 선형 회귀, 임의 포리스트 및 GBT(그라데이션 향상 트리)가 포함됩니다.
@@ -24,13 +24,13 @@ ms.locfileid: "53135150"
 * 회귀 문제: 택시 운행에 대한 팁 액수 예측($)
 * 이진 분류: 택시 운행에 대한 팁 또는 노팁(1/0) 예측
 
-모델링 프로세스에는 관련 정확도 메트릭을 통한 테스트 데이터 집합의 학습 및 평가가 필요합니다. 이 문서에서는 이러한 모델을 Azure Blob 저장소에 저장하고 예측 성능의 점수를 매기며 평가하는 방법을 설명합니다. 그뿐 아니라 교차 유효성 검사 및 하이퍼 매개 변수 스윕 작업을 사용하여 모델을 최적화하는 방법의 고급 항목도 포함되어 있습니다. 사용되는 데이터는 GitHub에서 사용할 수 있는 2013 NYC 택시 여정 및 요금 데이터 집합의 샘플입니다.
+모델링 프로세스에는 관련 정확도 메트릭을 통한 테스트 데이터 집합의 학습 및 평가가 필요합니다. 이 문서에서는 이러한 모델을 Azure Blob Storage에 저장하고 예측 성능의 점수를 매기며 평가하는 방법을 설명합니다. 그뿐 아니라 교차 유효성 검사 및 하이퍼 매개 변수 스윕 작업을 사용하여 모델을 최적화하는 방법의 고급 항목도 포함되어 있습니다. 사용되는 데이터는 GitHub에서 사용할 수 있는 2013 NYC 택시 여정 및 요금 데이터 집합의 샘플입니다.
 
 Java 가상 머신 기반 언어인 [Scala](http://www.scala-lang.org/)는 개체 지향 개념과 함수 언어 개념을 통합합니다. 클라우드의 분산형 처리 및 Azure Spark 클러스터에 실행하기에 적합한 확장형 언어입니다.
 
-[Spark](http://spark.apache.org/) 는 메모리 내 처리를 지원하여 빅 데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. 속도, 간편한 사용 및 정교한 분석을 위해 Spark 처리 엔진이 빌드되었습니다. Spark는 메모리 내 분산형 계산 기능을 지원하여 기계 학습 및 그래프 계산의 반복 알고리즘에 적합합니다. [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) 패키지는 DataFrames 맨 위에 빌드된 균일한 상위 수준 API 집합을 제공하여 사용자가 실제 기계 학습 파이프라인을 만들고 조정할 수 있도록 합니다. [MLlib](http://spark.apache.org/mllib/) 는 Spark의 확장형 기계 학습 라이브러리로, 분산형 환경에서 모델링 기능을 사용할 수 있습니다.
+[Spark](http://spark.apache.org/)는 메모리 내 처리를 지원하여 빅 데이터 분석 애플리케이션의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. 속도, 간편한 사용 및 정교한 분석을 위해 Spark 처리 엔진이 빌드되었습니다. Spark는 메모리 내 분산형 계산 기능을 지원하여 기계 학습 및 그래프 계산의 반복 알고리즘에 적합합니다. [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) 패키지는 DataFrames 맨 위에 빌드된 균일한 상위 수준 API 집합을 제공하여 사용자가 실제 기계 학습 파이프라인을 만들고 조정할 수 있도록 합니다. [MLlib](http://spark.apache.org/mllib/) 는 Spark의 확장형 기계 학습 라이브러리로, 분산형 환경에서 모델링 기능을 사용할 수 있습니다.
 
-[HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md)는 Azure에서 호스트하는 오픈 소스 Spark의 제품입니다. 또한 Azure Blob 저장소에 저장된 데이터를 변환, 필터링 및 시각화하기 위해 Spark SQL 대화형 쿼리를 실행할 수 있는 Spark 클러스터 상의 Jupyter Scala Notebook에 대한 지원도 포함하고 있습니다. 이 문서에서 솔루션을 제공하고 데이터 시각화를 위해 관련 플롯을 보여 주는 Scala 코드 조각은 Spark 클러스터에 설치된 Jupyter Notebook에서 실행됩니다. 이러한 항목의 모델링 단계는 각 모델 형식을 학습, 평가, 저장 및 사용하는 방법을 보여 주는 코드를 포함하고 있습니다.
+[HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md)는 Azure에서 호스트하는 오픈 소스 Spark의 제품입니다. 또한 Azure Blob Storage에 저장된 데이터를 변환, 필터링 및 시각화하기 위해 Spark SQL 대화형 쿼리를 실행할 수 있는 Spark 클러스터 상의 Jupyter Scala Notebook에 대한 지원도 포함하고 있습니다. 이 문서에서 솔루션을 제공하고 데이터 시각화를 위해 관련 플롯을 보여 주는 Scala 코드 조각은 Spark 클러스터에 설치된 Jupyter Notebook에서 실행됩니다. 이러한 항목의 모델링 단계는 각 모델 형식을 학습, 평가, 저장 및 사용하는 방법을 보여 주는 코드를 포함하고 있습니다.
 
 이 문서의 설정 단계 및 코드는 Azure HDInsight 3.4 Spark 1.6용입니다. 그러나 이 문서에 나오는 코드와 [Scala Jupyter Notebook](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) 에 포함된 코드는 일반적이므로 모든 Spark 클러스터에서 작동해야 합니다. HDInsight Spark를 사용하지 않는 경우 클러스터 설치 및 관리 단계가 이 문서에 나오는 내용과 약간 다를 수 있습니다.
 
@@ -73,7 +73,7 @@ Notebook을 Github에서 Spark 클러스터의 Jupyter Notebook 서버에 직접
     val beginningTime = Calendar.getInstance().getTime()
 
 
-Jupyter Notebook이 제공되는 Spark 커널에는 사전 설정 컨텍스트가 있습니다. 개발하는 응용 프로그램으로 작업을 시작하기 전에 Spark 또는 Hive 컨텍스트를 명시적으로 설정할 필요는 없습니다. 사전 설정 컨텍스트는 다음과 같습니다.
+Jupyter Notebook이 제공되는 Spark 커널에는 사전 설정 컨텍스트가 있습니다. 개발하는 애플리케이션으로 작업을 시작하기 전에 Spark 또는 Hive 컨텍스트를 명시적으로 설정할 필요는 없습니다. 사전 설정 컨텍스트는 다음과 같습니다.
 
 * `sc` 
 * `sqlContext` 
@@ -133,12 +133,12 @@ Jupyter Notebook의 커널 및 `%%`(예: `%%local`)로 호출할 수 있는 미�
 5. 데이터를 SQLContext의 임시 테이블로 등록합니다.
 6. 테이블을 쿼리하고 결과를 데이터 프레임으로 가져옵니다.
 
-### <a name="set-directory-paths-for-storage-locations-in-azure-blob-storage"></a>Azure Blob 저장소의 저장소 위치에 대한 디렉터리 경로 설정
-Spark에서는 Azure Blob 저장소에서 읽고 쓸 수 있습니다. Spark를 사용하여 기존 데이터를 처리한 다음 결과를 Blob 저장소에 다시 저장할 수 있습니다.
+### <a name="set-directory-paths-for-storage-locations-in-azure-blob-storage"></a>Azure Blob Storage의 스토리지 위치에 대한 디렉터리 경로 설정
+Spark에서는 Azure Blob Storage에서 읽고 쓸 수 있습니다. Spark를 사용하여 기존 데이터를 처리한 다음 결과를 Blob Storage에 다시 저장할 수 있습니다.
 
-Blob 저장소에 모델 또는 파일을 저장하려면 경로를 적절히 지정해야 합니다. `wasb:///`로 시작하는 경로를 사용하여 Spark 클러스터에 연결된 기본 컨테이너를 참조합니다. `wasb://`를 사용하여 다른 위치를 참조합니다.
+Blob Storage에 모델 또는 파일을 저장하려면 경로를 적절히 지정해야 합니다. `wasb:///`로 시작하는 경로를 사용하여 Spark 클러스터에 연결된 기본 컨테이너를 참조합니다. `wasb://`를 사용하여 다른 위치를 참조합니다.
 
-다음 코드 샘플은 읽을 입력 데이터의 위치 및 모델이 저장될 Spark 클러스터에 연결된 Blob 저장소에 대한 경로를 지정합니다.
+다음 코드 샘플은 읽을 입력 데이터의 위치 및 모델이 저장될 Spark 클러스터에 연결된 Blob Storage에 대한 경로를 지정합니다.
 
     # SET PATHS TO DATA AND MODEL FILE LOCATIONS
     # INGEST DATA AND SPECIFY HEADERS FOR COLUMNS
@@ -985,7 +985,7 @@ Test R-sqr is: 0.6226484708501209
 셀 실행 시간: 33초
 
 ### <a name="optimize-the-linear-regression-model-by-using-custom-cross-validation-and-parameter-sweeping-code"></a>사용자 지정 교차 유효성 검사 및 매개 변수 스윕 작업 코드를 사용하여 선형 회귀 모델 최적화
-다음으로 사용자 지정 코드를 사용하여 모델을 최적화하고 최고 정확도 기준을 사용하여 최적의 모델 매개 변수를 식별합니다. 그런 다음 최종 모델을 만들고 테스트 데이터로 모델을 평가하고 Blob 저장소에 모델을 저장합니다. 마지막으로 모델을 로드하고 테스트 데이터의 점수를 매기며 해당 정확도를 평가합니다.
+다음으로 사용자 지정 코드를 사용하여 모델을 최적화하고 최고 정확도 기준을 사용하여 최적의 모델 매개 변수를 식별합니다. 그런 다음 최종 모델을 만들고 테스트 데이터로 모델을 평가하고 Blob Storage에 모델을 저장합니다. 마지막으로 모델을 로드하고 테스트 데이터의 점수를 매기며 해당 정확도를 평가합니다.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -1102,7 +1102,7 @@ Test R-sqr is: 0.6226484708501209
 ## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>Scala를 사용하여 Spark에서 빌드한 기계 학습 모델을 자동으로 사용
 Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는 항목에 대한 개요는 [팀 데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)를 참조하세요.
 
-[팀 데이터 과학 프로세스 연습](walkthroughs.md) 에서는 특정 시나리오에 대한 팀 데이터 과학 프로세스의 단계를 보여 주는 다른 종단 간 연습에 대해 설명합니다. 또한 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 설명합니다.
+[팀 데이터 과학 프로세스 연습](walkthroughs.md) 에서는 특정 시나리오에 대한 팀 데이터 과학 프로세스의 단계를 보여 주는 다른 종단 간 연습에 대해 설명합니다. 또한 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 애플리케이션을 만드는 방법을 설명합니다.
 
-[Spark에서 빌드한 기계 학습 모델 점수 매기기](spark-model-consumption.md) 에서는 Scala 코드를 사용하여 Spark에서 빌드한 기계 학습 모델과 함께 Azure Blob 저장소에 저장된 새 데이터 집합을 자동으로 로드하고 점수를 매기는 방법을 설명합니다. 사용자는 제공된 지침을 따르고 자동 사용을 위해 Python 코드를 이 문서의 Scala 코드로 바꿀 수 있습니다.
+[Spark에서 빌드한 기계 학습 모델 점수 매기기](spark-model-consumption.md) 에서는 Scala 코드를 사용하여 Spark에서 빌드한 기계 학습 모델과 함께 Azure Blob Storage에 저장된 새 데이터 집합을 자동으로 로드하고 점수를 매기는 방법을 설명합니다. 사용자는 제공된 지침을 따르고 자동 사용을 위해 Python 코드를 이 문서의 Scala 코드로 바꿀 수 있습니다.
 

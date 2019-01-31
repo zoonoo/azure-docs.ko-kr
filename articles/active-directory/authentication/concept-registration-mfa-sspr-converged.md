@@ -3,19 +3,19 @@ title: Azure AD SSPR 및 MFA에 대한 등록 수렴(공개 미리 보기)
 description: Azure AD Multi-Factor Authenticaiton 및 셀프 서비스 암호 재설정 등록(공개 미리 보기)
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 192b88623d2f85efd619e26d51f35b4797706761
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4080fe07f6624c96f6385492268042f6401f3694
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433750"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472680"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>셀프 서비스 암호 재설정 및 Azure Multi-Factor Authentication에 대한 등록 수렴(공개 미리 보기)
 
@@ -74,8 +74,6 @@ MFA 또는 SSPR에 대한 등록을 적용한 후 아직 등록하지 않은 사
 새로운 환경에 대한 감사 로그는 감사 로그의 인증 방법 범주에 있습니다.  
 
 ## <a name="known-issues"></a>알려진 문제
-
-등록 수렴이 설정된 B2B 게스트 사용자가 MFA에 등록할 수 없는 등록 수렴 버그가 발견되었습니다. 등록 페이지로 이동하면 페이지가 오류가 발생합니다. 당사 개발자는 이 문제를 인식하고 있으며 해결책을 제공하기 위해 노력하고 있습니다. 당분간은 그룹을 만들고 해당 그룹에서 B2B 사용자를 제외하는 것이 좋습니다.
 
 **사용자가 문자 메시지를 사용하여 전화를 등록하면 기본 MFA 방식이 전화 통화로 설정됩니다.**
 

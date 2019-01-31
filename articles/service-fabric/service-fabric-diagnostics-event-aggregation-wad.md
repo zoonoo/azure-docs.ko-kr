@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: baa86fe70c394aaea31a6fa775073bb26d062c49
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 89cd8e85c9902bb1caeedd80240811f59ebec409
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002402"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187439"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Miscrosoft Azure 진단을 사용하여 이벤트 집계 및 수집
 > [!div class="op_single_selector"]
@@ -92,7 +92,7 @@ Resource Manager 템플릿에서 진단 설정을 표시하려면 azuredeploy.js
 },
 ```
 
- 저장소 계정 정의 바로 뒤 `supportLogStorageAccountName` 사이의 매개 변수 섹션에 추가합니다. 자리 표시자 텍스트 *storage account name goes here*를 원하는 저장소 계정의 이름으로 바꿉니다.
+ 저장소 계정 정의 바로 뒤 `supportLogStorageAccountName` 사이의 매개 변수 섹션에 추가합니다. 자리 표시자 텍스트 *storage account name goes here*를 원하는 스토리지 계정의 이름으로 바꿉니다.
 
 ```json
     "applicationDiagnosticsStorageAccountType": {
@@ -187,7 +187,7 @@ template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플
 
 ### <a name="update-storage-quota"></a>저장소 할당량 업데이트
 
-확장으로 채워진 테이블은 할당량에 도달할 때까지 계속 확장되므로 할당량 크기를 줄이는 방안을 고려해 볼 수 있습니다. 기본값은 50GB이며 `DiagnosticMonitorConfiguration` 아래의 `overallQuotainMB` 필드에 있는 템플릿에서 구성할 수 있습니다.
+확장으로 채워진 테이블은 할당량에 도달할 때까지 계속 확장되므로 할당량 크기를 줄이는 방안을 고려해 볼 수 있습니다. 기본값은 50GB이며 `DiagnosticMonitorConfiguration` 아래의 `overallQuotaInMB` 필드에 있는 템플릿에서 구성할 수 있습니다.
 
 ```json
 "overallQuotaInMB": "50000",

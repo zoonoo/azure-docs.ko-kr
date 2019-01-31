@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 85c60cf25cd00826df6b48ed6714a646fa44a962
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5b17cf1bfae884e1fbdf47dabd78a1c6c3e1c7a0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474883"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151603"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Azure AD Connect 연결 문제 해결
 이 문서는 Azure AD Connect와 Azure AD 간 연결의 작동 방식 및 연결 문제 해결 방법을 설명합니다. 이러한 문제는 프록시 서버 환경에서 발생할 가능성이 가장 높습니다.
@@ -167,17 +167,52 @@ Azure AD에서 사용자에게 작업을 수행하도록 권한을 부여하지 
 ### <a name="authentication-cancelled"></a>인증이 취소되었습니다
 MFA(Multi-Factor Authentication) 시도를 취소했습니다.
 
+<div id="connect-msolservice-failed">
+<!--
+  Empty div just to act as an alias for the "Connect To MS Online Failed" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
+
 ### <a name="connect-to-ms-online-failed"></a>MS 온라인 연결 실패
 인증에 성공했지만 Azure AD PowerShell에 인증 문제가 있습니다.
+
+<div id="get-msoluserrole-failed">
+<!--
+  Empty div just to act as an alias for the "Azure AD Global Admin Role Needed" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
 
 ### <a name="azure-ad-global-admin-role-needed"></a>Azure AD 전역 관리자 역할 필요
 사용자가 인증되었습니다. 그러나 사용자에게 전역 관리자 역할이 할당되지 않습니다. 이것이 사용자에게 [전역 관리자 역할을 할당하는 방법](../users-groups-roles/directory-assign-admin-roles.md)입니다. 
 
+<div id="privileged-identity-management">
+<!--
+  Empty div just to act as an alias for the "Privileged Identity Management Enabled" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
+
 ### <a name="privileged-identity-management-enabled"></a>Privileged Identity Management 사용
 인증이 성공했습니다. Privileged Identity Management를 사용하며 현재 전역 관리자가 아닙니다. 자세한 내용은 [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md)를 참조하세요.
 
+<div id="get-msolcompanyinformation-failed">
+<!--
+  Empty div just to act as an alias for the "Company Information Unavailable" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
+
 ### <a name="company-information-unavailable"></a>회사 정보를 사용할 수 없음
 인증이 성공했습니다. Azure AD에서 회사 정보를 검색할 수 없습니다.
+
+<div id="get-msoldomain-failed">
+<!--
+  Empty div just to act as an alias for the "Domain Information Unavailable" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
 
 ### <a name="domain-information-unavailable"></a>도메인 정보를 사용할 수 없음
 인증이 성공했습니다. Azure AD에서 도메인 정보를 검색할 수 없습니다.

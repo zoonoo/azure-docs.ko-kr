@@ -2,20 +2,20 @@
 title: Power BI Microsoft Azure로 SQL Data Warehouse 데이터 시각화
 description: Power BI로 SQL Data Warehouse 데이터 시각화
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 0fbb389120857a167867a5804c670e181f5232b6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: df1fe833a5b0cb65372f8df73fb17231463d4d64
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051444"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466271"
 ---
 # <a name="visualize-data-with-power-bi"></a>Power BI를 사용하여 데이터 시각화
 이 자습서에서는 Power BI를 사용하여 SQL Data Warehouse에 연결하고 몇 가지 기본적인 시각화를 만드는 방법을 보여줍니다.

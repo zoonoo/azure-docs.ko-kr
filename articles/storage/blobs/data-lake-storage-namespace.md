@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 13483333c2135f858191f62b255e2887c0e61f01
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: data-lake-storage-gen2
+ms.openlocfilehash: 967e24ae6e004fe6ce2b1c0aa6c039f46be2598c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976876"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244507"
 ---
 # <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 미리 보기 계층 구조 네임스페이스
 
@@ -23,7 +23,7 @@ Azure Data Lake Storage Gen2 미리 보기를 사용하여 개체 스토리지 �
 
 다음과 같은 이점은 Blob 데이터를 통해 계층 구조 네임스페이스를 구현하는 파일 시스템과 연결됩니다.
 
-- **원자성 디렉터리 조작**: 개체에서 경로 세그먼트를 나타내기 위해 개체 이름에 슬래시(/)를 포함하는 규칙을 채택하여 대략적인 디렉터리 계층 구조를 저장합니다. 이 규칙은 개체 구성 시에 작동하지만 디렉터리 이동, 이름 바꾸기 또는 삭제 등의 작업에 대한 지원을 제공하지 않습니다. 실제 디렉터리가 없으면 응용 프로그램은 디렉터리 수준 작업을 수행하기 위해 수백만 개의 개별 Blob을 처리해야 할 수 있습니다. 반대로, 계층 구조 네임스페이스는 단일 항목(부모 디렉터리)을 업데이트하여 이러한 작업을 처리합니다.
+- **원자성 디렉터리 조작**: 개체에서 경로 세그먼트를 나타내기 위해 개체 이름에 슬래시(/)를 포함하는 규칙을 채택하여 대략적인 디렉터리 계층 구조를 저장합니다. 이 규칙은 개체 구성 시에 작동하지만 디렉터리 이동, 이름 바꾸기 또는 삭제 등의 작업에 대한 지원을 제공하지 않습니다. 실제 디렉터리가 없으면 애플리케이션은 디렉터리 수준 작업을 수행하기 위해 수백만 개의 개별 Blob을 처리해야 할 수 있습니다. 반대로, 계층 구조 네임스페이스는 단일 항목(부모 디렉터리)을 업데이트하여 이러한 작업을 처리합니다.
 
     많은 빅 데이터 분석 프레임워크의 경우, 이러한 극적인 최적화가 특히 중요합니다. Hive, Spark 등의 도구는 임시 위치에 출력을 쓴 다음 작업이 끝날 때 위치 이름을 바꿉니다. 계층 구조 네임스페이스가 없으면 이 이름 바꾸기에는 분석 프로세스 자체보다 더 오랜 시간이 걸릴 수 있습니다. 작업 대기 시간이 단축되면 분석 워크로드의 TCO(총 소유 비용)가 낮아집니다.
 
@@ -39,7 +39,7 @@ Azure Data Lake Storage Gen2 미리 보기를 사용하여 개체 스토리지 �
 
 ## <a name="when-to-disable-the-hierarchical-namespace"></a>계층 구조 네임스페이스를 사용하지 않는 경우
 
-일부 개체 저장소 워크로드의 경우, 계층 구조 네임스페이스 사용이 유용하지 않을 수 있습니다. 이러한 워크로드의 예로는 백업, 이미지 저장소 및 개체 구성이 개체 자체와 별도로(‘예:’ 별도의 데이터베이스에) 저장되는 기타 응용 프로그램이 포함됩니다.
+일부 개체 저장소 워크로드의 경우, 계층 구조 네임스페이스 사용이 유용하지 않을 수 있습니다. 이러한 워크로드의 예로는 백업, 이미지 스토리지 및 개체 구성이 개체 자체와 별도로(‘예:’ 별도의 데이터베이스에) 저장되는 기타 애플리케이션이 포함됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -3,7 +3,7 @@ title: Python을 사용하여 Azure에서 Windows VM 만들기 및 관리 | Micr
 description: Python을 사용하여 Azure에서 Windows VM을 만들고 관리하는 방법을 설명합니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
-ms.author: zarhoads
-ms.openlocfilehash: b15b3b07768d531b748944529cc7e8e6df6d9808
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: cynthn
+ms.openlocfilehash: c6d1d7e7a6b96b049e313507e9862fde7dba332e
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958876"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888807"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Python을 사용하여 Azure에서 Windows VM 만들기 및 관리
 
@@ -41,7 +41,7 @@ ms.locfileid: "49958876"
 
 1. [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio)를 아직 설치하지 않았으면 설치합니다. 작업 페이지에서 **Python 개발**을 선택한 다음 **설치**를 클릭합니다. 요약하자면, **Python 3 64비트(3.6.0)** 가 자동으로 선택되는 것을 확인할 수 있습니다. Visual Studio를 이미 설치한 경우 Visual Studio 시작 관리자를 사용하여 Python 워크로드를 추가할 수 있습니다.
 2. Visual Studio를 설치하고 시작한 후 **파일** > **신규** > **프로젝트**를 클릭합니다.
-3. **템플릿** > **Python** > **Python 응용 프로그램**을 클릭하고, 프로젝트의 이름에 사용할 *myPythonProject*를 입력한 후, 프로젝트의 위치를 선택하고, **확인**을 클릭합니다.
+3. **템플릿** > **Python** > **Python 애플리케이션**을 클릭하고, 프로젝트의 이름에 사용할 *myPythonProject*를 입력한 후, 프로젝트의 위치를 선택하고, **확인**을 클릭합니다.
 
 ## <a name="install-packages"></a>패키지 설치
 
@@ -146,7 +146,7 @@ compute_client = ComputeManagementClient(
     input('Resource group created. Press enter to continue...')
     ```
 
-[가용성 집합](tutorial-availability-sets.md)은 응용 프로그램에서 사용되는 가상 머신을 쉽게 유지 관리할 수 있도록 합니다.
+[가용성 집합](tutorial-availability-sets.md)은 애플리케이션에서 사용되는 가상 머신을 쉽게 유지 관리할 수 있도록 합니다.
 
 1. 가용성 집합을 만들려면 .py 파일에서 변수 뒤에 이 함수를 추가합니다.
    

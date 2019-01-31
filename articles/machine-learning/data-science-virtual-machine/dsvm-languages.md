@@ -10,23 +10,23 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 8cc5d1a2d78179624ee1ba17482e9d1892625d6f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bc7a183220219b14cb793f8115284d38d544b0e0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104291"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453181"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine에서 지원되는 언어 
 
-DSVM(데이터 과학 Virtual Machine)는 AI 응용 프로그램 빌드를 위한 몇 가지 미리 작성된 언어 및 개발 도구와 함께 제공됩니다. 다음은 일부 중요 항목입니다. 
+DSVM(데이터 과학 Virtual Machine)는 AI 애플리케이션 빌드를 위한 몇 가지 미리 작성된 언어 및 개발 도구와 함께 제공됩니다. 다음은 일부 중요 항목입니다. 
 
 ## <a name="python-windows-server-2016-edition"></a>Python(Windows Server 2016 버전)
 
@@ -222,7 +222,7 @@ Jupyter를 열고 `New` 단추를 클릭하여 새 노트북을 만듭니다. �
 터미널을 열고 `julia`를 실행하기만 하면 됩니다. 
 * IDE에서 사용
 
-DSVM에 설치되고 응용 프로그램 메뉴 바로 가기로 사용할 수 있는 Julia IDE `Juno`를 사용합니다.
+DSVM에 설치되고 애플리케이션 메뉴 바로 가기로 사용할 수 있는 Julia IDE `Juno`를 사용합니다.
 
 * Jupyter에서 사용
 
@@ -238,7 +238,7 @@ Jupyter를 열고 `New` 단추를 클릭하여 새 노트북을 만듭니다. �
 
 **Java**: OpenJDK는 DSVM의 Linux 및 Windows 버전 둘 다에서 사용할 수 있고 경로에 설정됩니다. Windows의 명령 프롬프트 또는 Linux의 bash 셸에 `javac` 또는 `java` 명령을 입력하여 Java를 사용할 수 있습니다. 
 
-**node.js**: node.js는 DSVM의 Linux 및 Windows 버전 둘 다에서 사용할 수 있고 경로에 설정됩니다. Windows의 명령 프롬프트 또는 Linux의 bash 셸에 `node` 또는 `npm` 명령을 입력하여 node.js에 액세스할 수 있습니다. Windows에서는 node.js 응용 프로그램을 개발하기 위한 그래픽 IDE를 제공하기 위해 Visual Studio용 Node.js 도구 확장이 설치됩니다. 
+**node.js**: node.js는 DSVM의 Linux 및 Windows 버전 둘 다에서 사용할 수 있고 경로에 설정됩니다. Windows의 명령 프롬프트 또는 Linux의 bash 셸에 `node` 또는 `npm` 명령을 입력하여 node.js에 액세스할 수 있습니다. Windows에서는 node.js 애플리케이션을 개발하기 위한 그래픽 IDE를 제공하기 위해 Visual Studio용 Node.js 도구 확장이 설치됩니다. 
 
 **F#**: Windows에서 사용할 수 있고 Visual Studio Community Edition을 통해 또는 `fsc` 명령만 실행할 수 있는 `Developer Command Prompt for Visual Studio`에서 액세스할 수 있습니다. 
 

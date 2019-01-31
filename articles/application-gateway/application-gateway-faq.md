@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 45751af66b1b050d4d36d1b8aee52dc6a5d8cc7b
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: bd3711a88b14d7a24df7c20c72b49fca5953b568
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382402"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886470"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway에 대한 질문과 대답
 
@@ -105,8 +105,6 @@ Application Gateway는 인스턴스당 하나의 개인 IP 주소를 사용하�
 새 Application Gateway v1 SKU 배포 시 프로비전하는 데 최대 20분이 걸릴 수 있습니다. 인스턴스 크기/수가 변경되어도 중단되지 않으며, 게이트웨이는 이 시간 동안 활성 상태를 유지합니다.
 
 V1 SKU 배포의 경우 프로비전하는 데 5~6분이 걸릴 수 있습니다.
-
-Application Gateway에서 x-forwarded-for 헤더를 지원하나요?
 
 ## <a name="configuration"></a>구성
 

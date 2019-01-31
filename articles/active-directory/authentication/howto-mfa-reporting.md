@@ -3,19 +3,19 @@ title: Azure MFA에 대한 액세스 및 사용 보고서 | Microsoft Docs
 description: Azure Multi-Factor Authentication 기능 - 보고서를 사용하는 방법을 설명합니다.
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: d9fd7544c61b021bbb5db32087847cbeaddd3918
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 92c319460d9412436eb1a474431c07766fa87176
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431727"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078902"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에서 보고서
 

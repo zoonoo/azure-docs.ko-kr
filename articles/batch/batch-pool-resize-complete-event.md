@@ -2,7 +2,7 @@
 title: Azure Batch 풀 크기 조정 완료 이벤트 | Microsoft Docs
 description: Batch 풀 크기 조정 완료 이벤트에 대한 참조입니다.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: e91ba664a69d28cae1f82710d427bd2a391305a2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: lahugh
+ms.openlocfilehash: 87c98b89a49adbad88841dccbd4ba47d370b2be7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30315664"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474312"
 ---
 # <a name="pool-resize-complete-event"></a>풀 크기 조정 완료 이벤트
 
@@ -48,7 +48,7 @@ ms.locfileid: "30315664"
 |targetDedicated|Int32|풀에 대해 요청된 계산 노드 수입니다.|
 |enableAutoScale|Bool|풀 크기가 시간이 지남에 따라 자동으로 조정되는지 여부를 지정합니다.|
 |isAutoPool|Bool|풀이 작업의 자동 풀 메커니즘을 통해 만들어졌는지 여부를 지정합니다.|
-|startTime|Datetime|풀 크기 조정이 시작된 시간입니다.|
-|endTime|Datetime|풀 크기 조정이 완료된 시간입니다.|
+|startTime|DateTime|풀 크기 조정이 시작된 시간입니다.|
+|endTime|DateTime|풀 크기 조정이 완료된 시간입니다.|
 |resultCode|문자열|크기 조정의 결과입니다.|
 |resultMessage|문자열|크기 조정 오류에 결과의 세부 정보가 포함됩니다.<br /><br /> 크기 조정이 성공적으로 완료되면 작업에 성공했다고 표시됩니다.|

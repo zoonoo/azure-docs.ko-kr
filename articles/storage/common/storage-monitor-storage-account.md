@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: f7b73fa4d1f596e0221c2cec3c6c7417ceb767a4
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.subservice: common
+ms.openlocfilehash: d437c6e2327fc9771f9567a37bfbf8ad82713b2b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275694"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452646"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Azure 포털에서 저장소 계정 모니터링
 
@@ -136,7 +136,7 @@ Azure Storage에서 Blob, 테이블 및 큐 서비스에 대한 읽기, 쓰기 �
     ![Azure Portal에서 로깅 구성](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. **저장**을 클릭합니다.
 
-진단 로그는 저장소 계정의 이름이 *$logs*인 Blob 컨테이너에 저장됩니다. [Microsoft 저장소 탐색기](http://storageexplorer.com)와 같은 저장소 탐색기를 사용하거나 Storage 클라이언트 라이브러리 또는 PowerShell을 프로그래밍 방식으로 사용하여 로그 데이터를 볼 수 있습니다.
+진단 로그는 저장소 계정의 이름이 *$logs*인 Blob 컨테이너에 저장됩니다. [Microsoft 스토리지 탐색기](http://storageexplorer.com)와 같은 스토리지 탐색기를 사용하거나 Storage 클라이언트 라이브러리 또는 PowerShell을 프로그래밍 방식으로 사용하여 로그 데이터를 볼 수 있습니다.
 
 $logs 컨테이너 액세스에 대한 자세한 내용은 [저장소 로깅 사용 및 로그 데이터 액세스](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data)를 참조하세요.
 

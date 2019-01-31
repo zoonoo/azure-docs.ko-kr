@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 03d307a324826a4805da5ed6ff8b995b7c3eab62
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.subservice: common
+ms.openlocfilehash: d28ea2972b8b73921bb078d8570afe9a6dffce8f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019308"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461777"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Windows에서 AzCopy를 사용하여 데이터 전송
 AzCopy는 최적의 성능을 내는 간단한 명령을 사용하여 데이터를 Microsoft Azure Blob, File 및 Table Storage에 복사하거나 이들 스토리지에서 복사하기 위한 명령줄 유틸리티입니다. 파일 시스템과 저장소 계정 간 또는 저장소 계정 간에 데이터를 복사할 수 있습니다.  
@@ -47,7 +47,7 @@ AzCopy /Source:<source> /Dest:<destination> [Options]
 
 다음 예제는 Microsoft Azure Blob, 파일 및 테이블에(로부터) 데이터를 복사하는 여러 시나리오를 보여줍니다. 각 샘플에 사용된 매개 변수에 대 한 자세한 정보는 [AzCopy 매개 변수](#azcopy-parameters) 섹션을 참고하세요.
 
-## <a name="download-blobs-from-blob-storage"></a>Blob 저장소에서 Blob 다운로드
+## <a name="download-blobs-from-blob-storage"></a>Blob Storage에서 Blob 다운로드
 
 AzCopy를 사용하여 Blob을 다운로드하는 여러 방법을 살펴보겠습니다.
 
@@ -132,7 +132,7 @@ AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfo
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XO
 ```
 
-## <a name="upload-blobs-to-blob-storage"></a>Blob 저장소에 Blob 업로드
+## <a name="upload-blobs-to-blob-storage"></a>Blob Storage에 Blob 업로드
 
 AzCopy를 사용하여 Blob을 업로드하는 여러 방법을 살펴보겠습니다.
 
@@ -223,7 +223,7 @@ AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.blob.core.windows.net/myCont
 AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType
 ```
 
-## <a name="copy-blobs-in-blob-storage"></a>Blob 저장소에서 Blob 복사
+## <a name="copy-blobs-in-blob-storage"></a>Blob Storage에서 Blob 복사
 
 AzCopy를 사용하여 위치 간에 Blob을 복사하는 여러 방법을 살펴보겠습니다.
 
@@ -276,7 +276,7 @@ AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
 
 기본적으로 AzCopy는 두 저장소 엔드포인트 간에 데이터를 비동기적으로 복사합니다. 따라서 복사 작업은 Blob이 복사되는 속도와 관련하여 SLA가 없는 여분의 대역폭 용량을 사용하여 백그라운드로 실행되며, AzCopy는 복사가 완료되거나 실패할 때까지 복사 상태를 정기적으로 확인합니다.
 
-`/SyncCopy` 옵션을 사용하면 복사 작업이 일관된 속도를 유지할 수 있습니다. AzCopy는 지정된 소스에서 로컬 메모리로 복사할 Blob을 다운로드한 후 대상 Blob 저장소에 업로드하여 동기 복사를 수행합니다.
+`/SyncCopy` 옵션을 사용하면 복사 작업이 일관된 속도를 유지할 수 있습니다. File Storage 공유를 동시에 탑재하고 액세스할 수 있는 응용 프로그램 구성 요소 수에는 제한이 없습니다.
 
 ```azcopy
 AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https://myaccount2.blob.core.windows.net/myContainer/ /SourceKey:key1 /DestKey:key2 /Pattern:ab /SyncCopy
@@ -284,7 +284,7 @@ AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https
 
 `/SyncCopy` 은(는) 비동기 복사와 비교하여 추가적인 송신 비용이 발생할 수 있으므로 송신 비용을 방지하려면 원본 저장소 계정과 동일한 지역에 있는 Azure VM에서 이 옵션을 사용하는 것이 좋습니다.
 
-## <a name="download-files-from-file-storage"></a>파일 저장소에서 파일 다운로드
+## <a name="download-files-from-file-storage"></a>File Storage에서 파일 다운로드
 
 AzCopy를 사용하여 파일을 다운로드하는 여러 방법을 살펴보겠습니다.
 
@@ -328,7 +328,7 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfiles
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /Pattern:ab* /S
 ```
 
-## <a name="copy-files-in-file-storage"></a>파일 저장소에서 파일 복사
+## <a name="copy-files-in-file-storage"></a>File Storage에서 파일 복사
 
 AzCopy를 사용하여 Azure 파일 공유에서 파일을 복사하는 여러 방법을 살펴보겠습니다.
 
@@ -339,14 +339,14 @@ AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:http
 ```
 파일 공유에 파일을 복사할 때는 [서버 쪽 복사](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
 
-### <a name="copy-from-an-azure-file-share-to-blob-storage"></a>Azure 파일 공유에서 Blob 저장소로 복사
+### <a name="copy-from-an-azure-file-share-to-blob-storage"></a>Azure 파일 공유에서 Blob Storage로 복사
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https://myaccount2.blob.core.windows.net/mycontainer/ /SourceKey:key1 /DestKey:key2 /S
 ```
 파일 공유에서 Blob으로 파일을 복사할 때는 [서버 쪽 복사](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
 
-### <a name="copy-a-blob-from-blob-storage-to-an-azure-file-share"></a>Blob 저장소에서 Azure 파일 공유로 Blob 복사
+### <a name="copy-a-blob-from-blob-storage-to-an-azure-file-share"></a>Blob Storage에서 Azure 파일 공유로 Blob 복사
 
 ```azcopy
 AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S
@@ -361,13 +361,13 @@ Blob에서 파일 공유로 파일을 복사할 때는 [서버 쪽 복사](https
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
 ```
 
-파일 저장소에서 Blob 저장소로 복사할 경우 기본 Blob 형식은 블록 Blob입니다. `/BlobType:page` 옵션을 지정하면 사용자가 대상 Blob 유형을 변경할 수 있습니다.
+File Storage에서 Blob Storage로 복사할 경우 기본 Blob 형식은 블록 Blob입니다. `/BlobType:page` 옵션을 지정하면 사용자가 대상 Blob 유형을 변경할 수 있습니다.
 
 `/SyncCopy`는 비동기 복사에 비해 추가적인 송신 비용이 발생할 수 있습니다. 원본 저장소 계정과 동일한 지역에 있는 Azure VM에서 이 옵션을 사용하여 송신 비용이 발생하지 않도록 하는 것이 좋습니다.
 
-## <a name="export-data-from-table-storage"></a>테이블 저장소에서 데이터 내보내기
+## <a name="export-data-from-table-storage"></a>Table Storage에서 데이터 내보내기
 
-AzCopy를 사용하여 Azure 테이블 저장소에서 데이터를 내보내는 방법을 살펴보겠습니다.
+AzCopy를 사용하여 Azure Table Storage에서 데이터를 내보내는 방법을 살펴보겠습니다.
 
 ### <a name="export-a-table"></a>테이블 내보내기
 
@@ -385,7 +385,7 @@ AzCopy는 지정된 대상 폴더에 매니페스트 파일을 씁니다. 매니
 AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /Manifest:abc.manifest
 ```
 
-### <a name="split-an-export-from-table-storage-into-multiple-files"></a>테이블 저장소에서 여러 파일로 내보내기 분할
+### <a name="split-an-export-from-table-storage-into-multiple-files"></a>Table Storage에서 여러 파일로 내보내기 분할
 
 ```azcopy
 AzCopy /Source:https://myaccount.table.core.windows.net/mytable/ /Dest:C:\myfolder /SourceKey:key /S /SplitSize:100
@@ -400,7 +400,7 @@ AzCopy는 분할 데이터 파일 이름에서 *볼륨 인덱스* 를 사용해 
     myaccount_mytable_20140903T051850.8128447Z_0_0_C3040FE8.json
     myaccount_mytable_20140903T051850.8128447Z_0_1_0AB9AC20.json
 
-`/SplitSize` 옵션에 사용할 수 있는 최소값은 32MB입니다. 지정된 대상이 Blob 저장소인 경우 AzCopy는 데이터 파일이 Blob 크기 제한(200GB)에 도달하면 사용자가 `/SplitSize` 옵션을 지정했는지 여부에 관계없이 데이터 파일을 분할합니다.
+`/SplitSize` 옵션에 사용할 수 있는 최소값은 32MB입니다. 지정된 대상이 Blob Storage인 경우 AzCopy는 데이터 파일이 Blob 크기 제한(200GB)에 도달하면 사용자가 `/SplitSize` 옵션을 지정했는지 여부에 관계없이 데이터 파일을 분할합니다.
 
 ### <a name="export-a-table-to-json-or-csv-data-file-format"></a>JSON 또는 CSV 데이터 파일 형식으로 테이블 내보내기
 
@@ -422,7 +422,7 @@ AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfold
 
 `/NC`옵션도 동시 작업 수를 제어합니다. AzCopy는 `/NC`가 지정되지 않은 경우에도 테이블 엔터티를 복사할 때 `/NC`의 기본값으로 코어 프로세서의 수를 사용합니다. 사용자가 `/PKRS`옵션을 지정하는 경우 AzCopy는 두 값, 즉 파티션 키 범위와 암시적 또는 명시적으로 지정된 동시 작업의 수 중 더 작은 쪽을 사용하여 시작할 동시 작업의 수를 결정합니다. 자세한 내용을 확인하려면 명령줄에 `AzCopy /?:NC` 를 입력하세요.
 
-### <a name="export-a-table-to-blob-storage"></a>Blob 저장소로 테이블 내보내기
+### <a name="export-a-table-to-blob-storage"></a>Blob Storage로 테이블 내보내기
 
 ```azcopy
 AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:https://myaccount.blob.core.windows.net/mycontainer/ /SourceKey:key1 /Destkey:key2
@@ -436,9 +436,9 @@ AzCopy는 다음 명명 규칙을 사용하여 Blob 컨테이너에 JSON 데이�
 
 테이블을 Blob로 내보낼 때 AzCopy는 테이블 엔터티를 로컬 임시 데이터 파일로 먼저 다운로드한 다음 Blob에 업로드합니다. 이러한 임시 데이터 파일은 기본 경로인 “<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>”로 저널 파일 폴더에 저장됩니다. 또한 /Z:[journal-file-folder] 옵션을 지정하여 저널 파일 폴더 위치와 임시 데이터 파일 위치를 변경할 수 있습니다. 임시 데이터 파일의 크기는 테이블 엔터티의 크기와 /SplitSize 옵션으로 지정한 크기에 의해 결정되며, 로컬 디스크의 임시 데이터 파일은 Blob에 업로드된 후 즉시 삭제됩니다. 임시 데이터 파일이 삭제되기 전에 저장하려면 로컬 디스크 공간이 충분한지 확인하세요.
 
-## <a name="import-data-into-table-storage"></a>테이블 저장소로 데이터 가져오기
+## <a name="import-data-into-table-storage"></a>Table Storage로 데이터 가져오기
 
-AzCopy를 사용하여 Azure 테이블 저장소로 데이터를 가져오는 방법을 살펴보겠습니다.
+AzCopy를 사용하여 Azure Table Storage로 데이터를 가져오는 방법을 살펴보겠습니다.
 
 ### <a name="import-a-table"></a>테이블 가져오기
 
@@ -456,7 +456,7 @@ AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.core.windows.net/mytab
 
 AzCopy는 CSV가 아닌 JSON 가져오기만 지원합니다. AzCopy는 사용자가 만든 JSON 및 매니페스트 파일에서 테이블 가져오기를 지원하지 않습니다. 이러한 파일 모두는 AzCopy 테이블 내보내기에서 가져와야 합니다. 오류를 방지하려면 내보낸 JSON 또는 매니페스트 파일을 수정하지 마십시오.
 
-### <a name="import-entities-into-a-table-from-blob-storage"></a>Blob 저장소에서 테이블로 엔터티 가져오기
+### <a name="import-entities-into-a-table-from-blob-storage"></a>Blob Storage에서 테이블로 엔터티 가져오기
 
 Blob 컨테이너에 다음이 포함되어 있다고 가정하세요. Azure 테이블과 해당 매니페스트 파일을 나타내는 JSON 파일.
 
@@ -931,7 +931,7 @@ AzCopy는 데이터 전송 처리량을 높이기 위해 기본적으로 특정 
 
 기본적으로 AzCopy에서는 서버 쪽 비동기 복사를 사용합니다. Blob 또는 파일을 로컬 메모리에 다운로드한 다음 Azure Storage에 업로드하는 동기 복사를 수행하려면 이 옵션을 지정합니다.
 
-Blob 저장소 내에서, 파일 저장소 내에서 또는 Blob 저장소에서 파일 저장소로 혹은 그 반대로 파일을 복사할 때 이 옵션을 사용할 수 있습니다.
+Blob Storage 내에서, File Storage 내에서 또는 Blob Storage에서 파일 스토리지로 혹은 그 반대로 파일을 복사할 때 이 옵션을 사용할 수 있습니다.
 
 **적용 대상:** Blob, 파일
 
@@ -989,9 +989,9 @@ Azure Storage 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참�
 
 ### <a name="azure-storage-documentation"></a>Azure Storage 설명서
 * [Azure Storage 소개](../storage-introduction.md)
-* [.NET에서 Blob 저장소를 사용하는 방법](../blobs/storage-dotnet-how-to-use-blobs.md)
-* [.NET에서 파일 저장소를 사용하는 방법](../storage-dotnet-how-to-use-files.md)
-* [.NET에서 테이블 저장소를 사용하는 방법](../../cosmos-db/table-storage-how-to-use-dotnet.md)
+* [.NET에서 Blob Storage를 사용하는 방법](../blobs/storage-dotnet-how-to-use-blobs.md)
+* [.NET에서 File Storage를 사용하는 방법](../storage-dotnet-how-to-use-files.md)
+* [.NET에서 Table Storage를 사용하는 방법](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [저장소 계정을 만들거나, 관리하거나, 삭제하는 방법](../storage-create-storage-account.md)
 * [Linux에서 AzCopy를 사용하여 데이터 전송](storage-use-azcopy-linux.md)
 

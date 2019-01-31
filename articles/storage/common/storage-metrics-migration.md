@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: fryu
-ms.component: common
-ms.openlocfilehash: 3f2ebb82f5affa3c41f237edcc039eb6214c7a4c
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.subservice: common
+ms.openlocfilehash: f8a73bb6e86a187a504c2d36098001cfd90015f9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649298"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454929"
 ---
 # <a name="azure-storage-metrics-migration"></a>Azure Storage 메트릭 마이그레이션
 
@@ -25,7 +25,7 @@ Azure에서 모니터 환경을 통합하는 전략에 맞춰 Azure Storage는 �
 
 Azure Storage는 이전 메트릭 값을 수집하고, 집계하며, 동일한 스토리지 계정 내의 $Metric 테이블에 저장합니다. Azure Portal을 사용하여 모니터링 차트를 설정할 수 있습니다. 또한 Azure Storage SDK를 사용하여 스키마를 기반으로 하는 $Metric 테이블에서 데이터를 읽을 수 있습니다. 자세한 정보는 [저장소 분석](./storage-analytics.md)을 참조하세요.
 
-이전 메트릭은 Azure Blob Storage에 대한 용량 메트릭만 제공합니다. 이전 메트릭은 Blob 저장소, 테이블 저장소, Azure 파일 및 큐 저장소에 대한 트랜잭션 메트릭을 제공합니다.
+이전 메트릭은 Azure Blob Storage에 대한 용량 메트릭만 제공합니다. 이전 메트릭은 Blob Storage, Table Storage, Azure 파일 및 Queue Storage에 대한 트랜잭션 메트릭을 제공합니다.
 
 이전 메트릭은 플랫 스키마로 설계되었습니다. 이 설계에서는 메트릭을 트리거하는 트래픽 패턴이 없는 경우 영(0) 메트릭 값이 생성됩니다. 예를 들어 라이브 트래픽에서 저장소 계정으로 서버 시간 제한 오류를 받지 않는 경우에도 **ServerTimeoutError** 값은 $Metric 테이블에서 0으로 설정됩니다.
 
@@ -33,7 +33,7 @@ Azure Storage는 이전 메트릭 값을 수집하고, 집계하며, 동일한 �
 
 새 스토리지 메트릭의 경우, Azure Storage는 메트릭 데이터를 Azure Monitor 백 엔드에 내보냅니다. Azure Monitor는 데이터 수집뿐만 아니라 포털의 데이터를 포함하여 통합 모니터링 환경도 제공합니다. 자세한 내용은 이 [문서](../../monitoring-and-diagnostics/monitoring-overview-metrics.md)를 참조할 수 있습니다.
 
-새 메트릭은 Blob, 테이블, 파일, 큐 및 프리미엄 저장소에 대한 용량 메트릭과 트랜잭션 메트릭을 제공합니다.
+새 메트릭은 Blob, 테이블, 파일, 큐 및 Premium Storage에 대한 용량 메트릭과 트랜잭션 메트릭을 제공합니다.
 
 다차원은 Azure Monitor에서 제공하는 기능 중 하나입니다. Azure Storage는 새 메트릭 스키마를 정의할 때 디자인을 채택합니다. 메트릭에서 지원되는 차원은 [Azure Monitor의 Azure Storage 메트릭](./storage-metrics-in-azure-monitor.md)에서 세부 정보를 찾을 수 있습니다. 다차원 설계는 수집의 대역폭과 저장 메트릭의 용량 모두에 대한 비용 효율성을 제공합니다. 따라서 트래픽에서 관련 메트릭을 트리거하지 않은 경우 관련 메트릭 데이터가 생성되지 않습니다. 예를 들어, 트래픽이 서버 시간 제한 오류를 트리거하지 않은 경우 **ResponseType** 차원이 **ServerTimeoutError**와 동일한 **Transactions** 메트릭의 값을 쿼리하면 Azure Monitor에서 데이터를 반환하지 않습니다.
 

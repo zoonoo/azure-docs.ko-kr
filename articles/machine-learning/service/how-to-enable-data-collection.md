@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Azure Blob Storage에서 Azure Machine Learning 입력 모델 데이터를 수집하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 11/08/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2a4f0f1100064010405c3d0bc599e7add1041074
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 79a2c0c98cdee0532856a90ec4a7b98dda09cdb7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271575"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247377"
 ---
 # <a name="collect-data-for-models-in-production"></a>프로덕션 환경에서 모델용 데이터 수집
 

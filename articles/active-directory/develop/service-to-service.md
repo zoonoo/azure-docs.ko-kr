@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 8365f7e60dfb78aba16bea9708c99195a6b76b11
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1a10bf35618d7f543957d1f839618397f08698d4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972898"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095432"
 ---
 # <a name="service-to-service-apps"></a>서비스 간 앱
 
@@ -31,9 +31,9 @@ ms.locfileid: "46972898"
 
     이 시나리오에서는 몇 가지 사항을 이해하는 것이 중요합니다. 첫째, 디먼 애플리케이션에서 사용자 조작이 불가능하므로, 이 애플리케이션에 고유한 ID가 있어야 합니다. 디먼 애플리케이션의 예로는 일괄 처리 작업 또는 백그라운드에서 실행되는 운영 체제 서비스가 있습니다. 이러한 종류의 애플리케이션은 애플리케이션 ID를 사용하고 애플리케이션 ID, 자격 증명(암호 또는 인증서), Azure AD에 대한 애플리케이션 ID URI 등을 제시하여 액세스 토큰을 요청합니다. 성공적인 인증 후에 디먼은 Azure AD로부터 액세스 토큰을 수신하며, 그런 다음 이 액세스 토큰을 사용하여 웹 API를 호출합니다.
 
-- OAuth 2.0 On-Behalf-Of 초안 사양으로 빌드된 웹 API를 호출해야 하는 서버 애플리케이션(예: 웹 API)
+- OAuth 2.0 On-Behalf-Of 초안 사양으로 빌드된 웹 API를 호출해야 하는 서버 응용 프로그램(예: 웹 API)
 
-    이 시나리오에서는 사용자가 네이티브 애플리케이션에 대해 인증했으며 이 네이티브 애플리케이션이 웹 API를 호출해야 한다고 가정합니다. Azure AD는 웹 API를 호출하는 JWT 액세스 토큰을 발급합니다. 웹 API는 다른 다운스트림 웹 API를 호출해야 하는 경우 대리 흐름을 사용하여 사용자의 ID를 위임하고 두 번째 계층 웹 API에 대해 인증할 수 있습니다.
+    이 시나리오에서는 사용자가 네이티브 응용 프로그램에 대해 인증했으며 이 네이티브 응용 프로그램이 웹 API를 호출해야 한다고 가정합니다. Azure AD는 웹 API를 호출하는 JWT 액세스 토큰을 발급합니다. 웹 API는 다른 다운스트림 웹 API를 호출해야 하는 경우 대리 흐름을 사용하여 사용자의 ID를 위임하고 두 번째 계층 웹 API에 대해 인증할 수 있습니다.
 
 ## <a name="diagram"></a>다이어그램
 
@@ -58,12 +58,12 @@ ms.locfileid: "46972898"
 
 ## <a name="code-samples"></a>코드 샘플
 
-디먼 또는 서버 애플리케이션-Web API 시나리오에 대한 코드 샘플을 참조하세요. 그리고 새로운 샘플이 자주 추가되므로 자주 확인해 보세요. [서버 또는 디먼 응용 프로그램-Web API](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
+디먼 또는 서버 애플리케이션-Web API 시나리오에 대한 코드 샘플을 참조하세요. 그리고 새로운 샘플이 자주 추가되므로 자주 확인해 보세요. [서버 또는 디먼 애플리케이션-Web API](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
 
 ## <a name="app-registration"></a>앱 등록
 
-* 단일 테넌트 - 애플리케이션 ID 및 위임된 사용자 ID의 경우 모두, 디먼 또는 서버 애플리케이션을 Azure AD의 동일한 디렉터리에 등록해야 합니다. 일련의 권한을 노출하도록 웹 API를 구성할 수 있으며, 이 방법은 해당 리소스에 대한 디먼 또는 서버의 액세스를 제한하기 위해 사용됩니다. 위임된 사용자 ID 형식을 사용하는 경우 서버 애플리케이션이 Azure Portal의 "다른 애플리케이션에 대한 권한" 드롭다운 메뉴에서 원하는 권한을 선택해야 합니다. 이 단계는 애플리케이션 ID 형식을 사용 중일 때는 필요 없습니다.
-* 다중 테넌트 - 먼저, 디먼 또는 서버 애플리케이션이 작동에 필요한 권한을 나타내도록 구성됩니다. 이러한 필수 권한 목록은 대상 디렉터리의 사용자나 관리자가 애플리케이션에 동의하여 애플리케이션을 조직에서 사용할 수 있도록 만들면 대화 상자에 표시됩니다. 일부 애플리케이션에는 조직의 모든 사용자가 동의할 수 있는 사용자 수준 권한만 필요합니다. 또 일부 애플리케이션에는 조직의 사용자가 동의할 수 없는 수준인 관리자 수준 권한이 필요합니다. 이 수준의 권한이 요구되는 애플리케이션에 동의할 수 있는 사람은 디렉터리 관리자뿐입니다. 사용자 또는 관리자가 동의하면 웹 응용 프로그램과 웹 API가 모두 이들의 디렉터리에 등록됩니다.
+* 단일 테넌트 - 응용 프로그램 ID 및 위임된 사용자 ID의 경우 모두, 디먼 또는 서버 응용 프로그램을 Azure AD의 동일한 디렉터리에 등록해야 합니다. 일련의 권한을 노출하도록 웹 API를 구성할 수 있으며, 이 방법은 해당 리소스에 대한 디먼 또는 서버의 액세스를 제한하기 위해 사용됩니다. 위임된 사용자 ID 형식을 사용하는 경우 서버 애플리케이션이 Azure Portal의 "다른 애플리케이션에 대한 권한" 드롭다운 메뉴에서 원하는 권한을 선택해야 합니다. 이 단계는 애플리케이션 ID 형식을 사용 중일 때는 필요 없습니다.
+* 다중 테넌트 - 먼저, 디먼 또는 서버 응용 프로그램이 작동에 필요한 권한을 나타내도록 구성됩니다. 이러한 필수 권한 목록은 대상 디렉터리의 사용자나 관리자가 애플리케이션에 동의하여 애플리케이션을 조직에서 사용할 수 있도록 만들면 대화 상자에 표시됩니다. 일부 애플리케이션에는 조직의 모든 사용자가 동의할 수 있는 사용자 수준 권한만 필요합니다. 또 일부 애플리케이션에는 조직의 사용자가 동의할 수 없는 수준인 관리자 수준 권한이 필요합니다. 이 수준의 권한이 요구되는 애플리케이션에 동의할 수 있는 사람은 디렉터리 관리자뿐입니다. 사용자 또는 관리자가 동의하면 웹 응용 프로그램과 웹 API가 모두 이들의 디렉터리에 등록됩니다.
 
 ## <a name="token-expiration"></a>토큰 만료
 
@@ -71,5 +71,5 @@ ms.locfileid: "46972898"
 
 ## <a name="next-steps"></a>다음 단계
 
-- 다른 [애플리케이션 유형 및 시나리오](app-types.md)에 대해 자세히 알아보기
+- 다른 [응용 프로그램 유형 및 시나리오](app-types.md)에 대해 자세히 알아보기
 - Azure AD [인증 기본 사항](authentication-scenarios.md)에 대해 자세히 알아보기

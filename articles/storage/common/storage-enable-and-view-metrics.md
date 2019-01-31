@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: 3e6a11a8c225afb220f290cee2db39c36750b401
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: common
+ms.openlocfilehash: 8fc85f82e5b6290a0f7401581e57b77473a495ae
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632147"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454014"
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>Azure Storage 메트릭 사용 및 메트릭 데이터 보기
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -96,7 +96,7 @@ blobClient.SetServiceProperties(properties);
 ```
 
 ## <a name="viewing-storage-metrics"></a>Storage 메트릭 보기
-Storage 계정을 모니터링하도록 저장소 분석 메트릭을 구성하면 저장소 분석에서 Storage 계정의 알려진 테이블 집합에 메트릭을 기록합니다. [Azure Portal](https://portal.azure.com)에서 시간별 메트릭을 보도록 차트를 구성할 수 있습니다.
+Storage 계정을 모니터링하도록 스토리지 분석 메트릭을 구성하면 스토리지 분석에서 Storage 계정의 알려진 테이블 집합에 메트릭을 기록합니다. [Azure Portal](https://portal.azure.com)에서 시간별 메트릭을 보도록 차트를 구성할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)의 저장소 계정으로 이동합니다.
 1. 메트릭을 보려는 서비스에 대한 **메뉴** 창에서 **메트릭**을 선택합니다.
@@ -151,14 +151,14 @@ Storage 계정을 모니터링하도록 저장소 분석 메트릭을 구성하�
 **Blob 시간별 메트릭 설정**은 **Blob 용량 메트릭**($MetricsCapacityBlob) 및 **시간별 Blob 트랜잭션 메트릭**($MetricsHourPrimaryTransactionsBlob) 모두에 적용됩니다. 둘은 함께 활성화되거나 비활성화되고 동일한 보존 정책을 사용합니다.
 
 ## <a name="metrics-alerts"></a>메트릭 알림
-Storage 메트릭이 Storage 서비스 동작의 중요한 변경 내용을 자동으로 알릴 수 있도록 [Azure Portal](https://portal.azure.com)에서 경고를 설정하는 것을 고려해야 합니다. 저장소 탐색기 도구를 사용하여 이 메트릭 데이터를 구분된 형식에서 다운로드하려면 Microsoft Excel을 사용하여 데이터를 분석할 수 있습니다. 사용 가능한 저장소 탐색기 도구의 목록은 [Azure Storage Client Tools](storage-explorers.md)를 참조하세요. 저장소 계정 메뉴 창에서 **모니터링** 아래에서 액세스할 수 있는 **경고 규칙** 창에서 알림을 구성할 수 있습니다.
+Storage 메트릭이 Storage 서비스 동작의 중요한 변경 내용을 자동으로 알릴 수 있도록 [Azure Portal](https://portal.azure.com)에서 경고를 설정하는 것을 고려해야 합니다. 저장소 탐색기 도구를 사용하여 이 메트릭 데이터를 구분된 형식에서 다운로드하려면 Microsoft Excel을 사용하여 데이터를 분석할 수 있습니다. 사용 가능한 스토리지 탐색기 도구의 목록은 [Azure Storage Client Tools](storage-explorers.md)를 참조하세요. 저장소 계정 메뉴 창에서 **모니터링** 아래에서 액세스할 수 있는 **경고 규칙** 창에서 알림을 구성할 수 있습니다.
 
 > [!IMPORTANT]
 > 저장소 이벤트와 해당 시간 또는 분 메트릭 데이터가 기록되는 시간 사이에 지연이 있을 수 있습니다. 분 메트릭을 로깅하는 경우 데이터의 몇 분을 한 번에 작성할 수 있습니다. 그러면 이전 분의 트랜잭션이 현재 분의 트랜잭션으로 집계될 수 있습니다. 이 경우 알림 서비스에는 구성된 알림 간격에 대한 사용 가능한 모든 메트릭 데이터가 없을 수 있어서 예기치 않게 알림이 발생할 수 있습니다.
 >
 
 ## <a name="accessing-metrics-data-programmatically"></a>프로그래밍 방식으로 메트릭 데이터 액세스
-다음 목록에서는 특정 시간(분) 범위에 대한 분 메트릭에 액세스하여 결과를 콘솔 창에 표시하는 샘플 C# 코드를 보여 줍니다. 이 코드는 저장소의 메트릭 테이블 액세스를 간소화하는 CloudAnalyticsClient 클래스가 포함된 Azure Storage 라이브러리 버전 4를 사용합니다.
+다음 목록에서는 특정 시간(분) 범위에 대한 분 메트릭에 액세스하여 결과를 콘솔 창에 표시하는 샘플 C# 코드를 보여 줍니다. 이 코드는 스토리지의 메트릭 테이블 액세스를 간소화하는 CloudAnalyticsClient 클래스가 포함된 Azure Storage 라이브러리 버전 4를 사용합니다.
 
 ```csharp
 private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, DateTimeOffset startDateTime, DateTimeOffset endDateTime)

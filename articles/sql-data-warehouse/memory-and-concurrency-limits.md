@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 10/04/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: fdc45f6f1fbbb4580b71a46740fa51278b869ec0
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 802408f6ccd0a1cc0ed4f4d87d54a11760cd70fe
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889313"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473445"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 메모리 및 동시성 제한
 Azure SQL Data Warehouse에서 다양한 성능 수준과 리소스 클래스에 할당된 메모리 및 동시성 제한을 살펴봅니다. 자세한 내용을 참고하고 워크로드 관리 계획에 이러한 기능을 적용하려면 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 확인하세요. 

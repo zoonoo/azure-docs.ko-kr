@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: d8c3bafaa42e68eb7f6b5212c055793a1f2b1137
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 10692fcb720be819dcf94a8ecbc541983ffc8853
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134542"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478035"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Team Data Science Process 및 Azure DevOps Services를 통해 Azure에서 데이터 과학 코드 테스트
 이 문서에서는 데이터 과학 워크플로에서 코드를 테스트하기 위한 예비 지침을 제공합니다. 이러한 테스트를 통해 데이터 과학자는 체계적이며 효율적인 방식으로 품질 및 예상되는 코드의 결과를 확인할 수 있습니다. 코드 테스트가 어떻게 수행되는지 보여 주기 위해 이전에 게시한 [UCI 성인 소득 데이터 세트를 사용하는 TDSP(Team Data Science Process) 프로젝트](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome)를 사용합니다. 
@@ -46,7 +46,7 @@ ms.locfileid: "53134542"
 
 다음 단계를 사용하여 빌드 에이전트와 Azure DevOps를 사용하여 자동화된 빌드 및 코드 테스트를 설정하고 실행합니다.
 
-1. Visual Studio 데스크톱 응용 프로그램에서 프로젝트를 만듭니다.
+1. Visual Studio 데스크톱 애플리케이션에서 프로젝트를 만듭니다.
 
     ![Visual Studio의 “새 프로젝트 만들기” 화면](./media/code-test/create_project.PNG)
 

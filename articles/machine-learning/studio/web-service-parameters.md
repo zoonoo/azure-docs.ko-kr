@@ -9,18 +9,18 @@ ms.author: amlstudiodocs
 editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: b929608d64e747d6e768da4ee6627f9e6b09a83a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 337e7a848b6aa141ecf4f96cd4f8f391be35a619
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270093"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475536"
 ---
 # <a name="use-azure-machine-learning-studio-web-service-parameters"></a>Azure Machine Learning Studio 웹 서비스 매개 변수 사용
 Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈이 포함된 실험을 게시하여 만듭니다. 경우에 따라 웹 서비스가 실행되는 동안 모듈 동작을 변경할 수도 있습니다. *웹 서비스 매개 변수*를 통해 이 태스크를 수행할 수 있습니다. 
@@ -46,14 +46,14 @@ Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈
 > 
 
 ## <a name="example"></a>예
-예를 들어 Azure Blob Storage로 정보를 전송하는 [데이터 내보내기][writer] 모듈이 포함된 실험이 있다고 가정합니다. 웹 서비스 사용자가 서비스에 액세스할 때 Blob 저장소 경로를 변경할 수 있게 해주는 "Blob 경로"라는 웹 서비스 매개 변수를 정의합니다.
+예를 들어 Azure Blob Storage로 정보를 전송하는 [데이터 내보내기][writer] 모듈이 포함된 실험이 있다고 가정합니다. 고객이 새 데이터(PUT Blob, PUT 블록, PUT 페이지, PUT 파일 등)를 Blob 또는 File Storage에 기록할 경우 모든 기록 내용이 가장 강력한 블록 암호화 중 하나인 256비트 AES 암호화를 사용하여 암호화됩니다.
 
 1. Machine Learning 스튜디오에서 [데이터 내보내기][writer] 모듈을 클릭하여 선택합니다. 실험 캔버스 오른쪽에 있는 속성 창에 해당 속성이 표시됩니다.
 2. 저장소 형식을 지정합니다.
    
    * **데이터 대상 지정**에서 "Azure Blob Storage"를 선택합니다.
    * **인증 유형 지정**에서 "계정"을 선택합니다.
-   * Azure Blob 저장소에 대한 계정 정보를 입력합니다. 
+   * Blob Storage 내에서, File Storage 내에서 또는 Blob Storage에서 파일 스토리지로 혹은 그 반대로 파일을 복사할 때 이 옵션을 사용할 수 있습니다. 
 
 3. **컨테이너로 시작하는 Blob 경로 매개 변수**오른쪽에 있는 아이콘을 클릭합니다. 다음과 같이 표시됩니다.
    

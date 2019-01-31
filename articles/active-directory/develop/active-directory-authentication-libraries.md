@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 2e4fc79a-0285-40be-8c77-65edee408a22
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,12 +17,12 @@ ms.date: 12/01/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 72abe674110a60a046e06800bdeb484c9d6c2a33
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 09e748f39cd5c31433e30cfa60527ce082fb07c6
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682438"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080789"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory 인증 라이브러리
 
@@ -65,7 +65,7 @@ Azure ADAL(Active Directory 인증 라이브러리) v1.0은 애플리케이션 �
 
 다음은 원격 리소스에 액세스하는 클라이언트에서 ADAL을 사용하는 세 가지 일반적인 시나리오입니다.
 
-### <a name="authenticating-users-of-a-native-client-application-running-on-a-device"></a>디바이스에서 실행되는 네이티브 클라이언트 응용 프로그램의 사용자 인증
+### <a name="authenticating-users-of-a-native-client-application-running-on-a-device"></a>디바이스에서 실행되는 네이티브 클라이언트 애플리케이션의 사용자 인증
 
 이 시나리오에서는 개발자가 web API 같은 원격 리소스에 액세스해야 하는 모바일 클라이언트 또는 데스크톱 애플리케이션을 갖고 있습니다. Web API는 익명 호출을 허용하지 않으므로 인증된 사용자의 컨텍스트에서 호출해야 합니다. web API는 특정 Azure AD 테넌트에서 발급한 액세스 토큰을 신뢰하도록 미리 구성됩니다. Azure AD는 해당 리소스에 대한 액세스 토큰을 발급하도록 미리 구성됩니다. 클라이언트에서 web API를 호출하기 위해 개발자는 ADAL을 사용하여 Azure AD를 보다 쉽게 인증합니다. ADAL을 사용하는 가장 안전한 방법은 사용자 인터페이스를 렌더링하여 사용자 자격 증명을 수집하게 하는 것입니다(브라우저 창으로 렌더링).
 

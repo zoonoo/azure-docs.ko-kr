@@ -2,19 +2,18 @@
 title: Azure Backup용 Log Analytics 데이터 모델
 description: 이 문서에서는 Azure Backup 데이터에 대한 Log Analytics 데이터 모델 세부 정보에 대해 설명합니다.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f4ecc87a0a7a0c74b02b72164fe129daa6530ea2
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5921ca696076a16e39252a6cb3bfae98854b5a85
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877584"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299575"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Azure Backup 데이터용 Log Analytics 데이터 모델
 Log Analytics 데이터 모델을 사용하여 보고서를 만듭니다. 데이터 모델을 사용하면 원하는 대로 사용자 지정 쿼리와 대시보드를 만들거나 Azure Backup 데이터를 사용자 지정할 수 있습니다.
@@ -281,4 +280,4 @@ Log Analytics 데이터 모델을 사용하여 보고서를 만듭니다. 데이
 | ResourceType |텍스트 |데이터가 수집되는 리소스 종류(예: Vaults) |
 
 ## <a name="next-steps"></a>다음 단계
-Azure Backup 보고서를 만들기 위한 데이터 모델을 검토한 후에는 Log Analytics에서 [대시보드를 만들](../azure-monitor/platform/dashboards.md) 수 있습니다.
+Azure Backup 보고서를 만들기 위한 데이터 모델을 검토한 후에는 Log Analytics에서 [대시보드를 만들](../azure-monitor/learn/tutorial-logs-dashboards.md) 수 있습니다.

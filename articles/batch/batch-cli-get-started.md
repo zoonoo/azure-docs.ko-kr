@@ -3,7 +3,7 @@ title: Batch용 Azure CLI 시작 | Microsoft Docs
 description: Azure CLI에서 Azure Batch 서비스 리소스를 관리하기 위한 Batch 명령에 대한 간단한 소개를 봅니다.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 07/24/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b5c1df8776b63fc8ceecfa0377e74c757ba503c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0d51052f4e04a1497ccf2e91427e3465bdc5bf2f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950151"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476828"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Azure CLI를 사용하여 Batch 리소스 관리
 
@@ -62,7 +62,7 @@ Batch와 함께 Azure CLI를 사용하려면 로그인하고 인증해야 합니
 
 Azure에 로그인할 수 있는 몇 가지 방법이 있으며, [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli)에서 자세히 설명하고 있습니다.
 
-1. [대화형으로 로그인합니다](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-interactive-log-in). 명령줄에서 Azure CLI 명령을 직접 실행하면 대화형으로 로그인합니다.
+1. [대화형으로 로그인합니다](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). 명령줄에서 Azure CLI 명령을 직접 실행하면 대화형으로 로그인합니다.
 2. [서비스 주체를 사용하여 로그인합니다](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal). 스크립트 또는 애플리케이션에서 Azure CLI 명령을 실행할 때 서비스 주체를 사용하여 로그인합니다.
 
 이 문서에서는 Azure에 대화형으로 로그인하는 방법을 보여 줍니다. 명령줄에서 [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login)을 입력합니다.

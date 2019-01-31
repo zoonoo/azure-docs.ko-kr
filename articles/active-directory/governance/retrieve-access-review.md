@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
+ms.subservice: compliance
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 299e7884311466a34f020735de895ea2ad9945ce
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: ac90025ff617323e79fef21b286f8f612f55ce84
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607553"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55173499"
 ---
 # <a name="retrieve-access-review-results"></a>액세스 검토 결과 검색
 
@@ -54,7 +54,7 @@ ms.locfileid: "45607553"
 - [Azure AD 액세스 검토를 사용하여 사용자 액세스 관리](manage-user-access-with-access-reviews.md)
 - [Azure AD 액세스 검토를 사용하여 게스트 액세스 관리](manage-guest-access-with-access-reviews.md)
 - [Azure AD 액세스 검토용 프로그램 및 컨트롤 관리](manage-programs-controls.md)
-- [그룹의 멤버 또는 응용 프로그램에 액세스에 대한 액세스 검토 만들기](create-access-review.md)
+- [그룹의 멤버 또는 애플리케이션에 액세스에 대한 액세스 검토 만들기](create-access-review.md)
 - [Azure AD 관리 역할에서 사용자 액세스 검토 만들기](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 

@@ -2,7 +2,7 @@
 title: Azure Batch 태스크 시작 이벤트 | Microsoft Docs
 description: Batch 태스크 시작 이벤트에 대한 참조입니다.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: 0ad0f87df9db39088769579d538b919b42634c4b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: lahugh
+ms.openlocfilehash: d50a0a7082e409084fd966370934a638ca9bb013
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30311858"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474431"
 ---
 # <a name="task-start-event"></a>태스크 시작 이벤트
 
@@ -48,7 +48,7 @@ ms.locfileid: "30311858"
 }
 ```
 
-|요소 이름|유형|메모|
+|요소 이름|Type|메모|
 |------------------|----------|-----------|
 |jobId|문자열|태스크가 포함된 작업의 ID입니다.|
 |id|문자열|태스크의 ID입니다.|
@@ -61,25 +61,25 @@ ms.locfileid: "30311858"
 
 ###  <a name="nodeInfo"></a> nodeInfo
 
-|요소 이름|유형|메모|
+|요소 이름|Type|메모|
 |------------------|----------|-----------|
 |poolId|문자열|태스크가 실행된 풀의 ID입니다.|
 |nodeId|문자열|태스크가 실행된 노드의 ID입니다.|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
-|요소 이름|유형|메모|
+|요소 이름|Type|메모|
 |------------------|----------|-----------|
 |numberOfInstances|int|태스크에 필요한 계산 노드 수입니다.|
 
 ###  <a name="constraints"></a> constraints
 
-|요소 이름|유형|메모|
+|요소 이름|Type|메모|
 |------------------|----------|-----------|
 |maxTaskRetryCount|Int32|태스크를 다시 시도할 수 있는 최대 횟수입니다. 종료 코드가 0이 아니면 Batch 서비스가 태스크를 다시 시도합니다.<br /><br /> 이 값은 구체적으로 재시도 횟수를 제어합니다. Batch 서비스는 태스크를 한 번 시도한 후 이 한도까지 다시 시도할 수 있습니다. 예를 들어 최대 재시도 횟수가 3일 경우 Batch는 최대 4회까지 태스크를 시도합니다(초기 시도 1회와 재시도 3회).<br /><br /> 최대 재시도 횟수가 0일 경우 Batch 서비스는 태스크를 다시 시도하지 않습니다.<br /><br /> 최대 재시도 횟수가 -1일 경우 Batch 서비스는 태스크를 무제한으로 다시 시도합니다.<br /><br /> 기본값은 0(재시도 안 함)입니다.|
 
 ###  <a name="executionInfo"></a> executionInfo
 
-|요소 이름|유형|메모|
+|요소 이름|Type|메모|
 |------------------|----------|-----------|
 |retryCount|Int32|Batch 서비스에서 태스크를 다시 시도한 횟수입니다. 태스크가 0이 아닌 종료 코드와 함께 종료될 경우 지정된 MaxTaskRetryCount까지 다시 시도됩니다.|

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 205ba822b1221de34f3ee1ae25974a406f2013cb
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7897c677df38bb9b71222730a8b6a9ea11fb40bc
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438101"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912666"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>규모에 맞게 ETL(추출, 변환 및 로드)
 
@@ -66,7 +66,7 @@ Azure Storage에는 여러 가지 유형의 Blob이 있습니다.  *추가 Blob*
 
 데이터는 일반적으로 PowerShell, Azure Storage SDK 또는 AZCopy를 사용하여 Azure Storage로 수집됩니다.
 
-### <a name="azure-data-lake-storage"></a>Azure Data Lake 저장소
+### <a name="azure-data-lake-storage"></a>Azure Data Lake 스토리지
 
 ADLS(Azure Data Lake Storage)는 HDFS와 호환되는 분석 데이터를 위한 관리되는 하이퍼스케일 리포지토리입니다.  ADLS는 HDFS와 비슷한 디자인 패러다임을 사용하며, 총 용량 및 개별 파일 크기 측면에서 무제한의 확장성을 제공합니다. ADLS는 큰 파일을 여러 노드에 걸쳐 저장할 수 있으므로 큰 파일로 작업할 때 매우 유용합니다.  ADLS에서 데이터를 분할하는 작업은 백그라운드에서 수행됩니다.  수백 테라바이트의 데이터를 효율적으로 읽고 쓰는 수천 개의 동시 실행기를 사용하여 분석 작업을 실행하는 대규모 처리량을 얻을 수 있습니다.
 
@@ -138,3 +138,4 @@ Apache Flume은 Azure HDInsight와 함께 사용할 수 없습니다.  온-프�
 
 * [HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용](hdinsight-use-pig.md)
 * [Apache Hive를 ETL 도구로 사용](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 
+* [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

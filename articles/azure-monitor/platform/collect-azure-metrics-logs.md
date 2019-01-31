@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 6b5fc02e763b66f1d7d01643d1c9d6c971d6db84
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1d01755ae62843ad1f2f1728df046b767fe123ca
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434208"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886580"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Log Analytics에서 사용할 Azure 서비스 로그 및 메트릭 수집
 
 Azure 서비스에 대한 로그 및 메트릭을 수집하는 방법에는 다음 네 가지가 있습니다.
 
 1. Azure 진단에서 Log Analytics로 직접(다음 표에서 *진단*)
-2. Azure 진단 -> Azure Storage -> Log Analytics(다음 표에서 *저장소*)
+2. Azure 진단 -&gt; Azure Storage -&gt; Log Analytics(다음 표에서 *스토리지*)
 3. Azure 서비스에 대한 커넥터(다음 표에서 *커넥터*)
 4. 데이터를 수집한 후 Log Analytics에 게시하기 위한 스크립트(다음 표에서 비어 있으며, 나열되지 않은 서비스에 해당)
 
@@ -76,7 +76,7 @@ Azure 서비스에 대한 로그 및 메트릭을 수집하는 방법에는 다�
 >
 
 * 사용 가능한 메트릭에 대한 자세한 내용은 [Azure Monitor에서 지원되는 메트릭](../../azure-monitor/platform/metrics-supported.md)을 참조하세요.
-* 사용 가능한 로그에 대한 자세한 내용은 [진단 로그에 지원되는 서비스 및 스키마](../../azure-monitor/platform/tutorial-dashboards.md)를 참조하세요.
+* 사용 가능한 로그에 대한 자세한 내용은 [진단 로그에 지원되는 서비스 및 스키마](../../azure-monitor/platform/diagnostic-logs-schema.md)를 참조하세요.
 
 ### <a name="enable-diagnostics-with-powershell"></a>PowerShell에서 진단 사용
 [Azure PowerShell](/powershell/azure/overview)의 2016년 11월(v2.3.0) 이후 릴리스가 필요합니다.
@@ -155,6 +155,6 @@ Azure 템플릿 갤러리에는 [Azure Automation을 사용하여](https://azure
 
 ## <a name="next-steps"></a>다음 단계
 
-* [이벤트에 대해 IIS 및 테이블 저장소에 Blob Storage를 사용하여](azure-storage-iis-table.md) Table Storage에 진단을 기록하는 Azure 서비스나 Blob Storage에 기록된 IIS 로그에 대해 로그를 읽을 수 있습니다.
+* [이벤트에 대해 IIS 및 테이블 스토리지에 Blob Storage를 사용하여](azure-storage-iis-table.md) Table Storage에 진단을 기록하는 Azure 서비스나 Blob Storage에 기록된 IIS 로그에 대해 로그를 읽을 수 있습니다.
 * [솔루션을 사용하도록 설정](../../azure-monitor/insights/solutions.md) 하여 데이터에 대한 정보를 제공합니다.
 * [검색 쿼리를 사용](../../azure-monitor/log-query/log-query-overview.md) 하여 데이터를 분석합니다.

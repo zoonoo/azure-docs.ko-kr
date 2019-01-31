@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: d8ddbb2590852ed80ce02f147886dc125815fc23
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 94b793d4ab68ae4d2b8a28961d76eed1ea875ff7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605979"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468634"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Azure SQL Database에서 파일 공간 관리리
 이 문서에서는 Azure SQL Database의 다양한 종류의 저장소 공간을 설명하고 데이터베이스 및 탄력적 풀에 할당된 파일 공간을 명시적으로 관리해야 하는 경우 취할 수 있는 단계를 설명합니다.
@@ -27,6 +27,7 @@ ms.locfileid: "53605979"
 Azure SQL 데이터베이스의 경우, 데이터베이스에 대한 기본 데이터 파일의 할당이 사용되는 데이터 페이지의 양을 초과할 수 있는 워크로드 패턴이 있습니다. 이 상태는 사용되는 공간이 증가하고 그 후에 데이터가 삭제되는 경우 발생할 수 있습니다. 이렇게 되는 이유는 데이터가 삭제될 때 할당되어 있는 파일 공간이 자동으로 회수되지 않기 때문입니다.
 
 파일 공간 사용량 모니터링 및 데이터 파일 축소는 다음과 같은 시나리오에서 필요할 수 있습니다.
+
 - 데이터베이스에 할당된 파일 공간이 풀 최대 크기에 도달하는 경우 탄력적 풀의 데이터 증가를 허용합니다.
 - 단일 데이터베이스 또는 탄력적 풀의 최대 크기 감소를 허용합니다.
 - 단일 데이터베이스 또는 탄력적 풀을 더 작은 최대 크기의 다른 서비스 계층 또는 성능 계층으로 변경하는 것을 허용합니다.
@@ -118,6 +119,7 @@ SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 탄력적 풀에 대한 저장소 공간 수량을 확인하려면 다음 쿼리를 사용할 수 있습니다.  
 
 ### <a name="elastic-pool-data-space-used"></a>사용되는 탄력적 풀 데이터 공간
+
 다음 쿼리를 수정하여 사용된 탄력적 풀 데이터 공간의 크기를 반환합니다.  쿼리 결과의 단위는 MB입니다.
 
 ```sql
@@ -234,9 +236,9 @@ ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ## <a name="next-steps"></a>다음 단계
 
 - 최대 데이터베이스 크기에 대한 정보는 다음을 참조하세요.
-  - [단일 데이터베이스에 대한 Azure SQL Database vCore 기반 구매 모델 한도](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases)
-  - [DTU를 기반 구매 모델을 사용한 단일 데이터베이스에 대한 리소스 제한](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases)
-  - [탄력적 풀에 대한 Azure SQL Database vCore 기반 구매 모델 제한](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools)
-  - [DTU를 기반 구매 모델을 사용한 탄력적 풀에 대한 리소스 제한](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools)
+  - [단일 데이터베이스에 대한 Azure SQL Database vCore 기반 구매 모델 한도](sql-database-vcore-resource-limits-single-databases.md)
+  - [DTU를 기반 구매 모델을 사용한 단일 데이터베이스에 대한 리소스 제한](sql-database-dtu-resource-limits-single-databases.md)
+  - [탄력적 풀에 대한 Azure SQL Database vCore 기반 구매 모델 제한](sql-database-vcore-resource-limits-elastic-pools.md)
+  - [DTU를 기반 구매 모델을 사용한 탄력적 풀에 대한 리소스 제한](sql-database-dtu-resource-limits-elastic-pools.md)
 - `SHRINKDATABASE` 명령에 대한 자세한 내용은 [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql)를 참조하세요. 
 - 조각화 및 인덱스 다시 작성에 대한 자세한 내용은 [인덱스 재구성 및 다시 작성](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes)을 참조하세요.

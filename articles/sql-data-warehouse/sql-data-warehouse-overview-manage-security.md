@@ -2,20 +2,20 @@
 title: SQL Data Warehouse에서 데이터베이스 보호 | Microsoft Docs
 description: 솔루션 개발을 위해 Azure SQL Data Warehouse에서 데이터베이스를 보호하는 팁
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 8abb40b0c1a5b9cd3f8d1e23124090c00e8cfadb
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c3844d378b44d292b9a7eb631fa896d5f6e61dbe
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302542"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472187"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>SQL Data Warehouse에서 데이터베이스 보호
 > [!div class="op_single_selector"]
@@ -74,7 +74,7 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 사용자가 Azure SQL Data Warehouse로 수행할 수 있는 작업을 더욱 제한할 수 있는 방법이 있습니다.
 
 * 세분화된 [권한][Permissions]을 사용하면 개별 열, 테이블, 뷰, 스키마, 프로시저 및 데이터베이스의 다른 개체에서 수행할 수 있는 작업을 제어할 수 있습니다. 세분화된 사용 권한을 사용하여 최대한으로 제어하고 최소한의 필요 권한을 부여합니다. 
-* db_datareader 및 db_datawriter 이외의 [데이터베이스 역할][Database roles]은 더 강력한 응용 프로그램 사용자 계정이나 덜 강력한 관리 계정을 만드는 데 사용할 수 있습니다. 기본 제공되는 고정 데이터베이스 역할은 사용 권한을 부여하는 쉬운 방법을 제공하지만 필요한 것보다 많은 사용 권한이 부여될 수 있습니다.
+* db_datareader 및 db_datawriter 이외의 [데이터베이스 역할][Database roles]은 더 강력한 애플리케이션 사용자 계정이나 덜 강력한 관리 계정을 만드는 데 사용할 수 있습니다. 기본 제공되는 고정 데이터베이스 역할은 사용 권한을 부여하는 쉬운 방법을 제공하지만 필요한 것보다 많은 사용 권한이 부여될 수 있습니다.
 * [저장 프로시저][Stored procedures]는 데이터베이스에서 수행할 수 있는 작업을 제한하는 데 사용할 수 있습니다.
 
 다음 예제에서는 사용자 정의 스키마에 대한 읽기 권한을 부여합니다.

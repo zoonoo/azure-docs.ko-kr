@@ -11,12 +11,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: f12aed12138b1b16fcce90401ea0d65bd083675f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 02832ee84e02251239ab4364aac9ad0894c681b9
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546722"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884784"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL 분석을 사용하여 Azure SQL Database 모니터링(미리 보기)
 
@@ -37,10 +37,10 @@ Azure SQL 분석은 단일, 풀링, Managed Instance 데이터베이스 등 Azur
 
 | 연결된 소스 | 지원됨 | 설명 |
 | --- | --- | --- |
-| [Azure 진단](../../azure-monitor/platform/collect-azure-metrics-logs.md) | **예** | Azure 메트릭 및 로그 데이터는 Azure에 의해 직접 Log Analytics에 전송됩니다. |
-| [Azure 저장소 계정](../../azure-monitor/platform/collect-azure-metrics-logs.md) | 아니요 | Log Analytics는 저장소 계정에서 데이터를 읽지 않습니다. |
-| [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | 아니요 | 직접 Windows 에이전트는 솔루션에서 사용되지 않습니다. |
-| [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 아니요 | 직접 Linux 에이전트는 솔루션에서 사용되지 않습니다. |
+| [Azure 진단](../platform/collect-azure-metrics-logs.md) | **예** | Azure 메트릭 및 로그 데이터는 Azure에 의해 직접 Log Analytics에 전송됩니다. |
+| [Azure 저장소 계정](../platform/collect-azure-metrics-logs.md) | 아니요 | Log Analytics는 저장소 계정에서 데이터를 읽지 않습니다. |
+| [Windows 에이전트](../platform/agent-windows.md) | 아니요 | 직접 Windows 에이전트는 솔루션에서 사용되지 않습니다. |
+| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아니요 | 직접 Linux 에이전트는 솔루션에서 사용되지 않습니다. |
 | [System Center Operations Manager 관리 그룹](../platform/om-agents.md) | 아니요 | Operations Manager 에이전트에서 Log Analytics로 직접 연결은 솔루션에서 사용되지 않습니다. |
 
 ## <a name="configuration"></a>구성
@@ -185,7 +185,7 @@ Azure SQL Analytics의 데이터 분석은 사용자 지정 쿼리 및 보고를
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Azure SQL Database에 대한 경고 만들기
 
-Azure SQL Database 리소스에서 가져온 데이터와 [경고를 쉽게 만들](../../azure-monitor/platform/alerts-metric.md) 수 있습니다. 다음은 로그 경고와 함께 사용할 수 있는 몇 가지 유용한 [로그 쿼리](../../azure-monitor/log-query/log-query-overview.md)입니다.
+Azure SQL Database 리소스에서 가져온 데이터와 [경고를 쉽게 만들](../platform/alerts-metric.md) 수 있습니다. 다음은 로그 경고와 함께 사용할 수 있는 몇 가지 유용한 [로그 쿼리](../log-query/log-query-overview.md)입니다.
 
 #### <a name="high-cpu-on-azure-sql-database"></a>Azure SQL Database의 높은 CPU
 
@@ -297,6 +297,6 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>다음 단계
 
-- Log Analytics의 [로그 검색](../../azure-monitor/log-query/log-query-overview.md)을 사용하여 자세한 Azure SQL 데이터를 확인합니다.
-- Azure SQL 데이터를 보여 주는 [사용자 고유의 대시보드 만들기](../../azure-monitor/platform/dashboards.md).
-- 특정 Azure SQL 이벤트가 발생하는 경우의 [경고 만들기](../../azure-monitor/platform/alerts-overview.md).
+- Log Analytics의 [로그 검색](../log-query/log-query-overview.md)을 사용하여 자세한 Azure SQL 데이터를 확인합니다.
+- Azure SQL 데이터를 보여 주는 [사용자 고유의 대시보드 만들기](../learn/tutorial-logs-dashboards.md).
+- 특정 Azure SQL 이벤트가 발생하는 경우의 [경고 만들기](../platform/alerts-overview.md).

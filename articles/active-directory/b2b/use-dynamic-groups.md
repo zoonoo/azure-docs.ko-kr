@@ -3,19 +3,19 @@ title: 동적 그룹 및 Azure Active Directory B2B 공동 작업 | Microsoft Do
 description: Azure Active Directory B2B 공동 작업 기능에서 Azure AD 동적 그룹을 사용하는 방법을 보여줍니다.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: d4264a114afc04f162ae7c711b78fce506aa39d1
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 206737049a446476b4b188a72effdc231cb5dc3b
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432337"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55082013"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>동적 그룹 및 Azure Active Directory B2B 공동 작업
 

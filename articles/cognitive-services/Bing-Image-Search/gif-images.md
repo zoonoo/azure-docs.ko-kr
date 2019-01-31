@@ -6,33 +6,33 @@ services: cognitive-services
 author: MikeDodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: rosh
 ms.custom: seodec2018
-ms.openlocfilehash: 7536452d3ed0030b34e4f30deba56d6d8ae1957c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 458acef9224349d5e4c223999243322474daac3d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249314"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55154936"
 ---
 # <a name="search-for-gif-images"></a>GIF 이미지 검색 
 
 Bing Image Search API를 사용하면 관련성이 가장 높은 .gif 이미지에 대해 전체 웹을 검색할 수도 있습니다.  개발자는 다양한 대화 시나리오에 관련된 gif를 통합할 수 있습니다. 
 
 다음 URL은 애니메이션된 .gif 이미지에 대한 쿼리입니다.
-````
+```
 https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=interesting&imageType=AnimatedGif&mkt=en-us
-````
+```
 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) 매개 변수는 검색 단어를 지정합니다.  또한 이전 쿼리는 [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype) 필터 매개 변수를 사용하여 `animatedGif`를 지정합니다.
 
 결과의 예를 보려면 다음 URL을 사용하여 bing.com을 검색합니다.
-````
+```
 https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animatedgif
 
-````
+```
 ## <a name="query-parameters"></a>쿼리 매개 변수
 
 쿼리 매개 변수 및 옵션에 대한 자세한 내용은 [Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query-parameters)를 참조하세요. 예제는 [Java를 사용하여 애니메이션된 gif 예제 검색](#gifExample) 헤더 아래에서 수행됩니다.
@@ -44,21 +44,21 @@ https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animate
 - 사용자 쿼리가 아직 없는 첫 번째 실행 또는 방문 페이지 환경의 경우 추세 gif 검색을 사용하여 [추세 이미지 API](trending-images.md)에서 도움을 줍니다.
 - [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) 매개 변수에 대한 세 가지 설정이 있습니다.  `strict` 옵션은 성인 등급 콘텐츠를 차단합니다.
 - 지원되는 언어 및 위치의 전체 목록은 [mkt](supported-countries-markets.md)를 참조하세요.
-- *AnimatedGifHttps*는 https 주소에서 생성되고 애니메이션된 gif 이미지만을 반환합니다. 보안상 대부분의 응용 프로그램은 https를 통해 외부 웹 링크에 연결되어야 합니다. 예를 들어 Apple 앱 스토어는 HTTPS를 통해 웹 서비스에 연결되어야 합니다. 그러면 전송 중에 사용자 데이터를 안전하게 암호화합니다.
+- *AnimatedGifHttps*는 https 주소에서 생성되고 애니메이션된 gif 이미지만을 반환합니다. 보안상 대부분의 애플리케이션은 https를 통해 외부 웹 링크에 연결되어야 합니다. 예를 들어 Apple 앱 스토어는 HTTPS를 통해 웹 서비스에 연결되어야 합니다. 그러면 전송 중에 사용자 데이터를 안전하게 암호화합니다.
 
 <a name="gifExample" />
 ## <a name="example-search-for-animated-gif-using-java"></a>Java를 사용하는 애니메이션된 gif 검색 예제
 
 다음 URL은 애니메이션된 .gif 이미지를 검색합니다. `q=interesting`
-````
+```
 https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=interesting&imageType=AnimatedGif&mkt=en-us
 
-````
+```
 다음 예제에서 볼 수 있듯이 URL 쿼리에는 [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#headers) 헤더가 필요합니다.
 
 다음 Java 예제에서는 요청을 빌드하고 전송합니다.
 
-````
+```
 package gifSearch;
 import java.net.*;
 import java.util.*;
@@ -167,7 +167,7 @@ class SearchResults{
  }
 }
 
-````
+```
 
 ## <a name="results"></a>결과
 코드는 다음과 같은 결과를 JSON 개체로 가져옵니다.
@@ -208,4 +208,4 @@ class SearchResults{
 
 ## <a name="next-steps"></a>다음 단계
 - [C# 빠른 시작](quickstarts/csharp.md)
-- [자습서 Image Search 단일 페이지 응용 프로그램](tutorial-bing-image-search-single-page-app.md)
+- [자습서 Image Search 단일 페이지 애플리케이션](tutorial-bing-image-search-single-page-app.md)

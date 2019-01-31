@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: v-gedod
-ms.openlocfilehash: 8fa70705d1dff5c3150fa5868938a3c50ef863fe
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 24b14c4f0ca185a7916aeb19671a22ff46a23ee2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815566"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194851"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Bing Custom Search API에 대한 언어 및 지역 지원
 
@@ -91,7 +91,7 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |인도네시아|영어|en-ID|
 |이탈리아|이탈리아어|it-IT|
 |일본|일본어|ja-JP|
-|한국|한국어|ko-KR|
+|한국|한국어|en-US|
 |말레이시아|영어|en-MY|
 |멕시코|스페인어|es-MX|
 |네덜란드|네덜란드어|nl-NL|
@@ -111,5 +111,5 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |대만|중국어 번체|zh-TW|
 |터키|터키어|tr-TR|
 |영국|영어|en-GB|
-|미국|영어|ko-KR|
+|미국|영어|en-US|
 |미국|스페인어|es-US|

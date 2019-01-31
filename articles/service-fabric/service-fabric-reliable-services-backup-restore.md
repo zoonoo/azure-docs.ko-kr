@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: 42aaafd346c6db9d4a8780628319720aa3f28134
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 986a7be49f8ae0f683b89596204845bb08eeaf2d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727718"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095773"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Reliable Services 및 Reliable Actors 백업 및 복원
 Azure 서비스 패브릭은 여러 노드에 걸쳐 상태를 복제하여 고가용성을 유지하는 고가용성 플랫폼입니다.  따라서 클러스터의 한 노드에서 오류가 발생해도 서비스를 지속적으로 사용할 수 있습니다. 많은 경우 플랫폼에서 제공하는 이러한 기본 제공 중복성으로 충분하지만 어떤 경우에는 서비스를 위해 (외부 저장소에) 데이터를 백업하는 것이 바람직합니다.
@@ -104,7 +104,7 @@ private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, Cancellation
 }
 ```
 
-위의 예제에서 `ExternalBackupStore`는 Azure Blob 저장소와의 인터페이스에 사용되는 샘플 클래스이고, `UploadBackupFolderAsync`는 폴더를 압축하여 Azure Blob 저장소에 배치하는 메서드입니다.
+위의 예제에서 `ExternalBackupStore`는 Azure Blob Storage와의 인터페이스에 사용되는 샘플 클래스이고, `UploadBackupFolderAsync`는 폴더를 압축하여 Azure Blob Storage에 배치하는 메서드입니다.
 
 다음 사항에 유의하세요.
 
@@ -166,10 +166,10 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 > 전체 서비스를 복원하기 위해 각 파티션에서 `FabricClient.ServiceManager.InvokeDataLossAsync`를 사용하는 것은 클러스터 상태를 손상시킬 수 있으므로 권장되지 않습니다.
 > 
 
-## <a name="replication-of-corrupt-application-data"></a>손상된 응용 프로그램 데이터의 복제
-새로 배포된 응용 프로그램 업그레이드에 버그가 있는 경우 데이터 손상을 초래할 수 있습니다. 응용 프로그램 업그레이드를 시작하여 잘못된 지역 번호로 신뢰할 수 있는 사전의 모든 전화번호 레코드를 업데이트하는 경우를 예로 들 수 있습니다.  이 경우 서비스 패브릭이 저장하는 데이터의 본질을 인지하지 못하므로 잘못된 전화 번호가 복제됩니다.
+## <a name="replication-of-corrupt-application-data"></a>손상된 애플리케이션 데이터의 복제
+새로 배포된 애플리케이션 업그레이드에 버그가 있는 경우 데이터 손상을 초래할 수 있습니다. 애플리케이션 업그레이드를 시작하여 잘못된 지역 번호로 신뢰할 수 있는 사전의 모든 전화번호 레코드를 업데이트하는 경우를 예로 들 수 있습니다.  이 경우 서비스 패브릭이 저장하는 데이터의 본질을 인지하지 못하므로 잘못된 전화 번호가 복제됩니다.
 
-이렇게 데이터 손상을 초래할 수 있는 황당한 버그를 탐지한 후 가장 먼저 할 일은 응용 프로그램 수준에서 서비스를 고정하고, 가능하다면 버그가 없는 응용 프로그램 코드의 버전으로 업그레이드하는 것입니다.  그러나 서비스 코드가 고정된 후에도 데이터 손상이 지속되어 데이터 복원이 필요할 수 있습니다.  이 경우에는 최신 백업도 손상되었을 수 있기 때문에 최신 백업을 복원하는 것으로는 부족할 수 있습니다.  따라서 데이터 손상 이전에 만든 최신 백업을 찾아야 합니다.
+이렇게 데이터 손상을 초래할 수 있는 황당한 버그를 탐지한 후에 가장 먼저 할 일은 애플리케이션 수준에서 서비스를 고정하고, 가능하다면 버그가 없는 애플리케이션 코드의 버전으로 업그레이드하는 것입니다.  그러나 서비스 코드가 고정된 후에도 데이터 손상이 지속되어 데이터 복원이 필요할 수 있습니다.  이 경우에는 최신 백업도 손상되었을 수 있기 때문에 최신 백업을 복원하는 것으로는 부족할 수 있습니다.  따라서 데이터 손상 이전에 만든 최신 백업을 찾아야 합니다.
 
 백업이 손상되었는지 확실하지 않은 경우 새 서비스 패브릭 클러스터를 배포하고 위의 "삭제되거나 손상된 서비스" 시나리오와 마찬가지로 영향을 받는 파티션의 백업을 복원할 수 있습니다.  각 파티션에 대해 가장 최근부터 가장 오래된 순으로 백업을 복원하기 시작합니다. 손상되지 않은 백업을 찾은 후 이 파티션에 있는 모든 백업(해당 백업보다 최신 버전)을 이동/삭제합니다. 각 파티션에 대해 이 프로세스를 반복합니다. 이제 프로덕션 클러스터의 파티션에서 `OnDataLossAsync`가 호출되면 외부 저장소에 있는 마지막 백업이 위의 프로세스로 선택된 백업이 됩니다.
 
@@ -178,7 +178,7 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 다음 사항에 유의하세요.
 
   - 복원할 때 복원 중인 백업이 데이터 손실 이전의 파티션 상태보다 오래된 것일 가능성이 있습니다. 이 때문에 가능한 많은 데이터를 복구하기 위한 마지막 수단으로만 복원해야 합니다.
-  - 백업 폴더 경로와 백업 폴더 내 파일 경로를 나타내는 문자열은 FabricDataRoot 경로 및 응용 프로그램 형식 이름의 길이에 따라 255자보다 길 수 있습니다. 이로 인해 `Directory.Move`와 같은 일부 .NET 메서드에서 `PathTooLongException` 예외가 발생(throw)될 수 있습니다. 한 가지 해결 방법은 `CopyFile`과 같은 kernel32 API를 직접 호출하는 것입니다.
+  - 백업 폴더 경로와 백업 폴더 내 파일 경로를 나타내는 문자열은 FabricDataRoot 경로 및 애플리케이션 형식 이름의 길이에 따라 255자보다 길 수 있습니다. 이로 인해 `Directory.Move`와 같은 일부 .NET 메서드에서 `PathTooLongException` 예외가 발생(throw)될 수 있습니다. 한 가지 해결 방법은 `CopyFile`과 같은 kernel32 API를 직접 호출하는 것입니다.
 
 ## <a name="back-up-and-restore-reliable-actors"></a>Reliable Actors 백업 및 복원
 
@@ -227,7 +227,7 @@ class MyCustomActorService : ActorService
   - 복제본이 주가 된 이후로 전체 백업을 수행한 적이 없었습니다.
   - 마지막 백업이 수행된 이후로 로그 레코드의 일부가 잘렸습니다.
 
-증분 백업을 사용하도록 설정하면 `KvsActorStateProvider`에서 순환 버퍼를 사용하여 해당 로그 레코드를 관리하지 않으며 정기적으로 자릅니다. 사용자가 45분 동안 백업을 수행하지 않을 경우 시스템이 로그 레코드를 자동으로 자릅니다. 이 간격은 `KvsActorStateProvider` 생성자에서 `logTrunctationIntervalInMinutes`를 지정하여 구성할 수 있습니다(증분 백업을 사용하도록 설정하는 경우와 비슷함). 주 복제본이 모든 데이터를 전송하여 다른 복제본을 구축해야 하는 경우 로그 레코드가 잘릴 수도 있습니다.
+증분 백업을 사용하도록 설정하면 `KvsActorStateProvider`에서 순환 버퍼를 사용하여 해당 로그 레코드를 관리하지 않으며 정기적으로 자릅니다. 사용자가 45분 동안 백업을 수행하지 않을 경우 시스템이 로그 레코드를 자동으로 자릅니다. 이 간격은 `KvsActorStateProvider` 생성자에서 `logTruncationIntervalInMinutes`를 지정하여 구성할 수 있습니다(증분 백업을 사용하도록 설정하는 경우와 비슷함). 주 복제본이 모든 데이터를 전송하여 다른 복제본을 구축해야 하는 경우 로그 레코드가 잘릴 수도 있습니다.
 
 백업 체인에서 복원 작업을 수행할 때는 Reliable Services와 마찬가지로 BackupFolderPath에 전체 백업이 포함된 하위 디렉터리 하나와 증분 백업이 포함된 다른 하위 디렉터리가 포함되어 있어야 합니다. 백업 체인 유효성 검사에 실패할 경우 복원 API에서 적절한 오류 메시지와 함께 FabricException을 throw합니다. 
 

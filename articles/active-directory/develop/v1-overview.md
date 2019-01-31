@@ -7,7 +7,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 03ef4a5bcf1de134789de13ec13cf51ba58ac0eb
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4b3e7e777abc524e512acb2f9abc9c53ba29146d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49960089"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102467"
 ---
 # <a name="about-v10"></a>v1.0 정보
 
@@ -33,7 +33,7 @@ Azure AD(Azure Active Directory)는 개발자가 Microsoft 회사 또는 학교 
 | | |
 | --- | --- |
 |[인증 기본 사항](authentication-scenarios.md) | Azure AD를 사용하는 인증에 대한 소개입니다. |
-|[응용 프로그램 유형](app-types.md) | Azure AD에서 지원하는 인증 시나리오에 대한 개요입니다. |
+|[애플리케이션 유형](app-types.md) | Azure AD에서 지원하는 인증 시나리오에 대한 개요입니다. |
 | | |
 
 ## <a name="get-started"></a>시작하기

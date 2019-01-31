@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: a2cc5b02744c04752ba11cbba14fe95c487d737c
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 0f35e14686c2bd3f87faf51ed6a54728f2a54641
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248120"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466033"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 데이터를 로드하는 모범 사례
 Azure SQL Data Warehouse를 사용하여 데이터를 로드하기 위한 권장 사항 및 성능 최적화입니다. 
@@ -29,7 +29,7 @@ Azure SQL Data Warehouse를 사용하여 데이터를 로드하기 위한 권장
 
 ORC 파일 형식으로 데이터를 내보낼 때 큰 텍스트 열이 있으면 Java 메모리 부족 오류가 발생할 수 있습니다. 이러한 제한 사항을 해결하려면 열의 하위 집합만 내보냅니다.
 
-PolyBase는 1,000,000바이트 이상의 데이터를 포함하는 행을 로드할 수 없습니다. Azure Blob 저장소 또는 Azure Data Lake Store의 텍스트 파일에 데이터를 배치한 경우 데이터가 1,000,000바이트 미만이어야 합니다. 바이트 제한은 테이블 스키마에 관계없이 true입니다.
+PolyBase는 1,000,000바이트 이상의 데이터를 포함하는 행을 로드할 수 없습니다. Azure Blob Storage 또는 Azure Data Lake Store의 텍스트 파일에 데이터를 배치한 경우 데이터가 1,000,000바이트 미만이어야 합니다. 바이트 제한은 테이블 스키마에 관계없이 true입니다.
 
 모든 파일 형식에는 서로 다른 성능 특성이 있습니다. 가장 빠르게 로드하려면 압축 구분 텍스트 파일을 사용합니다. UTF-8과 UTF-16의 성능 차이는 미미합니다.
 
@@ -67,8 +67,8 @@ staticRC20 리소스 클래스에 대한 리소스를 사용하여 로드를 실
 예를 들어, 데이터베이스 스키마, 부서 A에 대한 스키마_A 및 부서 B에 대한 스키마_B를 가정합니다. 데이터베이스 사용자, 사용자_A 및 사용자_B가 부서 A와 B 각각에서 PolyBase 로드에 대한 사용자가 되도록 합니다. 둘 모두 데이터베이스 CONTROL 권한을 부여 받습니다. 스키마 A와 B의 작성자는 이제 DENY를 사용하여 해당 스키마를 잠급니다.
 
 ```sql
-   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
-   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
+   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
+   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
 ```
 
 사용자_A 및 사용자_B는 이제 다른 부서의 스키마에서 차단되었습니다.
@@ -112,7 +112,7 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
 ## <a name="rotate-storage-keys"></a>저장 키 회전
-정기적으로 Blob Storage 액세스 키를 변경하는 것은 좋은 보안 방법입니다. Blob 저장소 계정에 두 개의 저장소 키가 있으므로 키 전환이 가능합니다.
+정기적으로 Blob Storage 액세스 키를 변경하는 것은 좋은 보안 방법입니다. Blob Storage 계정에 두 개의 스토리지 키가 있으므로 키 전환이 가능합니다.
 
 Azure Storage 계정 키를 회전하려면:
 

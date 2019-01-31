@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 39e8c5b8dab33ba95b34c4edb9d0a994bc8ec6dc
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d574f62a51b8aed7acbd1ba7f8b427395add854a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135167"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454133"
 ---
 # <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Team Data Science Process에서 프로젝트 리더의 작업
 
@@ -207,9 +207,9 @@ Azure DevOps를 코드 호스팅 플랫폼으로 사용하는 경우 일반적�
 ![15](./media/project-lead-tasks/project-leads-15-git-config-name.png)
 
 
-## <a name="6-create-and-mount-azure-file-storage-as-project-resources-optional"></a>6. 프로젝트 리소스로 Azure 파일 저장소 만들기 및 탑재(선택 사항)
+## <a name="6-create-and-mount-azure-file-storage-as-project-resources-optional"></a>6. 프로젝트 리소스로 Azure File Storage 만들기 및 탑재(선택 사항)
 
-프로젝트 원시 데이터 또는 프로젝트에 생성된 기능과 같은 데이터를 공유하기 위해 Azure 파일 저장소를 만들어 모든 프로젝트 구성원이 여러 DSVM의 동일한 데이터 세트에 액세스할 수 있게 하려면 [데이터 과학 팀에 대한 팀 리더 작업](team-lead-tasks.md)의 섹션 3 및 4의 지침을 따릅니다. 
+프로젝트 원시 데이터 또는 프로젝트에 생성된 기능과 같은 데이터를 공유하기 위해 Azure File Storage를 만들어 모든 프로젝트 구성원이 여러 DSVM의 동일한 데이터 집합에 액세스할 수 있게 하려면 [데이터 과학 팀에 대한 팀 리더 작업](team-lead-tasks.md)의 섹션 3 및 4의 지침을 따릅니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

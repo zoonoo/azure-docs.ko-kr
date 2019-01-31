@@ -3,19 +3,19 @@ title: 셀프 서비스 암호 재설정 배포 가이드 - Azure Active Directo
 description: Azure AD 셀프 서비스 암호 재설정을 성공적으로 롤아웃하기 위한 팁
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 9c728ba4c77cd22782adc9916da62cc309a8150b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 0111cb077afe0412d0ab807955c666b42dd1ff31
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431659"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079616"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>셀프 서비스 암호 재설정을 성공적으로 롤아웃하는 방법
 

@@ -5,21 +5,21 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: faf0e06a0649c31cec840a5043a11af601ba5c47
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 45be3d7f865c7b72ae62efbf99dbbb4594b1846f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139642"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465268"
 ---
 # <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>Team Data Science Process Team에서 팀 리더의 작업
 
-이 항목에서는 팀 리더가 데이터 과학 팀을 위해 완료해야 하는 작업에 대해 간략히 설명합니다. 목표는 [TDSP](overview.md)(Team Data Science Process)를 표준화하는 공동 작업 팀 환경을 구축하는 것입니다. TDSP는 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적으로 제공하는 기민한 반복 데이터 과학 방법론입니다. 공동 작업 및 팀 학습을 향상시키는 데 도움이 되도록 디자인되었습니다. 이 프로세스는 Microsoft와 업계의 모범 사례 및 구조를 추출하고 기업이 분석 프로그램의 이점을 완전히 실현할 수 있도록 데이터 과학 이니셔티브를 성공적으로 구현하는 데 필요합니다. 이 프로세스를 표준화하는 데이터 과학 팀의 인력 역할 및 관련 작업의 개요는 [Team Data Science Process 역할 및 작업](roles-tasks.md)을 참조하세요.
+이 항목에서는 팀 리더가 데이터 과학 팀을 위해 완료해야 하는 작업에 대해 간략히 설명합니다. 목표는 [TDSP](overview.md)(Team Data Science Process)를 표준화하는 공동 작업 팀 환경을 구축하는 것입니다. TDSP는 예측 분석 솔루션 및 지능형 애플리케이션을 효율적으로 제공하는 기민한 반복 데이터 과학 방법론입니다. 공동 작업 및 팀 학습을 향상시키는 데 도움이 되도록 디자인되었습니다. 이 프로세스는 Microsoft와 업계의 모범 사례 및 구조를 추출하고 기업이 분석 프로그램의 이점을 완전히 실현할 수 있도록 데이터 과학 이니셔티브를 성공적으로 구현하는 데 필요합니다. 이 프로세스를 표준화하는 데이터 과학 팀의 인력 역할 및 관련 작업의 개요는 [Team Data Science Process 역할 및 작업](roles-tasks.md)을 참조하세요.
 
 **팀 리더**는 기업의 데이터 과학 단위 팀을 관리합니다. 팀은 여러 명의 데이터 과학자로 구성됩니다. 소수의 데이터 과학자로만 구성된 데이터 과학 단위의 경우 **그룹 관리자**와 **팀 리더**가 같은 사람이거나 대리인에게 자신의 작업을 위임할 수 있습니다. 하지만 작업 자체는 변경되지 않습니다. 다음 그림은 팀 리더가 이 환경을 설정하기 위해 완료해야 할 작업에 대한 워크플로입니다.
 
@@ -35,8 +35,8 @@ ms.locfileid: "53139642"
 2. 그룹 관리자가 설정한 **GroupProjectTemplate** 리포지토리에서 팀 **ProjectTemplate** 리포지토리를 시드합니다. 
 3. 팀 데이터 및 분석 리소스를 만듭니다.
     - 팀 전용 유틸리티를 **TeamUtilities** 리포지토리에 추가합니다. 
-    - (선택 사항) 전체 팀에게 유용한 데이터 자산을 저장하는 데 사용할 **Azure 파일 저장소**를 만듭니다. 
-4. (선택 사항) Azure 파일 저장소를 팀 리더의 **DSVM**(데이터 과학 Virtual Machine)에 탑재하고 여기에 데이터 자산을 추가합니다.
+    - (선택 사항) 전체 팀에게 유용한 데이터 자산을 저장하는 데 사용할 **Azure File Storage**를 만듭니다. 
+4. (선택 사항) Azure File Storage를 팀 리더의 **DSVM**(데이터 과학 Virtual Machine)에 탑재하고 여기에 데이터 자산을 추가합니다.
 5. 팀 구성원을 추가하고 권한을 구성하여 **보안 제어**를 설정합니다.
 
 >[AZURE.NOTE] 다음 지침에서 Azure DevOps를 사용하여 TDSP 팀 환경을 설정하는 데 필요한 단계를 설명합니다. Microsoft에서 TDSP를 구현하는 방법이기 때문에 Azure DevOps를 사용하여 이러한 작업을 수행하는 방법을 지정합니다. 그룹에 다른 코드 호스팅 플랫폼이 사용되는 경우 팀 리더가 수행해야 하는 작업은 일반적으로 변경되지 않습니다. 그러나 이러한 작업을 완료하는 방법은 다를 수 있습니다.
@@ -262,13 +262,13 @@ ms.locfileid: "53139642"
 
 ## <a name="3-create-team-data-and-analytics-resources-optional"></a>3. 팀 데이터 및 분석 리소스 만들기(선택 사항)
 
-전체 팀과 데이터 및 분석 리소스를 공유하면 성능 및 비용상의 이점을 얻을 수 있습니다. 팀 구성원은 공유 리소스에서 프로젝트를 실행하고 예산을 절약하며 보다 효율적으로 공동 작업을 수행할 수 있습니다. 이 섹션에서는 Azure 파일 저장소를 만드는 방법에 대한 지침을 제공합니다. 다음 섹션에서는 Azure 파일 저장소를 로컬 시스템에 탑재하는 방법에 대한 지침을 제공합니다. Azure 데이터 과학 Virtual Machine, Azure HDInsight Spark 클러스터 등 다른 리소스 공유에 대한 추가 정보는 [플랫폼 및 도구](platforms-and-tools.md)를 참조하세요. 이 항목에서는 데이터 과학 관점에서 요구 사항에 적합한 리소스를 선택하는 방법에 대한 지침과 제품 페이지 및 게시된 기타 유용한 관련 자습서에 대한 링크를 제공합니다.
+전체 팀과 데이터 및 분석 리소스를 공유하면 성능 및 비용상의 이점을 얻을 수 있습니다. 팀 구성원은 공유 리소스에서 프로젝트를 실행하고 예산을 절약하며 보다 효율적으로 공동 작업을 수행할 수 있습니다. 이 섹션에서는 Azure File Storage를 만드는 방법에 대한 지침을 제공합니다. 다음 섹션에서는 Azure File Storage를 로컬 시스템에 탑재하는 방법에 대한 지침을 제공합니다. Azure 데이터 과학 Virtual Machine, Azure HDInsight Spark 클러스터 등 다른 리소스 공유에 대한 추가 정보는 [플랫폼 및 도구](platforms-and-tools.md)를 참조하세요. 이 항목에서는 데이터 과학 관점에서 요구 사항에 적합한 리소스를 선택하는 방법에 대한 지침과 제품 페이지 및 게시된 기타 유용한 관련 자습서에 대한 링크를 제공합니다.
 
 >[AZURE.NOTE] 느리고 비용이 많이 드는 데이터 센터 간 데이터 전송을 방지하려면 리소스 그룹, 저장소 계정 및 Azure VM(예: DSVM)이 동일한 Azure 데이터 센터에 있는지 확인합니다. 
 
-다음 스크립트를 실행하여 팀에 대한 Azure 파일 저장소를 만듭니다. 팀의 Azure 파일 저장소를 사용하여 전체 팀에 유용한 데이터 자산을 저장할 수 있습니다. 스크립트에서 Azure 계정 및 구독 정보를 묻는 메시지를 표시하면 이 자격 증명을 입력합니다. 
+다음 스크립트를 실행하여 팀에 대한 Azure File Storage를 만듭니다. 팀의 Azure File Storage를 사용하여 전체 팀에 유용한 데이터 자산을 저장할 수 있습니다. 스크립트에서 Azure 계정 및 구독 정보를 묻는 메시지를 표시하면 이 자격 증명을 입력합니다. 
 
-### <a name="create-azure-file-storage-with-powershell-from-windows"></a>Windows에서 PowerShell을 사용하여 Azure 파일 저장소 만들기
+### <a name="create-azure-file-storage-with-powershell-from-windows"></a>Windows에서 PowerShell을 사용하여 Azure File Storage 만들기
 
 PowerShell 명령줄에서 이 스크립트를 실행합니다.
 
@@ -289,18 +289,18 @@ PowerShell 명령줄에서 이 스크립트를 실행합니다.
 
 ![24](./media/team-lead-tasks/team-leads-24-file-create-s3.png)
 
-만들려는 Azure 파일 저장소의 이름을 입력합니다. 소문자, 숫자 및 -만 허용됩니다.
+만들려는 Azure File Storage의 이름을 입력합니다. 소문자, 숫자 및 -만 허용됩니다.
 
 ![25](./media/team-lead-tasks/team-leads-25-file-create-s4.png)
 
-이 저장소를 만든 후에 쉽게 탑재 및 공유할 수 있도록 하려면 Azure 파일 저장소 정보를 텍스트 파일에 저장하고 해당 위치에 대한 경로를 기록합니다. 특히 다음 섹션에서 Azure 파일 저장소를 Azure 가상 시스템에 탑재하려면 이 파일이 필요합니다. 
+이 스토리지를 만든 후에 쉽게 탑재 및 공유할 수 있도록 하려면 Azure File Storage 정보를 텍스트 파일에 저장하고 해당 위치에 대한 경로를 기록합니다. 특히 다음 섹션에서 Azure File Storage를 Azure 가상 시스템에 탑재하려면 이 파일이 필요합니다. 
 
 이 텍스트 파일을 ProjectTemplate 리포지토리에 체크인하는 것이 좋습니다. 권장 디렉터리는 **Docs\DataDictionaries**입니다. 따라서 이 데이터 자산은 팀의 모든 프로젝트에서 액세스할 수 있습니다. 
 
 ![26](./media/team-lead-tasks/team-leads-26-file-create-s5.png)
 
 
-### <a name="create-azure-file-storage-with-a-linux-script"></a>Linux 스크립트로 Azure 파일 저장소 만들기
+### <a name="create-azure-file-storage-with-a-linux-script"></a>Linux 스크립트로 Azure File Storage 만들기
 
 Linux 셸에서 이 스크립트를 실행합니다.
 
@@ -319,33 +319,33 @@ Linux 셸에서 이 스크립트를 실행합니다.
 
 ![29](./media/team-lead-tasks/team-leads-29-file-create-linux-s3.png)
 
-만들 Azure 파일 저장소의 이름을 입력합니다. 소문자, 숫자 및 -만 허용됩니다.
+만들 Azure File Storage의 이름을 입력합니다. 소문자, 숫자 및 -만 허용됩니다.
 
 ![30](./media/team-lead-tasks/team-leads-30-file-create-linux-s4.png)
 
-이 저장소를 만든 후에 쉽게 액세스할 수 있도록 하려면 Azure 파일 저장소 정보를 텍스트 파일에 저장하고 해당 위치에 대한 경로를 기록합니다. 특히 다음 섹션에서 Azure 파일 저장소를 Azure 가상 시스템에 탑재하려면 이 파일이 필요합니다.
+이 스토리지를 만든 후에 쉽게 액세스할 수 있도록 하려면 Azure File Storage 정보를 텍스트 파일에 저장하고 해당 위치에 대한 경로를 기록합니다. 특히 다음 섹션에서 Azure File Storage를 Azure 가상 시스템에 탑재하려면 이 파일이 필요합니다.
 
 이 텍스트 파일을 ProjectTemplate 리포지토리에 체크인하는 것이 좋습니다. 권장 디렉터리는 **Docs\DataDictionaries**입니다. 따라서 이 데이터 자산은 팀의 모든 프로젝트에서 액세스할 수 있습니다. 
 
 ![31](./media/team-lead-tasks/team-leads-31-file-create-linux-s5.png)
 
 
-## <a name="4-mount-azure-file-storage-optional"></a>4. Azure 파일 저장소 탑재(선택 사항)
+## <a name="4-mount-azure-file-storage-optional"></a>4. Azure File Storage 탑재(선택 사항)
 
-Azure 파일 저장소가 성공적으로 만들어진 후에는 다음 PowerShell 또는 Linux 스크립트 중 하나를 사용하여 로컬 컴퓨터에 탑재할 수 있습니다.
+Azure File Storage가 성공적으로 만들어진 후에는 다음 PowerShell 또는 Linux 스크립트 중 하나를 사용하여 로컬 컴퓨터에 탑재할 수 있습니다.
 
-### <a name="mount-azure-file-storage-with-powershell-from-windows"></a>Windows에서 PowerShell을 사용하여 Azure 파일 저장소 탑재
+### <a name="mount-azure-file-storage-with-powershell-from-windows"></a>Windows에서 PowerShell을 사용하여 Azure File Storage 탑재
 
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/AttachFileShare.ps1" -outfile "AttachFileShare.ps1"
     .\AttachFileShare.ps1
     
 로그인하지 않은 경우 먼저 로그인하라는 메시지가 나타납니다. 
 
-Azure 파일 저장소 정보 파일이 있는지 묻는 메시지가 나타나면 **Enter** 또는 **y**를 클릭하고 이전 단계에서 만든 파일의 ***전체 경로와 이름**을 입력합니다. Azure 파일 저장소 탑재에 대한 정보는 해당 파일에서 직접 읽으므로 다음 단계를 진행합니다.
+Azure File Storage 정보 파일이 있는지 묻는 메시지가 나타나면 **Enter** 또는 **y**를 클릭하고 이전 단계에서 만든 파일의 ***전체 경로와 이름**을 입력합니다. Azure File Storage 탑재에 대한 정보는 해당 파일에서 직접 읽으므로 다음 단계를 진행합니다.
 
 ![32](./media/team-lead-tasks/team-leads-32-attach-s1.png)
 
-> [AZURE.NOTE] Azure 파일 저장소 정보가 포함된 파일이 없으면 이 섹션의 끝에 제공된 키보드의 정보를 입력하는 단계를 참조하세요.
+> [AZURE.NOTE] Azure File Storage 정보가 포함된 파일이 없으면 이 섹션의 끝에 제공된 키보드의 정보를 입력하는 단계를 참조하세요.
 
 그런 다음 가상 머신에 추가할 드라이브의 이름을 입력하라는 메시지가 나타납니다. 기존 드라이브 이름 목록이 화면에 인쇄됩니다. 목록에 아직 없는 드라이브 이름을 제공해야 합니다.
 
@@ -359,11 +359,11 @@ Azure 파일 저장소 정보 파일이 있는지 묻는 메시지가 나타나�
 
 ![35](./media/team-lead-tasks/team-leads-35-attach-s4.png)
 
-Azure 구독 이름을 입력하고 Azure 파일 저장소가 생성된 저장소 계정을 선택하고 Azure 파일 저장소 이름을 입력합니다.
+Azure 구독 이름을 입력하고 Azure File Storage가 생성된 스토리지 계정을 선택하고 Azure 파일 스토리지 이름을 입력합니다.
 
 ![36](./media/team-lead-tasks/team-leads-36-attach-s5.png)
 
-### <a name="mount-azure-file-storage-with-a-linux-script"></a>Linux 스크립트로 Azure 파일 저장소 탑재
+### <a name="mount-azure-file-storage-with-a-linux-script"></a>Linux 스크립트로 Azure File Storage 탑재
 
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/AttachFileShare.sh"
     bash AttachFileShare.sh
@@ -372,7 +372,7 @@ Azure 구독 이름을 입력하고 Azure 파일 저장소가 생성된 저장�
 
 로그인하지 않은 경우 먼저 로그인하라는 메시지가 나타납니다. 
 
-Azure 파일 저장소 정보 파일이 있는지 묻는 메시지가 나타나면 **Enter** 또는 **y**를 클릭하고 이전 단계에서 만든 파일의 ***전체 경로와 이름**을 입력합니다. Azure 파일 저장소 탑재에 대한 정보는 해당 파일에서 직접 읽으므로 다음 단계를 진행합니다.
+Azure File Storage 정보 파일이 있는지 묻는 메시지가 나타나면 **Enter** 또는 **y**를 클릭하고 이전 단계에서 만든 파일의 ***전체 경로와 이름**을 입력합니다. Azure File Storage 탑재에 대한 정보는 해당 파일에서 직접 읽으므로 다음 단계를 진행합니다.
 
 ![38](./media/team-lead-tasks/team-leads-38-attach-s2-linux.png)
 
@@ -387,11 +387,11 @@ Azure 파일 저장소 정보 파일이 있는지 묻는 메시지가 나타나�
 **Azure 파일 스토리지 정보를 수동으로 입력하는 방법:** 텍스트 파일에 Azure 파일 스토리지 정보가 없는 경우 다음 화면의 지침에 따라 필요한 구독, 스토리지 계정 및 Azure 파일 스토리지 정보를 입력할 수 있습니다.
 
 - **n**을 입력합니다.
-- 이전 단계에서 Azure 파일 저장소가 생성된 구독 이름의 인덱스를 선택합니다.
+- 이전 단계에서 Azure File Storage가 생성된 구독 이름의 인덱스를 선택합니다.
 
     ![41](./media/team-lead-tasks/team-leads-41-attach-s5-linux.png)
 
-- 구독에서 저장소 계정을 선택하고 Azure 파일 저장소 이름을 입력합니다.
+- 구독에서 스토리지 계정을 선택하고 Azure File Storage 이름을 입력합니다.
 
     ![42](./media/team-lead-tasks/team-leads-42-attach-s6-linux.png)
 

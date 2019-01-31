@@ -3,19 +3,19 @@ title: 온-프레미스 Azure AD 암호 보호 에이전트 버전 릴리스 기
 description: 문서 버전 릴리스 및 동작 변경 기록
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 1d27aa46148e0169909a7aaf05baaac18b050a34
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ccfe62e0002e3420303130840f1a0d393efb3420
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423666"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078766"
 ---
 # <a name="preview--azure-ad-password-protection-agent-version-history"></a>미리 보기:  Azure AD 암호 보호 에이전트 버전 기록
 

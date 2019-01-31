@@ -3,17 +3,17 @@ title: Azure Data Lake Storage Gen2 성능 튜닝 지침 | Microsoft Docs
 description: Azure Data Lake Storage Gen2의 성능 튜닝에 대한 지침입니다.
 services: storage
 author: swums
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 403d60232f6b22161031dd4eb1af062336c370ee
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 7039df6dde25fd4ba9a8b9cb7670e72df7e68797
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401761"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245819"
 ---
 # <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Azure Data Lake Storage Gen2의 성능 튜닝
 

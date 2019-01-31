@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,22 +16,22 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 8b06f43522cd9c93be16de19036de65b69b07941
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f9f5f7dc4752e3cb568acd3ad907d115e4d24e85
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967781"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102331"
 ---
 # <a name="single-page-applications"></a>단일 페이지 애플리케이션
 
-SPA(단일 페이지 애플리케이션)는 일반적으로 브라우저에서 실행되는 JavaScript 프레젠테이션 계층(프런트 엔드), 서버에서 실행되고 애플리케이션의 비즈니스 논리를 구현하는 웹 API 백 엔드로 구성됩니다. 암시적 권한 부여에 대한 자세한 내용을 확인하고 자신의 애플리케이션 시나리오에 적절한지 판단하려면 [Azure Active Directory에서 OAuth2 암시적 권한 부여 흐름 이해](v1-oauth2-implicit-grant-flow.md)를 참조하세요.
+SPA(단일 페이지 응용 프로그램)는 일반적으로 브라우저에서 실행되는 JavaScript 프레젠테이션 계층(프런트 엔드), 서버에서 실행되고 응용 프로그램의 비즈니스 논리를 구현하는 웹 API 백 엔드로 구성됩니다. 암시적 권한 부여에 대한 자세한 내용을 확인하고 자신의 응용 프로그램 시나리오에 적절한지 판단하려면 [Azure Active Directory에서 OAuth2 암시적 권한 부여 흐름 이해](v1-oauth2-implicit-grant-flow.md)를 참조하세요.
 
 이 시나리오에서는 사용자가 로그인하면 JavaScript 프런트 엔드에서 [JavaScript용 Active Directory 인증 라이브러리(ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) 및 암시적 권한 부여를 사용하여 Azure AD로부터 ID 토큰(id_token)을 가져옵니다. 토큰이 캐시되고, 클라이언트가 웹 API 백 엔드에 대해 호출할 때 이 토큰을 요청에 전달자 토큰으로 첨부합니다. 그러면 OWIN 미들웨어를 사용하여 보안됩니다.
 
 ## <a name="diagram"></a>다이어그램
 
-![단일 페이지 애플리케이션 다이어그램](./media/authentication-scenarios/single_page_app.png)
+![단일 페이지 응용 프로그램 다이어그램](./media/authentication-scenarios/single_page_app.png)
 
 ## <a name="protocol-flow"></a>프로토콜 흐름
 
@@ -50,10 +50,10 @@ SPA(단일 페이지 애플리케이션)는 일반적으로 브라우저에서 �
 
 ## <a name="app-registration"></a>앱 등록
 
-* 단일 테넌트 - 조직 전용 애플리케이션을 빌드하는 경우 Azure Portal을 사용하여 해당 애플리케이션을 회사 디렉터리에 등록해야 합니다.
-* 다중 테넌트 - 조직 외부 사용자가 사용할 수 있는 애플리케이션을 빌드하는 경우 애플리케이션을 회사 디렉터리에 등록해야 하며 동시에 애플리케이션을 사용할 각 조직의 디렉터리에도 등록해야 합니다. 해당 디렉터리에서 애플리케이션을 사용할 수 있게 만들려면 고객이 애플리케이션에 동의할 수 있게 하는 등록 프로세스를 포함하면 됩니다. 사용자가 애플리케이션에 등록할 때 애플리케이션에 필요한 권한을 보여 주는 대화 상자가 나타난 다음 동의하는 옵션이 나타납니다. 필요한 권한에 따라, 다른 조직의 관리자가 동의해야 할 수도 있습니다. 사용자 또는 관리자가 동의하면 애플리케이션이 이들의 디렉터리에 등록됩니다.
+* 단일 테넌트 - 조직 전용 응용 프로그램을 빌드하는 경우 Azure Portal을 사용하여 해당 응용 프로그램을 회사 디렉터리에 등록해야 합니다.
+* 다중 테넌트 - 조직 외부 사용자가 사용할 수 있는 응용 프로그램을 빌드하는 경우 응용 프로그램을 회사 디렉터리에 등록해야 하며 동시에 응용 프로그램을 사용할 각 조직의 디렉터리에도 등록해야 합니다. 해당 디렉터리에서 애플리케이션을 사용할 수 있게 만들려면 고객이 애플리케이션에 동의할 수 있게 하는 등록 프로세스를 포함하면 됩니다. 사용자가 애플리케이션에 등록할 때 애플리케이션에 필요한 권한을 보여 주는 대화 상자가 나타난 다음 동의하는 옵션이 나타납니다. 필요한 권한에 따라, 다른 조직의 관리자가 동의해야 할 수도 있습니다. 사용자 또는 관리자가 동의하면 애플리케이션이 이들의 디렉터리에 등록됩니다.
 
-애플리케이션을 등록한 후에는 OAuth 2.0 암시적 허용 프로토콜을 사용하도록 애플리케이션을 구성해야 합니다. 기본적으로 이 프로토콜은 애플리케이션에 대해 사용하지 않도록 설정되어 있습니다. 애플리케이션에 OAuth2 암시적 허용 프로토콜을 사용하도록 설정하려면 Azure Portal에서 해당 애플리케이션 매니페스트를 편집하고 “oauth2AllowImplicitFlow” 값을 true로 설정합니다. 자세한 내용은 [애플리케이션 매니페스트](reference-app-manifest.md)를 참조하세요.
+응용 프로그램을 등록한 후에는 OAuth 2.0 암시적 허용 프로토콜을 사용하도록 응용 프로그램을 구성해야 합니다. 기본적으로 이 프로토콜은 애플리케이션에 대해 사용하지 않도록 설정되어 있습니다. 응용 프로그램에 OAuth2 암시적 허용 프로토콜을 사용하도록 설정하려면 Azure Portal에서 해당 응용 프로그램 매니페스트를 편집하고 “oauth2AllowImplicitFlow” 값을 true로 설정합니다. 자세한 내용은 [응용 프로그램 매니페스트](reference-app-manifest.md)를 참조하세요.
 
 ## <a name="token-expiration"></a>토큰 만료
 
@@ -66,5 +66,5 @@ ADAL.js를 사용하면 다음과 같은 이점이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 다른 [애플리케이션 유형 및 시나리오](app-types.md)에 대해 자세히 알아보기
+* 다른 [응용 프로그램 유형 및 시나리오](app-types.md)에 대해 자세히 알아보기
 * Azure AD [인증 기본 사항](authentication-scenarios.md)에 대해 자세히 알아보기

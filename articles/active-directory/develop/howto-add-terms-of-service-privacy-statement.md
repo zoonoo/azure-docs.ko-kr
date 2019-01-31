@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: b1276ab227f4bf65483fb2cdec57c759573bc7c5
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 3e3dc6dd00d03f8154d9281424c98cff90a8ebd8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853594"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100638"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>등록된 Azure Active Directory 앱의 서비스 약관 및 개인정보처리방침
 
@@ -56,7 +56,7 @@ Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌�
 서비스 약관 및 개인정보처리방침이 준비되면 다음 방법 중 하나를 사용하여 앱에 이러한 문서의 링크를 추가할 수 있습니다.
 
 * [Azure Portal을 통해](#registered-in-azure-portal)
-* [응용 프로그램 등록 포털 또는 개발자 센터에서](#registered-in-app-reg-portal)
+* [애플리케이션 등록 포털 또는 개발자 센터에서](#registered-in-app-reg-portal)
 * [앱 개체 JSON을 사용하여](#app-object-json)
 * [MSGraph 베타 REST API를 사용하여](#msgraph-beta-rest-api)
 
@@ -72,7 +72,7 @@ Azure Portal에서 앱을 등록한 경우 다음 단계를 수행합니다.
 
     ![서비스 약관 및 개인정보처리방침 URL이 있는 앱 속성 섹션](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
-### <a name="registered-in-app-reg-portal"></a>응용 프로그램 등록 포털에서 앱을 등록한 경우
+### <a name="registered-in-app-reg-portal"></a>애플리케이션 등록 포털에서 앱을 등록한 경우
 
 애플리케이션 등록 포털 또는 개발자 센터에서 앱을 등록한 경우 다음 단계를 수행합니다.
 

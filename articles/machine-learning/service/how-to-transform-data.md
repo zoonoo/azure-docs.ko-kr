@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning Data Prep SDK를 사용하여 데이터를 변환하고 정리하는 방법을 알아봅니다. 변환 메서드를 사용하여 열을 추가하고, 원치 않는 행이나 열을 필터링하고, 누락 값을 입력할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: cforbe
 author: cforbe
@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: d32244cd49ebd42192b2388215f79a64cacb3caa
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f02d511c5afa6d515f29b9fc557be3b49223c501
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186143"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243286"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning Data Prep SDK를 사용하여 데이터 변환
 

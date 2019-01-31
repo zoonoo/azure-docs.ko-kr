@@ -6,19 +6,19 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0f9795e6a9a451ab1492e62fd54faea5894d99ae
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 1c455106e5faa4aa20ec56f37788e0b8c324fee1
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136498"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457771"
 ---
-# <a name="heading"></a>Azure Blob 저장소에서 데이터 샘플링
+# <a name="heading"></a>Azure Blob Storage에서 데이터 샘플링
 
 이 문서에서는 프로그래밍 방식으로 다운로드한 다음, Python으로 작성된 절차에 따라 샘플링하여 Azure Blob Storage에 저장된 데이터를 샘플링하는 방법에 대해 알아봅니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "53136498"
 이 샘플 작업은 [TDSP(팀 데이터 과학 프로세스)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)의 단계입니다.
 
 ## <a name="download-and-down-sample-data"></a>데이터 다운로드 및 저해상도로 처리
-1. 다음 샘플 Python 코드에서 Blob 서비스를 사용하여 Azure Blob 저장소에서 데이터를 다운로드합니다. 
+1. 다음 샘플 Python 코드에서 Blob 서비스를 사용하여 Azure Blob Storage에서 데이터를 다운로드합니다. 
    
         from azure.storage.blob import BlobService
         import tables

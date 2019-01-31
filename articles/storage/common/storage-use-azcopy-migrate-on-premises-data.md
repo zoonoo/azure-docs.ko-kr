@@ -7,17 +7,17 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: 347092fd7d5865379911265b19477ac16e3bcd69
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 25a0867d9a2060989ce7206279b4acabe39b4ff3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261386"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478273"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>자습서: AzCopy를 사용하여 클라우드로 온-프레미스 데이터 마이그레이션
 
-AzCopy는 간단한 명령을 사용하여 Azure Blob 저장소, Azure Files 및 Azure Table 저장소 간 데이터를 복사하기 위한 명령줄 도구입니다. 명령은 최적의 성능을 위해 설계되었습니다. AzCopy를 사용하여 파일 시스템과 저장소 계정 간 또는 저장소 계정 간에 데이터를 복사할 수 있습니다. AzCopy를 사용하여 로컬(온-프레미스) 데이터를 저장소 계정으로 복사할 수 있습니다.
+AzCopy는 간단한 명령을 사용하여 Azure Blob Storage, Azure Files 및 Azure Table Storage 간 데이터를 복사하기 위한 명령줄 도구입니다. 명령은 최적의 성능을 위해 설계되었습니다. AzCopy를 사용하여 파일 시스템과 저장소 계정 간 또는 저장소 계정 간에 데이터를 복사할 수 있습니다. AzCopy를 사용하여 로컬(온-프레미스) 데이터를 저장소 계정으로 복사할 수 있습니다.
 
 사용하는 운영 체제에 적합한 AzCopy 버전을 다운로드하세요.
 
@@ -55,9 +55,9 @@ Blob은 항상 컨테이너에 업로드해야 하므로 첫 번째 단계는 �
  
 컨테이너 이름은 문자 또는 숫자로 시작해야 합니다. 문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다. Blob 및 컨테이너의 이름을 지정하는 방법에 대한 자세한 규칙은 [컨테이너, Blob, 메타데이터 이름 명명 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
 
-## <a name="upload-contents-of-a-folder-to-blob-storage"></a>폴더의 콘텐츠를 Blob 저장소에 업로드
+## <a name="upload-contents-of-a-folder-to-blob-storage"></a>폴더의 콘텐츠를 Blob Storage에 업로드
 
-AzCopy를 사용하여 폴더의 모든 파일을 [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage) 또는 [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#blob-download)의 Blob 저장소에 업로드할 수 있습니다. 폴더의 모든 Blob을 업로드하려면 다음 AzCopy 명령을 입력합니다.
+AzCopy를 사용하여 폴더의 모든 파일을 [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage) 또는 [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#blob-download)의 Blob Storage에 업로드할 수 있습니다. 폴더의 모든 Blob을 업로드하려면 다음 AzCopy 명령을 입력합니다.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
@@ -74,9 +74,9 @@ AzCopy를 사용하여 폴더의 모든 파일을 [Windows](https://docs.microso
 
 `<key>` 및 `key`를 사용자의 계정 키로 바꿉니다. Azure Portal에서 저장소 계정의 **설정**에서 **액세스 키**를 선택하여 계정 키를 검색할 수 있습니다. 키를 선택하고 AzCopy 명령에 붙여넣습니다. 지정된 대상 컨테이너가 존재하지 않을 경우 AzCopy는 컨테이너를 만든 후 여기에 파일을 업로드합니다. 원본 경로를 데이터 디렉터리로 업데이트하고 대상 URL의 **myaccount**를 사용자의 저장소 계정 이름으로 바꿉니다.
 
-지정된 디렉터리의 콘텐츠를 Blob 저장소로 재귀적으로 업로드하려면 `--recursive`(Linux) 또는 `/S`(Windows) 옵션을 지정합니다. 이러한 옵션 중 하나로 AzCopy를 실행하면 모든 하위 폴더 및 해당 파일도 업로드됩니다.
+지정된 디렉터리의 콘텐츠를 Blob Storage로 재귀적으로 업로드하려면 `--recursive`(Linux) 또는 `/S`(Windows) 옵션을 지정합니다. 이러한 옵션 중 하나로 AzCopy를 실행하면 모든 하위 폴더 및 해당 파일도 업로드됩니다.
 
-## <a name="upload-modified-files-to-blob-storage"></a>Blob 저장소에 수정된 파일 업로드
+## <a name="upload-modified-files-to-blob-storage"></a>Blob Storage에 수정된 파일 업로드
 
 AzCopy를 사용하여 마지막 수정 시간을 기반으로 [파일을 업로드](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#other-azcopy-features)할 수 있습니다. 이 작업을 시도하려면 테스트를 위해 원본 디렉터리에서 새 파일을 수정하거나 만듭니다. 업데이트된 파일 또는 새 파일만 업로드하려면 `--exclude-older`(Linux) 또는 `/XO`(Windows) 매개 변수를 AzCopy 명령에 추가합니다.
 

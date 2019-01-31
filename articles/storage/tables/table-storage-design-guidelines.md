@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: ef6d257aee532d4b6325bd3d2f619fd00824e06f
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: tables
+ms.openlocfilehash: d056d29469ad9a60fceeee307aca3c0e1319283c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525421"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454524"
 ---
 # <a name="guidelines-for-table-design"></a>테이블 디자인 지침
 
@@ -21,10 +21,10 @@ Azure Storage Table service와 함께 사용할 테이블을 디자인하는 것
 
 ## <a name="design-your-table-service-solution-to-be-read-efficient"></a>효율적으로 읽을 수 있도록 Table service 솔루션 디자인
 
-* ***읽기 작업이 많은 응용 프로그램의 쿼리를 위해 디자인합니다.*** 테이블을 디자인할 때는 엔터티 업데이트 방법을 고려하기 전에 먼저 쿼리(특히 대기 시간이 중요한 쿼리)를 고려해야 합니다. 이는 일반적으로 솔루션의 효율성 및 성능에 영향을 줍니다.  
+* ***읽기 작업이 많은 애플리케이션의 쿼리를 위해 디자인합니다.*** 테이블을 디자인할 때는 엔터티 업데이트 방법을 고려하기 전에 먼저 쿼리(특히 대기 시간이 중요한 쿼리)를 고려해야 합니다. 이는 일반적으로 솔루션의 효율성 및 성능에 영향을 줍니다.  
 * ***쿼리에서 PartitionKey와 RowKey 둘 다 지정합니다.*** *지점 쿼리* 는 가장 효율적인 테이블 서비스 쿼리입니다.  
-* ***엔터티의 중복 복사본을 저장하는 것이 좋습니다.*** 테이블 저장소는 저렴하므로 여러 번 저장(다른 키를 사용하여)하여 쿼리의 효율성을 높이는 것이 좋습니다.  
-* ***데이터를 비정규화하는 것이 좋습니다.*** 테이블 저장소는 저렴하기 때문에 데이터를 비정규화하는 것이 좋습니다. 예를 들어 집계 데이터에 대한 쿼리에서 단일 엔터티에만 액세스하면 되도록 요약 엔터티를 저장합니다.  
+* ***엔터티의 중복 복사본을 저장하는 것이 좋습니다.*** Table Storage는 저렴하므로 여러 번 저장(다른 키를 사용하여)하여 쿼리의 효율성을 높이는 것이 좋습니다.  
+* ***데이터를 비정규화하는 것이 좋습니다.*** Table Storage는 저렴하기 때문에 데이터를 비정규화하는 것이 좋습니다. 예를 들어 집계 데이터에 대한 쿼리에서 단일 엔터티에만 액세스하면 되도록 요약 엔터티를 저장합니다.  
 * ***복합 키 값을 사용하는 것이 좋습니다.*** 사용하는 키는 **PartitionKey**와 **RowKey**뿐입니다. 예를 들어 복합 키 값을 사용하여 엔터티에 대한 대체 키 액세스 경로를 사용하도록 설정할 수 있습니다.  
 * ***쿼리 프로젝션을 사용합니다.*** 필요한 필드만 선택하는 쿼리를 사용하여 네트워크를 통해 전송하는 데이터 양을 줄일 수 있습니다.  
 

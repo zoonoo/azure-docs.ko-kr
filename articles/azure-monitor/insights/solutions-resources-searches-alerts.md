@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b9ad1157469303f4065a3c27ccf6514aaa35155
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: c46c65fe7e720e3afdd976e2480e8f183cc4398d
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402203"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901193"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>관리 솔루션(미리 보기)에 Log Analytics에서 저장한 검색 및 경고 추가
 
@@ -180,8 +180,8 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| type | 예 | 작업의 유형입니다.  경고 작업의 **경고**가 됩니다. |
-| 이름 | 예 | 경고에 대한 표시 이름입니다.  경고 규칙에 대한 콘솔에 표시되는 이름입니다. |
+| Type | 예 | 작업의 유형입니다.  경고 작업의 **경고**가 됩니다. |
+| Name | 예 | 경고에 대한 표시 이름입니다.  경고 규칙에 대한 콘솔에 표시되는 이름입니다. |
 | 설명 | 아니요 | 경고에 대한 선택적 설명입니다. |
 | 심각도 | 예 | 다음 값의 경고 레코드의 심각도입니다.<br><br> **중요**<br>**경고**<br>**정보 제공**
 
@@ -447,6 +447,7 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 ```
 
 다음 매개 변수 파일은 이 솔루션에 대한 샘플 값을 제공합니다.
+
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",

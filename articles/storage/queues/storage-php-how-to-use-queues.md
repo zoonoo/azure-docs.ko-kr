@@ -1,6 +1,6 @@
 ---
-title: Python에서 큐 저장소를 사용하는 방법 | Microsoft Docs
-description: Azure 큐 저장소를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 PHP로 작성되었습니다.
+title: Python에서 Queue Storage를 사용하는 방법 | Microsoft Docs
+description: Azure Queue Storage를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 PHP로 작성되었습니다.
 services: storage
 author: roygara
 ms.service: storage
@@ -9,15 +9,15 @@ ms.devlang: php
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: rogarana
-ms.component: queues
-ms.openlocfilehash: 70efdf1fb2c1b8411e922f16fdf401d1bf428d08
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.subservice: queues
+ms.openlocfilehash: 3475791e3cc8fd0daea3bf330d9c15f685c13488
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42141150"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463262"
 ---
-# <a name="how-to-use-queue-storage-from-php"></a>PHP에서 큐 저장소를 사용하는 방법
+# <a name="how-to-use-queue-storage-from-php"></a>PHP에서 Queue Storage를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "42141150"
 ## <a name="create-a-php-application"></a>PHP 애플리케이션 만들기
 Azure Queue Storage에 액세스하는 PHP 애플리케이션을 만들기 위한 유일한 요구 사항은 코드 내에서 [PHP용 Azure Storage Client Library][download]의 클래스를 참조하는 것입니다. 애플리케이션을 만드는 데는 메모장을 포함한 어떠한 개발 도구도 사용할 수 있습니다.
 
-이 가이드에서는 PHP 애플리케이션 내에서 로컬로 또는 Azure 웹 역할, 작업자 역할 또는 웹 사이트 내에서 실행되는 코드에서 호출할 수 있는 Queue Storage 서비스 기능을 사용합니다.
+이 가이드에서는 PHP 응용 프로그램 내에서 로컬로 또는 Azure 웹 역할, 작업자 역할 또는 웹 사이트 내에서 실행되는 코드에서 호출할 수 있는 Queue Storage 서비스 기능을 사용합니다.
 
 ## <a name="get-the-azure-client-libraries"></a>Azure 클라이언트 라이브러리 가져오기
 ### <a name="install-via-composer"></a>작성기를 통해 설치
@@ -54,8 +54,8 @@ Azure Queue Storage에 액세스하는 PHP 애플리케이션을 만들기 위�
 
 또는 GitHub에서 [Azure Storage PHP 클라이언트 라이브러리][download]로 이동하여 소스 코드를 복제합니다.
 
-## <a name="configure-your-application-to-access-queue-storage"></a>큐 저장소에 액세스하도록 애플리케이션 구성
-Azure 큐 저장소에 대한 API를 사용하려면 다음을 수행해야 합니다.
+## <a name="configure-your-application-to-access-queue-storage"></a>Queue Storage에 액세스하도록 응용 프로그램 구성
+Azure Queue Storage에 대한 API를 사용하려면 다음을 수행해야 합니다.
 
 1. [require_once] 문을 사용하여 자동 로더 파일을 참조합니다.
 2. 사용할 수 있는 모든 클래스를 참조합니다.
@@ -70,7 +70,7 @@ use MicrosoftAzure\Storage\Queue\QueueRestProxy;
 다음 예제에서 `require_once` 문은 항상 표시되지만 예제를 실행하는 데 필요한 클래스만 참조됩니다.
 
 ## <a name="set-up-an-azure-storage-connection"></a>Azure 저장소 연결 설정
-Azure 큐 저장소 클라이언트를 인스턴스화하려면 먼저 유효한 연결 문자열이 있어야 합니다. 큐 저장소 연결 문자열 형식은 다음과 같습니다.
+Azure Queue Storage 클라이언트를 인스턴스화하려면 먼저 유효한 연결 문자열이 있어야 합니다. 큐 저장소 연결 문자열 형식은 다음과 같습니다.
 
 Live 서비스에 액세스하는 경우:
 
@@ -411,7 +411,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이제 Azure 큐 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀더 복잡한 저장소 작업에 대해 알아보세요.
+이제 Azure Queue Storage의 기본 사항을 배웠으므로 다음 링크를 따라 좀더 복잡한 스토리지 작업에 대해 알아보세요.
 
 * [Azure Storage PHP Client Library에 대한 API 참조](http://azure.github.io/azure-storage-php/)를 방문해 보세요.
 * [고급 큐 예제](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php)를 참조하세요.

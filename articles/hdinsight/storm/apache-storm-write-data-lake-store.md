@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: b11e1f35578eef07acb823081f0bbfdbaf467f9c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 91e6c2d400fa7add33a6c8e8856a3b9f8cfef4a3
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632470"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912836"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm에서 Apache Hadoop HDFS에 쓰기
 
@@ -56,7 +56,7 @@ HdfsBolt는 사용자가 제공하는 파일 구성표를 사용하여 HDFS에 �
 
 | 구성표 | 메모 |
 | ----- | ----- |
-| `wasb:///` | 기본 저장소 계정은 Azure Storage 계정의 Blob 컨테이너입니다. |
+| `wasb:///` | 기본 스토리지 계정은 Azure Storage 계정의 Blob 컨테이너입니다. |
 | `adl:///` | 기본 스토리지 계정은 Azure Data Lake Storage의 디렉터리입니다. 클러스터를 만드는 동안 클러스터의 HDFS 루트인 Data Lake Storage의 디렉터리를 지정합니다. 예를 들어 `/clusters/myclustername/` 디렉터리가 있습니다. |
 | `wasb://CONTAINER@ACCOUNT.blob.core.windows.net/` | 클러스터와 연결된 기본이 아닌 추가 Azure Storage 계정입니다. |
 | `adl://STORENAME/` | 클러스터에서 사용하는 Data Lake Storage의 루트입니다. 이 구성표를 사용하면 클러스터 파일 시스템이 포함된 디렉터리 외부에 있는 데이터에 액세스할 수 있습니다. |
@@ -180,7 +180,7 @@ HDInsight에서 이 스크립트를 사용하는 방법에 대한 자세한 내�
         hdfs.url: wasb:///
 
     > [!IMPORTANT]  
-    > 이 예제에서는 클러스터에서 Azure Storage 계정을 기본 저장소로 사용한다고 가정합니다. 클러스터에서 Azure Data Lake Storage를 사용하는 경우 `hdfs.url: adl:///`을 대신 사용합니다.
+    > 이 예제에서는 클러스터에서 Azure Storage 계정을 기본 스토리지로 사용한다고 가정합니다. 클러스터에서 Azure Data Lake Storage를 사용하는 경우 `hdfs.url: adl:///`을 대신 사용합니다.
     
     파일을 저장하려면 __Ctrl + X__를 사용한 다음 __Y__를 입력하고 마지막으로 __Enter__ 키를 누릅니다. 이 파일의 값은 데이터가 기록되는 Data Lake Storage URL 및 디렉터리 이름을 설정합니다.
 
@@ -221,3 +221,5 @@ Storm 토폴로지가 중지될 때까지 실행되거나 클러스터가 삭제
 
 Apache Storm을 사용하여 Azure Storage 및 Azure Data Lake Storage에 쓰는 방법을 알아보았으면, 다른 [HDInsight용 Apache Storm 예제](apache-storm-example-topology.md)를 알아보세요.
 
+## <a name="see-also"></a>참고 항목
+* [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

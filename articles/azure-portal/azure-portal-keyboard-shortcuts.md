@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/24/2017
-ms.author: cwatson
+ms.author: kfollis
 ms.custom: accessibility
-ms.openlocfilehash: de79e1ea91b7d30eb550cb078bbb257e2f924dfb
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: d9c9c18fb2c20f1b0740a490316826e488049faf
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393828"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54881174"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure Portal에서 바로 가기 키
 이 문서에서는 Azure Portal를 통해 작동하는 바로 가기 키를 보여 줍니다. 개별 서비스에는 자신의 고유한 바로 가기 키가 있을 수 있습니다.

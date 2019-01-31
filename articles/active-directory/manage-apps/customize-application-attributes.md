@@ -7,7 +7,7 @@ author: barbkess
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ead99afaf0399c060424d310d8f4011b2a50aad2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: eaf6890223526b213ac4ec1180288b95fe6eaa29
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473727"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55149865"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비전 특성 매핑 사용자 지정
 Microsoft Azure AD는 Salesforce, Google Apps 등과 같은 타사 SaaS 애플리케이션에 프로비전을 하는 사용자에 대한 지원을 제공합니다. 타사 SaaS 애플리케이션을 프로비전하는 사용자가 있을 경우 Azure Portal은 해당 특성 값을 특성 매핑이라는 형식으로 제어합니다.

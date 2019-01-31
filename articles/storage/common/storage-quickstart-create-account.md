@@ -8,13 +8,13 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 09/18/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 5086c0758e7c535b65c877917dc790dafa46f763
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.subservice: common
+ms.openlocfilehash: 5266ca3f50a2d8163dbab95109cb967fb5a63ed8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994725"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474584"
 ---
 # <a name="create-a-storage-account"></a>저장소 계정 만들기
 
@@ -206,7 +206,7 @@ az group delete --name storage-quickstart-resource-group
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 범용 v2 표준 스토리지 계정을 만들었습니다. 저장소 계정에서 Blob을 업로드 및 다운로드하는 방법을 알아보려면 계속해서 Blob 저장소 빠른 시작을 진행합니다.
+이 빠른 시작에서는 범용 v2 표준 스토리지 계정을 만들었습니다. 스토리지 계정에서 Blob을 업로드 및 다운로드하는 방법을 알아보려면 계속해서 Blob Storage 빠른 시작을 진행합니다.
 
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 

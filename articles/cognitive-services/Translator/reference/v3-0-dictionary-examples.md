@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4b24ba4b4d83ac3f0c8291308debb6317efa4a55
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b12b9d56f42911da606e3bdcfedbe3f789d2c4e8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968000"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466939"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>Translator Text API 3.0: 사전 예제
 
@@ -110,7 +110,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
     * `sourceSuffix`: 완전한 예제를 만들기 위해 `sourceTerm` 값 _뒤에_ 연결할 문자열입니다. 공백 문자는 필요한 위치에 이미 있으므로 추가하지 않도록 합니다. 이 값은 빈 문자열일 수 있습니다.
 
-    * `targetPrefix`: `sourcePrefix`와 비슷하지만 대상에 사용되는 문자열입니다.
+    * `targetPrefix`: `sourcePrefix`과 비슷하지만 대상에 사용되는 문자열입니다.
 
     * `targetTerm`: `sourceTerm`과 비슷하지만 대상에 사용되는 문자열입니다.
 

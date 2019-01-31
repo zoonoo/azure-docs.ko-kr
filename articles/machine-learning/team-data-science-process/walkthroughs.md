@@ -1,26 +1,26 @@
 ---
 title: Azure에서 Team Data Science Process 실행 연습
-description: 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법입니다.
+description: 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 애플리케이션을 만드는 방법입니다.
 services: machine-learning
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5a5a63bfdc9019afe292dd7623051123c3eb2dbf
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 98595ea0ef5b6d9d4cef0f239390b364fb1e4e75
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132689"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476982"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Azure에서 Team Data Science Process 실행 연습
 
-이러한 **종단 간 연습**에서는 특정 시나리오에 대한 Team Data Science Process의 단계를 보여 줍니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 **지능형 응용 프로그램**을 만드는 방법을 보여 줍니다. 연습은 사용하는 **플랫폼**별로 그룹화됩니다.
+이러한 **종단 간 연습**에서는 특정 시나리오에 대한 Team Data Science Process의 단계를 보여 줍니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 **지능형 애플리케이션**을 만드는 방법을 보여 줍니다. 연습은 사용하는 **플랫폼**별로 그룹화됩니다.
 
 
 ## <a name="walkthrough-descriptions"></a>연습 설명

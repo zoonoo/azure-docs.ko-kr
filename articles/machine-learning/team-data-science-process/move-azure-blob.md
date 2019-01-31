@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a37c19ac0d3c053644b2f1f970ef9f84eac2f1df
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ca5a75ec61a0f75b3a008762561fed8231fce33d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139860"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453759"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>Azure Blob Storage 간 데이터 이동
 
@@ -42,7 +42,7 @@ ms.locfileid: "53139860"
 
 또는 [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 를 사용하여 다음을 수행할 수 있습니다. 
 
-* Azure blob 저장소의 데이터를 다운로드하는 파이프라인 만들기 및 예약 
+* Azure Blob Storage의 데이터를 다운로드하는 파이프라인 만들기 및 예약 
 * 게시된 Azure Machine Learning 웹 서비스에 전달 
 * 예측 분석 결과 수신 
 * 결과를 저장소에 업로드 
