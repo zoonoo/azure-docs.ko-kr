@@ -6,18 +6,18 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 ms.service: managed-applications
-ms.devlang: poweshell
+ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: f549f26cb3f9fdb2d805d2efb2c0e1706abe3edb
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: baad12379c01ac955f1b0e036398e5889f3681b2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2017
-ms.locfileid: "23636973"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203201"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-powershell"></a>PowerShell을 사용하여 관리되는 리소스 그룹에서 리소스를 가져오고 VM 크기를 조정합니다.
 
@@ -32,16 +32,16 @@ ms.locfileid: "23636973"
 
 ## <a name="script-explanation"></a>스크립트 설명
 
-이 스크립트는 다음 명령을 사용하여 관리되는 응용 프로그램을 배포합니다. 표에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
+이 스크립트는 다음 명령을 사용하여 관리되는 애플리케이션을 배포합니다. 표에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 사항 |
+| 명령 | 메모 |
 |---|---|
-| [Get-AzureRmManagedApplication](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermmanagedapplication) | 관리되는 응용 프로그램을 나열합니다. 리소스 그룹 이름을 제공하여 결과를 얻습니다. |
+| [Get-AzureRmManagedApplication](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermmanagedapplication) | 관리되는 애플리케이션을 나열합니다. 리소스 그룹 이름을 제공하여 결과를 얻습니다. |
 | [Get-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermresource) | 리소스를 나열합니다. 리소스 그룹 및 리소스 종류를 제공하여 결과를 얻습니다. |
-| [Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm) | 가상 컴퓨터의 크기를 업데이트합니다. |
+| [Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm) | 가상 머신의 크기를 업데이트합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계
 
-* 관리되는 응용 프로그램에 대한 소개는 [Azure Managed Application 개요](../overview.md)를 참조하세요.
+* 관리되는 애플리케이션에 대한 소개는 [Azure Managed Application 개요](../overview.md)를 참조하세요.
 * PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/get-started-azureps)를 참조하세요.

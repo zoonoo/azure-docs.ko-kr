@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e1f2991b2e006c97087c6288d3ed3c20d2927e8c
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: c08e5dc196c377b006be70339f402b2c023a3826
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413484"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299812"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>자습서: Service Fabric Mesh 애플리케이션 배포
 
@@ -95,11 +95,11 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ContainerRegistry
 
 처음으로 Azure에 게시하는 경우 Docker 이미지가 ACR(Azure Container Registry)에 게시되며, 이미지 크기에 따라 시간이 걸립니다. 이후에 동일한 프로젝트를 게시할 때는 더 빨리 게시됩니다. Visual Studio **출력** 창에서 **Service Fabric 도구** 창을 선택하여 배포 진행률을 모니터링할 수 있습니다. 배포가 완료되면 **Service Fabric 도구** 출력에 애플리케이션의 IP 주소와 포트가 URL 형식으로 표시됩니다.
 
-```json
+```
 Packaging Application...
 Building Images...
 Web1 -> C:\Code\ServiceFabricMeshApp\ToDoService\bin\Any CPU\Release\netcoreapp2.0\ToDoService.dll
-Uploading the images to Azure Container Registy...
+Uploading the images to Azure Container Registry...
 Deploying application to remote endpoint...
 The application was deployed successfully and it can be accessed at http://10.000.38.000:20000.
 ```

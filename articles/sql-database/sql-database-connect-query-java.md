@@ -11,14 +11,14 @@ ms.author: andrela
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 11/20/2018
-ms.openlocfilehash: afa975a593fd962050c9f894ec091d7f64579138
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 6b748ebdbdc443c5fa44c82323774cd12c82ba38
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52332615"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197503"
 ---
-# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>빠른 시작: Java를 사용하여 Azure SQL 데이터베이스 쿼리
+# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>빠른 시작: Java를 사용하여 Azure SQL Database 쿼리
 
 이 문서에서는 [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server)를 사용하여 Azure SQL에 연결하는 방법을 보여 줍니다. 그런 다음, 데이터를 쿼리하는 T-SQL 문을 사용할 수 있습니다.
 
@@ -27,8 +27,6 @@ ms.locfileid: "52332615"
 이 샘플을 완료하려면 다음 필수 구성 요소가 있어야 합니다.
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- 사용 중인 컴퓨터의 공용 IP 주소에 대한 [서버 수준 방화벽 규칙](sql-database-get-started-portal-firewall.md)
 
 - 운영 체제에 맞게 설치된 Java 관련 소프트웨어:
 
@@ -44,13 +42,13 @@ ms.locfileid: "52332615"
 
 ## <a name="create-the-project"></a>프로젝트 만들기
 
-1. 터미널에서 *sqltest*라는 새 Maven 프로젝트를 만듭니다.
+1. 명령 프롬프트에서 *sqltest*라는 새 Maven 프로젝트를 만듭니다.
 
     ```bash
     mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0" --batch-mode
     ```
 
-1. 디렉터리를 *sqltest*로 변경하고 원하는 텍스트 편집기에서 *pom.xml*을 엽니다. 다음 코드를 사용하여 프로젝트의 종속성에 **SQL Server용 Microsoft JDBC Driver**를 추가합니다.
+1. 폴더를 *sqltest*로 변경하고, 원하는 텍스트 편집기에서 *pom.xml*을 엽니다. 다음 코드를 사용하여 프로젝트의 종속성에 **SQL Server용 Microsoft JDBC Driver**를 추가합니다.
 
     ```xml
     <dependency>
@@ -93,10 +91,10 @@ ms.locfileid: "52332615"
         public static void main(String[] args) {
 
             // Connect to database
-            String hostName = "your_server.database.windows.net";
-            String dbName = "your_database";
-            String user = "your_username";
-            String password = "your_password";
+            String hostName = "your_server.database.windows.net"; // update me
+            String dbName = "your_database"; // update me
+            String user = "your_username"; // update me
+            String password = "your_password"; // update me
             String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;"
                 + "hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
             Connection connection = null;
@@ -139,14 +137,14 @@ ms.locfileid: "52332615"
 
 ## <a name="run-the-code"></a>코드 실행
 
-1. 명령 프롬프트에서 프로그램을 실행합니다.
+1. 명령 프롬프트에서 앱을 실행합니다.
 
     ```bash
     mvn package -DskipTests
     mvn -q exec:java "-Dexec.mainClass=com.sqldbsamples.App"
     ```
 
-1. 상위 20개 행이 반환되는지 확인한 다음, 애플리케이션 창을 닫습니다.
+1. 상위 20개 행이 반환되는지 확인하고, 앱 창을 닫습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

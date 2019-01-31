@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: ddc04d32f76515cb93d2cde3fe4eccaab7e4c291
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 805a917cbb4d867ee866ec99c8e90ea883527856
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245361"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100957"
 ---
 # <a name="quickstart-remove-an-application-from-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 애플리케이션 제거
 
@@ -29,8 +29,8 @@ Azure AD(Azure Active Directory)에 애플리케이션을 등록한 Enterprise �
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 
-* [조직이 작성한 응용프로그램 제거](#removing-an-application-authored-by-your-organization)
-* [다른 조직이 권한을 부여한 다중 테넌트 응용프로그램 제거](#removing-a-multi-tenant-application-authorized-by-another-organization)
+* [조직이 작성한 애플리케이션 제거](#removing-an-application-authored-by-your-organization)
+* [다른 조직이 권한을 부여한 다중 테넌트 애플리케이션 제거](#removing-a-multi-tenant-application-authorized-by-another-organization)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -50,7 +50,7 @@ Azure AD(Azure Active Directory)에 애플리케이션을 등록한 Enterprise �
 1. 왼쪽의 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록**을 차례로 선택한 다음, 구성하려는 애플리케이션을 찾아 선택합니다.
     그러면 애플리케이션의 기본 등록 페이지로 이동되고, 애플리케이션에 대한 **설정** 페이지가 열립니다.
 1. 애플리케이션의 기본 등록 페이지에서 **삭제**를 선택합니다.
-1. **예**를 선택하여 응용 프로그램 삭제를 확인합니다.
+1. **예**를 선택하여 애플리케이션 삭제를 확인합니다.
 
 ### <a name="to-remove-a-multi-tenant-application-from-its-home-directory"></a>홈 디렉터리에서 다중 테넌트 애플리케이션을 제거하려면
 
@@ -58,10 +58,10 @@ Azure AD(Azure Active Directory)에 애플리케이션을 등록한 Enterprise �
 1. 계정이 둘 이상의 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
 1. 왼쪽의 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록**을 차례로 선택한 다음, 구성하려는 애플리케이션을 찾아 선택합니다.
     그러면 애플리케이션의 기본 등록 페이지로 이동되고, 애플리케이션에 대한 **설정** 페이지가 열립니다.
-1. **설정** 페이지에서 **속성**을 선택하고 **다중 테넌트** 스위치를 **아니요**로 변경하여 먼저 응용 프로그램을 단일 테넌트로 변경한 다음, **저장**을 선택합니다.
+1. **설정** 페이지에서 **속성**을 선택하고 **다중 테넌트** 스위치를 **아니요**로 변경하여 먼저 애플리케이션을 단일 테넌트로 변경한 다음, **저장**을 선택합니다.
     애플리케이션의 서비스 주체 개체는 이미 동의한 모든 조직의 테넌트에 남아 있습니다.
 1. 애플리케이션의 기본 등록 페이지에서 **삭제**를 선택합니다.
-1. **예**를 선택하여 응용 프로그램 삭제를 확인합니다.
+1. **예**를 선택하여 애플리케이션 삭제를 확인합니다.
 
 ## <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>다른 조직이 권한을 부여한 다중 테넌트 애플리케이션 제거
 
@@ -73,7 +73,7 @@ Azure AD(Azure Active Directory)에 애플리케이션을 등록한 Enterprise �
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure AD v1.0 엔드포인트를 사용하는 앱에 대한 다른 관련된 앱 관리 빠른 시작에 대해 알아봅니다.
+Azure AD v1.0 엔드포인트를 사용하는 앱에 대한 관련된 다른 앱 관리 빠른 시작에 대해 알아봅니다.
 
-- [Azure AD에 응용 프로그램 추가](quickstart-v1-integrate-apps-with-azure-ad.md)
-- [Azure AD의 응용 프로그램 업데이트](quickstart-v1-update-azure-ad-app.md)
+- [Azure AD에 애플리케이션 추가](quickstart-v1-integrate-apps-with-azure-ad.md)
+- [Azure AD의 애플리케이션 업데이트](quickstart-v1-update-azure-ad-app.md)

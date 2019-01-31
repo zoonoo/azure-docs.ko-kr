@@ -3,7 +3,7 @@ title: Azure CLI 샘플 - 단일 영역 확장 집합 | Microsoft Docs
 description: Azure CLI 샘플
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e0975542be39bddae9fe21dd49bead98d17e9546
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 9c78e13b39468990286be2d869a699d7130856fb
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469231"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888357"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>PowerShell을 사용하여 단일 영역 가상 머신 확장 집합 만들기
 이 스크립트는 단일 가용성 영역에서 Ubuntu를 실행하는 가상 머신 확장 집합을 만듭니다. 스크립트를 실행하면 RDP를 통해 가상 머신에 액세스할 수 있습니다.

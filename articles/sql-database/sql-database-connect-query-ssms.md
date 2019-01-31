@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 636adcf15479fe8e072b833b59ddc78b5f820550
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 23f2d32b2323821155467bd1ad12e9baf8c33074
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745077"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150753"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>빠른 시작: SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스 연결 및 쿼리
 
@@ -29,8 +29,6 @@ ms.locfileid: "53745077"
 이 자습서를 완료하려면 다음이 필요합니다.
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-* 구성된 서버 수준 방화벽 규칙. 자세한 내용은 [서버 수준 방화벽 규칙 만들기](sql-database-get-started-portal-firewall.md)를 참조하세요.
 
 #### <a name="install-the-latest-ssms"></a>최신 SSMS 설치
 

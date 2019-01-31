@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: da4fda3d0cfa6cb33d2dd8bb3bb844f18654c30a
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: b2a9c6c31771be1316038d794d1c15ff9fa45916
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851898"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166733"
 ---
 # <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(사용되지 않음) Container Service에서 Kubernetes 클러스터에 대한 Azure AD 서비스 주체 설정
 
@@ -26,7 +26,7 @@ ms.locfileid: "54851898"
 Azure Container Service에서 Kubernetes 클러스터는 Azure API와 상호 작용하기 위해 [Azure Active Directory 서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)를 요구합니다. 서비스 주체는 [사용자 정의 경로](../../virtual-network/virtual-networks-udr-overview.md) 및 [계층 4 Azure Load Balancer](../../load-balancer/load-balancer-overview.md)와 같은 리소스를 동적으로 관리하는 데 필요합니다.
 
 
-이 문서에서는 Kubernetes 클러스터에 대한 서비스 주체를 설정하기 위한 다양한 옵션을 보여 줍니다. 예를 들어 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 설정한 경우 [`az acs create`](/cli/azure/acs#az_acs_create) 명령을 실행하여 Kubernetes 클러스터와 서비스 주체를 동시에 만들 수 있습니다.
+이 문서에서는 Kubernetes 클러스터에 대한 서비스 주체를 설정하기 위한 다양한 옵션을 보여 줍니다. 예를 들어 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 설정한 경우 [`az acs create`](/cli/azure/acs) 명령을 실행하여 Kubernetes 클러스터와 서비스 주체를 동시에 만들 수 있습니다.
 
 
 ## <a name="requirements-for-the-service-principal"></a>서비스 주체에 대한 요구 사항

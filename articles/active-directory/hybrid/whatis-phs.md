@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: get-started-article
 ms.date: 12/05/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: ae4244a9ce17cdcb5942100e97b67916d455d019
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: d11759fbc3354364af3f78599ff9cfb25674c612
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470259"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175153"
 ---
 # <a name="what-is-password-hash-synchronization-with-azure-ad"></a>Azure AD에서 암호 해시 동기화란?
 암호 해시 동기화는 하이브리드 ID를 설정하기 위해 사용된 로그인 메서드 중 하나입니다. Azure AD Connect는 사용자 암호 해시의 해시를 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure AD 인스턴스로 동기화합니다.

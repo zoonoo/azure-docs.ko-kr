@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 9683eb8cbfcabb946f8b364ac9cc8aeeb167d023
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: dcde2a09f9e066c49d870f230aed37655c4b6647
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120294"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093425"
 ---
 # <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>빠른 시작: Azure Active Directory를 사용하여 Web API 보안 유지
 
@@ -82,7 +82,7 @@ az ad app create --display-name node-aad-demo --homepage http://localhost --iden
 
 Azure Active Directory에 연결하려면 다음 정보가 필요합니다.
 
-| 이름  | 설명 | 구성 파일의 변수 이름 |
+| Name  | 설명 | 구성 파일의 변수 이름 |
 | ------------- | ------------- | ------------- |
 | 테넌트 이름  | 인증에 사용할 [테넌트 이름](quickstart-create-new-tenant.md) | `tenantName`  |
 | 클라이언트 ID  | 클라이언트 ID는 AAD _애플리케이션 ID_에 사용되는 OAuth 용어입니다. |  `clientID`  |

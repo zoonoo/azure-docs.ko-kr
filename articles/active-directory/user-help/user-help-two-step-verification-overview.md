@@ -7,25 +7,25 @@ manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 047c2af2626c9efca05dc3d3e554d57b4d559add
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 3a52610365c4e18333084e81a0f69e302fb5c191
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809108"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192046"
 ---
 # <a name="two-step-verification-overview"></a>2단계 인증 개요
-
->[!Important]
->이 콘텐츠는 사용자를 위한 것입니다. 관리자의 경우 [Azure Active Directory 문서](https://docs.microsoft.com/azure/active-directory)에서 Azure AD(Azure Active Directory) 환경을 설정하고 관리하는 방법에 대한 자세한 정보를 찾을 수 있습니다.
 
 IT 팀원 또는 상사로부터 조직에서 계정에 보안 확인 절차를 추가했다는 내용의 이메일을 받았습니다. 이것은 무슨 의미일까요? 조직에서 사용자가 로그인할 때 사용자의 신분을 정확하게 확인하기 위한 단계를 추가했다는 의미입니다. 2단계 인증이라고도 하는 이 추가 확인은 사용자 이름, 암호 및 모바일 디바이스 또는 휴대폰 조합을 통해 수행됩니다.
 
 2단계 인증은 사용자가 알고 있는 것과 휴대하는 것, 두 가지 형태의 인증을 사용하기 때문에 단순 암호에 비해 더 안전합니다. 사용자가 알고 있는 것은 암호입니다. 사용자가 휴대하는 것은 사용자가 흔히 휴대하는 전화 또는 디바이스입니다. 2단계 인증은 악의적인 해커가 사용자를 가장하지 못하게 차단하는 효과가 있습니다. 해커가 사용자의 암호를 알아내더라도 사용자의 디바이스까지 손에 넣을 가능성은 별로 높지 않기 때문입니다.
+
+>[!Important]
+>이 콘텐츠는 사용자를 위한 것입니다. 관리자의 경우 [Azure Active Directory 문서](https://docs.microsoft.com/azure/active-directory)에서 Azure AD(Azure Active Directory) 환경을 설정하고 관리하는 방법에 대한 자세한 정보를 찾을 수 있습니다.
 
 |문서 |설명 |
 |------|------------|

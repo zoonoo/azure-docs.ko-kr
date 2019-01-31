@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 11/01/2018
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d61d0220a87f81ca68255d40c00a6b7783943231
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 64faed888352e641cb51200d81c038fe5caf7ef4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960204"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098547"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>빠른 시작: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
@@ -40,7 +40,7 @@ ms.locfileid: "50960204"
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
-> 1. [Azure Portal - 응용 프로그램 등록](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps)으로 이동합니다.
+> 1. [Azure Portal - 애플리케이션 등록](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps)으로 이동합니다.
 > 1. 애플리케이션 이름을 입력하고 **등록**을 클릭합니다.
 > 1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 >
@@ -51,10 +51,10 @@ ms.locfileid: "50960204"
 > 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 > 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
 > 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록(미리 보기)** > **새 등록**을 차례로 선택합니다.
-> 1. **응용 프로그램 등록** 페이지가 표시되면 응용 프로그램의 등록 정보를 입력합니다.
->      - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 응용 프로그램 이름(예: `UWP-App-calling-MsGraph`)을 입력합니다.
+> 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
+>      - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `UWP-App-calling-MsGraph`)을 입력합니다.
 >      - **지원되는 계정 유형** 섹션에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정(예: Skype, Xbox, Outlook.com)** 을 선택합니다.
->      - **등록**을 선택하여 응용 프로그램을 만듭니다.
+>      - **등록**을 선택하여 애플리케이션을 만듭니다.
 > 1. 앱의 페이지 목록에서 **인증**을 선택합니다.
 > 1. **리디렉션 URL** 섹션에서 **공용 클라이언트(모바일, 데스크톱)에 대해 제안된 리디렉션 URI** 섹션을 찾고 **"urn:ietf:wg:oauth:2.0:oob**를 선택합니다.
 > 1. **저장**을 선택합니다.
@@ -66,7 +66,7 @@ ms.locfileid: "50960204"
 > > [자동 변경]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![이미 구성됨](media/quickstart-v2-uwp/green-check.png) 이러한 특성을 사용하여 응용 프로그램을 구성합니다.
+> > ![이미 구성됨](media/quickstart-v2-uwp/green-check.png) 이러한 특성을 사용하여 애플리케이션을 구성합니다.
 
 #### <a name="step-2-download-your-visual-studio-project"></a>2단계: Visual Studio 프로젝트 다운로드
 
@@ -85,14 +85,14 @@ ms.locfileid: "50960204"
 
 > [!div renderon="docs"]
 > 위치:
-> - `Enter_the_Application_Id_here` - 등록한 응용 프로그램의 응용 프로그램 ID입니다.
+> - `Enter_the_Application_Id_here` - 등록한 애플리케이션의 애플리케이션 ID입니다.
 > - `Enter_the_Tenant_Info_Here` - 아래 옵션 중 하나입니다.
 >   - 애플리케이션이 **내 조직만** 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: contoso.microsoft.com)으로 바꿉니다.
 >   - 애플리케이션이 **모든 조직 디렉터리의 계정**을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
 >   - 애플리케이션이 **모든 Microsoft 계정 사용자**를 지원하는 경우 이 값을 `common`으로 바꾸세요.
 >
 > > [!TIP]
-> > *응용 프로그램 ID*, *디렉터리(테넌트) ID* 및 *지원되는 계정 유형*의 값을 찾아보려면 **개요** 페이지로 이동합니다.
+> > *애플리케이션 ID*, *디렉터리(테넌트) ID* 및 *지원되는 계정 유형*의 값을 찾아보려면 **개요** 페이지로 이동합니다.
 
 ## <a name="more-information"></a>자세한 정보
 
@@ -132,7 +132,7 @@ MSAL에는 토큰 가져오기에 사용되는 두 가지 메서드인 `AcquireT
 
 일부 상황에서는 사용자가 팝업 창을 통해 Azure AD v2.0 엔드포인트를 조작하여 자격 증명의 유효성을 검사하거나 동의를 제공해야 합니다. 일부 사례:
 
-- 처음으로 사용자가 애플리케이션에 로그인한 경우
+- 처음으로 사용자가 응용 프로그램에 로그인한 경우
 - 암호가 만료되어 사용자가 자격 증명을 다시 입력해야 할 경우
 - 애플리케이션이 사용자 동의가 필요한 리소스에 액세스를 요청하고 있는 경우
 - 2단계 인증이 필요한 경우

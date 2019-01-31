@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8ebaab260d38a3fe4f492f2545c5ec8b07990235
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ed056bf28881f391ed1ba16a875259e8e420b39d
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715242"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296086"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>자습서: Linux의 Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여
 
@@ -165,7 +165,7 @@ http://<front_end_app_name>.azurewebsites.net
 
 ### <a name="modify-front-end-code"></a>프런트 엔드 코드 수정
 
-로컬 리포지토리에서 _Controllers/TodoController.cs_를 엽니다. `TodoController` 클래스의 시작 부분에 다음 줄을 추가하고 _&lt;back\_end\_app\_name>_ 을 백 엔드 앱의 이름으로 바꿉니다.
+로컬 리포지토리에서 _Controllers/TodoController.cs_ 를 엽니다. `TodoController` 클래스의 시작 부분에 다음 줄을 추가하고 _&lt;back\_end\_app\_name>_ 을 백 엔드 앱의 이름으로 바꿉니다.
 
 ```cs
 private static readonly HttpClient _client = new HttpClient();
@@ -317,7 +317,7 @@ AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메
 
 이제 앱이 구성되었습니다. 이제 프런트 엔드가 적절한 액세스 토큰을 사용하여 백 엔드에 액세스할 준비가 되었습니다.
 
-다른 공급자에 대해 구성하는 방법에 대한 자세한 내용은 [액세스 토큰 새로고침](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#refresh-access-tokens)을 참조하세요.
+다른 공급자에 대해 구성하는 방법에 대한 자세한 내용은 [액세스 토큰 새로고침](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#refresh-identity-provider-tokens)을 참조하세요.
 
 ## <a name="call-api-securely-from-server-code"></a>서버 코드에서 안전하게 API 호출
 

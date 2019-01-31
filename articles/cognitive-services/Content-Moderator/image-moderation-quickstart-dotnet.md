@@ -6,16 +6,16 @@ services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: e11e037e7be8ca308f7924654c4f28b1634dc5fd
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: db85e8bf071e9d91ab6c8e30e0e96d409166fed6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260774"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207967"
 ---
 # <a name="quickstart-analyze-image-content-for-objectionable-material-in-c"></a>빠른 시작: C#에서 불쾌한 자료에 대한 이미지 콘텐츠 분석
 

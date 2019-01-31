@@ -12,12 +12,12 @@ ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
 ms.date: 12/07/2018
-ms.openlocfilehash: 6f86312ee1d11e5ac4c7626f5fd4c8223dac8b52
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: e6b24e89297b875d0c4547ffe3200b1d5e2e58c2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744703"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161533"
 ---
 # <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>빠른 시작: Golang을 사용하여 Azure SQL 데이터베이스 쿼리
 
@@ -28,8 +28,6 @@ ms.locfileid: "53744703"
 이 자습서를 완료하려면 다음이 필요합니다.
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- 컴퓨터의 공용 IP 주소에 대해 구성된 [서버 수준 방화벽 규칙](sql-database-get-started-portal-firewall.md)입니다.
 
 - 운영 체제에 맞게 설치된 Golang 및 관련 소프트웨어:
 

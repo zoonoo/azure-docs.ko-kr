@@ -10,19 +10,19 @@ services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: b396c0e485d4eb6c4ee541074f86357634c264c1
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 202b308c3add7facdbb28dc634f70e5090dd2a9c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184443"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092085"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>Node.js 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 TPM 디바이스 등록
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
 
-다음 단계에서는 [Node.js 서비스 SDK](https://github.com/Azure/azure-iot-sdk-node) 및 샘플 Node.js 응용 프로그램을 사용하여 Azure IoT Hub Device Provisioning Service에서 TPM 디바이스에 대한 개별 등록을 프로그래밍 방식으로 만드는 방법을 보여줍니다. 필요에 따라 이 개별 등록 항목을 사용하여 시뮬레이션된 TPM 디바이스를 프로비전 서비스에 등록할 수 있습니다. 이러한 단계는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 이 문서의 목적을 위해 Windows 개발 컴퓨터를 사용합니다.
+다음 단계에서는 [Node.js 서비스 SDK](https://github.com/Azure/azure-iot-sdk-node) 및 샘플 Node.js 애플리케이션을 사용하여 Azure IoT Hub Device Provisioning Service에서 TPM 장치에 대한 개별 등록을 프로그래밍 방식으로 만드는 방법을 보여 줍니다. 필요에 따라 이 개별 등록 항목을 사용하여 시뮬레이션된 TPM 디바이스를 프로비전 서비스에 등록할 수 있습니다. 이러한 단계는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 이 문서의 목적을 위해 Windows 개발 컴퓨터를 사용합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -66,7 +66,7 @@ ms.locfileid: "53184443"
         console.log("enrollment record returned: " + JSON.stringify(enrollmentResponse, null, 2));
       }
     });
-    ````
+    ```
 
 ## <a name="run-the-individual-enrollment-sample"></a>개별 등록 샘플 실행
   

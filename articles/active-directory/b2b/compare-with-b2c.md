@@ -3,19 +3,19 @@ title: Azure Active Directory에서 B2B 공동 작업과 B2C 비교 | Microsoft 
 description: Azure Active Directory B2B 공동 작업과 Azure AD B2C 간의 차이는 무엇인가요?
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: overview
 ms.date: 03/15/2017
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 69c8e293186f955e86962a325fce2f54a2eefdc7
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 1580171c0e363da9407c2f5f5bf4da7736119a39
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432169"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55074991"
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Azure Active Directory에서 B2B 공동 작업과 B2C 비교
 
