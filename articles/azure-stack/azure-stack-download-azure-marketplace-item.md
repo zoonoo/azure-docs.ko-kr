@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/10/2018
+ms.date: 01/30/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 465f9d51f724bf1c8713259cd1d0b6ebabc230fe
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 8c699f8b3241694f36b73ae75b25754e551c91f6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239760"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470708"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure에서 Azure Stack marketplace 항목 다운로드
 
@@ -168,7 +168,13 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
    $credential = Get-Credential -Message "Enter the azure stack operator credential:"
    Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -armendpoint "Environment Arm Endpoint" -AzsCredential $credential
    ```
+
+   합니다 `-origin` 매개 변수 다운로드 한 제품; 모두 포함 하는 최상위 수준 폴더를 지정 합니다. 예를 들어 `"D:\downloadfolder"`합니다.
+
    `-AzsCredential` 매개 변수는 선택 사항입니다. 만료 된 경우 액세스 토큰을 갱신에 사용 됩니다. 경우는 `-AzsCredential` 매개 변수가 지정 되지 토큰이 만료 되 고 연산자 자격 증명을 입력 하 라는 메시지가 나타납니다.
+
+    > [!Note]  
+    > AD FS 사용자 id 사용 하 여 대화형 인증만을 지원 합니다. 자격 증명 개체를 필요한 경우 서비스 주체 (SPN)을 사용 해야 합니다. Azure Stack 및 AD FS를 사용 하 여 서비스 주체에 id 관리 서비스 설정에 대 한 자세한 내용은 참조 하세요. [AD FS에 대 한 관리 서비스 주체](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs)합니다.
 
 4. 스크립트를 성공적으로 완료 된 후 항목 사용할지 Azure Stack Marketplace에서.
 
