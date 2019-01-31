@@ -6,7 +6,7 @@ author: CelesteDG
 documentationcenter: na
 manager: mtillman
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,16 +15,16 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: 7f653eca0c768cc35df039cbd51153484710d80a
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 4d536e530c1f119a33c4583a413143808a43d5e5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422256"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092002"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory에서 SAML 기반 Single Sign-On을 애플리케이션에 디버그
 
-[SAML(Security Assertion Markup Language) 2.0](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)을 지원하는 Azure AD(Azure Active Directory)에서 응용 프로그램에 대한 [단일 로그온](../manage-apps/what-is-single-sign-on.md) 문제를 찾고 수정하는 방법을 알아봅니다. 
+[SAML(Security Assertion Markup Language) 2.0](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)을 지원하는 Azure AD(Azure Active Directory)에서 애플리케이션에 대한 [단일 로그온](../manage-apps/what-is-single-sign-on.md) 문제를 찾고 수정하는 방법을 알아봅니다. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 [내 앱 보안 로그인 확장](../user-help/active-directory-saas-access-panel-user-help.md#i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension)을 설치하는 것이 좋습니다. 이 브라우저 확장을 사용하면 Single Sign-On으로 문제를 해결하는 데 필요한 SAML 요청 및 SAML 응답 정보를 쉽게 수집할 수 있습니다. 확장을 설치할 수 없는 경우 이 문서에서는 확장이 설치되거나 설치되지 않았을 때의 문제를 해결하는 방법을 보여줍니다.
@@ -44,7 +44,7 @@ AAD 및 대상 애플리케이션 간 SAML 기반 Single Sign-On을 테스트하
 2.  왼쪽 창에서 **Azure Active Directory**를 클릭한 다음, **엔터프라이즈 애플리케이션**을 클릭합니다. 
 3.  Enterprise 애플리케이션 목록에서 Single Sign-On을 테스트하려는 애플리케이션을 클릭한 다음, 왼쪽의 옵션에서 **Single sign-on**을 클릭합니다.
 4.  SAML 기반 Single Sign-On 테스트 환경을 열려면 **도메인 및 URL** 섹션에서 **SAML 설정 테스트**를 클릭합니다. SAML 설정 테스트 단추가 회색으로 되어 있으면 먼저 필수 특성을 채우고 저장해야 합니다.
-5.  **Single Sign-On 테스트** 블레이드에서 대상 응용 프로그램에 로그인하려면 회사 자격 증명을 사용합니다. 현재 사용자 또는 다른 사용자로 로그인할 수 있습니다. 다른 사용자로 로그인하는 경우 인증을 요구하는 메시지가 나타납니다.
+5.  **Single Sign-On 테스트** 블레이드에서 대상 애플리케이션에 로그인하려면 회사 자격 증명을 사용합니다. 현재 사용자 또는 다른 사용자로 로그인할 수 있습니다. 다른 사용자로 로그인하는 경우 인증을 요구하는 메시지가 나타납니다.
 
     ![SAML 테스트 페이지](./media/howto-v1-debug-saml-sso-issues/testing.png)
 

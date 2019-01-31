@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: fc70089517bbc1aa90f95f1e0231f2c67f930090
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 43b482324f0244baf52edbb8989a56dd12833331
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242197"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104469"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-azure-data-lake-storage-gen1"></a>Azure Import/Export 서비스를 사용하여 Azure Data Lake Storage Gen1에 오프라인 데이터 복사
 이 문서에서는 [Azure Import/Export 서비스](../storage/common/storage-import-export-service.md)와 같은 오프라인 복사 방법을 사용하여 대량 데이터 집합(200GB 초과)을 Azure Data Lake Storage Gen1에 복사하는 방법을 알아봅니다. 특히 이 문서에서 예제로 사용하는 파일의 크기는 디스크에서 339,420,860,416바이트(약 319GB)입니다. 이 파일을 319GB.tsv라고 하겠습니다.
 
-Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 Azure 데이터 센터에 제공하여 대량 데이터를 Azure Blob 저장소로 더 안전하게 전송할 수 있습니다.
+Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 Azure 데이터 센터에 제공하여 대량 데이터를 Azure Blob Storage로 더 안전하게 전송할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 시작하기 전에 다음이 있어야 합니다.
@@ -54,9 +54,9 @@ Import/Export 서비스를 사용하려면 먼저 전송할 데이터 파일을 
 2. 하드 디스크가 Azure 데이터 센터에 제공된 후에 데이터를 복사할 Azure Storage 계정을 확인합니다.
 3. [Azure Import/Export 도구](https://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) 명령줄 유틸리티를 사용합니다. 이 도구를 사용하는 방법을 보여 주는 샘플 코드 조각은 다음과 같습니다.
 
-    ````
+    ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
-    ````
+    ```
     자세한 코드 조각에 대해서는 [Azure Import/Export 서비스 사용](../storage/common/storage-import-export-service.md)을 참조하세요.
 4. 위 명령은 지정된 위치에 저널 파일을 만듭니다. 이 저널 파일을 사용하여 [Azure Portal](https://portal.azure.com)에서 가져오기 작업을 만듭니다.
 
@@ -72,7 +72,7 @@ Import/Export 서비스를 사용하려면 먼저 전송할 데이터 파일을 
 이 섹션에서는 데이터 복사용 Azure Data Factory 파이프라인을 만드는 데 사용할 수 있는 JSON 정의를 제공합니다. 이러한 JSON 정의는 [Azure Portal](../data-factory/tutorial-copy-data-portal.md) 또는 [Visual Studio](../data-factory/tutorial-copy-data-dot-net.md)에서 사용할 수 있습니다.
 
 ### <a name="source-linked-service-azure-storage-blob"></a>원본에 연결된 서비스(Azure Storage Blob)
-````
+```
 {
     "name": "AzureStorageLinkedService",
     "properties": {
@@ -83,10 +83,10 @@ Import/Export 서비스를 사용하려면 먼저 전송할 데이터 파일을 
         }
     }
 }
-````
+```
 
 ### <a name="target-linked-service-azure-data-lake-storage-gen1"></a>대상에 연결된 서비스(Azure Data Lake Storage Gen1)
-````
+```
 {
     "name": "AzureDataLakeStorageGen1LinkedService",
     "properties": {
@@ -99,9 +99,9 @@ Import/Export 서비스를 사용하려면 먼저 전송할 데이터 파일을 
         }
     }
 }
-````
+```
 ### <a name="input-data-set"></a>입력 데이터 집합
-````
+```
 {
     "name": "InputDataSet",
     "properties": {
@@ -119,9 +119,9 @@ Import/Export 서비스를 사용하려면 먼저 전송할 데이터 파일을 
         "policy": {}
     }
 }
-````
+```
 ### <a name="output-data-set"></a>출력 데이터 집합
-````
+```
 {
 "name": "OutputDataSet",
 "properties": {
@@ -137,9 +137,9 @@ Import/Export 서비스를 사용하려면 먼저 전송할 데이터 파일을 
     }
   }
 }
-````
+```
 ### <a name="pipeline-copy-activity"></a>파이프라인(복사 작업)
-````
+```
 {
     "name": "CopyImportedData",
     "properties": {
@@ -186,7 +186,7 @@ Import/Export 서비스를 사용하려면 먼저 전송할 데이터 파일을 
         "pipelineMode": "Scheduled"
     }
 }
-````
+```
 자세한 내용은 [Azure Data Factory를 사용하여 Azure Storage Blob에서 Azure Data Lake Storage Gen1로 데이터 이동](../data-factory/connector-azure-data-lake-store.md)을 참조하세요.
 
 ## <a name="reconstruct-the-data-files-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에서 데이터 파일 다시 생성
@@ -205,7 +205,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
 # Join  the files
 Join-AzureRmDataLakeStoreItem -AccountName "<adlsg1_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv"
-````
+```
 
 ## <a name="next-steps"></a>다음 단계
 * [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)

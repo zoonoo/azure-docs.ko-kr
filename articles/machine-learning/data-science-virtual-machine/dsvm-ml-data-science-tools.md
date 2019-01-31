@@ -9,19 +9,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: d8c607b5f1d338ca3a2bd3844b26ef51d801c720
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f84341d6d8ac3b5c7febaa4f659da84efcebb780
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086073"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473349"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>기계 학습 및 데이터 과학 도구
 Azure Data Science Virtual Machines에는 Python, R, Julia와 같이 인기 있는 언어에서 사용할 수 있는 ML(기계 학습)을 위한 다양한 도구 및 라이브러리 집합이 있습니다. 

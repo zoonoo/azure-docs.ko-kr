@@ -5,17 +5,17 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.subservice: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
-ms.openlocfilehash: ec178827a2f27a4566f509fe76b58e451329efd4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 131e34a500fe891a707be308e1ae3cf4a60a7b3f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47044150"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478752"
 ---
 예시 발언을 추가하는 데 사용되는 `response` 배열은 `hasError` 속성을 가진 각 예시 발언의 성공 또는 실패를 나타냅니다. 다음과 같은 JSON 응답은 두 발언이 성공적으로 추가되었음을 보여줍니다. 
 

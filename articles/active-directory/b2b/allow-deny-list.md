@@ -3,19 +3,19 @@ title: 특정 조직의 B2B 사용자 초대 허용 또는 차단 - Azure Active
 description: Azure Portal 또는 PowerShell을 사용하여 특정 도메인에서 B2B 사용자를 허용하거나 차단하는 액세스 또는 거부 목록을 설정하는 방법을 살펴봅니다.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: d0458fa9c40c5a6681a3f691cbb3d6a02f01ce66
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: d5a39efd932225eb2f71acdba742c88095df8ec9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429073"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098785"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>특정 조직의 B2B 사용자 초대 허용 또는 차단
 
@@ -86,71 +86,71 @@ PowerShell을 사용하여 허용 또는 거부 목록을 설정하려면 Azure 
 1. 향상된 사용자 권한(관리자 권한으로 실행)으로 Windows PowerShell을 엽니다. 
 2. 다음 명령을 실행하여 컴퓨터에 설치된 Azure Active Directory Module for Windows PowerShell 버전이 있는지 확인합니다.
 
-   ````powershell  
+   ```powershell  
    Get-Module -ListAvailable AzureAD*
-   ````
+   ```
 
 모듈이 설치되지 않았거나 필요한 버전이 없으면 다음 중 하나를 수행합니다.
 
 - 결과가 반환되지 않으면 다음 명령을 실행하여 최신  AzureADPreview module 버전을 설치합니다.
   
-   ````powershell  
+   ```powershell  
    Install-Module AzureADPreview
-   ````
+   ```
 - 결과에 하나의  AzureAD module만 표시되면 다음 명령을 실행하여  AzureADPreview module을 설치합니다. 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
-   ````
+   ```
 - 결과에  AzureADPreview module이 하나 표시되나 버전이  2.0.0.98 미만이면 다음 명령을 실행하여 업데이트합니다. 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-   ````
+   ```
 
 - 결과에  AzureADPreview module이 모두 표시되나  AzureADPreview module 버전이  2.0.0.98 미만이면 다음 명령을 실행하여 업데이트합니다. 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-    ````
+    ```
 
 ### <a name="use-the-azureadpolicy-cmdlets-to-configure-the-policy"></a>AzureADPolicy cmdlet을 사용한 정책 구성
 
 허용 또는 거부 목록을 만들려면 [New-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 다음 예제에서는 "live.com" 도메인을 차단하는 거부 목록을 설정하는 방법을 보여줍니다.
 
-````powershell 
+```powershell 
 $policyValue = @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}")
 
 New-AzureADPolicy -Definition $policyValue -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
-````
+```
 
 다음은 같은 예제이나 정책 정이 인라인이 있습니다.
 
-````powershell  
+```powershell  
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
-````
+```
 
 허용 또는 거부 목록 정책을 설정하려면 [Set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예: 
 
-````powershell   
+```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
-````
+```
 
 정책을 가져오려면 [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예: 
 
-````powershell
+```powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
-````
+```
 
 정책을 제거오려면 [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예: 
 
-````powershell
+```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 
-````
+```
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,7 +8,7 @@ author: MarkusVi
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 3a628fbf7570ed6682fe2407ab8face2597c363d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 419368511065e6f45d7fb9b363f5806b47ce07e8
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450970"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076189"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>빠른 시작: 클라우드 앱에 액세스하기 전에 사용 약관에 동의하도록 요구 
 
@@ -135,7 +135,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **새로 만들기** 페이지의 **이름** 텍스트 상자에서 **Isabella에게 TOU 요구**를 입력합니다.
 
-    ![이름](./media/require-tou/71.png)
+    ![Name](./media/require-tou/71.png)
 
 2. **할당** 섹션에서 **사용자 및 그룹**을 클릭합니다.
 

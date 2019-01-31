@@ -12,12 +12,12 @@ ms.author: srinia
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/22/2018
-ms.openlocfilehash: d8af5e3919b731677b40726c37462832adc06677
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: ee9e9389962cd454f9861e561dd76c96d019a1f0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449098"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469341"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>탄력적 작업 만들기, 구성 및 관리
 
@@ -34,7 +34,7 @@ ms.locfileid: "54449098"
 
 1. [PowerShell](elastic-jobs-powershell.md#create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets) 또는 [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution)을 사용하여 *작업 데이터베이스*에서 작업 실행에 대한 자격 증명을 만듭니다.
 2. [PowerShell](elastic-jobs-powershell.md#define-the-target-databases-you-want-to-run-the-job-against) 또는 [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers)을 사용하여 대상 그룹(작업을 실행하려는 데이터베이스)을 정의합니다.
-3. 작업을 실행할 각 데이터베이스에서 작업 에이전트 자격 증명을 만듭니다[(그룹의 각 데이터베이스에서 사용자(또는 역할)를 추가합니다)](https://docs.microsoft.com/azure/sql-database/sql-database-control-access). 예를 들어 [PowerShell 자습서](elastic-jobs-powershell.md#create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets)를 참조합니다.
+3. 작업을 실행할 각 데이터베이스에서 작업 에이전트 자격 증명을 만듭니다[(그룹의 각 데이터베이스에서 사용자(또는 역할)를 추가합니다)](sql-database-control-access.md). 예를 들어 [PowerShell 자습서](elastic-jobs-powershell.md#create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets)를 참조합니다.
 4. [PowerShell](elastic-jobs-powershell.md#create-a-job) 또는 [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases)을 사용하여 작업을 만듭니다.
 5. [PowerShell](elastic-jobs-powershell.md#create-a-job-step) 또는 [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases)을 사용하여 작업 단계를 추가합니다.
 6. [PowerShell](elastic-jobs-powershell.md#run-the-job) 또는 [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job)을 사용하여 작업을 실행합니다.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 2fce90f971d13b94c73012d4089cca05739c5440
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 7f6e95b28482ed6d75bb76773da05aebd1855a66
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853713"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093396"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 네트워킹 패턴
 다른 Azure 네트워킹 기능으로 Azure Service Fabric 클러스터를 통합할 수 있습니다. 이 문서에서는 다음과 같은 기능을 사용하여 클러스터를 만드는 방법을 보여 줍니다.
@@ -31,7 +31,7 @@ ms.locfileid: "51853713"
 
 Service Fabric은 표준 가상 머신 확장 집합에서 실행됩니다. 가상 머신 확장 집합에서 사용할 수 있는 모든 기능을 Service Fabric 클러스터에서 사용할 수 있습니다. 가상 머신 확장 집합 및 Service Fabric에 대한 Azure Resource Manager 템플릿의 네트워킹 섹션은 동일합니다. 기존 가상 네트워크에 배포한 후 Azure ExpressRoute, Azure VPN Gateway, 네트워크 보안 그룹 및 가상 네트워크의 피어링 등의 다른 네트워킹 기능을 쉽게 통합할 수 있습니다.
 
-Service Fabric은 한 가지 측면에서 다른 네트워킹 기능과 다릅니다. [Azure Portal](https://portal.azure.com)이 내부적으로 SFRP(Service Fabric 리소스 공급자)를 사용하여 노드 및 응용 프로그램에 대한 정보를 얻기 위해 클러스터를 호출한다는 것이 바로 그것입니다. Service Fabric 리소스 공급자는 관리 엔드포인트에서 HTTP 게이트웨이 포트(기본적으로 19080)에 대해 공개적으로 액세스 가능한 인바운드 액세스 권한이 필요합니다. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 관리 엔드포인트를 사용하여 클러스터를 관리합니다. 또한 Service Fabric 리소스 공급자는 Azure Portal에 표시하기 위해 클러스터에 대한 정보를 쿼리하는 데도 이 포트를 사용합니다. 
+Service Fabric은 한 가지 측면에서 다른 네트워킹 기능과 다릅니다. [Azure Portal](https://portal.azure.com)이 내부적으로 Service Fabric 리소스 공급자를 사용하여 노드 및 애플리케이션에 대한 정보를 얻기 위해 클러스터를 호출한다는 것이 바로 그것입니다. Service Fabric 리소스 공급자는 관리 엔드포인트에서 HTTP 게이트웨이 포트(기본적으로 19080)에 대해 공개적으로 액세스 가능한 인바운드 액세스 권한이 필요합니다. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 관리 엔드포인트를 사용하여 클러스터를 관리합니다. 또한 Service Fabric 리소스 공급자는 Azure Portal에 표시하기 위해 클러스터에 대한 정보를 쿼리하는 데도 이 포트를 사용합니다. 
 
 Service Fabric 리소스 공급자에서 포트 19080에 액세스할 수 없으면 포털에 *노드를 찾을 수 없음* 메시지가 표시되고 노드 및 애플리케이션 목록이 빈 상태로 나타납니다. Azure Portal에서 클러스터를 보려는 경우 부하 분산 장치가 공용 IP 주소를 노출해야 하고 네트워크 보안 그룹은 들어오는 포트 19080 트래픽을 허용해야 합니다. 설정이 이러한 요구 사항을 충족하지 않는 경우 Azure Portal에 클러스터의 상태가 표시되지 않습니다.
 
@@ -81,7 +81,7 @@ DnsSettings              : {
 
 1. 서브넷 매개 변수를 기존 서브넷의 이름으로 변경하고 기존 가상 네트워크를 참조하는 두 개의 새 매개 변수를 추가합니다.
 
-    ```
+    ```json
         "subnet0Name": {
                 "type": "string",
                 "defaultValue": "default"
@@ -108,26 +108,26 @@ DnsSettings              : {
 
 2. 기존 서브넷을 사용하고 1단계에서 이 변수를 사용하지 않도록 설정했으므로 `Microsoft.Compute/virtualMachineScaleSets`의 `nicPrefixOverride` 특성을 주석으로 처리합니다.
 
-    ```
+    ```json
             /*"nicPrefixOverride": "[parameters('subnet0Prefix')]",*/
     ```
 
 3. `vnetID` 변수를 기존 가상 네트워크를 가리키도록 변경합니다.
 
-    ```
+    ```json
             /*old "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",*/
             "vnetID": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingVNetRGName'), '/providers/Microsoft.Network/virtualNetworks/', parameters('existingVNetName'))]",
     ```
 
 4. Azure에서 새 가상 네트워크를 만들지 않도록 리소스에서 `Microsoft.Network/virtualNetworks`를 제거합니다.
 
-    ```
+    ```json
     /*{
     "apiVersion": "[variables('vNetApiVersion')]",
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[parameters('virtualNetworkName')]",
     "location": "[parameters('computeLocation')]",
-    "properities": {
+    "properties": {
         "addressSpace": {
             "addressPrefixes": [
                 "[parameters('addressPrefix')]"
@@ -151,7 +151,7 @@ DnsSettings              : {
 
 5. 새 가상 네트워크를 만드는 데만 의존하지 않도록 `Microsoft.Compute/virtualMachineScaleSets`의 `dependsOn` 특성에서 가상 네트워크를 주석 처리합니다.
 
-    ```
+    ```json
     "apiVersion": "[variables('vmssApiVersion')]",
     "type": "Microsoft.Computer/virtualMachineScaleSets",
     "name": "[parameters('vmNodeType0Name')]",
@@ -185,7 +185,7 @@ DnsSettings              : {
 
 1. 기존 고정 IP 리소스 그룹의 이름 및 FQDN(정규화된 도메인 이름)에 대한 매개 변수를 추가합니다.
 
-    ```
+    ```json
     "existingStaticIPResourceGroup": {
                 "type": "string"
             },
@@ -199,7 +199,7 @@ DnsSettings              : {
 
 2. `dnsName` 매개 변수를 제거합니다. (고정 IP 주소에 매개 변수가 이미 하나 있습니다.)
 
-    ```
+    ```json
     /*
     "dnsName": {
         "type": "string"
@@ -209,13 +209,13 @@ DnsSettings              : {
 
 3. 기존 고정 IP를 참조하는 변수를 추가합니다.
 
-    ```
+    ```json
     "existingStaticIP": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingStaticIPResourceGroup'), '/providers/Microsoft.Network/publicIPAddresses/', parameters('existingStaticIPName'))]",
     ```
 
 4. Azure에서 새 IP 주소를 만들지 않도록 리소스에서 `Microsoft.Network/publicIPAddresses`를 제거합니다.
 
-    ```
+    ```json
     /*
     {
         "apiVersion": "[variables('publicIPApiVersion')]",
@@ -237,7 +237,7 @@ DnsSettings              : {
 
 5. 새 IP 주소를 만드는 데만 의존하지 않도록 `Microsoft.Network/loadBalancers`의 `dependsOn` 특성에서 IP 주소를 주석 처리합니다.
 
-    ```
+    ```json
     "apiVersion": "[variables('lbIPApiVersion')]",
     "type": "Microsoft.Network/loadBalancers",
     "name": "[concat('LB', '-', parameters('clusterName'), '-', parameters('vmNodeType0Name'))]",
@@ -251,7 +251,7 @@ DnsSettings              : {
 
 6. `Microsoft.Network/loadBalancers` 리소스에서 새로 만든 IP 주소가 아닌 기존의 고정 IP 주소를 참조하도록 `frontendIPConfigurations`의 `publicIPAddress` 요소를 변경합니다.
 
-    ```
+    ```json
                 "frontendIPConfigurations": [
                         {
                             "name": "LoadBalancerIPConfig",
@@ -267,7 +267,7 @@ DnsSettings              : {
 
 7. `Microsoft.ServiceFabric/clusters` 리소스에서 `managementEndpoint`를 고정 IP 주소의 DNS FQDN으로 변경합니다. 보안 클러스터를 사용하는 경우 *http://* 를 *https://* 로 변경해야 합니다. (이 단계는 Service Fabric 클러스터에만 적용됩니다. 가상 머신 확장 집합을 사용하는 경우에는 이 단계를 건너뜁니다.)
 
-    ```
+    ```json
                     "fabricSettings": [],
                     /*"managementEndpoint": "[concat('http://',reference(concat(parameters('lbIPName'),'-','0')).dnsSettings.fqdn,':',parameters('nt0fabricHttpGatewayPort'))]",*/
                     "managementEndpoint": "[concat('http://',parameters('existingStaticIPDnsFQDN'),':',parameters('nt0fabricHttpGatewayPort'))]",
@@ -294,7 +294,7 @@ DnsSettings              : {
 
 1. `dnsName` 매개 변수를 제거합니다. (필수는 아닙니다.)
 
-    ```
+    ```json
     /*
     "dnsName": {
         "type": "string"
@@ -304,7 +304,7 @@ DnsSettings              : {
 
 2. 경우에 따라 고정 할당 방법을 사용할 때 고정 IP 주소 매개 변수를 추가할 수 있습니다. 동적 할당 방법을 사용하는 경우 이 단계를 수행할 필요가 없습니다.
 
-    ```
+    ```json
             "internalLBAddress": {
                 "type": "string",
                 "defaultValue": "10.0.0.250"
@@ -313,7 +313,7 @@ DnsSettings              : {
 
 3. Azure에서 새 IP 주소를 만들지 않도록 리소스에서 `Microsoft.Network/publicIPAddresses`를 제거합니다.
 
-    ```
+    ```json
     /*
     {
         "apiVersion": "[variables('publicIPApiVersion')]",
@@ -335,7 +335,7 @@ DnsSettings              : {
 
 4. 새 IP 주소를 만드는 데만 의존하지 않도록 `Microsoft.Network/loadBalancers`의 IP 주소 `dependsOn` 특성을 제거합니다. 이제 부하 분산 장치는 가상 네트워크의 서브넷에 의존하므로 가상 네트워크 `dependsOn` 특성을 추가합니다.
 
-    ```
+    ```json
                 "apiVersion": "[variables('lbApiVersion')]",
                 "type": "Microsoft.Network/loadBalancers",
                 "name": "[concat('LB','-', parameters('clusterName'),'-',parameters('vmNodeType0Name'))]",
@@ -348,7 +348,7 @@ DnsSettings              : {
 
 5. 부하 분산 장치의 `frontendIPConfigurations` 설정을 `publicIPAddress`를 사용하는 방식에서 서브넷 및 `privateIPAddress`를 사용하는 방식으로 변경합니다. `privateIPAddress`에서는 미리 정의된 고정 내부 IP 주소를 사용합니다. 동적 IP 주소를 사용하려면 `privateIPAddress` 요소를 제거한 다음 `privateIPAllocationMethod`를 **Dynamic**으로 변경합니다.
 
-    ```
+    ```json
                 "frontendIPConfigurations": [
                         {
                             "name": "LoadBalancerIPConfig",
@@ -369,7 +369,7 @@ DnsSettings              : {
 
 6. `Microsoft.ServiceFabric/clusters` 리소스에서 내부 부하 분산 장치 주소를 가리키도록 `managementEndpoint`를 변경합니다. 보안 클러스터를 사용하는 경우 *http://* 를 *https://* 로 변경해야 합니다. (이 단계는 Service Fabric 클러스터에만 적용됩니다. 가상 머신 확장 집합을 사용하는 경우에는 이 단계를 건너뜁니다.)
 
-    ```
+    ```json
                     "fabricSettings": [],
                     /*"managementEndpoint": "[concat('http://',reference(concat(parameters('lbIPName'),'-','0')).dnsSettings.fqdn,':',parameters('nt0fabricHttpGatewayPort'))]",*/
                     "managementEndpoint": "[concat('http://',reference(variables('lbID0')).frontEndIPConfigurations[0].properties.privateIPAddress,':',parameters('nt0fabricHttpGatewayPort'))]",
@@ -394,7 +394,7 @@ DnsSettings              : {
 
 1. 고정 내부 부하 분산 장치 IP 주소 매개 변수를 추가합니다. (동적 IP 주소 사용과 관련된 내용은 이 문서 이전 섹션을 참조하세요.)
 
-    ```
+    ```json
             "internalLBAddress": {
                 "type": "string",
                 "defaultValue": "10.0.0.250"
@@ -405,7 +405,7 @@ DnsSettings              : {
 
 3. 기존 네트워킹 변수의 내부 버전을 추가하려면 복사한 후 붙여 넣고 이름에 "-Int"를 추가합니다.
 
-    ```
+    ```json
     /* Add internal load balancer networking variables */
             "lbID0-Int": "[resourceId('Microsoft.Network/loadBalancers', concat('LB','-', parameters('clusterName'),'-',parameters('vmNodeType0Name'), '-Internal'))]",
             "lbIPConfig0-Int": "[concat(variables('lbID0-Int'),'/frontendIPConfigurations/LoadBalancerIPConfig')]",
@@ -418,7 +418,7 @@ DnsSettings              : {
 
 4. 애플리케이션 포트 80을 사용하는 포털에서 생성된 템플릿으로 시작하는 경우 기본 포털 템플릿은 외부 부하 분산 장치에 AppPort1(포트 80)을 추가합니다. 이 경우 외부 부하 분산 장치 `loadBalancingRules` 및 프로브에서 AppPort1을 제거하여 내부 부하 분산 장치에 추가할 수 있도록 합니다.
 
-    ```
+    ```json
     "loadBalancingRules": [
         {
             "name": "LBHttpRule",
@@ -493,9 +493,9 @@ DnsSettings              : {
     "inboundNatPools": [
     ```
 
-5. 두 번째 `Microsoft.Network/loadBalancers` 리소스를 추가합니다. [내부 전용 부하 분산 장치](#internallb) 섹션에서 만든 내부 부하 분산 장치와 비슷해 보이지만 "-Int" 부하 분산 장치 변수를 사용하고 응용 프로그램 포트 80만 구현합니다. 또한 `inboundNatPools`를 제거하여 RDP 엔드포인트를 공용 부하 분산 장치에 유지합니다. 내부 부하 분산 장치의 RDP를 원할 경우 외부 부하 분산 장치의 `inboundNatPools`를 이 내부 부하 분산 장치로 이동합니다.
+5. 두 번째 `Microsoft.Network/loadBalancers` 리소스를 추가합니다. [내부 전용 부하 분산 장치](#internallb) 섹션에서 만든 내부 부하 분산 장치와 비슷해 보이지만 "-Int" 부하 분산 장치 변수를 사용하고 애플리케이션 포트 80만 구현합니다. 또한 `inboundNatPools`를 제거하여 RDP 엔드포인트를 공용 부하 분산 장치에 유지합니다. 내부 부하 분산 장치의 RDP를 원할 경우 외부 부하 분산 장치의 `inboundNatPools`를 이 내부 부하 분산 장치로 이동합니다.
 
-    ```
+    ```json
             /* Add a second load balancer, configured with a static privateIPAddress and the "-Int" load balancer variables. */
             {
                 "apiVersion": "[variables('lbApiVersion')]",
@@ -580,7 +580,7 @@ DnsSettings              : {
 
 6. `Microsoft.Compute/virtualMachineScaleSets` 리소스에 대한 `networkProfile`에서 내부 백 엔드 주소 풀을 추가합니다.
 
-    ```
+    ```json
     "loadBalancerBackendAddressPools": [
                                                         {
                                                             "id": "[variables('lbPoolID0')]"

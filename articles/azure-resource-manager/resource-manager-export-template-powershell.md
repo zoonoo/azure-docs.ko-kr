@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: c69bab9d2956568473dd6def86ecbd9bbb6577cf
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: cca81bf3f5a46b32cc901a0ac6024eb7888685f7
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359223"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081608"
 ---
 # <a name="export-azure-resource-manager-templates-with-powershell"></a>Azure PowerShell을 사용하여 Azure Resource Manager 템플릿 내보내기
 
@@ -36,18 +36,18 @@ Resource Manager를 사용하면 구독의 기존 리소스에서 Resource Manag
 템플릿을 내보내기 위한 두 가지 방법을 확인하려면 먼저 구독에 솔루션을 배포합니다. 내보내려는 구독에 리소스 그룹이 이미 있는 경우 이 솔루션을 배포할 필요가 없습니다. 그러나 이 문서의 나머지 부분에서 이 솔루션에 대한 템플릿이 언급됩니다. 예제 스크립트는 저장소 계정을 배포합니다.
 
 ```powershell
-New-AzureRmResourceGroup -Name ExampleGroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
+New-AzResourceGroup -Name ExampleGroup -Location "South Central US"
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup `
   -DeploymentName NewStorage
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```  
 
 ## <a name="save-template-from-deployment-history"></a>배포 기록에서 템플릿 저장
 
-[Save-AzureRmResourceGroupDeploymentTemplate](/powershell/module/azurerm.resources/save-azurermresourcegroupdeploymenttemplate) 명령을 사용하여 배포 기록에서 템플릿을 검색할 수 있습니다. 다음 예제에서는 이전에 배포하는 템플릿을 저장합니다.
+[Save-AzureRmResourceGroupDeploymentTemplate](/powershell/module/az.resources/save-azresourcegroupdeploymenttemplate) 명령을 사용하여 배포 기록에서 템플릿을 검색할 수 있습니다. 다음 예제에서는 이전에 배포하는 템플릿을 저장합니다.
 
 ```powershell
-Save-AzureRmResourceGroupDeploymentTemplate -ResourceGroupName ExampleGroup -DeploymentName NewStorage
+Save-AzResourceGroupDeploymentTemplate -ResourceGroupName ExampleGroup -DeploymentName NewStorage
 ```
 
 템플릿의 위치를 반환합니다.
@@ -62,10 +62,10 @@ C:\Users\exampleuser\NewStorage.json
 
 ## <a name="export-resource-group-as-template"></a>리소스 그룹을 템플릿으로 내보내기
 
-배포 기록에서 템플릿을 검색하지 않고 [Export-AzureRmResourceGroup](/powershell/module/azurerm.resources/export-azurermresourcegroup) 명령을 사용하여 리소스 그룹의 현재 상태를 나타내는 템플릿을 검색할 수 있습니다. 이 명령은 리소스 그룹을 많이 변경했으며 모든 변경 내용을 나타내는 기존 템플릿이 없는 경우에 사용합니다. 동일한 리소스 그룹에 다시 배포하는 데 사용할 수 있는 리소스 그룹의 스냅숏으로 사용됩니다. 다른 솔루션에 내보낸 템플릿을 사용하려면 대폭 수정해야 합니다.
+배포 기록에서 템플릿을 검색하지 않고 [Export-AzureRmResourceGroup](/powershell/module/az.resources/export-azresourcegroup) 명령을 사용하여 리소스 그룹의 현재 상태를 나타내는 템플릿을 검색할 수 있습니다. 이 명령은 리소스 그룹을 많이 변경했으며 모든 변경 내용을 나타내는 기존 템플릿이 없는 경우에 사용합니다. 동일한 리소스 그룹에 다시 배포하는 데 사용할 수 있는 리소스 그룹의 스냅숏으로 사용됩니다. 다른 솔루션에 내보낸 템플릿을 사용하려면 대폭 수정해야 합니다.
 
 ```powershell
-Export-AzureRmResourceGroup -ResourceGroupName ExampleGroup
+Export-AzResourceGroup -ResourceGroupName ExampleGroup
 ```
 
 템플릿의 위치를 반환합니다.
@@ -111,7 +111,7 @@ C:\Users\exampleuser\ExampleGroup.json
 이 템플릿을 다시 배포할 수 있지만 저장소 계정에 대한 고유한 이름을 추측해야 합니다. 매개 변수의 이름은 약간 다릅니다.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup `
   -TemplateFile C:\Users\exampleuser\ExampleGroup.json `
   -storageAccounts_nf3mvst4nqb36standardsa_name tfnewstorage0501
 ```

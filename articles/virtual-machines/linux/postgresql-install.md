@@ -3,7 +3,7 @@ title: Linux VM에서 PostgreSQL 설정 | Microsoft Docs
 description: Azure Linux 가상 컴퓨터에 PostgreSQL을 설치하고 구성하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
-ms.author: zarhoads
-ms.openlocfilehash: e794c191737f14fb06351e345f70edb9f7cddb7c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.author: cynthn
+ms.openlocfilehash: e851f6f5433a832aa30a0d87a917b64d1bc721f2
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322059"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888280"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Azure에서 PostgreSQL 설치 및 구성
 PostgreSQL은 Oracle 및 DB2와 유사한 고급 오픈 소스 데이터베이스입니다. 전체 ACID 규정 준수, 신뢰할 수 있는 트랜잭션 처리 및 다중 버전 동시성 제어와 같은 엔터프라이즈 기능이 포함됩니다. 또한 ANSI SQL 및 SQL/MED(Oracle, MySQL, MongoDB 등에 대한 외부 데이터 래퍼 포함)와 같은 표준을 지원합니다. 12개 이상의 프로시저 언어, GIN 및 GiST 인덱스, 공간 데이터 지원 및 JSON에 대한 여러 NoSQL 같은 기능 또는 키 값 기반 애플리케이션에 대한 지원을 통해 확장성을 높일 수 있습니다.

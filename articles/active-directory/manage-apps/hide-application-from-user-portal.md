@@ -5,18 +5,18 @@ services: active-directory
 author: barbkess
 manager: daveba
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: kasimpso
-ms.openlocfilehash: d5443f5b33f85d7a4b1e69cecc6bcdf68859abf4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: d9745dac425652e571c547a9f0c0ee3ba0d1073c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474909"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195378"
 ---
 # <a name="hide-applications-from-end-users-in-azure-active-directory"></a>Azure Active Directory의 최종 사용자로부터 애플리케이션 숨기기
 

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
+ms.subservice: compliance
 ms.date: 11/19/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: ecaceea42d64ab15676a9cb5a42ee8659e40d517
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1f204d9e21f523b8bab12248dfaf5845902297fe
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847289"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151790"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Azure AD 액세스 검토란?
 
@@ -103,7 +103,7 @@ Azure AD를 사용하면 조직 내에서 내부적으로, 또한 파트너와 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [그룹의 멤버 또는 응용 프로그램에 액세스에 대한 액세스 검토 만들기](create-access-review.md)
+- [그룹의 멤버 또는 애플리케이션에 액세스에 대한 액세스 검토 만들기](create-access-review.md)
 - [Azure AD 관리 역할에서 사용자 액세스 검토 만들기](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)
 - [Azure AD 액세스 검토를 사용하여 액세스 검토 수행](perform-access-review.md)
 - [Azure AD에서 애플리케이션에 대한 액세스 권한이 있는 그룹 멤버 또는 사용자의 액세스 검토 완료](complete-access-review.md)

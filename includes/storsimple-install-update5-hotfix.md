@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 14aac6103f1a560a50bc9dd80e18d5e2fbaae3c4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 450f62cd3605656ff8907c0020775f634dba0b4a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264090"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55148011"
 ---
 <!--author=alkohli last changed: 08/21/17-->
 
@@ -55,7 +55,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
     >[!NOTE] 
     > 먼저 _HcsSoftwareUpdate.exe_를 설치해야 합니다. 이 설치가 완료된 후에 _CisMdsAgentUpdate.exe_를 설치합니다.
    
-        ````
+        ```
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
         \FirstOrderUpdate\HcsSoftwareUpdate.exe -Credential contoso\John
    
@@ -66,7 +66,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
         be disrupted. Are you sure you want to continue?
         [Y] Yes [N] No [?] Help (default is "Y"): Y
    
-        ````
+        ```
 5. 핫픽스 설치를 확인하라는 메시지가 표시되면 **Y** 를 입력합니다.
 6. `Get-HcsUpdateStatus` cmdlet을 사용하여 업데이트를 모니터링합니다. 업데이트가 수동 컨트롤러에서 먼저 완료됩니다. 수동 컨트롤러가 업데이트되면 장애 조치(failover)된 다음 업데이트가 다른 컨트롤러에 적용됩니다. 두 컨트롤러가 모두 업데이트되면 업데이트가 완료됩니다.
    

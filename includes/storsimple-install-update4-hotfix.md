@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: f0c631c765ba95602fb2ac3ab1fd72732793a199
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a775a38d15876850b8a821f9e827e0dd0c3772b6
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264302"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55147982"
 ---
 <!--author=alkohli last changed: 01/23/18-->
 
@@ -54,7 +54,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
    
     첫 번째 주문 업데이트를 설치하기 위한 샘플 출력은 다음과 같습니다. 첫 번째 주문 업데이트의 경우 특정 파일을 가리키도록 해야 합니다.
    
-        ````
+        ```
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
         \FirstOrderUpdate\HcsSoftwareUpdate.exe -Credential contoso\John
    
@@ -65,7 +65,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
         be disrupted. Are you sure you want to continue?
         [Y] Yes [N] No [?] Help (default is "Y"): Y
    
-        ````
+        ```
 4. 핫픽스 설치를 확인하라는 메시지가 표시되면 **Y** 를 입력합니다.
 5. `Get-HcsUpdateStatus` cmdlet을 사용하여 업데이트를 모니터링합니다. 업데이트가 수동 컨트롤러에서 먼저 완료됩니다. 수동 컨트롤러가 업데이트되면 장애 조치(failover)된 다음 업데이트가 다른 컨트롤러에 적용됩니다. 두 컨트롤러가 모두 업데이트되면 업데이트가 완료됩니다.
    
@@ -125,7 +125,7 @@ KB4011837을 사용하여 디스크 펌웨어 업데이트를 설치합니다. �
 
 디스크 펌웨어 업데이트를 설치하려면 아래 지침을 따릅니다.
 
-1. 디바이스를 유지 관리 모드로 설정합니다. **유지 관리 모드에서 장치에 연결할 때는 Windows PowerShell 원격을 사용해서는 안 됩니다. 디바이스 직렬 콘솔을 통해 연결된 경우에는 디바이스 컨트롤러에서 이 cmdlet을 실행해야 합니다.** 형식:
+1. 디바이스를 유지 관리 모드로 설정합니다. **유지 관리 모드에서 디바이스에 연결할 때는 Windows PowerShell 원격을 사용해서는 안 됩니다. 디바이스 직렬 콘솔을 통해 연결된 경우에는 디바이스 컨트롤러에서 이 cmdlet을 실행해야 합니다.** 형식:
    
     `Enter-HcsMaintenanceMode`
    

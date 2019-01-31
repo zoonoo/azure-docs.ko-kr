@@ -5,16 +5,16 @@ services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
-ms.openlocfilehash: a4b6b1d267e9c86a03644129ee639b74ed214d88
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: bba65a495963142e8b3201a026dc13a8cfff8e70
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408360"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207363"
 ---
 # <a name="custom-vision-service-release-notes"></a>Custom Vision Service 릴리스 정보
 
@@ -63,7 +63,7 @@ ms.locfileid: "53408360"
 
 ## <a name="december-19-2017"></a>2017년 12월 19일
 
-- 이전에 릴리스한 iOS로 내보내기(CoreML)외에 Android로 내보내기(TensorFlow)가 추가되었습니다. 따라서 학습된 컴팩트 모델을 내보내서 응용 프로그램에서 오프라인으로 실행할 수 있습니다.
+- 이전에 릴리스한 iOS로 내보내기(CoreML)외에 Android로 내보내기(TensorFlow)가 추가되었습니다. 따라서 학습된 컴팩트 모델을 내보내서 애플리케이션에서 오프라인으로 실행할 수 있습니다.
 - 소매 및 랜드마크 “컴팩트” 도메인이 추가되어 이러한 도메인에 대한 모델 내보내기가 가능합니다.
 - 버전 [1.2 교육 API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/f2d62aa3b93843d79e948fe87fa89554/operations/5a3044ee08fa5e06b890f11f) 및 [1.1 예측 API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/57982f59b5964e36841e22dfbfe78fc1/operations/5a3044f608fa5e06b890f164)가 릴리스되었습니다. 업데이트된 API는 모델 내보내기, "예측"에 이미지를 저장하지 않는 새로운 예측 작업을 지원하며 교육 API에 일괄 처리 작업을 도입했습니다.
 - 반복 학습에 사용된 도메인을 확인하는 기능을 비롯한 UX가 조정되었습니다.

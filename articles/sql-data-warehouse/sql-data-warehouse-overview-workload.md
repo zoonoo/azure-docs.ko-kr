@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: c26dfc6f3fd8be28e56c18f0af379130c31aa859
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: f0489d9c018abac380cd0f8b1aa51fa5bb81707a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302169"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463619"
 ---
 # <a name="data-warehouse-workload"></a>데이터 웨어하우스 워크로드
 데이터 웨어하우스 워크로드란 데이터 웨어하우스에 대해 발생하는 모든 작업을 나타냅니다. 데이터 웨어하우스 워크로드는 데이터를 웨어하우스에 로드, 데이터 웨어하우스에서 분석 및 보고 수행, 데이터 웨어하우스에서 데이터 관리 및 데이터 웨어하우스로부터 데이터를 내보내는 전체 프로세스를 포괄합니다. 이러한 구성 요소의 깊이와 범위는 일반적으로 데이터 웨어하우스의 성숙도 수준과 관련이 있습니다.
@@ -53,7 +53,7 @@ ms.locfileid: "43302169"
 데이터 관리는 중요합니다. 특히 조만간 디스크 공간이 부족해진다는 사실을 알고 있을 경우 그렇습니다. 데이터 웨어하우스는 일반적으로 데이터를 의미 있는 범위로 나누는데, 이들은 테이블에서 파티션으로 저장됩니다. 모든 SQL Server 기반 제품을 사용하여 테이블 내외부로 파티션을 이동할 수 있습니다. 이러한 파티션 전환을 통해 오래된 데이터를 저렴한 저장소로 이동하고 최신 데이터를 온라인 저장소에 보관할 수 있습니다.
 
 * Columnstore 인덱스는 분할된 테이블을 지원합니다. Columnstore 인덱스의 경우 분할된 테이블은 데이터 관리 및 보관에 사용됩니다. 행 단위로 저장된 테이블의 경우 파티션이 쿼리 성능에 더 큰 역할을 가지게 됩니다.  
-* PolyBase는 데이터 관리에서 중요한 역할을 담당합니다. PolyBase를 사용하면 오래된 데이터를 Hadoop 또는 Azure blob 저장소에 보관할 수 있습니다.  이를 통해 데이터가 여전히 온라인 상태를 유지하므로 많은 옵션을 이용할 수 있습니다.  Hadoop로부터 데이터 검색에 시간이 더 오래 걸릴 수는 있지만 검색 시간의 증가로 인해 저장 비용이 절감되는 효과가 더 중요합니다.
+* PolyBase는 데이터 관리에서 중요한 역할을 담당합니다. PolyBase를 사용하면 오래된 데이터를 Hadoop 또는 Azure Blob Storage에 보관할 수 있습니다.  이를 통해 데이터가 여전히 온라인 상태를 유지하므로 많은 옵션을 이용할 수 있습니다.  Hadoop로부터 데이터 검색에 시간이 더 오래 걸릴 수는 있지만 검색 시간의 증가로 인해 저장 비용이 절감되는 효과가 더 중요합니다.
 
 ### <a name="exporting-data"></a>데이터 내보내기
 데이터를 보고 및 분석용으로 만드는 한 가지 방법은 데이터 웨어하우스에 있는 데이터를 보고 및 분석 실행 전용 서버로 보내는 것입니다. 이러한 서버를 데이터 마트라고 합니다. 예를 들어, 보고서 데이터를 미리 처리한 다음 데이터 웨어하우스에서 전 세계 많은 서버로 내보냄으로써 고객과 분석가가 광범위하게 사용하게 만들 수 있습니다.

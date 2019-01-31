@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 12023216575b08732f3ef2d04bac9e825621f720
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: cae02627c539e543d27ea188d521605f187ea8a0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44376972"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475349"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Azure SQL Data Warehouse의 새로운 기능 2018년 6월
 Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. 이 문서에서는 2018년 6월에 도입된 새로운 기능과 변경 사항에 대해 설명합니다. 
@@ -50,7 +50,7 @@ The SELECT permission was denied on the column 'SSN' of the object 'Membership',
 ```
 
 ## <a name="objectschemaname"></a>OBJECT_SCHEMA_NAME
-[OBJECT_SCHEMA_NAME()](https://docs.microsoft.com/sql/t-sql/functions/object-schema-name-transact-sql) 함수는 스키마 범위 개체에 대한 데이터베이스 스키마 이름을 반환합니다. 이 함수는 개체 스키마 유효성 검사를 수행할 때 ETL 도구와 비슷합니다. 
+[OBJECT_SCHEMA_NAME()](https://docs.microsoft.com/sql/t-sql/functions/object-schema-name-transact-sql) 함수는 스키마 범위 개체에 대한 데이터베이스 스키마 이름을 반환합니다. 이 함수는 개체 스키마 유효성 검사를 수행할 때 ETL 도구에서 일반적인 함수입니다. 
 
 ```sql
 SELECT
@@ -89,7 +89,7 @@ Central Standard Time             -05:00               1
 
 ## <a name="auto-stats-operations-appear-in-sysdmpdwexecrequests-behavior-change"></a>자동 통계 작업이 sys.dm_pdw_exec_requests에 나타남(동작 변경 내용)
 
-[통계 자동 작성](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistics)이 도입되면서, Azure SQL Data Warehouse는 쿼리 실행을 최적화하기 위해 통계를 생성합니다. 2018년 6월 릴리스에서는 [CREATE STATISTICS](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql) 작업이 실행될 때마다 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 보기에 레코드를 추가하여 통계가 자동 생성될 때 모니터링할 기능이 추가되었습니다.
+[통계 자동 작성](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistics)이 도입되면서, Azure SQL Data Warehouse는 쿼리 실행을 최적화하기 위해 통계를 생성합니다. 2018년 6월 릴리스에는 [CREATE STATISTICS](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql) 작업이 실행될 때마다 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 보기에 레코드를 추가하여 통계가 자동 생성되는 시점을 모니터링하는 기능이 추가되어 있습니다.
 
 ```sql
 SELECT

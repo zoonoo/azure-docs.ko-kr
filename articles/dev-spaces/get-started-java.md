@@ -3,7 +3,7 @@ title: Java 및 VS Code를 사용하여 클라우드에서 Kubernetes 개발 환
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: stepro
 ms.author: stephpr
 ms.date: 09/26/2018
@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: mmontwil
-ms.openlocfilehash: 5f0a72dd3187703de183b432453c6dcb56060a97
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 9dc219078377d8b8da5d1700fb2a93133649d924
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437625"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475780"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Azure Dev Spaces에서 Java를 사용하여 시작
 

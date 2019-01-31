@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 09/04/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 6c60ec516a5bcefc3fac98fbc09abc89683e2004
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 13e6aba896e1de8066e942fa0c713567290c2fdf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783535"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460865"
 ---
 # <a name="development-best-practices-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 개발 모범 사례
 이 문서에서는 데이터 웨어하우스 솔루션을 개발할 때 도움이 되는 지침 및 모범 사례에 대해 설명합니다. 

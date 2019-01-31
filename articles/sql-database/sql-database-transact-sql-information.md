@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 48f8bb2e8251191fac456549cfca7a37e75d7f8c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4d9618bbceacf4167aac843e3d5fd818f225d297
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997676"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467818"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>SQL Database로의 마이그레이션 중 Transact-SQL 차이점 해결
 
@@ -25,7 +25,7 @@ SQL Server에서 Azure SQL Server로 [데이터베이스를 마이그레이션](
 
 ## <a name="overview"></a>개요
 
-응용 프로그램에서 사용하는 대부분의 Transact-SQL 기능은 Microsoft SQL Server와 Azure SQL Database 모두에서 완전하게 지원됩니다. 예를 들어, 데이터 형식, 연산자, 문자열, 산술, 논리 및 커서 함수 같은 핵심 SQL 구성 요소는 SQL Server 및 SQL Database에서 동일하게 작동합니다. 그러나 DDL(데이터 정의 언어) 및 DML(데이터 조작 언어) 요소에는 몇 가지 T-SQL 차이점이 있으며 그 결과 T-SQL 문 및 쿼리가 부분적으로만 지원됩니다(이 문서의 뒷부분에서 설명).
+애플리케이션에서 사용하는 대부분의 Transact-SQL 기능은 Microsoft SQL Server와 Azure SQL Database 모두에서 완전하게 지원됩니다. 예를 들어, 데이터 형식, 연산자, 문자열, 산술, 논리 및 커서 함수 같은 핵심 SQL 구성 요소는 SQL Server 및 SQL Database에서 동일하게 작동합니다. 그러나 DDL(데이터 정의 언어) 및 DML(데이터 조작 언어) 요소에는 몇 가지 T-SQL 차이점이 있으며 그 결과 T-SQL 문 및 쿼리가 부분적으로만 지원됩니다(이 문서의 뒷부분에서 설명).
 
 또한 Azure SQL Database는 마스터 데이터베이스 및 운영 체제에 대한 종속성으로부터 기능을 격리하도록 설계되어 전혀 지원되지 않는 기능과 구문도 있습니다. 따라서 대부분의 서버 수준 작업이 SQL Database에 적합하지 않습니다. T-SQL 문과 옵션은 서버 수준 옵션 또는 운영 체제 구성 요소를 구성하거나 파일 시스템 구성을 지정하는 경우에 사용할 수 없습니다. 이러한 기능이 필요한 경우 SQL Database 또는 다른 Azure 기능이나 서비스에서 다른 방법으로 사용할 수 있는 적합한 대안이 있는 경우가 많습니다.
 
@@ -39,7 +39,7 @@ SQL Database에서 지원되는 기능 및 지원되지 않는 기능 목록은 
 
 - CREATE 및 ALTER DATABASE 문에는 36개가 넘는 옵션이 있습니다. 이러한 문에는 SQL Server에만 적용되는 파일 배치, FILESTREAM 및 Service Broker 옵션이 포함되어 있습니다. 마이그레이션하기 전에 데이터베이스를 만드는 경우에는 문제가 되지 않지만 데이터베이스를 만드는 T-SQL 코드를 마이그레이션하는 경우에는 [CREATE DATABASE(Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx)를 [CREATE DATABASE(SQL Server Transact-SQL)](https://msdn.microsoft.com/library/ms176061.aspx)의 SQL Server 구문과 비교하여 사용하는 모든 옵션이 지원되는지 확인해야 합니다. Azure SQL Database의 CREATE DATABASE에는 SQL Database에만 적용되는 서비스 목표와 탄력적인 확장 옵션도 포함되어 있습니다.
 - CREATE 및 ALTER TABLE 문에는 FILESTREAM이 지원되지 않으므로 SQL Database에서 사용할 수 없는 FileTable 옵션이 포함되어 있습니다.
-- CREATE 및 ALTER login 문은 지원되지만 일부 옵션만 SQL Database에서 제공합니다. 데이터베이스 이식 가능성을 높이려면 SQL Database에서 가능한 경우 로그인 대신 포함된 데이터베이스 사용자를 사용하도록 권장합니다. 자세한 내용은 [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) 및 [데이터베이스 액세스 제어 및 권한 부여](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins)를 참조하세요.
+- CREATE 및 ALTER login 문은 지원되지만 일부 옵션만 SQL Database에서 제공합니다. 데이터베이스 이식 가능성을 높이려면 SQL Database에서 가능한 경우 로그인 대신 포함된 데이터베이스 사용자를 사용하도록 권장합니다. 자세한 내용은 [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) 및 [데이터베이스 액세스 제어 및 권한 부여](sql-database-manage-logins.md)를 참조하세요.
 
 ## <a name="transact-sql-syntax-not-supported-in-azure-sql-database"></a>Azure SQL Database에서 지원되지 않는 Transact-SQL 구문
 

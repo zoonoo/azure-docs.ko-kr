@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 9f0c4789e73659e5965440989c23a8cf673f7cd2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 33ada343738e113e8f14e1e5ac4a0e8aee481670
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309164"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55185468"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>로컬 컴퓨터 개발 설정에서의 모니터링 및 진단 서비스
 
@@ -37,7 +37,7 @@ ms.locfileid: "53309164"
 
 Java 애플리케이션에 대해 [다중 로깅 프레임워크](http://en.wikipedia.org/wiki/Java_logging_framework)를 사용할 수 있습니다. `java.util.logging`이 JRE의 기본 옵션이므로 [GitHub의 코드 예제](http://github.com/Azure-Samples/service-fabric-java-getting-started)에도 사용됩니다. 다음 논의에서는 `java.util.logging` 프레임워크를 구성하는 방법을 설명합니다.
 
-java.util.logging을 사용하면 애플리케이션 로그를 메모리, 출력 스트림, 콘솔 파일 또는 소켓으로 리디렉션할 수 있습니다. 이들 옵션 각각에 대해 프레임워크에 이미 제공되어 있는 기본 핸들러가 있습니다. `app.properties` 파일을 만들어서 응용 프로그램에 대한 파일 핸들러가 모든 로그를 로컬 파일로 리디렉션하도록 구성할 수 있습니다.
+java.util.logging을 사용하면 애플리케이션 로그를 메모리, 출력 스트림, 콘솔 파일 또는 소켓으로 리디렉션할 수 있습니다. 이들 옵션 각각에 대해 프레임워크에 이미 제공되어 있는 기본 핸들러가 있습니다. `app.properties` 파일을 만들어서 애플리케이션에 대한 파일 핸들러가 모든 로그를 로컬 파일로 리디렉션하도록 구성할 수 있습니다.
 
 다음 코드 조각은 예제 구성을 포함합니다.
 
@@ -51,7 +51,7 @@ java.util.logging.FileHandler.count = 10
 java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log
 ```
 
-`app.properties` 파일이 가리키는 폴더가 반드시 존재해야 합니다. `app.properties` 파일이 생성된 후에는 `<applicationfolder>/<servicePkg>/Code/` 폴더의 진입점 스크립트 `entrypoint.sh`가 속성 `java.util.logging.config.file`을 `app.propertes` 파일로 설정하도록 수정도 해야 합니다. 항목은 다음 코드 조각과 같습니다.
+`app.properties` 파일이 가리키는 폴더가 반드시 존재해야 합니다. `app.properties` 파일이 생성된 후에는 `<applicationfolder>/<servicePkg>/Code/` 폴더의 진입점 스크립트 `entrypoint.sh`가 속성 `java.util.logging.config.file`을 `app.properties` 파일로 설정하도록 수정도 해야 합니다. 항목은 다음 코드 조각과 같습니다.
 
 ```sh
 java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path to app.properties> -jar <service name>.jar
@@ -74,7 +74,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 
 첫 번째 단계는 메모리, 출력 스트림 또는 콘솔 파일 로그를 쓸 수 있도록 System.Diagnostics.Tracing를 포함하는 것입니다.  EventSource를 사용하여 기록하려면 project.json에 다음 프로젝트를 추가합니다.
 
-```
+```json
     "System.Diagnostics.StackTrace": "4.0.1"
 ```
 

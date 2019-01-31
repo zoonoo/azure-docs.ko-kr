@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 07/19/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: b1c0dddec93e913e543558893979b95c8f53ad47
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: b1979f9b13774855ebcb33efad8ffcaf087bbfb7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580661"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097081"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Single Sign-Out SAML 프로토콜
 
@@ -73,7 +73,7 @@ Azure AD는 `LogoutResponse` 요소에 `ID`, `Version` 및 `IssueInstant` 값을
 ### <a name="issuer"></a>발급자
 Azure AD는 이 값을 `https://login.microsoftonline.com/<TenantIdGUID>/`로 설정합니다. 여기서 <TenantIdGUID>은(는) Azure AD 테넌트의 테넌트 ID입니다.
 
-`Issuer` 요소 값을 평가하려면 응용 프로그램 등록 중에 제공한 **앱 ID URI** 값을 사용합니다.
+`Issuer` 요소 값을 평가하려면 애플리케이션 등록 중에 제공한 **앱 ID URI** 값을 사용합니다.
 
 ### <a name="status"></a>상태
 Azure AD에서는 `Status` 요소의 `StatusCode` 요소를 사용하여 로그아웃의 성공 여부를 나타냅니다. 로그아웃 시도가 실패하면 `StatusCode` 요소는 사용자 지정 오류 메시지를 포함할 수도 있습니다.

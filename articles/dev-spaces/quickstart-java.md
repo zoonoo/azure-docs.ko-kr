@@ -4,19 +4,19 @@ titleSuffix: Azure Dev Spaces
 author: stepro
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 ms.author: stephpr
 ms.date: 09/26/2018
 ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: mmontwil
-ms.openlocfilehash: d7f9609fa9eef7d478604db4543862af57826218
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: c448521d7e1ce70a44ca23f58d0034ca2041cbed
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437166"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453436"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-java-and-vs-code"></a>빠른 시작: Azure Dev Spaces(Java 및 VS Code)를 사용하여 Kubernetes 개발 환경 만들기
 

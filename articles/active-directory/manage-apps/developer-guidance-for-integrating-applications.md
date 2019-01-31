@@ -7,18 +7,18 @@ author: barbkess
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: barbkess
 ms.custom: seohack1
-ms.openlocfilehash: d717b9a89b2c22712821d96014e2f60ee4c0e4d6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: d307b0f5f855b48d13b3c302a62f154b9df7aa48
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463646"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155088"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Azure Active Directory용 기간 업무 앱 개발
 이 가이드는 Azure AD(Active Directory)에 대한 LoB(기간 업무) 애플리케이션 개발의 개요를 제공하며, Active Directory/Office 365 글로벌 관리자용으로 작성되었습니다.

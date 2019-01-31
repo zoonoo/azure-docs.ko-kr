@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: f295245cc14000e48cb3db55dc291edf02bb660e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: files
+ms.openlocfilehash: ac78510a3f736d9d5a3f2aafcc1f77ef20e6d81a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634391"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467769"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure 파일 공유 만들기 및 관리 
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows, Linux 및 macOS에 탑재할 수 있습니다. 이 가이드에서는 [Azure Portal](https://portal.azure.com/)을 사용하여 Azure 파일 공유 작업의 기본 사항을 안내합니다.

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 3775a77a6dfc590e79e785e1604226c1187952de
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 1e8b60f37cefb81fbbbbb7823be7752dd1188dc3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528411"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471738"
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Azure Import/Export 서비스 REST API 사용
 
@@ -21,9 +21,9 @@ Microsoft Azure Import/Export 서비스는 내보내기/가져오기 작업을 �
 
 Import/Export 서비스에 대한 개요 및 포털을 사용하여 가져오기 및 내보내기 작업을 만들고 관리하는 방법을 보여 주는 자습서는 [Microsoft Azure Import/Export 서비스를 사용하여 데이터를 Blob Storage로 전송](../storage-import-export-service.md)을 참조하세요.
 
-## <a name="service-endpoints"></a>서비스 끝점
+## <a name="service-endpoints"></a>서비스 엔드포인트
 
-Azure Import/Export 서비스는 Azure Resource Manager의 리소스 공급자이며 가져오기/내보내기 작업을 관리하기 위해 다음 HTTPS 끝점에서 REST API 집합을 제공합니다.
+Azure Import/Export 서비스는 Azure Resource Manager의 리소스 공급자이며 가져오기/내보내기 작업을 관리하기 위해 다음 HTTPS 엔드포인트에서 REST API 집합을 제공합니다.
 
 ```
 https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ImportExport/jobs/<job-name>

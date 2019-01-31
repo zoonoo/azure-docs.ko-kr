@@ -1,33 +1,33 @@
 ---
 title: 미사용 데이터에 대한 Azure Storage 서비스 암호화 | Microsoft Docs
-description: Azure 저장소 서비스 암호화 기능을 사용하여 서비스 쪽에서 데이터를 저장할 때 Azure Managed Disks, Azure Blob 저장소, Azure Files, Azure Queue 저장소 및 Azure Table 저장소를 암호화하고, 데이터를 검색할 때 암호를 해독합니다.
+description: Azure 스토리지 서비스 암호화 기능을 사용하여 서비스 쪽에서 데이터를 저장할 때 Azure Managed Disks, Azure Blob Storage, Azure Files, Azure Queue 스토리지 및 Azure Table Storage를 암호화하고, 데이터를 검색할 때 암호를 해독합니다.
 services: storage
 author: lakasa
 ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.component: common
-ms.openlocfilehash: a19cdac54fff641f72d0628c7b0d47060baba9b4
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.subservice: common
+ms.openlocfilehash: 059091315c378ab6e2bb857e580c02df968b5092
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384125"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457176"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>미사용 데이터에 대한 Azure Storage 서비스 암호화
 미사용 데이터에 대한 Azure Storage 서비스 암호화를 사용하면 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. 이 기능을 사용하면 Azure Storage 플랫폼에서 데이터를 자동으로 암호화한 후에 Azure Managed Disks, Azure Blob, Queue, Table Storage 또는 Azure Files에 보관하고, 데이터를 검색하기 전에 암호를 해독합니다. Storage 서비스 암호화의 암호화, 미사용 데이터의 암호화, 암호 해독, 키 관리는 완전히 투명한 방식으로 처리됩니다. Azure 저장소 플랫폼에 쓴 모든 데이터는 가장 강력한 블록 암호화 기술 중 하나인 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 통해 암호화됩니다.
 
-Storage 서비스 암호화는 모든 신규 및 기존 스토리지 계정에 대해 사용되도록 설정되며 비활성화할 수 없습니다. 사용자 데이터는 기본적으로 보호되므로 Storage 서비스 암호화를 활용하기 위해 코드 또는 응용 프로그램을 수정할 필요가 없습니다.
+Storage 서비스 암호화는 모든 신규 및 기존 스토리지 계정에 대해 사용되도록 설정되며 비활성화할 수 없습니다. 사용자 데이터는 기본적으로 보호되므로 스토리지 서비스 암호화를 활용하기 위해 코드 또는 애플리케이션을 수정할 필요가 없습니다.
 
 이 기능은 다음의 데이터를 자동으로 암호화합니다.
 
 - Azure 저장소 서비스:
     - Azure Managed Disks
-    - Azure Blob 저장소
+    - Linux에서 File Storage 사용에 대한 자세한 내용은 Linux에서 Azure 파일 스토리지 사용 방법을 참조하세요.
     - Azure 파일
     - Azure Queue 저장소
-    - Azure Table 저장소  
+    - Azure Table Storage  
 - 두 성능 계층(Standard 및 Premium)
 - 두 배포 모델(Azure Resource Manager 및 클래식)
 
@@ -53,11 +53,11 @@ Storage 서비스 암호화의 설정을 보려면 [Azure Portal](https://portal
 **내 저장소 계정에서 암호화를 사용하지 않도록 설정할 수 있나요?**  
 암호화는 기본적으로 사용하도록 설정되며 저장소 계정에 대한 암호화를 사용하지 않도록 설정하는 옵션은 제공되지 않습니다. 
 
-**저장소 서비스 암호화를 사용하는 경우 Azure Storage 비용은 얼마나 늘어나나요?**  
+**스토리지 서비스 암호화를 사용하는 경우 Azure Storage 비용은 얼마나 늘어나나요?**  
 추가 비용은 없습니다.
 
 **나만의 암호화 키를 사용할 수 있나요?**  
-예, Azure Blob 저장소 및 Azure Files의 경우 사용자 고유의 암호화 키를 사용할 수 있습니다. 고객이 관리하는 키는 현재 Azure Managed Disks에서 지원되지 않습니다. 자세한 내용은 [Azure Key Vault의 고객 관리 키를 사용하는 Storage 서비스 암호화](storage-service-encryption-customer-managed-keys.md)를 참조하세요.
+예, Azure Blob Storage 및 Azure Files의 경우 사용자 고유의 암호화 키를 사용할 수 있습니다. 고객이 관리하는 키는 현재 Azure Managed Disks에서 지원되지 않습니다. 자세한 내용은 [Azure Key Vault의 고객 관리 키를 사용하는 Storage 서비스 암호화](storage-service-encryption-customer-managed-keys.md)를 참조하세요.
 
 **암호화 키에 대한 액세스를 해지할 수 있나요?**  
 예, Azure Key Vault에서 [자신만의 암호화 키를 사용](storage-service-encryption-customer-managed-keys.md)하는 경우 가능합니다.
@@ -87,4 +87,4 @@ Azure Disk Encryption은 BitLocker, DM-Crypt와 같은 OS 기반 솔루션과 Az
 저장소 서비스 암호화에 대한 문제나 의견이 있으면 [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com)으로 문의하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Storage는 여러 개발자가 보안 응용 프로그램을 빌드하도록 지원하는 포괄적인 보안 기능을 제공합니다. 자세한 내용은 [저장소 보안 가이드](../storage-security-guide.md)를 참조하세요.
+Azure Storage는 여러 개발자가 보안 애플리케이션을 빌드하도록 지원하는 포괄적인 보안 기능을 제공합니다. 자세한 내용은 [저장소 보안 가이드](../storage-security-guide.md)를 참조하세요.

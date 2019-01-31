@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: f75fc73bc1268db7b6f9f8a1f4fd602ee57281e8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 985e08a9622e08d2a4b52dae996952cd6a7e7ad4
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464951"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207457"
 ---
 # <a name="project-url-preview-endpoint"></a>Project URL Preview 엔드포인트
 
@@ -25,22 +25,22 @@ URL Preview API에는 엔드포인트 하나가 포함됩니다.
 URL Preview를 가져오려면 다음 엔드포인트에 요청을 보냅니다. 다른 사양에 대한 헤더 및 URL 매개 변수를 사용합니다.
 
 GET:
-````
+```
 https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=https://swiftkey.com
 
-````
+```
 
 ### <a name="query-parameters"></a>쿼리 매개 변수
-|이름|값|type|필수|  
+|Name|값|Type|필수|  
 |----------|-----------|----------|--------------|  
-|q|미리 보기 URL|문자열 |yes|
-|safeSearch|해적판 불법 성인 콘텐츠는 오류 코드 400으로 차단되고 *isFamilyFriendly* 플래그는 반환되지 않습니다. <p>합법적 성인 콘텐츠에 대한 동작은 아래와 같습니다. 상태 코드 200을 반환하며 *isFamilyFriendly* 플래그가 false로 설정됩니다.<ul><li>safeSearch=strict: 제목, 설명, URL 및 이미지가 반환되지 않습니다.</li><li>safeSearch=moderate: 설명이 포함된 이미지를 제외한 제목, URL 및 설명을 가져옵니다.</li><li>safeSearch=off: 제목, URL, 설명 및 이미지 등의 모든 응답 개체/요소를 가져옵니다.</li></ul> |문자열|필요하지 않습니다. </br> 기본값은 safeSearch=strict입니다.| 
+|q|미리 보기 URL|문자열 |예|
+|safeSearch|해적판 불법 성인 콘텐츠는 오류 코드 400으로 차단되고 *isFamilyFriendly* 플래그는 반환되지 않습니다. <p>합법적 성인 콘텐츠에 대한 동작은 아래와 같습니다. 상태 코드 200을 반환하며 *isFamilyFriendly* 플래그가 false로 설정됩니다.<ul><li>safeSearch=strict: 제목, 설명, URL 및 이미지는 반환되지 않습니다.</li><li>safeSearch=moderate: 설명이 포함된 이미지를 제외한 제목, URL 및 설명을 가져옵니다.</li><li>safeSearch=off: 제목, URL, 설명 및 이미지 등의 모든 응답 개체/요소를 가져옵니다.</li></ul> |문자열|필요하지 않습니다. </br> 기본값은 safeSearch=strict입니다.| 
 
 ## <a name="response-object"></a>응답 개체
 
 다음의 `name`, `url`, `description`, `isFamilyFriendly` 및 `primaryImageOfPage` 예제에 표시된 대로 응답은 HTTP 헤더와 특성이 있는 WebPage 개체를 포함합니다.
 
-````
+```
 BingAPIs-TraceId: 15AFE52A97AA422F960433A94803F6CE
 BingAPIs-SessionId: 40587764F42142D3A8BA99F66B2B3BB6
 X-MSEdge-ClientID: 0389E3EDED106B5E1424E82FEC436A56
@@ -57,7 +57,7 @@ X-MSEdge-Ref: Ref A: 15AFE52A97AA422F960433A94803F6CE Ref B: PAOEDGE0418 Ref C: 
   }
 }
 
-````
+```
 
 ## <a name="next-steps"></a>다음 단계
 - [C# 빠른 시작](csharp.md)

@@ -6,16 +6,16 @@ author: jrowlandjones
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: e293c27faa69fe5c79b776a98bcae0f72e85c3ee
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 17a55e84dcbec00eced290ec76c3201784075201
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811157"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462582"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL Data Warehouse 비즈니스 인텔리전스 파트너
 종단간 데이터 웨어하우스 솔루션을 만들려면 다양한 업계 최고의 도구에서 선택합니다.  이 문서에서는 Azure SQL Data Warehouse를 지원하는 BI(비즈니스 인텔리전스) 솔루션을 제공하는 Microsoft 파트너 기업을 중점적으로 소개합니다.

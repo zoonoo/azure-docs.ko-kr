@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 8738205aec8e0b00115a185886ca293b2f96033c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: af3c75364346a1e2e91c0c6d942df5c47b16ffed
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422374"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096656"
 ---
 # <a name="native-apps"></a>네이티브 앱
 
@@ -47,7 +47,7 @@ AD 인증 라이브러리를 사용하는 경우 아래에서 설명하는 브�
 
 ## <a name="code-samples"></a>코드 샘플
 
-네이티브 애플리케이션-Web API 시나리오에 대한 코드 샘플을 참조하세요. 그리고 새로운 샘플이 자주 추가되므로 자주 확인해 보세요. [네이티브 응용 프로그램-Web API](sample-v1-code.md#desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api).
+네이티브 애플리케이션-Web API 시나리오에 대한 코드 샘플을 참조하세요. 그리고 새로운 샘플이 자주 추가되므로 자주 확인해 보세요. [네이티브 애플리케이션-Web API](sample-v1-code.md#desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api).
 
 ## <a name="app-registration"></a>앱 등록
 
@@ -62,5 +62,5 @@ Azure AD v1.0 엔드포인트에 애플리케이션을 등록하려면 [Azure AD
 
 ## <a name="next-steps"></a>다음 단계
 
-- 다른 [애플리케이션 유형 및 시나리오](app-types.md)에 대해 자세히 알아보기
+- 다른 [응용 프로그램 유형 및 시나리오](app-types.md)에 대해 자세히 알아보기
 - Azure AD [인증 기본 사항](authentication-scenarios.md)에 대해 자세히 알아보기

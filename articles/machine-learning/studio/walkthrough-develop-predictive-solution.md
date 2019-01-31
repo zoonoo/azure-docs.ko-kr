@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.author: garye
 ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2017
-ms.openlocfilehash: fce8f03adfad348c9daddf3c2a225d6df29552d7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 2c21c08e71592e417d8ee3850af61ca2c1486a76
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252525"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464734"
 ---
 # <a name="walkthrough-develop-predictive-solution-for-credit-risk-assessment-in-azure-machine-learning-studio"></a>연습: Azure Machine Learning Studio의 신용 위험 평가에 대한 예측 분석 솔루션 개발
 
@@ -38,7 +38,7 @@ ms.locfileid: "53252525"
 
 ## <a name="the-problem"></a>문제
 
-신용대출 지원 시 제공한 정보를 기반으로 개인의 신용 위험을 예측해야 한다고 가정합니다.  
+신용대출 지원 시 애플리케이션에서 제공한 정보를 기반으로 개인의 신용 위험을 예측해야 한다고 가정합니다.  
 
 신용 위험 평가는 복잡한 문제이지만 이 연습에서는 다소 간소화할 수 있습니다. Microsoft Azure Machine Learning을 사용하여 예측 분석 솔루션을 만들 수 있는 방법의 예로 사용합니다. 이 작업을 수행하기 위해 Azure Machine Learning Studio 및 Machine Learning 웹 서비스를 사용합니다.  
 

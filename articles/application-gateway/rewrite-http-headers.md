@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 3e40dbb96b27df4b228c52e7a8f70d047a556c31
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2babb6ff7b93ad9cf7c93565cadce9453a3b96ca
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198528"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103431"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Azure Application Gateway의 HTTP 헤더 다시 쓰기(공개 미리 보기)
 
@@ -94,8 +94,6 @@ Application Gateway 헤더 다시 쓰기 지원은 다음 기능을 제공합니
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | 클라이언트에서 지원되는 암호 목록을 반환합니다.          |
 | ciphers_used               | 설정된 SSL 연결에 사용되는 암호를 반환합니다. |
-| client_latitude            | 클라이언트 IP 주소에 따라 국가, 지역 및 도시를 확인합니다. |
-| client_longitude           | 클라이언트 IP 주소에 따라 국가, 지역 및 도시를 확인합니다. |
 | client_port                | 클라이언트 포트.                                                  |
 | client_tcp_rtt             | 클라이언트 TCP 연결에 대한 정보이며, TCP_INFO 소켓 옵션을 지원하는 시스템에서 사용할 수 있습니다. |
 | client_user                | HTTP 인증을 사용하는 경우 인증을 위해 제공되는 사용자 이름. |

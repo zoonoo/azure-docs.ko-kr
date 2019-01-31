@@ -3,19 +3,19 @@ title: Azure MFA NPS 확장 구성 | Microsoft Docs
 description: NPS 확장을 설치한 후 IP 허용 목록 및 UPN 교체와 같은 고급 구성을 위한 이러한 단계를 사용합니다.
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 81f6d6607f2fcc86e2499a537f3ddeff470d35f9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5d7b14825b8b34c2ab742febe463ea518209a82f
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429109"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075621"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Multi-Factor Authentication에 대한 NPS 확장을 위한 고급 구성 옵션
 
@@ -29,7 +29,7 @@ NPS 확장 내에서 Azure Multi-Factor Authentication에 대한 UPN 대신 사�
 
 대체 로그인 ID를 구성하려면 `HKLM\SOFTWARE\Microsoft\AzureMfa`로 이동하여 다음 레지스트리 값을 편집합니다.
 
-| 이름 | type | 기본값 | 설명 |
+| Name | Type | 기본값 | 설명 |
 | ---- | ---- | ------------- | ----------- |
 | LDAP_ALTERNATE_LOGINID_ATTRIBUTE | string | Empty | UPN 대신 사용하려는 Active Directory 특성의 이름을 지정합니다. 이 특성은 AlternateLoginId 특성으로 사용됩니다. 이 레지스트리 값이 [유효한 Active Directory 특성](https://msdn.microsoft.com/library/ms675090.aspx)(예: 메일 또는 displayName)으로 설정되어 있는 경우 인증용 사용자의 UPN 대신 특성의 값이 사용됩니다. 이 레지스트리 값이 비어 있거나 구성되어 있지 않으면 AlternateLoginId가 비활성화되고 사용자의 UPN이 인증에 사용됩니다. |
 | LDAP_FORCE_GLOBAL_CATALOG | 부울 | False | 이 플래그를 사용하여 AlternateLoginId를 조회할 때 LDAP 검색에 글로벌 카탈로그를 강제 사용합니다. 도메인 컨트롤러를 글로벌 카탈로그로 구성하고, 글로벌 카탈로그에 AlternateLoginId 특성을 추가한 다음, 이 플래그를 사용하도록 설정합니다. <br><br> LDAP_LOOKUP_FORESTS가 구성된 경우(비어 있지 않음), 레지스트리 설정의 값에 관계 없이 **이 플래그는 true로 적용**됩니다. 이 경우 NPS 확장에서 글로벌 카탈로그를 각 포리스트에 대한 AlternateLoginId 특성으로 구성해야 합니다. |
@@ -43,7 +43,7 @@ NPS 확장 내에서 Azure Multi-Factor Authentication에 대한 UPN 대신 사�
 
 IP 허용 목록을 구성하려면 `HKLM\SOFTWARE\Microsoft\AzureMfa`로 이동하여 다음 레지스트리 값을 구성합니다. 
 
-| 이름 | type | 기본값 | 설명 |
+| Name | Type | 기본값 | 설명 |
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | string | Empty | IP 주소 목록을 세미콜론으로 구분된 형태로 제공합니다. NAS/VPN 서버와 같이 서비스 요청이 발생한 컴퓨터의 IP 주소가 포함됩니다. IP 범위는 지원되지 않는 서브넷입니다. <br><br> 예: *10.0.0.1;10.0.0.2;10.0.0.3*.
 

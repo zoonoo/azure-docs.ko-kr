@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 1953e23c0676a0c81576a47f3f3ca36c3861935f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: d222e398653487cb87525ac13ebe682e9c8a26ee
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855060"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195947"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>사용자 지정 정책으로 사용자 경험의 UI 사용자 지정
 

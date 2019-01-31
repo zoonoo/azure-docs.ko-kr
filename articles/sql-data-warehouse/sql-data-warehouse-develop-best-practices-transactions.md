@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/19/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: eb9c66c23440d2fd55c62de02b6c0070245c6d67
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: f5e0b2b75ac111f3221108936f84e5883aebfc1a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247922"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476267"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 트랜잭션 최적화
 긴 롤백에 대한 위험을 최소화하면서 Azure SQL Data Warehouse의 트랜잭션 코드 성능을 최적화하는 방법을 알아봅니다.
@@ -42,7 +42,7 @@ Azure SQL Data Warehouse는 트랜잭션 로그를 사용하여 데이터베이�
 ## <a name="minimally-logged-operations"></a>최소 로깅 작업
 다음은 최소한으로 로깅 가능한 작업입니다.
 
-* [CTAS](sql-data-warehouse-develop-ctas.md)(CREATE TABLE AS SELECT)
+* CREATE TABLE AS SELECT([CTAS](sql-data-warehouse-develop-ctas.md))
 * INSERT..SELECT
 * CREATE INDEX
 * ALTER INDEX REBUILD
@@ -417,5 +417,5 @@ Azure SQL Data Warehouse를 사용하여 필요에 따라 데이터 웨어하우
 * 작업을 청크로 나누어서 행의 하위 집합에서 작동
 
 ## <a name="next-steps"></a>다음 단계
-격리 수준 및 트랜잭션 제한에 대해 자세히 알아보려면 [SQL Data Warehouse의 트랜잭션](sql-data-warehouse-develop-transactions.md)을 참조하세요.  기타 모범 사례의 개요에 대해서는 [SQL Data Warehouse 모범 사례](sql-data-warehouse-best-practices.md)를 참조하세요.
+격리 수준 및 트랜잭션 제한에 대해 자세히 알아보려면 [SQL Data Warehouse의 트랜잭션](sql-data-warehouse-develop-transactions.md) 을 참조하세요.  기타 모범 사례의 개요에 대해서는 [SQL Data Warehouse 모범 사례](sql-data-warehouse-best-practices.md)를 참조하세요.
 

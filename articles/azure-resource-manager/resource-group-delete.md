@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: b8c4fdc942af291e912a4c1e74d1292279cf9f8c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b16c67990099291381b6f11d9bd804bf4bef84e8
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132332"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078494"
 ---
 # <a name="azure-resource-manager-resource-group-deletion"></a>Azure Resource Manager 리소스 그룹 삭제
 
@@ -69,4 +69,4 @@ GET 작업에서 오류가 반환되는 경우 Resource Manager는 다음 오류
 ## <a name="next-steps"></a>다음 단계
 
 * Resource Manager의 개념을 이해하려면 [Azure Resource Manager 개요](resource-group-overview.md)를 참조하세요.
-* 삭제 명령은 [PowerShell](/powershell/module/azurerm.resources/Remove-AzureRmResourceGroup), [Azure CLI](/cli/azure/group?view=azure-cli-latest#az-group-delete) 및 [REST API](/rest/api/resources/resourcegroups/delete)를 참조하세요.
+* 삭제 명령은 [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Azure CLI](/cli/azure/group?view=azure-cli-latest#az-group-delete) 및 [REST API](/rest/api/resources/resourcegroups/delete)를 참조하세요.

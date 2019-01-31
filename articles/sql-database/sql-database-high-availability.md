@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 9d80f4e7422d881393c8e626ddfc75c4067ef1e2
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.date: 01/25/2019
+ms.openlocfilehash: ce232332413a0b859b82ebfa7bd5b3505bd923bb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250351"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453130"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>고가용성 및 Azure SQL Database
 
@@ -61,7 +61,7 @@ SQL 데이터베이스 엔진 프로세스와 기본 mdf/ldf 파일이 SSD 저�
 
 ## <a name="zone-redundant-configuration"></a>영역 중복 구성
 
-로컬 저장소 구성에 대한 쿼럼 집합 복제본은 기본적으로 동일한 데이터 센터에 만들어집니다. [Azure 가용성 영역](../availability-zones/az-overview.md)이 도입되면 쿼럼 집합의 여러 복제본을 동일한 지역의 서로 다른 가용성 영역에 배치할 수 있습니다. 단일 실패 지점을 제거하기 위해 제어 링은 세 개의 GW(게이트웨이 링)로 여러 영역에 걸쳐 복제됩니다. 특정 게이트웨이 링에 대한 라우팅은 [ATM(Azure Traffic Manager)](../traffic-manager/traffic-manager-overview.md)에서 제어됩니다. 영역 중복 구성을 통해 데이터베이스 중복성을 추가로 만들지 않으므로 프리미엄 또는 중요 비즈니스용 서비스 계층에서 가용성 영역을 사용하는 경우, 추가 비용 없이 사용할 수 있습니다. 영역 중복 데이터베이스를 선택하면 응용 프로그램 논리를 변경하지 않고도 치명적인 데이터 센터 중단을 포함하여 훨씬 더 큰 실패 집합에 탄력적인 프리미엄 또는 중요 비즈니스용 데이터베이스를 만들 수 있습니다. 기존 프리미엄 또는 중요 비즈니스용 데이터베이스 또는 풀을 영역 중복 구성으로 변환할 수도 있습니다.
+로컬 저장소 구성에 대한 쿼럼 집합 복제본은 기본적으로 동일한 데이터 센터에 만들어집니다. [Azure 가용성 영역](../availability-zones/az-overview.md)이 도입되면 쿼럼 집합의 여러 복제본을 동일한 지역의 서로 다른 가용성 영역에 배치할 수 있습니다. 단일 실패 지점을 제거하기 위해 제어 링은 세 개의 GW(게이트웨이 링)로 여러 영역에 걸쳐 복제됩니다. 특정 게이트웨이 링에 대한 라우팅은 [ATM(Azure Traffic Manager)](../traffic-manager/traffic-manager-overview.md)에서 제어됩니다. 영역 중복 구성을 통해 데이터베이스 중복성을 추가로 만들지 않으므로 프리미엄 또는 중요 비즈니스용 서비스 계층에서 가용성 영역을 사용하는 경우, 추가 비용 없이 사용할 수 있습니다. 영역 중복 데이터베이스를 선택하면 애플리케이션 논리를 변경하지 않고도 치명적인 데이터 센터 중단을 포함하여 훨씬 더 큰 실패 집합에 탄력적인 프리미엄 또는 중요 비즈니스용 데이터베이스를 만들 수 있습니다. 기존 프리미엄 또는 중요 비즈니스용 데이터베이스 또는 풀을 영역 중복 구성으로 변환할 수도 있습니다.
 
 영역 중복 쿼럼 집합에서는 복제본이 서로 간에 약간 떨어져 있는 서로 다른 데이터 센터에 있기 때문에, 네트워크 대기 시간이 늘어나면 커밋 시간이 늘어나고, 이에 따라 일부 OLTP 작업의 성능에 영향을 줄 수 있습니다. 언제든지 영역 중복 설정을 사용하지 않도록 설정하여 단일 영역 구성으로 돌아갈 수 있습니다. 이 프로세스는 데이터 작업의 크기이며 일반 서비스 계층 업데이트와 비슷합니다. 프로세스가 완료되면 데이터베이스 또는 풀이 영역 중복 링에서 단일 영역 링으로 또는 그 반대로 마이그레이션됩니다.
 

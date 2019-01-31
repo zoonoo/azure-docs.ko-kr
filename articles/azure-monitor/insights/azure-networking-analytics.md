@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
-ms.openlocfilehash: 4363d7a319eb31dbf020121bf2fa5c5630296c5a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 66bac977d05276833a357521a3a040c59b2f28fa
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191715"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900292"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Log Analytics의 Azure 네트워킹 모니터링 솔루션
 
 Log Analytics는 네트워크를 모니터링하기 위해 다음과 같은 솔루션을 제공합니다.
 * NPM(네트워크 성능 모니터)
- * 네트워크 상태 모니터링
+    * 네트워크 상태 모니터링
 * 검토할 Azure Application Gateway 분석
- * Azure Application Gateway 로그
- * Azure Application Gateway 메트릭
+    * Azure Application Gateway 로그
+    * Azure Application Gateway 메트릭
 * 클라우드 네트워크에서 네트워크 작업을 모니터링하고 감사하는 솔루션
-* [트래픽 분석](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
-* Azure 네트워크 보안 그룹 분석
+    * [트래픽 분석](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+    * Azure 네트워크 보안 그룹 분석
 
 ## <a name="network-performance-monitor-npm"></a>NPM(네트워크 성능 모니터)
 

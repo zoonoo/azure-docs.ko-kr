@@ -2,21 +2,21 @@
 title: Azure Batch를 사용한 병렬 R 시뮬레이션
 description: 자습서 - R doAzureParallel 패키지를 사용하여 Azure Batch에서 몬테카를로 재무 시뮬레이션을 실행하는 단계별 지침
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 305ea27e787196f648fcb4c536f33b12c924c015
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: bccf12c4e0614ec02414001ab7cf3c4b7f189e65
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164698"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456003"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>자습서: Azure Batch를 사용하여 병렬 R 시뮬레이션 실행 
 

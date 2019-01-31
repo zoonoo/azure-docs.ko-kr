@@ -3,23 +3,23 @@ title: 가상 머신에서 Azure 리소스에 대한 관리 ID를 사용하여 �
 description: 가상 머신에서 Azure 리소스에 대한 관리 ID를 사용하여 액세스 토큰을 획득하기 위한 단계별 지침과 예제입니다.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: daveba
-ms.openlocfilehash: d737f1b17322d4b2ea0ab00a8e0bd386e8cb1747
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: b7ccdcf1cb1e75ab9a8113adc05b02196a0a2023
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422410"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166580"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Azure VM에서 Azure 리소스에 대한 관리 ID를 사용하여 액세스 토큰을 획득하는 방법 
 
@@ -33,7 +33,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-이 문서에서 Azure PowerShell 예제를 사용하려는 경우 최신 버전의 [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM)을 설치해야 합니다.
+이 문서에서 Azure PowerShell 예제를 사용하려는 경우 최신 버전의 [Azure PowerShell](/powershell/azure/install-az-ps)을 설치해야 합니다.
 
 
 > [!IMPORTANT]

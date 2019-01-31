@@ -3,19 +3,19 @@ title: Azure Dev Spaces와 함께 kubectl 사용 방법 | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 05/11/2018
 ms.topic: article
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: b522ab9177d963f65ac6ea75538ddc46331875da
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: b0ceccc4f8b16c21e8a66a5f1b8cf0e7b6f47a4f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706792"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469314"
 ---
 # <a name="use-kubectl-with-an-azure-dev-space"></a>Azure Dev Space로 kubectl 사용
 

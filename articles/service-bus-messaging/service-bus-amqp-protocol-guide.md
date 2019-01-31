@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 88f586fac4392e880efc3ef611a7c03177582bff
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: cf06be778fb1bd251b55adcc503db63a2adf3f8b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856709"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197928"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0
 
@@ -216,7 +216,7 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 | 우선 순위 |- |- |
 | ttl |이 메시지에 대한 TTL(Time to live) |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive) |
 | first-acquirer |- |- |
-| delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount) |
+| delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
 #### <a name="properties"></a>properties
 

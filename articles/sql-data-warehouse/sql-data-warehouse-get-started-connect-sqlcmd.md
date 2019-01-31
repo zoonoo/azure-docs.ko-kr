@@ -2,20 +2,20 @@
 title: Azure SQL Data Warehouse sqlcmd에 연결 | Microsoft Azure
 description: sqlcmd 명령줄 유틸리티를 사용하여 Azure SQL Data Warehouse에 연결하고 쿼리합니다.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 2534d668132db4c66b5e54c33849b76a8f93c348
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e0e423ef0503bc4d23fddf4e1b9ff985636d2ec2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976412"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463517"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>sqlcmd를 사용하여 SQL Data Warehouse에 연결
 > [!div class="op_single_selector"]

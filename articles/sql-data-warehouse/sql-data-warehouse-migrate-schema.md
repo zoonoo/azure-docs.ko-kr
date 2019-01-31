@@ -6,16 +6,16 @@ author: jrowlandjones
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 51ad7eed0bf37194b1e5ff2c605b39246e9a1191
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 4139ea776f6947eeacf4620c3676606d6535dd2b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301185"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461687"
 ---
 # <a name="migrate-your-schemas-to-sql-data-warehouse"></a>SQL Data Warehouse로 스키마 마이그레이션
 SQL Data Warehouse에 SQL 스키마를 마이그레이션하기 위한 지침입니다. 

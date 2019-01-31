@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 96cdbca1b0a5a75c24b9d0e75eaf1fc861bf764a
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: a0dff528f57d19dbc28c4851dc1b596216c77713
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54843126"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190125"
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Windows 데스크톱 앱 빌드
 Azure AD(Azure Active Directory) B2C를 사용하여 몇 가지 간단한 단계에서 강력한 셀프 서비스 ID 관리 기능을 데스크톱 앱에 추가할 수 있습니다. 이 문서에서는 사용자 등록, 로그인 및 프로필 관리를 포함하는 .NET WPF(Windows Presentation Foundation) "할 일 모음" 앱을 만드는 방법을 보여 줍니다. 이 앱에서는 사용자 이름 또는 전자 메일을 사용하여 등록 및 로그인할 수 있습니다. 또한 Facebook 및 Google과 같은 소셜 계정을 사용하여 등록 및 로그인하는 기능도 지원합니다.

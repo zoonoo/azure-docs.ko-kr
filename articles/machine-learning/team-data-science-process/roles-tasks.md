@@ -6,21 +6,21 @@ manager: cgronlun
 editor: cgronlun
 services: machine-learning
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 051f80f16254c25853e476f66e8696423641073b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 05fc742bba535ea3968e60cd0f40c80b812c09fd
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250793"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466441"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Team Data Science Process 역할 및 작업
 
-Team Data Science Process는 Microsoft에서 개발한 프레임워크로, 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적으로 빌드하는 구조적 방법론을 제공합니다. 이 문서에서는 이 프로세스를 표준화하는 데이터 과학 팀의 주요 인력 역할 및 관련 작업을 설명합니다.
+Team Data Science Process는 Microsoft에서 개발한 프레임워크로, 예측 분석 솔루션 및 지능형 애플리케이션을 효율적으로 빌드하는 구조적 방법론을 제공합니다. 이 문서에서는 이 프로세스를 표준화하는 데이터 과학 팀의 주요 인력 역할 및 관련 작업을 설명합니다.
 
 이 소개 문서는 전체 데이터 과학 그룹, 데이터 과학 팀 및 프로젝트에 대한 TDSP 환경을 설정하는 방법에 대한 지침을 제공하는 자습서로 연결됩니다.
 자습서의 Azure DevOps를 사용하여 자세한 지침을 제공합니다. Azure DevOps는 코드 호스팅 플랫폼 및 기민한 계획 도구를 제공하여 팀 작업을 관리하고 액세스를 제어하고 리포지토리를 관리합니다.
@@ -88,8 +88,8 @@ Team Data Science Process는 Microsoft에서 개발한 프레임워크로, 예�
 - 버전 관리 및 공동 작업에 대한 코드 호스팅 플랫폼으로 Azure DevOps를 선택한 경우 그룹의 Azure DevOps Services에 **프로젝트**를 만듭니다. 그렇지 않은 경우 이 작업은 건너뛸 수 있습니다.
 - 프로젝트 아래 **프로젝트 템플릿 리포지토리**를 만들고 그룹 관리자 또는 관리자의 대리인이 설정한 그룹 프로젝트 템플릿 리포지토리에서 시드합니다.
 - **팀 유틸리티 리포지토리**를 만들고 팀별 유틸리티를 리포지토리에 추가합니다.
-- (선택 사항) 전체 팀에게 유용한 데이터 자산을 저장하는 데 사용할 **[Azure 파일 저장소](https://azure.microsoft.com/services/storage/files/)** 를 만듭니다. 다른 팀 구성원도 팀의 분석 데스크톱에 이 공유 클라우드 파일 저장소를 탑재할 수 있습니다.
-- (선택 사항) Azure 파일 저장소를 팀 리더의 **DSVM**(데이터 과학 Virtual Machine)에 탑재하고 여기에 데이터 자산을 추가합니다.
+- (선택 사항) 전체 팀에게 유용한 데이터 자산을 저장하는 데 사용할 **[Azure File Storage](https://azure.microsoft.com/services/storage/files/)** 를 만듭니다. 다른 팀 구성원도 팀의 분석 데스크톱에 이 공유 클라우드 파일 저장소를 탑재할 수 있습니다.
+- (선택 사항) Azure File Storage를 팀 리더의 **DSVM**(데이터 과학 Virtual Machine)에 탑재하고 여기에 데이터 자산을 추가합니다.
 - 팀 구성원을 추가하고 권한을 구성하여 **보안 제어**를 설정합니다.
 
 자세한 단계별 지침은 [데이터 과학 팀에 대한 팀 리더 작업](team-lead-tasks.md)을 참조하세요.
@@ -100,8 +100,8 @@ Team Data Science Process는 Microsoft에서 개발한 프레임워크로, 예�
 다음은 TDSP를 채택하기 위해 프로젝트 리더가 완료할 작업입니다.
 
 - 프로젝트 아래 **프로젝트 리포지토리**를 만들고 프로젝트 템플릿 리포지토리에서 시드합니다.
-- (선택 사항) 프로젝트의 데이터 자산을 저장하는 데 사용할 **Azure 파일 저장소**를 만듭니다.
-- (선택 사항) Azure 파일 저장소를 프로젝트 리더의 **DSVM**(데이터 과학 Virtual Machine)에 탑재하고 여기에 프로젝트 데이터 자산을 추가합니다.
+- (선택 사항) 프로젝트의 데이터 자산을 저장하는 데 사용할 **Azure File Storage**를 만듭니다.
+- (선택 사항) Azure File Storage를 프로젝트 리더의 **DSVM**(데이터 과학 Virtual Machine)에 탑재하고 여기에 프로젝트 데이터 자산을 추가합니다.
 - 프로젝트 구성원을 추가하고 권한을 구성하여 **보안 제어**를 설정합니다.
 
 자세한 단계별 지침은 [데이터 과학 팀에 대한 프로젝트 리더 작업](project-lead-tasks.md)을 참조하세요.
@@ -111,7 +111,7 @@ Team Data Science Process는 Microsoft에서 개발한 프레임워크로, 예�
 다음은 TDSP를 사용하여 데이터 과학 프로젝트를 수행하기 위해 프로젝트 개별 참가자(일반적으로 데이터 과학자)가 완료할 작업입니다.
 
 - 프로젝트 리더가 설정한 **프로젝트 리포지토리**를 복제합니다.
-- (선택 사항) 팀 및 프로젝트의 공유 **Azure 파일 저장소**를 해당 **DSVM**(데이터 과학 Virtual Machine)에 탑재합니다.
+- (선택 사항) 팀 및 프로젝트의 공유 **Azure File Storage**를 해당 **DSVM**(데이터 과학 Virtual Machine)에 탑재합니다.
 - 프로젝트를 실행합니다.
 
 

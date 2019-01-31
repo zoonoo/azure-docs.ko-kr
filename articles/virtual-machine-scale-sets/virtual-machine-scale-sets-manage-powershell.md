@@ -3,7 +3,7 @@ title: Azure PowerShell을 사용하여 Virtual Machine Scale Sets 관리 | Micr
 description: 인스턴스를 시작하고 중지하는 방법 및 확장 집합 용량을 변경하는 방법과 같은 Virtual Machine Scale Sets를 관리하는 공통 Azure PowerShell cmdlet입니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: zarhoads
-ms.openlocfilehash: 0aec3b2d70336e273772f8487b586d2ff23b0604
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: cynthn
+ms.openlocfilehash: 32bcc87cad23c8a9145e2104794701997fca8998
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466311"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883265"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Azure PowerShell을 사용하여 가상 머신 확장 집합 관리
 가상 머신 확장 집합의 수명 주기 동안 하나 이상의 관리 작업을 실행해야 합니다. 또한 다양한 수명 주기 작업을 자동화하는 스크립트를 만들어야 하는 경우가 있습니다. 이 문서에서는 이러한 작업을 수행할 수 있는 공통 Azure PowerShell cmdlet 중 일부를 설명합니다.

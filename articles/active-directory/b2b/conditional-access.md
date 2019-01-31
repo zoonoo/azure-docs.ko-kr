@@ -3,19 +3,19 @@ title: Azure Active Directory B2B 공동 작업 사용자에 대한 조건부 �
 description: Azure Active Directory B2B 공동 작업 기능은 회사 애플리케이션에 대한 선택적 액세스를 위해 MFA(Multi-Factor Authentication)를 지원합니다.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 8938f4bcf012eadb8d4b0ced92b9996bc58236a5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: d692392ba28899924ca42f7df47311d949633862
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432050"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080024"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>B2B 공동 작업 사용자에 대한 조건부 액세스
 

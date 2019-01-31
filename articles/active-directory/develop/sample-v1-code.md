@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 46b66a6e718f18b76db6332487c350c2c199c342
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c6cf9681804f9576d6c13a52161843d64244b1e8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957777"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097693"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory 코드 샘플(v1.0 엔드포인트)
 
@@ -72,7 +72,7 @@ GitHub에서 샘플에 참여할 수도 있습니다. 자세한 방법은 [Micro
 
 ## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>Microsoft Graph 또는 Web API를 호출하는 데스크톱 및 모바일 공용 클라이언트의 애플리케이션
 
-다음 샘플은 사용자 이름으로 Microsoft Graph 또는 Web API에 액세스하는 공용 클라이언트 애플리케이션(데스크톱/모바일 애플리케이션)을 보여 줍니다. 디바이스 및 플랫폼에 따라 애플리케이션에서 다른 방식(흐름/권한 부여)으로 사용자를 로그인할 수 있습니다. 
+다음 샘플은 사용자 이름으로 Microsoft Graph 또는 Web API에 액세스하는 공용 클라이언트 애플리케이션(데스크톱/모바일 애플리케이션)을 보여 줍니다. 장치 및 플랫폼에 따라 애플리케이션에서 다른 방식(흐름/권한 부여)으로 사용자를 로그인할 수 있습니다. 
 
 - 대화형으로
 - 자동으로(Windows의 Windows 통합 인증 또는 사용자 이름/암호 사용) 
@@ -81,7 +81,7 @@ GitHub에서 샘플에 참여할 수도 있습니다. 자세한 방법은 [Micro
 클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 | ASP.NET 또는 ASP.NET Core 2.x Web API 호출
 ------------------ | -------- | ---------- | -------------------- | -------------------------
 데스크톱(WPF)           | ![.NET/C#](media/sample-v2-code/logo_NET.png)  | 대화형 | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget)의 일부 | [Dotnet-native-desktop](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [dotnet-native-aspnetcore](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore/)</p> [dotnet-webapi-manual-jwt-validation](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
-모바일(UWP)            | .![.NET/C#/UWP](media/sample-v2-code/logo_Windows.png)   | 대화형 | [dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> 이 샘플은 [ADAL.NET](https://aka.ms/adalnet)이 아니라 [WAM](https://docs.microsoft.com/windows/uwp/security/web-account-manager)을 사용합니다.|  [dotnet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store)(ADAL.NET을 사용하여 단일 테넌트 Web API를 호출하는 UWP 응용 프로그램) </p> [dotnet-webapi-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store)(ADAL.NET을 사용하여 다중 테넌트 Web API를 호출하는 UWP 응용 프로그램)|
+모바일(UWP)            | .![.NET/C#/UWP](media/sample-v2-code/logo_Windows.png)   | 대화형 | [dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> 이 샘플은 [ADAL.NET](https://aka.ms/adalnet)이 아니라 [WAM](https://docs.microsoft.com/windows/uwp/security/web-account-manager)을 사용합니다.|  [dotnet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store)(ADAL.NET을 사용하여 단일 테넌트 Web API를 호출하는 UWP 애플리케이션) </p> [dotnet-webapi-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store)(ADAL.NET을 사용하여 다중 테넌트 Web API를 호출하는 UWP 애플리케이션)|
 모바일(Android, iOS, UWP)   | ![.NET/C#(Xamarin)](media/sample-v2-code/logo_xamarin.png) | 대화형 | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
 모바일(Android)           | ![Android/Java](media/sample-v2-code/logo_Android.png) | 대화형 |   [android](https://github.com/Azure-Samples/active-directory-android) |
 모바일(iOS)           | ![iOS/Objective C 또는 swift](media/sample-v2-code/logo_iOS.png) | 대화형 |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: edfd908166e4334bdfda0f043cba727cb0370405
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7e4756fb241500a2f153b452c6dc5a4e332bdd6b
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853598"
+ms.locfileid: "54881599"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Application Insights 스마트 검색 규칙 관리
 
@@ -157,7 +157,7 @@ Azure Resource Manager를 통해 규칙 설정을 구성할 수 있도록, 이�
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>누가 (클래식) 경고 알림을 받나요?
 
-이 섹션은 스마트 검색 클래식 경고에만 적용되며, 원하는 수신자만 알림을 받도록 경고 알림을 최적화하는 데 도움이 됩니다. [classic alerts](../platform/alerts-classic.overview.md와 새 경고 환경 간의 차이점에 대해 자세히 알아보려면 [경고 개요 문서](../platform/alerts-overview.md)를 참조하세요. 현재 스마트 검색 경고는 클래식 경고 환경만 지원합니다. 한 가지 예외는 [Azure 클라우드 서비스의 스마트 감지 경고](./proactive-cloud-services.md)입니다. Azure 클라우드 서비스의 스마트 감지 경고에 대한 경고 알림을 제어하려면 [작업 그룹](../platform/action-groups.md)을 사용합니다.
+이 섹션은 스마트 검색 클래식 경고에만 적용되며, 원하는 수신자만 알림을 받도록 경고 알림을 최적화하는 데 도움이 됩니다. [클래식 경고](../platform/alerts-classic.overview.md)와 새 경고 환경 간의 차이점에 대해 자세히 알아보려면 [경고 개요 문서](../platform/alerts-overview.md)를 참조하세요. 현재 스마트 검색 경고는 클래식 경고 환경만 지원합니다. 한 가지 예외는 [Azure 클라우드 서비스의 스마트 감지 경고](./proactive-cloud-services.md)입니다. Azure 클라우드 서비스의 스마트 감지 경고에 대한 경고 알림을 제어하려면 [작업 그룹](../platform/action-groups.md)을 사용합니다.
 
 * 스마트 검색/클래식 경고 알림에는 특정 수신자를 사용하는 것이 좋습니다.
 

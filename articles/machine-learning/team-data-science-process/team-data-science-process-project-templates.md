@@ -6,17 +6,17 @@ manager: cgronlun
 editor: cgronlun
 services: machine-learning
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3675d3cd8959d78270a491aeb443cb8e458d2472
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: bbedaa554e9c97a24e26c7927c1bf9c94d5cd507
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137914"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474465"
 ---
 # <a name="team-data-science-process-project-planning"></a>Team Data Science Process 프로젝트 계획
 
@@ -60,5 +60,5 @@ Microsoft Project에 대한 액세스 권한이 없는 경우 동일한 데이�
 
 [데이터 과학 프로젝트의 기민한 개발](agile-development.md) 이 문서는 Team Data Science Process를 사용하여 프로젝트 팀 내에서 체계적이고 버전이 관리되는 공동 작업 방식으로 데이터 과학 프로젝트를 실행하는 방법을 설명합니다.
 
-**특정 시나리오**에 대한 프로세스의 모든 단계를 보여 주는 연습도 제공됩니다. 이러한 단계는 [예제 연습](walkthroughs.md) 자료에서 미리 보기 설명과 함께 나열되고 연결되어 있습니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 보여 줍니다. 
+**특정 시나리오**에 대한 프로세스의 모든 단계를 보여 주는 연습도 제공됩니다. 이러한 단계는 [예제 연습](walkthroughs.md) 자료에서 미리 보기 설명과 함께 나열되고 연결되어 있습니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 애플리케이션을 만드는 방법을 보여 줍니다. 
 

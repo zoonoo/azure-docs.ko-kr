@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
-ms.component: files
-ms.openlocfilehash: 1c132c31ab6faac00d1428ee3a239265414a1abb
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.subservice: files
+ms.openlocfilehash: e3b0773da49499e2eaa8c9b9f59ced4ed26276ba
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221167"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465166"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Windows에서 Azure 파일 공유 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에서 매끄럽게 사용할 수 있습니다. 이 문서에서는 Windows 및 Windows Server에서 Azure 파일 공유를 사용할 때의 고려 사항을 설명합니다.

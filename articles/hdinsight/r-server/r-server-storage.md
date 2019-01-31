@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 4aae44745981951fa61836fe52d8d6b799c6cadf
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7b937158be39f9a1f7f9374611a150fd11837f02
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001518"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910269"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure HDInsight의 ML Services에 대한 Azure Storage 솔루션
 
 HDInsight의 ML Services에는 데이터, 코드, 또는 분석 결과가 포함된 개체를 유지할 수 있는 다양한 저장 솔루션이 있습니다. 여기에는 다음 옵션이 포함됩니다.
 
 - [Azure Blob](https://azure.microsoft.com/services/storage/blobs/)
-- [Azure 데이터 레이크 저장소](https://azure.microsoft.com/services/storage/data-lake-storage/)
+- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)
 - [Azure File Storage](https://azure.microsoft.com/services/storage/files/)
 
 필요한 경우, HDInsight 클러스터가 있는 여러 Azure Storage 계정 또는 컨테이너에 액세스할 수도 있습니다. Azure File Storage는 Azure Storage 파일 공유를 Linux 파일 시스템 등에 마운팅할 수 있도록 에지 노드에서 사용할 수 있는 편리한 데이터 저장 옵션입니다. 하지만, Azure File 공유는 마운팅이 가능하고 Windows 또는 Linux 등 지원되는 운영 체제가 있는 모든 시스템에서 사용할 수 있습니다. 
@@ -31,9 +31,9 @@ HDInsight에서 Apache Hadoop 클러스터를 만들 때 **Azure Storage** 계�
 - [HDInsight에서 Azure Storage 사용](../hdinsight-hadoop-use-blob-storage.md)
 - [Azure HDInsight 클러스터에 Data Lake Storage 사용](../hdinsight-hadoop-use-data-lake-store.md)
 
-## <a name="use-azure-blob-storage-accounts-with-ml-services-cluster"></a>ML Services 클러스터에서 Azure Blob 저장소 계정 사용
+## <a name="use-azure-blob-storage-accounts-with-ml-services-cluster"></a>ML Services 클러스터에서 Azure Blob Storage 계정 사용
 
-ML Services 클러스터를 만들 때 둘 이상의 저장소 계정을 지정한 경우, 다음 지침에서는 ML Services 클러스터에서 데이터 액세스 및 작업에 보조 계정을 사용하는 방법을 설명합니다. **storage1** 및 **container1**(기본 컨테이너), **storage2** 및 **container2** 등의 저장소 계정과 컨테이너를 가정합니다.
+ML Services 클러스터를 만들 때 둘 이상의 저장소 계정을 지정한 경우, 다음 지침에서는 ML Services 클러스터에서 데이터 액세스 및 작업에 보조 계정을 사용하는 방법을 설명합니다. **storage1** 및 **container1**(기본 컨테이너), **storage2** 및 **container2** 등의 스토리지 계정과 컨테이너를 가정합니다.
 
 > [!WARNING]  
 > 성능을 위해 HDInsight 클러스터는 사용자가 지정한 기본 저장소 계정과 동일한 데이터 센터에 만들어집니다. HDInsight 클러스터와 다른 위치에서는 저장소 계정을 사용할 수 없습니다.
@@ -73,7 +73,7 @@ ML Services 클러스터를 만들 때 둘 이상의 저장소 계정을 지정�
 
 이제 **storage2**에서 **container2**의 /private 디렉터리에 있는 mysamplefile1.csv 파일을 처리한다고 가정합니다.
 
-R 코드에서 이름 노드 참조를 **storage2** 저장소 계정으로 지정합니다.
+R 코드에서 이름 노드 참조를 **storage2** 스토리지 계정으로 지정합니다.
 
     myNameNode <- "wasb://container2@storage2.blob.core.windows.net"
     myPort <- 0
@@ -163,7 +163,7 @@ Data Lake Storage에 대한 액세스 권한을 부여했으면 보조 Azure Sto
 
 Azure 파일의 장점은 파일 공유가 탑재되고 Windows 또는 Linux 등 지원되는 OS가 있는 모든 시스템에서 사용할 수 있다는 점입니다. 예를 들어, 사용자 또는 팀의 다른 사용자가 보유한 HDInsight 클러스터, Azure VM 또는 온-프레미스 시스템에서도 사용할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
-- [Linux에서 Azure 파일 저장소 사용 방법](../../storage/files/storage-how-to-use-files-linux.md)
+- [Linux에서 Azure File Storage 사용 방법](../../storage/files/storage-how-to-use-files-linux.md)
 - [Windows에서 Azure File Storage 사용 방법](../../storage/files/storage-dotnet-how-to-use-files.md)
 
 
@@ -172,4 +172,4 @@ Azure 파일의 장점은 파일 공유가 탑재되고 Windows 또는 Linux 등
 * [HDInsight의 ML Services 클러스터 개요](r-server-overview.md)
 * [Apache Hadoop에서 ML Services 클러스터 시작](r-server-get-started.md)
 * [HDInsight에서 ML Services 클러스터에 대한 계산 컨텍스트 옵션](r-server-compute-contexts.md)
-
+* [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

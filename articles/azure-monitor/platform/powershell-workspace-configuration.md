@@ -14,12 +14,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: a77406fd6a466ed92f6eb3ed3401e987831e3da0
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: e34d45d2d7c81ec5f15a5441ce2bb0f082c65155
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267298"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884115"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>PowerShell을 사용하여 Log Analytics 관리
 [Log Analytics PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/)을 사용하여 명령줄에서 또는 스크립트의 일부로 Log Analytics의 다양한 기능을 수행할 수 있습니다.  PowerShell을 사용하여 수행할 수 있는 작업의 예:
@@ -228,7 +228,7 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 
 사용 가능한 메트릭에 대한 자세한 내용은 [Azure Monitor에서 지원되는 메트릭](../../azure-monitor/platform/metrics-supported.md)을 참조하세요.
 
-사용 가능한 로그에 대한 자세한 내용은 [진단 로그에 지원되는 서비스 및 스키마](../../azure-monitor/platform/tutorial-dashboards.md)를 참조하세요.
+사용 가능한 로그에 대한 자세한 내용은 [진단 로그에 지원되는 서비스 및 스키마](../../azure-monitor/platform/diagnostic-logs-schema.md)를 참조하세요.
 
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"

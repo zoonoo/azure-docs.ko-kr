@@ -12,16 +12,16 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: acc1b9e9561b9468a4638c7073a066e4cb34d911
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d430a9f1ddec785d236f2501178bd3c7d493f716
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264753"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470599"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>데이터베이스 백업에서 지역 복원을 사용하여 다중 테넌트 SaaS 애플리케이션 복구
 
-이 자습서에서는 테넌트별 데이터베이스 모델을 사용하여 구현된 다중 테넌트 SaaS 애플리케이션에 대한 전체 재해 복구 시나리오를 살펴봅니다. [지역 복원](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups)을 사용하여 카탈로그 및 테넌트 데이터베이스를 자동으로 유지 관리되는 지역 중복 백업에서 대체 복구 지역으로 복구합니다. 가동 중단이 해결되면 [지역 복제](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)를 사용하여 변경된 데이터베이스를 원래 지역으로 송환합니다.
+이 자습서에서는 테넌트별 데이터베이스 모델을 사용하여 구현된 다중 테넌트 SaaS 애플리케이션에 대한 전체 재해 복구 시나리오를 살펴봅니다. [지역 복원](sql-database-recovery-using-backups.md)을 사용하여 카탈로그 및 테넌트 데이터베이스를 자동으로 유지 관리되는 지역 중복 백업에서 대체 복구 지역으로 복구합니다. 가동 중단이 해결되면 [지역 복제](sql-database-geo-replication-overview.md)를 사용하여 변경된 데이터베이스를 원래 지역으로 송환합니다.
 
 ![지역 복원 아키텍처](media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
@@ -63,12 +63,12 @@ DR(재해 복구)은 규정 준수 이유 또는 비즈니스 연속성 여부�
 이 자습서에서는 Azure SQL Database 및 Azure 플랫폼의 기능을 사용하여 다음 과제를 해결합니다.
 
 * [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) - 필요한 모든 용량을 최대한 빨리 예약합니다. Azure Resource Manager 템플릿은 복구 지역에 원래 서버와 탄력적 풀의 미러 이미지를 프로비전하는 데 사용됩니다. 또한 새 테넌트를 프로비전하기 위해 별도의 서버 및 풀이 만들어집니다.
-* [EDCL(탄력적 데이터베이스 클라이언트 라이브러리)](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library) - 테넌트 데이터베이스 카탈로그를 만들고 유지 관리합니다. 확장된 카탈로그는 정기적으로 새로 고친 풀 및 데이터베이스 구성 정보를 포함합니다.
-* EDCL의 [분할된 관리 복구 기능](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager) - 복구 및 송환하는 동안 카탈로그에 데이터베이스 위치 항목을 유지 관리합니다.  
-* [지역 복원](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery) - 자동으로 유지 관리되는 지역 중복 백업에서 카탈로그 및 테넌트 데이터베이스를 복구합니다. 
+* [EDCL(탄력적 데이터베이스 클라이언트 라이브러리)](sql-database-elastic-database-client-library.md) - 테넌트 데이터베이스 카탈로그를 만들고 유지 관리합니다. 확장된 카탈로그는 정기적으로 새로 고친 풀 및 데이터베이스 구성 정보를 포함합니다.
+* EDCL의 [분할된 관리 복구 기능](sql-database-elastic-database-recovery-manager.md) - 복구 및 송환하는 동안 카탈로그에 데이터베이스 위치 항목을 유지 관리합니다.  
+* [지역 복원](sql-database-disaster-recovery.md) - 자동으로 유지 관리되는 지역 중복 백업에서 카탈로그 및 테넌트 데이터베이스를 복구합니다. 
 * [비동기 복원 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) - 시스템에서 각 풀에 대해 큐에 넣고 풀이 오버로드되지 않도록 일괄적으로 처리하여 테넌트 우선 순위로 보내집니다. 이러한 작업은 필요에 따라 실행 전이나 실행 중에 취소할 수 있습니다.   
-* [지역 복제](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) - 가동 중단 후 데이터베이스를 원래 지역으로 송환합니다. 지역 복제를 사용하면 데이터 손실이 없고 테넌트에 미치는 영향을 최소화할 수 있습니다.
-* [SQL Server DNS 별칭](https://docs.microsoft.com/azure/sql-database/dns-alias-overview) - 카탈로그 동기화 프로세스에서 해당 위치에 관계없이 활성 카탈로그에 연결할 수 있도록 합니다.  
+* [지역 복제](sql-database-geo-replication-overview.md) - 가동 중단 후 데이터베이스를 원래 지역으로 송환합니다. 지역 복제를 사용하면 데이터 손실이 없고 테넌트에 미치는 영향을 최소화할 수 있습니다.
+* [SQL Server DNS 별칭](dns-alias-overview.md) - 카탈로그 동기화 프로세스에서 해당 위치에 관계없이 활성 카탈로그에 연결할 수 있도록 합니다.  
 
 ## <a name="get-the-disaster-recovery-scripts"></a>재해 복구 스크립트 가져오기
 
@@ -378,4 +378,4 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-[Wingtip SaaS 애플리케이션을 빌드하는 또 다른 자습서](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials).
+[Wingtip SaaS 애플리케이션을 빌드하는 또 다른 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).

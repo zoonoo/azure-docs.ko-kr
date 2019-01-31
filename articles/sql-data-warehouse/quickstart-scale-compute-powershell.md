@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 8603f0f445d668c3c04b555a83ee5edcf3839e6b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6df0ff292c21ceb99bc30c7cd8cab007a27a0fcb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434073"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469450"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>빠른 시작: PowerShell에서 Azure SQL Data Warehouse의 컴퓨팅 능력을 조정합니다.
 

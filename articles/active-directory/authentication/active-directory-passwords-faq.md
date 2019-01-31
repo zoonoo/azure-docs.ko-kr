@@ -3,19 +3,19 @@ title: 셀프 서비스 암호 재설정 FAQ - Azure Active Directory
 description: Azure AD 셀프 서비스 암호 재설정에 대해 자주 묻는 질문과 대답
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 7cbeeefe24e6f399c959484eea8aebede4598d20
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6bcf82a68ae86eb65a49127a66de614917b0b632
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424662"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080636"
 ---
 # <a name="password-management-frequently-asked-questions"></a>암호 관리 질문과 대답
 

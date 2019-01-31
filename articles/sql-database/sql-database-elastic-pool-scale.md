@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 04fcb84b22e84060652b4a3743cb73e4543ee573
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 310d662782ff7d9713007b59f0d9b75620a03f5f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868449"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455102"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Azure SQL Database에서 탄력적 풀 리소스 크기 조정
 
@@ -28,7 +28,7 @@ ms.locfileid: "52868449"
 - 저장소는 최대 크기 제한까지 프로비전할 수 있습니다.
 
   - 표준 저장소의 경우, 크기는 10GB 증분 단위로 늘리거나 줄입니다.
-  - 프리미엄 저장소의 경우, 크기는 250GB 증분 단위로 늘리거나 줄입니다.
+  - Premium Storage의 경우, 크기는 250GB 증분 단위로 늘리거나 줄입니다.
 - 최대 크기를 늘리거나 줄여서 탄력적 풀의 저장소를 프로비전할 수 있습니다.
 - 탄력적 풀에 대한 저장소의 가격은 저장소 용량에 해당 서비스 계층의 저장소 단가를 곱한 값입니다. 추가 저장소 가격에 대한 자세한 내용은 [SQL Database 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
 

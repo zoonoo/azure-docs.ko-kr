@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 44950a467e99fb7968d838345d80c8e28aee62b9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 55c1bc18422bc2be5172aebcd46b76ac6051a8a4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467471"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885850"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Azure 리소스에서 로그 데이터 수집 및 소비
 
@@ -31,7 +31,7 @@ ms.locfileid: "54467471"
 
 이 로그도 게스트 OS 수준 진단 로그와 다릅니다. 게스트 OS 진단 로그는 가상 머신이나 다른 지원되는 리소스 유형 안에서 실행되는 에이전트가 수집합니다. 리소스 수준 진단 로그는 에이전트가 필요하지 않으며 Azure 플랫폼 자체에서 리소스 특정 데이터를 수집하고, 게스트 OS 수준 진단 로그는 가상 머신에서 실행되는 운영 체제 및 애플리케이션에서 데이터를 수집합니다.
 
-일부 서비스는 여기서 설명하는 진단 로그를 지원하지 않습니다. [이 문서에는 진단 로그를 지원하는 서비스를 나열하는 섹션이 있습니다.](./../../azure-monitor/platform/tutorial-dashboards.md)
+일부 서비스는 여기서 설명하는 진단 로그를 지원하지 않습니다. [이 문서에는 진단 로그를 지원하는 서비스를 나열하는 섹션이 있습니다.](./../../azure-monitor/platform/diagnostic-logs-schema.md)
 
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>진단 로그로 수행할 수 있는 작업
 진단 로그를 통해 수행할 수 있는 몇 가지 작업은 다음과 같습니다.
@@ -229,7 +229,7 @@ Azure Monitor REST API를 사용하여 진단 설정을 변경하려면 [이 문
 
 ## <a name="supported-services-categories-and-schemas-for-diagnostic-logs"></a>진단 로그에 대해 지원되는 서비스, 범주 및 스키마
 
-지원되는 서비스 및 해당 서비스에서 사용되는 로그 범주 및 스키마에 대한 전체 목록은 [이 문서를 참조](../../azure-monitor/platform/tutorial-dashboards.md)하세요.
+지원되는 서비스 및 해당 서비스에서 사용되는 로그 범주 및 스키마에 대한 전체 목록은 [이 문서를 참조](../../azure-monitor/platform/diagnostic-logs-schema.md)하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

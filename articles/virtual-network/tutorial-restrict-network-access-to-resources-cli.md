@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: ce4ff3fe2917d4dc34718fccc740223df0c52e8e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 80ca9df064239e9c7beb9d45acfabe963c532e4a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970943"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150551"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 서비스 엔드포인트로 PaaS 리소스에 대한 네트워크 액세스 제한
 
@@ -186,7 +186,7 @@ echo $saConnectionString
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>저장소 계정에 파일 공유 만들기
 
-[az storage share create](/cli/azure/storage/share#az_storage_share_create)를 사용하여 저장소 계정에서 파일 공유를 만듭니다. 이후 단계에서 네트워크 액세스를 확인하기 위해 이 파일 공유가 탑재됩니다.
+[az storage share create](/cli/azure/storage/share)를 사용하여 스토리지 계정에서 파일 공유를 만듭니다. 이후 단계에서 네트워크 액세스를 확인하기 위해 이 파일 공유가 탑재됩니다.
 
 ```azurecli-interactive
 az storage share create \
@@ -208,7 +208,7 @@ az storage account update \
 
 ### <a name="enable-network-access-from-a-subnet"></a>서브넷에서 네트워크 액세스 사용
 
-[az storage account network-rule add](/cli/azure/storage/account/network-rule#az_storage_account_network_rule_add)를 사용하여 *Private* 서브넷에서 저장소 계정에 대한 네트워크 액세스를 허용합니다.
+[az storage account network-rule add](/cli/azure/storage/account/network-rule#az_storage_account_network_rule_add)를 사용하여 *Private* 서브넷에서 스토리지 계정에 대한 네트워크 액세스를 허용합니다.
 
 ```azurecli-interactive
 az storage account network-rule add \
@@ -318,7 +318,7 @@ sudo mkdir /mnt/MyAzureFileShare
 sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
 ```
 
-*myVmPublic* VM이 *Public* 서브넷에 배포되었으므로 액세스가 거부되고 `mount error(13): Permission denied` 오류가 수신됩니다. *Public* 서브넷에는 Azure Storage에 사용할 수 있는 서비스 엔드포인트가 없으며 저장소 계정이 *Public* 서브넷이 아닌 *Private* 서브넷의 네트워크 액세스만 허용합니다.
+*myVmPublic* VM이 *Public* 서브넷에 배포되었으므로 액세스가 거부되고 `mount error(13): Permission denied` 오류가 수신됩니다. *Public* 서브넷에는 Azure Storage에 사용할 수 있는 서비스 엔드포인트가 없으며 스토리지 계정이 *Public* 서브넷이 아닌 *Private* 서브넷의 네트워크 액세스만 허용합니다.
 
 *myVmPublic* VM에 대한 SSH 세션을 종료합니다.
 

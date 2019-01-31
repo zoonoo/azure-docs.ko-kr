@@ -6,20 +6,20 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 88c3be12647bd73296c214390d3d2fb1fe79ccb4
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 514242eb759a2349d96b38ebe54bb98cf0e83423
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138894"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468821"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Azure Machine Learning의 고급 분석 시나리오
-이 문서에서는 [TDSP(팀 데이터 과학 프로세스)](overview.md)로 처리할 수 있는 다양한 샘플 데이터 원본 및 대상 시나리오를 안내합니다. TDSP는 지능형 응용 프로그램 개발을 위해 팀원들이 공동으로 작업하기 위한 체계적인 방법을 제공합니다. 여기에 제시된 시나리오는 Azure에서 데이터 특성, 원본 위치 및 대상 저장소를 기반으로 하는 데이터 처리 워크플로에서 사용 가능한 옵션을 보여 줍니다.
+이 문서에서는 [TDSP(팀 데이터 과학 프로세스)](overview.md)로 처리할 수 있는 다양한 샘플 데이터 원본 및 대상 시나리오를 안내합니다. TDSP는 지능형 애플리케이션 개발을 위해 팀원들이 공동으로 작업하기 위한 체계적인 방법을 제공합니다. 여기에 제시된 시나리오는 Azure에서 데이터 특성, 원본 위치 및 대상 저장소를 기반으로 하는 데이터 처리 워크플로에서 사용 가능한 옵션을 보여 줍니다.
 
 마지막 섹션에서는 데이터 및 목표에 적합한 샘플 시나리오를 선택하는 **의사 결정 트리** 를 소개합니다.
 
@@ -218,7 +218,7 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
    
    다.  Hadoop 명령줄의 명령 `cd %hive_home%\bin` 로 Hive 루트 디렉터리를 입력합니다.
    
-   d.  Hive 쿼리를 실행하여 데이터베이스 및 테이블을 만들고 Blob 저장소에서 Hive 테이블로 데이터를 로드합니다.
+   d.  Hive 쿼리를 실행하여 데이터베이스 및 테이블을 만들고 Blob Storage에서 Hive 테이블로 데이터를 로드합니다.
    
    > [!NOTE]
    > 데이터가 큰 경우 사용자는 파티션이 있는 Hive 테이블을 만들 수 있습니다. 그런 다음, 사용자는 헤드 노드의 Hadoop 명령줄에서 `for` 루프를 사용하여 파티션에서 분할된 Hive 테이블로 데이터를 로드합니다.

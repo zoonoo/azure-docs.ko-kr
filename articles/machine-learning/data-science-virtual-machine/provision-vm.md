@@ -9,18 +9,18 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: 5dacbbcba44879b28e311f08b089d10d0ad8d95b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 709161165dc69ee6d33987d2cc45666045f4dfd4
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079639"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240618"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Azure에서 Windows 데이터 과학 Virtual Machine 프로비전
 Microsoft DSVM(Data Science Virtual Machine)은 Microsoft Azure VM(가상 머신) 이미지입니다. 사전 설치되고 데이터 분석 및 기계 학습에 사용되는 여러 가지 도구로 구성됩니다. 포함된 도구는 다음과 같습니다.

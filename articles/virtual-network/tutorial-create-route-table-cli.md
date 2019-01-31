@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 89ac87436fb6807177acf3882dd6e923b1722bd5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8bfa4178baae0d92f7efb5ea156cfd35a8b32b1b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849212"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157468"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Azure CLI를 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -121,7 +121,7 @@ az network vnet subnet update \
 
 NVA는 라우팅, 방화벽 또는 WAN 최적화와 같은 네트워크 기능을 수행하는 VM입니다.
 
-[az vm create](/cli/azure/vm#az_vm_create)를 사용하여 *DMZ* 서브넷에서 NVA를 만듭니다. VM을 만들 때 Azure는 기본적으로 VM에 공용 IP 주소를 만들고 할당합니다. VM이 인터넷에서 연결될 필요가 없으므로 `--public-ip-address ""` 매개 변수는 Azure에서 VM에 공용 IP 주소를 만들고 할당하지 못하도록 지시합니다. 또한 기본 키 위치에 SSH 키가 없는 경우 해당 명령이 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.
+[az vm create](/cli/azure/vm)를 사용하여 *DMZ* 서브넷에서 NVA를 만듭니다. VM을 만들 때 Azure는 기본적으로 VM에 공용 IP 주소를 만들고 할당합니다. VM이 인터넷에서 연결될 필요가 없으므로 `--public-ip-address ""` 매개 변수는 Azure에서 VM에 공용 IP 주소를 만들고 할당하지 못하도록 지시합니다. 또한 기본 키 위치에 SSH 키가 없는 경우 해당 명령이 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.
 
 ```azure-cli-interactive
 az vm create \
@@ -161,7 +161,7 @@ az vm extension set \
 
 이후 단계에서 *공용* 서브넷의 해당 트래픽이 NVA를 통해 *개인* 서브넷에 라우팅되는지 유효성을 검사할 수 있도록 가상 네트워크에 두 개의 VM을 만듭니다. 
 
-[az vm create](/cli/azure/vm#az_vm_create)를 사용하여 *공용* 서브넷에 VM을 만듭니다. `--no-wait` 매개 변수를 사용하면 Azure가 백그라운드에서 명령을 실행할 수 있으므로 다음 명령을 계속 진행할 수 있습니다. 이 문서를 간소화하기 위해 암호가 사용됩니다. 일반적으로 키는 프로덕션 배포에 사용됩니다. 키를 사용하는 경우 SSH 에이전트 전달도 구성해야 합니다. 자세한 내용은 SSH 클라이언트를 위한 설명서를 참조하세요. 다음 명령에서 `<replace-with-your-password>`를 원하는 암호로 바꿉니다.
+[az vm create](/cli/azure/vm)를 사용하여 *공용* 서브넷에 VM을 만듭니다. `--no-wait` 매개 변수를 사용하면 Azure가 백그라운드에서 명령을 실행할 수 있으므로 다음 명령을 계속 진행할 수 있습니다. 이 문서를 간소화하기 위해 암호가 사용됩니다. 일반적으로 키는 프로덕션 배포에 사용됩니다. 키를 사용하는 경우 SSH 에이전트 전달도 구성해야 합니다. 자세한 내용은 SSH 클라이언트를 위한 설명서를 참조하세요. 다음 명령에서 `<replace-with-your-password>`를 원하는 암호로 바꿉니다.
 
 ```azurecli-interactive
 adminPassword="<replace-with-your-password>"

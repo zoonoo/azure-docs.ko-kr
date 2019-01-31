@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: iainfou
-ms.openlocfilehash: f9f4c1cccac7e40c7d2fd8f76221bc1870ade45f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a3f5bad20ddd0968f2e76008799494adbb55bc31
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993250"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092161"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Helm을 사용하여 애플리케이션 설치
 
-[Helm][helm]은 Kubernetes 응용 프로그램을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. *APT*, *Yum* 등의 Linux 패키지 관리자와 마찬가지로 Helm은 사전 구성된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리하는 데 사용합니다.
+[Helm][helm]은 Kubernetes 애플리케이션을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. *APT*, *Yum* 등의 Linux 패키지 관리자와 마찬가지로 Helm은 사전 구성된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리하는 데 사용합니다.
 
 이 아티클에서는 AKS의 Kubernetes 클러스터에서 Helm을 구성하고 사용하는 방법을 보여줍니다.
 
@@ -99,7 +99,6 @@ helm search
 $ helm search
 
 NAME                           CHART VERSION    APP VERSION  DESCRIPTION
-stable/aks-engine-autoscaler   2.2.0            2.1.1        Scales worker nodes within agent pools
 stable/aerospike               0.1.7            v3.14.1.2    A Helm chart for Aerospike in Kubernetes
 stable/anchore-engine          0.1.7            0.1.10       Anchore container analysis and policy evaluatio...
 stable/apm-server              0.1.0            6.2.4        The server receives data from the Elastic APM a...

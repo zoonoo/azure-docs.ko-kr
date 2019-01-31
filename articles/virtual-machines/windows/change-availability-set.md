@@ -4,7 +4,7 @@ description: Azure PowerShell 및 Resource Manager 배포 모델을 사용하여
 keywords: ''
 services: virtual-machines-windows
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
-ms.author: zarhoads
-ms.openlocfilehash: df59b3ec7da0c12a17e10790d69e244f9a0d03f5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: cynthn
+ms.openlocfilehash: 769f5052242acfbbdf29348c4a50daea750f3bba
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259533"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882299"
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Windows VM에 대한 가용성 집합 변경
 다음 단계에서는 Azure PowerShell을 사용하여 VM의 가용성 집합을 변경하는 방법을 설명합니다. VM은 생성될 때만 가용성 집합에 추가될 수 있습니다. 가용성 집합을 변경하려면 가상 머신을 삭제한 다음, 다시 만들어야 합니다. 

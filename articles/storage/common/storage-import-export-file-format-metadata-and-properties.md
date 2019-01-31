@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 5a886244b43ad006a95e9be0350d9c69fd987ad9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 2066d4a2ed6db97285d92d15e14dbd21629dbdfa
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526235"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457006"
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Azure Import/Export 서비스 메타데이터 및 속성 파일 형식
 가져오기 작업 또는 내보내기 작업의 일부로 하나 이상의 Blob에 대한 메타데이터 및 속성을 지정할 수 있습니다. 가져오기 작업의 일부로 만들어지는 Blob에 대한 메타데이터 또는 속성을 설정하려면 가져올 데이터가 있는 하드 드라이브에 메타데이터 또는 속성 파일을 제공합니다. 내보내기 작업의 경우 메타데이터 및 속성은 반환된 하드 드라이브에 포함된 메타데이터 또는 속성 파일에 기록됩니다.  
@@ -30,7 +30,7 @@ ms.locfileid: "39526235"
 </Metadata>  
 ```
   
-|XML 요소|type|설명|  
+|XML 요소|Type|설명|  
 |-----------------|----------|-----------------|  
 |`Metadata`|루트 요소|메타데이터 파일의 루트 요소입니다.|  
 |`metadata-name`|문자열|선택 사항입니다. XML 요소는 Blob에 대한 메타데이터의 이름을 지정하고 값은 메타데이터 설정 값을 지정합니다.|  
@@ -52,7 +52,7 @@ ms.locfileid: "39526235"
 </Properties>  
 ```
   
-|XML 요소|type|설명|  
+|XML 요소|Type|설명|  
 |-----------------|----------|-----------------|  
 |`Properties`|루트 요소|속성 파일의 루트 요소입니다.|  
 |`Last-Modified`|문자열|선택 사항입니다. Blob에 대한 마지막 수정 시간입니다. 내보내기 작업에만 해당합니다.|  

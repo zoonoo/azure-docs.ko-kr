@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.component: disks
-ms.openlocfilehash: 6cccf31842825c3e4d50aa67165d19f8ac471695
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.subservice: disks
+ms.openlocfilehash: 61f4237756d7a808bcc8a5983508d72fa49f4cbd
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478164"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459178"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Azure에서 Linux VM 최적화
 Linux 가상 머신(VM) 만들기는 명령줄 또는 포털에서 수행하는 것이 쉽습니다. 이 자습서에서는 Microsoft Azure Platform에서 해당 성능을 최적화하도록 설정하는 방법을 보여줍니다. 이 항목에서는 Ubuntu Server VM을 사용 하지만 [템플릿으로 사용자 고유의 이미지](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 Linux 가상 머신을 만들 수도 있습니다.  

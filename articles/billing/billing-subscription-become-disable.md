@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: cwatson
-ms.openlocfilehash: 14e372ef8de0a3ec82d9a14d026487d72bfa80bd
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 19895ef706ab5a5ec0aa390465ce260e68d71d78
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583723"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903114"
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>내 Azure 구독이 비활성화된 이유 및 다시 활성화하는 방법은 무엇인가요?
 

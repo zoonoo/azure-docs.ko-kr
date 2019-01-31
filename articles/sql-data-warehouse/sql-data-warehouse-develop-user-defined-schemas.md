@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: d46f41e75538fae230219068d3530b7181564ac0
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: ae017461767a207deae1d990980258a1f661df3d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302644"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468447"
 ---
 # <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>SQL Data Warehouse의 사용자 정의 스키마 사용
 솔루션 개발을 위해 Azure SQL Data Warehouse의 T-SQL 사용자 정의 스키마 사용을 위한 팁입니다.

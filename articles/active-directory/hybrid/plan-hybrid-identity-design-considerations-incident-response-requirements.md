@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5a5b166e9b90ede5f5c51b2c288ce1d2d6290ba6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e8ac6b7bef06eae16224f9db8e216f13c21f13a1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464836"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161395"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 인시던트 대응 요구 사항 확인
 대규모 또는 중간 규모 조직에서는 대개 [보안 인시던트 대응](https://technet.microsoft.com/library/cc700825.aspx) 을 준비하여 IT가 인시던트의 수준에 따라 동작을 취합니다. ID 관리 시스템은 대상에 대해 특정 동작을 수행한 사용자를 식별하는 데 사용될 수 있기 때문에 인시던트 대응 프로세스에서 중요한 구성 요소입니다. 하이브리드 ID 솔루션은 IT에서 활용할 수 있는 모니터링 및 보고 기능을 제공하여 잠재적인 위협을 식별하고 완화하는 작업을 수행해야 합니다. 일반적인 인시던트 대응 계획에서 계획의 일부를 다음과 같은 단계로 해야 합니다.

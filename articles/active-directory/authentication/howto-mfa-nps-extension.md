@@ -3,19 +3,19 @@ title: 기존 NPS 서버를 사용하여 Azure MFA 기능 제공
 description: 기존 인증 인프라에 클라우드 기반 2단계 검증 기능 추가
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 5424448207bca3e6db253245ce7197feae5fba21
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: dc18a523ff7c275b249704fb3928f2ebde6c81a9
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424985"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55074892"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 

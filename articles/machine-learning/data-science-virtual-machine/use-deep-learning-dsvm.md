@@ -9,29 +9,29 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: ab07d656af6f79949c51f546434c57b5d63714da
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0609cabd5a9898900580580d1f5f412722637bcf
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083821"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242827"
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>딥 러닝 Virtual Machine 사용
 
-DLVM(딥 러닝 가상 머신)을 프로비전하면 심층 신경망 모델을 빌드하여 도메인에 컴퓨터 비전 및 언어 이해와 같은 AI 응용 프로그램을 빌드할 수 있습니다. 
+DLVM(딥 러닝 가상 머신)을 프로비전하면 심층 인공신경망 모델을 빌드하여 도메인에 컴퓨터 비전 및 언어 이해와 같은 AI 애플리케이션을 빌드할 수 있습니다. 
 
 AI용 딥 러닝 VM에는 여러 가지 도구가 제공됩니다. [심화 학습 및 AI 프레임워크 페이지](dsvm-deep-learning-ai-frameworks.md)에 이러한 도구를 사용하는 자세한 방법이 나와 있습니다. 
 
 ## <a name="deep-learning-tutorials-and-walkthroughs"></a>심화 학습 자습서 및 연습
 
-프레임워크 기반 샘플 외에도 DLVM에서 유효성이 확인된 일련의 포괄적인 연습이 제공됩니다. 이러한 연습을 통해 이미지 및 텍스트/언어 이해와 같이 도메인에서 딥 러닝 응용 프로그램의 개발을 빠르게 시작할 수 있습니다. 다양한 도메인과 기술에 대한 포괄적인 자습서가 계속 추가될 예정입니다.   
+프레임워크 기반 샘플 외에도 DLVM에서 유효성이 확인된 일련의 포괄적인 연습이 제공됩니다. 이러한 연습을 통해 이미지 및 텍스트/언어 이해와 같이 도메인에서 딥 러닝 애플리케이션의 개발을 빠르게 시작할 수 있습니다. 다양한 도메인과 기술에 대한 포괄적인 자습서가 계속 추가될 예정입니다.   
 
 
 - [다양한 프레임워크에서 신경망 실행](https://github.com/ilkarman/DeepLearningFrameworks): 한 프레임워크에서 다른 프레임워크로 코드를 마이그레이션하는 방법을 보여주는 포괄적인 연습입니다. 또한 프레임워크에서 시간 성능을 실행하고 모델을 비교하는 방법을 보여 줍니다. 

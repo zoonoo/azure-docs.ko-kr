@@ -8,22 +8,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 39a938d45c8f15c21b44bb5b04b1429fb4733b5a
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.subservice: common
+ms.openlocfilehash: c9d949b32fb298c22142a35b939860bae240c803
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323271"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454813"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Azure Storage 중단이 발생할 경우 수행할 작업
 Microsoft에서는 서비스를 항상 사용할 수 있도록 하기 위해 많은 노력을 기울입니다. 경우에 따라 강제적으로 우리의 제어 영향을 벗어나 하나 이상의 지역에서 계획되지 않은 서비스 중단이 발생되는 경우가 있습니다. 이러한 드문 경우를 처리할 수 있도록 Azure Storage 서비스에 대해 다음과 같은 높은 수준의 지침을 제공합니다.
 
 ## <a name="how-to-prepare"></a>준비 방법
-모든 고객은 자체적으로 재해 복구 계획을 준비하는 것이 중요합니다. 저장소 중단을 복구하려면 일반적으로 응용 프로그램을 작동 중인 상태로 다시 활성화하기 위해 운영 직원과 자동화된 프로시저가 모두 작업에 관여합니다. 자체 재해 복구 계획을 빌드하려면 아래 Azure 설명서를 참조하세요.
+모든 고객은 자체적으로 재해 복구 계획을 준비하는 것이 중요합니다. 저장소 중단을 복구하려면 일반적으로 애플리케이션을 작동 중인 상태로 다시 활성화하기 위해 운영 직원과 자동화된 프로시저가 모두 작업에 관여합니다. 자체 재해 복구 계획을 빌드하려면 아래 Azure 설명서를 참조하세요.
 
 * [가용성 검사 목록](https://docs.microsoft.com/azure/architecture/checklist/availability)
-* [Azure용 복원 응용 프로그램 디자인](https://docs.microsoft.com/azure/architecture/resiliency/)
+* [Azure용 복원 애플리케이션 디자인](https://docs.microsoft.com/azure/architecture/resiliency/)
 * [Azure Site Recovery 서비스](https://azure.microsoft.com/services/site-recovery/)
 * [Azure Storage 복제](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 * [Azure Backup 서비스](https://azure.microsoft.com/services/backup/)
@@ -38,10 +38,10 @@ Azure 서비스 상태를 확인하는 권장 방법은 [Azure 서비스 상태 
 이 경우에 사용자의 조치가 필요하지 않습니다. Azure 서비스 가용성을 복원하기 위해 열심히 노력 중입니다. [Azure 서비스 상태 대시보드](https://azure.microsoft.com/status/)에서 서비스 상태를 모니터링할 수 있습니다.
 
 ### <a name="option-2-copy-data-from-secondary"></a>옵션 2: 보조에서 데이터 복사
-저장소 계정에 대해 [RA-GRS(읽기 액세스 지역 중복 저장소)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (권장)를 선택한 경우 보조 지역의 데이터에 대한 읽기 권한을 가집니다. [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) 및 [Azure 데이터 이동 라이브러리](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)와 같은 도구를 사용하여 보조 지역의 데이터를 영향을 받지 않은 지역의 다른 저장소 계정으로 복사할 수 있으며, 응용 프로그램이 읽기 및 쓰기 가용성 모두에 대한 해당 저장소 계정을 가리키도록 할 수 있습니다.
+저장소 계정에 대해 [RA-GRS(읽기 액세스 지역 중복 저장소)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (권장)를 선택한 경우 보조 지역의 데이터에 대한 읽기 권한을 가집니다. [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) 및 [Azure 데이터 이동 라이브러리](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)와 같은 도구를 사용하여 보조 지역의 데이터를 영향을 받지 않은 지역의 다른 저장소 계정으로 복사할 수 있으며, 애플리케이션이 읽기 및 쓰기 가용성 모두에 대한 해당 저장소 계정을 가리키도록 할 수 있습니다.
 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>저장소 장애 조치(failover)가 발생할 경우 예상 결과
-[GRS(지역 중복 저장소)](storage-redundancy-grs.md) 또는 [RA-GRS(읽기 액세스 지역 중복 저장소)](storage-redundancy-grs.md#read-access-geo-redundant-storage)(권장)를 선택한 경우 Azure Storage가 두 지역(기본 및 보조)에 데이터를 지속적으로 유지합니다. Azure Storage는 두 지역에 여러 데이터 복제본을 계속 유지합니다.
+[GRS(지역 중복 스토리지)](storage-redundancy-grs.md) 또는 [RA-GRS(읽기 액세스 지역 중복 스토리지)](storage-redundancy-grs.md#read-access-geo-redundant-storage)(권장)를 선택한 경우 Azure Storage가 두 지역(기본 및 보조)에 데이터를 지속적으로 유지합니다. Azure Storage는 두 지역에 여러 데이터 복제본을 계속 유지합니다.
 
 지역 재해가 주 지역에 영향을 미칠 경우 먼저 해당 지역에서 서비스 복원을 시도하여 RTO 및 RPO의 최적 조합을 제공합니다. 재해 및 그 영향에 따라 드물지만 기본 지역을 복원하지 못할 수 있습니다. 이때 지역 장애 조치(failover)를 수행합니다. 지역 간 데이터 복제는 지연될 수 있는 비동기 프로세스이므로 보조 지역으로 미처 복제되지 않은 변경 내용은 손실될 수 있습니다.
 
@@ -62,4 +62,4 @@ Azure 서비스 상태를 확인하는 권장 방법은 [Azure 서비스 상태 
 * 테이블 – [AzCopy](storage-use-azcopy.md) 를 사용하여 다른 지역에 있는 다른 저장소 계정으로 테이블 데이터를 내보냅니다.
 * 파일 – [AzCopy](storage-use-azcopy.md) 또는 [Azure PowerShell](storage-powershell-guide-full.md)을 사용하여 다른 지역에 있는 다른 저장소 계정에 파일을 복사합니다.
 
-RA-GRS 기능을 충분히 활용하는 응용 프로그램 생성에 대한 자세한 내용은 [RA-GRS Storage를 사용하여 항상 사용 가능한 응용 프로그램 설계](../storage-designing-ha-apps-with-ragrs.md)를 참조하세요.
+RA-GRS 기능을 충분히 활용하는 애플리케이션 생성에 대한 자세한 내용은 [RA-GRS Storage를 사용하여 항상 사용 가능한 애플리케이션 설계](../storage-designing-ha-apps-with-ragrs.md)를 참조하세요.

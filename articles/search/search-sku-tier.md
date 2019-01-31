@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4b6e6cf3fb030f5f9706ded19f85575baed69b39
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: cf2359834aa79b1d3fef8b65e4ef4191eb6ff867
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471823"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467444"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure Search에 대한 가격 책정 계층 선택
 
@@ -108,7 +108,7 @@ Azure Search에서 용량은 *복제본* 및 *파티션*으로 구조화됩니�
 
 |  | S1 | S2 | S3 |  |  |  |  |
 |--|----|----|----|--|--|--|--|
-| 파티션 크기|  25GB | 100GB | 250GB |  |  |  |  |
+| 파티션 크기|  25GB | 100GB | 200GB |  |  |  |  |
 | 인덱스 및 인덱서 제한| 50 | 200 | 200 |  |  |  |  |
 
 **S1**은 전용 리소스 및 여러 파티션이 필수적인 경우 일반적인 선택입니다. 최대 12개 파티션용 25GB 파티션으로 **S1**에 대한 서비스당 한도는 복제복에 비해 파티션을 최대화하는 경우 총 300GB입니다(더 균형 있는 컴퍼지션에 대해서는 [파티션 및 복제본 할당](search-capacity-planning.md#chart)을 참조합니다.)

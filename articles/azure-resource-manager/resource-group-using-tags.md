@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 27ba79e9168e098717e91e5a7179b5bc419ef86c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: aa3cd0305c1ac2db269dcc46243ec3da1232e6f6
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438410"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079531"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>태그를 사용하여 Azure 리소스 구성
 
@@ -31,12 +31,12 @@ ms.locfileid: "54438410"
 
 ## <a name="powershell"></a>PowerShell
 
-이 문서의 예제에는 Azure PowerShell 6.0 이상이 필요합니다. 버전 6.0 이상이 없는 경우 [버전을 업데이트](/powershell/azure/azurerm/install-azurerm-ps)합니다.
+이 문서의 예제에는 Azure PowerShell 6.0 이상이 필요합니다. 버전 6.0 이상이 없는 경우 [버전을 업데이트](/powershell/azure/install-az-ps)합니다.
 
 *리소스 그룹*에 대한 기존 태그를 보려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
-(Get-AzureRmResourceGroup -Name examplegroup).Tags
+(Get-AzResourceGroup -Name examplegroup).Tags
 ```
 
 그러면 스크립트가 다음 형식을 반환합니다.
@@ -51,31 +51,31 @@ Environment                    Test
 *지정된 리소스 ID를 포함한 리소스*에 대한 기존 태그를 보려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
-(Get-AzureRmResource -ResourceId /subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>).Tags
+(Get-AzResource -ResourceId /subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>).Tags
 ```
 
 또는 *지정된 이름 및 리소스 그룹을 포함한 리소스*에 대한 기존 태그를 보려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
-(Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
+(Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
 ```
 
 *특정 태그가 있는 리소스 그룹*을 가져오려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
-(Get-AzureRmResourceGroup -Tag @{ Dept="Finance" }).ResourceGroupName
+(Get-AzResourceGroup -Tag @{ Dept="Finance" }).ResourceGroupName
 ```
 
 *특정 태그가 있는 리소스*를 가져오려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
-(Get-AzureRmResource -Tag @{ Dept="Finance"}).Name
+(Get-AzResource -Tag @{ Dept="Finance"}).Name
 ```
 
 *특정 태그 이름이 있는 리소스*를 가져오려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
-(Get-AzureRmResource -TagName Dept).Name
+(Get-AzResource -TagName Dept).Name
 ```
 
 리소스 또는 리소스 그룹에 태그를 적용할 때마다 해당 리소스 또는 리소스 그룹의 기존 태그가 덮어써집니다. 따라서 리소스 또는 리소스 그룹에 기존 태그가 있는지에 따라 다른 방법을 사용해야 합니다.
@@ -83,51 +83,51 @@ Environment                    Test
 *기존 태그를 포함하지 않는 리소스 그룹*에 태그를 추가하려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
-Set-AzureRmResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
+Set-AzResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
 ```
 
 *기존 태그를 포함하는 리소스 그룹*에 태그를 추가하려면 기존 태그를 검색하고, 새 태그를 추가하고, 태그를 다시 적용합니다.
 
 ```azurepowershell-interactive
-$tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
+$tags = (Get-AzResourceGroup -Name examplegroup).Tags
 $tags.Add("Status", "Approved")
-Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
+Set-AzResourceGroup -Tag $tags -Name examplegroup
 ```
 
 *기존 태그를 포함하지 않는 리소스*에 태그를 추가하려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
-$r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
-Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId $r.ResourceId -Force
+$r = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
+Set-AzResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId $r.ResourceId -Force
 ```
 
 *기존 태그를 포함하는 리소스*에 태그를 추가하려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
-$r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
+$r = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
 $r.Tags.Add("Status", "Approved")
-Set-AzureRmResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
+Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
 *리소스의 기존 태그를 유지하지 않고* 리소스 그룹의 모든 태그를 리소스에 적용하려면 다음 스크립트를 사용합니다.
 
 ```azurepowershell-interactive
-$groups = Get-AzureRmResourceGroup
+$groups = Get-AzResourceGroup
 foreach ($g in $groups)
 {
-    Get-AzureRmResource -ResourceGroupName $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
+    Get-AzResource -ResourceGroupName $g.ResourceGroupName | ForEach-Object {Set-AzResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
 }
 ```
 
 *리소스의 중복되지 않는 기존 태그를 유지하지 않고* 리소스 그룹의 모든 태그를 리소스에 적용하려면 다음 스크립트를 사용합니다.
 
 ```azurepowershell-interactive
-$group = Get-AzureRmResourceGroup "examplegroup"
+$group = Get-AzResourceGroup "examplegroup"
 if ($null -ne $group.Tags) {
-    $resources = Get-AzureRmResource -ResourceGroupName $group.ResourceGroupName
+    $resources = Get-AzResource -ResourceGroupName $group.ResourceGroupName
     foreach ($r in $resources)
     {
-        $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
+        $resourcetags = (Get-AzResource -ResourceId $r.ResourceId).Tags
         if ($resourcetags)
         {
             foreach ($key in $group.Tags.Keys)
@@ -137,11 +137,11 @@ if ($null -ne $group.Tags) {
                     $resourcetags.Add($key, $group.Tags[$key])
                 }
             }
-            Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
+            Set-AzResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
         }
         else
         {
-            Set-AzureRmResource -Tag $group.Tags -ResourceId $r.ResourceId -Force
+            Set-AzResource -Tag $group.Tags -ResourceId $r.ResourceId -Force
         }
     }
 }
@@ -150,7 +150,7 @@ if ($null -ne $group.Tags) {
 모든 태그를 제거하려면 빈 해시 테이블을 전달합니다.
 
 ```azurepowershell-interactive
-Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
+Set-AzResourceGroup -Tag @{} -Name examplegroup
 ```
 
 ## <a name="azure-cli"></a>Azure CLI

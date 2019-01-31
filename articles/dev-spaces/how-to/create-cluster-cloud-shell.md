@@ -3,19 +3,19 @@ title: Azure Cloud Shell을 사용하여 Azure Dev Spaces에 사용할 수 있�
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 10/04/2018
 ms.topic: article
 description: 아무것도 설치하지 않고 브라우저에서 바로, Azure Dev Spaces에 사용할 수 있는 Kubernetes 클러스터를 빠르게 만드는 방법을 알아보세요.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 531781ec48617d2038698665696fdc61b3c52cd9
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: d806607eb3e46d0bd04deb18756021adec59601d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413543"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466577"
 ---
 # <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>Azure Cloud Shell을 사용하여 Kubernetes 클러스터 만들기
 

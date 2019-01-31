@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: cf484d5d7a48117bac659dcfad356238f1e9f8a2
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 572dc0710cd67b59a9ff8861a0cc73aad512c155
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307440"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461477"
 ---
 # <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 Contoso 소매 데이터 로드
 
@@ -23,7 +23,7 @@ Contoso 소매 데이터에서 Azure SQL Data Warehouse로 두 개의 테이블�
 
 이 자습서에서는 다음 작업을 수행합니다.
 
-1. Azure blob 저장소에서 로드하기 위한 PolyBase 구성
+1. Azure Blob Storage에서 로드하기 위한 PolyBase 구성
 2. 공용 데이터를 데이터베이스에 로드
 3. 로드가 완료 된 후에 최적화를 수행합니다.
 
@@ -86,12 +86,12 @@ WITH
 ```
 
 > [!IMPORTANT]
-> Azure blob 저장소 컨테이너를 공용으로 만들도록 선택하는 경우 데이터가 데이터 센터에서 떠날 때 데이터 소유자로서 귀하에게 데이터 송신 요금이 부과될 것임을 염두에 두어야 합니다. 
+> Azure Blob Storage 컨테이너를 공용으로 만들도록 선택하는 경우 데이터가 데이터 센터에서 떠날 때 데이터 소유자로서 귀하에게 데이터 송신 요금이 부과될 것임을 염두에 두어야 합니다. 
 > 
 > 
 
 ## <a name="2-configure-data-format"></a>2. 데이터 형식 구성
-데이터는 Azure blob 저장소에 텍스트 파일로 저장되고 각 필드는 구분 기호로 구분됩니다. 이 [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] 명령을 실행하여 텍스트 파일로 된 데이터의 형식을 지정합니다. Contoso 데이터는 압축되어 있지 않으며 파이프로 구분됩니다.
+데이터는 Azure Blob Storage에 텍스트 파일로 저장되고 각 필드는 구분 기호로 구분됩니다. 이 [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] 명령을 실행하여 텍스트 파일로 된 데이터의 형식을 지정합니다. Contoso 데이터는 압축되어 있지 않으며 파이프로 구분됩니다.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -117,7 +117,7 @@ GO
 ```
 
 ### <a name="32-create-the-external-tables"></a>3.2. 외부 테이블을 만듭니다.
-DimProduct와 FactOnlineSales 외부 테이블을 만들려면 이 스크립트를 실행합니다. 여기에서는 열 이름과 데이터 형식을 정의하고 이들을 Azure blob 저장소 파일의 위치와 형식에 바인딩합니다. 정의는 SQL Data Warehouse에 저장되고 데이터는 여전히 Azure Storage Blob에 위치합니다.
+DimProduct와 FactOnlineSales 외부 테이블을 만들려면 이 스크립트를 실행합니다. 여기에서는 열 이름과 데이터 형식을 정의하고 이들을 Azure Blob Storage 파일의 위치와 형식에 바인딩합니다. 정의는 SQL Data Warehouse에 저장되고 데이터는 여전히 Azure Storage Blob에 위치합니다.
 
 **위치** 매개 변수는 Azure Storage Blob의 루트 폴더 아래에 있는 폴더입니다. 각 테이블은 서로 다른 폴더에 있습니다.
 

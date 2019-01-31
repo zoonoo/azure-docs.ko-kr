@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/23/2018
-ms.openlocfilehash: 09035b19ee48602fde70736ab918fccae71108a5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 864cf49634e4f9452829a30ce4b260179bdeb8db
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166255"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476216"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Azure SQL Database 및 SQL Server용 Spark 커넥터를 통해 실시간 빅 데이터 분석 가속화
 
@@ -161,7 +161,7 @@ collection.show()
 #### <a name="setup-requirement"></a>설치 요구 사항
 액세스 토큰 기반 인증 모드를 사용하는 경우 [azure-activedirectory-library-for-java](https://github.com/AzureAD/azure-activedirectory-library-for-java) 및 해당 종속성을 다운로드하여 Java 빌드 경로에 포함시켜야 합니다.
 
-Azure SQL Database에 대한 액세스 토큰을 가져오는 방법에 대해 알아보려면 [SQL Database에서 인증을 위해 Azure Active Directory 인증 사용](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)을 참조하세요.
+Azure SQL Database에 대한 액세스 토큰을 가져오는 방법에 대해 알아보려면 [SQL Database에서 인증을 위해 Azure Active Directory 인증 사용](sql-database-aad-authentication.md)을 참조하세요.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config

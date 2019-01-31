@@ -10,19 +10,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: b0152056dcb8716a407e022d2b30c48e6b534b2a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2aa5522b8200f87df633759ee136f744cd1b8099
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074573"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471235"
 ---
 # <a name="introduction-to-the-geo-artificial-intelligence-data-science-virtual-machine"></a>지리적 인공 지능 데이터 과학 가상 머신 소개
 
@@ -35,12 +35,12 @@ Azure **지리적 AI 데이터 과학 VM**(지리적 DSVM)은 Microsoft 데이�
 - 기계 학습 및 심화 학습 알고리즘을 사용하여 예측 분석을 위한 모델 학습
 - 풍부한 시각화 창출
 
-Windows 2016 데이터 과학 가상 머신에서 지원됩니다. ArcGIS에 대한 Python 및 R 인터페이스는 지리적 DSVM에 미리 구성되어, AI 응용 프로그램 내의 지리 공간 분석에 프로그래밍 방식으로 액세스할 수 있도록 합니다. 지리 공간 정보가 주입된 AI 응용 프로그램을 빌드하는 데 도움을 주기 위해 Jupyter 노트북 샘플도 제공됩니다.
+Windows 2016 데이터 과학 가상 머신에서 지원됩니다. ArcGIS에 대한 Python 및 R 인터페이스는 지리적 DSVM에 미리 구성되어, AI 애플리케이션 내의 지리 공간 분석에 프로그래밍 방식으로 액세스할 수 있도록 합니다. 지리 공간 정보가 주입된 AI 애플리케이션을 빌드하는 데 도움을 주기 위해 Jupyter 노트북 샘플도 제공됩니다.
 
 
 ## <a name="why-geo-ai-data-science-vm"></a>지리적 AI 데이터 과학 VM이어야 하는 이유 
 
-지리 및 위치 정보를 데이터와 통합하면 새로운 차원에 대한 이해를 바탕으로, 전 세계를 IOT 디바이스로 점점 더 많이 계측화할 수 있습니다. 상업적이든, 정부용이든, 교육용이든, 비영리 활동이든, 거의 모든 문명 사회 부문에서는 다양한 응용 프로그램이 사용되고 있습니다. 지리 공간적 분석은 지리적 및 위치 기반 데이터를 수집, 관리 및 분석하기 위한 강력한 도구를 제공하고, 이러한 데이터의 의미를 독특하게 분석할 수 있는 강력한 시각화 기능도 제공합니다. 
+지리 및 위치 정보를 데이터와 통합하면 새로운 차원에 대한 이해를 바탕으로, 전 세계를 IOT 디바이스로 점점 더 많이 계측화할 수 있습니다. 상업적이든, 정부용이든, 교육용이든, 비영리 활동이든, 거의 모든 문명 사회 부문에서는 다양한 애플리케이션이 사용되고 있습니다. 지리 공간적 분석은 지리적 및 위치 기반 데이터를 수집, 관리 및 분석하기 위한 강력한 도구를 제공하고, 이러한 데이터의 의미를 독특하게 분석할 수 있는 강력한 시각화 기능도 제공합니다. 
 
 Microsoft의 [DSVM(데이터 과학 가상 머신)](overview.md)은 Azure에 제공되는 인기 있는 실험 및 모델링 환경으로, AI, Machine Learning 및 데이터 과학 도구 모음을 제공합니다. 이러한 플랫폼 및 도구는 모두 편리하게 미리 구성되어 있으므로 생산성을 바로 높이는 데 도움이 됩니다. 
 
