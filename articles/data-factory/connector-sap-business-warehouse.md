@@ -166,28 +166,28 @@ SAP BW에서 데이터를 복사할 경우 SAP BW 데이터 형식에서 Azure D
 
 | SAP BW 데이터 형식 | Data Factory 중간 데이터 형식 |
 |:--- |:--- |
-| ACCP | int |
-| CHAR | 문자열 |
-| CLNT | 문자열 |
-| CURR | 10진수 |
-| CUKY | 문자열 |
-| DEC | 10진수 |
+| ACCP | Int |
+| CHAR | String |
+| CLNT | String |
+| CURR | Decimal |
+| CUKY | String |
+| DEC | Decimal |
 | FLTP | Double |
 | INT1 | Byte |
 | INT2 | Int16 |
-| INT4 | int |
-| LANG | 문자열 |
-| LCHR | 문자열 |
+| INT4 | Int |
+| LANG | String |
+| LCHR | String |
 | LRAW | Byte[] |
 | PREC | Int16 |
-| QUAN | 10진수 |
+| QUAN | Decimal |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| STRING | 문자열 |
-| 단위 | 문자열 |
-| DATS | 문자열 |
-| NUMC | 문자열 |
-| TIMS | 문자열 |
+| STRING | String |
+| UNIT | String |
+| DATS | String |
+| NUMC | String |
+| TIMS | String |
 
 
 ## <a name="next-steps"></a>다음 단계
