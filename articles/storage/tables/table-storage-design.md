@@ -7,19 +7,19 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: c5b18bce9d0cf78569d0c2fa02ad14c96ad09bd1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: tables
+ms.openlocfilehash: 8387e41d57edfa0e54ac930c9462714aca571f2a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237777"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472561"
 ---
 # <a name="design-scalable-and-performant-tables"></a>확장 가능하고 성능이 우수한 테이블 설계
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
 
-확장형 및 영구 테이블을 디자인하려면 성능, 확장성, 비용 등의 요소를 고려해야 합니다. 이전에 관계형 데이터베이스의 스키마를 디자인해 본 적이 있는 경우 이러한 고려 사항에 익숙하겠지만 Azure Table service 저장소 모델과 관계형 모델 간에는 일부 유사한 점이 있는 반면 중요한 차이점도 있습니다. 이러한 차이점으로 인해 일반적으로 관계형 데이터베이스에 익숙한 사용자에게는 직관에 반하거나 잘못된 것으로 보일 수 있지만 Azure Table service와 같은 NoSQL 키/값 저장소를 디자인하는 경우에는 적절한 다른 디자인이 도출됩니다. 디자인 차이점의 대부분은 Table service는 수십억 개의 데이터 엔터티(관계 데이터베이스 용어로는 행)를 포함할 수 있거나 대용량 트랜잭션을 지원해야 하는 데이터 세트에 사용되는 클라우드 규모의 응용 프로그램을 지원하도록 디자인된다는 사실을 반영합니다. 따라서 데이터를 저장하는 방법을 다르게 생각하고 Table service의 작동 방식을 이해해야 합니다. 잘 디자인된 NoSQL 데이터 저장소는 관계형 데이터베이스를 사용하는 솔루션보다 적은 비용으로 훨씬 뛰어난 확장성을 제공할 수 있습니다. 이 가이드에서는 이러한 항목에 대해 설명합니다.  
+확장형 및 영구 테이블을 디자인하려면 성능, 확장성, 비용 등의 요소를 고려해야 합니다. 이전에 관계형 데이터베이스의 스키마를 디자인해 본 적이 있는 경우 이러한 고려 사항에 익숙하겠지만 Azure Table service 저장소 모델과 관계형 모델 간에는 일부 유사한 점이 있는 반면 중요한 차이점도 있습니다. 이러한 차이점으로 인해 일반적으로 관계형 데이터베이스에 익숙한 사용자에게는 직관에 반하거나 잘못된 것으로 보일 수 있지만 Azure Table service와 같은 NoSQL 키/값 저장소를 디자인하는 경우에는 적절한 다른 디자인이 도출됩니다. 디자인 차이점의 대부분은 Table service는 수십억 개의 데이터 엔터티(관계 데이터베이스 용어로는 행)를 포함할 수 있거나 대용량 트랜잭션을 지원해야 하는 데이터 집합에 사용되는 클라우드 규모의 애플리케이션을 지원하도록 디자인된다는 사실을 반영합니다. 따라서 데이터를 저장하는 방법을 다르게 생각하고 Table service의 작동 방식을 이해해야 합니다. 잘 디자인된 NoSQL 데이터 저장소는 관계형 데이터베이스를 사용하는 솔루션보다 적은 비용으로 훨씬 뛰어난 확장성을 제공할 수 있습니다. 이 가이드에서는 이러한 항목에 대해 설명합니다.  
 
 ## <a name="about-the-azure-table-service"></a>Azure Table service 정보
 이 섹션에서는 특히 성능 및 확장성 디자인과 관련이 있는 Table service의 몇 가지 주요 기능을 중점적으로 살펴봅니다. Azure Storage와 Table service를 처음 접하는 경우 이 아티클의 나머지 내용을 진행하기 전에 먼저 [Microsoft Azure Storage 소개](../../storage/common/storage-introduction.md) 및 [.NET을 사용하여 Azure Table Storage 시작](../../cosmos-db/table-storage-how-to-use-dotnet.md)을 읽어 보시기 바랍니다. 이 가이드는 Table service에 중점을 두지만 Azure 큐 및 Blob service를 설명하고 Table service에서 사용할 수 있는 방법에 대해서도 다룹니다.  
@@ -132,7 +132,7 @@ Table service란? 이름에서 알 수 있듯이, Table service에서는 테이�
 
 Table service에서 개별 노드는 하나 이상의 전체 파티션을 지원하며, 서비스는 노드 간에 파티션 부하를 동적으로 분산하여 크기가 조정됩니다. 하나의 노드에 부하가 걸려 있는 경우 Table service는 해당 노드가 지원하는 파티션 범위를 여러 노드로 *분할*할 수 있습니다. 트래픽이 진정되면 서비스는 안정된 노드의 파티션 범위를 단일 노드로 다시*병합*할 수 있습니다.  
 
-Table service의 내부 세부 정보, 특히 서비스에서 파티션을 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage: 강력한 일관성과 함께 항상 사용 가능한 클라우드 Storage 서비스](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)를 참조하세요.  
+Table service의 내부 세부 정보, 특히 서비스에서 파티션을 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage: 강력한 일관성과 함께 항상 사용 가능한 클라우드 스토리지 서비스](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) 문서를 참조하세요.  
 
 ## <a name="entity-group-transactions"></a>EGT(엔터티 그룹 트랜잭션)
 Table service에서 EGT(엔터티 그룹 트랜잭션)는 여러 엔터티 간에 원자성 업데이트를 수행하기 위한 유일한 기본 제공 메커니즘입니다. EGT를 *일괄 처리 트랜잭션*이라고도 합니다. EGT는 동일한 파티션에 저장된 엔터티에서만 작동할 수 있습니다(즉, 지정된 테이블에서 동일한 파티션 키를 공유함). 따라서 여러 엔터티 간에 원자성 트랜잭션 동작이 필요하면 언제든지 해당 엔터티가 동일한 파티션에 있도록 해야 합니다. 따라서 서로 다른 엔터티 유형에 여러 테이블을 사용하지 말고 여러 엔터티 유형을 동일한 테이블(및 파티션)에 유지하는 것이 좋습니다. 단일 EGT는 최대 100개의 엔터티에서 작동할 수 있습니다.  처리하기 위해 여러 개의 동시에 발생하는 EGT를 제출하는 경우 해당 EGT가 EGT에서 공통되는 엔터티에서 작동하지 않도록 해야 합니다. 그렇지 않으면 처리가 지연될 수 있습니다.

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: a27f6c017d9d648414637f900e0cf7c4be147bfe
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 8319f2f5405271679d0c11d4ac68492cdec8fc14
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996340"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100124"
 ---
 # <a name="deprecated-use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>(사용되지 않음) DC/OS 클러스터에 ACR을 사용하여 애플리케이션 배포
 
@@ -131,7 +131,7 @@ docker run ubuntu --name base-image
 
 ```azurecli-interactive
 docker -H tcp://localhost:2375 commit base-image mycontainerregistry30678.azurecr.io/dcos-demo
-````
+```
 
 Azure Container Registry에 로그인합니다. 이름을 loginServer 이름으로 바꾸고, --username을 컨테이너 레지스트리의 이름으로 바꾸고, --password를 제공된 암호 중 하나로 바꿉니다.
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 5458d83fcc9fad50a2a52273ea6b5573ed90a97e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 246b87e46029c2bf4d7361540939181b3b209acc
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796998"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219136"
 ---
 # <a name="how-to-use-session-callbacks-with-a-conversation-learner-model"></a>Conversation Learner 모델에서 세션 콜백을 사용하는 방법
 
@@ -74,7 +74,7 @@ Conversation Learner에서 세션은 봇과의 중단 없는 쌍방향 교류을
 ### <a name="chaining-actions"></a>작업 연결
 
 1. 왼쪽 패널에서 “학습 대화 상자”를 클릭한 다음, “새 학습 대화 상자” 단추를 클릭합니다.
-2. "메시지를 입력하세요..."가 표시된 채팅 패널에 "안녕하세요"를 입력합니다.
+2. “메시지를 입력하세요...”가 표시된 채팅 패널에 “안녕하세요”를 입력합니다.
 3. “작업 점수 매기기” 단추를 클릭합니다.
 4. "안녕하세요, Botty입니다. 이름이 어떻게 됩니까?"라는 응답을 선택합니다.
 5. "메시지를 입력하세요..."가 표시된 채팅 패널에 "Lars" 입력

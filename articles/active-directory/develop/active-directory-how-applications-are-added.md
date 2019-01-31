@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,18 +17,18 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
-ms.openlocfilehash: 8e806fc334faf85864ea9158d4f2ed6d107327ae
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2b25f2da7c512b58133a58ad07e5efedc5f79c95
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241500"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077689"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>애플리케이션을 Azure AD에 추가하는 방법 및 이유
 
 Azure AD에는 애플리케이션의 두 가지 표현이 있습니다. 
-* [응용 프로그램 개체](app-objects-and-service-principals.md#application-object) - 응용 프로그램의 정의로 간주될 수 있습니다([예외](#notes-and-exceptions)가 있음).
-* [서비스 주체](app-objects-and-service-principals.md#service-principal-object) - 응용 프로그램의 인스턴스로 간주될 수 있습니다. 서비스 주체는 일반적으로 애플리케이션 개체를 참조하며, 하나의 애플리케이션 개체는 전체 디렉터리에서 여러 서비스 주체에 의해 참조될 수 있습니다.
+* [애플리케이션 개체](app-objects-and-service-principals.md#application-object) - 애플리케이션의 정의로 간주될 수 있습니다([예외](#notes-and-exceptions)가 있음).
+* [서비스 주체](app-objects-and-service-principals.md#service-principal-object) - 애플리케이션의 인스턴스로 간주될 수 있습니다. 서비스 주체는 일반적으로 애플리케이션 개체를 참조하며, 하나의 애플리케이션 개체는 전체 디렉터리에서 여러 서비스 주체에 의해 참조될 수 있습니다.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>애플리케이션 개체란 무엇이며 어디에서 생겨날까요?
 Azure Portal에서 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade) 환경을 통해 [애플리케이션 개체](app-objects-and-service-principals.md#application-object)를 관리할 수 있습니다. 애플리케이션 개체는 Azure AD에 대한 애플리케이션을 설명하며, 애플리케이션의 정의로 간주되어 서비스에서 해당 설정에 따라 애플리케이션에 토큰을 발급하는 방법을 인식할 수 있습니다. 다른 디렉터리의 서비스 주체를 지원하는 다중 테넌트 애플리케이션인 경우에도 애플리케이션 개체는 홈 디렉터리에만 있습니다. 애플리케이션 개체는 다음을 포함할 수 있습니다(여기 언급되지 않은 추가 정보도 있음).
@@ -79,7 +79,7 @@ Azure Portal에서 [엔터프라이즈 애플리케이션](https://portal.azure.
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>애플리케이션 개체와 서비스 주체는 서로 어떻게 관련되어 있나요?
 애플리케이션에는 각 애플리케이션 개체가 동작하는 각각의 디렉터리(애플리케이션의 홈 디렉터리를 포함) 내에 하나 이상의 서비스 주체에 의해 참조되는 홈 디렉터리에 하나의 애플리케이션 개체를 갖습니다.
-![응용 프로그램 개체와 서비스 주체가 서로, 또 Azure AD 인스턴스와 어떻게 관련되어 있는지 설명하는 다이어그램][apps_service_principals_directory]
+![애플리케이션 개체와 서비스 주체가 서로, 또 Azure AD 인스턴스와 어떻게 관련되어 있는지 설명하는 다이어그램][apps_service_principals_directory]
 
 위 다이어그램에서 Microsoft는 두 개의 디렉터리를 내부적으로 유지하며(왼쪽에 표시됨) 애플리케이션을 게시하는 데 사용합니다.
 
@@ -100,7 +100,7 @@ Azure AD와 통합하는 애플리케이션 게시자/공급업체에는 게시 
   * 클레임 변환 규칙
   * 특성 매핑(사용자 프로비전)
 * 서비스 주체 및 애플리케이션 개체에 대한 자세한 내용은 다음과 같은 Azure AD Graph REST API 참조 문서를 참조하세요.
-  * [응용 프로그램](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [애플리케이션](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
   * [서비스 주체](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>애플리케이션이 Azure AD와 통합되는 이유는 무엇일까요?
@@ -136,7 +136,7 @@ Azure AD와 통합하는 애플리케이션 게시자/공급업체에는 게시 
       > 사용자 동의를 해제하려는 경우 관리자는 사용자가 사용해야 하는 새 애플리케이션에 동의해야 합니다.    
 * 사용자가 자신의 애플리케이션을 등록하지 못하도록 하려면 다음을 수행합니다.
   1. Azure Portal의 Azure Active Directory에서 [사용자 설정](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) 섹션으로 이동합니다.
-  2. **사용자가 응용 프로그램을 등록할 수 있음**을 **아니요**로 변경합니다.
+  2. **사용자가 애플리케이션을 등록할 수 있음**을 **아니요**로 변경합니다.
 
 > [!NOTE]
 > Microsoft 자체는 사용자가 대신 애플리케이션을 등록하고 애플리케이션에 동의할 수 있는 기본 구성을 사용합니다.

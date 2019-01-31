@@ -13,17 +13,17 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
-ms.author: cwatson
+ms.author: kfollis
 ms.custom: accessibility
-ms.openlocfilehash: c1816c59cc3dd4fff4a97a8d0c90cfee3a471d6e
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: c9425875685236db99d78506e23f879d39d94ce5
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47390054"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888756"
 ---
 # <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Azure Portal에서 지원되는 브라우저 및 디바이스
-[Azure Portal](https://portal.azure.com)은 모든 최신 데스크톱, 태블릿 장치 및 브라우저에서 실행할 수 있습니다.
+[Azure Portal](https://portal.azure.com)은 모든 최신 데스크톱, 태블릿 디바이스 및 브라우저에서 실행할 수 있습니다.
 
 ### <a name="supported-devices"></a>지원되는 디바이스
 Azure Portal은 최신 PC, Mac 및 태블릿에서 우수하게 실행됩니다. 모바일 디바이스에서 Azure 리소스를 관리해야 하는 경우 iPhone 및 Android에서 제공되는 Azure 모바일 앱을 사용해 보세요. 자세한 내용은 [Azure 모바일 앱](https://azure.microsoft.com/features/azure-portal/mobile-app/)을 참조하세요.

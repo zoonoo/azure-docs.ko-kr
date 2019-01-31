@@ -3,7 +3,7 @@ title: Java를 사용하여 Azure Virtual Machine 만들기 및 관리 | Microso
 description: Java 및 Azure Resource Manager를 사용하여 가상 컴퓨터 및 모든 지원 리소스를 배포합니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: zarhoads
-ms.openlocfilehash: 2e8cc14c2879c9ef98357f19580e59dacc11b930
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.author: cynthn
+ms.openlocfilehash: 3ec6b6f22e32a628edc3146ac17a9e5d8e605b05
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420067"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884217"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Java를 사용하여 Azure에서 Windows VM 만들기 및 관리
 
@@ -52,7 +52,7 @@ ms.locfileid: "50420067"
 
 ## <a name="add-dependencies"></a>종속성 추가
 
-1. `testAzureApp` 폴더에서 `pom.xml` 파일을 열고 빌드 구성을 &lt;프로젝트&gt;에 추가하여 응용 프로그램의 빌드를 사용하도록 설정합니다.
+1. `testAzureApp` 폴더에서 `pom.xml` 파일을 열고 빌드 구성을 &lt;프로젝트&gt;에 추가하여 애플리케이션의 빌드를 사용하도록 설정합니다.
 
     ```xml
     <build>
@@ -134,7 +134,7 @@ ms.locfileid: "50420067"
     graphURL=https://graph.windows.net/
     ```
 
-    **&lt;subscription-id&gt;** 를 구독 식별자, **&lt;application-id&gt;** 를 Active Directory 응용 프로그램 식별자, **&lt;authentication-key&gt;** 를 응용 프로그램 키, **&lt;tenant-id&gt;** 를 테넌트 식별자로 바꿉니다.
+    **&lt;subscription-id&gt;** 를 구독 식별자, **&lt;application-id&gt;** 를 Active Directory 애플리케이션 식별자, **&lt;authentication-key&gt;** 를 애플리케이션 키, **&lt;tenant-id&gt;** 를 테넌트 식별자로 바꿉니다.
 
 2. 파일을 저장합니다.
 3. 인증 파일에 전체 경로로 프로그램 셸의 AZURE_AUTH_LOCATION이라는 환경 변수를 설정합니다.
@@ -203,7 +203,7 @@ ResourceGroup resourceGroup = azure.resourceGroups()
 
 ### <a name="create-the-availability-set"></a>가용성 집합 만들기
 
-[가용성 집합](tutorial-availability-sets.md)은 응용 프로그램에서 사용되는 가상 머신을 쉽게 유지 관리할 수 있도록 합니다.
+[가용성 집합](tutorial-availability-sets.md)은 애플리케이션에서 사용되는 가상 머신을 쉽게 유지 관리할 수 있도록 합니다.
 
 가용성 집합을 만들려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
 

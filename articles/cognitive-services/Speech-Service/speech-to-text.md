@@ -6,21 +6,21 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 050d395614fa4a08e6d0d0967200029e8fc36010
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4884756c50e181e5536ad93ae795543bf1edf8ba
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094715"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220236"
 ---
 # <a name="about-the-speech-to-text-api"></a>Speech to Text API 정보
 
-**Speech to Text**는 오디오 스트림을 응용 프로그램에서 사용자에게 표시하거나 명령 입력으로 작동할 수 있는 텍스트로 *기록*합니다. 이 API는 SDK 클라이언트 라이브러리(지원되는 플랫폼 및 언어용) 또는 REST API와 함께 사용할 수 있습니다.
+**Speech to Text**는 오디오 스트림을 애플리케이션에서 사용자에게 표시하거나 명령 입력으로 작동할 수 있는 텍스트로 *기록*합니다. 이 API는 SDK 클라이언트 라이브러리(지원되는 플랫폼 및 언어용) 또는 REST API와 함께 사용할 수 있습니다.
 
 **Speech to Text** API는 다음과 같은 기능을 제공합니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "53094715"
 
 - 여러 음성 언어 및 언어 지원. 각 인식 모드에서 지원되는 언어의 전체 목록은 [지원되는 언어](language-support.md#speech-to-text)를 참조하세요.
 
-- 사용자 지정된 언어 및 음향 모델: 응용 프로그램을 사용자의 전문 영역 어휘, 말하는 환경 및 말하는 방식에 맞게 조정할 수 있습니다.
+- 사용자 지정된 언어 및 음향 모델: 애플리케이션을 사용자의 전문 영역 어휘, 말하는 환경 및 말하는 방식에 맞게 조정할 수 있습니다.
 
 - 자연어 이해 LUIS([Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/))와 통합하여 음성에서 의도 및 엔터티를 파생할 수 있습니다. 사용자는 앱 어휘를 알 필요가 없지만 원하는 내용을 자신만의 단어로 설명할 수 있습니다.
 
@@ -44,17 +44,17 @@ ms.locfileid: "53094715"
 
 | 사용 사례 | REST (영문) | SDK |
 |-----|-----|-----|----|
-| 명령과 같은 짧은 발언을 기록합니다(길이 15초 미만). 임시 결과는 없음 | yes | yes |
-| 좀 더 긴 발언을 기록합니다(15초 초과). | 아니요 | yes |
-| 선택적 중간 결과를 포함하여 스트리밍 오디오 기록 | 아니요 | yes |
-| LUIS를 통해 화자의 의도 이해 | 아니요\* | yes |
-| 정확도 테스트 만들기 | yes | 아니요 |
-| 모델 적응에 대한 데이터 세트 업로드 | yes | 아니요 |
-| 음성 모델 만들기 및 관리 | yes | 아니요 |
-| 모델 배포 만들기 및 관리 | yes | 아니요 |
-| 구독 관리 | yes | 아니요 |
-| 모델 배포 만들기 및 관리 | yes | 아니요 |
-| 모델 배포 만들기 및 관리 | yes | 아니요 |
+| 명령과 같은 짧은 발언을 기록합니다(길이 15초 미만). 임시 결과는 없음 | 예 | 예 |
+| 좀 더 긴 발언을 기록합니다(15초 초과). | 아니요 | 예 |
+| 선택적 중간 결과를 포함하여 스트리밍 오디오 기록 | 아니요 | 예 |
+| LUIS를 통해 화자의 의도 이해 | 아니요\* | 예 |
+| 정확도 테스트 만들기 | 예 | 아니요 |
+| 모델 적응에 대한 데이터 세트 업로드 | 예 | 아니요 |
+| 음성 모델 만들기 및 관리 | 예 | 아니요 |
+| 모델 배포 만들기 및 관리 | 예 | 아니요 |
+| 구독 관리 | 예 | 아니요 |
+| 모델 배포 만들기 및 관리 | 예 | 아니요 |
+| 모델 배포 만들기 및 관리 | 예 | 아니요 |
 
 > [!NOTE]
 > REST API는 API 요청 수를 5초당 25개로 제한하는 제한을 구현합니다. 메시지 헤더를 통해 이 제한을 알 수 있습니다.

@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 534714accb504e4ce487950fef028ab675c46a87
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 75c8952b1fa7003b6a2c12c7e3e6be4983a25bba
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496399"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174111"
 ---
 # <a name="activate-my-azure-ad-directory-roles-in-pim"></a>PIM에서 Azure AD 디렉터리 역할 활성화
 
@@ -82,7 +82,7 @@ PIM에서 역할을 활성화하는 경우 원하는 관리 포털에 액세스�
 
 1. Azure AD Privileged Identity Management를 엽니다.
 
-1. **응용 프로그램 액세스** 페이지를 클릭합니다.
+1. **애플리케이션 액세스** 페이지를 클릭합니다.
 
     ![PIM 애플리케이션 액세스](./media/pim-how-to-activate-role/pim-application-access.png)
 

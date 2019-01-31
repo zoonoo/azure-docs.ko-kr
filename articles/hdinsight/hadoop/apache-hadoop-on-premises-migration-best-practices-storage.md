@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: ec67cb6b4bc1dd29dbbac4056d3365a74b31a24c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 8f22885d67537194342115f07e4d04bc4b5c66da
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013708"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911747"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 저장소 모범 사례
 
@@ -41,11 +41,11 @@ Azure Storage에 저장된 데이터에 액세스하는 데 다음 형식 중 �
 |`wasb://<container-name>@<account-name>.blob.core.windows.net/`|기본이 아닌 스토리지 계정과 통신할 때 사용됩니다. |
 
 
-[Azure Storage 확장성 및 성능 목표](../../storage/common/storage-scalability-targets.md)는 Azure저장소 계정에 대한 현재 제한을 나열합니다. 애플리케이션의 요구가 단일 저장소 계정의 확장성 목표를 초과하는 경우 여러 저장소 계정을 사용하도록 애플리케이션을 빌드한 다음, 데이터 개체를 이러한 저장소 계정에 분할할 수 있습니다.
+[Azure Storage 확장성 및 성능 목표](../../storage/common/storage-scalability-targets.md)는 Azure스토리지 계정에 대한 현재 제한을 나열합니다. 애플리케이션의 요구가 단일 저장소 계정의 확장성 목표를 초과하는 경우 여러 저장소 계정을 사용하도록 애플리케이션을 빌드한 다음, 데이터 개체를 이러한 저장소 계정에 분할할 수 있습니다.
 
 [Azure 저장소 분석](../../storage/storage-analytics.md)은 모든 저장소 서비스에 대한 메트릭을 제공하며 Azure Portal은 차트를 통해 시각화되도록 수집 메트릭을 구성할 수 있습니다. 저장소 리소스 메트릭의 임계값에 도달하면 사용자에게 알리도록 경고를 만들 수 있습니다.
 
-Azure Storage는 애플리케이션 또는 다른 저장소 계정 사용자에 의해 실수로 수정되거나 삭제될 때 데이터를 복구할 수 있도록 [Blob 개체에 대한 일시 삭제](../../storage/blobs/storage-blob-soft-delete.md)를 제공합니다.
+Azure Storage는 응용 프로그램 또는 다른 스토리지 계정 사용자에 의해 실수로 수정되거나 삭제될 때 데이터를 복구할 수 있도록 [Blob 개체에 대한 일시 삭제](../../storage/blobs/storage-blob-soft-delete.md)를 제공합니다.
 
 [Blob 스냅숏](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)을 만들 수 있습니다. 스냅숏은 특정 시점에 생성된 Blob의 읽기 전용 버전이며 Blob을 백업하는 방법을 제공합니다. 스냅숏이 생성된 후에는 읽거나 복사하거나 삭제할 수 있지만 수정할 수는 없습니다.
 
@@ -93,7 +93,7 @@ Azure Data Lake Storage는 HDFS 및 POSIX 스타일 액세스 제어 모델을 �
 
 Azure Data Lake Storage Gen2는 최신 스토리지 제품이며 이 문서의 작성 당시에는 미리 보기로 제공됩니다. Azure Data Lake Storage의 1세대에서 핵심 기능을 Azure Blob Storage로 직접 통합된 Hadoop 호환 파일 시스템 엔드포인트와 통합합니다. 이 향상된 기능은 개체 저장소의 크기 조정 및 비용 혜택을 일반적으로 온-프레미스 파일 시스템에만 연결된 안정성 및 성능과 결합합니다.
 
-ADLS Gen 2는  [Azure Blob 저장소](../../storage/blobs/storage-blobs-introduction.md)를 기반으로 빌드되었으며 이를 사용하면 파일 시스템 및 개체 저장소 패러다임을 모두 사용하여 데이터를 조작할 수 있습니다. 파일 시스템 의미 체계, 파일 수준 보안 및 확장과 같은  [Azure Data Lake Storage Gen1](../../data-lake-store/index.md)의 기능은  [Azure Blob 스토리지](../../storage/blobs/storage-blobs-introduction.md)의 낮은 비용, 계층화된 스토리지, 높은 가용성/재해 복구 기능 및 대규모 SDK/도구 에코시스템과 결합됩니다. Data Lake Storage Gen2에서 분석 워크로드에 맞게 최적화된 파일 시스템 인터페이스의 이점이 추가되는 동안 개체 스토리지의 모든 특성이 유지됩니다.
+ADLS Gen 2는  [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md)를 기반으로 빌드되었으며 이를 사용하면 파일 시스템 및 개체 스토리지 패러다임을 모두 사용하여 데이터를 조작할 수 있습니다. 파일 시스템 의미 체계, 파일 수준 보안 및 확장과 같은  [Azure Data Lake Storage Gen1](../../data-lake-store/index.md)의 기능은  [Azure Blob 스토리지](../../storage/blobs/storage-blobs-introduction.md)의 낮은 비용, 계층화된 스토리지, 높은 가용성/재해 복구 기능 및 대규모 SDK/도구 에코시스템과 결합됩니다. Data Lake Storage Gen2에서 분석 워크로드에 맞게 최적화된 파일 시스템 인터페이스의 이점이 추가되는 동안 개체 스토리지의 모든 특성이 유지됩니다.
 
 Data Lake Storage Gen2의 기본 기능은 데이터 액세스 성능을 개선하기 위해 개체/파일을 디렉터리 계층 구조로 구성하는  [계층 구조 네임스페이스](../../storage/data-lake-storage/namespace.md) 를 Blob 스토리지 서비스에 추가한 것입니다. 계층 구조를 통해 디렉터리 이름 바꾸기 또는 삭제와 같은 작업은 디렉터리의 이름 접두사를 공유하는 모든 개체를 열거 및 처리하는 대신 디렉터리에 대한 단일 원자성 메타데이터 작업이 됩니다.
 
@@ -103,7 +103,7 @@ Data Lake Storage Gen2의 기본 기능은 데이터 액세스 성능을 개선�
 
 - **POSIX 권한 상위 세트**: Data Lake Gen2의 보안 모델은 Data Lake Storage Gen2와 관련된 몇 가지 추가 세분성과 함께 ACL 및 POSIX 권한을 완벽하게 지원합니다. 설정은 관리 도구 또는 Hive 및 Spark 같은 프레임워크를 통해 구성할 수 있습니다.
 
-- **비용 효율성**: Data Lake Storage Gen2는 낮은 비용의 스토리지 용량 및 트랜잭션을 특징으로 합니다. 데이터가 전체 수명 주기를 통해 전환됨에 따라  [Azure Blob 저장소 수명 주기](../../storage/common/storage-lifecycle-management-concepts.md)와 같은 기본 제공 기능을 통해 비용을 최소화하도록 청구 요금을 변경합니다.
+- **비용 효율성**: Data Lake Storage Gen2는 낮은 비용의 스토리지 용량 및 트랜잭션을 특징으로 합니다. 데이터가 전체 수명 주기를 통해 전환됨에 따라  [Azure Blob Storage 수명 주기](../../storage/common/storage-lifecycle-management-concepts.md)와 같은 기본 제공 기능을 통해 비용을 최소화하도록 청구 요금을 변경합니다.
 
 - **Blob Storage 도구, 프레임 워크 및 앱 사용**: Data Lake Storage Gen2는 현재 Blob Storage용으로 제공되는 다양한 도구, 프레임워크 및 애플리케이션을 계속 사용합니다.
 
@@ -117,10 +117,11 @@ ADLS Gen2에 저장된 데이터에 액세스하는 데 다음 형식 중 하나
 
 - [Azure Data Lake Storage Gen2 미리 보기 소개](../../storage/data-lake-storage/introduction.md)
 - [Azure Blob FileSystem 드라이버(ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
+- [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 ## <a name="secure-azure-storage-keys-within-on-premises-hadoop-cluster-configuration"></a>온-프레미스 Hadoop 클러스터 구성 내에서 Azure Storage 키 보안
 
-Hadoop 구성 파일에 추가되는 Azure 저장소 키는 온-프레미스 HDFS 및 Azure Blob 저장소 간의 연결을 설정합니다. Hadoop 자격 증명 공급자 프레임워크로 암호화하여 이러한 키를 보호할 수 있습니다. 암호화되면 안전하게 저장하고 액세스할 수 있습니다.
+Hadoop 구성 파일에 추가되는 Azure 스토리지 키는 온-프레미스 HDFS 및 Azure Blob Storage 간의 연결을 설정합니다. Hadoop 자격 증명 공급자 프레임워크로 암호화하여 이러한 키를 보호할 수 있습니다. 암호화되면 안전하게 저장하고 액세스할 수 있습니다.
 
 **자격 증명을 프로비전하려면:**
 

@@ -7,16 +7,16 @@ author: diberry
 manager: cjgronlund
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: a81c97cf8883d2a3629d1eb1b9f6137609c6edda
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: e794ba86500e1c149deeafeaba508b3429ac590c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135103"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221456"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 GeographyV2 미리 빌드된 엔터티
 미리 빌드된 geographyV2 엔터티는 위치를 검색합니다. 이 엔터티를 이미 학습했기 때문에 GeographyV2를 애플리케이션 의도에 포함하는 예제 발화를 추가할 필요가 없습니다. GeographyV2 엔터티는 영어 [문화권](luis-reference-prebuilt-entities.md)에서 지원됩니다.

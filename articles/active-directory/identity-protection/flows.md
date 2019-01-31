@@ -8,20 +8,20 @@ author: MarkusVi
 manager: daveba
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: a0c351df535a1f2463c14a4719eac0e4c4896c2b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 42a32562eccc86d2516af14a529967a08108c94c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464207"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155292"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Azure AD ID 보호를 사용하는 로그인 환경
 Azure Active Directory ID 보호를 사용하여 다음을 수행할 수 있습니다.
@@ -57,18 +57,13 @@ Azure Active Directory ID 보호를 사용하여 다음을 수행할 수 있습�
 
 1. 첫 번째 단계에서 다단계 인증에 대한 계정을 설정하라는 요구 사항에 대한 알림이 나타납니다. 
    
-    ![수정](./media/flows/301.png "수정")
-
+    ![수정](./media/flows/140.png "수정")
 2. 다단계 인증을 설정하려면 연결하려는 방법을 시스템에 알려야 합니다.
    
-    ![수정](./media/flows/302.png "수정")
-
-3. 전화 번호와 원하는 연락 방법을 시스템에 제공합니다.
-
-    ![수정](./media/flows/303.png "수정")
-
-등록을 완료하려면 전화에 응답하거나 코드를 입력해야 합니다. 
-
+    ![수정](./media/flows/141.png "수정")
+3. 시스템에서 챌린지를 제출하면 응답해야 합니다.
+   
+    ![수정](./media/flows/142.png "수정")
 
 ## <a name="risky-sign-in-recovery"></a>위험한 로그인 복구
 관리자가 로그인 위험에 대한 정책을 구성하는 경우 로그인하려고 할 때 영향을 받는 사용자에게 알려지게 됩니다. 

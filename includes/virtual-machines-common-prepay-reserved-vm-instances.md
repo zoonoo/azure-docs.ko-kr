@@ -1,15 +1,15 @@
 ---
 author: yashesvi
-ms.author: cwatson
+ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 11/30/2018
-ms.openlocfilehash: a35c3a9a6d914cf7e6620819b24e34d954f55c2d
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 1da2278eee6fcea5c013e9c2f5f4ad3e3013b590
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52742500"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906329"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제
 
@@ -23,7 +23,7 @@ ms.locfileid: "52742500"
 
 ## <a name="determine-the-right-vm-size-before-you-buy"></a>구매하기 전에 적절한 VM 크기를 결정합니다.
 
-사용량 데이터의 미터 하위 범주 및 제품 필드는 프리미엄 저장소를 사용하지 않는 VM과 프리미엄 저장소를 사용하는 VM 크기를 구분하지 않습니다. 이러한 필드를 사용하여 예약에 사용할 VM 크기를 결정하는 경우 잘못된 크기를 구입하여 원하는 예약 할인은 받지 못할 수 있습니다. 예약 구매하는 경우 적절한 VM 크기를 확인하려면 다음 방법 중 하나를 사용합니다.
+사용량 데이터의 미터 하위 범주 및 제품 필드는 Premium Storage를 사용하지 않는 VM과 Premium Storage를 사용하는 VM 크기를 구분하지 않습니다. 이러한 필드를 사용하여 예약에 사용할 VM 크기를 결정하는 경우 잘못된 크기를 구입하여 원하는 예약 할인은 받지 못할 수 있습니다. 예약 구매하는 경우 적절한 VM 크기를 확인하려면 다음 방법 중 하나를 사용합니다.
 
 - 적절한 VM 크기를 결정하려면 사용 파일 또는 사용량 API의 AdditionalInfo 필드를 참조하세요. 미터 하위 범주 또는 제품 필드의 값을 사용하지 마세요. 이러한 필드는 VM의 S 버전과 S가 아닌 버전을 구별하지 않습니다.
 - Powershell, Azure Resource Manager 또는 Azure Portal의 VM 세부 정보를 사용하여 정확한 VM 크기 정보를 얻을 수 있습니다.
@@ -47,7 +47,7 @@ ms.locfileid: "52742500"
 
     | 필드      | 설명|
     |:------------|:--------------|
-    |이름        |이 예약의 이름입니다.| 
+    |Name        |이 예약의 이름입니다.| 
     |구독|예약에 대해 비용을 지불하는 데 사용하는 구독입니다. 구독 시 지불 방법은 예약에 대해 선불로 비용이 청구됩니다. 가입 유형은 기업계약(제안 번호: MS-AZR-0017P) 또는 종량제(제안 번호: MS-AZR-0003P)여야 합니다. Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다. 종량제 구독에 대한 요금은 신용 카드 또는 구독 시 선택한 청구서 결제 방법으로 청구됩니다.|    
     |범위       |예약 범위에는 하나 또는 여러 개의 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우: <ul><li>단일 구독 - 예약 할인이 이 구독의 VM에 적용됩니다. </li><li>공유 - 예약 할인이 청구 컨텍스트 내의 모든 구독에서 실행 중인 VM에 적용됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독(개발/테스트 구독 제외)을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.</li></ul>|
     |지역    |예약 범위에 해당하는 Azure 지역입니다.|    

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 9502c0b5c3ea4b25b7a49448b75fdd43ff28762a
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 5fd5d551290c113e9001328562fd99282548ce3c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54186991"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464299"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)를 사용하여 성능을 차트로 표시하는 방법
 VM용 Azure Monitor는 가상 머신이 얼마나 잘 실행되고 있는지 확인하기 위한 여러 가지 KPI(핵심 성과 지표)를 대상으로 하는 성능 차트 집합을 포함하고 있습니다. 이러한 차트는 시간에 따른 리소스 사용률을 표시하므로 병목 상태 및 이상 현상을 식별하거나 각 머신을 나열하는 큐브 뷰로 전환하여 선택한 메트릭을 기반으로 리소스 사용률을 볼 수 있습니다. 성능을 다룰 때 고려해야 하는 여러 요소가 있지만, VM용 Azure Monitor는 프로세서, 메모리, 네트워크 어댑터 및 디스크를 통해 표시되는 운영 체제에 집중합니다. 성능은 상태 모니터링 기능을 보완하며 시스템 구성 요소 오류를 나타내는 문제를 공개하고, 효율성 향상을 위한 튜닝 및 최적화를 지원하고, 용량 계획을 지원하는 데 도움이 됩니다.  
@@ -102,8 +102,8 @@ Azure Monitor의 성능 기능은 구독 또는 환경의 리소스 그룹에 �
 
 ![VM 보기에서 직접 VM 인사이트 성능 보기](./media/vminsights-performance/vminsights-performance-directvm-01.png)
 
-## <a name="alerting-and-alert-management"></a>경고 및 경고 관리 
-VM에 대한 Azure Monitor의 일부로 사용하도록 설정된 성능 메트릭에는 미리 구성된 경고 규칙이 포함되어 있지 않습니다. Azure VM에서 감지된 성능 문제(예: 높은 CPU 사용률, 사용 가능한 메모리 부족, 디스크 I/O, 디스크 공간 부족 등)에 해당하는 [상태 경고](vminsights-health.md#alerting-and-alert-management)가 있지만, 이러한 상태 경고는 VM용 Azure Monitor에 활성화된 것과 동일한 Log Analytics 작업 영역에 연결된 모든 VM에만 적용됩니다. 
+## <a name="alerts"></a>경고 
+VM에 대한 Azure Monitor의 일부로 사용하도록 설정된 성능 메트릭에는 미리 구성된 경고 규칙이 포함되어 있지 않습니다. Azure VM에서 감지된 성능 문제(예: 높은 CPU 사용률, 사용 가능한 메모리 부족, 디스크 I/O, 디스크 공간 부족 등)에 해당하는 [상태 경고](vminsights-health.md#alerts)가 있지만, 이러한 상태 경고는 VM용 Azure Monitor에 활성화된 것과 동일한 Log Analytics 작업 영역에 연결된 모든 VM에만 적용됩니다. 
 
 그러나 Log Analytics 작업 영역에서 가져온 성능 메트릭의 하위 집합만 수집하고 저장할 수 있습니다. 모니터링 전략에 가상 머신의 용량 또는 상태를 효과적으로 평가하기 위해 다른 성능 메트릭을 포함하는 분석 또는 경고가 필요하거나 고유한 경고 조건 또는 논리를 지정하기 위해 유연성이 필요한 경우 Log Analytics에서 [해당 성능 카운터의 컬렉션](../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json)을 구성하고 [로그 경고](../../azure-monitor/platform/alerts-log.md?toc=/azure/azure-monitor/toc.json)를 정의할 수 있습니다. Log Analytics를 사용하여 다른 데이터 형식을 사용하여 복잡한 분석을 수행하고 장기 보존을 제공하여 추세 분석을 지원할 수 있는 반면 메트릭은 가볍고 실시간에 가까운 시나리오를 지원할 수 있습니다. [Azure 진단 에이전트](../../virtual-machines/windows/monitor.md)를 통해 수집되며 Azure Monitor 메트릭 저장소에 저장되어 낮은 대기 시간 및 저렴한 비용으로 경고를 만들 수 있습니다.
 

@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 80a2ed779fa65c669be81fdf8212b7d018325ee5
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: common
+ms.openlocfilehash: ce884b95daf8c02e51c79068c360ffe4a4fe0d07
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634510"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473207"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure Storage 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -31,7 +31,7 @@ Microsoft Azure Storage를 사용하는 클라이언트 애플리케이션 문�
 * **Azure Storage 분석**. [Azure Storage 분석](/rest/api/storageservices/Storage-Analytics) 은 Azure Storage에 대한 로깅 및 메트릭을 제공합니다.
   
   * **Storage 메트릭** 은 Storage 계정에 대한 트랜잭션 메트릭 및 용량 메트릭을 추적합니다. 메트릭을 사용하여 다양한 여러 측정값에 따른 애플리케이션의 성능을 확인할 수 있습니다. 저장소 분석에서 추적하는 메트릭 유형에 대한 자세한 내용은 [저장소 분석 메트릭 테이블 스키마](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) 를 참조하세요.
-  * **저장소 로깅** 은 Azure Storage 서비스에 대한 각 요청을 서버 쪽 로그에 기록합니다. 로그는 수행된 작업, 작업의 상태 및 대기 시간 정보를 비롯하여 각 요청의 자세한 데이터를 추적합니다. 저장소 분석에서 로그에 기록한 요청 및 응답 데이터에 대한 자세한 내용은 [저장소 분석 로그 형식](/rest/api/storageservices/Storage-Analytics-Log-Format) 을 참조하세요.
+  * **스토리지 로깅**은 Azure Storage 서비스에 대한 각 요청을 서버 쪽 로그에 기록합니다. 로그는 수행된 작업, 작업의 상태 및 대기 시간 정보를 비롯하여 각 요청의 자세한 데이터를 추적합니다. 저장소 분석에서 로그에 기록한 요청 및 응답 데이터에 대한 자세한 내용은 [저장소 분석 로그 형식](/rest/api/storageservices/Storage-Analytics-Log-Format) 을 참조하세요.
 
 * **Azure Portal**. [Azure Portal](https://portal.azure.com)에서 저장소 계정에 대한 메트릭 및 로깅을 구성할 수 있습니다. 또한 시간이 지남에 따라 애플리케이션이 어떻게 수행되는지 보여 주는 차트 및 그래프를 볼 수 있으며, 애플리케이션이 지정된 메트릭에 대해 예상과 다르게 수행되는 경우 이를 알려 주도록 경고를 구성할 수도 있습니다.
   
@@ -79,7 +79,7 @@ Blob 또는 컨테이너를 찾을 수 없어서 컨테이너 또는 Blob에 대
 * **HTTP 네트워크 추적 로그**, Azure Storage에 대한 작업을 비롯하여 HTTP/HTTPS 요청 및 응답 데이터에 대한 데이터를 수집합니다. 이 자습서에서는 Message Analyzer를 통해 네트워크 추적을 생성합니다.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>서버 쪽 로깅 및 메트릭 구성
-먼저 Azure Storage 로깅 및 메트릭을 구성하여 분석할 클라이언트 애플리케이션의 데이터를 수집해야 합니다. [Azure Portal](https://portal.azure.com)을 통해, PowerShell을 사용하여 또는 프로그래밍 방식 등의 다양한 방법으로 로깅 및 메트릭을 구성할 수 있습니다. 로깅 및 메트릭 구성에 대한 자세한 내용은 MSDN에서 [Storage 메트릭 사용 및 메트릭 데이터 보기](https://msdn.microsoft.com/library/azure/dn782843.aspx) 및 [저장소 로깅 사용 및 로그 데이터 액세스](https://msdn.microsoft.com/library/azure/dn782840.aspx)를 참조하세요.
+먼저 Azure Storage 로깅 및 메트릭을 구성하여 분석할 클라이언트 애플리케이션의 데이터를 수집해야 합니다. [Azure Portal](https://portal.azure.com)을 통해, PowerShell을 사용하여 또는 프로그래밍 방식 등의 다양한 방법으로 로깅 및 메트릭을 구성할 수 있습니다. 로깅 및 메트릭 구성에 대한 자세한 내용은 MSDN에서 [Storage 메트릭 사용 및 메트릭 데이터 보기](https://msdn.microsoft.com/library/azure/dn782843.aspx) 및 [스토리지 로깅 사용 및 로그 데이터 액세스](https://msdn.microsoft.com/library/azure/dn782840.aspx)를 참조하세요.
 
 **Azure Portal을 통해**
 
@@ -126,7 +126,7 @@ Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하
     ```
 
 ### <a name="configure-net-client-side-logging"></a>.NET 클라이언트 쪽 로깅 구성
-.NET 애플리케이션에 대해 클라이언트 쪽 로깅을 구성하려면 애플리케이션의 구성 파일(web.config 또는 app.config)에서 .NET 진단을 사용하도록 설정합니다. 자세한 내용은 MSDN에서 [.NET 저장소 클라이언트 라이브러리를 사용한 클라이언트 쪽 로깅](https://msdn.microsoft.com/library/azure/dn782839.aspx) 및 [Microsoft Azure Storage SDK for Java를 사용한 클라이언트 쪽 로깅](https://msdn.microsoft.com/library/azure/dn782844.aspx)을 참조하세요.
+.NET 애플리케이션에 대해 클라이언트 쪽 로깅을 구성하려면 애플리케이션의 구성 파일(web.config 또는 app.config)에서 .NET 진단을 사용하도록 설정합니다. 자세한 내용은 MSDN에서 [.NET 스토리지 클라이언트 라이브러리를 사용한 클라이언트 쪽 로깅](https://msdn.microsoft.com/library/azure/dn782839.aspx) 및 [Microsoft Azure Storage SDK for Java를 사용한 클라이언트 쪽 로깅](https://msdn.microsoft.com/library/azure/dn782844.aspx)을 참조하세요.
 
 클라이언트 쪽 로그에는 클라이언트가 요청을 준비하고 응답을 받아 처리하는 방법에 대한 자세한 정보가 포함됩니다.
 
@@ -241,7 +241,7 @@ Azure Storage 클라이언트 라이브러리는 모든 요청에 대해 고유�
 다음 섹션에서는 미리 구성된 사용자 지정 레이아웃 보기를 사용하여 클라이언트 요청 ID에 따라 데이터의 상관관계를 지정하고 그룹화하는 방법에 관해 설명합니다.
 
 ### <a name="select-a-view-layout-to-display-in-the-analysis-grid"></a>분석 그리드에 표시할 보기 레이아웃 선택
-Message Analyzer의 저장소 자산에는 다양한 시나리오에서 유용한 그룹화 및 열을 이용하여 데이터를 표시하는 데 사용할 수 있는 미리 구성된 보기인 Azure Storage 보기 레이아웃이 포함되어 있습니다. 또한, 사용자 지정 보기 레이아웃을 생성하고 다시 사용하기 위해 저장할 수도 있습니다.
+Message Analyzer의 스토리지 자산에는 다양한 시나리오에서 유용한 그룹화 및 열을 이용하여 데이터를 표시하는 데 사용할 수 있는 미리 구성된 보기인 Azure Storage 보기 레이아웃이 포함되어 있습니다. 또한, 사용자 지정 보기 레이아웃을 생성하고 다시 사용하기 위해 저장할 수도 있습니다.
 
 아래 그림은 도구 모음 리본에서 **보기 레이아웃**을 선택하여 사용할 수 있는 **보기 레이아웃** 메뉴를 보여 줍니다. Azure Storage의 보기 레이아웃은 메뉴의 **Azure Storage** 노드에서 그룹화됩니다. 검색 상자에서 `Azure Storage` 를 검색하여 Azure Storage 보기 레이아웃만 필터링할 수 있습니다. 보기 레이아웃 옆에 있는 별표를 선택하여 즐겨찾기로 만들고 메뉴의 맨 위에 표시되도록 할 수 있습니다.
 

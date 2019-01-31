@@ -3,7 +3,7 @@ title: C#을 사용하여 Azure Virtual Machine 만들기 및 관리 | Microsoft
 description: C# 및 Azure Resource Manager를 사용하여 가상 컴퓨터 및 모든 지원 리소스를 배포합니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: zarhoads
-ms.openlocfilehash: 297eb95d435f1098a40c140b6ac451312bdb9d9f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: cynthn
+ms.openlocfilehash: ce05d097aa69aa1aadb8450e40722448bc5a7de0
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956717"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883061"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>C#을 사용하여 Azure에서 Windows VM 생성 및 관리 #
 
@@ -74,7 +74,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
     graphURL=https://graph.windows.net/
     ```
 
-    **&lt;subscription-id&gt;** 를 구독 식별자, **&lt;application-id&gt;** 를 Active Directory 응용 프로그램 식별자, **&lt;authentication-key&gt;** 를 응용 프로그램 키, **&lt;tenant-id&gt;** 를 테넌트 식별자로 바꿉니다.
+    **&lt;subscription-id&gt;** 를 구독 식별자, **&lt;application-id&gt;** 를 Active Directory 애플리케이션 식별자, **&lt;authentication-key&gt;** 를 애플리케이션 키, **&lt;tenant-id&gt;** 를 테넌트 식별자로 바꿉니다.
 
 3. azureauth.properties 파일을 저장합니다. 
 4. AZURE_AUTH_LOCATION이라는 Windows 환경 변수를 만든 권한 부여 파일의 전체 경로로 설정합니다. 예를 들어 다음과 같은 PowerShell 명령을 사용할 수 있습니다.
@@ -129,7 +129,7 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
 
 ### <a name="create-the-availability-set"></a>가용성 집합 만들기
 
-[가용성 집합](tutorial-availability-sets.md)은 응용 프로그램에서 사용되는 가상 머신을 쉽게 유지 관리할 수 있도록 합니다.
+[가용성 집합](tutorial-availability-sets.md)은 애플리케이션에서 사용되는 가상 머신을 쉽게 유지 관리할 수 있도록 합니다.
 
 가용성 집합을 만들려면 Main 메서드에 다음 코드를 추가합니다.
 

@@ -3,7 +3,7 @@ title: Azure 청구서 이해 | Microsoft Docs
 description: Azure 구독에 대한 사용량 및 청구를 읽고 이해하는 방법에 대해 알아봅니다.
 services: ''
 documentationcenter: ''
-author: tonguyen10
+author: bandersmsft
 manager: jureid
 editor: ''
 tags: billing
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: cwatson
-ms.openlocfilehash: 50909a51786bf6118c4fb867f2482c93bf59c28e
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 506910ffa46cb3fbd4be9dcecf9df0f9fdd291e5
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581560"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901023"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Microsoft Azure 청구서의 조건 이해
 
@@ -99,8 +99,8 @@ ms.locfileid: "52581560"
 
 | 용어 |설명 |
 | --- | --- |
-| 이름 |사용 현황의 최상위 서비스를 식별합니다. |
-| type |요율에 영향을 줄 수 있는 Azure 서비스 유형을 정의합니다. |
+| Name |사용 현황의 최상위 서비스를 식별합니다. |
+| Type |요율에 영향을 줄 수 있는 Azure 서비스 유형을 정의합니다. |
 | 리소스 |사용 중인 미터에 대한 측정 단위를 식별합니다. |
 | 지역 |데이터 센터 위치에 따라 가격이 책정되는 특정 서비스에 대한 데이터 센터의 위치를 식별합니다. |
 | 사용 |청구 기간 동안 사용된 미터의 양입니다. |

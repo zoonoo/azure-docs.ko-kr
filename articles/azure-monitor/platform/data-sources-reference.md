@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 4c8d14e01805ea66ff3a954c153d858bf4ecaba6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ec61b179627702af7f2c4bc0fc0989230f5eca84
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467505"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885799"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Azure에서 모니터링 데이터 사용
 
@@ -29,7 +29,7 @@ Azure 플랫폼 전반에 걸쳐 Azure Monitor 파이프라인을 사용하여 �
 | Storage 메트릭 | 메트릭 | Azure Storage | <ul><li>**Storage 테이블:** [저장소 분석](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | 청구 데이터 | 메트릭 | 모든 Azure 서비스 | <ul><li>**REST API:** [Azure 리소스 사용량 및 RateCard API](../../billing/billing-usage-rate-card-overview.md)</li></ul> |
 | 활동 로그 | 이벤트 | 모든 Azure 서비스 | <ul><li>**REST API:** [Azure Monitor 이벤트 API](https://docs.microsoft.com/rest/api/monitor/eventcategories)</li><li>**스토리지 Blob 또는 이벤트 허브:** [로그 프로필](activity-logs-overview.md#export-the-activity-log-with-a-log-profile)</li></ul> |
-| Azure Monitor 진단 로그 | 이벤트 | [여기에 나오는 목록 참조](tutorial-dashboards.md) | <ul><li>**스토리지 Blob 또는 이벤트 허브:** [진단 설정](diagnostic-logs-overview.md#diagnostic-settings)</li></ul> |
+| Azure Monitor 진단 로그 | 이벤트 | [여기에 나오는 목록 참조](diagnostic-logs-schema.md) | <ul><li>**스토리지 Blob 또는 이벤트 허브:** [진단 설정](diagnostic-logs-overview.md#diagnostic-settings)</li></ul> |
 | 게스트 OS 로그 계산(예: IIS, ETW, syslog) | 이벤트 | [Windows](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) 및 Linux Virtual Machines(v2), [Cloud Services](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Storage 테이블 또는 blob:**: [Windows 또는 Linux Azure 진단](diagnostics-extension-to-storage.md)</li><li>**이벤트 허브:** [Microsoft Azure 진단](diagnostics-extension-stream-event-hubs.md)</li></ul> |
 | App Service 로그 | 이벤트 | App Services | <ul><li>**File, Table 또는 Blob Storage:** [웹앱 진단](../../app-service/troubleshoot-diagnostic-logs.md)</li></ul> |
 | 저장소 로그 | 이벤트 | Azure Storage | <ul><li>**Storage 테이블:** [저장소 분석](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |

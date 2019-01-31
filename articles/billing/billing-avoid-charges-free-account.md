@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: cwatson
-ms.openlocfilehash: 0615a7fe9ba9661bc35da6488434636b71809bd5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.author: banders
+ms.openlocfilehash: 5cf828b270d97ae39b58990a2480cd4ca1cc853e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315573"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902451"
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>Azure 무료 계정에 대한 요금 청구 방지
 
@@ -35,7 +35,7 @@ Azure 무료 계정에 요금이 부과되는 몇 가지 이유를 알아보겠�
 
 ### <a name="your-usage-exceeds-the-limits-of-free-services-included-with-your-azure-free-account"></a>사용량이 Azure 체험 계정에 포함된 체험 서비스 한도를 초과했습니다.
 
-Azure 무료 계정으로 매월 제한된 양의 무료 서비스를 얻습니다. 사용 가능한 양은 해당 월이 끝날 때 만료되고 다음 달로 이월되지 않습니다. 예를 들어 매월 5GB의 파일 저장소를 얻는다고 가정합니다. 한 달에 2GB만 사용할 경우 나머지 3GB는 다음 달로 이월되지 않습니다. 요금이 청구되는 것을 방지하려면 사용량을 한도 내로 유지합니다. 무료 서비스의 한도에 대한 내용은 [Azure 무료 계정이란 무엇인가요?](https://azure.microsoft.com/free/free-account-faq/)를 참조하세요. 무료 서비스 사용량을 확인하려면 [Azure 무료 계정에 포함된 무료 서비스 사용량 확인](billing-check-free-service-usage.md)을 참조하세요.
+Azure 무료 계정으로 매월 제한된 양의 무료 서비스를 얻습니다. 사용 가능한 양은 해당 월이 끝날 때 만료되고 다음 달로 이월되지 않습니다. 예를 들어 매월 5GB의 File Storage를 얻는다고 가정합니다. 한 달에 2GB만 사용할 경우 나머지 3GB는 다음 달로 이월되지 않습니다. 요금이 청구되는 것을 방지하려면 사용량을 한도 내로 유지합니다. 무료 서비스의 한도에 대한 내용은 [Azure 무료 계정이란 무엇인가요?](https://azure.microsoft.com/free/free-account-faq/)를 참조하세요. 무료 서비스 사용량을 확인하려면 [Azure 무료 계정에 포함된 무료 서비스 사용량 확인](billing-check-free-service-usage.md)을 참조하세요.
 
 ### <a name="youre-using-services-not-included-for-free-with-your-azure-free-account"></a>Azure 체험 계정에서 체험용으로 포함되지 않은 서비스를 사용하고 있습니다.
 

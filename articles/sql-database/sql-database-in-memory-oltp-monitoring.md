@@ -11,20 +11,22 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: genemi
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: c41420e46a0bd4afbaed96da0e2fb9775d49c6fc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 7542e9fa04eb838baca37dbe13f7cdacdfaf041b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606540"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470266"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>메모리 내 OLTP 저장소 모니터링
+
 [메모리 내 OLTP](sql-database-in-memory.md)를 사용하는 경우 메모리 최적화 테이블 및 테이블 변수에 있는 데이터는 메모리 내 OLTP 저장소에 상주합니다. 각 프리미엄 및 중요 비즈니스용 서비스 계층에는 최대 메모리 내 OLTP 저장소 크기가 포함됩니다. [DTU 기반 리소스 제한 - 단일 데이터베이스](sql-database-dtu-resource-limits-single-databases.md), [DTU 기반 리소스 제한 - 탄력적 풀](sql-database-dtu-resource-limits-elastic-pools.md), [vCore 기반 리소스 제한 - 단일 데이터베이스](sql-database-vcore-resource-limits-single-databases.md) 및 [vCore 기반 리소스 제한 - 탄력적 풀](sql-database-vcore-resource-limits-elastic-pools.md)을 참조하세요.
 
 이 제한이 초과되면 삽입 및 업데이트 작업이 실패할 수 있습니다(단일 데이터베이스의 경우 오류 41823, 탄력적 풀의 경우 오류 41840). 해당 시점에서 데이터를 삭제하여 메모리를 회수하거나 데이터베이스의 성능 계층 또는 계산 크기를 업그레이드해야 합니다.
 
 ## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>데이터가 메모리 내 OLTP 저장소 용량에 맞는지 여부 결정
+
 다른 서비스 계층의 저장소 용량을 결정합니다. [DTU 기반 리소스 제한 - 단일 데이터베이스](sql-database-dtu-resource-limits-single-databases.md), [DTU 기반 리소스 제한 - 탄력적 풀](sql-database-dtu-resource-limits-elastic-pools.md), [vCore 기반 리소스 제한 - 단일 데이터베이스](sql-database-vcore-resource-limits-single-databases.md) 및 [vCore 기반 리소스 제한 - 탄력적 풀](sql-database-vcore-resource-limits-elastic-pools.md)을 참조하세요.
 
 메모리 최적화 테이블에 대한 메모리 요구 사항을 추정하면 Azure SQL Database에서 SQL Server가 작동과 동일한 방식으로 작동합니다. [MSDN](https://msdn.microsoft.com/library/dn282389.aspx)의 해당 문서를 검토하는 데 몇 분이 걸립니다.
@@ -40,10 +42,12 @@ ms.locfileid: "53606540"
 
 또는 다음 쿼리를 사용하여 메모리 내 저장소 사용률을 표시합니다.
 
+```sql
     SELECT xtp_storage_percent FROM sys.dm_db_resource_stats
-
+```
 
 ## <a name="correct-out-of-in-memory-oltp-storage-situations---errors-41823-and-41840"></a>메모리 내 OLTP 저장소 부족 상황 수정 - 오류 41823 및 41840
+
 데이터베이스에서 메모리 내 OLTP 저장소 용량에 도달하면 단일 데이터베이스의 경우 오류 메시지 41823 또는 탄력적 풀의 경우 오류 41840과 함께 INSERT, UPDATE, ALTER 및 CREATE 작업이 실패할 수 있습니다. 두 오류 모두 활성 트랜잭션이 중단됩니다.
 
 오류 메시지 41823 및 41840은 데이터베이스 또는 풀에서 메모리에 최적화된 테이블 및 테이블 변수가 최대 메모리 내 OLTP 저장소 크기에 도달했음을 나타냅니다.

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 05e5c0a37d2de78393048728b73d9bcf6e56c491
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.subservice: files
+ms.openlocfilehash: 277c570079e8c3f051916452492ff62758688e03
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159169"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454864"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 [Azure Files](storage-files-introduction.md)는 산업 표준 SMB 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. 이 문서에서는 Azure Files 및 Azure 파일 동기화의 확장성 및 성능 목표에 대해 설명합니다.
@@ -21,7 +21,7 @@ ms.locfileid: "54159169"
 여기서 나열하는 확장성 및 성능 목표는 고성능 목표이지만 다른 배포 변수의 영향을 받을 수 있습니다. 예를 들어 Azure Files 서비스를 호스팅하는 서버뿐만 아니라 사용 가능한 네트워크 대역폭에 따라 파일 처리량이 제한될 수 있습니다. Azure Files의 확장성 및 성능이 요구 사항을 충족하는지 확인하려면 사용 패턴을 테스트하는 것이 좋습니다. 또한 시간이 지남에 따라 이러한 제한을 높이기 위해 노력하고 있습니다. 아래의 설명 또는 [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)에서 주저하지 마시고 늘리려는 제한에 대한 의견을 보내주세요.
 
 ## <a name="azure-storage-account-scale-targets"></a>Azure 저장소 계정의 크기 조정 목표
-Azure 파일 공유에 대한 부모 리소스는 Azure 저장소 계정입니다. 저장소 계정은 Azure에 있는 저장소 풀을 나타내며, Azure Files를 포함한 여러 저장소 서비스에서 데이터를 저장하는 데 사용할 수 있습니다. 저장소 계정에 데이터를 저장하는 다른 서비스로 Azure Blob 저장소, Azure 큐 저장소 및 Azure 테이블 저장소가 있습니다. 저장소 계정에 데이터를 저장하는 모든 저장소 서비스를 적용하는 목표는 다음과 같습니다.
+Azure 파일 공유에 대한 부모 리소스는 Azure 저장소 계정입니다. 저장소 계정은 Azure에 있는 저장소 풀을 나타내며, Azure Files를 포함한 여러 저장소 서비스에서 데이터를 저장하는 데 사용할 수 있습니다. 스토리지 계정에 데이터를 저장하는 다른 서비스로 Azure Blob Storage, Azure Queue Storage 및 Azure Table Storage가 있습니다. 저장소 계정에 데이터를 저장하는 모든 저장소 서비스를 적용하는 목표는 다음과 같습니다.
 
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 

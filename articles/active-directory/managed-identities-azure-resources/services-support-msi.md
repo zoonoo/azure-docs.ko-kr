@@ -2,19 +2,19 @@
 title: Azure 리소스에 대한 관리 ID를 지원하는 Azure 서비스
 description: Azure 리소스 및 Azure AD 인증에 대해 관리 ID를 지원하는 서비스 목록
 services: active-directory
-author: daveba
-ms.author: daveba
+author: priyamohanram
+ms.author: priyamo
 ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 manager: daveba
-ms.openlocfilehash: 7591860d36a3d6472411321c60c608411ab4eb8b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2ca70805a0806078613bb37ac1d2836dd8d626c8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437677"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180741"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
 

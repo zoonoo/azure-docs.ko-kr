@@ -6,17 +6,17 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 06/30/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 762ebf50999a88251dcd05824f2ed450cec97f04
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 8bf13bffe763b88e95da94f885e30d271e36da42
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237401"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221694"
 ---
 # <a name="analyzers-method"></a>Analyzers 메서드
 
@@ -32,7 +32,7 @@ ms.locfileid: "48237401"
 <br>
 
 ## <a name="response-parameters"></a>응답 매개 변수
-이름 | type | 설명
+Name | Type | 설명
 -----|------|--------------
 언어 | 문자열 목록 | 이 분석기를 사용할 수 있는 2자로 된 ISO 언어 코드 목록.
 id   | string | 이 분석기의 고유 ID

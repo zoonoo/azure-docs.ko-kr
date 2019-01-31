@@ -1,7 +1,20 @@
 ---
-제목: Azure Site Recovery를 통한 VMM 클라우드의 온-프레미스 Hyper-V VM의 Azure로의 재해 복구 설정 | Microsoft Docs 설명: Azure Site Recovery 서비스를 통한 System Center VMM 클라우드의 온-프레미스 Hyper-V VM에서 Azure로의 재해 복구를 설정하는 방법을 알아봅니다.
-서비스: site-recovery 작성자: Rayne-Wiselman ms.service: site-recovery ms.topic: conceptual ms.date: 2018년 12월 27일 ms.author: raynew ms.custom: MVC
-
+title: Azure Site Recovery를 통한 VMM 클라우드의 온-프레미스 Hyper-V VM에서 Azure로의 재해 복구 설정 | Microsoft Docs
+description: Azure Site Recovery 서비스를 통한 System Center VMM 클라우드의 온-프레미스 Hyper-V VM에서 Azure로의 재해 복구를 설정하는 방법을 알아봅니다.
+services: site-recovery
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: conceptual
+ms.date: 12/27/2018
+ms.author: raynew
+ms.custom: MVC
+ms.openlocfilehash: 5dfa5bba41785532db07c7b8569f2e1e1d3e0004
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300458"
+---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>VMM 클라우드의 온-프레미스 Hyper-V VM에서 Azure로의 재해 복구 설정
 
 [Azure Site Recovery](site-recovery-overview.md) 서비스는 온-프레미스 컴퓨터와 Azure VM(Virtual Machines)의 복제, 장애 조치(failover), 장애 복구(failback)를 관리 및 오케스트레이션하여 재해 복구 전략에 기여합니다.

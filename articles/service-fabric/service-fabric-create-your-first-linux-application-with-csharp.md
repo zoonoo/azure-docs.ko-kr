@@ -1,6 +1,6 @@
 ---
 title: C#을 사용하여 Linux에서 Azure Service Fabric 앱 처음 만들기 | Microsoft Docs
-description: C# 및 .NET Core 2.0을 사용하여 Service Fabric 애플리케이션을 만들고 배포하는 방법을 알아봅니다.
+description: C# 및 .NET Core 2.0을 사용하여 Service Fabric 응용 프로그램을 만들고 배포하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: csharp
 author: mani-ramaswamy
@@ -14,16 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: e917119e2d0f9b7b5cfa9ea145cc6e540486ac66
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: aeea0a0b00ceaa936352d549a86040c2cc460167
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052599"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153865"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>첫 번째 Azure Service Fabric 애플리케이션 만들기
 > [!div class="op_single_selector"]
-> * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java - Linux(미리 보기)](service-fabric-create-your-first-linux-application-with-java.md)
 > * [C# - Linux(미리 보기)](service-fabric-create-your-first-linux-application-with-csharp.md)
 >
@@ -128,7 +127,7 @@ Service Fabric Yeoman 템플릿은 빌드 스크립트를 포함하며 이것을
 
 ## <a name="adding-more-services-to-an-existing-application"></a>기존 애플리케이션에 더 많은 서비스 추가
 
-`yo`을 사용하여 만든 응용 프로그램에 다른 서비스를 추가하려면 다음 단계를 수행합니다.
+`yo`을 사용하여 만든 애플리케이션에 다른 서비스를 추가하려면 다음 단계를 수행합니다.
 1. 기존 애플리케이션의 루트로 디렉터리를 변경합니다.  예를 들어 `MyApplication`이 Yeoman에서 만든 애플리케이션인 경우 `cd ~/YeomanSamples/MyApplication`입니다.
 2. `yo azuresfcsharp:AddService` 실행
 

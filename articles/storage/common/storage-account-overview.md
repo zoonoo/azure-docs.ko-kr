@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: d2940e1d8328ffaea799ddff4afc9669aaa85a2f
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.subservice: common
+ms.openlocfilehash: 880ae672409704ddcd5597ae758f8c786c3c0720
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065633"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244490"
 ---
 # <a name="azure-storage-account-overview"></a>Azure Storage 계정 개요
 
@@ -36,7 +36,7 @@ Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](stor
 - 테이블
 
 > [!NOTE]
-> 대부분의 시나리오에서 범용 v2 저장소 계정을 사용하는 것이 좋습니다. 가동 중지 시간이 없고 데이터를 복사할 필요 없이 범용 v1 또는 Blob 저장소 계정을 범용 v2 계정으로 쉽게 업그레이드할 수 있습니다.
+> 대부분의 시나리오에서 범용 v2 저장소 계정을 사용하는 것이 좋습니다. 가동 중지 시간이 없고 데이터를 복사할 필요 없이 범용 v1 또는 Blob Storage 계정을 범용 v2 계정으로 쉽게 업그레이드할 수 있습니다.
 >
 > 범용 v2 계정으로의 업그레이드에 대한 자세한 내용은 [범용 v2 저장소 계정으로 업그레이드](storage-account-upgrade.md)를 참조하세요. 
 
@@ -60,11 +60,11 @@ Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](stor
 
 * 2014-02-14 이전 버전인 [Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) 나, 4.x 미만인 클라이언트 라이브러리를 사용하며 애플리케이션을 업그레이드할 수 없습니다.
 
-### <a name="blob-storage-accounts"></a>Blob 저장소 계정
+### <a name="blob-storage-accounts"></a>Blob Storage 계정
 
-Blob 저장소 계정은 구조화되지 않은 개체 데이터를 블록 Blob로 저장하기 위한 특수 저장소 계정입니다. Blob 저장소 계정은 범용 v2 저장소 계정에서 제공하는 것과 동일한 내구성, 가용성, 확장성 및 성능 특징을 제공합니다. Blob 저장소 계정은 블록 Blob 및 추가 Blob만 지원하고 페이지 Blob는 지원하지 않습니다.
+Blob Storage 계정은 구조화되지 않은 개체 데이터를 블록 Blob로 저장하기 위한 특수 스토리지 계정입니다. Blob Storage 계정은 범용 v2 스토리지 계정에서 제공하는 것과 동일한 내구성, 가용성, 확장성 및 성능 특징을 제공합니다. Blob Storage 계정은 블록 Blob 및 추가 Blob만 지원하고 페이지 Blob는 지원하지 않습니다.
 
-Blob 저장소 계정은 사용 패턴을 기준으로 데이터 저장을 위한 여러 액세스 계층을 제공합니다. 자세한 내용은 [블록 Blob 데이터에 대한 액세스 계층](#access-tiers-for-block-blob-data)을 참조하세요.
+Blob Storage 계정은 사용 패턴을 기준으로 데이터 저장을 위한 여러 액세스 계층을 제공합니다. 자세한 내용은 [블록 Blob 데이터에 대한 액세스 계층](#access-tiers-for-block-blob-data)을 참조하세요.
 
 ## <a name="naming-storage-accounts"></a>저장소 계정 이름 지정
 
@@ -123,7 +123,7 @@ Azure Storage는 사용 패턴에 따라 블록 Blob 데이터 액세스를 위�
 * Azure Files: http://*mystorageaccount*.file.core.windows.net
 
 > [!NOTE]
-> Blob 저장소 계정은 Blob 서비스 엔드포인트만 노출합니다.
+> Blob Storage 계정은 Blob 서비스 엔드포인트만 노출합니다.
 
 저장소 계정의 개체에 액세스하기 위한 URL은 저장소 계정의 개체 위치를 엔드포인트에 추가하여 작성됩니다. 예를 들어 Blob 주소의 형식은 다음과 같습니다. http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*
 
@@ -150,11 +150,11 @@ Blob에 사용자 지정 도메인 이름을 사용하도록 저장소 계정을
 
 Microsoft는 온-프레미스 저장소 디바이스나 타사 클라우드 저장소 공급자에서 데이터를 가져오기 위한 유틸리티와 라이브러리를 제공합니다. 사용하는 솔루션은 전송 데이터의 크기에 따라 다릅니다. 
 
-범용 v1 또는 Blob 저장소 계정에서 범용 v2 계정으로 업그레이드할 경우 데이터가 자동으로 마이그레이션됩니다. 이 경로로 계정을 업그레이드하는 것이 좋습니다. 그러나 범용 v1 계정에서 Blob 저장소 계정으로 데이터를 이동할 경우 아래에서 설명하는 도구 및 라이브러리를 사용하여 수동으로 데이터를 마이그레이션해야 합니다. 
+범용 v1 또는 Blob Storage 계정에서 범용 v2 계정으로 업그레이드할 경우 데이터가 자동으로 마이그레이션됩니다. 이 경로로 계정을 업그레이드하는 것이 좋습니다. 그러나 범용 v1 계정에서 Blob Storage 계정으로 데이터를 이동할 경우 아래에서 설명하는 도구 및 라이브러리를 사용하여 수동으로 데이터를 마이그레이션해야 합니다. 
 
 ### <a name="azcopy"></a>AzCopy
 
-AzCopy는 Azure Storage의 데이터를 고속으로 복사하기 위해 설계된 Windows 명령줄 유틸리티입니다. AzCopy를 사용하여 기존 범용 저장소 계정의 데이터를 Blob 저장소 계정으로 복사하거나, 온-프레미스 저장소 디바이스의 데이터를 업로드할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티를 사용하여 데이터 전송](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
+AzCopy는 Azure Storage의 데이터를 고속으로 복사하기 위해 설계된 Windows 명령줄 유틸리티입니다. AzCopy를 사용하여 기존 범용 스토리지 계정의 데이터를 Blob Storage 계정으로 복사하거나, 온-프레미스 스토리지 장치의 데이터를 업로드할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티를 사용하여 데이터 전송](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
 ### <a name="data-movement-library"></a>데이터 이동 라이브러리
 
@@ -162,7 +162,7 @@ AzCopy는 Azure Storage의 데이터를 고속으로 복사하기 위해 설계�
 
 ### <a name="rest-api-or-client-library"></a>REST API 또는 클라이언트 라이브러리
 
-Azure 클라이언트 라이브러리 또는 Azure 스토리지 서비스 REST API 중 하나를 통해 데이터를 Blob 스토리지 계정으로 마이그레이션하는 사용자 지정 애플리케이션을 만들 수 있습니다. Azure Storage는 NET, Java, C++, Node.JS, PHP, Ruby, Python 등, 여러 언어와 플랫폼을 위한 다양한 클라이언트 라이브러리를 제공합니다. 이 클라이언트 라이브러리는 재시도 논리, 로깅, 병렬 업로드와 같은 고급 기능을 제공합니다. HTTP/HTTPS 요청이 가능한 모든 언어로 호출할 수 있는 REST API에 대해 바로 개발할 수도 있습니다.
+Azure 클라이언트 라이브러리 또는 Azure 스토리지 서비스 REST API 중 하나를 통해 데이터를 Blob Storage 계정으로 마이그레이션하는 사용자 지정 응용 프로그램을 만들 수 있습니다. Azure Storage는 NET, Java, C++, Node.JS, PHP, Ruby, Python 등, 여러 언어와 플랫폼을 위한 다양한 클라이언트 라이브러리를 제공합니다. 이 클라이언트 라이브러리는 재시도 논리, 로깅, 병렬 업로드와 같은 고급 기능을 제공합니다. HTTP/HTTPS 요청이 가능한 모든 언어로 호출할 수 있는 REST API에 대해 바로 개발할 수도 있습니다.
 
 Azure Storage REST API에 대한 자세한 내용은 [Azure Storage REST API 참조](https://docs.microsoft.com/rest/api/storageservices/)를 참조하세요. 
 
@@ -171,9 +171,9 @@ Azure Storage REST API에 대한 자세한 내용은 [Azure Storage REST API 참
 
 ### <a name="azure-importexport-service"></a>Azure Import/Export 서비스
 
-많은 양의 데이터를 저장소 계정으로 가져올 경우 Azure Import/Export 서비스를 사용하는 것이 좋습니다. Import/Export 서비스를 사용하면 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob 저장소 및 Azure Files로 가져올 수 있습니다. 
+많은 양의 데이터를 저장소 계정으로 가져올 경우 Azure Import/Export 서비스를 사용하는 것이 좋습니다. Import/Export 서비스를 사용하면 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob Storage 및 Azure Files로 가져올 수 있습니다. 
 
-Import/Export 서비스를 사용하여 데이터를 Azure Blob 저장소에서 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 하나 이상의 디스크 드라이브에 있는 데이터를 Azure Blob Storage 또는 Azure Files로 가져올 수 있습니다. 자세한 내용은 [Azure Import/Export 서비스란?](https://docs.microsoft.com/azure/storage/common/storage-import-export-service)을 참조하세요.
+Import/Export 서비스를 사용하여 데이터를 Azure Blob Storage에서 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 하나 이상의 디스크 드라이브에 있는 데이터를 Azure Blob Storage 또는 Azure Files로 가져올 수 있습니다. 자세한 내용은 [Azure Import/Export 서비스란?](https://docs.microsoft.com/azure/storage/common/storage-import-export-service)을 참조하세요.
 
 ## <a name="storage-account-billing"></a>Storage 계정 사용 비용
 

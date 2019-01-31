@@ -3,19 +3,19 @@ title: Azure AD 암호 보호 미리 보기에서 문제 해결 및 로깅
 description: Azure AD 암호 보호 미리 보기 로깅 및 일반 문제 해결 이해
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 008fba2fd6052ac9043de6ec217cb71d17f3ecce
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 55139d7270d602d73605c484eeace7012ff3c1b8
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427103"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076080"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>미리 보기: Azure AD 암호 보호 모니터링, 보고 및 문제 해결
 

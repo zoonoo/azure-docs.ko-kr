@@ -3,19 +3,19 @@ title: Azure Active Directory의 B2B 공동 작업 사용자 클레임 매핑 | 
 description: Azure AD(Azure Active Directory) B2B 사용자용 SAML 토큰에 발급된 사용자 클레임을 사용자 지정합니다.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 04/06/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 7a06afd7e6e295510f393177d9828fe6dd7a3c0e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: dd6be92bcd519dac369c5c21bb57b0b64ef6bfd1
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428906"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075969"
 ---
 # <a name="b2b-collaboration-user-claims-mapping-in-azure-active-directory"></a>Azure Active Directory의 B2B 공동 작업 사용자 클레임 매핑
 

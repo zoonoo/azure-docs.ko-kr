@@ -3,19 +3,19 @@ title: Azure Portal에서 고대비 켜기 | Microsoft Docs
 description: 고대비를 켜거나 Azure Portal 테마를 변경하는 방법을 알아봅니다.
 services: azure-portal
 keywords: ''
-author: cwatson-cat
-ms.author: cwatson
+author: kfollis
+ms.author: kfollis
 ms.date: 08/24/2017
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: accessibility
 manager: dougeby
-ms.openlocfilehash: 08f42fc70373effd46297ad67d4359bfa42852b7
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 0807921ce304bec6848744b5fc6ec3208e71eca0
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165403"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887056"
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Azure Portal에서 고대비 켜기 또는 테마 변경
 Azure Portal에서 더 많은 대비가 필요하거나 색 구성표를 변경하려면 포털 설정으로 이동하여 변경합니다. 
@@ -40,4 +40,4 @@ Azure Portal에서 더 많은 대비가 필요하거나 색 구성표를 변경�
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Portal에서 바로 가기 키](azure-portal-keyboard-shortcuts.md)
-- [지원되는 브라우저 및 장치](../azure-preview-portal-supported-browsers-devices.md)
+- [지원되는 브라우저 및 디바이스](../azure-preview-portal-supported-browsers-devices.md)

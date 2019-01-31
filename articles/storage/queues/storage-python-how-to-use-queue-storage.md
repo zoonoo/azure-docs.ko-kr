@@ -1,5 +1,5 @@
 ---
-title: Python에서 큐 저장소를 사용하는 방법 | Microsoft Docs
+title: Python에서 Queue Storage를 사용하는 방법 | Microsoft Docs
 description: Azure 큐 서비스를 사용하여 Python에서 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다."
 services: storage
 author: tamram
@@ -8,21 +8,21 @@ ms.devlang: python
 ms.topic: article
 ms.date: 12/14/2018
 ms.author: tamram
-ms.component: queues
-ms.openlocfilehash: 0edb90ca7324d47beaa5133d423928e615ff33a9
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.subservice: queues
+ms.openlocfilehash: ea508c04660df4ba103a2a0da39b7cd914cd629c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742816"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471252"
 ---
-# <a name="how-to-use-queue-storage-from-python"></a>Python에서 큐 저장소를 사용하는 방법
+# <a name="how-to-use-queue-storage-from-python"></a>Python에서 Queue Storage를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>개요
-이 가이드에서는 Azure 큐 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다. 샘플은 Python으로 작성되었으며 [Microsoft Azure Storage SDK for Python]을 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기 및 삭제**뿐만 아니라 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**가 포함됩니다. 큐에 대한 자세한 내용은 [다음 단계] 섹션을 참조하세요.
+이 가이드에서는 Azure Queue Storage 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다. 샘플은 Python으로 작성되었으며 [Microsoft Azure Storage SDK for Python]을 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기 및 삭제**뿐만 아니라 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**가 포함됩니다. 큐에 대한 자세한 내용은 [다음 단계] 섹션을 참조하세요.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -128,7 +128,7 @@ queue_service.delete_queue('taskqueue')
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이제 큐 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 자세히 알아보세요.
+이제 Queue Storage의 기본 사항을 배웠으므로 다음 링크를 따라 자세히 알아보세요.
 
 * [Python 개발자 센터](https://azure.microsoft.com/develop/python/)
 * [Azure Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355)

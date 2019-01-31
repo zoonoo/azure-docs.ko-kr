@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning service
 description: Visual Studio Code용 Azure Machine Learning을 설치하고 Azure Machine Learning에서 간단한 실험을 만드는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 902c659d2c51d69f2e9d0ef3a7401326e0e530eb
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d6f49eb0359db6184b5ecd146d7328a64611a9f9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013148"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245570"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Visual Studio Code용 Azure Machine Learning 시작
 

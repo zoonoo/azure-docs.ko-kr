@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: d57270a4db2129370da7336d8a7bf012848890c2
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: cca7b42c83be3ca428509ea48c387a1c35ddb35a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53797001"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206733"
 ---
 # <a name="how-to-use-branching-and-undo-operations"></a>분기 및 실행 취소 작업을 사용하는 방법
 이 자습서에서는 실행 취소 및 분기 작업을 설명합니다.

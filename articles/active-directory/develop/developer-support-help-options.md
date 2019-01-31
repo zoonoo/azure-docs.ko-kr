@@ -1,6 +1,6 @@
 ---
 title: Azure ID 개발자를 위한 지원 및 도움말 옵션 | Microsoft Docs
-description: Microsoft Azure ID(Azure Active Directory 및 MSA)와 통합되는 응용 프로그램을 만들 때 개발과 관련된 질문 및 문제에 대한 지원 및 도움말을 얻는 방법을 알아봅니다.
+description: Microsoft Azure ID(Azure Active Directory 및 MSA)와 통합되는 애플리케이션을 만들 때 개발과 관련된 질문 및 문제에 대한 지원 및 도움말을 얻는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,16 +17,16 @@ ms.date: 10/27/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 7374b3f71474cb4d4e59e9d81ab1de7bea265483
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f8c5e5f598ab8566eacb594ff66b63ce3793f57f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337141"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093198"
 ---
 # <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션
 
-Azure Active Directory, Microsoft ID 또는 Microsoft Graph API와 통합하기 시작하는지, 아니면 응용 프로그램에 새 기능을 구현하는지에 관계없이 커뮤니티에서 도움을 얻거나 개발자로서 사용하는 지원 옵션을 이해해야 할 때가 있습니다. 이 문서는 아래에 요약된 옵션을 이해하는 데 도움이 됩니다.
+Azure Active Directory, Microsoft ID 또는 Microsoft Graph API와 통합하기 시작하는지, 아니면 애플리케이션에 새 기능을 구현하는지에 관계없이 커뮤니티에서 도움을 얻거나 개발자로서 사용하는 지원 옵션을 이해해야 할 때가 있습니다. 이 문서는 아래에 요약된 옵션을 이해하는 데 도움이 됩니다.
 
 > [!div class="checklist"]
 > * 커뮤니티에서 문제 관련 질문에 답변하지 않았는지 또는 구현하려는 기능에 대한 기존 설명서가 이미 존재하는지를 확인하기 위해 검색합니다

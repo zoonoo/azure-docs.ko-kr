@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 39229bbd120ca52f31a0bd54446e49990d952c9d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b9029676df6a878a6d3d5796928cbad9c20cd685
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020135"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889062"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Azure 모니터의 데이터 원본
 이 문서에서는 Azure Monitor에서 수집한 데이터 원본에 대해 설명하여 리소스 및 해당 리소스에서 실행 중인 애플리케이션의 상태와 성능을 모니터링합니다. 이러한 리소스는 Azure, 다른 클라우드 또는 온-프레미스에 있을 수 있습니다.  이 데이터를 저장한 방법 및 이 데이터를 볼 수 있는 방법에 대한 자세한 내용은 [Azure Monitor에서 수집한 데이터](data-collection.md)를 참조하세요.
@@ -61,7 +61,7 @@ Azure Portal의 해당 페이지에서 특정 리소스에 대한 활동 로그�
 
 
 ### <a name="resource-diagnostic-logs"></a>리소스 진단 로그
-활동 로그가 Azure 리소스에서 수행된 작업에 대한 정보를 제공하는 반면 리소스 수준 [진단 로그](../../azure-monitor/platform/diagnostic-logs-overview.md)는 리소스 자체 작업에 대한 인사이트를 제공합니다.   구성 요구 사항 및 이러한 로그의 콘텐츠는 [리소스 유형에 따라 다릅니다](../../azure-monitor/platform/tutorial-dashboards.md).
+활동 로그가 Azure 리소스에서 수행된 작업에 대한 정보를 제공하는 반면 리소스 수준 [진단 로그](../../azure-monitor/platform/diagnostic-logs-overview.md)는 리소스 자체 작업에 대한 인사이트를 제공합니다.   구성 요구 사항 및 이러한 로그의 콘텐츠는 [리소스 유형에 따라 다릅니다](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 Azure Portal에서 진단 로그를 직접 볼 수는 없지만 [보관을 위해 Azure 저장소로 보내고](../../azure-monitor/platform/archive-diagnostic-logs.md), 다른 서비스로 리디렉션하기 위해 [Event Hub](../../event-hubs/event-hubs-about.md)로 내보내거나 분석을 위해 [Log Analytics로](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) 내보낼 수 있습니다. 일부 리소스는 Log Analytics에 직접 쓸 수 있는 반면 다른 리소스는 [Log Analytics로 가져오기](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage) 전에 저장소 계정에 쓸 수 있습니다.
 

@@ -7,7 +7,7 @@ author: kalyankrishna1
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,14 +16,14 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 575677cd3ace4d5d4948b1296d923b7703c3f20b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 92108f610fd86a9e2e2bbba864879e4b3289456c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968308"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103584"
 ---
-# <a name="how-to-restrict-your-app-to-a-set-of-users"></a>방법: 앱을 사용자 집합으로 제한
+# <a name="how-to-restrict-your-app-to-a-set-of-users"></a>방법: 사용자 집합으로 앱 제한
 
 기본적으로 Azure AD(Azure Active Directory) 테넌트에 등록된 애플리케이션은 성공적으로 인증한 테넌트의 모든 사용자에게 제공됩니다.
 
@@ -54,8 +54,8 @@ Azure AD를 사용하면 테넌트 관리자 및 개발자는 앱을 테넌트�
     1. 왼쪽 주 탐색 메뉴의 맨 위에 있는 **모든 서비스**를 선택합니다.
     1. 필터 검색 상자에 **Azure Active Directory**를 입력한 다음, 결과에서 **Azure Active Directory** 항목을 선택합니다.
 
-1. **Azure Active Directory** 창에 있는 **Azure Active Directory** 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 선택합니다.
-1. **모든 응용 프로그램**을 선택하여 모든 응용 프로그램 목록을 봅니다.
+1. **Azure Active Directory** 창에 있는 **Azure Active Directory** 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 선택합니다.
+1. **모든 애플리케이션**을 선택하여 모든 애플리케이션 목록을 봅니다.
 
      여기에 원하는 애플리케이션이 보이지 않으면 **모든 애플리케이션** 목록의 맨 위에서 다양한 필터를 사용하여 목록을 제한하거나 목록을 아래로 스크롤하여 애플리케이션을 찾습니다.
 

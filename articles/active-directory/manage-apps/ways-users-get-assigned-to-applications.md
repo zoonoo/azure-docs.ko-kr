@@ -7,19 +7,19 @@ author: barbkess
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: cb477ccba648a15c88f2e216b39d4ba1676d43c7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fd677a34caa5a1871808b31477e91746ec9fdccb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464615"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170405"
 ---
 # <a name="how-to-assign-users-to-applications"></a>애플리케이션에 사용자를 할당하는 방법
 
@@ -55,9 +55,9 @@ ms.locfileid: "54464615"
 
 8.  관리자가 해당 [Microsoft Office 365](https://products.office.com/)와 같은 자사 애플리케이션의 구성원인 그룹에 라이선스 할당
 
-9.  [관리자가 모든 사용자가 사용할 수 있게 애플리케이션에 동의](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)한 다음, 사용자가 애플리케이션에 로그인
+9.  [관리자가 모든 사용자가 사용할 수 있게 애플리케이션에 동의](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)한 다음, 사용자가 애플리케이션에 로그인
 
-10. 사용자가 애플리케이션에 로그인하여 [애플리케이션에 직접 동의](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)
+10. 사용자가 애플리케이션에 로그인하여 [애플리케이션에 직접 동의](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory로 애플리케이션 관리](what-is-application-management.md)

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: 5f67a8ffde24d3c3e39065806b07bdd5cba2857a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: tables
+ms.openlocfilehash: 5e9ade0f6076a34a5662330bab64e9dd71275ba8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522046"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470538"
 ---
 # <a name="design-for-data-modification"></a>데이터 수정을 위한 디자인
 이 아티클에서는 삽입, 업데이트 및 삭제를 최적화하기 위한 디자인 고려 사항을 중점적으로 알아봅니다. 관계형 데이터베이스의 디자인과 마찬가지로(관계형 데이터베이스의 경우 디자인 장단점을 관리하는 기술이 다름), 쿼리에 최적화된 디자인과 데이터 수정에 최적화된 디자인 간의 장단점을 평가해야 하는 경우가 있을 수 있습니다. [테이블 디자인 패턴](#table-design-patterns) 섹션은 Table service에 대한 몇 가지 자세한 디자인 패턴을 알아보고 이러한 패턴의 일부 장단점을 설명합니다. 실제로 엔터티 쿼리에 최적화된 디자인은 대부분 엔터티를 수정하는 데에도 효율적입니다.  
@@ -26,7 +26,7 @@ ms.locfileid: "39522046"
 * [대용량 삭제 패턴](table-storage-design-patterns.md#high-volume-delete-pattern) - 동시 삭제할 모든 엔터티를 고유한 별도의 테이블에 저장하여 대용량 엔터티 삭제를 지원합니다. 테이블을 삭제하면 엔터티가 삭제됩니다.  
 * [데이터 계열 패턴](table-storage-design-patterns.md#data-series-pattern) - 전체 데이터 계열을 단일 엔터티에 저장하여 요청 수를 최소화합니다.  
 * [넓은 엔터티 패턴](table-storage-design-patterns.md#wide-entities-pattern) - 여러 실제 엔터티를 사용하여 속성이 252개가 넘는 논리적 엔터티를 저장합니다.  
-* [큰 엔터티 패턴](table-storage-design-patterns.md#large-entities-pattern) - Blob 저장소를 사용하여 큰 속성 값을 저장합니다.  
+* [큰 엔터티 패턴](table-storage-design-patterns.md#large-entities-pattern) - Blob Storage를 사용하여 큰 속성 값을 저장합니다.  
 
 ## <a name="ensure-consistency-in-your-stored-entities"></a>저장된 엔터티의 일관성 유지
 데이터 수정을 최적화하기 위한 키 선택에 영향을 주는 다른 주요 요소는 원자성 트랜잭션을 사용하여 일관성을 유지하는 방법입니다. EGT는 동일한 파티션에 저장된 엔터티에서만 작동합니다.  

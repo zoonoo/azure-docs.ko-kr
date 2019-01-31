@@ -3,19 +3,19 @@ title: Azure Active Directory B2B 공동 작업에 대한 지원 받기 | Micros
 description: Azure Active Directory B2B 공동 작업에 대한 지원 환경이란?
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: reference
 ms.date: 05/26/2017
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 9a4e50934b33bde8d58c8ec1a2d8ae2917fac131
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7e1c40af9a3a923d8158b2f333d21b880a07f101
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438561"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55073938"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>B2B 공동 작업에 대한 지원 받기
 

@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 9149cef7ba7fa2d0a3d853c3b8e26d364f22d954
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a6dba36eadde9bc9bb1e6ca778a3bce07b561e54
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999988"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207295"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>엔터티 형식 및 LUIS에서의 용도
 
@@ -234,7 +234,7 @@ Pattern.any는 엔터티가 시작되고 끝나는 위치를 표시하기 위해
 
 복합 엔터티 및 계층적 엔터티에는 둘 다 부모-자식 관계가 있으며 기계 학습됩니다. 기계 학습을 사용하면 LUIS는 다양한 컨텍스트(단어의 배열)를 기반으로 하여 엔터티를 이해할 수 있습니다. 복합 엔터티는 다양한 엔터티 형식을 자식으로 허용하므로 보다 유연합니다. 계층적 엔터티의 자식은 단순 엔터티뿐입니다. 
 
-|type|목적|예|
+|Type|목적|예|
 |--|--|--|
 |계층적|단순 엔터티의 부모-자식|Location.Origin=New York<br>Location.Destination=London|
 |복합|부모-자식 엔터티: 미리 작성, 목록, 단순, 계층적| number=3<br>list=first class<br>prebuilt.datetimeV2=March 5|

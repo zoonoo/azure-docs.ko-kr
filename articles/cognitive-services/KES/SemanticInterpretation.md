@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 5fcc7b760b5445e57b41787d8818ef11ed926e6c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2b0065dbdac8e3bdbc535f2d7d103b24110e1d02
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129355"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217274"
 ---
 # <a name="semantic-interpretation"></a>의미 해석
 
@@ -33,7 +33,7 @@ ms.locfileid: "46129355"
 
 다음은 현재 지원되는 데이터 형식의 목록입니다.
 
-|type|설명|예|
+|Type|설명|예|
 |----|----|----|
 |문자열|0자 이상의 시퀀스|“Hello World!”<br/>""|
 |Bool|부울 값|true<br/>false|
@@ -139,7 +139,7 @@ And(Composite(Query("academic#Author.Name", "harry shum"),
 
 시스템 변수는 서비스에서 미리 정의되며 시스템의 현재 상태에 대한 다양한 통계를 검색하는 데 사용할 수 있습니다.  다음은 현재 지원되는 시스템 변수의 집합입니다.
 
-|이름|type|설명|
+|Name|Type|설명|
 |----|----|----|
 |IsAtEndOfQuery|Bool|현재 해석이 모든 입력된 쿼리 텍스트에 일치하는 경우 true|
 |IsBeyondEndOfQuery|Bool|현재 해석이 입력된 쿼리 텍스트 외에 완료된 항목을 제안한 경우 true|

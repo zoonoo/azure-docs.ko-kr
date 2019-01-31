@@ -1,25 +1,25 @@
 ---
 title: 엔드포인트 할당량 늘리기
 titleSuffix: Azure Cognitive Services
-description: Language Understanding(LUIS)은 단일 키의 할당량 이상으로 엔드포인트 요청 할당량을 늘리는 기능을 제공합니다. 이렇게 하려면 **게시** 페이지의 **리소스 및 키** 섹션에서 LUIS에 대해 더 많은 키를 만들고 LUIS 응용 프로그램에 추가합니다.
+description: Language Understanding(LUIS)은 단일 키의 할당량 이상으로 엔드포인트 요청 할당량을 늘리는 기능을 제공합니다. 이렇게 하려면 **게시** 페이지의 **리소스 및 키** 섹션에서 LUIS에 대해 더 많은 키를 만들고 LUIS 애플리케이션에 추가합니다.
 author: diberry
 manager: cgronlun
 ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 3f3dddca7944403ace6a9779be07b0d458fb3cd1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ecf79f5c294b7ef7d14eea49c9bd568f6921fb65
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076766"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218028"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Microsoft Azure Traffic Manager를 사용하여 키 전체에서 엔드포인트 할당량 관리
-Language Understanding(LUIS)은 단일 키의 할당량 이상으로 엔드포인트 요청 할당량을 늘리는 기능을 제공합니다. 이렇게 하려면 **게시** 페이지의 **리소스 및 키** 섹션에서 LUIS에 대해 더 많은 키를 만들고 LUIS 응용 프로그램에 추가합니다. 
+Language Understanding(LUIS)은 단일 키의 할당량 이상으로 엔드포인트 요청 할당량을 늘리는 기능을 제공합니다. 이렇게 하려면 **게시** 페이지의 **리소스 및 키** 섹션에서 LUIS에 대해 더 많은 키를 만들고 LUIS 애플리케이션에 추가합니다. 
 
 클라이언트 응용 프로그램은 키 전체에서 트래픽을 관리해야 합니다. LUIS는 이러한 작업을 수행하지 않습니다. 
 
@@ -328,7 +328,7 @@ Traffic Manager는 각 엔드포인트의 경로를 폴링하여 온라인 상�
 ![모니터 상태가 온라인임을 보여 주는 Azure Traffic Manager 프로필 개요의 스크린샷](./media/traffic-manager/profile-status-online.png)
 
 ### <a name="validate-traffic-manager-polling-works"></a>Traffic Manager 폴링 작업 유효성 검사
-Traffic Manager 폴링 작업의 유효성을 검사하는 또 다른 방법은 LUIS 엔드포인트 로그를 사용하는 것입니다. [LUIS][LUIS] 웹 사이트 앱 목록 페이지에서 응용 프로그램에 대한 엔드포인트 로그를 내보냅니다. Traffic Manager는 두 개의 엔드포인트에 대해 자주 폴링하므로 몇 분 안에도 로그에 항목이 생성될 수 있습니다. 쿼리가 `traffic-manager-`로 시작하는 항목을 찾아야 합니다.
+Traffic Manager 폴링 작업의 유효성을 검사하는 또 다른 방법은 LUIS 엔드포인트 로그를 사용하는 것입니다. [LUIS][LUIS] 웹 사이트 앱 목록 페이지에서 애플리케이션에 대한 엔드포인트 로그를 내보냅니다. Traffic Manager는 두 개의 엔드포인트에 대해 자주 폴링하므로 몇 분 안에도 로그에 항목이 생성될 수 있습니다. 쿼리가 `traffic-manager-`로 시작하는 항목을 찾아야 합니다.
 
 ```console
 traffic-manager-west    6/7/2018 19:19  {"query":"traffic-manager-west","intents":[{"intent":"None","score":0.944767}],"entities":[]}
@@ -360,7 +360,7 @@ LUIS 엔드포인트가 있는 성공한 응답은 다음과 같습니다.
 ```
 
 ## <a name="use-the-traffic-manager-parent-profile"></a>Traffic Manager 부모 프로필 사용
-엔드포인트 간의 트래픽을 관리하려면 Traffic Manager DNS에 대한 호출을 삽입하여 LUIS 엔드포인트를 찾아야 합니다. 이 호출은 모든 LUIS 엔드포인트 요청에 대해 수행되고 LUIS 클라이언트 애플리케이션 사용자의 지리적 위치를 시뮬레이션해야 합니다. LUIS 클라이언트 응용 프로그램과 엔드포인트 예측을 위한 LUIS 요청 간에 DNS 응답 코드를 추가합니다. 
+엔드포인트 간의 트래픽을 관리하려면 Traffic Manager DNS에 대한 호출을 삽입하여 LUIS 엔드포인트를 찾아야 합니다. 이 호출은 모든 LUIS 엔드포인트 요청에 대해 수행되고 LUIS 클라이언트 애플리케이션 사용자의 지리적 위치를 시뮬레이션해야 합니다. LUIS 클라이언트 애플리케이션과 엔드포인트 예측을 위한 LUIS 요청 간에 DNS 응답 코드를 추가합니다. 
 
 
 ## <a name="clean-up"></a>정리

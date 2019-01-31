@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 249680f60b3c2ee10ff3f3f1eb39d4bf74e57cd9
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: e37435b0f2d52e2015caf3d2e0db6db0dba60c75
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497320"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187354"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할 활성화
 
@@ -75,11 +75,11 @@ Azure 리소스 역할을 담당해야 하는 경우 PIM에서 **내 역할** �
 
 ## <a name="use-a-role-immediately-after-activation"></a>활성화 즉시 역할 사용
 
-PIM에서 역할을 활성화하는 경우 원하는 관리 포털에 액세스하거나 특정 관리 워크로드 내에서 함수를 수행하려면 적어도 10분이 소요됩니다. 권한에 대한 업데이트를 강제로 적용하려면 다음 단계의 설명대로 **애플리케이션 액세스** 페이지를 사용합니다.
+PIM에서 역할을 활성화하는 경우 원하는 관리 포털에 액세스하거나 특정 관리 워크로드 내에서 함수를 수행하려면 적어도 10분이 소요됩니다. 권한을 강제로 업데이트하려면 다음 단계의 설명대로 **애플리케이션 액세스** 페이지를 사용합니다.
 
 1. Azure AD Privileged Identity Management를 엽니다.
 
-1. **응용 프로그램 액세스** 페이지를 클릭합니다.
+1. **애플리케이션 액세스** 페이지를 클릭합니다.
 
     ![PIM 애플리케이션 액세스 - 스크린샷](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
 
@@ -117,7 +117,7 @@ PIM에서 역할을 활성화하는 경우 원하는 관리 포털에 액세스�
 
 ### <a name="permissions-not-granted-after-activating-a-role"></a>역할을 활성화한 후 권한이 부여되지 않음
 
-PIM에서 역할을 활성화하는 경우 원하는 관리 포털에 액세스하거나 특정 관리 워크로드 내에서 함수를 수행하려면 적어도 10분이 소요됩니다. 권한에 대한 업데이트를 강제로 적용하려면 앞의 [활성화 즉시 역할 사용](#use-a-role-immediately-after-activation)의 설명대로 **애플리케이션 액세스** 페이지를 사용합니다.
+PIM에서 역할을 활성화하는 경우 원하는 관리 포털에 액세스하거나 특정 관리 워크로드 내에서 함수를 수행하려면 적어도 10분이 소요됩니다. 권한을 강제로 업데이트하려면 앞의 [활성화 즉시 역할 사용](#use-a-role-immediately-after-activation)의 설명대로 **애플리케이션 액세스** 페이지를 사용합니다.
 
 추가 문제 해결 단계는 [관리자 권한 문제 해결](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx)을 참조하세요.
 

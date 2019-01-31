@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 0ca43d6f6879198b8f80794c1948439e15f312ad
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f994a254e661cd245d2e953efd3bd595d50c6fc7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122759"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214316"
 ---
 # <a name="calchistogram-method"></a>calchistogram 메서드
 *calchistogram* 메서드는 구조화된 쿼리 식과 일치하는 개체를 계산하고 해당 특성 값의 분포를 계산합니다.
@@ -23,7 +23,7 @@ ms.locfileid: "46122759"
 ## <a name="request"></a>요청
 `http://<host>/calchistogram?expr=<expr>[&options]` 
 
-이름|값|설명
+Name|값|설명
 ----|-----|-----------
 expr | 텍스트 문자열 | 히스토그램을 계산할 인덱스 엔터티를 지정하는 구조화된 쿼리 식입니다.
 특성 | 텍스트 문자열(기본값="") | 응답에 포함되는 쉼표로 구분된 특성 목록입니다.

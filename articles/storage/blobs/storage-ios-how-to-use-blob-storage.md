@@ -1,6 +1,6 @@
 ---
 title: iOS에서 개체(Blob) 저장소를 사용하는 방법 - Azure | Microsoft Docs
-description: Azure Blob 저장소(개체 저장소)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다.
+description: Azure Blob Storage(개체 스토리지)를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다.
 services: storage
 author: michaelhauss
 ms.service: storage
@@ -8,24 +8,24 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: michaelhauss
-ms.component: blobs
-ms.openlocfilehash: be9254686eeb285fb4f0a5e29ba60023abee84ab
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: blobs
+ms.openlocfilehash: 9e4c717b3b205d6c8fdd309dada918eb6df35181
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961929"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244765"
 ---
-# <a name="how-to-use-blob-storage-from-ios"></a>iOS에서 Blob 저장소를 사용하는 방법
+# <a name="how-to-use-blob-storage-from-ios"></a>Azure 파일 공유를 만들고 헤드 노드에 탑재하는 세부 단계는 Windows에서 Azure File Storage 시작을 참조하세요.
 
-이 문서에서는 Microsoft Azure Blob 저장소를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Objective-C로 작성되었으며 [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios)를 사용합니다. 여기서 다루는 시나리오에는 Blob 업로드, 나열, 다운로드 및 삭제가 포함됩니다. Blob에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오. 또한 [샘플 앱](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample)을 다운로드하여 iOS 애플리케이션에서 Azure Storage의 사용을 신속하게 볼 수 있습니다.
+이 문서에서는 Microsoft Azure Blob Storage를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Objective-C로 작성되었으며 [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios)를 사용합니다. 여기서 다루는 시나리오에는 Blob 업로드, 나열, 다운로드 및 삭제가 포함됩니다. Blob에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오. 또한 [샘플 앱](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample)을 다운로드하여 iOS 애플리케이션에서 Azure Storage의 사용을 신속하게 볼 수 있습니다.
 
 Blob Storage에 대한 자세한 내용은 [Azure Blob Storage 소개](storage-blobs-introduction.md)를 참조하세요.
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="import-the-azure-storage-ios-library-into-your-application"></a>Azure Storage iOS 라이브러리를 애플리케이션으로 가져오기
-[Azure Storage CocoaPod](https://cocoapods.org/pods/AZSClient)를 사용하거나 **프레임워크** 파일을 가져와 Azure Storage iOS 라이브러리를 응용 프로그램으로 가져올 수 있습니다. CocoaPod는 라이브러리를 손쉽게 통합하는 반면, 프레임워크 파일에서 가져오기는 기존 프로젝트에 대해 덜 침입적이기 때문에 권장되는 방식입니다.
+[Azure Storage CocoaPod](https://cocoapods.org/pods/AZSClient)를 사용하거나 **프레임워크** 파일을 가져와 Azure Storage iOS 라이브러리를 애플리케이션으로 가져올 수 있습니다. CocoaPod는 라이브러리를 손쉽게 통합하는 반면, 프레임워크 파일에서 가져오기는 기존 프로젝트에 대해 덜 침입적이기 때문에 권장되는 방식입니다.
 
 이 라이브러리를 사용하려면 다음이 필요합니다.
 - iOS 8+
@@ -124,7 +124,7 @@ Azure Storage의 모든 Blob는 컨테이너에 있어야 합니다. 다음 예�
 }
 ```
 
-[Microsoft Azure Storage Explorer](http://storageexplorer.com)를 확인하고 해당 *newcontainer*가 저장소 계정에 대한 컨테이너 목록에 있는지 확인하여 이 작업을 확인할 수 있습니다.
+[Microsoft Azure Storage Explorer](http://storageexplorer.com) 를 확인하고 해당 *newcontainer* 가 스토리지 계정에 대한 컨테이너 목록에 있는지 확인하여 이 작업을 확인할 수 있습니다.
 
 ## <a name="set-container-permissions"></a>컨테이너 사용 권한 설정
 기본적으로 컨테이너의 사용 권한은 **개인** 액세스용으로 구성됩니다. 그러나 컨테이너는 컨테이너 액세스에 대한 몇 가지 다른 옵션을 제공합니다.
