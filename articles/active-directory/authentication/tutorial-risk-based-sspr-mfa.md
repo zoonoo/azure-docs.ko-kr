@@ -3,19 +3,19 @@ title: Azure ID 보호를 사용하는 위험 기반 MFA 및 SSPR
 description: 이 자습서에서는 Multi-Factor Authentication 및 셀프 서비스 암호 재설정에 Azure ID 보호를 사용하여 위험한 동작을 줄일 것입니다.
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: fea87a711bf43ea73d3e09efeb42f5133d8f4e9f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 504e314151409732cba23af97224683eb35a7c81
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434923"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075485"
 ---
 # <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>자습서: 위험 이벤트를 사용하여 Multi-Factor Authentication 및 암호 변경 트리거
 

@@ -3,19 +3,19 @@ title: 빠른 시작 Azure AD 셀프 서비스 암호 재설정
 description: 이 빠른 시작에서는 사용자가 자신의 암호를 재설정할 수 있도록 Azure AD 셀프 서비스 암호 재설정을 신속하게 구성합니다.
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: f91178b1db3d35ae99e694f626e04bb54b9e10de
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 84d781bc0a42d75090f7c48480b4025269b9242e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426372"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079888"
 ---
 # <a name="quickstart-self-service-password-reset"></a>빠른 시작: 셀프 서비스 암호 재설정
 

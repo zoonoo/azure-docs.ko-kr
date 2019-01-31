@@ -3,7 +3,7 @@ title: 자습서 - Azure PowerShell을 사용하여 확장 집합용 디스크 �
 description: Azure PowerShell을 사용하여 디스크를 추가, 준비, 나열 및 분리하는 방법을 포함하여, 가상 머신 확장 집합이 있는 Managed Disks를 만들고 사용하는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ebe4d877063f47cefcc5fd842fe2a096256a1702
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9abfd410e9137a897753fcf04ee113bd04749a7a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429466"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54881684"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합이 있는 디스크 만들기 및 사용
 가상 머신 확장 집합은 디스크를 사용하여 VM 인스턴스의 운영 체제, 애플리케이션 및 데이터를 저장합니다. 확장 집합을 만들고 관리할 때 예상 작업에 적합한 디스크 크기와 구성을 선택해야 합니다. 이 자습서에서는 VM 디스크를 만들고 관리하는 방법에 대해 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -48,7 +48,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 **임시 디스크** - 임시 디스크는 VM 인스턴스와 동일한 Azure 호스트에 있는 반도체 드라이브를 사용합니다. 이러한 디스크는 고성능 디스크이며, 임시 데이터 처리와 같은 작업에 사용할 수 있습니다. 그러나 VM 인스턴스가 새 호스트로 이동되면 임시 디스크에 저장된 모든 데이터가 제거됩니다. 임시 디스크의 크기는 VM 인스턴스 크기에 따라 결정됩니다. 임시 디스크는 */dev/sdb*로 레이블이 지정되고 탑재 지점은 */mnt*입니다.
 
 ### <a name="temporary-disk-sizes"></a>임시 디스크 크기
-| type | 일반적인 크기 | 최대 임시 디스크 크기(GiB) |
+| Type | 일반적인 크기 | 최대 임시 디스크 크기(GiB) |
 |----|----|----|
 | [범용](../virtual-machines/windows/sizes-general.md) | A, B 및 D 시리즈 | 1600 |
 | [Compute에 최적화](../virtual-machines/windows/sizes-compute.md) | F 시리즈 | 576 |
@@ -62,7 +62,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 애플리케이션을 설치하고 데이터를 저장해야 하는 경우 추가 데이터 디스크를 추가할 수 있습니다. 데이터 디스크는 지속형 및 반응형 데이터 저장소가 필요한 상황에 사용해야 합니다. 각 데이터 디스크의 최대 용량은 4TB입니다. VM 인스턴스의 크기에 따라 연결할 수 있는 데이터 디스크 수가 결정됩니다. 각 VM vCPU에 대해 두 개의 데이터 디스크를 연결할 수 있습니다.
 
 ### <a name="max-data-disks-per-vm"></a>VM당 최대 데이터 디스크 수
-| type | 일반적인 크기 | VM당 최대 데이터 디스크 수 |
+| Type | 일반적인 크기 | VM당 최대 데이터 디스크 수 |
 |----|----|----|
 | [범용](../virtual-machines/windows/sizes-general.md) | A, B 및 D 시리즈 | 64 |
 | [Compute에 최적화](../virtual-machines/windows/sizes-compute.md) | F 시리즈 | 64 |

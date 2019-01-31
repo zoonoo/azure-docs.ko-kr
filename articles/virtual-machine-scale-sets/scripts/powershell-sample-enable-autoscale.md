@@ -3,7 +3,7 @@ title: Azure PowerShell 샘플 - 호스트 기반 자동 크기 조정 사용 | 
 description: Azure PowerShell 샘플
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 22b1a2748bd34869ea3fd6eb7c98dd971ef0372f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ee5103434ed1ad7e123b6ce4ed67809ac11fd2b0
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470934"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882789"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-powershell"></a>PowerShell을 사용하여 가상 머신 확장 집합의 크기를 자동으로 조정
 이 스크립트는 Windows Server 2016을 실행하는 가상 머신 확장 집합을 만들고, CPU 로드 변경에 따라 호스트 기반 메트릭을 사용하여 자동으로 크기 조정합니다.

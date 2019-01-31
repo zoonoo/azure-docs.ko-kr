@@ -3,7 +3,7 @@ title: Azure CLI 샘플 - 앱 설치 | Microsoft Docs
 description: Azure CLI 샘플
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2469eef981246da9bfd9132ea0164395078fd164
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9c1b0d4ea794e5b3ed4f899addef18da2465562a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468457"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882194"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합에 애플리케이션 설치
 이 스크립트는 Ubuntu를 실행하는 가상 머신 확장 집합을 만들고, 사용자 지정 스크립트 확장을 사용하여 기본 웹 애플리케이션을 설치합니다. 스크립트가 실행되면 웹 브라우저를 통해 웹 응용 프로그램에 액세스할 수 있습니다.
