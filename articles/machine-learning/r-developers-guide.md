@@ -14,12 +14,12 @@ ms.devlang: R
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: jepeach
-ms.openlocfilehash: bc00bd3b61398355c663d133c0c9a66c2a52aa8d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 102191b885d2a4a9234b7783b0a51b09903d3abd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046947"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807459"
 ---
 # <a name="r-developers-guide-to-azure"></a>Azure에 대한 R 개발자 가이드
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
@@ -40,7 +40,7 @@ Microsoft은 데이터 과학자에게 최고의 도구인 R 프로그래밍 언
 |[Azure Databricks](#azure-databricks)                            |R 및 다른 언어를 지원하는 공동 작업 Spark 환경               |
 |[Azure Machine Learning Studio](#azure-machine-learning-studio)  |Azure의 기계 학습 실험에서 사용자 지정 R 스크립트 실행                      |
 |[Azure Batch](#azure-batch)                                      |클러스터의 여러 노드 간에 R 코드를 경제적으로 실행하기 위한 다양한 옵션 제공|
-|[Azure 노트](#azure-notebooks)                              |무료이지만 제한적인 클라우드 기반 버전의 Jupyter 노트북                  |
+|[Azure 노트](#azure-notebooks)                              |무료 클라우드 기반 버전의 Jupyter 노트북                  |
 |[Azure SQL Database](#azure-sql-database)                        |SQL Server 데이터베이스 엔진 내에서 R 스크립트 실행                            |
 
 ## <a name="data-science-virtual-machine"></a>데이터 과학 Virtual Machine
@@ -104,16 +104,17 @@ ML Studio에서 R을 사용하는 다른 방법은
 ## <a name="azure-batch"></a>Azure Batch
 대규모 R 작업의 경우 [Azure Batch](https://azure.microsoft.com/services/batch/)를 사용할 수 있습니다.  이 서비스는 클라우드 규모의 작업 예약 및 컴퓨팅 관리를 제공하므로 수십, 수백 또는 수천 대의 가상 머신에서 R 워크로드를 확장할 수 있습니다.  일반화된 컴퓨팅 플랫폼이므로 Azure Batch에서 R 작업을 실행하기 위한 몇 가지 옵션이 있습니다.
 
-한 가지 옵션은 Microsoft의 <code>[doAzureParallel](https://github.com/Azure/doAzureParallel)</code> 패키지를 사용하는 것입니다.  이 R 패키지는 `foreach` 패키지의 병렬 백 엔드입니다.  각`foreach` 루프 반복이 Azure Batch 클러스터 내 노드에서 동시에 실행될 수 있게 해줍니다.  패키지에 대한 소개를 보려면 ["doAzureParallel: R 세션에서 바로 Azure의 유연한 컴퓨팅 활용"](https://azure.microsoft.com/blog/doazureparallel/) 블로그 게시물을 읽어 보세요.
+한 가지 옵션은 Microsoft의 <code>[doAzureParallel](https://github.com/Azure/doAzureParallel)</code> 패키지를 사용하는 것입니다.  이 R 패키지는 `foreach` 패키지의 병렬 백 엔드입니다.  각`foreach` 루프 반복이 Azure Batch 클러스터 내 노드에서 동시에 실행될 수 있게 해줍니다.  패키지 소개는 ["doAzureParallel: R 세션에서 바로 Azure의 유연한 컴퓨팅 활용"](https://azure.microsoft.com/blog/doazureparallel/) 블로그 게시물을 읽어보세요.
 
 Azure Batch에서 R 스크립트를 실행하기 위한 다른 옵션은 Azure Portal에서 "RScript.exe"를 사용하여 코드를 Batch 앱의 번들로 묶는 것입니다.  자세한 연습은 ["Azure Batch의 R 워크로드"](https://azure.microsoft.com/blog/r-workloads-on-azure-batch/)를 참조하세요.
 
 세 번째 옵션은 Azure Batch에서 Docker 컨테이너를 사용하여 요청 시 Spark 클러스터를 프로비전할 수 있게 해주는 [Azure Distributed Data Engineering Toolkit](https://github.com/Azure/aztk)(AZTK)을 사용하는 것입니다.  이는 Azure에서 Spark 작업을 실행하는 경제적인 방법을 제공합니다.  [AZTK를 지원하는 SparklyR](https://github.com/Azure/aztk/wiki/SparklyR-on-Azure-with-AZTK)을 사용하면 클라우드에서 쉽고 저렴하게 R 스크립트를 확장할 수 있습니다.
 
 ## <a name="azure-notebooks"></a>Azure Notebooks
+
 [Azure Notebooks](https://notebooks.azure.com)는 노트북을 사용하여 Azure에 코드를 작성하는 것을 선호하는 R 개발자를 위한 무난한 저가형 서비스입니다.  markdown 문서, 실행 가능한 코드 및 그래픽을 단일 캔버스에 결합하는 데 사용되는 오픈 소스 프로젝트인 [Jupyter](https://jupyter.org/)를 사용하여 브라우저에서 코드를 개발하고 실행할 수 있게 해주는 무료 서비스입니다.
 
-Azure Notebooks는 소규모 프로젝트에 유용한 옵션이지만 몇 가지 제한 사항으로 인해 대규모 데이터 과학 프로젝트에 부적합합니다.  현재 이 서비스는 각 노트북의 프로세스 메모리를 4GB로 제한하고, 데이터 집합은 1GB로 제한합니다.  하지만 소규모 분석을 게시하는 경우에는 간편한 무료 옵션입니다.
+Azure Notebooks의 무료 서비스 계층은 각 Notebook의 처리량이 메모리 4GB 및 데이터 세트 1GB로 제한되므로 소규모 프로젝트에 적합한 옵션입니다. 하지만 이러한 제한보다 높은 컴퓨팅 및 데이터 성능이 필요한 경우 Data Science Virtual Machine 인스턴스에서 Notebook을 실행하면 됩니다. 자세한 내용은 [Azure Notebooks 프로젝트 관리 및 구성 - 컴퓨팅 계층](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)을 참조하세요.
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)는 Microsoft의 완전히 관리되는 완전 지능형의 관계형 클라우드 데이터베이스 서비스입니다.  번거롭게 인프라를 설정하지 않고도 SQL Server의 모든 기능을 사용할 수 있게 해줍니다.  여기에는 SQL Service에 가장 최근에 추가된 [Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning?view=sql-server-2017)가 포함되어 있습니다.
