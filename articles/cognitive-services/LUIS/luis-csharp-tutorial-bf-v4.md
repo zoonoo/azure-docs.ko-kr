@@ -7,16 +7,16 @@ author: diberry
 ms.custom: seodec18
 manager: cjgronlund
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: d233f1df40d9580edfaaeb6b819c014952ad3b0c
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 98c65b7adfe35c1ca80846ff7619dad69c5ba266
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189278"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219229"
 ---
 # <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>자습서: Bot Framework 4.x 및 Azure 웹앱 봇을 사용하는 C#의 LUIS 봇
 C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드할 수 있습니다. 이 봇은 HomeAutomation 앱을 사용하여 봇 솔루션을 구현합니다. 봇은 [Bot Framework 버전](https://github.com/Microsoft/botbuilder-js) v4 및 Azure [웹앱 봇](https://docs.microsoft.com/azure/bot-service/)을 사용하여 빌드되었습니다.
