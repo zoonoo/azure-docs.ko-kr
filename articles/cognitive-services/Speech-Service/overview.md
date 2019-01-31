@@ -6,16 +6,16 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: overview
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: e86adfd4e832e6b9514e4813ddd4a942b07ca624
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: beb1382d2e076052583dd5bbc546259c8aae2f96
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336597"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217971"
 ---
 # <a name="what-is-speech-services"></a>Speech Service란?
 
@@ -55,8 +55,8 @@ Speech Service의 주요 기능은 음성 텍스트 변환(음성 인식 또는 
 
 |<br>방법|Speech<br>to Text|Text to<br>Speech|Speech<br>Translation|<br>설명|
 |-|-|-|-|-|
-|[Speech SDK](speech-sdk.md)|yes|no|yes|개발 작업을 간소화할 수 있는 C#, C++ 및 Java용 네이티브 API입니다.|
-|[REST API](rest-apis.md)|yes|yes|no|응용 프로그램에 음성을 쉽게 추가할 수 있게 해주는 간단한 HTTP 기반 API입니다.|
+|[Speech SDK](speech-sdk.md)|예|no|예|개발 작업을 간소화할 수 있는 C#, C++ 및 Java용 네이티브 API입니다.|
+|[REST API](rest-apis.md)|예|예|no|응용 프로그램에 음성을 쉽게 추가할 수 있게 해주는 간단한 HTTP 기반 API입니다.|
 
 ### <a name="websockets"></a>WebSockets
 

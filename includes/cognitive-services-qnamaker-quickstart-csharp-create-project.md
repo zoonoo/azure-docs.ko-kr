@@ -5,17 +5,17 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
 ms.date: 09/27/2018
 ms.author: diberry
-ms.openlocfilehash: 420757c5b7f6d19bb0abe87232e75497b7b97322
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 6bda00a20dd83e005a57b50b0183b2b9f49667b4
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48019116"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55291121"
 ---
 1. Open Visual Studio 2017 Community Edition.
 1. 새 **콘솔 앱(.Net Core)** 프로젝트를 만들고 프로젝트를 `QnaMakerQuickstart`로 이름 지정합니다. 나머지 설정에 대해 기본값을 수락합니다.

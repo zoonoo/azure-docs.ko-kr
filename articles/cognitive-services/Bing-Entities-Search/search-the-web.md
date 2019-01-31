@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 07/06/2016
 ms.author: scottwhi
-ms.openlocfilehash: 2b3adf07a8522322434a6596475fa06c0df978e8
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 98d624b51835f88d34ec7ffd9658e40985482498
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48813603"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181829"
 ---
 # <a name="what-is-bing-entity-search"></a>Bing Entity Search란?
 
@@ -48,7 +48,7 @@ Bing Entity Search API는 Bing에 검색 쿼리를 보내고 엔터티 및 장�
 > [!NOTE]
 > 엔터티 응답은 여러 지역/국가를 지원하지만 위치 응답은 미국 비즈니스 위치만 지원합니다. 
 
-`entities` 필드는 [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) 개체 목록을 포함하는 [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) 개체입니다(`value` 필드 참조). 목록에는 단일 기준 엔터티, 여러 명확성 엔터티 또는 둘 다가 포함될 수 있습니다. 
+`entities` 필드는 [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) 개체 목록을 포함하는 [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) 개체입니다(`value` 필드 참조). 목록에는 단일 기준 엔터티, 여러 명확성 엔터티 또는 둘 다가 포함될 수 있습니다. 
 
 기준 엔터티는 Bing에서 요청을 충족하는 유일한 엔터티라고 확인된 엔터티입니다(요청을 충족하는 엔터티에 대한 모호성 없음). 여러 엔터티가 요청을 충족하는 경우 목록에는 둘 이상의 명확성 엔터티가 포함됩니다. 예를 들어 요청이 프랜차이즈 영화의 일반 제목을 사용하는 경우 목록에 모호성 엔터티가 포함될 가능성이 큽니다. 그러나 요청이 프랜차이즈의 특정 제목을 지정하는 경우 목록에 단일 기준 엔터티가 포함될 가능성이 큽니다.
 

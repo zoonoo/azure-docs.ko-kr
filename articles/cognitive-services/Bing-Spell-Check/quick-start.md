@@ -6,18 +6,18 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 4af90c0e1ffd6dbadcb31eb6141bc24f746d01f9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e5fa4db8754924b8c2bacfc8bf624380aae063c2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316415"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55148951"
 ---
-# <a name="quickstart-your-first-spell-check-request"></a>빠른 시작: 첫 번째 맞춤법 검사 요청
+# <a name="quickstart-your-first-spell-check-request"></a>빠른 시작: 첫 번째 맞춤법 확인 요청
 
 **검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 

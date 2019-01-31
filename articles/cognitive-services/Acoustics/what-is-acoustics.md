@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: overview
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 6a3c97ead40cfb24604edac0624e38a9b0713fc0
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 175203269f524f5c680345602e6382f5c26f1bd1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901027"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178905"
 ---
 # <a name="what-is-project-acoustics"></a>프로젝트 Acoustics란?
 프로젝트 Acoustics Unity 플러그인은 VR 및 기존 화면을 대상으로 하는 프로젝트를 위한 폐색, 반향 및 공간화를 제공합니다. 물리학 기반 시뮬레이션 위에 디자이너의 의도를 입히는 게임 음향을 디자인하는 방법을 제공합니다.

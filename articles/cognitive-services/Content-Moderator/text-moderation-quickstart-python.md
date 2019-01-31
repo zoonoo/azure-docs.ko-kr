@@ -6,16 +6,16 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 6aace9301050877d452b69bd7d1c741f50dae558
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 7952ea9a83e6a2a7689bfdf34e39c7862a6daf73
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264096"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217920"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>빠른 시작: Python에서 불쾌한 자료에 대한 텍스트 콘텐츠 분석
 
@@ -61,7 +61,7 @@ _ContentModeratorQS.py_라는 새 Python 스크립트를 만들고 다음 코드
 
 ## <a name="query-the-moderator-service"></a>Moderator 서비스 쿼리
 
-구독 키 및 엔드포인트 URL을 사용하여 **ContentModeratorClient** 인스턴스를 만듭니다. 그런 다음, 멤버 **TextModerationOperations** 인스턴스를 사용하여 조정 API를 호출합니다. 호출 방법에 대한 자세한 내용은 **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python#screen-text)** 참조 문서를 참조하세요.
+구독 키 및 엔드포인트 URL을 사용하여 **ContentModeratorClient** 인스턴스를 만듭니다. 그런 다음, 멤버 **TextModerationOperations** 인스턴스를 사용하여 조정 API를 호출합니다. 호출 방법에 대한 자세한 내용은 **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** 참조 문서를 참조하세요.
 
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=23-36)]
 

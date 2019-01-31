@@ -3,7 +3,7 @@ title: Azure CLI 스크립트 샘플 - NGINX를 사용하여 Linux VM 만들기 
 description: Azure CLI 스크립트 샘플 - NGINX를 사용하여 Linux VM 만들기
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 77896b3aa7e259c3d125c8796d73b47a635c88a6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 64f74981b4c1909f4660273fbbfa0e5828eaa6a6
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470486"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882908"
 ---
 # <a name="create-a-vm-with-nginx"></a>NGINX를 사용하여 VM 만들기
 

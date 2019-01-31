@@ -3,19 +3,19 @@ title: Azure AD SSPR 파일럿 사용
 description: 이 자습서에서는 사용자 파일럿 그룹에 Azure AD 셀프 서비스 암호 재설정을 사용하도록 설정할 것입니다.
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 21f2081f5aae0bb93cb9066407140f5fd35dc06d
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7b84e36ae447adcf36fae90b61564bc06c3bae89
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424039"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081554"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>자습서: Azure AD 셀프 서비스 암호 재설정 파일럿 배포 완료
 

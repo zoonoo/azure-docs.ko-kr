@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/05/2018
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3e571958daa72c0cb3e80bfac81d022c2f223f11
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 88b17f5095d0335ef9c6eb180cd0e640681ae9a5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993581"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101433"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>빠른 시작: ASP.NET Core 웹앱에 Microsoft로 로그인 추가
 
@@ -52,8 +52,8 @@ ms.locfileid: "52993581"
 > 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 > 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
 > 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록(미리 보기)** > **새 등록**을 차례로 선택합니다.
-> 1. **응용 프로그램 등록** 페이지가 표시되면 응용 프로그램의 등록 정보를 입력합니다.
->    - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 응용 프로그램 이름(예: `AspNetCore-Quickstart`)을 입력합니다.
+> 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
+>    - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `AspNetCore-Quickstart`)을 입력합니다.
 >    - **회신 URL**에 `https://localhost:44321/`을 추가하고 **등록**을 선택합니다.
 > 1. **인증** 메뉴를 선택한 후 다음 정보를 추가합니다.
 >    - **회신 URL**에 `https://localhost:44321/signin-oidc`을 추가하고 **등록**을 선택합니다.
@@ -68,7 +68,7 @@ ms.locfileid: "52993581"
 > > [자동 변경]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![이미 구성됨](media/quickstart-v2-aspnet-webapp/green-check.png) 이러한 특성을 사용하여 응용 프로그램을 구성합니다.
+> > ![이미 구성됨](media/quickstart-v2-aspnet-webapp/green-check.png) 이러한 특성을 사용하여 애플리케이션을 구성합니다.
 
 #### <a name="step-2-download-your-aspnet-core-project"></a>2단계: ASP.NET Core 프로젝트 다운로드
 
@@ -94,7 +94,7 @@ ms.locfileid: "52993581"
 >   - 애플리케이션이 **모든 Microsoft 계정 사용자**를 지원하는 경우 이 값을 `common`으로 바꾸세요.
 >
 > > [!TIP]
-> > **응용 프로그램(클라이언트) ID**, **디렉터리(테넌트) ID** 및 **지원되는 계정 유형**의 값을 찾아보려면 Azure Portal에서 앱의 **개요** 페이지로 이동합니다.
+> > **애플리케이션(클라이언트) ID**, **디렉터리(테넌트) ID** 및 **지원되는 계정 유형**의 값을 찾아보려면 Azure Portal에서 앱의 **개요** 페이지로 이동합니다.
 
 ## <a name="more-information"></a>자세한 정보
 

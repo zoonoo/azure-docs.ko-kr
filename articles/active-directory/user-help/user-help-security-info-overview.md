@@ -7,25 +7,25 @@ manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 1e55ad5c056bf76f8332ea84fa960b4482825bfe
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 918f711002530735b9b4e09273fac3021a97a091
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826159"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189139"
 ---
 # <a name="security-info-preview-overview"></a>보안 정보(미리 보기) 개요
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
+**보안 정보**에서 2단계 확인 및 암호 재설정 정보를 설정합니다. 보안 정보를 처음으로 설정한 후에는 다시 설정할 필요가 없습니다. 하지만 언제든지 정보를 편집하고 기본 방법을 변경할 수 있습니다.
+
 >[!Important]
 >이 콘텐츠는 사용자를 위한 것입니다. 관리자의 경우 [Azure Active Directory 문서](https://docs.microsoft.com/azure/active-directory)에서 Azure AD(Azure Active Directory) 환경을 설정하고 관리하는 방법에 대한 자세한 정보를 찾을 수 있습니다.
-
-**보안 정보**에서 2단계 확인 및 암호 재설정 정보를 설정합니다. 보안 정보를 처음으로 설정한 후에는 다시 설정할 필요가 없습니다. 하지만 언제든지 정보를 편집하고 기본 방법을 변경할 수 있습니다.
 
 다음 방법 중 하나를 추가할 수 있습니다.
 

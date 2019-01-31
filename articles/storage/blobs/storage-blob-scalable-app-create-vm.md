@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.component: blobs
-ms.openlocfilehash: 366c6043a851a88447116ca07bd90cc84d30cb7b
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: blobs
+ms.openlocfilehash: bd235193c5eee5587cfff6dac84c3378ecb44ce1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629463"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246554"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>확장 가능한 애플리케이션에 필요한 가상 머신 및 저장소 계정 만들기
 
@@ -46,7 +46,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
  
-이 샘플은 Azure Storage 계정의 Blob 컨테이너에 50개의 대용량 파일을 업로드합니다. 저장소 계정은 Azure Storage 데이터 개체의 저장 및 액세스를 위한 고유한 네임스페이스를 제공합니다. 만든 리소스 그룹에 [New-AzStorageAccount](/powershell/module/az.Storage/New-azStorageAccount) 명령을 사용하여 스토리지 계정을 만듭니다.
+이 샘플은 Azure Storage 계정의 Blob 컨테이너에 50개의 대용량 파일을 업로드합니다. 스토리지 계정은 Azure Storage 데이터 개체의 저장 및 액세스를 위한 고유한 네임스페이스를 제공합니다. 만든 리소스 그룹에 [New-AzStorageAccount](/powershell/module/az.Storage/New-azStorageAccount) 명령을 사용하여 스토리지 계정을 만듭니다.
 
 다음 명령에서 `<blob_storage_account>` 자리 표시자는 Blob Storage 계정에 대한 전역적으로 고유한 이름으로 바꿉니다.
 

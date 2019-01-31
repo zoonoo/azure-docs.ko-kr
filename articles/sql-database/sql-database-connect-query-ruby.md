@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 66819cbd65f6f044d0dac68326eb5890476964b6
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 8fa161f82cf73e61127ab67aba6ca3408c8e7c10
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993912"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197826"
 ---
 # <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>빠른 시작: Ruby를 사용하여 Azure SQL Database 쿼리
 
@@ -28,8 +28,6 @@ ms.locfileid: "53993912"
 이 빠른 시작을 완료하려면 다음 필수 구성 요소가 필요합니다.
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-  
-- 이 빠른 시작에서 사용하는 컴퓨터의 공용 IP 주소에 대한 [서버 수준 방화벽 규칙](sql-database-get-started-portal-firewall.md)
   
 - 운영 체제용 Ruby 및 관련 소프트웨어:
   

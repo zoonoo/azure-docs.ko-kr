@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: bf4fd5d2a3a9bb06882dcd1b4674ccdf8ad894ee
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 0dd08fa85ea443a11f14769b63502978eaa8a378
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971412"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221150"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>자습서: 발언과 텍스트가 정확히 일치하는 데이터 구하기
 
@@ -67,7 +67,7 @@ ms.locfileid: "53971412"
 
     |예제 발화|
     |--|
-    |John W. Smith를 회계 부서로 이동|
+    |John W. Smith는 회계 부서로 이동|
     |Jill Jones를 R&D로 이전|
     |1234 부서에 Bill Bradstreet라는 새 멤버가 있습니다.|
     |John Jackson을 엔지니어링에 배치 |
@@ -124,7 +124,7 @@ ms.locfileid: "53971412"
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>학습된 모델을 엔드포인트에서 쿼리할 수 있도록 앱 게시하기
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>학습을 거친 모델이 엔드포인트에서 쿼리할 수 있도록 앱 게시
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 

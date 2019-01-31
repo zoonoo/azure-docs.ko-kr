@@ -8,19 +8,19 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: 10de179c6055feb46439792ea74a0a3131f39646
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: aeb9f1ba460a009daacf3090c75573dd5d69b813
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970659"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095858"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft에 로그인 추가
 
@@ -69,7 +69,7 @@ ms.locfileid: "52970659"
 ## <a name="step-2-create-your-aspnet-project"></a>2단계: ASP.NET 프로젝트 만들기
 
 1. Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**로 이동합니다.
-2. **Visual C#\Web**에서 **ASP.NET 웹 응용 프로그램(.NET Framework)** 을 선택합니다.
+2. **Visual C#\Web**에서 **ASP.NET 웹 애플리케이션(.NET Framework)** 을 선택합니다.
 3. 애플리케이션의 이름을 지정하고 **확인**을 선택합니다.
 4. **비어 있음**을 선택한 다음, 확인란을 선택하여 **MVC** 참조를 추가합니다.
 
@@ -112,7 +112,7 @@ OWIN 미들웨어 *시작 클래스*를 만들려면 다음을 수행합니다.
 
 <!--start-collapse-->
 > [!NOTE]
-> *OpenIDConnectAuthenticationOptions*에 제공하는 매개 변수는 응용 프로그램이 Azure AD와 통신하기 위한 좌표로 사용됩니다. OpenID Connect 미들웨어는 쿠키를 사용하므로 앞의 코드에서처럼 쿠키 인증도 설정해야 합니다. *ValidateIssuer* 값은 OpenIdConnect에 특정 조직 하나로 액세스를 제한하지 않도록 지시합니다.
+> *OpenIDConnectAuthenticationOptions*에 제공하는 매개 변수는 애플리케이션이 Azure AD와 통신하기 위한 좌표로 사용됩니다. OpenID Connect 미들웨어는 쿠키를 사용하므로 앞의 코드에서처럼 쿠키 인증도 설정해야 합니다. *ValidateIssuer* 값은 OpenIdConnect에 특정 조직 하나로 액세스를 제한하지 않도록 지시합니다.
 <!--end-collapse-->
 
 <!--end-setup-->
@@ -179,7 +179,7 @@ Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이
 
 <!--start-configure-->
 
-## <a name="step-9-configure-your-webconfig-and-register-an-application"></a>9단계: *web.config*를 구성하고 응용 프로그램을 등록합니다.
+## <a name="step-9-configure-your-webconfig-and-register-an-application"></a>9단계: *web.config*를 구성하고 애플리케이션을 등록합니다.
 
 1. Visual Studio에서 루트 폴더에 있는 `configuration\appSettings`의 `web.config` 섹션 아래에 다음 내용을 추가합니다.
 
@@ -196,13 +196,13 @@ Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이
 
 ### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Azure Portal에서 애플리케이션을 등록한 다음, *web.config*에 정보 추가
 
-1. [Microsoft Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)으로 이동하여 응용 프로그램을 등록합니다.
-2. **새 응용 프로그램 등록**을 선택합니다.
+1. [Microsoft Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)으로 이동하여 애플리케이션을 등록합니다.
+2. **새 애플리케이션 등록**을 선택합니다.
 3. 애플리케이션의 이름을 입력합니다.
 4. Visual Studio 프로젝트의 *SSL URL*을 **로그온 URL**에 붙여넣습니다. 이 URL은 등록하는 애플리케이션의 회신 URL 목록에도 자동으로 추가됩니다.
-5. **만들기**를 선택하여 응용 프로그램을 등록합니다. 그러면 애플리케이션 목록으로 돌아갑니다.
+5. **만들기**를 선택하여 애플리케이션을 등록합니다. 그러면 애플리케이션 목록으로 돌아갑니다.
 6. 이제 방금 만든 애플리케이션을 검색 및/또는 선택하여 해상 속성을 엽니다.
-7. **응용 프로그램 ID**의 GUID를 클립보드에 복사합니다.
+7. **애플리케이션 ID**의 GUID를 클립보드에 복사합니다.
 8. Visual Studio로 돌아가서 `web.config`에서 `Enter_the_Application_Id_here`를 방금 등록한 애플리케이션의 애플리케이션 ID로 바꿉니다.
 
 > [!TIP]
@@ -216,7 +216,7 @@ Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이
 
 Azure AD와 통합된 어떠한 회사 또는 조직에서 회사 및 학교 계정의 로그인을 허용하려면 다음 단계를 수행합니다. 이것은 *SaaS 애플리케이션*의 일반적인 시나리오입니다.
 
-1. [Microsoft Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)으로 돌아가서 방금 등록한 응용 프로그램을 찾습니다.
+1. [Microsoft Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)으로 돌아가서 방금 등록한 애플리케이션을 찾습니다.
 2. **모든 설정**에서 **속성**을 선택합니다.
 3. **다중 테넌트** 속성을 **예**로 변경한 다음, **저장**을 선택합니다.
 
@@ -288,7 +288,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 
 | 자산 | 값 | 설명 |
 |---|---|---|
-| 이름 | {User Full Name} | 사용자의 이름과 성 |
+| Name | {User Full Name} | 사용자의 이름과 성 |
 | 사용자 이름 | <span>user@domain.com</span> | 로그온한 사용자를 식별하는 데 사용되는 사용자 이름 |
 | 제목| {Subject} |웹에서 사용자 로그온을 고유하게 식별하는 문자열 |
 | 테넌트 ID | {Guid} | 사용자의 Azure AD 조직을 고유하게 나타내는 *guid*입니다. |

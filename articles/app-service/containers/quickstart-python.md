@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f23aa49d44e8f29f860174ebde2447fad79c8c52
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: be78c91a4fb5c1e79e7b58620f65c9f17bfb4bae
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54843381"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226488"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Linux의 Azure App Service에서 Python 앱 만들기(미리 보기)
 
@@ -180,7 +180,7 @@ Linux의 App Service에 기본 제공되는 Python 이미지는 현재 미리 �
 > [PostgreSQL을 사용하는 Python](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [사용자 지정 시작 명령 구성](how-to-configure-python.md#custom-startup-command)
+> [사용자 지정 시작 명령 구성](how-to-configure-python.md#customize-startup-command)
 
 > [!div class="nextstepaction"]
 > [문제 해결](how-to-configure-python.md#troubleshooting)

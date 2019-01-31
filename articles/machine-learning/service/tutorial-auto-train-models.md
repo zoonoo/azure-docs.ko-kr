@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: 자동화된 Machine Learning을 사용하여 Machine Learning 모델을 만드는 방법에 대해 알아봅니다. Azure Machine Learning은 데이터 전처리, 알고리즘 선택 및 하이퍼 매개 변수 선택을 자동화된 방식으로 수행할 수 있습니다. 그런 다음, Azure Machine Learning Service를 사용하여 최종 모델을 배포할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 97910241cb4f903deeeb9ff6971839530903efe2
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 1e2746ef55f5c50ce9452b7a9d1ab060c69830db
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823018"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244278"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>자습서: 자동화된 기계 학습을 사용하여 모델 빌드
 
@@ -118,7 +118,7 @@ dflow_prepared.get_profile()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>type</th>
+      <th>Type</th>
       <th>Min</th>
       <th>max</th>
       <th>개수</th>

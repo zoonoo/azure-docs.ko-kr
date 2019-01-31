@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: overview
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: e3791c897722c9bbf50f58c126d7e4e573b2096f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2e974acb1a7583fbd1a961eda4daa3732fbeff7c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465817"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218176"
 ---
 # <a name="what-is-project-url-preview"></a>Project URL Preview란?
 URL Preview 엔드포인트는 URL 쿼리 매개 변수를 사용하고 대상 리소스 이름, 간략한 설명 및 미리 보기에 표시할 이미지에 대한 링크로 JSON 응답을 반환합니다. 이 응답에는 URL이 성인, 해적판 또는 기타 불법 콘텐츠를 포함하는지 여부를 나타내는 [isFamilyFriendly](url-preview-reference.md#query-parameters) 플래그도 포함됩니다. 
@@ -26,7 +26,7 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=https://swiftk
 
 ```
 응답 
-````
+```
 HTTP Headers:
 BingAPIs-TraceId: 3CC74C94769440C0851D9DF0869FCE7F
 BingAPIs-SessionId: 52219085A6364692958C9C83983A0DBA
@@ -44,7 +44,7 @@ X-MSEdge-Ref: Ref A: 3CC74C94769440C0851D9DF0869FCE7F Ref B: CO1EDGE0315 Ref C: 
   }
 }
 
-````
+```
 ## <a name="scenarios"></a>시나리오 
 
 URL Preview API는 웹 리소스에 대한 간략한 설명을 지원합니다. 개발자는 이 API를 사용하여 풍부한 미리 보기 환경을 빌드합니다.  사용자는 웹 페이지, 뉴스, 블로그, 포럼 등을 공유하거나 책갈피할 수 있습니다. 이 API는 콘텐츠 조정에도 사용할 수 있습니다.    

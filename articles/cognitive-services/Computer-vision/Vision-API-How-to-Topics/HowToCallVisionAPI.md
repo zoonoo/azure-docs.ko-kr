@@ -6,17 +6,17 @@ services: cognitive-services
 author: KellyDF
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 9520d4bcec0e170700aacc5ef4bc69100e333af1
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4cca3db778347e9bd8c8b881d85f0882f6b90f72
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581711"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216254"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>예제: Computer Vision API를 호출하는 방법
 
@@ -150,7 +150,7 @@ POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?details=cele
     }
   }
 ```
-필드   | type  | Content
+필드   | Type  | Content
 ------|------|------|
 태그들    | object    | 태그 배열의 최상위 개체
 tags[].Name | string    | 태그 분류자의 키워드
@@ -210,7 +210,7 @@ description.captions[].confidence   | number    | 구의 신뢰도.
 
 범주 필드는 원래 분류의 [86개 범주](../Category-Taxonomy.md) 중 하나 이상이 포함된 목록입니다. 밑줄로 끝나는 범주는 해당 범주 및 자식과 일치합니다(예: 유명인 모델의 경우 people_ 및 people_group).
 
-필드   | type  | Content
+필드   | Type  | Content
 ------|------|------|
 범주 | object | 최상위 개체
 categories[].name    | string   | 86개 범주 분류의 이름

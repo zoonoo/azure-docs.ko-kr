@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a8b45850ef609f908450fbcf35aad6b5c87540b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c2e67adb93c34cc4421145964ee809e4423b4843
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818509"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101731"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>자습서: Signagelive와 Azure Active Directory 통합
 
@@ -104,7 +104,7 @@ Signagelive에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     ![Signagelive 도메인 및 URL Single Sign-On 정보](common/sp-signonurl.png)
 
-    **로그인 URL** 텍스트 상자에서 `https://login.signagelive.com/sso/<ORGANISATIONALUNITNAME>` 패턴을 사용하여 URL을 입력합니다.
+    **로그인 URL** 텍스트 상자에서 `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 얻으려면 [Signagelive 클라이언트 지원 팀](mailto:support@signagelive.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

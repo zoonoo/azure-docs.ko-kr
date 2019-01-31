@@ -8,22 +8,20 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
-ms.date: 12/07/2018
-ms.openlocfilehash: ca247fc5d5eab925e352fe717365c382427b05b1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/28/2019
+ms.openlocfilehash: bca4443f2c8990dff45922c76df21ad0af7c91b5
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438781"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298911"
 ---
 # <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>Azure HDInsight 및 Apache Hadoop 기술 스택이란?
 
 이 문서에서는 Azure HDInsight의 Apache Hadoop을 소개합니다. Azure HDInsight는 엔터프라이즈의 경우 완전히 관리되는 전체 스펙트럼의 오픈 소스 분석 서비스입니다. Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R 등과 같은 오픈 소스 프레임워크를 사용할 수 있습니다. 
 
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="what-is-hdinsight-and-the-hadoop-technology-stack"></a>HDInsight 및 Hadoop 기술 스택이란?
-
 
 [Apache Hadoop](https://hadoop.apache.org/)은 클러스터에서 빅 데이터 집합을 분산 처리하고 분석하기 위한 원래의 오픈 소스 프레임워크였습니다. Hadoop 기술 스택에는 Apache Hive, Apache HBase, Spark, Kafka 및 기타 등등 관련 소프트웨어 및 유틸리티가 포함되어 있습니다.
 
@@ -44,12 +42,12 @@ HDInsight에서 사용할 수 있는 Hadoop 기술 스택 구성 요소를 보�
 |기능  |설명  |
 |---------|---------|
 |네이티브 클라우드     |     Azure HDInsight를 사용하면 Azure에서 [Hadoop](apache-hadoop-linux-tutorial-get-started.md), [Spark](../spark/apache-spark-jupyter-spark-sql.md), [대화형 쿼리(LLAP)](../interactive-query/apache-interactive-query-get-started.md), [Kafka](../kafka/apache-kafka-get-started.md), [Storm](../storm/apache-storm-tutorial-get-started-linux.md), [HBase](../hbase/apache-hbase-tutorial-get-started-linux.md) 및  [ML 서비스](../r-server/r-server-get-started.md)에 최적화된 클러스터를 만들 수 있습니다. 또한 HDInsight에서는 모든 프로덕션 워크로드에 종단간 SLA를 제공합니다.  |
-|저렴한 비용 및 확장성     | HDInsight를 사용하면 워크로드의 [크기를 조정](../hdinsight-administer-use-portal-linux.md) 할 수 있습니다.  [주문형 클러스터를 만들](../hdinsight-hadoop-create-linux-clusters-adf.md) 어서 비용을 줄이고 사용한 양만큼 요금을 지불하면 됩니다. 또한 작업을 운영하는 데이터 파이프라인을 작성할 수 있습니다. 분리된 계산 및 저장소로 인해 성능 및 유연성이 향상됩니다. |
+|저렴한 비용 및 확장성     | HDInsight를 사용하면 워크로드의 [크기를 조정](../hdinsight-administer-use-portal-linux.md#scale-clusters) 할 수 있습니다.  [주문형 클러스터를 만들](../hdinsight-hadoop-create-linux-clusters-adf.md) 어서 비용을 줄이고 사용한 양만큼 요금을 지불하면 됩니다. 또한 작업을 운영하는 데이터 파이프라인을 작성할 수 있습니다. 분리된 계산 및 저장소로 인해 성능 및 유연성이 향상됩니다. |
 |보안 및 규정 준수    | HDInsight를 사용하면 [Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md), [암호화](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) 및 [Azure Active Directory](../domain-joined/apache-domain-joined-introduction.md)와 통합을 통해 엔터프라이즈 데이터 자산을 보호할 수 있습니다. HDInsight는 가장 널리 사용되는 업계 및 정부 [규격 표준](https://azure.microsoft.com/overview/trusted-cloud)을 충족합니다.        |
 |모니터링    | Azure HDInsight는 [Azure Log Analytics](../hdinsight-hadoop-oms-log-analytics-tutorial.md)와 통합하여 모든 클러스터를 모니터링할 수 있는 단일 인터페이스를 제공합니다.        |
 |전 세계 이용 가능 여부 | HDInsight는 다른 모든 빅 데이터 분석 제품보다 많은  [지역](https://azure.microsoft.com/regions/services/) 에서 사용할 수 있습니다. Azure HDInsight는 주요 통치 지역에서 엔터프라이즈 요구 사항을 충족할 수 있도록 Azure Government, 중국 및 독일에서도 사용할 수 있습니다. |  
 |생산성     |  Azure HDInsight를 사용하면 선호하는 개발 환경과 함께 Hadoop 및 Spark에 대한 풍부한 생산성 도구를 사용할 수 있습니다. 이러한 개발 환경에는 Scala, Python, R, Java 및 .NET 지원을 위한 [Visual Studio](apache-hadoop-visual-studio-tools-get-started.md), [VSCode](../hdinsight-for-vscode.md), [Eclipse](../spark/apache-spark-eclipse-tool-plugin.md) 및 [IntelliJ](../spark/apache-spark-intellij-tool-plugin.md)가 포함됩니다. 데이터 과학자는 [Jupyter](../spark/apache-spark-jupyter-notebook-kernels.md) 및 [Zeppelin](../spark/apache-spark-zeppelin-notebook.md)과 같은 널리 사용되는 Notebook을 사용하여 공동 작업할 수도 있습니다.    |
-|확장성     |  [스크립트 작업](../hdinsight-hadoop-customize-cluster-linux.md)을 사용하는 구성 요소(Hue, Presto 등)를 설치하거나, [에지 노드를 추가](../hdinsight-apps-use-edge-node.md)하거나, [다른 빅 데이터 인증 응용 프로그램과 통합](../hdinsight-apps-install-applications.md)하여 HDInsight 클러스터를 확장할 수 있습니다. HDInsight를 사용하면 [One-Click](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) 배포를 통해 가장 널리 사용되는 빅 데이터 솔루션과 원활히 통합할 수 있습니다.|
+|확장성     |  [스크립트 작업](../hdinsight-hadoop-customize-cluster-linux.md)을 사용하는 구성 요소(Hue, Presto 등)를 설치하거나, [에지 노드를 추가](../hdinsight-apps-use-edge-node.md)하거나, [다른 빅 데이터 인증 애플리케이션과 통합](../hdinsight-apps-install-applications.md)하여 HDInsight 클러스터를 확장할 수 있습니다. HDInsight를 사용하면 [One-Click](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) 배포를 통해 가장 널리 사용되는 빅 데이터 솔루션과 원활히 통합할 수 있습니다.|
 
 ## <a name="scenarios-for-using-hdinsight"></a>HDInsight를 사용하는 시나리오
 
@@ -93,7 +91,7 @@ HDInsight에는 구성 요소, 유틸리티 및 언어 추가와 같은 특정 �
 
 * **[Apache HBase](https://hbase.apache.org/)**: 구조화되지 않은/반구조화된 대량 데이터(잠재적으로 수십억 개의 행과 수십억 개의 열로 구성됨)에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 NoSQL 데이터베이스입니다. [HDInsight의 HBase란?](../hbase/apache-hbase-overview.md)을 참조하세요.
 
-* **[ML 서비스](https://msdn.microsoft.com/microsoft-r/rserver)**: 병렬 분산된 R 프로세스를 호스트하고 관리하기 위한 서버입니다. 데이터 과학자, 통계학자 및 R 프로그래머에게 HDInsight의 확장 가능한 분산형 분석 방법에 요청 시 액세스할 수 있도록 해줍니다. [HDInsight의 ML 서비스 개요](../r-server/r-server-overview.md)를 참조하세요.
+* **[ML 서비스](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server)**: 병렬 분산된 R 프로세스를 호스트하고 관리하기 위한 서버입니다. 데이터 과학자, 통계학자 및 R 프로그래머에게 HDInsight의 확장 가능한 분산형 분석 방법에 요청 시 액세스할 수 있도록 해줍니다. [HDInsight의 ML 서비스 개요](../r-server/r-server-overview.md)를 참조하세요.
 
 * **[Apache Storm](https://storm.incubator.apache.org/)**: 대규모 데이터 스트림을 빠르게 처리하기 위한 분산형 실시간 계산 시스템입니다. HDInsight에서 관리 클러스터로 제공됩니다. [Storm 및 Hadoop을 사용하여 실시간 센서 데이터 분석](../storm/apache-storm-sensor-data-analysis.md)을 참조하세요.
 
@@ -114,7 +112,7 @@ HDInsight 클러스터, 즉 Spark, HBase, Kafka, Hadoop 및 기타 클러스터�
 
 |프로그래밍 언어  |정보  |
 |---------|---------|
-|기본 프로그래밍 언어 지원     | 기본적으로 HDInsight 클러스터는 다음을 지원합니다.<ul><li>자바</li><li>Python</li></ul> 추가 언어는 [스크립트 동작](../hdinsight-hadoop-script-actions-linux.md)을 사용하여 설치할 수 있습니다.       |
+|기본 프로그래밍 언어 지원     | 기본적으로 HDInsight 클러스터는 다음을 지원합니다.<ul><li>자바</li><li>Python</li><li>.NET</li><li>Go</li></ul>  |
 |Java 가상 머신(JVM) 언어     | Java 이외의 여러 언어는 JVM(Java Virtual Machine)에서 실행할 수 있습니다. 그러나 이러한 언어 중 일부를 실행하는 경우 클러스터에서 추가 구성 요소를 설치해야 할 수 있습니다. 이러한 JVM 기반 언어는 HDInsight 클러스터에서 지원됩니다. <ul><li>Clojure</li><li>Jython(Java용 Python)</li><li>스칼라</li></ul>     |
 |Hadoop 관련 언어     | HDInsight 클러스터는 Hadoop 기술 스택에만 적용되는 다음 언어를 지원합니다. <ul><li>Pig 작업에 대한 Pig Latin</li><li>Hive 작업에 대한 HiveQL 및 SparkSQL</li></ul>        |
 
@@ -146,9 +144,9 @@ IntelliJ, Eclipse, Visual Studio Code 및 Visual Studio를 포함하여 HDInsigh
 
 * [Microsoft Hive ODBC Driver로 Apache Hadoop에 Excel 연결](apache-hadoop-connect-excel-hive-odbc-driver.md)(Windows 필요) 
 
-* [HDInsight에서 SQL Server Analysis Services 사용](https://msdn.microsoft.com/library/dn749857.aspx)
+* [HDInsight에서 SQL Server Analysis Services 사용](https://docs.microsoft.com/previous-versions/msp-n-p/dn749857(v=pandp.10))
 
-* [HDInsight에서 SQL Server Reporting Services 사용](https://msdn.microsoft.com/library/dn749856.aspx)
+* [HDInsight에서 SQL Server Reporting Services 사용](https://docs.microsoft.com/previous-versions/msp-n-p/dn749856(v=pandp.10))
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: b9c33da4f002504a55802e4253d648ff87847d92
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 01/28/2019
+ms.openlocfilehash: b611eb02203c872e3497b5b7c12acddd9eab14c0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271830"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188391"
 ---
 # <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>빠른 시작: Python을 사용하여 Azure SQL Database 쿼리
 
@@ -28,8 +28,6 @@ ms.locfileid: "53271830"
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-  
-- 이 빠른 시작에서 사용하는 컴퓨터의 공용 IP 주소에 대한 [서버 수준 방화벽 규칙](sql-database-get-started-portal-firewall.md)
   
 - 운영 체제용 Python 및 관련 소프트웨어:
   

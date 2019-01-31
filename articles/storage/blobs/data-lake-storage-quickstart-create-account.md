@@ -3,17 +3,17 @@ title: Azure Data Lake Storage Gen2 스토리지 계정 만들기 | Microsoft Do
 description: Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하여 Data Lake Storage Gen2에 액세스할 수 있는 새 스토리지 계정을 빨리 만드는 방법을 알아봅니다.
 services: storage
 author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: c32e79098cb50600e10d353392e8ceb13d5014b2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 906f1a85000a2be175a204e9e6e561a75cecfde3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475036"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55248438"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>빠른 시작: Azure Data Lake Storage Gen2 스토리지 계정 만들기
 
@@ -222,7 +222,7 @@ az storage account create `
 
 ### <a name="clean-up-resources"></a>리소스 정리
 
-새 저장소 계정을 포함하여 리소스 그룹과 관련 리소스를 제거하려면 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용합니다.
+새 저장소 계정을 포함하여 리소스 그룹과 관련 리소스를 제거하려면 [az group delete](/cli/azure/group) 명령을 사용합니다.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

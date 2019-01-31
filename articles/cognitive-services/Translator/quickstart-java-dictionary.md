@@ -6,16 +6,16 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 001aa2a813816562cdc5e95a00b858d8958a6756
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: a1e59b8a6ceae3e2379a271a9ff55030f14a5622
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157822"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223224"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-java"></a>빠른 시작: Java를 사용하여 이중 언어 사전이 있는 단어 조회
 

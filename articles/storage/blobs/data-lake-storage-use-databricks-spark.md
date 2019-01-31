@@ -3,17 +3,17 @@ title: '자습서: Azure Databricks에서 Spark를 사용하여 Azure Data Lake 
 description: 이 자습서에서는 Azure Databricks 클러스터에서 Spark 쿼리를 실행하여 Azure Data Lake Storage Gen2 스토리지 계정의 데이터에 액세스하는 방법을 보여 줍니다.
 services: storage
 author: dineshmurthy
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 ms.date: 01/14/2019
 ms.author: dineshm
-ms.openlocfilehash: e72a4f71a42a892d14fad076b124426f0c32ac7d
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 31d18d7ea4ee195f7ffcfa04fb247b5dfd525c6a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321809"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251484"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>자습서: Azure Databricks에서 Spark를 사용하여 Data Lake Storage Gen2 미리 보기 데이터에 액세스
 
@@ -46,7 +46,7 @@ Azure Portal에서 스토리지 계정의 이름을 가져오려면 **모든 서
 
 파일 시스템 엔드포인트 URI를 가져오려면 **속성**을 선택하고 속성 창에서 **기본 ADLS 파일 시스템 엔드포인트** 필드의 값을 찾습니다.
 
-이 두 값을 모두 텍스트 파일에 붙여 넣습니다. 곧 이 두 값이 필요합니다.
+이 두 값을 모두 텍스트 파일에 붙여넣습니다. 곧 이 두 값이 필요합니다.
 
 <a id="service-principal"/>
 
@@ -60,7 +60,7 @@ Azure Portal에서 스토리지 계정의 이름을 가져오려면 **모든 서
 
 :heavy_check_mark: 문서의 [애플리케이션을 역할에 할당](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) 섹션에서 단계를 수행하는 경우 해당 애플리케이션을 **Blob Storage 기여자 역할**에 할당해야 합니다.
 
-:heavy_check_mark: 문서의 [로그인을 위한 값 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션에서 단계를 수행하는 경우 테넌트 ID, 애플리케이션 ID 및 인증 키 값을 텍스트 파일에 붙여 넣으십시오. 곧 이 값들이 필요합니다.
+:heavy_check_mark: 문서의 [로그인을 위한 값 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션에서 단계를 수행하는 경우 테넌트 ID, 애플리케이션 ID 및 인증 키 값을 텍스트 파일에 붙여넣습니다. 곧 이 값들이 필요합니다.
 
 ## <a name="create-a-databricks-cluster"></a>Databricks 클러스터 만들기
 
@@ -82,7 +82,7 @@ Azure Portal에서 스토리지 계정의 이름을 가져오려면 **모든 서
 14. **이름** 필드에 원하는 이름을 입력하고 **Python**을 언어로 선택합니다.
 15. 다른 모든 필드는 기본값으로 그대로 유지할 수 있습니다.
 16. **만들기**를 선택합니다.
-17. 다음 코드 블록을 복사하여 첫 번째 셀에 붙여 넣습니다. 하지만 이 코드를 아직 실행하지 마십시오.
+17. 다음 코드 블록을 복사하여 첫 번째 셀에 붙여넣습니다. 하지만 이 코드를 아직 실행하지 마십시오.
 
     ```Python
     configs = {"fs.azure.account.auth.type": "OAuth",

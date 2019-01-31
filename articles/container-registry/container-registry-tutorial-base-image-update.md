@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b3d8c3aea4955d6f95ead69d5bed147cc486e7c8
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 781e64c57c53412e999de98b937d568097b2825e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254040"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55204119"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>자습서: Azure Container Registry에서 기본 이미지가 업데이트될 때 컨테이너 이미지 빌드 자동화 
 
@@ -61,7 +61,7 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 
 ## <a name="base-images"></a>기본 이미지
 
-대부분의 컨테이너 이미지를 정의하는 Dockerfile은 이미지의 기반이 되는 부모 이미지를 지정하며, 종종 이를 *기본 이미지*라고 합니다. 기본 이미지에는 대개 컨테이너의 나머지 계층이 적용되는 운영 체제(예: [Alpine Linux][base-alpine] 또는 [Windows Nano Server][base-windows])가 포함됩니다. [Node.js][base-node] 또는 [.NET Core][base-dotnet]와 같은 응용 프로그램 프레임워크가 포함될 수도 있습니다.
+대부분의 컨테이너 이미지를 정의하는 Dockerfile은 이미지의 기반이 되는 부모 이미지를 지정하며, 종종 이를 *기본 이미지*라고 합니다. 기본 이미지에는 대개 컨테이너의 나머지 계층이 적용되는 운영 체제(예: [Alpine Linux][base-alpine] 또는 [Windows Nano Server][base-windows])가 포함됩니다. [Node.js][base-node] 또는 [.NET Core][base-dotnet]와 같은 애플리케이션 프레임워크가 포함될 수도 있습니다.
 
 ### <a name="base-image-updates"></a>기본 이미지 업데이트
 
@@ -71,7 +71,7 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 
 ### <a name="base-image-update-scenario"></a>기본 이미지 업데이트 시나리오
 
-이 자습서에서는 기본 이미지 업데이트 시나리오를 안내합니다. [코드 샘플][code-sample]에는 두 개의 Docker 파일, 즉 응용 프로그램 이미지와 해당 응용 프로그램에서 기본으로 지정하는 이미지가 포함되어 있습니다. 다음 섹션에서는 새 버전의 기본 이미지가 컨테이너 레지스트리에 푸시될 때 애플리케이션 이미지의 빌드를 자동으로 트리거하는 ACR 작업을 만듭니다.
+이 자습서에서는 기본 이미지 업데이트 시나리오를 안내합니다. [코드 샘플][code-sample]에는 두 개의 Docker 파일, 즉 애플리케이션 이미지와 해당 애플리케이션에서 기본으로 지정하는 이미지가 포함되어 있습니다. 다음 섹션에서는 새 버전의 기본 이미지가 컨테이너 레지스트리에 푸시될 때 애플리케이션 이미지의 빌드를 자동으로 트리거하는 ACR 작업을 만듭니다.
 
 [Dockerfile-app][dockerfile-app]: 기반이 되는 Node.js 버전을 표시하는 정적 웹 페이지를 렌더링하는 작은 Node.js 웹 애플리케이션입니다. 버전 문자열이 시뮬레이션되며, 기본 이미지에 정의된 `NODE_VERSION` 환경 변수의 내용을 표시합니다.
 
@@ -120,7 +120,7 @@ FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
 
 ACR 작업에서 기본 이미지가 포함된 컨테이너 이미지의 종속성을 결정하고 추적할 수 있게 하려면 작업을 **한 번 이상** **트리거해야 합니다**.
 
-[az acr task run][az-acr-task-run]을 사용하여 작업을 수동으로 트리거하고 응용 프로그램 이미지를 빌드합니다.
+[az acr task run][az-acr-task-run]을 사용하여 작업을 수동으로 트리거하고 애플리케이션 이미지를 빌드합니다.
 
 ```azurecli-interactive
 az acr task run --registry $ACR_NAME --name taskhelloworld
@@ -256,10 +256,10 @@ az ad sp delete --id http://$ACR_NAME-pull
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr#az-acr-build-run
-[az-acr-task-create]: /cli/azure/acr#az-acr-task-create
+[az-acr-task-create]: /cli/azure/acr
 [az-acr-task-run]: /cli/azure/acr#az-acr-task-run
 [az-acr-login]: /cli/azure/acr#az-acr-login
-[az-acr-task-list-runs]: /cli/azure/acr#az-acr-task-list-runs
+[az-acr-task-list-runs]: /cli/azure/acr
 [az-acr-task]: /cli/azure/acr#az-acr-task
 
 <!-- IMAGES -->

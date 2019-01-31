@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a0eb3ed26b0e8641cf4e1004c2c162c799dd8999
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8548fe53288b2f9c486c9ccdc42afa08f40b4ae1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463765"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181600"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 Linux 가상 머신을 위한 Azure 가상 네트워크 만들기 및 관리
 
@@ -169,7 +169,7 @@ NSG의 기본 규칙은 다음과 같습니다.
 
 경우에 따라 기본 SSH 규칙을 만들지 않아야 하거나 NSG를 서브넷에 연결해야 하는 경우와 같이 NSG를 미리 만드는 것이 도움이 될 수 있습니다. 
 
-[az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) 명령을 사용하여 네트워크 보안 그룹을 만듭니다.
+[az network nsg create](/cli/azure/network/nsg) 명령을 사용하여 네트워크 보안 그룹을 만듭니다.
 
 ```azurecli-interactive 
 az network nsg create --resource-group myRGNetwork --name myBackendNSG

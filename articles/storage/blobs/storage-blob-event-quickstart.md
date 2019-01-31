@@ -1,24 +1,24 @@
 ---
 title: Azure Blob Storage 이벤트를 웹 엔드포인트에 전송 - Azure CLI | Microsoft Docs
-description: Azure Event Grid를 사용하여 Blob 저장소 이벤트를 구독합니다. 이벤트를 웹후크에 보냅니다. 웹 애플리케이션에서 이벤트를 처리합니다.
+description: Azure Event Grid를 사용하여 Blob Storage 이벤트를 구독합니다. 이벤트를 웹후크에 보냅니다. 웹 애플리케이션에서 이벤트를 처리합니다.
 services: storage,event-grid
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: storage
-ms.component: blobs
+ms.subservice: blobs
 ms.custom: seodec18
-ms.openlocfilehash: 2586b7f9c2a182ee065daab1d2a43eb5e0e2c99c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a1f5946e3dcfd00631ed09b5e9211d0b207fba33
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073723"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250421"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 스토리지 이벤트를 웹 엔드포인트로 라우팅
 
-Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 Azure CLI를 사용하여 Blob 저장소 이벤트를 구독하고 이벤트를 트리거하여 결과를 확인합니다.
+Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 Azure CLI를 사용하여 Blob Storage 이벤트를 구독하고 이벤트를 트리거하여 결과를 확인합니다.
 
 일반적으로 이벤트 데이터를 처리하고 작업을 수행하는 엔드포인트에 이벤트를 보냅니다. 그러나 이 문서를 간소화하기 위해 메시지를 수집하고 표시하는 웹앱에 이벤트를 보냅니다.
 
@@ -104,7 +104,7 @@ az eventgrid event-subscription create \
 
 ![구독 이벤트 보기](./media/storage-blob-event-quickstart/view-subscription-event.png)
 
-## <a name="trigger-an-event-from-blob-storage"></a>Blob 저장소에서 이벤트 트리거
+## <a name="trigger-an-event-from-blob-storage"></a>Blob Storage에서 이벤트 트리거
 
 이제 이벤트를 트리거하여 Event Grid가 메시지를 사용자 엔드포인트에 어떻게 배포하는지 살펴 보겠습니다. 먼저 저장소 계정의 이름과 키를 구성하고, 컨테이너를 만든 다음, 파일을 만들고 업로드합니다. `<storage_account_name>` 및 `<resource_group_name>`에 대해 이전에 만든 값을 다시 사용합니다.
 
@@ -159,7 +159,7 @@ az group delete --name <resource_group_name>
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 토픽 및 이벤트 구독을 만드는 방법을 알아보았으므로 Blob 저장소 이벤트 및 Event Grid에서 수행할 수 있는 작업에 대해 자세히 알아봅니다.
+이제 토픽 및 이벤트 구독을 만드는 방법을 알아보았으므로 Blob Storage 이벤트 및 Event Grid에서 수행할 수 있는 작업에 대해 자세히 알아봅니다.
 
-- [Blob 저장소 이벤트에 응답](storage-blob-event-overview.md)
+- [Blob Storage 이벤트에 응답](storage-blob-event-overview.md)
 - [Event Grid 정보](../../event-grid/overview.md)

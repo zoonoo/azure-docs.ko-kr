@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: aahi
-ms.openlocfilehash: 65dc4f837a7b5d5cb3f41eacf9833ebd5a601bab
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: f0f6981d899248877ca1cd1d580a004933815b96
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970953"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171833"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>빠른 시작: Java를 사용하여 Bing Custom Search 엔드포인트 호출
 
@@ -132,4 +132,4 @@ ms.locfileid: "53970953"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Custom Search 웹 앱 빌드](./tutorials/custom-search-web-page.md)
+> [Custom Search 웹앱 빌드](./tutorials/custom-search-web-page.md)

@@ -4,18 +4,18 @@ titleSuffix: Microsoft
 description: Microsoft의 다양한 제품을 비교하여 기계 학습 모델을 빌드, 배포 및 관리합니다. 솔루션에 대해 선택할 제품을 결정합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 1/17/2019
-ms.openlocfilehash: d5660d1a4d5d2a26af57e2a2411552e3f6267379
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: d7c7c383f51d8bcc2b1691724e8f22b43782c5e8
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389139"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242072"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Microsoft의 기계 학습 제품이란?
 

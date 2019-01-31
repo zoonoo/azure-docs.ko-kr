@@ -6,16 +6,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 3b50678691342b5b106a375e79380cb8cc1515e4
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fc86a11310142bd403f0550997fccbbb8edc54f1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855672"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213066"
 ---
 # <a name="quickstart-get-intent-using-java"></a>빠른 시작: Java를 사용하여 의도 가져오기
 
