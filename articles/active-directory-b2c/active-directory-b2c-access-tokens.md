@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: f3db56c7ce61960fca0e5347b2385bcc65a88354
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 86c62c021c6668783b3f843a908f4b17845f8c72
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845149"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172989"
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: 액세스 토큰 요청
 
@@ -114,7 +114,7 @@ OpenID Connect 표준은 몇 가지 특별한 "범위" 값을 지정합니다. �
 
 성공적으로 생성된 **액세스\_토큰**(`/authorize` 또는 `/token` 엔드포인트에서)에 다음 클레임이 표시됩니다.
 
-| 이름 | 클레임 | 설명 |
+| Name | 클레임 | 설명 |
 | --- | --- | --- |
 |대상 |`aud` |토큰에서 액세스를 부여하는 단일 리소스의 **애플리케이션 ID**입니다. |
 |범위 |`scp` |리소스에 부여된 권한입니다. 여러 부여된 권한은 공백으로 구분됩니다. |

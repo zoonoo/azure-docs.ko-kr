@@ -3,19 +3,19 @@ title: 게스트 사용자로써 조직 나가기 - Azure Active Directory | Mic
 description: Azure AD B2B 게스트 사용자가 액세스 패널을 사용하여 조직을 나갈 수 있는 방법을 보여줍니다.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 423de49faa20289a7c5663ae621f890b63a5752c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: caca01411b5bd5f41a35dd99b36b21accba47e5c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428514"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078001"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>게스트 사용자로써 조직 나가기
 

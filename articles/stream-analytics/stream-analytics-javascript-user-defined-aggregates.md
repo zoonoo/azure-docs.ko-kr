@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: bdf5b5188dd584c5eb20f72ff4a98ba6904bc53e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 6663e3fc48408de83e92f39e8c8070005818852d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702377"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097982"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure Stream Analytics JavaScript 사용자 정의 집계(미리 보기)
  
@@ -28,7 +28,7 @@ Azure Stream Analytics는 JavaScript로 작성된 UDA(사용자 정의 집계)�
 
 AccumulateOnly 집계는 해당 상태에 새 이벤트만 누적할 수 있습니다. 알고리즘은 값의 누적 처분을 허용하지 않습니다. 구현할 수 없는 상태 값에서 이벤트 정보를 누적 처분하는 경우 이 집계 유형을 선택합니다. 다음은 AccumulatOnly 집계에 대한 JavaScript 템플릿입니다.
 
-````JavaScript
+```JavaScript
 // Sample UDA which state can only be accumulated.
 function main() {
     this.init = function () {
@@ -43,13 +43,13 @@ function main() {
         return this.state;
     }
 }
-````
+```
 
 ### <a name="accumulatedeaccumulate-aggregates"></a>AccumulateDeaccumulate 집계
 
 AccumulateDeaccumulate 집계는 상태에서 이전에 누적된 값의 누적 처분을 허용합니다. 예를 들어, 이벤트 값의 목록에서 키-값 쌍을 제거하거나 sum 집계 상태에서 값을 뺍니다. 다음은 AccumulateDeaccumulate 집계에 대한 JavaScript 템플릿입니다.
 
-````JavaScript
+```JavaScript
 // Sample UDA which state can be accumulated and deaccumulated.
 function main() {
     this.init = function () {
@@ -72,7 +72,7 @@ function main() {
         return this.state;
     }
 }
-````
+```
 
 ## <a name="uda---javascript-function-declaration"></a>UDA - JavaScript 함수 선언
 
@@ -129,7 +129,7 @@ JavaScript UDA 데이터 형식의 경우 [JavaScript UDF 통합](stream-analyti
 1. 새 함수 보기에서 함수 유형으로 **JavaScript UDA**를 선택하면 편집기에 기본 UDA 템플릿이 표시됩니다.
 1. UDA 별칭으로 "TWA"를 입력하고 함수 구현을 다음과 같이 변경합니다.
 
-    ````JavaScript
+    ```JavaScript
     // Sample UDA which calculate Time-Weighted Average of incoming values.
     function main() {
         this.init = function () {
@@ -167,7 +167,7 @@ JavaScript UDA 데이터 형식의 경우 [JavaScript UDF 통합](stream-analyti
             return result;
         }
     }
-    ````
+    ```
 
 1. “저장” 단추를 클릭하면 UDA가 함수 목록에 나타납니다.
 
@@ -177,7 +177,7 @@ JavaScript UDA 데이터 형식의 경우 [JavaScript UDF 통합](stream-analyti
 
 Azure Portal에서 작업을 열고, 쿼리를 편집하고, 자동 인출 접두사 “uda”로 TWA() 함수를 호출합니다. 예: 
 
-````SQL
+```SQL
 WITH value AS
 (
     SELECT
@@ -191,13 +191,13 @@ SELECT
     uda.TWA(value) as NoseDoseTWA
 FROM value
 GROUP BY TumblingWindow(minute, 5)
-````
+```
 
 ## <a name="testing-query-with-uda"></a>UDA를 사용하여 쿼리 테스트
 
 아래 콘텐츠로 로컬 JSON 파일을 만들고, 파일을 Stream Analytics 작업에 업로드하고, 위의 쿼리를 테스트합니다.
 
-````JSON
+```JSON
 [
   {"EntryTime": "2017-06-10T05:01:00-07:00", "NoiseLevelDB": 80, "DurationSecond": 22.0},
   {"EntryTime": "2017-06-10T05:02:00-07:00", "NoiseLevelDB": 81, "DurationSecond": 37.8},
@@ -223,7 +223,7 @@ GROUP BY TumblingWindow(minute, 5)
   {"EntryTime": "2017-06-10T05:20:00-07:00", "NoiseLevelDB": 113, "DurationSecond": 25.1},
   {"EntryTime": "2017-06-10T05:22:00-07:00", "NoiseLevelDB": 110, "DurationSecond": 5.3}
 ]
-````
+```
 
 ## <a name="get-help"></a>도움말 보기
 

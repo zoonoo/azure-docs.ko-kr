@@ -6,17 +6,17 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.custom: seodec18
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/23/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: c8bcbe011dc4ff9841a06b914a90ae7f9a14ee74
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 81b963a56b35cc1206982680f8742c2fea9f2446
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598505"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219331"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>의도를 추가하여 발화에 대한 사용자 의도 결정
 
@@ -24,19 +24,7 @@ LUIS 앱에 [의도](luis-concept-intent.md)를 추가하여 동일한 의도가
 
 의도는 맨 위 탐색 모음의 **빌드** 섹션에서 관리된 다음, 왼쪽 패널의 **의도**에서 관리됩니다. 
 
-## <a name="create-an-app"></a>앱 만들기
-
-1. [LUIS](https://www.luis.ai) 포털에 로그인합니다.
-
-1. **새 앱 만들기**를 선택합니다. 
-
-1. 새 앱의 이름을 `MyHumanResourcesApp`으로 지정합니다. **영어** 문화권을 선택합니다. 설명은 선택 사항입니다. 
-
-1. **완료**를 선택합니다. 
-
 ## <a name="add-intent"></a>의도 추가
-
-1. 앱이 열리고 **의도** 목록이 표시됩니다.
 
 1. **의도** 페이지에서 **새 의도 만들기**를 선택합니다.
 

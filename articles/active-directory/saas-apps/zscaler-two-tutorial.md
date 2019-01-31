@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 1fd8a940-7320-47e0-a176-2dd4eeca6db2
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 3e954d8535b5ac78da2066af5c97afac12c09319
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 37c2374738cbebceb11dbaeb973c6713c87ff4b0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789418"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150651"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>자습서: Azure Active Directory와 Zscaler Two 통합
 
@@ -278,7 +278,7 @@ Zscaler Two에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     ![사용자 할당][203]
 
-5. **사용자 및 그룹** 대화 상자의 목록에서 **Britta Simon** 등의 사용자를 선택하고 화면 맨 아래에서 **선택** 단추를 클릭합니다.
+5. **사용자 및 그룹** 대화 상자의 목록에서 **Britta Simon** 등의 사용자를 선택한 다음, 화면 맨 아래에서 **선택** 단추를 클릭합니다.
 
     ![이미지](./media/zscaler-two-tutorial/tutorial_zscalertwo_users.png)
 

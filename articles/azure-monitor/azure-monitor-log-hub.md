@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hub-page
-ms.date: 01/15/2019
+ms.date: 01/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 5c3a61eb4509742f8f5a8732f5d4e81cab59ff78
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: a48e252d1dce2d9142249642a6221e8913c1d92d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54829889"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223428"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -53,8 +53,8 @@ ms.locfileid: "54829889"
                                                                     <p> 
                                                                         <a href="/azure/azure-monitor/overview">Azure Monitor란?</a><br/>
                                                                         <a href="/azure/azure-monitor/azure-monitor-rebrand">브랜딩 변경 내용</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/monitoring-data-sources">모니터링 데이터 원본</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/log-analytics-service-providers">서비스 공급자를 위한 디자인 고려 사항</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/data-sources">모니터링 데이터 원본</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/service-providers">서비스 공급자를 위한 디자인 고려 사항</a><br/>
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -75,8 +75,8 @@ ms.locfileid: "54829889"
                                                                 <div class="cardText" style="padding-left: 0px">
                                                                     <h3>보안 이해</h3> 
                                                                     <p>
-                                                                        <a href="/azure/azure-monitor/platform/log-analytics-data-security">로그 데이터</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/log-analytics-personal-data-mgmt">개인 로그 데이터 처리</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/data-security">로그 데이터</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/personal-data-mgmt">개인 로그 데이터 처리</a><br/>
                                                                         <a href="/azure/azure-monitor/platform/roles-permissions-security">역할 권한 및 보안</a><br/>
                                                                     </p>
                                                                     <br>
@@ -103,7 +103,7 @@ ms.locfileid: "54829889"
                                                     <h3>모니터링</h3>
                                                         <p>
                                                             <a href="/azure/azure-monitor/platform/data-collection">메트릭 및 로그</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/log-analytics-data-ingestion-time">로그 데이터 수집 시간</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-ingestion-time">로그 데이터 수집 시간</a><br/>
                                                         </p>
                                                         <br>
                                                         <h3>데이터 원본</h3>
@@ -147,7 +147,7 @@ ms.locfileid: "54829889"
                                                         <br>
                                                         <h3>사고 대응</h3>
                                                         <p>
-                                                            <a href="/azure/azure-monitor/platform/alerts-unified">경고 개요</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/alerts-overview">경고 개요</a><br/>
                                                             <a href="/azure/azure-monitor/platform/autoscale-overview">Autoscale</a><br/>
                                                             <a href="/azure/azure-monitor/platform/alerts-unified-log">로그 경고</a>:<br/>
                                                             <a href="/azure/azure-monitor/platform/alerts-activity-log">활동 로그 경고</a><br/>

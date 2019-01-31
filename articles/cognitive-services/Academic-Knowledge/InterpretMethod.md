@@ -6,20 +6,20 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: e16a772caa5fba632f8544094e2d8b57ed4ca765
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: d79e14fa48631ec6ce3cde42a7dbe300034782cb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902572"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171663"
 ---
 # <a name="interpret-method"></a>Interpret 메서드
 
-**interpret** REST API는 최종 사용자 쿼리 문자열(즉, 응용 프로그램 사용자가 입력한 쿼리)을 가져와서 Academic Graph 데이터 및 Academic Grammar를 기반으로 형식이 지정된 사용자 의도 해석을 반환합니다.
+**interpret** REST API는 최종 사용자 쿼리 문자열(즉, 애플리케이션 사용자가 입력한 쿼리)을 가져와서 Academic Graph 데이터 및 Academic Grammar를 기반으로 형식이 지정된 사용자 의도 해석을 반환합니다.
 
 대화형 경험을 제공하려면 사용자가 입력한 각 문자 뒤에서 이 메서드를 반복적으로 호출하면 됩니다. 이 경우 **complete** 매개 변수를 1로 설정하여 자동 완성 제안을 사용해야 합니다. 애플리케이션에 자동 완성이 필요 없는 경우 **complete** 매개 변수를 0으로 설정해야 합니다.
 
@@ -29,9 +29,9 @@ ms.locfileid: "48902572"
 
 ## <a name="request-parameters"></a>요청 매개 변수
 
-이름     | 값 | Required?  | 설명
+Name     | 값 | Required?  | 설명
 ---------|---------|---------|---------
-**query**    | 텍스트 문자열 | yes | 사용자가 입력한 쿼리입니다.  complete를 1로 설정하면 쿼리는 쿼리 추천 자동 완성을 생성하기 위한 접두사로 해석됩니다.        
+**query**    | 텍스트 문자열 | 예 | 사용자가 입력한 쿼리입니다.  complete를 1로 설정하면 쿼리는 쿼리 추천 자동 완성을 생성하기 위한 접두사로 해석됩니다.        
 **model**    | 텍스트 문자열 | 아니요  | 쿼리할 모델의 이름입니다.  현재 기본값은 *최신*입니다.        
 **complete** | 0 또는 1 | 아니요<br>기본값: 0  | 1은 문법 및 그래프 데이터를 기반으로 자동 완성 제안이 생성된다는 의미입니다.         
 **count**    | Number | 아니요<br>기본값:10 | 반환할 최대 해석 수.         
@@ -40,7 +40,7 @@ ms.locfileid: "48902572"
 <br>
   
 ## <a name="response-json"></a>응답(JSON)
-이름     | 설명
+Name     | 설명
 ---------|---------
 **query** |요청의 *query* 매개 변수입니다.
 **interpretations** |문법에 따라 사용자 입력을 일치시키는 0개 이상의 서로 다른 방법 배열입니다.

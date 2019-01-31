@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 4bbd4c57556fd4bfd176c915e26be4a4d198418a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7392459f0b80558aac22bd585c0d30bf4105d76f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339936"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224448"
 ---
 # <a name="get-started-with-custom-speech-service"></a>Custom Speech Service 시작
 
@@ -36,7 +36,7 @@ Custom Speech Service의 주요 기능을 탐색하고 애플리케이션 요구
 ## <a name="creating-a-custom-acoustic-model"></a>사용자 지정 어쿠스틱 모델 만들기
 특정 도메인에 어쿠스틱 모델을 사용자 지정하려면 음성 데이터의 컬렉션이 필요합니다. 이 컬렉션은 음성 데이터의 오디오 파일 집합과 각 오디오 파일의 전사에 대한 텍스트 파일로 구성됩니다. 오디오 데이터는 인식기를 사용하고자 하는 시나리오를 대표해야 합니다.
 
-예: 시끄러운 공장 환경에서 음성을 더 잘 식별하도록 하려면 오디오 파일은 잡음이 있는 공장에서 시끄러운 공장에서 말하는 사람으로 구성되어야 합니다.
+예:  시끄러운 공장 환경에서 음성을 더 잘 식별하도록 하려면 오디오 파일은 잡음이 있는 공장에서 시끄러운 공장에서 말하는 사람으로 구성되어야 합니다.
 가령 FDR의 Fireside Chats을 모두 전사하려는 경우와 같이 단일 스피커의 성능 최적화에 관심이 있으면 오디오 파일은 해당 스피커의 많은 예제로만 구성되어야 합니다.
 
 [여기](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-acoustic-model.md) 사용자 지정 어쿠스틱 모델을 만드는 방법에서 자세한 설명을 확인할 수 있습니다.

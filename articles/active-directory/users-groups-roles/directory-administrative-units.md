@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.topic: article
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.workload: identity
 ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 0884726e59d9ab3f5a5cfe7bb0608f6b5a5da250
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fe3f41e95cc3aa4f22ff2cdea24388f7e9974755
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449272"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181200"
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Azure AD의 관리 단위 관리 - 공용 미리 보기
 이 문서에서는 사용자의 하위 집합에 대해 관리 권한을 위임하고 사용자의 하위 집합에 정책을 적용하는 데 사용할 수 있는 리소스의 새로운 Azure Active Directory 컨테이너인 관리 단위에 대해 설명합니다. Azure Active Directory에서 관리 단위를 통해 중앙 관리자는 지역 관리자에게 권한을 위임하거나 세부적인 수준에서 정책을 설정할 수 있습니다.
@@ -31,7 +31,7 @@ ms.locfileid: "37449272"
 >
 
 
-중앙 관리자의 관점에서 관리 단위는 리소스로 생성하고 채울 수 있는 디렉터리 개체입니다. **이 미리 보기 릴리스에서는 사용자만 이 리소스가 될 수 있습니다.** 관리 단위가 생성되고 채워지면, 관리 단위에 포함된 리소스에게만 권한을 부여하도록 제한하는 범위로 사용할 수 있습니다.
+중앙 관리자의 관점에서 관리 단위는 리소스로 생성하고 채울 수 있는 디렉터리 개체입니다. **이 미리 보기 릴리스에서는 사용자만 이 리소스가 될 수 있습니다.**  관리 단위가 생성되고 채워지면, 관리 단위에 포함된 리소스에게만 권한을 부여하도록 제한하는 범위로 사용할 수 있습니다.
 
 ## <a name="managing-administrative-units"></a>관리 단위 관리
 이 미리 보기 릴리스에서 Windows PowerShell cmdlet용 Azure Active Directory 모듈을 사용하는 관리 단위를 만들고 관리할 수 있습니다. 이 방법에 대한 자세한 내용은 [관리 단위 작업](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0)을 참조하세요.

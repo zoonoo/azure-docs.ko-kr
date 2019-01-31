@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 8a546845adb32823e89b814377bcf3e469562445
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: b2b247b50eff446776edfbf3a552e92af3c7dfff
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413671"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228800"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 지능형 위협 탐지
 
@@ -115,7 +115,7 @@ Log Analytics 보안 및 감사 대시보드는 네 가지 주요 범주로 구�
 
 Log Analytics와의 상호 작용은 대부분 모든 브라우저에서 실행되고 수집된 데이터를 분석 및 조작하는 구성 설정 및 여러 도구에 대한 액세스를 제공하는 Azure Portal을 통해 이루어집니다. 포털에서 다음을 수행할 수 있습니다.
 * [로그 검색](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches)에서는 쿼리를 구성하여 수집된 데이터를 분석합니다.
-* [대시보드](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards)에서는 가장 중요한 검색의 그래픽 보기를 사용하여 사용자 지정할 수 있습니다.
+* [대시보드](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards)에서는 가장 중요한 검색의 그래픽 보기를 사용하여 사용자 지정할 수 있습니다.
 * [솔루션](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)에서는 추가 기능 및 분석 도구를 제공합니다.
 
 ![분석 도구](./media/azure-threat-detection/azure-threat-detection-fig6.png)

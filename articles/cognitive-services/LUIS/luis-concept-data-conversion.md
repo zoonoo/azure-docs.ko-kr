@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: diberry
-ms.openlocfilehash: a5d6a5c6191b69d554e0a79dc1303faeddecc6c3
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: c7495ba3f2dc453463038fd37147b4574536ca92
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382398"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215336"
 ---
 # <a name="convert-data-format-of-utterances"></a>발언의 데이터 형식 변환
 LUIS는 Cognitive Services Speech 서비스를 사용하여 예측 전에 음성 발언을 텍스트로 변환하는 방법을 제공합니다. 

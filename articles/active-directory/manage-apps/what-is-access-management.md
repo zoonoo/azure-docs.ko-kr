@@ -7,19 +7,19 @@ author: barbkess
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: barbkess
-ms.openlocfilehash: 33f7ab25e568ce71ea0c4955da229051a691ed5a
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0c8450523890430587bedebbcd77ceddd8a03e42
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477161"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183393"
 ---
 # <a name="managing-access-to-apps"></a>앱에 대한 액세스 관리
 앱이 조직의 ID 시스템에 통합된 후에 진행 중인 액세스 관리, 사용 평가 및 보고는 계속 쉽지 않을 것입니다. 대부분의 경우 IT 관리자나 기술 지원팀이 앱에 대한 액세스를 관리하는 데 지속적이고 적극적인 역할을 맡습니다. 경우에 따라 할당은 일반 또는 부서 IT 팀에서 수행됩니다. 종종 할당 의사 결정은 비즈니스 의사 결정자에게 위임되며 IT가 할당을 수행하기 전에 승인을 필요로 합니다.  다른 조직에서는 역할 기반 Access Control(RBAC) 또는 특성 기반 Access Control(ABAC)과 같은 기존의 자동화된 ID 및 액세스 관리 시스템의 통합에 투자합니다. 통합 및 규칙 개발은 모두 전문화되고 비용이 높은 경향이 있습니다. 관리 방법에 대한 모니터링 또는 보고는 별도로 비용이 드는 복잡한 투자입니다.

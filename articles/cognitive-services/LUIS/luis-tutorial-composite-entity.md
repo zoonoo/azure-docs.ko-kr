@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 18a32f5e07470f71ba276fbe3a2633150b1bf188
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 43d72b88c96b45939cb394a26881b1272e250819
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754667"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217257"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>자습서: 관련된 데이터 그룹화 및 추출
 이 자습서에서는 복합 엔터티를 추가하여 다양한 형식의 추출된 데이터를 단일 포함 엔터티로 묶습니다. 데이터를 묶어서 클라이언트 애플리케이션이 다른 데이터 형식의 관련된 데이터를 쉽게 추출할 수 있습니다.

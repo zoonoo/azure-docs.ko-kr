@@ -8,7 +8,7 @@ author: MarkusVi
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 899fc10d4b5a4c9bdbfd46cc1ff71f5232cffbc6
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 2c889368afe601bc7188f3b0989e7799c88131b4
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450288"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081962"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>빠른 시작: Azure Active Directory 조건부 액세스에서 세션 위험이 감지되면 액세스 차단  
 
@@ -93,11 +93,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
  
 4. **조건부 액세스** 페이지에서 위쪽의 도구 모음에서 **추가**를 클릭합니다.
 
-    ![이름](./media/app-sign-in-risk/108.png)
+    ![Name](./media/app-sign-in-risk/108.png)
 
 5. **새로 만들기** 페이지의 **이름** 텍스트 상자에 **중간 위험 수준에 대한 액세스 차단**을 입력합니다.
 
-    ![이름](./media/app-sign-in-risk/104.png)
+    ![Name](./media/app-sign-in-risk/104.png)
 
 6. **할당** 섹션에서 **사용자 및 그룹**을 클릭합니다.
 

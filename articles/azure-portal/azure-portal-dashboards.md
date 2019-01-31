@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
-ms.author: cwatson
-ms.openlocfilehash: 6062e54f0fb584dec4c2db540565c5860ae92a2d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: kfollis
+ms.openlocfilehash: 4a2dee4ad90fb269268ec7d3e86def58f2444e3a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394967"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884731"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Azure Portal에서 대시보드 만들기 및 공유
 여러 개의 대시보드를 만들고 Azure 구독에 액세스할 수 있는 다른 사용자와 공유할 수 있습니다.  이 문서에서는 대시보드 만들기, 편집, 게시 및 액세스 관리의 기본 사항을 알아봅니다.

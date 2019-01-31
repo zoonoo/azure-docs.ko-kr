@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
-ms.component: common
-ms.openlocfilehash: e451fd2c2dad5c411d0a8faa8e9c044648759001
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.subservice: common
+ms.openlocfilehash: 6b40741545ff286bc1b8e696d28c61b197605247
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121739"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474006"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -433,7 +433,7 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 > 
 
 #### <a name="permanent-increase-in-PercentThrottlingError"></a>영구적인 PercentThrottlingError 증가
-트랜잭션 볼륨을 영구적으로 늘린 후나 처음으로 애플리케이션 부하 테스트를 수행할 때 **PercentThrottlingError** 의 값이 계속 높게 표시되는 경우에는 애플리케이션의 저장소 파티션 사용 방법과 저장소 계정의 확장성 목표 도달 여부를 평가해야 합니다. 예를 들어 파티션 하나로 계산되는 큐에서 제한 오류가 표시되는 경우 추가 큐를 사용하여 트랜잭션을 여러 파티션으로 분산시켜야 합니다. 테이블에서 제한 오류가 표시되는 경우에는 다른 파티션 구성표를 통해 보다 광범위한 파티션 키 값을 사용하여 트랜잭션을 여러 파티션으로 분산시켜야 할 수 있습니다. 이 문제의 일반적인 원인 중 하나는 날짜를 파티션 키로 선택하면 특정일의 모든 데이터가 파티션 하나에 기록되는 앞에 추가/추가 방지 패턴입니다.: 이 경우 부하가 생성되면 쓰기 병목 현상이 발생할 수 있습니다. 다른 파티션 디자인을 사용하거나 Blob 저장소를 사용하는 것이 더 효율적인 해결 방법인지 평가합니다. 또한 트래픽이 급증하여 제한이 발생하는지 확인하고 요청 패턴을 효율적으로 조정하는 방식을 조사해야 합니다.
+트랜잭션 볼륨을 영구적으로 늘린 후나 처음으로 애플리케이션 부하 테스트를 수행할 때 **PercentThrottlingError** 의 값이 계속 높게 표시되는 경우에는 애플리케이션의 저장소 파티션 사용 방법과 저장소 계정의 확장성 목표 도달 여부를 평가해야 합니다. 예를 들어 파티션 하나로 계산되는 큐에서 제한 오류가 표시되는 경우 추가 큐를 사용하여 트랜잭션을 여러 파티션으로 분산시켜야 합니다. 테이블에서 제한 오류가 표시되는 경우에는 다른 파티션 구성표를 통해 보다 광범위한 파티션 키 값을 사용하여 트랜잭션을 여러 파티션으로 분산시켜야 할 수 있습니다. 이 문제의 일반적인 원인 중 하나는 날짜를 파티션 키로 선택하면 특정일의 모든 데이터가 파티션 하나에 기록되는 앞에 추가/추가 방지 패턴입니다.: 이 경우 부하가 생성되면 쓰기 병목 현상이 발생할 수 있습니다. 다른 파티션 디자인을 사용하거나 Blob Storage를 사용하는 것이 더 효율적인 해결 방법인지 평가합니다. 또한 트래픽이 급증하여 제한이 발생하는지 확인하고 요청 패턴을 효율적으로 조정하는 방식을 조사해야 합니다.
 
 트랜잭션을 여러 파티션으로 분산시키는 경우에도 저장소 계정에 대해 설정된 확장성 제한을 파악해야 합니다. 예를 들어 각각 초당 1KB 메시지를 2,000개까지 처리하는 큐 10개를 사용한 경우 저장소 계정의 초당 전체 메시지 제한은 20,000개입니다. 이 경우 초당 20,000개보다 많은 엔터티를 처리해야 한다면 여러 저장소 계정을 사용해야 합니다. 요청과 엔터티의 크기 역시 저장소 서비스가 클라이언트를 제한하는 시기에 영향을 준다는 점도 기억해야 합니다.: 요청과 엔터티가 큰 경우에는 제한이 더 빨리 시작될 수 있습니다.
 
@@ -560,7 +560,7 @@ Storage 클라이언트 라이브러리에서 생성한 다음 클라이언트 �
 
 아래 표에는 저장소 로깅 로그 파일의 샘플 서버 쪽 로그 메시지가 나와 있습니다.
 
-| 이름 | 값 |
+| Name | 값 |
 | --- | --- |
 | 요청 시작 시간 | 2014-05-30T06:17:48.4473697Z |
 | 작업 유형     | GetBlobProperties            |
@@ -612,7 +612,7 @@ client.SetServiceProperties(sp);
 ```
 
 #### <a name="network-failure"></a>네트워크 오류
-네트워크 패킷 손실로 인해 저장소 서비스가 HTTP 404 메시지를 클라이언트에 반환하는 경우가 있습니다. 예를 들어 클라이언트 애플리케이션이 테이블 서비스의 엔터티를 삭제할 때 클라이언트가 저장소 예외를 throw하고 테이블 서비스에서 "HTTP 404(찾을 수 없음)" 상태 메시지를 보고할 수 있습니다. 그런데 테이블 저장소 서비스에서 테이블을 조사하면 서비스가 요청대로 엔터티를 삭제했음이 확인됩니다.
+네트워크 패킷 손실로 인해 저장소 서비스가 HTTP 404 메시지를 클라이언트에 반환하는 경우가 있습니다. 예를 들어 클라이언트 애플리케이션이 테이블 서비스의 엔터티를 삭제할 때 클라이언트가 저장소 예외를 throw하고 테이블 서비스에서 "HTTP 404(찾을 수 없음)" 상태 메시지를 보고할 수 있습니다. 그런데 Table Storage 서비스에서 테이블을 조사하면 서비스가 요청대로 엔터티를 삭제했음이 확인됩니다.
 
 클라이언트의 예외 세부 정보에는 Table service가 요청에 대해 할당한 요청 ID(7e84f12d…)가 포함됩니다. 이 정보를 사용하여 로그 파일에서 **request-id-header** 열을 검색해 서버 쪽 저장소 로그에서 요청 세부 정보를 찾을 수 있습니다. 메트릭을 사용하여 이러한 오류가 발생하는 시기를 파악한 다음 메트릭에서 이 오류를 기록한 시간을 기준으로 로그 파일을 검색할 수도 있습니다. 이 로그 항목에는 "HTTP(404) 클라이언트 기타 오류" 상태 메시지를 반환하며 실패한 삭제 작업이 표시됩니다. 같은 로그 항목의 **client-request-id** 열에는 클라이언트가 생성한 요청 ID(813ea74f…)도 포함됩니다.
 
@@ -648,7 +648,7 @@ client.SetServiceProperties(sp);
 저장소 서비스에서 반환하는 공통 REST API 오류 코드의 목록은 [공통 REST API 오류 코드](https://msdn.microsoft.com/library/azure/dd179357.aspx) 페이지에서 확인할 수 있습니다.
 
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>용량 메트릭에 예기치 않은 저장소 용량 사용 증가가 표시됨
-스토리지 계정에서 용량 사용량이 예기치 않게 갑자기 변경되는 경우 먼저 가용성 메트릭을 확인하여 원인을 조사할 수 있습니다. 예를 들어 삭제 요청 실패 수가 증가하면 Blob Storage 사용량도 증가할 수 있습니다. 공간 확보에 사용되는 SAS 토큰 만료 등의 이유로 인해 공간을 확보하기 위해 수행하는 애플리케이션 관련 정리 작업이 예상대로 작동하지 않기 때문입니다.
+스토리지 계정에서 용량 사용량이 예기치 않게 갑자기 변경되는 경우 먼저 가용성 메트릭을 확인하여 원인을 조사할 수 있습니다. 예를 들어 삭제 요청 실패 수가 증가하면 Blob Storage 사용량도 증가할 수 있습니다. 공간 확보에 사용되는 SAS 토큰 만료 등의 이유로 인해 공간을 확보하기 위해 수행하는 응용 프로그램 관련 정리 작업이 예상대로 작동하지 않기 때문입니다.
 
 ### <a name="your-issue-arises-from-using-the-storage-emulator"></a>개발 또는 테스트용으로 저장소 에뮬레이터 사용 시 문제가 발생함
 일반적으로는 Azure 저장소 계정을 사용하지 않기 위해 개발 및 테스트 시 저장소 에뮬레이터를 사용합니다. 저장소 에뮬레이터를 사용할 때 일반적으로 발생할 수 있는 문제는 다음과 같습니다.
@@ -789,7 +789,7 @@ Microsoft Message Analyzer에서 추적 세션을 만들 때는 추적의 노이
 Microsoft 메시지 분석기 로컬 링크 계층 추적에 대한 자세한 내용은 [Microsoft-PEF-NDIS-PacketCapture 공급자](https://technet.microsoft.com/library/jj659264.aspx)를 참조하세요.
 
 ### <a name="appendix-4"></a>부록 4: Excel을 사용하여 메트릭 및 로그 데이터 보기
-다양한 도구를 통해 Azure 테이블 스토리지에서 Storage 메트릭 데이터를 구분된 형식으로 다운로드할 수 있으며, 해당 데이터를 Excel에 로드하여 쉽게 보고 분석할 수 있습니다. Azure Blob 저장소의 저장소 로깅 데이터는 이미 Excel에 로드할 수 있는 구분된 형식으로 되어 있습니다. 그러나 [저장소 분석 로그 형식](https://msdn.microsoft.com/library/azure/hh343259.aspx) 및 [저장소 분석 메트릭 테이블 스키마](https://msdn.microsoft.com/library/azure/hh343264.aspx)의 정보를 기준으로 적절한 열 제목을 추가해야 합니다.
+다양한 도구를 통해 Azure 테이블 스토리지에서 Storage 메트릭 데이터를 구분된 형식으로 다운로드할 수 있으며, 해당 데이터를 Excel에 로드하여 쉽게 보고 분석할 수 있습니다. Azure Blob Storage의 스토리지 로깅 데이터는 이미 Excel에 로드할 수 있는 구분된 형식으로 되어 있습니다. 그러나 [저장소 분석 로그 형식](https://msdn.microsoft.com/library/azure/hh343259.aspx) 및 [저장소 분석 메트릭 테이블 스키마](https://msdn.microsoft.com/library/azure/hh343264.aspx)의 정보를 기준으로 적절한 열 제목을 추가해야 합니다.
 
 Blob Storage에서 다운로드한 스토리지 로깅 데이터를 Excel로 가져오려면 다음 단계를 수행합니다.
 

@@ -7,19 +7,19 @@ author: jeevansd
 manager: daveba
 ms.assetid: f653a0f2-c44a-4670-b936-68c136b578ea
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 6bd84e42bf46885a9dced363724538cbd4d2066a
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: df4f4e0ac1500e8bd9ca0dc73f78da21c9e28715
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54815007"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159865"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sansan"></a>자습서: Sansan과 Azure Active Directory 통합
 
@@ -150,7 +150,7 @@ Sansan에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     e. 다음 스크립트를 사용하여 애플리케이션에서 여러 URL을 업데이트합니다.
 
-    ```poweshell
+    ```powershell
      Param(
     [Parameter(Mandatory=$true)][guid]$ServicePrincipalObjectId,
     [Parameter(Mandatory=$false)][string[]]$ReplyUrls,

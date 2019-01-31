@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: ab2361eae7dac58adb2739437d0616bcd05f870f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 220a95f1bc95a8866a459eb878047e7f47920bd1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54850385"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175097"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C의 사용자 지정 정책에 유효성 검사 기술 프로필 정의
 
@@ -65,7 +65,7 @@ ms.locfileid: "54850385"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| type | 예 | 사전 조건에 대해 수행할 검사 또는 쿼리의 유형입니다. 지정된 클레임이 사용자의 현재 클레임 집합에 있는 경우 작업을 수행하도록 보장하기 위해 `ClaimsExist`가 지정되거나, 지정된 클레임이 있고 해당 값이 지정된 값과 같은 경우 작업을 수행하도록 보장하기 위해 `ClaimEquals`가 지정됩니다. |
+| Type | 예 | 사전 조건에 대해 수행할 검사 또는 쿼리의 유형입니다. 지정된 클레임이 사용자의 현재 클레임 집합에 있는 경우 작업을 수행하도록 보장하기 위해 `ClaimsExist`가 지정되거나, 지정된 클레임이 있고 해당 값이 지정된 값과 같은 경우 작업을 수행하도록 보장하기 위해 `ClaimEquals`가 지정됩니다. |
 | ExecuteActionsIf | 예 | 테스트가 true 또는 false인 경우 사전 조건의 작업을 수행해야 하는지 여부를 나타냅니다. |
 
 **Precondition** 요소에 포함되는 요소는 다음과 같습니다.

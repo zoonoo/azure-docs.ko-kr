@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 5f4b7830-6186-4d17-b77b-504d4192bfde
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 34de89123e75f0c760fbcefa633b9aadf8d2b997
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 54dd577e3e3cc1650e4384e3b7f4eda581fe0fa1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878642"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191145"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>자습서: ForeSee CX Suite와 Azure Active Directory 통합
 
@@ -32,7 +32,7 @@ ForeSee CX Suite를 Azure AD와 통합하면 다음과 같은 이점이 제공�
 - 사용자가 해당 Azure AD 계정으로 ForeSee CX Suite에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -65,15 +65,15 @@ ForeSee CX Suite가 Azure AD에 통합되도록 구성하려면 갤러리의 For
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
 
 1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
-1. 검색 상자에서 **ForeSee CX Suite**를 입력하고, 결과 패널에서 **ForeSee CX Suite**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에서 **ForeSee CX Suite**를 입력하고, 결과 패널에서 **ForeSee CX Suite**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 ForeSee CX Suite](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_addfromgallery.png)
 
@@ -93,11 +93,11 @@ ForeSee CX Suite에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고, ForeSee CX Suite 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고, ForeSee CX Suite 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **ForeSee CX Suite에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **ForeSee CX Suite** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **ForeSee CX Suite** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -188,9 +188,9 @@ ForeSee CX Suite에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![사용자 할당][201]
 
-1. 응용 프로그램 목록에서 **ForeSee CX Suite**를 선택합니다.
+1. 애플리케이션 목록에서 **ForeSee CX Suite**를 선택합니다.
 
-    ![응용 프로그램 목록의 ForeSee CX Suite 링크](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_app.png)
+    ![애플리케이션 목록의 ForeSee CX Suite 링크](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_app.png)
 
 1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -210,13 +210,13 @@ ForeSee CX Suite에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 ForeSee CX Suite 타일을 클릭하면 ForeSee CX Suite 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 ForeSee CX Suite 타일을 클릭하면 ForeSee CX Suite 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

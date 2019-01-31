@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 510bc258aae80582e85478936c3281198e89d755
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 82c07332af7d4a5df4a6af15ef65abcd8a00f603
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343166"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216883"
 ---
 # <a name="chunked-transfer-encoding"></a>청크 분할 전송 인코딩
 
@@ -26,7 +26,7 @@ ms.locfileid: "49343166"
 > [!NOTE]
 > 한 요청에서 10초를 초과하여 오디오를 업로드할 수 없으며, 총 요청 기간은 14초를 초과할 수 없습니다.
 > [!NOTE]
-> [REST API](../GetStarted/GetStartedREST.md)를 사용하여 음성 서비스를 호출하는 경우에만 청크 분할 전송 인코딩을 지정해야 합니다. [클라이언트 라이브러리](../GetStarted/GetStartedClientLibraries.md)를 사용하는 응용 프로그램에서 청크 분할 전송 인코딩을 구성할 필요가 없습니다.
+> [REST API](../GetStarted/GetStartedREST.md)를 사용하여 음성 서비스를 호출하는 경우에만 청크 분할 전송 인코딩을 지정해야 합니다. [클라이언트 라이브러리](../GetStarted/GetStartedClientLibraries.md)를 사용하는 애플리케이션에서 청크 분할 전송 인코딩을 구성할 필요가 없습니다.
 
 다음 코드에서는 청크 분할 전송 인코딩을 설정하고, 청크 분할되는 오디오 파일을 1,024바이트 청크로 보내는 방법을 보여 줍니다.
 

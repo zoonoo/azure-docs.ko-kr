@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8fd8667484284fba8ba30e2f078538e7ed1888ef
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3ced4d7be9864f16b4fbd7a91ae916e1b4f65d18
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461369"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177919"
 ---
 # <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Azure AD Connect 동기화: Azure AD 서비스 계정을 관리하는 방법
 Azure AD Connector가 사용하는 서비스 계정은 무료입니다. 자격 증명을 재설정해야 할 경우 이 항목을 참조하세요. 예를 들어 전역 관리자가 PowerShell을 사용하여 실수로 서비스 계정의 암호를 재설정한 경우입니다.

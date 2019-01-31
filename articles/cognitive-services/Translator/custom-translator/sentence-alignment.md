@@ -5,16 +5,16 @@ description: 훈련이 실행되는 동안, 병렬 문서에 포함된 문장들
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 557cd8d3af0c774d4dd0558d5d25dba8eec07268
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 663dba72619a14c66fdafe083454d0df9b3f6216
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627948"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209930"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>병렬 문서의 문장 페어링 및 정렬
 
@@ -43,4 +43,4 @@ Custom Translator는 한 번에 한 문장씩 문장의 번역을 학습합니�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Custom Translator에서 [사전](what-is-dictionary.md)을 사용하는 방법을 알아보세요.
+- Custom Translator에서 [사전](what-is-dictionary.md)을 사용하는 방법을 알아봅니다.

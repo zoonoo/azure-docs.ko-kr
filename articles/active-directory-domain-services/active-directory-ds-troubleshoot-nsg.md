@@ -8,19 +8,19 @@ manager: ''
 editor: ''
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 6e7d025e9e83f5511fce25d0c24e4da3b04d7e54
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 2f66c6956c803979ee6717f7327379c7bc9e97bb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957541"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181897"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>관리되는 도메인에 대한 잘못된 네트워킹 구성 문제 해결
 이 문서를 통해 다음과 같은 경고 메시지가 발생하는 네트워크 관련 구성 오류를 해결하고 문제를 해결합니다.

@@ -3,34 +3,36 @@ title: 로그인을 위해 Azure VM에서 Azure 리소스에 대한 관리 ID를
 description: 스크립트 클라이언트 로그인 및 리소스 액세스를 위해 Azure 리소스 서비스 주체의 Azure VM 관리 ID를 사용하는 단계별 지침 및 예제입니다.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: daveba
-ms.openlocfilehash: ce25c05d2b3de3fcf6b7318b90590b84f3ee9c52
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: d5f07fefc18e87f1ffb760defe0d5c256c6b338e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423190"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55186793"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>로그인을 위해 Azure VM에서 Azure 리소스에 대한 관리 ID를 사용하는 방법 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 이 문서에서는 Azure 리소스 서비스 주체의 관리 ID를 사용한 로그인에 대한 PowerShell 및 CLI 스크립트 예제 및 오류 처리와 같은 중요한 항목에 대한 지침을 제공합니다.
 
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-이 문서에서 Azure PowerShell 및 Azure CLI 예제를 사용하려는 경우 최신 버전의 [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)를 설치해야 합니다. 
+이 문서에서 Azure PowerShell 및 Azure CLI 예제를 사용하려는 경우 최신 버전의 [Azure PowerShell](/powershell/azure/install-az-ps) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)를 설치해야 합니다. 
 
 > [!IMPORTANT]
 > - 이 문서의 모든 샘플 스크립트는 Azure 리소스에 대한 관리 ID를 사용하는 VM에서 명령줄 클라이언트가 실행되고 있다고 가정합니다. Azure Portal에서 VM "연결" 기능을 사용하여 VM에 원격으로 연결합니다. VM에서 Azure 리소스에 대한 관리 ID 사용에 대한 자세한 내용은 [Azure Portal을 사용하여 VM에서 Azure 리소스에 대한 관리 ID 구성](qs-configure-portal-windows-vm.md) 또는 (PowerShell, CLI, 템플릿 또는 Azure SDK를 사용하는) 변형 문서 중 하나를 참조하세요. 
@@ -67,10 +69,10 @@ Azure 리소스에 대한 관리 ID를 사용하면 스크립트 클라이언트
 2. Azure Resource Manager cmdlet을 호출하여 VM에 대한 정보를 가져옵니다. PowerShell에서는 자동으로 토큰 획득/사용을 관리합니다.  
 
    ```azurepowershell
-   Add-AzureRmAccount -identity
+   Add-AzAccount -identity
 
    # Call Azure Resource Manager to get the service principal ID for the VM's managed identity for Azure resources. 
-   $vmInfoPs = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
+   $vmInfoPs = Get-AzVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
    $spID = $vmInfoPs.Identity.PrincipalId
    echo "The managed identity for Azure resources service principal ID is $spID"
    ```

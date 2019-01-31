@@ -6,16 +6,16 @@ services: cognitive-services
 author: slivkins
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
-ms.openlocfilehash: 3d9b87241946a04ae71fabde9958b24ad626c0db
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 3476c353a2b5c5eeaaa7406712bebd178ac5c1e7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364028"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227746"
 ---
 # <a name="api"></a>API
 
@@ -64,7 +64,7 @@ callback({
 
 - `ranking`은 표시되는 URL의 순위를 제공합니다.
 - `eventId`는 Custom Decision Service에서 내부적으로 사용되며 해당하는 항목을 클릭하여 이 순위와 일치시킵니다.
-- `appId`를 사용하면 콜백 함수가 동일한 웹 페이지에서 실행하는 Custom Decision Service의 여러 응용 프로그램을 구별할 수 있습니다.
+- `appId`를 사용하면 콜백 함수가 동일한 웹 페이지에서 실행하는 Custom Decision Service의 여러 애플리케이션을 구별할 수 있습니다.
 - `actionSets`는 마지막으로 성공한 새로 고침의 UTC 타임스탬프와 함께 순위 API 호출에 사용되는 각 작업 집합을 나열합니다. Custom Decision Service는 작업 집합 피드를 주기적으로 새로 고칩니다. 예를 들어 작업 집합 중 일부가 현재 사용되지 않는 경우 콜백 함수는 해당 기본 순위로 대체해야 합니다.
 
 > [!IMPORTANT]
@@ -144,7 +144,7 @@ $.ajax({
 테스트 전용의 경우 보상 API는 [cURL](https://en.wikipedia.org/wiki/CURL)을 통해 호출될 수 있습니다.
 
 ```sh
-curl -v https://ds.microsoft.com/api/v2/<appId>/reward/<eventId> -X POST -d 1 -H "Content-Type: application/json"
+curl -v https://ds.microsoft.com/api/v2/<appId>/reward/<eventId> -X POST -d 1 -H "Content-Type: application/json"
 ```
 
 200(확인)이라는 HTTP 응답이 예상됩니다. (Azure Storage 계정 키를 포털에 제공한 경우) 로그에서 이 이벤트에 대한 1의 보상을 볼 수 있습니다.

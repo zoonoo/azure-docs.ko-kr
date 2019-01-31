@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/18/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: e5d98b1d10051fee6ee5299fcdd8376434109603
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c42abf043c528f86db7af164c21c45b21e7bf1ac
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469766"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196279"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -333,7 +333,7 @@ Azure AD Connect 버전 1.1.654.0 이상에서는 Azure AD Connect가 AD DS 계�
 *   특정 개체에서 SELF와 관련된 ACE를 제외하고 ACE를 모두 제거합니다. SELF의 경우 기본 사용 권한을 그대로 유지할 수 있습니다.
 *   다음과 같은 특정 권한을 할당합니다.
 
-type     | 이름                          | Access               | 적용 대상
+Type     | Name                          | Access               | 적용 대상
 ---------|-------------------------------|----------------------|--------------|
 허용    | SYSTEM                        | 모든 권한         | 이 개체  |
 허용    | 엔터프라이즈 관리자             | 모든 권한         | 이 개체  |

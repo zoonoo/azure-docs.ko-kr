@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 471277433f0fc9a54a28baa158f1e20f1efb613f
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 2ba3de32f4ec3b9f6faf1d5a51da9c1c91e4a2e4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000522"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099309"
 ---
 # <a name="creating-filters-with-cli"></a>CLI를 사용하여 필터 만들기 
 
@@ -29,11 +29,10 @@ ms.locfileid: "54000522"
 
 ## <a name="prerequisites"></a>필수 조건 
 
-- CLI를 로컬로 설치하여 사용하려면 이 문서에서 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
-
-    현재 일부 [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) 명령은 Azure Cloud Shell에서 작동하지 않습니다. CLI를 로컬로 사용하는 것이 좋습니다.
 - [Media Services 계정 만들기](create-account-cli-how-to.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해 두어야 합니다. 
 - [필터 및 동적 매니페스트](filters-dynamic-manifest-overview.md)를 검토합니다.
+
+[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="define-a-filter"></a>필터 정의 
 
@@ -80,13 +79,6 @@ Rest에서 정의된 필터에는 "속성" 래퍼 JSON 개체가 포함됩니다
 
 이 명령을 사용하여 트랙 선택 항목을 나타내는 JSON을 포함하는 선택적 `--tracks` 매개 변수를 전달할 수 있습니다.  @{file}을 사용하여 파일에서 JSON을 로드합니다. Azure CLI를 로컬로 사용하는 경우 다음과 같이 전체 파일 경로를 지정합니다.
 
-
-```azurecli
-az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @c:\tracks.json
-```
-
-Azure Cloud Shell을 사용하는 경우 Cloud Shell에 파일을 업로드합니다(셸 창 맨 위에 있는 파일 업로드/다운로드 단추 찾기). 그런 후 다음과 같이 파일을 참조할 수 있습니다.
-
 ```azurecli
 az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @tracks.json
 ```
@@ -96,9 +88,6 @@ az ams account-filter create -a amsAccount -g resourceGroup -n filterName --trac
 ## <a name="create-asset-filters"></a>자산 필터 만들기
 
 다음 [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest) 명령은 [앞에서 정의한](#define-a-filter) 필터 트랙 선택을 사용하여 자산 필터를 만듭니다. 
-
-> [!TIP]
-> 이전 섹션에서 파일 이름의 위치 지정 방법에 대한 내용을 참조하세요.
 
 ```azurecli
 az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json

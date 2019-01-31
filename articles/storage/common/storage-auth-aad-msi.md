@@ -7,17 +7,17 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: d8382cac86abb112018195695340ed12663a2333
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.subservice: common
+ms.openlocfilehash: 15c37be3f3b1b3f72c32865e095091fa10ee9750
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427419"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251693"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources-preview"></a>Azure 리소스(미리 보기)의 관리 ID를 사용하여 Blob 및 큐에 대한 액세스 인증
 
-Azure Blob 및 Queue Storage는 [Azure 리소스에 대한 관리 ID를 사용](../../active-directory/managed-identities-azure-resources/overview.md)하는 Azure Active Directory(Azure AD) 인증을 지원합니다. Azure 리소스의 관리 ID를 사용하여 Azure VM(가상 머신), 기능 앱, 가상 머신 확장 집합 및 기타 기능에서 실행 중인 애플리케이션의 Azure AD 자격 증명을 사용하여 Blob 및 큐에 대한 액세스를 인증할 수 있습니다. Azure 리소스의 관리 ID를 사용하고 Azure AD 인증 기능을 활용하면 클라우드에서 실행되는 애플리케이션에 자격 증명을 저장할 필요가 없습니다.  
+Azure Blob 및 Queue Storage는 [Azure 리소스에 대한 관리 ID를 사용](../../active-directory/managed-identities-azure-resources/overview.md)하는 Azure Active Directory(Azure AD) 인증을 지원합니다. Azure 리소스의 관리 ID를 사용하여 Azure VM(가상 머신), 기능 앱, 가상 머신 확장 집합 및 기타 기능에서 실행 중인 응용 프로그램의 Azure AD 자격 증명을 사용하여 Blob 및 큐에 대한 액세스를 인증할 수 있습니다. Azure 리소스의 관리 ID를 사용하고 Azure AD 인증 기능을 활용하면 클라우드에서 실행되는 애플리케이션에 자격 증명을 저장할 필요가 없습니다.  
 
 관리 ID에 대한 사용 권한을 Blob 컨테이너 또는 큐에 부여하려면 적절한 범위에서 해당 리소스에 대한 사용 권한을 포함하는 관리 ID에 역할 기반 액세스 제어 (RBAC) 역할을 할당합니다. 저장소의 RBAC 역할에 대한 자세한 내용은 [RBAC를 사용하여 저장소 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요. 
 
@@ -37,7 +37,7 @@ Azure 리소스의 관리 ID를 사용하여 VM에서 Blob 및 큐에 대한 액
 
 ## <a name="assign-an-rbac-role-to-an-azure-ad-managed-identity"></a>Azure AD 관리 ID에 RBAC 역할 할당
 
-Azure Storage 애플리케이션에서 관리 ID를 인증하려면 먼저 해당 관리 ID에 대해 RBAC(역할 기반 액세스 제어) 설정을 구성합니다. Azure Storage에서는 컨테이너 및 큐에 대한 사용 권한을 포함하는 RBAC 역할을 정의합니다. RBAC 역할이 관리 ID에 할당되면 해당 리소스에 대한 액세스 권한이 해당 관리 ID에 부여됩니다. 자세한 내용은 [RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요.
+Azure Storage 응용 프로그램에서 관리 ID를 인증하려면 먼저 해당 관리 ID에 대해 RBAC(역할 기반 액세스 제어) 설정을 구성합니다. Azure Storage에서는 컨테이너 및 큐에 대한 사용 권한을 포함하는 RBAC 역할을 정의합니다. RBAC 역할이 관리 ID에 할당되면 해당 리소스에 대한 액세스 권한이 해당 관리 ID에 부여됩니다. 자세한 내용은 [RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요.
 
 ## <a name="get-a-managed-identity-access-token"></a>관리 ID 액세스 토큰 가져오기
 

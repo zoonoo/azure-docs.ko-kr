@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 53a801a367e6948c3070224b7ff36a013a1faab3
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 47be738a4e5dcec144d482c28e39cbe950bba3e7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300853"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460389"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 계산 관리
 Azure SQL Data Warehouse에서 계산 리소스를 관리하는 방법에 대해 알아봅니다. 데이터 웨어하우스를 일시 중지하여 비용을 절약하거나 성능 요구 사항에 맞게 데이터 웨어하우스의 크기를 조정합니다. 

@@ -2,7 +2,7 @@
 title: Azure Batch 분석 | Microsoft Docs
 description: Azure Batch 분석에 대한 참조입니다.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: 4c81acb282b24bbd899227c4dcc449fed4ba6c7d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: lahugh
+ms.openlocfilehash: 999c3037196044250b8a12d6b6b380553e58c6ba
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30312680"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460185"
 ---
 # <a name="batch-analytics"></a>Batch 분석
 Batch 분석의 항목에는 Batch 서비스 리소스에 사용할 수 있는 이벤트 및 경고에 대한 참조 정보가 포함되어 있습니다.

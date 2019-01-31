@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9402824540f965cb89aa00791d093bd87712a89a
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 1c4b3819494ecb4c0897edeb08e2ce45d867b626
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665845"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179075"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-directory-roles-in-pim"></a>PIM에서 Azure AD 디렉터리 역할에 대한 요청 승인 또는 거부
 
@@ -30,7 +30,7 @@ Azure AD PIM(Privileged Identity Management)을 사용하면, 활성화에 대�
 
 Azure AD 디렉터리 역할 요청이 승인 보류 중일 때는 위임된 승인자가 이메일 알림을 받게 됩니다. PIM에서 이러한 보류 중인 요청을 볼 수 있습니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 

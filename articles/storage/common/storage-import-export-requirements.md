@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: alkohli
-ms.component: common
-ms.openlocfilehash: 5f6908a80a467e1a8a12d61be2f67cbe70cce8a0
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.subservice: common
+ms.openlocfilehash: 47ecfc2ae1352ad24b5cfd7fc39bca26bae09df7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275641"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457788"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export에 대한 시스템 요구 사항
 
@@ -59,8 +59,8 @@ Azure Import/Export 서비스는 다음과 같은 유형의 저장소 계정을 
 
 |작업  |저장소 서비스 |지원됨  |지원되지 않음  |
 |---------|---------|---------|---------|
-|가져오기     |  Azure Blob 저장소 <br><br> Azure 파일 저장소       | 블록 Blob 및 페이지 Blob 지원됨 <br><br> 파일 지원됨          |
-|내보내기     |   Azure Blob 저장소       | 블록 Blob, 페이지 Blob 및 추가 Blob 지원됨         | Azure Files 지원되지 않음
+|가져오기     |  Linux에서 File Storage 사용에 대한 자세한 내용은 Linux에서 Azure 파일 스토리지 사용 방법을 참조하세요. <br><br> Azure File Storage       | 블록 Blob 및 페이지 Blob 지원됨 <br><br> 파일 지원됨          |
+|내보내기     |   Linux에서 File Storage 사용에 대한 자세한 내용은 Linux에서 Azure 파일 스토리지 사용 방법을 참조하세요.       | 블록 Blob, 페이지 Blob 및 추가 Blob 지원됨         | Azure Files 지원되지 않음
 
 
 ## <a name="supported-hardware"></a>지원되는 하드웨어 

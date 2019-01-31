@@ -6,17 +6,17 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/24/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 261d42a6c21681ee8015edfe73ad78b4458eb0ee
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 08373449b2e61da503ab785eda7d6df80d6d1c16
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078816"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227933"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>내보내기-가져오기를 사용하여 기술 자료 마이그레이션
 QnA Maker는 2018년 5월 7일에 \\\build\ 컨퍼런스에서 일반 공급을 발표했습니다. QnA Maker GA에는 Azure에 빌드된 새로운 아키텍처가 있습니다. QnA Maker 무료 미리 보기로 만들어진 기술 자료는 QnA Maker GA로 마이그레이션해야 합니다. QnA Maker 미리 보기는 2019년 1월에 지원 중단될 예정입니다. QnA Maker GA의 변경 내용에 대한 자세한 내용은 QnA Maker GA 알림 [블로그 게시물](https://aka.ms/qnamakerga-blog)을 참조하세요.
@@ -62,7 +62,7 @@ QnA Maker는 2018년 5월 7일에 \\\build\ 컨퍼런스에서 일반 공급을 
 
 9. 테스트 패널을 사용하여 새 기술 자료를 **테스트**합니다. [기술 자료 테스트](../How-To/test-knowledge-base.md) 방법을 알아보세요.
 10. 기술 자료를 **게시**합니다. [기술 자료 게시](../How-To/publish-knowledge-base.md) 방법을 알아보세요.
-11. 응용 프로그램 또는 봇 코드에서 아래 엔드포인트를 사용합니다. 여기에서 [QnA 봇을 만드는](../Tutorials/create-qna-bot.md) 방법을 참조하세요.
+11. 애플리케이션 또는 봇 코드에서 아래 엔드포인트를 사용합니다. 여기에서 [QnA 봇을 만드는](../Tutorials/create-qna-bot.md) 방법을 참조하세요.
 
     ![QnA Maker 값](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
 

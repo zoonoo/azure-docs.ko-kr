@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: 12e91a07d09929ba59873d0d56f4e19b20077f53
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: f7925c3eb14915c2b811ccfcd3a3803b9bd7c806
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999752"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222918"
 ---
 # <a name="project-url-preview-v7-reference"></a>Project URL Preview v7 참조
 
@@ -31,10 +31,10 @@ URL Preview를 사용하는 애플리케이션은 쿼리 매개 변수에 미리
 URL Preview 결과를 요청하려면 다음 엔드포인트로 요청을 보냅니다. 헤더 및 URL 매개 변수를 사용하여 추가 사양을 정의합니다.
 
 엔드포인트 GET:
-````
+```
 https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=queryURL
 
-````
+```
 
 요청이 HTTPS 프로토콜을 사용하고 다음 쿼리 매개 변수를 포함해야 합니다.
 
@@ -73,7 +73,7 @@ q - 미리 보기할 URL을 식별하는 쿼리입니다.
 ## <a name="query-parameters"></a>쿼리 매개 변수
 요청에 다음과 같은 쿼리 매개 변수를 포함할 수 있습니다. 필수 매개 변수는 필수 열을 참조하세요. 쿼리 매개 변수는 URL로 인코드해야 합니다. 쿼리는 http 또는 https 체계를 사용하는 절대 URL이어야 합니다. 상대 URL이나 기타 체계(예: ftp://)는 지원되지 않습니다.
 
-|이름|값|type|필수|
+|Name|값|Type|필수|
 |----------|-----------|----------|--------------|
 |<a name="mkt" />mkt|결과가 나오는 지역/국가입니다. <br /><br />가능한 지역/국가 값 목록은 [지역/국가 코드](#market-codes)를 참조하세요.<br /><br /> **참고:** URL Preview API는 현재 미국 지역과 영어 언어만 지원합니다.<br /><br />|문자열|예|
 |<a name="query" />q|미리 보기할 URL입니다.|문자열|예|
@@ -90,7 +90,7 @@ q - 미리 보기할 URL을 식별하는 쿼리입니다.
 ### <a name="error"></a>오류
 발생한 오류를 정의합니다.
 
-|요소|설명|type|
+|요소|설명|Type|
 |-------------|-----------------|----------|
 |<a name="error-code" />code|오류 범주를 식별하는 오류 코드입니다. 가능한 코드 목록은 [오류 코드](#error-codes)를 참조하세요.|문자열|
 |<a name="error-message" />message|오류에 대한 설명입니다.|문자열|
@@ -102,7 +102,7 @@ q - 미리 보기할 URL을 식별하는 쿼리입니다.
 ### <a name="errorresponse"></a>ErrorResponse
 요청이 실패할 경우 응답에 포함되는 최상위 개체입니다.
 
-|이름|값|type|
+|Name|값|Type|
 |----------|-----------|----------|
 |_type|유형 힌트입니다.|문자열|
 |<a name="errors" />errors|요청이 실패한 이유를 설명하는 오류 목록입니다.|[Error](#error)[]|
@@ -110,7 +110,7 @@ q - 미리 보기할 URL을 식별하는 쿼리입니다.
 ### <a name="webpage"></a>WebPage
 미리 보기의 웹 페이지에 대한 정보를 정의합니다.
 
-|이름|값|type|
+|Name|값|Type|
 |----------|-----------|----------|
 |이름|페이지 제목입니다. HTML 제목이 아닐 수도 있습니다.|문자열|
 |URL|실제로 크롤링된 URL입니다. 요청이 리디렉션을 따랐을 수도 있습니다.|문자열|
@@ -119,7 +119,7 @@ q - 미리 보기할 URL을 식별하는 쿼리입니다.
 |primaryImageOfPage/contentUrl|미리 보기에 포함할 대표 이미지의 URL입니다.|문자열|
 
 ### <a name="identifiable"></a>Identifiable
-|이름|값|type|
+|Name|값|Type|
 |-------------|-----------------|----------|
 |id|리소스 식별자|문자열|
 

@@ -9,19 +9,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 75f068a857be33337348958fbc472f37f6d84e12
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 824793c9897d7d728f621182a02a6092edc69e89
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075858"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452382"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>데이터 과학 Virtual Machine 데이터 수집 도구
 
@@ -70,7 +70,7 @@ ms.locfileid: "53075858"
 | ------------- | ------------- |
 | 무엇인가요?   | JSON 파일, CSV 파일, SQL, MongoDB, Azure Table Storage, Amazon DynamoDB 및 Azure Cosmos DB SQL API 컬렉션을 비롯한 다양한 원본에서 데이터를 Azure Cosmos DB로 가져오는 도구입니다.      |
 | 지원되는 DSVM 버전      |  Windows      |
-| 일반적인 사용 용도      | VM에서 CosmosDB로 파일 가져오기, Azure 테이블 저장소에서 CosmosDB로 데이터 가져오기 또는 SQL Server 데이터베이스에서 CosmosDB로 데이터 가져오기.     |
+| 일반적인 사용 용도      | VM에서 CosmosDB로 파일 가져오기, Azure Table Storage에서 CosmosDB로 데이터 가져오기 또는 SQL Server 데이터베이스에서 CosmosDB로 데이터 가져오기.     |
 |  사용/실행 방법    |   명령줄을 버전을 사용하려면, 명령 프롬프트를 연 다음 `dt`을 입력합니다. GUI 도구를 사용하려면, 명령 프롬프트를 연 다음 `dtui`을 입력합니다.    |
 | 샘플에 대한 링크      | [CosmosDB 데이터 가져오기](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
 | DSVM의 관련 도구      | AzCopy, AdlCopy      |

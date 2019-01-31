@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 83f29106d72f564f894c968102b703ab6bb5d8c2
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: e8472323d99de9d0d81130eac5fbe3ec9e11c590
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902386"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197639"
 ---
 # <a name="graph-search-method"></a>Graph Search 메서드
 
@@ -29,9 +29,9 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 <br>
 
 ## <a name="request-parameters"></a>요청 매개 변수  
-이름     | 값 | Required?  | 설명
+Name     | 값 | Required?  | 설명
 -----------|-----------|---------|--------
-**mode**       | 텍스트 문자열 | yes | 사용할 모드의 이름입니다. 값은 *json* 또는 *lambda*입니다.
+**mode**       | 텍스트 문자열 | 예 | 사용할 모드의 이름입니다. 값은 *json* 또는 *lambda*입니다.
 
 Graph Search 메서드는 HTTP POST 요청을 통해 호출되어야 합니다. post 요청은 **application/json** 콘텐츠 형식 헤더를 포함해야 합니다.
 
@@ -46,7 +46,7 @@ Graph Search 메서드는 HTTP POST 요청을 통해 호출되어야 합니다. 
 
 <br>
 ## <a name="response-json"></a>응답(JSON)
-이름 | 설명
+Name | 설명
 -------|-----   
 **결과** | 쿼리 식과 일치하는 0개 이상의 엔터티 배열입니다. 각 엔터티에는 요청된 특성 값이 있습니다. 이 필드는 요청이 성공적으로 처리된 경우 나타납니다.
 **error** | HTTP 상태 코드. 이 필드는 요청이 실패하는 경우 나타납니다.

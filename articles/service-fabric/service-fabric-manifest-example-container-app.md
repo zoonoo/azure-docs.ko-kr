@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: ryanwi
-ms.openlocfilehash: 010fd442419f57f8b53705be8d3f49fdb84e28fd
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: bdff930e00bfebe1d702e397a9dfc7de15aa3225
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262455"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156227"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>다중 컨테이너 애플리케이션 및 서비스 매니페스트 예제
 다음은 다중 컨테이너 Service Fabric 애플리케이션에 대한 애플리케이션 및 서비스 매니페스트의 예제입니다. 이러한 예제의 목적은 사용 가능한 설정 및 사용 방법을 보여주는 것입니다. 이러한 애플리케이션 및 서비스 매니페스트는 [Windows Server 2016 컨테이너 샘플](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows) 매니페스트를 기반으로 합니다.
@@ -27,7 +27,7 @@ ms.locfileid: "53262455"
 다음 기능이 표시됩니다.
 |매니페스트|기능|
 |---|---|
-|[응용 프로그램 매니페스트](#application-manifest)| [환경 변수 재정의](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [컨테이너 포트-호스트 간 매핑 구성](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), [컨테이너 레지스트리 인증 구성](service-fabric-get-started-containers.md#configure-container-registry-authentication), [리소스 거버넌스](service-fabric-resource-governance.md), [격리 모드 설정](service-fabric-get-started-containers.md#configure-isolation-mode), [OS 빌드별 컨테이너 이미지 지정](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
+|[애플리케이션 매니페스트](#application-manifest)| [환경 변수 재정의](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [컨테이너 포트-호스트 간 매핑 구성](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), [컨테이너 레지스트리 인증 구성](service-fabric-get-started-containers.md#configure-container-registry-authentication), [리소스 거버넌스](service-fabric-resource-governance.md), [격리 모드 설정](service-fabric-get-started-containers.md#configure-isolation-mode), [OS 빌드별 컨테이너 이미지 지정](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
 |[FrontEndService 서비스 매니페스트](#frontendservice-service-manifest)| [환경 변수 설정](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [엔드포인트 구성](service-fabric-get-started-containers.md#configure-communication), 컨테이너에 명령 전달, [컨테이너로 인증서 가져오기](service-fabric-securing-containers.md)| 
 |[BackEndService 서비스 매니페스트](#backendservice-service-manifest)|[환경 변수 설정](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [엔드포인트 구성](service-fabric-get-started-containers.md#configure-communication), [볼륨 드라이버 구성](service-fabric-containers-volume-logging-drivers.md)| 
 
@@ -195,7 +195,7 @@ ms.locfileid: "53262455"
     </EnvironmentVariables>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
   
@@ -246,7 +246,7 @@ ms.locfileid: "53262455"
     </EnvironmentVariables>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 

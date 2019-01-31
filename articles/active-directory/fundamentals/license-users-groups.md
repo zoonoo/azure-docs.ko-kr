@@ -6,19 +6,19 @@ author: eross-msft
 manager: daveba
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: b7abcb4820dde221f17efa1fcded05df41fa7bed
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 78aef5d6627636ed0a28d81d902246fa318197a8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449489"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099286"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Azure Active Directory 포털을 사용하여 라이선스 할당 또는 제거
 많은 Azure AD(Azure Active Directory) 서비스를 사용하려면 Azure AD 제품을 활성화하고 해당 제품에 대한 각 사용자 또는 그룹(및 관련 멤버)에 라이선스를 부여해야 합니다. 활성 라이선스가 있는 사용자만 사용이 허가된 Azure AD 서비스에 액세스하여 사용할 수 있습니다.

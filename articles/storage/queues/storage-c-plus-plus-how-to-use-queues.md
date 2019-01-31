@@ -1,6 +1,6 @@
 ---
-title: 큐 저장소 사용 방법(C++) | Microsoft Docs
-description: Azure에서 큐 저장소 서비스를 사용하는 방법에 대해 알아봅니다. 샘플은 C++로 작성되었습니다.
+title: Queue Storage 사용 방법(C++) | Microsoft Docs
+description: Azure에서 Queue Storage 서비스를 사용하는 방법에 대해 알아봅니다. 샘플은 C++로 작성되었습니다.
 services: storage
 author: cbrooksmsft
 ms.service: storage
@@ -9,13 +9,13 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: cbrooksmsft
-ms.component: queues
-ms.openlocfilehash: 36fa2e5bc7eda7c47017713008aec2a245213462
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: queues
+ms.openlocfilehash: 1f2f52fc08ab4da4a7525f3018b7a9aea2f7c576
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521570"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457364"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>C++에서 Queue Storage를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -23,7 +23,7 @@ ms.locfileid: "39521570"
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>개요
-이 가이드에서는 Azure 큐 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C++로 작성되었으며 [Azure Storage Client Library for C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md)를 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기 및 삭제**뿐만 아니라 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**가 포함됩니다.
+이 가이드에서는 Azure Queue Storage 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C++로 작성되었으며 [Azure Storage Client Library for C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md)를 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기 및 삭제**뿐만 아니라 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**가 포함됩니다.
 
 > [!NOTE]
 > 이 가이드는 Azure Storage Client Library for C++ 버전 1.0.0 이상을 대상으로 합니다. 권장되는 버전은 Storage Client Library 2.2.0이며, [NuGet](http://www.nuget.org/packages/wastorage) 또는 [GitHub](http://github.com/Azure/azure-storage-cpp/)를 통해 사용 가능합니다.
@@ -41,7 +41,7 @@ ms.locfileid: "39521570"
 
 Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사용할 수 있습니다.
 
-* **Linux:**[Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 페이지의 지침을 따릅니다.
+* **Linux:** [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 페이지의 지침을 따릅니다.
 * **Windows:** Visual Studio에서 **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔**을 클릭합니다. [NuGet 패키지 관리자 콘솔](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 에 다음 명령을 입력하고 **ENTER**를 누릅니다.
 
 ```  
@@ -57,7 +57,7 @@ Azure 저장소 API를 사용하여 큐에 액세스하려는 C++ 파일의 맨 
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Azure 저장소 연결 문자열 설정
-Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 끝점 및 자격 증명을 저장합니다. 클라이언트 애플리케이션에서 실행할 경우, 스토리지 계정의 이름 및 [Azure Portal](https://portal.azure.com)에 나열된 스토리지 계정의 스토리지 액세스 키를 *AccountName* 및 *AccountKey* 값에 사용하여 다음 형식의 스토리지 연결 문자열을 제공해야 합니다. Storage 계정 및 액세스 키에 대한 자세한 내용은 [Azure Storage 계정 정보](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)를 참조하세요. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.  
+Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 저장합니다. 클라이언트 애플리케이션에서 실행할 경우, 스토리지 계정의 이름 및 [Azure Portal](https://portal.azure.com)에 나열된 스토리지 계정의 스토리지 액세스 키를 *AccountName* 및 *AccountKey* 값에 사용하여 다음 형식의 스토리지 연결 문자열을 제공해야 합니다. Storage 계정 및 액세스 키에 대한 자세한 내용은 [Azure Storage 계정 정보](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)를 참조하세요. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.  
 
 ```cpp
 // Define the connection-string with your values.
@@ -71,7 +71,7 @@ const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=ht
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Azure Storage 에뮬레이터를 시작하려면 **시작** 단추를 선택하거나 **Windows** 키를 누릅니다. **Azure Storage 에뮬레이터** 입력을 시작하고 응용 프로그램 목록에서 **Microsoft Azure Storage 에뮬레이터**를 선택합니다.
+Azure Storage 에뮬레이터를 시작하려면 **시작** 단추를 선택하거나 **Windows** 키를 누릅니다. **Azure Storage 에뮬레이터** 입력을 시작하고 애플리케이션 목록에서 **Microsoft Azure Storage 에뮬레이터**를 선택합니다.
 
 다음 샘플에서는 저장소 연결 문자열을 가져오기 위해 위의 두 메서드 중 하나를 사용한 것으로 가정합니다.
 

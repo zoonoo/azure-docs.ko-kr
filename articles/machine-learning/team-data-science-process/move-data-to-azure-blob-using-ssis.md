@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8cd7fc5b69fd3ef124a96f00466a0d9a8c4e2240
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d8cb0829698b13e2193850c29f98492df6c48d4f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134355"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468515"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>SSIS 커넥터를 사용하여 Azure Blob Storage의 데이터 이동
 [Azure용 SQL Server Integration Services 기능 팩](https://msdn.microsoft.com/library/mt146770.aspx) 에서는 Azure에 연결하고, Azure와 온-프레미스 데이터 원본 간에 데이터를 전송하며, Azure에 저장된 데이터를 처리하는 구성 요소를 제공합니다.
@@ -57,8 +57,8 @@ SISS를 사용하여 간단한 ETL(추출, 변환 및 로드) 패키지를 빌�
 ## <a name="download-nyc-taxi-dataset"></a>NYC Taxi 데이터 세트 다운로드
 여기에 설명된 예제에서는 공개적으로 제공되는 데이터 세트인 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 세트를 사용합니다. 이 데이터 세트는 2013년 뉴욕 시의 1억 7,300만 건에 달하는 택시 승차 기록으로 구성됩니다. 데이터는 여정 정보 데이터와 요금 데이터의 두 종류가 있습니다. 월별로 하나의 파일씩 총 24개의 파일이 있으며, 각 파일은 압축되지 않은 크기가 약 2GB입니다.
 
-## <a name="upload-data-to-azure-blob-storage"></a>Azure Blob 저장소에 데이터 업로드
-SSIS 기능 팩을 사용하여 온-프레미스에서 Azure blob 저장소로 데이터를 이동하려면 여기에 표시된 대로 [**Azure Blob 업로드 작업**](https://msdn.microsoft.com/library/mt146776.aspx)의 인스턴스를 사용합니다.
+## <a name="upload-data-to-azure-blob-storage"></a>Azure File Storage는 Windows 및 기타 운영 체제에 대해 표준 SMB 2.1 프로토콜을 사용하므로, 응용 프로그램은 파일 공유 열기, 액세스 및 관리에 대해 익숙한 FileSystem API를 계속 사용할 수 있습니다. 
+File Storage 시작하기
 
 ![configure-data-science-vm](./media/move-data-to-azure-blob-using-ssis/ssis-azure-blob-upload-task.png)
 
@@ -78,8 +78,8 @@ SSIS 기능 팩을 사용하여 온-프레미스에서 Azure blob 저장소로 �
 > 
 > 
 
-## <a name="download-data-from-azure-blob-storage"></a>Azure Blob 저장소에서 데이터 다운로드
-SSIS를 사용하여 Azure Blob 저장소에서 온-프레미스 저장소로 데이터를 다운로드하려면 [Azure Blob 다운로드 작업](https://msdn.microsoft.com/library/mt146779.aspx)의 인스턴스를 사용합니다.
+## <a name="download-data-from-azure-blob-storage"></a>Azure Blob Storage에서 데이터 다운로드
+SSIS를 사용하여 Azure Blob Storage에서 온-프레미스 스토리지로 데이터를 다운로드하려면 [Azure Blob 다운로드 작업](https://msdn.microsoft.com/library/mt146779.aspx)의 인스턴스를 사용합니다.
 
 ## <a name="more-advanced-ssis-azure-scenarios"></a>고급 SSIS-Azure 시나리오
 SSIS 기능 팩을 사용하면 패키징 작업을 통해 보다 복잡한 흐름을 처리할 수 있습니다. 예를 들어 blob 데이터를 HDInsight 클러스터에 직접 공급하여 해당 출력을 blob로 다시 다운로드한 다음 온-프레미스 저장소에 다운로드할 수 있습니다. SSIS는 추가 SSIS 커넥터를 사용하여 HDInsight 클러스터에서 Hive 및 Pig 작업을 실행할 수 있습니다.

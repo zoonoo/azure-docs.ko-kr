@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 01/19/2019
 ms.author: mayg
-ms.openlocfilehash: 9b26c80b59a57b4a9b2423e1a9028cf723f40fb1
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: a1b35d4c10246af7e4dab36585c2bb9b72fd0c01
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321231"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216968"
 ---
 # <a name="exclude-disks-from-replication"></a>복제에서 디스크 제외
 이 문서에서는 디스크를 복제에서 제외하는 방법을 설명합니다. 이 제외는 그러한 디스크가 활용하는 대상 쪽 리소스를 최적화하거나 소비된 복제 대역폭을 최적화할 수 있습니다.
@@ -59,7 +59,7 @@ ms.locfileid: "54321231"
 - SQL Server tempdb 디스크
 - 페이징 파일(pagefile.sys) 디스크
 
-## <a name="excample-1-exclude-the-sql-server-tempdb-disk"></a>예제 1: SQL Server tempdb 디스크 제외
+## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>예제 1: SQL Server tempdb 디스크 제외
 제외할 수 있는 tempdb가 있는 SQL Server 가상 머신을 살펴보겠습니다.
 
 가상 디스크의 이름은 SalesDB입니다.

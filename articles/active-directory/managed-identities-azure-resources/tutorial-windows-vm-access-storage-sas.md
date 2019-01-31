@@ -3,23 +3,23 @@ title: Windows VM 시스템 할당 관리 ID를 사용하여 SAS 자격 증명�
 description: Windows VM 시스템 할당 관리 ID를 사용하여 스토리지 계정 액세스 키 대신 SAS 자격 증명으로 Azure Storage에 액세스하는 방법을 보여주는 자습서입니다.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: daveba
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
-ms.author: daveba
-ms.openlocfilehash: 6997812565e5e797e65d8e833a7f0f83db593923
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.date: 01/24/2019
+ms.author: priyamo
+ms.openlocfilehash: dc5d7b6d1047a3da2977f1d80c99e12d559a152d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423887"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55184039"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 SAS 자격 증명으로 Azure Storage에 액세스
 
@@ -37,6 +37,8 @@ ms.locfileid: "54423887"
 ## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기 
 
@@ -150,17 +152,17 @@ PS C:\> $sasCred
 sv=2015-04-05&sr=c&spr=https&se=2017-09-23T00%3A00%3A00Z&sp=rcw&sig=JVhIWG48nmxqhTIuN0uiFBppdzhwHdehdYan1W%2F4O0E%3D
 ```
 
-그런 다음 “test.txt”라는 파일을 만듭니다. 그런 다음 SAS 자격 증명을 사용하여 `New-AzureStorageContent` cmdlet으로 인증하고 파일을 blob 컨테이너로 업로드한 다음 파일을 다운로드합니다.
+그런 다음 “test.txt”라는 파일을 만듭니다. 그런 다음 SAS 자격 증명을 사용하여 `New-AzStorageContent` cmdlet으로 인증하고 파일을 blob 컨테이너로 업로드한 다음 파일을 다운로드합니다.
 
 ```bash
 echo "This is a test text file." > test.txt
 ```
 
-가장 먼저 `Install-Module Azure.Storage`을(를) 사용하여 Azure Storage cmdlet을 설치합니다. `Set-AzureStorageBlobContent` PowerShell cmdlet을 사용하여 방금 만든 Blob을 업로드합니다.
+가장 먼저 `Install-Module Azure.Storage`을(를) 사용하여 Azure Storage cmdlet을 설치합니다. `Set-AzStorageBlobContent` PowerShell cmdlet을 사용하여 방금 만든 Blob을 업로드합니다.
 
 ```powershell
-$ctx = New-AzureStorageContext -StorageAccountName <STORAGE-ACCOUNT-NAME> -SasToken $sasCred
-Set-AzureStorageBlobContent -File test.txt -Container <CONTAINER-NAME> -Blob testblob -Context $ctx
+$ctx = New-AzStorageContext -StorageAccountName <STORAGE-ACCOUNT-NAME> -SasToken $sasCred
+Set-AzStorageBlobContent -File test.txt -Container <CONTAINER-NAME> -Blob testblob -Context $ctx
 ```
 
 응답:
@@ -177,10 +179,10 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
-`Get-AzureStorageBlobContent` PowerShell cmdlet을 사용하여 방금 업로드한 Blob을 다운로드할 수 있습니다.
+`Get-AzStorageBlobContent` PowerShell cmdlet을 사용하여 방금 업로드한 Blob을 다운로드할 수 있습니다.
 
 ```powershell
-Get-AzureStorageBlobContent -Blob testblob -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx
+Get-AzStorageBlobContent -Blob testblob -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx
 ```
 
 응답:

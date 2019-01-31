@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
+ms.subservice: compliance
 ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 20b1c8673bfdb3b2207ed63749f79539c396642c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 887c0bd4246c7c4215cb4d97dfd96db5d2aba6cb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167755"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170021"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Azure AD ID 거버넌스란?
 
@@ -45,7 +45,7 @@ ID 거버넌스를 통해 조직이 *생산성* 간에 균형을 설정할 수 �
 
 많은 조직에서 직원의 ID 수명 주기가 HCM(인적 자원 관리) 시스템에서 해당 사용자의 표현에 연결됩니다.  Azure AD Premium은 [Workday 인바운드 프로비전(미리 보기) 자습서](../saas-apps/workday-inbound-tutorial.md)에 설명된 대로 Active Directory와 Azure Active Directory 모두의 Workday에 표시된 사람에 대한 사용자 ID를 자동으로 유지합니다.  또한 Azure AD Premium에는 SAP, Oracle eBusiness 및 Oracle PeopleSoft와 같은 온-프레미스 HCM 시스템에서 레코드를 가져올 수 있는 [Microsoft Identity Manager](/microsoft-identity-manager/)가 포함됩니다.
 
-점점 더 많은 시나리오에서는 조직 외부 사람들과 공동 작업해야 합니다. [Azure AD B2B](/azure/active-directory/b2b/) 공동 작업을 사용하면 조직의 응용 프로그램과 서비스를 게스트 사용자 및 모든 조직의 외부 파트너와 안전하게 공유하면서 고유한 회사 데이터에 대한 제어를 유지합니다.
+점점 더 많은 시나리오에서는 조직 외부 사람들과 공동 작업해야 합니다. [Azure AD B2B](/azure/active-directory/b2b/) 공동 작업을 사용하면 조직의 애플리케이션과 서비스를 게스트 사용자 및 모든 조직의 외부 파트너와 안전하게 공유하면서 고유한 회사 데이터에 대한 제어를 유지합니다.
 
 ## <a name="access-lifecycle"></a>액세스 수명 주기
 

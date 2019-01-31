@@ -3,23 +3,23 @@ title: REST를 사용하여 Azure 사용자 할당 관리 ID를 관리하는 방
 description: REST API를 호출하기 위해 사용자 할당 관리 ID를 만들고 나열하고 삭제하는 방법에 대한 단계별 지침입니다.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
-ms.author: daveba
-ms.openlocfilehash: 9ac036b11734e40d0f601f2416ef4892646e6390
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: cfa9a2ab2ec5d5a666bd431a430c7d1bdce6c8d8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425473"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150451"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>REST API 호출을 사용하여 사용자 할당 관리 ID 만들기, 나열 또는 삭제
 
@@ -66,7 +66,7 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 **요청 본문**
 
-|이름  |설명  |
+|Name  |설명  |
 |---------|---------|
 |location     | 필수 사항입니다. 리소스 위치.        |
 

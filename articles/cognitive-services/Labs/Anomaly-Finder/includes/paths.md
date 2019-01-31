@@ -5,17 +5,17 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.component: anomaly-finder
+ms.subservice: anomaly-finder
 ms.topic: include
 ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
-ms.openlocfilehash: fb02496d9c107a2c21acca6c65ef69fdfceb4597
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 80503ad154a9fc4d01614ffd2816f9d5fd497fdb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48904659"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228916"
 ---
 <a name="paths"></a>
 ## <a name="paths"></a>경로
@@ -29,7 +29,7 @@ POST /anomalydetection
 
 #### <a name="parameters"></a>매개 변수
 
-|type|이름|설명|스키마|
+|Type|Name|설명|스키마|
 |---|---|---|---|
 |**본문**|**body**  <br>*필수*|필요한 경우 시계열 데이터 요소 및 기간입니다.|[요청](#request)|
 

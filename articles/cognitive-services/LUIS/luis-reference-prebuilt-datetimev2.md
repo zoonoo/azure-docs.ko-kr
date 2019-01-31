@@ -7,20 +7,20 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 0e2353107d6554a8ecbbd2e4d9850f8d8b5fda5c
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: c576168a89e81f5a06067ec0d3ba86e6f5eaeeca
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165183"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227978"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 미리 빌드된 DatetimeV2 엔터티
 
-**datetimeV2** 미리 작성된 엔터티는 날짜 및 시간 값을 추출합니다. 이러한 값은 사용할 클라이언트 프로그램에 대해 표준화된 형식으로 결정됩니다. 발언에 완전하지 않은 날짜 또는 시간이 포함되는 경우 LUIS에는 엔드포인트 응답의 _이전 및 이후 값이 모두_ 포함됩니다. 이 엔터티를 이미 학습했기 때문에 datetimeV2를 응용 프로그램 의도에 포함하는 예제 발언을 추가할 필요가 없습니다. 
+**datetimeV2** 미리 작성된 엔터티는 날짜 및 시간 값을 추출합니다. 이러한 값은 사용할 클라이언트 프로그램에 대해 표준화된 형식으로 결정됩니다. 발언에 완전하지 않은 날짜 또는 시간이 포함되는 경우 LUIS에는 엔드포인트 응답의 _이전 및 이후 값이 모두_ 포함됩니다. 이 엔터티를 이미 학습했기 때문에 datetimeV2를 애플리케이션 의도에 포함하는 예제 발언을 추가할 필요가 없습니다. 
 
 ## <a name="types-of-datetimev2"></a>datetimeV2 형식
 DatetimeV2는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) GitHub 리포지토리에서 관리됩니다.

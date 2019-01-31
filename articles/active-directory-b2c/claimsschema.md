@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: a49553941b83e323f23f20b794a464f47ef31981
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 635700529007cc90c7e9b79c224f55f34b326f0f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849093"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167073"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -71,7 +71,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 이름 | 예 | Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 다음과 같습니다.  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed 또는 WsTrust. |
+| Name | 예 | Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 다음과 같습니다.  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed 또는 WsTrust. |
 | PartnerClaimType | 예 | 사용할 클레임 형식 이름입니다. |
 
 다음 예제에서는 ID 경험 프레임워크가 SAML2 ID 공급자 또는 신뢰 당사자 애플리케이션과 상호 작용할 때 **surname** 클레임이 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`에 매핑되며 OpenIdConnect 및 OAuth2와 상호 작용할 때는 `family_name`에 매핑됩니다.
@@ -106,7 +106,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| type | 예 | 클레임 마스크의 형식입니다. 가능한 값은 `Simple` 또는 `Regex`입니다. `Simple` 값은 문자열 클레임의 앞부분에 단순 텍스트 마스크가 적용됨을 나타냅니다. `Regex` 값은 문자열 클레임 전체에 정규식이 적용됨을 나타냅니다.  `Regex` 값을 지정하는 경우에는 사용할 정규식과 함께 선택적 특성도 정의해야 합니다. |
+| Type | 예 | 클레임 마스크의 형식입니다. 가능한 값은 `Simple` 또는 `Regex`입니다. `Simple` 값은 문자열 클레임의 앞부분에 단순 텍스트 마스크가 적용됨을 나타냅니다. `Regex` 값은 문자열 클레임 전체에 정규식이 적용됨을 나타냅니다.  `Regex` 값을 지정하는 경우에는 사용할 정규식과 함께 선택적 특성도 정의해야 합니다. |
 | Regex | 아니요 | **Type**을 `Regex`로 설정하는 경우 사용할 정규식을 지정합니다.
 
 다음 예제에서는 `Simple` 마스크를 사용하여 **PhoneNumber** 클레임을 구성합니다.

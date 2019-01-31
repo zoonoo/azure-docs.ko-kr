@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 0ca73b8bfaca481d3e0404d068a74e1a6b0e4dcb
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: f4abacb42cfd5efe22d29b58b36eca0a7a1f5ba8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846560"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161320"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: 소셜 ID가 있는 사용자 마이그레이션
 ID 공급자를 Azure AD B2C로 마이그레이션하려는 경우 소셜 ID가 있는 사용자 계정도 마이그레이션해야 합니다. 이 문서에서는 Facebook, LinkedIn, Microsoft, Google 계정 등의 기존 소셜 ID 계정을 Azure AD B2C로 마이그레이션하는 방법을 설명합니다. 이 문서는 페더레이션 ID에도 해당되지만 이러한 마이그레이션은 일반성이 떨어집니다.

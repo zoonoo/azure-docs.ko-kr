@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 6b76249c85f9b8c64435043a75e39601d445ab0c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c4fab22513e42013a9dacf0b24b2d4b322ae09b6
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384720"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883401"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>OMS 포털에서 Azure Portal로 전환하는 Log Analytics 사용자를 위한 일반적인 질문
 Log Analytics는 처음에 OMS 포털이라는 자체 포털을 사용하여 구성을 관리하고 수집된 데이터를 분석했습니다.  이 포털의 모든 기능은 Azure Portal로 이동되었으며 계속 개발될 예정입니다.
@@ -111,7 +111,7 @@ OMS 포털에서는 솔루션 갤러리에서 관리 솔루션을 설치하고 *
 Log Analytics 쿼리를 기반으로 하는 경고 규칙은 이제 [통합된 경고 환경](../../azure-monitor/platform/alerts-metric.md)에서 관리됩니다. Azure Portal에서 경고 구성 및 사용에 대한 자세한 내용은 [Log Analytics에서 Azure Alerts로 경고를 확장하는 방법](../../azure-monitor/platform/alerts-extend-tool.md)을 참조하세요.
 
 ## <a name="how-do-i-access-my-dashboards"></a>내 대시보드에 액세스하려면 어떻게 해야 하나요?
-Log Analytics의 [내 대시보드](dashboards.md) 기능이 더 이상 사용되지 않습니다. 이 기능은 뷰 디자이너 부분의 개인 컬렉션을 사용할 수 있으며 기본 제공 Azure 대시보드 기능으로 대체 됩니다. 공유 보기에 대해 [뷰 디자이너](view-designer.md)를 사용하면 Log Analytics에서 계속 데이터 시각화를 할 수 있습니다. 또한 이러한 보기에서 시각화를 고정하거나 [개별 쿼리](../learn/tutorial-logs-dashboards.md)의 경우 Azure 대시보드에 고정할 수 있습니다.
+Log Analytics의 **내 대시보드** 기능이 더 이상 사용되지 않습니다. 이 기능은 뷰 디자이너 부분의 개인 컬렉션을 사용할 수 있으며 기본 제공 Azure 대시보드 기능으로 대체 됩니다. 공유 보기에 대해 [뷰 디자이너](view-designer.md)를 사용하면 Log Analytics에서 계속 데이터 시각화를 할 수 있습니다. 또한 이러한 보기에서 시각화를 고정하거나 [개별 쿼리](../learn/tutorial-logs-dashboards.md)의 경우 Azure 대시보드에 고정할 수 있습니다.
 
 ## <a name="how-do-i-check-my-usage"></a>내 사용량은 어떻게 확인할 수 있나요?
 이제 작업 영역의 **사용량 및 예상 비용**을 선택하면 Log Analytics의 내 사용량 및 비용을 쉽게 보고 관리할 수 있습니다.

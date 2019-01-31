@@ -3,24 +3,24 @@ title: Azure 리소스에 대한 관리 ID 관련 FAQ 및 알려진 문제
 description: Azure 리소스에 대한 관리 ID 관련 알려진 문제
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
-ms.author: daveba
-ms.openlocfilehash: a23bd99b05184316ee1547ab0917547b5d0da18f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: 45bf76696269e1224250b834b67acb2a68c10d7c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421932"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189462"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID 관련 FAQ 및 알려진 문제
 
@@ -90,7 +90,7 @@ Azure 리소스에 대한 관리 ID VM 확장(2019년 1월에 사용 중단 예�
 Windows 및 특정 버전의 Linux에서 확장이 중지한 경우 다음 cmdlet 사용하여 수동으로 다시 시작할 수 있습니다.
 
 ```powershell
-Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
+Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 
 위치: 

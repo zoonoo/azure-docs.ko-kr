@@ -7,7 +7,7 @@ author: barbkess
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
-ms.openlocfilehash: 48f001ab0634451b1e339b346e03f5d15cdbf9c6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: efdcdb8dd2f7917bd1270b9da1d87be655ea675f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463850"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171000"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리
 이 문서에서는 Azure AD(Azure Active Directory)에서 SaaS 애플리케이션에 페더레이션된 SSO(Single Sign-On)를 설정하기 위해 만드는 인증서와 관련된 일반적인 질문과 정보를 다룹니다. Azure AD 앱 갤러리에서 또는 비갤러리 애플리케이션 템플릿을 사용하여 애플리케이션을 추가합니다. 페더레이션된 SSO 옵션을 사용하여 애플리케이션을 구성합니다.

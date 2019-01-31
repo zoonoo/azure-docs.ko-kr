@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: b57e80370c778e7cebdb4a5ccd888ced324be0aa
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 521deef5c09d80eb37a26de384704fcfe540b87e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469489"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225111"
 ---
 # <a name="project-answer-search-use-and-display-requirements"></a>Project Answer Search 사용 및 표시 요구 사항
 
@@ -80,7 +80,7 @@ ms.locfileid: "49469489"
 
 **E. 서비스 연속성.** Search API 응답의 데이터는 복사, 저장 또는 캐시하면 안 됩니다. 그러나 서비스 액세스 및 데이터 렌더링의 연속성을 사용하려면 다음과 같은 경우에만 결과를 유지할 수 있습니다.
 
-**장치** - 다음과 같은 목적으로만 보관된 결과를 사용할 수 있다면 (i) 쿼리 시간으로부터 24시간 미만 동안 또는 (ii) 최종 사용자가 업데이트된 결과에 대해 다른 쿼리를 제출할 때까지 최종 사용자가 해당 결과를 디바이스에서 유지할 수 있습니다.
+**디바이스** - 다음과 같은 목적으로만 보관된 결과를 사용할 수 있다면 (i) 쿼리 시간으로부터 24시간 미만 동안 또는 (ii) 최종 사용자가 업데이트된 결과에 대해 다른 쿼리를 제출할 때까지 최종 사용자가 해당 결과를 디바이스에서 유지할 수 있습니다.
 
 - 최종 사용자가 해당 디바이스에서 이 최종 사용자에게 이전에 반환된 결과에 액세스할 수 있도록 합니다(예: 서비스 중단의 경우). 또는
 - 최종 사용자의 신호에 따라 해당 최종 사용자의 요구를 예상하여 개인 설정된 자동 관리 쿼리에 대해 반환된 결과를 저장합니다(예: 서비스 중단이 예상되는 경우).

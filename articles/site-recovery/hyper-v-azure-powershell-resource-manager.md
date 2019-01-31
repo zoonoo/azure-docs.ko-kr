@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: c20f61788086806d3eebb62d35b7ac9fbcbd6fb9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f4e1b25133914a65f34e281c145d7db5969b0581
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846932"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208026"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>PowerShell과 Azure Resource Manager를 사용하여 Hyper-V VM용 Azure에 대한 재해 복구 설정
 
@@ -47,7 +47,7 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
 
 1. PowerShell 콘솔을 열고 이 명령을 실행하여 Azure 계정에 로그인합니다. cmdlet은 계정 자격 증명을 묻는 웹 페이지를 엽니다. **Connect-AzureRmAccount**.
     - 또는 **Connect-AzureRmAccount** cmdlet에서 **-Credential** 매개 변수를 사용하여 계정 자격 증명을 매개 변수로 포함할 수 있습니다.
-    - 사용자가 테넌트를 대신하여 작업 중인 CSP 파트너인 경우 tenantID 또는 테넌트 기본 도메인 이름을 사용하여 고객을 테넌트로 지정합니다. 예:  **Connect-AzureRmAccount -Tenant “fabrikam.com”**
+    - 사용자가 테넌트를 대신하여 작업 중인 CSP 파트너인 경우 tenantID 또는 테넌트 기본 도메인 이름을 사용하여 고객을 테넌트로 지정합니다. 예:  **Connect-AzureRmAccount -Tenant "fabrikam.com"**
 2. 계정에 여러 구독이 있을 수 있으므로 사용하려는 구독을 계정과 연결합니다.
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`

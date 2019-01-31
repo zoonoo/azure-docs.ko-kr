@@ -3,19 +3,19 @@ title: Azure AD SSPR 및 MFA에 융합 등록 사용 안 함(공개 미리 보�
 description: Azure AD Multi-Factor Authenticaiton 및 셀프 서비스 암호 재설정 등록 사용 안 함(공개 미리 보기)
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 6a51b1a3050b37fdcc822006f9e25d6662c65fb2
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: c7cdd2e62c76011f2ff4ada33353b85dcf564ef5
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426355"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076658"
 ---
 # <a name="disable-azure-ad-converged-registration-public-preview"></a>Azure AD 융합 등록 사용 안 함(공개 미리 보기)
 

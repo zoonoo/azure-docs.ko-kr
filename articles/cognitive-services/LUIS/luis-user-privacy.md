@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 0aba859fc0c5e2de64b2bbdb9c06f2434937f4e8
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 998dcd34c71497ef243f6a74396e3a50c81658cb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140679"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217171"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Cognitive Services의 LUIS(Language Understanding)에서 고객 데이터 내보내기 및 삭제
 
@@ -35,7 +35,7 @@ LUIS(Language Understanding Intelligent Service)는 서비스 작동을 위해 �
 ## <a name="deleting-customer-data"></a>고객 데이터 삭제
 LUIS 사용자는 LUIS 웹 포털 또는 LUIS Programmatic API를 통해 모든 사용자 콘텐츠를 삭제할 모든 권한이 있습니다. 다음 표에는 두 작업에 도움이 되는 링크가 나와 있습니다.
 
-| | **사용자 계정** | **응용 프로그램** | **발언** | **최종 사용자 쿼리** |
+| | **사용자 계정** | **애플리케이션** | **발언** | **최종 사용자 쿼리** |
 | --- | --- | --- | --- | --- |
 | **포털** | [링크](luis-how-to-account-settings.md) | [링크](luis-how-to-start-new-app.md#delete-app) | [링크](luis-how-to-start-new-app.md#delete-app) | [링크](luis-how-to-start-new-app.md#delete-app) |
 | **API** | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
@@ -44,7 +44,7 @@ LUIS 사용자는 LUIS 웹 포털 또는 LUIS Programmatic API를 통해 모든 
 ## <a name="exporting-customer-data"></a>고객 데이터 내보내기
 LUIS 사용자는 포털에서 데이터를 보기 위한 모든 권한이 있지만 LUIS Programmatic API를 통해 내보내야 합니다. 다음 표에는 LUIS Programmatic API를 통한 데이터 내보내기에 도움이 되는 링크가 나와 있습니다.
 
-| | **사용자 계정** | **응용 프로그램** | **발언** | **최종 사용자 쿼리** |
+| | **사용자 계정** | **애플리케이션** | **발언** | **최종 사용자 쿼리** |
 | --- | --- | --- | --- | --- |
 | **API** | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c48) | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) |
 

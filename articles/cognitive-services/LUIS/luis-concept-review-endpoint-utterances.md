@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/07/2018
+ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: 0eaf411afdcd66345f64c2b6dd93e4799183de78
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b33d9d6d879de0cb131bed2a215237556f37920f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141036"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218558"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>엔드포인트 발언을 검토하여 활성 학습을 사용하도록 설정하는 데 관한 개념입니다.
 활성 학습은 예측 정확도를 향상시키는 세 가지 전략 중 하나이며 구현하기에 가장 쉽습니다. 활성 학습을 사용하여 올바른 의도 및 엔터티에 대한 엔드포인트 발언을 검토하세요. LUIS는 알 수 없는 엔드포인트 발언을 선택합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "53141036"
 **끝점 발언 검토** 목록은 버전에 따라 달라지지 않습니다. 적극적으로 편집 중인 발언의 버전이나 엔드포인트에서 게시된 앱 버전에 관계없이 검토할 단일 발언 풀이 있습니다. 
 
 ## <a name="where-are-the-utterances-from"></a>발화를 가져오는 위치
-엔드포인트 발화는 응용 프로그램 HTTP 엔드포인트의 최종 사용자 쿼리에서 가져옵니다. 앱이 게시되지 않았거나 아직 적중을 받지 않은 경우에는 검토할 발화가 없습니다. 특정 의도 또는 엔터티에 대한 엔드포인트 적중이 수신되지 않은 경우에는 검토할 해당 적중이 포함된 발화가 없습니다. 
+엔드포인트 발화는 애플리케이션 HTTP 엔드포인트의 최종 사용자 쿼리에서 가져옵니다. 앱이 게시되지 않았거나 아직 적중을 받지 않은 경우에는 검토할 발화가 없습니다. 특정 의도 또는 엔터티에 대한 엔드포인트 적중이 수신되지 않은 경우에는 검토할 해당 적중이 포함된 발화가 없습니다. 
 
 ## <a name="schedule-review-periodically"></a>주기적으로 검토 예약
 제안된 발화를 매일 검토할 필요는 없지만 정기적인 LUIS 유지 관리에 포함해야 합니다. 

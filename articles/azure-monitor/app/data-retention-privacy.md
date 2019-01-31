@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 812478c13ef39b369471a731c52dc38ba6a4368c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 511937fde859f47af2b7bc273daaab88bb8809c3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119750"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094532"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 데이터 수집, 보존 및 저장소
 
@@ -148,7 +148,7 @@ Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있�
 
 
 구성 파일:
-```
+```xml
 <TelemetryChannel Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel,   Microsoft.AI.ServerTelemetryChannel">
     <StorageFolder>D:\NewTestFolder</StorageFolder>
 </TelemetryChannel>
@@ -158,7 +158,7 @@ Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있�
 
 - 구성 파일에서 ServerTelemetryChannel 제거
 - 이 코드 조각을 구성에 추가:
-```
+```csharp
 ServerTelemetryChannel channel = new ServerTelemetryChannel();
 channel.StorageFolder = @"D:\NewTestFolder";
 channel.Initialize(TelemetryConfiguration.Active);
@@ -171,7 +171,7 @@ TelemetryConfiguration.Active.TelemetryChannel = channel;
 
 다음 코드 조각은  `Startup.cs`  클래스의 `ConfigureServices()`  메서드에서 `ServerTelemetryChannel.StorageFolder`를 설정하는 방법을 보여줍니다.
 
-```
+```csharp
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
 ```
 

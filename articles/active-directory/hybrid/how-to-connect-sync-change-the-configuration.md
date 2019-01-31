@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 50088dd00b0410ea32b6b61516021563c7ae061f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8c6fe9952beb8daeb9b96cf9244cccf85d9c2203
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463374"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165458"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 변경
 이 문서의 목적은 Azure AD(Active Directory) Connect 동기화에서 기본 구성 변경 방법을 안내하는 것입니다. 몇 가지 일반적인 시나리오를 위한 단계를 제공합니다. 이러한 지식을 바탕으로 사용자의 고유한 비즈니스 규칙에 따라 자체 구성에 대해 간단한 내용을 변경할 수 있습니다.
@@ -267,7 +267,7 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
 
     | 특성 | 값 | 세부 정보 |
     | --- | --- | --- |
-    | 이름 | *이름 제공* | 예: *In from AD – User UserType* |
+    | Name | *이름 제공* | 예: *In from AD – User UserType* |
     | 설명 | *설명 제공* |  |
     | 연결된 시스템 | *온-프레미스 AD 커넥터 선택* |  |
     | 연결된 시스템 개체 유형 | **User** |  |
@@ -309,7 +309,7 @@ Azure AD로 의도하지 않은 변경 내용을 내보내지 않도록, 동기�
 
     | 특성 | 값 | 세부 정보 |
     | ----- | ------ | --- |
-    | 이름 | *이름 제공* | 예: *Out to AAD – User UserType* |
+    | Name | *이름 제공* | 예: *Out to AAD – User UserType* |
     | 설명 | *설명 제공* ||
     | 연결된 시스템 | *AAD 커넥터 선택* ||
     | 연결된 시스템 개체 유형 | **User** ||

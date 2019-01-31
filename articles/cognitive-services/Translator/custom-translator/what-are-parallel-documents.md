@@ -5,16 +5,16 @@ description: 병렬 문서는 서로가 서로의 번역인 문서 쌍입니다.
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: e9214314bab40e3ce402fed84f429f3542519240
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d7f479bbacef7270807d9292e7b91fe835485647
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627988"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217376"
 ---
 # <a name="what-are-parallel-documents"></a>병렬 문서란?
 

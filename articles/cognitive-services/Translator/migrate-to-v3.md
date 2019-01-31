@@ -6,23 +6,23 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: ce6446caf74e16f69369d5ee8ee7b6342870e826
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6fa468308bb7187111a6f7f65366d83eaadd9494
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682599"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227780"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2에서 V3으로 마이그레이션
 
 > [!NOTE]
 > V2는 2018년 4월 30일에 사용되지 않고 2019년 4월 30일에 사용이 중단될 예정입니다.
 
-Microsoft Translator 팀은 Translator Text API의 버전 3(V3)을 릴리스했습니다. 이 릴리스에는 새로운 기능, 사용되지 않는 메서드 및 Microsoft Translator Service 간에 데이터를 보내고 받는 새 형식이 포함되어 있습니다. 이 문서에서는 V3을 사용할 응용 프로그램을 변경하는 정보를 제공합니다. 
+Microsoft Translator 팀은 Translator Text API의 버전 3(V3)을 릴리스했습니다. 이 릴리스에는 새로운 기능, 사용되지 않는 메서드 및 Microsoft Translator Service 간에 데이터를 보내고 받는 새 형식이 포함되어 있습니다. 이 문서에서는 V3을 사용할 애플리케이션을 변경하는 정보를 제공합니다. 
 
 이 문서의 끝에는 자세히 알아볼 유용한 링크가 포함됩니다.
 
@@ -59,7 +59,7 @@ Microsoft Translator 팀은 Translator Text API의 버전 3(V3)을 릴리스했�
 
 Microsoft Translator Text 번역 V2는 XML 형식으로 데이터를 허용하고 반환했습니다. V3에서 API를 사용하여 보내고 받은 모든 데이터는 JSON 형식입니다. XML은 V3에서 더 이상 허용되거나 반환되지 않습니다.
 
-이 변경 내용은 V2 텍스트 번역 API에 대해 작성된 응용 프로그램의 여러 측면에 영향을 줍니다. 예를 들어 언어 API는 텍스트 번역, 음역 및 두 개의 사전 메서드에 대한 언어 정보를 반환합니다. 한 번의 호출에서 모든 메서드에 대한 모든 언어 정보를 요청하거나 개별적으로 요청할 수 있습니다.
+이 변경 내용은 V2 텍스트 번역 API에 대해 작성된 애플리케이션의 여러 측면에 영향을 줍니다. 예를 들어 언어 API는 텍스트 번역, 음역 및 두 개의 사전 메서드에 대한 언어 정보를 반환합니다. 한 번의 호출에서 모든 메서드에 대한 모든 언어 정보를 요청하거나 개별적으로 요청할 수 있습니다.
 
 언어 메서드에는 인증이 필요하지 않습니다. 다음 링크를 클릭하여 JSON에서 V3에 대한 모든 언어 정보를 확인할 수 있습니다.
 
@@ -113,8 +113,8 @@ V3 텍스트 API를 포함한 신경망 번역은 표준 범주(SMT, 음성, 텍
 
 | |엔드포인트|    GDPR 프로세서 규정 준수|  Translator Hub 사용| Custom Translator(미리 보기) 사용|
 |:-----|:-----|:-----|:-----|:-----|
-|Translator Text API 버전 2| api.microsofttranslator.com|    아니요  |yes    |아니요|
-|Translator Text API 버전 3| api.cognitive.microsofttranslator.com|  yes|    아니요| yes|
+|Translator Text API 버전 2| api.microsofttranslator.com|    아니요  |예    |아니요|
+|Translator Text API 버전 3| api.cognitive.microsofttranslator.com|  예|    no| 예|
 
 **Translator Text API 버전 3**
 * 일반적으로 사용할 수 있으며 완전히 지원됩니다.

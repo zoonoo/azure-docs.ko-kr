@@ -6,16 +6,16 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
-ms.openlocfilehash: e785abe09bba83f4ee69e7fd676422e22b44b391
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 44870e0f6a8c9ce69c3e3dfb99e0307f5855e773
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261743"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206158"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>QnA 작성기에 대한 기술 콘텐츠의 언어 지원
 QnA Maker는 여러 언어로 기술 자료 콘텐츠를 지원합니다. 그러나 각 QnA Maker 서비스는 단일 언어에 예약되어야 합니다. 특정 QnA Maker 서비스를 대상으로 지정한 첫 번째 기술 자료는 해당 서비스의 언어를 설정합니다. 지원되는 언어 전체 목록은 [여기](../Overview/languages-supported.md)를 참조하세요.

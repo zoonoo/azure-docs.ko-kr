@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 4c9fe269ffa351c1efdb3f94a15a10bae65432d8
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 3013d8997660df95fb12c8b18c1120f726eead04
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199653"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216023"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights 커넥터관리 솔루션(미리 보기)
 
@@ -55,7 +55,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 ## <a name="configuration"></a>구성
 
-1. [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](../../azure-monitor/insights/solutions.md)에서 설명한 프로세스를 사용하여 Azure Web Apps 분석 솔루션을 사용하도록 설정합니다.
+1. [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](../../azure-monitor/insights/solutions.md)에서 설명한 프로세스를 사용하여 Azure Web Apps 분석 솔루션을 사용하도록 설정합니다.
 2. [Azure Portal](https://portal.azure.com)로 이동합니다. **모든 서비스**를 선택하여 Application Insights를 엽니다. 그런 다음, Application Insights를 검색합니다. 
 3. **구독**에서 Application Insights 리소스가 포함된 구독을 선택한 다음, **이름**에서 하나 이상의 애플리케이션을 선택합니다.
 4. **저장**을 클릭합니다.
@@ -174,7 +174,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 | 자산 | 설명 |
 | --- | --- |
-| type | ApplicationInsights |
+| Type | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | 레코드 시간 |
 | ApplicationId | Application Insights 앱의 계측 키 |
@@ -223,7 +223,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="exception-specific-fields"></a>예외 관련 필드
 
-| type | ApplicationInsights |
+| Type | ApplicationInsights |
 | --- | --- |
 | TelemetryType | 예외 |
 | ExceptionType | 예외 형식 |
@@ -242,7 +242,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 | 자산 | 설명 |
 | --- | --- |
-| type | ApplicationInsights |
+| Type | ApplicationInsights |
 | TelemetryType | 요청 |
 | ResponseCode | 클라이언트에 보낸 HTTP 응답 |
 | RequestSuccess | 성공 또는 실패를 표시합니다. True 또는 False입니다. |

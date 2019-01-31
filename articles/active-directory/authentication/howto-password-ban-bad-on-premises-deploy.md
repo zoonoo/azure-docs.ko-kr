@@ -3,19 +3,19 @@ title: Azure AD 암호 보호 미리 보기 배포
 description: Azure AD 암호 보호 미리 보기를 배포하여 온-프레미스에서 잘못된 암호를 사용할 수 없도록 금지합니다.
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: c74cd5c8a8cfd00d61006c7ebbc4ced299b68e40
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: efa684d75cd30dcbfc971d0ef0a3717cc15bd0e4
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422256"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081282"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>미리 보기: Azure AD 암호 보호 배포
 

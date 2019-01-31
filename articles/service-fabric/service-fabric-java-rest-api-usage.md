@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: 987959742335940dca8eb57c54d593aea90dec15
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 116defb43126932c1a9ce0e7a9d588e731abff78
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111187"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182033"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric Java 클라이언트 API
 
-Service Fabric 클라이언트 API를 사용하면 Azure, 온-프레미스, 로컬 개발 컴퓨터 또는 다른 클라우드의 Service Fabric 클러스터에 마이크로 서비스 기반 애플리케이션 및 컨테이너를 배포하고 관리할 수 있습니다. 이 문서에서는 Service Fabric 클라이언트 REST API에 기반하여 Service Fabric Java 클라이언트 API를 생성하고 사용하는 방법에 대해 설명합니다.
+Service Fabric 클라이언트 API를 사용하면 Azure, 온-프레미스, 로컬 개발 컴퓨터 또는 다른 클라우드의 Service Fabric 클러스터에 마이크로 서비스 기반 응용 프로그램 및 컨테이너를 배포하고 관리할 수 있습니다. 이 문서에서는 Service Fabric 클라이언트 REST API에 기반하여 Service Fabric Java 클라이언트 API를 생성하고 사용하는 방법에 대해 설명합니다.
 
 ## <a name="generate-the-client-code-using-autorest"></a>AutoRest를 사용하여 클라이언트 코드 생성
 
@@ -71,7 +71,7 @@ Service Fabric 클라이언트 API를 사용하면 Azure, 온-프레미스, 로�
     autorest --input-file=servicefabric.json --java --output-folder=java-rest-api-code --namespace=servicefabricrest
     ```
    
-   다음 명령은 ``servicefabric.json`` 사양 파일을 입력으로 사용하고, ``java-rest-api-     code`` 폴더에 Java 클라이언트 코드를 생성하고, ``servicefabricrest`` 네임스페이스에 코드를 묶습니다. 이 단계가 수행되면 ``java-rest-api-code`` 폴더에 ``models`` 및 ``implemenation``의 두 폴더와 ``ServiceFabricClientAPIs.java`` 및 ``package-info.java``의 두 파일이 생성되어 있습니다.
+   다음 명령은 ``servicefabric.json`` 사양 파일을 입력으로 사용하고, ``java-rest-api-     code`` 폴더에 Java 클라이언트 코드를 생성하고, ``servicefabricrest`` 네임스페이스에 코드를 묶습니다. 이 단계가 수행되면 ``java-rest-api-code`` 폴더에 ``models`` 및 ``implementation``의 두 폴더와 ``ServiceFabricClientAPIs.java`` 및 ``package-info.java``의 두 파일이 생성되어 있습니다.
 
 
 ## <a name="include-and-use-the-generated-client-in-your-project"></a>프로젝트에 생성된 클라이언트 포함 및 사용
