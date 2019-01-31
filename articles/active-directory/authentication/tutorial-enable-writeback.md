@@ -3,19 +3,19 @@ title: Azure AD 비밀번호 쓰기 저장 사용
 description: 이 자습서에서는 Azure AD Connect의 일부로 클라우드에서 실행된 암호 변경 내용을 온-프레미스 AD로 가져오도록 비밀번호 쓰기 저장을 사용하도록 설정할 것입니다.
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 6cbc4fa071a45e670dae3cc6be66272bc67767f7
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5143b59028b3894d3b9a10add594dd91743a4196
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437184"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078885"
 ---
 # <a name="tutorial-enabling-password-writeback"></a>자습서: 암호 쓰기 저장을 사용하도록 설정
 
