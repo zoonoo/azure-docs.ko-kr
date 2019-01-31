@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4674428cf96562670b0e24e5ac93a2f2979128da
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ce48e9a17ab6b63c7fb8caa752258e218ca51ba3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042056"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226386"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services)에서 Azure로 VM 마이그레이션
 
@@ -169,7 +169,7 @@ Azure Portal의 자격 증명 모음 페이지에 있는 **시작** 섹션에서
 
 마이그레이션할 각 VM에 대해 복제를 사용하도록 설정합니다. 복제를 사용할 경우 Site Recovery에서 자동으로 모바일 서비스를 설치합니다.
 
-1. [Azure 포털](htts://portal.azure.com)로 이동합니다.
+1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 1. 자격 증명 모음에 대한 페이지의 **시작**에서 **사이트 복구**를 선택합니다.
 2. **온-프레미스 머신 및 Azure VM의 경우**에서 **1단계: 애플리케이션 복제**를 선택합니다. 다음 정보로 마법사 페이지를 완성합니다. 완료될 때마다 각 페이지에서 **확인**을 선택합니다.
     - 1: 원본 구성
