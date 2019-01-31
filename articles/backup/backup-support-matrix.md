@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/09/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b1fa723863e6485e977e075986c3779efed1e689
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: cb3a60995a4edfe5eb00f1a5e88812146816806a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360652"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883707"
 ---
 # <a name="azure-backup-support-matrix"></a>Azure Backup 지원 매트릭스
 
@@ -30,13 +30,13 @@ Azure Backup은 Recovery Services 자격 증명 모음을 사용하여 백업을
 자격 증명 모음의 머신 수 | 단일 자격 증명 모음에서 최대 1,000개의 Azure VM입니다.<br/><br/> Azure Backup 에이전트(Microsoft Azure Recovery Services 에이전트(MABS))를 실행하는 최대 50개의 온-프레미스 머신을 단일 자격 증명 모음에 등록할 수 있습니다.
 자격 증명 모음 스토리지의 데이터 원본 | 최대 54,400GB입니다. Azure VM 백업에는 제한이 없습니다.
 자격 증명 모음에 대한 백업 횟수 | Azure VM은 하루에 한 번, DPM/MABS에서 보호하는 머신은 하루에 두 번, MARS 에이전트를 사용하여 직접 백업되는 머신은 하루에 세 번입니다.  
-자격 증명 모음 이동 | 백업 Recovery Services 자격 증명 모음을 구독 및 리소스 그룹 간에 이동할 수 있습니다. [자세히 알아보기](backup-azure-move-recovery-services-vault.md).
+자격 증명 모음 이동 | Recovery Services 자격 증명 모음을 이동하려면 비공개 미리 보기에 등록해야 합니다. 체험해 보려면 AskAzureBackupTeam@microsoft.com에 메일을 보내세요.
 자격 증명 모음 간의 데이터 이동 | 자격 증명 모음 간의 백업된 데이터 이동은 지원되지 않습니다.
 저장소 복제 유형 | 자격 증명 모음에 대한 스토리지 복제 유형(GRS/LRS)은 백업을 저장하기 전에 수정할 수 있습니다. 자격 증명 모음에서 백업이 시작되면 복제 유형을 수정할 수 없습니다.
 
 
 
-## <a name="on-premises-backup-support"></a>온-프레미스 백업 지원 
+## <a name="on-premises-backup-support"></a>온-프레미스 백업 지원
 
 온-프레미스 머신을 백업하려는 경우 지원되는 사항은 다음과 같습니다.
 
@@ -77,8 +77,8 @@ Azure VM을 백업하려는 경우 지원되는 사항은 다음과 같습니다
 Linux 머신을 백업하려는 경우 지원되는 사항은 다음과 같습니다.
 
 **Backup** | **Linux(Azure 인증)**
---- | --- 
-**온-프레미스 Linux 머신(DPM 또는 MABS 사용 안 함)** |  아니요. MARS 에이전트는 Windows 머신에만 설치할 수 있습니다. 
+--- | ---
+**온-프레미스 Linux 머신(DPM 또는 MABS 사용 안 함)** |  아니요. MARS 에이전트는 Windows 머신에만 설치할 수 있습니다.
 **Azure VM(DPM 또는 MABS 사용 안 함)** | [사용자 지정 스크립트](backup-azure-linux-app-consistent.md)를 사용하는 앱 일치 백업입니다.<br/><br/> 파일 수준 복구입니다.<br/><br/> 복구 지점 또는 디스크에서 VM을 만들어 복원합니다.
 **온-프레미스 머신/Azure VM(DPM 사용)** | Hyper-V 및 VMWare에서 일관성 있는 Linux 게스트 VM 파일 백업<br/><br/> Hyper-V 및 VMWare Linux 게스트 VM의 VM 복원</br></br> Azure VM에서 파일 일치 백업을 사용할 수 없음
 **온-프레미스 머신/Azure VM(MABS 사용)** | Hyper-V 및 VMWare에서 일관성 있는 Linux 게스트 VM 파일 백업<br/><br/> Hyper-V 및 VMWare Linux 게스트 VM의 VM 복원</br></br> Azure VM에서 파일 일치 백업을 사용할 수 없습니다.
@@ -110,7 +110,7 @@ Azure로의 네트워크 트래픽:
 **머신** | **전송 중** | **저장**
 --- | --- | ---
 온-프레미스 Windows 머신(DPM/MABS 사용 안 함) | ![예][green] | ![예][green]
-Azure VM | ![예][green] | ![예][green] 
+Azure VM | ![예][green] | ![예][green]
 온-프레미스/Azure VM(DPM 사용) | ![예][green] | ![예][green]
 온-프레미스/Azure VM(MABS 사용) | ![예][green] | ![예][green]
 
@@ -121,7 +121,7 @@ Azure VM | ![예][green] | ![예][green]
 백업은 아래 표에 요약된 대로 백업 트래픽의 압축을 지원합니다. 다음 사항에 유의하세요.
 
 - Azure VM의 경우 VM 확장은 Azure 스토리지 계정에서 스토리지 네트워크를 통해 직접 데이터를 읽으므로 이 트래픽을 압축할 필요가 없습니다.
-- DPM 또는 MABS를 사용하는 경우 대역폭을 절약하기 위해 DPM/MABS에 백업하기 전에 데이터를 압축할 수 있습니다. 
+- DPM 또는 MABS를 사용하는 경우 대역폭을 절약하기 위해 DPM/MABS에 백업하기 전에 데이터를 압축할 수 있습니다.
 
 **머신** | **MABS/DPM에 압축(TCP)** | **자격 증명 모음에 압축(HTTPS)**
 --- | --- | ---
@@ -134,12 +134,12 @@ Azure VM | 해당 없음 | 해당 없음
 
 ## <a name="retention-limits"></a>보존 제한
 
-**설정** | **제한** 
---- | --- 
+**설정** | **제한**
+--- | ---
 보호된 인스턴스(머신/워크로드)당 최대 복구 지점 수 | 9999
 복구 지점에 대한 최대 만료 시간 | 제한 없음
 DPM/MABS에 대한 최대 백업 빈도 | SQL Server에 대해 15분마다<br/><br/> 다른 워크로드의 경우 한 시간에 한 번
-자격 증명 모음에 대한 최대 백업 빈도 | MARS를 실행하는 온-프레미스 Windows 머신/Azure VM: 하루에 세 번<br/><br/> DPM/MABS: 하루에 두 번<br/><br/> Azure VM 백업: 하루에 한 번
+자격 증명 모음에 대한 최대 백업 빈도 | MARS를 실행하는 온-프레미스 Windows 머신/Azure VM: 하루에 세 번<br/><br/> DPM/MABS: 하루에 두 번<br/><br/> Azure VM 백업: 하루 한 번
 복구 지점 보존 | 매일, 매주, 매월, 매년
 최대 보존 기간 | 백업 빈도에 따라 다름
 DPM/MABS 디스크의 복구 지점 수 | 파일 서버의 경우 64개, 앱 서버의 경우 448개<br/><br/> 온-프레미스 DPM에 대한 테이프 복구 지점 수는 제한되지 않습니다.
@@ -149,7 +149,7 @@ DPM/MABS 디스크의 복구 지점 수 | 파일 서버의 경우 64개, 앱 서
 - [Azure VM 백업](backup-azure-arm-vms-prepare.md)
 - 백업 서버를 사용하지 않고 [Windows 머신을 직접 백업](tutorial-backup-windows-server-to-azure.md)합니다.
 - Azure에 백업하도록 [MABS를 설정](backup-azure-microsoft-azure-backup.md)한 다음, 워크로드를 MABS에 백업합니다.
-- Azure에 백업하도록 [DPM를 설정](backup-azure-dpm-introduction.md)한 다음, 워크로드를 DPM에 백업합니다.
+- Azure에 백업하도록 [DPM을 설정](backup-azure-dpm-introduction.md)한 다음, 워크로드를 DPM에 백업합니다.
 
 [green]: ./media/backup-support-matrix/green.png
 [yellow]: ./media/backup-support-matrix/yellow.png

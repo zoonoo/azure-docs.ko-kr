@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
-ms.component: blobs
-ms.openlocfilehash: e6b64c7545e7a36b9178af84f88ee89b498077b0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.subservice: blobs
+ms.openlocfilehash: 81cd6b073fb46b01b3b98543d8f92e2ef7b1ec1b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019099"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245390"
 ---
 # <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>자습서: Azure Storage를 통해 애플리케이션 데이터의 고가용성 지원
 
@@ -231,7 +231,7 @@ Storage 개체 retry 함수는 선형 다시 시도 정책을 사용하도록 �
 샘플을 실행하려면 명령줄에서 Maven을 사용합니다.
 
 1. 셸을 열고 복제된 디렉터리 내에서 **storage-blobs-java-v10-quickstart**로 이동합니다.
-2. `mvn compile exec:java` 을 입력합니다.
+2. [https://slack.botframework.com](`mvn compile exec:java`) 을 입력합니다.
 
 이 샘플은 Windows 사용자의 기본 디렉터리인 **AppData\Local\Temp**에 테스트 파일을 만듭니다. 그러면 샘플은 입력할 수 있는 다음 명령 옵션을 제공합니다.
 
