@@ -6,22 +6,22 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 45b2860b56e79c197d96998350131a142326157a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 397293c17320ef75daa5c31af76d49183b6c435c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902810"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193831"
 ---
 # <a name="journal-entity"></a>Journal 엔터티
 
 <sub> *다음 특성은 Journal 엔터티에 한정됩니다. (Ty = '2') </sub>
 
-이름    |설명                            |type       | 작업
+Name    |설명                            |Type       | 작업
 ------- | ------------------------------------- | --------- | ----------------------------
 Id      |엔터티 ID                              |Int64      |같음
 DJN     |업무 일지의 정규화된 이름                |문자열     |없음

@@ -1,5 +1,5 @@
 ---
-title: 응용 프로그램에서 Blob 및 큐 데이터에 액세스하도록 Azure Active Directory를 사용하여 인증(미리 보기) | Microsoft Docs
+title: 애플리케이션에서 Blob 및 큐 데이터에 액세스하도록 Azure Active Directory를 사용하여 인증(미리 보기) | Microsoft Docs
 description: Azure Active Directory를 사용하여 애플리케이션 내에서 인증한 다음, blob 및 큐에 대한 요청 권한을 부여합니다(미리 보기).
 services: storage
 author: tamram
@@ -7,23 +7,23 @@ ms.service: storage
 ms.topic: article
 ms.date: 11/21/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: b817723120f07de9159e47c1259a68eb95b9c2e3
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.subservice: common
+ms.openlocfilehash: 4c39f47169071ceb9430f419a144e11f425d65b0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140781"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240729"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>blob 및 큐에 대한 액세스를 위해 애플리케이션에서 Azure Active Directory를 사용하여 인증(미리 보기)
 
-Azure Storage에서 Azure AD(Azure Active Directory)를 사용하는 주요 이점은 사용자의 자격 증명을 코드에 저장할 필요가 없다는 점입니다. 대신 Azure AD에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. Azure AD에서는 응용 프로그램을 실행하여 보안 주체(사용자, 그룹 또는 서비스 사용자)의 인증을 처리합니다. 인증이 성공하면 Azure AD는 응용 프로그램에 액세스 토큰을 반환하고, 응용 프로그램은 액세스 토큰을 사용하여 Azure Storage에 대한 요청 권한을 부여할 수 있습니다.
+Azure Storage에서 Azure AD(Azure Active Directory)를 사용하는 주요 이점은 사용자의 자격 증명을 코드에 저장할 필요가 없다는 점입니다. 대신 Azure AD에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. Azure AD에서는 애플리케이션을 실행하여 보안 주체(사용자, 그룹 또는 서비스 사용자)의 인증을 처리합니다. 인증이 성공하면 Azure AD는 애플리케이션에 액세스 토큰을 반환하고, 애플리케이션은 액세스 토큰을 사용하여 Azure Storage에 대한 요청 권한을 부여할 수 있습니다.
 
-이 아티클에서는 Azure AD를 사용하여 인증하기 위해 응용 프로그램을 구성하는 방법을 보여줍니다. 코드 예제에서는 .NET을 사용하지만 다른 언어는 비슷한 접근 방식을 사용합니다.
+이 아티클에서는 Azure AD를 사용하여 인증하기 위해 애플리케이션을 구성하는 방법을 보여줍니다. 코드 예제에서는 .NET을 사용하지만 다른 언어는 비슷한 접근 방식을 사용합니다.
 
-Azure Storage 응용 프로그램에서 보안 주체를 인증할 수 있기 전에 해당 보안 주체에 대해 RBAC(역할 기반 액세스 제어) 설정을 구성합니다. Azure Storage에서는 컨테이너 및 큐에 대한 사용 권한을 포함하는 RBAC 역할을 정의합니다. RBAC 역할이 보안 주체에게 할당되면 해당 보안 주체는 해당 리소스에 대한 액세스 권한이 부여됩니다. 자세한 내용은 [RBAC를 사용하여 저장소 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요.
+Azure Storage 애플리케이션에서 보안 주체를 인증할 수 있기 전에 해당 보안 주체에 대해 RBAC(역할 기반 액세스 제어) 설정을 구성합니다. Azure Storage에서는 컨테이너 및 큐에 대한 사용 권한을 포함하는 RBAC 역할을 정의합니다. RBAC 역할이 보안 주체에게 할당되면 해당 보안 주체는 해당 리소스에 대한 액세스 권한이 부여됩니다. 자세한 내용은 [RBAC를 사용하여 저장소 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요.
 
-OAuth 2.0 코드 권한 부여 흐름의 개요는 [OAuth 2.0 코드 권한 부여 흐름을 사용하여 Azure Active Directory 웹 응용 프로그램에 대한 액세스 권한 부여](../../active-directory/develop/v1-protocols-oauth-code.md)를 참조하세요.
+OAuth 2.0 코드 권한 부여 흐름의 개요는 [OAuth 2.0 코드 권한 부여 흐름을 사용하여 Azure Active Directory 웹 애플리케이션에 대한 액세스 권한 부여](../../active-directory/develop/v1-protocols-oauth-code.md)를 참조하세요.
 
 [!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
@@ -31,28 +31,28 @@ OAuth 2.0 코드 권한 부여 흐름의 개요는 [OAuth 2.0 코드 권한 부�
 
 Azure Storage 애플리케이션에서 보안 주체를 인증하려면 먼저 해당 보안 주체에 대해 RBAC(역할 기반 액세스 제어) 설정을 구성합니다. Azure Storage에서는 컨테이너 및 큐에 대한 사용 권한을 포함하는 RBAC 역할을 정의합니다. RBAC 역할이 보안 주체에게 할당되면 해당 보안 주체는 해당 리소스에 대한 액세스 권한이 부여됩니다. 자세한 내용은 [RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요.
 
-## <a name="register-your-application-with-an-azure-ad-tenant"></a>Azure AD 테넌트에 응용 프로그램 등록
+## <a name="register-your-application-with-an-azure-ad-tenant"></a>Azure AD 테넌트에 애플리케이션 등록
 
-Azure AD를 사용하여 저장소 리소스에 대한 액세스 권한을 부여하는 첫 번째 단계는 Azure AD 테넌트에서 클라이언트 응용 프로그램을 등록하는 것입니다. 응용 프로그램을 등록하면 코드에서 ADAL(Azure [Active Directory 인증 라이브러리](../../active-directory/active-directory-authentication-libraries.md))을 호출할 수 있습니다. ADAL은 응용 프로그램에서 Azure AD로 인증하는 API를 제공합니다. 또한 응용 프로그램을 등록하면 액세스 토큰을 사용하여 해당 응용 프로그램에서 Azure Storage API로 호출하는 권한을 부여할 수 있습니다.
+Azure AD를 사용하여 저장소 리소스에 대한 액세스 권한을 부여하는 첫 번째 단계는 Azure AD 테넌트에서 클라이언트 애플리케이션을 등록하는 것입니다. 애플리케이션을 등록하면 코드에서 ADAL(Azure [Active Directory 인증 라이브러리](../../active-directory/active-directory-authentication-libraries.md))을 호출할 수 있습니다. ADAL은 애플리케이션에서 Azure AD로 인증하는 API를 제공합니다. 또한 애플리케이션을 등록하면 액세스 토큰을 사용하여 해당 애플리케이션에서 Azure Storage API로 호출하는 권한을 부여할 수 있습니다.
 
-응용 프로그램을 등록할 때 응용 프로그램에 대한 정보를 Azure AD에 제공합니다. 그러면 Azure AD는 런타임 시 응용 프로그램을 Azure AD와 연결하는 데 사용하는 클라이언트 ID(*응용 프로그램 ID*라고도 함)를 제공합니다. 클라이언트 ID에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 사용자 개체](../../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요.
+애플리케이션을 등록할 때 애플리케이션에 대한 정보를 Azure AD에 제공합니다. 그러면 Azure AD는 런타임 시 애플리케이션을 Azure AD와 연결하는 데 사용하는 클라이언트 ID(*애플리케이션 ID*라고도 함)를 제공합니다. 클라이언트 ID에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 및 서비스 사용자 개체](../../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요.
 
-Azure Storage 응용 프로그램을 등록하려면 [Azure Active Directory와 응용 프로그램 통합](../../active-directory/active-directory-integrating-applications.md)에서 [응용 프로그램 추가](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md) 섹션의 단계를 따릅니다. 응용 프로그램을 네이티브 응용 프로그램으로 등록하는 경우 **리디렉션 URI**에 유효한 URI를 지정할 수 있습니다. 값이 실제 엔드포인트일 필요는 없습니다.
+Azure Storage 애플리케이션을 등록하려면 [Azure Active Directory와 애플리케이션 통합](../../active-directory/active-directory-integrating-applications.md)에서 [애플리케이션 추가](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md) 섹션의 단계를 따릅니다. 애플리케이션을 네이티브 애플리케이션으로 등록하는 경우 **리디렉션 URI**에 유효한 URI를 지정할 수 있습니다. 값이 실제 엔드포인트일 필요는 없습니다.
 
-![Azure AD에서 저장소 응용 프로그램을 등록하는 방법을 보여주는 스크린샷](./media/storage-auth-aad-app/app-registration.png)
+![Azure AD에서 저장소 애플리케이션을 등록하는 방법을 보여주는 스크린샷](./media/storage-auth-aad-app/app-registration.png)
 
-응용 프로그램을 등록한 후에 **설정** 아래에 응용 프로그램 ID(또는 클라이언트 ID)가 표시됩니다.
+애플리케이션을 등록한 후에 **설정** 아래에 애플리케이션 ID(또는 클라이언트 ID)가 표시됩니다.
 
 ![클라이언트 ID를 보여주는 스크린샷](./media/storage-auth-aad-app/app-registration-client-id.png)
 
-Azure AD에서 응용 프로그램을 등록하는 방법에 대한 자세한 정보는 [Azure Active Directory와 응용 프로그램 통합](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)을 참조하세요. 
+Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정보는 [Azure Active Directory와 애플리케이션 통합](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)을 참조하세요. 
 
 ## <a name="grant-your-registered-app-permissions-to-azure-storage"></a>Azure Storage에 등록된 앱 사용 권한 부여
 
-다음으로 Azure Storage API를 호출하여 응용 프로그램 사용 권한을 부여해야 합니다. 이 단계를 통해 Azure AD를 사용하여 Azure Storage에 대해 호출하는 권한을 응용 프로그램에 부여할 수 있습니다.
+다음으로 Azure Storage API를 호출하여 애플리케이션 사용 권한을 부여해야 합니다. 이 단계를 통해 Azure AD를 사용하여 Azure Storage에 대해 호출하는 권한을 애플리케이션에 부여할 수 있습니다.
 
 1. Azure Portal의 왼쪽 탐색 창에서 **모든 서비스**를 선택하고, **앱 등록**을 검색합니다.
-2. 이전 단계에서 만든 등록된 응용 프로그램의 이름을 검색합니다.
+2. 이전 단계에서 만든 등록된 애플리케이션의 이름을 검색합니다.
 3. 등록된 앱을 선택하고, **설정**을 클릭합니다. **API 액세스** 섹션에서 **필요한 사용 권한**을 선택합니다.
 4. **필요한 사용 권한** 블레이드에서 **추가** 단추를 클릭합니다.
 5. **API 선택** 아래에서 "Azure Storage"를 검색하고, 결과 목록에서 **Azure Storage**를 선택합니다.
@@ -62,7 +62,7 @@ Azure AD에서 응용 프로그램을 등록하는 방법에 대한 자세한 �
 6. **사용 권한 선택** 아래의 **Azure Storage 액세스** 옆에 있는 확인란을 선택하고, **선택**을 클릭합니다.
 7. **Done**을 클릭합니다.
 
-이제 **필수 권한** 창은 Azure AD 응용 프로그램에 Azure Active Directory 및 Azure Storage 모두에 대한 액세스 권한이 있음을 보여줍니다. Azure AD에 앱을 처음 등록할 때 자동으로 Azure AD에 대한 사용 권한이 부여됩니다.
+이제 **필수 권한** 창은 Azure AD 애플리케이션에 Azure Active Directory 및 Azure Storage 모두에 대한 액세스 권한이 있음을 보여줍니다. Azure AD에 앱을 처음 등록할 때 자동으로 Azure AD에 대한 사용 권한이 부여됩니다.
 
 ![앱 사용 권한을 등록하는 방법을 보여주는 스크린샷](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
@@ -131,7 +131,7 @@ using Microsoft.WindowsAzure.Storage.Blob;
 다음으로 Azure AD에서 토큰을 요청하는 메서드를 추가합니다. 토큰을 요청하려면 [AuthenticationContext.AcquireTokenAsync](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokenasync) 메서드를 호출합니다. 이전에 수행한 단계에서 다음 값이 있는지 확인합니다.
 
 - 테넌트(디렉터리) ID
-- 클라이언트(응용 프로그램) ID
+- 클라이언트(애플리케이션) ID
 - 클라이언트 리디렉션 URI
 
 ```dotnet

@@ -6,19 +6,19 @@ documentationcenter: ''
 author: barbkess
 manager: daveba
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 7b16e3ff5be21c52f354f0dcbb5dd91b4509e65e
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: eaadd24789baf9da49397a65f9cd1a18b40ff918
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461198"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168719"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용하여 애플리케이션에 대한 Azure Active Directory 로그인 동작 구성
 
@@ -61,7 +61,7 @@ HRD(홈 영역 검색)는 Azure AD(Azure Active Directory)에서 로그인 시 �
 
 도메인 힌트 구문은 사용되는 프로토콜에 따라 다르며, 일반적으로 애플리케이션에서 구성됩니다.
 
-**WS-Federation**: whr=contoso.com 쿼리 문자열
+**WS-Federation**: 쿼리 문자열의 whr=contoso.com
 
 **SAML**:  도메인 힌트가 포함된 SAML 인증 요청 또는 whr=contoso.com 쿼리 문자열
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 45badbdbe1a7e1f2028a00d54458db35a4f7d440
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4f950734081be6cf76770b1c6cb2feca7efdae70
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128010"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221406"
 ---
 # <a name="interpret-method"></a>interpret 메서드
 
@@ -25,7 +25,7 @@ ms.locfileid: "46128010"
 
 `http://<host>/interpret?query=<query>[&<options>]`
 
-이름|값| 설명
+Name|값| 설명
 ----|----|----
 쿼리    | 텍스트 문자열 | 사용자가 입력한 쿼리입니다.  complete를 1로 설정하면 쿼리는 쿼리 추천 자동 완성을 생성하기 위한 접두사로 해석됩니다.        
 complete | 0(기본값) 또는 1 | 1은 문법 및 인덱스 데이터를 기반으로 추천 자동 완성이 생성된다는 의미입니다.         

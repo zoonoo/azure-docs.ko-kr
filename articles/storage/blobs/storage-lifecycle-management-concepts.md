@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
-ms.component: common
-ms.openlocfilehash: 5c77d7d8f1ce3b4a13e497d461244aae5b34d08c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: common
+ms.openlocfilehash: dd74cac3000f6a280d5b8faa858c2143d17a7e55
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631365"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247802"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Azure Blob Storage 수명 주기 관리(미리 보기)
 
@@ -136,7 +136,7 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 
 | 매개 변수 이름 | 매개 변수 형식 | 메모 |
 |----------------|----------------|-------|
-| 이름           | 문자열 | 규칙 이름에는 모든 영숫자 문자 조합이 허용됩니다. 규칙 이름은 대/소문자를 구분합니다. 정책 내에서 고유해야 합니다. |
+| Name           | 문자열 | 규칙 이름에는 모든 영숫자 문자 조합이 허용됩니다. 규칙 이름은 대/소문자를 구분합니다. 정책 내에서 고유해야 합니다. |
 | 형식           | 열거형 값 | 미리 보기의 유효한 값은 `Lifecycle`입니다. |
 | 정의     | 수명 주기 규칙을 정의하는 개체 | 각 정의는 필터 집합과 작업 집합으로 구성됩니다. |
 

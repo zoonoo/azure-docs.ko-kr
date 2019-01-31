@@ -9,19 +9,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 395604da3465e66214f89b4f74ddf9d6bcdc48f8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 47d5616f86c8f4cb62773d0b92a24a5fb63b2ea7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103951"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240475"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Azure에서 지역 인공 지능 Virtual Machine 프로비전 
 
@@ -32,7 +32,7 @@ Geo-DSVM에는 다음을 비롯하여 AI에 대한 몇 가지 도구가 포함�
 - Microsoft Cognitive Toolkit, TensorFlow, Keras, Caffe2, Chainer 등 널리 사용되는 심층 학습 프레임워크의 GPU 버전 
 - 이미지 획득 및 전처리 도구, 텍스트 데이터, 
 - Microsoft R Server Developer Edition, Anaconda Python, Python 및 R용 Jupyter Notebooks, Python 및 R용 IDE, SQL 데이터베이스 등 개발 활동을 위한 도구
-- AI 응용 프로그램에서 지리 공간적 데이터로 작업할 수 있는 Python 및 R 인터페이스를 사용하는 ESRI의 ArcGIS Pro 데스크톱 소프트웨어 
+- AI 애플리케이션에서 지리 공간적 데이터로 작업할 수 있는 Python 및 R 인터페이스를 사용하는 ESRI의 ArcGIS Pro 데스크톱 소프트웨어 
 
 
 ## <a name="create-your-geo-ai-data-science-vm"></a>지역 AI 데이터 과학 VM 만들기
@@ -51,13 +51,13 @@ Geo-DSVM에는 다음을 비롯하여 AI에 대한 몇 가지 도구가 포함�
 
       1. **이름**: 만들려는 데이터 과학 서버 이름입니다.
 
-      2. **사용자 이름**: 관리자 계정 로그인 ID입니다.
+      2. **사용자 이름**: 관리자 계정 로그인 ID
 
-      3. **암호**: 관리자 계정 암호입니다.
+      3. **암호**: 관리자 계정 암호
 
       4. **구독**: 둘 이상의 구독이 있는 경우 머신을 만들고 요금을 청구할 구독을 선택합니다.
 
-      5. **리소스 그룹**: 새 구독을 만들거나 구독에서 **비어 있는** 기존 Azure 리소스 그룹을 사용할 수 있습니다.
+      5. **리소스 그룹**: 새 그룹을 만들거나 구독에서 **비어 있는** 기존 Azure 리소스 그룹을 사용할 수 있습니다.
 
       6. **위치**: 가장 적합한 데이터 센터를 선택합니다. 이는 대개 대부분의 데이터가 저장되어 있거나 네트워크에 가장 빠르게 액세스하기 위해 물리적 위치와 가장 가까이 있는 데이터 센터입니다. GPU에 대한 심층 학습이 필요한 경우 NC 시리즈 GPU VM 인스턴스를 포함하는 Azure 위치 중 하나를 선택해야 합니다. 현재 GPU VM이 있는 위치는 다음과 같습니다. **미국 동부, 미국 중북부, 미국 중남부, 미국 서부 2, 유럽 북부, 유럽 서부**. 최신 목록은 [지역별 Azure 제품 페이지](https://azure.microsoft.com/regions/services/)를 확인하고 **Compute** 아래에서 **NC 시리즈**를 찾으세요. 
 

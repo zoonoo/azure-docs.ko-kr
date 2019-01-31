@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 01/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: b6d0b702a334bf1127f570bff026fa4332331209
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 64ae354c9233821ea7e53abfdc0dde105b22e466
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260140"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208077"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Azure Disk Encryption에 대한 부록 
 
@@ -325,7 +325,7 @@ OS 암호화 진행 상태를 모니터링하는 방법은 세 가지가 있습�
 
 1. 다음 스크립트 내용으로 /usr/local/sbin/azure_crypt_key.sh라는 파일을 만듭니다. Azure에서 사용된 암호 파일 이름이므로 KeyFileName에 주의해야 합니다.
 
-    ```
+    ```bash
     #!/bin/sh
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
@@ -405,7 +405,7 @@ Azure로 작업할 암호화를 구성하려면 다음 단계를 수행합니다
     add_drivers+=" vfat ntfs nls_cp437 nls_iso8859-1"
     ```
 2. /usr/lib/dracut/modules.d/90crypt/module-setup.sh 파일의 끝에서 다음 줄을 주석 처리합니다.
- ```
+ ```bash
     #        inst_multiple -o \
     #        $systemdutildir/system-generators/systemd-cryptsetup-generator \
     #        $systemdutildir/systemd-cryptsetup \
@@ -418,20 +418,20 @@ Azure로 작업할 암호화를 구성하려면 다음 단계를 수행합니다
  ```
 
 3. /usr/lib/dracut/modules.d/90crypt/parse-crypt.sh 파일의 시작 부분에 다음 줄을 추가합니다.
- ```
+ ```bash
     DRACUT_SYSTEMD=0
  ```
 다음 항목을 그 아래 항목으로 바꿉니다.
- ```
+ ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
  ```
 to:
-```
+```bash
     if [ 1 ]; then
 ```
 4. /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh를 편집하고 “# Open LUKS device”에 추가합니다.
 
-    ```
+    ```bash
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
     echo "Trying to get the key from disks ..." >&2
@@ -485,7 +485,7 @@ Azure로 작업할 암호화를 구성하려면 다음 단계를 수행합니다
     ```
 
 2. /usr/lib/dracut/modules.d/90crypt/module-setup.sh 파일의 끝에서 다음 줄을 주석 처리합니다.
-```
+```bash
     #        inst_multiple -o \
     #        $systemdutildir/system-generators/systemd-cryptsetup-generator \
     #        $systemdutildir/systemd-cryptsetup \
@@ -498,19 +498,19 @@ Azure로 작업할 암호화를 구성하려면 다음 단계를 수행합니다
 ```
 
 3. /usr/lib/dracut/modules.d/90crypt/parse-crypt.sh 파일의 시작 부분에 다음 줄을 추가합니다.
-```
+```bash
     DRACUT_SYSTEMD=0
 ```
 다음 항목을 그 아래 항목으로 바꿉니다.
-```
+```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
 ```
 to
-```
+```bash
     if [ 1 ]; then
 ```
 4. /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh를 편집하고 “# Open LUKS device” 뒤에 다음을 추가합니다.
-    ```
+    ```bash
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
     echo "Trying to get the key from disks ..." >&2

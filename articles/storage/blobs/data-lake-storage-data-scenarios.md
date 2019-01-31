@@ -3,17 +3,17 @@ title: Azure Data Lake Storage Gen2와 관련된 데이터 시나리오 | Micros
 description: Data Lake Storage Gen2(이전의 Azure Data Lake Store)에서 수집, 처리, 다운로드 및 시각화될 수 있는 데이터를 사용하는 다양한 시나리오와 도구를 알아봅니다.
 services: storage
 author: normesta
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
-ms.openlocfilehash: 978f86141d72cc7be43f24909f9780ab9570605d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dfc47c40ce82eb8e9d414cb49c22bee033d000a6
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976581"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239034"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>빅 데이터 요구 사항을 위한 Azure Data Lake Storage Gen2 사용
 
@@ -32,7 +32,7 @@ ms.locfileid: "52976581"
 ![Data Lake Storage Gen2에 데이터 수집](./media/data-lake-storage-data-scenarios/ingest-data.png "Data Lake Storage Gen2에 데이터 수집")
 
 ### <a name="ad-hoc-data"></a>임시 데이터
-빅 데이터 응용 프로그램의 프로토타입 제작에 사용되는 작은 데이터 집합을 나타냅니다. 데이터 원본에 따라 임시 데이터를 수집하는 여러 가지 방법이 있습니다.
+빅 데이터 애플리케이션의 프로토타입 제작에 사용되는 작은 데이터 집합을 나타냅니다. 데이터 원본에 따라 임시 데이터를 수집하는 여러 가지 방법이 있습니다.
 
 | 데이터 원본 | 로컬 컴퓨터를 사용하여 |
 | --- | --- |
@@ -40,7 +40,7 @@ ms.locfileid: "52976581"
 | Azure Storage Blob |<ul> <li>[Azure 데이터 팩터리](../../data-factory/connector-azure-data-lake-store.md)</li> <li>[AzCopy 도구](../common/storage-use-azcopy-v10.md)</li><li>[HDInsight 클러스터에서 실행되는 DistCp](data-lake-storage-use-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>스트리밍된 데이터
-응용 프로그램, 디바이스, 센서 등 다양한 원본을 통해 생성할 수 있는 데이터를 나타냅니다. 이 데이터는 다양한 도구를 통해 Data Lake Storage Gen2에 수집할 수 있습니다. 이러한 도구는 일반적으로 데이터를 이벤트별로 실시간으로 캡처하고 처리한 다음, 이벤트를 추가로 처리할 수 있도록 해당 이벤트를 Data Lake Storage Gen2에 일괄적으로 씁니다.
+애플리케이션, 장치, 센서 등 다양한 원본을 통해 생성할 수 있는 데이터를 나타냅니다. 이 데이터는 다양한 도구를 통해 Data Lake Storage Gen2에 수집할 수 있습니다. 이러한 도구는 일반적으로 데이터를 이벤트별로 실시간으로 캡처하고 처리한 다음, 이벤트를 추가로 처리할 수 있도록 해당 이벤트를 Data Lake Storage Gen2에 일괄적으로 씁니다.
 
 다음은 사용할 수 있는 도구입니다.
 
@@ -51,12 +51,12 @@ ms.locfileid: "52976581"
 
 * [Azure 데이터 팩터리](../../data-factory/copy-activity-overview.md)
 
-### <a name="web-server-log-data-upload-using-custom-applications"></a>웹 서버 로그 데이터(사용자 지정 응용 프로그램을 사용하여 업로드)
+### <a name="web-server-log-data-upload-using-custom-applications"></a>웹 서버 로그 데이터(사용자 지정 애플리케이션을 사용하여 업로드)
 웹 서버 로그 데이터의 분석은 빅 데이터 애플리케이션에 대한 일반적인 사용 사례이며 대용량 로그 파일을 Data Lake Storage Gen2에 업로드해야 하므로 이러한 유형의 데이터 세트가 특별히 호출됩니다. 다음 중 아무 도구를 사용하여 이러한 데이터를 업로드하는 고유의 스크립트 또는 애플리케이션을 작성할 수 있습니다.
 
 * [Azure 데이터 팩터리](../../data-factory/copy-activity-overview.md)
 
-웹 서버 로그 데이터를 업로드하고 다른 종류의 데이터 (예: 소셜 정서 데이터)를 업로드하려는 경우 고유의 사용자 지정 스크립트/응용 프로그램을 작성하는 것이 좋습니다. 데이터 업로드 구성 요소를 더 큰 빅 데이터 응용 프로그램의 일부로 유연하게 포함할 수 있기 때문입니다. 어떤 경우에는 이 코드가 스크립트 형태 또는 간단한 명령줄 유틸리티의 형태를 취할 수 있습니다. 또 어떤 경우에는 빅 데이터 처리를 비즈니스 응용 프로그램 또는 솔루션에 통합하는 데 이 코드가 사용될 수 있습니다.
+웹 서버 로그 데이터를 업로드하고 다른 종류의 데이터 (예: 소셜 정서 데이터)를 업로드하려는 경우 고유의 사용자 지정 스크립트/애플리케이션을 작성하는 것이 좋습니다. 데이터 업로드 구성 요소를 더 큰 빅 데이터 애플리케이션의 일부로 유연하게 포함할 수 있기 때문입니다. 어떤 경우에는 이 코드가 스크립트 형태 또는 간단한 명령줄 유틸리티의 형태를 취할 수 있습니다. 또 어떤 경우에는 빅 데이터 처리를 비즈니스 애플리케이션 또는 솔루션에 통합하는 데 이 코드가 사용될 수 있습니다.
 
 ### <a name="data-associated-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터와 연결된 데이터
 대부분의 HDInsight 클러스터 유형(Hadoop, HBase, Storm)은 Data Lake Storage Gen2를 데이터 스토리지 리포지토리로 지원합니다. HDInsight 클러스터는 Azure Storage Blob(WASB)에서 데이터에 액세스합니다. WASB의 데이터를 클러스터와 연결된 Data Lake Storage Gen2 계정에 복사하면 성능을 향상시킬 수 있습니다. 다음 도구를 사용하여 데이터를 복사할 수 있습니다.
@@ -88,7 +88,7 @@ Data Lake Storage Gen2의 데이터를 사용할 수 있게 되면 지원되는 
 다음과 같은 시나리오를 위해 Azure Data Lake Storage Gen2에서 데이터를 다운로드하거나 이동할 수도 있습니다.
 
 * 기존 데이터 처리 파이프라인과 상호 작용하기 위해 다른 리포지토리로 데이터를 이동합니다. 예를 들어 데이터를 Data Lake Storage Gen2에서 Azure SQL Database 또는 온-프레미스 SQL Server로 이동하려고 할 수 있습니다.
-* 응용 프로그램 프로토타입을 빌드하는 동안 IDE 환경에서 데이터를 처리하기 위해 로컬 컴퓨터에 데이터를 다운로드 합니다.
+* 애플리케이션 프로토타입을 빌드하는 동안 IDE 환경에서 데이터를 처리하기 위해 로컬 컴퓨터에 데이터를 다운로드 합니다.
 
 ![Data Lake Storage Gen2에서 데이터 송신](./media/data-lake-storage-data-scenarios/egress-data.png "Data Lake Storage Gen2에서 데이터 송신")
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning Data Prep SDK를 사용하여 데이터를 로드하는 방법을 알아봅니다. 다양한 형식의 입력 데이터를 로드하거나, 데이터 파일 형식 및 매개 변수를 지정하거나, SDK 스마트 읽기 기능을 사용하여 파일 형식을 자동으로 검색할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: cforbe
 author: cforbe
@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2478a5dd3f5d685253ef9145bec0a68ff324c6c3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 08dcb75fabc109a8869151402d3a448333beb556
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263818"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247530"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Azure Machine Learning을 사용한 데이터 로드 및 읽기
 
@@ -225,7 +225,7 @@ dataflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
 dataflow.head(5)
 ```
 
-||ProductID|이름|ProductNumber|색|StandardCost|ListPrice|크기|무게|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|rowguid|ModifiedDate|
+||ProductID|Name|ProductNumber|색|StandardCost|ListPrice|크기|무게|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|rowguid|ModifiedDate|
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 |0|680|HL Road Frame - Black, 58|FR-R92B-58|검정|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|없음|없음|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461f-9069-55309d90ea7e|2008-03-11 |0:01:36.827000+00:00|
 |1|706|HL Road Frame - Red, 58|FR-R92R-58|빨강|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|없음|없음|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|9540ff17-2712-4c90-a3d1-8ce5568b2462|2008-03-11 |10:01:36.827000+00:00|

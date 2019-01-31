@@ -6,17 +6,17 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: bc9497ff8d48cd1c5fd045f12908234462a7a2f8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 875240b779f05c1b13f71bf2133b9abfaa209239
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095062"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223360"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Cognitive Services Speech Devices SDK 가져오기
 
@@ -64,7 +64,7 @@ Subject: You're invited to the Microsoft organization
 
     ![이메일 확인](media/speech-devices-sdk/get-sdk-6.png)
 
-8. 브라우저에 액세스 패널 애플리케이션이 표시되면 이메일 주소가 Azure AD의 일부임이 확인된 것입니다. 이제 Speech Devices SDK 다운로드 사이트에 액세스할 수 있습니다.
+8. 브라우저에 액세스 패널 응용 프로그램이 표시되면 이메일 주소가 Azure AD의 일부임이 확인된 것입니다. 이제 Speech Devices SDK 다운로드 사이트에 액세스할 수 있습니다.
 
 ## <a name="download-the-speech-devices-sdk"></a>Speech Devices SDK 다운로드
 

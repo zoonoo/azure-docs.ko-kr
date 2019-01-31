@@ -9,18 +9,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: d6fb5a97ef573a35f335875beddc7752f580bec1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 9cb496ad1ad679fd3a4e6f55f15f658f084e308a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296646"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176338"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>그룹 관리를 위한 Azure Active Directory 버전 2 cmdlet
 > [!div class="op_single_selector"]
@@ -218,15 +218,15 @@ Azure AD PowerShell cmdlet을 사용하여 그룹 관리를 시작하기 전에 
 
 1. 관리자가 아닌 사용자가 그룹을 만들 수 있는지 확인합니다.
    
-  ````
+  ```
   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-  ````
+  ```
   
 2. `UsersPermissionToCreateGroupsEnabled : True`가 반환되면 관리자가 아닌 사용자가 그룹을 만들 수 있는 것입니다. 이 기능을 사용하지 않도록 설정하려면
   
-  ```` 
+  ``` 
   Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
-  ````
+  ```
   
 ## <a name="manage-owners-of-groups"></a>그룹 소유자 관리
 그룹에 소유자를 추가하려면 Add-AzureADGroupOwner cmdlet을 사용합니다.
@@ -250,8 +250,8 @@ Azure AD PowerShell cmdlet을 사용하여 그룹 관리를 시작하기 전에 
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
 
 ## <a name="reserved-aliases"></a>예약된 별칭 
-그룹을 만들 때 특정 엔드포인트는 최종 사용자가 mailNickname 또는 별칭이 그룹의 전자 메일 주소의 일부로 사용되도록 지정할 수 있게 합니다. 다음과 같은 높은 권한이 있는 전자 메일 별칭이 있는 그룹은 Azure AD 전역 관리자만 만들 수 있습니다. 
-  
+그룹을 만들 때 특정 엔드포인트는 최종 사용자가 mailNickname 또는 별칭이 그룹의 전자 메일 주소의 일부로 사용되도록 지정할 수 있게 합니다. 다음과 같은 높은 권한이 있는 전자 메일 별칭이 있는 그룹은 Azure AD 전역 관리자만 만들 수 있습니다. 
+  
 * abuse 
 * 관리자 
 * 관리자 역할 

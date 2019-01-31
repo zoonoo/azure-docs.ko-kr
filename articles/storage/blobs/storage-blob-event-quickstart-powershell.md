@@ -1,24 +1,24 @@
 ---
 title: Azure Blob Storage 이벤트를 웹 엔드포인트에 전송 - PowerShell | Microsoft Docs
-description: Azure Event Grid를 사용하여 Blob 저장소 이벤트를 구독합니다.
+description: Azure Event Grid를 사용하여 Blob Storage 이벤트를 구독합니다.
 services: storage,event-grid
 author: david-stanford
 ms.author: dastanfo
 ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
-ms.component: blobs
+ms.subservice: blobs
 ms.custom: seodec18
-ms.openlocfilehash: 852b7a32bc27b0aa67d66c25d3b54ab864ee1612
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 3e1a482cc59d951fbe6b25fcf0bfc4a967222839
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628258"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246418"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>빠른 시작: PowerShell을 사용하여 스토리지 이벤트를 웹 엔드포인트로 라우팅
 
-Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 Azure PowerShell을 사용하여 Blob 저장소 이벤트를 구독하고 이벤트를 트리거하여 결과를 확인합니다. 
+Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 Azure PowerShell을 사용하여 Blob Storage 이벤트를 구독하고 이벤트를 트리거하여 결과를 확인합니다. 
 
 일반적으로 이벤트 데이터를 처리하고 작업을 수행하는 엔드포인트에 이벤트를 보냅니다. 그러나 이 문서를 간소화하기 위해 메시지를 수집하고 표시하는 웹앱에 이벤트를 보냅니다.
 
@@ -61,9 +61,9 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-Blob Storage 이벤트는 범용 v2 저장소 계정과 Blob Storage 계정에서 사용할 수 있습니다. **범용 v2** 저장소 계정은 Blob, 파일, 큐 및 테이블을 포함하여 모든 저장소 서비스의 모든 기능을 지원하는 저장소 계정입니다. **Blob Storage 계정**은 Azure Storage에서 Blob와 같은 구조화되지 않은 데이터(개체) 저장을 위한 특수 Storage 계정입니다. Blob Storage 계정은 범용 저장소 계정과 유사하면서, 현재 사용되고 있는 모든 뛰어난 내구성, 가용성, 확장성 및 성능 기능을 공유합니다(예: 블록 Blob 및 추가 Blob에 대한 100% API 일관성). 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
+Blob Storage 이벤트는 범용 v2 스토리지 계정과 Blob Storage 계정에서 사용할 수 있습니다. **범용 v2** 저장소 계정은 Blob, 파일, 큐 및 테이블을 포함하여 모든 저장소 서비스의 모든 기능을 지원하는 저장소 계정입니다. **Blob Storage 계정**은 Azure Storage에서 Blob와 같은 구조화되지 않은 데이터(개체) 저장을 위한 특수 Storage 계정입니다. Blob Storage 계정은 범용 스토리지 계정과 유사합니다. 블록 Blob과 연결 Blob에 대한 100% API 일관성을 포함하여 현재 제공되는 뛰어난 내구성, 가용성, 확장성은 모두 같습니다. 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
-[New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount)를 사용하여 LRS 복제를 통한 Blob Storage 계정을 만든 후 사용할 스토리지 계정을 정의하는 스토리지 계정 컨텍스트를 검색합니다. 저장소 계정에서 작업할 때 반복적으로 자격 증명을 제공하는 대신 컨텍스트를 참조합니다. 이 예제에서는 LRS(로컬 중복 저장소)를 사용하여 **gridstorage**라는 저장소 계정을 만듭니다. 
+[New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount)를 사용하여 LRS 복제를 통한 Blob Storage 계정을 만든 후 사용할 스토리지 계정을 정의하는 스토리지 계정 컨텍스트를 검색합니다. 저장소 계정에서 작업할 때 반복적으로 자격 증명을 제공하는 대신 컨텍스트를 참조합니다. 이 예제에서는 LRS(로컬 중복 스토리지)를 사용하여 **gridstorage**라는 스토리지 계정을 만듭니다. 
 
 > [!NOTE]
 > 저장소 계정 이름은 전역 네임스페이스에 있으므로 이 스크립트에 제공된 이름에 일부 임의 문자를 추가해야 합니다.
@@ -120,7 +120,7 @@ New-AzEventGridSubscription `
 
 ![구독 이벤트 보기](./media/storage-blob-event-quickstart-powershell/view-subscription-event.png)
 
-## <a name="trigger-an-event-from-blob-storage"></a>Blob 저장소에서 이벤트 트리거
+## <a name="trigger-an-event-from-blob-storage"></a>Blob Storage에서 이벤트 트리거
 
 이제 이벤트를 트리거하여 Event Grid가 메시지를 사용자 엔드포인트에 어떻게 배포하는지 살펴 보겠습니다. 먼저 컨테이너 및 개체를 만들어 보겠습니다. 그런 다음 컨테이너에 개체를 업로드합니다.
 
@@ -171,7 +171,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 토픽 및 이벤트 구독을 만드는 방법을 알아보았으므로 Blob 저장소 이벤트 및 Event Grid에서 수행할 수 있는 작업에 대해 자세히 알아봅니다.
+이제 토픽 및 이벤트 구독을 만드는 방법을 알아보았으므로 Blob Storage 이벤트 및 Event Grid에서 수행할 수 있는 작업에 대해 자세히 알아봅니다.
 
-- [Blob 저장소 이벤트에 응답](storage-blob-event-overview.md)
+- [Blob Storage 이벤트에 응답](storage-blob-event-overview.md)
 - [Event Grid 정보](../../event-grid/overview.md)

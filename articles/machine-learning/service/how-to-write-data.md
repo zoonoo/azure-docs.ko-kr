@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning Data Prep SDK를 사용하여 데이터를 쓰는 방법을 알아봅니다. 데이터 흐름의 모든 지점에서, 지원되는 위치(로컬 파일 시스템, Azure Blob Storage 및 Azure Data Lake Storage)의 파일에 데이터를 쓸 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: cforbe
 author: cforbe
@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a6abdaff986df3c457a0118f6e143fe4ff0daf49
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 1e508d4c7ed8a8d7df8e9ae586c74258958838e9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384346"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239828"
 ---
 # <a name="write-data-using-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning 데이터 준비 SDK를 사용하여 데이터 쓰기
 
@@ -36,7 +36,7 @@ ms.locfileid: "53384346"
 [Azure Machine Learning 데이터 준비 Python SDK](https://aka.ms/data-prep-sdk)를 사용하여 데이터를 쓸 수 있는 위치는 다음과 같습니다.
 + 로컬 파일 시스템
 + Azure Blob Storage
-+ Azure Data Lake 저장소
++ Azure Data Lake 스토리지
 
 ## <a name="spark-considerations"></a>Spark 고려 사항
 

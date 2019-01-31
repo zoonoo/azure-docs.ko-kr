@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: mihauss
-ms.component: blobs
-ms.openlocfilehash: 77e0a9fc12519615765e1846ac8808bb3fbb27f0
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.subservice: blobs
+ms.openlocfilehash: e78b1f94338f177601b1e93fcc7974a228be062b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260654"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239998"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Azure Storage Blob에 대한 일시 삭제
 Azure Storage는 이제 응용 프로그램 또는 다른 스토리지 계정 사용자에 의해 잘못 수정되거나 삭제될 때 데이터를 보다 쉽게 복구할 수 있도록 Blob 개체에 대한 일시 삭제를 제공합니다.

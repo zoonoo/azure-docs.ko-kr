@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 34a719c8fb62a2b993320d1bd9f97f9d47abf494
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c48ffd92362fa19fc0abfb7ddc36eac378283938
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463315"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156338"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>동기화 중 오류 문제 해결
 ID 데이터가 Windows Server Active Directory(AD DS)로부터 Azure AD(Azure Active Directory)로 동기화되는 중에 오류가 발생할 수 있습니다. 이 문서에서는 여러 동기화 오류 유형, 오류가 발생할 수 있는 몇 가지 상황, 오류를 해결할 수 있는 가능한 방법에 대한 개요를 제공합니다. 이 문서는 일반적인 오류 유형을 다루며 가능한 모든 오류를 포괄하지 못할 수 있습니다.

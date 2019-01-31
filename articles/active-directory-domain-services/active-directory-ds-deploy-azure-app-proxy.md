@@ -8,19 +8,19 @@ manager: daveba
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: fc428ddc5c9a99e04f932dec620d99a23f366d28
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: e787d946aa62f0bcb6615d89192e7d9e4d91ffe4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845438"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197051"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에서 Azure AD 애플리케이션 프록시 배포
 Azure AD(Active Directory) 애플리케이션 프록시를 사용하면 인터넷을 통해 액세스할 수 있는 온-프레미스 애플리케이션을 게시하여 원격 작업자를 지원할 수 있습니다. 이제 Azure AD Domain Services를 통해 온-프레미스를 운영 중인 레거시 애플리케이션을 Azure Infrastructure Services로 전환할 수 있습니다. 그러면 Azure AD 애플리케이션 프록시를 사용하는 이러한 애플리케이션을 게시하여 조직 내 사용자에게 안전한 원격 액세스를 제공할 수 있습니다.

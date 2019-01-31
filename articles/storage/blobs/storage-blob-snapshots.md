@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: tamram
-ms.component: blobs
-ms.openlocfilehash: 6fa223ffcbc70b2f17649645df3daed22746edd0
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.subservice: blobs
+ms.openlocfilehash: ac13b40ae58054b091963de198213c1a68fcdc05
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264034"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244847"
 ---
 # <a name="create-a-blob-snapshot"></a>Blob 스냅숏 만들기
 
@@ -92,8 +92,8 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 ## <a name="snapshots-with-azure-premium-storage"></a>Azure Premium Storage를 사용한 스냅숏
 Premium Storage에서 스냅숏을 사용할 때는 다음 규칙이 적용됩니다.
 
-* 프리미엄 저장소 계정의 페이지 Blob당 최대 스냅숏 수는 100개입니다. 해당 제한을 초과하면 스냅숏 Blob 작업에서 오류 코드 409(`SnapshotCountExceeded`)가 반환됩니다.
-* 프리미엄 저장소 계정의 페이지 Blob 스냅숏은 10분마다 한 번 생성할 수 있습니다. 해당 속도를 초과하면 스냅숏 Blob 작업에서 오류 코드 409(`SnapshotOperationRateExceeded`)가 반환됩니다.
+* Premium Storage 계정의 페이지 Blob당 최대 스냅숏 수는 100개입니다. 해당 제한을 초과하면 스냅숏 Blob 작업에서 오류 코드 409(`SnapshotCountExceeded`)가 반환됩니다.
+* Premium Storage 계정의 페이지 Blob 스냅숏은 10분마다 한 번 생성할 수 있습니다. 해당 속도를 초과하면 스냅숏 Blob 작업에서 오류 코드 409(`SnapshotOperationRateExceeded`)가 반환됩니다.
 * 스냅숏을 읽으려는 경우 Blob 복사 작업을 사용하여 계정의 다른 페이지 Blob에 스냅숏을 복사할 수 있습니다. 이때 복사 작업의 대상 Blob에는 기존 스냅숏이 없어야 합니다. 대상 Blob에 스냅숏이 있으면 Blob 복사 작업에서 오류 코드 409(`SnapshotsPresent`)가 반환됩니다.
 
 ## <a name="return-the-absolute-uri-to-a-snapshot"></a>스냅숏에 대한 절대 URI 반환

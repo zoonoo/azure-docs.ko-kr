@@ -3,17 +3,17 @@ title: Hadoop, Spark, Kafka, HBase 또는 R Server에 대한 클러스터 설정
 description: 브라우저, Azure CLI, Azure PowerShell, REST 또는 SDK에서 Hadoop, Kafka, Spark, HBase, R Server 또는 HDInsight의 Storm 클러스터를 설정합니다.
 services: storage
 author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: jamesbak
-ms.openlocfilehash: 791598da593c25a135c05d72b6846053af3ff344
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: a3c6474c6b1c27c3b413d98d86cdadbcb61e2040
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353858"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247292"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>빠른 시작: HDInsight에서 클러스터 설정
 
@@ -142,7 +142,7 @@ Oozie 사용 시 성능을 높이려면 사용자 지정 Metastore를 사용합�
 
 각 클러스터 유형에는 자체 노드 수, 노드에 대한 용어 및 기본 VM 크기가 있습니다. 다음 표에서는 각 노드 유형에 대한 노드 수는 괄호로 묶어서 표시됩니다.
 
-| type | 노드 | 다이어그램 |
+| Type | 노드 | 다이어그램 |
 | --- | --- | --- |
 | Hadoop은 |헤드 노드(2), 데이터 노드(1+) |![HDInsight Hadoop 클러스터 노드](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |헤드 서버(2), 지역 서버(1+), 마스터/ZooKeeper 노드(3) |![HDInsight HBase 클러스터 노드](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-hbase-cluster-type-setup.png) |

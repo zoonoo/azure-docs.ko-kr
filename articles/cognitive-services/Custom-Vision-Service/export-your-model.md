@@ -6,20 +6,20 @@ services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 50417e9e1722e69c24185c05ea5e286e6b13e8c7
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: b0078e27e4d06b814a62ed0f04a4f31230ab9838
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364944"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209396"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>모바일 디바이스에 사용할 모델 내보내기
 
-Custom Vision Service를 사용하면 분류자를 내보내서 오프라인으로 실행할 수 있습니다. 내보낸 분류자를 응용 프로그램에 포함하여 디바이스에서 실행하면 실시간 분류가 가능합니다. 
+Custom Vision Service를 사용하면 분류자를 내보내서 오프라인으로 실행할 수 있습니다. 내보낸 분류자를 애플리케이션에 포함하여 장치에서 실행하면 실시간 분류가 가능합니다. 
 
 Custom Vision Service는 다음과 같은 내보내기를 지원합니다.
 

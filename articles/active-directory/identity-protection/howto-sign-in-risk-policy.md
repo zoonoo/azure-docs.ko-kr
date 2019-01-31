@@ -8,20 +8,20 @@ author: MarkusVi
 manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 1c3b7dc8e027169db51ab9ef50634a69a43cd3e0
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ff346f9c842672b426a75eadaa278ca91de5d9c6
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462065"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297500"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>방법: 로그인 위험 정책 구성
 
@@ -77,7 +77,7 @@ MFA를 요구하는 로그인 위험 보안 정책을 구성할 수 있습니다
 
 위험한 로그인에 대해 MFA를 요구하려는 경우 다음을 수행해야 합니다.
 
-1. 영향을 받는 사용자에 대해 [다단계 인증 등록 정책](#multi-factor-authentication-registration-policy)을 사용하도록 설정합니다.
+1. 영향을 받는 사용자에 대해 [다단계 인증 등록 정책](howto-mfa-policy.md)을 사용하도록 설정합니다.
 
 2. 영향을 받는 사용자가 위험하지 않은 세션에 로그인하여 MFA 등록을 수행해야 합니다.
 

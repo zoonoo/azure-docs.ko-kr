@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 4ecac47de08b458eac375f8f5e774c396aeb2f5d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 23c532f6c344f8be37c3bf3d77f30effa4ec17e8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448111"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227712"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 사용자에게 알림 푸시
 
@@ -86,7 +86,7 @@ Mobile Apps을 백 엔드 서비스로 사용하려는 경우 [Mobile Apps 푸�
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. `ViewController.h`에서 다음 `#define`을 import 문 뒤에 추가합니다. `<Enter Your Backend Endpoint>` 자리 표시자를 이전 섹션에서 앱 백 엔드를 배포하는 데 사용한 대상 URL로 대체합니다. 예를 들어 *http://your_backend.azurewebsites.net*입니다.
+4. `ViewController.h`에서 다음 `#define`을 import 문 뒤에 추가합니다. `<Enter Your Backend Endpoint>` 자리 표시자를 이전 섹션에서 앱 백 엔드를 배포하는 데 사용한 대상 URL로 대체합니다. 예: `http://your_backend.azurewebsites.net`
 
     ```objc
     #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"

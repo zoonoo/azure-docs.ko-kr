@@ -6,17 +6,17 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: deeebd99425bc1ec1ed2ae76ef4852119a9c10ea
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2db8a87f28905ab03fb45d56943ae40d01908527
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342445"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225383"
 ---
 # <a name="publish-a-knowledge-base-using-the-qna-maker-portal"></a>QnA Maker 포털을 사용하여 기술 자료 게시
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     ![기술 자료 게시](../media/qnamaker-how-to-publish-kb/publish.png)
 
-2. 다시 **게시**를 선택하여 응용 프로그램 또는 봇 코드에 사용할 수 있는 엔드포인트 세부 정보를 확인합니다.
+2. 다시 **게시**를 선택하여 애플리케이션 또는 봇 코드에 사용할 수 있는 엔드포인트 세부 정보를 확인합니다.
 
     ![성공적으로 게시된 기술 자료](../media/qnamaker-how-to-publish-kb/publish-success.png)
     

@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 920d5924271d31848b455ebece9e4832548e1b06
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 8d0d37b988f36e23d8bd12b5a225b1714205b3fc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846407"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158080"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Salesforce SAML 공급자로 로그인 설정
 

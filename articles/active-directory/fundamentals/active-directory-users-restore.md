@@ -6,18 +6,18 @@ author: eross-msft
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 995a6a9da637c23663c51fe2f4b175741f5849b6
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 70d62275506a730e889b60dbdf8cab87c69f08f1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450325"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102020"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Azure Active Directory를 사용하여 최근에 삭제된 사용자를 복원하거나 제거
 사용자를 삭제하면 30일 동안 계정이 일시 중단된 상태로 유지됩니다. 30일이라는 기간 동안 사용자는 모든 속성과 함께 계정을 복원할 수 있습니다. 30일이라는 기간이 지나면 사용자가 자동으로 영구적으로 삭제됩니다.

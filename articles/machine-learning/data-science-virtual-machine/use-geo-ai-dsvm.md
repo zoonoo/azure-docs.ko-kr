@@ -9,23 +9,23 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 872bfdfdef28dbb88861b723bd3186faea461cad
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 11026d642a5136ffcf0caa5815934115b6becf89
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410009"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238462"
 ---
 # <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>지리적 인공 지능 데이터 과학 가상 머신 사용
 
-지리적 AI 데이터 과학 VM을 사용하여 분석을 위해 데이터를 가져오고, 데이터 랭글링을 수행하고, 지리 공간적 정보를 사용하는 AI 응용 프로그램에 대한 모델을 구축합니다. 지리적 AI 데이터 과학 VM을 프로비전하고 ArcGIS 계정으로 ArcGIS Pro에 로그인한 후에는 ArcGIS 데스크톱 및 ArcGis 온라인과 상호 작용할 수 있습니다. 또한 지리적 데이터 과학 VM에서 미리 구성된 Python 인터페이스 및 R 언어 브리지에서 ArcGIS에 액세스할 수도 있습니다. 다양한 AI 응용 프로그램을 빌드하려면 기계 학습 및 심화 학습 프레임워크, 데이터 과학 VM에서 사용할 수 있는 기타 데이터 과학과 결합합니다.  
+지리적 AI 데이터 과학 VM을 사용하여 분석을 위해 데이터를 가져오고, 데이터 랭글링을 수행하고, 지리 공간적 정보를 사용하는 AI 애플리케이션에 대한 모델을 구축합니다. 지리적 AI 데이터 과학 VM을 프로비전하고 ArcGIS 계정으로 ArcGIS Pro에 로그인한 후에는 ArcGIS 데스크톱 및 ArcGis 온라인과 상호 작용할 수 있습니다. 또한 지리적 데이터 과학 VM에서 미리 구성된 Python 인터페이스 및 R 언어 브리지에서 ArcGIS에 액세스할 수도 있습니다. 다양한 AI 애플리케이션을 빌드하려면 기계 학습 및 심화 학습 프레임워크, 데이터 과학 VM에서 사용할 수 있는 기타 데이터 과학과 결합합니다.  
 
 
 ## <a name="configuration-details"></a>구성 세부 정보
@@ -40,7 +40,7 @@ ArcGIS에 대한 R 브리지는 ```C:\Program Files\Microsoft\ML Server\R_SERVER
 
 ## <a name="geo-ai-data-science-vm-samples"></a>지리적 AI 데이터 과학 VM 샘플
 
-기본 데이터 과학 VM의 ML 및 심화 학습 프레임워크 기반 샘플 외에도, 지리 공간적 샘플 집합이 지리적 AI 데이터 과학 VM의 일부로 제공됩니다. 이러한 샘플은 지리 공간적 데이터와 ArcGIS 소프트웨어를 사용하여 AI 응용 프로그램의 개발을 바로 시작하는 데 도움이 될 수 있습니다. 
+기본 데이터 과학 VM의 ML 및 심화 학습 프레임워크 기반 샘플 외에도, 지리 공간적 샘플 집합이 지리적 AI 데이터 과학 VM의 일부로 제공됩니다. 이러한 샘플은 지리 공간적 데이터와 ArcGIS 소프트웨어를 사용하여 AI 애플리케이션의 개발을 바로 시작하는 데 도움이 될 수 있습니다. 
 
 
 1. [Python을 사용한 지리 공간적 분석 시작](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): ArcGIS에서 제공하는 [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) 라이브러리에 제공된 ArcGIS에 대한 Python 인터페이스를 사용하여 지리 공간적 데이터를 사용하는 방법을 보여 주는 소개 샘플입니다. 또한 기존의 기계 학습을 지리 공간적 데이터와 결합하고 ArcGIS의 맵에 결과를 시각화하는 방법도 보여 줍니다. 

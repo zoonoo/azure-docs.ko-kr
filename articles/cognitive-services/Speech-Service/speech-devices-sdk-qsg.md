@@ -6,17 +6,17 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 46f7762a815a7fa4aa4663d9ac6e7c6001ea345c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 85e250f3dee3dbfc9e09524d5f3977a143ee8bac
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097185"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213262"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Speech Devices SDK 시작
 
@@ -106,9 +106,9 @@ Speech Devices SDK를 사용하여 개발을 시작하기 전에 필요한 정�
     >
     > ![Vysor 오디오](media/speech-devices-sdk/qsg-14.png)
 
-## <a name="run-a-sample-application"></a>샘플 응용 프로그램 실행
+## <a name="run-a-sample-application"></a>샘플 애플리케이션 실행
 
-ROOBO 테스트를 실행하고 개발 키트 설정의 유효성을 검사하려면 샘플 애플리케이션을 빌드하고 설치합니다.
+ROOBO 테스트를 실행하고 개발 키트 설정의 유효성을 검사하려면 샘플 응용 프로그램을 빌드하고 설치합니다.
 
 1.  Android Studio를 시작합니다.
 
@@ -118,7 +118,7 @@ ROOBO 테스트를 실행하고 개발 키트 설정의 유효성을 검사하�
 
 1.  C:\SDSDK\Android-Sample-Release\example로 이동합니다. **확인**을 선택하여 예제 프로젝트를 엽니다.
 
-1.  소스 코드에 음성 구독 키를 추가합니다. 의도 인식을 사용해 보려면 [Language Understanding 서비스](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) 구독 키 및 애플리케이션 ID를 추가합니다.
+1.  소스 코드에 음성 구독 키를 추가합니다. 의도 인식을 사용해 보려면 [Language Understanding 서비스](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) 구독 키 및 응용 프로그램 ID를 추가합니다.
 
     키 및 애플리케이션 정보는 MainActivity.java 원본 파일의 다음 줄에 표시됩니다.
 
@@ -154,7 +154,7 @@ ROOBO 테스트를 실행하고 개발 키트 설정의 유효성을 검사하�
         adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\words_kw.txt /data/keyword
         ```
 
-    * 샘플 응용 프로그램에서 이러한 파일을 참조합니다. MainActivity.java에서 다음 줄을 찾습니다. 지정한 키워드가 사용 중인 키워드이고 해당 경로가 디바이스에 푸시한 `kws.table` 파일을 가리키는지 확인합니다.
+    * 샘플 애플리케이션에서 이러한 파일을 참조합니다. MainActivity.java에서 다음 줄을 찾습니다. 지정한 키워드가 사용 중인 키워드이고 해당 경로가 디바이스에 푸시한 `kws.table` 파일을 가리키는지 확인합니다.
 
         ```java
         private static final String Keyword = "Computer";

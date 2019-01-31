@@ -6,7 +6,7 @@ documentationcenter: ''
 author: barbkess
 manager: daveba
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.date: 12/10/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: a240e629c5c8f6e43a4c3c52668fcb2b811989b2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c2725b80c897ad07a2ae4245d9ef49c62fbfdc42
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468392"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203247"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정
 

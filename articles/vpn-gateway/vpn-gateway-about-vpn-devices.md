@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: yushwang
-ms.openlocfilehash: 0110b6daa34d0bb24ad0abb7128ee6409bc4ff25
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 308cc163a305359a60ad1774d814416ed8a51edf
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215459"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175352"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>사이트 간 VPN Gateway 연결에 대한 VPN 디바이스 및 IPsec/IKE 매개 변수 정보
 
@@ -48,20 +48,20 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 | Barracuda Networks, Inc. |Barracuda NextGen 방화벽 X 시리즈 |Barracuda Firewall 6.5 |[구성 가이드](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |호환되지 않음 |
 | Brocade            |Vyatta 5400 vRouter   |Virtual Router 6.6R3 GA|[구성 가이드](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |호환되지 않음 |
 | Check Point |Security Gateway |R77.30 |[구성 가이드](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[구성 가이드](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| 시스코              |ASA       |8.3<br>8.4+(IKEv2*) |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[구성 가이드*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
-| 시스코 |ASR |정책 기반: IOS 15.1<br>경로 기반: IOS 15.2 |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
-| 시스코 |ISR |정책 기반: IOS 15.0<br>경로 기반*: IOS 15.1 |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[구성 샘플\*\*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| 시스코              |ASA       |8.3<br>8.4+(IKEv2*) |지원됨 |[구성 가이드*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
+| 시스코 |ASR |정책 기반: IOS 15.1<br>경로 기반: IOS 15.2 |지원됨 |지원됨 |
+| 시스코 |ISR |정책 기반: IOS 15.0<br>경로 기반*: IOS 15.1 |지원됨 |지원됨 |
 | 시스코 |Meraki |해당 없음 |호환되지 않음 |호환되지 않음 |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 이상 |[구성 가이드](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |호환되지 않음 |
 | F5 |BIG-IP 시리즈 |12.0 |[구성 가이드](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[구성 가이드](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.6 |  |[구성 가이드](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-56/) |
 | IIJ(Internet Initiative Japan) |SEIL 시리즈 |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[구성 가이드](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |호환되지 않음 |
-| Juniper |SRX |정책 기반: JunOS 10.2<br>경로 기반: JunOS 11.4 |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
-| Juniper |J 시리즈 |정책 기반: JunOS 10.4r9<br>경로 기반: JunOS 11.4 |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
-| Juniper |ISG |ScreenOS 6.3 |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
-| Juniper |SSG |ScreenOS 6.2 |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
-| Juniper |MX |JunOS 12.x|[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
-| Microsoft |라우팅 및 원격 액세스 서비스 |Windows Server 2012 |호환되지 않음 |[구성 샘플](https://go.microsoft.com/fwlink/p/?LinkId=717761) |
+| Juniper |SRX |정책 기반: JunOS 10.2<br>경로 기반: JunOS 11.4 |지원됨 |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |J 시리즈 |정책 기반: JunOS 10.4r9<br>경로 기반: JunOS 11.4 |지원됨 |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |ISG |ScreenOS 6.3 |지원됨 |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |SSG |ScreenOS 6.2 |지원됨 |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
+| Juniper |MX |JunOS 12.x|지원됨 |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
+| Microsoft |라우팅 및 원격 액세스 서비스 |Windows Server 2012 |호환되지 않음 |지원됨 |
 | 개방형 시스템 AG |핵심 업무 제어 보안 게이트웨이 |해당 없음 |[구성 가이드](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |호환되지 않음 |
 | Palo Alto Networks |PAN-OS를 실행하는 모든 디바이스 |PAN-OS<br>정책 기반: 6.1.5 이상<br>경로 기반: 7.1.4 |[구성 가이드](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[구성 가이드](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
 | ShareTech | 차세대 UTM(NU 시리즈) | 9.0.1.3 | 호환되지 않음 | [구성 가이드](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |

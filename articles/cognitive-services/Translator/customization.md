@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: f02c495c7448334529de2d5b42cda02206daea0d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e4e512a69fc783e6c4878298d848a9dccf8768c3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877975"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226930"
 ---
 # <a name="customize-your-text-translations"></a>텍스트 번역 사용자 지정
 
@@ -25,7 +25,7 @@ Microsoft Custom Translator는 Microsoft Translator 서비스의 기능으로, �
 
 ## <a name="custom-translator"></a>Custom Translator
 
-Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 사용되는 용어를 이해하는 신경망 번역 시스템을 빌드할 수 있습니다. 그런 후에 사용자 지정된 변환 시스템은 기존 응용 프로그램, 워크플로 및 웹 사이트에 통합됩니다.
+Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 사용되는 용어를 이해하는 신경망 번역 시스템을 빌드할 수 있습니다. 그런 후에 사용자 지정된 변환 시스템은 기존 애플리케이션, 워크플로 및 웹 사이트에 통합됩니다.
 
 ### <a name="how-does-it-work"></a>작동 원리
 
@@ -50,10 +50,10 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 |:-----|:----:|:----:|
 |사용자 지정 기능 상태   | 일반 공급  | 일반 공급 |
 | Text API 버전  | V2만   | V3만 |
-| SMT 사용자 지정 | yes   | 아니요 |
-| NMT 사용자 지정 | 아니요    | yes |
-| 새로운 통합 Speech Service 사용자 지정 | 아니요    | yes |
-| [추적 없음](https://www.aka.ms/notrace) | yes  | yes |
+| SMT 사용자 지정 | 예   | 아니요 |
+| NMT 사용자 지정 | 아니요    | 예 |
+| 새로운 통합 Speech Service 사용자 지정 | 아니요    | 예 |
+| [추적 없음](https://www.aka.ms/notrace) | 예  | 예 |
 
 ## <a name="collaborative-translations-framework"></a>공동 작업 번역 프레임워크
 

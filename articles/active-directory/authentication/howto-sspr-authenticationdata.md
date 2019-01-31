@@ -3,19 +3,19 @@ title: Azure AD SSPR 데이터 요구 사항 | Microsoft Docs
 description: Azure AD 셀프 서비스 암호 재설정의 데이터 요구 사항 및 충족 방법
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: f30a0d80b40626530ecebdb129daff4a0c5215fc
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7eff2ba229d939e4fa59dc56bce8c72da62983ed
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426202"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080313"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>최종 사용자를 등록할 필요 없이 암호 재설정 배포
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 38a344fb6e67beae6310480646d84a1fe7730f84
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b5c7a1c56d9df28b8132f240dc3872314f029f78
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461045"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155330"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>포트 및 프로토콜이 필요한 하이브리드 ID
 다음 문서는 하이브리드 ID 솔루션을 구현하는 포트 및 프로토콜에 대한 기술 참조입니다. 다음 그림을 사용하고 해당 테이블을 참조합니다.
@@ -36,7 +36,7 @@ ms.locfileid: "54461045"
 | Kerberos |88(TCP/UDP) |AD 포리스트에 대한 Kerberos 인증. |
 | MS-RPC |135(TCP/UDP) |AD 포리스트를 바인딩할 때 Azure AD Connect 마법사의 초기 구성 중 및 암호 동기화 중에도 사용합니다. |
 | LDAP |389(TCP/UDP) |AD에서 데이터를 가져오기 위해 사용합니다. 데이터가 Kerberos 서명 및 봉인으로 암호화됩니다. |
-| RPC | 445(TCP/UDP) |AD 포리스트에서 컴퓨터 계정을 만들기 위해 Seamless SSO에서 사용합니다. |
+| SMB | 445(TCP/UDP) |AD 포리스트에서 컴퓨터 계정을 만들기 위해 Seamless SSO에서 사용합니다. |
 | LDAP/SSL |636(TCP/UDP) |AD에서 데이터를 가져오기 위해 사용합니다. 데이터 전송이 서명 및 암호화합니다. SSL을 사용하는 경우에만 사용합니다. |
 | RPC |49152- 65535(임의의 높은 RPC 포트)(TCP/UDP) |AD 포리스트를 바인딩할 때 Azure AD Connect의 초기 구성 중 및 암호 동기화 중에 사용합니다. 자세한 내용은 [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) 및 [KB224196](https://support.microsoft.com/kb/224196)을 참조하세요. |
 

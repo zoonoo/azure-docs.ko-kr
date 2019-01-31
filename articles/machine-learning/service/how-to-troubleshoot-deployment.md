@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning 서비스를 사용하여 AKS 및 ACI에서 일반적인 Docker 배포 오류를 해결하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
-ms.author: haining
-author: hning86
+author: chris-lauren
+ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 71b4cf5d44ec6cb3fb8b70975193320a4eabfc3f
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 83ee548befdc7ef0a4e7ed2d4b4e61b42a217f12
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401319"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247071"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Azure Machine Learning AKS 및 ACI 서비스 배포 문제 해결
 

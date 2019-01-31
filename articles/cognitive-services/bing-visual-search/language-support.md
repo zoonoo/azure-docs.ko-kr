@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: 1dd434bbf71e482f5d0a52b3c84e46382079b43a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 0f7d3f8a7a9c7bdd67dc80a98744e1cd6a2433a1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886402"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180829"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Bing Visual Search API에 대한 언어 및 지역 지원
 
@@ -98,7 +98,7 @@ Bing Visual Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |인도네시아|영어|en-ID|
 |이탈리아|이탈리아어|it-IT|
 |일본|일본어|ja-JP|
-|한국|한국어|ko-KR|
+|한국|한국어|en-US|
 |말레이시아|영어|en-MY|
 |멕시코|스페인어|es-MX|
 |네덜란드|네덜란드어|nl-NL|
@@ -117,5 +117,5 @@ Bing Visual Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |대만|중국어 번체|zh-TW|
 |터키|터키어|tr-TR|
 |영국|영어|en-GB|
-|미국|영어|ko-KR|
+|미국|영어|en-US|
 |미국|스페인어|es-US|

@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning Studio
 description: 클러스터링, 분류 또는 회귀 실험에서 감독 및 자율 학습에 대한 Azure Machine Learning Studio 알고리즘을 선택하는 방법입니다.
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 20debfe2a1f3cf92e1a90867ca2b3a01852f7f9c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 5edf301ffc87a17963c3c32c7ea1b559e0834cf7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267354"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244473"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio를 위한 알고리즘 선택 방법
 

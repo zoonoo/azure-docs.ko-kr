@@ -3,21 +3,21 @@ title: Azure Data Lake Storage Gen2 사용에 대한 모범 사례 | Microsoft D
 description: Azure Data Lake Storage Gen2(이전의 Azure Data Lake Store) 사용과 관련된 데이터 수집, 날짜 보안 및 성능에 대한 모범 사례를 알아봅니다.
 services: storage
 author: sachinsbigdata
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: sachins
-ms.openlocfilehash: b62abe668ec086982683a29706dcf6ca36d3f682
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ad77204f0c5d916b4006ffa68a9608429f93f87a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976791"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246061"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 사용에 대한 모범 사례
 
-이 문서에서는 Azure Data Lake Storage Gen2 사용에 대한 모범 사례와 고려 사항에 대해 알아봅니다. 여기서는 Data Lake Storage Gen2의 보안, 성능, 복원력 및 모니터링에 대한 정보를 제공합니다. Data Lake Storage Gen2 이전에는 Azure HDInsight와 같은 서비스에서 진정한 빅 데이터를 사용하는 것이 복잡했습니다. 여러 Blob 저장소 계정에서 데이터를 분할하여 페타바이트 저장소와 최적의 성능을 얻을 수 있도록 해야 했습니다. Data Lake Storage Gen2를 사용하면 크기와 성능에 대한 대부분의 엄격한 제한이 제거됩니다. 그러나 이 문서에는 Data Lake Storage Gen2를 통해 최상의 성능을 얻기 위한 몇 가지 고려 사항도 있습니다.
+이 문서에서는 Azure Data Lake Storage Gen2 사용에 대한 모범 사례와 고려 사항에 대해 알아봅니다. 여기서는 Data Lake Storage Gen2의 보안, 성능, 복원력 및 모니터링에 대한 정보를 제공합니다. Data Lake Storage Gen2 이전에는 Azure HDInsight와 같은 서비스에서 진정한 빅 데이터를 사용하는 것이 복잡했습니다. 여러 Blob Storage 계정에서 데이터를 분할하여 페타바이트 스토리지와 최적의 성능을 얻을 수 있도록 해야 했습니다. Data Lake Storage Gen2를 사용하면 크기와 성능에 대한 대부분의 엄격한 제한이 제거됩니다. 그러나 이 문서에는 Data Lake Storage Gen2를 통해 최상의 성능을 얻기 위한 몇 가지 고려 사항도 있습니다.
 
 ## <a name="security-considerations"></a>보안 고려 사항
 

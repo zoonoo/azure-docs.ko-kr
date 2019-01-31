@@ -7,16 +7,16 @@ manager: cgronlun
 ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 3c0d7d3aed08c6dbbcac5f25e91edd8e27e64440
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 704c3c6b4c998526936e7532fcd92c85ccce54e9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429364"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222187"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
@@ -219,7 +219,7 @@ LUIS 샘플을 사용하여 C# 또는 Node.Js를 통해 프로그래밍 방식�
 
 Build 2018 Conference에서는 다음 기능이 발표되었습니다.
 
-|이름|Content|
+|Name|Content|
 |--|--|
 |향상된 기능|[정규식](luis-concept-data-extraction.md##regular-expression-entity-data) 엔터티 및 [핵심 구](luis-concept-data-extraction.md#key-phrase-extraction-entity-data) 엔터티
 |패턴|패턴 [개념](luis-concept-patterns.md), [자습서](luis-tutorial-pattern.md), [방법](luis-how-to-model-intent-pattern.md)<br>예외에 대한 [명시적 목록](luis-concept-patterns.md#explicit-lists)을 포함하는 [Patterns.Any](luis-concept-entity-types.md) 엔터티<br>[역할](luis-concept-roles.md) 개념|

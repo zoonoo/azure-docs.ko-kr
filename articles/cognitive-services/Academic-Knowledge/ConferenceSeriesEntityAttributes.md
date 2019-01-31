@@ -6,22 +6,22 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: f9f28afd7005d7a61aa0d2f4dba69ca598034b52
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: ff71b489cce01d8d6ea29e09905d7d3ac8429e34
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900751"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155607"
 ---
 # <a name="conference-series-entity"></a>Conference Series 엔터티
 
 <sub> *다음 특성은 Conference Series 엔터티에 한정됩니다. (Ty = '3') </sub>
 
-이름    |설명                            |type       | 작업
+Name    |설명                            |Type       | 작업
 ------- | ------------------------------------- | --------- | ----------------------------
 Id      |엔터티 ID                              |Int64      |같음
 CN      |컨퍼런스 시리즈의 정규화된 이름      |문자열     |같음

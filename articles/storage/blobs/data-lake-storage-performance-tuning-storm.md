@@ -3,17 +3,17 @@ title: Azure Data Lake Storage Gen2 Storm 성능 튜닝 지침 | Microsoft Docs
 description: Azure Data Lake Storage Gen2의 Storm 성능 튜닝에 대한 지침입니다.
 services: storage
 author: swums
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 845bb739408cb38d823ae662e261d6955726d28a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b242fca5a5a8490cc51222a6dd8b1ff1bb724417
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976796"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247911"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Storm on HDInsight 및 Azure Data Lake Storage Gen2에 대한 성능 튜닝 지침
 
@@ -61,7 +61,7 @@ D13v2 Azure VM과 함께 8개의 작업자 노드 클러스터가 있다고 가�
 
 ## <a name="tune-additional-parameters"></a>추가 매개 변수 조정
 기본 토폴로지를 만든 후에는 매개 변수를 수정할 것인지 고려할 수 있습니다.
-* **작업자 노드당 JVM 수** 메모리 내에 호스트하는 큰 데이터 구조(예: 조회 테이블)가 있는 경우 각 JVM에는 별도 복사본이 필요합니다. 또는 JVM을 적게 설정한 경우 여러 스레드에 걸쳐 데이터 구조를 사용할 수 있습니다. Bolt I/O의 경우, JVM 수는 해당 JVM 간에 추가된 스레드 수와 큰 차이가 없습니다. 간소화하기 위해 작업자당 하나의 JVM이 있는 것이 좋습니다. 하지만 Bolt에서 수행한 작업이나 필요한 응용 프로그램 프로세스에 따라 이 번호를 변경해야 합니다.
+* **작업자 노드당 JVM 수** 메모리 내에 호스트하는 큰 데이터 구조(예: 조회 테이블)가 있는 경우 각 JVM에는 별도 복사본이 필요합니다. 또는 JVM을 적게 설정한 경우 여러 스레드에 걸쳐 데이터 구조를 사용할 수 있습니다. Bolt I/O의 경우, JVM 수는 해당 JVM 간에 추가된 스레드 수와 큰 차이가 없습니다. 간소화하기 위해 작업자당 하나의 JVM이 있는 것이 좋습니다. 하지만 Bolt에서 수행한 작업이나 필요한 애플리케이션 프로세스에 따라 이 번호를 변경해야 합니다.
 * **Spout 실행자 수** 이전 예제에서 Data Lake Storage Gen2에 대한 쓰기에 Bolt를 사용하므로 Spout 수는 Bolt 성능과 직접 관련이 없습니다. 하지만 Spout에서 발생하는 처리 또는 I/O 양에 따라 최적의 성능을 얻기 위해 Spout을 조정하는 것이 좋습니다. Bolt를 사용할 수 있는 충분한 Spout이 있는지 확인합니다. Spout의 출력 속도는 Bolt의 처리량과 일치해야 합니다. 실제 구성은 Spout에 따라 달라집니다.
 * **태스크 수** 각 Bolt는 단일 스레드로 실행됩니다. Bolt당 추가 태스크는 어떠한 동시성도 제공하지 않습니다. 이익이 되는 경우는 튜플을 승인하는 프로세스가 Bolt 실행 시간의 상당 부분을 차지하는 경우 뿐입니다. Bolt에서 승인을 보내기 전에 많은 튜플을 추가에 그룹화하는 것이 좋습니다. 즉, 대부분의 경우에 여러 태스크에는 추가적인 이점이 없습니다.
 * **로컬 또는 순서 섞기 그룹화** 이 설정을 사용하면 동일한 작업자 프로세스 내에서 튜플이 Bolt로 전송됩니다. 그러면 프로세스 간 통신과 네트워크 호출이 줄어듭니다. 대부분의 토폴로지에 사용하는 것이 좋습니다.

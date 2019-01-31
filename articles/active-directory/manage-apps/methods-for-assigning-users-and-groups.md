@@ -6,19 +6,19 @@ documentationcenter: ''
 author: barbkess
 manager: daveba
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: barbkess
-ms.openlocfilehash: 04d29c69eb0dd74a2706af272e6c427179e110ea
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 4d7a27713e6ea49ebe3b2f3f2f9c63090a6ca25c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472112"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165883"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션에 사용자 및 그룹 할당
 이 문서에서는 Azure AD(Azure Active Directory)에서 애플리케이션에 사용자나 그룹을 할당하는 방법을 설명합니다. 사용자를 먼저 애플리케이션에 할당해야 관리자가 해당 사용자에게 다음 작업을 수행할 권한을 부여할 수 있습니다.

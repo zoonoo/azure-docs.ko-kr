@@ -12,18 +12,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0ed7d868f0e46e16224e15caaefd2d819c923f29
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: d15e229595ded0f814ebc4048d428f044b59e16d
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200754"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295732"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>C#을 사용하여 Azure Time Series Insights 환경에 대한 참조 데이터 관리
 
 이 아티클에서는 Azure Time Series Insights 환경에 대한 참조 데이터를 관리하기 위해 컴파일할 수 있는 예제 C# 프로젝트에 대해 설명합니다.
 
-## <a name="prerequistes"></a>필수 조건
+## <a name="prerequisites"></a>필수 조건
 샘플 코드를 컴파일 및 실행하기 전에 다음 단계를 완료합니다.
 1. [참조 데이터 집합을 만듭니다](time-series-insights-add-reference-data-set.md).
 

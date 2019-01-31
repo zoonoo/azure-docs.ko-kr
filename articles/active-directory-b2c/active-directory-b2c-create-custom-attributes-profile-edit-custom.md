@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 7ebce84e6d8d3e7b1b8d3852951127ce954f9019
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 1f79330f12117c6ade8884165d1538623e19c7ea
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854057"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175267"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: 사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용
 
@@ -46,7 +46,6 @@ Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니�
 >Azure AD B2C 디렉터리는 일반적으로 `b2c-extensions-app`이라는 웹앱을 포함합니다. 이 애플리케이션은 주로 Azure Portal을 통해 만든 사용자 지정 클레임에 대한 B2C 기본 제공 정책에 사용됩니다. 고급 사용자만 이 애플리케이션을 사용하여 B2C 사용자 지정 정책에 대한 확장을 등록하는 것이 좋습니다.  
 지침은 이 문서의 **다음 단계** 섹션에 포함되어 있습니다.
 
-
 ## <a name="create-a-new-application-to-store-the-extension-properties"></a>확장 속성을 저장할 새 애플리케이션 만들기
 
 1. 브라우저 세션을 열고 [Azure Portal](https://portal.azure.com)로 이동합니다. 구성하려는 B2C 디렉터리의 관리자 자격 증명으로 로그인합니다.
@@ -66,8 +65,6 @@ Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니�
     * **애플리케이션 ID**. 예: `103ee0e6-f92d-4183-b576-8c3739027780`.
     * **개체 ID** - 예: `80d8296a-da0a-49ee-b6ab-fd232aa45201`.
 
-
-
 ## <a name="modify-your-custom-policy-to-add-the-applicationobjectid"></a>사용자 지정 정책을 수정하여 **ApplicationObjectId** 추가
 
 [Azure Active Directory B2C: 사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)의 단계를 수행할 때 **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml** 및 **PasswordReset.xml**이라는 [샘플 파일](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip)을 다운로드하고 수정했습니다. 이 단계에서는 해당 파일을 추가로 수정합니다.
@@ -76,31 +73,31 @@ Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니�
 
     ```xml
     <ClaimsProviders>
-        <ClaimsProvider>
-          <DisplayName>Azure Active Directory</DisplayName>
-            <TechnicalProfile Id="AAD-Common">
+      <ClaimsProvider>
+        <DisplayName>Azure Active Directory</DisplayName>
+        <TechnicalProfile Id="AAD-Common">
           <DisplayName>Azure Active Directory</DisplayName>
           <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-              
+
           <!-- Provide objectId and appId before using extension properties. -->
           <Metadata>
             <Item Key="ApplicationObjectId">insert objectId here</Item>
             <Item Key="ClientId">insert appId here</Item>
           </Metadata>
           <!-- End of changes -->
-              
+
           <CryptographicKeys>
             <Key Id="issuer_secret" StorageReferenceId="TokenSigningKeyContainer" />
           </CryptographicKeys>
           <IncludeInSso>false</IncludeInSso>
           <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
         </TechnicalProfile>
-        </ClaimsProvider>
+      </ClaimsProvider>
     </ClaimsProviders>
     ```
 
 > [!NOTE]
-> **TechnicalProfile**이 처음 새로 작성된 확장 속성에 작성되는 경우, 일회성 오류가 발생할 수 있습니다. 확장 속성은 처음 사용할 때 만들어집니다.  
+> **TechnicalProfile**이 처음 새로 작성된 확장 속성에 작성되는 경우, 일회성 오류가 발생할 수 있습니다. 확장 속성은 처음 사용할 때 만들어집니다.
 
 ## <a name="use-the-new-extension-property-or-custom-attribute-in-a-user-journey"></a>사용자 경험에서 새 확장 속성 또는 사용자 지정 특성 사용
 
@@ -130,13 +127,13 @@ Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니�
 
     ```xml
     <BuildingBlocks>
-      <ClaimsSchema> 
-        <ClaimType Id="extension_loyaltyId"> 
-          <DisplayName>Loyalty Identification Tag</DisplayName> 
-          <DataType>string</DataType> 
-          <UserHelpText>Your loyalty number from your membership card</UserHelpText> 
-          <UserInputType>TextBox</UserInputType> 
-        </ClaimType> 
+      <ClaimsSchema>
+        <ClaimType Id="extension_loyaltyId">
+          <DisplayName>Loyalty Identification Tag</DisplayName>
+          <DataType>string</DataType>
+          <UserHelpText>Your loyalty number from your membership card</UserHelpText>
+          <UserInputType>TextBox</UserInputType>
+        </ClaimType>
       </ClaimsSchema>
     </BuildingBlocks>
     ```
@@ -157,7 +154,7 @@ Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니�
         <InputClaim ClaimTypeReferenceId="alternativeSecurityId" />
         <InputClaim ClaimTypeReferenceId="userPrincipalName" />
         <InputClaim ClaimTypeReferenceId="givenName" />
-            <InputClaim ClaimTypeReferenceId="surname" />
+        <InputClaim ClaimTypeReferenceId="surname" />
 
         <!-- Add the loyalty identifier -->
         <InputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -167,7 +164,7 @@ Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니�
         <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
         <OutputClaim ClaimTypeReferenceId="givenName" />
         <OutputClaim ClaimTypeReferenceId="surname" />
-        
+
         <!-- Add the loyalty identifier -->
         <OutputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
         <!-- End of changes -->
@@ -279,15 +276,15 @@ Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니�
   ```xml
       <ClaimsProviders>
         <ClaimsProvider>
-              <DisplayName>Azure Active Directory</DisplayName>
-            <TechnicalProfile Id="AAD-Common">
-                <DisplayName>Azure Active Directory</DisplayName>
-                <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-                <!-- Provide objectId and appId before using extension properties. -->
-                <Metadata>
-                  <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
-                  <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
-                </Metadata>
+          <DisplayName>Azure Active Directory</DisplayName>
+          <TechnicalProfile Id="AAD-Common">
+            <DisplayName>Azure Active Directory</DisplayName>
+            <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+            <!-- Provide objectId and appId before using extension properties. -->
+            <Metadata>
+              <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
+              <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
+            </Metadata>
   ```
 
 3. 포털 환경과 일관성을 유지합니다. 사용자 지정 정책에서 사용하기 전에 포털 UI를 사용하여 이러한 특성을 만듭니다. 포털에서 **ActivationStatus** 특성을 만들 때 다음과 같이 참조해야 합니다.
@@ -296,7 +293,6 @@ Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니�
   extension_ActivationStatus in the custom policy.
   extension_<app-guid>_ActivationStatus via Graph API.
   ```
-
 
 ## <a name="reference"></a>참고 자료
 

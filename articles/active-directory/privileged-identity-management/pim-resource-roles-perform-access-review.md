@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: pim
+ms.subservice: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: a96a1de7828797f1124280fca95a3358210b55b7
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 3b9c998351432a591ece0a61d60256aea89a6f8f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189721"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180894"
 ---
 # <a name="perform-an-access-review-of-my-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할에 대한 액세스 검토 수행
 Azure 리소스에 대한 PIM(Privileged Identity Management)에서는 기업이 Azure에서 리소스에 대해 권한 있는 액세스를 관리하는 방법을 간소화합니다. 
@@ -30,9 +30,9 @@ Azure 리소스에 대한 PIM(Privileged Identity Management)에서는 기업이
 액세스 검토에 관심이 있는 권한 있는 역할 관리자인 경우 [액세스 검토를 시작하는 방법](pim-resource-roles-start-access-review.md)에서 자세한 내용을 참조하세요.
 
 ## <a name="add-the-privileged-identity-management-application"></a>Privileged Identity Management 애플리케이션 추가
-[Azure Portal](https://portal.azure.com/)에서 Azure AD(Active Directory) PIM 응용 프로그램을 사용하여 검토를 수행할 수 있습니다. 포털에 애플리케이션이 없는 경우 다음 단계에 따라 시작하세요.
+[Azure Portal](https://portal.azure.com/)에서 Azure AD(Active Directory) PIM 애플리케이션을 사용하여 검토를 수행할 수 있습니다. 포털에 애플리케이션이 없는 경우 다음 단계에 따라 시작하세요.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure Portal의 오른쪽 위에서 사용자 이름을 선택하고 작동할 디렉터리를 선택합니다.
 3. **모든 서비스**를 선택하고 **필터** 상자를 사용하여 *Azure AD Privileged Identity Management*를 검색합니다.
 4. **대시보드에 고정**을 선택하고 **만들기**를 선택합니다. PIM 애플리케이션이 열립니다.

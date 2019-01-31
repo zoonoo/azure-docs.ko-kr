@@ -6,29 +6,29 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9d94105377597ca8e79cc43ed0903371e185d510
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8519e05062ad1b8b8b20dcf5caafddaa07550049
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086711"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228732"
 ---
 # <a name="about-the-speech-translation-api"></a>Speech Translation API 정보
 
 Speech Service API를 사용하면 음성에 대한 실시간 엔드투엔드 다중 언어 번역을 애플리케이션, 도구 및 디바이스에 추가할 수 있습니다. 같은 API를 음성 대 음성 및 음성 대 텍스트 번역 모두에 사용될 수 있습니다.
 
-클라이언트 애플리케이션에서 Translator Speech API를 통해 음성 오디오를 서비스로 스트림하고 결과 스트림을 다시 받습니다. 이러한 결과에는 원본 언어의 인식된 텍스트와 대상 언어의 해당 번역이 포함되어 있습니다. 발언이 완료될 때까지 중간 번역이 제공될 수 있으며, 발언이 완료되면 최종 번역이 제공됩니다.
+클라이언트 응용 프로그램에서 Translator Speech API를 통해 음성 오디오를 서비스로 스트림하고 결과 스트림을 다시 받습니다. 이러한 결과에는 원본 언어의 인식된 텍스트와 대상 언어의 해당 번역이 포함되어 있습니다. 발언이 완료될 때까지 중간 번역이 제공될 수 있으며, 발언이 완료되면 최종 번역이 제공됩니다.
 
 필요에 따라 진정한 음성 대 음성 번역이 가능해지도록 최종 번역의 합성된 오디오 버전이 준비될 수 있습니다.
 
 Speech Translation API는 WebSocket 프로토콜을 사용하여 클라이언트 및 서버 간 전이중 통신 채널을 제공합니다. 그렇지만 WebSocket을 처리할 필요는 없습니다. Speech SDK에서 자동으로 처리하기 때문입니다.
 
-Speech Translation API에서는 다양한 Microsoft 제품 및 서비스를 지원하는 동일한 기술을 사용합니다. 전 세계의 수천 여 기업에서 응용 프로그램과 워크플로에 이미 이 서비스를 사용하고 있습니다.
+Speech Translation API에서는 다양한 Microsoft 제품 및 서비스를 지원하는 동일한 기술을 사용합니다. 전 세계의 수천 여 기업에서 애플리케이션과 워크플로에 이미 이 서비스를 사용하고 있습니다.
 
 ## <a name="about-the-technology"></a>기술 정보
 
