@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 86c45379097f51569d734a46f50edd916428c48a
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b501bcefc1126c3e68a6f10ff0ef85740663aaa4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473064"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167873"
 ---
 # <a name="more-details-about-features-in-preview"></a>미리 보기 기능에 대한 자세한 내용
 이 항목에서는 현재 미리 보기 상태인 기능을 사용하는 방법에 대해 설명합니다.
