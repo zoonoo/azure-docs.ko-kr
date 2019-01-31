@@ -7,23 +7,23 @@ manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: fdfb917a925352d0be58f8fc66c379291dad3195
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 9c6a8df29fd360773880594962fb8048602746e5
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54815126"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177239"
 ---
 # <a name="my-apps-portal-overview"></a>My Apps 포털 개요
 
+회사 또는 학교 계정이 있고 관리자에게 액세스 권한을 받은 경우 My Apps 포털을 사용하여 클라우드 기반 앱을 살펴보고 시작할 수 있습니다.
+
 >[!Important]
 >이 콘텐츠는 사용자를 위한 것입니다. 관리자의 경우 [Azure Active Directory 문서](https://docs.microsoft.com/azure/active-directory)에서 Azure AD(Azure Active Directory) 환경을 설정하고 관리하는 방법에 대한 자세한 정보를 찾을 수 있습니다.
-
-회사 또는 학교 계정이 있고 관리자에게 액세스 권한을 받은 경우 My Apps 포털을 사용하여 클라우드 기반 앱을 살펴보고 시작할 수 있습니다.
 
 |문서 |설명 |
 |------|------------|
