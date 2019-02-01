@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3d029c91debfc8ed3ac24e831224426a2780b763
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 0990ae2c21017c0d6ff25478eb4b5e3bfb4f0d11
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791075"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251438"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Node.js를 사용하여 Conversation Learner 모델 만들기
 
@@ -78,26 +78,18 @@ Project Conversation Learner는 봇에 추가하는 SDK와 SDK가 기계 학습�
 
     이렇게 하면 `cl-bot-01/src/app.ts`의 비어 있는 일반 봇이 실행됩니다.
 
-3. 다음과 같이 Conversation Learner UI를 실행합니다.
-
-    ```bash
-    [open second command prompt window]
-    cd cl-bot-01
-    npm run ui
-    ```
-
-4. 브라우저에서 http://localhost:5050을 엽니다. 
+3. 브라우저에서 http://localhost:3978을 엽니다.
 
 이제 Conversation Learner를 사용하고 있으며 Conversation Learner 모델을 만들고 학습할 수 있습니다.  
 
 > [!NOTE]
-> 시작 시, 초대를 통해 Project Conversation Learner를 사용할 수 있습니다.  http://localhost:5050에 HTTP `403` 오류가 표시되면 계정이 초대를 받지 못한 것입니다.  [초대를 요청](https://aka.ms/conversation-learner-request-invite)하세요.
+> 시작 시, 초대를 통해 Project Conversation Learner를 사용할 수 있습니다.  http://localhost:3978/ui에 HTTP `403` 오류가 표시되면 계정이 초대를 받지 못한 것입니다.  [초대를 요청](https://aka.ms/conversation-learner-request-invite)하세요.
 
 ## <a name="tutorials-demos-and-switching-between-bots"></a>자습서, 데모 및 봇 간 전환
 
 위의 지침에서는 비어 있는 일반 봇을 시작했습니다.  대신, 자습서나 데모 봇을 실행하려면
 
-1. Conversation Learner 웹 UI가 열려 있는 경우 http://localhost:5050/home의 모델 목록으로 돌아갑니다.
+1. Conversation Learner 웹 UI가 열려 있는 경우 http://localhost:3978/ui/home의 모델 목록으로 돌아갑니다.
     
 2. 다른 봇이 실행되고 있는 경우(예: `npm start` 또는 `npm run demo-pizza`) 중지합니다.  UI 프로세스를 중지하거나 웹 브라우저를 닫을 필요는 없습니다.
 
@@ -114,7 +106,7 @@ Project Conversation Learner는 봇에 추가하는 SDK와 SDK가 기계 학습�
   npm run demo-storage
   ```
 
-4. Chrome에서 Conversation Learner 웹 UI로 아직 전환하지 않은 경우 http://localhost:5050/home을 로드하여 전환합니다. 
+4. Chrome에서 Conversation Learner 웹 UI로 아직 전환하지 않은 경우 http://localhost:3978/ui/home을 로드하여 전환합니다. 
 
 5. “자습서 가져오기”를 클릭하고 Conversation Learner UI에서 시작한 데모에 해당하는 데모 모델을 선택합니다.
 
@@ -122,7 +114,7 @@ Project Conversation Learner는 봇에 추가하는 SDK와 SDK가 기계 학습�
 
 ## <a name="create-a-bot-which-includes-back-end-code"></a>백 엔드 코드를 포함하는 봇 만들기
 
-1. Conversation Learner 웹 UI가 열려 있는 경우 http://localhost:5050/home의 모델 목록으로 돌아갑니다.
+1. Conversation Learner 웹 UI가 열려 있는 경우 http://localhost:3978/ui/home의 모델 목록으로 돌아갑니다.
     
 2. 봇이 실행 중인 경우(예: `npm run demo-pizza`) 중지합니다.  UI 프로세스를 중지하거나 웹 브라우저를 닫을 필요는 없습니다.
 
@@ -135,7 +127,7 @@ Project Conversation Learner는 봇에 추가하는 SDK와 SDK가 기계 학습�
     npm start
     ```
 
-5. Chrome에서 Conversation Learner 웹 UI로 아직 전환하지 않은 경우 http://localhost:5050/home을 로드하여 전환합니다. 
+5. Chrome에서 Conversation Learner 웹 UI로 아직 전환하지 않은 경우 http://localhost:3978/ui/home을 로드하여 전환합니다. 
 
 6. Ui에서 새 Conversation Learner 모델을 만들고 학습을 시작합니다.
 

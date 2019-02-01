@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b4cffbd1ce240e4792fba84581dafb1933c71a62
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: f80eadf15148865f62e2d0f51e2e9d96ac4d147a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188554"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190533"
 ---
 # <a name="perform-an-access-review-of-my-azure-ad-directory-roles-in-pim"></a>PIM에서 Azure AD 디렉터리 역할에 대한 액세스 검토 수행
 Azure AD(Active Directory) Privileged Identity Management를 사용하면 기업이 Azure AD 및 기타 Microsoft Online Services(Office 365 또는 Microsoft Intune 등)에서 권한 있는 리소스에 대한 액세스를 관리하는 방법을 간소화합니다.  
@@ -28,9 +28,9 @@ Azure AD(Active Directory) Privileged Identity Management를 사용하면 기업
 액세스 검토에 관심이 있는 권한 있는 역할 관리자 또는 전역 관리자인 경우 [액세스 검토를 시작하는 방법](pim-how-to-start-security-review.md)에서 자세한 내용을 참조하세요.
 
 ## <a name="add-the-privileged-identity-management-application"></a>Privileged Identity Management 애플리케이션 추가
-[Azure 포털](https://portal.azure.com/) 에서 Azure AD PIM(Privileged Identity Management) 응용 프로그램을 사용하여 검토를 수행할 수 있습니다.  Azure AD Privileged Identity Management 애플리케이션이 포털에 없는 경우 다음 단계에 따라 시작합니다.
+[Azure Portal](https://portal.azure.com/)에서 Azure AD PIM(Privileged Identity Management) 애플리케이션을 사용하여 검토를 수행할 수 있습니다.  Azure AD Privileged Identity Management 애플리케이션이 포털에 없는 경우 다음 단계에 따라 시작합니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure 포털의 오른쪽 위에서 사용자 이름을 선택하고 작동할 디렉터리를 선택합니다.
 3. **모든 서비스**를 선택하고 필터 텍스트 상자를 사용하여 **Azure AD Privileged Identity Management**를 검색합니다.
 4. **대시보드에 고정** 옵션을 선택하고 **만들기**를 클릭합니다. Privileged Identity Management 애플리케이션이 열립니다.

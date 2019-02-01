@@ -184,7 +184,7 @@ SAP BW에서 데이터를 복사할 경우 SAP BW 데이터 형식에서 Azure D
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
 | STRING | String |
-| UNIT | String |
+| 단위 | String |
 | DATS | String |
 | NUMC | String |
 | TIMS | String |

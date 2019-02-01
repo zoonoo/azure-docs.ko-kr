@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/22/2018
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: e01eebe41010135d0dc0a2cb4170e6b6687ff546
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 646ebc79e3615b289b60e47c0a38595e7892d8cc
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292697"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55084831"
 ---
 | 리소스 | 제한 |
 | --- | --- |
@@ -24,7 +24,7 @@ ms.locfileid: "52292697"
 | 캐시된 최대 응답 크기 | 2MB |
 | 최대 정책 문서 크기 | 256KB<sup>5</sup> | 
 | 서비스 인스턴스당 최대 사용자 지정 게이트웨이 도메인 수<sup>6</sup> | 20 | 
-| 구독당 최대 서비스 인스턴스 수<sup>7</sup> | 5 | 
+| 구독당 최대 서비스 인스턴스 수<sup>7</sup> | 20 | 
 | 서비스 인스턴스당 최대 구독 수<sup>7</sup> | 500 |
 | 서비스 인스턴스당 최대 클라이언트 인증서 수<sup>7</sup> | 50 | 
 | 서비스 인스턴스당 최대 API 수<sup>7</sup> | 50 | 

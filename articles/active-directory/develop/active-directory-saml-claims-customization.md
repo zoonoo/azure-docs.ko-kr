@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 11132426bb8adb6ede564e706e18f3eddd649bef
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: affdad71c9c97f13c015b35f1c67ee79f2473442
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401880"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075213"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
@@ -58,7 +58,7 @@ SAML 토큰에 발급된 클레임을 편집해야 할만한 두 가지 이유�
 
 `NameIdentifier`(또는 NameID) 클레임의 원하는 소스를 선택합니다. 다음 옵션 중에서 선택할 수 있습니다.
 
-| 이름 | 설명 |
+| Name | 설명 |
 |------|-------------|
 | Email | 사용자의 이메일 주소입니다. |
 | userprincipalName | 사용자의 UPN(사용자 계정 이름)입니다. |

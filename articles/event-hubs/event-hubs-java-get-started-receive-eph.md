@@ -10,20 +10,20 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e29cf43f490bf5e8bac5e5c36b16476f93d80bfa
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0fc9b8b6a8bcd62aafda7c04697ab8b9c096b17e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081964"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296582"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Java를 사용하여 Azure Event Hubs에서 이벤트 수신
 
-Event Hubs는 연결된 디바이스와 응용 프로그램에서 생성되는 엄청난 양의 데이터를 처리 및 분석할 수 있도록 초당 수백만 개의 이벤트를 수용할 수 있는 확장성이 뛰어난 수집 시스템입니다. Event Hubs로 수집된 데이터는 실시간 분석 공급자나 저장소 클러스터를 사용하여 변환하고 저장할 수 있습니다.
+Event Hubs는 연결된 디바이스와 애플리케이션에서 생성되는 엄청난 양의 데이터를 처리 및 분석할 수 있도록 초당 수백만 개의 이벤트를 수용할 수 있는 확장성이 뛰어난 수집 시스템입니다. Event Hubs로 수집된 데이터는 실시간 분석 공급자나 저장소 클러스터를 사용하여 변환하고 저장할 수 있습니다.
 
 자세한 내용은 [Event Hubs 개요][Event Hubs overview]를 참조하세요.
 
-이 자습서에서는 Java로 작성된 콘솔 응용 프로그램을 사용하여 이벤트 허브로 이벤트를 수신하는 방법을 보여 줍니다.
+이 자습서에서는 Java로 작성된 콘솔 애플리케이션을 사용하여 이벤트 허브로 이벤트를 수신하는 방법을 보여줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -32,7 +32,7 @@ Event Hubs는 연결된 디바이스와 응용 프로그램에서 생성되는 �
 * Java 개발 환경. 이 자습서에서는 [Eclipse](https://www.eclipse.org/)를 사용한다고 가정합니다.
 * 활성 Azure 계정. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 만듭니다.
 
-이 자습서의 코드는 전체 작동 중인 응용 프로그램을 확인하기 위해 검사할 수 있는 [GitHub의 EventProcessorSample 코드](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/EventProcessorSample)를 기반으로 합니다.
+이 자습서의 코드는 전체 작동 중인 애플리케이션을 확인하기 위해 검사할 수 있는 [GitHub의 EventProcessorSample 코드](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/EventProcessorSample)를 기반으로 합니다.
 
 ## <a name="receive-messages-with-eventprocessorhost-in-java"></a>Java에서 EventProcessorHost를 사용하여 메시지 수신
 
@@ -43,7 +43,7 @@ Event Hubs는 연결된 디바이스와 응용 프로그램에서 생성되는 �
 EventProcessorHost를 사용하려면 [Azure Storage 계정][Azure Storage account]이 있어야 합니다.
 
 1. [Azure Portal][Azure portal]에 로그온하고 화면 왼쪽에서 **+리소스 만들기**를 클릭합니다.
-2. **저장소**를 클릭한 다음, **저장소 계정**을 클릭합니다. **저장소 계정 만들기** 창에서 저장소 계정에 사용할 이름을 입력합니다. 필드의 나머지 부분을 입력하고 원하는 지역을 선택한 다음 **만들기**를 클릭합니다.
+2. **스토리지**를 클릭한 다음 **Storage 계정**을 클릭합니다. **저장소 계정 만들기** 창에서 저장소 계정에 사용할 이름을 입력합니다. 필드의 나머지 부분을 입력하고 원하는 지역을 선택한 다음 **만들기**를 클릭합니다.
    
     ![저장소 계정 만들기](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
@@ -55,24 +55,24 @@ EventProcessorHost를 사용하려면 [Azure Storage 계정][Azure Storage accou
 
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>EventProcessor 호스트를 사용하여 Java 프로젝트 만들기
 
-Event Hubs에 대한 Java 클라이언트 라이브러리는 [Maven 중앙 리포지토리][Maven Package]의 Maven 프로젝트에 사용할 수 있으며 Maven 프로젝트 파일 내의 다음 종속성 선언을 사용하여 참조할 수 있습니다. 아티팩트 azure-eventhubs-eph의 현재 버전은 2.0.1이고 아티팩트 azure-eventhubs의 현재 버전은 1.0.2입니다.    
+Event Hubs에 대한 Java 클라이언트 라이브러리는 [Maven 중앙 리포지토리][Maven Package]의 Maven 프로젝트에 사용할 수 있으며 Maven 프로젝트 파일 내의 다음 종속성 선언을 사용하여 참조할 수 있습니다. 
 
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
-    <version>1.0.2</version>
+    <version>2.2.0</version>
 </dependency>
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs-eph</artifactId>
-    <version>2.0.1</version>
+    <version>2.4.0</version>
 </dependency>
 ```
 
 다양한 형식의 빌드 환경을 위해, [Maven 중앙 리포지토리][Maven Package]에서 최근에 릴리스된 JAR 파일을 명시적으로 가져올 수 있습니다.  
 
-1. 다음 샘플에서는 먼저 즐겨 찾는 Java 개발 환경에서 콘솔/셸 응용 프로그램에 대한 새 Maven 프로젝트를 만듭니다. 클래스는 `ErrorNotificationHandler`라고 합니다.     
+1. 다음 샘플에서는 먼저 즐겨 찾는 Java 개발 환경에서 콘솔/셸 애플리케이션에 대한 새 Maven 프로젝트를 만듭니다. 클래스는 `ErrorNotificationHandler`라고 합니다.     
    
     ```java
     import java.util.function.Consumer;
@@ -285,7 +285,7 @@ com.microsoft.azure.eventprocessorhost.ICheckpointManager 인터페이스를 구
 com.microsoft.azure.eventprocessorhost.EventProcessorHost 클래스는 EventProcessorHost의 검사점 관리자를 재정의할 수 있는 2가지 생성자를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 이벤트 허브에서 메시지를 받는 Java 애플리케이션을 만들었습니다. Java를 사용하여 이벤트 허브에 이벤트를 보내는 방법을 알아보려면 [이벤트 허브에서 이벤트 보내기 - Java](event-hubs-java-get-started-send.md)를 참조하세요.
+이 빠른 시작에서는 이벤트 허브에서 메시지를 받는 Java 응용 프로그램을 만들었습니다. Java를 사용하여 이벤트 허브에 이벤트를 보내는 방법을 알아보려면 [이벤트 허브에서 이벤트 보내기 - Java](event-hubs-java-get-started-send.md)를 참조하세요.
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

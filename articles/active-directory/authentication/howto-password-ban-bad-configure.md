@@ -3,19 +3,19 @@ title: Azure AD에서 암호를 금지하는 방법
 description: Azure AD의 동적으로 금지된 암호를 사용하여 취약한 암호를 환경에서 금지할 수 있습니다.
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
-ms.openlocfilehash: bc41f8b80719bcc1fee77fd40e4f50df1ebf1a99
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8596e1a3d33041a5e7176b87e868d89ee6dc124d
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428599"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080127"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>사용자 지정 금지 암호 목록 구성
 

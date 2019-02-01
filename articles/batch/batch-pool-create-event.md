@@ -2,7 +2,7 @@
 title: Azure Batch 풀 만들기 이벤트 | Microsoft Docs
 description: Batch 풀 만들기 이벤트에 대한 참조입니다.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: 794b3c83ff58967ef8169bed98f7b369335029ae
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: lahugh
+ms.openlocfilehash: 176f00de77c2d353d6efeb8b5a535a607b8f3204
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259843"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470600"
 ---
 # <a name="pool-create-event"></a>풀 만들기 이벤트
 
@@ -65,14 +65,14 @@ ms.locfileid: "54259843"
 
 ###  <a name="bk_csconf"></a> cloudServiceConfiguration
 
-|요소 이름|type|메모|
+|요소 이름|Type|메모|
 |------------------|----------|-----------|
 |osFamily|문자열|풀의 가상 머신에 설치할 Azure 게스트 OS 제품군입니다.<br /><br /> 가능한 값은 다음과 같습니다.<br /><br /> **2** – OS 제품군 2이며, Windows Server 2008 R2 SP1에 해당합니다.<br /><br /> **3** – OS 제품군 3이며, Windows Server 2012에 해당합니다.<br /><br /> **4** – OS 제품군 4이며, Windows Server 2012 R2에 해당합니다.<br /><br /> 자세한 내용은 [Azure 게스트 OS 릴리스](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases)를 참조하세요.|
 |targetOSVersion|문자열|풀의 가상 머신에 설치할 Azure 게스트 OS 버전입니다.<br /><br /> 기본값은 지정된 제품군의 최신 운영 체제 버전을 지정하는 **\*** 입니다.<br /><br /> 기타 허용된 값은 [Azure 게스트 OS 릴리스](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases)를 참조하세요.|
 
 ###  <a name="bk_vmconf"></a> virtualMachineConfiguration
 
-|요소 이름|type|메모|
+|요소 이름|Type|메모|
 |------------------|----------|-----------|
 |[imageReference](#bk_imgref)|복합 형식|사용할 플랫폼 또는 Marketplace 이미지에 대한 정보를 지정합니다.|
 |nodeAgentSKUId|문자열|계산 노드에서 프로비전되는 Batch 노드 에이전트의 SKU입니다.|
@@ -80,7 +80,7 @@ ms.locfileid: "54259843"
 
 ###  <a name="bk_imgref"></a> imageReference
 
-|요소 이름|type|메모|
+|요소 이름|Type|메모|
 |------------------|----------|-----------|
 |publisher|문자열|이미지의 게시자입니다.|
 |제품|문자열|이미지 제안입니다.|
@@ -89,12 +89,12 @@ ms.locfileid: "54259843"
 
 ###  <a name="bk_winconf"></a> windowsConfiguration
 
-|요소 이름|type|메모|
+|요소 이름|Type|메모|
 |------------------|----------|-----------|
 |enableAutomaticUpdates|BOOLEAN|가상 머신에 자동 업데이트가 활성화되었는지 여부를 나타냅니다. 이 속성을 지정하지 않을 경우 기본값은 true입니다.|
 
 ###  <a name="bk_netconf"></a> networkConfiguration
 
-|요소 이름|type|메모|
+|요소 이름|Type|메모|
 |------------------|--------------|----------|
 |subnetId|문자열|풀의 계산 노드가 생성된 서브넷의 리소스 식별자를 지정합니다.|

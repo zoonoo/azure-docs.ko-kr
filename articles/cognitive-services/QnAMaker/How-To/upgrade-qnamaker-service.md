@@ -6,16 +6,16 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: 5e5392f04b7894f0fe39a940865035d967c2d19a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 5cef98fedc0e2e29582c8cde8c75837880f1cf58
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629941"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216067"
 ---
 # <a name="upgrade-your-qna-maker-service"></a>QnA Maker 서비스 업그레이드
 초기 생성 이후 QnA Maker 스택의 개별 구성 요소를 업그레이드하도록 선택할 수 있습니다. [여기](https://aka.ms/qnamaker-docs-capacity)에서 종속 구성 요소 및 SKU 선택의 세부 정보를 참조하세요.

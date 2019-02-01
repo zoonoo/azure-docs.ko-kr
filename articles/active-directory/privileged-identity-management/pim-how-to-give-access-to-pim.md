@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9d5fce5a80ac1f281fdbe6afe7f9a97816807ccc
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: d7d064d9be3b180985c343b8dffc20f274fae048
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287090"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163129"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-pim"></a>PIM 관리를 위해 다른 관리자에게 액세스 권한 부여
 
@@ -31,7 +31,7 @@ ms.locfileid: "43287090"
 
 ## <a name="grant-access-to-manage-pim"></a>PIM을 관리하기 위한 액세스 권한 부여
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
@@ -69,7 +69,7 @@ ms.locfileid: "43287090"
 
 권한 있는 역할 관리자 역할에서 사용자를 제거하기 전에 항상 두 명 이상의 사용자가 이 역할에 할당되어 있는지 확인합니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 

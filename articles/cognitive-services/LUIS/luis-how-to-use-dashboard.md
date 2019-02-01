@@ -1,25 +1,25 @@
 ---
 title: 앱 대시보드
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: 한눈에 앱을 모니터링할 수 있는 시각화된 보고 도구인 응용 프로그램 대시보드에 대해 알아봅니다.
+description: 한눈에 앱을 모니터링할 수 있는 시각화된 보고 도구인 애플리케이션 대시보드에 대해 알아봅니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 6f6de278e802b83623413b0bf70e556d083818c8
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 3f263e6e6b74c1d9392ec58f176962b0c37d70c5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140611"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209998"
 ---
 # <a name="model-and-usage-statistics-in-the-dashboard"></a>대시보드에서 모델 및 사용 현황 통계
-앱 대시보드를 사용하면 한눈에 앱을 모니터링할 수 있습니다. **내 앱** 페이지에서 응용 프로그램 이름을 클릭하여 앱을 열고 맨 위 패널에서 **대시보드**를 선택하면 **대시보드**가 표시됩니다. 
+앱 대시보드를 사용하면 한눈에 앱을 모니터링할 수 있습니다. **내 앱** 페이지에서 애플리케이션 이름을 클릭하여 앱을 열고 맨 위 패널에서 **대시보드**를 선택하면 **대시보드**가 표시됩니다. 
 
 > [!CAUTION]
 > LUIS의 최신 메트릭이 필요한 경우에는 다음을 수행해야 합니다.
@@ -30,7 +30,7 @@ ms.locfileid: "53140611"
 **대시보드** 페이지에는 시간에 따른 [엔드포인트](luis-glossary.md#endpoint) 사용 현황뿐 아니라 현재 모델 상태를 비롯한 LUIS 앱의 개요가 제공됩니다. 
   
 ## <a name="app-status"></a>앱 상태
-대시보드에는 앱이 마지막으로 학습 및 게시된 날짜 및 시간을 비롯하여 응용 프로그램의 학습 및 게시 상태가 표시됩니다.  
+대시보드에는 앱이 마지막으로 학습 및 게시된 날짜 및 시간을 비롯하여 애플리케이션의 학습 및 게시 상태가 표시됩니다.  
 
 ![대시보드 - 앱 상태](./media/luis-how-to-use-dashboard/app-state.png)
 
@@ -62,7 +62,7 @@ ms.locfileid: "53140611"
 2. 목록에서 기간을 선택한 다음, 뒤로 화살표 ![뒤로 화살표](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) 를 클릭하여 차트를 표시합니다.
 
 ### <a name="key-usage"></a>키 사용
-응용 프로그램의 끝점 키에서 사용된 적중 횟수입니다. 끝점 키에 대한 자세한 내용은 [LUIS의 키](luis-concept-keys.md)를 참조하세요. 
+애플리케이션의 끝점 키에서 사용된 적중 횟수입니다. 끝점 키에 대한 자세한 내용은 [LUIS의 키](luis-concept-keys.md)를 참조하세요. 
   
 ## <a name="intent-breakdown"></a>의도 분석
 **의도 분석**은 레이블이 지정된 발화 수 또는 엔드포인트 적중 횟수에 따른 의도 분석을 표시합니다. 이 요약 그래프는 앱에서 각 의도의 상대적 중요성을 보여 줍니다. 마우스 포인터로 슬라이스를 가리키면 의도 이름 및 레이블이 지정된 발화 수/끝점 적중 횟수의 합계 중 의도가 나타내는 비율이 표시됩니다. 

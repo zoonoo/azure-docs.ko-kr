@@ -6,17 +6,17 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 50942634bd50974453c242d1980db9fc589bd47e
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 76484a2340e527dc016f321dbafa29adb7c358b5
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579212"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157537"
 ---
 # <a name="detecting-domain-specific-content"></a>도메인 특정 콘텐츠 검색
 
@@ -33,7 +33,7 @@ Computer Vision은 태그 지정 및 최상위 수준 분류 외에도 특수(�
 
 Computer Vision에서 지원되는 도메인 특정 모델을 나열할 수 있습니다. 현재 Computer Vision은 도메인 관련 콘텐츠를 검색하는 데 다음과 같은 도메인 특정 모델을 지원합니다.
 
-| 이름 | 설명 |
+| Name | 설명 |
 |------|-------------|
 | 유명인 | `people_` 범주에서 분류된 이미지에 대해 지원되는 유명인 인식 |
 | 랜드마크 | `outdoor_` 또는 `building_` 범주에서 분류된 이미지에 대해 지원되는 랜드마크 인식 |

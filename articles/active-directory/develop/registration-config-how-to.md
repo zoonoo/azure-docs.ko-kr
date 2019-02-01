@@ -7,23 +7,23 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: d9db2182c20663cc048a5c9501df2586db25d2f3
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: fb5449ec33467a78de0eef7a345b687901063fe1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364934"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102297"
 ---
 # <a name="how-to-configure-endpoints"></a>엔드포인트 구성 방법
 
-[Azure Portal](https://portal.azure.com)에서 응용 프로그램의 인증 엔드포인트를 찾을 수 있습니다.
+[Azure Portal](https://portal.azure.com)에서 애플리케이션의 인증 엔드포인트를 찾을 수 있습니다.
 
 -   [Azure Portal](https://portal.azure.com)로 이동합니다.
 

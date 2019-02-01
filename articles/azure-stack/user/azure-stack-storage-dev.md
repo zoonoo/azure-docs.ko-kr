@@ -10,12 +10,12 @@ ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 071d58f53389367833df6379c68c27ecc4771fa1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 857e12664defb1fc0106dd0d3012b77a89f826c2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238825"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495108"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Azure Stack 저장소 개발 도구를 사용 하 여 시작
 
@@ -124,7 +124,7 @@ public static final String storageConnectionString =
 
 Azure Stack에 대 한 끝점 접미사는 인스턴스를 선언에 지정 됩니다.
 
-```nodejs
+```javascript
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
 'myaccount.blob.local.azurestack.external');
 ```
@@ -180,7 +180,7 @@ EndpointSuffix=local.azurestack.external
 * [.NET을 사용하여 Azure Blob Storage 시작](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 * [Java에서 Blob Storage를 사용하는 방법](../../storage/blobs/storage-java-how-to-use-blob-storage.md)
 * [Node.js에서 Blob Storage를 사용하는 방법](../../storage/blobs/storage-nodejs-how-to-use-blob-storage.md)
-* Azure Blob, 큐, 테이블 또는 File Storage를 사용하는 Windows 스토어 앱을 만드는 방법을 알아봅니다.
+* [C++에서 Blob Storage를 사용하는 방법](../../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [를 스토리지 계정의 이름으로 바꾸고 ](../../storage/blobs/storage-php-how-to-use-blobs.md)을 File Storage 공유의 이름으로 바꿉니다.
 * [Python에서 Azure Blob storage를 사용 하는 방법](../../storage/blobs/storage-python-how-to-use-blob-storage.md)
 * [Ruby에서 Blob Storage를 사용하는 방법](../../storage/blobs/storage-ruby-how-to-use-blob-storage.md)

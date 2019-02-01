@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/26/2018
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: a49ce4e997a21e0db707c851f5ea46817bcb642e
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 84a51f65ef46c390f84308ab17cf83859a16c3b8
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49960186"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55428520"
 ---
 다음 표는 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)에 지정된 할당량과 제한을 나열합니다. Event Hubs 가격에 대한 자세한 내용은 [Event Hubs 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요.
 
@@ -24,7 +24,7 @@ ms.locfileid: "49960186"
 | Event Hub당 파티션 수 |엔터티 |- |32 |
 | Event Hub당 소비자 그룹 수 |엔터티 |- |20 |
 | 네임스페이스당 AMQP 연결 수 |네임스페이스 |추가 연결에 대한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |5,000 |
-| Event Hubs 이벤트의 최대 크기|엔터티 |- |256 KB |
+| Event Hubs 이벤트의 최대 크기|엔터티 |- |1MB |
 | Event Hub 이름의 최대 크기 |엔터티 |- |50자 |
 | 소비자 그룹당 비 Epoch 수신자 수 |엔터티 |- |5 |
 | 이벤트 데이터의 최대 보존 기간 |엔터티 |- |1-7일 |

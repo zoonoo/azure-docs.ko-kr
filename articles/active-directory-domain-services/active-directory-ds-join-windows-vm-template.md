@@ -8,19 +8,19 @@ manager: daveba
 editor: curtand
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 32b670a4b51c2dc60fe89bc2b9ad0ef18b0ac263
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 5b70a16d1da8f939a23bf7a96a03098463cfc529
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856641"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203337"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 관리되는 도메인에 Windows Server 가상 머신 조인
 이 문서에서는 Resource Manager 템플릿을 사용하여 Azure AD Domain Services 관리되는 도메인에 Windows Server 가상 머신을 조인하는 방법에 대해 설명합니다.
@@ -100,7 +100,7 @@ Windows Server 가상 컴퓨터를 배포하고 관리되는 도메인에 조인
 
 
 ## <a name="related-content"></a>관련 콘텐츠
-* [Azure PowerShell 개요](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.0)
+* [Azure PowerShell 개요](/powershell/azure/overview)
 * [Azure 빠른 시작 템플릿 - 도메인에 새 VM 조인](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 * [Azure 빠른 시작 템플릿 - 도메인에 기존 VM 조인](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 * [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../azure-resource-manager/resource-group-template-deploy.md)

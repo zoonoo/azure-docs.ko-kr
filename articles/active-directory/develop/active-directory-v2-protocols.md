@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 12/01/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2d0530e2d7b97c4b3fda84f796de1a0e2857e2ac
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 4c9e3c689a7b61e10d63272dd80815b11cacc71e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872002"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075426"
 ---
 # <a name="v20-protocols---oauth-20-and-openid-connect"></a>v2.0 프로토콜 - OAuth 2.0 및 OpenID Connect
 
@@ -66,7 +66,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 | --- | --- |
 | `common` | 개인 Microsoft 계정과 Azure AD의 회사/학교 계정이 모두 있는 사용자가 애플리케이션에 로그인할 수 있습니다. |
 | `organizations` | Azure AD의 회사/학교 계정이 있는 사용자만 애플리케이션에 로그인할 수 있습니다. |
-| `consumers` | 개인 Microsoft 계정(MSA)이 있는 사용자만이 응용 프로그램에 로그인 할 수 있습니다. |
+| `consumers` | 개인 Microsoft 계정(MSA)이 있는 사용자만이 애플리케이션에 로그인 할 수 있습니다. |
 | `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` 또는 `contoso.onmicrosoft.com` | 특정 Azure AD 테넌트의 회사/학교 계정이 있는 사용자만 애플리케이션에 로그인할 수 있습니다. Azure AD 테넌트의 친숙한 도메인 이름 또는 테넌트의 GUID 식별자를 사용할 수 있습니다. |
 
 이러한 엔드포인트와 상호 작용하는 방법을 알아보려면 [프로토콜](#protocols) 섹션에서 특정 앱 형식을 선택하고 자세한 정보 링크를 따릅니다.
@@ -81,7 +81,7 @@ v2.0 엔드포인트에서 사용되는 다양한 토큰 형식에 대한 자세
 
 일부 예제 요청을 확인할 준비가 되었다면 아래 자습서 중 하나를 시작합니다. 각각 특정 인증 시나리오에 해당합니다. 사용자에게 맞는 흐름을 결정하는 데 도움이 필요하면 [v2.0으로 빌드할 수 있는 앱 형식](v2-app-types.md)을 확인합니다.
 
-* [OAuth 2.0를 사용하여 모바일 및 네이티브 응용 프로그램 빌드](v2-oauth2-auth-code-flow.md)
+* [OAuth 2.0를 사용하여 모바일 및 네이티브 애플리케이션 빌드](v2-oauth2-auth-code-flow.md)
 * [OpenID Connect를 사용하는 웹앱 빌드](v2-protocols-oidc.md)
 * [OAuth 2.0 암시적 흐름으로 단일 페이지 앱 구축](v2-oauth2-implicit-grant-flow.md)
 * [OAuth 2.0 클라이언트 자격 증명 흐름으로 디먼 또는 서버 쪽 프로세스 빌드](v2-oauth2-client-creds-grant-flow.md)

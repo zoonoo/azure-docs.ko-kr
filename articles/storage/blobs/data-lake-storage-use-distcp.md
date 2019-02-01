@@ -3,17 +3,17 @@ title: DistCp를 사용하여 Azure Data Lake Storage Gen2 미리 보기에 데�
 description: DistCp 도구를 사용하여 Data Lake Storage Gen2 미리 보기에서 데이터를 복사합니다.
 services: storage
 author: seguler
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: seguler
-ms.openlocfilehash: 6c231de0a37eda4f5593c9fbbfa5e611a97996a0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9c12f96399de218241c8aa7ed686113c17a7410c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52977048"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244150"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2-preview"></a>DistCp를 사용하여 Azure Storage Blob과 Azure Data Lake Storage Gen2 미리 보기 간에 데이터 복사
 
@@ -89,7 +89,7 @@ DistCp의 가장 낮은 세분성은 단일 파일이므로 최대 동시 복사
 
         m = (4 nodes * 96GB) / 3072MB = 128 mappers
 
-다른 응용 프로그램에서 메모리를 사용하고 있으면 DistCp에 대한 클러스터 YARN 메모리 중에서 일부만 사용하도록 선택할 수 있습니다.
+다른 애플리케이션에서 메모리를 사용하고 있으면 DistCp에 대한 클러스터 YARN 메모리 중에서 일부만 사용하도록 선택할 수 있습니다.
 
 ### <a name="copying-large-datasets"></a>큰 데이터 세트 복사
 

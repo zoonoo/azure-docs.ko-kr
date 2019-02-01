@@ -7,16 +7,16 @@ author: tulasim88
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: qna-maker`
+ms.subservice: qna-maker`
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: f5587e14a0250e7312f1c95598b481bd052931c3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 428aea5775c1777f38d7ea563cfe3af700c27f02
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094834"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211834"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>자습서: Azure Bot Service v3로 QnA 봇 만들기
 
@@ -84,7 +84,7 @@ ms.locfileid: "53094834"
 
 ## <a name="connect-your-qna-maker-knowledge-base-to-the-bot"></a>QnA Maker 기술 자료를 봇에 연결
 
-1. **응용 프로그램 설정**을 열고 **QnAKnowledgebaseId**, **QnAAuthKey** 및 **QnAEndpointHostName** 필드를 편집하여 QnA Maker 기술 자료의 값을 포함합니다.
+1. **애플리케이션 설정**을 열고 **QnAKnowledgebaseId**, **QnAAuthKey** 및 **QnAEndpointHostName** 필드를 편집하여 QnA Maker 기술 자료의 값을 포함합니다.
 
     ![앱 설정](../media/qnamaker-tutorials-create-bot/application-settings.PNG)
 

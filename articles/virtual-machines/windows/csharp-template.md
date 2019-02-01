@@ -3,7 +3,7 @@ title: C# 및 Resource Manager 템플릿을 사용하여 VM 배포 | Microsoft D
 description: C# 및 Resource Manager 템플릿을 사용하여 Azure VM을 배포하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: zarhoads
-ms.openlocfilehash: f3d83fa8ba5a78c7aacc7014e9ec50fb447bb1c6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: cynthn
+ms.openlocfilehash: 005b0e74084325606a9a07df6b36b9100cad1750
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953691"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885951"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>C# 및 Resource Manager 템플릿을 사용하여 Azure Virtual Machine 배포
 이 문서에서는 C#을 사용하여 Azure Resource Manager 템플릿을 배포하는 방법을 보여줍니다. 만든 템플릿은 단일 서브넷을 사용하는 새 가상 네트워크에서 Windows Server를 실행하는 단일 가상 머신을 배포합니다.
@@ -201,7 +201,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
     graphURL=https://graph.windows.net/
     ```
 
-    **&lt;subscription-id&gt;** 를 구독 식별자, **&lt;application-id&gt;** 를 Active Directory 응용 프로그램 식별자, **&lt;authentication-key&gt;** 를 응용 프로그램 키, **&lt;tenant-id&gt;** 를 테넌트 식별자로 바꿉니다.
+    **&lt;subscription-id&gt;** 를 구독 식별자, **&lt;application-id&gt;** 를 Active Directory 애플리케이션 식별자, **&lt;authentication-key&gt;** 를 애플리케이션 키, **&lt;tenant-id&gt;** 를 테넌트 식별자로 바꿉니다.
 
 3. azureauth.properties 파일을 저장합니다.
 4. AZURE_AUTH_LOCATION이라는 Windows 환경 변수를 만든 권한 부여 파일의 전체 경로로 설정합니다. 예를 들어 다음 PowerShell 명령을 사용할 수 있습니다.

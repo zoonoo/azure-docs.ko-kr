@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2018
-ms.author: cwatson
+ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: a15d055505ca0f28ad28b477e90e6fe859cc9ac7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 516d8e9116bbdcd421897b5a5c2d9755e7e636c8
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094290"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903556"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Azure의 청구 정보에 대한 액세스 관리
 
@@ -36,7 +36,7 @@ EA 고객을 제외한 모든 고객은 다음 사용자 역할 중 하나를 �
 - 공동 관리자
 - 소유자
 - 참가자
-- 읽기 권한자
+- 판독기
 - 청구 읽기 권한자
 
 역할을 할당하려면 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.

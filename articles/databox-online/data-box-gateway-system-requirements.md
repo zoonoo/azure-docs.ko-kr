@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 10/17/2018
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: da22c09a227069af0eeb42ab67a59189ae494185
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 81df0a776cd22490342230567deacb23097cd12e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256675"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094192"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Azure Data Box Gateway 시스템 요구 사항(미리 보기)
 
@@ -46,8 +46,8 @@ Data Box Gateway용 기본 호스트 시스템은 다음 리소스를 전용으�
 
 | **운영 체제/플랫폼** | **버전** |
 | --- | --- |
-| Windows Server |2012 R2 <br> 2016 |
-|  Windows |8, 10 |
+| Windows Server |2012 R2 <br> 2016 <br> 2019 |
+| Windows |8, 10 |
 | SUSE Linux |Enterprise Server 12(x86_64)|
 | Ubuntu |16.04.3 LTS|
 | CentOS | 7.0 |
@@ -64,7 +64,7 @@ Data Box Gateway용 기본 호스트 시스템은 다음 리소스를 전용으�
 | **운영 체제/플랫폼**  |**버전**   |**참고 사항**  |
 |---------|---------|---------|
 |Hyper-V  |  2012 R2 <br> 2016  |         |
-|VMware ESXi     | 6.0 <br> 6.5        |VMware 도구는 지원되지 않습니다.         |
+|VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |VMware 도구는 지원되지 않습니다.         |
 
 
 ## <a name="supported-storage-accounts"></a>지원되는 저장소 계정
@@ -115,7 +115,7 @@ Data Box Gateway에 대해 지원되는 저장소 형식의 목록은 다음과 
 
 ## <a name="url-patterns-for-firewall-rules"></a>방화벽 규칙에 대한 URL 패턴
 
-네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. Data Box Gateway 디바이스 및 Data Box Gateway 서비스는 Azure Service Bus, Azure Active Directory Access Control, 저장소 계정 및 Microsoft 업데이트 서버 등의 다른 Microsoft 애플리케이션에 의존합니다. 이러한 애플리케이션과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 애플리케이션과 연결된 URL 패턴은 달라질 수 있습니다. 따라서 네트워크 관리자는 Data Box Gateway에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다.
+네트워크 관리자는 URL 패턴을 기준으로 하는 고급 방화벽 규칙이 인바운드 및 아웃바운드 트래픽을 필터링하도록 구성할 수 있습니다. Data Box Gateway 장치 및 Data Box Gateway 서비스는 Azure Service Bus, Azure Active Directory Access Control, 저장소 계정 및 Microsoft 업데이트 서버 등의 다른 Microsoft 애플리케이션에 의존합니다. 이러한 애플리케이션과 연결된 URL 패턴을 사용하여 방화벽 규칙을 구성할 수 있습니다. 이러한 애플리케이션과 연결된 URL 패턴은 달라질 수 있습니다. 따라서 네트워크 관리자는 Data Box Gateway에 대한 방화벽 규칙을 모니터링하고 필요에 따라 업데이트해야 합니다.
 
 Data Box Gateway 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아웃바운드 트래픽에 대한 방화벽 규칙을 설정하는 것이 좋습니다. 그러나 보안 환경을 만드는 데 필요한 고급 방화벽 규칙을 설정하려면 아래 정보를 사용할 수 있습니다.
 
