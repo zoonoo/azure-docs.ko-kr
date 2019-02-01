@@ -6,22 +6,22 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 177fe9da8bbe821a69eae02d89a225e5d4009331
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 344b26b16f74cd44982e3c93fa69295792daa9a0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900481"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190645"
 ---
 # <a name="affiliation-entity"></a>Affiliation 엔터티
 
 <sub> *다음 특성은 Affiliation 엔터티에 한정됩니다. (Ty = '5') </sub>
 
-이름    |설명                            |type       | 작업
+Name    |설명                            |Type       | 작업
 ------- | ------------------------------------- | --------- | ----------------------------
 Id      |엔터티 ID                              |Int64      |같음
 AfN     |소속의 정규화된 이름        |문자열     |같음
@@ -31,6 +31,6 @@ ECC     |소속의 총 예상 인용 횟수 |Int32      |없음
 
 ## <a name="extended-metadata-attributes"></a>확장 메타데이터 특성 ##
 
-이름    | 설명               
+Name    | 설명               
 --------|---------------------------    
 PC      |소속의 문서 수
