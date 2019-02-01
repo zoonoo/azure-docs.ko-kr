@@ -7,7 +7,7 @@ items:
     items:
     - name: AKS 소개
       href: ../aks/intro-kubernetes.md
-    - name: AKS 클러스터 배포
+    - name: 빠른 시작 - AKS 클러스터 배포
       href: ../aks/kubernetes-walkthrough.md
     expanded: true
   - name: ACI(Container Instances)
@@ -26,25 +26,23 @@ items:
   - name: ACR(Container Registry)
     href: https://docs.microsoft.com/azure/container-registry/
     items:
-    - name: 레지스트리 만들기 - CLI
+    - name: 빠른 시작 - 레지스트리 만들기
       href: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
-    - name: 방법
+    - name: 자습서 - 컨테이너 이미지 빌드
       items:
-      - name: 이미지 밀어넣기 및 끌어오기
-        href: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli
-      - name: 리포지토리 보기
-        href: https://docs.microsoft.com/azure/container-registry/container-registry-repositories
-      - name: 서비스 주체 만들기
-        href: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal?toc=%2fazure%2fcontainer-registry%2ftoc.json
-      - name: 레지스트리로 인증
-        href: https://docs.microsoft.com/azure/container-registry/container-registry-authentication
-      - name: ACR 웹후크 사용
-        href: https://docs.microsoft.com/azure/container-registry/container-registry-webhook
+      - name: 1 - Azure에서 이미지 빌드
+        href: ../container-registry/container-registry-tutorial-quick-task.md
+      - name: 2 - 이미지 빌드 자동화
+        href: ../container-registry/container-registry-tutorial-build-task.md
+      - name: 3 - 기본 이미지 업데이트 빌드
+        href: ../container-registry/container-registry-tutorial-base-image-update.md
   - name: Web App for Containers
     href: https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro
     items:
     - name: 컨테이너용 Azure Web Apps에 사용자 지정 Docker 이미지 사용
       href: https://docs.microsoft.com/azure/app-service/containers/tutorial-custom-docker-image
+    - name: 자습서 - 다중 컨테이너 앱
+      href: https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app
   - name: Service Fabric
     href: https://docs.microsoft.com/azure/service-fabric/
     items:
@@ -73,7 +71,7 @@ items:
       href: https://docs.microsoft.com/cli/azure/acs
     - name: Azure Container Registry(az acr)
       href: https://docs.microsoft.com/cli/azure/acr
-    - name: 컨테이너용 Web Apps(az appservice)
+    - name: Web App for Containers(az appservice)
       href: https://docs.microsoft.com/cli/azure/appservice
     - name: Azure App Service Web App(az webapp)
       href: https://docs.microsoft.com/cli/azure/webapp
@@ -81,9 +79,9 @@ items:
       href: https://docs.microsoft.com/cli/azure/sf
     - name: Azure Virtual Machines(az vm)
       href: https://docs.microsoft.com/cli/azure/vm
-ms.openlocfilehash: 7c74fe2302665964ac01908f4591a158424a8da7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9ee48a00784c0ca9fa00507e2956e34e7e6792d5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33769456"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486234"

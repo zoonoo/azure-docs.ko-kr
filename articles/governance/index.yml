@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 78d5f767f137b8b1e925b95efb60136353401ce9
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: d99fcc9a8bb69926da7538edc06ae2b7533c86be
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298623"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507429"
 documentType: LandingData
 title: Azure 관리 - 거버넌스
 metadata:
@@ -52,7 +52,7 @@ sections:
         src: ./media/policy-illustration.svg
       title: 정책
     - href: ./blueprints/
-      html: <p>일관성 있고 반복 가능한 환경을 만들도록 동적으로 구독에 배포할 수 있는 <i>아티팩트</i>(리소스 그룹, 정책, 역할 할당, 리소스 관리자 템플릿 등)로 구성된 Azure 네이티브 패키지를 만듭니다.</p>
+      html: <p>일관성 있고 반복 가능한 환경을 만들기 위해 동적으로 구독에 배포할 수 있는 <i>아티팩트</i>(리소스 그룹, 정책, 역할 할당, Resource Manager 템플릿 등)로 구성된 Azure 네이티브 패키지를 만듭니다.</p>
       image:
         src: ./media/blueprints-illustration.svg
       title: Blueprints

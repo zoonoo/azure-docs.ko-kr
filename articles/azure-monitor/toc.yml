@@ -648,6 +648,8 @@ items:
     items:
     - name: 메트릭 탐색기에서 메트릭 차트 만들기
       href: platform/metrics-charts.md
+    - name: 메트릭 탐색기 차트 예제
+      href: platform/metric-chart-samples.md
     - name: 활동 로그의 이벤트 보기
       href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
     - name: 서비스 알림 보기
@@ -1019,9 +1021,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 코드 샘플
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 8c78f79b08b389f7570d1a726e5ffcaef56bdfa3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 1199720ddd3014c52c8436e06a638876a7ecb486
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104603"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297755"

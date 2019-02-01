@@ -1,21 +1,21 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f8083d9db71b9f3c7d80444d574ed5c89b918f6c
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 89376bf654a23b37e004a1b9b00e32a0c2ac3e2a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900366"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495075"
 documentType: LandingData
 title: 컨테이너용 Azure
 metadata:
   document_id: 
-  title: 컨테이너용 Azure - 자습서, API 참조
-  description: 컨테이너에 대한 훌륭한 빠른 시작, 자습서 및 도구를 찾아볼 수 있는 아래 리소스를 사용하여 Azure에서 앱 개발을 시작합니다.
+  title: 컨테이너용 Azure - 빠른 시작, 자습서, API 참조
+  description: 컨테이너의 빠른 시작, 자습서 및 도구를 사용하여 Azure에서 컨테이너 앱을 관리하고 배포하기 시작하세요.
   keywords: Azure, 컨테이너, Docker, API, Kubernetes
-  author: bketelsen
-  ms.author: brketels
-  manager: listonb
-  ms.date: 09/14/2017
+  author: dlepow
+  ms.author: danlep
+  manager: jeconnoc
+  ms.date: 01/08/2019
   ms.topic: article
   ms.prod: azure
   featureFlags:
@@ -26,24 +26,7 @@ metadata:
 sections:
 - items:
   - type: markdown
-    text: >
-      컨테이너에 대한 훌륭한 자습서 및 도구를 찾아볼 수 있는 아래 리소스를 사용하여 Azure에서 앱 개발을 시작합니다.
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
-    items:
-    - href: https://docs.microsoft.com/azure/container-instances/container-instances-quickstart
-      html: <p>Azure Container Instances와 컨테이너화된 앱 만들기</p>
-      image:
-        src: https://docs.microsoft.com/media/common/i_get-started.svg
-      title: 시작
-    - href: https://docs.microsoft.com/azure/container-service/kubernetes/cli-samples
-      html: <p>Azure Container Service에 대한 Azure CLI 샘플</p>
-      image:
-        src: https://docs.microsoft.com/media/common/i_code-samples.svg
-      title: 코드 샘플
+    text: "컨테이너에서 Azure 도구 및 서비스를 사용하여 컨테이너 앱을 배포하고 관리하기 시작하세요. \n"
 - title: 5분 빠른 시작
   items:
   - type: paragraph
@@ -73,36 +56,31 @@ sections:
       title: Azure Container Instances에서 주문형 컨테이너 앱 실행
       image:
         src: /azure/media/index/containerinstances.svg
-- title: 무료 Pluralsight 동영상 교육
-  items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
-    items:
-    - href: https://go.microsoft.com/fwlink/?linkid=2012827
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-      title: " Azure 관리자"
-- title: 샘플
-  items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="https://azure.microsoft.com/resources/samples/app-service-java-deploy-image-from-acr-to-linux/">서비스로 시작 - 컨테이너 레지스트리로 Linux 웹앱 관리 - Java</a>
-    - html: <a href="https://azure.microsoft.com/resources/samples/service-fabric-containers/">Service Fabric 컨테이너 샘플</a>
-    - html: <a href="https://azure.microsoft.com/resources/samples/container-service-python-manage/">Azure 클러스터의 Docker 컨테이너에 배포 및 연결(영문)</a>
 - title: 단계별 자습서
   items:
   - type: paragraph
-    text: AKS(Azure Kubernetes Service)를 사용하는 방법을 알아봅니다.
+    text: Azure 서비스를 사용하여 컨테이너 앱을 배포하고, 관리하고, 업데이트하는 방법 알아보기
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">응용 프로그램에서 컨테이너 이미지 만들기</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">Azure Container Registry에 컨테이너 이미지 업로드</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">AKS 클러스터 배포</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Kubernetes에서 컨테이너 이미지 실행</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-scale">응용 프로그램 및 Kubernetes 인프라 크기 조정</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Kubernetes에서 실행 중인 응용 프로그램 업데이트</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-monitor">Log Analytics를 사용하여 Kubernetes 모니터링</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Azure Kubernetes Service에 컨테이너 빌드 및 배포</a>
+    - html: <a href="/azure/service-fabric/service-fabric-host-app-in-a-container">Azure Service Fabric에 .NET 컨테이너 앱 빌드 및 배포</a>
+    - html: <a href="/azure/app-service/containers/tutorial-multi-container-app">Web App for Containers에서 다중 컨테이너 앱 만들기</a>
+    - html: <a href="/azure/container-registry/container-registry-tutorial-quick-task">Azure Container Registry 작업을 사용하여 컨테이너 이미지 빌드 및 배포</a>
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Azure Container Instances에 컨테이너 빌드 및 배포</a>
+- title: Microsoft Learn을 통해 기술 쌓기
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Azure Container Instances를 사용하여 Docker 컨테이너 실행
+      href: /learn/modules/run-docker-with-azure-container-instances/
+      image:
+        src: /learn/achievements/run-docker-with-azure-container-instances.svg
+        href: /learn/modules/run-docker-with-azure-container-instances/
+    - title: Azure Container Registry를 사용하여 컨테이너 이미지 빌드 및 저장
+      href: /learn/modules/build-and-store-container-images/
+      image:
+        src: /learn/achievements/build-and-store-container-images.svg
+        href: /learn/modules/build-and-store-container-images/

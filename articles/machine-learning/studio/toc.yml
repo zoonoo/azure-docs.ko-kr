@@ -15,8 +15,6 @@ items:
   - name: 질문과 대답
     displayName: FAQ
     href: faq.md
-  - name: 새로운 기능
-    href: whats-new.md
   expanded: true
 - name: 자습서
   items:
@@ -41,8 +39,6 @@ items:
     - name: 6 -웹 서비스 액세스
       displayName: consume
       href: walkthrough-6-access-web-service.md
-  - name: R로 시작
-    href: r-quickstart.md
 - name: 샘플
   items:
   - name: 사용 가능한 데이터 세트
@@ -120,6 +116,8 @@ items:
         href: debug-models.md
     - name: R 및 Python 사용
       items:
+      - name: R로 시작
+        href: r-quickstart.md
       - name: R 스크립트 실행
         href: extend-your-experiment-with-r.md
       - name: 사용자 지정 R 모듈
@@ -208,21 +206,25 @@ items:
     href: /rest/api/machinelearning
 - name: 리소스
   items:
+  - name: 서비스 업데이트
+    href: https://azure.microsoft.com/updates/?product=machine-learning-studio
+  - name: 지원 받기
+    href: support-aml-studio.md
   - name: Azure 로드맵
     href: https://azure.microsoft.com/roadmap/
+  - name: 국가별 가용성
+    href: https://azure.microsoft.com/regions/services/
   - name: 가격
     href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: R 개발자 가이드
     href: ../r-developers-guide.md
-  - name: Net# 신경망 사용자 지정
+  - name: 신경망 사용자 지정(Net#)
     href: azure-ml-netsharp-reference-guide.md
-  - name: 지원 받기
-    href: support-aml-studio.md
   - name: ML 제품 비교
     href: ../service/overview-more-machine-learning.md
-ms.openlocfilehash: 12fa71315c1cb43570505d2428804f4a5348a266
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 27cd57a52b80006482f50f96120e8eaf8a8cb00e
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156091"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512196"

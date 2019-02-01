@@ -43,15 +43,15 @@ items:
     items:
     - name: 보충 설명서
       href: avere-vfxt-additional-resources.md
-    - name: 컨트롤러 없이 클러스터 역할 만들기
-      href: avere-vfxt-pre-role.md
+    - name: 사용자 지정된 컨트롤러 액세스 역할
+      href: avere-vfxt-controller-role.md
     - name: Avere 클러스터 DNS 구성
       href: avere-vfxt-configure-dns.md
     - name: 소유자가 아닌 사용자에게 Avere vFXT 배포 권한 부여
       href: avere-vfxt-non-owner.md
-ms.openlocfilehash: 319745fad14ca3cce97e8735def901f380132eff
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: ee0f2be03f44e1d458c118f5d5d963824922f99a
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52273714"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300331"

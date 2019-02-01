@@ -29,7 +29,7 @@ items:
     items:
     - name: 내 디렉터리 역할 활성화
       href: pim-how-to-activate-role.md
-    - name: 내 리소스 역할 활성화
+    - name: 내 Azure 리소스 역할 활성화
       href: pim-resource-roles-activate-your-roles.md
   - name: PIM 구성
     items:
@@ -53,7 +53,7 @@ items:
       href: pim-how-to-configure-security-alerts.md
     - name: 감사 기록 보기
       href: pim-how-to-use-audit-log.md
-  - name: 리소스 역할 관리
+  - name: Azure 리소스 역할 관리
     items:
     - name: 역할 할당
       href: pim-resource-roles-assign-roles.md
@@ -81,18 +81,18 @@ items:
         href: pim-how-to-start-security-review.md
       - name: 액세스 검토 완료
         href: pim-how-to-complete-review.md
-    - name: 리소스 역할
+    - name: Azure 리소스 역할
       items:
-      - name: 내 리소스 역할 검토
+      - name: 내 Azure 리소스 역할 검토
         href: pim-resource-roles-perform-access-review.md
       - name: 액세스 검토 시작
         href: pim-resource-roles-start-access-review.md
       - name: 액세스 검토 완료
         href: pim-resource-roles-complete-access-review.md
   expanded: true
-ms.openlocfilehash: 84c50c4d3fe6472f53d64ba42f462a6fdf2783fe
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: a7c314bd6fd7fdc96900411db78a37b45b8c3e07
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913124"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512359"

@@ -80,7 +80,7 @@ items:
       href: consistency-levels.md
     - name: 올바른 일관성 수준 선택
       href: consistency-levels-choosing.md
-    - name: 일관성 수준 및 Cosmos DB API
+    - name: 일관성 수준 및 Azure Cosmos DB API
       href: consistency-levels-across-apis.md
     - name: 일관성, 가용성 및 성능의 장단점
       href: consistency-levels-tradeoffs.md
@@ -98,7 +98,7 @@ items:
     items:
     - name: 개요
       href: partitioning-overview.md
-    - name: 논리 파티션
+    - name: 분할 및 수평 확장
       href: partition-data.md
     - name: 가상 파티션 키 만들기
       href: synthetic-partition-keys.md
@@ -122,7 +122,7 @@ items:
       items:
       - name: 개요
         href: index-overview.md
-      - name: 인덱싱 정책
+      - name: 인덱스 정책
         href: index-policy.md
       - name: 인덱스 형식
         href: index-types.md
@@ -136,13 +136,13 @@ items:
         href: read-change-feed.md
       - name: 변경 피드 프로세서
         href: change-feed-processor.md
-      - name: Azure Functions를 사용한 변경 피드
+      - name: Azure Functions 트리거
         href: change-feed-functions.md
     - name: TTL(Time to live)
       href: time-to-live.md
     - name: 고유 키 제약 조건
       href: unique-keys.md
-    - name: 트랜잭션 및 낙관적 동시성
+    - name: 트랜잭션 및 낙관적 동시성 제어
       href: database-transactions-optimistic-concurrency.md
   - name: 서버 쪽 프로그래밍
     items:
@@ -168,9 +168,9 @@ items:
       href: optimize-cost-reads-writes.md
     - name: 다중 지역 비용 최적화
       href: optimize-cost-regions.md
-    - name: 개발/테스트 워크로드 최적화
+    - name: 개발/테스트 비용 최적화
       href: optimize-dev-test.md
-    - name: 예약 용량으로 최적화
+    - name: 예약 용량으로 비용 최적화
       href: cosmos-db-reserved-capacity.md
   - name: 보안
     items:
@@ -186,7 +186,7 @@ items:
       href: vnet-service-endpoint.md
   - name: 엔터프라이즈 준비
     items:
-    - name: 온라인 백업 및 복원
+    - name: 온라인 백업 및 주문형 복원
       href: online-backup-and-restore.md
     - name: 규정 준수
       href: compliance.md
@@ -264,7 +264,7 @@ items:
           href: how-to-use-stored-procedures-triggers-udfs.md
       - name: 데이터 형식
         items:
-        - name: Datetime
+        - name: DateTime
           href: working-with-dates.md
         - name: 지리 공간적
           href: geospatial.md
@@ -467,19 +467,19 @@ items:
   expanded: true
 - name: 방법 가이드
   items:
-  - name: 데이터베이스 계정 관리
+  - name: Azure Cosmos 계정 관리
     href: how-to-manage-database-account.md
   - name: 글로벌 분포
     items:
-    - name: 일관성 관리
+    - name: 일관성 수준 관리
       href: how-to-manage-consistency.md
-    - name: 충돌 관리
+    - name: 충돌 해결 정책 구성
       href: how-to-manage-conflicts.md
   - name: 프로비전된 처리량
     items:
-    - name: 컨테이너 처리량 프로비전
+    - name: 컨테이너에서 처리량 프로비전
       href: how-to-provision-container-throughput.md
-    - name: 데이터베이스 처리량 프로비전
+    - name: 데이터베이스에서 처리량 프로비전
       href: how-to-provision-database-throughput.md
   - name: 컨테이너 및 항목 작업
     items:
@@ -489,9 +489,13 @@ items:
       href: how-to-query-container.md
     - name: TTL(Time to Live) 구성
       href: how-to-time-to-live.md
+    - name: Azure Storage 탐색기를 사용하여 데이터 작업
+      href: storage-explorer.md
+    - name: Azure Cosmos 탐색기를 사용하여 데이터 작업
+      href: data-explorer.md
     - name: 인덱싱
       items:
-      - name: 인덱싱 구성
+      - name: 인덱싱 관리
         href: how-to-manage-indexing-policy.md
   - name: 보안
     items:
@@ -501,22 +505,18 @@ items:
       href: how-to-configure-vnet-service-endpoint.md
     - name: CORS(원본 간 리소스 공유) 구성
       href: how-to-configure-cross-origin-resource-sharing.md
-    - name: Key Vault를 사용하여 보안
+    - name: Key Vault를 사용하여 Azure Cosmos 키 보호
       href: access-secrets-from-keyvault.md
   - name: 엔터프라이즈 준비
     items:
     - name: 백업에서 데이터 복원
       href: how-to-backup-and-restore.md
-  - name: 관리
+  - name: Azure Cosmos DB 리소스 관리
     items:
     - name: Powershell을 사용하여 관리
       href: manage-account-with-powershell.md
     - name: Azure CLI를 사용하여 관리
       href: manage-with-cli.md
-    - name: 저장소 탐색기를 사용하여 관리
-      href: storage-explorer.md
-    - name: 데이터 탐색기를 사용하여 관리
-      href: data-explorer.md
   - name: 로깅
     items:
     - name: 진단 로깅
@@ -627,9 +627,9 @@ items:
       href: use-cases.md
     - name: 소셜 미디어 앱
       href: social-media-apps.md
-ms.openlocfilehash: 72d6169090749f81025dabed2b919e6c0a1dc70f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 93d8abe428305ce62fb95afabc6ab71dfc8f67b4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094481"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464877"

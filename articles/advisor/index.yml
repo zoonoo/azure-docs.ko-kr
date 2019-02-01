@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: f4f35156f9b2b356e3e47695725351562af9796f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55501177"
+documentType: LandingData
+title: Azure 관리자 설명서
+metadata:
+  title: Azure Advisor 설명서 | Microsoft Docs
+  description: 
+  services: advisor
+  author: rboucher
+  layout: LandingPage
+  ms.service: advisor
+  ms.tgt_pltfrm: na
+  ms.topic: landing-page
+  ms.date: 02/01/2019
+  ms.author: robb
+abstract:
+  description: Azure 관리자는 Azure 배포를 최적화하기 위한 모범 사례를 따르는 데 도움이 되는 개인 설정된 클라우드 컨설턴트입니다. 리소스 구성 및 사용 원격 분석을 분석 합니다. 그런 다음 전체 Azure 사용을 줄일 수 있는 기회를 찾는 동안 성능, 보안 및 고가용성을 향상시키는 데 도움이 되는 솔루션을 권장합니다.
+sections:
+- title: 
+  items:
+  - type: paragraph
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/advisor.svg
+      text: Azure Adviser에 대해 알아보기
+      href: /azure/advisor/advisor-overview
+    - image:
+        src: media/index/get-started.svg
+      text: Azure Adviser 시작
+      href: /azure/advisor/advisor-get-started
+- title: 참고 자료
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST (영문)
+      html: <p><a href="https://docs.microsoft.com/rest/api/advisor/">REST API 참조</a></p>
+    - title: 명령줄
+      html: <p><a href="https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest">CLI(공용 언어 인프라)</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0">Azure PowerShell</a></p>
