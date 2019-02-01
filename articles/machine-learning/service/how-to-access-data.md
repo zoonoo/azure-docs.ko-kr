@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: 데이터 저장소를 사용하여 Azure Machine Learning Service로 학습 중에 데이터 스토리지에 액세스하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 235ad729be434c8329a74e71abfe713480756316
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: a4960f3e29011948ec30fbc24222d8a6dccf6b8a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187146"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252118"
 ---
 # <a name="access-data-during-training-from-your-datastores"></a>데이터 저장소에서 학습 중에 데이터 액세스
 데이터 저장소를 사용하여 Azure Machine Learning 워크플로의 데이터에 액세스하고 상호 작용합니다.

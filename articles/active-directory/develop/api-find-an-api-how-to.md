@@ -7,19 +7,19 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: 8d0b9f219d7a0bc61e3d12acfaae6015963401f9
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 8ca892341f064a0b2289e6415658c5d4e2d51ddc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44723880"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157579"
 ---
 # <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>사용자 지정 개발 애플리케이션에 대해 필요한 특정 API를 찾는 방법
 
@@ -31,12 +31,12 @@ API에 액세스하려면 액세스 범위 및 역할을 구성해야 합니다.
 
 ## <a name="configuring-a-client-application-to-access-web-apis"></a>웹 API에 액세스하는 클라이언트 애플리케이션 구성
 
-앱 등록에 권한을 추가할 때 표시된 웹 API에 **API 액세스 권한을 추가**할 수 있습니다. 웹 API에 액세스하려면 [웹 API에 액세스할 수 있는 자격 증명 또는 권한 추가](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-credentials-or-permissions-to-access-web-apis)에 설명된 단계를 따르세요.
+앱 등록에 권한을 추가할 때 표시된 웹 API에 **API 액세스 권한을 추가**할 수 있습니다. 웹 API에 액세스하려면 [웹 API에 액세스할 수 있는 자격 증명 또는 권한 추가](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)에 설명된 단계를 따르세요.
 
 ## <a name="next-steps"></a>다음 단계
 
--   [Azure Active Directory와 응용 프로그램 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
+-   [Azure Active Directory와 애플리케이션 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
--   [Azure Active Directory 응용 프로그램 매니페스트 이해](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)
+-   [Azure Active Directory 애플리케이션 매니페스트 이해](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)
 
 

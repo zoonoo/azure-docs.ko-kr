@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 2ae44edf0d9356000f64ab72fd609f1921cf095c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.subservice: common
+ms.openlocfilehash: cd3ae85e88151e234d42a29ad871a18c7829b05c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316593"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454847"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure Import/Export 서비스 로그 파일 형식
 Microsoft Azure Import/Export 서비스가 드라이브에서 가져오기 작업 또는 내보내기 작업의 일부로 작업을 수행하는 경우 로그는 해당 작업과 연결된 저장소 계정의 블록 Blob에 작성됩니다.  
@@ -101,7 +101,7 @@ properties-status ::=
 
 다음 테이블에서는 로그 파일의 요소에 대해 설명합니다.  
   
-|XML 요소|type|설명|  
+|XML 요소|Type|설명|  
 |-----------------|----------|-----------------|  
 |`DriveLog`|XML 요소|드라이브 로그를 나타냅니다.|  
 |`Version`|특성, 문자열|로그 형식의 버전입니다.|  
@@ -110,9 +110,9 @@ properties-status ::=
 |`Blob`|중첩 XML 요소|Blob을 나타냅니다.|  
 |`Blob/BlobPath`|문자열|Blob의 URI입니다.|  
 |`Blob/FilePath`|문자열|드라이브의 파일에 대한 상대 경로입니다.|  
-|`Blob/Snapshot`|Datetime|내보내기 작업에 대한 Blob의 스냅숏 버전입니다.|  
+|`Blob/Snapshot`|DateTime|내보내기 작업에 대한 Blob의 스냅숏 버전입니다.|  
 |`Blob/Length`|정수 |바이트 단위인 Blob의 총 길이입니다.|  
-|`Blob/LastModified`|Datetime|내보내기 작업에 대해 Blob를 마지막으로 수정한 날짜/시간입니다.|  
+|`Blob/LastModified`|DateTime|내보내기 작업에 대해 Blob를 마지막으로 수정한 날짜/시간입니다.|  
 |`Blob/ImportDisposition`|문자열|가져오기 작업에 대한 Blob의 가져오기 처리입니다.|  
 |`Blob/ImportDisposition/@Status`|특성, 문자열|가져오기 처리의 상태입니다.|  
 |`PageRangeList`|중첩 XML 요소|페이지 Blob에 대한 페이지 범위 목록을 나타냅니다.|  

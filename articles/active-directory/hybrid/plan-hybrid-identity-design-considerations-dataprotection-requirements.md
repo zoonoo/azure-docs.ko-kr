@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/30/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 34c284f3fdd78d8b2f56ec7c36e139f9ac9d78bf
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c31f104b3a7ae37d768a2a483a70385852dc47ca
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473506"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156822"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>강력한 ID 솔루션을 통해 데이터 보안을 향상하기 위한 계획
 데이터를 보호하는 첫 번째 단계는 해당 데이터에 액세스할 수 있는 사용자를 식별하는 것입니다. 또한 인증 및 권한 부여 기능을 제공하기 위해 시스템을 통합할 수 있는 ID 솔루션이 필요합니다. 인증 및 권한 부여는 종종 서로 혼동되고 역할은 오해됩니다. 아래 그림에 표시된 대로 실제로 매우 다릅니다.

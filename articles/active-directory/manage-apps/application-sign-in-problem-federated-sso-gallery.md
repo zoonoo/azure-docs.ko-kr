@@ -7,7 +7,7 @@ author: barbkess
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 8a21f1ac0839a37455fe06537242edc6e43731a4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8d19c2815eb6d7c6ad8cac002716913c329903de
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477303"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177800"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>페더레이션된 Single Sign-On에 대해 구성된 갤러리 애플리케이션에 로그인하는 문제
 
@@ -34,7 +34,7 @@ ms.locfileid: "54477303"
 
 ## <a name="application-not-found-in-directory"></a>애플리케이션을 디렉터리에서 찾을 수 없습니다
 
-*오류 AADSTS70001: ‘https://contoso.com’ 식별자가 포함된 애플리케이션이 디렉터리에 없습니다*.
+*오류 AADSTS70001: 식별자가 'https://contoso.com'인 애플리케이션이 디렉터리에 없습니다*.
 
 **가능한 원인**
 
@@ -66,7 +66,7 @@ Azure AD에서 식별자 값을 업데이트하고 SAML 요청에서 애플리�
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>회신 주소가 애플리케이션에 대해 구성된 회신 주소와 일치하지 않습니다.
 
-*오류 AADSTS50011: 회신 주소 ‘https://contoso.com’이 애플리케이션에 대해 구성된 회신 주소와 일치하지 않습니다.*
+*오류 AADSTS50011: 'https://contoso.com' 회신 주소가 애플리케이션에 대해 구성된 회신 주소와 일치하지 않습니다*.
 
 **가능한 원인**
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 6a6782c5e1cd7b5f42b619cd52470b640813a905
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: afa4b3861e9fb7f91fd9f5d540353c5fad23efe0
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145432"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913617"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Device Provisioning Service를 사용하여 X.509 CA 인증서에 대해 소유 증명을 수행하는 방법
 
@@ -54,7 +54,7 @@ CA 인증서를 프로비전 서비스에 등록하고 소유 증명하는 동�
 Microsoft는 서명된 확인 인증서를 만들 수 있는 도구 및 샘플을 제공합니다. 
 
 - **Azure IoT Hub C SDK**는 확인 코드를 사용하여 CA 및 리프 인증서를 만들고 소유 증명을 수행하기 위해 PowerShell(Windows) 및 Bash(Linux) 스크립트를 제공합니다. 작업 폴더에 시스템과 관련된 [파일](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates)을 다운로드하고 [CA 인증서 관리 추가 정보](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) 의 지침에 따라 CA 인증서에서 소유 증명을 수행할 수 있습니다. 
-- **Azure IoT Hub C# SDK**에는 [그룹 인증서 확인 샘플](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample)이 포함됩니다. 이 기능은 소유 증명을 수행하는 데 사용할 수 있습니다.
+- **Azure IoT Hub C# SDK**에는 [그룹 인증서 확인 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample)이 포함됩니다. 이 기능은 소유 증명을 수행하는 데 사용할 수 있습니다.
  
 > [!IMPORTANT]
 > 소유 증명을 수행하는 것 외에도 이전에 언급된 PowerShell 및 Bash 스크립트를 통해 디바이스를 인증하고 프로비전하는 데 사용할 수 있는 루트 인증서, 중간 인증서 및 리프 인증서를 만들 수 있습니다. 이러한 인증서는 개발 용도로만 사용되어야 합니다. 프로덕션 환경에서 사용되지 않아야 합니다. 

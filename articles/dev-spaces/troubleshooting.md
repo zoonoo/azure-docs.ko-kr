@@ -3,19 +3,19 @@ title: 문제 해결 | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 09/11/2018
 ms.topic: article
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 9973635593f7a8143ac1f3980b6e09caba44710b
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 37ee9fec8940231a01b0014b020ca3f0dffb53bf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413611"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467104"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -186,7 +186,7 @@ Azure Dev Spaces는 C# 및 Node.js에 대해 네이티브 지원을 제공합니
 1. 포트 구성을 확인합니다. 지정된 포트 번호는 아래 모든 자산에서 **동일**해야 합니다.
     * **Dockerfile:** `EXPOSE` 명령으로 지정됩니다.
     * **[Helm 차트](https://docs.helm.sh):** 서비스에 대해 `externalPort` 및 `internalPort` 값으로 지정됩니다(종종 `values.yml` 파일에 위치함).
-    * 응용 프로그램 코드에서 열리는 모든 포트(예: Node.js에서 `var server = app.listen(80, function () {...}`)
+    * 애플리케이션 코드에서 열리는 모든 포트(예: Node.js에서 `var server = app.listen(80, function () {...}`)
 
 
 ## <a name="config-file-not-found"></a>구성 파일을 찾을 수 없음

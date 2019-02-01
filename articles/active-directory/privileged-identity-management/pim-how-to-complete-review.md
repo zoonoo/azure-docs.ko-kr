@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 3955f4bf9b579ae40424c2650f9d3b4c2ac4f030
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: fc4dcc22cf22f70fcf441c3c8a54aeda2ffd7588
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188589"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189684"
 ---
 # <a name="complete-an-access-review-for-azure-ad-directory-roles-in-pim"></a>PIM에서 Azure AD 디렉터리 역할에 대한 액세스 검토 완료
 [액세스 검토가 시작](pim-how-to-start-security-review.md)되면 권한 있는 역할 관리자가 권한이 있는 액세스를 검토할 수 있습니다. Azure AD PIM(Privileged Identity Management)이 사용자에게 해당 액세스를 검토하도록 요청하는 메일을 자동으로 전송합니다. 사용자가 메일을 받지 못한 경우 [액세스 검토를 수행하는 방법](pim-how-to-perform-security-review.md)에 대한 지침을 보낼 수 있습니다.
@@ -26,7 +26,7 @@ ms.locfileid: "43188589"
 액세스 검토 기간이 끝나거나 모든 사용자가 자체 검토를 완료하면 이 문서의 단계에 따라 검토를 관리하고 결과를 표시합니다.
 
 ## <a name="manage-access-reviews"></a>액세스 검토 관리
-1. [Azure 포털](https://portal.azure.com/) 로 이동하고 대시보드에서 **Azure AD Privileged Identity Management** 응용 프로그램을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)로 이동하고 대시보드에서 **Azure AD Privileged Identity Management** 애플리케이션을 선택합니다.
 2. 대시보드의 **액세스 검토** 섹션을 선택합니다.
 3. 관리하려는 액세스 검토를 선택합니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "43188589"
 액세스 검토 결과를 수동으로 적용하려는 경우 검토를 내보낼 수 있습니다. **내보내기** 단추는 CSV 파일 다운로드를 시작합니다. Excel 또는 CSV 파일을 여는 다른 프로그램에서 결과를 관리할 수 있습니다.
 
 ### <a name="delete"></a>삭제
-더 이상 검토가 필요 없는 경우 검토를 삭제합니다. **삭제** 단추는 PIM 응용 프로그램에서 검토를 제거합니다.
+더 이상 검토가 필요 없는 경우 검토를 삭제합니다. **삭제** 단추는 PIM 애플리케이션에서 검토를 제거합니다.
 
 > [!IMPORTANT]
 > 삭제가 일어나기 전에 경고가 표시되지 않으므로 삭제를 원하는 검토인지 확인해야 합니다. 

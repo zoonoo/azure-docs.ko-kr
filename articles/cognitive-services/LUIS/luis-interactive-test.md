@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d355e14d15dc6a393a6fabb90418cb3949fe0cf5
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: ed4bed77267790b10b44486f0e9c8242fe952cd8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601970"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207414"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>LUIS 포털에서 LUIS 앱 테스트
 <a name="train-your-app"></a>
@@ -26,6 +26,7 @@ ms.locfileid: "53601970"
 <a name="test-your-app"></a>
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
+
 ## <a name="test-an-utterance"></a>발화 테스트
 
 1. **내 앱** 페이지에서 해당 이름을 선택하여 앱에 액세스합니다. 
@@ -40,13 +41,8 @@ ms.locfileid: "53601970"
 
     ![대화형 테스트에서 잘못된 의도 식별](./media/luis-how-to-interactive-test/test-weather-1.png)
 
-## <a name="clear-test-panel"></a>테스트 패널 지우기
-테스트 콘솔에서 입력된 모든 테스트 발화 및 그 결과를 지우려면 **테스트 패널**의 왼쪽 위 모서리에 있는 **다시 시작**을 선택합니다. 
-
-## <a name="close-test-panel"></a>테스트 패널 닫기
-**테스트** 패널을 닫으려면 **테스트** 단추를 다시 선택합니다.
-
 ## <a name="inspect-score"></a>점수 검사
+
 **검사** 패널에서 테스트 결과의 세부 정보를 검사합니다. 
  
 1. **테스트** 슬라이드 아웃 패널이 열려 있을 때 비교할 발화에 **검사**를 선택합니다. 
@@ -72,9 +68,11 @@ ms.locfileid: "53601970"
 ![감정 분석이 포함된 테스트 창 이미지](./media/luis-how-to-interactive-test/sentiment.png)
 
 ## <a name="correct-matched-patterns-intent"></a>일치하는 패턴의 의도 수정
+
 [패턴](luis-concept-patterns.md)을 사용 중이고 발화가 패턴과 일치했지만 잘못된 의도가 예측된 경우에는 패턴 옆의 **편집** 링크를 선택한 다음, 올바른 의도를 선택합니다.
 
 ## <a name="compare-with-published-version"></a>게시된 버전과 비교
+
 게시된 [엔드포인트](luis-glossary.md#endpoint) 버전을 사용하여 앱의 활성 버전을 테스트할 수 있습니다. **검사** 패널에서 **게시된 버전과 비교**를 선택합니다. 게시된 모델에 대한 모든 테스트는 Azure 구독 할당량 잔액에서 차감됩니다. 
 
 ![게시된 버전과 비교](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
@@ -88,12 +86,14 @@ ms.locfileid: "53601970"
 ## <a name="additional-settings-in-test-panel"></a>테스트 패널의 추가 설정
 
 ### <a name="luis-endpoint"></a>LUIS 엔드포인트
+
 여러 개의 LUIS 엔드포인트가 있는 경우 테스트의 [게시됨] 창에서 **추가 설정** 링크를 사용하여 테스트에 사용되는 엔드포인트를 변경합니다. 사용할 엔드포인트가 확실하지 않은 경우 기본 **Starter_Key**를 선택합니다. 
 
 ![[추가 설정] 링크가 강조 표시된 테스트 패널](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
 
 ### <a name="view-bing-spell-check-corrections-in-test-panel"></a>테스트 패널에서 Bing Spell Check 정정 내용 보기
+
 맞춤법 정정을 보기 위한 요구 사항: 
 
 * 게시된 앱
@@ -124,6 +124,7 @@ ms.locfileid: "53601970"
 <a name="view single-point utterance data"></a>
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+
 ## <a name="batch-testing"></a>일괄 테스트
 일괄 테스트 [개념](luis-concept-batch-test.md)을 확인하고 발화를 일괄 테스트하는 [방법](luis-how-to-batch-test.md)을 알아봅니다.
 

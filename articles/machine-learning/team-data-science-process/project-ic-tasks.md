@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6684cc9a0166df9c6d230f6b2a8c05acec5f91b3
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 6a52907fa6c0e2483479031fbb3d1ad68a121d95
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136764"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475561"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Team Data Science Process에서 개별 기여자에 대한 작업
 
@@ -58,7 +58,7 @@ TDSP에서 데이터 과학 프로젝트를 실행하는 방법에 대한 지침
 - Git가 컴퓨터에 설치되어야 합니다. DSVM(데이터 과학 Virtual Machine)을 사용하는 경우 Git가 사전 설치되어 있으므로 계속 진행할 수 있습니다. 그렇지 않은 경우 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)을 참조하세요.  
 - **Windows DSVM**을 사용하는 경우 컴퓨터에 [GCM(Git Credential Manager)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)이 설치되어 있어야 합니다. README.md 파일에서 **다운로드 및 설치** 섹션으로 스크롤한 다음 *최신 설치 관리자*를 클릭합니다. 이렇게 하면 최신 설치 관리자 페이지로 이동합니다. 여기서 .exe 설치 관리자를 다운로드하여 실행합니다. 
 - **Linux DSVM**을 사용하는 경우 DSVM에서 SSH 공개 키를 만들고 그룹 Azure DevOps Services 서버에 추가합니다. SSH에 대한 자세한 내용은 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)의 **SSH 공개 키 만들기** 섹션을 참조하세요. 
-- 팀 리더 및/또는 프로젝트 리더가 DSVM에 탑재해야 하는 Azure 파일 저장소를 만든 경우 해당 Azure 파일 저장소 정보를 가져와야 합니다. 
+- 팀 리더 및/또는 프로젝트 리더가 DSVM에 탑재해야 하는 Azure File Storage를 만든 경우 해당 Azure 파일 스토리지 정보를 가져와야 합니다. 
 
 ## <a name="step-1-3-clone-group-team-and-project-repositories-to-local-machine"></a>1-3단계: 로컬 머신에 그룹, 팀 및 프로젝트 리포지토리 복제
 
@@ -98,7 +98,7 @@ TDSP에서 데이터 과학 프로젝트를 실행하는 방법에 대한 지침
 
 ## <a name="step-4-5-mount-azure-file-storage-to-your-dsvm-optional"></a>4-5단계: DSVM에 Azure 파일 스토리지 탑재(선택 사항)
 
-Azure 파일 저장소를 DSVM에 탑재하려면 [데이터 과학 팀에 대한 팀 리더 작업](team-lead-tasks.md)의 섹션 4에서 설명하는 지침을 참조하세요.
+Azure File Storage를 DSVM에 탑재하려면 [데이터 과학 팀에 대한 팀 리더 작업](team-lead-tasks.md)의 섹션 4에서 설명하는 지침을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

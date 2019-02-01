@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: 0db6cc02be385ab82d41ecef214c5b158892c415
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: common
+ms.openlocfilehash: 7fbbcefde583d7e464633d9011e591b4c9bf6f65
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628137"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460321"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure Storage와 함께 Azure PowerShell 사용
 
@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 연습에서는 일반 PowerShell 창에 명령을 입력하거나, [Windows PowerShell ISE(Integrated Scripting Environment)](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-)를 사용하여 예제를 진행하면서 편집기에 명령을 입력한 다음 한 번에 하나 이상의 명령을 테스트할 수 있습니다. 실행하려는 행을 강조 표시한 다음 선택 항목 실행을 클릭하여 해당 명령만 실행할 수 있습니다.
 
-저장소 계정에 대한 자세한 내용은 [Storage 소개](storage-introduction.md) 및 [Azure Storage 계정 정보](storage-create-storage-account.md)를 참조하세요.
+스토리지 계정에 대한 자세한 내용은 [Storage 소개](storage-introduction.md) 및 [Azure Storage 계정 정보](storage-create-storage-account.md)를 참조하세요.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
@@ -74,7 +74,7 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName 
 ```
 
-이제 기존 저장소 계정을 가리키는 $storageAccount가 있습니다.
+이제 기존 스토리지 계정을 가리키는 $storageAccount가 있습니다.
 
 ### <a name="create-a-storage-account"></a>저장소 계정 만들기 
 
@@ -103,7 +103,7 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
 $ctx = $storageAccount.Context
 ```
 
-이 스크립트는 다음 PowerShell cmdlet을 사용합니다. 
+이 스크립트는 다음 PowerShell cmdlet를 사용합니다. 
 
 *   [Get-AzLocation](/powershell/module/az.resources/get-azlocation) - 유효한 위치 목록을 검색합니다. 이 예제에서는 위치에 `eastus`를 사용합니다.
 
@@ -189,7 +189,7 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 
 [Azure Storage Analytics](storage-analytics.md)는[Storage Analytics 메트릭](/rest/api/storageservices/about-storage-analytics-metrics)과 [Storage Analytics 로깅](/rest/api/storageservices/about-storage-analytics-logging)으로 구성됩니다. 
 
-**Storage Analytics 메트릭**은 저장소 계정의 상태를 모니터링하는 데 사용할 수 있는 Azure Storage 게정의 메트릭을 수집하는 데 사용됩니다. Blob, 파일, 테이블 및 큐에 대해 메트릭을 사용할 수 있습니다.
+**Storage Analytics 메트릭**은 스토리지 계정의 상태를 모니터링하는 데 사용할 수 있는 Azure Storage 게정의 메트릭을 수집하는 데 사용됩니다. Blob, 파일, 테이블 및 큐에 대해 메트릭을 사용할 수 있습니다.
 
 **Storage Analytics 로깅**은 서버 쪽에서 발생하며, 이를 통해 Storage 계정의 성공한 요청 및 실패한 요청에 대한 세부 정보를 기록할 수 있습니다. 이러한 로그를 사용하여 테이블, 큐 및 Blob에 대한 읽기, 쓰기 및 삭제 작업뿐만 아니라 실패한 요청의 이유에 대한 세부 정보를 볼 수 있습니다. 로깅은 Azure Files에 사용할 수 없습니다.
 
@@ -203,7 +203,7 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 
 * PowerShell을 사용하여 저장소 로깅 데이터를 사용하도록 설정하고 검색하는 방법을 알아보려면 [PowerShell을 사용하여 저장소 로깅을 활성화하는 방법](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#how-to-enable-storage-logging-using-powershell)과 [저장소 로깅 로그 데이터 찾기](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#finding-your-storage-logging-log-data)를 참조하세요.
 
-* Storage 메트릭 및 저장소 로깅을 사용하여 저장소 문제를 해결하는 방법에 대한 자세한 정보는 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
+* Storage 메트릭 및 스토리지 로깅을 사용하여 스토리지 문제를 해결하는 방법에 대한 자세한 정보는 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
 
 ## <a name="manage-the-data-in-the-storage-account"></a>저장소 계정의 데이터 관리
 
@@ -214,7 +214,7 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 * [PowerShell을 사용하여 큐를 관리하는 방법](../queues/storage-powershell-how-to-use-queues.md)
 * [PowerShell을 사용하여 Azure Table Storage 작업 수행](../../storage/tables/table-storage-how-to-use-powershell.md)
 
-Azure Cosmos DB 테이블 API는 턴키 글로벌 배포, 짧은 대기 시간 읽기 및 쓰기, 자동 보조 인덱싱 및 전용 처리량과 같은 테이블 저장소를 위한 고급 기능을 제공 합니다. 
+Azure Cosmos DB 테이블 API는 턴키 글로벌 배포, 짧은 대기 시간 읽기 및 쓰기, 자동 보조 인덱싱 및 전용 처리량과 같은 Table Storage를 위한 고급 기능을 제공 합니다. 
 
 * 자세한 내용은 [Azure Cosmos DB 테이블 API](../../cosmos-db/table-introduction.md)를 참조하세요. 
 

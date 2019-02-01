@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning 모델을 사용하여 모델을 배포한 경우 생성된 웹 서비스를 사용하는 방법을 알아봅니다. REST API를 노출하는 웹 서비스입니다. 선택한 프로그래밍 언어를 사용하여 이 API에 대한 클라이언트를 만듭니다.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: efa24fcb624c7613ce16028d7ba06af4d4d2153c
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: b83542a11ce2351214ac8f15a6902d1a90f871ee
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753390"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242266"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
@@ -84,7 +84,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> 키를 다시 생성해야 하는 경우 [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#regen-key)를 사용합니다.
+> 키를 다시 생성해야 하는 경우 [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)를 사용합니다.
 
 ## <a name="request-data"></a>요청 데이터
 

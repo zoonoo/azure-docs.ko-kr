@@ -9,12 +9,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 1/17/2019
-ms.openlocfilehash: ef33d8962848636ee53ac6fd3f084b9c2a59e29d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 45ba049717f2b9874bbac8d6493e13c2afc4b8f2
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820582"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910651"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Visual Studio Code용 PySpark 대화형 환경 설정
 
@@ -22,9 +22,9 @@ ms.locfileid: "54820582"
 
 **python/pip** 명령을 사용하여 홈 경로에서 가상 환경을 빌드합니다. 다른 버전을 사용하려면 **python/pip** 명령의 기본 버전을 수동으로 변경해야 합니다. 자세한 내용은 [update-alternatives](https://linux.die.net/man/8/update-alternatives)를 참조하세요.
 
-1. [Python](https://www.python.org/) 및 [pip](https://pip.pypa.io/en/stable/installing/)를 설치합니다.
+1. [Python](https://www.python.org/downloads/) 및 [pip](https://pip.pypa.io/en/stable/installing/)를 설치합니다.
    
-   + [https://pip.pypa.io/en/stable/installing](https://www.python.org/)에서 Python을 설치합니다.
+   + [https://www.python.org/downloads/](https://www.python.org/downloads/)에서 Python을 설치합니다.
    + [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/)에서 pip를 설치합니다. (Python 설치에서 설치되지 않은 경우)
    + 다음 명령을 사용하여 Python 및 pip가 제대로 설치되었는지 유효성을 검사합니다. (선택 사항)
  

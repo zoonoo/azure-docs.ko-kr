@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 01/25/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ad62b306849b2291c81399cedc1634057e2eec9d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 2adf07cf2337611b9136af47ce6a35b617e2e9ff
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828097"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177035"
 ---
 # <a name="publish-azure-application-offer"></a>Azure 애플리케이션 제품 게시
 
@@ -28,6 +28,7 @@ ms.locfileid: "54828097"
 다음 다이어그램은 제안을 "라이브 상태"로 만들기 위한 게시 프로세스의 주요 단계를 보여줍니다.
 
 ![제품 게시 단계](./media/offer-publishing-steps.png)
+
 
 ## <a name="detailed-description-of-publishing-steps"></a>게시 단계에 대한 자세한 설명
 
@@ -44,12 +45,14 @@ ms.locfileid: "54828097"
 | Microsoft 검토                | 7-14일 | Microsoft는 Azure 애플리케이션을 전반적으로 검토하고, 문제가 발견되면 메일을 보냅니다.  이 단계의 기간은 애플리케이션의 복잡성, 발견된 문제, 문제에 대응하는 신속성에 따라 달라집니다.  |
 | 라이브                           | 1일 미만 | 제품이 릴리스되고, 지정한 지역에 복제되고, 공개적으로 사용할 수 있게 됩니다. |
 |   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
+
  
 Cloud 파트너 포털의 제품 **상태** 탭에서 게시 프로세스를 모니터링할 수 있습니다.
 
 ![Azure 앱 제품의 상태 탭](./media/offer-status-tab.png)
 
 게시 프로세스가 완료되면 제품이 [Microsoft Azure Marketplace 애플리케이션 범주](https://azuremarketplace.microsoft.com/marketplace/apps/)에 나열됩니다.
+
 
 
 ## <a name="errors-and-review-feedback"></a>오류 및 검토 피드백

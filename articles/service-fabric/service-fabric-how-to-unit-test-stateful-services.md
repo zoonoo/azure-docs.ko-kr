@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: ryanwi
-ms.openlocfilehash: 4941d893c6c871541772569e42bf5169270def88
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: a030860bcef41d7276e1356553b984f55e27ae1e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413560"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164166"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>상태 저장 서비스에 대한 단위 테스트 만들기
 Service Fabric 상태 저장 서비스의 단위 테스트는 기본 애플리케이션 또는 도메인별 단위 테스트를 통해 찾지 못할 수 있는 몇 가지 일반적인 실수를 알아냅니다. 상태 저장 서비스에 대한 단위 테스트를 개발하는 경우 유의해야 할 몇 가지 특별한 고려 사항이 있습니다.
@@ -91,7 +91,7 @@ replicaSet.PromoteNewReplicaToPrimaryAsync(4);
 
 //promote the first idle secondary to an active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync();
-//promote idle secodary with replica id 4 to active secondary
+//promote idle secondary with replica id 4 to active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync(4);
 
 //add a new replica with randomly assigned replica id and promote it to primary
