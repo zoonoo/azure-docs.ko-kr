@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.component: common
-ms.openlocfilehash: a15c983291d35063884178f7b84e21fe4908b49a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: common
+ms.openlocfilehash: 095c592e53f44cb674994c440258bcca1bfa760c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632317"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467173"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure Storage 마이그레이션에 대한 FAQ(질문과 대답)
 
@@ -41,7 +41,7 @@ Automation 스크립트는 저장소 콘텐츠 조작 대신 Azure Resource Mana
 
 **내 저장소 계정 전체를 다른 저장소 계정에 백업하려면 어떻게 할까요?**
 
-저장소 계정 전체를 직접 백업하는 옵션은 없습니다. 그러나 AzCopy 또는 Storage 탐색기를 사용하여 수동으로 저장소 계정의 컨테이너를 다른 계정으로 이동할 수 있습니다. 다음 단계에서는 AzCopy를 사용하여 컨테이너를 이동하는 방법을 보여 줍니다.  
+저장소 계정 전체를 직접 백업하는 옵션은 없습니다. 그러나 AzCopy 또는 Storage 탐색기를 사용하여 수동으로 스토리지 계정의 컨테이너를 다른 계정으로 이동할 수 있습니다. 다음 단계에서는 AzCopy를 사용하여 컨테이너를 이동하는 방법을 보여 줍니다.  
  
 
 1.  [AzCopy](storage-use-azcopy.md) 명령줄 도구를 설치합니다. 이 도구를 사용하면 저장소 계정 간에 VHD 파일을 이동할 수 있습니다.
@@ -106,7 +106,7 @@ AzCopy를 사용하여 데이터를 이동합니다. 자세한 내용은 [Window
 
 Azure 파일 공유를 사용합니다.
 
-**Azure 파일 저장소를 백업하려면 어떻게 할까요?**
+**Azure File Storage를 백업하려면 어떻게 할까요?**
 
 백업 솔루션이 없습니다. 그러나 Azure Files는 비동기 복사도 지원합니다. 따라서 다음과 같이 파일을 복사할 수 있습니다.
 
@@ -199,7 +199,7 @@ AzCopy를 사용하여 다른 저장소 계정으로 데이터를 복사한 다�
 
 중복 저장소에 액세스하려면 읽기 액세스 지역 중복 저장소가 필요합니다. 그러나 Azure Files는 읽기 전용 액세스를 허용하지 않는 로컬 중복 저장소 및 표준 지역 중복 저장소만을 지원합니다. 
 
-**프리미엄 저장소 계정에서 표준 저장소 계정으로 이동하려면 어떻게 할까요?**
+**Premium Storage 계정에서 표준 스토리지 계정으로 이동하려면 어떻게 할까요?**
 
 다음 단계를 수행하세요.
 
@@ -228,7 +228,7 @@ AzCopy를 사용하여 다른 저장소 계정으로 데이터를 복사한 다�
 
 Premium Storage는 Azure 파일 공유에서 허용되지 않습니다.
 
-**표준 저장소 계정에서 프리미엄 저장소 계정으로 업그레이드하려면 어떻게 할까요? 프리미엄 저장소 계정에서 표준 저장소 계정으로 다운그레이드하려면 어떻게 할까요?**
+**표준 스토리지 계정에서 Premium Storage 계정으로 업그레이드하려면 어떻게 할까요? Premium Storage 계정에서 표준 스토리지 계정으로 다운그레이드하려면 어떻게 할까요?**
 
 대상 저장소 계정을 만들고, 원본 계정에서 대상 계정으로 데이터를 복사한 다음, 원본 계정을 삭제해야 합니다. AzCopy와 같은 도구를 사용하여 데이터를 복사할 수 있습니다.
 
@@ -285,7 +285,7 @@ Azure CLI를 사용할 수 있습니다.
 **내 저장소 계정으로 HTTPS 사용자 지정 도메인을 사용하려면 어떻게 할까요? 예를 들어 "https://mystorageaccountname.blob.core.windows.net/images/image.gif"를 "https://www.contoso.com/images/image.gif"로 보이도록 하려면 어떻게 해야 합니까?**
 
 SSL은 현재 사용자 지정 도메인이 있는 저장소 계정에서 지원되지 않습니다.
-하지만 HTTPS가 아닌 사용자 지정 도메인은 사용할 수 있습니다. 자세한 내용은 [Blob 저장소 엔드포인트에 대한 사용자 지정 도메인 이름 구성](../blobs/storage-custom-domain-name.md)을 참조하세요.
+하지만 HTTPS가 아닌 사용자 지정 도메인은 사용할 수 있습니다. 자세한 내용은 [Blob Storage 엔드포인트에 대한 사용자 지정 도메인 이름 구성](../blobs/storage-custom-domain-name.md)을 참조하세요.
 
 **FTP를 사용하여 저장소 계정에 있는 데이터에 액세스하려면 어떻게 할까요?**
 

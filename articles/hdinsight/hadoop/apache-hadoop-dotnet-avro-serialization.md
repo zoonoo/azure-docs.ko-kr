@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 8ef8f66a67ee93ea8c015c33e69b87e7c5d2a898
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d729d840bb055452eb8bb87cc978f1e38dcea48e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259990"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227950"
 ---
 # <a name="serialize-data-in-apache-hadoop-with-the-microsoft-avro-library"></a>Microsoft Avro Library를 사용하여 Apache Hadoop의 데이터 직렬화
 
@@ -88,7 +88,7 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 
 5번째 예는 Avro 개체 컨테이너 파일에 대해 사용자 지정 압축 코덱을 사용하는 방법을 보여 줍니다. 이 예에 대한 코드를 포함하는 샘플은 <a href="https://code.msdn.microsoft.com/Serialize-data-with-the-67159111" target="_blank">Azure 코드 샘플</a> (영문) 사이트에서 다운로드할 수 있습니다.
 
-6번째 샘플은 Avro 직렬화를 사용하여 데이터를 Azure Blob 저장소에 업로드하고 HDInsight(Hadoop) 클러스터에서 Hive를 사용하여 데이터를 분석하는 방법을 보여 줍니다.  <a href="https://code.msdn.microsoft.com/Using-Avro-to-upload-data-ae81b1e3" target="_blank">Azure 코드 샘플</a> 사이트에서 다운로드할 수 있습니다.
+6번째 샘플은 Avro 직렬화를 사용하여 데이터를 Azure Blob Storage에 업로드하고 HDInsight(Hadoop) 클러스터에서 Hive를 사용하여 데이터를 분석하는 방법을 보여 줍니다.  <a href="https://code.msdn.microsoft.com/Using-Avro-to-upload-data-ae81b1e3" target="_blank">Azure 코드 샘플</a> 사이트에서 다운로드할 수 있습니다.
 
 이 항목에서 설명된 6개 샘플의 링크는 다음과 같습니다.
 
@@ -1351,7 +1351,7 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 이 샘플은 다음 작업을 수행합니다.
 
 * 기존 HDInsight 서비스 클러스터에 연결합니다.
-* 여러 CSV 파일을 직렬화하고 결과를 Azure Blob 저장소에 업로드합니다. (CSV 파일은 샘플과 함께 배포되고 1970-2010 기간에 [Infochimps](https://www.infochimps.com/) 로 배포된 AMEX 증권 기록 데이터의 추출을 나타냅니다. 이 샘플은 CSV 파일 데이터를 읽고, 레코드를 **Stock** 클래스 인스턴스로 변환하고, 리플렉션을 사용하여 직렬화합니다. Stock 형식 정의는 Microsoft Avro 라이브러리 코드 생성 유틸리티를 사용하여 JSON 스키마에서 만들어집니다.
+* 여러 CSV 파일을 직렬화하고 결과를 Azure Blob Storage에 업로드합니다. (CSV 파일은 샘플과 함께 배포되고 1970-2010 기간에 [Infochimps](https://www.infochimps.org/) 로 배포된 AMEX 증권 기록 데이터의 추출을 나타냅니다. 이 샘플은 CSV 파일 데이터를 읽고, 레코드를 **Stock** 클래스 인스턴스로 변환하고, 리플렉션을 사용하여 직렬화합니다. Stock 형식 정의는 Microsoft Avro 라이브러리 코드 생성 유틸리티를 사용하여 JSON 스키마에서 만들어집니다.
 * Hive에서 **Stocks** 라는 새 외부 테이블을 만들고 이전 단계에서 업로드한 데이터에 연결합니다.
 * Hive를 사용하여 **Stocks** 테이블에 대해 쿼리를 실행합니다.
 

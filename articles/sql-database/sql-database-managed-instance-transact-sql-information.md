@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 95a9f3d553bb3d8ca07ed90578861f6267058532
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3186261b935d48343eab2fd818cd8ed936f41f3f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463748"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472785"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance 및 SQL Server 간의 T-SQL 차이점
 
@@ -228,7 +228,7 @@ SQL Server에서 사용하도록 설정되었지만 문서화되지 않은 DBCC 
 
 ### <a name="distributed-transactions"></a>분산 트랜잭션
 
-MSDTC도 [탄력적 트랜잭션](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-transactions-overview)도 현재 Managed Instance에서 지원되지 않습니다.
+MSDTC도 [탄력적 트랜잭션](sql-database-elastic-transactions-overview.md)도 현재 Managed Instance에서 지원되지 않습니다.
 
 ### <a name="extended-events"></a>확장 이벤트
 
@@ -279,8 +279,8 @@ Managed Instance의 연결된 서버는 제한된 수의 대상을 지원합니�
 - `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY` 및 `FROM SID`에서 만든 SQL 로그인이 지원됩니다. [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql)을 참조하세요.
 - [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) 구문 또는 [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) 구문을 사용하여 만든 AAD(Azure Active Directory) 로그인이 지원됩니다(**공개 미리 보기**).
 - `CREATE LOGIN ... FROM WINDOWS` 구문으로 만든 Windows 로그인은 지원되지 않습니다. Azure Active Directory 로그인 및 사용자를 사용합니다.
-- 인스턴스를 만든 Azure AD(Azure Active Directory) 사용자에게는 [무제한 관리자 권한](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts)이 있습니다.
-- 관리자가 아닌 Azure AD(Azure Active Directory) 데이터베이스 수준 사용자는 `CREATE USER ... FROM EXTERNAL PROVIDER` 구문을 사용하여 만들 수 있습니다. [CREATE USER ... FROM EXTERNAL PROVIDER](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)를 참조하세요.
+- 인스턴스를 만든 Azure AD(Azure Active Directory) 사용자에게는 [무제한 관리자 권한](sql-database-manage-logins.md#unrestricted-administrative-accounts)이 있습니다.
+- 관리자가 아닌 Azure AD(Azure Active Directory) 데이터베이스 수준 사용자는 `CREATE USER ... FROM EXTERNAL PROVIDER` 구문을 사용하여 만들 수 있습니다. [CREATE USER ... FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users)를 참조하세요.
 
 ### <a name="polybase"></a>Polybase
 

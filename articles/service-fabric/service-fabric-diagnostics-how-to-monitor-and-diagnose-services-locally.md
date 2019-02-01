@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: b4c3bc21591e8472dc8d51309f7431cb5d4421fd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 740864276b8d4d7a40a263a0d6d2e09c3534dbd6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054175"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190907"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>로컬 컴퓨터 개발 설정에서의 모니터링 및 진단 서비스
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ ms.locfileid: "44054175"
 * **서비스 패브릭 Visual Studio 도구는 ETW 이벤트 보기를 내부적으로 지원합니다.** Service Fabric을 통해 Visual Studio를 올바르게 구성하고 나면 ETW 이벤트가 Visual Studio의 진단 이벤트 보기에 표시됩니다. 
 
 ## <a name="view-service-fabric-system-events-in-visual-studio"></a>Visual Studio에서 서비스 패브릭 시스템 이벤트 보기
-서비스 패브릭은 ETW 이벤트를 내보내서 애플리케이션 개발자가 플랫폼에서 일어나는 일을 이해할 수 있도록 도와줍니다. 아직 애플리케이션을 만들지 않은 경우 [Visual Studio에서 애플리케이션 처음 만들기](service-fabric-create-your-first-application-in-visual-studio.md)의 단계에 따라 지금 만드세요. 이 정보는 애플리케이션이 실행되는 동안 진단 이벤트 뷰어에 추적 메시지를 표시하는 데 도움이 될 것입니다.
+서비스 패브릭은 ETW 이벤트를 내보내서 애플리케이션 개발자가 플랫폼에서 일어나는 일을 이해할 수 있도록 도와줍니다. 아직 애플리케이션을 만들지 않은 경우 [Visual Studio에서 애플리케이션 처음 만들기](service-fabric-tutorial-create-dotnet-app.md)의 단계에 따라 지금 만드세요. 이 정보는 애플리케이션이 실행되는 동안 진단 이벤트 뷰어에 추적 메시지를 표시하는 데 도움이 될 것입니다.
 
 1. 진단 이벤트 창이 자동으로 표시되지 않으면, Visual Studio에서 **보기** 탭으로 이동하여 **다른 창**, **진단 이벤트 뷰어**를 차례로 선택합니다.
 2. 각 이벤트는 이벤트가 기인하는 노드, 애플리케이션 및 서비스를 알려 주는 표준 메타데이터 정보를 가지고 있습니다. 이벤트 창 상단의 **이벤트 필터링** 상자를 사용하여 이벤트 목록을 필터링할 수도 있습니다. 예를 들어 **노드 이름**이나 **서비스 이름**으로 필터링할 수 있습니다. 또한 이벤트 상세 정보를 볼 때 이벤트 창 상단의 단추를 사용하여 **일시 중지**하고 나중에 이벤트 손실 없이 재개할 수 있습니다.
@@ -51,7 +51,7 @@ ms.locfileid: "44054175"
 
 **서비스 템플릿**(상태 비저장 또는 상태 저장)에서 만들어진 프로젝트의 경우 `RunAsync` 구현을 검색하기만 하면 됩니다.
 
-1.  `ServiceEventSource.Current.ServiceMessage` in the `RunAsync` 호출은 응용 프로그램 코드에서 사용자 지정 ETW 추적의 예를 보여 줍니다.
+1. `ServiceEventSource.Current.ServiceMessage` in the `RunAsync` 호출은 애플리케이션 코드에서 사용자 지정 ETW 추적의 예를 보여 줍니다.
 2. **ServiceEventSource.cs`ServiceEventSource.ServiceMessage` 파일을 보면 성능상의 이유로 빈도가 높은 이벤트에 사용해야 하는** 메서드에서 오버로드를 확인할 수 있습니다.
 
 **행위자 템플릿** (상태 비저장 또는 상태 저장)에서 만들어진 프로젝트의 경우:
@@ -60,7 +60,7 @@ ms.locfileid: "44054175"
 2. *DoWorkAsync* 메서드에서 `ActorEventSource.Current.ActorMessage(this, "Doing Work");` 코드를 찾습니다.  이는 애플리케이션 코드에서 작성된 사용자 지정 ETW의 예제입니다.  
 3. **ActorEventSource.cs** 파일을 보면 성능상의 이유로 빈도가 높은 이벤트에 사용해야 하는 `ActorEventSource.ActorMessage` 메서드에서 오버로드를 확인할 수 있습니다.
 
-서비스 코드에 사용자 지정 ETW 추적을 추가한 다음에는 애플리케이션을 다시 빌드, 배포, 실행하여 진단 이벤트 뷰어에서 이벤트를 볼 수 있습니다. **F5**키를 눌러서 응용 프로그램을 디버깅하면 진단 이벤트 뷰어가 자동으로 열립니다.
+서비스 코드에 사용자 지정 ETW 추적을 추가한 다음에는 애플리케이션을 다시 빌드, 배포, 실행하여 진단 이벤트 뷰어에서 이벤트를 볼 수 있습니다. **F5**키를 눌러서 애플리케이션을 디버깅하면 진단 이벤트 뷰어가 자동으로 열립니다.
 
 ## <a name="next-steps"></a>다음 단계
 위에서 로컬 진단을 위해 애플리케이션에 추가한 것과 동일한 추적 코드는 Azure 클러스터에서 애플리케이션을 실행할 때 이 이벤트를 보는 데 이용할 수 있는 도구와 함께 작동합니다. 도구에 대한 다양한 옵션과 도구를 설정하는 방법에 대해 설명하는 이러한 문서를 확인합니다.

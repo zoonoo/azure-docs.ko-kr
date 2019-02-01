@@ -9,19 +9,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: f73f90b76900a3a5213297f8a28ff13204852039
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 744c8d6488b9b0688126d305426f90647a89d4be
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105550"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478086"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Data Science Virtual Machine에서 지원되는 데이터 플랫폼
 
@@ -57,7 +57,7 @@ SQL Server Management Studio를 실행하려면 프로그램 목록에서 "SQL S
 
 기본 데이터베이스 인스턴스가 장착된 데이터베이스 서버는 기본적으로 자동 실행됩니다. Microsoft SQL Server 데이터베이스에 로컬로 액세스하려면 VM에서 SQL Server Management Studio와 같은 도구를 사용할 수 있습니다. 로컬 관리자 계정에는 데이터베이스에 관리자 액세스할 권한이 있습니다. 
 
-또한 DSVM은 Python, R을 포함하여 여러 언어로 작성된 응용 프로그램에서 Microsoft SQL Server 및 Azure SQL databases, Microsoft Azure SQL Data Warehouse와 통신하는 ODBC 드라이버와 JDBC 드라이버가 함께 제공됩니다. 
+또한 DSVM은 Python, R을 포함하여 여러 언어로 작성된 애플리케이션에서 Microsoft SQL Server 및 Azure SQL databases, Microsoft Azure SQL Data Warehouse와 통신하는 ODBC 드라이버와 JDBC 드라이버가 함께 제공됩니다. 
 
 ### <a name="how-is-it-configured--installed-on-the-dsvm"></a>DSVM에 구성/설치 방법 
 
@@ -70,7 +70,7 @@ Microsoft SQL Server는 표준 방식으로 설치됩니다. 그것은 `C:\Progr
 | ------------- | ------------- |
 | 무엇인가요?   | 빠른 대규모 데이터 처리 및 기계 학습을 위한 시스템인, 많이 사용되는 Apache Spark 플랫폼의 독립 실행형(단일 노드 In Process) 인스턴스     |
 | 지원되는 DSVM 버전      | Linux <br /> Windows (실험적)      |
-| 일반적인 사용 용도      | * 더 작은 데이터 세트를 사용하여 로컬에서 빠르게 Spark/PySpark 응용 프로그램을 개발하고 나중에 Azure HDInsight와 같은 큰 Spark 클러스터에 배포합니다<br/> * Microsoft R Server Spark 컨텍스트를 테스트합니다. <br />* SparkML 또는 Microsoft의 오픈 소스인 [MMLSpark](https://github.com/Azure/mmlspark) 라이브러리를 사용하여 ML 응용 프로그램을 빌드합니다  |
+| 일반적인 사용 용도      | * 더 작은 데이터 세트를 사용하여 로컬에서 빠르게 Spark/PySpark 애플리케이션을 개발하고 나중에 Azure HDInsight와 같은 큰 Spark 클러스터에 배포합니다<br/> * Microsoft R Server Spark 컨텍스트를 테스트합니다. <br />* SparkML 또는 Microsoft의 오픈 소스인 [MMLSpark](https://github.com/Azure/mmlspark) 라이브러리를 사용하여 ML 애플리케이션을 빌드합니다  |
 | 샘플에 대한 링크      |    Jupyter 샘플: <br />&nbsp;&nbsp;* ~/notebooks/SparkML/pySpark <br /> &nbsp;&nbsp;* ~/notebooks/MMLSpark <br /> Microsoft R Server(Spark 컨텍스트): /dsvm/samples/MRS/MRSSparkContextSample.R |
 | DSVM의 관련 도구       | PySpark, Scala<br/>Jupyter (Spark/PySpark 커널)<br/>Microsoft R Server, SparkR, Sparklyr <br />Apache Drill      |
 
@@ -95,7 +95,7 @@ Ubuntu Linux DSVM 버전의 Microsoft R Server Spark 컨텍스트에서 실행�
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-필요하지 않을 때 ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn````을 실행하여 서비스와 관련된 Hadoop을 중지할 수 있습니다. 원격 Spark 컨텍스트(DSVM의 독립 실행형 Spark 인스턴스)에서 MRS를 개발 및 테스트하는 방법을 보여주는 샘플은 `/dsvm/samples/MRS` 디렉터리에서 제공되고 사용할 수 있습니다. 
+필요하지 않을 때 ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```을 실행하여 서비스와 관련된 Hadoop을 중지할 수 있습니다. 원격 Spark 컨텍스트(DSVM의 독립 실행형 Spark 인스턴스)에서 MRS를 개발 및 테스트하는 방법을 보여주는 샘플은 `/dsvm/samples/MRS` 디렉터리에서 제공되고 사용할 수 있습니다. 
 
 
 ### <a name="how-is-it-configured--installed-on-the-dsvm"></a>DSVM에 구성/설치 방법 

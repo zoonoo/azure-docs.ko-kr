@@ -7,19 +7,19 @@ documentationcenter: na
 manager: daveba
 ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
-ms.openlocfilehash: 913304884867751e3e4c929ce6f4cf8819c15ef2
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d4a47130dadb782f41579bd20c4b5e1d1e9978bb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825547"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188595"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Workday 구성
 
@@ -151,8 +151,8 @@ Active Directory 토폴로지에 따라 구성할 사용자 프로비저닝 커�
 
 |   |   |
 | - | - |
-| 온-프레미스에서 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
-| Azure Portal에서 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 1 |
+|  아니요. 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
+|  아니요. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 1 |
 
   ![시나리오 1](./media/workday-inbound-tutorial/dep_scenario1.png)
 
@@ -162,8 +162,8 @@ Active Directory 토폴로지에 따라 구성할 사용자 프로비저닝 커�
 
 |   |   |
 | - | - |
-| 온-프레미스에서 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
-| Azure Portal에서 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
+|  아니요. 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
+|  아니요. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
 
   ![시나리오 2](./media/workday-inbound-tutorial/dep_scenario2.png)
 
@@ -173,8 +173,8 @@ Active Directory 토폴로지에 따라 구성할 사용자 프로비저닝 커�
 
 |   |   |
 | - | - |
-| 온-프레미스에서 배포할 프로비전 에이전트 수 | 분리된 AD 포리스트당 3개 |
-| Azure Portal에서 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
+|  아니요. 배포할 프로비전 에이전트 수 | 분리된 AD 포리스트당 3개 |
+|  아니요. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
 
   ![시나리오 3](./media/workday-inbound-tutorial/dep_scenario3.png)
 
@@ -213,7 +213,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
   
 * **일치하는 논리가 작동하기 위해 필요한 사용자 ID가 Active Directory 포리스트에 포함되었는지 여부**
 
-  * 예제: 이 설치가 새로운 Workday 배포인 경우 Active Directory를 올바른 Workday Worker_ID 값(또는 선택한 고유 ID 값)으로 미리 채워서 일치하는 논리를 최대한 단순하게 유지하는 것이 좋습니다.
+  * *예제: 이 설치가 새로운 Workday 배포인 경우 Active Directory를 올바른 Workday Worker_ID 값(또는 선택한 고유 ID 값)으로 미리 채워서 일치하는 논리를 최대한 단순하게 유지하는 것이 좋습니다.*
 
 이러한 특수 프로비전 커넥터 앱을 설정하고 구성하는 방법은 본 자습서의 나머지 섹션에서 다루겠습니다. 구성을 위해 선택할 앱은 프로비전해야 하는 시스템, 환경에 있는 Active Directory 도메인 및 Azure AD 테넌트 수에 따라 결정됩니다.
 
@@ -579,7 +579,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
 8. 다음과 같이 **관리자 자격 증명** 섹션을 완료합니다.
 
-   * **관리자 사용자 이름** – 테넌트 도메인 이름이 추가된 Workday 통합 시스템 계정의 사용자 이름을 입력합니다. 다음과 같은 형태여야 합니다. username@contoso4
+   * **관리 사용자 이름** – 테넌트 도메인 이름이 추가된 Workday 통합 시스템 계정의 사용자 이름을 입력합니다. 다음과 같은 형태여야 합니다. username@contoso4
 
    * **관리자 암호 –** Workday 통합 시스템 계정의 암호를 입력합니다.
 
@@ -676,7 +676,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
 8. 다음과 같이 **관리자 자격 증명** 섹션을 완료합니다.
 
-   * **관리자 사용자 이름** – 테넌트 도메인 이름이 추가된 Workday 통합 시스템 계정의 사용자 이름을 입력합니다. 다음과 같은 형태여야 합니다. *username@contoso4*
+   * **관리 사용자 이름** – 테넌트 도메인 이름이 추가된 Workday 통합 시스템 계정의 사용자 이름을 입력합니다. 다음과 같은 형태여야 합니다. *username@contoso4*
 
    * **관리자 암호 –** Workday 통합 시스템 계정의 암호를 입력합니다.
 
@@ -1162,7 +1162,7 @@ Workday의 신규 채용자가 검색되면(직원 ID가 *21023*이라고 가정
 
 |#|오류 시나리오 |가능한 원인|권장 해결 방법|
 |--|---|---|---|
-|1.| 다음 오류 메시지와 함께 프로비전 에이전트를 설치하는 중 오류가 발생했습니다.  ‘서비스 ‘Microsoft Azure AD Connect Provisioning Agent’(AADConnectProvisioningAgent)를 시작하지 못했습니다. 시스템을 시작할 권한이 있는지 확인하세요.’ | 이 오류는 일반적으로 도메인 컨트롤러에 프로비전 에이전트를 설치할 때 그룹 정책이 서비스 시작을 차단하는 경우 나타납니다.  이전 버전의 에이전트가 실행 중이고 새 설치를 시작하기 전에 해당 에이전트를 제거하지 않은 경우에도 나타납니다.| DC가 아닌 서버에 프로비전 에이전트를 설치합니다. 새 에이전트를 설치하기 전에 이전 버전의 에이전트가 제거되었는지 확인합니다.|
+|1.| 다음 오류 메시지와 함께 프로비전 에이전트를 설치하는 중 오류가 발생했습니다.  ‘서비스 ‘Microsoft Azure AD Connect Provisioning Agent’(AADConnectProvisioningAgent)를 시작하지 못했습니다. 시스템을 시작할 권한이 있는지 확인하세요.’* | 이 오류는 일반적으로 도메인 컨트롤러에 프로비전 에이전트를 설치할 때 그룹 정책이 서비스 시작을 차단하는 경우 나타납니다.  이전 버전의 에이전트가 실행 중이고 새 설치를 시작하기 전에 해당 에이전트를 제거하지 않은 경우에도 나타납니다.| DC가 아닌 서버에 프로비전 에이전트를 설치합니다. 새 에이전트를 설치하기 전에 이전 버전의 에이전트가 제거되었는지 확인합니다.|
 |2.| Windows 서비스 ‘Microsoft Azure AD Connect Provisioning Agent’가 ‘시작하는 중’ 상태이고 ‘실행 중’ 상태로 전환되지 않습니다. | 설치의 일부로 에이전트 마법사는 서버에 로컬 계정(**NT 서비스\\AADConnectProvisioningAgent**)을 만들고 이 계정은 서비스를 시작하는 데 사용되는 **로그온** 계정입니다. Windows Server의 보안 정책이 로컬 계정의 서비스 실행을 차단하면 이 오류가 발생합니다. | ‘서비스 콘솔’을 엽니다. Windows 서비스 ‘Microsoft Azure AD Connect Provisioning Agent’를 마우스 오른쪽 단추로 클릭하고 [로그온] 탭에서 서비스를 실행할 도메인 관리자의 계정을 지정합니다. 서비스를 다시 시작합니다. |
 |3.| ‘Active Directory 연결’ 단계에서 AD 도메인을 사용하여 프로비전 에이전트를 구성할 때 마법사는 AD 스키마를 로드하는 데 시간이 오래 걸리고 결국 시간이 초과됩니다. | 일반적으로 이 오류는 방화벽 문제로 인해 마법사가 AD 도메인 컨트롤러 서버에 연결할 수 없는 경우에 나타납니다. | ‘Active Directory 연결’ 마법사 화면에서 AD 도메인의 자격 증명을 제공하는 동안 ‘도메인 컨트롤러 우선 순위 선택’ 옵션이 제공됩니다. 이 옵션을 사용하여 에이전트 서버와 동일한 사이트에 있는 도메인 컨트롤러를 선택하고 통신을 차단하는 방화벽 규칙이 없는지 확인합니다. |
 
@@ -1172,7 +1172,7 @@ Workday의 신규 채용자가 검색되면(직원 ID가 *21023*이라고 가정
 
 |#|오류 시나리오 |가능한 원인|권장 해결 방법|
 |--|---|---|---|
-|1.| **연결 테스트**를 클릭하면 오류 메시지가 표시됩니다. ‘Active Directory에 연결하는 중 오류가 발생했습니다. 온-프레미스 프로비전 에이전트가 실행 중이고 올바른 Active Directory 도메인으로 구성되었는지 확인하세요.’ | 일반적으로 이 오류는 프로비전 에이전트가 실행되고 있지 않거나 Azure AD와 프로비전 에이전트 사이의 통신을 차단하는 방화벽이 있는 경우 나타납니다. 도메인이 에이전트 마법사에 구성되지 않은 경우에도 이 오류가 표시될 수 있습니다. | Windows Server에서 ‘서비스’ 콘솔을 열어 에이전트가 실행 중인지 확인합니다. 프로비전 에이전트 마법사를 열고 적합한 도메인이 에이전트에 등록되었는지 확인합니다.  |
+|1.| **연결 테스트**를 클릭하면 오류 메시지가 표시됩니다. ‘Active Directory에 연결하는 중 오류가 발생했습니다. 온-프레미스 프로비전 에이전트가 실행 중이고 올바른 Active Directory 도메인으로 구성되었는지 확인하세요.’* | 일반적으로 이 오류는 프로비전 에이전트가 실행되고 있지 않거나 Azure AD와 프로비전 에이전트 사이의 통신을 차단하는 방화벽이 있는 경우 나타납니다. 도메인이 에이전트 마법사에 구성되지 않은 경우에도 이 오류가 표시될 수 있습니다. | Windows Server에서 ‘서비스’ 콘솔을 열어 에이전트가 실행 중인지 확인합니다. 프로비전 에이전트 마법사를 열고 적합한 도메인이 에이전트에 등록되었는지 확인합니다.  |
 |2.| 프로비전 작업이 주말(금-토) 동안 격리 상태로 전환되고 동기화 관련 오류가 있다는 메일 알림을 받게 됩니다. | 이 오류의 일반적인 원인 중 하나는 계획된 Workday 가동 중지 시간입니다. Workday 구현 테넌트를 사용하는 경우 Workday에는 주말(보통 금요일 저녁부터 토요일 아침까지) 동안 구현 테넌트의 가동 중지 시간이 예약되고 해당 기간에는 Workday 프로비전 앱이 격리 상태로 전환되어 Workday에 연결할 수 없다는 점에 유의하세요. Workday 구현 테넌트가 다시 온라인 상태가 되면 정상 상태로 돌아갑니다. 드문 경우지만 통합 시스템 사용자의 암호가 테넌트 새로 고침으로 인해 변경된 경우 또는 계정이 잠김 또는 만료됨 상태인 경우에도 이 오류가 표시될 수 있습니다. | Workday 관리자 또는 통합 파트너에게 문의하여 Workday에서 가동 중지 시간 동안 경고 메시지를 무시하는 가동 중지 시간이 언제 예약되는지 확인하고 Workday 인스턴스가 다시 온라인 상태가 된 후 가용성을 확인합니다.  |
 
 
@@ -1180,8 +1180,8 @@ Workday의 신규 채용자가 검색되면(직원 ID가 *21023*이라고 가정
 
 |#|오류 시나리오 |가능한 원인|권장 해결 방법|
 |--|---|---|---|
-|1.| 다음 메시지와 함께 감사 로그에서 내보내기 작업 오류가 표시되는 경우. ‘오류: OperationsError-SvcErr: 작업 오류가 발생했습니다. 디렉터리 서비스에 상위 참조가 구성되지 않았습니다. 따라서 디렉터리 서비스가 이 포리스트 밖에 있는 개체로 참조할 수 없습니다.’ | 일반적으로 이 오류는 ‘Active Directory Container’ OU가 제대로 설정되지 않은 경우 또는 *parentDistinguishedName*에 사용되는 식 매핑 관련 문제가 있는 경우 나타납니다. | ‘Active Directory Container’ OU 매개 변수에 오타가 있는지 확인합니다. 특성 매핑에서 *parentDistinguishedName*을 사용하는 경우 항상 AD 도메인 내에서 알려진 컨테이너로 평가되는지 확인합니다. 감사 로그의 ‘내보내기’ 이벤트에서 생성된 값을 확인합니다. |
-|2.| 다음과 같이 감사 로그에서 내보내기 작업 오류가 표시되는 경우. 오류 코드: *SystemForCrossDomainIdentityManagementBadResponse* 및 메시지 ‘오류: ConstraintViolation-AtrErr: 요청의 값이 잘못되었습니다. 특성 값이 허용 가능한 값 범위에 없습니다. \n오류 세부 정보: CONSTRAINT_ATT_TYPE - company’. | 이 오류는 *company* 특성과 관련되지만, *CN*과 같은 다른 특성의 경우에도 이 오류가 표시될 수 있습니다. 이 오류는 AD 강제 적용 스키마 제약 조건으로 인해 발생합니다. 기본적으로 AD의 *company* 및 *CN* 같은 특성에는 최대 64자를 사용할 수 있습니다. Workday에서 가져오는 값이 64자를 초과하면 이 오류 메시지가 표시됩니다. | 감사 로그에서 ‘내보내기’ 이벤트를 확인하여 오류 메시지에서 보고된 특성의 값을 확인합니다. [Mid](../manage-apps/functions-for-customizing-application-data.md#mid) 함수를 사용하거나 유사한 길이 제약 조건이 없는 AD 특성으로 매핑을 변경하여 Workday에서 가져오는 값을 잘라 보세요.  |
+|1.| 다음 메시지와 함께 감사 로그에서 내보내기 작업 오류가 표시되는 경우. ‘오류: OperationsError-SvcErr: 작업 오류가 발생했습니다. 디렉터리 서비스에 상위 참조가 구성되지 않았습니다. 따라서 디렉터리 서비스가 이 포리스트 밖에 있는 개체로 참조할 수 없습니다.’* | 일반적으로 이 오류는 ‘Active Directory Container’ OU가 제대로 설정되지 않은 경우 또는 *parentDistinguishedName*에 사용되는 식 매핑 관련 문제가 있는 경우 나타납니다. | ‘Active Directory Container’ OU 매개 변수에 오타가 있는지 확인합니다. 특성 매핑에서 *parentDistinguishedName*을 사용하는 경우 항상 AD 도메인 내에서 알려진 컨테이너로 평가되는지 확인합니다. 감사 로그의 ‘내보내기’ 이벤트에서 생성된 값을 확인합니다. |
+|2.| 다음과 같이 감사 로그에서 내보내기 작업 오류가 표시되는 경우. 오류 코드: *SystemForCrossDomainIdentityManagementBadResponse* 및 메시지 ‘오류: ConstraintViolation-AtrErr: 요청의 값이 잘못되었습니다. 특성 값이 허용 가능한 값 범위에 없습니다. \n오류 세부 정보: CONSTRAINT_ATT_TYPE - company’*. | 이 오류는 *company* 특성과 관련되지만, *CN*과 같은 다른 특성의 경우에도 이 오류가 표시될 수 있습니다. 이 오류는 AD 강제 적용 스키마 제약 조건으로 인해 발생합니다. 기본적으로 AD의 *company* 및 *CN* 같은 특성에는 최대 64자를 사용할 수 있습니다. Workday에서 가져오는 값이 64자를 초과하면 이 오류 메시지가 표시됩니다. | 감사 로그에서 ‘내보내기’ 이벤트를 확인하여 오류 메시지에서 보고된 특성의 값을 확인합니다. [Mid](../manage-apps/functions-for-customizing-application-data.md#mid) 함수를 사용하거나 유사한 길이 제약 조건이 없는 AD 특성으로 매핑을 변경하여 Workday에서 가져오는 값을 잘라 보세요.  |
 
 #### <a name="ad-user-account-update-errors"></a>AD 사용자 계정 업데이트 오류
 

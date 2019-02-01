@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: fcc5052d73d921a8181ad068453111e5ead4361a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: cc730650f7bd570f237c06b074afb3678b54448f
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999881"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901465"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Azure Blob Storage에 의해 트리거되는 함수 만들기
 
@@ -76,7 +76,7 @@ ms.locfileid: "52999881"
 
     ![Storage 계정 연결 자격 증명 가져오기.](./media/functions-create-storage-blob-triggered-function/functions-storage-account-connection.png)
 
-1. [Microsoft Azure Storage 탐색기](https://storageexplorer.com/) 도구를 실행하고 왼쪽의 연결 아이콘을 클릭하고 **저장소 계정 이름 및 키 사용**을 선택하고 **다음**을 클릭합니다.
+1. [Microsoft Azure Storage 탐색기](https://storageexplorer.com/) 도구를 실행하고 왼쪽의 연결 아이콘을 클릭하고 **스토리지 계정 이름 및 키 사용**을 선택하고 **다음**을 클릭합니다.
 
     ![Storage 계정 탐색기 도구 실행.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-1.png)
 
@@ -113,8 +113,6 @@ ms.locfileid: "52999881"
 
 ## <a name="next-steps"></a>다음 단계
 
-Blob Storage에서 Blob이 추가 또는 업데이트될 때 실행되는 함수를 만들었습니다. 
+Blob Storage에서 Blob이 추가 또는 업데이트될 때 실행되는 함수를 만들었습니다. Blob Storage 트리거에 대한 자세한 내용은 [Azure Functions Blob Storage 바인딩](functions-bindings-storage-blob.md)을 참조하세요.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-
-Blob Storage 트리거에 대한 자세한 내용은 [Azure Functions Blob Storage 바인딩](functions-bindings-storage-blob.md)을 참조하세요.

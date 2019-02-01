@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5767399189e4ed5168fbcc083ef9b4830cac1421
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b7c10884682b6537bbfcbb1b1f8b89b38751d05b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138979"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478052"
 ---
 # <a name="feature-engineering-in-data-science"></a>데이터 과학의 기능 엔지니어링
 이 문서에서는 기능 엔지니어링의 목적을 설명하고 기계 학습의 데이터 향상 프로세스에서 수행하는 역할의 예를 제공합니다. 이 프로세스를 설명하는 데 사용된 예제는 Azure Machine Learning Studio에서 가져온 것입니다. 
@@ -72,7 +72,7 @@ Azure Machine Learning 실험에서는 사전 처리된 입력 데이터 세트�
 최상의 결과는 A+B+C 기능으로 표시됩니다. 학습 데이터에 추가 기능 집합이 포함되면 오류 비율이 감소됩니다. 따라서 기능 집합 B와 C에서 회귀 작업을 위한 추가 관련 정보를 제공한다는 가정이 검증됩니다. 그러나 D 기능은 오류 비율을 추가적으로 감소시키지 않는 것으로 보입니다.
 
 ## <a name="example2"></a> 예제 2: 텍스트 마이닝에 기능 만들기
-기능 엔지니어링은 문서 분류 및 감성 분석 등의 텍스트 마이닝 관련 작업에 광범위하게 적용됩니다. 예를 들어 문서를 여러 범주로 분류하려는 경우, 일반적으로 한 문서 범주에 포함된 단어/문구가 다른 문서 범주에서 발생할 가능성이 적다고 가정합니다. 즉, 단어/문구 분포 빈도를 통해 서로 다른 문서 범주의 특징을 결정할 수 있습니다. 텍스트 마이닝 응용 프로그램에서는 개별 텍스트 내용이 일반적으로 입력 데이터로 제공되므로, 단어/문구 빈도와 관련된 기능을 생성하려면 기능 엔지니어링 프로세스가 필요합니다.
+기능 엔지니어링은 문서 분류 및 감성 분석 등의 텍스트 마이닝 관련 작업에 광범위하게 적용됩니다. 예를 들어 문서를 여러 범주로 분류하려는 경우, 일반적으로 한 문서 범주에 포함된 단어/문구가 다른 문서 범주에서 발생할 가능성이 적다고 가정합니다. 즉, 단어/문구 분포 빈도를 통해 서로 다른 문서 범주의 특징을 결정할 수 있습니다. 텍스트 마이닝 애플리케이션에서는 개별 텍스트 내용이 일반적으로 입력 데이터로 제공되므로, 단어/문구 빈도와 관련된 기능을 생성하려면 기능 엔지니어링 프로세스가 필요합니다.
 
 이 작업을 수행하기 위해 **기능 해싱** 이라는 기술을 적용하여 임의의 텍스트 기능을 인덱스로 전환합니다. 각 텍스트 기능(단어/문구)을 특정 인덱스에 연관시키는 대신, 이 메서드에서는 해시 함수를 기능에 적용하고 해시 값을 인덱스로 직접 사용하여 작동합니다.
 

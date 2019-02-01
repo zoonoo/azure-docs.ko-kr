@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/30/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 6512cb71cc8ca973a778b7e172afcd9e056421ed
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 35a00edcda86262d2bfcef73042e93d84b1691f6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478385"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174638"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>하이브리드 ID 수명 주기 채택 전략 결정
 이 작업에서 하이브리드 ID 솔루션에 대한 ID 관리 전략을 정의하여 [하이브리드 ID 관리 작업 확인](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)에 정의된 비즈니스 요구 사항을 충족합니다.

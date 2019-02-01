@@ -10,19 +10,19 @@ editor: cgronlun
 ms.custom: seodec18
 ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: 1c56be7a7d9b03d115516b05c10c0b87c6956c47
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e08b38fcea152489455eb4b4f66e56bc609a09db
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727669"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251727"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows 데이터 과학 Virtual Machine으로 할 수 있는 10가지 작업
 
@@ -34,7 +34,7 @@ Windows DSVM(데이터 과학 Virtual Machine)은 다양한 데이터 탐색 및
 2. Jupyter Notebook에서 Python 2, Python 3 그리고 성능 위주로 설계된 R의 엔터프라이즈급 버전인 Microsoft R을 사용하여 브라우저에서 데이터 실험
 3. 클라이언트 애플리케이션이 간단한 웹 서비스 인터페이스를 사용하여 모델에 액세스할 수 있도록 Azure Machine Learning에서 R 및 Python을 사용하여 구축된 모델 배포
 4. Azure Portal 또는 Powershell을 사용하여 Azure 리소스 관리
-5. Azure File Storage를 DSVM에 탑재 가능한 드라이브로 만들어 저장소 공간을 확장하고 전체 팀에서 대규모 데이터 세트/코드 공유
+5. Azure File Storage를 DSVM에 탑재 가능한 드라이브로 만들어 스토리지 공간을 확장하고 전체 팀에서 대규모 데이터 집합/코드 공유
 6. GitHub를 사용하여 팀과 코드를 공유하고 사전 설치된 Git 클라이언트(Git Bash Git GUI)를 사용하여 리포지토리에 액세스
 7. Azure Blob Storage, Azure Data Lake, Azure HDInsight(Hadoop), Azure Cosmos DB, Azure SQL Data Warehouse, 데이터베이스 등의 다양한 Azure 데이터 및 분석 서비스에 액세스
 8. DSVM에 사전 설치된 Power BI Desktop을 사용하여 보고서 및 대시보드를 구축하여 클라우드에 배포
@@ -274,7 +274,7 @@ Azure Blob은 크고 작은 데이터를 위한 경제적이면서 안정적인 
 
 **필수 구성 요소**
 
-* **[Azure 포털](https://portal.azure.com)에서 고유한 Azure Blob 저장소 계정을 만듭니다.**
+* (선택 사항) 팀 및 프로젝트의 공유 **Azure File Storage[를 해당 ](https://portal.azure.com)DSVM**(데이터 과학 Virtual Machine)에 탑재합니다.
 
 ![Azure Portal에서 스토리지 계정 만들기 프로세스의 스크린샷](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
@@ -289,7 +289,7 @@ Azure Blob은 크고 작은 데이터를 위한 경제적이면서 안정적인 
 
     AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
 
-파일이 저장되는 경로를 **C:\myfolder**로, Blob Store 계정 이름을 **mystorageaccount**로, 컨테이너 이름을 **mycontainer**로, Blob Store 액세스 키를 **저장소 계정 키**로 바꿉니다. 저장소 계정 자격 증명은 [Azure 포털](https://portal.azure.com)에서 찾을 수 있습니다.
+파일이 저장되는 경로를 **C:\myfolder**로, Blob 스토리지 계정 이름을 **mystorageaccount**로, 컨테이너 이름을 **mycontainer**로, Blob 스토리지 액세스 키를 **스토리지 계정 키**로 바꿉니다. 저장소 계정 자격 증명은 [Azure 포털](https://portal.azure.com)에서 찾을 수 있습니다.
 
 ![Azure Portal에서 스토리지 계정 키 및 컨테이너 정보의 스크린샷](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
 
@@ -396,7 +396,7 @@ print 'the size of the data is: %d rows and  %d columns' % df1.shape
 
 **Azure Blob에서 Data Lake: U-SQL로 데이터 읽기**
 
-데이터가 Azure Blob 저장소에 상주하는 경우 U SQL 쿼리를 사용하여 Azure 저장소 Blob에서 직접 데이터를 읽을 수 있습니다. U-SQL 쿼리를 작성하기 전에 Blob 저장소 계정이 Azure Data Lake에 연결되었는지 확인합니다. **Azure Portal**로 이동하여 Azure Data Lake Analytics 대시보드를 찾은 다음 **데이터 원본 추가**를 클릭하고 저장소 유형을 **Azure Storage**로 선택한 후에 Azure Storage 계정 이름 및 키를 연결합니다. 그러면 저장소 계정에 저장된 데이터를 참조할 수 있습니다.
+데이터가 Azure Blob Storage에 상주하는 경우 U SQL 쿼리를 사용하여 Azure 스토리지 Blob에서 직접 데이터를 읽을 수 있습니다. U-SQL 쿼리를 작성하기 전에 Blob Storage 계정이 Azure Data Lake에 연결되었는지 확인합니다. **Azure Portal**로 이동하여 Azure Data Lake Analytics 대시보드를 찾은 다음 **데이터 원본 추가**를 클릭하고 스토리지 유형을 **Azure Storage**로 선택한 후에 Azure Storage 계정 이름 및 키를 연결합니다. 그러면 저장소 계정에 저장된 데이터를 참조할 수 있습니다.
 
 ![데이터 원본 추가 대화 상자의 스크린샷](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
@@ -467,7 +467,7 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
 
 **필수 구성 요소**
 
-* [Azure 포털](https://portal.azure.com)에서 고유한 Azure Blob 저장소 계정을 만듭니다. 이 저장소 계정은 HDInsight 클러스터에 대한 데이터를 저장하는 데 사용됩니다.
+* [Azure 포털](https://portal.azure.com)에서 고유한 Azure Blob Storage 계정을 만듭니다. 이 저장소 계정은 HDInsight 클러스터에 대한 데이터를 저장하는 데 사용됩니다.
 
 ![Azure Portal에서 HDInsight 만들기의 스크린샷](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 

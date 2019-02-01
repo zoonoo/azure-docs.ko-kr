@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 101eeb89a44fbc28c831fefcdc6490495e0be7e8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 67523641ff9650a5b35a142147a2f69adcfb3b1c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470327"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077304"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health에 대한 질문과 대답
 이 문서에는 Azure AD(Azure Active Directory) Connect Health에 대한 FAQ(질문과 대답)가 포함되어 있습니다. 이 FAQ에서는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대해 다룹니다.
@@ -62,7 +62,7 @@ ms.locfileid: "54470327"
 
 **Q: Azure AD Connect Health에서 Azure 독일 클라우드를 지원하나요?**
 
-[동기화 오류 보고서 기능](how-to-connect-health-sync.md#object-level-synchronization-error-report)을 제외하면 Germany 클라우드에서 Azure AD Connect Health가 지원되지 않습니다. 
+[동기화 오류 보고서 기능](how-to-connect-health-sync.md#object-level-synchronization-error-report)을 제외하면 Germany 클라우드에서 Azure AD Connect Health가 지원되지 않습니다.
 
 | 역할 | 기능 | 독일 클라우드에서 지원됨 |
 | ------ | --------------- | --- |
@@ -71,7 +71,7 @@ ms.locfileid: "54470327"
 | ADFS용 Connect Health | 모니터링/인사이트/경고/분석 | 아니요 |
 | ADDS용 Connect Health | 모니터링/인사이트/경고/분석 | 아니요 |
 
-동기화용 Connect Health의 에이전트 연결을 보장하려면 그에 따라 [설치 요구 사항](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints)을 구성하세요.   
+동기화용 Connect Health의 에이전트 연결을 보장하려면 그에 따라 [설치 요구 사항](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints)을 구성하세요.
 
 ## <a name="installation-questions"></a>설치 관련 질문
 
@@ -163,7 +163,7 @@ Azure AD Connect Health 서비스는 필요한 패치가 설치되었는지 확�
 
 다음 PowerShell 스크립트를 사용하여 이 검사를 수동으로 수행할 수 있습니다. 위의 논리를 구현합니다.
 
-```
+```powershell
 Function CheckForMS17-010 ()
 {
     $hotfixes = "KB3205409", "KB3210720", "KB3210721", "KB3212646", "KB3213986", "KB4012212", "KB4012213", "KB4012214", "KB4012215", "KB4012216", "KB4012217", "KB4012218", "KB4012220", "KB4012598", "KB4012606", "KB4013198", "KB4013389", "KB4013429", "KB4015217", "KB4015438", "KB4015546", "KB4015547", "KB4015548", "KB4015549", "KB4015550", "KB4015551", "KB4015552", "KB4015553", "KB4015554", "KB4016635", "KB4019213", "KB4019214", "KB4019215", "KB4019216", "KB4019263", "KB4019264", "KB4019472", "KB4015221", "KB4019474", "KB4015219", "KB4019473"
@@ -190,7 +190,7 @@ CheckForMS17-010
 
 **Q: 내 ADFS 감사가 생성되지 않는 이유는 무엇인가요?**
 
-PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i>을 사용하여 감사 로그가 사용하지 않음 상태가 되도록 합니다. [ADFS 감사 로그](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)에 대해 자세히 알아보세요. ADFS 서버에 푸시된 고급 감사 설정이 있을 경우 auditpol.exe 관련 변경 내용이 덮어써진다는 점을 참고하세요(애플리케이션 생성됨이 구성되지 않은 경우의 이벤트). 이 경우 애플리케이션 생성됨 실패 및 성공을 기록하도록 로컬 보안 정책을 설정하세요. 
+PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i>을 사용하여 감사 로그가 사용하지 않음 상태가 되도록 합니다. [ADFS 감사 로그](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)에 대해 자세히 알아보세요. ADFS 서버에 푸시된 고급 감사 설정이 있을 경우 auditpol.exe 관련 변경 내용이 덮어써진다는 점을 참고하세요(애플리케이션 생성됨이 구성되지 않은 경우의 이벤트). 이 경우 애플리케이션 생성됨 실패 및 성공을 기록하도록 로컬 보안 정책을 설정하세요.
 
 
 ## <a name="related-links"></a>관련 링크

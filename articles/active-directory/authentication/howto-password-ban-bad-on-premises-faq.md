@@ -3,19 +3,19 @@ title: 온-프레미스 Azure AD 암호 보호 FAQ
 description: 온-프레미스 Azure AD 암호 보호 FAQ
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 9046090a45d52a283d28d1c4cc79b44503cb5a9d
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f690625fda07bdbff671567f0292cc8e1cabeda1
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427596"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078698"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>미리 보기: Azure AD 암호 보호 온-프레미스 - 질문과 대답
 
