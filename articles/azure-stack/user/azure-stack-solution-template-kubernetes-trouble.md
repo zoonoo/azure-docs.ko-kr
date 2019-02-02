@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 9a65ef9acf7a1a133b3f479fe75921191949eeb8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 41383a31955b8f9507ec681650cf73df23b2a895
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55237854"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663417"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Azure Stack에 Kubernetes 배포 문제 해결
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 > [!Note]  
-> Azure Stack에서 Kubernetes 미리 보기입니다.
+> Azure Stack에서 Kubernetes 미리 보기입니다. Azure Stack 연결이 끊긴된 시나리오는 미리 보기에서 현재 지원 되지 않습니다.
 
 다음 문서는 Kubernetes 클러스터 문제 해결 살펴봅니다. 배포 경고를 검토 하 고 배포 하는 데 필요한 요소에 의해 배포의 상태를 검토할 수 있습니다. Azure Stack 또는 호스트 Kubernetes 사용 하는 Linux Vm에서 배포 로그를 수집 해야 합니다. 관리 끝점에서 로그를 검색 하 여 Azure Stack 관리자를 사용 하 여 작동 하도록 할 수도 있습니다.
 

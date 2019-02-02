@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 9d542f7c2cdeb20806a2db98005ffc03cf72144c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c96fdbfb56fe5274de941c0f9ab1a12cbcc241b6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238019"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658422"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Azure Stack에 Kubernetes 배포
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 > [!Note]  
-> Azure Stack에서 Kubernetes 미리 보기입니다.
+> Azure Stack에서 Kubernetes 미리 보기입니다. Azure Stack 연결이 끊긴된 시나리오는 미리 보기에서 현재 지원 되지 않습니다.
 
 배포 및 조정 된 단일 작업에서 Kubernetes에 대 한 리소스를 설정 하려면이 문서의 단계를 수행할 수 있습니다. Azure Resource Manager 솔루션 템플릿을 사용 하는 단계입니다. 에서는 필요한 Azure Stack 설치에 대 한 필수 정보를 수집 하 템플릿을 생성을 클라우드에 배포 합니다. Azure Stack 템플릿 글로벌 Azure에서 제공 되는 동일한 관리 되는 AKS 서비스를 사용 하지 않습니다.
 

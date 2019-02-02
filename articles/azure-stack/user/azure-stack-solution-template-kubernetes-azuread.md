@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: c207fb866cdd17e4db1796e415c159eb887eef08
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 8d2d8d0595099081498202a3103caa10df8cf67d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243558"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657844"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 Azure Stack에 Kubernetes 배포
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 > [!Note]  
-> Azure Stack에서 Kubernetes 미리 보기입니다.
+> Azure Stack에서 Kubernetes 미리 보기입니다. Azure Stack 연결이 끊긴된 시나리오는 미리 보기에서 현재 지원 되지 않습니다.
 
 배포 하 고 단일에서 사용자 id 관리 서비스로 작업을 조정 하는 대로 Azure Active Directory (Azure AD)를 사용 하는 경우 kubernetes의 경우 리소스를 설정 하려면이 문서의 단계를 수행할 수 있습니다.
 

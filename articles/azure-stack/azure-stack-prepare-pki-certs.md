@@ -11,22 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/02/2019
-ms.openlocfilehash: 496a6c45c9f8930f77b3a3dab2f81db1b24c1801
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 01/30/2019
+ms.openlocfilehash: fab7ead59ce8d7e12d145095c64cedf4234e6233
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247207"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656722"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Azure Stack PKI 인증서를 배포 또는 회전 사용 준비
+
 인증서 파일 [선택한 CA에서 얻은](azure-stack-get-pki-certs.md) 가져오고 Azure Stack 인증서 요구 사항 일치 하는 속성을 사용 하 여 내보낸 해야 합니다.
 
-
 ## <a name="prepare-certificates-for-deployment"></a>배포에 대 한 인증서를 준비 합니다.
+
 준비 및 새 Azure Stack 환경을 배포 또는 기존 Azure Stack 환경에서 암호를 회전 하기 위한 사용 되는 Azure Stack PKI 인증서의 유효성을 검사 하려면 다음이 단계를 사용 합니다. 
 
 ### <a name="import-the-certificate"></a>인증서 가져오기
@@ -83,7 +84,9 @@ ms.locfileid: "55247207"
     
     ![선택한 옵션을 사용 하 여 인증서 내보내기 마법사](./media/prepare-pki-certs\azure-stack-save-cert.png)
 
-1. 선택 **암호** 인증서에 대 한 암호를 제공 합니다. 배포 매개 변수로 사용 되기 때문에이 암호를 기억해 둡니다. **다음**을 선택합니다.
+1. 선택 **암호** 인증서에 대 한 암호를 제공 합니다. 다음 암호 복잡성 요구 사항을 충족 하는 암호를 만듭니다. 8 개 문자의 최소 길이입니다. 암호를 포함 하는 다음의 세 가지 이상을: 대문자 문자, 소문자, 숫자 0-9, 특수 문자를 대문자 또는 소문자 알파벳 문자입니다. 이 암호를 기록해 둡니다. 배포 매개 변수로 사용 됩니다.
+
+1. **다음**을 선택합니다.
 
 1. 파일 이름 및 pfx 파일을 내보낼 위치를 선택 합니다. **다음**을 선택합니다.
 

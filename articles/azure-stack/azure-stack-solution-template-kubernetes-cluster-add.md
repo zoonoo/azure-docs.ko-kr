@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b7e293018f2dc248fae8de8bd9e82943606f4ead
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9d2d7297ea5978687ef6dc791d5a333016060da7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239505"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659935"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes Azure Stack Marketplace에 추가
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 > [!note]  
-> Azure Stack에서 Kubernetes 미리 보기입니다.
+> Azure Stack에서 Kubernetes 미리 보기입니다. Azure Stack 연결이 끊긴된 시나리오는 미리 보기에서 현재 지원 되지 않습니다.
 
 사용자에 게 Marketplace 항목으로 Kubernetes를 제공할 수 있습니다. 그런 다음 사용자가 단일의 조정 된 작업에서 Kubernetes를 배포 수 있습니다.
 

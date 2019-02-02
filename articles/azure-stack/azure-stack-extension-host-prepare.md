@@ -11,12 +11,12 @@ ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 840c230ae3b2fc167c0d59a4a9a0155fe5deb661
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3e838f932299a9ea7f837570f9d15725230eb4f8
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238260"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660088"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Azure Stack에 대 한 확장 호스트 준비
 
@@ -141,7 +141,7 @@ Cmdlet을 실행 하 여 권한 있는 끝점을 사용 하 여 할당 된 Ip를
 
 ### <a name="publish-new-endpoints"></a>새 끝점을 게시
 
-방화벽을 통해 게시 하는 데 필요한 두 개의 새로운 끝점 있습니다. 에 Azure Stack을 통해 실행 해야 하는 다음 코드를 사용 하 여 공용 VIP 풀에서 할당 된 Ip를 검색할 수 있습니다 [환경에는 끝점 권한 있는](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-privileged-endpoint)합니다.
+방화벽을 통해 게시 하는 데 필요한 두 개의 새로운 끝점 있습니다. 에 Azure Stack을 통해 실행 해야 하는 다음 코드를 사용 하 여 공용 VIP 풀에서 할당 된 Ip를 검색할 수 있습니다 [환경에는 끝점 권한 있는](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint)합니다.
 
 ```PowerShell
 # Create a PEP Session

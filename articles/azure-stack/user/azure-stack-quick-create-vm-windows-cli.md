@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 1ba612a90ffb4c767ca333faee4b7d97180a2025
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d2e29e183ab898635f550290b6ebd6eddd42c4d2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249023"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659204"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>빠른 시작: Azure Stack에서 Azure CLI를 사용 하 여 Windows Server 가상 머신 만들기
 
@@ -72,7 +72,7 @@ VM을 만든 경우 합니다 **PublicIPAddress** 출력에서 매개 변수는 
 
 을 때문에이 VM은 IIS 웹 서버를 실행 하려면 인터넷 트래픽에 포트 80을 열려면 해야 합니다.
 
-사용 된 [포트 열기 az vm](/cli/azure/vm#open-port) 포트 80을 열려면 명령입니다.
+사용 된 [포트 열기 az vm](/cli/azure/vm) 포트 80을 열려면 명령입니다.
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
