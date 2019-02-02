@@ -98,6 +98,10 @@ items:
     href: key-vault-group-permissions-for-apps.md
   - name: 방화벽 및 가상 네트워크 구성
     href: key-vault-network-security.md
+  - name: Java 개발
+    items:
+    - name: Spring Boot Starter 사용
+      href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
 - name: 참고 자료
   items:
   - name: Azure PowerShell
@@ -164,9 +168,9 @@ items:
     href: http://blogs.technet.com/b/kv/
 - name: 제품 사용자 의견
   href: https://feedback.azure.com/forums/906355-azure-key-vault
-ms.openlocfilehash: 15db7be3409b36d12583df07e54f0d36cd845b6b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b2e32542929deb23d824d16b8d3e94fcac9efe58
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510727"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563799"
