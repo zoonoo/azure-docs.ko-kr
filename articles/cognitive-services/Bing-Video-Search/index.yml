@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1ff0b711e2c839f81f7f3b68603c2b9e46092316
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7f462bf635eeec0e7a7eba4467aa2567fc09cb83
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152963"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562405"
 documentType: LandingData
-title: Bing Video Search 설명서
+title: Bing Video Search API 설명서
 metadata:
-  title: Bing Video Search 설명서 - 자습서, 빠른 시작, API 참조 | Microsoft Docs
-  description: Bing Video Search API를 사용하여 사용자 쿼리에 관련된 웹의 비디오를 가져오는 방법을 알아봅니다. 자습서에서는 서비스를 사용하는 앱을 빌드하는 방법을 보여줍니다.
+  title: Bing Video Search API 설명서 - 자습서, 빠른 시작, API 참조 | Microsoft Docs
+  description: Bing Video Search API 검색을 사용하고 웹에서 비디오를 찾는 방법을 알아봅니다.
   services: cognitive-services
   author: mikedodaro
   manager: rosh
@@ -18,48 +18,69 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/02/2017
+  ms.date: 01/31/2019
   ms.author: v-gedod
 abstract:
-  description: Bing Video Search API는 Bing이 쿼리와 관련있다고 판단한 비디오를 반환하여 Bing Video와 유사한 환경을 제공합니다.
+  description: Bing Video Search API를 사용하면 애플리케이션에서 Bing의 비디오 검색 기능을 통합할 수 있습니다. API에 검색 쿼리를 보내면 bing.com/videos와 비슷한 관련 고품질 비디오를 가져오고 표시할 수 있습니다.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-video-search/overview
+      html: <p>Bing Video Search API에 대한 자세한 내용</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Bing Video Search API란?
+    - href: /azure/cognitive-services/bing-video-search/concepts/sending-requests
+      html: <p>Bing에 Video 검색 쿼리를 보내는 방법 알아보기</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: 검색 쿼리 보내기
+    - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images
+      html: <p>검색 결과 필터링, 비디오 미리 보기 가져오기, 검색 쿼리 확장 방법 알아보기</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: 웹에서 비디오 가져오기
 - title: 5분 빠른 시작
   items:
   - type: paragraph
-    text: 쿼리를 수행하고 JSON 응답을 확인하여 Bing Video Search API를 사용하기 시작합니다.
+    text: 다음을 사용하여 웹에서 비디오를 검색합니다.
   - type: list
     style: icon48
     items:
     - image:
         src: media/index/logo_csharp.svg
-      href: csharp
+      href: quickstarts/sdk-csharp-quickstart
       text: C&#35;
     - image:
         src: media/index/logo_java.svg
-      href: java
+      href: quickstarts/sdk-java-quickstart
       text: 자바
     - image:
         src: media/index/logo_nodejs.svg
-      href: nodejs
+      href: quickstarts/nodejs
       text: Node.js
     - image:
         src: media/index/logo_php.svg
-      href: php
+      href: quickstarts/php
       text: PHP
     - image:
         src: media/index/logo_python.svg
-      href: python
+      href: quickstarts/sdk-python-quickstart
       text: Python
     - image:
         src: media/index/logo_ruby.svg
-      href: ruby
+      href: quickstarts/ruby
       text: Ruby
 - title: 단계별 자습서
   items:
   - type: paragraph
     text: Bing Video Search API를 사용하여 애플리케이션을 개발합니다.
   - type: paragraph
-    text: <a href="tutorial-bing-video-search-single-page-app">단일 페이지 웹앱</a> &#124; <a href="tutorial-bing-video-search-single-page-app-source">소스 코드</a>
+    text: <a href="tutorial-bing-video-search-single-page-app">단일 페이지 웹앱</a>
 - title: 샘플
   items:
   - type: paragraph

@@ -67,7 +67,7 @@
 
 ### [제품 관리](./cloud-partner-portal/manage-offers/cpp-manage-offers.md)
 #### [제품 만들기](./cloud-partner-portal/manage-offers/cpp-create-offer.md)
-<!-- #### [Publish offer](./cloud-partner-portal/manage-offers/cpp-publish-offer.md)   -->
+#### [제품 게시](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) 
 #### [제품 상태 보기](./cloud-partner-portal/manage-offers/cpp-view-status-offer.md)
 #### [제품 업데이트](./cloud-partner-portal/manage-offers/cpp-update-offer.md)
 #### [제품 삭제](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
@@ -140,6 +140,17 @@
 #### [IoT Edge 모듈 기술 자산 만들기](./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md)
 #### [IoT Edge 모듈 제품 게시](./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md)
 #### [기존 제품 업데이트](./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md)
+
+### [Power BI 앱 제안](./cloud-partner-portal/power-bi/cpp-power-bi-offer.md)
+#### [필수 구성 요소](./cloud-partner-portal/power-bi/cpp-prerequisites.md)
+#### [Power BI 앱 제안 만들기](./cloud-partner-portal/power-bi/cpp-create-offer.md)
+##### [제품 설정 탭](./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md)
+##### [기술 정보 탭](./cloud-partner-portal/power-bi/cpp-technical-info-tab.md)
+##### [상점 세부 정보 탭](./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md)
+##### [연락처 탭](./cloud-partner-portal/power-bi/cpp-contacts-tab.md)
+#### [Power BI 앱 기술 자산 만들기](./cloud-partner-portal/power-bi/cpp-create-technical-assets.md)
+#### [Power BI 앱 제안 게시](./cloud-partner-portal/power-bi/cpp-publish-offer.md)
+#### [기존 제품 업데이트](./cloud-partner-portal/power-bi/cpp-update-existing-offer.md)
 
 ### [SaaS 애플리케이션 제품](./cloud-partner-portal/saas-app/cpp-saas-offer.md)
 #### [필수 구성 요소](./cloud-partner-portal/saas-app/cpp-prerequisites.md)

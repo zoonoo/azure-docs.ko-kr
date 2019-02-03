@@ -1,48 +1,45 @@
 items:
-- name: Bing Video Search 설명서
+- name: Bing Video Search API 설명서
   href: index.yml
 - name: 개요
   items:
-  - name: Bing Video Search란?
-    href: search-the-web.md
+  - name: Bing Video Search API란?
+    href: overview.md
   - name: Bing Search API 비교
     href: ../Bing-Web-Search/bing-api-comparison.md
     maintainContext: true
+  expanded: true
 - name: REST API 빠른 시작
   items:
-  - name: 시작하기
-    href: quick-start.md
-  - name: C#
-    href: csharp.md
-  - name: 자바
-    href: java.md
-  - name: Node.js
-    href: nodejs.md
-  - name: PHP
-    href: php.md
-  - name: Python
-    href: python.md
-  - name: Ruby
-    href: ruby.md
+  - name: REST API
+    items:
+    - name: C# 사용
+      href: quickstarts/csharp.md
+    - name: Java 사용
+      href: quickstarts/java.md
+    - name: Node.js 사용
+      href: quickstarts/nodejs.md
+    - name: PHP 사용
+      href: quickstarts/php.md
+    - name: Python 사용
+      href: quickstarts/python.md
+    - name: Ruby 사용
+      href: quickstarts/ruby.md
+  - name: SDK)
+    items:
+    - name: C# 사용
+      href: quickstarts/sdk-csharp-quickstart.md
+    - name: Node.js 사용
+      href: quickstarts/sdk-node-quickstart.md
+    - name: Python 사용
+      href: quickstarts/sdk-python-quickstart.md
+    - name: Java 사용
+      href: quickstarts/sdk-java-quickstart.md
   expanded: true
-- name: SDK 빠른 시작
-  items:
-  - name: SDK 샘플 개요
-    href: sdk.md
-  - name: Video Search SDK C# 빠른 시작
-    href: video-search-sdk-quickstart.md
-  - name: Video Search SDK Node 빠른 시작
-    href: video-search-sdk-node-quickstart.md
-  - name: Video Search SDK Python 빠른 시작
-    href: video-sdk-python-quickstart.md
-  - name: Video Search SDK Java 빠른 시작
-    href: video-sdk-java-quickstart.md
 - name: 자습서
   items:
-  - name: 단일 페이지 웹앱
+  - name: 단일 페이지 웹앱 빌드
     href: tutorial-bing-video-search-single-page-app.md
-  - name: 단일 페이지 웹앱(소스 코드)
-    href: tutorial-bing-video-search-single-page-app-source.md
 - name: 샘플
   items:
   - name: 코드 샘플
@@ -59,6 +56,12 @@ items:
     href: resize-and-crop-thumbnails.md
   - name: v5에서 v7로 업그레이드
     href: bing-video-upgrade-guide-v5-to-v7.md
+- name: 개념
+  items:
+  - name: 웹에서 비디오 가져오기
+    href: concepts/get-videos.md
+  - name: 검색 요청 보내기
+    href: concepts/sending-requests.md
 - name: 참고 자료
   items:
   - name: Bing Video Search API v7
@@ -98,13 +101,11 @@ items:
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api
   - name: 사용해 보세요.
     href: https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8
-  - name: Bing Video Search 엔드포인트
-    href: video-search-endpoints.md
   - name: Bing Video Search API에 대한 분석
     href: bing-video-stats.md
-ms.openlocfilehash: e8f0e84b405232ff7145f0a8fed4ab42d03a4c63
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 9192f6aaa94d2aff310e8d12a66ac8ab75f772e2
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509724"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568038"

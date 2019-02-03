@@ -10,16 +10,20 @@
 ## 자습서
 ### Java(VS 코드 & CLI)
 #### [1 - 시작하기](get-started-java.md)
-#### [2 - 팀 개발](team-development-java.md)
+#### [2 - 다중 서비스 개발](multi-service-java.md)
+#### [3 - 팀 개발](team-development-java.md)
 ### .NET Core(VS 코드 & CLI)
 #### [1 - 시작하기](get-started-netcore.md)
-#### [2 - 팀 개발](team-development-netcore.md)
+#### [2 - 다중 서비스 개발](multi-service-netcore.md)
+#### [3 - 팀 개발](team-development-netcore.md)
 ### .NET Core(Visual Studio 2017)
 #### [1 - 시작하기](get-started-netcore-visualstudio.md)
-#### [2 - 팀 개발](team-development-netcore-visualstudio.md)
+#### [2 - 다중 서비스 개발](multi-service-netcore-visualstudio.md)
+#### [3 - 팀 개발](team-development-netcore-visualstudio.md)
 ### Node.js(VS 코드 & CLI)
 #### [1 - 시작하기](get-started-nodejs.md)
-#### [2 - 팀 개발](team-development-nodejs.md)
+#### [2 - 다중 서비스 개발](multi-service-nodejs.md)
+#### [3 - 팀 개발](team-development-nodejs.md)
 
 ## 방법
 ### [Azure Cloud Shell을 사용하여 Kubernetes 클러스터 만들기](how-to/create-cluster-cloud-shell.md)
@@ -28,9 +32,7 @@
 ### [사용자 지정 NuGet 피드 사용](how-to/use-custom-nuget-feed.md)
 ### [Azure Dev 공간으로 kubectl 사용](how-to/use-kubectl-with-azure-dev-spaces.md)
 ### [Azure Dev Spaces Tools 업그레이드](how-to/upgrade-tools.md)
+### [Azure Dev Spaces로 CI/CD 사용](how-to/setup-cicd.md)
 ### [Azure Dev Spaces에 대한 BCDR(비즈니스 연속성 및 재해 복구)](how-to/dev-spaces-business-continuity.md)
 
 ## [문제 해결](troubleshooting.md)
-
-
-
