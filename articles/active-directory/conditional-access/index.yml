@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f5d48559592fa98df5e4f10fc89e137d06e3e166
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: b3e11c58dcc5f5c68e9fe081cc47cf2fa18e9e57
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079208"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697903"
 documentType: LandingData
 title: Azure AD 조건부 액세스 설명서
 metadata:
@@ -12,7 +12,7 @@ metadata:
   title: Azure Active Directory 조건부 액세스 설명서 - 자습서, 빠른 시작, 개념, 참조 | Microsoft Docs
   description: Azure Active Directory 조건부 액세스를 구성하고 테스트하는 방법을 알아봅니다.
   services: active-directory
-  ms.subservice: authentication
+  ms.subservice: conditional-access
   author: MarkusVi
   manager: daveba
   ms.service: active-directory

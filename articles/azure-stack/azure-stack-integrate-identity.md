@@ -11,12 +11,12 @@ ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/23/19
 keywords: ''
-ms.openlocfilehash: f05d27effecee6a18a1395520b29d8cf1db1eaaa
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 15beebb3ef6fda098c3f540f945fc3d6b836e517
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246250"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697978"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 데이터 센터 통합-Identity
 Id 공급자로 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)를 사용 하 여 Azure Stack을 배포할 수 있습니다. Azure Stack을 배포 하기 전에 선택을 해야 합니다. AD FS를 사용 하 여 배포를 오프 라인된 모드에서 Azure Stack 배포는 라고도 합니다.
@@ -306,7 +306,7 @@ Microsoft는 클레임 변환 규칙을 포함 하 여 신뢰 당사자 트러�
 > [!Important]  
 > AD FS는만 대화형 로그온 세션을 지원합니다. 자동화 된 시나리오는 비 대화형 로그온 해야 하는 경우 SPN을 사용 해야 합니다.
 
-SPN을 만드는 방법에 대 한 자세한 내용은 참조 하세요. [AD FS에 대 한 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs)합니다.
+SPN을 만드는 방법에 대 한 자세한 내용은 참조 하세요. [AD FS에 대 한 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals)합니다.
 
 
 ## <a name="troubleshooting"></a>문제 해결

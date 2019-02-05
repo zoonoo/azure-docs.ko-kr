@@ -16,12 +16,12 @@ ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 5447bcb0dc37cb3c923c4e6bbff4d69d987b6df6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 05bf01e2b7c380f7bb79230885e247bd8c834d14
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244371"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691170"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure Stack에 대 한 결정을 계획 하는 azure 연결이 끊긴된 배포 통합 시스템
 결정 한 다음 [하이브리드 클라우드 환경에 Azure Stack에서는 통합 하는 방법을](azure-stack-connection-models.md), Azure Stack 배포 관련 결정 사항을 완료 후 수 있습니다.
@@ -47,7 +47,7 @@ Azure Stack 기능 중 일부를 손상 또는 연결이 끊어진된 모드에�
 |Docker 명령을 실행할 Docker 확장을 사용 하 여 VM 배포|장애가 – Docker는 인터넷에서 최신 버전을 확인 및이 확인이 실패 합니다.|
 |Azure Stack 포털에 대 한 설명서 링크|사용할 수 없음 – 링크 같은 피드백 제공, 도움말, 빠른 시작에서는 등 사용 하는 인터넷 URL이 작동 하지 않습니다.|
 |온라인 업데이트 관리 가이드를 참조 하는 경고 수정/완화|사용할 수 없음 – 모든 경고 문제 해결 링크 사용 하는 인터넷 URL이 작동 하지 않습니다.|
-|Marketplace 선택 하 고 Azure Marketplace에서 직접 갤러리 패키지를 추가 하는 기능|장애가 있는 – Azure Stack 포털을 사용 하 여 마켓플레이스 항목을 다운로드할 수 없습니다 (모든 인터넷 연결) 없이 연결이 끊어진된 모드에서 Azure Stack을 배포 하는 경우. 사용할 수 있습니다 합니다 [마켓플레이스 배포 도구](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) 를 인터넷에 연결 되어 있는 컴퓨터에 마켓플레이스 항목을 다운로드 하 여 Azure Stack 환경에 전송 합니다.|
+|Marketplace 선택 하 고 Azure Marketplace에서 직접 갤러리 패키지를 추가 하는 기능|장애가 있는 – Azure Stack 포털을 사용 하 여 마켓플레이스 항목을 다운로드할 수 없습니다 (모든 인터넷 연결) 없이 연결이 끊어진된 모드에서 Azure Stack을 배포 하는 경우. 사용할 수 있습니다 합니다 [마켓플레이스 배포 도구](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) 를 인터넷에 연결 되어 있는 컴퓨터에 마켓플레이스 항목을 다운로드 하 여 Azure Stack 환경에 전송 합니다.|
 |Azure Active Directory 페더레이션 계정을 사용 하 여 Azure Stack 배포를 관리 합니다.|사용할 수 없음 –이 기능은 Azure에 연결 되어 있어야 합니다. 로컬 Active Directory 인스턴스를 사용 하 여 AD FS는 대신 사용 되어야 합니다.|
 |App Services|장애가 있는-WebApps 업데이트 된 콘텐츠에 대 한 인터넷 액세스가 필요할 수 있습니다.|
 |CLI(Command Line Interface)|장애가 있는-CLI의 인증 및 서비스 주체를 프로 비전 기능이 감소 되었습니다.|

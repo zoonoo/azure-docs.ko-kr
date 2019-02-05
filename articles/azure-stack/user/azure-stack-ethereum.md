@@ -5,19 +5,19 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/02/2018
+ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
-ms.lastreviewed: 11/02/2018
-ms.openlocfilehash: 844c81d71734ab17c93f60cb802686c209e04014
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/04/2019
+ms.openlocfilehash: 6c9893aac349b05580f49a445bd088ed5c76044b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239233"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697480"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Ethereum 블록 체인 네트워크를 사용 하 여 Azure Stack에 배포
 
@@ -25,7 +25,7 @@ Ethereum 솔루션 템플릿에 쉽고 빠르게 배포 하 고 한 지식이 �
 
 소수의 사용자 입력 및 Azure Stack 테 넌 트 포털을 통해 한 번 클릭 배포의 각 멤버는 해당 네트워크 사용 공간을 프로비저닝할 수 있습니다. 각 구성원의 네트워크 사용 공간 트랜잭션 부하 분산 된 노드 집합으로 구성 하는 응용 프로그램이 나 사용자 상호 작용할 수 트랜잭션, 레코드 트랜잭션에서 마이닝 노드 집합 및 네트워크 가상 어플라이언스 (NVA)를 제출 하려면 사용 하 여 합니다. 후속 연결 단계를 완전히 구성 된 다중 멤버 블록 체인 네트워크를 만들려는 Nva를 연결 합니다.
 
-설정할이 있습니다.
+설정 하려면:
 
 - 배포 아키텍처를 선택 합니다.
 - 독립 실행형, 컨소시엄 리더 또는 컨소시엄 멤버 네트워크 배포
@@ -157,7 +157,7 @@ Ethereum 솔루션 템플릿에 쉽고 빠르게 배포 하 고 한 지식이 �
 
 ![멤버 배포 요약](./media/azure-stack-ethereum/ethereum-node-status-2.png)
 
-그림에 표시 된 것과 같이 멤버의 노드 상태가 **실행 되 고 있지**합니다. 즉, 멤버 및 리더 간의 연결이 설정 되지 됩니다. 멤버 및 리더 간의 연결이 양방향 연결 합니다. 멤버를 배포할 때 템플릿은 자동으로 만듭니다 연결 멤버에서 리더를 합니다. 연결 리더에서 멤버를 만들려면 다음 단계로 이동 합니다.
+그림에 표시 된 것과 같이 멤버의 노드 상태가 **실행 되 고 있지**합니다. 멤버 및 리더 간에 연결 되지 않아이 상태가 않습니다. 멤버 및 리더 간의 연결이 양방향 연결 합니다. 멤버를 배포할 때 템플릿은 자동으로 만듭니다 연결 멤버에서 리더를 합니다. 연결 리더에서 멤버를 만들려면 다음 단계로 이동 합니다.
 
 ### <a name="connect-member-and-leader"></a>멤버 및 리더를 연결 합니다.
 
