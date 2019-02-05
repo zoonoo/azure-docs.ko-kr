@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: d101931fb2a4184ff9ffffc0aed4fc90fee2cbd5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 5884295e93a14d74a125c27ea597f2311478042a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452958"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459029"
 ---
-# <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터를 쿼리하는 SQL 쿼리 예제
+# <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 SQL 쿼리 예제
 
 Azure Cosmos DB는 SQL API 계정에서 JSON 쿼리 언어로 SQL(구조적 쿼리 언어)을 사용하는 항목 쿼리를 지원합니다. Azure Cosmos DB에 대한 쿼리 언어를 디자인하는 경우 다음 두 가지 목표를 고려합니다.
 

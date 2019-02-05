@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 6db713984b62ce3db48b2e72a4b117696bdd6add
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6f47606e91ec55bae624527bace81d947c5ea4f9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452975"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55091549"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>자습서: Azure Data Box Gateway 배포 준비(미리 보기)
 
@@ -42,7 +42,7 @@ Data Box Gateway를 배포하려면 다음 자습서를 규정된 순서대로 �
 | **#** | **단계** | **이러한 문서를 사용합니다.** |
 | --- | --- | --- | 
 | 1. |**[Data Box Gateway를 위해 Azure Portal 준비](data-box-gateway-deploy-prep.md)** |Data Box Gateway 가상 디바이스를 프로비전하기 전에 Data Box Gateway 리소스를 만들고 구성합니다. |
-| 2. |**[Hyper-V에서 Data Box Gateway 프로비전](data-box-gateway-deploy-provision-hyperv.md)** <br><br><br>**[VMware에서 Data Box Gateway 프로비전](data-box-gateway-deploy-provision-vmware.md)**|Hyper-V의 경우 Windows Server 2016이나 Windows Server 2012 R2에서 Hyper-V를 실행하는 호스트 시스템에서 Data Box Gateway 가상 디바이스를 프로비전하고 연결합니다. <br><br><br> VMware의 경우, VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 Data Box Gateway 가상 디바이스에 프로비전하고 연결합니다.<br></br> |
+| 2. |**[Hyper-V에서 Data Box Gateway 프로비전](data-box-gateway-deploy-provision-hyperv.md)** <br><br><br>**[VMware에서 Data Box Gateway 프로비전](data-box-gateway-deploy-provision-vmware.md)**|Hyper-V의 경우 Windows Server 2016이나 Windows Server 2012 R2에서 Hyper-V를 실행하는 호스트 시스템에서 Data Box Gateway 가상 디바이스를 프로비전하고 연결합니다. <br><br><br> VMware의 경우 VMware ESXi 6.0, 6.5 또는 6.7을 실행하는 호스트 시스템에서 Data Box Gateway 가상 디바이스에 프로비전하고 연결합니다.<br></br> |
 | 3. |**[Data Box Gateway 연결, 설정, 활성화](data-box-gateway-deploy-connect-setup-activate.md)** |로컬 웹 UI에 연결하고 디바이스 설정을 완료한 다음, 디바이스를 활성화합니다. 그런 다음 SMB 공유를 프로비전할 수 있습니다.  |
 | 4. |**[Data Box Gateway를 통해 데이터 전송](data-box-gateway-deploy-add-shares.md)** |공유를 추가하고, SMB 또는 NFS를 통해 공유에 연결합니다. |
 
@@ -63,7 +63,7 @@ Data Box Gateway를 배포하려면 다음 자습서를 규정된 순서대로 �
 
 가상 디바이스를 배포하기 전에 다음 사항을 확인해야 합니다.
 
-* 디바이스 프로비전에 사용될 수 있는 Windows Server 2012 R2 이상 또는 VMware(ESXi 6.0 또는 6.5)에서 Hyper-V를 실행하는 호스트 시스템에 액세스할 수 있습니다.
+* 디바이스를 프로비전하는 데 사용할 수 있는 Windows Server 2012 R2 이상 또는 VMware(ESXi 6.0, 6.5 또는 6.7)에서 Hyper-V를 실행하는 호스트 시스템에 액세스할 수 있습니다.
 * 호스트 시스템은 다음 리소스를 전용으로 사용하여 Data Box 가상 디바이스를 프로비전할 수 있습니다.
   
   * 코어 4개 이상
@@ -126,7 +126,7 @@ Data Box Gateway가 만들어진 후에는 적절한 가상 디바이스 이미�
 4. 오른쪽 창의 빠른 시작에서 다운로드하려는 이미지에 해당하는 링크를 클릭합니다. 이미지 파일은 약 4.8GB입니다.
    
    * [Windows Server 2012 R2 이상의 Hyper-V용 VHDX](https://aka.ms/dbe-vhdx-2012).
-   * [VMWare ESXi 6.0 또는 6.5용 VMDK](https://aka.ms/dbe-vmdk).
+   * [VMWare ESXi 6.0, 6.5 또는 6.7용 VMDK](https://aka.ms/dbe-vmdk).
 
 5. 파일을 다운로드하고 로컬 드라이브에 압축을 푼 다음 압축을 푼 위치를 적어둡니다.
 

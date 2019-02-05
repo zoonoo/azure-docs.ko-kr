@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: fa0883c18e0d586e6e9b35fb19dbe304388045b5
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 85c9eeb60027ba44fd5e65d056864aa76a6e720a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215289"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900887"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>자습서: REST API를 통해 Azure Data Box Blob 스토리지에 데이터 복사  
 
@@ -22,9 +22,9 @@ ms.locfileid: "54215289"
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
+> * 필수 조건
 > * *http* 또는 *https*를 통해 Data Box Blob 스토리지에 연결
 > * Data Box에 데이터 복사
-> * 배송 준비
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -196,23 +196,22 @@ AzCopy를 사용하여 마지막 수정 시간을 기반으로 파일을 업로�
     --recursive \
     --exclude-older
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
 
 
-## <a name="prepare-to-ship"></a>배송 준비
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
+다음 단계는 배송할 디바이스를 준비하는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 Azure Data Box 항목에 대해 다음과 같은 내용을 알아보았습니다.
 
 > [!div class="checklist"]
+> * 필수 조건
 > * *http* 또는 *https*를 통해 Data Box Blob 스토리지에 연결
 > * Data Box에 데이터 복사
-> * 배송 준비
+
 
 Data Box를 Microsoft로 다시 배송하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 

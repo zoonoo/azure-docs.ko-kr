@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 08/16/2018
+ms.date: 01/23/2019
 ms.author: shvija
-ms.openlocfilehash: 3a1054b0c753b3e5dca4cd66ac42e6bc8bdd16ae
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 073d1b54b1c6da2b1178f482d17b4de7abcc8a51
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960705"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888926"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 이벤트 허브 만들기
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 장치에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
@@ -32,63 +32,61 @@ Azure 빠른 시작에서 [Azure Portal](https://portal.azure.com)을 사용하�
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-리소스 그룹은 Azure 리소스에 대한 논리적 컬렉션입니다. 모든 리소스는 리소스 그룹에서 배포 및 관리됩니다. 다음을 수행하여 리소스 그룹을 만듭니다.
+리소스 그룹은 Azure 리소스에 대한 논리적 컬렉션입니다. 모든 리소스는 리소스 그룹에서 배포 및 관리됩니다. 리소스 그룹을 만들려면
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 탐색에서 **리소스 그룹**을 클릭합니다. 그런 다음, **추가**를 클릭합니다.
 
    ![리소스 그룹 - 추가 단추](./media/event-hubs-quickstart-portal/resource-groups1.png)
 
-2. 리소스 그룹에 대한 고유한 이름을 입력합니다. 시스템에서 즉시 이 이름이 현재 선택한 Azure 구독에서 사용 가능한지 확인합니다.
-
-3. **구독**에서 리소스 그룹을 만들려는 Azure 구독의 이름을 클릭합니다.
-
-4. 리소스 그룹의 지리적 위치를 선택합니다.
-
-5. **만들기**를 클릭합니다.
+2. **구독**에서 리소스 그룹을 만들려는 Azure 구독의 이름을 선택합니다.
+3. 고유한 **리소스 그룹 이름**을 입력합니다. 시스템에서 즉시 이 이름이 현재 선택한 Azure 구독에서 사용 가능한지 확인합니다.
+4. 리소스 그룹의 **Azure 지역**을 선택합니다.
+5. **검토 + 만들기**를 선택합니다.
 
    ![리소스 그룹 - 만들기](./media/event-hubs-quickstart-portal/resource-groups2.png)
+6. **검토 + 만들기** 창에서 **만들기**를 선택합니다. 
 
 ## <a name="create-an-event-hubs-namespace"></a>Event Hubs 네임스페이스 만들기
 
 Event Hubs 네임스페이스는 정규화된 도메인 이름으로 참조되는 고유한 범위 지정 컨테이너를 제공하며, 하나 이상의 이벤트 허브를 만듭니다. 포털을 사용하여 리소스 그룹에 네임스페이스를 만들려면 다음 작업을 수행합니다.
 
 1. Azure Portal 화면의 왼쪽 위에서 **리소스 만들기**를 클릭합니다.
-
-2. **사물 인터넷**을 클릭한 다음, **Event Hubs**를 클릭합니다.
-
-3. **네임스페이스 만들기**에서 네임스페이스 이름을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다.
-
-   ![이벤트 허브 네임스페이스 만들기](./media/event-hubs-create/create-event-hub1.png)
-
-4. 네임스페이스 이름을 사용할 수 있게 설정한 후 가격 책정 계층(기본 또는 표준)을 선택합니다. 또한 리소스를 만들 Azure 구독, 리소스 그룹 및 위치를 선택합니다.
- 
-5. **만들기** 를 클릭하여 네임스페이스를 만듭니다. 시스템에서 리소스를 완전히 프로비전하기까지 몇 분 동안 기다려야 할 수 있습니다.
-6. **경고**를 선택한 다음, 이벤트 허브 네임스페이스와 이름이 같은 **배포**를 선택합니다. 
-
-   ![리소스 그룹 - 만들기에서 경고](./media/event-hubs-quickstart-portal/create-alert.png)
-6. 배포에서 만든 리소스 목록에서 이벤트 허브 네임스페이스를 선택합니다. 
-
-   ![배포에서 네임스페이스 선택](./media/event-hubs-quickstart-portal/deployment-namespace.png)
-7. **Event Hubs 네임스페이스** 페이지에서 **공유 액세스 정책**을 선택하고 **RootManageSharedAccessKey**를 클릭합니다.
+2. 왼쪽 메뉴에서 **모든 서비스**를 선택하고, **분석** 범주의 **Event Hubs** 옆에서 **별표(`*`)** 를 선택합니다. 왼쪽 탐색 메뉴에서 **Event Hubs**가 **즐겨찾기**에 추가되었는지 확인합니다. 
     
-8. 복사 단추를 클릭하여 클립보드에 대한 **RootManageSharedAccessKey** 연결 문자열을 복사합니다. 나중에 사용하기 위해 이 연결 문자열을 임시 위치(예: 메모장)에 저장합니다.
+   ![Event Hubs 검색](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
+3. 왼쪽 탐색 메뉴의 **즐겨찾기** 아래에서 **Event Hubs**를 선택하고, 도구 모음에서 **추가**를 선택합니다.
+
+   ![추가 도구 모음 단추](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
+4. **네임스페이스 만들기** 페이지에서 다음 단계를 수행합니다.
+    1. 네임스페이스의 이름을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다.
+    2. 가격 책정 계층(기본 또는 표준)을 선택합니다.
+    3. 네임스페이스를 만들려는 **구독**을 선택합니다.
+    4. 네임스페이스의 **위치**를 선택합니다.
+    5. **만들기**를 선택합니다. 시스템에서 리소스를 완전히 프로비전하기까지 몇 분 동안 기다려야 할 수 있습니다.
+
+       ![이벤트 허브 네임스페이스 만들기](./media/event-hubs-quickstart-portal/create-event-hub1.png)
+5. **Event Hubs** 페이지를 새로 고침하여 이벤트 허브 네임스페이스를 봅니다. 경고에서 이벤트 허브 만들기의 상태를 확인할 수 있습니다. 
+
+    ![이벤트 허브 네임스페이스 만들기](./media/event-hubs-quickstart-portal/event-hubs-refresh.png)
+6. 네임스페이스를 선택합니다. 포털에 **Event Hubs 네임스페이스** 홈페이지가 표시됩니다. 
+
+   ![네임스페이스의 홈페이지](./media/event-hubs-quickstart-portal/namespace-home-page.png)
     
 ## <a name="create-an-event-hub"></a>이벤트 허브 만들기
 
 네임스페이스에 이벤트 허브를 만들려면 다음 작업을 수행합니다.
 
-1. [Event Hubs 네임스페이스] 페이지에서 **Event Hubs**를 클릭합니다.
-   
-    ![왼쪽 메뉴에서 [Event Hubs] 선택](./media/event-hubs-quickstart-portal/create-event-hub3.png)
-
+1. Event Hubs 네임스페이스 페이지의 왼쪽 메뉴에서 **Event Hubs**를 선택합니다.
 1. 창의 위쪽에서 **+ 이벤트 허브**를 클릭합니다.
    
     ![이벤트 허브 추가 - 버튼](./media/event-hubs-quickstart-portal/create-event-hub4.png)
 1. 이벤트 허브의 이름을 입력한 다음, **만들기**를 클릭합니다.
    
     ![이벤트 허브 만들기](./media/event-hubs-quickstart-portal/create-event-hub5.png)
+4. 경고에서 이벤트 허브 만들기의 상태를 확인할 수 있습니다. 이벤트 허브가 만들어지면 다음 이미지처럼 이벤트 허브 목록에 표시됩니다.
 
+    ![생성된 이벤트 허브](./media/event-hubs-quickstart-portal/event-hub-created.png)
 
 축하합니다! 포털을 사용하여 Event Hubs 네임스페이스와, 그 네임스페이스 안에 이벤트 허브를 만들었습니다. 
 

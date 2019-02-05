@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database에서 단일 데이터베이스 보호 | Microsoft Docs
-description: Azure SQL Database에서 단일 데이터베이스를 보호하는 기술 및 기능에 대해 자세히 알아봅니다.
+title: Azure SQL Database에서 독립 실행형 데이터베이스 또는 풀링된 데이터베이스 보호 | Microsoft Docs
+description: Azure SQL Database에서 독립 실행형 데이터베이스 또는 풀링된 데이터베이스를 보호하는 기법 및 기능에 대해 자세히 알아봅니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,17 +9,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/18/2018
-ms.openlocfilehash: e0311174303fc91767d3f99e6db05927b25aea05
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.date: 01/30/2019
+ms.openlocfilehash: 1fe92f5632544f21506bd19a52a59ed75cabe3b3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051665"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461205"
 ---
-# <a name="tutorial-secure-a-single-database"></a>자습서: 단일 데이터베이스 보호
+# <a name="tutorial-secure-a-standalone-or-pooled-database"></a>자습서: 독립 실행형 데이터베이스 또는 풀링된 데이터베이스 보호
 
-Azure SQL Database는 다음과 같은 방법으로 단일 SQL 데이터베이스의 데이터를 보호합니다.
+Azure SQL Database는 다음과 같은 방법으로 독립 실행형 데이터베이스 또는 풀링된 데이터베이스의 데이터를 보호합니다.
 
 - 방화벽 규칙을 사용하여 액세스 제한
 - ID를 요구하는 인증 메커니즘 사용
@@ -35,7 +35,7 @@ Azure SQL Database는 다음과 같은 방법으로 단일 SQL 데이터베이�
 > - 서버 수준 및 데이터베이스 수준 방화벽 규칙 만들기
 > - Azure AD(Active Directory) 관리자 구성
 > - SQL 인증, Azure AD 인증 및 보안 연결 문자열을 사용하여 사용자 액세스 관리
-> - 위협 방지, 감사, 데이터 마스킹 및 암호화와 같은 보안 기능 사용
+> - 고급 데이터 보안, 감사, 데이터 마스킹 및 암호화와 같은 보안 기능 사용
 
 자세한 내용은 [Azure SQL Database 보안 개요](/azure/sql-database/sql-database-security-index) 및 [기능](sql-database-security-overview.md) 문서를 참조하세요.
 
@@ -45,7 +45,7 @@ Azure SQL Database는 다음과 같은 방법으로 단일 SQL 데이터베이�
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - Azure SQL 서버 및 데이터베이스
-    - [Azure Portal](sql-database-get-started-portal.md), [CLI](sql-database-cli-samples.md) 또는 [PowerShell](sql-database-powershell-samples.md)을 사용하여 만들기
+  - [Azure Portal](sql-database-get-started-portal.md), [CLI](sql-database-cli-samples.md) 또는 [PowerShell](sql-database-powershell-samples.md)을 사용하여 만들기
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -62,9 +62,9 @@ SQL 데이터베이스는 Azure에서 방화벽으로 보호됩니다. 기본적
 > [!NOTE]
 > SQL Database는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 연결을 시도하는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 관리자가 1433 포트를 열어야 Azure SQL Database 서버에 연결할 수 있습니다.
 
-### <a name="set-up-server-level-firewall-rules"></a>서버 수준 방화벽 규칙 설정
+### <a name="set-up-sql-database-server-firewall-rules"></a>SQL Database 서버 방화벽 규칙 설정
 
-서버 수준 방화벽 규칙은 동일한 논리적 서버 내의 모든 데이터베이스에 적용됩니다.
+서버 수준 방화벽 규칙은 동일한 SQL Database 서버 내의 모든 데이터베이스에 적용됩니다.
 
 서버 수준 방화벽 규칙을 설정하려면,
 
@@ -88,7 +88,7 @@ SQL 데이터베이스는 Azure에서 방화벽으로 보호됩니다. 기본적
 > [!IMPORTANT]
 > SQL Database 방화벽을 통한 액세스는 기본적으로 **Azure 서비스 방문 허용** 아래의 모든 Azure 서비스에서 사용하도록 설정됩니다. **끄기**를 선택하여 모든 Azure 서비스에서 이 액세스를 사용하지 않도록 설정합니다.
 
-### <a name="setup-database-level-firewall-rules"></a>데이터베이스 수준 방화벽 규칙 설정
+### <a name="setup-database-firewall-rules"></a>데이터베이스 방화벽 규칙 설정
 
 데이터베이스 수준 방화벽 규칙은 개별 데이터베이스에만 적용됩니다. 이러한 규칙은 이식할 수 있으며, 서버 장애 조치를 수행하는 동안 데이터베이스를 따릅니다. 데이터베이스 수준 방화벽 규칙은 서버 수준 방화벽 규칙을 구성한 후에 T-SQL(Transact-SQL) 문만 사용하여 구성할 수 있습니다.
 
@@ -231,30 +231,30 @@ Azure AD 인증을 사용하여 사용자를 추가하려면,
 
 ## <a name="enable-security-features"></a>보안 기능 사용
 
-Azure SQL Database는 Azure Portal을 사용하여 액세스하는 보안 기능을 제공합니다. 이러한 기능은 데이터베이스에서만 사용할 수 있는 데이터 마스킹을 제외하고는 데이터베이스와 서버 모두에서 사용할 수 있습니다. 자세한 내용은 [지능형 위협 탐지](sql-advanced-threat-protection.md), [감사](sql-database-auditing.md), [동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started.md) 및 [투명 데이터 암호화](transparent-data-encryption-azure-sql.md)를 참조하세요.
+Azure SQL Database는 Azure Portal을 사용하여 액세스하는 보안 기능을 제공합니다. 이러한 기능은 데이터베이스에서만 사용할 수 있는 데이터 마스킹을 제외하고는 데이터베이스와 서버 모두에서 사용할 수 있습니다. 자세한 내용은 [고급 데이터 보안](sql-advanced-threat-protection.md), [감사](sql-database-auditing.md), [동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started.md) 및 [투명 데이터 암호화](transparent-data-encryption-azure-sql.md)를 참조하세요.
 
-### <a name="advanced-threat-protection"></a>Advanced Threat Protection
+### <a name="advanced-data-security"></a>고급 데이터 보안
 
-고급 위협 방지 기능은 발생할 수 있는 잠재적 위협을 탐지하고 비정상적인 활동에 대한 보안 경고를 제공합니다. 사용자는 감사 기능을 사용하여 이러한 의심스러운 이벤트를 검색하고, 해당 이벤트가 데이터베이스의 데이터를 액세스, 위반 또는 악용했는지 여부를 확인할 수 있습니다. 또한 취약성 평가, 데이터 검색 및 분류 도구가 포함된 보안 개요도 사용자에게 제공됩니다.
+고급 데이터 보안 기능은 발생할 수 있는 잠재적 위협을 탐지하고 비정상적인 활동에 대한 보안 경고를 제공합니다. 사용자는 감사 기능을 사용하여 이러한 의심스러운 이벤트를 검색하고, 해당 이벤트가 데이터베이스의 데이터를 액세스, 위반 또는 악용했는지 여부를 확인할 수 있습니다. 또한 취약성 평가, 데이터 검색 및 분류 도구가 포함된 보안 개요도 사용자에게 제공됩니다.
 
 > [!NOTE]
 > 위협의 한 가지 예로, 공격자가 애플리케이션 입력에 악의적인 SQL을 삽입하는 프로세스인 SQL 삽입이 있습니다. 이 경우 애플리케이션에서 자체적으로 인식하지 못한 채 악성 SQL을 실행하여 공격자가 데이터베이스의 데이터를 위반하거나 수정할 수 있습니다.
 
-위협 방지를 사용하도록 설정하려면:
+고급 데이터 보안을 사용하도록 설정하려면:
 
 1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스**를 선택하고, **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
 
 1. **개요** 페이지에서 **서버 이름** 링크를 선택합니다. 데이터베이스 서버 페이지가 열립니다.
 
-1. **SQL 서버** 페이지에서 **보안** 섹션을 찾아서 **Advanced Threat Protection**을 선택합니다.
+1. **SQL 서버** 페이지에서 **보안** 섹션을 찾아서 **Advanced Data Security**를 선택합니다.
 
-    1. 이 기능을 사용하도록 설정하려면 **Advanced Threat Protection** 아래에서 **켜기**를 선택합니다. 그런 다음 **저장**을 선택합니다.
+    1. 이 기능을 사용하도록 설정하려면 **Advanced Data Security** 아래에서 **켜기**를 선택합니다. 취약성 평가 결과를 저장할 스토리지 계정을 선택합니다. 그런 다음 **저장**을 선택합니다.
 
     ![탐색 창](./media/sql-database-security-tutorial/threat-settings.png)
 
     또한 보안 경고, 스토리지 세부 정보 및 위협 탐지 유형을 받을 수 있도록 이메일을 구성할 수도 있습니다.
 
-1. 데이터베이스의 **SQL 데이터베이스** 페이지로 돌아가서 **보안** 섹션 아래에서 **Advanced Threat Protection**을 선택합니다. 여기서는 데이터베이스에 사용할 수 있는 다양한 보안 표시기를 찾을 수 있습니다.
+1. 데이터베이스의 **SQL 데이터베이스** 페이지로 돌아가서 **보안** 섹션 아래에서 **Advanced Data Security**을 선택합니다. 여기서는 데이터베이스에 사용할 수 있는 다양한 보안 표시기를 찾을 수 있습니다.
 
     ![위협 상태](./media/sql-database-security-tutorial/threat-status.png)
 
@@ -344,7 +344,7 @@ Azure SQL Database는 Azure Portal을 사용하여 액세스하는 보안 기능
 > - 서버 수준 및 데이터베이스 수준 방화벽 규칙 만들기
 > - Azure AD(Active Directory) 관리자 구성
 > - SQL 인증, Azure AD 인증 및 보안 연결 문자열을 사용하여 사용자 액세스 관리
-> - 위협 방지, 감사, 데이터 마스킹 및 암호화와 같은 보안 기능 사용
+> - 고급 데이터 보안, 감사, 데이터 마스킹 및 암호화와 같은 보안 기능 사용
 
 지리적 배포를 구현하는 방법에 대해 알아보려면 다음 자습서로 계속 진행하세요.
 

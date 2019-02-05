@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
-ms.openlocfilehash: a43db3eba5bec9bef0aacc51d246414d54d222bf
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: dc36e66e9dae62fdfede3a82146cd218ca5eb489
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813446"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458179"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>자습서: Acadia와 Azure Active Directory 통합
 
@@ -71,10 +71,10 @@ Acadia의 Azure AD 통합을 구성하려면 갤러리의 Acadia를 관리되는
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 [애플리케이션 이름]에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
-Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이름]의 관련 사용자 간에 연결 관계를 설정해야 합니다.
+이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 Acadia에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+Single Sign-On이 작동하려면 Azure AD 사용자와 Acadia의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
-[애플리케이션 이름]에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
+Acadia에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Acadia Single Sign-On 구성](#configure-acadia-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
@@ -87,7 +87,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
 이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정합니다.
 
-[애플리케이션 이름]에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.
+Acadia에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com/)의 **Acadia** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
@@ -116,7 +116,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
     **로그인 URL** 텍스트 상자에서 `https://<CUSTOMER>.acadia.sysalli.com/Shibboleth.sso/Login` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Acadia 클라이언트 지원팀](https://www.systemsalliance.com/contact-us/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 4와 5단계에 해당하는 값은 Acadia 팀에서 메타데이터 파일에 제공하며, **기본 SAML 구성** 섹션에서 **메타데이터 파일 업로드**을 클릭하여 가져올 수 있습니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조하여 메타데이터 값이 올바른지 확인할 수도 있습니다. 제공된 값이 올바르지 않은 경우 [Acadia 클라이언트 지원 팀](mailto:support@systemsalliance.com)에 문의하세요.
 
 6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -134,7 +134,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
 ### <a name="configure-acadia-single-sign-on"></a>Acadia Single Sign-On 자동 구성
 
-**Acadia** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **메타데이터 XML**과 적절히 복사한 URL을 [Acadia 지원 팀](https://www.systemsalliance.com/contact-us/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Acadia** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **메타데이터 XML**, **앱 페더레이션 메타데이터 URL** 및 적절히 복사한 URL을 [Acadia 지원 팀](mailto:support@systemsalliance.com)으로 보내야 합니다. 해당 팀에서 SAML SSO 연결이 양쪽에 제대로 설정되도록 구성합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

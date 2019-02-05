@@ -4,18 +4,18 @@ titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: eebec24702456ec1062a1ac4b3cb9bc6d6580c29
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 46fc7864e25048dbf9b3db9c97e0008be55a0d03
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705075"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468345"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>빠른 시작: Azure Dev Spaces(.NET Core 및 Visual Studio)를 사용하여 Kubernetes 개발 환경 만들기
 
@@ -48,7 +48,7 @@ ms.locfileid: "51705075"
 
 Visual Studio 2017에서 새 프로젝트를 만듭니다. 현재 프로젝트는 **ASP.NET Core 웹 애플리케이션**이어야 합니다. 프로젝트의 이름을 **webfrontend**로 지정합니다.
 
-**웹 응용 프로그램 (모델-보기-컨트롤러)** 템플릿을 선택하고, **.NET Core** 및 **ASP.NET Core 2.0**을 대상으로 하고 있는지 확인합니다.
+**웹 애플리케이션 (모델-보기-컨트롤러)** 템플릿을 선택하고, **.NET Core** 및 **ASP.NET Core 2.0**을 대상으로 하고 있는지 확인합니다.
 
 ### <a name="enable-dev-spaces-for-an-aks-cluster"></a>AKS 클러스터에 대한 개발 환경을 사용하도록 설정
 
@@ -75,8 +75,8 @@ Azure Dev Spaces와 함께 작동하도록 구성되지 않은 클러스터를 �
 ### <a name="look-at-the-files-added-to-project"></a>프로젝트에 추가된 파일 확인
 개발 환경이 생성될 때까지 기다리는 동안 Azure Dev Spaces를 사용하도록 선택할 때 프로젝트에 추가된 파일을 확인합니다.
 
-- `charts`라는 폴더가 추가되었으며, 이 폴더 내에는 응용 프로그램에 대한 [Helm 차트](https://docs.helm.sh)가 스캐폴딩되어 있습니다. 이러한 파일은 개발 환경에 애플리케이션을 배포하는 데 사용됩니다.
-- `Dockerfile`에는 응용 프로그램을 표준 Docker 형식으로 패키징하는 데 필요한 정보가 있습니다.
+- `charts`라는 폴더가 추가되었으며, 이 폴더 내에는 애플리케이션에 대한 [Helm 차트](https://docs.helm.sh)가 스캐폴딩되어 있습니다. 이러한 파일은 개발 환경에 애플리케이션을 배포하는 데 사용됩니다.
+- `Dockerfile`에는 애플리케이션을 표준 Docker 형식으로 패키징하는 데 필요한 정보가 있습니다.
 - `azds.yaml`에는 개발 환경에서 필요한 개발 시간 구성이 포함됩니다.
 
 ![](media/get-started-netcore-visualstudio/ProjectFiles.png)

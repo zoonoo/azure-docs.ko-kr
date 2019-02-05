@@ -1,23 +1,23 @@
 ---
-title: '빠른 시작: 문장 길이 가져오기, Ruby - Translator Text API'
+title: '빠른 시작: 문장 길이 구하기, Ruby - Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Ruby와 함께 Translator Text API를 사용하여 텍스트에서 문장 길이를 찾습니다.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: 18ef4e20c28b783738d2be929e063e6dada412d4
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 07da6172b53b9904eb30a61d8b69b0f5b6693fdd
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49644711"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470113"
 ---
-# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-ruby"></a>빠른 시작: Translator Text REST API(Ruby)로 문장 길이 가져오기
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-ruby"></a>빠른 시작: Translator Text REST API(Ruby)로 문장 길이 구하기
 
 이 빠른 시작에서는 Translator Text API를 사용하여 텍스트에서 문장 길이를 찾습니다.
 

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 055ddfa5c0fb399eea4bbe46126626b60bfe9cff
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/25/2019
+ms.openlocfilehash: 5e1319857e16032b6a4922594a33dbed9554d2f8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966932"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476726"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Azure SQL Database에 대한 Azure PowerShell 샘플
 
@@ -25,8 +25,8 @@ ms.locfileid: "52966932"
 
 | |  |
 |---|---|
-|**관리되는 인스턴스, 단일 데이터베이스 및 탄력적 풀 만들기 및 구성**||
-| [단일 데이터베이스 만들기 및 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 이 PowerShell 스크립트는 단일 Azure SQL Database를 만들고 서버 수준 방화벽 규칙을 구성합니다. |
+|**관리형 인스턴스, 단일 인스턴스 및 탄력적 풀 만들기 및 구성**||
+| [단일 데이터베이스 만들기 및 데이터베이스 서버 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 이 PowerShell 스크립트는 단일 Azure SQL Database를 만들고 서버 수준 방화벽 규칙을 구성합니다. |
 | [탄력적 풀 만들기 및 풀된 데이터베이스 이동](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 이 PowerShell 스크립트는 Azure SQL Database 탄력적 풀을 만들고, 풀링된 데이터베이스를 이동하며, 계산 크기를 변경합니다.|
 | [Managed Instance 만들기 및 관리](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) | 이러한 PowerShell 스크립트는 Azure PowerShell을 사용하여 Managed Instance를 만들고 관리하는 방법을 보여 줍니다. |
 | [Azure Resource Manager 템플릿을 사용하여 Managed Instance 만들기 및 관리](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 이 PowerShell 스크립트는 Azure PowerShell 및 Azure Resource Manager를 사용하여 Managed Instance를 만들고 관리하는 방법을 보여줍니다.|

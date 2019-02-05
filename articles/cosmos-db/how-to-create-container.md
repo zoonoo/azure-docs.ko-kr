@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 7434407c7d1afe197a560d9ed9c4f1e7e94b6c2b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 183f596c213f833a2ca633398d1102e86f328912
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033539"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468855"
 ---
-# <a name="create-a-container-in-azure-cosmos-db"></a>Azure Cosmos DB에서 컨테이너 만들기
+# <a name="create-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너 만들기
 
 이 문서에서는 컨테이너(컬렉션, 테이블, 그래프)를 만드는 여러 가지 방법을 설명합니다. 컨테이너는 Azure Portal, Azure CLI 또는 지원되는 SDK를 사용하여 만들 수 있습니다. 이 문서에서는 컨테이너를 만들고 파티션 키를 지정하고 처리량을 프로비전하는 방법을 보여줍니다.
 

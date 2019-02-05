@@ -3,19 +3,19 @@ title: Windows 10 로그인 화면의 Azure AD SSPR
 description: 이 자습서에서는 지원 센터 호출을 줄이기 위해 Windows 10 로그인 화면에서 암호 재설정을 사용하도록 설정하겠습니다.
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 640f03cd35ac74df9c7b25352ab294c35c4ec0ea
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a36f9bf3ade623a6b623116c504c2b6a04fcdf2b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430675"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474873"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>자습서: 로그인 화면에서 Azure AD 암호 재설정
 
@@ -28,11 +28,11 @@ ms.locfileid: "54430675"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 다음 조건을 충족하는 Windows 10 2018년 4월 업데이트 또는 최신 클라이언트:
-   * [Azure AD 조인 머신](../device-management-azure-portal.md) 또는
-   * [하이브리드 Azure AD 조인 머신](../device-management-hybrid-azuread-joined-devices-setup.md)(도메인 컨트롤러에 네트워크가 연결됨)
-* Azure AD 셀프 서비스 암호 재설정을 사용하도록 설정.
-* Windows 10 머신이 프록시 서버 또는 방화벽 뒤에 있는 경우 `passwordreset.microsoftonline.com` 및 `ajax.aspnetcdn.com`에 대한 HTTPS 트래픽(443)을 허용해야 합니다.
+* Windows 10, 2018년 4월 업데이트 이상의 버전을 사용 중이고 디바이스 상태는 다음 중 하나여야 합니다.
+   * [Azure AD 조인](../device-management-azure-portal.md) 또는
+   * [하이브리드 Azure AD 조인](../device-management-hybrid-azuread-joined-devices-setup.md)(도메인 컨트롤러에 네트워크가 연결됨)
+* Azure AD 셀프 서비스 암호 재설정을 사용하도록 설정해야 합니다.
+* Windows 10 디바이스가 프록시 서버나 방화벽 뒤에 있는 경우에는 HTTPS 트래픽(포트 443) 허용 URL 목록에 `passwordreset.microsoftonline.com` 및 `ajax.aspnetcdn.com` URL을 추가해야 합니다.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Intune을 사용하여 암호 재설정 링크 구성
 

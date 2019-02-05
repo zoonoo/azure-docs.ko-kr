@@ -1,23 +1,23 @@
 ---
-title: '자습서: C#에서 WPF 애플리케이션 만들기 - Translator Text API'
+title: '자습서: C# - Translator Text API로 WPF 애플리케이션 만들기'
 titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 Translator Text API를 사용하여 C#을 통해 WPF 애플리케이션을 빌드하여 텍스트를 번역하고, 지원되는 언어의 지역화된 목록을 가져오는 등의 방법을 알아봅니다.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: erhopf
-ms.openlocfilehash: e302c1aa1cd4021b0d449fd981181b790546c0f8
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: f9fe1f40f758ead06c1e86fc0daeb64b72c5fd8b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647479"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476505"
 ---
-# <a name="tutorial-write-a-wpf-application-for-translator-text-using-c35"></a>자습서: C&#35;을 사용하여 Translator Text에 대한 WPF 응용 프로그램 작성
+# <a name="tutorial-write-a-wpf-application-for-translator-text-using-c35"></a>자습서: C&#35;을 사용하여 Translator Text에 대한 WPF 애플리케이션 작성
 
 이 자습서에서는 Azure의 Microsoft Cognitive Services에 포함된 Translator Text API(V3)를 사용하여 대화형 텍스트 번역 도구를 빌드합니다. 이 문서에서 배울 내용은 다음과 같습니다.
 

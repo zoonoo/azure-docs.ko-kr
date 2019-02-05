@@ -42,4 +42,4 @@ CLI를 로컬로 실행하도록 선택한 경우 이 문서에 Azure CLI 버전
 ## <a name="next-steps"></a>다음 단계
 - Azure CLI에 대한 자세한 내용: [Azure CLI 설명서](/cli/azure)
 - 추가 스크립트 시도: [Azure Database for MariaDB용 Azure CLI 샘플](../sample-scripts-azure-cli.md)
-- 크기 조정에 대한 자세한 내용은 [가격 책정 계층](../concepts-pricing-tiers.md)을 참조하세요.
+- 크기 조정에 대한 자세한 내용은 [가격 책정 계층]\(../concepts-pricing-tiers.md)을 참조하세요.

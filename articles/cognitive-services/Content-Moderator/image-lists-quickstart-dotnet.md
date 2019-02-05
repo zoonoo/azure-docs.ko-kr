@@ -6,16 +6,16 @@ services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 7165bdc4aebec886a57990281bc35c83b1d7bf04
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: f7894fa54b634df450d3f7eb90d594cf0315970c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309402"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228188"
 ---
 # <a name="quickstart-moderate-with-custom-image-lists-in-c"></a>빠른 시작: C#에서 사용자 지정 이미지 목록을 사용하여 조정
 

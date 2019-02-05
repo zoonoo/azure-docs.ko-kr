@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/14/2018
 ms.author: mjbrown
-ms.openlocfilehash: 681878d43422e86df3db1050da24be88881d4b2e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a9f6676f1b2fdf812ec87595083ba6317a11873c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036293"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462157"
 ---
-# <a name="how-to-configure-time-to-live-in-azure-cosmos-db"></a>Azure Cosmos DB에서 TTL(Time to Live)을 구성하는 방법
+# <a name="configure-time-to-live-in-azure-cosmos-db"></a>Azure Cosmos DB에서 TTL(Time to Live) 구성
 
 Azure Cosmos DB에서는 컨테이너 수준에서 TTL(Time to Live)을 구성하도록 선택하거나 컨테이너를 설정한 후 항목 수준에서 재정의할 수 있습니다. Azure Portal 또는 언어별 SDK를 사용하여 컨테이너에 대해 TTL을 구성할 수 있습니다. SDK를 사용하여 항목 수준 TTL 재정의를 구성할 수 있습니다.
 

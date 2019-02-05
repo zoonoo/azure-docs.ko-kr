@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 50085336c59f2284f357e32b875eae08ff90d30f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 334a476fee6e995c33a290d34df2f111baae34c3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790177"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224244"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Azure에 SQL Server 데이터베이스 백업
 
@@ -483,7 +483,14 @@ Azure Backup은 트랜잭션 로그 백업을 사용하여 개별 데이터베�
 > 동일한 Azure 지역의 SQL Server 인스턴스에 데이터베이스를 복원할 수 있습니다. 대상 서버를 Recovery Services 자격 증명 모음에 등록해야 합니다.
 >
 
-**복원 구성** 메뉴의 **서버** 드롭다운 목록 상자에는 Recovery Services 자격 증명 모음에 등록된 SQL Server 인스턴스만 표시됩니다. 원하는 서버가 목록에 없는 경우에는 [SQL Server 데이터베이스 검색](backup-azure-sql-database.md#discover-sql-server-databases)을 참조하여 서버를 찾으십시오. 검색 프로세스 중에 새로운 서버가 Recovery Services 자격 증명 모음에 등록됩니다.
+**복원 구성** 메뉴의 **서버** 드롭다운 목록 상자에는 Recovery Services 자격 증명 모음에 등록된 SQL Server 인스턴스만 표시됩니다. 원하는 서버가 목록에 없는 경우에는 [SQL Server 데이터베이스 검색](backup-azure-sql-database.md#discover-sql-server-databases)을 참조하여 서버를 찾으십시오. 검색 프로세스 중에 새로운 서버가 Recovery Services 자격 증명 모음에 등록됩니다.<br>
+SQL DB를 복원하려면 다음 권한이 필요합니다.
+
+* 복원을 수행할 Recovery Services **자격 증명 모음**에 대한 **백업 운영자** 권한
+* **원본 SQL VM**(복원을 시도할 백업된 VM)에 대한 **기여자(쓰기)** 액세스 권한
+* 대상 SQL VM(복원하려는 VM. OLR(Original Location Recovery)인 경우 원본 VM과 동일한 VM)에 대한 **기여자(쓰기)** 액세스 권한
+
+다른 위치에 복원하려면:
 
 1. **복원 구성** 메뉴에서:
 

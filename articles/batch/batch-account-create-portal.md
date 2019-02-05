@@ -3,7 +3,7 @@ title: Azure Portal에서 Batch 계정 만들기 | Microsoft Docs
 description: 클라우드에서 대규모 병렬 작업을 실행하도록 Azure Portal에서 Azure Batch 계정을 만드는 방법에 대해 알아봅니다.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/18/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e526c5f2f446a1ae8134a3e2ca72fcc42024d904
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 89e41dc8e27cf39d9d0e6168dc7352267c321623
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724097"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460525"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure Portal에서 Batch 계정 만들기
 
@@ -50,7 +50,7 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
     d. **위치**: Batch 계정을 만들 Azure 지역입니다. 구독 및 리소스 그룹에서 지원하는 지역만 옵션으로 표시됩니다.
 
-    e. **저장소 계정**(선택 사항): Batch 계정과 연결하는 Azure Storage 계정입니다. 대부분의 Batch 계정에 사용하는 것이 좋습니다. Batch의 저장소 계정 옵션은 [Batch 기능 개요](batch-api-basics.md#azure-storage-account)를 참조하세요. 포털에서 기존 저장소 계정을 선택하거나 필요에 따라 새 저장소 계정을 만듭니다.
+    e. **스토리지 계정**(선택 사항): Batch 계정과 연결하는 Azure Storage 계정입니다. 대부분의 Batch 계정에 사용하는 것이 좋습니다. Batch의 저장소 계정 옵션은 [Batch 기능 개요](batch-api-basics.md#azure-storage-account)를 참조하세요. 포털에서 기존 저장소 계정을 선택하거나 필요에 따라 새 저장소 계정을 만듭니다.
 
       ![저장소 계정 만들기][storage_account]
 
@@ -65,13 +65,13 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
 ![Azure Portal에서 배치 계정 페이지][account_blade]
 
-* **Batch 계정 이름, URL 및 키**: [Batch API](batch-apis-tools.md#azure-accounts-for-batch-development)를 사용하여 응용 프로그램을 개발하는 경우 Batch 리소스에 액세스하려면 계정 URL 및 키가 필요합니다. (Batch는 Azure Active Directory 인증도 지원합니다.)
+* **Batch 계정 이름, URL 및 키**: [Batch API](batch-apis-tools.md#azure-accounts-for-batch-development)를 사용하여 애플리케이션을 개발하는 경우 Batch 리소스에 액세스하려면 계정 URL 및 키가 필요합니다. (Batch는 Azure Active Directory 인증도 지원합니다.)
 
     배치 계정 액세스 정보를 보려면 **키**를 선택합니다.
 
     ![Azure Portal에서 Batch 계정 키][account_keys]
 
-* 배치 계정에 연결된 스토리지 계정의 이름 및 키를 보려면 **Storage 계정**을 선택합니다.
+* 배치 계정에 연결된 저장소 계정의 이름 및 키를 보려면 **Storage 계정**을 선택합니다.
 
 * 배치 계정에 적용되는 리소스 할당량을 보려면 **할당량**을 선택합니다. 자세한 내용은 [Batch 서비스 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
 
@@ -122,7 +122,7 @@ Azure Portal을 사용하는 것 외에도 다음을 포함하는 도구로 Batc
 
 ## <a name="next-steps"></a>다음 단계
 * Batch 서비스의 개념 및 기능에 대한 자세한 내용은 [Batch 기능 개요](batch-api-basics.md)를 참조하세요. 이 문서에서는 풀, 계산 노드, 작업 및 태스크 등의 기본 Batch 리소스에 대해 설명하고 대규모 계산 워크로드를 위한 서비스 기능 개요를 제공합니다.
-* [Batch .NET 클라이언트 라이브러리](quick-run-dotnet.md) 또는 [Python](quick-run-python.md)을 사용하여 Batch 지원 응용 프로그램 개발에 대한 기본 사항을 알아봅니다. 이러한 빠른 시작에서는 Batch 서비스를 사용하여 여러 계산 노드에서 워크로드를 실행하는 애플리케이션 예제를 단계별로 안내하며, Azure Storage를 사용하여 워크로드 파일을 준비하고 검색하는 방법을 설명합니다.
+* [Batch .NET 클라이언트 라이브러리](quick-run-dotnet.md) 또는 [Python](quick-run-python.md)을 사용하여 Batch 지원 응용 프로그램 개발에 대한 기본 사항을 알아봅니다. 이러한 빠른 시작에서는 Batch 서비스를 사용하여 여러 계산 노드에서 워크로드를 실행하는 응용 프로그램 예제를 단계별로 안내하며, Azure Storage를 사용하여 워크로드 파일을 준비하고 검색하는 방법을 설명합니다.
 
 [azure_portal]: https://portal.azure.com
 [batch_pricing]: https://azure.microsoft.com/pricing/details/batch/

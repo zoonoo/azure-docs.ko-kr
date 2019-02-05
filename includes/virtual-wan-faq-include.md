@@ -5,21 +5,21 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 10/05/2018
+ms.date: 10/19/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 761b68ca99df8ae5b4d379b95e7d2a300f7e6238
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 98ea4d78a473123708be6e371587252acad6ffcd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48874115"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55205084"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Azure 가상 네트워크 게이트웨이(VPN Gateway)와 Azure Virtual WAN vpngateway 간의 차이점은 무엇입니까?
 
-Virtual WAN은 대규모 사이트 간 연결을 제공하며 처리량, 확장성 및 사용 편의성을 높여 줍니다. ExpressRoute 연결과 지점 및 사이트 간 연결 기능은 현재 미리 보기 상태입니다. CPE 분기 장치는 Azure Virtual WAN으로 자동 프로비전하고 연결합니다. 이러한 장치는 SD-WAN 및 VPN 파트너의 증가하는 에코시스템에서 사용할 수 있습니다. [선호 파트너 목록](https://go.microsoft.com/fwlink/p/?linkid=2019615)을 참조하세요.
+Virtual WAN은 대규모 사이트 간 연결을 제공하며 처리량, 확장성 및 사용 편의성을 높여 줍니다. ExpressRoute 연결과 지점 및 사이트 간 연결 기능은 현재 미리 보기 상태입니다. CPE 분기 디바이스는 Azure Virtual WAN으로 자동 프로비전하고 연결합니다. 이러한 디바이스는 SD-WAN 및 VPN 파트너의 증가하는 에코시스템에서 사용할 수 있습니다. [선호 파트너 목록](https://go.microsoft.com/fwlink/p/?linkid=2019615)을 참조하세요.
 
-### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>장치 공급자(Virtual WAN 파트너)는 시작 시 지원되나요? 
+### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>디바이스 공급자(Virtual WAN 파트너)는 시작 시 지원되나요? 
 
 현재 많은 파트너가 완전히 자동화된 Virtual WAN 환경을 지원합니다. 자세한 내용은 [Virtual WAN 파트너](https://go.microsoft.com/fwlink/p/?linkid=2019615)를 참조하세요. 
 
@@ -27,13 +27,13 @@ Virtual WAN은 대규모 사이트 간 연결을 제공하며 처리량, 확장�
 
 자세한 내용은 [Virtual WAN 파트너 자동화](../articles/virtual-wan/virtual-wan-configure-automation-providers.md)를 참조하세요.
 
-### <a name="am-i-required-to-use-a-preferred-partner-device"></a>원하는 파트너 장치를 사용해야 하나요?
+### <a name="am-i-required-to-use-a-preferred-partner-device"></a>원하는 파트너 디바이스를 사용해야 하나요?
 
  아니요. IKEv2/IKEv1 IPsec 지원에 대한 Azure 요구 사항을 준수하는 모든 VPN 지원 디바이스를 사용할 수 있습니다.
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>Virtual WAN 파트너는 Azure Virtual WAN과 연결을 어떻게 자동화하나요?
 
-일반적으로 소프트웨어 정의 연결 솔루션은 컨트롤러 또는 장치 프로비저닝 센터를 사용하여 해당 분기 장치를 관리합니다. 컨트롤러는 Azure API를 사용하여 Azure Virtual WAN에 대한 연결을 자동화할 수 있습니다. 자세한 내용은 Virtual WAN 파트너 자동화를 참조하세요.
+일반적으로 소프트웨어 정의 연결 솔루션은 컨트롤러 또는 디바이스 프로비저닝 센터를 사용하여 해당 분기 디바이스를 관리합니다. 컨트롤러는 Azure API를 사용하여 Azure Virtual WAN에 대한 연결을 자동화할 수 있습니다. 자세한 내용은 Virtual WAN 파트너 자동화를 참조하세요.
 
 ### <a name="does-virtual-wan-change-any-existing-connectivity-features"></a>Virtual WAN은 기존 연결 기능을 변경하지 않나요?   
 
@@ -57,7 +57,7 @@ Virtual WAN은 대규모 사이트 간 연결을 제공하며 처리량, 확장�
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>가상 허브에 연결된 VNet 스포크는 서로 통신할 수 있나요?
 
-예. 가상 허브에 연결된 스포크 간에 VNet 피어링을 직접 수행할 수 있습니다. 자세한 내용은 [Virtual Network 피어링](../articles/virtual-network/virtual-network-peering-overview.md)을 참조하세요.
+예. 스포크 VNet은 Virtual Network 피어링을 통해 직접 통신할 수 있습니다. 그러나 허브를 통해 전이적으로 통신하는 VNet은 지원되지 않습니다. 자세한 내용은 [Virtual Network 피어링](../articles/virtual-network/virtual-network-peering-overview.md)을 참조하세요.
 
 ### <a name="can-i-deploy-and-use-my-favorite-network-virtual-appliance-in-an-nva-vnet-with-azure-virtual-wan"></a>Azure Virtual WAN과 함께 즐겨 찾는 네트워크 가상 어플라이언스(NVA VNet에서)를 배포 및 사용할 수 있나요?
 
@@ -101,15 +101,15 @@ Virtual Network 게이트웨이 VPN은 터널 30개로 제한됩니다. 연결�
 
 ### <a name="does-this-virtual-wan-require-expressroute-from-each-site"></a>이 Virtual WAN은 각 사이트의 ExpressRoute가 필요한가요?
 
-아니요, Virtual WAN은 각 사이트의 ExpressRoute가 필요하지 않습니다. 장치에서 Azure Virtual WAN 허브로의 인터넷 링크를 통해 표준 IPsec 사이트 간 연결을 사용합니다. 사이트는 ExpressRoute 회로를 사용하여 공급자 네트워크에 연결할 수 있습니다. 가상 허브(미리 보기)에서 ExpressRoute를 사용하여 연결된 사이트의 경우 VPN과 ExpressRoute 간의 분기 간 트래픽 흐름을 사용할 수 있습니다. 
+아니요, Virtual WAN은 각 사이트의 ExpressRoute가 필요하지 않습니다. 디바이스에서 Azure Virtual WAN 허브로의 인터넷 링크를 통해 표준 IPsec 사이트 간 연결을 사용합니다. 사이트는 ExpressRoute 회로를 사용하여 공급자 네트워크에 연결할 수 있습니다. 가상 허브(미리 보기)에서 ExpressRoute를 사용하여 연결된 사이트의 경우 VPN과 ExpressRoute 간의 분기 간 트래픽 흐름을 사용할 수 있습니다. 
 
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>Azure Virtual WAN을 사용하는 경우 네트워크 처리량 제한이 있나요?
 
 허브에서 분기 수는 허브/지역당 1,000개 연결, 속도는 총 2Gbps로 제한됩니다. 단, 미국 중서부 지역은 총 20Gbps입니다. 앞으로 다른 지역에는 20Gbps로 출시됩니다.
 
-### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>Virtual WAN은 온-프레미스 장치가 여러 ISP를 병렬로 사용하는 것을 허용하나요 아니면 항상 단일 VPN 터널인가요?
+### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>Virtual WAN은 온-프레미스 디바이스가 여러 ISP를 병렬로 사용하는 것을 허용하나요 아니면 항상 단일 VPN 터널인가요?
 
-예, 분기 장치에 따라 단일 분기에서 활성-활성 터널(터널 2개 = Azure Virtual WAN 연결 1개)이 가능합니다.
+예, 분기 디바이스에 따라 단일 분기에서 활성-활성 터널(터널 2개 = Azure Virtual WAN 연결 1개)이 가능합니다.
 
 ### <a name="how-is-traffic-routed-on-the-azure-backbone"></a>Azure 백본에서 트래픽은 어떻게 라우팅되나요?
 

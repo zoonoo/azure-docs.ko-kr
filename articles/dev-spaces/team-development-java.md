@@ -3,7 +3,7 @@ title: Java 및 VS Code를 사용하여 Azure Dev Spaces로 팀 개발 | Microso
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: stepro
 ms.author: stephpr
 ms.date: 08/01/2018
@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: mmontwil
-ms.openlocfilehash: b1f05c176c6005a2fda8025b4645813013a30cb3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 4019bc3eb1a0071abc330cb7fe6127eeca856cc0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407181"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476369"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Azure Dev Spaces로 팀 개발
 
@@ -70,7 +70,7 @@ ms.locfileid: "47407181"
 1. `webfrontend` 프로젝트에서 GET 요청을 `mywebapi`로 보내기 바로 전에`try`로 시작하는 줄에 중단점을 설정합니다.
 1. `webfrontend` 프로젝트에서 F5 키를 누릅니다(또는 현재 실행 중인 경우에 디버거를 다시 시작).
 1. 웹앱을 호출하고, 두 서비스에서 코드를 단계별로 실행합니다.
-1. 웹앱의 [정보] 페이지에는 두 서비스로 연결된 "Hello from webfrontend and Hello from mywebapi.(webfrontend에서 보낸 Hello 및 mywebapi에서 보낸 Hello입니다.)"라는 메시지가 표시됩니다.
+1. 웹앱의 정보 페이지에는 두 서비스가 연결된 "Hello from webfrontend and Hello from mywebapi." 메시지가 표시됩니다.
 
 모두 완료되었습니다! 이제 각 컨테이너를 개별적으로 개발하고 배포할 수 있는 다중 컨테이너 애플리케이션이 있습니다.
 
