@@ -3,7 +3,7 @@ title: CLI 예제 Azure SQL Database 만들기 | Microsoft Docs
 description: 다음 Azure CLI 예제 스크립트를 사용하여 SQL Database를 만듭니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: standalone-database
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
@@ -11,13 +11,13 @@ author: CarlRabeler
 manager: craigg
 ms.author: carlrab
 ms.reviewer: ''
-ms.date: 09/20/2018
-ms.openlocfilehash: d239236e9e6f7133aa57eb617c3cc9e8626fc178
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 01/25/2019
+ms.openlocfilehash: 24f45ea22a50e471a2947b926b817f06aefa9aa8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055478"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451787"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>CLI를 사용하여 단일 Azure SQL Database 만들기 및 방화벽 규칙 구성
 
@@ -48,9 +48,9 @@ az group delete --name myResourceGroup
 | 명령 | 메모 |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | SQL Database를 호스팅하는 논리 서버를 만듭니다. |
-| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | 입력한 IP 주소 범위의 서버에서 모든 SQL Database에 액세스할 수 있도록 방화벽 규칙을 만듭니다. |
-| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | 논리 서버에 SQL Database를 만듭니다. |
+| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | 단일 데이터베이스 또는 탄력적 풀을 호스트하는 SQL Database 서버를 만듭니다. |
+| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | 입력한 IP 주소 범위의 SQL Database 서버에 있는 모든 단일 데이터베이스와 탄력적 풀에 액세스가 가능하도록 방화벽 규칙을 만듭니다. |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | 단일 데이터베이스 또는 탄력적 풀을 만듭니다. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계

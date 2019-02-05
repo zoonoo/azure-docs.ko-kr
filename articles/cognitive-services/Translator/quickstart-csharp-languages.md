@@ -1,23 +1,23 @@
 ---
-title: '빠른 시작: 지원되는 언어 가져오기, C# - Translator Text API'
+title: '빠른 시작: 지원되는 언어 목록 가져오기, C# - Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Translator Text API를 사용하여 번역, 음역, 사전 조회에 지원되는 언어 목록을 가져옵니다.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/15/2018
+ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: cc5d9efd017ec2045cc94bbad98e26e8b95e071d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: e638375c9c8316c00ee8da000ca5223330072985
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334689"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215574"
 ---
-# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-c"></a>빠른 시작: Translator Text REST API(C#)로 지원되는 언어 가져오기
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-c"></a>빠른 시작: Translator Text API를 사용하여 C#을 통해 지원되는 언어 목록 가져오기
 
 이 빠른 시작에서는 Translator Text API를 사용하여 번역, 음역, 사전 조회에 지원되는 언어 목록을 가져옵니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "52334689"
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Json.NET NuGet 패키지](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) 또는 즐겨 사용하는 텍스트 편집기
-* Speech Service에 대한 Azure 구독 키
+* Translator Text에 대한 Azure 구독 키
 
 ## <a name="create-a-net-core-project"></a>.NET Core 프로젝트 만들기
 

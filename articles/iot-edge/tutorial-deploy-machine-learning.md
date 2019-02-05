@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: db8318e94b646d57c00bc2e6958ba9e7f46ec7af
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 464d16d4bbcbdbefd36ce1132630ad702d7a0c90
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344033"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076975"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>자습서: Azure Machine Learning을 IoT Edge 모듈로 배포(미리 보기)
 
-비즈니스 논리를 직접 IoT Edge 디바이스에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 컴퓨터 온도 데이터에 따라 디바이스가 실패하는 경우를 예측하는 Azure Machine Learning 모듈을 배포하는 과정을 안내합니다. IoT Edge의 Azure ML에 대한 자세한 내용은 [Azure Machine Learning 설명서](../machine-learning/service/how-to-deploy-to-iot.md)를 참조하세요.
+비즈니스 논리를 직접 IoT Edge 디바이스에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 컴퓨터 온도 데이터에 따라 디바이스가 실패하는 경우를 예측하는 Azure Machine Learning 모듈을 배포하는 과정을 안내합니다. IoT Edge의 Azure Machine Learning 서비스에 대한 자세한 내용은 [Azure Machine Learning 설명서](../machine-learning/service/how-to-deploy-to-iot.md)를 참조하세요.
 
 이 자습서에서 만드는 Azure Machine Learning 모듈은 디바이스에서 생성된 환경 데이터를 읽고, 메시지에 비정상 레이블을 지정하기도 합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "53344033"
 > * 생성된 데이터 보기
 
 >[!NOTE]
->Azure IoT Edge의 Azure Machine Learning 모듈은 공개 미리 보기로 있습니다. 
+>Azure IoT Edge의 Azure Machine Learning 모듈은 공개 미리 보기로 있습니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,7 +45,7 @@ Azure IoT Edge 장치:
 
 클라우드 리소스:
 
-* Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
+* Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 * Azure Machine Learning 작업 영역 [IoT Edge에서 모델 배포 준비](../machine-learning/service/how-to-deploy-to-iot.md)의 지침에 따라 만들 수 있습니다.
 
 
@@ -53,7 +53,7 @@ Azure IoT Edge 장치:
 
 >[!NOTE]
 >
-> 미리 보기로 있는 동안 Azure Machine Learning은 IoT Edge에서 기본적으로 사용하도록 설정된 프로세스 식별 보안 기능을 지원하지 않습니다. 
+> 미리 보기로 있는 동안 Azure Machine Learning은 IoT Edge에서 기본적으로 사용하도록 설정된 프로세스 식별 보안 기능을 지원하지 않습니다.
 > 이를 사용하지 않도록 설정하는 단계는 다음과 같습니다. 그러나 프로덕션 환경에서 사용하는 경우 이러한 단계는 적합하지 않습니다. Windows Edge 런타임 설치 시 이 단계를 이미 완료했으므로 Linux에서만 이 단계를 수행하면 됩니다.
 
 IoT Edge 디바이스에서 프로세스 식별을 사용하지 않도록 설정하려면 IoT Edge 디먼 구성의 **연결** 섹션에서 **workload_uri** 및 **management_uri**의 IP 주소와 포트를 입력해야 합니다.
@@ -88,8 +88,8 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 ```
 
 
-## <a name="create-the-azure-ml-container"></a>Azure ML 컨테이너 만들기
-이 섹션에서는 학습된 모델 파일을 다운로드하고 이를 Azure ML 컨테이너로 변환합니다.
+## <a name="create-the-azure-machine-learning-service-container"></a>Azure Machine Learning 서비스 컨테이너 만들기
+이 섹션에서는 학습된 모델 파일을 다운로드하여 Azure Machine Learning 서비스 컨테이너로 변환합니다.
 
 [IoT Edge에서 모델 배포 준비](../machine-learning/service/how-to-deploy-to-iot.md) 설명서의 지침에 따라 기계 학습 모델을 사용하여 Docker 컨테이너를 만들 수 있습니다.  Docker 이미지에 필요한 모든 구성 요소는 [Azure IoT Edge용 AI 도구 키트](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial)에 있습니다.
 
@@ -113,7 +113,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 
 1. **모듈 설정**을 선택합니다.
 
-1. **레지스트리 설정** 섹션에서 Azure 컨테이너 레지스트리에서 복사한 자격 증명을 추가합니다. 
+1. **레지스트리 설정** 섹션에서 Azure 컨테이너 레지스트리에서 복사한 자격 증명을 추가합니다.
 
    ![매니페스트에 레지스트리 자격 증명 추가](./media/tutorial-deploy-machine-learning/registry-settings.png)
 
@@ -156,7 +156,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 
 ### <a name="view-data-on-your-iot-edge-device"></a>IoT Edge 디바이스에서 데이터 보기
 
-IoT Edge 디바이스에서 모든 개별 모듈에서 보낸 메시지를 볼 수 있습니다. 
+IoT Edge 디바이스에서 모든 개별 모듈에서 보낸 메시지를 볼 수 있습니다.
 
 Linux 디바이스에서 이러한 명령을 수행하는 경우 승격된 권한에 대해 `sudo`를 사용해야 할 수 있습니다.
 
@@ -176,7 +176,7 @@ Linux 디바이스에서 이러한 명령을 수행하는 경우 승격된 권�
 
 [Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)(이전의 Azure IoT Toolkit 확장)을 사용하여 IoT Hub에서 받는 디바이스-클라우드 메시지를 볼 수 있습니다.
 
-다음 단계에서는 IoT 허브에 도착한 디바이스-클라우드 메시지를 모니터링하도록 Visual Studio Code를 설정하는 방법을 보여줍니다. 
+다음 단계에서는 IoT 허브에 도착한 디바이스-클라우드 메시지를 모니터링하도록 Visual Studio Code를 설정하는 방법을 보여줍니다.
 
 1. Visual Studio Code에서 **IoT Hub 디바이스**를 선택합니다.
 
@@ -190,13 +190,13 @@ Linux 디바이스에서 이러한 명령을 수행하는 경우 승격된 권�
 
 5. 5초마다 tempSensor에서 보낸 메시지를 관찰합니다. 메시지 본문에 machinelearningmodule이 true 또는 false 값을 제공하는 **anomaly**라는 속성이 포함되어 있습니다. **AzureMLResponse** 속성에는 모델이 성공적으로 실행된 경우 값 "OK"가 포함됩니다.
 
-   ![메시지 본문의 Azure ML 응답](./media/tutorial-deploy-machine-learning/ml-output.png)
+   ![메시지 본문의 Azure Machine Learning 서비스 응답](./media/tutorial-deploy-machine-learning/ml-output.png)
 
-## <a name="clean-up-resources"></a>리소스 정리 
+## <a name="clean-up-resources"></a>리소스 정리
 
-권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 장치와 동일한 IoT Edge 장치를 계속 사용해도 됩니다. 
+권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 장치와 동일한 IoT Edge 장치를 계속 사용해도 됩니다.
 
-그렇지 않은 경우 요금 청구를 방지하도록 이 문서에서 만든 로컬 구성 및 Azure 리소스를 삭제할 수 있습니다. 
+그렇지 않은 경우 요금 청구를 방지하도록 이 문서에서 만든 로컬 구성 및 Azure 리소스를 삭제할 수 있습니다.
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 

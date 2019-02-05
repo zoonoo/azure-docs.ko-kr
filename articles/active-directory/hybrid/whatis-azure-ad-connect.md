@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: get-started-article
-ms.date: 11/28/2018
 ms.component: hybrid
+ms.date: 01/30/2019
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1c18200bb36b75a07d7b26e3ea0016ec35efdd87
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: cb1ba63a0f32d026d51507fe66432a520a6f6e71
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460510"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298979"
 ---
 # <a name="what-is-azure-ad-connect"></a>Azure AD Connect란?
 
@@ -49,6 +50,20 @@ Azure AD와 온-프레미스 디렉터리를 통합하면 온-프레미스 및 �
 
 ## <a name="why-use-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하는 이유
 Azure AD를 사용하면 클라우드 및 온-프레미스 리소스 모두에 액세스할 수 있는 공통 ID가 제공되므로 사용자의 생산성이 향상됩니다. 사용자가 이러한 리소스에 액세스할 수 있게 되면 환경을 신뢰할 수 있는지에 대한 문제가 발생합니다.  Azure AD Connect Health를 사용하면 온-프레미스 ID 인프라를 모니터링하고 파악할 수 있으므로 이 환경의 신뢰성을 보장합니다. 각 온-프레미스 ID 서버에 에이전트를 설치하는 것만큼 간단합니다.
+
+AD FS용 Azure AD Connect Health는 Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016에서 AD FS 2.0을 지원합니다. 또한 엑스트라넷 액세스에 대한 인증 지원을 제공하는 AD FS 프록시 또는 웹 애플리케이션 프록시 서버의 모니터링을 지원합니다. AD FS에 대한 Azure AD Connect Health는 Health 에이전트를 쉽고 빠르게 설치하며 주요 기능 집합을 제공합니다.
+
+주요 이점 및 모범 사례:
+
+|주요 이점|모범 사례|
+|-----|-----|
+|향상된 보안|[엑스트라넷 잠금 추세](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[실패한 로그인 보고서](how-to-connect-health-adfs.md#risky-ip-report-public-preview)</br>[개인 정보 보호 준수](reference-connect-health-user-privacy.md)|
+|[모든 심각한 ADFS 시스템 문제](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)에 대한 알림 받기|서버 구성 및 가용성</br>[성능 및 연결](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>정기적인 유지 관리|
+|쉬운 배포 및 관리|[빠른 에이전트 설치](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>최신 에이전트 자동 업그레이드</br>몇 분 안에 포털에서 사용 가능한 데이터|
+다양한 [사용량 메트릭](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|상위 애플리케이션 사용량</br>네트워크 위치 및 TCP 연결</br>서버당 토큰 요청|
+|멋진 사용자 환경|Azure Portal에서 대시보드 방식</br>[이메일 경고](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
+
+
 
 
 ## <a name="next-steps"></a>다음 단계

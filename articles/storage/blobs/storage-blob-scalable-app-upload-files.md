@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.component: blobs
-ms.openlocfilehash: a69d67ee455b447eb038903bb8fafb644d025662
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.subservice: blobs
+ms.openlocfilehash: a1dba92a9e156c82f49b9f6f85faf227fc652029
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565737"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240083"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Azure Storage에 대량의 임의 데이터를 병렬로 업로드
 
@@ -31,11 +31,11 @@ ms.locfileid: "51565737"
 
 Azure Blob Storage는 데이터를 저장하기 위한 확장 가능한 서비스를 제공합니다. 애플리케이션 성능을 가능한 한 높게 유지하려면 Blob Storage 작동 방식을 이해하는 것이 좋습니다. Azure Blob에 대한 제한을 알고 있어야 합니다. 이러한 제한을 자세히 알아보려면 [Blob Storage 확장성 대상](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets)을 참조하세요.
 
-[파티션 이름 지정](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47)은 Blob을 사용하여 고성능 응용 프로그램을 설계할 때 고려한 또 다른 중요한 요소입니다. Azure Storage는 범위를 기준으로 한 파티션 구성표를 사용하여 확장/축소 및 부하 분산을 수행합니다. 이 구성은 이름 지정 규칙 또는 접두사가 유사한 파일이 동일한 파티션으로 이동함을 의미합니다. 이 논리에는 파일이 업로드되는 컨테이너의 이름이 포함됩니다. 이 자습서에서는 임의로 생성된 콘텐츠뿐만 아니라 이름에 대한 GUID가 있는 파일을 사용합니다. 그런 다음, 임의 이름을 가진 5개의 다른 컨테이너로 업로드됩니다.
+[파티션 이름 지정](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47)은 Blob을 사용하여 고성능 애플리케이션을 설계할 때 고려한 또 다른 중요한 요소입니다. Azure Storage는 범위를 기준으로 한 파티션 구성표를 사용하여 확장/축소 및 부하 분산을 수행합니다. 이 구성은 이름 지정 규칙 또는 접두사가 유사한 파일이 동일한 파티션으로 이동함을 의미합니다. 이 논리에는 파일이 업로드되는 컨테이너의 이름이 포함됩니다. 이 자습서에서는 임의로 생성된 콘텐츠뿐만 아니라 이름에 대한 GUID가 있는 파일을 사용합니다. 그런 다음, 임의 이름을 가진 5개의 다른 컨테이너로 업로드됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 완료하려면 이전 저장소 자습서 [확장 가능한 애플리케이션에 필요한 가상 머신 및 저장소 계정 만들기][previous-tutorial]를 완료해야 합니다.
+이 자습서를 완료하려면 이전 스토리지 자습서: [확장 가능한 애플리케이션에 필요한 가상 머신 및 스토리지 계정 만들기][previous-tutorial]를 완료해야 합니다.
 
 ## <a name="remote-into-your-virtual-machine"></a>가상 머신에 원격으로 연결
 
@@ -59,7 +59,7 @@ setx storageconnectionstring "<storageConnectionString>" /m
 
 `D:\git\storage-dotnet-perf-scale-app`로 이동합니다.
 
-`dotnet run`를 입력하여 응용 프로그램을 실행합니다. `dotnet`을 처음 실행할 때 이 명령은 로컬 패키지 캐시를 채워 복원 속도가 개선되고 오프라인 액세스를 사용할 수 있습니다. 이 명령은 완료하는 데 1분이 걸리며 한 번만 발생합니다.
+`dotnet run`를 입력하여 애플리케이션을 실행합니다. `dotnet`을 처음 실행할 때 이 명령은 로컬 패키지 캐시를 채워 복원 속도가 개선되고 오프라인 액세스를 사용할 수 있습니다. 이 명령은 완료하는 데 1분이 걸리며 한 번만 발생합니다.
 
 ```
 dotnet run

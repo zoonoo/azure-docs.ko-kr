@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: b211ede7ef90fb1aef3a6d6e9a82e0d52397afd3
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: cb02c9067e4d672b0aace4caf13e4c8f0d718afb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465919"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220198"
 ---
 # <a name="what-is-project-answer-search"></a>Project Answer Search란?
 Project Answer Search API는 Bing v7 엔드포인트를 사용하여 질문 형태의 쿼리에 대한 답변을 가져옵니다. “What is the circumference of the earth?”와 같은 질문은 팩트 정보가 포함된 답변을 반환합니다.  사람, 장소 또는 사물에 대한 쿼리는 쿼리에 의해 식별된 엔터티에 대한 정보를 반환합니다. 대화 봇, 메시징 앱, 리더 등과 같은 애플리케이션에서는 이러한 시나리오가 유용할 수 있습니다.  
@@ -25,13 +25,13 @@ Project Answer Search API는 Bing v7 엔드포인트를 사용하여 질문 형�
 ## <a name="endpoint"></a>엔드포인트
 사람, 장소 또는 사물에 대한 정보나 질문에 대한 답변을 가져오려면 Answer Search API 엔드포인트에 요청을 보냅니다. 다양한 사양을 위해 헤더 및 URL 매개 변수를 사용합니다.  유효한 토큰이 포함된 *Ocp-Apim-Subscription-Key* 헤더를 포함합니다.  지역/국가 매개 변수가 필요합니다. 현재, `en-us` 지역/국가만 지원됩니다.
 
-다음 쿼리는 질문에 대한 답변을 가져옵니다. “What is the circumference of the earth?”
+다음 쿼리는 “지구의 둘레는 얼마인가요?”라는 질문에 대한 답을 가져옵니다.
 
 GET:
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=what+is+circumference+of+the=earth?&mkt=en-us
 
-````
+```
 
 검색의 개체를 지정하려면 URL 매개 변수 `q=`가 필요합니다.
 
@@ -39,7 +39,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=what+is+circ
 
 응답에는 HTTP 헤더, 웹 페이지, 팩트 및/또는 엔터티가 포함됩니다.
 
-````
+```
 BingAPIs-TraceId: AB2E75C998614ADB8EBF5110DF648298
 X-MSEdge-ClientID: 1E48FC4F7B8768C80B14F7997A106906
 BingAPIs-SessionId: 0504DDD6DAE84861A4842306F8DA7A58
@@ -236,7 +236,7 @@ JSON Response:
   }
 }
 
-````
+```
 
 ## <a name="terms-of-use"></a>사용 약관
 Project Answer Search 및 Project Video Trends에는 [Bing Search 사용 및 표시 요구 사항](use-display-requirements.md)이 적용됩니다.

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5eee55846bd6f5821be1e40b969a35f5e50bd205
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 119a53949b6184389c0e36e56732f0486c24ca5c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967373"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193491"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 가상 머신 확장 집합에 대한 사용자 지정 이미지 만들기 및 사용
 확장 집합을 만들 때 VM 인스턴스 배포 시 사용할 이미지를 지정합니다. VM 인스턴스가 배포된 후 작업의 수를 줄이려면 사용자 지정 VM 이미지를 사용할 수 있습니다. 이 사용자 지정 VM 이미지에는 필요한 모든 애플리케이션 설치 또는 구성이 포함됩니다. 확장 집합에서 만들어진 모든 VM 인스턴스는 사용자 지정 VM 이미지를 사용하며, 애플리케이션 트래픽을 처리할 준비가 되어 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -44,7 +44,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 >[!NOTE]
 > 이 자습서는 일반화된 VM 이미지를 만들고 사용하는 과정을 안내합니다. 특수화된 VM 이미지로부터 확장 집합 만들기는 지원되지 않습니다.
 
-먼저 [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만든 다음, [az vm create](/cli/azure/vm#az_vm_create)를 사용하여 VM을 만듭니다. 이 VM은 사용자 지정 VM 이미지에 대한 원본으로 사용됩니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에 *myVM*이라는 VM을 만듭니다.
+먼저 [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만든 다음, [az vm create](/cli/azure/vm)를 사용하여 VM을 만듭니다. 이 VM은 사용자 지정 VM 이미지에 대한 원본으로 사용됩니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에 *myVM*이라는 VM을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -57,7 +57,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-VM의 공용 IP 주소는 [az vm create](/cli/azure/vm#az_vm_create) 명령의 출력에 표시됩니다. 다음과 같이 SSH를 VM의 공용 IP 주소에 연결합니다.
+VM의 공용 IP 주소는 [az vm create](/cli/azure/vm) 명령의 출력에 표시됩니다. 다음과 같이 SSH를 VM의 공용 IP 주소에 연결합니다.
 
 ```azurecli-interactive
 ssh azureuser@<publicIpAddress>
@@ -96,7 +96,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 VM을 할당 취소하고 일반화하는 데 몇 분이 걸릴 수 있습니다.
 
-이제 [az image create](/cli//azure/image#az_image_create)를 사용하여 VM의 이미지를 만듭니다. 다음 예제에서는 VM에서 *myImage*라는 이미지를 만듭니다.
+이제 [az image create](/cli//azure/image)를 사용하여 VM의 이미지를 만듭니다. 다음 예제에서는 VM에서 *myImage*라는 이미지를 만듭니다.
 
 ```azurecli-interactive
 az image create \
@@ -171,4 +171,4 @@ az group delete --name myResourceGroup --no-wait --yes
 애플리케이션을 확장 집합에 배포하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [확장 집합에 응용 프로그램 배포](tutorial-install-apps-cli.md)
+> [확장 집합에 애플리케이션 배포](tutorial-install-apps-cli.md)

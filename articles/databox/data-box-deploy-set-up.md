@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 460a05ac25ca4af56b81fb2025e0886c7bda3070
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 79e2d33d1452eda35141b6ae80b46ab4eecd0909
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391152"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902166"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>자습서: Azure Data Box에 케이블 연결
 
@@ -50,7 +50,7 @@ ms.locfileid: "54391152"
 
 1. 디바이스에 변조의 증거 또는 기타 명백한 손상이 있는지 검사합니다. 디바이스가 변조되거나 심각하게 손상된 경우에는 진행하지 마십시오. 디바이스의 작동 상태가 양호한지 교체품을 배송해야 하는지 여부를 평가하는 데 도움을 얻으려면 Microsoft 지원에 즉시 문의하세요.
 2. 디바이스의 전원을 켜려는 위치로 디바이스를 옮깁니다. 표면이 평평한 곳에 디바이스를 놓습니다. 표준 랙 선반 위에 디바이스를 놓을 수도 있습니다.
-3. 전원 및 네트워크 케이블을 연결합니다. 연결된 디바이스의 백플레인에 대한 일반적 구성은 아래와 같습니다. 
+3. 전원 및 네트워크 케이블을 연결합니다. 연결된 디바이스의 백플레인에 대한 일반적 구성은 아래와 같습니다. 환경에 따라 다른 [케이블 연결 옵션](data-box-cable-options.md)을 선택할 수 있습니다.
     
     ![케이블이 연결된 Data Box 디바이스의 백플레인](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
 

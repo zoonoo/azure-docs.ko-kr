@@ -6,18 +6,18 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 4987a50f7a689b74062154b8427fd7bec8e2e8a6
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 7beddd7f7f21466ee404303b2727370d0cfc86f6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334313"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220165"
 ---
-# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-c"></a>빠른 시작: Translator Text REST API(C#)로 텍스트 음역
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>빠른 시작: Translator Text API를 사용하여 C#을 통해 텍스트 음역
 
 이 빠른 시작에서는 .NET Core(C#) 및 Translator Text REST API를 사용하여 텍스트를 한 스크립트에서 다른 스크립트로 음역(변환)하는 방법을 알아봅니다. 제공된 샘플에서는 라틴어 알파벳을 사용하도록 일본어를 음역합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "52334313"
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Json.NET NuGet 패키지](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) 또는 즐겨 사용하는 텍스트 편집기
-* Speech Service에 대한 Azure 구독 키
+* Translator Text에 대한 Azure 구독 키
 
 ## <a name="create-a-net-core-project"></a>.NET Core 프로젝트 만들기
 

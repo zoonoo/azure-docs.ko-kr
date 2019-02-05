@@ -3,7 +3,7 @@ title: 자습서 - Azure의 Linux 가상 머신에 MEAN 스택 만들기 | Micro
 description: 이 자습서에서는 Azure의 Linux VM에서 MEAN(MongoDB, Express, AngularJS 및 Node.js) 스택을 만드는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/08/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a223cb9be7c381c2f64648b32ef9bca69ebeddb5
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 223b32d3947ca0f663565a90b15e9c24e5ddeb96
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465684"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883214"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>자습서: Azure의 Linux 가상 머신에서 MEAN(MongoDB, Express, AngularJS 및 Node.js) 스택 만들기
 
@@ -149,7 +149,7 @@ sudo apt-get install -y nodejs
 
 ## <a name="install-express-and-set-up-routes-to-the-server"></a>Express 설치 및 서버에 대한 경로 설정
 
-[Express](https://expressjs.com)는 웹 및 모바일 응용 프로그램용 기능을 제공하는 유연한 최소 규모의 Node.js 웹 응용 프로그램 프레임워크입니다. 이 자습서에서는 MongoDB 데이터베이스와 책 정보를 빠르게 주고 받기 위해 Express를 사용합니다. [Mongoose](http://mongoosejs.com)는 응용 프로그램 데이터를 모델링하기 위한 간편한 스키마 기반 솔루션을 제공합니다. Mongoose는 데이터베이스에 책 스키마를 제공하기 위해 이 자습서에서 사용됩니다.
+[기본](https://expressjs.com)은 웹 및 모바일 애플리케이션용 기능을 제공하는 유연한 최소 규모의 Node.js 웹 애플리케이션 프레임워크입니다. 이 자습서에서는 MongoDB 데이터베이스와 책 정보를 빠르게 주고 받기 위해 Express를 사용합니다. [Mongoose](http://mongoosejs.com)는 애플리케이션 데이터를 모델링하기 위한 간편한 스키마 기반 솔루션을 제공합니다. Mongoose는 데이터베이스에 책 스키마를 제공하기 위해 이 자습서에서 사용됩니다.
 
 1. Express 및 Mongoose를 설치합니다.
 
@@ -219,7 +219,7 @@ sudo apt-get install -y nodejs
 
 ## <a name="access-the-routes-with-angularjs"></a>AngularJS를 사용하여 경로에 액세스
 
-[AngularJS](https://angularjs.org)는 웹 응용 프로그램에서 동적 뷰를 만들기 위한 웹 프레임워크를 제공합니다. 이 자습서에서는 AngularJS를 사용하여 웹 페이지를 Express에 연결하고 책 데이터베이스에 대해 작업을 수행합니다.
+[AngularJS](https://angularjs.org)는 웹 애플리케이션에서 동적 뷰를 만들기 위한 웹 프레임워크를 제공합니다. 이 자습서에서는 AngularJS를 사용하여 웹 페이지를 Express에 연결하고 책 데이터베이스에 대해 작업을 수행합니다.
 
 1. 디렉터리를 *Books*로 다시 변경하고(`cd ../..`) *public*이라는 폴더를 만들고 컨트롤러 구성이 정의된 *script.js*라는 파일을 추가합니다.
 

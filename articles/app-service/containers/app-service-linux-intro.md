@@ -16,18 +16,18 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu;yili
 ms.custom: seodec18
-ms.openlocfilehash: 898d663f3ef9a71944d96b0978947d10a3e26b06
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 2e75ff08acdda03c0080f49c6616274a4b031075
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232790"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903726"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux의 Azure App Service 소개
 
-[Web App](../overview.md)은 웹 사이트와 웹 애플리케이션 호스팅을 위해 최적화된 전체 관리형 계산 플랫폼입니다. 고객은 지원되는 애플리케이션 스택에 대해 Linux의 App Service를 사용하여 Linux에서 웹앱을 호스트할 수 있습니다. 다음 섹션에는 현재 지원되는 애플리케이션 스택이 나와 있습니다.
+[Azure App Service](../overview.md)는 웹 사이트와 웹 애플리케이션 호스팅을 위해 최적화된 완전 관리형 컴퓨팅 플랫폼입니다. 고객은 지원되는 애플리케이션 스택에 대해 Linux의 App Service를 사용하여 Linux에서 웹앱을 호스트할 수 있습니다. [언어](#languages) 섹션에는 현재 지원되는 애플리케이션 스택이 나와 있습니다.
 
-## <a name="languages"></a>언어
+## <a name="languages"></a>Languages
 
 Linux의 App Service는 개발자의 생산성을 향상시키기 위해 수많은 기본 제공 이미지를 지원합니다. 애플리케이션에 필요한 런타임이 기본 제공 이미지에 지원되지 않는 경우 [자체 Docker 이미지를 빌드](tutorial-custom-docker-image.md)하여 Web App for Containers에 배포하는 방법에 대한 지침이 있습니다.
 
@@ -39,8 +39,6 @@ Linux의 App Service는 개발자의 생산성을 향상시키기 위해 수많�
 | Python(미리 보기) | 2.7, 3.6, 3.7 |
 | .NET Core | 1.0, 1.1, 2.0, 2.1 |
 | Ruby | 2.3 |
-
-자세한 내용은 [Linux의 App Service에서 Java 웹앱 만들기](https://docs.microsoft.com/azure/app-service/containers/quickstart-java)를 참조하세요.
 
 ## <a name="deployments"></a>배포
 
@@ -75,7 +73,9 @@ Azure Portal에는 현재 Web App for Containers에 대해 작동하는 기능�
 
 가상 네트워크 통합, Azure Active Directory/타사 인증 또는 Kudu 사이트 확장 등의 일부 기능은 아직 사용할 수 없습니다. 이러한 기능이 사용 가능해지면 설명서와 블로그에 변경 내용이 업데이트될 것입니다.
 
-Linux의 App Service는 [기본, 표준 및 프리미엄](https://azure.microsoft.com/pricing/details/app-service/plans/) App Service 계획에서만 지원되며 [체험 또는 공유](https://azure.microsoft.com/pricing/details/app-service/plans/) 계층은 없습니다. 이미 비 Linux Web Apps를 호스트 중인 App Service 계획에서는 Web App for Containers를 만들 수 없습니다. 동일한 리소스 그룹에서도 Windows 및 Linux 앱을 함께 사용하지 않는 등 현재 제약 조건이 있습니다.
+Linux의 App Service는 [기본, 표준 및 프리미엄](https://azure.microsoft.com/pricing/details/app-service/plans/) App Service 계획에서만 지원되며 [체험 또는 공유](https://azure.microsoft.com/pricing/details/app-service/plans/) 계층은 없습니다. 이미 비 Linux Web Apps를 호스트 중인 App Service 계획에서는 Web App for Containers를 만들 수 없습니다. 
+
+또한 현재 제한 사항에 따라 Windows 및 Linux 앱을 동일한 리소스 그룹에 혼합하면 안 됩니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -84,9 +84,11 @@ Linux의 App Service는 [기본, 표준 및 프리미엄](https://azure.microsof
 
 ![로깅 사용][2]
 
-![Kudu를 사용하여 Docker 로그 보기][1]
+설정은 즉시 적용됩니다. App Service는 설정 변경 사항을 감지하고 자동으로 컨테이너를 다시 시작합니다.
 
 **고급 도구**의 **개발 도구** 메뉴에서 SCM 사이트에 액세스할 수 있습니다.
+
+![Kudu를 사용하여 Docker 로그 보기][1]
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -101,7 +103,7 @@ Linux의 App Service는 [기본, 표준 및 프리미엄](https://azure.microsof
 * [Go](quickstart-docker-go.md)
 * [다중 컨테이너 앱](quickstart-multi-container.md)
 
-또한 Linux의 App Service에 대한 자세한 내용은 다음 문서를 참조하세요.
+Linux 기반 App Service에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 * [Linux의 App Service FAQ](app-service-linux-faq.md)
 * [Linux의 App Service에 대한 SSH 지원](app-service-linux-ssh-support.md)

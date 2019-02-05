@@ -1,5 +1,5 @@
 ---
-title: Media Services를 사용하여 비디오 분석 - Azure | Microsoft Docs
+title: .NET을 사용하여 Media Services로 비디오 분석 - Azure | Microsoft Docs
 description: Azure Media Services를 사용하여 비디오를 분석하려면 이 자습서의 단계를 따르십시오.
 services: media-services
 documentationcenter: ''
@@ -9,26 +9,24 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 12/08/2018
+ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 42ffecec896265f99a8f1f0b43b47c1988a493d6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 191a6c9dc1cc5a24c1a46af21c5b63e3ff27a290
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133896"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150396"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3-using-apis"></a>자습서: API를 사용하여 Media Services v3에서 비디오 분석
+# <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>자습서: .NET을 사용하여 Media Services v3에서 비디오 분석
 
 이 자습서는 Azure Media Services로 비디오를 분석하는 방법을 보여줍니다. 녹음/녹화한 비디오나 오디오 콘텐츠를 심층적으로 파악해야 하는 다양한 경우가 있을 수 있습니다. 예를 들어, 고객 만족도를 높이 달성하기 위해 음성을 텍스트로 변환하는 프로세스를 실행하여 고객 지원 기록을 인덱스 및 대시보드와 함께 검색 가능한 카탈로그로 변환할 수 있습니다. 그런 다음, 일반적인 불만 사항 목록 및 불만의 출처 및 기타 유용한 정보와 같은 비즈니스에 대한 인사이트를 파악할 수 있습니다.
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.    
 
 > [!div class="checklist"]
-> * Media Services 계정 만들기
-> * Media Services API 액세스
-> * 샘플 앱 구성
+> * 토픽에 설명된 샘플 앱 다운로드
 > * 지정된 비디오를 분석하는 코드 검사
 > * 앱 실행
 > * 출력 내용 검사
@@ -39,15 +37,10 @@ ms.locfileid: "53133896"
 ## <a name="prerequisites"></a>필수 조건
 
 - Visual Studio가 설치되지 않은 경우 [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)을 사용할 수 있습니다.
-- CLI를 로컬로 설치하여 사용하기 위해 이 문서에는 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+- [Media Services 계정 만들기](create-account-cli-how-to.md)<br/>리소스 그룹 이름 및 Media Services 계정 이름에 사용한 값을 기억해 두세요.
+- [Azure CLI를 사용하여 Azure Media Services API 액세스](access-api-cli-how-to.md)의 단계를 수행하고 자격 증명을 저장합니다. API에 액세스할 때 필요합니다.
 
-    현재 일부 [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) 명령만 Azure Cloud Shell에서 작동합니다. CLI를 로컬로 사용하는 것이 좋습니다.
-
-- [Media Services 계정 만들기](create-account-cli-how-to.md)
-
-    리소스 그룹 이름 및 Media Services 계정 이름에 사용한 값을 기억해 두세요.
-
-## <a name="download-the-sample"></a>샘플 다운로드
+## <a name="download-and-configure-the-sample"></a>샘플 다운로드 및 구성
 
 다음 명령을 사용하여 .NET 샘플이 포함된 GitHub 리포지토리를 컴퓨터에 복제합니다.  
 
@@ -57,7 +50,7 @@ ms.locfileid: "53133896"
 
 샘플은 [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos) 폴더에 있습니다.
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+다운로드한 프로젝트에서 [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) 파일을 엽니다. 값을 [API 액세스](access-api-cli-how-to.md)에서 가져온 자격 증명으로 바꿉니다.
 
 ## <a name="examine-the-code-that-analyzes-the-specified-video"></a>지정된 비디오를 분석하는 코드 검사
 
@@ -65,8 +58,8 @@ ms.locfileid: "53133896"
 
 샘플은 다음 작업을 수행합니다.
 
-1. 비디오를 분석하는 변환 및 작업을 만듭니다.
-2. 입력 자산을 만들고 비디오를 업로드합니다. 자산은 작업의 입력으로 사용됩니다.
+1. 비디오를 분석하는 **변환** 및 **작업**을 만듭니다.
+2. 입력 **자산**을 만들고 비디오를 업로드합니다. 자산은 작업의 입력으로 사용됩니다.
 3. 작업의 출력을 저장하는 출력 자산을 만듭니다. 
 4. 작업을 제출합니다.
 5. 작업의 상태를 확인합니다.

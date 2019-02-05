@@ -1,23 +1,23 @@
 ---
-title: '빠른 시작: Azure REST API 및 Python을 사용하여 이미지에서 얼굴 검색'
+title: '빠른 시작: Azure REST API 및 Python으로 이미지에서 얼굴 감지'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Python과 함께 Azure Face REST API를 사용하여 이미지에서 얼굴을 검색합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: d2a98226895bbe5996785ca4726f20df9b98ffdd
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 606f01059620443c8c42a24f416128d0856eff50
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683613"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213789"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>빠른 시작: Face REST API 및 Python을 사용하여 이미지에서 얼굴 검색
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>빠른 시작: Face REST API 및 Python을 사용하여 이미지에서 얼굴 감지
 
 이 빠른 시작에서는 Python과 함께 Azure Face REST API를 사용하여 이미지에서 사람의 얼굴을 검색합니다. 이 스크립트는 얼굴 주위에 프레임을 그리고 이미지에 성별 및 연령 정보를 겹쳐서 표시합니다.
 

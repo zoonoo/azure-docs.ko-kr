@@ -6,18 +6,18 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/20/2018
 ms.author: erhopf
-ms.openlocfilehash: 06e294187247636c552dfd4a7d02167eb55be19a
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: fbe89d938157cebd7fa605f07cee8b198de062d2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334706"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214520"
 ---
-# <a name="quickstart-translate-text-with-the-translator-text-rest-api-c"></a>빠른 시작: Translator Text REST API(C#)로 텍스트 번역
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>빠른 시작: Translator Text API를 사용하여 C#을 통해 문자열 번역
 
 이 빠른 시작에서는 .NET Core 및 Translator Text REST API를 사용하여 텍스트 문자열을 영어에서 이탈리아어 및 독일어로 번역하는 방법을 알아봅니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "52334706"
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Json.NET NuGet 패키지](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) 또는 즐겨 사용하는 텍스트 편집기
-* Speech Service에 대한 Azure 구독 키
+* Translator Text에 대한 Azure 구독 키
 
 ## <a name="create-a-net-core-project"></a>.NET Core 프로젝트 만들기
 

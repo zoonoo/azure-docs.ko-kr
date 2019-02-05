@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 23f2d32b2323821155467bd1ad12e9baf8c33074
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 01/25/2019
+ms.openlocfilehash: 2b510accb2a30250a2855cfa22dbf45546a77569
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150753"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461749"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>빠른 시작: SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스 연결 및 쿼리
 
@@ -30,7 +30,9 @@ ms.locfileid: "55150753"
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-#### <a name="install-the-latest-ssms"></a>최신 SSMS 설치
+* 구성된 서버 수준 방화벽 규칙. 자세한 내용은 [서버 수준 방화벽 규칙 만들기](sql-database-get-started-portal-firewall.md)를 참조하세요.
+
+## <a name="install-the-latest-ssms"></a>최신 SSMS 설치
 
 시작하기 전에 최신 [SSMS][ssms-install-latest-84g]를 설치했는지 확인합니다. 
 
@@ -43,7 +45,7 @@ ms.locfileid: "55150753"
 SMSS에서 Azure SQL Database 서버에 연결합니다. 
 
 > [!IMPORTANT]
-> Azure SQL Database 논리 서버는 포트 1433에서 수신 대기합니다. 회사 방화벽 뒤에서 논리 서버에 연결하려면 방화벽에서 이 포트가 열려 있어야 합니다.
+> Azure SQL Database 서버는 포트 1433에서 수신 대기합니다. 회사 방화벽 뒤에서 SQL Database 서버에 연결하려면 방화벽에서 이 포트가 열려 있어야 합니다.
 >
 
 1. SSMS를 엽니다. **서버에 연결** 대화 상자가 표시됩니다.

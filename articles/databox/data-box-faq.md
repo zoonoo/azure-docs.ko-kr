@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/16/2019
+ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: ad52427263c4bbd2effb373b00ef8ff37b8f5b67
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6c7dd6ebaf7eebefcdcfa50bbd77ad80f4cda907
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449574"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077458"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: 질문과 대답
 
@@ -36,7 +36,7 @@ Microsoft Azure Data Box 하이브리드 솔루션을 사용하면 이전 디바
 a.  Azure Data Box 서비스는 오프라인 데이터 수집을 위해 설계되었습니다. 이 서비스는 다양한 저장 용량의 데이터 전송에 맞게 조정된 일련의 제품을 관리합니다. 
 
 ### <a name="q-what-is-azure-data-box"></a>Q. Azure Data Box란?
-a. Azure Data Box를 사용하면 Azure에서 테라바이트 단위의 데이터를 빠르고 저렴하게 신뢰할 수 있는 방식으로 전송할 수 있습니다. Azure Portal을 통해 Data Box 디바이스를 주문합니다. Microsoft가 지역 사업자를 통해 80TB용량의 사용 가능한 저장 디바이스를 배송합니다. 
+a. Azure Data Box를 사용하면 Azure에서 테라바이트 단위의 데이터를 빠르고 저렴하게 신뢰할 수 있는 방식으로 전송할 수 있습니다. Azure Portal을 통해 Data Box 디바이스를 주문합니다. Microsoft가 지역 이동 통신 사업자를 통해 80TB용량의 사용 가능한 저장 디바이스를 배송합니다. 
 
 디바이스를 받게 되면 로컬 웹 UI를 사용하여 신속하게 설정합니다. 서버에서 디바이스로 데이터를 복사하고 디바이스를 다시 Azure에 배송합니다. Azure 데이터 센터에서 사용자의 데이터는 디바이스에서 Azure로 자동으로 업로드됩니다. 전체 프로세스는 Azure Portal의 Data Box 서비스에 의해 종단 간 추적됩니다.
 
@@ -58,6 +58,9 @@ a. Data Box는 미국, 유럽 서부, 유럽 북부, 프랑스 및 영국 내의
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>Q. Data Box에 문제가 발생하면 어디로 연락해야 하나요?
 a. Data Box에 문제가 발생하면 [Microsoft 지원](data-box-disk-contact-microsoft-support.md)에 문의하세요.
 
+### <a name="q-i-have-lost-my-data-box-is-there-a-lost-device-charge"></a>Q. Data Box를 분실했습니다. 디바이스를 분실하면 요금이 청구되나요?
+a. 예. 디바이스를 분실하거나 손상될 경우 요금이 청구됩니다. 이 요금은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/databox/)와 [제품 서비스 약관](https://www.microsoft.com/licensing/product-licensing/products)에 설명되어 있습니다.
+
 
 ## <a name="order-device"></a>디바이스 주문
 
@@ -78,10 +81,10 @@ a. 상거래 범위(선택한 국가 및 지역 조합)당 구독별로 최대 5
 a. 선택한 국가와 지역 조합에서는 Data Box 서비스를 사용할 수 없다는 의미입니다. 이 조합을 변경하면 Data Box 서비스가 제공될 수도 있습니다. 서비스를 사용할 수 있는 지역 목록은 [Data Box에 대한 지역 가용성](data-box-overview.md#region-availability)을 참조하세요.
 
 ### <a name="q-i-placed-my-data-box-order-few-days-back-when-will-i-receive-my-data-box"></a>Q. 며칠 전 Data Box를 주문했습니다. 언제 Data Box를 받게 될까요?
-a. 주문이 이루어지면 해당 주문에 디바이스가 가능한지 여부를 확인합니다. 디바이스가 가능하다면 10일 안에 출고합니다. 수요가 몰리는 기간이 있을 수 있습니다. 이런 경우에는 주문이 대기 상태가 되고 Azure Portal에서 상태 변경을 추적할 수 있습니다. 주문이 90일 안에 이행되지 않으면 자동으로 취소됩니다. 
+a. 주문이 이루어지면 해당 주문에 디바이스가 가능한지 여부를 확인합니다. 디바이스가 가능하다면 10일 안에 출고합니다. 수요가 몰리는 기간이 있을 수 있습니다. 이런 경우에는 주문이 대기 상태가 되고 Azure Portal에서 상태 변경을 추적할 수 있습니다. 주문이 90일 안에 이행되지 않으면 자동으로 취소됩니다.
 
 ### <a name="q-i-have-filled-up-my-data-box-with-data-and-need-to-order-another-one-is-there-a-way-to-quickly-place-the-order"></a>Q. Data Box에 데이터가 가득 차 다른 장치를 더 주문해야 합니다. 주문을 빠르게 확정할 수 있는 방법이 있나요?
-a. 이전 주문을 복제할 수 있습니다. 복제하는 경우 이전과 동일한 주문을 만들고, 주소, 연락처 및 알림 세부 정보를 입력할 필요 없이 주문 세부 정보를 편집할 수 있습니다. 
+a. 이전 주문을 복제할 수 있습니다. 복제하는 경우 이전과 동일한 주문을 만들고, 주소, 연락처 및 알림 세부 정보를 입력할 필요 없이 주문 세부 정보를 편집할 수 있습니다.
 
 ## <a name="configure-and-connect"></a>구성 및 연결
 
@@ -96,6 +99,9 @@ a.  Data Box를 주문한 후 주문이 처리되기 전에만 주문을 취소�
 
 ### <a name="q-can-i-connect-a-data-box-at-the-same-to-multiple-host-computers-to-transfer-data"></a>Q. Data Box를 한 번에 여러 호스트 컴퓨터에 연결하여 데이터를 전송할 수 있나요?
 a. 예. 여러 호스트 컴퓨터를 동일한 Data Box에 연결하여 데이터를 전송할 수 있으며, 여러 복사 작업을 병렬로 실행할 수 있습니다. 자세한 내용은 [자습서: Azure Data Box에 데이터 복사](data-box-deploy-copy-data.md)를 참조하세요.
+
+### <a name="q-can-i-connect-to-both-the-10-gbe-interfaces-on-the-data-box-to-transfer-data"></a>Q. Data Box의 두 10GbE 인터페이스에 연결하여 데이터를 전송할 수 있나요?
+a. 예. Data Box의 두 10GbE 인터페이스에 모두 연결하여 동시에 데이터를 복사할 수 있습니다. 데이터를 복사하는 방법에 대한 자세한 내용은 [자습서: Azure Data Box에 데이터 복사](data-box-deploy-copy-data.md)를 참조하세요.
 
 <!--### Q. The network interface on my Data Box is not working. What should I do? 
 A. 
@@ -202,19 +208,19 @@ a. 디바이스가 부팅되지 않는 경우 Azure Portal에서 주문 내역�
 a.  **데이터 복사**에 대한 주문 상태가 **완료됨**으로 표시되면 데이터에 바로 액세스할 수 있습니다.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>Q. 업로드되면 Azure에서 내 데이터가 어디에 있나요?
-a.  Data Box에 데이터를 복사할 때, 데이터가 페이지 Blob, 블록 Blob 또는 Azure 파일인지 여부에 따라 Azure Storage 계정에서 다음 경로 중 하나에 업로드됩니다.
+a.  Data Box에 데이터를 복사할 때 데이터가 페이지 Blob인지, 블록 Blob인지 아니면 Azure 파일인지에 따라 Azure Storage 계정에서 다음 경로 중 하나에 업로드됩니다.
  - `https://<storage_account_name>.blob.core.windows.net/<containername>` 
  -  `https://<storage_account_name>.file.core.windows.net/<sharename>`
  
  또는 Azure Portal에서 Azure storage 계정으로 이동하여 찾아볼 수도 있습니다.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>Q. 방금 내 컨테이너에 대해 Azure 명명 요구 사항을 따르지 않았음을 알게 되었습니다. 이 경우 내 데이터가 Azure에 업로드되지 않나요?
-a.  컨테이너 이름에 대문자가 있으면 자동으로 소문자로 변환됩니다. 이름이 다른 방식(특수 문자, 다른 언어 등)으로 준수되지 않으면 업로드가 실패합니다. 공유, 컨테이너, 파일 이름 지정의 모범 사례에 대한 자세한 내용은 다음을 참조하세요. 
+a.  컨테이너 이름에 대문자가 있으면 자동으로 소문자로 변환됩니다. 이름이 다른 방식(특수 문자, 다른 언어 등)으로 준수되지 않으면 업로드가 실패합니다. 공유, 컨테이너, 파일 이름 지정의 모범 사례에 대한 자세한 내용은 다음을 참조하세요.
 - [공유 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
 - [블록 Blob 및 페이지 Blob 규칙](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-data-box"></a>Q. Data Box에 복사한 데이터는 어떻게 확인하나요?
-a.  데이터 복사가 완료되면 **배송 준비**를 실행할 때 데이터의 유효성을 검사합니다. Data Box는 유효성 검사 프로세스 중에 파일 목록과 데이터에 대한 체크섬을 만듭니다. 파일 목록을 다운로드하고 원본 데이터의 파일에 대해 확인할 수 있습니다. 자세한 내용은 [배송 준비](data-box-deploy-copy-data.md#prepare-to-ship)를 참조하세요.
+a.  데이터 복사가 완료되면 **배송 준비**를 실행할 때 데이터의 유효성을 검사합니다. Data Box는 유효성 검사 프로세스 중에 파일 목록과 데이터에 대한 체크섬을 만듭니다. 파일 목록을 다운로드하고 원본 데이터의 파일과 대조 확인할 수 있습니다. 자세한 내용은 [배송 준비](data-box-deploy-picked-up.md#prepare-to-ship)를 참조하세요.
 
 ### <a name="q-what-happens-to-my-data-after-i-have-returned-the-data-box"></a>Q. Data Box를 반환한 후 내 데이터는 어떻게 되나요?
 a.  Azure로 데이터 복사가 완료되면 Data Box 디스크의 데이터는 NIST SP 800-88 수정 1 지침에 따라 안전하게 지워집니다. 자세한 내용은 [Data Box에서 데이터 지우기](data-box-deploy-picked-up.md#erasure-of-data-from-data-box)를 참조하세요.

@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,18 +16,18 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 71c8b9cc05d15a4c4eadb6321de580ed9768a438
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2d10dcde0a0e35a3e717cde34048437b6119fbf6
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988768"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101235"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application-preview"></a>빠른 시작: 애플리케이션에서 지원되는 계정 수정(미리 보기)
 
 Microsoft ID 플랫폼에서 애플리케이션을 등록하는 경우 조직 내의 사용자만 해당 애플리케이션에 액세스할 수 있도록 제한하는 것이 좋습니다. 또는 애플리케이션을 외부 조직의 사용자나, 꼭 조직의 구성원은 아닌 사용자가 액세스할 수 있게 할 수 있습니다.
 
-이 빠른 시작에서는 애플리케이션 구성을 수정하여 애플리케이션에 액세스할 수 있는 사용자 또는 계정을 변경하는 방법을 알아봅니다.
+이 빠른 시작에서는 응용 프로그램 구성을 수정하여 응용 프로그램에 액세스할 수 있는 사용자 또는 계정을 변경하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -49,14 +49,14 @@ Microsoft ID 플랫폼에서 애플리케이션을 등록하는 경우 조직 �
 1. 다음 단계에 따라 [다른 계정을 지원하기 위해 애플리케이션을 변경](#change-the-application-registration-to-support-different-accounts)합니다.
 1. 단일 페이지 애플리케이션인 경우 [OAuth 2.0 암시적 허용](#enable-oauth-20-implicit-grant-for-single-page-applications)을 사용합니다.
 
-## <a name="change-the-application-registration-to-support-different-accounts"></a>다른 계정을 지원하기 위해 애플리케이션을 변경합니다.
+## <a name="change-the-application-registration-to-support-different-accounts"></a>다른 계정을 지원하기 위해 응용 프로그램을 변경합니다.
 
 고객이나 조직 외부의 파트너가 사용할 수 있는 애플리케이션을 작성 중인 경우 Azure Portal에서 애플리케이션 정의를 업데이트해야 합니다.
 
 > [!IMPORTANT]
-> Azure AD에서는 다중 테넌트 애플리케이션의 애플리케이션 ID URI가 전역적으로 고유해야 합니다. 앱 ID URI는 프로토콜 메시지에서 애플리케이션을 식별하는 방법 중 하나입니다. 단일 테넌트 애플리케이션의 경우 앱 ID URI이 해당 테넌트 내에서 고유한 것으로 충분합니다. 다중 테넌트 애플리케이션의 경우, 앱 ID URI이 전역적으로 고유해야 Azure AD가 모든 테넌트에서 애플리케이션을 찾을 수 있습니다. 앱 ID URI이 Azure AD 테넌트의 확인된 도메인과 일치하는 호스트 이름을 갖게 함으로써 전역 고유성이 적용됩니다. 예를 들어, 테넌트의 이름이 contoso.onmicrosoft.com이라면 유효한 앱 ID URI은 https://contoso.onmicrosoft.com/myapp이 될 것입니다. 테넌트에 contoso.com이라는 확인된 도메인이 있으면 유효한 앱 ID URI도 https://contoso.com/myapp이 됩니다. 앱 ID URI가 이 패턴을 따르지 않으면 애플리케이션을 다중 테넌트로 설정하지 못합니다.
+> Azure AD에서는 다중 테넌트 응용 프로그램의 응용 프로그램 ID URI가 전역적으로 고유해야 합니다. 앱 ID URI는 프로토콜 메시지에서 애플리케이션을 식별하는 방법 중 하나입니다. 단일 테넌트 응용 프로그램의 경우 앱 ID URI이 해당 테넌트 내에서 고유한 것으로 충분합니다. 다중 테넌트 애플리케이션의 경우, 앱 ID URI이 전역적으로 고유해야 Azure AD가 모든 테넌트에서 애플리케이션을 찾을 수 있습니다. 앱 ID URI이 Azure AD 테넌트의 확인된 도메인과 일치하는 호스트 이름을 갖게 함으로써 전역 고유성이 적용됩니다. 예를 들어, 테넌트의 이름이 contoso.onmicrosoft.com이라면 유효한 앱 ID URI은 https://contoso.onmicrosoft.com/myapp이 될 것입니다. 테넌트에 contoso.com이라는 확인된 도메인이 있으면 유효한 앱 ID URI도 https://contoso.com/myapp이 됩니다. 앱 ID URI가 이 패턴을 따르지 않으면 애플리케이션을 다중 테넌트로 설정하지 못합니다.
 
-### <a name="to-change-who-can-access-your-application"></a>애플리케이션에 액세스할 수 있는 사용자를 변경하려면
+### <a name="to-change-who-can-access-your-application"></a>응용 프로그램에 액세스할 수 있는 사용자를 변경하려면
 
 1. 앱 **개요** 페이지에서 **인증** 섹션을 선택하고 **지원되는 계정 유형**에서 선택한 값을 변경합니다.
     * 업무용(LOB) 애플리케이션을 빌드하는 경우 **이 디렉터리의 계정에만 해당**을 선택합니다. 이 옵션은 애플리케이션이 디렉터리에 등록되지 않은 경우에는 사용할 수 없습니다.
@@ -64,13 +64,13 @@ Microsoft ID 플랫폼에서 애플리케이션을 등록하는 경우 조직 �
     * 가장 광범위한 고객을 대상으로 하려면 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 선택합니다.
 1. **저장**을 선택합니다.
 
-## <a name="enable-oauth-20-implicit-grant-for-single-page-applications"></a>단일 페이지 애플리케이션에 OAuth 2.0 암시적 허용 사용
+## <a name="enable-oauth-20-implicit-grant-for-single-page-applications"></a>단일 페이지 응용 프로그램에 OAuth 2.0 암시적 허용 사용
 
 SPA(단일 페이지 애플리케이션)는 일반적으로 브라우저에서 실행되는 JavaScript 기반 프런트 엔드로 구성됩니다. 이러한 프런트 엔드는 애플리케이션의 웹 API를 다시 호출하여 비즈니스 논리를 수행합니다. Azure AD에서 호스트되는 SPA의 경우, OAuth 2.0 암시적 권한 부여를 사용하여 Azure AD에서 사용자를 인증하고, 애플리케이션의 JavaScript 클라이언트에서 해당 백 엔드 웹 API로의 보안 호출을 사용할 수 있는 토큰을 가져옵니다.
 
-사용자가 승인하면 이 동일한 인증 프로토콜을 사용하여 클라이언트와 애플리케이션에 대해 구성된 다른 웹 API 리소스 간의 보안 호출을 위해 토큰을 가져올 수 있습니다. 암시적 허용에 관한 자세한 내용을 확인하고 자신의 애플리케이션 시나리오에 적절한지 판단하려면 Azure AD [v1.0](v1-oauth2-implicit-grant-flow.md) 및 [v2.0](v2-oauth2-implicit-grant-flow.md)의 OAuth 2.0 암시적 허용 흐름에 대해 알아보세요.
+사용자가 승인하면 이 동일한 인증 프로토콜을 사용하여 클라이언트와 애플리케이션에 대해 구성된 다른 웹 API 리소스 간의 보안 호출을 위해 토큰을 가져올 수 있습니다. 암시적 허용에 관한 자세한 내용을 확인하고 자신의 응용 프로그램 시나리오에 적절한지 판단하려면 Azure AD [v1.0](v1-oauth2-implicit-grant-flow.md) 및 [v2.0](v2-oauth2-implicit-grant-flow.md)의 OAuth 2.0 암시적 허용 흐름에 대해 알아보세요.
 
-기본적으로 애플리케이션에 대해 OAuth 2.0 암시적 허용이 사용되지 않도록 설정됩니다. 아래 개요의 단계에 따라 애플리케이션에 대해 OAuth 2.0 암시적 허용을 사용할 수 있습니다.
+기본적으로 애플리케이션에 대해 OAuth 2.0 암시적 허용이 사용되지 않도록 설정됩니다. 아래 개요의 단계에 따라 응용 프로그램에 대해 OAuth 2.0 암시적 허용을 사용할 수 있습니다.
 
 ### <a name="to-enable-oauth-20-implicit-grant"></a>OAuth 2.0 암시적 허용을 사용하도록 설정하려면
 
@@ -83,9 +83,9 @@ SPA(단일 페이지 애플리케이션)는 일반적으로 브라우저에서 �
 
 앱에 대한 다른 관련 앱 관리 빠른 시작에 대해 알아봅니다.
 
-* [Microsoft ID 플랫폼을 사용하여 응용 프로그램 등록](quickstart-register-app.md)
-* [웹 API에 액세스하는 클라이언트 응용 프로그램 구성](quickstart-configure-app-access-web-apis.md)
-* [웹 API를 공개하는 응용 프로그램 구성](quickstart-configure-app-expose-web-apis.md)
+* [Microsoft ID 플랫폼을 사용하여 애플리케이션 등록](quickstart-register-app.md)
+* [웹 API에 액세스하는 클라이언트 애플리케이션 구성](quickstart-configure-app-access-web-apis.md)
+* [웹 API를 공개하는 애플리케이션 구성](quickstart-configure-app-expose-web-apis.md)
 * [Microsoft ID 플랫폼을 사용하여 등록된 응용 프로그램 제거](quickstart-remove-app.md)
 
 등록된 애플리케이션 및 이들 간의 관계를 나타내는 두 개의 Azure AD 개체에 대한 자세한 내용은 [애플리케이션 개체 및 서비스 주체 개체](app-objects-and-service-principals.md)를 참조하세요.

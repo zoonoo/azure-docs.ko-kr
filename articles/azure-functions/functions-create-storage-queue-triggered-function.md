@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 33f7367d9cdc510cf04f349f44b6e85215d46038
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 44d6311246ab303966b7cfd8bee854b1c017f85d
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995586"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902690"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Azure Queue Storage에 의해 트리거되는 함수 만들기
 
@@ -77,7 +77,7 @@ Azure Storage 큐에 메시지가 제출될 때 트리거되는 함수를 만드
 
     ![Storage 계정 연결 자격 증명 가져오기.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)
 
-1. [Microsoft Azure Storage 탐색기](https://storageexplorer.com/) 도구를 실행하고 왼쪽의 연결 아이콘을 클릭하고 **저장소 계정 이름 및 키 사용**을 선택하고 **다음**을 클릭합니다.
+1. [Microsoft Azure Storage 탐색기](https://storageexplorer.com/) 도구를 실행하고 왼쪽의 연결 아이콘을 클릭하고 **스토리지 계정 이름 및 키 사용**을 선택하고 **다음**을 클릭합니다.
 
     ![Storage 계정 탐색기 도구 실행.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-1.png)
 
@@ -113,8 +113,9 @@ Azure Storage 큐에 메시지가 제출될 때 트리거되는 함수를 만드
 
 ## <a name="next-steps"></a>다음 단계
 
-저장소 큐에 메시지가 추가될 때 실행되는 함수를 만들었습니다.
+저장소 큐에 메시지가 추가될 때 실행되는 함수를 만들었습니다. Queue Storage 트리거에 대한 자세한 내용은 [Azure Functions Storage 큐 바인딩](functions-bindings-storage-queue.md)을 참조하세요.
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+첫 번째 함수를 만들었으니, 다른 큐에 메시지를 작성하는 출력 바인딩을 함수에 추가해 보겠습니다.
 
-Queue Storage 트리거에 대한 자세한 내용은 [Azure Functions Storage 큐 바인딩](functions-bindings-storage-queue.md)을 참조하세요.
+> [!div class="nextstepaction"]
+> [Functions를 사용하여 Azure Storage 큐에 메시지 추가](functions-integrate-storage-queue-output-binding.md)

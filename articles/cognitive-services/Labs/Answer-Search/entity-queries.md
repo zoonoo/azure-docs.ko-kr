@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: 09af064a1c072996171e6afa4f043e84f18612b4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2ec11412b5b0e713742029f05c91a6ecbe78c344
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467415"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210695"
 ---
 # <a name="quickstart-query-for-entities"></a>빠른 시작: 엔터티 쿼리
 
@@ -33,7 +33,7 @@ ms.locfileid: "49467415"
 -   Attraction 
  
 응답에 포함된 엔터티 형식을 확인하려면 Bill Gates에 대한 쿼리에 표시된 대로 `entityTypeHints` 필드를 사용합니다.
-````
+```
         },
         "description": "Bill Gates is an American business man and philanthropist, co-founder of Microsoft",
         "entityPresentationInfo": {
@@ -44,13 +44,13 @@ ms.locfileid: "49467415"
         },
         "bingId": "6d7d66a7-2cb8-0ae9-637c-f81fd749dc9a"
       }
-````
+```
 다음은 스페이스 니들에 대한 쿼리입니다.
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=space+needle&mkt=en-us
-````
+```
 응답에는 `entities` 답변이 포함됩니다. `entityScenario` 및 `entityTypeHints` 필드를 확인합니다. 
-````
+```
   "entities": {
     "value": [
       {
@@ -108,19 +108,19 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=space+needle
       }
     ]
   },
-````
+```
 
 해당하는 경우 쿼리에서 목록을 반환할 수 있습니다.
 
 **쿼리:** 다음 쿼리는 멸종 위기종 목록을 찾습니다.
 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+endangered+species
 
-````
+```
 
 **응답:** 응답에는 표 형식 값으로 표시되도록 형식이 지정된 목록이 포함됩니다.
-````
+```
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
     "contractualRules": [
@@ -217,7 +217,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+enda
     ]
   },
 
-````
+```
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -6,18 +6,18 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 6d00c420ba84ea78235e138977cc4b5fde4fae64
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fa6ee10b9597c32be11d15cad2a63eefe768472c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464848"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207431"
 ---
-# <a name="quickstart-project-answer-search-query-in-c"></a>빠른 시작: C#에서 Project Answer Search 쿼리 사용
+# <a name="quickstart-project-answer-search-query-in-c"></a>빠른 시작: C#에서 Project Answer Search 쿼리
 
 다음 C# 예제에서는 미적분의 제3 법칙에 대한 정보의 쿼리를 만들고 보냅니다.
 
@@ -187,7 +187,7 @@ namespace Answers_csharp
 ```
 ## <a name="running-the-application"></a>애플리케이션 실행
 
-애플리케이션을 실행하려면:
+애플리케이션을 실행하려면
 
 1. Visual Studio에서 새 콘솔 솔루션을 만듭니다.
 2. `Program.cs`를 제공된 코드로 바꿉니다.

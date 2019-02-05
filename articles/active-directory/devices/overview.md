@@ -8,7 +8,7 @@ manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.subservice: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: e7cc11fd35049bf55c848293fa5aaafbdd7b7370
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 704f854d7be9930923cb6e1955c3670f296035ed
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452771"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299829"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>Azure Active Directory에서 디바이스 관리란?
 
@@ -45,7 +45,7 @@ Azure AD에서 제어하는 디바이스를 얻으려면 두 가지 옵션이 �
 
 Azure AD에 디바이스를 **등록**하면 디바이스의 ID를 관리할 수 있습니다. 디바이스가 등록되면 Azure AD 디바이스 등록은 사용자가 Azure AD에 로그인할 때 디바이스를 인증하는 데 사용되는 ID와 함께 디바이스를 제공합니다. ID를 사용하여 디바이스를 사용하도록 설정하거나 설정 해제할 수 있습니다.
 
-Microsoft Intune과 같은 MDM(모바일 디바이스 관리) 솔루션과 함께 사용할 경우 Azure AD의 디바이스 특성이 디바이스에 대한 추가 정보로 업데이트됩니다. 이렇게 하면 디바이스의 액세스를 적용하여 보안 및 규정 준수에 대한 표준을 충족하는 조건부 액세스 규칙을 만들 수 있습니다. Microsoft Intune에서 디바이스를 등록하는 방법에 대한 자세한 내용은 [Intune에서 관리를 위한 디바이스 등록](https://docs.microsoft.com/intune/device-enrollment#supported-device-platforms)을 참조하세요.
+Microsoft Intune과 같은 MDM(모바일 디바이스 관리) 솔루션과 함께 사용할 경우 Azure AD의 디바이스 특성이 디바이스에 대한 추가 정보로 업데이트됩니다. 이렇게 하면 디바이스의 액세스를 적용하여 보안 및 규정 준수에 대한 표준을 충족하는 조건부 액세스 규칙을 만들 수 있습니다. Microsoft Intune에서 디바이스를 등록하는 방법에 대한 자세한 내용은 [디바이스 등록이란?](https://docs.microsoft.com/intune/device-enrollment)을 참조하세요.
 
 디바이스 **가입**은 디바이스를 등록하는 것에 대한 확장입니다. 즉, 디바이스 등록 혜택을 모두 제공하면서, 추가로 디바이스의 로컬 상태를 변경합니다. 로컬 상태를 변경하면 사용자가 개인 계정 대신 조직 회사 또는 학교 계정을 사용하여 디바이스에 로그인할 수 있습니다.
 

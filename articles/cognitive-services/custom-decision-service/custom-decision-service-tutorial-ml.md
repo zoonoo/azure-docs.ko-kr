@@ -6,22 +6,22 @@ services: cognitive-services
 author: slivkins
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: 1e5d012706d1de5a201eecb8ad805b4d6faaf411
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 1c701cbe1a71ed48c71a9441c05a7fb4b63e3814
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869593"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226063"
 ---
 # <a name="tutorial-featurization-and-feature-specification"></a>자습서: 기능 개발 및 기능 사양
 
 이 자습서에서는 Custom Decision Service의 고급 Machine Learning 기능에 대해 설명합니다. 자습서는 [기능 개발](#featurization-concepts-and-implementation) 및 [기능 사양](#feature-specification-format-and-apis)의 두 부분으로 구성되어 있습니다. 기능 개발은 Machine Learning을 위한 “기능”으로 데이터를 나타내는 것을 가리킵니다. 기능 사양은 기능을 지정하는 데 필요한 보조 API 및 JSON 형식을 다룹니다.
 
-기본적으로 Custom Decision Service의 Machine Learning은 고객에게 투명합니다. 콘텐츠에서 자동으로 기능이 추출되고, 표준 보충 학습 알고리즘이 사용됩니다. 기능 추출은 [엔터티 링크 설정](../entitylinking/home.md), [텍스트 분석](../text-analytics/overview.md), [Emotion](../emotion/home.md), [Computer Vision](../computer-vision/home.md) 등 다른 여러 Azure Cognitive Services를 활용합니다. 기본 기능만 사용하는 경우 이 자습서를 건너뛰어도 됩니다.
+기본적으로 Custom Decision Service의 Machine Learning은 고객에게 투명합니다. 콘텐츠에서 자동으로 기능이 추출되고, 표준 보충 학습 알고리즘이 사용됩니다. 기능 추출은 여러 다른 Azure Cognitive Services [Entity Linking](../entitylinking/home.md), [Text Analytics](../text-analytics/overview.md), [Emotion](../emotion/home.md) 및 [Computer Vision](../computer-vision/home.md)을 활용합니다. 기본 기능만 사용하는 경우 이 자습서를 건너뛰어도 됩니다.
 
 ## <a name="featurization-concepts-and-implementation"></a>기능 개발: 개념 및 구현
 

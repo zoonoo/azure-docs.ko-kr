@@ -9,26 +9,26 @@ ms.service: storage
 ms.author: tamram
 ms.date: 11/14/2018
 ms.topic: quickstart
-ms.component: blobs
-ms.openlocfilehash: c72cd83af2b06b19b285d3c939c0d45b995464d9
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.subservice: blobs
+ms.openlocfilehash: a5433284d9722ce907b962be7ba437ef32ad819c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711485"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245383"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
 # <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>빠른 시작: 브라우저에서 JavaScript/HTML을 사용하여 Blob 업로드, 나열 및 삭제
 
-이 빠른 시작은 브라우저에서 전적으로 실행되는 코드의 Blob을 관리하는 방법을 보여줍니다. 여기에 사용된 방법은 Blob 저장소 계정에 대한 보호된 액세스를 보장하도록 필요한 보안 조치를 사용하는 방법을 보여줍니다. 이 빠른 시작을 완료하려면 [Azure 구독](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)이 필요합니다.
+이 빠른 시작은 브라우저에서 전적으로 실행되는 코드의 Blob을 관리하는 방법을 보여줍니다. 여기에 사용된 방법은 Blob Storage 계정에 대한 보호된 액세스를 보장하도록 필요한 보안 조치를 사용하는 방법을 보여줍니다. 이 빠른 시작을 완료하려면 [Azure 구독](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)이 필요합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 ## <a name="setting-up-storage-account-cors-rules"></a>저장소 계정 CORS 규칙 설정 
-웹 애플리케이션이 클라이언트에서 BLOB 스토리지에 액세스하려면 [원본 간 리소스 공유](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) 또는 CORS를 사용하도록 계정을 구성해야 합니다. 
+웹 응용 프로그램이 클라이언트에서 Blob Storage에 액세스하려면 [원본 간 리소스 공유](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) 또는 CORS를 사용하도록 계정을 구성해야 합니다. 
 
 Azure Portal로 돌아가서 저장소 계정을 선택합니다. 새 CORS 규칙을 정의하려면 **설정** 섹션으로 돌아가서 **CORS** 링크를 클릭합니다. 그런 다음, **추가** 단추를 클릭하여 **CORS 규칙 추가** 창을 엽니다. 이 빠른 시작의 경우 공개 CORS 규칙을 만듭니다.
 
@@ -52,7 +52,7 @@ Azure Portal로 돌아가서 저장소 계정을 선택합니다. 새 CORS 규�
 [!INCLUDE [Open the Azure cloud shell](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-shared-access-signature"></a>공유 액세스 서명 만들기
-SAS(공유 액세스 서명)는 Blob 저장소에 대한 요청을 인증하기 위해 브라우저에서 실행되는 코드에 사용됩니다. SAS를 사용하면 클라이언트는 계정 액세스 키 또는 연결 문자열 없이 저장소 리소스에 대한 액세스 권한을 부여할 수 있습니다. SAS에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](../common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
+SAS(공유 액세스 서명)는 Blob Storage에 대한 요청을 인증하기 위해 브라우저에서 실행되는 코드에 사용됩니다. SAS를 사용하면 클라이언트는 계정 액세스 키 또는 연결 문자열 없이 저장소 리소스에 대한 액세스 권한을 부여할 수 있습니다. SAS에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](../common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
 SAS는 Azure Cloud Shell 또는 Azure Storage 탐색기를 통해 Azure CLI를 사용하여 만들 수 있습니다. 다음 표에서는 CLI를 사용하여 SAS를 생성하기 위해 값을 제공해야 하는 매개 변수에 대해 설명합니다.
 
@@ -80,7 +80,7 @@ az storage account generate-sas
 
 | 매개 변수        | 값   | 설명  |
 |------------------|---------|---------|
-| *permissions*    | racwdl  | 이 SAS는 *읽기*, *추가*, *만들기*, *쓰기*, *삭제* 및 *나열* 기능을 허용합니다. |
+| *사용 권한*    | racwdl  | 이 SAS는 *읽기*, *추가*, *만들기*, *쓰기*, *삭제* 및 *나열* 기능을 허용합니다. |
 | *resource-types* | sco     | SAS의 영향을 받는 리소스는 서비스, 컨테이너 및 개체입니다. |
 | *services*       | b       | SAS의 영향을 받는 서비스는 *Blob* 서비스입니다. |
 
@@ -120,7 +120,7 @@ npm i http-server
 npm start
 ```
 
-### <a name="get-the-blob-storage-client-library"></a>Blob 저장소 클라이언트 라이브러리 가져오기
+### <a name="get-the-blob-storage-client-library"></a>Blob Storage 클라이언트 라이브러리 가져오기
 [JavaScript 클라이언트 라이브러리를 다운로드](https://aka.ms/downloadazurestoragejs)하고 zip의 내용을 추출한 다음 *bundle* 폴더의 스크립트 파일을 *scripts* 폴더에 넣습니다.
 
 ### <a name="add-the-client-script-reference-to-the-page"></a>페이지에 클라이언트 스크립트 참조 추가
@@ -251,10 +251,10 @@ document.getElementById('delete-button').addEventListener('click', () => {
 > 이 코드 샘플이 작동하려면 *blobName*에 문자열 값을 제공해야 합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
-빠른 시작 중에 만든 리소스를 정리하려면 [Azure Portal](https://portal.azure.com)로 돌아가서 저장소 계정을 선택합니다. 선택한 후에는 **개요 > 저장소 계정 삭제**로 이동하여 저장소 계정을 삭제할 수 있습니다.
+빠른 시작 중에 만든 리소스를 정리하려면 [Azure Portal](https://portal.azure.com)로 돌아가서 저장소 계정을 선택합니다. 선택한 후에는 **개요 > 스토리지 계정 삭제**로 이동하여 스토리지 계정을 삭제할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 샘플을 탐색하면서 파일 업로드 중에 진행률을 보고하고 Blob을 다운로드하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Blob 저장소 클라이언트 라이브러리](https://github.com/Azure/azure-storage-node/tree/master/browser)
+> [Blob Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-node/tree/master/browser)

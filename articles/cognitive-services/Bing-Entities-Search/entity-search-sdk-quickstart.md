@@ -6,18 +6,18 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 7cbb97fbf237e14d6822edfa174ca469f8988e2d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f3b4f38d8e2cb32758253fe4d121e6b2505f792c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307361"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152946"
 ---
-# <a name="quickstart-bing-entity-search-sdk-with-c"></a>빠른 시작: C#을 통해 Bing Entity Search SDK 설정
+# <a name="quickstart-bing-entity-search-sdk-with-c"></a>빠른 시작: C#을 사용하는 Bing Entity Search SDK
 
 Bing Entity Search API는 엔터티 검색 및 결과 구문 분석을 위한 REST API 기능을 포함하고 있습니다.
 

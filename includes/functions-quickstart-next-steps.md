@@ -2,16 +2,16 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/04/2018
+ms.date: 01/23/2019
 ms.author: glenga
-ms.openlocfilehash: 7057f6a9652244f84754e29af738b7e0c5f1da4f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: e330f5ecbfc240b048d887289224c164a91215bd
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50132826"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904712"
 ---
-다른 종류의 트리거로 함수를 만들거나 함수를 다른 Azure 서비스와 통합하는 방법에 대해 알아봅니다.
+첫 번째 함수를 만들었으니, Storage 큐에 메시지를 작성하는 출력 바인딩을 함수에 추가해 보겠습니다.
 
-+ [일정에 따라 실행되는 함수 만들기](../articles/azure-functions/functions-create-scheduled-function.md) 
-+ [Functions를 사용하여 Azure Storage 큐에 메시지 추가](../articles/azure-functions/functions-integrate-storage-queue-output-binding.md)
+> [!div class="nextstepaction"]
+> [Functions를 사용하여 Azure Storage 큐에 메시지 추가](../articles/azure-functions/functions-integrate-storage-queue-output-binding.md)

@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: 7e8a793362e51a05a73c0b42346e2e8fafb3f44d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: b8358890658a38133452ba2092ac9b8b78114ff7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469404"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210950"
 ---
 # <a name="quickstart-query-for-facts"></a>빠른 시작: 팩트 쿼리
 
@@ -26,14 +26,14 @@ valentines+2016, when+is+ramadan 등의 쿼리는 날짜 관련 쿼리로 간주
 다음 예제는 날짜 관련 `facts` 답변입니다. 
 
 **쿼리:**
-````
+```
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 
-````
+```
 
 **응답:** `subjectName` 필드에는 팩트를 표시할 때 레이블로 사용할 수 있는 사용자 쿼리의 표시 버전이 포함됩니다. 쿼리 문자열이 valentines+2016인 경우 Bing에서 Valentine's Day 2016으로 변경할 수 있습니다. 설명 필드에는 팩트가 포함됩니다.
 
-````
+```
 {   
     "_type" : "SearchResponse",   
     "queryContext" : {   
@@ -57,20 +57,20 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
     }   
 }   
 
-````
+```
 
 “Why is the sky blue?” 쿼리는 정보 관련 답변의 예를 반환합니다.
 
 **쿼리:**
 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+sky+blue
 
-````
+```
 
 **응답:** `value/description` 필드에는 쿼리에서 요청된 정보가 포함됩니다.
 
-````
+```
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
     "contractualRules": [
@@ -112,17 +112,17 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
     ]
   },
 
-````
+```
 
 ## <a name="tabular-data"></a>표 형식 데이터
 팩트가 `_type: StructuredValue/TabularData`로 반환되는 경우도 있습니다. 다음 쿼리는 커피와 차에 대한 대비 정보가 포함된 표 형식 데이터를 가져옵니다.
 
-````
+```
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us 
 
-````
+```
 `facts` 결과에는 다음과 같은 행과 셀이 포함됩니다.
-````
+```
     "value": [
       {
         "subjectName": "Coffee vs. Tea",
@@ -196,7 +196,7 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt
     ]
   },
 
-````
+```
 
 ## <a name="next-steps"></a>다음 단계
 - [C# 빠른 시작](c-sharp-quickstart.md)

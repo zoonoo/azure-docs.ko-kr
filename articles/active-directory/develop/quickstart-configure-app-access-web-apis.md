@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: a0082be25ec4ad326e4473cbe69f9ff029898f5b
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a2f0d97d6b7040f874fc03ffe19f247cdc742c77
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988805"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103652"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>빠른 시작: 웹 API에 액세스하는 클라이언트 애플리케이션 구성(미리 보기)
 
@@ -37,8 +37,8 @@ ms.locfileid: "49988805"
 
 이 빠른 시작에서는 다음을 위해 앱을 구성하는 방법을 확인합니다.
 
-* [리디렉션 URL을 응용 프로그램에 추가](#add-redirect-uris-to-your-application)
-* [웹 응용 프로그램에 자격 증명 추가](#add-credentials-to-your-web-application)
+* [리디렉션 URL을 애플리케이션에 추가](#add-redirect-uris-to-your-application)
+* [웹 애플리케이션에 자격 증명 추가](#add-credentials-to-your-web-application)
 * [웹 API에 액세스 권한 추가](#add-permissions-to-access-web-apis)
 
 ## <a name="prerequisites"></a>필수 조건
@@ -59,8 +59,8 @@ ms.locfileid: "49988805"
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록(미리 보기)** 을 차례로 선택합니다.
 1. 구성하려는 애플리케이션을 찾아 선택합니다. 앱을 선택하면 볼 **개요** 또는 기본 등록 페이지가 나타납니다.
 1. 웹 API에 액세스하도록 애플리케이션을 구성하는 단계를 따릅니다. 
-    * [리디렉션 URL을 응용 프로그램에 추가](#add-redirect-uris-to-your-application)
-    * [웹 응용 프로그램에 자격 증명 추가](#add-credentials-to-your-web-application)
+    * [리디렉션 URL을 애플리케이션에 추가](#add-redirect-uris-to-your-application)
+    * [웹 애플리케이션에 자격 증명 추가](#add-credentials-to-your-web-application)
     * [웹 API에 액세스 권한 추가](#add-permissions-to-access-web-apis)
 
 ## <a name="add-redirect-uris-to-your-application"></a>애플리케이션에 리디렉션 URI 추가
@@ -74,7 +74,7 @@ ms.locfileid: "49988805"
 1. 웹 및 공용 클라이언트 애플리케이션에 대한 사용자 지정 리디렉션 URI를 추가하려면 다음 단계를 따릅니다.
 
     1. **리디렉션 URI** 섹션을 찾습니다.
-    1. 빌드하는 응용 프로그램 유형을 **웹** 또는 **공용 클라이언트(모바일 및 데스크톱)** 로 선택합니다.
+    1. 빌드하는 애플리케이션 유형을 **웹** 또는 **공용 클라이언트(모바일 및 데스크톱)** 로 선택합니다.
     1. 애플리케이션의 리디렉션 URI를 입력합니다.
         * 웹 애플리케이션의 경우 애플리케이션의 기준 URL을 제공합니다. 예를 들어 http://localhost:31544은 로컬 머신에서 실행 중인 웹 애플리케이션의 URL일 수 있습니다. 사용자는 이 URL을 사용하여 웹 클라이언트 애플리케이션에 로그인합니다.
         * 공용 애플리케이션의 경우 Azure AD에서 토큰 응답을 반환하는 데 사용하는 URI를 제공합니다. 애플리케이션에 고유하게 해당되는 값을 입력합니다(예: https://MyFirstApp).
@@ -106,7 +106,7 @@ ms.locfileid: "49988805"
     1. **추가**를 선택합니다.
 
 > [!NOTE]
-> 구성 변경 사항을 저장하면 맨 오른쪽 열에 클라이언트 비밀 값이 포함됩니다. 이 페이지를 벗어나면 액세스할 수 없으므로 클라이언트 응용 프로그램 코드에서 사용할 **값을 복사해야 합니다**.
+> 구성 변경 사항을 저장하면 맨 오른쪽 열에 클라이언트 비밀 값이 포함됩니다. 이 페이지를 벗어나면 액세스할 수 없으므로 클라이언트 애플리케이션 코드에서 사용할 **값을 복사해야 합니다**.
 
 ## <a name="add-permissions-to-access-web-apis"></a>웹 API 액세스 권한 추가
 
@@ -127,9 +127,9 @@ ms.locfileid: "49988805"
 
 앱에 대한 다른 관련 앱 관리 빠른 시작에 대해 알아봅니다.
 
-* [Microsoft ID 플랫폼을 사용하여 응용 프로그램 등록](quickstart-register-app.md)
-* [웹 API를 공개하는 응용 프로그램 구성](quickstart-configure-app-expose-web-apis.md)
-* [응용 프로그램에서 지원되는 계정 수정](quickstart-modify-supported-accounts.md)
+* [Microsoft ID 플랫폼을 사용하여 애플리케이션 등록](quickstart-register-app.md)
+* [웹 API를 공개하는 애플리케이션 구성](quickstart-configure-app-expose-web-apis.md)
+* [애플리케이션에서 지원되는 계정 수정](quickstart-modify-supported-accounts.md)
 * [Microsoft ID 플랫폼을 사용하여 등록된 응용 프로그램 제거](quickstart-remove-app.md)
 
 등록된 애플리케이션 및 이들 간의 관계를 나타내는 두 개의 Azure AD 개체에 대한 자세한 내용은 [애플리케이션 개체 및 서비스 주체 개체](app-objects-and-service-principals.md)를 참조하세요.

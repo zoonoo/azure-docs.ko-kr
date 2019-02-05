@@ -1,23 +1,23 @@
 ---
-title: '예: 대규모 기능 사용 - Face API'
+title: '예제: 대규모 기능 사용 - Face API'
 titleSuffix: Azure Cognitive Services
 description: Face API에서 대규모 기능을 사용합니다.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: e8bbf78da84ddb77ce956e37f91be46e96144991
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9289f7178a6e285b447041937f191d283fc2f2f0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123082"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222901"
 ---
-# <a name="example-how-to-use-the-large-scale-feature"></a>예: 대규모 기능을 사용하는 방법
+# <a name="example-how-to-use-the-large-scale-feature"></a>예제: 대규모 기능을 사용하는 방법
 
 이 가이드는 기존 PersonGroup 및 FaceList에서 각각 LargePersonGroup 및 LargeFaceList로 강화하는 코드 마이그레이션에 대한 고급 문서입니다.
 이 가이드에서는 PersonGroup 및 FaceList의 기본 사용법을 안다는 가정으로 마이그레이션 프로세스를 보여줍니다.
@@ -39,9 +39,9 @@ LargePersonGroup은 각각 최대 248개의 얼굴이 있는 최대 1,000,000명
 
 이 가이드에서 다음 개념에 익숙하지 않은 경우 [용어집](../Glossary.md)에서 정의를 찾을 수 있습니다.
 
-- LargePersonGroup: 최대 1,000,000 용량의 사용자 컬렉션
-- LargeFaceList: 최대 1,000,000 용량의 얼굴 컬렉션
-- 학습: Identification/FindSimilar 성능을 보장하기 위해 전처리합니다.
+- LargePersonGroup: 최대 1,000,000 용량의 사용자 컬렉션.
+- LargeFaceList: 최대 1,000,000 용량의 얼굴 컬렉션.
+- 학습: Identification/FindSimilar 성능을 보장하기 위한 전처리.
 - Identification: PersonGroup 또는 LargePersonGroup에서 하나 이상의 얼굴을 식별합니다.
 - FindSimilar: FaceList 또는 LargeFaceList에서 비슷한 얼굴을 검색합니다.
 

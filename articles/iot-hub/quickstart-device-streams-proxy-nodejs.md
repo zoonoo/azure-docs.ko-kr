@@ -10,22 +10,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 012fdfa4faf10cacaf85819517f358c1af1ab39d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0231b67ee56de5e1729c02ed3d87b2461f025b84
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830710"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887430"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-nodejs-proxy-application-preview"></a>빠른 시작: Node.js 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통한 SSH/RDP(미리 보기)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
-[IoT Hub 디바이스 스트림](./iot-hub-device-streams-overview.md)은 서비스 및 디바이스 애플리케이션이 안전하고 방화벽 친화적인 방식으로 통신할 수 있도록 합니다. 이 빠른 시작에서는 디바이스 스트림을 통해 SSH 및 RDP 트래픽을 디바이스에 전송되도록 하는 서비스 쪽에서 실행되는 Node.js 프록시 애플리케이션의 실행을 설명합니다. 설정에 대한 개요는 [이 페이지](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp)를 참조하세요. 공개 미리 보기 동안 Node.js SDK는 서비스 쪽에서 디바이스 스트림을 지원합니다. 결과적으로 이 빠른 시작에서는 서비스 쪽 프록시를 실행하는 지침만 설명합니다. [C 빠른 시작](./quickstart-device-streams-proxy-c.md) 또는 [C# 빠른 시작](./quickstart-device-streams-proxy-csharp.md) 가이드에서 사용할 수 있는 함께 제공되는 디바이스 쪽 프록시를 실행해야 합니다.
+[IoT Hub 디바이스 스트림](./iot-hub-device-streams-overview.md)은 서비스 및 디바이스 애플리케이션이 안전하고 방화벽 친화적인 방식으로 통신할 수 있도록 합니다. 이 빠른 시작 가이드에서는 디바이스 스트림을 통해 SSH 및 RDP 트래픽을 디바이스에 전송되도록 하는 서비스 쪽에서 실행되는 Node.js 프록시 애플리케이션의 실행을 설명합니다. 설정에 대한 개요는 [여기](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp)서 확인하세요. 공개 미리 보기 동안 Node.js SDK는 서비스 쪽에서 디바이스 스트림을 지원합니다. 결과적으로 이 빠른 시작 가이드에서는 서비스 로컬 프록시를 실행하는 지침만 설명합니다. [C 빠른 시작](./quickstart-device-streams-proxy-c.md) 또는 [C# 빠른 시작](./quickstart-device-streams-proxy-csharp.md) 가이드와 함께 제공되는 디바이스 로컬 프록시를 실행해야 합니다.
 
-먼저 SSH에 대한 설정을 설명합니다(포트 `22` 사용). 그런 다음, RDP에 대한 설정을 수정하는 방법을 설명합니다(포트 3389 사용). 디바이스 스트림은 애플리케이션이며 프로토콜에 구속 받지 않으므로 다른 종류의 애플리케이션 트래픽에 맞춰 동일한 샘플을 수정할 수 있습니다(일반적으로 통신 포트를 변경하여).
+먼저 SSH에 대한 설정을 설명합니다(포트 22 사용). 그런 다음, RDP에 대한 설정을 수정하는 방법을 설명합니다(포트 3389 사용). 디바이스 스트림은 애플리케이션이며 프로토콜에 구속 받지 않으므로 다른 종류의 클라이언트/서버 애플리케이션 트래픽을 수용하도록 동일한 샘플을 수정할 수 있습니다(일반적으로 통신 포트를 변경하여).
 
-코드에서는 시작 및 디바이스 스트림의 사용을 보여주며 다른 애플리케이션 트래픽에 대한 다른 용도로 사용할 수 있습니다(RDP 및 SSH 이외).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -34,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작의 서비스 쪽 애플리케이션을 실행하려면 개발 머신에 Node.js v4.x.x 이상이 필요합니다.
+이 빠른 시작의 서비스 로컬 애플리케이션을 실행하려면 개발 머신에 Node.js v4.x.x 이상이 필요합니다.
 
 [nodejs.org](https://nodejs.org)에서 여러 플랫폼에 대한 Node.js를 다운로드할 수 있습니다.
 
@@ -86,14 +85,14 @@ node --version
 
 ## <a name="ssh-to-a-device-via-device-streams"></a>디바이스 스트림을 통해 디바이스에 대한 SSH
 
-### <a name="run-the-device-side-proxy"></a>디바이스 쪽 프록시 실행
+### <a name="run-the-device-local-proxy"></a>디바이스-로컬 프록시 실행
 
-앞에서 설명한 대로 IoT Hub Node.js SDK는 서비스 쪽에서 디바이스 스트림을 지원합니다. 디바이스 쪽 애플리케이션의 경우 [C 빠른 시작](./quickstart-device-streams-proxy-c.md) 또는 [C# 빠른 시작](./quickstart-device-streams-proxy-csharp.md) 가이드에서 사용할 수 있는 함께 제공되는 디바이스 프록시 프로그램을 사용합니다. 다음 단계로 진행하기 전에 디바이스 쪽 프록시가 실행 중인지 확인합니다.
+앞에서 설명한 대로 IoT Hub Node.js SDK는 서비스 쪽에서 디바이스 스트림을 지원합니다. 디바이스 로컬 애플리케이션의 경우 [C 빠른 시작](./quickstart-device-streams-proxy-c.md) 또는 [C# 빠른 시작](./quickstart-device-streams-proxy-csharp.md) 가이드에서 사용할 수 있는 함께 제공되는 디바이스 프록시 프로그램을 사용합니다. 다음 단계로 진행하기 전에 디바이스 로컬 프록시가 실행 중인지 확인합니다.
 
 
-### <a name="run-the-service-side-proxy"></a>서비스 쪽 프록시 실행
+### <a name="run-the-service-local-proxy"></a>서비스-로컬 프록시 실행
 
-디바이스 쪽 프록시가 실행되고 있다고 가정하여 아래의 단계를 따라 Node.js에서 작성된 서비스 쪽 프록시를 실행합니다.
+[디바이스 로컬 프록시](#run-the-device-local-proxy)가 실행되고 있다고 가정하고, 아래 단계를 따라 Node.js에서 작성된 서비스 로컬 프록시를 실행합니다.
 
 - 서비스 자격 증명, SSH 디먼이 실행되는 대상 디바이스 ID 및 환경 변수로 디바이스에서 실행되는 프록시에 대한 포트 번호를 제공합니다.
 ```
@@ -107,7 +106,7 @@ node --version
   SET STREAMING_TARGET_DEVICE=MyDevice
   SET PROXY_PORT=2222
 ```
-`MyDevice`를 디바이스에 대해 선택한 디바이스 ID로 변경합니다.
+디바이스 ID와 연결 문자열이 일치하도록 위의 값을 변경합니다.
 
 - 압축을 푼 프로젝트 폴더의 `Quickstarts/device-streams-service`로 이동하고 서비스-로컬 프록시를 실행합니다.
 ```
@@ -124,10 +123,10 @@ node --version
 ### <a name="ssh-to-your-device-via-device-streams"></a>디바이스 스트림을 통해 디바이스에 대한 SSH
 Linux에서 터미널의 `ssh $USER@localhost -p 2222`를 사용하여 SSH를 실행합니다. Windows에서 즐겨찾는 SSH 클라이언트를 사용합니다(예: PuTTY).
 
-SSH 세션이 설정된 후 서비스 쪽의 콘솔 출력(서비스-로컬 프록시는 포트 2222에서 수신 대기함): ![대체 텍스트](./media/quickstart-device-streams-proxy-nodejs/service-console-output.PNG "SSH 터미널 출력")
+SSH 세션이 설정된 후 서비스 로컬의 콘솔 출력(서비스-로컬 프록시는 포트 2222에서 수신 대기함): ![대체 텍스트](./media/quickstart-device-streams-proxy-nodejs/service-console-output.PNG "SSH 터미널 출력")
 
 
-SSH 클라이언트 프로그램의 콘솔 출력(SSH 클라이언트는 서비스-로컬 프록시가 수신 대기하는 포트 <code>22</code>에 연결하여 SSH 디먼에 통신함): ![대체 텍스트](./media/quickstart-device-streams-proxy-nodejs/ssh-console-output.PNG "SSH 클라이언트 출력")
+SSH 클라이언트 프로그램의 콘솔 출력(SSH 클라이언트는 서비스-로컬 프록시가 수신 대기하는 포트 22에 연결하여 SSH 디먼에 통신함): ![대체 텍스트](./media/quickstart-device-streams-proxy-nodejs/ssh-console-output.PNG "SSH 클라이언트 출력")
 
 
 ### <a name="rdp-to-your-device-via-device-streams"></a>디바이스 스트림을 통해 디바이스에 대한 RDP

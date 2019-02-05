@@ -6,18 +6,18 @@ services: cognitive-services
 author: areddish
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: areddish
-ms.openlocfilehash: 26427406b045b96f2f3f612e4444b7dc2afcefc6
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 8b86214513d12655958038037abf486a6a1a4d88
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247315"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209607"
 ---
-# <a name="tutorial-run-tensorflow-model-in-python"></a>자습서: Python으로 TensorFlow 모델 실행
+# <a name="tutorial-run-tensorflow-model-in-python"></a>자습서: Python에서 TensorFlow 모델 실행
 
 Custom Vision Service에서 [TensorFlow 모델을 내보낸](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) 후에 이 빠른 시작을 참조하여 이 모델을 로컬로 사용하여 이미지를 분류하는 방법을 알아봅니다.
 
@@ -198,7 +198,7 @@ with tf.Session() as sess:
 ## <a name="next-steps"></a>다음 단계
 
 또한 모바일 애플리케이션으로 모델을 래핑할 수도 있습니다.
-* [Android 응용 프로그램에서 내보낸 Tensorflow 모델 사용](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
-* [Swift iOS 응용 프로그램에서 내보낸 CoreML 모델 사용](https://go.microsoft.com/fwlink/?linkid=857726)
-* [Xamarin을 사용하는 iOS 응용 프로그램에서 내보낸 CoreML 모델 사용](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
+* [Android 애플리케이션에서 내보낸 Tensorflow 모델 사용](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
+* [Swift iOS 애플리케이션에서 내보낸 CoreML 모델 사용](https://go.microsoft.com/fwlink/?linkid=857726)
+* [Xamarin을 사용하는 iOS 애플리케이션에서 내보낸 CoreML 모델 사용](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
 

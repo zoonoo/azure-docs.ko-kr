@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/10/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: a71635abd036bb89546dd3421af97cd9b88f4327
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9d271642a432d8a149fbe468087a0598c91e7c36
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440049"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902382"
 ---
 # <a name="tutorial-use-data-copy-service-to-directly-ingest-data-into-azure-data-box-preview"></a>자습서: 데이터 복사 서비스를 사용하여 Azure Data Box에 직접 데이터 수집(미리 보기)
 
@@ -24,11 +24,12 @@ ms.locfileid: "54440049"
 - 중간 호스트를 사용할 수 없는 NAS(Network Attached Storage) 환경.
 - 데이터의 수집 및 업로드에 몇 주가 소요되는 작은 파일 사용. 이 서비스는 수집 및 업로드 시간을 대폭 단축시킵니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음에 대해 알아봅니다.
 
 > [!div class="checklist"]
+> * 필수 조건
 > * Data Box에 데이터 복사
-> * Data Box 배송 준비
+
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -60,13 +61,13 @@ NAS에 연결된 후에는 데이터를 복사합니다. 데이터 복사를 시
     |-------------------------------|---------|
     |작업 이름                       |작업에 사용할 230자 미만의 고유한 이름입니다. 다음 문자는 작업 이름에 허용되지 않습니다. \<, \>, \|, \?, \*, \\, \:, \/ 및 \\\.         |
     |원본 위치                |`\\<ServerIPAddress>\<ShareName>` 또는 `\\<ServerName>\<ShareName>` 형식으로 데이터 소스에 대한 SMB 경로를 를 제공합니다.        |
-    |사용자 이름                       |데이터 원본에 액세스하기 위한 사용자 이름입니다.        |
+    |사용자 이름                       |데이터 원본에 액세스하기 위한 `\\<DomainName><UserName>` 형식의 사용자 이름입니다.        |
     |암호                       |데이터 원본에 액세스하기 위한 암호입니다.           |
     |대상 스토리지 계정    |드롭다운 목록에서 데이터를 업로드하려면 대상 스토리지 계정을 선택합니다.         |
     |대상 스토리지 유형       |블록 blob, 페이지 blob 또는 Azure Files에서 대상 스토리지 유형을 선택합니다.        |
     |대상 컨테이너/공유    |대상 스토리지 계정에 데이터를 업로드할 컨테이너 또는 공유의 이름을 입력합니다. 공유 이름 또는 컨테이너 이름일 수 있습니다. 예를 들면 `myshare` 또는 `mycontainer`과 같습니다. 또한 클라우드에서 `sharename\directory_name` 또는 `containername\virtual_directory_name` 형식으로 입력할 수 있습니다.        |
     |패턴과 일치하는 파일 복사    | 다음 두 가지 방법으로 패턴과 일치하는 파일 이름을 입력합니다.<ul><li>**와일드카드 식 사용** `*` 및 `?`만 와일드카드 식에서 지원됩니다. 예를 들어 `*.vhd` 식은 .vhd 확장명을 가진 모든 파일과 일치합니다. 마찬가지로 `*.dl?`는 해당 확장명이 `.dl` 또는 `.dll`인 모든 파일과 일치합니다. 또한 `*foo`는 이름이 `foo`로 끝나는 모든 파일과 일치합니다.<br>필드에 와일드카드 식을 직접 입력할 수 있습니다. 기본적으로 필드에 입력된 값은 와일드카드 식으로 처리됩니다.</li><li>**정규식 사용** - POSIX 기반 정규식이 지원됩니다. 예를 들어, 정규식 `.*\.vhd`는 `.vhd` 확장명을 갖는 모든 파일에 일치합니다. 정규식의 경우 `<pattern>`을 `regex(<pattern>)`으로 직접 입력합니다. <li>정규식에 대한 자세한 내용은 [정규식 언어 - 빠른 참조](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)를 참조하세요.</li><ul>|
-    |파일 최적화              |사용하도록 설정하면 파일이 수집 시 압축됩니다. 이렇게 하면 작은 파일에 대한 데이터 복사 속도가 빨라집니다.        |
+    |파일 최적화              |사용하도록 설정하면 1MB 미만 파일은 수집 시 압축됩니다. 이렇게 하면 작은 파일에 대한 데이터 복사 속도가 빨라집니다. 파일 수가 디렉터리 수보다 훨씬 많으면 상당한 시간이 절약됩니다.        |
  
 4. **시작**을 클릭합니다. 입력의 유효성이 확인되고 유효성 검사에 성공하면 작업이 시작됩니다. 작업이 시작될 때까지 몇 분 정도 걸립니다.
 
@@ -106,9 +107,7 @@ NAS에 연결된 후에는 데이터를 복사합니다. 데이터 복사를 시
     - 이 릴리스에서는 작업을 삭제할 수 없습니다.
     
     - 무제한 작업을 만들 수 있지만 주어진 시간에 최대 10개의 작업을 병렬로 실행할 수 있습니다.
-    - 파일 최적화를 사용하는 경우 복사 성능을 개선하기 위해 작은 파일이 수집 시 압축됩니다. 이러한 인스턴스에서 압축된 파일(이름이 GUID)이 다음 스크린샷에 나온 것처럼 표시됩니다.
-
-        ![압축된 파일 예제](media/data-box-deploy-copy-data-via-copy-service/packed-file-on-ingest.png)
+    - 파일 최적화를 사용하는 경우 복사 성능을 개선하기 위해 작은 파일이 수집 시 압축됩니다. 이러한 인스턴스에서 압축된 파일(이름이 GUID)이 표시됩니다. 업로드하는 동안 이 파일의 압축이 해제되므로 이 파일을 삭제하지 마세요.
 
 6. 작업을 사용하는 동안 **데이터 복사** 페이지에서
 
@@ -139,18 +138,14 @@ NAS에 연결된 후에는 데이터를 복사합니다. 데이터 복사를 시
 >[!NOTE]
 > 복사 작업이 진행 중이면 배송 준비를 실행할 수 없습니다.
 
-## <a name="prepare-to-ship"></a>배송 준비
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
-
-
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 Azure Data Box 항목에 대해 다음과 같은 내용을 알아보았습니다.
 
 > [!div class="checklist"]
+> * 필수 조건
 > * Data Box에 데이터 복사
-> * Data Box 배송 준비
+
 
 Data Box를 Microsoft로 다시 배송하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 

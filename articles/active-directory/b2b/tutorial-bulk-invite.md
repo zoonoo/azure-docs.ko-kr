@@ -3,18 +3,18 @@ title: B2B 공동 작업 사용자 일괄 초대 자습서 - Azure Active Direct
 description: 이 자습서에서는 PowerShell 및 CSV 파일을 사용하여 외부 Azure AD B2B 공동 작업 사용자에게 일괄 초대를 보내는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: mimart
 author: msmimart
 ms.reviewer: mal
-ms.openlocfilehash: c24a82d5765fef01eab9ae24f637c215c62e822d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: e40eb5c1727317b375d45da83cd712cf0b7f963c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986905"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099733"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>자습서: Azure AD B2B 공동 작업 사용자 일괄 초대
 
@@ -34,29 +34,29 @@ Graph 모듈에 대한 Azure AD PowerShell의 최신 버전(AzureADPreview)을 �
 
 먼저 설치한 모듈을 확인합니다. 관리자 권한 사용자로 Windows PowerShell을 열고(관리자 권한으로 실행) 다음 명령을 실행합니다.
  
-````powershell  
+```powershell  
 Get-Module -ListAvailable AzureAD*
-````
+```
 
 출력에 따라 다음 중 하나를 수행합니다.
 
 - 결과가 반환되지 않으면 다음 명령을 실행하여 AzureADPreview  모듈을 설치합니다.
   
-   ````powershell  
+   ```powershell  
    Install-Module AzureADPreview
-   ````
+   ```
 - 결과에 하나의 AzureAD 모듈만 표시되면 다음 명령을 실행하여 AzureADPreview 모듈을 설치합니다. 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
-   ````
+   ```
 - AzureADPreview 모듈만 결과에 표시되는데 이후 버전이 있음을 나타내는 메시지를 받을 경우에는 다음 명령을 실행하여 모듈을 업데이트합니다. 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-  ````
+  ```
 
 신뢰할 수 없는 리포지토리에서 모듈을 설치하고 있음을 나타내는 메시지가 표시될 수 있습니다. 이전에 PSGallery 리포지토리를 신뢰할 수 있는 리포지토리로 설정하지 않으면 이 메시지가 표시됩니다. **Y** 키를 눌러 모듈을 설치합니다.
 

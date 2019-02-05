@@ -5,19 +5,19 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 05/08/2018
+ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: fa6b4de9282eec75747ca87b26058a47320f2fd3
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b8ff8e671d51a148177e66b30225dd7536a48028
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428140"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299746"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 개인 컨테이너 레지스트리 만들기
 
-Azure Container Registry는 관리되는 Docker 컨테이너 레지스트리 서비스로, Docker 컨테이너 이미지를 빌드, 저장 및 제공하는 데 사용됩니다. 이 빠른 시작에서는 PowerShell을 사용하여 Azure 컨테이너 레지스트리를 만드는 방법을 알아봅니다. 레지스트리를 만든 후에는 컨테이너 이미지를 레지스트리에 푸시하고, 레지스트리의 컨테이너를 ACI(Azure Container Instances)에 배포합니다.
+Azure Container Registry는 관리되는 Docker 컨테이너 레지스트리 서비스로, Docker 컨테이너 이미지를 빌드, 저장 및 제공하는 데 사용됩니다. 이 빠른 시작에서는 PowerShell을 사용하여 Azure 컨테이너 레지스트리를 만드는 방법을 알아봅니다. 그런 다음, Docker 명령을 사용하여 컨테이너 이미지를 레지스트리로 푸시하고, 마지막으로 레지스트리에서 이미지를 끌어와서 실행합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -53,9 +53,11 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 $registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
+이 빠른 시작에서는 Azure Container Registry에 대해 배우기 시작하는 개발자를 위해 비용 최적화된 옵션인 *기본* 레지스트리를 만듭니다. 사용 가능한 서비스 계층에 대한 자세한 내용은 [컨테이너 레지스트리 SKU][container-registry-skus]를 참조하세요.
+
 ## <a name="log-in-to-registry"></a>레지스트리에 로그인
 
-컨테이너 이미지를 푸시하고 끌어오려면 레지스트리에 로그인해야 합니다. 먼저 [Get-AzureRmContainerRegistryCredential][Get-AzureRmContainerRegistryCredential] 명령을 사용하여 레지스트리의 관리자 자격 증명을 가져옵니다.
+컨테이너 이미지를 푸시하고 끌어오려면 레지스트리에 로그인해야 합니다. 프로덕션 시나리오에서는 개별 ID 또는 서비스 주체를 사용하여 컨테이너 레지스트리에 액세스하지만, 이 빠른 시작에서는 간단한 진행을 위해 [Get-AzureRmContainerRegistryCredential][Get-AzureRmContainerRegistryCredential] 명령을 사용하여 레지스트리에서 관리 사용자를 활성화합니다.
 
 ```powershell
 $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
@@ -67,162 +69,15 @@ $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 $creds.Password | docker login $registry.LoginServer -u $creds.Username --password-stdin
 ```
 
-로그인이 성공하면 `Login Succeeded`가 반환됩니다.
+완료되면 이 명령은 `Login Succeeded`를 반환합니다.
 
-```console
-PS Azure:\> $creds.Password | docker login $registry.LoginServer -u $creds.Username --password-stdin
-Login Succeeded
-```
+[!INCLUDE [container-registry-quickstart-docker-push](../../includes/container-registry-quickstart-docker-push.md)]
 
-## <a name="push-image-to-registry"></a>레지스트리에 이미지 푸시
-
-레지스트리에 로그인했으니, 이제 컨테이너 이미지를 레지스트리로 푸시할 수 있습니다. 레지스트리로 푸시할 수 있는 이미지를 가져오려면 Docker 허브에서 공용 [aci-helloworld][aci-helloworld-image] 이미지를 끌어옵니다. [aci-helloworld][aci-helloworld-github] 이미지는 Azure Container Instances 로고를 표시하는 정적 HTML 페이지를 제공하는 작은 Node.js 애플리케이션입니다.
-
-```powershell
-docker pull microsoft/aci-helloworld
-```
-
-이미지를 가져오면 다음과 비슷한 출력이 표시됩니다.
-
-```console
-PS Azure:\> docker pull microsoft/aci-helloworld
-Using default tag: latest
-latest: Pulling from microsoft/aci-helloworld
-88286f41530e: Pull complete
-84f3a4bf8410: Pull complete
-d0d9b2214720: Pull complete
-3be0618266da: Pull complete
-9e232827e52f: Pull complete
-b53c152f538f: Pull complete
-Digest: sha256:a3b2eb140e6881ca2c4df4d9c97bedda7468a5c17240d7c5d30a32850a2bc573
-Status: Downloaded newer image for microsoft/aci-helloworld:latest
-```
-
-Azure 컨테이너 레지스트리로 이미지를 푸시하려면 레지스트리의 FQDN(정규화된 도메인 이름)을 사용하여 이미지에 태그를 지정해야 합니다. Azure 컨테이너 레지스트리의 FQDN은 *\<registry-name\>.azurecr.io* 형식입니다.
-
-완전한 이미지 태그로 변수를 채웁니다. 로그인 서버, 리포지토리 이름("aci-helloworld") 및 이미지 버전("v1")을 포함합니다.
-
-```powershell
-$image = $registry.LoginServer + "/aci-helloworld:v1"
-```
-
-이제 [docker tag][docker-tag]를 사용하여 이미지에 태그를 지정합니다.
-
-```powershell
-docker tag microsoft/aci-helloworld $image
-```
-
-마지막으로 레지스트리에 [docker push][docker-push]를 실행합니다.
-
-```powershell
-docker push $image
-```
-
-Docker 클라이언트가 이미지를 푸시하면 출력은 다음과 비슷합니다.
-
-```console
-PS Azure:\> docker push $image
-The push refers to repository [myContainerRegistry007.azurecr.io/aci-helloworld]
-31ba1ebd9cf5: Pushed
-cd07853fe8be: Pushed
-73f25249687f: Pushed
-d8fbd47558a8: Pushed
-44ab46125c35: Pushed
-5bef08742407: Pushed
-v1: digest: sha256:565dba8ce20ca1a311c2d9485089d7ddc935dd50140510050345a1b0ea4ffa6e size: 1576
-```
-
-축하합니다! 방금 첫 번째 컨테이너 이미지를 레지스트리로 푸시했습니다.
-
-## <a name="deploy-image-to-aci"></a>ACI에 이미지 배포
-
-이제 이미지가 레지스트리에 있으니, 컨테이너를 Azure Container Instances에 직접 배포하고 Azure에서 실행되는 이미지를 살펴봅시다.
-
-먼저 레지스트리 자격 증명을 *PSCredential*로 변환합니다. 컨테이너 인스턴스를 만드는 데 사용되는 `New-AzureRmContainerGroup` 명령에서 이 형식을 요구하기 때문입니다.
-
-```powershell
-$secpasswd = ConvertTo-SecureString $creds.Password -AsPlainText -Force
-$pscred = New-Object System.Management.Automation.PSCredential($creds.Username, $secpasswd)
-```
-
-그리고 컨테이너의 DNS 이름 레이블은 사용자가 만드는 Azure 지역 내에서 고유해야 합니다. 다음 명령을 실행하여 생성된 이름으로 변수를 채웁니다.
-
-```powershell
-$dnsname = "aci-demo-" + (Get-Random -Maximum 9999)
-```
-
-마지막으로 [New-AzureRmContainerGroup][New-AzureRmContainerGroup] 명령을 실행하여 이미지의 컨테이너를 CPU 코어 1개, 메모리 1GB인 레지스트리에 배포합니다.
-
-```powershell
-New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name "mycontainer" -Image $image -RegistryCredential $pscred -Cpu 1 -MemoryInGB 1 -DnsNameLabel $dnsname
-```
-
-Azure에서 컨테이너에 대한 세부 정보와 함께 초기 응답이 제공되고, 처음에는 상태가 "보류 중"일 것입니다.
-
-```console
-PS Azure:\> New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name "mycontainer" -Image $image -RegistryCredential $pscred -Cpu 1 -MemoryInGB 1 -DnsNameLabel $dnsname
-ResourceGroupName        : myResourceGroup
-Id                       : /subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerInstance/containerGroups/mycontainer
-Name                     : mycontainer
-Type                     : Microsoft.ContainerInstance/containerGroups
-Location                 : eastus
-Tags                     :
-ProvisioningState        : Creating
-Containers               : {mycontainer}
-ImageRegistryCredentials : {myContainerRegistry007}
-RestartPolicy            : Always
-IpAddress                : 40.117.255.198
-DnsNameLabel             : aci-demo-8751
-Fqdn                     : aci-demo-8751.eastus.azurecontainer.io
-Ports                    : {80}
-OsType                   : Linux
-Volumes                  :
-State                    : Pending
-Events                   : {}
-```
-
-상태를 모니터링하고 언제 실행되는지 확인하려면 [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] 명령을 몇 차례 실행합니다. 1분 안에 컨테이너가 시작됩니다.
-
-```powershell
-(Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
-```
-
-처음에는 컨테이너의 ProvisioningState가 *만드는 중*이고, 컨테이너가 가동되기 시작한 후에는 *성공* 상태로 바뀌는 것을 볼 수 있습니다.
-
-```console
-PS Azure:\> (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
-Creating
-PS Azure:\> (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
-Succeeded
-```
-
-## <a name="view-running-application"></a>실행 중인 애플리케이션 보기
-
-ACI에 배포가 성공하고 컨테이너가 작동되면 브라우저에서 FQDN(정규화된 도메인 이름)으로 이동하여 Azure에서 실행 중인 앱을 살펴봅니다.
-
-[Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] 명령을 사용하여 컨테이너의 FQDN을 가져옵니다.
-
-
-```powershell
-(Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).Fqdn
-```
-
-이 명령의 출력은 컨테이너 인스턴스의 FQDN입니다.
-
-```console
-PS Azure:\> (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).Fqdn
-aci-demo-8571.eastus.azurecontainer.io
-```
-
-FQDN을 얻었으면 브라우저에서 해당 FQDN으로 이동합니다.
-
-![브라우저의 Hello World 앱][qs-psh-01-running-app]
-
-축하합니다! Azure에서 애플리케이션을 실행하는 컨테이너를 만들고, 개인 Azure 컨테이너 레지스트리의 컨테이너 이미지에서 직접 배포하였습니다.
+[!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 빠른 시작에서 만든 리소스가 더 이상 필요 없으면 [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup] 명령을 사용하여 리소스 그룹, 컨테이너 레지스트리 및 컨테이너 인스턴스를 제거합니다.
+이 빠른 시작에서 만든 리소스가 더 이상 필요 없으면 [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup] 명령을 사용하여 리소스 그룹, 컨테이너 레지스트리 및 저장된 컨테이너 이미지를 제거합니다.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -230,14 +85,12 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure CLI를 사용하여 Azure Container Registry를 만들고, Azure Container Instances에서 해당 인스턴스를 시작했습니다. ACI에 대해 자세히 알아보기 위해 Azure Container Instances 자습서를 계속합니다.
+이 빠른 시작에서는 Azure PowerShell을 사용하여 Azure Container Registry를 만들고, 컨테이너 이미지를 푸시하고, 레지스트리에서 이미지를 끌어와서 실행했습니다. Azure Container Registry 자습서를 계속 진행하여 ACR에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [Azure Container Instances 자습서](../container-instances/container-instances-tutorial-prepare-app.md)
+> [Azure Container Registry 자습서][container-registry-tutorial-quick-task]
 
 <!-- LINKS - external -->
-[aci-helloworld-github]: https://github.com/Azure-Samples/aci-helloworld
-[aci-helloworld-image]: https://hub.docker.com/r/microsoft/aci-helloworld/
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
 [docker-login]: https://docs.docker.com/engine/reference/commandline/login/
 [docker-mac]: https://docs.docker.com/docker-for-mac/
@@ -247,13 +100,10 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 <!-- Links - internal -->
 [Connect-AzureRmAccount]: /powershell/module/azurerm.profile/connect-azurermaccount
-[Get-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/get-azurermcontainergroup
 [Get-AzureRmContainerRegistryCredential]: /powershell/module/azurerm.containerregistry/get-azurermcontainerregistrycredential
 [Get-Module]: /powershell/module/microsoft.powershell.core/get-module
-[New-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
 [New-AzureRMContainerRegistry]: /powershell/module/azurerm.containerregistry/New-AzureRMContainerRegistry
 [New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
 [Remove-AzureRmResourceGroup]: /powershell/module/azurerm.resources/remove-azurermresourcegroup
-
-<!-- IMAGES> -->
-[qs-psh-01-running-app]: ./media/container-registry-get-started-powershell/qs-psh-01-running-app.png
+[container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
+[container-registry-skus]: container-registry-skus.md

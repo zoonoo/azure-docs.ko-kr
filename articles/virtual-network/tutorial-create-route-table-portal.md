@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 3422219e33c04d7cb130e064790896f5da28649a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 855adccf036f731de12810fe0f5287186048ddb0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025048"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095960"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -54,7 +54,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 이름 | *myRouteTablePublic*을 입력합니다. |
+    | Name | *myRouteTablePublic*을 입력합니다. |
     | 구독 | 구독을 선택합니다. |
     | 리소스 그룹 | **새로 만들기**를 선택하고, *myResourceGroup*을 입력하고, *확인*을 선택합니다. |
     | 위치 | 기본값인 **미국 동부**를 그대로 둡니다.
@@ -95,7 +95,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 이름 | *myVirtualNetwork*를 입력합니다. |
+    | Name | *myVirtualNetwork*를 입력합니다. |
     | 주소 공간 | *10.0.0.0/16*을 입력합니다. |
     | 구독 | 구독을 선택합니다. |
     | 리소스 그룹 | ***기존 항목 선택*** > **myResourceGroup**을 차례로 선택합니다. |
@@ -119,7 +119,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 이름 | *사설*을 입력합니다. |
+    | Name | *사설*을 입력합니다. |
     | 주소 공간 | *10.0.1.0/24*를 입력합니다. |
 
 1. 나머지는 기본값으로 두고 **확인**을 선택합니다.
@@ -128,7 +128,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 이름 | *DMZ*를 입력합니다. |
+    | Name | *DMZ*를 입력합니다. |
     | 주소 공간 | *10.0.2.0/24*를 입력합니다. |
 
 1. 지난 번과 마찬가지로 나머지는 기본값으로 두고, **확인**을 선택합니다.
@@ -193,7 +193,7 @@ NVA는 라우팅 및 방화벽 최적화와 같은 네트워크 기능을 지원
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 이름 | *mynvastorageaccount*를 입력합니다. |
+    | Name | *mynvastorageaccount*를 입력합니다. |
     | 계정 종류 | 기본값인 **스토리지(범용 v1)** 를 그대로 둡니다. |
     | 성능 | 기본값인 **표준**을 그대로 둡니다. |
     | 복제 | 기본값인 **LRS(로컬 중복 스토리지)** 를 그대로 둡니다.
@@ -281,7 +281,7 @@ Azure가 *myVmPublic* VM을 만드는 동안 *myVmPrivate* VM을 만들 수 있�
 
 1. **예**를 선택하여 VM에 연결합니다.
 
-### <a name="enable-icpm-through-the-windows-firewall"></a>Windows 방화벽을 통해 ICPM 사용
+### <a name="enable-icmp-through-the-windows-firewall"></a>Windows 방화벽을 통해 ICMP를 사용하도록 설정합니다.
 
 이후 단계에서는 추적 경로 도구를 사용하여 라우팅을 테스트합니다. 추적 경로는 Windows 방화벽에서 기본적으로 거부하는 ICMP(Internet Control Message Protocol)를 사용합니다. Windows 방화벽을 통해 ICMP를 사용하도록 설정합니다.
 

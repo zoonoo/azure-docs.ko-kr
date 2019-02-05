@@ -6,15 +6,15 @@ author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 12/07/2018
+ms.date: 01/30/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 80a2f9aa07f67c4d149a1ef8245f5e3269a751b3
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0a71b88f6ad85cbd76f9bc789e87ad5b032418c9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469851"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297109"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>세 가지 Azure 메시징 서비스인 Event Grid, Event Hubs 및 Service Bus 중에서 선택합니다.
 
@@ -44,7 +44,7 @@ Azure는 솔루션 전체에서 이벤트 메시지 배달에 도움이 되는 �
 
 ## <a name="comparison-of-services"></a>서비스의 비교
 
-| 서비스 | 목적 | type | 사용하는 경우 |
+| 서비스 | 목적 | Type | 사용하는 경우 |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | 사후 프로그래밍 | 이벤트 배포(불연속) | 상태 변경에 대응 |
 | Event Hubs | 빅 데이터 파이프라인 | 이벤트 스트리밍(시리즈) | 원격 분석 및 분산 데이터 스트리밍 |
@@ -97,9 +97,10 @@ Service Bus는 조정된 메시징 시스템입니다. 소비하는 주체에서
 ![스트림 데이터 개요](./media/compare-messaging-services/overview.png)
 
 ## <a name="next-steps"></a>다음 단계
+다음 문서를 참조하세요. 
 
-* Azure 메시지 서비스에 대한 자세한 내용은 블로그 게시물 [이벤트, 데이터 요소 및 메시지 - 데이터에 대한 올바른 Azure 메시지 서비스 선택](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/)을 참조하세요.
-* Event Grid에 대한 소개는 [Event Grid 정보](overview.md)를 참조하세요.
-* Event Grid를 시작하려면 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요.
-* Event Hubs를 시작하려면 [Azure Portal을 사용하여 Event Hubs 네임스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조하세요.
-* Service Bus를 시작하려면 [Azure Portal을 사용하여 Service Bus 네임스페이스 만들기](../service-bus-messaging/service-bus-create-namespace-portal.md)를 참조하세요.
+- [이벤트, 데이터 요소 및 메시지 - 데이터에 적합한 Azure 메시지 서비스 선택](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/)
+- [Storage 큐 및 Service Bus 큐 - 비교 및 대조](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- Event Grid를 시작하려면 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요.
+- Event Hubs를 시작하려면 [Azure Portal을 사용하여 Event Hubs 네임스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조하세요.
+- Service Bus를 시작하려면 [Azure Portal을 사용하여 Service Bus 네임스페이스 만들기](../service-bus-messaging/service-bus-create-namespace-portal.md)를 참조하세요.

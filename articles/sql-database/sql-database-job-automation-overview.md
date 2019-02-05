@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 01/22/2019
-ms.openlocfilehash: 63a6daa7c409aeb77b07e98cc0108b727f263d4c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 01/25/2019
+ms.openlocfilehash: 1fd524e858b20c75aef4101ad98ac54c4f485d1e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453277"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457210"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>데이터베이스 작업을 사용하여 관리 작업 자동화
 
@@ -26,6 +26,7 @@ Azure SQL Database를 통해 T-SQL 쿼리를 실행하고 유지 관리 작업�
 작업은 대상 데이터베이스의 로그인 태스크를 처리합니다. 또한 Azure SQL Database 그룹에서 실행할 Transact-SQL 스크립트를 정의, 유지 관리 및 보존합니다.
 
 작업 자동화를 사용할 수 있는 몇 가지 시나리오는 다음과 같습니다.
+
 - 관리 작업을 자동화한 다음, 주중 매일, 일정 시간 후 등에 실행되도록 예약합니다.
   - 스키마 변경, 자격 증명 관리, 성능 데이터 수집 또는 테넌트(고객) 원격 분석 수집을 배포합니다.
   - 참조 데이터(모든 데이터베이스에서 공통적인 정보)를 업데이트하고 Azure Blob Storage에서 데이터를 로드합니다.
@@ -39,14 +40,15 @@ Azure SQL Database를 통해 T-SQL 쿼리를 실행하고 유지 관리 작업�
  - SSIS(SQL Server Integration Services)를 사용하여 데이터베이스에서 데이터를 로드하는 작업을 만듭니다.
 
 다음 작업 예약 기술은 Azure SQL Database에서 사용할 수 있습니다.
-- **SQL 에이전트 작업**은 Managed Instance에서 사용할 수 있는 클래식 및 입증된 SQL Server 작업 예약 구성 요소입니다. SQL 에이전트 작업은 싱글톤 데이터베이스에서 사용할 수 없습니다.
+
+- **SQL 에이전트 작업**은 Managed Instance에서 사용할 수 있는 클래식 및 입증된 SQL Server 작업 예약 구성 요소입니다. SQL 에이전트 작업은 단일 데이터베이스에서 사용할 수 없습니다.
 - **Elastic Database 작업**은 하나 또는 여러 Azure SQL Database에서 사용자 지정 작업을 실행하는 작업 예약 서비스입니다.
 
-SQL 에이전트(사용할 수 있는 온-프레미스 및 SQL Database Managed Instance의 일부로) 및 Database 탄력적 작업 에이전트(싱글톤 SQL Database 및 SQL Data Warehouse에 대해 사용할 수 있는) 간의 몇몇 차이점을 주목할 필요가 있습니다.
+SQL 에이전트(온-프레미스 및 SQL Database Managed Instance의 일부로 사용 가능)와 Database 탄력적 작업 에이전트(Azure SQL Database의 단일 데이터베이스 및 SQL Data Warehouse의 데이터베이스에서 사용 가능) 사이의 몇 가지 차이점을 주목할 필요가 있습니다.
 
 |  |탄력적 작업  |SQL 에이전트 |
 |---------|---------|---------|
-|범위     |  작업 에이전트와 동일한 Azure 클라우드에서 많은 수의 Azure SQL 데이터베이스 및/또는 데이터 웨어하우스입니다. 대상은 다른 논리 서버, 구독 및/또는 지역에 있을 수 있습니다. <br><br>대상 그룹은 개별 데이터베이스나 데이터 웨어하우스 또는 서버, 풀 또는 shardmap(작업 런타임 시 동적으로 열거되는)의 모든 데이터베이스로 구성됩니다. | SQL 에이전트와 동일한 SQL Server 인스턴스의 모든 단일 데이터베이스입니다. |
+|범위     |  작업 에이전트와 동일한 Azure 클라우드에서 많은 수의 Azure SQL 데이터베이스 및/또는 데이터 웨어하우스입니다. 대상은 다른 SQL Database 서버, 구독 및/또는 지역에 있을 수 있습니다. <br><br>대상 그룹은 개별 데이터베이스나 데이터 웨어하우스 또는 서버, 풀 또는 shardmap(작업 런타임 시 동적으로 열거되는)의 모든 데이터베이스로 구성됩니다. | SQL 에이전트와 동일한 SQL Server 인스턴스의 모든 개별 데이터베이스입니다. |
 |지원되는 API 및 도구     |  포털, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL 및 SSMS(SQL Server Management Studio)     |
 
 ## <a name="sql-agent-jobs"></a>SQL 에이전트 작업
@@ -54,6 +56,7 @@ SQL 에이전트(사용할 수 있는 온-프레미스 및 SQL Database Managed 
 SQL 에이전트 작업은 데이터베이스에 대한 일련의 T-SQL 스크립트로 지정됩니다. 작업을 사용하여 두 번 이상 실행할 수 있으며 성공 또는 실패를 모니터링하는 관리 작업을 정의합니다.
 하나의 로컬 서버 또는 여러 원격 서버에서 작업을 실행할 수 있습니다. SQL 에이전트 작업은 Managed Instance 서비스 내에서 실행되는 내부 데이터베이스 엔진 구성 요소입니다.
 SQL 에이전트 작업에는 몇 가지 주요 개념이 있습니다.
+
 - **작업 단계**는 작업 내에서 실행되어야 하는 하나 이상의 단계로 설정됩니다. 모든 작업 단계에서 작업 단계가 성공 또는 실패인 경우에 발생되어야 하는 다시 시도 전략 및 작업을 정의할 수 있습니다.
 - **일정**은 작업을 실행해야 하는 시기를 정의합니다.
 - **알림**은 작업이 완료되면 운영자에게 이메일을 통해 사용할 규칙을 정의할 수 있습니다.
@@ -64,11 +67,13 @@ SQL 에이전트 작업 단계는 SQL 에이전트가 실행해야 하는 작업
 SQL 에이전트를 사용하면 데이터베이스에 대해 단일 Transact-SQL 일괄 처리를 실행하는 Transact-SQL 작업 단계 또는 사용자 지정 OS 스크립트를 실행할 수 있는 OS 명령/PowerShell 단계와 같은 다양한 유형의 작업 단계를 만들 수 있습니다. 그리고 SSIS 작업 단계를 통해 SSIS 런타임을 사용한 데이터 또는 데이터베이스의 변경 내용을 다른 데이터베이스에 게시할 수 있는 [복제](sql-database-managed-instance-transactional-replication.md) 단계를 로드할 수 있습니다.
 
 [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md)는 사용자가 한 데이터베이스에서 둘 이상의 테이블에 대한 변경 내용을 게시하고, 구독자 데이터베이스 세트에 해당 내용을 게시/배포할 수 있는 데이터베이스 엔진 기능입니다. 변경 내용의 게시는 다음과 같은 SQL 에이전트 작업 단계 유형을 사용하여 구현됩니다.
+
 - 트랜잭션 로그 판독기
 - 스냅숏
 - 배포자
 
 다음을 포함한 다른 유형의 작업 단계는 현재 지원되지 않습니다.
+
 - 병합 복제 작업 단계는 지원되지 않습니다.
 - 큐 판독기는 지원되지 않습니다.
 - Analysis Services는 지원되지 않습니다.
@@ -77,6 +82,7 @@ SQL 에이전트를 사용하면 데이터베이스에 대해 단일 Transact-SQ
 
 일정은 작업이 실행되는 시기를 지정합니다. 동일한 일정에 따라 둘 이상의 작업을 실행할 수 있으며, 둘 이상의 일정을 동일한 작업에 적용할 수 있습니다.
 일정은 작업이 실행되는 시기에 대해 다음 조건을 정의할 수 있습니다.
+
 - 인스턴스가 다시 시작될 때마다(또는 SQL Server 에이전트가 시작될 때). 작업은 모든 장애 조치(failover) 후 활성화됩니다.
 - 특정 날짜 및 시간에 한 번 - 일부 작업의 지연된 실행에 유용합니다.
 - 되풀이 일정.
@@ -215,7 +221,7 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 
 *대상 그룹*은 작업 단계에서 실행될 데이터베이스의 집합을 정의합니다. 대상 그룹은 다음의 모든 번호와 조합을 포함할 수 있습니다.
 
-- **Azure SQL 서버** - 서버가 지정되면 작업 실행 시 서버에 존재하는 모든 데이터베이스 그룹의 일부가 됩니다. 작업 실행에 앞서 그룹을 열거하고 업데이트할 수 있도록 master 데이터베이스 자격 증명이 제공되어야 합니다.
+- **SQL Database 서버** - 서버가 지정되면 작업 실행 시 서버에 존재하는 모든 데이터베이스가 그룹의 일부입니다. 작업 실행에 앞서 그룹을 열거하고 업데이트할 수 있도록 master 데이터베이스 자격 증명이 제공되어야 합니다.
 - **탄력적 풀** - 탄력적 풀을 지정하는 경우 작업 실행 시 탄력적인 풀에 있는 모든 데이터베이스는 그룹의 일부가 됩니다. 서버의 경우 작업 실행에 앞서 그룹을 업데이트할 수 있도록 master 데이터베이스 자격 증명이 제공되어야 합니다.
 - **단일 데이터베이스** - 하나 이상의 개별 데이터베이스가 그룹의 일부가 되도록 지정합니다.
 - **Shardmap** - Shardmap의 데이터베이스입니다.
@@ -258,6 +264,7 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 #### <a name="job-history"></a>작업 기록
 
 작업 실행 기록은 *작업 데이터베이스*에 저장됩니다. 시스템 정리 작업은 45일 이상된 실행 기록을 제거합니다. 45일 이하 기록을 제거하려면 *작업 데이터베이스*에서 **sp_purge_history** 저장 프로시저를 호출합니다.
+
 ### <a name="agent-performance-capacity-and-limitations"></a>에이전트 성능, 용량 및 제한 사항
 
 탄력적 작업은 장기 실행 작업이 완료되기를 기다리는 동안 최소한의 계산 리소스를 사용합니다.

@@ -6,16 +6,16 @@ services: cognitive-services
 author: larryfr
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 10/16/2018
 ms.author: larryfr
-ms.openlocfilehash: f9ffbdd34c6fe7e8fc0f5e8ad8a49a3ad922f88a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 55235c8c209a17a494c3879d61e22665ba7a893b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362975"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224907"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>자습서: Windows ML을 통해 Custom Vision에서 ONNX 모델 사용(미리 보기)
 
@@ -49,9 +49,9 @@ Windows ML을 사용하여 Custom Vision Service에서 내보낸 ONNX 모델을 
 
 ## <a name="run-the-example"></a>예제 실행
 
-1. `F5` 키를 사용하여 Visual Studio에서 응용 프로그램을 시작합니다. 개발자 모드를 사용하도록 설정하라는 메시지가 표시될 수 있습니다. 자세한 내용은 [개발을 위해 디바이스를 사용하도록 설정](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) 문서를 참조하세요.
+1. `F5` 키를 사용하여 Visual Studio에서 애플리케이션을 시작합니다. 개발자 모드를 사용하도록 설정하라는 메시지가 표시될 수 있습니다. 자세한 내용은 [개발을 위해 디바이스를 사용하도록 설정](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) 문서를 참조하세요.
 
-2. 애플리케이션이 시작되면 단추를 사용하여 채점할 이미지를 선택합니다.
+2. 응용 프로그램이 시작되면 단추를 사용하여 채점할 이미지를 선택합니다.
 
 ## <a name="use-your-own-model"></a>사용자 고유의 모델 사용
 
@@ -81,8 +81,8 @@ Windows ML을 사용하여 Custom Vision Service에서 내보낸 ONNX 모델을 
 Custom Vision 모델을 내보내고 사용하는 다른 방법을 알아보려면 다음 문서를 참조하세요.
 
 * [모델 내보내기](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model)
-* [Android 응용 프로그램에서 내보낸 Tensorflow 모델 사용](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
-* [Swift iOS 응용 프로그램에서 내보낸 CoreML 모델 사용](https://go.microsoft.com/fwlink/?linkid=857726)
-* [Xamarin을 사용하는 iOS 응용 프로그램에서 내보낸 CoreML 모델 사용](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
+* [Android 애플리케이션에서 내보낸 Tensorflow 모델 사용](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
+* [Swift iOS 애플리케이션에서 내보낸 CoreML 모델 사용](https://go.microsoft.com/fwlink/?linkid=857726)
+* [Xamarin을 사용하는 iOS 애플리케이션에서 내보낸 CoreML 모델 사용](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
 
 Windows ML을 통한 ONNX 모델 사용에 대한 더 자세한 내용은 [Windows ML을 통해 앱에 모델 통합](https://docs.microsoft.com/windows/uwp/machine-learning/integrate-model) 문서를 참조하세요.

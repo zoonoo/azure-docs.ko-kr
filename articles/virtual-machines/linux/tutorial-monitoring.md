@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/06/2018
+ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f8310885ddf7e2229054f36b8fda92b92c1ab01e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7916995d2630e9b33e3695c5c505925851ba4934
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406503"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092797"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>자습서: Azure에서 Linux 가상 머신 모니터링 및 업데이트
 
@@ -153,7 +153,7 @@ Linux VM에는 Azure에서 상호 작용하는 전용 호스트가 있습니다.
 5. 필요한 경우 전자 메일 알림을 보내도록 *전자 메일 소유자, 참가자 및 읽기 권한자*의 확인란을 선택합니다. 기본 작업은 포털에서 알림을 제공하는 것입니다.
 6. **확인** 단추를 선택합니다.
 
-## <a name="manage-package-updates"></a>패키지 업데이트 관리
+## <a name="manage-software-updates"></a>소프트웨어 업데이트 관리
 
 업데이트 관리를 사용하면 Azure Linux VM에 대한 업데이트 및 패치를 관리할 수 있습니다.
 VM에서 직접, 사용 가능한 업데이트의 상태를 빠르게 평가하고, 필수 업데이트의 설치를 예약하고, 배포 결과를 검토하여 업데이트가 VM에 성공적으로 적용되었는지 확인할 수 있습니다.
@@ -175,15 +175,14 @@ VM에 대한 업데이트 관리를 사용합니다.
 이 작업 영역은 여러 원본의 데이터를 검토 및 분석하는 단일 위치를 제공합니다.
 업데이트가 필요한 VM에서 추가 작업을 수행하려면 Azure Automation에서 VM에 대해 Runbook(예: 업데이트 다운로드 및 적용)을 실행할 수 있습니다.
 
-또한 유효성 검사 프로세스는 VM이 MMA 및 Automation 하이브리드 Runbook 작업자를 통해 프로비전되는지 확인합니다.
-이 에이전트는 VM과 통신하고 업데이트 상태에 대한 정보를 얻습니다.
+또한 유효성 검사 프로세스는 VM에 Log Analytics 에이전트 및 Automation 하이브리드 runbook worker가 프로비전되었는지 확인합니다. 이 에이전트는 VM과 통신하고 업데이트 상태에 대한 정보를 얻습니다.
 
 Log Analytics 작업 영역 및 Automation 계정을 선택하고 **사용**을 선택하여 솔루션을 사용하도록 설정합니다. 솔루션을 사용하도록 설정하는 데 최대 15분이 걸립니다.
 
 등록 중에 다음 필수 구성 요소 중 하나가 누락된 것으로 확인되면 자동으로 추가됩니다.
 
 * [Log Analytics](../../log-analytics/log-analytics-overview.md) 작업 영역
-* [Automation](../../automation/automation-offering-get-started.md)
+* [Automation 계정](../../automation/automation-offering-get-started.md)
 * [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)가 VM에서 사용되도록 설정됩니다.
 
 **업데이트 관리** 화면이 열립니다. 사용할 위치, Log Analytics 작업 영역 및 Automation 계정을 구성하고 **사용**을 선택합니다. 필드가 회색으로 표시되면 해당 VM에 대해 다른 자동화 솔루션을 사용하도록 설정하고 동일한 작업 영역과 Automation 계정을 사용해야 함을 의미합니다.
@@ -208,7 +207,7 @@ VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리** 
 * **업데이트 분류** - 배포에 포함되는 업데이트 배포 소프트웨어의 종류를 선택합니다. 분류 형식은 다음과 같습니다.
   * 중요 업데이트 및 보안 업데이트
   * 다른 업데이트
-* **제외할 업데이트** - 업데이트 배포 시 건너뛰어야 하는 패키지 이름 목록을 제공할 수 있습니다. 패키지 이름은 와일드 카드를 지원합니다(예: \*커널\*).
+* **제외할 업데이트** - 업데이트 배포 시 건너뛰어야 하는 패키지 이름 목록을 제공할 수 있습니다. 패키지 이름은 와일드카드를 지원합니다(예: \*커널\*).
 
   ![업데이트 일정 설정 화면](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
 
@@ -291,22 +290,9 @@ VM을 중지하고 시작하면 활동 로그에 이벤트가 기록됩니다. *
 
 ## <a name="advanced-monitoring"></a>고급 모니터링
 
-[Azure Automation](../../automation/automation-intro.md)에서 제공하는 업데이트 관리, 변경 내용 및 인벤토리 등의 솔루션을 사용하여 VM의 고급 모니터링을 수행할 수 있습니다.
+[VM용 Azure Monitor](../../azure-monitor/insights/vminsights-overview.md) 같은 솔루션을 사용하여 VM에 대한 고급 모니터링을 수행할 수 있습니다. VM용 Azure Monitor는 Windows 및 Linux VM의 성능과 상태를 분석하여 대규모 Azure VM(가상 머신)을 모니터링하며, 여기에는 VM의 여러 프로세스, 그리고 다른 리소스 및 외부 프로세스에 대한 상호 연결된 종속성이 포함됩니다. Azure VM의 구성 관리는 환경의 변경 내용을 쉽게 식별할 수 있는 [Azure Automation](../../automation/automation-intro.md) 변경 내용 추적 및 인벤토리 솔루션을 통해 제공됩니다. 업데이트 규정 준수 관리는 Azure Automation 업데이트 관리 솔루션에 제공됩니다.   
 
-Log Analytics 작업 영역에 액세스할 수 있는 경우, **설정**에서 **고급 설정**을 선택하여 작업 영역 키와 작업 영역 식별자를 찾을 수 있습니다. \<workspace-key\> 및 **workspace-id**를 Log Analytics 작업 영역의 값으로 바꾼 다음, \<az vm extension set\>을 사용하여 VM에 확장을 추가할 수 있습니다.
-
-```azurecli-interactive
-az vm extension set \
-  --resource-group myResourceGroupMonitor \
-  --vm-name myVM \
-  --name OmsAgentForLinux \
-  --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.3 \
-  --protected-settings '{"workspaceKey": "<workspace-key>"}' \
-  --settings '{"workspaceId": "<workspace-id>"}'
-```
-
-몇 분 후 새 VM이 Log Analytics 작업 영역에 표시됩니다.
+또한 VM이 연결된 Log Analytics 작업 영역에서 [풍부한 쿼리 언어](../../azure-monitor/log-query/log-query-overview.md)를 사용하여 수집된 데이터를 검색, 통합 및 분석할 수 있습니다. 
 
 ![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 

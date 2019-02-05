@@ -6,16 +6,16 @@ services: cognitive-services
 author: dwlin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speaker-recognition
+ms.subservice: speaker-recognition
 ms.topic: overview
 ms.date: 10/01/2018
 ms.author: dwlin
-ms.openlocfilehash: c9193a51c677b327e7d799412e389467ac5cc1c0
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 7267663bae71b793923bc10a3b52ab54c12168af
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48016860"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216764"
 ---
 # <a name="speaker-recognition-api"></a>Speaker Recognition API
 
@@ -38,7 +38,7 @@ Azure Cognitive Services Speaker Recognition API에 오신 것을 환영합니�
 
 검증에서는 입력된 음성 및 구를 등록된 음성 서명 및 구와 비교하여 동일한 사람인지 여부와 올바른 구를 말하고 있는지를 확인합니다.
 
-화자 검증에 대한 자세한 내용은 API [화자 - 검증](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652)을 참조하세요.
+화자 검증에 대한 자세한 내용은 API  [화자 - 검증](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652)을 참조하세요.
 
 ## <a name="speaker-identification"></a>화자 식별
 
@@ -56,4 +56,4 @@ Azure Cognitive Services Speaker Recognition API에 오신 것을 환영합니�
 
 잠재적인 그룹의 화자와 함께 알 수 없는 화자의 오디오는 인식 단계에서 제공됩니다. 누구의 음성인지를 결정하기 위해 모든 화자와 입력 음성을 비교하고 일치를 찾은 경우 화자의 신원을 반환합니다.
 
-화자 식별에 대한 자세한 내용은 API [화자 - 식별](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e)을 참조하세요.
+화자 식별에 대한 자세한 내용은 API  [화자 - 식별](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e)을 참조하세요.

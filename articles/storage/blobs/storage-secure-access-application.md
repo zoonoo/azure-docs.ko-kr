@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/30/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 71eec62f4468b6b74a15a30be3e472b41c4d45b0
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ce44d4c066183ff796c8efa1dceb20dff73868ee
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397776"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192402"
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>클라우드의 애플리케이션 데이터에 대한 액세스 보호
 
@@ -26,11 +26,11 @@ ms.locfileid: "39397776"
 > * 서버 쪽 암호화 켜기
 > * HTTPS 전용 전송 사용
 
-[Azure Blob Storage](../common/storage-introduction.md#blob-storage)는 응용 프로그램용 파일을 저장하기 위한 강력한 서비스를 제공합니다. 이 자습서에서는 [이전 항목][previous-tutorial]을 확장하여 웹 애플리케이션에서 저장소 계정에 대한 액세스를 보호하는 방법을 보여 줍니다. 완료되면 이미지가 암호화되고 웹앱은 보안 SAS 토큰을 사용하여 썸네일 이미지에 액세스합니다.
+[Azure Blob Storage](../common/storage-introduction.md#blob-storage)는 애플리케이션용 파일을 저장하기 위한 강력한 서비스를 제공합니다. 이 자습서에서는 [이전 항목][previous-tutorial]을 확장하여 웹 애플리케이션에서 저장소 계정에 대한 액세스를 보호하는 방법을 보여 줍니다. 완료되면 이미지가 암호화되고 웹앱은 보안 SAS 토큰을 사용하여 썸네일 이미지에 액세스합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 완료하려면 이전 Storage 자습서인 [Event Grid를 사용하여 업로드된 이미지 크기 자동 조정][previous-tutorial]을 완료했어야 합니다. 
+이 자습서를 완료하려면 이전 스토리지 자습서: [Event Grid를 사용하여 업로드된 이미지 크기 자동 조정][previous-tutorial]를 완료해야 합니다. 
 
 ## <a name="set-container-public-access"></a>컨테이너 공용 액세스 설정
 
@@ -50,7 +50,7 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 
 이 자습서 시리즈의 1부에서 웹 애플리케이션은 공용 컨테이너의 이미지를 표시했습니다. 시리즈의 이 부분에서는 [SAS(공유 액세스 서명)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) 토큰을 사용하여 썸네일 이미지를 검색합니다. SAS 토큰을 사용하여 IP, 프로토콜, 시간 간격, 허용되는 권한에 따라 컨테이너 또는 blob에 대해 제한된 액세스를 제공할 수 있습니다.
 
-이 예제에서 소스 코드 리포지토리는 업데이트된 코드 샘플이 있는 `sasTokens` 분기를 사용합니다. [az webapp deployment source delete](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete)를 사용하여 기존 GitHub 배포를 삭제합니다. 다음으로, [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) 명령을 사용하여 웹앱에 대한 Git 배포를 구성합니다.  
+이 예제에서 소스 코드 리포지토리는 업데이트된 코드 샘플이 있는 `sasTokens` 분기를 사용합니다. [az webapp deployment source delete](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete)를 사용하여 기존 GitHub 배포를 삭제합니다. 다음으로, [az webapp deployment source config](/cli/azure/webapp/deployment/source) 명령을 사용하여 웹앱에 대한 Git 배포를 구성합니다.  
 
 다음 명령에서 `<web-app>`은 웹앱의 이름입니다.  
 
@@ -146,7 +146,7 @@ SSE는 모든 성능 계층(표준 및 프리미엄), 모든 배포 모델(Azure
 
 ## <a name="enable-https-only"></a>HTTPS만 사용
 
-저장소 계정과의 데이터 요청을 안전하게 유지하기 위해 요청을 HTTPS로만 제한할 수 있습니다. [az storage account update](/cli/azure/storage/account#az_storage_account_update) 명령을 사용하여 저장소 계정 필수 프로토콜을 업데이트합니다.
+저장소 계정과의 데이터 요청을 안전하게 유지하기 위해 요청을 HTTPS로만 제한할 수 있습니다. [az storage account update](/cli/azure/storage/account#az_storage_account_update) 명령을 사용하여 스토리지 계정 필수 프로토콜을 업데이트합니다.
 
 ```azurecli-interactive
 az storage account update --resource-group myresourcegroup --name <storage-account-name> --https-only true
@@ -176,6 +176,6 @@ HTTP/1.1 400 The account being accessed does not support http.
 시리즈의 4부를 계속 진행하면서 클라우드 저장소 애플리케이션을 모니터링하고 문제를 해결하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [응용 프로그램 클라우드 응용 프로그램 저장소 모니터링 및 문제 해결](storage-monitor-troubleshoot-storage-application.md)
+> [애플리케이션 클라우드 애플리케이션 저장소 모니터링 및 문제 해결](storage-monitor-troubleshoot-storage-application.md)
 
 [previous-tutorial]: ../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

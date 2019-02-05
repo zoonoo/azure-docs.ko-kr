@@ -11,12 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 140fc870500054d0652b48bc602706398371fa8e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 631fc4e613311df9386084408ead625f6d018151
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039062"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911893"
 ---
 # <a name="create-your-first-python-function-in-azure-preview"></a>Azure에서 첫 번째 Python 함수 만들기(미리 보기)
 
@@ -30,9 +30,9 @@ ms.locfileid: "54039062"
 
 빌드하고 로컬로 테스트하려면 다음을 수행해야 합니다.
 
-+ [Python 3.6](https://www.python.org/downloads/) 설치
++ [Python 3.6](https://www.python.org/downloads/)을 설치합니다.
 
-+ [Azure Functions Core Tools](functions-run-local.md#v2) 버전 2.2.70 이상 설치
++ [Azure Functions Core Tools](functions-run-local.md#v2) 버전 2.2.70 이상을 설치합니다(.NET Core 2.x SDK 필요).
 
 Azure에서 게시 및 실행하려면:
 

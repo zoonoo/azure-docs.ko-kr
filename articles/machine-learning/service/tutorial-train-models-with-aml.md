@@ -4,23 +4,23 @@ titleSuffix: Azure Machine Learning service
 description: 이 자습서에서는 Azure Machine Learning 서비스를 사용하여 Python Jupyter 노트북의 scikit-learn을 통해 이미지 분류 모델을 학습하는 방법을 보여 줍니다. 이 자습서는 2부로 구성된 시리즈 중 제1부입니다.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.date: 01/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9fc0655a3666f09fed342af5b4f14e2097290ab
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 6811888b5113a2cf5a06811f0e1b1bcee57d864b
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828259"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298061"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>자습서: Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습
 
-이 자습서에서는 로컬로 및 원격 계산 리소스에 대해 Machine Learning 모델을 학습합니다. Python Jupyter Notebook에서 Azure Machine Learning Service에 대한 학습 및 배포 워크플로를 사용합니다. 그런 다음, 이 노트를 템플릿으로 사용하여 자신의 데이터로 고유한 Machine Learning 모델을 학습할 수 있습니다. 이 자습서는 **2부로 구성된 자습서 시리즈 중 제1부**입니다.  
+이 자습서에서는 원격 컴퓨팅 리소스에 대해 기계 학습 모델을 학습합니다. Python Jupyter 노트북에서 Azure Machine Learning 서비스(미리 보기)에 대한 학습 및 배포 워크플로를 사용합니다.  그런 다음, 이 노트를 템플릿으로 사용하여 자신의 데이터로 고유한 Machine Learning 모델을 학습할 수 있습니다. 이 자습서는 **2부로 구성된 자습서 시리즈 중 제1부**입니다.  
 
 이 자습서에서는 Azure Machine Learning Service에서 [MNIST](http://yann.lecun.com/exdb/mnist/) 데이터 세트 및 [scikit-learn](https://scikit-learn.org)을 사용하여 간단한 로지스틱 회귀를 학습합니다. MNIST는 70,000개의 회색조 이미지로 구성된 인기 있는 데이터 세트입니다. 각 이미지는 0-9의 숫자를 나타내는 28x28 픽셀의 필기체 숫자입니다. 목표는 지정된 이미지가 나타내는 숫자를 식별하는 다중 클래스 분류자를 만드는 것입니다. 
 
@@ -38,16 +38,40 @@ ms.locfileid: "54828259"
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](http://aka.ms/AMLFree)을 지금 사용해 보세요.
 
 >[!NOTE]
-> 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.2에서 테스트되었습니다.
+> 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.8에서 테스트되었습니다.
 
-## <a name="get-the-notebook"></a>Notebook 가져오기
+## <a name="prerequisites"></a>필수 조건
 
-사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)으로 제공됩니다. [Azure Notebooks](https://notebooks.azure.com/) 또는 사용자 고유의 Jupyter Notebook 서버에서 `tutorials/img-classification-part1-training.ipynb` Notebook을 실행합니다.
+[개발 환경 설정](#start)으로 건너뛰어 Notebook 단계를 읽어보거나, 아래 지침에 따라 Notebook을 가져와서 Azure Notebooks 또는 사용자 고유의 Notebook 서버에서 실행합니다.  Notebook을 실행하려면 다음 항목이 필요합니다.
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+* 다음 요소가 설치된 Python 3.6 Notebook 서버:
+    * Python용 Azure Machine Learning SDK
+    * `matplotlib` 및 `scikit-learn`
+* 자습서 Notebook 및 utils.py 파일
+* 기계 학습 작업 영역 
+* Notebook과 동일한 디렉터리에 있는 작업 영역에 대한 구성 파일 
+
+아래 섹션 중 하나에서 이러한 필수 구성 요소를 모두 가져옵니다.
+ 
+* [Azure Notebooks](#azure) 사용 
+* [사용자 고유의 Notebook 서버](#server) 사용
+
+### <a name="azure"></a>Azure Notebooks 사용: 클라우드의 무료 Jupyter Notebook
+
+Azure Notebooks로 시작하는 것이 쉽습니다! [Python용 Azure Machine Learning SDK](https://aka.ms/aml-sdk)는 [Azure Notebooks](https://notebooks.azure.com/)에 이미 설치 및 구성되어 있습니다. 설치 및 향후 업데이트를 Azure 서비스를 통해 자동으로 관리합니다.
+
+아래 단계를 완료한 후에는 **시작** 프로젝트의 **tutorials/img-classification-part1-training.ipynb** Notebook을 실행합니다.
+
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
 
-## <a name="set-up-your-development-environment"></a>개발 환경 설정
+### <a name="server"></a>사용자 고유의 Jupyter Notebook 서버 사용
+
+사용자 컴퓨터에 로컬 Jupyter Notebook 서버를 만들려면 이러한 단계를 사용합니다.  단계를 완료한 후에는 **tutorials/img-classification-part1-training.ipynb** Notebook을 실행합니다.
+
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
+
+## <a name="start"></a>개발 환경 설정
 
 개발 작업에 대한 모든 설정은 Python Notebook에서 수행할 수 있습니다. 설정에 포함되는 작업은 다음과 같습니다.
 
@@ -63,11 +87,10 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 ```python
 %matplotlib inline
 import numpy as np
-import matplotlib
 import matplotlib.pyplot as plt
 
-import azureml
-from azureml.core import Workspace, Run
+import azureml.core
+from azureml.core import Workspace
 
 # check core SDK version number
 print("Azure ML SDK Version: ", azureml.core.VERSION)
@@ -94,11 +117,11 @@ from azureml.core import Experiment
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### <a name="create-or-attach-an-existing-amlcompute"></a>기존 AMlCompute 만들기 또는 연결
+### <a name="create-or-attach-an-existing-compute-resource"></a>기존 컴퓨팅 리소스 만들기 또는 연결
 
-데이터 과학자는 관리형 서비스인 AmlCompute(Azure Machine Learning 컴퓨팅)를 사용하여 Azure 가상 머신 클러스터에서 기계 학습 모델을 학습할 수 있습니다. 예를 들어 GPU가 지원되는 VM이 있습니다. 이 자습서에서는 학습 환경으로 AmlCompute를 만듭니다. 작업 영역에 아직 없는 경우 이 코드는 컴퓨팅 클러스터를 만듭니다.
+데이터 과학자는 관리형 서비스인 Azure Machine Learning 컴퓨팅을 사용하여 Azure 가상 머신 클러스터에서 기계 학습 모델을 학습할 수 있습니다. 예를 들어 GPU가 지원되는 VM이 있습니다. 이 자습서에서는 학습 환경으로 Azure Machine Learning 컴퓨팅을 만듭니다. 아래 코드는 작업 영역에 아직 컴퓨팅 클러스터가 없으면 새로 만듭니다.
 
- **컴퓨팅을 만드는 데 약 5분이 걸립니다.** 작업 영역에 이미 컴퓨팅이 있는 경우 이 코드는 해당 컴퓨팅을 사용하고 만들기 프로세스를 건너뜁니다.
+ **컴퓨팅을 만드는 데 약 5분이 걸립니다.** 작업 영역에 이미 컴퓨팅이 있으면 이 코드는 기존 컴퓨팅을 사용하고 만들기 프로세스를 건너뜁니다.
 
 
 ```python
@@ -132,8 +155,8 @@ else:
     # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-     # For a more detailed view of current AmlCompute status, use the 'status' property    
-    print(compute_target.status.serialize())
+     # For a more detailed view of current AmlCompute status, use get_status()
+    print(compute_target.get_status().serialize())
 ```
 
 이제 클라우드에서 모델을 학습하는 데 필요한 패키지 및 계산 리소스가 준비되었습니다. 
@@ -155,13 +178,15 @@ MNIST 데이터 세트를 다운로드하고 파일을 `data` 디렉터리에 �
 import os
 import urllib.request
 
-os.makedirs('./data', exist_ok = True)
+data_path = os.path.join(os.getcwd(), 'data')
+os.makedirs(data_path, exist_ok = True)
 
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename='./data/train-images.gz')
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename='./data/train-labels.gz')
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename='./data/test-images.gz')
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename='./data/test-labels.gz')
 ```
+```('./data/test-labels.gz', <http.client.HTTPMessage at 0x7f40864c77b8>)``` 같은 출력이 표시됩니다.
 
 ### <a name="display-some-sample-images"></a>일부 샘플 이미지 표시
 
@@ -210,46 +235,18 @@ MNIST 파일은 데이터 저장소의 루트에 있는 `mnist` 디렉터리로 
 ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 
-ds.upload(src_dir='./data', target_path='mnist', overwrite=True, show_progress=True)
+ds.upload(src_dir=data_path, target_path='mnist', overwrite=True, show_progress=True)
 ```
 이제 모델 학습을 시작하는 데 필요한 모든 준비가 갖추어졌습니다. 
 
-## <a name="train-a-local-model"></a>로컬 모델 학습
-
-scikit-learn을 로컬로 사용하여 간단한 로지스틱 회귀 모델을 학습합니다.
-
-로컬 학습은 컴퓨터 구성에 따라 **1~2분이 걸릴 수 있습니다**.
-
-```python
-%%time
-from sklearn.linear_model import LogisticRegression
-
-clf = LogisticRegression()
-clf.fit(X_train, y_train)
-```
-
-다음으로, 테스트 세트를 사용하여 예측을 만들고 정확도를 계산합니다. 
-
-```python
-y_hat = clf.predict(X_test)
-print(np.average(y_hat == y_test))
-```
-
-로컬 모델 정확도가 다음과 같이 표시됩니다.
-
-`0.9202`
-
-몇 줄의 코드만으로 92%의 정확도를 보장됩니다.
 
 ## <a name="train-on-a-remote-cluster"></a>원격 클러스터에서 학습
 
-이제 다른 정규화 비율로 모델을 빌드하여 이 단순 모델을 확장할 수 있습니다. 이번에는 원격 리소스에서 모델을 학습합니다.  
-
-이 태스크의 경우 이전에 설정한 원격 학습 클러스터로 작업을 제출하세요. 작업을 제출하려면 다음 단계를 수행합니다.
+이 태스크의 경우 이전에 설정한 원격 학습 클러스터로 작업을 제출하세요.  작업을 제출하려면
 * 디렉터리 만들기
-* 학습 스크립트를 만듭니다.
-* 추정기 개체 만들기
-* 작업을 제출합니다.
+* 학습 스크립트 만들기
+* Estimator 개체 만들기
+* 작업 제출 
 
 ### <a name="create-a-directory"></a>디렉터리 만들기
 
@@ -257,13 +254,13 @@ print(np.average(y_hat == y_test))
 
 ```python
 import os
-script_folder = './sklearn-mnist'
+script_folder  = os.path.join(os.getcwd(), "sklearn-mnist")
 os.makedirs(script_folder, exist_ok=True)
 ```
 
 ### <a name="create-a-training-script"></a>학습 스크립트 만들기
 
-클러스터에 작업을 제출하려면 먼저 학습 스크립트를 만듭니다. 다음 코드를 실행하여 만든 디렉터리에 `train.py`라는 학습 스크립트를 만듭니다. 이 학습은 학습 알고리즘에 정규화 속도를 추가합니다. 따라서 로컬 버전과 약간 다른 모델을 생성합니다.
+클러스터에 작업을 제출하려면 먼저 학습 스크립트를 만듭니다. 다음 코드를 실행하여 방금 만든 디렉터리에 `train.py`라는 학습 스크립트를 만듭니다.
 
 ```python
 %%writefile $script_folder/train.py
@@ -406,6 +403,8 @@ RunDetails(run).show()
 
 ![Notebook 위젯](./media/tutorial-train-models-with-aml/widget.png)
 
+실행을 취소해야 하는 경우 [다음 지침](https://aka.ms/aml-docs-cancel-run)을 따릅니다.
+
 ### <a name="get-log-results-upon-completion"></a>완료 시 로그 결과 가져오기
 
 모델 학습 및 모니터링은 백그라운드에서 발생합니다. 더 많은 코드를 실행하기 전에 모델 학습이 완료될 때까지 기다립니다. 모델 학습이 완료되는 시간을 표시하려면 `wait_for_completion`을 사용합니다. 
@@ -422,7 +421,7 @@ run.wait_for_completion(show_output=False) # specify True for a verbose log
 ```python
 print(run.get_metrics())
 ```
-학습 중에 정규화 속도가 추가되었으므로 출력에는 원격 모델이 로컬 모델보다 약간 더 정확한 것으로 나타납니다.  
+출력은 원격 모델 정확도가 0.9204라는 것을 보여줍니다.
 
 `{'regularization rate': 0.8, 'accuracy': 0.9204}`
 
@@ -465,8 +464,7 @@ compute_target.delete()
 > [!div class="checklist"]
 > * 개발 환경 설정
 > * 데이터 액세스 및 검사
-> * 인기 있는 scikit-learn 기계 학습 라이브러리를 사용하여 로컬로 간단한 로지스틱 회귀 학습
-> * 원격 클러스터에서 여러 모델 학습
+> * 인기 있는 scikit-learn 기계 학습 라이브러리를 사용하여 원격 클러스터에서 여러 모델 학습
 > * 학습 세부 정보 검토 및 최상의 모델 등록
 
 이 등록된 모델을 자습서 시리즈의 제2부에 나와 있는 지침에 따라 배포할 준비가 되었습니다.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 1085be57583762e8f1d419e2aacc699032340d90
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6bb075857d67885d968b495cc8d545af9994eaf0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054557"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169317"
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -72,6 +72,8 @@ ms.locfileid: "54054557"
 가상 네트워크 피어링을 확인하려면 가상 네트워크의 서브넷에서 네트워크 인터페이스의 [유효 경로를 확인](diagnose-network-routing-problem.md)합니다. 가상 네트워크 피어링이 존재하는 경우에는 가상 네트워크 내의 모든 서브넷에는 피어링된 각 가상 네트워크의 각 주소 공간에 대해 다음 홉 형식의 *VNet 피어링*을 사용하는 경로가 있습니다.
 
 Network Watcher의 [연결 확인](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 사용하여 피어링된 가상 네트워크에서 가상 머신에 대한 연결 문제를 해결할 수 있습니다. 연결 확인을 통해 원본 가상 머신의 네트워크 인터페이스에서 대상 가상 머신의 네트워크 인터페이스로 트래픽이 라우팅되는 방식을 확인할 수 있습니다.
+
+[가상 네트워크 피어링 문제 해결사](https://support.microsoft.com/help/4486956/troubleshooter-for-virtual-network-peering-issues)를 사용해 볼 수도 있습니다.
 
 ## <a name="requirements-and-constraints"></a>요구 사항 및 제약 조건
 

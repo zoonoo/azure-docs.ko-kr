@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,18 +16,18 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 589ad189a3a157d0116e3991f8df3d6b43afc167
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3f38162fd4d95127ddf7797638bc9af21e6aaf20
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988777"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095705"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>빠른 시작: 웹 API를 공개하는 애플리케이션 구성(미리 보기)
 
 웹 API를 개발하고 [권한/범위](developer-glossary.md#scopes) 및 [역할](developer-glossary.md#roles)을 공개하여 클라이언트 애플리케이션에서 사용할 수 있게 만들 수 있습니다. 올바르게 구성된 웹 API는 Graph API 및 Office 365 API와 같은 다른 Microsoft 웹 API와 마찬가지로 사용 가능합니다.
 
-이 빠른 시작에서는 클라이언트 애플리케이션이 사용할 수 있게 새 범위를 공개하도록 애플리케이션을 구성하는 방법을 살펴봅니다.
+이 빠른 시작에서는 클라이언트 응용 프로그램이 사용할 수 있게 새 범위를 공개하도록 응용 프로그램을 구성하는 방법을 살펴봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -48,7 +48,7 @@ ms.locfileid: "49988777"
 1. 구성하려는 애플리케이션을 찾아 선택합니다. 앱을 선택하면 볼 **개요** 또는 기본 등록 페이지가 나타납니다.
 1. 새 범위를 공개하는 데 사용할 방법, UI 또는 애플리케이션 매니페스트를 선택합니다.
     * [UI를 통해 새 범위 공개](#expose-a-new-scope-through-the-ui)
-    * [응용 프로그램 매니페스트를 통해 새 범위 또는 역할 공개](#expose-a-new-scope-or-role-through-the-application-manifest)
+    * [애플리케이션 매니페스트를 통해 새 범위 또는 역할 공개](#expose-a-new-scope-or-role-through-the-application-manifest)
 
 ## <a name="expose-a-new-scope-through-the-ui"></a>UI를 통해 새 범위 공개
 
@@ -60,13 +60,13 @@ UI를 통해 새 범위를 공개하려면
 
 1. **범위 추가**를 선택합니다.
 
-1. **응용 프로그램 ID URI**를 설정하지 않은 경우 입력하라는 메시지가 표시됩니다. 애플리케이션 ID URI를 입력하거나, 제공된 항목을 사용한 다음, **저장 및 계속**을 선택합니다.
+1. **애플리케이션 ID URI**를 설정하지 않은 경우 입력하라는 메시지가 표시됩니다. 애플리케이션 ID URI를 입력하거나, 제공된 항목을 사용한 다음, **저장 및 계속**을 선택합니다.
 
 1. **범위 추가** 페이지가 나타나면 범위 정보를 입력합니다.
 
     | 필드 | 설명 |
     |-------|-------------|
-    | **범위 이름** | 의미 있는 범위 이름을 입력합니다.<br><br>예: `Employees.Read.All`. |
+    | **범위 이름** | 의미 있는 범위 이름을 입력합니다.<br><br>예: `Employees.Read.All` |
     | **동의할 수 있는 사람** | 범위를 사용자가 동의할 수 있는지 또는 관리자 동의가 필요한지 선택합니다. 높은 권한을 적용하려면 **관리자만**을 선택합니다. |
     | **관리자 동의 표시 이름** | 관리자에게 표시되는 의미 있는 범위 설명을 입력합니다.<br><br>예를 들어 `Read-only access to Employee records` |
     | **관리자 동의 설명** | 관리자에게 표시되는 의미 있는 범위 설명을 입력합니다.<br><br>예를 들어 `Allow the application to have read-only access to all Employee data.` |
@@ -80,7 +80,7 @@ UI를 통해 새 범위를 공개하려면
 
 1. **상태**를 설정하고 마치면 **범위 추가**를 선택합니다.
 
-1. [웹 API가 다른 응용 프로그램에 공개되는지 확인](#verify-the-web-api-is-exposed-to-other-applications)하기 위한 단계를 따릅니다.
+1. [웹 API가 다른 애플리케이션에 공개되는지 확인](#verify-the-web-api-is-exposed-to-other-applications)하기 위한 단계를 따릅니다.
 
 ## <a name="expose-a-new-scope-or-role-through-the-application-manifest"></a>애플리케이션 매니페스트를 통해 새 범위 또는 역할 공개
 
@@ -88,7 +88,7 @@ UI를 통해 새 범위를 공개하려면
 
 애플리케이션 매니페스트를 통해 새 범위 또는 역할을 공개하려면
 
-1. 앱의 **개요** 페이지에서 **매니페스트** 섹션을 선택합니다. 웹 기반 매니페스트 편집기가 열리면 포털 내에서 매니페스트를 **편집**할 수 있습니다. 필요에 따라 **다운로드**를 선택하고 로컬로 매니페스트를 편집하고 **업로드**를 사용하여 애플리케이션에 다시 적용할 수 있습니다.
+1. 앱의 **개요** 페이지에서 **매니페스트** 섹션을 선택합니다. 웹 기반 매니페스트 편집기가 열리면 포털 내에서 매니페스트를 **편집**할 수 있습니다. 필요에 따라 **다운로드**를 선택하고 로컬로 매니페스트를 편집하고 **업로드**를 사용하여 응용 프로그램에 다시 적용할 수 있습니다.
     
     다음 예제에서는 `oauth2Permissions` 컬렉션에 다음 JSON 요소를 추가하여 리소스/API에서 `Employees.Read.All`이라는 새 범위를 공개합니다.
 
@@ -116,12 +116,12 @@ UI를 통해 새 범위를 공개하려면
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>웹 API가 다른 애플리케이션에 공개되는지 확인합니다.
 
 1. Azure AD 테넌트로 돌아가서 **앱 등록**을 다시 선택한 다음, 구성하려는 클라이언트 애플리케이션을 찾아 선택합니다.
-1. [웹 API에 액세스하는 클라이언트 응용 프로그램 구성](#configure-a-client-application-to-access-web-apis)에서 개요로 설명한 단계를 반복합니다.
+1. [웹 API에 액세스하는 클라이언트 애플리케이션 구성](#configure-a-client-application-to-access-web-apis)에서 개요로 설명한 단계를 반복합니다.
 1. **API 선택** 단계가 되면 리소스를 선택합니다. 클라이언트 권한 요청에 사용할 수 있는 새 범위가 표시되어야 합니다.
 
 ## <a name="more-on-the-application-manifest"></a>애플리케이션 매니페스트에 대한 추가 정보
 
-애플리케이션 매니페스트는 Azure AD 애플리케이션의 ID 구성의 모든 특성을 정의하는 애플리케이션 엔터티를 업데이트하기 위한 메커니즘으로 사용됩니다. 애플리케이션 엔터티 및 해당 스키마에 대한 자세한 내용은 [Graph API 애플리케이션 엔터티 설명서](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)를 참조하세요. 이 문서에는 다음을 비롯하여 API에 대한 사용 권한을 지정하는 데 사용되는 애플리케이션 엔터티 멤버에 대한 전체 참조 정보가 포함됩니다.  
+응용 프로그램 매니페스트는 Azure AD 응용 프로그램의 ID 구성의 모든 특성을 정의하는 응용 프로그램 엔터티를 업데이트하기 위한 메커니즘으로 사용됩니다. 애플리케이션 엔터티 및 해당 스키마에 대한 자세한 내용은 [Graph API 애플리케이션 엔터티 설명서](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)를 참조하세요. 이 문서에는 다음을 비롯하여 API에 대한 사용 권한을 지정하는 데 사용되는 애플리케이션 엔터티 멤버에 대한 전체 참조 정보가 포함됩니다.  
 
 * 웹 API에 대한 [애플리케이션 권한](developer-glossary.md#permissions)을 정의하는 데 사용되는 [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) 엔터티의 컬렉션인 appRoles 멤버
 * 웹 API에 대한 [위임된 권한](developer-glossary.md#permissions)을 정의하는 데 사용되는 [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) 엔터티의 컬렉션인 oauth2Permissions 멤버
@@ -132,9 +132,9 @@ UI를 통해 새 범위를 공개하려면
 
 앱에 대한 다른 관련 앱 관리 빠른 시작에 대해 알아봅니다.
 
-* [Microsoft ID 플랫폼을 사용하여 응용 프로그램 등록](quickstart-register-app.md)
-* [웹 API에 액세스하는 클라이언트 응용 프로그램 구성](quickstart-configure-app-access-web-apis.md)
-* [응용 프로그램에서 지원되는 계정 수정](quickstart-modify-supported-accounts.md)
+* [Microsoft ID 플랫폼을 사용하여 애플리케이션 등록](quickstart-register-app.md)
+* [웹 API에 액세스하는 클라이언트 애플리케이션 구성](quickstart-configure-app-access-web-apis.md)
+* [애플리케이션에서 지원되는 계정 수정](quickstart-modify-supported-accounts.md)
 * [Microsoft ID 플랫폼을 사용하여 등록된 응용 프로그램 제거](quickstart-remove-app.md)
 
 등록된 애플리케이션 및 이들 간의 관계를 나타내는 두 개의 Azure AD 개체에 대한 자세한 내용은 [애플리케이션 개체 및 서비스 주체 개체](app-objects-and-service-principals.md)를 참조하세요.

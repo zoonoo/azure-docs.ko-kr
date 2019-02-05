@@ -6,16 +6,16 @@ services: cognitive-services
 author: alekh
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: overview
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: 273f2965a0fcaaa729175c5232da1aba69589eec
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 1792e279283608c81c0d4a08b77f9822816ed76d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364213"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221354"
 ---
 # <a name="what-is-custom-decision-service"></a>Custom Decision Service란?
 
@@ -44,13 +44,13 @@ Custom Decision Service는 웹 페이지 및 모바일 앱에 모두 적용할 �
 
 이 설명서에서 자주 나오는 몇 가지 용어가 있습니다.
 
-* **작업 집합**: Custom Decision Service에서 순위를 지정하는 콘텐츠 항목의 집합입니다. 이 집합은 *RSS* 또는 *Atom* 엔드포인트로 지정할 수 있습니다.
-* **순위**: Custom Decision Service에 대한 각 요청은 하나 이상의 작업 집합을 지정합니다. 시스템에서는 이러한 집합의 모든 콘텐츠 옵션을 선택하여 응답한 후 지정된 순위대로 반환합니다.
+* **작업 세트**: Custom Decision Service에서 순위를 지정하는 콘텐츠 항목 세트입니다. 이 집합은 *RSS* 또는 *Atom* 엔드포인트로 지정할 수 있습니다.
+* **순위**: ustom Decision Service에 대한 각 요청은 하나 이상의 작업 세트를 지정합니다. 시스템에서는 이러한 집합의 모든 콘텐츠 옵션을 선택하여 응답한 후 지정된 순위대로 반환합니다.
 * **콜백 함수**: 사용자가 지정하는 이 함수는 UI의 콘텐츠를 렌더링합니다. 콘텐츠는 Custom Decision Service에서 반환한 순위를 기준으로 순서대로 정렬됩니다.
 * **보상**: 사용자가 렌더링된 콘텐츠에 응답하는 방식에 대한 측정값입니다. Custom Decision Service는 클릭을 사용하여 사용자 응답을 측정합니다. 클릭은 애플리케이션에 삽입된 사용자 지정 코드를 사용하여 시스템에 보고됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* Custom Decision Service에 [응용 프로그램 등록](custom-decision-service-get-started-register.md)
+* Custom Decision Service에 [애플리케이션 등록](custom-decision-service-get-started-register.md)
 * [웹 페이지](custom-decision-service-get-started-browser.md) 또는 [스마트폰 앱](custom-decision-service-get-started-app.md) 최적화를 시작하세요.
 * 제공되는 기능에 대한 자세한 내용은 [API 참조](custom-decision-service-api-reference.md)에서 확인할 수 있습니다.

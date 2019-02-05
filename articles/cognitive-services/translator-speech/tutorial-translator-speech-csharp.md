@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jerkin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 6a53eaf2154162ab9ec85a5a75c2cd52962b53a9
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 01e56366fc8ae0e711664d35e95ac1aacc89730f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340429"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458502"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>자습서: C#의 Translator Speech 애플리케이션
 
@@ -360,7 +360,7 @@ private void Connect()
 
 `Connect()`의 상당한 부분은 변환 옵션을 유지하는 `SpeechClientOptions` 인스턴스(`SpeechClientOptions.cs` 참조)를 만드는 것과 관련되어 있습니다. 옵션에는 서비스에 연결하는 데 필요한 정보(예: 인증 키 및 호스트 이름)와 변환에 사용되는 기능이 포함됩니다. 여기서는 필드가 [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)로 노출되는 헤더 필드와 HTTP 매개 변수에 매핑됩니다.
 
-또한 `Connect()`는 변환할 음성 소스로 사용되는 오디오 입력 장치(`sampleProvider` 변수)를 만들고 초기화합니다. 이 디바이스는 마이크와 같은 하드웨어 입력 디바이스 또는 WAVE 오디오 데이터가 포함된 파일입니다.
+또한 `Connect()`는 변환할 음성 소스로 사용되는 오디오 입력 디바이스(`sampleProvider` 변수)를 만들고 초기화합니다. 이 디바이스는 마이크와 같은 하드웨어 입력 디바이스 또는 WAVE 오디오 데이터가 포함된 파일입니다.
 
 다음은 `speechClient` 클래스를 인스턴스화하고, 익명 함수를 후크하여 서비스의 텍스트 및 이진 응답을 처리하는 `ConnectAsync()` 메서드입니다.
 

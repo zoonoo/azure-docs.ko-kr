@@ -6,18 +6,18 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: f36609448819ed197cb92c0bc4d9cc0237fe6df8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 941cdd25eb6f16b580900fed6e41aa4bf8df15f7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466939"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224884"
 ---
-# <a name="quickstart-url-preview-in-javascript"></a>빠른 시작: JavaScript에서 URL Preview 사용 
+# <a name="quickstart-url-preview-in-javascript"></a>빠른 시작: JavaScript의 URL 미리 보기 
 
 다음 단일 페이지 애플리케이션은 JavaScript를 사용하여 SwiftKey 사이트에 대한 URL 미리 보기를 만듭니다. https://swiftkey.com/en 
 
@@ -34,7 +34,7 @@ ms.locfileid: "49466939"
 
 **원시 JSON 응답**
 
-````
+```
 {
   "_type": "WebPage",
   "name": "SwiftKey - Smart prediction technology for easier mobile typing",
@@ -46,7 +46,7 @@ ms.locfileid: "49466939"
   }
 }
 
-````
+```
 
 **실행 중인 데모**
 
@@ -54,7 +54,7 @@ ms.locfileid: "49466939"
 
 ## <a name="running-the-application"></a>애플리케이션 실행
 
-애플리케이션을 실행하려면:
+애플리케이션을 실행하려면
 
 1. `YOUR-SUBSCRIPTION-KEY` 값을 구독에 유효한 액세스 키로 바꿉니다.
 2. HTML 및 스크립트를 확장명이 .html인 파일에 저장합니다.

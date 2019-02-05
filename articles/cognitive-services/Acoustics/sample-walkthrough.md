@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: f5ea565e68579dfad601d1037daeb4113e3daa43
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 7d8ba2f25bd53b407ab6860bc57163a79b7d228a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901161"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174264"
 ---
 # <a name="unity-sample-walkthrough"></a>Unity 샘플 연습
 이것은 프로젝트 Acoustics 샘플의 연습 과정입니다. 프로젝트 Acoustics가 무엇인지에 대한 자세한 내용은 [프로젝트 Acoustics 소개](what-is-acoustics.md)를 참조하세요. 기존 Unity 프로젝트에 프로젝트 Acoustics 패키지를 추가하는 데 도움이 필요한 경우 [시작 가이드](getting-started.md)를 참조하세요.
@@ -36,7 +36,7 @@ ms.locfileid: "48901161"
 
 이 장면은 미리 준비되었으며, **계층 구조**에서 **MicrosoftAcoustics** prefab에 연결된 ACE 파일이 있습니다. 
 
-Unity 편집기에서 재생 단추를 클릭하여 장면에 어떤 소리가 나는지 들어봅니다. 바탕 화면에서 W, A, S, D 및 마우스를 사용하여 이동합니다. 장면에 음향이 어떻게 포함 또는 포함되지 않는지 비교하려면 **R** 단추를 눌러 오버레이 텍스트가 빨간색으로 변하면 “음향 : 사용 안 함”이라고 말합니다. 더 많은 컨트롤에 대한 키보드 바로 바기를 보려면 **F1** 키를 누릅니다. 모든 컨트롤은 마우스 오른쪽 단추를 클릭하여 수행할 작업을 선택하고 왼쪽 단추를 클릭하여 작업을 수행하도록 하여 사용할 수 있습니다.
+Unity 편집기에서 재생 단추를 클릭하여 장면에 어떤 소리가 나는지 들어봅니다. 바탕 화면에서 W, A, S, D 및 마우스를 사용하여 이동합니다. 장면에 음향이 어떻게 포함 또는 포함되지 않는지 비교하려면 **R** 단추를 눌러 오버레이 텍스트가 빨간색으로 변하면 "음향: 사용 안 함"이라고 말합니다. 더 많은 컨트롤에 대한 키보드 바로 바기를 보려면 **F1** 키를 누릅니다. 모든 컨트롤은 마우스 오른쪽 단추를 클릭하여 수행할 작업을 선택하고 왼쪽 단추를 클릭하여 작업을 수행하도록 하여 사용할 수 있습니다.
 
 ## <a name="targeting-other-platforms"></a>다른 플랫폼을 대상으로 지정
 샘플에는 Windows 데스크톱, UWP, Windows Mixed Reality, Android 및 Oculus Go에서 실행하기 위한 설정이 포함됩니다. 기본적으로 이 프로젝트는 Windows 데스크톱용으로 구성되어 있습니다. VR 플랫폼을 대상으로 지정하려면 플레이어 설정(**편집 > 프로젝트 설정 > 플레이어**)으로 이동한 후 **XR 설정**을 찾고 **Virtual Reality Supported**(가상 현실 지원) 확인란을 선택합니다.

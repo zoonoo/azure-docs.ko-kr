@@ -1,7 +1,6 @@
 ---
-title: Machine Learning 제품 옵션 비교
-titleSuffix: Microsoft
-description: Microsoft의 다양한 제품을 비교하여 기계 학습 모델을 빌드, 배포 및 관리합니다. 솔루션에 대해 선택할 제품을 결정합니다.
+title: Microsoft에서 기계 학습 기술 선택
+description: 기계 학습 모델을 빌드, 배포 및 관리하는 옵션을 비교합니다. 솔루션에 대해 어떤 Microsoft 제품을 선택할지 결정합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +8,13 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 1/17/2019
-ms.openlocfilehash: d7c7c383f51d8bcc2b1691724e8f22b43782c5e8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.date: 1/30/2019
+ms.openlocfilehash: 4d4d7c587dcc34b12ed757b7da54f5ad0b04e8cc
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242072"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451872"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Microsoft의 기계 학습 제품이란?
 

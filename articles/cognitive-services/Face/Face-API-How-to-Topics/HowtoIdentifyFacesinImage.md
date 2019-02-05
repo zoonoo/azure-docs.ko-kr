@@ -1,23 +1,23 @@
 ---
-title: '예: 이미지에서 얼굴 식별 - Face API'
+title: '예제: 이미지에서 얼굴 식별 - Face API'
 titleSuffix: Azure Cognitive Services
 description: Face API를 사용하여 이미지에서 얼굴을 식별합니다.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: a26f7d6057f92fd3ab92405ecca6965dbd6e37ad
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: c61852763353189321b8f98711928e0e8b3a389d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129074"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208094"
 ---
-# <a name="example-how-to-identify-faces-in-images"></a>예: 이미지에서 얼굴을 식별하는 방법
+# <a name="example-how-to-identify-faces-in-images"></a>예제: 이미지에서 얼굴을 식별하는 방법
 
 이 가이드에서는 미리 알려진 사람들로 만든 PersonGroups를 사용하여 알 수 없는 얼굴을 식별하는 방법을 보여 줍니다. 샘플은 Face API 클라이언트 라이브러리를 사용하여 C#에서 작성되었습니다.
 
@@ -49,7 +49,7 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 &subscription-key=<Subscription key>
 ```
 
-또는 구독 키를 HTTP 요청 헤더에서 지정할 수도 있습니다. **ocp-apim-subscription-key: &lt;Subscription Key&gt;** 클라이언트 라이브러리를 사용할 경우 구독 키가 FaceServiceClient 클래스의 생성자를 통해 전달됩니다. 예: 
+대안으로 HTTP 요청 헤더에서 구독 키 **ocp-apim-subscription-key: &lt;구독 키&gt;** 를 지정할 수도 있습니다. 클라이언트 라이브러리를 사용하는 경우 구독 키는 FaceServiceClient 클래스의 생성자를 통해 전달됩니다. 예: 
  
 ```CSharp 
 faceServiceClient = new FaceServiceClient("<Subscription Key>");
@@ -59,7 +59,7 @@ faceServiceClient = new FaceServiceClient("<Subscription Key>");
 
 ## <a name="step-2-create-the-persongroup"></a>2단계: PersonGroup 만들기
 
-이 단계에서는 세 명의 사용자인 Anna, Bill, Clare를 포함하는 "MyFriends"라는 PersonGroup을 만들었습니다. 각 사람은 몇 개의 얼굴을 등록했습니다. 얼굴은 이미지에서 검색되어야 합니다. 이러한 모든 단계를 수행하면 다음 이미지와 같은 PersonGroup이 생성됩니다.
+이 단계에서는 세 명의 사용자 Anna, Bill, Clare를 포함하는 "MyFriends"라는 PersonGroup을 만들었습니다. 각 사람은 몇 개의 얼굴을 등록했습니다. 얼굴은 이미지에서 검색되어야 합니다. 이러한 모든 단계를 수행하면 다음 이미지와 같은 PersonGroup이 생성됩니다.
 
 ![HowToIdentify1](../Images/group.image.1.jpg)
 

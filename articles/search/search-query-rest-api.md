@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 04/20/2018
 ms.custom: seodec2018
-ms.openlocfilehash: ccdb872646dded34cb50cd64f56733445132c4b7
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: e453e05a692e862179dcd78298b215a2384cba2c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316940"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092819"
 ---
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>REST API를 사용하여 Azure Search 인덱스 쿼리
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Azure Search REST API에 대한 모든 검색 작업의 주요 구성 요소는 
 서비스에는 *관리자 키* 및 *쿼리 키*가 있습니다.
 
 * 기본 및 보조 *관리 키* 는 서비스를 관리하며 인덱스, 인덱서 및 데이터 원본을 만들고 삭제하는 기능을 비롯한 모든 작업에 전체 권한을 부여합니다. 두 개의 키가 있으므로 기본 키를 다시 생성하려는 경우 보조 키를 사용하여 계속할 수 있고 반대도 가능합니다.
-* *쿼리 키* 는 인덱스 및 문서에 대한 읽기 전용 액세스를 부여하며 일반적으로 검색 요청을 실행하는 클라이언트 응용 프로그램에 배포됩니다.
+* *쿼리 키*는 인덱스 및 문서에 대한 읽기 전용 액세스를 부여하며 일반적으로 검색 요청을 실행하는 클라이언트 애플리케이션에 배포됩니다.
 
 인덱스를 쿼리하기 위해 쿼리 키 중 하나를 사용할 수 있습니다. 또한 쿼리에 관리 키를 사용할 수 있지만 [최소 권한의 원칙](https://en.wikipedia.org/wiki/Principle_of_least_privilege)에 따라 애플리케이션 코드에 쿼리 키를 사용해야 합니다.
 

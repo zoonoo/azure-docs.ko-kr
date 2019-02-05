@@ -1,21 +1,21 @@
 ---
-title: '예: 시작 - Knowledge Exploration Service API'
+title: '예제: 시작 - Knowledge Exploration Service API'
 titlesuffix: Azure Cognitive Services
 description: KES(Knowledge Exploration Service) API를 사용하여 학술 게시에 대한 대화형 검색 환경 엔진을 만듭니다.
 services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 6cee339793269af0e8060cce56f94fa81db6a6c5
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 14dc1ca90ecd342330425db840776fa67caa80b0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124018"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208145"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Knowledge Exploration Service 시작
 
@@ -41,7 +41,7 @@ ms.locfileid: "46124018"
 }
 ```
 
-여기서는 *Title*, *Year* 및 *Keyword*를 각각 문자열, 정수 및 문자열 특성으로 정의합니다. 작성자는 ID, 이름 및 소속으로 표시되므로 *Author.Id*, *Author.Name*, *Author.Affiliation*이라는 세 개의 하위 특성이 있는 복합 특성으로 *Author*를 정의합니다.
+여기서는 *Title*, *Year* 및 *Keyword*를 각각 문자열, 정수 및 문자열 특성으로 정의합니다. 작성자는 ID, 이름 및 소속으로 표시되므로 다음 세 가지 하위 특성이 있는 복합 특성으로 *Author*를 정의합니다. *Author.Id*, *Author.Name* 및 *Author.Affiliation*.
 
 기본적으로 특성은 *equals*, *starts_with*, *is_between*을 포함하여 데이터 형식에 사용 가능한 모든 작업을 지원합니다. 작성자 ID는 내부적으로만 식별자로 사용되므로 기본값을 재정의하고 *equals*를 유일한 인덱싱된 작업으로 지정합니다.
 
@@ -110,7 +110,7 @@ Azure 외부에서 프로토타입을 신속하게 생성하기 위해 [`kes.exe
 <grammar root="GetPapers">
 
   <!-- Import academic data schema-->
-  <import schema="Academic.schema" name="academic"/>
+  <import schema="Academic.schema" name="academic"/>
 
   <!-- Define root rule-->
   <rule id="GetPapers">

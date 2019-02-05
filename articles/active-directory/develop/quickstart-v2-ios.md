@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/23/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 49ced3277a659ddacef239c7a1394cbe5ce06ac9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2f91cfc6c391bb22ca5f75a7a72123b695380aff
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973612"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094311"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>빠른 시작: iOS 네이티브 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -37,9 +37,9 @@ ms.locfileid: "46973612"
 > #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 > 애플리케이션을 등록하고 애플리케이션 등록 정보를 솔루션에 추가하려면 다음을 수행합니다.
 > 1. [Microsoft 응용 프로그램 등록 포털](https://apps.dev.microsoft.com/portal/register-app)로 이동하여 응용 프로그램을 등록합니다.
-> 1. **응용 프로그램 이름** 상자에서 응용 프로그램의 이름을 입력합니다.
+> 1. **애플리케이션 이름** 상자에서 애플리케이션의 이름을 입력합니다.
 > 1. **단계별 설치** 확인란의 선택을 취소한 다음 **만들기**를 선택하도록 합니다.
-> 1. **플랫폼 추가**를 선택하고, **네이티브 응용 프로그램**을 선택한 다음 **저장**을 선택합니다.
+> 1. **플랫폼 추가**를 선택하고, **네이티브 애플리케이션**을 선택한 다음, **저장**을 선택합니다.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>1단계: 애플리케이션 구성
@@ -48,7 +48,7 @@ ms.locfileid: "46973612"
 > > [자동 변경]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![이미 구성됨](media/quickstart-v2-ios/green-check.png) 이 특성을 사용하여 응용 프로그램을 구성합니다.
+> > ![이미 구성됨](media/quickstart-v2-ios/green-check.png) 이 특성을 사용하여 애플리케이션을 구성합니다.
 
 #### <a name="step-2-download-your-web-server-or-project"></a>2단계: 웹 서버 또는 프로젝트 다운로드
 
@@ -114,7 +114,7 @@ ms.locfileid: "46973612"
 
 ### <a name="msal"></a>MSAL
 
-MSAL([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc))은 사용자를 로그인하고 Microsoft Azure Active Directory로 보호된 API 액세스에 사용하는 토큰을 요청하는 데 사용되는 라이브러리입니다. 다음 프로세스를 사용하여 애플리케이션에 MSAL을 추가할 수 있습니다.
+MSAL([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc))은 사용자를 로그인하고 Microsoft Azure Active Directory로 보호된 API 액세스에 사용하는 토큰을 요청하는 데 사용되는 라이브러리입니다. 다음 프로세스를 사용하여 응용 프로그램에 MSAL을 추가할 수 있습니다.
 
 ```
 $ vi Podfile
@@ -156,7 +156,7 @@ MSAL에는 토큰 가져오기에 사용되는 두 가지 메서드인 `acquireT
 
 일부 상황에서는 사용자가 Azure AD(Azure Active Directory) v2.0 엔드포인트를 조작해야 하며, 이로 인해 사용자 자격 증명의 유효성을 검사하거나 동의를 얻기 위해 시스템 브라우저로 컨텍스트 전환이 발생합니다. 일부 사례:
 
-* 처음으로 사용자가 애플리케이션에 로그인한 경우
+* 처음으로 사용자가 응용 프로그램에 로그인한 경우
 * 암호가 만료되어 사용자가 자격 증명을 다시 입력해야 할 경우
 * 애플리케이션이 사용자 동의가 필요한 리소스에 액세스를 요청하고 있는 경우
 * 2단계 인증이 필요한 경우
@@ -184,7 +184,7 @@ applicationContext.acquireTokenSilent(forScopes: self.kScopes, account: applicat
 
 ## <a name="next-steps"></a>다음 단계
 
-iOS 자습서에서 이 빠른 시작의 전체 설명을 포함하여 애플리케이션 및 새로운 기능 빌드에 대한 전체 단계별 가이드를 확인하세요.
+iOS 자습서에서 이 빠른 시작의 전체 설명을 포함하여 응용 프로그램 및 새로운 기능 빌드에 대한 전체 단계별 가이드를 확인하세요.
 
 ### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>이 빠른 시작에 사용되는 애플리케이션을 만드는 단계 알아보기
 

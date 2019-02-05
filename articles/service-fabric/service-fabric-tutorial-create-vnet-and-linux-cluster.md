@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 33b95c1b0e3d654ce8bb6eda3e96b7b3e9c9bc13
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: b494da1c87feafd1b9db8485d16a9dcf5b999e3d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831486"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101808"
 ---
 # <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>자습서: Azure 가상 네트워크에 Linux Service Fabric 클러스터 배포
 
@@ -46,7 +46,7 @@ ms.locfileid: "48831486"
 
 이 자습서를 시작하기 전에:
 
-* Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * [Service Fabric CLI](service-fabric-cli.md)를 설치합니다.
 * [Azure CLI](/cli/azure/install-azure-cli) 설치
 
@@ -88,21 +88,21 @@ Azure Key Vault는 Azure에서 서비스 패브릭 클러스터에 대한 인증
 **Microsoft.ServiceFabric/clusters** 리소스에서 다음과 같은 특성이 있는 Linux 클러스터가 배포됩니다.
 
 * 단일 노드 형식
-* 기본 노드 형식에서 5개의 노드(템플릿 매개 변수에서 구성 가능)
+* 기본 노드 형식의 5개 노드(템플릿 매개 변수에서 구성 가능)
 * OS: Ubuntu 16.04 LTS(템플릿 매개 변수에서 구성 가능)
 * 보안된 인증서(템플릿 매개 변수에서 구성 가능)
 * [DNS 서비스](service-fabric-dnsservice.md) 사용함
 * 브론즈의 [내구성 수준](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster)(템플릿 매개 변수에서 구성 가능)
 * 실버의 [안정성 수준](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster)(템플릿 매개 변수에서 구성 가능)
 * 클라이언트 연결 엔드포인트: 19000(템플릿 매개 변수에서 구성 가능)
-* 클라이언트 연결 엔드포인트: 19080(템플릿 매개 변수에서 구성 가능)
+* HTTP 게이트웨이 엔드포인트: 19080(템플릿 매개 변수에서 구성 가능)
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 
 **Microsoft.Network/loadBalancers** 리소스에서 부하 분산 장치가 구성되고 다음 포트에 대한 프로브 및 규칙이 설정됩니다.
 
 * 클라이언트 연결 엔드포인트: 19000
-* HTTP 게이트웨이 엔드포인트 19080
+* HTTP 게이트웨이 엔드포인트: 19080
 * 애플리케이션 포트: 80
 * 애플리케이션 포트: 443
 

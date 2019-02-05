@@ -6,22 +6,22 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: bd859183a13e0f8a21cdd2eabb464b718e949464
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1295d071fa3ad99aabd2649f7b7e0b7fe1f86584
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212219"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226862"
 ---
 # <a name="what-is-qna-maker"></a>QnA Maker란?
 
 QnA Maker는 데이터를 통해 대화식, 질문 및 답변 레이어를 만드는 클라우드 기반 API 서비스입니다. 
 
-QnA Maker를 사용하여 FAQ(자주 묻는 질문) URL, 제품 설명서, 지원 문서, 사용자 지정 질문 및 답변과 같은 반구조화된 콘텐츠로 KB(기술 자료)를 만들 수 있습니다. QnA Maker 서비스는 기술 자료의 QnA에서 사용자의 자연어 질문에 가능한 최상의 답변과 일치시켜 대답합니다.
+QnA Maker를 사용하면 FAQ(자주 묻는 질문) URL, 제품 설명서, 지원 문서 및 사용자 지정 질문 및 답변과 같은 반구조화된 콘텐츠로 KB(기술 자료)를 만들 수 있습니다. QnA Maker 서비스는 기술 자료의 QnA에서 사용자의 자연어 질문에 가능한 최상의 답변과 일치시켜 대답합니다.
 
 사용하기 쉬운 [웹 포털](https://qnamaker.ai)을 통해 개발자 경험없이도 서비스를 생성, 관리, 학습 및 게시 작업을 수행할 수 있습니다. 서비스가 엔드포인트에 게시되면 챗봇과 같은 클라이언트 애플리케이션에서 사용자와의 대화를 관리하여 질문을 받고 이에 답변할 수 있습니다. 
 
@@ -31,9 +31,9 @@ QnA Maker를 사용하여 FAQ(자주 묻는 질문) URL, 제품 설명서, 지�
 
 QnA Maker는 데이터를 이용하는 두 가지 핵심 서비스를 제공합니다.
 
-* **추출**: 구조화된 질의 응답 데이터는 FAQ 및 제품 설명서와 같은 구조적 혹은 반구조적 [데이터 원본](../Concepts/data-sources-supported.md)에서 추출됩니다. 이 추출은 편집 프로세스의 일환으로 KB [만들기](https://aka.ms/qnamaker-docs-createkb) 등의 일부로 수행할 수 있습니다.
+* **추출**: 정형 질의 응답 데이터는 FAQ 및 제품 설명서 같은 정형 및 반정형 [데이터 원본](../Concepts/data-sources-supported.md)에서 추출됩니다. 이 추출은 편집 프로세스의 일환으로 KB [만들기](https://aka.ms/qnamaker-docs-createkb) 등의 일부로 수행할 수 있습니다.
 
-* **일치**: 기술 자료가 [학습되고 테스트](https://aka.ms/qnamaker-docs-trainkb)되면 [게시](https://aka.ms/qnamaker-docs-publishkb)합니다. 이렇게 하면 QnA Maker 기술 자료에 엔드포인트를 사용할 수 있게 되며, 이를 봇 또는 클라이언트 응용 프로그램에서 사용할 수 있습니다. 이 엔드포인트는 사용자 질문을 받아들이고, 기술 자료에서 신뢰도 점수가 높은 최상의 결과를 반환합니다.
+* **일치**: 기술 자료가 [학습 및 테스트](https://aka.ms/qnamaker-docs-trainkb)되면 [게시](https://aka.ms/qnamaker-docs-publishkb)합니다. 이렇게 하면 QnA Maker 기술 자료에 엔드포인트를 사용할 수 있게 되며, 이를 봇 또는 클라이언트 응용 프로그램에서 사용할 수 있습니다. 이 엔드포인트는 사용자 질문을 받아들이고, 기술 자료에서 신뢰도 점수가 높은 최상의 결과를 반환합니다.
 
 ```JSON
 {

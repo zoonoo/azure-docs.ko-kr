@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: e96119abd4fc77c576fb65281c3f48b8263e020d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: e240cbadbee87938107c4a9bf034c47db42acf92
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849977"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098649"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -104,7 +104,7 @@ Azure Cost Management는 Azure 서비스에 대한 비용 절감 권장 사항�
 5. **임계값** 탭을 선택한 다음, **실제 비용 대 임계값**을 선택합니다. 
    1. **빨간색 경고** 임계값 상자에 10000을 입력합니다. 
    2. **노란색 경고** 임계값 상자에 9000을 입력합니다. 
-   3. **연속되는 경고 수** 상자에 수신할 연속되는 경고 수를 입력합니다. 지정한 총 경고 수를 받으면 추가 경고가 전송되지 않습니다. 
+   3. **연속되는 경고 수** 상자에 수신할 연속 경고 수를 입력합니다. 지정한 총 경고 수를 받으면 추가 경고가 전송되지 않습니다. 
 6. **저장**을 선택합니다.
 
 ![지출 임계값에 따라 빨간색 및 노란색 경고를 보여주는 예제](./media/tutorial-review-usage/schedule-alert01.png)

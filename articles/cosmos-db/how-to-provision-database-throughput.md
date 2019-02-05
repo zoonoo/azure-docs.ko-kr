@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 7c253141e0e6e76f845d08e68a1d79949fe811e8
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c648522e689c64de8e7e09b85ca3b6eb26b6945b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034236"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477202"
 ---
-# <a name="provision-throughput-for-a-database-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터베이스에 대한 처리량 프로비전
+# <a name="provision-throughput-on-an-azure-cosmos-database"></a>Azure Cosmos 데이터베이스의 프로비전 처리량
 
 이 문서에서는 Azure Cosmos DB의 데이터베이스에 대한 처리량을 프로비전하는 방법을 설명합니다. 단일 [컨테이너](how-to-provision-container-throughput.md) 또는 데이터베이스의 처리량을 프로비전하고 그 안에 있는 컨테이너 간에 처리량을 공유할 수 있습니다. Azure Portal 또는 Cosmos DB SDK를 사용하여 데이터베이스 수준 처리량을 프로비전할 수 있습니다.
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: e0ad51bd2370cd8b7569d76e5d91b606928eea6d
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: a48a2ebc64d156d2755a2bef32672bc58b57ad00
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189357"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911256"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>빠른 시작: Azure Portal에서 Windows 디바이스로 첫 번째 IoT Edge 모듈 배포 - 미리 보기
 
@@ -104,7 +104,7 @@ IoT Edge 디바이스는 일반적인 IoT 디바이스와 다르게 작동하며
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. JSON 출력에서 연결 문자열을 복사하여 저장합니다. 다음 섹션에서 이 값을 사용하여 IoT Edge 런타임을 구성할 것입니다.
+3. JSON 출력에서 `cs` 키를 복사하여 저장합니다. 이 값은 디바이스 연결 문자열입니다. 다음 섹션에서 이 연결 문자열을 사용하여 IoT Edge 런타임을 구성할 것입니다.
 
    ![CLI 출력에서 연결 문자열 검색](./media/quickstart/retrieve-connection-string.png)
 
@@ -171,7 +171,9 @@ PowerShell을 사용하여 IoT Edge 런타임을 다운로드하여 설치합니
 
    ![디바이스에서 하나의 모듈 보기](./media/quickstart/iotedge-list-1.png)
 
-IoT Edge 장치가 구성되었습니다. 클라우드 배포 모듈을 실행할 준비가 완료된 것입니다.
+특히 용량 또는 인터넷 액세스가 제한된 디바이스를 사용하는 경우 설치를 완료하고 IoT Edge 에이전트 모듈이 시작될 때까지 몇 분 정도 걸릴 수 있습니다. 
+
+IoT Edge 디바이스가 구성되었습니다. 클라우드 배포 모듈을 실행할 준비가 완료된 것입니다.
 
 ## <a name="deploy-a-module"></a>모듈 배포
 

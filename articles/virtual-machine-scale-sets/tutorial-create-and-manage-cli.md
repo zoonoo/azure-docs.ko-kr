@@ -3,7 +3,7 @@ title: 자습서 - Azure 가상 머신 확장 집합 만들기 및 관리 | Micr
 description: Azure CLI를 사용하여 인스턴스를 시작하고 중지하는 방법, 확장 집합 용량을 변경하는 방법 등의 몇 가지 일반적인 관리 작업과 함께 가상 머신 확장 집합을 만드는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 263a2ddd1cf42348678488a02ed0b97a7ed1304c
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 9abf1d1105c112051041688f1d4305c543b148ce
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466140"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179483"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 가상 머신 확장 집합 만들기 및 관리
 가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 가상 머신 확장 집합의 수명 주기 동안 하나 이상의 관리 작업을 실행해야 합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -51,7 +51,7 @@ az group create --name myResourceGroup --location eastus
 
 
 ## <a name="create-a-scale-set"></a>확장 집합 만들기
-[az vmss create](/cli/azure/vmss#az_vmss_create) 명령을 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 *myScaleSet*이라는 확장 집합을 만들고, SSH 키가 없는 경우 이 키를 생성합니다.
+[az vmss create](/cli/azure/vmss) 명령을 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 *myScaleSet*이라는 확장 집합을 만들고, SSH 키가 없는 경우 이 키를 생성합니다.
 
 ```azurecli-interactive
 az vmss create \
@@ -98,7 +98,7 @@ az vmss get-instance-view \
 ## <a name="list-connection-information"></a>연결 정보 나열
 트래픽을 개별 VM 인스턴스로 라우팅하는 부하 분산 장치에 공용 IP 주소가 할당됩니다. NAT(Network Address Translation) 규칙은 기본적으로 지정된 포트의 각 VM에 원격 연결 트래픽을 전달하는 Azure 부하 분산 장치에 추가됩니다. 확장 집합의 VM 인스턴스에 연결하려면 할당된 공용 IP 주소와 포트 번호에 대한 원격 연결을 만듭니다.
 
-확장 집합의 VM 인스턴스에 연결할 주소와 포트를 나열하려면 [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info)를 사용합니다.
+확장 집합의 VM 인스턴스에 연결할 주소와 포트를 나열하려면 [az vmss list-instance-connection-info](/cli/azure/vmss)를 사용합니다.
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -192,7 +192,7 @@ VM 인스턴스 크기 또는 *SKU*에 따라 VM 인스턴스에 사용할 수 �
 ### <a name="vm-instance-sizes"></a>VM 인스턴스 크기
 다음 표에서는 일반적인 VM 크기를 사용 사례로 분류하고 있습니다.
 
-| type                     | 일반적인 크기           |    설명       |
+| Type                     | 일반적인 크기           |    설명       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [범용](../virtual-machines/linux/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 애플리케이션 및 데이터 솔루션에 적합합니다.  |
 | [Compute에 최적화](../virtual-machines/linux/sizes-compute.md)   | Fs, F             | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
@@ -202,7 +202,7 @@ VM 인스턴스 크기 또는 *SKU*에 따라 VM 인스턴스에 사용할 수 �
 | [고성능](../virtual-machines/linux/sizes-hpc.md) | H, A8-11          | 당사의 가장 강력한 CPU VM으로, 필요한 경우 처리량이 높은 네트워크 인터페이스(RDMA)도 제공합니다. 
 
 ### <a name="find-available-vm-instance-sizes"></a>사용 가능한 VM 인스턴스 크기 찾기
-특정 지역에서 사용할 수 있는 VM 인스턴스 크기의 목록을 보려면 [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes) 명령을 사용합니다.
+특정 지역에서 사용할 수 있는 VM 인스턴스 크기의 목록을 보려면 [az vm list-sizes](/cli/azure/vm) 명령을 사용합니다.
 
 ```azurecli-interactive
 az vm list-sizes --location eastus --output table
@@ -227,7 +227,7 @@ az vm list-sizes --location eastus --output table
 ```
 
 ### <a name="create-a-scale-set-with-a-specific-vm-instance-size"></a>특정 VM 인스턴스 크기로 확장 집합 만들기
-자습서의 시작 부분에서 확장 집합을 만들 때 VM 인스턴스에 대해 *Standard_D1_v2*의 기본 VM SKU가 제공되었습니다. [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes)의 출력에 따라 다른 VM 인스턴스 크기를 지정할 수 있습니다. 다음 예제에서는 *Standard_F1*의 VM 인스턴스 크기를 지정하는 `--vm-sku` 매개 변수를 사용하여 확장 집합을 만듭니다. 모든 확장 집합 리소스와 VM 인스턴스를 만들고 구성하는 데 몇 분이 걸리기 때문에 다음 확장 집합을 배포할 필요가 없습니다.
+자습서의 시작 부분에서 확장 집합을 만들 때 VM 인스턴스에 대해 *Standard_D1_v2*의 기본 VM SKU가 제공되었습니다. [az vm list-sizes](/cli/azure/vm)의 출력에 따라 다른 VM 인스턴스 크기를 지정할 수 있습니다. 다음 예제에서는 *Standard_F1*의 VM 인스턴스 크기를 지정하는 `--vm-sku` 매개 변수를 사용하여 확장 집합을 만듭니다. 모든 확장 집합 리소스와 VM 인스턴스를 만들고 구성하는 데 몇 분이 걸리기 때문에 다음 확장 집합을 배포할 필요가 없습니다.
 
 ```azurecli-interactive
 az vmss create \
@@ -241,7 +241,7 @@ az vmss create \
 
 
 ## <a name="change-the-capacity-of-a-scale-set"></a>확장 집합의 용량 변경
-자습서의 시작 부분에서 확장 집합을 만들 때 두 개의 VM 인스턴스가 기본적으로 배포되었습니다. [az vmss create](/cli/azure/vmss#az_vmss_create)에 `--instance-count` 매개 변수를 지정하여 확장 집합으로 만든 인스턴스의 수를 변경할 수 있습니다. 기존 확장 집합의 VM 인스턴스 수를 늘리거나 줄이려면 용량을 수동으로 변경할 수 있습니다. 확장 집합은 필요한 수의 VM 인스턴스를 만들거나 제거한 다음, 부하 분산 장치에서 트래픽을 분산하도록 구성합니다.
+자습서의 시작 부분에서 확장 집합을 만들 때 두 개의 VM 인스턴스가 기본적으로 배포되었습니다. [az vmss create](/cli/azure/vmss)에 `--instance-count` 매개 변수를 지정하여 확장 집합으로 만든 인스턴스의 수를 변경할 수 있습니다. 기존 확장 집합의 VM 인스턴스 수를 늘리거나 줄이려면 용량을 수동으로 변경할 수 있습니다. 확장 집합은 필요한 수의 VM 인스턴스를 만들거나 제거한 다음, 부하 분산 장치에서 트래픽을 분산하도록 구성합니다.
 
 확장 집합의 VM 인스턴스 수를 수동으로 늘리거나 줄이려면 [az vmss scale](/cli/azure/vmss#az_vmss_scale)을 사용합니다. 다음 예제에서는 확장 집합의 VM 인스턴스 수를 *3*으로 설정합니다.
 

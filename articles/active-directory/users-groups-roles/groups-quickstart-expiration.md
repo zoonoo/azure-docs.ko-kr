@@ -7,18 +7,18 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: quickstart
 ms.date: 08/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 7008943e9077cbad3c58de43f64b105f35931bf3
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 6d2b5201c41ba9d5c849976f0227e9abadea7658
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "40208931"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165237"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 Office 365 그룹이 만료되도록 설정
 
@@ -54,7 +54,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
   
   ![만료 설정](./media/groups-quickstart-expiration/expiration-settings.png)
 
-2. 만료 간격을 설정합니다. 미리 설정된 값을 선택하거나 31일보다 큰 사용자 지정 값을 입력합니다. 
+2. 만료 간격을 설정합니다. 미리 설정된 값을 선택하거나 31일보다 큰 사용자 지정 값을 입력합니다. 
 
 3. 그룹에 소유자가 없는 경우 만료 알림을 전송할 이메일 주소를 입력합니다.
 

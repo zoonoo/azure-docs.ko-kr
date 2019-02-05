@@ -4,23 +4,23 @@ titleSuffix: Azure Machine Learning service
 description: 이 자습서의 1부에서는 Azure Machine Learning SDK를 사용하여 회귀 모델링을 위해 Python으로 데이터를 준비하는 방법을 배웁니다.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: tutorial
 author: cforbe
 ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: eb4d94d93a72844cfa869bd74aef6eeb34b0f8e9
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c199a403e65bd084428fd45e8dc67cca214f5f9f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817506"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251285"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>자습서: 회귀 모델링을 위한 데이터 준비
 
-이 자습서에서는 Azure Machine Learning Data Prep SDK를 사용하여 회귀 모델링을 위해 데이터를 준비하는 방법을 배웁니다. 다양한 변환을 실행하여 두 개의 서로 다른 NYC 택시 데이터 세트를 필터링하고 결합합니다.  
+이 자습서에서는 Azure Machine Learning Data Prep SDK를 사용하여 회귀 모델링을 위해 데이터를 준비하는 방법을 배웁니다. 다양한 변환을 실행하여 두 개의 서로 다른 NYC 택시 데이터 세트를 필터링하고 결합합니다.
 
 이 자습서는 **2부로 구성된 자습서 시리즈 중 제1부**입니다. 이 자습서 시리즈를 마치면 데이터 기능에 대해 모델을 학습하여 택시 운행 비용을 예측할 수 있습니다. 이러한 기능으로는 날짜 및 시간, 승객 수, 위치 선택이 포함됩니다.
 
@@ -45,9 +45,14 @@ ms.locfileid: "54817506"
 
 SDK를 가져오는 것부터 시작합니다.
 
-
 ```python
 import azureml.dataprep as dprep
+```
+
+사용자 고유의 Python 환경에서 자습서를 수행하는 경우 필요한 패키지를 설치하려면 다음을 사용합니다.
+
+```shell
+pip install azureml-dataprep
 ```
 
 ## <a name="load-data"></a>데이터 로드
@@ -61,13 +66,15 @@ dataset_root = "https://dprepdata.blob.core.windows.net/demo"
 green_path = "/".join([dataset_root, "green-small/*"])
 yellow_path = "/".join([dataset_root, "yellow-small/*"])
 
-green_df = dprep.read_csv(path=green_path, header=dprep.PromoteHeadersMode.GROUPED)
+green_df_raw = dprep.read_csv(path=green_path, header=dprep.PromoteHeadersMode.GROUPED)
 # auto_read_file automatically identifies and parses the file type, which is useful when you don't know the file type.
-yellow_df = dprep.auto_read_file(path=yellow_path)
+yellow_df_raw = dprep.auto_read_file(path=yellow_path)
 
-display(green_df.head(5))
-display(yellow_df.head(5))
+display(green_df_raw.head(5))
+display(yellow_df_raw.head(5))
 ```
+
+`Dataflow` 개체는 데이터 프레임과 비슷하며, 데이터에 대한 일련의 지연 평가된 변경할 수 없는 작업을 나타냅니다. 사용 가능한 다른 변환 및 필터링 메서드를 호출하여 작업을 추가할 수 있습니다. `Dataflow`에 작업을 추가한 결과는 항상 새로운 `Dataflow` 개체입니다.
 
 ## <a name="cleanse-data"></a>데이터 정리
 
@@ -82,11 +89,11 @@ useful_columns = [
 ]
 ```
 
-먼저 녹색 택시 데이터를 작업하여 노란색 택시 데이터와 결합할 수 있는 유효한 모양으로 가져옵니다. `tmp_df`라는 임시 데이터 흐름을 만듭니다. 만들어 둔 바로 가기 변환 변수를 사용하여 `replace_na()`, `drop_nulls()` 및 `keep_columns()` 함수를 호출합니다. 또한 데이터 프레임의 모든 열 이름을 `useful_columns` 변수의 이름과 일치하도록 바꿉니다.
+먼저 녹색 택시 데이터를 작업하여 노란색 택시 데이터와 결합할 수 있는 유효한 모양으로 가져옵니다. 만들어 둔 바로 가기 변환 변수를 사용하여 `replace_na()`, `drop_nulls()` 및 `keep_columns()` 함수를 호출합니다. 또한 데이터 프레임의 모든 열 이름을 `useful_columns` 변수의 이름과 일치하도록 바꿉니다.
 
 
 ```python
-tmp_df = (green_df
+green_df = (green_df_raw
     .replace_na(columns=all_columns)
     .drop_nulls(*drop_if_all_null)
     .rename_columns(column_pairs={
@@ -105,7 +112,7 @@ tmp_df = (green_df
         "Trip_distance": "distance"
      })
     .keep_columns(columns=useful_columns))
-tmp_df.head(5)
+green_df.head(5)
 ```
 
 <div>
@@ -211,17 +218,10 @@ tmp_df.head(5)
 </table>
 </div>
 
-`green_df` 변수를 이전 단계에서 `tmp_df` 데이터 흐름에 대해 수행한 변환으로 덮어씁니다.
+노란색 택시 데이터에 대해 동일한 변환 단계를 실행합니다. 이러한 함수는 데이터 세트에서 null 데이터가 제거되도록 보장하며, 이는 기계 학습 모델의 정확도를 높이는 데 도움이 됩니다.
 
 ```python
-green_df = tmp_df
-```
-
-노란색 택시 데이터에 대해 동일한 변환 단계를 실행합니다.
-
-
-```python
-tmp_df = (yellow_df
+yellow_df = (yellow_df_raw
     .replace_na(columns=all_columns)
     .drop_nulls(*drop_if_all_null)
     .rename_columns(column_pairs={
@@ -246,20 +246,18 @@ tmp_df = (yellow_df
         "trip_distance": "distance"
     })
     .keep_columns(columns=useful_columns))
-tmp_df.head(5)
+yellow_df.head(5)
 ```
 
-다시 `yellow_df` 데이터 흐름을 `tmp_df` 데이터 흐름으로 덮어씁니다. 그런 다음, 녹색 택시 데이터에서 `append_rows()` 함수를 호출하여 노란색 택시 데이터를 추가합니다. 새로 조합된 데이터 프레임이 생성됩니다.
-
+녹색 택시 데이터에서 `append_rows()` 함수를 호출하여 노란색 택시 데이터를 추가합니다. 새로 조합된 데이터 프레임이 생성됩니다.
 
 ```python
-yellow_df = tmp_df
 combined_df = green_df.append_rows([yellow_df])
 ```
 
-### <a name="convert-types-and-filter"></a>형식 및 필터 변환 
+### <a name="convert-types-and-filter"></a>형식 및 필터 변환
 
-승차 및 하차 좌표 요약 통계를 조사하여 데이터가 어떤 식으로 분산되는지 확인합니다. 먼저 위도 및 경도 필드를 10진 형식으로 변경하는 `TypeConverter` 개체를 정의합니다. 다음으로, 출력을 위도 및 경도 필드로만 제한하는 `keep_columns()` 함수를 호출한 다음, `get_profile()` 함수를 호출합니다.
+승차 및 하차 좌표 요약 통계를 조사하여 데이터가 어떤 식으로 분산되는지 확인합니다. 먼저 위도 및 경도 필드를 10진 형식으로 변경하는 `TypeConverter` 개체를 정의합니다. 다음으로, 출력을 위도 및 경도 필드로만 제한하는 `keep_columns()` 함수를 호출한 다음, `get_profile()` 함수를 호출합니다. 이러한 함수 호출은 누락된 또는 범위를 벗어나는 좌표를 쉽게 평가할 수 있도록 경도/위도 필드만 표시하는 요약된 데이터 흐름 보기를 생성합니다.
 
 
 ```python
@@ -271,7 +269,7 @@ combined_df = combined_df.set_column_types(type_conversions={
     "dropoff_latitude": decimal_type
 })
 combined_df.keep_columns(columns=[
-    "pickup_longitude", "pickup_latitude", 
+    "pickup_longitude", "pickup_latitude",
     "dropoff_longitude", "dropoff_latitude"
 ]).get_profile()
 ```
@@ -283,7 +281,7 @@ combined_df.keep_columns(columns=[
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>type</th>
+      <th>Type</th>
       <th>Min</th>
       <th>max</th>
       <th>개수</th>
@@ -403,15 +401,15 @@ combined_df.keep_columns(columns=[
 
 
 
-요약 통계 출력을 보면 누락된 좌표와 뉴욕시가 아닌 좌표가 있습니다. 도시 경계 밖에 있는 위치의 좌표를 필터링합니다. `filter()` 함수 내에서 열 필터 명령을 연결하고 각 필드의 최소 및 최대 경계를 정의합니다. 그런 다음, `get_profile()` 함수를 다시 호출하여 변환을 확인합니다.
+요약 통계 출력을 보면 누락된 좌표와 뉴욕시가 아닌 좌표가 있습니다(이는 주관적 분석에서 결정됨). 도시 경계 밖에 있는 위치의 좌표를 필터링합니다. `filter()` 함수 내에서 열 필터 명령을 연결하고 각 필드의 최소 및 최대 경계를 정의합니다. 그런 다음, `get_profile()` 함수를 다시 호출하여 변환을 확인합니다.
 
 
 ```python
-tmp_df = (combined_df
+latlong_filtered_df = (combined_df
     .drop_nulls(
         columns=["pickup_longitude", "pickup_latitude", "dropoff_longitude", "dropoff_latitude"],
         column_relationship=dprep.ColumnRelationship(dprep.ColumnRelationship.ANY)
-    ) 
+    )
     .filter(dprep.f_and(
         dprep.col("pickup_longitude") <= -73.72,
         dprep.col("pickup_longitude") >= -74.09,
@@ -422,8 +420,8 @@ tmp_df = (combined_df
         dprep.col("dropoff_latitude") <= 40.88,
         dprep.col("dropoff_latitude") >= 40.53
     )))
-tmp_df.keep_columns(columns=[
-    "pickup_longitude", "pickup_latitude", 
+latlong_filtered_df.keep_columns(columns=[
+    "pickup_longitude", "pickup_latitude",
     "dropoff_longitude", "dropoff_latitude"
 ]).get_profile()
 ```
@@ -435,7 +433,7 @@ tmp_df.keep_columns(columns=[
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>type</th>
+      <th>Type</th>
       <th>Min</th>
       <th>max</th>
       <th>개수</th>
@@ -553,22 +551,13 @@ tmp_df.keep_columns(columns=[
   </tbody>
 </table>
 
-
-
-`combined_df` 데이터 흐름을 `tmp_df` 데이터 흐름에 수행한 변환으로 덮어씁니다.
-
-
-```python
-combined_df = tmp_df
-```
-
 ### <a name="split-and-rename-columns"></a>열 분할 및 이름 바꾸기
 
-`store_forward` 열에 대한 데이터 프로필을 살펴봅니다.
+`store_forward` 열에 대한 데이터 프로필을 살펴봅니다. 이 필드는 택시가 운행 후 서버에 연결되지 않아서 운행 데이터를 메모리에 저장해야 하고, 나중에 서버에 연결되면 데이터를 전송해야 하는 `Y`인 부울 플래그입니다.
 
 
 ```python
-combined_df.keep_columns(columns='store_forward').get_profile()
+latlong_filtered_df.keep_columns(columns='store_forward').get_profile()
 ```
 
 
@@ -578,7 +567,7 @@ combined_df.keep_columns(columns='store_forward').get_profile()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>type</th>
+      <th>Type</th>
       <th>Min</th>
       <th>max</th>
       <th>개수</th>
@@ -633,25 +622,25 @@ combined_df.keep_columns(columns='store_forward').get_profile()
 
 
 ```python
-combined_df = combined_df.replace(columns="store_forward", find="0", replace_with="N").fill_nulls("store_forward", "N")
+replaced_stfor_vals_df = latlong_filtered_df.replace(columns="store_forward", find="0", replace_with="N").fill_nulls("store_forward", "N")
 ```
 
-`distance` 필드에서 `replace` 함수를 실행합니다. 그러면 이 함수는 레이블이 `.00`으로 잘못 지정된 거리 값의 형식을 다시 지정하고 Null을 0으로 채웁니다. `distance` 필드를 숫자 형식으로 변환합니다.
+`distance` 필드에서 `replace` 함수를 실행합니다. 그러면 이 함수는 레이블이 `.00`으로 잘못 지정된 거리 값의 형식을 다시 지정하고 Null을 0으로 채웁니다. `distance` 필드를 숫자 형식으로 변환합니다. 이처럼 잘못된 데이터 요소는 택시의 데이터 컬렉션 시스템 이상이 그 원인일 수 있습니다.
 
 
 ```python
-combined_df = combined_df.replace(columns="distance", find=".00", replace_with=0).fill_nulls("distance", 0)
-combined_df = combined_df.to_number(["distance"])
+replaced_distance_vals_df = replaced_stfor_vals_df.replace(columns="distance", find=".00", replace_with=0).fill_nulls("distance", 0)
+replaced_distance_vals_df = replaced_distance_vals_df.to_number(["distance"])
 ```
 
 승차 및 하차 날짜/시간 값을 각각 날짜 및 시간 열로 분할합니다. `split_column_by_example()` 함수를 사용하여 분할합니다. 이 예에서는 `split_column_by_example()` 함수의 선택적 매개 변수 `example`이 생략되었습니다. 따라서 함수가 데이터를 기반으로 분할 위치를 자동으로 결정합니다.
 
 
 ```python
-tmp_df = (combined_df
+time_split_df = (replaced_distance_vals_df
     .split_column_by_example(source_column="pickup_datetime")
     .split_column_by_example(source_column="dropoff_datetime"))
-tmp_df.head(5)
+time_split_df.head(5)
 ```
 
 <div>
@@ -781,27 +770,23 @@ tmp_df.head(5)
 </table>
 </div>
 
-
 `split_column_by_example()` 함수에서 생성한 열 이름을 의미 있는 이름으로 바꿉니다.
 
-
 ```python
-tmp_df_renamed = (tmp_df
+renamed_col_df = (time_split_df
     .rename_columns(column_pairs={
         "pickup_datetime_1": "pickup_date",
         "pickup_datetime_2": "pickup_time",
         "dropoff_datetime_1": "dropoff_date",
         "dropoff_datetime_2": "dropoff_time"
     }))
-tmp_df_renamed.head(5)
+renamed_col_df.head(5)
 ```
 
-`combined_df` 데이터 흐름을 실행된 변환으로 덮어씁니다. 모든 변환이 끝난 후 `get_profile()` 함수를 호출하여 전체 요약 통계를 봅니다.
-
+모든 정리 단계가 끝난 후 `get_profile()` 함수를 호출하여 전체 요약 통계를 봅니다.
 
 ```python
-combined_df = tmp_df_renamed
-combined_df.get_profile()
+renamed_col_df.get_profile()
 ```
 
 ## <a name="transform-data"></a>데이터 변환
@@ -810,12 +795,14 @@ combined_df.get_profile()
 
 새 기능을 생성한 후에는 새로 생성된 기능이 기본 기능이 되므로 `drop_columns()` 함수를 사용하여 원래 필드를 삭제합니다. 의미 있는 설명을 사용하도록 나머지 필드의 이름을 바꿉니다.
 
+이 방식으로 데이터를 변환하여 새로운 시간 기반 기능을 만들면 기계 학습 모델 정확도가 향상됩니다. 예를 들어 평일에 대한 새 기능을 생성하면 평일과 택시 요금 간의 관계를 설정하는 데 도움이 되며, 특정 요일에는 수요가 많아 요금이 더 비싼 경우가 자주 있습니다.
+
 
 ```python
-tmp_df = (combined_df
+transformed_features_df = (renamed_col_df
     .derive_column_by_example(
-        source_columns="pickup_date", 
-        new_column_name="pickup_weekday", 
+        source_columns="pickup_date",
+        new_column_name="pickup_weekday",
         example_data=[("2009-01-04", "Sunday"), ("2013-08-22", "Thursday")]
     )
     .derive_column_by_example(
@@ -823,17 +810,17 @@ tmp_df = (combined_df
         new_column_name="dropoff_weekday",
         example_data=[("2013-08-22", "Thursday"), ("2013-11-03", "Sunday")]
     )
-          
+
     .split_column_by_example(source_column="pickup_time")
     .split_column_by_example(source_column="dropoff_time")
     # The following two calls to split_column_by_example reference the column names generated from the previous two calls.
     .split_column_by_example(source_column="pickup_time_1")
     .split_column_by_example(source_column="dropoff_time_1")
     .drop_columns(columns=[
-        "pickup_date", "pickup_time", "dropoff_date", "dropoff_time", 
+        "pickup_date", "pickup_time", "dropoff_date", "dropoff_time",
         "pickup_date_1", "dropoff_date_1", "pickup_time_1", "dropoff_time_1"
     ])
-          
+
     .rename_columns(column_pairs={
         "pickup_date_2": "pickup_month",
         "pickup_date_3": "pickup_monthday",
@@ -847,7 +834,7 @@ tmp_df = (combined_df
         "dropoff_time_2": "dropoff_second"
     }))
 
-tmp_df.head(5)
+transformed_features_df.head(5)
 ```
 
 <div>
@@ -1001,21 +988,23 @@ tmp_df.head(5)
 </table>
 </div>
 
-데이터를 보면 파생된 변환에서 생성된 승/하차 날짜 및 시간 구성 요소가 정확한 것을 알 수 있습니다. `pickup_datetime` 및 `dropoff_datetime` 열은 더 이상 필요하지 않으므로 삭제합니다.
+데이터를 보면 파생된 변환에서 생성된 승/하차 날짜 및 시간 구성 요소가 정확한 것을 알 수 있습니다. `pickup_datetime` 및 `dropoff_datetime` 열은 더 이상 필요 없으므로 삭제합니다(시간, 분 및 초 같은 세밀한 시간 기능은 모델 학습에 유용).
 
 
 ```python
-tmp_df = tmp_df.drop_columns(columns=["pickup_datetime", "dropoff_datetime"])
+processed_df = transformed_features_df.drop_columns(columns=["pickup_datetime", "dropoff_datetime"])
 ```
 
 형식 유추 기능을 사용하여 각 필드의 데이터 형식을 자동으로 확인하고 추론 결과를 표시합니다.
 
 
 ```python
-type_infer = tmp_df.builders.set_column_types()
+type_infer = processed_df.builders.set_column_types()
 type_infer.learn()
 type_infer
 ```
+
+`type_infer`의 결과 출력은 다음과 같습니다.
 
     Column types conversion candidates:
     'pickup_weekday': [FieldType.STRING],
@@ -1040,25 +1029,24 @@ type_infer
 
 
 ```python
-tmp_df = type_infer.to_dataflow()
-tmp_df.get_profile()
+type_converted_df = type_infer.to_dataflow()
+type_converted_df.get_profile()
 ```
 
-데이터 흐름을 패키징하기 전에 데이터 세트에서 두 개의 최종 필터를 실행합니다. 잘못된 데이터 요소를 제거하려면 `cost` 및 `distance` 변수 값이 모두 0보다 큰 레코드에서 데이터 흐름을 필터링합니다.
+데이터 흐름을 패키징하기 전에 데이터 세트에서 두 개의 최종 필터를 실행합니다. 잘못 캡처된 데이터 요소를 제거하려면 `cost` 및 `distance` 변수 값이 모두 0보다 큰 레코드에서 데이터 흐름을 필터링합니다. 이 단계를 수행하면 기계 학습 모델 정확도가 대폭 향상됩니다. 비용 또는 거리가 0인 데이터 요소는 예측 정확도를 떨어트리는 중대한 이상값을 나타내기 때문입니다.
 
 ```python
-tmp_df = tmp_df.filter(dprep.col("distance") > 0)
-tmp_df = tmp_df.filter(dprep.col("cost") > 0)
+final_df = type_converted_df.filter(dprep.col("distance") > 0)
+final_df = final_df.filter(dprep.col("cost") > 0)
 ```
 
-기계 학습 모델에 사용할 수 있도록 완전히 변환 및 준비된 데이터 흐름 개체가 생겼습니다. SDK에는 다음 코드 조각처럼 사용되는 개체 serialization 기능이 포함되어 있습니다.
+기계 학습 모델에 사용할 수 있도록 완전히 변환 및 준비된 데이터 흐름 개체가 생겼습니다. SDK에는 다음 코드처럼 사용되는 개체 serialization 기능이 포함되어 있습니다.
 
 ```python
 import os
 file_path = os.path.join(os.getcwd(), "dflows.dprep")
 
-dflow_prepared = tmp_df
-package = dprep.Package([dflow_prepared])
+package = dprep.Package([final_df])
 package.save(file_path)
 ```
 

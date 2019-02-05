@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: ff70b1f8eda7bd48f0fba25aa66db42c15acab54
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 585fc4f1bbddb08d881414b581120b7bc14232ab
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252135"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729951"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Azure Stack의 업데이트 적용
 
@@ -37,6 +37,9 @@ Azure Stack에 대 한 Microsoft 또는 OEM 업데이트 패키지를 사용할 
 - 해당 `<PackageName>.bin` 파일입니다. 연결 된 페이로드에 대 한 압축을 제공 하는 이러한 파일은 *PackageName*.exe 파일입니다.
 
 - `Metadata.xml` 파일입니다. 이 파일에는 예를 들어 게시자, 이름, 필수 구성 요소, 크기 및 지원 경로 URL 업데이트에 대 한 중요 정보가 들어 있습니다.
+
+> [!IMPORTANT]  
+> Azure Stack 1901 업데이트 패키지를 적용 한 후.exe,.bin(s), 및는.zip(s).xml 형식을.xml 형식에서 Azure Stack 업데이트 pacakges 패키징 형식을 이동 합니다. 스탬프 연결 된 azure Stack 운영자 영향을 받지 않습니다. Azure Stack 운영자와 연결이 끊어진 아래에 설명 된 동일한 프로세스를 사용 하 여.xml 및.zip 파일을 가져옵니다 하기만 하면 됩니다.
 
 ## <a name="import-and-install-updates"></a>가져오기 및 업데이트를 설치 합니다.
 

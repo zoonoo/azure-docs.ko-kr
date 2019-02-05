@@ -1,5 +1,5 @@
 ---
-title: Video Indexer에 가입하고 첫 번째 비디오 업로드
+title: Video Indexer에 가입하고 첫 번째 비디오 업로드 - Azure
 titlesuffix: Azure Media Services
 description: Video Indexer 포털에서 가입하고 첫 번째 비디오를 업로드하는 방법을 알아봅니다.
 services: media-services
@@ -7,16 +7,16 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: tutorial
-ms.date: 11/19/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 72412956d231ea2696c05ba250302faf5f90c91d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 1e3ba1e12a8b058429f75b1d2aab3942cd843778
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823286"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55090510"
 ---
-# <a name="tutorial-how-to-sign-up-and-upload-your-first-video"></a>자습서: 가입하고 첫 번째 비디오를 업로드하는 방법
+# <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>빠른 시작: 가입하고 첫 번째 비디오를 업로드하는 방법
 
 이 시작 자습서에서는 Video Indexer 웹 사이트에 로그인하고 첫 번째 비디오를 업로드하는 방법을 보여줍니다.
 

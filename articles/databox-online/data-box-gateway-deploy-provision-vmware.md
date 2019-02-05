@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 10/01/2018
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: ea4203c45f482b990122a966fc2ec13b3fb41c84
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 00415cab4d5c36c74cf78a10cb71682d97236517
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167157"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099161"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>자습서: VMware에서 Azure Data Box Gateway 프로비전(미리 보기)
 
 ## <a name="overview"></a>개요
 
-이 자습서는 VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 Data Box Gateway를 프로비전하는 방법을 설명합니다. 
+이 자습서는 VMware ESXi 6.0, 6.5 또는 6.7을 실행하는 호스트 시스템에서 Data Box Gateway를 프로비전하는 방법을 설명합니다. 
 
 가상 디바이스를 프로비전하고 연결하려면 관리자 권한이 필요합니다. 프로비전 및 초기 설정을 완료하는 데 10분 정도가 소요됩니다.
 
@@ -37,14 +37,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 가상 디바이스를 프로비전하기 위한 필수 구성 요소는 다음과 같습니다.
+VMware ESXi 6.0, 6.5 또는 6.7을 실행하는 호스트 시스템에 가상 디바이스를 프로비전하기 위한 필수 조건은 다음과 같습니다.
 
 ### <a name="for-the-data-box-gateway-resource"></a>Data Box Gateway 리소스의 경우
 
 시작하기 전에 다음 사항을 확인합니다.
 
 * [Data Box Gateway에 대한 포털 준비](data-box-gateway-deploy-prep.md)의 모든 단계를 완료했습니다.
-* [Data Box Gateway에 대한 포털 준비](data-box-gateway-deploy-prep.md)에 설명된 대로 Azure Portal에서 VMware에 대한 가상 장치 이미지를 다운로드했습니다.
+* [Data Box Gateway에 대한 포털 준비](data-box-gateway-deploy-prep.md)에 설명된 대로 Azure Portal에서 VMware에 대한 가상 디바이스 이미지를 다운로드했습니다.
 
   > [!IMPORTANT]
   > Data Box Gateway에서 실행되는 소프트웨어는 Data Box Gateway 리소스에서만 사용할 수 있습니다.
@@ -53,7 +53,7 @@ VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 가상 디�
 
 가상 디바이스를 배포하기 전에 다음 사항을 확인해야 합니다.
 
-* 디바이스를 프로비전하는 데 사용될 수 있는 VMware(ESXi 6.0 또는 6.5)를 실행하는 호스트 시스템에 액세스할 수 있습니다.
+* 디바이스를 프로비전하는 데 사용될 수 있는 VMware(ESXi 6.0, 6.5 또는 6.7)를 실행하는 호스트 시스템에 액세스할 수 있습니다.
 * 가상 디스크 프로비전을 위해 호스트 시스템에서 다음 리소스를 전용할 수 있습니다.
 
   * 코어 4개 이상
@@ -73,7 +73,7 @@ VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 가상 디�
 
 가상 디바이스를 만들려면 다음이 필요합니다.
 
-* VMware ESXi Server 6.0 또는 6.5를 실행하는 호스트 시스템에 대한 액세스 호스트 시스템에서는 다음 리소스를 가상 디스크에 전용으로 사용할 수 있습니다.
+* VMware ESXi Server 6.0, 6.5 또는 6.7을 실행하는 호스트 시스템에 대한 액세스 호스트 시스템에서는 다음 리소스를 가상 디스크에 전용으로 사용할 수 있습니다.
  
   * 코어 4개 이상
   * RAM 8GB 이상 
@@ -149,7 +149,7 @@ VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 가상 디�
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
-    **새 하드 디스크**가 표시될 때까지 아래로 스크롤하고 확장하여 설정을 봅니다. **가상 장치 노드**를 **IDE 컨트롤러 0**으로 설정합니다. **다음**을 클릭합니다.
+    **새 하드 디스크**가 표시될 때까지 아래로 스크롤하고 확장하여 설정을 봅니다. **가상 디바이스 노드**를 **IDE 컨트롤러 0**으로 설정합니다. **다음**을 클릭합니다.
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
@@ -192,7 +192,7 @@ VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 가상 디�
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
-6. 5-7단계는 DHCP 환경이 아닌 곳에서 부팅하는 경우에만 적용됩니다. DHCP 환경인 경우 이 단계를 건너뛰고 8단계로 이동하세요. 비 DHCP 환경에서 디바이스를 부팅하는 경우 결과에 대한 메시지가 표시됩니다. **Set-HcsIPAddress cmdlet을 사용하여 네트워크를 구성합니다**. 
+6. 5-7단계는 DHCP 환경이 아닌 곳에서 부팅하는 경우에만 적용됩니다. DHCP 환경인 경우 이 단계를 건너뛰고 8단계로 이동하세요. DHCP 환경이 아닌 곳에서 디바이스를 부팅한 경우에는 다음 메시지가 표시됩니다. **네트워크를 구성하려면 Set-HcsIPAddress cmdlet을 사용합니다**. 
    
 7. 네트워크를 구성하려면 명령 프롬프트에서 `Get-HcsIpAddress` 명령을 사용하여 가상 디바이스에서 사용하도록 설정된 네트워크 인터페이스 목록을 표시합니다. 디바이스에 사용하도록 설정된 네트워크 인터페이스가 하나인 경우에는 `Ethernet`이라는 기본 이름이 인터페이스에 할당됩니다.
 
@@ -204,7 +204,7 @@ VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 가상 디�
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image24.png)
 
-디바이스가 최소 구성 요구 사항을 충족하지 못하면 배너 텍스트에 오류(아래 참고)가 표시됩니다. 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 디바이스 구성을 수정해야 합니다. 그런 다음, 다시 시작하고 디바이스에 연결합니다. [호스트 시스템이 최소 가상 장치 요구 사항을 충족하는지 확인](#check-the-host-system)의 최소 구성 요구 사항을 참조하세요.
+디바이스가 최소 구성 요구 사항을 충족하지 못하면 배너 텍스트에 오류(아래 참고)가 표시됩니다. 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 디바이스 구성을 수정해야 합니다. 그런 다음, 다시 시작하고 디바이스에 연결합니다. [호스트 시스템이 최소 가상 디바이스 요구 사항을 충족하는지 확인](#check-the-host-system)의 최소 구성 요구 사항을 참조하세요.
 
 <!---If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: slivkins
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: b142fe2051c017d0c0ec3c4cac6aaedd563f6cd7
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 1589ef94946a6396ee51b8fecfe2ed3e80db08e5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366338"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212234"
 ---
 # <a name="tutorial-article-personalization-for-contextual-decision-making"></a>자습서: 상황에 맞는 의사 결정을 위한 문서 개인 설정
 
@@ -56,7 +56,7 @@ Custom Decision Service는 고객이 제공한 RSS 또는 Atom 피드를 통해 
 
     ![Custom Decision Service 포털](./media/custom-decision-service-tutorial/portal.png)
 
-3. **앱 ID** 텍스트 상자에서 응용 프로그램에 고유한 이름을 입력합니다. 다른 고객이 이 이름을 이미 사용하는 경우 시스템은 다른 앱 ID를 선택하도록 요청합니다. **고급** 확인란을 선택하고, Azure 저장소 계정에 대한 [연결 문자열](../../storage/common/storage-configure-connection-string.md)을 입력합니다. 일반적으로 모든 애플리케이션에 동일한 저장소 계정을 사용합니다.
+3. **앱 ID** 텍스트 상자에서 애플리케이션에 고유한 이름을 입력합니다. 다른 고객이 이 이름을 이미 사용하는 경우 시스템은 다른 앱 ID를 선택하도록 요청합니다. **고급** 확인란을 선택하고, Azure 저장소 계정에 대한 [연결 문자열](../../storage/common/storage-configure-connection-string.md)을 입력합니다. 일반적으로 모든 애플리케이션에 동일한 저장소 계정을 사용합니다.
 
     ![새 앱 대화 상자](./media/custom-decision-service-tutorial/new-app-dialog.png)
 

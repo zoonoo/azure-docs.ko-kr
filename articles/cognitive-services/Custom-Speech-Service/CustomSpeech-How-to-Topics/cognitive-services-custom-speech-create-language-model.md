@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ms.openlocfilehash: 6af2da9ffc7678a58fcf1c647ba89c586066d2ad
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0798fb16954d2d0b5e0d614d619cd772670d30c3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339099"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218090"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>자습서: 사용자 지정 언어 모델 만들기
 
@@ -88,7 +88,7 @@ Azure Portal에서 사용자 지정 Search Service 구독을 만드는 방법에
 
 언어 데이터가 준비되면 드롭 다운 “메뉴”에서 “언어 모델”을 클릭하여 사용자 지정 언어 모델 만들기 프로세스를 시작합니다. 이 페이지에는 현재 사용자 지정 언어 모델이 포함된 "Language Model"이라는 테이블이 포함됩니다. 어떤 사용자 지정 언어 모델도 아직 만들지 못한 경우 테이블은 비어있게 됩니다. 현재 로캘이 테이블 제목에 반영됩니다. 다른 언어에 대한 언어 모델을 만들려는 경우 "로캘 변경"을 클릭합니다. 지원되는 언어에 대한 추가 정보는 [로캘 변경](cognitive-services-custom-speech-change-locale.md) 섹션에서 확인할 수 있습니다. 새 모델을 만들려면 테이블 제목 아래의 "새로 만들기" 링크를 클릭합니다.
 
-"Language Model 만들기" 페이지에 사용된 데이터 집합 같은 이 모델에 대한 관련 정보를 계속 추적할 수 있도록 "이름" 및 "설명"을 입력합니다. 다음으로, 드롭 다운 메뉴에서 "기본 Language Model"을 선택합니다. 이 모델은 사용자 지정에 대한 시작점이 됩니다. 선택할 두 가지 기본 언어 모델이 있습니다. _Microsoft 검색 및 받아쓰기 LM_은 명령, 검색 쿼리 또는 받아쓰기 같은 응용 프로그램의 지시 음성에 적합합니다. _Microsoft 대화형 LM_은 대화 스타일로 통용되는 음성을 인식하는 데 적합합니다. 이런 유형의 음성은 일반적으로 다른 사람을 대상으로 지시하며 콜센터나 회의에서 사용됩니다.
+"Language Model 만들기" 페이지에 사용된 데이터 집합 같은 이 모델에 대한 관련 정보를 계속 추적할 수 있도록 "이름" 및 "설명"을 입력합니다. 다음으로, 드롭 다운 메뉴에서 "기본 Language Model"을 선택합니다. 이 모델은 사용자 지정에 대한 시작점이 됩니다. 선택할 두 가지 기본 언어 모델이 있습니다. _Microsoft 검색 및 받아쓰기 LM_은 명령, 검색 쿼리 또는 받아쓰기 같은 애플리케이션의 지시 음성에 적합합니다. _Microsoft 대화형 LM_은 대화 스타일로 통용되는 음성을 인식하는 데 적합합니다. 이런 유형의 음성은 일반적으로 다른 사람을 대상으로 지시하며 콜센터나 회의에서 사용됩니다.
 
 기본 언어 모델을 지정한 후 "언어 데이터" 드롭다운 메뉴를 사용하여 사용자 지정에 사용하려는 언어 데이터 집합을 선택합니다.
 

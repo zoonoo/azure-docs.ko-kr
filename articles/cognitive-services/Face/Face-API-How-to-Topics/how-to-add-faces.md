@@ -1,23 +1,23 @@
 ---
-title: '예: 얼굴 추가 - Face API'
+title: '예제: 얼굴 추가 - Face API'
 titleSuffix: Azure Cognitive Services
 description: Face API를 사용하여 이미지에 얼굴을 추가합니다.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: fb5d03e2cb3c11daf7a94966fda46345ee910ded
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f443eb13650483bc3ee63dad59cc40b8042bc35b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125105"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222817"
 ---
-# <a name="example-how-to-add-faces"></a>예: 얼굴을 추가하는 방법
+# <a name="example-how-to-add-faces"></a>예제: 얼굴을 추가하는 방법
 
 이 가이드에서는 PersonGroup에 다수의 사람과 얼굴을 추가하는 모범 사례를 보여줍니다.
 FaceList 및 LargePersonGroup에도 동일한 전략이 적용됩니다.

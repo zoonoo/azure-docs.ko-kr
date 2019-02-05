@@ -1,23 +1,23 @@
 ---
-title: '예: 이미지에서 얼굴 감지 - Face API'
+title: '예제: 이미지에서 얼굴 감지 - Face API'
 titleSuffix: Azure Cognitive Services
 description: Face API를 사용하여 이미지에서 얼굴을 감지합니다.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: a4c74ff70a4426abf97562bf997479a91afbf17a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 8c89a43910a5e98286a82de8626870d3aec55b94
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124051"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214214"
 ---
-# <a name="example-how-to-detect-faces-in-image"></a>예: 이미지에서 얼굴을 감지하는 방법
+# <a name="example-how-to-detect-faces-in-image"></a>예제: 이미지에서 얼굴을 감지하는 방법
 
 이 가이드에서는 추출된 성별, 나이 또는 포즈와 같은 얼굴 특성이 포함된 이미지에서 얼굴을 감지하는 방법을 설명합니다. 샘플은 Face API 클라이언트 라이브러리를 사용하여 C#에서 작성되었습니다. 
 
@@ -49,7 +49,7 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 &subscription-key=<Subscription Key>
 ```
 
-또는 구독 키를 HTTP 요청 헤더에서 지정할 수도 있습니다. **ocp-apim-subscription-key: &lt;Subscription Key&gt;** 클라이언트 라이브러리를 사용할 경우 구독 키가 FaceServiceClient 클래스의 생성자를 통해 전달됩니다. 예: 
+대안으로 HTTP 요청 헤더에서 구독 키 **ocp-apim-subscription-key: &lt;구독 키&gt;** 를 지정할 수도 있습니다. 클라이언트 라이브러리를 사용하는 경우 구독 키는 FaceServiceClient 클래스의 생성자를 통해 전달됩니다. 예: 
 ```CSharp
 faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```

@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 4608e9ec0cd67b6c0f7ac23e27761b0355a5d738
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 1411d9b4a199685315587cb642842286da575c63
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50911867"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098530"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v10-endpoint"></a>빠른 시작: Azure Active Directory v1.0 엔드포인트에 앱 등록
 
@@ -31,7 +31,7 @@ ms.locfileid: "50911867"
 
 Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure AD 테넌트에 등록되어야 합니다. 이 등록 프로세스는 애플리케이션이 위치한 URL, 사용자가 인증된 후에 회신을 보낼 URL, 앱을 식별하는 URI 등과 같이 애플리케이션에 대한 Azure AD 세부 정보의 제공이 포함됩니다.
 
-이 빠른 시작은 Azure Portal에서 기존 **앱 등록** 환경을 사용하여 Azure AD에서 애플리케이션을 추가하고 등록하는 방법을 보여줍니다.
+이 빠른 시작은 Azure Portal에서 기존 **앱 등록** 환경을 사용하여 Azure AD에서 응용 프로그램을 추가하고 등록하는 방법을 보여줍니다.
 
 > [!NOTE]
 > 새 앱 등록? Azure Portal에서 새 **앱 등록(미리 보기)** 환경을 사용해 보세요. 시작하려면 [앱 등록(미리 보기)](quickstart-register-app.md)을 참조하세요.
@@ -45,18 +45,18 @@ Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 계정이 둘 이상의 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
-1. **앱 등록**을 선택하고 **새 응용 프로그램 등록**을 선택합니다.
+1. **앱 등록**을 선택하고 **새 애플리케이션 등록**을 선택합니다.
 
     ![새 애플리케이션 등록](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration.png)
 
-1. **만들기** 페이지가 표시되면 응용 프로그램의 등록 정보를 입력합니다. 
+1. **만들기** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다. 
 
-    - **이름:** 의미 있는 응용 프로그램 이름을 입력합니다.
-    - **응용 프로그램 형식:**
-      - 디바이스에 로컬로 설치된 [클라이언트 애플리케이션](developer-glossary.md#client-application)의 경우 **네이티브**를 선택합니다. 이 설정은 OAuth 공개 [네이티브 클라이언트](developer-glossary.md#native-client)에 사용됩니다.
+    - **이름:** 의미 있는 애플리케이션 이름을 입력합니다.
+    - **애플리케이션 형식:**
+      - 장치에 로컬로 설치된 [클라이언트 애플리케이션](developer-glossary.md#client-application)의 경우 **네이티브**를 선택합니다. 이 설정은 OAuth 공개 [네이티브 클라이언트](developer-glossary.md#native-client)에 사용됩니다.
       - 보안 서버에 설치된 [클라이언트 애플리케이션](developer-glossary.md#client-application) 및 [리소스/API 애플리케이션](developer-glossary.md#resource-server)의 경우 **웹앱/API**를 선택합니다. 이 설정은 OAuth 기밀 [웹 클라이언트](developer-glossary.md#web-client) 및 공용 [사용자 에이전트 기반 클라이언트](developer-glossary.md#user-agent-based-client)에 사용됩니다. 동일한 애플리케이션이 클라이언트와 리소스/API를 모두 노출할 수도 있습니다.
-    - **로그온 URL:** "웹앱/API" 응용 프로그램에서 앱의 기준 URL을 제공합니다. 예를 들어 `http://localhost:31544`은 로컬 컴퓨터에서 실행 중인 웹앱의 URL일 수 있습니다. 사용자는 이 URL을 사용하여 웹 클라이언트 애플리케이션에 로그인합니다. 
-    - **리디렉션 URI:** "네이티브" 응용 프로그램의 경우 Azure AD에서 토큰 응답을 반환하는 데 사용하는 URI를 제공합니다. 애플리케이션에 고유하게 해당되는 값을 입력합니다(예: `http://MyFirstAADApp`).
+    - **로그온 URL:** "웹앱/API 애플리케이션"에서 앱의 기준 URL을 제공합니다. 예를 들어 `http://localhost:31544`은 로컬 컴퓨터에서 실행 중인 웹앱의 URL일 수 있습니다. 사용자는 이 URL을 사용하여 웹 클라이언트 애플리케이션에 로그인합니다. 
+    - **리디렉션 URI:** "네이티브 애플리케이션"의 경우 Azure AD에서 토큰 응답을 반환하는 데 사용하는 URI를 제공합니다. 애플리케이션에 고유하게 해당되는 값을 입력합니다(예: `http://MyFirstAADApp`).
 
       ![새 애플리케이션 등록 - 만들기](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration-create.png)
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0c2b8b205229ec1ef180e52372f75d06c83f1cc7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ff0cb82e3f1ddedf8dabebadf7a0309d08b2c4e3
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716415"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297092"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여
 
@@ -293,7 +293,7 @@ AD 애플리케이션의 관리 페이지에서 **애플리케이션 ID**를 메
 
 이제 앱이 구성되었습니다. 이제 프런트 엔드가 적절한 액세스 토큰을 사용하여 백 엔드에 액세스할 준비가 되었습니다.
 
-다른 공급자에 대해 구성하는 방법에 대한 자세한 내용은 [액세스 토큰 새로고침](app-service-authentication-how-to.md#refresh-access-tokens)을 참조하세요.
+다른 공급자에 대해 구성하는 방법에 대한 자세한 내용은 [ID 공급자 토큰 새로 고침](app-service-authentication-how-to.md#refresh-identity-provider-tokens)을 참조하세요.
 
 ## <a name="call-api-securely-from-server-code"></a>서버 코드에서 안전하게 API 호출
 
@@ -417,7 +417,7 @@ git push frontend master
 
 ## <a name="when-access-tokens-expire"></a>액세스 토큰이 만료되는 시기
 
-액세스 토큰은 일정 시간 후에 만료됩니다. 사용자에게 앱 재인증을 요구하지 않고 액세스 토큰을 새로 고치는 방법은 [액세스 토큰 새로 고침](app-service-authentication-how-to.md#refresh-access-tokens)을 참조하세요.
+액세스 토큰은 일정 시간 후에 만료됩니다. 사용자에게 앱 재인증을 요구하지 않고 액세스 토큰을 새로 고치는 방법은 [ID 공급자 토큰 새로 고침](app-service-authentication-how-to.md#refresh-identity-provider-tokens)을 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: DavidLiCIG
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: entity-linking-intelligence
+ms.subservice: entity-linking-intelligence
 ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: 907b4cab483f1bf63a864094530784f9c632a1c8
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 883d566fd3a6089eb9e72498089f995697a318f1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365641"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216815"
 ---
 # <a name="tutorial-build-an-entity-linking-app-with-c"></a>자습서: C#을 사용하여 Entity Linking 앱 빌드
 
@@ -35,7 +35,7 @@ Microsoft의 Entity Linking은 텍스트를 분석하고 명명된 엔터티를 
 ### <a name="step-1-subscribe-entity-linking-intelligence-service-and-get-your-own-key">1단계: Entity Linking Intelligence Service 구독 및 키 가져오기</a>
 Entity Linking Intelligence Service를 사용하려면 API 키에 등록해야 합니다. [구독](https://www.microsoft.com/cognitive-services/en-us/sign-up)을 참조하세요. 기본 키와 보조 키 모두 이 자습서에서 사용할 수 있습니다.
 
-### <a name="step-2-create-a-new-project-in-visual-studio">2단계: Visual Studio에서 새 프로젝트 만들기</a>
+### <a name="step-2-create-a-new-project-in-visual-studio"> 2단계: Visual Studio에서 새 프로젝트 만들기</a>
 
 Visual Studio에서 새 프로젝트를 만들어 보겠습니다. 먼저, 시작 메뉴에서 Visual Studio 2015를 시작합니다. 그런 다음, 프로젝트 템플릿에 대한 **설치 → 템플릿 → Visual C# → Windows 유니버설 → 빈 앱**을 선택하여 새 프로젝트를 만듭니다.
 
@@ -97,7 +97,7 @@ Cognitive Services의 Entity Linking은 NuGet.org 패키지로 릴리스되며 �
 }
  ```
  
-이제 프로그램 첫 번째 자연어 처리 Entity Linking App을 실행할 준비가 되었습니다. **F5 키**를 눌러 응용 프로그램을 컴파일하고 시작합니다. 텍스트 코드 조각 또는 단락을 입력 상자에 붙여넣습니다. “결과 가져오기” 단추를 누르고 출력 블록에서 식별된 엔터티를 관찰합니다.
+이제 프로그램 첫 번째 자연어 처리 Entity Linking App을 실행할 준비가 되었습니다. **F5 키**를 눌러 애플리케이션을 컴파일하고 시작합니다. 텍스트 코드 조각 또는 단락을 입력 상자에 붙여넣습니다. “결과 가져오기” 단추를 누르고 출력 블록에서 식별된 엔터티를 관찰합니다.
  
  ![UWP 샘플 결과](./Images/DemoCodeResult.png)
  

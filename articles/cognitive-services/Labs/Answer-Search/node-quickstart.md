@@ -5,18 +5,18 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 1afd029803fc7d2709a9a9abe840db6d7f52498d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2e79a2d248a81298cb1dd19415a0d9eb75a275c4
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465749"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224499"
 ---
-# <a name="quickstart-project-answer-search-with-node"></a>빠른 시작: Node를 통해 Project Answer Search 사용
+# <a name="quickstart-project-answer-search-with-node"></a>빠른 시작: Node를 사용하는 Project Answer Search
 
 다음 Node 예제에서는 요세미티 국립 공원에 대한 정보 쿼리를 만듭니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "49465749"
 
 이 데모의 전체 코드는 다음과 같습니다.
 
-````
+```
 'use strict';
 
 let https = require('https');
@@ -85,7 +85,7 @@ let Search = function () {
 
 Search();
 
-````
+```
 
 ## <a name="next-steps"></a>다음 단계
 - [C# 예제 코드](c-sharp-quickstart.md)

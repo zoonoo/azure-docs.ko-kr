@@ -1,24 +1,24 @@
 ---
-title: '빠른 시작: 이미지에 있는 얼굴에서 감정 인식 - Emotion API, JavaScript'
+title: '빠른 시작: 이미지에 있는 얼굴의 감정 인식 - Emotion API, JavaScript'
 titlesuffix: Azure Cognitive Services
 description: JavaScript로 Emotion API를 빠르게 사용하는 데 도움이 되는 정보 및 코드 샘플을 구합니다.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: eeaf2ea080d8c0b604b9831532028e31b8306169
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 3c6e5b0d759aeb8aa0b06e359f1f48eaf6c44520
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239492"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208955"
 ---
-# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>빠른 시작: 이미지에서 얼굴의 감정을 인식하기 위한 앱을 빌드합니다.
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>빠른 시작: 이미지에서 얼굴의 감정을 인식하는 앱을 빌드합니다.
 
 > [!IMPORTANT]
 > Emotion API는 2019년 2월 15일부터 더 이상 사용되지 않습니다. 이제 감정 인식 기능은 [Face API](https://docs.microsoft.com/azure/cognitive-services/face/)의 일부로 일반 공급됩니다. 

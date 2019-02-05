@@ -6,18 +6,18 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 66d5488fa0e8f542327b4150d50e4351af6ade55
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 0353736b3b66c58288dbd3d351b3b3dd53f467d6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469098"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226879"
 ---
-# <a name="quickstart-project-answer-search-query-in-java"></a>빠른 시작: Java에서 Project Answer Search 쿼리 사용
+# <a name="quickstart-project-answer-search-query-in-java"></a>빠른 시작: Java의 Project Answer Search 쿼리
 이 문서에서는 Java를 사용하여 Azure의 Microsoft Cognitive Services 일부인 Bing Answer Search API를 보여 줍니다. API는 REST 웹 서비스로, HTTP를 요청하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다.
  
 예제 코드는 최소 외부 종속성으로 Java를 사용합니다.  Mono를 사용하여 Linux 또는 Mac OS X에서 실행할 수도 있습니다.
@@ -30,7 +30,7 @@ ms.locfileid: "49469098"
 
 다음 코드에서는 `WebRequest`를 만들고, 액세스키 헤더를 설정하고, “Gibraltar”에 대한 쿼리 문자열을 추가합니다.  그런 다음, 요청을 보내고 JSON 텍스트가 포함된 응답을 문자열에 할당합니다.
 
-````
+```
     static String host = "https://api.labs.cognitive.microsoft.com";
     static String path = "/answerSearch/v7.0/search";
 
@@ -46,7 +46,7 @@ ms.locfileid: "49469098"
 
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## <a name="complete-code"></a>전체 코드
 
@@ -57,7 +57,7 @@ Bing Answer Search API는 Bing 검색 엔진의 결과를 반환합니다.
 4. subscriptionKey 값을 구독에 유효한 액세스 키로 바꿉니다.
 5. 프로그램을 실행합니다.
 
-````
+```
 package knowledgeAPI;
 import java.io.InputStream;
 import java.net.*;
@@ -148,7 +148,7 @@ public class KnowledgeSrch {
         }
 }
 
-````
+```
 
 ## <a name="next-steps"></a>다음 단계
 - [C# 빠른 시작](c-sharp-quickstart.md)

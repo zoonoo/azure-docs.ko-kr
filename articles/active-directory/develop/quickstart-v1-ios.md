@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: brandwe
-ms.openlocfilehash: 89f2a4058006687fbe64ec64d98659e38f93f618
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 801da78de493b55655819ac16a9184d04a356786
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980579"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095977"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>빠른 시작: iOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -35,7 +35,7 @@ Azure AD(Azure Active Directory)는 보호된 리소스에 액세스해야 하�
 * OAuth 2.0 인증 프로토콜을 사용하여 Azure AD Graph API를 호출하기 위한 액세스 토큰을 가져옵니다.
 * 지정된 별칭을 가진 사용자를 디렉터리에서 검색합니다.
 
-완전하게 작동하는 애플리케이션을 빌드하려면 다음 작업이 필요합니다.
+완전하게 작동하는 응용 프로그램을 빌드하려면 다음 작업이 필요합니다.
 
 1. Azure AD에 애플리케이션을 등록합니다.
 1. ADAL을 설치 및 구성합니다.
@@ -46,14 +46,14 @@ Azure AD(Azure Active Directory)는 보호된 리소스에 액세스해야 하�
 시작하려면 다음과 같은 필수 조건을 완료하세요.
 
 * [앱 기본 사항을 다운로드](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip)하거나 [완성된 샘플을 다운로드](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip)합니다.
-* 사용자를 만들고 애플리케이션을 등록할 수 있는 Azure AD 테넌트가 필요합니다. 테넌트가 아직 없는 경우 [얻는 방법을 알아보세요](quickstart-create-new-tenant.md).
+* 사용자를 만들고 응용 프로그램을 등록할 수 있는 Azure AD 테넌트가 필요합니다. 테넌트가 아직 없는 경우 [얻는 방법을 알아보세요](quickstart-create-new-tenant.md).
 
 > [!TIP]
 > 몇 분 안에 Azure AD를 실행할 수 있는 새로운 [개발자 포털](https://identity.microsoft.com/Docs/iOS)을 사용해 보세요. 개발자 포털은 앱을 등록하고 코드에 Azure AD를 통합하는 과정을 안내합니다. 이 과정을 완료하면 테넌트에서 사용자를 인증할 수 있는 간단한 애플리케이션 및 토큰을 수락하고 유효성 검사를 수행할 수 있는 백 엔드가 생성됩니다.
 
-## <a name="step-1-determine-what-your-redirect-uri-is-for-ios"></a>1단계: iOS용 리디렉션 URI 결정
+## <a name="step-1-determine-what-your-redirect-uri-is-for-ios"></a>1단계: iOS에 대한 리디렉션 URI 결정
 
-특정 SSO 시나리오에서 애플리케이션을 안전하게 시작하려면, 특정 형식으로 *리디렉션 URI*를 만들어야 합니다. 리디렉션 URI는 토큰을 요청하는 올바른 애플리케이션에 반환하는데 사용됩니다.
+특정 SSO 시나리오에서 애플리케이션을 안전하게 시작하려면, 특정 형식으로 *리디렉션 URI*를 만들어야 합니다. 리디렉션 URI는 토큰을 요청하는 올바른 응용 프로그램에 반환하는데 사용됩니다.
 
 리디렉션 URI에 대한 iOS 형식은 다음과 같습니다.
 
@@ -73,10 +73,10 @@ Azure AD(Azure Active Directory)는 보호된 리소스에 액세스해야 하�
 앱에서 토큰을 가져오도록 설정하려면 Azure AD 테넌트에 앱을 등록하고 Azure AD Graph API에 액세스할 수 있는 권한을 부여해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 위쪽 막대에서 계정을 선택합니다. **디렉터리** 목록에서 응용 프로그램을 등록할 Active Directory 테넌트를 선택합니다.
+2. 위쪽 막대에서 계정을 선택합니다. **디렉터리** 목록에서 애플리케이션을 등록할 Active Directory 테넌트를 선택합니다.
 3. 왼쪽 탐색 창에서 **모든 서비스**를 선택한 다음, **Azure Active Directory**를 선택합니다.
 4. **앱 등록**을 선택하고 **추가**를 선택합니다.
-5. 표시되는 메시지에 따라 새 **네이티브 클라이언트 애플리케이션**을 만듭니다.
+5. 표시되는 메시지에 따라 새 **네이티브 클라이언트 응용 프로그램**을 만듭니다.
     * **이름**은 응용 프로그램 이름이고 최종 사용자에게 응용 프로그램을 설명합니다.
     * **리디렉션 URI**는 Azure AD가 토큰 응답을 반환하는 데 사용하는 구성표 및 문자열의 조합입니다. 애플리케이션과 관련되고 이전 리디렉션 URI 정보를 바탕으로 한 값을 입력합니다.
 6. 등록이 완료되면 Azure AD가 앱에 고유한 애플리케이션 ID를 할당합니다. 이 값은 다음 섹션에서 필요하므로 애플리케이션 탭에서 복사해 둡니다.
@@ -112,7 +112,7 @@ Azure AD에서 애플리케이션이 있으므로 ADAL을 설치하고 ID 관련
 1. 빠른 시작 프로젝트에서.plist 파일 `settings.plist`을 엽니다.
 1. Azure Portal에 입력한 동일한 값을 사용하도록 섹션의 요소 값을 바꿉니다. 코드에서 ADAL을 사용할 때마다 이러한 값을 참조합니다.
     * `tenant`는 Azure AD 테넌트의 도메인(예: contoso.onmicrosoft.com)입니다.
-    * `clientId`는 포털에서 복사한 응용 프로그램의 클라이언트 ID입니다.
+    * `clientId`는 포털에서 복사한 애플리케이션의 클라이언트 ID입니다.
     * `redirectUri`는 포털에 등록한 리디렉션 URL입니다.
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>4단계: ADAL을 사용하여 Azure AD에서 토큰 가져오기

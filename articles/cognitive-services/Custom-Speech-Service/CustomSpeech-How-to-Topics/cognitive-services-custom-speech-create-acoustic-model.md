@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ms.openlocfilehash: 53e93a08782ba66e69b903c32c4c3c7417e5a801
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0e4c21a064cdb0a60aef49482eee4b768112b899
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344577"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216424"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>자습서: 사용자 지정 어쿠스틱 모델 만들기
 
@@ -48,7 +48,7 @@ Azure Portal에서 사용자 지정 Search Service 구독을 만드는 방법에
 <a name="Preparing data to customize the acoustic model"></a>
 *   가령 FDR의 Fireside Chats을 모두 전사하려는 경우와 같이 단일 스피커의 성능 최적화에 관심이 있으면 오디오 파일은 해당 스피커의 많은 예제로만 구성되어야 합니다.
 
-어쿠스틱 모델 사용자 지정을 위한 어쿠스틱 데이터 집합은 음성 데이터를 포함하는 오디오 파일 집합과, 모든 오디오 파일의 전사를 포함하는 파일 등 두 부분으로 구성됩니다.
+어쿠스틱 모델을 사용자 지정하는 어쿠스틱 데이터 세트는 (1) 음성 데이터를 포함하는 오디오 파일 세트 및 (2) 모든 오디오 파일의 전사를 포함하는 파일로 구성됩니다.
 
 ### <a name="audio-data-recommendations"></a>오디오 데이터 권장 사항
 
@@ -119,7 +119,7 @@ Azure Portal에서 사용자 지정 Search Service 구독을 만드는 방법에
 
 어쿠스틱 데이터 집합의 상태가 "완료"이면 사용자 지정 어쿠스틱 모델을 만드는 데 사용될 수 있습니다. 이렇게 하려면 "사용자 지정 음성" 드롭다운 메뉴에서 "어쿠스틱 모델"을 클릭합니다. 사용자 지정 어쿠스틱 모델을 모두 나열하는 "Your models" 테이블이 표시됩니다. 이 테이블은 처음 사용할 경우 비어 있습니다. 현재 로캘이 테이블 제목에 표시됩니다. 현재, 어쿠스틱 모델은 미국 영어에 대해서만 만들 수 있습니다.
 
-새 모델을 만들려면 테이블 제목 아래의 "새로 만들기"를 클릭합니다. 앞에서와 같이, 이 모델을 식별할 수 있는 이름과 설명을 입력합니다. 예를 들어 모델을 만드는 데 사용한 시작 모델과 어쿠스틱 데이터 집합을 “설명” 필드에 기록할 수 있습니다. 그런 다음, 드롭다운 메뉴에서 "기본 어쿠스틱 모델"을 선택합니다. 기본 모델은 사용자 지정의 시작 지점인 모델입니다. 두 가지 기본 어쿠스틱 모델 중에 선택할 수 있습니다. _Microsoft 검색 및 받아쓰기 AM_은 명령, 검색 쿼리 또는 받아쓰기 같은 응용 프로그램의 지시 음성에 적합합니다. _Microsoft 대화형 모델_은 대화 스타일로 통용되는 음성을 인식하는 데 적합합니다. 이런 유형의 음성은 일반적으로 다른 사람을 대상으로 지시하며 콜센터나 회의에서 사용됩니다. 대화형 모델의 부분 결과 대기 시간은 검색 및 받아쓰기 모델보다 깁니다.
+새 모델을 만들려면 테이블 제목 아래의 "새로 만들기"를 클릭합니다. 앞에서와 같이, 이 모델을 식별할 수 있는 이름과 설명을 입력합니다. 예를 들어 모델을 만드는 데 사용한 시작 모델과 어쿠스틱 데이터 집합을 “설명” 필드에 기록할 수 있습니다. 그런 다음, 드롭다운 메뉴에서 "기본 어쿠스틱 모델"을 선택합니다. 기본 모델은 사용자 지정의 시작 지점인 모델입니다. 두 가지 기본 어쿠스틱 모델 중에 선택할 수 있습니다. _Microsoft 검색 및 받아쓰기 AM_은 명령, 검색 쿼리 또는 받아쓰기 같은 애플리케이션의 지시 음성에 적합합니다. _Microsoft 대화형 모델_은 대화 스타일로 통용되는 음성을 인식하는 데 적합합니다. 이런 유형의 음성은 일반적으로 다른 사람을 대상으로 지시하며 콜센터나 회의에서 사용됩니다. 대화형 모델의 부분 결과 대기 시간은 검색 및 받아쓰기 모델보다 깁니다.
 
 다음으로 드롭다운 메뉴를 사용하여 사용자 지정을 수행하는 데 사용할 어쿠스틱 데이터를 선택합니다.
 

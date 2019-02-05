@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ad34a5c3d72ec1f7fce0b56a85fd7c9cba007366
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ca3b25929a21e844b6350a79a3713d8e1b7ef0f8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824578"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168654"
 ---
 # <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>자습서: 스크립트를 다운로드하고 사용하여 로그인 기록에 액세스하는 방법
 
@@ -35,7 +35,7 @@ Azure Portal 외부에서 작업하려는 경우 로그인 활동 데이터를 �
 
 * 프리미엄 (P1/P2) 라이선스를 사용하는 Azure Active Directory 테넌트 업그레이드 전에 활동 데이터가 없었다면 프리미엄 라이선스로 업그레이드한 후 보고서에 데이터가 나타나기까지 며칠이 걸립니다. 
 * 테넌트에 대한 **글로벌 관리자**, **보안 관리자**, **보안 읽기 권한자** 또는 **보고서 읽기 권한자** 역할의 사용자 또한 모든 사용자는 고유한 로그인에 액세스할 수 있습니다. 
-* Windows 10 머신에서 다운로드된 스크립트를 실행하려는 경우 [AzureRM 모듈을 설정하고 실행 정책을 설정](concept-sign-ins.md#running-the-script-on-a-windows-10-machine)합니다.
+* Windows 10 머신에서 다운로드된 스크립트를 실행하려는 경우 [Azure PowerShell 모듈을 설정하고 실행 정책을 설정](concept-sign-ins.md#running-the-script-on-a-windows-10-machine)합니다.
 
 ## <a name="tutorial"></a>자습서
 

@@ -6,18 +6,18 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 93dd376d94065c0e99dffe53bbfa2763d0a25b2c
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 88429aa10ef847800d0d1be60261c94934233016
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470630"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227797"
 ---
-# <a name="quickstart-url-preview-query-in-c"></a>빠른 시작: C#에서 URL Preview 쿼리 사용
+# <a name="quickstart-url-preview-query-in-c"></a>빠른 시작: C#의 URL 미리 보기 쿼리
 
 다음 C# 예제에서는 SwiftKey 웹 사이트(https://swiftkey.com/en)에 대한 URL 미리 보기를 만듭니다.
 
@@ -155,7 +155,7 @@ namespace UrlPrevCshp
 ```
 ## <a name="running-the-application"></a>애플리케이션 실행
 
-애플리케이션을 실행하려면:
+애플리케이션을 실행하려면
 
 1. Visual Studio에서 새 콘솔 솔루션을 만듭니다.
 2. `Program.cs`를 제공된 코드로 바꿉니다.

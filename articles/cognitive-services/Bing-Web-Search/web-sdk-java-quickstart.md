@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 08/22/2018
 ms.author: aahi
-ms.openlocfilehash: 8883a312bf6da4167936e844e75047ae40cac9f3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f73856d77c2d3c6d8d4006d4654d2aa836c6c4cc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309308"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158216"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>빠른 시작: Java용 Bing Web Search SDK 사용
 
@@ -36,7 +36,7 @@ Bing Web Search SDK를 사용하면 Bing Web Search를 Java 애플리케이션�
 
 ## <a name="create-a-project-and-configure-your-pom-file"></a>프로젝트 만들기 및 POM 파일 구성
 
-Maven 또는 즐겨찾는 빌드 자동화 도구를 사용하여 새 Java 프로젝트를 만듭니다. Maven을 사용한다고 가정하는 경우 POM 파일에 다음 줄을 추가합니다. `mainClass`의 모든 인스턴스를 응용 프로그램으로 바꿉니다.
+Maven 또는 즐겨찾는 빌드 자동화 도구를 사용하여 새 Java 프로젝트를 만듭니다. Maven을 사용한다고 가정하는 경우 POM 파일에 다음 줄을 추가합니다. `mainClass`의 모든 인스턴스를 애플리케이션으로 바꿉니다.
 
 ```xml
 <build>

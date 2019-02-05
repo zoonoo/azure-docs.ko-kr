@@ -3,7 +3,7 @@ title: 자습서 - Azure CLI를 사용하여 확장 집합용 디스크 만들�
 description: Azure CLI를 사용하여 가상 머신 확장 집합이 있는 관리 디스크를 만들고 사용하는 방법(디스크를 추가, 준비, 나열 및 분리하는 방법 포함)을 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 35256a22265ca544975b2fead40b1a2be0d73ff1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: da7848fe561d061470e8921f1f76ac30bed4c809
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469387"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163061"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 가상 머신 확장 집합이 있는 디스크 만들기 및 사용
 가상 머신 확장 집합은 디스크를 사용하여 VM 인스턴스의 운영 체제, 애플리케이션 및 데이터를 저장합니다. 확장 집합을 만들고 관리할 때 예상 작업에 적합한 디스크 크기와 구성을 선택해야 합니다. 이 자습서에서는 VM 디스크를 만들고 관리하는 방법에 대해 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -48,7 +48,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 **임시 디스크** - 임시 디스크는 VM 인스턴스와 동일한 Azure 호스트에 있는 반도체 드라이브를 사용합니다. 이러한 디스크는 고성능 디스크이며, 임시 데이터 처리와 같은 작업에 사용할 수 있습니다. 그러나 VM 인스턴스가 새 호스트로 이동되면 임시 디스크에 저장된 모든 데이터가 제거됩니다. 임시 디스크의 크기는 VM 인스턴스 크기에 따라 결정됩니다. 임시 디스크는 */dev/sdb*로 레이블이 지정되고 탑재 지점은 */mnt*입니다.
 
 ### <a name="temporary-disk-sizes"></a>임시 디스크 크기
-| type | 일반적인 크기 | 최대 임시 디스크 크기(GiB) |
+| Type | 일반적인 크기 | 최대 임시 디스크 크기(GiB) |
 |----|----|----|
 | [범용](../virtual-machines/linux/sizes-general.md) | A, B 및 D 시리즈 | 1600 |
 | [Compute에 최적화](../virtual-machines/linux/sizes-compute.md) | F 시리즈 | 576 |
@@ -62,7 +62,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 애플리케이션을 설치하고 데이터를 저장해야 하는 경우 추가 데이터 디스크를 추가할 수 있습니다. 데이터 디스크는 지속형 및 반응형 데이터 저장소가 필요한 상황에 사용해야 합니다. 각 데이터 디스크의 최대 용량은 4TB입니다. VM 인스턴스의 크기에 따라 연결할 수 있는 데이터 디스크 수가 결정됩니다. 각 VM vCPU에 대해 두 개의 데이터 디스크를 연결할 수 있습니다.
 
 ### <a name="max-data-disks-per-vm"></a>VM당 최대 데이터 디스크 수
-| type | 일반적인 크기 | VM당 최대 데이터 디스크 수 |
+| Type | 일반적인 크기 | VM당 최대 데이터 디스크 수 |
 |----|----|----|
 | [범용](../virtual-machines/linux/sizes-general.md) | A, B 및 D 시리즈 | 64 |
 | [Compute에 최적화](../virtual-machines/linux/sizes-compute.md) | F 시리즈 | 64 |
@@ -132,7 +132,7 @@ az vmss disk attach \
 
 확장 집합의 여러 VM 인스턴스에 걸쳐 프로세스를 자동화하려면 Azure 사용자 지정 스크립트 확장을 사용할 수 있습니다. 이 확장은 연결된 데이터 디스크를 준비하는 것과 같이 각 VM 인스턴스에서 스크립트를 로컬로 실행할 수 있습니다. 자세한 내용은 [사용자 지정 스크립트 확장 개요](../virtual-machines/linux/extensions-customscript.md)를 참조하세요.
 
-다음 예제에서는 연결된 모든 원시 데이터 디스크를 준비하는 [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set)을 사용하여 각 VM 인스턴스에서 GitHub 샘플 리포지토리의 스크립트를 실행합니다.
+다음 예제에서는 연결된 모든 원시 데이터 디스크를 준비하는 [az vmss extension set](/cli/azure/vmss/extension)을 사용하여 각 VM 인스턴스에서 GitHub 샘플 리포지토리의 스크립트를 실행합니다.
 
 ```azurecli-interactive
 az vmss extension set \
@@ -279,7 +279,7 @@ az vmss show \
 
 
 ## <a name="detach-a-disk"></a>디스크 분리
-지정된 디스크가 더 이상 필요하지 않은 경우 확장 집합에서 디스크를 분리할 수 있습니다. 확장 집합의 모든 VM 인스턴스에서 디스크가 제거됩니다. 확장 집합에서 디스크를 분리하려면 [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach)를 사용하고 디스크의 LUN을 지정합니다. LUN은 이전 섹션의 [az vmss show](/cli/azure/vmss#az_vmss_show) 출력에 표시되어 있습니다. 다음 예제에서는 확장 집합에서 LUN *2*를 분리합니다.
+지정된 디스크가 더 이상 필요하지 않은 경우 확장 집합에서 디스크를 분리할 수 있습니다. 확장 집합의 모든 VM 인스턴스에서 디스크가 제거됩니다. 확장 집합에서 디스크를 분리하려면 [az vmss disk detach](/cli/azure/vmss/disk)를 사용하고 디스크의 LUN을 지정합니다. LUN은 이전 섹션의 [az vmss show](/cli/azure/vmss#az_vmss_show) 출력에 표시되어 있습니다. 다음 예제에서는 확장 집합에서 LUN *2*를 분리합니다.
 
 ```azurecli-interactive
 az vmss disk detach \

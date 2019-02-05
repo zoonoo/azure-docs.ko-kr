@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 53ad780ff0b199764c354327439fa69c360e7cb5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: db0b1cd9d61e498430bff417573b63f99c0ae7e4
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996811"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301733"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>자습서: Azure의 Service Fabric 클러스터에 Java 애플리케이션 배포
 
@@ -35,17 +35,17 @@ ms.locfileid: "46996811"
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * [Java Service Fabric Reliable Services 응용 프로그램 빌드](service-fabric-tutorial-create-java-app.md)
-> * [로컬 클러스터에서 응용 프로그램 배포 및 디버그](service-fabric-tutorial-debug-log-local-cluster.md)
+> * [Java Service Fabric Reliable Services 애플리케이션 빌드](service-fabric-tutorial-create-java-app.md)
+> * [로컬 클러스터에서 애플리케이션 배포 및 디버그](service-fabric-tutorial-debug-log-local-cluster.md)
 > * Azure 클러스터에 애플리케이션 배포
-> * [응용 프로그램에 대한 모니터링 및 진단 설정](service-fabric-tutorial-java-elk.md)
+> * [애플리케이션에 대한 모니터링 및 진단 설정](service-fabric-tutorial-java-elk.md)
 > * [CI/CD를 설정합니다](service-fabric-tutorial-java-jenkins.md).
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에:
 
-* Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Mac](service-fabric-get-started-mac.md) 또는 [Linux](service-fabric-get-started-linux.md)용 Service Fabric SDK 설치
 * [Python 3 설치](https://wiki.python.org/moin/BeginnersGuide/Download)
@@ -247,7 +247,6 @@ ms.locfileid: "46996811"
 > [!div class="checklist"]
 > * Azure에서 보안 Linux 클러스터 만들기
 > * ELK를 사용하여 모니터링하는 데 필요한 리소스 만들기
-> * 선택 사항: Service Fabric 실행하기 위해 파티 클러스터를 사용하는 방법
 
 다음 자습서를 진행합니다.
 > [!div class="nextstepaction"]

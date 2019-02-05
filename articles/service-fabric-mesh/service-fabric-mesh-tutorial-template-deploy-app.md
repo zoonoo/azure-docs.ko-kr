@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 97b1efbcb02277028782764ca1018b195ab21277
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 906efa00243cc622c374d442a7982d87d106079b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246367"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158845"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>자습서: 템플릿을 사용하여 Service Fabric Mesh에 애플리케이션 배포
 
@@ -109,7 +109,7 @@ az acr create --resource-group myResourceGroup --name myContainerRegistry --sku 
 
 ## <a name="push-the-images-to-azure-container-registry"></a>Azure Container Registry로 이미지 푸시
 
-이 자습서에서는 To Do List 샘플 애플리케이션을 예제로 사용합니다.  [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) 및 [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) 서비스용 컨테이너 이미지는 Docker Hub에서 확인할 수 있습니다. Visual Studio에서 애플리케이션을 빌드하는 방법에 대한 정보는 [Servic Fabric Mesh 웹 앱 빌드](service-fabric-mesh-tutorial-create-dotnetcore.md)를 참조하세요. Service Fabric Mesh는 Windows 또는 Linux Docker 컨테이너를 실행할 수 있습니다.  Linux 컨테이너를 사용 중이라면 Docker에서 **Linux 컨테이너로 전환**을 선택합니다.  Windows 컨테이너를 사용 중이라면 Docker에서 **Windows 컨테이너로 전환**을 선택합니다.
+이 자습서에서는 To Do List 샘플 애플리케이션을 예제로 사용합니다.  [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) 및 [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) 서비스용 컨테이너 이미지는 Docker Hub에서 확인할 수 있습니다. Visual Studio에서 애플리케이션을 빌드하는 방법에 대한 정보는 [Service Fabric Mesh 웹앱 빌드](service-fabric-mesh-tutorial-create-dotnetcore.md)를 참조하세요. Service Fabric Mesh는 Windows 또는 Linux Docker 컨테이너를 실행할 수 있습니다.  Linux 컨테이너를 사용 중이라면 Docker에서 **Linux 컨테이너로 전환**을 선택합니다.  Windows 컨테이너를 사용 중이라면 Docker에서 **Windows 컨테이너로 전환**을 선택합니다.
 
 ACR 인스턴스로 이미지를 푸시하려면 컨테이너 이미지가 있어야 합니다. 로컬 컨테이너 이미지가 아직 없으면 [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용하여 Docker Hub에서 [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) 및 [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) 이미지를 끌어옵니다.
 

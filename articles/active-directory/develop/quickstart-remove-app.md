@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,27 +16,27 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 916d34a0af1490404cb9f7851b3117f1967c54d0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 61da59fd570b9acc58dce89907eb5a1726a28de9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240905"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104473"
 ---
-# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Microsoft ID 플랫폼을 사용하여 등록된 애플리케이션 제거(미리 보기)
+# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>빠른 시작: Microsoft ID 플랫폼을 사용하여 등록된 애플리케이션 제거(미리 보기)
 
 Microsoft ID 플랫폼에 애플리케이션을 등록한 Enterprise 개발자 및 SaaS(Software-as-a-Service) 공급자는 애플리케이션 등록을 제거해야 할 수 있습니다.
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 
-* [사용자 또는 해당 조직이 작성한 응용프로그램 제거](#remove-an-application-authored-by-your-organization)
-* [다른 조직이 작성한 응용프로그램 제거](#remove-an-application-authoried-by-another-organization)
+* [사용자 또는 해당 조직이 작성한 애플리케이션 제거](#remove-an-application-authored-by-your-organization)
+* [다른 조직이 작성한 애플리케이션 제거](#remove-an-application-authoried-by-another-organization)
 
 ## <a name="prerequisites"></a>필수 조건
 
 시작하려면 다음과 같은 필수 구성을 완료했는지 확인합니다.
 
-* 애플리케이션이 등록된 테넌트가 있습니다. [Microsoft ID 플랫폼을 사용하여 응용 프로그램을 등록하는 방법](quickstart-register-app.md)을 살펴봅니다.
+* 애플리케이션이 등록된 테넌트가 있습니다. [Microsoft ID 플랫폼을 사용하여 애플리케이션을 등록하는 방법](quickstart-register-app.md)을 살펴봅니다.
 * Azure Portal에서 앱 등록 미리 보기 환경을 옵트인합니다. 이 빠른 시작의 단계는 새 UI에 해당하며 미리 보기 환경을 옵트인한 경우에만 작동합니다.
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>사용자 또는 해당 조직이 작성한 애플리케이션 제거
@@ -64,7 +64,7 @@ Microsoft ID 플랫폼에 애플리케이션을 등록한 Enterprise 개발자 �
 
 다른 관련 앱 관리 빠른 시작에 대해 알아봅니다.
 
-* [Microsoft ID 플랫폼을 사용하여 응용 프로그램 등록](quickstart-register-app.md)
-* [웹 API에 액세스하는 클라이언트 응용 프로그램 구성](quickstart-configure-app-access-web-apis.md)
-* [웹 API를 공개하는 응용 프로그램 구성](quickstart-configure-app-expose-web-apis.md)
-* [응용 프로그램에서 지원되는 계정 수정](quickstart-modify-supported-accounts.md)
+* [Microsoft ID 플랫폼을 사용하여 애플리케이션 등록](quickstart-register-app.md)
+* [웹 API에 액세스하는 클라이언트 애플리케이션 구성](quickstart-configure-app-access-web-apis.md)
+* [웹 API를 공개하는 애플리케이션 구성](quickstart-configure-app-expose-web-apis.md)
+* [애플리케이션에서 지원되는 계정 수정](quickstart-modify-supported-accounts.md)
