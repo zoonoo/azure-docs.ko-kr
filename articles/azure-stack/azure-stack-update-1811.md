@@ -16,12 +16,12 @@ ms.date: 01/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 444c67e942fad732c959f834e2c50f0b2a35562c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c398e615e943caad40040ff1b87713304fd9f015
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246537"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746713"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 업데이트
 
@@ -153,6 +153,9 @@ Azure Stack에는 핫픽스를 정기적으로 해제합니다. 설치 해야 �
 
 <!-- 3190553 - IS ASDK -->
 - 인프라 역할 인스턴스를 사용할 수 없습니다 또는 배율 단위 노드가 오프 라인 상태 였는 나타내는 불필요 한 경고를 생성 하는 문제가 수정 되었습니다.
+
+<!-- 2724961 - IS ASDK -->
+- Fiexed 문제 VM 개요 페이지는 VM 메트릭 차트를 표시할 올바르게 수 없습니다. 
 
 ## <a name="changes"></a>변경 내용
 
@@ -297,11 +300,6 @@ Azure Stack에는 핫픽스를 정기적으로 해제합니다. 설치 해야 �
 
 <!-- 1662991 IS ASDK --> 
 - Azure Stack의 Linux VM 진단을 지원 되지 않습니다. 를 사용 하도록 설정 하는 VM 진단을 사용 하 여 Linux VM을 배포 하는 경우 배포가 실패 합니다. 진단 설정을 통해 Linux VM 기본 메트릭을 사용 하도록 설정한 경우에 배포가 실패 합니다.  
-
-<!-- 2724961- IS ASDK --> 
-- 등록 하는 경우는 **Microsoft.Insight** 리소스 공급자 구독 설정에 게스트 OS 진단 사용 하도록 설정 된 Windows VM 만들기, VM 개요 페이지에서 CPU 백분율 차트에 메트릭 데이터를 표시 하지 않습니다.
-
-   VM에 대 한 CPU 백분율 차트와 같은 메트릭 데이터를 찾으려면에서로 이동 합니다 **메트릭을** 창과 표시 지원 되는 모든 Windows VM 게스트 메트릭을 합니다.
 
 <!-- 3507629 - IS, ASDK --> 
 - Managed Disks에서는 두 개의 새 [계산 할당량 형식](azure-stack-quota-types.md#compute-quota-types) 프로 비전 할 수 있는 관리 되는 디스크의 최대 용량을 제한 합니다. 기본적으로 각 관리 되는 디스크 할당량 형식에 대 한 2048 GiB 할당 됩니다. 그러나 다음과 같은 문제가 발생할 수 있습니다.

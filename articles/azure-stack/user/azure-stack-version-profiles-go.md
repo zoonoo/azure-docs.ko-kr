@@ -14,12 +14,12 @@ ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: 9b66a7a176862fce687b7cc0b1ff3c14bda118d7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: fbca9eb3703777c0d20998e65bf446b5951c5091
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243892"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745404"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Azure Stack에서 Go를 사용한 API 버전 프로필 사용
 
@@ -68,7 +68,7 @@ Azure Stack에서 Go 코드 샘플을 실행 하려면 다음이 단계를 수�
 
    > [!NOTE]  
    > 합니다 **ResourceManagerUrl** 에 Azure Stack 개발 키트 ASDK ()는: `https://management.local.azurestack.external/`  
-   > 합니다 **ResourceManagerUrl** 통합된 시스템의: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
+   > 합니다 **ResourceManagerUrl** 통합된 시스템의: `https://management.<region>.<fqdn>/`  
    > 에 필요한 메타 데이터를 검색 합니다. `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
    샘플 JSON 파일:

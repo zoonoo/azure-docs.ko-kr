@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/05/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 41383a31955b8f9507ec681650cf73df23b2a895
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 551958317249cbfa25e3af9922f9ded6850c2521
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663417"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752299"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Azure Stack에 Kubernetes 배포 문제 해결
 
@@ -53,7 +53,7 @@ ms.locfileid: "55663417"
 
 2. VM 배포 만들기 및 사용자 지정 스크립트 확장 합니다.
     -  Marketplace의 Linux 이미지를 사용 하 여 Linux VM 배포를 만듭니다 **Ubuntu Server 16.04-LTS**합니다.
-    -  다운로드 하 여 marketplace에서 고객 스크립트 확장을 실행 합니다. 이 스크립트는 **Linux 2.0에 대 한 사용자 지정 스크립트**합니다.
+    -  다운로드 하 고 marketplace에서 사용자 지정 스크립트 확장을 실행 합니다. 이 스크립트는 **Linux 2.0에 대 한 사용자 지정 스크립트**합니다.
     -  Dvm이 사용자 지정 스크립트를 실행 합니다. 스크립트는 다음 작업을 수행 합니다.
         1. Azure 리소스 관리자 메타 데이터 끝점에서 갤러리 끝점을 가져옵니다.
         2. Azure 리소스 관리자 메타 데이터 끝점에서 active directory 리소스 ID를 가져옵니다.
@@ -61,7 +61,7 @@ ms.locfileid: "55663417"
         4. Kubernetes 클러스터에는 ACS 엔진을 배포 하 고 Azure Stack 클라우드 프로필 저장 `/etc/kubernetes/azurestackcloud.json`합니다.
 3. 마스터 Vm을 만듭니다.
 
-4. 다운로드 하 고 고객 스크립트 확장을 실행 합니다.
+4. 다운로드 하 고 사용자 지정 스크립트 확장을 실행 합니다.
 
 5. 마스터 스크립트를 실행 합니다.
 
@@ -75,7 +75,7 @@ ms.locfileid: "55663417"
         3. Scheduler 서비스를 시작합니다.
 6. Vm 에이전트를 만듭니다.
 
-7. 다운로드 하 여 고객 스크립트 확장을 실행 합니다.
+7. 다운로드 하 고 사용자 지정 스크립트 확장을 실행 합니다.
 
 7. 에이전트 스크립트를 실행 합니다. 에이전트 사용자 지정 스크립트는 다음 작업을 수행 합니다.
     - Etcd 설치

@@ -15,12 +15,12 @@ ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 1b22d465df12d313e05d3fd93437b461ef939ee7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b7a12494585cedd8f75fd9061f8eb29a0b5dc319
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242487"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747427"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Azure Stack에서 제안 위임
 
@@ -76,6 +76,9 @@ Azure Stack 운영자 담당 사용자를 등록 하 고 구독을 만들어 다
 | --- | --- |
 | 위임 된 공급자 |사용자 |
 | 사용자 |사용자 |
+
+ > [!NOTE]
+   > CSP 재판매인의 경우이 위임 된 공급자를 만들려면 해야 하 고 테 넌 트 디렉터리 (AAD 사용자)에서 이러한 사용자입니다. Azure Stack 운영자 해야 [첫 번째 온 보 딩](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-enable-multitenancy) AAD 테 넌 트를 구성한 다음에 따라 사용량 및 결제 [이 단계](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-csp-howto-register-tenants)합니다.
 
 ### <a name="identify-the-delegated-provider"></a>위임 된 공급자를 식별 합니다.
 

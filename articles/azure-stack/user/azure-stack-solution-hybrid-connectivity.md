@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 84e952514b88620af565cf7e9775c055476fb530
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2530f6f59ef458d5a7c2de5850d8fab322798ba3
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247564"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752665"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 하이브리드 클라우드 연결 구성
 
@@ -61,7 +61,7 @@ Azure Stack 운영자 해야 App Service 배포, 계획 및 제품은 테 넌 �
 ### <a name="azure"></a>Azure
 
  - Azure 구독이 아직 없는 경우 시작하기 전에  [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
- - 만들기는 [웹 앱](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts#create-an-azure-web-app-using-the-portal) Azure에서. 이 자습서에 필요 하기 때문에 웹 앱 URL을 기록해 두십시오.
+ - 만들기는 [웹 앱](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts) Azure에서. 이 자습서에 필요 하기 때문에 웹 앱 URL을 기록해 두십시오.
 
 ### <a name="azure-stack"></a>Azure Stack
 
