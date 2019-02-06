@@ -22,13 +22,13 @@ ms.locfileid: "52285417"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>netvsc.sys로 인해 Windows 10 또는 Azure의 Windows Server 2016 VM에 원격으로 연결할 수 없습니다.
 
-이 문서에서는 Hyper-V Server 2016 호스트에서 Windows 10 또는 Windows Server 2016 Datacenter VM(가상 머신)에 연결할 때 네트워크 연결이 없는 문제를 해결하는 방법을 설명합니다.
+이 문서에서는 Hyper-V Server 2016 호스트에서 Windows 10 또는 Windows Server 2016 Datacenter VM(가상 머신)에 연결할 때 네트워크가 연결되지 않는 문제를 해결하는 방법을 설명합니다.
 
 ## <a name="symptoms"></a>증상
 
-RDP(원격 데스크톱 프로토콜)를 사용하여 Azure Windows 10 또는 Windows Server 2016 VM에 연결할 수 없습니다. [부트 진단](boot-diagnostics.md) 화면에는 NIC(네트워크 인터페이스 카드)를 위에 빨간색 십자가 표시됩니다. 이것은 운영 체제를 완전히 로드한 후에 VM에 연결이 없음을 나타냅니다.
+RDP(원격 데스크톱 프로토콜)를 사용하여 Azure Windows 10 또는 Windows Server 2016 VM에 연결할 수 없습니다. [부트 진단](boot-diagnostics.md) 화면에는 NIC(네트워크 인터페이스 카드)를 위에 빨간색 십자가 표시됩니다. 이것은 운영 체제를 완전히 로드한 후에 VM이 연결되지 않았음을 의미합니다.
 
-일반적으로 이 문제는 Windows [빌드 14393](http://support.microsoft.com/help/4093120/) 및 [빌드 15063](http://support.microsoft.com/help/4015583/)에서 나타납니다. 운영 체제 버전이 이 버전보다 나중이면 이 문서의 내용이 해당 시나리오에 적용되지 않습니다. 시스템 버전을 확인하려면 [직렬 액세스 콘솔 기능](serial-console-windows.md)에서 CMD 세션을 열고 **Ver**을 실행합니다.
+일반적으로 이 문제는 Windows [빌드 14393](http://support.microsoft.com/help/4093120/) 및 [빌드 15063](http://support.microsoft.com/help/4015583/)에서 나타납니다. 해당 빌드 이상의 운영 체제 버전을 사용 중인 경우, 이 문서의 내용이 해당 시나리오에 적용되지 않습니다. 시스템 버전을 확인하려면 [직렬 액세스 콘솔 기능](serial-console-windows.md)에서 CMD 세션을 열고 **Ver**을 실행합니다.
 
 ## <a name="cause"></a>원인
 
@@ -53,7 +53,7 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 Azure Windows 10 또는 Wi
    (get-childitem "$env:systemroot\system32\drivers\netvsc.sys").VersionInfo.FileVersion
    ```
 
-2. 동일한 지역에서 작동하는 VM에 연결된 새 또는 기존 데이터 디스크에 적절한 업데이트를 다운로드합니다.
+2. 동일한 지역에서 작동하는 VM에 연결된 새 데이터 디스크 또는 기존 데이터 디스크에 적절한 업데이트를 다운로드합니다.
 
    - **10.0.14393.594**: [KB4073562](http://support.microsoft.com/help/4073562)  이상 업데이트
    - **10.0.15063.0**: [KB4016240](http://support.microsoft.com/help/4016240) 이상 업데이트
