@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 09/10/2018
-ms.openlocfilehash: 363e0868542f56df8c37639b2af7ac295be97da2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 20c96d1e25e0aef86d09c37ed919e61ec6058c6d
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249908"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747444"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Azure Stack 개발 키트 ASDK ()를 설치 합니다.
 한 후 [ASDK 호스트 컴퓨터를 준비 하 고](asdk-prepare-host.md)는 ASDK이 문서의 다음 단계를 사용 하 여 CloudBuilder.vhdx 이미지로 배포할 수 있습니다.
@@ -59,7 +59,7 @@ ms.locfileid: "55249908"
     - 형식에 유효한 **서버 IP를 시간** 주소입니다. 이 필드는 개발 키트에서 사용할 시간 서버를 설정 해야 합니다. 이 매개 변수는 유효한 시간 서버 IP 주소로 제공 되어야 합니다. 서버 이름은 지원 되지 않습니다.
 
       > [!TIP]
-      > 시간 서버 IP 주소를 찾으려면 방문 [pool.ntp.org](http://pool.ntp.org) 하거나 time.windows.com를 ping 합니다. 
+      > 시간 서버 IP 주소를 찾으려면 방문 [ntppool.org](https://www.ntppool.org/) 하거나 time.windows.com를 ping 합니다. 
 
     - **필요에 따라**, 다음 값을 설정 합니다.
         - **VLAN ID**: VLAN ID를 설정합니다. 호스트와 AzS-BGPNAT01 실제 네트워크 (및 인터넷)에 액세스 하는 VLAN ID를 구성 해야 하는 경우에이 옵션을 사용 합니다. 
