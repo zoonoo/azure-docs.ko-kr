@@ -74,6 +74,7 @@
 ### 고가용성 아키텍처
 #### [HA 아키텍처 및 시나리오](sap-high-availability-architecture-scenarios.md)
 #### [고가용성 아키텍처 및 시나리오](sap-higher-availability-architecture-scenarios.md)
+#### [Azure 가용성 영역을 사용하여 SAP 워크로드 구성](sap-ha-availability-zones.md)
 #### [(A)SCS 인스턴스에 공유 디스크를 사용하는 Windows의 HA](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [(A)SCS 인스턴스에 SOFS 파일 공유를 사용하는 Windows의 HA](sap-high-availability-guide-wsfc-file-share.md)
 #### [(A)SCS 인스턴스의 SUSE Linux에 대한 HA](high-availability-guide-suse.md)

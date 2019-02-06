@@ -1,7 +1,7 @@
 # [Azure Marketplace 및 AppSource 설명서](index.md)
+## [Azure Marketplace 및 AppSource 로드맵](./marketplace-roadmap.md)
 
 ## [Azure Marketplace 및 AppSource 개요 및 이점](./marketplace-publishers-guide.md)  
-
 ### [마켓플레이스에서 게시자 되기](./become-publisher.md)  
 #### [Microsoft 계정 만들기](./guidelines.md)
 #### [개발자 센터에 등록](./register-dev-center.md) 

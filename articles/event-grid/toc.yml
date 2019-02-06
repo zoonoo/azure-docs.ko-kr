@@ -40,7 +40,7 @@ items:
     href: resize-images-on-storage-blob-upload-event.md
   - name: Automation Runbook 트리거
     href: ensure-tags-exists-on-new-virtual-machines.md
-  - name: IoT Hub 디바이스 추가 시 이메일 보내기
+  - name: IoT Hub 장치 추가 시 이메일 보내기
     href: publish-iot-hub-events-to-logic-apps.md
   - name: Service Bus 이벤트에 응답
     href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
@@ -59,7 +59,7 @@ items:
       href: scripts/event-grid-cli-create-custom-topic.md
     - name: Azure 구독에 가입
       href: scripts/event-grid-cli-azure-subscription.md
-    - name: Blob 저장소 구독
+    - name: Blob Storage 구독
       href: scripts/event-grid-cli-blob.md
     - name: 사용자 지정 항목 구독
       href: scripts/event-grid-cli-subscribe-custom-topic.md
@@ -74,7 +74,7 @@ items:
       href: scripts/event-grid-powershell-create-custom-topic.md
     - name: Azure 구독에 가입
       href: scripts/event-grid-powershell-azure-subscription.md
-    - name: Blob 저장소 구독
+    - name: Blob Storage 구독
       href: scripts/event-grid-powershell-blob.md
     - name: 사용자 지정 항목 구독
       href: scripts/event-grid-powershell-subscribe-custom-topic.md
@@ -124,6 +124,8 @@ items:
     href: cloudevents-schema.md
   - name: 이벤트 도메인을 사용하여 토픽 관리
     href: how-to-event-domains.md
+  - name: 클라이언트 쪽 장애 조치(failover) 구현
+    href: custom-disaster-recovery.md
 - name: 참고 자료
   items:
   - name: Azure CLI
@@ -173,9 +175,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: 스택 오버플로
     href: http://stackoverflow.com/questions/tagged/azure-eventgrid
-ms.openlocfilehash: b6b011471b9cc73161312786d7f961951a533100
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e88de075666f8565be9f977d24b038899604970d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081475"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692919"
