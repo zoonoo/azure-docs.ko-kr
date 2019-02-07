@@ -13,12 +13,12 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9c7560dc6c3c5237a056a9468d3ab4f440e8e6dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bc726f63ea5c8473601623024e18c1402cbebb51
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190788"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820320"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Azure Portal에서 작업 보고서 찾기
 
@@ -49,8 +49,6 @@ ms.locfileid: "55190788"
 
 감사 보고서에서 고급 필터링을 사용하여 **활동 범주** 필터에서 지정하여 특정 범주의 감사 데이터에 액세스할 수 있습니다. 예를 들어 셀프 서비스 암호 재설정과 관련된 모든 작업을 보려면 **셀프 서비스 암호 관리** 범주를 선택합니다. 
 
-    ![Category options on the Filter Audit Logs page](./media/howto-find-activity-reports/06.png "Category options on the Filter Audit Logs page")
-
 작업 범주에는 다음과 같은 항목이 포함됩니다.
 
 - 핵심 디렉터리
@@ -62,8 +60,6 @@ ms.locfileid: "55190788"
 ## <a name="sign-ins-report"></a>로그인 보고서 
 
 **로그인** 보기는 모든 사용자 로그인 뿐만 아니라 **애플리케이션 사용량** 보고서를 포함합니다. **Enterprise 애플리케이션** 개요의 **관리** 섹션에서도 애플리케이션 사용량 정보를 볼 수 있습니다.
-
-    ![Enterprise applications](./media/howto-find-activity-reports/484.png "Enterprise applications")
 
 로그인 보고서에 액세스하려면:
 

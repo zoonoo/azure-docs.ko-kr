@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 843feb83b8202d3ef8e2c6c8c60cb9b509048530
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 114d71227e3cf3d0f235fc63135534b1030d4adc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290776"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188345"
 ---
 # <a name="performance-metrics"></a>성능 메트릭
 
@@ -39,7 +39,7 @@ ms.locfileid: "52290776"
 | PhysicalDisk(디스크당) | 디스크 읽기/초  |
 | PhysicalDisk(디스크당) | 디스크 읽기 바이트/초  |
 | PhysicalDisk(디스크당) |  디스크 쓰기/초 |
-| PhysicalDisk(디스크당) |  디스크 쓰기 바이트/초 |
+| PhysicalDisk(디스크당) | 디스크 쓰기 바이트/초 |
 | 메모리 | Available MBytes |
 | PagingFile | % 사용량 |
 | 프로세서(합계) | % Processor Time |
@@ -78,7 +78,7 @@ ms.locfileid: "52290776"
 
 ### <a name="service-fabrics-custom-performance-counters"></a>Service Fabric 사용자 지정 성능 카운터
 
-Service Fabric은 상당한 양의 사용자 지정 성능 카운터를 생성합니다. SDK가 설치되어 있는 경우 성능 모니터 응용 프로그램에서 Windows 컴퓨터의 포괄적인 목록을 볼 수 있습니다(시작 > 성능 모니터). 
+Service Fabric은 상당한 양의 사용자 지정 성능 카운터를 생성합니다. SDK가 설치되어 있는 경우 성능 모니터 애플리케이션에서 Windows 컴퓨터의 포괄적인 목록을 볼 수 있습니다(시작 &gt; 성능 모니터). 
 
 클러스터에 배포하는 애플리케이션에서 Reliable Actors를 사용하는 경우 `Service Fabric Actor` 및 `Service Fabric Actor Method` 범주에서 카운터를 추가합니다([Service Fabric Reliable Actors 진단](service-fabric-reliable-actors-diagnostics.md) 참조).
 

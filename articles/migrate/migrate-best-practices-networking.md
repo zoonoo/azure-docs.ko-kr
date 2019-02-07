@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
-ms.openlocfilehash: 5cbe0c5e86a1dfd8cc3cb374f0ae7e1c67ae9d77
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 302445038dc9767bd412e232f62fc5249a1a7f09
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828301"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696952"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>Azure로 마이그레이션된 워크로드에 대한 네트워킹 설정 모범 사례
 
@@ -72,7 +72,7 @@ IP 주소 공간을 정렬하는 방법, 허브-스포크 네트워크를 구현
 **자세한 정보:**
 
 - 허브 및 스포크 토폴로지에 대한 [참조](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
-- Azure [Windows](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm#network-recommendations) 및 [Linux](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm#network-recommendations) VM 실행을 위한 네트워크 추천 사항 가져오기
+- Azure [Windows](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm) 및 [Linux](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm) VM 실행을 위한 네트워크 추천 사항 가져오기
 - VNet 피어링에 대해 [알아보기](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)
 
 

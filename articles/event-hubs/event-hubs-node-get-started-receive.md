@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d13f97ff7ec25fd638b92dc1c057afcaeecc2bf9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6986a5c40b51300b631f3fdce6c3a88b43fb5b11
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434072"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730886"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Node.js를 사용하여 Azure Event Hubs에서 이벤트 수신
 
@@ -49,7 +49,7 @@ GitHub에서 [샘플](https://github.com/Azure/azure-event-hubs-node/tree/master
 ## <a name="install-the-eventprocessorhost"></a>EventProcessorHost 설치
 Event Hubs 모듈용 EventProcessorHost를 설치합니다. 
 
-```nodejs
+```shell
 npm install @azure/event-processor-host
 ```
 
@@ -61,20 +61,20 @@ npm install @azure/event-processor-host
 3. 이벤트 허브 연결 문자열, 이벤트 허브 이름 및 저장소 엔드포인트를 구성합니다. Azure Portal 이벤트 허브 페이지의 **RootManageSharedAccessKey** 아래 **연결 문자열-기본** 키에서 이벤트 허브의 연결 문자열을 복사할 수 있습니다. 자세한 단계는 [연결 문자열 가져오기](event-hubs-create.md#create-an-event-hubs-namespace)를 참조하세요.
 4. Azure CLI에서 **processor** 폴더 경로로 이동합니다. 다음 명령을 실행하여 node 패키지를 설치하고 프로젝트를 빌드합니다.
 
-    ```nodejs
+    ```shell
     npm i
     npm run build
     ```
 5. 다음 명령을 실행하여 이벤트 프로세서 호스트를 사용해 이벤트를 수신합니다.
 
-    ```nodejs
+    ```shell
     node dist/examples/singleEph.js
     ```
 
 ## <a name="review-the-sample-code"></a>샘플 코드 검토 
 node.js를 사용하여 이벤트 허브에서 이벤트를 수신하는 샘플 코드는 다음과 같습니다. sampleEph.js 파일을 수동으로 만든 다음 실행하면 이벤트 허브로 이벤트를 수신할 수 있습니다. 
 
-  ```nodejs
+  ```javascript
   const { EventProcessorHost, delay } = require("@azure/event-processor-host");
 
   const path = process.env.EVENTHUB_NAME;
@@ -127,7 +127,7 @@ node.js를 사용하여 이벤트 허브에서 이벤트를 수신하는 샘플 
 
 스크립트를 실행하기 전에 환경 변수를 설정하세요. 다음 예제에 나와 있는 것처럼 명령줄에서 환경 변수를 구성할 수도 있고 [dotenv package](https://www.npmjs.com/package/dotenv#dotenv)를 사용할 수도 있습니다. 
 
-```
+```shell
 // For windows
 set EVENTHUB_CONNECTION_STRING="<your-connection-string>"
 set EVENTHUB_NAME="<your-event-hub-name>"
@@ -142,7 +142,7 @@ export EVENTHUB_NAME="<your-event-hub-name>"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 이벤트 허브에서 메시지를 받는 Node.js 애플리케이션을 만들었습니다. Node.js를 사용하여 이벤트 허브에 이벤트를 보내는 방법을 알아보려면 [이벤트 허브에서 이벤트 보내기 - Node.js](event-hubs-node-get-started-send.md)를 참조하세요.
+이 빠른 시작에서는 이벤트 허브에서 메시지를 받는 Node.js 응용 프로그램을 만들었습니다. Node.js를 사용하여 이벤트 허브에 이벤트를 보내는 방법을 알아보려면 [이벤트 허브에서 이벤트 보내기 - Node.js](event-hubs-node-get-started-send.md)를 참조하세요.
 
 <!-- Links -->
 [체험 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

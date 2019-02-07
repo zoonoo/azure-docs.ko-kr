@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 0b3b3cd1c9c0410c4cc0ffda8887b40123c1ac7a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b69b16cec08c5d29d4812258f694f2d078a9ff35
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718509"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700981"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 보안 및 규정 준수 청사진: UK OFFICIAL 워크로드 준수 PaaS 웹 애플리케이션 호스팅
 
@@ -73,7 +73,7 @@ Azure Blueprint는 승인 또는 규정 준수 요구 사항이 있는 시나리
 
 #### <a name="identity-and-authentication"></a>ID 및 인증
 
-이 청사진은 디렉터리 및 ID 관리 서비스를 통해 리소스에 대한 액세스를 보호합니다. 이 아키텍처는 [ID를 보안 경계로](https://docs.microsoft.com/azure/security/security-paas-deployments#identity-as-the-primary-security-perimeter) 최대한 활용합니다. 
+이 청사진은 디렉터리 및 ID 관리 서비스를 통해 리소스에 대한 액세스를 보호합니다. 이 아키텍처는 [ID를 보안 경계로](https://docs.microsoft.com/azure/security/security-paas-deployments) 최대한 활용합니다. 
 
 다음 기술은 Azure 환경에서 ID 관리 기능을 제공합니다.
 
@@ -137,7 +137,7 @@ Azure SQL Database 인스턴스는 다음 데이터베이스 보안 조치를 �
 
 ### <a name="azure-storage"></a>Azure Storage
 
-Microsoft [Azure Storage](https://azure.microsoft.com/services/storage/)는 가용성, 보안, 내구성, 확장성 및 중복성이 높은 저장소를 제공하는 Microsoft 관리 클라우드 서비스입니다. Azure Storage는 Blob Storage, File Storage 및 Queue Storage로 구성됩니다.
+Microsoft [Azure Storage](https://azure.microsoft.com/services/storage/)는 가용성, 보안, 내구성, 확장성 및 중복성이 높은 스토리지를 제공하는 Microsoft 관리 클라우드 서비스입니다. Azure Storage는 Blob Storage, File Storage 및 Queue Storage로 구성됩니다.
 
 #### <a name="azure-storage-in-this-blueprint"></a>이 청사진의 Azure Storage
 
@@ -148,7 +148,7 @@ Microsoft [Azure Storage](https://azure.microsoft.com/services/storage/)는 가�
 
 #### <a name="data-at-rest"></a>미사용 데이터
 
-[SSE(저장소 서비스 암호화)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 통해 Azure Storage에 쓴 모든 데이터는 사용 가능한 가장 강력한 블록 암호화 중 하나인 256비트 AES 암호화를 통해 암호화됩니다. SSE에서 Microsoft 관리 암호화 키를 사용하거나 [사용자 고유의 암호화 키](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys)를 사용할 수 있습니다.
+[SSE(스토리지 서비스 암호화)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 통해 Azure Storage에 쓴 모든 데이터는 사용 가능한 가장 강력한 블록 암호화 중 하나인 256비트 AES 암호화를 통해 암호화됩니다. SSE에서 Microsoft 관리 암호화 키를 사용하거나 [사용자 고유의 암호화 키](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys)를 사용할 수 있습니다.
 
 Storage 계정은 [가상 네트워크 규칙](https://docs.microsoft.com/azure/storage/common/storage-network-security)을 사용하여 [Virtual Network 서비스 엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)를 통해 보호할 수 있습니다.
 

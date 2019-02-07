@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 114b6b0cc0fd4e8e51a9dbf2cdc8d9e2a2261754
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 57279a4e92b1f42505003f12d41c8203aa5603d4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823490"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54881872"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Azure DevOps Projects(미리 보기)를 사용하여 IoT Edge에 대한 CI/CD 파이프라인 만들기
 
@@ -93,7 +93,7 @@ DevOps Projects에서 Azure Repos에 프로젝트의 Git 리포지토리를 만�
 
 ## <a name="examine-the-cicd-pipeline"></a>CD 파이프라인 검토
 
-이전 섹션에서는 Azure DevOps Projects가 IoT Edge 애플리케이션에 대한 전체 CI/CD 파이프라인을 자동으로 구성했습니다. 그 후 여러분이 파일 중 하나에 변경 내용을 커밋하여 해당 빌드 파이프라인을 테스트했습니다. 이제 필요에 따라 파이프라인을 살펴보고 사용자 지정합니다. Azure DevOps 빌드 및 릴리스 파이프라인을 숙지하려면 다음을 수행합니다.
+이전 섹션에서는 Azure DevOps Projects가 IoT Edge 애플리케이션에 대한 전체 CI/CD 파이프라인을 자동으로 구성했습니다. 그런 다음, 파일 중 하나에 변경 내용을 커밋하여 해당 빌드 파이프라인을 테스트했습니다. 이제 필요에 따라 파이프라인을 살펴보고 사용자 지정합니다. Azure DevOps 빌드 및 릴리스 파이프라인을 숙지하려면 다음을 수행합니다.
 
 1. DevOps 프로젝트에서 빌드 파이프라인을 보려면 프로젝트 대시보드 메뉴에서 **빌드 파이프라인**을 선택합니다. 이 링크는 브라우저 탭 및 새 프로젝트에 대한 Azure DevOps 빌드 파이프라인을 엽니다.
 

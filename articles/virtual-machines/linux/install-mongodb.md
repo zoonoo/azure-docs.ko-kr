@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 8a9b14423566e631ddb41b42048104c8ee085486
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: cc786b97c38c115fb288a5b9a0f73f566777e7df
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886699"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734422"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Linux VM에 MongoDB를 설치하고 구성하는 방법
 
@@ -39,7 +39,7 @@ MongoDB는 Red Hat/CentOS, SUSE, Ubuntu 및 Debian을 포함하는 Linux 배포�
 az group create --name myResourceGroup --location eastus
 ```
 
-[az vm create](/cli/azure/vm#az_vm_create)로 VM을 만듭니다. 다음 예제에서는 SSH 공개 키 인증을 사용하여 *azureuser*라는 사용자로 *myVM*이라는 VM을 만듭니다.
+[az vm create](/cli/azure/vm)로 VM을 만듭니다. 다음 예제에서는 SSH 공개 키 인증을 사용하여 *azureuser*라는 사용자로 *myVM*이라는 VM을 만듭니다.
 
 ```azurecli
 az vm create \
@@ -127,7 +127,7 @@ GitHub의 다음과 같은 Azure 빠른 시작 템플릿을 사용하여 단일 
 az group create --name myResourceGroup --location eastus
 ```
 
-다음으로 [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create)를 사용하여 MongoDB 템플릿을 배포합니다. 메시지가 표시되면 *newStorageAccountName*, *dnsNameForPublicIP* 및 사용자 이름과 암호에 대한 고유한 값을 입력합니다.
+다음으로 [az group deployment create](/cli/azure/group/deployment)를 사용하여 MongoDB 템플릿을 배포합니다. 메시지가 표시되면 *newStorageAccountName*, *dnsNameForPublicIP* 및 사용자 이름과 암호에 대한 고유한 값을 입력합니다.
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -178,7 +178,7 @@ GitHub의 다음과 같은 Azure 빠른 시작 템플릿을 사용하여 복합�
 az group create --name myResourceGroup --location eastus
 ```
 
-다음으로 [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create)를 사용하여 MongoDB 템플릿을 배포합니다. *mongoAdminUsername*, *sizeOfDataDiskInGB* 및 *configNodeVmSize* 등에 필요한 대로, 고유한 리소스 이름 및 크기를 정의합니다.
+다음으로 [az group deployment create](/cli/azure/group/deployment)를 사용하여 MongoDB 템플릿을 배포합니다. *mongoAdminUsername*, *sizeOfDataDiskInGB* 및 *configNodeVmSize* 등에 필요한 대로, 고유한 리소스 이름 및 크기를 정의합니다.
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -200,7 +200,7 @@ az group deployment create --resource-group myResourceGroup \
   --no-wait
 ```
 
-이 배포는 모든 VM 인스턴스를 배포하고 구성하는 데 1시간 이상이 걸릴 수 있습니다. 템플릿 배포가 Azure 플랫폼에서 수락되면 명령 프롬프트로 제어를 반환하는 이전 명령의 끝에 `--no-wait` 플래그가 사용됩니다. 그런 다음 [az group deployment show](/cli/azure/group/deployment#az_group_deployment_show)를 사용하여 배포 상태를 볼 수 있습니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에서 *myMongoDBCluster* 배포에 대한 상태를 볼 수 있습니다.
+이 배포는 모든 VM 인스턴스를 배포하고 구성하는 데 1시간 이상이 걸릴 수 있습니다. 템플릿 배포가 Azure 플랫폼에서 수락되면 명령 프롬프트로 제어를 반환하는 이전 명령의 끝에 `--no-wait` 플래그가 사용됩니다. 그런 다음 [az group deployment show](/cli/azure/group/deployment)를 사용하여 배포 상태를 볼 수 있습니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에서 *myMongoDBCluster* 배포에 대한 상태를 볼 수 있습니다.
 
 ```azurecli
 az group deployment show \

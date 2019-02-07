@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: abshamsft
-ms.openlocfilehash: 50819e1378187dda126f25298d8a2ac0a1b815c5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2dcbe170a69c0c285cb6425427f94b5efced8712
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188778"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747461"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute 모니터
 
@@ -118,23 +118,12 @@ NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../../virtual-
 
 | 알림 코드(로그) | 설명 |
 | --- | --- |
-| 5101 | Microsoft Edge 하위 인터페이스 대기 시간이 길어짐 |
-| 5102 | Microsoft Edge 하위 인터페이스가 패키지를 삭제하고 있음 | 
-| 5103 | ExpressRoute 게이트웨이 상태가 정상이 아님 | 
-| 5201 | 서비스 공급 기업의 링크 대기 시간이 길어짐 |
-| 5202 | 패킷이 의도한 ExpressRoute 회로에서 흐르지 않음 |
-| 5301 | 고객 에지 라우터 대기 시간이 길어짐 | 
-| 5302 | 대기 시간은 고객 환경의 디바이스/링크로 인해 발생됩니다. ExpressRoute 회로에 문제가 있는 것 같지 않음 | 
 | 5501 | ExpressRoute 회로의 보조 연결을 통해 트래버스할 수 없음 |
 | 5502 | ExpressRoute 회로의 기본 연결을 통해 트래버스할 수 없음 |
 | 5503 | 작업 영역에 연결된 구독에 대한 회로를 찾을 수 없음 | 
-| 5506 | 사용률이 최대 용량에 도달하고 있음 | 
-| 5507 | 사용률이 낮음 |
 | 5508 | 트래픽이 경로에 대한 모든 회로를 통과하는지 확인할 수 없음 |
 | 5510 | 트래픽이 의도된 회로를 통과하지 않음 | 
 | 5511 | 트래픽이 의도된 가상 네트워크를 통과하지 않음 | 
-| 5512 | 트래픽이 의도된 회로를 통과하는지 확인할 수 없음 |
-
 
 **회로가 작동 중단됨.** 네트워크 성능 모니터는 온-프레미스 리소스와 Azure 가상 네트워크 간 연결이 끊어지는 즉시 알림을 표시합니다. 이 알림을 통해 사용자 에스컬레이션이 수신되기 전에 사전 조치를 취하여 작동 중단 시간을 줄일 수 있습니다.
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
 ms.subservice: files
-ms.openlocfilehash: ee56f77ef6ed3c759573a5a96d854c54f297b2ac
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0aa291c3334af35ec90648cfbcbb7de7015deb99
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462361"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731447"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>SMB를 사용하여 Linux VM에 Azure File Storage 탑재
 
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-[az storage account create](/cli/azure/storage/account#create)를 사용하여 만든 리소스 그룹 내에 새 스토리지 계정을 만듭니다. 다음 예제에서는 *mySTORAGEACCT<random number>* 라는 스토리지 계정을 만들고, 해당 스토리지 계정의 이름을 **STORAGEACCT** 변수에 배치합니다. 저장소 계정 이름은 고유해야 하며, 사용하는 `$RANDOM` 끝에 숫자를 추가하여 고유하게 만듭니다.
+[az storage account create](/cli/azure/storage/account)를 사용하여 만든 리소스 그룹 내에 새 스토리지 계정을 만듭니다. 다음 예제에서는 *mySTORAGEACCT<random number>* 라는 스토리지 계정을 만들고, 해당 스토리지 계정의 이름을 **STORAGEACCT** 변수에 배치합니다. 저장소 계정 이름은 고유해야 하며, 사용하는 `$RANDOM` 끝에 숫자를 추가하여 고유하게 만듭니다.
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -58,7 +58,7 @@ STORAGEACCT=$(az storage account create \
 
 저장소 계정을 만드는 경우 서비스 중단 없이 키를 순환할 수 있도록 저장소 계정 키는 쌍으로 만들어집니다. 쌍에서 두 번째 키로 전환하는 경우 새 키 쌍이 만들어집니다. 새 저장소 계정 키는 항상 쌍으로 만들어지므로 전환할 준비가 된 사용하지 않은 저장소 계정 키가 하나 이상 항상 있어야 합니다.
 
-[az storage account keys list](/cli/azure/storage/account/keys#list)를 사용하여 스토리지 계정 키를 봅니다. 다음 예제에서는 키 1의 값을 **STORAGEKEY** 변수에 저장합니다.
+[az storage account keys list](/cli/azure/storage/account/keys)를 사용하여 스토리지 계정 키를 봅니다. 다음 예제에서는 키 1의 값을 **STORAGEKEY** 변수에 저장합니다.
 
 ```bash
 STORAGEKEY=$(az storage account keys list \
@@ -69,7 +69,7 @@ STORAGEKEY=$(az storage account keys list \
 
 ## <a name="create-a-file-share"></a>파일 공유 만들기
 
-[az storage share create](/cli/azure/storage/share#create)를 사용하여 파일 스토리지 공유를 만듭니다. 
+[az storage share create](/cli/azure/storage/share)를 사용하여 파일 스토리지 공유를 만듭니다. 
 
 공유 이름은 모두 소문자, 숫자 및 단일 하이픈이어야 하지만, 하이픈으로 시작할 수는 없습니다. 파일 공유 및 파일 이름 지정에 대한 자세한 내용은 [공유, 디렉터리, 파일 및 메타데이터 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata)를 참조하세요.
 

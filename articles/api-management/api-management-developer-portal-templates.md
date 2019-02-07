@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 90084f6c4fb270c34165bf12763109d9be2398aa
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 00d5e3df78e85d19a519786dad1a1b176ad7fa08
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446962"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733062"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>템플릿을 사용하여 Azure API Management 개발자 포털을 사용자 지정하는 방법
 
@@ -45,15 +45,15 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 ![개발자 포털 템플릿][api-management-templates-menu]
 
-템플릿을 클릭하면 해당 템플릿을 통해 사용자 지정할 수 있는 개발자 포털 페이지로 이동합니다. 이 예제에서는 **제품 목록** 템플릿이 표시됩니다. **제품 목록** 템플릿은 빨간색 사각형으로 표시된 화면 영역을 제어합니다. 
+템플릿을 클릭하면 해당 템플릿을 통해 사용자 지정할 수 있는 개발자 포털 페이지로 이동합니다. 이 예제에서는 **제품 목록** 템플릿이 표시됩니다. **제품 목록** 템플릿은 빨간색 사각형으로 표시된 화면 영역을 제어합니다.
 
 ![제품 목록 템플릿][api-management-developer-portal-templates-overview]
 
-**사용자 프로필** 템플릿과 같은 일부 템플릿은 동일한 페이지의 다양한 부분을 사용자 지정합니다. 
+**사용자 프로필** 템플릿과 같은 일부 템플릿은 동일한 페이지의 다양한 부분을 사용자 지정합니다.
 
 ![사용자 프로필 템플릿][api-management-user-profile-templates]
 
-각 개발자 포털 템플릿의 편집기에는 페이지 맨 아래에 표시되는 두 개의 섹션이 있습니다. 왼쪽에는 템플릿의 편집 창이 표시되고 오른쪽에는 템플릿의 데이터 모델이 표시됩니다. 
+각 개발자 포털 템플릿의 편집기에는 페이지 맨 아래에 표시되는 두 개의 섹션이 있습니다. 왼쪽에는 템플릿의 편집 창이 표시되고 오른쪽에는 템플릿의 데이터 모델이 표시됩니다.
 
 템플릿 편집 창에는 개발자 포털에서 해당 페이지의 모양과 동작을 제어하는 태그가 포함되어 있습니다. 템플릿의 태그는 [DotLiquid](http://dotliquidmarkup.org/) 구문을 사용합니다. [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)가 DotLiquid용 편집기로 많이 사용됩니다. 편집 중 템플릿에 대한 변경 사항은 실시간으로 브라우저에 표시되지만 템플릿을 [저장](#to-save-a-template) 및 [게시](#to-publish-a-template)할 때까지 고객에게는 표시되지 않습니다.
 
@@ -118,7 +118,7 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
         <li>
             <h3><a href="/products/{{product.id}}">{{product.title}}</a></h3>
             {{product.description}}
-        </li>    
+        </li>
     {% endfor %}
     </ul>
     <paging-control></paging-control>
@@ -209,10 +209,3 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 [api-management-reset-template]: ./media/api-management-developer-portal-templates/api-management-reset-template.png
 [api-management-reset-template-confirm]: ./media/api-management-developer-portal-templates/api-management-reset-template-confirm.png
 [api-management-restore-templates]: ./media/api-management-developer-portal-templates/api-management-restore-templates.png
-
-
-
-
-
-
-

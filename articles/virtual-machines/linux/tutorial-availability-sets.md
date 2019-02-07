@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bace15a89f0dd820c69d51bee0a6b669cdf5ff73
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 7fd671c77b4c0897134457f5aacaabc11d568694
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885590"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756413"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 고가용성 가상 머신 만들기 및 배포
 
@@ -49,7 +49,7 @@ Azure 내에서 신뢰할 수 있는 VM 기반 솔루션을 배포하려면 항�
 
 ## <a name="create-an-availability-set"></a>가용성 집합 만들기
 
-[az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create)를 사용하여 가용성 집합을 만들 수 있습니다. 이 예제에서는 *myResourceGroupAvailability* 리소스 그룹의 *myAvailabilitySet*이라는 가용성 집합에 대한 업데이트 및 장애 도메인 수가 *2*로 설정됩니다.
+[az vm availability-set create](/cli/azure/vm/availability-set)를 사용하여 가용성 집합을 만들 수 있습니다. 이 예제에서는 *myResourceGroupAvailability* 리소스 그룹의 *myAvailabilitySet*이라는 가용성 집합에 대한 업데이트 및 장애 도메인 수가 *2*로 설정됩니다.
 
 먼저 [az group create](/cli/azure/group#az-group-create)를 사용하여 리소스 그룹을 만든 다음, 가용성 집합을 만듭니다.
 

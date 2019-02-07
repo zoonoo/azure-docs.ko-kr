@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/07/2018
 ms.author: priyamo
-ms.openlocfilehash: a4e860d4207eebb993b26bb45e531a6be734c5fc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b655624b4bd611198eddcdcc79c75a52267b6dde
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167192"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756617"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure SQL에 액세스
 
@@ -48,7 +48,7 @@ VM에 데이터베이스에 대한 액세스 권한을 부여하는 과정은 �
 
 ## <a name="enable-azure-ad-authentication-for-the-sql-server"></a>SQL Server에 대해 Azure AD 인증 사용
 
-다음 단계에 따라 [SQL 서버에 Azure AD 인증을 구성](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server)합니다.
+다음 단계에 따라 [SQL 서버에 Azure AD 인증을 구성](/azure/sql-database/sql-database-aad-authentication-configure)합니다.
 
 1.  Azure Portal의 왼쪽 탐색 영역에서 **SQL Server**를 선택합니다.
 2.  Azure AD 인증에 사용할 SQL Server를 클릭합니다.

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d14b8c9c752c9d41a42f092662c5f3aa88840dc5
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0ba18b1ef0ba6c0a73759577c83ab80550baa6f8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157720"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754747"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure CLI
 
@@ -39,7 +39,7 @@ az group create --name myResourceGroupAG --location eastus
 
 가상 네트워크를 만들면 애플리케이션 게이트웨이가 다른 리소스와 통신할 수 있습니다. 애플리케이션 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 애플리케이션 게이트웨이용이고, 다른 하나는 가상 머신용입니다. 애플리케이션 게이트웨이 서브넷은 애플리케이션 게이트웨이만 포함할 수 있습니다. 다른 리소스는 허용되지 않습니다.
 
-가상 네트워크 및 서브넷을 만들려면 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용합니다. [az network public-ip create](/cli/azure/network/public-ip#az-public-ip-create)를 실행하여 공용 IP 주소를 만듭니다.
+가상 네트워크 및 서브넷을 만들려면 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용합니다. [az network public-ip create](/cli/azure/network/public-ip)를 실행하여 공용 IP 주소를 만듭니다.
 
 ```azurecli-interactive
 az network vnet create \
@@ -133,7 +133,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
-[az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create)를 사용하여 애플리케이션 게이트웨이를 만듭니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, SKU, HTTP 설정 등의 구성 정보를 지정합니다. 그러면 Azure가 네트워크 인터페이스의 사설 IP 주소를 애플리케이션 게이트웨이의 백 엔드 풀에 서버로 추가합니다.
+[az network application-gateway create](/cli/azure/network/application-gateway)를 사용하여 애플리케이션 게이트웨이를 만듭니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, SKU, HTTP 설정 등의 구성 정보를 지정합니다. 그러면 Azure가 네트워크 인터페이스의 사설 IP 주소를 애플리케이션 게이트웨이의 백 엔드 풀에 서버로 추가합니다.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')

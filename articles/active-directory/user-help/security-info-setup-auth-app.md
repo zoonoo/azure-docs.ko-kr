@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 191afec8733258519370d11942c0f6d18da6b603
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6ee75b0ee465e330d78b166b0da12232b7915ae7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180401"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766064"
 ---
 # <a name="set-up-security-info-to-use-an-authenticator-app-preview"></a>인증자 앱을 사용하도록 보안 정보 설정(미리 보기)
 
@@ -28,7 +28,7 @@ ms.locfileid: "55180401"
 
 조직의 설정에 따라 로그인할 때 Microsoft Authenticator 앱을 설정하라는 메시지가 표시될 수 있습니다. 그렇지 않은 경우 보안 정보에서 Microsoft Authenticator 앱 설정을 시작하려면 [보안 정보 관리](security-info-manage-settings.md)의 단계를 따릅니다.
 
-Microsoft Authenticator 앱을 다운로드하고 자세히 알아보려면 [Microsoft Authenticator 앱 시작](microsoft-authenticator-app-how-to.md)을 참조하세요.
+Microsoft Authenticator 앱을 다운로드하고 자세히 알아보려면 [Microsoft Authenticator 앱 시작](user-help-auth-app-download-install.md)을 참조하세요.
 
 >[!Note]
 >Microsoft Authenticator 앱을 사용하지 않으려는 경우 설정하는 동안 다른 앱을 선택할 수 있습니다. 이 문서에서는 Microsoft Authenticator 앱을 사용합니다. 인증자 앱 옵션이 보이지 않는 경우 사용자의 조직에서 인증에 인증 앱 사용을 허용하지 않았을 가능성이 있습니다. 이 경우 다른 방법을 선택하거나 관리자에게 문의하여 자세한 도움을 받아야 합니다.

@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: b7208943a27bcd184100ae426721a2fe8f6e1c72
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 54c4d58dc881ffc7c1f5ecc2242b64e5b61fa68f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970487"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730750"
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Azure API Management에서 Azure 관리 서비스 ID 사용
 
@@ -38,7 +38,7 @@ ms.locfileid: "52970487"
 
 ### <a name="using-the-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
 
-API Management 인스턴스는 ID를 사용하여 리소스 정의에 다음 속성을 포함하는 방법으로 만들 수 있습니다. 
+API Management 인스턴스는 ID를 사용하여 리소스 정의에 다음 속성을 포함하는 방법으로 만들 수 있습니다.
 
 ```json
 "identity" : {
@@ -46,7 +46,7 @@ API Management 인스턴스는 ID를 사용하여 리소스 정의에 다음 속
 }
 ```
 
-이렇게 하면 API Management 인스턴스에 대한 ID를 만들어서 관리하도록 Azure에 지시됩니다. 
+이렇게 하면 API Management 인스턴스에 대한 ID를 만들어서 관리하도록 Azure에 지시됩니다.
 
 예를 들어 전체 Azure Resource Manager 템플릿은 다음과 같이 보일 수 있습니다.
 
@@ -70,8 +70,8 @@ API Management 인스턴스는 ID를 사용하여 리소스 정의에 다음 속
                 "publisherEmail": "admin@contoso.com",
                 "publisherName": "Contoso"
             },
-            "identity": { 
-                "type": "systemAssigned" 
+            "identity": {
+                "type": "systemAssigned"
             }
         }
     ]
@@ -81,14 +81,14 @@ API Management 인스턴스는 ID를 사용하여 리소스 정의에 다음 속
 
 > [!NOTE]
 > 현재 API Management 사용자 지정 도메인 이름에 대해 Azure Key Vault에서 인증서를 가져오는 데 관리되는 서비스 ID를 사용할 수 있습니다. 더 많은 시나리오는 곧 지원될 예정입니다.
-> 
+>
 >
 
 
 ### <a name="obtain-a-certificate-from-azure-key-vault"></a>Azure Key Vault에서 인증서 가져오기
 
 #### <a name="prerequisites"></a>필수 조건
-1. pfx 인증서가 포함된 Key Vault는 API Management 서비스와 동일한 Azure 구독 및 리소스 그룹에 있어야 합니다. 이것은 Azure Resource Manager 템플릿의 요구 사항입니다. 
+1. pfx 인증서가 포함된 Key Vault는 API Management 서비스와 동일한 Azure 구독 및 리소스 그룹에 있어야 합니다. 이것은 Azure Resource Manager 템플릿의 요구 사항입니다.
 2. 비밀의 콘텐츠 형식은 *application/x-pkcs12*이어야 합니다. 다음 스크립트를 사용하여 인증서를 업로드합니다.
 
 ```powershell
@@ -106,7 +106,7 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 ```
 
 > [!Important]
-> 인증서의 개체 버전이 제공되지 않은 경우 API Management는 인증서의 최신 버전이 Key Vault로 업로드된 후에 자동으로 해당 인증서를 가져옵니다. 
+> 인증서의 개체 버전이 제공되지 않은 경우 API Management는 인증서의 최신 버전이 Key Vault로 업로드된 후에 자동으로 해당 인증서를 가져옵니다.
 
 다음 예제에서는 다음 단계를 포함하는 Azure Resource Manager 템플릿을 보여줍니다.
 
@@ -180,7 +180,6 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
         "type": "Microsoft.ApiManagement/service",
         "location": "[resourceGroup().location]",
         "tags": {
-            
         },
         "sku": {
             "name": "[parameters('sku')]",
@@ -197,10 +196,10 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
     {
         "type": "Microsoft.KeyVault/vaults/accessPolicies",
         "name": "[concat(parameters('keyVaultName'), '/add')]",
-        "apiVersion": "2015-06-01",        
-      "dependsOn": [
-        "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
-      ],
+        "apiVersion": "2015-06-01",
+        "dependsOn": [
+            "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
+        ],
         "properties": {
             "accessPolicies": [{
                 "tenantId": "[reference(variables('apimServiceIdentityResourceId'), '2015-08-31-PREVIEW').tenantId]",
@@ -211,28 +210,28 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
             }]
         }
     },
-    { 
-      "apiVersion": "2017-05-10", 
-      "name": "apimWithKeyVault", 
-      "type": "Microsoft.Resources/deployments",
-      "dependsOn": [
+    {
+        "apiVersion": "2017-05-10",
+        "name": "apimWithKeyVault",
+        "type": "Microsoft.Resources/deployments",
+        "dependsOn": [
         "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
-      ],
-      "properties": { 
-        "mode": "incremental", 
-        "templateLink": {
-          "uri": "https://raw.githubusercontent.com/solankisamir/arm-templates/master/basicapim.keyvault.json",
-          "contentVersion": "1.0.0.0"
-        }, 
-        "parameters": {
-            "publisherEmail": { "value": "[parameters('publisherEmail')]"},
-            "publisherName": { "value": "[parameters('publisherName')]"},
-            "sku": { "value": "[parameters('sku')]"},
-            "skuCount": { "value": "[parameters('skuCount')]"},
-            "proxyCustomHostname1": {"value" : "[parameters('proxyCustomHostname1')]"},
-            "keyVaultIdToCertificate": {"value" : "[parameters('keyVaultIdToCertificate')]"}
+        ],
+        "properties": {
+            "mode": "incremental",
+            "templateLink": {
+                "uri": "https://raw.githubusercontent.com/solankisamir/arm-templates/master/basicapim.keyvault.json",
+                "contentVersion": "1.0.0.0"
+            },
+            "parameters": {
+                "publisherEmail": { "value": "[parameters('publisherEmail')]"},
+                "publisherName": { "value": "[parameters('publisherName')]"},
+                "sku": { "value": "[parameters('sku')]"},
+                "skuCount": { "value": "[parameters('skuCount')]"},
+                "proxyCustomHostname1": {"value" : "[parameters('proxyCustomHostname1')]"},
+                "keyVaultIdToCertificate": {"value" : "[parameters('keyVaultIdToCertificate')]"}
+            }
         }
-      } 
     }]
 }
 ```
@@ -243,4 +242,3 @@ Azure 관리 서비스 ID에 대해 자세히 알아봅니다.
 
 * [Azure 리소스용 관리 서비스 ID](../active-directory/msi-overview.md)
 * [Azure 리소스 관리자 템플릿](https://github.com/Azure/azure-quickstart-templates)
-

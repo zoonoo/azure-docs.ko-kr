@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 97d35eb3442b63736b40d51dda57b872813293ad
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 668d69921fd2001cd52bc864e5ee272d179a7bbc
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164064"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770472"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>“여기서는 거기에 접근할 수 없습니다.” 오류 메시지가 표시되는 잠재적 원인
 조직의 내부 웹앱 또는 서비스에 액세스하는 동안 **여기서는 거기에 접근할 수 없습니다.** 라는 오류 메시지가 표시될 수 있습니다. 이 메시지는 조직에서 디바이스가 조직 리소스에 액세스하지 못하도록 방지하는 정책을 설정했음을 의미합니다. 이 문제를 해결하기 위해 결과적으로 기술 지원 팀에 문의해야 할 수 있지만 먼저 다음 작업을 시도할 수 있습니다.
@@ -68,4 +68,4 @@ ms.locfileid: "55164064"
 ## <a name="next-steps"></a>다음 단계
 - [MyApps 포털이란?](active-directory-saas-access-panel-introduction.md)
 
-- [암호가 아닌 휴대폰을 사용하여 로그인](microsoft-authenticator-app-phone-signin-faq.md)
+- [암호가 아닌 휴대폰을 사용하여 로그인](user-help-auth-app-sign-in.md)

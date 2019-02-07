@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: cf0fad78613d063a0f1270597cf67eadd996124a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1e270ce13865684f32623fd964d4a41642d95342
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406915"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695590"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Azure에서 Terraform을 사용하여 전체 Linux 가상 머신 인프라 만들기
 
@@ -455,7 +455,7 @@ Plan: 7 to add, 0 to change, 0 to destroy.
 terraform apply
 ```
 
-Terraform이 완료되면 VM 인프라가 준비됩니다. [az vm show](/cli/azure/vm#az_vm_show)를 사용하여 VM의 공용 IP 주소를 가져옵니다.
+Terraform이 완료되면 VM 인프라가 준비됩니다. [az vm show](/cli/azure/vm)를 사용하여 VM의 공용 IP 주소를 가져옵니다.
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv

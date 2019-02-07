@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 5ae7643123552eaa17d51e6cd1ed9c0293292ed0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 734169a0bce546ee2492d100b2abcb2ba8b6ffc9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184974"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822530"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>암호 Single Sign-On에 대해 구성된 Azure AD 갤러리 애플리케이션에 로그인하는 문제
 
@@ -88,7 +88,7 @@ ms.locfileid: "55184974"
 
 Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행해야 합니다.
 
--   [Azure AD 갤러리에서 애플리케이션 추가](#_Add_an_application)
+-   Azure AD 갤러리에서 애플리케이션 추가
 
 -   [암호 Single Sign-On에 대한 애플리케이션 구성](#configure-the-application-for-password-single-sign-on)
 
@@ -140,7 +140,7 @@ Azure AD 갤러리에서 애플리케이션을 추가하려면 아래 단계를 
 
 8.  **암호 기반 로그온** 모드를 선택합니다.
 
-9.  [애플리케이션에 사용자를 할당합니다](#_How_to_assign).
+9.  애플리케이션에 사용자를 할당합니다.
 
 10. 또한 사용자의 행을 선택하고 **자격 증명 업데이트**를 클릭하고 사용자를 대신하여 사용자 이름 및 암호를 입력하여 사용자를 대신하여 자격 증명을 제공할 수도 있습니다. 그렇지 않으면 사용자는 시작할 때 자격 증명을 입력하라는 메시지를 받게 됩니다.
 

@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 6cf308ae65e7fe85a89ac76b17a4bd1b3a4ada1b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 76d83397f27509b09b04753bce62b5a329da8d71
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177001"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733708"
 ---
 # <a name="news-search-api-upgrade-guide"></a>News Search API 업그레이드 가이드
 
@@ -76,7 +76,7 @@ Blocked|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>쿼리 매개 변수
 
-- [범주](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) 쿼리 매개 변수를 설정할 수 있는 가능한 값으로 제품이 추가되었습니다. [지역/국가별 범주](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#categories-by-market)를 참조하세요.
+- [범주](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) 쿼리 매개 변수를 설정할 수 있는 가능한 값으로 제품이 추가되었습니다. [지역/국가별 범주](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)를 참조하세요.
 
 - 가장 최근에 첫 번째로 날짜별 정렬된 추세 항목을 반환하는 [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortby) 쿼리 매개 변수가 추가되었습니다.
 

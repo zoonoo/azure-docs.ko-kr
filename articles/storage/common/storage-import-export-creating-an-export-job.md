@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 935af10c2ebcdc5273671ed058fdf72099059da3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 33234c03a3e691a95e61f825a0351cf481431294
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475622"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731397"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Azure Import/Export 서비스에 대한 내보내기 작업 만들기
 REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 내보내기 작업을 만드는 단계는 다음과 같습니다.
@@ -45,21 +45,21 @@ REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 내�
 
 -   저장소 계정의 모든 blob 및 스냅숏을 내보낼 수 있습니다.
 
- 내보낼 blob을 지정하는 방법에 대한 자세한 내용은 [작업 배치](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 연산을 참조하세요.
+ 내보낼 blob을 지정하는 방법에 대한 자세한 내용은 [작업 배치](/rest/api/storageimportexport/jobs) 연산을 참조하세요.
 
 ## <a name="obtaining-your-shipping-location"></a>배송 위치 가져오기
 내보내기 작업을 만들기 전에 [위치 가져오기](https://portal.azure.com) 또는 [위치 나열](https://docs.microsoft.com/rest/api/storageimportexport/locations/list) 연산을 호출하여 배송 위치 이름 및 주소를 가져와야 합니다. `List Locations`는 위치 목록과 해당 우편 발송 주소 목록을 반환합니다. 반환된 목록에서 위치를 선택하고 해당 주소로 하드 드라이브 배송할 수 있습니다. `Get Location` 연산을 사용하여 특정 위치에 대한 배송 주소를 직접 얻을 수도 있습니다.
 
 배송 위치를 가져오려면 다음 단계를 수행합니다.
 
--   저장소 계정의 위치 이름을 식별합니다. 이 값은 Azure Portal에서 Storage 계정의 **대시보드**에 있는 **위치** 필드에서 찾거나 Service Management API 연산 [Storage 계정 속성 가져오기](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties)를 사용하여 쿼리할 수 있습니다.
+-   저장소 계정의 위치 이름을 식별합니다. 이 값은 Azure Portal에서 Storage 계정의 **대시보드**에 있는 **위치** 필드에서 찾거나 Service Management API 연산 [Storage 계정 속성 가져오기](/rest/api/storagerp/storageaccounts)를 사용하여 쿼리할 수 있습니다.
 
 -   `Get Location` 연산을 호출하여 이 저장소 계정을 처리하는 데 사용할 수 있는 위치를 검색합니다.
 
 -   위치의 `AlternateLocations` 속성에 해당 위치 자체가 포함될 경우 이 위치를 사용해도 됩니다. 그렇지 않으면 대체 위치 중 하나를 사용하여 `Get Location` 연산을 다시 호출합니다. 유지 관리를 위해 원래 위치가 일시적으로 닫혀 있을 수 있습니다.
 
 ## <a name="creating-the-export-job"></a>내보내기 작업 만들기
- 내보내기 작업을 만들려면 [작업 배치](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 연산을 호출합니다. 다음 정보를 제공해야 합니다.
+ 내보내기 작업을 만들려면 [작업 배치](/rest/api/storageimportexport/jobs) 연산을 호출합니다. 다음 정보를 제공해야 합니다.
 
 -   작업의 이름입니다.
 
@@ -82,10 +82,10 @@ REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 내�
 >  패키지의 추적 번호를 제공하는 지원 운송업체 서비스를 통해 드라이브를 배송해야 합니다.
 
 ## <a name="updating-the-export-job-with-your-package-information"></a>패키지 정보를 사용하여 내보내기 작업 업데이트
- 추적 번호가 있으면 [작업 속성 업데이트](/rest/api/storageimportexport/jobs#Jobs_Update) 연산을 호출하여 배송업체 이름과 작업의 추적 번호를 업데이트합니다. 경우에 따라 드라이브 개수, 반송 주소 및 배송 날짜를 지정할 수도 있습니다.
+ 추적 번호가 있으면 [작업 속성 업데이트](/rest/api/storageimportexport/jobs) 연산을 호출하여 배송업체 이름과 작업의 추적 번호를 업데이트합니다. 경우에 따라 드라이브 개수, 반송 주소 및 배송 날짜를 지정할 수도 있습니다.
 
 ## <a name="receiving-the-package"></a>패키지 받기
- 내보내기 작업이 처리된 후 암호화된 데이터와 함께 드라이브가 반환됩니다. [작업 가져오기](/rest/api/storageimportexport/jobs#Jobs_Get) 연산을 호출하여 각 드라이브의 BitLocker 키를 검색할 수 있습니다. 그런 다음 이 키를 사용하여 드라이브 잠금을 해제할 수 있습니다. 각 드라이브에 있는 드라이브 매니페스트 파일에는 드라이브의 파일 목록과 각 파일의 원래 blob 주소도 포함됩니다.
+ 내보내기 작업이 처리된 후 암호화된 데이터와 함께 드라이브가 반환됩니다. [작업 가져오기](/rest/api/storageimportexport/jobs) 연산을 호출하여 각 드라이브의 BitLocker 키를 검색할 수 있습니다. 그런 다음 이 키를 사용하여 드라이브 잠금을 해제할 수 있습니다. 각 드라이브에 있는 드라이브 매니페스트 파일에는 드라이브의 파일 목록과 각 파일의 원래 blob 주소도 포함됩니다.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
-ms.openlocfilehash: bb82ef542db09b3b7f864c4901107e1c5c0827f6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: bb22a2545466c72f7dac68f80668b8b530832c21
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464788"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094721"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>HTTP 엔드포인트에서 이벤트 수신
 
@@ -370,6 +370,6 @@ module.exports = function (context, req) {
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Event Grid 관리 및 SDK 게시](./sdk-overview.md) 살펴보기
+* [Azure Event Grid 관리 및 SDK 게시](./sdk-overview.md)를 살펴봅니다.
 * [사용자 지정 토픽에 게시](./post-to-custom-topic.md) 방법 알아보기
 * [Blob Storage에 업로드된 이미지 크기 조정](resize-images-on-storage-blob-upload-event.md) 등, 심층적인 Event Grid 및 Functions 시도해 보기

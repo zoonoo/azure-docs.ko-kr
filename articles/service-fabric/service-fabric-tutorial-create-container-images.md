@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: f2e8ce7dc6102471f95f6332d9cb01a6cb4f4f54
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 0bba3c936463ad4fa8b4d06bf6f9df4f0ce6b863
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313788"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752316"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>자습서: Linux Service Fabric 클러스터에서 컨테이너 이미지 만들기
 
@@ -38,7 +38,7 @@ ms.locfileid: "53313788"
 
 > [!div class="checklist"]
 > * Service Fabric에 대한 컨테이너 이미지 만들기
-> * [컨테이너를 사용하여 Service Fabric 응용 프로그램 빌드 및 실행](service-fabric-tutorial-package-containers.md)
+> * [컨테이너를 사용하여 Service Fabric 애플리케이션 빌드 및 실행](service-fabric-tutorial-package-containers.md)
 > * [Service Fabric에서 장애 조치(failover) 및 크기 조정이 처리되는 방법](service-fabric-tutorial-containers-failover.md)
 
 ## <a name="prerequisites"></a>필수 조건
@@ -77,7 +77,7 @@ docker build -t azure-vote-front .
 docker images
 ```
 
-두 개의 이미지가 다운로드되거나 생성되었는지 확인합니다. *azure-vote-front* 이미지는 응용 프로그램을 포함합니다. Docker 허브의 *python* 이미지에서 파생되었습니다.
+두 개의 이미지가 다운로드되거나 생성되었는지 확인합니다. *azure-vote-front* 이미지는 애플리케이션을 포함합니다. Docker 허브의 *python* 이미지에서 파생되었습니다.
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
@@ -190,7 +190,7 @@ docker 밀어넣기 명령이 완료되려면 몇 분 정도 걸립니다.
 
 ## <a name="list-images-in-registry"></a>레지스트리에서 이미지 나열
 
-Azure Container Registry로 푸시한 이미지 목록을 반환하려면 [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list) 명령을 사용합니다. ACR 인스턴스 이름으로 명령을 업데이트합니다.
+Azure Container Registry로 푸시한 이미지 목록을 반환하려면 [az acr repository list](/cli/azure/acr/repository) 명령을 사용합니다. ACR 인스턴스 이름으로 명령을 업데이트합니다.
 
 ```bash
 az acr repository list --name <acrName> --output table
@@ -220,4 +220,4 @@ azure-vote-front
 Yeoman을 사용하여 Service Fabric 애플리케이션으로 컨테이너 패키지에 대해 자세히 알아보려면 다음 자습서를 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Service Fabric 응용 프로그램으로 컨테이너 패키지 및 배포](service-fabric-tutorial-package-containers.md)
+> [Service Fabric 애플리케이션으로 컨테이너 패키지 및 배포](service-fabric-tutorial-package-containers.md)

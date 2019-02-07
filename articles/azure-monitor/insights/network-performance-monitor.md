@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 1ba1f11029e98f6bf324466627c465507829dc4d
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: cff96ecb4f4b20e7e3542f6ae6e3e7740b750235
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229849"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729798"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -52,14 +52,14 @@ NPM은 다음 지역 중 한 곳에서 호스트되는 작업 영역에서 전 �
 * 영국 남부
 * 미국 버지니아 주 정부
 
-ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117#regions)에 제공됩니다.
+ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117)에 제공됩니다.
 
 
 ## <a name="set-up-and-configure"></a>설정 및 구성
 
 ### <a name="install-and-configure-agents"></a>에이전트 설치 및 구성 
 
-[Azure Log Analytics에 Windows 컴퓨터 연결](../../azure-monitor/platform/om-agents.md) 및 [Log Analytics에 Operations Manager 연결](../../azure-monitor/platform/om-agents.md)에 나와 있는 기본 프로세스에 따라 에이전트를 설치합니다.
+[Azure Log Analytics에 Windows 컴퓨터 연결](../../azure-monitor/platform/agent-windows.md) 및 [Log Analytics에 Operations Manager 연결](../../azure-monitor/platform/om-agents.md)에 나와 있는 기본 프로세스에 따라 에이전트를 설치합니다.
 
 ### <a name="where-to-install-the-agents"></a>에이전트 설치 위치 
 

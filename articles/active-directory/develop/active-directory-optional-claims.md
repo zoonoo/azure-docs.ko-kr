@@ -7,7 +7,7 @@ services: active-directory
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0983c2235fba0cacbda53208e5dcad5b2878619c
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 7efac4138f21a3f8e9dae087991f97dabad61822
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345490"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077252"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>방법: Azure AD 앱에 선택적 클레임 제공(공개 미리 보기)
 
@@ -49,14 +49,14 @@ ms.locfileid: "51345490"
 
 ## <a name="standard-optional-claims-set"></a>표준 선택적 클레임 집합
 
-기본적으로 애플리케이션에서 사용할 수 있는 선택적 클레임의 집합은 아래와 같습니다. 애플리케이션에 대한 선택적 사용자 지정 클레임을 추가하려면 아래의 [디렉터리 확장](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions)을 참조하세요. **액세스 토큰**에 클레임을 추가하면 응용 프로그램(웹 API)*이* 요청하는 액세스 토큰이 아닌 응용 프로그램*용으로* 요청하는 액세스 토큰에 클레임이 적용됩니다. 따라서 API에 액세스하는 클라이언트에 관계없이 클라이언트가 API에 인증을 하는 데 사용하는 액세스 토큰에는 항상 올바른 데이터가 포함됩니다.
+기본적으로 애플리케이션에서 사용할 수 있는 선택적 클레임의 집합은 아래와 같습니다. 애플리케이션에 대한 선택적 사용자 지정 클레임을 추가하려면 아래의 [디렉터리 확장](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions)을 참조하세요. **액세스 토큰**에 클레임을 추가하면 애플리케이션(웹 API)*이* 요청하는 액세스 토큰이 아닌 애플리케이션*용으로* 요청하는 액세스 토큰에 클레임이 적용됩니다. 따라서 API에 액세스하는 클라이언트에 관계없이 클라이언트가 API에 인증을 하는 데 사용하는 액세스 토큰에는 항상 올바른 데이터가 포함됩니다.
 
 > [!NOTE]
 > 이러한 클레임 대부분은 토큰 유형 열에 명시된 경우를 제외하고 SAML 토큰이 아닌 v1.0 및 v2.0 토큰에 대한 JWT에 포함될 수 있습니다. 또한 현재, 선택적 클레임이 AAD 사용자에 대해서만 지원되는 동안 MSA 지원이 추가됩니다. v2.0 엔드포인트에서 MSA에 선택적 클레임 지원이 있는 경우 사용자 유형 열은 AAD 또는 MSA 사용자에 대해 클레임을 사용할 수 있는지를 나타냅니다. 
 
 **표 2: 표준 선택적 클레임 집합**
 
-| 이름                        | 설명   | 토큰 형식 | 사용자 유형 | 메모  |
+| Name                        | 설명   | 토큰 형식 | 사용자 유형 | 메모  |
 |-----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | 사용자가 마지막으로 인증받은 시간입니다. OpenID Connect 사양을 참조하세요.| JWT        |           |  |
 | `tenant_region_scope`      | 리소스 테넌트의 지역입니다. | JWT        |           | |
@@ -73,7 +73,7 @@ ms.locfileid: "51345490"
 | `xms_pdl`          | 기본 설정 데이터 위치   | JWT | | 다중 지역 테넌트의 경우 사용자가 있는 지리적 지역을 보여주는 세 글자 코드입니다. 자세한 내용은 [기본 설정 데이터 위치에 대한 Azure AD Connect 설명서](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation)를 참조합니다. <br> 예를 들어 아시아 태평양의 경우 `APC`입니다. |
 | `xms_pl`                   | 사용자 기본 설정 언어  | JWT ||설정되는 경우 사용자의 기본 설정 언어입니다. 게스트 액세스 시나리오에서 해당 홈 테넌트의 원본 위치입니다. 형식이 지정된 LL-CC("en-us"). |
 | `xms_tpl`                  | 테넌트 기본 설정 언어| JWT | | 설정된 경우 리소스 테넌트의 기본 설정 언어입니다. 형식이 지정된 LL("en"). |
-| `ztdid`                    | 무인 배포 ID | JWT | | [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)에 사용된 장치 ID |
+| `ztdid`                    | 무인 배포 ID | JWT | | [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)에 사용된 디바이스 ID |
 |`email`                     | 사용자가 있는 경우 이 사용자에 대한 이메일 주소를 지정할 수 있습니다.  | JWT, SAML | | 이 값은 사용자가 테넌트의 게스트인 경우 기본적으로 포함됩니다.  관리되는 사용자(테넌트 내부)의 경우 이 선택적 클레임 또는 v2.0에서만 OpenID 범위를 통해 요청해야 합니다.  관리되는 사용자의 경우 이메일 주소는 [Office 관리 포털](https://portal.office.com/adminportal/home#/users)에서 설정해야 합니다.|  
 | `acct`             | 테넌트의 사용자 계정 상태입니다. | JWT, SAML | | 사용자가 테넌트의 구성원인 경우 값은 `0`입니다. 게스트인 경우 값은 `1`입니다. |
 | `upn`                      | UserPrincipalName 클레임입니다. | JWT, SAML  |           | 이 클레임은 자동으로 포함되지만, 추가 속성을 연결하여 게스트 사용자 사례에서 해당 동작을 수정하기 위해 선택적 클레임으로 지정할 수 있습니다. <br> 추가 속성: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
@@ -84,7 +84,7 @@ ms.locfileid: "51345490"
 
 **표 3: V2.0 전용 선택적 클레임**
 
-| JWT 클레임     | 이름                            | 설명                                | 메모 |
+| JWT 클레임     | Name                            | 설명                                | 메모 |
 |---------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|
 | `ipaddr`      | IP 주소                      | 클라이언트가 로그인한 IP 주소입니다.   |       |
 | `onprem_sid`  | 온-프레미스 보안 식별자 |                                             |       |
@@ -99,7 +99,7 @@ ms.locfileid: "51345490"
 
 일부 선택적 클레임은 클레임이 반환되는 방식을 변경하도록 구성할 수 있습니다. 대개 이러한 추가 속성을 사용하여 다른 데이터 기대가 포함된 온-프레미스 애플리케이션을 마이그레이션할 수 있습니다(예: UPN에서 `include_externally_authenticated_upn_without_hash`를 통해 해시 표시(`#`)를 처리할 수 없는 클라이언트에 사용할 수 있음).
 
-**표 4: 표준 선택적 클레임을 구성하기 위한 값**
+**표 4: 표준 선택적 클레임에 대한 구성 값**
 
 | 속성 이름                                     | 추가 속성 이름                                                                                                             | 설명 |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
@@ -168,7 +168,7 @@ ms.locfileid: "51345490"
 
 **표 5: OptionalClaims 형식 속성**
 
-| 이름        | type                       | 설명                                           |
+| Name        | Type                       | 설명                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | 컬렉션(OptionalClaim) | ID JWT 토큰에서 반환된 선택적 클레임입니다. |
 | `accessToken` | 컬렉션(OptionalClaim) | JWT 액세스 토큰에서 반환된 선택적 클레임입니다. |
@@ -179,9 +179,9 @@ ms.locfileid: "51345490"
 애플리케이션 또는 서비스 사용자와 연결된 선택적 클레임을 포함합니다. [OptionalClaims](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) 형식의 idToken, accessToken 및 saml2Token 속성은 OptionalClaim의 컬렉션입니다.
 특정 클레임에서 지원될 경우, AdditionalProperties 필드를 사용하여 OptionalClaim의 동작을 수정할 수도 있습니다.
 
-**표 6: OptionalClaims 형식 속성**
+**표 6: OptionalClaim 형식 속성**
 
-| 이름                 | type                    | 설명                                                                                                                                                                                                                                                                                                   |
+| Name                 | Type                    | 설명                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | 선택적 클레임의 이름입니다.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | 클레임의 원본(디렉터리 개체)입니다. 확장 속성에서 가져온 미리 정의된 클레임 및 사용자 정의 클레임이 있습니다. 원본 값이 null이면 클레임은 미리 정의된 선택적 클레임입니다. 원본 값이 user이면 name 속성의 값은 user 개체의 확장 속성입니다. |
@@ -196,7 +196,7 @@ ms.locfileid: "51345490"
 
 ### <a name="values-for-configuring-additional-optional-claims"></a>선택적 추가 클레임을 구성하기 위한 값
 
-확장 특성의 경우 애플리케이션 매니페스트에 확장의 전체 이름을 사용합니다(`extension_<appid>_<attributename>` 형식). `<appid>`는 클레임을 요청하는 응용 프로그램의 ID와 일치해야 합니다. 
+확장 특성의 경우 애플리케이션 매니페스트에 확장의 전체 이름을 사용합니다(`extension_<appid>_<attributename>` 형식). `<appid>`는 클레임을 요청하는 애플리케이션의 ID와 일치해야 합니다. 
 
 JWT 내에서 이러한 클레임은 `extn.<attributename>` 이름 형식을 사용하여 내보내집니다.
 
@@ -209,7 +209,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 -   애플리케이션 매니페스트를 수정할 수 있습니다. 다음 예제에서는 이 방법을 사용하여 구성을 수행합니다. 먼저 매니페스트를 소개하는 [Azure AD 애플리케이션 매니페스트 이해 문서](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)를 읽으세요.
 -   또한 [Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api)를 사용하는 애플리케이션을 작성하여 애플리케이션을 업데이트할 수 있습니다. Graph API 참조 가이드의 [엔터티 및 복합 형식 참조](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type)는 선택적 클레임을 구성하는 데 도움이 될 수 있습니다.
 
-**예제:** 아래 예제에서는 응용 프로그램용 액세스, ID 및 SAML 토큰에 클레임을 추가하도록 응용 프로그램의 매니페스트를 수정합니다.
+**예제:** 아래 예제에서는 애플리케이션에 대한 액세스, ID 및 SAML 토큰에 클레임을 추가하도록 애플리케이션의 매니페스트를 수정합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 인증한 후에 페이지의 오른쪽 위 모서리에서 Azure AD 테넌트를 선택합니다.

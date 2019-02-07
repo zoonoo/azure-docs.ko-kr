@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: aaeec216e2a89cfd230208d0c674e15153224b5a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b77ed879375cff8d45f7d532283647e70252bdab
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157502"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732841"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>여러 네트워크 인터페이스 카드를 사용하여 Azure에서 Linux 가상 머신을 만드는 방법
 
@@ -27,7 +27,7 @@ ms.locfileid: "55157502"
 이 문서에서는 Azure CLI를 사용하여 여러 NIC가 있는 VM을 만드는 방법을 설명합니다.
 
 ## <a name="create-supporting-resources"></a>지원 리소스 만들기
-최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인합니다.
+최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인합니다.
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *mystorageaccount* 및 *myVM*이 포함됩니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "55157502"
 az group create --name myResourceGroup --location eastus
 ```
 
-[az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *myVnet*이라는 가상 네트워크와 *mySubnetFrontEnd*이라는 서브넷을 만듭니다.
+[az network vnet create](/cli/azure/network/vnet)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *myVnet*이라는 가상 네트워크와 *mySubnetFrontEnd*이라는 서브넷을 만듭니다.
 
 ```azurecli
 az network vnet create \
@@ -48,7 +48,7 @@ az network vnet create \
     --subnet-prefix 10.0.1.0/24
 ```
 
-[az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)를 사용하여 백 엔드 트래픽에 대한 서브넷을 만듭니다. 다음 예제에서는 *mySubnetBackEnd*이라는 서브넷을 만듭니다.
+[az network vnet subnet create](/cli/azure/network/vnet/subnet)를 사용하여 백 엔드 트래픽에 대한 서브넷을 만듭니다. 다음 예제에서는 *mySubnetBackEnd*이라는 서브넷을 만듭니다.
 
 ```azurecli
 az network vnet subnet create \
@@ -87,7 +87,7 @@ az network nic create \
 ## <a name="create-a-vm-and-attach-the-nics"></a>VM 만들기 및 NIC 연결
 VM을 만들 때 `--nics`로 만든 NIC를 지정합니다. 또한 VM 크기를 선택할 때도 주의해야 합니다. VM에 추가할 수 있는 NIC 총수가 제한되어 있습니다. [Linux VM 크기](sizes.md)에 대해 자세히 읽어보세요.
 
-[az vm create](/cli/azure/vm#az_vm_create)로 VM을 만듭니다. 다음 예제에서는 *myVM*이라는 VM을 만듭니다.
+[az vm create](/cli/azure/vm)로 VM을 만듭니다. 다음 예제에서는 *myVM*이라는 VM을 만듭니다.
 
 ```azurecli
 az vm create \
@@ -116,14 +116,14 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-기존 VM에 NIC를 추가하려면 먼저 [az vm deallocate](/cli/azure/vm#az_vm_deallocate)를 사용하여 VM을 할당 취소합니다. 다음 예제에서는 *myVM*이라는 VM을 할당 취소합니다.
+기존 VM에 NIC를 추가하려면 먼저 [az vm deallocate](/cli/azure/vm)를 사용하여 VM을 할당 취소합니다. 다음 예제에서는 *myVM*이라는 VM을 할당 취소합니다.
 
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-[az vm nic add](/cli/azure/vm/nic#az_vm_nic_add)를 사용하여 NIC를 추가합니다. 다음 예제에서는 *myNic3*를 *myVM*에 추가합니다.
+[az vm nic add](/cli/azure/vm/nic)를 사용하여 NIC를 추가합니다. 다음 예제에서는 *myNic3*를 *myVM*에 추가합니다.
 
 ```azurecli
 az vm nic add \
@@ -141,13 +141,13 @@ az vm start --resource-group myResourceGroup --name myVM
 [여러 Nic에 대 한 게스트 OS 구성](#configure-guest-os-for- multiple-nics)의 단계를 완료하여 라우팅 테이블을 게스트 OS에 추가합니다.
 
 ## <a name="remove-a-nic-from-a-vm"></a>VM에서 NIC 제거
-기존 VM에사 NIC를 제거하려면 먼저 [az vm deallocate](/cli/azure/vm#az_vm_deallocate)를 사용하여 VM을 할당 취소합니다. 다음 예제에서는 *myVM*이라는 VM을 할당 취소합니다.
+기존 VM에사 NIC를 제거하려면 먼저 [az vm deallocate](/cli/azure/vm)를 사용하여 VM을 할당 취소합니다. 다음 예제에서는 *myVM*이라는 VM을 할당 취소합니다.
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-[az vm nic remove](/cli/azure/vm/nic#az_vm_nic_remove)를 사용하여 NIC를 제거합니다. 다음 예제에서는 *myVM*에서 *myNic3*를 제거합니다.
+[az vm nic remove](/cli/azure/vm/nic)를 사용하여 NIC를 제거합니다. 다음 예제에서는 *myVM*에서 *myNic3*를 제거합니다.
 
 ```azurecli
 az vm nic remove \

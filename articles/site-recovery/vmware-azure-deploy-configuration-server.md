@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: ramamill
-ms.openlocfilehash: 712f8fb2cb951460ad2be36b2899f52d4966fc82
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1d5c2dccabbc2acdddec6176d9b52681d4a18e68
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468406"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744095"
 ---
 # <a name="deploy-a-configuration-server"></a>구성 서버 배포
 
@@ -122,7 +122,7 @@ OVA 템플릿과 함께 제공되는 라이선스는 180일 동안 유효한 평
 
 ## <a name="upgrade-the-configuration-server"></a>구성 서버 업그레이드
 
-구성 서버를 최신 버전으로 업그레이드하려면 다음 [단계](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)를 따르세요. 모든 Site Recovery 구성 요소를 업그레이드하는 방법에 대한 자세한 지침을 보려면 [여기](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to)를 클릭하세요.
+구성 서버를 최신 버전으로 업그레이드하려면 다음 [단계](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)를 따르세요. 모든 Site Recovery 구성 요소를 업그레이드하는 방법에 대한 자세한 지침을 보려면 [여기](service-updates-how-to.md)를 클릭하세요.
 
 ## <a name="manage-the-configuration-server"></a>구성 서버 관리
 

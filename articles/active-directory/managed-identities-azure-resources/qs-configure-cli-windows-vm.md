@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/10/2018
 ms.author: priyamo
-ms.openlocfilehash: a2e42b165596d26672ee22813e53d02ca0e3a7e9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4c17128f07475b6aeaef9ae15a13bc4863d7e663
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195667"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699893"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Azure CLI를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -82,7 +82,7 @@ VM에서 시스템 할당 관리 ID를 사용하도록 설정하려면 계정에
    az login
    ```
 
-2. [az vm identity assign](/cli/azure/vm/identity/#az-vm-identity-assign)을 `identity assign` 명령과 함께 사용하여 기존 VM에 시스템 할당 ID를 사용하도록 설정합니다.
+2. [az vm identity assign](/cli/azure/vm/identity/)을 `identity assign` 명령과 함께 사용하여 기존 VM에 시스템 할당 ID를 사용하도록 설정합니다.
 
    ```azurecli-interactive
    az vm identity assign -g myResourceGroup -n myVm
@@ -107,7 +107,7 @@ az vm update -n myVM -g myResourceGroup --set identity.type='UserAssigned'
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-Azure 리소스 VM 확장(2019년 1월에 더 이상 사용되지 않을 예정)에 대한 관리 ID를 제거하려면 사용자 `-n ManagedIdentityExtensionForWindows` 또는 `-n ManagedIdentityExtensionForLinux` 스위치(VM 형식에 따라)를 [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity)와 함께 사용합니다.
+Azure 리소스 VM 확장(2019년 1월에 더 이상 사용되지 않을 예정)에 대한 관리 ID를 제거하려면 사용자 `-n ManagedIdentityExtensionForWindows` 또는 `-n ManagedIdentityExtensionForLinux` 스위치(VM 형식에 따라)를 [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/)와 함께 사용합니다.
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -186,7 +186,7 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
    }
    ```
 
-2. [az vm identity assign](/cli/azure/vm#az-vm-identity-assign)을 사용하여 VM에 사용자 할당 ID를 할당합니다. `<RESOURCE GROUP>` 및 `<VM NAME>` 매개 변수 값을 원하는 값으로 바꾸세요. `<USER ASSIGNED IDENTITY NAME>`는 이전 단계에서 만든 대로 사용자 할당 관리 ID의 리소스 `name` 속성입니다.
+2. [az vm identity assign](/cli/azure/vm)을 사용하여 VM에 사용자 할당 ID를 할당합니다. `<RESOURCE GROUP>` 및 `<VM NAME>` 매개 변수 값을 원하는 값으로 바꾸세요. `<USER ASSIGNED IDENTITY NAME>`는 이전 단계에서 만든 대로 사용자 할당 관리 ID의 리소스 `name` 속성입니다.
 
     ```azurecli-interactive
     az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>

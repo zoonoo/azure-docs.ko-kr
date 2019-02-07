@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: ebd374cc8792545d1db57f624a5831dc9ded272f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bb9d22b45011f5156a63444ec8e1651f148993b6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102127"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751908"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
@@ -117,7 +117,7 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 
 **인증서 유효성 검사에 실패하여 수집기가 인터넷에 연결할 수 없습니다.**
 
-가로채는 프록시를 사용하여 인터넷에 연결하는 경우 그리고 수집기 VM에 프록시 인증서를 가져오지 않은 경우 이 문제가 발생할 수 있습니다. [여기](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity) 설명된 단계에 따라 프록시 인증서를 가져올 수 있습니다.
+가로채는 프록시를 사용하여 인터넷에 연결하는 경우 그리고 수집기 VM에 프록시 인증서를 가져오지 않은 경우 이 문제가 발생할 수 있습니다. [여기](https://docs.microsoft.com/azure/migrate/concepts-collector) 설명된 단계에 따라 프록시 인증서를 가져올 수 있습니다.
 
 **포털에서 복사한 프로젝트 ID 및 키를 사용하여 수집기로 프로젝트에 연결할 수 없습니다.**
 
@@ -172,7 +172,7 @@ Azure Migrate 수집기는 PowerCLI를 다운로드하여 어플라이언스에 
 
 다음 오류로 인해 vCenter Server "Servername.com:9443"에 연결할 수 없습니다. https://Servername.com:9443/sdk를 수신 대기 중인 메시지를 수락할 수 있는 엔드포인트가 없습니다.
 
-수집기 어플라이언스가 최신 버전인지 확인하고, 최신 버전이 아니면 어플라이언스를 [최신 버전](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector)으로 업그레이드합니다.
+수집기 어플라이언스가 최신 버전인지 확인하고, 최신 버전이 아니면 어플라이언스를 [최신 버전](https://docs.microsoft.com/azure/migrate/concepts-collector)으로 업그레이드합니다.
 
 최신 버전에서도 여전히 문제가 발생하면 수집기 컴퓨터가 지정된 vCenter Server 이름을 확인할 수 없거나 지정된 포트가 잘못되었을 수 있습니다. 기본적으로 포트가 지정되지 않은 경우 수집기는 포트 번호 443에 연결하려고 합니다.
 

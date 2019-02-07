@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 529191cf867b6003b0c2eab5ed919087277c7095
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6dfc0f80285dfd7da6e78d7cbf9c993fed388a2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178038"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813537"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>액세스 패널의 애플리케이션에 로그인하는 문제
 
@@ -104,7 +104,7 @@ Azure AD 갤러리에서 Enterprise Single Sign-On 기능을 사용하도록 설
 
 Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행해야 합니다.
 
--   [Azure AD 갤러리에서 애플리케이션 추가](#add-an-application)
+-   Azure AD 갤러리에서 애플리케이션 추가
 
 -   [Azure AD에서 애플리케이션의 메타데이터 값 구성(로그온 URL, 식별자, 회신 URL)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
@@ -114,7 +114,7 @@ Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행�
 
 -   [애플리케이션에서 Azure AD 메타데이터 값 구성(로그온 URL, 발급자, 로그아웃 URL 및 인증서)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
--   [애플리케이션에 사용자 할당](#assign-users-to-the-application)
+-   애플리케이션에 사용자 할당
 
 ### <a name="add-an-application-from-the-azure-ad-gallery"></a>Azure AD 갤러리에서 애플리케이션 추가
 
@@ -362,9 +362,9 @@ Azure AD에서 애플리케이션 메타데이터 또는 인증서를 다운로�
 
 Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행해야 합니다.
 
--   [Azure AD 갤러리에서 애플리케이션 추가](#add-an-application)
+-   Azure AD 갤러리에서 애플리케이션 추가
 
--   [암호 Single Sign-On에 대한 애플리케이션 구성](#configure-the-application)
+-   암호 Single Sign-On에 대한 애플리케이션 구성
 
 ### <a name="add-an-application-from-the-azure-ad-gallery"></a>Azure AD 갤러리에서 애플리케이션 추가
 

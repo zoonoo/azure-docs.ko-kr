@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 887134f7d790e5ed7e878a94caa9ef2fb9356ae3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 28d1387e5c1efd85ab0b944f7cffc4fe215eb73f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102158"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734490"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의
 
@@ -36,7 +36,7 @@ Azure AD(Azure Active Directory)는 OAuth 및 OpenID Connect(OIDC) 흐름을 위
 
 Azure AD는 두 종류의 권한을 정의합니다.
 
-* **위임된 권한** - 로그인한 사용자가 현재 있는 앱에서 사용합니다. 이 앱에 대해 사용자 또는 관리자는 앱이 요청하는 권한 및 앱이 API를 호출할 때 로그인한 사용자로 행동하도록 위임된 권한이라는 데 동의합니다. API에 따라 사용자는 API에 직접 동의할 수 없고 대신에 [관리자에게 “관리자 동의”를 제공할 것을 요구](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)합니다.
+* **위임된 권한** - 로그인한 사용자가 현재 있는 앱에서 사용합니다. 이 앱에 대해 사용자 또는 관리자는 앱이 요청하는 권한 및 앱이 API를 호출할 때 로그인한 사용자로 행동하도록 위임된 권한이라는 데 동의합니다. API에 따라 사용자는 API에 직접 동의할 수 없고 대신에 [관리자에게 “관리자 동의”를 제공할 것을 요구](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)합니다.
 * **애플리케이션 권한** - 로그인한 사용자가 없이 실행한 앱(예: 백그라운드 서비스 또는 디먼으로 실행한 앱)에서 사용합니다. 애플리케이션 권한은 일반적으로 강력하고 사용자 경계 간의 데이터 또는 다른 방법이라면 관리자로 제한될 수 있는 데이터에 액세스할 수 있도록 하므로 [관리자만이 동의](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant)할 수 있습니다.
 
 효과적인 권한은 앱이 API를 요청할 때 갖게 될 권한입니다. 

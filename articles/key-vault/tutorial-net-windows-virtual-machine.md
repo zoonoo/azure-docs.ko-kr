@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: f12d73904b547da6531e24a899277eca7dd46660
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a19da45d849facc8fe7ed18d95862ab9e79eaace
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998764"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744384"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-net"></a>자습서: .NET의 Azure Windows Virtual Machine에서 Azure Key Vault를 사용하는 방법
 
@@ -83,7 +83,7 @@ az group create --name "<YourResourceGroupName>" --location "West US"
 
 * 키 자격 증명 모음 이름: 3-24자의 문자열이어야 하며 0-9, a-z, A-Z 및 -만 포함해야 합니다.
 * 리소스 그룹 이름
-* 위치: **미국 서부**.
+* 위치: **미국 서부**
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
@@ -189,7 +189,7 @@ using Newtonsoft.Json.Linq;
 
         static string FetchSecretValueFromKeyVault(string token)
         {
-            WebRequest kvRequest = WebRequest.Create("https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01");
+            WebRequest kvRequest = WebRequest.Create("https://<YourVaultName>.vault.azure.net/secrets/<YourSecretName>?api-version=2016-10-01");
             kvRequest.Headers.Add("Authorization", "Bearer "+  token);
             WebResponse kvResponse = kvRequest.GetResponse();
             return ParseWebResponse(kvResponse, "value");

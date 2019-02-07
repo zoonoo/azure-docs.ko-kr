@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 2c981d33c8108386e0287d4c2a800f065c9dc431
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0146ee6ee37c2eb9e98d831b54df2218d7de5b62
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452858"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754603"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Data Science Virtual Machine에서 일반적인 ID 설정
 
@@ -31,7 +31,7 @@ Active Directory는 널리 사용되는 ID 공급자이며 서비스 제공 Azur
 
 ID를 관리하는 Active Directory가 이미 있는 경우 일반적인 ID 공급자로 사용할 수 있습니다. Active Directory가 없는 경우 Azure AD DS([Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/))라는 서비스를 통해 Azure에서 관리되는 Active Directory를 실행할 수 있습니다. 
 
-[Azure AD](https://docs.microsoft.com/azure/active-directory/)에 대한 설명서는 있는 경우 온-프레미스 디렉터리에 Azure AD를 연결하는 방법을 포함한 자세한 [관리 지침](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution#synchronized-identity)을 제공합니다. 
+[Azure AD](https://docs.microsoft.com/azure/active-directory/)에 대한 설명서는 있는 경우 온-프레미스 디렉터리에 Azure AD를 연결하는 방법을 포함한 자세한 [관리 지침](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution)을 제공합니다. 
 
 이 아티클에서는 Azure AD DS를 사용하여 Azure에서 완전히 관리되는 Active Directory 도메인 서비스를 설정하는 단계를 설명합니다. 그런 다음, DSVM을 관리되는 Active Directory 도메인에 조인하여 사용자가 일반적인 사용자 계정 및 자격 증명을 사용하여 DSVM(및 다른 Azure 리소스) 풀에 액세스하도록 할 수 있습니다. 
 

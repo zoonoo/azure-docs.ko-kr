@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: byvinyal
-ms.openlocfilehash: eb93dfae91ee84400c32af7b662c69aefda979d2
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 00930fd99fd4c0078623aa11f3e2cd5b1c549034
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409176"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812670"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간 경과에 따라 이 목록은 더 많은 플랫폼에 적용되도록 확장 및 업데이트됩니다.
@@ -34,7 +34,7 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 아래 제한에서는 Azure 리소스 관리자를 사용할 때 제한에 차이를 반영할 수 있도록 새로운 테이블이 추가되었습니다. 예를 들어, **구독 제한** 테이블 및 **구독 제한 - Azure Resource Manager** 테이블이 있습니다. 두 시나리오에 모두 제한이 적용되면 첫 번째 테이블에서만 표시됩니다. 별도로 지정하지 않으면 제한은 모든 지역에 걸쳐 전역으로 적용됩니다.
 
 > [!NOTE]
-> Azure 리소스 그룹의 리소스에 대한 할당량은 구독을 통해 지역별로 액세스할 수 있으며, 구독별로는 액세스할 수 없는데 서비스 관리 할당량이 구독별로 액세스되기 때문입니다. vCPU 할당량을 한 예로 살펴보겠습니다. vCPU를 지원하는 할당량 증가를 요청해야 하는 경우 어떤 지역에서 얼마나 많은 vCPU를 사용할 것인지 결정한 다음, 원하는 금액 및 지역에 대한 Azure 리소스 그룹 vCPU 할당량에 대해 특정 요청을 만들어야 합니다. 따라서 유럽 서부 지역에서 30개의 vCPU를 사용하여 응용 프로그램을 실행해야 하는 경우, 유럽 서부에서 30개의 vCPU를 구체적으로 요청해야 합니다. 하지만 다른 지역에는 vCPU 할당량이 증가하지 않고 유럽 서부만 30개의 vCPU 할당량이 갖게 됩니다.
+> Azure 리소스 그룹의 리소스에 대한 할당량은 구독을 통해 지역별로 액세스할 수 있으며, 구독별로는 액세스할 수 없는데 서비스 관리 할당량이 구독별로 액세스되기 때문입니다. vCPU 할당량을 한 예로 살펴보겠습니다. vCPU를 지원하는 할당량 증가를 요청해야 하는 경우 어떤 지역에서 얼마나 많은 vCPU를 사용할 것인지 결정한 다음, 원하는 금액 및 지역에 대한 Azure 리소스 그룹 vCPU 할당량에 대해 특정 요청을 만들어야 합니다. 따라서 유럽 서부 지역에서 30개의 vCPU를 사용하여 애플리케이션을 실행해야 하는 경우, 유럽 서부에서 30개의 vCPU를 구체적으로 요청해야 합니다. 하지만 다른 지역에는 vCPU 할당량이 증가하지 않고 유럽 서부만 30개의 vCPU 할당량이 갖게 됩니다.
 > <!-- -->
 > 따라서 어떤 한 지역에서 워크로드에 필요한 Azure 리소스 그룹 할당량을 결정하고 배포를 고려 중인 각 지역에서 해당 금액을 요청하는 것이 유용할 수 있습니다. 특정 지역의 현재 할당량 검색에 대한 자세한 내용은 [배포 문제 해결](resource-manager-common-deployment-errors.md) 을 참조하세요.
 >
@@ -54,7 +54,7 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
-* [Azure Cache for Redis](#azure-redis-cache-limits)
+* Azure Cache for Redis
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
 * [BizTalk Services](#biztalk-services-limits)
@@ -172,7 +172,7 @@ Storage 계정 제한에 대한 자세한 내용은 [Azure Storage 확장성 및
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
-#### <a name="azure-blob-storage-limits"></a>Azure Blob 저장소 용량 한도
+#### <a name="azure-blob-storage-limits"></a>Azure Blob Storage 용량 한도
 [!INCLUDE [storage-blob-scale-targets](../includes/storage-blob-scale-targets.md)]
 
 #### <a name="azure-files-limits"></a>Azure Files 한도
@@ -186,7 +186,7 @@ Azure Files 한도에 대한 자세한 내용은 [Azure Files 확장성 및 성�
 #### <a name="azure-queue-storage-limits"></a>Azure Queue 저장소 용량 한도
 [!INCLUDE [storage-queues-scale-targets](../includes/storage-queues-scale-targets.md)]
 
-#### <a name="azure-table-storage-limits"></a>Azure Table 저장소 용량 한도
+#### <a name="azure-table-storage-limits"></a>Azure Table Storage 용량 한도
 [!INCLUDE [storage-tables-scale-targets](../includes/storage-tables-scale-targets.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
@@ -225,7 +225,7 @@ Azure Files 한도에 대한 자세한 내용은 [Azure Files 확장성 및 성�
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
 ### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB 제한
-Azure Cosmos DB는 어떠한 응용 프로그램의 요구도 처리하도록 처리량과 저장소 크기를 조정할 수 있는 뛰어난 확장성의 데이터베이스입니다. Azure Cosmos DB가 제공하는 규모에 대한 궁금한 사항은 askcosmosdb@microsoft.com에 메일을 보내 주세요.
+Azure Cosmos DB는 어떠한 애플리케이션의 요구도 처리하도록 처리량과 저장소 크기를 조정할 수 있는 뛰어난 확장성의 데이터베이스입니다. Azure Cosmos DB가 제공하는 규모에 대한 궁금한 사항은 askcosmosdb@microsoft.com에 메일을 보내 주세요.
 
 ### <a name="azure-database-for-mysql"></a>Azure Database for MySQL
 Azure Database for MySQL 제한은 [Azure Database for MySQL의 제한 사항](mysql/concepts-limits.md)을 참조하세요.

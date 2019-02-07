@@ -12,12 +12,12 @@ ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: 216a2e31074f7afe944611de12fe2d45d9d236cf
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: f740e6b16426f34adf391af37d365e0d6d672dfe
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413756"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755104"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
@@ -232,4 +232,4 @@ Azure AD 공유 암호 자격 증명을 사용하여 로그인하려면:
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure 리소스에 대한 관리 ID](/azure/active-directory/managed-identities-azure-resources/)에 대해 자세히 알아보세요.
-- [Azure AD 인증 시나리오](/azure/active-directory/develop/active-directory-authentication-scenarios#web-browser-to-web-application)에 대해 자세히 알아보기.
+- [Azure AD 인증 시나리오](/azure/active-directory/develop/active-directory-authentication-scenarios)에 대해 자세히 알아보기.

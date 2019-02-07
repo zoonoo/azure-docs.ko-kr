@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 744c8d6488b9b0688126d305426f90647a89d4be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 27e0deae9c35ad8fa00659e3e3e505cace6e9014
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478086"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733436"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Data Science Virtual Machine에서 지원되는 데이터 플랫폼
 
@@ -105,5 +105,5 @@ Ubuntu Linux DSVM 버전의 Microsoft R Server Spark 컨텍스트에서 실행�
 |Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
 
 
-Azure Blob 또는 Azure Data Lake storage(ADLS)에서 데이터에 액세스하기 위한 라이브러리 및 Microsoft의 MMLSpark 기계 학습을 사용하여 라이브러리가 SPARK_HOME/jar에 미리 설치 됩니다. 이러한 JAR은 Apache Spark가 시작될 때 자동으로 로드됩니다. 기본적으로 Apache Spark는 로컬 디스크의 데이터를 사용합니다. DSVM에서 Spark 인스턴스가 Azure blob 또는 ADLS에 저장된 데이터에 액세스하려면 Azure blob 및 Azure Data Lake Storage에 대한 적절한 자격 증명을 사용하여 $SPARK_HOME/conf/core-site.xml.template(Blob 및 ADLS 구성에 대한 자리 표시자가 있음)에서 찾은 템플릿을 기반으로 하는 `core-site.xml` 파일을 생성/구성해야 합니다. [여기](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory#create-an-active-directory-application)서 ADLS 서비스 자격 증명을 만드는 방법에 대한 자세한 단계를 찾을 수 있습니다. Azure blob 또는 ADLS에 대한 자격 증명을 core-site.xml 파일에 입력하고 나면 wasb:// 또는 adl://의 URI 접두사와 함께 해당 원본에 저장된 데이터를 참조할 수 있습니다. 
+Azure Blob 또는 Azure Data Lake storage(ADLS)에서 데이터에 액세스하기 위한 라이브러리 및 Microsoft의 MMLSpark 기계 학습을 사용하여 라이브러리가 SPARK_HOME/jar에 미리 설치 됩니다. 이러한 JAR은 Apache Spark가 시작될 때 자동으로 로드됩니다. 기본적으로 Apache Spark는 로컬 디스크의 데이터를 사용합니다. DSVM에서 Spark 인스턴스가 Azure blob 또는 ADLS에 저장된 데이터에 액세스하려면 Azure blob 및 Azure Data Lake Storage에 대한 적절한 자격 증명을 사용하여 $SPARK_HOME/conf/core-site.xml.template(Blob 및 ADLS 구성에 대한 자리 표시자가 있음)에서 찾은 템플릿을 기반으로 하는 `core-site.xml` 파일을 생성/구성해야 합니다. [여기](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)서 ADLS 서비스 자격 증명을 만드는 방법에 대한 자세한 단계를 찾을 수 있습니다. Azure blob 또는 ADLS에 대한 자격 증명을 core-site.xml 파일에 입력하고 나면 wasb:// 또는 adl://의 URI 접두사와 함께 해당 원본에 저장된 데이터를 참조할 수 있습니다. 
 

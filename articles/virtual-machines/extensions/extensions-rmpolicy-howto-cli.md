@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 529758a7b9fe4c8b669ade72273335389020fb65
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 536239a9ff98c76badfc042a2d59d19b8fb6f04a
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451206"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770587"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Azure Policy를 사용하여 Linux VM의 확장 설치 제한
 
@@ -98,7 +98,7 @@ vim ~/clouddrive/azurepolicy.parameters.json
 
 ## <a name="create-the-policy"></a>정책 만들기
 
-정책 정의는 사용하려는 구성을 저장하는 데 사용되는 개체입니다. 정책 정의는 규칙 및 매개 변수 파일을 사용하여 정책을 정의합니다. [az policy definition create](/cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create)를 사용하여 정책 정의를 만듭니다.
+정책 정의는 사용하려는 구성을 저장하는 데 사용되는 개체입니다. 정책 정의는 규칙 및 매개 변수 파일을 사용하여 정책을 정의합니다. [az policy definition create](/cli/azure/role/assignment?view=azure-cli-latest)를 사용하여 정책 정의를 만듭니다.
 
 이 예제에서 규칙 및 매개 변수는 사용자가 만든 파일이며 Cloud Shell에 .json 파일로 저장됩니다.
 
@@ -115,9 +115,9 @@ az policy definition create \
 
 ## <a name="assign-the-policy"></a>정책 할당
 
-이 예제에서는 [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create)를 사용하여 리소스 그룹에 정책을 할당합니다. **myResourceGroup** 리소스 그룹에 생성된 VM은 Linux VM 액세스 또는 Linux용 사용자 지정 스크립트 확장을 설치할 수 없습니다. 정책을 할당하려면 리소스 그룹이 있어야 합니다.
+이 예제에서는 [az policy assignment create](/cli/azure/policy/assignment)를 사용하여 리소스 그룹에 정책을 할당합니다. **myResourceGroup** 리소스 그룹에 생성된 VM은 Linux VM 액세스 또는 Linux용 사용자 지정 스크립트 확장을 설치할 수 없습니다. 정책을 할당하려면 리소스 그룹이 있어야 합니다.
 
-[az account list](/cli/azure/account?view=azure-cli-latest#az_account_list)를 사용하여 예제의 ID 대신 사용할 구독 ID를 가져옵니다.
+[az account list](/cli/azure/account?view=azure-cli-latest)를 사용하여 예제의 ID 대신 사용할 구독 ID를 가져옵니다.
 
 
 ```azurecli-interactive

@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: cf011558ab984ecaf8181a4dc4ffcb80851f24fb
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: ebb6fe9f583c2658f187d3cca1185f1525fb1bf5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352957"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811038"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Java SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -32,20 +32,14 @@ ms.locfileid: "54352957"
 
 SQL API Java SDK는 동기 작업을 지원합니다. 비동기 지원의 경우 [SQL API 비동기 Java SDK](sql-api-sdk-async-java.md)를 사용하세요. 
 
-<table>
-
-<tr><td>**SDK 다운로드**</td><td>[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
-
-<tr><td>**API 설명서**</td><td>[Java API 참조 설명서](/java/api/com.microsoft.azure.documentdb)</td></tr>
-
-<tr><td>**SDK에 참여**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
-
-<tr><td>**시작**</td><td>[Java SDK 시작](sql-api-java-get-started.md)</td></tr>
-
-<tr><td>**웹앱 자습서**</td><td>[Azure Cosmos DB를 사용한 웹 애플리케이션 개발](sql-api-java-application.md)</td></tr>
-
-<tr><td>**지원되는 최소 런타임**</td><td>[JDK(Java Development Kit) 7 이상](https://aka.ms/azure-jdks)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**SDK 다운로드**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
+|**API 설명서**|[Java API 참조 설명서](/java/api/com.microsoft.azure.documentdb)|
+|**SDK에 참여**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
+|**시작**|[Java SDK 시작](sql-api-java-get-started.md)|
+|**웹앱 자습서**|[Azure Cosmos DB를 사용한 웹 애플리케이션 개발](sql-api-java-application.md)|
+|**지원되는 최소 런타임**|[JDK(Java Development Kit) 7 이상](https://aka.ms/azure-jdks)|
 
 ## <a name="release-notes"></a>릴리스 정보
 
@@ -218,7 +212,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
-| [2.1.1](#2.1.1) |2018년 11월 21일 |--- |
+| 2.1.1 |2018년 11월 21일 |--- |
 | [2.0.0](#2.0.0) |2018년 9월 21일 |--- |
 | [1.16.4](#1.16.4) |2018년 9월 10일 |--- |
 | [1.16.3](#1.16.3) |2018년 9월 9일 |--- |
@@ -249,7 +243,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 | [1.3.0](#1.3.0) |2015년 10월 5일 |--- |
 | [1.2.0](#1.2.0) |2015년 8월 5일 |--- |
 | [1.1.0](#1.1.0) |2015년 7월 9일 |--- |
-| [1.0.1](#1.0.1) |2015년 5월 12일 |--- |
+| 1.0.1 |2015년 5월 12일 |--- |
 | [1.0.0](#1.0.0) |2015년 4월 7일 |--- |
 | 0.9.5-prelease |2015년 3월 9일 |2016년 2월 29일 |
 | 0.9.4-prelease |2015년 2월 17일 |2016년 2월 29일 |

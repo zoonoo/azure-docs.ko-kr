@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: ada579af44d1d0b4ea08a8ae9eadbec386e44f08
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 20616adf649924a13e80411aa5135889a175f442
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823013"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750191"
 ---
 # <a name="get-information-from-a-coordinate"></a>좌표에서 정보 가져오기
 
@@ -33,7 +33,7 @@ ms.locfileid: "51823013"
 
 세 번째 코드 블록은 포인터 및 [popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open) 개체에 마우스 커서의 스타일을 업데이트합니다. [맵에서 팝업 추가](./map-add-popup.md)에서 지침을 확인할 수 있습니다.
 
-네 번째 코드 블록은 마우스 클릭에 대한 [이벤트 수신기를 추가](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)합니다. 마우스 클릭 시 클릭한 지점의 좌표를 사용하여 검색 쿼리를 만듭니다. 그런 후 지도의 [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest#getsearchaddressreverse) 엔드포인트를 사용하여 좌표의 주소를 쿼리합니다.
+네 번째 코드 블록은 마우스 클릭에 대한 [이벤트 수신기를 추가](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)합니다. 마우스 클릭 시 클릭한 지점의 좌표를 사용하여 검색 쿼리를 만듭니다. 그런 후 지도의 [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest) 엔드포인트를 사용하여 좌표의 주소를 쿼리합니다.
 
 성공적인 응답의 경우 클릭한 위치에 대한 주소를 수집하고 팝업 클래스의 [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) 함수를 통해 팝업 콘텐츠 및 위치를 정의합니다.
 

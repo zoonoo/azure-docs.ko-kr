@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: b2d3d5bb0081c51d3f89bc4cb8d2c0f23d40f4a7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1819d1dba777d97590c0b02a89cde3b46af78fff
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474000"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749238"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Blob 업로드, 다운로드 및 나열
 
@@ -46,7 +46,7 @@ Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 
 먼저 Blob에 업로드할 파일을 만듭니다.
 Azure Cloud Shell을 사용하는 경우 `vi helloworld` 파일을 만들려면 해당 파일이 열릴 때 **삽입**을 누르고 "Hello world"를 입력한 다음, **Esc** 키를 누르고 `:x`를 입력하고 **Enter** 키를 누릅니다.
 
-이 예제에서는 [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) 명령을 사용하여 마지막 단계에서 만든 컨테이너에 Blob을 업로드합니다.
+이 예제에서는 [az storage blob upload](/cli/azure/storage/blob) 명령을 사용하여 마지막 단계에서 만든 컨테이너에 Blob을 업로드합니다.
 
 ```azurecli-interactive
 az storage blob upload \
@@ -66,11 +66,11 @@ az storage blob upload \
 
 이 작업은 Blob이 없는 경우 만들고, Blob이 있는 경우 덮어씁니다. 원하는 만큼 파일을 업로드한 후 계속합니다.
 
-동시에 여러 파일을 업로드하려면 [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch) 명령을 사용할 수 있습니다.
+동시에 여러 파일을 업로드하려면 [az storage blob upload-batch](/cli/azure/storage/blob) 명령을 사용할 수 있습니다.
 
 ## <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
 
-[az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) 명령으로 컨테이너에 있는 Blob을 나열합니다.
+[az storage blob list](/cli/azure/storage/blob) 명령으로 컨테이너에 있는 Blob을 나열합니다.
 
 ```azurecli-interactive
 az storage blob list \
@@ -80,7 +80,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>Blob 다운로드
 
-[az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) 명령을 사용하여 이전에 업로드한 Blob을 다운로드합니다.
+[az storage blob download](/cli/azure/storage/blob) 명령을 사용하여 이전에 업로드한 Blob을 다운로드합니다.
 
 ```azurecli-interactive
 az storage blob download \
@@ -105,7 +105,7 @@ azcopy \
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 빠른 시작에서 만든 저장소 계정을 비롯하여 리소스 그룹의 어떠한 리소스도 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az_group_delete) 명령으로 리소스 그룹을 삭제합니다.
+이 빠른 시작에서 만든 저장소 계정을 비롯하여 리소스 그룹의 어떠한 리소스도 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group) 명령으로 리소스 그룹을 삭제합니다.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

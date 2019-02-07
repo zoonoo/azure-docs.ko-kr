@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 4c8fcc403b274d161893194109dee4bc8d0cb369
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 433718c19e0df5fac87273f2b46f8ae090ed7510
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974367"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888569"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory에서 지원되는 파일 형식 및 압축 코덱
 
@@ -414,15 +414,19 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 }
 ```
 
-> [!IMPORTANT]
-> 온-프레미스 및 클라우드 데이터 저장소 간에 자체 호스티드 통합 런타임을 통한 복사 작업에서 Parquet 파일을 **있는 그대로** 복사하지 않는 경우, IR 컴퓨터에 JRE 8(Java Runtime Environment)을 설치해야 합니다. 64비트 IR에는 64비트 JRE가 필요합니다. [여기서](https://go.microsoft.com/fwlink/?LinkId=808605)두 버전이 모두 제공됩니다.
->
-
 다음 사항에 유의하세요.
 
 * 복합 데이터 형식(MAP, LIST)은 지원되지 않습니다.
 * 열 이름에는 공백이 지원되지 않습니다.
 * Parquet 파일에는 압축 관련 옵션인 NONE, SNAPPY, GZIP 및 LZO가 포함되어 있습니다. Data Factory는 LZO를 제외한 압축 형식의 Parquet 파일에서 데이터 읽기를 지원합니다. 메타데이터에 있는 압축 코덱을 사용하여 데이터를 읽습니다. 그러나 Parquet 파일에 쓸 때 Data Factory는 Parquet 서식에 대한 기본값인 SNAPPY를 선택합니다. 현재 이 동작을 재정의할 수 있는 옵션은 없습니다.
+
+> [!IMPORTANT]
+> 자체 호스팅 Integration Runtime에 권한을 부여한 복사(예: 온-프레미스 및 클라우드 데이터 저장소 간)의 경우 Parquet 파일을 **있는 그대로** 복사하지 않으면 IR 머신에 **64비트 JRE(Java Runtime Environment) 8 또는 OpenJDK**를 설치해야 합니다. 자세한 내용은 다음 단락을 참조하세요.
+
+자체 호스팅 IR에서 Parquet 파일 직렬화/역직렬화를 사용하여 실행되는 복사의 경우 ADF는 먼저 JRE에 대한 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 레지스트리를 검사하고, 없는 경우 OpenJDK에 대한 *`JAVA_HOME`* 시스템 변수를 검사하여 Java 런타임을 찾습니다. 
+
+- **JRE 사용**: 64비트 IR에는 64비트 JRE가 필요합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
+- **OpenJDK 사용**: IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
 
 ### <a name="data-type-mapping-for-parquet-files"></a>Parquet 파일에 대한 데이터 형식 매핑
 
@@ -436,13 +440,13 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 | Int32 | Int32 | Int32 | Int32 |
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
-| UInt64 | Int64/이진 | UInt64 | 10진수 |
-| 단일 | Float | 해당 없음 | 해당 없음 |
+| UInt64 | Int64/이진 | UInt64 | Decimal |
+| Single | Float | 해당 없음 | 해당 없음 |
 | Double | Double | 해당 없음 | 해당 없음 |
-| 10진수 | 이진 | 10진수 | 10진수 |
+| Decimal | 이진 | Decimal | Decimal |
 | 문자열 | 이진 | Utf8 | Utf8 |
-| Datetime | Int96 | 해당 없음 | 해당 없음 |
-| timespan | Int96 | 해당 없음 | 해당 없음 |
+| DateTime | Int96 | 해당 없음 | 해당 없음 |
+| TimeSpan | Int96 | 해당 없음 | 해당 없음 |
 | DateTimeOffset | Int96 | 해당 없음 | 해당 없음 |
 | ByteArray | 이진 | 해당 없음 | 해당 없음 |
 | Guid | 이진 | Utf8 | Utf8 |
@@ -460,15 +464,19 @@ ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `fo
 }
 ```
 
-> [!IMPORTANT]
-> 온-프레미스 및 클라우드 데이터 저장소 간에 자체 호스티드 통합 런타임을 통한 복사 작업에서 ORC 파일을 **있는 그대로** 복사하지 않는 경우, IR 컴퓨터에 JRE 8(Java Runtime Environment)을 설치해야 합니다. 64비트 IR에는 64비트 JRE가 필요합니다. [여기서](https://go.microsoft.com/fwlink/?LinkId=808605)두 버전이 모두 제공됩니다.
->
-
 다음 사항에 유의하세요.
 
 * 복합 데이터 형식(구조체, 매핑, 목록, 공용 구조체)은 지원되지 않습니다.
 * 열 이름에는 공백이 지원되지 않습니다.
 * ORC 파일에는 3개의 [압축 관련 옵션](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/) (NONE, ZLIB, SNAPPY)이 있습니다. Data Factory에서는 이러한 압축 형식으로 된 데이터를 ORC 파일에서 읽을 수 있습니다. 메타데이터에 있는 압축 코덱을 사용하여 데이터를 읽습니다. 그러나 ORC 파일에 쓸 때 Data Factory는 ORC에 대한 기본값인 ZLIB를 선택합니다. 현재 이 동작을 재정의할 수 있는 옵션은 없습니다.
+
+> [!IMPORTANT]
+> 자체 호스팅 Integration Runtime에 권한을 부여한 복사(예: 온-프레미스 및 클라우드 데이터 저장소 간)의 경우 ORC 파일을 **있는 그대로** 복사하지 않으면 IR 머신에 **64비트 JRE(Java Runtime Environment) 8 또는 OpenJDK**를 설치해야 합니다. 자세한 내용은 다음 단락을 참조하세요.
+
+자체 호스팅 IR에서 ORC 파일 직렬화/역직렬화를 사용하여 실행되는 복사의 경우 ADF는 먼저 JRE에 대한 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 레지스트리를 검사하고, 없는 경우 OpenJDK에 대한 *`JAVA_HOME`* 시스템 변수를 검사하여 Java 런타임을 찾습니다. 
+
+- **JRE 사용**: 64비트 IR에는 64비트 JRE가 필요합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
+- **OpenJDK 사용**: IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
 
 ### <a name="data-type-mapping-for-orc-files"></a>ORC 파일에 대한 데이터 형식 매핑
 
@@ -483,13 +491,13 @@ ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `fo
 | UInt32 | long |
 | Int64 | long |
 | UInt64 | 문자열 |
-| 단일 | Float |
+| Single | Float |
 | Double | Double |
-| 10진수 | 10진수 |
+| Decimal | Decimal |
 | 문자열 | 문자열 |
-| Datetime | 타임 스탬프 |
+| DateTime | 타임 스탬프 |
 | DateTimeOffset | 타임 스탬프 |
-| timespan | 타임 스탬프 |
+| TimeSpan | 타임 스탬프 |
 | ByteArray | 이진 |
 | Guid | 문자열 |
 | Char | Char(1) |

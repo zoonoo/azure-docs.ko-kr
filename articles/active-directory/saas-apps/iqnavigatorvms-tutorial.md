@@ -7,19 +7,19 @@ author: jeevansd
 manager: femila
 ms.assetid: a8a09b25-dfa5-4c31-aea2-53bf1853b365
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: f568f33de348289334c4b4c346e9525e28cce51c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 062c83c7e1d621a80a5e81cdaf6b070eb446453c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445125"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180537"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>자습서: IQNavigator VMS와 Azure Active Directory 통합
 
@@ -114,7 +114,7 @@ IQNavigator VMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
     a. **식별자** 텍스트 상자에 URL `iqn.com`을 입력합니다.
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<subdomain>.iqnavigator.com/security/login?client_name=https://sts.window.net/<instance name>`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<subdomain>.iqnavigator.com/security/login?client_name=https://sts.window.net/<instance name>`
 
 1. **고급 URL 설정 표시**를 확인하고, 다음 단계를 수행합니다.
 
@@ -125,7 +125,7 @@ IQNavigator VMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 릴레이 상태로 값을 업데이트합니다. 이러한 값을 얻으려면 [IQNavigator VMS 클라이언트 지원 팀](https://www.beeline.com/iqn-product-support/)에 문의하세요.
 
-1. **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사하고 메모장에 붙여넣습니다.
+1.  **SAML 서명 인증서**  섹션에서 복사 단추를 클릭하여  **앱 페더레이션 메타데이터 URL** 을 복사하고 메모장에 붙여넣습니다.
     
     ![Configure Single Sign-On](./media/iqnavigatorvms-tutorial/tutorial_metadataurl.png)
 
@@ -168,7 +168,7 @@ IQNavigator VMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -218,7 +218,7 @@ IQNavigator VMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

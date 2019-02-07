@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 2b8041ee66e00b69b2628a0f439dd2577b6b92ec
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0ea9c06763e2e01d2f28daa5bc688e65bff037b8
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53381588"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54899363"
 ---
-계속해서 Azure IoT Hub을 시작하고 다른 IoT 시나리오를 탐색하려면 다음을 참조하세요.
+Azure IoT Hub를 계속 시작하고 모든 확장 IoT 시나리오를 살펴보려면 다음을 참조하세요.
 
 - [Visual Studio Code용 Azure IoT Hub Toolkit 확장을 사용하여 클라우드 디바이스 메시징 관리](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)
 

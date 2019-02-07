@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 9ad3ca2233237c9cb4aea0a7bd0c476f48613a9c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2f7d671dd70571ce167d9c5abd632cdebff329da
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438238"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888144"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 활동 로그 이벤트 스키마
-**Azure 활동 로그**는 Azure에서 발생한 모든 구독 수준 이벤트에 대한 정보를 제공하는 로그입니다. 이 문서에서는 데이터 범주별 이벤트 스키마에 대해 설명합니다. 데이터의 스키마는 포털, PowerShell, CLI 또는 REST API를 통해 직접 데이터를 읽는지, 아니면 [로그 프로필을 사용하여 데이터를 저장소 또는 Event Hubs로 스트리밍](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)하는지에 따라 다릅니다. 아래 예제는 포털, PowerShell, CLI 및 REST API를 통해 사용할 수 있는 스키마를 보여 줍니다. 이러한 속성과 [Azure 진단 로그 스키마](./tutorial-dashboards.md)의 매핑은 문서의 끝에 제공되어 있습니다.
+**Azure 활동 로그**는 Azure에서 발생한 모든 구독 수준 이벤트에 대한 정보를 제공하는 로그입니다. 이 문서에서는 데이터 범주별 이벤트 스키마에 대해 설명합니다. 데이터의 스키마는 포털, PowerShell, CLI 또는 REST API를 통해 직접 데이터를 읽는지, 아니면 [로그 프로필을 사용하여 데이터를 저장소 또는 Event Hubs로 스트리밍](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)하는지에 따라 다릅니다. 아래 예제는 포털, PowerShell, CLI 및 REST API를 통해 사용할 수 있는 스키마를 보여 줍니다. 이러한 속성과 [Azure 진단 로그 스키마](./diagnostic-logs-schema.md)의 매핑은 문서의 끝에 제공되어 있습니다.
 
 ## <a name="administrative"></a>관리
 이 범주에는 Resource Manager를 통해 수행한 모든 만들기, 업데이트, 삭제 및 동작 작업의 레코드가 포함되어 있습니다. 이 범주에 표시되는 이벤트의 유형의 예로는 "가상 머신 만들기", "네트워크 보안 그룹 삭제" 등이 있습니다. 사용자나 애플리케이션이 Resource Manager를 사용하여 취하는 모든 동작은 특정 리소스 종류에 대한 작업으로 모델링됩니다. 작업 유형이 쓰기, 삭제 또는 동작이면 해당 작업의 시작 및 성공이나 실패 레코드가 모두 관리 범주에 기록됩니다. 관리 범주에는 구독의 역할 기반 액세스 제어 변경 내용도 포함됩니다.
@@ -275,7 +275,7 @@ ms.locfileid: "54438238"
 | subscriptionId |Azure 구독 ID입니다. |
 | properties |이벤트에 대한 세부 정보를 설명하는 `<Key, Value>` 쌍의 집합(즉, 사전)입니다.|
 | properties.title | 리소스의 상태를 설명하는 사용자에게 친숙한 문자열입니다. |
-| properties.details | 이벤트에 대한 자세한 내용을 설명하는 사용자에게 친숙한 문자열입니다. |
+| properties.details | 이벤트에 대한 추가 세부 정보를 설명하는 사용자에게 친숙한 문자열입니다. |
 | properties.currentHealthStatus | 리소스의 현재 상태. 해당 값은 “사용 가능”, “사용 불가능”, “저하됨”, “알 수 없음” 중 하나입니다. |
 | properties.previousHealthStatus | 리소스의 이전 상태. 해당 값은 “사용 가능”, “사용 불가능”, “저하됨”, “알 수 없음” 중 하나입니다. |
 | properties.type | 리소스 상태 이벤트의 유형에 대한 설명입니다. |
@@ -356,9 +356,9 @@ ms.locfileid: "54438238"
 | description |경고 이벤트의 정적 텍스트 설명입니다. |
 | eventDataId |경고 이벤트의 고유 식별자입니다. |
 | level |이벤트의 수준입니다. 해당 값은 “Critical”, “Error”, “Warning” 및 “Informational” 중 하나입니다. |
-| resourceGroupName |메트릭 경고의 경우 영향을 받는 리소스의 리소스 그룹 이름입니다. 기타 경고 유형의 경우에는 경고 자체가 포함된 리소스 그룹의 이름입니다. |
-| resourceProviderName |메트릭 경고의 경우 영향을 받는 리소스의 리소스 공급자 이름입니다. 기타 경고 유형의 경우에는 경고 자체의 리소스 공급자 이름입니다. |
-| ResourceId | 메트릭 경고의 경우 영향을 받는 리소스의 리소스 ID 이름입니다. 기타 경고 유형의 경우에는 경고 리소스 자체의 리소스 ID입니다. |
+| resourceGroupName |메트릭 경고의 경우 영향을 받는 리소스의 리소스 그룹 이름입니다. 다른 경고 유형의 경우 경고 자체가 포함된 리소스 그룹의 이름입니다. |
+| resourceProviderName |메트릭 경고의 경우 영향을 받는 리소스의 리소스 공급자 이름입니다. 다른 경고 유형의 경우 경고 자체에 대한 리소스 공급자 이름입니다. |
+| ResourceId | 메트릭 경고의 경우 영향을 받는 리소스의 리소스 ID 이름입니다. 다른 경고 유형의 경우 경고 리소스 자체의 리소스 ID입니다. |
 | operationId |단일 작업에 해당하는 이벤트 간에 공유되는 GUID입니다. |
 | operationName |작업의 이름입니다. |
 | properties |이벤트에 대한 세부 정보를 설명하는 `<Key, Value>` 쌍의 집합(즉, 사전)입니다. |
@@ -570,7 +570,7 @@ ms.locfileid: "54438238"
 | subscriptionId |Azure 구독 ID입니다. |
 
 ## <a name="recommendation"></a>권장 사항
-이 범주에는 서비스에 대해 생성되는 새 권장 사항 레코드가 포함됩니다. 권장 사항의 예로 "내결함성을 향상하려면 가용성 집합을 사용하세요"를 들 수 있습니다. 4가지 권장 사항 이벤트인 고가용성, 성능, 보안 및 비용 최적화가 생성될 수 있습니다. 
+이 범주에는 서비스에 대해 생성되는 새 권장 사항 레코드가 포함됩니다. 권장 사항의 예로 "내결함성을 향상하려면 가용성 집합을 사용하세요"를 들 수 있습니다. 생성될 수 있는 Recommendation 이벤트의 네 가지 유형은 다음과 같습니다. 고가용성, 성능, 보안 및 비용 최적화가 생성될 수 있습니다. 
 
 ### <a name="sample-event"></a>샘플 이벤트
 ```json
@@ -757,7 +757,7 @@ ms.locfileid: "54438238"
 | resourceType | 새 리소스의 경우 평가되는 형식입니다. 기존 리소스의 경우 "Microsoft.Resources/checkPolicyCompliance"를 반환합니다. |
 | ResourceId | 평가된 리소스의 리소스 ID입니다. |
 | status | Policy 평가 결과의 상태를 설명하는 문자열입니다. 대부분의 Policy 평가는 "Succeeded"를 반환하지만 거부 적용은 "Failed"를 반환합니다. auditIfNotExists 또는 deployIfNotExists의 오류도 "Failed"를 반환합니다. |
-| subStatus | 이 필드는 Policy 이벤트에 대해 비어 있습니다. |
+| subStatus | Policy 이벤트에 대한 필드가 비어 있습니다. |
 | submissionTimestamp | 이벤트를 쿼리할 수 있게 되는 타임스탬프입니다. |
 | subscriptionId | Azure 구독 ID입니다. |
 | properties.isComplianceCheck | 새 리소스가 배포되거나 기존 리소스의 Resource Manager 속성이 업데이트되면 "False"를 반환합니다. 다른 모든 [평가 트리거](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers)는 "True"를 반환합니다. |
@@ -768,7 +768,7 @@ ms.locfileid: "54438238"
 
 ## <a name="mapping-to-diagnostic-logs-schema"></a>진단 로그 스키마에 매핑
 
-Azure 활동 로그를 저장소 계정 또는 Event Hubs 네임스페이스로 스트리밍하는 경우, 데이터는 [Azure 진단 로그 스키마](./tutorial-dashboards.md)를 따릅니다. 다음은 위의 스키마에서 진단 로그 스키마로의 속성 매핑입니다.
+Azure 활동 로그를 저장소 계정 또는 Event Hubs 네임스페이스로 스트리밍하는 경우, 데이터는 [Azure 진단 로그 스키마](./diagnostic-logs-schema.md)를 따릅니다. 다음은 위의 스키마에서 진단 로그 스키마로의 속성 매핑입니다.
 
 | 진단 로그 스키마 속성 | 활동 로그 REST API 스키마 속성 | 메모 |
 | --- | --- | --- |
@@ -784,7 +784,7 @@ Azure 활동 로그를 저장소 계정 또는 Event Hubs 네임스페이스로 
 | CorrelationId | CorrelationId |  |
 | ID | 클레임 및 권한 부여 속성 |  |
 | Level | Level |  |
-| location | 해당 없음 | 이벤트가 처리된 위치입니다. ‘리소스 위치가 아니라 이벤트가 처리된 위치입니다. 이 속성은 향후 업데이트에서 제거됩니다.’* |
+| location | 해당 없음 | 이벤트가 처리된 위치입니다. ‘리소스 위치가 아니라 이벤트가 처리된 위치입니다. 이 속성은 향후 업데이트에서 제거됩니다.’ |
 | properties | properties.eventProperties |  |
 | properties.eventCategory | 카테고리 | properties.eventCategory가 없을 경우, category는 “Administrative”입니다. |
 | properties.eventName | eventName |  |

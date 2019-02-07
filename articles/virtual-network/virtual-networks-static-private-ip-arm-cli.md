@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a6e217194508feae3b227b5ef65b02d0305a22a7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 06016cf7a8ba10a9a8f49f90da99a26aaa072441
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852901"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695527"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신에 대한 개인 IP 주소 구성
 
@@ -42,7 +42,7 @@ ms.locfileid: "54852901"
 
 *192.168.1.101*의 정적 개인 IP 주소를 사용하여 *TestVNet*이라는 VNet의 *FrontEnd* 서브넷에 *DNS01*이라는 VM을 만들려면 다음 단계를 완료하세요.
 
-1. 아직 설치하지 않은 경우 최신 [Azure CLI](/cli/azure/install-azure-cli)를 설치 및 구성하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인합니다.
+1. 아직 설치하지 않은 경우 최신 [Azure CLI](/cli/azure/install-azure-cli)를 설치 및 구성하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인합니다.
 
 2. [az network public-ip create](/cli/azure/network/public-ip) 명령을 사용하여 VM의 공용 IP를 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 
@@ -75,7 +75,7 @@ ms.locfileid: "54852901"
    * `--name`: 공용 IP의 이름입니다.
    * `--location`: 공용 IP를 만들 Azure 지역입니다.
 
-3. [az network nic create](/cli/azure/network/nic#az_network_nic_create) 명령을 실행하여 고정 개인 IP를 가진 NIC를 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다. 
+3. [az network nic create](/cli/azure/network/nic) 명령을 실행하여 고정 개인 IP를 가진 NIC를 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다. 
    
     ```azurecli
     az network nic create \
@@ -127,7 +127,7 @@ ms.locfileid: "54852901"
     * `--vnet-name`: NIC를 만들 VNet 이름입니다.
     * `--subnet`: NIC를 만들 서브넷 이름입니다.
 
-4. [azure vm create](/cli/azure/vm/nic#az_vm_nic_create) 명령을 실행하여 이전에 만든 공용 IP 및 NIC를 사용하여 VM을 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
+4. [azure vm create](/cli/azure/vm/nic) 명령을 실행하여 이전에 만든 공용 IP 및 NIC를 사용하여 VM을 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
    
     ```azurecli
     az vm create \
@@ -155,7 +155,7 @@ ms.locfileid: "54852901"
     }
     ```
    
-   기본 [az vm create](/cli/azure/vm#az_vm_create) 매개 변수가 아닌 매개 변수입니다.
+   기본 [az vm create](/cli/azure/vm) 매개 변수가 아닌 매개 변수입니다.
 
    * `--nics`: VM이 연결된 NIC의 이름입니다.
    

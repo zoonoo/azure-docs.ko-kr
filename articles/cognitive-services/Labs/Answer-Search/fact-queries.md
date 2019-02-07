@@ -10,20 +10,20 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: b8358890658a38133452ba2092ac9b8b78114ff7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8402d0228e062aed60adee1c4622ade31771584d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210950"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700284"
 ---
 # <a name="quickstart-query-for-facts"></a>빠른 시작: 팩트 쿼리
 
 날짜 또는 식별 가능한 정보와 같은 팩트에 대한 쿼리인 경우 응답에 `facts` 답변이 포함될 수 있습니다. 팩트 답변에는 웹 문서의 단락에서 추출된 관련 결과가 포함됩니다.  이러한 쿼리는 항상 웹 페이지를 반환하며, [팩트](fact-queries.md) 및/또는 [엔터티](entity-queries.md)는 쿼리에 종속됩니다.
 
-valentines+2016, when+is+ramadan 등의 쿼리는 날짜 관련 쿼리로 간주됩니다. Bing에서 날짜 관련 쿼리로 확인될 경우 응답에 `facts` 답변이 포함됩니다. 
+valentines+2016, when+is+ramadan 등의 쿼리는 날짜 관련 쿼리로 간주됩니다. Bing에서 날짜 관련 쿼리로 확인될 경우 응답에 `facts` 답변이 포함됩니다.
 
-다음 예제는 날짜 관련 `facts` 답변입니다. 
+다음 예제는 날짜 관련 `facts` 답변입니다.
 
 **쿼리:**
 ```
@@ -34,28 +34,29 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 **응답:** `subjectName` 필드에는 팩트를 표시할 때 레이블로 사용할 수 있는 사용자 쿼리의 표시 버전이 포함됩니다. 쿼리 문자열이 valentines+2016인 경우 Bing에서 Valentine's Day 2016으로 변경할 수 있습니다. 설명 필드에는 팩트가 포함됩니다.
 
 ```
-{   
-    "_type" : "SearchResponse",   
-    "queryContext" : {   
-        "originalQuery" : "valentines 2016" 
-    },   
-    "facts" : {   
-        "id" : "https:\/\/www.bingapis.com\/api\/v7\/#Facts",   
-        "value" : [{   
-            "description" : "Valentine's Day was on Sunday, February 14, 2016.",   
-            "subjectName" : "Valentine's Day 2016"   
-        }]   
-    },   
-    "rankingResponse" : {   
-        "mainline" : {   
-            "items" : [{   
-                "answerType" : "Facts",   
-                "value" : {   
-                    "id" : "https:\/\/www.bingapis.com\/api\/v7\/knowledge\/#Facts"                   }   
-            }]   
-        }   
-    }   
-}   
+{
+    "_type" : "SearchResponse",
+    "queryContext" : {
+        "originalQuery" : "valentines 2016"
+    },
+    "facts" : {
+        "id" : "https:\/\/www.bingapis.com\/api\/v7\/#Facts",
+        "value" : [{
+            "description" : "Valentine's Day was on Sunday, February 14, 2016.",
+            "subjectName" : "Valentine's Day 2016"
+        }]
+    },
+    "rankingResponse" : {
+        "mainline" : {
+            "items" : [{
+                "answerType" : "Facts",
+                "value" : {
+                    "id" : "https:\/\/www.bingapis.com\/api\/v7\/knowledge\/#Facts"
+                }
+            }]
+        }
+    }
+}
 
 ```
 
@@ -118,7 +119,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
 팩트가 `_type: StructuredValue/TabularData`로 반환되는 경우도 있습니다. 다음 쿼리는 커피와 차에 대한 대비 정보가 포함된 표 형식 데이터를 가져옵니다.
 
 ```
-https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us 
+https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us
 
 ```
 `facts` 결과에는 다음과 같은 행과 셀이 포함됩니다.

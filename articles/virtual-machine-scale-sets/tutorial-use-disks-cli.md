@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: da7848fe561d061470e8921f1f76ac30bed4c809
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 58090e860b79d59021d467fcf73596271c91c7f6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163061"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751160"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 가상 머신 확장 집합이 있는 디스크 만들기 및 사용
 가상 머신 확장 집합은 디스크를 사용하여 VM 인스턴스의 운영 체제, 애플리케이션 및 데이터를 저장합니다. 확장 집합을 만들고 관리할 때 예상 작업에 적합한 디스크 크기와 구성을 선택해야 합니다. 이 자습서에서는 VM 디스크를 만들고 관리하는 방법에 대해 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -95,13 +95,13 @@ Standard Storage는 HDD에서 지원되며, 비용 효율적인 스토리지 및
 확장 집합을 만들 때 또는 기존 확장 집합을 사용하여 디스크를 만들고 연결할 수 있습니다.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>확장 집합을 만들 때 디스크 연결
-먼저 [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. 이 예제에서는 *eastus* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+먼저 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. 이 예제에서는 *eastus* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-[az vmss create](/cli/azure/vmss#az_vmss_create) 명령을 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 *myScaleSet*이라는 확장 집합을 만들고, SSH 키가 없는 경우 이 키를 생성합니다. `--data-disk-sizes-gb` 매개 변수를 사용하여 두 개의 디스크를 만듭니다. 첫 번째 디스크의 크기는 *64*GB이고, 두 번째 디스크의 크기는 *128*GB입니다.
+[az vmss create](/cli/azure/vmss) 명령을 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 *myScaleSet*이라는 확장 집합을 만들고, SSH 키가 없는 경우 이 키를 생성합니다. `--data-disk-sizes-gb` 매개 변수를 사용하여 두 개의 디스크를 만듭니다. 첫 번째 디스크의 크기는 *64*GB이고, 두 번째 디스크의 크기는 *128*GB입니다.
 
 ```azurecli-interactive
 az vmss create \
@@ -117,7 +117,7 @@ az vmss create \
 확장 집합 리소스와 VM 인스턴스를 모두 만들고 구성하는 데 몇 분 정도 걸립니다.
 
 ### <a name="attach-a-disk-to-existing-scale-set"></a>기존 확장 집합에 디스크 연결
-기존 확장 집합에 디스크를 연결할 수도 있습니다. [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach)를 사용하여 다른 디스크를 추가하기 위해 이전 단계에서 만든 확장 집합을 사용합니다. 다음 예제에서는 *128*GB 데이터 디스크를 추가로 연결합니다.
+기존 확장 집합에 디스크를 연결할 수도 있습니다. [az vmss disk attach](/cli/azure/vmss/disk)를 사용하여 다른 디스크를 추가하기 위해 이전 단계에서 만든 확장 집합을 사용합니다. 다음 예제에서는 *128*GB 데이터 디스크를 추가로 연결합니다.
 
 ```azurecli-interactive
 az vmss disk attach \
@@ -144,7 +144,7 @@ az vmss extension set \
   --settings '{"fileUris":["https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.sh"],"commandToExecute":"./prepare_vm_disks.sh"}'
 ```
 
-디스크가 올바르게 준비되었는지 확인하려면 SSH를 VM 인스턴스 중 하나에 연결합니다. [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info)를 사용하여 확장 집합에 대한 연결 정보를 나열합니다.
+디스크가 올바르게 준비되었는지 확인하려면 SSH를 VM 인스턴스 중 하나에 연결합니다. [az vmss list-instance-connection-info](/cli/azure/vmss)를 사용하여 확장 집합에 대한 연결 정보를 나열합니다.
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -225,7 +225,7 @@ exit
 
 
 ## <a name="list-attached-disks"></a>연결된 디스크 나열
-확장 집합에 연결된 디스크에 대한 정보를 보려면 [az vmss show](/cli/azure/vmss#az_vmss_show)를 사용하고 *virtualMachineProfile.storageProfile.dataDisks*에 대해 쿼리합니다.
+확장 집합에 연결된 디스크에 대한 정보를 보려면 [az vmss show](/cli/azure/vmss)를 사용하고 *virtualMachineProfile.storageProfile.dataDisks*에 대해 쿼리합니다.
 
 ```azurecli-interactive
 az vmss show \
@@ -279,7 +279,7 @@ az vmss show \
 
 
 ## <a name="detach-a-disk"></a>디스크 분리
-지정된 디스크가 더 이상 필요하지 않은 경우 확장 집합에서 디스크를 분리할 수 있습니다. 확장 집합의 모든 VM 인스턴스에서 디스크가 제거됩니다. 확장 집합에서 디스크를 분리하려면 [az vmss disk detach](/cli/azure/vmss/disk)를 사용하고 디스크의 LUN을 지정합니다. LUN은 이전 섹션의 [az vmss show](/cli/azure/vmss#az_vmss_show) 출력에 표시되어 있습니다. 다음 예제에서는 확장 집합에서 LUN *2*를 분리합니다.
+지정된 디스크가 더 이상 필요하지 않은 경우 확장 집합에서 디스크를 분리할 수 있습니다. 확장 집합의 모든 VM 인스턴스에서 디스크가 제거됩니다. 확장 집합에서 디스크를 분리하려면 [az vmss disk detach](/cli/azure/vmss/disk)를 사용하고 디스크의 LUN을 지정합니다. LUN은 이전 섹션의 [az vmss show](/cli/azure/vmss) 출력에 표시되어 있습니다. 다음 예제에서는 확장 집합에서 LUN *2*를 분리합니다.
 
 ```azurecli-interactive
 az vmss disk detach \
@@ -290,7 +290,7 @@ az vmss disk detach \
 
 
 ## <a name="clean-up-resources"></a>리소스 정리
-확장 집합 및 디스크를 제거하려면 [az group delete](/cli/azure/group#az_group_delete)를 사용하여 리소스 그룹 및 모든 해당 리소스를 삭제합니다. `--no-wait` 매개 변수는 작업이 완료될 때까지 대기하지 않고 프롬프트로 제어를 반환합니다. `--yes` 매개 변수는 작업을 수행하는 추가 프롬프트 없이 리소스를 삭제할 것인지 확인합니다.
+확장 집합 및 디스크를 제거하려면 [az group delete](/cli/azure/group)를 사용하여 리소스 그룹 및 모든 해당 리소스를 삭제합니다. `--no-wait` 매개 변수는 작업이 완료될 때까지 대기하지 않고 프롬프트로 제어를 반환합니다. `--yes` 매개 변수는 작업을 수행하는 추가 프롬프트 없이 리소스를 삭제할 것인지 확인합니다.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

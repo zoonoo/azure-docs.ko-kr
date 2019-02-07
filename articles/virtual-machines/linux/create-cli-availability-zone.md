@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: c202379f236bcd2fea05ad9d135096bc724898e7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ee714cd87676c519c1bbfca2c08b62287299114e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956424"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700624"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Azure CLI를 사용하여 가용성 영역에서 Linux 가상 머신 만들기
 
@@ -29,13 +29,13 @@ ms.locfileid: "46956424"
 
 가용성 영역을 사용하려면 [지원되는 Azure 지역](../../availability-zones/az-overview.md#regions-that-support-availability-zones)에 가상 머신을 만들어야 합니다.
 
-최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치했고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
+최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치했고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
 
 
 ## <a name="check-vm-sku-availability"></a>VM SKU 가용성 확인
 VM 크기 또는 SKU의 가용성은 지역 및 영역에 따라 다를 수 있습니다. 가용성 영역 사용을 계획하는 데 도움이 되도록 Azure 지역 및 영역별로 사용 가능한 VM SKU를 나열할 수 있습니다. 이 기능을 사용하면 적절한 VM 크기를 선택하고 영역 간에 원하는 복원력을 얻을 수 있습니다. 다른 VM 유형 및 크기에 대한 자세한 내용은 [VM 크기 개요](sizes.md)를 참조하세요.
 
-[az vm list-skus](/cli/azure/vm#az_vm_list_skus) 명령으로 사용 가능한 VM SkU를 볼 수 있습니다. 다음 예제에서는 *eastus2* 지역에서 사용 가능한 VM SKU를 나열합니다.
+[az vm list-skus](/cli/azure/vm) 명령으로 사용 가능한 VM SkU를 볼 수 있습니다. 다음 예제에서는 *eastus2* 지역에서 사용 가능한 VM SKU를 나열합니다.
 
 ```azurecli
 az vm list-skus --location eastus2 --output table
@@ -62,7 +62,7 @@ virtualMachines   eastus2    Standard_E4_v3              Standard   E4_v3    1,2
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다.  
+[az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다.  
 
 Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 머신보다 먼저 리소스 그룹을 만들어야 합니다. 이 예제에서는 *eastus2* 지역에 *myResourceGroupVM*이라는 리소스 그룹을 만듭니다. 미국 동부 2는 가용성 영역을 지원하는 Azure 지역 중 하나입니다.
 
@@ -74,7 +74,7 @@ az group create --name myResourceGroupVM --location eastus2
 
 ## <a name="create-virtual-machine"></a>가상 머신 만들기
 
-[az vm create](/cli/azure/vm#az_vm_create) 명령을 사용하여 가상 머신을 만듭니다. 
+[az vm create](/cli/azure/vm) 명령을 사용하여 가상 머신을 만듭니다. 
 
 가상 머신을 만들 때 운영 체제 이미지, 디스크 크기 조정 및 관리 자격 증명 등의 몇 가지 옵션을 사용할 수 있습니다. 이 예제에서는 Ubuntu Server를 실행하는 *myVM*이라는 가상 머신을 만듭니다. VM은 가용성 영역 *1*에서 생성됩니다. 기본적으로 VM은 *Standard_DS1_v2* 크기에서 생성됩니다.
 
@@ -102,7 +102,7 @@ VM을 만드는 데 몇 분이 걸릴 수 있습니다. VM이 만들어지면 Az
 
 가용성 영역에 VM을 배포하는 경우 VM에 대한 관리 디스크는 동일한 가용성 영역에서 만들어집니다. 기본적으로 공용 IP 주소도 해당 영역에서 만들어집니다. 다음 예에서는 이러한 리소스에 대한 정보를 가져옵니다.
 
-VM의 관리 디스크가 가용성 영역에 있는지 확인하려면 [az vm show](/cli/azure/vm#az_vm_show) 명령을 사용하여 디스크 ID를 반환합니다. 이 예제에서는 디스크 ID가 변수에 저장되고 이후 단계에서 사용됩니다. 
+VM의 관리 디스크가 가용성 영역에 있는지 확인하려면 [az vm show](/cli/azure/vm) 명령을 사용하여 디스크 ID를 반환합니다. 이 예제에서는 디스크 ID가 변수에 저장되고 이후 단계에서 사용됩니다. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)
@@ -149,7 +149,7 @@ az disk show --resource-group myResourceGroupVM --name $osdiskname
 }
 ```
 
-[az vm list-ip-addresses](/cli/azure/vm#az_vm_list_ip_addresses) 명령을 사용하여 *myVM*에서 공용 IP 주소 리소스의 이름을 반환합니다. 이 예제에서는 이름이 변수에 저장되고 이후 단계에서 사용됩니다.
+[az vm list-ip-addresses](/cli/azure/vm) 명령을 사용하여 *myVM*에서 공용 IP 주소 리소스의 이름을 반환합니다. 이 예제에서는 이름이 변수에 저장되고 이후 단계에서 사용됩니다.
 
 ```azurecli
 ipaddressname=$(az vm list-ip-addresses -g myResourceGroupVM -n myVM --query "[].virtualMachine.network.publicIpAddresses[].name" -o tsv)

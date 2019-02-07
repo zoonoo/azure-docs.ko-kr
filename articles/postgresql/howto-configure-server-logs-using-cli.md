@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 938aadaa1d17135808cbeb34adac5139bd61f833
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 3ca77c1ffa5f5a3f384009299701f4aa674baf59
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545025"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700199"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Azure CLI를 사용하여 서버 로그 구성 및 액세스
 Azure CLI(명령줄 인터페이스)를 사용하여 PostgreSQL 서버 오류 로그를 다운로드할 수 있습니다. 그러나 트랜잭션 로그에 대한 액세스는 지원되지 않습니다. 
@@ -31,14 +31,14 @@ Azure CLI(명령줄 인터페이스)를 사용하여 PostgreSQL 서버 오류 �
 자세한 내용은 [서버 구성 매개 변수 사용자 지정](howto-configure-server-parameters-using-cli.md)을 참조하세요.
 
 ## <a name="list-logs-for-azure-database-for-postgresql-server"></a>PostgreSQL용 Azure 데이터베이스 서버에 대한 로그 나열
-서버에 대한 사용 가능한 로그 파일을 나열하려면 [az postgres server-logs list](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) 명령을 실행합니다.
+서버에 대한 사용 가능한 로그 파일을 나열하려면 [az postgres server-logs list](/cli/azure/postgres/server-logs) 명령을 실행합니다.
 
 **myresourcegroup** 리소스 그룹에서 **mydemoserver.postgres.database.azure.com** 서버에 대한 로그 파일을 나열할 수 있습니다. 그런 다음, **log\_files\_list.txt**라는 텍스트 파일에 로그 파일 목록을 전송합니다.
 ```azurecli-interactive
 az postgres server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
 ## <a name="download-logs-locally-from-the-server"></a>로그를 서버에서 로컬로 다운로드
-[az postgres server-logs download](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) 명령을 사용하여 서버에 대한 개별 로그 파일을 다운로드할 수 있습니다. 
+[az postgres server-logs download](/cli/azure/postgres/server-logs) 명령을 사용하여 서버에 대한 개별 로그 파일을 다운로드할 수 있습니다. 
 
 다음 예제를 사용하여 **myresourcegroup** 리소스 그룹에 있는 **mydemoserver.postgres.database.azure.com** 서버에 대한 특정 로그 파일을 로컬 환경에 다운로드합니다.
 ```azurecli-interactive

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: priyamo
-ms.openlocfilehash: 7617b19fe4f59b582b878d5dfe365810963ff51e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2b27553e16225a7bc0d9ca74c7ec013a231d64e6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158097"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755478"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>자습서: Linux VM 시스템 할당 관리 ID를 사용하여 액세스 키를 통해 Azure Storage에 액세스
 
@@ -198,4 +198,4 @@ az storage blob download -c <CONTAINER NAME> -n test.txt -f test-download.txt --
 이 자습서에서는 Linux VM 시스템 할당 관리 ID를 사용하여 액세스 키를 통해 Azure Storage에 액세스하는 방법을 알아보았습니다.  Azure Storage 액세스 키에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 > [!div class="nextstepaction"]
->[저장소 액세스 키 관리](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
+>[저장소 액세스 키 관리](/azure/storage/common/storage-create-storage-account)

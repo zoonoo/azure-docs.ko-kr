@@ -8,21 +8,21 @@ manager: mtillman
 editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8af6846da78d12460b7866297c9802c5dab20a69
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 42d0a068be1afb3e2f5a3fb1687556513b4582c6
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967526"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692999"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>빠른 시작: Microsoft 로그인을 통합하는 Xamarin 앱 빌드
 
@@ -60,7 +60,7 @@ Xamarin을 사용하면 iOS, Android 및 Windows(모바일 디바이스 및 PC)�
 5. 새 **네이티브 클라이언트 애플리케이션**을 만들려면 지시를 따릅니다.
   * **이름**은 사용자에게 앱에 대해 설명합니다.
   * **리디렉션 URI**는 Azure AD가 토큰 응답을 반환하는 데 사용하는 구성표 및 문자열의 조합입니다. 값(예: http://DirectorySearcher) 을 입력합니다.
-6. 등록이 완료되면 Azure AD가 앱에 고유한 애플리케이션 ID를 할당합니다. **응용 프로그램** 탭에서 이 값을 복사해 둡니다. 나중에 이 값이 필요합니다.
+6. 등록이 완료되면 Azure AD가 앱에 고유한 애플리케이션 ID를 할당합니다. **애플리케이션** 탭에서 이 값을 복사해 둡니다. 나중에 이 값이 필요합니다.
 7. **설정** 페이지에서 **필요한 사용 권한**, **추가**를 차례로 선택합니다.
 8. API로 **Microsoft Graph**를 선택합니다. **위임된 권한**에서 **디렉터리 데이터 읽기** 권한을 추가합니다. 이렇게 하면 앱에서 사용자의 Graph API를 쿼리할 수 있습니다.
 

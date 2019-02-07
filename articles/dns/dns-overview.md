@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: df890eb0e07c13d0757c706a3cabbbad67b6eac2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 51869bcc2ee892bc150102595de09782eb01547c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716279"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770523"
 ---
 # <a name="what-is-azure-dns"></a>Azure DNS란?
 
@@ -32,7 +32,7 @@ Azure DNS의 DNS 도메인은 DNS 이름 서버의 Azure 글로벌 네트워크�
 
 * [역할 기반 액세스 제어](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control) - 조직에 대한 특정 작업에 액세스하는 사람을 제어할 수 있습니다.
 
-* [활동 로그](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#activity-logs) - 문제를 해결할 때 조직의 사용자가 리소스를 수정한 방법을 모니터링하거나 오류를 찾을 수 있습니다.
+* [활동 로그](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) - 문제를 해결할 때 조직의 사용자가 리소스를 수정한 방법을 모니터링하거나 오류를 찾을 수 있습니다.
 
 * [리소스 잠금](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) - 구독, 리소스 그룹 또는 리소스를 잠급니다. 잠금은 조직의 다른 사용자가 실수로 중요한 리소스를 삭제하거나 수정하는 것을 방지합니다.
 

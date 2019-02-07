@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2018
-ms.author: cwatson
-ms.openlocfilehash: b724fc7a887550b4115a988149b4b7a6c95de830
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 36ce4d96e02bac1eae1791acf811da468726b4a6
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584471"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902706"
 ---
 # <a name="understand-your-bill-for-azure-customers-with-an-enterprise-agreement"></a>기업계약을 체결한 Azure 고객에 대한 요금 청구 방식
 
@@ -31,8 +31,8 @@ ms.locfileid: "52584471"
 
 다음과 같은 경우 하나 이상의 청구서를 받게 됩니다.
 
-- **서비스 초과**: 조직의 사용 요금이 크레딧 잔액을 초과하는 경우.
-- **별도 청구 요금**: 조직이 사용한 서비스에 크레딧이 적용되지 않는 경우. 다음 서비스에 대해서는 크레딧 잔액과 관계없이 청구서를 받게 됩니다.
+- **서비스 초과**: 조직의 사용 요금이 크레딧 잔액을 초과합니다.
+- **별도 청구 요금**: 조직에서 사용한 서비스가 크레딧에 적용되지 않습니다. 다음 서비스에 대해서는 크레딧 잔액과 관계없이 청구서를 받게 됩니다.
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop 
@@ -44,7 +44,7 @@ ms.locfileid: "52584471"
     - Visual Studio Enterprise(연간)
     - Visual Studio Professional(월간)
     - Visual Studio Professional(연간)
-- **Marketplace 요금**: Azure Marketplace 구매 및 사용에는 조직의 크레딧이 적용되지 않으며 별도로 요금이 청구됩니다. 엔터프라이즈 관리자는 Enterprise Portal에서 조직에 대해 Marketplace 구매를 사용/사용 안 함으로 설정할 수 있습니다. 
+- **Marketplace 요금**: Azure Marketplace의 구매 및 사용이 조직의 크레딧에 적용되지 않으며 요금이 별도로 청구됩니다. 엔터프라이즈 관리자는 Enterprise Portal에서 조직에 대해 Marketplace 구매를 사용/사용 안 함으로 설정할 수 있습니다. 
 
 청구 기간 동안 서비스 초과분 요금과 별도 청구 요금이 둘 다 부과되는 경우 두 요금 유형을 모두 포함하는 청구서 1개를 받게 됩니다. Marketplaces 요금은 항상 별도로 청구됩니다.
 
@@ -90,6 +90,6 @@ Enterprise Portal의 **보고서** > **사용 요약**에 있는 Azure Marketpla
 
      ![마켓플레이스 요금 아래의 다운로드 옵션을 보여 주는 스크린샷](./media/billing-understand-your-bill-ea/ea-portal-download-usage-marketplace.png)
 
-## <a name="need-help-contact-us"></a>도움 필요 시 문의처
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

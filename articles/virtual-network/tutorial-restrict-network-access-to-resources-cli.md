@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 80ca9df064239e9c7beb9d45acfabe963c532e4a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 31d583456f2ca0a2804c2215906965c2241af52d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150551"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751500"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 서비스 엔드포인트로 PaaS 리소스에 대한 네트워크 액세스 제한
 
@@ -43,7 +43,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-가상 네트워크를 만들기 전에 가상 네트워크에 대한 리소스 그룹과 이 아티클에서 만든 다른 모든 리소스를 만들어야 합니다. [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+가상 네트워크를 만들기 전에 가상 네트워크에 대한 리소스 그룹과 이 아티클에서 만든 다른 모든 리소스를 만들어야 합니다. [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create \
@@ -51,7 +51,7 @@ az group create \
   --location eastus
 ```
 
-[az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)를 사용하여 하나의 서브넷이 있는 가상 네트워크를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet)를 사용하여 하나의 서브넷이 있는 가상 네트워크를 만듭니다.
 
 ```azurecli-interactive
 az network vnet create \
@@ -64,7 +64,7 @@ az network vnet create \
 
 ## <a name="enable-a-service-endpoint"></a>서비스 엔드포인트 사용 
 
-서비스 엔드포인트를 지원하는 서비스에 대해서만 서비스 엔드포인트를 사용하도록 설정할 수 있습니다. [az network vnet list-endpoint-services](/cli/azure/network/vnet#az_network_vnet_list_endpoint_services)를 사용하여 Azure 위치에서 사용할 수 있는 서비스 엔드포인트 지원 서비스를 확인합니다. 다음 예제에서는 *eastus* 지역에서 사용할 수 있는 서비스 끝점 지원 서비스 목록을 반환합니다. 반환되는 서비스 목록은 시간이 지나면서 서비스 엔드포인트를 사용할 수 있는 Azure 서비스가 증가함에 따라 확장됩니다.
+서비스 엔드포인트를 지원하는 서비스에 대해서만 서비스 엔드포인트를 사용하도록 설정할 수 있습니다. [az network vnet list-endpoint-services](/cli/azure/network/vnet)를 사용하여 Azure 위치에서 사용할 수 있는 서비스 엔드포인트 지원 서비스를 확인합니다. 다음 예제에서는 *eastus* 지역에서 사용할 수 있는 서비스 끝점 지원 서비스 목록을 반환합니다. 반환되는 서비스 목록은 시간이 지나면서 서비스 엔드포인트를 사용할 수 있는 Azure 서비스가 증가함에 따라 확장됩니다.
 
 ```azurecli-interactive
 az network vnet list-endpoint-services \
@@ -103,7 +103,7 @@ az network vnet subnet update \
   --network-security-group myNsgPrivate
 ```
 
-[az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create)를 사용하여 보안 규칙을 만듭니다. 다음에 나오는 규칙은 Azure Storage 서비스에 지정된 공용 IP 주소에 대한 아웃바운드 액세스를 허용합니다. 
+[az network nsg rule create](/cli/azure/network/nsg/rule)를 사용하여 보안 규칙을 만듭니다. 다음에 나오는 규칙은 Azure Storage 서비스에 지정된 공용 IP 주소에 대한 아웃바운드 액세스를 허용합니다. 
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -168,7 +168,7 @@ az storage account create \
   --kind StorageV2
 ```
 
-스토리지 계정이 생성된 후 [az storage account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string)을 사용하여 스토리지 계정에 대한 연결 문자열을 변수로 검색합니다. 이 연결 문자열은 이후 단계에서 파일 공유를 만드는 데 사용됩니다.
+스토리지 계정이 생성된 후 [az storage account show-connection-string](/cli/azure/storage/account)을 사용하여 스토리지 계정에 대한 연결 문자열을 변수로 검색합니다. 이 연결 문자열은 이후 단계에서 파일 공유를 만드는 데 사용됩니다.
 
 ```azurecli-interactive
 saConnectionString=$(az storage account show-connection-string \
@@ -223,7 +223,7 @@ az storage account network-rule add \
 
 ### <a name="create-the-first-virtual-machine"></a>첫 번째 가상 머신 만들기
 
-[az vm create](/cli/azure/vm#az_vm_create)를 사용하여 *공용* 서브넷에 VM을 만듭니다. 또한 기본 키 위치에 SSH 키가 없는 경우 해당 명령이 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.
+[az vm create](/cli/azure/vm)를 사용하여 *공용* 서브넷에 VM을 만듭니다. 또한 기본 키 위치에 SSH 키가 없는 경우 해당 명령이 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.
 
 ```azurecli-interactive
 az vm create \
@@ -322,7 +322,7 @@ sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-sh
 
 *myVmPublic* VM에 대한 SSH 세션을 종료합니다.
 
-컴퓨터에서 [az storage share list](/cli/azure/storage/share?view=azure-cli-latest#az_storage_share_list)를 사용하여 스토리지 계정의 공유를 봅니다. `<account-name>` 및 `<account-key>`를 [저장소 계정 만들기](#create-a-storage-account)의 저장소 계정 이름과 키로 바꿉니다.
+컴퓨터에서 [az storage share list](/cli/azure/storage/share?view=azure-cli-latest)를 사용하여 스토리지 계정의 공유를 봅니다. `<account-name>` 및 `<account-key>`를 [저장소 계정 만들기](#create-a-storage-account)의 저장소 계정 이름과 키로 바꿉니다.
 
 ```azurecli-interactive
 az storage share list \

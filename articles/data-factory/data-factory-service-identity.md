@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: a42f5f441dd63f8d6a7f5bd1cfdf0452d025816e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 068929bbde8e4c1411004b45fc77f0188de43ff8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017687"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814217"
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory 서비스 ID
 
@@ -44,7 +44,7 @@ ms.locfileid: "54017687"
 
 - [PowerShell을 사용하여 서비스 ID 생성](#generate-service-identity-using-powershell)
 - [REST API를 사용하여 서비스 ID 생성](#generate-service-identity-using-rest-api)
-- [Azure Resource Manager 템플릿을 사용하여 서비스 ID 생성](#generate-service-identity-using-azure-resource-manager-template)
+- Azure Resource Manager 템플릿을 사용하여 서비스 ID 생성
 - [SDK를 사용하여 서비스 ID 생성](#generate-service-identity-using-sdk)
 
 >[!NOTE]
@@ -192,4 +192,4 @@ Type                  : ServicePrincipal
 - [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)
 - [Azure 리소스 인증을 위해 관리 ID를 사용하여 Azure Data Lake Store 간에 데이터 복사](connector-azure-data-lake-store.md)
 
-데이터 팩터리 서비스 ID의 기준이 되는 Azure 리소스의 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID 개요](~/articles/active-directory/msi-overview.md)를 참조하세요. 
+데이터 팩터리 서비스 ID의 기준이 되는 Azure 리소스의 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID 개요](/azure/active-directory/managed-identities-azure-resources/overview)를 참조하세요. 

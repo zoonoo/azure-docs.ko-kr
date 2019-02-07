@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: be10af7096a11fb27971af9dc28036df4a4b0968
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 090f9771bf8d1010e4249d97d5768891f02c54b3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423561"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096605"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 및 OAuth 2.0 클라이언트 자격 증명 흐름
 
@@ -77,10 +77,10 @@ ACL을 사용하는 대신 API를 사용하여 애플리케이션 사용 권한 
 
 1. [애플리케이션 등록 포털](quickstart-v2-register-an-app.md) 또는 새 [앱 등록(미리 보기) 환경](quickstart-register-app.md)을 통해 앱을 등록하고 만듭니다.
 1. 앱을 등록하거나 만드는 데 사용한 포털에서 애플리케이션으로 이동합니다. 앱을 만들 때 하나 이상의 애플리케이션 비밀을 사용해야 합니다.
-2. **Microsoft Graph 권한** 섹션을 찾은 다음, 앱에 필요한 **응용 프로그램 권한**을 추가합니다.
+2. **Microsoft Graph 권한** 섹션을 찾은 다음, 앱에 필요한 **애플리케이션 권한**을 추가합니다.
 3. 앱 등록을 **저장**합니다.
 
-#### <a name="recommended-sign-the-user-in-to-your-app"></a>사용자가 앱에 로그인하는 것이 좋습니다.
+#### <a name="recommended-sign-the-user-in-to-your-app"></a>권장: 앱에 사용자 로그인시키기
 
 일반적으로 애플리케이션 사용 권한을 사용하는 애플리케이션을 빌드할 때 앱에는 관리자가 앱의 사용 권한을 승인할 수 있는 페이지 또는 보기가 필요합니다. 이 페이지는 앱 로그인 흐름의 일부, 앱 설정의 일부 또는 전용 "연결" 흐름일 수 있습니다. 대부분의 경우에 사용자가 회사 또는 학교 Microsoft 계정으로 로그인한 후에 앱은 이 "연결" 보기만을 표시하게 됩니다.
 
@@ -149,7 +149,7 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 애플리케이션에 필요한 권한을 부여받은 후에는 API에 대한 액세스 토큰을 획득하는 과정을 진행합니다. 클라이언트 자격 증명 권한 부여를 사용하여 토큰을 가져오려면 POST 요청을 `/token` v2.0 엔드포인트에 보냅니다.
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>첫 번째 사례: 공유 암호를 사용한 액세스 토큰 요청
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>첫 번째 사례: 공유 비밀을 사용하여 액세스 토큰 요청
 
 ```
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
@@ -174,7 +174,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | `client_secret` | 필수 | 앱 등록 포털에서 앱에 대해 생성한 애플리케이션 비밀입니다. 클라이언트 암호는 전송되기 전에 URL로 인코딩되어야 합니다. |
 | `grant_type` | 필수 | `client_credentials`이어야 합니다. |
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>두 번째 사례: 인증서를 사용한 액세스 토큰 요청
+### <a name="second-case-access-token-request-with-a-certificate"></a>두 번째 사례: 인증서를 사용하여 액세스 토큰 요청
 
 ```
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity

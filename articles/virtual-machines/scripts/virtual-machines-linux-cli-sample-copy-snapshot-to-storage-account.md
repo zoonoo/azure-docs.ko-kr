@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 631e20f44ab0cd2c35df459695af0de6059e6788
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 2ca70eae4a7ab14be9eba82324d41f9e5a24bcff
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582289"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727675"
 ---
 # <a name="exportcopy-a-snapshot-to-a-storage-account-in-different-region-with-cli"></a>CLI를 사용하여 스냅숏을 다른 지역의 스토리지 계정으로 내보내기/복사
 
@@ -43,8 +43,8 @@ ms.locfileid: "53582289"
 
 | 명령 | 메모 |
 |---|---|
-| [az snapshot grant-access](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_grant_access) | 기본 VHD 파일을 저장소 계정으로 복사하거나 온-프레미스로 다운로드하는 데 사용되는 읽기 전용 SAS를 생성합니다.  |
-| [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy#az_storage_blob_copy_start) | 하나의 저장소 계정에서 다른 저장소 계정으로 Blob을 비동기적으로 복사 |
+| [az snapshot grant-access](https://docs.microsoft.com/cli/azure/snapshot) | 기본 VHD 파일을 저장소 계정으로 복사하거나 온-프레미스로 다운로드하는 데 사용되는 읽기 전용 SAS를 생성합니다.  |
+| [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy) | 하나의 저장소 계정에서 다른 저장소 계정으로 Blob을 비동기적으로 복사 |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: 6c8498a43b127fecc02473177ac955ae51a647d6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: ee78227f645cbeded7a5c689750db835faf1055f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854119"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728315"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>.NET에서 Azure Relay WCF 릴레이를 사용하는 방법
 이 문서에서는 Azure Relay 서비스를 사용하는 방법을 설명합니다. 이 샘플은 C#으로 작성되었으며 Service Bus 어셈블리에 포함된 확장과 함께 WCF(Windows Communication Foundation) API를 사용합니다. Azure Relay에 대한 자세한 내용은 [Azure Relay 개요](relay-what-is-it.md)를 참조하세요.
@@ -39,7 +39,7 @@ Azure Relay를 사용하면 기존 엔터프라이즈 환경 내에서 WCF 서�
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="get-the-service-bus-nuget-package"></a>Service Bus NuGet 패키지 다운로드
-[Service Bus NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus) 는 Service Bus API를 가져오고 모든 Service Bus 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다. 프로젝트에서 NuGet 패키지를 설치하려면 다음을 수행합니다.
+[Service Bus NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)는 Service Bus API를 가져오고 모든 Service Bus 종속성으로 애플리케이션을 구성하는 가장 쉬운 방법입니다. 프로젝트에서 NuGet 패키지를 설치하려면 다음을 수행합니다.
 
 1. 솔루션 탐색기에서 **참조**를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
 2. "Service Bus"를 검색하고 **Microsoft Azure Service Bus** 항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 다음의 대화 상자를 닫습니다.
@@ -116,7 +116,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-예제에서는 동일한 계약 구현에 있는 두 개의 엔드포인트를 만듭니다. 하나는 로컬 끝점이며 다른 하나는 Azure Relay를 통해 프로젝션됩니다. 두 엔드포인트 사이의 중요한 차이점은 바인딩입니다. 즉, 로컬 엔드포인트에는 [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx)이 사용되고 릴레이 엔드포인트 및 주소에는 [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding#microsoft_servicebus_nettcprelaybinding)이 사용됩니다. 로컬 엔드포인트에는 특정 포트가 포함된 로컬 네트워크 주소가 있습니다. 릴레이 엔드포인트에는 문자열 `sb`, 해당 네임스페이스 이름 및 경로 "solver"로 구성된 엔드포인트 주소가 있습니다. 이렇게 하면 URI `sb://[serviceNamespace].servicebus.windows.net/solver`가 생성되며, 정규화된 외부 DNS 이름을 사용하여 서비스 엔드포인트를 Service Bus(릴레이) TCP 엔드포인트로 식별합니다. 자리 표시자를 바꾸는 코드를 **서비스** 애플리케이션의 `Main` 함수에 배치하면 서비스가 정상적으로 작동합니다. 서비스가 릴레이에서만 수신 대기하도록 하려는 경우 로컬 엔드포인트 선언을 제거합니다.
+예제에서는 동일한 계약 구현에 있는 두 개의 엔드포인트를 만듭니다. 하나는 로컬 끝점이며 다른 하나는 Azure Relay를 통해 프로젝션됩니다. 두 엔드포인트 사이의 중요한 차이점은 바인딩입니다. 즉, 로컬 엔드포인트에는 [NetTcpBinding](https://msdn.microsoft.com/library/system.servicemodel.nettcpbinding.aspx)이 사용되고 릴레이 엔드포인트 및 주소에는 [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding)이 사용됩니다. 로컬 엔드포인트에는 특정 포트가 포함된 로컬 네트워크 주소가 있습니다. 릴레이 엔드포인트에는 문자열 `sb`, 해당 네임스페이스 이름 및 경로 "solver"로 구성된 엔드포인트 주소가 있습니다. 이렇게 하면 URI `sb://[serviceNamespace].servicebus.windows.net/solver`가 생성되며, 정규화된 외부 DNS 이름을 사용하여 서비스 엔드포인트를 Service Bus(릴레이) TCP 엔드포인트로 식별합니다. 자리 표시자를 바꾸는 코드를 **서비스** 애플리케이션의 `Main` 함수에 배치하면 서비스가 정상적으로 작동합니다. 서비스가 릴레이에서만 수신 대기하도록 하려는 경우 로컬 엔드포인트 선언을 제거합니다.
 
 ### <a name="configure-a-service-host-in-the-appconfig-file"></a>App.config 파일에서 서비스 호스트를 구성
 App.config 파일을 사용하여 호스트를 구성할 수도 있습니다. 이 예제에서 코드를 호스팅하는 서비스를 다음 예제에 표시합니다.
@@ -161,7 +161,7 @@ sh.Close();
 
 ### <a name="create-the-client"></a>클라이언트 만들기
 #### <a name="configure-a-client-programmatically"></a>프로그래밍 방식으로 클라이언트를 구성
-서비스를 이용하기 위해 [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx) 개체를 사용하여 WCF 클라이언트를 구성할 수 있습니다. Service Bus는 SAS를 사용하여 구현된 토큰 기반 보안 모델을 사용합니다. [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) 클래스는 잘 알려진 일부 토큰 공급자를 반환하는 기본 제공 팩터리 메서드를 사용하여 보안 토큰 공급자를 나타냅니다. 다음 예제에서는 [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#Microsoft_ServiceBus_TokenProvider_CreateSharedAccessSignatureTokenProvider_System_String_) 메서드를 사용하여 적절한 SAS 토큰의 수집을 처리합니다. 이전 섹션에서 설명한 대로 이름과 키는 포털에서 얻은 것입니다.
+서비스를 이용하기 위해 [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx) 개체를 사용하여 WCF 클라이언트를 구성할 수 있습니다. Service Bus는 SAS를 사용하여 구현된 토큰 기반 보안 모델을 사용합니다. [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) 클래스는 잘 알려진 일부 토큰 공급자를 반환하는 기본 제공 팩터리 메서드를 사용하여 보안 토큰 공급자를 나타냅니다. 다음 예제에서는 [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) 메서드를 사용하여 적절한 SAS 토큰의 수집을 처리합니다. 이전 섹션에서 설명한 대로 이름과 키는 포털에서 얻은 것입니다.
 
 먼저 서비스의 `IProblemSolver` 계약 코드를 클라이언트 프로젝트에 참조하거나 복사합니다.
 

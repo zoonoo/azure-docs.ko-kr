@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: afc04efa-2eba-4e47-8ce4-b71eb293cd09
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 98a39c52f206f19d3330695fd05f9a96c0bf4d36
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 54a1f4a8ef0ec4381374585df57dc62490337190
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443353"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55173091"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-supermood"></a>자습서: Supermood와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ Supermood의 Azure AD 통합을 구성하려면 갤러리의 Supermood를 관리
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -110,9 +110,9 @@ Supermood에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **고급 URL 설정 표시**를 선택합니다.
 
-    나. **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 **릴레이 상태** 텍스트 상자에 다음 URL을 입력합니다. `https://supermood.co/auth/sso/saml20`
+    b. **IDP** 시작 모드로 애플리케이션을 구성하려는 경우 **릴레이 상태** 텍스트 상자에 다음 URL을 입력합니다. `https://supermood.co/auth/sso/saml20`
 
-    다. **SP** 시작 모드로 응용 프로그램을 구성하려는 경우 **로그온 URL** 텍스트 상자에 다음 URL을 입력합니다. `https://supermood.co/app/#!/loginv2`
+    다. **SP** 시작 모드로 애플리케이션을 구성하려는 경우 **로그온 URL** 텍스트 상자에 다음 URL을 입력합니다. `https://supermood.co/app/#!/loginv2`
 
 1. Supermood 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
     
@@ -131,7 +131,7 @@ Supermood에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Configure Single Sign-On](./media/supermood-tutorial/tutorial_attribute_05.png)
     
-    나. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
     
     다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
 
@@ -162,7 +162,7 @@ Supermood에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이 ID 공급자에 대한 이메일 도메인** 텍스트 상자에서 사용자의 도메인을 입력합니다.
 
-    나. Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 값을 **메타데이터 URL 사용** 텍스트 상자에 붙여넣습니다.
+    b. Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 값을 **메타데이터 URL 사용** 텍스트 상자에 붙여넣습니다.
 
     다. **추가**를 클릭합니다.
 
@@ -203,7 +203,7 @@ Supermood에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 이 섹션에서는 Supermood에서 Britta Simon이라는 사용자를 만듭니다. Supermood는 Just-In-Time 프로비전을 지원합니다. Supermood에서 구성하는 동안 추가된 도메인에 이메일이 속해 있는 사용자의 경우 기본적으로 사용하도록 설정되어 있습니다. 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 Supermood에 액세스하는 동안 만들어집니다.
 
 >[!Note]
->사용자를 수동으로 만들어야 하는 경우 [Supermood 지원 팀](mailto:hello@supermood.fr)에 문의하세요.
+>사용자를 수동으로 만들어야 하는 경우  [Supermood 지원 팀](mailto:hello@supermood.fr)에 문의하세요.
 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
@@ -246,7 +246,7 @@ Supermood에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

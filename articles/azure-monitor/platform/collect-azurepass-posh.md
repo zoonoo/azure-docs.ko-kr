@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: magoedte
-ms.openlocfilehash: 3a20884dedf2d0f197cd73f0e67f412633736686
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a7c823493369735df23360645004b0bec85dbd7
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421578"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885510"
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Log Analytics로 Azure PaaS 리소스 메트릭의 수집 구성
 
@@ -67,7 +67,7 @@ Azure 진단으로 메트릭을 수집하고 Log Analytics에 직접 보내도�
 
 선택한 조건과 일치하는 모든 리소스에 대해 스크립트가 실행되고 메트릭 컬렉션을 사용하도록 설정됩니다. 완료되면 구성이 완료되었다고 알려주는 메시지가 표시됩니다.  
 
-완료 직후 Log Analytics 리포지토리에 Azure PaaS 리소스의 데이터가 표시되기 시작합니다.  `AzureMetrics` 유형의 레코드가 생성되며, 이러한 레코드 분석은 [Azure SQL 분석](../../azure-monitor/insights/azure-sql.md) 및 [Azure Web Apps 분석](../../azure-monitor/insights/azure-web-apps-analytics.md) 관리 솔루션에서 지원됩니다.   
+완료 직후 Log Analytics 리포지토리에 Azure PaaS 리소스의 데이터가 표시되기 시작합니다.  `AzureMetrics` 유형의 레코드가 생성되며, 이러한 레코드 분석은 [Azure SQL 분석](../insights/azure-sql.md) 및 [Azure Web Apps 분석](../insights/azure-web-apps-analytics.md) 관리 솔루션에서 지원됩니다.   
 
 ## <a name="update-a-resource-to-send-data-to-another-workspace"></a>데이터를 다른 작업 영역에 보내도록 리소스 업데이트
 Log Analytics 작업 영역에 데이터를 보내는 리소스가 이미 있는데 나중에 다른 작업 영역을 참조하도록 재구성하려는 경우 `-Update` 매개 변수를 사용하여 스크립트를 실행합니다.  
@@ -79,8 +79,8 @@ Log Analytics 작업 영역에 데이터를 보내는 리소스가 이미 있는
 
 ## <a name="next-steps"></a>다음 단계
 
-* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](../../azure-monitor/log-query/log-query-overview.md)에 대해 알아봅니다. 
+* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](../log-query/log-query-overview.md)에 대해 알아봅니다. 
 
-* [사용자 지정 필드](../../azure-monitor/platform/custom-fields.md)를 사용하여 이벤트 레코드를 개별 필드로 구문 분석합니다.
+* [사용자 지정 필드](custom-fields.md)를 사용하여 이벤트 레코드를 개별 필드로 구문 분석합니다.
 
-* 로그 검색을 조직에 의미 있는 방식으로 시각화하는 방법을 이해하려면 [Log Analytics에서 사용할 사용자 지정 대시보드 만들기](../../azure-monitor/platform/dashboards.md)를 검토하세요.
+* [Log Analytics 데이터의 대시보드 만들기 및 공유](../learn/tutorial-logs-dashboards.md)를 검토하여 조직에 의미 있는 방식으로 로그 검색을 시각화하는 방법을 이해합니다.

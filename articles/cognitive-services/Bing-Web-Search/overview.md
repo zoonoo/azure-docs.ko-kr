@@ -11,18 +11,18 @@ ms.topic: overview
 ms.date: 08/14/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5c2a31e10d53c8088afd3c3910b1b2f9d2b2d247
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 46d79b1ac6c56ba953eb0908e46338387b69ff1f
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159234"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768271"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>Bing Web Search API란?
 
 Bing Web Search API는 사용자 쿼리에 즉각적인 답변을 제공하는 RESTful 서비스입니다. 검색 결과는 웹 페이지, 이미지, 비디오, 뉴스, 번역 등을 포함하도록 쉽게 구성됩니다. 결과는 JSON으로 제공되며, 검색 관련성 및 Bing Web Search 구독을 기반으로 합니다.
 
-이 API는 사용자의 검색 쿼리와 관련된 모든 콘텐츠에 액세스해야 하는 애플리케이션에 가장 적합합니다. 특정 유형의 결과만 필요한 애플리케이션을 빌드하는 경우 [Bing Image Search API](../Bing-Image-Search/overview.md), [Bing Video Search API](../Bing-Video-Search/search-the-web.md) 또는 [Bing News Search API](../Bing-News-Search/search-the-web.md)를 사용하는 것이 좋습니다. Bing Search API의 전체 목록은 [Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services#cognitive-services-apis)를 참조하세요.
+이 API는 사용자의 검색 쿼리와 관련된 모든 콘텐츠에 액세스해야 하는 애플리케이션에 가장 적합합니다. 특정 유형의 결과만 필요한 애플리케이션을 빌드하는 경우 [Bing Image Search API](../Bing-Image-Search/overview.md), [Bing Video Search API](../Bing-Video-Search/search-the-web.md) 또는 [Bing News Search API](../Bing-News-Search/search-the-web.md)를 사용하는 것이 좋습니다. Bing Search API의 전체 목록은 [Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services)를 참조하세요.
 
 작동 방식에 대해 알고 싶은가요? [Bing Web Search API 데모](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)를 사용해 보세요.
 

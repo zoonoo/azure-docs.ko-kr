@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: 01f6fe3ef309f19896befe61512d524a8543745f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9a240e15049d1acd7344f3ecf7dbf41ff2c3850d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041461"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818790"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Python SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -30,20 +30,14 @@ ms.locfileid: "54041461"
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**SDK 다운로드**</td><td>[PyPI](https://pypi.org/project/azure-cosmos)</td></tr>
-
-<tr><td>**API 설명서**</td><td>[Python API 참조 설명서](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)</td></tr>
-
-<tr><td>**SDK 설치 지침**</td><td>[Python SDK 설치 지침](https://github.com/Azure/azure-cosmos-python)</td></tr>
-
-<tr><td>**SDK에 참여**</td><td>[GitHub](https://github.com/Azure/azure-cosmos-python)</td></tr>
-
-<tr><td>**시작**</td><td>[Python SDK 시작](sql-api-python-application.md)</td></tr>
-
-<tr><td>**현재 지원되는 플랫폼**</td><td>[Python 2.7](https://www.python.org/downloads/) 및 [Python 3.5](https://www.python.org/downloads/)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**SDK 다운로드**|[PyPI](https://pypi.org/project/azure-cosmos)|
+|**API 설명서**|[Python API 참조 설명서](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
+|**SDK 설치 지침**|[Python SDK 설치 지침](https://github.com/Azure/azure-cosmos-python)|
+|**SDK에 참여**|[GitHub](https://github.com/Azure/azure-cosmos-python)|
+|**시작**|[Python SDK 시작](sql-api-python-application.md)|
+|**현재 지원되는 플랫폼**|[Python 2.7](https://www.python.org/downloads/) 및 [Python 3.5](https://www.python.org/downloads/)|
 
 ## <a name="release-notes"></a>릴리스 정보
 
@@ -177,7 +171,7 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 | [1.6.0](#1.6.0) |2016년 3월 29일 |--- |
 | [1.5.0](#1.5.0) |2016년 1월 3일 |--- |
 | [1.4.2](#1.4.2) |2015년 10월 6일 |--- |
-| [1.4.1](#1.4.1) |2015년 10월 6일 |--- |
+| 1.4.1 |2015년 10월 6일 |--- |
 | [1.2.0](#1.2.0) |2015년 8월 6일 |--- |
 | [1.1.0](#1.1.0) |2015년 7월 9일 |--- |
 | [1.0.1](#1.0.1) |2015년 5월 25일 |--- |

@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f02d511c5afa6d515f29b9fc557be3b49223c501
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4291f6083cfe07d689ef9377df57c3e9a41772fc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243286"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812211"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning Data Prep SDK를 사용하여 데이터 변환
 
@@ -25,7 +25,7 @@ ms.locfileid: "55243286"
 
 현재는 다음 작업을 위한 함수가 제공됩니다.
 
-- [식을 사용하여 열 추가](#column)
+- 식을 사용하여 열 추가
 - [누락 값 입력](#impute-missing-values)
 - [예제별 열 파생](#derive-column-by-example)
 - [필터링](#filtering)

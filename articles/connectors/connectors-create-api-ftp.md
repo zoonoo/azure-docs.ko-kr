@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
-ms.openlocfilehash: d57a80ec2a1ebfca173d7eaa165de4d344af2ccf
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 1e649f21758adedb069b38f64f083ccb85df874d
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391105"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913362"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 FTP 파일 만들기, 모니터링 및 관리
 
@@ -29,7 +29,7 @@ Azure Logic Apps 및 FTP 커넥터를 사용하면 다음과 같이 다른 작�
 트리거를 사용하여 FTP 서버에서 응답을 가져오고 다른 작업에 출력을 제공하는 트리거를 사용할 수 있습니다. Logic Apps의 실행 작업을 사용하여 FTP 서버에 있는 파일을 관리할 수 있습니다. 다른 작업에서 FTP 작업의 출력을 사용하게 만들 수도 있습니다. 예를 들어 정기적으로 FTP 서버에서 파일을 검색하는 경우 Office 365 Outlook 커넥터 또는 Outlook.com 커넥터를 사용하여 해당 파일 및 해당 콘텐츠에 대한 이메일을 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 > [!NOTE]
-> [큰 메시지를 처리하기 위한 청크](../logic-apps/logic-apps-handle-large-messages.md)를 사용하지 않는 이상, FTP 커넥터는 50MB 이하 파일만 지원합니다. 
+> [작업에서 메시지 청크 분할](../logic-apps/logic-apps-handle-large-messages.md)을 사용하지 않으면 FTP 커넥터는 50MB 크기 이하의 파일만 지원합니다. 트리거에는 현재 청크 분할을 사용할 수 없습니다.
 >
 > 또한 FTP 커넥터는 SSL(FTPS)을 통해 명시적 FTP만 지원하며, 암시적 FTPS와 호환되지 않습니다. 
 
@@ -66,13 +66,27 @@ Azure Logic Apps 및 FTP 커넥터를 사용하면 다음과 같이 다른 작�
 
 1. 선택한 트리거 또는 작업에 대해 필요한 세부 정보를 제공하고 논리 앱의 워크플로를 계속 빌드합니다.
 
+파일 콘텐츠를 요청하는 경우 트리거는 50MB보다 큰 파일을 가져오지 않습니다. 50MB보다 큰 파일을 가져오려면 다음 패턴을 따릅니다.
+
+* **파일이 추가되거나 수정된 경우(메타데이터만)** 등의 파일 속성을 반환하는 트리거를 사용합니다.
+
+* 트리거에서 **경로를 사용하여 파일 콘텐츠 가져오기**와 같이 전체 파일을 읽는 작업을 수행하고, 작업에서 [메시지 청크 분할](../logic-apps/logic-apps-handle-large-messages.md)을 사용하도록 합니다.
+
 ## <a name="examples"></a>예
+
+<a name="file-added-modified"></a>
 
 ### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>FTP 트리거: 파일을 추가하거나 수정할 때
 
 이 트리거는 FTP 서버에서 파일이 추가되거나 변경되는 것을 트리거가 감지하면 논리 앱 워크플로를 시작합니다. 따라서 예를 들어 해당 콘텐츠가 지정된 조건을 충족하는지 여부에 따라 파일의 콘텐츠를 확인하고 해당 콘텐츠를 가져올 것인지를 결정하는 조건을 추가할 수 있습니다. 마지막으로 파일의 콘텐츠를 가져오는 작업을 추가하고 해당 콘텐츠를 SFTP 서버의 폴더에 넣을 수 있습니다. 
 
 **엔터프라이즈 예제**: 이 트리거를 사용하여 고객의 주문을 설명하는 새 파일용 FTP 폴더를 모니터링할 수 있습니다. 그런 다음, **파일 콘텐츠 가져오기** 같은 FTP 작업을 사용할 수 있으므로 추가로 처리할 주문의 콘텐츠를 가져오고 주문 데이터베이스에 해당 주문을 저장할 수 있습니다.
+
+파일 콘텐츠를 요청하는 경우 트리거는 50MB보다 큰 파일을 가져오지 않습니다. 50MB보다 큰 파일을 가져오려면 다음 패턴을 따릅니다. 
+
+* **파일이 추가되거나 수정된 경우(메타데이터만)** 등의 파일 속성을 반환하는 트리거를 사용합니다.
+
+* 트리거에서 **경로를 사용하여 파일 콘텐츠 가져오기**와 같이 전체 파일을 읽는 작업을 수행하고, 작업에서 [메시지 청크 분할](../logic-apps/logic-apps-handle-large-messages.md)을 사용하도록 합니다.
 
 논리 앱이 유효하고 정상적으로 작동하려면 트리거와 하나 이상의 작업이 필요합니다. 따라서 트리거를 추가한 후 작업을 추가해야 합니다.
 
@@ -101,9 +115,19 @@ Azure Logic Apps 및 FTP 커넥터를 사용하면 다음과 같이 다른 작�
 
 이제 논리 앱에 트리거가 있으니, 논리 앱이 새 파일 또는 편집된 파일을 찾았을 때 실행할 작업을 추가합니다. 이 예제에서는 새 콘텐츠 또는 업데이트된 콘텐츠를 가져오는 FTP 작업을 추가할 수 있습니다.
 
+<a name="get-content"></a>
+
 ### <a name="ftp-action-get-content"></a>FTP 작업: 콘텐츠 가져오기
 
 이 작업은 파일이 추가 또는 업데이트되면 FTP 서버의 파일에서 콘텐츠를 가져옵니다. 예를 들어 이전 예제의 트리거 그리고 파일이 추가 또는 편집된 후 해당 파일의 콘텐츠를 가져오는 작업을 추가할 수 있습니다. 
+
+파일 콘텐츠를 요청하는 경우 트리거는 50MB보다 큰 파일을 가져오지 않습니다. 50MB보다 큰 파일을 가져오려면 다음 패턴을 따릅니다. 
+
+* **파일이 추가되거나 수정된 경우(메타데이터만)** 등의 파일 속성을 반환하는 트리거를 사용합니다.
+
+* 트리거에서 **경로를 사용하여 파일 콘텐츠 가져오기**와 같이 전체 파일을 읽는 작업을 수행하고, 작업에서 [메시지 청크 분할](../logic-apps/logic-apps-handle-large-messages.md)을 사용하도록 합니다.
+
+다음은 **콘텐츠 가져오기** 작업을 보여 주는 예입니다.
 
 1. 트리거 또는 다른 작업에서 **새 단계**를 선택합니다. 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: 5afb607f0410b428d8e67fdff043a4e376dd60a5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 37dd51a60d9ec6e018f58e2cfd593490d126670b
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956356"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888654"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Azure CLI를 사용하여 DNS 영역 파일 가져오기 및 내보내기 
 
@@ -68,7 +68,7 @@ Azure DNS에 DNS 영역 파일을 가져오기 전에 영역 파일의 복사본
 * `$TTL` 지시어는 선택적이며 지원됩니다. `$TTL` 지시어를 지정하지 않는 경우 기본 TTL 3600초로 설정하고 명시적 TTL이 없는 레코드를 가져올 수 있습니다. 동일한 레코드 집합의 두 레코드가 다른 TTL을 지정하는 경우 낮은 값이 사용됩니다.
 * `$ORIGIN` 지시어는 선택적이며 지원됩니다. `$ORIGIN` 을(를) 설정하지 않는 경우 사용된 기본 값은 명령줄에 지정된 영역 이름입니다(그리고 종료하는 ".").
 * `$INCLUDE` 및 `$GENERATE` 지시어는 지원되지 않습니다.
-* A, AAAA, CNAME, MX, NS, SOA, SRV, TXT 등의 레코드 형식을 지원합니다.
+* A, AAAA, CAA, CNAME, MX, NS, SOA, SRV 및 TXT 형식의 레코드가 지원됩니다.
 * SOA 레코드는 영역이 만들어질 때 Azure DNS에서 자동으로 생성됩니다. 영역 파일을 가져오는 경우 `host` 매개 변수를 *제외한* 모든 SOA 매개 변수는 영역 파일에서 가져옵니다. 이 매개 변수는 Azure DNS에서 제공 되는 값을 사용합니다. 이 매개 변수가 Azure DNS에서 제공하는 기본 이름 서버를 참조해야 하기 때문입니다.
 * 또한 영역을 만들 때 역영 광선의 이름 서버 레코드 집합은 Azure DNS에서 자동으로 만들어집니다. 이 레코드 집합의 TTL만을 가져옵니다. 이러한 레코드는 Azure DNS에서 제공하는 이름 서버 이름을 포함합니다. 레코드 데이터를 가져온 영역 파일에 포함된 값으로 덮어쓰지 않습니다.
 * 공개 미리 보기 중에 Azure DNS는 단일 문자 TXT 레코드만 지원합니다. 다중 문자열 TXT 레코드는 연결되어 255자로 제한됩니다.

@@ -12,12 +12,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 87f98f084cf857ff8ab0651a02b98e64512e62f6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 12998547c5525a7132bc350dbbaa7016e4bbeaf0
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181693"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767699"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>2단계 인증을 위한 앱 암호 관리
 
@@ -121,4 +121,4 @@ MyApps 포털을 통해 앱 암호를 만들고 삭제할 수 있습니다.
 
 - [2단계 인증 설정 관리](multi-factor-authentication-end-user-manage-settings.md)
 
-- [Microsoft Authenticator 앱](microsoft-authenticator-app-how-to.md)을 사용하여 텍스트 또는 전화를 받는 대신 앱 알림으로 로그인을 확인합니다.
+- [Microsoft Authenticator 앱](user-help-auth-app-download-install.md)을 사용하여 텍스트 또는 전화를 받는 대신 앱 알림으로 로그인을 확인합니다.

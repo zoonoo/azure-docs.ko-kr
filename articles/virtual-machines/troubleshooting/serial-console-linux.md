@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: fab422612bc3f83c8dc75d0dd99f42369dfa1d26
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6c0207a68cea70951143c87f83f6b17bb0c7b1f3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438085"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098462"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Linux용 가상 머신 직렬 콘솔
 
@@ -89,7 +89,7 @@ Oracle Linux        | 직렬 콘솔 액세스를 기본적으로 사용하도록
 파일 시스템 손상/검사 | 직렬 콘솔에 액세스하여 파일 시스템을 복구합니다.
 SSH/RDP 구성 문제 | 직렬 콘솔에 액세스하여 설정을 변경합니다.
 네트워크 시스템 잠금| 시스템을 관리하려면 Azure Portal에서 직렬 콘솔에 액세스합니다.
-부팅 로더와 상호 작용 | 직렬 콘솔에서 GRUB에 액세스합니다. 자세한 내용은 [직렬 콘솔을 사용하여 GRUB 및 단일 사용자 모드 액세스](serial-console-grub-single-user-mode.md)를 참조하세요.
+부팅 로더와 상호 작용 | 직렬 콘솔 블레이드 내에서 VM을 다시 시작하여 Linux VM의 GRUB에 액세스합니다. 자세한 내용은 [직렬 콘솔을 사용하여 GRUB 및 단일 사용자 모드 액세스](serial-console-grub-single-user-mode.md)를 참조하세요.
 
 ## <a name="disable-the-serial-console"></a>직렬 콘솔 사용 안 함
 기본적으로 모든 구독에는 모든 VM에 대한 직렬 콘솔 액세스가 활성화되어 있습니다. 구독 수준 또는 VM 수준에서 직렬 콘솔을 비활성화할 수 있습니다.

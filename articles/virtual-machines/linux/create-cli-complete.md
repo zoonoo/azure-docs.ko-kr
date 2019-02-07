@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: ec520e7d06f6c5a560af56e6616eeed8481520fe
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7090f9da1ec1bd1453b6f0ddb327abe2f1374844
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180367"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697069"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Azure CLI를 사용하여 완전한 Linux 가상 머신 만들기
 Azure에서 가상 머신(VM)를 신속하게 만들려면 기본 값을 사용하여 모든 필요한 지원 리소스를 생성하는 단일 Azure CLI 명령을 사용할 수 있습니다. 가상 네트워크, 공용 IP 주소 및 네트워크 보안 그룹 규칙 등의 리소스는 자동으로 생성됩니다. 프로덕션 환경에서의 더 높은 제어를 위해 미리 이 리소스를 만들어 VM을 여기에 추가할 수 있습니다. 이 문서에서는 VM을 만들고 지원 리소스를 하나씩 만드는 방법을 안내합니다. 
 
-최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치했고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
+최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치했고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myVnet*, *myVM*이 포함됩니다.
 
@@ -51,7 +51,7 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-virtual-network-and-subnet"></a>가상 네트워크 및 서브넷 만들기
-다음에는 Azure에서 실행되는 가상 네트워크와, VM을 만들 수 있는 서브넷을 만듭니다. [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)를 사용하여 이름이 *myVnet*이고 주소 접두사가 *192.168.0.0/16*인 가상 네트워크를 만듭니다. 주소 접두사로 *192.168.1.0/24*를 사용하는 *mySubnet*이라는 서브넷도 추가합니다.
+다음에는 Azure에서 실행되는 가상 네트워크와, VM을 만들 수 있는 서브넷을 만듭니다. [az network vnet create](/cli/azure/network/vnet)를 사용하여 이름이 *myVnet*이고 주소 접두사가 *192.168.0.0/16*인 가상 네트워크를 만듭니다. 주소 접두사로 *192.168.1.0/24*를 사용하는 *mySubnet*이라는 서브넷도 추가합니다.
 
 ```azurecli
 az network vnet create \
@@ -103,7 +103,7 @@ az network vnet create \
 
 
 ## <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
-이제 [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create)를 사용하여 공용 IP 주소를 만듭니다. 이 공용 IP 주소를 사용하면 인터넷에서 VM에 연결할 수 있습니다. 기본 주소가 동적이므로 `--domain-name-label` 매개 변수를 사용하여 명명된 DNS 항목을 만듭니다. 다음 예제는 *mypublicdns*라는 DNS 이름으로 *myPublicIP*라는 공용 IP를 만듭니다. DNS 이름은 고유해야 하므로 자체 DNS 이름을 입력합니다.
+이제 [az network public-ip create](/cli/azure/network/public-ip)를 사용하여 공용 IP 주소를 만듭니다. 이 공용 IP 주소를 사용하면 인터넷에서 VM에 연결할 수 있습니다. 기본 주소가 동적이므로 `--domain-name-label` 매개 변수를 사용하여 명명된 DNS 항목을 만듭니다. 다음 예제는 *mypublicdns*라는 DNS 이름으로 *myPublicIP*라는 공용 IP를 만듭니다. DNS 이름은 고유해야 하므로 자체 DNS 이름을 입력합니다.
 
 ```azurecli
 az network public-ip create \
@@ -142,7 +142,7 @@ az network public-ip create \
 
 
 ## <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
-VM 내/외부 네트워크 트래픽의 흐름을 제어하려면 네트워크 보안 그룹을 가상 NIC 또는 서브넷에 적용합니다. 다음 예제에서는 [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create)를 사용하여 *myNetworkSecurityGroup*이라는 네트워크 보안 그룹을 만듭니다.
+VM 내/외부 네트워크 트래픽의 흐름을 제어하려면 네트워크 보안 그룹을 가상 NIC 또는 서브넷에 적용합니다. 다음 예제에서는 [az network nsg create](/cli/azure/network/nsg)를 사용하여 *myNetworkSecurityGroup*이라는 네트워크 보안 그룹을 만듭니다.
 
 ```azurecli
 az network nsg create \
@@ -150,7 +150,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-특정 트래픽을 허용하거나 거부하는 규칙을 정의합니다. (SSH를 지원하기 위해) 포트 22에 인바운드 연결이 가능하도록 하려면 [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create)를 사용하여 인바운드 규칙을 만듭니다. 다음 예제에서는 *myNetworkSecurityGroupRuleSSH*이라는 규칙을 만듭니다.
+특정 트래픽을 허용하거나 거부하는 규칙을 정의합니다. (SSH를 지원하기 위해) 포트 22에 인바운드 연결이 가능하도록 하려면 [az network nsg rule create](/cli/azure/network/nsg/rule)를 사용하여 인바운드 규칙을 만듭니다. 다음 예제에서는 *myNetworkSecurityGroupRuleSSH*이라는 규칙을 만듭니다.
 
 ```azurecli
 az network nsg rule create \
@@ -176,7 +176,7 @@ az network nsg rule create \
     --access allow
 ```
 
-[az network nsg show](/cli/azure/network/nsg#az_network_nsg_show)를 사용하여 네트워크 보안 그룹 및 규칙을 검사합니다.
+[az network nsg show](/cli/azure/network/nsg)를 사용하여 네트워크 보안 그룹 및 규칙을 검사합니다.
 
 ```azurecli
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
@@ -445,7 +445,7 @@ az network nic create \
 
 Azure는 가용성 집합에 VM을 배치할 때 VM을 전체 장애 및 업데이트 도메인에 자동으로 분산합니다. 자세한 내용은 [VM의 가용성 관리](manage-availability.md)를 참조하세요.
 
-[az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create)를 사용하여 VM에 대한 가용성 집합을 만듭니다. 다음 예제는 *myAvailabilitySet*이라는 가용성 집합을 만듭니다.
+[az vm availability-set create](/cli/azure/vm/availability-set)를 사용하여 VM에 대한 가용성 집합을 만듭니다. 다음 예제는 *myAvailabilitySet*이라는 가용성 집합을 만듭니다.
 
 ```azurecli
 az vm availability-set create \
@@ -478,11 +478,11 @@ az vm availability-set create \
 
 
 ## <a name="create-a-vm"></a>VM 만들기
-인터넷에서 액세스 가능한 VM을 지원하기 위해 네트워크 리소스를 만들었습니다. 이제 VM을 만들어 SSH 키로 보호합니다. 이 예에서는 가장 최근의 LTS를 기반으로 Ubuntu VM을 만들겠습니다. [Azure VM 이미지 찾기](cli-ps-findimage.md)에서 설명한 대로 [az vm image list](/cli/azure/vm/image#az_vm_image_list)를 통해 추가적인 이미지를 찾을 수 있습니다.
+인터넷에서 액세스 가능한 VM을 지원하기 위해 네트워크 리소스를 만들었습니다. 이제 VM을 만들어 SSH 키로 보호합니다. 이 예에서는 가장 최근의 LTS를 기반으로 Ubuntu VM을 만들겠습니다. [Azure VM 이미지 찾기](cli-ps-findimage.md)에서 설명한 대로 [az vm image list](/cli/azure/vm/image)를 통해 추가적인 이미지를 찾을 수 있습니다.
 
 인증에 사용할 SSH 키를 지정합니다. SSH 공개 키 쌍이 없는 경우 [만들거나 ](mac-create-ssh-keys.md) `--generate-ssh-keys` 매개 변수를 사용하여 만들 수 있습니다. 키 쌍이 있으면 이 매개 변수는 `~/.ssh`의 기존 키를 사용합니다.
 
-[az vm create](/cli/azure/vm#az_vm_create) 명령으로 모든 리소스 및 정보를 결합하여 VM을 만듭니다. 다음 예제에서는 *myVM*이라는 VM을 만듭니다.
+[az vm create](/cli/azure/vm) 명령으로 모든 리소스 및 정보를 결합하여 VM을 만듭니다. 다음 예제에서는 *myVM*이라는 VM을 만듭니다.
 
 ```azurecli
 az vm create \
@@ -567,7 +567,7 @@ az group export --name myResourceGroup > myResourceGroup.json
 
 이 명령을 실행하면 `myResourceGroup.json` 파일이 현재 작업 디렉터리에 만들어집니다. 이 템플릿에서 환경을 만들면 모든 리소스 이름을 입력하라는 메시지가 표시됩니다. `az group export` 명령에 `--include-parameter-default-value` 매개 변수를 추가하여 템플릿 파일에 이러한 이름을 입력할 수 있습니다. JSON 템플릿을 편집하여 리소스 이름을 지정하거나 리소스 이름을 지정하는 [parameters.json 파일을 만듭니다](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 
-템플릿에서 환경을 만들려면 다음과 같이 [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create)를 사용합니다.
+템플릿에서 환경을 만들려면 다음과 같이 [az group deployment create](/cli/azure/group/deployment)를 사용합니다.
 
 ```azurecli
 az group deployment create \

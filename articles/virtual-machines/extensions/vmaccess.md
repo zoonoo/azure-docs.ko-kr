@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: 20d806540b0aa814c88ef4ff69834283ba4a7722
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 71aecc1748e70e2119b1f54c21a0f705afc5d5d0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413841"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731311"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Azure CLI에서 VMAccess 확장을 사용하여 관리 사용자, SSH를 관리하고 Linux VM의 디스크를 검사 또는 복구
 ## <a name="overview"></a>개요
@@ -66,7 +66,7 @@ az vm user update \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-> **참고: `az vm user update` 명령은 VM의 관리 사용자에 대한 `~/.ssh/authorized_keys` 파일에 새 공개 키 텍스트를 추가합니다. 기존 SSH 키를 대체하거나 제거하지 않습니다. 배포 시 설정된 이전 키 또는 VMAccess 확장을 통한 후속 업데이트를 제거하지 않습니다.
+> **참고:** `az vm user update` 명령은 VM의 관리 사용자에 대한 `~/.ssh/authorized_keys` 파일에 새 공개 키 텍스트를 추가합니다. 기존 SSH 키를 대체하거나 제거하지 않습니다. 배포 시 설정된 이전 키 또는 VMAccess 확장을 통한 후속 업데이트를 제거하지 않습니다.
 
 ## <a name="reset-password"></a>암호 재설정
 다음 예제에서는 VM `myVM`에서 사용자 `azureuser`에 대한 암호를 다시 설정합니다.
@@ -110,7 +110,7 @@ az vm user delete \
 ```
 
 ## <a name="use-json-files-and-the-vmaccess-extension"></a>JSON 파일 및 VMAccess 확장 사용
-다음 예제에서는 원시 JSON 파일을 사용합니다. [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set)을 사용하여 JSON 파일을 호출합니다. 이러한 JSON 파일은 Azure 템플릿에서도 호출할 수 있습니다. 
+다음 예제에서는 원시 JSON 파일을 사용합니다. [az vm extension set](/cli/azure/vm/extension)을 사용하여 JSON 파일을 호출합니다. 이러한 JSON 파일은 Azure 템플릿에서도 호출할 수 있습니다. 
 
 ### <a name="reset-user-access"></a>사용자 액세스 다시 설정
 Linux VM의 루트에 액세스할 수 없게 된 경우 VMAccess 스크립트를 시작하여 사용자의 SSH 키 또는 암호를 업데이트할 수 있습니다.

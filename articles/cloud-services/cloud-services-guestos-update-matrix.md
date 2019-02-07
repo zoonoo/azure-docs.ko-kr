@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/7/2019
+ms.date: 1/25/2019
 ms.author: raiye
-ms.openlocfilehash: e621d526aed3c4d98d964dfdcd7ba01e8c1fb830
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9d2fa8497ac773ba086f3a4550e20ac5f5f0d882
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104865"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075468"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스
 Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 제공합니다. 이 정보는 게스트 OS를 사용하지 않도록 설정하기 전에 업그레이드 경로를 계획하는 데 도움이 됩니다. [Azure 게스트 OS 업데이트 설정][Azure Guest OS Update Settings]의 설명에 따라 *자동* 게스트 OS 업데이트를 사용하도록 역할을 구성하는 경우, 이 페이지를 읽지 않아도 됩니다.
@@ -43,6 +43,9 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 ## <a name="news-updates"></a>새 업데이트
 
+###### <a name="january-24-2019"></a>**2019년 1월 24일**
+제품군 6 게스트 OS(Windows Server 2019)가 릴리스되었습니다.
+
 ###### <a name="january-7-2019"></a>**2019년 1월 7일**
 12월 게스트 OS가 릴리스되었습니다.
 
@@ -65,6 +68,21 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 6월 게스트 OS가 릴리스되었습니다.
 
 ## <a name="releases"></a>릴리스
+
+## <a name="family-6-releases"></a>제품군 6 릴리스
+**Windows Server 2019**
+
+설치된 .NET Framework: 3.5, 4.7.2
+
+> [!NOTE]
+> .NET용 Microsoft Azure SDK - 3.0은 [여기][Windows Azure SDK]서 다운로드할 수 있습니다.
+>
+
+| 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 |
+| --- | --- | --- |
+| WA-GUEST-OS-6.2_201812-01 |2019년 1월 24일 |6.4 게시 이후 |
+| WA-GUEST-OS-6.1_201811-01 |2019년 1월 24일 |6.3 게시 이후 |
+
 ## <a name="family-5-releases"></a>제품군 5 릴리스
 **Windows Server 2016**
 
@@ -137,6 +155,7 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 게스트 OS 제품군 | 호환되는 SDK 버전 |
 | --- | --- |
+| 6 |버전 2.9.6 이상 |
 | 5 |버전 2.9.5.1+ |
 | 4 |버전 2.1 이상 |
 | 3 |버전 1.8 이상 |
@@ -205,3 +224,4 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
+[Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917

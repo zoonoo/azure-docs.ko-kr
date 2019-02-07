@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ad59decab7233c74e13468b0cf0b11fdb5485d07
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e11ef458fad11f04ce159d5e79c4152d2bd7e4c6
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722362"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746794"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>스크립트 작업을 사용하여 Windows 기반 HDInsight 클러스터 사용자 지정
 **스크립트 동작** 은 클러스터 생성 과정 중 클러스터에 추가 소프트웨어를 설치하기 위해 [사용자 지정 스크립트](hdinsight-hadoop-script-actions.md) 를 호출하는 데 사용될 수 있습니다.
@@ -46,7 +46,7 @@ HDInsight 클러스터를 사용자 지정하는 방법은 추가 Azure Storage 
 
 HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 여러 스크립트를 제공합니다.
 
-| 이름 | 스크립트 |
+| Name | 스크립트 |
 | --- | --- |
 | **Apache Spark 설치** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. [HDInsight 클러스터에서 Apache Spark 설치 및 사용][hdinsight-install-spark]을 참조하세요. |
 | **R 설치** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`. [HDInsight 클러스터에서 R 설치 및 사용](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster)을 참조하세요. |
@@ -64,7 +64,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
     <table border='1'>
         <tr><th>자산</th><th>값</th></tr>
-        <tr><td>이름</td>
+        <tr><td>Name</td>
             <td>스크립트 작업의 이름을 지정합니다.</td></tr>
         <tr><td>스크립트 URI</td>
             <td>클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI를 지정합니다. s</td></tr>
@@ -80,8 +80,9 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 ## <a name="call-scripts-using-azure-powershell"></a>Azure PowerShell을 사용하여 스크립트 호출
 이 다음 PowerShell 스크립트는 Windows 기반 HDInsight 클러스터에 Spark를 설치하는 방법을 보여줍니다.  
 
+    ```powershell
     # Provide values for these variables
-    $subscriptionID = "<Azure Suscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
+    $subscriptionID = "<Azure Subscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
 
     $nameToken = "<Enter A Name Token>"  # The token is use to create Azure service names.
     $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
@@ -158,7 +159,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
             -OSType Windows `
             -DefaultStorageContainer $defaultBlobContainerName `
             -Config $config
-
+    ```
 
 다른 소프트웨어를 설치하려면 스크립트에서 스크립트 파일을 바꿔야 합니다.
 
@@ -171,12 +172,14 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 1. Visual Studio를 사용하여 C# 콘솔 애플리케이션을 만듭니다.
 2. NuGet 패키지 관리자 콘솔에서 다음 명령을 실행합니다.
-
+    ```powershell
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package Microsoft.Azure.Management.ResourceManager -Pre
         Install-Package Microsoft.Azure.Management.HDInsight
+    ```
 3. Program.cs 파일에서 다음 using 문을 사용합니다.
 
+    ```csharp
         using System;
         using System.Security;
         using Microsoft.Azure;
@@ -186,8 +189,10 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
         using Microsoft.Rest;
         using Microsoft.Rest.Azure.Authentication;
+    ```
 4. 클래스의 코드를 다음과 같이 둡니다.
 
+    ```csharp
         private static HDInsightManagementClient _hdiManagementClient;
 
         // Replace with your AAD tenant ID if necessary
@@ -276,6 +281,8 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
             // Register the HDInsight provider
             var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
         }
+    ```
+
 5. **F5** 키를 눌러 애플리케이션을 실행합니다.
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>HDInsight 클러스터에서 사용하는 오픈 소스 소프트웨어 지원

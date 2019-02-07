@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 291bcec5a2a3d1ed2d49816b0ed7317bcfb07995
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: b17647a09c88491e2486046b1ca99ee277f0cc28
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851865"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700216"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>CLI를 사용하여 Azure VM에서 사용하는 OS 디스크 변경
 
@@ -44,7 +44,7 @@ az disk list \
 ```
 
 
-[az vm stop](/cli/azure/vm#stop)을 사용하여 디스크를 교체하기 전에 VM을 중지/할당 취소합니다.
+[az vm stop](/cli/azure/vm)을 사용하여 디스크를 교체하기 전에 VM을 중지/할당 취소합니다.
 
 ```azurecli-interactive
 az vm stop \
@@ -62,7 +62,7 @@ az vm update \
    --os-disk /subscriptions/<subscription ID>/resourceGroups/swap/providers/Microsoft.Compute/disks/myDisk 
    ```
    
-[az vm start](/cli/azure/vm#start)를 사용하여 VM을 다시 시작합니다.
+[az vm start](/cli/azure/vm)를 사용하여 VM을 다시 시작합니다.
 
 ```azurecli-interactive
 az vm start \

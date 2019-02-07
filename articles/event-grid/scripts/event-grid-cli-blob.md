@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 스크립트 샘플 - Blob 저장소 계정 구독 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - Blob 저장소 계정 구독
+title: Azure CLI 스크립트 샘플 - Blob Storage 계정 구독 | Microsoft Docs
+description: Azure CLI 스크립트 샘플 - Blob Storage 계정 구독
 services: event-grid
 documentationcenter: na
 author: tfitzmac
@@ -11,30 +11,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3ecf5cd0906e04625f44584d0b668f764665075e
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: aa920552e4fa90666e3554a01475c4da8bb82035
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037867"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727606"
 ---
-# <a name="subscribe-to-events-for-a-blob-storage-account-with-azure-cli"></a>Azure CLI를 사용하여 Blob 저장소 계정에 대한 이벤트 구독
+# <a name="subscribe-to-events-for-a-blob-storage-account-with-azure-cli"></a>Azure CLI를 사용하여 Blob Storage 계정에 대한 이벤트 구독
 
-이 스크립트는 Blob 저장소 계정에 대한 이벤트에 대한 Event Grid 구독을 만듭니다. 
+이 스크립트는 Blob Storage 계정에 대한 이벤트에 대한 Event Grid 구독을 만듭니다. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-미리 보기 샘플 스크립트에는 Event Grid 확장이 필요합니다. 설치하려면 `az extension add --name eventgrid`를 실행합니다.
 
-## <a name="sample-script---stable"></a>샘플 스크립트 - Stable
+## <a name="sample-script"></a>샘플 스크립트
 
 [!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-blob-storage/subscribe-to-blob-storage.sh "Subscribe to Blob storage")]
-
-## <a name="sample-script---preview-extension"></a>샘플 스크립트 - 미리 보기 확장
-
-[!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-blob-storage-preview/subscribe-to-blob-storage-preview.sh "Subscribe to Blob storage")]
 
 ## <a name="script-explanation"></a>스크립트 설명
 

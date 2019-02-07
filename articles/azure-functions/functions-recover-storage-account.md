@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 1902091978233ecaf80f04e3a08c70c20aee42c9
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 861a4d4d64f970a13aba68f831d2148f8a354ef4
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000022"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732161"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>"Functions 런타임에 연결할 수 없음" 문제를 해결하는 방법
 
@@ -71,7 +71,7 @@ Azure Portal에서 저장소 계정을 검색하여 계정이 아직 있는지 �
 
 ## <a name="storage-account-credentials-invalid"></a>저장소 계정 자격 증명이 잘못됨
 
-저장소 키를 다시 생성하는 경우에는 위의 저장소 계정 연결 문자열을 업데이트해야 합니다. [이 문서에서 저장소 키 관리에 대해 자세히 살펴보세요.](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#manage-your-storage-account)
+저장소 키를 다시 생성하는 경우에는 위의 저장소 계정 연결 문자열을 업데이트해야 합니다. [이 문서에서 저장소 키 관리에 대해 자세히 살펴보세요.](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)
 
 ## <a name="storage-account-inaccessible"></a>저장소 계정에 액세스할 수 없음
 

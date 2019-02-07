@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: cc71aba3e884214b054e0ac4e888a52e38b1c390
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 619369972991bab0b23e7e9ae4e0a146f875e59a
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812542"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079259"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - FAQ(질문과 대답)
 
@@ -33,7 +33,7 @@ Azure Migrate는 온-프레미스 워크로드를 검색하고 Azure로 마이�
 
 ### <a name="whats-the-difference-between-using-azure-migrate-for-assessments-and-the-map-toolkit"></a>평가를 위해 Azure Migrate를 사용할 때와 Map Toolkit을 사용할 때 어떤 차이가 있나요?
 
-[Azure Migrate](migrate-overview.md)는 온-프레미스 워크로드를 Azure로 마이그레이션하기 위한 준비 및 평가에 도움이 되는 마이그레이션 평가를 제공합니다. [MAP(Microsoft Assessment and Planning) Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=7826)에는 다른 기능이 있습니다. 예를 들어, 최신 버전의 Windows 클라이언트 및 서버 운영 체제에 대한 마이그레이션 계획, 소프트웨어 사용 현황 추적 등이 있습니다. 이러한 시나리오의 경우 MAP Toolkit을 계속 사용합니다.
+[Azure Migrate](migrate-overview.md)는 온-프레미스 워크로드를 Azure로 마이그레이션하기 위한 준비 및 평가에 도움이 되는 마이그레이션 평가를 제공합니다. [MAP(Microsoft Assessment and Planning) Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=7826)에는 최신 버전의 Windows 클라이언트 및 서버 운영 체제에 대한 마이그레이션 계획 및 소프트웨어 사용량 추적과 같은 다른 기능이 있습니다. 이러한 시나리오의 경우 MAP Toolkit을 계속 사용합니다.
 
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery-deployment-planner"></a>Azure Migrate는 Azure Site Recovery Deployment Planner와 어떻게 다른가요?
@@ -198,7 +198,7 @@ Azure Migrate는 현재 [기업 계약 제품](https://azure.microsoft.com/offer
 
 ### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-dependency-agent"></a>MMA(Microsoft Monitoring Agent) 및 종속성 에이전트 설치를 자동화하려면 어떻게 해야 하나요?
 
-종속성 에이전트 설치에 사용할 수 있는 스크립트는 [여기](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples)에 나와 있습니다. MMA의 경우에는 TechNet의 [이 페이지](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab)에서 제공되는 스크립트를 활용할 수 있습니다.
+종속성 에이전트 설치에 사용할 수 있는 스크립트는 [여기](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples)에 나와 있습니다. [여기](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent)에는 명령줄 또는 자동화된 방법을 사용하여 MMA를 설치하는 방법에 대한 지침이 있습니다. MMA의 경우 Technet의 [여기](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab)에서 제공하는 스크립트를 활용할 수도 있습니다.
 
 스크립트 외에도 SCCM(System Center Configuration Manager), [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) 등의 배포 도구를 활용하여 에이전트를 배포할 수도 있습니다.
 
@@ -213,10 +213,10 @@ MMA에서 지원하는 Linux 운영 체제 목록은 [여기](https://docs.micro
 종속성 에이전트가 지원하는 Linux 운영 체제 목록은 [여기](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems)에 나와 있습니다.
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>1시간이 넘는 기간에 대해 Azure Migrate의 종속성을 시각화할 수 있나요?
-아니요. Azure Migrate에서는 최대 1시간 동안의 종속성을 시각화할 수 있습니다. 하지만 Azure Migrate에서는 최대 1개월 전의 특정 날짜로 돌아가 종속성을 시각화할 수 있습니다. 종속성을 시각화할 수 있는 최대 기간은 1시간입니다. 예를 들어 종속성 맵의 기간 기능을 사용해 어제의 종속성을 확인할 수는 있지만, 종속성을 확인할 수 있는 시간은 1시간입니다.
+아니요. Azure Migrate에서는 최대 1시간 동안의 종속성을 시각화할 수 있습니다. 하지만 Azure Migrate에서는 최대 1개월 전의 특정 날짜로 돌아가 종속성을 시각화할 수 있습니다. 종속성을 시각화할 수 있는 최대 기간은 1시간입니다. 예를 들어 종속성 맵의 기간 기능을 사용해 어제의 종속성을 확인할 수는 있지만, 종속성을 확인할 수 있는 시간은 1시간입니다. 그러나 Log Analytics를 사용하여 더 긴 기간 동안 [종속성 데이터를 쿼리](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics)할 수 있습니다.
 
 ### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>종속성 시각화가 10대를 초과하는 VM을 사용하는 그룹에 지원되나요?
-[그룹의 종속성 시각화](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) 시에 허용되는 최대 VM 수는 10개입니다. VM이 10개보다 많은 그룹이 있다면 더 작은 그룹 여러 개로 분할한 다음 종속성을 시각화하는 것이 좋습니다.
+최대 10개의 VM이 있는 [그룹에 대한 종속성을 시각화](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies)할 수 있습니다. VM이 10개보다 많은 그룹이 있는 경우 더 작은 그룹으로 분할하여 종속성을 시각화하는 것이 좋습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

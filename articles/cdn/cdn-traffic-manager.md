@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 2d184cc849eb3da60bbf0c387655da9fdf878853
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 4c072ef63c0d4961fba695fc8d9be1d12b4b0e8b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091609"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55749217"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Azure Traffic Manager를 사용하여 여러 Azure CDN 엔드포인트 간 장애 조치(failover) 설정
 
@@ -42,7 +42,7 @@ Azure CDN(Content Delivery Network)을 구성하는 경우 요구에 대해 최�
 ## <a name="set-up-azure-traffic-manager"></a>Azure Traffic Manager 설정
 Azure Traffic Manager 프로필을 만들고 CDN 엔드포인트 간 부하 분산을 설정합니다. 
 
-1. [Traffic Manager 프로필 만들기](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#create-a-traffic-manager-profile-1)의 단계를 수행하여 Azure Traffic Manager 프로필을 만듭니다. 
+1. [Traffic Manager 프로필 만들기](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile)의 단계를 수행하여 Azure Traffic Manager 프로필을 만듭니다. 
 
     **라우팅 메서드**의 경우 **우선 순위**를 선택합니다.
 

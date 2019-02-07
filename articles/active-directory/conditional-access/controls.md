@@ -9,20 +9,20 @@ manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 39d49a223fb02d00af2309922ccd98a764264b4d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 4e6912d13b4192b1f938acf5a9808221f5aa42f7
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452516"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077661"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 액세스 제어란?
 
@@ -71,9 +71,15 @@ ms.locfileid: "54452516"
 
 ### <a name="compliant-device"></a>규정 준수 디바이스
 
-디바이스 기반인 조건부 액세스 정책을 구성할 수 있습니다. 디바이스 기반 조건부 액세스 정책의 목적은 [관리 디바이스](require-managed-devices.md)에서 구성된 리소스에 대한 액세스 권한만을 부여하는 것입니다. 관리 디바이스를 정의해야 하는 한 가지 옵션은 준수 디바이스가 필요합니다. 이 옵션을 선택하면 조건부 액세스 정책에서는 Azure Active Directory에 [등록](../devices/overview.md)되어 있고 Intune(모든 디바이스 OS) 또는 Windows 10 디바이스에 대한 타사 MDM 시스템 규격으로 표시되는 디바이스의 액세스 시도에 액세스할 수 있는 권한을 부여합니다. Windows 10 이외의 디바이스 OS 유형에 대한 타사 MDM 시스템은 지원되지 않습니다.
+디바이스 기반인 조건부 액세스 정책을 구성할 수 있습니다. 디바이스 기반 조건부 액세스 정책의 목표는 [관리 디바이스](require-managed-devices.md)에서 선택한 클라우드 앱에 대한 액세스 권한만 부여하는 것입니다. 디바이스를 규정 준수 상태로 표시하도록 요구하는 것은 관리 디바이스에 대한 액세스 권한을 제한해야 하는 한 가지 옵션입니다. 디바이스는 Intune(모든 디바이스 OS용) 또는 Windows 10 디바이스용 타사 MDM 시스템에서 규정 준수 상태로 표시할 수 있습니다. Windows 10 이외의 디바이스 OS 유형에 대한 타사 MDM 시스템은 지원되지 않습니다. 
 
-자세한 내용은 [Azure Active Directory 디바이스 기반 조건부 액세스 정책 설정](require-managed-devices.md)을 참조하세요.
+먼저 디바이스를 Azure AD에 등록해야 규정 준수 상태로 표시할 수 있습니다. 디바이스를 등록하려면 다음 세 가지 옵션이 있습니다. 
+
+- [Azure AD 등록 디바이스](../devices/overview.md#azure-ad-registered-devices)
+- [Azure AD 조인 디바이스](../devices/overview.md#azure-ad-joined-devices)  
+- [하이브리드 Azure AD 조인 디바이스](../devices/overview.md#hybrid-azure-ad-joined-devices)
+
+자세한 내용은 [조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 관리 디바이스를 요구하는 방법](require-managed-devices.md)을 참조하세요.
 
 ### <a name="hybrid-azure-ad-joined-device"></a>하이브리드 Azure AD 조인 디바이스
 

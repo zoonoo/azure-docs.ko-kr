@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 554d837d9fa70c2af581f9b582001c7f32d442e7
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 5186c11259a03717f83db675cbfe7c90f3ecb7cc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232345"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734558"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>네트워크 성능 모니터 솔루션 FAQ
 
@@ -134,7 +134,7 @@ NPM은 [지원되는 하위 지역](../../azure-monitor/insights/network-perform
 NPM은 [지원되는 하위 지역](../../azure-monitor/insights/network-performance-monitor.md#supported-regions) 중 하나에서 호스팅되는 작업 영역에서 세계 어느 부분에 있는 네트워크 사이의 연결도 모니터링할 수 있습니다.
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>NPM의 ExpressRoute 모니터에 대해 지원되는 하위 지역은 어느 하위 지역인가요?
-NPM은 어떤 Azure 하위 지역에 위치한 ExpressRoute 회로도 모니터링할 수 있습니다. NPM에 합류하려면 Log Analytics 작업 영역을 [지원되는 하위 지역](/azure/expressroute/how-to-npm#regions) 중 하나에서 호스팅해야 합니다.
+NPM은 어떤 Azure 하위 지역에 위치한 ExpressRoute 회로도 모니터링할 수 있습니다. NPM에 합류하려면 Log Analytics 작업 영역을 [지원되는 하위 지역](/azure/expressroute/how-to-npm) 중 하나에서 호스팅해야 합니다.
 
 ## <a name="troubleshoot"></a>문제 해결
 

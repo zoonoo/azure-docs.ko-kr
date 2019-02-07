@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 6c92b71a8f2b9fbeae9afc5f06b6d5412f6421a6
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e71d92b2cf7888fd9e3c560beb6e0e7f18e7add0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53022172"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822649"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 Virtual Network 지원을 구성하는 방법
 Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지원과 같은 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. VNet은 클라우드의 개인 네트워크입니다. Azure Cache for Redis 인스턴스가 VNet으로 구성되면 공개적으로 주소를 지정할 수 없으며, VNet 내의 가상 머신과 애플리케이션에서만 액세스할 수 있습니다. 이 문서에서는 프리미엄 Azure Cache for Redis에 대한 가상 네트워크 지원을 구성하는 방법에 대해 설명합니다.
@@ -83,11 +83,11 @@ VNet을 사용하는 경우 Azure Cache for Redis 인스턴스에 연결하려�
 ## <a name="azure-cache-for-redis-vnet-faq"></a>Azure Cache for Redis VNet FAQ
 Azure Cache for Redis 크기 조정에 대해 자주 묻는 질문과 대답이 나와 있는 목록은 다음과 같습니다.
 
-* [Azure Cache for Redis 및 VNet과 관련된 몇 가지 일반적인 구성 오류 문제는 무엇인가요?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
+* Azure Cache for Redis 및 VNet과 관련된 몇 가지 일반적인 구성 오류 문제는 무엇인가요?
 * [캐시가 VNET에서 작동하는지 확인하려면 어떻게 해야 하나요?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
 * [VNET에서 내 Azure Cache for Redis에 연결하려고 하면 원격 인증서가 유효하지 않다는 오류가 표시되는 이유는 무엇인가요?](#when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid)
 * [표준 또는 기본 캐시에 VNet을 사용할 수 있나요?](#can-i-use-vnets-with-a-standard-or-basic-cache)
-* [일부 서브넷에서만 Azure Cache for Redis를 만드는 데 실패하는 이유는 무엇인가요?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
+* 일부 서브넷에서만 Azure Cache for Redis를 만드는 데 실패하는 이유는 무엇인가요?
 * [서브넷 주소 공간 요구 사항은 무엇입니까?](#what-are-the-subnet-address-space-requirements)
 * [VNET에서 캐시를 호스팅하는 경우 모든 캐시 기능이 작동하나요?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
@@ -149,7 +149,7 @@ Azure Cache for Redis가 VNet에 호스팅되는 경우 사용되는 포트는 �
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>캐시가 VNET에서 작동하는지 확인하려면 어떻게 해야 하나요?
 
 >[!IMPORTANT]
->VNET에서 호스팅되는 Azure Cache for Redis 인스턴스에 연결할 때 캐시 클라이언트는 동일한 VNET에 있거나 VNET 피어링을 사용하도록 설정된 VNET에 있어야 합니다. 여기에는 모든 테스트 애플리케이션 또는 진단 핑 도구가 포함됩니다. 클라이언트 응용 프로그램이 호스트된 위치와 상관없이 네트워크 보안 그룹은 클라이언트의 네트워크 트래픽이 Redis 인스턴스에 도달할 수 있도록 구성되어야 합니다.
+>VNET에서 호스팅되는 Azure Cache for Redis 인스턴스에 연결할 때 캐시 클라이언트는 동일한 VNET에 있거나 VNET 피어링을 사용하도록 설정된 VNET에 있어야 합니다. 여기에는 모든 테스트 애플리케이션 또는 진단 핑 도구가 포함됩니다. 클라이언트 애플리케이션이 호스트된 위치와 상관없이 네트워크 보안 그룹은 클라이언트의 네트워크 트래픽이 Redis 인스턴스에 도달할 수 있도록 구성되어야 합니다.
 >
 >
 
@@ -163,7 +163,7 @@ Azure Cache for Redis가 VNet에 호스팅되는 경우 사용되는 포트는 �
     
     `tcping` 도구에서 포트가 열려 있다고 보고하면 VNET에 있는 클라이언트에서 연결하는 데 캐시를 사용할 수 있습니다.
 
-  - 또 다른 테스트 방법은 캐시에 연결하고 캐시에서 일부 항목을 추가 및 검색하는 테스트 캐시 클라이언트(StackExchange.Redis를 사용하는 간단한 콘솔 응용 프로그램일 수 있음)를 만드는 것입니다. 캐시와 동일한 VNET에 있는 VM에 샘플 클라이언트 응용 프로그램을 설치하고 실행하여 캐시에 대한 연결을 확인합니다.
+  - 또 다른 테스트 방법은 캐시에 연결하고 캐시에서 일부 항목을 추가 및 검색하는 테스트 캐시 클라이언트(StackExchange.Redis를 사용하는 간단한 콘솔 애플리케이션일 수 있음)를 만드는 것입니다. 캐시와 동일한 VNET에 있는 VM에 샘플 클라이언트 애플리케이션을 설치하고 실행하여 캐시에 대한 연결을 확인합니다.
 
 
 ### <a name="when-trying-to-connect-to-my-azure-cache-for-redis-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid"></a>VNET에서 내 Azure Cache for Redis에 연결하려고 하면 원격 인증서가 유효하지 않다는 오류가 표시되는 이유는 무엇인가요?

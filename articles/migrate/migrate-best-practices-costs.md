@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: b8ff1ae2f4c07dc59bd1ffb631378817493b96b0
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 974ea5803b6e31ad8f940265071f41440d5355da
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995051"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700641"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Azure로 마이그레이션된 워크로드에 대한 비용 계산 및 크기 조정 모범 사례
 
@@ -154,7 +154,7 @@ Windows Server 및 SQL Server와 같은 시스템의 소프트웨어에 수년�
 
 - 하이브리드 혜택 절감액 계산기 [살펴보기](https://azure.microsoft.com/pricing/hybrid-benefit/)
 - Windows Server에 대한 하이브리드 혜택 [자세히 알아보기](https://azure.microsoft.com/pricing/hybrid-benefit/)
-- SQL Server Azure VM에 대한 가격 책정 지침 [검토](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol)
+- SQL Server Azure VM에 대한 가격 책정 지침 [검토](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance)
 
 
 ## <a name="best-practice-use-reserved-vm-instances"></a>모범 사례: 예약 VM 인스턴스 사용
@@ -174,7 +174,7 @@ Windows Server 및 SQL Server와 같은 시스템의 소프트웨어에 수년�
 **자세한 정보:**
 - Azure 예약에 대해 [알아보기](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
 - 예약 인스턴스 FAQ [참조](https://azure.microsoft.com/pricing/reserved-vm-instances/#faq)
-- SQL Server Azure VM에 대한 [가격 책정 지침 살펴보기](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol)
+- SQL Server Azure VM에 대한 [가격 책정 지침 살펴보기](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance)
 
 
 ## <a name="best-practice-aggregate-cloud-spend-across-subscriptions"></a>모범 사례: 구독 전체에 대한 클라우드 지출 집계

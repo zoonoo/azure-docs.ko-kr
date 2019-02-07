@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 061987105eac976e40a003a8108921ed0008630d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 71a5ca62dc5d21e30a4944f8be57a77040f4f204
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169164"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733691"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>HTTP 기본 인증을 사용하여 RESTful 서비스 보호
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-[관련된 Azure AD B2C 문서](active-directory-b2c-custom-rest-api-netfw.md)에서 인증하지 않고 Azure AD B2C(Azure Active Directory B2C) 사용자 경험에 통합되는 RESTful 서비스(Web API)를 만듭니다. 
+[관련된 Azure AD B2C 문서](active-directory-b2c-custom-rest-api-netfw.md)에서 인증하지 않고 Azure AD B2C(Azure Active Directory B2C) 사용자 경험에 통합되는 RESTful 서비스(Web API)를 만듭니다.
 
-이 문서에서는 B2C를 포함하여 확인된 사용자만이 API에 액세스할 수 있도록 RESTful 서비스에 HTTP 기본 인증을 추가합니다. HTTP 기본 인증을 사용하여 사용자 지정 정책에서 사용자 자격 증명(앱 ID 및 앱 암호)를 설정합니다. 
+이 문서에서는 B2C를 포함하여 확인된 사용자만이 API에 액세스할 수 있도록 RESTful 서비스에 HTTP 기본 인증을 추가합니다. HTTP 기본 인증을 사용하여 사용자 지정 정책에서 사용자 자격 증명(앱 ID 및 앱 암호)를 설정합니다.
 
 자세한 내용은 [ASP.NET Web API에서 기본 인증](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication)을 참조하세요.
 
@@ -33,7 +33,7 @@ ms.locfileid: "55169164"
 ## <a name="step-1-add-authentication-support"></a>1단계: 인증 지원 추가
 
 ### <a name="step-11-add-application-settings-to-your-projects-webconfig-file"></a>1.1단계: 프로젝트의 web.config 파일에 애플리케이션 설정 추가
-1. 앞에서 만든 Visual Studio 프로젝트를 엽니다. 
+1. 앞에서 만든 Visual Studio 프로젝트를 엽니다.
 
 2. 다음 애플리케이션 설정을 `appSettings` 요소의 web.config 파일에 추가합니다.
 
@@ -205,7 +205,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
         {
             public void Configuration(IAppBuilder app)
             {
-                    app.Use<ClientAuthMiddleware>();
+                app.Use<ClientAuthMiddleware>();
             }
         }
     }
@@ -220,7 +220,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 프로젝트를 게시하려면 솔루션 탐색기에서 **Contoso.AADB2C.API** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
 ## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>3단계: Azure AD B2C에 RESTful 서비스 앱 ID 및 앱 비밀 추가
-클라이언트 ID(사용자 이름) 및 암호로 RESTful 서비스를 보호한 후에 Azure AD B2C 테넌트에서 자격 증명을 저장해야 합니다. 사용자 지정 정책은 RESTful 서비스를 호출할 때 자격 증명을 제공합니다. 
+클라이언트 ID(사용자 이름) 및 암호로 RESTful 서비스를 보호한 후에 Azure AD B2C 테넌트에서 자격 증명을 저장해야 합니다. 사용자 지정 정책은 RESTful 서비스를 호출할 때 자격 증명을 제공합니다.
 
 ### <a name="step-31-add-a-restful-services-client-id"></a>3.1단계: RESTful 서비스 클라이언트 ID 추가
 1. Azure AD B2C 테넌트에서 **B2C 설정** > **ID 경험 프레임워크**를 차례로 선택합니다.
@@ -275,7 +275,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
     <Item Key="AuthenticationType">Basic</Item>
     ```
 
-5. `<Metadata>` 요소를 닫은 직후 다음 XML 코드 조각을 추가합니다. 
+5. `<Metadata>` 요소를 닫은 직후 다음 XML 코드 조각을 추가합니다.
 
     ```xml
     <CryptographicKeys>

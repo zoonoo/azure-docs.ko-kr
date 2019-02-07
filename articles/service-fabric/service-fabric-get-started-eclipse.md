@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: a9888a23088949b5373aa0eef7d4df3b3064466f
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 250931c9b53692dff4006a0114b6da20948b3f59
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358588"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096673"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Eclipse Java 애플리케이션 배포를 위한 Azure Service Fabric 플러그 인
 Eclipse는 가장 널리 사용되는 Java 개발자를 위한 IDE(통합 개발 환경) 중 하나입니다. 이 문서에서는 Azure Service Fabric 작업을 수행하기 위해 Eclipse 개발 환경을 설정하는 방법에 대해 설명합니다. Service Fabric 플러그 인을 설치하고 Service Fabric 애플리케이션을 만들며 Service Fabric 애플리케이션을 Eclipse의 로컬 또는 원격 Service Fabric 클러스터에 배포하는 방법을 알아봅니다. 
@@ -86,7 +86,7 @@ Service Fabric 플러그 인이 이미 설치된 경우 최신 버전을 설치�
 
     ![Service Fabric 새 프로젝트 페이지 6][create-application/p6]
 
-## <a name="build-a-service-fabric-application-in-eclipse"></a>Eclipse에서 Service Fabric 애플리케이션 빌드
+## <a name="build-a-service-fabric-application-in-eclipse"></a>Eclipse에서 Service Fabric 응용 프로그램 빌드
 
 1.  새 Service Fabric 애플리케이션을 마우스 오른쪽 단추로 클릭한 다음 **Service Fabric**을 선택합니다.
 
@@ -97,7 +97,7 @@ Service Fabric 플러그 인이 이미 설치된 경우 최신 버전을 설치�
     -   애플리케이션의 정리-빌드를 수행하려면 **애플리케이션 다시 빌드**를 클릭합니다.
     -   빌드한 아티팩트의 애플리케이션을 정리하려면 **애플리케이션 정리**를 클릭합니다.
      
-## <a name="deploy-a-service-fabric-application-to-the-local-cluster-with-eclipse"></a>Eclipse를 사용하여 로컬 클러스터에 Service Fabric 애플리케이션 배포
+## <a name="deploy-a-service-fabric-application-to-the-local-cluster-with-eclipse"></a>Eclipse를 사용하여 로컬 클러스터에 Service Fabric 응용 프로그램 배포
 
 Service Fabric 애플리케이션을 빌드한 후에는 다음 단계에 따라 로컬 클러스터에 배포합니다.
 
@@ -106,13 +106,13 @@ Service Fabric 애플리케이션을 빌드한 후에는 다음 단계에 따라
 
     ![Service Fabric 마우스 오른쪽 클릭 메뉴][publish/RightClick]
 
-3.  팝업 메뉴에서 **애플리케이션 배포**를 클릭합니다.
+3.  팝업 메뉴에서 **응용 프로그램 배포**를 클릭합니다.
 4.  콘솔 창에서 배포 작업의 진행률을 확인할 수 있습니다.
 5.  애플리케이션이 실행되고 있는지 확인하려면 브라우저 창 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)의 로컬 클러스터에서 Service Fabric Explorer를 엽니다. **응용 프로그램** 노드를 확장하고 응용 프로그램이 실행 중인지 확인합니다. 
 
 로컬 클러스터를 사용하여 Eclipse에서 애플리케이션을 디버깅하는 방법은 [Eclipse에서 Java 서비스 디버그](./service-fabric-debugging-your-application-java.md)를 참조하세요.
 
-**Publish Application** 명령을 사용하여 응용 프로그램을 로컬 클러스터에 배포할 수도 있습니다.
+또한 **애플리케이션 게시** 명령을 사용하여 애플리케이션을 로컬 클러스터에 배포할 수도 있습니다.
 
 1. Service Fabric 애플리케이션을 마우스 오른쪽 단추로 클릭하고 **Service Fabric**을 선택합니다.
 2. 팝업 메뉴에서 **애플리케이션 게시...** 를 클릭합니다.
@@ -163,7 +163,7 @@ Service Fabric 애플리케이션을 빌드한 후에는 다음 단계에 따라
 5.  애플리케이션이 실행되고 있는지 확인하려면 브라우저 창의 Azure 클러스터에서 Service Fabric Explorer를 엽니다. 위의 예에서는 `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`입니다. **응용 프로그램** 노드를 확장하고 응용 프로그램이 실행 중인지 확인합니다. 
 
 
-보안 Linux 클러스터에서, 애플리케이션에 Reliable Services 서비스가 포함되는 경우 서비스에서 Service Fabric 런타임 API를 호출하는 데 사용할 수 있는 인증서도 구성해야 합니다. 자세히 알아보려면 [Linux 클러스터에서 실행하도록 Reliable Services 앱 구성](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)을 참조하세요.
+보안 Linux 클러스터에서, 응용 프로그램에 Reliable Services 서비스가 포함되는 경우 서비스에서 Service Fabric 런타임 API를 호출하는 데 사용할 수 있는 인증서도 구성해야 합니다. 자세히 알아보려면 [Linux 클러스터에서 실행하도록 Reliable Services 앱 구성](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)을 참조하세요.
 
 Java로 작성된 Service Fabric Reliable Services 애플리케이션을 보안 Linux 클러스터에 배포하는 방법에 대한 빠른 연습은 [빠른 시작: Java Reliable Services 애플리케이션 배포](./service-fabric-quickstart-java-reliable-services.md)를 참조하세요.
 
@@ -207,11 +207,11 @@ Service Fabric 서비스를 기존 Service Fabric 애플리케이션에 추가�
 
 매니페스트 버전을 편집하려면 프로젝트를 클릭하고 **Service Fabric**으로 이동하여 드롭다운 메뉴에서 **매니페스트 버전 편집...** 을 선택합니다. 마법사에서 애플리케이션 매니페스트, 서비스 매니페스트의 매니페스트 버전 및 **코드**, **구성** 및 **데이터** 패키지의 버전을 업데이트할 수 있습니다.
 
-**응용 프로그램 및 서비스 버전 자동 업데이트** 옵션을 확인한 다음 버전을 업데이트하면 매니페스트 버전이 자동으로 업데이트됩니다. 예를 들어 확인란을 먼저 선택한 다음 **코드** 버전을 0.0.0에서 0.0.1로 업데이트하고 **마침**을 클릭하면 서비스 매니페스트 버전 및 애플리케이션 매니페스트 버전이 0.0.1로 자동 업데이트됩니다.
+**애플리케이션 및 서비스 버전 자동 업데이트** 옵션을 확인한 다음 버전을 업데이트하면 매니페스트 버전이 자동으로 업데이트됩니다. 예를 들어 확인란을 먼저 선택한 다음 **코드** 버전을 0.0.0에서 0.0.1로 업데이트하고 **마침**을 클릭하면 서비스 매니페스트 버전 및 애플리케이션 매니페스트 버전이 0.0.1로 자동 업데이트됩니다.
 
 ## <a name="upgrade-your-service-fabric-java-application"></a>Service Fabric Java 애플리케이션 업그레이드
 
-업그레이드 시나리오의 경우 Eclipse에서 Service Fabric 플러그 인을 사용하여 **App1** 프로젝트를 만들었다고 가정합니다. **fabric:/App1Application**라는 응용 프로그램을 만드는 플러그 인을 사용하여 배포합니다. 애플리케이션 유형은 **App1AppicationType**이고 애플리케이션 버전은 1.0입니다. 이제 가용성을 해치지 않고 애플리케이션을 업그레이드하려고 합니다.
+업그레이드 시나리오의 경우 Eclipse에서 Service Fabric 플러그 인을 사용하여 **App1** 프로젝트를 만들었다고 가정합니다. **fabric:/App1Application**라는 애플리케이션을 만드는 플러그 인을 사용하여 배포합니다. 애플리케이션 유형은 **App1ApplicationType**이고, 애플리케이션 버전은 1.0입니다. 이제 가용성을 해치지 않고 애플리케이션을 업그레이드하려고 합니다.
 
 먼저 애플리케이션을 변경하고 수정된 서비스를 다시 빌드합니다. 수정된 서비스의 매니페스트 파일(ServiceManifest.xml)을 업데이트된 버전의 서비스(및 관련된 코드, 구성 또는 데이터)로 업데이트합니다. 또한 애플리케이션의 매니페스트(ApplicationManifest.xml)를 애플리케이션에 대한 업데이트된 버전 번호와 수정된 서비스로 수정합니다.  
 
@@ -226,11 +226,11 @@ Eclipse를 사용하여 애플리케이션을 업그레이드하려면 중복 �
 애플리케이션 업그레이드에는 몇 분 정도가 소요됩니다. Service Fabric Explorer에서 애플리케이션 업그레이드를 모니터링할 수 있습니다.
 
 ## <a name="migrating-old-service-fabric-java-applications-to-be-used-with-maven"></a>이전의 Service Fabric Java 애플리케이션을 마이그레이션하여 Maven에서 사용
-최근에 Service Fabric Java 라이브러리를 Service Fabric Java SDK에서 Maven 리포지토리로 이동했습니다. Eclipse를 사용하여 생성한 새 애플리케이션은 최신 업데이트된 프로젝트를 생성하는 반면(Maven에서 작업할 수 있음) Maven에서 Service Fabric Java 종속성을 사용하기 위해 이전에 Service Fabric Java SDK를 사용했던 기존 Service Fabric 상태 비저장 또는 작업자 Java 애플리케이션을 업데이트할 수 있습니다. [여기](service-fabric-migrate-old-javaapp-to-use-maven.md)에서 언급한 단계에 따라 Maven에서 이전의 응용 프로그램이 작동되는지 확인합니다.
+최근에 Service Fabric Java 라이브러리를 Service Fabric Java SDK에서 Maven 리포지토리로 이동했습니다. Eclipse를 사용하여 생성한 새 애플리케이션은 최신 업데이트된 프로젝트를 생성하는 반면(Maven에서 작업할 수 있음) Maven에서 Service Fabric Java 종속성을 사용하기 위해 이전에 Service Fabric Java SDK를 사용했던 기존 Service Fabric 상태 비저장 또는 작업자 Java 애플리케이션을 업데이트할 수 있습니다. [여기](service-fabric-migrate-old-javaapp-to-use-maven.md)에서 언급한 단계에 따라 Maven에서 이전의 애플리케이션이 작동되는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Java Reliable Services 서비스 애플리케이션을 빌드하여 로컬로 Azure에 배포하는 빠른 단계는 [빠른 시작: Java Reliable Services 애플리케이션 배포](./service-fabric-quickstart-java-reliable-services.md)를 참조하세요.
+- Java Reliable Services 애플리케이션을 빌드하여 Azure에 로컬로 배포하는 빠른 단계는 [빠른 시작: Java Reliable Services 애플리케이션 배포](./service-fabric-quickstart-java-reliable-services.md)를 참조하세요.
 - 로컬 클러스터에서 Java 애플리케이션을 디버그하는 방법은 [Eclipse에서 Java 서비스 디버그](./service-fabric-debugging-your-application-java.md)를 참조하세요.
 - Service Fabric 애플리케이션을 모니터링하고 진단하는 방법은 [로컬 머신 개발 설정에서 서비스 모니터링 및 진단](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)을 참조하세요.
 

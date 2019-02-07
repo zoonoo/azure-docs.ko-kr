@@ -7,19 +7,19 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: 83694f121fb17f90aa89fb9ba99e8514cadd5b09
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 90b7638acf6df721a16bdcca6ceebb6f9d65ca2c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44723832"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096826"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>사용자 지정 개발 애플리케이션에 대한 특정 필드를 작성하는 방법
 
@@ -40,9 +40,9 @@ ms.locfileid: "44723832"
 
 | 필드            | 설명                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| 이름             | 애플리케이션 이름입니다. 최소 4자 이상이어야 합니다.                |
-| 애플리케이션 형식 | **웹앱/웹 API**: 웹 응용 프로그램, 웹 API 또는 둘 다를 나타내는 응용 프로그램 
-| |**네이티브**: 사용자 장치 또는 컴퓨터에 설치할 수 있는 응용 프로그램           |
+| Name             | 애플리케이션 이름입니다. 최소 4자 이상이어야 합니다.                |
+| 애플리케이션 형식 | **웹앱/웹 API**: 웹 애플리케이션, 웹 API 또는 둘 모두를 나타내는 애플리케이션입니다. 
+| |**네이티브**: 사용자의 디바이스 또는 컴퓨터에 설치할 수 있는 애플리케이션입니다.           |
 | 로그온 URL      | 사용자가 애플리케이션을 사용하기 위해 로그인하는 URL                                  |
 
 위 필드를 입력하면 애플리케이션이 Azure Portal에 등록되고 애플리케이션 페이지로 리디렉션됩니다. 애플리케이션 창의 **설정** 단추를 누르면 애플리케이션을 사용자 지정하는 더 많은 필드가 있는 설정 페이지가 열립니다. 다음 표에 설정 페이지의 모든 필드가 설명되어 있습니다. 웹 애플리케이션을 만들었는지 네이티브 애플리케이션을 만들었는지 여부에 따라 이러한 필드의 하위 집합만 표시됩니다.
@@ -60,4 +60,4 @@ ms.locfileid: "44723832"
 | 구성            | 키를 만들어 사용자 조작 없이 Azure AD에서 보호하는 웹 API에 프로그래밍 방식으로 액세스할 수 있습니다. \*\*키\*\* 페이지에서 키 설명 및 만료 날짜를 입력하고 저장하여 키를 생성합니다. 나중에 액세스하지 못하므로 키를 안전한 곳에 보관하세요.             |
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Active Directory로 응용 프로그램 관리](../manage-apps/what-is-application-management.md)
+[Azure Active Directory로 애플리케이션 관리](../manage-apps/what-is-application-management.md)

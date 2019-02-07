@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/26/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: dc87079083b8f07ad18f5f871bff64de8d492ebd
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 414bb0183e68cb46e52c379ea3f7aceda5d4170e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285649"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701185"
 ---
 ## <a name="the-parts-of-the-device-model-schema"></a>디바이스 모델 스키마 파트
 
-냉각기 또는 트럭과 같은 디바이스 모델 각각은 시뮬레이션 서비스가 시뮬레이션할 수 있는 디바이스의 종류를 정의합니다. 각 디바이스 모델은 다음 최상위 스키마를 사용하여 JSON 파일에 저장됩니다.
+냉각기 또는 트럭과 같은 장치 모델 각각은 시뮬레이션 서비스가 시뮬레이션할 수 있는 장치의 종류를 정의합니다. 각 디바이스 모델은 다음 최상위 스키마를 사용하여 JSON 파일에 저장됩니다.
 
 ```json
 {
@@ -59,12 +59,12 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 
 ## <a name="simulation"></a>시뮬레이션
 
-`Simulation` 섹션에서는 시뮬레이션된 장치의 내부 상태를 정의합니다. 디바이스에서 전송하는 모든 원격 분석 값은 이 디바이스 상태의 일부여야 합니다.
+`Simulation` 섹션에서는 시뮬레이션된 디바이스의 내부 상태를 정의합니다. 디바이스에서 전송하는 모든 원격 분석 값은 이 디바이스 상태의 일부여야 합니다.
 
 디바이스 상태의 정의에는 다음 두 가지 요소가 있습니다.
 
-* `InitialState`는 장치 상태 개체의 모든 속성에 대한 초기 값을 정의합니다.
-* `Script`는 장치 상태를 업데이트하기 위해 일정에 따라 실행되는 JavaScript 파일을 식별합니다. 이 스크립트 파일을 사용하여 디바이스에서 전송되는 원격 분석 값을 임의로 지정할 수 있습니다.
+* `InitialState`는 디바이스 상태 개체의 모든 속성에 대한 초기 값을 정의합니다.
+* `Script`는 디바이스 상태를 업데이트하기 위해 일정에 따라 실행되는 JavaScript 파일을 식별합니다. 이 스크립트 파일을 사용하여 디바이스에서 전송되는 원격 분석 값을 임의로 지정할 수 있습니다.
 
 디바이스 상태 개체를 업데이트하는 JavaScript 파일에 대한 자세한 내용은 [디바이스 모델 동작 이해](../articles/iot-accelerators/iot-accelerators-device-simulation-device-behavior.md)를 참조하세요.
 
@@ -105,11 +105,11 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 }
 ```
 
-솔루션이 시작되면 모든 시뮬레이션된 디바이스를 쿼리하여 UI에서 사용할 `Type` 값 목록을 작성합니다. 솔루션은 `Latitiude` 및 `Longitude` 속성을 사용하여 대시보드의 맵에 디바이스 위치를 추가합니다.
+솔루션이 시작되면 모든 시뮬레이션된 디바이스를 쿼리하여 UI에서 사용할 `Type` 값 목록을 작성합니다. 솔루션은 `Latitude` 및 `Longitude` 속성을 사용하여 대시보드의 맵에 디바이스 위치를 추가합니다.
 
 ## <a name="telemetry"></a>원격 분석
 
-`Telemetry` 배열은 시뮬레이션된 장치가 솔루션에 전송하는 모든 원격 분석 유형을 나열합니다.
+`Telemetry` 배열은 시뮬레이션된 디바이스가 솔루션에 전송하는 모든 원격 분석 유형을 나열합니다.
 
 다음 예제에서는 엘리베이터 센서의 `floor`, `vibration` 및 `temperature` 데이터를 사용하여 10초마다 JSON 원격 분석 메시지를 전송합니다.
 
@@ -133,9 +133,9 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 ]
 ```
 
-`MessageTemplate`은 시뮬레이션된 장치가 전송하는 JSON 메시지의 구조를 정의합니다. `MessageTemplate`의 자리 표시자는 `${NAME}` 구문을 사용합니다. 여기서 `NAME`은 [장치 상태 개체](#simulation)의 키입니다. 문자열은 따옴표로 묶어야 하고 숫자는 따옴표로 묶으면 안 됩니다.
+`MessageTemplate`은 시뮬레이션된 디바이스가 전송하는 JSON 메시지의 구조를 정의합니다. `MessageTemplate`의 자리 표시자는 `${NAME}` 구문을 사용합니다. 여기서 `NAME`은 [디바이스 상태 개체](#simulation)의 키입니다. 문자열은 따옴표로 묶어야 하고 숫자는 따옴표로 묶으면 안 됩니다.
 
-`MessageSchema`는 시뮬레이션된 장치가 전송하는 메시지의 스키마를 정의합니다. 또한 백 엔드 애플리케이션이 정보를 다시 사용하여 들어오는 원격 분석을 해석할 수 있도록 메시지 스키마가 IoT Hub에도 게시됩니다.
+`MessageSchema`는 시뮬레이션된 디바이스가 전송하는 메시지의 스키마를 정의합니다. 또한 백 엔드 애플리케이션이 정보를 다시 사용하여 들어오는 원격 분석을 해석할 수 있도록 메시지 스키마가 IoT Hub에도 게시됩니다.
 
 현재, JSON 메시지 스키마만 사용할 수 있습니다. 스키마에 나열된 필드는 다음 형식일 수 있습니다.
 
@@ -145,7 +145,7 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 * BOOLEAN
 * 정수 
 * Double
-* Datetime
+* DateTime
 
 다른 간격으로 원격 분석 메시지를 전송하려면 `Telemetry` 배열에 여러 원격 분석 유형을 추가합니다. 다음 예제에서는 10초마다 온도 및 습도 데이터를 전송하고 1분마다 광원 상태를 전송합니다.
 
@@ -181,12 +181,12 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 
 ## <a name="cloudtodevicemethods"></a>CloudToDeviceMethods
 
-시뮬레이션된 디바이스는 IoT Hub에서 호출된 클라우드-디바이스 메서드에 응답할 수 있습니다. 디바이스 모델 스키마 파일의 `CloudToDeviceMethods` 섹션은 다음을 수행합니다.
+시뮬레이션된 장치는 IoT Hub에서 호출된 클라우드-장치 메서드에 응답할 수 있습니다. 디바이스 모델 스키마 파일의 `CloudToDeviceMethods` 섹션은 다음을 수행합니다.
 
 * 시뮬레이션된 디바이스가 응답할 수 있는 메서드를 정의합니다.
 * 실행할 논리를 포함하는 JavaScript 파일을 식별합니다.
 
-시뮬레이션된 디바이스는 지원하는 메서드 목록을 연결된 IoT Hub에 전송합니다.
+시뮬레이션된 장치는 지원하는 메서드 목록을 연결된 IoT Hub에 전송합니다.
 
 디바이스의 동작을 구현하는 JavaScript 파일에 대한 자세한 내용은 [디바이스 모델 동작 이해](../articles/iot-accelerators/iot-accelerators-device-simulation-device-behavior.md)를 참조하세요.
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 682288338d66f1006e9f1d7f3d6d30f822626425
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 713068b940532331ee4a6c5f5a92816d328e41ec
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226546"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736184"
 ---
 Resource Manager 명령 및 템플릿에서 Azure CLI와 리소스 그룹을 사용하여 Azure 리소스 및 워크로드를 배포하려면 Azure 계정이 필요합니다. 계정이 없는 경우 [여기에서 무료 Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 얻을 수 있습니다.
 
@@ -44,7 +44,7 @@ Resource Manager 명령 및 템플릿에서 Azure CLI와 리소스 그룹을 사
 | VM 삭제 |`azure vm delete [options] <resource_group> <name>` |
 | VM 캡처 |`azure vm capture [options] <resource_group> <name>` |
 | 사용자 이미지에서 VM 만들기 |`azure  vm create [options] –q <image-name> <resource-group> <name> <location> <os-type>` |
-| 특수한 디스크에서 VM 만들기 |`azue  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
+| 특수한 디스크에서 VM 만들기 |`azure  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
 | VM에 데이터 디스크 추가 |`azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]` |
 | VM에서 데이터 디스크 제거 |`azure  vm disk detach [options] <resource-group> <vm-name> <lun>` |
 | VM에 제네릭 확장 추가 |`azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>` |

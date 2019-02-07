@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 32e0be682d5d216df6741fa38bb0a16e4b323ef6
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 9f8ffe71743f4832d8ce633f050206d21f411276
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354198"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55082200"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 스크립팅 참조
 > [!NOTE]
@@ -103,10 +103,10 @@ ms.locfileid: "54354198"
 | 동시성 |정수  <br/><br/>최댓값: 10 |1 |작업의 동시 실행 수입니다.<br/><br/>다른 조각에 발생할 수 있는 병렬 작업 실행 횟수를 결정합니다. 예를 들어 활동이 사용 가능한 많은 데이터 집합을 거쳐야 하는 경우 동시성 값을 높이면 데이터 처리가 빨라집니다. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |처리 중인 데이터 조각의 순서를 결정합니다.<br/><br/>예를 들어 2개의 조각이 있으며(각각 오후 4시 및 오후 5시에 발생) 둘 다 실행 보류 상태입니다. executionPriorityOrder를 설정하여 NewestFirst가 되도록 하면 오후 5시에 조각이 먼저 처리됩니다. 마찬가지로 executionPriorityORder를 OldestFIrst로 설정하면 오후 4시의 조각이 처리됩니다. |
 | retry |정수 <br/><br/>최대값이 10이 될 수 있음 |0 |조각에 대한 데이터 처리 전에 다시 시도 횟수가 실패로 표시됩니다. 데이터 조각에 대한 활동 실행은 지정된 재시도 횟수까지 다시 시도됩니다. 재시도는 실패 후 가능한 한 빨리 수행합니다. |
-| 시간 제한 |timespan |00:00:00 |활동에 대한 시간 제한입니다. 예제: 00:10:00(시간 제한 10분을 의미함)<br/><br/>값이 지정되지 않거나 0인 경우 시간 제한은 무한입니다.<br/><br/>조각의 데이터 처리 시간이 시간 제한 값을 초과하면 취소되고 시스템이 처리를 다시 시도합니다. 다시 시도 횟수는 다시 시도 속성에 따라 달라집니다. 시간 제한이 발생할 때 상태는 TimedOut으로 설정됩니다. |
-| delay |timespan |00:00:00 |조각의 데이터 처리 작업이 시작되기 전에 지연을 지정합니다.<br/><br/>데이터 조각에 대한 활동의 실행은 지연이 예상된 실행 시간을 지난 후에 시작됩니다.<br/><br/>예제: 00:10:00(10분 지연을 의미함) |
+| 시간 제한 |TimeSpan |00:00:00 |활동에 대한 시간 제한입니다. 예제: 00:10:00(시간 제한 10분을 의미함)<br/><br/>값이 지정되지 않거나 0인 경우 시간 제한은 무한입니다.<br/><br/>조각의 데이터 처리 시간이 시간 제한 값을 초과하면 취소되고 시스템이 처리를 다시 시도합니다. 다시 시도 횟수는 다시 시도 속성에 따라 달라집니다. 시간 제한이 발생할 때 상태는 TimedOut으로 설정됩니다. |
+| delay |TimeSpan |00:00:00 |조각의 데이터 처리 작업이 시작되기 전에 지연을 지정합니다.<br/><br/>데이터 조각에 대한 활동의 실행은 지연이 예상된 실행 시간을 지난 후에 시작됩니다.<br/><br/>예제: 00:10:00(10분 지연을 의미함) |
 | longRetry |정수 <br/><br/>최댓값: 10 |1 |조각 실행이 실패하기 전까지의 긴 재시도 횟수입니다.<br/><br/>longRetry 시도는 longRetryInterval에 따라 간격이 조정됩니다. 따라서 재시도 간의 시간을 지정해야 하는 경우 longRetry를 사용합니다. Retry 및 longRetry를 둘 다 지정하면 각 longRetry 시도에는 Retry 시도가 포함되고 최대 시도 횟수는 Retry * longRetry가 됩니다.<br/><br/>예를 들어 활동 정책에 다음 설정이 있는 경우:<br/>다시 시도: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>실행할 조각이 하나뿐이며(Waiting 상태) 작업 실행이 매번 실패한다고 가정합니다. 우선 3번 연속 실행 시도를 합니다. 시도한 후 각 조각 상태는 다시 시도입니다. 처음 3번 시도 후에 조각 상태는 LongRetry입니다.<br/><br/>한 시간(즉, longRetryInteval의 값) 후에 3번 연속 실행이 다시 시도됩니다. 그 후에 조각 상태가 실패이면 다시 시도는 더 이상 시도하지 않습니다. 즉, 전체적으로 6번의 시도가 일어납니다.<br/><br/>모든 실행에 성공하면 조각 상태는 준비 상태가 되며 더 이상 다시 시도하지 않습니다.<br/><br/>longRetry는 종속 데이터가 명확하지 않은 시간에 도착하거나 데이터 처리가 발생하는 전체적인 환경을 신뢰할 수 없는 상황에서 사용될 수 있습니다. 이러한 경우 하나씩 다시 시도를 수행해도 도움이 되지 않을 수 있으며 특정 시간 간격 후에 시도할 경우 출력이 나타납니다.<br/><br/>주의: longRetry 또는 longRetryInterval에 높은 값을 설정하지 마세요. 일반적으로 더 높은 값을 지정하면 다른 시스템 문제가 발생합니다. |
-| longRetryInterval |timespan |00:00:00 |긴 다시 시도 간의 지연 |
+| longRetryInterval |TimeSpan |00:00:00 |긴 다시 시도 간의 지연 |
 
 ### <a name="typeproperties-section"></a>typeProperties 섹션
 typeProperties 섹션은 각 활동마다 다릅니다. 변환 활동에는 type 속성만 있습니다. 파이프라인에서 변환 활동을 정의하는 JSON 샘플은 이 문서의 [데이터 변환 활동](#data-transformation-activities) 섹션을 참조하세요.
@@ -4937,7 +4937,7 @@ Azure Machine Learning 연결된 서비스를 만들어 데이터 팩터리에 M
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| type |형식 속성은 **AzureML**로 설정해야 합니다. |예 |
+| Type |형식 속성은 **AzureML**로 설정해야 합니다. |예 |
 | mlEndpoint |일괄 처리 점수 매기기 URL입니다. |예 |
 | apiKey |게시된 작업 영역 모델의 API입니다. |예 |
 
@@ -4965,7 +4965,7 @@ Azure Machine Learning 연결된 서비스를 만들어 데이터 팩터리에 M
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| type |형식 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. |예 |
+| Type |형식 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. |예 |
 | accountName |Azure 데이터 레이크 분석 계정 이름입니다. |예 |
 | dataLakeAnalyticsUri |Azure 데이터 레이크 분석 URI입니다. |아니요 |
 | 권한 부여 |Data Factory 편집기에서 **권한 부여** 단추를 클릭하고 OAuth 로그인을 완료하면 인증 코드가 자동으로 검색됩니다. |예 |
@@ -5387,7 +5387,7 @@ Spark 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
 - **type** 속성은 **HDInsightSpark**로 설정됩니다.
 - **rootPath**는 **adfspark\\pyFiles**로 설정되며, 여기서 adfspark는 Azure Blob 컨테이너이고, pyFiles는 해당 컨테이너의 파일 폴더입니다. 이 예에서 Azure Blob Storage는 Spark 클러스터와 연결되어 있습니다. 파일을 다른 Azure Storage에 업로드할 수 있습니다. 이렇게 하는 경우 해당 스토리지 계정을 데이터 팩터리에 연결하는 Azure Storage 연결된 서비스를 만들어야 합니다. 그런 다음 연결된 서비스의 이름을 **sparkJobLinkedService** 속성의 값으로 지정합니다. 이 속성과 Spark 작업에서 지원하는 기타 속성에 대한 자세한 내용은 [Spark 작업 속성](#spark-activity-properties)을 참조하세요.
 - **entryFilePath**는 python 파일인 **test.py**로 설정됩니다.
-- **getDebugInfo** 속성은 **Always**로 설정되며, 이는 로그 파일이 항상 생성(성공 또는 실패)된다는 것을 의미합니다.  
+- **getDebugInfo** 속성은 **Always**로 설정되며, 이는 로그 파일이 항상 생성(성공 또는 실패)된다는 것을 의미합니다.
 
     > [!IMPORTANT]
     > 문제를 해결하는 경우가 아니라면 프로덕션 환경에서 이 속성을 Always로 설정하지 않는 것이 좋습니다.
@@ -5396,13 +5396,13 @@ Spark 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
 활동에 대한 자세한 내용은 [Spark 활동](data-factory-spark.md) 문서를 참조하세요.
 
 ## <a name="machine-learning-batch-execution-activity"></a>Machine Learning Batch 실행 작업
-Azure ML Batch 실행 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 다음과 같아야 합니다. **AzureMLBatchExecution**. 먼저 Azure Machine Learning 연결된 서비스를 만들고 해당 이름을 **linkedServiceName** 속성의 값으로 지정해야 합니다. 활동의 type을 AzureMLBatchExecution로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
+Azure Machine Learning Studio 일괄 처리 실행 작업 JSON 정의에 지정할 수 있는 속성은 다음과 같습니다. 활동의 type 속성은 다음과 같아야 합니다. **AzureMLBatchExecution**. 먼저 Azure Machine Learning 연결된 서비스를 만들고 해당 이름을 **linkedServiceName** 속성의 값으로 지정해야 합니다. 활동의 type을 AzureMLBatchExecution로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
 
 자산 | 설명 | 필수
 -------- | ----------- | --------
-webServiceInput | Azure ML 웹 서비스의 입력(input)으로 전달되는 데이터 세트입니다. 이 데이터 세트는 활동의 입력에도 포함되어야 합니다. |webServiceInput 또는 webServiceInputs를 사용합니다. |
-webServiceInputs | Azure ML 웹 서비스의 입력(inputs)으로 전달되는 데이터 세트들을 지정합니다. 웹 서비스에서 여러 입력을 사용하는 경우 webServiceInput 속성 대신 webServiceInputs 속성을 사용합니다. **webServiceInputs**에서 참조하는 데이터 세트는 또한 **입력** 작업에 포함되어야 합니다. | webServiceInput 또는 webServiceInputs를 사용합니다. |
-webServiceOutputs | Azure ML 웹 서비스의 출력으로 할당되는 데이터 세트입니다. 웹 서비스는 이 데이터 세트의 출력 데이터를 반환합니다. | 예 |
+webServiceInput | Azure Machine Learning Studio 웹 서비스에 대한 하나의 입력(input)으로 전달되는 데이터 세트입니다. 이 데이터 세트는 활동의 입력에도 포함되어야 합니다. |webServiceInput 또는 webServiceInputs를 사용합니다. |
+webServiceInputs | Azure Machine Learning Studio 웹 서비스에 대한 여러 입력(inputs)으로 전달되는 데이터 세트를 지정합니다. 웹 서비스에서 여러 입력을 사용하는 경우 webServiceInput 속성 대신 webServiceInputs 속성을 사용합니다. **webServiceInputs**에서 참조하는 데이터 세트는 또한 **입력** 작업에 포함되어야 합니다. | webServiceInput 또는 webServiceInputs를 사용합니다. |
+webServiceOutputs | Azure Machine Learning Studio 웹 서비스에 대한 출력으로 할당되는 데이터 세트입니다. 웹 서비스는 이 데이터 세트의 출력 데이터를 반환합니다. | 예 |
 globalParameters | 이 섹션에서 웹 서비스 매개 변수의 값을 지정합니다. | 아니요 |
 
 ### <a name="json-example"></a>JSON 예제
@@ -5452,7 +5452,7 @@ JSON 예제에서 배포된 Azure Machine Learning 웹 서비스는 판독기와
 > AzureMLBatchExecution 작업의 입력 및 출력만 웹 서비스에 매개 변수로 전달될 수 있습니다. 예를 들어 위의 JSON 조각에서 MLSqlInput은 AzureMLBatchExecution 활동에 대한 입력이며, webServiceInput 매개 변수를 통해 입력으로 웹 서비스에 전달됩니다.
 
 ## <a name="machine-learning-update-resource-activity"></a>Machine Learning 업데이트 리소스 활동
-Azure ML 업데이트 리소스 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 다음과 같아야 합니다. **AzureMLUpdateResource**. 먼저 Azure Machine Learning 연결된 서비스를 만들고 해당 이름을 **linkedServiceName** 속성의 값으로 지정해야 합니다. 활동의 type을 AzureMLUpdateResource로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
+Azure Machine Learning Studio 업데이트 리소스 작업 JSON 정의에 지정할 수 있는 속성은 다음과 같습니다. 활동의 type 속성은 다음과 같아야 합니다. **AzureMLUpdateResource**. 먼저 Azure Machine Learning 연결된 서비스를 만들고 해당 이름을 **linkedServiceName** 속성의 값으로 지정해야 합니다. 활동의 type을 AzureMLUpdateResource로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
 
 자산 | 설명 | 필수
 -------- | ----------- | --------
@@ -5460,7 +5460,7 @@ trainedModelName | 다시 학습된 모델의 이름입니다. | 예 |
 trainedModelDatasetName | 재학습 작업으로 반환된 iLearner 파일을 가리키는 데이터 세트입니다. | 예 |
 
 ### <a name="json-example"></a>JSON 예제
-파이프라인에는 두 개의 활동인 **AzureMLBatchExecution** 및 **AzureMLUpdateResource**가 있습니다. Azure ML Batch 실행 작업은 학습 데이터를 입력으로 사용하여 .iLearner 파일을 출력으로 생성합니다. 이 작업은 입력 교육 데이터와 함께 학습 웹 서비스(웹 서비스로 노출된 학습 실험)를 호출하고 웹 서비스로부터 ilearner 파일을 수신합니다. placeholderBlob는 Azure 데이터 팩터리 서비스가 파이프라인을 실행하기 위해 필요로 하는 더미 출력 데이터 세트입니다.
+파이프라인에는 두 개의 활동인 **AzureMLBatchExecution** 및 **AzureMLUpdateResource**가 있습니다. Azure Machine Learning Studio 일괄 처리 실행 작업은 학습 데이터를 입력으로 사용하여 iLearner 파일을 출력으로 생성합니다. 이 작업은 입력 교육 데이터와 함께 학습 웹 서비스(웹 서비스로 노출된 학습 실험)를 호출하고 웹 서비스로부터 ilearner 파일을 수신합니다. placeholderBlob는 Azure 데이터 팩터리 서비스가 파이프라인을 실행하기 위해 필요로 하는 더미 출력 데이터 세트입니다.
 
 
 ```json

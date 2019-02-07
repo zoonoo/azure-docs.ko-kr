@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 7d79e81f8670492d025727ed76d7d529dbd4719d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 177a9cbf9235bb3d2deb0d5f8e4e31a0e1472b48
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188323"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756481"
 ---
 # <a name="get-trending-images-from-the-web"></a>웹에서 유행하는 이미지 가져오기
 
@@ -90,7 +90,7 @@ Host: api.cognitive.microsoft.com
 
 각 타일에는 이미지 및 관련 이미지를 가져오기 위한 옵션이 포함되어 있습니다. 관련 이미지를 가져오기 위해 `text` 쿼리를 사용하여 [Image Search API](./search-the-web.md)를 호출하고 관련 이미지를 직접 표시할 수 있습니다. 또는 `webSearchUrl`의 URL을 사용하여 사용자를 관련 이미지가 포함된 Bing의 이미지 검색 결과 페이지로 이동할 수 있습니다.
 
-Image Search API를 호출하여 관련 이미지를 가져오는 경우 [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#id) 쿼리 매개 변수를 `id` 필드의 ID로 설정하세요. ID를 지정하면 응답에 이미지(응답의 첫 번째 이미지) 및 관련 이미지가 포함됩니다. 또한 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#q) 쿼리 매개 변수를 `text` 필드의 `query` 개체에 있는 텍스트로 설정하세요.
+Image Search API를 호출하여 관련 이미지를 가져오는 경우 [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#id) 쿼리 매개 변수를 `id` 필드의 ID로 설정하세요. ID를 지정하면 응답에 이미지(응답의 첫 번째 이미지) 및 관련 이미지가 포함됩니다. 또한 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) 쿼리 매개 변수를 `text` 필드의 `query` 개체에 있는 텍스트로 설정하세요.
 
 다음 예제는 이미지 ID를 사용하여 이전 Trending Images API 응답의 Mr. Smith 관련 이미지를 가져오는 방법을 보여줍니다.
 

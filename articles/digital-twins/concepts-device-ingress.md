@@ -8,18 +8,18 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: e6d95d44dbfe2d66189be5103552d841ccbdf690
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 35d12d0114f9677905c85a9df94ecd074e5f8f75
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117421"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729526"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>디바이스 연결 및 원격 분석 수신
 
 디바이스 및 센서가 보낸 원격 분석 데이터는 모든 IoT 솔루션의 백본을 형성합니다. 이러한 여러 리소스를 나타내고 위치 컨텍스트 내에서 관리하는 방법은 IoT 앱 개발의 주요 고려 사항입니다. Azure Digital Twins는 디바이스와 센서를 공간 인텔리전스 그래프와 통합하여 IoT 솔루션 개발 프로세스를 단순화합니다.
 
-시작하려면 공간 그래프의 루트에서 Azure IoT Hub 리소스를 만듭니다. IoT Hub 리소스는 루트 공간 아래의 모든 디바이스가 메시지를 보낼 수 있도록 허용합니다. IoT Hub가 만들어지면 Azure Digital Twins 내의 센서에 디바이스를 등록합니다. 디바이스는 [Azure IoT 디바이스 SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks)를 통해 Digital Twins 서비스로 데이터를 보낼 수 있습니다.
+시작하려면 공간 그래프의 루트에서 Azure IoT Hub 리소스를 만듭니다. IoT Hub 리소스는 루트 공간 아래의 모든 디바이스가 메시지를 보낼 수 있도록 허용합니다. IoT Hub가 만들어지면 Azure Digital Twins 내의 센서에 디바이스를 등록합니다. 디바이스는 [Azure IoT 디바이스 SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks)를 통해 Digital Twins 서비스로 데이터를 보낼 수 있습니다.
 
 디바이스 온보딩에 대한 단계별 가이드는 [Digital Twins 배포 및 구성 자습서](tutorial-facilities-setup.md)를 참조하세요. 간략히 보면 단계는 다음과 같습니다.
 

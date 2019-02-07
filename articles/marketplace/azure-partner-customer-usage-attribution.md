@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: da8fd886afa6028959247caa0c6e007df20fdd1b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 66f850225faba8d45eaa07493a0817c9ed0ed52b
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077745"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075587"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
@@ -32,11 +32,17 @@ Microsoft 파트너는 고객을 대신하여 프로비전하는 Azure 리소스
 - Azure Resource Manager 템플릿: 파트너 소프트웨어를 실행하기 위해 Azure 서비스를 배포할 Resource Manager 템플릿 또는 솔루션 템플릿입니다. 파트너는 Azure 솔루션의 인프라와 구성을 정의하는 Resource Manager 템플릿을 만들 수 있습니다. Resource Manager 템플릿을 사용하면 개발자와 고객이 수명 주기 전반에 걸쳐 솔루션을 배포할 수 있습니다. 리소스가 일관된 상태로 배포된다는 것을 확신할 수 있습니다. 
 - Azure Resource Manager API: 파트너는 Resource Manager API를 직접 호출하여 Resource Manager 템플릿을 배포하거나 Azure 서비스를 직접 프로비전할 API 호출을 생성할 수 있습니다. 
 
-고객 사용량 특성은 Azure Marketplace에 게시된 모든 [솔루션 템플릿](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md)에 필요합니다. 
+고객 사용량 특성은 Azure Marketplace에 게시된 [Azure 애플리케이션 제안](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer)에 필요합니다.
 
 ## <a name="use-resource-manager-templates"></a>Resource Manager 템플릿 사용
 
-많은 파트너 솔루션은 Resource Manager 템플릿을 사용하여 고객의 구독에 배포됩니다. Azure Marketplace, GitHub 또는 빠른 시작에서 사용할 수 있는 Resource Manager 템플릿이 있는 경우, 새 추적 메서드를 사용하도록 템플릿을 수정하는 프로세스가 간단해야 합니다. 자세한 내용은 [첫 번째 Resource Manager 템플릿을 만들고 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)를 참조하세요.
+많은 파트너 솔루션은 Resource Manager 템플릿을 사용하여 고객의 구독에 배포됩니다. Azure Marketplace, GitHub 또는 빠른 시작에서 사용할 수 있는 Resource Manager 템플릿이 있는 경우, 새 추적 메서드를 사용하도록 템플릿을 수정하는 프로세스가 간단해야 합니다.
+
+솔루션 템플릿을 만들고 게시하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+
+* [첫 번째 Resource Manager 템플릿 만들기 및 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)
+* [Azure 애플리케이션 제안](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer)
+* 비디오: [Azure Marketplace용 솔루션 템플릿 및 관리형 애플리케이션 빌드](https://channel9.msdn.com/Events/Build/2018/BRK3603)
 
 
 ## <a name="add-a-guid-to-your-template"></a>템플릿에 GUID 추가

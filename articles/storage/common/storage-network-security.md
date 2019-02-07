@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c6b4ed787fa9e8881990801bdee77550a1a0bf2f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ce682263663c0547d9e35a4d29037fd125d8bc6c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473632"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699179"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -241,7 +241,7 @@ IP 네트워크 규칙은 **공용 인터넷** IP 주소에 대해서만 허용�
 
 IP 네트워크 규칙을 사용하여 온-프레미스 네트워크에서 스토리지 계정으로의 액세스 권한을 부여하려면 네트워크에서 사용되는 인터넷 연결 IP 주소를 식별해야 합니다. 네트워크 관리자에게 도움을 요청합니다.
 
-[ExpressRoute](/azure/expressroute/expressroute-introduction)를 사용하여 네트워크를 Azure 네트워크에 연결할 수 있습니다. 여기서 각 회로는 두 개의 공용 IP 주소로 구성됩니다. Microsoft Edge에서 찾을 수 있으며, [Azure 공용 피어링](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains)을 사용하여 Azure Storage와 같은 Microsoft 서비스에 연결할 수 있습니다. Azure Storage와 통신할 수 있도록 허용하려면 회로의 공용 IP 주소에 대한 IP 네트워크 규칙을 만듭니다. ExpressRoute 회로의 공용 IP 주소를 찾으려면 Azure Portal을 통해 [ExpressRoute에서 지원 티켓을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+[ExpressRoute](/azure/expressroute/expressroute-introduction)를 사용하여 네트워크를 Azure 네트워크에 연결할 수 있습니다. 여기서 각 회로는 두 개의 공용 IP 주소로 구성됩니다. Microsoft Edge에서 찾을 수 있으며, [Azure 공용 피어링](/azure/expressroute/expressroute-circuit-peerings)을 사용하여 Azure Storage와 같은 Microsoft 서비스에 연결할 수 있습니다. Azure Storage와 통신할 수 있도록 허용하려면 회로의 공용 IP 주소에 대한 IP 네트워크 규칙을 만듭니다. ExpressRoute 회로의 공용 IP 주소를 찾으려면 Azure Portal을 통해 [ExpressRoute에서 지원 티켓을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ### <a name="managing-ip-network-rules"></a>IP 네트워크 규칙 관리
 
@@ -355,7 +355,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 |Azure Event Grid|Microsoft.EventGrid|Blob Storage 이벤트 게시를 사용하도록 설정하고 Event Grid가 스토리지 큐에 게시하도록 허용합니다. [Blob Storage 이벤트](/azure/event-grid/event-sources)와 [큐에 게시](/azure/event-grid/event-handlers)에 대해 알아봅니다.|
 |Azure Event Hubs|Microsoft.EventHub|Event Hubs 캡처로 데이터를 보관합니다. [자세한 정보](/azure/event-hubs/event-hubs-capture-overview).|
 |Azure 네트워킹|Microsoft.Networking|네트워크 트래픽 로그를 저장 및 분석합니다. [자세히 알아보기](/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure Monitor|Microsoft.Insights|보안 스토리지 계정에 모니터링 데이터를 쓸 수 있습니다. [자세히 알아보기](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|Azure Monitor|Microsoft.Insights|보안 스토리지 계정에 모니터링 데이터를 쓸 수 있습니다. [자세히 알아보기](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
 |Azure SQL Data Warehouse|Microsoft.Sql|PolyBase를 사용한 가져오기 및 내보내기 시나리오를 허용합니다. [자세히 알아보기](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
 
 ### <a name="storage-analytics-data-access"></a>저장소 분석 데이터 액세스

@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: b22ecb9d8948a77df43f47cd9fd218be4319d06e
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6b617ff99b9183c6b5008292dd3e5d11f2e69da9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583734"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092233"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>서비스 알림에 대한 활동 로그 경고 만들기
 ## <a name="overview"></a>개요
@@ -37,7 +37,7 @@ Azure에서 Azure 구독에 서비스 상태 알림을 전송할 때 경고를 �
 
 Azure 리소스 관리자 템플릿을 사용하여 서비스 상태 알림 경고를 구성하는 방법에 대한 자세한 내용은 [ 템플릿](alerts-activity-log.md)을 참조하세요.
 
-## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-portal"></a>Azure Portal을 사용하여 새 작업 그룹에 대한 서비스 상태 알림의 경고 만들기
+## <a name="alert-and-new-action-group-using-azure-portal"></a>Azure Portal을 사용하여 경고 및 새 작업 그룹
 1. [포털](https://portal.azure.com)에서 **서비스 상태**를 선택합니다.
 
     !["서비스 상태" 서비스](media/alerts-activity-log-service-notifications/home-servicehealth.png)
@@ -86,7 +86,7 @@ Azure 리소스 관리자 템플릿을 사용하여 서비스 상태 알림 경�
 >
 >
 
-## <a name="create-an-alert-on-a-service-health-notification-for-an-existing-action-group-by-using-the-azure-portal"></a>Azure Portal을 사용하여 기존 작업 그룹에 대한 서비스 상태 알림의 경고 만들기
+## <a name="alert-with-existing-action-group-using-azure-portal"></a>Azure Portal을 사용하여 기존 작업 그룹에 경고
 
 1. 이전 섹션의 1-7단계를 수행하여 서비스 상태 알림을 만듭니다. 
 
@@ -96,7 +96,7 @@ Azure 리소스 관리자 템플릿을 사용하여 서비스 상태 알림 경�
 
 몇 분 이내에 경고가 활성화되고 만들 때 지정한 조건에 따라 트리거를 시작합니다.
 
-## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 새 작업 그룹에 대한 서비스 상태 알림의 경고 만들기
+## <a name="alert-and-new-action-group-using-the-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 경고 및 새 작업 그룹
 
 다음은 이메일 대상을 사용하여 작업 그룹을 만들고 대상 구독에 모든 서비스 상태 알림을 사용하도록 설정하는 예제입니다.
 

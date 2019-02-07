@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 04c59cac8cd55acad0504337c57767c938835021
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: b42c32936d6973468ace58572ee61eaad66053c2
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884897"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733181"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 가상 머신 확장 집합 만들기
 가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 리소스 사용량(예: CPU, 메모리 요구량 또는 네트워크 트래픽)에 따라 자동으로 크기를 조정하는 규칙을 정의할 수 있습니다. 그러면 Azure 부하 분산 장치에서 확장 집합의 VM 인스턴스에 트래픽을 분산합니다. 이 빠른 시작에서는 Azure CLI로 가상 머신 확장 집합을 만들고, 샘플 애플리케이션을 배포합니다.
@@ -40,7 +40,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 az group create --name myResourceGroup --location eastus
 ```
 
-이제 [az vmss create](/cli/azure/vmss#az_vmss_create)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 변경 내용이 적용될 때 자동으로 업데이트하도록 설정된 *myScaleSet*이라는 확장 집합을 만들고, *~/.ssh/id_rsa*에 없는 경우 SSH 키를 생성합니다. 이러한 SSH 키는 VM 인스턴스에 로그인해야 하는 경우에 사용됩니다. 기존 SSH 키 집합을 사용하려면 `--ssh-key-value` 매개 변수를 대신 사용하고 키의 위치를 지정합니다.
+이제 [az vmss create](/cli/azure/vmss)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 변경 내용이 적용될 때 자동으로 업데이트하도록 설정된 *myScaleSet*이라는 확장 집합을 만들고, *~/.ssh/id_rsa*에 없는 경우 SSH 키를 생성합니다. 이러한 SSH 키는 VM 인스턴스에 로그인해야 하는 경우에 사용됩니다. 기존 SSH 키 집합을 사용하려면 `--ssh-key-value` 매개 변수를 대신 사용하고 키의 위치를 지정합니다.
 
 ```azurecli-interactive
 az vmss create \
@@ -58,7 +58,7 @@ az vmss create \
 ## <a name="deploy-sample-application"></a>샘플 애플리케이션 배포
 확장 집합을 테스트하려면 기본 웹 애플리케이션을 설치합니다. Azure 사용자 지정 스크립트 확장을 사용하여 VM 인스턴스에 애플리케이션을 설치하는 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 자세한 내용은 [사용자 지정 스크립트 확장 개요](../virtual-machines/linux/extensions-customscript.md)를 참조하세요.
 
-사용자 지정 스크립트 확장을 사용하여 기본 NGINX 웹 서버 설치 다음과 같이 [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set)를 사용하여 NGINX를 설치하는 사용자 지정 스크립트 확장을 적용합니다.
+사용자 지정 스크립트 확장을 사용하여 기본 NGINX 웹 서버 설치 다음과 같이 [az vmss extension set](/cli/azure/vmss/extension)를 사용하여 NGINX를 설치하는 사용자 지정 스크립트 확장을 적용합니다.
 
 ```azurecli-interactive
 az vmss extension set \
@@ -72,7 +72,7 @@ az vmss extension set \
 
 
 ## <a name="allow-traffic-to-application"></a>애플리케이션에 트래픽 허용
-확장 집합이 만들어지면 Azure 부하 분산 장치가 자동으로 배포됩니다. Azure 부하 분산 장치에서 확장 집합의 VM 인스턴스에 트래픽을 분산합니다. 트래픽이 샘플 웹 애플리케이션에 도달하도록 허용하려면 [az 네트워크 LB 규칙 생성](/cli/azure/network/lb/rule#az_network_lb_rule_create)을 사용하여 부하 분산 장치 규칙을 만듭니다. 다음 예제는 *myLoadBalancerRuleWeb*이라는 규칙을 만듭니다.
+확장 집합이 만들어지면 Azure 부하 분산 장치가 자동으로 배포됩니다. Azure 부하 분산 장치에서 확장 집합의 VM 인스턴스에 트래픽을 분산합니다. 트래픽이 샘플 웹 애플리케이션에 도달하도록 허용하려면 [az 네트워크 LB 규칙 생성](/cli/azure/network/lb/rule)을 사용하여 부하 분산 장치 규칙을 만듭니다. 다음 예제는 *myLoadBalancerRuleWeb*이라는 규칙을 만듭니다.
 
 ```azurecli-interactive
 az network lb rule create \
@@ -104,7 +104,7 @@ az network public-ip show \
 
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않은 경우 다음과 같이 [az group delete](/cli/azure/group#az_group_delete)를 사용하여 리소스 그룹, 확장 집합 및 모든 관련 리소스를 제거할 수 있습니다. `--no-wait` 매개 변수는 작업이 완료될 때까지 대기하지 않고 프롬프트로 제어를 반환합니다. `--yes` 매개 변수는 작업을 수행하는 추가 프롬프트 없이 리소스를 삭제할 것인지 확인합니다.
+더 이상 필요하지 않은 경우 다음과 같이 [az group delete](/cli/azure/group)를 사용하여 리소스 그룹, 확장 집합 및 모든 관련 리소스를 제거할 수 있습니다. `--no-wait` 매개 변수는 작업이 완료될 때까지 대기하지 않고 프롬프트로 제어를 반환합니다. `--yes` 매개 변수는 작업을 수행하는 추가 프롬프트 없이 리소스를 삭제할 것인지 확인합니다.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
