@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center의 위협 인텔리전스 및 보안 경고 맵 | Microsoft Docs
-description: Azure Security Center에서 보안 경고 맵 위협 인텔리전스 기능을 사용하여 VM 및 컴퓨터에서 잠재적 위협을 식별하는 방법을 알아봅니다.
+description: Azure Security Center에서 보안 경고 맵 및 위협 인텔리전스 기능을 사용하여 VM 및 컴퓨터의 잠재적 위협을 식별하는 방법을 알아봅니다.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: c41cb48e61b4c2bd1dc81e508c8218fad688bbaf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 85930ef8d0753c28cf4bfa2eb2eb487e419ed5f3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241722"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092124"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>보안 경고 맵 및 위협 인텔리전스
 이 문서에서는 Azure Security Center 보안 경고 맵과 보안 이벤트 기반 위협 인텔리전스 맵을 사용하여 보안 관련 문제를 해결하는 데 도움이 됩니다.

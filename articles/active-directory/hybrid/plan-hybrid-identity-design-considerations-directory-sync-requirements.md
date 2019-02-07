@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 593eaa71-17eb-4c16-8c98-43cc62987e65
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 44d33e687d64c7e226a20edf3fdcbbf7bcf859b3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d3ded429e960679b6bb252bdcec67c5a1d833ac1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169266"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496009"
 ---
 # <a name="determine-directory-synchronization-requirements"></a>디렉터리 동기화 요구 사항 결정
 동기화는 해당 온-프레미스 ID에 기반하여 클라우드에서 사용자에게 ID를 제공하는 모든 작업입니다. 인증에 대해 동기화된 계정 또는 페더레이션된 인증을 사용하는지와 무관하게 사용자는 클라우드에서 ID가 필요합니다.  이 ID는 정기적으로 유지 관리하고 업데이트해야 합니다.  업데이트는 제목 변경에서 암호 변경까지 다양한 형태일 수 있습니다.  

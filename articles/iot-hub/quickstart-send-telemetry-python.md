@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/07/2018
+ms.date: 01/22/2019
 ms.author: dobett
-ms.openlocfilehash: 98dea8d28834f722af13ee21cc075c612eb73f2a
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 104be28d1b438dc862b2b8a2effd51be4b9b2bc9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243409"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510921"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>빠른 시작: 디바이스에서 IoT Hub로 원격 분석을 보내고 백 엔드 애플리케이션(Python)으로 읽습니다.
 
@@ -113,7 +113,7 @@ IoT Hub CLI 확장은 IoT Hub의 서비스 쪽 **이벤트** 엔드포인트에 
 Azure Cloud Shell에서 다음 명령을 실행하고, `YourIoTHubName`을 해당 IoT 허브 이름으로 바꿉니다.
 
 ```azurecli-interactive
-az iot hub monitor-events --device-id MyPythonDevice --hub-name YourIoTHubName
+az iot hub monitor-events --hub-name YourIoTHubName --device-id MyPythonDevice 
 ```
 
 다음 스크린샷은 시뮬레이션된 디바이스가 허브에 보낸 원격 분석 데이터를 확장 프로그램이 수신하면서 출력한 내용을 보여 줍니다.

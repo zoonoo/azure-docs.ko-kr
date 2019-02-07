@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 28eacdce922e26d391cf34f78cb03ead9c6887a1
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 40f1790806aac6756979f28ad29442b7abf96019
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391269"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096894"
 ---
 # <a name="use-next-hop-to-diagnose-virtual-machine-routing-problems"></a>다음 홉을 사용하여 가상 머신 라우팅 문제 진단
 
@@ -42,4 +42,4 @@ VM(가상 머신)의 트래픽은 NIC(네트워크 인터페이스)와 연결된
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 홉을 사용하여 VM 네트워크 라우팅 문제를 진단하는 방법을 알아보려면 [VM 네트워크 라우팅 문제 진단](diagnose-vm-network-routing-problem.md)을 참조하세요.
+다음 홉을 사용하여 VM 네트워크 라우팅 문제를 진단하는 방법을 알아보려면 [Azure Portal](diagnose-vm-network-routing-problem.md), [PowerShell](diagnose-vm-network-routing-problem-powershell.md) 또는 [Azure CLI](diagnose-vm-network-routing-problem-cli.md)를 사용하여 VM 네트워크 라우팅 문제 진단을 참조하세요.

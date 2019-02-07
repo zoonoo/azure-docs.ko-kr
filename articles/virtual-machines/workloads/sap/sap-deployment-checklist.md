@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/18/2019
+ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e78599a350aff4d0aba5603e8ad7959c945f1aca
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 67083a8214724659765922047c1f0ccd6da87b9d
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439156"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884931"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크로드 계획 및 배포 검사 목록 
 
@@ -47,7 +47,7 @@ ms.locfileid: "54439156"
     3.  비즈니스 연속성 및 재해 복구 아키텍처
     4.  자세한 OS, DB, 커널 및 SAP 팩 버전. SAP NetWeaver 또는 S/4HANA에서 지원되는 OS 릴리스는 Azure VM에서 지원되지 않습니다. DBMS 릴리스의 경우도 마찬가지입니다. 다음 원본을 확인하고 필요한 경우 SAP 및 Azure 지원 창에 표시되도록 SAP 릴리스, DBMS 릴리스 또는 OS 릴리스를 업그레이드해야 합니다. SAP 및 Microsoft에서 완전한 지원을 받으려면 SAP 및 Azure 지원 릴리스 조합 내에 속해야 합니다. 필요한 경우 소프트웨어 구성 요소 중 일부를 업그레이드하는 것을 계획해야 합니다. 지원되는 SAP, OS 및 DBMS 소프트웨어에 대한 자세한 내용은 다음 위치에 설명되어 있습니다.
         1.  SAP 지원 참고 사항 [#1928533](https://launchpad.support.sap.com/#/notes/1928533). 이 참고 사항은 Azure VM에서 지원되는 최소 OS 릴리스를 정의합니다. 또한 대부분의 비 HANA 데이터베이스에 필요한 최소 데이터베이스 릴리스를 정의합니다. 이 참고 사항은 다양한 SAP 지원 Azure VM 유형의 SAP 크기 조정을 제공합니다.
-        2.  SAP 지원 참고 사항 [#2039619](https://launchpad.support.sap.com/#/notes/2039619). 이 참고 사항은 Azure의 Oracle 지원 매트릭스를 정의합니다. Oracle은 SAP 워크로드에 대해 Azure에서 Windows 및 Oracle Linux만 게스트 OS로 지원합니다. 이러한 지원 설명은 SAP 인스턴스를 실행하는 SAP 애플리케이션 계층에도 적용됩니다. 그러나 Oracle은 Oracle Linux의 SAP Central Services에 대한 고가용성을 지원하지 않습니다. Windows에서는 SAP Central Services용 SAP 지원 Windows 장애 조치(Failover) 클러스터 장애 조치(Failover) 솔루션이 Oracle DBMS 계층과 함께 지원됩니다. 
+        2.  SAP 지원 참고 사항 [#2039619](https://launchpad.support.sap.com/#/notes/2039619). 이 참고 사항은 Azure의 Oracle 지원 매트릭스를 정의합니다. Oracle은 SAP 워크로드에 대해 Azure에서 Windows 및 Oracle Linux만 게스트 OS로 지원합니다. 이러한 지원 설명은 SAP 인스턴스를 실행하는 SAP 애플리케이션 계층에도 적용됩니다. 그러나 Oracle은 Pacemaker를 통해 Oracle Linux의 SAP Central Services에 대한 고가용성을 지원하지 않습니다. Oracle Linux에서 ASCS에 대한 고가용성이 필요한 경우 Linux용 SIOS Protection Suite를 활용해야 합니다. SAP 인증 데이터에 대한 자세한 내용은 SAP 지원 노트 [#1662610 - Linux용 SIOS Protection Suite 지원 세부 정보](https://launchpad.support.sap.com/#/notes/1662610)를 확인하세요. Windows에서는 SAP Central Services용 SAP 지원 Windows 장애 조치(Failover) 클러스터 장애 조치(Failover) 솔루션이 Oracle DBMS 계층과 함께 지원됩니다. 
         3.  다른 OS 릴리스의 SAP HANA용 지원 매트릭스를 가져오기 위한 SAP 지원 참고 사항 [#2235581](https://launchpad.support.sap.com/#/notes/2235581)
         4.  SAP HANA에서 지원하는 Azure VM 및 [HANA 대규모 인스턴스](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)는 [여기](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)에 나와 있습니다.
         5.  [SAP 제품 가용성 매트릭스](https://support.sap.com/en/)
@@ -196,7 +196,7 @@ ms.locfileid: "54439156"
     2.  좀 더 작은 데이터베이스에 백업/복원을 사용합니다.
     3.  SAP SWPM 도구로 구현된 SAP 마이그레이션 모니터를 사용하여 유형이 다른 마이그레이션을 수행합니다.
     4.  SAP 릴리스 업그레이드와 조합해야 할 경우 [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) 프로세스를 사용합니다. 원본 및 대상 DBMS 간의 모든 조합이 지원되는 것은 아닙니다. 자세한 내용은 다양한 DMO 릴리스의 특정 SAP 지원 참고 사항을 참조하세요. [예: [SUM 2.0 SP04의 DMO(데이터베이스 마이그레이션 옵션)](https://launchpad.support.sap.com/#/notes/2644872)]
-    5.  백업 또는 SAP 내보내기 파일을 이동해야 하는 경우 인터넷을 통한 데이터 전송과 ExpressRoute를 통한 데이터 전송 중 어떤 방식의 처리량이 더 높은지 테스트합니다. 인터넷을 통해 데이터를 이동하는 경우 향후 프로덕션 시스템을 위해 설정해야 하는 일부 NSG/ASG 보안 규칙을 변경해야 할 수 있습니다.
+    5.  백업 또는 SAP 내보내기 파일을 이동해야 하는 경우 인터넷을 통한 데이터 전송과 ExpressRoute를 통한 데이터 전송 중 어떤 방식의 처리량이 더 높은지 테스트합니다. 인터넷을 통해 데이터를 이동하는 경우 향후 프로덕션 시스템을 위해 필요한 NSG/ASG 보안 규칙 중 일부를 변경해야 할 수 있습니다.
 3.  이전 플랫폼의 시스템을 Azure로 이동하기 전에 CPU 사용량, 스토리지 처리량 및 IOPS 데이터와 같은 리소스 소비량 데이터를 수집합니다. 특히 이러한 작업을 DBMS 계층 단위에서 수행해야 하지만 애플리케이션 계층 단위에서도 수행합니다. 또한 네트워크 및 스토리지 대기 시간을 측정합니다.
 4.  SAP 지원 참고 사항, SAP HANA 하드웨어 디렉터리 및 SAP PAM의 리소스를 확인하여 Azure의 지원되는 VM, 해당 VM의 지원되는 OS 릴리스 및 지원되는 SAP 및 DBMS 릴리스에 변경된 내용이 없는지 검토합니다. 
 4.  VM 유형 및 Azure 기능에 대해 결정한 최신 변경 내용에 따라 배포 스크립트를 조정합니다.
@@ -224,7 +224,7 @@ ms.locfileid: "54439156"
     
 
 ## <a name="go-live-phase"></a>빠른 지원 단계
-빠른 지원 단계에서는 이전 단계에서 개발한 플레이북을 따라 진행해야 합니다. 테스트 및 학습한 단계를 실행합니다. 구성 및 프로세스에서 갑작스럽게 변경하는 경우를 피합니다. 그 외에도 다음이 적용됩니다.
+빠른 지원 단계에서는 이전 단계에서 개발한 플레이북을 따라 진행해야 합니다. 테스트 및 학습한 단계를 실행합니다. 구성 및 프로세스에서 갑작스럽게 변경하는 경우를 피합니다. 그 외에도 다음과 같은 조치가 적용됩니다.
 
 1. Azure Portal 모니터링 및 기타 모니터링 도구가 작동하는지 확인합니다.  권장되는 도구는 Perfmon(Windows) 또는 SAR(Linux)입니다. 
     1.  CPU 카운터 

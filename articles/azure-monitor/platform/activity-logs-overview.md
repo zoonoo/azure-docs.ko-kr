@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: f5d09600829a3efa2682721bf4aedbed7e5cf969
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a1ffb3b7a0f154b1d74ca7a8789e5fdadadec31
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439071"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883775"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure 활동 로그로 구독 활동 모니터링
 
@@ -45,7 +45,7 @@ Azure Portal, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 
 * **자동 크기 조정** - 이 범주에는 구독에서 정의한 자동 크기 조정 설정을 기준으로 하는 자동 크기 조정 엔진 작업 관련 이벤트의 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예로는 "자동 크기 조정 강화 동작이 실패했습니다." 등이 있습니다 자동 크기 조정을 사용하면 자동 크기 조정 설정을 사용하여 시간 및/또는 로드(메트릭) 데이터를 기준으로 지원되는 리소스 종류의 인스턴스 수를 자동으로 규모 확장하거나 규모 감축할 수 있습니다. 강화 또는 규모 축소 조건이 충족되면 시작 이벤트와 성공 또는 실패 이벤트가 이 범주에 기록됩니다.
 * **권장 사항** - 이 범주에는 Azure Advisor의 권장 사항 이벤트가 포함됩니다.
 * **보안** - 이 범주에는 Azure Security Center에서 경고가 생성한 모든 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예로는 "의심스러운 이중 확장 파일이 실행되었습니다." 등이 있습니다.
-* **정책** - 이 범주에는 이벤트가 포함되어 있지 않습니다. 나중에 사용하도록 예약되어 있습니다. 
+* **정책** - 이 범주에는 Azure Policy에서 수행되는 모든 적용 작업에 대한 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예로 Audit(감사) 및 거부(Deny)가 있습니다. Policy에서 수행하는 모든 작업은 리소스에 대한 작업으로 모델링됩니다.
 
 ## <a name="event-schema-per-category"></a>범주별 이벤트 스키마
 [범주별 활동 로그 이벤트 스키마를 파악하려면 이 문서를 참조하세요.](../../azure-monitor/platform/activity-log-schema.md)
@@ -142,7 +142,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 | 자산 | 필수 | 설명 |
 | --- | --- | --- |
-| 이름 |예 |로그 프로필의 이름입니다. |
+| Name |예 |로그 프로필의 이름입니다. |
 | StorageAccountId |아니요 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
 | serviceBusRuleId |아니요 |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. `{service bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. |
 | 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: cdda1a06f32e712df71ec815f190f6346bebc135
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 4b6ef4823fc78c15dda31e96d8bd6c4f798c0e99
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711466"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097754"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric의 역방향 프록시
 Azure Service Fabric에 기본 제공되는 역방향 프록시는 Service Fabric 클러스터 탐색에서 마이크로 서비스의 실행을 지원하고 http 엔드포인트가 있는 타 서비스와 통신합니다.
@@ -45,7 +45,7 @@ Azure Service Fabric에 기본 제공되는 역방향 프록시는 Service Fabri
 >
 > Service Fabric의 역방향 프록시는 현재 다음 플랫폼을 지원합니다.
 > * *Windows 클러스터*: Windows 8 이상 또는 Windows Server 2012 이상
-> * *Linux 클러스터*: 역방향 프록시는 현재 Linux 클러스터에 사용할 수 없습니다.
+> * *Linux 클러스터*: Linux 클러스터에는 현재 역방향 프록시를 사용할 수 없습니다.
 >
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>클러스터 외부에서 마이크로 서비스에 연결
@@ -57,7 +57,7 @@ Azure Service Fabric에 기본 제공되는 역방향 프록시는 Service Fabri
 ![외부 통신][0]
 
 > [!WARNING]
-> 부하 분산 장치에서 역방향 프록시의 포트를 구성하면 HTTP 엔드포인트를 표시하는 클러스터의 모든 마이크로 서비스의 주소를 클러스터 외부에서 지정할 수 있습니다. 즉, 내부용으로 의도된 마이크로 서비스를 악의적인 사용자가 검색할 수 있습니다. 이것은 잠재적으로 악용될 수 있는 심각한 취약성을 나타냅니다. 예:
+> 부하 분산 장치에서 역방향 프록시의 포트를 구성하면 HTTP 엔드포인트를 표시하는 클러스터의 모든 마이크로 서비스의 주소를 클러스터 외부에서 지정할 수 있습니다. 즉, 내부용으로 의도된 마이크로 서비스를 악의적인 사용자가 검색할 수 있습니다. 이는 잠재적으로 악용될 수 있는 심각한 취약성을 나타냅니다. 예를 들어 다음과 같습니다.
 >
 > * 악의적인 사용자는 충분히 강화된 공격 노출 영역이 없는 내부 서비스를 반복적으로 호출하여 서비스 거부 공격을 시작할 수 있습니다.
 > * 악의적인 사용자가 잘못된 패킷을 내부 서비스로 전송하여 의도하지 않은 동작이 발생할 수 있습니다.
@@ -74,20 +74,20 @@ Azure Service Fabric에 기본 제공되는 역방향 프록시는 Service Fabri
 http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&ListenerName=<listenerName>&TargetReplicaSelector=<targetReplicaSelector>&Timeout=<timeout_in_seconds>
 ```
 
-* **http(s):** 역방향 프록시를HTTP 또는 HTTPS 트래픽을 허용하도록 구성할 수 있습니다. HTTPS 전달의 경우 HTTPS에서 수신 대기하도록 역방향 프록시가 설정되면 [Connect to a secure service with the reverse proxy](service-fabric-reverseproxy-configure-secure-communication.md)(역방향 프록시를 사용하여 보안 서비스에 연결)를 참조하세요.
-* **클러스터 FQDN(정규화된 도메인 이름) | 내부 IP:** 외부 클라이언트의 경우 클러스터 도메인(예: mycluster.eastus.cloudapp.azure.com)을 통해 도달할 수 있도록 역방향 프록시를 구성할 수 있습니다. 기본적으로 역방향 프록시는 모든 노드에서 실행됩니다. 내부 트래픽의 경우 localhost 또는 모든 내부 노드 IP(예: 10.0.0.1)에서 역방향 프록시에 연결할 수 있습니다.
-* **포트:** 역방향 프록시에 대해 지정된 포트(예: 19081)입니다.
-* **ServiceInstanceName:** "fabric:/" 체계 없이 연결하려고 하는 배포된 서비스 인스턴스의 정규화된 이름입니다. 예를 들어 *fabric:/myapp/myservice/* 서비스에 연결하려면 *myapp/myservice*를 사용합니다.
+* **http(s):** HTTP 또는 HTTPS 트래픽을 허용하도록 역방향 프록시를 구성할 수 있습니다. HTTPS 전달의 경우 HTTPS에서 수신 대기하도록 역방향 프록시가 설정되면 [Connect to a secure service with the reverse proxy](service-fabric-reverseproxy-configure-secure-communication.md)(역방향 프록시를 사용하여 보안 서비스에 연결)를 참조하세요.
+* **Cluster FQDN(정규화된 도메인 이름) | internal IP:** 외부 클라이언트의 경우 클러스터 도메인(예: mycluster.eastus.cloudapp.azure.com)을 통해 연결할 수 있도록 역방향 프록시를 구성할 수 있습니다. 기본적으로 역방향 프록시는 모든 노드에서 실행됩니다. 내부 트래픽의 경우 localhost 또는 모든 내부 노드 IP(예: 10.0.0.1)에서 역방향 프록시에 연결할 수 있습니다.
+* **Port:** 역방향 프록시에 대해 지정된 포트(예: 19081)입니다.
+* **ServiceInstanceName:** "fabric:/" 구성표 없이 연결하려고 하는 배포된 서비스 인스턴스의 정규화된 이름입니다. 예를 들어 *fabric:/myapp/myservice/* 서비스에 연결하려면 *myapp/myservice*를 사용합니다.
 
     서비스 인스턴스 이름은 대/소문자를 구분합니다. URL에서 서비스 인스턴스 이름의 대/소문자 표기가 달라지면 요청이 실패하고 404(찾을 수 없음)가 표시됩니다.
-* **접미사 경로:** *myapi/values/add/3*과 같이 연결할 서비스에 대한 실제 URL 경로입니다.
-* **PartitionKey:** 분할 서비스의 경우 연결할 파티션의 계산된 파티션 키입니다. 참고로 이는 파티션 ID GUID가 *아닙니다* . 이 매개 변수는 단일 파티션 체계를 사용하는 서비스에는 필요하지 않습니다.
-* **PartitionKind:** 서비스 파티션 체계입니다. 이는 'Int64Range' 또는 'Named'일 수 있습니다. 이 매개 변수는 단일 파티션 체계를 사용하는 서비스에는 필요하지 않습니다.
+* **Suffix path(접미사 경로):** 연결하려는 서비스에 대한 실제 URL 경로(예: *myapi/values/add/3*)입니다.
+* **PartitionKey:** 분할 서비스의 경우 연결하려는 파티션에 대해 계산된 파티션 키입니다. 참고로 이는 파티션 ID GUID가 *아닙니다* . 이 매개 변수는 단일 파티션 체계를 사용하는 서비스에는 필요하지 않습니다.
+* **PartitionKind:** 서비스 파티션 구성표입니다. 이는 'Int64Range' 또는 'Named'일 수 있습니다. 이 매개 변수는 단일 파티션 체계를 사용하는 서비스에는 필요하지 않습니다.
 * **ListenerName**: 서비스의 엔드포인트 형식은 {"Endpoints":{"Listener1":"Endpoint1","Listener2":"Endpoint2" ...}}입니다. 서비스에서 여러 엔드포인트를 노출하는 경우 이 매개 변수는 클라이언트 요청을 전달해야 하는 엔드포인트를 식별합니다. 서비스에 수신기 하나만 있으면 생략할 수 있습니다.
 * **TargetReplicaSelector**: 대상 복제본 또는 인스턴스를 선택하는 방법을 지정합니다.
-  * 대상 서비스가 상태 저장인 경우 TargetReplicaSelector는 'PrimaryReplica', 'RandomSecondaryReplica' 또는 'RandomReplica' 중 하나일 수 있습니다. 이 매개 변수를 지정하지 않으면 기본값은 'PrimaryReplica'입니다.
+  * 대상 서비스가 상태 저장인 경우 TargetReplicaSelector는  'PrimaryReplica', 'RandomSecondaryReplica' 또는 'RandomReplica' 중 하나일 수 있습니다. 이 매개 변수를 지정하지 않으면 기본값은 'PrimaryReplica'입니다.
   * 대상 서비스가 상태 비저장인 경우 역방향 프록시는 서비스 파티션의 임의 인스턴스를 선택하여 요청을 전달합니다.
-* **Timeout:** 서비스에 대한 역방향 프록시가 클라이언트 요청을 대신하여 만든 HTTP 요청에 대한 시간 제한을 지정합니다. 기본값은 60초입니다. 선택적 매개 변수입니다.
+* **Timeout:**  클라이언트 요청을 대신하여 서비스에 대한 역방향 프록시에서 만든 HTTP 요청에 대한 시간 제한을 지정합니다. 기본값은 60초입니다. 선택적 매개 변수입니다.
 
 ### <a name="example-usage"></a>사용 예
 예를 들어 다음 URL에서 HTTP 수신기를 여는 *fabric:/MyApp/MyService* 서비스를 살펴보겠습니다.

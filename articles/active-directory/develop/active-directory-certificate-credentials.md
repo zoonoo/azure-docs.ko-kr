@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 07/24/2018
 ms.author: celested
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7d3796d8d4a5a2e292afaf9cd013ff04ffc082c5
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d9e877fd648c28564f5eccc46f9c20741fe446f8
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578673"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076318"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>애플리케이션 인증을 위한 인증서 자격 증명
 
@@ -45,7 +45,7 @@ Azure AD(Azure Active Directory)를 사용하면 애플리케이션에서(예: O
 
 | 매개 변수 |  설명 |
 | --- | --- |
-| `aud` | 대상: **https://login.microsoftonline.com/*tenant_Id*/oauth2/token**여야 합니다. |
+| `aud` | Audience: **https://login.microsoftonline.com/*tenant_Id*/oauth2/token**이어야 함 |
 | `exp` | 만료 날짜: 토큰이 만료되는 날짜입니다. 시간은 1970년 1월 1일(1970-01-01T0:0:0Z) UTC부터 토큰의 유효 기간이 만료될 때까지의 시간(초)으로 표시됩니다.|
 | `iss` | 발급자: client_id(클라이언트 서비스의 애플리케이션 ID)여야 함 |
 | `jti` | GUID: JWT ID |
@@ -133,4 +133,4 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
    
 ## <a name="code-sample"></a>코드 샘플
 
-[인증서로 디먼 앱에서 Azure AD에 인증](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)의 코드 샘플은 응용 프로그램에서 인증에 자체 자격 증명을 사용하는 방법을 보여줍니다. 또한 `New-SelfSignedCertificate` Powershell 명령을 사용하여 [자체 서명된 인증서를 만드는](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) 방법을 보여줍니다. [앱 만들기 스크립트](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md)를 활용 및 사용하여 인증서를 만들고, 지문 등을 계산할 수도 있습니다.
+[인증서로 디먼 앱에서 Azure AD에 인증](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)의 코드 샘플은 애플리케이션에서 인증에 자체 자격 증명을 사용하는 방법을 보여줍니다. 또한 `New-SelfSignedCertificate` Powershell 명령을 사용하여 [자체 서명된 인증서를 만드는](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) 방법을 보여줍니다. [앱 만들기 스크립트](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md)를 활용 및 사용하여 인증서를 만들고, 지문 등을 계산할 수도 있습니다.

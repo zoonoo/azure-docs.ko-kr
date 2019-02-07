@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: b32fd36c5fd546f7d2138cb2b48ee2854667f948
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 58022ca4f605b4672cd9b6e22993fca8ff6dc591
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044266"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510955"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Node.js에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -56,34 +56,34 @@ Azure Storage 또는 Azure Cosmos DB를 사용하려면 저장소 REST 서비스
 ### <a name="import-the-package"></a>패키지 가져오기
 응용 프로그램에서 아래 코드를 **server.js** 파일의 맨 위에 추가합니다.
 
-```nodejs
+```javascript
 var azure = require('azure-storage');
 ```
 
 ## <a name="add-an-azure-storage-connection"></a>Azure Storage 연결 추가
 Azure 모듈은 AZURE_STORAGE_ACCOUNT 및 AZURE_STORAGE_ACCESS_KEY 또는 AZURE_STORAGE_CONNECTION_STRING 환경 변수를 읽고 Azure Storage 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되어 있지 않은 경우 **TableService**를 호출할 때 계정 정보를 지정해야 합니다. 예를 들어, 다음 코드는 **TableService** 개체를 만듭니다.
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
 ## <a name="add-an-azure-cosmos-db-connection"></a>Azure Cosmos DB 연결 추가
 Azure Cosmos DB 연결을 추가하려면 **TableService** 개체를 만들고 계정 이름, 기본 키 및 엔드포인트를 지정합니다. Cosmos DB 계정에 대한 Azure Portal의 **설정** > **연결 문자열**에서 이러한 값을 복사할 수 있습니다. 예: 
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
 ```  
 
 ## <a name="create-a-table"></a>테이블 만들기
 다음 코드는 **TableService** 개체를 만든 다음 이 개체를 사용하여 새 테이블을 만듭니다. 
 
-```nodejs
+```javascript
 var tableSvc = azure.createTableService();
 ```
 
 **createTableIfNotExists**를 호출하면 지정된 이름을 사용하는 테이블이 없는 경우 새 테이블을 만듭니다. 다음 예제에서는 'mytable'이라는 새 테이블(없는 경우)을 만듭니다.
 
-```nodejs
+```javascript
 tableSvc.createTableIfNotExists('mytable', function(error, result, response){
   if(!error){
     // Table exists or created
@@ -96,13 +96,13 @@ tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 ### <a name="filters"></a>필터
 **TableService**를 사용하여 수행되는 작업에 선택적 필터링을 적용할 수 있습니다. 필터링 작업은 로깅, 자동 재시도 등을 포함할 수 있습니다. 필터는 시그니쳐가 있는 메서드를 구현하는 개체입니다.
 
-```nodejs
+```javascript
 function handle (requestOptions, next)
 ```
 
 요청 옵션에 대한 전처리를 수행한 후 메서드는 다음 서명을 사용하여 콜백을 전달하는 **next**를 호출해야 합니다.
 
-```nodejs
+```javascript
 function (returnObject, finalCallback, next)
 ```
 
@@ -110,7 +110,7 @@ function (returnObject, finalCallback, next)
 
 Node.js용 Azure SDK에는 재시도 논리를 구현하는 두 필터 **ExponentialRetryPolicyFilter** 및 **LinearRetryPolicyFilter**가 포함되어 있습니다. 다음은 **ExponentialRetryPolicyFilter**를 사용하는 **TableService** 개체를 만듭니다.
 
-```nodejs
+```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var tableSvc = azure.createTableService().withFilter(retryOperations);
 ```
@@ -125,7 +125,7 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 
 다음은 엔터티를 정의하는 경우의 예입니다. **dueDate**는 **Edm.DateTime** 형식으로 정의됩니다. 유형 지정은 선택적이며 지정하지 않을 경우 유형이 유추됩니다.
 
-```nodejs
+```javascript
 var task = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'},
@@ -141,7 +141,7 @@ var task = {
 
 **entityGenerator** 를 사용하여 엔터티를 만들 수도 있습니다. 다음 예에서는 **entityGenerator**를 사용하여 같은 작업 엔터티를 만듭니다.
 
-```nodejs
+```javascript
 var entGen = azure.TableUtilities.entityGenerator;
 var task = {
   PartitionKey: entGen.String('hometasks'),
@@ -153,7 +153,7 @@ var task = {
 
 테이블에 엔터티를 추가하려면 엔터티 개체를 **insertEntity** 메서드에 전달합니다.
 
-```nodejs
+```javascript
 tableSvc.insertEntity('mytable',task, function (error, result, response) {
   if(!error){
     // Entity inserted
@@ -165,7 +165,7 @@ tableSvc.insertEntity('mytable',task, function (error, result, response) {
 
 예제 응답:
 
-```nodejs
+```javascript
 { '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
 ```
 
@@ -186,7 +186,7 @@ tableSvc.insertEntity('mytable',task, function (error, result, response) {
 
 다음 예제에서는 **replaceEntity**를 사용하여 엔터티를 업데이트하는 방법을 설명합니다.
 
-```nodejs
+```javascript
 tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
   if(!error) {
     // Entity updated
@@ -214,7 +214,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 
  다음 예제에서는 두 엔터티를 일괄적으로 제출하는 방법을 보여 줍니다.
 
-```nodejs
+```javascript
 var task1 = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'},
@@ -254,7 +254,7 @@ tableSvc.executeBatch('mytable', batch, function (error, result, response) {
 ## <a name="retrieve-an-entity-by-key"></a>키를 통해 엔터티 검색
 **PartitionKey** 및 **RowKey**를 기준으로 특정 엔터티를 반환하려면 **retrieveEntity** 메서드를 사용합니다.
 
-```nodejs
+```javascript
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
   if(!error){
     // result contains the entity
@@ -276,7 +276,7 @@ tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, res
 
 다음 예에서는 PartitionKey가 'hometasks'인 상위 5개의 항목을 반환하는 쿼리를 구성합니다.
 
-```nodejs
+```javascript
 var query = new azure.TableQuery()
   .top(5)
   .where('PartitionKey eq ?', 'hometasks');
@@ -284,7 +284,7 @@ var query = new azure.TableQuery()
 
 **select**가 사용되지 않기 때문에 모든 필드가 반환됩니다. 테이블에 대해 쿼리를 수행하려면 **queryEntities**를 사용합니다. 다음 예에서는 이 쿼리를 사용하여 'mytable'에서 엔터티를 반환합니다.
 
-```nodejs
+```javascript
 tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
   if(!error) {
     // query was successful
@@ -298,7 +298,7 @@ tableSvc.queryEntities('mytable',query, null, function(error, result, response) 
 테이블 쿼리에서는 엔터티에서 일부 필드만 검색할 수 있습니다.
 따라서 대역폭이 줄어들며 특히 큰 엔터티의 경우 쿼리 성능이 향상될 수 있습니다. **select** 절을 사용하여 반환할 필드의 이름을 전달합니다. 예를 들어, 다음 쿼리에서는 **description** 및 **dueDate** 필드만 반환합니다.
 
-```nodejs
+```javascript
 var query = new azure.TableQuery()
   .select(['description', 'dueDate'])
   .top(5)
@@ -308,7 +308,7 @@ var query = new azure.TableQuery()
 ## <a name="delete-an-entity"></a>엔터티 삭제
 파티션 및 행 키를 사용하여 엔터티를 삭제할 수 있습니다. 이 예제에서 **task1** 개체는 삭제할 엔터티의 **RowKey** 및 **PartitionKey** 값을 포함합니다. 그런 다음 개체는 **deleteEntity** 메서드에 전달됩니다.
 
-```nodejs
+```javascript
 var task = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'}
@@ -329,7 +329,7 @@ tableSvc.deleteEntity('mytable', task, function(error, response){
 ## <a name="delete-a-table"></a>테이블 삭제
 다음 코드는 저장소 계정에서 테이블을 삭제합니다.
 
-```nodejs
+```javascript
 tableSvc.deleteTable('mytable', function(error, response){
     if(!error){
         // Table deleted
@@ -346,7 +346,7 @@ tableSvc.deleteTable('mytable', function(error, response){
 
 쿼리할 때, 쿼리개체 인스턴스와 콜백 함수 간에 `continuationToken` 매개 변수를 제공할 수 있습니다.
 
-```nodejs
+```javascript
 var nextContinuationToken = null;
 dc.table.queryEntities(tableName,
     query,
@@ -372,7 +372,7 @@ SAS(공유 액세스 서명)는 저장소 계정 이름이나 키를 제공하�
 
 다음 예에서는 SAS 소유자가 테이블을 쿼리('r')할 수 있도록 허용하며 만든 후 100분이 지나면 만료되는 새 공유 액세스 정책을 생성합니다.
 
-```nodejs
+```javascript
 var startDate = new Date();
 var expiryDate = new Date(startDate);
 expiryDate.setMinutes(startDate.getMinutes() + 100);
@@ -394,7 +394,7 @@ SAS 소유자가 테이블에 액세스할 때 필요하므로 호스트 정보�
 
 그러고 나면 클라이언트 응용 프로그램에서 **TableServiceWithSAS** 에 SAS를 사용하여 테이블에 대한 작업을 수행합니다. 다음 예에서는 테이블을 연결하고 쿼리를 수행합니다. tableSAS의 형식에 대해서는 [공유 액세스 서명 사용](../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris)을 참조하세요. 
 
-```nodejs
+```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
 
 var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
@@ -415,7 +415,7 @@ ACL(Access Control 목록)을 사용하여 SAS에 액세스 정책을 설정할 
 
 ACL은 각 정책에 ID가 연결된 액세스 정책 배열을 사용하여 구현됩니다. 다음 예에서는 'user1'와 'user2'에 대해 하나씩, 두 개의 정책을 정의합니다.
 
-```nodejs
+```javascript
 var sharedAccessPolicy = {
   user1: {
     Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
@@ -432,7 +432,7 @@ var sharedAccessPolicy = {
 
 다음 예제에서는 **hometasks** 테이블의 현재 ACL을 가져온 다음 **setTableAcl**을 사용하여 새 정책을 추가합니다. 이 접근 방식을 통해 다음을 수행할 수 있습니다.
 
-```nodejs
+```javascript
 var extend = require('extend');
 tableSvc.getTableAcl('hometasks', function(error, result, response) {
 if(!error){
@@ -448,7 +448,7 @@ if(!error){
 
 ACL이 설정된 후에 정책의 ID를 기반으로 SAS를 만들 수 있습니다. 다음 예에서는 'user2'에 대해 새 SAS를 만듭니다.
 
-```nodejs
+```javascript
 tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
 

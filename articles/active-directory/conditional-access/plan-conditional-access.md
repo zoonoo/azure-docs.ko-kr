@@ -6,18 +6,18 @@ author: MarkusVi
 manager: daveba
 tags: azuread
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/13/2018
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: martincoetzer
-ms.openlocfilehash: 1911dd189e21a6d29b2bf1ba3d179b41e948f469
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: ca0dfcd9b776b6aea052e2569f9a5aec3ae50eca
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450510"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081027"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>방법: Azure Active Directory에서 조건부 액세스 배포 계획
 
@@ -54,9 +54,9 @@ Azure Active Directory 조건부 액세스를 사용하면 클라우드 앱의 �
 
 |조건:|수행할 작업:|
 |-|-|
-|다음에 대한 액세스가 시도됩니다.<br>- 클라우드 앱<br>- 사용자 및 그룹에 의해<br>사용:<br>- 조건 1(예: 회사 네트워크 외부)<br>- 조건 2(예: 로그인 위험)|애플리케이션에 대한 액세스 차단|
-|다음에 대한 액세스가 시도됩니다.<br>- 클라우드 앱<br>- 사용자 및 그룹에 의해<br>사용:<br>- 조건 1(예: 회사 네트워크 외부)<br>- 조건 2(예: 로그인 위험)|다음을 사용하여 액세스 권한 부여(AND):<br>- 요구 사항 1(예: MFA)<br>- 요구 사항 2(예: 디바이스 규정 준수)|
-|다음에 대한 액세스가 시도됩니다.<br>- 클라우드 앱<br>- 사용자 및 그룹에 의해<br>사용:<br>- 조건 1(예: 회사 네트워크 외부)<br>- 조건 2(예: 로그인 위험)|다음을 사용하여 액세스 권한 부여(OR):<br>- 요구 사항 1(예: MFA)<br>- 요구 사항 2(예: 디바이스 규정 준수)|
+|다음에 대한 액세스가 시도됩니다.<br>- 클라우드 앱<br>- 사용자 및 그룹에 의해<br>사용:<br>- 조건 1(예: 회사 네트워크 외부)<br>- 조건 2(예: 디바이스 플랫폼)|애플리케이션에 대한 액세스 차단|
+|다음에 대한 액세스가 시도됩니다.<br>- 클라우드 앱<br>- 사용자 및 그룹에 의해<br>사용:<br>- 조건 1(예: 회사 네트워크 외부)<br>- 조건 2(예: 디바이스 플랫폼)|다음을 사용하여 액세스 권한 부여(AND):<br>- 요구 사항 1(예: MFA)<br>- 요구 사항 2(예: 디바이스 규정 준수)|
+|다음에 대한 액세스가 시도됩니다.<br>- 클라우드 앱<br>- 사용자 및 그룹에 의해<br>사용:<br>- 조건 1(예: 회사 네트워크 외부)<br>- 조건 2(예: 디바이스 플랫폼)|다음을 사용하여 액세스 권한 부여(OR):<br>- 요구 사항 1(예: MFA)<br>- 요구 사항 2(예: 디바이스 규정 준수)|
 
 최소한 **조건**은 클라우드 앱(**what**)에 액세스를 시도하는 보안 주체(**who**)를 정의합니다. 필요한 경우 액세스 시도가 수행되는 **방법**을 포함할 수도 있습니다. 조건부 액세스에서 보안 주체, 앱 및 방법을 정의하는 요소는 알려진 조건입니다. 자세한 내용은 [Azure Active Directory 조건부 액세스의 조건이란?](conditions.md)을 참조하세요. 
 
@@ -70,28 +70,42 @@ Azure Active Directory 조건부 액세스를 사용하면 클라우드 앱의 �
 
 자세한 내용은 [정책 적용에 필요한 사항](best-practices.md#whats-required-to-make-a-policy-work)을 참조하세요.
 
-이 시점에서 정책의 이름 지정 표준을 결정하는 것이 좋습니다. 이름 지정 표준은 정책을 찾고 Azure 관리 포털에서 열지 않고도 해당 용도를 파악하는 데 도움이 됩니다. 정책 이름에는 다음 사항을 지정해야 합니다.
+이 시점에서 정책의 명명 표준을 결정하는 것이 좋습니다. 이름 지정 표준은 정책을 찾고 Azure 관리 포털에서 열지 않고도 해당 용도를 파악하는 데 도움이 됩니다. 정책 이름에는 다음 사항을 지정해야 합니다.
 
 - 시퀀스 번호
 - 정책이 적용되는 클라우드 앱
 - 응답
 - 정책이 적용되는 대상
-- 정책이 적용되는 시기 
+- 정책이 적용되는 시기(해당하는 경우)
  
 ![이름 지정 표준](./media/plan-conditional-access/11.png)
 
-
+설명이 포함된 이름을 사용하면 조건부 액세스 구현에 대한 개요를 유지할 수 있지만, 대화에서 정책을 참조해야 하는 경우에는 시퀀스 번호가 유용합니다. 예를 들어 문제를 해결하기 위해 동료 관리자에게 전화로 문의하는 경우 EM063 정책을 열도록 요청할 수 있습니다.
 
 
 
 예를 들어, 다음 이름은 정책에 따라 Dynamics CRP 앱을 사용할 때 외부 네트워크에서 마케팅 사용자에게 MFA를 요구함을 나타냅니다.
 
-`CA01-Dynamics CRP: Require MFA For marketing When on external networks`
+`CA01 - Dynamics CRP: Require MFA For marketing When on external networks`
 
 
-활성 정책 외에도 [중단/응급 시나리오에서 복원력 있는 보조 액세스 제어](../authentication/concept-resilient-controls.md) 역할을 하는, 사용하지 않도록 설정된 정책도 구현해야 합니다. 중단 중에 쉽게 사용할 수 있도록 이름 지정 표준에 이 용도도 포함되어야 합니다. 예: 
+활성 정책 외에도 [중단/응급 시나리오에서 복원력 있는 보조 액세스 제어](../authentication/concept-resilient-controls.md)로 작동하지만 사용하지 않도록 설정된 정책도 구현하는 것이 좋습니다. 대응 정책에 대한 명명 표준에 추가로 포함되어야 하는 항목은 다음과 같습니다. 
 
-`EM01-Finance app: Require MFA For Sales When on untrusted network`
+- 다른 정책 중에서 해당 이름이 눈에 띄도록 앞부분에 나오는 `ENABLE IN EMERGENCY`
+
+- 적용해야 하는 중단의 이름
+
+- 관리자가 사용하도록 설정해야 하는 순서 정책을 파악하는 데 도움이 되는 순서 지정 시퀀스 번호 
+
+
+예를 들어 MFA가 중단되는 경우 해당 정책이 사용하도록 설정해야 하는 4개 정책 중 첫 번째 정책임을 나타내는 이름은 다음과 같습니다.
+
+`EM01 - ENABLE IN EMERGENCY, MFA Disruption[1/4] - Exchange SharePoint: Require hybrid Azure AD join For VIP users`
+
+
+
+
+
 
 
 ## <a name="plan-policies"></a>정책 계획
@@ -186,7 +200,7 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 |[위험한 로그인](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|사용자가 [Tor 브라우저](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)를 사용하여 ‘앱’에 로그인함|관리자에게 MFA에 대한 메시지가 표시됨| |
 |[디바이스 관리](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|권한 있는 사용자가 권한 있는 디바이스에서 로그인하려고 시도함|액세스 권한 부여됨| |
 |[디바이스 관리](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|권한 있는 사용자가 권한 없는 디바이스에서 로그인하려고 시도함|액세스 차단됨| |
-|[위험한 사용자의 암호 변경](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)|권한 있는 사용자가 손상된 자격 증명을 사용하여 로그인하려고 시도함(높은 위험 로그인)|사용자에게 암호를 변경하라는 메시지가 표시되거나 정책에 따라 액세스가 차단됨| |
+|[위험한 사용자에 대한 암호 변경](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)|권한 있는 사용자가 손상된 자격 증명을 사용하여 로그인하려고 시도함(높은 위험 로그인)|사용자에게 암호를 변경하라는 메시지가 표시되거나 정책에 따라 액세스가 차단됨| |
 
 
 ### <a name="configure-the-policy"></a>정책 구성
@@ -232,7 +246,7 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 
 ## <a name="move-to-production"></a>프로덕션 환경으로 이동
 
-새 정책을 환경에 배포할 준비가 된 경우 단계별로 수행해야 합니다.
+환경에 대한 새 정책이 준비되면 다음과 같은 단계로 배포합니다.
 
 - 최종 사용자에게 내부 변경 통신을 제공합니다.
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: c33952f893d5ef2cfb9020acbf813d30b6c105e7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: d59bc20ea745412f8f2549e0359483d1dd3e608d
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469752"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912785"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -26,7 +26,7 @@ ms.locfileid: "54469752"
 
 다음은 단일 논리 앱 정의에 대한 제한 사항입니다.
 
-| 이름 | 제한 | 메모 | 
+| Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | 워크플로당 작업 | 500 | 이 제한을 확장하려면 필요에 따라 중첩된 워크플로를 추가할 수 있습니다. |
 | 작업에 허용되는 중첩 깊이 | 8 | 이 제한을 확장하려면 필요에 따라 중첩된 워크플로를 추가할 수 있습니다. | 
@@ -48,7 +48,7 @@ ms.locfileid: "54469752"
 
 다음은 단일 논리 앱 실행에 대한 제한 사항입니다.
 
-| 이름 | 제한 | 메모 | 
+| Name | 제한 | 메모 | 
 |------|-------|-------| 
 | 실행 기간 | 90일 | 이 제한을 변경하려면 [실행 기간 변경](#change-duration)을 참조하세요. | 
 | 저장소 보존 | 실행 시작 시간부터 90일 | 이 제한을 7일에서 90일 사이의 값으로 변경하려면 [저장소 보존 변경](#change-retention)을 참조하세요. | 
@@ -83,7 +83,7 @@ ms.locfileid: "54469752"
 
 다음은 단일 논리 앱 실행에 대한 제한 사항입니다.
 
-| 이름 | 제한 | 메모 | 
+| Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | 트리거 동시성 | 동시성을 제한하는 경우 50 | 트리거에 대한 동시성 제어를 설정하면 기본 제한은 25입니다. 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 논리 앱 인스턴스 수를 나타냅니다. <p><p>기본 제한을 1에서 50 사이의 값으로 변경하려면 [트리거 동시성 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) 또는 [순차적으로 인스턴스 트리거](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)를 참조하세요. | 
 | 최대 대기 중인 실행 | 동시성을 제한하는 경우 100 | 트리거에 대한 동시성 제어를 설정하면 기본 제한은 10입니다. 이 제한은 논리 앱에서 최대 동시 인스턴스를 이미 실행 중인 경우 실행되기 까지 기다릴 수 있는 논리 앱 인스턴스의 최대 수를 설명합니다. <p><p>기본 제한을 0에서 100 사이의 값으로 변경하려면 [대기 중인 실행 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)을 참조하세요. | 
@@ -99,7 +99,7 @@ ms.locfileid: "54469752"
 
 다음은 단일 논리 앱 실행에 대한 제한 사항입니다.
 
-| 이름 | 제한 | 메모 | 
+| Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | 작업: 5분당 실행 | 300,000 | 기본 제한은 100,000입니다. 기본 제한을 변경하려면 미리 보기 상태인 ["높은 처리량" 모드에서 논리 앱 실행](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode)을 참조하세요. 또는 필요에 따라 둘 이상의 논리 앱에 워크로드를 배포할 수 있습니다. | 
 | 작업: 나가는 동시 호출 | ~2,500 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축할 수 있습니다. | 
@@ -117,11 +117,11 @@ ms.locfileid: "54469752"
 
 ### <a name="file-size"></a>파일 크기
 
-| 이름 | 제한 | 메모 |
+| Name | 제한 | 메모 |
 |------|-------|-------|
-| FTP | 50MB | 이 제한을 초과하려면 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. 그러나 일부 커넥터 및 API는 청킹 또는 기본 제한을 지원하지 않을 수 있습니다. | 
-| SFTP | 50MB | 이 제한을 초과하려면 [SFTP-SSH 커넥터](../connectors/connectors-sftp-ssh.md)를 사용하거나 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. 그러나 일부 커넥터 및 API는 청킹 또는 기본 제한을 지원하지 않을 수 있습니다. | 
-| SFTP-SSH | 1 GB | 이 커넥터는 최대 1GB를 처리하지만 해당 데이터를 1GB 조각이 아닌 50MB 조각으로 전송합니다. | 
+| FTP | 50MB | 작업에 대해서만 이 제한을 초과하려면 [청크 분할을 사용하여 큰 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. <p>**참고**: 청크 분할은 트리거에 적용되지 않습니다. 또한 일부 커넥터 및 API는 청크 분할 또는 기본 제한을 지원하지 않을 수 있습니다. | 
+| SFTP | 50MB | 작업에 대해서만 이 제한을 초과하려면 [SFTP-SSH 커넥터](../connectors/connectors-sftp-ssh.md)를 사용하거나 [청크 분할을 사용하여 큰 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. <p>**참고**: 청크 분할은 트리거에 적용되지 않습니다. 또한 일부 커넥터 및 API는 청크 분할 또는 기본 제한을 지원하지 않을 수 있습니다. | 
+| SFTP-SSH | 1 GB | 이 커넥터는 최대 1GB를 처리하지만 해당 데이터를 1GB 조각이 아닌 50MB 조각으로 전송합니다. 작업에 대해서만 이 제한을 초과하려면 [청크 분할을 사용하여 큰 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. <p>**참고**: 청크 분할은 트리거에 적용되지 않습니다. | 
 |||| 
 
 <a name="request-limits"></a>
@@ -134,7 +134,7 @@ ms.locfileid: "54469752"
 
 일부 커넥터 작업은 비동기 호출을 하거나 웹후크 요청을 수신하므로 이 작업에 대한 시간 제한이 이 제한보다 길 수 있습니다. 자세한 내용은 특정 커넥터에 대한 기술 정보 및 [워크플로 트리거 및 작업](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)을 참조하세요.
 
-| 이름 | 제한 | 메모 | 
+| Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | 나가는 요청 | 120초 | 더 오래 걸리는 작업의 경우, [비동기 폴링 패턴](../logic-apps/logic-apps-create-api-app.md#async-pattern) 또는 [until 루프](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action)를 사용합니다. | 
 | 동기 응답 | 120초 | 원래 요청에서 응답을 받으려면 다른 논리 앱을 중첩된 워크플로로 호출하지 않는 한 응답의 모든 단계가 한도 내에서 완료되어야 합니다. 자세한 내용은 [논리 앱 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조하세요. | 
@@ -142,7 +142,7 @@ ms.locfileid: "54469752"
 
 #### <a name="message-size"></a>메시지 크기
 
-| 이름 | 제한 | 메모 | 
+| Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | 메시지 크기 | 100 MB | 이 제한을 해결하려면 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. 그러나 일부 커넥터 및 API는 청킹 또는 기본 제한을 지원하지 않을 수 있습니다. | 
 | 청킹이 있는 메시지 크기 | 1 GB | 이 제한은 기본적으로 청크 분할을 지원하거나 런타임 구성에서 청크 분할을 사용하도록 설정하는 작업에 적용됩니다. 자세한 내용은 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. | 
@@ -151,7 +151,7 @@ ms.locfileid: "54469752"
 
 #### <a name="retry-policy"></a>다시 시도 정책
 
-| 이름 | 제한 | 메모 | 
+| Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | 다시 시도 횟수 | 90 | 기본값은 4입니다. 기본값을 변경하려면 [정책 매개 변수 재시도](../logic-apps/logic-apps-workflow-actions-triggers.md)를 사용합니다. | 
 | 재시도 최대 지연 시간 | 1일 | 기본값을 변경하려면 [정책 매개 변수 재시도](../logic-apps/logic-apps-workflow-actions-triggers.md)를 사용합니다. | 
@@ -164,7 +164,7 @@ ms.locfileid: "54469752"
 
 다음은 웹 API에서 만들 수 있는 사용자 지정 커넥터에 대한 제한 사항입니다.
 
-| 이름 | 제한 | 
+| Name | 제한 | 
 | ---- | ----- | 
 | 사용자 지정 커넥터 수 | Azure 구독당 1,000개 | 
 | 사용자 지정 커넥터에서 만든 각 연결에 대한 분당 요청 수 | 연결당 500개의 요청 |
@@ -174,7 +174,7 @@ ms.locfileid: "54469752"
 
 ## <a name="managed-identities"></a>관리 ID
 
-| 이름 | 제한 | 
+| Name | 제한 | 
 | ---- | ----- | 
 | 시스템 할당 관리 ID가 있는 논리 앱의 수/Azure 구독 | 10 | 
 |||
@@ -234,7 +234,7 @@ ms.locfileid: "54469752"
 
 ### <a name="artifact-capacity-limits"></a>아티팩트 용량 제한
 
-| 이름 | 제한 | 메모 | 
+| Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | 스키마 | 8MB | 2MB보다 큰 파일을 업로드하려면 [blob URI](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 사용합니다. | 
 | 맵(XSLT 파일) | 2MB | | 
@@ -250,7 +250,7 @@ ms.locfileid: "54469752"
 
 다음은 B2B 프로토콜에 적용되는 제한 사항입니다.
 
-| 이름 | 제한 | 메모 | 
+| Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | AS2 | 50MB | 디코딩 및 인코딩에 적용됩니다. | 
 | X12 | 50MB | 디코딩 및 인코딩에 적용됩니다. | 

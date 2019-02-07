@@ -1,13 +1,13 @@
 ---
 title: Azure AD v2.0 UWP 시작 | Microsoft Docs
-description: UWP(유니버설 Windows 플랫폼) 애플리케이션이 Azure Active Directory v2.0 엔드포인트로 보호되는 액세스 토큰을 필요로 하는 API를 호출하는 방식
+description: UWP(유니버설 Windows 플랫폼) 응용 프로그램이 Azure Active Directory v2.0 엔드포인트로 보호되는 액세스 토큰을 필요로 하는 API를 호출하는 방식
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 4ba4e844ed6bb01204b7a0adf5020aec255147dd
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a0c2d13b2ac6715db047d56e998294688d9b65cf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986545"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097064"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>유니버설 Windows 플랫폼 애플리케이션(XAML)에서 Microsoft Graph API 호출
 
@@ -29,7 +29,7 @@ ms.locfileid: "49986545"
 
 이 가이드에서는 네이티브 UWP(유니버설 Windows 플랫폼) 애플리케이션이 액세스 토큰을 요청한 다음, Microsoft Graph API를 호출하는 방법을 설명합니다. 이 가이드는 Azure Active Directory v2.0 엔드포인트에서 액세스 토큰을 필요로 하는 다른 API에도 적용됩니다.
 
-이 가이드의 끝에서 애플리케이션은 개인 계정을 사용하여 보호된 API를 호출합니다. outlook.com, live.com 및 기타를 예로 듭니다. 또한 애플리케이션은 Azure Active Directory가 있는 모든 회사 또는 조직의 회사 및 학교 계정을 호출합니다.
+이 가이드의 끝에서 애플리케이션은 개인 계정을 사용하여 보호된 API를 호출합니다. outlook.com, live.com 및 기타를 예로 듭니다. 또한 응용 프로그램은 Azure Active Directory가 있는 모든 회사 또는 조직의 회사 및 학교 계정을 호출합니다.
 
 >[!NOTE]
 > 이 가이드는 유니버설 Windows 플랫폼 개발을 설치한 Visual Studio 2017을 필요로 합니다. 유니버설 Windows 플랫폼 앱을 개발하기 위해 Visual Studio를 다운로드하고 구성하는 지침은 [설정](https://docs.microsoft.com/windows/uwp/get-started/get-set-up)을 참조하세요.
@@ -38,7 +38,7 @@ ms.locfileid: "49986545"
 
 ![이 가이드에서 그래프를 작동하는 방법](./media/tutorial-v2-windows-uwp/uwp-intro.png)
 
-이 가이드는 Azure Active Directory v2.0 엔드포인트에서 토큰을 수락하는 Microsoft Graph API 또는 Web API를 쿼리하는 샘플 UWP 애플리케이션을 만듭니다. 이 시나리오에서는 토큰은 권한 부여 헤더를 통해 HTTP 요청에 추가됩니다. MSAL(Microsoft 인증 라이브러리)에서는 토큰 획득 및 갱신을 처리합니다.
+이 가이드는 Azure Active Directory v2.0 엔드포인트에서 토큰을 수락하는 Microsoft Graph API 또는 Web API를 쿼리하는 샘플 UWP 응용 프로그램을 만듭니다. 이 시나리오에서는 토큰은 권한 부여 헤더를 통해 HTTP 요청에 추가됩니다. MSAL(Microsoft 인증 라이브러리)에서는 토큰 획득 및 갱신을 처리합니다.
 
 ## <a name="nuget-packages"></a>NuGet 패키지
 
@@ -50,7 +50,7 @@ ms.locfileid: "49986545"
 
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
-이 섹션에서는 *Microsoft에 로그인*과 Windows Desktop .NET 애플리케이션(XAML)을 통합하는 단계별 지침을 제공합니다. 그런 다음, Microsoft Graph API와 같은 토큰을 필요로 하는 웹 API를 쿼리할 수 있습니다.
+이 섹션에서는 *Microsoft에 로그인*과 Windows Desktop .NET 응용 프로그램(XAML)을 통합하는 단계별 지침을 제공합니다. 그런 다음, Microsoft Graph API와 같은 토큰을 필요로 하는 웹 API를 쿼리할 수 있습니다.
 
 이 가이드는 Graph API, 로그 아웃 단추 및 호출의 결과를 표시하는 텍스트 상자를 쿼리하는 단추를 표시하는 애플리케이션을 만듭니다.
 
@@ -202,11 +202,11 @@ ms.locfileid: "49986545"
 
 결국 `AcquireTokenSilentAsync` 메서드가 실패합니다. 사용자가 로그아웃했거나 다른 디바이스에서 해당 암호를 변경하면 실패할 수 있습니다. MSAL이 대화형 작업을 요구해 이 문제를 해결할 수 있다고 감지하면 `MsalUiRequiredException` 예외를 발생합니다. 애플리케이션에서는 이러한 예외를 다음 두 가지 방법으로 처리할 수 있습니다.
 
-* 즉시 `AcquireTokenAsync`에 대해 호출할 수 있습니다. 이 호출로 인해 사용자에게 로그인하라는 메시지가 표시됩니다. 일반적으로 이 패턴은 사용자가 사용할 수 있는 오프라인 콘텐츠가 없는 온라인 애플리케이션에서 사용됩니다. 이 설정 안내에서 생성하는 샘플은 패턴을 따릅니다. 샘플을 처음으로 실행할 때 작업에 표시됩니다. 
+* 즉시 `AcquireTokenAsync`에 대해 호출할 수 있습니다. 이 호출로 인해 사용자에게 로그인하라는 메시지가 표시됩니다. 일반적으로 이 패턴은 사용자가 사용할 수 있는 오프라인 콘텐츠가 없는 온라인 응용 프로그램에서 사용됩니다. 이 설정 안내에서 생성하는 샘플은 패턴을 따릅니다. 샘플을 처음으로 실행할 때 작업에 표시됩니다. 
     * 이 애플리케이션을 사용한 사용자가 없기 때문에 `PublicClientApp.Users.FirstOrDefault()`에는 null 값이 포함되며 `MsalUiRequiredException` 예외가 throw됩니다.
     * 그런 다음, 샘플의 코드는 `AcquireTokenAsync`를 호출하여 예외를 처리합니다. 이 호출로 인해 사용자에게 로그인하라는 메시지가 표시됩니다.
 
-* 또는 대신 대화형 로그인이 필요한 사용자에게 시각적 표시를 제공합니다. 그런 다음, 로그인할 적절한 시기를 선택할 수 있습니다. 또는 애플리케이션이 나중에 `AcquireTokenSilentAsync`를 다시 시도할 수 있습니다. 사용자가 중단 없이 다른 애플리케이션 기능을 사용할 수 있는 경우에 이 패턴이 종종 사용됩니다. 예제로 애플리케이션에서 오프라인 콘텐츠를 사용할 수 있는 경우입니다. 이 경우에 사용자는 보호된 리소스에 액세스하거나, 오래된 정보를 새로 고치기 위해 로그인하는 시점을 결정할 수 있습니다. 또는 네트워크가 일시적으로 사용할 수 없게 된 후에 복원된 경우 애플리케이션이 `AcquireTokenSilentAsync`를 다시 시도하도록 결정할 수 있습니다.
+* 또는 대신 대화형 로그인이 필요한 사용자에게 시각적 표시를 제공합니다. 그런 다음, 로그인할 적절한 시기를 선택할 수 있습니다. 또는 애플리케이션이 나중에 `AcquireTokenSilentAsync`를 다시 시도할 수 있습니다. 사용자가 중단 없이 다른 응용 프로그램 기능을 사용할 수 있는 경우에 이 패턴이 종종 사용됩니다. 예제로 응용 프로그램에서 오프라인 콘텐츠를 사용할 수 있는 경우입니다. 이 경우에 사용자는 보호된 리소스에 액세스하거나, 오래된 정보를 새로 고치기 위해 로그인하는 시점을 결정할 수 있습니다. 또는 네트워크가 일시적으로 사용할 수 없게 된 후에 복원된 경우 응용 프로그램이 `AcquireTokenSilentAsync`를 다시 시도하도록 결정할 수 있습니다.
 
 ## <a name="call-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>방금 가져온 토큰을 사용하여 Microsoft Graph API를 호출합니다.
 
@@ -241,7 +241,7 @@ ms.locfileid: "49986545"
 
 ### <a name="more-information-on-making-a-rest-call-against-a-protected-api"></a>보호되는 API에 대한 REST 호출에 관한 추가 정보
 
-이 샘플 애플리케이션에서 `GetHttpContentWithToken` 메서드는 토큰이 필요한 보호되는 리소스에 대한 HTTP `GET` 요청을 실행하는 데 사용됩니다. 그런 다음, 메서드는 호출자에게 콘텐츠를 반환합니다. 이 메서드는 **HTTP 인증** 헤더에 획득된 토큰을 추가합니다. 이 샘플에서 리소스는 사용자 프로필 정보를 표시하는 Microsoft Graph API **me** 엔드포인트입니다.
+이 샘플 응용 프로그램에서 `GetHttpContentWithToken` 메서드는 토큰이 필요한 보호되는 리소스에 대한 HTTP `GET` 요청을 실행하는 데 사용됩니다. 그런 다음, 메서드는 호출자에게 콘텐츠를 반환합니다. 이 메서드는 **HTTP 인증** 헤더에 획득된 토큰을 추가합니다. 이 샘플에서 리소스는 사용자 프로필 정보를 표시하는 Microsoft Graph API **me** 엔드포인트입니다.
 <!--end-collapse-->
 
 ## <a name="add-a-method-to-sign-out-the-user"></a>사용자를 로그아웃하는 메서드 추가
@@ -274,7 +274,7 @@ ms.locfileid: "49986545"
 ### <a name="more-information-on-sign-out"></a>로그아웃에 대한 자세한 정보
 
 `SignOutButton_Click` 메서드는 MSAL 사용자 캐시에서 사용자를 제거합니다. 이 메서드는 현재 사용자를 잊도록 MSAL에 효과적으로 지시합니다. 그런 다음, 대화형이 되도록 하는 경우에만 토큰을 획득하는 후속 요청이 성공합니다.
-이 샘플의 애플리케이션은 단일 사용자를 지원합니다. 그러나 MSAL은 둘 이상의 계정이 동시에 로그인할 수 있는 시나리오를 지원합니다. 사용자 한 명이 여러 계정을 가질 수 있는 이메일 애플리케이션을 예로 듭니다.
+이 샘플의 애플리케이션은 단일 사용자를 지원합니다. 그러나 MSAL은 둘 이상의 계정이 동시에 로그인할 수 있는 시나리오를 지원합니다. 사용자 한 명이 여러 계정을 가질 수 있는 이메일 응용 프로그램을 예로 듭니다.
 
 ## <a name="display-basic-token-information"></a>기본 토큰 정보 표시
 
@@ -303,7 +303,7 @@ ms.locfileid: "49986545"
 
 ## <a name="register-your-application"></a>애플리케이션 등록
 
-이제 Microsoft 애플리케이션 등록 포털에서 애플리케이션을 등록해야 합니다.
+이제 Microsoft 응용 프로그램 등록 포털에서 등용 프로그램을 등록해야 합니다.
 1. [Microsoft 응용 프로그램 등록 포털](https://apps.dev.microsoft.com/portal/register-app)로 이동하여 응용 프로그램을 등록합니다.
 2. 애플리케이션의 이름을 입력합니다.
 3. **안내식 설정** 옵션이 *선택 취소*되어 있는지 확인합니다.
@@ -316,7 +316,7 @@ ms.locfileid: "49986545"
 
 ## <a name="enable-integrated-authentication-on-federated-domains-optional"></a>페더레이션된 도메인에서 통합된 인증을 사용하도록 설정(선택 사항)
 
-페더레이션된 Azure Active Directory 도메인과 함께 사용할 경우 Windows 통합 인증을 사용하려면 애플리케이션 매니페스트가 추가 기능을 사용하도록 설정해야 합니다.
+페더레이션된 Azure Active Directory 도메인과 함께 사용할 경우 Windows 통합 인증을 사용하려면 응용 프로그램 매니페스트가 추가 기능을 사용하도록 설정해야 합니다.
 
 1. **Package.appxmanifest**를 두 번 클릭합니다.
 2. **기능** 탭을 선택하고 다음 설정이 사용하도록 설정되어 있는지 확인합니다.
@@ -336,7 +336,7 @@ ms.locfileid: "49986545"
 
 ## <a name="test-your-code"></a>코드 테스트
 
-애플리케이션을 테스트하려면 F5 키를 선택하여 Visual Studio에서 프로젝트를 실행합니다. 아래와 같이 주 창이 표시됩니다.
+응용 프로그램을 테스트하려면 F5 키를 선택하여 Visual Studio에서 프로젝트를 실행합니다. 아래와 같이 주 창이 표시됩니다.
 
 ![애플리케이션의 사용자 인터페이스](./media/tutorial-v2-windows-uwp/testapp-ui.png)
 
@@ -345,7 +345,7 @@ ms.locfileid: "49986545"
 ![로그인 페이지](./media/tutorial-v2-windows-uwp/sign-in-page.png)
 
 ### <a name="consent"></a>동의
-애플리케이션에 처음으로 로그인하면 다음과 유사한 동의 화면이 표시됩니다. 액세스하려면 **예**를 선택하여 명시적으로 동의합니다.
+응용 프로그램에 처음으로 로그인하면 다음과 유사한 동의 화면이 표시됩니다. 액세스하려면 **예**를 선택하여 명시적으로 동의합니다.
 
 ![액세스 동의 화면](./media/tutorial-v2-windows-uwp/consentscreen.png)
 ### <a name="expected-results"></a>예상 결과
@@ -359,7 +359,7 @@ ms.locfileid: "49986545"
 |---------|---------|---------|
 |**Name** |사용자의 전체 이름|사용자의 이름과 성입니다.|
 |**사용자 이름** |<span>user@domain.com</span> |사용자를 식별하는 사용자 이름입니다.|
-|**토큰 만료** |Datetime |토큰이 만료되는 시간입니다. MSAL은 필요에 따라 토큰을 갱신하여 만료 날짜를 연장합니다.|
+|**토큰 만료** |DateTime |토큰이 만료되는 시간입니다. MSAL은 필요에 따라 토큰을 갱신하여 만료 날짜를 연장합니다.|
 |**액세스 토큰** |문자열 |*인증 헤더*가 필요한 HTTP 요청으로 전송된 토큰 문자열|
 
 #### <a name="see-whats-in-the-access-token-optional"></a>액세스 토큰 내용 확인(선택 사항)
@@ -377,19 +377,19 @@ Microsoft Graph API는 *user.read* 범위가 있어야만 사용자 프로필을
 ## <a name="known-issues"></a>알려진 문제
 
 ### <a name="issue-1"></a>문제 1
-페더레이션된 Azure Active Directory 도메인에서 애플리케이션에 로그인할 때 다음 오류 중 하나가 나타납니다.
+페더레이션된 Azure Active Directory 도메인에서 응용 프로그램에 로그인할 때 다음 오류 중 하나가 나타납니다.
  - 요청에서 유효한 클라이언트 인증서를 찾을 수 없습니다.
  - 사용자의 인증서 저장소에서 유효한 인증서를 찾을 수 없습니다.
  - 다른 인증 방법을 다시 선택하십시오.
 
 **원인:** 엔터프라이즈 및 인증서 기능을 사용할 수 없습니다.
 
-**솔루션:** [페더레이션된 도메인에서 통합 인증](#enable-integrated-authentication-on-federated-domains-optional)의 단계를 따릅니다.
+**해결 방법:** [페더레이션된 도메인에서 통합된 인증](#enable-integrated-authentication-on-federated-domains-optional)의 단계를 따릅니다.
 
 ### <a name="issue-2"></a>문제 2
 [페더레이션된 도메인에서 통합된 인증](#enable-integrated-authentication-on-federated-domains-optional)을 활성화하고 Windows 10 컴퓨터에서 Windows Hello를 사용하여 다단계 인증이 구성된 환경에 로그인하려고 합니다. 인증서 목록이 표시됩니다. 그러나 사용자의 PIN을 사용하도록 선택한 경우 PIN 창이 표시되지 않습니다.
 
-**원인:** 이 문제는 Windows 10 데스크톱에서 실행되는 UWP 응용 프로그램에서 웹 인증 브로커의 알려진 제한 사항입니다. Windows 10 Mobile에서 제대로 작동합니다.
+**원인:** 이 문제는 Windows 10 데스크톱에서 실행되는 UWP 애플리케이션의 웹 인증 broker에 대해 알려진 제한 사항입니다. Windows 10 Mobile에서 제대로 작동합니다.
 
 **해결 방법:** **기타 옵션으로 로그인**을 선택합니다. 그런 다음, **사용자 이름과 암호로 로그인**을 선택합니다. **암호 제공**을 선택합니다. 그런 다음, 전화 인증 프로세스로 진행합니다.
 

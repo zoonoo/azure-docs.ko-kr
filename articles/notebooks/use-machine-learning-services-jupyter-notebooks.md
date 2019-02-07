@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: b6d3cbd56182b8dba3738f38798efa378c6b49d0
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: bdfc9b3e981a1b88fbae7805785d9bb4c823bccb
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254829"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55074465"
 ---
-# <a name="use-azure-machine-learning-services-in-a-notebook"></a>노트북에서 Azure Machine Learning Services 사용
+# <a name="use-azure-machine-learning-service-in-a-notebook"></a>Notebook에서 Azure Machine Learning Service 사용
 
-Azure Notebooks는 [Azure Machine Learning Services](/azure/machine-learning/service/)에서 작동하는 데 필요한 환경으로 사전 구성되어 있습니다. 샘플 프로젝트를 Notebooks 계정에 쉽게 복제하여 다양한 Machine Learning 시나리오를 살펴볼 수 있습니다.
+Azure Notebooks는 [Azure Machine Learning Service](/azure/machine-learning/service/)에서 사용하는 데 필요한 환경으로 미리 구성되어 있습니다. 샘플 프로젝트를 Notebooks 계정에 쉽게 복제하여 다양한 Machine Learning 시나리오를 살펴볼 수 있습니다.
 
 ## <a name="clone-the-sample-into-your-account"></a>사용자 계정에 샘플 복제
 
 1. [Azure Notebooks](https://notebooks.azure.com/)에 로그인합니다.
 1. **내 프로젝트**를 선택하여 프로젝트 대시보드로 이동합니다.
 1. **GitHub 리포지토리 업로드**(위쪽 화살표) 단추를 선택하여 **GitHub 리포지토리 업로드** 팝업을 엽니다.
-1. 팝업에서 **GitHub 리포지토리**에 `Azure/MachineLearningNotebooks`를 입력하고 **프로젝트 이름**에 “Azure ML 서비스”와 같은 프로젝트 이름을 입력하고, **프로젝트 ID**에 식별자를 입력하고, 원하는 경우 **공용**을 선택 취소한 다음, **가져오기**를 선택합니다.
+1. 팝업에서 **GitHub 리포지토리**에는 `Azure/MachineLearningNotebooks`, **프로젝트 이름**에는 "Azure Machine Learning Service"와 같은 프로젝트 이름, **프로젝트 ID**에는 식별자를 입력하고, 원하는 경우 **공용**을 선택 취소한 다음, **가져오기**를 선택합니다.
 
     ![Notebooks 계정으로 Azure Machine Learning Notebook 샘플 가져오기](media/azureml-import-project.png)
 

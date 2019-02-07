@@ -5,13 +5,13 @@ author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/20/2018
-ms.openlocfilehash: b7c1f873d47be0f2ec0125f769a47a399e492662
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/24/2019
+ms.openlocfilehash: bbb48708d0e5a7cd07a3971a6966f40696107562
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536154"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095098"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql"></a>Azure Database for PostgreSQL용 Advanced Threat Protection
 
@@ -22,6 +22,9 @@ Advanced Threat Detection은 고급 보안 기능용 통합 패키지인 Advance
 > [!NOTE]
 > 다음 Azure Government 및 소버린 클라우드 지역에서는 Advanced Threat Protection 기능을 사용할 수 **없습니다**. US Gov 텍사스, US Gov 애리조나, US Gov 아이오와, US Gov 버지니아, US DoD 동부, US DoD 중부, 독일 중부, 독일 북부, 중국 동부, 중국 동부 2. 전반적인 제품 사용 가능성을 확인하려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 참조하세요.
 >
+
+> [!NOTE]
+> 이 기능은 Azure Database for PostgreSQL이 범용 및 메모리 최적화 서버용으로 배포된 모든 Azure 지역에서 사용할 수 있습니다.
 
 ## <a name="set-up-threat-detection"></a>위협 감지 설정
 1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal을 시작합니다.
@@ -55,7 +58,7 @@ Advanced Threat Protection의 경고는 [Azure Security Center](https://azure.mi
 
 **Threat Protection** 아래에서 **보안 경고**를 클릭하여 Azure Security Center 경고 페이지를 시작한 다음 데이터베이스에서 검색된 활성 SQL 위협의 개요를 확인합니다.
 
-  ![Threat Protection(ASC)](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
+  ![위협 보호 asc](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
 
 ## <a name="next-steps"></a>다음 단계
 

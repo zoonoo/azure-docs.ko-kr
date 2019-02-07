@@ -3,7 +3,7 @@ title: Azure 인프라 연습 예제 | Microsoft Docs
 description: Azure에서 인프라 예제를 배포하기 위한 핵심 디자인 및 구현 지침에 대해 알아봅니다.
 documentationcenter: ''
 services: virtual-machines-linux
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 794182e3988a353b1e305a36da0475bacdea69b8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: d4b8cd07e50697139f68084f47c847ef8728c429
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469853"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888963"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Linux VM에 대한 Azure 인프라 연습 예제
 이 문서에서는 예제 애플리케이션 인프라를 구축하는 과정을 안내합니다. 명명 규칙, 가용성 집합, 가상 네트워크 및 부하 분산 장치에 대한 모든 지침 및 결정 사항을 함께 제공하는 간단한 온라인 스토어용 인프라의 설계와 VM(가상 머신)의 실제 배포를 자세히 다룹니다.
@@ -64,7 +64,7 @@ Adventure Works Cycles는 이 IT 작업에 대한 청구를 제공하기 위해 
 ## <a name="storage"></a>Storage
 Adventure Works Cycles에서는 Azure Managed Disks를 사용해야 한다고 결정했습니다. VM을 만들 때 사용 가능한 두 저장소 계층이 모두 사용됩니다.
 
-* **표준 저장소** - 웹 서버, 응용 프로그램 서버 및 도메인 컨트롤러와 해당 데이터 디스크의 경우
+* **Standard Storage** - 웹 서버, 애플리케이션 서버 및 도메인 컨트롤러와 해당 데이터 디스크
 * **Premium storage** - MongoDB가 분할된 클러스터 서버 및 해당 데이터 디스크의 경우
 
 ## <a name="virtual-network-and-subnets"></a>가상 네트워크 및 서브넷
@@ -73,20 +73,20 @@ Adventure Works Cycles에서는 Azure Managed Disks를 사용해야 한다고 �
 Azure 포털을 사용하여 다음 설정을 포함한 클라우드 전용 가상 네트워크를 만들 수 있습니다.
 
 * 이름: AZOS-USE-VN01
-* 위치: East US 2
+* 위치: 미국 동부 2
 * 가상 네트워크 주소 공간: 10.0.0.0/8
 * 첫 번째 서브넷:
   * 이름: FrontEnd
-  * 주소 공간: 10.0.1.0/24
+  * 주소 공간 10.0.1.0/24
 * 두 번째 서브넷:
   * 이름: BackEnd
-  * 주소 공간: 10.0.2.0/24
+  * 주소 공간 10.0.2.0/24
 
 ## <a name="availability-sets"></a>가용성 집합
 온라인 스토어의 모든 네 개 계층의 고가용성을 유지하기 위해 Adventure Works Cycles는 다음과 같은 네 개의 가용성 집합으로 결정했습니다.
 
 * **azos-use-as-web** 
-* **azos-use-as-app** 
+* 애플리케이션 서버용 **azos-use-as-app**
 * **azos-use-as-db** 
 * **azos-use-as-dc** 
 
@@ -95,8 +95,8 @@ Adventure Works Cycles는 Azure VM에 대해 다음 이름을 결정했습니다
 
 * **azos-use-vm-web01** 
 * **azos-use-vm-web02** 
-* **azos-use-vm-app01** 
-* **azos-use-vm-app02** 
+* 첫 번째 애플리케이션 서버용 **azos-use-vm-app01**
+* 두 번째 애플리케이션 서버용 **azos-use-vm-app02**
 * **azos-use-vm-db01** 
 * **azos-use-vm-db02** 
 * **azos-use-vm-dc01** 

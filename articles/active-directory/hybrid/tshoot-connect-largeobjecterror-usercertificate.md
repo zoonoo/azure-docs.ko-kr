@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5361b93d24c66ef6ccb2f117e6e3a68de4c5f459
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e0d5e466da8804e89ffecd38dd2db6e37a3cb334
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195607"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663641"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect 동기화: userCertificate 특성으로 인한 LargeObject 오류 처리
 
@@ -33,7 +33,7 @@ Azure AD는 **userCertificate** 특성에서 인증서 값에 대해 최대 **15
 
 LargeObject 오류가 있는 테넌트에서 개체 목록을 얻으려면 다음 방법 중 하나를 사용합니다.
 
- * 테넌트가 Azure AD Connect Health에서 동기화되도록 설정되어 있는 경우 제공된 [동기화 오류 보고서](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync#object-level-synchronization-error-report-preview)를 참조할 수 있습니다.
+ * 테넌트가 Azure AD Connect Health에서 동기화되도록 설정되어 있는 경우 제공된 [동기화 오류 보고서](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync)를 참조할 수 있습니다.
  
  * 각 동기화 주기가 끝날 때 전송되는 디렉터리 동기화 오류에 대한 알림 메일에는 LargeObject 오류가 있는 개체 목록이 포함됩니다. 
  * Azure AD에 마지막으로 내보내기 작업을 클릭하면 [Synchronization Service Manager Operations 탭](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations)에 LargeObject 오류가 있는 개체 목록이 표시됩니다.

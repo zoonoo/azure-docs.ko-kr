@@ -13,23 +13,26 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 0ba4a1a4119db515e10c0b704b0a10501fe79682
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0a4be349bfd8ce546ee2a27c206a7bd86306c27a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136892"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493567"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager 요청 제한
+
 각 Azure 구독 및 테넌트에 대해 Resource Manager는 시간당 최대 12,000개 읽기 요청과 1,200개 쓰기 요청을 허용합니다. 이러한 제한의 범위는 요청을 하는 보안 주체 ID 및 구독 ID나 테넌트 ID의 범위로 설정됩니다. 둘 이상의 보안 주체 ID가 요청을 하는 경우 구독 또는 테넌트 전체에 적용되는 제한이 시간당 12,000개/1,200개보다 커집니다.
 
 요청은 구독 또는 테넌트에 적용됩니다. 구독 요청은 구독 내의 리소스 그룹 검색과 같이 구독 ID가 전달되는 요청입니다. 유효한 Azure 위치 검색 등의 테넌트 요청에는 구독 ID가 포함되지 않습니다.
 
 이러한 한도는 각 Azure Resource Manager 인스턴스에 적용됩니다. 모든 Azure 지역에 여러 인스턴스가 있으며 Azure Resource Manager가 모든 Azure 지역에 배포됩니다.  따라서 사용자 요청이 일반적으로 다수의 많은 인스턴스에서 서비스되기 때문에 실제 한도는 이러한 한도보다 훨씬 더 높습니다.
 
-응용 프로그램 또는 스크립트가 이러한 한도에 도달하면 요청을 제한해야 합니다. 이 문서에서는 한도에 도달하기 전에 남은 요청을 확인하는 방법과 한도에 도달했을 때 응답하는 방법을 보여줍니다.
+애플리케이션 또는 스크립트가 이러한 한도에 도달하면 요청을 제한해야 합니다. 이 문서에서는 한도에 도달하기 전에 남은 요청을 확인하는 방법과 한도에 도달했을 때 응답하는 방법을 보여줍니다.
 
 한도에 도달하면 HTTP 상태 코드 **429 너무 많은 요청**이 표시됩니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="remaining-requests"></a>나머지 요청
 응답 헤더를 검사하여 나머지 요청 수를 확인할 수 있습니다. 각 요청은 나머지 읽기 및 쓰기 요청 수에 대한 값을 포함합니다. 다음 표에서는 해당 값을 검사할 수 있는 응답 헤더를 설명합니다.
@@ -66,7 +69,7 @@ $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
 디버깅을 위해 남은 요청 수를 확인하려는 경우 **PowerShell** cmdlet에 **-Debug** 매개 변수를 제공할 수 있습니다.
 
 ```powershell
-Get-AzureRmResourceGroup -Debug
+Get-AzResourceGroup -Debug
 ```
 
 그러면 다음 응답 값을 포함한 많은 값이 반환됩니다.
@@ -85,7 +88,7 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 쓰기 제한을 가져오려면 쓰기 작업을 사용합니다. 
 
 ```powershell
-New-AzureRmResourceGroup -Name myresourcegroup -Location westus -Debug
+New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 ```
 
 그러면 다음 값을 포함하는 많은 값이 반환됩니다.
@@ -141,7 +144,7 @@ msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 ```
 
 ## <a name="waiting-before-sending-next-request"></a>다음 요청을 보낼 때까지 대기
-요청 제한에 도달하면 Resource Manager는 헤더에서 **429** HTTP 상태 코드 및 **Retry-After** 값을 반환합니다. **Retry-After** 값은 응용 프로그램이 다음 요청을 보낼 때까지 대기(또는 절전)하는 시간(초)을 지정합니다. 재시도 값이 경과하기 전에 요청을 보내면 요청이 처리되지 않고 새 재시도 값이 반환됩니다.
+요청 제한에 도달하면 Resource Manager는 헤더에서 **429** HTTP 상태 코드 및 **Retry-After** 값을 반환합니다. **Retry-After** 값은 애플리케이션이 다음 요청을 보낼 때까지 대기(또는 절전)하는 시간(초)을 지정합니다. 재시도 값이 경과하기 전에 요청을 보내면 요청이 처리되지 않고 새 재시도 값이 반환됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

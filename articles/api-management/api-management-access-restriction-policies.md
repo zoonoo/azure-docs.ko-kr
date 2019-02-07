@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 10023d34a245f9493cfe244882dbdc1351a78513
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 59562d0571486a4bcbc96be4cb7dcddb4dfb0a44
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447217"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095722"
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management 액세스 제한 정책
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](https://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
@@ -56,19 +56,19 @@ ms.locfileid: "52447217"
   
 ### <a name="elements"></a>요소  
   
-|이름|설명|필수|  
+|Name|설명|필수|  
 |----------|-----------------|--------------|  
-|check-header|루트 요소입니다.|yes|  
+|check-header|루트 요소입니다.|예|  
 |값|허용된 HTTP 헤더 값입니다. 여러 값 요소가 지정된 경우 값 중 하나와 일치하면 확인에 성공한 것으로 간주됩니다.|아니요|  
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|Name|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
-|failed-check-error-message|헤더가 없거나 잘못된 값이 있는 경우 HTTP 응답 본문에 반환할 오류 메시지입니다. 이 메시지는 적절히 이스케이프된 특수 문자를 포함해야 합니다.|yes|해당 없음|  
-|failed-check-httpcode|헤더가 없거나 잘못된 값이 있는 경우 반환할 HTTP 상태 코드입니다.|yes|해당 없음|  
-|header-name|확인할 HTTP 헤더의 이름입니다.|yes|해당 없음|  
-|ignore-case|True 또는 False로 설정할 수 있습니다. True로 설정되면 헤더 값을 허용 가능한 값 집합과 비교할 때 대소문자가 무시됩니다.|yes|해당 없음|  
+|failed-check-error-message|헤더가 없거나 잘못된 값이 있는 경우 HTTP 응답 본문에 반환할 오류 메시지입니다. 이 메시지는 적절히 이스케이프된 특수 문자를 포함해야 합니다.|예|해당 없음|  
+|failed-check-httpcode|헤더가 없거나 잘못된 값이 있는 경우 반환할 HTTP 상태 코드입니다.|예|해당 없음|  
+|header-name|확인할 HTTP 헤더의 이름입니다.|예|해당 없음|  
+|ignore-case|True 또는 False로 설정할 수 있습니다. True로 설정되면 헤더 값을 허용 가능한 값 집합과 비교할 때 대소문자가 무시됩니다.|예|해당 없음|  
   
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
@@ -111,19 +111,19 @@ ms.locfileid: "52447217"
   
 ### <a name="elements"></a>요소  
   
-|이름|설명|필수|  
+|Name|설명|필수|  
 |----------|-----------------|--------------|  
-|set-limit|루트 요소입니다.|yes|  
+|set-limit|루트 요소입니다.|예|  
 |api|제품 내에서 API에 호출 속도 제한을 적용하려면 이러한 요소 중 하나 이상을 추가합니다. 제품 및 API 호출 속도 제한은 독립적으로 적용됩니다. API는 `name` 또는 `id`를 통해 참조할 수 있습니다. 두 특성이 모두 제공되면 `id`는 사용되지만 `name`은 무시됩니다.|아니요|  
 |operation|API 내에서 작업에 호출 속도 제한을 적용하려면 이러한 요소 중 하나 이상을 추가합니다. 제품, API 및 작업 호출 속도 제한은 독립적으로 적용됩니다. 작업은 `name` 또는 `id`를 통해 참조할 수 있습니다. 두 특성이 모두 제공되면 `id`는 사용되지만 `name`은 무시됩니다.|아니요|  
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|Name|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
-|이름|속도 제한을 적용할 API의 이름입니다.|yes|해당 없음|  
-|calls|`renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다.|yes|해당 없음|  
-|renewal-period|할당량이 재설정되는 초 단위의 기간입니다.|yes|해당 없음|  
+|이름|속도 제한을 적용할 API의 이름입니다.|예|해당 없음|  
+|calls|`renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다.|예|해당 없음|  
+|renewal-period|할당량이 재설정되는 초 단위의 기간입니다.|예|해당 없음|  
   
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
@@ -171,18 +171,18 @@ ms.locfileid: "52447217"
   
 ### <a name="elements"></a>요소  
   
-|이름|설명|필수|  
+|Name|설명|필수|  
 |----------|-----------------|--------------|  
-|set-limit|루트 요소입니다.|yes|  
+|set-limit|루트 요소입니다.|예|  
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|Name|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
-|calls|`renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다.|yes|해당 없음|  
-|counter-key|속도 제한 정책에 사용할 키입니다.|yes|해당 없음|  
+|calls|`renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다.|예|해당 없음|  
+|counter-key|속도 제한 정책에 사용할 키입니다.|예|해당 없음|  
 |increment-condition|요청을 할당량에 포함할지를 지정하는 부울 식입니다(`true`).|아니요|해당 없음|  
-|renewal-period|할당량이 재설정되는 초 단위의 기간입니다.|yes|해당 없음|  
+|renewal-period|할당량이 재설정되는 초 단위의 기간입니다.|예|해당 없음|  
   
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
@@ -214,18 +214,18 @@ ms.locfileid: "52447217"
   
 ### <a name="elements"></a>요소  
   
-|이름|설명|필수|  
+|Name|설명|필수|  
 |----------|-----------------|--------------|  
-|ip-filter|루트 요소입니다.|yes|  
+|ip-filter|루트 요소입니다.|예|  
 |address|필터링할 단일 IP 주소를 지정합니다.|하나 이상의 `address` 또는 `address-range` 요소가 필요합니다.|  
 |address-range from="address" to="address"|필터링할 IP 주소 범위를 지정합니다.|하나 이상의 `address` 또는 `address-range` 요소가 필요합니다.|  
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|Name|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
 |address-range from="address" to="address"|액세스를 허용 또는 거부할 IP 주소 범위|`address-range` 요소가 사용될 때 필요합니다.|해당 없음|  
-|ip-filter action="allow &#124; forbid"|지정된 IP 주소 및 범위에 대해 호출을 허용해야 할지 여부를 지정합니다.|yes|해당 없음|  
+|ip-filter action="allow &#124; forbid"|지정된 IP 주소 및 범위에 대해 호출을 허용해야 할지 여부를 지정합니다.|예|해당 없음|  
   
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
@@ -267,20 +267,20 @@ ms.locfileid: "52447217"
   
 ### <a name="elements"></a>요소  
   
-|이름|설명|필수|  
+|Name|설명|필수|  
 |----------|-----------------|--------------|  
-|quota|루트 요소입니다.|yes|  
+|quota|루트 요소입니다.|예|  
 |api|제품 내에서 API에 대한 호출 할당량을 적용하려면 이러한 요소 중 하나 이상을 추가합니다. 제품 및 API 호출 할당량은 독립적으로 적용됩니다. API는 `name` 또는 `id`를 통해 참조할 수 있습니다. 두 특성이 모두 제공되면 `id`는 사용되지만 `name`은 무시됩니다.|아니요|  
 |operation|API 내에서 작업에 대한 호출 할당량을 적용하려면 이러한 요소 중 하나 이상을 추가합니다. 제품, API 및 작업 호출 할당량은 독립적으로 적용됩니다. 작업은 `name` 또는 `id`를 통해 참조할 수 있습니다. 두 특성이 모두 제공되면 `id`는 사용되지만 `name`은 무시됩니다.|아니요|  
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|Name|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
-|이름|할당량이 적용되는 API 또는 작업의 이름입니다.|yes|해당 없음|  
+|이름|할당량이 적용되는 API 또는 작업의 이름입니다.|예|해당 없음|  
 |bandwidth|`renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 킬로바이트 수입니다.|`calls`, `bandwidth` 또는 둘 다 함께 지정해야 합니다.|해당 없음|  
 |calls|`renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다.|`calls`, `bandwidth` 또는 둘 다 함께 지정해야 합니다.|해당 없음|  
-|renewal-period|할당량이 재설정되는 초 단위의 기간입니다.|yes|해당 없음|  
+|renewal-period|할당량이 재설정되는 초 단위의 기간입니다.|예|해당 없음|  
   
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
@@ -329,19 +329,19 @@ ms.locfileid: "52447217"
   
 ### <a name="elements"></a>요소  
   
-|이름|설명|필수|  
+|Name|설명|필수|  
 |----------|-----------------|--------------|  
-|quota|루트 요소입니다.|yes|  
+|quota|루트 요소입니다.|예|  
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|Name|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
 |bandwidth|`renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 킬로바이트 수입니다.|`calls`, `bandwidth` 또는 둘 다 함께 지정해야 합니다.|해당 없음|  
 |calls|`renewal-period`에 지정된 시간 간격 동안 허용된 전체 최대 호출 수입니다.|`calls`, `bandwidth` 또는 둘 다 함께 지정해야 합니다.|해당 없음|  
-|counter-key|할당량 정책에 사용할 키입니다.|yes|해당 없음|  
+|counter-key|할당량 정책에 사용할 키입니다.|예|해당 없음|  
 |increment-condition|요청을 할당량에 포함할지를 지정하는 부울 식입니다(`true`).|아니요|해당 없음|  
-|renewal-period|할당량이 재설정되는 초 단위의 기간입니다.|yes|해당 없음|  
+|renewal-period|할당량이 재설정되는 초 단위의 기간입니다.|예|해당 없음|  
   
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  
@@ -350,11 +350,12 @@ ms.locfileid: "52447217"
 -   **정책 범위:** global, product, API, operation  
   
 ##  <a name="ValidateJWT"></a> JWT 유효성 검사  
- `validate-jwt` 정책은 지정된 HTTP 헤더 또는 지정된 쿼리 매개 변수에서 추출된 JWT의 존재 및 유효성을 적용합니다.  
+ `validate-jwt` 정책은 지정된 HTTP 헤더 또는 지정된 쿼리 매개 변수에서 추출된 JWT의 존재 및 유효성을 적용합니다.
   
 > [!IMPORTANT]
 >  `validate-jwt` 정책에서는 `require-expiration-time` 특정이 지정되지 않고 `false`로 설정된 경우가 아니면 `exp` 등록 클레임이 JWT 토큰에 포함되어야 합니다.  
-> `validate-jwt` 정책은 HS256 및 RS256 서명 알고리즘을 지원합니다. HS256의 경우 키를 base64 인코딩 양식으로 정책 내에 인라인으로 제공해야 합니다. RS256의 경우 Open ID 구성 엔드포인트를 통해 키를 제공해야 합니다.  
+> `validate-jwt` 정책은 HS256 및 RS256 서명 알고리즘을 지원합니다. HS256의 경우 키를 base64 인코딩 양식으로 정책 내에 인라인으로 제공해야 합니다. RS256의 경우 Open ID 구성 엔드포인트를 통해 키를 제공해야 합니다.
+> `validate-jwt` 정책은 A128CBC-HS256, A192CBC-HS384, A256CBC-HS512 암호화 알고리즘을 사용하여 대칭 키로 암호화된 토큰을 지원합니다.
   
 ### <a name="policy-statement"></a>정책 문  
   
@@ -370,7 +371,11 @@ ms.locfileid: "52447217"
   <issuer-signing-keys>  
     <key>base64 encoded signing key</key>  
     <!-- if there are multiple keys, then add additional key elements -->  
-  </issuer-signing-keys>  
+  </issuer-signing-keys>
+  <decryption-keys>
+    <key>base64 encoded signing key</key>  
+    <!-- if there are multiple keys, then add additional key elements -->  
+  </decryption-keys>
   <audiences>  
     <audience>audience string</audience>  
     <!-- if there are multiple possible audiences, then add additional audience elements -->  
@@ -444,7 +449,7 @@ ms.locfileid: "52447217"
 ```  
   
 #### <a name="authorize-access-to-operations-based-on-token-claims"></a>토큰 클레임 기반 작업에 대한 액세스 권한 부여  
- 이 예제에서는 [JWT 유효성 검사](api-management-access-restriction-policies.md#ValidateJWT) 정책을 사용하여 토큰 클레임 기반 작업에 대해 미리 권한을 부여하는 방법을 보여 줍니다. 이 정책을 구성하고 사용하는 데모는 [클라우드 표지 에피소드 177: Vlad Vinogradsky와 함께 하는 추가 API Management 기능](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)(영문)에서 13:50 지점으로 빨리 감기하면서 참조하세요. 15분으로 빨리 감기하여 정책 편집기에 구성된 정책을 본 다음 18분 50초로 빨리 감기하여 필수 권한 부여 토큰 포함 및 제외 모두의 경우로 개발자 포털에서 작업 호출의 데모를 볼 수 있습니다.  
+ 이 예제에서는 [JWT 유효성 검사](api-management-access-restriction-policies.md#ValidateJWT) 정책을 사용하여 토큰 클레임 기반 작업에 대해 미리 권한을 부여하는 방법을 보여 줍니다. 이 정책을 구성하고 사용하는 데모는 [클라우드 표지 에피소드 177: Vlad Vinogradsky의 API Management 추가 기능](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)을 참조하고 13분 50초 지점으로 빨리 감습니다. 15분으로 빨리 감기하여 정책 편집기에 구성된 정책을 본 다음 18분 50초로 빨리 감기하여 필수 권한 부여 토큰 포함 및 제외 모두의 경우로 개발자 포털에서 작업 호출의 데모를 볼 수 있습니다.  
   
 ```xml  
 <!-- Copy the following snippet into the inbound section at the api (or higher) level to pre-authorize access to operations based on token claims -->  
@@ -488,9 +493,10 @@ ms.locfileid: "52447217"
   
 |요소|설명|필수|  
 |-------------|-----------------|--------------|  
-|validate-jwt|루트 요소입니다.|yes|  
+|validate-jwt|루트 요소입니다.|예|  
 |audiences|토큰에 제공할 수 있는 허용 가능한 대상 그룹 클레임 목록을 포함합니다. 여러 대상 그룹 값이 있는 경우 각 값은 모든 값이 소진(이 경우 유효성 검사 실패)되거나 한 값이 성공할 때까지 시도됩니다. 한 명 이상의 대상 그룹을 지정해야 합니다.|아니요|  
 |issuer-signing-keys|서명된 토큰의 유효성을 검사하는 데 사용되는 Base64 인코딩 보안 키의 목록입니다. 보안 키가 여러 개 있는 경우 각 키는 모든 키가 소진(이 경우 유효성 검사 실패)되거나 한 개 키가 성공할 때까지 시도됩니다(토큰 롤오버에 유용함). 키 요소에는 `kid` 클레임에 대한 일치에 사용된 `id` 특성(선택적)이 포함됩니다.|아니요|  
+|decryption-keys|토큰의 암호를 해독하는 데 사용되는 Base64로 인코딩된 키의 목록입니다. 여러 개의 보안 키가 있는 경우 모든 키가 사용되거나(유효성 검사가 실패한 경우) 키가 성공할 때까지 각 키를 시도합니다. 키 요소에는 `kid` 클레임에 대한 일치에 사용된 `id` 특성(선택적)이 포함됩니다.|아니요|  
 |issuers|토큰을 발행한 허용 가능한 보안 주체의 목록입니다. 여러 발급자 값이 있는 경우 각 값은 모든 값이 소진(이 경우 유효성 검사 실패)되거나 한 값이 성공할 때까지 시도됩니다.|아니요|  
 |openid-config|서명 키 및 발급자를 획득할 수 있는 준수 Open ID 구성 엔드포인트를 지정하는 데 사용됩니다.|아니요|  
 |required-claims|유효성을 고려할 토큰에 있을 것으로 예상되는 클레임 목록을 포함합니다. `match` 특성이 `all`로 설정되면 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 합니다. `match` 특성이 `any`로 설정되면 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 합니다.|아니요|  
@@ -498,7 +504,7 @@ ms.locfileid: "52447217"
   
 ### <a name="attributes"></a>특성  
   
-|이름|설명|필수|기본값|  
+|Name|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
 |clock-skew|Timespan입니다. 토큰 발급자와 API Management 인스턴스의 시스템 시계 간 최대 예상 시간 차이를 지정하는 데 사용합니다.|아니요|0초|  
 |failed-validation-error-message|JWT가 유효성 검사를 통과하지 못한 경우 HTTP 응답 본문에 반환할 오류 메시지입니다. 이 메시지는 적절히 이스케이프된 특수 문자를 포함해야 합니다.|아니요|기본 오류 메시지는 유효성 검사 문제에 따라 달라집니다(예: "JWT not present(JWT 없음)").|  
@@ -511,7 +517,7 @@ ms.locfileid: "52447217"
 |require-scheme|토큰 스키마의 이름입니다(예: "Bearer"). 이 특성이 설치되면 정책은 지정된 스키마가 권한 부여 헤더 값에 있는지를 확인합니다.|아니요|해당 없음|
 |require-signed-tokens|부울 값입니다. 토큰에 서명이 필요한지를 지정합니다.|아니요|true|  
 |구분 기호|문자열입니다. 다중 값 클레임에서 값 집합을 추출하는 데 사용된 구분 기호(예: “,”)를 지정합니다.|아니요|해당 없음| 
-|URL|Open ID 구성 메타데이터를 가져올 수 있는 Open ID 구성 엔드포인트 URL입니다. 응답은 URL `https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`에서 정의된 사양을 따라야 합니다.  Azure Active Directory의 경우 다음 URL을 사용합니다. `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` 여기서 사용자의 디렉터리 테넌트 이름을 대체합니다(예: `contoso.onmicrosoft.com`).|yes|해당 없음|  
+|URL|Open ID 구성 메타데이터를 가져올 수 있는 Open ID 구성 엔드포인트 URL입니다. 응답은 URL `https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`에서 정의된 사양을 따라야 합니다.  Azure Active Directory의 경우 다음 URL을 사용합니다. `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` 여기서 사용자의 디렉터리 테넌트 이름을 대체합니다(예: `contoso.onmicrosoft.com`).|예|해당 없음|  
   
 ### <a name="usage"></a>사용 현황  
  이 정책은 다음과 같은 정책 [섹션](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) 및 [범위](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)에서 사용할 수 있습니다.  

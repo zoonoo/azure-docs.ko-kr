@@ -5,15 +5,19 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/22/2019
-ms.openlocfilehash: cb02f0b786ff6f1c7dbef5471fb95ce6516f824c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.date: 01/23/2019
+ms.openlocfilehash: 9270c3290bd7be0bbb79d30aff8becc04dcfc603
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466077"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904015"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 읽기 복제본
+
+> [!IMPORTANT]
+> 읽기 복제본 기능은 공개 미리 보기로 있습니다.
+
 읽기 복제본 기능을 사용하면 동일한 Azure 지역 내에서 Azure Database for PostgreSQL 서버(마스터)의 데이터를 최대 5개의 읽기 전용 서버(읽기 복제본)로 복제할 수 있습니다. 읽기 복제본은 PostgreSQL 엔진의 기본 복제 기술을 사용하여 비동기적으로 업데이트됩니다.
 
 복제본은 일반적인 독립형 Azure Database for PostgreSQL 서버와 비슷한 방식으로 관리할 수 있는 새 서버입니다. 각 읽기 복제본의 경우 vCore에서 프로비전된 컴퓨팅 및 프로비전된 스토리지에 대한 요금이 GB/월 단위로 청구됩니다.

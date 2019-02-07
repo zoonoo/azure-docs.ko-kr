@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/25/2018
+ms.date: 01/31/2019
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 704f854d7be9930923cb6e1955c3670f296035ed
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 950692a92152ac302ec573522fc5327f3acb91a2
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299829"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512315"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>Azure Active Directory에서 디바이스 관리란?
 
@@ -35,6 +35,11 @@ ms.locfileid: "55299829"
 디바이스 관리는 [디바이스 기반 조건부 액세스](../conditional-access/require-managed-devices.md)의 토대이기도 합니다. 디바이스 기반 조건부 액세스를 사용할 경우 관리 디바이스를 통해서만 환경의 리소스에 액세스하도록 할 수 있습니다.   
 
 이 문서에서는 Azure Active Directory에서 디바이스 관리가 작동되는 방식을 설명합니다.
+
+
+
+> [!VIDEO https://www.youtube.com/embed/NeezfKhomQU]
+
 
 ## <a name="getting-devices-under-the-control-of-azure-ad"></a>Azure AD에서 제어하는 디바이스 얻기
 

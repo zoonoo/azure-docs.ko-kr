@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 70280676453bd146102ca331daae038b947aab58
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: ade066c08829181bc7d1ad5623934b98909e0310
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632860"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888994"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Linux용 DSC 확장(Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -54,7 +54,7 @@ DSC Linux 확장은 다음 OS를 제외한 모든 [확장 지원 OS](https://azu
  
 ### <a name="internet-connectivity"></a>인터넷 연결
 
-DSCForLinux 확장을 사용하려면 대상 가상 머신이 인터넷에 연결되어 있어야 합니다. 예를 들어 등록 확장에는 Automation 서비스에 대한 연결이 필요합니다. Push, Pull, Install과 같은 다른 작업의 경우 Azure Storage/Github에 대한 연결이 필요합니다. 이러한 연결은 고객이 제공하는 설정에 따라 달라집니다.
+DSCForLinux 확장을 사용하려면 대상 가상 머신이 인터넷에 연결되어 있어야 합니다. 예를 들어 등록 확장에는 Automation 서비스에 대한 연결이 필요합니다. Push, Pull, Install과 같은 다른 작업의 경우 Azure 스토리지/Github에 연결해야 합니다. 이러한 연결은 고객이 제공하는 설정에 따라 달라집니다.
 
 ## <a name="extension-schema"></a>확장 스키마
 
@@ -64,11 +64,11 @@ DSCForLinux 확장을 사용하려면 대상 가상 머신이 인터넷에 연�
 
 * `FileUri`: (선택 사항, 문자열) MOF 파일/메타 MOF 파일/사용자 지정 리소스 ZIP 파일의 URI
 * `ResourceName`: (선택 사항, 문자열) 사용자 지정 리소스 모듈의 이름
-* `ExtensionAction`: (선택 사항, 문자열) 확장에서 수행할 작업을 지정합니다. 유효한 값: Register, Push, Pull, Install, Remove. 지정하지 않으면 기본적으로 푸시 작업으로 간주됩니다.
+* `ExtensionAction`: (선택 사항, 문자열) 확장에서 수행할 작업을 지정합니다. 유효한 값은 Register, Push, Pull, Install, Remove입니다. 지정하지 않으면 기본적으로 푸시 작업으로 간주됩니다.
 * `NodeConfigurationName`: (선택 사항, 문자열) 적용할 노드 구성의 이름
 * `RefreshFrequencyMins`: (선택 사항, 정수) DSC가 끌어오기 서버에서 구성을 가져오려고 시도하는 빈도(분)를 지정합니다. 
        끌어오기 서버의 구성이 대상 노드의 현재 구성과 다르면 보류 중인 저장소에 복사되고 적용됩니다.
-* `ConfigurationMode`: (선택 사항, 문자열) DSC에서 구성을 적용해야 하는 방법을 지정합니다. 유효한 값: ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect
+* `ConfigurationMode`: (선택 사항, 문자열) DSC에서 구성을 적용해야 하는 방법을 지정합니다. 유효한 값은 ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect입니다.
 * `ConfigurationModeFrequencyMins`: (선택 사항, 정수) DSC에서 구성이 원하는 상태에 있는지 확인하는 빈도(분)를 지정합니다.
 
 > [!NOTE]

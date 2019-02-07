@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 10/23/2018
+ms.date: 01/29/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4a3581b3d61c5ad17352c2865fc059704c1eece1
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 81b2db2da7c1efe0d09c065270c3493f297e49ad
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50035196"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55235992"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>ExpressRoute Global Reach란?
 
@@ -33,16 +33,7 @@ ExpressRoute를 사용하면 온-프레미스 네트워크를 Microsoft 클라�
 
 ### <a name="where-is-expressroute-global-reach-supported"></a>ExpressRoute Global Reach가 지원되는 곳은 어디인가요?
 
-ExpressRoute Global Reach는 다음 국가에서 지원됩니다. ExpressRoute 회로는 다음 국가에 있는 피어링 위치에서 만들어야 합니다.
-
-* 오스트레일리아
-* 프랑스
-* 홍콩
-* 아일랜드
-* 일본
-* 네덜란드
-* 영국
-* 미국
+ExpressRoute Global Reach는 [국가 또는 장소 선택](../articles/expressroute/expressroute-global-reach.md)에서 지원됩니다. ExpressRoute 회로는 다음 국가 또는 장소의 피어링 위치에 만들어야 합니다.
 
 ### <a name="i-have-more-than-two-on-premises-networks-each-connected-to-an-expressroute-circuit-can-i-enable-expressroute-global-reach-to-connect-all-of-my-on-premises-networks-together"></a>각각 ExpressRoute 회로에 연결된 두 개를 초과하는 온-프레미스 네트워크가 있습니다. ExpressRoute Global Reach를 사용하여 모든 온-프레미스 네트워크를 함께 연결할 수 있나요?
 
@@ -50,11 +41,11 @@ ExpressRoute Global Reach는 다음 국가에서 지원됩니다. ExpressRoute �
 
 ### <a name="can-i-enable-expressroute-global-reach-between-two-expressroute-circuits-at-the-same-peering-location"></a>동일한 피어링 위치에서 두 개의 ExpressRoute 회로 간에 ExpressRoute Global Reach를 활성화할 수 있나요?
 
-아니요. 두 회로는 서로 다른 피어링 위치의 것이어야 합니다. 지원되는 국가의 대도시에 둘 이상의 ExpressRoute 피어링 위치가 있는 경우 해당 대도시의 다른 피어링 위치에서 생성된 ExpressRoute 회로를 함께 연결할 수 있습니다. 
+ 아니요. 두 회로는 서로 다른 피어링 위치의 것이어야 합니다. 지원되는 국가의 대도시에 둘 이상의 ExpressRoute 피어링 위치가 있는 경우 해당 대도시의 다른 피어링 위치에서 생성된 ExpressRoute 회로를 함께 연결할 수 있습니다. 
 
 ### <a name="if-expressroute-global-reach-is-enabled-between-circuit-x-and-circuit-y-and-between-circuit-y-and-circuit-z-will-my-on-premises-networks-connected-to-circuit-x-and-circuit-z-talk-to-each-other-via-microsofts-network"></a>ExpressRoute Global Reach가 회로 X와 회로 Y 사이, 회로 Y와 회로 Z 사이 활성화되어 있는 경우 회로 X와 회로 Z에 연결된 온-프레미스 네트워크가 Microsoft 네트워크를 통해 서로 통신하나요?
 
-아니요. 온-프레미스 네트워크 중 두 개의 네트워크 간에 연결을 설정하려면 해당 ExpressRoute 회로를 명시적으로 연결해야 합니다. 위의 예제에서 회로 X와 회로 Z를 연결해야 합니다. 
+ 아니요. 온-프레미스 네트워크 중 두 개의 네트워크 간에 연결을 설정하려면 해당 ExpressRoute 회로를 명시적으로 연결해야 합니다. 위의 예제에서 회로 X와 회로 Z를 연결해야 합니다. 
 
 ### <a name="what-is-the-network-throughput-i-can-expect-between-my-on-premises-networks-after-i-enable-expressroute-global-reach"></a>ExpressRoute Global Reach를 활성화한 후 온-프레미스 네트워크 간에 기대할 수 있는 네트워크 처리량은 어느 정도인가요?
 
