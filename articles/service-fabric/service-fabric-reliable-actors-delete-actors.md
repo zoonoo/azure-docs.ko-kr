@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: amanbha
-ms.openlocfilehash: fa4fe018a9e6b32158f5bbd13c44ff57069cb1cf
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d6ac5ea79ed1eb47bc71a520761050889fe6edd8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208338"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178174"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Reliable Actors 및 해당 상태 삭제
 비활성화된 행위자의 가비지 수집에서는 행위자 개체를 정리하기만 하고 행위자의 상태 관리자에 저장된 데이터를 제거하지는 않습니다. 행위자가 다시 활성화되면 상태 관리자를 통해 해당 데이터를 다시 사용할 수 있게 됩니다. 행위자가 상태 관리자에 데이터를 저장하고 비활성화되었지만 다시 활성화되지 않는 경우에는 해당 데이터를 정리해야 할 수 있습니다.

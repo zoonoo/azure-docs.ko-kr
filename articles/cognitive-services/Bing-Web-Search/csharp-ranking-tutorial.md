@@ -7,16 +7,16 @@ author: bradumbaugh
 manager: cgronlun
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: bking
-ms.openlocfilehash: ebe95c8ebad8c7d6b77d98dc0d590a4d38d76b94
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 90ad2ff87e9541c892262edb2e48366826b2a388
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465970"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188442"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>C#에서 콘솔 앱 검색 클라이언트 빌드
 
@@ -223,9 +223,9 @@ static void RunQueryAndDisplayResults(string userQuery)
 
 `rankingResponse` JSON 개체([설명서](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse))는 검색 결과에 대한 적절한 표시 순서를 설명합니다. 다음과 같이 우선 순위가 지정된 그룹 중 하나 이상을 포함합니다.
 
-- `pole`: 가장 가시적인 처리를 얻기 위한 검색 결과(예를 들어 메인라인 및 사이드바 위에 표시됨).
-- `mainline`: 메인라인에 표시할 검색 결과
-- `sidebar`: 사이드바에 표시할 검색 결과 사이드바가 없는 경우 메인라인 아래에 결과를 표시합니다.
+- `pole`: 가장 가시적인 처리를 얻을 수 있는 검색 결과입니다(예를 들어 메인라인 및 사이드바 위에 표시됨).
+- `mainline`: mainline에 표시할 검색 결과입니다.
+- `sidebar`: 사이드바에 표시할 검색 결과입니다. 사이드바가 없는 경우 메인라인 아래에 결과를 표시합니다.
 
 순위 응답 JSON은 그룹 중 하나 이상을 포함할 수 있습니다.
 

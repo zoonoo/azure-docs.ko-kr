@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 55274f26-be7e-4514-964c-7186ecb55c4a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 2dfc450fe53c543c1d5119cd9c6954aadaa3b3ff
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: cea5c6ad57d8c391bd1d5264abbc1397fbad0f30
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421426"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55162008"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fiscalnote"></a>자습서: FiscalNote와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ FiscalNote의 Azure AD 통합을 구성하려면 갤러리의 FiscalNote를 관�
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -110,7 +110,7 @@ FiscalNote에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<InstanceName>.fiscalnote.com/login?client=<ClientID>&redirect_uri=https://app.fiscalnote.com/saml-login.html&audience=https://api.fiscalnote.com/&connection=<CONNECTION_NAME>&response_type=id_token%20token`
 
-    나. **식별자** 텍스트 상자에서 `urn:auth0:fiscalnote:<CONNECTIONNAME>` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `urn:auth0:fiscalnote:<CONNECTIONNAME>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [FiscalNote 클라이언트 지원 팀](mailto:support@fiscalnote.com)에 문의하세요.
@@ -130,7 +130,7 @@ FiscalNote에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     | 이름 | user.userprincipalname|
     | givenName| user.givenname|
     | familyName| user.surname|
-    | email| user.mail|
+    | 이메일| user.mail|
     
     a. 기존 특성을 제거하고 새 특성을 추가합니다. **특성 추가**를 클릭하여 **특성 추가** 대화 상자를 엽니다.
 
@@ -138,7 +138,7 @@ FiscalNote에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     
     ![Configure Single Sign-On](./media/fiscalnote-tutorial/tutorial_attribute_05.png)
 
-    나. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
 
     다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
 
@@ -192,7 +192,7 @@ FiscalNote에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 이 섹션은 FiscalNote에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. FiscalNote는 적시에 프로비전을 지원하며 기본적으로 사용하도록 설정합니다. 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 FiscalNote에 액세스하는 동안 만들어질 수 있습니다.
 >[!Note]
->사용자를 수동으로 만들어야 하는 경우 [FiscalNote 지원 팀](mailto:support@fiscalnote.com)에 문의하세요.
+>사용자를 수동으로 만들어야 하는 경우  [FiscalNote 지원 팀](mailto:support@fiscalnote.com)에 문의하세요.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -234,7 +234,7 @@ FiscalNote에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

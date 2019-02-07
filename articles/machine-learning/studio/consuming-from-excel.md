@@ -1,6 +1,6 @@
 ---
-제목: Excel에서 웹 서비스 사용 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning Studio를 사용하면 코드를 작성할 필요 없이 Excel에서 직접 웹 서비스를 쉽게 호출할 수 있습니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: Excel에서 웹 서비스 사용 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning Studio를 사용하면 코드를 작성할 필요 없이 Excel에서 직접 웹 서비스를 쉽게 호출할 수 있습니다.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/01/2018
 ---

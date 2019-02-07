@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 0984f53c70baa50916e125d096a612ad8f061228
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 38f344ef9e24816a17975c60a5863be46da1364b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972824"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210338"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>VMware VM에서 Azure로의 재해 복구 정보
 
@@ -72,7 +72,7 @@ Azure에서 다음을 준비해야 합니다.
 
 1. 다음과 같이 몇 가지 계정을 설정해야 합니다.
 
-    - VMware VM을 복제하는 경우 Site Recovery에서 vCenter Server서버 또는 vSphere ESXi 호스트에 액세스하여 VM을 자동으로 검색하기 위한 계정이 필요합니다.
+    - VMware VM을 복제하는 경우 Site Recovery에서 vCenter Server 또는 vSphere ESXi 호스트에 액세스하여 VM을 자동으로 검색하기 위한 계정이 필요합니다.
     - 복제하려는 각 물리적 컴퓨터 또는 VM에 Site Recovery 모바일 서비스 에이전트를 설치하기 위한 계정이 필요합니다.
 
 2. 아직 실행하지 않은 경우 VMware 인프라의 호환성을 확인해야 합니다.

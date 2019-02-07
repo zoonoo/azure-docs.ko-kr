@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -17,12 +17,12 @@ ms.date: 09/14/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: dd164882f9820cab970edd4d01f2f28c26771f88
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: fd02c2d10d072f33fdc265feaadf9776e9c1d679
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815222"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102037"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>방법: Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열
 
@@ -72,18 +72,18 @@ ms.locfileid: "48815222"
 
 Azure AD 앱 갤러리에 애플리케이션을 나열하려면 먼저 Azure AD에서 지원하는 다음 페더레이션 프로토콜 중 하나를 구현하고 Azure AD 애플리케이션 갤러리 사용 약관에 동의해야 합니다. Azure AD 애플리케이션 갤러리의 사용 약관은 [여기](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/)에서 확인하세요.
 
-- **OpenID Connect**: Open ID Connect 프로토콜을 사용하여 Azure AD를 통해 응용 프로그램을 통합하려면 [개발자 지침](authentication-scenarios.md)을 수행합니다.
+- **OpenID Connect**: Open ID Connect 프로토콜을 사용하여 Azure AD를 통해 애플리케이션을 통합하려면 [개발자 지침](authentication-scenarios.md)을 수행합니다.
 
     ![갤러리에 OpenID Connect 애플리케이션을 나열하는 타임라인](./media/howto-app-gallery-listing/openid.png)
 
-    * OpenID Connect를 사용하여 갤러리에 나열할 응용 프로그램을 추가하려면 위와 같이 **OpenID Connect 및 OAuth 2.0**을 선택합니다.
+    * OpenID Connect를 사용하여 갤러리에 나열할 애플리케이션을 추가하려면 위와 같이 **OpenID Connect 및 OAuth 2.0**을 선택합니다.
     * 액세스 관련 문제가 발생하면 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의하세요. 
 
-*   **SAML 2.0** 또는 **WS-Fed**: 앱이 SAML 2.0을 지원하는 경우 [사용자 지정 응용 프로그램을 추가하는 지침](../active-directory-saas-custom-apps.md)을 사용하여 Azure AD 테넌트와 직접 통합할 수 있습니다.
+*   **SAML 2.0** 또는 **WS-Fed**: 앱이 SAML 2.0을 지원하는 경우 [사용자 지정 애플리케이션을 추가하는 지침](../active-directory-saas-custom-apps.md)을 사용하여 Azure AD 테넌트와 직접 통합할 수 있습니다.
 
     ![갤러리에 SAML 2.0 또는 WS-Fed 애플리케이션을 나열하는 타임라인](./media/howto-app-gallery-listing/saml.png)
 
-    * **SAML 2.0** 또는 **WS-Fed**를 사용하여 갤러리에 나열할 응용 프로그램을 추가하려면 위와 같이 **SAMl 2.0/WS-Fed**를 선택합니다.
+    * **SAML 2.0** 또는 **WS-Fed**를 사용하여 갤러리에 나열할 애플리케이션을 추가하려면 위와 같이 **SAMl 2.0/WS-Fed**를 선택합니다.
     * 액세스 관련 문제가 발생하면 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의하세요.
 
 ## <a name="implementing-sso-using-password-sso"></a>암호 SSO를 사용하여 SSO 구현

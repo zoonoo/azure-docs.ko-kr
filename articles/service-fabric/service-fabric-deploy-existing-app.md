@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell
-ms.openlocfilehash: 0f4bb3f32b264bd894341a8776d48eb9f8b061a2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d8b78e42dc5909e6c80f100c9337880b1ad2d9e6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258734"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168416"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>기존 실행 파일을 Service Fabric으로 패키징 및 배포
 기존 실행 파일을 [게스트 실행 파일](service-fabric-guest-executables-introduction.md)로 패키징할 경우 Visual Studio 프로젝트 템플릿을 사용하거나 [애플리케이션 패키지를 수동으로 만들도록](#manually) 선택할 수 있습니다. Visual Studio를 사용하면 새 프로젝트 템플릿에 의해 애플리케이션 패키지 구조 및 매니페스트 파일이 생성됩니다.
@@ -31,15 +31,15 @@ ms.locfileid: "51258734"
 ## <a name="use-visual-studio-to-package-and-deploy-an-existing-executable"></a>Visual Studio를 사용하여 기존 실행 파일 패키징 및 배포
 Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 배포할 수 있도록 서비스 패브릭 서비스 템플릿을 제공합니다.
 
-1. **파일** > **새 프로젝트**를 선택하여 Service Fabric 응용 프로그램을 만듭니다.
+1. **파일** > **새 프로젝트**를 선택하여 Service Fabric 애플리케이션을 만듭니다.
 2. **게스트 실행 파일**을 서비스 템플릿으로 선택합니다.
 3. **찾아보기**를 클릭하여 실행 파일이 포함된 폴더를 선택하고 매개 변수의 나머지를 입력하여 서비스를 만듭니다.
    * *코드 패키지 동작*. 폴더의 모든 콘텐츠를 Visual Studio 프로젝트에 복사하도록 설정할 수 있으며 이것은 실행 파일이 변경되지 않는 경우에 유용합니다. 실행 파일을 변경하고 동적으로 새 빌드를 선택할 수 있는 기능을 원하는 경우 대신 폴더에 연결하도록 선택할 수 있습니다. Visual Studio에서 애플리케이션 프로젝트를 만들 경우 연결된 폴더를 사용할 수 있습니다. 이는 프로젝트 내에서 원본 위치에 연결되면 원본 대상에서 게스트 실행 파일을 업데이트할 수 있습니다. 이 업데이트는 빌드의 애플리케이션 패키지의 일부가 됩니다.
    * *프로그램*은 서비스를 시작하기 위해 실행해야 하는 실행 파일을 지정합니다.
    * *인수*는 실행 파일에 전달되어야 하는 인수를 지정합니다. 인수가 있는 매개 변수 목록이 될 수도 있습니다.
    * *WorkingFolder*는 시작될 프로세스에 대한 작업 디렉터리를 지정합니다. 세 가지 값을 지정할 수 있습니다.
-     * `CodeBase`는 작업 디렉터리가 응용 프로그램 패키지의 코드 디렉터리에 설정되도록 지정합니다(이전 파일 구조에 표시된 `Code` 디렉터리).
-     * `CodePackage`는 작업 디렉터리가 응용 프로그램 패키지의 루트에 설정되도록 지정합니다(이전 파일 구조에 표시된 `GuestService1Pkg`).
+     * `CodeBase`는 작업 디렉터리가 애플리케이션 패키지의 코드 디렉터리에 설정되도록 지정합니다(이전 파일 구조에 표시된 `Code` 디렉터리).
+     * `CodePackage`는 작업 디렉터리가 애플리케이션 패키지의 루트에 설정되도록 지정합니다(이전 파일 구조에 표시된 `GuestService1Pkg`).
      * `Work`는 파일이 work라는 하위 디렉터리에 배치되도록 지정합니다.
 4. 서비스에 이름을 지정하고 **확인**을 클릭합니다.
 5. 서비스에서 통신에 엔드포인트가 필요한 경우 이제 프로토콜, 포트, 형식을 ServiceManifest.xml 파일에 추가할 수 있습니다. 예: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`
@@ -141,9 +141,9 @@ CodePackage 요소는 서비스 코드의 위치(및 버전)을 지정합니다.
 <CodePackage Name="Code" Version="1.0.0.0">
 ```
 
-`Name` 요소는 서비스 코드가 들어 있는 응용 프로그램 패키지의 디렉터리 이름을 지정하는 데 사용됩니다. `CodePackage`에도 `version` 특성이 있습니다. 이 요소는 코드 버전을 지정하는 데 사용할 수 있으며, Service Fabric에서 애플리케이션 수명 주기 관리 인프라를 사용하여 서비스 코드를 업그레이드하는 데 사용할 수도 있습니다.
+`Name` 요소는 서비스 코드가 들어 있는 애플리케이션 패키지의 디렉터리 이름을 지정하는 데 사용됩니다. `CodePackage`에도 `version` 특성이 있습니다. 이 요소는 코드 버전을 지정하는 데 사용할 수 있으며, Service Fabric에서 애플리케이션 수명 주기 관리 인프라를 사용하여 서비스 코드를 업그레이드하는 데 사용할 수도 있습니다.
 
-#### <a name="optional-update-setupentrypoint"></a>선택 사항: SetupEntryPoint 업데이트
+#### <a name="optional-update-setupentrypoint"></a>선택 사항: SetupEntrypoint 업데이트
 ```xml
 <SetupEntryPoint>
    <ExeHost>
@@ -175,8 +175,8 @@ SetupEntryPoint가 하나밖에 없으므로 애플리케이션의 설치에 여
 * `Program`은 서비스를 시작해야 하는 실행 파일의 이름을 지정합니다.
 * `Arguments` 는 실행 파일에 전달되어야 하는 인수를 지정합니다. 인수가 있는 매개 변수 목록이 될 수도 있습니다.
 * `WorkingFolder`는 곧 시작될 프로세스의 작업 디렉터리를 지정합니다. 세 가지 값을 지정할 수 있습니다.
-  * `CodeBase`는 작업 디렉터리가 응용 프로그램 패키지의 코드 디렉터리에 설정되도록 지정합니다(이전 파일 구조의 `Code` 디렉터리).
-  * `CodePackage`는 작업 디렉터리가 응용 프로그램 패키지의 루트에 설정되도록 지정합니다(이전 파일 구조의 `GuestService1Pkg`).
+  * `CodeBase`는 작업 디렉터리가 애플리케이션 패키지의 코드 디렉터리에 설정되도록 지정합니다(이전 파일 구조의 `Code` 디렉터리).
+  * `CodePackage`는 작업 디렉터리가 애플리케이션 패키지의 루트에 설정되도록 지정합니다(이전 파일 구조의 `GuestService1Pkg`).
     * `Work`는 파일이 work라는 하위 디렉터리에 배치되도록 지정합니다.
 
 WorkingFolder는 애플리케이션 또는 초기화 스크립트에서 상대 경로를 사용할 수 있도록 올바른 작업 디렉터리를 설정하는 데 유용합니다.
@@ -302,4 +302,4 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 * 패키징 도구 시험판의 링크를 포함하여 [게스트 실행 파일을 패키징 및 배포하는 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [REST를 사용하여 이름 지정 서비스를 통해 통신하는 두 게스트 실행 파일(C# 및 nodejs)의 샘플](https://github.com/Azure-Samples/service-fabric-containers)
 * [여러 개의 게스트 실행 파일 배포](service-fabric-deploy-multiple-apps.md)
-* [Visual Studio를 사용하여 처음으로 서비스 패브릭 응용 프로그램 만들기](service-fabric-create-your-first-application-in-visual-studio.md)
+* [Visual Studio를 사용하여 처음으로 Service Fabric 애플리케이션 만들기](service-fabric-tutorial-create-dotnet-app.md)

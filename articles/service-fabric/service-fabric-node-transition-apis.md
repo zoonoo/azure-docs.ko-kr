@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
-ms.openlocfilehash: 95c3726caeb19d6bbf7153533951bb18cd7d0e57
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ff5d4267de172aa83fae6ce70a609ad9897d7374
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055406"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102688"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>시작 노드 및 중지 노드 API를 노드 전환 API로 바꾸기
 
 ## <a name="what-do-the-stop-node-and-start-node-apis-do"></a>시작 노드 및 중지 노드 API는 어떤 작업을 수행하나요?
 
-노드 중지 API(관리: [StopNodeAsync()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps])는 Service Fabric 노드를 중지합니다.  Service Fabric 노드는 VM도 컴퓨터도 아닌 프로세스입니다. VM이나 컴퓨터는 계속 실행됩니다.  이 문서의 나머지 부분에서 "노드"는 Service Fabric 노드를 의미합니다.  노드를 중지하면 클러스터의 멤버가 아니고 서비스를 호스트할 수 없는 *중지됨* 상태가 되므로 *작동 중단* 노드가 시뮬레이트됩니다.  이 기능은 시스템에 오류를 삽입하여 애플리케이션을 테스트할 때 유용합니다.  노드 시작 API(관리: [StartNodeAsync()][startnode], PowerShell: [Start-ServiceFabricNode][startnodeps]])는 노드 중지 API를 되돌려 노드를 다시 정상 상태로 만듭니다.
+중지 노드 API(관리: [StopNodeAsync()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps])는 Service Fabric 노드를 중지합니다.  Service Fabric 노드는 VM도 컴퓨터도 아닌 프로세스입니다. VM이나 컴퓨터는 계속 실행됩니다.  이 문서의 나머지 부분에서 "노드"는 Service Fabric 노드를 의미합니다.  노드를 중지하면 클러스터의 멤버가 아니고 서비스를 호스트할 수 없는 *중지됨* 상태가 되므로 *작동 중단* 노드가 시뮬레이트됩니다.  이 기능은 시스템에 오류를 삽입하여 애플리케이션을 테스트할 때 유용합니다.  시작 노드 API(관리: [StartNodeAsync()][startnode], PowerShell: [Start-ServiceFabricNode][startnodeps]])는 중지 노드 API를 되돌려 노드를 다시 정상 상태로 만듭니다.
 
 ## <a name="why-are-we-replacing-these"></a>이러한 API를 교체하는 이유는 무엇일까요?
 
@@ -42,10 +42,10 @@ ms.locfileid: "44055406"
 
 **사용 현황**
 
-노드 전환 API가 호출 시 예외를 throw하지 않으면 시스템은 해당 비동기 작업을 수락하고 실행합니다.  호출이 성공했다고 해서 작업이 이미 완료된 것을 의미하지는 않습니다.  작업의 현재 상태에 대한 정보를 가져오려면 이 작업에 대해 노드 전환 API(관리: [GetNodeTransitionProgressAsync()][gntp])를 호출할 때 사용되는 GUID를 사용하여 노드 전환 진행률 API를 호출합니다.  노드 전환 진행률 API는 NodeTransitionProgress 개체를 반환합니다.  이 개체의 State 속성은 작업의 현재 상태를 지정합니다.  상태가 “실행 중”이면 작업이 실행되고 있는 것입니다.  상태가 완료됨이면 작업이 오류 없이 완료된 것입니다.  상태가 실패인 경우 작업을 실행하는 동안 문제가 발생한 것입니다.  Result 속성의 Exception 속성은 발생한 문제가 어떤 것인지를 나타냅니다.  State 속성에 대한 자세한 내용은 https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate를 참조하고, 코드 예제는 아래의 "샘플 사용" 섹션을 참조하세요.
+노드 전환 API가 호출 시 예외를 throw하지 않으면 시스템은 해당 비동기 작업을 수락하고 실행합니다.  호출이 성공했다고 해서 작업이 이미 완료된 것을 의미하지는 않습니다.  작업의 현재 상태에 대한 정보를 가져오려면 노드 전환 진행률 API(관리: [GetNodeTransitionProgressAsync()][gntp])를 이 작업에 대한 노드 전환 API를 호출할 때 사용하는 guid로 호출합니다.  노드 전환 진행률 API는 NodeTransitionProgress 개체를 반환합니다.  이 개체의 State 속성은 작업의 현재 상태를 지정합니다.  상태가 “실행 중”이면 작업이 실행되고 있는 것입니다.  상태가 완료됨이면 작업이 오류 없이 완료된 것입니다.  상태가 실패인 경우 작업을 실행하는 동안 문제가 발생한 것입니다.  Result 속성의 Exception 속성은 발생한 문제가 어떤 것인지를 나타냅니다.  State 속성에 대한 자세한 내용은 https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate를 참조하고, 코드 예제는 아래의 "샘플 사용" 섹션을 참조하세요.
 
 
-**중지된 노드와 작동 중단된 노드 간 구분** 노드가 노드 전환 API를 사용하여 *중지된* 경우 노드 쿼리의 출력(관리: [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps])에는 이 노드의 *IsStopped* 속성 값이 true임이 표시됩니다.  이 값은 *Down*으로 표시되는 *NodeStatus* 속성 값과 다릅니다.  *NodeStatus* 속성 값이 *Down*이지만 *IsStopped*가 false이면 노드는 노드 전환 API를 사용하여 중지되지 않은 것이며 다른 이유로 인해 *Down* 상태인 것입니다.  *IsStopped* 속성이 true이고 *NodeStatus* 속성이 *Down*이면 노드 전환 API를 사용하여 중지된 것입니다.
+**중지된 노드 및 노드 다운 노드 간의 구분** 노드 전환 API를 사용하여 노드가 *중지*되는 경우 노드 쿼리의 출력(관리: [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps])은 이 노드에 true의 *IsStopped* 속성 값이 있음을 나타냅니다.  이 값은 *Down*으로 표시되는 *NodeStatus* 속성 값과 다릅니다.  *NodeStatus* 속성 값이 *Down*이지만 *IsStopped*가 false이면 노드는 노드 전환 API를 사용하여 중지되지 않은 것이며 다른 이유로 인해 *Down* 상태인 것입니다.  *IsStopped* 속성이 true이고 *NodeStatus* 속성이 *Down*이면 노드 전환 API를 사용하여 중지된 것입니다.
 
 노드 전환 API를 사용하여 *중지된* 노드를 시작하면 클러스터의 일반 멤버로 다시 작동됩니다.  노드 쿼리 API의 출력에는 *IsStopped*가 false로, *NodeStatus*가 Down이 아닌 다른 상태(예: Up)로 표시됩니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "44055406"
 > 노드 전환 API와 노드 중지 및 노드 시작 API를 혼합해서 사용하지 마세요.  노드 전환 API만 사용하는 것이 좋습니다.  노드 중지 API를 사용하여 노드가 이미 중지된 경우 노드 전환 API를 사용하기 전에 먼저 노드 시작 API를 사용하여 노드를 시작해야 합니다.
 
 > [!WARNING]
-> 동일한 노드에 대해 여러 노드 전환 API 호출을 동시에 수행할 수 없습니다.  이러한 경우 노드 전환 API는 ErrorCode 속성 값 NodeTransitionInProgress을 사용하여 FabricException을 throw합니다.  특정 노드의 노드 전환이 시작되면 해당 작업이 종료 상태(Completed, Faulted 또는 ForceCancelled)에 도달할 때까지 기다렸다가 같은 노드에서 새 전환을 시작해야 합니다.  여러 다른 노드에 대한 병렬 노드 전환 호출이 허용됩니다.
+> 동일한 노드에 대해 여러 노드 전환 API 호출을 동시에 수행할 수 없습니다.  이러한 경우 노드 전환 API는 ErrorCode 속성 값 NodeTransitionInProgress을 사용하여 FabricException을 throw합니다.  특정 노드의 노드 전환이 시작되면 해당 작업이 종료 상태(Completed, Faulted, 또는 ForceCancelled)에 도달할 때까지 기다렸다가 같은 노드에서 새 전환을 시작해야 합니다.  여러 다른 노드에 대한 병렬 노드 전환 호출이 허용됩니다.
 
 
 #### <a name="sample-usage"></a>샘플 사용
@@ -159,7 +159,7 @@ ms.locfileid: "44055406"
             }
             while (!wasSuccessful);
 
-            // Now call StartNodeTransitionProgressAsync() until hte desired state is reached.
+            // Now call StartNodeTransitionProgressAsync() until the desired state is reached.
             await WaitForStateAsync(fc, guid, TestCommandProgressState.Completed).ConfigureAwait(false);
         }
 ```
@@ -202,7 +202,7 @@ ms.locfileid: "44055406"
             }
             while (!wasSuccessful);
 
-            // Now call StartNodeTransitionProgressAsync() until hte desired state is reached.
+            // Now call StartNodeTransitionProgressAsync() until the desired state is reached.
             await WaitForStateAsync(fc, guid, TestCommandProgressState.Completed).ConfigureAwait(false);
         }
 ```

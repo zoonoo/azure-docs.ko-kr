@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: f79b148558e7881f852ccd57916b0b0f31a98219
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 4d03ccfddab9a4aab4a1eacde02d68652bf5103a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342333"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219076"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>빠른 시작: Windows의 .NET용 C&#35;에서 Bing Speech Recognition API 사용
 
@@ -80,7 +80,7 @@ Speech API는 Cognitive Services(이전의 Project Oxford)의 일부입니다. [
 
     * **ShortPhrase 모드**: 최대 15초가 걸리는 발화입니다. 데이터가 서버로 보내지면 클라이언트에서 여러 개의 부분 결과 및 여러 개의 N 상위 선택 항목이 있는 하나의 최종 결과를 받습니다.
     * **LongDictation 모드**: 최대 2분이 걸리는 발화입니다. 데이터가 서버로 보내지면 서버에서 문장 일시 중지를 나타내는 위치에 따라 클라이언트에서 여러 개의 부분 결과 및 여러 개의 최종 결과를 받습니다.
-    * **의도 감지**: 서버에서 음성 입력에 대해 추가 구조화된 정보를 반환합니다. 의도 감지를 사용하려면 먼저 [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)를 사용하여 모델이 학습되어야 합니다.
+    * **의도 감지**: 서버에서 음성 입력에 대한 추가적인 정형 정보를 반환합니다. 의도 감지를 사용하려면 먼저 [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)를 사용하여 모델이 학습되어야 합니다.
 
 이 샘플 애플리케이션에서 샘플 오디오 파일을 사용합니다. samples/SpeechRecognitionServiceExample 폴더 아래에서 이 샘플과 함께 다운로드한 리포지토리의 파일을 찾습니다. **Shortphrase 모드에 wav 파일 사용** 또는 **Longdictation 모드에 wav 파일 사용**을 음성 입력으로 선택할 때 다른 파일이 선택되지 않으면 이러한 샘플 오디오 파일이 자동으로 실행됩니다. 현재 WAV 오디오 형식만 지원됩니다.
 
@@ -92,7 +92,7 @@ Speech API는 Cognitive Services(이전의 Project Oxford)의 일부입니다. [
 
 * **부분 결과 이벤트**: 이 이벤트는 말하기를 끝내거나(`MicrophoneRecognitionClient`를 사용하는 경우) 데이터 보내기를 끝내기(`DataRecognitionClient`를 사용하는 경우) 전에도 Speech Service에서 사용자가 말할 수 있는 내용을 예측할 때마다 호출됩니다.
 * **오류 이벤트**: 서비스에서 오류를 감지하면 호출됩니다.
-* **의도 이벤트**: 최종 인식 결과가 구조화된 JSON 의도로 구문 분석된 후 "WithIntent" 클라이언트(ShortPhrase 모드의 경우만)에서 호출됩니다.
+* **의도 이벤트**: 최종 인식 결과가 정형 JSON 의도로 구문 분석된 후 "WithIntent" 클라이언트(ShortPhrase 모드의 경우만)에서 호출됩니다.
 * **결과 이벤트**:
   * `ShortPhrase` 모드에서는 이 이벤트가 호출되고, 말하기를 끝낸 후 N 상위 결과를 반환합니다.
   * `LongDictation` 모드에서는 서비스에서 문장 일시 중지를 식별하는 위치에 따라 이벤트 처리기가 여러 번 호출됩니다.

@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 5d990d86124a7360dbc0398cf4250f9b088c183b
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 564517052796ee5dbc022ff92afcaa0216bdf8ea
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465574"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196841"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스에 대한 보안 경고 구성
 Azure 리소스용 PIM(Privileged Identity Management)은 사용자의 환경에 의심스럽거나 안전하지 않은 활동이 있을 때 경고를 생성합니다. 경고가 트리거될 때 경고 페이지에 표시됩니다. 
@@ -40,8 +40,8 @@ Azure 리소스용 PIM(Privileged Identity Management)은 사용자의 환경에
 
 
 ### <a name="severity"></a>심각도
-* **높음**: 정책 위반으로 인해 즉각적인 조치를 요구합니다. 
-* **보통**: 즉각적인 조치를 요구하지는 않지만 잠재적으로 정책이 위반될 수 있음을 나타냅니다.
+* **높음**: 정책 위반으로 인해 즉각적인 조치가 필요합니다. 
+* **보통**: 즉각적인 조치가 필요하지는 않지만 잠재적으로 정책이 위반될 수 있음을 나타냅니다.
 * **낮음**: 즉각적인 조치를 요구하지는 않지만 정책 변경을 제안합니다.
 
 ## <a name="configure-security-alert-settings"></a>보안 경고 설정 구성

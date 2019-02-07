@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/13/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c6c13d0e27edd5563f10df59ce7af585a345bfab
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: a24281f2b01b53ddb165d15bca4d8d43c26c5c05
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463340"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159857"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Azure Active Directory를 페더레이션에서 암호 해시 동기화로 마이그레이션
 
@@ -30,7 +30,8 @@ AD FS 사용에서 암호 해시 동기화 사용으로 마이그레이션하는
 
 ### <a name="update-azure-ad-connect"></a>Azure AD Connect 업데이트
 
-암호 해시 동기화를 사용하도록 마이그레이션하는 데 필요한 단계를 성공적으로 완료하려면 [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)(Azure Active Directory Connect) 1.1.819.0 이상이 있어야 합니다. 로그인 변환을 수행하는 방법이 Azure AD Connect 1.1.819.0에서 크게 변경되었습니다. 이 버전에서는 AD FS에서 클라우드 인증으로 마이그레이션하는 데 걸리는 전체 시간이 잠재적으로 몇 시간에서 몇 분으로 줄어듭니다.
+암호 해시 동기화로 마이그레이션하는 단계를 성공적으로 수행하려면 최소한 [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0이 있어야 합니다. 이 버전은 로그인 변환이 수행되는 방식에 대한 중요한 변경 내용을 포함하며, 페더레이션에서 클라우드 인증으로 마이그레이션하는 전체 시간을 몇 시간에서 몇 분으로 줄여 줍니다.
+
 
 > [!IMPORTANT]
 > 도메인을 페더레이션 ID에서 관리 ID로 변환할 때 사용자 변환이 필요한 오래된 문서, 도구 및 블로그에서 읽을 수 있습니다. *사용자 변환*은 더 이상 필요하지 않습니다. Microsoft는 이러한 변경을 반영하기 위해 설명서와 도구를 업데이트하려고 노력하고 있습니다.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: a864d6423dc530857009e58a2fa90f0fa2cbc84f
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 2e5838046cdb60023495c7e9e111506c333cecc7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853288"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102399"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Azure Service Fabric 클러스터 업그레이드 및 업데이트
 
@@ -105,9 +105,9 @@ POA(패치 오케스트레이션 애플리케이션)는 Service Fabric 클러스
 클러스터의 가상 머신의 OS 이미지를 업그레이드해야 하는 경우 한 번에 하나의 VM에 이 작업을 수행하고 이 업그레이드에 대한 책임을 져야 합니다. 현재 자동화 기능은 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md)
-* [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md)
-* [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
+*  [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md)
+*  [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md)
+* [애플리케이션 업그레이드](service-fabric-application-upgrade.md)
 
 <!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png

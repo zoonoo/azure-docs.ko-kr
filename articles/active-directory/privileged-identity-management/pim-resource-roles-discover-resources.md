@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
-ms.date: 08/30/2018
+ms.subservice: pim
+ms.date: 01/23/2019
 ms.author: rolyon
-ms.openlocfilehash: d9a6ab49d619e487eee6fb13abe128cfc167b560
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: e6548c2635afd8e1ac784a1930c2277548647cfd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306692"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192760"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>PIM에서 관리할 Azure 리소스 검색
 
@@ -28,7 +28,7 @@ Azure AD PIM(Privileged Identity Management)을 사용하여 Azure 리소스에 
 
 ## <a name="discover-resources"></a>리소스 검색
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
@@ -52,12 +52,16 @@ Azure AD PIM(Privileged Identity Management)을 사용하여 Azure 리소스에 
 
 1. 관리하려는 관리되지 않는 리소스 옆에 확인 표시를 추가합니다.
 
+1. **리소스 관리**를 클릭하여 선택한 리소스 관리를 시작합니다.
+
     > [!NOTE]
     > 관리 그룹 또는 구독이 관리됨으로 설정되면 관리되지 않음이 될 수 없습니다. 따라서 다른 리소스 관리자가 PIM 설정을 제거하지 못합니다.
 
     ![검색 - 리소스 관리](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-1. **리소스 관리**를 클릭하여 선택한 리소스 관리를 시작합니다.
+1. 관리하기로 선택한 리소스의 온보딩을 확인하라는 메시지가 표시되면 **예**를 클릭합니다.
+
+    ![검색 - 리소스 메시지 관리](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
 ## <a name="next-steps"></a>다음 단계
 

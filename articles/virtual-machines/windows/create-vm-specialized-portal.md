@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: 905f00842c5ce74f681a6c5c09ff8bf6c7a9e162
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: b24435501ed1312e91ebec9b9c434971dbc94b55
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091252"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163452"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Azure Portal을 사용하여 VHD에서 VM 만들기
 
@@ -28,6 +28,8 @@ Azure에서 VM(가상 머신)을 만드는 방법은 여러 가지가 있습니�
 - 사용할 VHD(가상 하드 디스크)가 이미 있거나 사용할 기존 VM에서 VHD를 복사하려는 경우, VHD를 새 VM에 OS 디스크로 *연결하여* 새 VM을 만들 수 있습니다. 
 
 - 삭제된 VM의 VHD에서 새 VM을 만들 수 있습니다. 예를 들어, 제대로 작동하지 않는 Azure VM이 있는 경우 해당 VM을 삭제하고 VHD를 사용하여 새 VM을 만들 수 있습니다. 동일한 VHD를 다시 사용하거나, 스냅숏을 만든 다음, 스냅숏에서 새로운 관리 디스크를 만들어 VHD의 복사본을 만들 수 있습니다. 스냅숏을 만드는 데는 몇 가지 추가 단계가 있지만 원본 VHD가 유지되고 대체(fallback)를 통해 제공됩니다.
+
+- 클래식 VM 및 VHD를 사용하여 Resource Manager 배포 모델 및 관리 디스크를 사용하는 새 VM을 만듭니다. 최상의 결과를 위해 스냅숏을 만들기 전에 Azure Portal에서 클래식 VM을 **중지**합니다.
  
 - 온-프레미스 VHD를 업로드하고 새 VM에 연결하여 온-프레미스 VHD에서 Azure VM을 만들 수 있습니다. PowerShell 또는 다른 도구를 사용하여 VHD를 저장소 계정에 업로드한 다음, VHD에서 관리 디스크를 만듭니다. 자세한 내용은 [특수 VHD 업로드](create-vm-specialized.md#option-2-upload-a-specialized-vhd)를 참조하세요. 
 

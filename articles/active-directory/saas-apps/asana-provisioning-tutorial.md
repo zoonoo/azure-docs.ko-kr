@@ -8,7 +8,7 @@ writer: asmalser-msft
 manager: sakula
 ms.assetid: 0b38ee73-168b-42cb-bd8b-9c5e5126d648
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 26642fefbb86b2709e110b13d782286fd18d5e60
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 11ab8bd5f5967f886d8bf1e03df4c9d88bf36b33
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348058"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156363"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Asana 구성
 
@@ -59,7 +59,7 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-asana-in-azure-ad"></a>Azure AD에서 Asana에 자동 사용자 계정 프로비전을 구성하려면 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** > **엔터프라이즈 앱** > **모든 응용 프로그램** 섹션으로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** > **엔터프라이즈 앱** > **모든 애플리케이션** 섹션으로 이동합니다.
 
 1. Single Sign-On을 위해 Asana를 이미 구성한 경우 검색 필드를 사용하여 Asana의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 애플리케이션 갤러리에서 **Asana**를 검색합니다. 검색 결과에서 **Asana**를 선택하고 애플리케이션의 목록에 추가합니다.
 
@@ -102,5 +102,5 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 * [Single Sign-on 구성](asana-tutorial.md)

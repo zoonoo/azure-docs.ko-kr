@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: ad89acb63057ff260332384372bcb7719cc8e4f3
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 1482497f3767e7533d1d56e6eb63e55cdb5c9ebb
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064834"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104646"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Azure Service Fabric에서 백업 복원
 
@@ -229,7 +229,7 @@ $restoreResponse | Format-List
     ```
     
 3. **성공**, **실패** 또는 **시간 초과**: 요청된 복원은 다음 상태로 완료될 수 있습니다. 각 상태에는 다음과 같은 중요도 및 응답 세부 정보가 있습니다.
-    - **성공**: _성공_ 복원 상태는 회복된 파티션 상태를 표시합니다. 파티션은 시간(UTC)과 함께 _RestoreEpoch_ 및 _RestordLSN_을 보고합니다.
+    - **성공**: _성공_ 복원 상태는 회복된 파티션 상태를 표시합니다. 파티션은 시간(UTC)과 함께 _RestoredEpoch_ 및 _RestoredLSN_을 보고합니다.
 
         ```
         RestoreState  : Success

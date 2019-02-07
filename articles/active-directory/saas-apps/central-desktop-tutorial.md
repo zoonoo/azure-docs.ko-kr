@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: b805d485-93db-49b4-807a-18d446c7090e
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 82a6911c85dd1438aa8f60cb36194a2916bc91e7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bc8aec25d6493d87393a45549fb89f978c469912
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429049"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179160"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>자습서: Central Desktop와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ Central Desktop과 Azure AD의 통합을 구성하려면 갤러리의 Central De
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -112,7 +112,7 @@ Central Desktop에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
     a. **로그온 URL** 텍스트 상자에 다음과 같은 패턴을 사용하여 URL을 입력합니다. `https://<companyname>.centraldesktop.com`
 
-    나. **식별자** 상자에 다음과 같은 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 상자에 다음과 같은 패턴을 사용하여 URL을 입력합니다.
     | |
     |--|
     | `https://<companyname>.centraldesktop.com/saml2-metadata.php`|
@@ -147,7 +147,7 @@ Central Desktop에서 Azure AD Single Sign-On을 구성하고 테스트하려면
     
     a. **SAML v2 Single Sign-On 사용**을 선택합니다.
     
-    나. **SSO URL** 상자에 Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 붙여넣습니다.
+    b. **SSO URL** 상자에 Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 붙여넣습니다.
     
     다. **SSO 로그인 URL** 상자에 Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 붙여넣습니다.
     
@@ -157,7 +157,7 @@ Central Desktop에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
     ![메시지 서명 확인 방법](./media/central-desktop-tutorial/ic769565.png "메시지 서명 확인 방법") **인증서**를 선택합니다.
     
-    나. **SSO 인증서** 목록에서 **RSH SHA256**을 선택합니다.
+    b. **SSO 인증서** 목록에서 **RSH SHA256**을 선택합니다.
     
     다. 다운로드한 인증서를 메모장에서 엽니다. 그런 다음, 인증서의 내용을 복사하여 **SSO 인증서** 필드에 붙여넣습니다.
         
@@ -166,7 +166,7 @@ Central Desktop에서 Azure AD Single Sign-On을 구성하고 테스트하려면
     e. **업데이트**를 선택합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다. **Active Directory** > **엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에 **Single Sign-On** 탭을 선택하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다. **Active Directory** > **엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에 **Single Sign-On** 탭을 선택하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -238,7 +238,7 @@ Azure AD 사용자가 로그인할 수 있도록 Central Desktop 애플리케이
 
 1. Azure Portal에서 애플리케이션 보기를 엽니다. 디렉터리 보기로 이동한 다음, **엔터프라이즈 애플리케이션**으로 이동합니다.
 
-1. **모든 응용 프로그램**을 선택합니다.
+1. **모든 애플리케이션**을 선택합니다.
 
     ![사용자 할당][201] 
 
@@ -270,7 +270,7 @@ Azure AD 사용자가 로그인할 수 있도록 Central Desktop 애플리케이
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

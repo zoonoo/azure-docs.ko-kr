@@ -10,12 +10,12 @@ ms.subservice: user-help
 ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 510ecfc217c5e3b3e1ac6cd285fcaf7001199aa4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5d69f4cbf78cf75cf018070a0d02c4b109689449
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149717"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769495"
 ---
 # <a name="user-help-for-authentication-apps-and-device-management"></a>인증, 앱 및 디바이스 관리에 대한 사용자 도움말
 
@@ -87,10 +87,10 @@ ms.locfileid: "55149717"
                         <h3>Microsoft Authenticator 앱 도움말</h3>
                         <p>
                         <a href="/azure/active-directory/user-help/user-help-auth-app-overview">개요</a><br/>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">앱 다운로드 및 설치</a><br/>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-add-accounts-overview">계정 추가</a><br/>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq">앱을 사용하여 로그인</a><br/>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery">계정 자격 증명 백업 및 복구</a>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-download-install">앱 다운로드 및 설치</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-add-account-overview">계정 추가</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-sign-in">앱을 사용하여 로그인</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-backup-recovery">계정 자격 증명 백업 및 복구</a>
                         </p>
                     </div>
                 </div>

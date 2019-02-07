@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 0f8db7dd3a90e06587a7e0e05f33cb6fba5c72e1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 21ac48ff473dcf494f96f87210bdfe09e4d82646
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539792"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103397"
 ---
 # <a name="optimizing-autovacuum-on-azure-database-for-postgresql-server"></a>Azure Database for PostgreSQL 서버에서 자동 진공 최적화 
 이 문서에서는 Azure Database for PostgreSQL에서 자동 진공을 효과적으로 최적화하는 방법에 대해 설명합니다.

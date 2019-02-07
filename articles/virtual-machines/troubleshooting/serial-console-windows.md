@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 61b64b63a53318e0a703678d5525399fe13efa83
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b280c86b15f7af01b04d41b4c2d625ea4ec4a398
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432765"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104436"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Windows용 가상 머신 직렬 콘솔
 
@@ -137,6 +137,13 @@ NMI를 받을 때 크래시 덤프 파일을 만들도록 Windows 구성에 대�
 ### <a name="use-wsl-in-serial-console"></a>직렬 콘솔에서 WSL 사용
 Linux(WSL)용 Windows 하위 시스템은 Windows Server 2019 이상에서 사용하도록 설정됐으므로 Windows Server 2019 이상을 실행하는 경우 직렬 콘솔 내에서 사용을 위해 WSL을 사용하도록 설정할 수 있습니다. 이 기능은 또한 Linux 명령에 익숙한 사용자에게 유용할 수 있습니다. Windows Server용 WSL를 사용하도록 설정하는 지침은 [설치 가이드](https://docs.microsoft.com/windows/wsl/install-on-server)를 참조하세요.
 
+### <a name="restart-your-windows-vm-within-serial-console"></a>직렬 콘솔 내에서 Windows VM 다시 시작
+전원 단추를 탐색하고 "VM 다시 시작"을 클릭하여 직렬 콘솔 내에서 VM을 다시 시작할 수 있습니다. 그러면 VM 다시 시작을 시작하고, 다시 시작에 대해 Azure Portal 내에 알림이 표시됩니다.
+
+직렬 콘솔 환경을 종료하지 않고 VM의 부팅 메뉴에 액세스하려는 경우에 유용합니다.
+
+![Windows 직렬 콘솔 다시 시작](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-windows.gif)
+
 ## <a name="disable-serial-console"></a>직렬 콘솔 사용하지 않도록 설정
 기본적으로 모든 구독에는 모든 VM에 대한 직렬 콘솔 액세스가 활성화되어 있습니다. 구독 수준 또는 VM 수준에서 직렬 콘솔을 비활성화할 수 있습니다.
 
@@ -240,7 +247,7 @@ Windows VM에 연결할 때 상태 정보만 표시됩니다.| Windows 이미지
 원래 콘텐츠에 반복 문자가 있는 경우 SAC의 PowerShell에 붙여 넣으면 세 번째 문자가 나타납니다. | 해결 방법은 `Remove-Module PSReadLine`을 실행하여 현재 세션에서 PSReadLine 모듈을 언로드하는 것입니다. 이 작업으로 모듈이 삭제되거나 제거되지 않습니다.
 일부 키보드 입력이 이상한 SAC 출력을 생성합니다(예: **[A**, **[3~**). | [VT100](https://aka.ms/vtsequences) 이스케이프 시퀀스는 SAC 프롬프트에서 지원되지 않습니다.
 긴 문자열을 붙여넣는 작업이 작동하지 않습니다. | 직렬 콘솔은 터미널에 붙여넣는 문자열의 길이를 2048자로 제한하여 직렬 포트 대역폭을 오버로드하지 않도록 방지합니다.
-직렬 콘솔은 스토리지 계정 방화벽에서 작동하지 않습니다. | 직렬 콘솔은 기본적으로 부트 진단 스토리지 계정에서 사용하도록 설정된 스토리지 계정 방화벽에 작동할 수 없습니다.
+직렬 콘솔은 스토리지 계정 방화벽에서 작동하지 않습니다. | 직렬 콘솔은 기본적으로 부트 진단 스토리지 계정에서 사용하도록 설정된 스토리지 계정 방화벽과 함께 작동할 수 없습니다.
 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답

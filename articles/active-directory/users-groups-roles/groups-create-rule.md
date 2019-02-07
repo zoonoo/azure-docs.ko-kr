@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: be880b937f254cbf8115d1a5129069069a0c7eea
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: dabee3f4eb6fb2bf4f58ff8654068e138858dbbd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249677"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156924"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>동적 그룹 만들기 및 상태 확인
 
@@ -35,11 +35,11 @@ Azure AD(Azure Active Directory)에서는 사용자 또는 디바이스 속성�
 
    ![새 그룹 추가](./media/groups-create-rule/new-group-creation.png)
 
-4. **그룹** 블레이드에서 새 그룹에 대한 이름 및 설명을 입력합니다. 사용자 또는 디바이스에 대한 규칙을 만들지 여부에 따라 **동적 사용자** 또는 **동적 디바이스** 중에서 **멤버 자격 유형**을 선택한 다음 **동적 쿼리 추가**를 선택합니다. 규칙 작성기를 사용하여 간단한 규칙을 작성하거나 멤버 자격 규칙을 직접 작성할 수 있습니다. 이 문서에는 멤버 자격 규칙의 예제뿐만 아니라 사용 가능한 사용자 및 디바이스 특성에 대한 자세한 정보를 포함되어 있습니다.
+4. **그룹** 블레이드에서 새 그룹에 대한 이름 및 설명을 입력합니다. 사용자 또는 디바이스에 대한 규칙을 만들지 여부에 따라 **동적 사용자** 또는 **동적 디바이스** 중에서 **멤버 자격 유형**을 선택한 다음, **동적 쿼리 추가**를 선택합니다. 규칙 작성기를 사용하여 간단한 규칙을 작성하거나 멤버 자격 규칙을 직접 작성할 수 있습니다. 이 문서에는 멤버 자격 규칙의 예제뿐만 아니라 사용 가능한 사용자 및 디바이스 특성에 대한 자세한 정보를 포함되어 있습니다.
 
    ![동적 멤버 자격 규칙 추가](./media/groups-create-rule/add-dynamic-group-rule.png)
 
-5. 멤버 자격 쿼리에 추가할 수 있는 사용자 지정 확장 속성의 전체 목록을 보려면 **사용자 지정 확장 속성 가져오기**를 선택하고, 애플리케이션 ID를 입력한 다음, **속성 새로 고침**을 선택합니다. 이제 속성의 전체 목록을 선택할 수 있습니다.
+5. 멤버 자격 쿼리에 추가할 수 있는 사용자 지정 확장 속성의 전체 목록을 보려면 **사용자 지정 확장 속성 가져오기**를 선택하고, 응용 프로그램 ID를 입력한 다음, **속성 새로 고침**을 선택합니다. 이제 속성의 전체 목록을 선택할 수 있습니다.
 6. 규칙을 만든 후 블레이드 맨 아래에서 **쿼리 추가**를 선택합니다.
 7. **만들기** on the **그룹** 을 선택하여 그룹을 만듭니다.
 
@@ -54,7 +54,7 @@ Azure AD(Azure Active Directory)에서는 사용자 또는 디바이스 속성�
 
 **멤버 자격 처리** 상태에 대해 다음 상태 메시지가 표시될 수 있습니다.
 
-* **평가 중**: 그룹 변경 내용이 수신되었으며 업데이트가 평가 중입니다.
+* **평가 중**:  그룹 변경 내용이 수신되었으며 업데이트가 평가 중입니다.
 * **처리 중**: 업데이트가 처리 중입니다.
 * **업데이트 완료**: 처리가 완료되었으며 적용 가능한 모든 업데이트가 수행되었습니다.
 * **처리 오류**: 멤버 자격 규칙을 평가하는 동안 오류가 발생했으며 처리를 완료할 수 없습니다.

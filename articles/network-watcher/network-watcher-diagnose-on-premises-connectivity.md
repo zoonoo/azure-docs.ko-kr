@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: e51d31035a8b05238ef0f8d13dd6b6c3f9ad02e8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f5c4f8d2c9cec4372ef5de70485d45ab33e022de
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26374205"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099399"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>VPN Gateway를 통한 온-프레미스 연결 진단
 
@@ -36,7 +36,7 @@ Azure Network Watcher 문제 해결 기능을 사용하여 게이트웨이 및 �
 1. 사이트 간 연결(경로 기반) - [VPN Gateway와 온-프레미스 라우터 간의 연결](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection)
 1. [FortiGate 구성](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
-사이트 간 구성에 대한 자세한 단계별 지침은 [Azure Portal을 사용하여 사이트 간 연결로 VNet 만들기](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)를 방문하여 찾을 수 있습니다.
+사이트 간 구성에 대한 자세한 단계별 지침은 다음을 방문하여 찾을 수 있습니다. [Azure Portal을 사용하여 사이트 간 연결로 VNet 만들기](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 
 중요한 구성 단계 중 하나는 IPsec 통신 매개 변수를 구성하는 것이며 모든 잘못된 구성은 온-프레미스 네트워크와 Azure 간의 연결 손실로 이어집니다. 현재 Azure VPN Gateway는 1단계에 대해 다음 IPsec 매개 변수를 지원하도록 구성됩니다. 앞에서 언급했듯이 이러한 설정은 수정할 수 없습니다.  다음 표에서 볼 수 있듯이 Azure VPN Gateway에서 지원하는 암호화 알고리즘은 AES256, AES128 및 3DES입니다.
 
@@ -103,7 +103,7 @@ Azure Network Watcher 문제 해결 기능을 사용하면 간단한 PowerShell 
 | ConnectionEntityNotFound | 연결 구성이 없습니다. | 아니요 |
 | ConnectionIsMarkedDisconnected | 연결이 "연결 끊김"으로 표시되었습니다. |아니요|
 | ConnectionNotConfiguredOnGateway | 기본 서비스에 연결이 구성되어 있지 않습니다. | 예 |
-| ConnectionMarkedStandy | 기본 서비스가 대기로 표시되었습니다.| 예|
+| ConnectionMarkedStandby | 기본 서비스가 대기로 표시되었습니다.| 예|
 | 인증 | 미리 공유한 키가 일치하지 않습니다. | 예|
 | PeerReachability | 피어 게이트웨이에 연결할 수 없습니다. | 예|
 | IkePolicyMismatch | 피어 게이트웨이에 Azure에서 지원되지 않는 IKE 정책이 있습니다. | 예|

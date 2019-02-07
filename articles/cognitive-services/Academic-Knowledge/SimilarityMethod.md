@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 76e86eb78a06d98e3d5c6c54b244add3c0c245d2
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 7484b570784f5f058ebd23b1e3c225c5d858a274
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900464"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183342"
 ---
 # <a name="similarity-method"></a>유사성 메서드
 
@@ -30,12 +30,12 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ## <a name="request-parameters"></a>요청 매개 변수
 매개 변수        |데이터 형식      |필수 | 설명
 ----------|----------|----------|------------
-**s1**        |문자열   |yes  |비교할 문자열*
-**s2**        |문자열   |yes  |비교할 문자열*
+**s1**        |문자열   |예  |비교할 문자열*
+**s2**        |문자열   |예  |비교할 문자열*
 <sub> *비교할 문자열의 최대 길이는 1MB입니다.</sub>
 <br>
 ## <a name="response"></a>response
-이름 | 설명
+Name | 설명
 --------|---------
 **SimilarityScore**        |s1과 s2의 코사인 유사성을 나타내는 부동 소수점 값으로, 1.0에 가까울수록 유사성이 높고 -1.0에 가까울수록 유사성이 낮습니다.
 <br>
@@ -48,7 +48,7 @@ HTTP 상태 | 이유 | response
 **500**         |내부 서버 오류 | 오류 메시지
 **Timed out**     | 요청 시간이 초과되었습니다.  | 오류 메시지
 <br>
-## <a name="example-calculate-similarity-of-two-partial-abstracts"></a>예: 두 부분 요약의 유사성 계산
+## <a name="example-calculate-similarity-of-two-partial-abstracts"></a>예제: 두 부분 요약의 유사성 계산
 #### <a name="request"></a>요청:
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?s1=Using complementary priors, we derive a fast greedy algorithm that can learn deep directed belief networks one layer at a time, provided the top two layers form an undirected associative memory

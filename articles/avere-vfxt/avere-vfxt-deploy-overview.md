@@ -4,28 +4,28 @@ description: Avere vFXT for Azure 배포에 대해 간략히 설명합니다.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: aa5737d67ea2c9cb8cc7c7098764ae67fc91137d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 1be11fff7139b250e85fe15cec9082a2c85cf857
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669820"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298537"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT for Azure - 배포 개요
 
 이 문서에서는 Avere vFXT for Azure 클러스터를 가동하고 실행하는 데 필요한 단계에 대해 간략히 설명합니다.
 
-Avere vFXT 시스템을 처음 배포할 때 대부분의 다른 Azure 도구를 배포하는 것보다 더 많은 단계가 필요할 수 있습니다. 시작부터 완료까지의 전체 프로세스를 명확히 이해하면 필요한 작업의 범위를 지정하는 데 도움이 됩니다. 시스템을 가동하고 실행한 후에는 클라우드 기반 계산 작업을 빠르게 처리할 수 있으므로 상당한 가치가 있습니다.
+Azure Marketplace에서 vFXT 클러스터를 만들기 전과 후에 몇 가지 작업이 필요합니다. 시작부터 완료까지의 전체 프로세스를 명확히 이해하면 필요한 작업의 범위를 지정하는 데 도움이 됩니다. 
 
 ## <a name="deployment-steps"></a>배포 단계
 
 [시스템을 계획](avere-vfxt-deploy-plan.md)한 후에는 Avere vFXT 클러스터를 만들 수 있습니다. 
 
-먼저 vFXT 클러스터를 만드는 데 사용되는 클러스터 컨트롤러 VM을 만듭니다.
+Azure Marketplace의 Azure Resource Manager 템플릿은 필요한 정보를 수집하고 자동으로 전체 클러스터를 배포합니다. 
 
-vFXT 클러스터가 가동되고 실행된 후에 클라이언트를 연결하는 방법과 필요한 경우 데이터를 새 Blob 저장소 컨테이너로 이동하는 방법을 이해할 필요가 있습니다.  
+vFXT 클러스터가 가동되고 실행된 후에 클라이언트를 연결하는 방법과 필요한 경우 데이터를 새 Blob Storage 컨테이너로 이동하는 방법을 이해할 필요가 있습니다.  
 
 이러한 모든 단계에 대한 개요는 다음과 같습니다.
 
@@ -33,25 +33,30 @@ vFXT 클러스터가 가동되고 실행된 후에 클라이언트를 연결하�
 
    VM을 만들기 전에 Avere vFXT 프로젝트에 대한 새 구독을 만들고, 구독 소유권을 구성하고, 할당량을 확인하고, 필요한 경우 증가를 요청하고, Avere vFXT 소프트웨어 사용 약관에 동의해야 합니다. 자세한 지침은 [Avere vFXT 만들기 준비](avere-vfxt-prereqs.md)를 참조하세요.
 
-1. 클러스터 컨트롤러 만들기
+1. 클러스터 노드에 대한 액세스 역할 만들기
 
-   *클러스터 컨트롤러*는 Avere vFXT 클러스터와 동일한 가상 네트워크에 있는 간단한 VM입니다. 컨트롤러는 vFXT 노드를 만들고, 클러스터를 구성하며, 해당 수명 동안 클러스터를 관리하는 명령줄 인터페이스도 제공합니다.
+   Azure는 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/index.yml)를 사용하여 클러스터 노드 VM에 특정 작업을 수행할 수 있는 권한을 부여합니다. 예를 들어 클러스터 노드에서 IP 주소를 다른 클러스터 노드에 할당하거나 다시 할당할 수 있어야 합니다. 클러스터를 만들기 전에 적절한 권한을 부여하는 역할을 정의해야 합니다.
 
-   공용 IP 주소를 사용하여 컨트롤러를 구성하는 경우 해당 컨트롤러는 vnet 외부에서 클러스터에 연결하기 위한 점프 호스트 역할을 수행할 수 있습니다.
+   지침은 [클러스터 노드 액세스 역할 만들기](avere-vfxt-prereqs.md#create-the-cluster-node-access-role)를 참조하세요.
 
-   vFXT 클러스터를 만들고 해당 노드를 관리하는 데 필요한 모든 소프트웨어는 클러스터 컨트롤러에 사전 설치됩니다.
-
-   자세한 내용은 [클러스터 컨트롤러 VM 만들기](avere-vfxt-deploy.md#create-the-cluster-controller-vm)를 참조하세요.
-
-1. 클러스터 노드에 대한 런타임 역할 만들기 
-
-   Azure는 [RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/)를 사용하여 클러스터 노드 VM에 특정 작업을 수행할 수 있는 권한을 부여합니다. 예를 들어 클러스터 노드에서 IP 주소를 다른 클러스터 노드에 할당하거나 다시 할당할 수 있어야 합니다. 클러스터를 만들기 전에 적절한 권한을 부여하는 역할을 정의해야 합니다.
-
-   클러스터 컨트롤러의 사전 설치된 소프트웨어에는 사용자 지정할 수 있는 프로토타입 역할이 포함되어 있습니다. 지침은 [클러스터 노드 액세스 역할 만들기](avere-vfxt-deploy.md#create-the-cluster-node-access-role)를 참조하세요.
+   클러스터 컨트롤러는 액세스 역할을 사용하지만, 직접 만드는 대신 기본 역할인 소유자를 적용할 수도 있습니다. 클러스터 컨트롤러에 대한 사용자 지정 역할을 만들려는 경우 [사용자 지정된 컨트롤러 액세스 역할](avere-vfxt-controller-role.md)을 참조하세요. 
 
 1. Avere vFXT 클러스터 만들기 
 
-   컨트롤러에서 적절한 클러스터 만들기 스크립트를 편집하고, 이 스크립트를 실행하여 클러스터를 만듭니다. 자세한 지침은 [배포 스크립트 편집](avere-vfxt-deploy.md#edit-the-deployment-script)에 있습니다. 
+   Azure Marketplace를 사용하여 Azure 클러스터용 Avere vFXT를 만듭니다. 템플릿은 필요한 정보를 수집하고 최종 제품을 만드는 스크립트를 실행합니다.
+
+   클러스터 만들기에는 다음 단계가 포함되며, 모든 단계는 마켓플레이스 템플릿에 의해 수행됩니다. 
+
+   * 필요한 경우 새 네트워크 인프라 및 리소스 그룹 만들기
+   * *클러스터 컨트롤러* 만들기  
+
+     클러스터 컨트롤러는 Avere vFXT 클러스터와 동일한 가상 네트워크에 상주하는 간단한 VM이며, 클러스터를 만들고 관리하는 데 필요한 사용자 지정 소프트웨어를 갖고 있습니다. 컨트롤러는 vFXT 노드를 만들고, 클러스터를 구성하며, 해당 수명 동안 클러스터를 관리하는 명령줄 인터페이스도 제공합니다.
+
+     공용 IP 주소를 사용하여 컨트롤러를 구성하는 경우 해당 컨트롤러는 vnet 외부에서 클러스터에 연결하기 위한 점프 호스트 역할을 수행할 수 있습니다.
+
+   * 클러스터 노드 VM 만들기
+   * 클러스터로 클러스터 노드 VM 구성
+   * 필요에 따라 새 Blob 컨테이너를 만들고 클러스터의 백 엔드 스토리지로 구성
 
 1. 클러스터 구성 
 

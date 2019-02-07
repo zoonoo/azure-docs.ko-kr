@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: dd8e4178-9a63-492a-bd48-782e94e404af
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a8ed2f04bf3004907cdd6e33bfb30260233fb101
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: efb905364e5ae4736b058472e66b3a8850a99fe3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157159"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167841"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>자습서: BorrowBox와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ Azure AD에 대한 BorrowBox 통합을 구성하려면 갤러리의 BorrowBox를
 
     ![이미지](./common/selectazuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![이미지](./common/a_select_app.png)
     
@@ -96,7 +96,7 @@ BorrowBox에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 **BorrowBox에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. [Azure Portal](https://portal.azure.com/)의 **BorrowBox** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **BorrowBox** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
     ![이미지](./common/B1_B2_Select_SSO.png)
 
@@ -121,7 +121,7 @@ BorrowBox에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     > [!NOTE]
     > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 얻으려면 [BorrowBox 클라이언트 지원 팀](mailto:borrowbox@bolinda.com)에 문의하세요.
 
-5. BorrowBox 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
+5. BorrowBox 응용 프로그램에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
 
     ![이미지](./media/borrowbox-tutorial/i4-attribute.png)
 
@@ -208,4 +208,4 @@ BorrowBox에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

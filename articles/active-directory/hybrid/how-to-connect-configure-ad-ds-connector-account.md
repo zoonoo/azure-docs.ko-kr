@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 01/14/2019
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: a23561e082736b7dfae6205e75fd1e9ccfab5f6c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 531ba32125479528b1a847b32d711049e699dda0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463392"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191664"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS 커넥터 계정 권한 구성 
 
@@ -129,7 +129,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 
  
 
-|type |이름 |Access |적용 대상| 
+|Type |Name |Access |적용 대상| 
 |-----|-----|-----|-----|
 |허용 |AD DS 커넥터 계정 |모든 속성 읽기 |하위 디바이스 개체| 
 |허용 |AD DS 커넥터 계정|모든 속성 읽기 |하위 InetOrgPerson 개체| 
@@ -155,7 +155,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 
 
-|type |이름 |Access |적용 대상|
+|Type |Name |Access |적용 대상|
 |-----|-----|-----|-----| 
 |허용|AD DS 커넥터 계정|읽기/쓰기 속성|MS-DS-Consistency-Guid|하위 User 개체|
 
@@ -175,7 +175,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonPar
 
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 
 
-|type |이름 |Access |적용 대상|
+|Type |Name |Access |적용 대상|
 |-----|-----|-----|-----| 
 |허용 |AD DS 커넥터 계정 |디렉터리 변경 내용 복제 |이 개체만(도메인 루트)| 
 |허용 |AD DS 커넥터 계정 |모든 디렉터리 변경 내용 복제 |이 개체만(도메인 루트)| 
@@ -195,7 +195,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 ```
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 
 
-|type |이름 |Access |적용 대상|
+|Type |Name |Access |적용 대상|
 |-----|-----|-----|-----| 
 |허용 |AD DS 커넥터 계정 |암호 재설정 |하위 User 개체| 
 |허용 |AD DS 커넥터 계정 |lockoutTime 속성 쓰기 |하위 User 개체| 
@@ -205,21 +205,21 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 그룹 쓰기 저장을 사용하는 경우 AD DS 커넥터 계정에 대한 권한을 설정하려면 다음을 실행합니다. 
 
 ``` powershell
-Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 또는 
 
 ``` powershell
-Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
 ```
  
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 
 
-|type |이름 |Access |적용 대상|
+|Type |Name |Access |적용 대상|
 |-----|-----|-----|-----| 
-|허용 |AD DS 커넥터 계정 |일반 읽기/쓰기 |하위 Group 개체| 
-|허용 |AD DS 커넥터 계정 |자식 개체 만들기/삭제 |이 개체 및 모든 자식 개체| 
-|허용 |AD DS 커넥터 계정 |개체 및 모든 해당 자식 만들기/삭제 |이 개체 및 모든 자식 개체|
+|허용 |AD DS 커넥터 계정 |일반 읽기/쓰기 |개체 형식 그룹 및 하위 개체의 모든 특성| 
+|허용 |AD DS 커넥터 계정 |자식 개체 만들기/삭제 |개체 형식 그룹 및 하위 개체의 모든 특성| 
+|허용 |AD DS 커넥터 계정 |삭제/트리 개체 삭제|개체 형식 그룹 및 하위 개체의 모든 특성|
 
 ### <a name="permissions-for-exchange-hybrid-deployment"></a>Exchange 하이브리드 배포에 대한 권한 
 Exchange 하이브리드 배포를 사용하는 경우 AD DS 커넥터 계정에 대한 권한을 설정하려면 다음을 실행합니다. 
@@ -238,7 +238,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 이 cmdlet에서 설정하는 권한은 다음과 같습니다.  
  
 
-|type |이름 |Access |적용 대상|
+|Type |Name |Access |적용 대상|
 |-----|-----|-----|-----| 
 |허용 |AD DS 커넥터 계정 |모든 속성 읽기/쓰기 |하위 User 개체| 
 |허용 |AD DS 커넥터 계정 |모든 속성 읽기/쓰기 |하위 InetOrgPerson 개체| 
@@ -260,7 +260,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 ```
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 
 
-|type |이름 |Access |적용 대상|
+|Type |Name |Access |적용 대상|
 |-----|-----|-----|-----| 
 |허용 |AD DS 커넥터 계정 |모든 속성 읽기 |하위 PublicFolder 개체| 
 
@@ -285,7 +285,7 @@ Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=U
 
 이 cmdlet에서 설정하는 권한은 다음과 같습니다. 
 
-|type |이름 |Access |적용 대상|
+|Type |Name |Access |적용 대상|
 |-----|-----|-----|-----| 
 |허용 |SYSTEM |모든 권한 |이 개체 
 |허용 |엔터프라이즈 관리자 |모든 권한 |이 개체 

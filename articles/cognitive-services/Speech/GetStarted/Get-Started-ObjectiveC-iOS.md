@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 7c4a5029208854528afdfdbfcdc63434a2a94e24
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f8bc13aa2adad5c27b1754303ea30304c491f7ca
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338704"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211800"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>빠른 시작: iOS의 Objective-C에서 Bing Speech Recognition API 사용
 
@@ -115,7 +115,7 @@ iOS용 클라이언트 라이브러리 참조를 찾으려면 이 [웹 페이지
 
 * `DataRecognitionClient`: PCM 데이터(예: 파일 또는 오디오 소스에 있음)를 사용하는 음성 인식입니다. 데이터는 버퍼로 분할되고, 각 버퍼는 Speech Service로 보내집니다. 버퍼는 수정되지 않으므로 원하는 경우 사용자가 자신의 묵음 감지를 적용할 수 있습니다. 데이터가 WAV 파일에서 제공되면 데이터를 파일에서 서버로 직접 보낼 수 있습니다. 원시 데이터가 있으면(예: 오디오가 Bluetooth를 통해 들어오는 경우), 먼저 서버에 형식 헤더를 보낸 다음, 데이터를 보냅니다.
 * `MicrophoneRecognitionClient`: 마이크에서 나오는 음성을 사용하는 음성 인식입니다. 마이크가 켜져 있고 마이크의 데이터를 음성 인식 서비스로 보내는지 확인합니다. 기본 제공 "묵음 감지기"가 먼저 마이크 데이터에 적용된 후에 인식 서비스로 보내집니다.
-* `DataRecognitionClientWithIntent` 및 `MicrophoneRecognitionClientWithIntent`: 이러한 클라이언트는 인식 텍스트 외에도 화자의 의도에 대해 구조화된 정보를 반환합니다. 이 정보는 응용 프로그램에서 추가 작업을 구동하는 데 사용할 수 있습니다. "의도"를 사용하려면 먼저 [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)를 사용하여 모델이 학습되어야 합니다.
+* `DataRecognitionClientWithIntent` 및 `MicrophoneRecognitionClientWithIntent`: 이러한 클라이언트는 인식 텍스트 외에도 화자의 의도에 대한 정형 정보를 반환합니다. 이 정보는 애플리케이션에서 추가 작업을 구동하는 데 사용할 수 있습니다. "의도"를 사용하려면 먼저 [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)를 사용하여 모델이 학습되어야 합니다.
 
 ### <a name="recognition-language"></a>인식 언어
 
@@ -134,7 +134,7 @@ iOS용 클라이언트 라이브러리 참조를 찾으려면 이 [웹 페이지
 
 * **부분 결과 이벤트**: 이 이벤트는 말하기를 끝내거나(`MicrophoneRecognitionClient`를 사용하는 경우) 데이터 보내기를 끝내기(`DataRecognitionClient`를 사용하는 경우) 전에도 Speech Service에서 사용자가 말할 수 있는 내용을 예측할 때마다 호출됩니다.
 * **오류 이벤트**: 서비스에서 오류를 감지하면 호출됩니다.
-* **의도 이벤트**: 최종 인식 결과가 구조화된 JSON 의도로 구문 분석된 후 "WithIntent" 클라이언트(ShortPhrase 모드의 경우만)에서 호출됩니다.
+* **의도 이벤트**: 최종 인식 결과가 정형 JSON 의도로 구문 분석된 후 "WithIntent" 클라이언트(ShortPhrase 모드의 경우만)에서 호출됩니다.
 * **결과 이벤트**:
   * `SpeechRecognitionMode_ShortPhrase` 모드에서는 이 이벤트가 호출되고, 말하기를 끝낸 후 N 상위 결과를 반환합니다.
   * `SpeechRecognitionMode_LongDictation` 모드에서는 서비스에서 문장 일시 중지를 식별하는 위치에 따라 이벤트 처리기가 여러 번 호출됩니다.

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7e682850d331770766a9b97c2b4b9102af143f2e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a78e5c411c03aaff07818c4e45183f8eff40492d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836273"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211358"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>장애 조치(failover) 후 연결할 IP 주소 설정
 
@@ -60,7 +60,7 @@ Site Recovery는 Azure에 장애 조치할 경우 서브넷 장애 조치를 사
 Woodgrove가 IP 주소를 유지하는 동시에 해당 VM을 Azure로 복제할 수 있으려면 회사는 다음을 수행해야 합니다.
 
 
-1. 온-프레미스 컴퓨터의 장애 조치 후 Azure VM을 만들 Azure 가상 네트워크를 만듭니다. 응용 프로그램이 원활하게 장애 조치(failover)할 수 있도록 온-프레미스 네트워크를 확장해야 합니다.
+1. 온-프레미스 컴퓨터의 장애 조치 후 Azure VM을 만들 Azure 가상 네트워크를 만듭니다. 애플리케이션이 원활하게 장애 조치(failover)할 수 있도록 온-프레미스 네트워크를 확장해야 합니다.
 2. 장애 조치 전에 Site Recovery의 컴퓨터 속성에서 동일한 IP 주소를 할당합니다. 장애 조치 후 Site Recovery는 이 주소를 Azure VM에 할당합니다.
 3. 장애 조치를 실행하고 동일한 IP 주소로 Azure VM을 만든 후에는 [Vnet 간 연결](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)을 사용하여 네트워크에 연결합니다. 이 작업은 스크립팅될 수 있습니다.
 4. 192.168.1.0/24가 이제 Azure로 이동했음을 반영하기 위해 경로를 수정해야 합니다.
@@ -73,7 +73,7 @@ Woodgrove가 IP 주소를 유지하는 동시에 해당 VM을 Azure로 복제할
 #### <a name="site-to-site-connection"></a>사이트 간 연결 
 
 장애 조치 후에는 Vnet 간 연결 외에도 Woodgrove가 사이트 간 VPN 연결을 설정할 수 있습니다.
-- 사이트 간 연결을 설정하는 경우 Azure 네트워크에서는 IP 주소 범위가 온-프레미스 IP 주소 범위와 다른 경우 온-프레미스 위치(로컬 네트워크)에 트래픽을 라우팅할 수 있습니다. 이는 Azure는 확대 서브넷을 지원하지 않기 때문입니다. 따라서 온-프레미스에 서브넷 192.168.1.0/24가 있는 경우 Azure 네트워크에 로컬 네트워크 192.168.1.0/24를 추가할 수 없습니다. 이렇게 예측하는 이유는 Azure가 서브넷에 활성 VM이 없고 해당 서브넷이 재해 복구용으로만 만들어진다는 것을 모르기 때문입니다.
+- 사이트 간 연결을 설정하는 경우 Azure 네트워크에서는 IP 주소 범위가 온-프레미스 IP 주소 범위와 다른 경우 온-프레미스 위치(로컬-네트워크)에 트래픽을 라우팅할 수 있습니다. 이는 Azure는 확대 서브넷을 지원하지 않기 때문입니다. 따라서 온-프레미스에 서브넷 192.168.1.0/24가 있는 경우 Azure 네트워크에 로컬 네트워크 192.168.1.0/24를 추가할 수 없습니다. 이렇게 예측하는 이유는 Azure가 서브넷에 활성 VM이 없고 해당 서브넷이 재해 복구용으로만 만들어진다는 것을 모르기 때문입니다.
 - Azure 네트워크 외부에서 네트워크 트래픽을 제대로 라우팅할 수 있으려면 네트워크 및 로컬 네트워크의 서브넷이 충돌하지 않아야 합니다.
 
 
@@ -81,7 +81,7 @@ Woodgrove가 IP 주소를 유지하는 동시에 해당 VM을 Azure로 복제할
 
 ## <a name="assigning-new-ip-addresses"></a>새 IP 주소 할당
 
-이 [블로그 게시물](https://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/)은 장애 조치(failover) 후 IP 주소를 유지할 필요가 없을 때 Azure 네트워킹 인프라를 설정하는 방법을 설명합니다. 응용 프로그램 설명으로 시작하여 온-프레미스 및 Azure의 네트워킹을 설정하는 방법을 찾고, 장애 조치(failover)를 실행하는 방법에 대한 정보로 마무리합니다.
+이 [블로그 게시물](https://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/)은 장애 조치(failover) 후 IP 주소를 유지할 필요가 없을 때 Azure 네트워킹 인프라를 설정하는 방법을 설명합니다. 애플리케이션 설명으로 시작하여 온-프레미스 및 Azure의 네트워킹을 설정하는 방법을 찾고, 장애 조치(failover)를 실행하는 방법에 대한 정보로 마무리합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [장애 조치 실행](site-recovery-failover.md)

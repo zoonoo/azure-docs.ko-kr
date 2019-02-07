@@ -5,15 +5,15 @@ author: rboucher
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 18a63497cb0df2ade495dfb721aaa881aa4e6ff7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 156c977e197084d18d8fd32f55e58c512a66ef9d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464121"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156414"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고 개요 
 
@@ -23,7 +23,7 @@ ms.locfileid: "54464121"
 ## <a name="what-are-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고란?
 경고는 모니터링 데이터에서 중요한 조건이 발견되면 사전에 알려줍니다. 시스템 사용자가 문제를 알아채기 전에 경고를 통해 문제를 식별하여 해결할 수 있습니다. 
 
-이 문서에서는 이제 Log Analytics 및 Application Insights를 포함하고 있는 Azure Monitor의 통합 경고 환경에 대해 알아봅니다. [이전 경고 환경](alerts-overview.md) 및 경고 유형을 **클래식 경고**라고 합니다. 경고 페이지의 맨 위에서 **클래식 경고 보기**를 클릭하면 이전 환경과 이전 경고 유형을 볼 수 있습니다. 
+이 문서에서는 이제 Log Analytics 및 Application Insights를 포함하고 있는 Azure Monitor의 통합 경고 환경에 대해 알아봅니다. [이전 경고 환경](alerts-classic.overview.md) 및 경고 유형을 **클래식 경고**라고 합니다. 경고 페이지의 맨 위에서 **클래식 경고 보기**를 클릭하면 이전 환경과 이전 경고 유형을 볼 수 있습니다. 
 
 ## <a name="overview"></a>개요
 
@@ -62,6 +62,13 @@ ms.locfileid: "54464121"
 - 활동 로그 이벤트
 - 기본 Azure 플랫폼의 상태
 - 웹 사이트 가용성 테스트
+
+이전에는 Azure Monitor 메트릭, Application Insights, Log Analytics 및 Service Health에 별도의 경고 기능이 있었습니다. 시간이 지나면서 Azure가 개선되고 사용자 인터페이스가 다른 여러 경고 방법과 결합되었습니다. 이 통합은 여전히 진행 중입니다. 결과적으로 일부 경고 기능은 아직도 새 경고 시스템에는 없습니다.  
+
+| **모니터 원본** | **신호 유형**  | **설명** | 
+|-------------|----------------|-------------|
+| 서비스 상태 | 활동 로그  | 지원되지 않습니다. [서비스 알림에 대한 활동 로그 경고 만들기](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)를 참조하세요.  |
+| Application Insights | 웹 가용성 테스트 | 지원되지 않습니다. [웹 테스트 경고](../../azure-monitor/app/monitor-web-app-availability.md)를 참조하세요. Application Insights에 데이터를 보내도록 계측되는 모든 웹 사이트에서 사용할 수 있습니다. 웹 사이트의 가용성이나 응답성이 기대 이하이면 알림을 받습니다. |
 
 ## <a name="manage-alerts"></a>경고 관리
 경고가 해결 과정에 있는지 지정하는 경고 상태를 설정할 수 있습니다. 경고 규칙에 지정된 조건이 충족되면 경고가 생성되거나 실행되고, 상태는 *새 경고*입니다. 경고를 확인할 때 및 경고를 닫을 때 상태를 변경할 수 있습니다. 모든 상태 변경은 경고 기록에 저장됩니다.
@@ -124,14 +131,7 @@ ms.locfileid: "54464121"
 
 경고 규칙을 만드는 방법에 대한 자세한 내용은 [Azure Monitor를 사용하여 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-metric.md)를 참조하세요.
 
-경고는 여러 Azure 모니터링 서비스 전체에서 제공됩니다. 각 서비스를 사용하는 방법 및 시기에 대한 자세한 내용은 [Azure 애플리케이션 및 리소스 모니터링](../../azure-monitor/overview.md)을 참조하세요. 다음 표에서는 Azure 전체에서 사용할 수 있는 경고 규칙 유형 목록을 제공합니다. 또한 경고 환경에서 현재 지원되는 항목을 나열합니다.
-
-이전에는 Azure Monitor, Application Insights, Log Analytics 및 Service Health에 별도의 경고 기능이 있었습니다. 시간이 지나면서 Azure가 개선되고 사용자 인터페이스가 다른 여러 경고 방법과 결합되었습니다. 이 통합은 여전히 진행 중입니다. 결과적으로 일부 경고 기능은 아직도 새 경고 시스템에는 없습니다.  
-
-| **모니터 원본** | **신호 유형**  | **설명** | 
-|-------------|----------------|-------------|
-| 서비스 상태 | 활동 로그  | 지원되지 않습니다. [서비스 알림에 대한 활동 로그 경고 만들기](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)를 참조하세요.  |
-| Application Insights | 웹 가용성 테스트 | 지원되지 않습니다. [웹 테스트 경고](../../azure-monitor/app/monitor-web-app-availability.md)를 참조하세요. Application Insights에 데이터를 보내도록 계측되는 모든 웹 사이트에서 사용할 수 있습니다. 웹 사이트의 가용성이나 응답성이 기대 이하이면 알림을 받습니다. |
+경고는 여러 Azure 모니터링 서비스 전체에서 제공됩니다. 각 서비스를 사용하는 방법 및 시기에 대한 자세한 내용은 [Azure 애플리케이션 및 리소스 모니터링](../../azure-monitor/overview.md)을 참조하세요. 
 
 
 ## <a name="all-alerts-page"></a>[모든 경고] 페이지 

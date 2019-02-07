@@ -3,23 +3,23 @@ title: PowerShell을 사용하여 가상 머신 확장 집합에서 Azure 리소
 description: PowerShell을 사용하여 가상 머신 확장 집합에서 시스템 및 사용자 할당 관리 ID를 구성하기 위한 단계별 지침입니다.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
-ms.author: daveba
-ms.openlocfilehash: 516216e435722e27e7c3c9330db4991e280c4014
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: b72752d50c1df0a470f3063de6f2bea1f8a57505
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429064"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163435"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>PowerShell을 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -30,6 +30,8 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 이 문서에서는 PowerShell을 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 작업을 수행하는 방법을 알아봅니다.
 - 가상 머신 확장 집합에서 시스템 할당 관리 ID를 사용하거나 사용하지 않도록 설정
 - 가상 머신 확장 집합에서 사용자 할당 관리 ID 추가 및 제거
+
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -43,7 +45,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
     - [Virtual Machine 기여자](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor): 가상 머신 확장 집합을 만들고, 가상 머신 확장 집합에서 시스템 할당 관리 ID 및/또는 사용자 할당 관리 ID를 사용하도록 설정하고 제거합니다.
     - [관리 ID 참가자](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) 역할: 사용자 할당 관리 ID를 만듭니다.
     - [관리 ID 운영자](/azure/role-based-access-control/built-in-roles#managed-identity-operator) 역할: 가상 머신 확장 집합에 사용자 할당 관리 ID를 할당하거나 이 집합에서 사용자 할당 관리 ID를 제거합니다.
-- 아직 설치하지 않은 경우 [Azure PowerShell 최신 버전](https://www.powershellgallery.com/packages/AzureRM)을 설치합니다. 
+- 아직 설치하지 않은 경우 [Azure PowerShell 최신 버전](/powershell/azure/install-az-ps)을 설치합니다. 
 
 ## <a name="system-assigned-managed-identity"></a>시스템 할당 관리 ID
 
@@ -53,63 +55,63 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 시스템 할당 관리 ID가 설정된 VMSS를 만들려면
 
-1. 시스템 할당 관리 ID가 있는 VMSS를 만들려면 [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) cmdlet 참조 문서의 *예제 1*을 참조하세요.  `-IdentityType SystemAssigned` 매개 변수를 `New-AzureRmVmssConfig` cmdlet에 추가:
+1. 시스템 할당 관리 ID가 있는 VMSS를 만들려면 [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) cmdlet 참조 문서의 *예제 1*을 참조하세요.  `-IdentityType SystemAssigned` 매개 변수를 `New-AzVmssConfig` cmdlet에 추가:
 
     ```powershell
-    $VMSS = New-AzureRmVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
+    $VMSS = New-AzVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
     ```
 
-2. (선택 사항) [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet에서 `-Name` 및 `-Type` 매개 변수를 사용하여 Azure 리소스 가상 머신 확장 집합 확장에 대한 관리 ID를 추가합니다. 가상 머신 확장 집합의 형식에 따라 "ManagedIdentityExtensionForWindows" 또는 "ManagedIdentityExtensionForLinux"를 전달하고 `-Name` 매개 변수를 사용하여 해당 이름을 지정합니다. `-Settings` 매개 변수는 토큰 획득을 위해 OAuth 토큰 엔드포인트에서 사용하는 포트를 지정합니다.
+2. (선택 사항) [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet에서 `-Name` 및 `-Type` 매개 변수를 사용하여 Azure 리소스 가상 머신 확장 집합 확장에 대한 관리 ID를 추가합니다. 가상 머신 확장 집합의 형식에 따라 "ManagedIdentityExtensionForWindows" 또는 "ManagedIdentityExtensionForLinux"를 전달하고 `-Name` 매개 변수를 사용하여 해당 이름을 지정합니다. `-Settings` 매개 변수는 토큰 획득을 위해 OAuth 토큰 엔드포인트에서 사용하는 포트를 지정합니다.
 
     > [!NOTE]
     > 이 단계는 Azure IMDS(Instance Metadata Service) ID 엔드포인트를 사용하여 토큰을 검색할 수도 있으므로 선택 사항입니다.
 
    ```powershell
    $setting = @{ "port" = 50342 }
-   $vmss = Get-AzureRmVmss
-   Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
+   $vmss = Get-AzVmss
+   Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
    ```
 
 ## <a name="enable-system-assigned-managed-identity-on-an-existing-azure-virtual-machine-scale-set"></a>기존 Azure 가상 머신 확장 집합에서 시스템 할당 관리 ID를 사용하도록 설정
 
 기존 Azure 가상 머신 확장 집합에서 시스템 할당 관리 ID를 사용하도록 설정해야 하는 경우:
 
-1. `Login-AzureRmAccount`를 사용하여 Azure에 로그인합니다. 가상 머신 확장 집합이 포함된 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 가상 머신 확장 집합에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “Virtual Machine 기여자”:
+1. `Connect-AzAccount`를 사용하여 Azure에 로그인합니다. 가상 머신 확장 집합이 포함된 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 가상 머신 확장 집합에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “Virtual Machine 기여자”:
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzAccount
    ```
 
-2. 우선 [`Get-AzureRmVmss`](/powershell/module/azurerm.compute/get-azurermvmss) cmdlet을 사용하여 가상 머신 확장 집합 속성을 검색합니다. 그런 후에 시스템 할당 관리 ID를 사용하도록 설정하려면 [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) cmdlet에서 `-IdentityType` 스위치를 사용합니다.
+2. 우선 [`Get-AzVmss`](/powershell/module/az.compute/get-azvmss) cmdlet을 사용하여 가상 머신 확장 집합 속성을 검색합니다. 그런 다음, 시스템 할당 관리 ID를 사용하도록 설정하려면 [Update-AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet에서 `-IdentityType` 스위치를 사용합니다.
 
    ```powershell
-   Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"
+   Update-AzVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"
    ```
 
-3. [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet에서 `-Name` 및 `-Type` 매개 변수를 사용하여 Azure 리소스 vMSS 확장의 관리 ID를 추가합니다. 가상 머신 확장 집합의 형식에 따라 "ManagedIdentityExtensionForWindows" 또는 "ManagedIdentityExtensionForLinux"를 전달하고 `-Name` 매개 변수를 사용하여 해당 이름을 지정합니다. `-Settings` 매개 변수는 토큰 획득을 위해 OAuth 토큰 엔드포인트에서 사용하는 포트를 지정합니다.
+3. [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet에서 `-Name` 및 `-Type` 매개 변수를 사용하여 Azure 리소스 VMSS 확장의 관리 ID를 추가합니다. 가상 머신 확장 집합의 형식에 따라 "ManagedIdentityExtensionForWindows" 또는 "ManagedIdentityExtensionForLinux"를 전달하고 `-Name` 매개 변수를 사용하여 해당 이름을 지정합니다. `-Settings` 매개 변수는 토큰 획득을 위해 OAuth 토큰 엔드포인트에서 사용하는 포트를 지정합니다.
 
    ```powershell
    $setting = @{ "port" = 50342 }
-   $vmss = Get-AzureRmVmss
-   Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
+   $vmss = Get-AzVmss
+   Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
    ```
 
 ### <a name="disable-the-system-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Azure 가상 머신 확장 집합에서 시스템 할당 관리 ID를 사용하지 않도록 설정
 
 시스템 할당 관리 ID는 더 이상 필요하지 않고 사용자 할당 관리 ID는 여전히 필요한 가상 머신 확장 집합이 있는 경우 다음 cmdlet을 사용합니다.
 
-1. `Login-AzureRmAccount`를 사용하여 Azure에 로그인합니다. VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 가상 머신 확장 집합에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “Virtual Machine 기여자”:
+1. `Connect-AzAccount`를 사용하여 Azure에 로그인합니다. VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 가상 머신 확장 집합에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “Virtual Machine 기여자”:
 
 2. 다음 cmdlet을 실행합니다.
 
    ```powershell
-   Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "UserAssigned"
+   Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "UserAssigned"
    ```
 
 시스템 할당 관리 ID는 더 이상 필요하지 않고 사용자 할당 관리 ID가 없는 가상 머신 확장 집합이 있는 경우 다음 명령을 사용합니다.
 
 ```powershell
-Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None
+Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None
 ```
 
 ## <a name="user-assigned-managed-identity"></a>사용자 할당 관리 ID
@@ -124,18 +126,18 @@ PowerShell을 통해 사용자 할당 관리 ID가 있는 새 가상 머신 확�
 
 기존 Azure 가상 머신 확장 집합에 사용자 할당 관리 ID를 할당하려면
 
-1. `Connect-AzureRmAccount`를 사용하여 Azure에 로그인합니다. 가상 머신 확장 집합이 포함된 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 가상 머신 확장 집합에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “Virtual Machine 기여자”:
+1. `Connect-AzAccount`를 사용하여 Azure에 로그인합니다. 가상 머신 확장 집합이 포함된 Azure 구독과 연결된 계정을 사용합니다. 또한 계정이 가상 머신 확장 집합에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “Virtual Machine 기여자”:
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 
-2. 우선 `Get-AzureRmVM` cmdlet을 사용하여 가상 머신 확장 집합 속성을 검색합니다. 그런 다음, 가상 머신 확장 집합에 사용자 할당 관리 ID를 할당하려면 [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) cmdlet에서 `-IdentityType` 및 `-IdentityID` 스위치를 사용합니다. `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2`를 사용자 고유의 값으로 바꿉니다.
+2. 우선 `Get-AzVM` cmdlet을 사용하여 가상 머신 확장 집합 속성을 검색합니다. 그런 다음, 가상 머신 확장 집합에 사용자 할당 관리 ID를 할당하려면 [Update-AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet에서 `-IdentityType` 및 `-IdentityID` 스위치를 사용합니다. `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2`를 사용자 고유의 값으로 바꿉니다.
 
    [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
    ```powershell
-   Update-AzureRmVmss -ResourceGroupName <RESOURCE GROUP> -Name <VMSS NAME> -IdentityType UserAssigned -IdentityID "<USER ASSIGNED ID1>","<USER ASSIGNED ID2>"
+   Update-AzVmss -ResourceGroupName <RESOURCE GROUP> -Name <VMSS NAME> -IdentityType UserAssigned -IdentityID "<USER ASSIGNED ID1>","<USER ASSIGNED ID2>"
    ```
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Azure 가상 머신 확장 집합에서 사용자가 할당한 관리 ID 제거
@@ -143,17 +145,17 @@ PowerShell을 통해 사용자 할당 관리 ID가 있는 새 가상 머신 확�
 가상 머신 확장 집합에 여러 사용자 할당 관리 ID가 있는 경우 다음 명령을 사용하여 마지막 항목을 제외한 모든 항목을 제거할 수 있습니다. `<RESOURCE GROUP>` 및 `<VMSS NAME>` 매개 변수 값을 원하는 값으로 바꾸세요. `<USER ASSIGNED IDENTITY NAME>`은 사용자 할당 관리 ID의 이름 속성으로, 가상 머신 확장 집합에 남아 있어야 합니다. 이 정보는 `az vmss show`를 사용하여 가상 머신 확장 집합의 ID 섹션에서 찾을 수 있습니다.
 
 ```powershell
-Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType UserAssigned -IdentityID "<USER ASSIGNED IDENTITY NAME>"
+Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType UserAssigned -IdentityID "<USER ASSIGNED IDENTITY NAME>"
 ```
 가상 머신 확장 집합에 시스템 할당 관리 ID가 없고 모든 사용자 할당 관리 ID를 제거하려는 경우 다음 명령을 사용합니다.
 
 ```powershell
-Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None
+Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None
 ```
 가상 머신 확장 집합에 시스템 할당 및 사용자 할당 관리 ID가 모두 있는 경우 시스템 할당 관리 ID만 사용하도록 전환하여 모든 사용자 할당 관리 ID를 제거할 수 있습니다.
 
 ```powershell 
-Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "SystemAssigned"
+Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "SystemAssigned"
 ```
 
 ## <a name="next-steps"></a>다음 단계

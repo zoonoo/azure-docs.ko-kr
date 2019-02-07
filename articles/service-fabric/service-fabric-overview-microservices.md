@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: 48df598ab12c509952b7712bb8cc9fe21355325f
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 39034d069c0c0feb2ac81437e34c7206d7fe6c4c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613684"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102819"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>애플리케이션 구축에 마이크로 서비스 접근 방식이 필요한 이유
 
@@ -33,11 +33,11 @@ ms.locfileid: "51613684"
 
 이러한 비즈니스 요구가 애플리케이션을 구축하는 *방식* 에 영향을 미칩니다.
 
-마이크로 서비스에 대한 Azure의 접근 방식에 대한 자세한 내용은 [마이크로 서비스: 클라우드가 제공하는 애플리케이션 혁명](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)을 참고합니다.
+마이크로 서비스에 대한 Azure의 접근 방식에 대한 자세한 내용은 [마이크로 서비스: 클라우드가 지원하는 애플리케이션 혁명](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)을 참조하세요.
 
 ## <a name="monolithic-vs-microservice-design-approach"></a>모놀리식과 마이크로 서비스 디자인 방법 비교
 
-모든 애플리케이션은 시간에 따라 진화합니다. 성공적인 애플리케이션은 사람들에게 유용하게 되어 진화합니다. 실패한 애플리케이션은 진화하지 않고 결국은 퇴출됩니다. 문제는 현재의 요구 사항에 대해 얼마나 알고 있으며 그러한 요구 사항이 향후 어떻게 될 것인가입니다. 예를 들어 한 부서에 대한 보고 애플리케이션을 빌드하고 있다고 가정해 보겠습니다. 애플리케이션이 회사의 범위 내에서만 적용되고 보고서의 수명이 짧은 것이 확실합니다. 수천만의 고객에게 비디오 콘텐츠를 제공하는 서비스를 구축하는 것과는 다른 방식으로 접근해야 합니다.
+모든 애플리케이션은 시간에 따라 진화합니다. 성공적인 애플리케이션은 사람들에게 유용하게 되어 진화합니다. 실패한 애플리케이션은 진화하지 않고 결국은 퇴출됩니다. 이렇게 질문할 수 있습니다. 현재의 요구 사항에 대해 얼마나 알고 있으며 그러한 요구 사항이 향후 어떻게 될까요? 예를 들어 한 부서에 대한 보고 애플리케이션을 빌드하고 있다고 가정해 보겠습니다. 애플리케이션이 회사의 범위 내에서만 적용되고 보고서의 수명이 짧은 것이 확실합니다. 수천만의 고객에게 비디오 콘텐츠를 제공하는 서비스를 구축하는 것과는 다른 방식으로 접근해야 합니다.
 
 애플리케이션이 향후 재설계될 수 있다는 점을 알고 있는 상황에서 개념 증명의 형태로 무언가를 내놓는 것은 종종 촉진 요인이 됩니다. 절대 사용되지 않을 무언가를 과하게 가공하는 것은 아무런 의미가 없습니다. 이것은 일반적인 엔지니어링 절충입니다. 반면 회사에서 클라우드를 위한 구축을 이야기할 때 기대하는 것은 성장과 사용입니다. 이러한 성장과 확장에서의 문제는 예측할 수 없습니다. 신속하게 프로토타입화할 수 있는 동시에 미래의 성공을 위해 대비할 수 있기를 바라게 됩니다. 이것이 구축, 측정, 학습, 반복으로 이루어진 간결한 시작 접근 방식입니다.
 
@@ -87,7 +87,7 @@ ms.locfileid: "51613684"
 
 요약하면 다음과 같습니다.
 
-***마이크로 서비스 응용 프로그램은 독립적으로 버전 관리되며 확장성 있는 소규모 고객 중심 서비스로 구성됩니다. 이 서비스들은 잘 정의된 인터페이스가 있는 표준 프로토콜을 통해 서로 통신합니다.***
+***마이크로 서비스 애플리케이션은 독립적으로 버전 관리되며 확장성 있는 소규모 고객 중심 서비스로 구성됩니다. 이 서비스들은 잘 정의된 인터페이스가 있는 표준 프로토콜을 통해 서로 통신합니다.***
 
 ### <a name="written-in-any-programming-language-and-use-any-framework"></a>어느 프로그래밍 언어로나 작성되고 모든 프레임워크에 사용합니다.
 
@@ -149,7 +149,7 @@ Service Fabric은 마이크로 서비스 접근 방식을 사용하는 애플리
 
 * 실패한 서비스를 배포, 업그레이드, 검색 및 다시 시작하고 서비스를 검색하며 메시지를 라우팅하고 상태를 관리 및 모니터링하는 시스템 서비스를 제공하는 플랫폼입니다.
 * 컨테이너에서 실행되거나 프로세스로 실행되는 애플리케이션을 배포하는 기능입니다. Service Fabric은 컨테이너 및 프로세스 조정자입니다.
-* 마이크로 서비스로 제공되는 애플리케이션인 [ASP.NET Core, Reliable Actors 및 Reliable Services](service-fabric-choose-framework.md)를 쉽게 빌드할 수 있도록 도와주는 생산성 프로그래밍 API. 예를 들어 상태 및 진단 정보를 받거나 기본 제공되는 고가용성을 활용할 수 있습니다.
+* 마이크로 서비스로 애플리케이션 빌드를 돕는 생산성 높은 프로그래밍 API [ASP.NET Core, Reliable Actors 및 Reliable Services](service-fabric-choose-framework.md). 예를 들어 상태 및 진단 정보를 받거나 기본 제공되는 고가용성을 활용할 수 있습니다.
 
 ***Service Fabric은 서비스를 구축한 방법과 무관하며 어느 기술이나 사용할 수 있습니다. 그러나 마이크로 서비스를 보다 간편하게 구축할 수 있는 기본 제공 프로그래밍 API를 제공합니다.***
 
@@ -197,7 +197,7 @@ Service Fabric의 목표는 많은 비용이 소모되는 재설계를 피할 �
 ## <a name="next-steps"></a>다음 단계
 
 * [서비스 패브릭 용어 개요](service-fabric-technical-overview.md)
-* [마이크로 서비스: 클라우드가 지원하는 응용 프로그램 혁명](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+* [마이크로 서비스: 클라우드가 지원하는 애플리케이션 혁명](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

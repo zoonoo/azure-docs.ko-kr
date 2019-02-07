@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 89b5022c-0d5b-4103-9877-ddd32b6e1c02
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: d96fd1eacc98e88dc8578b259781cc661cf85933
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2e2bc0c7e590796a533d9f593eb61e57def91fc8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442832"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188001"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Azure Active Directory와 E Sales Manager Remix 통합
 
@@ -64,11 +64,11 @@ E Sales Manager Remix와의 Azure AD 통합을 구성하려면 다음을 수행�
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**을 선택합니다.
+1. **엔터프라이즈 애플리케이션** > **모든 애플리케이션**을 선택합니다.
 
     !["엔터프라이즈 애플리케이션" 창][2]
     
-1. 새 응용 프로그램을 추가하려면 창 위쪽에 있는 **새 응용 프로그램**을 선택합니다.
+1. 새 애플리케이션을 추가하려면 창 위쪽에 있는 **새 애플리케이션**을 선택합니다.
 
     ![새 애플리케이션 단추][3]
 
@@ -86,9 +86,9 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-다음을 수행하여 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 E Sales Manager Remix 응용 프로그램에서 Single Sign-On을 구성합니다.
+다음을 수행하여 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 E Sales Manager Remix 애플리케이션에서 Single Sign-On을 구성합니다.
 
-1. Azure Portal의 **E Sales Manager Remix** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. Azure Portal의 **E Sales Manager Remix** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
     ![“Single Sign-On” 링크][4]
 
@@ -102,7 +102,7 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     a. **로그온 URL** 상자에 *https://\<Server-Based-URL>/\<sub-domain>/esales-pc* 형식으로 URL을 입력합니다.
 
-    나. **식별자** 상자에 *https://\<Server-Based-URL>/\<sub-domain>/* 형식으로 URL을 입력합니다.
+    b. **식별자** 상자에 *https://\<Server-Based-URL>/\<sub-domain>/* 형식으로 URL을 입력합니다.
 
     다. 이 자습서의 뒷부분에서 사용할 수 있게 **식별자** 값을 적어둡니다.
     
@@ -135,7 +135,7 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     ![저장 단추](./media/esalesmanagerremix-tutorial/tutorial_general_400.png)
 
-1. E Sales Manager Remix 응용 프로그램에 관리자로 로그인합니다.
+1. E Sales Manager Remix 애플리케이션에 관리자로 로그인합니다.
 
 1. 오른쪽 상단에서 **관리자 메뉴**를 선택합니다.
 
@@ -155,7 +155,7 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
     
     a. **PC 버전** 확인란을 선택합니다.
     
-    나. **공동 작업 항목** 섹션의 드롭다운 목록에서 **이메일**을 선택합니다.
+    b. **공동 작업 항목** 섹션의 드롭다운 목록에서 **이메일**을 선택합니다.
 
     다. **공동 작업 항목** 상자에 이전에 Azure Portal에서 복사한 클레임 값을 붙여넣습니다(즉, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
 
@@ -170,7 +170,7 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
     h. **설정 완료**를 선택합니다.
 
 > [!TIP]
-> 앱을 설정할 때 [Azure Portal](https://portal.azure.com)에서 이전 지침의 간결한 버전을 읽을 수 있습니다. **Active Directory** > **엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에 **Single Sign-On** 탭을 선택하고 창 맨 아래에 있는 **구성** 섹션에서 포함된 설명서에 액세스합니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)를 참조하세요.
+> 앱을 설정할 때 [Azure Portal](https://portal.azure.com)에서 이전 지침의 간결한 버전을 읽을 수 있습니다. **Active Directory** > **엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에 **Single Sign-On** 탭을 선택하고 창 맨 아래에 있는 **구성** 섹션에서 포함된 설명서에 액세스합니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)를 참조하세요.
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -223,7 +223,7 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     a. **직원 이름** 상자에 사용자의 이름을 입력합니다(예: **Britta**).
 
-    나. 나머지 필수 필드를 완료합니다.
+    b. 나머지 필수 필드를 완료합니다.
     
     다. SAML을 사용하도록 설정하면 관리자는 로그인 페이지에서 로그인할 수 없습니다. **관리자 로그인** 확인란을 선택하여 관리자에게 사용자에 대한 로그인 권한을 부여합니다.
 
@@ -243,7 +243,7 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     !["엔터프라이즈 애플리케이션" 및 "모든 애플리케이션" 링크][201] 
 
-1. **응용 프로그램** 목록에서 **E Sales Manager Remix**를 선택합니다.
+1. **애플리케이션** 목록에서 **E Sales Manager Remix**를 선택합니다.
 
     ![E Sales Manager Remix 링크](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_app.png)  
 
@@ -265,14 +265,14 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 E Sales Manager Remix 타일을 선택하면 E Sales Manager Remix 응용 프로그램에 자동으로 로그인됩니다.
+액세스 패널에서 E Sales Manager Remix 타일을 선택하면 E Sales Manager Remix 애플리케이션에 자동으로 로그인됩니다.
 
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS 앱 통합에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

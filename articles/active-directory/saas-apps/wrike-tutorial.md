@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 894b7520-5136-4973-a1ba-942a9f7f0a03
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2018
 ms.author: jeedes
-ms.openlocfilehash: d2a8db071152e95b3c70509a1c10f7aa73f02c21
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 1eba7769717f2dc92f9600b46162ec95a13bd84c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51978175"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195758"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wrike"></a>자습서: Wrike와 Azure Active Directory 통합
 
@@ -66,7 +66,7 @@ Wrike의 Azure AD 통합을 구성하려면 갤러리의 Wrike를 관리되는 S
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
 
@@ -114,7 +114,7 @@ Wrike에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     ![Wrike 도메인 및 URL Single Sign-On 정보](./media/wrike-tutorial/tutorial_wrike_url.png)
     
-    a. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+    a. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
     b. **로그온 URL** 텍스트 상자에 URL을 입력합니다. `https://www.wrike.com/login/`
 
@@ -191,7 +191,7 @@ Wrike에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

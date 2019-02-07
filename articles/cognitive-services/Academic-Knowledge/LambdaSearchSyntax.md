@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 284f1d90f043e2634e143508e2ab0e98cd309f46
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a76be5203c7d62ba973993bf6338b7496e2fce80
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902691"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203932"
 ---
 # <a name="lambda-search-syntax"></a>람다 검색 구문
 
@@ -33,7 +33,7 @@ FollowEdge(params string[] edgeTypes)
 > [!NOTE]
 > 준수할 에지 형식이 중요하지 않은 경우 간단하게 두 노드 사이에서 *FollowEdge()* 를 생략하면 쿼리는 두 노드 간의 가능한 모든 에지를 살펴봅니다.
 
-*VisitNode()* 를 통해 노드에서 수행할 순회 작업을 지정할 수 있습니다. 다시 말해서, 이 노드에서 중지하고 현재 경로를 결과로 반환할 것인지 아니면 그래프를 계속 탐색할 것인지 지정할 수 있습니다.  열거형 형식 *작업*은 두 가지 작업 형식 *Action.Return* 및 *Action.Continue*를 정의합니다. 이와 같은 열거형 값을 *VisitNode()* 에 직접 전달하거나 비트 and 연산자 '&'와 결합할 수 있습니다. 두 작업을 결합하면 두 작업이 모두 수행됩니다. 참고: 비트 or 연산자 '|'는 사용하지 마세요. 사용할 경우 쿼리가 아무 것도 반환하지 않고 종료됩니다. 두 *FollowEdge()* 호출 사이의 *VisitNode()* 를 건너뛰면 쿼리가 노드에 도착한 후 무조건 그래프를 탐색합니다.
+*VisitNode()* 를 통해 노드에서 수행할 순회 작업을 지정할 수 있습니다. 다시 말해서, 이 노드에서 중지하고 현재 경로를 결과로 반환할 것인지 아니면 그래프를 계속 탐색할 것인지 지정할 수 있습니다.  열거형 형식 *Action*은 두 가지 작업 형식 *Action.Return* 및 *Action.Continue*를 정의합니다. 이와 같은 열거형 값을 *VisitNode()* 에 직접 전달하거나 비트 and 연산자 '&'와 결합할 수 있습니다. 두 작업을 결합하면 두 작업이 모두 수행됩니다. 참고: 비트 or 연산자 '|'는 사용하지 마세요. 사용할 경우 쿼리가 아무 것도 반환하지 않고 종료됩니다. 두 *FollowEdge()* 호출 사이의 *VisitNode()* 를 건너뛰면 쿼리가 노드에 도착한 후 무조건 그래프를 탐색합니다.
 
 ```
 VisitNode(Action action, IEnumerable<string> select = null)
@@ -93,7 +93,7 @@ VisitNode(Expression<Func<INode, Action>> action, IEnumerable<string> select = n
 
 0.0보다 크거나 같고 1.0보다 작은 임의의 수를 반환합니다. 이 함수는 숫자가 *p*보다 작거나 같은 경우에만 *true*를 반환합니다.
 
-*json* 검색과 비교하면, *람다* 검색은 더욱 표현성이 강합니다. C# 람다 식을 직접 사용하여 쿼리 패턴을 지정할 수 있습니다. 다음은 두 가지 예입니다.
+*람다* 검색은 *json* 검색보다 표현성이 강합니다. C# 람다 식을 직접 사용하여 쿼리 패턴을 지정할 수 있습니다. 다음은 두 가지 예입니다.
 
 ```
 MAG.StartFrom(@"{

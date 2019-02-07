@@ -4,17 +4,17 @@ description: 이 문서는 Azure Policy에 대해 프로그래밍 방식으로 �
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: adeb963333ffc2b587d7468eb357fab8dc4d6bbe
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 575e2974131a09bdbdbc96d3ad252365ac9da86e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847053"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101790"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>프로그래밍 방식으로 정책 및 보기 규정 준수 데이터 만들기
 
@@ -201,17 +201,34 @@ Azure Resource Manager PowerShell 모듈을 사용하여 리소스 정책을 관
   }
   ```
 
+   정책 정의 작성에 대한 자세한 내용은 [Azure Policy 정의 구조](../concepts/definition-structure.md)를 참조합니다.
+
 1. 정책 정의를 만들려면 다음 명령을 실행합니다.
 
    ```azurecli-interactive
    az policy definition create --name 'audit-storage-accounts-open-to-public-networks' --display-name 'Audit Storage Accounts Open to Public Networks' --description 'This policy ensures that storage accounts with exposures to public networks are audited.' --rules '<path to json file>' --mode All
    ```
 
+   이 명령은 _공용 네트워크에 대해 열린 저장소 계정 감사_라는 정책 정의를 작성합니다.
+   사용할 수 있는 다른 매개 변수에 대한 자세한 내용은 [az policy definition create](/cli/azure/policy/definition#az-policy-definition-create)를 참조하세요.
+
+   위치 매개 변수 없이 호출할 경우 `az policy definition creation`은 기본적으로 선택한 세션 컨텍스트 구독에 정책 정의를 저장하도록 지정됩니다. 정의를 다른 위치에 저장하려면 다음 매개 변수를 사용합니다.
+
+   - **--subscription** - 다른 구독에 저장합니다. 구독 ID에 대해 _GUID_ 값 또는 구독 이름에 대해 _문자열_ 값이 필요합니다.
+   - **--management-group** - 관리 그룹에 저장합니다. _문자열_ 값이 필요합니다.
+
 1. 정책 할당을 만들려면 다음 명령을 사용합니다. &lt;&gt; 기호의 예제 정보를 자신의 고유 값으로 바꿉니다.
 
    ```azurecli-interactive
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
+
+   `az policy assignment create`의 **--scope** 매개 변수는 관리 그룹, 구독, 리소스 그룹 또는 단일 리소스를 사용하여 작동합니다. 매개 변수는 전체 리소스 경로를 사용합니다. 각 컨테이너에 대한 **--scope** 패턴은 다음과 같습니다. `{rName}`, `{rgName}`, `{subId}` 및 `{mgName}`을 각각 리소스 이름, 리소스 그룹 이름, 구독 ID 및 관리 그룹 이름으로 바꿉니다. `{rType}`은 리소스의 **리소스 종류**로 바꿉니다(예: VM에 대한 `Microsoft.Compute/virtualMachines`).
+
+   - 리소스 - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - 리소스 그룹 - `/subscriptions/{subID}/resourceGroups/{rgName}`
+   - 구독 - `/subscriptions/{subID}`
+   - 관리 그룹 - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 다음 명령으로 PowerShell을 사용하여 정책 정의 ID를 가져올 수 있습니다.
 

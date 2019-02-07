@@ -8,19 +8,19 @@ writer: zhchia
 manager: beatrizd
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 6a6cfb2cb1fd6b70be0437c8b6fa62f50e76e53b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 9f18fcb38e6e0855a00ffb454211273dfb2041a6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345416"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168501"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Cornerstone OnDemand 구성
 
@@ -46,13 +46,13 @@ ms.locfileid: "44345416"
 ## <a name="adding-cornerstone-ondemand-from-the-gallery"></a>갤러리에서 Cornerstone OnDemand 추가
 Azure AD를 사용하여 자동 사용자 프로비저닝을 위한 Cornerstone OnDemand를 구성하기 전에, Cornerstone OnDemand를 Azure AD 애플리케이션 갤러리에서 관리되는 SaaS 애플리케이션 목록으로 추가해야 합니다.
 
-**Azure AD 응용 프로그램 갤러리에서 Cornerstone OnDemand를 추가하려면 다음 단계를 수행합니다.**
+**Azure AD 애플리케이션 갤러리에서 Cornerstone OnDemand를 추가하려면 다음 단계를 수행합니다.**
 
 1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션** > **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 섹션][2]
     
@@ -92,7 +92,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 ### <a name="to-configure-automatic-user-provisioning-for-cornerstone-ondemand-in-azure-ad"></a>Azure AD에서 Cornerstone OnDemand에 대한 자동 사용자 프로비저닝을 구성하려면 다음을 수행합니다.
 
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고, **Azure Active Directory > 엔터프라이즈 응용 프로그램 > 모든 응용 프로그램**으로 차례로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, **Azure Active Directory &gt; 엔터프라이즈 애플리케이션 &gt; 모든 애플리케이션**으로 차례로 이동합니다.
 
 2. SaaS 애플리케이션 목록에서 Cornerstone OnDemand를 선택합니다.
  
@@ -112,7 +112,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     *   **관리자 암호** 필드에 관리자 사용자 이름에 해당하는 암호를 채웁니다.
 
-    *   **도메인** 필드에 Cornerstone OnDemand 테넌트의 웹 서비스 URL을 채웁니다. 예를 들어 도메인이 `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`인 Contoso의 경우 서비스는 `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`에 있습니다. 웹 서비스 URL을 검색하는 방법에 대한 자세한 내용은 [여기](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf)를 참조하세요.
+    *   **도메인** 필드에 Cornerstone OnDemand 테넌트의 웹 서비스 URL을 채웁니다. 예제: 도메인이 `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`인 Contoso의 경우 서비스는 `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`에 있습니다. 웹 서비스 URL을 검색하는 방법에 대한 자세한 내용은 [여기](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf)를 참조하세요.
 
 6. 5단계에 표시된 필드를 채우면 **연결 테스트**를 클릭하여 Azure AD에서 Cornerstone OnDemand에 연결할 수 있는지 확인합니다. 연결이 실패하면 Cornerstone OnDemand 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
 
@@ -158,7 +158,7 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: b7232a72a2090465dfd75ef6a4277930e45bf9ed
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6787f347661db61806180edde5c091a865051748
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315777"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103075"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 
@@ -48,7 +48,7 @@ IaaS 솔루션은 온-프레미스 SQL 기반 솔루션을 Azure로 마이그레
 
 -   **아키텍처 다이어그램**. 청사진 및 사용 사례 예제 시나리오에 사용되는 참조 아키텍처를 보여 줍니다.
 
--   [IaaS 확장](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   이 솔루션은 온-프레미스 SQL 기반 솔루션을 Azure로 마이그레이션하는 방법과, 클라우드 기반 서비스 및 솔루션을 안전하기 관리하기 위한 Privileged Access Workstation을 구현하는 방법을 보여 줍니다. 
+-   [IaaS 확장](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   이 솔루션은 온-프레미스 SQL 기반 솔루션을 Azure로 마이그레이션하는 방법과, 클라우드 기반 서비스 및 솔루션을 안전하기 관리하기 위한 Privileged Access Workstation을 구현하는 방법을 보여줍니다. 
 
 ## <a name="solution-components"></a>솔루션 구성 요소
 
@@ -208,7 +208,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 
 
 
--   응용 프로그램에 대한 인증은 Azure AD를 사용하여 수행됩니다. 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요.
+-   애플리케이션에 대한 인증은 Azure AD를 사용하여 수행됩니다. 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요.
 
 -   [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection)은 조직의 ID에 영향을 미치는 잠재적인 취약성을 검색하고, 조직의 ID와 관련하여 검색된 의심스러운 작업에 대한 자동화된 응답을 구성하며, 의심스러운 인시던트를 조사하고, 이를 해결하기 위해 적절한 조치를 수행합니다.
 
@@ -240,7 +240,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 -   Key Vault의 모든 키와 비밀에는 만료 날짜가 있습니다.
 -   Key Vault의 모든 키는 HSM \[키 유형 = HSM 보호 2,048비트 RSA 키\]로 보호됩니다.
 -   모든 사용자/ID는 RBAC(역할 기반 액세스 제어)를 사용하여 최소 필수 권한을 부여받습니다.
--   응용 프로그램이 서로 신뢰하고 런타임 시 동일한 비밀에 액세스할 필요가 없으면 응용 프로그램에서 Key Vault를 공유하지 않습니다.
+-   애플리케이션이 서로 신뢰하고 런타임 시 동일한 비밀에 액세스할 필요가 없으면 애플리케이션에서 Key Vault를 공유하지 않습니다.
 -   Key Vault에 대한 진단 로그는 365일 이상의 보존 기간 동안 사용하도록 설정됩니다.
 -   키에 허용되는 암호화 작업은 필요한 것으로 제한됩니다
 
@@ -252,7 +252,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 **1. 고객 데이터 phi 데이터 대량 가져오기**
 
 데모 스크립트. .\\HealthcareDemo.ps1을 **BulkPatientAdmission** 스위치와 함께 사용하는 경우 **데모 배포 및 실행**의 설명에 따라 다음 처리 파이프라인을 실행합니다.
-1. **Azure Blob Storage** - 환자 데이터 .csv 파일 샘플이 저장소에 업로드됩니다.
+1. **Azure Blob Storage** - 환자 데이터 .csv 파일 샘플이 스토리지에 업로드됩니다.
 2. **Event Grid** - 이벤트에서 Azure Function(대량 가져오기 - Blob 이벤트)에 데이터를 게시합니다.
 3. **Azure Function** - 처리를 수행하고 보안 함수 - 이벤트(유형, Blob URL)를 사용하여 데이터를 SQL 저장소에 저장합니다.
 4. **SQL DB** - 분류에 대한 태그를 사용하는 환자 데이터용 데이터베이스 저장소이며, ML 프로세스를 시작하여 학습 실험을 수행합니다.
@@ -319,7 +319,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 -   [서버 및 데이터베이스 수준 방화벽 규칙](/azure/sql-database/sql-database-firewall-configure)이 강화되었습니다.
 
 -   [Always Encrypted 열](/azure/sql-database/sql-database-always-encrypted-azure-key-vault)이 환자의 이름, 중간 이름 및 성을 보호하는 데 사용됩니다.
-    또한 데이터베이스 열 암호화도 Azure AD(Azure Active Directory)를 사용하여 Azure SQL Database에 응용 프로그램을 인증합니다.
+    또한 데이터베이스 열 암호화도 Azure AD(Azure Active Directory)를 사용하여 Azure SQL Database에 애플리케이션을 인증합니다.
 
 -   SQL Database 및 SQL Server에 대한 액세스는 최소 권한 원칙에 따라 구성됩니다.
 
@@ -338,7 +338,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 
 -   인증 요청 데이터가 기록되고 모니터링됩니다.
 
--   Blob 저장소의 미사용 데이터가 암호화됩니다.
+-   Blob Storage의 미사용 데이터가 암호화됩니다.
 
 ## <a name="analyze"></a>분석
 
@@ -356,7 +356,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 - [Azure Advisor](/azure/advisor/advisor-overview)는 Azure 배포를 최적화하기 위한 모범 사례를 따르는 데 도움이 되는 개인 설정된 클라우드 컨설턴트입니다. 리소스 구성 및 사용량 원격 분석을 수행하고 Azure 리소스의 경제성, 성능, 고가용성 및 보안을 개선하는 데 도움이 되는 해결 방법을 권장합니다.
 
 ### <a name="application-insights"></a>Application Insights
-- [Application Insights](/azure/application-insights/app-insights-overview)는 여러 플랫폼의 웹 개발자를 위한 확장성 있는 APM(Application Performance Management) 서비스입니다. 이를 사용하여 라이브 웹 응용 프로그램을 모니터링합니다. 성능 이상을 검색합니다. 사용자가 문제를 진단하고 앱을 사용하여 실제로 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다.
+- [Application Insights](/azure/application-insights/app-insights-overview)는 여러 플랫폼의 웹 개발자를 위한 확장성 있는 APM(Application Performance Management) 서비스입니다. 이를 사용하여 라이브 웹 애플리케이션을 모니터링합니다. 성능 이상을 검색합니다. 사용자가 문제를 진단하고 앱을 사용하여 실제로 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다.
 
 ### <a name="azure-alerts"></a>Azure Alerts
 - Alerts는 Azure 서비스를 모니터링하는 방법을 제공하며, 데이터에 대한 조건을 구성할 수 있도록 합니다. 또한 경고 조건이 모니터링 데이터와 일치할 때 알림을 제공합니다.

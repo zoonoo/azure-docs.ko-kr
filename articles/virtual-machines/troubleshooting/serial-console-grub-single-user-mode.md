@@ -14,29 +14,34 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: f22e5159acc93d9632c8cd268e24e8f972cbd7dd
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 5029365e665ce3ee9ba65886a3d6d5bbced0ed9a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580147"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103312"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>직렬 콘솔을 사용하여 GRUB 및 단일 사용자 모드 액세스
-GRUB는 GRand Unified Bootloader의 약어입니다. GRUB에서는 단일 사용자 모드로 부팅되도록 부팅 구성을 수정하는 등의 작업을 수행할 수 있습니다.
+GRUB는 VM을 부팅할 때 가장 먼저 나타날 수 있는 GRand Unified Bootloader입니다. 운영 체제가 시작되기 전에 표시되므로 SSH를 통해 액세스할 수 없습니다. GRUB에서는 단일 사용자 모드로 부팅되도록 부팅 구성을 수정하는 등의 작업을 수행할 수 있습니다.
 
 단일 사용자 모드는 최소한의 기능이 포함된 최소한의 환경입니다. 부팅 문제, 파일 시스템 문제 또는 네트워크 문제를 조사할 때는 이 모드가 유용할 수 있습니다. 이 모드에서는 백그라운드에서 실행할 수 있는 서비스 수가 적어지며, 실행 수준에 따라서는 파일 시스템이 자동으로 탑재되지 않을 수도 있습니다.
 
-단일 사용자 모드는 로그인 시 SSH 키만 사용 가능하도록 VM을 구성할 수 있는 상황에서도 유용할 수 있습니다. 이 경우 단일 사용자 모드를 통해 암호 인증을 사용하는 계정을 만들 수 있습니다.
+단일 사용자 모드는 로그인 시 SSH 키만 사용 가능하도록 VM을 구성할 수 있는 상황에서도 유용할 수 있습니다. 이 경우 단일 사용자 모드를 통해 암호 인증을 사용하는 계정을 만들 수 있습니다. 직렬 콘솔 서비스는 기여자 수준 액세스 이상이 있는 사용자만 VM의 직렬 콘솔에 액세스할 수 있도록 허용합니다.
 
-단일 사용자 모드를 설정하려면 VM이 부팅될 때 GRUB로 진입하여 GRUB에서 부팅 구성을 수정해야 합니다. VM 직렬 콘솔을 통해 이 작업을 수행할 수 있습니다.
+단일 사용자 모드를 설정하려면 VM이 부팅될 때 GRUB로 진입하여 GRUB에서 부팅 구성을 수정해야 합니다. GRUB 시작에 대한 자세한 지침은 다음과 같습니다. 일반적으로 VM 직렬 콘솔 내에서 다시 시작 단추를 사용하여 VM을 다시 시작하고 VM이 GRUB를 표시하도록 구성된 경우 GRUB를 표시할 수 있습니다.
+
+![Linux 직렬 콘솔 다시 시작 단추](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-bar.png)
 
 ## <a name="general-grub-access"></a>일반 GRUB 액세스
 GRUB에 액세스하려면 직렬 콘솔 블레이드를 열어 두고 VM을 다시 부팅해야 합니다. 키보드에서 특정 키를 입력해야 GRUB가 표시되는 배포도 있고, 몇 초가 지나면 GRUB가 자동으로 표시되어 사용자가 키보드 입력을 통해 시간 제한을 취소할 수 있는 배포도 있습니다.
 
 단일 사용자 모드에 액세스할 수 있으려면 VM에서 GRUB을 사용하도록 설정되어 있는지 확인해야 합니다. 배포판에 따라 GRUB을 사용하도록 설정되어 있는지 확인하기 위한 몇 가지 설정 작업이 있을 수 있습니다. 배포별 정보는 아래 및 [이 링크](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)에 표시됩니다.
 
-### <a name="reboot-your-vm-to-access-grub-in-serial-console"></a>VM을 다시 부팅하여 직렬 콘솔에서 GRUB 액세스
-[SysRq](./serial-console-nmi-sysrq.md)가 사용하도록 설정되어 있으면 SysRq `'b'` 명령을 통해 직렬 콘솔 블레이드를 열어 두고 VM을 다시 부팅할 수 있습니다. 개요 블레이드에서 다시 시작 단추를 클릭해도 됩니다. 그러면 VM이 새 브라우저 탭에서 열리므로 직렬 콘솔 블레이드를 닫지 않고도 VM을 다시 부팅할 수 있습니다. 다시 부팅할 때의 GRUB 상태에 대해 알아보려면 아래의 배포별 지침을 따르세요.
+### <a name="restart-your-vm-to-access-grub-in-serial-console"></a>VM을 다시 시작하여 직렬 콘솔에서 GRUB에 액세스
+전원 단추를 탐색하고 "VM 다시 시작"을 클릭하여 직렬 콘솔 내에서 VM을 다시 시작할 수 있습니다. 그러면 VM 다시 시작을 시작하고, 다시 시작에 대해 Azure Portal 내에 알림이 표시됩니다.
+[SysRq](./serial-console-nmi-sysrq.md)가 활성화된 경우 SysRq `'b'` 명령을 사용하여 VM 다시 시작을 수행할 수도 있습니다. 다시 부팅할 때의 GRUB 상태에 대해 알아보려면 아래의 배포별 지침을 따르세요.
+
+![Linux 직렬 콘솔 다시 시작](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-ubuntu.gif)
 
 ## <a name="general-single-user-mode-access"></a>일반 단일 사용자 모드 액세스
 암호 인증을 사용하는 계정을 구성하지 않은 상황에서는 단일 사용자 모드에 수동으로 액세스해야 할 수 있습니다. 이 경우 단일 사용자 모드에 수동으로 진입하도록 GRUB 구성을 수정해야 합니다. 구성을 수정한 후에 [단일 사용자 모드를 사용하여 암호 재설정 또는 추가](#-Use-Single-User-Mode-to-reset-or-add-a-password)에서 추가 지침을 참조하세요.

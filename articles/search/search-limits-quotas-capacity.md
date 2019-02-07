@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 98902c7a27d769b59b20d4560b2cda21bfcff6c6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 5187052316e229273aa49eb784bf200c0f16a0f7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310251"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165390"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search의 서비스 제한 사항
 저장소, 워크로드 및 인덱스, 문서, 기타 개체의 수량에 대한 최대 제한은 Azure Search를 **무료**, **기본** 또는 **표준** 가격 책정 계층 중 [어디에 프로비전하는지](search-create-service-portal.md)에 따라 달라집니다.
@@ -125,6 +125,10 @@ QPS 예상 값은 모든 고객에 의해 독립적으로 개발되어야 합니
 
 예측 값은 전용 리소스(기본 계층 및 표준 계층)에서 실행 중인 서비스에 대해 계산되는 경우 더 예측 가능해 집니다. 매개 변수를 더 잘 제어할 수 있기 때문에 QPS를 더 근접하게 예상할 수 있습니다. 예측 값에 접근하는 방법에 대한 지침은 [Azure Search 성능 및 최적화](search-performance-optimization.md)를 참조하세요.
 
+## <a name="data-limits-cognitive-search"></a>데이터 제한(인식 검색)
+
+[엔터티 인식](cognitive-search-skill-entity-recognition.md), [핵심 구 추출](cognitive-search-skill-keyphrases.md), [감정 분석](cognitive-search-skill-sentiment.md) 및 [언어 감지](cognitive-search-skill-language-detection.md)에 대한 텍스트 분석 리소스로 호출을 만드는 [인식 검색 파이프라인](cognitive-search-concept-intro.md)은 데이터가 제한될 수 있습니다. 레코드의 최대 크기는 `String.Length`에 의해 측정된 대로 50,000자여야 합니다. 감성 분석기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)을 사용합니다.
+
 ## <a name="api-request-limits"></a>API 요청 제한
 * 요청당 최대 16MB <sup>1</sup>
 * URL 길이 최대 8KB
@@ -139,7 +143,7 @@ QPS 예상 값은 모든 고객에 의해 독립적으로 개발되어야 합니
 * 제안 API 요청당 반환되는 제안 최대 100개
 
 ## <a name="api-key-limits"></a>API 키 제한
-API 키는 서비스 인증에 사용됩니다. 두 가지 형식이 있습니다. 관리자 키는 요청 헤더에서 지정되고 서비스에 전체 읽기/쓰기 액세스 권한을 부여합니다. 쿼리 키는 읽기 전용이며 URL에 지정되고 일반적으로 클라이언트 응용 프로그램에 배포됩니다.
+API 키는 서비스 인증에 사용됩니다. 두 가지 형식이 있습니다. 관리자 키는 요청 헤더에서 지정되고 서비스에 전체 읽기/쓰기 액세스 권한을 부여합니다. 쿼리 키는 읽기 전용이며 URL에 지정되고 일반적으로 클라이언트 애플리케이션에 배포됩니다.
 
 * 서비스당 최대 2개의 관리자 키
 * 서비스당 최대 50개의 쿼리 키

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 3eccb6ba18e6689c3726c8d930279b8a85ab1c92
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 775c9b155f080c8996a7680514cb2fb004a4e3fb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212530"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152258"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>사용자 지정 서비스 패브릭 상태 보고서 추가
-Azure 서비스 패브릭은 특정 엔터티의 비정상 클러스터 및 애플리케이션 상태에 플래그를 적용하도록 설계된 [상태 모델](service-fabric-health-introduction.md)을 도입했습니다. 상태 모델은 **Health 보고서** (시스템 구성 요소 및 Watchdog)를 사용합니다. 쉽고 빠른 진단을 목표로 합니다. 서비스 작성자는 상태를 미리 고려해야 합니다. 상태에 영향을 줄 수 있는 모든 조건이 보고되어야 하며, 특히 근본 원인에 가까운 문제를 플래깅하는 데 도움이 되는 경우에는 반드시 보고가 이루어져야 합니다. 상태 정보는 디버깅 및 조사에 소요되는 시간과 노력을 절감할 수 있습니다. 특히 서비스가 클라우드에서 대용량으로 가동 및 실행될 때 확실히 유용합니다(사설 또는 Azure).
+Azure Service Fabric은 특정 엔터티의 비정상 클러스터 및 애플리케이션 상태에 플래그를 적용하도록 설계된 [상태 모델](service-fabric-health-introduction.md)을 도입했습니다. 상태 모델은 **Health 보고서** (시스템 구성 요소 및 Watchdog)를 사용합니다. 쉽고 빠른 진단을 목표로 합니다. 서비스 작성자는 상태를 미리 고려해야 합니다. 상태에 영향을 줄 수 있는 모든 조건이 보고되어야 하며, 특히 근본 원인에 가까운 문제를 플래깅하는 데 도움이 되는 경우에는 반드시 보고가 이루어져야 합니다. 상태 정보는 디버깅 및 조사에 소요되는 시간과 노력을 절감할 수 있습니다. 특히 서비스가 클라우드에서 대용량으로 가동 및 실행될 때 확실히 유용합니다(사설 또는 Azure).
 
 서비스 패브릭 보고자는 식별된 관심 조건을 모니터링합니다. 보고자는 각자 로컬 보기를 기반으로 이러한 조건에 대한 정보를 보고합니다. [Health 스토어](service-fabric-health-introduction.md#health-store) 는 엔터티가 전체적으로 정상인지를 판단하기 위하여 모든 보고자가 보낸 상태 데이터를 수집합니다. 모델은 다양하고 유연하며 사용이 쉽도록 계획됩니다. 상태 보고서의 품질은 클러스터 상태 보기의 정확성을 결정합니다. 비정상 이슈를 잘못 표시하는 거짓 긍정은 상태 데이터를 사용하는 업그레이드 또는 기타 서비스에 부정적인 영향을 미칠 수 있습니다. 이러한 서비스의 예로는 복구 서비스 및 경고 메커니즘이 있습니다. 따라서 최선의 방식으로 관심 조건을 포착하는 보고서를 제공하기 위해서는 몇 가지를 고려해야 합니다.
 
@@ -57,8 +57,8 @@ Azure 서비스 패브릭은 특정 엔터티의 비정상 클러스터 및 애�
 ## <a name="health-client"></a>상태 클라이언트
 상태 보고서는 패브릭 클라이언트 내에 있는 상태 클라이언트를 통해 Health 스토어로 전송됩니다. 상태 클라이언트는 다음 설정으로 구성될 수 있습니다.
 
-* **HealthReportSendInterval**: 보고서가 클라이언트에 추가되는 시간과 보고서가 Health 스토어로 전송되는 시간 사이의 지연 간격입니다. 각 보고서에 메시지를 하나씩 전송하는 대신 보고서를 하나의 메시지로 일괄 처리하는데 사용됩니다. 일괄 처리를 하면 성능이 향상됩니다. 기본값: 30초.
-* **HealthReportRetrySendInterval**: 상태 클라이언트가 축적된 상태 보고서를 Health 스토어에 재전송하는 간격입니다. 기본값: 30초.
+* **HealthReportSendInterval**: 보고서가 클라이언트에 추가되는 시간과 보고서가 Health 스토어로 전송되는 시간 사이의 지연 간격입니다. 각 보고서에 메시지를 하나씩 전송하는 대신 보고서를 하나의 메시지로 일괄 처리하는데 사용됩니다. 일괄 처리를 하면 성능이 향상됩니다. Default: 30초
+* **HealthReportRetrySendInterval**: 상태 클라이언트가 축적된 상태 보고서를 Health 스토어에 재전송하는 간격입니다. Default: 30초
 * **HealthOperationTimeout**: Health 스토어로 전송된 보고서 메시지의 제한 시간입니다. 메시지 시간이 초과되면 상태 클라이언트는 Health 스토어에서 보고서 처리를 확인할 때까지 재시도합니다. 기본값: 2분.
 
 > [!NOTE]
@@ -314,5 +314,5 @@ HealthEvents          :
 
 [로컬로 서비스 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
+[Service Fabric 애플리케이션 업그레이드](service-fabric-application-upgrade.md)
 

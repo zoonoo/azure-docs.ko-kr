@@ -4,14 +4,14 @@ description: Azure Migrate 서비스의 알려진 문제에 대한 개요와 일
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: 0c7d0980c928ecefebeabff555378230453c742f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ebd374cc8792545d1db57f624a5831dc9ded272f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827944"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102127"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
@@ -153,8 +153,20 @@ Azure Migrate 수집기는 PowerCLI를 다운로드하여 어플라이언스에 
 이 문제는 VMware PowerCLI 설치 문제로 인해 발생할 수 있습니다. 문제를 해결하려면 아래 단계를 수행합니다.
 
 1. 수집기 어플라이언스의 최신 버전을 사용하고 있지 않다면 [수집기를 최신 버전으로 업그레이드](https://aka.ms/migrate/col/checkforupdates)한 후에 문제가 해결되었는지 확인합니다.
-2. 최신 수집기 버전을 이미 사용 중이라면 [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016)를 수동으로 설치한 후에 문제가 해결되었는지 확인합니다.
-3. 위의 단계를 수행해도 문제가 해결되지 않으면 C:\Program Files\ProfilerService 폴더로 이동하여 해당 폴더에 있는 VMware.dll 및 VimService65.dll 파일을 제거한 다음 Windows 서비스 관리자에서 ‘Azure Migrate Collector’ 서비스를 다시 시작합니다. 이렇게 하려면 ‘실행’을 열고 ‘services.msc’를 입력해 Windows 서비스 관리자를 엽니다.
+2. 최신 수집기 버전이 이미 있는 경우 아래 단계를 따라 PowerCLI의 새로 설치를 수행합니다.
+
+   a. 어플라이언스에서 웹 브라우저를 닫습니다.
+
+   b. Windows 서비스 관리자('실행'을 열고 services.msc를 입력하여 Windows 서비스 관리자 열기)로 이동하여 'Azure Migrate Collector' 서비스를 중지합니다. Azure Migrate Collector 서비스를 마우스 오른쪽 단추로 클릭하고 중지를 클릭합니다.
+
+   다. 다음 위치에서 'VMware'로 시작하는 모든 폴더를 삭제합니다. C:\Program Files\WindowsPowerShell\Modules  
+        C:\Program Files (x86)\WindowsPowerShell\Modules
+
+   d. Windows 서비스 관리자('실행'을 열고 services.msc를 입력하여 Windows 서비스 관리자 열기)에서 'Azure Migrate Collector' 서비스를 다시 시작합니다. Azure Migrate Collector 서비스를 마우스 오른쪽 단추로 클릭하고 시작을 클릭합니다.
+   
+   e. 바탕 화면 바로 가기 '수집기 실행'을 두 번 클릭하여 수집기 애플리케이션을 시작합니다. 수집기 애플리케이션은 PowerCLI에 필요한 버전을 자동으로 다운로드하고 설치해야 합니다.
+
+3. 위의 단계로 문제가 해결되지 않는 경우 [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016)를 수동으로 설치하고 문제가 해결되었는지 확인합니다.
 
 ### <a name="error-unabletoconnecttoserver"></a>오류 UnableToConnectToServer
 
@@ -210,7 +222,7 @@ MMA에서 지원하는 Linux 운영 체제 목록은 [여기](https://docs.micro
 종속성 에이전트가 지원하는 Linux 운영 체제 목록은 [여기](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems)에 나와 있습니다.
 
 ### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>1시간이 넘는 기간에 대해서는 Azure Migrate의 종속성을 시각화할 수 없나요?
-Azure Migrate에서는 최대 1시간 동안의 종속성을 시각화할 수 있습니다. 하지만 Azure Migrate에서는 최대 1개월 전의 특정 날짜로 돌아가 종속성을 시각화할 수 있습니다. 종속성을 시각화할 수 있는 최대 기간은 1시간입니다. 예를 들어 종속성 맵의 기간 기능을 사용해 어제의 종속성을 확인할 수는 있지만, 종속성을 확인할 수 있는 시간은 1시간입니다.
+Azure Migrate에서는 최대 1시간 동안의 종속성을 시각화할 수 있습니다. 하지만 Azure Migrate에서는 최대 1개월 전의 특정 날짜로 돌아가 종속성을 시각화할 수 있습니다. 종속성을 시각화할 수 있는 최대 기간은 1시간입니다. 예를 들어 종속성 맵의 기간 기능을 사용해 어제의 종속성을 확인할 수는 있지만, 종속성을 확인할 수 있는 시간은 1시간입니다. 그러나 Log Analytics를 사용하여 더 긴 기간 동안 [종속성 데이터를 쿼리](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics)할 수 있습니다.
 
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>VM이 10개보다 많은 그룹의 종속성은 시각화할 수 없나요?
 [그룹의 종속성 시각화](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) 시에 허용되는 최대 VM 수는 10개입니다. VM이 10개보다 많은 그룹이 있다면 더 작은 그룹 여러 개로 분할한 다음 종속성을 시각화하는 것이 좋습니다.

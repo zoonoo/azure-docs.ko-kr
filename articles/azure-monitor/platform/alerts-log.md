@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 43e842d6325897f484d9dff342505cace6640e78
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 64fb629e29de9771ca5f76d1c454ec5d14337a57
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472291"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104500"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리  
 
@@ -72,6 +72,7 @@ ms.locfileid: "54472291"
     ![집계 옵션](media/alerts-log/aggregate-on.png)
 
 1.  *로그 경고*: 준비된 시각화를 사용하여 조건, 집계 및 마지막으로 임계값의 표시된 옵션에서 **경고 논리**를 선택할 수 있습니다. 마지막으로 논리에서 **기간** 옵션을 사용하여 지정된 조건에 대해 평가할 시간을 지정합니다. **빈도**를 선택하여 경고를 실행해야 하는 빈도를 지정합니다.
+
 **로그 경고**의 경우 경고는 다음을 기반으로 할 수 있습니다.
    - *레코드 수*: 쿼리에서 반환된 레코드의 개수가 제공된 값보다 큰 또는 값보다 작은 경우 경고가 생성됩니다.
    - *메트릭 측정*: 결과에서 각 *집계 값*이 제공된 임계값을 초과하고 선택한 값*으로 그룹화*되는 경우 경고가 생성됩니다. 경고에 대한 위반 수는 임계값이 선택한 기간에서 초과된 횟수입니다. 결과 집합에서 모든 위반의 조합에 대해 총 위반을 지정하거나 연속 위반을 지정하여 연속된 샘플에서 위반이 발생해야 한다고 요구할 수 있습니다. [로그 경고 및 종류](../../azure-monitor/platform/alerts-unified-log.md)에 대해 자세히 알아봅니다.
@@ -108,7 +109,7 @@ ms.locfileid: "54472291"
     앞서 설명한 대로 몇 분 안에 경고가 활성화 및 트리거됩니다.
 
 사용자는 [Azure Portal의 Logs Analytics 페이지](../../azure-monitor/log-query/portals.md#log-analytics-page
-)에서 해당 분석 쿼리를 종료한 다음, ‘경고 설정’ 단추를 통해 경고를 만들도록 푸시할 수 있습니다. 그런 다음, 위 자습서의 6단계에 있는 지침을 따릅니다.
+)에서 해당 분석 쿼리를 종료한 다음, ‘+ 새 경고 규칙’ 단추를 통해 경고를 만들도록 푸시할 수 있습니다. 그런 다음, 위 자습서의 6단계에 있는 지침을 따릅니다.
 
  ![Log Analytics - 경고 설정](media/alerts-log/AlertsAnalyticsCreate.png)
 
@@ -125,35 +126,31 @@ ms.locfileid: "54472291"
     ![경고 규칙 관리](media/alerts-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>Azure 리소스 템플릿을 사용하여 로그 경고 관리
-현재 로그 경고는 경고가 기반으로 하는 분석 플랫폼인 Log Analytics 또는 Application Insights를 기반으로 하여 서로 다른 두 리소스 템플릿을 사용하여 만들 수 있습니다.
 
-따라서 아래 섹션에서는 각 분석 플랫폼에서 로그 경고에 대한 리소스 템플릿 사용에 관한 세부 정보를 제공합니다.
+Azure Monitor의 로그 경고는 리소스 유형 `Microsoft.Insights/scheduledQueryRules/`와 연결되어 있습니다. 이 리소스 종류에 대한 자세한 내용은 [Azure Monitor - 예약된 쿼리 규칙 API 참조](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)를 참조하세요. Application Insights 또는 Log Analytics에 대한 로그 경고는 [예약된 쿼리 규칙 API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)를 사용하여 만들 수 있습니다.
 
-### <a name="azure-resource-template-for-log-analytics"></a>Log Analytics에 대한 Azure 리소스 템플릿
-Log Analytics에 대한 로그 경고는 일정한 간격으로 저장된 검색을 실행하는 경고 규칙에 의해 만들어집니다. 쿼리 결과가 지정된 기준과 일치하면 경고 레코드가 생성되고 하나 이상의 작업이 실행됩니다. 
-
-Log Analytics 저장된 검색 및 Log Analytics 경고에 대한 리소스 템플릿은 설명서의 Log Analytics 섹션에서 사용할 수 있습니다. 자세한 정보는 설명 목적의 샘플 및 스키마 세부 내용을 포함하는 [Log Analytics 저장된 검색 및 경고 추가](../../azure-monitor/insights/solutions-resources-searches-alerts.md)를 참조하세요.
-
-### <a name="azure-resource-template-for-application-insights"></a>Application Insights에 대한 Azure 리소스 템플릿
-Application Insights 리소스에 대한 로그 경고는 `Microsoft.Insights/scheduledQueryRules/`의 종류입니다. 이 리소스 종류에 대한 자세한 내용은 [Azure Monitor - 예약된 쿼리 규칙 API 참조](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)를 참조하세요.
+> [!NOTE]
+> Log Analytics에 대한 로그 경고는 레거시 [Log Analytics 경고 API](../../azure-monitor/platform/api-alerts.md) 및 [Log Analytics 저장된 검색 및 경고](../../azure-monitor/insights/solutions-resources-searches-alerts.md)의 레거시 템플릿을 사용하여 관리할 수도 있습니다. 기본적으로 여기에서 설명하는 새 ScheduledQueryRules API 사용에 대한 자세한 내용은 [Log Analytics 경고에 대한 새 API로 전환](alerts-log-api-switch.md)을 참조하세요.
 
 다음은 변수로 샘플 데이터 집합이 있는 [예약된 쿼리 규칙 만들기](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) 기반 리소스 템플릿에 대한 구조입니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0", 
     "parameters": {      
     },   
     "variables": {
-    "alertLocation": "southcentralus",
-    "alertName": "samplelogalert",
-    "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
-    "alertDescription": "Sample log search alert",
+    "alertLocation": "Region Name for your Application Insights App or Log Analytics Workspace",
+    "alertName": "sample log alert",
+    "alertDescr": "Sample log search alert",
     "alertStatus": "true",
+    "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
     "alertSource":{
-        "Query":"requests",
-        "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
+        "Query":"union workspace("servicews").Update, app('serviceapp').requests | summarize AggregatedValue = count() by bin(TimeGenerated,1h), Classification",
+        "Resource1": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews", 
+        "Resource2": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/components/serviceapp",
+        "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
         "Type":"ResultCount"
          },
      "alertSchedule":{
@@ -161,17 +158,24 @@ Application Insights 리소스에 대한 로그 경고는 `Microsoft.Insights/sc
          "Time": 60
          },
      "alertActions":{
-         "SeverityLevel": "4"
+         "SeverityLevel": "4",
+         "SuppressTimeinMin": 20
          },
       "alertTrigger":{
         "Operator":"GreaterThan",
         "Threshold":"1"
          },
+      "metricMeasurement": {
+          "thresholdOperator": "Equal",
+          "threshold": "1",
+          "metricTriggerType": "Consecutive",
+          "metricColumn": "Classification"
+      },
        "actionGrp":{
-        "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/actiongroups/sampleAG",
+        "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/actiongroups/sampleAG",
         "Subject": "Customized Email Header",
-        "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"           
-         }
+        "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"
+        }
   },
   "resources":[ {
     "name":"[variables('alertName')]",
@@ -180,28 +184,36 @@ Application Insights 리소스에 대한 로그 경고는 `Microsoft.Insights/sc
     "location": "[variables('alertLocation')]",
     "tags":{"[variables('alertTag')]": "Resource"},
     "properties":{
-       "description": "[variables('alertDescription')]",
+       "description": "[variables('alertDescr')]",
        "enabled": "[variables('alertStatus')]",
        "source": {
            "query": "[variables('alertSource').Query]",
+           "authorizedResources": "[concat(array(variables('alertSource').Resource1), array(variables('alertSource').Resource2))]",
            "dataSourceId": "[variables('alertSource').SourceId]",
            "queryType":"[variables('alertSource').Type]"
        },
       "schedule":{
            "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
-           "timeWindowInMinutes": "[variables('alertSchedule').Time]"    
+           "timeWindowInMinutes": "[variables('alertSchedule').Time]"
        },
       "action":{
            "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
            "severity":"[variables('alertActions').SeverityLevel]",
+           "throttlingInMin": "[variables('alertActions').SuppressTimeinMin]",
            "aznsAction":{
-               "actionGroup":"[array(variables('actionGrp').ActionGroup)]",
+               "actionGroup": "[array(variables('actionGrp').ActionGroup)]",
                "emailSubject":"[variables('actionGrp').Subject]",
                "customWebhookPayload":"[variables('actionGrp').Webhook]"
            },
        "trigger":{
                "thresholdOperator":"[variables('alertTrigger').Operator]",
-               "threshold":"[variables('alertTrigger').Threshold]"
+               "threshold":"[variables('alertTrigger').Threshold]",
+               "metricTrigger":{
+                   "thresholdOperator": "[variables('metricMeasurement').thresholdOperator]",
+                   "threshold": "[variables('metricMeasurement').threshold]",
+                   "metricColumn": "[variables('metricMeasurement').metricColumn]",
+                   "metricTriggerType": "[variables('metricMeasurement').metricTriggerType]"
+               }
            }
        }
      }
@@ -214,32 +226,26 @@ Application Insights 리소스에 대한 로그 경고는 `Microsoft.Insights/sc
 
 위의 샘플 json은 이 연습의 목적을 위해 sampleScheduledQueryRule.json(예)으로 저장될 수 있으며 [Azure Portal에서 Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)를 사용하여 배포될 수 있습니다.
 
-
 ## <a name="managing-log-alerts-using-powershell-cli-or-api"></a>PowerShell, CLI 또는 API를 사용하여 로그 경고 관리
-현재 로그 경고는 경고가 기반으로 하는 분석 플랫폼인 Log Analytics 또는 Application Insights를 기반으로 하여 서로 다른 Resource Manager 호환 API를 사용하여 만들 수 있습니다.
 
-따라서 아래 섹션에서는 각 분석 플랫폼에서 로그 경고에 대해 Powershell 또는 CLI를 통한 API 사용에 관한 세부 정보를 제공합니다.
+Azure Monitor - 예약된 쿼리 규칙 API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)는 REST API이며 Azure Resource Manager REST API와 완벽하게 호환됩니다. 따라서 Resource Manager cmdlet 뿐 아니라 Azure CLI를 사용하여 Powershell을 통해 사용할 수 있습니다.
 
-### <a name="powershell-cli-or-api-for-log-analytics"></a>Log Analytics에 대한 PowerShell, CLI 또는 API
-Log Analytics Alert REST API는 RESTful이며 Azure Resource Manager REST API를 통해 액세스할 수 있습니다. 따라서 API는 PowerShell 명령줄에서 액세스할 수 있으며 JSON 형식으로 검색 결과를 출력하여 다양한 프로그래밍 방식으로 결과를 사용하게 됩니다.
+> [!NOTE]
+> Log Analytics에 대한 로그 경고는 레거시 [Log Analytics 경고 API](../../azure-monitor/platform/api-alerts.md) 및 [Log Analytics 저장된 검색 및 경고](../../azure-monitor/insights/solutions-resources-searches-alerts.md)의 레거시 템플릿을 사용하여 관리할 수도 있습니다. 기본적으로 여기에서 설명하는 새 ScheduledQueryRules API 사용에 대한 자세한 내용은 [Log Analytics 경고에 대한 새 API로 전환](alerts-log-api-switch.md)을 참조하세요.
 
-Powershell에서 API에 액세스하는 예제를 포함하는 [REST API로 Log Analytics에서 경고 규칙 만들기 및 관리](../../azure-monitor/platform/api-alerts.md)에 대해 자세히 알아봅니다.
 
-### <a name="powershell-cli-or-api-for-application-insights"></a>Application insights에 대한 PowerShell, CLI 또는 API
-[Azure Monitor - 예약된 쿼리 규칙 API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)는 REST API이며 Azure Resource Manager REST API와 완벽하게 호환됩니다. 따라서 Resource Manager cmdlet 뿐 아니라 Azure CLI를 사용하여 Powershell을 통해 사용할 수 있습니다.
-
-[리소스 템플릿 섹션](#azure-resource-template-for-application-insights)에 이전에 표시된 샘플 리소스 템플릿(sampleScheduledQueryRule.json)에 대한 Azure Resource Manager PowerShell cmdlet을 통한 사용량이 아래에 나와 있습니다.
+로그 경고는 현재 전용 PowerShell 또는 CLI 명령이 없지만 아래와 같이 [리소스 템플릿 섹션](#azure-resource-template-for-application-insights)에 이전에 표시된 샘플 리소스 템플릿(sampleScheduledQueryRule.json)에 대한 Azure Resource Manager PowerShell cmdlet을 통해 사용할 수 있습니다.
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
+New-AzureRmResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
+
 [리소스 템플릿 섹션](#azure-resource-template-for-application-insights)에 이전에 표시된 샘플 리소스 템플릿(sampleScheduledQueryRule.json)에 대한 Azure CLI의 Azure Resource Manager 명령을 통한 사용량이 아래에 나와 있습니다.
 
 ```azurecli
-az group deployment create --resource-group myRG --template-file sampleScheduledQueryRule.json
+az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
 ```
+
 작업이 성공하면 201은 상태 새 경고 규칙 만들기로 반환되거나 200은 기존 경고 규칙이 수정된 경우 반환됩니다.
-
-
   
 ## <a name="next-steps"></a>다음 단계
 

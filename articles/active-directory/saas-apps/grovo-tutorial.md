@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 399cecc3-aa62-4914-8b6c-5a35289820c1
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: be49cbba53441124bd538a5d82e8c0e1d20d9e45
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 057775f7818d1a6dc521fe81b01748fa40085cc8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433065"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174247"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>자습서: Grovo와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ Grovo의 Azure AD 통합을 구성하려면 갤러리의 Grovo를 관리되는 S
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -106,13 +106,13 @@ Grovo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
  
     ![Single Sign-On 대화 상자](./media/grovo-tutorial/tutorial_grovo_samlbase.png)
 
-1. **Grovo 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+1. **Grovo 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
     ![Grovo 도메인 및 URL Single Sign-On 정보](./media/grovo-tutorial/tutorial_grovo_url.png)
 
     a. **식별자** 텍스트 상자에서 `https://<subdomain>.grovo.com/sso/saml2/metadata` 패턴을 사용하여 URL을 입력합니다.
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
 1. **고급 URL 설정 표시**를 확인하고, 다음 단계를 수행합니다.
 
@@ -120,7 +120,7 @@ Grovo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. **릴레이 상태** 텍스트 상자에서 `https://<subdomain>.grovo.com` 패턴을 사용하여 URL을 입력합니다.
 
-    나. **SP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+    b. **SP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
     ![Grovo 도메인 및 URL Single Sign-On 정보](./media/grovo-tutorial/tutorial_grovo_url2.png)
     
@@ -185,16 +185,16 @@ Grovo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. Azure Portal에서 복사한 **SAML 엔터티 ID**를 **엔터티 ID** 텍스트 상자에 붙여넣습니다.
 
-    나. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL**을 **Single Sign-On 서비스 엔드포인트** 텍스트 상자에 붙여넣습니다.
+    b. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL**을 **Single Sign-On 서비스 엔드포인트** 텍스트 상자에 붙여넣습니다.
 
-    다. **Single Sign-On 서비스 끝점 바인딩**을 `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect`로 선택합니다.
+    다. **Single Sign-On 서비스 엔드포인트 바인딩**을 `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect`로 선택합니다.
     
     d. Azure Portal에서 다운로드한 **Base64로 인코딩된 인증서**를 메모장에서 열고 **공개 키** 텍스트 상자에 붙여넣습니다.
 
     e. **다음**을 클릭합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -232,7 +232,7 @@ Grovo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 이 섹션은 Grovo에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Grovo는 Just-In-Time 프로비전을 지원하며 기본적으로 사용하도록 설정합니다. 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 Grovo에 액세스하는 동안 만들어집니다.
 >[!Note]
->사용자를 수동으로 만들어야 하는 경우 [Grovo 지원 팀](https://www.grovo.com/contact-us)에 문의하세요.
+>사용자를 수동으로 만들어야 하는 경우  [Grovo 지원 팀](https://www.grovo.com/contact-us)에 문의하세요.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -274,7 +274,7 @@ Grovo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

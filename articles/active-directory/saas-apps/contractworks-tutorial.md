@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: e7b269d6-3c4e-4bc4-a55f-5071d1f52591
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: ddf012f276a300cb8f70590c306020993b448cc6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: faa1f4887502968e4deeee47e396b25480d0cd05
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427744"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182288"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>자습서: ContractWorks와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ ContractWorks가 Azure AD에 통합되도록 구성하려면 갤러리에서 Con
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -104,13 +104,13 @@ ContractWorks에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![Single Sign-On 대화 상자](./media/contractworks-tutorial/tutorial_contractworks_samlbase.png)
 
-1. **ContractWorks 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+1. **ContractWorks 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
     ![ContractWorks 도메인 및 URL Single Sign-On 정보](./media/contractworks-tutorial/tutorial_contractworks_url.png)
 
     **식별자** 텍스트 상자에 URL `https://login.securedocs.com/saml/metadata`를 입력합니다.
 
-1. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
     ![ContractWorks 도메인 및 URL Single Sign-On 정보](./media/contractworks-tutorial/tutorial_contractworks_url1.png)
 
@@ -133,7 +133,7 @@ ContractWorks에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![Configure Single Sign-On](./media/contractworks-tutorial/tutorial_attribute_05.png)
     
-    나. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
     
     다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
 
@@ -141,7 +141,7 @@ ContractWorks에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     
     d. **확인**을 클릭합니다.
 
-1. **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사하고 메모장에 붙여넣습니다.
+1.  **SAML 서명 인증서**  섹션에서 복사 단추를 클릭하여  **앱 페더레이션 메타데이터 URL** 을 복사하고 메모장에 붙여넣습니다.
     
     ![Configure Single Sign-On](./media/contractworks-tutorial/tutorial_metadataurl.png)
      
@@ -185,7 +185,7 @@ ContractWorks에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
  
 ### <a name="create-a-contractworks-test-user"></a>ContractWorks 테스트 사용자 만들기
 
-이 섹션에서는 ContractWorks에서 Britta Simon이라는 사용자를 만듭니다. ContractWorks 플랫폼에서 사용자를 추가하려면 [ContractWorks 지원 팀](mailto:support@contractworks.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
+이 섹션에서는 ContractWorks에서 Britta Simon이라는 사용자를 만듭니다. ContractWorks 플랫폼에서 사용자를 추가하려면  [ContractWorks 지원 팀](mailto:support@contractworks.com) 에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -227,7 +227,7 @@ ContractWorks에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 50a1522f-81de-4d14-9b6b-dd27bb1338a4
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: jeedes
-ms.openlocfilehash: e23d76074f4b428b672e0cd5aeeaba99d080a4cf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 65f11b5a65adf86b4115b54b49b10c57ebf21a98
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435937"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55154136"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>자습서: OrgChart Now와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ OrgChart Now의 Azure AD 통합을 구성하려면 갤러리의 OrgChart Now를 
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -104,13 +104,13 @@ OrgChart Now에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
  
     ![Single Sign-On 대화 상자](./media/orgchartnow-tutorial/tutorial_orgchartnow_samlbase.png)
 
-1. **OrgChart Now 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+1. **OrgChart Now 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
     ![OrgChart Now 도메인 및 URL Single Sign-On 정보](./media/orgchartnow-tutorial/tutorial_orgchartnow_url.png)
 
     **식별자** 텍스트 상자에 URL `https://sso2.orgchartnow.com`를 입력합니다.
 
-1. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
     ![OrgChart Now 도메인 및 URL Single Sign-On 정보](./media/orgchartnow-tutorial/tutorial_orgchartnow_url1.png)
 
@@ -175,7 +175,7 @@ Azure AD 사용자가 OrgChart Now에 로그인할 수 있도록 하려면 이 �
 
     ![OrgChart Now 그룹](./media/orgchartnow-tutorial/tutorial_orgchartnow_manage.png)    
 
-    나. **추가** 아이콘을 선택하고 그룹 이름을 **General**로 지정한 후 **확인**을 클릭합니다. 
+    b. **추가** 아이콘을 선택하고 그룹 이름을 **General**로 지정한 후 **확인**을 클릭합니다. 
 
     ![OrgChart Now 추가](./media/orgchartnow-tutorial/tutorial_orgchartnow_add.png)
 
@@ -191,7 +191,7 @@ Azure AD 사용자가 OrgChart Now에 로그인할 수 있도록 하려면 이 �
 
     a. 보안 관리자 권한으로 OrgChart Now에 로그인합니다.
 
-    나.  오른쪽 위 모서리에서 **설정**을 클릭한 후 **사용자 관리**로 이동합니다.
+    b.  오른쪽 위 모서리에서 **설정**을 클릭한 후 **사용자 관리**로 이동합니다.
 
     ![OrgChart Now 설정](./media/orgchartnow-tutorial/tutorial_orgchartnow_settings.png)
 
@@ -245,7 +245,7 @@ Azure AD 사용자가 OrgChart Now에 로그인할 수 있도록 하려면 이 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

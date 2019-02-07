@@ -5,16 +5,16 @@ description: 문서 업로드 기능을 사용하여 훈련에 사용할 병렬 
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 3a0adb4b761121334e93f2b8d2d764ff3ab495e2
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e08813c71a0b95b6b130ab71313bda6d044d730a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633251"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217223"
 ---
 # <a name="upload-a-document"></a>문서 업로드
 
@@ -37,21 +37,21 @@ ms.locfileid: "52633251"
 
     a.  문서 유형:
 
-    -  훈련: 훈련 세트로 사용할 문서입니다.
+    -  학습: 학습 세트로 사용할 문서입니다.
     -  튜닝: 튜닝 세트로 사용할 문서입니다.
     -  테스트: 테스트 세트로 사용할 문서입니다.
-    -  구문 사전: 구문 사전으로 사용할 문서입니다.
+    -  구 사전: 구 사전으로 사용할 문서입니다.
     -  문장 사전: 문장 사전으로 사용할 문서입니다.
 
     b.  언어 쌍
 
-    다.  기존 문서 재정의: 동일한 이름을 갖는 기존 문서를 덮어쓰려면 이 확인란을 선택합니다.
+    다.  기존 문서 재정의: 이름이 같은 기존 문서를 덮어쓰려면 이 확인란을 선택합니다.
 
     d.  병렬 데이터와 콤보 데이터 중 하나를 선택하여 입력합니다.
 
     -  병렬 데이터:
-        -  소스 파일: 로컬 컴퓨터에서 원본 언어 파일을 선택합니다.
-        -  타깃 파일: 로컬 컴퓨터에서 대상 언어 파일을 선택합니다.
+        -  원본 파일: 로컬 컴퓨터에서 원본 언어 파일을 선택합니다.
+        -  대상 파일: 로컬 컴퓨터에서 대상 언어 파일을 선택합니다.
         -  문서 이름: 병렬 파일을 업로드할 때만 사용합니다.
 
     - 콤보 데이터:

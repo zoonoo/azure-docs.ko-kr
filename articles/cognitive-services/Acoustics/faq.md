@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b8b5ea39c1cfb3a37a8e3009f59312728bcb0331
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 07e65e6ff544d6372197010a2b9d7f3f647eeb0f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900396"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166563"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -41,7 +41,7 @@ Acoustics는 프레임별로 원본당 약 0.01%의 CPU를 사용합니다. RAM 
  
 ## <a name="do-i-need-to-simplify-the-level-geometry-control-triangle-count-make-meshes-watertight"></a>수평 기하 도형을 간소화해야 하나요? 삼각형 수를 제어해야 하나요? 물이 새지 않는 메시를 만들어야 하나요?
 
-아니요. 시스템이 자세한 수평 기하 도형을 직접 수집합니다. 내부 처리를 위해 입체 화상으로 만들어집니다.
+ 아니요. 시스템이 자세한 수평 기하 도형을 직접 수집합니다. 내부 처리를 위해 입체 화상으로 만들어집니다.
  
 ## <a name="whats-in-the-runtime-lookup-table"></a>런타임 조회 테이블에는 무엇이 있나요?
 
@@ -53,7 +53,7 @@ ACE 파일은 다양한 원본과 수신기 위치 쌍 간의 음향 매개 변�
  
 ## <a name="can-it-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>동적 기하 도형을 처리할 수 있나요? 닫히는 문을 처리할 수 있나요? 떨어져 나가는 벽을 처리할 수 있나요?
 
-아니요. 음향 매개 변수는 게임 수준의 정적 상태에 따라 미리 계산됩니다. 음향 효과에서 도어 기하 도형을 분리한 후, 설정된 기술을 사용하여 소멸 가능하고 이동 가능한 게임 개체의 상태에 따라 추가 폐색을 적용하는 것이 좋습니다.
+ 아니요. 음향 매개 변수는 게임 수준의 정적 상태에 따라 미리 계산됩니다. 음향 효과에서 도어 기하 도형을 분리한 후, 설정된 기술을 사용하여 소멸 가능하고 이동 가능한 게임 개체의 상태에 따라 추가 폐색을 적용하는 것이 좋습니다.
  
 ## <a name="does-it-handle-materials"></a>재질을 처리하나요?
 

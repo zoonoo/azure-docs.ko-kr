@@ -2,18 +2,18 @@
 title: System Center 2012 R2 DPM을 사용하여 Azure Backup에 Exchange 서버 백업
 description: System Center 2012 R2 DPM을 사용하여 Azure Backup에 Exchange 서버를 백업하는 방법을 알아봅니다.
 services: backup
-author: adigan
-manager: NKolli1
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/19/2018
-ms.author: adigan
-ms.openlocfilehash: 7e95fa0cc6b5f9476df68ab44e5dbc8bb5432d52
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/31/2019
+ms.author: kasinh
+ms.openlocfilehash: ef976667ec580ea75dd1b8566c7bdddf35eeb0fc
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234461"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298316"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>System Center 2012 R2 DPM을 사용하여 Azure Backup에 Exchange 서버 백업
 이 문서에서는 System Center 2012 R2 Data Protection Manager(DPM) 서버를 구성하여 Azure Backup에 Microsoft Exchange server를 백업하는 방법을 설명합니다.  
@@ -110,10 +110,10 @@ Exchange 서버에서 DPM 보호 에이전트를 설치하려면 다음 이 단�
 
 온라인 복구 지점의 경우 다섯 가지 형식의 복구가 있습니다.
 
-* **원래 Exchange Server 위치에 복구:** 원래 Exchange 서버에 데이터가 복구됩니다.
-* **Exchange 서버에서 다른 데이터베이스 복구:** 데이터는 다른 Exchange 서버에 있는 다른 데이터베이스에 복구됩니다.
-* **복구 데이터베이스에 복구:** 데이터는 Exchange 복구 데이터베이스(RDB)에 복구됩니다.
-* **네트워크 폴더에 복사:** 데이터는 네트워크 폴더에 복구됩니다.
+* **원본 Exchange 서버 위치에 복구:** 데이터가 원본 Exchange 서버에 복구됩니다.
+* **Exchange 서버의 다른 데이터베이스에 복구:** 데이터가 다른 Exchange 서버의 다른 데이터베이스에 복구됩니다.
+* **복구 데이터베이스에 복구:** 데이터가 Exchange RDB(Recovery Database)에 복구됩니다.
+* **네트워크 폴더에 복사:** 데이터가 네트워크 폴더에 복구됩니다.
 * **테이프에 복사:** DPM 서버에 연결되고 구성된 테이프 라이브러리 또는 독립 실행형 테이프 드라이브가 있는 경우 복구 지점은 사용 가능한 테이프에 복사됩니다.
 
     ![온라인 복제 선택](./media/backup-azure-backup-exchange-server/choose-online-replication.png)

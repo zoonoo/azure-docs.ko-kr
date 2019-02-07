@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/08/2018
+ms.date: 01/25/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 6b7f3dc79e3b4c06b2b974e0cdca0bf20221c3ad
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 99498646a65865add35ec4a86cb7a25b42dd5523
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845018"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55162194"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 클레임 해결 프로그램 정보
 
@@ -97,6 +97,11 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 | {OAUTH-KV:loyalty_number} | 쿼리 문자열 매개 변수입니다. | 1234 |
 | {OAUTH-KV:any custom query string} | 쿼리 문자열 매개 변수입니다. | 해당 없음 |
 
+### <a name="oauth2"></a>OAuth2
+
+| 클레임 | 설명 | 예 |
+| ----- | ----------------------- | --------|
+| {oauth2:access_token} | 액세스 토큰 | 해당 없음 |
 
 ## <a name="how-to-use-claim-resolvers"></a>클레임 해결 프로그램 사용 방법
 

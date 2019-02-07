@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory와 Yodeck 통합 | Microsoft Docs'
+title: '자습서: Yodeck과 Azure Active Directory 통합 | Microsoft Docs'
 description: Azure Active Directory와 Yodeck 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: b2c8dccb-eeb0-4f4d-a24d-8320631ce819
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: jeedes
-ms.openlocfilehash: b017efd2c170f543041dcb35a3a3d040389d1dac
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2f767e813c2ba803cfafaaf6d9798ee2ea3f93d2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436797"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165101"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>자습서: Azure Active Directory와 Yodeck 통합
 
@@ -64,7 +64,7 @@ Yodeck의 Azure AD 통합을 구성하려면 갤러리의 Yodeck을 관리되는
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -104,13 +104,13 @@ Yodeck에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     ![Single Sign-On 대화 상자](./media/yodeck-tutorial/tutorial_yodeck_samlbase.png)
 
-1. **Yodeck 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+1. **Yodeck 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
     ![Yodeck 도메인 및 URL Single Sign-On 정보](./media/yodeck-tutorial/tutorial_yodeck_url.png)
 
     **식별자(엔터티 ID)** 텍스트 상자에 URL을 입력합니다. `https://app.yodeck.com/api/v1/account/metadata/`
 
-1. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
     ![Yodeck 도메인 및 URL Single Sign-On 정보](./media/yodeck-tutorial/tutorial_yodeck_url1.png)
 
@@ -136,7 +136,7 @@ Yodeck에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. **URL에서 가져오기**를 선택합니다.
 
-    나. Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 값을 **URL** 텍스트 상자에 붙여넣고 **가져오기**를 클릭합니다.
+    b. Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 값을 **URL** 텍스트 상자에 붙여넣고 **가져오기**를 클릭합니다.
     
     다. **앱 페더레이션 메타데이터 URL**을 가져오고 나면 나머지 필드가 자동으로 채워집니다.
 
@@ -197,7 +197,7 @@ Yodeck의 경우, 수동으로 프로비전합니다.
 
     a. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.
 
-    나. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
+    b. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
 
     다. **이메일** 텍스트 상자에서 **brittasimon@contoso.com**과 같은 사용자의 이메일 주소를 입력합니다.
 
@@ -245,7 +245,7 @@ Yodeck의 경우, 수동으로 프로비전합니다.
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -9,23 +9,31 @@ author: prashanthyv
 ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: 3ee0d19c174490d558a8ff06d3f5e038ffff211f
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 0392d84efa3a82a6323d6d09db792df7d6c42256
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064443"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210678"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault 관리 스토리지 계정 - CLI
 
 > [!NOTE]
-> [Azure Storage는 이제 AAD 권한 부여를 지원합니다](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). 사용자가 해당 저장소 계정 키 회전에 대해 걱정할 필요가 없으므로 저장소에 대한 인증 및 권한 부여에 Azure Active Directory를 사용하는 것이 좋습니다.
+> [Azure Active Directory(Azure AD)와 Azure Storage 통합은 현재 미리 보기 중입니다](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). 인증 및 권한 부여에 Azure Key Vault뿐만 아니라, Azure Storage에 대한 OAuth2 토큰 기반 액세스를 제공하는 Azure AD를 사용하는 것이 좋습니다. 이를 통해 다음을 수행할 수 있습니다.
+> - 스토리지 계정 자격 증명 대신, 애플리케이션 또는 사용자 ID를 사용하여 클라이언트 애플리케이션을 인증합니다. 
+> - Azure 기반 실행 시 [Azure AD 관리 ID](/azure/active-directory/managed-identities-azure-resources/)를 사용합니다. 관리 ID를 통해 클라이언트 인증은 물론, 애플리케이션에 또는 애플리케이션을 통해 자격 증명을 저장할 필요성이 없어집니다.
+> - 권한 부여 관리에 Key Vault에서도 지원되는 역할 기반 제어(RBAC)를 사용합니다.
 
 - Azure Key Vault는 ASA(Azure Storage Account)의 키를 관리합니다.
     - 내부적으로 Azure Key Vault는 키와 Azure Storage 계정을 나열(동기화)할 수 있습니다.    
     - Azure Key Vault는 정기적으로 키를 다시 생성(회전)합니다.
     - 키 값은 호출자에게 응답으로 반환되지 않습니다.
     - Azure Key Vault는 Storage 계정과 클래식 Storage 계정 둘 다의 키를 관리합니다.
+    
+> [!IMPORTANT]
+> Azure AD 테넌트는 등록된 각 애플리케이션에 애플리케이션의 ID 역할을 하는 **[서비스 주체](/azure/active-directory/develop/developer-glossary#service-principal-object)** 를 제공합니다. 서비스 주체의 애플리케이션 ID는 RBAC(역할 기반 액세스 제어)를 통해 다른 Azure 리소스에 액세스할 수 있는 권한을 부여할 때 사용됩니다. Key Vault는 Microsoft 애플리케이션이므로 각 Azure 클라우드 내에서 동일한 애플리케이션 ID에 속한 모든 Azure AD 테넌트에 사전 등록되어 있습니다.
+> - Azure Government 클라우드의 Azure AD 테넌트는 애플리케이션 ID `7e7c393b-45d0-48b1-a35e-2905ddf8183c`를 사용합니다.
+> - Azure 공용 클라우드 및 그 외 모든 클라우드의 Azure AD 테넌트는 애플리케이션 ID `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`을 사용합니다.
 
 <a name="prerequisites"></a>필수 조건
 --------------
@@ -74,8 +82,46 @@ ms.locfileid: "54064443"
 
     az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
     ```
+    
+## <a name="how-to-access-your-storage-account-with-sas-tokens"></a>SAS 토큰을 사용하여 스토리지 계정에 액세스하는 방법
+
+이 섹션에서는 Key Vault에서 [SAS 토큰](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)을 가져와서 스토리지 계정에 대한 작업을 수행하는 방법을 설명합니다.
+
+아래 섹션에서는 Key Vault에 저장된 스토리지 계정 키를 가져와서 스토리지 계정의 SAS(공유 액세스 서명) 정의를 만드는 데 사용하는 방법을 보여줍니다.
+
+> [!NOTE] 
+  [기본 개념](key-vault-whatis.md#basic-concepts)에 설명된 것처럼 3가지 방법으로 Key Vault에 인증할 수 있습니다.
+- 관리 서비스 ID 사용(강력 권장)
+- 서비스 주체 및 인증서 사용 
+- 서비스 주체 및 암호 사용(권장하지 않음)
+
+```cs
+// Once you have a security token from one of the above methods, then create KeyVaultClient with vault credentials
+var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(securityToken));
+
+// Get a SAS token for our storage from Key Vault. SecretUri is of the format https://<VaultName>.vault.azure.net/secrets/<ExamplePassword>
+var sasToken = await kv.GetSecretAsync("SecretUri");
+
+// Create new storage credentials using the SAS token.
+var accountSasCredential = new StorageCredentials(sasToken.Value);
+
+// Use the storage credentials and the Blob storage endpoint to create a new Blob service client.
+var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri ("https://myaccount.blob.core.windows.net/"), null, null, null);
+
+var blobClientWithSas = accountWithSas.CreateCloudBlobClient();
+```
+
+SAS 토큰이 곧 만료될 예정이면 Key Vault에서 SAS 토큰을 다시 가져와서 코드를 업데이트합니다.
+
+```cs
+// If your SAS token is about to expire, get the SAS Token again from Key Vault and update it.
+sasToken = await kv.GetSecretAsync("SecretUri");
+accountSasCredential.UpdateSASToken(sasToken);
+```
+
+
 ### <a name="relavant-azure-cli-cmdlets"></a>관련 Azure CLI cmdlet
-- [Azure CLI 스토리지 Cmdlet](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
+[Azure CLI 스토리지 Cmdlet](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
 
 ### <a name="relevant-powershell-cmdlets"></a>관련 PowerShell cmdlet
 

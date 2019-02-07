@@ -6,17 +6,17 @@ services: cognitive-services
 author: noellelacharite
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: personality-chat
+ms.subservice: personality-chat
 ms.topic: faq
 ms.date: 05/07/2018
 ms.author: nolachar
 comment: As a bot developer, I want my bot to be able to handle small talk in a consistent tone so that my bot appears more complete and conversational.
-ms.openlocfilehash: 274b232f321b3ad739d18a8580b4a178dbde633e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 95a6511ce818fda6db0cec507a1f9e3b034f17b0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219824"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219059"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -28,7 +28,7 @@ Project Personality Chat은 개인 정보를 공개하고 보다 완전한 사�
 
 사용 가능한 기본 가상 사용자 중에서 가장 가까운 가상 사용자를 선택합니다. 현재, 설명 라이브러리를 가져와 사용자 브랜드에 보다 잘 맞도록 응답을 편집할 수 있습니다. 향후에는 선택한 개인 정보에서 샘플 발언 집합을 업로드한 후 가장 가까운 가상 사용자 ID 버전을 찾을 수 있습니다. 모델을 다시 학습하고 사용자 지정하는 방식도 있습니다.
 
-## <a name="is-this-service-powering-existing-intelligent-agents-such-as-zo"></a>이 서비스는 Zo와 같은 기존의 지능형 에이전트를 지원하나요?
+## <a name="is-this-service-powering-existing-intelligent-agents-such-aszo"></a>이 서비스는 Zo와 같은 기존의 인텔리전트 에이전트를 지원하나요?
 
 Zo, Cortana 및 프로젝트 개인 정보 채팅을 지원하는 서비스는 비슷한 기술을 일부 공유하지만 스택은 다릅니다. 이 서비스는 Zo 및 Cortana의 경험에서 얻은 학습을 통합하고 있습니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f301c0156265f055f0ebf7cdad8dba7f39f5ba2b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 391fc493d642c260a10b74aa42b805ad055dd8b1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044580"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164557"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Reliable Services 수명 주기 개요
 > [!div class="op_single_selector"]
@@ -99,7 +99,7 @@ Azure Service Fabric Reliable Services의 수명 주기를 고려할 경우 수�
 3. `StatefulServiceBase.OnCloseAsync()`이 완료되면 서비스 개체는 소멸됩니다.
 
 ## <a name="stateful-service-primary-swaps"></a>상태 저장 서비스 주 교환
-상태 저장 서비스가 실행되는 동안 해당 상태 저장 서비스의 주 복제본은 해당 통신 수신기를 열고 해당 **RunAsync** 메서드를 호출합니다. 보조 복제본을 생성하지만 더 이상 호출하지 않습니다. 상태 저장 서비스가 실행되는 동안 현재 주 복제본인 복제본을 변경할 수 있습니다. 복제본이 확인할 수 있는 수명 주기 이벤트의 측면에서 무슨 의미인가요? 상태 저장 복제본이 확인하는 동작은 강등되는 복제본인지 승격되는 복제본인지에 따라 달라 집니다.
+상태 저장 서비스가 실행되는 동안 해당 상태 저장 서비스의 주 복제본은 해당 통신 수신기를 열고 해당 **RunAsync** 메서드를 호출합니다. 보조 복제본을 생성하지만 더 이상 호출하지 않습니다. 장애 또는 클러스터 균형 조정 최적화의 결과로 상태 저장 서비스가 실행되는 동안 현재 주 복제본인 복제본을 변경할 수 있습니다. 복제본이 확인할 수 있는 수명 주기 이벤트의 측면에서 무슨 의미인가요? 상태 저장 복제본이 확인하는 동작은 강등되는 복제본인지 승격되는 복제본인지에 따라 달라 집니다.
 
 ### <a name="for-the-primary-thats-demoted"></a>강등되는 주 복제본의 경우
 강등되는 주 복제본의 경우 Service Fabric은 이 복제본에서 메시지 처리를 중지하고 수행 중인 모든 백그라운드 작업을 종료하도록 합니다. 결과적으로 이 단계는 서비스가 종료될 경우와 유사합니다. 한 가지 차이점은 서비스가 보조 복제본으로 그대로 남아 있으므로 소멸되거나 종료되지 않는다는 점입니다. 다음 API가 호출됩니다.

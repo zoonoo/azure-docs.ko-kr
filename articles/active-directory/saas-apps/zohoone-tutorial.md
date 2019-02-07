@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: bbc3038c-0d8b-45dd-9645-368bd3d01a0f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 81e86df270a7286426363c26a0e8a87b99082428
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 22563ec52459d4cd332a6e97df95348a74c3ae16
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438276"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152351"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>자습서: Zoho One과 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ Zoho One의 Azure AD 통합을 구성하려면 갤러리의 Zoho One을 관리�
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -104,19 +104,19 @@ Zoho One에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
  
     ![Single Sign-On 대화 상자](./media/zohoone-tutorial/tutorial_zohoone_samlbase.png)
 
-1. **Zoho One 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+1. **Zoho One 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
     ![Zoho One 도메인 및 URL Single Sign-On 정보](./media/zohoone-tutorial/tutorial_zohoone_url.png)
 
     a. **식별자(엔터티 ID)** 텍스트 상자에 URL: `one.zoho.com`을 입력합니다.
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://accounts.zoho.com/samlresponse/<saml-identifier>`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://accounts.zoho.com/samlresponse/<saml-identifier>`
 
     다. **고급 URL 설정 표시**를 선택합니다.
 
     d. **릴레이 상태** 텍스트 상자에 URL:`https://one.zoho.com`을 입력합니다.
 
-1. **SP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+1. **SP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
     **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://accounts.zoho.com/samlauthrequest/<domain_name>?serviceurl=https://one.zoho.com`
      
@@ -147,7 +147,7 @@ Zoho One에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **로그인 URL** 텍스트 상자에 붙여넣습니다.
 
-    나. Azure Portal에서 복사한 **로그아웃 URL** 값을 **로그아웃 URL** 텍스트 상자에 붙여넣습니다.
+    b. Azure Portal에서 복사한 **로그아웃 URL** 값을 **로그아웃 URL** 텍스트 상자에 붙여넣습니다.
 
     다. **찾아보기**를 클릭하여 Azure Portal에서 다운로드한 **인증서(Base64)** 를 업로드합니다.
 
@@ -167,7 +167,7 @@ Zoho One에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **도메인 이름** 텍스트 상자에 **contoso.com** 같은 도메인을 입력합니다.
 
-    나. **추가**를 클릭합니다.
+    b. **추가**를 클릭합니다.
 
     >[!Note]
     >도메인을 추가한 후 [이](https://www.zoho.com/one/help/admin-guide/domain-verification.html) 단계에 따라 도메인을 확인합니다. 도메인이 확인되면 Azure Portal의 **Zoho One 도메인 및 URL**에서 **로그온 URL**에 해당 도메인 이름을 사용합니다.
@@ -222,7 +222,7 @@ Azure AD 사용자가 Zoho One에 로그인할 수 있도록 하려면 Zoho One�
     
     a. **이름** 텍스트 상자에 사용자 이름(예: **Britta Simon**)을 입력합니다.
     
-    나. **전자 메일 주소** 텍스트 상자에 **brittasimon@contoso.com**과 같은 사용자의 메일 주소를 입력합니다.
+    b. **전자 메일 주소** 텍스트 상자에 **brittasimon@contoso.com**과 같은 사용자의 메일 주소를 입력합니다.
 
     >[!Note]
     >도메인 목록에서 확인된 도메인을 선택합니다.
@@ -269,7 +269,7 @@ Azure AD 사용자가 Zoho One에 로그인할 수 있도록 하려면 Zoho One�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

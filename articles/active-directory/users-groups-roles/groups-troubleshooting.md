@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: e189fb8b2bc5079d1560d3b7a54fea2db7366fe7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ab5a3b00d063dfdd42e67247bb2cdc37866d0164
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46293975"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164132"
 ---
 # <a name="troubleshooting-dynamic-memberships-for-groups"></a>그룹의 동적 멤버 자격 문제 해결
 
@@ -35,13 +35,13 @@ ms.locfileid: "46293975"
 | --- | --- | --- |
 | 오류: 특성이 지원되지 않습니다. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/><br/>[지원되는 속성 목록](groups-dynamic-membership.md#supported-properties)에 있는 특성인지 확인합니다. |
 | 오류: 특성에서는 연산자가 지원되지 않습니다. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true)<br/><br/>사용된 연산자는 속성 형식에 지원되지 않습니다(이 예제에서 -contains는 부울 형식에 사용할 수 없습니다). 속성 형식에 올바른 연산자를 사용합니다. |
-| 오류: 쿼리 컴파일 오류입니다. | 1. (user.department -eq "Sales") (user.department -eq "Marketing")<br>2.  (user.userPrincipalName -match "*@domain.ext") | 1. 연산자가 없습니다. 두 개의 조인 조건자(-and 또는 -or)를 사용합니다.<br>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br>2. -match와 함께 사용되는 정규식 오류<br>(user.userPrincipalName -match ".*@domain.ext")<br>or alternatively: (user.userPrincipalName -match "@domain.ext$") |
+| 오류: 쿼리 컴파일 오류 | 1. (user.department -eq "Sales") (user.department -eq "Marketing")<br>2.  (user.userPrincipalName -match "*@domain.ext") | 1. 연산자가 없습니다. 두 개의 조인 조건자(-and 또는 -or)를 사용합니다.<br>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br>2. -match와 함께 사용되는 정규식 오류<br>(user.userPrincipalName -match ".*@domain.ext")<br>or alternatively: (user.userPrincipalName -match "@domain.ext$") |
 
 ## <a name="next-steps"></a>다음 단계
 
 이러한 문서는 Azure Active Directory에 대한 추가 정보를 제공합니다.
 
 * [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](../fundamentals/active-directory-manage-groups.md)
-* [Azure Active Directory의 응용 프로그램 관리](../manage-apps/what-is-application-management.md)
+* [Azure Active Directory의 애플리케이션 관리](../manage-apps/what-is-application-management.md)
 * [Azure Active Directory란?](../fundamentals/active-directory-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](../hybrid/whatis-hybrid-identity.md)

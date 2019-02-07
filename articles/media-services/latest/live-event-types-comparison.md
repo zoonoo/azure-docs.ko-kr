@@ -11,24 +11,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 3ed38ce75e5ee7c9f05533d64b28171482bfec51
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9c8bff5a0a4f1599a3d23e0c7b07a1caca536a9b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725935"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153966"
 ---
-# <a name="liveevent-types-comparison"></a>LiveEvent 형식 비교
+# <a name="live-event-types-comparison"></a>라이브 이벤트 유형 비교
 
-Azure Media Services에서 [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents)는 라이브 인코딩 및 통과라는 두 가지 형식 중 하나일 수 있습니다. 
+Azure Media Services에서 [라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents)는 라이브 인코딩 및 통과라는 두 가지 형식 중 하나일 수 있습니다. 
 
 ## <a name="types-comparison"></a>형식 비교 
 
-다음 테이블에서는 두 가지 LiveEvent 형식의 기능을 비교합니다.
+다음 테이블에서는 두 가지 라이브 이벤트 유형의 기능을 비교합니다.
 
-| 기능 | 통과 LiveEvent | 표준 LiveEvent |
+| 기능 | 통과 라이브 이벤트 | 표준 라이브 이벤트 |
 | --- | --- | --- |
 | 단일 비트 전송률 입력은 클라우드에서 다중 비트 전송률로 인코딩됩니다. |아니요 |예 |
 | 기여 피드에 대한 최대 비디오 해상도 |4K(60프레임/초에서 4096x2160) |1080p(30프레임/초에서 1920x1088)|
@@ -50,10 +50,10 @@ Azure Media Services에서 [LiveEvent](https://docs.microsoft.com/rest/api/media
 | 슬레이트 삽입 지원|아니요|아니요|
 | API를 통한 광고 신호 지원| 아니요|아니요|
 | SCTE-35 인밴드 메시지를 통한 광고 신호 지원|예|예|
-| 기여 피드의 일시 정지에서 복구하는 기능|예|아니요(LiveEvent는 입력 데이터가 6초 이상 없으면 슬레이팅을 시작함)|
+| 기여 피드의 일시 정지에서 복구하는 기능|예|아니요(라이브 이벤트는 입력 데이터가 6초 이상 없으면 슬레이팅을 시작함)|
 | 균일하지 않은 입력 GOP에 대한 지원|예|아니요 - 입력에 고정된 GOP 지속 기간이 있어야 함|
 | 변수 프레임 속도 입력에 대한 지원|예|아니요 - 입력은 고정된 프레임 속도여야 함. 예를 들어 움직임이 많은 장면 중에는 사소한 차이가 허용됩니다. 그러나 기여 피드는 프레임 속도를 15프레임/초 등으로 늦출 수 없습니다.|
-| 입력 피드가 손실될 경우 LiveEvent 자동 차단|아니요|12시간 동안 LiveOutput 실행이 없는 경우|
+| 입력 피드가 손실될 경우 라이브 이벤트 자동 차단|아니요|12시간 동안 LiveOutput 실행이 없는 경우|
 
 ## <a name="next-steps"></a>다음 단계
 

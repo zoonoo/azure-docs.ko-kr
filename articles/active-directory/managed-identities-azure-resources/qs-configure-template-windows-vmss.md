@@ -3,23 +3,23 @@ title: 템플릿을 사용하여 가상 머신 확장 집합에서 Azure 리소�
 description: Azure Resource Manager 템플릿을 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID를 구성하는 단계별 지침입니다.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
-ms.author: daveba
-ms.openlocfilehash: 6498079950310e52fcb16172a34b9848e6a98e8b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: 6fff8890a32cd6c3f0aeb506425964edcc841c5e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429024"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193474"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>템플릿을 사용하여 Azure 가상 머신 확장에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -173,7 +173,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
 > [!Note]
 > Azure Resource Manager 템플릿을 사용하여 사용자 할당 관리 ID를 만들려면 [사용자 할당 관리 ID 만들기](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity)를 참조하세요.
 
-### <a name="assign-a-user-assigned-managed-identity-to-a-virutal-machine-scale-set"></a>가상 머신 확장 집합에 사용자 할당 관리 ID 할당
+### <a name="assign-a-user-assigned-managed-identity-to-a-virtual-machine-scale-set"></a>가상 머신 확장 집합에 사용자 할당 관리 ID 할당
 
 1. `resources` 요소 아래에 다음 항목을 추가하여 사용자 할당 관리 ID를 가상 머신 확장 집합에 할당합니다.  `<USERASSIGNEDIDENTITY>`를 직접 만든 사용자 할당 관리 ID의 이름으로 바꿔야 합니다.
    

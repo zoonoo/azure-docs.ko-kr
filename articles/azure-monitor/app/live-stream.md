@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 403906a60d16a478dffd313b45aa1ce24e42196a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: f369eb6241a8eb3d44a0a38e243c533da47103e1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119238"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104617"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>라이브 메트릭 스트림: 1초 대기 시간으로 모니터링 및 진단
 
@@ -36,19 +36,19 @@ ms.locfileid: "54119238"
 
 [![라이브 메트릭 스트림 비디오](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
+라이브 메트릭은 현재 ASP.NET, ASP.NET Core, Azure Functions 및 Java 앱에 대해 지원됩니다.
+
 ## <a name="get-started"></a>시작하기
 
-1. 아직 ASP.NET 웹앱 또는 [Windows 서버 앱](../../azure-monitor/app/windows-services.md)에 [Application Insights를 설치](../../azure-monitor/app/asp-net.md)하지 않은 경우 지금 설치합니다. 
-2. Application Insights 패키지의 **최신 버전으로 업데이트**합니다. Visual Studio에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Nuget 패키지 관리**를 선택합니다. **업데이트** 탭을 열어 **시험판 포함**을 선택하고 모든 Microsoft.ApplicationInsights.* 패키지를 선택합니다.
+1. 웹앱에 [Application Insights를 아직 설치](../../azure-monitor/azure-monitor-app-hub.md)하지 않은 경우 지금 수행합니다.
+2. 표준 Application Insights 패키지 외에 [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/)는 라이브 메트릭 스트림을 활성화하는 데 필요합니다.
+3. Application Insights 패키지의 **최신 버전으로 업데이트**합니다. Visual Studio에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Nuget 패키지 관리**를 선택합니다. **업데이트** 탭을 열고, 모든 Microsoft.ApplicationInsights.* 패키지를 선택합니다.
 
     응용 프로그램을 다시 배포 합니다.
 
 3. [Azure Portal](https://portal.azure.com)에서 앱에 대한 Application Insights 리소스를 연 다음 라이브 스트림을 엽니다.
 
 4. 필터에 고객 이름과 같은 중요한 데이터를 사용할 경우 [컨트롤 채널을 보호](#secure-the-control-channel)합니다.
-
-
-![개요 블레이드에서 라이브 스트림 클릭](./media/live-stream/live-stream-2.png)
 
 ### <a name="no-data-check-your-server-firewall"></a>데이터가 없나요? 서버 방화벽을 확인합니다.
 
@@ -69,7 +69,7 @@ ms.locfileid: "54119238"
 
 ## <a name="select-and-filter-your-metrics"></a>메트릭 선택 및 필터링
 
-(최신 SDK를 사용하여 클래식 ASP.NET 앱에서 사용 가능)
+(ASP.NET, ASP.NET Core 및 Azure Functions(v2)와 함께 사용할 수 있습니다.)
 
 포털에서 Application Insights 원격 분석에 임의 필터를 적용하여 사용자 지정 KPI를 라이브로 모니터링할 수 있습니다. 차트 위로 마우스를 가져가면 표시되는 필터 컨트롤을 클릭합니다. 다음 차트는 URL 및 기간 특성에 필터를 적용하여 사용자 지정 요청 수 KPI를 그래프로 나타냅니다. 언제든지 지정한 조건과 일치하는 원격 분석의 라이브 피드를 표시하는 스트림 미리 보기 섹션을 사용하여 필터의 유효성을 검사합니다. 
 
@@ -161,6 +161,12 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 ```
 
+### <a name="azure-function-apps"></a>Azure 함수 앱
+
+Azure Function 앱(v2)의 경우 환경 변수를 사용하여 API 키로 채널 보안을 수행할 수 있습니다. 
+
+Application Insights 리소스 내에서 API 키를 만들고 함수 앱에 대한 **애플리케이션 설정**으로 이동합니다. **새 설정 추가**를 선택하고 `APPINSIGHTS_QUICKPULSEAUTHAPIKEY`의 이름 및 API 키에 해당하는 값을 입력합니다.
+
 ### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-beta-or-greater"></a>ASP.NET Core(Application Insights ASP.NET Core SDK 2.3.0 베타 이상 필요)
 
 다음과 같이 startup.cs 파일을 수정합니다.
@@ -176,7 +182,6 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 ``` C#
 services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
-
 
 그러나 연결된 모든 서버를 인식하고 신뢰하는 경우 인증된 채널을 사용하지 않고 사용자 지정 필터를 시도할 수 있습니다. 이 옵션은 6개월 동안 사용할 수 있습니다. 이 재정의는 새 세션마다 한 번씩 또는 새 서버가 온라인 상태가 될 때마다 필요합니다.
 

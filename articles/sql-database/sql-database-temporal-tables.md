@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/21/2018
-ms.openlocfilehash: d18630f9b4cea28bd19b2ac24e7b8c3d1822e17c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ce489bae3a59da47ad6f3677ef493618d01fd6b6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166421"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196653"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Azure SQL Database의 임시 테이블 시작
 임시 테이블은 사용자 지정 코딩을 필요로 하지 않고 데이터의 전체 변경 기록을 추적하고 분석할 수 있는 Azure SQL Database의 새로운 프로그래밍 기능입니다. 임시 테이블은 특정 기간 내에서만 유효하기 때문에 저장된 팩트를 해석할 수 있도록 데이터를 시간 컨텍스트와 밀접하게 연결해둡니다. 임시 테이블의 이 속성을 사용하면 효율적인 시간 기반 분석 및 데이터의 진화에서 정보를 얻을 수 있습니다.
@@ -50,7 +50,7 @@ SSDT에서 새 항목을 데이터베이스 프로젝트에 추가하는 경우 
 
 아래 예제와 같이 Transact-SQL 문을 직접 지정하여 임시 테이블을 만들 수도 있습니다. 모든 임시 테이블의 필수 요소는 기간 정의이며 다른 사용자 테이블에 대한 참조를 포함하는 SYSTEM_VERSIONING 절은 과거 행 버전을 저장합니다.
 
-````
+```
 CREATE TABLE WebsiteUserInfo 
 (  
     [UserID] int NOT NULL PRIMARY KEY CLUSTERED 
@@ -61,7 +61,7 @@ CREATE TABLE WebsiteUserInfo
   , PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
  )  
  WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.WebsiteUserInfoHistory));
-````
+```
 
 시스템 버전 임시 테이블을 만들 경우 기본 구성과 함께 제공된 기록 테이블은 자동으로 만들어집니다. 기본 기록 테이블은 페이지 압축을 사용하여 기간 열(종료, 시작)에 클러스터된 B-트리 인덱스를 포함합니다. 이 구성은 임시 테이블이 사용되는 대부분의 시나리오, 특히 [데이터 감사](https://msdn.microsoft.com/library/mt631669.aspx#Anchor_0)에 대해 최적화됩니다. 
 
@@ -73,11 +73,11 @@ CREATE TABLE WebsiteUserInfo
 
 다음 스크립트는 기록 테이블에서 기본 인덱스를 클러스터된 columnstore로 변경하는 방법을 보여줍니다.
 
-````
+```
 CREATE CLUSTERED COLUMNSTORE INDEX IX_WebsiteUserInfoHistory
 ON dbo.WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON); 
-````
+```
 
 해당 기록 테이블이 하위 노드로 표시되는 반면 임시 테이블은 쉽게 식별할 수 있도록 개체 탐색기에 특정 아이콘으로 표시됩니다.
 
@@ -86,7 +86,7 @@ WITH (DROP_EXISTING = ON);
 ### <a name="alter-existing-table-to-temporal"></a>기존 테이블을 임시 테이블로 변경
 WebsiteUserInfo 테이블이 이미 존재하지만 변경 기록을 유지하도록 디자인되지 않은 다른 시나리오를 살펴보겠습니다. 이 경우에 다음 예제와 같이 기존 테이블을 간단히 확장하여 임시 테이블을 만들 수 있습니다.
 
-````
+```
 ALTER TABLE WebsiteUserInfo 
 ADD 
     ValidFrom datetime2 (0) GENERATED ALWAYS AS ROW START HIDDEN  
@@ -102,17 +102,17 @@ GO
 CREATE CLUSTERED COLUMNSTORE INDEX IX_WebsiteUserInfoHistory
 ON dbo.WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON); 
-````
+```
 
 ## <a name="step-2-run-your-workload-regularly"></a>2단계: 정기적으로 워크로드 실행
 임시 테이블의 주요 장점은 변경 내용 추적을 사용하는 방식으로 웹 사이트를 변경하거나 조정할 필요가 없다는 것입니다. 임시 테이블은 한 번 만들면 데이터에 수정 작업을 수행할 때마다 이전 행 버전을 분명하게 유지합니다. 
 
 특정 시나리오에 대한 자동 변경 내용 추적을 활용하기 위해 사용자가 웹 사이트에서 세션을 종료할 때마다 **PagesVisited** 열을 업데이트하겠습니다.
 
-````
+```
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 
 WHERE [UserID] = 1;
-````
+```
 
 실제 작업이 발생 했을 때 정확한 시간 및 기록 데이터가 이후 분석을 위해 유지되는 방법을 업데이트 쿼리에서 알 필요는 없습니다. 모든 측면이 Azure SQL Database에서 자동으로 처리됩니다. 다음 다이어그램에서는 모든 업데이트에서 기록 데이터를 생성하는 방법을 보여줍니다.
 
@@ -123,17 +123,17 @@ WHERE [UserID] = 1;
 
 1시간 전을 기준으로 방문한 웹 페이지의 수로 정렬된 상위 10명의 사용자를 확인하려면 다음 쿼리를 실행합니다.
 
-````
+```
 DECLARE @hourAgo datetime2 = DATEADD(HOUR, -1, SYSUTCDATETIME());
 SELECT TOP 10 * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME AS OF @hourAgo
 ORDER BY PagesVisited DESC
-````
+```
 
 하루 전, 한 달 전 또는 원하는 어떤 시점을 기준으로 사이트 방문을 분석하도록 이 쿼리를 쉽게 수정할 수 있습니다.
 
 이전 날짜에 대한 기본 통계 분석을 수행하려면 다음 예제를 사용합니다.
 
-````
+```
 DECLARE @twoDaysAgo datetime2 = DATEADD(DAY, -2, SYSUTCDATETIME());
 DECLARE @aDayAgo datetime2 = DATEADD(DAY, -1, SYSUTCDATETIME());
 
@@ -143,17 +143,17 @@ STDEV (PagesVisited) as StDevViistedPages
 FROM dbo.WebsiteUserInfo 
 FOR SYSTEM_TIME BETWEEN @twoDaysAgo AND @aDayAgo
 GROUP BY UserId
-````
+```
 
 시간 내에서 특정 사용자의 작업을 검색하려면 CONTAINED IN 절을 사용합니다.
 
-````
+```
 DECLARE @hourAgo datetime2 = DATEADD(HOUR, -1, SYSUTCDATETIME());
 DECLARE @twoHoursAgo datetime2 = DATEADD(HOUR, -2, SYSUTCDATETIME());
 SELECT * FROM dbo.WebsiteUserInfo 
 FOR SYSTEM_TIME CONTAINED IN (@twoHoursAgo, @hourAgo)
 WHERE [UserID] = 1;
-````
+```
 
 그래픽 시각화는 경향과 사용 패턴을 직관적인 방식으로 손쉽게 표시할 수 있기에 임시 쿼리에 특히 편리합니다.
 
@@ -162,27 +162,27 @@ WHERE [UserID] = 1;
 ## <a name="evolving-table-schema"></a>테이블 스키마 진화
 일반적으로 앱 개발을 수행하는 동안 임시 테이블 스키마를 변경해야 합니다. 이를 위해 일반적인 ALTER TABLE 문을 실행하면 Azure SQL Database가 변경 내용을 기록 테이블에 적절하게 전달합니다. 다음 스크립트는 추적에 대한 추가 특성을 추가하는 방법을 보여줍니다.
 
-````
+```
 /*Add new column for tracking source IP address*/
 ALTER TABLE dbo.WebsiteUserInfo 
 ADD  [IPAddress] varchar(128) NOT NULL CONSTRAINT DF_Address DEFAULT 'N/A';
-````
+```
 
 마찬가지로 워크로드가 활성 상태인 동안 열 정의를 변경할 수 있습니다.
 
-````
+```
 /*Increase the length of name column*/
 ALTER TABLE dbo.WebsiteUserInfo 
     ALTER COLUMN  UserName nvarchar(256) NOT NULL;
-````
+```
 
 마지막으로 더 이상 필요하지 않은 열을 제거할 수 있습니다.
 
-````
+```
 /*Drop unnecessary column */
 ALTER TABLE dbo.WebsiteUserInfo 
     DROP COLUMN TemporaryColumn; 
-````
+```
 
 또는 최신 [SSDT](https://msdn.microsoft.com/library/mt204009.aspx) 를 사용하여 데이터베이스(온라인 모드) 또는 데이터베이스 프로젝트(오프라인 모드)의 일부에 연결되어 있는 동안 임시 테이블 스키마를 변경합니다.
 

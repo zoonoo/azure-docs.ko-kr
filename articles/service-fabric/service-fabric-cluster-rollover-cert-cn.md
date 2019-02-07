@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: df919e23fd608cdf41e93844f13342ca00657adb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 72640a4d917ddb2485199f0df1fead8b0bdcd1c9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205147"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192976"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Service Fabric 클러스터 인증서를 수동으로 롤오버
-Service Fabric 클러스터 인증서가 만료될 시간이 다가오면 인증서를 업데이트해야 합니다.  클러스터가 지문 대신 [일반 이름을 기준으로 인증서를 사용하도록 설정](service-fabric-cluster-change-cert-thumbprint-to-cn.md)된 경우 인증서를 롤오버하는 방법은 간단합니다.  인증 기관에서 새 만료 날짜와 함께 새 인증서를 얻습니다.  Azure Portal에서 Service Fabric 클러스터를 배포할 때 생성된 인증서를 포함하여 자체 서명된 인증서는 지원되지 않습니다.  새 인증서의 일반 이름이 이전 인증서와 동일해야 합니다. 
+Service Fabric 클러스터 인증서가 만료될 시간이 다가오면 인증서를 업데이트해야 합니다.  클러스터가 지문 대신 [일반 이름을 기준으로 인증서를 사용하도록 설정](service-fabric-cluster-change-cert-thumbprint-to-cn.md)된 경우 인증서를 롤오버하는 방법은 간단합니다.  인증 기관에서 새 만료 날짜와 함께 새 인증서를 얻습니다.  자체 서명된 인증서를 사용하면 프로덕션 Service Fabric 클러스터가 Azure Portal 클러스터 만들기 워크플로 중에 생성된 인증서를 포함하는 기능이 지원되지 않습니다. 새 인증서의 일반 이름이 이전 인증서와 동일해야 합니다. 
 
-다음 스크립트는 새 인증서를 키 자격 증명 모음에 업로드하고 가상 머신 확장 집합에 인증서를 설치합니다.  Service Fabric 클러스터는 만료 날짜가 최신인 인증서를 자동으로 사용합니다.
+호스트에 유효한 인증서가 두 개 이상 설치된 경우 Service Fabric 클러스터는 만료 날짜가 가장 많이 남은 선언된 인증서를 자동으로 사용합니다. 모범 사례는 Resource Manager 템플릿을 사용하여 Azure 리소스를 프로비전하는 것입니다. 비 프로덕션 환경의 경우 다음 스크립트를 사용하여 새 인증서를 키 자격 증명 모음에 업로드한 다음, 가상 머신 확장 집합에 인증서를 설치할 수 있습니다. 
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -78,6 +78,9 @@ $vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $Sour
 # Update the VM scale set 
 Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose
 ```
+
+>[!NOTE]
+> Computes Virtual Machine Scale Set Secrets에서는 두 개의 개별 비밀에 같은 리소스 ID를 사용할 수 없습니다. 각 비밀은 버전이 지정된 고유한 리소스이기 때문입니다. 
 
 자세한 내용은 다음 항목을 읽어보세요.
 * [클러스터 보안](service-fabric-cluster-security.md)에 대해 알아보기

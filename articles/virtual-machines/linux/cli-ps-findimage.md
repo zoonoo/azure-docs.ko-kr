@@ -13,17 +13,18 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/28/2018
+ms.date: 01/25/2019
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ff08b0f155be54ee57d2d9999c47aa56a366d09
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 5076c662390c9a28682930e8c5f06cfc79f7134b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852204"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169694"
 ---
-# <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure Marketplace에서 Linux VM 이미지를 찾는 방법
+# <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure Marketplace에서 Linux VM 이미지 찾기
+
 이 항목에서는 Azure CLI를 사용하여 Azure Marketplace에서 VM 이미지를 찾는 방법을 설명합니다. CLI, Resource Manager 템플릿 또는 기타 도구를 사용하여 프로그래밍 방식으로 VM을 생성할 때 이 정보를 사용하여 Marketplace 이미지를 지정합니다.
 
 또한 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 상점, [Azure Portal](https://portal.azure.com) 또는 [Azure PowerShell](../windows/cli-ps-findimage.md)을 사용하여 사용 가능한 이미지와 제품을 찾아봅니다. 
@@ -46,11 +47,11 @@ az vm image list --output table
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
 -------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
-CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
+CentOS         OpenLogic               7.5                 OpenLogic:CentOS:7.5:latest                                     CentOS               latest
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
 openSUSE-Leap  SUSE                    42.3                SUSE:openSUSE-Leap:42.3:latest                                  openSUSE-Leap        latest
-RHEL           RedHat                  7.3                 RedHat:RHEL:7.3:latest                                          RHEL                 latest
+RHEL           RedHat                  7-RAW               RedHat:RHEL:7-RAW:latest                                        RHEL                 latest
 SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:latest                                         SLES                 latest
 UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
 ...
@@ -68,31 +69,42 @@ az vm image list --offer Debian --all --output table
 ```
 
 부분 출력: 
+
 ```
-Offer    Publisher    Sku                Urn                                              Version
--------  -----------  -----------------  -----------------------------------------------  --------------
-...
-Debian   credativ     7                  credativ:Debian:7:7.0.201602010                  7.0.201602010
-Debian   credativ     7                  credativ:Debian:7:7.0.201603020                  7.0.201603020
-Debian   credativ     7                  credativ:Debian:7:7.0.201604050                  7.0.201604050
-Debian   credativ     7                  credativ:Debian:7:7.0.201604200                  7.0.201604200
-Debian   credativ     7                  credativ:Debian:7:7.0.201606280                  7.0.201606280
-Debian   credativ     7                  credativ:Debian:7:7.0.201609120                  7.0.201609120
-Debian   credativ     7                  credativ:Debian:7:7.0.201611020                  7.0.201611020
-Debian   credativ     8                  credativ:Debian:8:8.0.201602010                  8.0.201602010
-Debian   credativ     8                  credativ:Debian:8:8.0.201603020                  8.0.201603020
-Debian   credativ     8                  credativ:Debian:8:8.0.201604050                  8.0.201604050
-Debian   credativ     8                  credativ:Debian:8:8.0.201604200                  8.0.201604200
-Debian   credativ     8                  credativ:Debian:8:8.0.201606280                  8.0.201606280
-Debian   credativ     8                  credativ:Debian:8:8.0.201609120                  8.0.201609120
-Debian   credativ     8                  credativ:Debian:8:8.0.201611020                  8.0.201611020
-Debian   credativ     8                  credativ:Debian:8:8.0.201701180                  8.0.201701180
-Debian   credativ     8                  credativ:Debian:8:8.0.201703150                  8.0.201703150
-Debian   credativ     8                  credativ:Debian:8:8.0.201704110                  8.0.201704110
-Debian   credativ     8                  credativ:Debian:8:8.0.201704180                  8.0.201704180
-Debian   credativ     8                  credativ:Debian:8:8.0.201706190                  8.0.201706190
-Debian   credativ     8                  credativ:Debian:8:8.0.201706210                  8.0.201706210
-Debian   credativ     8                  credativ:Debian:8:8.0.201708040                  8.0.201708040
+Offer              Publisher    Sku                  Urn                                                    Version
+-----------------  -----------  -------------------  -----------------------------------------------------  --------------
+Debian             credativ     7                    credativ:Debian:7:7.0.201602010                        7.0.201602010
+Debian             credativ     7                    credativ:Debian:7:7.0.201603020                        7.0.201603020
+Debian             credativ     7                    credativ:Debian:7:7.0.201604050                        7.0.201604050
+Debian             credativ     7                    credativ:Debian:7:7.0.201604200                        7.0.201604200
+Debian             credativ     7                    credativ:Debian:7:7.0.201606280                        7.0.201606280
+Debian             credativ     7                    credativ:Debian:7:7.0.201609120                        7.0.201609120
+Debian             credativ     7                    credativ:Debian:7:7.0.201611020                        7.0.201611020
+Debian             credativ     7                    credativ:Debian:7:7.0.201701180                        7.0.201701180
+Debian             credativ     8                    credativ:Debian:8:8.0.201602010                        8.0.201602010
+Debian             credativ     8                    credativ:Debian:8:8.0.201603020                        8.0.201603020
+Debian             credativ     8                    credativ:Debian:8:8.0.201604050                        8.0.201604050
+Debian             credativ     8                    credativ:Debian:8:8.0.201604200                        8.0.201604200
+Debian             credativ     8                    credativ:Debian:8:8.0.201606280                        8.0.201606280
+Debian             credativ     8                    credativ:Debian:8:8.0.201609120                        8.0.201609120
+Debian             credativ     8                    credativ:Debian:8:8.0.201611020                        8.0.201611020
+Debian             credativ     8                    credativ:Debian:8:8.0.201701180                        8.0.201701180
+Debian             credativ     8                    credativ:Debian:8:8.0.201703150                        8.0.201703150
+Debian             credativ     8                    credativ:Debian:8:8.0.201704110                        8.0.201704110
+Debian             credativ     8                    credativ:Debian:8:8.0.201704180                        8.0.201704180
+Debian             credativ     8                    credativ:Debian:8:8.0.201706190                        8.0.201706190
+Debian             credativ     8                    credativ:Debian:8:8.0.201706210                        8.0.201706210
+Debian             credativ     8                    credativ:Debian:8:8.0.201708040                        8.0.201708040
+Debian             credativ     8                    credativ:Debian:8:8.0.201710090                        8.0.201710090
+Debian             credativ     8                    credativ:Debian:8:8.0.201712040                        8.0.201712040
+Debian             credativ     8                    credativ:Debian:8:8.0.201801170                        8.0.201801170
+Debian             credativ     8                    credativ:Debian:8:8.0.201803130                        8.0.201803130
+Debian             credativ     8                    credativ:Debian:8:8.0.201803260                        8.0.201803260
+Debian             credativ     8                    credativ:Debian:8:8.0.201804020                        8.0.201804020
+Debian             credativ     8                    credativ:Debian:8:8.0.201804150                        8.0.201804150
+Debian             credativ     8                    credativ:Debian:8:8.0.201805160                        8.0.201805160
+Debian             credativ     8                    credativ:Debian:8:8.0.201807160                        8.0.201807160
+Debian             credativ     8                    credativ:Debian:8:8.0.201901221                        8.0.201901221
 ...
 ```
 
@@ -124,10 +136,22 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201704110        
 Debian   credativ     8                  credativ:Debian:8:8.0.201704180                  8.0.201704180
 Debian   credativ     8                  credativ:Debian:8:8.0.201706190                  8.0.201706190
 Debian   credativ     8                  credativ:Debian:8:8.0.201706210                  8.0.201706210
+Debian   credativ     8                  credativ:Debian:8:8.0.201708040                  8.0.201708040
+Debian   credativ     8                  credativ:Debian:8:8.0.201710090                  8.0.201710090
+Debian   credativ     8                  credativ:Debian:8:8.0.201712040                  8.0.201712040
+Debian   credativ     8                  credativ:Debian:8:8.0.201801170                  8.0.201801170
+Debian   credativ     8                  credativ:Debian:8:8.0.201803130                  8.0.201803130
+Debian   credativ     8                  credativ:Debian:8:8.0.201803260                  8.0.201803260
+Debian   credativ     8                  credativ:Debian:8:8.0.201804020                  8.0.201804020
+Debian   credativ     8                  credativ:Debian:8:8.0.201804150                  8.0.201804150
+Debian   credativ     8                  credativ:Debian:8:8.0.201805160                  8.0.201805160
+Debian   credativ     8                  credativ:Debian:8:8.0.201807160                  8.0.201807160
+Debian   credativ     8                  credativ:Debian:8:8.0.201901221                  8.0.201901221
 ...
 ```
 
-## <a name="navigate-the-images"></a>이미지 이동 
+## <a name="navigate-the-images"></a>이미지 이동
+ 
 위치에서 이미지를 찾는 또 다른 방법은 [az vm image list-publishers](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm image list-offers](/cli/azure/vm/image) 및 [az vm image list-skus](/cli/azure/vm/image#az_vm_image_list_skus)의 순서로 명령을 실행하는 것입니다. 이러한 명령을 사용하여 값을 결정합니다.
 
 1. 이미지 게시자를 나열합니다.
@@ -171,6 +195,7 @@ westus      akamai-technologies
 westus      akumina
 ...
 ```
+
 이 정보를 사용하여 특정 게시자의 제안을 찾을 수 있습니다. 예를 들어, 미국 서부에 있는 *Canonical* 게시자의 경우 `azure vm image list-offers`를 실행하여 제품을 찾습니다. 다음 예제와 같이 위치 및 게시자를 전달합니다.
 
 ```azurecli
@@ -194,7 +219,7 @@ westus      Ubuntu_Core
 az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
 ```
 
-출력
+출력:
 
 ```
 Location    Name
@@ -212,17 +237,17 @@ westus      14.04.5-LTS
 westus      16.04-DAILY-LTS
 westus      16.04-LTS
 westus      16.04.0-LTS
-westus      17.10
-westus      17.10-DAILY
 westus      18.04-DAILY-LTS
 westus      18.04-LTS
+westus      18.10
 westus      18.10-DAILY
+westus      19.04-DAILY
 ```
 
-마지막으로 `az vm image list` 명령을 사용하여 원하는 SKU의 특정 버전을 찾습니다(예: *16.04-LTS*).
+마지막으로 `az vm image list` 명령을 사용하여 원하는 SKU의 특정 버전을 찾습니다(예: *18.04-LTS*).
 
 ```azurecli
-az vm image list --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --all --output table
+az vm image list --location westus --publisher Canonical --offer UbuntuServer --sku 18.04-LTS --all --output table
 ```
 
 부분 출력:
@@ -230,20 +255,26 @@ az vm image list --location westus --publisher Canonical --offer UbuntuServer --
 ```
 Offer         Publisher    Sku        Urn                                               Version
 ------------  -----------  ---------  ------------------------------------------------  ---------------
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201611220  16.04.201611220
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201611300  16.04.201611300
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201612050  16.04.201612050
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201612140  16.04.201612140
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201612210  16.04.201612210
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201701130  16.04.201701130
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201702020  16.04.201702020
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201702200  16.04.201702200
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201702210  16.04.201702210
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201702240  16.04.201702240
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703020  16.04.201703020
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703030  16.04.201703030
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703070  16.04.201703070
-UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201703270  16.04.201703270
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201804262  18.04.201804262
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201805170  18.04.201805170
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201805220  18.04.201805220
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201806130  18.04.201806130
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201806170  18.04.201806170
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201807240  18.04.201807240
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201808060  18.04.201808060
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201808080  18.04.201808080
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201808140  18.04.201808140
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201808310  18.04.201808310
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201809110  18.04.201809110
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201810030  18.04.201810030
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201810240  18.04.201810240
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201810290  18.04.201810290
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201811010  18.04.201811010
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201812031  18.04.201812031
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201812040  18.04.201812040
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201812060  18.04.201812060
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201901140  18.04.201901140
+UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201901220  18.04.201901220
 ...
 ```
 
@@ -255,22 +286,22 @@ Resource Manager 템플릿을 사용하여 VM을 배포하는 경우 `imageRefer
 
 ### <a name="view-plan-properties"></a>플랜 속성 보기
 
-이미지의 구매 플랜 정보를 보려면 [az vm image show](/cli/azure/image#az_image_show) 명령을 실행합니다. 출력의 `plan` 속성이 `null`이 아닌 경우, 이미지에는 프로그램 방식으로 배포하기 전에 동의해야 하는 약관이 있습니다.
+이미지의 구매 계획 정보를 보려면 [az vm image show](/cli/azure/image) 명령을 실행합니다. 출력의 `plan` 속성이 `null`이 아닌 경우, 이미지에는 프로그램 방식으로 배포하기 전에 동의해야 하는 약관이 있습니다.
 
-예를 들어, Canonical Ubuntu Server 16.04 LTS 이미지는 `plan` 정보가 `null`이기 때문에 추가 약관이 없습니다.
+예를 들어, Canonical Ubuntu Server 18.04 LTS 이미지는 `plan` 정보가 `null`이기 때문에 추가 약관이 없습니다.
 
 ```azurecli
-az vm image show --location westus --urn Canonical:UbuntuServer:16.04-LTS:latest
+az vm image show --location westus --urn Canonical:UbuntuServer:18.04-LTS:latest
 ```
 
-출력
+출력:
 
 ```
 {
   "dataDiskImages": [],
-  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/16.04-LTS/Versions/16.04.201801260",
+  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/18.04-LTS/Versions/18.04.201901220",
   "location": "westus",
-  "name": "16.04.201809120",
+  "name": "18.04.201901220",
   "osDiskImage": {
     "operatingSystem": "Linux"
   },
@@ -289,9 +320,9 @@ az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 ```
 {
   "dataDiskImages": [],
-  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/bitnami/ArtifactTypes/VMImage/Offers/rabbitmq/Skus/rabbitmq/Versions/3.7.1807171506",
+  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/bitnami/ArtifactTypes/VMImage/Offers/rabbitmq/Skus/rabbitmq/Versions/3.7.1901151016",
   "location": "westus",
-  "name": "3.7.1809211005",
+  "name": "3.7.1901151016",
   "osDiskImage": {
     "operatingSystem": "Linux"
   },
@@ -325,7 +356,7 @@ az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest
   "privacyPolicyLink": "https://bitnami.com/privacy",
   "product": "rabbitmq",
   "publisher": "bitnami",
-  "retrieveDatetime": "2018-02-22T04:06:28.7641907Z",
+  "retrieveDatetime": "2019-01-25T20:37:49.937096Z",
   "signature": "XXXXXXLAZIK7ZL2YRV5JYQXONPV76NQJW3FKMKDZYCRGXZYVDGX6BVY45JO3BXVMNA2COBOEYG2NO76ONORU7ITTRHGZDYNJNXXXXXX",
   "type": "Microsoft.MarketplaceOrdering/offertypes"
 }
@@ -339,7 +370,6 @@ az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest
 az group create --name myResourceGroupVM --location westus
 
 az vm create --resource-group myResourceGroupVM --name myVM --image bitnami:rabbitmq:rabbitmq:latest --plan-name rabbitmq --plan-product rabbitmq --plan-publisher bitnami
-
 ```
 
 ## <a name="next-steps"></a>다음 단계

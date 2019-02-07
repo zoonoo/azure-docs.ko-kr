@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: 91ee57ccd676d1d5e806e3f22eed3389d0fe5e73
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 16c7ad523bcd4a1f7b7b1f80d99e4d36dade72df
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334196"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102433"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Azure Security Center에서 OS 보안 구성 사용자 지정(미리 보기)
 
@@ -90,7 +90,7 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 >
 >
 
-사용자 지정 파일을 편집할 때 규칙을 하나 또는 모두 수정할 수 있습니다. 각 규칙 집합에는 아래와 같이 레지스트리, 감사 정책, 보안 정책이라는 세 가지 범주로 구분된 *규칙* 섹션이 포함됩니다.
+사용자 지정 파일을 편집할 때 규칙을 하나 또는 모두 수정할 수 있습니다. 각 규칙 집합은 세 범주로 구분된 *규칙* 섹션을 포함합니다. 여기에 표시된 대로 레지스트리, 감사 정책 및 보안 정책
 
 ![세 가지 규칙 집합 범주](media/security-center-customize-os-security-config/rules-section.png)
 
@@ -110,7 +110,7 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 
     - *No one*
 
-    - 허용된 사용자 그룹 목록(예: *Administrators*, *Backup Operators*)
+    - 허용된 사용자 그룹의 목록입니다. 예를 들면 다음과 같습니다. *관리자*, *백업 운영자*
 
 -   **state**: 이 문자열에는 *Disabled*나 *Enabled* 옵션을 포함할 수 있습니다. 이 비공개 미리 보기 릴리스에서는 문자열이 대/소문자를 구분합니다.
 
@@ -121,7 +121,7 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 다음 세 개 섹션에는 이전 규칙에 대한 예제가 있습니다. *expectedValue* 및 *state* 특성은 변경할 수 있습니다.
 
 **baselineRegistryRules**
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -144,7 +144,7 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 ```
 
 **baselineAuditPolicyRules**
-```
+```json
     {
     "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
     "ruleId": "37745508-95fb-44ec-ab0f-644ec0b16995",
@@ -161,7 +161,7 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 ```
 
 **baselineSecurityPolicyRules**
-```
+```json
     {
     "sectionName": "Privilege Rights",
     "settingName": "SeIncreaseWorkingSetPrivilege",
@@ -202,9 +202,9 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 
 -   **Severity**: Unknown, Critical, Warning 또는 Informational 중 하나를 선택합니다.
 
--   **analyzeOperation**: *Equals*여야 합니다.
+-   **analyzeOperation**: *Equals*이어야 합니다.
 
--   **auditPolicyId**: 유효한 GUID여야 합니다.
+-   **auditPolicyId**: 유효한 GUID이어야 합니다.
 
 -   **regValueType**: Int, Long, String 또는 MultipleString 중 하나를 선택합니다.
 
@@ -216,7 +216,7 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 새 사용자 지정 규칙의 예:
 
 **레지스트리**:
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -225,7 +225,7 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
     "valueName": "MyValueName",
     "originalId": "",
     "cceId": "",
-    "ruleName": "My new registry rule”, "baselineRuleType": "Registry",
+    "ruleName": "My new registry rule", "baselineRuleType": "Registry",
     "expectedValue": "123", "severity": "Critical",
     "analyzeOperation": "Equals",
     "source": "MyCustomSource",
@@ -233,7 +233,7 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
     }
 ```
 **보안 정책**:
-```
+```json
    {
    "sectionName": "Privilege Rights",
    "settingName": "SeDenyBatchLogonRight",
@@ -248,7 +248,7 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
    }
 ```
 **감사 정책**:
-```
+```json
    {
    "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
    "originalId": "",
@@ -275,7 +275,7 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 
 | **오류**                                | **설명**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfiguratiohSchemaVersionError  | *schemaVersion* 속성이 잘못되었거나 비어 있습니다. 값을 *{0}*(으)로 설정해야 합니다.                                                         |
+| BaselineConfigurationSchemaVersionError  | *schemaVersion* 속성이 잘못되었거나 비어 있습니다. 값을 *{0}*(으)로 설정해야 합니다.                                                         |
 | BaselineInvalidStringError               | *{0}* 속성에 *\\n*을 포함할 수 없습니다.                                                                                                         |
 | BaselineNullRuleError                    | 기준 구성 규칙 목록에 값이 *null*인 규칙이 있습니다.                                                                         |
 | BaselineRuleCceIdNotUniqueError          | CCE-ID *{0}* 이(가) 고유하지 않습니다.                                                                                                                  |
@@ -298,7 +298,7 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 | BaselineRuleTypeDoesntMatchError         | 규칙의 실제 유형이 *{0}* 인데 *ruleType* 속성이 *{1}* 입니다.                                                                          |
 | BaselineRuleUnpermittedChangesError      | *expectedValue* 및 *state* 속성만 변경할 수 있습니다.                                                                       |
 | BaselineTooManyRules                     | 허용되는 최대 사용자 지정 규칙 수는 규칙 {0}개입니다. 지정된 구성에는 {1} 규칙, {2} 기본 규칙 및 {3} 사용자 지정 규칙이 있습니다. |
-| ErrorNoConfigurationStatus               | 구성 상태가 없습니다. 원하는 구성 상태(*Default* 또는 *Custom*)를 설정하세요.                                    |
+| ErrorNoConfigurationStatus               | 구성 상태가 없습니다. 원하는 구성 상태를 설정합니다. *Default* 또는 *Custom*                                    |
 | ErrorNonEmptyRulesetOnDefault            | 구성 상태가 Default로 설정되어 있습니다. *BaselineRulesets* 목록은 null이거나 비어 있어야 합니다.                                                          |
 | ErrorNullRulesetsPropertyOnCustom        | 지정된 구성 상태가 *Custom*인데 *baselineRulesets* 속성이 null이거나 비어 있습니다.                                             |
 | ErrorParsingBaselineConfig               | 지정된 구성이 잘못되었습니다. 정의된 하나 이상의 값이 null 값이거나 잘못된 형식입니다.                                  |

@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor(미리 보기)에서 Azure Active Directory 로그인 로그 스키마 해석 | Microsoft Docs
+title: Azure Monitor(미리 보기)에서 Azure Active Directory 로그인 로그 스키마 | Microsoft Docs
 description: Azure Monitor(미리 보기)에서 사용을 위해 Azure AD 로그인 로그 스키마 설명
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2957cd12fb6ef37b3e120b90b1500c6a43bb3e04
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 3c67446f1e828ae528f2e4eb4a0292da2c993ded
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813426"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156295"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor-preview"></a>Azure Monitor(미리 보기)에서 Azure AD 로그인 로그 스키마 해석
 

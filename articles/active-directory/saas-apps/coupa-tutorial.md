@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 47f27746-9057-4b9c-991e-3abf77710f73
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 4bf40f76f5a8f788305b4dc9f91523f53fb59acf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 50d2e6a7ae1f34232a20e244ac65c2d3678f4f97
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448087"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153933"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>자습서: Coupa와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ Azure AD와 Coupa 통합을 구성하려면 갤러리에서 관리되는 SaaS �
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
 
@@ -115,7 +115,7 @@ Coupa에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
     > [!NOTE]
     > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Coupa 클라이언트 지원 팀](https://success.coupa.com/Support/Contact_Us?)에 문의하세요.
 
-    나. **식별자** 텍스트 상자에 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에 URL을 입력합니다.
 
     | Environment  | URL |
     |:-------------|----|
@@ -151,7 +151,7 @@ Coupa에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. **SAML을 사용하여 로그인**을 선택합니다.
 
-    나. **찾아보기**를 클릭하여 Azure Portal에서 다운로드한 메타데이터를 업로드합니다.
+    b. **찾아보기**를 클릭하여 Azure Portal에서 다운로드한 메타데이터를 업로드합니다.
 
     다. **저장**을 클릭합니다.
 
@@ -211,7 +211,7 @@ Azure AD 사용자가 Coupa에 로그인할 수 있도록 하려면 Coupa로 프
 
    a. 관련된 텍스트 상자에 프로비전할 유효한 Azure Active Directory 계정의 **로그인**, **이름**, **성**, **Single Sign-On ID**, **전자 메일** 특성을 입력합니다.
 
-   나. **만들기**를 클릭합니다.
+   b. **만들기**를 클릭합니다.
 
    >[!NOTE]
    >Azure Active Directory 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크가 포함된 전자 메일을 받습니다.
@@ -260,7 +260,7 @@ Azure AD 사용자가 Coupa에 로그인할 수 있도록 하려면 Coupa로 프
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

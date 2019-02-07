@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ab5a072d845bfdbaafabe1e0e7bdce2dfce6184d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: a4dbce678d5d3eac106363e958636810ea9040bb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188182"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180214"
 ---
 # <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>PIM에서 Azure AD 디렉터리 역할에 대한 감사 기록 보기
 Azure Privileged Identity Management(PIM) 감사 기록을 사용하여 권한 있는 모든 역할에 대한 지정된 기간의 모든 사용자 할당 및 활성화를 볼 수 있습니다. 테넌트에서 관리자, 최종 사용자 및 동기화 작업을 비롯한 활동의 전체 감사 기록을 보려는 경우 [Azure Active Directory 액세스 및 사용 보고서](../reports-monitoring/overview-reports.md)
@@ -64,4 +64,4 @@ Azure Privileged Identity Management(PIM) 감사 기록을 사용하여 권한 �
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>다음 단계
 
-- [PIM에서 Azure 리소스 역할에 대한 감사 기록 보기](pim-resource-roles-use-the-audit-log.md)
+- [PIM에서 Azure 리소스 역할에 대한 작업 및 감사 기록 보기](azure-pim-resource-rbac.md)

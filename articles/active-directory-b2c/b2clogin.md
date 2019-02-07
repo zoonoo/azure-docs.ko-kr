@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C의 리디렉션 URL을 b2clogin.com으로 설정 | Microsoft Docs
+title: 리디렉션 URL을 b2clogin.com으로 설정 - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C의 리디렉션 URL에 b2clogin.com을 사용하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 01/28/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 147d8e80c66bd47ed56400deca024532fc7e39c7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 61c4212233dd7ed9c34de779176c3402890e673f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844929"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55160907"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Azure Active Directory B2C의 리디렉션 URL을 b2clogin.com으로 설정
 
@@ -23,8 +23,8 @@ Azure AD(Azure Active Directory) B2C 애플리케이션의 등록 및 로그인�
 
 b2clogin.com을 사용하면 다음과 같은 추가적인 이점이 제공됩니다.
 
-- 쿠키가 더 이상 다른 Microsoft 서비스와 공유되지 않습니다.
-- URL에 더 이상 Microsoft에 대한 참조가 포함되지 않습니다. 예: `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`
+- 쿠키 헤더에서 Microsoft 서비스가 사용하는 공간이 줄어듭니다.
+- URL에 더 이상 Microsoft에 대한 참조가 포함되지 않습니다. 예: `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`
 
 b2clogin.com을 사용하는 경우 변경해야 할 수 있는 다음 설정을 고려하세요.
 
@@ -60,7 +60,9 @@ Azure AD B2C 애플리케이션은 사용자 흐름 참조 및 토큰 엔드포�
 
 ## <a name="set-the-validateauthority-property"></a>ValidateAuthority 속성 설정
 
-MSAL을 사용하는 경우 **ValidateAuthority**를 `false`로 설정합니다. 다음 예제에서는 이 속성을 설정하는 방법을 보여 줍니다.
+MSAL을 사용하는 경우 **ValidateAuthority** 속성을 `false`로 설정합니다. **ValidateAuthority**가 `false`로 설정된 경우 리디렉션은 b2clogin.com으로 허용됩니다. 
+
+다음 예제에서는 이 속성을 설정하는 방법을 보여 줍니다.
 
 [.NET용 MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet):
 

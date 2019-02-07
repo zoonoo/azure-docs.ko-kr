@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 82ccbe8e57ff35904b7e763e838a81660ab13f88
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: db11ddc275b1e47b728cdc0f9b7d9bf6b6aa9652
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412821"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189530"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: 디바이스 쓰기 저장 사용
 > [!NOTE]
@@ -89,7 +89,7 @@ ms.locfileid: "54412821"
 
 먼저 첫 번째로
 
-* 하나 이상의 포리스트에 Windows Server 2012R2가 있는지 확인합니다. 디바이스 개체 유형이 있어야 합니다.
+* 디바이스 개체 및 관련 특성이 존재하려면 디바이스가 있는 포리스트의 포리스트 스키마가 Windows 2012 R2 수준으로 업그레이드되어야 합니다.
 * 설치 마법사가 이미 실행 중인 경우 변경 내용이 검색되지 않습니다. 이 경우 설치 마법사를 완료하고 다시 실행하세요.
 * 초기화 스크립트에서 제공하는 계정이 Active Directory Connector에서 사용하는 올바른 사용자인지 확인합니다. 이를 확인하려면 다음 단계를 수행하세요.
   * 시작 메뉴에서 **동기화 서비스**를 엽니다.

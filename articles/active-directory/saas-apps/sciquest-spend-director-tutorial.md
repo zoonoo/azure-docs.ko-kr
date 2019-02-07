@@ -1,5 +1,5 @@
 ---
-title: '자습서: SciQuest Spend Director와 Azure Active Directory 통합 | Microsoft 문서'
+title: '자습서: SciQuest Spend Director와 Azure Active Directory 통합 | Microsoft Docs'
 description: Azure Active Directory 및 SciQuest Spend Director 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 9fab641b-292e-4bef-91d1-8ccc4f3a0c1f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 0ddc8a42f4e0454061fa645b8c5d465e9e8dd9bf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2100e2fcc085efc50a72e0f9d339621800563bb3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445172"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153286"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>자습서: SciQuest Spend Director와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ SciQuest Spend Director의 Azure AD 통합을 구성하려면 갤러리의 SciQu
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -112,7 +112,7 @@ SciQuest Spend Director에서 Azure AD Single Sign-on을 구성하고 테스트�
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<companyname>.sciquest.com/apps/Router/SAMLAuth/<instancename>`
 
-    나. **식별자** 텍스트 상자에서 `https://<companyname>.sciquest.com` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://<companyname>.sciquest.com` 패턴을 사용하여 URL을 입력합니다.
 
     다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<companyname>.sciquest.com/apps/Router/ExternalAuth/Login/<instancename>`
 
@@ -130,7 +130,7 @@ SciQuest Spend Director에서 Azure AD Single Sign-on을 구성하고 테스트�
 1. **SciQuest Spend Director** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML**을 [SciQuest Spend Director 지원 팀](https://www.jaggaer.com/contact-us/)에 보내야 합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
@@ -210,13 +210,13 @@ Just-in-Time 프로비저닝을 사용하도록 설정하려면 [SciQuest Spend 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 SciQuest Spend Director 타일을 클릭하면 SciQuest Spend Director 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 SciQuest Spend Director 타일을 클릭하면 SciQuest Spend Director 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

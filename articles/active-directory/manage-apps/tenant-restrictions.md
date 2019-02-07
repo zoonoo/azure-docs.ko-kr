@@ -7,7 +7,7 @@ author: barbkess
 manager: daveba
 editor: yossib
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: 97cabf7821f223b900f86115c3bd85b12de450d4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: d6030c2bf169d74959279b9c05298db90138a94f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478147"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163095"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>테넌트 제한을 사용하여 SaaS 클라우드 애플리케이션에 대한 액세스 관리
 
@@ -89,7 +89,7 @@ login.microsoftonline.com, login.microsoft.com 및 login.windows.net으로 들�
 
 ### <a name="end-user-experience"></a>최종 사용자 환경
 
-예제 사용자는 Contoso 네트워크에 있지만 Outlook 온라인과 같은 공유 SaaS 애플리케이션의 Fabrikam 인스턴스에 액세스하려고 합니다. Contoso가 해당 인스턴스에 대해 허용되지 않는 테넌트인 경우 다음과 같은 페이지가 표시됩니다.
+예제 사용자는 Contoso 네트워크에 있지만 Outlook 온라인과 같은 공유 SaaS 애플리케이션의 Fabrikam 인스턴스에 액세스하려고 합니다. Fabricam이 Contoso 인스턴스에 대해 허용되지 않는 테넌트인 경우 다음과 같은 페이지가 표시됩니다.
 
 ![허용되지 않는 테넌트의 사용자에 대한 액세스 거부 페이지](./media/tenant-restrictions/end-user-denied.png)
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 1ee45699040f58a1317009ab44bb5ac863323869
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: e96c637e3c01ccfc27afa967d830c7d0254d11e7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54816758"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104238"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -105,7 +105,7 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 **오류 코드**: UserErrorUnsupportedDiskSize <br>
 **오류 메시지**: 현재 Azure Backup은 1,023GB보다 큰 디스크 크기를 지원하지 않습니다. <br>
 
-자격 증명 모음이 즉시 복원으로 업그레이드되지 않아 디스크 크기가 1023GB를 초과하는 VM을 백업할 때 백업 작업이 실패할 수 있습니다. 즉시 복원으로 업그레이드하면 최대 4TB가 지원됩니다. 이 [문서](backup-instant-restore-capability.md)를 참조하세요.  
+자격 증명 모음이 즉시 복원으로 업그레이드되지 않아 디스크 크기가 1023GB를 초과하는 VM을 백업할 때 백업 작업이 실패할 수 있습니다. 즉시 복원으로 업그레이드하면 최대 4TB가 지원됩니다. 이 [문서](backup-instant-restore-capability.md#upgrading-to-instant-restore)를 참조하세요. 업그레이드 후에 구독에서 이 기능을 사용하려면 최대 2시간이 걸립니다. 작업을 다시 시도하기 전에 충분한 버퍼를 제공합니다.  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - 현재 Azure Backup은 표준 SSD 디스크를 지원하지 않습니다.
 
@@ -132,7 +132,6 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 4. 백업 작업을 다시 시도합니다.
 
 예약된 백업 작업이 다음 백업 구성과 충돌하여 오래 걸리는 경우 [모범 사례](backup-azure-vms-introduction.md#best-practices), [백업 성능](backup-azure-vms-introduction.md#backup-performance) 및 [복원 고려 사항](backup-azure-vms-introduction.md#restore-considerations)을 검토하세요.
-
 
 
 ## <a name="causes-and-solutions"></a>원인 및 해결 방법

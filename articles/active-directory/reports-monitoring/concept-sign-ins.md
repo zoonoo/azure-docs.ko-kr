@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 73f90d1df2c1a6a0655a61026112cc2a7a73cb1e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 932517e3f1dc70e44727a6d165430dba6e63ae5a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808632"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187796"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
 
@@ -161,8 +161,8 @@ Azure Portal 외부에서 작업하려는 경우 [로그인 데이터를 다운�
 
 스크립트를 **Windows 10** 컴퓨터에서 실행하려면 먼저 몇 가지 추가적인 단계를 수행해야 합니다. 
 
-1. [AzureRM 모듈](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.4.0l)을 설치합니다.
-2. PowerShell 프롬프트를 열고 **Import-Module AzureRM** 명령을 실행하여 모듈을 가져옵니다.
+1. [Az 모듈](/powershell/azure/install-az-ps)을 설치합니다.
+2. PowerShell 프롬프트를 열고 **Import-Module Az** 명령을 실행하여 모듈을 가져옵니다.
 3. **Set-ExecutionPolicy unrestricted**를 실행하고 **모두 예**를 선택합니다. 
 4. 관리자 모드에서 다운로드한 PowerShell 스크립트를 실행하여 CSV 파일을 생성합니다.
 

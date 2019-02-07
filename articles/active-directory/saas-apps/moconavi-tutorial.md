@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: e1916224-e1c2-426f-b233-0a2518fa41db
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 3467b823e6c91d34ebd48c7f8bc29558a79c59e5
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3009cb42ac477b18d45ab5968d6f5793ce1cd36c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229549"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165900"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>자습서: moconavi와 Azure Active Directory 통합
 
@@ -65,7 +65,7 @@ moconavi가 Azure AD에 통합되도록 구성하려면 갤러리의 moconavi를
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
 
@@ -111,7 +111,7 @@ moconavi에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<yourserverurl>/moconavi-saml2/saml/login`
 
-    나. **식별자** 텍스트 상자에서 `https://<yourserverurl>/moconavi-saml2` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://<yourserverurl>/moconavi-saml2` 패턴을 사용하여 URL을 입력합니다.
 
     C. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<yourserverurl>/moconavi-saml2/saml/SSO`
 
@@ -162,7 +162,7 @@ moconavi에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 ### <a name="create-a-moconavi-test-user"></a>moconavi 테스트 사용자 만들기
 
-이 섹션에서는 moconavi에서 Britta Simon이라는 사용자를 만듭니다. [moconavi 지원 팀](mailto:support@recomot.co.jp)과 협력하여 moconavi 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 moconavi에서 Britta Simon이라는 사용자를 만듭니다.  [moconavi 지원 팀](mailto:support@recomot.co.jp) 과 협력하여 moconavi 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -214,7 +214,7 @@ moconavi에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **인증 키 입력** 텍스트 상자에서 **인증 키 입력**: `azureAD`를 입력합니다.
 
-    나. **사용자 ID 입력** 텍스트 상자에서 **사용자 ID 입력**: `your ad account`를 입력합니다.
+    b. **사용자 ID 입력** 텍스트 상자에서 **사용자 ID 입력**: `your ad account`를 입력합니다.
 
     다. **로그인**을 클릭합니다.
 
@@ -229,7 +229,7 @@ moconavi에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

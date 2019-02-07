@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 9e73a979950e856a7fc2bfa2193ea4ca0d59bac2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 070e86f2d5d37823f1596cf04735b199289f3d75
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242231"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166172"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Office 365 그룹에 대한 만료 정책 구성
 
@@ -91,45 +91,45 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
 PowerShell cmdlet을 사용하여 테넌트의 Office 365 그룹에 대해 만료 설정을 구성하는 방법의 예는 다음과 같습니다.
 
 1. PowerShell v 2.0 Preview 모듈(2.0.0.137)를 설치하고 PowerShell 프롬프트에 로그인합니다.
-  ````
+  ```
   Install-Module -Name AzureADPreview
   connect-azuread 
-  ````
-2. 만료 설정 구성 New-AzureADMSGroupLifecyclePolicy: 이 cmdlet은 테넌트의 모든 Office 365 그룹에 대한 수명을 365일로 설정합니다. 소유자 없는 Office 365 그룹에 대한 갱신 알림은 'emailaddress@contoso.com'으로 전송됩니다.
+  ```
+2. 만료 설정 구성 New-AzureADMSGroupLifecyclePolicy:  이 cmdlet은 테넌트의 모든 Office 365 그룹에 대한 수명을 365일로 설정합니다. 소유자 없는 Office 365 그룹에 대한 갱신 알림은 'emailaddress@contoso.com'으로 전송됩니다.
   
-  ````
+  ```
   New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
-  ````
-3. 기존 정책 검색: Get-AzureADMSGroupLifecyclePolicy: 이 cmdlet은 구성된 현재 Office 365 그룹 만료 설정을 검색합니다. 이 예제에서는 다음을 확인할 수 있습니다.
+  ```
+3. 기존 정책 가져오기 Get-AzureADMSGroupLifecyclePolicy: 이 cmdlet은 구성된 현재 Office 365 그룹 만료 설정을 검색합니다. 이 예제에서는 다음을 확인할 수 있습니다.
   * 정책 ID 
   * 테넌트의 모든 Office 365 그룹에 대한 수명이 365일로 설정됨
   * 소유자 없는 Office 365 그룹에 대한 갱신 알림은 'emailaddress@contoso.com'으로 전송됩니다.
   
-  ````
+  ```
   Get-AzureADMSGroupLifecyclePolicy
   
   ID                                    GroupLifetimeInDays ManagedGroupTypes AlternateNotificationEmails
   --                                    ------------------- ----------------- ---------------------------
   26fcc232-d1c3-4375-b68d-15c296f1f077  365                 All               emailaddress@contoso.com
-  ```` 
+  ``` 
    
 4. 기존 정책 업데이트 Set-AzureADMSGroupLifecyclePolicy: 이 cmdlet은 기존 정책을 업데이트하는 데 사용됩니다. 아래 예제에서 기존 정책의 그룹 수명은 365일에서 180일로 변경됩니다. 
   
-  ````
+  ```
   Set-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -GroupLifetimeInDays 180 -AlternateNotificationEmails "emailaddress@contoso.com"
-  ````
+  ```
   
 5. 정책에 특정 그룹 추가 Add-AzureADMSLifecyclePolicyGroup: 이 cmdlet은 수명 주기 정책에 그룹을 추가합니다. 예를 들어 
   
-  ````
+  ```
   Add-AzureADMSLifecyclePolicyGroup -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
-  ````
+  ```
   
-6. 기존 정책 제거 Remove-AzureADMSGroupLifecyclePolicy: 이 cmdlet은 Office 365 그룹 만료 설정을 삭제하지만 정책 ID가 필요합니다 Office 365 그룹에 대한 만료가 사용되지 않도록 설정됩니다. 
+6. 기존 정책 제거 Remove-AzureADMSGroupLifecyclePolicy: 이 cmdlet은 Office 365 그룹 만료 설정을 삭제하지만 정책 ID가 필요합니다. Office 365 그룹에 대한 만료가 사용되지 않도록 설정됩니다. 
   
-  ````
+  ```
   Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
-  ````
+  ```
   
 다음 cmdlet은 정책을 보다 자세히 구성하는 데 사용할 수 있습니다. 자세한 내용은 [PowerShell 설명서](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups)를 참조하세요.
 

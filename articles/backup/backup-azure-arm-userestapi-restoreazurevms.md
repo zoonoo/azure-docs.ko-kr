@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: pullabhk
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 68c611b08524b5fc037598bafe46d75b3293886d
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 4a65e8a855b9be797c1ceeacf4b74fea74697d00
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289500"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100214"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>REST API를 사용하여 Azure Virtual Machines 복원
 
@@ -37,7 +37,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="responses"></a>응답
 
-|이름  |type  |설명  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |200 정상     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       확인  |
 
@@ -127,9 +127,9 @@ X-Powered-By: ASP.NET
 
 디스크 복원을 트리거하면 *POST*를 요청합니다. 디스크 복원 작업에 대한 자세한 내용은 [REST API "복원 트리거"](https://docs.microsoft.com/rest/api/backup/restores/trigger)를 참조하세요.
 
-````http
+```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2016-12-01
-````
+```
 
 `{containerName}` 및 `{protectedItemName}`은 [여기](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1)에서 생성됩니다. `{fabricName}`은 "Azure"이며 `{recoveryPointId}`는 [위](#example-response)에 언급된 복구 지점의 `{name}` 필드입니다.
 
@@ -137,7 +137,7 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 Azure VM 백업에서 디스크 복원을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|이름  |type  |설명  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -147,7 +147,7 @@ Azure VM 백업에서 디스크 복원을 트리거하려면 요청 본문의 �
 
 다음 요청 본문은 디스크 복원을 트리거하는 데 필요한 속성을 정의합니다.
 
-````json
+```json
 {
   "properties": {
     "objectType": "IaasVMRestoreRequest",
@@ -163,15 +163,15 @@ Azure VM 백업에서 디스크 복원을 트리거하려면 요청 본문의 �
     }
   }
 }
-````
+```
 
 ### <a name="response"></a>response
 
 복원 디스크의 트리거는 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
-이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
+두 응답을 반환합니다. 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)
 
-|이름  |type  |설명  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |202 수락됨     |         |     수락됨    |
 
@@ -243,7 +243,7 @@ X-Powered-By: ASP.NET
 
 다음 요청 본문은 가상 머신 복원을 트리거하는 데 필요한 속성을 정의합니다.
 
-````json
+```json
 {
   "parameters": {
         "subscriptionId": "00000000-0000-0000-0000-000000000000",
@@ -275,7 +275,7 @@ X-Powered-By: ASP.NET
       }
     }
 }
-````
+```
 
 이 응답은 [디스크를 복원하기 위해 위에 설명된](#response) 것과 동일한 방식으로 처리해야 합니다.
 

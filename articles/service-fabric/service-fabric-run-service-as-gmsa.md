@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: 5f93285061708172b9b6ac40dc97fce08f7b2a86
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 56a7478ab7221a1ccb4394a245540d3181e4ad8e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206716"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155581"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>그룹 관리 서비스 계정으로 서비스 실행
 Windows Server 독립 실행형 클러스터에서 RunAs 정책을 사용하여 gMSA(그룹 관리 서비스 계정)로 서비스를 실행할 수 있습니다.  기본적으로 서비스 패브릭 애플리케이션은 Fabric.exe 프로세스가 실행하는 계정을 통해 실행됩니다. 서로 다른 계정에서 애플리케이션을 실행하면 공유 호스트 환경에서도 서로를 더욱 안전하게 보호할 수 있습니다. 여기에는 Azure AD(Azure Active Directory)가 아닌 도메인 내의 Active Directory 온-프레미스가 사용됩니다. gMSA를 사용하면 애플리케이션 매니페스트에 저장되는 암호나 암호화된 암호가 없습니다.  [Active Directory 사용자 또는 그룹](service-fabric-run-service-as-ad-user-or-group.md)으로 서비스를 실행할 수도 있습니다.
@@ -32,7 +32,7 @@ Windows Server 독립 실행형 클러스터에서 RunAs 정책을 사용하여 
 
 1. Active Directory 도메인 관리자가 `New-ADServiceAccount` commandlet을 사용하여 그룹 관리 서비스 계정을 만들고 `PrincipalsAllowedToRetrieveManagedPassword`에 Serivce Fabric 클러스터 노드가 모두 포함되도록 합니다. `AccountName`, `DnsHostName` 및 `ServicePrincipalName`은 고유해야 합니다.
 
-    ```poweshell
+    ```powershell
     New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
     ```
 
@@ -65,13 +65,12 @@ Windows Server 독립 실행형 클러스터에서 RunAs 정책을 사용하여 
     ```
 
 > [!NOTE] 
-> 서비스에 RunAs 정책을 적용하고 서비스 매니페스트가 HTTP 프로토콜로 끝점 리소스를 선언하면 **SecurityAccessPolicy**를 지정해야 합니다.  자세한 내용은 [HTTP 및 HTTPS 엔드포인트에 보안 액세스 정책 할당](service-fabric-assign-policy-to-endpoint.md)을 참조하세요. 
+> 서비스에 RunAs 정책을 적용하고 서비스 매니페스트가 HTTP 프로토콜로 엔드포인트 리소스를 선언하면 **SecurityAccessPolicy**를 지정해야 합니다.  자세한 내용은 [HTTP 및 HTTPS 엔드포인트에 보안 액세스 정책 할당](service-fabric-assign-policy-to-endpoint.md)을 참조하세요. 
 >
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-다음 단계는 아래 문서를 참조하세요.
-* [응용 프로그램 모델의 이해](service-fabric-application-model.md)
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged--> 다음 단계는 아래 문서를 참조하세요.
+* [애플리케이션 모델의 이해](service-fabric-application-model.md)
 * [서비스 매니페스트에서 리소스 지정](service-fabric-service-manifest-resources.md)
-* [응용 프로그램 배포](service-fabric-deploy-remove-applications.md)
+* [애플리케이션 배포](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png

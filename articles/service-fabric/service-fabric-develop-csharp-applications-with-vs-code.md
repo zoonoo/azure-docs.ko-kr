@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 27c7c62125f3f559fb1764292729cbbfdc1c4e5f
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: d2e890110194b1fbe0528191fa645628cc3a1345
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115824"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161364"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Visual Studio Code를 사용하여 C# Service Fabric 애플리케이션 개발
 
-[VS Code용 Service Fabric Reliable Services 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-service-fabric-reliable-services)을 사용하면 Windows, Linux 및 macOS 운영 체제에서 .NET Core Service Fabric 응용 프로그램을 쉽게 빌드할 수 있습니다.
+[VS Code용 Service Fabric Reliable Services 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-service-fabric-reliable-services)을 사용하면 Windows, Linux 및 macOS 운영 체제에서 .NET Core Service Fabric 애플리케이션을 쉽게 빌드할 수 있습니다.
 
-이 문서에서는 Visual Studio Code를 사용하여 .NET Core Service Fabric 애플리케이션을 빌드, 배포 및 디버그하는 방법을 보여 줍니다.
+이 문서에서는 Visual Studio Code를 사용하여 .NET Core Service Fabric 응용 프로그램을 빌드, 배포 및 디버그하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 VS Code, VS Code용 Service Fabric Reliable Services 확장 및 개발 환경에 필요한 모든 종속성을 설치했다고 가정합니다. 자세한 내용은 [시작](./service-fabric-get-started-vs-code.md#prerequisites)을 참조하세요.
 
 ## <a name="download-the-sample"></a>샘플 다운로드
-이 문서에서는 [Service Fabric .NET Core 시작 샘플 GitHub 리포지토리](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)의 CounterService 애플리케이션을 사용합니다. 
+이 문서에서는 [Service Fabric .NET Core 시작 샘플 GitHub 리포지토리](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)의 CounterService 응용 프로그램을 사용합니다. 
 
 개발 컴퓨터에 리포지토리를 복제하려면 터미널 창(Windows의 명령 창)에서 다음 명령을 실행합니다.
 
@@ -40,13 +40,13 @@ ms.locfileid: "37115824"
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started.git
 ```
 
-## <a name="open-the-application-in-vs-code"></a>VS Code에서 애플리케이션 열기
+## <a name="open-the-application-in-vs-code"></a>VS Code에서 응용 프로그램 열기
 
 ### <a name="windows"></a> Windows
 시작 메뉴에서 VS Code 아이콘을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다. 디버거를 서비스에 연결하려면 관리자 권한으로 VS Code를 실행해야 합니다.
 
 ### <a name="linux"></a>Linux
-터미널을 사용하여 애플리케이션이 로컬로 복제되는 디렉터리에서 /service-fabric-dotnet-core-getting-started/Services/CounterService 경로로 이동합니다.
+터미널을 사용하여 응용 프로그램이 로컬로 복제되는 디렉터리에서 /service-fabric-dotnet-core-getting-started/Services/CounterService 경로로 이동합니다.
 
 디버거가 서비스에 연결할 수 있도록 다음 명령을 실행하여 루트 사용자로 VS Code를 엽니다.
 ```
@@ -55,18 +55,18 @@ sudo code . --user-data-dir='.'
 
 이제 애플리케이션이 VS Code 작업 영역에 나타납니다.
 
-![작업 영역의 Counter Service 애플리케이션](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-application-in-workspace.png)
+![작업 영역의 Counter Service 응용 프로그램](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-application-in-workspace.png)
 
 ## <a name="build-the-application"></a>애플리케이션 빌드
 1. VS Code에서 (Ctrl + Shift + p)를 눌러 **명령 팔레트**를 엽니다.
-2. **Service Fabric: Build Application** 명령을 검색한 후 선택합니다. 빌드 출력이 통합된 터미널로 전송됩니다.
+2. **Service Fabric: Build Application** 명령을 검색하고 선택합니다. 빌드 출력이 통합된 터미널로 전송됩니다.
 
    ![VS Code의 Build Application 명령](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-build-application.png)
 
 ## <a name="deploy-the-application-to-the-local-cluster"></a>로컬 클러스터에 애플리케이션 배포
 애플리케이션이 빌드되면 로컬 클러스터에 배포할 수 있습니다. 
 
-1. **명령 팔레트**에서 **Service Fabric: Deploy Application (Localhost) 명령**을 선택합니다. 설치 프로세스의 출력이 통합된 터미널로 전송됩니다.
+1. **명령 팔레트**에서 **Service Fabric: 애플리케이션 배포(Localhost) 명령**을 선택합니다. 설치 프로세스의 출력이 통합된 터미널로 전송됩니다.
 
    ![VS Code의 Deploy Application 명령](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
@@ -76,10 +76,10 @@ sudo code . --user-data-dir='.'
 
 4. 애플리케이션이 실행되고 있는지 확인한 후 브라우저를 시작하고 http://localhost:31002 페이지를 엽니다. 애플리케이션의 웹 프런트 엔드입니다. 증가하는 카운터의 현재 값을 확인하려면 페이지를 새로 고칩니다.
 
-   ![브라우저의 Counter Service 애플리케이션](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
+   ![브라우저의 Counter Service 응용 프로그램](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
 
 ## <a name="debug-the-application"></a>애플리케이션 디버그
-VS Code에서 애플리케이션을 디버그할 때 애플리케이션은 로컬 클러스터에서 실행되고 있어야 합니다. 그래야 코드에 중단점을 추가할 수 있습니다.
+VS Code에서 응용 프로그램을 디버그할 때 응용 프로그램은 로컬 클러스터에서 실행되고 있어야 합니다. 그래야 코드에 중단점을 추가할 수 있습니다.
 
 중단점을 설정하고 디버그하려면 다음 단계를 수행합니다.
 1. Explorer에서 */src/CounterServiceApplication/CounterService/CounterService.cs* 파일을 열고 `RunAsync` 메서드 내에서 줄 62에 중단점을 설정합니다.
@@ -91,7 +91,7 @@ VS Code에서 애플리케이션을 디버그할 때 애플리케이션은 로�
 
    ![VS Code 작업 영역의 디버그 아이콘](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
-3. 브라우저에서 Service Fabric Explorer를 엽니다(http://localhost:19080/Explorer). **응용 프로그램**을 클릭하고 드릴다운하여 CounterService가 실행되고 있는 주 노드를 확인합니다. 아래 이미지에서 CounterService의 주 노드는 노드 0입니다.
+3. 브라우저에서 Service Fabric Explorer를 엽니다(http://localhost:19080/Explorer). **애플리케이션**을 클릭하고 드릴다운하여 CounterService가 실행되고 있는 주 노드를 확인합니다. 아래 이미지에서 CounterService의 주 노드는 노드 0입니다.
 
    ![CounterService의 주 노드](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-primary-node.png)
 
@@ -107,7 +107,7 @@ VS Code에서 애플리케이션을 디버그할 때 애플리케이션은 로�
    
    ![디버거에서 연결 끊기](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-bar-disconnect.png)
        
-7. 디버깅을 완료한 경우 **Service Fabric: Remove Application** 명령을 사용하여 로컬 클러스터에서 CounterService 애플리케이션이 제거할 수 있습니다. 
+7. 디버깅을 완료하면 **Service Fabric: 애플리케이션 제거** 명령을 사용하여 로컬 클러스터에서 CounterService 애플리케이션을 제거할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

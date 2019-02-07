@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 81866167-b163-4695-8978-fd29a25dac7a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 4c664fac99e93e94b46f5d917a63aa6530b695bd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3b4c979bf03b23280c9389a043375f088624efe6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437776"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163248"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>자습서: Riskware와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ Riskware의 Azure AD 통합을 구성하려면 갤러리의 Riskware를 관리�
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
 
@@ -111,17 +111,17 @@ Riskware에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     a. **로그온 URL** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
     | Environment| URL 패턴|
     |--|--|
-    | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
-    | PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
-    | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
+    | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
+    | PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
+    | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
     |||
 
-    나. **식별자(엔터티 ID)** 텍스트 상자에 URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에 URL을 입력합니다.
     | Environment| URL 패턴|
     |--|--|
-    | UAT| `https://riskcloud.net/uat` |
-    | PROD| `https://riskcloud.net/prod` |
-    | DEMO| `https://riskcloud.net/demo` |
+    | UAT| `https://riskcloud.net/uat` |
+    | PROD| `https://riskcloud.net/prod` |
+    | DEMO| `https://riskcloud.net/demo` |
     |||
 
     > [!NOTE]
@@ -155,7 +155,7 @@ Riskware에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. 인증 **형식**으로 **SAML**을 선택합니다.
 
-    나. **코드** 텍스트 상자에 AZURE_UAT와 같은 코드를 입력합니다.
+    b. **코드** 텍스트 상자에 AZURE_UAT와 같은 코드를 입력합니다.
 
     다. **설명** 텍스트 상자에 SSO용 AZURE 구성과 같은 설명을 입력합니다.
 
@@ -167,7 +167,7 @@ Riskware에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     g. **XML ID 태그 이름** 텍스트 상자에 SAML 응답에서 고유 식별자를 포함하는 NameID와 같은 특성을 입력합니다.
 
-    h. Azure Portal에서 다운로드한 **메타데이터 Xml**을 메모장에서 열고 메타데이터 파일에서 인증서를 복사하여 **인증서** 텍스트 상자에 붙여넣습니다.
+    h. Azure Portal에서 다운로드한  **메타데이터 Xml** 을 메모장에서 열고 메타데이터 파일에서 인증서를 복사하여 **인증서** 텍스트 상자에 붙여넣습니다.
 
     i. **소비자 URL** 텍스트 상자에 지원 팀으로부터 받은 **회신 URL** 값을 붙여넣습니다.
 
@@ -236,7 +236,7 @@ Azure AD 사용자가 Riskware에 로그인할 수 있도록 하려면 Riskware�
 
     a. 직원과 같은 **사람 유형**을 선택합니다.
 
-    나. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.
+    b. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.
 
     다. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
 
@@ -246,7 +246,7 @@ Azure AD 사용자가 Riskware에 로그인할 수 있도록 하려면 Riskware�
 
     a. **인증** 섹션에서 SSO용 AZURE 구성과 같이 설정한 **인증** 모드를 선택합니다.
 
-    나. **로그온 세부 정보** 섹션에서 **사용자 ID** 텍스트 상자에 **brittasimon@contoso.com**과 같은 사용자의 이메일을 입력합니다.
+    b. **로그온 세부 정보** 섹션에서 **사용자 ID** 텍스트 상자에 **brittasimon@contoso.com**과 같은 사용자의 이메일을 입력합니다.
 
     다. **암호** 텍스트 상자에 사용자 암호를 입력합니다.
 
@@ -256,7 +256,7 @@ Azure AD 사용자가 Riskware에 로그인할 수 있도록 하려면 Riskware�
 
     a. 옵션을 **Level1** 조직으로 선택합니다.
 
-    나. **사용자의 주 작업 공간** 섹션에서 **위치** 텍스트 상자에 사용자의 위치를 입력합니다.
+    b. **사용자의 주 작업 공간** 섹션에서 **위치** 텍스트 상자에 사용자의 위치를 입력합니다.
 
     다. **직원** 섹션에서 일반과 같은 **직원 상태**를 선택합니다.
 
@@ -302,7 +302,7 @@ Azure AD 사용자가 Riskware에 로그인할 수 있도록 하려면 Riskware�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 71c2b6d0-3d28-4130-a2c8-1e72ab3d5814
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeedes
-ms.openlocfilehash: f8e06a4578d2f11331b87fdfb493e2bba4edb8cf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 46480119579513839024d89e7657661e12e5509c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421693"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167295"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>자습서: OneTrust Privacy Management Software와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ OneTrust Privacy Management Software의 Azure AD 통합을 구성하려면 갤�
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -106,7 +106,7 @@ OneTrust Privacy Management Software에서 Azure AD Single Sign-on을 구성하�
  
     ![Single Sign-On 대화 상자](./media/onetrust-tutorial/tutorial_onetrust_samlbase.png)
 
-1. **OneTrust Privacy Management Software 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+1. **OneTrust Privacy Management Software 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
     ![OneTrust Privacy Management Software 도메인 및 URL Single Sign-On 정보](./media/onetrust-tutorial/tutorial_onetrust_url.png)
 
@@ -114,7 +114,7 @@ OneTrust Privacy Management Software에서 Azure AD Single Sign-on을 구성하�
 
     나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<subdomain>.onetrust.com/auth/consumerservice`
 
-1. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
     ![OneTrust Privacy Management Software 도메인 및 URL Single Sign-On 정보](./media/onetrust-tutorial/tutorial_onetrust_url1.png)
 
@@ -134,7 +134,7 @@ OneTrust Privacy Management Software에서 Azure AD Single Sign-on을 구성하�
 1. **OneTrust Privacy Management Software** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML**을 [OneTrust Privacy Management Software 지원 팀](mailto:support@onetrust.com)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -173,7 +173,7 @@ OneTrust Privacy Management Software에서 Azure AD Single Sign-on을 구성하�
 이 섹션의 목적은 OneTrust Privacy Management Software에서 Britta Simon이라는 사용자를 만드는 것입니다. OneTrust Privacy Management Software는 적시에 프로비전을 지원하며 기본적으로 사용하도록 설정합니다. 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 OneTrust Privacy Management Software에 액세스하는 동안 만들어질 수 있습니다.
 
 >[!Note]
->사용자를 수동으로 만들어야 하는 경우 [OneTrust Privacy Management Software 지원 팀](mailto:support@onetrust.com)에 문의하세요.
+>사용자를 수동으로 만들어야 하는 경우  [OneTrust Privacy Management Software 지원 팀](mailto:support@onetrust.com)에 문의하세요.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -215,7 +215,7 @@ OneTrust Privacy Management Software에서 Azure AD Single Sign-on을 구성하�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

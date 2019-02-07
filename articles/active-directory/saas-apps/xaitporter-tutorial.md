@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d33c7cb7-0550-425b-882a-619a713a71b7
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 12fb8e5b2b940c48de766a48f59ed0cc342b5356
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fe89b64fb5f188591ce123e8ed7ed410d3c5ab48
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421069"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170048"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>자습서: XaitPorter와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ XaitPorter의 Azure AD 통합을 구성하려면 갤러리의 XaitPorter를 관�
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -112,7 +112,7 @@ XaitPorter에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<subdomain>.xaitporter.com/saml/login`
 
-    나. **식별자** 텍스트 상자에서 `https://<subdomain>.xaitporter.com` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://<subdomain>.xaitporter.com` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [XaitPorter 클라이언트 지원 팀](https://www.xait.com/support/)에 문의하세요.
@@ -143,7 +143,7 @@ XaitPorter에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **Single Sign-On 인증 사용**을 선택합니다.
 
-    나. **ID 공급자 설정** 텍스트 상자에 Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL**을 붙여넣고 **페치**를 클릭합니다.
+    b. **ID 공급자 설정** 텍스트 상자에 Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL**을 붙여넣고 **페치**를 클릭합니다.
 
     다. **사용자 자동 생성 사용**을 선택합니다.
 
@@ -183,7 +183,7 @@ XaitPorter에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
  
 ### <a name="create-a-xaitporter-test-user"></a>XaitPorter 테스트 사용자 만들기
 
-이 섹션에서는 XaitPorter에서 Britta Simon이라는 사용자를 만듭니다. XaitPorter 플랫폼에서 사용자를 추가하려면 [XaitPorter 클라이언트 지원 팀](https://www.xait.com/support/)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
+이 섹션에서는 XaitPorter에서 Britta Simon이라는 사용자를 만듭니다. XaitPorter 플랫폼에서 사용자를 추가하려면  [XaitPorter 클라이언트 지원 팀](https://www.xait.com/support/) 에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -225,7 +225,7 @@ XaitPorter에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

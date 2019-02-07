@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 7b19aa42c669fec5872e210351ecec22360ef24e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 43133a1666dc3551e0f935ceb2af4cf1297d44a7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427936"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155309"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
 
@@ -143,9 +143,6 @@ POA는 Service Fabric 클러스터에서 가동 중지 시간 없이 운영 체�
 
 sfpkg 형식의 애플리케이션은 [sfpkg 링크](https://aka.ms/POA/POA.sfpkg)에서 다운로드할 수 있습니다. 이 링크를 통해 [Azure Resource Manager 기반 애플리케이션을 쉽게 배포](service-fabric-application-arm-resource.md)할 수 있습니다.
 
-> [!IMPORTANT]
-> 패치 오케스트레이션 애플리케이션 v1.3.0(최신)을 Windows Server 2012에서 실행하면 알려진 문제가 발생합니다. Windows Server 2012를 실행하는 경우 [여기](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.zip)에서 이 애플리케이션 v1.2.2를 다운로드하세요. SFPkg 링크는 [여기](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.sfpkg)를 참조하세요.
-
 ## <a name="configure-the-app"></a>앱 구성
 
 요구 사항에 맞게 패치 오케스트레이션 앱의 동작을 구성할 수 있습니다. 애플리케이션 만들기 또는 업데이트 중에 애플리케이션 매개 변수를 전달하여 기본값을 재정의합니다. 애플리케이션 매개 변수는 `Start-ServiceFabricApplicationUpgrade` 또는 `New-ServiceFabricApplication` cmdlet에 `ApplicationParameter`를 지정하여 제공될 수 있습니다.
@@ -156,7 +153,7 @@ sfpkg 형식의 애플리케이션은 [sfpkg 링크](https://aka.ms/POA/POA.sfpk
 |TaskApprovalPolicy   |열거형 <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy는 Service Fabric 클러스터 노드에서 Windows 업데이트를 설치하기 위해 코디네이터 서비스에서 사용하는 정책을 나타냅니다.<br>                         허용되는 값은 다음과 같습니다. <br>                                                           <b>NodeWise</b>. Windows 업데이트가 한 번에 하나의 노드에 설치됩니다. <br>                                                           <b>UpgradeDomainWise</b>. Windows 업데이트가 한 번에 하나의 업그레이드 도메인에 설치됩니다. 최대, 한 업그레이드 도메인에 속하는 모든 노드가 Windows 업데이트에 해당될 수 있습니다.<br> 클러스터에 대한 가장 적합한 정책을 결정하는 방법은 [FAQ](#frequently-asked-questions) 섹션을 참조하세요.
 |LogsDiskQuotaInMB   |long  <br> (기본값: 1024)               |패치 오케스트레이션 앱 로그의 최대 크기(MB)로, 노드에서 로컬로 유지될 수 있습니다.
 | WUQuery               | string<br>(기본값: "IsInstalled=0")                | Windows 업데이트를 가져올 쿼리입니다. 자세한 내용은 [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)를 참조하세요.
-| InstallWindowsOSOnlyUpdates | BOOLEAN <br> (기본값: true)                 | 이 플래그를 사용하여 다운로드하고 설치해야 하는 업데이트를 제어합니다. 다음 값이 허용됩니다. <br>true - Windows 운영 체제 업데이트만 설치합니다.<br>false - 컴퓨터에서 사용 가능한 모든 업데이트를 설치합니다.          |
+| InstallWindowsOSOnlyUpdates | BOOLEAN <br> (기본값: false)                 | 이 플래그를 사용하여 다운로드하고 설치해야 하는 업데이트를 제어합니다. 다음 값이 허용됩니다. <br>true - Windows 운영 체제 업데이트만 설치합니다.<br>false - 컴퓨터에서 사용 가능한 모든 업데이트를 설치합니다.          |
 | WUOperationTimeOutInMinutes | int <br>(기본값: 90)                   | Windows 업데이트 작업에 대한 시간 제한을 지정합니다(검색, 다운로드 또는 설치). 지정된 시간 제한 내에 작업이 완료되지 않으면 중단됩니다.       |
 | WURescheduleCount     | int <br> (기본값: 5)                  | 작업이 영구적으로 실패하는 경우 서비스에서 Windows 업데이트를 다시 예약하는 최대 횟수입니다.          |
 | WURescheduleTimeInMinutes | int <br>(기본값: 30) | 오류가 계속 발생하는 경우 서비스에서 Windows 업데이트를 다시 예약하는 간격입니다. |
@@ -295,7 +292,7 @@ a. 패치 오케스트레이션 앱은 설치 과정에서 노드를 사용하�
 
 Windows 업데이트 설치가 끝날 때까지 노드는 다시 시작된 후 다시 사용하도록 설정됩니다.
 
-다음 예제에서는 두 노드가 중단되고 MaxPercentageUnhealthNodes 정책이 위반되었으므로 클러스터가 일시적으로 오류 상태가 되었습니다. 이 오류는 패치 작업이 진행될 때까지 일시적으로 지속됩니다.
+다음 예제에서는 두 노드가 중단되고 MaxPercentageUnhealthyNodes 정책이 위반되었으므로 클러스터가 일시적으로 오류 상태가 되었습니다. 이 오류는 패치 작업이 진행될 때까지 일시적으로 지속됩니다.
 
 ![비정상 클러스터의 이미지](media/service-fabric-patch-orchestration-application/MaxPercentage_causing_unhealthy_cluster.png)
 
@@ -411,3 +408,8 @@ a. 아니요, 패치 오케스트레이션 앱을 사용하여 1노드 클러스
 - 이제 InstallWindowsOSOnlyUpdates를 False로 설정하면 사용 가능한 모든 업데이트가 설치됩니다.
 - 자동 업데이트를 사용하지 않도록 설정하는 논리가 변경되었습니다. 이로 인해 Server 2016 이상에서 자동 업데이트가 사용하지 않도록 설정되지 않는 버그가 수정됩니다.
 - 고급 사용 사례에서 POA의 두 마이크로 서비스에 대한 배치 제약 조건이 매개 변수화되었습니다.
+
+### <a name="version-131"></a>버전 1.3.1
+- 자동 업데이트 비활성화의 오류로 인해 Windows Server 2012 R2 이하에서 POA 1.3.0이 작동하지 않는 회귀 수정 
+- InstallWindowsOSOnlyUpdates 구성이 항상 True로 선택되는 버그 수정
+- InstallWindowsOSOnlyUpdates의 기본값을 False로 변경

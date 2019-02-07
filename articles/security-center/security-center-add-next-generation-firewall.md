@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center에서 차세대 방화벽 추가 | Microsoft Docs
-description: 이 문서에서는 Azure Security Center 권장 사항 **차세대 방화벽 추가** 및 **NGFW를 통해서만 트래픽 라우팅**을 구현하는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure Security Center 권장 사항 **차세대 방화벽 추가** 및 **NGFW를 통해서만 트래픽 라우팅**을 구현하는 방법을 보여줍니다.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0f1949373e99df1cccd6c49ff92c80d595519377
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a71f2044b799fb47e4ab8991d76f92a1ccc049f5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341154"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102450"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Azure Security Center에서 차세대 방화벽 추가
 Azure Security Center에서는 보안 보호를 증가시키기 위해 Microsoft 파트너의 차세대 방화벽(NGFW)을 추가하도록 권장할 수 있습니다. 이 문서에서는 이를 수행하는 방법의 예를 보여 줍니다.

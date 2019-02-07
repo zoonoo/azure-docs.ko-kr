@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 052db91d-ccff-4098-8ae3-2f76eca90539
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: b6fe50b24a20f81500ac1ed5008fcb6c59c0243a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 97b0530f3a260b4ad82c4287b4b37595ab1cf25d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449403"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187337"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>자습서: Bpm’online과 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ Bpm’online의 Azure AD 통합을 구성하려면 갤러리의 Bpm’online을 
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -106,15 +106,15 @@ Bpm’online에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![Single Sign-On 대화 상자](./media/bpmonline-tutorial/tutorial_bpmonline_samlbase.png)
 
-1. **IDP** 시작 모드에서 응용 프로그램을 구성하려면 **Bpm’online 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+1. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **Bpm’online 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Bpm’online 도메인 및 URL Single Sign-On 정보](./media/bpmonline-tutorial/tutorial_bpmonline_url.png)
 
     a. **식별자** 텍스트 상자에서 `https://<client site name>.bpmonline.com/` 패턴을 사용하여 URL을 입력합니다.
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<client site name>.bpmonline.com/ServiceModel/AuthService.svc/SsoLogin`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<client site name>.bpmonline.com/ServiceModel/AuthService.svc/SsoLogin`
 
-1. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
     ![Bpm’online 도메인 및 URL Single Sign-On 정보](./media/bpmonline-tutorial/tutorial_bpmonline_url1.png)
 
@@ -123,7 +123,7 @@ Bpm’online에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [Bpm’online 클라이언트 지원 팀](mailto:support@bpmonline.com)에 문의하세요. 
 
-1. **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사하고 메모장에 붙여넣습니다.
+1.  **SAML 서명 인증서**  섹션에서 복사 단추를 클릭하여  **앱 페더레이션 메타데이터 URL** 을 복사하고 메모장에 붙여넣습니다.
     
     ![Configure Single Sign-On](./media/bpmonline-tutorial/tutorial_metadataurl.png)
      
@@ -167,7 +167,7 @@ Bpm’online에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
  
 ### <a name="create-a-bpmonline-test-user"></a>Bpm’online 테스트 사용자 만들기
 
-이 섹션에서는 Bpm’online에서 Britta Simon이라는 사용자를 만듭니다. Bpm’online 플랫폼에서 사용자를 추가하려면 [Bpm’online 지원팀](mailto:support@bpmonline.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
+이 섹션에서는 Bpm’online에서 Britta Simon이라는 사용자를 만듭니다.  [Bpm’online 지원팀](mailto:support@bpmonline.com) 과 협력하여 Bpm’online 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -209,7 +209,7 @@ Bpm’online에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

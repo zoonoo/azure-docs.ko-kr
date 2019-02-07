@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2018
 ms.author: ryanwi
-ms.openlocfilehash: 064d73aa3d1a9183eddd53b1a1b8ddbf02afb04d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 426f89437b91bf32efc7d4887c92ebe9cd729b5b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792852"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166291"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -91,8 +91,7 @@ Service Fabric은 머신 클러스터에 마이크로 서비스를 배포하기 
 ## <a name="next-steps"></a>다음 단계
 개발 환경의 설정을 마쳤으므로 앱을 빌드하고 실행하기 시작할 수 있습니다.
 
-* [Visual Studio에서 서비스 패브릭 애플리케이션 처음 만들기](service-fabric-create-your-first-application-in-visual-studio.md)
-* [로컬 클러스터에서 애플리케이션을 배포하고 관리하는 방법 알아보기](service-fabric-get-started-with-a-local-cluster.md)
+* [애플리케이션 만들기, 배포 및 관리하는 방법 알아보기](service-fabric-tutorial-create-dotnet-app.md)
 * [프로그래밍 모델에 대해 알아보기: Reliable Services 및 Reliable Actors](service-fabric-choose-framework.md)
 * [GitHub의 서비스 패브릭 코드 샘플 확인](https://aka.ms/servicefabricsamples)
 * [서비스 패브릭 탐색기를 사용하여 클러스터 시각화](service-fabric-visualizing-your-cluster.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: eb020dfd52140375778cf22c6b70e715a7422761
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 71d5b0e8156710e2f82ac76d3187ba1ddba46936
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310252"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151093"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Service Fabric Reliable Services의 ASP.NET Core
 
@@ -63,7 +63,7 @@ Reliable Service 인스턴스는 `StatelessService` 또는 `StatefulService`에�
 
 두 통신 수신기는 다음 인수를 사용하는 생성자를 제공합니다.
  - **`ServiceContext serviceContext`**: 실행 중인 서비스에 대한 정보가 포함된 `ServiceContext` 개체입니다.
- - **`string endpointName`**: ServiceManifest.xml의 `Endpoint` 구성 이름입니다. 이는 주로 두 통신 수신기가 다른 부분입니다. 즉 HttpSys에는 `Endpoint` 구성이 **필요하지만**, Kestrel에는 필요하지 않습니다.
+ - **`string endpointName`**: ServiceManifest.xml의 `Endpoint` 구성 이름입니다. 이는 주로 두 통신 수신기가 서로 다른 곳입니다. HttpSys는 `Endpoint` 구성이 **필요**한 반면 Kestrel은 필요하지 않습니다.
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: `IWebHost`를 만들고 반환하는 사용자 구현 람다입니다. 이렇게 하면 일반적으로 ASP.NET Core 애플리케이션에서 구성하는 방식으로 `IWebHost`를 구성할 수 있습니다. 람다는 사용하는 Service Fabric 통합 옵션과 제공하는 `Endpoint` 구성에 따라 생성된 URL을 제공합니다. 그런 다음 해당 URL을 수정하거나 그대로 사용하여 웹 서버를 시작할 수 있습니다.
 
 ## <a name="service-fabric-integration-middleware"></a>Service Fabric 통합 미들웨어
@@ -394,7 +394,7 @@ Kestrel은 외부 인터넷 연결 HTTP 엔드포인트를 노출하는 프런�
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | 동적 포트 할당으로 인해 이 설정은 앞에서 설명한 잘못된 ID 문제를 방지합니다. |
 
 ## <a name="next-steps"></a>다음 단계
-[Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 디버그](service-fabric-debugging-your-application.md)
+[Visual Studio를 사용하여 Service Fabric 애플리케이션 디버그](service-fabric-debugging-your-application.md)
 
 <!--Image references-->
 [0]:./media/service-fabric-reliable-services-communication-aspnetcore/webhost-standalone.png

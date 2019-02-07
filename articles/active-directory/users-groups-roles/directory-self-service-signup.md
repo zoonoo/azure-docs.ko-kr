@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
 ms.date: 10/16/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 30b86d7938279133c303ad4eae840f520a4900e6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 63ddff08b93ffa072add0e8f093e1d4e0f1aa01e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394683"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195820"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Azure Active Directory의 셀프 서비스 등록이란?
 이 문서에서는 Azure AD(Azure Active Directory)의 셀프 서비스 등록 및 지원 방법을 설명합니다. 관리되지 않는 Azure AD 테넌트에서 도메인 이름을 가져오려면 [Take over an unmanaged directory as administrator](domains-admin-takeover.md)(관리되지 않는 디렉터리를 관리자로 가져오기)를 참조하세요.
@@ -31,9 +31,9 @@ ms.locfileid: "49394683"
 * 셀프 서비스로 작성된 Azure AD 디렉터리를 관리되는 디렉터리로 변환하여 다른 서비스에 사용할 수 있습니다.
 
 ## <a name="terms-and-definitions"></a>용어 및 정의
-* **셀프 서비스 등록**: 사용자가 클라우드 서비스에 등록하고 해당 메일 도메인을 기반으로 Azure AD에 ID가 자동으로 생성되게 하는 방법입니다.
-* **관리되지 않는 Azure AD 디렉터리**: ID가 생성되는 디렉터리입니다. 관리되지 않는 디렉터리는 전역 관리자가 없는 디렉터리입니다.
-* **메일로 확인된 사용자**: Azure AD의 사용자 계정의 한 유형입니다. 셀프 서비스 제공 사항에 등록한 후 자동으로 생성된 ID를 갖는 사용자를 메일로 확인된 사용자라고 합니다. 메일로 확인된 사용자는 creationmethod=EmailVerified로 태그가 지정된 디렉터리의 일반 멤버입니다.
+* **셀프 서비스 가입**: 사용자가 클라우드 서비스에 가입하고 해당 이메일 도메인을 기반으로 Azure AD에 ID가 자동으로 생성되게 하는 방법입니다.
+* **비관리형 Azure AD 디렉터리**: ID가 생성되는 디렉터리입니다. 관리되지 않는 디렉터리는 전역 관리자가 없는 디렉터리입니다.
+* **이메일로 확인된 사용자**: Azure AD의 사용자 계정의 한 유형입니다. 셀프 서비스 제공 사항에 등록한 후 자동으로 생성된 ID를 갖는 사용자를 메일로 확인된 사용자라고 합니다. 메일로 확인된 사용자는 creationmethod=EmailVerified로 태그가 지정된 디렉터리의 일반 멤버입니다.
 
 ## <a name="how-do-i-control-self-service-settings"></a>셀프 서비스 설정을 제어하는 방법
 관리자는 현재 두 개의 셀프 서비스 컨트롤을 보유하며 다음을 제어할 수 있습니다.
@@ -63,9 +63,9 @@ Flow 및 PowerApps 평가판 등록은 **AllowAdHocSubscriptions** 설정에서 
 ### <a name="how-do-the-controls-work-together"></a>컨트롤이 어떻게 작동하나요?
 이 두 매개 변수를 함께 사용하여 정의하면 셀프 서비스 등록을 더욱 세밀하게 제어할 수 있습니다. 예를 들어 Azure AD에 이미 계정이 있는 사용자만 다음 명령을 사용하여 셀프 서비스 등록을 수행할 수 있습니다. 즉, 메일로 확인된 계정을 먼저 만들어야 하는 사용자는 셀프 서비스 등록을 수행할 수 없습니다.
 
-````powershell
+```powershell
     Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
-````
+```
 
 다음 순서도는 디렉터리와 셀프 서비스 등록에 대한 이러한 매개 변수 및 그 결과 조건의 다양한 조합을 설명합니다.
 

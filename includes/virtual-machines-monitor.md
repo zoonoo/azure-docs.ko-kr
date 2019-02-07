@@ -2,14 +2,14 @@
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 01/27/2019
 ms.author: cynthn
-ms.openlocfilehash: b9fa5fff46fa330a55125053b831c780f21f6e8f
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: a13ce8d3dc71be83e05fae5bd07f30f413ce59f2
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54404694"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55148071"
 ---
 진단 및 로그 데이터를 수집, 보기 및 분석하여 VM을 모니터링하는 데 많은 기회를 활용할 수 있습니다. VM의 간단한 [모니터링](../articles/azure-monitor/overview.md)을 수행하려면 Azure Portal에서 VM에 대한 개요 화면을 사용할 수 있습니다. [확장](../articles/virtual-machines/windows/extensions-features.md)을 사용하여 추가 메트릭 데이터를 수집하도록 VM에서 진단을 구성할 수 있습니다. [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) 및 [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md)와 같은 더 많은 고급 모니터링 옵션을 사용할 수도 있습니다.
 
@@ -41,7 +41,7 @@ Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(애플리케�
 
 [Azure Resource Health](../articles/service-health/resource-health-overview.md)는 Azure 문제가 리소스에 영향을 줄 때 문제를 진단하고 지원을 받는 데 도움이 됩니다. 리소스의 현재 및 이전 상태에 대해 알려주고 문제를 완화하는 데 도움이 됩니다. Resource Health는 Azure 서비스 문제와 관련된 도움이 필요할 때 기술 지원을 제공합니다.
 
-## <a name="logs"></a>로그
+## <a name="azure-activity-log"></a>Azure 동작 로그
 
 [Azure 활동 로그](../articles/azure-monitor/platform/activity-logs-overview.md)는 Azure에서 발생한 구독 수준 이벤트에 대한 정보를 제공하는 구독 로그입니다. 로그에는 Azure Resource Manager 작동 데이터에서 서비스 상태 이벤트 업데이트에 이르기까지 광범위한 데이터가 포함됩니다. Azure Portal에서 활동 로그를 클릭하여 VM에 대한 로그를 확인할 수 있습니다.
 
@@ -64,11 +64,13 @@ Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(애플리케�
 
 ## <a name="advanced-monitoring"></a>고급 모니터링
 
-- [Log Analytics](../articles/log-analytics/log-analytics-overview.md)는 클라우드 및 온-프레미스 환경을 모니터링하여 해당 가용성 및 성능을 유지하는 서비스입니다. 이 서비스는 클라우드 및 온-프레미스 환경에서 리소스에 의해 생성되고 여러 원본에 대한 분석을 제공하는 다른 모니터링 도구에서 생성된 데이터를 수집합니다. [Linux VM](../articles/virtual-machines/linux/extensions-oms.md) 또는 [Windows VM](../articles/virtual-machines/windows/extensions-oms.md)에 Log Analytics 에이전트를 설치하고 기존 Log Analytics 작업 영역에 VM을 등록하는 확장을 설치할 수 있습니다.
+- [Azure Monitor](../articles/azure-monitor/overview.md)는 클라우드 및 온-프레미스 환경을 모니터링하여 해당 가용성 및 성능을 유지하는 서비스입니다. 클라우드 및 온-프레미스 환경에서 원격 분석의 수집, 분석 및 작업에 대한 포괄적인 솔루션을 제공합니다. 애플리케이션을 수행하는 방법과 애플리케이션 및 종속된 리소스에 영향을 주는 문제를 사전에 식별하는 방법을 파악할 수 있습니다. [Linux VM](../articles/virtual-machines/linux/extensions-oms.md) 또는 [Windows VM](../articles/virtual-machines/windows/extensions-oms.md)에 Log Analytics 에이전트를 설치하여 로그 데이터를 수집하고 Log Analytics 작업 영역에 저장하는 확장을 설치할 수 있습니다.
 
-    Windows 및 Linux VM의 경우 로그 및 메트릭을 수집하는 좋은 방법은 Log Analytics로 에이전트를 설치하는 것입니다. VM에 Log Analytics 에이전트를 설치하는 가장 쉬운 방법은 [Log Analytics VM 확장](../articles/log-analytics/log-analytics-azure-vm-extension.md)을 사용하는 것입니다. 이 확장을 사용하면 설치 프로세스가 간소화되고 지정한 Log Analytics 작업 영역에 데이터를 전송하도록 에이전트가 자동으로 구성됩니다. 에이전트도 자동으로 업그레이드되므로 최신 기능 및 수정 사항을 받아볼 수 있습니다.
+    Windows 및 Linux VM의 경우 로그를 수집하는 좋은 방법은 Log Analytics 에이전트를 설치하는 것입니다. VM에 Log Analytics 에이전트를 설치하는 가장 쉬운 방법은 [Log Analytics VM 확장](../articles/log-analytics/log-analytics-azure-vm-extension.md)을 사용하는 것입니다. 이 확장을 사용하면 설치 프로세스가 간소화되고 지정한 Log Analytics 작업 영역에 데이터를 전송하도록 에이전트가 자동으로 구성됩니다. 에이전트도 자동으로 업그레이드되므로 최신 기능 및 수정 사항을 받아볼 수 있습니다.
 
 - [Network Watcher](../articles/network-watcher/network-watcher-monitoring-overview.md)를 통해 VM 및 위치한 네트워크와 관련된 연결된 리소스를 모니터링할 수 있습니다. [Linux VM](../articles/virtual-machines/linux/extensions-nwa.md) 또는 [Windows VM](../articles/virtual-machines/windows/extensions-nwa.md)에 Network Watcher 에이전트 확장을 설치할 수 있습니다.
+
+- [VM용 Azure Monitor](../articles/azure-monitor/insights/vminsights-overview.md)는 Windows 및 Linux VM의 성능과 상태를 분석하여 대규모 Azure VM(가상 머신)을 모니터링하며, 여기에는 VM의 여러 프로세스, 그리고 다른 리소스 및 외부 프로세스에 대한 상호 연결된 종속성이 포함됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure PowerShell을 사용하여 Windows Virtual Machine 모니터링](../articles/virtual-machines/windows/tutorial-monitoring.md) 또는 [Azure CLI를 사용하여 Linux Virtual Machine 모니터링](../articles/virtual-machines/linux/tutorial-monitoring.md)의 단계를 안내합니다.

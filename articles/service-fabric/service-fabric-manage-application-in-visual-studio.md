@@ -1,5 +1,5 @@
 ---
-title: Visual Studio에서 Azure Servic Fabric 애플리케이션 관리 | Microsoft Docs
+title: Visual Studio에서 Azure Service Fabric 애플리케이션 관리 | Microsoft Docs
 description: Visual Studio를 사용하여 Azure Service Fabric 애플리케이션과 서비스를 만들고, 개발하고, 배포하고, 디버그합니다.
 services: service-fabric
 documentationcenter: .net
@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
-ms.openlocfilehash: 01a9852157cbaefd966be974a3175c25e7ff69f8
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: b90c39416a522b42932dd82214316e586ba4293a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001705"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192556"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Visual Studio를 사용하여 Service Fabric 애플리케이션 쓰기 및 관리 단순화하기
 Visual Studio를 통해 Azure Service Fabric 애플리케이션 및 서비스를 관리할 수 있습니다. [개발 환경을 설정](service-fabric-get-started.md)한 후, Visual Studio를 사용하여 로컬 개발 클러스터에서 Service Fabric 애플리케이션을 만들거나 서비스를 추가하거나 애플리케이션의 패키징, 등록 및 배포를 수행할 수 있습니다.
@@ -47,7 +47,7 @@ Visual Studio는 Visual Studio에서 디버깅의 일부로 애플리케이션 �
 
 #### <a name="application-debug-modes"></a>애플리케이션 디버그 모드
 
-1. **애플리케이션 새로 고침** 이 모드를 사용하면 코드를 신속하게 변경하고 디버그할 수 있으며 디버깅하는 동안 정적 웹 파일 편집을 지원합니다. 이 모드는 로컬 개발 클러스터가 [1-노드 모드](./service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode)에 있는 경우에만 작동합니다. 기본 애플리케이션 디버그 모드입니다.
+1. **애플리케이션 새로 고침** 이 모드를 사용하면 코드를 신속하게 변경하고 디버그할 수 있으며 디버깅하는 동안 정적 웹 파일 편집을 지원합니다. 이 모드는 로컬 개발 클러스터가 1-노드 모드인 경우에만 작동합니다. 기본 애플리케이션 디버그 모드입니다.
 2. **애플리케이션 제거** 를 선택하면 디버그 세션이 종료될 때 애플리케이션이 제거됩니다.
 3. **자동 업그레이드** 디버그 세션이 종료될 때 애플리케이션이 계속 실행됩니다. 다음 디버그 세션은 업그레이드로 배포를 처리합니다. 업그레이드 프로세스는 이전 디버그 세션에서 입력한 모든 데이터를 유지합니다.
 4. **애플리케이션 유지** 디버그 세션이 종료될 때 클러스터에서 애플리케이션이 계속 실행됩니다. 다음 디버그 세션의 시작 부분에서 애플리케이션이 제거됩니다.

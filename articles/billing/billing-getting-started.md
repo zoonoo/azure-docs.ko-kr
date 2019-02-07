@@ -3,7 +3,7 @@ title: Azure에서 예기치 않은 비용 방지 및 청구 관리 | Microsoft 
 description: Azure 청구서에 예기치 않은 요금이 부과되지 않도록 하는 방법을 알아봅니다. Microsoft Azure 구독에 대한 비용 추적 및 관리 기능을 사용합니다.
 services: ''
 documentationcenter: ''
-author: tonguyen10
+author: bandersmsft
 manager: alherz
 editor: ''
 tags: billing
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
-ms.author: cwatson
-ms.openlocfilehash: 5aca80a4ebeadc9e54cf99fb4a220c6ee7c37cae
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.author: banders
+ms.openlocfilehash: 732ac5e1e82c67d2f4a0a3443b85c67712f4f651
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857015"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101654"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure 청구 및 비용 관리를 사용하여 예기치 않은 비용 방지
 
@@ -75,7 +75,7 @@ Azure에 등록하면 몇 가지 방법을 통해 지출을 보다 명확히 파
 5. **임계값** 탭을 선택한 다음, **실제 비용 대 임계값**을 선택합니다. 
    1. **빨간색 경고** 임계값 상자에 10000을 입력합니다. 
    2. **노란색 경고** 임계값 상자에 9000을 입력합니다. 
-   3. **연속되는 경고 수** 상자에 수신할 연속되는 경고 수를 입력합니다. 지정한 총 경고 수를 받으면 추가 경고가 전송되지 않습니다. 
+   3. **연속되는 경고 수** 상자에 수신할 연속 경고 수를 입력합니다. 지정한 총 경고 수를 받으면 추가 경고가 전송되지 않습니다. 
 6. **저장**을 선택합니다.
 
     ![지출 임계값에 따라 빨간색 및 노란색 경고를 보여주는 예제](./media/billing-getting-started/schedule-alert01.png)

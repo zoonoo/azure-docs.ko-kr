@@ -1,26 +1,22 @@
 ---
 title: Azure로 장애 조치(failover) 문제 해결 | Microsoft Docs
 description: 이 문서에서는 Azure로 장애 조치(failover) 시 일반적인 오류 문제를 해결하는 방법을 설명합니다.
-services: site-recovery
-documentationcenter: ''
 author: ponatara
 manager: abhemraj
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
+services: site-recovery
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/11/2018
+ms.date: 1/29/2019
 ms.author: mayg
-ms.openlocfilehash: 742e7891ec9c7151f23f1ad6eb57e728dd2a1ddd
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 62b69364f0b3d3e14d0b2d877604cecfcc346dce
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255094"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207499"
 ---
-# <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>가상 머신을 Azure로 장애 조치 시 오류 문제 해결
+# <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>VMware VM 또는 물리적 머신을 Azure로 장애 조치(failover) 시 발생하는 오류 해결
 
 가상 컴퓨터를 Azure로 장애 조치하는 동안 다음 오류 중 하나가 나타날 수 있습니다. 문제를 해결하려면 각 오류 조건에 대해 설명된 단계를 따르세요.
 
@@ -48,7 +44,9 @@ Site Recovery가 Azure에서 장애 조치된 클래식 가상 머신을 만들 
 
 Site Recovery가 Azure에서 장애 조치된 가상 머신을 만들 수 없습니다. 하이드레이션의 내부 활동이 온-프레미스 가상 머신에 대해 실패했으므로 발생할 수 있습니다.
 
-Azure의 모든 머신을 표시하려면 Azure 환경에는 부팅 시작 상태의 일부 드라이버 및 자동 시작 상태의 DHCP와 같은 서비스가 필요합니다. 따라서 장애 조치(failover) 시 하이드레이션 작업은 **atapi, intelide, storflt, vmbus 및 storvsc 드라이버**의 시작 형식을 부팅 시작으로 변환합니다. 또한 DHCP와 같은 몇 가지 서비스의 시작 유형을 자동 시작으로 변환합니다. 이 작업은 특정 환경 문제로 인해 실패할 수 있습니다. 드라이버의 시작 유형을 수동으로 변경하려면 다음 단계를 따릅니다.
+Azure의 모든 머신을 표시하려면 Azure 환경에는 부팅 시작 상태의 일부 드라이버 및 자동 시작 상태의 DHCP와 같은 서비스가 필요합니다. 따라서 장애 조치(failover) 시 하이드레이션 작업은 **atapi, intelide, storflt, vmbus 및 storvsc 드라이버**의 시작 형식을 부팅 시작으로 변환합니다. 또한 DHCP와 같은 몇 가지 서비스의 시작 유형을 자동 시작으로 변환합니다. 이 작업은 특정 환경 문제로 인해 실패할 수 있습니다. 
+
+**Windows 게스트 OS**의 드라이버 시작 유형을 수동으로 변경하려면 아래 단계를 따릅니다.
 
 1. 비하이드레이션 스크립트를 [다운로드](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1)하여 다음과 같이 실행합니다. 이 스크립트는 VM에 하이드레이션이 필요한지 확인합니다.
 
@@ -91,7 +89,7 @@ Azure에서 장애 조치(failover)된 VM의 **연결** 단추가 회색으로 �
 Azure에서 장애 조치(failover)된 VM의 **연결** 단추를 사용할 수 있는 경우(회색으로 표시되지 않음), 가상 머신에서 **부트 진단**을 검사하고 [이 문서](../virtual-machines/windows/boot-diagnostics.md)에 나열된 오류를 확인합니다.
 
 1. 가상 머신이 시작되지 않은 경우 이전의 복구 지점으로 장애 조치를 시도합니다.
-2. 가상 머신 내 응용 프로그램이 가동되지 않는 경우 응용 프로그램 일치 복구 지점으로 장애 조치를 시도합니다.
+2. 가상 머신 내 애플리케이션이 가동되지 않는 경우 애플리케이션 일치 복구 지점으로 장애 조치를 시도합니다.
 3. 가상 머신이 도메인에 조인되어 있는 경우 도메인 컨트롤러가 정확하게 작동하는지 확인합니다. 이렇게 하려면 아래 제공된 단계를 따릅니다.
 
     a. 동일한 네트워크에 새 가상 머신을 만듭니다.

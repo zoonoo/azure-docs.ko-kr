@@ -1,6 +1,6 @@
 ---
-title: PIM에서 Azure 리소스 역할이 있는 사용자 보기 | Microsoft Docs
-description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 역할이 있는 사람이 누구인지 확인합니다.
+title: PIM에서 Azure 리소스 역할에 대한 작업 및 감사 기록 보기 | Microsoft Docs
+description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 역할에 대한 작업 및 감사 기록을 봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,55 +12,104 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
-ms.date: 03/30/2018
+ms.subservice: pim
+ms.date: 01/24/2019
 ms.author: rolyon
-ms.openlocfilehash: ce7c96d92938c4e3b4cc0b53271df48350083754
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 3308c0d53d849e5f5c27a54ec08ecb811a36a1be
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465234"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174740"
 ---
-# <a name="view-who-has-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할이 있는 사용자 보기
+# <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할에 대한 작업 및 감사 기록 보기
 
-Azure Active Directory PIM(Privileged Identity Management)을 사용하면 조직 내에서 Azure Resource에 대한 액세스를 관리, 제어 및 모니터링할 수 있습니다. 여기에는 구독, 리소스 그룹 및 가상 머신도 포함됩니다. Azure Portal에서 Azure RBAC(역할 기반 액세스 제어) 기능을 사용하는 모든 리소스는 Azure AD PIM의 보안 및 수명 주기 관리 기능을 모두 사용할 수 있습니다. 
+Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용하면 조직 내 Azure 리소스 역할에 대한 작업, 활성화 및 감사 기록을 볼 수 있습니다. 여기에는 구독, 리소스 그룹 및 가상 머신도 포함됩니다. Azure Portal에서 Azure RBAC(역할 기반 액세스 제어) 기능을 사용하는 모든 리소스는 PIM의 보안 및 수명 주기 관리 기능을 모두 사용할 수 있습니다.
 
-## <a name="pim-for-azure-resources-helps-resource-administrators"></a>리소스 관리자에 유용한 Azure Resource용 PIM
+## <a name="view-activity-and-activations"></a>작업 및 활성화 보기
 
-- 관리하는 Azure 리소스에 대해 역할이 할당된 사용자 및 그룹 보기
-- 주문형 "Just-In-Time" 액세스를 통해 구독, 리소스 그룹 등과 같은 리소스 관리
-- 새 시간 범위 할당 설정을 통해 할당된 사용자/그룹 리소스 액세스 자동 만료
-- 빠른 작업 또는 대기 중(on-call) 일정에 대한 임시 리소스 액세스 권한 할당
-- 모든 기본 제공 또는 사용자 지정 역할에서 리소스 액세스에 대한 Multi-Factor Authentication 적용 
-- 사용자의 활성 세션 동안 리소스 액세스와 상관 관계가 있는 리소스 활동에 대한 보고서 얻기
-- 새 사용자 또는 그룹에 리소스 액세스 권한이 할당될 때 및 적격 할당을 활성화할 때 경고 받기
+특정 사용자가 다양한 리소스에서 수행한 작업을 살펴보려면 특정 활성화 기간에 연결된 Azure 리소스 작업을 보면 됩니다.
 
-## <a name="view-activation-and-azure-resource-activity"></a>활성화 및 Azure 리소스 활동 보기
+1. **Azure AD Privileged Identity Management**를 엽니다.
 
-특정 사용자가 다양한 리소스에서 수행한 작업을 확인해야 하는 경우 적격 사용자에 대해 지정된 활성화 기간과 관련된 Azure 리소스 활동을 검토할 수 있습니다. [구성원] 보기 또는 특정 역할의 구성원 목록에서 사용자를 선택하여 시작합니다. 결과에서는 Azure 리소스의 날짜별 사용자 작업 및 동일한 기간 동안의 최근 역할 활성화가 그래픽으로 표시됩니다.
+1. **Azure 리소스**를 클릭합니다.
 
-![](media/azure-pim-resource-rbac/user-details.png)
+1. 작업 및 활성화를 보려는 리소스를 클릭합니다.
 
-특정 역할 활성화를 선택하면 역할 활성화 세부 정보와 이 사용자가 활성 상태인 동안 발생한 해당 Azure 리소스 활동이 표시됩니다.
+1. **역할** 또는 **멤버**를 클릭합니다.
 
-![](media/azure-pim-resource-rbac/audits.png)
+1. 사용자를 클릭합니다.
 
-## <a name="review-who-has-access-in-a-subscription"></a>구독에 액세스 권한이 있는 사용자 검토
+    Azure 리소스에서 사용자가 수행한 작업이 날짜별로 그래픽으로 표시됩니다. 같은 기간에 이루어진 최근 역할 활성화도 표시됩니다.
 
-[구독]에서 역할 할당을 검토하려면 왼쪽 탐색 영역에서 [구성원] 탭을 선택하거나, 역할을 선택한 다음 구성원을 검토할 특정 역할을 선택합니다. 
+    ![사용자 세부 정보](media/azure-pim-resource-rbac/rbac-user-details.png)
 
-작업 모음에서 [검토]를 선택하여 기존 액세스 검토를 보고 [추가]를 선택하여 새 검토를 만듭니다.
+1. 특정 역할 활성화를 클릭하면 역할 활성화 세부 정보와 해당 사용자가 활성화된 동안 발생한 해당 Azure 리소스 작업이 표시됩니다.
 
-![](media/azure-pim-resource-rbac/owner.png)
+    ![역할 활성화 선택](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 
-[액세스 검토에 대해 자세히 알아보기](pim-how-to-perform-security-review.md)
+## <a name="export-role-assignments-with-children"></a>자식 요소가 있는 역할 할당 내보내기
 
->[!NOTE]
-검토는 현재 구독 리소스 종류에 대해서만 지원됩니다.
+감사자에 역할 할당의 전체 목록을 제공해야 하는 규정 준수 요구 사항이 있을 수 있습니다. PIM을 사용하면 특정 리소스에서 역할 할당을 쿼리할 수 있으며, 여기에는 모든 자식 리소스에 대한 역할 할당이 포함됩니다. 이전에는 관리자가 구독의 역할 할당 전체 목록을 가져오기가 어려웠으며, 각 특정 리소스의 역할 할당을 내보내야 했습니다. PIM을 사용하면 모든 리소스 그룹 및 리소스에 대한 역할 할당을 포함하여 구독의 모든 활성 및 적격 역할 할당을 쿼리할 수 있습니다.
+
+1. **Azure AD Privileged Identity Management**를 엽니다.
+
+1. **Azure 리소스**를 클릭합니다.
+
+1. 역할 할당을 내보내려는 리소스(예: 구독)를 클릭합니다.
+
+1. **구성원**을 클릭합니다.
+
+1. **내보내기**를 클릭하여 [멤버 자격 내보내기] 창을 엽니다.
+
+    ![[멤버 자격 내보내기] 창](media/azure-pim-resource-rbac/export-membership.png)
+
+1. 모든 역할 할당을 CSV 파일로 내보려면 **모든 멤버 자격 내보내기**를 클릭합니다.
+
+    ![CSV 파일 내보내기](media/azure-pim-resource-rbac/export-csv.png)
+
+## <a name="view-resource-audit-history"></a>리소스 감사 기록 보기
+
+리소스 감사를 통해 리소스에 대한 모든 역할 작업을 볼 수 있습니다.
+
+1. **Azure AD Privileged Identity Management**를 엽니다.
+
+1. **Azure 리소스**를 클릭합니다.
+
+1. 감사 기록을 보려는 리소스를 클릭합니다.
+
+1. **리소스 감사**를 클릭합니다.
+
+1. 미리 정의된 날짜 또는 사용자 지정 범위를 사용하여 기록을 필터링합니다.
+
+    ![리소스 감사 필터링](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+
+1. **감사 유형**으로 **활성화(할당됨 + 활성화됨)** 을 선택합니다.
+
+    ![작업 세부 정보](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+
+1. **작업** 아래에서, Azure 리소스에서 수행한 작업 세부 정보를 보고 싶은 사용자의 **(작업)** 을 클릭합니다.
+
+    ![사용자 작업 세부 정보](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
+
+## <a name="view-my-audit"></a>내 감사 보기
+
+내 감사를 통해 자신의 개인 역할 작업을 볼 수 있습니다.
+
+1. **Azure AD Privileged Identity Management**를 엽니다.
+
+1. **Azure 리소스**를 클릭합니다.
+
+1. 감사 기록을 보려는 리소스를 클릭합니다.
+
+1. **내 감사**를 클릭합니다.
+
+1. 미리 정의된 날짜 또는 사용자 지정 범위를 사용하여 기록을 필터링합니다.
+
+    ![개인 역할 작업](media/azure-pim-resource-rbac/my-audit-time.png)
 
 ## <a name="next-steps"></a>다음 단계
 
 - [PIM에서 Azure 리소스 역할 할당](pim-resource-roles-assign-roles.md)
 - [PIM에서 Azure 리소스 역할에 대한 요청 승인 또는 거부](pim-resource-roles-approval-workflow.md)
-- [Azure의 기본 제공 역할](../../role-based-access-control/built-in-roles.md)
+- [PIM에서 Azure AD 디렉터리 역할에 대한 감사 기록 보기](pim-how-to-use-audit-log.md)

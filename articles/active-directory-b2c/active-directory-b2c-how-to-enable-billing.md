@@ -7,27 +7,29 @@ manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/07/2018
+ms.date: 01/24/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: e39b7472904e7635340327d311eb7d4b9123f51e
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: c914b3a3ab40971cf9318cafc787d358dab2faff
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853190"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196177"
 ---
-# <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Azure 구독을 Azure AD B2C 테넌트에 연결
+# <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Azure Active Directory B2C 테넌트에 Azure 구독 연결
 
 > [!IMPORTANT]
-> Azure AD B2C의 사용 요금 청구 및 가격 책정에 대한 최신 정보는 다음 페이지에 있습니다. [Azure AD B2C 가격](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+> Azure AD(Azure Active Directory) B2C의 사용 요금 청구 및 가격 책정에 대한 최신 정보는 [Azure AD B2C 가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)을 참조하세요.
 
 Azure AD B2C에 대한 사용 요금은 Azure 구독에 청구됩니다. Azure AD B2C 테넌트가 만들어지면 테넌트 관리자는 Azure AD B2C 테넌트를 Azure 구독에 명시적으로 연결해야 합니다. 이 문서는 방법을 안내합니다.
 
 > [!NOTE]
 > Azure AD B2C 테넌트에 연결된 구독은 Azure AD B2C 사용 또는 추가 Azure AD B2C 리소스를 포함한 기타 Azure 리소스에 대한 요금 청구에 사용할 수 있습니다.  Azure AD B2C 테넌트 내의 다른 Azure 라이선스 기반 서비스 또는 Office 365 라이선스를 추가하는 데는 구독을 사용할 수 없습니다.
 
- 구독 연결은 대상 Azure 구독 내에 Azure AD B2C “리소스”를 만들어서 이루어집니다. 많은 Azure AD B2C “리소스”는 다른 Azure 리소스(예: VM, 데이터 저장소, LogicApps)와 함께, 단일 Azure 구독 내에서 만들어질 수 있습니다. 구독이 연결된 Azure AD 테넌트로 이동하여 구독 내의 모든 리소스를 볼 수 있습니다.
+구독 연결은 대상 Azure 구독 내에 Azure AD B2C “리소스”를 만들어서 이루어집니다. 많은 Azure AD B2C “리소스”는 다른 Azure 리소스(예: VM, 데이터 저장소, LogicApps)와 함께, 단일 Azure 구독 내에서 만들어질 수 있습니다. 구독이 연결된 Azure AD 테넌트로 이동하여 구독 내의 모든 리소스를 볼 수 있습니다.
+
+Azure CSP(Cloud Solution Providers) 구독은 Azure AD B2C에서 지원됩니다. 이 기능은 Azure AD B2C 또는 모든 Azure 리소스에 대한 API 또는 Azure Portal을 통해 사용할 수 있습니다. CSP 구독 관리자는 모든 Azure 리소스와 동일한 방식으로 Azure AD B2C와의 관계를 연결, 이동 및 삭제할 수 있습니다. 역할 기반 액세스 제어를 사용한 Azure AD B2C 관리는 Azure AD B2C 테넌트와 Azure CSP 구독 간의 연결에 의해 영향을 받지 않습니다. 역할 기반 액세스 제어는 구독 기반 역할이 아닌 테넌트 기반 역할을 사용하여 수행됩니다.
 
 계속하려면 유효한 Azure 구독이 필요합니다.
 
@@ -81,10 +83,6 @@ Azure 구독 내에서 Azure AD B2C 리소스를 만든 후 "B2C 테넌트" 유�
 ![B2C 리소스 설정](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
 ## <a name="known-issues"></a>알려진 문제
-
-### <a name="csp-subscriptions"></a>CSP 구독
-
-현재, Azure AD B2C 테넌트는 CSP 구독에 연결될 수 **없습니다**.
 
 ### <a name="self-imposed-restrictions"></a>자체적으로 적용된 제한 사항
 

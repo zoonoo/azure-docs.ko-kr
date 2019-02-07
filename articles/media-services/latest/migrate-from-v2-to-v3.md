@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 12/18/2018
+ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 017de43074d4b68c69526ddcc96f98ae826dcd65
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ec40de04f46d0be8f40c2223346f17d288eb580c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808734"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104068"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침
 
@@ -35,7 +35,7 @@ ms.locfileid: "54808734"
 
 ### <a name="api-is-more-approachable"></a>더 접근하기 쉬운 API
 
-*  v3은 Azure Resource Manager에서 빌드된 관리 및 운영 기능을 모두 제공하는 통합된 API 화면을 기반으로 합니다. Azure Resource Manager 템플릿을 사용하여 변환, 스트리밍 엔드포인트, LiveEvent(라이브 이벤트) 등을 만들고 배포할 수 있습니다.
+*  v3은 Azure Resource Manager에서 빌드된 관리 및 운영 기능을 모두 제공하는 통합된 API 화면을 기반으로 합니다. Azure Resource Manager 템플릿을 사용하여 변환, 스트리밍 엔드포인트, 라이브 이벤트 등을 만들고 배포할 수 있습니다.
 * [공개 API(Swagger라고도 함) 사양](https://aka.ms/ams-v3-rest-sdk) 문서입니다.
     파일 기반 인코딩을 포함하여 모든 서비스 구성 요소의 스키마를 공개합니다.
 * [.NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core, [Node.js](https://aka.ms/ams-v3-nodejs-ref), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [Go](https://aka.ms/ams-v3-go-ref) 및 Ruby에 SDK를 사용할 수 있습니다.
@@ -45,14 +45,14 @@ ms.locfileid: "54808734"
 
 * 파일 기반 작업 처리의 경우 HTTP(S) URL을 입력으로 사용할 수 있습니다.<br/>아직 콘텐츠를 Azure에 저장하거나 자산을 만들 필요가 없습니다.
 * 파일 기반 작업 처리를 위한 [변환](transforms-jobs-concept.md) 개념을 도입합니다. 변환을 사용하여 재사용 가능한 구성을 빌드하고, Azure Resource Manager 템플릿을 만들고, 여러 고객 또는 테넌트 간에 처리 설정을 격리할 수 있습니다.
-* 동적 패키징 및 동적 암호화 설정이 서로 다른 [여러 개의 StreamingLocator](streaming-locators-concept.md)가 자산에 있을 수 있습니다.
+* 동적 패키징 및 동적 암호화 설정이 서로 다른 여러 개의 [스트리밍 로케이터](streaming-locators-concept.md)가 자산에 있을 수 있습니다.
 * [콘텐츠 보호](content-key-policy-concept.md)에서 다중 키 기능을 지원합니다.
 * 단일 비트 전송률 기여 피드를 다중 비트 전송률이 있는 출력 스트림으로 코드 변환하기 위해 Media Services를 사용할 때 최대 24시간 분량의 라이브 이벤트를 스트리밍할 수 있습니다.
-* 대기 시간이 짧은 새 라이브 스트리밍이 LiveEvents에서 지원됩니다. 자세한 내용은 [대기 시간](live-event-latency.md)을 참조하세요.
-* LiveEvent 미리 보기는 동적 패키징 및 동적 암호화를 지원합니다. 이렇게 하면 DASH 및 HLS 패키징뿐만 아니라 미리 보기에서도 콘텐츠 보호가 가능합니다.
-* LiveOutput은 v2 API의 Program 엔터티보다 사용 방법이 간단합니다. 
+* 대기 시간이 짧은 새 라이브 스트리밍이 라이브 이벤트에서 지원됩니다. 자세한 내용은 [대기 시간](live-event-latency.md)을 참조하세요.
+* 라이브 이벤트 미리 보기는 동적 패키징 및 동적 암호화를 지원합니다. 이렇게 하면 DASH 및 HLS 패키징뿐만 아니라 미리 보기에서도 콘텐츠 보호가 가능합니다.
+* 라이브 출력은 v2 API의 Program 엔터티보다 사용 방법이 간단합니다. 
 * RTMP 지원 향상(향상된 안정성 및 더 많은 소스 인코더 지원)
-* RTMPS 보안 수집<br/>LiveEvent를 만들면 수집 URL이 4개 생성됩니다. 4개의 수집 URL은 거의 동일하며 스트리밍 토큰(AppId)이 동일하고 포트 번호 부분만 다릅니다. URL 중 두 개는 RTMPS에 대한 기본 및 백업용입니다.   
+* RTMPS 보안 수집<br/>라이브 이벤트를 만들면 수집 URL이 4개 생성됩니다. 4개의 수집 URL은 거의 동일하며 스트리밍 토큰(AppId)이 동일하고 포트 번호 부분만 다릅니다. URL 중 두 개는 RTMPS에 대한 기본 및 백업용입니다.   
 * 엔터티에 대한 RBAC(역할 기반 Access Control)를 갖습니다. 
 
 ## <a name="changes-from-v2"></a>v2에서 변경된 내용
@@ -64,14 +64,14 @@ ms.locfileid: "54808734"
 * v3 API에서 모든 인코딩 비트 전송률은 비트/초입니다. 이것은 v2 Media Encoder Standard 미리 설정과 다른 점입니다. 예를 들어 v2의 비트 전송률은 128(kbps)로 지정되지만 v3에서는 128000(비트/초)이 됩니다. 
 * Entities AssetFiles, AccessPolicies 및 IngestManifests는 v3에 없습니다.
 * v3에서 IAsset.ParentAssets 속성이 없습니다.
-* ContentKeys는 더 이상 엔터티가 아닌 StreamingLocator의 속성입니다.
+* ContentKeys는 더 이상 엔터티가 아닌 스트리밍 로케이터의 속성입니다.
 * Event Grid 지원은 NotificationEndpoints를 대체합니다.
 * 다음 엔터티의 이름이 바뀌었습니다.
-    * JobOutput은 Task를 대체하며, 이제 Job의 일부입니다.
-    * StreamingLocator는 Locator를 대체합니다.
-    * LiveEvent는 Channel을 대체합니다.<br/>LiveEvents 요금은 라이브 채널 미터를 기반으로 청구됩니다. 자세한 내용은 [라이브 스트리밍 개요](live-streaming-overview.md#billing) 및 [가격 책정](https://azure.microsoft.com/pricing/details/media-services/)을 참조하세요.
-    * LiveOutput은 Program을 대체합니다.
-* Liveoutput은 명시적으로 시작할 필요가 없습니다. 생성 시 시작되고 삭제 시 중지됩니다. v2 API에서는 프로그램이 다르게 작동했습니다. 생성 후 시작해야 했습니다.
+    * Job Output은 Task를 대체하며, 이제 Job의 일부입니다.
+    * Streaming Locator는 Locator를 대체합니다.
+    * Live Event는 Channel을 대체합니다.<br/>라이브 이벤트 요금은 라이브 채널 미터를 기반으로 청구됩니다. 자세한 내용은 [대금 청구](live-event-states-billing.md) 및 [가격 책정](https://azure.microsoft.com/pricing/details/media-services/)을 참조하세요.
+    * Live Output은 Program을 대체합니다.
+* 라이브 출력은 명시적으로 시작할 필요가 없습니다. 생성 시 시작되고 삭제 시 중지됩니다. v2 API에서는 프로그램이 다르게 작동했습니다. 생성 후 시작해야 했습니다.
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>v2 API와 관련된 기능 격차
 
@@ -84,7 +84,7 @@ v3 API는 v2 API와 관련하여 다음과 같은 기능 격차가 있습니다.
     * 오버레이
     * 자르기
     * 썸네일 스프라이트
-* 코드 변환을 사용하는 LiveEvents는 현재 슬레이트 삽입 중간 스트림 및 API 호출을 통한 광고 표시기 삽입을 지원하지 않습니다. 
+* 코드 변환을 사용하는 라이브 이벤트는 현재 슬레이트 삽입 중간 스트림 및 API 호출을 통한 광고 표시기 삽입을 지원하지 않습니다. 
 
 > [!NOTE]
 > 이 문서에 책갈피를 지정하고 업데이트를 계속 확인하세요.
@@ -97,7 +97,7 @@ v3 API는 v2 API와 관련하여 다음과 같은 기능 격차가 있습니다.
 |---|---|---|
 |자산 만들기 및 파일 업로드 |[v2 .NET 예제](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[v3 .NET 예제](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |작업 제출|[v2 .NET 예제](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[v3 .NET 예제](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>먼저 변환을 만든 후 작업을 제출하는 방법을 보여줍니다.|
-|AES 암호화를 사용하여 자산 게시 |1. ContentKeyAuthorizationPolicyOption 만들기<br/>2. ContentKeyAuthorizationPolicy 만들기<br/>3. AssetDeliveryPolicy 만들기<br/>4. Asset 만들기/콘텐츠 업로드 또는 작업 제출/출력 자산 사용<br/>5. Asset에 AssetDeliveryPolicy 연결<br/>6. ContentKey 만들기<br/>7. Asset에 ContentKey 연결<br/>8. AccessPolicy 만들기<br/>9. Locator 만들기<br/><br/>[v2 .NET 예제](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. 콘텐츠 키 정책 만들기<br/>2. Asset 만들기<br/>3. 콘텐츠 업로드 또는 Asset을 JobOutput으로 사용<br/>4. StreamingLocator 만들기<br/><br/>[v3 .NET 예제](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|AES 암호화를 사용하여 자산 게시 |1. ContentKeyAuthorizationPolicyOption 만들기<br/>2. ContentKeyAuthorizationPolicy 만들기<br/>3. AssetDeliveryPolicy 만들기<br/>4. Asset 만들기/콘텐츠 업로드 또는 작업 제출/출력 자산 사용<br/>5. Asset에 AssetDeliveryPolicy 연결<br/>6. ContentKey 만들기<br/>7. Asset에 ContentKey 연결<br/>8. AccessPolicy 만들기<br/>9. Locator 만들기<br/><br/>[v2 .NET 예제](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. 콘텐츠 키 정책 만들기<br/>2. Asset 만들기<br/>3. 콘텐츠 업로드 또는 Asset을 JobOutput으로 사용<br/>4. 스트리밍 로케이터 만들기<br/><br/>[v3 .NET 예제](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
 
 ## <a name="known-issues"></a>알려진 문제
 
@@ -106,7 +106,7 @@ v3 API는 v2 API와 관련하여 다음과 같은 기능 격차가 있습니다.
 * v3 API로 만든 Media Services 엔터티는 v2 API를 사용하여 관리할 수 없습니다.  
 * v2 API로 만든 엔터티를 v3 API를 통해 관리하는 것은 좋지 않습니다. 다음은 두 버전의 엔터티가 서로 호환되지 않는 차이점의 예입니다.   
     * v2에서 만든 작업 및 태스크는 변환과 연결되지 않으므로 v3에서 나타나지 않습니다. v3 변환 및 작업으로 전환하는 것이 좋습니다. 전환할 때 비교적 짧은 기간 동안 진행 중인 v2 작업을 모니터링해야 합니다.
-    * v2로 만든 채널 및 프로그램(v3에서는 LiveEvents 및 LiveOutput으로 매핑)은 v3를 사용하여 계속 관리할 수 없습니다. 편리한 채널 중지점에서 v3 LiveEvents 및 LiveOutputs으로 전환하는 것이 좋습니다.<br/>현재는 지속적으로 실행 중인 채널을 마이그레이션할 수 없습니다.  
+    * v2로 만든 채널 및 프로그램(v3에서는 라이브 이벤트 및 라이브 출력으로 매핑)은 v3을 사용하여 계속 관리할 수 없습니다. 편리한 채널 중지점에서 v3 라이브 이벤트 및 라이브 출력으로 전환하는 것이 좋습니다.<br/>현재는 지속적으로 실행 중인 채널을 마이그레이션할 수 없습니다.  
 
 > [!NOTE]
 > Media Services 팀이 지속적으로 v3 API를 개선하고 버전 간 차이를 해결하고 있으므로 이 페이지는 계속 유지됩니다.

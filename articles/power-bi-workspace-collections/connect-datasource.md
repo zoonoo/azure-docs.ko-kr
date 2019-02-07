@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: c626601d9eae7732779020b153c624f80605b56a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: fcf18731bd5b9bbe91541931ac68effd9de6debf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051878"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104697"
 ---
 # <a name="connect-to-a-data-source"></a>데이터 원본에 연결
 
@@ -28,7 +28,7 @@ ms.locfileid: "43051878"
 
 | 가져오기 | 직접 연결 |
 | --- | --- |
-| 테이블, 열 *및 데이터*를 보고서의 데이터 세트로 가져오거나 복사합니다. 기본 데이터에서 발생한 변경 내용을 보려면 현재 데이터 세트를 다시 새로 고치거나 가져오거나 완료해야 합니다. |*테이블 및 열* 만 보고서의 데이터 집합으로 가져오거나 복사합니다. 항상 최신 데이터가 표시됩니다. |
+| 테이블, 열 *및 데이터*를 보고서의 데이터 세트로 가져오거나 복사합니다. 기본 데이터에서 발생한 변경 내용을 보려면 현재 데이터 세트를 다시 새로 고치거나 가져오거나 완료해야 합니다. |*테이블 및 열*만 보고서의 데이터 세트로 가져오거나 복사합니다. 항상 최신 데이터가 표시됩니다. |
 
 Power BI 작업 영역 컬렉션을 사용하면 클라우드 데이터 원본에서 DirectQuery를 사용할 수 있지만, 현재 온-프레미스 데이터 원본에서는 사용할 수 없습니다.
 
@@ -49,7 +49,7 @@ Power BI Desktop 내에서 모든 사용 가능한 데이터 원본을 사용하
 
 **DirectQuery**를 사용할 경우 다음 두 가지 주요 이점이 있습니다.
 
-* **DirectQuery**를 사용하면 대규모 데이터 집합에서 시각화를 빌드할 수 있습니다. 그렇지 않으면 먼저 모든 데이터를 가져올 수 없습니다.
+* **DirectQuery**를 사용하면 대규모 데이터 세트에서 시각화를 빌드할 수 있습니다. 그렇지 않으면 먼저 모든 데이터를 가져올 수 없습니다.
 * 기본 데이터 변경에는 데이터 새로 고침이 필요할 수 있으며, 일부 보고서의 경우 현재 데이터를 표시하려면 대용량 데이터 전송이 필요할 수 있습니다. 이 경우 데이터를 다시 가져올 수 없습니다. 반면, **DirectQuery** 보고서는 항상 현재 데이터를 사용합니다.
 
 ## <a name="limitations-of-directquery"></a>DirectQuery의 제한 사항

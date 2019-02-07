@@ -5,16 +5,16 @@ description: 프로젝트의 모델 탭에는 모델 이름, 모델 상태, BLEU
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 80ee99fc4490f1fdc591093f357c8db55a97abb9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d82d41a254164c635f4488db63766b39d922f002
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627976"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219122"
 ---
 # <a name="view-model-details"></a>모델 세부 정보 보기
 
@@ -40,7 +40,7 @@ ms.locfileid: "51627976"
 
     -  Undeployed: 성공적으로 완료된 모델의 배포 취소 프로세스를 지정합니다.
 
-    -  Training Failed: 실패한 학습을 지정합니다. 학습 오류가 발생한 경우 학습 작업을 다시 시도합니다. 오류가 지속되면 알려주세요. 실패한 모델을 삭제하지 마십시오.
+    -  Training Failed: 학습이 실패했음을 알립니다. 학습 오류가 발생한 경우 학습 작업을 다시 시도합니다. 오류가 지속되면 알려주세요. 실패한 모델을 삭제하지 마십시오.
 
     - DataProcessingFailed: 모델에 속한 하나 이상의 문서에 대해 실패한 데이터 처리를 지정합니다.
 
@@ -54,11 +54,11 @@ ms.locfileid: "51627976"
 
 6.  튜닝 문장 수: 튜닝 세트로 사용된 총 문장 수를 표시합니다.
 
-7.  테스트 문장 수: 테스팅 세트로 사용된 총 문장 수를 표시합니다.
+7.  학습 문장 수: 테스트 세트로 사용된 총 문장 수를 표시합니다.
 
 8.  Mono 문장 수: Mono 세트로 사용된 총 문장 수를 표시합니다.
 
-9.  배포 작업 단추: 성공적으로 학습된 모델에서 배포되지 않은 경우 “배포” 단추가 표시됩니다. 모델이 배포되면 “배포 취소” 단추가 표시됩니다.
+9.  배포 작업 단추: 성공적으로 훈련된 모델에는 (아직 배포되지 않은 경우) “배포” 단추가 표시됩니다. 모델이 배포되면 “배포 취소” 단추가 표시됩니다.
 
 10. 삭제: 모델을 삭제하려는 경우 이 단추를 사용할 수 있습니다. 모델을 삭제해도 해당 모델을 만드는 데 사용된 문서는 삭제되지 않습니다.
 
@@ -71,7 +71,7 @@ ms.locfileid: "51627976"
 
 학습이 완료되면 세부 정보 페이지에서 학습에 대한 세부 정보를 검토할 수 있습니다. 프로젝트를 선택하고, 모델 탭을 찾아 선택한 후 모델을 선택합니다.
 
-모델 페이지에 학습 세부 정보 및 테스트라는 두 개의 탭이 있습니다.
+모델 페이지에는 두 개의 탭 학습 세부 정보 및 테스트가 있습니다.
 
 1.  **학습 세부 정보:** 이 탭에는 학습에 사용되는 문서 목록이 표시됩니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 40562c77cf38ad316d64f68b54dd4174dae6da1a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e0f85e11b2be8a615f949e0d37325dbd748f728a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614475"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103278"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Azure WCF 릴레이 REST 자습서
 이 자습서에서는 REST 기반 인터페이스를 표시하는 간단한 Azure Relay 호스트 애플리케이션을 구축하는 방법을 설명합니다. REST는 웹 브라우저와 같은 웹 클라이언트가 HTTP 요청을 통해 Service Bus API에 액세스할 수 있도록 합니다.
@@ -56,8 +56,8 @@ WCF 계약과 REST 스타일 계약의 주요 차이는 [OperationContractAttrib
 ### <a name="to-create-a-contract-with-an-interface"></a>인터페이스와 함께 계약을 만들려면
 
 1. Visual Studio를 관리자 권한으로 열고 **시작 메뉴**에서 프로그램을 마우스 오른쪽 단추로 클릭한 다음 **관리자 권한으로 실행**을 클릭합니다.
-2. 새 콘솔 애플리케이션 프로젝트를 만듭니다. **파일** 메뉴를 클릭하고 **새로 만들기**와 **프로젝트**를 선택합니다. **새 프로젝트** 대화 상자에서 **Visual C#** 을 클릭하고 **콘솔 응용 프로그램** 템플릿을 선택하여 **ImageListener**로 이름을 지정합니다. 기본 **위치**를 사용합니다. **확인** 을 클릭하여 프로젝트를 만듭니다.
-3. C# 프로젝트의 경우 Visual Studio는 `Program.cs` 파일을 만듭니다. 이 클래스는 콘솔 애플리케이션 프로젝트를 제대로 구축하는 데 필요한 빈 `Main()` 메서드를 포함합니다.
+2. 새 콘솔 애플리케이션 프로젝트를 만듭니다. **파일** 메뉴를 클릭하고 **새로 만들기**와 **프로젝트**를 선택합니다. **새 프로젝트** 대화 상자에서 **Visual C#** 을 클릭하고 **콘솔 애플리케이션** 템플릿을 선택하여 **ImageListener**로 이름을 지정합니다. 기본 **위치**를 사용합니다. **확인** 을 클릭하여 프로젝트를 만듭니다.
+3. C# 프로젝트의 경우 Visual Studio는 `Program.cs` 파일을 만듭니다. 이 클래스는 콘솔 애플리케이션 프로젝트를 제대로 구축하는데 필요한 빈 `Main()` 메서드를 포함합니다.
 4. Service Bus에 참조를 추가하고 Service Bus NuGet 패키지를 설치하여 프로젝트에 **System.ServiceModel.dll**를 추가합니다. 이 패키지는 WCF **System.ServiceModel** 뿐만 아니라 Service Bus 라이브러리에 대한 참조를 자동으로 추가합니다. 솔루션 탐색기에서 **ImageListener**프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다. **찾아보기** 탭을 클릭한 다음 `Microsoft Azure Service Bus`를 검색합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
 5. 프로젝트에 대해 **System.ServiceModel.Web.dll**에 참조를 명시적으로 추가해야 합니다.
    
@@ -439,9 +439,9 @@ namespace Microsoft.ServiceBus.Samples
       </behaviors>
     </system.serviceModel>
     <appSettings>
-        <!-- Service Bus specific app setings for messaging connections -->
+        <!-- Service Bus specific app settings for messaging connections -->
         <add key="Microsoft.ServiceBus.ConnectionString"
-            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey="YOUR_SAS_KEY"/>
+            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SAS_KEY>"/>
     </appSettings>
 </configuration>
 ```

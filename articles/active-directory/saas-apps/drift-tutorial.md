@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 39dcbb95-c192-448c-86a1-cedede1c0972
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
-ms.openlocfilehash: c08b57c41cc43bfa47dee69a75663e7a58ef4c21
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f7973ccb384a8e882a9ced5020a53824bf0c4e7d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632843"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169878"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-drift"></a>자습서: Drift와 Azure Active Directory 통합
 
@@ -66,7 +66,7 @@ Drift의 Azure AD 통합을 구성하려면 갤러리의 Drift를 관리되는 S
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
 
@@ -110,7 +110,7 @@ Drift에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     ![Configure Single Sign-On](common/editconfigure.png)
 
-4. **IDP** 시작 모드에서 응용 프로그램을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
     ![Drift 도메인 및 URL Single Sign-On 정보](./media/drift-tutorial/tutorial_drift_url.png)
 
@@ -120,7 +120,7 @@ Drift에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     다. **SP** 시작 모드로 애플리케이션을 구성하려는 경우 **로그온 URL** 텍스트 상자에 다음 URL을 입력합니다. `https://start.drift.com`
 
-5. Drift 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **편집** 단추를 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
+5. Drift 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **편집** 단추를 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
 
     ![이미지](./media/drift-tutorial/tutorial_drift_attribute.png)
 
@@ -128,7 +128,7 @@ Drift에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
     
     | 특성 이름 | 특성 값 |
     | ---------------| --------------- |    
-    | 이름 | user.displayname |
+    | Name | user.displayname |
 
     a. `name` 클레임(강조 표시된 클레임)을 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
@@ -225,7 +225,7 @@ Drift에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

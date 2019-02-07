@@ -5,15 +5,15 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 10/19/2018
-ms.component: hybrid
+ms.date: 01/24/2019
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1d2d921e02b56e951b4239c15471995eaf3cd0d1
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 19b7cebd1c75e1a2bbfe34e3ab4e657051e8a6d4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813583"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159535"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect:  ADSyncConfig PowerShell 참조
 이 설명서에서는 Azure AD Connect에 포함된 ADSyncConfig.psm1 PowerShell 모듈에 대해 다음과 같은 참조 정보를 제공합니다.
@@ -1215,7 +1215,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
 ### <a name="description"></a>설명
 Set-ADSyncUnifiedGroupWritebackPermissions 함수에서 부여하는 AD 동기화 계정에 필요한 권한은 다음과 같습니다.
 1.
-모든 Object 유형 및 SubObjects에 대한 일반 읽기/쓰기, 삭제, 트리 삭제 및 자식 만들기/삭제
+모든 그룹 Object 유형 및 SubObjects에 대한 일반 읽기/쓰기, 삭제, 트리 삭제 및 자식 만들기/삭제
 
 이러한 권한은 포리스트의 모든 도메인에 적용됩니다.
 필요에 따라 ADobjectDN 매개 변수에 DistinguishedName을 제공하여 해당 AD 개체(하위 개체에 대한 상속 포함)에 대해서만 이러한 권한을 설정할 수 있습니다.

@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: c37e050cd762cb173d64f78b5267e4ad252d17a9
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f376b6bcb0238f96b4f5bb35d898cc600e108c65
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902249"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169759"
 ---
 # <a name="bake-acoustics"></a>음향 효과 준비
 
@@ -255,10 +255,10 @@ Azure 자격 증명은 로컬 컴퓨터에 안전하게 저장되고 Unity 편�
 
 이 플러그 인에서 생성된 4개의 데이터 파일은 다양한 지점에 있습니다. 런타임에는 이러한 파일 중 하나만 필요하므로, 다른 3개는 “Editor”(편집기) 폴더 내에 있으며 프로젝트에 컴파일되지 않습니다.
 
-* **Assets/Editor/[SceneName]\_AcousticsParameters.asset**: 이 파일은 사용자가 입력하는 데이터를 Acoustics UI의 필드에 저장합니다. 이 파일의 이름과 위치는 변경할 수 없습니다. 이 파일에는 준비에 영향을 미치는 다른 값도 있지만 고급 사용자를 위한 것이며 변경하지 않는 것이 좋습니다.
+* **Assets/Editor/[SceneName]\_AcousticsParameters.asset**: 이 파일은 Acoustics UI의 필드에 입력하는 데이터를 저장합니다. 이 파일의 이름과 위치는 변경할 수 없습니다. 이 파일에는 준비에 영향을 미치는 다른 값도 있지만 고급 사용자를 위한 것이며 변경하지 않는 것이 좋습니다.
 * **Assets/AcousticsData/Acoustics\_[SceneName].ace.bytes**: 이 파일은 준비 시뮬레이션 동안 만들어지며, 장면의 음향 효과를 렌더링하기 위해 런타임에서 사용하는 조회 데이터를 포함합니다. 이 파일의 위치와 이름은 **Probes**(프로브) 탭의 필드를 사용하여 변경할 수 있습니다.
-* **Assets/AcousticsData/Editor/Acoustics_[SceneName].vox**: 이 파일은 입체 화상으로 나타낸 음향 기하 도형과 재질 속성을 저장합니다. Probes(프로브) 탭의 **Calculate...**(계산...) 단추를 사용하여 계산됩니다. 이 파일의 위치와 이름은 **Probes**(프로브) 탭의 필드를 사용하여 변경할 수 있습니다.
-* **Assets/AcousticsData/Editor/Acoustics\_[SceneName]\_config.xml**: 이 파일은 **Probes** (프로브) 탭의 **Calculate...**(계산...) 단추를 사용하여 계산되는 매개 변수를 저장합니다. 이 파일의 위치와 이름은 **Probes**(프로브) 탭의 필드를 사용하여 변경할 수 있습니다.
+* **Assets/AcousticsData/Editor/Acoustics_[SceneName].vox**: 이 파일은 복셀 음향 효과 기하 도형 및 재질 속성을 저장합니다. Probes(프로브) 탭의 **Calculate...**(계산...) 단추를 사용하여 계산됩니다. 이 파일의 위치와 이름은 **Probes**(프로브) 탭의 필드를 사용하여 변경할 수 있습니다.
+* **Assets/AcousticsData/Editor/Acoustics\_[SceneName]\_config.xml**: 이 파일은 **Probes**(프로브) 탭의 **Calculate...**(계산...) 단추를 사용하여 계산되는 매개 변수를 저장합니다. 이 파일의 위치와 이름은 **Probes**(프로브) 탭의 필드를 사용하여 변경할 수 있습니다.
 
 준비에서 다운로드한 *.ace.bytes 파일은 삭제하지 않도록 주의합니다. 이 파일은 장면을 다시 준비하는 경우를 제외하고는 복구할 수 없습니다.
 

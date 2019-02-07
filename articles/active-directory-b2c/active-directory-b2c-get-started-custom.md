@@ -7,21 +7,21 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 01/25/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 235b72393801717bb5d7258d6492dc4c943fe232
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: d4105aab80add8556bcbe79c9c6e8dd7743b25b7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852306"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298742"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책 시작
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-[사용자 지정 정책](active-directory-b2c-overview-custom.md)은 Azure AD(Azure Active Directory) B2C 테넌트의 동작을 정의하는 구성 파일입니다. 이 문서에서는 전자 메일 주소와 암호를 사용한 로콜 계정 등록 또는 로그인을 지원하는 사용자 지정 정책을 만듭니다. 또한 Facebook 또는 Azure Active Directory와 같은 ID 공급자를 추가할 수 있도록 환경을 준비합니다.
+[사용자 지정 정책](active-directory-b2c-overview-custom.md)은 Azure AD(Azure Active Directory) B2C 테넌트의 동작을 정의하는 구성 파일입니다. 이 문서에서는 전자 메일 주소와 암호를 사용한 로콜 계정 등록 또는 로그인을 지원하는 사용자 지정 정책을 만듭니다. ID 공급자를 추가하기 위한 환경도 준비합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -31,9 +31,6 @@ Azure 구독에 연결된 [Azure AD B2C 테넌트](tutorial-create-tenant.md)가
 
 1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다. 
-
-    ![Azure AD B2C 테넌트로 전환](./media/active-directory-b2c-setup-fb-app/switch-directories.png)
-
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. 개요 페이지에서 **ID 경험 프레임워크 - 미리 보기**를 선택합니다.
 
@@ -70,9 +67,9 @@ Azure 구독에 연결된 [Azure AD B2C 테넌트](tutorial-create-tenant.md)가
 
 Azure AD B2C를 사용하려면 사용자 가입 및 로그인에 사용되고 IdentityExperienceFramework 앱에서 위임된 권한을 갖고 있는 두 개의 애플리케이션 IdentityExperienceFramework(웹앱) 및 ProxyIdentityExperienceFramework(네이티브 앱)를 등록해야 합니다. 로컬 계정은 테넌트에만 존재합니다. 사용자는 고유한 이메일 주소/암호 조합으로 등록하여 테넌트에 등록된 애플리케이션에 액세스합니다.
 
-### <a name="register-the-identityexperienceframework-application"></a>IdentityExperienceFramework 응용 프로그램 등록
+### <a name="register-the-identityexperienceframework-application"></a>IdentityExperienceFramework 애플리케이션 등록
 
-1. Azure Portal의 왼쪽 위 모서리에서 **모든 서비스**를 선택하고 **Azure Active Directory**를 검색하여 선택한 다음 **앱 등록**을 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고, **앱 등록**을 검색하여 선택합니다.
 2. **새 애플리케이션 등록**을 선택합니다.
 3. **이름**에 `IdentityExperienceFramework`를 입력합니다.
 4. **응용 프로그램 종류**로 **웹앱/API**를 선택합니다.
@@ -105,8 +102,8 @@ Azure AD B2C를 사용하려면 사용자 가입 및 로그인에 사용되고 I
 시작 팩 각각에는 다음이 포함됩니다.
 
 - 기본 파일. 기본 파일에 몇 가지 수정이 필요합니다.
-* 확장 파일.  이 파일은 구성이 대부분 변경되었습니다.
-* 신뢰 당사자 파일. 응용 프로그램에서 호출하는 작업 관련 파일입니다.
+- 확장 파일.  이 파일은 구성이 대부분 변경되었습니다.
+- 신뢰 당사자 파일. 응용 프로그램에서 호출하는 작업 관련 파일입니다.
 
 >[!NOTE]
 >XML 편집기에서 유효성 검사를 지원하는 경우 시작 팩의 루트 디렉터리에 있는 TrustFrameworkPolicy_0.3.0.0.xsd XML 스키마에 대해 파일의 유효성을 검사합니다. 업로드하기 전에 XML 스키마 유효성 검사가 오류를 식별합니다.
@@ -117,17 +114,14 @@ Azure AD B2C를 사용하려면 사용자 가입 및 로그인에 사용되고 I
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 
-2. SocialAndLocalAccounts 폴더에서 `yourtenant.onmicrosoft.com`을 실제 테넌트 이름으로 바꿔 모든 파일을 편집합니다. 예: `contosoTenant.onmicrosoft.com` XML 편집기가 필요하면 간단한 플랫폼 간 편집기인 [Visual Studio Code를 사용해 보세요](https://code.visualstudio.com/download).
+2. SocialAndLocalAccounts 폴더에서 `yourtenant`을 실제 테넌트 이름으로 바꿔 모든 파일을 편집합니다. 예: `contosoTenant.onmicrosoft.com` XML 편집기가 필요하면 간단한 플랫폼 간 편집기인 [Visual Studio Code를 사용해 보세요](https://code.visualstudio.com/download).
 
 ### <a name="add-application-ids-to-the-custom-policy"></a>사용자 지정 정책에 응용 프로그램 ID 추가
 
 확장 파일 *TrustFrameworkExtensions.xml*에 애플리케이션 ID를 추가합니다.
 
 1. *TrustFrameworkExtensions.xml* 파일을 열어 `<TechnicalProfile Id="login-NonInteractive">` 요소를 찾습니다.
-2. `IdentityExperienceFrameworkAppId`의 두 인스턴스를 이전에 만든 ID 경험 프레임워크 애플리케이션의 애플리케이션 ID로 바꿉니다. `ProxyIdentityExperienceFrameworkAppId`의 두 인스턴스를 이전에 만든 프록시 ID 경험 프레임워크 애플리케이션의 애플리케이션 ID로 바꿉니다. 다음 예제에서는 변경 후의 **login-NonInteractive** 기술 프로필을 보여 줍니다.
-
-    ![응용 프로그램 ID](./media/active-directory-b2c-get-started-custom/login-NonInteractive.png)
-
+2. `IdentityExperienceFrameworkAppId`의 두 인스턴스를 이전에 만든 ID 경험 프레임워크 애플리케이션의 애플리케이션 ID로 바꿉니다. `ProxyIdentityExperienceFrameworkAppId`의 두 인스턴스를 이전에 만든 프록시 ID 경험 프레임워크 애플리케이션의 애플리케이션 ID로 바꿉니다.
 3. 확장 파일을 저장합니다.
 
 ## <a name="upload-the-policies"></a>정책 업로드

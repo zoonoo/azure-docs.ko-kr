@@ -10,16 +10,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e08ca3453cc43fa0f35102ca5563b4b07ce45dea
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 423842d3e2485334a916423e997c12669a126adb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215007"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155071"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Azure Active Directory에서 그룹 멤버 자격별로 사용자에게 라이선스 할당
 
@@ -59,7 +59,7 @@ ms.locfileid: "50215007"
 이제 HR Department 그룹의 라이선스 템플릿이 지정되었습니다. Azure AD에서 해당 그룹의 모든 기존 멤버를 처리하기 위한 백그라운드 프로세스가 시작되었습니다. 이 초기 작업은 그룹의 현재 크기에 따라 약간 시간이 걸릴 수 있습니다. 다음 단계에서는 프로세스가 완료되었는지와 문제 해결을 위해 추가적인 관리가 필요한지를 확인하는 방법을 설명합니다.
 
 > [!NOTE]
-> 대체 위치인 Azure AD의 **사용자 및 그룹**에서 동일한 할당을 시작할 수 있습니다. **Azure Active Directory** > **사용자 및 그룹** > **모든 그룹**으로 이동합니다. 그 후 그룹을 찾아서 선택한 다음 **라이선스** 탭으로 이동합니다. 창 위쪽의 **할당** 단추를 클릭하면 라이선스 할당 창이 열립니다.
+> 대체 위치에서 동일한 할당을 시작할 수 있습니다. Azure AD의 **사용자 및 그룹** **Azure Active Directory** > **사용자 및 그룹** > **모든 그룹**으로 이동합니다. 그 후 그룹을 찾아서 선택한 다음 **라이선스** 탭으로 이동합니다. 창 위쪽의 **할당** 단추를 클릭하면 라이선스 할당 창이 열립니다.
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>2단계: 초기 할당이 완료되었는지 확인
 
@@ -77,9 +77,9 @@ ms.locfileid: "50215007"
 
 3. 라이선스처리에 대한 자세한 내용은 **Azure Active Directory** > **사용자 및 그룹** > *그룹 이름* > **감사 로그**를 참조하세요. 다음 활동에 유의하세요.
 
-   - 활동: **사용자에게 그룹 기반 라이선스 할당 시작**. 시스템이 그룹에 대한 라이선스 할당 변경을 선택하고 모든 사용자 멤버에게 적용하기 시작하면 로깅됩니다. 수행된 변경 내용에 대한 정보가 포함됩니다.
+   - 활동: **사용자에게 그룹 기반 라이선스 적용 시작** 시스템이 그룹에 대한 라이선스 할당 변경을 선택하고 모든 사용자 멤버에게 적용하기 시작하면 로깅됩니다. 수행된 변경 내용에 대한 정보가 포함됩니다.
 
-   - 활동: **사용자에게 그룹 기반 라이선스 할당 완료**. 시스템이 그룹의 모든 사용자에 대한 처리를 완료하면 로깅됩니다. 성공적으로 처리된 사용자 수와 그룹 라이선스를 할당하지 못한 사용자 수에 대한 요약 정보가 포함되어 있습니다.
+   - 활동: **사용자에게 그룹 기반 라이선스 적용 완료** 시스템이 그룹의 모든 사용자에 대한 처리를 완료하면 로깅됩니다. 성공적으로 처리된 사용자 수와 그룹 라이선스를 할당하지 못한 사용자 수에 대한 요약 정보가 포함되어 있습니다.
 
    [이 섹션을 읽고](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) 감사 로그를 사용하여 그룹 기반 라이선스에 의한 변경 내용을 분석하는 방법에 대해 자세히 알아보세요.
 

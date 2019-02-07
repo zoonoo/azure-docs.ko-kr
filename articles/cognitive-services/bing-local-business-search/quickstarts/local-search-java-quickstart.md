@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
+ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 533e8b30bf59010f71df477b96b5441c83c34be7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ada75f9ebe38615d17276c9e5b731924a45c8e75
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307111"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55148459"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>빠른 시작: Java를 사용하여 Bing Local Business Search API에 쿼리 보내기
 
@@ -35,7 +35,7 @@ Bing Search API를 사용하는 [Cognitive Services API 계정](https://docs.mic
 
 다음 코드에서는 `WebRequest`를 만들고, 액세스 키 헤더를 설정하고, “hotel in Bellevue”에 대한 쿼리 문자열을 추가합니다.  그런 다음, 요청을 보내고 JSON 텍스트가 포함된 응답을 문자열에 할당합니다.
 
-````
+```
     // construct URL of search request (endpoint + query string)
      URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + &mkt=en-us");
     HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
@@ -47,7 +47,7 @@ Bing Search API를 사용하는 [Cognitive Services API 계정](https://docs.mic
 
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## <a name="run-the-complete-application"></a>전체 애플리케이션 실행
 
@@ -58,7 +58,7 @@ Bing Local Business Search API는 Bing 검색 엔진의 결과를 반환합니�
 4. subscriptionKey 값을 구독에 유효한 액세스 키로 바꿉니다.
 5. 프로그램을 실행합니다.
 
-````
+```
 package localSearch;
 import java.net.*;
 import java.util.*;
@@ -162,7 +162,7 @@ public class LocalSearchCls {
         }
     }
 
-````
+```
 
 ## <a name="next-steps"></a>다음 단계
 - [Local Business Search 빠른 시작](local-quickstart.md)

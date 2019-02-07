@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 15011ddf-941f-4da2-b993-40ad94a08e42
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 3446ccae631efb763d9a216aac313abf9e1af72f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: e0658841e121dc8ea5bd4c704d99fd6bac98a32f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52166845"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171391"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allbound-sso"></a>자습서: Allbound SSO와 Azure Active Directory 통합
 
@@ -66,7 +66,7 @@ Allbound SSO가 Azure AD로 통합되도록 구성하려면 Allbound SSO를 갤�
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
 
@@ -110,7 +110,7 @@ Allbound SSO에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![Configure Single Sign-On](common/editconfigure.png)
 
-4. **IDP** 시작 모드에서 응용 프로그램을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
     ![Allbound SSO 도메인 및 URL Single Sign-On 정보](./media/allbound-sso-tutorial/tutorial_allbound-sso_url.png)
 
@@ -118,7 +118,7 @@ Allbound SSO에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<SUBDOMAIN>.allbound.com/acs`
 
-5. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
     ![Allbound SSO 도메인 및 URL Single Sign-On 정보](./media/allbound-sso-tutorial/tutorial_allbound-sso_url1.png)
 
@@ -208,7 +208,7 @@ Allbound SSO에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

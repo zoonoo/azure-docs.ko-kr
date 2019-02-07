@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3bb8d4796d23b84f815d28efa45af619efe19af3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c44e000a60e4391faf38cb275f35ec512e19aea3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338236"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101688"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Azure Security Center에서 네트워크 리소스 보호
 Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리소스의 보안 상태를 지속적으로 분석합니다. Security Center에서 잠재적인 보안 취약점을 식별하는 경우 리소스를 보호하고 강화하는 데 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다.
@@ -133,7 +133,7 @@ Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리�
 |컴퓨터|40|가상 머신에서 네트워크 보안 그룹 활성화|가상 머신의 네트워크 액세스를 제어하기 위해 네트워크 보안 그룹을 활성화합니다.|
 |서브넷|35|서브넷에서 네트워크 보안 그룹 활성화 |서브넷에 배포된 리소스의 네트워크 액세스를 제어하기 위해 네트워크 보안 그룹을 활성화합니다.|
 |컴퓨터|30|Just-In-Time 네트워크 액세스 제어 적용|선택한 포트에 대한 액세스를 영구적으로 잠그기 위해 Just-In-Time VM 액세스 제어를 적용하고 권한 있는 사용자가 제한된 시간 동안 동일한 메커니즘을 통해 열 수 있도록 활성화합니다.|
-|컴퓨터|20|인터넷 엔드포인트를 통한 액세스 제한|기존 허용 규칙의 액세스를 제안하여 인터넷 연결 VM의 네트워크 보안 그룹을 강화합니다.|
+|컴퓨터|20|인터넷 엔드포인트를 통한 액세스 제한|기존 허용 규칙의 액세스를 제한하여 인터넷 연결 VM의 네트워크 보안 그룹을 강화합니다.|
 |컴퓨터|10|차세대 방화벽 추가|NGFW(차세대 방화벽) 솔루션을 추가하여 인터넷 연결 VM의 보호를 강화합니다.|
 |컴퓨터|5|네트워크 게이트웨이 방화벽을 통해서만 트래픽 라우팅|차세대 방화벽 솔루션 배포를 완료하려면 사용자의 보호된 인터넷 연결 VM으로 가는 트래픽을 차세대 방화벽 솔루션을 통해서만 라우팅해야 합니다.|
 |VNet|5|DDoS Protection 표준 사용|이러한 가상 네트워크에서 공용 IP가 있는 애플리케이션은 DDOS 보호 서비스 표준으로 보호되어 있지 않으므로, 대규모 네트워크 및 프로토콜 공격을 완화하기 위해 이 표준을 사용하는 것이 좋습니다.|
@@ -144,7 +144,7 @@ VNet|5|DDoS Protection 표준 사용|이러한 가상 네트워크에서 공용 
 다른 Azure 리소스 유형에 적용되는 권장 사항에 대해 자세히 알아보려면 다음을 참조하세요.
 
 * [Azure Security Center에서 가상 머신 보호](security-center-virtual-machine-recommendations.md)
-* [Azure Security Center에서 응용 프로그램 보호](security-center-application-recommendations.md)
+* [Azure Security Center에서 애플리케이션 보호](security-center-application-recommendations.md)
 * [Azure Security Center에서 Azure SQL 서비스 보호](security-center-sql-service-recommendations.md)
 
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.

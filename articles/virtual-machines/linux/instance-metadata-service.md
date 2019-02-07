@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: eab9f13ad41d4109bb44ae196a7f8e2177886532
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 772070b73f1d2dcf83d15283f6be70ab4fef148b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994201"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155669"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -491,7 +491,7 @@ Puppet | https://github.com/keirans/azuremetadata
    * 서비스에 대한 지원을 받으려면 Azure Portal에서 긴 다시 시도 후 메타데이터 받을 수 없는 VM에 대한 지원 문제를 만듭니다. 
 9. 서비스를 호출하는 데 요청 시간이 초과됩니다.
    * 메타데이터 호출은 VM의 네트워크 카드에 할당된 기본 IP 주소로부터 수행되어야 하며, 경로를 변경한 경우에는 네트워크 카드에서 169.254.0.0/16 주소에 대한 경로도 있어야 합니다.
-10. 가상 머신 확장 집합에서 태그를 업데이트했으나 VM과 달리 인스턴스에 나타나지 않습니다.
+10. 가상 머신 확장 집합에서 태그를 업데이트했는데 VM과 달리 인스턴스에 태그가 나타나지 않습니다.
    * 현재 ScaleSets의 경우 태그는 재부팅/이미지로 다시 설치/인스턴스에 대한 디스크 변경이 있을 때만 VM에 표시됩니다. 
 
    ![인스턴스 메타데이터 지원](./media/instance-metadata-service/InstanceMetadata-support.png)

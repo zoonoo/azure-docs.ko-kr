@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 2a17cf3aca439c40d187e06fb29b76e78a036ccc
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 1454eb5dbf8c80dcf7024c150dbff6a2082dbd02
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976226"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100277"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>실패하거나 오류가 발생하거나 거부되는 Azure Linux VM에 대한 SSH 연결 문제 해결
-Linux VM(가상 머신)에 연결하려고 할 때 다양한 이유로 인해 SSH(Secure Shell) 오류, SSH 연결 실패 또는 SSH 연결 거부 문제가 발생할 수 있습니다. 이 문서는 문제를 찾아 해결하는 데 도움이 됩니다. Azure Portal, Azure CLI 또는 Linux용 VM 액세스 확장을 사용하여 연결 문제를 해결할 수 있습니다.
+이 문서는 Linux VM(가상 머신)에 연결하려고 할 때 SSH(Secure Shell) 오류, SSH 연결 실패 또는 SSH 연결 거부 문제로 인해 발생하는 문제를 찾고 수정하도록 돕습니다. Azure Portal, Azure CLI 또는 Linux용 VM 액세스 확장을 사용하여 연결 문제를 해결할 수 있습니다.
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -32,16 +32,16 @@ Linux VM(가상 머신)에 연결하려고 할 때 다양한 이유로 인해 SS
 ## <a name="quick-troubleshooting-steps"></a>빠른 문제 해결 단계
 각 문제 해결 단계 후 VM에 다시 연결을 시도합니다.
 
-1. SSH 구성을 재설정합니다.
-2. 사용자의 자격 증명을 다시 설정합니다.
+1. [SSH 구성을 다시 설정](#reset-config)합니다.
+2. 사용자의 [자격 증명을 다시 설정](#reset-credentials)합니다.
 3. [네트워크 보안 그룹](../../virtual-network/security-overview.md) 규칙이 SSH 트래픽을 허용하는지 확인합니다.
-   * 네트워크 보안 그룹 규칙이 SSH 트래픽을 허용하기 위해 존재하는지 확인합니다(기본적으로 TCP 포트 22).
+   * [네트워크 보안 그룹 규칙](#security-rules)이 SSH 트래픽을 허용하기 위해 존재하는지 확인합니다(기본적으로 TCP 포트 22).
    * Azure Load Balancer를 사용하지 않고 포트 리디렉션/매핑을 사용할 수 없습니다.
 4. [VM 리소스 상태](../../resource-health/resource-health-overview.md)를 확인합니다. 
    * VM이 정상으로 보고하는지 확인합니다.
-   * 부팅 진단을 사용하도록 설정하는 경우 VM이 로그에서 부팅 오류를 보고하지 않는지 확인합니다.
-5. VM을 다시 시작합니다.
-6. VM을 다시 배포합니다.
+   * [부팅 진단을 사용하도록 설정](boot-diagnostics.md)하는 경우 VM이 로그에서 부팅 오류를 보고하지 않는지 확인합니다.
+5. [VM을 다시 시작](#restart-vm)합니다.
+6. [VM을 다시 배포](#redeploy-vm)합니다.
 
 자세한 문제 해결 단계와 설명이 필요한 경우 계속 읽어보세요.
 
@@ -49,7 +49,7 @@ Linux VM(가상 머신)에 연결하려고 할 때 다양한 이유로 인해 SS
 다음 방법 중 하나를 사용하여 자격 증명 또는 SSH 구성을 다시 설정할 수 있습니다.
 
 * [Azure Portal](#use-the-azure-portal) - SSH 구성 또는 SSH 키를 신속하게 다시 설정해야 하는데 Azure 도구가 설치되지 않은 경우에 매우 유용합니다.
-* [Azure CLI](#use-the-azure-cli) - 명령줄에 이미 도달한 경우 SSH 구성 또는 자격 증명을 신속하게 다시 설정합니다. [Azure CLI](#use-the-azure-classic-cli)를 사용할 수도 있음
+* [Azure CLI](#use-the-azure-cli) - 명령줄에 이미 도달한 경우 SSH 구성 또는 자격 증명을 신속하게 다시 설정합니다. 클래식 VM을 사용하는 경우 [Azure 클래식 CLI](#use-the-azure-classic-cli)를 사용할 수 있습니다.
 * [Azure VMAccessForLinux 확장](#use-the-vmaccess-extension) - json 정의 파일을 만들고 다시 사용하여 SSH 구성 또는 사용자 자격 증명을 다시 설정합니다.
 
 각 문제 해결 단계 후 VM에 다시 연결을 시도합니다. 그래도 연결할 수 없으면 다음 단계를 시도합니다.
@@ -57,19 +57,19 @@ Linux VM(가상 머신)에 연결하려고 할 때 다양한 이유로 인해 SS
 ## <a name="use-the-azure-portal"></a>Azure Portal 사용
 Azure Portal은 로컬 컴퓨터에 도구를 설치하지 않고 SSH 구성 또는 사용자 자격 증명을 다시 설정하는 빠른 방법을 제공합니다.
 
-Azure Portal에서 VM을 선택합니다. **지원 + 문제 해결** 섹션까지 아래로 스크롤하고 다음 예제와 같이 **암호 재설정**을 선택합니다.
+시작하려면 Azure Portal에서 VM을 선택합니다. **지원 + 문제 해결** 섹션까지 아래로 스크롤하고 다음 예제와 같이 **암호 재설정**을 선택합니다.
 
 ![Azure Portal에서 SSH 구성 또는 자격 증명 다시 설정](./media/troubleshoot-ssh-connection/reset-credentials-using-portal.png)
 
-### <a name="reset-the-ssh-configuration"></a>SSH 구성 다시 설정
-첫 번째 단계로 이전 화면처럼 **모드** 드롭 다운 메뉴에서 `Reset configuration only`을 선택하고 **다시 설정** 단추를 클릭합니다. 이 작업이 완료되면 VM에 다시 액세스하려고 합니다.
+### <a name="a-idreset-config-reset-the-ssh-configuration"></a><a id="reset-config" />SSH 구성 다시 설정
+SSH 구성을 다시 설정하려면 이전 스크린샷과 같이 **모드** 섹션에서 `Reset configuration only`를 선택한 다음, **업데이트**를 선택합니다. 이 작업이 완료되면 VM에 다시 액세스하려고 합니다.
 
-### <a name="reset-ssh-credentials-for-a-user"></a>사용자에 대한 SSH 자격 증명 다시 설정
-기존 사용자의 자격 증명을 다시 설정하려면 이전 스크린샷과 같이 **모드** 드롭다운 메뉴에서 `Reset SSH public key` 또는 `Reset password`을 선택합니다. 사용자 이름 및 SSH 키 또는 새 암호를 지정하고 **다시 설정** 단추를 클릭합니다.
+### <a name="a-idreset-credentials-reset-ssh-credentials-for-a-user"></a><a id="reset-credentials" />사용자용 SSH 자격 증명 다시 설정
+기존 사용자의 자격 증명을 다시 설정하려면 이전 스크린샷과 같이 **모드** 섹션에서 `Reset SSH public key` 또는 `Reset password`를 선택합니다. 사용자 이름 및 SSH 키 또는 새 암호를 지정한 다음, **업데이트**를 선택합니다.
 
-이 메뉴에서 VM에 대해 sudo 권한이 있는 사용자를 만들 수도 있습니다. 새 사용자 이름 및 연결된 암호 또는 SSH 키를 입력한 다음 **다시 설정** 단추를 클릭합니다.
+이 메뉴에서 VM에 대해 sudo 권한이 있는 사용자를 만들 수도 있습니다. 새 사용자 이름 및 연결된 암호 또는 SSH 키를 입력한 다음, **업데이트**를 선택합니다.
 
-### <a name="check-security-rules"></a>보안 규칙 확인
+### <a name="a-idsecurity-rules-check-security-rules"></a><a id="security-rules" />보안 규칙 확인
 
 [IP 흐름 확인](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md)을 사용하여 네트워크 보안 그룹의 규칙이 가상 머신으로 들어가고 나가는 트래픽을 차단하는지를 확인합니다. 효과적인 보안 그룹 규칙을 검토하여 인바운드 "허용" NSG 규칙이 있는지와 해당 규칙이 SSH 포트(기본값: 22)에 우선적으로 사용되도록 설정되어 있는지 확인합니다. 자세한 내용은 [효과적인 보안 규칙을 사용하여 VM 트래픽 흐름 문제 해결](../../virtual-network/diagnose-network-traffic-filter-problem.md)을 참조하세요.
 
@@ -182,21 +182,13 @@ azure vm reset-access --resource-group myResourceGroup --name myVM \
     --user-name myUsername --ssh-key-file ~/.ssh/id_rsa.pub
 ```
 
-
-## <a name="restart-a-vm"></a>VM 다시 시작
+## <a name="a-idrestart-vm-restart-a-vm"></a><a id="restart-vm" />VM 다시 시작
 SSH 구성 및 사용자 자격 증명을 다시 설정했거나 그 과정에서 오류가 발생한 경우 VM을 다시 시작하여 기본 계산 문제를 해결할 수 있습니다.
 
 ### <a name="azure-portal"></a>Azure portal
-Azure Portal을 사용하여 VM을 다시 시작하려면 다음 예제와 같이 VM을 선택하고 **다시 시작** 단추를 클릭합니다.
+Azure Portal을 사용하여 VM을 다시 시작하려면 다음 예제와 같이 VM을 선택한 다음, **다시 시작**을 선택합니다.
 
 ![Azure Portal에서 VM 다시 시작](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
-
-### <a name="azure-classic-cli"></a>Azure 클래식 CLI
-다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 다시 시작합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
-
-```azurecli
-azure vm restart --resource-group myResourceGroup --name myVM
-```
 
 ### <a name="azure-cli"></a>Azure CLI
 다음 예제에서는 [az vm restart](/cli/azure/vm#az_vm_restart)를 사용하여 `myResourceGroup`이라는 리소스 그룹의 `myVM`이라는 VM을 다시 시작합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
@@ -205,8 +197,14 @@ azure vm restart --resource-group myResourceGroup --name myVM
 az vm restart --resource-group myResourceGroup --name myVM
 ```
 
+### <a name="azure-classic-cli"></a>Azure 클래식 CLI
+다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 다시 시작합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
 
-## <a name="redeploy-a-vm"></a>VM 재배포
+```azurecli
+azure vm restart --resource-group myResourceGroup --name myVM
+```
+
+## <a name="a-idredeploy-vm-redeploy-a-vm"></a><a id="redeploy-vm" />VM 다시 배포
 Azure 내의 다른 노드로 VM을 재배포하여 기본 네트워킹 문제를 해결할 수 있습니다. VM을 다시 배포하는 방법에 대한 자세한 내용은 [새 Azure 노드로 가상 머신 다시 배포](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 > [!NOTE]
@@ -215,16 +213,9 @@ Azure 내의 다른 노드로 VM을 재배포하여 기본 네트워킹 문제�
 > 
 
 ### <a name="azure-portal"></a>Azure portal
-Azure Portal을 사용하여 VM을 다시 배포하려면 VM을 선택하고 **지원 + 문제 해결** 섹션까지 아래로 스크롤합니다. 다음 예제와 같이 **다시 배포** 단추를 클릭합니다.
+Azure Portal을 사용하여 VM을 다시 배포하려면 VM을 선택하고 **지원 + 문제 해결** 섹션까지 아래로 스크롤합니다. 다음 예제와 같이 **다시 배포**를 선택합니다.
 
 ![Azure Portal에서 VM 다시 배포](./media/troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
-
-### <a name="azure-classic-cli"></a>Azure 클래식 CLI
-다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 다시 배포합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
-
-```azurecli
-azure vm redeploy --resource-group myResourceGroup --name myVM
-```
 
 ### <a name="azure-cli"></a>Azure CLI
 다음 예제에서는 [az vm redeploy](/cli/azure/vm#az_vm_redeploy)를 사용하여 `myResourceGroup`이라는 리소스 그룹의 `myVM`이라는 VM을 다시 배포합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
@@ -233,11 +224,18 @@ azure vm redeploy --resource-group myResourceGroup --name myVM
 az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
+### <a name="azure-classic-cli"></a>Azure 클래식 CLI
+다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 다시 배포합니다. 다음과 같이 사용자 고유의 값을 사용합니다.
+
+```azurecli
+azure vm redeploy --resource-group myResourceGroup --name myVM
+```
+
 ## <a name="vms-created-by-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 만든 VM
 클래식 배포 모델을 사용하여 만든 VM의 보다 일반적인 SSH 연결 오류를 해결하려면 다음 단계를 시도합니다. 각 단계 후 VM에 다시 연결을 시도합니다.
 
-* [Azure Portal](https://portal.azure.com)에서 원격 액세스를 다시 설정합니다. Azure Portal에서 VM을 선택하고 **원격 다시 설정...** 단추를 클릭합니다.
-* VM을 다시 시작합니다. [Azure portal](https://portal.azure.com)에서 VM을 선택하고 **다시 시작** 단추를 클릭합니다.
+* [Azure Portal](https://portal.azure.com)에서 원격 액세스를 다시 설정합니다. Azure Portal에서 VM을 선택한 다음, **원격 다시 설정...** 을 선택합니다.
+* VM을 다시 시작합니다. [Azure Portal](https://portal.azure.com)에서 VM을 선택하고 **다시 시작**을 선택합니다.
     
 * 새 Azure 노드에 VM을 다시 배포합니다. VM을 다시 배포하는 방법에 대한 자세한 내용은 [새 Azure 노드로 가상 머신 다시 배포](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
   
@@ -252,7 +250,5 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 
 ## <a name="additional-resources"></a>추가 리소스
 * 후속 단계를 수행한 후에도 VM에 대해 SSH를 사용할 수 없는 경우 [자세한 문제 해결 단계](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하여 단계를 검토하고 문제를 해결할 수 있습니다.
-* 애플리케이션 액세스 문제를 해결하는 방법에 대한 자세한 내용은 [Azure 가상 컴퓨터에서 실행 중인 애플리케이션에 대한 액세스 문제 해결](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* 애플리케이션 액세스 문제를 해결하는 방법에 대한 자세한 내용은 [Azure 가상 컴퓨터에서 실행 중인 애플리케이션에 대한 액세스 문제 해결](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 * 클래식 배포 모델을 사용하여 만든 가상 머신의 문제 해결 방법에 대한 자세한 내용은 [Linux 기반 가상 머신의 암호 또는 SSH를 다시 설정하는 방법](../linux/classic/reset-access-classic.md)을 참조하세요.
-
-
