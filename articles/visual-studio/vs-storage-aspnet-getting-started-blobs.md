@@ -1,6 +1,6 @@
 ---
-title: Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작(ASP.NET) | Microsoft Docs
-description: Visual Studio 연결된 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio의 ASP.NET 프로젝트에서 Azure Blob 저장소를 사용하는 방법에 대해 설명합니다.
+title: Azure Blob Storage 및 Visual Studio 연결된 서비스 시작(ASP.NET) | Microsoft Docs
+description: Visual Studio 연결된 서비스를 사용하여 스토리지 계정에 연결한 후 Visual Studio의 ASP.NET 프로젝트에서 Azure Blob Storage를 사용하는 방법에 대해 설명합니다.
 services: storage
 author: ghogen
 manager: douge
@@ -11,22 +11,22 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
-ms.openlocfilehash: 93859b3b6fcdad67d46604f2ab34bec4138feb2b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 557b47aab5cdadef79427c4da9c18477daac0689
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969620"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745421"
 ---
-# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작(ASP.NET)
+# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Azure Blob Storage 및 Visual Studio 연결된 서비스 시작(ASP.NET)
 
 > [!div class="op_single_selector"]
 > - [ASP.NET](./vs-storage-aspnet-getting-started-blobs.md)
 > - [ASP.NET Core](./vs-storage-aspnet-core-getting-started-blobs.md)
 
-Azure Blob 저장소는 구조화되지 않은 데이터를 개체 또는 Blob으로 클라우드에 저장하는 서비스입니다. Blob storage는 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob Storage를 개체 스토리지라고 합니다. Blob Storage에 대한 자세한 내용은 [Azure Blob Storage 소개](../storage/blobs/storage-blobs-introduction.md)를 참조하세요.
+Azure Blob Storage는 구조화되지 않은 데이터를 개체 또는 Blob으로 클라우드에 저장하는 서비스입니다. Blob Storage는 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob Storage를 개체 스토리지라고 합니다. Blob Storage에 대한 자세한 내용은 [Azure Blob Storage 소개](../storage/blobs/storage-blobs-introduction.md)를 참조하세요.
 
-이 자습서에서는 Blob 저장소를 사용하는 몇 가지 일반적인 시나리오에 대한 ASP.NET 코드를 작성하는 방법을 보여 줍니다. 시나리오에는 Blob 컨테이너 만들기, Blob 업로드, 나열, 다운로드 및 삭제가 포함됩니다.
+이 자습서에서는 Blob Storage를 사용하는 몇 가지 일반적인 시나리오에 대한 ASP.NET 코드를 작성하는 방법을 보여 줍니다. 시나리오에는 Blob 컨테이너 만들기, Blob 업로드, 나열, 다운로드 및 삭제가 포함됩니다.
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
@@ -160,7 +160,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 �
     <li>@Html.ActionLink("Create blob container", "CreateBlobContainer", "Blobs")</li>
     ```
 
-1. 응용 프로그램을 실행하고 **Blob 컨테이너 만들기**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
+1. 애플리케이션을 실행하고 **Blob 컨테이너 만들기**를 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
   
     ![Blob 컨테이너 만들기 스크린샷](./media/vs-storage-aspnet-getting-started-blobs/create-blob-container-results.png)
 
@@ -230,7 +230,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 �
     <li>@Html.ActionLink("Upload blob", "UploadBlob", "Blobs")</li>
     ```
 
-1. 응용 프로그램을 실행하고 **Blob 업로드**를 선택합니다.  ‘성공!’이라는 단어가 표시됩니다.
+1. 애플리케이션을 실행하고 **Blob 업로드**를 선택합니다.  ‘성공!’이라는 단어가 표시됩니다.
     
     ![성공 확인 스크린샷](./media/vs-storage-aspnet-getting-started-blobs/upload-blob.png)
   
@@ -371,7 +371,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 �
     <li>@Html.ActionLink("List blobs", "ListBlobs", "Blobs")</li>
     ```
 
-1. 응용 프로그램을 실행하고 **Blob 나열**을 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
+1. 애플리케이션을 실행하고 **Blob 나열**을 선택하여 다음 스크린샷과 유사한 결과를 확인합니다.
   
     ![Blob 나열 스크린샷](./media/vs-storage-aspnet-getting-started-blobs/listblobs.png)
 
@@ -413,7 +413,7 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 �
     }
     ```
     
-    다음에서는 `ListBlobs` 메서드를 보여줍니다(만들 로컬 파일의 정규화된 경로 포함).
+    다음에서는 `DownloadBlob` 메서드를 보여줍니다(만들 로컬 파일의 정규화된 경로 포함).
     
     ```csharp
     public string DownloadBlob()

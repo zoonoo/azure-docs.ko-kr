@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 441821ae422fb4cbddbca5b4c30d68484ce6bc1f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 55632acf516198b5ad0b6430480836dcc62fd5a5
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186980"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755387"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>내 애플리케이션 목록에 예기치 않은 애플리케이션
 
@@ -63,15 +63,15 @@ ms.locfileid: "55186980"
 
 4.  [애플리케이션 레지스트리](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)를 사용하여 사용자 지정 개발된 애플리케이션을 만들어 새 애플리케이션 등록을 추가하는 경우
 
-5.  [V2.0 애플리케이션 레지스트리 포털](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration#visit-the-microsoft-app-registration-portal)을 사용하여 사용자 지정 개발된 애플리케이션을 만들어 새 애플리케이션 등록을 추가하는 경우
+5.  [V2.0 애플리케이션 레지스트리 포털](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration)을 사용하여 사용자 지정 개발된 애플리케이션을 만들어 새 애플리케이션 등록을 추가하는 경우
 
 6.  Visual Studio의 [ASP.net 인증 방법](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) 또는 [연결된 서비스](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)를 사용하여 개발 중인 애플리케이션을 추가하는 경우
 
 7.  [Azure AD PowerShell 모듈](/powershell/azure/install-adv2?view=azureadps-2.0)을 사용하여 서비스 주체 개체를 만드는 경우
 
-8.  테넌트의 데이터를 사용하도록 관리자 권한으로 [애플리케이션에 동의](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)하는 경우
+8.  테넌트의 데이터를 사용하도록 관리자 권한으로 [애플리케이션에 동의](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)하는 경우
 
-9.  테넌트의 데이터를 사용하도록 [사용자가 애플리케이션에 동의](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)하는 경우
+9.  테넌트의 데이터를 사용하도록 [사용자가 애플리케이션에 동의](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)하는 경우
 
 10. 테넌트에 데이터를 저장하는 특정 서비스를 활성화하는 경우. 한 가지 예는 암호 재설정 정책을 안전하게 저장하도록 서비스 주체로 모델링되는 암호 재설정입니다.
 
@@ -107,7 +107,7 @@ ms.locfileid: "55186980"
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>모든 애플리케이션에 대한 모든 이후 사용자 동의 작업을 비활성화하려는 경우
 
-전체 디렉터리에 대한 사용자 동의를 비활성화하면 모든 애플리케이션에 대한 최종 사용자 동의를 방지합니다. 관리자는 여전히 사용자의 동작에 동의할 수 있습니다. 애플리케이션 동의 및 동의하거나 동의하지 않을 수 있는 이유에 대해 자세히 알아보려면 [사용자 및 관리자 동의 이해하기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)를 참조하세요.
+전체 디렉터리에 대한 사용자 동의를 비활성화하면 모든 애플리케이션에 대한 최종 사용자 동의를 방지합니다. 관리자는 여전히 사용자의 동작에 동의할 수 있습니다. 애플리케이션 동의 및 동의하거나 동의하지 않을 수 있는 이유에 대해 자세히 알아보려면 [사용자 및 관리자 동의 이해하기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)를 참조하세요.
 
 **전체 디렉터리에서 모든 이후 사용자 동의 작업을 비활성화**하려면 다음 단계를 따릅니다.
 

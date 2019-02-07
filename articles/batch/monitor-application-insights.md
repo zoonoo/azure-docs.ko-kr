@@ -37,7 +37,7 @@ ms.locfileid: "55473465"
 
 * [Application Insights 리소스](../azure-monitor/app/create-new-resource.md )
   
-   * Azure Portal을 사용하여 Application Insights *리소스*를 만듭니다. *일반***애플리케이션 유형**을 선택합니다.
+   * Azure Portal을 사용하여 Application Insights *리소스*를 만듭니다. *일반* **애플리케이션 유형**을 선택합니다.
 
    * 포털에서 [계측 키](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key)를 복사합니다. 이 문서의 뒷부분에서 필요합니다.
   

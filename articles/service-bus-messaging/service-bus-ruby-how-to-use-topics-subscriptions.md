@@ -14,12 +14,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 4f8b978abbcc4ed0f40655730e672fba064701f3
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 486e891ae055bdd6b6c30aeff63744acb3b0ef04
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854924"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734541"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Ruby에서 Service Bus 토픽 및 구독을 사용하는 방법
  
@@ -162,7 +162,7 @@ azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 이제 Service Bus 토픽의 기본 사항을 익혔으므로 다음 링크를 따라 이동하여 자세한 내용을 확인할 수 있습니다.
 
 * [큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)을 참조하세요.
-* [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter)에 대한 API 참조.
+* [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)에 대한 API 참조.
 * GitHub에서 [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) 리포지토리를 방문하세요.
 
 [Azure portal]: https://portal.azure.com

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211
-ms.openlocfilehash: 3ad9308f3bc714ee2877627da8fdb328459b9fe4
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 247a45a38d732ace0455c6ca2ebbd5c44c384004
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351952"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732331"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Azure Active Directory를 사용하여 AppSource와 Marketplace 목록을 사용하도록 설정
 
@@ -44,7 +44,7 @@ AppSource 및 Azure Marketplace에 대한 다양한 [목록 옵션 및 제품 �
 | Virtual Machine | 해당 없음 | 아니요 | 아니요 | 아니요 |
 | Azure 앱(솔루션 템플릿)  | 해당 없음 | 해당 없음 | 해당 없음 | 해당 없음 |
 | 관리되는 앱  | 해당 없음 | 해당 없음 | 해당 없음 | 아니요 |
-| SaaS  | 아니요 | 예 | 예 | yes |
+| SaaS  | 아니요 | 예 | 예 | 예 |
 | 컨테이너  | 해당 없음 | 해당 없음 | 해당 없음 | 아니요 |
 | 컨설팅 서비스  | 아니요 | 해당 없음 | 해당 없음 | 해당 없음 |
 
@@ -59,7 +59,7 @@ SaaS 기술 요구 사항에 대한 자세한 내용은 [SaaS 애플리케이션
 
 고객 설정을 자동화하면 변환 가능성을 높일 수 있습니다. 고객이 평가판 목록을 선택하고 평가판 환경으로 경로 재지정되면, 추가 로그인 단계를 수행할 필요가 없도록 직접 고객을 설정할 수 있습니다.
 
-인증 중에 Azure AD는 앱 또는 제품에 토큰을 보냅니다. 토큰에서 제공하는 사용자 정보를 통해 앱 또는 제품에서 사용자 계정을 생성할 수 있습니다. 자세한 내용은 [샘플 토큰](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens)을 참조하세요.
+인증 중에 Azure AD는 앱 또는 제품에 토큰을 보냅니다. 토큰에서 제공하는 사용자 정보를 통해 앱 또는 제품에서 사용자 계정을 생성할 수 있습니다. 자세한 내용은 [샘플 토큰](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)을 참조하세요.
 
 Azure AD를 사용하여 앱 또는 평가판에 대한 원클릭 인증이 가능해지면 다음을 수행할 수 있습니다.
 

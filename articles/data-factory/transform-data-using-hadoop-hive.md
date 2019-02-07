@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: douglasl
-ms.openlocfilehash: d9a649e3b49c71a24d06656e0667765ef9cc5508
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: e77b8c89954064fb143f04f0f901d1512d4fc50d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321338"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491011"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop Hive 작업을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
         "defines": {
             "param1": "param1Value"
         }
-    }   
+    }
 }
 ```
 ## <a name="syntax-details"></a>구문 세부 정보
@@ -67,7 +67,7 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 | getDebugInfo        | scriptLinkedService에 지정되었거나 HDInsight 클러스터에 사용된 Azure Storage에 로그 파일을 언제 복사할지 지정합니다. 허용되는 값은 다음과 같습니다. 없음, 항상 또는 실패. 기본값: 없음. | 아니요       |
 | arguments           | Hadoop 작업에 대한 인수 배열을 지정합니다. 인수는 각 작업에 대한 명령줄 인수로 전달됩니다. | 아니요       |
 | defines             | Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정합니다. | 아니요       |
-| queryTimeout        | 쿼리 시간 제한 값(분)입니다.  HDInsight 클러스터에서 Enterprise Security Package가 사용하도록 설정되어 있으면 적용됩니다. | 아니요       |
+| queryTimeout        | 쿼리 시간 제한 값(분)입니다. HDInsight 클러스터에서 Enterprise Security Package가 사용하도록 설정되어 있으면 적용됩니다. | 아니요       |
 
 ## <a name="next-steps"></a>다음 단계
 다른 방법으로 데이터를 변환하는 방법을 설명하는 다음 문서를 참조하세요. 
@@ -80,4 +80,3 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 * [.NET 사용자 지정 작업](transform-data-using-dotnet-custom-activity.md)
 * [Machine Learning Batch 실행 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)
-

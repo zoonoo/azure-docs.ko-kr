@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d74a78d60959dc404165d0ac8c4483b8bd36a29
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 74ec404b1e116c3d52469f154309b41fd37dbc38
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464088"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493034"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하여 AD FS 모니터링
 다음 문서는 AZure AD Connect Health와 함께 AD FS 인프라 모니터링에 중점을 둡니다. Azure AD Connect Health와 함께 Azure AD Connect (동기화)를 모니터링하는 방법에 대한 정보는 [동기화를 위해 Azure AD Connect Health 사용](how-to-connect-health-sync.md)을 참조하세요. 또한 Azure AD Connect Health와 함께 Active Directory Domain Services를 모니터링하는 방법에 대한 정보는 [AD DS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adds.md)을 참조하세요.

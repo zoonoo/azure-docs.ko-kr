@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 3381bf32bfd3df538641b11b35a64b53fda6744f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 75040cb8769b1d5d1dd6af758ed03be4a39d01e1
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466876"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731872"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>경로 테이블 만들기, 변경 또는 삭제
 
@@ -44,7 +44,7 @@ Azure 위치와 구독별로 만들 수 있는 경로 테이블 수에 제한이
 
 **명령**
 
-- Azure CLI: [az network route-table create](/cli/azure/network/route-table/route#az_network_route_table_create)
+- Azure CLI: [az network route-table create](/cli/azure/network/route-table/route)
 - PowerShell: [New-AzureRmRouteTable](/powershell/module/azurerm.network/new-azurermroutetable)
 
 ## <a name="view-route-tables"></a>경로 테이블 보기
@@ -53,7 +53,7 @@ Azure 위치와 구독별로 만들 수 있는 경로 테이블 수에 제한이
 
 **명령**
 
-- Azure CLI: [az network route-table list](/cli/azure/network/route-table/route#az_network_route_table_list)
+- Azure CLI: [az network route-table list](/cli/azure/network/route-table/route)
 - PowerShell: [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable)
 
 ## <a name="view-details-of-a-route-table"></a>경로 테이블의 세부 정보 보기
@@ -62,14 +62,14 @@ Azure 위치와 구독별로 만들 수 있는 경로 테이블 수에 제한이
 2. 목록에서 세부 정보를 볼 경로 테이블을 선택합니다. **설정** 아래에서 경로 테이블의 **경로** 및 경로 테이블이 연결된 **서브넷**을 볼 수 있습니다.
 3. 일반적인 Azure 설정에 대한 자세한 내용은 다음 정보를 참조하세요.
     *   [활동 로그](../azure-monitor/platform/activity-logs-overview.md)
-    *   [액세스 제어(IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
+    *   [액세스 제어(IAM)](../role-based-access-control/overview.md)
     *   [태그](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [잠금](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Automation 스크립트](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
 **명령**
 
-- Azure CLI: [az network route-table show](/cli/azure/network/route-table/route#az_network_route_table_show)
+- Azure CLI: [az network route-table show](/cli/azure/network/route-table/route)
 - PowerShell: [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable)
 
 ## <a name="change-a-route-table"></a>경로 테이블 변경
@@ -79,7 +79,7 @@ Azure 위치와 구독별로 만들 수 있는 경로 테이블 수에 제한이
 
 **명령**
 
-- Azure CLI: [az network route-table update](/cli/azure/network/route-table/route#az_network_route_table_update)
+- Azure CLI: [az network route-table update](/cli/azure/network/route-table/route)
 - PowerShell: [Set-AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable)
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>서브넷에 경로 테이블 연결
@@ -124,7 +124,7 @@ Azure 위치와 구독별로 만들 수 있는 경로 테이블 수에 제한이
 
 **명령**
 
-- Azure CLI: [az network route-table delete](/cli/azure/network/route-table/route#az_network_route_table_delete)
+- Azure CLI: [az network route-table delete](/cli/azure/network/route-table/route)
 - PowerShell: [Remove-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermroutetable?view=azurermps-6.8.1) 
 
 ## <a name="create-a-route"></a>경로 만들기
@@ -143,7 +143,7 @@ Azure 위치와 구독별로 만들 수 있는 경로 테이블당 경로 수에
 
 **명령**
 
-- Azure CLI: [az network route-table route create](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_create)
+- Azure CLI: [az network route-table route create](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [New-AzureRmRouteConfig](/powershell/module/azurerm.network/new-azurermrouteconfig)
 
 ## <a name="view-routes"></a>경로 보기
@@ -168,7 +168,7 @@ Azure 위치와 구독별로 만들 수 있는 경로 테이블당 경로 수에
 
 **명령**
 
-- Azure CLI: [az network route-table route show](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_show)
+- Azure CLI: [az network route-table route show](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
 
 ## <a name="change-a-route"></a>경로 변경
@@ -194,7 +194,7 @@ Azure 위치와 구독별로 만들 수 있는 경로 테이블당 경로 수에
 
 **명령**
 
-- Azure CLI: [az network route-table route delete](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_delete)
+- Azure CLI: [az network route-table route delete](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [Remove-AzureRmRouteConfig](/powershell/module/azurerm.network/remove-azurermrouteconfig)
 
 ## <a name="view-effective-routes"></a>유효한 경로 보기
@@ -209,7 +209,7 @@ Azure 위치와 구독별로 만들 수 있는 경로 테이블당 경로 수에
 
 **명령**
 
-- Azure CLI: [az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_show_effective_route_table)
+- Azure CLI: [az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest)
 - PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
 
 ## <a name="validate-routing-between-two-endpoints"></a>두 개의 엔드포인트 간의 라우팅 유효성 검사
@@ -226,14 +226,14 @@ Azure 위치와 구독별로 만들 수 있는 경로 테이블당 경로 수에
 
 **명령**
 
-- Azure CLI: [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest#az_network_watcher_show_next_hop)
+- Azure CLI: [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest)
 - PowerShell: [Get-AzureRmNetworkWatcherNextHop](/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) 
 
 ## <a name="permissions"></a>권한
 
 경로 테이블 및 경로에 대한 작업을 수행하려면 다음 표에 나열된 적절한 작업이 할당된 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 계정을 할당해야 합니다.
 
-| 조치                                                          |   이름                                                  |
+| 조치                                                          |   Name                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
 | Microsoft.Network/routeTables/read                              |   경로 테이블 읽기                                    |
 | Microsoft.Network/routeTables/write                             |   경로 테이블 만들기 또는 업데이트                        |

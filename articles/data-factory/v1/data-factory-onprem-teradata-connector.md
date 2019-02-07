@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2b7a90f948f0176285f1e56bc3c84a2cda2f2577
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d22318f4d9e233a57d521fe36f0827b9fc3af3e0
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023529"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746339"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Teradata에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ ms.locfileid: "54023529"
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 온-프레미스 Teradata 데이터베이스에서 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
-온-프레미스 Teradata 데이터 저장소의 데이터를 지원되는 싱크 데이터 저장소로 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 Teradata 데이터 저장소로 데이터 이동이 아닌 Teradata 데이터 저장소에서 다른 데이터 저장소로 데이터 이동만을 지원합니다. 
+온-프레미스 Teradata 데이터 저장소의 데이터를 지원되는 싱크 데이터 저장소로 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 Teradata 데이터 저장소로 데이터 이동이 아닌 Teradata 데이터 저장소에서 다른 데이터 저장소로 데이터 이동만을 지원합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 데이터 팩터리는 데이터 관리 게이트웨이를 통해 온-프레미스 Teradata 원본에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 위치 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
@@ -44,18 +44,18 @@ ms.locfileid: "54023529"
 Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우 데이터 관리 게이트웨이와 동일한 시스템에 [.NET Data Provider for Teradata](https://go.microsoft.com/fwlink/?LinkId=278886) 버전 14 이상을 설치해야 합니다. Teradata 버전 12 이상이 지원됩니다.
 
 ## <a name="getting-started"></a>시작
-여러 도구/API를 사용하여 온-프레미스 Cassandra 데이터 저장소의 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다. 
+여러 도구/API를 사용하여 온-프레미스 Cassandra 데이터 저장소의 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
 
-- 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 단계별 지침은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습을 볼 수 있습니다. 
-- 또한 다음 도구를 사용하여 파이프라인을 만들 수 있습니다. **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager 템플릿**, **.NET API** 및 **REST API** 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요. 
+- 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 단계별 지침은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습을 볼 수 있습니다.
+- 또한 다음 도구를 사용하여 파이프라인을 만들 수 있습니다. **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager 템플릿**, **.NET API** 및 **REST API** 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
 1. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결하는 **연결된 서비스**를 만듭니다.
-2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 세트**를 만듭니다. 
-3. 입력으로 데이터 세트를, 출력으로 데이터 세트를 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다. 
+2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 세트**를 만듭니다.
+3. 입력으로 데이터 세트를, 출력으로 데이터 세트를 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다.
 
-마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  온-프레미스 Teradata 데이터 저장소의 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의에 대한 샘플은 이 문서의 [JSON의 예: Teradata에서 Azure Blob으로 데이터 복사](#json-example-copy-data-from-teradata-to-azure-blob) 섹션을 참조하세요. 
+마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  온-프레미스 Teradata 데이터 저장소의 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의에 대한 샘플은 이 문서의 [JSON의 예: Teradata에서 Azure Blob으로 데이터 복사](#json-example-copy-data-from-teradata-to-azure-blob) 섹션을 참조하세요.
 
 다음 섹션에서는 Teradata 데이터 저장소에 한정된 데이터 팩터리 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다.
 
@@ -88,7 +88,7 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 | 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |예 |
 
 ### <a name="json-example-copy-data-from-teradata-to-azure-blob"></a>JSON 예제: Teradata에서 Azure Blob으로 데이터 복사
-다음 예제에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 이 샘플은 Teradata에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다.   
+다음 예제에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 이 샘플은 Teradata에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
 
 이 샘플에는 다음 데이터 팩터리 엔터티가 있습니다.
 
@@ -120,7 +120,7 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 }
 ```
 
-**Azure Blob 저장소 연결된 서비스:**
+**Azure Blob Storage 연결된 서비스:**
 
 ```json
 {
@@ -257,7 +257,7 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
                     {
                         "name": "AzureBlobTeradataDataSet"
                     }
-                ],                    
+                ],
                 "policy": {
                     "timeout": "01:00:00",
                     "concurrency": 1
@@ -295,26 +295,26 @@ Teradata로 데이터를 이동하는 경우 Teradata 형식에서 .NET 형식�
 | VarByte |Byte[] |
 | BigInt |Int64 |
 | ByteInt |Int16 |
-| 10진수 |10진수 |
+| Decimal |Decimal |
 | Double |Double |
 | 정수  |Int32 |
 | Number |Double |
 | SmallInt |Int16 |
-| Date |Datetime |
-| Time |timespan |
+| Date |DateTime |
+| Time |TimeSpan |
 | Time With Time Zone |문자열 |
-| 타임 스탬프 |Datetime |
+| 타임 스탬프 |DateTime |
 | Timestamp With Time Zone |DateTimeOffset |
-| Interval Day |timespan |
-| Interval Day To Hour |timespan |
-| Interval Day To Minute |timespan |
-| Interval Day To Second |timespan |
-| Interval Hour |timespan |
-| Interval Hour To Minute |timespan |
-| Interval Hour To Second |timespan |
-| Interval Minute |timespan |
-| Interval Minute To Second |timespan |
-| Interval Second |timespan |
+| Interval Day |TimeSpan |
+| Interval Day To Hour |TimeSpan |
+| Interval Day To Minute |TimeSpan |
+| Interval Day To Second |TimeSpan |
+| Interval Hour |TimeSpan |
+| Interval Hour To Minute |TimeSpan |
+| Interval Hour To Second |TimeSpan |
+| Interval Minute |TimeSpan |
+| Interval Minute To Second |TimeSpan |
+| Interval Second |TimeSpan |
 | Interval Year |문자열 |
 | Interval Year To Month |문자열 |
 | Interval Month |문자열 |

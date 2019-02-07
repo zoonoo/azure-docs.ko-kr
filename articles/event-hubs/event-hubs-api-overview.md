@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: shvija
-ms.openlocfilehash: 2523db3d817b4281b6435374ef0cca4e1d2da695
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 432f2495dd1b4c8aeb761d12904adf26f3c24c0b
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005860"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660700"
 ---
 # <a name="available-event-hubs-apis"></a>사용할 수 있는 Event Hubs API
 
@@ -43,7 +43,7 @@ ms.locfileid: "40005860"
 
 #### <a name="net"></a>.NET
 
-.NET 에코 시스템에는 여러 개의 런타임이 있으므로 Event Hub용 .NET 라이브러리도 여러 개 있습니다. .NET Framework 라이브러리는 .NET Framework 환경에서만 실행될 수 있지만 .NET Standard 라이브러리는 .NET Core 또는 .NET Framework를 사용하여 실행할 수 있습니다. .NET Framework 버전에 대한 자세한 내용은 [프레임워크 버전](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions)을 참조하세요.
+.NET 에코 시스템에는 여러 개의 런타임이 있으므로 Event Hub용 .NET 라이브러리도 여러 개 있습니다. .NET Framework 라이브러리는 .NET Framework 환경에서만 실행될 수 있지만 .NET Standard 라이브러리는 .NET Core 또는 .NET Framework를 사용하여 실행할 수 있습니다. .NET Framework 버전에 대한 자세한 내용은 [프레임워크 버전](https://docs.microsoft.com/dotnet/articles/standard/frameworks)을 참조하세요.
 
 #### <a name="node"></a>노드
 

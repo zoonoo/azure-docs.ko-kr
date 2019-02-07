@@ -10,24 +10,24 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7dffa1480be73f1dbf5e99d11fd8d33eb2ab9038
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 816d25473bfe5f9dc61d6d6f2e50d6cd82ace50c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196415"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562198"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 리소스 소유자 암호 자격 증명 흐름 구성
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD(Azure Active Directory) B2C에서 ROPC(리소스 소유자 암호 자격 증명) 흐름은 OAuth 표준 인증 흐름입니다. 이 흐름에서 신뢰 당사자라고도 하는 애플리케이션은 토큰에 유효한 자격 증명을 교환합니다. 자격 증명에는 사용자 ID 및 암호가 포함됩니다. 반환되는 토큰은 ID 토큰, 액세스 토큰 및 새로 고침 토큰입니다. 
+Azure AD(Azure Active Directory) B2C에서 ROPC(리소스 소유자 암호 자격 증명) 흐름은 OAuth 표준 인증 흐름입니다. 이 흐름에서 신뢰 당사자라고도 하는 애플리케이션은 토큰에 유효한 자격 증명을 교환합니다. 자격 증명에는 사용자 ID 및 암호가 포함됩니다. 반환되는 토큰은 ID 토큰, 액세스 토큰 및 새로 고침 토큰입니다.
 
 다음 옵션은 ROPC 흐름에서 지원됩니다.
 
 - **네이티브 클라이언트** - 코드가 사용자 쪽 디바이스에서 실행될 때 인증 중에 사용자 상호 작용이 발생합니다.
 - **공용 클라이언트 흐름** – 애플리케이션에서 수집한 사용자 자격 증명만 API 호출에서 전송됩니다. 애플리케이션의 자격 증명은 전송되지 않습니다.
-- **새 클레임 추가** - ID 토큰 콘텐츠를 변경하여 새 클레임을 추가할 수 있습니다. 
+- **새 클레임 추가** - ID 토큰 콘텐츠를 변경하여 새 클레임을 추가할 수 있습니다.
 
 지원되지 않는 흐름은 다음과 같습니다.
 
@@ -43,7 +43,7 @@ Azure AD(Azure Active Directory) B2C에서 ROPC(리소스 소유자 암호 자�
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
-3. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다. 
+3. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. **응용 프로그램**을 선택하고 **추가**를 선택합니다.
 5. 애플리케이션 이름(예: *ROPC_Auth_app*)을 입력합니다.
 6. **웹앱/Web API**에 대해 **아니요**를 선택한 다음, **네이티브 클라이언트**에 대해 **예**를 선택합니다.
@@ -193,7 +193,7 @@ Azure AD(Azure Active Directory) B2C에서 ROPC(리소스 소유자 암호 자�
           </Metadata>
         </TechnicalProfile>
       </TechnicalProfiles>
-    </ClaimsProvider>    
+    </ClaimsProvider>
     ```
 
 6. **UserJourneys** 요소와 해당 자식 요소를 **TrustFrameworkPolicy** 요소에 추가합니다.
@@ -201,7 +201,7 @@ Azure AD(Azure Active Directory) B2C에서 ROPC(리소스 소유자 암호 자�
     ```XML
     <UserJourney Id="ResourceOwnerPasswordCredentials">
       <PreserveOriginalAssertion>false</PreserveOriginalAssertion>
-        <OrchestrationSteps>
+      <OrchestrationSteps>
         <OrchestrationStep Order="1" Type="ClaimsExchange">
           <ClaimsExchanges>
             <ClaimsExchange Id="ResourceOwnerFlow" TechnicalProfileReferenceId="ResourceOwnerPasswordCredentials-OAUTH2" />
@@ -278,7 +278,7 @@ Azure AD(Azure Active Directory) B2C에서 ROPC(리소스 소유자 암호 자�
 
 - `user-account`를 테넌트의 사용자 계정 이름으로 바꿉니다.
 - `password1`을 사용자 계정의 암호로 바꿉니다.
-- `application-id`를 *ROPC_Auth_app* 등록의 애플리케이션 ID로 바꿉니다. 
+- `application-id`를 *ROPC_Auth_app* 등록의 애플리케이션 ID로 바꿉니다.
 - *Offline_access*는 새로 고침 토큰을 받고 싶은 경우에 사용하는 선택 사항입니다.
 
 실제 POST 요청은 다음 예제와 같이 표시됩니다.
@@ -291,17 +291,16 @@ Content-Type: application/x-www-form-urlencoded
 username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
 ```
 
-
 offline-access의 성공적인 응답은 다음 예제와 같습니다.
 
 ```JSON
-{ 
-    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki...", 
-    "token_type": "Bearer", 
-    "expires_in": "3600", 
-    "refresh_token": "eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3REVk1EVFBLbUJLb0FUcWQ1ZWFja1hBIiwidmVyIjoiMS4wIiwiemlwIjoiRGVmbGF0ZSIsInNlciI6Ij...", 
-    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki..." 
-} 
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki...",
+    "token_type": "Bearer",
+    "expires_in": "3600",
+    "refresh_token": "eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3REVk1EVFBLbUJLb0FUcWQ1ZWFja1hBIiwidmVyIjoiMS4wIiwiemlwIjoiRGVmbGF0ZSIsInNlciI6Ij...",
+    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki..."
+}
 ```
 
 ## <a name="redeem-a-refresh-token"></a>새로 고침 토큰 교환
@@ -322,7 +321,7 @@ offline-access의 성공적인 응답은 다음 예제와 같습니다.
 | refresh_token | `refresh-token` |
 
 - `application-id`를 *ROPC_Auth_app* 등록의 애플리케이션 ID로 바꿉니다.
-- `refresh-token`을 이전 응답에서 다시 전송된 **refresh_token**으로 바꿉니다. 
+- `refresh-token`을 이전 응답에서 다시 전송된 **refresh_token**으로 바꿉니다.
 
 성공적인 응답은 다음 예제와 비슷합니다.
 
@@ -350,5 +349,3 @@ Azure AD B2C는 공용 클라이언트 리소스 소유자 암호 자격 증명�
 
 - [Azure Active Directory B2C 사용자 지정 정책 시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/source/aadb2c-ief-ropc)에서 이 시나리오의 전체 예제를 참조하세요.
 - [토큰 참조](active-directory-b2c-reference-tokens.md)에서 Azure Active Directory B2C에 사용되는 토큰에 대해 자세히 알아봅니다.
-
-

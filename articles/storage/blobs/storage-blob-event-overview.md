@@ -8,12 +8,12 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: 6c2a642c30be79c907286e4ffac6bcea40d86fcd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4bc683908646a5c05fee14f721e2c26482518947
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247751"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751398"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Blob Storage 이벤트에 대응
 
@@ -90,7 +90,7 @@ Blob Storage 이벤트에는 데이터 변경에 대응하는 데 필요한 모�
 자세한 내용은 [Blob Storage 이벤트 스키마](../../event-grid/event-schema-blob-storage.md)를 참조하세요.
 
 ## <a name="filtering-events"></a>이벤트 필터링
-Blob 이벤트 구독은 이벤트 형식에 따라, 그리고 생성 또는 삭제된 개체의 컨테이너 이름 및 Blob 이름을 기준으로 필터링할 수 있습니다.  이벤트 구독의 [생성](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create) 동안 또는 [나중에](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) 이벤트 구독에 필터를 적용할 수 있습니다. Event Grid의 제목 필터는 "시작 문자" 및 "끝 문자" 일치 항목을 기준으로 작동하므로 일치하는 제목이 있는 이벤트는 구독자에게 전달됩니다. 
+Blob 이벤트 구독은 이벤트 형식에 따라, 그리고 생성 또는 삭제된 개체의 컨테이너 이름 및 Blob 이름을 기준으로 필터링할 수 있습니다.  이벤트 구독의 [생성](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) 동안 또는 [나중에](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) 이벤트 구독에 필터를 적용할 수 있습니다. Event Grid의 제목 필터는 "시작 문자" 및 "끝 문자" 일치 항목을 기준으로 작동하므로 일치하는 제목이 있는 이벤트는 구독자에게 전달됩니다. 
 
 Blob Storage 이벤트의 제목은 다음 형식을 사용합니다.
 

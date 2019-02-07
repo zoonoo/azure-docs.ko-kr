@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 2a5a878b7c8c3b6126d90b978241fbcb237d8db7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 626fd4739daf2506854c42f16ac986a361ebab38
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946309"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769915"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Linux VM에서 cloud-init를 사용하여 스왑 파일 구성
 이 문서에서는 [cloud-init](https://cloudinit.readthedocs.io)를 사용하여 다양한 Linux 배포에서 스왑 파일을 구성하는 방법을 보여 줍니다. 일반적으로 스왑 파일은 해당 파일이 필요한 배포에 따라 Linux 에이전트(WALA)에 의해 구성되었습니다.  이 문서는 cloud-init를 사용하여 프로비저닝 시간 동안 요청 시 스왑 파일을 빌드하는 프로세스를 간략하게 설명합니다.  기본적으로 cloud-init가 Azure에서 작동되는 방식과 지원되는 Linux 배포판에 대한 자세한 내용은 [cloud-init 개요](using-cloud-init.md)를 참조하세요.
@@ -48,13 +48,13 @@ mounts:
   - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 ```
 
-이 이미지를 배포하기 전에 [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만들어야 합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+이 이미지를 배포하기 전에 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만들어야 합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-이제 [az vm create](/cli/azure/vm#az_vm_create)로 VM을 만들고 다음과 같이 `--custom-data cloud_init_swapfile.txt`로 cloud-init 파일을 지정합니다.
+이제 [az vm create](/cli/azure/vm)로 VM을 만들고 다음과 같이 `--custom-data cloud_init_swapfile.txt`로 cloud-init 파일을 지정합니다.
 
 ```azurecli-interactive 
 az vm create \
@@ -94,4 +94,4 @@ Filename                Type        Size    Used    Priority
 - [VM에 추가 Linux 사용자 추가](cloudinit-add-user.md)
 - [패키지 관리자를 실행하여 첫 번째 부팅 시 기존 패키지 업데이트](cloudinit-update-vm.md)
 - [VM 로컬 호스트 이름 변경](cloudinit-update-vm-hostname.md) 
-- [응용 프로그램 패키지 설치, 구성 파일 업데이트 및 키 삽입](tutorial-automate-vm-deployment.md)
+- [애플리케이션 패키지 설치, 구성 파일 업데이트 및 키 삽입](tutorial-automate-vm-deployment.md)

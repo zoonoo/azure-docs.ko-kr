@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviwer: japere,asteen
-ms.openlocfilehash: e516319b2f0ddb842a02a731a59362e040784ace
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2421cdbb192500e0544e5711ae988c3a89c49e80
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179449"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731056"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>액세스 패널 웹 사이트에 로그인할 때 발생하는 문제
 
@@ -161,7 +161,7 @@ ms.locfileid: "55179449"
 
 -   [사용자가 Azure Active Directory 암호를 재설정할 수 있도록 설정](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
--   [사용자가 Active Directory 온-프레미스 암호를 재설정하거나 변경하도록 설정](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
+-   [사용자가 Active Directory 온-프레미스 암호를 재설정하거나 변경하도록 설정](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>사용자의 Multi-Factor Authentication 상태 확인
 

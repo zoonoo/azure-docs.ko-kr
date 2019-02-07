@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 412727d79c194172f2855d014d1eaf18f44167f6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 6a7f7943e9d567a953c0e21697dfe4fdedd6e8f0
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159352"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744792"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk 제한
 
@@ -53,7 +53,7 @@ Azure 저장소 서비스 제한에 대한 최신 정보 및 공유, 컨테이�
 
 ## <a name="azure-storage-account-size-limits"></a>Azure Storage 계정 크기 제한
 
-저장소 계정에 복사되는 데이터 크기에 대한 제한은 다음과 같습니다. 업로드한 데이터가 이러한 제한을 준수하는지 확인합니다. 이러한 제한에 대한 최신 정보는 [Azure Blob 저장소 크기 조정 목표](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) 및 [Azure Files 크기 조정 목표](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets)로 이동합니다.
+저장소 계정에 복사되는 데이터 크기에 대한 제한은 다음과 같습니다. 업로드한 데이터가 이러한 제한을 준수하는지 확인합니다. 이러한 제한에 대한 최신 정보는 [Azure Blob Storage 크기 조정 목표](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) 및 [Azure Files 크기 조정 목표](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets)로 이동합니다.
 
 | Azure 저장소 계정에 복사되는 데이터의 크기                      | 기본 제한          |
 |---------------------------------------------------------------------|------------------------|
@@ -66,8 +66,8 @@ Azure 저장소 서비스 제한에 대한 최신 정보 및 공유, 컨테이�
 
 | Azure 개체 형식 | 기본 제한                                             |
 |-------------------|-----------------------------------------------------------|
-| 블록 Blob        | ~ 8TB                                                 |
-| 페이지 Blob         | 1TB <br> (페이지 Blob 형식으로 업로드되는 모든 파일은 정렬된 512바이트(정수 배수)여야 합니다. 그렇지 않은 경우 업로드는 실패합니다. <br> VHD 및 VHDX는 정렬된 512바이트입니다.) |
+| 블록 Blob        | ~ 4.75TiB                                                 |
+| 페이지 Blob         | 8TiB <br> (페이지 Blob 형식으로 업로드되는 모든 파일은 정렬된 512바이트(정수 배수)여야 합니다. 그렇지 않은 경우 업로드는 실패합니다. <br> VHD 및 VHDX는 정렬된 512바이트입니다.) |
 
 
 ## <a name="azure-block-blob-and-page-blob-naming-conventions"></a>Azure 블록 Blob 및 페이지 Blob 명명 규칙

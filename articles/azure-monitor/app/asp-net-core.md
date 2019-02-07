@@ -41,7 +41,7 @@ Azure Application Insights는 코드 수준까지 웹 애플리케이션의 심�
 
    ![Visual Studio 새 프로젝트 마법사의 스크린샷](./media/asp-net-core/002-asp-net-core-web-application.png)
 
-4. **.NET Core** > **ASP.NET Core 2.0****웹 애플리케이션** > **확인**을 선택합니다.
+4. **.NET Core** > **ASP.NET Core 2.0** **웹 애플리케이션** > **확인** 을 선택합니다.
 
     ![Visual Studio 새 프로젝트 템플릿 선택 스크린샷](./media/asp-net-core/003-web-application.png)
 

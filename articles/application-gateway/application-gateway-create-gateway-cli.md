@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: victorh
-ms.openlocfilehash: 66a9ea5abcff4609288e9ce7c93912313db6e163
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: cde06aaf149785f464cd354c95c8f39575bad73b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54850606"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698251"
 ---
 # <a name="create-an-application-gateway-using-the-azure-cli"></a>Azure CLI를 사용하여 애플리케이션 게이트웨이 만들기
 
@@ -133,7 +133,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
-[az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create)를 사용하여 애플리케이션 게이트웨이를 만듭니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 네트워크 인터페이스의 개인 IP 주소는 애플리케이션 게이트웨이의 백 엔드 풀에 서버로 추가됩니다.
+[az network application-gateway create](/cli/azure/network/application-gateway)를 사용하여 애플리케이션 게이트웨이를 만듭니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 네트워크 인터페이스의 개인 IP 주소는 애플리케이션 게이트웨이의 백 엔드 풀에 서버로 추가됩니다.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')

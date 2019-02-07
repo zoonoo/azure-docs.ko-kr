@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 41e422d0808cafb45b182c5f0a6bb7176a35516f
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 345a7994f5a117b7aff320edf7b7c79d9b30a2f9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35758623"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695256"
 ---
 # <a name="internet-of-things-security-overview"></a>사물 인터넷 보안 개요
 Azure IoT(사물 인터넷) 서비스는 광범위한 기능을 제공합니다. 이러한 엔터프라이즈급 서비스를 사용하면 다음과 같은 작업을 할 수 있습니다.
@@ -45,7 +45,7 @@ IoT 솔루션을 보호하는 방법을 이해할 수 있도록 다음과 같은
 
 * [보안은 위협 모델에서 출발](/azure/iot-fundamentals/iot-security-architecture#security-starts-with-a-threat-model)
 * [IoT의 보안](/azure/iot-fundamentals/iot-security-architecture#security-in-iot)
-* [Azure IoT 참조 아키텍처 위협 모델링](/azure/iot-fundamentals/iot-security-architecture#threat-modeling-the-azure-iot-reference-architecture)
+* [Azure IoT 참조 아키텍처 위협 모델링](/azure/iot-fundamentals/iot-security-architecture)
 
 ## <a name="security-from-the-ground-up"></a>처음부터 보안을 고려
 IoT는 전 세계 기업에 고유한 보안, 개인 정보 및 규정 준수 문제를 제기합니다. 문제가 소프트웨어와 구현 방식을 중심으로 발생하는 기존의 사이버 기술과는 달리 IoT는 사이버 세계와 실제 세계가 만날 때 일어나는 일과 관련하여 문제가 발생합니다. IoT 솔루션을 보호하기 위해서는 디바이스의 안전한 프로비전, 이러한 디바이스 및 클라우드 간의 보안 연결, 처리 및 저장 중에 클라우드에서 데이터 보호 설정이 요구됩니다. 그러나 이러한 기능에 대한 작업에는 리소스가 제한된 디바이스, 배포의 지리적 분산 및 솔루션 내 많은 수의 디바이스에 대한 작업이 포함됩니다.

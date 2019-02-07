@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: fdd5e3577c91f288919b7223287d2d3722f0259c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e07937710dd36c14e7118caf6028a161ad7dc4ee
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543447"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753625"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Linux 가상 머신에 대한 계획된 유지 관리 처리
 
@@ -74,7 +74,7 @@ Azure Portal, PowerShell, REST API 및 CLI를 사용하여 사용자 VM에 대�
 
 ## <a name="find-vms-scheduled-for-maintenance-using-cli"></a>CLI를 사용하여 유지 관리가 예약된 VM 찾기
 
-계획된 유지 관리 정보는 [azure vm get-instance-view](/cli/azure/vm?view=azure-cli-latest#az_vm_get_instance_view)를 사용하여 볼 수 있습니다.
+계획된 유지 관리 정보는 [azure vm get-instance-view](/cli/azure/vm?view=azure-cli-latest)를 사용하여 볼 수 있습니다.
  
 유지 관리 정보는 계획된 유지 관리가 있는 경우에만 반환됩니다. VM에 영향을 미치는 예약된 유지 관리가 없는 경우 명령은 유지 관리 정보를 반환하지 않습니다. 
 

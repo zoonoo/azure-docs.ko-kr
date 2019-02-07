@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: d9800ff3fc82636c5cae12167738667ec84326ee
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ec7b71c7da19ecefc14696c029e63a074b498ec8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52855554"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696751"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan-preview"></a>Azure App Service 계획에서 Linux로 실행되는 함수 앱 만들기(미리 보기)
 
@@ -84,7 +84,7 @@ az functionapp create --resource-group myResourceGroup --plan myAppServicePlan \
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure에서 Linux 기반에서 호스트되는 함수 앱을 만드는 방법을 보여 줍니다. 이 함수 앱에 대한 [함수 프로젝트를 배포](https://docs.microsoft.com/cli/azure/functionapp/deployment/source?view=azure-cli-latest)할 수 있습니다. Azure Functions Core Tools를 사용하여 로컬 컴퓨터에 [Functions 프로젝트 만들거나](functions-run-local.md#create-a-local-functions-project) 새 Linux 함수 앱에 배포할 수 있습니다.  
+이 문서에서는 Azure에서 Linux 기반에서 호스트되는 함수 앱을 만드는 방법을 보여 줍니다. 이 함수 앱에 대한 [함수 프로젝트를 배포](https://docs.microsoft.com/cli/azure/functionapp/deployment/source?view=azure-cli-latest)할 수 있습니다. Azure Functions Core Tools를 사용하여 로컬 컴퓨터에 [Functions 프로젝트 만들거나](functions-run-local.md) 새 Linux 함수 앱에 배포할 수 있습니다.  
 
 > [!div class="nextstepaction"] 
 > [Azure Functions를 로컬에서 코딩 및 테스트](functions-run-local.md)
