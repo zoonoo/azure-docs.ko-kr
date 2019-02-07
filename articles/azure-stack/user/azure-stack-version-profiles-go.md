@@ -14,12 +14,12 @@ ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: fbca9eb3703777c0d20998e65bf446b5951c5091
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 8e63b9854d9491ed2cbb2107c93237526a7f1ba8
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745404"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766944"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Azure Stack에서 Go를 사용한 API 버전 프로필 사용
 
@@ -86,7 +86,7 @@ Azure Stack에서 Go 코드 샘플을 실행 하려면 다음이 단계를 수�
 
 3. 사용할 수 없는 경우 구독을 만들고 나중에 사용할 구독 ID를 저장 합니다. 구독을 만드는 방법에 대 한 자세한 내용은 [Azure Stack에서 제품에 구독을 만들려면](../azure-stack-subscribe-plan-provision-vm.md)합니다.
 
-4. 서비스를 사용 하 여 보안 주체 만들기 **구독** 범위와 **소유자** 역할입니다. 서비스 주체 ID 및 암호를 저장 합니다. Azure Stack에 대 한 서비스 주체를 만드는 방법에 대 한 자세한 내용은 [서비스 주체 만들기](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad)합니다. Azure Stack 환경과 설정 됩니다.
+4. 서비스를 사용 하 여 보안 주체 만들기 **구독** 범위와 **소유자** 역할입니다. 서비스 주체 ID 및 암호를 저장 합니다. Azure Stack에 대 한 서비스 주체를 만드는 방법에 대 한 자세한 내용은 [서비스 주체 만들기](azure-stack-create-service-principals.md)합니다. Azure Stack 환경과 설정 됩니다.
 
 5. 코드에서 Go SDK 프로필에서 서비스 모듈을 가져옵니다. Azure Stack 프로필의 현재 버전이 **2017-03-09**합니다. 예를 들어 네트워크 모듈에서 가져오려는 **2017-03-09** 프로필 유형, 다음 코드를 사용 합니다.
 

@@ -4,12 +4,14 @@ ms.service: azure-stack
 ms.topic: include
 ms.date: 11/26/2018
 ms.author: mabrigg
-ms.openlocfilehash: eb88e19fe092e0a882286887f178221200067980
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.reviewer: johnhas
+ms.lastreviewed: 11/26/2018
+ms.openlocfilehash: dd1bf8824f6a7657b8cd17847821d95d5052ed4d
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336115"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55807288"
 ---
 최신 월별 업데이트에 적용 되었는지 확인 합니다. 최신 버전에서 최신 버전을 참조 하세요 [Azure Stack 연산자 설명서 > 개요 > 릴리스 정보](https://docs.microsoft.com/azure/azure-stack/)합니다.
 

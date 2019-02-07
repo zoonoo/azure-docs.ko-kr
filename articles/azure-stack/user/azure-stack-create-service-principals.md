@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 6ac5a44f941f8ebcecc3a1d7e6b5e9dccf5704de
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: da75d829ccb74f7be675501b601ad3e6375bfb70
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242215"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813163"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>응용 프로그램 리소스 액세스 권한을 부여 Azure Stack에서 서비스 주체 만들기
 
@@ -73,7 +73,7 @@ Azure Stack에 Azure AD를 사용 하 여 id 저장소로, 하는 경우 서비�
 
 1. Active Directory의 **앱 등록**에서 애플리케이션을 선택합니다.
 
-2. **응용 프로그램 ID**를 복사하고 응용 프로그램 코드에 저장합니다. 응용 프로그램에는 [샘플 응용 프로그램](#sample-applications) 사용 하 여 **클라이언트 id** 참조할 때 합니다 **응용 프로그램 ID**합니다.
+2. **응용 프로그램 ID**를 복사하고 응용 프로그램 코드에 저장합니다. 샘플 응용 프로그램의 응용 프로그램 사용 **클라이언트 id** 참조할 때 합니다 **응용 프로그램 ID**합니다.
 
      ![응용 프로그램에 대 한 응용 프로그램 ID](./media/azure-stack-create-service-principal/image12.png)
 3. 인증 키를 생성하려면 **키**를 선택합니다.

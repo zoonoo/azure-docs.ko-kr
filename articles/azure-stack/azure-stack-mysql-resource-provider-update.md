@@ -15,12 +15,12 @@ ms.date: 01/11/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: f3129c27d123aa448f8293f7e1827dc3ebc5c82e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f38d27c6f82533265705ff5483bfe835c81c9ce6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239080"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817294"
 ---
 # <a name="update-the-mysql-resource-provider"></a>MySQL 리소스 공급자 업데이트 
 
@@ -30,7 +30,7 @@ Azure Stack을 빌드할 때에 리소스 공급자 어댑터를 해제 될 수 
 
 MySQL 리소스 공급자 버전 1.1.33.0 버전부터 업데이트는 누적 되며 순서는 이러한 발표 되었습니다; 설치할 필요가 없습니다. 으로 1.1.24.0 버전부터 이상 것입니다. 예를 들어 1.1.24.0 MySQL 리소스 공급자의 버전을 실행 하는 경우 다음 업그레이드할 수 있습니다 먼저 1.1.30.0 버전을 설치할 필요 없이 나중에 또는 1.1.33.0 버전으로 합니다. 사용 가능한 리소스 공급자 버전에서는 및에서 지원 되는 Azure Stack의 버전을 검토 하려면 버전 목록에 참조 [리소스 공급자 필수 구성 요소 배포](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)합니다.
 
-사용 하는 리소스 공급자 업데이트를 **UpdateMySQLProvider.ps1** 스크립트입니다. 프로세스는에 설명 된 대로 리소스 공급자를 설치 하는 데 사용 하는 프로세스와 유사 합니다 [리소스 공급자 배포](#deploy-the-resource-provider) 이 문서의 섹션입니다. 스크립트는 리소스 공급자의 다운로드에 포함 되어 있습니다. 
+사용 하는 리소스 공급자 업데이트를 **UpdateMySQLProvider.ps1** 스크립트입니다. 프로세스는이 문서의 리소스 공급자 섹션에는 배포에 설명 된 대로 리소스 공급자를 설치 하는 데 사용 하는 프로세스와 비슷합니다. 스크립트는 리소스 공급자의 다운로드에 포함 되어 있습니다. 
 
  > [!IMPORTANT]
  > 리소스 공급자를 업그레이드 하기 전에 새로운 기능, 수정 및 배포에 영향을 줄 수 있는 알려진된 문제에 대 한 자세한 릴리스 정보를 검토 합니다.

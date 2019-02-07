@@ -15,12 +15,12 @@ ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 331a71d4f807e1e596a91c1463064e3f6dcbd1e1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7d719ee6bdb8ce1f4131b474fe7602b492e69cd3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247037"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810680"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Azure Stack에 Azure Cognitive Services 배포
 
@@ -144,7 +144,7 @@ spec:
 | ImageLocation | ACR의 특정 cognitive 서비스 컨테이너 이미지의 위치를 나타냅니다. 예를 들어, 얼굴 서비스: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
 | BillingURL |끝점 URL의 단계에서 기록해 둔 [Azure 리소스 만들기](#create-azure-resources) |
 | ApiKey | 단계에서 기록해 둔 구독 키 [Azure 리소스 만들기](#create-azure-resources) |
-| SecretName | 단계에서는 앞서 언급 한 비밀 이름을 [개인 컨테이너 레지스트리에 액세스 하도록 비밀 만들기](#create-secrete-to-access-the-private-container-registry) |
+| SecretName | 개인 컨테이너 레지스트리에 액세스 하도록 비밀 만들기의 단계에서는 앞서 언급 한 비밀 이름 |
 
 ## <a name="deploy-the-cognitive-service"></a>Cognitive 서비스 배포
 

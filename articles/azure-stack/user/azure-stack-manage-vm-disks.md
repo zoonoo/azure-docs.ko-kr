@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 022dd937ae0557ca848a329039703f3b94ad0885
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b5254b45fcd71901876d9e77d1f29c0a0d40ce3f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245357"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813877"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Azure Stack에서 virtual machine 디스크 저장소 만들기
 
@@ -50,7 +50,7 @@ Vm을 만들 때 각 새 가상 머신에 대해 동일한 저장소 계정을 �
 
 | 방법 | 옵션
 |-|-|
-|[사용자 포털](#use-the-portal-to-add-additional-disks-to-a-vm)|-기존 VM에 새 데이터 디스크를 추가 합니다. 새 디스크는 Azure Stack에서 생성 됩니다. </br> </br>-이전에 만든된 VM에 기존 디스크 (.vhd) 파일을 추가 합니다. 이렇게 하려면.vhd를 준비한 다음 Azure Stack에 파일을 업로드 합니다. |
+|사용자 포털|-기존 VM에 새 데이터 디스크를 추가 합니다. 새 디스크는 Azure Stack에서 생성 됩니다. </br> </br>-이전에 만든된 VM에 기존 디스크 (.vhd) 파일을 추가 합니다. 이렇게 하려면.vhd를 준비한 다음 Azure Stack에 파일을 업로드 합니다. |
 |[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | -OS 디스크를 사용 하 여 새 VM 만들기 및 동시에 해당 VM에 하나 이상의 데이터 디스크를 추가 합니다. |
 
 ## <a name="use-the-portal-to-add-disks-to-a-vm"></a>Portal을 사용 하 여 VM에 디스크 추가

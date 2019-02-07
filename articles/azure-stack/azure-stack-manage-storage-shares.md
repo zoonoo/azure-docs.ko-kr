@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 96145906d40e465d2427a8100b3ad9333eec3f29
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7536913817e10fbc2b46eadd1cebdfb98079c759
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249098"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819521"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Azure Stack에 대 한 저장소 용량 관리 
 
@@ -51,7 +51,7 @@ Azure Stack 저장소 용량 확장을 지원 하지 않으므로, 반드시 [�
 
 공유 볼륨에 테 넌 트 데이터를 보관합니다. 테 넌 트 데이터 페이지 blob을 포함, 블록 blob, 추가 blob, 테이블, 큐, 데이터베이스 및 관련 메타 데이터 저장소입니다. 저장소 개체 (blob, 등)는 단일 공유 내에서 개별적으로 포함 되므로, 각 개체의 최대 크기는 공유의 크기를 초과할 수 없습니다. 새 개체의 최대 크기는 새 개체를 만들 때 사용 되지 않는 공간으로 공유에 남아 있는 용량에 따라 달라 집니다.
 
-사용 가능한 공간에 작업을 공유 사용량이 적을 때 [회수](#reclaim-capacity) 공간 성공 또는 사용할 수 없는, Azure Stack 클라우드 운영자 수 [마이그레이션할](#migrate-a-container-between) 다른 하나의 공유에서 blob 컨테이너입니다.
+사용 가능한 공간에 작업을 공유 사용량이 적을 때 [회수](#reclaim-capacity) 공간 성공 또는 사용할 수 없는, Azure Stack 클라우드 운영자 다른 하나의 공유에서 blob 컨테이너에 마이그레이션할 수 있습니다.
 
 - 컨테이너 및 blob에 대 한 자세한 내용은 참조 하세요. [Blob storage](azure-stack-key-features.md#blob-storage) 주요 기능 및 Azure Stack의 개념입니다.
 - Azure Stack에서 blob storage를 사용 하 여 테 넌 트 사용자가 작업 하는 방법에 대 한 자세한 내용은 [Azure Stack 저장소 서비스](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services)합니다.

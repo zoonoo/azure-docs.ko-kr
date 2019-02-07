@@ -14,16 +14,19 @@ ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: 9a14c819acbc46d8a281f73fd4f3185caa8a1e02
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 96cb07ca4ede26e9bf0e5ceba28f1549061d0bf3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478154"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815679"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>사이트 간 VPN 연결에 대 한 IPsec/IKE 정책 구성
 
 사이트 및 사이트 간 (S2S) VPN에 대 한 IPsec/IKE 정책을 구성 하는 단계를 통해이 문서에서는 Azure Stack에 연결 합니다.
+
+>[!NOTE]
+> Azure Stack 빌드를 실행 해야 합니다 **1809** 또는 나중에이 기능을 사용 하려면.  1809 이전 빌드를 현재 실행 하는 경우 업데이트 하세요 Azure Stack 시스템을 최신 빌드로이 기능을 사용 하거나이 문서의 단계를 수행 하기 전에 합니다.
 
 ## <a name="ipsec-and-ike-policy-parameters-for-vpn-gateways"></a>VPN gateway에 대 한 IPsec 및 IKE 정책 매개 변수
 

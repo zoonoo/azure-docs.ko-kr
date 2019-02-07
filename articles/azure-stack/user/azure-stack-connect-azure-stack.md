@@ -15,19 +15,19 @@ ms.topic: get-started-article
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b7f9bda37d63956ea672528c28b81eaaac9891a6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4bc4387dd56de96edd17fcd8e5672cfda96cf67b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243769"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816410"
 ---
 # <a name="connect-to-azure-stack"></a>Azure Stack에 연결
 
 리소스를 관리 하려면 Azure Stack 개발 키트에 연결 해야 합니다. 이 문서에서는 자세히 설명 된 단계 개발 키트를 연결 해야 합니다. 다음 연결 옵션 중 하나를 사용할 수 있습니다.
 
-* [원격 데스크톱](#connect-with-remote-desktop): 개발 키트의 신속 하 게 연결 하는 단일 동시 사용자 수 있습니다.
-* [가상 개인 네트워크 (VPN)](#connect-with-vpn): 클라이언트 (구성 필요) 하는 Azure Stack 인프라 외부에서 여러 동시 사용자 연결 수 있습니다.
+* 원격 데스크톱: 개발 키트의 신속 하 게 연결 하는 단일 동시 사용자 수 있습니다.
+* 가상 사설망 (VPN): 클라이언트 (구성 필요) 하는 Azure Stack 인프라 외부에서 연결 하는 여러 동시 사용자를 수 있습니다.
 
 ## <a name="connect-to-azure-stack-with-remote-desktop"></a>원격 데스크톱을 사용 하 여 Azure Stack에 연결
 원격 데스크톱 연결을 사용 하 여 한 명의 동시 사용자 리소스를 관리 포털을 사용 하 여 작업할 수 있습니다.

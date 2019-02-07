@@ -16,12 +16,12 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d9ab89afba2b83f99bfbf432d033cd0546a25a9d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 36699acab7a10a11ae60c62bab8e5130362ddfc7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247394"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817260"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
@@ -142,7 +142,7 @@ Run: get-azurestackstampinformation
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. 관리자 권한으로 PowerShell ISE를 시작 하 고 이동 합니다 **등록** 폴더에는 **azurestack의 경우 도구-마스터** 디렉터리를 만들 때 있습니다 [AzureStack도구다운로드](#bkmk_tools). 가져오기의 **RegisterWithAzure.psm1** PowerShell을 사용 하 여 모듈:
+5. 관리자 권한으로 PowerShell ISE를 시작 하 고 이동 합니다 **등록** 폴더에는 **azurestack의 경우 도구-마스터** Azure Stack 도구를 다운로드 하는 경우 만든 디렉터리입니다. 가져오기의 **RegisterWithAzure.psm1** PowerShell을 사용 하 여 모듈:
 
    ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1
@@ -206,7 +206,7 @@ Run: get-azurestackstampinformation
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. 관리자 권한으로 PowerShell ISE를 시작 하 고 이동 합니다 **등록** 폴더에는 **azurestack의 경우 도구-마스터** 디렉터리를 만들 때 있습니다 [AzureStack도구다운로드](#bkmk_tools). 가져오기의 **RegisterWithAzure.psm1** PowerShell을 사용 하 여 모듈:
+5. 관리자 권한으로 PowerShell ISE를 시작 하 고 이동 합니다 **등록** 폴더에는 **azurestack의 경우 도구-마스터** Azure Stack 도구를 다운로드 하는 경우 만든 디렉터리입니다. 가져오기의 **RegisterWithAzure.psm1** PowerShell을 사용 하 여 모듈:
 
   ```PowerShell  
   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -225,11 +225,11 @@ Run: get-azurestackstampinformation
 
 ## <a name="register-disconnected-with-capacity-billing"></a>용량 요금 청구를 사용 하 여 연결이 끊긴 등록
 
-Azure Stack 환경에서 등록 토큰 가져오기 및 다음 해당 토큰을 사용 하 여 Azure에 연결할 수 있고 컴퓨터 해야 연결이 끊어진된 환경에서 Azure Stack 등록 하는 (사용 하 여 인터넷 연결 되지 않은 경우), 경우 [PowerShell 설치 된 Azure Stack 용](#bkmk_powershell)합니다.  
+Azure Stack 환경에서 등록 토큰 가져오기 및 다음 해당 토큰을 사용 하 여 Azure에 연결할 수 있고 Azure Stack 용 PowerShell에 있는 컴퓨터에서 해야으로 등록 하는 Azure Stack에서 연결이 끊어진된 환경 (인터넷 연결 되지 않은 경우)을 하는 경우 설치 합니다.  
 
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Azure Stack 환경에서 등록 토큰 가져오기
 
-1. 관리자 권한으로 PowerShell ISE를 시작 하 고 이동 합니다 **등록** 폴더에는 **azurestack의 경우 도구-마스터** 디렉터리를 만들 때 있습니다 [AzureStack도구다운로드](#bkmk_tools). 가져오기의 **RegisterWithAzure.psm1** 모듈:  
+1. 관리자 권한으로 PowerShell ISE를 시작 하 고 이동 합니다 **등록** 폴더에는 **azurestack의 경우 도구-마스터** Azure Stack 도구를 다운로드 하는 경우 만든 디렉터리입니다. 가져오기의 **RegisterWithAzure.psm1** 모듈:  
 
    ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1
@@ -454,7 +454,7 @@ Cmdlet을 실행 하려면 다음을 수행 해야 합니다.
 | ResourceGroupLocation | 문자열 |  |
 | BillingModel | 문자열 | 구독을 사용 하는 청구 모델입니다. 이 매개 변수에 대해 허용 된 값은: 용량, PayAsYouUse, 및 개발 합니다. |
 | MarketplaceSyndicationEnabled | True/False | Marketplace 관리 기능은 포털에서 사용할 수 있는지 여부를 결정 합니다. 인터넷 연결을 사용 하 여 등록 하는 경우 true로 설정 합니다. 연결이 끊어진 환경에 등록 하는 경우 false로 설정 합니다. 연결이 끊긴 등록 합니다 [오프 라인 배포 도구](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) marketplace 항목 다운로드에 사용할 수 있습니다. |
-| UsageReportingEnabled | True/False | Azure Stack 기본적으로 사용 메트릭을 보고합니다. 연산자를 사용 하 여 용량 또는 연결이 끊어진된 환경 지원 사용 보고를 해제 해야 합니다. 이 매개 변수에 대해 허용 된 값은: True, False |
+| UsageReportingEnabled | True/False | Azure Stack 기본적으로 사용 메트릭을 보고합니다. 연산자를 사용 하 여 용량 또는 연결이 끊어진된 환경 지원 사용 보고를 해제 해야 합니다. 이 매개 변수에 대해 허용 된 값은: True, False). |
 | AgreementNumber | 문자열 |  |
 | RegistrationName | 문자열 | Id입니다. 동일한 Azure 구독을 사용 하 여 Azure Stack의 둘 이상의 인스턴스에서 등록 스크립트를 실행 하는 경우 등록에 대 한 고유 이름 설정 매개 변수 중에서 기본값이 **AzureStackRegistration**합니다. 그러나 Azure Stack의 둘 이상의 인스턴스에서 같은 이름을 사용할 경우 스크립트가 실패 합니다. |
 
@@ -476,7 +476,7 @@ Get-AzsRegistrationToken 입력된 매개 변수에서 등록 토큰을 생성�
 | ResourceGroupLocation | 문자열 |  |
 | BillingModel | 문자열 | 구독을 사용 하는 청구 모델입니다. 이 매개 변수에 대해 허용 된 값은: 용량, PayAsYouUse, 및 개발 합니다. |
 | MarketplaceSyndicationEnabled | True/False |  |
-| UsageReportingEnabled | True/False | Azure Stack 기본적으로 사용 메트릭을 보고합니다. 연산자를 사용 하 여 용량 또는 연결이 끊어진된 환경 지원 사용 보고를 해제 해야 합니다. 이 매개 변수에 대해 허용 된 값은: True, False |
+| UsageReportingEnabled | True/False | Azure Stack 기본적으로 사용 메트릭을 보고합니다. 연산자를 사용 하 여 용량 또는 연결이 끊어진된 환경 지원 사용 보고를 해제 해야 합니다. 이 매개 변수에 대해 허용 된 값은: True, False). |
 | AgreementNumber | 문자열 |  |
 
 

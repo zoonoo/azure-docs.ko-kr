@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 419b7c436e79b00d8f49d9e3801886f4e37e2c32
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/06/2019
+ms.openlocfilehash: ff28fbb52b33308967051a37fdaa3c6c273fc282
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241647"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816100"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Azure Stack을 사용 하 여 외부 모니터링 솔루션 통합
 
@@ -38,6 +38,9 @@ Azure Stack 인프라의 외부 모니터링에 대 한 Azure Stack 소프트웨
 다음 다이어그램에서는 Azure Stack 통합 시스템, 하드웨어 수명 주기 호스트, 외부 모니터링 솔루션 및 외부 티켓팅/데이터 컬렉션 시스템을 간의 트래픽 흐름을 보여 줍니다.
 
 ![Azure Stack, 모니터링 및 티켓팅 솔루션 간의 트래픽을 보여 주는 다이어그램입니다.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
+
+> [!NOTE]
+> 네트워크 장치 및 물리적 서버와 직접 외부 Monitoring Integration 허용 및 액세스 제어 목록 (Acl)에 의해 적극적으로 차단 합니다. 
 
 이 문서에서는 System Center Operations Manager 및 Nagios와 같은 외부 모니터링 솔루션과 Azure Stack을 통합 하는 방법에 설명 합니다. 또한 REST API 호출을 통해 또는 PowerShell을 사용 하 여 경고를 사용 하 여 프로그래밍 방식으로 작업 하는 방법을 포함 합니다.
 

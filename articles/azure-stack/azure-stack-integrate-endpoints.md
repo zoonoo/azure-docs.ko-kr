@@ -6,17 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.lastreviewed: 12/06/2018
-keywords: ''
-ms.openlocfilehash: 5946f62821d05bd9036b9fc0e6b0fc8daa74c5dc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/06/2019
+ms.openlocfilehash: 0bb2f3ffb4b615451abc41d0d8945b4b3efdde53
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241205"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816359"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure 데이터 센터 통합 스택-끝점 게시
 
@@ -69,19 +68,24 @@ Azure Stack은 투명 프록시 서버만 지원 합니다. 배포의 경우 기
 > [!Note]  
 > Azure Stack 다음 표에 나열 된 Azure 서비스에 연결할 Expressroute를 사용 하는 것을 지원 하지 않습니다.
 
-|목적|URL|프로토콜|포트|
-|---------|---------|---------|---------|
-|ID|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https://secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|
-|마켓플레이스 배포|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
-|패치 및 업데이트|https://&#42;.azureedge.net|HTTPS|443|
-|등록|https://management.azure.com|HTTPS|443|
-|사용 현황|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net|HTTPS|443|
-|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
-|NTP|(IP의 NTP 서버 배포에 대 한 제공)|UDP|123|
-|DNS|(배포에 대해 제공 된 IP의 DNS 서버)|TCP<br>UDP|53|
-|CRL|(인증서에 CRL 배포 지점 URL)|HTTP|80|
-|인프라 백업|(IP 또는 FQDN 외부 대상 파일 서버)|SMB|445|
-|     |     |     |     |
+|목적|대상 URL|프로토콜|포트|원본 네트워크|
+|---------|---------|---------|---------|---------|
+|ID|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https://secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|공용 VIP-/ 27<br>공용 인프라 네트워크|
+|마켓플레이스 배포|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|공용 VIP-/ 27|
+|패치 및 업데이트|https://&#42;.azureedge.net|HTTPS|443|공용 VIP-/ 27|
+|등록|https://management.azure.com|HTTPS|443|공용 VIP-/ 27|
+|사용 현황|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|공용 VIP-/ 27|
+|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>https://www.microsoft.com/pkiops/crl<br>https://www.microsoft.com/pkiops/certs<br>https://crl.microsoft.com/pki/crl/products<br>https://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|공용 VIP-/ 27<br>공용 인프라 네트워크|
+|NTP|(IP의 NTP 서버 배포에 대 한 제공)|UDP|123|공용 VIP-/ 27|
+|DNS|(배포에 대해 제공 된 IP의 DNS 서버)|TCP<br>UDP|53|공용 VIP-/ 27|
+|CRL|(인증서에 CRL 배포 지점 URL)|HTTP|80|공용 VIP-/ 27|
+|인프라 백업|(IP 또는 FQDN 외부 대상 파일 서버)|SMB|445|공용 인프라 네트워크|
+|LDAP|Graph 통합에 대해 제공 된 active Directory 포리스트|TCP<br>UDP|389|공용 VIP-/ 27|
+|LDAP SSL|Graph 통합에 대해 제공 된 active Directory 포리스트|TCP|636|공용 VIP-/ 27|
+|LDAP GC|Graph 통합에 대해 제공 된 active Directory 포리스트|TCP|3268|공용 VIP-/ 27|
+|LDAP GC SSL|Graph 통합에 대해 제공 된 active Directory 포리스트|TCP|3269|공용 VIP-/ 27|
+|AD FS|AD FS 통합을 위해 제공 하는 AD FS 메타 데이터 끝점|TCP|443|공용 VIP-/ 27|
+|     |     |     |     |     |
 
 > [!Note]  
 > 아웃 바운드 Url은 부하가 분산 된 Azure traffic manager를 사용 하 여 지리적 위치에 따라 가능한 최적의 연결을 제공 합니다. 부하 분산된 Url을 Microsoft에서 업데이트 하 고 고객에 게 영향을 주지 않고 백 엔드 끝점을 변경할 수 있습니다. Microsoft는 부하 분산 Url에 대 한 IP 주소 목록을 공유 하지 않습니다. IP 대신 하 여 URL 필터링을 지 원하는 장치를 사용 해야 합니다.

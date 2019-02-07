@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 12/18/2018
 ms.author: sethm
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 5ff2ee3ed271d8c32e2d41f40a56f71aa4c6c67c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3c36bca12a16a796a964c4447b47265eecd756be
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245272"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809251"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Azure Stack에 대한 액세스를 응용 프로그램에 제공합니다.
 
@@ -38,10 +38,10 @@ ms.locfileid: "55245272"
 
 Azure Stack을 배포 방법에 따라 서비스 주체 만들기에서 시작 합니다. 이 문서에서는 서비스 주체를 만들기를 설명 합니다.
 
-- [Azure AD(Azure Active Directory)](#create-service-principal-for-azure-ad). Azure AD는 다중 테 넌 트, 클라우드 기반 디렉터리 및 id 관리 서비스는입니다. 연결 된 Azure Stack을 사용 하 여 Azure AD를 사용할 수 있습니다.
-- [Active Directory Federation Services (AD FS)](#create-service-principal-for-ad-fs)합니다. AD FS는 간편 하 고 안전한 id 페더레이션 및 웹에서 single sign-on (SSO) 기능을 제공합니다. 연결 및 연결이 끊긴에 해당 하는 Azure Stack의 인스턴스를 사용 하 여 AD FS를 사용할 수 있습니다.
+- Azure AD(Azure Active Directory). Azure AD는 다중 테 넌 트, 클라우드 기반 디렉터리 및 id 관리 서비스는입니다. 연결 된 Azure Stack을 사용 하 여 Azure AD를 사용할 수 있습니다.
+- Active Directory Federation Services (AD FS)입니다. AD FS는 간편 하 고 안전한 id 페더레이션 및 웹에서 single sign-on (SSO) 기능을 제공합니다. 연결 및 연결이 끊긴에 해당 하는 Azure Stack의 인스턴스를 사용 하 여 AD FS를 사용할 수 있습니다.
 
-AD FS와 Azure Active Directory에 공통 단계 집합이에 사용 되는 서비스 주체를 만든 후 [권한을 위임할](#assign-role-to-service-principal) 역할을 합니다.
+서비스 주체를 만든 후 역할에 대 한 권한을 위임 하려면 AD FS와 Azure Active Directory에 공통 단계 집합이 사용 됩니다.
 
 ## <a name="manage-service-principal-for-azure-ad"></a>Azure AD에 대 한 서비스 주체 관리
 
@@ -63,7 +63,7 @@ AD FS와 Azure Active Directory에 공통 단계 집합이에 사용 되는 서�
 
 1. Active Directory의 **앱 등록**에서 애플리케이션을 선택합니다.
 
-2. **응용 프로그램 ID**를 복사하고 응용 프로그램 코드에 저장합니다. [샘플 응용 프로그램](#sample-applications) 섹션의 응용 프로그램은 이 값을 클라이언트 ID로 참조합니다.
+2. **응용 프로그램 ID**를 복사하고 응용 프로그램 코드에 저장합니다. 샘플 응용 프로그램 섹션에서 응용 프로그램 클라이언트 ID로이 값을 참조합니다.
 
      ![클라이언트 ID](./media/azure-stack-create-service-principal/image12.png)
 3. 웹 앱에 대 한 인증 키를 생성할 / API를 선택 **설정을** > **키**합니다. 
@@ -74,7 +74,7 @@ AD FS와 Azure Active Directory에 공통 단계 집합이에 사용 되는 서�
 
 ![공유 키](./media/azure-stack-create-service-principal/image15.png)
 
-완료 되 면 있습니다 [응용 프로그램 역할 할당](#assign-role-to-service-principal)합니다.
+완료 되 면 응용 프로그램을 역할을 할당할 수 있습니다.
 
 ## <a name="manage-service-principal-for-ad-fs"></a>AD FS에 대 한 서비스 주체를 관리 합니다.
 

@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/24/2019
+ms.date: 02/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: d1bddc8331fc1a9ded37949a8065636947074852
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9debcd121cbbde626758abccfe838abda12ad840
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246738"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822836"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Storage 탐색기는 Azure Stack 구독 또는 저장소 계정에 연결
 
@@ -45,20 +45,15 @@ Azure Stack 또는 Azure Stack 구독에 액세스 하려면 storage 탐색기�
 
 ### <a name="export-and-then-import-the-azure-stack-certificate"></a>내보내기 및 다음 Azure Stack 인증서를 가져오기
 
+내보내고를 ASDK에 대 한 다음 Azure Stack 인증서를 가져옵니다. 통합된 시스템에 대 한 인증서는 공개적으로 서명 됩니다. 따라서이 단계 시스템 통합 Azure Stack에 저장소 탐색기 연결을 설정 하는 동안 필요 하지 않습니다.
+
 1. 열기 `mmc.exe` Azure Stack 호스트 컴퓨터를 또는 Azure Stack에 VPN 연결을 사용 하 여 로컬 컴퓨터입니다. 
 
 2. **파일**를 선택 **스냅인 추가/제거**를 추가한 다음 **인증서** 관리 하 **내 사용자 계정**합니다.
 
-3.  아래 **Root\Certificated (Local Computer) \Trusted Root Certification Authorities\Certificates 콘솔**합니다.
+3.  아래 **Root\Certificated (Local Computer) \Trusted Root Certification Authorities\Certificates 콘솔**합니다. Find **AzureStackSelfSignedRootCert**.
 
-    - ASDK, 찾습니다 **AzureStackSelfSignedRootCert**합니다.
-
-        ![mmc.exe를 통해 Azure Stack 루트 인증서 로드](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
-
-    - 통합된 시스템에 대 한 외부 인증서의 루트 인증서를 찾습니다. 
-    
-        ![mmc.exe를 통해 Azure Stack 루트 인증서 로드](./media/azure-stack-storage-connect-se/azure-stack-storage-cert-location-is.png)
-        
+    ![mmc.exe를 통해 Azure Stack 루트 인증서 로드](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
 4. 인증서를 마우스 오른쪽 단추로 클릭 한 다음를 선택 합니다 **모든 작업** > **내보내기**를 사용 하 여 인증서를 내보내려면 지침에 따라 **Base-64로 인코딩된 X.509 (. CER)** 합니다.
 
