@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 24b00a589454bfa8413cd98407c2022671cb92ce
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 61c1afbe6252d1feefc9bc648457ef21a57d23d5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887957"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733997"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>빠른 시작: IoT Hub 디바이스 스트림을 통해 C에서 디바이스 애플리케이션과 통신(미리 보기)
 
@@ -64,7 +64,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 2. 명령 프롬프트 또는 Git Bash 셸을 엽니다. 다음 명령을 실행하여 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 리포지토리를 복제합니다.
     
     ```
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
     이 리포지토리 크기는 현재 약 220MB입니다.
@@ -73,7 +73,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     ```
     cd azure-iot-sdk-c
-    git checkout public-preview
     mkdir cmake
     cd cmake
     ```
@@ -89,14 +88,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 Windows에서 Visual Studio 2015 또는 2017 프롬프트에 대해 개발자 명령 프롬프트에서 다음 명령을 실행합니다.
 
 ```
-    # In Windows
-    # For VS2015
+    rem In Windows
+    rem For VS2015
     cmake .. -G "Visual Studio 15 2015"
     
-    # Or for VS2017
-    cmake .. -G "Visual Studio 15 2017
+    rem Or for VS2017
+    cmake .. -G "Visual Studio 15 2017"
 
-    # Then build the project
+    rem Then build the project
     cmake --build . -- /m /p:Configuration=Release
 ```
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c3e5e7c4fb46b3f68013ac857dcad2e5434a978d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: d0107e09bf8706ba7d4c813814103ca109262d8d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998306"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657402"
 ---
 # <a name="deprecated-deploy-and-use-azure-container-registry"></a>(사용되지 않음) Azure Container Registry 배포 및 사용
 
@@ -34,7 +34,7 @@ ACR(Azure Container Registry)은 Docker 컨테이너 이미지를 위한 Azure �
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-[이전 자습서](./container-service-tutorial-kubernetes-prepare-app.md)에서는 간단한 Azure Voting 응용 프로그램에 컨테이너 이미지를 만들었습니다. Azure Voting 앱 이미지를 만들지 않은 경우 [자습서 1 - 컨테이너 이미지 만들기](./container-service-tutorial-kubernetes-prepare-app.md)로 돌아갑니다.
+[이전 자습서](./container-service-tutorial-kubernetes-prepare-app.md)에서는 간단한 Azure Voting 애플리케이션에 컨테이너 이미지를 만들었습니다. Azure Voting 앱 이미지를 만들지 않은 경우 [자습서 1 - 컨테이너 이미지 만들기](./container-service-tutorial-kubernetes-prepare-app.md)로 돌아갑니다.
 
 이 자습서에는 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
@@ -141,7 +141,7 @@ Result
 azure-vote-front
 ```
 
-그런 다음 특정 이미지에 대한 태그를 보려면 [az acr repository show-tags](/cli/azure/acr/repository#show-tags) 명령을 사용합니다.
+그런 다음 특정 이미지에 대한 태그를 보려면 [az acr repository show-tags](/cli/azure/acr/repository) 명령을 사용합니다.
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table

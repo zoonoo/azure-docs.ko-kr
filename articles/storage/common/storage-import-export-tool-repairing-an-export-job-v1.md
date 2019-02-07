@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 395ff654bcacf1a4f70a9032492deb2a9d5202f3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 915cf1e66ec400e0d2461873d9fb3d66be9883fb
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454762"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756753"
 ---
 # <a name="repairing-an-export-job"></a>내보내기 작업 복구
 내보내기 작업이 완료된 후에 온-프레미스에서 Microsoft Azure Import/Export 도구를 실행하여 다음을 수행할 수 있습니다.  
@@ -81,7 +81,7 @@ WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bob
 ## <a name="using-repairexport-to-validate-drive-contents"></a>RepairExport를 사용하여 드라이브 내용의 유효성 검사  
 **RepairExport** 옵션과 Azure Import/Export를 함께 사용하여 드라이브 내용이 올바른지 검사할 수도 있습니다. 각 내보내기 드라이브에 있는 매니페스트 파일에는 드라이브 내용에 대한 MD5가 포함되어 있습니다.  
   
-Azure Import/Export 서비스는 내보내기 프로세스 동안 저장소 계정에 이 매니페스트 파일을 저장할 수도 있습니다. 매니페스트 파일의 위치는 작업이 완료될 때 [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 작업을 통해 사용할 수 있습니다. 드라이브 매니페스트 파일의 형식에 대한 자세한 내용은 [Import/Export 서비스 매니페스트 파일 형식](storage-import-export-file-format-metadata-and-properties.md)을 참조하세요.  
+Azure Import/Export 서비스는 내보내기 프로세스 동안 저장소 계정에 이 매니페스트 파일을 저장할 수도 있습니다. 매니페스트 파일의 위치는 작업이 완료될 때 [Get Job](/rest/api/storageimportexport/jobs) 작업을 통해 사용할 수 있습니다. 드라이브 매니페스트 파일의 형식에 대한 자세한 내용은 [Import/Export 서비스 매니페스트 파일 형식](storage-import-export-file-format-metadata-and-properties.md)을 참조하세요.  
   
 다음 예제에서는 **/ManifestFile** 및 **/CopyLogFile** 매개 변수를 사용하여 Azure Import/Export 도구를 실행하는 방법을 보여 줍니다.  
   

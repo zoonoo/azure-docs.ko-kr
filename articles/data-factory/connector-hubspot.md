@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 76f54674b6c292cfaecfe8440d12bfa17d5a5a5e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 86c38818ee1632bf2d2f3fb1e1240954f3267887
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016583"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567318"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 HubSpot에서 데이터 복사(미리 보기)
 
@@ -63,16 +63,16 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
         "typeProperties": {
             "clientId" : "<clientId>",
             "clientSecret": {
-                 "type": "SecureString",
-                 "value": "<clientSecret>"
+                "type": "SecureString",
+                "value": "<clientSecret>"
             },
             "accessToken": {
-                 "type": "SecureString",
-                 "value": "<accessToken>"
+                "type": "SecureString",
+                "value": "<accessToken>"
             },
             "refreshToken": {
-                 "type": "SecureString",
-                 "value": "<refreshToken>"
+                "type": "SecureString",
+                "value": "<refreshToken>"
             }
         }
     }

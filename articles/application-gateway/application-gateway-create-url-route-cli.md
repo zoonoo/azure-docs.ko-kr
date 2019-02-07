@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: a43f90a5218109b0592c2b52dfb450c19462a543
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: a1fadb098fdb4262ee73725ec96c3c9602b1b68d
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54843840"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734235"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Azure CLI를 사용하는 URL 경로 기반 회람 규칙을 사용하여 애플리케이션 게이트웨이 만들기
 
@@ -38,7 +38,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. [az group create](/cli/azure/group#create)를 사용하여 리소스 그룹을 만듭니다.
+리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다.
 
 다음 예제에서는 *eastus* 위치에 *myResourceGroupAG*라는 리소스 그룹을 만듭니다.
 
@@ -48,7 +48,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기 
 
-[az network vnet create](/cli/azure/network/vnet#az-net)를 사용하여 *myVNet*이라는 가상 네트워크와 *myAGSubnet*이라는 서브넷을 만듭니다. 그런 후 [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create)를 사용하여 백 엔드 서버에 필요한 *myBackendSubnet*이라는 서브넷을 추가할 수 있습니다. [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create)를 사용하여 *myAGPublicIPAddress*라는 IP 주소를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet)를 사용하여 *myVNet*이라는 가상 네트워크와 *myAGSubnet*이라는 서브넷을 만듭니다. 그런 후 [az network vnet subnet create](/cli/azure/network/vnet/subnet)를 사용하여 백 엔드 서버에 필요한 *myBackendSubnet*이라는 서브넷을 추가할 수 있습니다. [az network public-ip create](/cli/azure/network/public-ip)를 사용하여 *myAGPublicIPAddress*라는 IP 주소를 만듭니다.
 
 ```azurecli-interactive
 az network vnet create \
@@ -70,7 +70,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway-with-url-map"></a>URL 맵을 사용하여 애플리케이션 게이트웨이 만들기
 
-[az network application-gateway create](/cli/azure/network/application-gateway#create)를 사용하여 *myAppGateway*라는 애플리케이션 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myAGPublicIPAddress*에 할당됩니다. 
+[az network application-gateway create](/cli/azure/network/application-gateway)를 사용하여 *myAppGateway*라는 애플리케이션 게이트웨이를 만들 수 있습니다. Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 애플리케이션 게이트웨이는 앞에서 만든 *myAGSubnet* 및 *myAGPublicIPAddress*에 할당됩니다. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -99,7 +99,7 @@ az network application-gateway create \
 
 ### <a name="add-image-and-video-backend-pools-and-port"></a>이미지 및 비디오 백 엔드 풀 및 포트 추가
 
-[az network application-gateway address-pool create](/cli/azure/network/application-gateway#az-network_application_gateway_address-pool_create)를 사용하여 애플리케이션 게이트웨이에 *imagesBackendPool* 및 *videoBackendPool*이라는 백 엔드 풀을 추가할 수 있습니다. [az network application-gateway frontend-port create](/cli/azure/network/application-gateway#az-network_application_gateway_frontend_port_create)를 사용하여 풀에 프런트 엔드 포트를 추가합니다. 
+[az network application-gateway address-pool create](/cli/azure/network/application-gatewaywork_application_gateway_address-pool_create)를 사용하여 애플리케이션 게이트웨이에 *imagesBackendPool* 및 *videoBackendPool*이라는 백 엔드 풀을 추가할 수 있습니다. [az network application-gateway frontend-port create](/cli/azure/network/application-gatewaywork_application_gateway_frontend_port_create)를 사용하여 풀에 프런트 엔드 포트를 추가합니다. 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -133,7 +133,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-url-path-map"></a>URL 경로 맵 추가
 
-URL 경로 맵은 특정 URL을 특정 백 엔드 풀로 라우팅하도록 합니다. [az network application-gateway url-path-map create](/cli/azure/network/application-gateway#az-network_application_gateway_url_path_map_create) 및 [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway#az-network_application_gateway_url_path_map_rule_create)를 사용하여 *imagePathRule* 및 *videoPathRule*이라는 URL 경로 맵을 만들 수 있습니다.
+URL 경로 맵은 특정 URL을 특정 백 엔드 풀로 라우팅하도록 합니다. [az network application-gateway url-path-map create](/cli/azure/network/application-gateway) 및 [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway)를 사용하여 *imagePathRule* 및 *videoPathRule*이라는 URL 경로 맵을 만들 수 있습니다.
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -157,7 +157,7 @@ az network application-gateway url-path-map rule create \
 
 ### <a name="add-routing-rule"></a>라우팅 규칙 추가
 
-라우팅 규칙은 URL 맵을 만든 수신기에 연결합니다. [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create)를 사용하여 *rule2*라는 규칙을 추가할 수 있습니다.
+라우팅 규칙은 URL 맵을 만든 수신기에 연결합니다. [az network application-gateway rule create](/cli/azure/network/application-gatewaywork_application_gateway_rule_create)를 사용하여 *rule2*라는 규칙을 추가할 수 있습니다.
 
 ```azurecli-interactive
 az network application-gateway rule create \

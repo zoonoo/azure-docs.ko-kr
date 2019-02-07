@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 6ad90c2d13ebeaa077dc6264f84a4ebd8a340a8c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 38825f7815713678946e86252d4c8a1bee0abbc6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159087"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752690"
 ---
 # <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL 서버 복원
 이 샘플 CLI 스크립트는 단일 Azure Database for MySQL 서버를 이전 시점으로 복원합니다.
@@ -37,7 +37,7 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 샘플에�
 |---|---|
 | [az group create](/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az mysql server create](/cli/azure/mysql/server) | 데이터베이스를 호스팅하는 MySQL 서버를 만듭니다. |
-| [az mysql server restore](/cli/azure/mysql/server#restore) | 백업에서 서버를 복원합니다. |
+| [az mysql server restore](/cli/azure/mysql/server) | 백업에서 서버를 복원합니다. |
 | [az group delete](/cli/azure/group) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: d88f44a202ee8def017698dfa8ac40d32bcae4d1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d79076a0669f725c3f1864a979812ede1020cd75
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168586"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812126"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>비갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성하는 방법
 
@@ -36,7 +36,7 @@ ms.locfileid: "55168586"
 
 -   [애플리케이션에서 Azure AD 메타데이터 값 구성(로그온 URL, 발급자, 로그아웃 URL 및 인증서)](#_Configuring_single_sign-on)
 
--   [애플리케이션에 사용자 할당](#_Assign_users_to_the_application)
+-   애플리케이션에 사용자 할당
 
 ## <a name="configuring-single-sign-on-to-non-gallery-applications"></a>비갤러리 애플리케이션에 Single Sign-On 구성
 

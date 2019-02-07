@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/03/2018
-ms.openlocfilehash: 679a02c760d8b37d94a734bc9b023ed8fe59acad
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.date: 01/10/2019
+ms.openlocfilehash: 11c1f34176e7852806464781e80d6dc0fd5345a4
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198187"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750344"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>자습서: 지리적으로 분산된 데이터베이스 구현
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 - Azure SQL 데이터베이스입니다. 데이터베이스를 만들려면 다음 중 하나를 사용합니다.
-  - [포털](sql-database-get-started-portal.md)
+  - [포털](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
 
@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 > [!IMPORTANT]
 > 이 자습서의 단계를 수행하는 컴퓨터의 공용 IP 주소를 사용하도록 방화벽 규칙을 설정하세요. 데이터베이스 수준 방화벽 규칙은 보조 서버에 자동으로 복제됩니다.
 >
-> 자세한 내용은 [데이터베이스 수준 방화벽 규칙 만들기](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)를 참조하세요. 사용 중인 컴퓨터용 서버 수준 방화벽 규칙에 사용되는 IP 주소를 확인하려면 [서버 수준 방화벽 만들기](sql-database-get-started-portal-firewall.md)를 참조하세요.  
+> 자세한 내용은 [데이터베이스 수준 방화벽 규칙 만들기](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)를 참조하세요. 사용 중인 컴퓨터용 서버 수준 방화벽 규칙에 사용되는 IP 주소를 확인하려면 [서버 수준 방화벽 만들기](sql-database-server-level-firewall-rule.md)를 참조하세요.  
 
 ## <a name="create-a-failover-group"></a>장애 조치 그룹 만들기
 

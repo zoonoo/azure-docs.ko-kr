@@ -6,15 +6,15 @@ items:
 - name: 개요
   items:
   - name: Azure IoT Central이란?
-    href: ../iot-central/overview-iot-central.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    href: ../iot-central/overview-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
   - name: IoT 솔루션 옵션
-    href: ../iot-central/overview-iot-options.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    href: ../iot-central/overview-iot-options-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
   - name: UI 둘러보기
     href: ../iot-central/overview-iot-central-tour-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
 - name: 빠른 시작
   items:
   - name: 새 애플리케이션 만들기
-    href: ../iot-central/quick-deploy-iot-central.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    href: ../iot-central/quick-deploy-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
   expanded: true
 - name: 자습서
   items:
@@ -31,17 +31,17 @@ items:
 - name: 개념
   items:
   - name: 아키텍처
-    href: ../iot-central/concepts-architecture.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    href: ../iot-central/concepts-architecture-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
   - name: 연결
-    href: ../iot-central/concepts-connectivity.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+    href: ../iot-central/concepts-connectivity-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
 - name: 방법 가이드
   items:
   - name: 디바이스 연결
     items:
     - name: Node.js(일반) 애플리케이션 준비 및 연결
-      href: ../iot-central/howto-connect-nodejs.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-connect-nodejs-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: MXChip IoT DevKit 준비 및 연결
-      href: ../iot-central/howto-connect-devkit.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-connect-devkit-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Raspberry Pi(Python) 준비 및 연결
       href: ../iot-central/howto-connect-raspberry-pi-python.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Raspberry Pi(C#) 준비 및 연결
@@ -49,7 +49,7 @@ items:
     - name: Windows IoT Core 디바이스 준비 및 연결
       href: ../iot-central/howto-connect-windowsiotcore.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: 명령줄을 사용하여 디바이스 연결 모니터링
-      href: ../iot-central/howto-use-iotc-explorer.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-use-iotc-explorer-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
   - name: 디바이스 관리
     items:
     - name: 디바이스 템플릿 설정
@@ -57,9 +57,9 @@ items:
     - name: 디바이스 관리
       href: ../iot-central/howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: 작업 실행
-      href: ../iot-central/howto-run-a-job.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-run-a-job-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: 디바이스 설정 사용
-      href: ../iot-central/howto-use-device-sets.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-use-device-sets-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: 버전 디바이스 템플릿
       href: ../iot-central/howto-version-devicetemplate.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
   - name: 모니터링 및 분석
@@ -69,19 +69,19 @@ items:
     - name: 이벤트 규칙 만들기
       href: ../iot-central/howto-create-event-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: 디바이스 데이터 분석
-      href: ../iot-central/howto-create-analytics.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-create-analytics-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
   - name: 작업 및 확장성
     items:
     - name: 규칙에 웹후크 작업 만들기
-      href: ../iot-central/howto-create-webhooks.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-create-webhooks-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Microsoft Flow에서 워크플로 빌드
-      href: ../iot-central/howto-add-microsoft-flow.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-add-microsoft-flow-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Azure Logic Apps에서 워크플로 빌드
-      href: ../iot-central/howto-build-azure-logic-apps.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-build-azure-logic-apps-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Azure Functions 트리거
       href: ../iot-central/howto-trigger-azure-functions.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: 데이터 내보내기
-      href: ../iot-central/howto-export-data.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-export-data-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
       items:
       - name: Event Hubs 및 Service Bus 내보내기
         href: ../iot-central/howto-export-data-event-hubs-service-bus.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
@@ -94,9 +94,9 @@ items:
   - name: 관리
     items:
     - name: 애플리케이션 관리
-      href: ../iot-central/howto-administer.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-administer-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: 이미지 준비 및 업로드
-      href: ../iot-central/howto-prepare-images.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-prepare-images-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Azure 관리 포털에서 IoT Central 관리
       href: ../iot-central/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: Azure PowerShell에서 IoT Central 관리
@@ -104,7 +104,7 @@ items:
     - name: CSP가 애플리케이션을 만들고 관리할 때
       href: ../iot-central/howto-create-and-manage-applications-as-CSP.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
     - name: 홈페이지 구성
-      href: ../iot-central/howto-configure-homepage.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
+      href: ../iot-central/howto-configure-homepage-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
   - name: 개인 설정
     items:
     - name: 기본 설정 관리
@@ -141,9 +141,9 @@ items:
     href: ../iot-central/iot-central-customer-data-requests.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
   - name: 지원되는 브라우저
     href: ../iot-central/iot-central-supported-browsers.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
-ms.openlocfilehash: 5eef62e35c8927262c9f2e303cb697b5e63333eb
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 7d431a6e71155ae7bcda87532042566460e39a2c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727163"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818450"

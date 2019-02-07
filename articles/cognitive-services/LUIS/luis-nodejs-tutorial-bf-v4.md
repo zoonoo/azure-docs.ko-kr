@@ -9,14 +9,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: 292bcf5974f8c51f99a676786c66316e9cde0748
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8a24ffa4717244d8ce2ef507183cff06cbea5797
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215920"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492235"
 ---
 # <a name="tutorial-luis-bot-in-nodejs-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>자습서: Bot Framework 4.x 및 Azure 웹앱 봇을 사용하는 Node.js의 LUIS 봇
 Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드할 수 있습니다. 이 봇은 HomeAutomation 앱을 사용하여 봇 솔루션을 구현합니다. 봇은 [Bot Framework 버전](https://github.com/Microsoft/botbuilder-js) v4 및 Azure [웹앱 봇](https://docs.microsoft.com/azure/bot-service/)을 사용하여 빌드되었습니다.
@@ -114,7 +114,7 @@ Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌�
 
 6. bot.js 파일을 열고 `const results = await this.luisRecognizer.recognize(context);`를 찾습니다. 이는 봇에 입력된 사용자 발화를 LUIS로 보내는 위치입니다.
 
-    ```nodejs
+   ```javascript
     /**
      * Driver code that does one of the following:
      * 1. Display a welcome card upon startup
@@ -247,7 +247,7 @@ Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌�
 
 1. 파일의 위쪽에서 **지원되는 LUIS 의도** 섹션을 찾고 HomeAutomation 의도에 대한 상수를 추가합니다.
 
-    ```nodejs
+   ```javascript
     // Supported LUIS Intents
     const GREETING_INTENT = 'Greeting';
     const CANCEL_INTENT = 'Cancel';
@@ -261,7 +261,7 @@ Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌�
 
 2. 발화에 대한 LUIS 예측을 받는 **isTurnInterrupted**를 찾고, 결과를 콘솔에 출력하는 줄을 추가합니다.
 
-    ```nodejs
+   ```javascript
     /**
      * Look at the LUIS results and determine if we need to handle
      * an interruptions due to a Help or Cancel intent
@@ -309,7 +309,7 @@ Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌�
 
 3. `DialogTurnStatus.empty` 케이스에 대한 onTurn 메서드의 switch 문에 의도를 추가합니다.
 
-    ```nodejs
+   ```javascript
     switch (topIntent) {
         case GREETING_INTENT:
             await dc.begin(GREETING_DIALOG);

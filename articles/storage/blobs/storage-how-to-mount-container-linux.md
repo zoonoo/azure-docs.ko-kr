@@ -1,25 +1,25 @@
 ---
-title: Azure Blob 저장소를 Linux의 파일 시스템으로 탑재하는 방법 | Microsoft Docs
-description: Linux에 FUSE가 있는 Azure Blob 저장소 컨테이너를 탑재합니다.
+title: Azure Blob Storage를 Linux의 파일 시스템으로 탑재하는 방법 | Microsoft Docs
+description: Linux에 FUSE가 있는 Azure Blob Storage 컨테이너를 탑재합니다.
 services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 2/1/2019
 ms.author: seguler
-ms.openlocfilehash: 2374875512bba55409ef43906acb20238c77158f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 1e26eb213ad2613877c46758299c2e962894d358
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268464"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698007"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>blobfuse를 사용하여 Blob Storage를 파일 시스템으로 탑재하는 방법
 
 ## <a name="overview"></a>개요
 [Blobfuse](https://github.com/Azure/azure-storage-fuse)는 Azure Blob Storage의 가상 파일 시스템 드라이버입니다. Blobfuse를 사용하여 Linux 파일 시스템을 통해 스토리지 계정의 기존 블록 Blob 데이터에 액세스할 수 있습니다. Azure Blob Storage는 개체 스토리지 서비스이므로 계층 구조 네임스페이스가 없습니다. blobfuse는 슬래시(/)를 구분 기호로 사용하는 가상 디렉터리 체계를 사용하여 이 네임스페이스를 제공합니다.  
 
-이 가이드에서는 blobfuse를 사용하고, Blob 저장소 컨테이너를 Linux에 탑재하고, 데이터에 액세스하는 방법을 보여 줍니다. blobfuse에 대한 자세한 내용은 [blobfuse 리포지토리](https://github.com/Azure/azure-storage-fuse)의 세부 정보를 참조하세요.
+이 가이드에서는 blobfuse를 사용하고, Blob Storage 컨테이너를 Linux에 탑재하고, 데이터에 액세스하는 방법을 보여 줍니다. blobfuse에 대한 자세한 내용은 [blobfuse 리포지토리](https://github.com/Azure/azure-storage-fuse)의 세부 정보를 참조하세요.
 
 > [!WARNING]
 > blobfuse는 단순히 요청을 [Blob REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)로 변환하기 때문에 100% POSIX 규정 준수를 보장하지 않습니다. 예를 들어 이름 바꾸기 작업은 POSIX에서 원자성이지만, blobfuse에서는 그렇지 않습니다.
@@ -100,7 +100,7 @@ containerName mycontainer
 
 이 파일을 만든 후에는 다른 사용자가 읽을 수 없도록 액세스를 제한해야 합니다.
 ```bash
-chmod 700 fuse_connection.cfg
+chmod 600 fuse_connection.cfg
 ```
 
 > [!NOTE]

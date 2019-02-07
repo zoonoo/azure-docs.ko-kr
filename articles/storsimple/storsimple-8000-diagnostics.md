@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 7199009553eb7aae31db3f913fe4de87e03d74ba
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 5cce4337e3ef95c6407d46d9b8b6401fe4f6600b
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27744115"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497743"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>StorSimple 진단 도구를 사용하여 8000 시리즈 디바이스 문제 해결
 
@@ -33,7 +33,7 @@ StorSimple 진단 도구는 StorSimple 디바이스에 대한 시스템, 성능,
 
 이 도구는 사용자의 StorSimple 디바이스의 Windows PowerShell 인터페이스를 통해 실행할 수 있습니다. 사용자 디바이스의 로컬 인터페이스에 액세스하는 방법에는 두 가지가 있습니다.
 
-* [PuTTY를 사용하여 장치 직렬 콘솔에 연결합니다](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+* [PuTTY를 사용하여 디바이스 직렬 콘솔에 연결합니다](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 * [StorSimple용 Windows PowerShell을 통해 도구에 원격으로 액세스합니다](storsimple-8000-remote-connect.md).
 
 이 문서에서는 PuTTY를 통해 디바이스 직렬 콘솔에 연결한 것으로 가정합니다.
@@ -41,7 +41,7 @@ StorSimple 진단 도구는 StorSimple 디바이스에 대한 시스템, 성능,
 #### <a name="to-run-the-diagnostics-tool"></a>진단 도구를 실행하려면 다음을 수행합니다.
 
 디바이스의 Windows PowerShell 인터페이스에 연결한 후 다음 단계를 수행하여 cmdlet을 실행합니다.
-1. [장치 직렬 콘솔 연결에 PuTTY 사용](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)단계를 수행하여 장치 직렬 콘솔에 로그온합니다.
+1. [디바이스 직렬 콘솔 연결에 PuTTY 사용](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)단계를 수행하여 디바이스 직렬 콘솔에 로그온합니다.
 
 2. 다음 명령을 입력합니다.
 
@@ -59,7 +59,7 @@ StorSimple 진단 도구는 StorSimple 디바이스에 대한 시스템, 성능,
 
 진단 도구를 사용하여 시스템의 네트워크, 성능, 시스템 및 하드웨어 상태 문제를 해결합니다. 몇 가지 가능한 시나리오는 다음과 같습니다.
 
-* **장치 오프라인** - 사용자의 StorSimple 8000 시리즈 장치가 오프라인 상태입니다. 단, Windows PowerShell 인터페이스에서 두 컨트롤러가 모두 켜져 있고 실행 중인 것 같습니다.
+* **디바이스 오프라인** - 사용자의 StorSimple 8000 시리즈 디바이스가 오프라인 상태입니다. 단, Windows PowerShell 인터페이스에서 두 컨트롤러가 모두 켜져 있고 실행 중인 것 같습니다.
     * 이 도구를 사용하여 네트워크 상태를 결정할 수 있습니다.
          
          > [!NOTE]
@@ -69,11 +69,11 @@ StorSimple 진단 도구는 StorSimple 디바이스에 대한 시스템, 성능,
          >
          > `Invoke-HcsDiagnostics -Scope System`
 
-* **영구 장치 문제** - 영구적으로 보이는 장치 문제가 발생했습니다. 예를 들어 등록에 실패합니다. 디바이스를 성공적으로 등록하고 잠시 동안 작동한 후에 문제가 발생할 수 있습니다.
+* **영구 디바이스 문제** - 영구적으로 보이는 디바이스 문제가 발생했습니다. 예를 들어 등록에 실패합니다. 디바이스를 성공적으로 등록하고 잠시 동안 작동한 후에 문제가 발생할 수 있습니다.
     * 이 경우 Microsoft 지원에 서비스 요청을 로그하기 전에 임시 문제 해결에 대한 이 도구를 사용합니다. 이 도구를 실행하고 이 도구의 출력을 캡처하는 것이 좋습니다. 그런 다음, 문제 해결을 더 신속하게 처리하기 위해 이 출력을 지원에 제공할 수 있습니다.
     * 하드웨어 구성 요소 또는 클러스터 오류가 발생하는 경우 지원 요청에 로그인해야 합니다.
 
-* **낮은 장치 성능** - 사용자의 StorSimple 장치 속도가 느립니다.
+* **낮은 디바이스 성능** - 사용자의 StorSimple 디바이스 속도가 느립니다.
     * 이 경우 성능으로 설정된 범위 매개 변수로 이 cmdlet을 실행합니다. 출력을 분석합니다. 클라우드 읽기-쓰기 대기 시간을 가져옵니다. 보고된 대기 시간을 최대 달성 가능한 대상으로 사용하고, 내부 데이터 처리에 일부 오버헤드를 고려한 다음, 시스템에 워크로드를 배포합니다. 자세한 정보는 [네트워크 테스트를 사용하여 디바이스 성능 문제 해결](#network-test)을 참조하세요.
 
 
@@ -289,7 +289,7 @@ HCS Vnic Resource             Online HCS Cluster Group
 hcs_cloud_connectivity_...    Online HCS Cluster Group
 hcs_controller_replacement    Online HCS Cluster Group
 hcs_datapath_service          Online HCS Cluster Group
-hcs_management_servic         Online HCS Cluster Group
+hcs_management_service        Online HCS Cluster Group
 hcs_nvram_service             Online HCS Cluster Group
 hcs_passive_datapath          Online HCS Passive Cluster Group
 hcs_platform_service          Online HCS Cluster Group
@@ -334,7 +334,7 @@ hcs_startup                                   Stopped hcs_startup
 * NTP 서버 연결도 가능합니다.
 * 포트 80 및 443이 열려 있습니다. 그러나 포트 9354는 차단되어 있습니다. [시스템 네트워크 요구 사항](storsimple-system-requirements.md)에 따라 Service Bus 통신에 대한 이 포트를 열어야 합니다.
 * SSL 인증이 유효합니다.
-* 디바이스를 스토리지 계정인 _myss8000storageacct_에 연결할 수 있습니다.
+* 장치를 스토리지 계정인 _myss8000storageacct_에 연결할 수 있습니다.
 * 업데이트 서버에 대한 연결이 유효합니다.
 * 이 디바이스에 대한 웹 프록시가 구성되어 있지 않습니다.
 
@@ -417,7 +417,7 @@ Controller0>
 | PowerShell 매개 변수    | 설명  |
 |-------------------------|------------------|
 | 인스턴스 ID             | 모든 컨트롤러에는 고유 식별자 또는 연결된 GUID입니다.|
-| 이름                    | 디바이스를 배포하는 동안 Azure Portal을 통해 구성된 디바이스의 친숙한 이름입니다. 기본 친숙한 이름은 디바이스 일련 번호입니다. |
+| Name                    | 디바이스를 배포하는 동안 Azure Portal을 통해 구성된 디바이스의 친숙한 이름입니다. 기본 친숙한 이름은 디바이스 일련 번호입니다. |
 | 모델                   | 사용자 StorSimple 8000 시리즈 디바이스의 모델입니다. 모델은 8100 또는 8600일 수 있습니다.|
 | SerialNumber            | 디바이스 일련 번호는 공장에서 할당되고 길이가 15자입니다. 예를 들어, 8600-SHX0991003G44HT는 다음을 나타냅니다.<br> 8600 – 디바이스 모델을 나타냅니다.<br>SHX – 제조 사이트를 나타냅니다.<br> 0991003 - 특정 제품을 나타냅니다. <br> G44HT - 마지막 5자리 숫자는 고유한 일련 번호를 만들기 위해 증가됩니다. 순차적인 집합이 아닐 수 있습니다.|
 | TimeZone                | 디바이스를 배포하는 동안 Azure Portal에서 구성된 디바이스 표준 시간대입니다.|

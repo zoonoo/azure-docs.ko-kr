@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 5d03b7075b1ae590c400eb96525ab84d8487fa3e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7b7a239d6c96d1d5b257828ebd49c25c5bafc827
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840098"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700811"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>사용자 지정 이미지를 사용하여 Linux에서 함수 만들기(미리 보기)
 
@@ -35,7 +35,7 @@ Azure Functions를 사용하면 사용자 지정 컨테이너에서 Linux의 함
 > * Azure Storage 계정 만들기
 > * Linux App Service 계획 만들기
 > * Docker 허브에서 함수 앱 배포
-> * 함수 앱에 애플리케이션 설정 추가
+> * 함수 앱에 응용 프로그램 설정 추가
 
 다음 단계는 Mac, Windows 또는 Linux 컴퓨터에서 지원됩니다.  
 
@@ -154,7 +154,7 @@ docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
 
 ## <a name="push-the-custom-image-to-docker-hub"></a>사용자 지정 이미지를 Docker 허브에 푸시
 
-레지스트리는 이미지를 호스트하고 서비스 이미지 및 컨테이너 서비스를 제공하는 애플리케이션입니다. 이미지를 공유하려면 레지스트리에 푸시해야 합니다. Docker 허브는 Docker 이미지의 레지스트리이며 고유한 공개 또는 개인 리포지토리를 호스팅할 수 있습니다.
+레지스트리는 이미지를 호스트하고 서비스 이미지 및 컨테이너 서비스를 제공하는 응용 프로그램입니다. 이미지를 공유하려면 레지스트리에 푸시해야 합니다. Docker 허브는 Docker 이미지의 레지스트리이며 고유한 공개 또는 개인 리포지토리를 호스팅할 수 있습니다.
 
 이미지를 푸시하려면 먼저 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 명령을 사용하여 Docker 허브에 로그인해야 합니다. `<docker-id>`를 사용자의 계정 이름으로 바꾸고, 콘솔의 프롬프트에서 암호를 입력합니다. 다른 Docker 허브 암호 옵션은 [docker login 명령 설명서](https://docs.docker.com/engine/reference/commandline/login/)를 참조하세요.
 
@@ -227,9 +227,9 @@ _deployment-container-image-name_ 매개 변수는 Docker 허브에서 호스팅
 
 ## <a name="configure-the-function-app"></a>함수 앱 구성
 
-함수에는 기본 저장소 계정에 연결하기 위한 연결 문자열이 필요합니다. 사용자 지정 이미지를 개인 컨테이너 계정에 게시하는 경우 [ENV 명령](https://docs.docker.com/engine/reference/builder/#env) 또는 비슷한 것을 사용하여 Dockerfile에서 이러한 애플리케이션 설정을 환경 변수로 대신 설정해야 합니다.
+함수에는 기본 저장소 계정에 연결하기 위한 연결 문자열이 필요합니다. 사용자 지정 이미지를 개인 컨테이너 계정에 게시하는 경우 [ENV 명령](https://docs.docker.com/engine/reference/builder/#env) 또는 비슷한 것을 사용하여 Dockerfile에서 이러한 응용 프로그램 설정을 환경 변수로 대신 설정해야 합니다.
 
-이 경우 `<storage_account>`는 만든 기본 저장소 계정의 이름입니다. [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) 명령으로 연결 문자열을 가져옵니다. 함수 앱에서 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 명령으로 이 애플리케이션 설정을 추가합니다.
+이 경우 `<storage_account>`는 만든 기본 저장소 계정의 이름입니다. [az storage account show-connection-string](/cli/azure/storage/account) 명령으로 연결 문자열을 가져옵니다. 함수 앱에서 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 명령으로 이 응용 프로그램 설정을 추가합니다.
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \
@@ -266,7 +266,7 @@ AzureWebJobsStorage=$storageConnectionString
 > * Azure Storage 계정 만들기
 > * Linux App Service 계획 만들기
 > * Docker 허브에서 함수 앱 배포
-> * 함수 앱에 애플리케이션 설정 추가
+> * 함수 앱에 응용 프로그램 설정 추가
 
 핵심 App Service 플랫폼에 기본 제공된 연속 통합 기능을 사용하는 방법을 알아봅니다. Docker 허브에서 이미지를 업데이트할 때 컨테이너가 다시 배포되도록 함수 앱을 구성할 수 있습니다.
 

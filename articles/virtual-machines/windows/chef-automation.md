@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: d57a7baafc533aee52ec8012d410d5f25b510b60
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 5378151d01418a81977f2fc2f562a6540bbb665d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359955"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663197"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Chef를 사용하여 Azure 가상 머신 배포 자동화
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -57,7 +57,7 @@ Chef Workstation은 정책을 만들고 Chef 도구의 관리 명령 및 소프�
 
 C:\chef 디렉터리를 만듭니다.
 
-Azure PowerShell [publish settings](https://docs.microsoft.com/en-us/dynamics-nav/how-to--download-and-import-publish-settings-and-subscription-information)를 다운로드합니다.
+Azure PowerShell [publish settings](https://docs.microsoft.com/dynamics-nav/how-to--download-and-import-publish-settings-and-subscription-information)를 다운로드합니다.
 
 ## <a name="setup-chef-server"></a>Chef Server 설치
 

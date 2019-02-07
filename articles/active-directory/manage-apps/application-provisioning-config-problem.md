@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2d1a449511ce944783c8d93b79d59be263b20fa3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 38075c9216eab955a023fee53aad74f3768d783c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163946"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822275"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 사용자 프로비전 구성 문제
 
@@ -41,7 +41,7 @@ ms.locfileid: "55163946"
 다음은 시작 위치를 파악한 경우 검색할 수 있는 일반적인 문제 영역 목록입니다.
 
 * [프로비전 서비스가 시작하지 않는 것 같음](#provisioning-service-does-not-appear-to-start)
-* [앱 자격 증명이 작동하지 않아 구성을 저장할 수 없음](#can’t-save-configuration-due-to-app-credentials-not-working)
+* 앱 자격 증명이 작동하지 않아 구성을 저장할 수 없음
 * [사용자가 할당된 경우에도 감사 로그에 사용자가 “생략”되고 프로비전되지 않았다고 표시됨](#audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>프로비전 서비스가 시작하지 않는 것 같음

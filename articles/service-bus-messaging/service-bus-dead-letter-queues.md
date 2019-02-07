@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: aaeebb200197ba6ef15fbcfe02f262a3840197b5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 0364304a203e03faf69868174a45cb41850ce112
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856126"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733317"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Service Bus 배달 못 한 편지 큐의 개요
 
@@ -60,13 +60,13 @@ broker에 의해 메시지가 이동되면 broker가 메시지의 [DeadLetter](/
 
 ## <a name="exceeding-timetolive"></a>TimeToLive 초과
 
-[QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) 또는 [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnMessageExpiration) 속성을 **true**로 설정하면(기본값은 **false**) 만료되는 모든 메시지가 DLQ로 이동되고, `TTLExpiredException` 이유 코드를 지정합니다.
+[QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) 또는 [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) 속성을 **true**로 설정하면(기본값은 **false**) 만료되는 모든 메시지가 DLQ로 이동되고, `TTLExpiredException` 이유 코드를 지정합니다.
 
 만료된 메시지는 삭제되며 기본 큐 또는 구독에서 끌어오는 활성 수신자가 하나 이상 있으면 메시지가 DLQ로 이동됩니다. 이 동작은 의도된 것입니다.
 
 ## <a name="errors-while-processing-subscription-rules"></a>구독 규칙을 처리하는 동안 오류 발생
 
-구독에 대해 When the [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnFilterEvaluationExceptions) 속성이 활성화되면 구독의 SQL 필터 규칙이 실행되는 동안 발생하는 모든 오류가 오류 메시지와 함께 DLQ에 캡처됩니다.
+구독에 대해 When the [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) 속성이 활성화되면 구독의 SQL 필터 규칙이 실행되는 동안 발생하는 모든 오류가 오류 메시지와 함께 DLQ에 캡처됩니다.
 
 ## <a name="application-level-dead-lettering"></a>애플리케이션 수준에서 배달 못 한 편지 처리
 
@@ -84,7 +84,7 @@ broker에 의해 메시지가 이동되면 broker가 메시지의 [DeadLetter](/
 
 ## <a name="example"></a>예
 
-다음은 메시지 수신자를 만드는 코드 조각입니다. 기본 큐의 수신 루프에서, 이 코드는 [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_Receive_System_TimeSpan_)가 포함된 메시지를 검색합니다. 이 속성은 broker에 즉시 사용 가능한 메시지를 즉시 반환하도록 또는 결과 없이 반환하도록 요청합니다. 이 코드는 메시지를 받으면 그 즉시 메시지를 중단하며, 이로 인해 `DeliveryCount`가 증가합니다. 시스템에서 메시지를 DLQ로 이동하면 [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_ReceiveAsync_System_TimeSpan_)에서 **null**을 반환하기 때문에 기본 큐가 비어 있고 루프가 종료됩니다.
+다음은 메시지 수신자를 만드는 코드 조각입니다. 기본 큐의 수신 루프에서, 이 코드는 [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver)가 포함된 메시지를 검색합니다. 이 속성은 broker에 즉시 사용 가능한 메시지를 즉시 반환하도록 또는 결과 없이 반환하도록 요청합니다. 이 코드는 메시지를 받으면 그 즉시 메시지를 중단하며, 이로 인해 `DeliveryCount`가 증가합니다. 시스템에서 메시지를 DLQ로 이동하면 [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver)에서 **null**을 반환하기 때문에 기본 큐가 비어 있고 루프가 종료됩니다.
 
 ```csharp
 var receiver = await receiverFactory.CreateMessageReceiverAsync(queueName, ReceiveMode.PeekLock);

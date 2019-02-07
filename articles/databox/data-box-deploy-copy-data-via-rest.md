@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 85c9eeb60027ba44fd5e65d056864aa76a6e720a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 412bf66902f156c6c8720a720973f97d1d7b1d8f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900887"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751619"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>자습서: REST API를 통해 Azure Data Box Blob 스토리지에 데이터 복사  
 
@@ -154,7 +154,7 @@ Blob은 항상 컨테이너에 업로드하므로 첫 번째 단계는 컨테이
 
    ![Blob 컨테이너 상황에 맞는 메뉴 만들기](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
 
-4. 텍스트 상자가 **Blob 컨테이너** 폴더 아래에 표시됩니다. Blob 컨테이너에 대한 이름을 입력합니다. Blob 컨테이너 이름 명명 규칙 및 제한 사항에 대한 정보는 [컨테이너 만들기 및 사용 권한 설정](../storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions)을 참조하세요.
+4. 텍스트 상자가 **Blob 컨테이너** 폴더 아래에 표시됩니다. Blob 컨테이너에 대한 이름을 입력합니다. Blob 컨테이너 이름 명명 규칙 및 제한 사항에 대한 정보는 [컨테이너 만들기 및 사용 권한 설정](../storage/blobs/storage-quickstart-blobs-dotnet.md)을 참조하세요.
 5. Blob 컨테이너 만들기가 끝나면 **Enter** 키를 누르거나 **Esc** 키를 눌러 취소합니다. Blob 컨테이너가 성공적으로 만들어졌다면 선택한 스토리지 계정에 대해 **Blob 컨테이너** 폴더 아래에 표시됩니다.
 
    ![만든 Blob 컨테이너](media/data-box-deploy-copy-data-via-rest/create-blob-container-2.png)

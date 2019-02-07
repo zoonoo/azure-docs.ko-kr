@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 86dbb6137964c00f6b98365e4891538751f17922
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0ba3c7321b0771c839289abb7891cd8e6b280afe
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438815"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822683"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>Apache Hadoop 로그 분석
 
@@ -24,7 +24,7 @@ Azure HDInsight의 Apache Hadoop 클러스터 각각에는 기본 파일 시스�
 
 Azure 테이블에 기록된 로그는 HDInsight 클러스터에 발생한 사항에 대한 일정한 통찰력을 제공합니다.
 
-HDInsight 클러스터를 만들 때 6개 테이블은 기본 테이블 저장소에서 Linux 기반 클러스터에 대해 자동으로 만들어집니다.
+HDInsight 클러스터를 만들 때 6개 테이블은 기본 Table Storage에서 Linux 기반 클러스터에 대해 자동으로 만들어집니다.
 
 * hdinsightagentlog
 * syslog
@@ -66,11 +66,11 @@ HDInsight 클러스터를 만들 때 6개 테이블은 기본 테이블 저장�
 1. **Microsoft Excel**을 엽니다.
 2. **파워 쿼리** 메뉴에서 **Azure에서**를 클릭한 다음 **Microsoft Azure Table Storage에서**를 클릭합니다.
    
-    ![HDInsight Hadoop Excel 파워 쿼리는 Azure 테이블 저장소를 엽니다](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-open.png)
+    ![HDInsight Hadoop Excel 파워 쿼리는 Azure Table Storage를 엽니다](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-open.png)
 3. 저장소 계정 이름(짧은 이름 또는 FQDN)을 입력합니다.
 4. 저장소 계정 키를 입력합니다. 테이블의 목록이 표시됩니다.
    
-    ![Azure 테이블 저장소에 저장된 HDInsight Hadoop 로그](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-table-names.png)
+    ![Azure Table Storage에 저장된 HDInsight Hadoop 로그](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-table-names.png)
 5. **탐색기** 창에서 hadoopservicelog 테이블을 마우스 오른쪽 단추로 클릭하고 **편집**을 선택합니다. 4개의 열이 표시됩니다. 필요에 따라 **파티션 키**, **행 키** 및 **타임스탬프** 열을 선택한 다음 리본 메뉴에 있는 **열 제거**를 클릭하여 옵션에서 삭제합니다.
 6. 콘텐츠 열에서 확장 아이콘을 클릭하여 Excel 스프레드시트에 가져오려는 열을 선택합니다. 이 데모에서는 TraceLevel 및 ComponentName을 선택했습니다. 이 항목은 문제가 있는 구성 요소에 대한 기본 정보를 제공할 수 있습니다.
    
@@ -99,7 +99,7 @@ HDInsight 클러스터를 만들 때 6개 테이블은 기본 테이블 저장�
     필터를 생성하는 방법에 대한 자세한 내용은 [테이블 디자이너에 필터 문자열 생성](../../vs-azure-tools-table-designer-construct-filter-strings.md)을 참조하세요.
 
 ## <a name="logs-written-to-azure-blob-storage"></a>Azure Blob Storage에 기록된 로그
-[Azure 테이블에 기록된 로그](#log-written-to-azure-tables) 는 HDInsight 클러스터에 발생한 사항에 대한 일정한 통찰력을 제공합니다. 그러나 이러한 테이블은 문제 발생 시에 추가 드릴에 도움이 될 수 있는 작업 수준의 로그를 제공하지 않습니다. 다음 수준의 세부 정보를 제공하려면 HDInsight 클러스터는 Templeton을 통해 제출된 작업에 대해 Blob Storage 계정에 작업 로그를 기록하도록 구성됩니다. 즉, 실질적으로 클러스터에 대한 RDP/명령줄 액세스를 통해 제출된 작업이 아니라 Microsoft Azure PowerShell cmdlet 또는 .NET 작업 제출 API를 사용하여 작업을 제출합니다. 
+Azure 테이블에 기록된 로그는 HDInsight 클러스터에 발생한 사항에 대한 일정한 통찰력을 제공합니다. 그러나 이러한 테이블은 문제 발생 시에 추가 드릴에 도움이 될 수 있는 작업 수준의 로그를 제공하지 않습니다. 다음 수준의 세부 정보를 제공하려면 HDInsight 클러스터는 Templeton을 통해 제출된 작업에 대해 Blob Storage 계정에 작업 로그를 기록하도록 구성됩니다. 즉, 실질적으로 클러스터에 대한 RDP/명령줄 액세스를 통해 제출된 작업이 아니라 Microsoft Azure PowerShell cmdlet 또는 .NET 작업 제출 API를 사용하여 작업을 제출합니다. 
 
 로그를 보려면 [Linux 기반 HDInsight에서 Apache Hadoop YARN 애플리케이션 로그에 액세스](../hdinsight-hadoop-access-yarn-app-logs-linux.md)를 참조하세요.
 

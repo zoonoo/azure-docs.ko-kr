@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: cca81bf3f5a46b32cc901a0ac6024eb7888685f7
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0313266c9e9bf7814d4581dc04d70cf80e1f8172
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081608"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494717"
 ---
 # <a name="export-azure-resource-manager-templates-with-powershell"></a>Azure PowerShell을 사용하여 Azure Resource Manager 템플릿 내보내기
 
@@ -30,6 +30,8 @@ Resource Manager를 사용하면 구독의 기존 리소스에서 Resource Manag
 * **리소스 그룹의 현재 상태를 나타내는 생성된 템플릿을 내보낼** 수 있습니다. 내보낸 템플릿은 배포에 사용된 템플릿에 기초하지 않습니다. 대신 리소스 그룹의 “스냅숏” 또는 “백업”인 템플릿을 만듭니다. 내보낸 템플릿에는 하드 코드된 값이 많으며 일반적으로 정의된 경우와 같이 매개 변수가 많이 포함되지 않습니다. 동일한 리소스 그룹에 리소스를 다시 배포하려면 이 옵션을 사용합니다. 다른 리소스 그룹에 이 템플릿을 사용하려면 크게 수정해야 할 수 있습니다.
 
 이 문서에서는 두 가지 방식을 모두 설명합니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deploy-a-solution"></a>솔루션 배포
 

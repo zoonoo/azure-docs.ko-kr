@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 65d6685947c5796a65985aff0b789223736df0b8
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0f68627e2db3c08049f0273045906057526bd6aa
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354283"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568055"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory-preview"></a>Azure Data Factory(미리 보기)를 사용하여 Google 애드워즈에서 데이터 복사
 
@@ -66,21 +66,21 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
         "typeProperties": {
             "clientCustomerID" : "<clientCustomerID>",
             "developerToken": {
-                 "type": "SecureString",
-                 "value": "<developerToken>"
+                "type": "SecureString",
+                "value": "<developerToken>"
             },
             "authenticationType" : "ServiceAuthentication",
             "refreshToken": {
-                 "type": "SecureString",
-                 "value": "<refreshToken>"
+                "type": "SecureString",
+                "value": "<refreshToken>"
             },
             "clientId": {
-                 "type": "SecureString",
-                 "value": "<clientId>"
+                "type": "SecureString",
+                "value": "<clientId>"
             },
             "clientSecret": {
-                 "type": "SecureString",
-                 "value": "<clientSecret>"
+                "type": "SecureString",
+                "value": "<clientSecret>"
             },
             "email" : "<email>",
             "keyFilePath" : "<keyFilePath>",

@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: 160509a5a82b71b281d57d97e103bb4190605b7c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ac58886225221677aa003833167ff58cd578255d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847814"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693924"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>저장소 계정 만들기 및 계정 액세스 키 회전
 
@@ -48,10 +48,10 @@ az group delete --name myResourceGroup
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | 지정된 리소스 그룹에서 Azure Storage 계정을 만듭니다. |
-| [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | 지정된 계정에 대한 저장소 액세스 키를 표시합니다. |
-| [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) | 기본 또는 보조 저장소 계정 액세스 키를 다시 생성합니다. |
+| [az group create](/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az storage account create](/cli/azure/storage/account) | 지정된 리소스 그룹에서 Azure Storage 계정을 만듭니다. |
+| [az storage account keys list](/cli/azure/storage/account/keys) | 지정된 계정에 대한 저장소 액세스 키를 표시합니다. |
+| [az storage account keys renew](/cli/azure/storage/account/keys) | 기본 또는 보조 저장소 계정 액세스 키를 다시 생성합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.subservice: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: e2fd6f88f34ac34ea304b5298940f317b4c0d37e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1983ecbdee3d15efc73ad395fd07cbc7cd4f279c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472493"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769728"
 ---
 # <a name="what-is-translator-speech-api"></a>Translator Speech API란?
 
@@ -23,7 +23,7 @@ ms.locfileid: "55472493"
 
 Translator Speech API는 대상 OS 또는 개발 언어와 관계없이 다국어 음성 번역이 필요한 애플리케이션, 도구 또는 솔루션에 통합형 실시간 음성 번역을 추가하는 데 사용할 수 있습니다. API는 음성 대 음성 및 음성 대 텍스트 번역 모두에 사용될 수 있습니다.
 
-Translator Text API는 사용자 개발 프로젝트에서 쉽게 사용할 수 있는 클라우드의 AI 알고리즘 및 기계 학습의 [Azure Cognitive Services API 컬렉션](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive)에 속한 Azure 서비스입니다.
+Translator Text API는 사용자 개발 프로젝트에서 쉽게 사용할 수 있는 클라우드의 AI 알고리즘 및 기계 학습의 [Azure Cognitive Services API 컬렉션](https://docs.microsoft.com/azure/)에 속한 Azure 서비스입니다.
 
 Translator Speech API를 사용하여 클라이언트 애플리케이션은 음성 오디오를 서비스로 스트리밍하고 텍스트 및 오디오 기반의 결과를 돌려받습니다. 여기에는 인식된 텍스트를 소스 언어로, 해당 번역을 대상 언어로 포함합니다. 텍스트 결과는 심층 신경망에 의해 작동하는 ASR(Automatic Speech Recognition)을 들어오는 오디오 스트리밍에 적용하여 생성합니다. 원시 ASR 출력은 TrueText라는 새 기술로 더욱 향상되어 사용자 의도를 더 밀접하게 반영합니다. 예를 들어 TrueText는 말더듬(으흠 및 콜록) 및 반복되는 단어를 제거하고, 적절한 구두점 및 대문자 사용을 복원합니다. 비속어를 제외하거나 마스킹하는 기능도 포함됩니다. 인식 및 번역 엔진은 특히 대화형 음성 처리를 학습합니다. 
 
@@ -66,6 +66,6 @@ NMT 모델은 API의 중심에 있으며 최종 사용자에게는 보이지 않
 > [코딩 시작](quickstarts/csharp.md)
 
 ## <a name="see-also"></a>참고 항목
-- [Cognitive Services 설명서 페이지](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive)
+- [Cognitive Services 설명서 페이지](https://docs.microsoft.com/azure/)
 - [Cognitive Services 제품 페이지](https://azure.microsoft.com/services/cognitive-services/)
 - [솔루션 및 가격 책정 정보](https://www.microsoft.com/en-us/translator/home.aspx) 

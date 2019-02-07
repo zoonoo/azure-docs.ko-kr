@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: c1fdd09023c07808226c95ed82d0c22e09d09ec4
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 84a2ef60c9f6aa4270c3fc4f83327070b298b8b2
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267388"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697190"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso 마이그레이션: 온-프레미스 앱을 Azure VM 및 SQL Server AlwaysOn 가용성 그룹에 다시 호스트
 
@@ -698,7 +698,7 @@ Contoso 보안 팀은 Azure VM WEBVM, SQLAOG1 및 SQLAOG2를 검토하여 보안
 - 팀에서는 Azure Disk Encryption 및 KeyVault를 사용하여 디스크의 데이터를 보안하는 것도 고려합니다.
 - 팀에서는 TDE(투명한 데이터 암호화)를 평가하고 새 SQL AOG에서 실행되는 SmartHotel360 데이터베이스에서 사용하도록 설정해야 합니다. [자세히 알아보기](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017).
 
-VM 보안 모범 사례에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control).
+VM 보안 모범 사례에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms).
 
 
 ## <a name="bcdr"></a>BCDR

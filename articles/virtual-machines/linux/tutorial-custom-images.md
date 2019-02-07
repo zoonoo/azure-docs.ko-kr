@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9c6729abefc62aeae232fff5ea48619377630635
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1c2be140e4d7156a1e23e1064436dda959c9cd14
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197622"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750004"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure VM의 사용자 지정 이미지 만들기
 
@@ -79,7 +79,7 @@ exit
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-마지막으로, VM이 일반화된 사실을 Azure 플랫폼이 알 수 있도록 [az vm generalize](/cli//azure/vm#generalize) 명령을 사용하여 VM 상태를 일반화됨으로 설정합니다. 일반화된 VM에서만 이미지를 만들 수 있습니다.
+마지막으로, VM이 일반화된 사실을 Azure 플랫폼이 알 수 있도록 [az vm generalize](/cli//azure/vm) 명령을 사용하여 VM 상태를 일반화됨으로 설정합니다. 일반화된 VM에서만 이미지를 만들 수 있습니다.
    
 ```azurecli-interactive 
 az vm generalize --resource-group myResourceGroup --name myVM
@@ -87,7 +87,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 ### <a name="create-the-image"></a>이미지 만들기
 
-이제 [az image create](/cli//azure/image#create)를 사용하여 VM의 이미지를 만들 수 있습니다. 다음 예제에서는 *myVM*이라는 VM에서 *myImage*라는 이미지를 만듭니다.
+이제 [az image create](/cli//azure/image)를 사용하여 VM의 이미지를 만들 수 있습니다. 다음 예제에서는 *myVM*이라는 VM에서 *myImage*라는 이미지를 만듭니다.
    
 ```azurecli-interactive 
 az image create \
@@ -98,7 +98,7 @@ az image create \
  
 ## <a name="create-vms-from-the-image"></a>이미지에서 VM 만들기
 
-이미지가 생겼으니, [az vm create](/cli/azure/vm#az_vm_create) 명령을 사용하여 이 이미지에서 하나 이상의 새 VM을 만들 수 있습니다. 다음 예제에서는 *myImage*라는 이미지에서 *myVMfromImage*라는 VM을 만듭니다.
+이미지가 생겼으니, [az vm create](/cli/azure/vm) 명령을 사용하여 이 이미지에서 하나 이상의 새 VM을 만들 수 있습니다. 다음 예제에서는 *myImage*라는 이미지에서 *myVMfromImage*라는 VM을 만듭니다.
 
 ```azurecli-interactive 
 az vm create \

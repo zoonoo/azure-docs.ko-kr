@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c77467efbbc1c33be5bc2aaf3251a5803beee864
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 78e3f6a5f4a55fd4bf1925672205eb490e7c6b24
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317112"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695709"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Azure Maps에서 지도 스타일 선택
 
@@ -33,7 +33,7 @@ Azure Maps에서는 네 가지 다른 지도 스타일 중에서 선택할 수 �
 
 위의 코드 블록은 스타일을 미리 설정하지 않고 구독 키를 설정하고 지도 개체를 만듭니다. 지도 만드는 방법에 대한 지침은 [지도 만들기](./map-create.md)를 참조하세요.
 
-두 번째 코드 블록은 지도의 [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setstyle) 메서드를 사용하여 지도 스타일을 위성으로 설정합니다.
+두 번째 코드 블록은 지도의 [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 메서드를 사용하여 지도 스타일을 위성으로 설정합니다.
 
 ## <a name="add-the-style-picker"></a>스타일 선택 추가
 
@@ -44,7 +44,7 @@ Azure Maps에서는 네 가지 다른 지도 스타일 중에서 선택할 수 �
 
 두 번째 코드 블록은 atlas [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) 생성자를 사용하여 스타일 선택을 생성합니다.
 
-스타일 선택을 사용하여 지도의 스타일을 선택할 수 있습니다. 세 번째 코드 블록은 지도의 [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) 메서드를 사용하여 지도에 스타일 선택을 추가합니다. 스타일 선택기는 지도가 완전히 로드된 후에 로드되도록 지도 **이벤트 수신기** 내에 포함됩니다.
+스타일 선택을 사용하여 지도의 스타일을 선택할 수 있습니다. 세 번째 코드 블록은 지도의 [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 메서드를 사용하여 지도에 스타일 선택을 추가합니다. 스타일 선택기는 지도가 완전히 로드된 후에 로드되도록 지도 **이벤트 수신기** 내에 포함됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/11/2017
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 8115ffd943750d88a1aa9f94ba53ff972a636373
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4ae9c0c1fb6cd341e812f9e8b35eaff789637561
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157315"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765649"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Bing Image Search API란?
 
@@ -33,9 +33,9 @@ Bing Image Search는 주로 검색 쿼리에서 관련 이미지를 찾아서 �
 | 기능                                                                                                                                                                                 | 설명                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [실시간 검색 용어 제안](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) | [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md)를 통해 입력하는 대로 제안되는 검색 용어를 표시하여 응용 프로그램 환경을 향상시킵니다. |
-| [이미지 결과 필터링 및 제한](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#filtering-images)                       | 쿼리 매개 변수를 편집하여 Bing에서 반환하는 이미지를 필터링합니다.                                                                                                       |
+| [이미지 결과 필터링 및 제한](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images)                       | 쿼리 매개 변수를 편집하여 Bing에서 반환하는 이미지를 필터링합니다.                                                                                                       |
 | [썸네일 자르기, 크기 조정 및 표시](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/resize-and-crop-thumbnails)                                                | Bing Image Search에서 반환하는 이미지에 대한 썸네일 미리 보기를 편집하고 표시합니다.                                                                                      |
-| [사용자 검색 쿼리 피벗 및 확장](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries#pivoting-the-query)               | 쿼리에 Bing 제안 검색 용어를 포함시키고 표시하여 검색 기능을 확장합니다.                                                                    |
+| [사용자 검색 쿼리 피벗 및 확장](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries)               | 쿼리에 Bing 제안 검색 용어를 포함시키고 표시하여 검색 기능을 확장합니다.                                                                    |
 | [최신 이미지 가져오기](https://review.docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images)                                                                     | 전 세계로부터의 최신 이미지 검색을 사용자 지정합니다.                                                                                                          |
 
 ## <a name="workflow"></a>워크플로

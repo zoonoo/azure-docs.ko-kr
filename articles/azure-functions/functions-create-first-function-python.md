@@ -11,12 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 631fc4e613311df9386084408ead625f6d018151
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 2c14cdf963d1d6c792e6101d8a2179a560dcf096
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911893"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731260"
 ---
 # <a name="create-your-first-python-function-in-azure-preview"></a>Azure에서 첫 번째 Python 함수 만들기(미리 보기)
 
@@ -179,7 +179,7 @@ Http Functions:
 
 ## <a name="create-a-linux-function-app-in-azure"></a>Azure에서 Linux 함수 앱 만들기
 
-함수 앱은 함수 코드 실행을 위한 환경을 제공합니다. 이를 통해 함수를 논리 단위로 그룹화하여 더욱 쉽게 리소스를 관리, 배포 및 공유할 수 있습니다. [az functionapp create](/cli/azure/functionapp#az_functionapp_create) 명령을 사용하여 **Linux에서 실행되는 Python 함수 앱**을 만듭니다.
+함수 앱은 함수 코드 실행을 위한 환경을 제공합니다. 이를 통해 함수를 논리 단위로 그룹화하여 더욱 쉽게 리소스를 관리, 배포 및 공유할 수 있습니다. [az functionapp create](/cli/azure/functionapp) 명령을 사용하여 **Linux에서 실행되는 Python 함수 앱**을 만듭니다.
 
 `<app_name>` 자리 표시자 및 `<storage_name>`의 스토리지 계정 이름을 대신하여 고유한 함수 앱 이름을 사용하여 다음 명령을 실행합니다. `<app_name>`은 함수 앱의 기본 DNS 도메인이기도 합니다. 이 이름은 Azure의 모든 앱에서 고유해야 합니다.
 

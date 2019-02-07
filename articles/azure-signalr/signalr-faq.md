@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 12/23/2018
 ms.author: zhshang
-ms.openlocfilehash: 45ceebef85254ff030d237f1af13f0750aaafeba
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 6b3ddf7d8069e689231b9dcb6f0f074e84052511
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812791"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663267"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR Service FAQ
 
@@ -20,7 +20,7 @@ ms.locfileid: "53812791"
 예.
 일반 공급에 대한 공지는 [Azure SignalR Service가 이제 일반 공급됩니다](https://azure.microsoft.com/en-us/blog/azure-signalr-service-now-generally-available/)를 참조하세요. 
 
-[ASP.NET Core SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction)이 완전히 지원됩니다.
+[ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction)이 완전히 지원됩니다.
 
 ASP.NET SignalR에 대한 지원은 아직 *공개 미리 보기* 상태입니다. 여기에 [코드 예제](https://github.com/aspnet/AzureSignalR-samples/tree/master/aspnet-samples/ChatRoom)가 있습니다.
 
@@ -37,7 +37,7 @@ ASP.NET SignalR에 대한 지원은 아직 *공개 미리 보기* 상태입니�
 가능한 원인:
 - SignalR Service에 연결되어 있는 애플리케이션 서버가 없습니다. 애플리케이션 서버 로그에서 가능한 연결 오류를 확인하십시오. 둘 이상의 애플리케이션 서버가 있는 고가용성 설정에서는 이러한 경우가 드뭅니다.
 - SignalR Service 인스턴스와 연결 문제가 있습니다. 이 문제는 일시적이며 자동으로 복구됩니다.
-문제가 한 시간 넘게 지속되면 [GitHub에서 문제를 제기](https://github.com/Azure/azure-signalr/issues/new)하거나 [Azure에서 지원 요청을 생성](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request)하십시오.
+문제가 한 시간 넘게 지속되면 [GitHub에서 문제를 제기](https://github.com/Azure/azure-signalr/issues/new)하거나 [Azure에서 지원 요청을 생성](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)하십시오.
 
 ## <a name="when-there-are-multiple-application-servers-are-client-messages-sent-to-all-servers-or-just-one-of-them"></a>애플리케이션 서버가 여러 개 있으면 클라이언트 메시지가 모든 서버에 전송되나요? 아니면 그 중 하나에만 전송되나요?
 
@@ -67,4 +67,4 @@ Azure SignalR Service SDK에서 `HubConnectionContext context`는 논리적 클�
 
 Azure SignalR Service는 기본적으로 ASP.NET Core SignalR에서 지원하는 세 가지 전송을 모두 제공합니다. 이 사항은 구성할 수 없습니다. SignalR Service는 연결 및 모든 클라이언트에 대한 전송을 처리합니다.
 
-클라이언트 쪽 전송은 [여기](https://docs.microsoft.com/en-us/aspnet/core/signalr/configuration?view=aspnetcore-2.1#configure-allowed-transports)의 설명대로 구성하면 됩니다.
+클라이언트 쪽 전송은 [여기](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1#configure-allowed-transports)의 설명대로 구성하면 됩니다.

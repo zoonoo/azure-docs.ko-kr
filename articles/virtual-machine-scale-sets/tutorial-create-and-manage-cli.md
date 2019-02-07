@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9abf1d1105c112051041688f1d4305c543b148ce
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b0d2a72567783ca1c127f76d94ddc9c5e007ea89
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179483"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751024"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 가상 머신 확장 집합 만들기 및 관리
 가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 가상 머신 확장 집합의 수명 주기 동안 하나 이상의 관리 작업을 실행해야 합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -41,7 +41,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
-Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 머신 확장 집합보다 먼저 리소스 그룹을 만들어야 합니다. [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. 이 예제에서는 *eastus* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다. 
+Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 머신 확장 집합보다 먼저 리소스 그룹을 만들어야 합니다. [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. 이 예제에서는 *eastus* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다. 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -66,7 +66,7 @@ az vmss create \
 
 
 ## <a name="view-the-vm-instances-in-a-scale-set"></a>확장 집합의 VM 인스턴스 보기
-확장 집합의 VM 인스턴스 목록을 보려면 다음과 같이 [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances)를 사용합니다.
+확장 집합의 VM 인스턴스 목록을 보려면 다음과 같이 [az vmss list-instances](/cli/azure/vmss)를 사용합니다.
 
 ```azurecli-interactive
 az vmss list-instances \
@@ -85,7 +85,7 @@ az vmss list-instances \
 ```
 
 
-출력의 첫 번째 열에는 *InstanceId*가 표시됩니다. 특정 VM 인스턴스에 대한 추가 정보를 보려면 `--instance-id` 매개 변수를 [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view)에 추가합니다. 다음 예제에서는 *1* VM 인스턴스에 대한 정보가 표시됩니다.
+출력의 첫 번째 열에는 *InstanceId*가 표시됩니다. 특정 VM 인스턴스에 대한 추가 정보를 보려면 `--instance-id` 매개 변수를 [az vmss get-instance-view](/cli/azure/vmss)에 추가합니다. 다음 예제에서는 *1* VM 인스턴스에 대한 정보가 표시됩니다.
 
 ```azurecli-interactive
 az vmss get-instance-view \
@@ -129,7 +129,7 @@ exit
 
 
 ## <a name="understand-vm-instance-images"></a>VM 인스턴스 이미지 이해
-자습서의 시작 부분에서 확장 집합을 만들 때 VM 인스턴스에 대해 *UbuntuLTS*의 `--image`가 지정되었습니다. Azure Marketplace에는 VM 인스턴스를 만드는 데 사용할 수 있는 많은 VM 이미지가 포함되어 있습니다. 가장 일반적으로 사용되는 이미지 목록을 보려면 [az vm image list](/cli/azure/vm/image#az_vm_image_list) 명령을 사용하세요.
+자습서의 시작 부분에서 확장 집합을 만들 때 VM 인스턴스에 대해 *UbuntuLTS*의 `--image`가 지정되었습니다. Azure Marketplace에는 VM 인스턴스를 만드는 데 사용할 수 있는 많은 VM 이미지가 포함되어 있습니다. 가장 일반적으로 사용되는 이미지 목록을 보려면 [az vm image list](/cli/azure/vm/image) 명령을 사용하세요.
 
 ```azurecli-interactive
 az vm image list --output table
@@ -243,7 +243,7 @@ az vmss create \
 ## <a name="change-the-capacity-of-a-scale-set"></a>확장 집합의 용량 변경
 자습서의 시작 부분에서 확장 집합을 만들 때 두 개의 VM 인스턴스가 기본적으로 배포되었습니다. [az vmss create](/cli/azure/vmss)에 `--instance-count` 매개 변수를 지정하여 확장 집합으로 만든 인스턴스의 수를 변경할 수 있습니다. 기존 확장 집합의 VM 인스턴스 수를 늘리거나 줄이려면 용량을 수동으로 변경할 수 있습니다. 확장 집합은 필요한 수의 VM 인스턴스를 만들거나 제거한 다음, 부하 분산 장치에서 트래픽을 분산하도록 구성합니다.
 
-확장 집합의 VM 인스턴스 수를 수동으로 늘리거나 줄이려면 [az vmss scale](/cli/azure/vmss#az_vmss_scale)을 사용합니다. 다음 예제에서는 확장 집합의 VM 인스턴스 수를 *3*으로 설정합니다.
+확장 집합의 VM 인스턴스 수를 수동으로 늘리거나 줄이려면 [az vmss scale](/cli/azure/vmss)을 사용합니다. 다음 예제에서는 확장 집합의 VM 인스턴스 수를 *3*으로 설정합니다.
 
 ```azurecli-interactive
 az vmss scale \
@@ -252,7 +252,7 @@ az vmss scale \
     --new-capacity 3
 ```
 
-확장 집합의 용량을 업데이트하는 데 몇 분 정도가 걸립니다. 현재 확장 집합의 인스턴스 수를 보려면 [az vmss show](/cli/azure/vmss#az_vmss_show)를 사용하고 *sku.capacity*에 대해 쿼리합니다.
+확장 집합의 용량을 업데이트하는 데 몇 분 정도가 걸립니다. 현재 확장 집합의 인스턴스 수를 보려면 [az vmss show](/cli/azure/vmss)를 사용하고 *sku.capacity*에 대해 쿼리합니다.
 
 ```azurecli-interactive
 az vmss show \
@@ -267,27 +267,27 @@ az vmss show \
 이제 확장 집합을 만들고, 연결 정보를 나열하고, VM 인스턴스에 연결할 수 있습니다. VM 인스턴스에 대해 다른 OS 이미지를 사용하거나, 다른 VM 크기를 선택하거나, 인스턴스 수를 수동으로 조정하는 방법을 알아보았습니다. 일상적인 관리의 일환으로, 확장 집합에서 VM 인스턴스를 중지, 시작 또는 다시 시작해야 할 수 있습니다.
 
 ### <a name="stop-and-deallocate-vm-instances-in-a-scale-set"></a>확장 집합에서 VM 인스턴스 중지 및 할당 취소
-확장 집합에서 하나 이상의 VM 인스턴스를 중지하려면 [az vmss stop](/cli/azure/vmss#az_vmss_stop)을 사용합니다. `--instance-ids` 매개 변수를 사용하면 중지할 VM 인스턴스를 하나 이상 지정할 수 있습니다. 인스턴스 ID를 지정하지 않으면 확장 집합의 모든 VM 인스턴스가 중지됩니다. 다음 예제에서는 *1* 인스턴스를 중지합니다.
+확장 집합에서 하나 이상의 VM 인스턴스를 중지하려면 [az vmss stop](/cli/azure/vmss)을 사용합니다. `--instance-ids` 매개 변수를 사용하면 중지할 VM 인스턴스를 하나 이상 지정할 수 있습니다. 인스턴스 ID를 지정하지 않으면 확장 집합의 모든 VM 인스턴스가 중지됩니다. 다음 예제에서는 *1* 인스턴스를 중지합니다.
 
 ```azurecli-interactive
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
-중지된 VM 인스턴스는 할당된 상태로 유지되며 계산 요금이 계속 발생합니다. 대신 VM 인스턴스의 할당을 취소하고 저장소 요금만 발생하도록 하려면 [az vmss deallocate](/cli/azure/vmss#az_vmss_deallocate)를 사용합니다. 다음 예제에서는 *1* 인스턴스를 중지하고 할당을 취소합니다.
+중지된 VM 인스턴스는 할당된 상태로 유지되며 계산 요금이 계속 발생합니다. 대신 VM 인스턴스의 할당을 취소하고 저장소 요금만 발생하도록 하려면 [az vmss deallocate](/cli/azure/vmss)를 사용합니다. 다음 예제에서는 *1* 인스턴스를 중지하고 할당을 취소합니다.
 
 ```azurecli-interactive
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
 ### <a name="start-vm-instances-in-a-scale-set"></a>확장 집합에서 VM 인스턴스 시작
-확장 집합에서 하나 이상의 VM 인스턴스를 시작하려면 [az vmss start](/cli/azure/vmss#az_vmss_start)를 사용합니다. `--instance-ids` 매개 변수를 사용하면 시작할 VM 인스턴스를 하나 이상 지정할 수 있습니다. 인스턴스 ID를 지정하지 않으면 확장 집합의 모든 VM 인스턴스가 시작됩니다. 다음 예제에서는 *1* 인스턴스를 시작합니다.
+확장 집합에서 하나 이상의 VM 인스턴스를 시작하려면 [az vmss start](/cli/azure/vmss)를 사용합니다. `--instance-ids` 매개 변수를 사용하면 시작할 VM 인스턴스를 하나 이상 지정할 수 있습니다. 인스턴스 ID를 지정하지 않으면 확장 집합의 모든 VM 인스턴스가 시작됩니다. 다음 예제에서는 *1* 인스턴스를 시작합니다.
 
 ```azurecli-interactive
 az vmss start --resource-group myResourceGroup --name myScaleSet --instance-ids 1
 ```
 
 ### <a name="restart-vm-instances-in-a-scale-set"></a>확장 집합에서 VM 인스턴스 다시 시작
-확장 집합에서 하나 이상의 VM 인스턴스를 다시 시작하려면 [az vmss restart](/cli/azure/vmss#az_vm_restart)를 사용합니다. `--instance-ids` 매개 변수를 사용하면 다시 시작할 VM 인스턴스를 하나 이상 지정할 수 있습니다. 인스턴스 ID를 지정하지 않으면 확장 집합의 모든 VM 인스턴스가 다시 시작됩니다. 다음 예제에서는 *1* 인스턴스를 다시 시작합니다.
+확장 집합에서 하나 이상의 VM 인스턴스를 다시 시작하려면 [az vmss restart](/cli/azure/vmss)를 사용합니다. `--instance-ids` 매개 변수를 사용하면 다시 시작할 VM 인스턴스를 하나 이상 지정할 수 있습니다. 인스턴스 ID를 지정하지 않으면 확장 집합의 모든 VM 인스턴스가 다시 시작됩니다. 다음 예제에서는 *1* 인스턴스를 다시 시작합니다.
 
 ```azurecli-interactive
 az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-ids 1

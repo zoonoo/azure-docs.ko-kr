@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 5fc5829744d3740f3484303ae009145106264fec
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e690ae8cd8f6b2ae52c0c8a9dae12c51f8921531
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470718"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694570"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 피어링으로 가상 네트워크 연결
 
@@ -41,7 +41,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 문서에서�
 
 ## <a name="create-virtual-networks"></a>가상 네트워크 만들기
 
-가상 네트워크를 만들기 전에 가상 네트워크에 대한 리소스 그룹과 이 아티클에서 만든 다른 모든 리소스를 만들어야 합니다. [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+가상 네트워크를 만들기 전에 가상 네트워크에 대한 리소스 그룹과 이 아티클에서 만든 다른 모든 리소스를 만들어야 합니다. [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -71,7 +71,7 @@ az network vnet create \
 
 ## <a name="peer-virtual-networks"></a>가상 네트워크 피어링
 
-가상 네트워크 ID 간에 피어링이 설정됩니다. 따라서 먼저 [az network vnet show](/cli/azure/network/vnet#az_network_vnet_show)를 사용하여 각 가상 네트워크의 ID를 가져오고 ID를 변수에 저장해야 합니다.
+가상 네트워크 ID 간에 피어링이 설정됩니다. 따라서 먼저 [az network vnet show](/cli/azure/network/vnet)를 사용하여 각 가상 네트워크의 ID를 가져오고 ID를 변수에 저장해야 합니다.
 
 ```azurecli-interactive
 # Get the id for myVirtualNetwork1.
@@ -110,7 +110,7 @@ az network vnet peering create \
   --allow-vnet-access
 ```
 
-이전 명령 실행 후 반환된 출력에서 **peeringState**는 *Connected*로 표시됩니다. 또한 Azure에서 *myVirtualNetwork1-myVirtualNetwork2* 피어링의 피어링 상태가 *Connected*로 변경되었습니다. [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show)를 사용하여 *myVirtualNetwork1-myVirtualNetwork2* 피어링에 대한 피어링 상태가 *Connected*로 변경되었는지 확인합니다.
+이전 명령 실행 후 반환된 출력에서 **peeringState**는 *Connected*로 표시됩니다. 또한 Azure에서 *myVirtualNetwork1-myVirtualNetwork2* 피어링의 피어링 상태가 *Connected*로 변경되었습니다. [az network vnet peering show](/cli/azure/network/vnet/peering)를 사용하여 *myVirtualNetwork1-myVirtualNetwork2* 피어링에 대한 피어링 상태가 *Connected*로 변경되었는지 확인합니다.
 
 ```azurecli-interactive
 az network vnet peering show \
@@ -128,7 +128,7 @@ az network vnet peering show \
 
 ### <a name="create-the-first-vm"></a>첫 번째 VM 만들기
 
-[az vm create](/cli/azure/vm#az_vm_create)로 VM을 만듭니다. 다음 예제에서는 *myVirtualNetwork1* 가상 네트워크에 이름이 *myVm1*인 VM을 만듭니다. 또한 기본 키 위치에 SSH 키가 없는 경우 해당 명령이 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다. `--no-wait` 옵션은 백그라운드에서 VM을 만들기 때문에 다음 단계를 계속 진행할 수 있습니다.
+[az vm create](/cli/azure/vm)로 VM을 만듭니다. 다음 예제에서는 *myVirtualNetwork1* 가상 네트워크에 이름이 *myVm1*인 VM을 만듭니다. 또한 기본 키 위치에 SSH 키가 없는 경우 해당 명령이 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다. `--no-wait` 옵션은 백그라운드에서 VM을 만들기 때문에 다음 단계를 계속 진행할 수 있습니다.
 
 ```azurecli-interactive
 az vm create \
@@ -192,7 +192,7 @@ ping 10.0.0.4 -c 4
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az_group_delete)를 사용하여 리소스 그룹 및 그룹에 포함된 모든 리소스를 제거합니다.
+더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group)를 사용하여 리소스 그룹 및 그룹에 포함된 모든 리소스를 제거합니다.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

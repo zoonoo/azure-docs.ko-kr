@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 1/30/2019
-ms.openlocfilehash: 4d4d7c587dcc34b12ed757b7da54f5ad0b04e8cc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cd156a10faf396778b76687b3666887a6a60876c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451872"
+ms.locfileid: "55505702"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Microsoft의 기계 학습 제품이란?
 
@@ -27,7 +27,7 @@ Microsoft에서는 다양한 제품 옵션을 제공하여 기계 학습 모델�
 
 | 클라우드&nbsp;옵션 | 정의 | 수행할 수 있는 작업 |
 |-|-|-|
-| [Azure Machine Learning 서비스](#azure-machine-learning-services) | ML(Machine Learning)에 대해 관리되는 클라우드 서비스  | Python 및 CLI를 사용하여 Azure에서 모델을 학습, 배포 및 관리 |
+| [Azure Machine Learning 서비스](#azure-machine-learning-service) | ML(Machine Learning)에 대해 관리되는 클라우드 서비스  | Python 및 CLI를 사용하여 Azure에서 모델을 학습, 배포 및 관리 |
 | [Azure Machine Learning Studio](#azure-machine-learning-studio) | ML에 대한 끌어&ndash;서&ndash; 놓기 시각적 인터페이스 | 미리 구성된 알고리즘을 사용하여 모델을 빌드, 실험 및 배포(Python 및 R)|
 | [Azure Databricks](#azure-databricks) | Spark 기반 분석 플랫폼 | 모델 및 데이터 워크플로를 빌드 및 배포 |
 | [Azure Cognitive Services](#azure-cognitive-services) | 미리 빌드된 AI 및 ML 모델을 사용한 Azure 서비스 | 앱에 지능형 기능을 쉽게 추가 |

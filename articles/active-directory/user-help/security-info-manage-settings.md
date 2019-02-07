@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 36d1b4ef9501c94fe385c37f31ee7e8c9f57106e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 80a78d12570e3da1371d2fc1cbb0270eb81fc6ce
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197231"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766846"
 ---
 # <a name="manage-your-security-info-preview"></a>보안 정보 관리(미리 보기)
 
@@ -81,7 +81,7 @@ ms.locfileid: "55197231"
 |전화를 분실했거나 도난당한 경우|불행히도 휴대폰을 분실하거나 도난 당하는 일이 발생할 수 있습니다. 이런 경우 IT 담당자가 앱 암호를 재설정하고 신뢰할 수 있는 디바이스 목록에서 기억된 모든 디바이스를 지울 수 있도록 조직에 알리는 것이 좋습니다. [분실되거나 손상되었을 수 있는 디바이스에 대한 보안 정보 관리](#manage-your-security-info-for-a-lost-or-potentially-compromised-device) 섹션의 단계를 수행하여 신뢰할 수 있는 디바이스를 잊도록 할 수도 있습니다.|
 |새 전화 번호를 받은 경우|이 문제를 해결하는 방법은 두 가지입니다. 이메일과 같이 휴대폰 번호가 필요하지 않은 다른 인증 메서드를 사용하여 로그인하거나 이것이 불가능하면 조직의 IT 담당자에게 문의하여 설정을 지우도록 요청할 수 있습니다. 보안 정보에 메서드를 더 추가하려면 [정보 변경](#change-your-info) 섹션의 단계를 수행합니다.|
 |기본 메서드가 틀린 경우|보안 옵션에서 기본 메서드를 업데이트할 수 있습니다. 구체적인 정보를 보려면 [정보 변경](#change-your-info) 섹션으로 이동하세요.|
-|모바일 디바이스에서 문자나 전화를 받지 못하는 경우|이전에 모바일 디바이스에서 문자나 전화를 성공적으로 수신한 경우에는, 계정이 아니라 전화 공급자 관련 문제일 가능성이 높습니다. 휴대폰 신호가 양호한지 문자 메시지와 전화를 받을 수 있는지 확인하십시오. 테스트 삼아 친구에게 전화를 걸거나 문자를 보내달라고 요청할 수 있습니다.<br><br>문자 및 전화 메시지를 성공적으로 수신할 수 있지만 알림은 여전히 받지 못하는 경우에는 다른 메서드를 사용해 볼 수 있습니다. [정보 변경](#change-your-info) 섹션의 단계를 수행하여 보안 정보에 메서드를 더 추가할 수 있습니다. 추가할 다른 메서드가 없으면 회사 지원팀에 문의하여 설정을 지우도록 요청하고 다음에 로그인할 때 메서드를 설정할 수 있습니다.<br><br>휴대폰 신호 수신 불량으로 인해 문제가 자주 발생하는 경우 모바일 디바이스에서 Microsoft Authenticator 앱을 사용하는 것이 좋습니다. 앱은 로그인하는 데 사용할 수 있는 임의의 보안 코드를 생성할 수 있고 이러한 코드는 셀 신호 또는 인터넷 연결이 필요하지 않습니다. Microsoft Authenticator 앱에 대한 자세한 내용은 [Microsoft Authenticator 앱 시작](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to) 문서를 참조하세요.|
+|모바일 디바이스에서 문자나 전화를 받지 못하는 경우|이전에 모바일 디바이스에서 문자나 전화를 성공적으로 수신한 경우에는, 계정이 아니라 전화 공급자 관련 문제일 가능성이 높습니다. 휴대폰 신호가 양호한지 문자 메시지와 전화를 받을 수 있는지 확인하십시오. 테스트 삼아 친구에게 전화를 걸거나 문자를 보내달라고 요청할 수 있습니다.<br><br>문자 및 전화 메시지를 성공적으로 수신할 수 있지만 알림은 여전히 받지 못하는 경우에는 다른 메서드를 사용해 볼 수 있습니다. [정보 변경](#change-your-info) 섹션의 단계를 수행하여 보안 정보에 메서드를 더 추가할 수 있습니다. 추가할 다른 메서드가 없으면 회사 지원팀에 문의하여 설정을 지우도록 요청하고 다음에 로그인할 때 메서드를 설정할 수 있습니다.<br><br>휴대폰 신호 수신 불량으로 인해 문제가 자주 발생하는 경우 모바일 디바이스에서 Microsoft Authenticator 앱을 사용하는 것이 좋습니다. 앱은 로그인하는 데 사용할 수 있는 임의의 보안 코드를 생성할 수 있고 이러한 코드는 셀 신호 또는 인터넷 연결이 필요하지 않습니다. Microsoft Authenticator 앱에 대한 자세한 내용은 [Microsoft Authenticator 앱 시작](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/user-help-auth-app-download-install) 문서를 참조하세요.|
 |이 테이블의 옵션으로 문제가 해결되지 않는 경우|이러한 문제 해결 단계를 시도했는데도 문제가 계속되는 경우 귀사의 지원팀에 문의하면 도움을 받을 수 있습니다.|
 
 ## <a name="next-steps"></a>다음 단계

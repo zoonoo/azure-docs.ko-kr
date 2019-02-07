@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
-ms.openlocfilehash: 6c60fdbcc7003b9da22d0bd3f3512fc616011703
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 0d1cd05d9af647230ef80df0b23df0c380775c11
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434379"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732620"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Azure PowerShell을 사용하여 내부 리디렉션으로 애플리케이션 게이트웨이 만들기
 
@@ -40,7 +40,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다.  
+리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
@@ -98,7 +98,7 @@ $frontendPort = New-AzureRmApplicationGatewayFrontendPort `
 
 ```azurepowershell-interactive
 $contosoPool = New-AzureRmApplicationGatewayBackendAddressPool `
-  -Name contosoPool 
+  -Name contosoPool
 $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
   -Name myPoolSettings `
   -Port 80 `
@@ -177,7 +177,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 
 ### <a name="add-the-redirection-configuration"></a>리디렉션 구성 추가
 
-[Add-AzureRmApplicationGatewayRedirectConfiguration](/powershell/module/azurerm.network/add-azurermapplicationgatewayredirectconfiguration)을 사용하여 수신기에 대해 리디렉션을 구성할 수 있습니다. 
+[Add-AzureRmApplicationGatewayRedirectConfiguration](/powershell/module/azurerm.network/add-azurermapplicationgatewayredirectconfiguration)을 사용하여 수신기에 대해 리디렉션을 구성할 수 있습니다.
 
 ```azurepowershell-interactive
 $appgw = Get-AzureRmApplicationGateway `
@@ -212,7 +212,7 @@ $contosoOrglistener = Get-AzureRmApplicationGatewayHttpListener `
   -ApplicationGateway $appgw
 $redirectConfig = Get-AzureRmApplicationGatewayRedirectConfiguration `
   -Name redirectOrgtoCom `
-  -ApplicationGateway $appgw   
+  -ApplicationGateway $appgw
 Add-AzureRmApplicationGatewayRequestRoutingRule `
   -ApplicationGateway $appgw `
   -Name contosoOrgRule `
@@ -269,7 +269,7 @@ New-AzureRmVmss `
 ### <a name="install-iis"></a>IIS 설치
 
 ```azurepowershell-interactive
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
 Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `

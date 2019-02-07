@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: d835a4150016ad2b658cd95d1f84c421f83937c0
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 1810c92eb98a78510db79cb72ca2e8209768fc89
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434821"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660907"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>가상 네트워크 서브넷 추가, 변경 또는 삭제
 
@@ -55,7 +55,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 
 **명령**
 
-- Azure CLI: [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)
+- Azure CLI: [az network vnet subnet create](/cli/azure/network/vnet/subnet)
 - PowerShell: [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig)
 
 ## <a name="change-subnet-settings"></a>서브넷 설정 변경
@@ -96,7 +96,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 
 서브넷에 대한 작업을 수행하려면 다음 표에 나열된 적절한 작업이 할당된 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할 또는 [네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 계정이 할당되어야 합니다.
 
-|조치                                                                   |   이름                                       |
+|조치                                                                   |   Name                                       |
 |-----------------------------------------------------------------------  |   -----------------------------------------  |
 |Microsoft.Network/virtualNetworks/subnets/read                           |   가상 네트워크 서브넷 읽기              |
 |Microsoft.Network/virtualNetworks/subnets/write                          |   가상 네트워크 서브넷 만들기 또는 업데이트  |

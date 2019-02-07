@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2017
-ms.openlocfilehash: efeae877161b2632112938d63b6f6e31cce96ac5
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: d5a820da94254fe0da416d9219f7582d3a4241cb
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077201"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696169"
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>모듈 레지스트리를 사용하여 Terraform으로 VM 클러스터 만들기
 
@@ -31,7 +31,7 @@ Terraform에 대한 자세한 내용은 [Terraform 설명서](https://www.terraf
 ## <a name="set-up-authentication-with-azure"></a>Azure로 인증 설정
 
 > [!TIP]
-> [Terraform 환경 변수를 사용](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables)하거나 [Azure Cloud Shell](/azure/cloud-shell/overview)에서 자습서를 실행하는 경우 이 단계를 건너뜁니다.
+> [Terraform 환경 변수를 사용](/azure/virtual-machines/linux/terraform-install-configure)하거나 [Azure Cloud Shell](/azure/cloud-shell/overview)에서 자습서를 실행하는 경우 이 단계를 건너뜁니다.
 
  Azure 서비스 주체를 만들려면 [Terraform을 설치하고 Azure에 대한 액세스 구성](/azure/virtual-machines/linux/terraform-install-configure)을 검토하세요. 이 서비스 주체를 사용하여 빈 디렉터리에 있는 새 파일 `azureProviderAndCreds.tf`를 다음 코드로 채웁니다.
 

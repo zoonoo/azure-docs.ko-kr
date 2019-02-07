@@ -10,12 +10,12 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: routlaw
-ms.openlocfilehash: bbbaa4c44a7c0d6da189f0c49d73adfa6142cdee
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 6e4bd5977eb1761a065d5583675e6fd405b4610a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095794"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750361"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>REST API를 사용하여 리소스 상태 가져오기 
 
@@ -42,9 +42,9 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft
 
 ### <a name="uri-parameters"></a>URI 매개 변수
 
-| 이름 | 설명 |
+| Name | 설명 |
 | :--- | :---------- |
-| subscriptionId | Azure 구독을 식별하는 구독 ID입니다. 구독이 여러 개인 경우 [여러 구독으로 작업](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions)을 참조합니다. |
+| subscriptionId | Azure 구독을 식별하는 구독 ID입니다. 구독이 여러 개인 경우 [여러 구독으로 작업](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)을 참조합니다. |
 | api-version | 요청에 사용할 API 버전입니다.<br /><br /> 이 문서에서는 위 URL에 포함되어 있는 api-version `2015-04-01`을 다룹니다.  |
 | $filter | 반환되는 결과 집합을 줄이는 필터링 옵션입니다. 이 매개 변수에 허용되는 패턴은 [활동 로그 작업의 참조](/rest/api/monitor/activitylogs/list#uri-parameters)에서 제공됩니다. 표시된 예제는 2018-05-16과 2018-06-20 사이의 시간 범위에서 발생한 모든 이벤트를 캡처합니다. |
 | &nbsp; | &nbsp; |

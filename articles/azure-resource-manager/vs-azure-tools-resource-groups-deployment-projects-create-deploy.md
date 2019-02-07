@@ -13,19 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6ff49b3a08977b28ae6fa0971e5c7d72af158a46
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0b00bff2b32ac9dd16d4d38ee35be006c0247bb8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081214"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493481"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포
+
 Visual Studio를 사용하여 Azure로 인프라 및 코드를 배포하는 프로젝트를 만들 수 있습니다. 예를 들어 앱에 대한 웹 호스트, 웹 사이트 및 데이터베이스를 정의하고 코드와 함께 해당 인프라를 배포할 수 있습니다. Visual Studio는 일반 시나리오를 배포하기 위한 다양한 서로 다른 시작 템플릿을 제공합니다. 이 문서에서는 웹앱 및 SQL Database를 배포합니다.  
 
 이 문서에서는 [Azure 개발 및 ASP.NET 워크로드가 설치된 Visual Studio 2017](/dotnet/azure/dotnet-tools) 사용 방법을 보여줍니다. Visual Studio 2015 업데이트 2 및 Microsoft Azure SDK for .NET 2.9 또는 Azure SDK 2.9와 함께 Visual Studio 2013을 사용하는 경우 환경은 대부분 동일합니다.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="create-azure-resource-group-project"></a>Azure 리소스 그룹 프로젝트 만들기
+
 이 섹션에서는 **웹앱 + SQL** 템플릿으로 Azure 리소스 그룹 프로젝트를 만듭니다.
 
 1. Visual Studio에서 **파일**, **새 프로젝트**를 선택하고, **C#** 또는 **Visual Basic**을 선택합니다. 이러한 프로젝트에는 JSON 및 PowerShell 콘텐츠만 들어 있기 때문에 어떤 언어를 선택하든 이후 단계에 영향을 미치지 않습니다. 그런 다음 **클라우드**, **Azure 리소스 그룹** 프로젝트를 차례로 선택합니다.

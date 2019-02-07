@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 85dbdc42dd55cdb262351511918d2b813212edb0
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 79b694b877e7e26c5b9c71fb5cfbde3703ef3cb6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882211"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750922"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>자습서: Key Vault에 저장된 SSL 인증서로 Azure에서 Linux 가상 머신의 웹 서버 보호
 웹 서버를 보호하기 위해 웹 트래픽을 암호화하는 데 SSL(Secure Sockets Layer) 인증서를 사용할 수 있습니다. 이러한 SSL 인증서는 Azure Key Vault에 저장될 수 있으며 Azure에서 Linux VM(가상 머신)에 인증서의 보안 배포를 허용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -44,13 +44,13 @@ Azure Key Vault는 암호화 키 및 비밀(인증서 또는 암호)을 보호�
 
 
 ## <a name="create-an-azure-key-vault"></a>Azure Key Vault 만들기
-Key Vault 및 인증서를 만들려면 먼저 [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupSecureWeb*이라는 리소스 그룹을 만듭니다.
+Key Vault 및 인증서를 만들려면 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupSecureWeb*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-다음으로 [az keyvault create](/cli/azure/keyvault#az_keyvault_create)를 사용하여 Key Vault를 만들고 VM 배포 시에 사용할 수 있도록 설정합니다. 각 Key Vault에는 고유한 이름이 필요하며 모두 소문자여야 합니다. 다음 예제에서 *<mykeyvault>* 를 사용자 고유의 Key Vault 이름으로 바꿉니다.
+다음으로 [az keyvault create](/cli/azure/keyvault)를 사용하여 Key Vault를 만들고 VM 배포 시에 사용할 수 있도록 설정합니다. 각 Key Vault에는 고유한 이름이 필요하며 모두 소문자여야 합니다. 다음 예제에서 *<mykeyvault>* 를 사용자 고유의 Key Vault 이름으로 바꿉니다.
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -61,7 +61,7 @@ az keyvault create \
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>인증서 생성 및 Key Vault에 저장
-프로덕션 사용을 위해 [az keyvault certificate import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import)를 사용하여 신뢰할 수 있는 공급자가 서명한 유효한 인증서를 가져와야 합니다. 이 자습서에서는 다음 예제를 통해 [az keyvault certificate create](/cli/azure/keyvault/certificate#az_keyvault_certificate_create)를 사용하여 기본 인증서 정책을 사용하는 자체 서명된 인증서를 생성할 수 있는 방법을 보여 줍니다.
+프로덕션 사용을 위해 [az keyvault certificate import](/cli/azure/keyvault/certificate)를 사용하여 신뢰할 수 있는 공급자가 서명한 유효한 인증서를 가져와야 합니다. 이 자습서에서는 다음 예제를 통해 [az keyvault certificate create](/cli/azure/keyvault/certificate)를 사용하여 기본 인증서 정책을 사용하는 자체 서명된 인증서를 생성할 수 있는 방법을 보여 줍니다.
 
 ```azurecli-interactive 
 az keyvault certificate create \
@@ -71,7 +71,7 @@ az keyvault certificate create \
 ```
 
 ### <a name="prepare-a-certificate-for-use-with-a-vm"></a>VM에 사용할 인증서 준비
-VM 만들기 프로세스 동안 인증서를 사용하려면 [az keyvault secret list-versions](/cli/azure/keyvault/secret#az_keyvault_secret_list_versions)를 사용하여 인증서 ID를 가져옵니다. [az vm secret format](/cli/azure/vm/secret#az-vm-secret-format)을 사용하여 인증서를 변환합니다. 다음 예제에서는 다음 단계의 사용 편의성을 위해 변수에 이러한 명령의 출력을 할당합니다.
+VM 만들기 프로세스 동안 인증서를 사용하려면 [az keyvault secret list-versions](/cli/azure/keyvault/secret)를 사용하여 인증서 ID를 가져옵니다. [az vm secret format](/cli/azure/vm/secret#az-vm-secret-format)을 사용하여 인증서를 변환합니다. 다음 예제에서는 다음 단계의 사용 편의성을 위해 변수에 이러한 명령의 출력을 할당합니다.
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
@@ -111,7 +111,7 @@ runcmd:
 ```
 
 ### <a name="create-a-secure-vm"></a>보안 VM 만들기
-이제 [az vm create](/cli/azure/vm#az_vm_create)로 VM을 만듭니다. 인증서 데이터는 `--secrets` 매개 변수를 사용하여 Key Vault에서 삽입됩니다. `--custom-data` 매개 변수를 사용하여 cloud-init 구성에서 전달합니다.
+이제 [az vm create](/cli/azure/vm)로 VM을 만듭니다. 인증서 데이터는 `--secrets` 매개 변수를 사용하여 Key Vault에서 삽입됩니다. `--custom-data` 매개 변수를 사용하여 cloud-init 구성에서 전달합니다.
 
 ```azurecli-interactive 
 az vm create \
@@ -126,7 +126,7 @@ az vm create \
 
 VM을 만들고 패키지를 설치하고 앱을 시작하는 데 몇 분 정도 걸립니다. VM이 만들어지면 Azure CLI에 표시된 `publicIpAddress`를 기록해 둡니다. 이 주소는 웹 브라우저에서 사이트에 액세스할 때 사용됩니다.
 
-보안 웹 트래픽이 VM에 도달하도록 허용하려면 [az vm open-port](/cli/azure/vm#az_vm_open_port)를 사용하여 인터넷에서 포트 443을 엽니다.
+보안 웹 트래픽이 VM에 도달하도록 허용하려면 [az vm open-port](/cli/azure/vm)를 사용하여 인터넷에서 포트 443을 엽니다.
 
 ```azurecli-interactive 
 az vm open-port \

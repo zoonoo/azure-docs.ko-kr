@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: e38e71d72a62399512e348d97d4770ea48afd146
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e4b1e9bcdedd802b1937aad25027a1ab8546f674
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224092"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495499"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Node.js를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드
 
@@ -117,7 +117,7 @@ LUIS 앱에서 엔터티 및 의도를 정의했으면 발화를 추가할 수 �
 index.js 파일을 열고 파일의 맨 위에서 이러한 값을 변경하세요.
 
 
-```nodejs
+```javascript
 // Change these values
 const LUIS_programmaticKey = "YOUR_PROGRAMMATIC_KEY";
 const LUIS_appName = "Sample App";

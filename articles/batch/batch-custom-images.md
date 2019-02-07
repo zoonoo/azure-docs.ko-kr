@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: lahugh
-ms.openlocfilehash: b296dce0a83971626c8e66ddc314c4d1e07d8602
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0bc43b82a987ab065677bdbb56de73ef341c249d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840370"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752129"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>사용자 지정 이미지를 사용하여 가상 머신 풀 만들기 
 
@@ -28,7 +28,7 @@ Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에�
 시나리오에 맞게 구성된 사용자 지정 이미지를 사용하면 몇 가지 이점을 제공할 수 있습니다.
 
 - **OS(운영 체제) 구성**. 이미지의 운영 체제 디스크 구성을 사용자 지정할 수 있습니다. 
-- **응용 프로그램 미리 설치**. OS 디스크에 애플리케이션을 미리 설치합니다. 이 방식은 시작 작업을 사용하여 계산 노드를 프로비전한 후에 애플리케이션을 설치하는 방식에 비해 효율성은 높고 오류 발생 가능성은 낮습니다.
+- **애플리케이션 미리 설치**. OS 디스크에 애플리케이션을 미리 설치합니다. 이 방식은 시작 작업을 사용하여 계산 노드를 프로비전한 후에 애플리케이션을 설치하는 방식에 비해 효율성은 높고 오류 발생 가능성은 낮습니다.
 - **VM에서 재부팅 시간 절감.** 애플리케이션을 설치할 경우 일반적으로 VM을 재부팅해야 하며, 이 작업은 많은 시간이 소요됩니다. 애플리케이션을 사전 설치하면 재부팅 시간을 절감할 수 있습니다. 
 - **많은 데이터를 한 번에 복사.** 관리되는 사용자 지정 이미지를 관리되는 이미지의 데이터 디스크에 복사하여 관리되는 사용자 지정 이미지의 정적 데이터 부분을 만듭니다. 이 작업은 한 번만 수행하며 풀의 각 노드에서 데이터를 사용할 수 있게 됩니다.
 - **디스크 유형 선택.** OS 디스크 및 데이터 디스크에 Premium Storage를 사용할 수 있습니다.
@@ -69,7 +69,7 @@ Azure에서는 Azure VM OS 및 데이터 디스크의 스냅숏, 관리되는 �
 
 ### <a name="create-an-image-from-one-or-more-snapshots"></a>스냅숏 하나 이상에서 이미지 만들기
 
-스냅숏에서 관리되는 이미지를 만들려면 [az image create](/cli/azure/image#az_image_create) 명령과 같은 Azure 명령줄 도구를 사용합니다. OS 디스크 스냅숏을 지정하고 필요에 따라 데이터 디스크 스냅숏을 하나 이상 지정하여 이미지를 만들 수 있습니다.
+스냅숏에서 관리되는 이미지를 만들려면 [az image create](/cli/azure/image) 명령과 같은 Azure 명령줄 도구를 사용합니다. OS 디스크 스냅숏을 지정하고 필요에 따라 데이터 디스크 스냅숏을 하나 이상 지정하여 이미지를 만들 수 있습니다.
 
 ## <a name="create-a-pool-from-a-custom-image-in-the-portal"></a>포털의 사용자 지정 이미지에서 풀 만들기
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6e15d4376fae576f615cac7c094f53dfcc22618e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 76af79cc9ef1ebea30b30a291f451b7b0a4f3ba6
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826618"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694485"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Contoso 마이그레이션: Azure VM 및 SQL Database Managed Instance에서 온-프레미스 앱 다시 호스트
 
@@ -173,7 +173,7 @@ Azure SQL Database Managed Instance를 설정하려면 Contoso에 다음 요구 
 - 서브넷에는 UDR(사용자 정의 경로) 경로 테이블이 있어야 합니다. 할당되는 유일한 경로는 0.0.0.0/0 다음 홉 인터넷이어야 합니다. 
 - 선택적 사용자 지정 DNS: 사용자 지정 DNS가 Azure 가상 네트워크에 지정되는 경우 Azure의 재귀 확인자 IP 주소(예: 168.63.129.16)를 목록에 추가해야 합니다. [Managed Instance에 대한 사용자 지정 DNS를 구성하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns)에 대해 알아보세요.
 - 서브넷에는 연결된 서비스 엔드포인트(저장소 또는 SQL)가 없어야 합니다. 서비스 엔드포인트는 가상 네트워크에서 비활성화되어야 합니다.
-- 서브넷에는 16개 이상의 IP 주소가 있어야 합니다. [Managed Instance 서브넷의 크기를 조정하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#determine-the-size-of-subnet-for-managed-instances)에 대해 알아보세요.
+- 서브넷에는 16개 이상의 IP 주소가 있어야 합니다. [Managed Instance 서브넷의 크기를 조정하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration)에 대해 알아보세요.
 - Contoso의 하이브리드 환경에서는 사용자 지정 DNS 설정이 필요합니다. Contoso에서 회사의 Azure DNS 서버 중 하나 이상을 사용하도록 DNS 설정을 구성합니다. [DNS 사용자 지정](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns)에 대해 자세히 알아보세요.
 
 ### <a name="set-up-a-virtual-network-for-the-managed-instance"></a>Managed Instance에 대한 가상 네트워크 설정
@@ -207,7 +207,7 @@ Contoso 관리자는 다음과 같이 가상 네트워크를 설정합니다.
 *도움이 더 필요하세요?*
 
 - [SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)에 대한 개요를 참조합니다.
-- [SQL Database Managed Instance에 대한 가상 네트워크를 만드는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#create-a-new-virtual-network-for-managed-instances)을 알아봅니다.
+- [SQL Database Managed Instance에 대한 가상 네트워크를 만드는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration)을 알아봅니다.
 - [피어링을 설정하는 방법](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering)을 알아봅니다.
 - [Azure Active Directory DNS 설정을 업데이트하는 방법](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns)을 알아봅니다.
 
@@ -609,7 +609,7 @@ Contoso 보안 팀에서 Azure VM 및 SQL Database Managed Instance를 검토하
 
      ![Managed Instance 보안 - 위협 탐지](./media/contoso-migration-rehost-vm-sql-managed-instance/mi-security.png)  
 
-VM 보안 사례에 대한 자세한 내용은 [Azure의 IaaS 작업에 대한 보안 모범 사례](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control)를 참조하세요.
+VM 보안 사례에 대한 자세한 내용은 [Azure의 IaaS 작업에 대한 보안 모범 사례](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms)를 참조하세요.
 
 ### <a name="bcdr"></a>BCDR
 

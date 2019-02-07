@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/22/2017
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 60dd0bdd529b4ee8fc8377093d49b8a27fb9b3f1
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ff070adbda2a36261ca24eb0cc993ca22eada1c7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016651"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661244"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Azure Key Vault에 자격 증명 저장
 
@@ -27,9 +27,6 @@ ms.locfileid: "54016651"
 ## <a name="prerequisites"></a>필수 조건
 
 이 기능은 데이터 팩터리 서비스 ID에 기반합니다. [데이터 팩터리 서비스 ID](data-factory-service-identity.md)에서 작동 방식을 알아보고 데이터 팩터리에 연결된 서비스 ID가 있는지 확인합니다.
-
->[!TIP]
->Azure Key Vault에서 비밀을 만들 때 **ADF 연결된 서비스에서 요청하는 비밀 속성의 전체 값(예: 연결 문자열/암호/서비스 사용자 키/등)을 입력합니다**. 예를 들어 Azure Storage 연결된 서비스의 경우 AKV 비밀로 `DefaultEndpointsProtocol=http;AccountName=myAccount;AccountKey=myKey;`를 입력한 다음, ADF의 "connectionString" 필드에서 참조하고, Dynamics 연결된 서비스의 경우 AKV 비밀로 `myPassword`를 입력한 다음, ADF의 "암호" 필드에서 참조합니다. 지원되는 속성 세부 정보는 각 커넥터/계산 문서를 참조하세요.
 
 ## <a name="steps"></a>단계
 

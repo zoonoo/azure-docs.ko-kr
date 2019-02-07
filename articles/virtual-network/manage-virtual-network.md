@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: 00d5cb48053fe3f34152f29fb20fec8c4a20166f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 34dc6fbd1cca30f86b3fa825932983a01c4c8250
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426168"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730189"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>가상 네트워크 만들기, 변경 또는 삭제
 
@@ -87,14 +87,14 @@ ms.locfileid: "54426168"
     - **다이어그램**: 가상 네트워크에 연결된 모든 디바이스를 시각적으로 보여 줍니다. 다이어그램에는 디바이스에 대한 몇 가지 중요한 정보가 있습니다. 이 보기에서 디바이스를 관리하려면 다이어그램에서 디바이스를 선택합니다.
     - **일반적인 Azure 설정**: 일반적인 Azure 설정에 대한 자세한 내용은 다음 정보를 참조하세요.
         *   [활동 로그](../azure-monitor/platform/activity-logs-overview.md)
-        *   [액세스 제어(IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
+        *   [액세스 제어(IAM)](../role-based-access-control/overview.md)
         *   [태그](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [잠금](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [Automation 스크립트](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
 **명령**
 
-- Azure CLI: [az network vnet show](/cli/azure/network/vnet#az_network_vnet_show)
+- Azure CLI: [az network vnet show](/cli/azure/network/vnet)
 - PowerShell: [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork)
 
 ## <a name="add-or-remove-an-address-range"></a>주소 범위 추가 또는 제거
@@ -162,14 +162,14 @@ ms.locfileid: "54426168"
 
 **명령**
 
-- Azure CLI: [azure network vnet delete](/cli/azure/network/vnet#az_network_vnet_delete)
+- Azure CLI: [azure network vnet delete](/cli/azure/network/vnet)
 - PowerShell: [Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork)
 
 ## <a name="permissions"></a>권한
 
 가상 네트워크에서 작업을 수행하려면 다음 표에 나열된 적절한 작업이 할당된 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 계정을 할당해야 합니다.
 
-| 조치                                  |   이름                                |
+| 조치                                  |   Name                                |
 |---------------------------------------- |   --------------------------------    |
 |Microsoft.Network/virtualNetworks/read   |   가상 네트워크 읽기              |
 |Microsoft.Network/virtualNetworks/write  |   가상 네트워크 만들기 또는 업데이트  |

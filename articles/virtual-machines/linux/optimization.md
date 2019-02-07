@@ -17,18 +17,18 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: 61f4237756d7a808bcc8a5983508d72fa49f4cbd
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e983ae549664abf46de256e987e09191a2a44c0f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459178"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728523"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Azure에서 Linux VM 최적화
 Linux 가상 머신(VM) 만들기는 명령줄 또는 포털에서 수행하는 것이 쉽습니다. 이 자습서에서는 Microsoft Azure Platform에서 해당 성능을 최적화하도록 설정하는 방법을 보여줍니다. 이 항목에서는 Ubuntu Server VM을 사용 하지만 [템플릿으로 사용자 고유의 이미지](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 Linux 가상 머신을 만들 수도 있습니다.  
 
 ## <a name="prerequisites"></a>필수 조건
-이 항목에서는 사용하는 Azure 구독([무료 평가판 등록](https://azure.microsoft.com/pricing/free-trial/))이 이미 있으며 Azure 구독에 VM을 이미 프로비전했다고 가정합니다. [VM을 만들기](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 전에 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 구독에 로그인했는지 확인합니다.
+이 항목에서는 사용하는 Azure 구독([무료 평가판 등록](https://azure.microsoft.com/pricing/free-trial/))이 이미 있으며 Azure 구독에 VM을 이미 프로비전했다고 가정합니다. [VM을 만들기](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 전에 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 구독에 로그인했는지 확인합니다.
 
 ## <a name="azure-os-disk"></a>Azure OS 디스크
 Azure에서 Linux VM을 만들면 이에 연결된 두 개의 디스크가 있습니다. **/dev/sda**는 OS 디스크이며 **/dev/sdb**는 임시 디스크입니다.  OS 디스크(**/dev/sda**)는 신속한 VM 부팅 시간에 최적화되고 워크로드에 좋은 성능을 제공하지 않으므로 운영 체제 이외에 사용하지 않습니다. 데이터에 대한 영구적이고 최적화된 저장소를 얻기 위해 VM에 하나 이상의 디스크를 연결하려고 합니다. 

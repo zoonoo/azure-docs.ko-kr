@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: fabb44f9369dd7b7050ae353ab94263f140aae48
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: f2636720f6f1faeffb9a63052efdf009668d806f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346408"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752078"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure Files 볼륨 드라이버(미리 보기)
 Azure Files 볼륨 플러그 인은 Docker 컨테이너에 대한 [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) 기반 볼륨을 제공하는 [Docker 볼륨 플러그 인](https://docs.docker.com/engine/extend/plugins_volume/)입니다. 이 Docker 볼륨 플러그 인은 Service Fabric 클러스터에 배포할 수 있는 Service Fabric 애플리케이션으로 패키지됩니다. 용도는 클러스터에 배포되는 다른 Service Fabric 컨테이너 애플리케이션에 대한 Azure Files 기반 볼륨을 제공하는 것입니다.
@@ -33,7 +33,7 @@ Azure Files 볼륨 플러그 인은 Docker 컨테이너에 대한 [Azure Files](
 
 * Azure Files 볼륨 플러그 인은 Service Fabric 버전 6.2 이상에서만 작동합니다.
 
-* [Azure Files 설명서](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)의 지침을 따라 볼륨으로 사용할 Service Fabric 컨테이너 응용 프로그램에 대한 파일 공유를 만듭니다.
+* [Azure Files 설명서](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)의 지침을 따라 볼륨으로 사용할 Service Fabric 컨테이너 애플리케이션에 대한 파일 공유를 만듭니다.
 
 * [Service Fabric 모듈을 사용하는 Powershell](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) 또는 [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) 설치가 필요합니다.
 
@@ -115,7 +115,7 @@ ARM 템플릿의 fabricSettings 섹션(Azure 배포) 또는 ClusterConfig.json(�
 >   
 
 ### <a name="deploy-the-application-on-a-local-development-cluster"></a>로컬 개발 클러스터에서 애플리케이션 배포
-Azure Files 볼륨 플러그 인 애플리케이션에 대한 기본 서비스 인스턴스 수는 -1로, 클러스터의 각 노드에 배포된 서비스의 인스턴스가 있다는 것을 의미합니다. 그러나 로컬 개발 클러스터에서 Azure Files 볼륨 플러그 인 애플리케이션을 배포할 때 서비스 인스턴스 수는 1로 지정되어야 합니다. **InstanceCount** 응용 프로그램 매개 변수를 통해 이를 수행할 수 있습니다. 따라서 로컬 개발 클러스터에서 Azure Files 볼륨 플러그 인 애플리케이션 배포에 대한 명령은 다음과 같습니다.
+Azure Files 볼륨 플러그 인 애플리케이션에 대한 기본 서비스 인스턴스 수는 -1로, 클러스터의 각 노드에 배포된 서비스의 인스턴스가 있다는 것을 의미합니다. 그러나 로컬 개발 클러스터에서 Azure Files 볼륨 플러그 인 애플리케이션을 배포할 때 서비스 인스턴스 수는 1로 지정되어야 합니다. **InstanceCount** 애플리케이션 매개 변수를 통해 이를 수행할 수 있습니다. 따라서 로컬 개발 클러스터에서 Azure Files 볼륨 플러그 인 애플리케이션 배포에 대한 명령은 다음과 같습니다.
 
 ```powershell
 New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9494 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
@@ -169,7 +169,7 @@ Azure Files 볼륨 플러그 인에 대한 드라이버 이름은 **sfazurefile*
 - **shareName** - 컨테이너에 대한 볼륨을 제공하는 Azure Files 파일 공유의 이름입니다.
 - **storageAccountName** - Azure Files 파일 공유를 포함하는 Azure Storage 계정의 이름입니다.
 - **storageAccountKey** - Azure Files 파일 공유를 포함하는 Azure Storage 계정에 대한 액세스 키입니다.
-- **storageAccountFQDN** - 저장소 계정과 연결된 도메인 이름입니다. storageAccountFQDN을 지정하지 않으면 storageAccountName과 함께 기본 접미사(file.core.windows.net)를 사용하여 도메인 이름이 생성됩니다.  
+- **storageAccountFQDN** - 스토리지 계정과 연결된 도메인 이름입니다. storageAccountFQDN을 지정하지 않으면 storageAccountName과 함께 기본 접미사(file.core.windows.net)를 사용하여 도메인 이름이 생성됩니다.  
 
     ```xml
     - Example1: 
@@ -185,7 +185,7 @@ Azure Files 볼륨 플러그 인에 대한 드라이버 이름은 **sfazurefile*
     ```
 
 ## <a name="using-your-own-volume-or-logging-driver"></a>사용자 고유의 볼륨 또는 로깅 드라이버 사용
-Service Fabric은 사용자 고유의 사용자 지정 [볼륨](https://docs.docker.com/engine/extend/plugins_volume/) 또는 [로깅](https://docs.docker.com/engine/admin/logging/overview/) 드라이버 사용을 허용합니다. Docker 볼륨/로깅 드라이버가 클러스터에 설치되어 있지 않으면 RDP/SSH 프로토콜을 사용하여 수동으로 설치할 수 있습니다. [가상 머신 확장 집합 시작 스크립트](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) 또는 [SetupEntryPoint 스크립트](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service)를 통해 이러한 프로토콜을 사용하여 설치를 수행할 수 있습니다.
+Service Fabric은 사용자 고유의 사용자 지정 [볼륨](https://docs.docker.com/engine/extend/plugins_volume/) 또는 [로깅](https://docs.docker.com/engine/admin/logging/overview/) 드라이버 사용을 허용합니다. Docker 볼륨/로깅 드라이버가 클러스터에 설치되어 있지 않으면 RDP/SSH 프로토콜을 사용하여 수동으로 설치할 수 있습니다. [가상 머신 확장 집합 시작 스크립트](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) 또는 [SetupEntryPoint 스크립트](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model)를 통해 이러한 프로토콜을 사용하여 설치를 수행할 수 있습니다.
 
 [Azure용 Docker 볼륨 드라이버](https://docs.docker.com/docker-for-azure/persistent-data-volumes/)를 설치하는 스크립트의 예는 다음과 같습니다.
 

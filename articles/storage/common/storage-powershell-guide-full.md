@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 7fbbcefde583d7e464633d9011e591b4c9bf6f65
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2787353230408d6374db36eb5621f98285245364
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460321"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766524"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure Storage와 함께 Azure PowerShell 사용
 
@@ -201,7 +201,7 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 
 * PowerShell을 사용하여 Storage 메트릭 데이터를 사용하도록 설정하고 확인하는 방법을 알아보려면 [PowerShell을 사용하여 Storage 메트릭을 사용하도록 설정](storage-enable-and-view-metrics.md#how-to-enable-metrics-using-powershell)을 참조하세요.
 
-* PowerShell을 사용하여 저장소 로깅 데이터를 사용하도록 설정하고 검색하는 방법을 알아보려면 [PowerShell을 사용하여 저장소 로깅을 활성화하는 방법](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#how-to-enable-storage-logging-using-powershell)과 [저장소 로깅 로그 데이터 찾기](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#finding-your-storage-logging-log-data)를 참조하세요.
+* PowerShell을 사용하여 저장소 로깅 데이터를 사용하도록 설정하고 검색하는 방법을 알아보려면 [PowerShell을 사용하여 저장소 로깅을 활성화하는 방법](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)과 [저장소 로깅 로그 데이터 찾기](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)를 참조하세요.
 
 * Storage 메트릭 및 스토리지 로깅을 사용하여 스토리지 문제를 해결하는 방법에 대한 자세한 정보는 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
 

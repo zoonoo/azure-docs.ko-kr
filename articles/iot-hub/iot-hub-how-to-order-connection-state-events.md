@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: daf4a6142c0e30fa7b8534e5598cec39c69079c0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 06b917c956507de3eb3b1536356285d7a954fb8b
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184052"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730079"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Azure IoT Hub의 디바이스 연결 이벤트 정렬
 
@@ -190,7 +190,7 @@ Azure Event Grid를 사용하면 이벤트 기반 애플리케이션을 빌드�
    }]
    ```
 
-5. **요청할 때 Content-Type 헤더 집합을 응용프로그램/json에 포함해야 합니다**라고 표시되는 팝업 알림을 받을 수도 있습니다. 이 제안을 안전하게 무시하고 다음 섹션으로 이동할 수 있습니다. 
+5. **요청할 때 Content-Type 헤더 집합을 애플리케이션/json에 포함해야 합니다**라고 표시되는 팝업 알림을 받을 수도 있습니다. 이 제안을 안전하게 무시하고 다음 섹션으로 이동할 수 있습니다. 
 
 ### <a name="create-a-condition"></a>조건 만들기
 
@@ -297,7 +297,7 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
    ![결과를 내는 방법](./media/iot-hub-how-to-order-connection-state-events/raspconnstring.png)
 
-2. **실행**을 클릭하여 응용 프로그램을 실행합니다.
+2. **실행**을 클릭하여 애플리케이션을 실행합니다.
 
 IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 출력이 표시됩니다.
 
@@ -341,7 +341,7 @@ IoT 허브를 유지하더라도 만든 이벤트 구독을 삭제하는 것이 
 
 3. **삭제**를 선택합니다. 
 
-Azure Portal에서 Azure Cosmos DB 계정을 제거하려면 계정 이름을 마우스 오른쪽 단추로 클릭하고 **계정 삭제**를 클릭합니다. 자세한 지침은 [Azure Cosmos DB 계정 삭제](https://docs.microsoft.com/azure/cosmos-db/manage-account#delete)를 참조하세요.
+Azure Portal에서 Azure Cosmos DB 계정을 제거하려면 계정 이름을 마우스 오른쪽 단추로 클릭하고 **계정 삭제**를 클릭합니다. 자세한 지침은 [Azure Cosmos DB 계정 삭제](https://docs.microsoft.com/azure/cosmos-db/manage-account)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

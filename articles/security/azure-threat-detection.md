@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b2b247b50eff446776edfbf3a552e92af3c7dfff
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fe98caa2a78722d621c43f1ef708e24add0efb56
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228800"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664117"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 지능형 위협 탐지
 
@@ -29,7 +29,7 @@ Azure는 앱 배포의 요구 사항에 맞게 보안을 구성하고 사용자 
 
 ## <a name="azure-active-directory-identity-protection"></a>Azure Active Directory ID 보호
 
-[Azure AD ID 보호](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)는 조직의 ID에 영향을 줄 수 있는 위험 이벤트와 잠재적 취약성에 대한 개요를 제공하는 [Azure Active Directory Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) 버전의 기능입니다. ID 보호(Identity Protection)는 [Azure AD의 비정상적인 활동 보고서](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports#anomalous-activity-reports)를 통해 제공되는 기존의 Azure AD 변칙 검색 기능을 사용하고, 실시간으로 비정상(변칙 사항)을 검색할 수 있는 새로운 위험 이벤트 유형을 도입합니다.
+[Azure AD ID 보호](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)는 조직의 ID에 영향을 줄 수 있는 위험 이벤트와 잠재적 취약성에 대한 개요를 제공하는 [Azure Active Directory Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) 버전의 기능입니다. ID 보호는 [Azure AD의 비정상적인 활동 보고서](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports)를 통해 제공되는 기존 Azure AD의 변칙 검색 기능을 사용하고, 실시간으로 비정상을 검색할 수 있는 새로운 위험 이벤트 유형을 도입하고 있습니다.
 
 ![Azure AD ID 보호 다이어그램](./media/azure-threat-detection/azure-threat-detection-fig1.png)
 

@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
-ms.date: 01/31/2018
-ms.openlocfilehash: 12beb167c5225f669529dd2db375468fc881c8eb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 09/24/2018
+ms.openlocfilehash: 57a8a89c73e2be51e54130d9c37194a7513a47d8
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468566"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562517"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>테넌트별 애플리케이션 SaaS 패턴을 사용하여 새 테넌트 프로비전/카탈로그 작업
 

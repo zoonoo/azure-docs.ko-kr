@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: ffcf81ee8637c2ce01b3a7822d179609bd9dbfaa
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2aba399a45a4118dcc80e188b2d03b62b7fcbfac
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794535"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663505"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>일반적인 Stream Analytics 사용 패턴에 대한 쿼리 예제
 
@@ -132,7 +132,7 @@ JSON 및 Avro는 둘 다 중첩된 개체(레코드) 또는 배열과 같은 복
 
 ## <a name="query-example-send-data-to-multiple-outputs"></a>쿼리 예제: 데이터를 여러 출력으로 전송
 **설명**: 데이터를 단일 작업에서 여러 출력 대상으로 보냅니다.
-예를 들어 임계점 기반 경고에 대한 데이터를 분석하고 Blob 저장소에 모든 이벤트를 보관합니다.
+예를 들어 임계점 기반 경고에 대한 데이터를 분석하고 Blob Storage에 모든 이벤트를 보관합니다.
 
 **입력**:
 
@@ -687,7 +687,7 @@ FROM Temp
 GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
-**설명**: [COUNT(DISTINCT Time)](https://docs.microsoft.com/en-us/stream-analytics-query/count-azure-stream-analytics)는 시간 범위 내에서 Time 열의 고유한 값 수를 반환합니다. 그러면 중복 항목을 삭제하여 디바이스당 평균을 컴퓨팅하는 데 이 단계의 출력을 사용할 수 있습니다.
+**설명**: [COUNT(DISTINCT Time)](https://docs.microsoft.com/stream-analytics-query/count-azure-stream-analytics)는 시간 범위 내에서 Time 열의 고유한 값 수를 반환합니다. 그러면 중복 항목을 삭제하여 디바이스당 평균을 컴퓨팅하는 데 이 단계의 출력을 사용할 수 있습니다.
 
 ## <a name="get-help"></a>도움말 보기
 추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.

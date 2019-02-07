@@ -8,19 +8,17 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2c8f27c9b5b9c13cd6cb722bafb23dd19b944d27
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 77c4377afaff20e77e76c0a7389c79dfdce703ca
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474686"
+ms.locfileid: "55509136"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Azure Blob, Azure 파일 또는 Azure 디스크를 사용할 시기 결정
-
 Microsoft Azure에서는 Azure Storage에서 클라우드에 데이터를 저장 및 액세스하기 위한 여러 가지 기능을 제공합니다. 이 문서에서는 Azure 파일, Blob 및 디스크에 대해 설명하고 이러한 기능 중에서 선택하는 데 도움이 되도록 작성되었습니다.
 
 ## <a name="scenarios"></a>시나리오
-
 다음 표에서 파일, Blob 및 디스크를 비교하고 각각에 대해 적절한 예제 시나리오를 보여 줍니다.
 
 | 기능 | 설명 | 사용하는 경우 |
@@ -30,7 +28,6 @@ Microsoft Azure에서는 Azure Storage에서 클라우드에 데이터를 저장
 | **Azure 디스크** | 데이터를 연결된 가상 하드 디스크에서 영구적으로 저장 및 액세스할 수 있도록 클라이언트 라이브러리 및 [REST 인터페이스](/rest/api/compute/manageddisks/disks/disks-rest-api)를 제공합니다. | 기본 파일 시스템 API를 사용하는 애플리케이션을 데이터를 영구 디스크에 읽고 쓰도록 전환하려고 합니다.<br/><br/>가상 머신 외부에서 액세스할 필요가 없는 데이터를 디스크가 연결된 컴퓨터에 저장하려고 합니다. |
 
 ## <a name="comparison-files-and-blobs"></a>비교: 파일 및 Blob
-
 다음 표는 Azure 파일과 Azure Blob을 비교하여 보여 줍니다.  
   
 ||||  
@@ -49,7 +46,6 @@ Microsoft Azure에서는 Azure Storage에서 클라우드에 데이터를 저장
 |클라이언트 라이브러리|여러 언어|여러 언어|  
   
 ## <a name="comparison-files-and-disks"></a>비교: 파일 및 디스크
-
 Azure 파일은 Azure 디스크를 보완합니다. 디스크는 한 번에 하나의 Azure Virtual Machine에만 연결할 수 있습니다. 디스크는 Azure Storage에 페이지 Blob으로 저장된 고정 형식의 VHD이며 가상 머신에서 지속형 데이터를 저장하는 데 사용됩니다. Azure 파일에서 파일 공유는 로컬 디스크가 액세스되는 것과 동일한 방식(기본 파일 시스템 API 사용)으로 액세스할 수 있으며 여러 가상 머신 간에 공유할 수 있습니다.  
  
 다음 표는 Azure 파일과 Azure 디스크를 비교하여 보여 줍니다.  
@@ -61,14 +57,12 @@ Azure 파일은 Azure 디스크를 보완합니다. 디스크는 한 번에 하�
 |스냅숏 및 복사|예|예|  
 |구성|가상 컴퓨터 시작 시 연결됨|가상 컴퓨터가 시작된 후 연결됨|  
 |인증|기본 제공|net use로 설정|  
-|정리|자동|설명서|  
 |REST를 사용하여 액세스|VHD 내의 파일에 액세스할 수 없음|공유에 저장된 파일에 액세스할 수 있음|  
 |최대 크기|4TiB 디스크|공유 내 5TiB 파일 공유 및 1TiB 파일|  
 |최대 IOps|500IOps|1000IOps|  
 |처리량|디스크당 최대 60MiB/s|대상은 파일 공유당 60MiB/초임(IO가 더 크면 더 많이 가져올 수 있음)|  
 
 ## <a name="next-steps"></a>다음 단계
-
 데이터가 저장 및 액세스되는 방식을 결정할 때 관련 비용도 고려해야 합니다. 자세한 내용은 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
   
 일부 SMB 기능은 클라우드에 적용되지 않습니다. 자세한 내용은 [Azure File 서비스에서 지원되지 않는 기능](/rest/api/storageservices/features-not-supported-by-the-azure-file-service)을 참조하세요.

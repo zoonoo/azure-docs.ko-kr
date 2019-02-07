@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.technology: database-engine
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4087cd93b7342958717a20a08832daba1123417f
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: d6a82414974c00d5fa2a7cfe5c1dd00ceaeb3bfa
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330741"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729475"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Linux SQL Server 가상 컴퓨터 프로비전
 
@@ -129,7 +129,7 @@ Windows에서 실행 중이고 BASH 셸이 설치되지 않은 경우 PuTTY와 �
 
 1. **열기**를 선택하고 프롬프트에 사용자 이름 및 암호를 입력합니다.
 
-Linux VM에 연결하는 방법에 대한 자세한 내용은 [포털을 사용하여 Azure에서 Linux VM 만들기](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal#ssh-to-the-vm)를 참조하세요.
+Linux VM에 연결하는 방법에 대한 자세한 내용은 [포털을 사용하여 Azure에서 Linux VM 만들기](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal)를 참조하세요.
 
 > [!Note]
 > 레지스트리에서 캐시되지 않은 서버의 호스트 키에 대한 PuTTY 보안 경고가 표시되는 경우 다음 옵션 중에서 선택합니다. 이 호스트를 신뢰하는 경우 **예**를 선택하여 PuTTy의 캐시에 키를 추가하여 연결을 계속합니다. 한 번만 연결을 수행하려는 경우 캐시에 키를 추가하지 않고 **아니요**를 선택합니다. 이 호스트를 신뢰하지 않는 경우 **취소**를 선택하여 연결을 중단합니다.

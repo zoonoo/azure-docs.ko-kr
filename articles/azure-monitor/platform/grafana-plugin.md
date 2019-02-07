@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 9d0f814428a4d7bc57b4f0a01ff5adc658af1d91
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fc963987b45751aab33035a83b2b477129e9a756
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466988"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730903"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Grafana에서 Azure 서비스 모니터링
 이제 [Azure Monitor 데이터 원본 플러그 인](https://grafana.com/plugins/grafana-azure-monitor-datasource)을 사용하여 [Grafana](https://grafana.com/)에서 Azure 서비스 및 애플리케이션을 모니터링할 수 있습니다. 플러그 인은 다양한 로그 및 메트릭을 포함하여 Azure Monitor에서 수집된 애플리케이션 성능 데이터를 수집합니다. 그런 다음 Grafana 대시보드에 이 데이터를 표시할 수 있습니다.
@@ -66,7 +66,7 @@ Grafana 서버를 로컬로 설정하려면 [로컬 환경에서 Grafana를 다�
 
 3. 서비스 주체를 만듭니다. Grafana는 Azure Monitor API에 연결하고 데이터를 수집하는 데 Azure Active Directory 서비스 주체를 사용합니다. Azure 리소스에 대한 액세스를 관리하려면 기존 서비스 주체를 사용하거나 새로 만들어야 합니다.
     * 서비스 주체를 만들려면 [이러한 지침](../../azure-resource-manager/resource-group-create-service-principal-portal.md)을 참조하세요. 테넌트 ID(디렉터리 ID), 클라이언트 ID(애플리케이션 ID) 및 클라이언트 비밀(애플리케이션 키 값)을 복사하고 저장합니다.
-    * [역할에 애플리케이션 할당](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role)을 참조하여 모니터링할 구독, 리소스 그룹 또는 리소스의 Azure Active Directory 애플리케이션에 읽기 권한자 역할을 할당합니다. 
+    * [역할에 애플리케이션 할당](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)을 참조하여 모니터링할 구독, 리소스 그룹 또는 리소스의 Azure Active Directory 애플리케이션에 읽기 권한자 역할을 할당합니다. 
     Log Analytics API에는 읽기 권한자 역할의 사용 권한을 포함하며 여기에 추가하는 [Log Analytics Reader 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader)이 필요합니다.
 
 4. 사용하려는 API에 연결 세부 정보를 제공합니다. 전부 또는 일부에만 연결할 수 있습니다. 

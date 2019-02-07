@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: juliako
-ms.openlocfilehash: 311bc6a67e2b63f6f514da5abacb00e5c3cb434f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 34eb7c48c8ebc36f9172f97dda845542b3840a19
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786322"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747682"
 ---
 # <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>주문형 스트리밍 작업으로 Postman 컬렉션 가져오기
 
 이 문서에는 Azure Media Services REST API를 호출하는 그룹화된 HTTP 요청이 포함된 **Postman** 컬렉션 정의가 포함되어 있습니다. Media Services REST API를 호출하는 데 사용할 수 있도록 **Postman**을 구성하는 방법에 대해 자세히 알아보려면 [Media Services REST API 호출에 대해 Postman 구성](media-rest-apis-with-postman.md) 자습서를 참조하세요.
 
-```
+```json
 {
     "info": {
         "name": "Azure Media Services Operations",
@@ -4264,7 +4264,7 @@ ms.locfileid: "33786322"
                                 "MediaProcessors"
                             ]
                         },
-                        "description": "List MediaProcesors\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+                        "description": "List MediaProcessors\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
                     },
                     "response": []
                 }

@@ -3,7 +3,7 @@ title: Azure SQL Database - 범용 및 중요 비즈니스용 | Microsoft Docs
 description: 이 문서에서는 vCore 구매 모델의 범용 및 중요 비즈니스용 서비스 계층에 대해 설명합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 61a413fc0b27db66091c8e4a401de654455ebe7c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bdb4db2d1a9447e8e328728288c1cf425c65a988
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470997"
+ms.locfileid: "55511835"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database 서비스 계층
 

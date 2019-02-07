@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b50609449d6144d2bb013d82e2eb29e94b5b01be
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 8541d66e106656f122809eec2cd547259f0ae4d7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754121"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495971"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>자습서: Resource Manager 템플릿을 사용하여 여러 리소스 인스턴스 만들기
 
@@ -32,6 +32,8 @@ Azure Resource Manager 템플릿을 반복하여 Azure 리소스의 여러 인�
 > * 템플릿 배포
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -133,7 +135,7 @@ az storage account list --resource-group $resourceGroupName
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
-Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName
+Get-AzStorageAccount -ResourceGroupName $resourceGroupName
 ```
 
 ---

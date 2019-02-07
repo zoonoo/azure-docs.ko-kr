@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: d7beab66bdaed312f32adef74ceb4b2944e6853e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: a81c1d20e0f7b58c132a5ece04f05d6740c2308f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103894"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498253"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Resource Manager 인증 API를 사용하여 구독에 액세스
-## <a name="introduction"></a>소개
+
 고객의 Azure 리소스를 관리하는 앱을 만들어야 하는 소프트웨어 개발자의 경우 이 문서는 Azure Resource Manager API를 사용하여 인증하고 다른 구독에 있는 리소스에 액세스하는 방법을 보여 줍니다.
 
 앱에서 두 가지 방법으로 Resource Manager API에 액세스할 수 있습니다.
@@ -32,7 +32,10 @@ ms.locfileid: "54103894"
 
 이 문서에서는 이러한 권한 부여 방법을 모두 채택하는 앱을 만드는 단계별 지침을 제공합니다. REST API 또는 C#을 사용하여 각 단계를 수행하는 방법을 보여 줍니다. 전체 ASP.NET MVC 애플리케이션은 [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense)에서 사용할 수 있습니다.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="what-the-web-app-does"></a>웹앱이 수행하는 작업
+
 웹앱:
 
 1. Azure 사용자를 로그인합니다.
@@ -74,7 +77,7 @@ Azure 구독에 대한 앱 액세스 권한을 부여합니다.
 다음 예에서는 Azure PowerShell을 사용하여 앱을 등록하는 방법을 보여 줍니다. 이 명령이 작동하려면 최신 버전(2016년 8월)의 Azure PowerShell이 있어야 합니다.
 
 ```azurepowershell-interactive
-$app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+$app = New-AzADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
 ```
 
 AD 애플리케이션으로 로그인하려면 애플리케이션 ID 및 암호가 필요합니다. 이전 명령에서 반환된 애플리케이션 ID를 보려면 다음을 사용합니다.

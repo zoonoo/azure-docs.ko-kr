@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: b9e12f159f62d08056e3dbd54d9ba8ccc3773533
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 30e56c85023aeb1cb4c6ba7575005a5dac086cd7
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100872"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755495"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>새 다중 테넌트 애플리케이션을 구성하는 방법
 
 다음은 다중 테넌트 애플리케이션에 대해 알아보면 도움이 되는 권장된 토픽 목록입니다.
 
 - [다중 테넌트 애플리케이션의 의미](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#multi-tenant-application) 이해
-- [애플리케이션을 다중 테넌트로 구성하는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#configuring-multi-tenant-applications) 이해
-- 다중 테넌트 애플리케이션에 필요한 [Azure AD 동의 프레임워크로 동의를 구현하는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework)에 대한 단계별 개요 확인
+- [애플리케이션을 다중 테넌트로 구성하는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) 이해
+- 다중 테넌트 애플리케이션에 필요한 [Azure AD 동의 프레임워크로 동의를 구현하는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)에 대한 단계별 개요 확인
 - 좀 더 깊이 있는 이해를 위해 [다중 테넌트 애플리케이션이 구성되고 종합적으로 코딩되는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)(등록 방법, "common" 엔드포인트 사용 방법, "user" 및 "admin" 동의 구현 방법, 좀 더 수준 높은 다중 계층 시나리오를 구현 방법 포함) 알아보기
 
 ## <a name="next-steps"></a>다음 단계

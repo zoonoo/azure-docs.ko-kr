@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 507927934c442c8b217ed8fea371f505bb517d35
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 4bfe4f9f97587b6791e73c2f04055b2dcf5d0f0d
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198714"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766217"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure Functions 프록시 사용
 
@@ -249,7 +249,7 @@ requestOverrides 개체는 클라이언트에 다시 전달된 응답에 대한 
 > 이 예제에서 응답 본문은 직접 설정되므로 `backendUri` 속성이 필요하지 않습니다. 다음 예제에서는 모의 API에 Azure Functions 프록시를 어떻게 사용할 수 있는지를 보여 줍니다.
 
 [Azure Portal]: https://portal.azure.com
-[HTTP 트리거]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger
+[HTTP 트리거]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response
 [requestOverrides 개체 정의]: #requestOverrides

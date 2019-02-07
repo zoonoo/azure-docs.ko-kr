@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: f7c07dbffaa179434fd30b2fdbc92fa661cdc516
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 18834357651e5fb72dd849a8d8e2e7687f0a8141
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412124"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730359"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>CLI를 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기
 
@@ -101,7 +101,7 @@ az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefi
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
 
-[az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) 명령을 사용하여 게이트웨이 서브넷을 만듭니다.
+[az network vnet subnet create](/cli/azure/network/vnet/subnet) 명령을 사용하여 게이트웨이 서브넷을 만듭니다.
 
 ```azurecli-interactive
 az network vnet subnet create --address-prefix 10.11.255.0/27 --name GatewaySubnet --resource-group TestRG1 --vnet-name TestVNet1
@@ -128,7 +128,7 @@ az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 
 
 VPN Gateway에는 공용 IP 주소가 있어야 합니다. 먼저 IP 주소 리소스를 요청하고, 가상 네트워크 게이트웨이를 만들 때 참조합니다. VPN Gateway가 생성될 때 IP 주소는 리소스에 동적으로 할당됩니다. 현재 VPN Gateway는 *동적* 공용 IP 주소 할당만 지원합니다. 고정 공용 IP 주소 할당을 요청할 수 없습니다. 하지만 IP 주소가 VPN Gateway에 할당된 후 변경되는 것은 아닙니다. 게이트웨이가 삭제되고 다시 만들어지는 경우에만 공용 IP 주소가 변경됩니다. VPN Gateway의 크기 조정, 다시 설정 또는 기타 내부 유지 관리/업그레이드 시에는 변경되지 않습니다.
 
-[az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) 명령을 사용하여 동적 공용 IP 주소를 요청합니다.
+[az network public-ip create](/cli/azure/network/public-ip) 명령을 사용하여 동적 공용 IP 주소를 요청합니다.
 
 ```azurecli-interactive
 az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocation-method Dynamic
@@ -144,7 +144,7 @@ az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocati
 * *--vpn-type*은 *경로 기반*(일부 설명서에서는 동적 게이트웨이라고도 함)이거나 *정책 기반*(일부 설명서에서는 고정 게이트웨이라고도 함)일 수 있습니다. 설정은 연결하는 디바이스의 요구 사항에 따라 좌우됩니다. VPN Gateway 유형에 대한 자세한 내용은 [VPN Gateway 구성 설정 정보](vpn-gateway-about-vpn-gateway-settings.md#vpntype)를 참조하세요.
 * 사용할 게이트웨이 SKU를 선택합니다. 특정 SKU에 대한 구성 제한이 있습니다. 자세한 내용은 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조하세요.
 
-[az network vnet-gateway create](/cli/azure/network/vnet-gateway#az_network_vnet_gateway_create) 명령을 사용하여 VPN Gateway를 만듭니다. '--no-wait' 매개 변수를 사용하여 이 명령을 실행하면 피드백 또는 출력이 보이지 않습니다. 이 매개 변수는 백그라운드에서 게이트웨이를 만드는 것을 허용합니다. 게이트웨이를 만들 때까지 약 45분 정도가 걸립니다.
+[az network vnet-gateway create](/cli/azure/network/vnet-gateway) 명령을 사용하여 VPN Gateway를 만듭니다. '--no-wait' 매개 변수를 사용하여 이 명령을 실행하면 피드백 또는 출력이 보이지 않습니다. 이 매개 변수는 백그라운드에서 게이트웨이를 만드는 것을 허용합니다. 게이트웨이를 만들 때까지 약 45분 정도가 걸립니다.
 
 ```azurecli-interactive
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 
@@ -155,7 +155,7 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --re
 온-프레미스 네트워크에 대한 사이트 간 연결에는 VPN 디바이스가 필요합니다. 이 단계에서는 VPN 디바이스를 구성합니다. VPN 디바이스를 구성할 때 다음이 필요합니다.
 
 - 공유 키 - 사이트 간 VPN 연결을 만들 때 지정하는 것과 동일한 공유 키입니다. 이 예제에서는 기본적인 공유 키를 사용합니다. 실제로 사용할 키는 좀 더 복잡하게 생성하는 것이 좋습니다.
-- 가상 네트워크 게이트웨이의 공용 IP 주소 Azure Portal, PowerShell 또는 CLI를 사용하여 공용 IP 주소를 볼 수 있습니다. 가상 네트워크 게이트웨이의 공용 IP 주소를 찾으려면 [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_list) 명령을 사용합니다. 읽기 쉽도록 공용 IP 목록을 테이블 형식으로 표시하도록 출력 형식이 지정됩니다.
+- 가상 네트워크 게이트웨이의 공용 IP 주소 Azure Portal, PowerShell 또는 CLI를 사용하여 공용 IP 주소를 볼 수 있습니다. 가상 네트워크 게이트웨이의 공용 IP 주소를 찾으려면 [az network public-ip list](/cli/azure/network/public-ip) 명령을 사용합니다. 읽기 쉽도록 공용 IP 목록을 테이블 형식으로 표시하도록 출력 형식이 지정됩니다.
 
   ```azurecli-interactive
   az network public-ip list --resource-group TestRG1 --output table
@@ -169,10 +169,10 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --re
 
 가상 네트워크 게이트웨이와 온-프레미스 VPN 디바이스 사이의 사이트 간 VPN 연결을 만듭니다. VPN 디바이스에 구성된 공유 키 값과 일치하도록 공유 키 값에 특히 주의해야 합니다.
 
-[az network vpn-connection create](/cli/azure/network/vpn-connection#az_network_vpn_connection_create) 명령을 사용하여 연결을 만듭니다.
+[az network vpn-connection create](/cli/azure/network/vpn-connection) 명령을 사용하여 연결을 만듭니다.
 
 ```azurecli-interactive
-az network vpn-connection create --name VNet1toSite2 -resource-group TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2
+az network vpn-connection create --name VNet1toSite2 --resource-group TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2
 ```
 
 잠시 후, 연결이 설정됩니다.
@@ -195,7 +195,7 @@ az network vpn-connection create --name VNet1toSite2 -resource-group TestRG1 --v
 
 ## <a name="next-steps"></a>다음 단계
 
-* 연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)를 참조하세요.
+* 연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](https://docs.microsoft.com/azure/)를 참조하세요.
 * BGP에 대한 내용은 [BGP 개요](vpn-gateway-bgp-overview.md) 및 [BGP를 구성하는 방법](vpn-gateway-bgp-resource-manager-ps.md)을 참조하세요.
 * 강제 터널링에 대한 내용은 [강제 터널링 정보](vpn-gateway-forced-tunneling-rm.md)를 참조하세요.
 * 항상 사용 가능한 활성/활성 연결에 대한 정보는 [항상 사용 가능한 크로스-프레미스 및 VNet 간 연결](vpn-gateway-highlyavailable.md)을 참조하세요.

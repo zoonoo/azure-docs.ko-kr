@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: c8aadcf7b37e28035e936a9f722ee832127e928d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 8e0b0572f0d728474c17b41a0f92948451f4ef3f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038588"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746951"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>템플릿을 사용하여 Azure Cache for Redis 만들기
 이 항목에서는 Azure Cache for Redis를 배포하는 Azure Resource Manager 템플릿을 만드는 방법에 대해 알아봅니다. 기존 저장소 계정과 함께 캐시를 사용하여 진단 데이터를 유지할 수 있습니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법도 알아봅니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
@@ -33,7 +33,7 @@ ms.locfileid: "54038588"
 > [!NOTE]
 > 새 [프리미엄 계층](cache-premium-tier-intro.md) 에 대한 Resource Manager 템플릿을 사용할 수 있습니다. 
 > 
-> * [클러스터링이 있는 프리미엄 Azure Cache for Redis 만들기](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
+> * [클러스터링이 있는 프리미엄 Azure Cache for Redis 만들기](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
 > * [데이터 지속성이 있는 프리미엄 Azure Cache for Redis 만들기](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
 > * [VNet과 선택적 클러스터링이 있는 프리미엄 Azure Cache for Redis 만들기](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
 > 

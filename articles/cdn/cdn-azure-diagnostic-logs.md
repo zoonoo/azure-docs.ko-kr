@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: 2beb5aa7218df25a1af87411d9481d30b259c353
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6fca764c191c801cbca86c573339b397e61ead07
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256732"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700233"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure 진단 로그
 
@@ -290,7 +290,7 @@ Log Analytics 관리 솔루션을 추가하려면 아래 단계를 따르세요.
 
 ### <a name="offers-and-pricing-tiers"></a>제품 및 가격 책정 계층
 
-[여기](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)에서 관리 솔루션에 대한 제품 및 가격 책정 계층을 볼 수 있습니다.
+[여기](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)에서 관리 솔루션에 대한 제품 및 가격 책정 계층을 볼 수 있습니다.
 
 ### <a name="customizing-views"></a>뷰 사용자 지정
 
@@ -321,33 +321,33 @@ Microsoft 로그 데이터 지연 | Verizon 로그 데이터 지연 | Akamai 로
 
 |메트릭                     | 설명 | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
-| RequestCountTotal         | 이 기간 동안의 요청 적중의 총 수입니다. | yes | 예 |yes |
-| RequestCountHttpStatus2xx | 2xx HTTP 코드(예: 200, 202)를 생성한 모든 요청의 수입니다. | yes | 예 |yes |
-| RequestCountHttpStatus3xx | 3xx HTTP 코드(예: 300, 302)를 생성한 모든 요청의 수입니다. | yes | 예 |yes |
-| RequestCountHttpStatus4xx | 4xx HTTP 코드(예: 400, 404)를 생성한 모든 요청의 수입니다. | yes | 예 |yes |
-| RequestCountHttpStatus5xx | 5xx HTTP 코드(예: 500, 504)를 생성한 모든 요청의 수입니다. | yes | 예 |yes |
-| RequestCountHttpStatusOthers | 다른 모든 HTTP 코드의 수(2xx-5xx 이외)입니다. | yes | 예 |yes |
-| RequestCountHttpStatus200 | 200 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | yes | 아니요  |yes |
-| RequestCountHttpStatus206 | 206 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | yes | 아니요  |yes |
-| RequestCountHttpStatus302 | 302 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | yes | 아니요  |yes |
-| RequestCountHttpStatus304 | 304 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | yes | 아니요  |yes |
-| RequestCountHttpStatus404 | 404 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | yes | 아니요  |yes |
-| RequestCountCacheHit | 캐시 적중을 발생한 모든 요청의 수. 자산이 POP에서 클라이언트로 직접 제공되었습니다. | yes | yes | 아니요  |
-| RequestCountCacheMiss | 캐시 누락을 발생한 모든 요청의 수. 캐시 누락은 자산을 클라이언트에 가장 가까운 POP에서 찾을 수 없으므로 원래 시작점에서 검색되었음을 의미합니다. | yes | yes | 아니요 |
-| RequestCountCacheNoCache | Edge의 사용자 구성 때문에 캐시되지 못한 자산에 대한 모든 요청의 수 | yes | yes | 아니요 |
-| RequestCountCacheUncacheable | 자산의 Cache-Control 및 Expires 헤더에 의해 캐시되지 못하여 POP에서 또는 HTTP 클라이언트에 의해 캐시되지 않아야 함을 나타내는 자산에 대한 모든 요청의 수입니다. | yes | yes | 아니요 |
-| RequestCountCacheOthers | 위에 포함되지 않는 캐시 상태를 갖는 모든 요청의 수 | 아니요 | yes | 아니요  |
-| EgressTotal | 아웃바운드 데이터 전송(GB) | yes |예 |yes |
-| EgressHttpStatus2xx | 2xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다.* | yes | yes | 아니요  |
-| EgressHttpStatus3xx | 3xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | yes | yes | 아니요  |
-| EgressHttpStatus4xx | 4xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | yes | yes | 아니요  |
-| EgressHttpStatus5xx | 5xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | yes | yes | 아니요 |
-| EgressHttpStatusOthers | 다른 HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | yes | yes | 아니요  |
-| EgressCacheHit | CDN POP/Edge의 CDN 캐시에서 직접 전달된 응답에 대한 아웃바운드 데이터 전송입니다. | yes | yes | 아니요 |
-| EgressCacheMiss. | 가장 가까운 POP 서버에 없으며 원본 서버에서 검색된 응답에 대한 아웃바운드 데이터 전송입니다. | yes | yes | 아니요 |
-| EgressCacheNoCache | Edge의 사용자 구성 때문에 캐시되지 못한 자산에 대한 아웃바운드 데이터 전송 | yes | yes | 아니요 |
-| EgressCacheUncacheable | 자산의 Cache-Control 및/또는 Expires 헤더에 의해 캐시되지 못하여 자산에 대한 아웃바운드 데이터 전송. POP에서 또는 HTTP 클라이언트에 의해 캐시되지 않아야 함을 나타냅니다. | yes | yes | 아니요 |
-| EgressCacheOthers | 다른 캐시 시나리오에 대한 아웃바운드 데이터 전송 | 아니요 | yes | 아니요 |
+| RequestCountTotal         | 이 기간 동안의 요청 적중의 총 수입니다. | 예 | 예 |예 |
+| RequestCountHttpStatus2xx | 2xx HTTP 코드(예: 200, 202)를 생성한 모든 요청의 수입니다. | 예 | 예 |예 |
+| RequestCountHttpStatus3xx | 3xx HTTP 코드(예: 300, 302)를 생성한 모든 요청의 수입니다. | 예 | 예 |예 |
+| RequestCountHttpStatus4xx | 4xx HTTP 코드(예: 400, 404)를 생성한 모든 요청의 수입니다. | 예 | 예 |예 |
+| RequestCountHttpStatus5xx | 5xx HTTP 코드(예: 500, 504)를 생성한 모든 요청의 수입니다. | 예 | 예 |예 |
+| RequestCountHttpStatusOthers | 다른 모든 HTTP 코드의 수(2xx-5xx 이외)입니다. | 예 | 예 |예 |
+| RequestCountHttpStatus200 | 200 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | no  |예 |
+| RequestCountHttpStatus206 | 206 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | no  |예 |
+| RequestCountHttpStatus302 | 302 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | no  |예 |
+| RequestCountHttpStatus304 | 304 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | no  |예 |
+| RequestCountHttpStatus404 | 404 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | no  |예 |
+| RequestCountCacheHit | 캐시 적중을 발생한 모든 요청의 수. 자산이 POP에서 클라이언트로 직접 제공되었습니다. | 예 | 예 | 아니요  |
+| RequestCountCacheMiss | 캐시 누락을 발생한 모든 요청의 수. 캐시 누락은 자산을 클라이언트에 가장 가까운 POP에서 찾을 수 없으므로 원래 시작점에서 검색되었음을 의미합니다. | 예 | 예 | 아니요 |
+| RequestCountCacheNoCache | Edge의 사용자 구성 때문에 캐시되지 못한 자산에 대한 모든 요청의 수 | 예 | 예 | 아니요 |
+| RequestCountCacheUncacheable | 자산의 Cache-Control 및 Expires 헤더에 의해 캐시되지 못하여 POP에서 또는 HTTP 클라이언트에 의해 캐시되지 않아야 함을 나타내는 자산에 대한 모든 요청의 수입니다. | 예 | 예 | 아니요 |
+| RequestCountCacheOthers | 위에 포함되지 않는 캐시 상태를 갖는 모든 요청의 수 | 아니요 | 예 | 아니요  |
+| EgressTotal | 아웃바운드 데이터 전송(GB) | 예 |예 |예 |
+| EgressHttpStatus2xx | 2xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다.* | 예 | 예 | 아니요  |
+| EgressHttpStatus3xx | 3xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아니요  |
+| EgressHttpStatus4xx | 4xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아니요  |
+| EgressHttpStatus5xx | 5xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아니요 |
+| EgressHttpStatusOthers | 다른 HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아니요  |
+| EgressCacheHit | CDN POP/Edge의 CDN 캐시에서 직접 전달된 응답에 대한 아웃바운드 데이터 전송입니다. | 예 | 예 | 아니요 |
+| EgressCacheMiss. | 가장 가까운 POP 서버에 없으며 원본 서버에서 검색된 응답에 대한 아웃바운드 데이터 전송입니다. | 예 | 예 | 아니요 |
+| EgressCacheNoCache | Edge의 사용자 구성 때문에 캐시되지 못한 자산에 대한 아웃바운드 데이터 전송 | 예 | 예 | 아니요 |
+| EgressCacheUncacheable | 자산의 Cache-Control 및/또는 Expires 헤더에 의해 캐시되지 못하여 자산에 대한 아웃바운드 데이터 전송. POP에서 또는 HTTP 클라이언트에 의해 캐시되지 않아야 함을 나타냅니다. | 예 | 예 | 아니요 |
+| EgressCacheOthers | 다른 캐시 시나리오에 대한 아웃바운드 데이터 전송 | 아니요 | 예 | 아니요 |
 
 * 아웃바운드 데이터 전송은 CDN POP 서버에서 클라이언트로 전달되는 트래픽을 나타냅니다.
 

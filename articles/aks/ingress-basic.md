@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: fdce7c1f5876442a10fbf77b315e082a0a817dfd
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 99f97f7d796fecf1ac77cb3752a9ba7019edfbbc
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093388"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729867"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 수신 컨트롤러 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "50093388"
 
 또한 다음을 수행할 수 있습니다.
 
-- [HTTP 응용 프로그램 라우팅 추가 기능 사용][aks-http-app-routing]
+- [HTTP 애플리케이션 라우팅 추가 기능 사용][aks-http-app-routing]
 - [내부 개인 네트워크 및 IP 주소를 사용하는 수신 컨트롤러 만들기][aks-ingress-internal]
 - [사용자 고유의 TLS 인증서를 사용하는 수신 컨트롤러 만들기][aks-ingress-own-tls]
 - Let’s Encrypt를 사용하여 [동적 공용 IP 주소][aks-ingress-tls] 또는 [고정 공용 IP 주소][aks-ingress-static-tls]로 TLS 인증서를 자동으로 생성하는 수신 컨트롤러 만들기
@@ -171,13 +171,13 @@ kubectl delete -f hello-world-ingress.yaml
 
 또한 다음을 수행할 수 있습니다.
 
-- [HTTP 응용 프로그램 라우팅 추가 기능 사용][aks-http-app-routing]
+- [HTTP 애플리케이션 라우팅 추가 기능 사용][aks-http-app-routing]
 - [내부 개인 네트워크 및 IP 주소를 사용하는 수신 컨트롤러 만들기][aks-ingress-internal]
 - [사용자 고유의 TLS 인증서를 사용하는 수신 컨트롤러 만들기][aks-ingress-own-tls]
 - Let’s Encrypt를 사용하여 [동적 공용 IP 주소][aks-ingress-tls] 또는 [고정 공용 IP 주소][aks-ingress-static-tls]로 TLS 인증서를 자동으로 생성하는 수신 컨트롤러 만들기
 
 <!-- LINKS - external -->
-[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm#install-helm-cli
+[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
 
 <!-- LINKS - internal -->

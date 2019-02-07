@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9aff828dcb9dfea6d5f35ad92bb09ba7cd802fea
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c0017d0b0255f5b585f9d8e6f6ec2f3a12752625
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53711859"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691490"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive 메모리 부족 오류 수정
 
@@ -85,19 +85,21 @@ Apache Tez 실행 엔진을 사용하여: 동일한 쿼리가 15분만에 실행
 
 당사의 지원 및 엔지니어링 팀은 메모리 부족 오류를 발생시킨 문제 중 하나가 [Apache JIRA에 설명된 알려진 문제](https://issues.apache.org/jira/browse/HIVE-8306)라는 것을 발견했습니다.
 
-    When hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum  of tables sizes in the map join is less than noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation doesnt take into account the overhead introduced by different HashTable implementation as results if the sum of input sizes is smaller than the noconditionaltask size by a small margin queries will hit OOM.
+    When hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum  of tables sizes in the map join is less than noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation doesn't take into account the overhead introduced by different HashTable implementation as results if the sum of input sizes is smaller than the noconditionaltask size by a small margin queries will hit OOM.
 
 hive-site.xml 파일을 살펴보면 **hive.auto.convert.join.noconditionaltask**가 **true**로 설정되어 있습니다.
 
-    <property>
-        <name>hive.auto.convert.join.noconditionaltask</name>
-        <value>true</value>
-        <description>
-              Whether Hive enables the optimization about converting common join into mapjoin based on the input file size.
-              If this parameter is on, and the sum of size for n-1 of the tables/partitions for a n-way join is smaller than the
-              specified size, the join is directly converted to a mapjoin (there is no conditional task).
-        </description>
-      </property>
+```xml
+<property>
+    <name>hive.auto.convert.join.noconditionaltask</name>
+    <value>true</value>
+    <description>
+            Whether Hive enables the optimization about converting common join into mapjoin based on the input file size.
+            If this parameter is on, and the sum of size for n-1 of the tables/partitions for a n-way join is smaller than the
+            specified size, the join is directly converted to a mapjoin (there is no conditional task).
+    </description>
+</property>
+```
 
 Map Join이 Java 힙 공간 메모리 부족 오류의 원인일 가능성이 있습니다. 블로그 게시물 [HDInsight에서 Hadoop Yarn 메모리 설정](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx)에 설명된 것처럼 Tez 실행 엔진을 사용할 때 사용된 힙 엔진은 실제로 Tez 컨테이너에 속합니다. Tez 컨테이너 메모리를 설명하는 다음 이미지를 참조하세요.
 

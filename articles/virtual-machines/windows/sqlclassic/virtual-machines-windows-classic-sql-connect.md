@@ -16,12 +16,12 @@ ms.date: 01/31/2017
 ms.author: mathoma
 ms.reviewer: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: d766465f8319b83cd614bfcf24018ef901923429
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: b8994d4c1eabf4381bf8364c76f7328d225f7e1a
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329693"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732059"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Azure에서 SQL Server Virtual Machine 연결(클래식 배포)
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ ms.locfileid: "54329693"
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>동일한 클라우드 서비스의 SQL Server에 연결
-한 클라우드 서비스에 여러 가상 머신을 만들 수 있습니다. 가상 머신 시나리오를 이해하려면 [가상 머신을 가상 네트워크 또는 클라우드 서비스와 연결하는 방법](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service)을 참조하세요. 이 시나리오는 한 가상 컴퓨터의 클라이언트가 동일한 클라우드 서비스의 다른 가상 컴퓨터에서 실행 중인 SQL Server에 연결하려고 하는 경우입니다.
+한 클라우드 서비스에 여러 가상 머신을 만들 수 있습니다. 가상 머신 시나리오를 이해하려면 [가상 머신을 가상 네트워크 또는 클라우드 서비스와 연결하는 방법](/previous-versions/azure/virtual-machines/windows/classic/connect-vms-classic#connect-vms-in-a-standalone-cloud-service)을 참조하세요. 이 시나리오는 한 가상 컴퓨터의 클라이언트가 동일한 클라우드 서비스의 다른 가상 컴퓨터에서 실행 중인 SQL Server에 연결하려고 하는 경우입니다.
 
 이 시나리오에서는 VM **이름**(포털에 **컴퓨터 이름** 또는 **호스트 이름**으로도 표시됨)을 사용하여 연결할 수 있습니다. 이 이름은 VM을 만들 때 제공된 이름입니다. 예를 들어 SQL VM 이름을 **mysqlvm**으로 지정하면 동일한 클라우드 서비스의 클라이언트 VM은 다음 연결 문자열을 사용하여 연결할 수 있습니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "54329693"
 
     "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-이를 통해 인터넷을 통한 클라이언트의 연결이 활성화되지만 누구나 SQL Server에 연결할 수 있다는 뜻은 아닙니다. 외부 클라이언트는 정확한 사용자 이름과 암호가 있어야 합니다. 보안을 높이기 위해 잘 알려진 포트 1433은 공용 가상 머신 엔드포인트로 사용하지 않는 것이 좋습니다. 또한 가능하다면 엔드포인트에 ACL을 추가하여 트래픽을 허용한 클라이언트로 한정하는 것이 좋습니다. 엔드포인트에서 ACL을 사용하는 방법에 대한 지침은 [엔드포인트에 대한 ACL 관리](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint)를 참조하세요.
+이를 통해 인터넷을 통한 클라이언트의 연결이 활성화되지만 누구나 SQL Server에 연결할 수 있다는 뜻은 아닙니다. 외부 클라이언트는 정확한 사용자 이름과 암호가 있어야 합니다. 보안을 높이기 위해 잘 알려진 포트 1433은 공용 가상 머신 엔드포인트로 사용하지 않는 것이 좋습니다. 또한 가능하다면 엔드포인트에 ACL을 추가하여 트래픽을 허용한 클라이언트로 한정하는 것이 좋습니다. 엔드포인트에서 ACL을 사용하는 방법에 대한 지침은 [엔드포인트에 대한 ACL 관리](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint)를 참조하세요.
 
 > [!NOTE]
 > 이 방법을 사용하여 SQL Server와 통신하는 경우 Azure 데이터 센터에서 보내는 모든 데이터에는 일반적으로 [아웃바운드 데이터 전송 가격](https://azure.microsoft.com/pricing/details/data-transfers/)이 적용됩니다.

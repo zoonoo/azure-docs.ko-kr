@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: b5b6f1a1cbd4c06106b7817f9fc28d8d4a9cfc06
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: f537ccfd18685cd5aa8ee06910fc80ac3d2056c9
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306338"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750412"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>자습서: Python API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
@@ -170,7 +170,7 @@ input_files = [
 
 이 풀 구성에는 실제 노드 속성 외에 [StartTask](/python/api/azure.batch.models.starttask) 개체가 포함되어 있습니다. StartTask는 해당 노드가 풀을 연결할 때 각 노드에서 실행하고 이 때마다 노드가 다시 시작됩니다. 이 예에서 StartTask는 Bash 셸 명령을 실행하여 노드에 ffmpeg 패키지와 종속성을 설치합니다.
 
-[pool.add](/python/api/azure.batch.operations.pooloperations#azure_batch_operations_PoolOperations_add) 메서드는 풀을 Batch 서비스에 제출합니다.
+[pool.add](/python/api/azure.batch.operations.pooloperations) 메서드는 풀을 Batch 서비스에 제출합니다.
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -200,7 +200,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-job"></a>작업 만들기
 
-Batch 작업은 태스크를 실행할 풀과 우선 순위 및 작업 일정과 같은 선택적 설정을 지정합니다. 이 샘플은 `create_job`를 호출하여 작업을 만듭니다. 이 정의된 함수는 [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) 클래스를 사용하여 풀에 작업을 만듭니다. [job.add](/python/api/azure.batch.operations.joboperations#azure_batch_operations_JobOperations_add) 메서드는 Batch 서비스에 풀을 제출합니다. 처음에는 작업에 태스크가 없습니다.
+Batch 작업은 태스크를 실행할 풀과 우선 순위 및 작업 일정과 같은 선택적 설정을 지정합니다. 이 샘플은 `create_job`를 호출하여 작업을 만듭니다. 이 정의된 함수는 [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) 클래스를 사용하여 풀에 작업을 만듭니다. [job.add](/python/api/azure.batch.operations.joboperations) 메서드는 Batch 서비스에 풀을 제출합니다. 처음에는 작업에 태스크가 없습니다.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -216,7 +216,7 @@ batch_service_client.job.add(job)
 
 이 샘플에서는 명령줄을 실행한 후 MP3 파일에 대한 [OutputFile](/python/api/azure.batch.models.outputfile) 개체를 만듭니다. 각 태스크의 출력 파일(이 경우에는 하나)은 태스크의 `output_files` 속성을 사용하여 연결된 저장소 계정의 컨테이너에 업로드됩니다.
 
-그런 다음 이 앱은 [task.add_collection](/python/api/azure.batch.operations.taskoperations#azure_batch_operations_TaskOperations_add_collection) 메서드를 사용하여 작업에 태스크를 추가하고, 계산 노드 실행 대기열에 추가합니다. 
+그런 다음 이 앱은 [task.add_collection](/python/api/azure.batch.operations.taskoperations) 메서드를 사용하여 작업에 태스크를 추가하고, 계산 노드 실행 대기열에 추가합니다. 
 
 ```python
 tasks = list()

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a778723093b226ee0e681c2a95ce4db597a310e5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c09816d45169ce9bb6c926b8b17b075ea1059ec7
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198845"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695375"
 ---
 # <a name="saas-sell-through-azure---apis"></a>Azure 통한 SaaS 판매 - API
 
@@ -176,13 +176,13 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 
 *응답 본문*
 
- ``` json       
-    { 
-        “id”: “”, 
-        “subscriptionName”: “”,
-        “offerId”:””, 
-         “planId”:””
-    }     
+``` json
+{
+    "id": "",
+    "subscriptionName": "",
+    "offerId": "",
+    "planId": "",
+}
 ```
 
 | **매개 변수 이름** | **데이터 형식** | **설명**                       |
@@ -246,9 +246,9 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 *본문*
 
 ``` json
-  { 
-      “planId”:””
-   }      
+{
+    "lanId": "",
+}
 ```
 
 | **요소 이름** | **데이터 형식** | **설명**                      |
@@ -307,15 +307,13 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 | authorization           | 예          | JWT(JSON Web Token) 전달자 토큰입니다.                    |
 |  |  |  |
 
-
 *본문*
 
-``` json
-                { 
-                    “planId”:””
-                } 
+```json
+{
+    "planId": ""
+}
 ```
-
 
 |  **요소 이름** |  **데이터 형식**  | **설명**                              |
 |  ---------------- | -------------   | --------------------------------------       |
@@ -370,7 +368,6 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 | x-ms-correlationid | 아니요           | 클라이언트의 작업에 대한 고유한 문자열 값입니다. 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상호 연결하기 위한 값입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
 | 권한 부여      | 예          | JWT(JSON Web Token) 전달자 토큰입니다.                    |
 |  |  |  |
- 
 
 *응답 코드*
 
@@ -413,7 +410,6 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 | api-version         | 이 요청에 사용할 작업의 버전입니다. |
 |  |  |
 
-
 *헤더*
 
 | **헤더 키**     | **필수** | **설명**                                                                                                                                                                                                                  |
@@ -422,18 +418,17 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 | x-ms-correlationid | 아니요           | 클라이언트의 작업에 대한 고유한 문자열 값입니다. 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상호 연결하기 위한 값입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
 | 권한 부여      | 예          | JWT(JSON Web Token) 전달자 토큰입니다.                    |
 |  |  |  | 
-  
 
 *응답 본문*
 
-``` json
-  { 
-      “id”: “”, 
-      “status”:””, 
-       “resourceLocation”:””, 
-      “created”:””, 
-      “lastModified”:”” 
-  } 
+```json
+{
+    "id": "",
+    "status": "",
+    "resourceLocation": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 
 | **매개 변수 이름** | **데이터 형식** | **설명**                                                                                                                                               |
@@ -494,16 +489,16 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 
 *응답 본문*
 
-``` json
-  { 
-      “id”: “”, 
-      “saasSubscriptionName”:””, 
-      “offerId”:””, 
-       “planId”:””, 
-      “saasSubscriptionStatus”:””, 
-      “created”:””, 
-      “lastModified”: “” 
-  }
+```json
+{
+    "id": "",
+    "saasSubscriptionName": "",
+    "offerId": "",
+    "planId": "",
+    "saasSubscriptionStatus": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 | **매개 변수 이름**     | **데이터 형식** | **설명**                               |
 |------------------------|---------------|-----------------------------------------------|
@@ -539,7 +534,6 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 | eTag               | 예          | 작업 상태를 가져오기 위해 리소스에 대한 링크입니다.                                                        |
 |  |  |  |
 
-
 ### <a name="get-subscriptions"></a>구독 가져오기
 
 구독 엔드포인트의 가져오기 작업을 사용하면 ISV의 모든 제안에 대한 모든 구독을 검색할 수 있습니다.
@@ -564,19 +558,18 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 | 권한 부여      | 예          | JWT(JSON Web Token) 전달자 토큰입니다.                    |
 |  |  |  |
 
-
 *응답 본문*
 
-``` json
-  { 
-      “id”: “”, 
-      “saasSubscriptionName”:””, 
-      “offerId”:””, 
-       “planId”:””, 
-      “saasSubscriptionStatus”:””, 
-      “created”:””, 
-      “lastModified”: “”
-  }
+```json
+{
+    "id": "",
+    "saasSubscriptionName": "",
+    "offerId": "",
+    "planId": "",
+    "saasSubscriptionStatus": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 
 | **매개 변수 이름**     | **데이터 형식** | **설명**                               |
@@ -615,7 +608,6 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 ### <a name="saas-webhook"></a>SaaS 웹후크
 
 SaaS 웹후크는 SaaS 서비스에 변경 내용을 미리 알리는 데 사용됩니다. 이 POST API는 인증되지 않은 것으로 예상되며 Microsoft 서비스에서 호출됩니다. SaaS 서비스는 웹후크 알림에 대한 작업을 수행하기 전에 작업 API를 호출하여 유효성을 검사하고 권한을 부여해야 합니다. 
-
 
 *본문*
 

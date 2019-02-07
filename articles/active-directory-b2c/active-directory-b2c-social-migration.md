@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f4abacb42cfd5efe22d29b58b36eca0a7a1f5ba8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4d4acecbbb90fff7865902a3371d282f1d402374
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161320"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662893"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: 소셜 ID가 있는 사용자 마이그레이션
 ID 공급자를 Azure AD B2C로 마이그레이션하려는 경우 소셜 ID가 있는 사용자 계정도 마이그레이션해야 합니다. 이 문서에서는 Facebook, LinkedIn, Microsoft, Google 계정 등의 기존 소셜 ID 계정을 Azure AD B2C로 마이그레이션하는 방법을 설명합니다. 이 문서는 페더레이션 ID에도 해당되지만 이러한 마이그레이션은 일반성이 떨어집니다.
@@ -46,7 +46,7 @@ ID 공급자를 Azure AD B2C로 마이그레이션하려는 경우 소셜 ID가 
 * ID 공급자에 따라 **소셜 사용자 ID**는 애플리케이션 또는 개발 계정마다 주어진 사용자에 대한 고유한 값입니다. 소셜 공급자가 이전에 할당한 ID와 동일한 애플리케이션 ID로 Azure AD B2C 정책을 구성합니다. 또는 동일한 개발 계정 내의 다른 애플리케이션입니다.
 
 ## <a name="use-graph-api-to-migrate-users"></a>Graph API를 사용하여 사용자 마이그레이션
-[Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet)를 통해 Azure AD B2C 사용자 계정을 만듭니다. Graph API와 통신하려면 먼저 관리자 권한이 있는 서비스 계정이 있어야 합니다. Azure AD에서 Azure AD에 애플리케이션 및 인증을 등록합니다. 애플리케이션 자격 증명은 애플리케이션 ID 및 애플리케이션 비밀입니다. 애플리케이션은 사용자로서가 아닌 자체로서 Graph API를 호출합니다. [사용자 마이그레이션](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration#step-1-use-graph-api-to-migrate-users) 문서의 1단계를 수행합니다.
+[Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet)를 통해 Azure AD B2C 사용자 계정을 만듭니다. Graph API와 통신하려면 먼저 관리자 권한이 있는 서비스 계정이 있어야 합니다. Azure AD에서 Azure AD에 애플리케이션 및 인증을 등록합니다. 애플리케이션 자격 증명은 애플리케이션 ID 및 애플리케이션 비밀입니다. 애플리케이션은 사용자로서가 아닌 자체로서 Graph API를 호출합니다. [사용자 마이그레이션](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration) 문서의 1단계를 수행합니다.
 
 ## <a name="required-properties"></a>필수 속성
 다음 목록은 사용자를 만들 때 필요한 속성을 보여줍니다.

@@ -7,19 +7,19 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: cb3af5dc8368dc7e598bd0b05653b8ae921a5097
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 68da63bcad3c670c5e8bda62dda656e29c41f899
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452312"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692946"
 ---
 # <a name="rewrite-http-headers-in-an-existing-application-gateway"></a>기존 Application Gateway에서 HTTP 헤더 다시 쓰기
 
 Azure PowerShell을 사용하여 기존 [자동 크기 조정 및 영역 중복 Application Gateway SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)에서 [HTTP 요청 및 응답 헤더를 다시 쓰도록 규칙](rewrite-http-headers.md)을 구성할 수 있습니다.
 
-> [!IMPORTANT] 
-> 자동 크기 조정 및 영역 중복 애플리케이션 게이트웨이 SKU는 현재 공개 미리 보기로 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 
+> [!IMPORTANT]
+> 자동 크기 조정 및 영역 중복 애플리케이션 게이트웨이 SKU는 현재 공개 미리 보기로 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -48,15 +48,15 @@ Http 헤더를 다시 쓰는 데 필요한 새 개체를 구성합니다.
 
 - **RequestHeaderConfiguration**:이 개체는 다시 쓰려는 요청 헤더 필드와 원본 헤더를 다시 써야 하는 새 값을 지정하는 데 사용합니다.
 - **ResponseHeaderConfiguration**:이 개체는 다시 쓰려는 응답 헤더 필드와 원본 헤더를 다시 써야 하는 새 값을 지정하는 데 사용합니다.
-- **ActionSet**: 이 개체는 위에 지정된 요청 및 응답 헤더의 구성을 포함합니다. 
-- **RewriteRule**: 이 개체는 위에 지정된 모든 *actionSets*를 포함합니다. 
+- **ActionSet**: 이 개체는 위에 지정된 요청 및 응답 헤더의 구성을 포함합니다.
+- **RewriteRule**: 이 개체는 위에 지정된 모든 *actionSets*를 포함합니다.
 - **RewriteRuleSet**: 이 개체는 모든 *rewriteRules*를 포함하며 요청 라우팅 규칙인 기본 또는 경로 기반에 연결해야 합니다.
 
 ```azurepowershell
 $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-isThroughProxy" -HeaderValue "True"
 $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -HeaderValue "max-age=31536000"
-$actionSet = New-AzApplicationGatewayRewriteRuleActionSet -RequestHeaderConfiguration $requestHeaderConfiguration -ResponseHeaderConfiguration $responseHeaderConfiguration    
-$rewriteRule = New-AzApplicationGatewayRewriteRule -Name rewriteRule1 -ActionSet $actionSet    
+$actionSet = New-AzApplicationGatewayRewriteRuleActionSet -RequestHeaderConfiguration $requestHeaderConfiguration -ResponseHeaderConfiguration $responseHeaderConfiguration
+$rewriteRule = New-AzApplicationGatewayRewriteRule -Name rewriteRule1 -ActionSet $actionSet
 $rewriteRuleSet = New-AzApplicationGatewayRewriteRuleSet -Name rewriteRuleSet1 -RewriteRule $rewriteRule
 ```
 
@@ -84,10 +84,10 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ```azurepowershell
 $appgw = Get-AzApplicationGateway -Name "AutoscalingAppGw" -ResourceGroupName "<rg name>"
-Remove-AzApplicationGatewayRewriteRuleSet -Name "rewriteRuleSet1" -ApplicationGateway $appgw 
+Remove-AzApplicationGatewayRewriteRuleSet -Name "rewriteRuleSet1" -ApplicationGateway $appgw
 $requestroutingrule= Get-AzApplicationGatewayRequestRoutingRule -Name "rule1" -ApplicationGateway $appgw
 $requestroutingrule.RewriteRuleSet= $null
-set-AzApplicationGateway -ApplicationGateway $appgw 
+set-AzApplicationGateway -ApplicationGateway $appgw
 ```
 
 ## <a name="next-steps"></a>다음 단계

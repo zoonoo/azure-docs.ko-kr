@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 1ae352a0292e75eb9a5bf07e3ddca79ca687dea2
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 417772b2e955b1a3664dd495f292a76ab2819165
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687387"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734524"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-preview"></a>Azure CLI(미리 보기)를 사용하여 가상 머신 확장 집합에서 OS 및 연결된 데이터 디스크 암호화
 
@@ -42,13 +42,13 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ## <a name="register-for-disk-encryption-preview"></a>디스크 암호화 미리 보기를 위해 등록
 
-가상 머신 확장 집합용 Azure Disk Encryption 미리 보기를 사용하려면 [az feature register](/cli/azure/feature#az_feature_register)를 사용하여 사용자가 구독을 직접 등록해야 합니다. 디스크 암호화 미리 보기 기능을 처음 사용할 때는 다음 단계를 수행하기만 하면 됩니다.
+가상 머신 확장 집합용 Azure Disk Encryption 미리 보기를 사용하려면 [az feature register](/cli/azure/feature)를 사용하여 사용자가 구독을 직접 등록해야 합니다. 디스크 암호화 미리 보기 기능을 처음 사용할 때는 다음 단계를 수행하기만 하면 됩니다.
 
 ```azurecli-interactive
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-등록 요청을 전파하는 데 최대 10분까지 걸릴 수 있습니다. [az feature show](/cli/azure/feature#az_feature_show)를 사용하여 등록 상태를 확인할 수 있습니다. `State`가 *Registered*로 보고되면 [az provider register](/cli/azure/provider#az_provider_register)를 사용하여 *Microsoft.Compute* 공급자를 다시 등록합니다.
+등록 요청을 전파하는 데 최대 10분까지 걸릴 수 있습니다. [az feature show](/cli/azure/feature)를 사용하여 등록 상태를 확인할 수 있습니다. `State`가 *Registered*로 보고되면 [az provider register](/cli/azure/provider)를 사용하여 *Microsoft.Compute* 공급자를 다시 등록합니다.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute
@@ -56,13 +56,13 @@ az provider register --namespace Microsoft.Compute
 
 ## <a name="create-a-scale-set"></a>확장 집합 만들기
 
-확장 집합을 만들려면 먼저 [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+확장 집합을 만들려면 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-이제 [az vmss create](/cli/azure/vmss#az_vmss_create)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 변경 내용이 적용될 때 자동으로 업데이트하도록 설정된 *myScaleSet*이라는 확장 집합을 만들고, *~/.ssh/id_rsa*에 없는 경우 SSH 키를 생성합니다. 32Gb 데이터 디스크가 각 VM 인스턴스에 연결되며, Azure [사용자 지정 스크립트 확장](../virtual-machines/linux/extensions-customscript.md)을 사용하여 [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set)로 데이터 디스크를 준비합니다.
+이제 [az vmss create](/cli/azure/vmss)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 변경 내용이 적용될 때 자동으로 업데이트하도록 설정된 *myScaleSet*이라는 확장 집합을 만들고, *~/.ssh/id_rsa*에 없는 경우 SSH 키를 생성합니다. 32Gb 데이터 디스크가 각 VM 인스턴스에 연결되며, Azure [사용자 지정 스크립트 확장](../virtual-machines/linux/extensions-customscript.md)을 사용하여 [az vmss extension set](/cli/azure/vmss/extension)로 데이터 디스크를 준비합니다.
 
 ```azurecli-interactive
 # Create a scale set with attached data disk

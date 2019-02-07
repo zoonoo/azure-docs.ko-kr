@@ -13,18 +13,20 @@ ms.devlang: na
 ms.date: 01/11/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: f4657209dfda2b515e29b4d462368ae6b5c1eae7
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 1a815158e1d215fdb0427f7a263ac0bea43a3e3c
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302496"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497862"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기
 
 Visual Studio Code 및 Azure Resource Manager 도구 확장을 사용하여 Azure Resource Manager 템플릿을 만들고 편집하는 방법을 알아봅니다. 확장이 없이 Visual Studio Code에서 Resource Manager 템플릿을 만들 수 있지만, 확장에서는 템플릿 개발을 간소화하는 자동 완성 옵션을 제공합니다. Azure 솔루션 배포 및 관리와 관련된 개념을 이해하려면 [Azure Resource Manager 개요](resource-group-overview.md)를 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -40,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="open-a-quickstart-template"></a>빠른 시작 템플릿 열기
 
-템플릿을 처음부터 만드는 대신 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에서 템플릿을 엽니다. Azure 빠른 시작 템플릿은 Resource Manager 템플릿용 저장소입니다.
+템플릿을 처음부터 만드는 대신 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에서 템플릿을 엽니다. Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니다.
 
 이 빠른 시작에서 사용되는 템플릿은 [표준 저장소 계정 만들기](https://azure.microsoft.com/resources/templates/101-storage-account-create/)라고 합니다. 이 템플릿은 Azure Storage 계정 리소스를 정의합니다.
 
@@ -141,8 +143,8 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 경험하
     $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-    New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile "azuredeploy.json"
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile "azuredeploy.json"
     ```
     
     ---
@@ -179,7 +181,7 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 경험하
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $storageAccountName = Read-Host -Prompt "Enter the Storage Account name"
-    Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+    Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
     ```
     
     ---

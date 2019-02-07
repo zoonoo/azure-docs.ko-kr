@@ -11,15 +11,15 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
-ms.date: 04/02/2018
-ms.openlocfilehash: ff09a5f09393ad642ddb2059b58bd69a17591aff
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/16/2018
+ms.openlocfilehash: cb64b96f179bd71c3f885a54b17decb794b40c1a
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352214"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567386"
 ---
-# <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>분할된 다중 테넌트 애플리케이션 배포 및 탐색
+# <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>분할된 다중 테넌트 응용 프로그램 배포 및 탐색
 
 이 자습서에서는 Wingtip Tickets라는 샘플 다중 테넌트 SaaS 애플리케이션을 배포하고 탐색합니다. Wingtip Tickets 앱은 SaaS 시나리오 구현을 간소화하는 Azure SQL Database의 기능을 보여 주도록 설계되었습니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "49352214"
         - 드롭다운 목록에서 **위치**를 선택합니다.
     - **사용자**의 경우 - 짧은 **사용자** 값을 선택하는 것이 좋습니다.
 
-1. **응용 프로그램을 배포**합니다.
+1. **애플리케이션을 배포**합니다.
 
     - 사용 약관에 동의하려면 클릭합니다.
     - **구매**를 클릭합니다.

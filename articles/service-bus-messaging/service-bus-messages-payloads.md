@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: aschhab
-ms.openlocfilehash: 6b03b1eb773c40a81c9efd76ac26b40936dca2cc
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 3158f0255810c66605d28856133112181c2916db
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849365"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733929"
 ---
 # <a name="messages-payloads-and-serialization"></a>메시지, 페이로드 및 serialization
 
@@ -28,7 +28,7 @@ Microsoft Azure Service Bus는 메시지를 처리합니다. 메시지는 키-�
  
 Service Bus 메시지는 Service Bus가 서비스 쪽에서 어떤 형식으로든 절대 처리하지 못하는 이진 페이로드 섹션과 2개의 속성 집합으로 이루어져 있습니다. *브로커 속성*은 시스템에서 미리 정의됩니다. 이러한 미리 정의된 속성은 브로커 내의 메시지 수준 기능을 제어하거나 일반적이고 표준화된 메타데이터 항목에 매핑됩니다. *사용자 속성*은 애플리케이션에 의해 정의되고 설정될 수 있는 키-값 쌍의 컬렉션입니다.
  
-미리 정의된 브로커 속성은 다음 표에 나와 있습니다. 이름은 모든 공식 클라이언트 API에서 사용되며 HTTP 프로토콜 매핑의 [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Properties_) JSON 개체에도 있습니다.
+미리 정의된 브로커 속성은 다음 표에 나와 있습니다. 이름은 모든 공식 클라이언트 API에서 사용되며 HTTP 프로토콜 매핑의 [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) JSON 개체에도 있습니다.
  
 AMQP 프로토콜 수준에서 사용되는 해당 이름은 괄호로 묶어 표시됩니다. 
 

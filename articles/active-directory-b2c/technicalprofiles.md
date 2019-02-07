@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c197ead3a7b0f61b9dd5f1e3ea0bd197c23a2778
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 86f2a8fa11becdf24c0a10c0325893946a033c3d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180775"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568178"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -97,7 +97,7 @@ ms.locfileid: "55180775"
 | OutputClaimsTransformations | 0:1 | 클레임 공급자로부터 클레임이 수신된 후에 실행해야 하는 클레임 변환에 대한 이전에 정의된 참조 목록입니다. |
 | ValidationTechnicalProfiles | 0:n | 기술 프로필이 유효성 검사를 위해 사용하는 다른 기술 프로필에 대한 참조 목록입니다. 자세한 내용은 [유효성 검사 기술 프로필](validation-technical-profile.md)을 참조하세요.|
 | SubjectNamingInfo | 0:1 | 주체 이름이 클레임과 별도로 지정되는 토큰에서 주체 이름 생성을 제어합니다. 예를 들어 OAuth 또는 SAML입니다.  |
-| IncludeClaimsFromTechnicalProfile | 0:1 | 모든 입력 및 출력 클레임을 이 기술 프로필에 추가하려는 기술 프로필의 식별자입니다. 참조된 기술 프로필은 동일한 정책 파일에 정의되어야 합니다. | 
+| IncludeClaimsFromTechnicalProfile | 0:1 | 모든 입력 및 출력 클레임을 이 기술 프로필에 추가하려는 기술 프로필의 식별자입니다. 참조된 기술 프로필은 동일한 정책 파일에 정의되어야 합니다. |
 | IncludeTechnicalProfile |0:1 | 모든 데이터를 이 기술 프로필에 추가하려는 기술 프로필의 식별자입니다. 참조된 기술 프로필은 동일한 정책 파일에 있어야 합니다. |
 | UseTechnicalProfileForSessionManagement | 0:1 | 세션 관리에 사용할 다른 기술 프로필입니다. |
 |EnabledForUserJourneys| 0:1 |사용자 경험에서 기술 프로필을 실행할지 여부를 제어합니다.  |
@@ -168,7 +168,7 @@ ms.locfileid: "55180775"
 | ------- | ----------- | ----------- |
 | InputClaim | 1:n | 필요한 입력 클레임 유형입니다. |
 
-#### <a name="inputclaim"></a>InputClaim 
+#### <a name="inputclaim"></a>InputClaim
 
 **InputClaim** 요소에는 다음 특성이 포함됩니다.
 
@@ -186,7 +186,7 @@ ms.locfileid: "55180775"
 | ------- | ----------- | ----------- |
 | PersistedClaim | 1:n | 저장할 클레임 유형입니다. |
 
-#### <a name="persistedclaim"></a>PersistedClaim 
+#### <a name="persistedclaim"></a>PersistedClaim
 
 **PersistedClaim** 요소에는 다음 특성이 포함됩니다.
 
@@ -204,7 +204,7 @@ ms.locfileid: "55180775"
 | ------- | ----------- | ----------- |
 | OutputClaim | 1:n | 필요한 출력 클레임 유형입니다. |
 
-#### <a name="outputclaim"></a>OutputClaim 
+#### <a name="outputclaim"></a>OutputClaim
 
 **OutputClaim** 요소에는 다음 특성이 포함됩니다.
 
@@ -275,9 +275,9 @@ ms.locfileid: "55180775"
 사용자 경험의 **ClaimsProviderSelections**는 클레임 공급자 선택 옵션과 해당 순서를 정의합니다. **EnabledForUserJourneys** 요소를 사용하여 사용자에게 제공되는 클레임 공급자를 필터링합니다. **EnabledForUserJourneys** 요소에는 다음 값 중 하나가 포함됩니다.
 
 - **Always** - 항상 기술 프로필을 실행합니다.
-- **Never** - 기술 프로필을 건너뜁니다. 
-- **OnClaimsExistence** - 기술 프로필에 지정된 특정 클레임이 있는 경우에만 실행합니다. 
-- **OnItemExistenceInStringCollectionClaim** - 문자열 컬렉션 클레임에 항목이 있는 경우에만 실행합니다. 
+- **Never** - 기술 프로필을 건너뜁니다.
+- **OnClaimsExistence** - 기술 프로필에 지정된 특정 클레임이 있는 경우에만 실행합니다.
+- **OnItemExistenceInStringCollectionClaim** - 문자열 컬렉션 클레임에 항목이 있는 경우에만 실행합니다.
 - **OnItemAbsenceInStringCollectionClaim** - 문자열 컬렉션 클레임에 항목이 없는 경우에만 실행합니다.
 
 **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** 또는 **OnItemAbsenceInStringCollectionClaim**을 사용하여 다음 메타데이터를 제공해야 합니다. **ClaimTypeOnWhichToEnable**은 평가할 클레임의 형식을 지정하고, **ClaimValueOnWhichToEnable**은 비교할 값을 지정합니다.
@@ -289,22 +289,10 @@ ms.locfileid: "55180775"
   <DisplayName>Unlink Facebook</DisplayName>
 ...
     <Metadata>
-        <Item Key="ClaimTypeOnWhichToEnable">identityProviders</Item>
-        <Item Key="ClaimValueOnWhichToEnable">facebook.com</Item>
-    </Metadata>        
+      <Item Key="ClaimTypeOnWhichToEnable">identityProviders</Item>
+      <Item Key="ClaimValueOnWhichToEnable">facebook.com</Item>
+    </Metadata>
 ...
   <EnabledForUserJourneys>OnItemExistenceInStringCollectionClaim</EnabledForUserJourneys>
-</TechnicalProfile>  
+</TechnicalProfile>
 ```
-
-
-
-
-
-
-
-
-
-
-
-

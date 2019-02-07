@@ -11,18 +11,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: f1aa037afd0fa1cbe37add24a354e4dc62c13b9a
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.date: 12/12/2018
+ms.openlocfilehash: 5a6f8328f6809a20b821f5b72106fa48fabf0e91
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310133"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755155"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>C 및 C++를 사용하여 SQL Database에 연결
+
 이 게시물의 목적은 Azure SQL DB에 연결하려고 시도하는 C 및 C++ 개발자를 위한 것입니다. 가장 관심 있는 부분을 캡처하는 섹션으로 이동할 수 있도록 섹션이 세분화됩니다.
 
 ## <a name="prerequisites-for-the-cc-tutorial"></a>C/C++ 자습서의 필수 구성 요소
+
 다음 항목이 있는지 확인합니다.
 
 * 활성 Azure 계정. 아직 구독하지 않은 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
@@ -38,7 +40,7 @@ Azure에는 SQL Server 워크로드를 호스트하는 두 가지 옵션이 제�
 Azure SQL DB에 연결할 때는 차이점이 없으며 현재, 데이터베이스에 연결하는 방법에는 ODBC(Open Database Connectivity) 및 OLE DB(개체 연결 및 포함 데이터베이스)의 두 가지가 있습니다. 최근 몇 년간 Microsoft는 [기본 관계형 데이터 액세스에 대해 ODBC](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/)에 맞추어 왔습니다. ODBC은 비교적 간단하고 OLE DB보다 훨씬 빠릅니다. 한 가지 주의할 점은 ODBC는 이전 C 스타일 API를 사용한다는 것입니다.
 
 ## <a id="Create"></a>1단계:  Azure SQL Database 만들기
-샘플 데이터베이스를 만드는 방법을 알아보려면 [시작 페이지](sql-database-get-started-portal.md) 를 참조하세요.  또는 [짧은 2분 비디오](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/)를 보고 Azure Portal을 사용하여 Azure SQL Database를 만듭니다.
+샘플 데이터베이스를 만드는 방법을 알아보려면 [시작 페이지](sql-database-single-database-get-started.md) 를 참조하세요.  또는 [짧은 2분 비디오](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/)를 보고 Azure Portal을 사용하여 Azure SQL Database를 만듭니다.
 
 ## <a id="ConnectionString"></a>2단계:  연결 문자열 가져오기
 Azure SQL Database를 프로비전한 후 연결 정보를 확인하고 방화벽 액세스에 대한 클라이언트 IP를 추가하려면 다음 단계를 수행해야 합니다.
@@ -131,6 +133,6 @@ GitHub에서 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을
 * [ODBC API 참조](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)에 대한 자세한 정보
 
 ## <a name="additional-resources"></a>추가 리소스
-* [Azure SQL Database를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * 모든 [SQL Database의 기능](https://azure.microsoft.com/services/sql-database/)
 

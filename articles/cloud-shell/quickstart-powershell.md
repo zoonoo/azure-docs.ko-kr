@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: 65531b5507f9e3af3a9666074d9dcd9b7ee20271
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: df9dc7d25ff0304effadbf27751042e9961c75c0
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231188"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562031"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell의 PowerShell에 대한 빠른 시작
 
@@ -27,6 +27,8 @@ ms.locfileid: "50231188"
 
 > [!NOTE]
 > [Azure Cloud Shell의 Bash](quickstart.md) 빠른 시작도 사용할 수 있습니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="start-cloud-shell"></a>Cloud Shell 시작
 
@@ -48,7 +50,7 @@ PS Azure:\> Get-Date
 # Expected Output
 Friday, July 27, 2018 7:08:48 AM
 
-PS Azure:\> Get-AzureRmVM -Status
+PS Azure:\> Get-AzVM -Status
 
 # Expected Output
 ResourceGroupName       Name       Location                VmSize   OsType     ProvisioningState  PowerState
@@ -238,7 +240,7 @@ mywebapp2       Running  MyResourceGroup2   {mywebapp2.azurewebsites.net...   We
 mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   South Central US
 
 # You can use Azure cmdlets to Start/Stop your web apps
-PS Azure:\MySubscriptionName\WebApps> Start-AzureRmWebApp -Name mywebapp1 -ResourceGroupName MyResourceGroup1
+PS Azure:\MySubscriptionName\WebApps> Start-AzWebApp -Name mywebapp1 -ResourceGroupName MyResourceGroup1
 
 Name           State    ResourceGroup        EnabledHostNames                   Location
 ----           -----    -------------        ----------------                   --------
@@ -266,7 +268,7 @@ SSH를 사용하여 서버 또는 VM을 인증하려면 Cloud Shell에서 공개
 ### <a name="using-ssh"></a>SSH 사용
 
 [여기](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell)의 지침에 따라 AzureRM cmdlet을 사용하여 새 VM 구성을 만듭니다.
-`New-AzureRmVM`을 호출하여 배포를 시작하기 전에 SSH 공개 키를 VM 구성에 추가합니다.
+`New-AzVM`을 호출하여 배포를 시작하기 전에 SSH 공개 키를 VM 구성에 추가합니다.
 새로 만든 VM에는 공개 키가 `~\.ssh\authorized_keys` 위치에 포함되므로 자격 증명이 없는 SSH 세션을 VM에 사용할 수 있습니다.
 
 ```azurepowershell-interactive
@@ -277,10 +279,10 @@ ssh-keygen -t rsa -b 2048 -f $HOME\.ssh\id_rsa
 
 # Ensure VM config is updated with SSH keys
 $sshPublicKey = Get-Content "$HOME\.ssh\id_rsa.pub"
-Add-AzureRmVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
+Add-AzVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 # Create a virtual machine
-New-AzureRmVM -ResourceGroupName <yourResourceGroup> -Location <vmLocation> -VM $vmConfig
+New-AzVM -ResourceGroupName <yourResourceGroup> -Location <vmLocation> -VM $vmConfig
 
 # SSH to the VM
 ssh azureuser@MyVM.Domain.Com
@@ -288,7 +290,7 @@ ssh azureuser@MyVM.Domain.Com
 
 ## <a name="list-available-commands"></a>사용할 수 있는 명령 목록
 
-`Azure` 드라이브에서 상황별 Azure 명령을 가져오려면 `Get-AzureRmCommand`를 입력합니다.
+`Azure` 드라이브에서 상황별 Azure 명령을 가져오려면 `Get-AzCommand`를 입력합니다.
 
 또는 사용 가능한 Azure 명령을 알아보려면 언제나 `Get-Command *azurerm* -Module AzureRM.*`을 사용할 수 있습니다.
 
@@ -307,7 +309,7 @@ Get-Help
 특정 명령에 대해 여전히 `Get-Help`를 실행한 후 뒤 이어 cmdlet을 실행할 수 있습니다.
 
 ```azurepowershell-interactive
-Get-Help Get-AzureRmVM
+Get-Help Get-AzVM
 ```
 
 ## <a name="use-azure-files-to-store-your-data"></a>Azure Files를 사용하여 데이터 저장

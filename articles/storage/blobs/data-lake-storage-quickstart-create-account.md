@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 906f1a85000a2be175a204e9e6e561a75cecfde3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b49c69a488402e593573e7f9e4fda81057519149
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248438"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732450"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>빠른 시작: Azure Data Lake Storage Gen2 스토리지 계정 만들기
 
@@ -125,11 +125,8 @@ PowerShell을 사용하여 Data Lake Storage Gen2와 상호 작용하려면 모�
 Az.Storage 모듈 설치
 
 ```powershell
-Install-Module Az.Storage -Repository PSGallery -RequiredVersion 0.7.0 -AllowPrerelease -AllowClobber -Force
+Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
 ```
-
-> [!NOTE]
-> Azure Powershell Az 모듈은 PowerShell에서 Azure 서비스 작업을 위한 기본 설정 모듈입니다. 자세한 내용은 [새로운 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)를 참조하세요.
 
 ### <a name="log-in-to-your-azure-subscription"></a>Azure 구독에 로그인
 
@@ -195,7 +192,7 @@ CLI를 사용하여 Data Lake Storage Gen2와 상호 작용하려면 셸에 확�
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-Azure CLI로 새 리소스 그룹을 만들려면 [az group create](/cli/azure/group#az_group_create) 명령을 사용합니다.
+Azure CLI로 새 리소스 그룹을 만들려면 [az group create](/cli/azure/group) 명령을 사용합니다.
 
 ```azurecli-interactive
 az group create `

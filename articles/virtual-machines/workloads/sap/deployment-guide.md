@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: dc44394bda1208eb2dab0a02dd73152e51788d4c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b2c3e8d7c465ca4fa9427c3a14ef04e4f69d17d6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424903"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661567"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 배포
 
@@ -719,7 +719,7 @@ Azure Portal에서 템플릿에 대한 다음 매개 변수를 입력합니다.
 
     더 큰 시스템의 경우 Azure Premium Storage를 사용하는 것이 좋습니다. 저장소 유형에 대한 자세한 내용은 다음 리소스를 참조하세요.
       * [SAP DBMS 인스턴스에 Azure Premium SSD Storage 사용][2367194]
-      * [RDBMS 배포를 위한 VM의 스토리지 구조](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
+      * [RDBMS 배포를 위한 VM의 스토리지 구조](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
       * [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 스토리지][storage-premium-storage-preview-portal]
       * [Microsoft Azure Storage 소개][storage-introduction]
   * **OS 디스크 VHD URI**(관리되지 않는 디스크 템플릿만 해당): 개인 OS 디스크의 URI(예: https://&lt;accountname>.blob.core.windows.net/vhds/osdisk.vhd)입니다.

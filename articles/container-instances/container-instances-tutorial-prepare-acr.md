@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: eeb0fe5b19f23e101eab9393dca64e1e13bf6922
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 4ee7411853127d331e70e486bbf9f21e0ce6c153
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188925"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750310"
 ---
 # <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>자습서: Azure 컨테이너 레지스트리를 배포하고 컨테이너 이미지 푸시
 
-세 부분으로 이루어진 자습서의 두 번째 부분입니다. 자습서의 [1부](container-instances-tutorial-prepare-app.md)에서는 Node.js 웹 응용 프로그램에 사용할 Docker 컨테이너 이미지를 만들었습니다. 이 자습서에서는 이 이미지를 Azure Container Registry에 푸시합니다. 컨테이너 이미지를 만들지 않은 경우 [자습서 1 - 컨테이너 이미지 만들기](container-instances-tutorial-prepare-app.md)로 돌아갑니다.
+세 부분으로 이루어진 자습서의 두 번째 부분입니다. 자습서의 [1부](container-instances-tutorial-prepare-app.md)에서는 Node.js 웹 애플리케이션에 사용할 Docker 컨테이너 이미지를 만들었습니다. 이 자습서에서는 이 이미지를 Azure Container Registry에 푸시합니다. 컨테이너 이미지를 만들지 않은 경우 [자습서 1 - 컨테이너 이미지 만들기](container-instances-tutorial-prepare-app.md)로 돌아갑니다.
 
 Azure Container Registry는 Azure의 개인 Docker 레지스트리입니다. 이 자습서에서는 구독에서 Azure Container Registry 인스턴스를 만든 후 이전에 만든 컨테이너 이미지를 여기에 푸시합니다. 시리즈의 2부에 해당하는 본 문서에서는 다음 작업을 수행합니다.
 
@@ -222,7 +222,7 @@ v1
 <!-- LINKS - Internal -->
 [az-acr-create]: /cli/azure/acr#az-acr-create
 [az-acr-login]: /cli/azure/acr#az-acr-login
-[az-acr-repository-list]: /cli/azure/acr/repository#az-acr-list
+[az-acr-repository-list]: /cli/azure/acr/repository
 [az-acr-repository-show-tags]: /cli/azure/acr/repository#az-acr-repository-show-tags
 [az-acr-show]: /cli/azure/acr#az-acr-show
 [az-group-create]: /cli/azure/group#az-group-create

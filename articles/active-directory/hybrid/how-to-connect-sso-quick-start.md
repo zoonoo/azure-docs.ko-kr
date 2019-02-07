@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 25546c37db7e1117ed73c17f2f7b2a5211d48d51
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1fadf186176c8bc82aaefe9a908f25f9c8a7e35a
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162619"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755470"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -164,14 +164,6 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
     ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso16.png)
  
     ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso17.png)
-
-6. **사용자 구성** > **관리 템플릿** > **Windows 구성 요소** > **Internet Explorer** > **인터넷 제어판** > **보안 페이지** > **인트라넷 영역**을 찾아봅니다. 그런 다음 **스크립트를 통해 상태 표시줄에 대한 업데이트 허용**을 선택합니다.
-
-    ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso11.png)
-
-7. 정책 설정을 활성화한 다음, **확인**을 선택합니다.
-
-    ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="browser-considerations"></a>브라우저 고려 사항
 

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 6/7/2017
-ms.openlocfilehash: 05e21083b060e00602f58e1a17f52f40ced7d34e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: dfdc572810cfcfd275faa4502e508b9c8ccec9b6
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075212"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727844"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Jenkins 및 Azure CLI를 사용해 Azure App Service에 배포
 Azure에 Java 웹앱을 배포하기 위해 [Jenkins 파이프라인](https://jenkins.io/doc/book/pipeline/)에서 Azure CLI를 사용할 수 있습니다. 이 자습서에서는 Azure VM에서 CI/CD 파이프라인을 만들며 다음 방법이 포함됩니다.
@@ -115,7 +115,7 @@ az webapp create \
 
 ### <a name="configure-java"></a>Java 구성 
 
-[az appservice web config update](/cli/azure/webapp/config#az-appservice-web-config-update) 명령으로 앱에 필요한 Java 런타임 구성을 설정합니다.
+[az appservice web config update](/cli/azure/webapp/config) 명령으로 앱에 필요한 Java 런타임 구성을 설정합니다.
 
 다음 명령은 최근 Java 8 JDK 및 [Apache Tomcat](http://tomcat.apache.org/) 8.0에서 실행되도록 웹앱을 구성합니다.
 

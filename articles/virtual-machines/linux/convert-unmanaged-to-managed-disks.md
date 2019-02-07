@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 692de0e18ac279174f1227a7c25913fc59e626eb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 39a42891a73bd64731dd19aa22214a62d913d975
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470062"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700828"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Linux 가상 머신을 비관리 디스크에서 Managed Disks로 변환
 
@@ -44,13 +44,13 @@ ms.locfileid: "55470062"
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-2. [az vm convert](/cli/azure/vm#az_vm_convert)를 사용하여 VM을 Managed Disks로 변환합니다. 다음 프로세스는 OS 디스크 및 데이터 디스크를 포함하는 `myVM`이라는 VM을 변환합니다.
+2. [az vm convert](/cli/azure/vm)를 사용하여 VM을 Managed Disks로 변환합니다. 다음 프로세스는 OS 디스크 및 데이터 디스크를 포함하는 `myVM`이라는 VM을 변환합니다.
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-3. [az vm start](/cli/azure/vm#az_vm_start)를 사용하여 VM을 Managed Disks로 변환한 후 시작합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 시작합니다.
+3. [az vm start](/cli/azure/vm)를 사용하여 VM을 Managed Disks로 변환한 후 시작합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 시작합니다.
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -62,7 +62,7 @@ ms.locfileid: "55470062"
 
 가용성 집합을 변환하기 전에 가용성 집합에 있는 모든 VM의 할당을 취소해야 합니다. 가용성 집합이 관리되는 가용성 집합으로 변환된 후 모든 VM을 관리되는 디스크로 변환하려고 합니다. 그런 다음 모든 VM을 시작하고 정상적으로 운영을 계속합니다.
 
-1. [az vm availability-set list](/cli/azure/vm/availability-set#az_vm_availability_set_list)를 사용하여 가용성 집합의 모든 VM을 나열합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 가용성 집합 `myAvailabilitySet`에 있는 모든 VM을 나열합니다.
+1. [az vm availability-set list](/cli/azure/vm/availability-set)를 사용하여 가용성 집합의 모든 VM을 나열합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 가용성 집합 `myAvailabilitySet`에 있는 모든 VM을 나열합니다.
 
     ```azurecli
     az vm availability-set show \
@@ -78,7 +78,7 @@ ms.locfileid: "55470062"
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
-3. [az vm availability-set convert](/cli/azure/vm/availability-set#az_vm_availability_set_convert)를 사용하여 가용성 집합을 변환합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 가용성 집합 `myAvailabilitySet`을 변환합니다.
+3. [az vm availability-set convert](/cli/azure/vm/availability-set)를 사용하여 가용성 집합을 변환합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 가용성 집합 `myAvailabilitySet`을 변환합니다.
 
     ```azurecli
     az vm availability-set convert \
@@ -86,13 +86,13 @@ ms.locfileid: "55470062"
         --name myAvailabilitySet
     ```
 
-4. [az vm convert](/cli/azure/vm#az_vm_convert)를 사용하여 모든 VM을 Managed Disks로 변환합니다. 다음 프로세스는 OS 디스크 및 데이터 디스크를 포함하는 `myVM`이라는 VM을 변환합니다.
+4. [az vm convert](/cli/azure/vm)를 사용하여 모든 VM을 Managed Disks로 변환합니다. 다음 프로세스는 OS 디스크 및 데이터 디스크를 포함하는 `myVM`이라는 VM을 변환합니다.
 
     ```azurecli
     az vm convert --resource-group myResourceGroup --name myVM
     ```
 
-5. [az vm start](/cli/azure/vm#az_vm_start)를 사용하여 모든 VM을 Managed Disks로 변환한 후 시작합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 시작합니다.
+5. [az vm start](/cli/azure/vm)를 사용하여 모든 VM을 Managed Disks로 변환한 후 시작합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 시작합니다.
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM

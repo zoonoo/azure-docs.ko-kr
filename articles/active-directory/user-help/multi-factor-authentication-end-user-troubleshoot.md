@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.openlocfilehash: 2b8a0db21ab4beb2128ae0a1cebbf9fb42691f3c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2ede7a172eda1122b0668984cc8e11937b3ae852
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177410"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768186"
 ---
 # <a name="get-help-with-two-step-verification"></a>2단계 인증에 관한 도움말 얻기
 
@@ -36,7 +36,7 @@ ms.locfileid: "55177410"
 
 - **휴대폰을 분실한 경우 또는 전화 번호가 바뀐 경우** 휴대폰을 분실했거나 번호가 바뀐 경우, 다른 방법으로 로그인하거나 관리자에게 요청하여 설정을 지울 수 있습니다. 휴대폰을 분실하거나 도난 당한 경우, 계정에 적절한 업데이트를 적용할 수 있도록 관리자에게 알리는 것이 좋습니다. 설정이 지워진 후 다음에 로그인할 때 [2단계 인증 등록](multi-factor-authentication-end-user-first-time.md) 메시지가 표시됩니다.
 
-- **인증 문자 또는 전화 통화를 받을 수 없는 경우** 문자나 전화 통화를 받을 수 없는 몇 가지 이유가 있습니다. 과거에 문자나 전화 통화를 성공적으로 받은 경우에는 계정이 아니라 휴대폰 공급자의 문제일 수 있습니다. 종종 잘못된 신호로 인해 지연된 경우, 모바일 디바이스에서 [Microsoft Authenticator 앱](microsoft-authenticator-app-how-to.md)을 사용하는 것이 좋습니다. 이 앱은 셀 신호 또는 인터넷 연결이 없어도 로그인용으로 임의 보안 코드를 생성할 수 있습니다.<br><br>문자 메시지를 받으려는 경우, 친구에게 테스트로 문자를 보내도록 부탁하여 문자를 받을 수 있는지 확인하고, 여러 개의 메시지를 받은 경우에는 가장 최근 문자의 코드를 사용하고 있는지 확인합니다.
+- **인증 문자 또는 전화 통화를 받을 수 없는 경우** 문자나 전화 통화를 받을 수 없는 몇 가지 이유가 있습니다. 과거에 문자나 전화 통화를 성공적으로 받은 경우에는 계정이 아니라 휴대폰 공급자의 문제일 수 있습니다. 종종 잘못된 신호로 인해 지연된 경우, 모바일 디바이스에서 [Microsoft Authenticator 앱](user-help-auth-app-download-install.md)을 사용하는 것이 좋습니다. 이 앱은 셀 신호 또는 인터넷 연결이 없어도 로그인용으로 임의 보안 코드를 생성할 수 있습니다.<br><br>문자 메시지를 받으려는 경우, 친구에게 테스트로 문자를 보내도록 부탁하여 문자를 받을 수 있는지 확인하고, 여러 개의 메시지를 받은 경우에는 가장 최근 문자의 코드를 사용하고 있는지 확인합니다.
 
 - **앱 암호가 작동하지 않는 경우** 2단계 인증을 지원하지 않는 이전 데스크톱 애플리케이션의 경우, 앱 암호가 사용자의 일반 암호를 대체합니다. 먼저 암호를 올바르게 입력했는지 확인합니다. 그래도 문제가 해결되지 않으면 로그인을 시도하여 [새 앱 암호를 만들](multi-factor-authentication-end-user-app-passwords.md)거나 관리자에게 문의하여 새 암호를 만들 수 있도록 [기존 앱 암호를 삭제](../authentication/howto-mfa-userdevicesettings.md)하도록 요청합니다.
 
@@ -61,4 +61,4 @@ ms.locfileid: "55177410"
 
 * [2단계 인증을 위한 설정 관리](multi-factor-authentication-end-user-manage-settings.md)
 
-* [Microsoft Authenticator 애플리케이션 FAQ](microsoft-authenticator-app-faq.md)
+* [Microsoft Authenticator 애플리케이션 FAQ](user-help-auth-app-faq.md)

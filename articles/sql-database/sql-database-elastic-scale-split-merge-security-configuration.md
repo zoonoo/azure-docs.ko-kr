@@ -11,33 +11,38 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: de758d38626107f28211f79a4772c3e887085776
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/18/2018
+ms.openlocfilehash: a3ba80ce7b5abcb2f112880c4fef5ed3f067f691
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599835"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563221"
 ---
 # <a name="split-merge-security-configuration"></a>분할-병합 보안 구성
+
 분할/병합 서비스를 사용하려면 보안을 올바르게 구성해야 합니다. 서비스는 Microsoft Azure SQL Database의 탄력적인 확장 기능에 속합니다. 자세한 내용은 [탄력적인 확장 분할 및 병합 서비스 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)를 참조하세요.
 
 ## <a name="configuring-certificates"></a>인증서 구성
+
 인증서는 두 가지 방법으로 구성합니다. 
 
 1. [SSL 인증서를 구성하려면](#to-configure-the-ssl-certificate)
 2. [클라이언트 인증서를 구성하려면](#to-configure-client-certificates) 
 
 ## <a name="to-obtain-certificates"></a>인증서를 얻으려면
+
 공용 CA(인증 기관) 또는 [Windows 인증서 서비스](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx)에서 인증서를 얻을 수 있습니다. 인증서를 가져올 때 이러한 방법이 일반적으로 사용됩니다.
 
 이러한 옵션을 사용할 수 없는 경우 **자체 서명된 인증서**를 생성할 수 있습니다.
 
 ## <a name="tools-to-generate-certificates"></a>인증서를 생성하는 도구
+
 * [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
 * [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### <a name="to-run-the-tools"></a>도구를 실행하려면
+
 * Visual Studio용 개발자 명령 프롬프트에서 [Visual Studio 명령 프롬프트를 참조하세요](https://msdn.microsoft.com/library/ms229859.aspx) 
   
     설치되어 있는 경우 다음으로 이동합니다.
@@ -46,9 +51,11 @@ ms.locfileid: "53599835"
 * WDK 가져오기 [Windows 8.1: 키트 및 도구 다운로드](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>SSL 인증서를 구성하려면
+
 통신을 암호화하고 서버를 인증하려면 SSL 인증서가 필요합니다. 아래 세 가지 시나리오 중 가장 적합한 시나리오를 선택하고 모든 단계를 실행합니다.
 
 ### <a name="create-a-new-self-signed-certificate"></a>자체 서명된 새로운 인증서 만들기
+
 1. [자체 서명된 인증서 만들기](#create-a-self-signed-certificate)
 2. [자체 서명된 SSL 인증서용 PFX 파일 만들기](#create-pfx-file-for-self-signed-ssl-certificate)
 3. [클라우드 서비스에 SSL 인증서 업로드](#upload-ssl-certificate-to-cloud-service)

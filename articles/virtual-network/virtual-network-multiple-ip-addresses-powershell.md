@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: 4c74833933642ec67bdd2a77d073b083d54a3038
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0e8ab6a130bb99c3b0b1b811f52559273ac3c483
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38678615"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691577"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>PowerShell을 사용하여 가상 머신에 여러 IP 주소 할당
 
@@ -106,7 +106,7 @@ ms.locfileid: "38678615"
     -DomainNameLabel <replace-with-your-unique-name> `
     -AllocationMethod Static
         
-    #Create an IP configuration with a static private IP address and assign the public IP ddress to it
+    #Create an IP configuration with a static private IP address and assign the public IP address to it
     $IpConfigName1 = "IPConfig-1"
     $IpConfig1     = New-AzureRmNetworkInterfaceIpConfig `
     -Name $IpConfigName1 `
@@ -132,7 +132,7 @@ ms.locfileid: "38678615"
     -Location $Location `
     -AllocationMethod Static
         
-    #Create an IP configuration with a static private IP address and assign the public IP ddress to it
+    #Create an IP configuration with a static private IP address and assign the public IP address to it
     $IpConfigName2 = "IPConfig-2"
     $IpConfig2     = New-AzureRmNetworkInterfaceIpConfig `
     -Name $IpConfigName2 `
@@ -166,7 +166,7 @@ ms.locfileid: "38678615"
 
     ```powershell
     
-    # Define a credential object. When you run these commands, you're prompted to enter a sername and password for the VM you're reating.
+    # Define a credential object. When you run these commands, you're prompted to enter a username and password for the VM you're creating.
     $cred = Get-Credential
     
     # Create a virtual machine configuration
@@ -219,7 +219,7 @@ ms.locfileid: "38678615"
 4. 다음 명령에서 *MyVNet* 및 *MySubnet*을 NIC가 연결된 VNet 및 서브넷의 이름으로 변경합니다. NIC가 연결된 VNet 및 서브넷 개체를 검색하는 명령을 입력합니다.
 
     ```powershell
-    $MyVNet = Get-AzureRMVirtualnetwork -Name MyVNet -ResourceGroupName $RgName
+    $MyVNet = Get-AzureRMVirtualNetwork -Name MyVNet -ResourceGroupName $RgName
     $Subnet = $MyVnet.Subnets | Where-Object { $_.Name -eq "MySubnet" }
     ```
     NIC가 연결된 VNet 또는 서브넷 이름을 모르는 경우 다음 명령을 입력합니다.

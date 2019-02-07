@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: db0aa1781c3e35b68a59082cf7a1760f7e9a34b4
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 33f21786b1af4d169d184487a030b7e4ea321327
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239573"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694536"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-cli"></a>CLI를 사용하여 스냅숏에서 가상 머신 만들기
 
@@ -49,9 +49,9 @@ az group delete --name myResourceGroup
 
 | 명령 | 메모 |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | 스냅숏 이름 및 리소스 그룹 이름을 사용하여 스냅숏을 가져옵니다. 반환된 개체의 Id 속성은 관리 디스크를 만드는 데 사용됩니다.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | 스냅숏 Id, 디스크 이름, 저장소 유형 및 크기를 사용하여 스냅숏에서 관리 디스크를 만듭니다.  |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | 관리 OS 디스크를 사용하여 VM을 만듭니다. |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | 스냅숏 이름 및 리소스 그룹 이름을 사용하여 스냅숏을 가져옵니다. 반환된 개체의 Id 속성은 관리 디스크를 만드는 데 사용됩니다.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk) | 스냅숏 Id, 디스크 이름, 저장소 유형 및 크기를 사용하여 스냅숏에서 관리 디스크를 만듭니다.  |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | 관리 OS 디스크를 사용하여 VM을 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

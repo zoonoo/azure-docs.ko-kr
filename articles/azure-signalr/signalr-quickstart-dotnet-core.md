@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 805f8d55b1627ad12ce58e8a64728a42867a858e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: e1eced2d00737a950ed441bd83614d9d6d0b9230
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260619"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731277"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>빠른 시작: SignalR Service를 사용하여 대화방 만들기
 
@@ -97,7 +97,7 @@ Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애�
 
     암호 관리자는 로컬로 호스트되는 웹앱을 테스트하는 데만 사용됩니다. 자습서의 뒷부분에서 Azure로 채팅 웹앱을 배포합니다. Azure로 웹앱이 배포되면, 암호 관리자를 사용하여 연결 문자열을 저장하는 대신, 애플리케이션 설정을 사용하게 됩니다.
 
-    이 비밀은 구성 API를 사용하여 액세스됩니다. 콜론(:)은 지원되는 모든 플랫폼의 구성 API에서 구성 이름으로 작동합니다. [환경별 구성](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0#configuration-by-environment)을 참조하세요. 
+    이 비밀은 구성 API를 사용하여 액세스됩니다. 콜론(:)은 지원되는 모든 플랫폼의 구성 API에서 구성 이름으로 작동합니다. [환경별 구성](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0)을 참조하세요. 
 
 
 4. *Startup.cs*를 열고, `services.AddSignalR().AddAzureSignalR()` 메서드를 호출하여 Azure SignalR 서비스를 사용하도록 `ConfigureServices` 메서드를 업데이트합니다.
@@ -258,7 +258,7 @@ connection.start()
 
 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 후 **삭제**를 클릭합니다.
    
-잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
+잠시 후 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
 
 

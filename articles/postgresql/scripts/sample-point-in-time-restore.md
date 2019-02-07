@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 721e385d7c8e6b401ce1fe6d3518006f3a96e4fe
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 1f772f710f0146048fcde04d884fbe3458722743
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541101"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754526"
 ---
 # <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for PostgreSQL 서버 복원
 이 샘플 CLI 스크립트는 단일 Azure Database for PostgreSQL 서버를 이전 시점으로 복원합니다.
@@ -35,10 +35,10 @@ CLI를 로컬로 실행하도록 선택한 경우 이 문서에 Azure CLI 버전
 
 | **명령** | **참고 사항** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az group create](/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az postgresql server create](/cli/azure/postgres/server#az-postgres-server-create) | 데이터베이스를 호스팅하는 PostgreSQL 서버를 만듭니다. |
 | [az postgresql server restore](/cli/azure/postgres/server#az-postgres-server-restore) | 백업에서 서버를 복원합니다. |
-| [az group delete](/cli/azure/group#az_group_delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group delete](/cli/azure/group) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 - Azure CLI에 대한 자세한 내용: [Azure CLI 설명서](/cli/azure)

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: e83d6e2f14f8665f8eb0c58a4dc41c7c2ecc792d
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 040f073cc410911ea88112b3206623e90cece0ca
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464258"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756176"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>자습서: Azure CLI를 사용한 Linux 가상 머신 거버넌스에 대해 알아보기
 
@@ -57,7 +57,7 @@ az group create --name myResourceGroup --location "East US"
 
 개별 사용자에게 역할을 할당하는 대신 비슷한 동작을 수행해야 하는 사용자에게 Azure Active Directory 그룹을 사용하기가 더 쉽습니다. 그런 다음, 해당 그룹에 적절한 역할을 할당합니다. 이 문서에서는 가상 머신 관리에 기존 그룹을 사용하거나, 포털을 사용하여 [Azure Active Directory 그룹을 만듭니다](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-새 그룹을 만들거나 기존 그룹을 찾은 뒤 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) 명령을 사용하여 새로운 Azure Active Directory 그룹을 리소스 그룹에 대한 Virtual Machine 기여자 역할에 할당합니다.
+새 그룹을 만들거나 기존 그룹을 찾은 뒤 [az role assignment create](/cli/azure/role/assignment) 명령을 사용하여 새로운 Azure Active Directory 그룹을 리소스 그룹에 대한 Virtual Machine 기여자 역할에 할당합니다.
 
 ```azurecli-interactive
 adgroupId=$(az ad group show --group <your-group-name> --query objectId --output tsv)
@@ -71,7 +71,7 @@ az role assignment create --assignee-object-id $adgroupId --role "Virtual Machin
 
 ## <a name="azure-policy"></a>Azure Policy
 
-[Azure Policy](../../azure-policy/azure-policy-introduction.md)는 구독의 모든 리소스가 회사 표준을 따르도록 관리하는 데 유용합니다. 사용 중인 구독에 이미 여러 개의 정책 정의가 있습니다. 사용 가능한 정책 정의를 보려면 [az policy definition list](/cli/azure/policy/definition#az_policy_definition_list) 명령을 사용합니다.
+[Azure Policy](../../azure-policy/azure-policy-introduction.md)는 구독의 모든 리소스가 회사 표준을 따르도록 관리하는 데 유용합니다. 사용 중인 구독에 이미 여러 개의 정책 정의가 있습니다. 사용 가능한 정책 정의를 보려면 [az policy definition list](/cli/azure/policy/definition) 명령을 사용합니다.
 
 ```azurecli-interactive
 az policy definition list --query "[].[displayName, policyType, name]" --output table
@@ -83,7 +83,7 @@ az policy definition list --query "[].[displayName, policyType, name]" --output 
 * 가상 머신에 대한 SKU를 제한합니다.
 * 관리 디스크를 사용하지 않는 가상 머신을 감사합니다.
 
-다음 예제에서는 표시 이름을 기준으로 세 가지 정책 정의를 검색합니다. [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create) 명령을 사용하여 해당 정의를 리소스 그룹에 할당합니다. 일부 정책의 경우 매개 변수 값을 제공하여 허용된 값을 지정합니다.
+다음 예제에서는 표시 이름을 기준으로 세 가지 정책 정의를 검색합니다. [az policy assignment create](/cli/azure/policy/assignment) 명령을 사용하여 해당 정의를 리소스 그룹에 할당합니다. 일부 정책의 경우 매개 변수 값을 제공하여 허용된 값을 지정합니다.
 
 ```azurecli-interactive
 # Get policy definitions for allowed locations, allowed SKUs, and auditing VMs that don't use managed disks
@@ -145,7 +145,7 @@ az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --ge
 
 관리 잠금을 만들거나 삭제하려면 `Microsoft.Authorization/locks/*` 작업에 대한 액세스 권한이 있어야 합니다. 기본 제공 역할의 경우 **소유자** 및 **사용자 액세스 관리자**에게만 이러한 작업의 권한이 부여됩니다.
 
-가상 머신 및 네트워크 보안 그룹을 잠그려면 [az lock create](/cli/azure/lock#az_lock_create) 명령을 사용합니다.
+가상 머신 및 네트워크 보안 그룹을 잠그려면 [az lock create](/cli/azure/lock) 명령을 사용합니다.
 
 ```azurecli-interactive
 # Add CanNotDelete lock to the VM
@@ -206,7 +206,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-잠금이 해제될 때까지는 잠긴 네트워크 보안 그룹을 삭제할 수 없습니다. 잠금을 제거하려면 잠금의 ID를 검색하고 [az lock delete](/cli/azure/lock#az_lock_delete) 명령을 입력합니다.
+잠금이 해제될 때까지는 잠긴 네트워크 보안 그룹을 삭제할 수 없습니다. 잠금을 제거하려면 잠금의 ID를 검색하고 [az lock delete](/cli/azure/lock) 명령을 입력합니다.
 
 ```azurecli-interactive
 vmlock=$(az lock show --name LockVM \
@@ -220,7 +220,7 @@ nsglock=$(az lock show --name LockNSG \
 az lock delete --ids $vmlock $nsglock
 ```
 
-더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다. VM에 대한 SSH 세션을 종료한 후 다음과 같이 리소스를 삭제합니다.
+더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group) 명령을 사용하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다. VM에 대한 SSH 세션을 종료한 후 다음과 같이 리소스를 삭제합니다.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

@@ -3,7 +3,7 @@ title: 범용 계층 - Azure SQL Database 서비스 | Microsoft Docs
 description: Azure SQL Database 범용 계층에 대해 알아봅니다
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: jovanpop-msft
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 8b708818584be6cdb84530ce008295ccee080d94
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 943982b056a83488426c48763deac14fd5347b8e
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52885851"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509006"
 ---
 # <a name="general-purpose-tier---azure-sql-database"></a>범용 계층 - Azure SQL Database
 
@@ -50,4 +50,4 @@ Azure SQL Database는 인프라 오류의 경우에도 99.99%의 가용성을 �
 
 - [중요 비즈니스용](sql-database-service-tier-business-critical.md) 및 [하이퍼스케일](sql-database-service-tier-hyperscale.md)에 대해 알아 봅니다.
 - [Service Fabric](../service-fabric/service-fabric-overview.md)에 대해 알아 봅니다.
-- 고가용성 및 재해 복구에 대한 자세한 내용은 [비즈니스 연속성](sql-database-business-continuity.md)을 참조하세요.
+- 고가용성 및 재해 복구에 대한 자세한 옵션은 [비즈니스 연속성](sql-database-business-continuity.md)을 참조하세요.

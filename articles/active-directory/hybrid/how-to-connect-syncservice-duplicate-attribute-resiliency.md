@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: acc2790f935eae9bcb68c9fa3c443d7449922e71
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f4a9b4aba54f3968584187e108e87177c44bbc8e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192471"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815799"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>ID 동기화 및 중복 특성 복원력
 중복 특성 복원력은 Microsoft의 동기화 도구 중 하나를 실행하는 경우 **UserPrincipalName** 및 **ProxyAddress**의 충돌로 발생하는 마찰을 제거하는 Azure Active Directory의 기능입니다.
@@ -81,7 +81,7 @@ ms.locfileid: "55192471"
 2. [속성 형식으로](#by-property-type)
 3. [충돌 값으로](#by-conflicting-value)
 4. [문자열 검색을 사용하여](#using-a-string-search)
-5. [정렬](#sorted)
+5. 정렬
 6. [제한된 수량 또는 모두](#in-a-limited-quantity-or-all)
 
 #### <a name="see-all"></a>모두 표시

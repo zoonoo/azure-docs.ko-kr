@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 8c337ba1770b9b618567e7a3ee5fdbadba63181b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 183194d172b9ac11d4f1c5cb1324f7a09f4a157b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231855"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756311"
 ---
 # <a name="show-directions-from-a-to-b"></a>A에서 B로의 방향 표시
 
@@ -41,7 +41,7 @@ ms.locfileid: "54231855"
 
 일곱 번째 코드 블록은 Map의 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) 속성을 사용하여 지도의 경계를 설정합니다.
 
-마지막 코드 블록은 [서비스 모듈](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1)에 속하는 Azure Maps 라우팅 서비스를 쿼리합니다. [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) 메서드는 시작 및 끝 지점 사이의 경로를 가져오는 데 사용됩니다. 그런 다음, 응답이 [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes) 메서드를 사용하여 GeoJSON 형식으로 구문 분석됩니다. 그런 다음, 응답을 지도에 경로로 렌더링합니다. 지도에 선을 추가하는 방법에 대한 자세한 내용은 [지도에 선 추가](./map-add-shape.md#addALine)를 참조하세요.
+마지막 코드 블록은 [서비스 모듈](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1)에 속하는 Azure Maps 라우팅 서비스를 쿼리합니다. [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) 메서드는 시작 및 끝 지점 사이의 경로를 가져오는 데 사용됩니다. 그런 다음, 응답이 [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest) 메서드를 사용하여 GeoJSON 형식으로 구문 분석됩니다. 그런 다음, 응답을 지도에 경로로 렌더링합니다. 지도에 선을 추가하는 방법에 대한 자세한 내용은 [지도에 선 추가](./map-add-shape.md#addALine)를 참조하세요.
 
 맵이 완전히 로드된 후 결과가 표시되도록 경로 쿼리, 데이터 원본, 기호, 선 계층 및 카메라 범위가 맵의 [이벤트 수신기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 내에 생성되고 설정됩니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "54231855"
 
 두 번째 코드 블록은 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 개체를 만든 후 지도에 추가합니다.
 
-세 번째 코드 블록은 경로의 시작 및 끝 지점을 만들고 데이터 원본에 추가합니다. [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins) 사용 방법에 대한 지침은 [지도에 핀 추가](map-add-pin.md)를 참조하세요.
+세 번째 코드 블록은 경로의 시작 및 끝 지점을 만들고 데이터 원본에 추가합니다. [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 사용 방법에 대한 지침은 [지도에 핀 추가](map-add-pin.md)를 참조하세요.
 
  [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest)는 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 선 개체를 지도에 선으로 렌더링합니다. 네 번째 코드 블록은 선 계층을 만들고 지도에 추가합니다. [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)에서 선 계층의 속성을 참조하세요.
 

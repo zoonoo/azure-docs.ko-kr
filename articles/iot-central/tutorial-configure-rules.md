@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 7bdfa1659a0c34b3456ed3e52c72cafafc8be034
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: d7269f61579ce1ffd9a686634effd153837a2f25
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993644"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662989"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>자습서: Azure IoT Central에서 디바이스에 대한 규칙 및 작업 구성
 
@@ -28,9 +28,11 @@ ms.locfileid: "52993644"
 > * 원격 분석 기반 규칙 만들기
 > * 작업 추가
 
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
-시작하기 전에 [응용 프로그램에서 새 디바이스 유형 정의](tutorial-define-device-type.md) 자습서를 완료해야 작업할 **연결된 공조 디바이스** 템플릿을 만들 수 있습니다.
+시작하기 전에 [애플리케이션에서 새 장치 유형 정의](tutorial-define-device-type.md) 자습서를 완료해야 작업할 **연결된 공조 장치** 템플릿을 만들 수 있습니다.
 
 ## <a name="create-a-telemetry-based-rule"></a>원격 분석 기반 규칙 만들기
 
@@ -56,7 +58,7 @@ ms.locfileid: "52993644"
 
     | 설정                                      | 값                             |
     | -------------------------------------------- | ------------------------------    |
-    | 이름                                         | 공조 장치 온도 경고 |
+    | Name                                         | 공조 장치 온도 경고 |
     | 이 템플릿의 모든 디바이스에 규칙 사용 | 다른                                |
     | 이 디바이스에서 규칙 사용                   | 다른                                |
     | 조건                                    | 온도가 90보다 큼    |

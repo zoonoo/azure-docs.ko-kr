@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 0b9f6e440140edbec59d1bf837a0dfb16ab44d5f
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 10e8a7dd256f796160b81b8ec1f566c5ed7e4cad
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323425"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750208"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>자습서: Azure Batch를 사용하여 장면 렌더링 
 
@@ -124,7 +124,7 @@ az storage blob upload-batch \
       "publisher": "batch",
       "offer": "rendering-windows2016",
       "sku": "rendering",
-      "version": "1.3.1"
+      "version": "1.3.2"
     },
     "nodeAgentSKUId": "batch.node.windows amd64"
   },
@@ -317,7 +317,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-태스크는 계산 노드에서 *dragon0002.jpg* - *dragon0007.jpg*라는 출력 파일을 생성하고, 저장소 계정의 *job-myrenderjob* 컨테이너에 업로드합니다. 출력을 보려면 [az storage blob download-batch](/cli/azure/storage/blob#az-storage-blob-download_batch) 명령을 사용하여 파일을 로컬 컴퓨터의 폴더로 다운로드합니다. 예: 
+태스크는 계산 노드에서 *dragon0002.jpg* - *dragon0007.jpg*라는 출력 파일을 생성하고, 저장소 계정의 *job-myrenderjob* 컨테이너에 업로드합니다. 출력을 보려면 [az storage blob download-batch](/cli/azure/storage/blob) 명령을 사용하여 파일을 로컬 컴퓨터의 폴더로 다운로드합니다. 예: 
 
 ```azurecli-interactive
 az storage blob download-batch \

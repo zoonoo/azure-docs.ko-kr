@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kaanan
-ms.openlocfilehash: 36de5ec6f7384663106bfb88ee9f236cced6930a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0662b66d44533a888d491810ba45efac9a397aa1
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997950"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700845"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 TAP 작업
 
@@ -79,7 +79,7 @@ Azure Virtual Network TAP(터미널 액세스 지점)를 사용하면 네트워�
    - Azure 내부 부하 분산 장치의 프런트 엔드 IP 구성을 이후 단계에서 사용되는 변수로 가져옵니다. 이 ID는 TAP 트래픽을 집계하는 엔드포인트입니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹의 *myInternalLoadBalancer* 부하 분산 장치에 대한 *frontendipconfig1* 프런트 엔드 IP 구성의 ID를 가져옵니다.
 
       ```azurecli-interactive
-      FrondendIpConfigId=$(az network lb fronend-ip show \
+      FrontendIpConfigId=$(az network lb frontend-ip show \
       --name frontendipconfig1 \
       --lb-name myInternalLoadBalancer \
       --resource-group myResourceGroup \

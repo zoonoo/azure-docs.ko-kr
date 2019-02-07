@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 0238c8f9c7a7e571ab23b3147381d7fa22c4d8d4
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: a05874e28c08087b6f82c3aa5a02e83d2629ffe5
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413314"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694689"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택 
 
@@ -184,7 +184,7 @@ Azure AD에서 확인할 수 없는 라우팅 불가능한 도메인의 경우 �
 |다단계 인증 옵션은 무엇인가요?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[조건부 액세스를 사용하는 사용자 지정 컨트롤*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[조건부 액세스를 사용하는 사용자 지정 컨트롤*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Azure MFA 서버](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[타사 MFA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[조건부 액세스를 사용하는 사용자 지정 컨트롤*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|
 |지원되는 사용자 계정 상태는 무엇인가요?|비활성화된 계정<br>(최대 30분 지연)|비활성화된 계정<br><br>계정 잠김<br><br>계정이 만료됨<br><br>암호 만료됨<br><br>로그인 시간|비활성화된 계정<br><br>계정 잠김<br><br>계정이 만료됨<br><br>암호 만료됨<br><br>로그인 시간|
 |조건부 액세스 옵션이란 무엇인가요?|[Azure AD 조건부 액세스, Azure AD Premium 사용](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD 조건부 액세스, Azure AD Premium 사용](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD 조건부 액세스, Azure AD Premium 사용](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[AD FS 클레임 규칙](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
-|레거시 프로토콜 차단이 지원되나요?|[예](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[예](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[예](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
+|레거시 프로토콜 차단이 지원되나요?|[예](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions)|[예](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions)|[예](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |로그인 페이지에서 로고, 이미지 및 설명을 사용자 지정할 수 있나요?|[예(Azure AD Premium의 경우)](https://docs.microsoft.com/azure/active-directory/customize-branding)|[예(Azure AD Premium의 경우)](https://docs.microsoft.com/azure/active-directory/customize-branding)|[예](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#customlogo)|
 |지원되는 고급 시나리오는 무엇인가요?|[스마트 암호 잠금](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)<br><br>[손실된 자격 증명 보고서, Azure AD Premium P2 사용](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)|[스마트 암호 잠금](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|다중 사이트 낮은 대기 시간 인증 시스템<br><br>[AD FS 엑스트라넷 잠금](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[타사 ID 시스템과 통합](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
 

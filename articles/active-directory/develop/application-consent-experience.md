@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: zawad
-ms.openlocfilehash: f5ec31cf0f88b9bfdff2e4fa877d56a2689054ae
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 233b77de4a034b5e87aeea2152a3fb6a71aeb8e6
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097948"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755388"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Azure AD 애플리케이션 동의 환경 이해
 
@@ -83,5 +83,5 @@ Azure AD(Azure Active Directory) 애플리케이션 동의 사용자 환경에 �
     1. 비관리 사용자에게는 위에 표시된 2.ii와 동일한 화면이 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure AD 동의 프레임워크가 동의를 구현하는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework)에 대한 단계별 개요 확인
+- [Azure AD 동의 프레임워크가 동의를 구현하는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)에 대한 단계별 개요 확인
 - 좀 더 깊이 있는 이해를 위해 [다중 테넌트 애플리케이션이 동의 프레임워크를 사용하여](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) "user" 및 "admin" 동의를 구현하고 좀 더 수준 높은 다중 계층 애플리케이션 패턴을 지원하는 방법 알아보기

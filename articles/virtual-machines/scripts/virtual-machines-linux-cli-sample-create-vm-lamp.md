@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: ceda12b71a58153995a23eabace37b4373b57ef2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ff4c41ff6428ba6ef88473508830ec8545be8778
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155173"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731107"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>부하가 분산된 가상 머신 확장 집합에서 LAMP 스택 배포
 
@@ -53,14 +53,14 @@ az group delete -n myResourceGroup
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az_vmss_create) | 가상 머신 확장 집합을 만듭니다. |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#az_network_lb_rule_create) | 부하가 분산된 엔드포인트를 추가합니다. |
-| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#az_vmss_extension_set) | VM 배포에서 사용자 지정 스크립트를 실행하는 확장을 만듭니다. |
-| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#az_vmss_update_instances) | 확장이 확장 집합에 적용되기 전에 배포된 VM 인스턴스에서 사용자 지정 스크립트를 실행합니다. |
-| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) | 더 많은 VM 인스턴스를 추가하여 확장 집합의 규모를 확장합니다. VM 인스턴스가 배포되면 사용자 지정 스크립트가 해당 VM 인스턴스에서 실행됩니다. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az vmss create](https://docs.microsoft.com/cli/azure/vmss) | 가상 머신 확장 집합을 만듭니다. |
+| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) | 부하가 분산된 엔드포인트를 추가합니다. |
+| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension) | VM 배포에서 사용자 지정 스크립트를 실행하는 확장을 만듭니다. |
+| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss) | 확장이 확장 집합에 적용되기 전에 배포된 VM 인스턴스에서 사용자 지정 스크립트를 실행합니다. |
+| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss) | 더 많은 VM 인스턴스를 추가하여 확장 집합의 규모를 확장합니다. VM 인스턴스가 배포되면 사용자 지정 스크립트가 해당 VM 인스턴스에서 실행됩니다. |
 | [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip) | 샘플에서 만든 VM의 IP 주소를 가져옵니다. |
-| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_show) | 부하 분산 장치에서 사용하는 프런트 엔드 포트와 백 엔드 포트를 가져옵니다. |
+| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb) | 부하 분산 장치에서 사용하는 프런트 엔드 포트와 백 엔드 포트를 가져옵니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

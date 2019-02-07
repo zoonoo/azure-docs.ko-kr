@@ -9,12 +9,12 @@ ms.date: 09/15/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 935119f2efe40ee22d2d11005fa79b12c712b7c2
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: cdf01fbbcc8ef1f90b2e0f8973f59c46c5bf70f8
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104576"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694128"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Go(미리 보기)에서 분산 추적 수집
 
@@ -24,7 +24,7 @@ ms.locfileid: "54104576"
 
 - Azure 구독이 필요합니다.
 - Go를 설치해야 합니다. 이 문서에서는 버전 1.11 [Go 다운로드](https://golang.org/dl/)를 사용합니다.
-- 지침에 따라 [로컬 전달자를 Windows 서비스로](./opencensus-local-forwarder.md#windows-service) 설치합니다.
+- 지침에 따라 [로컬 전달자를 Windows 서비스로](./opencensus-local-forwarder.md) 설치합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -57,7 +57,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    ![계측 키 스크린샷](./media/opencensus-Go/0003-instrumentation-key.png)
 
-2. `LocalForwarder.config` 파일을 편집하고 계측 키를 추가합니다. [필수 조건](./opencensus-local-forwarder.md#windows-service)의 지침을 따른 경우 이 파일은 `C:\LF-WindowsServiceHost`에 있습니다.
+2. `LocalForwarder.config` 파일을 편집하고 계측 키를 추가합니다. [필수 조건](./opencensus-local-forwarder.md)의 지침을 따른 경우 이 파일은 `C:\LF-WindowsServiceHost`에 있습니다.
 
     ```xml
       <OpenCensusToApplicationInsights>
@@ -186,7 +186,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 3. 간단한 Go 앱이 실행되면 `http://localhost:50030`으로 이동합니다. 브라우저를 새로 고칠 때마다 텍스트 “hello world”와 함께 로컬 전달자에서 선택된 해당 범위 데이터가 생성됩니다.
 
-4. **로컬 전달자**가 추적을 선택하는지 확인하려면 `LocalForwarder.config` 파일을 확인합니다. [필수 구성 요소](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service)의 단계를 따른 경우 `C:\LF-WindowsServiceHost`에 배치됩니다.
+4. **로컬 전달자**가 추적을 선택하는지 확인하려면 `LocalForwarder.config` 파일을 확인합니다. [필수 구성 요소](https://docs.microsoft.com/azure/application-insights/local-forwarder)의 단계를 따른 경우 `C:\LF-WindowsServiceHost`에 배치됩니다.
 
     로그 파일의 아래 이미지에서 내보내기를 추가한 두 번째 스크립트를 실행하기 전에 `OpenCensus input BatchesReceived`가 0인 것을 확인할 수 있습니다. 업데이트된 스크립트 실행을 시작했을 때 `BatchesReceived`가 입력한 값의 수와 동일하게 증가했습니다.
     

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2af1ad35ee5f7548352180026f1d613d27b6af46
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0e73c0f94e0aa240349aec45b4a146ba5eb37dab
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103522"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700777"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>보조 Azure 지역에 Azure VM의 재해 복구 설정
 
@@ -170,7 +170,7 @@ Site Recovery는 대상 지역에 대한 기본 설정 및 복제 정책을 만�
     - **앱 일치 스냅숏 빈도**: 기본적으로 Site Recovery는 4시간마다 앱 일치 스냅숏을 만듭니다. 이 값을 1-12시간 사이에서 구성할 수 있습니다. 앱 일치 스냅숏은 VM 내 애플리케이션 데이터의 지정 시간 스냅숏입니다. VSS(볼륨 섀도 복사본 서비스)는 스냅숏을 만들 때 VM의 앱이 일관된 상태가 되도록 합니다.
     - **복제 그룹**: 애플리케이션에서 여러 VM 간에 다중 VM 일관성을 유지해야 하는 경우 해당 VM에 대한 복제 그룹을 만들 수 있습니다. 선택한 VM은 기본적으로 복제 그룹에 포함되지 않습니다.
 
-5. 새 또는 기존 복제 그룹에 VM을 추가하려는 경우  **사용자 지정**에서 다중 VM 일관성에 대해 **예**를 선택합니다. VM을 복제 그룹의 일부로 만듭니다. 그런 후 **OK**를 클릭합니다.
+5. 새 또는 기존 복제 그룹에 VM을 추가하려는 경우  **사용자 지정**에서 다중 VM 일관성에 대해 **예**를 선택합니다. 그런 후 **OK**를 클릭합니다.
 
     - 복제 그룹의 모든 컴퓨터는 장애 조치(failover) 시에 충돌 일치/앱 일치 복구 지점을 공유합니다. 다중 VM 일관성을 사용하도록 설정하면 워크로드 성능에 영향을 줄 수 있으며(CPU 집약적이므로), 머신에서 동일한 워크로드를 실행하며 여러 머신에서 일관성이 필요한 경우에만 사용해야 합니다.
     - 복제 그룹에 최대 16개의 가상 머신이 포함되도록 선택할 수 있습니다.

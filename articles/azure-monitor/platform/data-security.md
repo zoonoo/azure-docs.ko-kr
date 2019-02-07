@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 7152582a73dbaf07eca4aae066c9ac3ab82c3135
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: e520c5dc2ae086305692c4bec1e1786d335c97e5
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319055"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765996"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 데이터 보안
 이 문서는 [Azure 보안 센터](../../security/security-microsoft-trust-center.md)의 정보를 보완하기 위해 Azure Monitor의 기능인 Log Analytics에 고유한 정보를 제공합니다.  
@@ -52,7 +52,6 @@ TLS 1.3 등을 사용할 수 있게 되면 더 안전한 최신 프로토콜을 
 | Windows 8.0 - 10 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면  |
 | Windows Server 2012 - 2016 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면 |
 | Windows 7 SP1 및 Windows Server 2008 R2 SP1 | 지원됨, 하지만 기본적으로 활성화되지 않습니다. | 활성화하는 방법에 대한 자세한 내용은 [TLS(전송 계층 보안) 레지스트리 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) 페이지를 참조하세요.  |
-| Windows Server 2008 SP2 | TLS 1.2에 대한 지원에는 업데이트가 필요합니다. | Windows Server 2008 SP2에서 [TLS 1.2에 대한 지원을 추가하는 업데이트](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s)를 참조하세요. |
 
 ## <a name="data-segregation"></a>데이터 분리
 Log Analytics 서비스에서 데이터를 수집하면 해당 데이터는 서비스 전체에 있는 각 구성 요소에 논리적으로 분리되어 보관됩니다. 모든 데이터에는 작업 영역별로 태그가 지정됩니다. 이 태그는 데이터 수명 주기 동안 유지되며 서비스의 각 계층에서 적용됩니다. 사용자의 데이터는 사용자가 선택한 영역의 저장소 클러스터에 있는 전용 데이터베이스에 저장됩니다.

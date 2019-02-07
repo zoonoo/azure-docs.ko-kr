@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 64aa936dc1dbb1d2a700a31253cf7a3caee6b66f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4fae4486e6cf47892ba2133885ec864969f66001
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436777"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663607"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Azure 네트워크 인터페이스용 IP 주소 추가, 변경 또는 제거
 
@@ -51,8 +51,8 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [네트워크 �
 
     |설정|Required?|세부 정보|
     |---|---|---|
-    |이름|예|네트워크 인터페이스에 대해 고유해야 합니다.|
-    |type|예|기존 네트워크 인터페이스에 IP 구성을 추가할 것이며, 각 NIC에는 [기본](#primary) IP 구성이 있어야 하므로 **보조** 옵션만 선택 가능합니다.|
+    |Name|예|네트워크 인터페이스에 대해 고유해야 합니다.|
+    |Type|예|기존 네트워크 인터페이스에 IP 구성을 추가할 것이며, 각 NIC에는 [기본](#primary) IP 구성이 있어야 하므로 **보조** 옵션만 선택 가능합니다.|
     |개인 IP 주소 할당 방법|예|[**동적**](#dynamic): Azure는 네트워크 인터페이스가 배포된 서브넷 주소 범위에 대해 사용 가능한 다음 주소를 할당합니다. [**정적**](#static): 네트워크 인터페이스가 배포된 서브넷 주소 범위에 대해 사용되지 않는 주소를 할당합니다.|
     |공용 IP 주소|아니요|**사용 안 함:** 현재 공용 IP 주소 리소스는 IP 구성과 연결되지 않습니다. **사용:** 기존 IPv4 공용 IP 주소를 선택하거나 새 공용 IP 주소를 만듭니다. 공용 IP 주소를 만드는 방법에 대한 자세한 내용은 [공용 IP 주소](virtual-network-public-ip-address.md#create-a-public-ip-address) 문서를 참조하세요.|
 6. [가상 머신 운영 체제에 여러 IP 주소 할당](virtual-network-multiple-ip-addresses-portal.md#os-config) 문서의 지침을 수행하여 가상 머신 운영 체제에 보조 개인 IP 주소를 수동으로 추가합니다. 가상 머신 운영 체제에 IP 주소를 수동으로 추가하기 전에 고려해야 하는 특수한 사항은 [개인](#private) IP 주소를 참조하세요. 가상 머신 운영 체제에는 공용 IP 주소를 추가하지 마세요.
@@ -61,7 +61,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [네트워크 �
 
 |도구|명령|
 |---|---|
-|CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_create)|
+|CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig)|
 
 ## <a name="change-ip-address-settings"></a>IP 주소 설정 변경
@@ -82,7 +82,7 @@ IPv4 주소의 할당 방법을 변경하거나, 고정 IPv4 주소를 변경하
 
 |도구|명령|
 |---|---|
-|CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
+|CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
 
 ## <a name="remove-ip-addresses"></a>IP 주소 제거
@@ -98,7 +98,7 @@ IPv4 주소의 할당 방법을 변경하거나, 고정 IPv4 주소를 변경하
 
 |도구|명령|
 |---|---|
-|CLI|[az network nic ip-config delete](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_delete)|
+|CLI|[az network nic ip-config delete](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig)|
 
 ## <a name="ip-configurations"></a>IP 구성
@@ -144,7 +144,7 @@ IPv4 주소의 할당 방법을 변경하거나, 고정 IPv4 주소를 변경하
 4. 가상 머신을 시작합니다.
 5. 운영 체제 내의 보조 IP 주소와 Windows 내의 기본 IP 주소를 Azure에서 설정한 주소와 일치하도록 [수동으로 구성](virtual-network-multiple-ip-addresses-portal.md#os-config)합니다.
 
-위의 단계를 수행하면 가상 컴퓨터 운영 체제 내와 Azure 내에서 네트워크 인터페이스에 할당된 개인 IP 주소는 동일하게 유지됩니다. 운영 체제 내에서 IP 주소를 수동으로 설정한 구독 내의 가상 머신을 추적하려는 경우 가상 머신에 Azure [태그](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags)를 추가할 수 있습니다. 예를 들어 "IP 주소 할당: 정적" 등을 사용할 수 있습니다. 이렇게 하면 운영 체제 내에서 IP 주소를 수동으로 설정한 구독 내 가상 머신을 쉽게 찾을 수 있습니다.
+위의 단계를 수행하면 가상 컴퓨터 운영 체제 내와 Azure 내에서 네트워크 인터페이스에 할당된 개인 IP 주소는 동일하게 유지됩니다. 운영 체제 내에서 IP 주소를 수동으로 설정한 구독 내의 가상 머신을 추적하려는 경우 가상 머신에 Azure [태그](../azure-resource-manager/resource-group-using-tags.md)를 추가할 수 있습니다. 예를 들어 "IP 주소 할당: 정적" 등을 사용할 수 있습니다. 이렇게 하면 운영 체제 내에서 IP 주소를 수동으로 설정한 구독 내 가상 머신을 쉽게 찾을 수 있습니다.
 
 또한 개인 IP 주소가 있으면 가상 머신이 같은 가상 네트워크 또는 연결된 가상 네트워크 내의 다른 리소스와 통신할 수 있을 뿐 아니라 인터넷과 아웃바운드로도 통신할 수 있습니다. 아웃바운드 연결은 Azure에서 예측할 수 없는 공용 IP 주소로 변환하는 소스 네트워크 주소입니다. Azure 아웃바운드 인터넷 연결에 대해 자세히 알아보려면 [Azure 아웃바운드 인터넷 연결](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서를 참조하세요. 인터넷에서 가상 머신 개인 IP 주소로의 인바운드 통신은 불가능합니다. 아웃 바운드 연결에 예측 가능한 공용 IP 주소가 필요한 경우 네트워크 인터페이스에 공용 IP 주소 리소스를 연결합니다.
 

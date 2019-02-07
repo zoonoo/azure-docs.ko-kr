@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 666e2e63b4e61f5a44fdff9175ff696e72d86138
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 58fef0357a903f2ab1d238bbab7b2d9dca673eb4
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856533"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662060"
 ---
 # <a name="deprecated-deploy-a-kubernetes-cluster-in-azure-container-service"></a>(사용되지 않음) Azure Container Service에서 Kubernetes 클러스터 배포
 
@@ -54,7 +54,7 @@ az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --
 
 클라이언트 컴퓨터에서 Kubernetes 클러스터에 연결하려면 Kubernetes 명령줄 클라이언트인 [kubectl](https://kubernetes.io/docs/user-guide/kubectl/)을 사용합니다. 
 
-Azure Cloud Shell을 사용하는 경우 kubectl이 이미 설치되어 있습니다. 로컬로 설치하려면 [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) 명령을 사용합니다.
+Azure Cloud Shell을 사용하는 경우 kubectl이 이미 설치되어 있습니다. 로컬로 설치하려면 [az acs kubernetes install-cli](/cli/azure/acs/kubernetes) 명령을 사용합니다.
 
 Linux 또는 macOS에서 실행하는 경우 sudo를 사용하여 실행해야 할 수 있습니다. Windows에서는 셸이 관리자 권한으로 실행되었는지 확인합니다.
 

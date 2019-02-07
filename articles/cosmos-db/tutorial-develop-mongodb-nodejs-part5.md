@@ -12,12 +12,12 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
-ms.openlocfilehash: b550107056ec22af3a18ce0396559ad4ef8d245b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4e7aa9931ffb268f787882729341fbe860255f70
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034287"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767862"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Mongoose를 사용하여 Cosmos DB에 연결
 
@@ -234,7 +234,7 @@ hero 모델을 만든 후에는 데이터를 읽고 나열, 만들기, 삭제 �
 
 1. Visual Studio Code에서 모든 변경 내용을 저장합니다. 왼쪽에서 **디버그** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png)를 선택한 다음, **디버깅 시작** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png)를 선택합니다.
 
-1. 이제 브라우저로 전환합니다. **개발자 도구**를 열고 **네트워크 탭**을 엽니다. http://localhost:3000으로 이동하면 애플리케이션을 볼 수 있습니다.
+1. 이제 브라우저로 전환합니다. **개발자 도구**를 열고 **네트워크 탭**을 엽니다. `http://localhost:3000`으로 이동하면 애플리케이션을 볼 수 있습니다.
 
     ![Azure Portal의 새 Azure Cosmos DB 계정](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 

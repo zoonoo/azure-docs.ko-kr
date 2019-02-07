@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: b8ca2d74012418dbd8ca9e878f133a250ebb5991
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: f5f62a6bfa1baa205e0496dd901f1f1eef660079
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465103"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698193"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>CLI를 사용하여 경로 기반 VPN 게이트웨이 만들기
 
@@ -26,7 +26,7 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에�
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
+[az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
 
 ```azurecli-interactive 
@@ -35,7 +35,7 @@ az group create --name TestRG1 --location eastus
 
 ## <a name="vnet"></a>가상 네트워크 만들기
 
-[az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) 명령을 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 **EastUS** 위치에 **VNet1**이라는 가상 네트워크를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet) 명령을 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 **EastUS** 위치에 **VNet1**이라는 가상 네트워크를 만듭니다.
 
 ```azurecli-interactive 
 az network vnet create \
@@ -56,7 +56,7 @@ az network vnet subnet create \
   --vnet-name VNet1 \
   -n GatewaySubnet \
   -g TestRG1 \
-  --address-prefix 10.1.255.0/27 
+  --address-prefix 10.1.255.0/27 
 ```
 
 ## <a name="PublicIP"></a>공용 IP 주소 요청
@@ -67,12 +67,12 @@ VPN 게이트웨이에는 동적으로 할당된 공용 IP 주소가 있어야 �
 az network public-ip create \
   -n VNet1GWIP \
   -g TestRG1 \
-  --allocation-method Dynamic 
+  --allocation-method Dynamic 
 ```
 
 ## <a name="CreateGateway"></a>VPN 게이트웨이 만들기
 
-[az network vnet-gateway create](/cli/azure/group#az_network_vnet_gateway_create) 명령을 사용하여 VPN Gateway를 만듭니다.
+[az network vnet-gateway create](/cli/azure/group) 명령을 사용하여 VPN Gateway를 만듭니다.
 
 `--no-wait` 매개 변수를 사용하여 이 명령을 실행하면 피드백 또는 출력이 보이지 않습니다. `--no-wait` 매개 변수는 백그라운드에서 게이트웨이를 만드는 것을 허용합니다. VPN 게이트웨이가 즉시 만들어진다는 것을 의미하지는 않습니다.
 
@@ -172,7 +172,7 @@ az network public-ip show \
 ```
 ## <a name="clean-up-resources"></a>리소스 정리
 
-만든 리소스가 더 이상 필요하지 않으면 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용하여 리소스 그룹을 삭제합니다. 그러면 리소스 그룹 및 포함된 모든 리소스가 삭제됩니다.
+만든 리소스가 더 이상 필요하지 않으면 [az group delete](/cli/azure/group) 명령을 사용하여 리소스 그룹을 삭제합니다. 그러면 리소스 그룹 및 포함된 모든 리소스가 삭제됩니다.
 
 ```azurecli-interactive 
 az group delete --name TestRG1 --yes

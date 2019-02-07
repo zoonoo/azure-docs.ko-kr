@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 3a2e48697efbe0f4969a8fae20c050a38645ed6f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9ede1b48d1b69c738e335676f10233af72e8564e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462082"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754424"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>빠른 시작: Python API를 사용하여 첫 번째 Batch 작업 실행
 
@@ -153,7 +153,7 @@ Batch 풀을 만들려면 앱에서 [PoolAddParameter](/python/api/azure.batch.m
 
 노드 수(`_POOL_NODE_COUNT`)와 VM 크기(`_POOL_VM_SIZE`)는 상수로 정의됩니다. 샘플은 기본적으로 *Standard_A1_v2* 크기인 2개 노드로 구성되는 풀을 만듭니다. 제안된 크기는 이 빠른 예제의 성능과 비용에 대한 적절한 균형을 제공합니다.
 
-[pool.add](/python/api/azure.batch.operations.pooloperations#azure_batch_operations_PoolOperations_add) 메서드는 풀을 Batch 서비스에 제출합니다.
+[pool.add](/python/api/azure.batch.operations.pooloperations) 메서드는 풀을 Batch 서비스에 제출합니다.
 
 ```python
 new_pool = batch.models.PoolAddParameter(
@@ -187,7 +187,7 @@ batch_service_client.job.add(job)
 
 앱에서 [TaskAddParameter](/python/api/azure.batch.models.taskaddparameter) 클래스를 사용하여 태스크 개체의 목록을 만듭니다. 각 태스크는 `command_line` 매개 변수를 사용하여 `resource_files` 입력 개체를 처리합니다. 이 샘플에서는 명령줄에서 `cat` Bash 셸 명령을 실행하여 텍스트 파일을 표시합니다. 이 명령은 간단한 데모용 예제입니다. Batch를 사용하면 명령줄에서 앱 또는 스크립트를 지정합니다. Batch는 계산 노드에 앱과 스크립트를 배포하는 여러 가지 방법을 제공합니다.
 
-그런 다음 앱은 계산 노드에서 실행되도록 큐에 넣는 [task.add_collection](/python/api/azure.batch.operations.taskoperations#azure_batch_operations_TaskOperations_add_collection) 메서드를 사용하여 작업에 태스크를 추가합니다. 
+그런 다음 앱은 계산 노드에서 실행되도록 큐에 넣는 [task.add_collection](/python/api/azure.batch.operations.taskoperations) 메서드를 사용하여 작업에 태스크를 추가합니다. 
 
 ```python
 tasks = list()

@@ -9,12 +9,12 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 08/13/2018
 ms.author: shvija
-ms.openlocfilehash: f8cd167d8de738674939180e0d81fc9282434155
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: b09f39f45936a7c43dbc1ef109780315d62c768f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450458"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728422"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>Event Hubs .NET Standard API 개요
 
@@ -35,7 +35,7 @@ ms.locfileid: "54450458"
 var eventHubClient = EventHubClient.CreateFromConnectionString("Event Hubs connection string");
 ```
 
-프로그래밍 방식으로 연결 문자열을 편집하려면 [EventHubsConnectionStringBuilder](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) 클래스를 사용하고 연결 문자열을 [EventHubClient.CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_)에 대한 매개 변수로 전달할 수 있습니다.
+프로그래밍 방식으로 연결 문자열을 편집하려면 [EventHubsConnectionStringBuilder](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) 클래스를 사용하고 연결 문자열을 [EventHubClient.CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)에 대한 매개 변수로 전달할 수 있습니다.
 
 ```csharp
 var connectionStringBuilder = new EventHubsConnectionStringBuilder("Event Hubs connection string")
@@ -65,7 +65,7 @@ Event Hubs에서 이벤트를 수신하는 권장 방법은 이벤트 허브 오
 
 #### <a name="create-a-receiver"></a>수신기 만들기
 
-수신기는 특정 파티션에 연결되어 있으므로 이벤트 허브에서 모든 이벤트를 수신하려면 여러 인스턴스를 만들어야 합니다. 파티션 ID를 하드 코딩하는 것보다 프로그래밍 방식으로 파티션 정보를 가져오는 것이 좋습니다. 이렇게 하기 위해 [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) 메서드를 사용할 수 있습니다.
+수신기는 특정 파티션에 연결되어 있으므로 이벤트 허브에서 모든 이벤트를 수신하려면 여러 인스턴스를 만들어야 합니다. 파티션 ID를 하드 코딩하는 것보다 프로그래밍 방식으로 파티션 정보를 가져오는 것이 좋습니다. 이렇게 하기 위해 [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) 메서드를 사용할 수 있습니다.
 
 ```csharp
 // Create a list to keep track of the receivers

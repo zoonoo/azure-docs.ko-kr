@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: d039654fc1d652a3997515a12caa48acaac124fe
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 194b13e889de4bc1c5938a6ce9cfded6fe2c88c8
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425295"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768279"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Azure File Storage와 함께 Storage 탐색기 사용
 
-Azure 파일 저장소는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. SMB 2.1과 SMB 3.0 모두를 지원합니다. Azure 파일 스토리지를 사용하여 파일 공유에 의존하는 레거시 애플리케이션을 비경제적인 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. 파일 저장소를 사용하여 세상에 공개적으로 표시하거나 애플리케이션 데이터를 비공개적으로 저장할 수 있습니다. 이 문서에서는 저장소 탐색기를 사용하여 파일 공유 및 파일을 작업하는 방법을 알아봅니다.
+Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. SMB 2.1과 SMB 3.0 모두를 지원합니다. Azure File Storage를 사용하여 파일 공유에 의존하는 레거시 응용 프로그램을 비경제적인 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. File Storage를 사용하여 세상에 공개적으로 표시하거나 응용 프로그램 데이터를 비공개적으로 저장할 수 있습니다. 이 문서에서는 저장소 탐색기를 사용하여 파일 공유 및 파일을 작업하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -47,7 +47,7 @@ Azure 파일 저장소는 표준 SMB(서버 메시지 블록) 프로토콜을 �
 
     ![파일 공유 만들기](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-1. 텍스트 상자가 **파일 공유** 폴더 아래에 표시됩니다. 파일 공유에 대한 이름을 입력합니다. 파일 공유 이름 명명 규칙 및 제한 사항 목록은 [공유 이름 명명 규칙](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container) 섹션을 참조하세요.
+1. 텍스트 상자가 **파일 공유** 폴더 아래에 표시됩니다. 파일 공유에 대한 이름을 입력합니다. 파일 공유 이름 명명 규칙 및 제한 사항 목록은 [공유 이름 명명 규칙](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs) 섹션을 참조하세요.
 
     ![공유 이름 지정](media/vs-azure-tools-storage-explorer-files/image2.png)
 
@@ -261,4 +261,4 @@ Azure 파일 저장소는 표준 SMB(서버 메시지 블록) 프로토콜을 �
 
 - [최신 Storage 탐색기 릴리스 정보 및 비디오](https://www.storageexplorer.com/)를 보세요.
 
-- [Azure blob, 테이블, 큐 및 파일을 사용하여 응용 프로그램을 작성](https://azure.microsoft.com/documentation/services/storage/)하는 방법 알아보기.
+- [Azure blob, 테이블, 큐 및 파일을 사용하여 애플리케이션을 작성](https://azure.microsoft.com/documentation/services/storage/)하는 방법 알아보기.

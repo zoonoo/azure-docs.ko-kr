@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 9a394c0dff74ec5f926356a3d700c5bbba4c0e4f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b36db929d1ed6487f0da72bea5415d6ca4223b92
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478290"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756049"
 ---
 # <a name="in-memory-sample"></a>메모리 내 샘플
 
@@ -46,7 +46,7 @@ Azure SQL Database에서 메모리 내 기술을 사용하면 애플리케이션
 
 #### <a name="installation-steps"></a>설치 단계
 
-1. [Azure Portal](https://portal.azure.com/)에서 서버에 프리미엄 또는 중요 비즈니스용 데이터베이스를 만듭니다. AdventureWorksLT 샘플 데이터베이스에 **소스**를 설정합니다. 자세한 지침은 [첫 번째 Azure SQL Database 만들기](sql-database-get-started-portal.md)를 참조하세요.
+1. [Azure Portal](https://portal.azure.com/)에서 서버에 프리미엄 또는 중요 비즈니스용 데이터베이스를 만듭니다. AdventureWorksLT 샘플 데이터베이스에 **소스**를 설정합니다. 자세한 지침은 [첫 번째 Azure SQL Database 만들기](sql-database-single-database-get-started.md)를 참조하세요.
 
 2. SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx)를 사용하여 데이터베이스에 연결합니다.
 

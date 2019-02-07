@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 952dd97a06718d0c29f9c6f5abc79da592e6f3ae
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 55cbca97d369bea80ea9caece14754e81b5738a1
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117813"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661516"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 웹 페이지 또는 앱의 성능 및 사용 현황에 대해 알아봅니다. 페이지 스크립트에 [Application Insights](../../azure-monitor/app/app-insights-overview.md)를 추가하면 페이지 로드 및 AJAX 호출의 타이밍, 브라우저 예외 및 AJAX 실패의 개수 및 세부 정보뿐만 아니라 사용자 및 세션 개수를 얻을 수 있습니다. 이러한 모든 요소를 페이지, 클라이언트 OS 및 브라우저 버전, 지리적 위치 및 기타 차원으로 분할할 수 있습니다. 실패 횟수 또는 느린 페이지 로딩에 대한 경고를 설정할 수도 있습니다. 또한 JavaScript 코드에 추적 호출을 삽입하여 웹 페이지 애플리케이션의 다양한 기능 사용 방법을 추적할 수 있습니다.
@@ -206,7 +206,7 @@ Ajax 호출은 웹 페이지의 스크립트에서 이루어진 HTTP/HTTPS 호�
 > 
 > 
 
-또한 강력한 [Log Analytics 쿼리 언어](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table)를 사용하여 페이지 보기를 검색할 수 있습니다.
+또한 강력한 [Log Analytics 쿼리 언어](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour)를 사용하여 페이지 보기를 검색할 수 있습니다.
 
 ### <a name="page-view-properties"></a>페이지 보기 속성
 * **페이지 보기 기간** 

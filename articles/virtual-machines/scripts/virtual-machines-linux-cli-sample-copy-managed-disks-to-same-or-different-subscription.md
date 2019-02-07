@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 4f870c052d83352c8cfd692ea5f30a42071c95a0
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: aea21d09aa37eb2f0902df6245e9baebfcbb37fd
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582046"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698568"
 ---
 # <a name="copy-managed-disks-to-same-or-different-subscription-with-cli"></a>CLI를 사용하여 관리 디스크를 동일한 구독이나 다른 구독으로 복사
 
@@ -43,8 +43,8 @@ ms.locfileid: "53582046"
 
 | 명령 | 메모 |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | 관리 디스크의 이름 및 리소스 그룹 속성을 사용하여 관리 디스크의 모든 속성을 가져옵니다. Id 속성은 관리 디스크를 다른 구독으로 복사하는 데 사용됩니다.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | 부모 관리 디스크의 Id 및 이름을 사용하여 다른 구독에서 새 관리 디스크를 만들어 관리 디스크를 복사합니다.  |
+| [az disk show](https://docs.microsoft.com/cli/azure/disk) | 관리 디스크의 이름 및 리소스 그룹 속성을 사용하여 관리 디스크의 모든 속성을 가져옵니다. Id 속성은 관리 디스크를 다른 구독으로 복사하는 데 사용됩니다.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk) | 부모 관리 디스크의 Id 및 이름을 사용하여 다른 구독에서 새 관리 디스크를 만들어 관리 디스크를 복사합니다.  |
 
 ## <a name="next-steps"></a>다음 단계
 

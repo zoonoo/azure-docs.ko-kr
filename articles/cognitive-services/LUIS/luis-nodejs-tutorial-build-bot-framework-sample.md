@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: 63a6d1314b89181b5cccf8583883b7bead7099a4
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8539c108409a5aea521f919eb9e015764eb0dd29
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221235"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490144"
 ---
 # <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot Framework 3.x 및 Azure 웹앱 봇을 사용하는 Node.js의 LUIS 봇
 
@@ -116,7 +116,7 @@ LUIS 앱 ID가 없는 경우, Azure에 로그인하는 데 사용하는 것과 �
 
 코드 편집기에서 `app.js`를 엽니다. 다음 코드를 포함합니다.
 
-```nodejs
+```javascript
 /*-----------------------------------------------------------------------------
 A simple Language Understanding (LUIS) bot for the Microsoft Bot Framework. 
 -----------------------------------------------------------------------------*/
@@ -207,7 +207,7 @@ app.js의 기존 의도는 무시됩니다. 그대로 유지해도 됩니다.
 
 다음 코드를 복사하고 `app.js`에 추가합니다.
 
-```nodejs
+```javascript
 bot.dialog('TurnOn',
     (session) => {
         session.send('You reached the TurnOn intent. You said \'%s\'.', session.message.text);
@@ -224,7 +224,7 @@ bot.dialog('TurnOn',
 
 다음 코드를 복사하고 `app.js`에 추가합니다.
 
-```nodejs
+```javascript
 bot.dialog('TurnOff',
     (session) => {
         session.send('You reached the TurnOff intent. You said \'%s\'.', session.message.text);

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/17/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 238b75681ec525187ea27f60ac8b21b05b13954d
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f2bd1d863a7900b50712eb23c1088c6b271befa3
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063117"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755898"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 
@@ -199,7 +199,7 @@ Application Map이 예상대로 작동하지 않는 경우 다음 단계를 수�
 
 3. C#으로 Azure Functions를 사용하는 경우 [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions)로 업그레이드합니다.
 
-4. [cloud_RoleName](app-map.md#Set-cloud-RoleName)이 올바르게 구성되었는지 확인합니다.
+4. [cloud_RoleName](app-map.md#set-cloudrolename)이 올바르게 구성되었는지 확인합니다.
 
 5. 종속성이 누락된 경우 [자동 수집 종속성](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies) 목록에 들어 있는지 확인합니다. 이 목록에 없어도 [종속성 호출 추적](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency)을 사용하여 수동으로 계속 추적할 수 있습니다.
 

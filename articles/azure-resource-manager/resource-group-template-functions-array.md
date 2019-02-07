@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/8/2018
 ms.author: tomfitz
-ms.openlocfilehash: 660764183cdee911c49dedf74893f3d368cd9492
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346629"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488704"
 ---
-# <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에 대한 배열 및 개체 함수 
+# <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에 대한 배열 및 개체 함수
 
 Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공합니다.
 
@@ -47,6 +47,8 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 
 <a id="array" />
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="array"></a>array
 `array(convertToArray)`
 
@@ -56,7 +58,7 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| convertToArray |yes |int, 문자열, 배열 또는 개체 |배열로 변환할 값입니다. |
+| convertToArray |예 |int, 문자열, 배열 또는 개체 |배열로 변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -120,7 +122,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
 ```
 
 <a id="coalesce" />
@@ -134,7 +136,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |int, 문자열, 배열 또는 개체 |null인지 테스트할 첫 번째 값입니다. |
+| arg1 |예 |int, 문자열, 배열 또는 개체 |null인지 테스트할 첫 번째 값입니다. |
 | 추가 인수 |아니요 |int, 문자열, 배열 또는 개체 |null인지 테스트할 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
@@ -194,7 +196,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
 | stringOutput | 문자열 | 기본값 |
-| intOutput | int | 1 |
+| intOutput | Int | 1 |
 | objectOutput | Object | {"first": "default"} |
 | arrayOutput | 배열 | [1] |
 | emptyOutput | Bool | True |
@@ -208,7 +210,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
 ```
 
 <a id="concat" />
@@ -282,7 +284,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
 ```
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json)에서는 2개의 문자열 값을 결합하고 연결된 문자열을 반환하는 방법을 보여줍니다.
@@ -322,7 +324,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
 ```
 
 <a id="contains" />
@@ -416,7 +418,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
 ```
 
 <a id="createarray" />
@@ -430,7 +432,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |문자열, 정수, 배열 또는 개체 |배열의 첫 번째 값입니다. |
+| arg1 |예 |문자열, 정수, 배열 또는 개체 |배열의 첫 번째 값입니다. |
 | 추가 인수 |아니요 |문자열, 정수, 배열 또는 개체 |배열의 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
@@ -496,7 +498,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
 ```
 
 <a id="empty" />
@@ -575,7 +577,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
 ```
 
 <a id="first" />
@@ -640,7 +642,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
 ```
 
 <a id="intersection" />
@@ -654,8 +656,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |배열 또는 개체 |공통 요소를 찾는 데 사용할 첫 번째 값입니다. |
-| arg2 |yes |배열 또는 개체 |공통 요소를 찾는 데 사용할 두 번째 값입니다. |
+| arg1 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 첫 번째 값입니다. |
+| arg2 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 두 번째 값입니다. |
 | 추가 인수 |아니요 |배열 또는 개체 |공통 요소를 찾는 데 사용할 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
@@ -719,7 +721,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
 ```
 
 ## <a name="json"></a>json :
@@ -731,7 +733,7 @@ JSON 개체를 반환합니다.
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |string |JSON으로 변환할 값입니다. |
+| arg1 |예 |string |JSON으로 변환할 값입니다. |
 
 
 ### <a name="return-value"></a>반환 값
@@ -792,7 +794,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
 ```
 
 <a id="last" />
@@ -857,7 +859,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
 ```
 
 <a id="length" />
@@ -929,7 +931,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
 ```
 
 배열과 함께 이 함수를 사용하면 리소스를 만들 때 반복 횟수를 지정할 수 있습니다. 다음 예제에서 매개 변수 **siteNames** 는 웹 사이트를 만들 때 사용할 이름 배열을 나타냅니다.
@@ -954,7 +956,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
+| arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -992,8 +994,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| arrayOutput | int | 5 |
-| intOutput | int | 5 |
+| arrayOutput | Int | 5 |
+| intOutput | Int | 5 |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -1004,7 +1006,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
 ```
 
 <a id="min" />
@@ -1018,7 +1020,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
+| arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1056,8 +1058,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
-| arrayOutput | int | 0 |
-| intOutput | int | 0 |
+| arrayOutput | Int | 0 |
+| intOutput | Int | 0 |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -1068,7 +1070,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
 ```
 
 <a id="range" />
@@ -1082,8 +1084,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| startingInteger |yes |int |배열에서 첫 번째 정수입니다. |
-| numberofElements |yes |int |배열에 있는 정수의 수입니다. |
+| startingInteger |예 |int |배열에서 첫 번째 정수입니다. |
+| numberofElements |예 |int |배열에 있는 정수의 수입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1132,7 +1134,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
 ```
 
 <a id="skip" />
@@ -1213,7 +1215,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
 ```
 
 <a id="take" />
@@ -1294,7 +1296,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
 ```
 
 <a id="union" />
@@ -1308,8 +1310,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |배열 또는 개체 |요소를 조인하는 데 사용할 첫 번째 값입니다. |
-| arg2 |yes |배열 또는 개체 |요소를 조인하는 데 사용할 두 번째 값입니다. |
+| arg1 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 첫 번째 값입니다. |
+| arg2 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 두 번째 값입니다. |
 | 추가 인수 |아니요 |배열 또는 개체 |요소를 조인하는 데 사용할 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
@@ -1373,7 +1375,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 10f84a758bdb2e01793aee06cba59a29b5639775
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: df56fd00d5a5ff2f9e9000b39939d0f33b3737d5
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470963"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752350"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 Batch 작업 실행
 
@@ -139,7 +139,7 @@ az batch task show \
 
 ## <a name="view-task-output"></a>태스크 출력 보기
 
-계산 노드에서 태스크로 만들어진 파일을 나열하려면 [az batch task file list](/cli/azure/batch/task#az-batch-task-file-list) 명령을 사용합니다. 다음 명령은 *mytask1*로 만들어진 파일을 나열합니다. 
+계산 노드에서 태스크로 만들어진 파일을 나열하려면 [az batch task file list](/cli/azure/batch/task) 명령을 사용합니다. 다음 명령은 *mytask1*로 만들어진 파일을 나열합니다. 
 
 ```azurecli-interactive 
 az batch task file list \
@@ -160,7 +160,7 @@ stderr.txt  https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/myta
 
 ```
 
-출력 파일 중 하나를 로컬 디렉터리에 다운로드하려면 [az batch task file download](/cli/azure/batch/task#az-batch-task-file-download) 명령을 사용합니다. 이 예제에서 태스크 출력은 `stdout.txt`에 있습니다. 
+출력 파일 중 하나를 로컬 디렉터리에 다운로드하려면 [az batch task file download](/cli/azure/batch/task) 명령을 사용합니다. 이 예제에서 태스크 출력은 `stdout.txt`에 있습니다. 
 
 ```azurecli-interactive
 az batch task file download \

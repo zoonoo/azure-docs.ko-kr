@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: c5df6d1b3480a93a0667aaec0bcf0e171d4a0fe6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b84d7a6f266ffae062d861c53a229225403e07c5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101756"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727996"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스에 대한 개발자 지침
 
@@ -77,7 +77,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ### <a name="prerequisites"></a>필수 조건
 
-Azure AD 조건부 액세스는 [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis#choose-an-edition)에 포함된 기능입니다. [허가되지 않은 사용 현황 보고서](../active-directory-conditional-access-unlicensed-usage-report.md)에서 라이선스 요구 사항에 대해 자세히 알아볼 수 있습니다. 개발자는 Azure AD Premium이 포함된 Enterprise Mobility Suite에 대한 평가판 구독이 속한 [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx)에 참여할 수 있습니다.
+Azure AD 조건부 액세스는 [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)에 포함된 기능입니다. [허가되지 않은 사용 현황 보고서](../active-directory-conditional-access-unlicensed-usage-report.md)에서 라이선스 요구 사항에 대해 자세히 알아볼 수 있습니다. 개발자는 Azure AD Premium이 포함된 Enterprise Mobility Suite에 대한 평가판 구독이 속한 [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx)에 참여할 수 있습니다.
 
 ### <a name="considerations-for-specific-scenarios"></a>특정 시나리오에 대한 고려 사항
 

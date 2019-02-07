@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f1607a7d795e3934881429feb18c711a75995e31
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f83c05f4d1dcb93bd424a733866f85edf04bbd05
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062947"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745269"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>여러 VM에서 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 사용
 
@@ -76,6 +76,7 @@ Log Analytics 작업 영역 및 Automation 계정에 대한 선택 항목을 검
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
 |EastUS2EUAP|CentralUSEUAP|
+|미국 서부 2|미국 서부 2|
 
 사용하지 않을 가상 머신 옆에 있는 확인란을 선택 취소합니다. 사용할 수 없는 가상 머신은 이미 선택이 취소되어 있습니다.
 

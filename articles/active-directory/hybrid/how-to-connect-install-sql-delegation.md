@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: bec7a7d363cf65cc8f7b2fb0cb5a8c529efec3e9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 89d5c9c4e553ac82b604c1d3a20eb67b4055e6c4
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155445"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492898"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>SQL 위임된 관리자 권한을 사용하여 Azure AD Connect 설치
 최신 Azure AD Connect 빌드에 앞서 SQL을 필요로 하는 구성을 배포할 때 관리 위임은 지원되지 않습니다.  Azure AD Connect를 설치하려는 사용자는 SQL server에서 SA(서버 관리자) 권한이 있어야 합니다.

@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 182dada35e0bea7101cc58ff62fde76fbcb8971e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: de78e70b30c4e0b03f87ad6b1bfe00356f897f43
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722280"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698262"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Node.js 애플리케이션 빌드 및 배포
 
@@ -168,7 +168,7 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 [간단한 웹앱 사용]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Azure SDK for .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
-[PowerShell을 연결]: /powershell/azureps-cmdlets-docs#step-3-connect
+[PowerShell을 연결]: /powershell/azureps-cmdlets-docs
 [nodejs.org]: http://nodejs.org/
 [Azure에 대한 호스티드 서비스 만들기 개요]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Node.js 개발자 센터]: https://azure.microsoft.com/develop/nodejs/

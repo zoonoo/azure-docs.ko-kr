@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: c6a47448fc99c2f58b315898c1b6af65f894da8d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0e17fa877bc2e1e4f72891315d940546a11e674d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436690"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812500"
 ---
 # <a name="deep-dive---advanced-analytics"></a>딥 다이브 분석 - 고급 분석
 
@@ -56,10 +56,10 @@ HDInsight는 대량의 구조화된 데이터, 구조화되지 않은 데이터 
 
 HDInsight에는 고급 분석 워크플로에 대한 몇 가지 기계 학습 옵션이 있습니다.
 
-* [Machine Learning 및 Apache Spark](#machine-learning-and-spark)
-* [R 및 ML 서비스](#r-and-r-server)
-* [Azure Machine Learning 및 Apache Hive](#azure-machine-learning-and-hive)
-* [Apache Spark 및 딥 러닝](#spark-and-deep-learning)
+* Machine Learning 및 Apache Spark
+* R 및 ML 서비스
+* Azure Machine Learning 및 Apache Hive
+* Apache Spark 및 딥 러닝
 
 ### <a name="machine-learning-and-apache-spark"></a>Machine Learning 및 Apache Spark
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: priyamo
-ms.openlocfilehash: 03e22ae9aaa3ab967b55443ccbd933c265510227
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 42b0ab15f43d301629b9fbb3208ba24eae8c227e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180112"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694604"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -113,7 +113,7 @@ az vmss update -n myVM -g myResourceGroup --set identity.type='UserAssigned'
 az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-Azure 리소스 VM 확장(2019년 1월에 더 이상 사용되지 않을 예정)에 대한 관리 ID를 제거하려면 [az vmss identity remove](/cli/azure/vmss/identity/#az-vmss-remove-identity) 명령을 사용하여 VMSS에서 시스템 할당 관리 ID를 제거합니다.
+Azure 리소스 VM 확장(2019년 1월에 더 이상 사용되지 않을 예정)에 대한 관리 ID를 제거하려면 [az vmss identity remove](/cli/azure/vmss/identity/) 명령을 사용하여 VMSS에서 시스템 할당 관리 ID를 제거합니다.
 
 ```azurecli-interactive
 az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
@@ -190,7 +190,7 @@ az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGrou
    }
    ```
 
-2. [az vmss identity assign](/cli/azure/vmss/identity#az-vm-assign-identity)을 사용하여 VMSS에 사용자 할당 관리 ID를 할당합니다. `<RESOURCE GROUP>` 및 `<VMSS NAME>` 매개 변수 값을 원하는 값으로 바꾸세요. `<USER ASSIGNED IDENTITY>`는 이전 단계에서 만든 대로 사용자 할당 ID의 리소스 `name` 속성입니다.
+2. [az vmss identity assign](/cli/azure/vmss/identity)을 사용하여 VMSS에 사용자 할당 관리 ID를 할당합니다. `<RESOURCE GROUP>` 및 `<VMSS NAME>` 매개 변수 값을 원하는 값으로 바꾸세요. `<USER ASSIGNED IDENTITY>`는 이전 단계에서 만든 대로 사용자 할당 ID의 리소스 `name` 속성입니다.
 
     ```azurecli-interactive
     az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY>

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 95ebdd74fa8be433c7a31f79ad36d4645bc57318
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 642c59e9349585ea2287f7bf439250dbfef9ba7a
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354521"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766251"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SQL API에 대한 Azure Cosmos DB .NET Core SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -30,20 +30,14 @@ ms.locfileid: "54354521"
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**SDK 다운로드**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>
-
-<tr><td>**API 설명서**</td><td>[.NET API 참조 설명서](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
-
-<tr><td>**샘플**</td><td>[.NET 코드 샘플](sql-api-dotnet-samples.md)</td></tr>
-
-<tr><td>**시작**</td><td>[Azure Cosmos DB .NET Core SDK 시작](sql-api-dotnetcore-get-started.md)</td></tr>
-
-<tr><td>**웹앱 자습서**</td><td>[Azure Cosmos DB를 사용한 웹 애플리케이션 개발](sql-api-dotnet-application.md)</td></tr>
-
-<tr><td>**현재 지원되는 프레임워크**</td><td>[.NET Standard 1.6 및 .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**SDK 다운로드**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
+|**API 설명서**|[.NET API 참조 설명서](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
+|**샘플**|[.NET 코드 샘플](sql-api-dotnet-samples.md)|
+|**시작**|[Azure Cosmos DB .NET Core SDK 시작](sql-api-dotnetcore-get-started.md)|
+|**웹앱 자습서**|[Azure Cosmos DB를 사용한 웹 애플리케이션 개발](sql-api-dotnet-application.md)|
+|**현재 지원되는 프레임워크**|[.NET Standard 1.6 및 .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)|
 
 ## <a name="release-notes"></a>릴리스 정보
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 5f096d016b2fa82e3b340a4a6b6c7e1fd6420216
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9c6ea982d9a605696dad0c943aa6dd2ae155d6bd
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037194"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770740"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB SQL API 계정에서 지리 공간 및 GeoJSON 위치 데이터 사용
 
@@ -150,32 +150,13 @@ await client.CreateDocumentAsync(
 ### <a name="spatial-sql-built-in-functions"></a>공간 SQL 기본 제공 함수
 Azure Cosmos DB는 지리 공간 쿼리를 위해 다음과 같은 OGC(Open Geospatial Consortium) 기본 제공 함수를 지원합니다. SQL 언어의 전체 기본 제공 함수 집합에 대한 자세한 내용은 [Azure Cosmos DB 쿼리](how-to-sql-query.md)를 참조하세요.
 
-<table>
-<tr>
-  <td><strong>사용 현황</strong></td>
-  <td><strong>설명</strong></td>
-</tr>
-<tr>
-  <td>ST_DISTANCE(spatial_expr, spatial_expr)</td>
-  <td>두 GeoJSON Point, Polygon 또는 LineString 식 사이의 거리를 반환합니다.</td>
-</tr>
-<tr>
-  <td>ST_WITHIN(spatial_expr, spatial_expr)</td>
-  <td>첫 번째 GeoJSON 개체(Point, Polygon 또는 LineString)가 두 번째 GeoJSON 개체(Point, Polygon 또는 LineString) 내에 있는지를 나타내는 부울 식을 반환합니다.</td>
-</tr>
-<tr>
-  <td>ST_INTERSECTS(spatial_expr, spatial_expr)</td>
-  <td>지정한 두 GeoJSON 개체(Point, Polygon 또는 LineString)가 교차하는지 여부를 나타내는 부울 식을 반환합니다.</td>
-</tr>
-<tr>
-  <td>ST_ISVALID</td>
-  <td>지정된 GeoJSON Point, Polygon 또는 LineString 식이 유효한지 여부를 나타내는 부울 값을 반환합니다.</td>
-</tr>
-<tr>
-  <td>ST_ISVALIDDETAILED</td>
-  <td>지정된 GeoJSON Point, Polygon 또는 LineString 식이 유효한 경우 부울 값을 포함하는 JSON 값을 반환하고, 잘못된 경우 추가로 그 이유를 문자열 값으로 반환합니다.</td>
-</tr>
-</table>
+|**사용 현황**|**설명**|
+|---|---|
+| ST_DISTANCE(spatial_expr, spatial_expr) | 두 GeoJSON Point, Polygon 또는 LineString 식 사이의 거리를 반환합니다.|
+|ST_WITHIN(spatial_expr, spatial_expr) | 첫 번째 GeoJSON 개체(Point, Polygon 또는 LineString)가 두 번째 GeoJSON 개체(Point, Polygon 또는 LineString) 내에 있는지를 나타내는 부울 식을 반환합니다.|
+|ST_INTERSECTS(spatial_expr, spatial_expr)| 지정한 두 GeoJSON 개체(Point, Polygon 또는 LineString)가 교차하는지 여부를 나타내는 부울 식을 반환합니다.|
+|ST_ISVALID| 지정된 GeoJSON Point, Polygon 또는 LineString 식이 유효한지 여부를 나타내는 부울 값을 반환합니다.|
+| ST_ISVALIDDETAILED| 지정된 GeoJSON Point, Polygon 또는 LineString 식이 유효한 경우 부울 값을 포함하는 JSON 값을 반환하고, 잘못된 경우 추가로 그 이유를 문자열 값으로 반환합니다.|
 
 공간 함수를 사용하여 공간 데이터에 대한 근접 쿼리를 수행할 수 있습니다. 예를 들어 ST_DISTANCE 기본 제공 함수를 사용하여 지정된 위치에서 30km 이내에 있는 모든 제품군 문서를 반환하는 쿼리는 다음과 같습니다. 
 
@@ -238,7 +219,7 @@ Azure Cosmos DB는 반전 쿼리 수행도 지원합니다. 즉, Azure Cosmos DB
 
 ST_ISVALID 및 ST_ISVALIDDETAILED를 사용하여 공간 개체가 유효한지 확인할 수 있습니다. 예를 들어 다음 쿼리는 위도 값(-132.8)이 범위를 벗어난 점의 유효성을 검사합니다. ST_ISVALID는 부울 값만 반환하고 ST_ISVALIDDETAILED는 부울 및 잘못된 것으로 간주된 이유를 포함하는 문자열을 반환합니다.
 
-** 쿼리 **
+**쿼리**
 
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 

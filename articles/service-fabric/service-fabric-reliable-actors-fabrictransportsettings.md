@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 8309abac2c56e911c471f0d4be92fa5d5b77817e
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: d2f45b6f0db15773615710a4345e85ab09f7d559
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201094"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700437"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Reliable Actors에 대한 FabricTransport 설정 구성
 
@@ -32,7 +32,7 @@ https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fa
 
 ## <a name="assembly-attribute"></a>어셈블리 특성
 
-[FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) 특성은 행위자 클라이언트 및 행위자 서비스 어셈블리에 적용해야 합니다.
+[FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN) 특성은 행위자 클라이언트 및 행위자 서비스 어셈블리에 적용해야 합니다.
 
 다음 예제에서는 FabricTransport OperationTimeout 설정의 기본값을 변경하는 방법을 보여 줍니다.
 

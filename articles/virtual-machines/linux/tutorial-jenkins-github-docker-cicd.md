@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 694448f6e3c788c0c9d336e75d5df579b90137df
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: be4549b8b9cca3f4aa48a21fb9377dbd203dde69
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189870"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751126"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>자습서: Jenkins, GitHub 및 Docker를 사용하여 Azure에서 Linux VM의 개발 인프라 만들기
 
@@ -69,7 +69,7 @@ runcmd:
   - service jenkins restart
 ```
 
-VM을 만들려면 먼저 [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupJenkins*라는 리소스 그룹을 만듭니다.
+VM을 만들려면 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupJenkins*라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
@@ -88,7 +88,7 @@ az vm create --resource-group myResourceGroupJenkins \
 
 VM을 만들고 구성하는 데 몇 분 정도 걸립니다.
 
-웹 트래픽이 VM에 연결되도록 허용하려면 [az vm open-port](/cli/azure/vm#az_vm_open_port)를 사용하여 샘플 앱을 실행하는 데 사용되는 Jenkins 트래픽에 대한 포트 *8080* 및 Node.js 앱에 대한 포트 *1337*을 엽니다.
+웹 트래픽이 VM에 연결되도록 허용하려면 [az vm open-port](/cli/azure/vm)를 사용하여 샘플 앱을 실행하는 데 사용되는 Jenkins 트래픽에 대한 포트 *8080* 및 Node.js 앱에 대한 포트 *1337*을 엽니다.
 
 ```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
@@ -160,7 +160,7 @@ Jenkins와 GitHub의 통합을 테스트하려면 사용자 분기의 변경 내
 
 GitHub 웹 UI로 돌아가서 분기된 리포지토리를 선택한 다음, **index.js** 파일을 선택합니다. 연필 아이콘을 선택하여 이 파일을 편집하면 6번 줄은 다음과 같습니다.
 
-```nodejs
+```javascript
 response.end("Hello World!");
 ```
 

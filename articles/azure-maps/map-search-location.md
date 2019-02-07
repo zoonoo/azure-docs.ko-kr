@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 031085b3048d0ffc92dd5a35b4054903088b4858
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: c68b4bdffde5f987fe07d50d76fa83e7bdfa5235
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824339"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755057"
 ---
 # <a name="show-search-results-on-the-map"></a>지도에 검색 결과 표시
 
@@ -29,7 +29,7 @@ ms.locfileid: "51824339"
 
 위의 코드에서 첫 번째 코드 블록은 맵 개체를 생성하고 클라이언트 서비스를 초기화합니다. 지침은 [지도 만들기](./map-create.md)를 참조하세요.
 
-두 번째 코드 블록은 [서비스 모듈](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1)에서 [getSearchFuzzy](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest#getsearchfuzzy-string--searchgetsearchfuzzyoptionalparams-) 메서드를 사용합니다. 이를 사용하면 [유사 항목 검색 rest API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)를 통해 자유 형식 텍스트 검색을 수행하여 관심 지점을 검색할 수 있습니다. 유사 항목 검색 API는 모든 조합의 유사 항목 입력을 처리할 수 있습니다. 그러면 유사 항목 검색 서비스의 응답은 [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest#geojsonsearchresponse) 메서드를 사용하여 GeoJSON 형식으로 구문 분석됩니다. 
+두 번째 코드 블록은 [서비스 모듈](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1)에서 [getSearchFuzzy](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest#getsearchfuzzy-string--searchgetsearchfuzzyoptionalparams-) 메서드를 사용합니다. 이를 사용하면 [유사 항목 검색 rest API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)를 통해 자유 형식 텍스트 검색을 수행하여 관심 지점을 검색할 수 있습니다. 유사 항목 검색 API는 모든 조합의 유사 항목 입력을 처리할 수 있습니다. 그러면 유사 항목 검색 서비스의 응답은 [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest) 메서드를 사용하여 GeoJSON 형식으로 구문 분석됩니다. 
 
 세 번째 코드 블록에서는[DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 클래스를 사용하여 데이터 원본 개체를 만들고 검색 결과를 추가합니다. [기호 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)은 텍스트 또는 아이콘을 사용하여 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 점 기반 데이터를 지도에 기호로 렌더링합니다.  기호 계층이 생성되고 데이터 원본이 기호 계층에 추가된 다음, 맵에 추가됩니다.
 

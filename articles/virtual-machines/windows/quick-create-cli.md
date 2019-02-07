@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3036c53fa95b40ac0bfc7dbe5bed69581236918d
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 8ce1383717b59cc7b7a43ca707fbe5ebba897f20
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411886"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730325"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Windows 가상 머신 만들기
 
@@ -35,7 +35,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>가상 머신 만들기
 
-[az vm create](/cli/azure/vm#az_vm_create)로 VM을 만듭니다. 다음 예제에서는 *myVM*이라는 VM을 만듭니다. 이 예제에서는 관리 사용자 이름으로 *azureuser*를 사용하고 암호로 *myPassword12*를 사용합니다. 이러한 값을 사용자 환경에 적절한 값으로 업데이트합니다. VM에 연결할 때 이러한 값이 필요합니다.
+[az vm create](/cli/azure/vm)로 VM을 만듭니다. 다음 예제에서는 *myVM*이라는 VM을 만듭니다. 이 예제에서는 관리 사용자 이름으로 *azureuser*를 사용하고 암호로 *myPassword12*를 사용합니다. 이러한 값을 사용자 환경에 적절한 값으로 업데이트합니다. VM에 연결할 때 이러한 값이 필요합니다.
 
 ```azurecli-interactive
 az vm create \
@@ -73,7 +73,7 @@ VM의 출력에서 사용자 고유의 `publicIpAddress`를 적어 둡니다. �
 
 ## <a name="open-port-80-for-web-traffic"></a>웹 트래픽에 대해 포트 80 열기
 
-기본적으로 Azure에서 Windows VM을 만들 때만 RDP 연결이 열립니다. [az vm open-port](/cli/azure/vm#az_vm_open_port)를 사용하여 IIS 웹 서버와 사용하기 위해 TCP 포트 80을 엽니다.
+기본적으로 Azure에서 Windows VM을 만들 때만 RDP 연결이 열립니다. [az vm open-port](/cli/azure/vm)를 사용하여 IIS 웹 서버와 사용하기 위해 TCP 포트 80을 엽니다.
 
 ```azurecli-interactive
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM

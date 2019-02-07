@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: bbbb7f96ebf14781e2f461f5ffbb3e1172595928
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f0fe4bef436576bec90d1d770d262c2c22d280a3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241290"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694587"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Azure 스토리지 계정에 대한 사용자 지정 도메인 이름 구성
 
@@ -154,7 +154,7 @@ Blob Storage 엔드포인트에 대한 사용자 지정 도메인 등록을 취�
 
 ### <a name="azure-cli"></a>Azure CLI
 
-사용자 지정 도메인 등록을 제거하려면 [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_update) CLI 명령을 사용한 다음, `--custom-domain` 인수 값에 빈 문자열(`""`)을 지정합니다.
+사용자 지정 도메인 등록을 제거하려면 [az storage account update](https://docs.microsoft.com/cli/azure/storage/account) CLI 명령을 사용한 다음, `--custom-domain` 인수 값에 빈 문자열(`""`)을 지정합니다.
 
 * 명령 형식:
 

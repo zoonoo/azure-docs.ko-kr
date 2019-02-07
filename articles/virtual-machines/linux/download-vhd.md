@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 5f269f074236beef3e213c888e540bcf18238be1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6d827e1142fa17b29633c98c062fd204f7a49e36
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953704"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729740"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Azure에서 Linux VHD 다운로드
 
@@ -42,7 +42,7 @@ VHD를 다른 VM을 만들기 위한 이미지로 사용하려면 다음 단계�
     exit 
     ```
 
-2. [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인합니다.
+2. [az login](https://docs.microsoft.com/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인합니다.
 3. VM을 중지 및 할당 취소합니다.
 
     ```azurecli
@@ -57,7 +57,7 @@ VHD를 다른 VM을 만들기 위한 이미지로 사용하려면 다음 단계�
 
 VHD를 기존 VM의 새 인스턴스에 대한 디스크 또는 데이터 디스크로 사용하려면 다음 단계를 완료합니다.
 
-1.  [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1.  [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2.  허브 메뉴에서 **Virtual Machines**를 클릭합니다.
 3.  목록에서 VM을 선택합니다.
 4.  VM에 대한 블레이드에서 **중지**를 클릭합니다.

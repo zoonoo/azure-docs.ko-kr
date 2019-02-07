@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/03/2018
 ms.author: cynthn
-ms.openlocfilehash: e283f21b65706860e198e2deca933f1986073cab
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 3a7ac2e7a86a135f20f46b03be2c38af330a5367
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413229"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730342"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Azure에서 Packer를 사용하여 Linux 가상 머신 이미지를 만드는 방법
 Azure의 각 VM(가상 컴퓨터)은 Linux 배포판 및 OS 버전을 정의하는 이미지에서 만들어집니다. 이미지는 사전 설치된 애플리케이션 및 구성을 포함할 수 있습니다. Azure Marketplace는 가장 일반적인 배포 및 애플리케이션 환경에 대한 다양한 자사 및 타사 이미지를 제공하거나 사용자 요구에 맞게 사용자 지정 이미지를 만들 수 있습니다. 이 문서에는 오픈 소스 도구 [Packer](https://www.packer.io/)를 사용하여 Azure에서 사용자 지정 이미지를 정의하고 작성하는 방법을 자세히 설명합니다.
@@ -29,7 +29,7 @@ Azure의 각 VM(가상 컴퓨터)은 Linux 배포판 및 OS 버전을 정의하�
 ## <a name="create-azure-resource-group"></a>Azure 리소스 그룹 만들기
 빌드 프로세스 동안 Packer는 원본 VM을 빌드하므로 임시 Azure 리소스를 만듭니다. 이미지로 사용하기 위해 해당 원본 VM을 캡처하려면 리소스 그룹을 정의해야 합니다. Packer 빌드 프로세스의 출력은 이 리소스 그룹에 저장됩니다.
 
-[az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create -n myResourceGroup -l eastus
@@ -39,7 +39,7 @@ az group create -n myResourceGroup -l eastus
 ## <a name="create-azure-credentials"></a>Azure 자격 증명 만들기
 Packer는 서비스 사용자를 사용하여 Azure를 인증합니다. Azure 서비스 사용자는 앱, 서비스 및 Packer와 같은 자동화 도구를 사용할 수 있는 보안 ID입니다. 서비스 사용자가 Azure에서 수행할 수 있는 작업에 대한 사용 권한은 사용자가 제어하고 정의합니다.
 
-[az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac)를 사용하여 서비스 사용자를 만들고 Packer가 필요로 하는 자격 증명을 출력합니다.
+[az ad sp create-for-rbac](/cli/azure/ad/sp)를 사용하여 서비스 사용자를 만들고 Packer가 필요로 하는 자격 증명을 출력합니다.
 
 ```azurecli
 az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
@@ -55,7 +55,7 @@ az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, t
 }
 ```
 
-Azure를 인증하기 위해 [az account show](/cli/azure/account#az_account_show)를 사용하여 Azure 구독 ID를 가져와야 합니다.
+Azure를 인증하기 위해 [az account show](/cli/azure/account)를 사용하여 Azure 구독 ID를 가져와야 합니다.
 
 ```azurecli
 az account show --query "{ subscription_id: id }"
@@ -216,7 +216,7 @@ Packer 이미지와 다른 리소스 그룹 또는 지역에서 VM을 만들려�
 
 VM을 만드는 데 몇 분이 걸립니다. VM이 만들어지면 Azure CLI에 표시된 `publicIpAddress`를 기록해 둡니다. 이 주소는 웹 브라우저를 통해 NGINX 사이트에 액세스할 때 사용됩니다.
 
-웹 트래픽이 VM에 도달하도록 허용하려면 [az vm open-port](/cli/azure/vm#open-port)를 사용하여 인터넷에서 포트 80을 엽니다.
+웹 트래픽이 VM에 도달하도록 허용하려면 [az vm open-port](/cli/azure/vm)를 사용하여 인터넷에서 포트 80을 엽니다.
 
 ```azurecli
 az vm open-port \

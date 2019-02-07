@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 68a788205917e87469b432de435e296dcabc350c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c983ece9d883397e43833522b2fa4d1bfb3fa4f0
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001688"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753642"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>자습서: .NET의 Azure Linux Virtual Machine에서 Azure Key Vault 사용하는 방법
 
@@ -83,7 +83,7 @@ az group create --name "<YourResourceGroupName>" --location "West US"
 
 * 키 자격 증명 모음 이름: 3-24자의 문자열이어야 하며 0-9, a-z, A-Z 및 -만 포함해야 합니다.
 * 리소스 그룹 이름
-* 위치: **미국 서부**.
+* 위치: **미국 서부**
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
@@ -102,7 +102,7 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 ## <a name="create-a-virtual-machine"></a>Virtual Machine 만들기
 
-[az vm create](/cli/azure/vm#az_vm_create) 명령을 사용하여 VM을 만듭니다.
+[az vm create](/cli/azure/vm) 명령을 사용하여 VM을 만듭니다.
 
 다음 예제에서는 *myVM*이라는 VM을 만들고 *azureuser*라는 사용자 계정을 추가합니다. `--generate-ssh-keys` 매개 변수는 SSH 키를 자동으로 생성하여 기본 키 위치(*~/.ssh*)에 배치하는 데 사용됩니다. 특정 키 집합을 대신 사용하려면 `--ssh-key-value` 옵션을 사용합니다.
 

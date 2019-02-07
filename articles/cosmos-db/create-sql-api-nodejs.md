@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: f0c342eb673902f0855ba1ceb482aed10dc01a56
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 0f0434fbeb5e0ce825589950a366b09143a1bcba
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034916"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691425"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Azure Cosmos DB는 JavaScript SDK를 사용하여 Azure Cosmos DB SQL API 데이터를 관리하는 Node.js 앱 빌드
 
@@ -81,37 +81,37 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이 단계는 선택 사항입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 
 
-이전 버전의 JavaScript SDK에 익숙한 경우 '컬렉션' 및 '문서'라는 용어를 자주 들어 보셨을 것입니다. Azure Cosmos DB가 [여러 API 모델](https://docs.microsoft.com/azure/cosmos-db/introduction#key-capabilities)을 지원하므로 JavaScript SDK 버전 2.0 이상에서는 컬렉션, 그래프 또는 테이블을 가리키는 일반적인 용어인 '컨테이너'와 컨테이너의 콘텐츠를 설명하는 '항목'이라는 용어를 사용합니다.
+이전 버전의 JavaScript SDK에 익숙한 경우 '컬렉션' 및 '문서'라는 용어를 자주 들어 보셨을 것입니다. Azure Cosmos DB가 [여러 API 모델](https://docs.microsoft.com/azure/cosmos-db/introduction)을 지원하므로 JavaScript SDK 버전 2.0 이상에서는 컬렉션, 그래프 또는 테이블을 가리키는 일반적인 용어인 '컨테이너'와 컨테이너의 콘텐츠를 설명하는 '항목'이라는 용어를 사용합니다.
 
 다음 코드 조각은 모두 **app.js** 파일에서 가져옵니다.
 
 * `CosmosClient`가 초기화됩니다.
 
-    ```nodejs
+    ```javascript
     const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
     ```
 
 * 새 데이터베이스가 만들어집니다.
 
-    ```nodejs
+    ```javascript
     const { database } = await client.databases.createIfNotExists({ id: databaseId });
     ```
 
 * 새 컨테이너(컬렉션)가 만들어집니다.
 
-    ```nodejs
+    ```javascript
     const { container } = await client.database(databaseId).containers.createIfNotExists({ id: containerId });
     ```
 
 * 항목(문서)이 만들어집니다.
 
-    ```nodejs
+    ```javascript
     const { item } = await client.database(databaseId).container(containerId).items.create(itemBody);
     ```
 
 * JSON을 통해 SQL 쿼리가 수행됩니다.
 
-    ```nodejs
+    ```javascript
     const querySpec = {
         query: "SELECT VALUE r.children FROM root r WHERE r.lastName = @lastName",
         parameters: [

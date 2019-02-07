@@ -7,15 +7,15 @@ manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: tutorial
-ms.date: 4/17/2018
+ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 76b5a5743fd6ac715eca45e49cc08d5006522ad0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c3fcf6430f04a3fc10abbd9129e4857e35db84eb
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871544"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55485724"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Azure에서 디스크 복원 및 복구된 VM 만들기
 Azure Backup은 지역 중복 복구 자격 증명 모음에 저장되는 복구 지점을 만듭니다. 복구 지점에서 복원하는 경우 전체 VM 또는 개별 파일을 복원할 수 있습니다. 이 문서에서는 CLI를 사용하여 전체 VM을 복원하는 방법에 대해 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -63,7 +63,7 @@ az backup recoverypoint list \
 ## <a name="restore-a-vm-disk"></a>VM 디스크 복원
 복구 지점에서 디스크를 복원하려면 먼저 Azure 저장소 계정을 만듭니다. 이 저장소 계정은 복원된 디스크를 저장하는 데 사용됩니다. 추가 단계에서 복원된 디스크를 사용하여 VM을 만듭니다.
 
-1. [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)를 사용하여 저장소 계정을 만듭니다. 저장소 계정 이름은 모두 소문자여야 하며 전역적으로 고유해야 합니다. *mystorageaccount*를 사용자 고유의 이름으로 바꿉니다.
+1. [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)를 사용하여 스토리지 계정을 만듭니다. 저장소 계정 이름은 모두 소문자여야 하며 전역적으로 고유해야 합니다. *mystorageaccount*를 사용자 고유의 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az storage account create \
@@ -72,7 +72,7 @@ az backup recoverypoint list \
         --sku Standard_LRS
     ```
 
-2. [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks)를 사용하여 복구 지점에서 디스크를 복원합니다. *mystorageaccount*를 이전 명령에서 만든 저장소 계정의 이름으로 바꿉니다. *myRecoveryPointName*을 이전 [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) 명령의 출력에서 얻은 복구 지점 이름으로 바꿉니다.
+2. [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks)를 사용하여 복구 지점에서 디스크를 복원합니다. *mystorageaccount*를 이전 명령에서 만든 스토리지 계정의 이름으로 바꿉니다. *myRecoveryPointName*을 이전 [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) 명령의 출력에서 얻은 복구 지점 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -111,7 +111,7 @@ fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31
 ## <a name="convert-the-restored-disk-to-a-managed-disk"></a>복원된 디스크를 관리 디스크로 변환
 복원 작업은 관리되지 않는 디스크를 만듭니다. 디스크에서 VM을 만들려면 먼저 관리 디스크로 변환해야 합니다.
 
-1. [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-show-connection-string)을 사용하여 저장소 계정에 대한 연결 정보를 얻습니다. *mystorageaccount*를 다음과 같이 저장소 계정의 이름으로 바꿉니다.
+1. [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-show-connection-string)을 사용하여 스토리지 계정에 대한 연결 정보를 얻습니다. *mystorageaccount*를 다음과 같이 스토리지 계정의 이름으로 바꿉니다.
     
     ```azurecli-interactive
     export AZURE_STORAGE_CONNECTION_STRING=$( az storage account show-connection-string \
@@ -137,7 +137,7 @@ fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31
         --source $uri
     ```
 
-4. 이제 복원된 디스크에서 관리 디스크를 얻었으므로 [az storage account delete](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-delete)를 사용하여 관리되지 않는 디스크와 스토리지 계정을 정리합니다. *mystorageaccount*를 다음과 같이 저장소 계정의 이름으로 바꿉니다.
+4. 이제 복원된 디스크에서 관리 디스크를 얻었으므로 [az storage account delete](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-delete)를 사용하여 관리되지 않는 디스크와 스토리지 계정을 정리합니다. *mystorageaccount*를 다음과 같이 스토리지 계정의 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az storage account delete \

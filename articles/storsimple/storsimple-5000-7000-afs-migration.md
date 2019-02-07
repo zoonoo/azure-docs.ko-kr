@@ -13,19 +13,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: aad5b2d2e451f33a3f4f365fa0702eef5d698e4e
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 18853d10c4acf1573772d72a8fb2c347cce545df
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729166"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730172"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>StorSimple 5000-7000 시리즈에서 Azure 파일 동기화로 데이터 마이그레이션
 
 > [!IMPORTANT]
 > 2019년 7월 31일부로, StorSimple 5000/7000 시리즈는 지원 종료(EOS) 상태에 도달합니다. StorSimple 5000/7000 시리즈 고객은 이 문서에 설명된 대안 제품 중 하나로 마이그레이션하는 것이 좋습니다.
 
-데이터 마이그레이션은 데이터를 한 저장소 위치에서 다른 저장소 위치로 이동하는 프로세스입니다. 여기서는 활성 애플리케이션을 중단하거나 비활성화하지 않고 조직의 현재 데이터를 한 디바이스에서 다른 디바이스로 정확히 복사한 다음, 모든 I/O(입/출력) 작업을 새 디바이스로 리디렉션해야 합니다. 
+데이터 마이그레이션은 데이터를 한 저장소 위치에서 다른 저장소 위치로 이동하는 프로세스입니다. 여기서는 활성 애플리케이션을 중단하거나 비활성화하지 않고 조직의 현재 데이터를 한 장치에서 다른 장치로 정확히 복사한 다음, 모든 I/O(입/출력) 작업을 새 장치로 리디렉션해야 합니다. 
 
 StorSimple 5000 및 7000 시리즈 저장소 디바이스에 대한 서비스는 2019년 7월에 종료될 예정입니다. 이는 Microsoft에서 2019년 7월 이후에는 StorSimple 5000/7000 시리즈용 하드웨어 및 소프트웨어를 더 이상 지원할 수 없음을 의미합니다. 이러한 디바이스를 사용하는 고객은 자신의 StorSimple 데이터를 Azure의 다른 하이브리드 저장소 솔루션으로 마이그레이션해야 합니다. 이 문서에서는 데이터를 StorSimple 5000/7000 시리즈 디바이스에서 AFS(Azure 파일 동기화)로 마이그레이션하는 방법에 대해 설명합니다.
 
@@ -57,7 +57,7 @@ AFS로 전환하는 동안 고려해야 하는 사항은 다음과 같습니다.
 - 호스트에는 로컬로 캐시된 데이터를 저장할 수 있을 만큼 충분한 로컬 저장소가 있습니다.
 - Azure 파일 동기화를 배포하는 데 사용할 Azure 구독에 소유자 수준 권한으로 액세스합니다. 소유자 또는 관리자 수준의 권한이 없으면 동기화 그룹에 대한 클라우드 엔드포인트를 만들 때 문제가 발생할 수 있습니다.
 - 동기화하려는 Azure 파일 공유가 있는 [범용 v2 저장소 계정](https://docs.microsoft.com/azure/storage/common/storage-account-overview)에 액세스합니다. 자세한 내용은 [저장소 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) 를 참조하세요.
- - [Azure 파일 공유를 만드는 방법](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share#create-file-share-through-the-azure-portal)
+ - [Azure 파일 공유를 만드는 방법](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)
 
 ## <a name="migration-process"></a>마이그레이션 프로세스
 

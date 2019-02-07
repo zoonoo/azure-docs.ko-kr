@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: efe7b6722a9cfa24ea86130a13a0599115e89821
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 15ec4f006147cdffb46598d22a937aec429fd8ac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451668"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729407"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Azure Import/Export 서비스에 대한 가져오기 작업 만들기
 
@@ -61,14 +61,14 @@ REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 가�
 
  배송 위치를 가져오려면 다음 단계를 수행합니다.
 
--   저장소 계정의 위치 이름을 식별합니다. 이 값은 Azure Portal에서 Storage 계정의 **대시보드**에 있는 **위치** 필드에서 찾거나 Service Management API 연산 [Storage 계정 속성 가져오기](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties)를 사용하여 쿼리할 수 있습니다.
+-   저장소 계정의 위치 이름을 식별합니다. 이 값은 Azure Portal에서 Storage 계정의 **대시보드**에 있는 **위치** 필드에서 찾거나 Service Management API 연산 [Storage 계정 속성 가져오기](/rest/api/storagerp/storageaccounts)를 사용하여 쿼리할 수 있습니다.
 
 -   `Get Location` 연산을 호출하여 이 저장소 계정을 처리하는 데 사용할 수 있는 위치를 검색합니다.
 
 -   위치의 `AlternateLocations` 속성에 해당 위치 자체가 포함될 경우 이 위치를 사용해도 됩니다. 그렇지 않으면 대체 위치 중 하나를 사용하여 `Get Location` 연산을 다시 호출합니다. 유지 관리를 위해 원래 위치가 일시적으로 닫혀 있을 수 있습니다.
 
 ## <a name="creating-the-import-job"></a>가져오기 작업 만들기
-가져오기 작업을 만들려면 [작업 배치](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 연산을 호출합니다. 다음 정보를 제공해야 합니다.
+가져오기 작업을 만들려면 [작업 배치](/rest/api/storageimportexport/jobs) 연산을 호출합니다. 다음 정보를 제공해야 합니다.
 
 -   작업의 이름입니다.
 

@@ -11,15 +11,16 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: da876152b55ee626025b6192a5004648a29545dc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/18/2018
+ms.openlocfilehash: a73938c98ebaea310875f0db8b665d0f1aed55e8
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604187"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561997"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>확장된 클라우드 데이터베이스에서 보고(미리 보기)
+
 [탄력적 쿼리](sql-database-elastic-query-overview.md)를 사용하여 단일 연결 지점의 여러 Azure SQL 데이터베이스에서 보고서를 만들 수 있습니다. 데이터베이스를 가로로 분할해야 합니다("분할됨"이라고도 함).
 
 기존 데이터베이스를 사용하는 경우 [확장된 데이터베이스에 기존 데이터베이스 마이그레이션](sql-database-elastic-convert-to-use-elastic-tools.md)을 참조하세요.
@@ -27,6 +28,7 @@ ms.locfileid: "53604187"
 쿼리에 필요한 SQL 개체를 알아보려면 [수평 분할된 데이터베이스에 쿼리](sql-database-elastic-query-horizontal-partitioning.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
+
 [Elastic Database 도구 샘플 시작](sql-database-elastic-scale-get-started.md)을 다운로드하고 실행하세요.
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>샘플 응용 프로그램을 사용하여 분할된 데이터베이스 맵 관리자 만들기

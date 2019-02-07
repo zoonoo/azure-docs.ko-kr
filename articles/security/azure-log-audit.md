@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: e6fb14fc901b5ae5ad11d94c1e71453c2852239c
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 574c295c3b44d0c6146c852777f2bef3ad13ecdd
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306253"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697928"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure 로깅 및 감사
 
@@ -194,9 +194,9 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다.
 
 Azure의 네트워킹 로깅 및 모니터링은 포괄적이며 다음 두 가지 범주를 포함합니다.
 
-* [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher): 시나리오 기반 모니터링이 Network Watcher 기능과 함께 제공됩니다. 이 서비스에는 패킷 캡처, 다음 홉, IP 흐름 확인, 보안 그룹 보기, NSG 흐름 로그가 포함되어 있습니다. 시나리오 수준 모니터링에서는 개별 네트워크 리소스 모니터링과 달리 네트워크 리소스의 종단 간 보기를 제공합니다.
+* [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): 시나리오 기반 모니터링이 Network Watcher 기능과 함께 제공됩니다. 이 서비스에는 패킷 캡처, 다음 홉, IP 흐름 확인, 보안 그룹 보기, NSG 흐름 로그가 포함되어 있습니다. 시나리오 수준 모니터링에서는 개별 네트워크 리소스 모니터링과 달리 네트워크 리소스의 종단 간 보기를 제공합니다.
 
-* [리소스 모니터링](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): 리소스 수준 모니터링은 진단 로그, 메트릭, 문제 해결 및 리소스 상태의 네 가지 기능으로 구성됩니다. 이러한 모든 기능은 네트워크 리소스 수준에서 구현됩니다.
+* [리소스 모니터링](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): 리소스 수준 모니터링은 진단 로그, 메트릭, 문제 해결 및 리소스 상태의 네 가지 기능으로 구성됩니다. 이러한 모든 기능은 네트워크 리소스 수준에서 구현됩니다.
 
 ![Azure 네트워킹 로그](./media/azure-log-audit/azure-log-audit-fig4.png)
 
@@ -238,7 +238,7 @@ Network Watcher는 진단 로그 보기를 제공합니다. 이 보기에는 진
 
 * [Virtual Network 게이트웨이 및 연결 문제 해결](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): 가상 네트워크 게이트웨이 및 연결 문제를 해결하는 데 도움이 됩니다.
 
-* [네트워크 구독 제한](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): 제한 대비 네트워크 리소스 사용량을 볼 수 있습니다.
+* [네트워크 구독 제한](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): 제한 대비 네트워크 리소스 사용량을 볼 수 있습니다.
 
 ### <a name="application-insights"></a>Application Insights
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: b494da1c87feafd1b9db8485d16a9dcf5b999e3d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 265e99d18d8660f149d33b1b4a37a7d32eae794d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101808"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755199"
 ---
 # <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>자습서: Azure 가상 네트워크에 Linux Service Fabric 클러스터 배포
 
@@ -137,7 +137,7 @@ Azure Key Vault는 Azure에서 서비스 패브릭 클러스터에 대한 인증
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>기존 인증서를 사용하여 클러스터 만들기
 
-다음 스크립트는 [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) 명령 및 템플릿을 사용하여 기존 인증서로 보호된 새 클러스터를 배포합니다. 또한 명령은 Azure에서 새 키 자격 증명 모음을 만들고 인증서를 업로드합니다.
+다음 스크립트는 [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) 명령 및 템플릿을 사용하여 기존 인증서로 보호된 새 클러스터를 배포합니다. 또한 명령은 Azure에서 새 키 자격 증명 모음을 만들고 인증서를 업로드합니다.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
@@ -163,7 +163,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 
 ### <a name="create-a-cluster-using-a-new-self-signed-certificate"></a>자체 서명된 새로운 인증서를 사용하여 클러스터 만들기
 
-다음 스크립트는 [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) 명령 및 템플릿을 사용하여 Azure에 새 클러스터를 배포합니다. 또한 이 명령은 Azure에 새로운 키 자격 증명 모음을 만들고, 키 자격 증명 모음에 자체 서명된 인증서를 추가하고, 인증서 파일을 로컬로 다운로드합니다.
+다음 스크립트는 [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) 명령 및 템플릿을 사용하여 Azure에 새 클러스터를 배포합니다. 또한 이 명령은 Azure에 새로운 키 자격 증명 모음을 만들고, 키 자격 증명 모음에 자체 서명된 인증서를 추가하고, 인증서 파일을 로컬로 다운로드합니다.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"

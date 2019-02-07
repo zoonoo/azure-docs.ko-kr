@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 9f96b4cbe95d918a94ea0d02f9b8fdd8f663eeec
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: f6a678e03818f1e1f2182b3b0dfab221d415dc72
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001467"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698258"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Azure Functions를 사용하여 서버 없는 API 만들기
 
@@ -53,7 +53,7 @@ Azure Portal을 엽니다. 이렇게 하려면 Azure 계정으로 [https://porta
 
 1. **저장**을 클릭합니다.
 
-[Azure Functions HTTP 바인딩](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint)에서 HTTP 함수 사용자 지정에 대해 자세히 알아보세요.
+[Azure Functions HTTP 바인딩](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)에서 HTTP 함수 사용자 지정에 대해 자세히 알아보세요.
 
 ### <a name="test-your-api"></a>API 테스트
 
@@ -103,7 +103,7 @@ Azure Portal을 엽니다. 이렇게 하려면 Azure 계정으로 [https://porta
 
     | 필드 | 샘플 값 | 설명 |
     |---|---|---|
-    | 이름 | HelloProxy | 관리에 대해서만 사용되는 이름 |
+    | Name | HelloProxy | 관리에 대해서만 사용되는 이름 |
     | 경로 템플릿 | /api/remotehello | 이 프록시를 호출하는 데 사용할 경로 결정 |
     | 백 엔드 URL | https://%HELLO_HOST%/api/hello | 요청을 프록시 처리할 엔드포인트를 지정합니다. |
     
@@ -176,7 +176,7 @@ Azure Portal을 엽니다. 이렇게 하려면 Azure 계정으로 [https://porta
 }
 ```
 
-이렇게 하면 backendUri 속성을 제외한 새 프록시 "GetUserByName"이 추가됩니다. 다른 리소스를 호출하지 않고 응답 재정의를 사용하여 프록시의 기본 응답을 수정합니다. 요청 및 응답 재정의를 백 엔드 URL과 함께 사용할 수도 있습니다. 레거시 시스템으로 프록시할 때, 헤더를 수정하거나 매개 변수를 쿼리하는 등의 작업이 필요할 때 특히 유용합니다. 요청 및 응답 재정의에 대한 자세한 내용은 [프록시에서 요청 및 응답 수정](https://docs.microsoft.com/azure/azure-functions/functions-proxies#a-namemodify-requests-responsesamodifying-requests-and-responses)을 참조하세요.
+이렇게 하면 backendUri 속성을 제외한 새 프록시 "GetUserByName"이 추가됩니다. 다른 리소스를 호출하지 않고 응답 재정의를 사용하여 프록시의 기본 응답을 수정합니다. 요청 및 응답 재정의를 백 엔드 URL과 함께 사용할 수도 있습니다. 레거시 시스템으로 프록시할 때, 헤더를 수정하거나 매개 변수를 쿼리하는 등의 작업이 필요할 때 특히 유용합니다. 요청 및 응답 재정의에 대한 자세한 내용은 [프록시에서 요청 및 응답 수정](https://docs.microsoft.com/azure/azure-functions/functions-proxies)을 참조하세요.
 
 브라우저 또는 자주 사용하는 REST 클라이언트를 통해 `<YourProxyApp>.azurewebsites.net/api/users/{username}` 엔드포인트를 호출하여 모의 API를 테스트합니다. _{username}_ 을 사용자 이름을 나타내는 문자열 값으로 바꿉니다.
 
