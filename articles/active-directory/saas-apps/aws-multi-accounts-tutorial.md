@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: a9acb9539497c85f408ce7417fa5983072ea80b9
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 48d8516a1923aaacc26db2eb9a9acfd0ddff737e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365665"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197520"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>자습서: AWS(Amazon Web Services)와 여러 Azure Active Directory 계정 통합
 
@@ -79,7 +79,7 @@ Azure AD에 AWS(Amazon Web Services)를 통합하도록 구성하려면 갤러�
 
     ![이미지](./media/aws-multi-accounts-tutorial/selectazuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![이미지](./media/aws-multi-accounts-tutorial/a_select_app.png)
     
@@ -87,7 +87,7 @@ Azure AD에 AWS(Amazon Web Services)를 통합하도록 구성하려면 갤러�
 
     ![이미지](./media/aws-multi-accounts-tutorial/a_new_app.png)
 
-4. 검색 상자에서 **AWS(Amazon Web Services)** 를 입력하고, 결과 패널에서 **AWS(Amazon Web Services)** 를 선택하고, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에서 **AWS(Amazon Web Services)** 를 입력하고, 결과 패널에서 **AWS(Amazon Web Services)** 를 선택하고, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
      ![이미지](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_addfromgallery.png)
 
@@ -130,13 +130,13 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![이미지](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_url.png)
 
-5. AWS(Amazon Web Services) 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
+5. AWS(Amazon Web Services) 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
 
     ![이미지](./media/aws-multi-accounts-tutorial/i4-attribute.png)
 
 6. **사용자 특성 및 클레임** 대화 상자의 **사용자 클레임** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
     
-    | 이름  | 원본 특성  | 네임스페이스 |
+    | Name  | 원본 특성  | 네임스페이스 |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
     | 역할            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
@@ -182,7 +182,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     a. **공급자 유형**으로 **SAML**을 선택합니다.
 
-    b. **공급자 이름** 텍스트 상자에 공급자 이름(예: *WAAD*)을 입력합니다.
+    b. **공급 기업 이름** 텍스트 상자에 공급 기업 이름(예: *WAAD*)을 입력합니다.
 
     다. Azure Portal에서 다운로드한 **메타데이터 파일**을 업로드하려면 **파일 선택**을 클릭합니다.
 
@@ -202,11 +202,11 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     a. **신뢰할 수 있는 엔터티 유형 선택**에서 **SAML 2.0 페더레이션**을 선택합니다.
 
-    b. **SAML 2.0 공급자 선택**에서 이전에 만든 **SAML 공급자**를 선택합니다(예: *WAAD*).
+    b. **SAML 2.0 공급 기업 선택**에서 이전에 만든 **SAML 공급 기업**을 선택합니다(예: *WAAD*).
 
     다. **프로그래밍 및 AWS 관리 콘솔 액세스 허용**을 선택합니다.
   
-    d. **다음: 권한**을 클릭합니다.
+    d. **다음: 사용 권한**을 클릭합니다.
 
 16. **사용 권한 정책 연결** 대화 상자에서 정책에 연결할 필요가 없습니다. **다음: 검토**를 클릭합니다.  
 
@@ -264,7 +264,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     f. 가져온 서비스 사용자 목록에서 수정할 서비스 사용자를 가져옵니다. Ctrl+F를 사용하여 나열된 모든 ServicePrincipals에서 애플리케이션을 검색할 수도 있습니다. Azure AD 속성 페이지에서 복사한 **개체 ID**를 사용하여 다음 쿼리를 통해 해당하는 서비스 사용자로 이동할 수 있습니다.
 
-    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
+    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
     ![Graph Explorer 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
@@ -357,7 +357,7 @@ SAML 응답에서도 클레임으로 전달된 역할을 확인할 수 있습니
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 977123459bcf9bb10c6b7ecf5d7a364f60564c48
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7e4b52f0a3ca5e924d9d41e38e51f0cba8b75690
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437081"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885816"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>지속성 함수의 외부 이벤트 처리(Azure Functions)
 
@@ -191,10 +191,10 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
-`RaiseEventAsync`(.NET) 또는 `raiseEvent`(JavaScript)는 내부적으로 대기 중인 오케스트레이터 함수에서 선택된 메시지를 큐에 넣습니다.
+`RaiseEventAsync`(.NET) 또는 `raiseEvent`(JavaScript)는 내부적으로 대기 중인 오케스트레이터 함수에서 선택된 메시지를 큐에 넣습니다. 인스턴스가 지정된 *이벤트 이름*에서 대기하고 있지 않으면 이벤트 메시지가 메모리 내 큐에 추가됩니다. 오케스트레이션 인스턴스에서 나중에 해당 *이벤트 이름*에 대한 수신 대기를 시작하는 경우 이벤트 메시지가 큐에 있는지 확인합니다.
 
-> [!WARNING]
-> 지정된 *인스턴스 ID*가 있는 오케스트레이션 인스턴스가 없거나 인스턴스에서 지정된 *이벤트 이름*을 기다리지 않는 경우 해당 이벤트 메시지는 버려집니다. 이 동작에 대한 자세한 내용은 [GitHub 문제](https://github.com/Azure/azure-functions-durable-extension/issues/29)를 참조하세요.
+> [!NOTE]
+> 지정된 *인스턴스 ID*가 있는 오케스트레이션 인스턴스가 없으면 이벤트 메시지가 삭제됩니다. 이 동작에 대한 자세한 내용은 [GitHub 문제](https://github.com/Azure/azure-functions-durable-extension/issues/29)를 참조하세요. 
 
 > [!WARNING]
 > JavaScript에서 로컬로 개발하는 경우 환경 변수 `WEBSITE_HOSTNAME`을 `localhost:<port>`(예: `localhost:7071`)로 설정해야 `DurableOrchestrationClient`에서 메서드를 사용할 수 있습니다. 이 요구 사항에 대한 자세한 내용은 [GitHub 문제](https://github.com/Azure/azure-functions-durable-js/issues/28)를 참조하세요.

@@ -7,15 +7,15 @@ manager: carmonm
 keywords: 백업 및 복원; 복구 서비스; 백업 솔루션
 ms.service: backup
 ms.topic: overview
-ms.date: 8/2/2018
+ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f07bcf3cb1b489ad7ec06dff1437e49d83748998
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 2601f81b4abecd98d645af9bc0d368e52534a04e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631165"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487883"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure Backup의 기능에 대한 개요
 Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)하고 복원하는 데 사용할 수 있는 Azure 기반 서비스이며, 기존의 온-프레미스 또는 오프사이트 백업 솔루션을 신뢰할 수 있고 안전하며 가격 경쟁력이 있는 클라우드 기반 솔루션으로 대체합니다. Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운로드하고 배포하는 여러 구성 요소를 제공합니다. 배포하는 구성 요소 또는 에이전트는 보호하려는 대상에 따라 달라집니다. 온-프레미스 또는 클라우드에서 데이터를 보호하는지 여부에 관계 없이 모든 Azure Backup 구성 요소는 Azure에서 Recovery Services 자격 증명 모음에 데이터를 백업하는 데 사용할 수 있습니다. 특정 데이터, 애플리케이션 또는 워크로드 보호하는 데 사용할 구성 요소에 대한 내용은 이 문서의 뒷부분에 있는 [Azure Backup 구성 요소 표](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)를 참조하세요.
@@ -88,10 +88,10 @@ Azure Backup 서버 | Hyper-V 및 VMWare에서 일관성 있는 Linux 게스트 
 Azure IaaS VM Backup | [사전 스크립트 및 사후 스크립트 프레임워크](backup-azure-linux-app-consistent.md)를 사용하여 앱 일치 백업<br/><br/> [파일 수준 복구](backup-azure-restore-files-from-vm.md)<br/><br/> [복원된 디스크에서 VM 만들기](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [복원된 지점에서 VM 만들기](backup-azure-arm-restore-vms.md#create-new-create-a-vm)
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Azure Backup에서 Premium Storage VM 사용
-Azure Backup은 Premium Storage VM을 보호합니다. Azure Premium Storage는 I/O 집중 워크로드를 지원하도록 설계된 SSD(반도체 드라이브) 기반 저장소이며, Premium Storage는 VM(가상 컴퓨터) 워크로드에 유용합니다. Premium Storage에 대한 자세한 내용은 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 스토리지](../virtual-machines/windows/premium-storage.md) 문서를 참조하세요.
+Azure Backup은 Premium Storage VM을 보호합니다. Azure Premium Storage는 I/O 집중 워크로드를 지원하도록 설계된 SSD(반도체 드라이브) 기반 스토리지이며, Premium Storage는 VM(가상 컴퓨터) 워크로드에 유용합니다. Premium Storage에 대한 자세한 내용은 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 스토리지](../virtual-machines/windows/premium-storage.md) 문서를 참조하세요.
 
 ### <a name="back-up-premium-storage-vms"></a>Premium Storage VM 백업
-Premium Storage VM을 백업하는 동안, Backup 서비스는 프리미엄 저장소 계정에 "AzureBackup-"이라는 임시 준비 위치를 만듭니다. 준비 위치의 크기는 복구 지점 스냅숏의 크기와 같습니다. Premium Storage 계정에 임시 준비 위치에 맞게 충분한 여유 공간이 있어야 합니다. 자세한 내용은 [Premium Storage 제한](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) 문서를 참조하세요. 백업 작업이 완료되면, 준비 위치가 삭제됩니다. 준비 위치에 사용된 저장소의 가격은 모든 [프리미엄 저장소 가격 책정](../virtual-machines/windows/premium-storage.md#pricing-and-billing)과 일치합니다.
+Premium Storage VM을 백업하는 동안, Backup 서비스는 프리미엄 스토리지 계정에 "AzureBackup-"이라는 임시 준비 위치를 만듭니다. 준비 위치의 크기는 복구 지점 스냅숏의 크기와 같습니다. Premium Storage 계정에 임시 준비 위치에 맞게 충분한 여유 공간이 있어야 합니다. 자세한 내용은 [Premium Storage 제한](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) 문서를 참조하세요. 백업 작업이 완료되면, 준비 위치가 삭제됩니다. 준비 위치에 사용된 스토리지의 가격은 모든 [Premium Storage 가격 책정](../virtual-machines/windows/premium-storage.md#pricing-and-billing)과 일치합니다.
 
 > [!NOTE]
 > 준비 위치를 수정하거나 편집하지 마십시오.

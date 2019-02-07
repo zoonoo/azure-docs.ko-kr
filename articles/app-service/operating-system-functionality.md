@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ad27a7eaf88ae57f730609e2b0f43a2f5ea182a1
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653512"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901788"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service의 운영 체제 기능
 이 문서에서는 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 실행되는 모든 Windows 앱에서 사용할 수 있는 일반적인 기준 운영 체제 기능을 설명합니다. 이 기능에는 파일, 네트워크, 레지스트리 액세스, 진단 로그 및 이벤트가 포함됩니다. 
@@ -116,9 +116,9 @@ App Service의 각 앱은 "애플리케이션 풀 ID"라는 권한이 낮은 임
 ## <a name="diagnostics-logs-and-events"></a>진단 로그 및 이벤트
 로그 정보는 일부 앱이 액세스하는 또 하나의 데이터 집합입니다. App Service에서 실행되는 코드에 사용할 수 있는 로그 정보의 종류에는 앱에서 생성된 진단 및 로그 정보(앱에서 쉽게 액세스할 수 있음)가 포함됩니다. 
 
-예를 들어 활성 앱에서 생성된 W3C HTTP 로그는 앱에 대해 만들어진 네트워크 공유 위치에 있는 로그 디렉터리에서 사용할 수 있거나 고객이 저장소에 W3C를 기록하도록 설정한 경우 Blob 저장소에서 사용할 수 있습니다. 두 번째 옵션을 사용하면 네트워크 공유와 관련된 파일 저장소 제한을 초과할 위험 없이 대량의 로그를 수집할 수 있습니다.
+예를 들어 활성 앱에서 생성된 W3C HTTP 로그는 앱에 대해 만들어진 네트워크 공유 위치에 있는 로그 디렉터리에서 사용할 수 있거나 고객이 스토리지에 W3C를 기록하도록 설정한 경우 Blob Storage에서 사용할 수 있습니다. 두 번째 옵션을 사용하면 네트워크 공유와 관련된 파일 저장소 제한을 초과할 위험 없이 대량의 로그를 수집할 수 있습니다.
 
-이와 비슷하게 .NET 추적 및 진단 인프라를 사용하여 .NET 앱의 실시간 진단 정보를 기록할 수 있으며, 여기서도 추적 정보를 앱의 네트워크 공유에 쓰거나 Blob 저장소 위치에 쓰는 옵션이 사용됩니다.
+이와 비슷하게 .NET 추적 및 진단 인프라를 사용하여 .NET 앱의 실시간 진단 정보를 기록할 수 있으며, 여기서도 추적 정보를 앱의 네트워크 공유에 쓰거나 Blob Storage 위치에 쓰는 옵션이 사용됩니다.
 
 앱에서 사용할 수 없는 진단 로깅 및 추적의 영역은 Windows ETW 이벤트 및 일반적인 Windows 이벤트 로그(예: 시스템, 애플리케이션 및 보안 이벤트 로그)입니다. ETW 추적 정보는 잠재적으로 시스템 전체에서 볼 수 있으므로(올바른 ACL 사용) ETW 이벤트에 대한 읽기 및 쓰기 액세스는 차단됩니다. 개발자는 읽기/쓰기 ETW 이벤트 및 일반적인 Windows 이벤트 로그에 대한 API 호출이 작동하는 것처럼 보이지만 이는 App Service가 성공한 것처럼 보이도록 호출을 "가장"하기 때문이라는 것을 알아챌 수 있습니다. 실제로 애플리케이션 코드는 이 이벤트 데이터에 액세스할 수 없습니다.
 
@@ -128,6 +128,10 @@ App Service의 각 앱은 "애플리케이션 풀 ID"라는 권한이 낮은 임
 앱은 실행 가상 머신의 레지스트리의 상당 부분(전체는 아님)에 읽기 전용으로 액세스할 수 있습니다. 즉, 앱이 로컬 사용자 그룹에 대한 읽기 전용 액세스를 허용하는 레지스트리 키에 액세스할 수 없음을 의미합니다. 현재 읽기 또는 쓰기 액세스가 지원되지 않는 레지스트리의 하나의 영역은 HKEY\_CURRENT\_USER Hive입니다.
 
 사용자별 레지스트리 키 액세스를 포함하여 레지스트리에 대한 쓰기 액세스는 차단됩니다. 앱의 관점에서 보면, Azure 환경에서는 여러 가상 머신에서 앱을 마이그레이션할 수 있고 마이그레이션하므로 레지스트리에 대한 쓰기 액세스에 의존해서는 안 됩니다. 앱이 사용할 수 있는 유일한 쓰기 가능한 영구 저장소는 App Service UNC 공유에 저장된 앱별 콘텐츠 디렉터리 구조입니다. 
+
+## <a name="remote-desktop-access"></a>원격 데스크톱 액세스
+
+App Service는 VM 인스턴스에 대한 원격 데스크톱 액세스를 제공하지 않습니다.
 
 ## <a name="more-information"></a>자세한 정보
 

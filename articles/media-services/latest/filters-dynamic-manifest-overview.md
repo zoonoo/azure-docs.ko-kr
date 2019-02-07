@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 7dc2136fe6ee28da0583ebdb2b2749ddf1c37049
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5b666551ed47852fe8653fff174589acc4bff348
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728043"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912036"
 ---
 # <a name="filters-and-dynamic-manifests"></a>필터 및 동적 매니페스트
 
@@ -110,7 +110,7 @@ REST 예제는 [Upload, encode, and stream files with REST](stream-files-tutoria
 
 다음 속성을 사용하여 필터를 설명합니다. 
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |firstQuality|필터의 첫 번째 품질 비트 전송률입니다.|
 |presentationTimeRange|프레젠테이션 시간 범위입니다. 이 속성은 매니페스트 시작/종료 지점, 프레젠테이션 창 길이 및 라이브 시작 위치를 필터링하는 데 사용됩니다. <br/>자세한 내용은 [PresentationTimeRange](#PresentationTimeRange)를 참조하세요.|
@@ -120,12 +120,12 @@ REST 예제는 [Upload, encode, and stream files with REST](stream-files-tutoria
 
 이 속성은 **자산 필터**와 함께 사용합니다. **계정 필터**를 사용하여 이 속성을 설정하지 않는 것이 좋습니다.
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |**endTimestamp**|절대 종료 시간 경계입니다. VoD(주문형 비디오)에 적용됩니다. 라이브 프레젠테이션의 경우 이 속성은 자동으로 무시되며 프레젠테이션이 종료되고 스트림이 VoD가 되면 적용됩니다.<br/><br/>값은 스트림의 절대 종료 지점을 나타냅니다. 가장 가까운 다음 GOP 시작 지점으로 반올림됩니다.<br/><br/>재생 목록(매니페스트)을 트리밍하는 데 StartTimestamp 및 EndTimestamp를 사용합니다. 예를 들어 StartTimestamp=40000000 및 EndTimestamp = 100000000이면 StartTimestamp 및 EndTimestamp 사이의 미디어를 포함하는 재생 목록이 생성됩니다. 경계에 걸쳐 있는 조각인 경우 전체 조각이 매니페스트에 포함됩니다.<br/><br/>다음에 나오는 **forceEndTimestamp** 정의를 참조하세요.|
 |**forceEndTimestamp**|라이브 필터에 적용됩니다.<br/><br/>**forceEndTimestamp**는 **endTimestamp**가 유효한 값으로 설정되었는지 여부를 표시하는 부울입니다. <br/><br/>값이 **true**이면 **endTimestamp** 값을 지정해야 합니다. 지정되지 않은 경우 잘못된 요청이 반환됩니다.<br/><br/>예를 들어 입력 비디오 5분에 시작되어 스트림 끝까지 지속되는 필터를 정의하려면 **forceEndTimestamp**를 false로 설정하고 **endTimestamp**설정을 생략합니다.|
-|**liveBackoffDuration**|라이브 전용에 적용됩니다. 이 속성은 라이브 재생 위치를 정의하는 데 사용됩니다. 이 규칙을 사용하여 라이브 재생 위치를 지연하고 플레이어에 대한 서버 쪽 버퍼를 생성할 수 있습니다. LiveBackoffDuration은 라이브 위치에 대해 상대적입니다. 최대 라이브 백오프 지속 기간은 60초입니다.|
-|**presentationWindowDuration**|라이브에 적용됩니다. **presentationWindowDuration**을 사용하여 재생 목록에 슬라이딩 윈도우를 적용합니다. 예를 들어presentationWindowDuration=1200000000을 설정하면 2분 슬라이딩 윈도우가 적용됩니다. 라이브 에지 2분 이내의 미디어가 재생 목록에 포함됩니다. 경계에 걸쳐 있는 조각인 경우 전체 조각이 재생 목록에 포함됩니다. 최소 프레젠테이션 창 지속 기간은 120초입니다.|
+|**liveBackoffDuration**|라이브 전용에 적용됩니다. 이 속성은 라이브 재생 위치를 정의하는 데 사용됩니다. 이 규칙을 사용하여 라이브 재생 위치를 지연하고 플레이어에 대한 서버 쪽 버퍼를 생성할 수 있습니다. LiveBackoffDuration은 라이브 위치에 대해 상대적입니다. 최대 라이브 백오프 기간은 300초입니다.|
+|**presentationWindowDuration**|라이브에 적용됩니다. **presentationWindowDuration**을 사용하여 재생 목록에 슬라이딩 윈도우를 적용합니다. 예를 들어presentationWindowDuration=1200000000을 설정하면 2분 슬라이딩 윈도우가 적용됩니다. 라이브 에지 2분 이내의 미디어가 재생 목록에 포함됩니다. 경계에 걸쳐 있는 조각인 경우 전체 조각이 재생 목록에 포함됩니다. 최소 프레젠테이션 기간은 60초입니다.|
 |**startTimestamp**|VoD 또는 라이브 스트림에 적용됩니다. 값은 스트림의 절대 시작 지점을 나타냅니다. 값은 가장 가까운 다음 GOP 시작 지점으로 반올림됩니다.<br/><br/>재생 목록(매니페스트)을 트리밍하는 데 **startTimestamp** 및 **endTimestamp**를 사용합니다. 예를 들어 startTimestamp=40000000 및 endTimestamp = 100000000이면 StartTimestamp 및 EndTimestamp 사이의 미디어를 포함하는 재생 목록이 생성됩니다. 경계에 걸쳐 있는 조각인 경우 전체 조각이 매니페스트에 포함됩니다.|
 |**timescale**|VoD 또는 라이브 스트림에 적용됩니다. 위에 지정된 타임스탬프 및 지속 기간에서 사용되는 시간 간격입니다. 기본 시간 간격은 10000000입니다. 대체 시간 간격을 사용할 수 있습니다. 기본값은 10000000HNS(백 나노초)입니다.|
 
@@ -135,7 +135,7 @@ REST 예제는 [Upload, encode, and stream files with REST](stream-files-tutoria
 
 필터 트랙 속성 조건은 트랙 유형, 값(다음 표에 설명) 및 연산(Equal, NotEqual)을 설명합니다. 
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |**Bitrate**|필터링을 위해 트랙의 비트 전송률을 사용합니다.<br/><br/>권장 값은 비트 전송률의 범위(초당 비트 수)입니다. 예를 들어 “0-2427000”입니다.<br/><br/>참고: 특정 비트 전송률 값을 예를 들어 250000(초당 비트 수)과 같이 사용할 수 있지만, 정확한 비트 전송률이 자산별로 변동될 수 있으므로 이 방법은 권장되지 않습니다.|
 |**FourCC**|필터링을 위해 트랙의 FourCC 값을 사용합니다.<br/><br/>값은 [RFC 6381](https://tools.ietf.org/html/rfc6381)에 지정된 코덱 형식의 첫 번째 요소입니다. 현재 지원되는 코덱은 다음과 같습니다. <br/>비디오: “avc1”, “hev1”, “hvc1”<br/>오디오: “mp4a”, “ec-3”<br/><br/>자산의 트랙에 대한 FourCC 값을 확인하려면 [매니페스트 파일 가져오기 및 검사](#get-and-examine-manifest-files)를 참조하세요.|

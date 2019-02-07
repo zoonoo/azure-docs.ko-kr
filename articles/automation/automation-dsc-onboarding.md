@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 74587d05ec27e87d87aa3647c22f5c90a9cdcf58
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 1a3cfb51cc75c89c5a4580b1b7721eb763078980
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436402"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096707"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드
 
@@ -168,7 +168,7 @@ AWS DSC 도구 키트를 사용하여 Azure Automation 상태 구성에 의한 �
 1. 최신 버전의 [Linux용 PowerShell 필요한 상태 구성](https://github.com/Microsoft/PowerShell-DSC-for-Linux)이 Azure Automation 상태 구성에 온보드하려는 머신에 설치되어 있는지 확인합니다.
 1. [PowerShell DSC 로컬 구성 관리자 기본값](/powershell/dsc/metaconfig4)이 사용자 사용 사례와 일치하는 경우 Azure Automation 상태 구성에서 끌어오고 보고하는 **모든** 머신을 온보드하려 합니다.
 
-   - Azure Automation 상태 구성에 온보드할 각 Linux 머신에서 PowerShell DSC 로컬 구성 관리자 기본값을 통해 `Register.py`를 사용하여 온보드합니다.
+   - Azure Automation 상태 구성에 온보드할 각 Linux 머신에서 `Register.py`를 사용하여 PowerShell DSC 로컬 구성 관리자 기본값을 통해 온보드합니다.
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 

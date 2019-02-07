@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 0797952641efb9fe876d72f2dce0418ff5771d40
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d41ec0bc959eb264564d49ae6ac31aa30b3be98a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083337"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492762"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결
 
@@ -133,7 +133,7 @@ sudo update-ca-certificates
 
 실행 중인 샘플을 이해하기 위해 다음 코드 조각은 클라이언트 SDK가 인증서 파일을 읽고 보안 TLS 연결을 설정하는 데 사용하는 방법을 나타냅니다. 
 
-```nodejs
+```javascript
 // Provide the Azure IoT device client via setOptions with the X509
 // Edge root CA certificate that was used to setup the Edge runtime
 var options = {

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: spelluru
-ms.openlocfilehash: 2c7aec700a1077bc1a1b56afb5d8d07f47f4c6e8
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 05d7ac56d6c1c48125eb458d0eee852ba396b300
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700375"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663097"
 ---
 # <a name="available-relay-apis"></a>사용 가능한 Relay API
 
@@ -39,7 +39,7 @@ ms.locfileid: "43700375"
 
 #### <a name="net"></a>.NET
 
-.NET 에코시스템에는 여러 개의 런타임이 있으므로 Relay용 .NET 라이브러리도 여러 개 있습니다. .NET Framework 라이브러리는 .NET Framework 환경에서만 실행될 수 있지만 .NET Standard 라이브러리는 .NET Core 또는 .NET Framework를 사용하여 실행할 수 있습니다. .NET Framework에 대한 자세한 내용은 [프레임워크 버전](/dotnet/articles/standard/frameworks#framework-versions)을 참조하세요.
+.NET 에코시스템에는 여러 개의 런타임이 있으므로 Relay용 .NET 라이브러리도 여러 개 있습니다. .NET Framework 라이브러리는 .NET Framework 환경에서만 실행될 수 있지만 .NET Standard 라이브러리는 .NET Core 또는 .NET Framework를 사용하여 실행할 수 있습니다. .NET Framework에 대한 자세한 내용은 [프레임워크 버전](/dotnet/articles/standard/frameworks)을 참조하세요.
 
 .NET Framework 라이브러리는 WCF 프로그래밍 모델만 지원하고 WCF `net.tcp` 전송을 기반으로 하는 소유 이진 프로토콜을 사용합니다. 이 프로토콜 및 라이브러리는 기존 애플리케이션과의 하위 호환성을 위해 유지 관리됩니다.
 
@@ -49,9 +49,9 @@ ms.locfileid: "43700375"
 
 위 테이블에 나열된 하이브리드 연결 모듈은 기존 Node.js 모듈을 로컬 네트워킹 스택 대신 Azure Relay 서비스에서 수신 대기하는 대체 구현으로 바꾸거나 수정합니다.
 
-`hyco-https` 모듈은 핵심 Node.js 모듈 `http` 및 `https`를 수정하고 부분적으로 재정의하여 HTTPS 수신기 구현을 제공합니다. 이는 이러한 핵심 모듈을 사용하는 많은 기존의 Node.js 모듈 및 응용 프로그램과 호환됩니다.
+`hyco-https` 모듈은 핵심 Node.js 모듈 `http` 및 `https`를 수정하고 부분적으로 재정의하여 HTTPS 수신기 구현을 제공합니다. 이는 이러한 핵심 모듈을 사용하는 많은 기존의 Node.js 모듈 및 애플리케이션과 호환됩니다.
 
-`hyco-ws` 및 `hyco-websocket` 모듈은 Node.js에 인기 있는 `ws` 및 `websocket` 모듈을 수정하여 대체 수신기 구현을 제공합니다. 그러면 모듈 및 어느 한 모듈에 의존하는 응용 프로그램을 하이브리드 연결 릴레이 뒤에서 실행할 수 있습니다.
+`hyco-ws` 및 `hyco-websocket` 모듈은 Node.js에 인기 있는 `ws` 및 `websocket` 모듈을 수정하여 대체 수신기 구현을 제공합니다. 그러면 모듈 및 어느 한 모듈에 의존하는 애플리케이션을 하이브리드 연결 릴레이 뒤에서 실행할 수 있습니다.
 
 이러한 모듈에 대한 자세한 내용은 [azure-relay-node](https://github.com/Azure/azure-relay-node) GitHub 리포지토리에서 확인할 수 있습니다.
 

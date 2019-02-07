@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 28542bb66fe1e523201967a9dd67fd7e41fed7a0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ab19baa1c10f329b5bbe3c14261434d7f8e2538f
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135630"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076531"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발
 
@@ -29,7 +29,7 @@ Microsoft는 여러 위치에서 다음을 비롯한 지능형 엔터프라이�
 * Azure 독일, Azure Government, Azure 중국(21Vianet에서 운영하는 Azure) 등의 격리된 소버린 클라우드 소버린 클라우드는 전역 Azure 고객이 액세스할 수 있는 우수한 기능을 대부분 포함하는 일관성 있는 플랫폼을 제공합니다.
 * 조직의 데이터 센터에서 Azure 서비스를 제공할 수 있게 해주는 하이브리드 클라우드 플랫폼인 Azure Stack 엔터프라이즈는 고유한 데이터 센터에서 Azure Stack을 설정하거나, 자체 시설(호스트된 지역이라고도 함)에서 Azure Stack을 실행하는 서비스 공급자의 Azure 서비스를 이용할 수 있습니다.
 
-이러한 모든 클라우드의 핵심은, Azure Resource Manager가 제공하는 API를 통해 다양한 사용자 인터페이스와 Azure 플랫폼 간에 통신할 수 있다는 것입니다. 이 API는 강력한 코드 인프라 기능을 제공합니다. Azure 클라우드 플랫폼에서 사용할 수 있는 모든 리소스 종류는 Azure Resource Manager를 통해 배포 및 구성할 수 있습니다. 단일 템플릿을 사용하여 전체 응용 프로그램을 배포하고 작동 종료 상태로 구성할 수 있습니다.
+이러한 모든 클라우드의 핵심은, Azure Resource Manager가 제공하는 API를 통해 다양한 사용자 인터페이스와 Azure 플랫폼 간에 통신할 수 있다는 것입니다. 이 API는 강력한 코드 인프라 기능을 제공합니다. Azure 클라우드 플랫폼에서 사용할 수 있는 모든 리소스 종류는 Azure Resource Manager를 통해 배포 및 구성할 수 있습니다. 단일 템플릿을 사용하여 전체 애플리케이션을 배포하고 작동 종료 상태로 구성할 수 있습니다.
 
 ![Azure 환경](./media/templates-cloud-consistency/environments.png)
 
@@ -59,14 +59,14 @@ Azure Resource Manager 기능은 항상 전역 Azure에 먼저 도입됩니다. 
 
 1. 리포지토리의 로컬 복제본이 있으면 PowerShell을 사용하여 대상의 Azure Resource Manager에 연결합니다.
 
-1. psm1 모듈을 가져오고 Test-AzureRmTemplateFunctions cmdlet을 실행합니다.
+1. psm1 모듈을 가져오고 Test-AzTemplateFunctions cmdlet을 실행합니다.
 
   ```powershell
   # Import the module
-  Import-module <path to local clone>\AzureRmTemplateFunctions.psm1
+  Import-module <path to local clone>\AzTemplateFunctions.psm1
 
-  # Execute the Test-AzureRmTemplateFunctions cmdlet
-  Test-AzureRmTemplateFunctions -path <path to local clone>
+  # Execute the Test-AzTemplateFunctions cmdlet
+  Test-AzTemplateFunctions -path <path to local clone>
   ```
 
 스크립트는 각각 고유한 템플릿 함수만 포함하는 여러 개의 최소화된 템플릿을 배포합니다. 스크립트 출력은 지원되는 템플릿 함수와 사용할 수 없는 템플릿 함수를 보고합니다.
@@ -230,7 +230,7 @@ az provider list --query "[].{Provider:namespace, Status:registrationState}" --o
 다음 PowerShell cmdlet을 사용하여 사용 가능한 리소스 공급자를 확인할 수도 있습니다.
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
 ### <a name="verify-the-version-of-all-resource-types"></a>모든 리소스 종류의 버전 확인
@@ -248,12 +248,12 @@ az provider list --query "[].{namespace:namespace, resourceType:resourceType[]}"
 다음 PowerShell cmdlet을 사용할 수도 있습니다.
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider | select-object ProviderNamespace -ExpandProperty ResourceTypes | ft ProviderNamespace, ResourceTypeName, ApiVersions
+Get-AzResourceProvider | select-object ProviderNamespace -ExpandProperty ResourceTypes | ft ProviderNamespace, ResourceTypeName, ApiVersions
 ```
 
 ### <a name="refer-to-resource-locations-with-a-parameter"></a>매개 변수를 사용하여 리소스 위치 참조
 
-템플릿은 항상 지역에 있는 리소스 그룹에 배포됩니다. 배포 자체 외에도, 템플릿의 각 리소스에는 배포할 지역을 지정하는 데 사용하는 위치 속성이 있습니다. 클라우드 일관성을 위한 템플릿을 개발하려면 각 Azure Stack에 고유한 위치 이름이 포함될 수 있으므로 리소스 위치를 참조하는 동적 방법이 필요합니다. 일반적으로 리소스는 리소스 그룹과 동일한 지역에 배포되지만, 지역 간 응용 프로그램 가용성 등의 시나리오를 지원하려면 전체 지역에 리소스를 분산하는 것이 유용할 수 있습니다.
+템플릿은 항상 지역에 있는 리소스 그룹에 배포됩니다. 배포 자체 외에도, 템플릿의 각 리소스에는 배포할 지역을 지정하는 데 사용하는 위치 속성이 있습니다. 클라우드 일관성을 위한 템플릿을 개발하려면 각 Azure Stack에 고유한 위치 이름이 포함될 수 있으므로 리소스 위치를 참조하는 동적 방법이 필요합니다. 일반적으로 리소스는 리소스 그룹과 동일한 지역에 배포되지만, 지역 간 애플리케이션 가용성 등의 시나리오를 지원하려면 전체 지역에 리소스를 분산하는 것이 유용할 수 있습니다.
 
 템플릿에서 리소스 속성을 지정할 때 지역 이름을 하드 코딩할 수는 있지만, 이 방법을 사용할 경우, 다른 Azure Stack 환경에는 지역 이름이 존재하지 않을 가능성이 크기 때문에 해당 템플릿을 배포하지 못할 수 있습니다.
 
@@ -491,10 +491,10 @@ Azure는 다양한 VM 이미지를 제공합니다. Microsoft 및 파트너가 �
 az vm image list -all
 ```
 
-`-Location` 매개 변수를 통해 원하는 위치를 지정하여 Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher)를 사용하면 동일한 목록을 검색할 수 있습니다. 예: 
+Azure PowerShell cmdlet인 [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher)를 사용하여 동일한 목록을 검색하고, `-Location` 매개 변수를 사용하여 원하는 위치를 지정할 수 있습니다. 예: 
 
 ```azurepowershell-interactive
-Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRMVMImage
+Get-AzVMImagePublisher -Location "West Europe" | Get-AzVMImageOffer | Get-AzVMImageSku | Get-AzureRMVMImage
 ```
 
 이 명령은 몇 분 후에 전역 Azure 클라우드의 유럽 서부 지역에서 사용 가능한 모든 이미지를 반환합니다.
@@ -527,14 +527,14 @@ az vm list-sizes --location "West Europe"
 Azure PowerShell의 경우 다음을 사용합니다.
 
 ```azurepowershell-interactive
-Get-AzureRmVMSize -Location "West Europe"
+Get-AzVMSize -Location "West Europe"
 ```
 
 사용 가능한 서비스의 전체 목록은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?cdn=disable)을 참조하세요.
 
 ### <a name="check-use-of-azure-managed-disks-in-azure-stack"></a>Azure Stack에서 Azure Managed Disks 사용 확인
 
-관리 디스크는 Azure 테넌트의 저장소를 처리합니다. 명시적으로 저장소 계정을 만들고 VHD(가상 하드 디스크)의 URI를 지정하는 대신, VM을 배포할 때 관리 디스크를 사용하여 암시적으로 이러한 작업을 수행할 수 있습니다. 관리 디스크는 동일한 가용성 집합에 있는 VM의 모든 디스크를 여러 다른 저장 단위에 배치하여 가용성을 향상합니다. 또한 훨씬 짧은 가동 중지 시간으로 기존 VHD를 표준 저장소에서 프리미엄 저장소로 변환할 수 있습니다.
+관리 디스크는 Azure 테넌트의 저장소를 처리합니다. 명시적으로 저장소 계정을 만들고 VHD(가상 하드 디스크)의 URI를 지정하는 대신, VM을 배포할 때 관리 디스크를 사용하여 암시적으로 이러한 작업을 수행할 수 있습니다. 관리 디스크는 동일한 가용성 집합에 있는 VM의 모든 디스크를 여러 다른 저장 단위에 배치하여 가용성을 향상합니다. 또한 훨씬 짧은 가동 중지 시간으로 기존 VHD를 표준 스토리지에서 Premium Storage로 변환할 수 있습니다.
 
 관리 디스크는 Azure Stack에 대한 로드맵에 있지만 현재 지원되지 않습니다. 지원될 때까지, 다음과 같이 VM 리소스에 대한 템플릿에서 `vhd` 요소를 통해 명시적으로 VHD를 지정하면 Azure Stack용 클라우드 일치 템플릿을 개발할 수 있습니다.
 
@@ -580,7 +580,7 @@ Get-AzureRmVMSize -Location "West Europe"
 
 클라우드 일관성을 위한 또 다른 고려 사항은 [가상 머신 확장](../virtual-machines/windows/extensions-features.md)을 사용하여 VM 내의 리소스를 구성하는 것입니다. Azure Stack에서 모든 VM 확장을 사용할 수 있는 것은 아닙니다. 템플릿은 VM 확장 전용 리소스를 지정하고, 템플릿 내에서 종속성과 조건을 만들 수 있습니다.
 
-예를 들어, Microsoft SQL Server를 실행하는 VM을 구성하려는 경우, VM 확장에서 템플릿 배포의 일부로 SQL Server를 구성할 수 있습니다. SQL Server를 실행하는 VM에서 데이터베이스를 만들도록 구성된 응용 프로그램 서버도 배포 템플릿에 포함되어 있을 경우, 발생하는 사항을 고려합니다. 응용 프로그램 서버에 VM 확장을 사용하는 것 외에도 SQL Server VM 확장 리소스의 성공적인 반환에 대한 응용 프로그램 서버의 종속성을 구성할 수 있습니다. 이 방법을 사용하면 응용 프로그램 서버에 데이터베이스를 만들도록 지시할 때 SQL Server를 실행하는 VM이 구성되어 있고 사용할 수 있습니다.
+예를 들어, Microsoft SQL Server를 실행하는 VM을 구성하려는 경우, VM 확장에서 템플릿 배포의 일부로 SQL Server를 구성할 수 있습니다. SQL Server를 실행하는 VM에서 데이터베이스를 만들도록 구성된 애플리케이션 서버도 배포 템플릿에 포함되어 있을 경우, 발생하는 사항을 고려합니다. 애플리케이션 서버에 VM 확장을 사용하는 것 외에도 SQL Server VM 확장 리소스의 성공적인 반환에 대한 애플리케이션 서버의 종속성을 구성할 수 있습니다. 이 방법을 사용하면 애플리케이션 서버에 데이터베이스를 만들도록 지시할 때 SQL Server를 실행하는 VM이 구성되어 있고 사용할 수 있습니다.
 
 플랫폼이 종속성에 필요한 논리를 처리하는 동시에, 템플릿의 선언적 방법을 사용하여 리소스의 종료 상태와 상호 종속성을 정의할 수 있습니다.
 
@@ -594,10 +594,10 @@ Get-AzureRmVMSize -Location "West Europe"
 az vm extension image list --location myLocation
 ```
 
-Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) cmdlet을 실행하고 `-Location`을 사용하여 가상 머신 이미지의 위치를 지정할 수도 있습니다. 예: 
+또한 Azure PowerShell [Get-AzVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet을 실행하고 `-Location`을 사용하여 가상 머신 이미지의 위치를 지정할 수도 있습니다. 예: 
 
 ```azurepowershell-interactive
-Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version
+Get-AzVmImagePublisher -Location myLocation | Get-AzVMExtensionImageType | Get-AzVMExtensionImage | Select Type, Version
 ```
 
 #### <a name="ensure-that-versions-are-available"></a>버전을 사용할 수 있는지 확인
@@ -615,16 +615,16 @@ VM 확장은 자사 리소스 관리자 리소스이므로 고유한 API 버전�
 
 템플릿의 모든 대상 위치에 VM 확장 리소스의 API 버전이 있어야 합니다. 위치 종속성은 앞의 “모든 리소스 종류의 버전 확인” 섹션에서 설명한 리소스 공급자 API 버전 가용성처럼 작동합니다.
 
-VM 확장 리소스에 사용 가능한 API 버전 목록을 검색하려면 다음과 같이 [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider) cmdlet에 **Microsoft.Compute** 리소스 공급자를 사용합니다.
+VM 확장 리소스에 사용할 수 있는 API 버전 목록을 검색하려면 다음과 같이 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider) cmdlet에 **Microsoft.Compute** 리소스 공급자를 사용합니다.
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
+Get-AzResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
 ```
 
 가상 머신 확장 집합에 VM 확장을 사용할 수도 있습니다. 동일한 위치 조건이 적용됩니다. 클라우드 일관성을 위한 템플릿을 개발하려면 배포할 모든 위치에서 API 버전을 사용할 수 있는지 확인합니다. 확장 집합에 대한 VM 확장 리소스의 API 버전을 검색하려면 이전과 동일한 cmdlet을 사용하되 가상 머신 확장 집합 리소스 종류를 다음과 같이 지정합니다.
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachineScaleSets/extensions"}
+Get-AzResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachineScaleSets/extensions"}
 ```
 
 각 특정 확장의 버전도 관리됩니다. 이 버전은 VM 확장의 `typeHandlerVersion` 속성에 표시됩니다. 템플릿을 배포할 위치에서 템플릿 VM 확장의 `typeHandlerVersion` 요소에 지정된 버전을 사용할 수 있는지 확인합니다. 예를 들어, 다음 코드는 버전 1.7을 지정합니다.
@@ -645,13 +645,13 @@ Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Obje
         ...   
 ```
 
-특정 VM 확장에 사용할 수 있는 버전 목록을 검색하려면 [Get-AzureRmVMExtensionImage](/powershell/module/azurerm.compute/get-azurermvmextensionimage) cmdlet을 사용합니다. 다음 예제에서는 **myLocation**에서 PowerShell DSC(Desired State Configuration) VM 확장에 사용 가능한 버전을 검색합니다.
+특정 VM 확장에 사용할 수 있는 버전 목록을 검색하려면 [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) cmdlet을 사용합니다. 다음 예제에서는 **myLocation**에서 PowerShell DSC(Desired State Configuration) VM 확장에 사용 가능한 버전을 검색합니다.
 
 ```azurepowershell-interactive
-Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT
+Get-AzVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT
 ```
 
-게시자 목록을 가져오려면 [Get-AzureRmVmImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) 명령을 사용합니다. 형식을 요청하려면 [Get-AzureRmVMExtensionImageType](/powershell/module/azurerm.compute/get-azurermvmextensionimagetype) 명령을 사용합니다.
+게시자 목록을 가져오려면 [Get-AzVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) 명령을 사용합니다. 형식을 요청하려면 [Get-AzVMExtensionImageType](/powershell/module/az.compute/get-azvmextensionimagetype) 명령을 사용합니다.
 
 ## <a name="tips-for-testing-and-automation"></a>테스트 및 자동화에 대한 팁
 

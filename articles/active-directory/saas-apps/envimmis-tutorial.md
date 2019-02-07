@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: ab89f8ee-2507-4625-94bc-b24ef3d5e006
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 96168dcb8400d2580d0b64257ceb861c1da3ff65
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b85dc27f6b6a23be6dc89a0f0a7cf9f78681446d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447288"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197452"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>자습서: Envi MMIS와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ Envi MMIS의 Azure AD 통합을 구성하려면 갤러리의 Envi MMIS를 관리
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -72,7 +72,7 @@ Envi MMIS의 Azure AD 통합을 구성하려면 갤러리의 Envi MMIS를 관리
 
     ![새 애플리케이션 단추][3]
 
-1. 검색 상자에 **Envi MMIS**를 입력하고 결과 패널에서 **Envi MMIS**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+1. 검색 상자에 **Envi MMIS**를 입력하고 결과 패널에서 **Envi MMIS**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![결과 목록의 Envi MMIS](./media/envimmis-tutorial/tutorial_envimmis_addfromgallery.png)
 
@@ -92,11 +92,11 @@ Envi MMIS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Envi MMIS 애플리케이션에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Envi MMIS 응용 프로그램에서 Single Sign-On을 구성합니다.
 
 **Envi MMIS에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Envi MMIS** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Envi MMIS** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -110,9 +110,9 @@ Envi MMIS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **식별자** 텍스트 상자에서 `https://www.<CUSTOMER DOMAIN>.com/Account` 패턴을 사용하여 URL을 입력합니다.
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://www.<CUSTOMER DOMAIN>.com/Account/Acs`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://www.<CUSTOMER DOMAIN>.com/Account/Acs`
 
-1. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
     ![Envi MMIS 도메인 및 URL Single Sign-On 정보](./media/envimmis-tutorial/tutorial_envimmis_url1.png)
 
@@ -153,7 +153,7 @@ Envi MMIS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **업로드 위치** 드롭다운에서 **파일** 옵션을 선택합니다.
 
-    나. **파일 선택 아이콘**을 선택하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
+    b. **파일 선택 아이콘**을 선택하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
 
     다. **Ok**를 클릭합니다.
 
@@ -216,7 +216,7 @@ Envi MMIS의 경우 프로비전은 수동 작업입니다.
 
     a. **사용자 이름** 텍스트 상자에 Britta Simon 계정의 사용자 이름(예: **brittasimon@contoso.com**)을 입력합니다.
     
-    나. **이름** 텍스트 상자에 BrittaSimon의 이름(예: **Britta**)을 입력합니다.
+    b. **이름** 텍스트 상자에 BrittaSimon의 이름(예: **Britta**)을 입력합니다.
 
     다. **성** 텍스트 상자에 BrittaSimon의 성(예: **Simon**)을 입력합니다.
 
@@ -240,9 +240,9 @@ Envi MMIS의 경우 프로비전은 수동 작업입니다.
 
     ![사용자 할당][201] 
 
-1. 애플리케이션 목록에서 **Envi MMIS**를 선택합니다.
+1. 응용 프로그램 목록에서 **Envi MMIS**를 선택합니다.
 
-    ![애플리케이션 목록의 Envi MMIS 링크](./media/envimmis-tutorial/tutorial_envimmis_app.png)  
+    ![응용 프로그램 목록의 Envi MMIS 링크](./media/envimmis-tutorial/tutorial_envimmis_app.png)  
 
 1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -268,7 +268,7 @@ Envi MMIS의 경우 프로비전은 수동 작업입니다.
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

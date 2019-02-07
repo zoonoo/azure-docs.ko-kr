@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/21/2018
+ms.date: 01/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1db379a48d4dafdaa2494d081658296a7145bcd9
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 80510b4f3f07b96b9084108fcb89c75e108cbc65
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54815237"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096852"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM용 Azure Disk Encryption FAQ
 
@@ -42,8 +42,8 @@ Azure Disk Encryption은 다음과 같은 Linux 서버 배포 및 버전에서 �
 
 | Linux 배포 | 버전 | 암호화에 지원되는 볼륨 유형|
 | --- | --- |--- |
-| Ubuntu | 16.04-DAILY-LTS | OS 및 데이터 디스크 |
-| Ubuntu | 14.04.5-DAILY-LTS | OS 및 데이터 디스크 |
+| Ubuntu | 16.04| OS 및 데이터 디스크 |
+| Ubuntu | 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS 및 데이터 디스크 |
 | RHEL | 7.5 | OS 및 데이터 디스크* |
 | RHEL | 7.4 | OS 및 데이터 디스크* |
 | RHEL | 7.3 | OS 및 데이터 디스크* |
@@ -59,12 +59,10 @@ Azure Disk Encryption은 다음과 같은 Linux 서버 배포 및 버전에서 �
 | CentOS | 6.7 | 데이터 디스크  |
 | CentOS | 6.6 | 데이터 디스크  |
 | CentOS | 6.5 | 데이터 디스크  |
-| openSUSE | 13.2 | 데이터 디스크  |
-| SLES | 12 SP1 | 데이터 디스크  |
-| SLES | 우선 순위: 12-SP1 | 데이터 디스크  |
-| SLES | HPC 12 | 데이터 디스크  |
-| SLES | 우선 순위: 11-SP4 | 데이터 디스크  |
-| SLES | 11 SP4 | 데이터 디스크  |
+| openSUSE | SUSE:openSUSE-Leap:42.3:latest | 데이터 디스크  |
+| SLES | SUSE:SLES-Priority:12-SP4:latest | 데이터 디스크  |
+| SLES | SUSE:SLES-HPC:12-SP3:latest | 데이터 디스크  |
+| SLES | SUSE:SLES-Priority:12-SP3:latest | 데이터 디스크  |
 
 
 *__새 ADE 구현은 RHEL OS 및 RHEL7 종량제 이미지용 데이터 디스크에서 지원됩니다. ADE는 현재 RHEL BYOS(Bring-Your-Own-Subscription) 이미지에서 지원되지 않습니다. 자세한 내용은 [Linux용 Azure Disk Encryption](azure-security-disk-encryption-linux.md) 문서를 참조하세요.__

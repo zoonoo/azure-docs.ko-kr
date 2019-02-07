@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: 8ca892341f064a0b2289e6415658c5d4e2d51ddc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 26c94f050ba9878bfa3daf17c8d4365dc68cee59
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157579"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661053"
 ---
 # <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>사용자 지정 개발 애플리케이션에 대해 필요한 특정 API를 찾는 방법
 
@@ -27,7 +27,7 @@ API에 액세스하려면 액세스 범위 및 역할을 구성해야 합니다.
 
 ## <a name="configuring-a-resource-application-to-expose-web-apis"></a>웹 API를 공개하는 리소스 애플리케이션 구성
 
-웹 API를 표시할 때, 권한을 앱 등록에 추가하면 API가 **API 선택** 목록에 표시됩니다. 액세스 범위를 추가하려면 [리소스 애플리케이션에 액세스 범위 추가](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-access-scopes-to-your-resource-application)에 설명된 단계를 따르세요.
+웹 API를 표시할 때, 권한을 앱 등록에 추가하면 API가 **API 선택** 목록에 표시됩니다. 액세스 범위를 추가하려면 [리소스 애플리케이션에 액세스 범위 추가](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)에 설명된 단계를 따르세요.
 
 ## <a name="configuring-a-client-application-to-access-web-apis"></a>웹 API에 액세스하는 클라이언트 애플리케이션 구성
 

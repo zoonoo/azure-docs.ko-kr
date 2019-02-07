@@ -11,12 +11,12 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 11/26/2018
-ms.openlocfilehash: c6e518f644e8fc43db58ef481312f44b2071a0dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 250f03809a182e541fb58f73469f46d2b281b69f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194307"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756051"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>빠른 시작: Node.js를 사용하여 Azure SQL Database 쿼리
 
@@ -41,7 +41,7 @@ ms.locfileid: "55194307"
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 > [!IMPORTANT]
-> 이 자습서를 수행하는 컴퓨터의 공용 IP 주소에 대한 방화벽 규칙이 있어야 합니다. 다른 컴퓨터에 있거나 다른 공용 IP 주소가 있으면 [Azure Portal을 사용하여 서버 수준 방화벽 규칙을 만듭니다](sql-database-get-started-portal-firewall.md).
+> 이 자습서를 수행하는 컴퓨터의 공용 IP 주소에 대한 방화벽 규칙이 있어야 합니다. 다른 컴퓨터에 있거나 다른 공용 IP 주소가 있으면 [Azure Portal을 사용하여 서버 수준 방화벽 규칙을 만듭니다](sql-database-server-level-firewall-rule.md).
 
 ## <a name="create-the-project"></a>프로젝트 만들기
 

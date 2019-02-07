@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1bc70e5c8243c50506cea871220412a4941cbe35
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7e7e362a2536f7adf2a7d68b096ab76d73f15a61
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213111"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496230"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-nodejs"></a>Node.js에서 QnA Maker REST API를 사용하는 방법 
 <a name="HOLTop"></a>
@@ -57,7 +57,7 @@ ms.locfileid: "55213111"
 3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -253,7 +253,7 @@ create_kb (path, content, function (result) {
 3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -454,7 +454,7 @@ Press any key to continue.
 3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -566,7 +566,7 @@ publish_kb (path, '', function (result) {
 3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -699,7 +699,7 @@ replace_kb (path, content, function (result) {
 3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -832,7 +832,7 @@ get_qna (path, function (result) {
 1. `kb` 값을 답변을 쿼리하려는 기술 자료의 ID로 바꿉니다. 이 기술 자료는 [Publish](#Publish) 메서드를 사용하여 이미 게시했어야 합니다.
 1. 프로그램을 실행합니다.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -961,7 +961,7 @@ get_answers (method, content, function (result) {
 3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1076,7 +1076,7 @@ get_kb (path, function (result) {
 3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1204,7 +1204,7 @@ Press any key to continue.
 3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1316,7 +1316,7 @@ delete_kb (path, '', function (result) {
 3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1417,7 +1417,7 @@ get_keys (path, function (result) {
 3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1543,7 +1543,7 @@ refresh_keys (path, content, function (result) {
 3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1650,7 +1650,7 @@ get_alterations (path, function (result) {
 3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');

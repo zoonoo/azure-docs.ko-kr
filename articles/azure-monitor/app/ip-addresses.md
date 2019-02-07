@@ -1,5 +1,5 @@
 ---
-title: Application Insights 및 Log Analytics에 사용된 IP 주소 | Microsoft Docs
+title: Application Insights 및 Log Analytics에서 사용되는 IP 주소 | Microsoft Docs
 description: Application Insights에 필요한 서버 방화벽 예외
 services: application-insights
 documentationcenter: .net
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 7c3a7c4d961a5ae2fe243ced1e13087d5cdb7a6f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 3522cf6315e420cefbf17068cf7bc020e83c9019
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452924"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883248"
 ---
-# <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 및 Log Analytics에 사용된 IP 주소
+# <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 및 Log Analytics에서 사용되는 IP 주소
 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 서비스는 많은 IP 주소를 사용합니다. 모니터링하는 앱이 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.
 
 > [!NOTE]
-> 이러한 주소는 정적이지만 경우에 따라 변경해야 할 수 있습니다. 모든 Application Insights 트래픽은 인바운드 방화벽 규칙을 필요로 하는 가용성 모니터링 및 웹후크를 제외하고 아웃바운드 트래픽을 나타냅니다.
+> 이러한 주소는 고정이지만 경우에 따라 변경해야 할 수 있습니다. 모든 Application Insights 트래픽은 인바운드 방화벽 규칙을 필요로 하는 가용성 모니터링 및 웹후크를 제외하고 아웃바운드 트래픽을 나타냅니다.
 > 
 > 
 
@@ -57,7 +57,7 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 ## <a name="availability-tests"></a>가용성 테스트
 [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md) 가 실행되는 주소 목록입니다. 앱에서 웹 테스트를 실행하려고 하지만 웹 서버가 특정 클라이언트 서비스를 제공하도록 제한된 경우 가용성 테스트 서버에서 들어오는 트래픽을 허용해야 합니다.
 
-이 주소에서 들어오는 트래픽에 대한 포트 80(http) 및 443(https)을 엽니다(IP 주소가 위치별로 그룹화됨).
+이 주소에서 들어오는 트래픽에 대한 80(http) 및 443(https) 포트를 엽니다(IP 주소가 위치별로 그룹화됨).
 
 ```
 Australia East
@@ -311,18 +311,18 @@ East US
 ## <a name="application-insights-api"></a>Application Insights API
 | 목적 | URI | IP | 포트 |
 | --- | --- | --- | --- |
-| API |api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io |13.82.26.252<br/>40.76.213.73 |80,443 |
-| API 문서 |dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com |13.82.24.149<br/>40.114.82.10 |80,443 |
+| API |api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io |23.96.58.253<br/>13.78.151.158<br/>40.74.59.40<br/>40.70.42.246<br/>40.117.198.0<br/>137.116.226.91<br/>52.163.88.44<br/>52.189.210.240<br/>13.77.201.34<br/>13.78.149.206<br/>52.232.28.146<br/>52.175.241.170<br/>20.36.36.66<br/>52.147.29.101<br/>40.115.155.252<br/>20.188.34.152<br/>52.141.32.103 |80,443 |
+| API 문서 |dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com |23.96.58.253<br/>13.78.151.158<br/>40.74.59.40<br/>40.70.42.246<br/>40.117.198.0<br/>137.116.226.91<br/>52.163.88.44<br/>52.189.210.240<br/>13.77.201.34<br/>13.78.149.206<br/>52.232.28.146<br/>52.175.241.170<br/>20.36.36.66<br/>52.147.29.101<br/>40.115.155.252<br/>20.188.34.152<br/>52.141.32.103 |80,443 |
 | 내부 API |aigs.aisvc.visualstudio.com<br/>aigs1.aisvc.visualstudio.com<br/>aigs2.aisvc.visualstudio.com<br/>aigs3.aisvc.visualstudio.com<br/>aigs4.aisvc.visualstudio.com<br/>aigs5.aisvc.visualstudio.com<br/>aigs6.aisvc.visualstudio.com |동적|443 |
 
 ## <a name="log-analytics-api"></a>Log Analytics API
 
 | 목적 | URI | IP | 포트 |
 | --- | --- | --- | --- |
-| API |api.loganalytics.io<br/>*.api.loganalytics.io |동적 |80,443 |
-| API 문서 |dev.loganalytics.io<br/>docs.loganalytics.io<br/>www.loganalytics.io |동적 |80,443 |
+| API |api.loganalytics.io<br/>*.api.loganalytics.io |23.96.58.253<br/>13.78.151.158<br/>40.74.59.40<br/>40.70.42.246<br/>40.117.198.0<br/>137.116.226.91<br/>52.163.88.44<br/>52.189.210.240<br/>13.77.201.34<br/>13.78.149.206<br/>52.232.28.146<br/>52.175.241.170<br/>20.36.36.66<br/>52.147.29.101<br/>40.115.155.252<br/>20.188.34.152<br/>52.141.32.103 |80,443 |
+| API 문서 |dev.loganalytics.io<br/>docs.loganalytics.io<br/>www.loganalytics.io |23.96.58.253<br/>13.78.151.158<br/>40.74.59.40<br/>40.70.42.246<br/>40.117.198.0<br/>137.116.226.91<br/>52.163.88.44<br/>52.189.210.240<br/>13.77.201.34<br/>13.78.149.206<br/>52.232.28.146<br/>52.175.241.170<br/>20.36.36.66<br/>52.147.29.101<br/>40.115.155.252<br/>20.188.34.152<br/>52.141.32.103 |80,443 |
 
-## <a name="application-insights-analytics"></a>Application Insights Analytics
+## <a name="application-insights-analytics"></a>Application Insights 분석
 
 | 목적 | URI | IP | 포트 |
 | --- | --- | --- | --- |
@@ -330,7 +330,7 @@ East US
 | CDN | applicationanalytics.azureedge.net | 동적 | 80,443 |
 | 미디어 CDN | applicationanalyticsmedia.azureedge.net | 동적 | 80,443 |
 
-참고: *.applicationinsights.io 도메인은 Application Insights 팀이 소유합니다.
+참고: *.applicationinsights.io 도메인은 Application Insights 팀에서 소유하고 있습니다.
 
 ## <a name="log-analytics-portal"></a>Log Analytics 포털
 
@@ -339,7 +339,7 @@ East US
 | 포털 | portal.loganalytics.io | 동적 | 80,443 |
 | CDN | applicationanalytics.azureedge.net | 동적 | 80,443 |
 
-참고: *. loganalytics.io 도메인은 Log Analytics 팀 소유입니다.
+참고: *.loganalytics.io 도메인은 Log Analytics 팀에서 소유하고 있습니다.
 
 ## <a name="application-insights-azure-portal-extension"></a>Application Insights Azure Portal 확장
 
@@ -355,7 +355,7 @@ East US
 | Application Insights JS SDK CDN | az416426.vo.msecnd.net | 동적 | 80,443 |
 | Application Insights Java SDK | aijavasdk.blob.core.windows.net | 동적 | 80,443 |
 
-## <a name="alert-webhooks"></a>경고 webhooks
+## <a name="alert-webhooks"></a>경고 웹후크
 
 | 목적 | IP | 포트
 | --- | --- | --- |

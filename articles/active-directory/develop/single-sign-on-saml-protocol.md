@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 07/19/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 1d52e3b8871a5af219d1c9eafd559f06bb19f560
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: dd9bdc4638d1c055706026798acba08d6add08c7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424886"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098754"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Single Sign-On SAML 프로토콜
 
@@ -81,10 +81,10 @@ Azure AD도 `AuthnRequest`에서 `Conditions` 요소를 무시합니다.
 
 `NameIDPolicy`가 제공된 경우 선택 사항인 `Format` 특성을 포함할 수 있습니다. `Format` 특성은 다음 값 중 하나만 포함할 수 있으며 다른 값을 사용하면 오류가 발생합니다.
 
-* `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: Azure Active Directory는 쌍별 식별자로 NameID 클레임을 발급합니다.
-* `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: Azure Active Directory는 전자 메일 주소 형식으로 NameID 클레임을 발급합니다.
-* `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: 이 값은 클레임 형식을 선택하기 위한 Azure Active Directory를 허용합니다. Azure Active Directory는 쌍별 식별자로 NameID를 발급합니다.
-* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: Azure Active Directory에서 NameID 클레임을 현재 SSO 작업에 고유하고 임의로 생성된 값으로 발급합니다. 따라서 임시 값이며 인증 사용자를 식별하는 데 사용할 수 없습니다.
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: Azure Active Directory에서 NameID 클레임을 쌍별 식별자로 발급합니다.
+* `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: Azure Active Directory에서 NameID 클레임을 이메일 주소 형식으로 발급합니다.
+* `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: 이 값을 사용하면 Active Directory에서 클레임 형식을 선택할 수 있습니다. Azure Active Directory는 쌍별 식별자로 NameID를 발급합니다.
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: Azure Active Directory에서 NameID 클레임을 현재 SSO 작업에 고유하게 임의로 생성된 값으로 발급합니다. 따라서 임시 값이며 인증 사용자를 식별하는 데 사용할 수 없습니다.
 
 Azure AD는 `AllowCreate` 특성을 무시합니다.
 
@@ -244,7 +244,7 @@ Azure AD는 성공적인 로그온에 대한 응답에서 어설션을 서명합
 
 #### <a name="audience"></a>대상
 
-대상 그룹을 식별하는 URI를 포함합니다. Azure AD는 이 요소의 값을 로그온이 시작된 `AuthnRequest`의 `Issuer` 요소 값으로 설정합니다. `Audience` 값을 평가하려면 응용 프로그램 등록 중에 지정된 `App ID URI` 값을 사용합니다.
+대상 그룹을 식별하는 URI를 포함합니다. Azure AD는 이 요소의 값을 로그온이 시작된 `AuthnRequest`의 `Issuer` 요소 값으로 설정합니다. `Audience` 값을 평가하려면 애플리케이션 등록 중에 지정된 `App ID URI` 값을 사용합니다.
 
 ```
 <AudienceRestriction>

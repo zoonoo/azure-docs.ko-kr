@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 5b418f28cb8cb48d8c9ee369289c899c7f6525bc
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: bb759c0b21287f8198f2f4e0dac10020a3b31d62
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331965"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913600"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure Storage 테이블 설계 가이드: 확장성 있는 고성능 테이블 설계
 
@@ -252,7 +252,7 @@ Table service는 단일 클러스터형 인덱스의 **PartitionKey** 및 **RowK
 
 ### <a name="sorting-data-in-the-table-service"></a>Table service에서 데이터 정렬
 
-반환된 쿼리 결과는 **PartitionKey**를 기준으로 오름차순으로 정렬된 후 **RowKey**를 기준으로 정렬됩니다.
+Table service에서 반환되는 쿼리 결과는 **PartitionKey**를 기준으로 오름차순으로 정렬된 다음, **RowKey**를 기준으로 정렬됩니다.
 
 > [!NOTE]
 > Azure Cosmso DB의 Azure Table API에서 반환한 쿼리 결과는 파티션 키 또는 행 키를 기준으로 정렬되지 않습니다. 자세한 기능 차이 목록에 대해서는 [Azure Cosmos DB 및 Azure Table Storage의 Table API 간 차이점](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)을 참조하세요.

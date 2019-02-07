@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: ca638f1374c2e15c3978cfe711295f0ebe249d68
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 196d08f47ddfdbb86b8e96ae0e5ca3d3e3e5917e
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818169"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886767"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Azure IoT Edge 연속 통합 및 지속적인 배포
 
@@ -67,7 +67,7 @@ Azure Repos를 사용하는 방법에 대한 자세한 내용은 [Share your cod
 
       ![빈 프로세스로 시작](./media/how-to-ci-cd/start-with-empty.png)
 
-4. 파이프라인이 생성되면 파이프라인 편집기로 이동됩니다. 파이프라인 설명에서 대상 플랫폼에 따라 올바른 에이전트 풀을 선택합니다. 
+4. 파이프라인이 만들어지면 파이프라인 편집기로 이동합니다. 파이프라인 설명에서 대상 플랫폼에 따라 올바른 에이전트 풀을 선택합니다. 
     
     * Linux 컨테이너용 플랫폼 amd64에서 모듈을 빌드하려는 경우 **호스트된 Ubuntu 1604**를 선택합니다.
 

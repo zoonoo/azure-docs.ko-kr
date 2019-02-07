@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2018
+ms.date: 01/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 105a836f609859825c273ed9fba9dd46237bcaa9
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9120e5f283f8d8da8da2c80959a335965a643409
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447941"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903896"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 배포 모드
 
@@ -24,14 +24,11 @@ ms.locfileid: "54447941"
 
 ## <a name="incremental-and-complete-deployments"></a>증분 및 전체 배포
 
-리소스를 배포하는 경우,
+두 모드에서 모두, Resource Manager는 템플릿에 지정된 모든 리소스를 만들려고 합니다. 리소스 그룹에 이미 리소스가 있고 해당 설정이 변경되지 않은 경우 해당 리소스에 대한 작업이 수행되지 않습니다. 리소스의 속성 값을 변경하는 경우 리소스가 새 값으로 업데이트됩니다. 기존 리소스의 위치 또는 종류를 업데이트하려고 하면 오류가 발생하여 배포에 실패합니다. 대신, 새 리소스를 필요한 위치 또는 유형으로 배포합니다.
 
-* 전체 모드에서는 Resource Manager가 리소스 그룹에 존재하지만 템플릿에는 지정되지 않은 리소스를 **삭제**합니다. 그러나 여전히 지정되었지만 거짓으로 평가된 조건으로 인해 배포되지 않은 그러한 리소스는 삭제되지 않습니다.
-* 증분 모드에서는 Resource Manager가 리소스 그룹에 존재하지만 템플릿에는 지정되지 않은 리소스를 **변경하지 않고 유지**합니다.
+전체 모드에서는 Resource Manager가 리소스 그룹에 존재하지만 템플릿에는 지정되지 않은 리소스를 **삭제**합니다. 템플릿에 지정되었지만 [condition](resource-manager-templates-resources.md#condition)(조건)이 false로 평가되어 배포되지 않은 리소스는 삭제되지 않습니다.
 
-두 모드에서 모두, Resource Manager는 템플릿에 지정된 모든 리소스를 만들려고 합니다. 리소스가 리소스 그룹에 이미 존재하고 해당 설정이 변경되지 않으면 작업 결과도 변경되지 않습니다. 리소스의 속성 값을 변경하는 경우 리소스가 새 값으로 업데이트됩니다. 기존 리소스의 위치 또는 종류를 업데이트하려고 하면 오류가 발생하여 배포에 실패합니다. 대신, 새 리소스를 필요한 위치 또는 유형으로 배포합니다.
-
-증분 모드에서 리소스를 다시 배포할 때는 업데이트 중인 속성 값뿐만 아니라 리소스의 모든 속성 값을 지정합니다. 특정 속성을 지정하지 않으면 Resource Manager는 업데이트가 해당 값을 덮어쓰는 것으로 해석합니다.
+증분 모드에서는 Resource Manager가 리소스 그룹에 존재하지만 템플릿에는 지정되지 않은 리소스를 **변경하지 않고 유지**합니다. 증분 모드에서 리소스를 다시 배포할 때는 업데이트 중인 속성 값뿐만 아니라 리소스의 모든 속성 값을 지정합니다. 특정 속성을 지정하지 않으면 Resource Manager는 업데이트가 해당 값을 덮어쓰는 것으로 해석합니다.
 
 ## <a name="example-result"></a>결과 예제
 

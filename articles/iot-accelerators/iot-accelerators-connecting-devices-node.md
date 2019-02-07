@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: 13a762e9262bacc6c4d87b8be56eb286491ba75f
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: e7a9659a7796777cabb6dc73a41e3a361fd1733c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197694"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567971"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>디바이스를 원격 모니터링 솔루션 가속기에 연결(Node.js)
 
@@ -40,7 +40,7 @@ ms.locfileid: "54197694"
 
 1. **remote_monitoring.js** 파일에서 다음 `require` 문을 추가합니다.
 
-    ```nodejs
+    ```javascript
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     var Client = require('azure-iot-device').Client;
     var Message = require('azure-iot-device').Message;
@@ -49,13 +49,13 @@ ms.locfileid: "54197694"
 
 1. 다음 변수 선언을 `require` 문 뒤에 추가합니다. 자리 표시자 값 `{device connection string}`을 원격 모니터링 솔루션에서 프로비전한 디바이스에 대해 기록한 값으로 바꿉니다.
 
-    ```nodejs
+    ```javascript
     var connectionString = '{device connection string}';
     ```
 
 1. 기본 원격 분석 데이터를 정의하려면 다음 변수를 추가합니다.
 
-    ```nodejs
+    ```javascript
     var temperature = 50;
     var temperatureUnit = 'F';
     var humidity = 50;
@@ -66,7 +66,7 @@ ms.locfileid: "54197694"
 
 1. 속성 값을 정의하려면 다음 변수를 추가합니다.
 
-    ```nodejs
+    ```javascript
     var schema = "real-chiller;v1";
     var deviceType = "RealChiller";
     var deviceFirmware = "1.0.0";
@@ -79,7 +79,7 @@ ms.locfileid: "54197694"
 
 1. 다음 변수를 추가하여 솔루션에 보내는 reported 속성을 정의합니다. 이러한 속성에는 웹 UI에 표시할 메타데이터가 포함됩니다.
 
-    ```nodejs
+    ```javascript
     var reportedProperties = {
       "SupportedMethods": "Reboot,FirmwareUpdate,EmergencyValveRelease,IncreasePressure",
       "Telemetry": {
@@ -97,7 +97,7 @@ ms.locfileid: "54197694"
 
 1. 작업 결과를 출력하려면 다음 도우미 함수를 추가합니다.
 
-    ```nodejs
+    ```javascript
     function printErrorFor(op) {
         return function printError(err) {
             if (err) console.log(op + ' error: ' + err.toString());
@@ -107,7 +107,7 @@ ms.locfileid: "54197694"
 
 1. 다음 도우미 함수를 추가하여 원격 분석 값을 임의로 지정하는 데 사용합니다.
 
-    ```nodejs
+    ```javascript
     function generateRandomIncrement() {
         return ((Math.random() * 2) - 1);
     }
@@ -115,7 +115,7 @@ ms.locfileid: "54197694"
 
 1. 다음 제네릭 함수를 추가하여 솔루션에서 직접 메서드 호출을 처리합니다. 함수는 호출된 직접 메서드에 대한 정보를 표시하지만, 이 샘플에서는 어떤 방식으로도 디바이스를 수정하지 않습니다. 솔루션은 직접 메서드를 사용하여 디바이스에서 작동합니다.
 
-    ```nodejs
+    ```javascript
     function onDirectMethod(request, response) {
       // Implement logic asynchronously here.
       console.log('Simulated ' + request.methodName);
@@ -130,7 +130,7 @@ ms.locfileid: "54197694"
 
 1. 다음 함수를 추가하여 솔루션에서 **FirmwareUpdate** 직접 메서드 호출을 처리합니다. 함수는 직접 메서드 페이로드에 전달된 매개 변수를 확인한 다음, 펌웨어 업데이트 시뮬레이션을 비동기적으로 실행합니다.
 
-    ```nodejs
+    ```javascript
     function onFirmwareUpdate(request, response) {
       // Get the requested firmware version from the JSON request body
       var firmwareVersion = request.payload.Firmware;
@@ -159,7 +159,7 @@ ms.locfileid: "54197694"
 
 1. 다음 함수를 추가하여 진행 상태를 솔루션에 다시 보고하는 장기 실행 펌웨어 업데이트 흐름을 시뮬레이션합니다.
 
-    ```nodejs
+    ```javascript
     // Simulated firmwareUpdate flow
     function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
       console.log('Simulating firmware update flow...');
@@ -237,7 +237,7 @@ ms.locfileid: "54197694"
 
 1. 다음 코드를 추가하여 솔루션에 원격 분석 데이터를 보냅니다. 클라이언트 앱은 메시지 스키마를 식별하기 위해 메시지에 속성을 추가합니다.
 
-    ```nodejs
+    ```javascript
     function sendTelemetry(data, schema) {
       if (deviceOnline) {
         var d = new Date();
@@ -256,7 +256,7 @@ ms.locfileid: "54197694"
 
 1. 다음 코드를 추가하여 클라이언트 인스턴스를 만듭니다.
 
-    ```nodejs
+    ```javascript
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
@@ -268,7 +268,7 @@ ms.locfileid: "54197694"
     * 직접 메서드에 대한 처리기를 등록합니다. 샘플은 펌웨어 업데이트 직접 메서드에 대한 별도 처리기를 사용합니다.
     * 원격 분석 보내기를 시작합니다.
 
-    ```nodejs
+    ```javascript
     client.open(function (err) {
       if (err) {
         printErrorFor('open')(err);

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: cbrooksmsft
 ms.subservice: queues
-ms.openlocfilehash: 1f2f52fc08ab4da4a7525f3018b7a9aea2f7c576
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b1a566c4179e940b82790c69b3036e3be9e352cc
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457364"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564530"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>C++에서 Queue Storage를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -44,7 +44,7 @@ Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사�
 * **Linux:** [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 페이지의 지침을 따릅니다.
 * **Windows:** Visual Studio에서 **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔**을 클릭합니다. [NuGet 패키지 관리자 콘솔](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 에 다음 명령을 입력하고 **ENTER**를 누릅니다.
 
-```  
+```powershell
 Install-Package wastorage
 ```
 
@@ -150,7 +150,7 @@ std::wcout << U("Peeked message content: ") << peeked_message.content_as_string(
 
 ```cpp
 // Retrieve storage account from connection-string.
-azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_conection_string);
+azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
 // Create the queue client.
 azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();

@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 6d54d20c-eca1-4fa6-b56a-4c3ed0593db0
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: e36a4be3a95b67c040855171d4b167e495a22496
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e3f90da177f46246d1a7453796b7b9a9c93f4a21
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439629"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193169"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>자습서: Trisotech Digital Enterprise Server와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ Trisotech Digital Enterprise Server가 Azure AD에 통합되도록 구성하려�
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -110,7 +110,7 @@ Trisotech Digital Enterprise Server에서 Azure AD Single Sign-On을 구성하�
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<companyname>.trisotech.com`
 
-    나. **식별자** 텍스트 상자에서 `https://<companyname>.trisotech.com` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://<companyname>.trisotech.com` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Trisotech Digital Enterprise Server 클라이언트 지원 팀](mailto:support@trisotech.com)에 문의하세요.
@@ -139,9 +139,9 @@ Trisotech Digital Enterprise Server에서 Azure AD Single Sign-On을 구성하�
 
     a. **Authentication Method**(인증 방법)의 드롭다운에서 **SAML 2(Secured Assertion Markup Language 2)** 를 선택합니다.
 
-    나. Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 값을 **메타데이터 URL** 텍스트 상자에 붙여넣습니다.
+    b. Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 값을 **메타데이터 URL** 텍스트 상자에 붙여넣습니다.
 
-    다. **Application ID**(응용 프로그램 ID) 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<companyname>.trisotech.com`.
+    다. **Application ID**(애플리케이션 ID) 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다. `https://<companyname>.trisotech.com`.
 
     d. 페이지 맨 아래에 있는 **저장**
 
@@ -185,7 +185,7 @@ Trisotech Digital Enterprise Server에서 Azure AD Single Sign-On을 구성하�
 
 이 섹션은 Trisotech Digital Enterprise Server에서 Britta Simon이라는 사용자를 만들기 위한 섹션입니다. Trisotech Digital Enterprise Server는 Just-In-Time 프로비전을 지원하며 기본적으로 사용하도록 설정됩니다. 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 Trisotech Digital Enterprise Server에 액세스하는 동안 만들어집니다.
 >[!Note]
->사용자를 수동으로 생성해야 하는 경우 [Trisotech Digital Enterprise Server 지원 팀](mailto:support@trisotech.com)에 문의하세요.
+>사용자를 수동으로 생성해야 하는 경우  [Trisotech Digital Enterprise Server 지원 팀](mailto:support@trisotech.com)에 문의하세요.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -227,7 +227,7 @@ Trisotech Digital Enterprise Server에서 Azure AD Single Sign-On을 구성하�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: 0269a8ea460667d44b6173e4504a9ccb5695d722
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: ff7e15579bfb0edfe9229238c6a4d5672700d0ef
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863536"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567012"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Elastic Database 작업 시작
 
@@ -35,7 +35,7 @@ Azure SQL Database에 대한 Elastic Database job(미리 보기)을 사용하면
 
 분할된 데이터베이스 안의 삽입된 데이터에 따라 여느 분할된 데이터 베이스와 마찬가지로 분할된 데이터 베이스 관리자를 만들 수 있습니다. 이미 분할된 데이터가 설치되어 있는 분할된 데이터베이스가 있다면, 다음 단계들을 건너뛰고 다음 섹션으로 이동합니다.
 
-1. **Elastic Database 도구 응용 프로그램** 을 빌드하고 실행하세요. [샘플 앱 다운로드 및 실행](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app)섹션에서 7단계까지 수행합니다. 7단계를 끝내면 다음 명령 프롬프트를 볼 수 있습니다.
+1. **Elastic Database 도구 애플리케이션**을 빌드하고 실행하세요. [샘플 앱 다운로드 및 실행](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app)섹션에서 7단계까지 수행합니다. 7단계를 끝내면 다음 명령 프롬프트를 볼 수 있습니다.
 
    ![명령 프롬프트](./media/sql-database-elastic-query-getting-started/cmd-prompt.png)
 

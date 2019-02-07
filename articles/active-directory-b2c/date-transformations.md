@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 35c5731d260fb63dece3d2b8ae4f4a4522fb91b8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d36abb669490b3d3f6818c018b3844a82ecd0617
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153407"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564795"
 ---
 # <a name="date-claims-transformations"></a>날짜 클레임 변환
 
@@ -23,7 +23,7 @@ ms.locfileid: "55153407"
 
 이 문서에서는 Azure AD(Active Directory) B2C에서 ID 경험 프레임워크 스키마의 날짜 클레임 변환을 사용하는 예제를 제공합니다. 자세한 내용은 [ClaimsTransformations](claimstransformations.md)를 참조하세요.
 
-## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan 
+## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan
 
 하나의 날짜 및 시간 클레임(문자열 데이터 형식)이 두 번째 날짜 및 시간 클레임(문자열 데이터 형식)보다 크고 예외가 throw되는지 확인합니다.
 
@@ -85,7 +85,6 @@ ms.locfileid: "55153407"
     - **rightOperand**: 2018-10-01T14:00:00.0000000Z
 - 결과: 오류가 throw됨
 
-
 ## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
 
 **Date** ClaimType을 **DateTime** ClaimType으로 변환합니다. 클레임 변환은 시간 형식을 변환하고 날짜에 12:00:00 AM을 추가합니다.
@@ -98,7 +97,7 @@ ms.locfileid: "55153407"
 다음 예제에서는 `dateOfBirth` 클레임(date 데이터 형식)을 다른 `dateOfBirthWithTime` 클레임(dateTime 데이터 형식)으로 변환하는 방법을 보여 줍니다.
 
 ```XML
-<ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
+  <ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
     <InputClaims>
       <InputClaim ClaimTypeReferenceId="dateOfBirth" TransformationClaimType="inputClaim" />
     </InputClaims>
@@ -163,7 +162,7 @@ ms.locfileid: "55153407"
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="isLastTOSAcceptedGreaterThanNow" TransformationClaimType="result" />
-  </OutputClaims>      
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 
@@ -175,6 +174,5 @@ ms.locfileid: "55153407"
 - 입력 매개 변수:
     - **operator**: 보다 나중
     - **timeSpanInSeconds**: 7776000(90일)
-- 출력 클레임: 
+- 출력 클레임:
     - **result**: true
-

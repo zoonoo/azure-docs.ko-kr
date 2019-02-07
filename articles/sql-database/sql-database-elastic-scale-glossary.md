@@ -11,15 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 75da9fd6dbd6218e46925eb2fc6cbec4969d5925
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/04/2018
+ms.openlocfilehash: 446203b45744a95c32cd41d9ded26fd960ac8a22
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867803"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55561436"
 ---
 # <a name="elastic-database-tools-glossary"></a>Elastic Database 도구 용어집
+
 Azure SQL Database의 [Elastic Database 도구](sql-database-elastic-scale-introduction.md), 기능에 대해 정의된 용어는 다음과 같습니다. 이 도구는 [분할 데이터베이스 맵](sql-database-elastic-scale-shard-map-management.md)을 관리하는 데 사용하며 [클라이언트 라이브러리](sql-database-elastic-database-client-library.md), [분할-병합 도구](sql-database-elastic-scale-overview-split-and-merge.md), [탄력적 풀](sql-database-elastic-pool.md), [쿼리](sql-database-elastic-query-overview.md)를 포함합니다. 
 
 이러한 용어는 [Elastic Database 도구를 사용하여 분할된 데이터베이스 추가](sql-database-elastic-scale-add-a-shard.md) 및 [RecoveryManager 클래스를 사용하여 분할된 데이터베이스 맵 문제 해결](sql-database-elastic-database-recovery-manager.md)에 사용됩니다.

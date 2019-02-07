@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 223b32d3947ca0f663565a90b15e9c24e5ddeb96
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 84860b5098e141bdfbd924d86836bc7b48b0ce8f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883214"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754220"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>자습서: Azure의 Linux 가상 머신에서 MEAN(MongoDB, Express, AngularJS 및 Node.js) 스택 만들기
 
@@ -42,7 +42,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 ## <a name="create-a-linux-vm"></a>Linux VM 만들기
 
-[az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만들고 [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) 명령을 사용하여 Linux VM을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
+[az group create](https://docs.microsoft.com/cli/azure/group) 명령을 사용하여 리소스 그룹을 만들고 [az vm create](https://docs.microsoft.com/cli/azure/vm) 명령을 사용하여 Linux VM을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
 다음 예제에서는 Azure CLI를 사용하여 *eastus* 위치에 *myResourceGroupMEAN*이라는 리소스 그룹을 만듭니다. 또한 기본 키 위치에 SSH 키가 없는 경우 SSH 키가 있는 *myVM*이라는 VM이 만들어집니다. 특정 키 집합을 사용하려면 --ssh-key-value 옵션을 사용합니다.
 

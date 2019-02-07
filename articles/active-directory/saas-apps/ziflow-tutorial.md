@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 84e60fa4-36fb-49c4-a642-95538c78f926
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 460a52f240f6b3723f93e81a11a8cd1ccc6c30c9
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: ca687f15187d4dd485d2c59e3c46fa3158802ff4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626696"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180005"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>자습서: Ziflow와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ Ziflow의 Azure AD 통합을 구성하려면 갤러리의 Ziflow를 관리되는
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -110,7 +110,7 @@ Ziflow에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. **로그온 URL** 텍스트 상자에서 다음과 같은 패턴을 사용하여 URL을 입력합니다. `https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
 
-    나. **식별자** 텍스트 상자에서 `urn:auth0:ziflow-production:<UniqueID>` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `urn:auth0:ziflow-production:<UniqueID>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 위의 값은 실제가 아닙니다. 식별자 및 로그온 URL의 고유한 ID 값을 자습서 뒷부분에 설명된 실제 값으로 업데이트하게 됩니다.
@@ -143,7 +143,7 @@ Ziflow에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. **유형**으로 **SAML2.0**을 선택합니다.
 
-    나. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **로그인 URL** 텍스트 상자에 붙여넣습니다.
+    b. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **로그인 URL** 텍스트 상자에 붙여넣습니다.
 
     다. Azure Portal에서 다운로드한 base 64 인코딩 인증서를 **X509 서명 인증서**에 업로드합니다.
 
@@ -205,7 +205,7 @@ Azure AD 사용자가 Ziflow에 로그인할 수 있도록 하려면 Ziflow로 �
 
     a. **전자 메일** 텍스트 상자에 사용자의 전자 메일(예: brittasimon@contoso.com)을 입력합니다.
 
-    나. **이름** 텍스트 상자에 사용자의 이름(예: Britta)을 입력합니다.
+    b. **이름** 텍스트 상자에 사용자의 이름(예: Britta)을 입력합니다.
 
     다. **성** 텍스트 상자에 사용자의 성(예: Simon)을 입력합니다.
 
@@ -256,7 +256,7 @@ Azure AD 사용자가 Ziflow에 로그인할 수 있도록 하려면 Ziflow로 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

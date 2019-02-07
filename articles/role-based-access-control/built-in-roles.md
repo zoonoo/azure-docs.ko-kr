@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/05/2018
+ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: b2d834c5f9f46f2ebe3c997c75dc50f30ed4bda7
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 8626dcb5b5c8eb7e83123eaeadb601e65d52f2c8
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558926"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081231"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 리소스에 대한 기본 제공 역할
 [RBAC(역할 기반 액세스 제어)](overview.md)에는 사용자, 그룹 및 서비스 주체를 할당할 수 있는 여러 기본 제공 역할 정의가 있습니다. 역할 할당은 Azure의 리소스에 대한 액세스를 제어하는 방법입니다. 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [사용자 지정 역할](custom-roles.md)을 만들면 됩니다.
@@ -37,6 +37,8 @@ ms.locfileid: "53558926"
 | [기여자](#contributor) | 리소스 액세스를 제외한 모든 것을 관리할 수 있습니다. |
 | [판독기](#reader) | 모든 것을 볼 수 있지만 변경은 할 수 없습니다. |
 | [AcrImageSigner](#acrimagesigner) | acr 이미지 서명자 |
+| [AcrPull](#acrpull) | acr pull |
+| [AcrPush](#acrpush) | acr push |
 | [AcrQuarantineReader](#acrquarantinereader) | acr 격리 데이터 판독기 |
 | [AcrQuarantineWriter](#acrquarantinewriter) | acr 격리 데이터 작성자 |
 | [API Management 서비스 참가자](#api-management-service-contributor) | 서비스 및 API를 관리할 수 있습니다. |
@@ -66,6 +68,7 @@ ms.locfileid: "53558926"
 | [Cognitive Services 기여자](#cognitive-services-contributor) | Cognitive Services의 키를 만들고, 읽고, 업데이트하고, 삭제 및 관리할 수 있습니다. |
 | [Cognitive Services 사용자](#cognitive-services-user) | Cognitive Services의 키를 읽고 나열할 수 있습니다. |
 | [Cosmos DB 계정 독자 역할](#cosmos-db-account-reader-role) | Azure Cosmos DB 계정 데이터를 읽을 수 있음. Azure Cosmos DB 계정 관리는 [DocumentDB 계정 참가자](#documentdb-account-contributor)를 참조하세요. |
+| [CosmosBackupOperator](#cosmosbackupoperator) | Cosmos DB 데이터베이스 또는 계정의 컨테이너에 대한 복원 요청을 제출할 수 있습니다. |
 | [Cost Management 기여자](#cost-management-contributor) | 비용을 확인하고 비용 구성(예: 예산, 내보내기)을 관리할 수 있음 |
 | [Cost Management 읽기 권한자](#cost-management-reader) | 비용 데이터 및 구성(예: 예산, 내보내기)을 확인할 수 있음 |
 | [Data Box 기여자](#data-box-contributor) | 다른 사람에게 액세스 권한을 부여하는 것을 제외한 모든 항목을 Data Box 서비스에서 관리할 수 있습니다. |
@@ -76,13 +79,13 @@ ms.locfileid: "53558926"
 | [DevTest Lab 사용자](#devtest-labs-user) | Azure DevTest Labs의 가상 머신을 연결, 시작, 다시 시작 및 종료할 수 있습니다. |
 | [DNS 영역 기여자](#dns-zone-contributor) | Azure DNS의 DNS 영역과 레코드 집합을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. |
 | [DocumentDB 계정 기여자](#documentdb-account-contributor) | Azure Cosmos DB 계정을 관리할 수 있습니다. Azure Cosmos DB는 이전의 DocumentDB입니다. |
-| [EventGrid EventSubscription contributor(미리 보기)](#eventgrid-eventsubscription-contributor-preview) | EventGrid 이벤트 구독 작업을 관리할 수 있습니다. |
-| [EventGrid EventSubscription 읽기 권한자(미리 보기)](#eventgrid-eventsubscription-reader-preview) | EventGrid 이벤트 구독을 읽을 수 있습니다. |
+| [EventGrid EventSubscription 기여자](#eventgrid-eventsubscription-contributor) | EventGrid 이벤트 구독 작업을 관리할 수 있습니다. |
+| [EventGrid EventSubscription 읽기 권한자](#eventgrid-eventsubscription-reader) | EventGrid 이벤트 구독을 읽을 수 있습니다. |
 | [HDInsight 도메인 서비스 기여자](#hdinsight-domain-services-contributor) | HDInsight Enterprise Security Package에 필요한 도메인 서비스 관련 작업을 읽고, 만들고, 수정하고, 삭제할 수 있음 |
 | [지능형 시스템 계정 기여자](#intelligent-systems-account-contributor) | 인텔리전트 시스템 계정을 관리할 수 있지만 액세스할 수는 없습니다. |
 | [키 자격 증명 모음 기여자](#key-vault-contributor) | 키 자격 증명 모음을 관리할 수 있지만 액세스할 수는 없습니다. |
 | [랩 작성자](#lab-creator) | Azure Lab 계정 하에서 관리 랩을 만들고, 관리하고, 삭제할 수 있습니다. |
-| [Log Analytics 기여자](#log-analytics-contributor) | Log Analytics 기여자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 저장소 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. |
+| [Log Analytics 기여자](#log-analytics-contributor) | Log Analytics 기여자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. |
 | [Log Analytics 독자](#log-analytics-reader) | Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 보기를 비롯하여 모니터링 설정 보기 및 모든 모니터링 데이터를 보고 검색할 수 있습니다. |
 | [논리 앱 기여자](#logic-app-contributor) | 논리 앱을 관리할 수 있지만 액세스할 수는 없습니다. |
 | [논리 앱 운영자](#logic-app-operator) | 논리 앱을 읽고, 설정하고, 해제할 수 있습니다. |
@@ -98,7 +101,7 @@ ms.locfileid: "53558926"
 | [네트워크 기여자](#network-contributor) | 네트워크를 관리할 수 있지만 액세스할 수는 없습니다. |
 | [NewRelic APM 계정 기여자](#new-relic-apm-account-contributor) | New Relic Application Performance Management 계정 및 애플리케이션을 관리할 수 있지만 액세스할 수는 없습니다. |
 | [읽기 권한자 및 데이터 액세스](#reader-and-data-access) | 모든 것을 볼 수 있지만, 저장소 계정 또는 포함된 리소스를 삭제하거나 만들 수는 없습니다. 또한 저장소 계정 키에 액세스하여 저장소 계정에 포함된 모든 데이터를 읽고 쓸 수 있습니다. |
-| [Azure Cache for Redis Contributor](#redis-cache-contributor) | Azure Cache for Redis를 관리할 수 있지만 액세스할 수는 없습니다. |
+| [Redis Cache 참가자](#redis-cache-contributor) | Azure Cache for Redis를 관리할 수 있지만 액세스할 수는 없습니다. |
 | [리소스 정책 참가자(미리 보기)](#resource-policy-contributor-preview) | (미리 보기) 리소스 정책을 생성/수정하고, 지원 티켓을 만들고, 리소스/계층 구조를 읽을 수 있는 권한을 가진 EA의 백필된 사용자입니다. |
 | [Scheduler 작업 컬렉션 참가자](#scheduler-job-collections-contributor) | Scheduler 작업 컬렉션을 관리할 수 있지만 액세스할 수는 없습니다. |
 | [Search 서비스 기여자](#search-service-contributor) | Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다. |
@@ -114,7 +117,7 @@ ms.locfileid: "53558926"
 | [Storage 계정 기여자](#storage-account-contributor) | Storage 계정을 관리할 수 있지만 여기에 액세스할 수는 없습니다. |
 | [저장소 계정 키 운영자 서비스 역할](#storage-account-key-operator-service-role) | 저장소 계정 키 운영자가 저장소 계정에서 키를 나열하고 다시 생성할 수 있습니다. |
 | [Storage Blob 데이터 참가자(미리 보기)](#storage-blob-data-contributor-preview) | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기, 쓰기 및 삭제 액세스를 허용합니다. |
-| [Storage Blob 데이터 소유자(미리 보기)](#storage-blob-data-owner-preview) | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기, 쓰기, 삭제 및 POSIX 슈퍼 사용자 액세스 권한을 사용할 수 있습니다. |
+| [Storage Blob 데이터 소유자(미리 보기)](#storage-blob-data-owner-preview) | POSIX 액세스 제어 할당을 포함하여 Azure Storage Blob 컨테이너 및 데이터에 대한 모든 액세스 권한을 허용합니다. |
 | [Storage Blob 데이터 판독기(미리 보기)](#storage-blob-data-reader-preview) | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기 액세스 허용 |
 | [Storage 큐 데이터 기여자(미리 보기)](#storage-queue-data-contributor-preview) | Azure Storage 큐 및 큐 메시지에 대한 읽기, 쓰기 및 삭제 액세스 허용 |
 | [Storage 큐 데이터 판독기(미리 보기)](#storage-queue-data-reader-preview) | Azure Storage 큐 및 큐 메시지에 대한 읽기 액세스를 허용합니다. |
@@ -169,6 +172,25 @@ ms.locfileid: "53558926"
 > | **Id** | 6cef56e8-d556-48e5-a04f-b8e64114680f |
 > | **actions** |  |
 > | Microsoft.ContainerRegistry/registries/sign/write | 컨테이너 레지스트리에 대한 콘텐츠 신뢰 메타데이터를 푸시/풀합니다. |
+
+## <a name="acrpull"></a>AcrPull
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | acr pull |
+> | **Id** | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
+> | **actions** |  |
+> | Microsoft.ContainerRegistry/registries/pull/read | 컨테이너 레지스트리에서 이미지를 끌어오거나 가져옵니다. |
+
+## <a name="acrpush"></a>AcrPush
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | acr push |
+> | **Id** | 8311e382-0749-4cb8-b61a-304f252e45ec |
+> | **actions** |  |
+> | Microsoft.ContainerRegistry/registries/pull/read | 컨테이너 레지스트리에서 이미지를 끌어오거나 가져옵니다. |
+> | Microsoft.ContainerRegistry/registries/push/write | 컨테이너 레지스트리에 이미지를 푸시하거나 작성합니다. |
 
 ## <a name="acrquarantinereader"></a>AcrQuarantineReader
 > [!div class="mx-tableFixed"]
@@ -385,7 +407,7 @@ ms.locfileid: "53558926"
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | 컨테이너 목록을 새로 고칩니다. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | 백업 작업 만들기 및 관리 |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 작업을 내보냅니다. |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | 내보내기 작업의 작업 결과를 반환합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | 백업 관리와 관련된 메타데이터 만들기 및 관리 |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | 백업 관리 작업의 결과 만들기 및 관리 |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | 백업 정책 만들기 및 관리 |
@@ -445,8 +467,8 @@ ms.locfileid: "53558926"
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | 컨테이너 목록을 새로 고칩니다. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | 백업 작업 만들기 및 관리 |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 작업을 내보냅니다. |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | 내보내기 작업의 작업 결과를 반환합니다. |
-> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Recovery Services 자격 증명 모음의 Backup 관리 메타데이터를 반환합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
+> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | 백업 관리 작업의 결과 만들기 및 관리 |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | 정책 작업의 결과를 가져옵니다. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | 모든 보호 정책을 반환합니다. |
@@ -506,8 +528,8 @@ ms.locfileid: "53558926"
 > | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | 작업의 작업 결과를 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/read | 모든 작업 개체를 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 작업을 내보냅니다. |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | 내보내기 작업의 작업 결과를 반환합니다. |
-> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Recovery Services 자격 증명 모음의 Backup 관리 메타데이터를 반환합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
+> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Recovery Services 자격 증명 모음의 Backup 작업 결과를 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | 정책 작업의 결과를 가져옵니다. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | 모든 보호 정책을 반환합니다. |
@@ -754,6 +776,16 @@ ms.locfileid: "53558926"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
+## <a name="cosmosbackupoperator"></a>CosmosBackupOperator
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Cosmos DB 데이터베이스 또는 계정의 컨테이너에 대한 복원 요청을 제출할 수 있습니다. |
+> | **Id** | db7b14f2-5adf-42da-9f96-f2ee17bab5cb |
+> | **actions** |  |
+> | Microsoft.DocumentDB/databaseAccounts/backup/action | 백업 구성하는 요청 제출 |
+> | Microsoft.DocumentDB/databaseAccounts/restore/action | 복원 요청 제출 |
+
 ## <a name="cost-management-contributor"></a>Cost Management 기여자
 > [!div class="mx-tableFixed"]
 > | | |
@@ -940,7 +972,7 @@ ms.locfileid: "53558926"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-## <a name="eventgrid-eventsubscription-contributor-preview"></a>EventGrid EventSubscription 기여자(미리 보기)
+## <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription 기여자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -957,7 +989,7 @@ ms.locfileid: "53558926"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-## <a name="eventgrid-eventsubscription-reader-preview"></a>EventGrid EventSubscription 읽기 권한자(미리 보기)
+## <a name="eventgrid-eventsubscription-reader"></a>EventGrid EventSubscription 읽기 권한자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1033,7 +1065,7 @@ ms.locfileid: "53558926"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | Log Analytics 참가자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 저장소 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. |
+> | **설명** | Log Analytics 참가자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. |
 > | **Id** | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
 > | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
@@ -1201,6 +1233,7 @@ ms.locfileid: "53558926"
 > | Microsoft.AlertsManagement/alerts/* |  |
 > | Microsoft.AlertsManagement/alertsSummary/* |  |
 > | Microsoft.Insights/actiongroups/* |  |
+> | Microsoft.Insights/activityLogAlerts/* |  |
 > | Microsoft.Insights/AlertRules/* | 경고 규칙 읽기/쓰기/삭제 |
 > | Microsoft.Insights/components/* | Application Insights 구성 요소 읽기/쓰기/삭제 |
 > | Microsoft.Insights/DiagnosticSettings/* | 진단 설정 읽기/쓰기/삭제 |
@@ -1285,7 +1318,7 @@ ms.locfileid: "53558926"
 > | Microsoft.Storage/storageAccounts/listKeys/action | 지정된 저장소 계정에 대한 액세스 키를 반환합니다. |
 > | Microsoft.Storage/storageAccounts/read | 저장소 계정의 목록을 반환하거나 지정된 저장소 계정의 속성을 가져옵니다. |
 
-## <a name="azure-cache-for-redis-contributor"></a>Azure Cache for Redis Contributor
+## <a name="redis-cache-contributor"></a>Redis Cache 참가자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1370,6 +1403,7 @@ ms.locfileid: "53558926"
 > | Microsoft.Security/pricings/delete | 범위에 대한 가격 책정 설정을 삭제합니다. |
 > | Microsoft.Security/securityContacts/delete | 보안 연락처를 삭제합니다. |
 > | Microsoft.Security/securityContacts/write | 보안 연락처를 업데이트합니다. |
+> | Microsoft.Security/InformationProtectionPolicies/write | 리소스에 대한 정보 보호 정책을 업데이트합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
 ## <a name="security-manager-legacy"></a>보안 관리자(레거시)
@@ -1430,7 +1464,7 @@ ms.locfileid: "53558926"
 > | Microsoft.RecoveryServices/vaults/replicationPolicies/* | 복제 정책 만들기 및 관리 |
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/* | 복구 계획 만들기 및 관리 |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/* | Recovery Services 자격 증명 모음의 저장소 구성 만들기 및 관리 |
-> | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Recovery Services 자격 증명 모음에 대한 토큰 정보를 반환합니다. |
+> | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Recovery Services 자격 증명 모음에 대한 사용 세부 정보를 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | 자격 증명 모음 토큰 작업을 사용하여 자격 증명 모음 수준의 백 엔드 작업에 대한 자격 증명 모음 토큰을 가져올 수 있습니다. |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | Recovery Services 자격 증명 모음에 대한 경고 읽기 |
@@ -1497,7 +1531,7 @@ ms.locfileid: "53558926"
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | Recovery Services 자격 증명 모음에 대한 경고 읽기 |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
-> | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Recovery Services 자격 증명 모음에 대한 토큰 정보를 반환합니다. |
+> | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Recovery Services 자격 증명 모음에 대한 사용 세부 정보를 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | 자격 증명 모음 토큰 작업을 사용하여 자격 증명 모음 수준의 백 엔드 작업에 대한 자격 증명 모음 토큰을 가져올 수 있습니다. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
@@ -1540,7 +1574,7 @@ ms.locfileid: "53558926"
 > | Microsoft.RecoveryServices/vaults/replicationPolicies/read | 정책을 읽습니다. |
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | 복구 계획을 읽습니다. |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
-> | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Recovery Services 자격 증명 모음에 대한 토큰 정보를 반환합니다. |
+> | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Recovery Services 자격 증명 모음에 대한 사용 세부 정보를 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | 자격 증명 모음 토큰 작업을 사용하여 자격 증명 모음 수준의 백 엔드 작업에 대한 자격 증명 모음 토큰을 가져올 수 있습니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
@@ -1565,6 +1599,7 @@ ms.locfileid: "53558926"
 > | Microsoft.Insights/metricDefinitions/read | 메트릭 정의 읽기 |
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | 감사 정책을 편집할 수 없음 |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | 감사 설정을 편집할 수 없음 |
 > | Microsoft.Sql/servers/databases/auditRecords/read | 데이터베이스 blob 감사 레코드를 검색합니다. |
@@ -1578,6 +1613,7 @@ ms.locfileid: "53558926"
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
+> | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 
 ## <a name="sql-security-manager"></a>SQL 보안 관리자
 > [!div class="mx-tableFixed"]
@@ -1593,6 +1629,7 @@ ms.locfileid: "53558926"
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | SQL 서버 감사 정책 만들기 및 관리 |
 > | Microsoft.Sql/servers/auditingSettings/* | SQL 서버 감사 설정 만들기 및 관리 |
 > | Microsoft.Sql/servers/extendedAuditingSettings/read | 지정된 서버에 구성된 확장 서버 Blob 감사 정책의 세부 정보를 검색합니다. |
@@ -1616,6 +1653,7 @@ ms.locfileid: "53558926"
 > | Microsoft.Sql/servers/firewallRules/* |  |
 > | Microsoft.Sql/servers/read | 서버 목록을 가져오거나 지정된 서버에 대한 속성을 가져옵니다. |
 > | Microsoft.Sql/servers/securityAlertPolicies/* | SQL 서버 보안 경고 정책 만들기 및 관리 |
+> | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
 ## <a name="sql-server-contributor"></a>SQL Server 참가자
@@ -1637,6 +1675,7 @@ ms.locfileid: "53558926"
 > | Microsoft.Insights/metricDefinitions/read | 메트릭 정의 읽기 |
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | SQL 서버 감사 정책을 편집할 수 없음 |
 > | Microsoft.Sql/servers/auditingSettings/* | SQL 서버 감사 설정을 편집할 수 없음 |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | SQL 서버 데이터베이스 감사 정책을 편집할 수 없음 |
@@ -1654,6 +1693,7 @@ ms.locfileid: "53558926"
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/securityAlertPolicies/* | SQL 서버 보안 경고 정책을 편집할 수 없음 |
+> | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 
 ## <a name="storage-account-contributor"></a>Storage 계정 참가자
 > [!div class="mx-tableFixed"]
@@ -1690,8 +1730,8 @@ ms.locfileid: "53558926"
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 컨테이너 삭제 결과를 반환합니다. |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너 또는 컨테이너 목록을 반환합니다. |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Blob 컨테이너 넣기 또는 임대 결과를 반환합니다. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너 목록을 반환합니다. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Blob 컨테이너 넣기의 결과를 반환합니다. |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Blob 삭제 결과 반환 |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Blob 또는 Blob 목록 반환 |
@@ -1701,16 +1741,12 @@ ms.locfileid: "53558926"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기, 쓰기, 삭제 및 POSIX 슈퍼 사용자 액세스 권한을 사용할 수 있습니다. |
+> | **설명** | POSIX 액세스 제어 할당을 포함하여 Azure Storage Blob 컨테이너 및 데이터에 대한 모든 액세스 권한을 허용합니다. |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **actions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 컨테이너 삭제 결과를 반환합니다. |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너 또는 컨테이너 목록을 반환합니다. |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Blob 컨테이너 넣기 또는 임대 결과를 반환합니다. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Blob 삭제 결과 반환 |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Blob 또는 Blob 목록 반환 |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Blob 쓰기 결과 반환 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* |  |
 
 ## <a name="storage-blob-data-reader-preview"></a>Storage Blob 데이터 읽기 권한자(미리 보기)
 > [!div class="mx-tableFixed"]
@@ -1719,7 +1755,7 @@ ms.locfileid: "53558926"
 > | **설명** | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기 액세스를 허용합니다. |
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Actions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너 또는 컨테이너 목록을 반환합니다. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너 목록을 반환합니다. |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Blob 또는 Blob 목록 반환 |
 

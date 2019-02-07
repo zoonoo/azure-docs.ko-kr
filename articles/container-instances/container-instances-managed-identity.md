@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: b46539758d88fe7a0e27799b5da581255fa5f075
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: bf807a4d24b72c948707ade28f06c4eb2a54c0a0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229335"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657028"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Azure Container Instances에서 관리 ID를 사용하는 방법
 
@@ -134,7 +134,7 @@ az container show --resource-group myResourceGroup --name mycontainer
 
 ### <a name="grant-user-assigned-identity-access-to-the-key-vault"></a>사용자 할당 ID에 Key Vault에 대한 액세스 권한 부여
 
-다음 [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 명령을 실행하여 Key Vault에 대한 액세스 정책을 설정합니다. 다음 예제에서는 사용자 할당 ID가 Key Vault에서 비밀을 가져올 수 있도록 합니다.
+다음 [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest) 명령을 실행하여 Key Vault에 대한 액세스 정책을 설정합니다. 다음 예제에서는 사용자 할당 ID가 Key Vault에서 비밀을 가져올 수 있도록 합니다.
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get
@@ -216,7 +216,7 @@ spID=$(az container show --resource-group myResourceGroup --name mycontainer --q
 
 ### <a name="grant-container-group-access-to-the-key-vault"></a>컨테이너 그룹에 Key Vault에 대한 액세스 권한 부여
 
-다음 [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 명령을 실행하여 Key Vault에 대한 액세스 정책을 설정합니다. 다음 예제에서는 시스템 관리 ID를 사용하여 Key Vault에서 비밀을 가져올 수 있습니다.
+다음 [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest) 명령을 실행하여 Key Vault에 대한 액세스 정책을 설정합니다. 다음 예제에서는 시스템 관리 ID를 사용하여 Key Vault에서 비밀을 가져올 수 있습니다.
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get

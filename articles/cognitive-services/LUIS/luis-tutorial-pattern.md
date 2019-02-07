@@ -9,14 +9,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: e5aadfc8319ff67e471123d457fddf468af4842a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2b41054420f381ed4d39d35af82a464cf555cb13
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225774"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490892"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>자습서: 일반적인 패턴 템플릿 발언 서식 추가
 
@@ -230,7 +230,7 @@ Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻�
 
 LUIS가 클라이언트 앱에 예측을 반환하면, 의도 이름을 클라이언트 앱에서 함수 이름으로 사용할 수 있으며 Employee 엔터티는 해당 함수의 매개 변수로 사용할 수 있습니다.
 
-```nodejs
+```javascript
 OrgChartManager(employee){
     ///
 }

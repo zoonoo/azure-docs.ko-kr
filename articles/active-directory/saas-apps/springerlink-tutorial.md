@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 58cdf029-bdc0-43c4-a469-b921c2a669bd
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 8138c7605b0024dfe4569e33843cb1e9d169271f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d4d8d61f5e8834b679eeb68cb416bb6358a5f53a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438769"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180146"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>자습서: Springer Link와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ Springer Link가 Azure AD에 통합되도록 구성하려면 갤러리의 Spring
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -105,15 +105,15 @@ Springer Link에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
  
     ![Single Sign-On 대화 상자](./media/springerlink-tutorial/tutorial_springerlink_samlbase.png)
 
-1. **Springer Link 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+1. **Springer Link 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
     ![Springer Link 도메인 및 URL Single Sign-On 정보](./media/springerlink-tutorial/tutorial_springerlink_url1.png)
 
     a. **식별자** 텍스트 상자에 URL `https://fsso.springer.com`을 입력합니다.
 
-    나. **회신 URL** 텍스트 상자에 URL `https://fsso-qa1.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`를 입력합니다.    
+    b. **회신 URL** 텍스트 상자에 URL `https://fsso-qa1.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`를 입력합니다.    
 
-1. **고급 URL 설정 표시**를 선택합니다. **SP** 시작 모드에서 응용 프로그램을 구성하려면:
+1. **고급 URL 설정 표시**를 선택합니다. **SP** 시작 모드에서 애플리케이션을 구성하려면:
 
     ![Springer Link 도메인 및 URL Single Sign-On 정보](./media/springerlink-tutorial/tutorial_springerlink_url.png)
 
@@ -201,7 +201,7 @@ Springer Link에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

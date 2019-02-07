@@ -5,23 +5,23 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/29/2018
+ms.date: 01/28/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 16bf68a5fdb1df2a4f60de9167893a42295cbc52
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 266e2be2775a6f9b74c714bd9112e38837bb6a6c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260536"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098341"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Ethereum 작업 증명 컨소시엄 솔루션 템플릿
 
 Ethereum 작업 증명 컨소시엄 솔루션 템플릿은 Azure 및 Ethereum을 조금만 알면 복수 멤버 컨소시엄 Ethereum 네트워크를 더 쉽고 빠르게 배포 및 구성할 수 있도록 설계되었습니다.
 
-Azure Portal을 통해 몇 가지 사용자 입력과 한 번 클릭으로 배포할 수 있으므로, 각 멤버는 전 세계 어디서나 Microsoft Azure Compute, 네트워킹 및 저장소 서비스를 사용하여 자신의 네트워크 사용 공간을 프로비전할 수 있습니다. 각 멤버의 네트워크 사용 공간은 애플리케이션 또는 사용자가 상호 작용하여 제출할 수 있는 부하가 분산된 트랜잭션 노드 집합, 트랜잭션을 기록할 마이닝 노드 집합 및 VPN Gateway로 구성됩니다. 후속 연결 단계에서 게이트웨이들을 연결하여 완전히 구성된 복수 멤버 블록체인 네트워크를 만듭니다.
+Azure Resource Manager 템플릿을 사용하여 각 멤버는 Microsoft Azure Compute, 네트워킹 및 스토리지 서비스를 통해 네트워크 공간을 프로비전할 수 있습니다. 각 멤버의 네트워크 공간은 애플리케이션 또는 사용자가 트랜잭션을 제출하기 위해 상호 작용하는 부하 분산된 트랜잭션 노드 세트, 트랜잭션을 기록하는 마이닝 노드 세트 및 VPN 게이트웨이로 구성됩니다. 배포 후에는 게이트웨이를 연결하여 완전히 구성된 다중 멤버 블록체인 네트워크를 만듭니다.
 
 ## <a name="about-blockchain"></a>블록체인 정보
 
@@ -35,7 +35,7 @@ Azure Portal을 통해 몇 가지 사용자 입력과 한 번 클릭으로 배�
 
 모든 노드는 Go Ethereum(Geth) 클라이언트의 안정된 버전을 가지고 있으며 마이닝 노드가 되도록 구성됩니다. 사용자 지정 최초 블록을 제공하지 않은 경우, 모든 노드는 Ethereum 계정 암호로 보호되는 같은 Ethereum 주소 및 키 쌍을 사용합니다. 제공한 Ethereum 암호를 사용하여 각 마이닝 노드의 기본 계정(코인 베이스)을 생성합니다. 마이닝 노드는 마이닝함에 따라 이 계정에 추가된 요금을 수집합니다.
 
-컨소시엄 멤버당 마이닝 노드 수는 원하는 네트워크의 전체 크기 및 각 멤버가 전용하는 해싱 파워의 양에 따라 달라집니다. 네트워크가 클수록 불공정 이익을 얻기 위해 해결해야 하는 노드 수가 더 많아집니다. 템플릿은 가상 머신 확장 집합을 사용하여 프로비전한 지역당 최대 15개의 마이닝 노드를 지원합니다.
+컨소시엄 멤버당 마이닝 노드의 수는 원하는 네트워크의 전체 크기 및 각 멤버의 전용 해싱 능력의 양에 따라 달라집니다. 네트워크가 클수록 부당한 이득을 얻기 위해 더 많은 노드가 손상되어야 합니다. 템플릿은 가상 머신 확장 집합을 사용하여 프로비전한 지역당 최대 15개의 마이닝 노드를 지원합니다.
 
 ### <a name="transaction-node-details"></a>트랜잭션 노드 세부 정보
 
@@ -45,7 +45,7 @@ Azure Portal을 통해 몇 가지 사용자 입력과 한 번 클릭으로 배�
 
 ### <a name="log-analytics-details"></a>로그 분석 세부 정보
 
-또한 각 배포는 새 Log Analytics 인스턴스를 만들거나 기존 인스턴스를 조인할 수도 있습니다. 따라서 배포된 네트워크를 구성하는 각 가상 머신의 여러 성능 메트릭을 모니터링할 수 있습니다.
+또한 각 배포는 새 로그 분석 인스턴스를 만들거나 기존 인스턴스를 조인할 수도 있습니다. 로그 분석을 통해 배포된 네트워크를 구성하는 각 가상 머신의 다양한 성능 메트릭을 모니터링할 수 있습니다.
 
 ## <a name="deployment-architecture"></a>배포 아키텍처
 
@@ -88,11 +88,9 @@ SSH 키(인증 형식 = 공개 키)|원격 로그인에 사용하는 보안 셸 
 리소스 그룹| 컨소시엄 네트워크를 배포하는 리소스 그룹입니다.||해당 없음
 위치| 리소스 그룹에 대한 Azure 지역입니다. ||해당 없음
 
-
-
 ### <a name="operations-management-suite"></a>Operations Management Suite
 
-OMS(Operations Management Suite) 블레이드를 사용하면 네트워크에 맞게 OMS 리소스를 구성할 수 있습니다. OMS는 네트워크에서 유용한 메트릭 및 로그를 수집하고 표면화하여 네트워크 상태 또는 디버그 문제를 빨리 검사하는 기능을 제공합니다. OMS 무료 상품은 용량에 도달한 후 정상적으로 실패합니다.
+OMS(Operations Management Suite)를 사용하면 네트워크에 대한 OMS 리소스를 구성할 수 있습니다. OMS는 네트워크에서 유용한 메트릭 및 로그를 수집하고 표면화하여 네트워크 상태 또는 디버그 문제를 빨리 검사하는 기능을 제공합니다. OMS 무료 상품은 용량에 도달한 후 정상적으로 실패합니다.
 
 ![새 OMS 만들기](./media/ethereum-deployment/new-oms.png)
 
@@ -154,7 +152,7 @@ Ethereum 개인 키 암호(사용자 지정 최초 블록 = 아니요)|생성되
 
 ### <a name="summary"></a>요약
 
-요약 블레이드를 클릭하여 지정한 입력을 검토하고 기본 배포 전 유효성 검사를 실행합니다.
+요약을 클릭하여 지정된 입력을 검토하고 기본 배포 전 유효성 검사를 실행합니다.
 
 ![요약](./media/ethereum-deployment/summary.png)
 

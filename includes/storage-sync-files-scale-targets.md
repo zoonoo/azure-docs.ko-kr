@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 00124562d3bc21f9139ae54f022d7893a4eaf11c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 6d9370ce6a031377e37c4e830400337f3e57a62e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53638791"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55084803"
 ---
 | 리소스 | 대상 | 하드 한도 |
 |----------|--------------|------------|
-| 구독당 저장소 동기화 서비스 수 | 지역당 15개 스토리지 동기화 서비스 | 아니요 |
+| 지역당 스토리지 동기화 서비스 수 | 15개 저장소 동기화 서비스 | 예 |
 | 저장소 동기화 서비스당 동기화 그룹 수 | 100개 동기화 그룹 | 예 |
 | 저장소 동기화 서비스당 등록된 서버 | 서버 99대 | 예 |
 | 동기화 그룹당 클라우드 엔드포인트 수 | 1개 클라우드 엔드포인트 | 예 |

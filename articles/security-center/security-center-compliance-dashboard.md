@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: dbff728c888e9e2f83d9a82ca9819bf9dd0b89e9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 252337c0d2bc162d418d20ca4641673d1564daa6
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54268152"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660429"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>자습서: 규정 준수 개선
 ---
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서에서 설명하는 기능을 단계별로 실행하려면 Security Center의 표준 가격 책정 계층이 있어야 합니다. 비용 없이 Security Center 표준을 사용해 볼 수 있습니다.
-자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요. [Security Center 표준에 Azure 구독 온보딩](https://docs.microsoft.com/en-us/azure/security-center/security-center-get-started) 빠른 시작을 통해 표준 계층으로 업그레이드하는 방법을 안내합니다.
+자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요. [Security Center 표준에 Azure 구독 온보딩](https://docs.microsoft.com/azure/security-center/security-center-get-started) 빠른 시작을 통해 표준 계층으로 업그레이드하는 방법을 안내합니다.
 
 ##  <a name="assess-your-regulatory-compliance"></a>규정 준수 평가
 

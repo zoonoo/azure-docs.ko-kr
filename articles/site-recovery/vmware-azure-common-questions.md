@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 12/31/2018
+ms.date: 1/29/2019
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 703d255a962dbac7a430404835c6d45c358d99a7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.author: mayg
+ms.openlocfilehash: aa4b0fcdfecde181eea4481cc40b898ca74fce76
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478106"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212242"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>일반적인 질문 - VMware에서 Azure로 복제
 
@@ -42,6 +42,9 @@ LRS 또는 GRS 저장소 계정이 필요합니다. 지역 정전이 발생하�
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>내 Azure 계정에 VM을 만들 수 있는 권한이 필요한가요?
 구독 관리자인 경우 필요한 복제 권한을 갖고 있습니다. 구독 관리자가 아닌 경우 Site Recovery를 구성할 때 지정한 리소스 그룹 및 가상 네트워크에 Azure VM을 만들 수 있는 권한과 선택한 저장소 계정에 쓸 수 있는 권한이 필요합니다. [자세히 알아보기](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
+
+### <a name="can-i-use-guest-os-server-license-on-azure"></a>Azure에서 게스트 OS 서버 라이선스를 사용할 수 있나요?
+예, Microsoft Software Assurance 고객은 Azure 하이브리드 혜택을 사용하여 Azure로 마이그레이션되거나 재해 복구를 위해 Azure를 사용하는 **Windows Server 머신**에 대한 라이선스 비용을 절감할 수 있습니다.
 
 ## <a name="azure-site-recovery-components-upgrade"></a>Azure Site Recovery 구성 요소 업그레이드
 
@@ -250,7 +253,7 @@ Azure는 복원을 위해 디자인되었습니다. Site Recovery는 Azure SLA�
 Azure에서 장애 복구하는 경우 Azure의 데이터가 온-프레미스 VM으로 다시 복사되고 개인 액세스가 필요합니다.
 
 ### <a name="can-i-resize-the-azure-vm-after-failover"></a>장애 조치(failover) 후 Azure VM의 크기를 조정할 수 있나요?
-아니요, 장애 조치(failover) 후에 대상 VM의 크기를 변경할 수 없습니다.
+아니요, 장애 조치(failover) 후에 대상 VM의 크기 또는 형식을 변경할 수 없습니다.
 
 
 ## <a name="automation-and-scripting"></a>자동화 및 스크립팅

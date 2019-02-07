@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 0fad0cd32e8df38c5a9c06ecf01a14340f1bc9ef
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 87ffc4619f2ad864113db3b3aed42aa23535cb83
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165078"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900327"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-using-your-own-key-from-azure-key-vault"></a>PowerShell 및 CLI: Azure Key Vault에서 사용자 고유 키를 사용하여 투명한 데이터 암호화 사용
 
@@ -186,8 +186,8 @@ ms.locfileid: "47165078"
 
 ## <a name="next-steps"></a>다음 단계
 
-- 보안 요구 사항에 맞게 서버의 TDE 보호기를 회전하는 방법을 알아봅니다([PowerShell을 사용하여 투명한 데이터 암호화 보호기 회전](transparent-data-encryption-byok-azure-sql-key-rotation.md)).
-- 보안 위험이 있는 경우 잠재적으로 손상될 수 있는 TDE 보호기를 제거하는 방법을 알아봅니다([잠재적으로 손상될 수 있는 키 제거](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md)). 
+- 보안 요구 사항을 준수하도록 서버의 TDE 보호기를 회전하는 방법을 알아봅니다. [PowerShell을 사용하여 투명한 데이터 암호화 보호기 회전](transparent-data-encryption-byok-azure-sql-key-rotation.md).
+- 보안 위험이 있는 경우 잠재적으로 손상될 수 있는 TDE 보호기를 제거하는 방법을 알아봅니다. [잠재적으로 손상될 수 있는 키 제거](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md) 
 
 ## <a name="prerequisites-for-cli"></a>CLI용 필수 구성 요소
 
@@ -208,7 +208,7 @@ ms.locfileid: "47165078"
 ## <a name="step-1-create-a-server-and-assign-an-azure-ad-identity-to-your-server"></a>1단계. 서버 만들기 및 서버에 Azure AD ID 할당
       cli
       # create server (with identity) and database
-      az sql server create -n "ServerName" -g "ResourceGroupName" -l "westus" -u "cloudsa" -p "YourFavoritePassWord99@34" -I 
+      az sql server create -n "ServerName" -g "ResourceGroupName" -l "westus" -u "cloudsa" -p "YourFavoritePassWord99@34" -i 
       az sql db create -n "DatabaseName" -g "ResourceGroupName" -s "ServerName" 
       
 

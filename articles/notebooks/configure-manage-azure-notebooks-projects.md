@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: kraigb
-ms.openlocfilehash: 31cbe2e62582ae810d165ddef5db6a20c52ff050
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 54b211584b170d6e2ee0bcaa6c80bcaed376814f
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847546"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904372"
 ---
 # <a name="manage-and-configure-projects"></a>프로젝트 관리 및 구성
 
@@ -41,9 +41,9 @@ Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마
 
 ![프로젝트 대시보드의 컴퓨팅 계층 드롭다운 목록](media/project-compute-tier-list.png)
 
-Azure 구독에서 프로비전한 다른 가상 머신을 사용하여 이러한 제한 사항을 무시할 수 있습니다. 또한 해당 가상 머신에 Jupyter를 설치해야 합니다. 기본적으로 Jupyter를 포함하는 Data Science Virtual Machine 이미지를 선택하는 것이 좋습니다.
+Azure 구독에서 프로비전한 다른 가상 머신을 사용하여 이러한 제한 사항을 무시할 수 있습니다. 해당 가상 머신에 JupyterHub를 설치하고 실행해야 합니다. JupyterHub를 기본적으로 포함하고 있으므로 Data Science Virtual Machine 이미지(모든 운영 체제)를 선택하는 것이 좋습니다.
 
-드롭다운 목록의 **직접 컴퓨팅** 옵션을 사용하여 적절하게 구성된 Azure 가상 머신에 연결할 수 있습니다. 이 옵션을 선택하면 목록에 표시할 이름, VM의 IP 주소 및 포트(일반적으로 JupyterHub가 수신 대기하는 기본 포트인 8000), VM 자격 증명을 묻는 메시지가 표시됩니다.
+적절하게 구성된 Azure 가상 머신이 있으면 드롭다운 목록에서 **직접 컴퓨팅** 옵션을 선택합니다. 그러면 이름(목록에 표시할 이름), VM의 IP 주소 및 포트(일반적으로 JupyterHub에서 수신 대기하는 기본 포트인 8000) 및 VM 자격 증명을 묻는 메시지가 표시됩니다.
 
 ![직접 컴퓨팅 옵션에 대한 서버 정보 수집 프롬프트](media/project-compute-tier-direct.png)
 
@@ -51,13 +51,13 @@ Azure 구독에서 프로비전한 다른 가상 머신을 사용하여 이러�
 
 - 회사 계정 등의 AAD(Azure Active Directory)를 사용하는 계정으로 Azure Notebooks에 로그인했습니다.
 - 계정이 Azure 구독에 연결되어 있습니다.
-- Linux용 Data Science Virtual Machine(Ubuntu) 이미지를 사용하는 가상 머신이 읽기 권한자 이상의 액세스 권한으로 해당 구독에 하나 이상 있습니다.
+- 해당 구독에 Linux용 Data Science Virtual Machine(Ubuntu) 이미지를 사용할 수 있는 읽기 권한자 이상의 액세스 권한이 있는 가상 머신이 하나 이상 있습니다.
 
 ![프로젝트 대시보드의 드롭다운 목록에 있는 Data Science Virtual Machine 인스턴스](media/project-compute-tier-dsvm.png)
 
 DSVM 인스턴스를 선택하는 경우 Azure Notebooks에서 VM을 만들 때 사용한 특정 머신 자격 증명을 묻는 메시지가 표시될 수도 있습니다.
 
-새 DSVM 인스턴스를 만들려면 [Ubuntu Data Science VM 만들기](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)의 지침을 따르세요. **Linux용 Data Science Virtual Machine(Ubuntu)** 이미지를 ‘사용해야 합니다’. Windows 또는 CentOS 이미지를 사용하는 DSVM은 Azure Notebooks에 표시되지 않기 때문입니다.
+새 DSVM 인스턴스를 만들려면 [Ubuntu Data Science VM 만들기](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)의 지침을 따르세요. DSVM을 Azure Notebooks의 드롭다운 목록에 표시하려면 **Linux(Ubuntu)용 Data Science Virtual Machine** 이미지를 사용합니다.  다른 이유로 Windows 또는 CentOS 이미지를 사용해야 하는 경우 **직접 컴퓨팅** 옵션을 사용하여 DSVM에 수동으로 연결할 수 있습니다.
 
 ## <a name="edit-project-metadata"></a>프로젝트 메타데이터 편집
 

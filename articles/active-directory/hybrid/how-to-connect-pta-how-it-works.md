@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/19/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: f24930d31e8435a00fec6a449445ea4682deea8f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 517288f257dcd4e397db5cc432d0168b136fe265
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169351"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488675"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory 통과 인증: 기술 심층 분석
 이 문서에서는 Azure AD(Azure Active Directory) 통과 인증이 작동하는 방식에 대해 간략히 설명합니다. 심층적인 기술 및 보안 정보는 [보안 심층 분석](how-to-connect-pta-security-deep-dive.md) 문서를 참조하세요.

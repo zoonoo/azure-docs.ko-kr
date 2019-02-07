@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: e72c2ceaedd23f4e3ee2006930302321498eb736
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 93fd42739e0ec8ca9230688274b31fac5edf216d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104733"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098581"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>ExpressRoute에 대한 네트워크 성능 모니터 구성
 
@@ -38,7 +38,7 @@ ms.locfileid: "53104733"
 모니터링 에이전트는 온-프레미스 및 Azure의 여러 서버에 설치됩니다. 에이전트는 서로 통신하지만 데이터를 전송하지 않으며 TCP 핸드셰이크 패킷을 전송합니다. 에이전트 간 통신을 위해 Azure는 트래픽에 적용될 수 있는 네트워크 토폴로지 및 경로를 매핑할 수 있습니다.
 
 1. NPM 작업 영역 만들기 이는 Log Analytics 작업 영역과 동일합니다.
-2. 소프트웨어 에이전트를 설치 및 구성합니다. 
+2. 소프트웨어 에이전트를 설치 및 구성합니다. (Microsoft 피어링을 통해 모니터링하려는 경우에만 소프트웨어 에이전트를 설치하고 구성할 필요가 없습니다.) 
     * 온-프레미스 서버와 Azure VM에서 모니터링 에이전트를 설치합니다(개인 피어링의 경우).
     * 모니터링 에이전트가 통신할 수 있도록 모니터링 에이전트 서버의 설정을 구성합니다. (방화벽 포트 등을 엽니다.)
 3. Azure VM에 설치된 모니터링 에이전트가 온-프레미스 모니터링 에이전트와 통신하도록 NSG(네트워크 보안 그룹) 규칙을 구성합니다.

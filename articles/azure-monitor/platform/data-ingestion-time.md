@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/08/2019
+ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 5db963b1ffea656455c06092c82ac95e85d87826
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 329472f3edee66db6b12e369ee8f944546ad4734
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213130"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900445"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Log Analytics의 데이터 수집 시간
 Azure Log Analytics는 점점 더 빠른 속도로 매달 테라바이트 단위의 데이터를 보내는 수천 명의 고객을 처리하는 Azure Monitor의 대규모 데이터 서비스입니다. 데이터가 수집된 후 Log Analytics에서 사용할 수 있기까지 걸리는 시간에 대해 질문하는 경우가 많습니다. 이 문서에서는 이 대기 시간에 영향을 주는 여러 요인에 대해 설명합니다.
@@ -45,8 +45,15 @@ Azure Log Analytics는 점점 더 빠른 속도로 매달 테라바이트 단위
 ### <a name="agent-upload-frequency"></a>에이전트 업로드 빈도
 Log Analytics 에이전트를 경량으로 유지하기 위해 에이전트는 로그를 버퍼링하고 주기적으로 Log Analytics에 업로드합니다. 업로드 빈도는 데이터 형식에 따라 30초에서 2분 사이입니다. 대부분의 데이터는 1분 이내에 업로드됩니다. 네트워크 조건 때문에 이 데이터가 Log Analytics 수집 지점에 도달하는 대기 시간이 지연될 수도 있습니다.
 
-### <a name="azure-logs-and-metrics"></a>Azure 로그 및 메트릭 
-활동 로그 데이터는 Log Analytics에 제공되기까지 약 5분 정도 걸립니다. Azure 서비스에 따라서는 진단 로그 및 메트릭의 데이터를 처리에 사용할 수 있게 될 때까지 1~15분이 걸릴 수 있습니다. 그리고 데이터가 처리에 사용할 수 있게 되는 시점에서 Log Analytics 수집 지점으로 전송될 때까지 추가로 30~60초(로그의 경우)/3분(메트릭의 경우)이 걸립니다.
+### <a name="azure-activity-logs-diagnostic-logs-and-metrics"></a>Azure 활동 로그, 진단 로그 및 메트릭
+Azure 데이터는 처리를 위해 Log Analytics 수집 지점에서 사용할 수 있는 추가 시간을 추가합니다.
+
+- 진단 로그의 데이터는 Azure 서비스에 따라 2-15분이 걸립니다. 사용자 환경에서 이 대기 시간을 검사하려면 [아래의 쿼리](#checking-ingestion-time)를 참조하세요.
+- Azure 플랫폼 메트릭은 Log Analytics 수집 지점으로 보내는 데 3분이 걸립니다.
+- 활동 로그 데이터는 Log Analytics 수집 지점으로 보내는데 약 10-15분이 걸립니다.
+
+수집 시점에서 데이터를 사용할 수 있게 되면 쿼리하는 데 2-5분이 더 걸립니다.
+
 
 ### <a name="management-solutions-collection"></a>관리 솔루션 수집
 일부 솔루션은 에이전트에서 데이터를 수집하지 않고 추가 대기 시간을 도입하는 수집 방법을 사용할 수 있습니다. 일부 솔루션은 거의 실시간으로 수집하지 않고 주기적으로 데이터를 수집합니다. 특정 예제는 다음과 같습니다.

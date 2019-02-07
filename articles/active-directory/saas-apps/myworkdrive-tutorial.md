@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 4d049778-3c7b-46c0-92a4-f2633a32334b
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 7644a8517840b4fdffe0bc47c5a9bb97d48f6322
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: f0e2c499619df938bd6f4b05757ba607a9edf244
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686799"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183359"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-myworkdrive"></a>자습서: MyWorkDrive와 Azure Active Directory 통합
 
@@ -66,7 +66,7 @@ MyWorkDrive의 Azure AD 통합을 구성하려면 갤러리의 MyWorkDrive를 �
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
 
@@ -110,13 +110,13 @@ MyWorkDrive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     ![Configure Single Sign-On](common/editconfigure.png)
 
-4. **IDP** 시작 모드에서 응용 프로그램을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
     ![MyWorkDrive 도메인 및 URL Single Sign-On 정보](./media/myworkdrive-tutorial/tutorial_myworkdrive_url.png)
 
     **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<SERVER.DOMAIN.COM>/SAML/AssertionConsumerService.aspx`
 
-5. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
     ![MyWorkDrive 도메인 및 URL Single Sign-On 정보](./media/myworkdrive-tutorial/tutorial_myworkdrive_url1.png)
 
@@ -215,7 +215,7 @@ MyWorkDrive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

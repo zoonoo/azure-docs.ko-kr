@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: a42236af7e301a21a91a3c1294b20167824dfc84
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 62812dd8f92bcace8f764a21aba608157815cec3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024793"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093165"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 컨테이너 네트워킹 모드
 
@@ -78,7 +78,7 @@ ms.locfileid: "54024793"
             ],
     ```
     
-2. 가상 머신 확장 집합 리소스의 네트워크 프로필 섹션을 설정합니다. 그러면 클러스터의 각 노드에 여러 IP 주소를 구성할 수 있습니다. 다음 예제에서는 Windows/Linux Service Fabric 클러스터에 노드당 다섯 개의 IP 주소를 설정합니다. 각 노드의 포트에서 수신 대기하는 서비스 인스턴스를 5개 포함할 수 있습니다. Azure Load Balancer에서 다섯 개의 IP에 액세스할 수 있도록 하려면 아래 그림과 같이 Azure Load Balancer 백 엔드 주소 풀에 다섯 개의 IP를 등록합니다.  또한 변수 섹션에서 템플릿의 맨 위에 변수를 추가해야 합니다.
+2. 가상 머신 확장 집합 리소스의 네트워크 프로필 섹션을 설정합니다. 그러면 클러스터의 각 노드에 여러 IP 주소를 구성할 수 있습니다. 다음 예제에서는 Windows/Linux Service Fabric 클러스터에 노드당 다섯 개의 IP 주소를 설정합니다. 각 노드의 포트에서 수신 대기하는 서비스 인스턴스를 5개 포함할 수 있습니다. Azure Load Balancer에서 다섯 개의 IP에 액세스할 수 있도록 하려면 아래 그림과 같이 Azure Load Balancer 백 엔드 주소 풀에 다섯 개의 IP를 등록합니다.  또한 템플릿 위쪽의 variables 섹션에 변수를 추가해야 합니다.
 
     변수에 이 섹션 추가:
 
@@ -212,7 +212,7 @@ ms.locfileid: "54024793"
    |설정 |값 | |
    | --- | --- | --- |
    |우선 순위 |2000 | |
-   |이름 |Custom_Dns  | |
+   |Name |Custom_Dns  | |
    |원본 |VirtualNetwork | |
    |대상 | VirtualNetwork | |
    |서비스 | DNS(UDP/53) | |
@@ -264,7 +264,7 @@ ms.locfileid: "54024793"
    </Resources>
    ```
    
-6. Windows의 경우 VM을 다시 부팅하면 개방형 네트워크가 다시 생성됩니다. 이는 네트워킹 스택의 기본 문제를 완화하기 위한 조치입니다. 기본 동작은 네트워크를 다시 만드는 것입니다. 이 동작을 해제해야 하는 경우 다음 구성을 사용한 후 구성 업그레이드를 사용하면 됩니다.
+6. Windows의 경우 VM을 다시 부팅하면 개방형 네트워크가 다시 생성됩니다. 이는 네트워킹 스택의 기본 문제를 완화하기 위한 조치입니다. 기본 동작은 네트워크를 다시 만드는 것입니다. 이 동작을 해제해야 하는 경우 다음 구성을 사용한 후 구성 업그레이드를 수행하면 됩니다.
 
 ```json
 "fabricSettings": [

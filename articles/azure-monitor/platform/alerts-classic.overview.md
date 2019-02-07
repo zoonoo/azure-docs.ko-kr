@@ -7,17 +7,17 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: robb
-ms.openlocfilehash: 9a12ca5deeadfb7272532f404cc9cf7c030fb6c0
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 596b7eb53d82f8eee7da439314994fd0951c7e64
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994354"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661720"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Microsoft Azure의 클래식 경고란?
 
 > [!NOTE]
-> 이 문서에서는 기존 클래식 메트릭 경고를 만드는 방법을 설명합니다. 이제 Azure Monitor는 [최신 근 실시간 메트릭 경고 및 새 경고 환경](../../azure-monitor/platform/alerts-overview.md)을 지원합니다. 클래식 경고는 [사용이 중지될 예정](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/monitoring-classic-retirement)입니다.  
+> 이 문서에서는 기존 클래식 메트릭 경고를 만드는 방법을 설명합니다. 이제 Azure Monitor는 [최신 근 실시간 메트릭 경고 및 새 경고 환경](../../azure-monitor/platform/alerts-overview.md)을 지원합니다. 클래식 경고는 [사용이 중지될 예정](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement)입니다.  
 >
 
 경고를 통해 데이터에 대한 조건을 구성하고 최신 모니터링 데이터가 조건에 일치하면 알림을 받을 수 있습니다.

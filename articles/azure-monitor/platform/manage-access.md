@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 6c8f48ce71e11d1de0c28b4dab5327ab03e54f28
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 32a31a87bacbb13cd3b2cb4561ac04e54d51ba46
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231787"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656756"
 ---
 # <a name="manage-workspaces"></a>작업 영역 관리
 
@@ -40,7 +40,7 @@ Azure 구독당 여러 작업 영역을 포함할 수 있으며 이들 간의 �
 
 * 데이터 저장소의 지리적 위치
 * 다른 사용자 액세스 권한을 정의하기 위한 데이터 격리
-* [가격 책정 계층](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [보존](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period), [데이터 최대 가용량 사용](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#daily-cap) 등의 설정 구성 범위 
+* [가격 책정 계층](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [보존](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period), [데이터 최대 가용량 사용](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap) 등의 설정 구성 범위 
 
 사용 관점에서 가능한 한 적은 작업 영역을 만드는 것이 좋습니다. 관리 및 쿼리 환경을 쉽고 빠르게 합니다. 그러나 위의 특성을 기반으로 다음과 같은 경우 여러 작업 영역을 만드는 것이 좋습니다.
 
@@ -97,7 +97,7 @@ Azure의 Log Analytics에는 기본 제공되는 2개의 사용자 역할이 있
 
 Log Analytics 독자 역할에는 다음 Azure 작업이 포함됩니다.
 
-| type    | 사용 권한 | 설명 |
+| Type    | 사용 권한 | 설명 |
 | ------- | ---------- | ----------- |
 | 조치 | `*/read`   | 모든 Azure 리소스 및 리소스 구성 보는 기능. 볼 수 있습니다. <br> 가상 머신 확장 상태 <br> 리소스에 대한 Azure 진단 구성 <br> 모든 리소스의 모든 속성 및 설정 |
 | 조치 | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | 로그 검색 v2 쿼리를 수행할 수 있습니다. |

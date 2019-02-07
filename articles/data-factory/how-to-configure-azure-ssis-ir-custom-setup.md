@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/3/2018
+ms.date: 1/25/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ec1c24e4a9714506a4107fd5bfd53d1a562c8781
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 66f41ffef5d72f5d574bb78d3b810f4a4dc2c4c1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022362"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098734"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임을 위한 사용자 지정 설치
 
@@ -27,6 +27,8 @@ Azure-SSIS IR(Integration Runtime)에 대한 사용자 지정 설정 인터페�
 
 무료 또는 라이선스 없는 구성 요소, 유료 또는 라이선스가 있는 구성 요소를 모두 설치할 수 있습니다. ISV인 경우 [Azure-SSIS IR에 대한 유료 또는 라이선스가 있는 구성 요소를 개발하는 방법](how-to-develop-azure-ssis-ir-licensed-components.md)을 참조하세요.
 
+> [!IMPORTANT]
+> Azure-SSIS IR의 v2 시리즈 노드는 사용자 지정 설치에 적합하지 않으므로 v3 시리즈 노드를 대신 사용합니다.  이미 v2 시리즈 노드를 사용하고 있으면 가능한 한 빨리 v3 시리즈 노드를 사용하도록 전환하세요.
 
 ## <a name="current-limitations"></a>현재 제한 사항
 
@@ -78,7 +80,7 @@ Azure SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
 
        ![Blob 컨테이너 만들기](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-    1.  새 컨테이너를 선택하고 사용자 지정 설정 스크립트와 관련 파일을 업로드합니다. 컨테이너의 다른 폴더가 아니라 컨테이너 최상위에 `main.cmd`를 업로드해야 합니다. 
+    1.  새 컨테이너를 선택하고 사용자 지정 설정 스크립트와 관련 파일을 업로드합니다. 폴더가 아니라 컨테이너의 최상위 수준에 `main.cmd`를 업로드해야 합니다. 또한 컨테이너에 필요한 사용자 지정 설치 파일만 포함되어 있는지 확인합니다. 그러면 나중에 Azure-SSIS IR에 다운로드하는 데 시간이 오래 걸리지 않습니다.
 
        ![Blob 컨테이너에 파일 업로드](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
@@ -140,15 +142,15 @@ Azure SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
 
        1. `.NET FRAMEWORK 3.5` 폴더: Azure SSIS IR의 각 노드에서 사용자 지정 구성 요소에 필요할 수 있는 이전 버전의 .NET Framework를 설치하기 위한 사용자 지정 설치를 포함합니다.
 
-       1. `AAS` 폴더: Azure-SSIS IR의 각 노드에 클라이언트 라이브러리를 설치하는 사용자 지정 설치 프로그램을 포함하고 있으며, 이 라이브러리는 Analysis Services 작업이 서비스 주체 인증을 사용하여 AAS(Azure Analysis Services) 인스턴스에 연결할 수 있게 해줍니다. 먼저, [여기](https://docs.microsoft.com/azure/analysis-services/analysis-services-data-providers)서 최신 **MSOLAP(amd64)** 및 **AMO** 클라이언트 라이브러리/Windows 설치 관리자(예: `x64_15.0.900.108_SQL_AS_OLEDB.msi` 및 `x64_15.0.900.108_SQL_AS_AMO.msi`)를 다운로드한 다음, `main.cmd`를 사용하여 모두 컨테이너에 업로드합니다.  
-
        1. `BCP` 폴더: 대량 복사 프로그램(`bcp`) 등, Azure-SSIS IR의 각 노드에 SQL Server 명령줄 유틸리티를 설치하기 위한 사용자 지정 설정을 포함합니다(`MsSqlCmdLnUtils.msi`).
 
        1. `EXCEL` 폴더: Azure-SSIS IR의 각 노드에 오픈 소스 어셈블리(`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll` 및`ExcelDataReader.dll`)를 설치하는 사용자 지정 설정을 포함합니다.
 
        1. `ORACLE ENTERPRISE` 폴더: Azure-SSIS IR Enterprise Edition의 각 노드에 Oracle 커넥터 및 OCI 드라이버를 설치하기 위한 사용자 지정 설정 스크립트(`main.cmd`) 및 자동 설치 구성 파일(`client.rsp`)을 포함합니다. 이 설정을 통해 Oracle Connection Manager, 원본 및 대상을 사용할 수 있습니다. 먼저, [Microsoft 다운로드 센터](https://www.microsoft.com/en-us/download/details.aspx?id=55179)에서 Oracle용 Microsoft Connectors v5.0(`AttunitySSISOraAdaptersSetup.msi` 및 `AttunitySSISOraAdaptersSetup64.msi`), [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html)에서 최신 Oracle 클라이언트(예: `winx64_12102_client.zip`)를 다운로드한 다음, `main.cmd` 및 `client.rsp`를 사용하여 모두 컨테이너에 업로드합니다. TNS를 사용하여 Oracle에 연결할 경우, 설정 중에 Oracle 설치 폴더에 복사될 수 있게 `tnsnames.ora`도 다운로드하여 편집하고 컨테이너에 업로드해야 합니다.
 
-       1. `ORACLE STANDARD` 폴더: Azure-SSIS IR의 각 노드에 Oracle ODP.NET 드라이버를 설치하는 사용자 지정 설정 스크립트(`main.cmd`)를 포함합니다. 이 설정을 통해 ADO.NET Connection Manager, 원본 및 대상을 사용할 수 있습니다. 먼저 [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)에서 최신 Oracle ODP.NET 드라이버(예: `ODP.NET_Managed_ODAC122cR1.zip`)를 다운로드한 다음, `main.cmd`와 함께 컨테이너에 업로드합니다.
+       1. `ORACLE STANDARD ADO.NET` 폴더: Azure-SSIS IR의 각 노드에 Oracle ODP.NET 드라이버를 설치하는 사용자 지정 설정 스크립트(`main.cmd`)를 포함합니다. 이 설정을 통해 ADO.NET Connection Manager, 원본 및 대상을 사용할 수 있습니다. 먼저 [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)에서 최신 Oracle ODP.NET 드라이버(예: `ODP.NET_Managed_ODAC122cR1.zip`)를 다운로드한 다음, `main.cmd`와 함께 컨테이너에 업로드합니다.
+       
+       1. `ORACLE STANDARD ODBC` 폴더: Azure-SSIS IR의 각 노드에 Oracle ODBC 드라이버를 설치하고 DSN을 구성하는 사용자 지정 설치 스크립트(`main.cmd`)가 포함되어 있습니다. 이 설치를 통해 ODBC 연결 관리자/원본/대상 또는 ODBC 데이터 원본 종류가 있는 파워 쿼리 연결 관리자/원본을 사용하여 Oracle 서버에 연결할 수 있습니다. 먼저 최신 Oracle Instant Client(기본 패키지 또는 기본 라이트 패키지) 및 ODBC 패키지(예: [여기](https://www.oracle.com/technetwork/topics/winx64soft-089540.html)의 64비트 패키지 - 기본 패키지: `instantclient-basic-windows.x64-18.3.0.0.0dbru.zip`, 기본 라이트 패키지: `instantclient-basiclite-windows.x64-18.3.0.0.0dbru.zip`, ODBC 패키지: `instantclient-odbc-windows.x64-18.3.0.0.0dbru.zip` 또는 [여기](https://www.oracle.com/technetwork/topics/winsoft-085727.html)의 32비트 패키지 - 기본 패키지: `instantclient-basic-nt-18.3.0.0.0dbru.zip`, 기본 라이트 패키지: `instantclient-basiclite-nt-18.3.0.0.0dbru.zip`, ODBC 패키지: `instantclient-odbc-nt-18.3.0.0.0dbru.zip`)를 다운로드한 다음, `main.cmd`와 함께 컨테이너에 업로드합니다.
 
        1. `SAP BW` 폴더: Azure-SSIS IR Enterprise Edition의 각 노드에 SAP .NET 연결 어셈블리(`librfc32.dll`)를 설치하기 위한 사용자 지정 설정 스크립트(`main.cmd`)를 포함합니다. 이 설정을 통해 SAP BW Connection Manager, 원본 및 대상을 사용할 수 있습니다. 먼저, SAP 설치 폴더의 64비트 또는 32비트 `librfc32.dll` 버전을 컨테이너에 `main.cmd`와 함께 업로드합니다. 그러면 설정 중에 스크립트나 SAP 어셈블리를 `%windir%\SysWow64` 또는 `%windir%\System32` 폴더에 복사합니다.
 

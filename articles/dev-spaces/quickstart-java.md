@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: mmontwil
-ms.openlocfilehash: c448521d7e1ce70a44ca23f58d0034ca2041cbed
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 24bb5a044db813e1ee3cf2c9ff3e36a9b9ff86d7
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453436"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657062"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-java-and-vs-code"></a>빠른 시작: Azure Dev Spaces(Java 및 VS Code)를 사용하여 Kubernetes 개발 환경 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "55453436"
 - VS Code에서 개발 환경의 코드를 디버그합니다.
 
 > [!Note]
-> **의문 사항이 있으면** 언제든지 [문제 해결](troubleshooting.md) 섹션을 참조하거나 이 페이지에 의견을 게시하세요. 또한 더 자세한 [자습서](get-started-netcore.md)를 시도해 볼 수도 있습니다.
+> **의문 사항이 있으면** 언제든지 [문제 해결](troubleshooting.md) 섹션을 참조하거나 이 페이지에 의견을 게시하세요. 또한 더 자세한 [자습서](get-started-java.md)를 시도해 볼 수도 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -137,4 +137,4 @@ public String greeting()
 Azure Dev Spaces를 통해 여러 컨테이너에서 더 복잡한 앱을 개발할 수 있는 방법 및 사용자가 다양한 환경에서 다양한 코드 버전이나 분기로 작업하여 공동 개발을 간소화하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [여러 컨테이너 작업 및 팀 개발](team-development-java.md)
+> [여러 컨테이너 작업 및 팀 개발](multi-service-java.md)

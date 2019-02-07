@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/15/2018
 ms.author: aljo
-ms.openlocfilehash: 75ba2ee378e9eddfeaeb2346b4d5bb584844afe2
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 691995d0aa426766caed2f5e2458399b32332c9d
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636679"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903505"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>클라이언트 인증에 대한 Azure Active Directory 설정
 
@@ -33,7 +33,7 @@ Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 
 > [!NOTE]
 > 클러스터를 만들기 전에 다음 단계를 완료해야 합니다. 스크립트는 클러스터 이름과 끈점을 예상하므로 이 값을 계획해야 하며, 이 값은 이미 만든 값이 아닙니다.
 
-1. 컴퓨터에 [스크립트를 다운로드][sf-aad-ps-script-download]합니다.
+1. 컴퓨터에 [스크립트를 다운로드](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool)합니다.
 2. zip 파일을 마우스 오른쪽 단추로 클릭하고 **속성**, **차단 해제** 확인란을 차례로 선택한 다음 **적용**을 클릭합니다.
 3. zip 파일의 압축을 풉니다.
 4. `SetupApplications.ps1`을 실행하고 TenantId, ClusterName 및 WebApplicationReplyUrl을 매개 변수로 제공합니다. 예: 
@@ -53,7 +53,7 @@ WebApplicationReplyUrl은 로그인을 마친 후 Azure AD가 사용자를 돌�
 
 https://&lt;cluster_domain&gt;:19080/Explorer
 
-Azure AD 테넌트에 대한 관리자 권한이 있는 계정으로 로그인하라는 메시지가 표시됩니다. 로그인한 후에는 스크립트가 Service Fabric 클러스터를 나타내는 웹 및 네이티브 애플리케이션을 만듭니다. [Azure Portal][azure-portal]에서 테넌트의 응용 프로그램을 보면 두 개의 새 항목이 표시됩니다.
+Azure AD 테넌트에 대한 관리자 권한이 있는 계정으로 로그인하라는 메시지가 표시됩니다. 로그인한 후에는 스크립트가 Service Fabric 클러스터를 나타내는 웹 및 네이티브 애플리케이션을 만듭니다. [Azure Portal][azure-portal]에서 테넌트의 애플리케이션을 보면 두 개의 새 항목이 표시됩니다.
 
    * *ClusterName*\_클러스터
    * *ClusterName*\_클라이언트
@@ -108,16 +108,16 @@ Azure AD 클러스터 애플리케이션에서 사용자에게 역할이 할당�
 #### <a name="solution"></a>해결 방법
 Azure AD 설정 지침을 따르고 사용자 역할을 할당합니다. 또한 `SetupApplications.ps1`에서처럼 “앱에 액세스하려면 사용자 할당 필요”를 살펴보는 것이 좋습니다.
 
-### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>“지정된 자격 증명이 올바르지 않다”는 오류가 표시되면서 PowerShell 연결 실패
+### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>"지정한 자격 증명이 잘못되었습니다"라는 오류로 인해 PowerShell 연결이 실패함
 #### <a name="problem"></a>문제
-PowerShell을 사용하여 “AzureActiveDirectory”보안 모드로 클러스터에 연결할 때, Azure AD 로그인 후 연결이 실패하고 “지정된 자격 증명이 올바르지 않다"는 오류가 표시됨
+"AzureActiveDirectory" 보안 모드를 사용하여 PowerShell을 통해 클러스터에 연결할 때 Azure AD에 성공적으로 로그인하면 "지정한 자격 증명이 잘못되었습니다"라는 오류로 인해 연결이 실패합니다.
 
 #### <a name="solution"></a>해결 방법
 이 솔루션은 이전과 동일합니다.
 
-### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>로그인할 때 Service Fabric Explorer가 실패를 반환함: "AADSTS50011"
+### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>로그인하면 Service Fabric Explorer에서 "AADSTS50011" 오류를 반환함
 #### <a name="problem"></a>문제
-Service Fabric Explorer에서 Azure AD에 로그인할 때 페이지가 "AADSTS50011: 회신 주소 &lt;url&gt;이 애플리케이션 &lt;guid&gt;에 대해 구성된 회신 주소와 일치하지 않습니다."라는 실패를 반환합니다.
+Service Fabric Explorer에서 Azure AD에 로그인하려고 하면 "AADSTS50011: &lt;url&gt; 회신 주소가 애플리케이션에 대해 구성된 &lt;guid&gt; 회신 주소와 일치하지 않습니다"라는 오류가 페이지에 반환됩니다.
 
 ![SFX 회신 주소가 일치하지 않습니다.][sfx-reply-address-not-match]
 

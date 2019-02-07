@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 990f300055f7c0c7132dd44271dea73044649fc5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 1d67f981991796b81ba3ab6540631e6d62be8077
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307001"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092173"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>보안 프레임: 감사 및 로깅 | 완화 
 | 제품/서비스 | 문서 |
 | --------------- | ------- |
 | **Dynamics CRM**    | <ul><li>[솔루션의 민감한 엔터티를 식별하고 변경 감사 구현](#sensitive-entities)</li></ul> |
-| **웹 응용 프로그램** | <ul><li>[응용 프로그램에 감사 및 로깅 적용](#auditing)</li><li>[로그 회전 및 분리가 작동하는지 확인](#log-rotation)</li><li>[응용 프로그램이 민감한 사용자 데이터를 기록하지 않도록 확인](#log-sensitive-data)</li><li>[감사 및 로그 파일의 액세스 제한](#log-restricted-access)</li><li>[사용자 관리 이벤트 기록](#user-management)</li><li>[시스템에 악용 방지 수단을 기본적으로 제공](#inbuilt-defenses)</li><li>[Azure App Service에서 웹앱에 대한 진단 로깅 설정](#diagnostics-logging)</li></ul> |
+| **웹 애플리케이션** | <ul><li>[애플리케이션에 감사 및 로깅 적용](#auditing)</li><li>[로그 회전 및 분리가 작동하는지 확인](#log-rotation)</li><li>[애플리케이션이 민감한 사용자 데이터를 기록하지 않도록 확인](#log-sensitive-data)</li><li>[감사 및 로그 파일의 액세스 제한](#log-restricted-access)</li><li>[사용자 관리 이벤트 기록](#user-management)</li><li>[시스템에 악용 방지 수단을 기본적으로 제공](#inbuilt-defenses)</li><li>[Azure App Service에서 웹앱에 대한 진단 로깅 설정](#diagnostics-logging)</li></ul> |
 | **데이터베이스** | <ul><li>[SQL Server에서 로그인 감사를 사용하도록 설정](#identify-sensitive-entities)</li><li>[Azure SQL에서 위협 감지 사용](#threat-detection)</li></ul> |
-| **Azure Storage** | <ul><li>[Azure 저장소 분석을 사용하여 Azure Storage에 대한 액세스 감사](#analytics)</li></ul> |
+| **Azure Storage** | <ul><li>[Azure 스토리지 분석을 사용하여 Azure Storage에 대한 액세스 감사](#analytics)</li></ul> |
 | **WCF** | <ul><li>[충분한 로깅 구현](#sufficient-logging)</li><li>[충분한 감사 실패 처리 구현](#audit-failure-handling)</li></ul> |
 | **앱 API** | <ul><li>[웹 API에 감사 및 로깅 적용](#logging-web-api)</li></ul> |
 | **IoT 필드 게이트웨이** | <ul><li>[필드 게이트웨이에 적절한 감사 및 로깅 적용](#logging-field-gateway)</li></ul> |
@@ -44,7 +44,7 @@ ms.locfileid: "43307001"
 | **참조**              | 해당 없음  |
 | **단계**                   | 솔루션에서 중요한 데이터가 포함된 엔터티를 식별하고 이러한 엔터티 및 필드에 대한 변경 감사 구현 |
 
-## <a id="auditing"></a>응용 프로그램에 감사 및 로깅 적용
+## <a id="auditing"></a>애플리케이션에 감사 및 로깅 적용
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -66,7 +66,7 @@ ms.locfileid: "43307001"
 | **참조**              | 해당 없음  |
 | **단계**                   | <p>로그 회전은 날짜가 지정된 로그 파일이 보관되는 시스템 관리에 사용되는 자동화 프로세스입니다. 대형 애플리케이션을 실행하는 서버는 모든 요청을 기록하는 경우가 많은데, 대규모 로그가 발생하는 경우 로그 회전은 최근 이벤트의 분석을 계속 허용하면서도 로그의 총 크기를 제한할 수 있습니다. </p><p>로그 분리는 기본적으로 서비스 거부 공격 또는 애플리케이션 성능 저하를 방지하기 위해 OS/애플리케이션 실행되고 있는 여러 파티션에 로그 파일을 저장해야 한다는 의미입니다.</p>|
 
-## <a id="log-sensitive-data"></a>응용 프로그램이 민감한 사용자 데이터를 기록하지 않도록 확인
+## <a id="log-sensitive-data"></a>애플리케이션이 민감한 사용자 데이터를 기록하지 않도록 확인
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -143,7 +143,7 @@ ms.locfileid: "43307001"
 | **참조**              | [SQL Database 위협 감지 시작](https://azure.microsoft.com/documentation/articles/sql-database-threat-detection-get-started/)|
 | **단계** |<p>위협 감지는 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 감지합니다. 위협 감지는 비정상적인 활동에 대한 보안 경고를 제공하여 잠재적인 위협이 발생하면 고객이 이를 감지하고 대응할 수 있도록 하는 새로운 차원의 보안을 제공합니다.</p><p>사용자는 데이터베이스의 데이터를 액세스, 침범 또는 악용하려는 시도로 인해 의심스러운 이벤트가 발생했는지를 판단하기 위해서 Azure SQL Database 감사를 사용하여 의심스러운 이벤트를 살펴 볼 수 있습니다.</p><p>위협 감지는 보안 전문가가 되거나 고급 보안 모니터링 시스템을 관리할 필요 없이 데이터베이스에 대한 잠재적인 위협에 간단하게 대처할 수 있도록 합니다.</p>|
 
-## <a id="analytics"></a>Azure 저장소 분석을 사용하여 Azure Storage에 대한 액세스 감사
+## <a id="analytics"></a>Azure 스토리지 분석을 사용하여 Azure Storage에 대한 액세스 감사
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -196,7 +196,7 @@ ms.locfileid: "43307001"
 
 ### <a name="example"></a>예
 아래에 보이는 WCF 구성 파일의 `<behavior/>` 요소는 WCF가 감사 로그에 쓸 수 없는 경우 그 사실을 애플리케이션에게 알리지 말라고 WCF에 지시합니다.
-````
+```
 <behaviors>
     <serviceBehaviors>
         <behavior name="NewBehavior">
@@ -207,7 +207,7 @@ ms.locfileid: "43307001"
         </behavior>
     </serviceBehaviors>
 </behaviors>
-````
+```
 감사 로그에 쓸 수 없을 때마다 프로그램에 알리도록 WCF를 구성합니다. 감사 추적이 유지되지 않는다는 사실을 조직에 경고할 수 있도록 프로그램에 대체 알림 체계가 있어야 합니다. 
 
 ## <a id="logging-web-api"></a>웹 API에 감사 및 로깅 적용

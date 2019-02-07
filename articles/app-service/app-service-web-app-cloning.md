@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 9d4b664c9b1fc0deb10794a5f0b29c2b600d19e2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 17ea8545855cd926a393e9e40d3eccaabd6dba53
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53712666"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886529"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>PowerShell을 사용하여 Azure App Service 앱 복제
 Microsoft Azure PowerShell 버전 1.1.0 릴리스에서는 기존 App Service 앱을 다른 지역이나 동일한 지역에서 새로 만든 앱에 복제할 수 있도록 하는 새 옵션이 `New-AzureRMWebApp`에 추가되었습니다. 이 옵션을 사용하여 고객은 수많은 앱을 다른 지역에 배포할 수 있습니다.
@@ -116,7 +116,7 @@ $destapp = New-AzureRmWebApp -ResourceGroupName <Resource group name> -Name dest
 ```
 
 ## <a name="current-restrictions"></a>현재 제한 사항
-이 기능은 현재 미리 보기로 제공되며, 시간에 따라 새 기능이 추가됩니다. 현재 버전의 앱 복제에 대한 알려진 제한은 다음과 같습니다.
+앱 복제에 대해 알려진 제한 사항은 다음과 같습니다.
 
 * 자동 크기 설정은 복제되지 않습니다.
 * Backup 일정 설정은 복제되지 않습니다.

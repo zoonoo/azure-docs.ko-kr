@@ -3,7 +3,7 @@ title: Azure의 Linux VM에서 MySQL 설정 | Microsoft Docs
 description: Azure Linux 가상 머신(Ubuntu 또는 RedHat 제품군 OS)에 MySQL 스택을 설치하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
-ms.author: zarhoads
-ms.openlocfilehash: f7120decd4a5d43f88b55e7d7e20992af34cadc4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: cynthn
+ms.openlocfilehash: c8043064ac1df40eaa31ae56e9ec31c0152e0130
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469574"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888433"
 ---
 # <a name="how-to-install-mysql-on-azure"></a>Azure에 MySQL을 설치하는 방법
 이 문서에서는 Linux를 실행하는 Azure 가상 머신에서 MySQL을 설치 및 구성하는 방법을 알아봅니다.
@@ -42,7 +42,7 @@ putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux 
 ### <a name="how-to-install-mysql56-on-ubuntu"></a>Ubuntu에 MySQL5.6을 설치하는 방법
 여기서는 Azure에 Ubuntu가 있는 Linux VM을 사용합니다.
 
-* 1단계: MySQL Server 5.6 설치 `root` 사용자로 전환:
+* 1단계: MySQL Server 5.6 설치 및 `root` 사용자로 전환:
   
             #[azureuser@mysqlnode:~]sudo su -
   
@@ -65,7 +65,7 @@ putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux 
     아래와 같은 명령을 사용하여 로그인하고 암호를 입력합니다.
   
              #[root@mysqlnode ~]# mysql -uroot -p
-* 3단계: 실행 중인 MySQL 서비스 관리
+* 3단계: 실행되는 MySQL 서비스 관리
   
     (a) MySQL 서비스의 상태를 가져옵니다.
   
@@ -86,7 +86,7 @@ putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux 
 ### <a name="how-to-install-mysql-on-red-hat-os-family-like-centos-oracle-linux"></a>CentOS, Oracle Linux와 같은 Red Hat OS 제품군에서 MySQL을 설치하는 방법
 여기에서는 CentOS 또는 Oracle Linux와 함께 Linux VM을 사용합니다.
 
-* 1단계: MySQL Yum 리포지토리 추가 `root` 사용자로 전환:
+* 1단계: MySQL Yum 리포지토리 추가 및 `root` 사용자로 전환:
   
             #[azureuser@mysqlnode:~]sudo su -
   
@@ -94,7 +94,7 @@ putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux 
   
             #[root@mysqlnode ~]# wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
             #[root@mysqlnode ~]# yum localinstall -y mysql-community-release-el6-5.noarch.rpm
-* 2단계: 아래 파일을 편집하여 MySQL5.6 패키지 다운로드에 MySQL을 사용하도록 설정합니다.
+* 2단계: MySQL 리포지토리에서 MySQL5.6 패키지를 다운로드할 수 있도록 아래 파일 편집
   
             #[root@mysqlnode ~]# vim /etc/yum.repos.d/mysql-community.repo
   
@@ -112,12 +112,12 @@ putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux 
         gpgcheck=1
   
         gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
-* 3단계: MySQL 리포지토리에서 MySQL 설치 MySQL 설치:
+* 3단계: MySQL 리포지토리에서 MySQL 설치 및 MySQL 설치:
   
            #[root@mysqlnode ~]#yum install mysql-community-server
   
     MySQL RPM 패키지 및 모든 관련 패키지가 설치됩니다.
-* 4단계: 실행 중인 MySQL 서비스 관리
+* 4단계: 실행되는 MySQL 서비스 관리
   
     (a) MySQL 서버의 서비스 상태 확인:
   
@@ -154,7 +154,7 @@ putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux 
            #[root@mysqlnode ~]# zypper update
   
            #[root@mysqlnode ~]# zypper install mysql-server mysql-devel mysql
-* 2단계: 실행 중인 MySQL 서비스 관리:
+* 2단계: 실행되는 MySQL 서비스 관리
   
     (a) MySQL Server 상태 확인:
   

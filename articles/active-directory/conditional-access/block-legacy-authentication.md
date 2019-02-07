@@ -7,22 +7,22 @@ documentationcenter: ''
 author: MarkusVi
 manager: daveba
 editor: ''
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 466e12877a63a32f461267a489573183b9da9734
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 164ff12eeec057855476d3808d3d1d44ef3179fe
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451309"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076846"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>방법: 조건부 액세스를 사용하여 Azure AD에 대한 레거시 인증 차단   
 
@@ -120,6 +120,15 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 다른 클라이언트 조건에 사용할 수 있는 모든 권한 부여 제어를 선택할 수 있지만, 최종 사용자 환경은 항상 동일합니다(액세스 차단).
 
 다른 클라이언트 조건 옆에 있는 다른 모든 조건을 구성할 수 있습니다.
+예를 들어 모바일 디바이스에 대한 레거시 인증만 차단하려면 다음을 선택하여 **디바이스 플랫폼** 조건을 설정합니다.
+
+- Android
+
+- iOS
+
+- Windows Phone
+
+![지원되지 않는 정책 구성](./media/block-legacy-authentication/06.png)
 
 
 

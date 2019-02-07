@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 0119e05ce5cb8d1c2e27936dc44896b7acef9312
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a2731397ece833adcedc4ebab640fa1b3ab2fc05
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725969"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076829"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure Virtual Network를 사용하여 Azure HDInsight 확장
 
@@ -308,7 +308,7 @@ HDInsight는 여러 포트에서 서비스를 공개합니다. 가상 어플라�
 
 ## <a id="hdinsight-ports"></a> 필수 포트
 
-네트워크 **가상 어플라이언스 방화벽**을 사용하여 가상 네트워크를 보호할 계획인 경우 다음 포트에서 아웃바운드 트래픽을 허용해야 합니다.
+**방화벽**을 사용하여 가상 네트워크를 보호하고 클러스터의 특정 포트에 액세스하려는 경우 시나리오에 필요한 포트에서 트래픽을 허용해야 합니다. 기본적으로 허용 목록에 추가할 필요가 없는 포트는 다음과 같습니다.
 
 * 53
 * 443

@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
-ms.author: cwatson
-ms.openlocfilehash: 87f6437f836d46fc24ae016823a1b091bcd81943
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 0f29544890fe10f4914de393a4b153cfe393a2ec
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582055"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904304"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>엔터프라이즈 등록에서 Azure Reservation 사용량 이해
 
@@ -76,7 +76,7 @@ ms.locfileid: "52582055"
 
 ## <a name="usage-summary-page-in-enterprise-portal"></a>엔터프라이즈 포털의 사용량 요약 페이지
 
-Azure Reservation 사용량은 엔터프라이즈 포털의 사용량 요약 섹션(![EA(기업계약) 사용량 요약](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png))에도 표시됩니다.
+Azure 예약 사용량은 엔터프라이즈 포털의 사용량 요약 섹션에도 표시됩니다. ![EA(기업계약) 사용량 요약](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
 
 1. VM의 하드웨어 구성 요소는 예약에서 처리되므로 이에 대해서는 청구되지 않습니다. SQL Database 예약의 경우 Azure SQL Database 예약된 용량 사용량으로 **서비스 이름**이 포함된 줄이 표시됩니다.
 2. 이 예제에서는 Azure 하이브리드 혜택이 없으므로 VM과 함께 사용되는 Windows 소프트웨어에 대한 요금이 부과됩니다.

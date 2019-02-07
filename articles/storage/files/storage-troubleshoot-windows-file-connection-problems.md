@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 384a277f3465ac97285fbb08fa299a5bed8c87c4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2289fc143abfde0aaaf2bcb079a6d24b74d57975
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477695"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564445"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
@@ -61,7 +61,7 @@ ms.locfileid: "55477695"
 
 방화벽 또는 ISP가 포트 445를 차단하는지 확인하려면 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) 도구 또는 `Test-NetConnection` cmdlet을 사용합니다. 
 
-`Test-NetConnection` cmdlet을 사용하려면 AzureRM PowerShell 모듈을 설치해야 합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 잊지 말고 `<your-storage-account-name>` 및 `<your-resoure-group-name>`을 저장소 계정과 관련된 이름으로 바꿔야 합니다.
+`Test-NetConnection` cmdlet을 사용하려면 AzureRM PowerShell 모듈을 설치해야 합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 잊지 말고 `<your-storage-account-name>` 및 `<your-resource-group-name>`을 저장소 계정과 관련된 이름으로 바꿔야 합니다.
 
    
     $resourceGroupName = "<your-resource-group-name>"
@@ -265,11 +265,11 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 
 ### <a name="cause"></a>원인
 
-AadDsTenantNotFound 오류는 연결된 구독의 AAD 테넌트에 [AAD DS(AAD Domain Service)](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-overview)가 생성되지 않은 스토리지 계정에 [Azure Files에 대한 AAD(Azure Active Directory) 인증을 사용하도록 설정](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-enable)하려고 할 때 발생합니다.  
+AadDsTenantNotFound 오류는 연결된 구독의 AAD 테넌트에 [AAD DS(AAD Domain Service)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)가 생성되지 않은 스토리지 계정에 [Azure Files에 대한 AAD(Azure Active Directory) 인증을 사용하도록 설정](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable)하려고 할 때 발생합니다.  
 
 ### <a name="solution"></a>해결 방법
 
-스토리지 계정이 배포된 구독의 AAD 테넌트에 AAD DS를 사용하도록 설정합니다. 관리형 도메인을 만들려면 AAD 테넌트의 관리자 권한이 필요합니다. Azure AD 테넌트의 관리자가 아니라면 관리자에게 문의하고 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started)를 위한 단계별 지침을 따르세요.
+스토리지 계정이 배포된 구독의 AAD 테넌트에 AAD DS를 사용하도록 설정합니다. 관리형 도메인을 만들려면 AAD 테넌트의 관리자 권한이 필요합니다. Azure AD 테넌트의 관리자가 아니라면 관리자에게 문의하고 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)를 위한 단계별 지침을 따르세요.
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

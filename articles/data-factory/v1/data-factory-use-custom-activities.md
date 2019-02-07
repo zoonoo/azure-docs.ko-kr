@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 4ed919b76ddebde8337337c18c04093bc6072e82
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 25592f80abc8aea338679f199f03114c2d0785f6
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121263"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077491"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -168,7 +168,7 @@ public IDictionary<string, string> Execute(
     /// Execute method is the only method of IDotNetActivity interface you must implement.
     /// In this sample, the method invokes the Calculate method to perform the core logic.
     /// </summary>
-    
+
     public IDictionary<string, string> Execute(
         IEnumerable<LinkedService> linkedServices,
         IEnumerable<Dataset> datasets,
@@ -201,7 +201,7 @@ public IDictionary<string, string> Execute(
 
         // get type properties from the dataset object
         inputTypeProperties = inputDataset.Properties.TypeProperties as AzureBlobDataset;
-    
+
         // log linked services passed in linkedServices parameter
         // you will see two linked services of type: AzureStorage
         // one for input dataset and the other for output dataset
@@ -239,7 +239,7 @@ public IDictionary<string, string> Execute(
                                      continuationToken,
                                      null,
                                      null);
-    
+
             // Calculate method returns the number of occurrences of
             // the search term (“Microsoft”) in each blob associated
             // with the data slice. definition of the method is shown in the next step.
@@ -257,7 +257,7 @@ public IDictionary<string, string> Execute(
         // get the folder path from the output dataset definition
         folderPath = GetFolderPath(outputDataset);
 
-        // log the output folder path   
+        // log the output folder path
         logger.Write("Writing blob to the folder: {0}", folderPath);
 
         // create a storage object for the output blob.
@@ -293,7 +293,7 @@ public IDictionary<string, string> Execute(
             return null;
         }
 
-        // get type properties of the dataset   
+        // get type properties of the dataset
         AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
         if (blobDataset == null)
         {
@@ -307,30 +307,30 @@ public IDictionary<string, string> Execute(
     /// <summary>
     /// Gets the fileName value from the input/output dataset.
     /// </summary>
-    
+
     private static string GetFileName(Dataset dataArtifact)
     {
         if (dataArtifact == null || dataArtifact.Properties == null)
         {
             return null;
         }
-    
+
         // get type properties of the dataset
         AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
         if (blobDataset == null)
         {
             return null;
         }
-    
+
         // return the blob/file name in the type properties
         return blobDataset.FileName;
     }
-    
+
     /// <summary>
     /// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file,
     /// and prepares the output text that is written to the output blob.
     /// </summary>
-    
+
     public static string Calculate(BlobResultSegment Bresult, IActivityLogger logger, string folderPath, ref BlobContinuationToken token, string searchTerm)
     {
         string output = string.Empty;
@@ -379,7 +379,7 @@ public IDictionary<string, string> Execute(
     > 사용자 지정 작업에 대한 zip 파일의 모든 파일은 하위 폴더가 없는 **최상위** 여야 합니다.
 
     ![이진 출력 파일](./media/data-factory-use-custom-activities/Binaries.png)
-14. 명명된 Blob 컨테이너 **customactivitycontainer**가 아직 없는 경우 새로 만듭니다. 
+14. 명명된 Blob 컨테이너 **customactivitycontainer**가 아직 없는 경우 새로 만듭니다.
 15. MyDotNetActivity.zip을 AzureStorageLinkedService에서 참조되는 **범용** Azure Blob Storage(핫/쿨 Blob Storage 아님)의 customactivitycontainer에 Blob으로 업로드합니다.
 
 > [!IMPORTANT]
@@ -420,7 +420,7 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
    1. 왼쪽 창에서 **리소스 만들기**를 클릭합니다.
    2. **새** 블레이드에서 **데이터 + 분석**을 클릭합니다.
    3. **데이터 분석** 블레이드에서 **Data Factory**를 클릭합니다.
-   
+
     ![새 Azure Data Factory 메뉴](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
 2. **새 Data Factory** 블레이드에서 이름으로 **CustomActivityFactory**를 입력합니다. Azure Data Factory 이름은 전역적으로 고유해야 합니다. 만약 **"CustomActivityFactory" Data Factory 이름은 사용할 수 없습니다**라는 오류 메시지가 표시되면 데이터 팩터리 이름을 변경하고(예: **yournameCustomActivityFactory**) 다시 만들어 봅니다.
 
@@ -430,7 +430,7 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
 5. **새 Data Factory** 블레이드에서 **만들기**를 클릭합니다.
 6. Azure 포털의 **대시보드** 에 생성된 데이터 팩터리가 표시됩니다.
 7. 데이터 팩터리 만들기를 완료한 후에는 Data Factory 블레이드가 표시되며 여기에 데이터 팩터리의 내용이 표시됩니다.
-    
+
     ![데이터 팩터리 블레이드](media/data-factory-use-custom-activities/data-factory-blade.png)
 
 ### <a name="step-2-create-linked-services"></a>2단계: 연결된 서비스 만들기
@@ -439,7 +439,7 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
 #### <a name="create-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
 1. **CustomActivityFactory**에 대한 **Data Factory** 블레이드에서 **작성 및 배포 타일**을 클릭합니다. 데이터 팩터리 편집기가 표시됩니다.
 2. 명령 모음에서 **새 데이터 저장소**를 클릭하고 **Azure 저장소**를 선택합니다. 편집기에 Azure Storage 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다.
-    
+
     ![새 데이터 저장소 - Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
 3. `<accountname>`을 Azure Storage 계정 이름으로 바꾸고 `<accountkey>`를 Azure Storage 계정의 액세스 키로 바꿉니다. 저장소 액세스 키를 확보하는 방법을 알아보려면 [저장소 액세스 키 보기, 복사 및 다시 생성](../../storage/common/storage-account-manage.md#access-keys)을 참조하세요.
 
@@ -632,7 +632,7 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
 3. 5개의 출력 조각이 준비 상태로 표시됩니다. 준비 상태가 아닌 경우 아직 생성되지 않았습니다.
 
    ![출력 분할](./media/data-factory-use-custom-activities/OutputSlices.png)
-4. 출력 파일이 **adftutorial** 컨테이너의 Blob 저장소에 생성되었는지 확인합니다.
+4. AFS(Azure File Sync) 서비스의 총 비용은 클라우드 엔드포인트(Azure 파일 공유)에 연결되는 서버 수와 File Storage(스토리지 및 액세스 비용 포함) 및 아웃바운드 데이터 전송**의 기본 비용에 따라 결정됩니다.
 
    ![사용자 지정 작업의 출력][image-data-factory-output-from-custom-activity]
 5. 출력 파일을 열면 다음과 유사한 출력이 표시됩니다.
@@ -719,7 +719,7 @@ Data Factory 서비스가 Azure Batch에 **adf-poolname:job-xxx**라는 이름�
    최상은 아니지만 좀 더 쉬운 해결 방법이 있습니다. 즉 연결 문자열 설정을 사용하여 **Azure SQL 연결 서비스**를 만들고, 이 서비스를 사용하는 데이터 세트를 만든 다음 사용자 지정 .NET 작업에 이 데이터 세트를 더미 입력 데이터 세트로 연결하면 됩니다. 그런 다음 사용자 지정 활동 코드에서 연결된 서비스의 연결 문자열에 액세스할 수 있습니다.
 
 ## <a name="update-custom-activity"></a>사용자 지정 작업 업데이트
-사용자 지정 작업의 코드를 업데이트하는 경우 코드를 작성하고 새 이진이 포함된 zip 파일을 Blob 저장소로 업로드합니다.
+사용자 지정 작업의 코드를 업데이트하는 경우 코드를 작성하고 새 이진이 포함된 zip 파일을 Blob Storage로 업로드합니다.
 
 ## <a name="appdomain-isolation"></a>Appdomain 격리
 Data Factory 시작 관리자에서 사용하는 어셈블리 버전의 제약을 받지 않는 사용자 지정 작업을 만드는 방법을 보여주는 [크로스 AppDomain 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample)을 참조하세요. 예: WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x 등)
@@ -1025,7 +1025,7 @@ GitHub의 [Azure Data Factory - 로컬 환경](https://github.com/gbrueckl/Azure
 | 샘플 | 사용자 지정 작업의 기능 |
 | --- | --- |
 | [HTTP 데이터 다운로더](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) |Data Factory의 사용자 지정 C# 작업을 사용하여 HTTP 엔드포인트에서 Azure Blob Storage로 데이터를 다운로드합니다. |
-| [Twitter 감성 분석 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Azure ML 모델을 호출하고 감성 분석, 점수 매기기, 예측 등을 수행합니다. |
+| [Twitter 감성 분석 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Azure Machine Learning Studio 모델을 호출하고 감정 분석, 채점, 예측 등을 수행합니다. |
 | [R 스크립트 실행](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) |R이 이미 설치된 HDInsight 클러스터에서 RScript.exe를 실행하여 R 스크립트를 호출합니다. |
 | [크로스 AppDomain .NET 작업](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Data Factory 시작 관리자가 사용한 것과 다른 버전의 어셈블리를 사용합니다. |
 | [Azure Analysis Services에서 모델 다시 처리](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample) |  Azure Analysis Services에서 모델을 다시 처리합니다. |

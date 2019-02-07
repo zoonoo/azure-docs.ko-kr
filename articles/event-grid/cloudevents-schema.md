@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: ff40ac0e5ab6176bcf192289c0506f57ebf04a11
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 81f9db7e90e2cef85d41561cc677db3d6422ef45
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755090"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079871"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Event Grid에서 CloudEvents 스키마 사용
 
@@ -21,7 +21,7 @@ ms.locfileid: "53755090"
 
 CloudEvents는 클라우드 기반 이벤트를 게시 및 사용하기 위한 일반적인 이벤트 스키마를 제공하여 상호 운용성을 간소화합니다. 이 스키마를 통해 균일한 도구, 이벤트를 라우팅 및 처리하는 표준 방법, 외부 이벤트 스키마를 역직렬화하는 유니버설 방법이 가능해집니다. 공통 스키마를 통해 여러 플랫폼에서 작업을 보다 쉽게 통합할 수 있습니다.
 
-CloudEvents는 [Cloud Native Compute Foundation](https://www.cncf.io/)을 통해 Microsoft를 비롯한 여러 [공동 작업자](https://github.com/cloudevents/spec/blob/master/community/contributors.md)가 작성하고 있습니다. 현재, 버전 0.1로 제공됩니다.
+CloudEvents는 [Cloud Native Computing Foundation](https://www.cncf.io/)을 통해 Microsoft를 포함한 여러 [협력자](https://github.com/cloudevents/spec/blob/master/community/contributors.md)가 작성하고 있습니다. 현재, 버전 0.1로 제공됩니다.
 
 이 문서에서는 Event Grid에서 CloudEvents 스키마를 사용하는 방법을 설명합니다.
 
@@ -31,7 +31,7 @@ CloudEvents는 [Cloud Native Compute Foundation](https://www.cncf.io/)을 통해
 
 ## <a name="cloudevent-schema"></a>CloudEvent 스키마
 
-CloudEvents 형식의 Azure Blob 저장소 이벤트의 예는 다음과 같습니다.
+CloudEvents 형식의 Azure Blob Storage 이벤트의 예는 다음과 같습니다.
 
 ``` JSON
 {
@@ -60,7 +60,7 @@ CloudEvents 형식의 Azure Blob 저장소 이벤트의 예는 다음과 같습�
 
 CloudEvents v0.1에서는 다음과 같은 속성을 사용할 수 있습니다.
 
-| CloudEvents        | type     | 예제 JSON 값             | 설명                                                        | Event Grid 매핑
+| CloudEvents        | Type     | 예제 JSON 값             | 설명                                                        | Event Grid 매핑
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
 | eventType          | 문자열   | "com.example.someevent"          | 발생한 이벤트 유형                                   | eventType
 | eventTypeVersion   | 문자열   | "1.0"                            | eventType 버전(선택 사항)                            | dataVersion

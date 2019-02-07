@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: 52af6051b4534ba65b4822205cb5395a59ef9d6a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c706dbd4536b9c75281500ace6f02db00ff2f95d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259967"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095569"
 ---
 # <a name="working-with-security-policies"></a>보안 정책 작업
 
@@ -121,7 +121,7 @@ Security Center에는 모든 보안 정책을 포함하는 기본 제공 이니�
 다음 예제에서 다음 변수를 바꿉니다.
 
 - **{scope}** - 정책을 적용할 관리 그룹 또는 구독의 이름을 입력합니다.
-- **{poicyAssignmentName}** - [관련 정책 할당의 이름](#policy-names)을 입력합니다.
+- **{policyAssignmentName}** - [관련 정책 할당의 이름](#policy-names)을 입력합니다.
 - **{name}** 이름을 입력하거나 정책 변경을 승인한 관리자의 이름을 입력합니다.
 
 이 예제는 구독 또는 관리 그룹에 기본 제공 Security Center 이니셔티브를 할당하는 방법을 보여줍니다.
@@ -212,7 +212,7 @@ Security Center에는 모든 보안 정책을 포함하는 기본 제공 이니�
 |보안 구성 |Azure Security Center에서 OS 취약성 모니터링 |systemConfigurationsMonitoringEffect| 
 |Endpoint Protection |Azure Security Center에서 누락된 Endpoint Protection 모니터링 |endpointProtectionMonitoringEffect |
 |디스크 암호화 |Azure Security Center에서 암호화되지 않은 VM 디스크 모니터링 |diskEncryptionMonitoringEffect|
-|취약점 평가 |Azure Security Center에서 VM 취약성 모니터링 |vulnerabilityAssesmentMonitoringEffect|
+|취약점 평가 |Azure Security Center에서 VM 취약성 모니터링 |vulnerabilityAssessmentMonitoringEffect|
 |웹 애플리케이션 방화벽 |Azure Security Center에서 보호되지 않은 웹 애플리케이션 모니터링 |webApplicationFirewallMonitoringEffect |
 |차세대 방화벽 |Azure Security Center에서 보호되지 않은 네트워크 엔드포인트 모니터링| |
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: bsiva
-ms.openlocfilehash: e34409490f9e120cb39daf99b280cc52c59f54e2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 48e53bcc542b9a0e00a544f80ec796082fa71f7b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845648"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210423"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Site Recovery 모니터링 및 문제 해결
 
@@ -98,9 +98,9 @@ Warning | 복제에 영향을 줄 수 있는 하나 이상의 경고 증상이 �
     **시나리오** | **State**  | **보기 사용 가능 여부**
     --- |--- | ---
     **온-프레미스 사이트 간 복제** | 모든 상태 | 아니요 
-    **Azure 지역 간 Azure VM 복제**  | 복제가 사용되도록 설정됨/초기 복제 진행 중 | yes
+    **Azure 지역 간 Azure VM 복제**  | 복제가 사용되도록 설정됨/초기 복제 진행 중 | 예
     **Azure 지역 간 Azure VM 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | 아니요   
-    **Azure로 VMware 복제** | 복제가 사용되도록 설정됨/초기 복제 진행 중 | yes     
+    **Azure로 VMware 복제** | 복제가 사용되도록 설정됨/초기 복제 진행 중 | 예     
     **Azure로 VMware 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | 아니요      
     **Azure로 Hyper-V 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | 아니요
 

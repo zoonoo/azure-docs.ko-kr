@@ -7,15 +7,15 @@ manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: tutorial
-ms.date: 2/14/2018
+ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: a8f9fd5a81f8e95d9787d9800be9962484e8436a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 905fce2be5de2fff371272efa79bdec5b3bef112
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871857"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497703"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Azure에서 가상 머신에 파일 복원
 Azure Backup은 지역 중복 복구 자격 증명 모음에 저장되는 복구 지점을 만듭니다. 복구 지점에서 복원하는 경우 전체 VM 또는 개별 파일을 복원할 수 있습니다. 이 문서에서는 개별 파일을 복원하는 방법에 대해 자세히 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.

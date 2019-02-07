@@ -6,7 +6,7 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
@@ -15,20 +15,20 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: de0d8d5fb538619e94595ef322eeb80c4de743be
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 6c68070a9b94cf867f8c1c930874a5f02a685294
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426291"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096741"
 ---
-# <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>방법: ADAL을 사용하여 iOS에서 앱 간 SSO를 사용하도록 설정
+# <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>방법: ADAL을 사용하여 iOS에서 앱 간 SSO 사용
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
 SSO(Single Sign-On)를 사용하면 사용자가 자격 증명을 한 번만 입력하고 게시자에 관계없이 해당 자격 증명이 애플리케이션 전체 및 다른 애플리케이션이 사용할 수 있는 플랫폼 전체에서 자동으로 적용되도록 할 수 있습니다(예: Microsoft 계정 또는 Microsoft 365의 회사 계정).
 
-Microsoft의 ID 플랫폼을 SDK와 함께 사용하여 사용자 고유의 앱 제품군 내에서 또는 broker 기능 및 Authenticator 애플리케이션과 함께 사용하여 전체 디바이스에서 SSO를 쉽게 사용하도록 설정할 수 있습니다.
+Microsoft의 ID 플랫폼을 SDK와 함께 사용하여 사용자 고유의 앱 제품군 내에서 또는 broker 기능 및 Authenticator 애플리케이션과 함께 사용하여 전체 장치에서 SSO를 쉽게 사용하도록 설정할 수 있습니다.
 
 이 방법에서는 고객에게 SSO를 제공하도록 애플리케이션 내에서 SDK를 구성하는 방법을 알아보겠습니다.
 
@@ -44,7 +44,7 @@ Microsoft의 ID 플랫폼을 SDK와 함께 사용하여 사용자 고유의 앱 
 이 방법에서는 다음 작업을 수행하는 방법을 알고 있다고 가정합니다.
 
 * Azure AD에 대한 레거시 포털을 사용하여 앱 프로비전 자세한 내용은 [Azure AD v1.0 엔드포인트에 앱 등록](quickstart-v1-add-azure-ad-app.md)을 참조하세요.
-* [Azure AD iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc)와 응용 프로그램 통합
+* [Azure AD iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc)와 애플리케이션 통합
 
 ## <a name="single-sign-on-concepts"></a>Single Sign-On 개념
 
@@ -52,7 +52,7 @@ Microsoft의 ID 플랫폼을 SDK와 함께 사용하여 사용자 고유의 앱 
 
 Microsoft는 다른 공급업체의 애플리케이션 전체에서 자격 증명의 브리징을 허용하고 자격 증명의 유효성을 검사할 단일 보안 위치가 필요한 향상된 기능을 허용하는 애플리케이션을 모든 모바일 플랫폼에 대해 제공합니다. 이를 **broker**라고 합니다.
 
-iOS 및 Android에서 broker는 고객이 독립적으로 설치하는 다운로드 가능한 애플리케이션을 통해 제공되거나 해당 직원에 대한 일부 또는 모든 디바이스를 관리하는 회사에 의해 디바이스에 푸시됩니다. broker는 IT 관리자 구성에 따라 일부 애플리케이션에 대해서만 또는 전체 디바이스에 대한 보안 관리를 지원합니다. Windows에서 이 기능은 기술적으로 웹 인증 브로커로 알려진 운영 체제에 기본적으로 제공된 계정 선택기로 제공됩니다.
+iOS 및 Android에서 broker는 고객이 독립적으로 설치하는 다운로드 가능한 애플리케이션을 통해 제공되거나 해당 직원에 대한 일부 또는 모든 장치를 관리하는 회사에 의해 장치에 푸시됩니다. broker는 IT 관리자 구성에 따라 일부 애플리케이션에 대해서만 또는 전체 장치에 대한 보안 관리를 지원합니다. Windows에서 이 기능은 기술적으로 웹 인증 브로커로 알려진 운영 체제에 기본적으로 제공된 계정 선택기로 제공됩니다.
 
 ### <a name="patterns-for-logging-in-on-mobile-devices"></a>모바일 디바이스에 로그인하기 위한 패턴
 
@@ -63,7 +63,7 @@ iOS 및 Android에서 broker는 고객이 독립적으로 설치하는 다운로
 
 #### <a name="non-broker-assisted-logins"></a>비 브로커 지원 로그인
 
-비 브로커 지원 로그인은 응용 프로그램과 함께 인라인을 발생하고 해당 응용 프로그램에 대한 디바이스에서 로컬 저장소를 사용하는 로그인 환경입니다. 이 스토리지는 애플리케이션 간에 공유될 수 있지만 자격 증명은 해당 자격 증명을 사용하는 앱 또는 앱의 제품군에 밀접하게 바인딩됩니다. 애플리케이션 자체 내에서 사용자 이름 및 암호를 입력하는 경우 많은 모바일 애플리케이션에서 이를 경험할 가능성이 가장 큽니다.
+비 브로커 지원 로그인은 애플리케이션과 함께 인라인을 발생하고 해당 애플리케이션에 대한 디바이스에서 로컬 스토리지를 사용하는 로그인 환경입니다. 이 스토리지는 애플리케이션 간에 공유될 수 있지만 자격 증명은 해당 자격 증명을 사용하는 앱 또는 앱의 제품군에 밀접하게 바인딩됩니다. 애플리케이션 자체 내에서 사용자 이름 및 암호를 입력하는 경우 많은 모바일 애플리케이션에서 이를 경험할 가능성이 가장 큽니다.
 
 이러한 로그인은 다음과 같은 이점이 있습니다.
 
@@ -95,28 +95,28 @@ SDK가 애플리케이션의 공유 저장소와 작업하여 SSO를 활성화�
 
 #### <a name="broker-assisted-logins"></a>브로커 지원 로그인
 
-broker 지원 로그인은 broker 애플리케이션 내에서 발생하고, broker의 저장소와 보안을 사용하여 ID 플랫폼을 적용하는 디바이스의 모든 애플리케이션에서 자격 증명을 공유하는 로그인 환경입니다. 즉, 애플리케이션은 사용자가 로그인하도록 브로커를 사용합니다. iOS 및 Android에서 해당 브로커는 고객이 독립적으로 설치하거나 사용자에 대한 디바이스를 관리하는 회사에서 디바이스에 푸시할 수 있는 다운로드 가능한 애플리케이션을 통해 제공됩니다. 이 애플리케이션 유형의 예는 iOS에서 Microsoft Authenticator 애플리케이션입니다. Windows에서 이 기능은 기술적으로 웹 인증 브로커로 알려진 운영 체제에 기본적으로 제공된 계정 선택기로 제공됩니다.
+broker 지원 로그인은 broker 애플리케이션 내에서 발생하고, broker의 저장소와 보안을 사용하여 ID 플랫폼을 적용하는 장치의 모든 애플리케이션에서 자격 증명을 공유하는 로그인 환경입니다. 즉, 애플리케이션은 사용자가 로그인하도록 브로커를 사용합니다. iOS 및 Android에서 해당 브로커는 고객이 독립적으로 설치하거나 사용자에 대한 디바이스를 관리하는 회사에서 디바이스에 푸시할 수 있는 다운로드 가능한 애플리케이션을 통해 제공됩니다. 이 애플리케이션 유형의 예는 iOS에서 Microsoft Authenticator 애플리케이션입니다. Windows에서 이 기능은 기술적으로 웹 인증 브로커로 알려진 운영 체제에 기본적으로 제공된 계정 선택기로 제공됩니다.
 
 환경은 플랫폼별로 다르며 올바르게 관리되지 않는 경우 사용자에게 작업 중단이 발생할 수 있습니다. Facebook 애플리케이션을 설치하고 다른 애플리케이션에서 Facebook Connect를 사용하는 경우 아마도 이 패턴과 가장 친숙할 것입니다. ID 플랫폼은 동일한 패턴을 사용합니다.
 
 iOS의 경우 이는 Microsoft Authenticator 애플리케이션이 사용자가 로그인하려는 계정을 선택하도록 포그라운드로 오는 동안 애플리케이션이 백그라운드로 전송되는 "전환" 애니메이션이 됩니다.
 
-Android 및 Windows의 경우 계정 선택기가 사용자에게 덜 방해가 되는 애플리케이션 맨 위에 표시됩니다.
+Android 및 Windows의 경우 계정 선택기가 사용자에게 덜 방해가 되는 응용 프로그램 맨 위에 표시됩니다.
 
 #### <a name="how-the-broker-gets-invoked"></a>브로커를 호출하는 방법
 
-호환되는 broker가 디바이스에 설치된 경우, Microsoft Authenticator 애플리케이션과 마찬가지로 SDK는 사용자가 ID 플랫폼의 계정을 사용하여 로그인하려는 것을 나타내는 경우 broker 호출 작업을 자동으로 수행합니다. 이 계정은 개인 Microsoft 계정, 회사 또는 학교 계정 또는 B2C 및 B2B 제품을 사용하여 Azure에 제공 및 호스트하는 계정일 수 있습니다.
+호환되는 broker가 장치에 설치된 경우, Microsoft Authenticator 애플리케이션과 마찬가지로 SDK는 사용자가 ID 플랫폼의 계정을 사용하여 로그인하려는 것을 나타내는 경우 broker 호출 작업을 자동으로 수행합니다. 이 계정은 개인 Microsoft 계정, 회사 또는 학교 계정 또는 B2C 및 B2B 제품을 사용하여 Azure에 제공 및 호스트하는 계정일 수 있습니다.
 
 #### <a name="how-we-ensure-the-application-is-valid"></a>애플리케이션이 유효한지 확인하는 방법
 
 브로커를 호출하는 애플리케이션의 ID를 확인하는 것은 브로커 지원 로그인에 제공하는 보안에 중요합니다. iOS와 Android 모두 제공된 애플리케이션에만 유효한 고유한 식별자를 적용하지 않으므로 악의적 애플리케이션은 합법적인 애플리케이션의 ID를 "스푸핑"하고 합법적인 애플리케이션을 의미하는 토큰을 받을 수도 있습니다. 런타임 시 적절한 애플리케이션으로 항상 통신하고 있음을 확인하기 위해 Microsoft에 해당 애플리케이션을 등록할 때 개발자에게 사용자 지정 redirectURI를 요청합니다. 개발자가 이 리디렉션 URI를 만드는 방법은 아래에 자세히 설명되어 있습니다. 이 사용자 지정 redirectURI는 애플리케이션의 번들 ID를 포함하고 Apple 앱 스토어에서 애플리케이션에 고유하도록 보장됩니다. 애플리케이션이 브로커를 호출하면 브로커는 iOS 운영 체제에 브로커를 호출한 번들 ID를 제공하도록 요청합니다. 브로커는 ID 시스템에 대한 호출에서 Microsoft에 이 번들 ID를 제공합니다. 애플리케이션의 번들 ID가 등록하는 동안 개발자가 제공한 번들 ID와 일치하지 않는 경우 애플리케이션이 요청하는 리소스를 위한 토큰에 대한 액세스를 거부합니다. 이러한 확인을 통해 개발자가 등록한 애플리케이션만 토큰을 받습니다.
 
-**개발자는 SDK가 브로커를 호출할지 비 브로커 지원 흐름을 사용할지 여부를 선택할 수 있습니다.** 그러나 개발자가 broker 지원 흐름을 사용하지 않도록 선택하는 경우 사용자가 디바이스에 이미 추가했으며 조건부 액세스, Intune 관리 기능 및 인증서 기반 인증과 같은 Microsoft가 고객에게 제공하는 비즈니스 기능으로 애플리케이션이 사용되는 것을 예방하는 SSO 자격 증명 사용의 이점을 잃게 됩니다.
+**개발자는 SDK가 브로커를 호출할지 비 브로커 지원 흐름을 사용할지 여부를 선택할 수 있습니다.** 그러나 개발자가 브로커 지원 흐름을 사용하지 않도록 선택하는 경우 사용자가 장치에 이미 추가했으며 조건부 액세스, Intune 관리 기능 및 인증서 기반 인증과 같은 Microsoft가 고객에게 제공하는 비즈니스 기능으로 애플리케이션이 사용되는 것을 예방하는 SSO 자격 증명 사용의 이점을 잃게 됩니다.
 
 이러한 로그인은 다음과 같은 이점이 있습니다.
 
 * 사용자는 공급 업체에 관계 없이 모든 애플리케이션에서 SSO를 경험합니다.
-* 애플리케이션은 조건부 액세스와 같은 고급 비즈니스 기능을 사용하거나 Intune 제품군을 사용할 수 있습니다.
+* 응용 프로그램은 조건부 액세스와 같은 고급 비즈니스 기능을 사용하거나 Intune 제품군을 사용할 수 있습니다.
 * 애플리케이션은 비즈니스 사용자에 대한 인증서 기반 인증을 지원할 수 있습니다.
 * 애플리케이션 및 사용자의 ID로서 더 안전한 로그인 환경은 추가 보안 알고리즘 및 암호화로 브로커 애플리케이션에 의해 확인됩니다.
 
@@ -252,7 +252,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 3. URL 구성표 등록.
 4. info.plist 파일에 권한을 추가합니다.
 
-#### <a name="step-1-enable-broker-mode-in-your-application"></a>1단계: 애플리케이션에서 브로커 모드 활성화
+#### <a name="step-1-enable-broker-mode-in-your-application"></a>1단계: 애플리케이션에서 broker 모드 사용
 
 "컨텍스트" 또는 인증 개체의 초기 설정을 만들 때 브로커를 사용하는 애플리케이션에 대한 기능은 설정되어 있습니다. 코드에서 자격 증명 형식을 설정하여 이 작업을 수행합니다.
 
@@ -287,7 +287,7 @@ ID 플랫폼은 URL을 사용하여 브로커를 호출한 다음, 애플리케�
 </array>
 ```
 
-#### <a name="step-3-establish-a-new-redirect-uri-with-your-url-scheme"></a>3단계: URL 구성표와 함께 새 리디렉션 URI 설정
+#### <a name="step-3-establish-a-new-redirect-uri-with-your-url-scheme"></a>3단계: URL 구성표를 사용하여 새 리디렉션 URI 설정
 
 올바른 애플리케이션에 자격 증명 토큰을 항상 반환하는지 확인하려면 iOS 운영 체제에서 확인할 수 있는 방식으로 애플리케이션에 다시 호출하는지 확인해야 합니다. iOS 운영 체제는 호출하는 애플리케이션의 번들 ID를 Microsoft 브로커 애플리케이션에 보고합니다. 불량 애플리케이션에서 이를 스푸핑할 수 없습니다. 따라서 토큰이 올바른 애플리케이션에 반환되는지 확인하도록 브로커 애플리케이션의 URI와 함께 활용합니다. 이 고유한 리디렉션 URI를 애플리케이션 및 개발자 포털에서 리디렉션 URI로 설정해야 합니다.
 
@@ -299,7 +299,7 @@ ID 플랫폼은 URL을 사용하여 브로커를 호출한 다음, 애플리케�
 
 [Azure Portal](https://portal.azure.com/)을 사용하여 앱 등록에 이 리디렉션 URI를 지정해야 합니다. Azure AD 앱 등록에 대한 자세한 내용은 [Azure Active Directory와 통합](active-directory-how-to-integrate.md)을 참조하세요.
 
-##### <a name="step-3a-add-a-redirect-uri-in-your-app-and-dev-portal-to-support-certificate-based-authentication"></a>3a단계: 인증서 기반 인증을 지원하도록 앱 및 개발자 포털에 리디렉션 URI 추가
+##### <a name="step-3a-add-a-redirect-uri-in-your-app-and-dev-portal-to-support-certificate-based-authentication"></a>3a단계: 인증서 기반 인증을 지원하도록 앱 및 개발자 포털에서 리디렉션 URI 추가
 
 인증서 기반 인증을 지원하기 위해 애플리케이션에 해당 지원을 추가하려는 경우 두 번째 “msauth”를 애플리케이션 및 [Azure Portal](https://portal.azure.com/)에 등록하여 인증서 인증을 처리해야 합니다.
 
@@ -321,7 +321,7 @@ ADAL은 canOpenURL을 사용하여 브로커가 디바이스에 설치되어 있
 
 ### <a name="youve-configured-sso"></a>SSO를 구성했습니다.
 
-이제 ID SDK는 애플리케이션 전체에서 자동으로 자격 증명을 공유하고, 디바이스에 있는 경우 broker를 호출합니다.
+이제 ID SDK는 애플리케이션 전체에서 자동으로 자격 증명을 공유하고, 장치에 있는 경우 broker를 호출합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

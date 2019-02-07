@@ -1,5 +1,5 @@
 ---
-title: Azure Alerts로 Log Analytics 경고 확장(복사) - 개요
+title: Azure Government 클라우드로 Log Analytics 경고 확장(복사)
 description: 일반적인 고객 문제에 대응하는 자세한 정보를 포함한 OMS 포털의 Log Analytics에서 Azure Alerts로 경고 복사 프로세스의 개요입니다.
 author: msvijayn
 services: azure-monitor
@@ -8,19 +8,21 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: e2f2a739f78072a0479e77e68e84c8f4b395468f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: efd2fc9d164564126b7b641ef35bbb10c4834f49
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422229"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099331"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Log Analytics 경고를 Azure Alerts로 확장
 
 > [!NOTE]
 > Microsoft에서는 Azure의 공용 버전에 대해 이 문서에 설명된 프로세스를 이미 완료했습니다. 그러나 미국 정부 버전에는 계속 적용됩니다.  
 
-최근까지 Azure Log Analytics에는 Log Analytics 데이터에 기반한 조건을 사전에 알려줄 수 있는 자체 경고 기능이 포함됩니다. Microsoft Operations Management Suite 포털에서 경고 규칙을 관리했습니다. 새 경고 환경은 이제 Microsoft Azure의 다양한 서비스에서 경고를 통합했습니다. 이 환경은 Azure Portal에서 Azure Monitor 아래의 **경고**로 사용 가능하며 Log Analytics 및 Azure Application Insights에서 활동 로그, 메트릭 및 로그의 경고를 지원합니다. 
+최근까지 Azure Log Analytics에는 Log Analytics 데이터에 기반한 조건을 사전에 알려줄 수 있는 자체 경고 기능이 포함됩니다. Microsoft Operations Management Suite 포털에서 경고 규칙을 관리했습니다. 새 경고 환경은 이제 Microsoft Azure의 다양한 서비스에서 경고를 통합했습니다. 이 환경은 Azure Portal에서 Azure Monitor 아래의 **경고**로 사용 가능하며 Log Analytics 및 Azure Application Insights에서 활동 로그, 메트릭 및 로그의 경고를 지원합니다.
+
+OMS 포털을 사용하는 Azure Government 클라우드 고객은 [자발적으로 **2019년 2월 1일**부터 경고 규칙을 Azure로 확장](alerts-extend-tool.md)할 수 있습니다. **2019년 3월 1일**부터 Microsoft는 가동 중지하거나 모니터링을 중지하지 않고 Azure Government의 모든 기존 경고 규칙을 OMS 포털에서 Azure로 체계적으로 자동 확장합니다. Azure Government 클라우드 OMS 포털에서 **2019년 3월 1일** 이후에 만든 모든 새 작업 영역은 Azure로 자동 확장됩니다.
 
 ## <a name="benefits-of-extending-your-alerts"></a>경고 확장의 이점
 다음과 같이 Azure Portal에서 경고를 만들고 관리하는 여러 이점이 있습니다.

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/04/2019
+ms.date: 01/28/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8635d943120f0e79b8efcfe1f9be0b74d8bb4fac
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: adc780577e8c83411e173a5bfad75c3555119f11
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433903"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093520"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -443,8 +443,8 @@ on SourceComputerId
 on SourceComputerId
 | extend WorstMissingUpdateSeverity=coalesce(WorstMissingUpdateSeverity, -1)
 | summarize computersBySeverity=count() by WorstMissingUpdateSeverity)
-| summarize assessedComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity>-1), notAssessedComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==-1), computersNeedCriticalUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==4), computersNeedSecurityUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==2), computersNeeedOtherUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==1), upToDateComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==0)
-| summarize assessedComputersCount=sum(assessedComputersCount), computersNeedCriticalUpdatesCount=sum(computersNeedCriticalUpdatesCount),  computersNeedSecurityUpdatesCount=sum(computersNeedSecurityUpdatesCount), computersNeeedOtherUpdatesCount=sum(computersNeeedOtherUpdatesCount), upToDateComputersCount=sum(upToDateComputersCount), notAssessedComputersCount=sum(notAssessedComputersCount)
+| summarize assessedComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity>-1), notAssessedComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==-1), computersNeedCriticalUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==4), computersNeedSecurityUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==2), computersNeedOtherUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==1), upToDateComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==0)
+| summarize assessedComputersCount=sum(assessedComputersCount), computersNeedCriticalUpdatesCount=sum(computersNeedCriticalUpdatesCount),  computersNeedSecurityUpdatesCount=sum(computersNeedSecurityUpdatesCount), computersNeedOtherUpdatesCount=sum(computersNeedOtherUpdatesCount), upToDateComputersCount=sum(upToDateComputersCount), notAssessedComputersCount=sum(notAssessedComputersCount)
 | extend allComputersCount=assessedComputersCount+notAssessedComputersCount
 
 
@@ -574,7 +574,7 @@ System Center Configuration Manager와 관리 솔루션을 통합하는 방법�
 
 업데이트 포함을 사용하면 적용할 특정 업데이트를 지정할 수 있습니다. 포함된 패치 또는 패키지가 설치됩니다. 패치 또는 패키지가 포함되고 분류가 선택되면 포함된 항목 및 분류를 충족하는 항목이 모두 설치됩니다.
 
-제외는 포함을 재정의한다는 사실을 기억해야 합니다. 예를 들어 `*`의 제외 규칙을 정의하는 경우 모든 패치 또는 패키지가 제외되므로 설치되지 않습니다. Linux 머신의 경우 패키지가 포함되었지만 종속 패키지가 제외되면 패키지가 설치되지 않습니다.
+제외는 포함을 재정의한다는 사실을 기억해야 합니다. 예를 들어 `*`의 제외 규칙을 정의하는 경우 모든 패치 또는 패키지가 제외되므로 설치되지 않습니다. 제외된 패치가 여전히 머신에서 누락된 것으로 표시됩니다. Linux 머신의 경우 패키지가 포함되었지만 종속 패키지가 제외되면 패키지가 설치되지 않습니다.
 
 ## <a name="patch-linux-machines"></a>Linux 컴퓨터 패치
 

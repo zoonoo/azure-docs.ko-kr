@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7e5f56251e00b59a6e6d3be40612f4c8e381dff1
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 84ce13f78a9c597c780cb0dfa0fa5d16e6175b1c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743003"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077729"
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight의 기계 학습
 
@@ -42,13 +42,13 @@ Azure Machine Learning은 예측 분석을 모델링하는 도구를 제공할 �
 
 ![Microsoft Azure Machine Learning을 사용하여 Hadoop에 액세스할 수 있는 고급 분석 만들기](./media/hdinsight-machine-learning-overview/hadoop-azure-ml.png)
 
-[Hive 쿼리](../machine-learning/team-data-science-process/create-features-hive.md)를 사용하여 HDInsight Hadoop 클러스터의 데이터에 대한 기능을 만듭니다. *기능 엔지니어링*은 원시 데이터로부터 학습 프로세스를 용이하게 하는 기능을 만들어 학습 알고리즘의 예측 능력을 향상시키도록 합니다. Azure ML에서 HiveQL 쿼리를 실행하고, [데이터 가져오기 모듈](../machine-learning/studio/import-data.md)을 사용하여 Hive에서 처리되고 Blob 저장소에 저장된 데이터에 액세스할 수 있습니다.
+[Hive 쿼리](../machine-learning/team-data-science-process/create-features-hive.md)를 사용하여 HDInsight Hadoop 클러스터의 데이터에 대한 기능을 만듭니다. *기능 엔지니어링*은 원시 데이터로부터 학습 프로세스를 용이하게 하는 기능을 만들어 학습 알고리즘의 예측 능력을 향상시키도록 합니다. Azure Machine Learning Studio에서 HiveQL 쿼리를 실행하고, [데이터 가져오기 모듈](../machine-learning/studio/import-data.md)을 사용하여 Hive에서 처리되고 Blob Storage에 저장된 데이터에 액세스할 수 있습니다.
 
 ## <a name="microsoft-cognitive-toolkit"></a>Microsoft Cognitive 도구 키트
 
 [딥 러닝](https://www.microsoft.com/en-us/research/group/dltc/)은 인간 두뇌의 생물학적 프로세스에서 영감을 얻은 신경망을 사용하는 기계 학습의 한 분야입니다. 많은 연구자들은 딥 러닝이 인공 지능을 향상시키기 위한 유망한 접근 방식이라고 봅니다. 딥 러닝의 예로 언어 변환기, 이미지 인식 시스템 및 컴퓨터 추론이 있습니다.
 
-딥 러닝에서 자체의 작업을 진행하도록 지원하기 위해 Microsoft는 추가 비용이 없고 사용하기 쉬운 오픈 소스 [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/)를 개발했습니다. 이 도구 키트는 광범위한 Microsoft 제품, 규모에 맞게 딥 러닝을 배포해야 하는 요구 사항이 있는 전세계 회사 및 최신의 알고리즘과 기술에 관심이 있는 학생들이 사용하고 있습니다. 
+딥 러닝에서 자체의 작업을 진행하도록 지원하기 위해 Microsoft는 추가 비용이 없고 사용하기 쉬운 오픈 소스 [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/)를 개발했습니다. 이 도구 키트는 광범위한 Microsoft 제품, 규모에 맞게 딥 러닝을 배포해야 하는 요구 사항이 있는 전세계 회사 및 최신의 알고리즘과 기술에 관심이 있는 학생들이 사용하고 있습니다.
 
 ## <a name="see-also"></a>참고 항목
 

@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7ad494a3a1ce657951a0afab4d5ca838821927ad
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b6cc65d10fc8924686d01c02177a9cb76f7a9571
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158828"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660921"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services를 사용하여 Enterprise Security Package로 HDInsight 클러스터 구성
 
@@ -28,7 +28,7 @@ ESP(Enterprise Security Package) 클러스터는 Azure HDInsight 클러스터에
 ## <a name="enable-azure-ad-ds"></a>Azure AD-DS 사용
 
 > [!NOTE]  
-> 테넌트 관리자만 Azure AD-DS를 사용하도록 설정할 수 있는 권한이 있습니다. 클러스터 스토리지가 ADLS(Azure Data Lake Storage) Gen1 또는 Gen2인 경우 기본 Kerberose 인증을 사용하여 클러스터에 액세스하는 사용자만 MFA(Multi-Factor Authentication)를 비활성화해야 합니다. [신뢰할 수 있는 IP](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) 또는 [조건부 액세스](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview)를 사용하여 HDInsight 클러스터 VNET IP 범위에 액세스하는 경우 특정 사용자에 대해서만 MFA를 비활성화할 수 있습니다. 조건부 액세스를 사용하는 경우 AD 서비스 엔드포인트가 HDInsight VNET에서 활성화되었는지 확인하세요.
+> 테넌트 관리자만 Azure AD-DS를 사용하도록 설정할 수 있는 권한이 있습니다. 클러스터 스토리지가 ADLS(Azure Data Lake Storage) Gen1 또는 Gen2인 경우 기본 Kerberose 인증을 사용하여 클러스터에 액세스하는 사용자만 MFA(Multi-Factor Authentication)를 비활성화해야 합니다. [신뢰할 수 있는 IP](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) 또는 [조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)를 사용하여 HDInsight 클러스터 VNET IP 범위에 액세스하는 경우 특정 사용자에 대해서만 MFA를 비활성화할 수 있습니다. 조건부 액세스를 사용하는 경우 AD 서비스 엔드포인트가 HDInsight VNET에서 활성화되었는지 확인하세요.
 >
 >클러스터 스토리지가 Azure Blob Storage(WASB)인 경우 MFA를 해제하지 마세요.
 
@@ -87,7 +87,7 @@ VNET이 피어링된 후에는 사용자 지정 DNS 서버를 사용하도록 HD
 
 ![피어링된 VNET에 대한 사용자 지정 DNS 서버 구성](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
-HDInsight 서브넷에서 NSG(네트워크 보안 그룹) 규칙을 사용하는 경우 인바운드 및 아웃바운드 트래픽에 대해 [필수 IP](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1)를 허용해야 합니다. 
+HDInsight 서브넷에서 NSG(네트워크 보안 그룹) 규칙을 사용하는 경우 인바운드 및 아웃바운드 트래픽에 대해 [필수 IP](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1)를 허용해야 합니다. 
 
 네트워킹이 올바르게 설정되었는지 **테스트**하려면 Windows VM을 HDInsight VNET/서브넷에 조인하고 도메인 이름을 ping한 다음(IP로 확인되어야 함), **ldp.exe**를 실행하여 Azure AD-DS 도메인에 액세스합니다. 그런 다음, **이 Windows VM을 도메인에 조인**하여 클라이언트와 서버 간에 필요한 모든 RPC 호출이 성공했는지 확인합니다. **nslookup**을 사용하여 저장소 계정 또는 외부 DB(예: 외부 Hive metastore 또는 Ranger DB)에 대한 네트워킹 액세스를 확인할 수도 있습니다.
 AAD-DS가 NSG로 보호되는 경우 [필요한 모든 포트](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers)가 AAD-DS 서브넷 네트워크 보안 그룹 규칙의 허용 목록에 추가되어야 합니다. 이 Windows VM의 도메인 가입이 성공하면 다음 단계로 넘어가서 ESP 클러스터를 만들 수 있습니다.

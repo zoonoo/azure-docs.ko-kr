@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9dafe7df3c488dbc6d0c2f27a6265e86eebad41c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b0eae86a4927f716c974086411e1098f2e9a190d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718931"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498032"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight를 사용하여 스크립트 작업 개발
 
@@ -49,7 +49,7 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 * [사전 컴파일한 리소스 사용](#bPS4)
 * [클러스터 사용자 지정 스크립트가 멱등원인지 확인](#bPS3)
 * [클러스터 아키텍처의 고가용성 확인](#bPS5)
-* [Azure Blob 저장소를 사용하도록 사용자 지정 구성 요소 구성](#bPS6)
+* SMB 3.0에 대한 지원을 통해 File Storage는 이제 SMB 3.0 클라이언트에서 암호화 및 영구 핸들을 지원합니다.
 * [STDOUT 및 STDERR에 정보 쓰기](#bPS7)
 * [줄 끝을 LF인 파일을 ASCII로 저장](#bps8)
 * [다시 시도 논리를 사용하여 일시적 오류에서 복구](#bps9)
@@ -72,10 +72,10 @@ HDInsight 3.4와 3.5 간의 또 다른 중요한 차이는 현재 `JAVA_HOME`이
 ```bash
 OS_VERSION=$(lsb_release -sr)
 if [[ $OS_VERSION == 14* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
     HUE_TARFILE=hue-binaries-14-04.tgz
 elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
     HUE_TARFILE=hue-binaries-16-04.tgz
 fi
 ...
@@ -132,7 +132,7 @@ Linux 기반 HDInsight 클러스터는 클러스터 내에서 활성화 되는 �
 > [!IMPORTANT]  
 > HDInsight의 일부로 제공되는 서비스는 두 헤드 노드 간에 필요에 따라 장애 조치하도록 설계되었습니다. 이 기능은 스크립트 작업을 통해 설치된 구성 요소를 사용자 지정하도록 확장되지 않습니다. 사용자 지정 구성 요소에 대한 고가용성이 필요한 경우 사용자 고유의 장애 조치 메커니즘을 구현해야 합니다.
 
-### <a name="bPS6"></a>Azure Blob 저장소를 사용하도록 사용자 지정 구성 요소 구성
+### <a name="bPS6"></a>Azure Blob Storage를 사용하도록 사용자 지정 구성 요소 구성
 
 클러스터에 설치하는 구성 요소에는 Apache HDFS(Hadoop 분산 파일 시스템) 스토리지를 사용하기 위한 기본 구성이 있을 수 있습니다. HDInsight는 Azure Storage 또는 Data Lake Storage를 기본 스토리지로 사용합니다. 클러스터가 삭제되는 경우에도 데이터가 지속되는 HDFS 호환 가능 파일 시스템을 제공합니다. 설치하는 구성 요소가 HDFS 대신 WASB 또는 ADL을 사용하도록 구성해야 할 수 있습니다.
 
@@ -299,10 +299,10 @@ OS 버전을 확인하려면 `lsb_release`을 사용합니다. 예를 들어, �
 ```bash
 OS_VERSION=$(lsb_release -sr)
 if [[ $OS_VERSION == 14* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
     HUE_TARFILE=hue-binaries-14-04.tgz
 elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
     HUE_TARFILE=hue-binaries-16-04.tgz
 fi
 ```

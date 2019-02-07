@@ -7,7 +7,7 @@ author: kkrishna
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,14 +16,14 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 6321823eed00cffc6565471ec1ba3b4d846cd027
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b44aa35765cba33a85519fcd53f0df365c26be6b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948709"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093423"
 ---
-# <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>방법: 애플리케이션에서 앱 역할을 추가하고 토큰에서 수신하기
+# <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>방법: 애플리케이션에 앱 역할 추가 및 토큰으로 수신
 
 RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여를 적용하는 데 널리 사용되는 메커니즘입니다. RBAC를 사용하는 경우, 관리자는 개별 사용자나 그룹이 아닌 역할에 사용 권한을 부여합니다. 그런 다음 관리자는 다른 사용자 및 그룹에 역할을 할당하여 누가 어떤 컨텐츠와 기능에 액세스 권한을 갖는지를 제어할 수 있습니다.
 
@@ -39,15 +39,15 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 위쪽 막대에서 내 계정을 선택한 다음, **디렉터리 전환**을 선택합니다.
-1. **디렉터리 + 구독** 창이 열리면 **즐겨찾기** 또는 **모든 디렉터리** 목록에서 응용 프로그램에 등록할 Active Directory 테넌트를 선택합니다.
+1. **디렉터리 + 구독** 창이 열리면 **즐겨찾기** 또는 **모든 디렉터리** 목록에서 애플리케이션에 등록할 Active Directory 테넌트를 선택합니다.
 1. 왼쪽 탐색 창에서 **모든 서비스**를 선택하고 **Azure Active Directory**를 선택합니다.
-1. **Azure Active Directory** 창에서 **앱 등록**을 선택하여 모든 응용 프로그램 목록을 봅니다.
+1. **Azure Active Directory** 창에서 **앱 등록**을 선택하여 모든 애플리케이션 목록을 봅니다.
 
      여기에 원하는 애플리케이션이 보이지 않으면 **앱 등록** 목록의 맨 위에서 다양한 필터를 사용하여 목록을 제한하거나 목록을 아래로 스크롤하여 애플리케이션을 찾습니다.
 
 1. 앱 역할을 정의하려는 애플리케이션을 선택합니다.
 1. 애플리케이션의 블레이드에서 **매니페스트**를 선택합니다.
-1. `appRoles` 설정을 찾고 모든 응용 프로그램 역할을 추가하여 앱 매니페스트를 편집합니다.
+1. `appRoles` 설정을 찾고 모든 애플리케이션 역할을 추가하여 앱 매니페스트를 편집합니다.
 
      > [!NOTE]
      > 이 매니페스트의 각 역할 정의에는 "Id" 속성에 대해 다른 유효한 **GUID**가 있어야 합니다. 각 역할의 `"value"` 속성은 애플리케이션의 코드에 사용되는 문자열과 정확히 일치해야 합니다.
@@ -78,7 +78,7 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 "availableToOtherTenants": false,
 ```
 
-앱 역할은 `users`, `applications` 또는 둘 다를 대상으로 정의할 수 있습니다. `applications`에서 사용할 수 있는 경우 앱 역할은 **필수 권한** 블레이드에 응용 프로그램 권한으로 나타납니다. 다음 예제는 `Application`을 대상으로 하는 앱 역할을 보여줍니다.
+앱 역할은 `users`, `applications` 또는 둘 다를 대상으로 정의할 수 있습니다. `applications`에서 사용할 수 있는 경우 앱 역할은 **필수 권한** 블레이드에 애플리케이션 권한으로 나타납니다. 다음 예제는 `Application`을 대상으로 하는 앱 역할을 보여줍니다.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -101,8 +101,8 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 
 애플리케이션에서 앱 역할을 추가하고 나면 이 역할에 사용자 및 그룹을 할당 할 수 있습니다.
 
-1. **Azure Active Directory** 창에 있는 **Azure Active Directory** 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램**을 선택합니다.
-1. **모든 응용 프로그램**을 선택하여 모든 응용 프로그램 목록을 봅니다.
+1. **Azure Active Directory** 창에 있는 **Azure Active Directory** 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 선택합니다.
+1. **모든 애플리케이션**을 선택하여 모든 애플리케이션 목록을 봅니다.
 
      여기에 원하는 애플리케이션이 보이지 않으면 **모든 애플리케이션** 목록의 맨 위에서 다양한 필터를 사용하여 목록을 제한하거나 목록을 아래로 스크롤하여 애플리케이션을 찾습니다.
 
@@ -111,7 +111,7 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 1. **사용자 및 그룹** 목록의 맨 위에서 **사용자 추가** 단추를 선택하여 **할당 추가** 창을 엽니다.
 1. **할당 추가** 창에서 **사용자 및 그룹** 선택기를 선택합니다.
 
-     특정 사용자 또는 그룹을 검색하고 찾는 텍스트 상자와 함께 사용자 및 보안 그룹 목록이 표시됩니다. 이 화면에서는 여러 사용자와 그룹을 한 번에 선택할 수 있습니다.
+     특정 사용자 또는 그룹을 검색하고 찾는 텍스트 상자와 함께 사용자 및 보안 그룹 목록이 표시됩니다. 이 화면에서는 여러 사용자 및 그룹을 한 번에 선택할 수 있습니다.
 
 1. 사용자 및 그룹을 모두 선택하고 나면 맨 아래 **선택** 단추를 눌러서 다음 부분으로 이동합니다.
 1. **할당 추가** 창에서 **역할 선택** 선택기를 선택합니다. 앞서 앱 매니페스트에서 선언한 모든 역할이 표시됩니다.
@@ -122,8 +122,8 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 ## <a name="more-information"></a>자세한 정보
 
 - [Azure AD 응용 프로그램 역할 &amp; 역할 클레임을 사용하여 웹 앱에서 권한 부여(샘플)](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-roleclaims/)
-- [앱에서 보안 그룹 및 응용 프로그램 역할 사용(비디오)](https://www.youtube.com/watch?v=V8VUPixLSiM)
-- [Azure Active Directory에 그룹 클레임 및 응용 프로그램 역할 포함](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles)
+- [앱에서 보안 그룹 및 애플리케이션 역할 사용(비디오)](https://www.youtube.com/watch?v=V8VUPixLSiM)
+- [Azure Active Directory에 그룹 클레임 및 애플리케이션 역할 포함](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles)
 - [Azure Active Directory 앱 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
 - [AAD 액세스 토큰](access-tokens.md)
 - [AAD `id_tokens`](id-tokens.md)

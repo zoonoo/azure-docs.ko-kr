@@ -10,12 +10,12 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 180e38146911b15e95828bf033cbcaefae22d094
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b2c5e2d54c0323e984a48f2540a7df9a3b64b49b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241392"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511176"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Azure Storage에서 대량의 임의 데이터 다운로드
 
@@ -104,7 +104,7 @@ dotnet run
 |자산|값|설명|
 |---|---|---|
 |[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| 이 속성은 업로드된 콘텐츠의 MD5 해시를 검사하지 않도록 설정합니다. MD5 유효성 검사를 사용하지 않으면 더 빠른 전송이 생성됩니다. 그러나 전송 중인 파일의 유효성 또는 무결성을 확인하지 않습니다. |
-|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| 이 속성은 MD5 해시를 계산하고 저장할지를 결정합니다.   |
+|[StoreBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| 이 속성은 MD5 해시를 계산하고 저장할지를 결정합니다.   |
 
 `DownloadFilesAsync` 작업은 다음 예제에 표시됩니다.
 

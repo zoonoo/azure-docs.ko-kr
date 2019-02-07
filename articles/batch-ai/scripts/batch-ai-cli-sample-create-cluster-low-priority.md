@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 07/26/2018
 ms.author: danlep
 ROBOTS: NOINDEX
-ms.openlocfilehash: c56cd7d25ce391b67798c7833894e248f37300bf
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: e1a37104a5dc6e89b147c8bb9e14b4eda36d8eef
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406609"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697856"
 ---
 # <a name="cli-example-create-and-manage-a-batch-ai-cluster-of-low-priority-nodes"></a>CLI 예제: 우선 순위가 낮은 노드의 Batch AI 클러스터 만들기 및 관리
 
@@ -57,8 +57,8 @@ az group delete --name batchaiautostorage
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az batchai workspace create](/cli/azure/batchai/workspace#az-batchai-workspace-create) | Batch AI 작업 영역을 만듭니다. |
 | [az batchai cluster create](/cli/azure/batchai/cluster#az-batchai-cluster-create) | Batch AI 클러스터를 만듭니다. |
-| [az batchai cluster show](/cli/azure/batchai/cluster#az-batchai-cluster-show) | Batch AI 클러스터 관련 정보를 표시합니다. |
-| [az batchai cluster node list](/cli/azure/batchai/cluster/node#az-batchai-cluster-show) | Batch AI 클러스터의 노드를 나열합니다. |
+| [az batchai cluster show](/cli/azure/batchai/cluster) | Batch AI 클러스터 관련 정보를 표시합니다. |
+| [az batchai cluster node list](/cli/azure/batchai/cluster/node) | Batch AI 클러스터의 노드를 나열합니다. |
 | [az batchai cluster resize](/cli/azure/batchai/cluster#az-batchai-cluster-resize) | Batch AI 클러스터의 크기를 조정합니다.  |
 | [az group delete](/cli/azure/group#az-group-delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 

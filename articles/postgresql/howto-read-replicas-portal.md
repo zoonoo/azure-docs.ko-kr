@@ -5,15 +5,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/17/2019
-ms.openlocfilehash: 6c1a0a4a13a70daec157ede98f850f87150f8d93
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.date: 01/23/2019
+ms.openlocfilehash: bf6e9947c21e5b07b2adc99de585c77444447c04
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383866"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902664"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-the-azure-portal"></a>Azure Portal에서 읽기 복제본을 만들고 관리하는 방법
+
+> [!IMPORTANT]
+> 읽기 복제본 기능은 공개 미리 보기로 있습니다.
+
+
 이 문서에서는 Azure Portal을 사용하여 Azure Database for PostgreSQL 서비스의 읽기 복제본을 만들고 관리하는 방법에 대해 알아봅니다. 읽기 복제본에 대해 자세히 알아보려면 [개념 설명서를 읽어보세요](concepts-read-replicas.md).
 
 ## <a name="prerequisites"></a>필수 조건
@@ -41,6 +46,7 @@ ms.locfileid: "54383866"
    ![Azure Database for PostgreSQL - 저장 알림](./media/howto-read-replicas-portal/parameter-save-notification.png)
 
 6. 저장된 후 변경 내용을 적용하려면 서버를 다시 시작합니다. 서버를 다시 시작하는 방법을 알아보려면 [다시 시작 설명서](howto-restart-server-portal.md)를 참조하세요.
+
 
 ## <a name="create-a-read-replica"></a>읽기 복제본 만들기
 다음 단계에 따라 읽기 복제본을 만들 수 있습니다.

@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b120d50b6b0f72b5977d238866cfdf26fd9be5ff
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: d1d515786fde06f4622402f2c1d0c3add7cd8843
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436894"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913156"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 Apache Hadoop 보안 소개
 
-이전에 Azure HDInsight는 단일 사용자 로컬 관리자만 지원했습니다. 따라서 소규모 응용 프로그램 팀이나 부서의 경우에 유용하게 작동했습니다. Apache Hadoop 기반 워크로드가 기업 부문에서 더 많은 인기를 얻게 되면서 Active Directory 기반 인증, 다중 사용자 지원 및 역할 기반 액세스 제어와 같은 엔터프라이즈급 기능에 대한 필요성이 점점 더 중요해졌습니다. 
+이전에 Azure HDInsight는 단일 사용자 로컬 관리자만 지원했습니다. 따라서 소규모 애플리케이션 팀이나 부서의 경우에 유용하게 작동했습니다. Apache Hadoop 기반 워크로드가 기업 부문에서 더 많은 인기를 얻게 되면서 Active Directory 기반 인증, 다중 사용자 지원 및 역할 기반 액세스 제어와 같은 엔터프라이즈급 기능에 대한 필요성이 점점 더 중요해졌습니다. 
 
 Active Directory 도메인에 가입된 ESP(Enterprise Security Package)가 포함된 HDInsight 클러스터를 만들 수 있습니다. 그런 다음, HDInsight 클러스터에 로그온하기 위해 Azure Active Directory를 통해 인증할 수 있는 기업의 직원 목록을 구성할 수 있습니다. 기업 외부의 사용자는 HDInsight 클러스터에 로그온하거나 액세스할 수 없습니다. 
 
@@ -56,7 +56,7 @@ ESP가 포함된 HDInsight 클러스터는 Apache Ranger UI를 사용하여 감�
 ## <a name="encryption"></a>암호화
 조직 보안 및 준수 요구 사항을 충족하는 데는 데이터 보호가 중요합니다. 권한 없는 직원의 데이터 액세스를 제한하고 데이터를 암호화해야 합니다. 
 
-HDInsight 클러스터용 데이터 저장소(Azure Blob Storage 및 Azure Data Lake Storage Gen1)는 둘 다 투명한 서버 쪽 미사용 [데이터의 암호화](../../storage/common/storage-service-encryption.md)를 지원합니다. 보안 HDInsight 클러스터는 미사용 데이터의 이 서버 쪽 암호화 기능에서 원활하게 작동합니다.
+HDInsight 클러스터용 데이터 저장소(Azure Blob 스토리지 및 Azure Data Lake Storage Gen1/Gen2)는 둘 다 투명한 서버 쪽 [저장 데이터 암호화](../../storage/common/storage-service-encryption.md)를 지원합니다. 보안 HDInsight 클러스터는 미사용 데이터의 이 서버 쪽 암호화 기능에서 원활하게 작동합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: c16a0eeb674e712ec1c3678a2e0002a8ddcfc329
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: dfed8ce93a97b31380b44f0ac7057c0cff60901e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464717"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497284"
 ---
 # <a name="move-operation-support-for-resources"></a>리소스에 대한 이동 작업 지원
 
 이 문서에서는 Azure 리소스 종류가 이동 작업을 지원하는지 여부에 대한 정보를 제공합니다. 이동 작업을 지원하는 리소스 종류라도 해당 리소스를 이동할 수 없는 조건이 있을 수 있습니다. 이동 작업에 영향을 주는 조건에 대한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](resource-group-move-resources.md)을 참조하세요.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="find-resource-provider-and-resource-type"></a>리소스 공급자 및 리소스 종류 찾기
 
@@ -29,7 +31,7 @@ ms.locfileid: "54464717"
 PowerShell의 경우 다음을 사용합니다.
 
 ```azurepowershell-interactive
-Get-AzureRmResource -ResourceGroupName demogroup | Select Name, ResourceType | Format-table
+Get-AzResource -ResourceGroupName demogroup | Select Name, ResourceType | Format-table
 ```
 
 Azure CLI의 경우 

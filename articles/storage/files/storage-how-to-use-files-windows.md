@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: e3b0773da49499e2eaa8c9b9f59ced4ed26276ba
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4361ec72f5f9cff924900ddd712aa1aa029c5ef4
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465166"
+ms.locfileid: "55509023"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Windows에서 Azure 파일 공유 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에서 매끄럽게 사용할 수 있습니다. 이 문서에서는 Windows 및 Windows Server에서 Azure 파일 공유를 사용할 때의 고려 사항을 설명합니다.
@@ -45,7 +45,7 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows에서 Azure 파일 �
 
 * **스토리지 계정 키**: Azure 파일 공유를 탑재하려면 기본(또는 보조) 스토리지 키가 필요합니다. SAS 키는 현재 탑재를 지원하지 않습니다.
 
-* **445 포트가 열려 있는지 확인**: SMB 프로토콜은 TCP 포트 445가 열려 있어야 하며, 445 포트가 닫혀 있으면 연결이 실패합니다. `Test-NetConnection` cmdlet을 사용하여 방화벽이 포트 445를 차단하는지 확인할 수 있습니다. 다음 PowerShell 코드는 AzureRM PowerShell 모듈이 설치된 것으로 가정합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요. 잊지 말고 `<your-storage-account-name>` 및 `<your-resoure-group-name>`을 저장소 계정과 관련된 이름으로 바꿔야 합니다.
+* **445 포트가 열려 있는지 확인**: SMB 프로토콜은 TCP 포트 445가 열려 있어야 하며, 445 포트가 닫혀 있으면 연결이 실패합니다. `Test-NetConnection` cmdlet을 사용하여 방화벽이 포트 445를 차단하는지 확인할 수 있습니다. 다음 PowerShell 코드는 AzureRM PowerShell 모듈이 설치된 것으로 가정합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요. 잊지 말고 `<your-storage-account-name>` 및 `<your-resource-group-name>`을 저장소 계정과 관련된 이름으로 바꿔야 합니다.
 
     ```PowerShell
     $resourceGroupName = "<your-resource-group-name>"
@@ -83,7 +83,7 @@ Windows Server, Linux Samba 서버 또는 NAS 디바이스에 호스트되는 �
 SMB 파일 공유를 기대하는 LOB 애플리케이션을 Azure로 전환하는 일반적인 패턴은 Azure VM에서 전용 Windows 파일 서버를 실행하는 대신 Azure 파일 공유를 사용하는 것입니다. Azure 파일 공유를 사용하도록 기간 업무 앱을 마이그레이션할 때 고려해야 하는 중요한 사항 중 하나로, 많은 기간 업무 앱은 VM 관리 계정이 아니라 시스템 권한이 제한된 전용 서비스 계정 하에서 실행됩니다. 따라서 관리 계정이 아닌 서비스 계정의 Azure 파일 공유에 대한 자격 증명을 탑재/저장해야 합니다.
 
 ### <a name="persisting-azure-file-share-credentials-in-windows"></a>Windows에서 Azure 파일 공유 자격 증명 유지  
-[cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) 유틸리티를 사용하면 저장소 계정 자격 증명을 Windows 내에 저장할 수 있습니다. 즉, UNC 경로를 통해 Azure 파일 공유에 액세스하려고 시도하거나 Azure 파일 공유를 탑재하려고 시도할 때 자격 증명을 지정할 필요가 없습니다. 저장소 계정의 자격 증명을 저장하려면 다음 PowerShell 명령을 실행하고, `<your-storage-account-name>` 및 `<your-resoure-group-name>`을(를) 적절하게 바꿉니다.
+[cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) 유틸리티를 사용하면 저장소 계정 자격 증명을 Windows 내에 저장할 수 있습니다. 즉, UNC 경로를 통해 Azure 파일 공유에 액세스하려고 시도하거나 Azure 파일 공유를 탑재하려고 시도할 때 자격 증명을 지정할 필요가 없습니다. 저장소 계정의 자격 증명을 저장하려면 다음 PowerShell 명령을 실행하고, `<your-storage-account-name>` 및 `<your-resource-group-name>`을 적절하게 바꿉니다.
 
 ```PowerShell
 $resourceGroupName = "<your-resource-group-name>"

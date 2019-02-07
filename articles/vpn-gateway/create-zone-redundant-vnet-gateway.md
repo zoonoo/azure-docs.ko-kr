@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
 ms.openlocfilehash: a0a06ff79d1a48e8fbbc13a8e2410817c020d9a9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430852"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510037"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Azure 가용성 영역에서 영역 중복 가상 네트워크 게이트웨이 만들기
 

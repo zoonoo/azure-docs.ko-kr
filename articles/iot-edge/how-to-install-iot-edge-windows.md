@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 01/25/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: c280410816bfb48f21c68fe5d57b6ae18af0e855
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 27478de68cde9a097dcc160a4553839aef9a018c
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970664"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902808"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Windows에 Azure IoT Edge 런타임 설치
 
@@ -26,7 +26,7 @@ IoT Edge 런타임에 대한 자세한 내용은 [Azure IoT Edge 런타임 및 �
 이 문서에는 Windows x64(AMD/Intel) 시스템에 Azure IoT Edge 런타임을 설치하는 단계가 나와 있습니다. Windows 지원은 현재 미리 보기로 제공되고 있습니다.
 
 >[!NOTE]
-Windows 시스템에서 Linux 컨테이너를 사용하는 것은 Azure IoT Edge에 대해 권장되거나 지원되는 프로덕션 구성이 아닙니다. 그러나 개발 및 테스트 용도로만 사용할 수 있습니다.
+Windows 시스템에서 Linux 컨테이너를 사용하는 것은 Azure IoT Edge에 추천되거나 지원되는 프로덕션 구성이 아닙니다. 그러나 개발 및 테스트 용도로만 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/22/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: f703a934b0eaf4bff5be3811adeed8f0287bc658
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 2b34f6bcbf37a48fb49a2a64d727fc9330b0d735
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50237828"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882262"
 ---
 # <a name="retrieve-the-current-verizon-pop-list-for-azure-cdn"></a>Azure CDN에 대한 현재 Verizon POP 목록 검색
 
@@ -30,7 +30,7 @@ POP 목록을 검색하기 위한 REST API 작업의 구문은 [에지 노드 - 
 
 ## <a name="typical-use-case"></a>일반적인 사용 사례
 
-보안을 위해 이 IP 목록을 사용하여 원본 서버에 대한 요청을 유효한 Verizon POP에서만 할 수 있도록 적용합니다. 예를 들어 누군가 CDN 엔드포인트의 원본 서버에 대한 호스트 이름 또는 IP 주소를 발견한 경우 원본 서버에 직접 요청을 할 수 있으므로 Azure CDN에서 제공하는 크기 조정 및 보안 기능은 바이패스합니다. 반환된 목록의 IP를 원본 서버에서 유일하게 허용된 IP로 설정하여 이 시나리오를 방지할 수 있습니다. 최신 POP 목록이 있음을 확인하려면 하루에 한 번 이상 검색합니다. 
+보안을 위해 이 IP 목록을 사용하여 원본 서버에 대한 요청을 유효한 Verizon POP에서만 할 수 있도록 적용합니다. 예를 들어 누군가 CDN 엔드포인트의 원본 서버에 대한 호스트 이름 또는 IP 주소를 발견한 경우 원본 서버에 직접 요청을 할 수 있으므로 Azure CDN에서 제공하는 크기 조정 및 보안 기능은 바이패스합니다. 반환된 목록의 IP를 원본 서버에서 유일하게 허용된 IP로 설정하여 이 시나리오를 방지할 수 있습니다. 최신 POP 목록이 있는지 확인하려면 하루에 한 번 이상 검색합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

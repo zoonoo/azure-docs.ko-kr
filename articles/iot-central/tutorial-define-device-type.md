@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 0aef8c5e055eb43576ea0ecc7ef8bf09d22d6ed3
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 1ed1790d9fe1cdaa8d00b45e0684531984906c7f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412906"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661822"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>자습서: Azure IoT Central 애플리케이션에서 새 디바이스 유형 정의
 
@@ -42,6 +42,8 @@ ms.locfileid: "54412906"
 > * 설정 및 속성 사용
 > * 명령 사용
 > * 대시보드에서 시뮬레이션된 디바이스 보기
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 

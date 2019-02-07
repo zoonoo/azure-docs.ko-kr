@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 8dd9e452-a5b6-4a16-a97c-b60211ea6b95
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 8deacddc9dcc7571ea725143fa9a9c002c1602b1
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 393494410b14bd54f1878cc372e76ad8a7ee3c7d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743018"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164761"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-useall"></a>자습서: Useall과 Azure Active Directory 통합
 
@@ -66,7 +66,7 @@ Useall의 Azure AD 통합을 구성하려면 갤러리의 Useall을 관리되는
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
 
@@ -74,7 +74,7 @@ Useall의 Azure AD 통합을 구성하려면 갤러리의 Useall을 관리되는
 
     ![새 애플리케이션 단추][3]
 
-4. 검색 상자에 **Useall**을 입력하고, 결과 패널에서 **Useall**을 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **Useall**을 입력하고, 결과 패널에서 **Useall**을 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![결과 목록의 Useall](./media/useall-tutorial/tutorial_useall_addfromgallery.png)
 
@@ -94,11 +94,11 @@ Useall에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Useall 애플리케이션에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Useall 응용 프로그램에서 Single Sign-On을 구성합니다.
 
 **Useall에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Useall** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Useall** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -164,7 +164,7 @@ Useall에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     ![사용자 할당][201]
 
-2. 애플리케이션 목록에서 **Useall**을 선택합니다.
+2. 응용 프로그램 목록에서 **Useall**을 선택합니다.
 
     ![Configure Single Sign-On](./media/useall-tutorial/tutorial_useall_app.png)
 
@@ -184,13 +184,13 @@ Useall에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Useall 타일을 클릭하면 Useall 애플리케이션에 자동으로 로그온됩니다.
+액세스 패널에서 Useall 타일을 클릭하면 Useall 응용 프로그램에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

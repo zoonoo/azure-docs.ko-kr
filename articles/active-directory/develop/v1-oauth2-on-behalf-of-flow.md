@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 72b1ba51f306203092b420e6f2d6186b3307d35d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 3c2953d44587d72517c6f619ee9c9f05aabff186
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422748"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094379"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>On-Behalf-Of 흐름에서 위임된 사용자 ID를 사용하는 서비스 간 호출
 
@@ -37,7 +37,7 @@ OAuth 2.0 OBO(On-Behalf-Of) 흐름을 사용하면 사용자 인증을 다른 �
 
 [OAuth 2.0 권한 부여 코드 부여 흐름](v1-protocols-oauth-code.md)을 사용하는 애플리케이션에 대해 사용자를 인증한 후 OBO 흐름이 시작됩니다. 이 시점에 애플리케이션은 액세스 토큰(토큰 A)을 사용자의 클레임 및 중간 계층 웹 API(API A)에 액세스하는 데 필요한 동의를 포함하는 API A에 전송합니다. 다음으로, API A는 다운스트림 웹 API(API B)에 인증된 요청을 수행합니다.
 
-이러한 단계는 On-Behalf-Of 흐름인 ![OAuth 2.0 On-Behalf-Of Flow](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)를 구성합니다.
+On-Behalf-Of 흐름을 구성하는 단계는 다음과 같습니다. ![OAuth 2.0 On-Behalf-Of Flow](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. 클라이언트 애플리케이션은 토큰 A와 함께 API A에 요청합니다.
 1. API A는 Azure AD 토큰 발급 엔드포인트를 인증하고 API B에 액세스하기 위해 토큰을 요청합니다.
@@ -60,7 +60,7 @@ OAuth 2.0 OBO(On-Behalf-Of) 흐름을 사용하면 사용자 인증을 다른 �
 1. **앱 등록** 및 **새 애플리케이션 등록**을 차례로 선택합니다.
 1. 애플리케이션의 이름을 입력하고 애플리케이션 형식을 선택합니다.
     1. 애플리케이션 형식에 따라 로그온 URL 또는 리디렉션 URL을 기본 URL로 설정합니다.
-    1. **만들기**를 선택하여 응용 프로그램을 만듭니다.
+    1. **만들기**를 선택하여 애플리케이션을 만듭니다.
 1. Azure Portal을 종료하기 전에 클라이언트 비밀을 생성합니다.
     1. Azure Portal에서 애플리케이션 및 **설정**을 차례로 선택합니다.
     1. 설정 메뉴에서 **키**를 선택하고 1년 또는 2년 기간 키를 사용하여 키를 추가합니다.
@@ -77,7 +77,7 @@ OAuth 2.0 OBO(On-Behalf-Of) 흐름을 사용하면 사용자 인증을 다른 �
 1. **앱 등록** 및 **새 애플리케이션 등록**을 차례로 선택합니다.
 1. 애플리케이션의 이름을 입력하고 애플리케이션 형식을 선택합니다.
    1. 애플리케이션 형식에 따라 로그온 URL 또는 리디렉션 URL을 기본 URL로 설정합니다.
-   1. **만들기**를 선택하여 응용 프로그램을 만듭니다.
+   1. **만들기**를 선택하여 애플리케이션을 만듭니다.
 1. 애플리케이션에 대한 권한을 구성합니다.
    1. 설정 페이지에서 **필요한 사용 권한**을 선택한 다음, **추가** 및 **API를 차례로 선택합니다**.
    1. 텍스트 필드에 중간 계층 서비스의 이름을 입력합니다.
@@ -103,7 +103,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 
 클라이언트 애플리케이션은 공유 비밀 또는 인증서로 보안이 설정됩니다.
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>첫 번째 사례: 공유 암호를 사용한 액세스 토큰 요청
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>첫 번째 사례: 공유 비밀을 사용하여 액세스 토큰 요청
 
 공유 암호를 사용할 경우 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
@@ -137,7 +137,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>두 번째 사례: 인증서를 사용한 액세스 토큰 요청
+### <a name="second-case-access-token-request-with-a-certificate"></a>두 번째 사례: 인증서를 사용하여 액세스 토큰 요청
 
 인증서를 사용한 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
@@ -263,10 +263,10 @@ SAML 어설션에 대한 서비스 간 요청에는 다음 매개 변수가 포�
 
 응답에는 UTF8 및 Base64url로 인코딩된 SAML 토큰이 포함됩니다.
 
-- **OBO 호출에서 소싱된 SAML 어설션에 대한 SubjectConfirmationData**: 대상 애플리케이션에 **SubjectConfirmationData**의 받는 사람 값이 필요한 경우 값은 리소스 애플리케이션 구성에서 비와일드카드 회신 URL이어야 합니다.
-- **SubjectConfirmationData 노드**: 이 노드는 SAML 응답에 속하지 않으므로 **InResponseTo** 특성을 포함할 수 없습니다. SAML 토큰을 수신하는 애플리케이션은 **InResponseTo** 특성이 없는 SAML 어설션을 수락할 수 있어야 합니다.
+- **OBO 호출에 기반한 SAML 어설션에 대한 SubjectConfirmationData**: 대상 애플리케이션에서 **SubjectConfirmationData**의 받는 사람 값이 필요한 경우 이 값은 리소스 애플리케이션 구성의 비 와일드카드 회신 URL이어야 합니다.
+- **SubjectConfirmationData 노드**: 이 노드는 SAML 응답의 일부가 아니므로 **InResponseTo** 특성을 포함할 수 없습니다. SAML 토큰을 수신하는 애플리케이션은 **InResponseTo** 특성이 없는 SAML 어설션을 수락할 수 있어야 합니다.
 
-- **동의**: OAuth 흐름에서 사용자 데이터를 포함하는 SAML 토큰을 수락하려면 동의가 부여되어야 합니다. 사용 권한 및 관리자 동의를 가져오는 방법에 대한 내용은 [Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent)를 참조하세요.
+- **동의**: OAuth 흐름에서 사용자 데이터가 포함된 SAML 토큰을 받으려면 동의를 부여해야 합니다. 사용 권한 및 관리자 동의를 가져오는 방법에 대한 내용은 [Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent)를 참조하세요.
 
 ### <a name="response-with-saml-assertion"></a>SAML 어설션을 사용하여 응답
 

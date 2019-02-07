@@ -4,18 +4,20 @@ titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.subservice: azds-kubernetes
 ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 46fc7864e25048dbf9b3db9c97e0008be55a0d03
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 224b8fac3634e5ee9e5ffadc7664bd046467d2ce
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468345"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660853"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>빠른 시작: Azure Dev Spaces(.NET Core 및 Visual Studio)를 사용하여 Kubernetes 개발 환경 만들기
 
@@ -116,4 +118,4 @@ Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [여러 컨테이너 작업 및 팀 개발](team-development-netcore-visualstudio.md)
+> [여러 컨테이너 작업 및 팀 개발](multi-service-netcore-visualstudio.md)

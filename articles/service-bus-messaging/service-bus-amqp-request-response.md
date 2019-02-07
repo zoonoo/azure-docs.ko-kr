@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 113ed80910e396361396a9c1298fc04a55ac4800
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 13495107aff24b868a4188c25768868945e70db8
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852479"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658218"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure Service Bus에서 AMQP 1.0: Microsoft Azure Service Bus 요청/응답 기반 작업
 
@@ -505,7 +505,7 @@ sql-filter 맵은 다음 항목을 포함해야 합니다.
 |session-id|string|아니요||  
 |reply-to-session-id|string|아니요||  
 |content-type|string|아니요||  
-|properties|map|아니요|Service Bus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties)로 매핑합니다.|  
+|properties|map|아니요|Service Bus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)로 매핑합니다.|  
   
 **sql-rule-action** 맵은 다음 항목을 포함해야 합니다.  
   

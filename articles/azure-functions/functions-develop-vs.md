@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: f610a221dca296561fefab65a6c40b52a5dd292a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 43992d25590a58b24c48aad8bfbf6f91b17699ee
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275839"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098084"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio를 사용하여 Azure Functions 개발  
 
@@ -78,7 +78,7 @@ Visual Studio가 최신 상태이고 [가장 최신 버전](#check-your-tools-ve
 
 프로젝트 템플릿은 C# 프로젝트를 만들고, `Microsoft.NET.Sdk.Functions` NuGet 패키지를 설치하고, 대상 프레임워크를 설정합니다. Functions 1.x는 .NET Framework를 대상으로 하고, Functions 2.x는 .NET Standard를 대상으로 합니다. 새 프로젝트에는 다음 파일이 포함됩니다.
 
-* **host.json**: 함수 호스트를 구성할 수 있습니다. 이러한 설정은 로컬 및 Azure에서 실행할 때 모두 적용됩니다. 자세한 내용은 [host.json 참조](functions-host-json.md)를 참조하세요.
+* **host.json**: Functions 호스트를 구성할 수 있습니다. 이러한 설정은 로컬 및 Azure에서 실행할 때 모두 적용됩니다. 자세한 내용은 [host.json 참조](functions-host-json.md)를 참조하세요.
 
 * **local.settings.json**: 함수를 로컬로 실행할 때 사용되는 설정을 유지합니다. 이러한 설정은 Azure에서 사용되지 않으며, [Azure Functions 핵심 도구](functions-run-local.md)에서 사용됩니다. 이 파일을 사용하여 함수에 필요한 변수에 대한 앱 설정을 지정합니다. 프로젝트에서 함수 바인딩에 필요한 각 연결에 대한 **값** 배열에 새 항목을 추가합니다. 자세한 내용은 Azure Functions 핵심 도구 문서의 [로컬 설정 파일](functions-run-local.md#local-settings-file)을 참조하세요.
 
@@ -115,7 +115,7 @@ Visual Studio가 최신 상태이고 [가장 최신 버전](#check-your-tools-ve
 
     예를 들어 다음 C# 클래스는 기본 Queue Storage 트리거 함수를 나타냅니다.
 
-    ````csharp
+    ```csharp
     using System;
     using Microsoft.Azure.WebJobs;
     using Microsoft.Azure.WebJobs.Host;
@@ -132,7 +132,7 @@ Visual Studio가 최신 상태이고 [가장 최신 버전](#check-your-tools-ve
             }
         }
     }
-    ````
+    ```
     바인딩 고유 특성은 진입점 메서드에 적용되는 각 바인딩 매개 변수에 적용됩니다. 특성은 매개 변수로 바인딩 정보를 사용합니다. 이전 예제에서 첫 매개 변수는 큐 트리거 함수를 나타내는 **QueueTrigger** 특성이 적용되었습니다. 큐 이름 및 연결 문자열 설정 이름은 **QueueTrigger** 특성에 매개 변수로 전달됩니다. 자세한 내용은 [Azure Functions의 Azure Queue Storage 바인딩](functions-bindings-storage-queue.md#trigger---c-example)을 참조하세요.
     
 위의 절차를 사용하여 함수 앱 프로젝트에 더 많은 함수를 추가할 수 있습니다. 프로젝트에서 각 함수는 다른 트리거를 가질 수 있지만 함수에는 정확히 하나의 트리거만 있어야 합니다. 자세한 내용은 [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md)을 참조하세요.
@@ -163,7 +163,7 @@ Visual Studio가 최신 상태이고 [가장 최신 버전](#check-your-tools-ve
         }
     }
     ```
-큐 저장소에 대한 연결은 `AzureWebJobsStorage` 설정에서 가져옵니다. 자세한 내용은 특정 바인딩에 대한 참조 문서를 참조하세요. 
+Queue Storage에 대한 연결은 `AzureWebJobsStorage` 설정에서 가져옵니다. 자세한 내용은 특정 바인딩에 대한 참조 문서를 참조하세요. 
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 

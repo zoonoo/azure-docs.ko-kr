@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 493dc834319d8f5842a7f9f5c4ca568742264df9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ed32cbabe5f80e131f467a87378eda8912b9a65e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180469"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496264"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 이해
 이 문서는 기본 구성 규칙을 설명합니다. 규칙 및 해당 규칙이 구성에 어떤 영향을 주는지를 문서화합니다. 또한 Azure AD Connect 동기화의 기본 구성을 안내합니다. 목표는 판독기로 선언적 프로비전이라고 명명된 구성 모델이 실제 예제에서 작동하는 방식을 이해하는 것입니다. 이 문서에서는 설치 마법사를 사용하여 Azure AD Connect 동기화를 설치한 뒤 구성하는 상황을 가정합니다.

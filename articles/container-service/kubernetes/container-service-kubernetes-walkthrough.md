@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 5c5320a541e189043fc27f5c4bcd29afd5d7c70f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 70c9fec818147b76feb306cc47ba2e72cd865fe8
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994155"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55659613"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>(사용되지 않음) Linux 컨테이너용 Kubernetes 클러스터 배포
 
@@ -78,9 +78,9 @@ az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --
 
 Kubernetes 클러스터를 관리하려면 Kubernetes 명령줄 클라이언트인 [kubectl](https://kubernetes.io/docs/user-guide/kubectl/)을 사용하세요. 
 
-Azure Cloud Shell을 사용하는 경우 kubectl이 이미 설치되어 있습니다. 로컬로 설치하려면 [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) 명령을 사용하면 됩니다.
+Azure Cloud Shell을 사용하는 경우 kubectl이 이미 설치되어 있습니다. 로컬로 설치하려면 [az acs kubernetes install-cli](/cli/azure/acs/kubernetes) 명령을 사용하면 됩니다.
 
-Kubernetes 클러스터에 연결하도록 kubectl을 구성하려면 [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) 명령을 실행합니다. 이 단계에서는 자격 증명을 다운로드하고 Kubernetes CLI가 자격 증명을 사용하도록 구성합니다.
+Kubernetes 클러스터에 연결하도록 kubectl을 구성하려면 [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes) 명령을 실행합니다. 이 단계에서는 자격 증명을 다운로드하고 Kubernetes CLI가 자격 증명을 사용하도록 구성합니다.
 
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
@@ -169,7 +169,7 @@ spec:
     app: azure-vote-front
 ```
 
-[kubectl create](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create) 명령을 사용하여 응용 프로그램을 실행합니다.
+[kubectl create](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create) 명령을 사용하여 애플리케이션을 실행합니다.
 
 ```azurecli-interactive
 kubectl create -f azure-vote.yml

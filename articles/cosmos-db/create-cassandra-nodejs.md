@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: e6128a9bbdba058068057c202595508cef69fbb3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 1fd2ab85631cf613297f260748c3b2b03e8a9870
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037908"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510514"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>빠른 시작: Node.js 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
@@ -70,7 +70,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 * 사용자 이름 및 암호 값은 Azure Portal의 연결 문자열 페이지를 사용하여 설정되었습니다. `path\to\cert`는 X509 인증서의 경로를 제공합니다. 
 
-   ```nodejs
+   ```javascript
    var ssl_option = {
         cert : fs.readFileSync("path\to\cert"),
         rejectUnauthorized : true,
@@ -81,19 +81,19 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 * `client`는 contactPoint 정보를 사용하여 초기화됩니다. contactPoint는 Azure Portal에서 검색됩니다.
 
-    ```nodejs
+    ```javascript
     const client = new cassandra.Client({contactPoints: [config.contactPoint], authProvider: authProviderLocalCassandra, sslOptions:ssl_option});
     ```
 
 * `client`는 Azure Cosmos DB Cassandra API에 연결됩니다.
 
-    ```nodejs
+    ```javascript
     client.connect(next);
     ```
 
 * 새 keyspace가 생성됩니다.
 
-    ```nodejs
+    ```javascript
     function createKeyspace(next) {
         var query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter1\' : \'1\' }";
         client.execute(query, next);
@@ -103,7 +103,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 * 새 테이블이 생성됩니다.
 
-   ```nodejs
+   ```javascript
    function createTable(next) {
     var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
         client.execute(query, next);
@@ -113,7 +113,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 * 키/값 엔터티가 삽입됩니다.
 
-    ```nodejs
+    ```javascript
     ...
        {
           query: 'INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)',
@@ -125,7 +125,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 * 모든 키 값을 가져오는 쿼리입니다.
 
-    ```nodejs
+    ```javascript
    var query = 'SELECT * FROM uprofile.user';
     client.execute(query, { prepare: true}, function (err, result) {
       if (err) return next(err);
@@ -138,7 +138,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     
 * 키 값을 가져오는 쿼리입니다.
 
-    ```nodejs
+    ```javascript
     function selectById(next) {
         console.log("\Getting by id");
         var query = 'SELECT * FROM uprofile.user where user_id=1';

@@ -7,48 +7,34 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 01/25/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 9945b0aad32fe9abc6a51132a287da10f1b28daa
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 298acb446516a4cdc5057cd6bdcf10422d992ff3
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557753"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900599"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Linux(x64)에서 Azure IoT Edge 런타임 설치
 
-Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍니다. 런타임은 Raspberry Pi처럼 작은 디바이스 또는 산업용 서버처럼 큰 디바이스에 배포할 수 있습니다. IoT Edge 런타임을 사용하여 디바이스를 구성하면 클라우드에서 디바이스에 비즈니스 논리를 배포할 수 있습니다. 
+Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍니다. 런타임은 Raspberry Pi처럼 작은 디바이스 또는 산업용 서버처럼 큰 디바이스에 배포할 수 있습니다. IoT Edge 런타임을 사용하여 디바이스를 구성하면 클라우드에서 디바이스에 비즈니스 논리를 배포할 수 있습니다.
 
 IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자세한 내용은 [Azure IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)를 참조하세요.
 
-이 아티클에서는 Linux x64(Intel/AMD) 에지 디바이스에 Azure IoT Edge 런타임을 설치하는 단계를 나열합니다. 현재 지원되는 AMD64 운영 체제 목록은 [Azure IoT Edge 지원](support.md#operating-systems)을 참조하세요. 
+이 아티클에서는 Linux x64(Intel/AMD) 에지 디바이스에 Azure IoT Edge 런타임을 설치하는 단계를 나열합니다. 현재 지원되는 AMD64 운영 체제 목록은 [Azure IoT Edge 지원](support.md#operating-systems)을 참조하세요.
 
->[!NOTE]
->Linux 소프트웨어 저장소의 패키지는 각 패키지에 있는 사용 조건에 따릅니다(/usr/share/doc/*package-name*). 패키지를 사용하기 전에 사용 조건을 읽어보세요. 패키지를 설치 및 사용하면 이러한 사용 조건에 동의하게 됩니다. 사용 조건에 동의하지 않는 경우, 패키지를 사용하지 마세요.
+> [!NOTE]
+> Linux 소프트웨어 저장소의 패키지는 각 패키지에 있는 사용 조건에 따릅니다(/usr/share/doc/*package-name*). 패키지를 사용하기 전에 사용 조건을 읽어보세요. 패키지를 설치 및 사용하면 이러한 사용 조건에 동의하게 됩니다. 사용 조건에 동의하지 않는 경우, 패키지를 사용하지 마세요.
 
 ## <a name="register-microsoft-key-and-software-repository-feed"></a>Microsoft 키 및 소프트웨어 리포지토리 피드 등록
 
-운영 체제에 따라 적절한 스크립트를 선택하여 IoT Edge 런타임을 설치할 디바이스를 준비합니다. 
-
-### <a name="ubuntu-1604"></a>Ubuntu 16.04
+IoT Edge 런타임 설치를 준비하고, Ubuntu 릴리스에 맞게 ```<release>```를 **16.04** 또는 **18.04**로 바꿉니다.
 
 ```bash
 # Install repository configuration
-curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-
-# Install Microsoft GPG public key
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
-
-### <a name="ubuntu-1804"></a>Ubuntu 18.04
-
-```bash
-# Install repository configuration
-curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
+curl https://packages.microsoft.com/config/ubuntu/<release>/prod.list > ./microsoft-prod.list
 sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
 
 # Install Microsoft GPG public key
@@ -59,7 +45,7 @@ sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo apt-get upgrade
 ```
 
-## <a name="install-the-container-runtime"></a>컨테이너 런타임 설치 
+## <a name="install-the-container-runtime"></a>컨테이너 런타임 설치
 
 Azure IoT Edge는 [OCI 호환](https://www.opencontainers.org/) 컨테이너 런타임을 사용합니다. 프로덕션 시나리오의 경우 아래에 제공된 [Moby 기반](https://mobyproject.org/) 엔진을 사용하는 것이 좋습니다. Azure IoT Edge에서 공식적으로 지원되는 유일한 컨테이너 엔진입니다. Docker CE/EE 컨테이너 이미지는 Moby 런타임과 호환 가능합니다.
 
@@ -69,7 +55,7 @@ apt-get을 업데이트합니다.
 sudo apt-get update
 ```
 
-Moby 엔진을 설치합니다. 
+Moby 엔진을 설치합니다.
 
 ```bash
 sudo apt-get install moby-engine
@@ -83,7 +69,7 @@ sudo apt-get install moby-cli
 
 ## <a name="install-the-azure-iot-edge-security-daemon"></a>Azure IoT Edge 보안 디먼 설치
 
-**IoT Edge 보안 디먼**은 Edge 디바이스에서 보안 표준을 제공하고 유지 관리합니다. 디먼은 부팅할 때마다 시작되며, 나머지 IoT Edge 런타임을 시작하여 디바이스를 부트스트랩합니다. 
+**IoT Edge 보안 디먼**은 Edge 디바이스에서 보안 표준을 제공하고 유지 관리합니다. 디먼은 부팅할 때마다 시작되며, 나머지 IoT Edge 런타임을 시작하여 디바이스를 부트스트랩합니다.
 
 또한 이 설치 명령은 iothsmlib가 표시되지 않으면 표준 버전의 **iothsmlib**를 설치합니다.
 
@@ -101,18 +87,17 @@ sudo apt-get install iotedge
 
 ## <a name="configure-the-azure-iot-edge-security-daemon"></a>Azure IoT Edge 보안 디먼 구성
 
-물리적 디바이스를 Azure IoT Hub에 있는 디바이스 ID와 연결하도록 IoT Edge 런타임을 구성합니다. 
+물리적 디바이스를 Azure IoT Hub에 있는 디바이스 ID와 연결하도록 IoT Edge 런타임을 구성합니다.
 
 디먼은 `/etc/iotedge/config.yaml`에 있는 구성 파일을 사용하여 구성할 수 있습니다. 이 파일은 기본적으로 쓰기 금지되어 있습니다 편집하려면 관리자 권한이 필요합니다.
 
-IoT Hub에서 제공하는 디바이스 연결 문자열을 사용하여 단일 IoT Edge 디바이스를 수동으로 프로비전할 수 있습니다. 또는 Device Provisioning Service를 사용하여 자동으로 디바이스를 프로비전할 수 있습니다. 이는 많은 디바이스를 프로비전할 때 유용합니다. 프로비전 선택 사항에 따라 적절한 설치 스크립트를 선택합니다. 
+IoT Hub에서 제공하는 디바이스 연결 문자열을 사용하여 단일 IoT Edge 디바이스를 수동으로 프로비전할 수 있습니다. 또는 Device Provisioning Service를 사용하여 자동으로 디바이스를 프로비전할 수 있습니다. 이는 많은 디바이스를 프로비전할 때 유용합니다. 프로비전 선택 사항에 따라 적절한 설치 스크립트를 선택합니다.
 
 ### <a name="option-1-manual-provisioning"></a>옵션 1: 수동 프로비전
 
 디바이스를 수동으로 프로비전하려면 IoT Hub에 새 디바이스를 등록하여 만들 수 있는 [디바이스 연결 문자열](how-to-register-device-portal.md)을 디바이스에 프로비전해야 합니다.
 
-
-구성 파일을 엽니다. 
+구성 파일을 엽니다.
 
 ```bash
 sudo nano /etc/iotedge/config.yaml
@@ -125,14 +110,14 @@ sudo nano /etc/iotedge/config.yaml
      source: "manual"
      device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
   
-   # provisioning: 
+   # provisioning:
    #   source: "dps"
    #   global_endpoint: "https://global.azure-devices-provisioning.net"
    #   scope_id: "{scope_id}"
    #   registration_id: "{registration_id}"
    ```
 
-파일을 저장하고 닫습니다. 
+파일을 저장하고 닫습니다.
 
    `CTRL + X`, `Y`, `Enter`
 
@@ -144,29 +129,29 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>옵션 2: 자동 프로비전
 
-디바이스를 자동으로 프로비전하려면 [Device Provisioning Service를 설정하고 디바이스 등록 ID를 검색](how-to-auto-provision-simulated-device-linux.md)합니다. 자동 프로비전은 TPM(신뢰할 수 있는 플랫폼 모듈) 칩이 있는 디바이스에서만 작동합니다. 예를 들어 Raspberry Pi 디바이스는 기본적으로 TPM을 제공하지 않습니다. 
+디바이스를 자동으로 프로비전하려면 [Device Provisioning Service를 설정하고 디바이스 등록 ID를 검색](how-to-auto-provision-simulated-device-linux.md)합니다. 자동 프로비전은 TPM(신뢰할 수 있는 플랫폼 모듈) 칩이 있는 디바이스에서만 작동합니다. 예를 들어 Raspberry Pi 디바이스는 기본적으로 TPM을 제공하지 않습니다.
 
-구성 파일을 엽니다. 
+구성 파일을 엽니다.
 
 ```bash
 sudo nano /etc/iotedge/config.yaml
 ```
 
-파일의 프로비전 섹션을 찾아서 **dps** 프로비전 모드의 주석 처리를 제거합니다. **scope_id** 및 **registration_id** 값을 IoT Hub Device Provisioning Service 및 TPM이 있는 IoT Edge 디바이스의 값으로 업데이트합니다. 
+파일의 프로비전 섹션을 찾아서 **dps** 프로비전 모드의 주석 처리를 제거합니다. **scope_id** 및 **registration_id** 값을 IoT Hub Device Provisioning Service 및 TPM이 있는 IoT Edge 디바이스의 값으로 업데이트합니다.
 
    ```yaml
    # provisioning:
    #   source: "manual"
    #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
   
-   provisioning: 
+   provisioning:
      source: "dps"
      global_endpoint: "https://global.azure-devices-provisioning.net"
      scope_id: "{scope_id}"
      registration_id: "{registration_id}"
    ```
 
-파일을 저장하고 닫습니다. 
+파일을 저장하고 닫습니다.
 
    `CTRL + X`, `Y`, `Enter`
 
@@ -208,29 +193,29 @@ sudo iotedge list
 
 ## <a name="uninstall-iot-edge"></a>IoT Edge 제거
 
-Linux 디바이스에서 IoT Edge 설치를 제거하려면 명령줄에서 다음 명령을 사용합니다. 
+Linux 디바이스에서 IoT Edge 설치를 제거하려면 명령줄에서 다음 명령을 사용합니다.
 
-IoT Edge 런타임을 제거합니다. 
+IoT Edge 런타임을 제거합니다.
 
 ```bash
 sudo apt-get remove --purge iotedge
 ```
 
-IoT Edge 런타임을 제거하면 만든 컨테이너는 중지되지만 디바이스에는 계속 남아 있습니다. 모든 컨테이너를 보고 남아 있는 항목을 확인합니다. 
+IoT Edge 런타임을 제거하면 만든 컨테이너는 중지되지만 디바이스에는 계속 남아 있습니다. 모든 컨테이너를 보고 남아 있는 항목을 확인합니다.
 
 ```bash
 sudo docker ps -a
 ```
 
-두 개의 런타임 컨테이너를 포함하여 디바이스에서 컨테이너를 삭제합니다. 
+두 개의 런타임 컨테이너를 포함하여 디바이스에서 컨테이너를 삭제합니다.
 
 ```bash
 sudo docker rm -f <container name>
 ```
 
-마지막으로 디바이스에서 컨테이너 런타임을 제거합니다. 
+마지막으로 디바이스에서 컨테이너 런타임을 제거합니다.
 
-```bash 
+```bash
 sudo apt-get remove --purge moby-cli
 sudo apt-get remove --purge moby-engine
 ```

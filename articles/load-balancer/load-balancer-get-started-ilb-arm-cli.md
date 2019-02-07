@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: 114b01f3c1636f57813adcd199b90a4c72d0013e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: da8433e6c03aec5c5b2ff5d290065804816ac724
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106008"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732093"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Azure CLI를 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 
@@ -30,7 +30,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](https://docs.microsoft.com/cli/azure/group#create)를 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
+[az group create](https://docs.microsoft.com/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
 다음 예제에서는 *eastus* 위치에 *myResourceGroupILB*라는 리소스 그룹을 만듭니다.
 
@@ -41,7 +41,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 ```
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create)를 사용하여 *myResourceGroup*에 *mySubnet*이라는 서브넷이 있는 *myVnet* 가상 네트워크를 만듭니다.
+[az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet)를 사용하여 *myResourceGroup*에 *mySubnet*이라는 서브넷이 있는 *myVnet* 가상 네트워크를 만듭니다.
 
 ```azurecli-interactive
   az network vnet create \
@@ -60,7 +60,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ### <a name="create-the-load-balancer"></a>부하 분산 장치 만들기
 
-[az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create)를 사용하여 **myFrontEnd**라는 프런트 엔드 IP 구성 및 **10.0.0.7 개인 IP 주소와 연결되는 **myBackEndPool**이라는 백 엔드 풀이 포함된 **myLoadBalancer**라는 공용 기본 부하 분산 장치를 만듭니다.
+[az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest)를 사용하여 **myFrontEnd**라는 프런트 엔드 IP 구성 및 **10.0.0.7 개인 IP 주소와 연결되는 **myBackEndPool**이라는 백 엔드 풀이 포함된 **myLoadBalancer**라는 공용 기본 부하 분산 장치를 만듭니다.
 
 ```azurecli-interactive
   az network lb create \
@@ -74,7 +74,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
   ```
 ### <a name="create-the-health-probe"></a>상태 프로브 만들기
 
-상태 프로브는 모든 가상 머신 인스턴스를 검사하여 네트워크 트래픽을 받을 수 있는지 확인합니다. 프로브 검사에 실패한 가상 머신 인스턴스는 다시 온라인 상태가 되어 프로브 검사가 정상으로 나올 때까지 부하 분산 장치에서 제거됩니다. [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create)를 사용하여 가상 머신의 상태를 모니터링하는 상태 프로브를 만듭니다. 
+상태 프로브는 모든 가상 머신 인스턴스를 검사하여 네트워크 트래픽을 받을 수 있는지 확인합니다. 프로브 검사에 실패한 가상 머신 인스턴스는 다시 온라인 상태가 되어 프로브 검사가 정상으로 나올 때까지 부하 분산 장치에서 제거됩니다. [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest)를 사용하여 가상 머신의 상태를 모니터링하는 상태 프로브를 만듭니다. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -87,7 +87,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ### <a name="create-the-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
 
-부하 분산 장치 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 받을 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create)를 사용하여 *myFrontEnd* 프런트 엔드 풀의 80 포트에서 수신 대기하고, 마찬가지로 80 포트를 통해 부하 분산된 네트워크 트래픽을 *myBackEndPool* 백 엔드 주소 풀에 보내는 *myHTTPRule* 부하 분산 장치 규칙을 만듭니다. 
+부하 분산 장치 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 받을 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest)를 사용하여 *myFrontEnd* 프런트 엔드 풀의 80 포트에서 수신 대기하고, 마찬가지로 80 포트를 통해 부하 분산된 네트워크 트래픽을 *myBackEndPool* 백 엔드 주소 풀에 보내는 *myHTTPRule* 부하 분산 장치 규칙을 만듭니다. 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -128,7 +128,7 @@ done
 
 ### <a name="create-an-availability-set"></a>가용성 집합 만들기
 
-[az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)를 사용하여 가용성 집합을 만듭니다.
+[az vm availabilityset create](/cli/azure/network/nic)를 사용하여 가용성 집합을 만듭니다.
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -215,7 +215,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 부하 분산 장치를 테스트하려면 먼저 부하 분산 장치의 개인 IP 주소를 가져와야 합니다. 그런 다음, myVMTest 가상 머신에 로그인하고, 해당 웹 브라우저의 주소 표시줄에 개인 IP 주소를 입력합니다.
 
-부하 분산 장치의 개인 IP 주소를 가져오려면 [az network lb show](/cli/azure/network/public-ip##az-network-lb-show)를 사용합니다. 개인 IP 주소를 복사한 다음, 가상 머신(*myVMTest*)의 웹 브라우저에 있는 주소 표시줄에 붙여넣습니다.
+부하 분산 장치의 개인 IP 주소를 가져오려면 [az network lb show](/cli/azure/network/public-ip)를 사용합니다. 개인 IP 주소를 복사한 다음, 가상 머신(*myVMTest*)의 웹 브라우저에 있는 주소 표시줄에 붙여넣습니다.
 
 ```azurecli-interactive
   az network lb show \

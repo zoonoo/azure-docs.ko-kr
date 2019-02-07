@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: a51664144d0dba8eeb82999b212beaf79b4503b2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 125c3a925bf6eff04035bb755a07f19367d1abd2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236933"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661091"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션으로 인증 및 권한 부여
 
@@ -84,7 +84,7 @@ Body
 
 ```
 
-앱 토큰을 쉽게 생성하는 SDK 내에서 사용할 수 있는 방법이 있습니다. 예를 들어, .NET의 경우 [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) 클래스 및 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) 메서드를 살펴볼 수 있습니다.
+앱 토큰을 쉽게 생성하는 SDK 내에서 사용할 수 있는 방법이 있습니다. 예를 들어, .NET의 경우 [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) 클래스 및 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) 메서드를 살펴볼 수 있습니다.
 
 .NET SDK의 경우 [범위](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.scopes)를 참조할 수 있습니다.
 
@@ -176,7 +176,7 @@ Body
 
 ## <a name="see-also"></a>참고 항목
 
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Microsoft Power BI 작업 영역 컬렉션 시작 샘플](get-started-sample.md)  
 [일반적인 Microsoft Power BI 작업 영역 컬렉션 시나리오](scenarios.md)  
 [Microsoft Power BI 작업 영역 컬렉션 시작](get-started.md)  

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 81ab41518fea81b577738d30970d83f6d6d6f2bc
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 262d7a6a4399a72e762c4ad3c87a878c54e22af4
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883996"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750395"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>자습서: Azure 템플릿을 사용하여 가상 머신 확장 집합에 애플리케이션 설치
 확장 집합의 VM(가상 머신) 인스턴스에서 애플리케이션을 실행하려면 먼저 애플리케이션 구성 요소 및 필요한 파일을 설치해야 합니다. 이전 자습서에서는 사용자 지정 VM 이미지를 만들고 사용하여 VM 인스턴스를 배포하는 방법을 알아보았습니다. 이 사용자 지정 이미지에는 수동 애플리케이션 설치 및 구성이 포함되어 있습니다. 또한 각 VM 인스턴스가 배포된 후에 확장 집합에 애플리케이션 설치를 자동화하거나 이미 확장 집합에서 실행되는 애플리케이션을 업데이트할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -77,13 +77,13 @@ Azure 템플릿을 사용하여 가상 머신 확장 집합을 정의하는 경�
 
 
 ## <a name="create-a-scale-set"></a>확장 집합 만들기
-샘플 템플릿을 사용하여 확장 집합을 만들고 사용자 지정 스크립트 확장을 적용해 보겠습니다. 먼저 [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+샘플 템플릿을 사용하여 확장 집합을 만들고 사용자 지정 스크립트 확장을 적용해 보겠습니다. 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-이제 [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create)를 사용하여 가상 머신 확장 집합을 만듭니다. 메시지가 표시되면 각 VM 인스턴스에 대한 자격 증명으로 사용되는 고유한 사용자 이름과 암호를 제공합니다.
+이제 [az group deployment create](/cli/azure/group/deployment)를 사용하여 가상 머신 확장 집합을 만듭니다. 메시지가 표시되면 각 VM 인스턴스에 대한 자격 증명으로 사용되는 고유한 사용자 이름과 암호를 제공합니다.
 
 ```azurecli-interactive
 az group deployment create \
@@ -97,7 +97,7 @@ az group deployment create \
 
 
 ## <a name="test-your-scale-set"></a>확장 집합 테스트
-작업 중인 웹 서버를 보려면 [az network public-ip show](/cli/azure/network/public-ip#show)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다. 다음 예제에서는 확장 집합의 일부로 만든 *myScaleSetPublicIP*의 IP 주소를 가져옵니다.
+작업 중인 웹 서버를 보려면 [az network public-ip show](/cli/azure/network/public-ip)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다. 다음 예제에서는 확장 집합의 일부로 만든 *myScaleSetPublicIP*의 IP 주소를 가져옵니다.
 
 ```azurecli-interactive
 az network public-ip show \
@@ -141,7 +141,7 @@ az network public-ip show \
 }
 ```
 
-[az group deployment create](/cli/azure/group/deployment#az_group_deployment_create)를 사용하여 사용자 지정 스크립트 확장 구성을 확장 집합의 VM 인스턴스에 다시 적용합니다. 이 *azuredeployv2.json* 템플릿은 업데이트된 애플리케이션 버전을 적용하는 데 사용됩니다. 실제로 이전 섹션에서 설명한 대로 업데이트된 설치 스크립트를 참조하도록 기존 *azuredeploy.json* 템플릿을 편집합니다. 메시지가 표시되면 확장 집합을 처음 만들 때 사용한 것과 동일한 사용자 이름 및 암호 자격 증명을 입력합니다.
+[az group deployment create](/cli/azure/group/deployment)를 사용하여 사용자 지정 스크립트 확장 구성을 확장 집합의 VM 인스턴스에 다시 적용합니다. 이 *azuredeployv2.json* 템플릿은 업데이트된 애플리케이션 버전을 적용하는 데 사용됩니다. 실제로 이전 섹션에서 설명한 대로 업데이트된 설치 스크립트를 참조하도록 기존 *azuredeploy.json* 템플릿을 편집합니다. 메시지가 표시되면 확장 집합을 처음 만들 때 사용한 것과 동일한 사용자 이름 및 암호 자격 증명을 입력합니다.
 
 ```azurecli-interactive
 az group deployment create \
@@ -155,7 +155,7 @@ az group deployment create \
 
 
 ## <a name="clean-up-resources"></a>리소스 정리
-확장 집합 및 추가 리소스를 제거하려면 [az group delete](/cli/azure/group#az_group_delete)를 사용하여 리소스 그룹 및 모든 해당 리소스를 삭제합니다. `--no-wait` 매개 변수는 작업이 완료될 때까지 대기하지 않고 프롬프트로 제어를 반환합니다. `--yes` 매개 변수는 작업을 수행하는 추가 프롬프트 없이 리소스를 삭제할 것인지 확인합니다.
+확장 집합 및 추가 리소스를 제거하려면 [az group delete](/cli/azure/group)를 사용하여 리소스 그룹 및 모든 해당 리소스를 삭제합니다. `--no-wait` 매개 변수는 작업이 완료될 때까지 대기하지 않고 프롬프트로 제어를 반환합니다. `--yes` 매개 변수는 작업을 수행하는 추가 프롬프트 없이 리소스를 삭제할 것인지 확인합니다.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

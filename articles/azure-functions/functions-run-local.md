@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: c99d5e9d64e9e9715589ecf2c0de57ce660917aa
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 214f32c4dc35661480b96477caf0cdf6243c75a8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103692"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094247"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -40,13 +40,13 @@ Azure Functions 핵심 도구에는 두 가지 버전이 있습니다. 사용 �
 
 ### <a name="v2"></a>버전 2.x
 
-버전 2.x 도구는 .NET Core를 기반으로 하는 Azure Functions 런타임 2.x를 사용합니다. 이 버전은 [Windows](#windows-npm), [macOS](#brew) 및 [Linux](#linux)를 포함하여 .NET Core 2.x에서 지원하는 모든 플랫폼에서 지원됩니다.
+버전 2.x 도구는 .NET Core를 기반으로 하는 Azure Functions 런타임 2.x를 사용합니다. 이 버전은 [Windows](#windows-npm), [macOS](#brew) 및 [Linux](#linux)를 포함하여 .NET Core 2.x에서 지원하는 모든 플랫폼에서 지원됩니다. 먼저 .NET Core 2.x SDK를 설치해야 합니다.
 
 #### <a name="windows-npm"></a>Windows
 
 다음 단계에서는 npm을 사용하여 Windows에 핵심 도구를 설치합니다. [Chocolatey](https://chocolatey.org/)를 사용할 수도 있습니다. 자세한 내용은 [핵심 도구 추가 정보](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows)를 참조하세요.
 
-1. [Windows용 .NET Core 2.1](https://www.microsoft.com/net/download/windows)을 설치합니다.
+1. [Windows용 .NET Core 2.x SDK](https://www.microsoft.com/net/download/windows)를 설치합니다.
 
 2. [Node.js](npm 포함)를 설치합니다. 버전 2.x 도구의 경우 Node.js 8.5 이상 버전만 지원됩니다.
 
@@ -60,7 +60,7 @@ Azure Functions 핵심 도구에는 두 가지 버전이 있습니다. 사용 �
 
 다음 단계에서는 Homebrew를 사용하여 macOS에 핵심 도구를 설치합니다.
 
-1. [macOS용 .NET Core 2.1](https://www.microsoft.com/net/download/macos)을 설치합니다.
+1. [macOS용 .NET Core 2.x SDK](https://www.microsoft.com/net/download/macos)를 설치합니다.
 
 2. 아직 설치되지 않은 경우 [Homebrew](https://brew.sh/)를 설치합니다.
 
@@ -75,7 +75,7 @@ Azure Functions 핵심 도구에는 두 가지 버전이 있습니다. 사용 �
 
 다음 단계에서는 [APT](https://wiki.debian.org/Apt)를 사용하여 Ubuntu/Debian Linux 배포판에 핵심 도구를 설치합니다. 다른 Linux 배포판의 경우 [핵심 도구 추가 정보](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux)를 참조하세요.
 
-1. [Linux용 .NET Core 2.1](https://www.microsoft.com/net/download/linux)을 설치합니다.
+1. [Linux용 .NET Core 2.x SDK](https://www.microsoft.com/net/download/linux)를 설치합니다.
 
 2. Microsoft 제품 키를 신뢰할 수 있는 키로 등록합니다.
 
@@ -184,7 +184,7 @@ local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions �
 | 설정      | 설명                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | **true**로 설정하면 모든 값은 로컬 컴퓨터 키를 사용하여 암호화됩니다. `func settings` 명령과 함께 사용됩니다. 기본값은 **false**입니다. |
-| **값** | 로컬에서 실행될 때 사용되는 연결 문자열 및 애플리케이션 설정의 컬렉션입니다. 이러한 값은 **AzureWebJobsStorage** 및 **AzureWebJobsDashboard**와 같은 Azure의 함수 앱에서 앱 설정에 해당합니다. 많은 트리거와 바인딩에는 [Blob 저장소 트리거](functions-bindings-storage-blob.md#trigger---configuration)에 대한 **Connection**과 같은 연결 문자열 앱 설정을 참조하는 속성이 있습니다. 이러한 속성의 경우 **Values** 배열에 정의된 애플리케이션 설정이 필요합니다. <br/>**AzureWebJobsStorage**는 HTTP 이외의 트리거에 대한 필수 앱 설정입니다. [Azure Storage 에뮬레이터](../storage/common/storage-use-emulator.md)를 로컬로 설치한 경우 **AzureWebJobsStorage**를 `UseDevelopmentStorage=true`에 설정할 수 있으며 이 에뮬레이터는 핵심 도구가 사용합니다. 개발 중에 유용하지만 배포 전에 실제 저장소 연결을 테스트해야 합니다. |
+| **값** | 로컬에서 실행될 때 사용되는 연결 문자열 및 애플리케이션 설정의 컬렉션입니다. 이러한 값은 **AzureWebJobsStorage** 및 **AzureWebJobsDashboard**와 같은 Azure의 함수 앱에서 앱 설정에 해당합니다. 많은 트리거와 바인딩에는 [Blob Storage 트리거](functions-bindings-storage-blob.md#trigger---configuration)에 대한 **Connection**과 같은 연결 문자열 앱 설정을 참조하는 속성이 있습니다. 이러한 속성의 경우 **Values** 배열에 정의된 애플리케이션 설정이 필요합니다. <br/>**AzureWebJobsStorage**는 HTTP 이외의 트리거에 대한 필수 앱 설정입니다. [Azure Storage 에뮬레이터](../storage/common/storage-use-emulator.md)를 로컬로 설치한 경우 **AzureWebJobsStorage**를 `UseDevelopmentStorage=true`에 설정할 수 있으며 이 에뮬레이터는 핵심 도구가 사용합니다. 개발 중에 유용하지만 배포 전에 실제 저장소 연결을 테스트해야 합니다. |
 | **호스트** | 이 섹션의 설정은 로컬에서 실행할 때 Functions 호스트 프로세스를 사용자 지정합니다. |
 | **LocalHttpPort** | 로컬 Functions 호스트(`func host start` 및 `func run`)를 실행할 때 사용되는 기본 포트를 설정합니다. `--port` 명령줄 옵션이 이 값보다 우선합니다. |
 | **CORS** | [CORS(원본 간 리소스 공유)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)에 허용된 원본을 정의합니다. 원본은 공백 없이 쉼표로 구분된 목록으로 제공됩니다. 와일드카드 값(\*)이 지원되므로 모든 원본에서 요청할 수 있습니다. |
@@ -371,7 +371,7 @@ HTTP 트리거와 웹후크가 아닌 다른 모든 종류의 함수에서 관�
 {
     "input": "<trigger_input>"
 }
-````
+```
 
 `<trigger_input>` 값에는 함수에 필요한 형식의 데이터가 포함됩니다. 다음 cURL 예제는 `QueueTriggerJS` 함수에 대한 POST 요청입니다. 이 경우에 입력은 큐에 위치해야 하는 메시지에 해당하는 문자열입니다.
 

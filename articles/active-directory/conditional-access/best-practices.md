@@ -9,20 +9,20 @@ manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2018
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 62bb9b6b4b0edd9e45b317c3c4e18872bae2eec4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 8324b7bf97325c295fdf95819cc2b22fb0f3c14e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452839"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078953"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory의 조건부 액세스 모범 사례
 
@@ -47,14 +47,32 @@ ms.locfileid: "54452839"
 
 |대상           | 방법                                  | 이유|
 |:--            | :--                                  | :-- |
-|**클라우드 앱** |앱을 하나 이상 선택해야 합니다.  | 조건부 액세스 정책의 목표는 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있도록 하는 것입니다.|
-| **사용자 및 그룹** | 선택한 클라우드 앱에 액세스할 수 있도록 허가된 사용자 또는 그룹을 하나 이상 선택해야 합니다. | 할당된 사용자와 그룹이 없는 조건부 액세스 정책은 트리거되지 않습니다. |
-| **액세스 제어** | 하나 이상의 액세스 제어를 선택해야 합니다. | 조건이 충족될 경우 정책 프로세서는 수행할 작업을 알고 있어야 합니다.|
+|**클라우드 앱** |하나 이상의 앱을 선택합니다.  | 조건부 액세스 정책의 목표는 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있도록 하는 것입니다.|
+| **사용자 및 그룹** | 선택한 클라우드 앱에 대한 액세스 권한을 부여받은 하나 이상의 사용자 또는 그룹을 선택합니다. | 할당된 사용자와 그룹이 없는 조건부 액세스 정책은 트리거되지 않습니다. |
+| **액세스 제어** | 하나 이상의 액세스 제어를 선택합니다. | 조건이 충족될 경우 정책 프로세서는 수행할 작업을 알고 있어야 합니다.|
 
 
 
 
 ## <a name="what-you-should-know"></a>알아야 할 사항
+
+
+
+### <a name="how-are-conditional-access-policies-applied"></a>조건부 액세스 정책은 어떻게 적용됩니까?
+
+클라우드 앱에 액세스할 때 둘 이상의 조건부 액세스 정책이 적용될 수 있습니다. 이 경우 적용되는 모든 정책이 충족되어야 합니다. 예를 들어 한 정책에서 MFA를 요구하고 두 번째 정책에서 규정 준수 디바이스를 요구하는 경우 MFA를 통과하고 규정 준수 디바이스를 사용해야 합니다. 
+
+모든 정책은 다음 두 단계로 적용됩니다.
+
+- **첫 번째** 단계에서는 모든 정책이 평가되고 충족되지 않은 모든 액세스 제어가 수집됩니다. 
+
+- **두 번째** 단계에서는 충족되지 않은 요구 사항을 충족시키도록 요구하는 메시지가 표시됩니다. 정책 중 하나에서 액세스를 차단하면 사용자가 차단되고 다른 정책 제어를 충족시키도록 요구하는 메시지는 표시되지 않습니다. 사용자를 차단하는 정책이 없으면 다음 순서에 따라 다른 정책 제어를 충족시키도록 요구하는 메시지가 표시됩니다.
+
+    ![순서](./media/best-practices/06.png)
+    
+    외부 MFA 공급자와 사용 약관이 다음에 나옵니다.
+
+
 
 ### <a name="how-are-assignments-evaluated"></a>할당은 어떻게 평가됩니까?
 
@@ -122,13 +140,13 @@ Azure Active Directory는 모든 로그인에 대해 모든 정책을 평가하�
 
 첫 단계로, [what if(가정) 도구](what-if-tool.md)를 사용하여 정책을 평가해야 합니다.
 
-새 정책을 환경에 배포할 준비가 된 경우 단계별로 수행해야 합니다.
+환경에 대한 새 정책이 준비되면 다음과 같은 단계로 배포합니다.
 
 1. 일부 사용자 집합에 정책을 적용하고 예상 대로 작동하는지 확인합니다. 
 
-2.  더 많은 사용자를 포함하도록 정책을 확장하면 정책에서 모든 관리자를 계속 제외합니다. 이렇게 하면 관리자에게 여전히 액세스 권한이 있는지 확인하고, 변경해야 하는 경우 정책을 업데이트할 수 있습니다.
+2.  더 많은 사용자를 포함하도록 정책을 확장하는 경우가 있습니다. 정책에서 모든 관리자를 계속 제외하여 아직도 액세스 권한이 있는지 확인하고, 변경이 필요한 경우 정책을 업데이트할 수 있습니다.
 
-3. 실제로 필요한 경우에만 모든 사용자에게 정책을 적용합니다. 
+3. 필요한 경우에만 모든 사용자에게 정책을 적용합니다. 
 
 모범 사례로, 다음과 같은 사용자 계정을 만듭니다.
 
@@ -154,4 +172,7 @@ Azure Portal에서 만들지 않은 정책을 마이그레이션하는 것을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-조건부 액세스 정책을 구성하는 방법을 알아보려면 [Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](app-based-mfa.md)를 참조하세요.
+다음을 참조하세요.
+
+- 조건부 액세스 정책을 구성하는 방법: [Azure Active Directory 조건부 액세스를 사용하여 특정 앱에 MFA 요구](app-based-mfa.md)
+- 조건부 액세스 정책을 계획하는 방법: [Azure Active Directory에서 조건부 액세스 배포 계획](plan-conditional-access.md)

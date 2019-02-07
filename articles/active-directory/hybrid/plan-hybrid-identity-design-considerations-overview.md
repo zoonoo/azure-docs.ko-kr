@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: 100509c4-0b83-4207-90c8-549ba8372cf7
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 450a974f6b1d7e95d98e603c0e899737224dc29d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 646c929c3f20f50a52cc8bd29d06522aa608b683
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167430"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489838"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Azure Active Directory 하이브리드 ID 설계 고려 사항
 소비자 기반 디바이스가 기업 전반에 퍼지고 있기 때문에 클라우드 기반 소프트웨어 SaaS 애플리케이션은 쉽게 채택할 수 있습니다. 결과적으로 내부 데이터 센터 및 클라우드 플랫폼에 걸쳐 사용자의 애플리케이션 액세스를 제어하도록 유지하는 것은 어렵습니다.  

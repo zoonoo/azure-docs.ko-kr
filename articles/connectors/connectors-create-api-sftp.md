@@ -11,12 +11,12 @@ ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
 ms.date: 10/26/2018
-ms.openlocfilehash: 3dbe40476757ba93f33d39f71c46bf58302b3570
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 5d328164ac8ad99db15a12d850327615a9ffd809
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979457"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910287"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 SFTP 파일 모니터링, 만들기 및 관리
 
@@ -27,7 +27,7 @@ ms.locfileid: "50979457"
 * 파일 콘텐츠 및 메타데이터를 가져옵니다.
 * 보관을 폴더로 추출합니다.
 
-[SFTP-SSH 커넥터](../connectors/connectors-sftp-ssh.md)에 비교하여 SFTP 커넥터는 [큰 메시지 처리를 위한 청크](../logic-apps/logic-apps-handle-large-messages.md)를 사용하지 않는 한 최대 50MB 크기의 파일을 읽거나 쓸 수 있습니다. 최대 1GB 크기 파일의 경우 [SFTP-SSH 커넥터](../connectors/connectors-sftp-ssh.md)를 사용합니다. 1GB보다 큰 파일의 경우 SFTP-SSH 커넥터와 [큰 메시지에 대한 청크](../logic-apps/logic-apps-handle-large-messages.md)를 사용할 수 있습니다. 
+[작업에서 메시지 청크 분할](../logic-apps/logic-apps-handle-large-messages.md)을 사용하지 않으면 SFTP 커넥터는 [SFTP-SSH 커넥터](../connectors/connectors-sftp-ssh.md)와 비교하여 최대 50MB 크기의 파일을 읽거나 쓸 수 있습니다. 트리거에는 현재 청크 분할을 사용할 수 없습니다. 최대 1GB 크기 파일의 경우 [SFTP-SSH 커넥터](../connectors/connectors-sftp-ssh.md)를 사용합니다. 1GB보다 큰 파일의 경우 SFTP-SSH 커넥터와 [메시지 청크 분할](../logic-apps/logic-apps-handle-large-messages.md)을 사용할 수 있습니다. 
 
 SFTP 서버에서 이벤트를 모니터링하는 트리거를 사용하고 다른 작업에서 출력을 사용하도록 할 수 있습니다. SFTP 서버에서 다양한 작업을 수행하는 작업을 사용할 수 있습니다. 또한 논리 앱의 다른 작업에서 SFTP 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 정기적으로 SFTP 서버에서 파일을 검색하는 경우 Office 365 Outlook 커넥터 또는 Outlook.com 커넥터를 사용하여 해당 파일 및 해당 콘텐츠에 대한 이메일 경고를 보낼 수 있습니다.
 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
@@ -102,17 +102,39 @@ SFTP 트리거는 SFTP 파일 시스템을 폴링하여 마지막 폴링 이후 
 
 트리거는 새 파일을 찾으면 해당 파일이 완전한 상태이며 부분적으로 작성된 것이 아닌지 확인합니다. 예를 들어 트리거가 파일 서버를 확인할 때 파일을 변경하는 중일 수 있습니다. 부분적으로 작성된 파일이 반환되지 않도록 하기 위해 트리거는 최근 변경된 내용이 있는 파일의 타임스탬프를 기록하되 해당 파일을 즉시 반환하지는 않으며, 서버를 다시 폴링할 때만 해당 파일을 반환합니다. 이 동작으로 인해 트리거 폴링 간격의 최대 2배까지 지연이 발생하는 경우도 있습니다. 
 
+파일 콘텐츠를 요청하는 경우 트리거는 50MB보다 큰 파일을 가져오지 않습니다. 50MB보다 큰 파일을 가져오려면 다음 패턴을 따릅니다. 
+
+* **파일이 추가되거나 수정된 경우(메타데이터만)** 등의 파일 속성을 반환하는 트리거를 사용합니다.
+
+* 트리거에서 **경로를 사용하여 파일 콘텐츠 가져오기**와 같이 전체 파일을 읽는 작업을 수행하고, 작업에서 [메시지 청크 분할](../logic-apps/logic-apps-handle-large-messages.md)을 사용하도록 합니다.
+
 ## <a name="examples"></a>예
 
-### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>SFTP 트리거: 파일이 추가되거나 수정되는 경우
+<a name="file-add-modified"></a>
+
+### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>SFTP 트리거: 파일을 추가하거나 수정할 때
 
 이 트리거는 SFTP 서버에서 파일이 추가되거나 변경되는 경우 논리 앱 워크플로를 시작합니다. 예를 들어 콘텐츠가 지정된 조건을 충족하는지 여부에 따라 파일의 콘텐츠를 확인하고 콘텐츠를 가져오는 조건을 추가할 수 있습니다. 그런 다음, 파일의 콘텐츠를 가져오고 해당 콘텐츠를 SFTP 서버의 폴더에 넣는 작업을 추가할 수 있습니다. 
 
-**엔터프라이즈 예제**: 이 트리거를 사용하여 고객의 주문을 나타내는 새 파일에 대한 SFTP 폴더를 모니터링할 수 있습니다. 그런 다음, **파일 콘텐츠 가져오기**와 같은 SFTP 작업을 사용할 수 있으므로 추가로 처리할 주문의 콘텐츠를 가져오고 주문 데이터베이스에 해당 주문을 저장합니다.
+**엔터프라이즈 예제**: 이 트리거를 사용하여 고객의 주문을 나타내는 새 파일용 SFTP 폴더를 모니터링할 수 있습니다. 그런 다음, **파일 콘텐츠 가져오기**와 같은 SFTP 작업을 사용할 수 있으므로 추가로 처리할 주문의 콘텐츠를 가져오고 주문 데이터베이스에 해당 주문을 저장합니다.
+
+파일 콘텐츠를 요청하는 경우 트리거는 50MB보다 큰 파일을 가져오지 않습니다. 50MB보다 큰 파일을 가져오려면 다음 패턴을 따릅니다. 
+
+* **파일이 추가되거나 수정된 경우(메타데이터만)** 등의 파일 속성을 반환하는 트리거를 사용합니다.
+
+* 트리거에서 **경로를 사용하여 파일 콘텐츠 가져오기**와 같이 전체 파일을 읽는 작업을 수행하고, 작업에서 [메시지 청크 분할](../logic-apps/logic-apps-handle-large-messages.md)을 사용하도록 합니다.
+
+<a name="get-content"></a>
 
 ### <a name="sftp-action-get-content"></a>SFTP 작업: 콘텐츠 가져오기
 
 이 작업은 SFTP 서버의 파일에서 콘텐츠를 가져옵니다. 따라서 예를 들어 이전 예제의 트리거와 파일의 콘텐츠가 충족해야 하는 조건을 추가할 수 있습니다. 조건이 true인 경우 콘텐츠를 가져오는 작업을 실행할 수 있습니다. 
+
+파일 콘텐츠를 요청하는 경우 트리거는 50MB보다 큰 파일을 가져오지 않습니다. 50MB보다 큰 파일을 가져오려면 다음 패턴을 따릅니다. 
+
+* **파일이 추가되거나 수정된 경우(메타데이터만)** 등의 파일 속성을 반환하는 트리거를 사용합니다.
+
+* 트리거에서 **경로를 사용하여 파일 콘텐츠 가져오기**와 같이 전체 파일을 읽는 작업을 수행하고, 작업에서 [메시지 청크 분할](../logic-apps/logic-apps-handle-large-messages.md)을 사용하도록 합니다.
 
 ## <a name="connector-reference"></a>커넥터 참조
 

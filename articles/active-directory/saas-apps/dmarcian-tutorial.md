@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 0f8878505280371bf6046c1d1f0d7fc1275dd496
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 197e0cceb7457ffdd96ada7d4561de56c7ed10fc
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039890"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095654"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>자습서: Azure Active Directory와 dmarcian 통합
+# <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>자습서: dmarcian과 Azure Active Directory 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 dmarcian을 통합하는 방법에 대해 알아봅니다.
 
@@ -63,15 +63,15 @@ dmarcian의 Azure AD 통합을 구성하려면 갤러리의 dmarcian을 관리�
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![Enterprise 응용 프로그램][2]
+    ![Enterprise 애플리케이션][2]
     
 3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![새 애플리케이션 단추][3]
 
-4. 검색 상자에 **dmarcian**을 입력하고 결과 패널에서 **dmarcian**을 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **dmarcian**을 입력하고 결과 패널에서 **dmarcian**을 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![결과 목록의 dmarcian](./media/dmarcian-tutorial/tutorial_dmarcian_addfromgallery.png)
 
@@ -91,11 +91,11 @@ dmarcian에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 dmarcian 애플리케이션에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 dmarcian 응용 프로그램에서 Single Sign-On을 구성합니다.
 
 **dmarcian에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **dmarcian** 애플리케이션 통합 페이지에서 **Single sign-on**을 클릭합니다.
+1. Azure Portal의 **dmarcian** 응용 프로그램 통합 페이지에서 **Single sign-on**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -121,7 +121,7 @@ dmarcian에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     | `https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/` |
     | `https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/` |
 
-4. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
+4. **SP** 시작 모드에서 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
     ![dmarcian 도메인 및 URL Single Sign-On 정보](./media/dmarcian-tutorial/tutorial_dmarcian_url1.png)
 
@@ -157,15 +157,15 @@ dmarcian에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![인증 ](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
 
-    * **ID 공급자에 dmarcian 추가** 섹션에서 **복사**를 클릭하여 인스턴스에 대한 **Assertion Consumer Service URL**을 복사하고 Azure Portal에서 **dmarcian 도메인 및 URL 섹션**의 **회신 URL** 텍스트 상자에 붙여넣습니다.
+    * **ID 공급자에 dmarcian 추가** 섹션 아래에서  **복사** 를 클릭하여 인스턴스에 대한 **Assertion Consumer Service URL**을 복사하고, Azure Portal에 있는  **dmarcian 도메인 및 URL 섹션**의  **회신 URL** 텍스트 상자에 붙여넣습니다.
 
-    * **ID 공급자에 dmarcian 추가** 섹션에서 **복사**를 클릭하여 인스턴스에 대한 **엔터티 ID**를 복사하고 Azure Portal에서 **dmarcian 도메인 및 URL 섹션**의 **식별자** 텍스트 상자에 붙여넣습니다.
+    * **ID 공급자에 dmarcian 추가** 섹션 아래에서  **복사** 를 클릭하여 인스턴스에 대한 **엔터티 ID**를 복사하고, Azure Portal에 있는  **dmarcian 도메인 및 URL 섹션**의  **식별자** 텍스트 상자에 붙여넣습니다.
 
     * **인증 설정** 섹션의 **Identity Provider Metadata** 텍스트 상자에 Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL**을 붙여넣습니다.
 
     * **인증 설정** 섹션의 **특성 문** 텍스트 상자에 URL `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 붙여넣습니다.
 
-    * **로그인 URL 설정** 섹션에서 인스턴스에 대한 **로그인 URL**을 복사하고 Azure Portal에서 **dmarcian 도메인 및 URL 섹션**의 **로그온 URL** 텍스트 상자에 붙여넣습니다.
+    * **로그인 URL 설정** 섹션 아래에서 인스턴스에 대한 **로그인 URL**을 복사하고, Azure Portal에 있는  **dmarcian 도메인 및 URL 섹션**의  **로그온 URL** 텍스트 상자에 붙여넣습니다.
 
         > [!Note]
         > 조직에 따라 **로그인 URL**을 수정할 수 있습니다.
@@ -242,9 +242,9 @@ Azure AD 사용자가 dmarcian에 로그인할 수 있도록 하려면 dmarcian�
 
     ![사용자 할당][201] 
 
-2. 애플리케이션 목록에서 **dmarcian**을 선택합니다.
+2. 응용 프로그램 목록에서 **dmarcian**을 선택합니다.
 
-    ![애플리케이션 목록의 dmarcian 링크](./media/dmarcian-tutorial/tutorial_dmarcian_app.png)  
+    ![응용 프로그램 목록의 dmarcian 링크](./media/dmarcian-tutorial/tutorial_dmarcian_app.png)  
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -270,7 +270,7 @@ Azure AD 사용자가 dmarcian에 로그인할 수 있도록 하려면 dmarcian�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

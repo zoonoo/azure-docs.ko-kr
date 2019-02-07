@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0609a653327640c542457822e41143b9b39dd6d4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: dc2b38f8e8065b8d8763365bf0cbad56ae00cd4b
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462202"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565431"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기 사용자 지정
 
@@ -84,7 +84,7 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
 * 맵 및 원격 분석 패널의 위치를 교환합니다.
 * 지도 및 분석 패널의 상대 너비를 변경합니다.
 
-```nodejs
+```javascript
 <PageContent className="dashboard-container">
   <Grid>
     <Cell className="col-1 devices-overview-cell">
@@ -156,7 +156,7 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
 
 [패널을 복제하고 사용자 지정](#duplicate-and-customize-an-existing-control)하는 경우 동일한 패널의 여러 인스턴스 또는 여러 버전을 추가할 수도 있습니다. 다음 예제는 원격 분석 패널의 두 인스턴스를 추가하는 방법을 보여줍니다. 이러한 변경을 수행하려면 `src/components/pages/dashboard/dashboard.js` 파일을 편집합니다.
 
-```nodejs
+```javascript
 <PageContent className="dashboard-container">
   <Grid>
     <Cell className="col-1 devices-overview-cell">
@@ -247,19 +247,19 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
 
 1. **cust_alerts** 폴더의 **alertsPanel.js** 파일에서 클래스의 이름을 **CustAlertsPanel**로 편집합니다.
 
-    ```nodejs
+    ```javascript
     export class CustAlertsPanel extends Component {
     ```
 
 1. 다음 줄을 `src/components/pages/dashboard/panels/index.js` 파일에 추가합니다.
 
-    ```nodejs
+    ```javascript
     export * from './cust_alerts';
     ```
 
 1. `src/components/pages/dashboard/dashboard.js` 파일에서 `alertsPanel`을 `CustAlertsPanel`로 대체합니다.
 
-    ```nodejs
+    ```javascript
     import {
       OverviewPanel,
       CustAlertsPanel,
@@ -287,7 +287,7 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
 
 1. 다음 코드 조각에 표시된 것과 같이 열 정의를 수정합니다.
 
-    ```nodejs
+    ```javascript
     this.columnDefs = [
       rulesColumnDefs.severity,
       {
@@ -312,7 +312,7 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
 
 1. `src/services/telemetryService.js` 파일에서 **getTelemetryByDeviceIdP15M**이라는 함수를 찾습니다. 이 함수의 복사본을 만들고 해당 복사본을 다음과 같이 수정합니다.
 
-    ```nodejs
+    ```javascript
     static getTelemetryByDeviceIdP5M(devices = []) {
       return TelemetryService.getTelemetryByMessages({
         from: 'NOW-PT5M',
@@ -325,7 +325,7 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
 
 1. 원격 분석 차트를 채우기 위해 이 새로운 함수를 사용하려면 `src/components/pages/dashboard/dashboard.js` 파일을 엽니다. 원격 분석 스트림을 초기화하는 줄을 찾아 다음과 같이 수정합니다.
 
-    ```node.js
+    ```javascript
     const getTelemetryStream = ({ deviceIds = [] }) => TelemetryService.getTelemetryByDeviceIdP5M(deviceIds)
     ```
 
@@ -339,7 +339,7 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
 
 1. `src/components/pages/dashboard/dashboard.js` 파일을 엽니다. 다음과 같이 **warningAlertsChange** 속성을 포함하도록 **initialState** 개체를 수정합니다.
 
-    ```nodejs
+    ```javascript
     const initialState = {
       ...
 
@@ -359,7 +359,7 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
 
 1. 속성으로 **currentAlertsStats**를 포함하도록 **totalWarningCount** 개체를 수정합니다.
 
-    ```nodejs
+    ```javascript
     return {
       openWarningCount: (acc.openWarningCount || 0) + (isWarning && isOpen ? 1 : 0),
       openCriticalCount: (acc.openCriticalCount || 0) + (isCritical && isOpen ? 1 : 0),
@@ -371,7 +371,7 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
 
 1. 새 KPI를 계산합니다. 중요한 경고 개수에 대한 계산을 찾습니다. 코드를 복제하고 복사본을 다음과 같이 수정합니다.
 
-    ```nodejs
+    ```javascript
     // ================== Warning Alerts Count - START
     const currentWarningAlerts = currentAlertsStats.totalWarningCount;
     const previousWarningAlerts = previousAlerts.reduce(
@@ -384,7 +384,7 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
 
 1. KPI 스트림에 새 **warningAlertsChange** KPI를 포함합니다.
 
-    ```nodejs
+    ```javascript
     return ({
       analyticsIsPending: false,
       analyticsVersion: this.state.analyticsVersion + 1,
@@ -402,7 +402,7 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
 
 1. 새 **warningAlertsChange** KPI를 UI 렌더링에 사용되는 상태 데이터에 포함합니다.
 
-    ```nodejs
+    ```javascript
     const {
       ...
 
@@ -421,7 +421,7 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
 
 1. KPI 패널에 전달되는 데이터를 업데이트합니다.
 
-    ```node.js
+    ```javascript
     <AnalyticsPanel
       timeSeriesExplorerUrl={timeSeriesParamUrl}
       topAlerts={topAlertsWithName}
@@ -439,13 +439,13 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 원
 
 1. 다음 코드 줄을 수정하여 다음과 같이 새 KPI 값을 검색합니다.
 
-    ```nodejs
+    ```javascript
     const { t, isPending, criticalAlertsChange, warningAlertsChange, alertsPerDeviceId, topAlerts, timeSeriesExplorerUrl, error } = this.props;
     ```
 
 1. 태그를 수정하여 다음과 같이 새 KPI 값을 표시합니다.
 
-    ```nodejs
+    ```javascript
     <div className="analytics-cell">
       <div className="analytics-header">{t('dashboard.panels.analytics.criticalAlerts')}</div>
       <div className="critical-alerts">

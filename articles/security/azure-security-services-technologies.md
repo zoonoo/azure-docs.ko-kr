@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2018
+ms.date: 1/29/2019
 ms.author: barclayn
-ms.openlocfilehash: 32174af9edcd6da7b87b6b38c0824fa7f07aa8f9
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 6f571655bb0501f8ef4018bf47588c8db4cc2a3e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384890"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097668"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Azure에서 사용 가능한 보안 서비스 및 기술
 
@@ -84,7 +84,11 @@ ms.locfileid: "49384890"
 | [네트워크&nbsp;보안&nbsp;그룹](../virtual-network/virtual-networks-nsg.md)| 5튜플을 사용하여 의사 결정을 허용하거나 거부하는 네트워크 기반 액세스 제어 기능입니다.  |
 | [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)| Azure 가상 네트워크에 대한 크로스-프레미스 액세스를 허용하기 위해 VPN 엔드포인트로 사용되는 네트워크 디바이스입니다.  |
 | [Azure Application Gateway](../application-gateway/application-gateway-introduction.md)|URL을 기반으로 라우팅하고 SSL 오프로딩을 수행할 수 있는 고급 웹 애플리케이션 부하 분산 장치입니다. |
+|[WAF](../application-gateway/waf-overview.md)(웹 애플리케이션 방화벽)|일반적인 악용 및 취약성으로부터 웹 애플리케이션을 중앙 집중식으로 보호하는 Application Gateway의 기능입니다.|
 | [Azure Load Balancer](../load-balancer/load-balancer-overview.md)|TCP/UDP 애플리케이션 네트워크 부하 분산 장치입니다. |
 | [Azure ExpressRoute](../expressroute/expressroute-introduction.md)| 온-프레미스 네트워크와 Azure 가상 네트워크 간의 전용 WAN 링크입니다. |
 | [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)| 전역 DNS 부하 분산 장치입니다.|
-| [Azure 응용 프로그램 프록시](../active-directory/active-directory-application-proxy-get-started.md)| 온-프레미스에서 호스트되는 웹 애플리케이션에 대한 원격 액세스를 보호하는 데 사용되는 인증 프런트 엔드입니다. |
+| [Azure 애플리케이션 프록시](../active-directory/active-directory-application-proxy-get-started.md)| 온-프레미스에서 호스트되는 웹 애플리케이션에 대한 원격 액세스를 보호하는 데 사용되는 인증 프런트 엔드입니다. |
+|[Azure Firewall](../firewall/overview.md)|Azure Virtual Network 리소스를 보호하는 관리형 클라우드 기반 네트워크 보안 서비스입니다.|
+|[Azure DDoS Protection](../virtual-network/ddos-protection-overview.md)|애플리케이션 설계 모범 사례와 결합하여 DDoS 공격을 방어합니다.|
+|[Virtual Network 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)|직접 연결을 통해 가상 네트워크 사설 주소 공간과 VNet의 ID를 Azure 서비스로 확장합니다.|

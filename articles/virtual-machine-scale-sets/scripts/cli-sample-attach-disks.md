@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f7acfb068d000eb76ea526ea7fb3244c585beebf
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 6966aead6ced88e0ff9b201dd12bec0a16799907
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887668"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661381"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합에 데이터 디스크를 연결하고 사용합니다
 이 스크립트는 가상 머신 확장 집합을 만들고, 데이터 디스크를 연결하고 준비합니다.
@@ -45,11 +45,11 @@ az group delete --name myResourceGroup
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](/cli/azure/ad/group#az_ad_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az vmss create](/cli/azure/vmss#az_vmss_create) | 가상 머신 확장 집합을 만들고 가상 네트워크, 서브넷 및 네트워크 보안 그룹에 연결합니다. 부하 분산 장치도 여러 VM 인스턴스에 트래픽을 분산하기 위해 만듭니다. 또한 이 명령은 사용할 VM 이미지와 관리 자격 증명도 지정합니다.  |
-| [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach) | 데이터 디스크를 만들고 가상 머신 확장 집합에 연결합니다. |
-| [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) | Azure 사용자 지정 스크립트 확장을 설치하여 각 VM 인스턴스에서 데이터 디스크를 준비하는 스크립트를 실행합니다. |
-| [az group delete](/cli/azure/ad/group#delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group create](/cli/azure/ad/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az vmss create](/cli/azure/vmss) | 가상 머신 확장 집합을 만들고 가상 네트워크, 서브넷 및 네트워크 보안 그룹에 연결합니다. 부하 분산 장치도 여러 VM 인스턴스에 트래픽을 분산하기 위해 만듭니다. 또한 이 명령은 사용할 VM 이미지와 관리 자격 증명도 지정합니다.  |
+| [az vmss disk attach](/cli/azure/vmss/disk) | 데이터 디스크를 만들고 가상 머신 확장 집합에 연결합니다. |
+| [az vmss extension set](/cli/azure/vmss/extension) | Azure 사용자 지정 스크립트 확장을 설치하여 각 VM 인스턴스에서 데이터 디스크를 준비하는 스크립트를 실행합니다. |
+| [az group delete](/cli/azure/ad/group) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.

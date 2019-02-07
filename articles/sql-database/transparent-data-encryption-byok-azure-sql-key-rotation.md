@@ -11,15 +11,15 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: jhubbard
-ms.date: 08/07/2017
-ms.openlocfilehash: 02f97b318be975f4ff24b4e72276776ebc30535c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.date: 12/06/2018
+ms.openlocfilehash: 14a39d283d9ec4f8d5267e6a6628609ac79879ee
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52991965"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567505"
 ---
-# <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell을 사용하여 TDE(Transparent Data Encryption) 보호기 회전 
+# <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell을 사용하여 TDE(Transparent Data Encryption) 보호기 회전
 
 이 문서에서는 Azure Key Vault에서 TDE 보호기를 사용한 Azure SQL Server 키 회전에 대해 설명합니다. Azure SQL Server의 TDE 보호기 회전은 서버의 데이터베이스를 보호하는 새로운 비대칭 키로의 전환을 의미합니다. 키 회전은 온라인 작업이며, 전체 데이터베이스가 아닌 데이터베이스의 암호화 키를 해독했다 다시 암호화하는 작업이기 때문에 완료되는 데 몇 초밖에 걸리지 않습니다. 
 

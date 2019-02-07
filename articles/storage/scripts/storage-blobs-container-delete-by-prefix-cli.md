@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: 85ee6505adafab9587f3583cd4c7182efcc43c11
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 01187a4dbcd8333f95cf20b5956b7b81559a19a8
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853734"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730655"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>컨테이너 이름 접두사를 기준으로 컨테이너 삭제
 
@@ -49,10 +49,10 @@ az group delete --name myResourceGroup
 | 명령 | 메모 |
 |---|---|
 | [az group create](/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | 지정된 리소스 그룹에서 Azure Storage 계정을 만듭니다. |
-| [az storage container create](/cli/azure/storage/container#az_storage_container_create) | Azure Blob Storage에서 컨테이너를 만듭니다. |
+| [az storage account create](/cli/azure/storage/account) | 지정된 리소스 그룹에서 Azure Storage 계정을 만듭니다. |
+| [az storage container create](/cli/azure/storage/container) | Azure Blob Storage에서 컨테이너를 만듭니다. |
 | [az storage container list](/cli/azure/storage/container) | Azure Storage 계정의 컨테이너를 나열합니다. |
-| [az storage container delete](/cli/azure/storage/container#az_storage_container_delete) | Azure Storage 계정의 컨테이너를 삭제합니다. |
+| [az storage container delete](/cli/azure/storage/container) | Azure Storage 계정의 컨테이너를 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/24/2019
 ms.author: jowargo
-ms.openlocfilehash: afc3b0022056d529c69eeaabd229b809623e66ea
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7e31f4f229e722d51f5de6b133e70dfb1c013533
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478589"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888161"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs를 사용하는 푸시 알림: 질문과 대답
 
@@ -194,7 +194,7 @@ Azure Notification Hubs에서는 [공유 액세스 서명](../storage/common/sto
 
 ### <a name="is-there-audit-log-capability"></a>감사 로그 기능이 있나요?
 
-모든 Notification Hubs 관리 작업은 [Azure Portal]에 표시되는 작업 로그에 기록됩니다.
+예. 모든 Notification Hubs 관리 작업은 [Azure Portal]에 공개되는 Azure 활동 로그를 업데이트합니다. Azure 활동 로그는 구독의 리소스에서 수행된 작업에 대한 인사이트를 제공합니다. 활동 로그를 사용하면 구독의 리소스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에서 누가, 무엇을, 언제 수행했는지 확인할 수 있습니다. 작업과 기타 관련 속성의 상태도 이해할 수 있습니다. 그러나 활동 로그에는 읽기(GET) 작업이 포함되지 않습니다.
 
 ## <a name="monitoring-and-troubleshooting"></a>모니터링 및 문제 해결
 

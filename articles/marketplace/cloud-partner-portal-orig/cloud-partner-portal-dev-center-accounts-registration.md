@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8bfd4ca6a9bdac999653fa9448bf7e754e9e6180
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6482eea23707f451e59d21e70f7583a0cd6680cc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254471"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168246"
 ---
 <a name="create-a-microsoft-developer-account"></a>Microsoft 개발자 계정 만들기
 ====================================
@@ -181,7 +181,8 @@ Microsoft 개발자 센터는 회사 정보를 등록하는 데 한 번 사용�
     - **다음**을 선택합니다.
 4.  세금 세부 정보를 입력하고 **다음**을 선택합니다.
 
->[경고!] Microsoft 개발자 센터 계정에 은행 계좌 및 세금 정보를 제공하지 않으면 상업용 제품을 프로덕션으로 푸시할 수 없습니다.
+>[!WARNING]
+>Microsoft 개발자 센터 계정에 은행 계좌 및 세금 정보를 제공하지 않으면 상업용 제품을 프로덕션으로 푸시할 수 없습니다.
 
 ### <a name="developer-center-registration-issues"></a>개발자 센터 등록 문제
 

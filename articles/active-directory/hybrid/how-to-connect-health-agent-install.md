@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 7a15b04e9e0fbd2cedf07c2833df30e4f0ca3db7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a929db325cdeacd36686e900d0a37056e2495db9
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167940"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495057"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Agent 설치
 이 문서는 Azure AD Connect Health Agent를 설치하고 구성하는 단계를 안내합니다. [여기](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent)에서 에이전트를 다운로드할 수 있습니다.

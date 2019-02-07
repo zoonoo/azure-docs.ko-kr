@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: a50fca059331b28c46adb65903be4e7ba018a36c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2fbc155afc3fd5280f2baf4eccabb895c158b89f
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052039"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913575"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -198,20 +198,18 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_
 
 요청 ID는 [IoT Hub 메시징 개발자 가이드][lnk-messaging]에 따라 메시지 속성 값에 대한 유효한 값이며 status는 정수로 확인됩니다.
 
-응답 본문은 디바이스 쌍의 properties 섹션을 포함합니다. 다음 코드 조각에서는 “properties” 구성원으로 제한된 ID 레지스트리 항목의 본문을 보여 줍니다. 예:
+응답 본문에는 다음 응답 예제와 같이 디바이스 쌍의 속성 섹션이 포함되어 있습니다.
 
 ```json
 {
-    "properties": {
-        "desired": {
-            "telemetrySendFrequency": "5m",
-            "$version": 12
-        },
-        "reported": {
-            "telemetrySendFrequency": "5m",
-            "batteryLevel": 55,
-            "$version": 123
-        }
+    "desired": {
+        "telemetrySendFrequency": "5m",
+        "$version": 12
+    },
+    "reported": {
+        "telemetrySendFrequency": "5m",
+        "batteryLevel": 55,
+        "$version": 123
     }
 }
 ```
@@ -220,7 +218,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_
 
 |상태 | 설명 |
 | ----- | ----------- |
-| 200 | 성공 |
+| 204 | 성공(반환되는 콘텐츠 없음) |
 | 429 | 너무 많은 요청(제한됨), [IoT Hub 제한][lnk-quotas] 참조 |
 | 5** | 서버 오류 |
 
@@ -228,7 +226,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_
 
 ### <a name="update-device-twins-reported-properties"></a>디바이스 쌍의 reported 속성 업데이트
 
-reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토픽에서 게시를 통해 IoT Hub에 요청을 발급합니다. IoT Hub는 요청을 처리한 후에 다른 항목에 대한 게시를 통해 업데이트 작업의 성공 또는 실패 상태를 응답합니다. 해당 쌍 업데이트 요청의 결과에 대해 알리기 위해 디바이스에서 이 토픽을 구독할 수 있습니다. MQTT에서 이 형식의 요청/응답 상호 작용을 구현하려면 해당 업데이트 요청의 디바이스에서 처음 제공된 요청 ID(`$rid`)의 개념을 활용합니다. 이 요청 ID는 IoT Hub의 응답에도 포함되어 디바이스가 이전의 특정 요청에 대한 응답을 상호 연결하도록 합니다.
+reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토픽에서 게시를 통해 IoT Hub에 요청을 발급합니다. IoT Hub는 요청을 처리한 후에 다른 항목에 대한 게시를 통해 업데이트 작업의 성공 또는 실패 상태를 응답합니다. 해당 쌍 업데이트 요청의 결과에 대해 알리기 위해 디바이스에서 이 토픽을 구독할 수 있습니다. MQTT에서 이 형식의 요청/응답 상호 작용을 구현하려면 해당 업데이트 요청의 디바이스에서 처음에 제공한 요청 ID(`$rid`)의 개념을 활용합니다. 이 요청 ID는 IoT Hub의 응답에도 포함되어 디바이스가 이전의 특정 요청에 대한 응답을 상호 연결하도록 합니다.
 
 다음 시퀀스에서는 디바이스가 IoT Hub의 디바이스 쌍에서 보고된 속성을 업데이트하는 방법을 설명합니다.
 

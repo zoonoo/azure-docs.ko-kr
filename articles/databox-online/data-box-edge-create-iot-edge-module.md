@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 8d4a99ab9d8107f1b3fbe70f59299f427bc88bd5
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 86eec87d0c466b9172834fa9dbe7dfcb3702ea55
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465893"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094107"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>C# IoT Edg 모듈을 개발하여 Data Box Edge에서 파일 이동(미리 보기)
 
@@ -97,8 +97,8 @@ Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하고
 고유의 코드로 사용자 지정할 수 있는 C# 솔루션 템플릿을 만듭니다.
 
 1. Visual Studio Code에서 **보기 > 명령 팔레트**를 선택하여 VS Code 명령 팔레트를 엽니다.
-2. 명령 팔레트에서 **Azure: 로그인** 명령을 입력 및 실행하고, 지침에 따라 Azure 계정에 로그인합니다. 이미 로그인한 경우 이 단계를 건너뛸 수 있습니다.
-3. 명령 팔레트에서 **Azure IoT Edge: 새로운 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 명령 팔레트에서 다음 정보를 제공하여 솔루션을 만듭니다.
+2. 명령 팔레트에서 **Azure: 로그인** 명령을 입력하고 실행한 다음, 지침에 따라 Azure 계정에 로그인합니다. 이미 로그인한 경우 이 단계를 건너뛸 수 있습니다.
+3. 명령 팔레트에서 **Azure IoT Edge: 새 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 명령 팔레트에서 다음 정보를 제공하여 솔루션을 만듭니다.
 
     1. 솔루션을 만들 폴더를 선택합니다.
     2. 솔루션에 대한 이름을 제공하거나 기본 **EdgeSolution**을 그대로 적용합니다.
@@ -143,7 +143,7 @@ Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하고
             static int counter;
             private const string InputFolderPath = "/home/LocalShare";
             private const string OutputFolderPath = "/home/CloudShare";
-    ````
+    ```
 
     > [!IMPORTANT]
     > `InputFolderPath` 및 `OutputFolderPath`를 기록해 둡니다. 이 모듈을 배포할 때 이러한 경로를 제공해야 합니다.
@@ -269,7 +269,7 @@ Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하고
 
     무시할 수 있는 다음과 같은 경고가 나타날 수 있습니다.
 
-    *Program.cs(77,44): warning CS1998: 이 비동기 메서드에는 'await' 연산자가 없으며 메서드가 동시에 실행됩니다. 'await' 연산자를 사용하여 비블로킹 API 호출을 대기하거나, 'await Task.Run(...)'을 사용하여 백그라운드 스레드에서 CPU 바인딩된 작업을 수행하세요.*
+    *Program.cs(77,44): 경고 CS1998: 이 비동기 메서드는 'await' 연산자가 부족하여 동기적으로 실행됩니다. 'await' 연산자를 사용하여 비블로킹 API 호출을 대기하거나, 'await Task.Run(...)'을 사용하여 백그라운드 스레드에서 CPU 바인딩된 작업을 수행하세요.*
 
 4. VS Code 통합 터미널에 태그와 함께 전체 컨테이너 이미지 주소를 볼 수 있습니다. 이미지 주소는 `<repository>:<version>-<platform>` 형식으로 module.json 파일에 있는 정보에서 빌드됩니다. 이 문서의 경우 `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64`처럼 보여야 합니다.
 

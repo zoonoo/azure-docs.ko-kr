@@ -17,12 +17,12 @@ ms.prod: vs-devops-alm
 ms.date: 09/12/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 49ed750a25c732b7f11ef5de2e545be2a5412fa8
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1582cc7e48adcf895dc7c07e7ab485790650ac14
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437574"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911914"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure의 Visual Studio 이미지
 미리 구성된 Azure VM(가상 머신)에서 Visual Studio를 사용하면 아무 작업도 하지 않고 실행 중인 개발 환경으로 빠르고 쉽게 이동할 수 있습니다. 다양한 Visual Studio 구성이 적용된 시스템 이미지를 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1)에서 사용할 수 있습니다.
@@ -34,7 +34,7 @@ Azure를 처음 사용하세요? [평가판 Azure 계정을 만듭니다](https:
 
 | 릴리스 버전                                              | 에디션                     |     제품 버전      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|    Visual Studio 2019: 미리 보기(Preview 1)                   |           Enterprise         | 버전 16.0.0 Preview 1 |
+|    Visual Studio 2019: 미리 보기(미리 보기 2)                   |           Enterprise         | 버전 16.0.0 미리 보기 2 |
 | Visual Studio 2017: 최신(버전 15.9)                    |    Enterprise, Community     |      버전 15.9.4      |
 |         Visual Studio 2017: RTW                              |    Enterprise, Community     |      버전 15.0.20     |
 |   Visual Studio 2015: 최신(Update 3)                      |    Enterprise, Community     |  버전 14.0.25431.01   |
@@ -71,7 +71,7 @@ Azure를 처음 사용하세요? [평가판 Azure 계정을 만듭니다](https:
 이미지에 필요한 Visual Studio 기능이 포함되어 있지 않으면 페이지의 오른쪽 위 모서리에 있는 피드백 도구를 통해 피드백을 주시기 바랍니다.
 
 ## <a name="what-size-vm-should-i-choose"></a>어떤 VM 크기를 선택해야 하나요?
-Azure에는 모든 범위의 가상 머신 크기가 제공됩니다. Visual Studio는 강력한 다중 스레드 응용 프로그램이므로, 2개 이상의 프로세서와 7GB의 메모리가 포함된 VM 크기가 필요합니다. Visual Studio 이미지에 대해 다음 VM 크기가 권장됩니다.
+Azure에는 모든 범위의 가상 머신 크기가 제공됩니다. Visual Studio는 강력한 다중 스레드 애플리케이션이므로, 2개 이상의 프로세서와 7GB의 메모리가 포함된 VM 크기가 필요합니다. Visual Studio 이미지에 대해 다음 VM 크기가 권장됩니다.
 
    * Standard_D2_v3
    * Standard_D2s_v3

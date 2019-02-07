@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
-ms.author: cwatson
-ms.openlocfilehash: 27b31b6dec480fee417bf9ccb241199204f28f96
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 4133d78ccff1fa4eb712d8928cefa604ca2f52ca
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582652"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902060"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Reservations란?
 
@@ -36,9 +36,9 @@ Azure 예약은 1년치 또는 3년치 가상 머신, SQL Database 계산 용량
 
 ## <a name="what-charges-does-a-reservation-cover"></a>예약에 포함되는 요금 범위
 
-- 예약 Virtual Machine 인스턴스: 예약에 가상 머신 계산 비용만 포함됩니다. 추가 소프트웨어, 네트워킹 또는 저장소 요금은 포함되지 않습니다.
-- SQL Database 예약 vCore: 계산 비용만 예약에 포함됩니다. 라이선스는 별도로 청구됩니다.
-- Azure Cosmos DB 예약된 용량: 예약은 리소스에 대해 프로비전된 처리량을 포함하지만 저장소 및 네트워킹 요금은 포함하지 않습니다. 
+- Reserved Virtual Machine Instance: 가상 머신 컴퓨팅 비용만 예약에 포함됩니다. 추가 소프트웨어, 네트워킹 또는 저장소 요금은 포함되지 않습니다.
+- SQL Database 예약 vCore: 컴퓨팅 비용만 예약에 포함됩니다. 라이선스는 별도로 청구됩니다.
+- Azure Cosmos DB 예약 용량: 리소스에 프로비전되는 처리량이 예약에 포함되지만, 스토리지 및 네트워킹 요금은 포함되지 않습니다. 
 
 Windows 가상 머신 및 SQL Database의 경우 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)으로 라이선스 비용을 처리할 수 있습니다.
 
@@ -77,10 +77,10 @@ Windows 가상 머신 및 SQL Database의 경우 [Azure 하이브리드 혜택](
 
 예약 구매 시에는 동일 크기 그룹 내의 특성이 적용되는 다른 인스턴스에도 할인을 적용할 수 있습니다. 할인 유동 적용 여부는 예약 구매 시 선택하는 특성과 예약의 유형에 따라 달라집니다.
 
-- 예약 VM 인스턴스: 예약 구매 시 **최적화 대상**: **인스턴스 크기 유연성**을 선택하면 할인 적용률은 선택하는 VM 크기에 따라 달라집니다. 같은 크기 시리즈 그룹의 VM(가상 머신) 크기에 예약을 적용할 수 있습니다. 자세한 내용은 [예약 VM 인스턴스를 통해 유동적으로 가상 머신 크기 조정](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md)을 참조하세요.
-- SUSE Linux Enterprise 소프트웨어 플랜: SUSE 소프트웨어를 실행하는 VM의 vCPU에 따라 할인 적용률이 달라집니다. 자세한 내용은 [SUSE Linux Enterprise 소프트웨어 플랜 할인이 적용되는 방식 이해](billing-understand-suse-reservation-charges.md)를 참조하세요.
-- SQL Database 예약된 용량: 선택하는 성능 계층에 따라 할인 적용률이 달라집니다. 자세한 내용은 [Azure 예약 할인이 적용되는 방식 이해](billing-understand-reservation-charges.md)를 참조하세요.
-- Azure Cosmos DB 예약된 용량: 프로비전되는 처리량에 따라 할인 적용률이 달라집니다. 자세한 내용은 [Azure Cosmos DB 예약 할인이 적용되는 방식 이해](billing-understand-cosmosdb-reservation-charges.md)를 참조하세요.
+- Reserved VM Instances: 예약을 구매할 때 **다음에 대해 최적화됨**: **인스턴스 크기 유연성**을 선택하는 경우 할인 적용 범위는 선택하는 VM 크기에 따라 달라집니다. 같은 크기 시리즈 그룹의 VM(가상 머신) 크기에 예약을 적용할 수 있습니다. 자세한 내용은 [예약 VM 인스턴스를 통해 유동적으로 가상 머신 크기 조정](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md)을 참조하세요.
+- SUSE Linux Enterprise 소프트웨어 요금제: 할인 적용 범위는 SUSE 소프트웨어를 실행하는 VM의 vCPU 수에 따라 달라집니다. 자세한 내용은 [SUSE Linux Enterprise 소프트웨어 플랜 할인이 적용되는 방식 이해](billing-understand-suse-reservation-charges.md)를 참조하세요.
+- SQL Database 예약 용량: 할인 적용 범위는 선택하는 성능 계층에 따라 달라집니다. 자세한 내용은 [Azure 예약 할인이 적용되는 방식 이해](billing-understand-reservation-charges.md)를 참조하세요.
+- Azure Cosmos DB 예약 용량: 할인 적용 범위는 프로비전되는 처리량에 따라 달라집니다. 자세한 내용은 [Azure Cosmos DB 예약 할인이 적용되는 방식 이해](billing-understand-cosmosdb-reservation-charges.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

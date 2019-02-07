@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 3313d7490ed9a2f51831c76148a54b7ecf19d3b3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c14267f6fc7f8c6be9199b9f25b6430b5f1aa5dd
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338807"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887413"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log Analytics의 VMware 모니터링(미리 보기) 솔루션
 
@@ -34,13 +34,13 @@ Log Analytics VMware 모니터링 솔루션은 대규모 VMware 로그에 적합
 ## <a name="install-and-configure-the-solution"></a>솔루션 설치 및 구성
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
-* [관리 솔루션 설치](../../azure-monitor/insights/solutions.md#install-a-management-solution)에 설명된 프로세스를 사용하여 구독에 VMware 모니터링 솔루션을 추가합니다.
+* [관리 솔루션 설치](../insights/solutions.md#install-a-management-solution)에 설명된 프로세스를 사용하여 구독에 VMware 모니터링 솔루션을 추가합니다.
 
 #### <a name="supported-vmware-esxi-hosts"></a>지원되는 VMware ESXi 호스트
 vSphere ESXi 호스트 5.5, 6.0 및 6.5
 
 #### <a name="prepare-a-linux-server"></a>Linux 서버 준비
-ESXi 호스트로부터 모든 syslog 데이터를 수신하는 Linux 운영 체제 VM을 만듭니다. [Log Analytics Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md)는 모든 ESXi 호스트 syslog 데이터를 수집하는 지점입니다. 아래 예에서 보여 주듯이 여러 ESXi 호스트에서 단일 Linux 서버로 로그를 전달할 수 있습니다.
+ESXi 호스트로부터 모든 syslog 데이터를 수신하는 Linux 운영 체제 VM을 만듭니다. [Log Analytics Linux 에이전트](../learn/quick-collect-linux-computer.md)는 모든 ESXi 호스트 syslog 데이터를 수집하는 지점입니다. 아래 예에서 보여 주듯이 여러 ESXi 호스트에서 단일 Linux 서버로 로그를 전달할 수 있습니다.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -129,7 +129,7 @@ VMware 타일이 Log Analytics 작업 영역에 나타납니다. 발생한 모�
 
 블레이드를 클릭하면 해당 블레이드의 특정 세부 정보를 보여 주는 Log Analytics 검색 창이 열립니다.
 
-여기서는 특정 항목을 위해 검색 쿼리를 수정하도록 편집할 수 있습니다. 로그 검색을 만드는 방법에 대한 자세한 내용은 [로Log Analytics에서 로그 검색을 사용하여 데이터 찾기](../../azure-monitor/log-query/log-query-overview.md)를 참조하세요.
+여기서는 특정 항목을 위해 검색 쿼리를 수정하도록 편집할 수 있습니다. 로그 검색을 만드는 방법에 대한 자세한 내용은 [로Log Analytics에서 로그 검색을 사용하여 데이터 찾기](../log-query/log-query-overview.md)를 참조하세요.
 
 #### <a name="find-esxi-host-events"></a>ESXi 호스트 이벤트 찾기
 단일 ESXi 호스트에서는 프로세스에 따라 여러 로그를 생성합니다. VMware 모니터링 솔루션은 이러한 로그를 중앙 집중식으로 관리하고 이벤트 수를 요약 합니다. 이처럼 중앙 집중화된 보기를 사용하면 대량의 이벤트가 발생한 ESXi 호스트 및 사용자 환경에서 가장 빈번하게 발생한 이벤트를 손쉽게 파악할 수 있습니다.
@@ -158,12 +158,12 @@ ESXi 호스트마다 가상 머신을 만들고 삭제할 수 있습니다. 이�
 
 
 #### <a name="save-queries"></a>쿼리 저장
-Log Analytics 표준 기능인 검색 쿼리 저장은 유용한 것으로 확인된 쿼리를 유지하는 데 도움이 됩니다. 만든 쿼리가 유용하다고 생각되면 **즐겨찾기**를 클릭하여 해당 쿼리를 저장합니다. 저장된 쿼리를 사용하면 나중에 사용자 지정 대시보드를 만들 수 있는 [내 대시보드](../../azure-monitor/platform/dashboards.md) 페이지에서 해당 쿼리를 손쉽게 다시 활용할 수 있습니다.
+Log Analytics 표준 기능인 검색 쿼리 저장은 유용한 것으로 확인된 쿼리를 유지하는 데 도움이 됩니다. 만든 쿼리가 유용하다고 생각되면 **즐겨찾기**를 클릭하여 해당 쿼리를 저장합니다. 저장된 쿼리를 사용하면 나중에 사용자 지정 대시보드를 만들 수 있는 [내 대시보드](../learn/tutorial-logs-dashboards.md) 페이지에서 해당 쿼리를 손쉽게 다시 활용할 수 있습니다.
 
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>쿼리에서 경고 만들기
-쿼리를 만든 후에는 특정 이벤트가 발생할 때 경고하도록 이 쿼리를 사용하는 것이 좋습니다. 경고를 생성하는 방법에 대한 내용은 [Log Analytics의 경고](../../azure-monitor/platform/alerts-overview.md)를 참조하세요. 경고 쿼리 및 기타 쿼리의 예제에 대해서는 [Monitor VMware using Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics)(Log Analytics를 사용하여 VMware 모니터링) 블로그 게시물을 참조하세요.
+쿼리를 만든 후에는 특정 이벤트가 발생할 때 경고하도록 이 쿼리를 사용하는 것이 좋습니다. 경고를 생성하는 방법에 대한 내용은 [Log Analytics의 경고](../platform/alerts-overview.md)를 참조하세요. 경고 쿼리 및 기타 쿼리의 예제에 대해서는 [Monitor VMware using Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics)(Log Analytics를 사용하여 VMware 모니터링) 블로그 게시물을 참조하세요.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>ESXi 호스트 설정에서 수행해야 하는 작업은 무엇입니까? 현재 환경에 미치는 영향은 무엇입니까?
@@ -204,6 +204,6 @@ Syslog 타임스탬프에 대한 ESXi 호스트 버그가 있었습니다. 자�
     d. 파일이 없거나 사용자 및 그룹 정책 설정이 잘못된 경우 [Linux 서버를 준비](#prepare-a-linux-server)하여 정정 작업을 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* Log Analytics의 [로그 검색](../../azure-monitor/log-query/log-query-overview.md)을 통한 자세한 VMware 호스트 데이터 보기
-* VMware 호스트 데이터를 보여 주는 [사용자 고유의 대시보드 만들기](../../azure-monitor/platform/dashboards.md)
-* 특정 VMware 호스트 이벤트가 발생하는 경우의 [경고 만들기](../../azure-monitor/platform/alerts-overview.md)
+* Log Analytics에서 [로그 쿼리](../log-query/log-query-overview.md)를 사용하여 자세한 VMware 호스트 데이터를 봅니다.
+* VMware 호스트 데이터를 보여 주는 [사용자 고유의 대시보드 만들기](../learn/tutorial-logs-dashboards.md)
+* 특정 VMware 호스트 이벤트가 발생하는 경우의 [경고 만들기](../platform/alerts-overview.md)

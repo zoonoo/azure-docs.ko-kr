@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: cf06be778fb1bd251b55adcc503db63a2adf3f8b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c99f4491af8fe3e5f0f0ed7a264995ae3ec5911f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197928"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658269"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0
 
@@ -134,7 +134,7 @@ API 수준의 "수신" 호출은 클라이언트가 Service Bus로 보내는 *�
 
 전송이 최종 상태인 *수락됨*, *거부됨* 또는 *해제됨* 중 하나로 설정되면 메시지에 대한 잠금이 해제됩니다. 최종 상태가 *수락됨*이면 Service Bus에서 메시지가 제거됩니다. 해당 메시지는 Service Bus에 그대로 남아 있다가 전송이 다른 상태에 도달하면 다음 수신자에게 전달됩니다. Service Bus는 반복되는 거부 또는 해제로 인해 엔터티에 대해 허용되는 최대 배달 횟수에 도달하면 자동으로 메시지를 엔터티의 배달 못 한 편지 큐로 이동합니다.
 
-Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않지만, 하위 수준의 AMQP 프로토콜 클라이언트는 링크-크레딧 모델을 사용하여 대량의 링크 크레딧을 발행한 후 추가 상호 작용 없이 메시지를 사용할 수 있게 되면 메시지를 수신하여 각 수신 요청에 대해 크레딧 한 단위를 발행하는 "가져오기 스타일" 모델로 전환할 수 있습니다. [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) 또는 [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) 속성 설정을 통한 가져오기가 지원됩니다. AMQP 클라이언트는 0이 아닌 크레딧을 링크 크레딧으로 사용합니다.
+Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않지만, 하위 수준의 AMQP 프로토콜 클라이언트는 링크-크레딧 모델을 사용하여 대량의 링크 크레딧을 발행한 후 추가 상호 작용 없이 메시지를 사용할 수 있게 되면 메시지를 수신하여 각 수신 요청에 대해 크레딧 한 단위를 발행하는 "가져오기 스타일" 모델로 전환할 수 있습니다. [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) 또는 [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) 속성 설정을 통한 가져오기가 지원됩니다. AMQP 클라이언트는 0이 아닌 크레딧을 링크 크레딧으로 사용합니다.
 
 이 컨텍스트에서 엔터티 내 메시지 잠금 만료에 대한 클록은 메시지가 유선으로 전송될 때가 아니라 메시지를 엔터티에서 가져올 때 시작된다는 것을 이해해야 합니다. 클라이언트가 링크 크레딧을 발행하여 메시지를 수신할 준비가 되었음을 나타낼 때마다 네트워크를 통해 메시지를 능동적으로 끌어와 처리할 준비가 된 것으로 간주됩니다. 그렇지 않으면 메시지 배달도 되기 전에 메시지 잠금이 만료될 수 있습니다. 링크 크레딧 흐름 제어를 사용하게 되면 수신자에게 발송된 사용 가능한 메시지를 처리할 준비가 되었는지를 바로 알 수 있습니다.
 
@@ -214,7 +214,7 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 | --- | --- | --- |
 | 지속성 |- |- |
 | 우선 순위 |- |- |
-| ttl |이 메시지에 대한 TTL(Time to live) |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive) |
+| ttl |이 메시지에 대한 TTL(Time to live) |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | first-acquirer |- |- |
 | delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
@@ -222,17 +222,17 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 
 | 필드 이름 | 사용 현황 | API 이름 |
 | --- | --- | --- |
-| message-id |이 메시지에 대한 애플리케이션 정의 자유 형식 식별자입니다. 중복 검색에 사용됩니다. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
+| message-id |이 메시지에 대한 애플리케이션 정의 자유 형식 식별자입니다. 중복 검색에 사용됩니다. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Service Bus에서 해석되지 않는 애플리케이션 정의 사용자 식별자입니다. |Service Bus API를 통해 액세스할 수 없습니다. |
-| to |Service Bus에서 해석되지 않는 애플리케이션 정의 대상 식별자입니다. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
-| 제목 |Service Bus에서 해석되지 않는 애플리케이션 정의 메시지 용도 식별자입니다. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
-| reply-to |Service Bus에서 해석되지 않는 애플리케이션 정의 회산 경로 식별자입니다. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
+| to |Service Bus에서 해석되지 않는 애플리케이션 정의 대상 식별자입니다. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| 제목 |Service Bus에서 해석되지 않는 애플리케이션 정의 메시지 용도 식별자입니다. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| reply-to |Service Bus에서 해석되지 않는 애플리케이션 정의 회산 경로 식별자입니다. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |Service Bus에서 해석되지 않는 애플리케이션 정의 상관 관계 식별자입니다. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-type |Service Bus에서 해석되지 않는 본문에 대한 애플리케이션 정의 콘텐츠 형식 지표입니다. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-encoding |Service Bus에서 해석되지 않는 본문에 대한 애플리케이션 정의 콘텐츠 인코딩 지표입니다. |Service Bus API를 통해 액세스할 수 없습니다. |
-| absolute-expiry-time |메시지가 만료되는 절대 인스턴트를 선언합니다. 입력 중에는 무시되고(헤더 TTL이 확인됨), 출력 중에는 신뢰할 수 있습니다. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
+| absolute-expiry-time |메시지가 만료되는 절대 인스턴트를 선언합니다. 입력 중에는 무시되고(헤더 TTL이 확인됨), 출력 중에는 신뢰할 수 있습니다. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | creation-time |메시지가 만들어진 시간을 선언합니다. Service Bus에서 사용되지 않습니다. |Service Bus API를 통해 액세스할 수 없습니다. |
-| group-id |관련된 메시지 집합에 대한 애플리케이션 정의 식별자입니다. Service Bus 세션에 사용됩니다. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
+| group-id |관련된 메시지 집합에 대한 애플리케이션 정의 식별자입니다. Service Bus 세션에 사용됩니다. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | group-sequence |세션 내 메시지의 상대 시퀀스 번호를 식별하는 카운터입니다. Service Bus에서 무시됩니다. |Service Bus API를 통해 액세스할 수 없습니다. |
 | reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 

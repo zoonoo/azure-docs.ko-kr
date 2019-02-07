@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 12ff4fef5e04819e967a39fe65845b89790e22d6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b3afbeb5a3fa2cda6ec5eaabe368163a370352d1
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234452"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568195"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>IoT Hub를 사용하여 디바이스에서 클라우드로 파일 업로드
 
@@ -25,7 +25,7 @@ ms.locfileid: "51234452"
 - 파일을 업로드하기 위한 Azure blob URI를 디바이스에 안전하게 제공합니다.
 - IoT Hub 파일 업로드 알림을 사용하여 앱 백 엔드에서 파일 처리를 트리거합니다.
 
-[IoT Hub 시작](quickstart-send-telemetry-node.md) 자습서는 IoT Hub의 기본 장치-클라우드 메시지 기능을 보여줍니다. 그러나 일부 시나리오에서는 디바이스에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 디바이스-클라우드 메시지에 쉽게 매핑할 수 없습니다. 예: 
+[IoT Hub 시작](quickstart-send-telemetry-node.md) 자습서는 IoT Hub의 기본 디바이스-클라우드 메시지 기능을 보여줍니다. 그러나 일부 시나리오에서는 디바이스에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 디바이스-클라우드 메시지에 쉽게 매핑할 수 없습니다. 예: 
 
 * 이미지가 포함된 대형 파일
 * 동영상
@@ -59,7 +59,7 @@ ms.locfileid: "51234452"
     npm init
     ```
 
-1. ```simulateddevice``` 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device** 장치 SDK 패키지 및 **azure-iot-device-mqtt** 패키지를 설치합니다.
+1. ```simulateddevice``` 폴더의 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device** 디바이스 SDK 패키지 및 **azure-iot-device-mqtt** 패키지를 설치합니다.
 
     ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
@@ -69,7 +69,7 @@ ms.locfileid: "51234452"
 
 1. **SimulatedDevice.js** 파일 앞에 다음 ```require``` 문을 추가합니다.
 
-    ```nodejs
+    ```javascript
     'use strict';
     
     var fs = require('fs');
@@ -77,9 +77,9 @@ ms.locfileid: "51234452"
     var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
     ```
 
-1. ```deviceconnectionstring``` 변수를 추가하고 이 변수를 사용하여 **클라이언트** 인스턴스를 만듭니다.  ```{deviceconnectionstring}```을 _IoT Hub 만들기_ 섹션에서 만든 장치 이름으로 바꿉니다.
+1. ```deviceconnectionstring``` 변수를 추가하고 이 변수를 사용하여 **클라이언트** 인스턴스를 만듭니다.  ```{deviceconnectionstring}```을 _IoT Hub 만들기_ 섹션에서 만든 디바이스 이름으로 바꿉니다.
 
-    ```nodejs
+    ```javascript
     var connectionString = '{deviceconnectionstring}';
     var filename = 'myimage.png';
     ```
@@ -89,14 +89,14 @@ ms.locfileid: "51234452"
 
 1. 클라이언트에 연결하도록 다음 코드를 추가합니다.
 
-    ```nodejs
+    ```javascript
     var client = clientFromConnectionString(connectionString);
     console.log('Client connected');
     ```
 
 1. 콜백을 만들고 **uploadToBlob** 함수를 사용하여 파일을 업로드합니다.
 
-    ```nodejs
+    ```javascript
     fs.stat(filename, function (err, stats) {
         const rr = fs.createReadStream(filename);
     
@@ -136,7 +136,7 @@ ms.locfileid: "51234452"
 
 1. **FileUploadNotification.js** 파일의 시작 부분에 다음 ```require``` 문을 추가합니다.
 
-    ```nodejs
+    ```javascript
     'use strict';
     
     var Client = require('azure-iothub').Client;
@@ -144,7 +144,7 @@ ms.locfileid: "51234452"
 
 1. ```iothubconnectionstring``` 변수를 추가하고 이 변수를 사용하여 **클라이언트** 인스턴스를 만듭니다.  ```{iothubconnectionstring}```을 _IoT Hub 만들기_ 섹션에서 만든 IoT Hub에 대한 연결 문자열로 바꿉니다.
 
-    ```nodejs
+    ```javascript
     var connectionString = '{iothubconnectionstring}';
     ```
 
@@ -153,13 +153,13 @@ ms.locfileid: "51234452"
 
 1. 클라이언트에 연결하도록 다음 코드를 추가합니다.
 
-    ```nodejs
+    ```javascript
     var serviceClient = Client.fromConnectionString(connectionString);
     ```
 
 1. 클라이언트를 열고 상태 업데이트를 수신하는 **getFileNotificationReceiver** 함수를 사용합니다.
 
-    ```nodejs
+    ```javascript
     serviceClient.open(function (err) {
       if (err) {
         console.error('Could not connect: ' + err.message);

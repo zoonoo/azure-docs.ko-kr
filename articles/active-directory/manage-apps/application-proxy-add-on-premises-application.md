@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 2847cf4abdfdea7eb38bd965cb54a223f014fb68
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1f6962f0313b6b0ca187512185c990606789da6e
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176916"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661958"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가
 
@@ -181,7 +181,7 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
     | **백 엔드 애플리케이션 시간 제한** | 애플리케이션의 인증 및 연결 속도가 느린 경우에만 이 값을 **Long**으로 설정합니다. |
     | **HTTP 전용 쿠키 사용** | Application Proxy 쿠키가 HTTP 응답 헤더에 HTTPOnly 플래그를 포함하도록 하려면 이 값을 **예**로 설정합니다. 원격 데스크톱 서비스를 사용하는 경우 이 값을 **아니요**로 설정합니다.|
     | **보안 쿠키 사용**| 이 값을 **예**로 설정하여 암호화된 HTTPS 요청과 같이 보안 채널을 통해 쿠키를 전송합니다.
-    | **영구적 쿠키 사용**| **아니요**로 설정된 이 값을 유지합니다. 이 설정은 프로세스 간에 쿠키를 공유할 수 없는 애플리케이션에만 사용해야 합니다. 쿠키 설정에 대한 자세한 내용은 [Azure Active Directory에서 온-프레미스 애플리케이션에 액세스하기 위한 쿠키 설정](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings)을 참조하세요.
+    | **영구적 쿠키 사용**| **아니요**로 설정된 이 값을 유지합니다. 이 설정은 프로세스 간에 쿠키를 공유할 수 없는 애플리케이션에만 사용해야 합니다. 쿠키 설정에 대한 자세한 내용은 [Azure Active Directory에서 온-프레미스 애플리케이션에 액세스하기 위한 쿠키 설정](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings)을 참조하세요.
     | **헤더의 URL 변환** | 애플리케이션이 인증 요청에서 원래 호스트 헤더를 요구하지 않는 한 이 값을 **예**로 유지합니다. |
     | **애플리케이션 본문의 URL 변환** | 다른 온-프레미스 애플리케이션에 HTML 링크를 하드 코드하지 않고 사용자 지정 도메인을 사용하지 않는 한 이 값을 **아니요**로 유지합니다. 자세한 내용은 [애플리케이션 프록시를 사용한 링크 변환](application-proxy-configure-hard-coded-link-translation.md)을 참조하세요.<br><br>MCAS(Microsoft Cloud App Security)를 사용하여 이 애플리케이션을 모니터링하려는 경우 이 값을 **예**로 설정합니다. 자세한 내용은 [Microsoft Cloud App Security와 Azure Active Directory를 사용하여 실시간 애플리케이션 액세스 모니터링 구성](application-proxy-integrate-with-microsoft-cloud-application-security.md)을 참조하세요. |
    

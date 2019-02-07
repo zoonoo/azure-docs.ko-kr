@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 09/28/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5be80334491afdb7e65a1a5e663258d68ec83d4f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 92cdcf35675a3e481c994078191a992c5912f212
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158930"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491895"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>기본 설정을 사용하여 Azure AD Connect 시작
 인증을 위한 단일 포리스트 토폴로지 및 **암호 해시 동기화**가 있는 경우 Azure AD Connect [Express 설정](how-to-connect-password-hash-synchronization.md)을 사용합니다. **Express 설정** 은 기본 옵션이며 가장 일반적으로 배포된 시나리오에 사용됩니다. 몇 번의 클릭만으로 온-프레미스 디렉터리를 클라우드로 확장할 수 있습니다.

@@ -4,17 +4,17 @@ description: 이 문서는 Azure Policy에 대해 프로그래밍 방식으로 �
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/26/2019
+ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 575e2974131a09bdbdbc96d3ad252365ac9da86e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: afdd6a238671bf41252eae8b55f1b6e61f358336
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101790"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510836"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>프로그래밍 방식으로 정책 및 보기 규정 준수 데이터 만들기
 
@@ -96,8 +96,9 @@ ms.locfileid: "55101790"
    _ContosoRG_를 원하는 리소스 그룹의 이름으로 바꿉니다.
 
    `New-AzPolicyAssignment`의 **Scope** 매개 변수는 구독 및 관리 그룹에서도 작동합니다. 이 매개 변수는 `Get-AzResourceGroup`의 **ResourceId** 속성이 반환하는 전체 리소스 경로를 사용합니다. 각 컨테이너에 대한 **Scope** 패턴은 다음과 같습니다.
-   `{rgName}`, `{subId}` 및 `{mgName}`을 각각 리소스 그룹 이름, 구독 ID 및 관리 그룹 이름으로 바꿉니다.
+   `{rName}`, `{rgName}`, `{subId}` 및 `{mgName}`을 각각 리소스 이름, 리소스 그룹 이름, 구독 ID 및 관리 그룹 이름으로 바꿉니다. `{rType}`은 리소스의 **리소스 종류**로 바꿉니다(예: VM에 대한 `Microsoft.Compute/virtualMachines`).
 
+   - 리소스 - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - 리소스 그룹 - `/subscriptions/{subId}/resourceGroups/{rgName}`
    - 구독 - `/subscriptions/{subId}/`
    - 관리 그룹 - `/providers/Microsoft.Management/managementGroups/{mgName}`

@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 36efb943855d36d1f830ba08554eabd0a8a88f50
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3ed781b7d3388015de93a81fb745764a8ad95baa
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169334"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663192"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 공동 작업 FAQ
 
@@ -69,11 +69,11 @@ Azure Active Directory(Azure AD) 기업 간(B2B) 공동 작업에 대한 이러�
 예. Multi-Factor Authentication 및 소비자 전자 메일 계정은 둘 다 Azure AD B2B 공동 작업에 지원됩니다.
 
 ### <a name="do-you-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>Azure AD B2B 공동 작업 사용자를 위한 암호 재설정을 지원하나요?
-Azure AD 테넌트가 사용자의 홈 디렉터리이면 Azure portal에서 [사용자의 암호를 다시 설정](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal#how-to-reset-the-password-for-a-user)할 수 있습니다. 하지만 다른 Azure AD 디렉터리 또는 외부 ID 공급자가 관리하는 계정으로 로그인한 게스트 사용자에 대한 암호는 직접 재설정할 수는 없습니다. 게스트 사용자 또는 사용자의 홈 디렉터리에 있는 관리자만 암호를 재설정할 수 있습니다. 다음은 게스트 사용자에 대해 암호 재설정이 작동하는 방식에 대한 몇 가지 예입니다.
+Azure AD 테넌트가 사용자의 홈 디렉터리이면 Azure portal에서 [사용자의 암호를 다시 설정](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal)할 수 있습니다. 하지만 다른 Azure AD 디렉터리 또는 외부 ID 공급자가 관리하는 계정으로 로그인한 게스트 사용자에 대한 암호는 직접 재설정할 수는 없습니다. 게스트 사용자 또는 사용자의 홈 디렉터리에 있는 관리자만 암호를 재설정할 수 있습니다. 다음은 게스트 사용자에 대해 암호 재설정이 작동하는 방식에 대한 몇 가지 예입니다.
  
 * Microsoft 계정(예: guestuser@live.com)으로 로그인한 게스트 사용자는 Microsoft 계정 SSPR(셀프 서비스 암호 재설정)을 사용하여 사용자 고유의 암호를 재설정할 수 있습니다. [Microsoft 계정 암호를 재설정하는 방법](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password)을 참조하세요.
 * Google 계정 또는 다른 외부 ID 공급자로 로그인한 게스트 사용자는 ID 공급자의 SSPR 메서드를 사용하여 사용자 고유의 암호를 재설정할 수 있습니다. 예를 들어 Google 계정 guestuser@gmail.com을 사용하는 게스트 사용자는 [암호 변경 또는 재설정](https://support.google.com/accounts/answer/41078)의 지침에 따라 자신의 암호를 재설정할 수 있습니다.
-* ID 테넌트가 JIT(Just-In-Time) 또는 “바이럴” 테넌트(별개의 관리되지 않는 Azure 테넌트를 의미)인 경우 게스트 사용자만 암호를 재설정할 수 있습니다. 직원이 회사 이메일 주소를 사용하여 서비스에 가입할 때 생성된 [바이럴 테넌트 관리를 인계](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/domains-admin-takeover)받는 조직도 있습니다. 조직이 바이럴 테넌트를 인계받고 나면 해당 조직의 관리자만이 사용자 암호를 재설정하거나 SSPR을 사용하도록 설정할 수 있습니다. 필요한 경우 초대 조직 관리자는 디렉터리에서 게스트 사용자 계정을 제거하고 초대를 다시 보낼 수 있습니다.
+* ID 테넌트가 JIT(Just-In-Time) 또는 “바이럴” 테넌트(별개의 관리되지 않는 Azure 테넌트를 의미)인 경우 게스트 사용자만 암호를 재설정할 수 있습니다. 직원이 회사 이메일 주소를 사용하여 서비스에 가입할 때 생성된 [바이럴 테넌트 관리를 인계](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover)받는 조직도 있습니다. 조직이 바이럴 테넌트를 인계받고 나면 해당 조직의 관리자만이 사용자 암호를 재설정하거나 SSPR을 사용하도록 설정할 수 있습니다. 필요한 경우 초대 조직 관리자는 디렉터리에서 게스트 사용자 계정을 제거하고 초대를 다시 보낼 수 있습니다.
 * 게스트 사용자의 홈 디렉터리가 Azure AD 테넌트인 경우 사용자의 암호를 재설정할 수 있습니다. 예를 들어 온-프레미스 Active Directory에서 사용자를 만들거나 동기화하고 UserType을 Guest로 설정할 수 있습니다. 이 사용자는 디렉터리에 속해 있기 때문에 Azure Portal에서 암호를 재설정할 수 있습니다.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Microsoft Dynamics 365에서 Azure AD B2B 공동 작업에 대한 온라인 지원을 제공합니까?

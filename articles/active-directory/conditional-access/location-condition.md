@@ -9,20 +9,20 @@ manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2018
+ms.date: 01/21/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 998a2dac8332ea88f7cee308299ce5a1f90765a4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 26721aa0eac69875f6a3704025e6ab71a54a1e31
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449745"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078103"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 위치 조건이란? 
 
@@ -58,7 +58,7 @@ Azure AD에서는 공용 인터넷의 어디에서든지 디바이스, 앱 및 �
 
 - **이름** - 명명된 위치의 표시 이름입니다.
 
-- **IP 범위** - CIDR 형식으로 나타낸 하나 이상의 IPv4 주소 범위입니다. IPv6 주소 범위는 지정할 수 없습니다.
+- **IP 범위** - CIDR 형식으로 나타낸 하나 이상의 IPv4 주소 범위입니다. Ipv6 주소 범위는 지정할 수 없습니다.
 
 - **신뢰할 수 있는 위치로 표시** - 신뢰할 수 있는 위치를 나타내기 위해 명명된 위치에 대해 설정할 수 있는 플래그입니다. 일반적으로 신뢰할 수 있는 위치는 IT 부서에서 제어하는 네트워크 영역입니다. 신뢰할 수 있는 명명된 위치는 조건부 액세스뿐만 아니라, Azure ID 보호 및 Azure AD 보안 보고서에서 [거짓 긍정](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1)을 줄이는 데도 사용됩니다.
 

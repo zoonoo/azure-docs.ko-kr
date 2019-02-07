@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 54db7cc65e05b383b251c21aa95569c6c2d58194
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 6da3a9bceaee67d0101abb0837580f4e35e160b3
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306168"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885135"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SQL Server 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,6 +36,8 @@ SQL Server 데이터베이스에서 지원되는 싱크 데이터 저장소로, 
 - **SQL** 또는 **Windows** 인증을 사용하여 데이터를 복사합니다.
 - 원본으로 SQL 쿼리 또는 저장 프로시저를 사용하여 데이터를 검색합니다.
 - 싱크로, 대상 테이블에 데이터를 첨부하거나 복사 중에 사용자 지정 논리를 사용하여 저장 프로시저를 호출합니다.
+
+SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)는 이제 지원되지 않습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -506,7 +508,7 @@ SQL Server 간에 데이터를 복사하는 경우 SQL Server 데이터 형식�
 | smalldatetime |Datetime |
 | smallint |Int16 |
 | smallmoney |10진수 |
-| sql_variant |개체 * |
+| sql_variant |Object |
 | text |String, Char[] |
 | 실시간 |timespan |
 | timestamp |Byte[] |
@@ -515,6 +517,9 @@ SQL Server 간에 데이터를 복사하는 경우 SQL Server 데이터 형식�
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |xml |
+
+>[!NOTE]
+> 데이터 형식이 10진수 중간 형식으로 매핑되는 경우 ADF는 현재 최대 28 자릿수의 데이터를 지원합니다. 28보다 큰 자릿수의 데이터가 있는 경우 SQL 쿼리에서 문자열로 변환하는 것이 좋습니다.
 
 ## <a name="troubleshooting-connection-issues"></a>연결 문제 해결
 

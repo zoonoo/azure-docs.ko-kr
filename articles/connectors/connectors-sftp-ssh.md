@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
-ms.openlocfilehash: e0f0230241bdffa97b94c88eb4b2d76fd44bcdea
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 807a99a8cac7326648ff4aa91b9fcdeb35de196a
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320789"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910186"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>SSH 및 Azure Logic Apps를 사용하여 SFTP 파일 모니터링, 만들기 및 관리
 
@@ -27,7 +27,7 @@ ms.locfileid: "54320789"
 * 파일 콘텐츠 및 메타데이터를 가져옵니다.
 * 보관을 폴더로 추출합니다.
 
-[SFTP 커넥터](../connectors/connectors-create-api-sftp.md)에 비교하여 SFTP-SSH 커넥터는 최대 *1GB* 크기의 파일을 읽거나 쓸 수 있습니다. 더 많은 차이점은 이 문서의 뒷부분에 나오는 [SFTP-SSH와 SFTP 비교](#comparison)를 검토하세요.
+[SFTP 커넥터](../connectors/connectors-create-api-sftp.md)와 비교하여 SFTP-SSH 커넥터는 데이터를 50MB 단위로 관리하여 최대 *1GB* 크기의 파일을 읽거나 쓸 수 있습니다. 1GB보다 큰 파일의 경우 작업에서 [메시지 청크 분할](../logic-apps/logic-apps-handle-large-messages.md)을 사용할 수 있습니다. 더 많은 차이점은 이 문서의 뒷부분에 나오는 [SFTP-SSH와 SFTP 비교](#comparison)를 검토하세요.
 
 SFTP 서버에서 이벤트를 모니터링하는 트리거를 사용하고 다른 작업에서 출력을 사용하도록 할 수 있습니다. SFTP 서버에서 다양한 작업을 수행하는 작업을 사용할 수 있습니다. 또한 논리 앱의 다른 작업에서 SFTP 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 정기적으로 SFTP 서버에서 파일을 검색하는 경우 Office 365 Outlook 커넥터 또는 Outlook.com 커넥터를 사용하여 해당 파일 및 해당 콘텐츠에 대한 이메일 경고를 보낼 수 있습니다.
 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
@@ -48,7 +48,7 @@ SFTP 서버에서 이벤트를 모니터링하는 트리거를 사용하고 다�
   > * **암호화 알고리즘**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC, AES-256-CBC
   > * **지문**: MD5
 
-* SFTP 커넥터와 비교하여 최대 *1GB* 크기까지 파일을 읽거나 쓰되 데이터를 1GB 단위가 아닌 50MB 단위로 처리합니다.
+* SFTP 커넥터와 비교하여 최대 *1GB* 크기까지 파일을 읽거나 쓰되 데이터를 1GB 단위가 아닌 50MB 단위로 처리합니다. 1GB보다 큰 파일의 경우 작업에서 [메시지 청크 분할](../logic-apps/logic-apps-handle-large-messages.md)을 사용할 수도 있습니다. 트리거는 현재 청크 분할을 지원하지 않습니다.
 
 * SFTP 서버의 지정된 경로에 폴더를 만드는 **폴더 만들기** 작업을 제공합니다.
 
@@ -130,12 +130,15 @@ SFTP-SSH 트리거는 SFTP 파일 시스템을 폴링하여 마지막 폴링 이
 
 트리거는 새 파일을 찾으면 해당 파일이 완전한 상태이며 부분적으로 작성된 것이 아닌지 확인합니다. 예를 들어 트리거가 파일 서버를 확인할 때 파일을 변경하는 중일 수 있습니다. 부분적으로 작성된 파일이 반환되지 않도록 하기 위해 트리거는 최근 변경된 내용이 있는 파일의 타임스탬프를 기록하되 해당 파일을 즉시 반환하지는 않으며, 서버를 다시 폴링할 때만 해당 파일을 반환합니다. 이 동작으로 인해 트리거 폴링 간격의 최대 2배까지 지연이 발생하는 경우도 있습니다. 
 
-파일 콘텐츠를 요청할 때 트리거는 50MB보다 큰 파일을 검색하지 않습니다. 50MB보다 큰 파일을 가져오려면 다음 패턴을 따릅니다.
+파일 콘텐츠를 요청하는 경우 트리거는 50MB보다 큰 파일을 가져오지 않습니다. 50MB보다 큰 파일을 가져오려면 다음 패턴을 따릅니다. 
 
-* **파일이 추가되거나 수정된 경우(메타데이터만)** 등의 파일 속성을 반환하는 트리거를 사용합니다. 
-* **경로를 사용하여 파일 콘텐츠 가져오기**와 같이 전체 파일을 읽는 작업이 포함된 트리거를 따릅니다.
+* **파일이 추가되거나 수정된 경우(메타데이터만)** 등의 파일 속성을 반환하는 트리거를 사용합니다.
+
+* 트리거에서 **경로를 사용하여 파일 콘텐츠 가져오기**와 같이 전체 파일을 읽는 작업을 수행하고, 작업에서 [메시지 청크 분할](../logic-apps/logic-apps-handle-large-messages.md)을 사용하도록 합니다.
 
 ## <a name="examples"></a>예
+
+<a name="file-added-modified"></a>
 
 ### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP - SSH 트리거: 파일을 추가하거나 수정할 때
 
@@ -143,9 +146,23 @@ SFTP-SSH 트리거는 SFTP 파일 시스템을 폴링하여 마지막 폴링 이
 
 **엔터프라이즈 예제**: 이 트리거를 사용하여 고객의 주문을 나타내는 새 파일용 SFTP 폴더를 모니터링할 수 있습니다. 그런 다음, **파일 콘텐츠 가져오기**와 같은 SFTP 작업을 사용할 수 있으므로 추가로 처리할 주문의 콘텐츠를 가져오고 주문 데이터베이스에 해당 주문을 저장합니다.
 
-### <a name="sftp---ssh-action-get-content"></a>SFTP - SSH 작업: 콘텐츠 가져오기
+파일 콘텐츠를 요청하는 경우 트리거는 50MB보다 큰 파일을 가져오지 않습니다. 50MB보다 큰 파일을 가져오려면 다음 패턴을 따릅니다. 
+
+* **파일이 추가되거나 수정된 경우(메타데이터만)** 등의 파일 속성을 반환하는 트리거를 사용합니다.
+
+* 트리거에서 **경로를 사용하여 파일 콘텐츠 가져오기**와 같이 전체 파일을 읽는 작업을 수행하고, 작업에서 [메시지 청크 분할](../logic-apps/logic-apps-handle-large-messages.md)을 사용하도록 합니다.
+
+<a name="get-content"></a>
+
+### <a name="sftp---ssh-action-get-content-using-path"></a>SFTP - SSH 작업: 경로를 사용하여 콘텐츠 가져오기
 
 이 작업은 SFTP 서버의 파일에서 콘텐츠를 가져옵니다. 따라서 예를 들어 이전 예제의 트리거와 파일의 콘텐츠가 충족해야 하는 조건을 추가할 수 있습니다. 조건이 true인 경우 콘텐츠를 가져오는 작업을 실행할 수 있습니다. 
+
+파일 콘텐츠를 요청하는 경우 트리거는 50MB보다 큰 파일을 가져오지 않습니다. 50MB보다 큰 파일을 가져오려면 다음 패턴을 따릅니다. 
+
+* **파일이 추가되거나 수정된 경우(메타데이터만)** 등의 파일 속성을 반환하는 트리거를 사용합니다.
+
+* 트리거에서 **경로를 사용하여 파일 콘텐츠 가져오기**와 같이 전체 파일을 읽는 작업을 수행하고, 작업에서 [메시지 청크 분할](../logic-apps/logic-apps-handle-large-messages.md)을 사용하도록 합니다.
 
 ## <a name="connector-reference"></a>커넥터 참조
 

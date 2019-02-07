@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: dd67e49a80c403e807b24276cf14b9e8c47037b9
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 09/24/2018
+ms.openlocfilehash: bbebfca1684cad600d7ef0cc1a4cff2201fdc07e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055512"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566156"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>SQL Database로 테넌트별 데이터베이스 패턴을 사용하는 다중 테넌트 SaaS 앱 소개
 
@@ -43,7 +43,7 @@ Wingtip SaaS 앱은 테넌트별 데이터베이스 모델을 사용합니다. S
 | 자습서 | 설명 |
 |:--|:--|
 | [SQL Database 다중 테넌트 SaaS 앱 예제에 대한 지침 및 팁](saas-tenancy-wingtip-app-guidance-tips.md) | PowerShell 스크립트를 다운로드한 후 실행하여 애플리케이션 부분을 준비하세요. |
-|[Wingtip SaaS 응용 프로그램 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)|  Azure 구독으로 Wingtip SaaS 애플리케이션을 배포하고 탐색합니다. |
+|[Wingtip SaaS 애플리케이션 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)|  Azure 구독으로 Wingtip SaaS 애플리케이션을 배포하고 탐색합니다. |
 |[프로비전 및 카탈로그 테넌트](saas-dbpertenant-provision-and-catalog.md)| 카탈로그 데이터베이스를 사용하여 애플리케이션을 테넌트에 연결하는 방법 및 카탈로그가 테넌트를 해당 데이터에 매핑하는 방법을 알아봅니다. |
 |[성능 모니터링 및 관리](saas-dbpertenant-performance-monitoring.md)| SQL Database의 모니터링 기능을 사용하고 성능 임계값이 초과된 경우 경고를 설정하는 방법을 알아봅니다. |
 |[Azure Log Analytics를 사용하여 모니터링](saas-dbpertenant-log-analytics.md) | [Log Analytics](../log-analytics/log-analytics-overview.md)를 사용하여 여러 풀에 걸쳐 있는 많은 양의 리소스를 모니터링하는 방법을 알아봅니다. |
@@ -56,4 +56,4 @@ Wingtip SaaS 앱은 테넌트별 데이터베이스 모델을 사용합니다. S
 ## <a name="next-steps"></a>다음 단계
 
 - [Wingtip Tickets SaaS 앱 예제를 배포하고 사용하기 위한 일반 지침과 팁](saas-tenancy-wingtip-app-guidance-tips.md)
-- [Wingtip SaaS 응용 프로그램 배포](saas-dbpertenant-get-started-deploy.md)
+- [Wingtip SaaS 애플리케이션 배포](saas-dbpertenant-get-started-deploy.md)

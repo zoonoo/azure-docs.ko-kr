@@ -7,19 +7,19 @@ author: jeevansd
 manager: femila
 ms.assetid: 41b59b22-a61d-4fe6-ab0d-6c3991d1375f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 715035072ddc2ceb087d003dd5da5bc47572e9b9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 52d976761ad5962f09f40565cfa04ae78386d1ca
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444354"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192395"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>자습서: OpsGenie와 Azure Active Directory 통합
 
@@ -144,9 +144,9 @@ OpsGenie에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
    
     ![OpsGenie 설정](./media/opsgenie-tutorial/tutorial_opsgenie_09.png)
     
-    a. Azure Portal에서 복사한 **Single Sign-On 서비스 URL** 값을 **SAML 2.0 끝점** 텍스트 상자에 붙여넣습니다.
+    a. Azure Portal에서 복사한 **Single Sign-On 서비스 URL** 값을 **SAML 2.0 엔드포인트** 텍스트 상자에 붙여넣습니다.
     
-    나. Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 값을 **메타데이터 URL:** 텍스트 상자에 붙여넣습니다.
+    b. Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 값을 **메타데이터 URL:** 텍스트 상자에 붙여넣습니다.
     
     다. **변경 내용 저장**을 클릭합니다.
 
@@ -175,7 +175,7 @@ OpsGenie에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -199,7 +199,7 @@ OpsGenie에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
    
    a. **메일** 텍스트 상자에 Azure Active Directory에 나열된 Britta Simon의 메일 주소를 입력합니다.
    
-   나. **전체 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
+   b. **전체 이름** 텍스트 상자에 **Britta Simon**을 입력합니다.
    
    다. **저장**을 클릭합니다. 
 
@@ -245,7 +245,7 @@ OpsGenie에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

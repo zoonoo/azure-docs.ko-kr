@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 487872b1e9344aaefad5ca0953c41b59f01027b0
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 43badaada3de352ec7bafeb422965a047261a1e4
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753968"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656837"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Marketplace 및 AppSource 게시 가이드
 
 Marketplace 게시 가이드는 신규 및 기존 게시자가 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Microsoft AppSource](https://appsource.microsoft.com) 상점에서 애플리케이션 및 서비스를 나열하여 Microsoft와의 파트너 사업을 성장시키는 방법을 배우도록 도와주기 위해 작성되었습니다.
 
 >[!Note]
->여기서 Marketplace는 Azure Marketplace와 AppSource를 둘 다 나타냅니다.  자세한 내용은 [하나의 마켓플레이스, 두 개의 상점](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)을 참조하세요.
+>여기서 Marketplace는 Azure Marketplace와 AppSource를 둘 다 나타냅니다.  자세한 내용은 [하나의 마켓플레이스, 두 개의 상점](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)을 참조하세요.
 
 이 가이드는 다음 항목을 설명합니다. 
 *   Marketplace의 정의 및 작동 방식 

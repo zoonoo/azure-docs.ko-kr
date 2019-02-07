@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 583223ccfd30468c047fc77c3b6598ce7b0a1973
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 3023d5d4010108d46424bba284029b58f5fd279c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214609"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658745"
 ---
 # <a name="add-a-shape-to-a-map"></a>맵에 도형 추가
 
@@ -108,7 +108,7 @@ Shape 클래스는 [기하 도형](https://docs.microsoft.com/javascript/api/azu
 
 점은 [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) 클래스의 [기능](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) 중 하나입니다. 두 번째 코드 블록은 HTML 슬라이더 요소의 반경 값을 초기화한 다음, 점 개체를 생성하고 [Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) 클래스 개체에 래핑합니다.
 
-세 번째 코드 블록은 HTML 범위 슬라이더 요소에서 값을 받고 shape 클래스 [addProperty](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest#addproperty) 메서드를 사용하여 반경 값을 변경하는 함수를 만듭니다.
+세 번째 코드 블록은 HTML 범위 슬라이더 요소에서 값을 받고 shape 클래스 [addProperty](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) 메서드를 사용하여 반경 값을 변경하는 함수를 만듭니다.
 
 네 번째 코드 블록에서는 데이터 원본 개체가 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 클래스를 사용하여 생성됩니다. 그런 다음, 점이 데이터 원본에 추가됩니다.
 

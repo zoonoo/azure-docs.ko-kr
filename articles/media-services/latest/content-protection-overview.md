@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 848d6ffbccc809df1ab5c012c38174e13eacc391
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: bce28a2498793b7a1edb8aa0437a7d7c75a45ae9
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828264"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911951"
 ---
 # <a name="content-protection-overview"></a>콘텐츠 보호 개요
 
@@ -60,7 +60,9 @@ Azure Media Services를 사용하여 컴퓨터를 떠날 때부터 저장, 처�
 
     AES 또는 CENC(Widevine 및/또는 PlayReady) 암호화된 콘텐츠를 테스트하려면 [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html)를 사용할 수 있습니다. “고급 옵션”을 클릭하고 암호화 옵션을 확인합니다.
 
-    FairPlay 암호화된 콘텐츠를 테스트하려는 경우 [이 테스트 플레이어](https://aka.ms/amtest)를 사용합니다. 플레이어는 Widevine, PlayReady, FairPlay DRMs 및 AES-128 암호화되지 않은 키 암호화를 지원합니다. 다양한 DRM을 테스트하기 위해 적절한 브라우저 즉, Widevine의 경우 Chrome/Opera/Firefox, PlayReady의 경우 Microsoft Edge/IE11, FairPlay의 경우 macOS에서 Safari를 선택해야 합니다.
+    FairPlay 암호화된 콘텐츠를 테스트하려는 경우 [이 테스트 플레이어](https://aka.ms/amtest)를 사용합니다. 플레이어는 Widevine, PlayReady, FairPlay DRMs 및 AES-128 암호화되지 않은 키 암호화를 지원합니다. 
+    
+    다양한 DRM을 테스트하기 위해 적절한 브라우저 즉, Widevine의 경우 Chrome/Opera/Firefox, PlayReady의 경우 Microsoft Edge/IE11, FairPlay의 경우 macOS에서 Safari를 선택해야 합니다.
 
 3. 백 엔드 리소스 액세스에 대한 액세스 토큰으로 JWT(JSON Web Token)를 발급하는 STS(보안 토큰 서비스). AMS 라이선스 배달 서비스를 백 엔드 리소스로 사용할 수 있습니다. STS는 다음을 정의해야 합니다.
 
@@ -69,7 +71,7 @@ Azure Media Services를 사용하여 컴퓨터를 떠날 때부터 저장, 처�
   * 서명 확인에 대한 대칭 또는 비대칭 확인
   * 키 롤오버 지원(필요한 경우)
 
-    대칭, 비대칭 또는 키 롤오버를 통한 AAD 등의 모든 3가지 유형의 확인 키를 지원하는 STS를 테스트하려면 [이 STS 도구](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt)를 사용할 수 있습니다. 
+    [이 STS 도구](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt)를 사용하여 대칭, 비대칭 또는 키 롤오버가 있는 Azure AD라는 세 가지 유형의 확인 키를 모두 지원하는 STS를 테스트할 수 있습니다. 
 
 > [!NOTE]
 > 다음 부분으로 이동하기 전에 각 부분을 완벽히 테스트하고 집중하는 것을 매우 권장합니다. "content protection" 시스템을 테스트하려면 위 목록에서 지정된 도구를 사용합니다.  
