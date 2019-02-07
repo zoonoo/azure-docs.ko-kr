@@ -6,6 +6,8 @@ items:
   - name: Machine Learning Studio
     displayName: overview
     href: what-is-ml-studio.md
+  - name: ML 제품 비교
+    href: ../service/overview-more-machine-learning.md
   - name: ML Studio 기능
     displayName: overview
     href: studio-overview-diagram.md
@@ -93,10 +95,6 @@ items:
     - name: AI 갤러리에서 실험 시도
       displayName: gallery
       href: sample-experiments.md
-    - name: 알고리즘 선택
-      href: algorithm-choice.md
-    - name: 알고리즘 치트 시트
-      href: algorithm-cheat-sheet.md
     - name: 결과 평가 및 해석
       items:
       - name: 성능 평가
@@ -118,6 +116,12 @@ items:
         href: custom-r-modules.md
       - name: Python 스크립트 실행
         href: execute-python-scripts.md
+  - name: 알고리즘 선택
+    items:
+    - name: 알고리즘 선택
+      href: algorithm-choice.md
+    - name: 알고리즘 치트 시트
+      href: algorithm-cheat-sheet.md
   - name: 모델 배포
     items:
     - name: 웹 서비스 배포
@@ -210,15 +214,11 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: 가격
     href: https://azure.microsoft.com/pricing/details/machine-learning/
-  - name: R 개발자 가이드
-    href: ../r-developers-guide.md
   - name: 신경망 사용자 지정(Net#)
     href: azure-ml-netsharp-reference-guide.md
-  - name: ML 제품 비교
-    href: ../service/overview-more-machine-learning.md
-ms.openlocfilehash: 400e6a2e98b8d29018b135204eaefa7ae3a7d965
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d6d4020d76c8eab2418b3b7ac5d26eaf93363870
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731430"
+ms.locfileid: "55746169"
