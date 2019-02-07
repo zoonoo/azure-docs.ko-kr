@@ -1,14 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f1db6f04a7e7bf32f861fd2eaf193e3cd25d9e12
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 23c5ccd33e63f2cdc9a62925078c3d70d92e9165
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167855"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55748984"
 documentType: LandingData
 title: Bing Entity Search 설명서
 metadata:
-  title: Bing Entity Search 설명서 - 자습서, 빠른 시작, API 참조 | Microsoft Docs
+  title: Bing Entity Search API 설명서 - 자습서, 빠른 시작, API 참조 | Microsoft Docs
   description: Bing Entity Search API를 사용하여 사람, 장소 또는 정의된 다른 주제에 대한 정보를 가져오는 방법입니다. 자습서에서는 서비스를 사용하는 앱을 빌드하는 방법을 설명합니다.
   services: cognitive-services
   author: mikedodaro
@@ -18,11 +18,32 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/07/2018
+  ms.date: 02/01/2019
   ms.author: v-gedod
 abstract:
-  description: Bing Entity Search API는 Bing이 사용자의 쿼리와 관련되었다고 결정하는 엔터티에 대한 정보를 반환합니다.
+  description: Bing Entity Search API를 사용하면 애플리케이션이 검색 쿼리에서 검색된 엔터티에 대한 정보를 가져올 수 있습니다. 엔터티는 사람, 장소, 미디어 제목일 수 있습니다.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-entities-search/overview
+      html: <p>Bing Entity Search API에 대한 자세한 내용</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: 엔터티 검색
+    - href: /azure/cognitive-services/bing-entities-search/concepts/search-for-entities
+      html: <p>Bing Entity Search API를 사용하여 엔터티를 검색하는 방법을 알아봅니다.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: 검색 요청 보내기
+    - href: /azure/cognitive-services/bing-custom-search/hosted-ui
+      html: <p>API에 검색 요청을 보내는 방법을 알아봅니다.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: 검색 쿼리 보내기
 - title: 5분 빠른 시작
   items:
   - type: paragraph
@@ -32,15 +53,15 @@ sections:
     items:
     - image:
         src: media/index/logo_csharp.svg
-      href: quickstarts/csharp
+      href: quickstarts/entity-sdk-csharp-quickstart
       text: C&#35;
     - image:
         src: media/index/logo_java.svg
-      href: quickstarts/java
+      href: quickstarts/entity-sdk-java-quickstart
       text: 자바
     - image:
         src: media/index/logo_nodejs.svg
-      href: quickstarts/nodejs
+      href: quickstarts/entity-sdk-node-quickstart
       text: Node.js
     - image:
         src: media/index/logo_php.svg
@@ -48,7 +69,7 @@ sections:
       text: PHP
     - image:
         src: media/index/logo_python.svg
-      href: quickstarts/python
+      href: quickstarts/entity-sdk-python-quickstart
       text: Python
     - image:
         src: media/index/logo_ruby.svg
@@ -59,7 +80,7 @@ sections:
   - type: paragraph
     text: Bing Entity Search API를 사용하여 애플리케이션을 개발하는 방법을 알아봅니다.
   - type: paragraph
-    text: <a href="tutorial-bing-entities-search-single-page-app">단일 페이지 웹앱</a> &#124; <a href="tutorial-bing-entities-search-single-page-app-source">소스 코드</a>
+    text: <a href="tutorial-bing-entities-search-single-page-app">단일 페이지 웹앱</a>
 - title: 샘플
   items:
   - type: paragraph

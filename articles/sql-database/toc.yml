@@ -10,19 +10,19 @@ items:
 - name: 빠른 시작
   items:
   - name: 단일 데이터베이스 빠른 시작 가이드
-    href: sql-database-quickstart-guide.md
+    href: sql-database-single-database-quickstart-guide.md
   - name: 관리되는 인스턴스 빠른 시작 가이드
     href: sql-database-managed-instance-quickstart-guide.md
   - name: 생성
     items:
     - name: 단일 데이터베이스
-      href: sql-database-get-started-portal.md
+      href: sql-database-single-database-get-started.md
     - name: Managed Instance
       href: sql-database-managed-instance-get-started.md
   - name: 구성
     items:
-    - name: 데이터베이스 서버 방화벽 규칙
-      href: sql-database-get-started-portal-firewall.md
+    - name: 서버 수준 IP 방화벽 규칙
+      href: sql-database-server-level-firewall-rule.md
     - name: 관리되는 인스턴스에 대한 클라이언트 VM 연결
       href: sql-database-managed-instance-configure-vm.md
     - name: 관리되는 인스턴스에 대한 지점 및 사이트 간 연결
@@ -97,6 +97,8 @@ items:
     href: sql-database-cli-samples.md
   - name: Azure PowerShell
     href: sql-database-powershell-samples.md
+  - name: Azure 리소스 관리자
+    href: sql-database-resource-manager-samples.md
 - name: 개념
   items:
   - name: 구매 모델
@@ -225,7 +227,7 @@ items:
         href: sql-vulnerability-assessment.md
       - name: 위협 감지
         href: sql-database-threat-detection-overview.md
-    - name: 데이터베이스 서버 IP 방화벽 규칙
+    - name: 서버 수준 IP 방화벽 규칙
       items:
       - name: 만들기 및 관리
         href: sql-database-firewall-configure.md
@@ -710,9 +712,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: 탄력적 작업 제거(사용되지 않음)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: fc900fc17f4dbd1ee1527fc8a84053408d83d98d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 9a04e463a7324b1021594a8fbefc5988ad8471f2
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731294"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756736"

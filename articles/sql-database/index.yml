@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0f5c60b25ad305b9e76eebcc72639a596b407801
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7a6372f90cde75cb3314a049de41a4826510bd3f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457550"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752248"
 documentType: LandingData
 title: Azure SQL Database 설명서
 metadata:
@@ -22,7 +22,7 @@ metadata:
   ms.date: 01/25/2019
   ms.author: carlrab
 abstract:
-  description: Azure SQL Database는 최신의 안정적인 Microsoft SQL Server 데이터베이스 엔진 버전을 기반으로 하는 관계형 DBaaS(Database-as-a-Service)입니다. SQL Database는 안정적이고 안전한 고성능 데이터베이스로, 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 데이터 기반 애플리케이션 및 웹 사이트를 빌드하는 데 사용할 수 있습니다. 빠른 시작, 자습서 및 샘플을 통해 SQL Database를 사용하는 방법을 알아보세요.
+  description: Azure SQL Database는 안정적인 최신 버전의 Microsoft SQL Server 데이터베이스 엔진을 기반으로 하는 범용 관계형 DBaaS(Database-as-a-Service)입니다. SQL Database는 안정적이고 안전한 고성능 클라우드 데이터베이스로, 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 데이터 기반 애플리케이션 및 웹 사이트를 빌드하는 데 사용할 수 있습니다. 빠른 시작, 자습서 및 샘플을 통해 SQL Database를 사용하는 방법을 알아보세요.
   aside:
     image:
       alt: 
@@ -106,10 +106,10 @@ sections:
     rows:
     - title: 단일 데이터베이스 만들기
       values:
-      - href: /azure/sql-database/sql-database-get-started-portal
+      - href: /azure/sql-database/sql-database-single-database-get-started
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
-      - href: 
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create
     - title: 관리되는 인스턴스 만들기
       values:
       - href: /azure/sql-database/sql-database-managed-instance-get-started
@@ -118,33 +118,10 @@ sections:
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
     - title: 탄력적 풀 만들기
       values:
-      - href: 
+      - href: /azure/sql-database/sql-database-elastic-pool-manage
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
-    - title: 단일 데이터베이스 크기 조정
-      values:
-      - href: 
-      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
-      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
-      - href: 
-    - title: 탄력적 풀 크기 조정
-      values:
-      - href: 
-      - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
-      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
-    - title: 관리되는 인스턴스 크기 조정
-      values:
-      - href: 
-      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
-      - href: 
-    - title: Managed Instance에 대한 Azure 네트워크 구성
-      values:
-      - href: /azure/sql-database/sql-database-managed-instance-get-started
-      - href: 
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
-      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
 - title: 단계별 자습서
   items:
   - type: paragraph
@@ -152,6 +129,7 @@ sections:
   - type: list
     style: ordered
     items:
+    - html: 이 빠른 시작 가이드를 사용하여 <a href="/azure/sql-database/sql-database-quickstart-guide">싱글톤 데이터베이스</a> 및 <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">Managed Instance</a>를 시작합니다.
     - html: <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> 또는 <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>을 사용하여 새 단일 데이터베이스에 대한 스키마 만들기 및 설계
     - html: <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">데이터베이스 복원</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a> 또는 <a href="/azure/sql-database/sql-database-import">BACPAC 가져오기</a>를 사용하여 Azure에 기존 데이터베이스 마이그레이션
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">SQL Database 보안 설정</a>
