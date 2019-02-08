@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0736ed32fa6f17cc840d6b144503409365c33d84
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 9b136c73afc08e05694aed99d57139f77466788d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077945"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490383"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager 템플릿 모범 사례
 
@@ -25,6 +25,8 @@ ms.locfileid: "55077945"
 Azure 구독을 관리하는 방법에 대한 권장 사항은 [Azure 엔터프라이즈 스캐폴드: 규범적 구독 거버넌스](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)를 참조하세요.
 
 모든 Azure 클라우드 환경에서 작동하는 템플릿을 빌드하는 방법에 대한 권장 사항은 [클라우드 일관성에 대한 Azure Resource Manager 템플릿 개발](templates-cloud-consistency.md)을 참조하세요.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="parameters"></a>매개 변수
 이 섹션의 정보는 [매개 변수](resource-manager-templates-parameters.md)로 작업하는 경우 도움이 될 수 있습니다.

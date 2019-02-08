@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: 9992d93f689663e859315dd55d248866d88b4a25
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 67cfa45d602b6bf9de27a0b559c58e28b79d1c84
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903603"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732824"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL에서 읽기 복제본을 만들고 관리하는 방법
 
@@ -67,7 +67,7 @@ az mysql server replica stop --name mydemoreplicaserver --resource-group myresou
 
 ## <a name="delete-a-replica-server"></a>복제본 서버 삭제
 
-읽기 복제본 서버 삭제는 **[az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete)** 명령을 실행하여 수행할 수 있습니다.
+읽기 복제본 서버 삭제는 **[az mysql server delete](/cli/azure/mysql/server)** 명령을 실행하여 수행할 수 있습니다.
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoreplicaserver
@@ -78,7 +78,7 @@ az mysql server delete --resource-group myresourcegroup --name mydemoreplicaserv
 > [!IMPORTANT]
 > 마스터 서버를 삭제하면 모든 복제본 서버에 대한 복제가 중지되며 마스터 서버 자체도 삭제됩니다. 그러면 복제본 서버는 읽기와 쓰기를 모두 지원하는 독립 실행형 서버로 설정됩니다.
 
-마스터 서버를 삭제하려면 **[az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete)** 명령을 실행합니다.
+마스터 서버를 삭제하려면 **[az mysql server delete](/cli/azure/mysql/server)** 명령을 실행합니다.
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver

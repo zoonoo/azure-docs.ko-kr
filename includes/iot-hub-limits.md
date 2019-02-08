@@ -4,12 +4,12 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: e1618ded270cddca13145195522d7b42a00d6585
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: e6dbfe225b6957406b7143d5db4a28cb50f13e7b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54841435"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55480526"
 ---
 다음 표는 다양한 서비스 계층(S1, S2, S3, F1)과 관련한 한도를 나타냅니다. 각 계층에서 각각의 *단위* 에 대한 비용은 [IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)을 참조하세요.
 
@@ -57,7 +57,7 @@ ms.locfileid: "54841435"
 
 
 > [!NOTE]
-> 현재 단일 IoT hub에 연결할 수는 디바이스의 최대 수는 500,000개입니다. 이 제한을 높이려면 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
+> 현재 단일 IoT Hub에 연결할 수 있는 디바이스의 최대 수는 1,000,000개입니다. 이 제한을 높이려면 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
 
 다음 할당량이 초과되면 IoT Hub 서비스가 요청을 제한합니다.
 

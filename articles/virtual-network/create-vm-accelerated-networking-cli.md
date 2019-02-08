@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 53945559be01b6e9f5778f5df096f7fcbb24a03f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 8c913d618313a72f6fb05ea45847a220f6070d42
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214490"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765741"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>가속 네트워킹을 사용하는 Linux 가상 머신 만들기
 
@@ -42,7 +42,7 @@ ms.locfileid: "54214490"
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 다음 배포는 즉시 Azure Gallery에서 기본으로 지원됩니다. 
-* **Ubuntu 16.04** 
+* **Ubuntu 16.04+** 
 * **SLES 12 SP3** 
 * **RHEL 7.4**
 * **CentOS 7.4**
@@ -76,9 +76,9 @@ removed per issue https://github.com/MicrosoftDocs/azure-docs/issues/9772 -->
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-최신 [Azure CLI](/cli/azure/install-azure-cli)를 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인합니다. 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myNic*, *myVm*이 포함됩니다.
+최신 [Azure CLI](/cli/azure/install-azure-cli)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인합니다. 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myNic*, *myVm*이 포함됩니다.
 
-[az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *centralus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *centralus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name myResourceGroup --location centralus
@@ -86,7 +86,7 @@ az group create --name myResourceGroup --location centralus
 
 [Linux 가속 네트워킹](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview)에 나열된 지원되는 Linux 지역을 선택합니다.
 
-[az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 하나의 서브넷을 포함한 *myVnet*이라는 가상 네트워크를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 하나의 서브넷을 포함한 *myVnet*이라는 가상 네트워크를 만듭니다.
 
 ```azurecli
 az network vnet create \
@@ -98,7 +98,7 @@ az network vnet create \
 ```
 
 ### <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
-[az network nsg create](/cli/azure/network/nsg#az_network_nsg_create)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 *myNetworkSecurityGroup*이라는 네트워크 보안 그룹을 만듭니다.
+[az network nsg create](/cli/azure/network/nsg)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 *myNetworkSecurityGroup*이라는 네트워크 보안 그룹을 만듭니다.
 
 ```azurecli
 az network nsg create \
@@ -106,7 +106,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-네트워크 보안 그룹에는 여러 가지 기본 규칙이 포함됩니다. 그 중 하나는 인터넷의 모든 인바운드 액세스를 사용하지 않도록 설정합니다. [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create)를 사용하여 가상 머신에 대한 SSH 액세스를 허용하도록 포트를 엽니다.
+네트워크 보안 그룹에는 여러 가지 기본 규칙이 포함됩니다. 그 중 하나는 인터넷의 모든 인바운드 액세스를 사용하지 않도록 설정합니다. [az network nsg rule create](/cli/azure/network/nsg/rule)를 사용하여 가상 머신에 대한 SSH 액세스를 허용하도록 포트를 엽니다.
 
 ```azurecli
 az network nsg rule create \
@@ -125,7 +125,7 @@ az network nsg rule create \
 
 ### <a name="create-a-network-interface-with-accelerated-networking"></a>가속 네트워킹을 사용하여 네트워크 인터페이스 만들기
 
-[az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create)를 사용하여 공용 IP 주소를 만듭니다. 인터넷에서 가상 머신에 액세스하려는 계획이 없다면 공용 IP 주소가 필요하지 않지만 이 문서의 단계를 완료하려면 필요합니다.
+[az network public-ip create](/cli/azure/network/public-ip)를 사용하여 공용 IP 주소를 만듭니다. 인터넷에서 가상 머신에 액세스하려는 계획이 없다면 공용 IP 주소가 필요하지 않지만 이 문서의 단계를 완료하려면 필요합니다.
 
 ```azurecli
 az network public-ip create \
@@ -133,7 +133,7 @@ az network public-ip create \
     --resource-group myResourceGroup
 ```
 
-가속 네트워킹을 사용하여 [az network nic create](/cli/azure/network/nic#az_network_nic_create)로 네트워크 인터페이스를 만듭니다. 다음 예제에서는 *myVnet* 가상 네트워크의 *mySubnet*이라는 서브넷에서 *myNic*이라는 네트워크 인터페이스를 만들고, *myNetworkSecurityGroup* 네트워크 보안 그룹을 네트워크 인터페이스에 연결합니다.
+가속 네트워킹을 사용하여 [az network nic create](/cli/azure/network/nic)로 네트워크 인터페이스를 만듭니다. 다음 예제에서는 *myVnet* 가상 네트워크의 *mySubnet*이라는 서브넷에서 *myNic*이라는 네트워크 인터페이스를 만들고, *myNetworkSecurityGroup* 네트워크 보안 그룹을 네트워크 인터페이스에 연결합니다.
 
 ```azurecli
 az network nic create \
@@ -149,7 +149,7 @@ az network nic create \
 ### <a name="create-a-vm-and-attach-the-nic"></a>VM 만들기 및 NIC 연결
 VM을 만들 때 `--nics`로 만든 NIC를 지정합니다. [Linux 가속 네트워킹](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview)에 나열된 크기 및 배포를 선택합니다. 
 
-[az vm create](/cli/azure/vm#az_vm_create)로 VM을 만듭니다. 다음 예제에서는 가속 네트워킹(*Standard_DS4_v2*)을 지원하는 UbuntuLTS 이미지 및 크기를 사용하여 *myVM*이라는 VM을 만듭니다.
+[az vm create](/cli/azure/vm)로 VM을 만듭니다. 다음 예제에서는 가속 네트워킹(*Standard_DS4_v2*)을 지원하는 UbuntuLTS 이미지 및 크기를 사용하여 *myVM*이라는 VM을 만듭니다.
 
 ```azurecli
 az vm create \

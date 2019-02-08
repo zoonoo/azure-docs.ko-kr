@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 6d9370ce6a031377e37c4e830400337f3e57a62e
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: fea31bf1c5869164dde1eb7014b2aacc8fcc5e9c
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55084803"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55757545"
 ---
 | 리소스 | 대상 | 하드 한도 |
 |----------|--------------|------------|
@@ -26,7 +26,6 @@ ms.locfileid: "55084803"
 | 엔드포인트 크기 | 4TiB | 아니요 |
 | 동기화 그룹당 파일 시스템 개체(디렉터리 및 파일) 수 | 2500만 개 개체 | 아니요 |
 | 디렉터리에 있는 파일 시스템 개체(디렉터리 및 파일)의 최대 수 | 200,000만 개 개체 | 예 |
-| 최대 개체(디렉터리 및 파일) 이름 길이 | 255자 | 예 |
 | 최대 개체(디렉터리 및 파일) 보안 설명자 크기 | 4KiB | 예 |
 | 파일 크기 | 100GiB | 아니요 |
 | 계층화할 파일에 대한 최소 파일 크기 | 64KiB | 예 |

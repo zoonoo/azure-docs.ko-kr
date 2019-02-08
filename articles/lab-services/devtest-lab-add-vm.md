@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 05e68e13ab5aa526362e71413c105340ad07426f
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 69c0ce73fa5c29a2d0e49d9c4bb15a855fadc75b
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082081"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746801"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 VM 추가
-[첫 번째 VM을 이미 만든 경우](devtest-lab-create-first-vm.md) 미리 로드된 [Marketplace 이미지](devtest-lab-configure-marketplace-images.md)에서 만들었을 것입니다. 이제 이후의 VM을 랩에 추가하려면 [사용자 지정 이미지](devtest-lab-create-template.md) 또는 [수식](devtest-lab-manage-formulas.md)인 *기본*을 선택하면 됩니다. 이 자습서에서는 DevTest Labs에서 랩에 VM을 추가하기 위해 Azure Portal을 사용하는 방법을 설명합니다.
+[첫 번째 VM을 이미 만든 경우](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) 미리 로드된 [Marketplace 이미지](devtest-lab-configure-marketplace-images.md)에서 만들었을 것입니다. 이제 이후의 VM을 랩에 추가하려면 [사용자 지정 이미지](devtest-lab-create-template.md) 또는 [수식](devtest-lab-manage-formulas.md)인 *기본*을 선택하면 됩니다. 이 자습서에서는 DevTest Labs에서 랩에 VM을 추가하기 위해 Azure Portal을 사용하는 방법을 설명합니다.
 
 또한 이 문서에서는 랩에서 VM의 아티팩트를 만드는 방법을 보여 줍니다.
 
@@ -41,6 +41,8 @@ ms.locfileid: "55082081"
     2. 가상 머신에서 관리자 권한이 부여된 **사용자 이름**을 입력합니다. 컴퓨터에 대한 **사용자 이름**은 자동으로 생성된 고유한 이름으로 미리 채워집니다. 이 이름은 이메일 주소 내의 사용자 이름에 해당합니다. 이 기능을 사용하면 새 컴퓨터를 만들 때마다 사용자 이름을 결정하는 시간이 절약됩니다. 다시 이 자동으로 채워진 필드를 재정의하려는 경우 선택한 사용자 이름으로 재정의할 수 있습니다. 사용자 이름에 대해 자동으로 채워진 값을 재정의하려면 **사용자 이름** 텍스트 상자에 값을 입력합니다. 이 사용자에게 가상 머신에서 **관리자** 권한이 부여됩니다.
     3. 랩에서 첫 번째 VM을 만드는 경우 사용자에 대한 **암호**를 입력합니다. 랩과 연결 된 Azure 키 자격 증명 모음에 이 암호를 기본 암호로 저장하려면 **기본 암호로 저장**을 선택합니다. 기본 암호는 **VmPassword**라는 키 자격 증명 모음에 저장됩니다. 랩에서 후속 VM을 만들려는 경우 **암호**에 대해 **VmPassword**가 자동으로 선택됩니다. 값을 재정의하려면 **저장된 비밀 사용** 확인란을 선택 취소하고 암호를 입력합니다. 
 
+        ![기본 선택](./media/tutorial-create-custom-lab/new-virtual-machine.png)
+
         먼저 키 자격 증명 모음에 비밀을 저장한 다음, 랩에서 VM을 만드는 동안 사용할 수 있습니다. 자세한 내용은 [키 자격 증명 모음에 비밀 저장](devtest-lab-store-secrets-in-key-vault.md)을 참조하세요. 키 자격 증명 모음에 저장된 암호를 사용하려면 **저장된 비밀 사용**을 선택하고 비밀(암호)에 해당하는 키 값을 지정합니다.
     4. **기타 옵션** 섹션에서 **크기 변경**을 선택합니다. 만드는 VM의 프로세서 코어 수, RAM 크기 및 하드 드라이브 크기를 지정하는 미리 정의된 항목 중 하나를 선택합니다.
     5. **아티팩트 추가 또는 제거**를 선택합니다. 기본 이미지에 추가하려는 아티팩트를 선택하고 구성합니다.
@@ -52,9 +54,13 @@ ms.locfileid: "55082081"
     4. VM을 자동으로 삭제하려면 **만료 날짜 및 시간**을 지정합니다. 
     5. 랩 사용자가 VM을 클레임할 수 있도록 하려면 **이 머신을 클레임 가능하도록 설정** 옵션에 대해 **예**를 선택합니다. 
     6. 랩 사용자가 사용할 수 있게 하려는 **VM의 인스턴스 수**를 지정합니다. 
-3. **만들기** 를 누르고 지정된 VM을 랩에 추가합니다.
+
+        ![기본 선택](./media/tutorial-create-custom-lab/new-vm-advanced-settings.png)
+1. **만들기** 를 누르고 지정된 VM을 랩에 추가합니다.
 
    랩 페이지에 VM의 만들기 상태가 표시됩니다. 처음에는 **만드는 중**으로, VM이 시작되면 **실행 중**으로 표시됩니다.
+
+    ![VM 만들기 상태](./media/tutorial-create-custom-lab/vm-creation-status.png)
 
 ## <a name="add-an-existing-artifact-to-a-vm"></a>VM에 기존 아티팩트 추가
 VM을 만드는 동안 기존 아티팩트를 추가할 수 있습니다. 각 랩에는 공용 DevTest Lab 아티팩트 리포지토리의 아티팩트 및 사용자가 만들어서 사용자 고유 아티팩트 리포지토리에 추가한 아티팩트가 포함되어 있습니다.

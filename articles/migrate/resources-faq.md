@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 619369972991bab0b23e7e9ae4e0a146f875e59a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 1e60ee5060f5f292ed6d03cf0680d9801a0c04f4
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079259"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746322"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - FAQ(질문과 대답)
 
@@ -108,7 +108,7 @@ Azure Migrate는 어플라이언스 기반 검색 및 에이전트 기반 검색
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>분석되는 ESXi 호스트 환경의 성능에 대한 영향
 
-[일회성 검색 방식](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods)의 경우 성능 데이터를 수집하려면 vCenter Server의 통계 수준을 3으로 설정해야 합니다. 통계를 이 수준으로 설정하면 대량의 문제 해결 데이터가 수집되어 vCenter Server 데이터베이스에 저장됩니다. 따라서 vCenter Server에서 몇 가지 성능 문제가 발생할 수 있습니다. 하지만 ESXi 호스트에 대한 영향은 미미합니다.
+[일회성 검색 방식](https://docs.microsoft.com/azure/migrate/concepts-collector)의 경우 성능 데이터를 수집하려면 vCenter Server의 통계 수준을 3으로 설정해야 합니다. 통계를 이 수준으로 설정하면 대량의 문제 해결 데이터가 수집되어 vCenter Server 데이터베이스에 저장됩니다. 따라서 vCenter Server에서 몇 가지 성능 문제가 발생할 수 있습니다. 하지만 ESXi 호스트에 대한 영향은 미미합니다.
 
 성능 데이터 연속 프로파일링 기능(미리 보기)이 새롭게 도입되었습니다. 연속 프로파일링 사용 시에는 성능 기반 평가를 실행하기 위해 vCenter Server 통계 수준을 더 이상 변경할 필요가 없습니다. 이제 수집기 어플라이언스는 온-프레미스 컴퓨터를 프로파일링하여 가상 머신의 성능 데이터를 측정합니다. 그러므로 ESXi 호스트와 vCenter Server의 성능에 대한 영향은 거의 없습니다.
 

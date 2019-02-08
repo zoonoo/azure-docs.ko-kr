@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5076c662390c9a28682930e8c5f06cfc79f7134b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 443020bd6ca024cb5a04b2a8be5b7cbe7122efac
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169694"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734142"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure Marketplace에서 Linux VM 이미지 찾기
 
@@ -35,7 +35,7 @@ ms.locfileid: "55169694"
 
 ## <a name="list-popular-images"></a>인기 있는 이미지 나열
 
-`--all` 옵션을 사용하지 않고 [az vm image list](/cli/azure/vm/image#az_vm_image_list) 명령을 실행하여 Azure Marketplace에서 인기있는 VM 이미지의 목록을 확인합니다. 예를 들어, 다음 명령을 실행하여 테이블 형식으로 캐시된 인기있는 이미지 목록을 표시합니다.
+`--all` 옵션을 사용하지 않고 [az vm image list](/cli/azure/vm/image) 명령을 실행하여 Azure Marketplace에서 인기있는 VM 이미지의 목록을 확인합니다. 예를 들어, 다음 명령을 실행하여 테이블 형식으로 캐시된 인기있는 이미지 목록을 표시합니다.
 
 ```azurecli
 az vm image list --output table
@@ -152,7 +152,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201901221        
 
 ## <a name="navigate-the-images"></a>이미지 이동
  
-위치에서 이미지를 찾는 또 다른 방법은 [az vm image list-publishers](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm image list-offers](/cli/azure/vm/image) 및 [az vm image list-skus](/cli/azure/vm/image#az_vm_image_list_skus)의 순서로 명령을 실행하는 것입니다. 이러한 명령을 사용하여 값을 결정합니다.
+위치에서 이미지를 찾는 또 다른 방법은 [az vm image list-publishers](/cli/azure/vm/image), [az vm image list-offers](/cli/azure/vm/image) 및 [az vm image list-skus](/cli/azure/vm/image)의 순서로 명령을 실행하는 것입니다. 이러한 명령을 사용하여 값을 결정합니다.
 
 1. 이미지 게시자를 나열합니다.
 2. 지정된 게시자에 제안을 나열합니다.
@@ -278,7 +278,7 @@ UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201
 ...
 ```
 
-이제 URN 값을 기록하여 사용할 이미지를 정밀하게 선택할 수 있습니다. [az vm create](/cli/azure/vm#az_vm_create) 명령을 사용하여 VM을 만들 때 이 값을 `--image` 매개 변수와 함께 제공합니다. 필요에 따라 "최신"을 사용하여 URN에서 버전 번호를 바꿀 수 있습니다. 이 버전은 항상 최신 버전의 이미지입니다. 
+이제 URN 값을 기록하여 사용할 이미지를 정밀하게 선택할 수 있습니다. [az vm create](/cli/azure/vm) 명령을 사용하여 VM을 만들 때 이 값을 `--image` 매개 변수와 함께 제공합니다. 필요에 따라 "최신"을 사용하여 URN에서 버전 번호를 바꿀 수 있습니다. 이 버전은 항상 최신 버전의 이미지입니다. 
 
 Resource Manager 템플릿을 사용하여 VM을 배포하는 경우 `imageReference` 속성에 이미지 매개 변수를 개별적으로 설정합니다. [템플릿 참조](/azure/templates/microsoft.compute/virtualmachines)를 참조하세요.
 
@@ -337,7 +337,7 @@ az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 
 ### <a name="accept-the-terms"></a>약관에 동의
 
-사용 조건을 확인하고 동의하려면 [az vm image accept-terms](/cli/azure/vm/image?#az_vm_image_accept_terms) 명령을 사용합니다. 약관에 동의하면 구독에서 프로그래밍 방식 배포를 사용하도록 설정됩니다. 이미지의 구독마다 약관에 한 번만 동의하면 됩니다. 예: 
+사용 조건을 확인하고 동의하려면 [az vm image accept-terms](/cli/azure/vm/image?) 명령을 사용합니다. 약관에 동의하면 구독에서 프로그래밍 방식 배포를 사용하도록 설정됩니다. 이미지의 구독마다 약관에 한 번만 동의하면 됩니다. 예: 
 
 ```azurecli
 az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest

@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
 ms.author: adpick
-ms.openlocfilehash: 6a4dedc2478b2f8c5fa754e3736dbfb983cfb7a2
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 1b772fdbda8e58db9414e09ef3ef7c98fc9f86b8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079820"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486982"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>프로그래밍 방식으로 Azure 엔터프라이즈 구독 만들기(미리 보기)
 
 [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/)의 Azure 사용자로서 프로그래밍 방식으로 EA(MS-AZR-0017P) 및 EA 개발/테스트(MS-AZR-0148P) 구독을 만들 수 있습니다. 이 문서에서는 Azure Resource Manager를 사용하여 프로그래밍 방식으로 구독을 만드는 방법을 알아봅니다.
 
 이 API에서 Azure 구독을 만든 경우 해당 구독은 Microsoft 또는 공인된 대리점에서 Microsoft Azure 서비스를 가져온 계약에 의해 제어됩니다. 자세한 내용은 [Microsoft Azure 법적 정보](https://azure.microsoft.com/support/legal/)를 참조하세요.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 

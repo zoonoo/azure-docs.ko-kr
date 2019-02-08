@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: ae9412ed7c02d88e7d0c35c6ea0f95da755b84d4
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f9a1b303fb66e71ffb1834c5b5fb4796867a0944
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097047"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819419"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>방법: 다중 테넌트 애플리케이션 패턴을 사용하여 Azure Active Directory 사용자 로그인
 
@@ -38,7 +38,7 @@ ms.locfileid: "55097047"
 1. [응용 프로그램 등록을 다중 테넌트로 업데이트](#update-registration-to-be-multi-tenant)
 2. [요청을 /common 엔드포인트로 보내도록 코드 업데이트](#update-your-code-to-send-requests-to-common)
 3. [여러 발급자 값을 처리하도록 코드 업데이트](#update-your-code-to-handle-multiple-issuer-values)
-4. [사용자 및 관리자 동의를 이해하고 적절하게 코드 변경](#understanding-user-and-admin-consent)
+4. 사용자 및 관리자 동의를 이해하고 적절한 코드 변경을 합니다.
 
 각 단계를 자세히 살펴보겠습니다. 또한 [이 다중 테넌트 샘플 목록][AAD-Samples-MT]으로 바로 건너뛸 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: e568f2adb3ff9310ed92ed19c9543f249cca7658
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 18c05f2a9dd9f7e4a6d5ec62806870311c5eb130
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098700"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745719"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고
 이 문서에서는 [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) 내에서 지원되는 경고 형식 중 하나이며 사용자가 Azure의 분석 플랫폼을 경고의 기준으로 사용하게 하는 로그 경고의 세부 정보를 제공합니다.
@@ -74,8 +74,10 @@ ms.locfileid: "55098700"
 
 ### <a name="metric-measurement-alert-rules"></a>미터법 경고 규칙
 
-- **미터법** 경고 규칙은 쿼리에서 지정된 임계값을 초과하는 값을 포함한 각 개체에 대해 경고를 만듭니다.  **결과 수** 경고 규칙과는 다음과 같이 분명하게 구별됩니다.
+**미터법** 경고 규칙은 쿼리에서 지정된 임계값을 초과하는 값을 포함한 각 개체에 대해 경고를 만듭니다.  **결과 수** 경고 규칙과는 다음과 같이 분명하게 구별됩니다.
+
 - **집계 함수**: 수행되는 계산과 잠재적으로 집계할 숫자 필드를 결정합니다.  예를 들어 **count()** 는 쿼리의 레코드 수를 반환하고, **avg(CounterValue)** 는 해당 간격 동안 CounterValue 필드의 평균을 반환합니다. 쿼리의 집계 함수는 AggregatedValue로 명명되고 숫자 값을 제공해야 합니다. 
+
 - **그룹 필드**: 이 필드의 각 인스턴스에 대해 집계된 값이 있는 레코드가 만들어지며 각각에 대해 경고가 생성될 수 있습니다.  예를 들어 각 컴퓨터에 대해 경고를 생성하려면 **컴퓨터별**을 사용합니다. 경고 쿼리에 여러 개의 그룹 필드가 지정된 경우 사용자는 **Aggregate On**(metricColumn) 매개 변수를 사용하여 결과를 정렬하는 데 사용할 필드를 지정할 수 있습니다.
 
     > [!NOTE]

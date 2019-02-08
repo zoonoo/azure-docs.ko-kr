@@ -2,18 +2,18 @@
 title: Azure Backup Server를 사용한 SQL Server 워크로드에 대한 Azure 백업
 description: Azure Backup Server를 사용하여 SQL Server 데이터베이스를 백업하는 방법 소개
 services: backup
-author: pvrk
-manager: Shivamg
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: pullabhk
-ms.openlocfilehash: 5d0fc66ff81672116d3d98ee9970456515ab3c9e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: kasinh
+ms.openlocfilehash: 72b2368979f0c9e546e1c7ef7fc462bf1d64c947
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606395"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490468"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Azure Backup Server를 사용하여 Azure에 SQL Server 백업
 이 문서는 Microsoft Azure Backup Server(MABS)를 사용한 SQL Server 데이터베이스 백업의 구성 단계를 안내합니다.
@@ -66,7 +66,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
 
     ![초기 복제 방법](./media/backup-azure-backup-sql/pg-manual.png)
 
-    초기 백업 복사본은 프로덕션 서버(SQL Server 컴퓨터)에서 MABS로 전체 데이터 원본(SQL Server 데이터베이스)을 전송해야 합니다. 이 데이터는 규모가 클 수 있으며 네트워크를 통한 데이터 전송이 대역폭을 초과할 수 있습니다. 이 때문에 관리자는 최초 백업을 **수동**(이동식 미디어 사용)으로 전송하여 대역폭 혼잡을 방지하거나, **네트워크를 통해 자동으로 전송**(지정된 시간에)하도록 선택할 수 있습니다.
+    초기 백업 복사본은 프로덕션 서버(SQL Server 컴퓨터)에서 MABS로 전체 데이터 원본(SQL Server 데이터베이스)을 전송해야 합니다. 이 데이터는 규모가 클 수 있으며 네트워크를 통한 데이터 전송이 대역폭을 초과할 수 있습니다. 이러한 이유로 관리자는 초기 백업을 대역폭 정체 방지를 위해 이동식 미디어를 사용하여 **수동**으로 전송할 수도 있고, 지정된 시간에 **네트워크를 통해 자동**으로 전송할 수도 있습니다.
 
     초기 백업을 완료하면 백업의 나머지 부분은 초기 백업 복사본의 증분 백업입니다. 증분 백업은 크기가 작으며 네트워크를 통해 간편하게 전송될 수 있습니다.
 10. 일관성 확인을 실행하려는 경우 선택하고 **다음**을 클릭합니다.

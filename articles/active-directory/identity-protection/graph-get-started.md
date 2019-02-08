@@ -17,12 +17,12 @@ ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: b82458de95014d22625a9c8029e064ed21120488
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4ee2f0387ee3c56dda7cd1a89f5c808f55699856
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158301"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658626"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Azure Active Directory ID 보호 및 Microsoft Graph 시작
 
@@ -161,7 +161,7 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
 - 키 
 
 
-인증하려면 본문에서 다음 매개 변수를 사용하여 `https://login.microsoft.com` 에 게시 요청을 전송합니다.
+인증하려면 본문에서 다음 매개 변수를 ㅏ용하여 `https://login.microsoft.com` 에 게시 요청을 전송합니다.
 
 - grant_type: “**client_credentials**”
 
@@ -251,7 +251,7 @@ https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>
 이제 ID 위험 이벤트를 쿼리하고 적절하게 데이터를 사용할 수 있습니다.
 
 
-Microsoft Graph 및 Graph API를 사용하여 애플리케이션을 구축하는 방법에 대한 자세한 내용은 [설명서](https://docs.microsoft.com/en-us/graph/overview) 및 [Microsoft Graph 사이트](https://developer.microsoft.com/en-us/graph)에서 확인합니다. 
+Microsoft Graph 및 Graph API를 사용하여 애플리케이션을 구축하는 방법에 대한 자세한 내용은 [설명서](https://docs.microsoft.com/graph/overview) 및 [Microsoft Graph 사이트](https://developer.microsoft.com/en-us/graph)에서 확인합니다. 
 
 
 관련 정보는 다음을 참조하세요.

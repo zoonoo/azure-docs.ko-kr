@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: e2aa82143b8e58e36509ee5d3adf99b34be89c69
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: f6d5f2d7df483e0884779c3eac6a77f976e173c3
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076615"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567044"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>리소스 업데이트 작업을 사용하여 Azure Machine Learning 모델 업데이트
 이 문서는 기본 Azure Data Factory - Azure Machine Learning 통합 문서인 [Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)를 보완합니다. 수행하지 않았다면 이 문서를 읽기 전에 기본 문서를 검토하세요.
@@ -57,9 +57,6 @@ Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이�
 }
 ```
 
-
-
-
 | 자산                      | 설명                              | 필수 |
 | :---------------------------- | :--------------------------------------- | :------- |
 | 이름                          | 파이프라인의 작업 이름입니다.     | 예      |
@@ -69,7 +66,6 @@ Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이�
 | trainedModelName              | 업데이트할 웹 서비스 실험의 학습된 모델 모듈의 이름입니다. | 예      |
 | trainedModelLinkedServiceName | 업데이트 작업으로 업로드되는 ilearner 파일을 보유한 Azure Storage 연결된 서비스의 이름입니다. | 예      |
 | trainedModelFilePath          | 업데이트 작업으로 업로드되는 ilearner 파일을 나타내는 trainedModelLinkedService의 상대 파일 경로입니다. | 예      |
-
 
 ## <a name="end-to-end-workflow"></a>종단 간 워크플로
 
@@ -114,14 +110,14 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
         "typeProperties": {
             "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/0000000000000000  000000000000000000000/services/0000000000000000000000000000000000000/jobs?api-version=2.0",
             "apiKey": {
-            "type": "SecureString",
-            "value": "APIKeyOfEndpoint1"
+                "type": "SecureString",
+                "value": "APIKeyOfEndpoint1"
             },
             "updateResourceEndpoint": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview",
             "servicePrincipalId": "000000000-0000-0000-0000-0000000000000",
             "servicePrincipalKey": {
-            "type": "SecureString",
-            "value": "servicePrincipalKey"
+                "type": "SecureString",
+                "value": "servicePrincipalKey"
             },
             "tenant": "mycompany.com"
         }
@@ -147,7 +143,7 @@ Azure Storage는 다음 데이터를 보관합니다.
 ```JSON
 {
     "name": "StorageLinkedService",
-      "properties": {
+    "properties": {
         "type": "AzureStorage",
         "typeProperties": {
             "connectionString": "DefaultEndpointsProtocol=https;AccountName=name;AccountKey=key"
@@ -162,13 +158,13 @@ Azure Storage는 다음 데이터를 보관합니다.
 ```JSON
 {
     "name": "trainingEndpoint",
-      "properties": {
+    "properties": {
         "type": "AzureML",
         "typeProperties": {
             "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--training experiment--/jobs",
-              "apiKey": "myKey"
+            "apiKey": "myKey"
         }
-      }
+    }
 }
 ```
 
@@ -255,9 +251,9 @@ Azure Storage는 다음 데이터를 보관합니다.
                 "typeProperties": {
                     "trainedModelName": "ADFV2Sample Model [trained model]",
                     "trainedModelLinkedServiceName": {
-                                "type": "LinkedServiceReference",
-                                "referenceName": "StorageLinkedService"
-                            },
+                        "type": "LinkedServiceReference",
+                        "referenceName": "StorageLinkedService"
+                    },
                     "trainedModelFilePath": "azuremltesting/output/newModelForArm.ilearner"
                 },
                 "dependsOn": [
@@ -265,8 +261,7 @@ Azure Storage는 다음 데이터를 보관합니다.
                         "activity": "amlbeGetilearner",
                         "dependencyConditions": [ "Succeeded" ]
                     }
-                 ]
-
+                ]
             }
         ]
     }

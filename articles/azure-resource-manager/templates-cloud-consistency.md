@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: ab19baa1c10f329b5bbe3c14261434d7f8e2538f
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 5e9d2746c223c679d30c31b3bd6f1e5cbfafbe1d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076531"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498100"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발
 
@@ -46,6 +46,8 @@ Microsoft는 여러 위치에서 다음을 비롯한 지능형 엔터프라이�
 * 대상 클라우드에서 리소스 특정 속성을 사용할 수 있는지 확인합니다.
 
 Azure Resource Manger 템플릿에 대한 소개는 [템플릿 배포](resource-group-overview.md#template-deployment)를 참조하세요.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="ensure-template-functions-work"></a>템플릿 함수가 작동하는지 확인
 
