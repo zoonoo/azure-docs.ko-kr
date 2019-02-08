@@ -6,16 +6,16 @@ services: cognitive-services
 author: priyaravi20
 manager: yanbo
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: priyar
-ms.openlocfilehash: db69a9e3beb819600109603a8c0129547db57fa5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 61bd1879a4b1bf8281ac03c8254fb3d48c07a139
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343030"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215863"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing Text to Speech API
 
@@ -40,7 +40,7 @@ Content-Length: 0
 
 토큰 액세스에 필요한 헤더 정보는 다음과 같습니다.
 
-이름| 형식 | 설명
+Name| 형식 | 설명
 ----|----|----
 Ocp-Apim-Subscription-Key | ASCII | 구독 키
 
@@ -179,9 +179,9 @@ Microsoft Text-to-Speech API는 W3C [SSML(Speech Synthesis Markup Language) 버�
   ```
 
 > [!NOTE]
-> 오디오 데이터는 다음 형식으로 제출된 8k 또는 16k wav여야 합니다. **CRC 코드**(CRC-32): 유효 범위가 0x00000000 ~ 0xFFFFFFFF인 4바이트(DWORD)입니다. **오디오 형식 플래그**: 유효 범위가 0x00000000 ~ 0xFFFFFFFF인 4바이트(DWORD)입니다. **샘플 개수**: 유효 범위가 0x00000000 ~ 0x7FFFFFFF인 4바이트(DWORD)입니다. **이진 본문 크기**: 유효 범위가 0x00000000 ~ 0x7FFFFFFF인 4바이트(DWORD)입니다. **이진 본문**: n바이트입니다.
+> 오디오 데이터는 다음 형식의 8k 또는 16k wav 파일이어야 합니다. **CRC 코드**(CRC-32): 유효한 범위가 0x00000000 ~ 0xFFFFFFFF인 4바이트(DWORD)/**오디오 형식 플래그**: 유효한 범위가 0x00000000 ~ 0xFFFFFFFF인 4바이트(DWORD)/**샘플 수**: 유효한 범위가 0x00000000 ~ 0x7FFFFFFF인 4바이트(DWORD)/**이진 본문 크기**: 유효한 범위가 0x00000000 ~ 0x7FFFFFFF인 4바이트(DWORD)/**이진 본문**: n바이트
 
-## <a name="SampleApp"></a>샘플 응용 프로그램
+## <a name="SampleApp"></a>샘플 애플리케이션
 
 구현 세부 정보는 [Visual C# .NET 텍스트 음성 변환 샘플 애플리케이션](https://github.com/Microsoft/Cognitive-Speech-TTS/blob/master/Samples-Http/CSharp/TTSProgram.cs)을 참조하세요.
 
@@ -214,9 +214,9 @@ en-IE | Male | “Microsoft Server Speech Text to Speech Voice(en-IE, Sean)”
 en-IN | Female | “Microsoft Server Speech Text to Speech Voice(en-IN, Heera, Apollo)”
 en-IN | Female | “Microsoft Server Speech Text to Speech Voice(en-IN, PriyaRUS)”
 en-IN | Male | “Microsoft Server Speech Text to Speech Voice(en-IN, Ravi, Apollo)”
-ko-KR | Female | “Microsoft Server Speech Text to Speech Voice(en-US, ZiraRUS)”
-ko-KR | Female | “Microsoft Server Speech Text to Speech Voice(en-US, JessaRUS)”
-ko-KR | Male | “Microsoft Server Speech Text to Speech Voice(en-US, BenjaminRUS)”
+en-US | Female | “Microsoft Server Speech Text to Speech Voice(en-US, ZiraRUS)”
+en-US | Female | “Microsoft Server Speech Text to Speech Voice(en-US, JessaRUS)”
+en-US | Male | “Microsoft Server Speech Text to Speech Voice(en-US, BenjaminRUS)”
 es-ES | Female | “Microsoft Server Speech Text to Speech Voice(es-ES, Laura, Apollo)”
 es-ES | Female | “Microsoft Server Speech Text to Speech Voice(es-ES, HelenaRUS)”
 es-ES | Male | “Microsoft Server Speech Text to Speech Voice(es-ES, Pablo, Apollo)”
@@ -241,7 +241,7 @@ it-IT | Female | "Microsoft Server Speech Text to Speech Voice(it-IT, LuciaRUS)"
 ja-JP | Female | “Microsoft Server Speech Text to Speech Voice(ja-JP, Ayumi, Apollo)”
 ja-JP | Male | “Microsoft Server Speech Text to Speech Voice(ja-JP, Ichiro, Apollo)”
 ja-JP | Female | “Microsoft Server Speech Text to Speech Voice(ja-JP, HarukaRUS)”
-ko-KR | Female | “Microsoft Server Speech Text to Speech Voice(ko-KR, HeamiRUS)”
+en-US | Female | “Microsoft Server Speech Text to Speech Voice(ko-KR, HeamiRUS)”
 ms-MY | Male | “Microsoft Server Speech Text to Speech Voice(ms-MY, Rizwan)”
 nb-NO | Female | “Microsoft Server Speech Text to Speech Voice(nb-NO, HuldaRUS)”
 nl-NL | Female | “Microsoft Server Speech Text to Speech Voice(nl-NL, HannaRUS)”

@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: ffa1c45b2d9449310a2b0dcc66a513b4d8efbc5d
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/29/2019
+ms.openlocfilehash: 57c08fc8e3b7c655bcb59affcde5e37510f98920
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232990"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466595"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL Database 데이터 검색 및 분류
 
@@ -28,7 +28,7 @@ ms.locfileid: "50232990"
 - 중요한 데이터에 대한 비정상적인 엑세스 모니터링(감사) 및 경고하는 것과 같은 다양한 보안 시나리오.
 - 매우 중요한 데이터가 들어 있는 데이터베이스에 대한 엑세스 제어 및 보안 강화.
 
-데이터 검색 및 분류는 고급 SQL 보안 기능용 통합 패키지인 [SQL ATP(Advanced Threat Protection)](sql-advanced-threat-protection.md) 제품의 일부입니다. 중앙 SQL ATP 포털을 통해 데이터 검색 및 분류에 액세스하고 관리할 수 있습니다.
+데이터 검색 및 분류는 고급 SQL 보안 기능용 통합 패키지인 [SQL ADS(Advanced Data Security)](sql-advanced-threat-protection.md) 제품에 포함되어 있습니다. 중앙 SQL ADS 포털을 통해 데이터 검색 및 분류에 액세스하고 데이터 검색 및 분류를 관리할 수 있습니다.
 
 > [!NOTE]
 > 이 문서는 Azure SQL Database에만 관련됩니다. SQL Server(온-프레미스)의 경우 [SQL 데이터 검색 및 분류](https://go.microsoft.com/fwlink/?linkid=866999)를 참조하세요.
@@ -77,7 +77,7 @@ Information Protection 정책 관리의 일환으로, 사용자 지정 레이블
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 
-2. Azure SQL Database 창의 보안 머리글 아래에 있는 **Advanced Threat Protection**으로 이동합니다. Advanced Threat Protection을 클릭하여 사용하도록 설정한 다음 **데이터 검색 및 분류(미리 보기)** 카드를 클릭합니다.
+2. Azure SQL Database 창의 보안 머리글 아래에 있는 **Advanced Data Security**로 이동합니다. Advanced Data Security를 클릭하여 사용하도록 설정한 다음 **데이터 검색 및 분류(미리 보기)** 카드를 클릭합니다.
 
    ![데이터베이스 검색](./media/sql-data-discovery-and-classification/data_classification.png)
 
@@ -123,7 +123,7 @@ Information Protection 정책 관리의 일환으로, 사용자 지정 레이블
 
 ## <a id="subheading-3"></a>중요한 데이터에 대한 액세스 감사
 
-정보 보호 패러다임의 중요한 측면은 중요한 데이터에 대한 액세스를 모니터링하는 기능입니다. [Azure SQL Database 감사](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)는 *data_sensitivity_information*이라는 감사 로그에 새 필드를 포함하도록 개선되어, 쿼리에서 반환된 실제 데이터의 민감도 분류(레이블)를 기록합니다.
+정보 보호 패러다임의 중요한 측면은 중요한 데이터에 대한 액세스를 모니터링하는 기능입니다. [Azure SQL Database 감사](sql-database-auditing.md)는 *data_sensitivity_information*이라는 감사 로그에 새 필드를 포함하도록 개선되어, 쿼리에서 반환된 실제 데이터의 민감도 분류(레이블)를 기록합니다.
 
 ![감사 로그](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
@@ -134,8 +134,8 @@ T-SQL을 사용하여 열 분류를 추가/제거하고 전체 데이터베이�
 > [!NOTE]
 > T-SQL을 사용하여 레이블을 관리하는 경우, 열에 추가된 레이블이 조직 정보 보호 정책(포털 권장 사항에 표시되는 레이블 집합)에 있는지 확인되지 않습니다. 따라서 이 확인 작업은 사용자가 수행해야 합니다.
 
-- 하나 이상의 열 분류 추가/업데이트: [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-- 하나 이상의 열에서 분류 제거: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+- 하나 이상의 열 분류 추가/업데이트: [민감도 분류 추가](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+- 하나 이상의 열에서 분류 제거: [민감도 분류 삭제](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - 데이터베이스에 대한 모든 분류 보기: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 또한 REST API를 사용하여 프로그래밍 방식으로 분류를 관리할 수 있습니다. 게시된 REST API는 다음과 같은 작업을 지원합니다.
@@ -147,8 +147,8 @@ T-SQL을 사용하여 열 분류를 추가/제거하고 전체 데이터베이�
 
 ## <a id="subheading-5"></a>다음 단계
 
-- [SQL Advanced Threat Protection](sql-advanced-threat-protection.md)에 대해 자세히 알아보기
-- 분류된 중요한 데이터에 대한 액세스를 모니터링 및 감사하기 위해 [Azure SQL Database 감사](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)를 구성하는 것이 좋습니다.
+- [SQL Advanced Data Security](sql-advanced-threat-protection.md)에 대해 자세히 알아봅니다.
+- 분류된 중요한 데이터에 대한 액세스를 모니터링 및 감사하기 위해 [Azure SQL Database 감사](sql-database-auditing.md)를 구성하는 것이 좋습니다.
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1

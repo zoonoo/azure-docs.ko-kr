@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 0c46ba3d2fcd59f43df2383c3e0471fa36217536
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d833d6ea695c05f80f7823f391142fee28872c40
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53551135"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300254"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL Database의 다중 모델 기능
 
@@ -50,7 +50,7 @@ Azure SQL Database는 데이터베이스에서 다 대 다 관계를 모델링�
 
 그래프 데이터베이스로 수행할 수 있는 작업은 없고, 이러한 작업은 관계형 데이터베이스로도 수행할 수 없습니다. 그러나 그래프 데이터베이스를 사용하면 특정 쿼리를 더 쉽게 표현할 수 있습니다. 둘 중 하나를 선택하는 결정은 다음 요소를 기반으로 할 수 있습니다.
 
-- 한 노드에 여러 부모가 포함될 수 있는 계층 구조 데이터를 모델링하므로 HieararchyId를 사용할 수 없습니다.
+- 모델 계층 구조 데이터의 한 노드에 여러 부모가 포함될 수 있습니다(HieararchyId를 사용할 수 없음).
 - 모델에는 복잡한 다 대 다 관계를 가진 애플리케이션이 포함됩니다. 애플리케이션이 발전함에 따라 새로운 관계가 추가됩니다.
 - 상호 연결된 데이터 및 관계를 분석해야 합니다.
 
@@ -96,7 +96,7 @@ Azure SQL Database는 공간 쿼리의 성능을 향상하는 데 사용할 수 
 SQL Server는 반정형 데이터 관리에 사용할 풍부한 애플리케이션을 개발하기 위한 강력한 플랫폼을 제공합니다. XML 지원은 SQL Server의 모든 구성 요소에 통합되었고 다음을 포함합니다.
 
 - xml 데이터 형식. 기본적으로 XML 값은 XML 스키마의 컬렉션에 따라 형식화되거나 형식화되지 않을 수 있는 xml 데이터 형식 열에 저장할 수 있습니다. XML 열을 인덱싱할 수 있습니다.
-- xml 형식의 열 및 변수에 저장된 XML 데이터에 대한 XQuery 쿼리를 지정하는 기능. XQUery 기능은 데이터베이스에서 사용하는 데이터 모델에 액세스하는 모든 Transact-SQL 쿼리에서 사용할 수 있습니다.
+- xml 형식의 열 및 변수에 저장된 XML 데이터에 대한 XQuery 쿼리를 지정하는 기능. XQuery 기능은 데이터베이스에서 사용하는 데이터 모델에 액세스하는 모든 Transact-SQL 쿼리에서 사용할 수 있습니다.
 - [기본 XML 인덱스](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#primary-xml-index)를 사용하여 XML 문서의 모든 요소를 자동으로 인덱싱하거나 [보조 XML 인덱스](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#secondary-xml-indexes)를 사용하여 인덱싱해야 하는 정확한 경로를 지정합니다.
 - XML 데이터를 대량으로 로드할 수 있는 OPENROWSET.
 - 관계형 데이터를 XML 형식으로 변환합니다.

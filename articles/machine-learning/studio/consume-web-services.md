@@ -1,8 +1,21 @@
 ---
-제목: 웹 서비스 사용 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning Studio에서 기계 학습 서비스가 배포된 후에는 RESTFul 웹 서비스를 실시간 요청-응답 서비스 또는 일괄 처리 실행 서비스로 사용할 수 있습니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 2017/06/02
+title: 웹 서비스 사용
+titleSuffix: Azure Machine Learning Studio
+description: Azure Machine Learning Studio에서 기계 학습 서비스가 배포된 후에는 RESTFul 웹 서비스를 실시간 요청-응답 서비스 또는 일괄 처리 실행 서비스로 사용할 수 있습니다.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 06/02/2017
+ms.openlocfilehash: c3f10e268101cfa5aff6506a64aab98b07fb948a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464384"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Azure Machine Learning Studio 웹 서비스 사용 방법
 
